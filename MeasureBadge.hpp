@@ -17,23 +17,30 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  **********************************************************************/
 
-#ifndef SHAREDGUICOMPONENTS_LOCALLIBRARY_HPP
-#define SHAREDGUICOMPONENTS_LOCALLIBRARY_HPP
+#ifndef MEASUREBADGE_H
+#define MEASUREBADGE_H
 
+#include <QLabel>
 
-namespace openstudio{
+#include "../utilities/core/Enum.hpp"
 
-  struct LocalLibrary {
-    enum LibrarySource
-    {
-      BCL,
-      USER,
-      COMBINED
-    };
-  };
+namespace openstudio {
 
+OPENSTUDIO_ENUM(MeasureBadgeType,
+  ((BCLMeasure))
+  ((MyMeasure))
+);
 
-} // openstudio
+class MeasureBadge : public QLabel
+{
+  Q_OBJECT
 
-#endif // SHAREDGUICOMPONENTS_LOCALLIBRARY_HPP
+  public:
 
+    void setMeasureBadgeType(MeasureBadgeType type);
+
+};
+
+} // namespace openstudio
+
+#endif // MEASUREBADGE_H
