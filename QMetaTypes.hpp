@@ -26,26 +26,69 @@
 *  STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 *  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ***********************************************************************************************************************/
-#include "QMetaTypes.hpp"
 
-#ifndef MODELEDITOR_MODELEDITORAPI_HPP
-#define MODELEDITOR_MODELEDITORAPI_HPP
+#ifndef MODELEDITOR_QMETATYPES
+#define MODELEDITOR_QMETATYPES
 
-#if (_WIN32 || _MSC_VER) && SHARED_OS_LIBS
+#include <QMetaType>
 
-#ifdef openstudio_modeleditor_EXPORTS
-#define MODELEDITOR_API __declspec(dllexport)
-#define MODELEDITOR_TEMPLATE_EXT
-#else
-#define MODELEDITOR_API __declspec(dllimport)
-#define MODELEDITOR_TEMPLATE_EXT extern
-#endif
+#include <QModelIndex>
+Q_DECLARE_METATYPE(QModelIndex)
 
-#else
+#include <utilities/idd/IddEnums.hpp>
+Q_DECLARE_METATYPE(openstudio::IddFileType)
+Q_DECLARE_METATYPE(openstudio::IddObjectType)
 
-#define MODELEDITOR_API
-#define MODELEDITOR_TEMPLATE_EXT
+#include "../openstudio_lib/OSItem.hpp"
+Q_DECLARE_METATYPE(openstudio::OSItemId)
+Q_DECLARE_METATYPE(std::vector<openstudio::OSItemId>)
 
-#endif
+// #include <model/ModelObject.hpp>
+// Note JM 2018-12-13: Was already commented out
+// Q_DECLARE_METATYPE(openstudio::model::ModelObject); // no default constructor
+// Q_DECLARE_METATYPE(boost::optional<openstudio::model::ModelObject>);
+// Q_DECLARE_METATYPE(std::vector<openstudio::model::ModelObject>);
 
-#endif
+
+#include <utilities/core/UUID.hpp>
+Q_DECLARE_METATYPE(openstudio::UUID);
+
+#include <string>
+Q_DECLARE_METATYPE(std::string);
+Q_DECLARE_METATYPE(std::vector<std::string>);
+
+
+#include <boost/optional.hpp>
+Q_DECLARE_METATYPE(boost::optional<double>);
+Q_DECLARE_METATYPE(boost::optional<unsigned>);
+Q_DECLARE_METATYPE(boost::optional<int>);
+Q_DECLARE_METATYPE(boost::optional<std::string>);
+
+#include <utilities/data/Attribute.hpp>
+//Q_DECLARE_METATYPE(openstudio::Attribute);
+Q_DECLARE_METATYPE(boost::optional<openstudio::Attribute>);
+Q_DECLARE_METATYPE(std::vector<openstudio::Attribute>);
+
+#include <utilities/units/Quantity.hpp>
+Q_DECLARE_METATYPE(openstudio::Quantity);
+
+#include <utilities/units/OSOptionalQuantity.hpp>
+Q_DECLARE_METATYPE(openstudio::OSOptionalQuantity);
+
+#include <utilities/idf/Workspace_Impl.hpp>
+Q_DECLARE_METATYPE(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl>)
+
+/*
+namespace openstudio {
+namespace detail {
+
+  // register meta datatypes
+  struct OpenStudioMetaTypeInitializer{
+    OpenStudioMetaTypeInitializer();
+  };
+
+} // detail
+} // openstudio
+*/
+
+#endif // MODELEDITOR_QMETATYPES
