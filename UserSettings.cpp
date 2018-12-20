@@ -26,26 +26,57 @@
 *  STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 *  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ***********************************************************************************************************************/
-#include "QMetaTypes.hpp"
 
-#ifndef MODELEDITOR_MODELEDITORAPI_HPP
-#define MODELEDITOR_MODELEDITORAPI_HPP
+#include "UserSettings.hpp"
 
-#if (_WIN32 || _MSC_VER) && SHARED_OS_LIBS
+#include "../utilities/bcl/LocalBCL.hpp"
+#include "../utilities/bcl/BCLMeasure.hpp"
+#include "../utilities/core/Path.hpp"
+#include "../utilities/core/FilesystemHelpers.hpp"
 
-#ifdef openstudio_modeleditor_EXPORTS
-#define MODELEDITOR_API __declspec(dllexport)
-#define MODELEDITOR_TEMPLATE_EXT
-#else
-#define MODELEDITOR_API __declspec(dllimport)
-#define MODELEDITOR_TEMPLATE_EXT extern
-#endif
+#include <QString>
+#include <QSettings>
 
-#else
+std::vector<openstudio::BCLMeasure> localBCLMeasures()
+{
+  return openstudio::LocalBCL::instance().measures();
+}
 
-#define MODELEDITOR_API
-#define MODELEDITOR_TEMPLATE_EXT
+std::vector<openstudio::BCLMeasure> userMeasures()
+  {
+    openstudio::path path = userMeasuresDir();
+    return openstudio::BCLMeasure::getMeasuresInDir(path);
+  }
 
-#endif
+  openstudio::path userMeasuresDir()
+  {
+    QSettings settings("OpenStudio", "BCLMeasure");
+    QString value = settings.value("userMeasuresDir", openstudio::toQString(openstudio::filesystem::home_path() / openstudio::toPath("OpenStudio/Measures"))).toString();
+    openstudio::path result = openstudio::toPath(value);
+    return openstudio::filesystem::system_complete(result);
+  }
 
-#endif
+  bool setUserMeasuresDir(const openstudio::path& userMeasuresDir)
+  {
+    if (!userMeasuresDir.is_complete()){
+      return false;
+    }
+    if (!exists(userMeasuresDir)){
+      if (!openstudio::filesystem::create_directories(userMeasuresDir)) {
+        return false;
+      }
+    }
+    if (!is_directory(userMeasuresDir)){
+      return false;
+    }
+
+    QSettings settings("OpenStudio", "BCLMeasure");
+    settings.setValue("userMeasuresDir", openstudio::toQString(userMeasuresDir));
+    return true;
+  }
+
+  void clearUserMeasuresDir()
+  {
+    QSettings settings("OpenStudio", "BCLMeasure");
+    settings.remove("userMeasuresDir");
+  }

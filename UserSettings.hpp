@@ -26,26 +26,26 @@
 *  STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 *  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ***********************************************************************************************************************/
-#include "QMetaTypes.hpp"
 
-#ifndef MODELEDITOR_MODELEDITORAPI_HPP
-#define MODELEDITOR_MODELEDITORAPI_HPP
+#ifndef MODELEDITOR_USERSETTINGS_HPP
+#define MODELEDITOR_USERSETTINGS_HPP
 
-#if (_WIN32 || _MSC_VER) && SHARED_OS_LIBS
+#include <utilities/core/Path.hpp>
+#include <utilities/bcl/BCLMeasure.hpp>
 
-#ifdef openstudio_modeleditor_EXPORTS
-#define MODELEDITOR_API __declspec(dllexport)
-#define MODELEDITOR_TEMPLATE_EXT
-#else
-#define MODELEDITOR_API __declspec(dllimport)
-#define MODELEDITOR_TEMPLATE_EXT extern
-#endif
+/// Load all measures in the local BCL.
+std::vector<openstudio::BCLMeasure> localBCLMeasures();
 
-#else
+/// Load all measures in the user measures directory.
+std::vector<openstudio::BCLMeasure> userMeasures();
 
-#define MODELEDITOR_API
-#define MODELEDITOR_TEMPLATE_EXT
+/// Returns the path to the user measures directory stored in settings.
+openstudio::path userMeasuresDir();
 
-#endif
+/// Changes the path to the user measures directory stored in settings.
+bool setUserMeasuresDir(const openstudio::path& userMeasuresDir);
 
-#endif
+/// Clears the path to the user measures directory stored in settings.
+void clearUserMeasuresDir();
+
+#endif // MODELEDITOR_USERSETTINGS_HPP
