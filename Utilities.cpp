@@ -27,58 +27,77 @@
 *  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ***********************************************************************************************************************/
 
-#include "UserSettings.hpp"
+#include "Utilities.hpp"
 
-#include "../utilities/bcl/LocalBCL.hpp"
-#include "../utilities/bcl/BCLMeasure.hpp"
-#include "../utilities/core/Path.hpp"
-#include "../utilities/core/FilesystemHelpers.hpp"
+namespace openstudio {
+  /** QString to UTF-8 encoded std::string. */
+  std::string toString(const QString& q)
+  {
+    const QByteArray& qb = q.toUtf8();
+    return std::string(qb.data());
+  }
 
-#include "../model_editor/Utilities.hpp"
 
-#include <QString>
-#include <QSettings>
 
-std::vector<openstudio::BCLMeasure> localBCLMeasures()
-{
-  return openstudio::LocalBCL::instance().measures();
+  /** QString to wstring. */
+  std::wstring toWString(const QString& q)
+  {
+#if (defined (_WIN32) || defined (_WIN64))
+    static_assert(sizeof(wchar_t) == sizeof(unsigned short), "Wide characters must have the same size as unsigned shorts");
+    std::wstring w(reinterpret_cast<const wchar_t *>(q.utf16()), q.length());
+    return w;
+#else
+    std::wstring w = q.toStdWString();
+    return w;
+#endif
+  }
+
+  /** UTF-8 encoded std::string to QString. */
+  QString toQString(const std::string& s)
+  {
+    return QString::fromUtf8(s.c_str());
+  }
+
+  /** wstring to QString. */
+  QString toQString(const std::wstring& w)
+  {
+#if (defined (_WIN32) || defined (_WIN64))
+    static_assert(sizeof(wchar_t) == sizeof(unsigned short), "Wide characters must have the same size as unsigned shorts");
+    return QString::fromUtf16(reinterpret_cast<const unsigned short *>(w.data()), w.length());
+#else
+    return QString::fromStdWString(w);
+#endif
+
+  }
+
+  UUID toUUID(const QString &str)
+  {
+    return toUUID(toString(str));
+  }
+
+  QString toQString(const UUID& uuid)
+  {
+    return toQString(toString(uuid));
+  }
+
+  /** path to QString. */
+  QString toQString(const path& p)
+  {
+#if (defined (_WIN32) || defined (_WIN64))
+    return QString::fromStdWString(p.generic_wstring());
+#endif
+    return QString::fromUtf8(p.generic_string().c_str());
+  }
+
+  /** QString to path*/
+  path toPath(const QString& q)
+  {
+#if (defined (_WIN32) || defined (_WIN64))
+    return path(q.toStdWString());
+#endif
+
+    return path(q.toStdString());
+  }
+
+
 }
-
-std::vector<openstudio::BCLMeasure> userMeasures()
-  {
-    openstudio::path path = userMeasuresDir();
-    return openstudio::BCLMeasure::getMeasuresInDir(path);
-  }
-
-  openstudio::path userMeasuresDir()
-  {
-    QSettings settings("OpenStudio", "BCLMeasure");
-    QString value = settings.value("userMeasuresDir", openstudio::toQString(openstudio::filesystem::home_path() / openstudio::toPath("OpenStudio/Measures"))).toString();
-    openstudio::path result = openstudio::toPath(value);
-    return openstudio::filesystem::system_complete(result);
-  }
-
-  bool setUserMeasuresDir(const openstudio::path& userMeasuresDir)
-  {
-    if (!userMeasuresDir.is_complete()){
-      return false;
-    }
-    if (!exists(userMeasuresDir)){
-      if (!openstudio::filesystem::create_directories(userMeasuresDir)) {
-        return false;
-      }
-    }
-    if (!is_directory(userMeasuresDir)){
-      return false;
-    }
-
-    QSettings settings("OpenStudio", "BCLMeasure");
-    settings.setValue("userMeasuresDir", openstudio::toQString(userMeasuresDir));
-    return true;
-  }
-
-  void clearUserMeasuresDir()
-  {
-    QSettings settings("OpenStudio", "BCLMeasure");
-    settings.remove("userMeasuresDir");
-  }

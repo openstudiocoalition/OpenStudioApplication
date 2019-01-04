@@ -27,58 +27,42 @@
 *  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ***********************************************************************************************************************/
 
-#include "UserSettings.hpp"
+#ifndef MODELEDITOR_UTILITIES_HPP
+#define MODELEDITOR_UTILITIES_HPP
 
-#include "../utilities/bcl/LocalBCL.hpp"
-#include "../utilities/bcl/BCLMeasure.hpp"
-#include "../utilities/core/Path.hpp"
-#include "../utilities/core/FilesystemHelpers.hpp"
-
-#include "../model_editor/Utilities.hpp"
-
+#include <string>
 #include <QString>
-#include <QSettings>
 
-std::vector<openstudio::BCLMeasure> localBCLMeasures()
-{
-  return openstudio::LocalBCL::instance().measures();
+#include "ModelEditorAPI.hpp"
+
+
+namespace openstudio {
+  /** QString to UTF-8 encoded std::string. */
+  MODELEDITOR_API std::string toString(const QString& q);
+
+  /** QString to wstring. */
+  MODELEDITOR_API std::wstring toWString(const QString& q);
+
+  /** UTF-8 encoded std::string to QString. */
+  MODELEDITOR_API QString toQString(const std::string& s);
+
+  /** wstring to QString. */
+  MODELEDITOR_API QString toQString(const std::wstring& w);
+
+
+  /// create a UUID from a std::string, does not throw, may return a null UUID
+  MODELEDITOR_API UUID toUUID(const QString& str);
+
+  /// create a QString from a UUID
+  MODELEDITOR_API QString toQString(const UUID& uuid);
+
+  /** path to QString. */
+  MODELEDITOR_API QString toQString(const path& p);
+
+  /** QString to path*/
+  MODELEDITOR_API path toPath(const QString& q);
+
+
 }
 
-std::vector<openstudio::BCLMeasure> userMeasures()
-  {
-    openstudio::path path = userMeasuresDir();
-    return openstudio::BCLMeasure::getMeasuresInDir(path);
-  }
-
-  openstudio::path userMeasuresDir()
-  {
-    QSettings settings("OpenStudio", "BCLMeasure");
-    QString value = settings.value("userMeasuresDir", openstudio::toQString(openstudio::filesystem::home_path() / openstudio::toPath("OpenStudio/Measures"))).toString();
-    openstudio::path result = openstudio::toPath(value);
-    return openstudio::filesystem::system_complete(result);
-  }
-
-  bool setUserMeasuresDir(const openstudio::path& userMeasuresDir)
-  {
-    if (!userMeasuresDir.is_complete()){
-      return false;
-    }
-    if (!exists(userMeasuresDir)){
-      if (!openstudio::filesystem::create_directories(userMeasuresDir)) {
-        return false;
-      }
-    }
-    if (!is_directory(userMeasuresDir)){
-      return false;
-    }
-
-    QSettings settings("OpenStudio", "BCLMeasure");
-    settings.setValue("userMeasuresDir", openstudio::toQString(userMeasuresDir));
-    return true;
-  }
-
-  void clearUserMeasuresDir()
-  {
-    QSettings settings("OpenStudio", "BCLMeasure");
-    settings.remove("userMeasuresDir");
-  }
+#endif
