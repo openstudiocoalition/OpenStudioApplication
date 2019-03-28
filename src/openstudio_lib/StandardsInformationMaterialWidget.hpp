@@ -30,9 +30,9 @@
 #ifndef OPENSTUDIO_STANDARDSINFORMATIONMATERIALWIDGET_HPP
 #define OPENSTUDIO_STANDARDSINFORMATIONMATERIALWIDGET_HPP
 
-#include "../model/Material.hpp"
+#include <openstudio/src/model/Material.hpp>
 
-#include "../model/StandardsInformationMaterial.hpp"
+#include <openstudio/src/model/StandardsInformationMaterial.hpp>
 
 #include <QWidget>
 
@@ -150,4 +150,3 @@ class StandardsInformationMaterialWidget : public QWidget
 } // openstudio
 
 #endif // OPENSTUDIO_STANDARDSINFORMATIONMATERIALWIDGET_HPP
-

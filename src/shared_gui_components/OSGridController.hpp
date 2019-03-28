@@ -37,10 +37,10 @@
 
  #include <nano/nano_signal_slot.hpp> // Signal-Slot replacement
 
-#include "../model/Model.hpp"
-#include "../model/ModelObject.hpp"
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/model/ModelObject.hpp>
 
-#include "../utilities/idd/IddObject.hpp"
+#include <openstudio/src/utilities/idd/IddObject.hpp>
 
 #include <string>
 #include <functional>

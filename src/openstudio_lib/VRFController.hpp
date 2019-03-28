@@ -33,7 +33,7 @@
 #include <QObject>
 #include <QSharedPointer>
 #include <boost/optional.hpp>
-#include "../model/AirConditionerVariableRefrigerantFlow.hpp"
+#include <openstudio/src/model/AirConditionerVariableRefrigerantFlow.hpp>
 #include "../shared_gui_components/OSListController.hpp"
 
 class QGraphicsScene;
@@ -190,4 +190,3 @@ class VRFSystemListItem : public OSListItem
 } // openstudio
 
 #endif // OPENSTUDIO_VRFCONTROLLER_HPP
-

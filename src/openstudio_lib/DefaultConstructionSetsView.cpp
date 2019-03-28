@@ -31,7 +31,7 @@
 #include "DefaultConstructionSetInspectorView.hpp"
 #include "ModelObjectListView.hpp"
 
-#include "../model/Model_Impl.hpp"
+#include <openstudio/src/model/Model_Impl.hpp>
 #include <QStyleOption>
 #include <QPainter>
 #include <QVBoxLayout>

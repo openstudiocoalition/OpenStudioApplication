@@ -43,8 +43,8 @@
 
 #include "../model_editor/UserSettings.hpp"
 
-#include "../utilities/bcl/LocalBCL.hpp"
-#include "../utilities/core/PathHelpers.hpp"
+#include <openstudio/src/utilities/bcl/LocalBCL.hpp>
+#include <openstudio/src/utilities/core/PathHelpers.hpp>
 
 #include <QDir>
 #include <QEvent>
@@ -299,4 +299,3 @@ QSharedPointer<EditController> OSAppBase::editController()
 }
 
 } // openstudio
-

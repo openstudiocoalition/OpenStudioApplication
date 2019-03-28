@@ -34,11 +34,11 @@
 
 #include "ClassViewWidget.hpp"
 #include "TableView.hpp"
-#include "../model/Model.hpp"
-#include "../utilities/idf/IdfFile.hpp"
-#include "../utilities/idf/WorkspaceObjectOrder.hpp"
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/utilities/idf/IdfFile.hpp>
+#include <openstudio/src/utilities/idf/WorkspaceObjectOrder.hpp>
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 #include <model_editor/tablemodel.h>
 

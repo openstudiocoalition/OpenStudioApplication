@@ -34,10 +34,10 @@
 #include "ModelObjectInspectorView.hpp"
 #include "ModelSubTabView.hpp"
 
-#include "../model/Model.hpp"
-#include "../model/UtilityBill.hpp"
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/model/UtilityBill.hpp>
 
-#include "../utilities/data/DataEnums.hpp"
+#include <openstudio/src/utilities/data/DataEnums.hpp>
 
 #include <QWidget>
 

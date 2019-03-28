@@ -33,14 +33,14 @@
 #include "ModelObjectVectorController.hpp"
 
 #include <nano/nano_signal_slot.hpp> // Signal-Slot replacement
-#include "../model/Building.hpp"
-#include "../model/DefaultScheduleSet.hpp"
-#include "../model/Model.hpp"
-#include "../model/Space.hpp"
-#include "../model/SpaceLoadInstance.hpp"
-#include "../model/SpaceType.hpp"
+#include <openstudio/src/model/Building.hpp>
+#include <openstudio/src/model/DefaultScheduleSet.hpp>
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/model/Space.hpp>
+#include <openstudio/src/model/SpaceLoadInstance.hpp>
+#include <openstudio/src/model/SpaceType.hpp>
 
-#include "../utilities/idf/WorkspaceObject_Impl.hpp"
+#include <openstudio/src/utilities/idf/WorkspaceObject_Impl.hpp>
 
 
 #include <QWidget>
@@ -217,4 +217,3 @@ private:
 } // openstudio
 
 #endif // OPENSTUDIO_SPACELOADINSTANCESWIDGET_HPP
-

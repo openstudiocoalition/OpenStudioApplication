@@ -32,8 +32,8 @@
 
 #include "OSItem.hpp"
 
-#include "../model/Model.hpp"
-#include "../model/ModelObject.hpp"
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/model/ModelObject.hpp>
 
 #include <QWidget>
 
@@ -81,4 +81,3 @@ class ModelObjectItem : public OSItem
 } // openstudio
 
 #endif // OPENSTUDIO_MODELOBJECTITEM_HPP
-

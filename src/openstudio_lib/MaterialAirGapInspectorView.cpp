@@ -34,10 +34,10 @@
 #include "../shared_gui_components/OSLineEdit.hpp"
 #include "../shared_gui_components/OSQuantityEdit.hpp"
 
-#include "../model/AirGap.hpp"
-#include "../model/AirGap_Impl.hpp"
+#include <openstudio/src/model/AirGap.hpp>
+#include <openstudio/src/model/AirGap_Impl.hpp>
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 #include <QGridLayout>
 #include <QLabel>

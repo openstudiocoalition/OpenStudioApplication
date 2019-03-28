@@ -31,7 +31,7 @@
 #define OPENSTUDIO_THERMALZONESTABCONTROLLER_HPP
 
 #include "MainTabController.hpp"
-#include "../model/Model.hpp"
+#include <openstudio/src/model/Model.hpp>
 
 namespace openstudio {
 

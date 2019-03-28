@@ -37,7 +37,7 @@
 #include "LocalLibrary.hpp"
 #include "BaseApp.hpp"
 
-#include "../utilities/bcl/BCLMeasure.hpp"
+#include <openstudio/src/utilities/bcl/BCLMeasure.hpp>
 
 #include <QHBoxLayout>
 #include <QLabel>
@@ -389,4 +389,3 @@ class LibraryListController : public OSListController
 } // openstudio
 
 #endif // SHAREDGUICOMPONENTS_LOCALLIBRARYCONTROLLER_HPP
-

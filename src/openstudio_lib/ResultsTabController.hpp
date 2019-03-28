@@ -31,8 +31,8 @@
 #define OPENSTUDIO_RESULTSTABCONTROLLER_HPP
 
 #include "MainTabController.hpp"
-#include "../utilities/core/Path.hpp"
-#include "../utilities/core/Logger.hpp"
+#include <openstudio/src/utilities/core/Path.hpp>
+#include <openstudio/src/utilities/core/Logger.hpp>
 
 namespace openstudio {
 

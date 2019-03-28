@@ -35,20 +35,20 @@
 #include "OSItem.hpp"
 #include "ThermalZonesView.hpp"
 
-#include "../model/AirLoopHVAC.hpp"
-#include "../model/AirLoopHVAC_Impl.hpp"
-#include "../model/Space.hpp"
-#include "../model/Space_Impl.hpp"
-#include "../model/ThermalZone.hpp"
-#include "../model/ThermalZone_Impl.hpp"
-#include "../model/ThermostatSetpointDualSetpoint.hpp"
-#include "../model/ThermostatSetpointDualSetpoint_Impl.hpp"
-#include "../model/ZoneControlHumidistat.hpp"
-#include "../model/ZoneControlHumidistat_Impl.hpp"
-#include "../model/ZoneHVACComponent.hpp"
-#include "../model/ZoneHVACComponent_Impl.hpp"
+#include <openstudio/src/model/AirLoopHVAC.hpp>
+#include <openstudio/src/model/AirLoopHVAC_Impl.hpp>
+#include <openstudio/src/model/Space.hpp>
+#include <openstudio/src/model/Space_Impl.hpp>
+#include <openstudio/src/model/ThermalZone.hpp>
+#include <openstudio/src/model/ThermalZone_Impl.hpp>
+#include <openstudio/src/model/ThermostatSetpointDualSetpoint.hpp>
+#include <openstudio/src/model/ThermostatSetpointDualSetpoint_Impl.hpp>
+#include <openstudio/src/model/ZoneControlHumidistat.hpp>
+#include <openstudio/src/model/ZoneControlHumidistat_Impl.hpp>
+#include <openstudio/src/model/ZoneHVACComponent.hpp>
+#include <openstudio/src/model/ZoneHVACComponent_Impl.hpp>
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 #include <utilities/idd/IddEnums.hxx>
 

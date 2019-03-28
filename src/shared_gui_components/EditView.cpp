@@ -43,7 +43,7 @@
 #include <QWheelEvent>
 #include <QApplication>
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 namespace openstudio{
 
@@ -477,4 +477,3 @@ void InputCheckBox::setIncomplete(bool incomplete)
 
 
 } // openstudio
-

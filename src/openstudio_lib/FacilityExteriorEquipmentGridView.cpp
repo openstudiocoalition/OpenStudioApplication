@@ -33,20 +33,20 @@
 
 #include "../shared_gui_components/OSGridView.hpp"
 
-#include "../model/ExteriorLights.hpp"
-#include "../model/ExteriorLights_Impl.hpp"
-#include "../model/ExteriorLightsDefinition.hpp"
-#include "../model/ExteriorLightsDefinition_Impl.hpp"
-#include "../model/Model.hpp"
-#include "../model/Model_Impl.hpp"
-#include "../model/ModelObject.hpp"
-#include "../model/ModelObject_Impl.hpp"
-#include "../model/Schedule.hpp"
-#include "../model/Schedule_Impl.hpp"
+#include <openstudio/src/model/ExteriorLights.hpp>
+#include <openstudio/src/model/ExteriorLights_Impl.hpp>
+#include <openstudio/src/model/ExteriorLightsDefinition.hpp>
+#include <openstudio/src/model/ExteriorLightsDefinition_Impl.hpp>
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/model/Model_Impl.hpp>
+#include <openstudio/src/model/ModelObject.hpp>
+#include <openstudio/src/model/ModelObject_Impl.hpp>
+#include <openstudio/src/model/Schedule.hpp>
+#include <openstudio/src/model/Schedule_Impl.hpp>
 
-#include "../utilities/core/Assert.hpp"
-#include "../utilities/idd/IddEnums.hxx"
-#include "../utilities/idd/OS_Exterior_Lights_FieldEnums.hxx"
+#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/src/utilities/idd/IddEnums.hxx>
+#include <openstudio/src/utilities/idd/OS_Exterior_Lights_FieldEnums.hxx>
 
 #include <QBoxLayout>
 #include <QCheckBox>

@@ -33,7 +33,7 @@
 #include <nano/nano_signal_slot.hpp> // Signal-Slot replacement
 #include "FieldMethodTypedefs.hpp"
 
-#include "../model/Model.hpp"
+#include <openstudio/src/model/Model.hpp>
 #include <QPushButton>
 
 namespace openstudio {
@@ -107,4 +107,3 @@ class OSSwitch2 : public QPushButton, public Nano::Observer {
 } // openstudio
 
 #endif // SHAREDGUICOMPONENTS_OSSWITCH_HPP
-

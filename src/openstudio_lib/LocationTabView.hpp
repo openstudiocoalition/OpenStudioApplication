@@ -30,9 +30,9 @@
 #ifndef OPENSTUDIO_LOCATIONTABVIEW_HPP
 #define OPENSTUDIO_LOCATIONTABVIEW_HPP
 
-#include "../model/Model.hpp"
-#include "../model/Site.hpp"
-#include "../model/YearDescription.hpp"
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/model/Site.hpp>
+#include <openstudio/src/model/YearDescription.hpp>
 
 #include "MainTabView.hpp"
 #include "YearSettingsWidget.hpp"

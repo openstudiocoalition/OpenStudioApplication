@@ -32,35 +32,35 @@
 #include "Application.hpp"
 #include "Utilities.hpp"
 
-#include "../model/Model.hpp"
-#include "../model/Model_Impl.hpp"
-#include "../model/ModelObject.hpp"
-#include "../model/ModelObject_Impl.hpp"
-#include "../model/Space.hpp"
-#include "../model/Space_Impl.hpp"
-#include "../model/ThermalZone.hpp"
-#include "../model/ThermalZone_Impl.hpp"
-#include "../model/SpaceLoadInstance.hpp"
-#include "../model/SpaceLoadInstance_Impl.hpp"
-#include "../model/SpaceLoadDefinition.hpp"
-#include "../model/SpaceLoadDefinition_Impl.hpp"
-#include "../model/ElectricEquipment.hpp"
-#include "../model/ElectricEquipmentDefinition.hpp"
-#include "../model/GasEquipment.hpp"
-#include "../model/GasEquipmentDefinition.hpp"
-#include "../model/HotWaterEquipment.hpp"
-#include "../model/HotWaterEquipmentDefinition.hpp"
-#include "../model/InternalMass.hpp"
-#include "../model/InternalMassDefinition.hpp"
-#include "../model/Lights.hpp"
-#include "../model/LightsDefinition.hpp"
-#include "../model/Luminaire.hpp"
-#include "../model/LuminaireDefinition.hpp"
-#include "../model/People.hpp"
-#include "../model/PeopleDefinition.hpp"
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/model/Model_Impl.hpp>
+#include <openstudio/src/model/ModelObject.hpp>
+#include <openstudio/src/model/ModelObject_Impl.hpp>
+#include <openstudio/src/model/Space.hpp>
+#include <openstudio/src/model/Space_Impl.hpp>
+#include <openstudio/src/model/ThermalZone.hpp>
+#include <openstudio/src/model/ThermalZone_Impl.hpp>
+#include <openstudio/src/model/SpaceLoadInstance.hpp>
+#include <openstudio/src/model/SpaceLoadInstance_Impl.hpp>
+#include <openstudio/src/model/SpaceLoadDefinition.hpp>
+#include <openstudio/src/model/SpaceLoadDefinition_Impl.hpp>
+#include <openstudio/src/model/ElectricEquipment.hpp>
+#include <openstudio/src/model/ElectricEquipmentDefinition.hpp>
+#include <openstudio/src/model/GasEquipment.hpp>
+#include <openstudio/src/model/GasEquipmentDefinition.hpp>
+#include <openstudio/src/model/HotWaterEquipment.hpp>
+#include <openstudio/src/model/HotWaterEquipmentDefinition.hpp>
+#include <openstudio/src/model/InternalMass.hpp>
+#include <openstudio/src/model/InternalMassDefinition.hpp>
+#include <openstudio/src/model/Lights.hpp>
+#include <openstudio/src/model/LightsDefinition.hpp>
+#include <openstudio/src/model/Luminaire.hpp>
+#include <openstudio/src/model/LuminaireDefinition.hpp>
+#include <openstudio/src/model/People.hpp>
+#include <openstudio/src/model/PeopleDefinition.hpp>
 
-#include "../utilities/core/System.hpp"
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/System.hpp>
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 #include <utilities/idd/OS_ElectricEquipment_FieldEnums.hxx>
 #include <utilities/idd/OS_GasEquipment_FieldEnums.hxx>
@@ -70,11 +70,11 @@
 #include <utilities/idd/OS_Luminaire_FieldEnums.hxx>
 #include <utilities/idd/OS_People_FieldEnums.hxx>
 
-#include "../utilities/idd/IddFile.hpp"
-#include "../utilities/idd/IddObject.hpp"
+#include <openstudio/src/utilities/idd/IddFile.hpp>
+#include <openstudio/src/utilities/idd/IddObject.hpp>
 #include <utilities/idd/IddFactory.hxx>
 
-#include "../utilities/core/Compare.hpp"
+#include <openstudio/src/utilities/core/Compare.hpp>
 
 #include <QFile>
 #include <QLabel>

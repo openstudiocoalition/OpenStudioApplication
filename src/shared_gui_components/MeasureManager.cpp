@@ -41,20 +41,20 @@
 #include "../model_editor/UserSettings.hpp"
 #include "../model_editor/Utilities.hpp"
 
-#include "../measure/OSArgument.hpp"
+#include <openstudio/src/measure/OSArgument.hpp>
 
-#include "../model/Model.hpp"
+#include <openstudio/src/model/Model.hpp>
 
-#include "../utilities/core/Assert.hpp"
-#include "../utilities/core/PathHelpers.hpp"
-#include "../utilities/core/RubyException.hpp"
-#include "../utilities/core/System.hpp"
-#include "../utilities/bcl/BCLMeasure.hpp"
-#include "../utilities/bcl/RemoteBCL.hpp"
-#include "../utilities/bcl/LocalBCL.hpp"
-#include "../utilities/filetypes/WorkflowJSON.hpp"
-#include "../utilities/filetypes/WorkflowStep.hpp"
-#include "../utilities/filetypes/WorkflowStep_Impl.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/src/utilities/core/PathHelpers.hpp>
+#include <openstudio/src/utilities/core/RubyException.hpp>
+#include <openstudio/src/utilities/core/System.hpp>
+#include <openstudio/src/utilities/bcl/BCLMeasure.hpp>
+#include <openstudio/src/utilities/bcl/RemoteBCL.hpp>
+#include <openstudio/src/utilities/bcl/LocalBCL.hpp>
+#include <openstudio/src/utilities/filetypes/WorkflowJSON.hpp>
+#include <openstudio/src/utilities/filetypes/WorkflowStep.hpp>
+#include <openstudio/src/utilities/filetypes/WorkflowStep_Impl.hpp>
 
 #include <json/json.h>
 
@@ -1060,5 +1060,4 @@ void MeasureManager::setLibraryController(const QSharedPointer<LocalLibraryContr
 }
 
 } // openstudio
-
 

@@ -32,11 +32,11 @@
 
 #include "ModelEditorAPI.hpp"
 
-#include "../model/Model.hpp"
+#include <openstudio/src/model/Model.hpp>
 #include <nano/nano_signal_slot.hpp> // Signal-Slot replacement
 
-#include "../utilities/idd/IddEnums.hpp"
-#include "../utilities/core/UUID.hpp"
+#include <openstudio/src/utilities/idd/IddEnums.hpp>
+#include <openstudio/src/utilities/core/UUID.hpp>
 
 #include <QDialog>
 

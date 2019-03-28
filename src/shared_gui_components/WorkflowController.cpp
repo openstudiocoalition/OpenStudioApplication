@@ -40,15 +40,15 @@
 #include "../model_editor/OSProgressBar.hpp"
 #include "../model_editor/Utilities.hpp"
 
-#include "../energyplus/ForwardTranslator.hpp"
+#include <openstudio/src/energyplus/ForwardTranslator.hpp>
 
-#include "../utilities/core/Assert.hpp"
-#include "../utilities/core/Compare.hpp"
-#include "../utilities/core/Containers.hpp"
-#include "../utilities/core/RubyException.hpp"
-#include "../utilities/core/PathHelpers.hpp"
-#include "../utilities/bcl/BCLMeasure.hpp"
-#include "../utilities/filetypes/WorkflowStep_Impl.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/src/utilities/core/Compare.hpp>
+#include <openstudio/src/utilities/core/Containers.hpp>
+#include <openstudio/src/utilities/core/RubyException.hpp>
+#include <openstudio/src/utilities/core/PathHelpers.hpp>
+#include <openstudio/src/utilities/bcl/BCLMeasure.hpp>
+#include <openstudio/src/utilities/filetypes/WorkflowStep_Impl.hpp>
 
 #include <QByteArray>
 #include <QDialog>
@@ -650,5 +650,4 @@ QWidget * MeasureStepItemDelegate::view(QSharedPointer<OSListItem> dataSource)
 
 
 } // openstudio
-
 

@@ -31,7 +31,7 @@
 #define OPENSTUDIO_ELECTRICEQUIPMENTINSPECTORVIEW_HPP
 
 #include "ModelObjectInspectorView.hpp"
-#include "../model/ElectricEquipmentDefinition.hpp"
+#include <openstudio/src/model/ElectricEquipmentDefinition.hpp>
 
 namespace openstudio {
 
@@ -93,4 +93,3 @@ class ElectricEquipmentDefinitionInspectorView : public ModelObjectInspectorView
 } // openstudio
 
 #endif // OPENSTUDIO_ELECTRICEQUIPMENTINSPECTORVIEW_HPP
-

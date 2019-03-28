@@ -31,16 +31,16 @@
 
 #include "OpenStudioAppFixture.hpp"
 
-#include "../../osversion/VersionTranslator.hpp"
+#include <openstudio/src/osversion/VersionTranslator.hpp>
 
-#include "../../model/Model.hpp"
-#include "../../model/SpaceLoad.hpp"
-#include "../../model/SpaceLoad_Impl.hpp"
-#include "../../model/SpaceType.hpp"
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/model/SpaceLoad.hpp>
+#include <openstudio/src/model/SpaceLoad_Impl.hpp>
+#include <openstudio/src/model/SpaceType.hpp>
 
-#include "../../utilities/core/ApplicationPathHelpers.hpp"
-#include "../../utilities/core/PathHelpers.hpp"
-#include "../../utilities/units/QuantityConverter.hpp"
+#include <openstudio/src/utilities/core/ApplicationPathHelpers.hpp>
+#include <openstudio/src/utilities/core/PathHelpers.hpp>
+#include <openstudio/src/utilities/units/QuantityConverter.hpp>
 
 #include <QDir>
 #include <QFileInfo>

@@ -30,10 +30,10 @@
 #include "ScheduleSetsController.hpp"
 #include "ScheduleSetsView.hpp"
 
-#include "../model/DefaultScheduleSet.hpp"
-#include "../model/DefaultScheduleSet_Impl.hpp"
+#include <openstudio/src/model/DefaultScheduleSet.hpp>
+#include <openstudio/src/model/DefaultScheduleSet_Impl.hpp>
 
-#include "../utilities/core/Logger.hpp"
+#include <openstudio/src/utilities/core/Logger.hpp>
 
 #include <utilities/idd/IddEnums.hxx>
 
@@ -92,4 +92,3 @@ void ScheduleSetsController::onInspectItem(OSItem* item)
 }
 
 } // openstudio
-

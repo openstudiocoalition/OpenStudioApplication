@@ -34,12 +34,12 @@
 #include "../shared_gui_components/OSComboBox.hpp"
 #include "../shared_gui_components/OSLineEdit.hpp"
 
-#include "../model/Material.hpp"
-#include "../model/Material_Impl.hpp"
+#include <openstudio/src/model/Material.hpp>
+#include <openstudio/src/model/Material_Impl.hpp>
 
 #include "../model_editor/Utilities.hpp"
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 #include <QGridLayout>
 #include <QLabel>

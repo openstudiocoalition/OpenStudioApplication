@@ -30,7 +30,7 @@
 #ifndef OPENSTUDIO_PLANARSURFACEWIDGET_HPP
 #define OPENSTUDIO_PLANARSURFACEWIDGET_HPP
 
-#include "../model/PlanarSurface.hpp"
+#include <openstudio/src/model/PlanarSurface.hpp>
 #include <nano/nano_signal_slot.hpp> // Signal-Slot replacement
 
 #include <QWidget>
@@ -74,4 +74,3 @@ class PlanarSurfaceWidget : public QWidget, public Nano::Observer
 } // openstudio
 
 #endif // OPENSTUDIO_PLANARSURFACEWIDGET_HPP
-

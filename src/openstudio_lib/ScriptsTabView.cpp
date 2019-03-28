@@ -39,7 +39,7 @@
 #include "../shared_gui_components/SyncMeasuresDialog.hpp"
 #include "../shared_gui_components/EditController.hpp"
 
-#include "../energyplus/ForwardTranslator.hpp"
+#include <openstudio/src/energyplus/ForwardTranslator.hpp>
 
 #include <QLabel>
 #include <QVBoxLayout>
@@ -124,4 +124,3 @@ void ScriptsTabView::openUpdateMeasuresDlg()
 }
 
 } // openstudio
-

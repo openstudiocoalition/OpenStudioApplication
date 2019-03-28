@@ -32,12 +32,12 @@
 #include "../model_editor/Utilities.hpp"
 
 
-#include "../utilities/bcl/BCLMeasure.hpp"
-#include "../utilities/bcl/LocalBCL.hpp"
-#include "../utilities/core/Assert.hpp"
-#include "../utilities/core/Compare.hpp"
-#include "../utilities/units/Quantity.hpp"
-#include "../utilities/units/Unit.hpp"
+#include <openstudio/src/utilities/bcl/BCLMeasure.hpp>
+#include <openstudio/src/utilities/bcl/LocalBCL.hpp>
+#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/src/utilities/core/Compare.hpp>
+#include <openstudio/src/utilities/units/Quantity.hpp>
+#include <openstudio/src/utilities/units/Unit.hpp>
 
 #include <OpenStudio.hxx>
 

@@ -31,7 +31,7 @@
 #define OPENSTUDIO_PEOPLEINSPECTORVIEW_HPP
 
 #include "ModelObjectInspectorView.hpp"
-#include "../model/PeopleDefinition.hpp"
+#include <openstudio/src/model/PeopleDefinition.hpp>
 
 namespace openstudio {
 
@@ -91,4 +91,3 @@ class PeopleDefinitionInspectorView : public ModelObjectInspectorView
 } // openstudio
 
 #endif // OPENSTUDIO_PEOPLEINSPECTORVIEW_HPP
-

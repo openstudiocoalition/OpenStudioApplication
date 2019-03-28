@@ -33,7 +33,7 @@
 #include <nano/nano_signal_slot.hpp> // Signal-Slot replacement
 #include "../shared_gui_components/FieldMethodTypedefs.hpp"
 
-#include "../model/RenderingColor.hpp"
+#include <openstudio/src/model/RenderingColor.hpp>
 
 #include <QWidget>
 
@@ -110,4 +110,3 @@ private:
 } // openstudio
 
 #endif // OPENSTUDIO_RENDERINGCOLORWIDGET_HPP
-

@@ -39,8 +39,8 @@
 
 #include "../shared_gui_components/MeasureBadge.hpp"
 
-#include "../utilities/bcl/LocalBCL.hpp"
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/bcl/LocalBCL.hpp>
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 #include "../model_editor/Utilities.hpp"
 
@@ -644,4 +644,3 @@ void OSItem::onRemoveClicked()
 }
 
 } // openstudio
-

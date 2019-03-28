@@ -34,10 +34,10 @@
 #include "../shared_gui_components/OSLineEdit.hpp"
 #include "../shared_gui_components/OSQuantityEdit.hpp"
 
-#include "../model/ThermochromicGlazing.hpp"
-#include "../model/ThermochromicGlazing_Impl.hpp"
+#include <openstudio/src/model/ThermochromicGlazing.hpp>
+#include <openstudio/src/model/ThermochromicGlazing_Impl.hpp>
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 #include <QGridLayout>
 #include <QLabel>

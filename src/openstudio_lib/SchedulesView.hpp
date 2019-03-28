@@ -32,15 +32,15 @@
 
 #include "../model_editor/QMetaTypes.hpp"
 
-#include "../model/Model.hpp"
-#include "../model/ScheduleDay.hpp"
-#include "../model/ScheduleDay_Impl.hpp"
-#include "../model/ScheduleRule.hpp"
-#include "../model/ScheduleRule_Impl.hpp"
-#include "../model/ScheduleRuleset.hpp"
-#include "../model/ScheduleRuleset_Impl.hpp"
-#include "../model/YearDescription.hpp"
-#include "../model/YearDescription_Impl.hpp"
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/model/ScheduleDay.hpp>
+#include <openstudio/src/model/ScheduleDay_Impl.hpp>
+#include <openstudio/src/model/ScheduleRule.hpp>
+#include <openstudio/src/model/ScheduleRule_Impl.hpp>
+#include <openstudio/src/model/ScheduleRuleset.hpp>
+#include <openstudio/src/model/ScheduleRuleset_Impl.hpp>
+#include <openstudio/src/model/YearDescription.hpp>
+#include <openstudio/src/model/YearDescription_Impl.hpp>
 
 #include <boost/optional.hpp>
 #include <boost/smart_ptr.hpp>
@@ -819,4 +819,3 @@ private:
 } // openstudio
 
 #endif // OPENSTUDIO_SCHEDULESVIEW_HPP
-

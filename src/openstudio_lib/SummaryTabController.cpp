@@ -29,8 +29,8 @@
 
 #include "SummaryTabController.hpp"
 #include "SummaryTabView.hpp"
-#include "../model/Model.hpp"
-#include "../model/Model_Impl.hpp"
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/model/Model_Impl.hpp>
 
 namespace openstudio {
 
@@ -40,4 +40,3 @@ SummaryTabController::SummaryTabController(const model::Model & model)
 }
 
 } // openstudio
-

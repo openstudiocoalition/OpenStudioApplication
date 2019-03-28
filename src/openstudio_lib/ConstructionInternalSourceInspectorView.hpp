@@ -31,7 +31,7 @@
 #define OPENSTUDIO_CONSTRUCTIONINTERNALSOURCEINSPECTORVIEW_HPP
 
 #include "ModelObjectInspectorView.hpp"
-#include "../model/ConstructionWithInternalSource.hpp"
+#include <openstudio/src/model/ConstructionWithInternalSource.hpp>
 
 class QComboBox;
 
@@ -101,4 +101,3 @@ class ConstructionInternalSourceInspectorView : public ModelObjectInspectorView
 } // openstudio
 
 #endif // OPENSTUDIO_CONSTRUCTIONINTERNALSOURCEINSPECTORVIEW_H
-

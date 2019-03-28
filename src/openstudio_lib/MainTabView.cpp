@@ -40,7 +40,7 @@
 #include <QStackedWidget>
 #include <QStyleOption>
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 #include <vector>
 
@@ -283,4 +283,3 @@ bool MainTabView::selectSubTabByIndex(int index)
 }
 
 } // namespace openstudio
-

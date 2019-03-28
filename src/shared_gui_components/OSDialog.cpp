@@ -29,7 +29,7 @@
 
 #include "OSDialog.hpp"
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 #include <QBoxLayout>
 #include <QMouseEvent>
@@ -230,4 +230,3 @@ void OSDialog::toggleUnits(bool displayIP)
 }
 
 } // openstudio
-

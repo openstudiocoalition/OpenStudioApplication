@@ -30,7 +30,7 @@
 #include "GeometryEditorController.hpp"
 #include "GeometryEditorView.hpp"
 
-#include "../utilities/core/Logger.hpp"
+#include <openstudio/src/utilities/core/Logger.hpp>
 #include <utilities/idd/IddEnums.hxx>
 
 namespace openstudio {
@@ -53,4 +53,3 @@ QWidget* GeometryEditorController::view() const
 }
 
 } // openstudio
-

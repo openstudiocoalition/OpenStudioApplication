@@ -32,8 +32,8 @@
 
 #include <gtest/gtest.h>
 
-#include "../../utilities/core/Logger.hpp"
-#include "../../utilities/core/FileLogSink.hpp"
+#include <openstudio/src/utilities/core/Logger.hpp>
+#include <openstudio/src/utilities/core/FileLogSink.hpp>
 
 class OpenStudioLibFixture : public ::testing::Test {
  protected:

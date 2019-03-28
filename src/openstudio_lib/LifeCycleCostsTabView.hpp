@@ -32,8 +32,8 @@
 
 #include "MainTabView.hpp"
 
-#include "../model/LifeCycleCostParameters.hpp"
-#include "../model/Model.hpp"
+#include <openstudio/src/model/LifeCycleCostParameters.hpp>
+#include <openstudio/src/model/Model.hpp>
 
 #include <QWidget>
 

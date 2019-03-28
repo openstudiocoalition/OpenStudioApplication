@@ -36,12 +36,12 @@
 #include "../shared_gui_components/OSLineEdit.hpp"
 #include "../shared_gui_components/OSQuantityEdit.hpp"
 
-#include "../model/PeopleDefinition.hpp"
-#include "../model/PeopleDefinition_Impl.hpp"
-#include "../model/Schedule.hpp"
-#include "../model/SpaceLoadInstance.hpp"
+#include <openstudio/src/model/PeopleDefinition.hpp>
+#include <openstudio/src/model/PeopleDefinition_Impl.hpp>
+#include <openstudio/src/model/Schedule.hpp>
+#include <openstudio/src/model/SpaceLoadInstance.hpp>
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 #include <QGridLayout>
 #include <QHBoxLayout>
@@ -262,4 +262,3 @@ void PeopleDefinitionInspectorView::toggleUnits(bool displayIP)
 }
 
 } // openstudio
-

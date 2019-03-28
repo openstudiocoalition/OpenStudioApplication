@@ -30,7 +30,7 @@
 #include "OSListView.hpp"
 #include "OSListController.hpp"
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 #include <QVBoxLayout>
 #include <QScrollArea>
@@ -228,4 +228,3 @@ void OSListView::refreshItemView(int i)
 }
 
 } // openstudio
-

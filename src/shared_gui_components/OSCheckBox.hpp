@@ -32,7 +32,7 @@
 
 #include "FieldMethodTypedefs.hpp"
 
-#include "../model/Model.hpp"
+#include <openstudio/src/model/Model.hpp>
 
 #include <QCheckBox>
 #include <nano/nano_signal_slot.hpp> // Signal-Slot replacement
@@ -161,4 +161,3 @@ namespace openstudio {
 } // openstudio
 
 #endif // SHAREDGUICOMPONENTS_OSCHECKBOX_HPP
-

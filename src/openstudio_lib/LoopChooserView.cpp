@@ -28,15 +28,15 @@
 ***********************************************************************************************************************/
 
 #include "LoopChooserView.hpp"
-#include "../model/Model.hpp"
-#include "../model/WaterToAirComponent.hpp"
-#include "../model/WaterToAirComponent_Impl.hpp"
-#include "../model/HVACComponent.hpp"
-#include "../model/HVACComponent_Impl.hpp"
-#include "../model/Loop.hpp"
-#include "../model/Loop_Impl.hpp"
-#include "../model/PlantLoop.hpp"
-#include "../model/PlantLoop_Impl.hpp"
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/model/WaterToAirComponent.hpp>
+#include <openstudio/src/model/WaterToAirComponent_Impl.hpp>
+#include <openstudio/src/model/HVACComponent.hpp>
+#include <openstudio/src/model/HVACComponent_Impl.hpp>
+#include <openstudio/src/model/Loop.hpp>
+#include <openstudio/src/model/Loop_Impl.hpp>
+#include <openstudio/src/model/PlantLoop.hpp>
+#include <openstudio/src/model/PlantLoop_Impl.hpp>
 
 #include "../model_editor/Utilities.hpp"
 
@@ -225,4 +225,3 @@ void LoopChooserItem::setChecked( bool checked )
 }
 
 } // openstudio
-

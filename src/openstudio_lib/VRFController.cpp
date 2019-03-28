@@ -36,21 +36,21 @@
 #include "OSDropZone.hpp"
 #include "MainWindow.hpp"
 #include "MainRightColumnController.hpp"
-#include "../model/Model.hpp"
-#include "../model/AirConditionerVariableRefrigerantFlow.hpp"
-#include "../model/AirConditionerVariableRefrigerantFlow_Impl.hpp"
-#include "../model/ZoneHVACTerminalUnitVariableRefrigerantFlow.hpp"
-#include "../model/ZoneHVACTerminalUnitVariableRefrigerantFlow_Impl.hpp"
-#include "../model/ThermalZone.hpp"
-#include "../model/ThermalZone_Impl.hpp"
-#include "../model/Component.hpp"
-#include "../model/Component_Impl.hpp"
-#include "../model/ComponentData.hpp"
-#include "../model/ComponentData_Impl.hpp"
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/model/AirConditionerVariableRefrigerantFlow.hpp>
+#include <openstudio/src/model/AirConditionerVariableRefrigerantFlow_Impl.hpp>
+#include <openstudio/src/model/ZoneHVACTerminalUnitVariableRefrigerantFlow.hpp>
+#include <openstudio/src/model/ZoneHVACTerminalUnitVariableRefrigerantFlow_Impl.hpp>
+#include <openstudio/src/model/ThermalZone.hpp>
+#include <openstudio/src/model/ThermalZone_Impl.hpp>
+#include <openstudio/src/model/Component.hpp>
+#include <openstudio/src/model/Component_Impl.hpp>
+#include <openstudio/src/model/ComponentData.hpp>
+#include <openstudio/src/model/ComponentData_Impl.hpp>
 
 #include "../model_editor/Utilities.hpp"
 
-#include "../utilities/core/Compare.hpp"
+#include <openstudio/src/utilities/core/Compare.hpp>
 #include "../shared_gui_components/GraphicsItems.hpp"
 #include <utilities/idd/OS_ComponentData_FieldEnums.hxx>
 #include <QGraphicsScene>
@@ -564,4 +564,3 @@ QGraphicsObject * VRFSystemItemDelegate::view(QSharedPointer<OSListItem> dataSou
 }
 
 } // openstudio
-

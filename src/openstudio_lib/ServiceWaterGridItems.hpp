@@ -33,7 +33,7 @@
 #include <QGraphicsObject>
 #include <QCoreApplication>
 #include <QPixmap>
-#include "../model/ModelObject.hpp"
+#include <openstudio/src/model/ModelObject.hpp>
 #include "OSItem.hpp"
 #include "GridItem.hpp"
 
@@ -295,4 +295,3 @@ class MakeupWaterItem : public GridItem
 } // openstudio
 
 #endif // OPENSTUDIO_SERVICEWATERGRIDITEMS_HPP
-

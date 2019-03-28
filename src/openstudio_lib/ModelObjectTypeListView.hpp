@@ -32,8 +32,8 @@
 
 #include "OSCollapsibleItemList.hpp"
 
-#include "../model/Model.hpp"
-#include "../model/ModelObject.hpp"
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/model/ModelObject.hpp>
 
 #include <boost/optional.hpp>
 
@@ -81,4 +81,3 @@ class ModelObjectTypeListView : public OSCollapsibleItemList
 } // openstudio
 
 #endif // OPENSTUDIO_MODELOBJECTTYPELISTVIEW_HPP
-

@@ -35,7 +35,7 @@
 
 #include "../openstudio_lib/OSItem.hpp"
 
-#include "../model/ModelObject.hpp"
+#include <openstudio/src/model/ModelObject.hpp>
 
 class QGridLayout;
 class QHideEvent;

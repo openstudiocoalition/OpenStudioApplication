@@ -31,8 +31,8 @@
 #define SHAREDGUICOMPONENTS_MEASUREDRAGDATA_HPP
 
 #include "LocalLibrary.hpp"
-#include "../utilities/core/UUID.hpp"
-#include "../utilities/bcl/BCLMeasure.hpp"
+#include <openstudio/src/utilities/core/UUID.hpp>
+#include <openstudio/src/utilities/bcl/BCLMeasure.hpp>
 #include <QObject>
 #include <QByteArray>
 
@@ -72,4 +72,3 @@ class MeasureDragData : QObject
 } // openstudio
 
 #endif // SHAREDGUICOMPONENTS_MEASUREDRAGDATA_HPP
-

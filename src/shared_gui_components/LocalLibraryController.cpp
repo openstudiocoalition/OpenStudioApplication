@@ -47,10 +47,10 @@
 #include "../model_editor/UserSettings.hpp"
 #include "../model_editor/Utilities.hpp"
 
-#include "../utilities/bcl/LocalBCL.hpp"
-#include "../utilities/core/Assert.hpp"
-#include "../utilities/core/Compare.hpp"
-#include "../utilities/core/PathHelpers.hpp"
+#include <openstudio/src/utilities/bcl/LocalBCL.hpp>
+#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/src/utilities/core/Compare.hpp>
+#include <openstudio/src/utilities/core/PathHelpers.hpp>
 
 #include <OpenStudio.hxx>
 
@@ -754,4 +754,3 @@ void LibraryListController::reset()
 }
 
 } // openstudio
-

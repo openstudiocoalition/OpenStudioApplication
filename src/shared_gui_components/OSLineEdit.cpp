@@ -37,12 +37,12 @@
 #include "../openstudio_lib/OSDocument.hpp"
 #include "../openstudio_lib/OSItem.hpp"
 
-#include "../model/ModelObject.hpp"
-#include "../model/ModelObject_Impl.hpp"
+#include <openstudio/src/model/ModelObject.hpp>
+#include <openstudio/src/model/ModelObject_Impl.hpp>
 
 #include "../model_editor/Utilities.hpp"
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 #include <boost/optional.hpp>
 
@@ -434,4 +434,3 @@ void OSLineEdit2::focusOutEvent(QFocusEvent * e)
 // }
 
 } // openstudio
-

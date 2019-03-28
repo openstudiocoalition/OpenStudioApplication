@@ -34,7 +34,7 @@
 
 #include "OSItem.hpp"
 
-#include "../model/Model.hpp"
+#include <openstudio/src/model/Model.hpp>
 
 #include <QWidget>
 
@@ -124,4 +124,3 @@ public slots:
 } // openstudio
 
 #endif // OPENSTUDIO_DESIGNDAYGRIDVIEW_HPP
-

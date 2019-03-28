@@ -31,16 +31,16 @@
 #include "GridItem.hpp"
 #include "ServiceWaterGridItems.hpp"
 #include "OSAppBase.hpp"
-#include "../model/Model.hpp"
-#include "../model/Model_Impl.hpp"
-#include "../model/ModelObject.hpp"
-#include "../model/ModelObject_Impl.hpp"
-#include "../model/HVACComponent.hpp"
-#include "../model/HVACComponent_Impl.hpp"
-#include "../model/WaterUseConnections.hpp"
-#include "../model/WaterUseConnections_Impl.hpp"
-#include "../model/WaterUseEquipment.hpp"
-#include "../model/WaterUseEquipment_Impl.hpp"
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/model/Model_Impl.hpp>
+#include <openstudio/src/model/ModelObject.hpp>
+#include <openstudio/src/model/ModelObject_Impl.hpp>
+#include <openstudio/src/model/HVACComponent.hpp>
+#include <openstudio/src/model/HVACComponent_Impl.hpp>
+#include <openstudio/src/model/WaterUseConnections.hpp>
+#include <openstudio/src/model/WaterUseConnections_Impl.hpp>
+#include <openstudio/src/model/WaterUseEquipment.hpp>
+#include <openstudio/src/model/WaterUseEquipment_Impl.hpp>
 #include <QTimer>
 
 namespace openstudio {
@@ -161,4 +161,3 @@ void WaterUseConnectionsDetailScene::onRemovedWorkspaceObject(std::shared_ptr<op
 }
 
 } // openstudio
-

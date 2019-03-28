@@ -31,7 +31,7 @@
 #define OPENSTUDIO_WINDOWMATERIALGLAZINGREFRACTIONEXTINCTIONMETHODINSPECTORVIEW_HPP
 
 #include "ModelObjectInspectorView.hpp"
-#include "../model/RefractionExtinctionGlazing.hpp"
+#include <openstudio/src/model/RefractionExtinctionGlazing.hpp>
 
 namespace openstudio {
 
@@ -104,4 +104,3 @@ class WindowMaterialGlazingRefractionExtinctionMethodInspectorView : public Mode
 } // openstudio
 
 #endif // OPENSTUDIO_WINDOWMATERIALGLAZINGREFRACTIONEXTINCTIONMETHODINSPECTORVIEW_HPP
-

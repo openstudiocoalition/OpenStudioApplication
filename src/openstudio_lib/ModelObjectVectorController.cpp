@@ -31,11 +31,11 @@
 #include "OSAppBase.hpp"
 #include "OSDocument.hpp"
 
-#include "../model/ModelObject_Impl.hpp"
-#include "../model/Model.hpp"
-#include "../model/Model_Impl.hpp"
+#include <openstudio/src/model/ModelObject_Impl.hpp>
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/model/Model_Impl.hpp>
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 
 namespace openstudio {
@@ -231,4 +231,3 @@ boost::optional<model::Component> ModelObjectVectorController::getComponent(cons
 
 
 } // openstudio
-

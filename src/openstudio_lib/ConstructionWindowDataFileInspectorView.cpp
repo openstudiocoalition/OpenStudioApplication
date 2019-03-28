@@ -31,10 +31,10 @@
 
 #include "../shared_gui_components/OSLineEdit.hpp"
 
-#include "../model/WindowDataFile.hpp"
-#include "../model/WindowDataFile_Impl.hpp"
+#include <openstudio/src/model/WindowDataFile.hpp>
+#include <openstudio/src/model/WindowDataFile_Impl.hpp>
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 #include <QGridLayout>
 #include <QLabel>
@@ -127,4 +127,3 @@ void ConstructionWindowDataFileInspectorView::detach()
 }
 
 } // openstudio
-

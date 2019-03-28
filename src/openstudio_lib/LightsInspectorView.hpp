@@ -31,7 +31,7 @@
 #define OPENSTUDIO_LIGHTSINSPECTORVIEW_HPP
 
 #include "ModelObjectInspectorView.hpp"
-#include "../model/LightsDefinition.hpp"
+#include <openstudio/src/model/LightsDefinition.hpp>
 
 namespace openstudio {
 
@@ -93,4 +93,3 @@ class LightsDefinitionInspectorView : public ModelObjectInspectorView
 } // openstudio
 
 #endif // OPENSTUDIO_LIGHTSINSPECTORVIEW_HPP
-

@@ -32,7 +32,7 @@
 
 #include "FieldMethodTypedefs.hpp"
 
-#include "../model/ModelObject.hpp"
+#include <openstudio/src/model/ModelObject.hpp>
 
 #include <boost/any.hpp>
 #include <QSharedPointer>
@@ -1887,4 +1887,3 @@ private:
 } // openstudio
 
 #endif // SHAREDGUICOMPONENTS_OSCONCEPTS_HPP
-

@@ -29,9 +29,9 @@
 
 #include "PlanarSurfaceWidget.hpp"
 
-#include "../model/PlanarSurface_Impl.hpp"
+#include <openstudio/src/model/PlanarSurface_Impl.hpp>
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -184,4 +184,3 @@ void PlanarSurfaceWidget::toggleUnits(bool displayIP)
 }
 
 } // openstudio
-

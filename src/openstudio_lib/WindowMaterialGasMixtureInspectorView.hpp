@@ -31,7 +31,7 @@
 #define OPENSTUDIO_WINDOWMATERIALGASMIXTUREINSPECTORVIEW_HPP
 
 #include "ModelObjectInspectorView.hpp"
-#include "../model/GasMixture.hpp"
+#include <openstudio/src/model/GasMixture.hpp>
 
 namespace openstudio {
 
@@ -109,4 +109,3 @@ class WindowMaterialGasMixtureInspectorView : public ModelObjectInspectorView
 } // openstudio
 
 #endif // OPENSTUDIO_WINDOWMATERIALGASMIXTUREINSPECTORVIEW_HPP
-

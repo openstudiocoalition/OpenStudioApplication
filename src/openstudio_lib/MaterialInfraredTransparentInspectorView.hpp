@@ -31,7 +31,7 @@
 #define OPENSTUDIO_MATERIALINFRAREDTRANSPARENTINSPECTORVIEW_HPP
 
 #include "ModelObjectInspectorView.hpp"
-#include "../model/InfraredTransparentMaterial.hpp"
+#include <openstudio/src/model/InfraredTransparentMaterial.hpp>
 
 namespace openstudio {
 
@@ -82,4 +82,3 @@ class MaterialInfraredTransparentInspectorView : public ModelObjectInspectorView
 } // openstudio
 
 #endif // OPENSTUDIO_MATERIALINFRAREDTRANSPARENTINSPECTORVIEW_HPP
-

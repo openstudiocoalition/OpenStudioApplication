@@ -30,10 +30,10 @@
 #ifndef OPENSTUDIO_MODELOBJECTINSPECTORVIEW_HPP
 #define OPENSTUDIO_MODELOBJECTINSPECTORVIEW_HPP
 
-#include "../model/ComponentData.hpp"
+#include <openstudio/src/model/ComponentData.hpp>
 
-#include "../model/Model.hpp"
-#include "../model/ModelObject.hpp"
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/model/ModelObject.hpp>
 
 #include <boost/smart_ptr.hpp>
 #include <boost/optional.hpp>
@@ -131,4 +131,3 @@ class DefaultInspectorView : public ModelObjectInspectorView
 } // openstudio
 
 #endif // OPENSTUDIO_MODELOBJECTINSPECTORVIEW_HPP
-

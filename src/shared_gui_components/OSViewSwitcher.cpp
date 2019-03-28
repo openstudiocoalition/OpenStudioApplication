@@ -34,7 +34,7 @@
 #include <QStackedWidget>
 #include <QStyleOption>
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 namespace openstudio {
 

@@ -34,30 +34,30 @@
 
 #include "../shared_gui_components/OSGridView.hpp"
 
-#include "../model/ConstructionBase.hpp"
-#include "../model/ConstructionBase_Impl.hpp"
-#include "../model/DaylightingDeviceShelf.hpp"
-#include "../model/DaylightingDeviceShelf_Impl.hpp"
-#include "../model/InteriorPartitionSurface.hpp"
-#include "../model/InteriorPartitionSurface_Impl.hpp"
-#include "../model/Schedule.hpp"
-#include "../model/Schedule_Impl.hpp"
-#include "../model/ShadingControl.hpp"
-#include "../model/ShadingControl_Impl.hpp"
-#include "../model/ShadingSurface.hpp"
-#include "../model/ShadingSurface_Impl.hpp"
-#include "../model/Space.hpp"
-#include "../model/Space_Impl.hpp"
-#include "../model/Surface.hpp"
-#include "../model/Surface_Impl.hpp"
-#include "../model/SubSurface.hpp"
-#include "../model/SubSurface_Impl.hpp"
-#include "../model/WindowPropertyFrameAndDivider.hpp"
-#include "../model/WindowPropertyFrameAndDivider_Impl.hpp"
+#include <openstudio/src/model/ConstructionBase.hpp>
+#include <openstudio/src/model/ConstructionBase_Impl.hpp>
+#include <openstudio/src/model/DaylightingDeviceShelf.hpp>
+#include <openstudio/src/model/DaylightingDeviceShelf_Impl.hpp>
+#include <openstudio/src/model/InteriorPartitionSurface.hpp>
+#include <openstudio/src/model/InteriorPartitionSurface_Impl.hpp>
+#include <openstudio/src/model/Schedule.hpp>
+#include <openstudio/src/model/Schedule_Impl.hpp>
+#include <openstudio/src/model/ShadingControl.hpp>
+#include <openstudio/src/model/ShadingControl_Impl.hpp>
+#include <openstudio/src/model/ShadingSurface.hpp>
+#include <openstudio/src/model/ShadingSurface_Impl.hpp>
+#include <openstudio/src/model/Space.hpp>
+#include <openstudio/src/model/Space_Impl.hpp>
+#include <openstudio/src/model/Surface.hpp>
+#include <openstudio/src/model/Surface_Impl.hpp>
+#include <openstudio/src/model/SubSurface.hpp>
+#include <openstudio/src/model/SubSurface_Impl.hpp>
+#include <openstudio/src/model/WindowPropertyFrameAndDivider.hpp>
+#include <openstudio/src/model/WindowPropertyFrameAndDivider_Impl.hpp>
 
-#include "../utilities/core/Assert.hpp"
-#include "../utilities/idd/IddEnums.hxx"
-#include "../utilities/idd/OS_Space_FieldEnums.hxx"
+#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/src/utilities/idd/IddEnums.hxx>
+#include <openstudio/src/utilities/idd/OS_Space_FieldEnums.hxx>
 
 #include <QCheckBox>
 

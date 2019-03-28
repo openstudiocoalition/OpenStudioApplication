@@ -34,7 +34,7 @@
 #include <boost/optional.hpp>
 #include "../shared_gui_components/OSListController.hpp"
 #include "../model_editor/QMetaTypes.hpp"
-#include "model/RefrigerationSystem.hpp"
+#include <openstudio/src/openstudio_lib/model/RefrigerationSystem.hpp>
 
 class QGraphicsScene;
 class QGraphicsView;
@@ -215,4 +215,3 @@ class RefrigerationSystemListItem : public OSListItem
 } // openstudio
 
 #endif // OPENSTUDIO_REFRIGERATIONCONTROLLER_HPP
-

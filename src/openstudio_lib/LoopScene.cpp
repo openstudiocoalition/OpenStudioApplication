@@ -37,22 +37,22 @@
 #include <QGraphicsItem>
 #include <QMimeData>
 #include <cmath>
-#include "../model/Loop.hpp"
-#include "../model/Model.hpp"
-#include "../model/Model_Impl.hpp"
-#include "../model/Splitter.hpp"
-#include "../model/Mixer.hpp"
-#include "../model/ModelObject.hpp"
-#include "../model/HVACComponent.hpp"
-#include "../model/HVACComponent_Impl.hpp"
-#include "../model/StraightComponent.hpp"
-#include "../model/StraightComponent_Impl.hpp"
-#include "../model/AirLoopHVACOutdoorAirSystem.hpp"
-#include "../model/AirLoopHVACOutdoorAirSystem_Impl.hpp"
-#include "../model/ThermalZone.hpp"
-#include "../model/ThermalZone_Impl.hpp"
-#include "../model/Node.hpp"
-#include "../model/Node_Impl.hpp"
+#include <openstudio/src/model/Loop.hpp>
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/model/Model_Impl.hpp>
+#include <openstudio/src/model/Splitter.hpp>
+#include <openstudio/src/model/Mixer.hpp>
+#include <openstudio/src/model/ModelObject.hpp>
+#include <openstudio/src/model/HVACComponent.hpp>
+#include <openstudio/src/model/HVACComponent_Impl.hpp>
+#include <openstudio/src/model/StraightComponent.hpp>
+#include <openstudio/src/model/StraightComponent_Impl.hpp>
+#include <openstudio/src/model/AirLoopHVACOutdoorAirSystem.hpp>
+#include <openstudio/src/model/AirLoopHVACOutdoorAirSystem_Impl.hpp>
+#include <openstudio/src/model/ThermalZone.hpp>
+#include <openstudio/src/model/ThermalZone_Impl.hpp>
+#include <openstudio/src/model/Node.hpp>
+#include <openstudio/src/model/Node_Impl.hpp>
 #include <QTimer>
 
 using namespace openstudio::model;
@@ -151,4 +151,3 @@ void LoopScene::removedWorkspaceObject(std::shared_ptr<openstudio::detail::Works
 }
 
 } // openstudio
-

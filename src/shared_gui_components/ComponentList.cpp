@@ -30,7 +30,7 @@
 #include "ComponentList.hpp"
 #include "Component.hpp"
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 #include <QAbstractButton>
 #include <QBoxLayout>
@@ -152,4 +152,3 @@ void ComponentList::on_componentClicked(bool)
 
 
 } // openstudio
-

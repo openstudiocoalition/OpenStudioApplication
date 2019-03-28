@@ -35,7 +35,7 @@
 #include "GridViewSubTab.hpp"
 #include "OSItem.hpp"
 
-#include "../model/Model.hpp"
+#include <openstudio/src/model/Model.hpp>
 
 namespace openstudio{
 
@@ -107,4 +107,3 @@ namespace openstudio{
 } // openstudio
 
 #endif // OPENSTUDIO_FACILITYEXTERIOREQUIPMENTGRIDVIEW_HPP
-

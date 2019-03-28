@@ -32,7 +32,7 @@
 
 #include <QGraphicsScene>
 #include <nano/nano_signal_slot.hpp> // Signal-Slot replacement
-#include "../model/ModelObject.hpp"
+#include <openstudio/src/model/ModelObject.hpp>
 #include "OSItem.hpp"
 
 namespace openstudio {
@@ -73,4 +73,3 @@ class GridScene : public QGraphicsScene, public Nano::Observer
 } // openstudio
 
 #endif // OPENSTUDIO_GRIDSCENE_HPP
-

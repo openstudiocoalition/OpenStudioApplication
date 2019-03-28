@@ -32,11 +32,11 @@
 
 #include "MainTabController.hpp"
 
-#include "../model/Model.hpp"
-#include "../model/ScheduleRuleset.hpp"
-#include "../model/ScheduleRuleset_Impl.hpp"
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/model/ScheduleRuleset.hpp>
+#include <openstudio/src/model/ScheduleRuleset_Impl.hpp>
 
-#include "../utilities/core/UUID.hpp"
+#include <openstudio/src/utilities/core/UUID.hpp>
 
 #include <boost/smart_ptr.hpp>
 
@@ -134,4 +134,3 @@ class SchedulesTabController : public MainTabController
 } // openstudio
 
 #endif // OPENSTUDIO_SCHEDULESTABCONTROLLER_HPP
-

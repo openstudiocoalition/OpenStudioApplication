@@ -30,18 +30,18 @@
 #include "ScheduleDialog.hpp"
 #include "SchedulesTabController.hpp"
 
-#include "../model/ScheduleRuleset.hpp"
-#include "../model/ScheduleTypeLimits.hpp"
-#include "../model/ScheduleTypeLimits_Impl.hpp"
-#include "../model/ScheduleDay.hpp"
+#include <openstudio/src/model/ScheduleRuleset.hpp>
+#include <openstudio/src/model/ScheduleTypeLimits.hpp>
+#include <openstudio/src/model/ScheduleTypeLimits_Impl.hpp>
+#include <openstudio/src/model/ScheduleDay.hpp>
 
 #include "../model_editor/Utilities.hpp"
 
-#include "../utilities/units/OSOptionalQuantity.hpp"
-#include "../utilities/units/Quantity.hpp"
-#include "../utilities/units/QuantityConverter.hpp"
-#include "../utilities/time/Time.hpp"
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/units/OSOptionalQuantity.hpp>
+#include <openstudio/src/utilities/units/Quantity.hpp>
+#include <openstudio/src/utilities/units/QuantityConverter.hpp>
+#include <openstudio/src/utilities/time/Time.hpp>
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 #include <QBoxLayout>
 #include <QComboBox>
@@ -357,4 +357,3 @@ void ScheduleDialog::on_okButton(bool checked)
 
 
 } // openstudio
-

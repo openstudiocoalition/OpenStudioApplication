@@ -33,7 +33,7 @@
 #include "ModelObjectInspectorView.hpp"
 #include "ModelObjectVectorController.hpp"
 
-#include "../model/Building.hpp"
+#include <openstudio/src/model/Building.hpp>
 
 class QColor;
 class QComboBox;
@@ -178,4 +178,3 @@ class BuildingInspectorView : public ModelObjectInspectorView
 } // openstudio
 
 #endif // OPENSTUDIO_BUILDINGSTORYINSPECTORVIEW_HPP
-

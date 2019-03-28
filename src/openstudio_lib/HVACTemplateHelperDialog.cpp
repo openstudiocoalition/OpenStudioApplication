@@ -28,8 +28,8 @@
 ***********************************************************************************************************************/
 
 #include "HVACTemplateHelperDialog.hpp"
-#include "../model/ThermalZone.hpp"
-#include "../model/ThermalZone_Impl.hpp"
+#include <openstudio/src/model/ThermalZone.hpp>
+#include <openstudio/src/model/ThermalZone_Impl.hpp>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QButtonGroup>
@@ -141,4 +141,3 @@ std::vector<model::ThermalZone> HVACTemplateHelperDialog::selectedZones()
 }
 
 } // openstudio
-

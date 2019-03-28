@@ -36,10 +36,10 @@
 #include "../shared_gui_components/OSQuantityEdit.hpp"
 #include "../shared_gui_components/OSComboBox.hpp"
 
-#include "../model/CFactorUndergroundWallConstruction.hpp"
-#include "../model/CFactorUndergroundWallConstruction_Impl.hpp"
+#include <openstudio/src/model/CFactorUndergroundWallConstruction.hpp>
+#include <openstudio/src/model/CFactorUndergroundWallConstruction_Impl.hpp>
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 #include <QGridLayout>
 #include <QLabel>
@@ -194,4 +194,3 @@ void ConstructionCfactorUndergroundWallInspectorView::detach()
 }
 
 } // openstudio
-

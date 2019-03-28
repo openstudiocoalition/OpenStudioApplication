@@ -33,12 +33,12 @@
 #include "OSAppBase.hpp"
 #include "OSDocument.hpp"
 
-#include "../model/Construction.hpp"
-#include "../model/Construction_Impl.hpp"
-#include "../model/Material.hpp"
-#include "../model/Material_Impl.hpp"
+#include <openstudio/src/model/Construction.hpp>
+#include <openstudio/src/model/Construction_Impl.hpp>
+#include <openstudio/src/model/Material.hpp>
+#include <openstudio/src/model/Material_Impl.hpp>
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 #include <utilities/idd/OS_Construction_FieldEnums.hxx>
 #include <utilities/idd/IddEnums.hxx>
 

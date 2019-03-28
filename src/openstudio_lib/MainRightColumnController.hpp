@@ -32,7 +32,7 @@
 
 #include "../shared_gui_components/OSQObjectController.hpp"
 #include <boost/smart_ptr.hpp>
-#include "../model/Model.hpp"
+#include <openstudio/src/model/Model.hpp>
 #include "../shared_gui_components/EditController.hpp"
 #include "../shared_gui_components/LocalLibraryController.hpp"
 
@@ -182,4 +182,3 @@ class MainRightColumnController : public OSQObjectController
 } // openstudio
 
 #endif // OPENSTUDIO_MAINRIGHTCOLUMNCONTROLLER_HPP
-

@@ -35,17 +35,17 @@
 #include <QWidget>
 
 #include "AccessPolicyStore.hpp"
-#include "../model/ModelObject.hpp"
+#include <openstudio/src/model/ModelObject.hpp>
 
 #include "ModelEditorAPI.hpp"
 
 #include <nano/nano_signal_slot.hpp> // Signal-Slot replacement
 
-#include "../utilities/idd/IddField.hpp"
-#include "../utilities/idf/Workspace.hpp"
-#include "../utilities/idf/Workspace_Impl.hpp"
-#include "../utilities/idf/WorkspaceObject.hpp"
-#include "../utilities/idf/WorkspaceObject_Impl.hpp"
+#include <openstudio/src/utilities/idd/IddField.hpp>
+#include <openstudio/src/utilities/idf/Workspace.hpp>
+#include <openstudio/src/utilities/idf/Workspace_Impl.hpp>
+#include <openstudio/src/utilities/idf/WorkspaceObject.hpp>
+#include <openstudio/src/utilities/idf/WorkspaceObject_Impl.hpp>
 
 #include <string>
 

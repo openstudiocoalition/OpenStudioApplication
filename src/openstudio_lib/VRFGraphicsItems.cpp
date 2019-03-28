@@ -30,7 +30,7 @@
 #include "OSItem.hpp"
 #include "OSDropZone.hpp"
 #include "VRFGraphicsItems.hpp"
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 #include "../shared_gui_components/Buttons.hpp"
 #include <QPainter>
 #include <utility>
@@ -514,4 +514,3 @@ void VRFSystemDropZoneView::paint( QPainter *painter,
 }
 
 } // openstudio
-

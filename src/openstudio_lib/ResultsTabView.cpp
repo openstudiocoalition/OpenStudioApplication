@@ -45,8 +45,8 @@
 #include <QRegExp>
 #include <QWebEnginePage>
 #include <QWebEngineSettings>
-#include "../utilities/core/Assert.hpp"
-#include "../utilities/core/PathHelpers.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/src/utilities/core/PathHelpers.hpp>
 
 namespace openstudio {
 

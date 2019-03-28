@@ -34,8 +34,8 @@
 
 #include "../model_editor/QMetaTypes.hpp"
 
-#include "../utilities/sql/SqlFile.hpp"
-#include "../utilities/units/Unit.hpp"
+#include <openstudio/src/utilities/sql/SqlFile.hpp>
+#include <openstudio/src/utilities/units/Unit.hpp>
 
 //#include "../runmanager/lib/RunManager.hpp"
 

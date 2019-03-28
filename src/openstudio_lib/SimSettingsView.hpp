@@ -33,9 +33,9 @@
 #include <QWidget>
 
 #include <nano/nano_signal_slot.hpp> // Signal-Slot replacement
-#include "../model/Model.hpp"
-#include "../model/ShadowCalculation.hpp"
-#include "../model/SimulationControl.hpp"
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/model/ShadowCalculation.hpp>
+#include <openstudio/src/model/SimulationControl.hpp>
 
 class QButtonGroup;
 class QCheckBox;

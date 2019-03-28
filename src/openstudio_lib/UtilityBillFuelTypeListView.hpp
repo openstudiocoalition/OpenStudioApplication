@@ -34,10 +34,10 @@
 #include "OSVectorController.hpp"
 
 #include "../model_editor/QMetaTypes.hpp"
-#include "../model/Model.hpp"
-#include "../model/ModelObject.hpp"
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/model/ModelObject.hpp>
 
-#include "../utilities/data/DataEnums.hpp"
+#include <openstudio/src/utilities/data/DataEnums.hpp>
 
 namespace openstudio {
 
@@ -99,4 +99,3 @@ private:
 } // openstudio
 
 #endif // OPENSTUDIO_UTILITYBILLFUELTYPELISTVIEW_HPP
-

@@ -33,7 +33,7 @@
 #include "FieldMethodTypedefs.hpp"
 
 #include <nano/nano_signal_slot.hpp> // Signal-Slot replacement
-#include "../model/Model.hpp"
+#include <openstudio/src/model/Model.hpp>
 
 #include <QLineEdit>
 
@@ -181,4 +181,3 @@ signals:
 } // openstudio
 
 #endif // SHAREDGUICOMPONENTS_OSLINEEDIT_HPP
-

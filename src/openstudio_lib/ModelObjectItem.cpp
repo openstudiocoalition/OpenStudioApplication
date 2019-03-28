@@ -33,17 +33,17 @@
 
 #include "../shared_gui_components/MeasureBadge.hpp"
 
-#include "../model/Model_Impl.hpp"
-#include "../model/ModelObject_Impl.hpp"
-#include "../model/ComponentData.hpp"
-#include "../model/ComponentData_Impl.hpp"
+#include <openstudio/src/model/Model_Impl.hpp>
+#include <openstudio/src/model/ModelObject_Impl.hpp>
+#include <openstudio/src/model/ComponentData.hpp>
+#include <openstudio/src/model/ComponentData_Impl.hpp>
 
 #include "../model_editor/Utilities.hpp"
 
 
 #include <QLabel>
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 namespace openstudio {
 
@@ -112,4 +112,3 @@ void ModelObjectItem::onObjectChanged()
 }
 
 } // openstudio
-

@@ -33,10 +33,10 @@
 #include <QString>
 #include <QWidget>
 
-#include "../model/Model.hpp"
-#include "../model/Building.hpp"
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/model/Building.hpp>
 #include "ModelEditorAPI.hpp"
-#include "../utilities/idf/IdfFile.hpp"
+#include <openstudio/src/utilities/idf/IdfFile.hpp>
 
 class QDialog;
 class QLabel;

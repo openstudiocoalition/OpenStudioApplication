@@ -33,16 +33,16 @@
 
 #include "../shared_gui_components/OSGridView.hpp"
 
-#include "../model/DaylightingControl.hpp"
-#include "../model/DaylightingControl_Impl.hpp"
-#include "../model/GlareSensor.hpp"
-#include "../model/GlareSensor_Impl.hpp"
-#include "../model/Space.hpp"
-#include "../model/Space_Impl.hpp"
+#include <openstudio/src/model/DaylightingControl.hpp>
+#include <openstudio/src/model/DaylightingControl_Impl.hpp>
+#include <openstudio/src/model/GlareSensor.hpp>
+#include <openstudio/src/model/GlareSensor_Impl.hpp>
+#include <openstudio/src/model/Space.hpp>
+#include <openstudio/src/model/Space_Impl.hpp>
 
-#include "../utilities/core/Assert.hpp"
-#include "../utilities/idd/IddEnums.hxx"
-#include "../utilities/idd/OS_Space_FieldEnums.hxx"
+#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/src/utilities/idd/IddEnums.hxx>
+#include <openstudio/src/utilities/idd/OS_Space_FieldEnums.hxx>
 
 #include <QCheckBox>
 

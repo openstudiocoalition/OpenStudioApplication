@@ -32,8 +32,8 @@
 
 #include "../shared_gui_components/OSQObjectController.hpp"
 
-#include "../model/Model.hpp"
-#include "../model/ModelObject.hpp"
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/model/ModelObject.hpp>
 
 namespace openstudio {
 

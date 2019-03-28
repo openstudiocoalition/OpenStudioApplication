@@ -39,9 +39,9 @@
 #include "OtherEquipmentInspectorView.hpp"
 #include "WaterUseEquipmentInspectorView.hpp"
 
-#include "../model/Model_Impl.hpp"
+#include <openstudio/src/model/Model_Impl.hpp>
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 #include <QStyleOption>
 #include <QPainter>

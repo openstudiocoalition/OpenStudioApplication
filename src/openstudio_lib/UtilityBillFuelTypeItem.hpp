@@ -32,7 +32,7 @@
 
 #include "OSCollapsibleItem.hpp"
 
-#include "../model/Model.hpp"
+#include <openstudio/src/model/Model.hpp>
 
 namespace openstudio {
 
@@ -61,4 +61,3 @@ class UtilityBillFuelTypeItem : public OSCollapsibleItem
 } // openstudio
 
 #endif // OPENSTUDIO_UTILITYBILLFUELTYPEITEM_HPP
-

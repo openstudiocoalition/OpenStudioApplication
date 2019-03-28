@@ -33,8 +33,8 @@
 #include "ModelObjectInspectorView.hpp"
 #include "ModelObjectVectorController.hpp"
 
-#include "../model/DefaultScheduleSet.hpp"
-#include "../model/Model.hpp"
+#include <openstudio/src/model/DefaultScheduleSet.hpp>
+#include <openstudio/src/model/Model.hpp>
 
 namespace openstudio {
 

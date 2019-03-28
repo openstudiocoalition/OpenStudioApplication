@@ -33,10 +33,10 @@
 #include <nano/nano_signal_slot.hpp> // Signal-Slot replacement
 #include "FieldMethodTypedefs.hpp"
 
-#include "../model/ModelObject.hpp"
+#include <openstudio/src/model/ModelObject.hpp>
 
-#include "../utilities/units/Unit.hpp"
-#include "../utilities/core/Logger.hpp"
+#include <openstudio/src/utilities/units/Unit.hpp>
+#include <openstudio/src/utilities/core/Logger.hpp>
 
 #include <QLineEdit>
 #include <QLabel>
@@ -258,4 +258,3 @@ class OSQuantityEdit2: public QWidget, public Nano::Observer {
 } // openstudio
 
 #endif // SHAREDGUICOMPONENTS_OSQUANTITYEDIT_HPP
-

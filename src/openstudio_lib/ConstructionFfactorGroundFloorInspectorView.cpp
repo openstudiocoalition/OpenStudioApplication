@@ -35,10 +35,10 @@
 #include "../shared_gui_components/OSQuantityEdit.hpp"
 #include "../shared_gui_components/OSComboBox.hpp"
 
-#include "../model/FFactorGroundFloorConstruction.hpp"
-#include "../model/FFactorGroundFloorConstruction_Impl.hpp"
+#include <openstudio/src/model/FFactorGroundFloorConstruction.hpp>
+#include <openstudio/src/model/FFactorGroundFloorConstruction_Impl.hpp>
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 #include <QGridLayout>
 #include <QLabel>
@@ -212,4 +212,3 @@ void ConstructionFfactorGroundFloorInspectorView::detach()
 }
 
 } // openstudio
-

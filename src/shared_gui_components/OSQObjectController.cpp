@@ -29,7 +29,7 @@
 
 #include "OSQObjectController.hpp"
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 #include <algorithm>
 
@@ -73,4 +73,3 @@ void OSQObjectController::onObjectDestroyed(QObject * object)
 
 
 } // openstudio
-

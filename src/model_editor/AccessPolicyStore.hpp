@@ -36,9 +36,9 @@
 
 #include <QString>
 
-#include "../utilities/idd/IddObject.hpp"
+#include <openstudio/src/utilities/idd/IddObject.hpp>
 
-#include "../utilities/core/Path.hpp"
+#include <openstudio/src/utilities/core/Path.hpp>
 
 namespace openstudio
 {

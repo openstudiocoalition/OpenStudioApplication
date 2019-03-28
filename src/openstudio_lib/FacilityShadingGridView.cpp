@@ -34,27 +34,27 @@
 
 #include "../shared_gui_components/OSGridView.hpp"
 
-#include "../model/Blind.hpp"
-#include "../model/Blind_Impl.hpp"
-#include "../model/ConstructionBase.hpp"
-#include "../model/ConstructionBase_Impl.hpp"
-#include "../model/Model.hpp"
-#include "../model/Model_Impl.hpp"
-#include "../model/ModelObject.hpp"
-#include "../model/ModelObject_Impl.hpp"
-#include "../model/Schedule.hpp"
-#include "../model/Schedule_Impl.hpp"
-#include "../model/ShadingSurface.hpp"
-#include "../model/ShadingSurface_Impl.hpp"
-#include "../model/ShadingSurfaceGroup.hpp"
-#include "../model/ShadingSurfaceGroup_Impl.hpp"
+#include <openstudio/src/model/Blind.hpp>
+#include <openstudio/src/model/Blind_Impl.hpp>
+#include <openstudio/src/model/ConstructionBase.hpp>
+#include <openstudio/src/model/ConstructionBase_Impl.hpp>
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/model/Model_Impl.hpp>
+#include <openstudio/src/model/ModelObject.hpp>
+#include <openstudio/src/model/ModelObject_Impl.hpp>
+#include <openstudio/src/model/Schedule.hpp>
+#include <openstudio/src/model/Schedule_Impl.hpp>
+#include <openstudio/src/model/ShadingSurface.hpp>
+#include <openstudio/src/model/ShadingSurface_Impl.hpp>
+#include <openstudio/src/model/ShadingSurfaceGroup.hpp>
+#include <openstudio/src/model/ShadingSurfaceGroup_Impl.hpp>
 
-#include "../utilities/core/Assert.hpp"
-#include "../utilities/idd/IddEnums.hxx"
-#include "../utilities/idd/OS_ShadingSurface_FieldEnums.hxx"
-#include "../utilities/idd/OS_ShadingSurfaceGroup_FieldEnums.hxx"
-#include "../utilities/idd/OS_WindowMaterial_Blind_FieldEnums.hxx"
-#include "../utilities/units/QuantityConverter.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/src/utilities/idd/IddEnums.hxx>
+#include <openstudio/src/utilities/idd/OS_ShadingSurface_FieldEnums.hxx>
+#include <openstudio/src/utilities/idd/OS_ShadingSurfaceGroup_FieldEnums.hxx>
+#include <openstudio/src/utilities/idd/OS_WindowMaterial_Blind_FieldEnums.hxx>
+#include <openstudio/src/utilities/units/QuantityConverter.hpp>
 
 #include <QBoxLayout>
 #include <QCheckBox>

@@ -33,9 +33,9 @@
 #include "OSListController.hpp"
 #include "OSListView.hpp"
 #include "BaseApp.hpp"
-#include "../utilities/bcl/BCLMeasure.hpp"
-#include "../utilities/core/Logger.hpp"
-#include "../utilities/filetypes/WorkflowStep.hpp"
+#include <openstudio/src/utilities/bcl/BCLMeasure.hpp>
+#include <openstudio/src/utilities/core/Logger.hpp>
+#include <openstudio/src/utilities/filetypes/WorkflowStep.hpp>
 #include <QObject>
 #include <QPointer>
 #include <QSharedPointer>

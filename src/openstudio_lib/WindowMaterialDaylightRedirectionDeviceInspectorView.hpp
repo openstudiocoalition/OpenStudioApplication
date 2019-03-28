@@ -32,7 +32,7 @@
 
 #include "ModelObjectInspectorView.hpp"
 
-#include "../model/DaylightRedirectionDevice.hpp"
+#include <openstudio/src/model/DaylightRedirectionDevice.hpp>
 
 namespace openstudio {
 
@@ -85,4 +85,3 @@ class WindowMaterialDaylightRedirectionDeviceInspectorView : public ModelObjectI
 } // openstudio
 
 #endif // OPENSTUDIO_WINDOWMATERIALDAYLIGHTREDIRECTIONDEVICEINSPECTORVIEW_HPP
-

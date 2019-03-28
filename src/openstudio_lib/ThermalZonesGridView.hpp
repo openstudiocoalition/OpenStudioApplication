@@ -33,7 +33,7 @@
 #include "../shared_gui_components/OSGridController.hpp"
 #include "OSItem.hpp"
 
-#include "../model/Model.hpp"
+#include <openstudio/src/model/Model.hpp>
 
 #include <QWidget>
 
@@ -113,4 +113,3 @@ namespace openstudio{
 } // openstudio
 
 #endif // OPENSTUDIO_THERMALZONESGRIDVIEW_HPP
-

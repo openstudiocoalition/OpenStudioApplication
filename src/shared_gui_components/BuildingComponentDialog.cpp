@@ -33,7 +33,7 @@
 #include "Component.hpp"
 #include "TIDItemModel.hpp"
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 #include <QBoxLayout>
 #include <QButtonGroup>
@@ -367,4 +367,3 @@ void BuildingComponentDialog::on_noComponents()
 }
 
 } // namespace openstudio
-

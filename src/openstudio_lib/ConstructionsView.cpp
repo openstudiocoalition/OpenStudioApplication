@@ -36,9 +36,9 @@
 #include "ConstructionWindowDataFileInspectorView.hpp"
 #include "ModelObjectTypeListView.hpp"
 
-#include "../model/Model_Impl.hpp"
+#include <openstudio/src/model/Model_Impl.hpp>
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 #include <utilities/idd/IddEnums.hxx>
 #include <QStackedWidget>

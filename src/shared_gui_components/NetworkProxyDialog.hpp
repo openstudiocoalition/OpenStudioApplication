@@ -35,7 +35,7 @@
 #include <QSettings>
 #include <QNetworkReply>
 
-#include "../utilities/core/Logger.hpp"
+#include <openstudio/src/utilities/core/Logger.hpp>
 
 class QComboBox;
 class QLineEdit;

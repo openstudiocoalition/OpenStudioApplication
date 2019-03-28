@@ -33,7 +33,7 @@
 #include "ModelObjectInspectorView.hpp"
 #include "ModelSubTabView.hpp"
 
-#include "../model/Model.hpp"
+#include <openstudio/src/model/Model.hpp>
 
 #include <QWidget>
 #include <QWebEngineView>

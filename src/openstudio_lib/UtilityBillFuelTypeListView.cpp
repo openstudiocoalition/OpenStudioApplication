@@ -33,14 +33,14 @@
 #include "OSItemList.hpp"
 #include "OSAppBase.hpp"
 
-#include "../model/Model_Impl.hpp"
-#include "../model/ModelObject_Impl.hpp"
-#include "../model/UtilityBill.hpp"
-#include "../model/UtilityBill_Impl.hpp"
+#include <openstudio/src/model/Model_Impl.hpp>
+#include <openstudio/src/model/ModelObject_Impl.hpp>
+#include <openstudio/src/model/UtilityBill.hpp>
+#include <openstudio/src/model/UtilityBill_Impl.hpp>
 
 #include "../model_editor/Utilities.hpp"
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 #include <iostream>
 
@@ -164,4 +164,3 @@ FuelType UtilityBillFuelTypeListView::fuelType() const
 }
 
 } // openstudio
-

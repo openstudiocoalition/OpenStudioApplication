@@ -35,11 +35,11 @@
 #include <QPixmap>
 #include <QPointer>
 #include <nano/nano_signal_slot.hpp> // Signal-Slot replacement
-#include "../model/ModelObject.hpp"
-#include "../model/Node.hpp"
-#include "../model/Mixer.hpp"
-#include "../model/Splitter.hpp"
-#include "../model/Loop.hpp"
+#include <openstudio/src/model/ModelObject.hpp>
+#include <openstudio/src/model/Node.hpp>
+#include <openstudio/src/model/Mixer.hpp>
+#include <openstudio/src/model/Splitter.hpp>
+#include <openstudio/src/model/Loop.hpp>
 #include "OSItem.hpp"
 #include "shared_gui_components/GraphicsItems.hpp"
 
@@ -1152,4 +1152,3 @@ class TwoThreeFourStraightItem : public GridItem
 } // openstudio
 
 #endif // OPENSTUDIO_GRIDITEM_HPP
-

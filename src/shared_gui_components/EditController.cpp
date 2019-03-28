@@ -32,8 +32,8 @@
 #include "OSViewSwitcher.hpp"
 #include "WorkflowController.hpp"
 
-#include "../utilities/bcl/BCLMeasure.hpp"
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/bcl/BCLMeasure.hpp>
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 #include <QWidget>
 #include <QLineEdit>
@@ -409,4 +409,3 @@ bool InputController::isItOKToClearResults()
 }
 
 } // openstudio
-

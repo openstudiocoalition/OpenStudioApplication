@@ -29,20 +29,20 @@
 
 #include "RenderingColorWidget.hpp"
 
-#include "../model/RenderingColor_Impl.hpp"
+#include <openstudio/src/model/RenderingColor_Impl.hpp>
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 
-#include "../model/BuildingStory.hpp"
-#include "../model/BuildingStory_Impl.hpp"
-#include "../model/ConstructionBase.hpp"
-#include "../model/ConstructionBase_Impl.hpp"
-#include "../model/LightingSimulationZone.hpp"
-#include "../model/LightingSimulationZone_Impl.hpp"
-#include "../model/SpaceType.hpp"
-#include "../model/SpaceType_Impl.hpp"
-#include "../model/ThermalZone.hpp"
-#include "../model/ThermalZone_Impl.hpp"
+#include <openstudio/src/model/BuildingStory.hpp>
+#include <openstudio/src/model/BuildingStory_Impl.hpp>
+#include <openstudio/src/model/ConstructionBase.hpp>
+#include <openstudio/src/model/ConstructionBase_Impl.hpp>
+#include <openstudio/src/model/LightingSimulationZone.hpp>
+#include <openstudio/src/model/LightingSimulationZone_Impl.hpp>
+#include <openstudio/src/model/SpaceType.hpp>
+#include <openstudio/src/model/SpaceType_Impl.hpp>
+#include <openstudio/src/model/ThermalZone.hpp>
+#include <openstudio/src/model/ThermalZone_Impl.hpp>
 
 #include <QBoxLayout>
 #include <QColor>
@@ -367,4 +367,3 @@ void RenderingColorWidget::renderColorButtonClicked()
 }
 
 } // openstudio
-

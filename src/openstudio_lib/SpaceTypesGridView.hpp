@@ -34,7 +34,7 @@
 
 #include "OSItem.hpp"
 
-#include "../model/Model.hpp"
+#include <openstudio/src/model/Model.hpp>
 
 #include <QWidget>
 
@@ -130,4 +130,3 @@ namespace openstudio{
 } // openstudio
 
 #endif // OPENSTUDIO_SPACETYPESGRIDVIEW_HPP
-

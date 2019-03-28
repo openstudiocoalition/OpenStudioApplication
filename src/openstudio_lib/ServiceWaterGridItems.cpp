@@ -30,14 +30,14 @@
 #include "ServiceWaterGridItems.hpp"
 #include "ServiceWaterScene.hpp"
 #include "IconLibrary.hpp"
-#include "../model/WaterUseConnections.hpp"
-#include "../model/WaterUseConnections_Impl.hpp"
-#include "../model/WaterUseEquipment.hpp"
-#include "../model/WaterUseEquipment_Impl.hpp"
-#include "../model/PlantLoop.hpp"
-#include "../model/PlantLoop_Impl.hpp"
-#include "../model/ModelObject.hpp"
-#include "../model/ModelObject_Impl.hpp"
+#include <openstudio/src/model/WaterUseConnections.hpp>
+#include <openstudio/src/model/WaterUseConnections_Impl.hpp>
+#include <openstudio/src/model/WaterUseEquipment.hpp>
+#include <openstudio/src/model/WaterUseEquipment_Impl.hpp>
+#include <openstudio/src/model/PlantLoop.hpp>
+#include <openstudio/src/model/PlantLoop_Impl.hpp>
+#include <openstudio/src/model/ModelObject.hpp>
+#include <openstudio/src/model/ModelObject_Impl.hpp>
 #include <QPainter>
 #include <QMimeData>
 #include <QGraphicsSceneDragDropEvent>
@@ -968,4 +968,3 @@ ButtonItem * MakeupWaterItem::mainsSupplyButton() const
 }
 
 } // openstudio
-

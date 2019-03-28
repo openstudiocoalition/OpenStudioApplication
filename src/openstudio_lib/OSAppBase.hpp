@@ -32,11 +32,11 @@
 
 #include "../shared_gui_components/BaseApp.hpp"
 
-#include "../measure/OSMeasureInfoGetter.hpp"
+#include <openstudio/src/measure/OSMeasureInfoGetter.hpp>
 #include "../model_editor/QMetaTypes.hpp"
 
 #include "OpenStudioAPI.hpp"
-#include "../utilities/core/Logger.hpp"
+#include <openstudio/src/utilities/core/Logger.hpp>
 
 #include <QApplication>
 
@@ -120,4 +120,3 @@ class OPENSTUDIO_API OSAppBase : public QApplication, public BaseApp
 } // openstudio
 
 #endif // OPENSTUDIO_OSAPPBASE_HPP
-

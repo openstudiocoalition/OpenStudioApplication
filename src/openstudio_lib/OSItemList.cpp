@@ -30,7 +30,7 @@
 #include "OSItemList.hpp"
 #include "OSVectorController.hpp"
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 #include <QVBoxLayout>
 #include <QScrollArea>
@@ -356,4 +356,3 @@ void OSItemList::setItemsType(OSItemType type)
 }
 
 } // openstudio
-

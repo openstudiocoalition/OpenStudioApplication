@@ -36,12 +36,12 @@
 #include "../shared_gui_components/OSQuantityEdit.hpp"
 #include "../shared_gui_components/OSSwitch.hpp"
 
-#include "../model/Glazing.hpp"
-#include "../model/Glazing_Impl.hpp"
-#include "../model/StandardGlazing.hpp"
-#include "../model/StandardGlazing_Impl.hpp"
+#include <openstudio/src/model/Glazing.hpp>
+#include <openstudio/src/model/Glazing_Impl.hpp>
+#include <openstudio/src/model/StandardGlazing.hpp>
+#include <openstudio/src/model/StandardGlazing_Impl.hpp>
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 #include <QGridLayout>
 #include <QLabel>

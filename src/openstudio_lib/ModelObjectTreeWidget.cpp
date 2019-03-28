@@ -31,12 +31,12 @@
 #include "ModelObjectTreeItems.hpp"
 #include "OSAppBase.hpp"
 
-#include "../model/Model.hpp"
-#include "../model/Model_Impl.hpp"
-#include "../model/ModelObject.hpp"
-#include "../model/ModelObject_Impl.hpp"
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/model/Model_Impl.hpp>
+#include <openstudio/src/model/ModelObject.hpp>
+#include <openstudio/src/model/ModelObject_Impl.hpp>
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 #include <QVBoxLayout>
 #include <QTreeWidget>
@@ -113,4 +113,3 @@ void ModelObjectTreeWidget::refresh()
 }
 
 } // openstudio
-

@@ -28,14 +28,14 @@
 ***********************************************************************************************************************/
 
 #include "EMSInspectorView.hpp"
-#include "../model/ModelObject.hpp"
-#include "../model/EnergyManagementSystemActuator.hpp"
-#include "../model/EnergyManagementSystemActuator_Impl.hpp"
-#include "../model/EnergyManagementSystemSensor.hpp"
-#include "../model/EnergyManagementSystemSensor_Impl.hpp"
-#include "../model/ParentObject.hpp"
-#include "../model/ParentObject_Impl.hpp"
-#include "../model/Model.hpp"
+#include <openstudio/src/model/ModelObject.hpp>
+#include <openstudio/src/model/EnergyManagementSystemActuator.hpp>
+#include <openstudio/src/model/EnergyManagementSystemActuator_Impl.hpp>
+#include <openstudio/src/model/EnergyManagementSystemSensor.hpp>
+#include <openstudio/src/model/EnergyManagementSystemSensor_Impl.hpp>
+#include <openstudio/src/model/ParentObject.hpp>
+#include <openstudio/src/model/ParentObject_Impl.hpp>
+#include <openstudio/src/model/Model.hpp>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QCheckBox>
@@ -277,4 +277,3 @@ void EMSInspectorView::layoutModelObject( const model::ModelObject & modelObject
 }
 
 } // openstudio
-

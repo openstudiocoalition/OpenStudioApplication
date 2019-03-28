@@ -76,26 +76,26 @@
 
 //#include "../analysis/Analysis.hpp"
 
-#include "../model/FileOperations.hpp"
-#include "../model/Component.hpp"
-#include "../model/WeatherFile.hpp"
-#include "../model/WeatherFile_Impl.hpp"
+#include <openstudio/src/model/FileOperations.hpp>
+#include <openstudio/src/model/Component.hpp>
+#include <openstudio/src/model/WeatherFile.hpp>
+#include <openstudio/src/model/WeatherFile_Impl.hpp>
 
-#include "../utilities/bcl/BCLComponent.hpp"
-#include "../utilities/bcl/LocalBCL.hpp"
-#include "../utilities/bcl/RemoteBCL.hpp"
-#include "../utilities/core/Assert.hpp"
-#include "../utilities/core/Checksum.hpp"
-#include "../utilities/core/PathHelpers.hpp"
-#include "../utilities/data/Attribute.hpp"
-#include "../utilities/idf/IdfFile.hpp"
-#include "../utilities/idf/ValidityReport.hpp"
-#include "../utilities/idf/Workspace.hpp"
-#include "../utilities/filetypes/EpwFile.hpp"
-#include "../utilities/filetypes/WorkflowJSON.hpp"
-#include "../utilities/filetypes/WorkflowJSON_Impl.hpp"
+#include <openstudio/src/utilities/bcl/BCLComponent.hpp>
+#include <openstudio/src/utilities/bcl/LocalBCL.hpp>
+#include <openstudio/src/utilities/bcl/RemoteBCL.hpp>
+#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/src/utilities/core/Checksum.hpp>
+#include <openstudio/src/utilities/core/PathHelpers.hpp>
+#include <openstudio/src/utilities/data/Attribute.hpp>
+#include <openstudio/src/utilities/idf/IdfFile.hpp>
+#include <openstudio/src/utilities/idf/ValidityReport.hpp>
+#include <openstudio/src/utilities/idf/Workspace.hpp>
+#include <openstudio/src/utilities/filetypes/EpwFile.hpp>
+#include <openstudio/src/utilities/filetypes/WorkflowJSON.hpp>
+#include <openstudio/src/utilities/filetypes/WorkflowJSON_Impl.hpp>
 
-#include "../osversion/VersionTranslator.hpp"
+#include <openstudio/src/osversion/VersionTranslator.hpp>
 
 //#include "../analysis/DataPoint.hpp"
 //#include "../analysis/MeasureGroup.hpp"
@@ -111,9 +111,9 @@
 
 #include <OpenStudio.hxx>
 
-#include "../energyplus/ForwardTranslator.hpp"
-#include "../gbxml/ForwardTranslator.hpp"
-#include "../sdd/ForwardTranslator.hpp"
+#include <openstudio/src/energyplus/ForwardTranslator.hpp>
+#include <openstudio/src/gbxml/ForwardTranslator.hpp>
+#include <openstudio/src/sdd/ForwardTranslator.hpp>
 
 
 

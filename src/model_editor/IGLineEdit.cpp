@@ -28,8 +28,8 @@
 ***********************************************************************************************************************/
 
 #include "IGLineEdit.hpp"
-#include "../utilities/core/Assert.hpp"
-#include "../utilities/core/Optional.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/src/utilities/core/Optional.hpp>
 #include <sstream>
 #include <string>
 #include <limits>

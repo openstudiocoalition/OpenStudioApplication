@@ -32,7 +32,7 @@
 #include <QSplitter>
 #include <QStringList>
 
-#include "../model/ParentObject_Impl.hpp"
+#include <openstudio/src/model/ParentObject_Impl.hpp>
 #include "InspectorGadget.hpp"
 #include "ModelExplorer.hpp"
 #include <model_editor/modeltest.h>
@@ -41,7 +41,7 @@
 
 #include "TreeViewWidget.hpp"
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 #include <utilities/idd/IddEnums.hxx>
 
 using namespace openstudio::model;

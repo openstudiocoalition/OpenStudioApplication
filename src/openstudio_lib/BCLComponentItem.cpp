@@ -33,8 +33,8 @@
 
 #include "../shared_gui_components/MeasureBadge.hpp"
 
-#include "../utilities/bcl/BCLComponent.hpp"
-#include "../utilities/bcl/LocalBCL.hpp"
+#include <openstudio/src/utilities/bcl/BCLComponent.hpp>
+#include <openstudio/src/utilities/bcl/LocalBCL.hpp>
 
 #include <QLabel>
 
@@ -72,4 +72,3 @@ bool BCLComponentItem::equal(const openstudio::OSItem * item) const
 }
 
 } // openstudio
-

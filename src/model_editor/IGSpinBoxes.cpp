@@ -29,7 +29,7 @@
 
 #include "IGSpinBoxes.hpp"
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 #include <QWheelEvent>
 #include <string>

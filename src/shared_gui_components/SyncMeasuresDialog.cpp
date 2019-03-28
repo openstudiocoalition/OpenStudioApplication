@@ -33,8 +33,8 @@
 #include "../shared_gui_components/MeasureManager.hpp"
 #include "../shared_gui_components/SyncMeasuresDialogCentralWidget.hpp"
 
-#include "../utilities/bcl/BCLMeasure.hpp"
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/bcl/BCLMeasure.hpp>
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 #include <vector>
 
@@ -192,4 +192,3 @@ void SyncMeasuresDialog::closeDlg()
 }
 
 } // namespace openstudio
-

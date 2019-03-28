@@ -34,7 +34,7 @@
 #include <QPainter>
 #include <QPushButton>
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 namespace openstudio {
 
@@ -131,4 +131,3 @@ bool OSCollapsibleView::isExpanded()
 }
 
 } // openstudio
-

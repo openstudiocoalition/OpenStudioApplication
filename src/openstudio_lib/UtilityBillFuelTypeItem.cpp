@@ -31,12 +31,12 @@
 #include "OSCollapsibleItemHeader.hpp"
 #include "UtilityBillFuelTypeListView.hpp"
 
-#include "../model/Model.hpp"
-#include "../model/Model_Impl.hpp"
-#include "../model/ModelObject_Impl.hpp"
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/model/Model_Impl.hpp>
+#include <openstudio/src/model/ModelObject_Impl.hpp>
 
-#include "../utilities/core/Assert.hpp"
-#include "../utilities/data/DataEnums.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/src/utilities/data/DataEnums.hpp>
 
 #include <utilities/idd/IddEnums.hxx>
 
@@ -70,4 +70,3 @@ FuelType UtilityBillFuelTypeItem::fuelType() const
 }
 
 } // openstudio
-

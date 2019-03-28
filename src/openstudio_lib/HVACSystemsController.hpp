@@ -30,9 +30,9 @@
 #ifndef OPENSTUDIO_HVACSYSTEMSCONTROLLER_HPP
 #define OPENSTUDIO_HVACSYSTEMSCONTROLLER_HPP
 
-#include "../model/Model.hpp"
-#include "../model/ModelObject.hpp"
-#include "../model/Loop.hpp"
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/model/ModelObject.hpp>
+#include <openstudio/src/model/Loop.hpp>
 #include "OSDropZone.hpp"
 #include "ModelObjectItem.hpp"
 #include "ModelObjectVectorController.hpp"
@@ -443,4 +443,3 @@ class AvailabilityManagerObjectVectorController : public ModelObjectVectorContro
 } // openstudio
 
 #endif // OPENSTUDIO_HVACSYSTEMSCONTROLLER_HPP
-

@@ -33,9 +33,9 @@
 #include "ModelSubTabView.hpp"
 #include "ModelObjectInspectorView.hpp"
 
-#include "../model/Model.hpp"
+#include <openstudio/src/model/Model.hpp>
 
-#include "../utilities/idf/WorkspaceObject_Impl.hpp"
+#include <openstudio/src/utilities/idf/WorkspaceObject_Impl.hpp>
 
 class QLabel;
 

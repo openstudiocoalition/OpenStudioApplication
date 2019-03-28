@@ -31,28 +31,28 @@
 
 #include "MaterialsView.hpp"
 
-#include "../model/AirGap.hpp"
-#include "../model/AirWallMaterial.hpp"
-#include "../model/Blind.hpp"
-#include "../model/Component.hpp"
-#include "../model/Component_Impl.hpp"
-#include "../model/DaylightRedirectionDevice.hpp"
-#include "../model/InfraredTransparentMaterial.hpp"
-#include "../model/MasslessOpaqueMaterial.hpp"
-#include "../model/Material.hpp"
-#include "../model/Material_Impl.hpp"
-#include "../model/Gas.hpp"
-#include "../model/GasMixture.hpp"
-#include "../model/RefractionExtinctionGlazing.hpp"
-#include "../model/RoofVegetation.hpp"
-#include "../model/Screen.hpp"
-#include "../model/Shade.hpp"
-#include "../model/SimpleGlazing.hpp"
-#include "../model/StandardGlazing.hpp"
-#include "../model/StandardOpaqueMaterial.hpp"
-#include "../model/ThermochromicGlazing.hpp"
+#include <openstudio/src/model/AirGap.hpp>
+#include <openstudio/src/model/AirWallMaterial.hpp>
+#include <openstudio/src/model/Blind.hpp>
+#include <openstudio/src/model/Component.hpp>
+#include <openstudio/src/model/Component_Impl.hpp>
+#include <openstudio/src/model/DaylightRedirectionDevice.hpp>
+#include <openstudio/src/model/InfraredTransparentMaterial.hpp>
+#include <openstudio/src/model/MasslessOpaqueMaterial.hpp>
+#include <openstudio/src/model/Material.hpp>
+#include <openstudio/src/model/Material_Impl.hpp>
+#include <openstudio/src/model/Gas.hpp>
+#include <openstudio/src/model/GasMixture.hpp>
+#include <openstudio/src/model/RefractionExtinctionGlazing.hpp>
+#include <openstudio/src/model/RoofVegetation.hpp>
+#include <openstudio/src/model/Screen.hpp>
+#include <openstudio/src/model/Shade.hpp>
+#include <openstudio/src/model/SimpleGlazing.hpp>
+#include <openstudio/src/model/StandardGlazing.hpp>
+#include <openstudio/src/model/StandardOpaqueMaterial.hpp>
+#include <openstudio/src/model/ThermochromicGlazing.hpp>
 
-#include "../utilities/core/Logger.hpp"
+#include <openstudio/src/utilities/core/Logger.hpp>
 
 #include <utilities/idd/IddEnums.hxx>
 
@@ -171,4 +171,3 @@ void MaterialsController::onInspectItem(OSItem* item)
 }
 
 } // openstudio
-

@@ -41,33 +41,33 @@
 
 #include "../openstudio_app/OpenStudioApp.hpp"
 
-#include "../model/ClimateZones.hpp"
-#include "../model/ClimateZones_Impl.hpp"
-#include "../model/DesignDay.hpp"
-#include "../model/DesignDay_Impl.hpp"
-#include "../model/Model_Impl.hpp"
-#include "../model/RunPeriod.hpp"
-#include "../model/RunPeriodControlDaylightSavingTime.hpp"
-#include "../model/RunPeriodControlDaylightSavingTime_Impl.hpp"
-#include "../model/RunPeriod_Impl.hpp"
-#include "../model/Site_Impl.hpp"
-#include "../model/SizingPeriod.hpp"
-#include "../model/SizingPeriod_Impl.hpp"
-#include "../model/WeatherFile.hpp"
-#include "../model/WeatherFileConditionType.hpp"
-#include "../model/WeatherFileDays.hpp"
-#include "../model/WeatherFile_Impl.hpp"
-#include "../model/YearDescription_Impl.hpp"
+#include <openstudio/src/model/ClimateZones.hpp>
+#include <openstudio/src/model/ClimateZones_Impl.hpp>
+#include <openstudio/src/model/DesignDay.hpp>
+#include <openstudio/src/model/DesignDay_Impl.hpp>
+#include <openstudio/src/model/Model_Impl.hpp>
+#include <openstudio/src/model/RunPeriod.hpp>
+#include <openstudio/src/model/RunPeriodControlDaylightSavingTime.hpp>
+#include <openstudio/src/model/RunPeriodControlDaylightSavingTime_Impl.hpp>
+#include <openstudio/src/model/RunPeriod_Impl.hpp>
+#include <openstudio/src/model/Site_Impl.hpp>
+#include <openstudio/src/model/SizingPeriod.hpp>
+#include <openstudio/src/model/SizingPeriod_Impl.hpp>
+#include <openstudio/src/model/WeatherFile.hpp>
+#include <openstudio/src/model/WeatherFileConditionType.hpp>
+#include <openstudio/src/model/WeatherFileDays.hpp>
+#include <openstudio/src/model/WeatherFile_Impl.hpp>
+#include <openstudio/src/model/YearDescription_Impl.hpp>
 
 #include "../model_editor/Utilities.hpp"
 
-#include "../energyplus/ReverseTranslator.hpp"
+#include <openstudio/src/energyplus/ReverseTranslator.hpp>
 
 //#include "../runmanager/lib/ConfigOptions.hpp"
 
-#include "../utilities/core/Assert.hpp"
-#include "../utilities/filetypes/EpwFile.hpp"
-#include "../utilities/idf/IdfFile.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/src/utilities/filetypes/EpwFile.hpp>
+#include <openstudio/src/utilities/idf/IdfFile.hpp>
 
 #include <utilities/idd/IddEnums.hxx>
 

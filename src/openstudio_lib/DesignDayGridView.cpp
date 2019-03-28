@@ -36,13 +36,13 @@
 #include "OSDocument.hpp"
 #include "OSDropZone.hpp"
 
-#include "../model/DesignDay.hpp"
-#include "../model/DesignDay_Impl.hpp"
-#include "../model/ScheduleDay.hpp"
-#include "../model/ScheduleDay_Impl.hpp"
+#include <openstudio/src/model/DesignDay.hpp>
+#include <openstudio/src/model/DesignDay_Impl.hpp>
+#include <openstudio/src/model/ScheduleDay.hpp>
+#include <openstudio/src/model/ScheduleDay_Impl.hpp>
 
-#include "../utilities/idd/IddEnums.hxx"
-#include "../utilities/idd/SizingPeriod_DesignDay_FieldEnums.hxx"
+#include <openstudio/src/utilities/idd/IddEnums.hxx>
+#include <openstudio/src/utilities/idd/SizingPeriod_DesignDay_FieldEnums.hxx>
 
 #include <QBoxLayout>
 #include <QCheckBox>
@@ -597,4 +597,3 @@ void DesignDayGridController::onComboBoxIndexChanged(int index)
 }
 
 } // openstudio
-

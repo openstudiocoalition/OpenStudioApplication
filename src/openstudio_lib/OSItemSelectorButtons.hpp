@@ -32,8 +32,8 @@
 
 #include "MainTabView.hpp"
 
-#include "../model/Model.hpp"
-#include "../model/ModelObject.hpp"
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/model/ModelObject.hpp>
 
 #include <QWidget>
 
@@ -133,4 +133,3 @@ class OSItemSelectorButtons : public QWidget
 } // openstudio
 
 #endif // OPENSTUDIO_OSITEMSELECTORBUTTONS_HPP
-

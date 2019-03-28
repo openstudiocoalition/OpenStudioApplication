@@ -38,7 +38,7 @@
 
 #include "../shared_gui_components/NetworkProxyDialog.hpp"
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 #include <QAction>
 #include <QApplication>

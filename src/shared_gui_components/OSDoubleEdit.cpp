@@ -29,12 +29,12 @@
 
 #include "OSDoubleEdit.hpp"
 
-#include "../model/ModelObject_Impl.hpp"
+#include <openstudio/src/model/ModelObject_Impl.hpp>
 
 #include "../model_editor/Utilities.hpp"
 
-#include "../utilities/core/Assert.hpp"
-#include "../utilities/core/Containers.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/src/utilities/core/Containers.hpp>
 
 #include <QDoubleValidator>
 #include <QFocusEvent>
@@ -478,4 +478,3 @@ void OSDoubleEdit2::focusOutEvent(QFocusEvent * e)
 }
 
 } // openstudio
-

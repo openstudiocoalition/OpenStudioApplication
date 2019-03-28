@@ -33,7 +33,7 @@
 #include <QPainter>
 #include <QRectF>
 #include <boost/smart_ptr.hpp>
-#include "../model/Loop.hpp"
+#include <openstudio/src/model/Loop.hpp>
 #include "OSItem.hpp"
 #include "GridScene.hpp"
 #include "../model_editor/QMetaTypes.hpp"
@@ -112,4 +112,3 @@ class LoopScene : public GridScene
 } // openstudio
 
 #endif // OPENSTUDIO_LOOPSCENE_HPP
-

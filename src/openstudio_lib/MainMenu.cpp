@@ -32,10 +32,10 @@
 #include "OSAppBase.hpp"
 #include "OSDocument.hpp"
 
-#include "../osversion/VersionTranslator.hpp"
+#include <openstudio/src/osversion/VersionTranslator.hpp>
 
-#include "../utilities/core/Assert.hpp"
-#include "../utilities/core/Path.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/src/utilities/core/Path.hpp>
 
 #include <QMenu>
 
@@ -283,4 +283,3 @@ void MainMenu::enableComponentsMeasuresActions(bool enable)
 }
 
 } // openstudio
-

@@ -30,8 +30,8 @@
 #ifndef OPENSTUDIO_OSINSPECTORVIEW_HPP
 #define OPENSTUDIO_OSINSPECTORVIEW_HPP
 
-#include "../model/Model.hpp"
-#include "../model/ModelObject.hpp"
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/model/ModelObject.hpp>
 
 #include <boost/smart_ptr.hpp>
 #include <boost/optional.hpp>
@@ -88,4 +88,3 @@ class OSInspectorView : public QWidget
 } // openstudio
 
 #endif // OPENSTUDIO_OSINSPECTORVIEW_HPP
-

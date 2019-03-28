@@ -32,12 +32,12 @@
 
 #include "ModelEditorAPI.hpp"
 
-#include "../model/Model.hpp"
+#include <openstudio/src/model/Model.hpp>
 
-#include "../utilities/idd/IddEnums.hpp"
-#include "../utilities/idd/IddFile.hpp"
-#include "../utilities/core/UUID.hpp"
-#include "../utilities/core/Enum.hpp"
+#include <openstudio/src/utilities/idd/IddEnums.hpp>
+#include <openstudio/src/utilities/idd/IddFile.hpp>
+#include <openstudio/src/utilities/core/UUID.hpp>
+#include <openstudio/src/utilities/core/Enum.hpp>
 
 #include <nano/nano_signal_slot.hpp> // Signal-Slot replacement
 

@@ -33,13 +33,13 @@
 #include <QDialog>
 #include <QWidget>
 
-#include "../model/HVACComponent.hpp"
-#include "../model/HVACComponent_Impl.hpp"
-#include "../model/ModelObject.hpp"
-#include "../model/StraightComponent.hpp"
-#include "../model/StraightComponent_Impl.hpp"
-#include "../model/WaterToAirComponent.hpp"
-#include "../model/WaterToAirComponent_Impl.hpp"
+#include <openstudio/src/model/HVACComponent.hpp>
+#include <openstudio/src/model/HVACComponent_Impl.hpp>
+#include <openstudio/src/model/ModelObject.hpp>
+#include <openstudio/src/model/StraightComponent.hpp>
+#include <openstudio/src/model/StraightComponent_Impl.hpp>
+#include <openstudio/src/model/WaterToAirComponent.hpp>
+#include <openstudio/src/model/WaterToAirComponent_Impl.hpp>
 #include <nano/nano_signal_slot.hpp> // Signal-Slot replacement
 
 
@@ -864,4 +864,3 @@ class ScheduleRulesetInspectorView : public BaseInspectorView
 } // openstudio
 
 #endif // OPENSTUDIO_INSPECTORVIEW_HPP
-

@@ -51,20 +51,20 @@
 #include "../openstudio_lib/RenderingColorWidget.hpp"
 #include "../openstudio_lib/SchedulesView.hpp"
 
-#include "../model/Model_Impl.hpp"
-#include "../model/ModelObject_Impl.hpp"
-#include "../model/PlanarSurface.hpp"
-#include "../model/PlanarSurface_Impl.hpp"
-#include "../model/SpaceType.hpp"
-#include "../model/SpaceType_Impl.hpp"
+#include <openstudio/src/model/Model_Impl.hpp>
+#include <openstudio/src/model/ModelObject_Impl.hpp>
+#include <openstudio/src/model/PlanarSurface.hpp>
+#include <openstudio/src/model/PlanarSurface_Impl.hpp>
+#include <openstudio/src/model/SpaceType.hpp>
+#include <openstudio/src/model/SpaceType_Impl.hpp>
 
 // Which is faster?
-#include "../model/ThermalZone.hpp"
-#include "../model/ThermalZone_Impl.hpp"
+#include <openstudio/src/model/ThermalZone.hpp>
+#include <openstudio/src/model/ThermalZone_Impl.hpp>
 // or
 // #include <utilities/idd/IddEnums.hxx>
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 #include <QApplication>
 #include <QBoxLayout>

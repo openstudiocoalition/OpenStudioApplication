@@ -28,8 +28,8 @@
 ***********************************************************************************************************************/
 
 #include "TIDItemModel.hpp"
-#include "../utilities/core/Compare.hpp"
-#include "../utilities/idd/IddEnums.hpp"
+#include <openstudio/src/utilities/core/Compare.hpp>
+#include <openstudio/src/utilities/idd/IddEnums.hpp>
 #include <utilities/idd/IddEnums.hxx>
 
 namespace openstudio {
@@ -300,4 +300,3 @@ const std::map<int,std::vector<IddObjectType> > TIDItemModel::createTidToOSTypeM
 const std::map<int,std::vector<IddObjectType> > TIDItemModel::tidToOSTypeMap = TIDItemModel::createTidToOSTypeMap();
 
 } // openstudio
-

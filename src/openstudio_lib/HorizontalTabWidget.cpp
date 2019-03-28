@@ -29,7 +29,7 @@
 
 #include "HorizontalTabWidget.hpp"
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 #include <QBoxLayout>
 #include <QPainter>
@@ -253,4 +253,3 @@ void HorizontalTabWidget::hideTab(QWidget * widget, bool hide)
 }
 
 } // namespace openstudio
-

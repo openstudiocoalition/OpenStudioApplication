@@ -31,11 +31,11 @@
 #define OPENSTUDIO_LOOPCHOOSERVIEW_HPP
 
 #include <QWidget>
-#include "../model/ModelObject.hpp"
-#include "../model/WaterToAirComponent.hpp"
-#include "../model/HVACComponent.hpp"
-#include "../model/Loop.hpp"
-#include "../utilities/core/String.hpp"
+#include <openstudio/src/model/ModelObject.hpp>
+#include <openstudio/src/model/WaterToAirComponent.hpp>
+#include <openstudio/src/model/HVACComponent.hpp>
+#include <openstudio/src/model/Loop.hpp>
+#include <openstudio/src/utilities/core/String.hpp>
 
 class QCheckBox;
 
@@ -124,4 +124,3 @@ class LoopChooserItem : public QWidget
 } // openstudio
 
 #endif // OPENSTUDIO_LOOPCHOOSERVIEW_HPP
-

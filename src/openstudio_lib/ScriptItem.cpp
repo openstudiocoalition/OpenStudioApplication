@@ -35,8 +35,8 @@
 //#include "../runmanager/lib/RunManager.hpp"
 //#include "../runmanager/lib/RubyJobUtils.hpp"
 
-#include "../utilities/core/Assert.hpp"
-#include "../utilities/core/Containers.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/src/utilities/core/Containers.hpp>
 
 #include <QDir>
 #include <QMessageBox>
@@ -207,4 +207,3 @@ bool ScriptItem::updateArgumentsFromDb()
 
 
 } // openstudio
-

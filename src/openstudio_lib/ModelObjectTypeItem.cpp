@@ -31,10 +31,10 @@
 #include "OSCollapsibleItemHeader.hpp"
 #include "ModelObjectListView.hpp"
 
-#include "../model/Model.hpp"
-#include "../model/Model_Impl.hpp"
-#include "../model/ModelObject_Impl.hpp"
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/model/Model_Impl.hpp>
+#include <openstudio/src/model/ModelObject_Impl.hpp>
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 #include <iostream>
 
@@ -56,4 +56,3 @@ IddObjectType ModelObjectTypeItem::iddObjectType() const
 }
 
 } // openstudio
-

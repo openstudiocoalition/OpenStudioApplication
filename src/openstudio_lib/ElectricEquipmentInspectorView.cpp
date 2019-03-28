@@ -31,9 +31,9 @@
 #include "../shared_gui_components/OSLineEdit.hpp"
 #include "../shared_gui_components/OSQuantityEdit.hpp"
 #include "OSDropZone.hpp"
-#include "../model/ElectricEquipmentDefinition.hpp"
-#include "../model/ElectricEquipmentDefinition_Impl.hpp"
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/model/ElectricEquipmentDefinition.hpp>
+#include <openstudio/src/model/ElectricEquipmentDefinition_Impl.hpp>
+#include <openstudio/src/utilities/core/Assert.hpp>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QLabel>
@@ -250,4 +250,3 @@ void ElectricEquipmentDefinitionInspectorView::toggleUnits(bool displayIP)
 }
 
 } // openstudio
-

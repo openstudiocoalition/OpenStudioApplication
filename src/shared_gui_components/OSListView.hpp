@@ -34,7 +34,7 @@
 #include <QWidget>
 #include <QSharedPointer>
 #include <map>
-#include "../utilities/core/Logger.hpp"
+#include <openstudio/src/utilities/core/Logger.hpp>
 
 class QScrollArea;
 class QVBoxLayout;
@@ -114,4 +114,3 @@ class OSListView : public QWidget
 } // openstudio
 
 #endif // SHAREDGUICOMPONENTS_OSLISTVIEW_HPP
-

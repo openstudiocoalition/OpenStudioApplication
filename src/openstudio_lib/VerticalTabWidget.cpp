@@ -33,7 +33,7 @@
 
 #include "../shared_gui_components/OSViewSwitcher.hpp"
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 #include <QBoxLayout>
 #include <QPushButton>

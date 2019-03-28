@@ -35,20 +35,20 @@
 #include "../shared_gui_components/OSGridController.hpp"
 #include "../shared_gui_components/OSGridView.hpp"
 
-#include "../model/ConstructionBase.hpp"
-#include "../model/ConstructionBase_Impl.hpp"
-#include "../model/DaylightingDeviceShelf.hpp"
-#include "../model/DaylightingDeviceShelf_Impl.hpp"
-#include "../model/InteriorPartitionSurface.hpp"
-#include "../model/InteriorPartitionSurface_Impl.hpp"
-#include "../model/InteriorPartitionSurfaceGroup.hpp"
-#include "../model/InteriorPartitionSurfaceGroup_Impl.hpp"
-#include "../model/Space.hpp"
-#include "../model/Space_Impl.hpp"
+#include <openstudio/src/model/ConstructionBase.hpp>
+#include <openstudio/src/model/ConstructionBase_Impl.hpp>
+#include <openstudio/src/model/DaylightingDeviceShelf.hpp>
+#include <openstudio/src/model/DaylightingDeviceShelf_Impl.hpp>
+#include <openstudio/src/model/InteriorPartitionSurface.hpp>
+#include <openstudio/src/model/InteriorPartitionSurface_Impl.hpp>
+#include <openstudio/src/model/InteriorPartitionSurfaceGroup.hpp>
+#include <openstudio/src/model/InteriorPartitionSurfaceGroup_Impl.hpp>
+#include <openstudio/src/model/Space.hpp>
+#include <openstudio/src/model/Space_Impl.hpp>
 
-#include "../utilities/core/Assert.hpp"
-#include "../utilities/idd/IddEnums.hxx"
-#include "../utilities/idd/OS_Space_FieldEnums.hxx"
+#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/src/utilities/idd/IddEnums.hxx>
+#include <openstudio/src/utilities/idd/OS_Space_FieldEnums.hxx>
 
 #include <QCheckBox>
 

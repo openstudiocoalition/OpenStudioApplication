@@ -34,7 +34,7 @@
 #include <QPushButton>
 #include <QStackedWidget>
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 #include <vector>
 
@@ -226,4 +226,3 @@ void LibraryTabWidget::setCurrentWidget(QWidget * widget)
 }
 
 } // namespace openstudio
-

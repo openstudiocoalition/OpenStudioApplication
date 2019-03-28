@@ -33,8 +33,8 @@
 #include "ModelObjectInspectorView.hpp"
 #include "ModelObjectVectorController.hpp"
 
-#include "../model/DefaultConstructionSet.hpp"
-#include "../model/Model.hpp"
+#include <openstudio/src/model/DefaultConstructionSet.hpp>
+#include <openstudio/src/model/Model.hpp>
 
 namespace openstudio {
 

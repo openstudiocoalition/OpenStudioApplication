@@ -39,12 +39,12 @@
 #include "../shared_gui_components/OSQuantityEdit.hpp"
 #include "../shared_gui_components/OSComboBox.hpp"
 
-#include "../model/ConstructionWithInternalSource.hpp"
-#include "../model/ConstructionWithInternalSource_Impl.hpp"
-#include "../model/Material.hpp"
-#include "../model/Material_Impl.hpp"
+#include <openstudio/src/model/ConstructionWithInternalSource.hpp>
+#include <openstudio/src/model/ConstructionWithInternalSource_Impl.hpp>
+#include <openstudio/src/model/Material.hpp>
+#include <openstudio/src/model/Material_Impl.hpp>
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 #include <utilities/idd/OS_Construction_InternalSource_FieldEnums.hxx>
 
 #include <QGridLayout>

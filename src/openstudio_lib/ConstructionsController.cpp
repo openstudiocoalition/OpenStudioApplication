@@ -30,21 +30,21 @@
 #include "ConstructionsController.hpp"
 #include "ConstructionsView.hpp"
 
-#include "../model/CFactorUndergroundWallConstruction.hpp"
-#include "../model/Component.hpp"
-#include "../model/Component_Impl.hpp"
-#include "../model/ComponentData.hpp"
-#include "../model/ComponentData_Impl.hpp"
-#include "../model/Construction.hpp"
-#include "../model/ConstructionBase.hpp"
-#include "../model/ConstructionBase_Impl.hpp"
-#include "../model/ConstructionWithInternalSource.hpp"
-#include "../model/DefaultConstructionSet.hpp"
-#include "../model/DefaultConstructionSet_Impl.hpp"
-#include "../model/FFactorGroundFloorConstruction.hpp"
-#include "../model/WindowDataFile.hpp"
+#include <openstudio/src/model/CFactorUndergroundWallConstruction.hpp>
+#include <openstudio/src/model/Component.hpp>
+#include <openstudio/src/model/Component_Impl.hpp>
+#include <openstudio/src/model/ComponentData.hpp>
+#include <openstudio/src/model/ComponentData_Impl.hpp>
+#include <openstudio/src/model/Construction.hpp>
+#include <openstudio/src/model/ConstructionBase.hpp>
+#include <openstudio/src/model/ConstructionBase_Impl.hpp>
+#include <openstudio/src/model/ConstructionWithInternalSource.hpp>
+#include <openstudio/src/model/DefaultConstructionSet.hpp>
+#include <openstudio/src/model/DefaultConstructionSet_Impl.hpp>
+#include <openstudio/src/model/FFactorGroundFloorConstruction.hpp>
+#include <openstudio/src/model/WindowDataFile.hpp>
 
-#include "../utilities/core/Logger.hpp"
+#include <openstudio/src/utilities/core/Logger.hpp>
 #include <utilities/idd/IddEnums.hxx>
 
 namespace openstudio {
@@ -125,4 +125,3 @@ void ConstructionsController::onInspectItem(OSItem* item)
 }
 
 } // openstudio
-

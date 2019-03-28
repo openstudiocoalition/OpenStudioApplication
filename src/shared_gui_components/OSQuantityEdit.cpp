@@ -31,13 +31,13 @@
 
 #include "../model_editor/Utilities.hpp"
 
-#include "../model/ModelObject_Impl.hpp"
+#include <openstudio/src/model/ModelObject_Impl.hpp>
 
-#include "../utilities/core/Containers.hpp"
-#include "../utilities/units/QuantityConverter.hpp"
+#include <openstudio/src/utilities/core/Containers.hpp>
+#include <openstudio/src/utilities/units/QuantityConverter.hpp>
 
-#include "../utilities/core/Assert.hpp"
-#include "../utilities/core/StringHelpers.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/src/utilities/core/StringHelpers.hpp>
 
 #include <QBoxLayout>
 #include <QDoubleValidator>
@@ -521,4 +521,3 @@ void QuantityLineEdit::focusOutEvent(QFocusEvent * e)
 }
 
 } // openstudio
-

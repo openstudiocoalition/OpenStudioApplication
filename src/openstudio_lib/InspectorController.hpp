@@ -30,8 +30,8 @@
 #ifndef OPENSTUDIO_INSPECTORCONTROLLER_HPP
 #define OPENSTUDIO_INSPECTORCONTROLLER_HPP
 
-#include "../model/Model.hpp"
-#include "../model/ModelObject.hpp"
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/model/ModelObject.hpp>
 
 #include <boost/smart_ptr.hpp>
 
@@ -105,4 +105,3 @@ class InspectorController : public QObject
 } // openstudio
 
 #endif // OPENSTUDIO_INSPECTORCONTROLLER_HPP
-

@@ -34,12 +34,12 @@
 #include "OSDropZone.hpp"
 #include "../shared_gui_components/OSLineEdit.hpp"
 
-#include "../model/DefaultScheduleSet_Impl.hpp"
-#include "../model/Model_Impl.hpp"
-#include "../model/Schedule.hpp"
-#include "../model/Schedule_Impl.hpp"
+#include <openstudio/src/model/DefaultScheduleSet_Impl.hpp>
+#include <openstudio/src/model/Model_Impl.hpp>
+#include <openstudio/src/model/Schedule.hpp>
+#include <openstudio/src/model/Schedule_Impl.hpp>
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 #include <utilities/idd/OS_DefaultScheduleSet_FieldEnums.hxx>
 
 #include <QGridLayout>
@@ -839,4 +839,3 @@ void ScheduleSetInspectorView::detach()
 }
 
 } // openstudio
-

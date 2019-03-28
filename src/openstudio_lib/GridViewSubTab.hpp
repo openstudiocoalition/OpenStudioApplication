@@ -33,8 +33,8 @@
 #include "../shared_gui_components/OSGridController.hpp"
 #include "../shared_gui_components/OSGridView.hpp"
 
-#include "../model/Model.hpp"
-#include "../model/ModelObject.hpp"
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/model/ModelObject.hpp>
 
 #include <QWidget>
 
@@ -128,4 +128,3 @@ class GridViewSubTab : public QWidget
 } // openstudio
 
 #endif // OPENSTUDIO_GRIDVIEWSUBTAB_HPP
-

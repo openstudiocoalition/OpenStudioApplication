@@ -35,7 +35,7 @@
 #include "GridViewSubTab.hpp"
 #include "OSItem.hpp"
 
-#include "../model/Model.hpp"
+#include <openstudio/src/model/Model.hpp>
 
 class QComboBox;
 class QLineEdit;

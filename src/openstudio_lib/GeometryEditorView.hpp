@@ -33,9 +33,9 @@
 #include "ModelObjectInspectorView.hpp"
 #include "ModelSubTabView.hpp"
 
-#include "../model/Model.hpp"
+#include <openstudio/src/model/Model.hpp>
 
-#include "../utilities/geometry/FloorplanJS.hpp"
+#include <openstudio/src/utilities/geometry/FloorplanJS.hpp>
 
 #include <QWidget>
 #include <QDialog>

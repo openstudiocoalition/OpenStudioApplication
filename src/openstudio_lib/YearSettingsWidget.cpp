@@ -35,17 +35,17 @@
 #include "../shared_gui_components/OSComboBox.hpp"
 #include "../shared_gui_components/OSSwitch.hpp"
 
-#include "../model/RunPeriodControlDaylightSavingTime.hpp"
-#include "../model/RunPeriodControlDaylightSavingTime_Impl.hpp"
-#include "../model/WeatherFile.hpp"
-#include "../model/WeatherFile_Impl.hpp"
+#include <openstudio/src/model/RunPeriodControlDaylightSavingTime.hpp>
+#include <openstudio/src/model/RunPeriodControlDaylightSavingTime_Impl.hpp>
+#include <openstudio/src/model/WeatherFile.hpp>
+#include <openstudio/src/model/WeatherFile_Impl.hpp>
 
 #include "../model_editor/Utilities.hpp"
 
-#include "../utilities/core/Compare.hpp"
-#include "../utilities/filetypes/EpwFile.hpp"
-#include "../utilities/idd/IddEnums.hxx"
-#include "../utilities/time/Date.hpp"
+#include <openstudio/src/utilities/core/Compare.hpp>
+#include <openstudio/src/utilities/filetypes/EpwFile.hpp>
+#include <openstudio/src/utilities/idd/IddEnums.hxx>
+#include <openstudio/src/utilities/time/Date.hpp>
 
 #include <QBoxLayout>
 #include <QButtonGroup>
@@ -655,4 +655,3 @@ void YearSettingsWidget::onDefineEndByDateClicked()
 }
 
 } // openstudio
-

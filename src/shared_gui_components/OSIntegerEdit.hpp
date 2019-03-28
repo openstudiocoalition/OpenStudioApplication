@@ -33,10 +33,10 @@
 #include "FieldMethodTypedefs.hpp"
 
 #include <nano/nano_signal_slot.hpp> // Signal-Slot replacement
-#include "../model/ModelObject.hpp"
-#include "../model/ModelExtensibleGroup.hpp"
+#include <openstudio/src/model/ModelObject.hpp>
+#include <openstudio/src/model/ModelExtensibleGroup.hpp>
 
-#include "../utilities/core/Logger.hpp"
+#include <openstudio/src/utilities/core/Logger.hpp>
 
 #include <QLineEdit>
 #include <QString>
@@ -198,4 +198,3 @@ class OSIntegerEdit2: public QLineEdit, public Nano::Observer {
 } // openstudio
 
 #endif // SHAREDGUICOMPONENTS_OSINTEGEREDIT_HPP
-

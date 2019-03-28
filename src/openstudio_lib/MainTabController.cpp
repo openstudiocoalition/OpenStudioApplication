@@ -31,7 +31,7 @@
 
 #include "MainTabView.hpp"
 
-#include "../model/Model.hpp"
+#include <openstudio/src/model/Model.hpp>
 
 namespace openstudio {
 
@@ -53,4 +53,3 @@ MainTabView* MainTabController::mainContentWidget() const
 }
 
 } // openstudio
-

@@ -32,13 +32,13 @@
 
 #include "OSCollapsibleItemList.hpp"
 
-#include "../measure/OSArgument.hpp"
-#include "../measure/OSMeasureInfoGetter.hpp"
+#include <openstudio/src/measure/OSArgument.hpp>
+#include <openstudio/src/measure/OSMeasureInfoGetter.hpp>
 
-#include "../model/Model.hpp"
-#include "../model/ModelObject.hpp"
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/model/ModelObject.hpp>
 
-#include "../utilities/core/Logger.hpp"
+#include <openstudio/src/utilities/core/Logger.hpp>
 
 #include <QFileSystemWatcher>
 
@@ -110,4 +110,3 @@ class ScriptFolderListView : public OSCollapsibleItemList {
 } // openstudio
 
 #endif // OPENSTUDIO_SCRIPTFOLDERLISTVIEW_HPP
-

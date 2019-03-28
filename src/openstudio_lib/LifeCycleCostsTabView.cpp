@@ -33,10 +33,10 @@
 #include "../shared_gui_components/OSDoubleEdit.hpp"
 #include "../shared_gui_components/OSIntegerEdit.hpp"
 
-#include "../model/LifeCycleCostParameters_Impl.hpp"
-#include "../model/Model_Impl.hpp"
+#include <openstudio/src/model/LifeCycleCostParameters_Impl.hpp>
+#include <openstudio/src/model/Model_Impl.hpp>
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 #include <QBoxLayout>
 #include <QButtonGroup>

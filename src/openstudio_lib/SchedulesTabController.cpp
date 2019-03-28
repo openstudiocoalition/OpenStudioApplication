@@ -41,24 +41,24 @@
 #include "ScheduleDayView.hpp"
 #include "SubTabView.hpp"
 
-#include "../model/Model.hpp"
-#include "../model/Model_Impl.hpp"
-#include "../model/ScheduleRule.hpp"
-#include "../model/ScheduleRuleset.hpp"
-#include "../model/ScheduleRuleset_Impl.hpp"
-#include "../model/ScheduleRule_Impl.hpp"
-#include "../model/ScheduleTypeLimits.hpp"
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/model/Model_Impl.hpp>
+#include <openstudio/src/model/ScheduleRule.hpp>
+#include <openstudio/src/model/ScheduleRuleset.hpp>
+#include <openstudio/src/model/ScheduleRuleset_Impl.hpp>
+#include <openstudio/src/model/ScheduleRule_Impl.hpp>
+#include <openstudio/src/model/ScheduleTypeLimits.hpp>
 
-#include "../utilities/core/Assert.hpp"
-#include "../utilities/idf/IdfFile.hpp"
-#include "../utilities/time/Date.hpp"
-#include "../utilities/time/Time.hpp"
-#include "../utilities/units/Unit.hpp"
-#include "../utilities/units/OSOptionalQuantity.hpp"
-#include "../utilities/units/Quantity.hpp"
-#include "../utilities/units/QuantityConverter.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/src/utilities/idf/IdfFile.hpp>
+#include <openstudio/src/utilities/time/Date.hpp>
+#include <openstudio/src/utilities/time/Time.hpp>
+#include <openstudio/src/utilities/units/Unit.hpp>
+#include <openstudio/src/utilities/units/OSOptionalQuantity.hpp>
+#include <openstudio/src/utilities/units/Quantity.hpp>
+#include <openstudio/src/utilities/units/QuantityConverter.hpp>
 
-#include "../energyplus/ReverseTranslator.hpp"
+#include <openstudio/src/energyplus/ReverseTranslator.hpp>
 
 #include <QApplication>
 #include <QDialog>
@@ -522,4 +522,3 @@ void SchedulesTabController::setSubTab(int index)
 }
 
 } // openstudio
-

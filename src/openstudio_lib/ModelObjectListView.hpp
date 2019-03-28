@@ -33,8 +33,8 @@
 #include "OSItemList.hpp"
 #include "OSVectorController.hpp"
 
-#include "../model/Model.hpp"
-#include "../model/ModelObject.hpp"
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/model/ModelObject.hpp>
 #include "../model_editor/QMetaTypes.hpp"
 
 namespace openstudio {
@@ -90,4 +90,3 @@ public:
 } // openstudio
 
 #endif // OPENSTUDIO_MODELOBJECTLISTVIEW_HPP
-

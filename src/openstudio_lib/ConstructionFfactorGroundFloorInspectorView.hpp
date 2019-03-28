@@ -32,7 +32,7 @@
 
 #include "ModelObjectInspectorView.hpp"
 #include "ModelObjectVectorController.hpp"
-#include "../model/FFactorGroundFloorConstruction.hpp"
+#include <openstudio/src/model/FFactorGroundFloorConstruction.hpp>
 
 class QComboBox;
 
@@ -90,4 +90,3 @@ class ConstructionFfactorGroundFloorInspectorView : public ModelObjectInspectorV
 } // openstudio
 
 #endif // OPENSTUDIO_CONSTRUCTIONFFACTORGROUNDFLOORINSPECTORVIEW_HPP
-

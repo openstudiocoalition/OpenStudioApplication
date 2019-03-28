@@ -32,7 +32,7 @@
 #include "OSItem.hpp"
 #include "OSVectorController.hpp"
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 #include <QStyleOption>
 #include <QPainter>

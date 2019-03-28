@@ -32,14 +32,14 @@
 #include "../shared_gui_components/OSQuantityEdit.hpp"
 #include "OSDropZone.hpp"
 #include "ModelObjectItem.hpp"
-#include "../model/InternalMassDefinition.hpp"
-#include "../model/InternalMassDefinition_Impl.hpp"
-#include "../model/ConstructionBase.hpp"
-#include "../model/ConstructionBase_Impl.hpp"
-#include "../model/ComponentData.hpp"
-#include "../model/ComponentData_Impl.hpp"
+#include <openstudio/src/model/InternalMassDefinition.hpp>
+#include <openstudio/src/model/InternalMassDefinition_Impl.hpp>
+#include <openstudio/src/model/ConstructionBase.hpp>
+#include <openstudio/src/model/ConstructionBase_Impl.hpp>
+#include <openstudio/src/model/ComponentData.hpp>
+#include <openstudio/src/model/ComponentData_Impl.hpp>
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 #include <utilities/idd/OS_InternalMass_Definition_FieldEnums.hxx>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -270,4 +270,3 @@ void InternalMassDefinitionInspectorView::toggleUnits(bool displayIP)
 }
 
 } // openstudio
-

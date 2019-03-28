@@ -34,7 +34,7 @@
 #include <QStyleOption>
 #include <QPainter>
 
-#include "../utilities/bcl/BCLMeasure.hpp"
+#include <openstudio/src/utilities/bcl/BCLMeasure.hpp>
 
 namespace openstudio{
 
@@ -186,4 +186,3 @@ LightHeader::LightHeader(QWidget * parent)
 }
 
 } // openstudio
-

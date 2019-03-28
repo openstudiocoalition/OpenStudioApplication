@@ -38,29 +38,29 @@
 
 #include "../shared_gui_components/OSGridView.hpp"
 
-#include "../model/AirLoopHVAC.hpp"
-#include "../model/AirLoopHVAC_Impl.hpp"
-#include "../model/Model.hpp"
-#include "../model/ModelObject.hpp"
-#include "../model/ModelObject_Impl.hpp"
-#include "../model/Model_Impl.hpp"
-#include "../model/RenderingColor.hpp"
-#include "../model/RenderingColor_Impl.hpp"
-#include "../model/Schedule.hpp"
-#include "../model/Schedule_Impl.hpp"
-#include "../model/SizingZone.hpp"
-#include "../model/SizingZone_Impl.hpp"
-#include "../model/ThermalZone.hpp"
-#include "../model/ThermalZone_Impl.hpp"
-#include "../model/ThermostatSetpointDualSetpoint.hpp"
-#include "../model/ThermostatSetpointDualSetpoint_Impl.hpp"
-#include "../model/ZoneControlHumidistat.hpp"
-#include "../model/ZoneControlHumidistat_Impl.hpp"
-#include "../model/ZoneHVACComponent.hpp"
-#include "../model/ZoneHVACComponent_Impl.hpp"
+#include <openstudio/src/model/AirLoopHVAC.hpp>
+#include <openstudio/src/model/AirLoopHVAC_Impl.hpp>
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/model/ModelObject.hpp>
+#include <openstudio/src/model/ModelObject_Impl.hpp>
+#include <openstudio/src/model/Model_Impl.hpp>
+#include <openstudio/src/model/RenderingColor.hpp>
+#include <openstudio/src/model/RenderingColor_Impl.hpp>
+#include <openstudio/src/model/Schedule.hpp>
+#include <openstudio/src/model/Schedule_Impl.hpp>
+#include <openstudio/src/model/SizingZone.hpp>
+#include <openstudio/src/model/SizingZone_Impl.hpp>
+#include <openstudio/src/model/ThermalZone.hpp>
+#include <openstudio/src/model/ThermalZone_Impl.hpp>
+#include <openstudio/src/model/ThermostatSetpointDualSetpoint.hpp>
+#include <openstudio/src/model/ThermostatSetpointDualSetpoint_Impl.hpp>
+#include <openstudio/src/model/ZoneControlHumidistat.hpp>
+#include <openstudio/src/model/ZoneControlHumidistat_Impl.hpp>
+#include <openstudio/src/model/ZoneHVACComponent.hpp>
+#include <openstudio/src/model/ZoneHVACComponent_Impl.hpp>
 
-#include "../utilities/idd/IddEnums.hxx"
-#include "../utilities/idd/OS_ThermalZone_FieldEnums.hxx"
+#include <openstudio/src/utilities/idd/IddEnums.hxx>
+#include <openstudio/src/utilities/idd/OS_ThermalZone_FieldEnums.hxx>
 
 #include <QBoxLayout>
 #include <QCheckBox>
@@ -793,4 +793,3 @@ struct ModelObjectNameSorter{
   }
 
 } // openstudio
-

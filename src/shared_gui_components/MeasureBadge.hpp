@@ -32,7 +32,7 @@
 
 #include <QLabel>
 
-#include "../utilities/bcl/BCLMeasure.hpp"
+#include <openstudio/src/utilities/bcl/BCLMeasure.hpp>
 
 namespace openstudio {
 

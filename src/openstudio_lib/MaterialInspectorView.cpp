@@ -37,10 +37,10 @@
 #include "../shared_gui_components/OSLineEdit.hpp"
 #include "../shared_gui_components/OSQuantityEdit.hpp"
 
-#include "../model/StandardOpaqueMaterial.hpp"
-#include "../model/StandardOpaqueMaterial_Impl.hpp"
+#include <openstudio/src/model/StandardOpaqueMaterial.hpp>
+#include <openstudio/src/model/StandardOpaqueMaterial_Impl.hpp>
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 #include <QBoxLayout>
 #include <QGridLayout>

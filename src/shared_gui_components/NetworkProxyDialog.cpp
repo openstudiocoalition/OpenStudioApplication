@@ -32,7 +32,7 @@
 #include "../model_editor/Application.hpp"
 #include "../model_editor/Utilities.hpp"
 
-#include "../utilities/core/String.hpp"
+#include <openstudio/src/utilities/core/String.hpp>
 
 #include <QLineEdit>
 #include <QComboBox>
@@ -50,7 +50,7 @@
 
 #include <utility>
 
-#include "../utilities/time/Time.hpp"
+#include <openstudio/src/utilities/time/Time.hpp>
 
 #include <iostream>
 
@@ -291,5 +291,4 @@ namespace openstudio
   }
 
 }
-
 

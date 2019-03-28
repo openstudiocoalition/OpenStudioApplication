@@ -32,8 +32,8 @@
 
 #include <QWidget>
 
-#include "../model/Model.hpp"
-#include "../model/Building.hpp"
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/model/Building.hpp>
 #include "ModelEditorAPI.hpp"
 
 class IGPrecisionDialog;

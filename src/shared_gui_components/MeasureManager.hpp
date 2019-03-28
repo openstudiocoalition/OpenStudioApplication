@@ -31,11 +31,11 @@
 #define SHAREDGUICOMPONENTS_MEASUREMANAGER_HPP
 
 #include "LocalLibraryController.hpp"
-#include "../utilities/bcl/BCLMeasure.hpp"
-#include "../utilities/core/Path.hpp"
-#include "../utilities/core/UUID.hpp"
-#include "../model/Model.hpp"
-#include "../measure/OSArgument.hpp"
+#include <openstudio/src/utilities/bcl/BCLMeasure.hpp>
+#include <openstudio/src/utilities/core/Path.hpp>
+#include <openstudio/src/utilities/core/UUID.hpp>
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/measure/OSArgument.hpp>
 #include <vector>
 #include <map>
 #include <QSharedPointer>

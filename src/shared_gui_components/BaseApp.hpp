@@ -30,7 +30,7 @@
 #ifndef SHAREDGUICOMPONENTS_BASEAPP_HPP
 #define SHAREDGUICOMPONENTS_BASEAPP_HPP
 
-#include "../utilities/core/Path.hpp"
+#include <openstudio/src/utilities/core/Path.hpp>
 #include "../model_editor/QMetaTypes.hpp"
 
 #include <QWidget>

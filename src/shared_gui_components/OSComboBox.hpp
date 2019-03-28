@@ -36,10 +36,10 @@
 #include "OSGridController.hpp" // Needed for DataSource
 
 #include <nano/nano_signal_slot.hpp> // Signal-Slot replacement
-#include "../model/Model.hpp"
-#include "../model/ModelObject.hpp"
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/model/ModelObject.hpp>
 
-#include "../utilities/idf/WorkspaceObject.hpp"
+#include <openstudio/src/utilities/idf/WorkspaceObject.hpp>
 
 #include <QComboBox>
 #include <QList>
@@ -304,4 +304,3 @@ class OSComboBox2 : public QComboBox, public Nano::Observer {
 } // openstudio
 
 #endif // SHAREDGUICOMPONENTS_OSCOMBOBOX_HPP
-

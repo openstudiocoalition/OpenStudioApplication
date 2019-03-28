@@ -31,7 +31,7 @@
 #define OPENSTUDIO_BCLCOMPONENTITEM_HPP
 
 #include "OSItem.hpp"
-#include "../utilities/bcl/BCLComponent.hpp"
+#include <openstudio/src/utilities/bcl/BCLComponent.hpp>
 
 namespace openstudio {
 
@@ -60,4 +60,3 @@ private:
 } // openstudio
 
 #endif // OPENSTUDIO_BCLCOMPONENTITEM_HPP
-

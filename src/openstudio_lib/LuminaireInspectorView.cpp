@@ -31,9 +31,9 @@
 #include "../shared_gui_components/OSLineEdit.hpp"
 #include "../shared_gui_components/OSQuantityEdit.hpp"
 #include "OSDropZone.hpp"
-#include "../model/LuminaireDefinition.hpp"
-#include "../model/LuminaireDefinition_Impl.hpp"
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/model/LuminaireDefinition.hpp>
+#include <openstudio/src/model/LuminaireDefinition_Impl.hpp>
+#include <openstudio/src/utilities/core/Assert.hpp>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QLabel>
@@ -215,4 +215,3 @@ void LuminaireDefinitionInspectorView::toggleUnits(bool displayIP)
 }
 
 } // openstudio
-

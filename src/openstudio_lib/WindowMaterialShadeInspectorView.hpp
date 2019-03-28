@@ -31,7 +31,7 @@
 #define OPENSTUDIO_WINDOWMATERIALSHADEINSPECTORVIEW_HPP
 
 #include "ModelObjectInspectorView.hpp"
-#include "../model/Shade.hpp"
+#include <openstudio/src/model/Shade.hpp>
 
 namespace openstudio {
 
@@ -110,4 +110,3 @@ class WindowMaterialShadeInspectorView : public ModelObjectInspectorView
 } // openstudio
 
 #endif // OPENSTUDIO_WINDOWMATERIALSHADEINSPECTORVIEW_HPP
-

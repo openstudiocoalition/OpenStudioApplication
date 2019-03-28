@@ -31,9 +31,9 @@
 #include "../shared_gui_components/OSLineEdit.hpp"
 #include "../shared_gui_components/OSQuantityEdit.hpp"
 #include "OSDropZone.hpp"
-#include "../model/OtherEquipmentDefinition.hpp"
-#include "../model/OtherEquipmentDefinition_Impl.hpp"
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/model/OtherEquipmentDefinition.hpp>
+#include <openstudio/src/model/OtherEquipmentDefinition_Impl.hpp>
+#include <openstudio/src/utilities/core/Assert.hpp>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QLabel>
@@ -249,4 +249,3 @@ void OtherEquipmentDefinitionInspectorView::toggleUnits(bool displayIP)
 }
 
 } // openstudio
-

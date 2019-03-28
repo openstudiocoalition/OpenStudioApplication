@@ -30,7 +30,7 @@
 #include "GeometryPreviewController.hpp"
 #include "GeometryPreviewView.hpp"
 
-#include "../utilities/core/Logger.hpp"
+#include <openstudio/src/utilities/core/Logger.hpp>
 #include <utilities/idd/IddEnums.hxx>
 
 namespace openstudio {
@@ -53,4 +53,3 @@ QWidget* GeometryPreviewController::view() const
 }
 
 } // openstudio
-

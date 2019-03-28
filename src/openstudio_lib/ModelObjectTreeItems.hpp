@@ -30,9 +30,9 @@
 #ifndef OPENSTUDIO_MODELOBJECTTREEITEMS_HPP
 #define OPENSTUDIO_MODELOBJECTTREEITEMS_HPP
 
-#include "../model/Model.hpp"
-#include "../model/ModelObject.hpp"
-#include "../model/Space.hpp"
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/model/ModelObject.hpp>
+#include <openstudio/src/model/Space.hpp>
 #include "OSItem.hpp"
 
 #include <QObject>
@@ -463,4 +463,3 @@ class LoadsTreeItem : public ModelObjectTreeItem
 } // openstudio
 
 #endif // OPENSTUDIO_MODELOBJECTTREEITEMS_HPP
-

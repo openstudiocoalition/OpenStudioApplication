@@ -28,10 +28,10 @@
 ***********************************************************************************************************************/
 
 #include "OSSwitch.hpp"
-#include "../model/ModelObject.hpp"
-#include "../model/ModelObject_Impl.hpp"
+#include <openstudio/src/model/ModelObject.hpp>
+#include <openstudio/src/model/ModelObject_Impl.hpp>
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 #include <boost/optional.hpp>
 #include <QString>
@@ -186,4 +186,3 @@ void OSSwitch2::onModelObjectRemove(const Handle& handle) {
 // }
 
 } // openstudio
-

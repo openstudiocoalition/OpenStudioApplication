@@ -36,7 +36,7 @@
 #include "../shared_gui_components/OSListController.hpp"
 #include "../shared_gui_components/OSListView.hpp"
 #include "../shared_gui_components/GraphicsItems.hpp"
-#include "../utilities/idf/Handle.hpp"
+#include <openstudio/src/utilities/idf/Handle.hpp>
 
 class QGraphicsView;
 class QPushButton;
@@ -774,4 +774,3 @@ class RefrigerationSecondaryView : public QGraphicsObject
 } // openstudio
 
 #endif // OPENSTUDIO_REFRIGERATIONGRAPHICSITEMS_HPP
-

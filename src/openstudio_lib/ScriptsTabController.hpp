@@ -30,7 +30,7 @@
 #ifndef OPENSTUDIO_SCRIPTSTABCONTROLLER_HPP
 #define OPENSTUDIO_SCRIPTSTABCONTROLLER_HPP
 
-#include "../utilities/core/Path.hpp"
+#include <openstudio/src/utilities/core/Path.hpp>
 
 #include "MainTabController.hpp"
 #include "ScriptsTabView.hpp"

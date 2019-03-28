@@ -36,27 +36,27 @@
 #include "../shared_gui_components/OSDoubleEdit.hpp"
 #include "../shared_gui_components/OSGridView.hpp"
 
-#include "../model/BuildingStory.hpp"
-#include "../model/BuildingStory_Impl.hpp"
-#include "../model/DefaultConstructionSet.hpp"
-#include "../model/DefaultConstructionSet_Impl.hpp"
-#include "../model/DefaultScheduleSet.hpp"
-#include "../model/DefaultScheduleSet_Impl.hpp"
-#include "../model/Model.hpp"
-#include "../model/Model_Impl.hpp"
-#include "../model/ModelObject.hpp"
-#include "../model/ModelObject_Impl.hpp"
-#include "../model/RenderingColor.hpp"
-#include "../model/RenderingColor_Impl.hpp"
+#include <openstudio/src/model/BuildingStory.hpp>
+#include <openstudio/src/model/BuildingStory_Impl.hpp>
+#include <openstudio/src/model/DefaultConstructionSet.hpp>
+#include <openstudio/src/model/DefaultConstructionSet_Impl.hpp>
+#include <openstudio/src/model/DefaultScheduleSet.hpp>
+#include <openstudio/src/model/DefaultScheduleSet_Impl.hpp>
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/model/Model_Impl.hpp>
+#include <openstudio/src/model/ModelObject.hpp>
+#include <openstudio/src/model/ModelObject_Impl.hpp>
+#include <openstudio/src/model/RenderingColor.hpp>
+#include <openstudio/src/model/RenderingColor_Impl.hpp>
 
 // For purgeObjects
-#include "../model/Space.hpp"
+#include <openstudio/src/model/Space.hpp>
 
 
-#include "../utilities/core/Assert.hpp"
-#include "../utilities/idd/IddEnums.hxx"
-#include "../utilities/idd/OS_BuildingStory_FieldEnums.hxx"
-#include "../utilities/units/QuantityConverter.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/src/utilities/idd/IddEnums.hxx>
+#include <openstudio/src/utilities/idd/OS_BuildingStory_FieldEnums.hxx>
+#include <openstudio/src/utilities/units/QuantityConverter.hpp>
 
 #include <QBoxLayout>
 #include <QCheckBox>

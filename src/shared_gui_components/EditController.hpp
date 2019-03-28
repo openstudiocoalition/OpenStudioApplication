@@ -30,8 +30,8 @@
 #ifndef SHAREDGUICOMPONENTS_EDITCONTROLLER_HPP
 #define SHAREDGUICOMPONENTS_EDITCONTROLLER_HPP
 
-#include "../measure/OSArgument.hpp"
-#include "../utilities/core/Logger.hpp"
+#include <openstudio/src/measure/OSArgument.hpp>
+#include <openstudio/src/utilities/core/Logger.hpp>
 #include <QObject>
 #include <QPointer>
 #include <QSharedPointer>
@@ -126,4 +126,3 @@ class InputController : public QObject
 } // openstudio
 
 #endif // SHAREDGUICOMPONENTS_EDITCONTROLLER_HPP
-

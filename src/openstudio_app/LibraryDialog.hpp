@@ -32,7 +32,7 @@
 
 #include <QDialog>
 #include <vector>
-#include "../utilities/core/Filesystem.hpp"
+#include <openstudio/src/utilities/core/Filesystem.hpp>
 
 class QListWidget;
 
@@ -65,4 +65,3 @@ class LibraryDialog: public QDialog
 } // openstudio
 
 #endif // OPENSTUDIO_LIBRARYDIALOG_HPP
-

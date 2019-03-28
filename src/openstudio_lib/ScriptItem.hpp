@@ -32,12 +32,12 @@
 
 #include "OSItem.hpp"
 
-#include "../measure/OSArgument.hpp"
-#include "../measure/OSMeasureInfoGetter.hpp"
+#include <openstudio/src/measure/OSArgument.hpp>
+#include <openstudio/src/measure/OSMeasureInfoGetter.hpp>
 //#include "../runmanager/lib/RunManager.hpp"
 //#include "../runmanager/lib/RubyJobUtils.hpp"
 
-#include "../utilities/core/Path.hpp"
+#include <openstudio/src/utilities/core/Path.hpp>
 
 #include <QWidget>
 
@@ -114,4 +114,3 @@ class ScriptItem : public OSItem {
 } // openstudio
 
 #endif // OPENSTUDIO_SCRIPTITEM_HPP
-

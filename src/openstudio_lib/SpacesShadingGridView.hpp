@@ -35,7 +35,7 @@
 #include "SpacesSubtabGridView.hpp"
 #include "OSItem.hpp"
 
-#include "../model/Model.hpp"
+#include <openstudio/src/model/Model.hpp>
 
 namespace openstudio{
 

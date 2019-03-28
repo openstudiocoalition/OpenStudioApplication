@@ -31,7 +31,7 @@
 #define OPENSTUDIO_WINDOWMATERIALGLAZINGINSPECTORVIEW_HPP
 
 #include "ModelObjectInspectorView.hpp"
-#include "../model/StandardGlazing.hpp"
+#include <openstudio/src/model/StandardGlazing.hpp>
 
 namespace openstudio {
 
@@ -116,4 +116,3 @@ class WindowMaterialGlazingInspectorView : public ModelObjectInspectorView
 } // openstudio
 
 #endif // OPENSTUDIO_WINDOWMATERIALGLAZINGINSPECTORVIEW_HPP
-

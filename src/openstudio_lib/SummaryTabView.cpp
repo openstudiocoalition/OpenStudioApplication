@@ -29,7 +29,7 @@
 
 #include "SummaryTabView.hpp"
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 #include <QLabel>
 
@@ -48,4 +48,3 @@ SummaryTabView::SummaryTabView(const model::Model & model,
 }
 
 } // openstudio
-

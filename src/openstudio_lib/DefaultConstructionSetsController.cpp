@@ -30,12 +30,12 @@
 #include "DefaultConstructionSetsController.hpp"
 #include "DefaultConstructionSetsView.hpp"
 
-#include "../model/DefaultConstructionSet.hpp"
-#include "../model/DefaultConstructionSet_Impl.hpp"
-#include "../model/DefaultSurfaceConstructions.hpp"
-#include "../model/DefaultSubSurfaceConstructions.hpp"
+#include <openstudio/src/model/DefaultConstructionSet.hpp>
+#include <openstudio/src/model/DefaultConstructionSet_Impl.hpp>
+#include <openstudio/src/model/DefaultSurfaceConstructions.hpp>
+#include <openstudio/src/model/DefaultSubSurfaceConstructions.hpp>
 
-#include "../utilities/core/Logger.hpp"
+#include <openstudio/src/utilities/core/Logger.hpp>
 #include <utilities/idd/IddEnums.hxx>
 
 namespace openstudio {
@@ -131,4 +131,3 @@ void DefaultConstructionSetsController::onInspectItem(OSItem* item)
 }
 
 } // openstudio
-

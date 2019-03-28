@@ -34,28 +34,28 @@
 
 #include "../shared_gui_components/OSGridView.hpp"
 
-#include "../model/BuildingStory.hpp"
-#include "../model/BuildingStory_Impl.hpp"
-#include "../model/DefaultConstructionSet.hpp"
-#include "../model/DefaultConstructionSet_Impl.hpp"
-#include "../model/DefaultScheduleSet.hpp"
-#include "../model/DefaultScheduleSet_Impl.hpp"
-#include "../model/DesignSpecificationOutdoorAir.hpp"
-#include "../model/DesignSpecificationOutdoorAir_Impl.hpp"
-#include "../model/Space.hpp"
-#include "../model/Space_Impl.hpp"
-#include "../model/SpaceInfiltrationDesignFlowRate.hpp"
-#include "../model/SpaceInfiltrationDesignFlowRate_Impl.hpp"
-#include "../model/SpaceInfiltrationEffectiveLeakageArea.hpp"
-#include "../model/SpaceInfiltrationEffectiveLeakageArea_Impl.hpp"
-#include "../model/SpaceType.hpp"
-#include "../model/SpaceType_Impl.hpp"
-#include "../model/ThermalZone.hpp"
-#include "../model/ThermalZone_Impl.hpp"
+#include <openstudio/src/model/BuildingStory.hpp>
+#include <openstudio/src/model/BuildingStory_Impl.hpp>
+#include <openstudio/src/model/DefaultConstructionSet.hpp>
+#include <openstudio/src/model/DefaultConstructionSet_Impl.hpp>
+#include <openstudio/src/model/DefaultScheduleSet.hpp>
+#include <openstudio/src/model/DefaultScheduleSet_Impl.hpp>
+#include <openstudio/src/model/DesignSpecificationOutdoorAir.hpp>
+#include <openstudio/src/model/DesignSpecificationOutdoorAir_Impl.hpp>
+#include <openstudio/src/model/Space.hpp>
+#include <openstudio/src/model/Space_Impl.hpp>
+#include <openstudio/src/model/SpaceInfiltrationDesignFlowRate.hpp>
+#include <openstudio/src/model/SpaceInfiltrationDesignFlowRate_Impl.hpp>
+#include <openstudio/src/model/SpaceInfiltrationEffectiveLeakageArea.hpp>
+#include <openstudio/src/model/SpaceInfiltrationEffectiveLeakageArea_Impl.hpp>
+#include <openstudio/src/model/SpaceType.hpp>
+#include <openstudio/src/model/SpaceType_Impl.hpp>
+#include <openstudio/src/model/ThermalZone.hpp>
+#include <openstudio/src/model/ThermalZone_Impl.hpp>
 
-#include "../utilities/core/Assert.hpp"
-#include "../utilities/idd/IddEnums.hxx"
-#include "../utilities/idd/OS_Space_FieldEnums.hxx"
+#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/src/utilities/idd/IddEnums.hxx>
+#include <openstudio/src/utilities/idd/OS_Space_FieldEnums.hxx>
 
 #include <QCheckBox>
 

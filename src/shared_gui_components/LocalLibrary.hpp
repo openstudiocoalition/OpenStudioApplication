@@ -30,7 +30,7 @@
 #ifndef SHAREDGUICOMPONENTS_LOCALLIBRARY_HPP
 #define SHAREDGUICOMPONENTS_LOCALLIBRARY_HPP
 
-#include "../utilities/core/Enum.hpp"
+#include <openstudio/src/utilities/core/Enum.hpp>
 
 namespace openstudio{
 
@@ -61,4 +61,3 @@ namespace openstudio{
 } // openstudio
 
 #endif // SHAREDGUICOMPONENTS_LOCALLIBRARY_HPP
-

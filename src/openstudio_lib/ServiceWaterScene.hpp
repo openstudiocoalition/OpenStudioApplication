@@ -33,8 +33,8 @@
 #include "GridScene.hpp"
 #include "OSItem.hpp"
 #include "../model_editor/QMetaTypes.hpp"
-#include "../model/Model.hpp"
-#include "../model/WaterUseConnections.hpp"
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/model/WaterUseConnections.hpp>
 
 namespace openstudio {
 
@@ -109,4 +109,3 @@ class WaterUseConnectionsDetailScene : public GridScene
 } // openstudio
 
 #endif // OPENSTUDIO_SERVICEWATERSCENE_HPP
-

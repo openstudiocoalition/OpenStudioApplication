@@ -35,22 +35,22 @@
 #include "../shared_gui_components/OSGridController.hpp"
 #include "../shared_gui_components/OSGridView.hpp"
 
-#include "../model/ConstructionBase.hpp"
-#include "../model/ConstructionBase_Impl.hpp"
-#include "../model/Schedule.hpp"
-#include "../model/Schedule_Impl.hpp"
-#include "../model/ShadingSurface.hpp"
-#include "../model/ShadingSurface_Impl.hpp"
-#include "../model/ShadingSurfaceGroup.hpp"
-#include "../model/ShadingSurfaceGroup_Impl.hpp"
-#include "../model/Space.hpp"
-#include "../model/Space_Impl.hpp"
-#include "../model/Surface.hpp"
-#include "../model/Surface_Impl.hpp"
+#include <openstudio/src/model/ConstructionBase.hpp>
+#include <openstudio/src/model/ConstructionBase_Impl.hpp>
+#include <openstudio/src/model/Schedule.hpp>
+#include <openstudio/src/model/Schedule_Impl.hpp>
+#include <openstudio/src/model/ShadingSurface.hpp>
+#include <openstudio/src/model/ShadingSurface_Impl.hpp>
+#include <openstudio/src/model/ShadingSurfaceGroup.hpp>
+#include <openstudio/src/model/ShadingSurfaceGroup_Impl.hpp>
+#include <openstudio/src/model/Space.hpp>
+#include <openstudio/src/model/Space_Impl.hpp>
+#include <openstudio/src/model/Surface.hpp>
+#include <openstudio/src/model/Surface_Impl.hpp>
 
-#include "../utilities/core/Assert.hpp"
-#include "../utilities/idd/IddEnums.hxx"
-#include "../utilities/idd/OS_Space_FieldEnums.hxx"
+#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/src/utilities/idd/IddEnums.hxx>
+#include <openstudio/src/utilities/idd/OS_Space_FieldEnums.hxx>
 
 #include <QCheckBox>
 

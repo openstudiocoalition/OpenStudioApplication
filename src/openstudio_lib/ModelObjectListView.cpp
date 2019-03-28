@@ -32,22 +32,22 @@
 #include "OSAppBase.hpp"
 #include "BCLComponentItem.hpp"
 
-#include "../model/Model_Impl.hpp"
-#include "../model/ModelObject_Impl.hpp"
-#include "../model/ZoneHVACComponent.hpp"
-#include "../model/ZoneHVACComponent_Impl.hpp"
-#include "../model/HVACComponent.hpp"
-#include "../model/HVACComponent_Impl.hpp"
-#include "../model/UtilityBill.hpp"
-#include "../model/UtilityBill_Impl.hpp"
+#include <openstudio/src/model/Model_Impl.hpp>
+#include <openstudio/src/model/ModelObject_Impl.hpp>
+#include <openstudio/src/model/ZoneHVACComponent.hpp>
+#include <openstudio/src/model/ZoneHVACComponent_Impl.hpp>
+#include <openstudio/src/model/HVACComponent.hpp>
+#include <openstudio/src/model/HVACComponent_Impl.hpp>
+#include <openstudio/src/model/UtilityBill.hpp>
+#include <openstudio/src/model/UtilityBill_Impl.hpp>
 
 #include "../model_editor/Utilities.hpp"
 
 
-#include "../utilities/core/Assert.hpp"
-#include "../utilities/bcl/LocalBCL.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/src/utilities/bcl/LocalBCL.hpp>
 
-#include "../utilities/idd/IddEnums.hpp"
+#include <openstudio/src/utilities/idd/IddEnums.hpp>
 #include <utilities/idd/IddEnums.hxx>
 
 #include <iostream>
@@ -191,4 +191,3 @@ IddObjectType ModelObjectListView::iddObjectType() const
 }
 
 } // openstudio
-

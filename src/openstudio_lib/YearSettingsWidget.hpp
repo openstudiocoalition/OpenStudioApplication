@@ -31,10 +31,10 @@
 #define OPENSTUDIO_YEARSETTINGSWIDGET_HPP
 
 #include "../model_editor/QMetaTypes.hpp"
-#include "../model/Model.hpp"
-#include "../model/Model_Impl.hpp"
-#include "../model/YearDescription.hpp"
-#include "../model/YearDescription_Impl.hpp"
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/model/Model_Impl.hpp>
+#include <openstudio/src/model/YearDescription.hpp>
+#include <openstudio/src/model/YearDescription_Impl.hpp>
 #include <nano/nano_signal_slot.hpp> // Signal-Slot replacement
 
 #include <QRadioButton>
@@ -181,4 +181,3 @@ class YearSettingsWidget : public QWidget, public Nano::Observer
 } // openstudio
 
 #endif // OPENSTUDIO_YEARSETTINGSWIDGET_HPP
-

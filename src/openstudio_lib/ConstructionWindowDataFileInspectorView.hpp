@@ -32,7 +32,7 @@
 
 #include "ModelObjectInspectorView.hpp"
 #include "ModelObjectVectorController.hpp"
-#include "../model/WindowDataFile.hpp"
+#include <openstudio/src/model/WindowDataFile.hpp>
 
 namespace openstudio {
 
@@ -76,4 +76,3 @@ class ConstructionWindowDataFileInspectorView : public ModelObjectInspectorView
 } // openstudio
 
 #endif // OPENSTUDIO_CONSTRUCTIONWINDOWDATAFILEINSPECTORVIEW_HPP
-

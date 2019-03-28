@@ -29,8 +29,8 @@
 
 #include "OSCheckBox.hpp"
 
-#include "../model/ModelObject.hpp"
-#include "../model/ModelObject_Impl.hpp"
+#include <openstudio/src/model/ModelObject.hpp>
+#include <openstudio/src/model/ModelObject_Impl.hpp>
 
 #include <QString>
 #include <QFocusEvent>
@@ -303,4 +303,3 @@ void OSCheckBox2::onModelObjectRemove(const Handle& handle)
 // }
 
 } // openstudio
-

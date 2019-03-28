@@ -32,8 +32,8 @@
 
 #include <QDialog>
 
-#include "../utilities/bcl/BCLMeasure.hpp"
-#include "../utilities/filetypes/WorkflowJSON.hpp"
+#include <openstudio/src/utilities/bcl/BCLMeasure.hpp>
+#include <openstudio/src/utilities/filetypes/WorkflowJSON.hpp>
 
 #include <vector>
 

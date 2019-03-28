@@ -38,9 +38,9 @@
 #include "TableView.hpp"
 #include "ClassViewWidget.hpp"
 
-#include "../utilities/idf/WorkspaceObjectOrder.hpp"
+#include <openstudio/src/utilities/idf/WorkspaceObjectOrder.hpp>
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 #include <utilities/idd/IddEnums.hxx>
 
 namespace modeleditor

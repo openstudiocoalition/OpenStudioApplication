@@ -34,8 +34,8 @@
 
 #include "../shared_gui_components/OSQObjectController.hpp"
 
-#include "../model/Model.hpp"
-#include "../model/Schedule.hpp"
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/model/Schedule.hpp>
 
 #include <boost/smart_ptr.hpp>
 
@@ -106,4 +106,3 @@ private slots:
 } // openstudio
 
 #endif // OPENSTUDIO_THERMALZONESCONTROLLER_HPP
-

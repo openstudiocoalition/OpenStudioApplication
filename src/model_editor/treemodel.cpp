@@ -37,28 +37,28 @@
 #include <QMimeData>
 #include <QModelIndex>
 
-#include "../model/Lights.hpp"
-#include "../model/Model.hpp"
-#include "../model/Model_Impl.hpp"
-#include "../model/OutputVariable.hpp"
-#include "../model/ParentObject_Impl.hpp"
-#include "../model/People.hpp"
-#include "../model/SimulationControl.hpp"
-#include "../model/SimulationControl_Impl.hpp"
-#include "../model/Surface.hpp"
-#include "../model/SubSurface.hpp"
-#include "../model/Space.hpp"
+#include <openstudio/src/model/Lights.hpp>
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/model/Model_Impl.hpp>
+#include <openstudio/src/model/OutputVariable.hpp>
+#include <openstudio/src/model/ParentObject_Impl.hpp>
+#include <openstudio/src/model/People.hpp>
+#include <openstudio/src/model/SimulationControl.hpp>
+#include <openstudio/src/model/SimulationControl_Impl.hpp>
+#include <openstudio/src/model/Surface.hpp>
+#include <openstudio/src/model/SubSurface.hpp>
+#include <openstudio/src/model/Space.hpp>
 //#include "../model/test/ModelFixture.hpp"
 #include <model_editor/treeitem.h>
 #include "TreeView.hpp"
 #include "TreeViewWidget.hpp"
-#include "../utilities/idf/IdfFile.hpp"
-#include "../utilities/idf/WorkspaceObjectOrder.hpp"
+#include <openstudio/src/utilities/idf/IdfFile.hpp>
+#include <openstudio/src/utilities/idf/WorkspaceObjectOrder.hpp>
 
 #include <model_editor/treemodel.h>
 #include <utilities/idd/IddEnums.hxx>
 
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 #define guidOpenCurlyBrace '{'
 #define guidCloseCurlyBrace '}'

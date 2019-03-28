@@ -30,10 +30,10 @@
 #ifndef SHAREDGUICOMPONENTS_FIELDMETHODTYPEDEFS_HPP
 #define SHAREDGUICOMPONENTS_FIELDMETHODTYPEDEFS_HPP
 
-#include "../model/Model.hpp"
-#include "../model/Model_Impl.hpp"
-#include "../model/ModelObject.hpp"
-#include "../model/ModelObject_Impl.hpp"
+#include <openstudio/src/model/Model.hpp>
+#include <openstudio/src/model/Model_Impl.hpp>
+#include <openstudio/src/model/ModelObject.hpp>
+#include <openstudio/src/model/ModelObject_Impl.hpp>
 
 #include <boost/optional.hpp>
 

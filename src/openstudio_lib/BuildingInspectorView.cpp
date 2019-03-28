@@ -40,21 +40,21 @@
 #include "OSVectorController.hpp"
 #include "../model_editor/Utilities.hpp"
 
-#include "../model/Building.hpp"
-#include "../model/Building_Impl.hpp"
-#include "../model/Component.hpp"
-#include "../model/ComponentData.hpp"
-#include "../model/ComponentData_Impl.hpp"
-#include "../model/Component_Impl.hpp"
-#include "../model/DefaultConstructionSet.hpp"
-#include "../model/DefaultConstructionSet_Impl.hpp"
-#include "../model/DefaultScheduleSet.hpp"
-#include "../model/DefaultScheduleSet_Impl.hpp"
-#include "../model/SpaceType.hpp"
-#include "../model/SpaceType_Impl.hpp"
+#include <openstudio/src/model/Building.hpp>
+#include <openstudio/src/model/Building_Impl.hpp>
+#include <openstudio/src/model/Component.hpp>
+#include <openstudio/src/model/ComponentData.hpp>
+#include <openstudio/src/model/ComponentData_Impl.hpp>
+#include <openstudio/src/model/Component_Impl.hpp>
+#include <openstudio/src/model/DefaultConstructionSet.hpp>
+#include <openstudio/src/model/DefaultConstructionSet_Impl.hpp>
+#include <openstudio/src/model/DefaultScheduleSet.hpp>
+#include <openstudio/src/model/DefaultScheduleSet_Impl.hpp>
+#include <openstudio/src/model/SpaceType.hpp>
+#include <openstudio/src/model/SpaceType_Impl.hpp>
 
 #include <utilities/idd/OS_Building_FieldEnums.hxx>
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 #include <QBoxLayout>
 #include <QColor>
@@ -782,4 +782,3 @@ void BuildingInspectorView::toggleUnits(bool displayIP)
 }
 
 } // openstudio
-

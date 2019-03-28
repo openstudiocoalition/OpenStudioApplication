@@ -37,15 +37,15 @@
 #include "../model_editor/AccessPolicyStore.hpp"
 #include "../model_editor/Utilities.hpp"
 
-#include "../measure/OSArgument.hpp"
+#include <openstudio/src/measure/OSArgument.hpp>
 
 #include "../openstudio_lib/MainWindow.hpp"
 
-#include "../utilities/core/FileLogSink.hpp"
-#include "../utilities/bcl/BCLMeasure.hpp"
-#include "../utilities/core/Logger.hpp"
-#include "../utilities/core/String.hpp"
-#include "../utilities/idf/Workspace_Impl.hpp"
+#include <openstudio/src/utilities/core/FileLogSink.hpp>
+#include <openstudio/src/utilities/bcl/BCLMeasure.hpp>
+#include <openstudio/src/utilities/core/Logger.hpp>
+#include <openstudio/src/utilities/core/String.hpp>
+#include <openstudio/src/utilities/idf/Workspace_Impl.hpp>
 
 #include <QAbstractButton>
 #include <QApplication>
@@ -60,7 +60,7 @@
 #endif
 
 #define WSAAPI
-#include "../utilities/core/Path.hpp"
+#include <openstudio/src/utilities/core/Path.hpp>
 
 // OS App is linked to the dynamic plugins
 //#if defined(Q_OS_OSX)

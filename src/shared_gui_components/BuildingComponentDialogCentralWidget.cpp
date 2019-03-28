@@ -37,12 +37,12 @@
 #include "BaseApp.hpp"
 #include "MeasureManager.hpp"
 
-#include "../measure/OSArgument.hpp"
+#include <openstudio/src/measure/OSArgument.hpp>
 
-#include "../utilities/bcl/BCL.hpp"
-#include "../utilities/bcl/LocalBCL.hpp"
-#include "../utilities/bcl/RemoteBCL.hpp"
-#include "../utilities/core/Assert.hpp"
+#include <openstudio/src/utilities/bcl/BCL.hpp>
+#include <openstudio/src/utilities/bcl/LocalBCL.hpp>
+#include <openstudio/src/utilities/bcl/RemoteBCL.hpp>
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 #include "../model_editor/Application.hpp"
 
