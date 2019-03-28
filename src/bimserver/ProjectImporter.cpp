@@ -30,7 +30,7 @@
 #include "ProjectImporter.hpp"
 #include "BIMserverConnection.hpp"
 
-#include "../osversion/VersionTranslator.hpp"
+#include <openstudio/src/osversion/VersionTranslator.hpp>
 
 
 #include <QFileDialog>

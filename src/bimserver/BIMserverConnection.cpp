@@ -32,10 +32,10 @@
 #include "../model_editor/Application.hpp"
 #include "../model_editor/Utilities.hpp"
 
-#include "../utilities/core/System.hpp"
-#include "../utilities/core/Path.hpp"
-#include "../utilities/core/FilesystemHelpers.hpp"
-#include "../utilities/core/StringHelpers.hpp"
+#include <openstudio/src/utilities/core/System.hpp>
+#include <openstudio/src/utilities/core/Path.hpp>
+#include <openstudio/src/utilities/core/FilesystemHelpers.hpp>
+#include <openstudio/src/utilities/core/StringHelpers.hpp>
 
 #include <QString>
 #include <QUrl>

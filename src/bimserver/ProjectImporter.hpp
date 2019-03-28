@@ -33,7 +33,7 @@
 #include "BIMserverAPI.hpp"
 #include "BIMserverConnection.hpp"
 
-#include "../model/Model.hpp"
+#include <openstudio/src/model/Model.hpp>
 
 #include <QDialog>
 #include <QListWidget>
