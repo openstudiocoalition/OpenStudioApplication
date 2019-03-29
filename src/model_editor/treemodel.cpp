@@ -57,7 +57,7 @@
 #include <openstudio/src/utilities/idf/WorkspaceObjectOrder.hpp>
 #include <openstudio/src/utilities/core/Assert.hpp>
 
-#include <openstudio/src/utilities/utilities/idd/IddEnums.hxx>
+#include <openstudio/src/utilities/idd/IddEnums.hxx>
 
 #define guidOpenCurlyBrace '{'
 #define guidCloseCurlyBrace '}'

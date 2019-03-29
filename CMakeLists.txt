@@ -564,16 +564,18 @@ endif()
 ###############################################################################
 # Add to include path
 
-message("PROJECT_SOURCE_DIR=${PROJECT_SOURCE_DIR}")
-
-# Project source directory
 include_directories("${PROJECT_SOURCE_DIR}/src/")
+# Include openstudio (core) source
+# TODO: JM 2019-03-29
+# I'm aggressively including directories due to build errors. Need to revisit this later, changing include statements in openstudio (core) as needed too.
+include_directories("${PROJECT_SOURCE_DIR}/openstudio")
+include_directories("${PROJECT_SOURCE_DIR}/openstudio/src/")
 
 # Project binary directory
+include_directories("${PROJECT_BINARY_DIR}/")
 include_directories("${PROJECT_BINARY_DIR}/src/")
-
-# Include openstudio (core) source
-include_directories("${PROJECT_SOURCE_DIR}/openstudio")
+include_directories("${PROJECT_BINARY_DIR}/openstudio/")
+include_directories("${PROJECT_BINARY_DIR}/openstudio/src/")
 
 ###############################################################################
 #                         S U B D I R E C T O R I E S                         #

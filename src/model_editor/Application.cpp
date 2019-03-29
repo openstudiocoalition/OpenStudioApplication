@@ -30,9 +30,9 @@
 #include "Application.hpp"
 
 // TODO: JM 2019-03-28 Should move that file
-#include <openstudio/utilities/core/ApplicationPathHelpers.hpp>
+#include <openstudio/src/utilities/core/ApplicationPathHelpers.hpp>
 
-#include <openstudio/utilities/core/String.hpp>
+#include <openstudio/src/utilities/core/String.hpp>
 
 #include "Utilities.hpp"
 
