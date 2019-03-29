@@ -740,7 +740,7 @@ void OSDropZone2::dropEvent(QDropEvent *event)
         }
         refresh();
       }
-      else if (doc->fromComponentLibrary(itemId)) 
+      else if (doc->fromComponentLibrary(itemId))
       {
         modelObject = modelObject->clone(m_modelObject->model());
         if (m_set)

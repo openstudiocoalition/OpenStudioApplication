@@ -152,7 +152,7 @@ void WindowMaterialGlazingInspectorView::createLayout()
 
   m_backSideSolarReflectanceAtNormalIncidence = new OSQuantityEdit2("","","", m_isIP);
   connect(this, &WindowMaterialGlazingInspectorView::toggleUnitsClicked, m_backSideSolarReflectanceAtNormalIncidence, &OSQuantityEdit2::onUnitSystemChange);
-  mainGridLayout->addWidget(m_backSideSolarReflectanceAtNormalIncidence,row++,0,1,3); 
+  mainGridLayout->addWidget(m_backSideSolarReflectanceAtNormalIncidence,row++,0,1,3);
 
   // Visible Transmittance At Normal Incidence
 

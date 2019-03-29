@@ -119,4 +119,4 @@ namespace bimserver {
 } // bimserver
 } // openstudio
 
-#endif // BIMSERVER_PROJECTIMPORTER_HPP 
+#endif // BIMSERVER_PROJECTIMPORTER_HPP

@@ -15,7 +15,7 @@
 		<rule IddField="Nominal Z Coordinate" Access="HIDDEN"/>
     <rule IddField="Nominal Floor to Floor Height" Access="HIDDEN"/>
     <rule IddField="Nominal Floor to Ceiling Height" Access="HIDDEN"/>
-	</POLICY>  
+	</POLICY>
 	<POLICY IddObjectType="OS_ShadingControl">
 	  <rule IddField="Shading Type" Access="LOCKED"/>
 		<rule IddField="Construction with Shading Name" Access="LOCKED"/>
@@ -43,7 +43,7 @@
 	</POLICY>
 	<POLICY IddObjectType="OS_ShadingSurfaceGroup">
 		<rule IddField="Shading Surface Type" Access="LOCKED"/>
-	</POLICY>	
+	</POLICY>
 	<POLICY IddObjectType="OS_Surface">
 		<rule IddField="Space Name" Access="LOCKED"/>
 		<rule IddField="Number of Vertices" Access="HIDDEN"/>

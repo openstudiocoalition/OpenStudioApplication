@@ -135,7 +135,7 @@ elseif( UNIX )
     get_property(LIB_LOCATION TARGET ${LIB} PROPERTY LOCATION)
     add_custom_command(TARGET ${target_name}
       POST_BUILD
-      COMMAND ${CMAKE_COMMAND} -E copy_if_different ${LIB_LOCATION} $<TARGET_FILE_DIR:${target_name}>/ 
+      COMMAND ${CMAKE_COMMAND} -E copy_if_different ${LIB_LOCATION} $<TARGET_FILE_DIR:${target_name}>/
       COMMAND patchelf --set-rpath "$ORIGIN/." $<TARGET_FILE_DIR:${target_name}>/$<TARGET_FILE_NAME:${LIB}>
       VERBATIM
     )

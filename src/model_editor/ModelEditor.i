@@ -28,7 +28,7 @@
   #include <model_editor/OSProgressBar.hpp>
   #include <model_editor/PathWatcher.hpp>
   #include <model_editor/Utilities.hpp>
- 
+
   #include <model/Model.hpp>
   #include <model/ModelObject.hpp>
 
@@ -82,7 +82,7 @@
 %include <model_editor/InspectorDialog.hpp>
 
 // do not know why SWIG is not pulling in these methods from QMainWindow base class
-%extend InspectorDialog {        
+%extend InspectorDialog {
     void setVisible(bool visible){$self->setVisible(visible); }
     void setHidden(bool hidden){$self->setHidden(hidden); }
     void show(){$self->show(); }

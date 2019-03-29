@@ -861,7 +861,7 @@ namespace bimserver {
       if (m_operationDone) {
         return true;
       }
-      
+
       Application::instance().processEvents(msecPerLoop);
 
       if (current > numTries) {

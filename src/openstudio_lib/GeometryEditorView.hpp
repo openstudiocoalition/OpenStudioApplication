@@ -114,9 +114,9 @@ class BaseEditor : public QObject
     virtual void checkForUpdate() = 0;
 
     virtual void onChanged();
-  
+
   signals:
-    
+
     bool changed();
 
   protected:

@@ -2059,7 +2059,7 @@ Object.defineProperties( THREE.OrbitControls.prototype, {
 
 	GBX.parseFileXML = function( text ) {
 		//console.log( 'text', text );
-    
+
     var _GBX$surfaceMeshes, _GBX$surfaceEdges, _GBX$surfaceOpenings;
 
 		const parser = new window.DOMParser();
@@ -2551,7 +2551,7 @@ Object.defineProperties( THREE.OrbitControls.prototype, {
 	function setGbXml ( text ) {
     var _scene;
     timeStart = Date.now();
-      
+
     try {
       meshes = GBX.parseFileXML( text );
       (_scene = scene).add.apply(_scene, meshes);
@@ -2561,12 +2561,12 @@ Object.defineProperties( THREE.OrbitControls.prototype, {
     }
     catch(err) {
       divLog.innerHTML = "Error: " + err.message + "<br><br>";
-      divLog.innerHTML += "You may still be able to preview and merge this file using OSM translation tools.<br><br>" 
+      divLog.innerHTML += "You may still be able to preview and merge this file using OSM translation tools.<br><br>"
       divLog.innerHTML += "Please visit full spider viewer at https://www.ladybug.tools/spider/gbxml-viewer  (note full site is not yet available in embedded viewer) to edit and inspect your file in more detail.<br>"
     }
 
 	}
-		
+
 	/////////
 
 	function zoomObjectBoundingSphere ( obj ) {

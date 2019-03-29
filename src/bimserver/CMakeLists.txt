@@ -29,7 +29,7 @@ set(${target_name}_depends
   openstudio_model
   openstudio_energyplus
   openstudio_osversion
-  ${QT_LIBS}  
+  ${QT_LIBS}
 )
 if(WIN32)
   list(APPEND ${target_name}_depends qtwinmigrate)
@@ -56,4 +56,3 @@ CREATE_TEST_TARGETS(${target_name} "${${target_name}_test_src}" "${${target_name
 #endif()
 
 #MAKE_SWIG_TARGET(OpenStudioGBXML gbXML "${CMAKE_CURRENT_SOURCE_DIR}/gbXML.i" "${${target_name}_swig_src}" ${target_name} OpenStudioEnergyPlus)
-
