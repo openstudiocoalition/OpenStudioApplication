@@ -564,6 +564,7 @@ endif()
 ###############################################################################
 # Add to include path
 
+include_directories("${PROJECT_SOURCE_DIR}/")
 include_directories("${PROJECT_SOURCE_DIR}/src/")
 # Include openstudio (core) source
 # TODO: JM 2019-03-29
