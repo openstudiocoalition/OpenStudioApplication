@@ -46,7 +46,7 @@
 #include <openstudio/src/model/StandardsInformationConstruction.hpp>
 
 #include <openstudio/src/utilities/core/Assert.hpp>
-#include <utilities/idd/OS_Construction_FieldEnums.hxx>
+#include <openstudio/src/utilities/idd/OS_Construction_FieldEnums.hxx>
 
 #include <QComboBox>
 #include <QGridLayout>

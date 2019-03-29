@@ -41,13 +41,14 @@
 
 #ifndef TREEMODEL_H
 #define TREEMODEL_H
- 
+
 #include <QAbstractItemModel>
 #include <QVariant>
- 
-#include <model/ParentObject.hpp>
-#include <model/Building.hpp>
+
 #include "ModelEditorAPI.hpp"
+
+#include <openstudio/src/model/ParentObject.hpp>
+#include <openstudio/src/model/Building.hpp>
 
 class QModelIndex;
 

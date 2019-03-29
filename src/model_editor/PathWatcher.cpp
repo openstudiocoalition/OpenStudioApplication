@@ -32,8 +32,8 @@
 
 #include "../model_editor/Utilities.hpp"
 
-#include <utilities/core/Checksum.hpp>
-#include <utilities/core/Assert.hpp>
+#include <openstudio/src/utilities/core/Checksum.hpp>
+#include <openstudio/src/utilities/core/Assert.hpp>
 
 #include <QFileSystemWatcher>
 #include <QTimer>

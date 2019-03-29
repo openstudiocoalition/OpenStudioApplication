@@ -109,7 +109,7 @@
 
 #include "../model_editor/Application.hpp"
 
-#include <OpenStudio.hxx>
+#include <openstudio/src/OpenStudio.hxx>
 
 #include <openstudio/src/energyplus/ForwardTranslator.hpp>
 #include <openstudio/src/gbxml/ForwardTranslator.hpp>

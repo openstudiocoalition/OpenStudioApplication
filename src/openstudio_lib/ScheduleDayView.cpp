@@ -78,7 +78,7 @@
 #include <algorithm>
 #include <iterator>
 
-#include <utilities/idd/IddEnums.hxx>
+#include <openstudio/src/utilities/idd/IddEnums.hxx>
 
 namespace openstudio {
 

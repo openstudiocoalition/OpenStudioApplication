@@ -29,8 +29,10 @@
 
 #include "Application.hpp"
 
-#include <utilities/core/ApplicationPathHelpers.hpp>
-#include <utilities/core/String.hpp>
+// TODO: JM 2019-03-28 Should move that file
+#include <openstudio/utilities/core/ApplicationPathHelpers.hpp>
+
+#include <openstudio/utilities/core/String.hpp>
 
 #include "Utilities.hpp"
 

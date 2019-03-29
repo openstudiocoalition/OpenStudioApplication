@@ -45,8 +45,8 @@
 #include <openstudio/src/model/LightsDefinition.hpp>
 #include <openstudio/src/model/LightsDefinition_Impl.hpp>
 
-#include <utilities/idd/OS_Lights_FieldEnums.hxx>
-#include <utilities/idd/IddEnums.hxx>
+#include <openstudio/src/utilities/idd/OS_Lights_FieldEnums.hxx>
+#include <openstudio/src/utilities/idd/IddEnums.hxx>
 
 #include <QObject>
 

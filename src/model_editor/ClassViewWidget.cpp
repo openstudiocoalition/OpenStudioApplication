@@ -34,14 +34,14 @@
 
 #include "InspectorGadget.hpp"
 #include "ModelExplorer.hpp"
-#include <model_editor/tablemodel.h>
+#include "tablemodel.h"
 #include "TableView.hpp"
 #include "ClassViewWidget.hpp"
 
 #include <openstudio/src/utilities/idf/WorkspaceObjectOrder.hpp>
 
 #include <openstudio/src/utilities/core/Assert.hpp>
-#include <utilities/idd/IddEnums.hxx>
+#include <openstudio/src/utilities/idd/IddEnums.hxx>
 
 namespace modeleditor
 {

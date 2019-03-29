@@ -30,7 +30,7 @@
 #ifndef MODELEDITOR_PATHWATCHER_HPP
 #define MODELEDITOR_PATHWATCHER_HPP
 
-#include <utilities/core/Path.hpp>
+#include <openstudio/src/utilities/core/Path.hpp>
 
 #include <QObject>
 #include <QString>

@@ -39,7 +39,7 @@
 #include <openstudio/src/utilities/units/Quantity.hpp>
 #include <openstudio/src/utilities/units/Unit.hpp>
 
-#include <OpenStudio.hxx>
+#include <openstudio/src/OpenStudio.hxx>
 
 #include <QBoxLayout>
 #include <QCheckBox>

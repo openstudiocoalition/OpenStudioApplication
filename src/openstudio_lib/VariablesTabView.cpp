@@ -49,7 +49,7 @@
 #include "../shared_gui_components/OSSwitch.hpp"
 #include "../shared_gui_components/OSComboBox.hpp"
 
-#include <utilities/idd/IddEnums.hxx>
+#include <openstudio/src/utilities/idd/IddEnums.hxx>
 
 namespace openstudio {
 

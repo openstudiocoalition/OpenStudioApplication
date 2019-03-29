@@ -53,8 +53,9 @@
 #include <openstudio/src/model/SpaceType.hpp>
 #include <openstudio/src/model/SpaceType_Impl.hpp>
 
-#include <utilities/idd/OS_Building_FieldEnums.hxx>
 #include <openstudio/src/utilities/core/Assert.hpp>
+
+#include <openstudio/src/utilities/idd/OS_Building_FieldEnums.hxx>
 
 #include <QBoxLayout>
 #include <QColor>

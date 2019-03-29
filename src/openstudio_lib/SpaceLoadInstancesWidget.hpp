@@ -32,7 +32,7 @@
 
 #include "ModelObjectVectorController.hpp"
 
-#include <nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/src/nano/nano_signal_slot.hpp> // Signal-Slot replacement
 #include <openstudio/src/model/Building.hpp>
 #include <openstudio/src/model/DefaultScheduleSet.hpp>
 #include <openstudio/src/model/Model.hpp>

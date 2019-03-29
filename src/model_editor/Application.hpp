@@ -32,7 +32,7 @@
 
 #include "ModelEditorAPI.hpp"
 
-#include <utilities/core/Singleton.hpp>
+#include <openstudio/utilities/core/Singleton.hpp>
 
 #include "QMetaTypes.hpp"
 

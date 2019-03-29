@@ -38,7 +38,7 @@
 #include <openstudio/src/utilities/core/Assert.hpp>
 #include <openstudio/src/utilities/data/DataEnums.hpp>
 
-#include <utilities/idd/IddEnums.hxx>
+#include <openstudio/src/utilities/idd/IddEnums.hxx>
 
 #include <iostream>
 

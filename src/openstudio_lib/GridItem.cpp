@@ -115,7 +115,7 @@
 
 #include <algorithm>
 
-#include <utilities/idd/IddEnums.hxx>
+#include <openstudio/src/utilities/idd/IddEnums.hxx>
 
 using namespace openstudio::model;
 

@@ -29,7 +29,7 @@
 
 #include "IconLibrary.hpp"
 #include <openstudio/src/utilities/idd/IddEnums.hpp>
-#include <utilities/idd/IddEnums.hxx>
+#include <openstudio/src/utilities/idd/IddEnums.hxx>
 
 using std::map;
 

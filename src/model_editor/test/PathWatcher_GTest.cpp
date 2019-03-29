@@ -29,15 +29,15 @@
 
 #include <gtest/gtest.h>
 
-#include <resources.hxx>
+#include <openstudio/src/resources.hxx>
 
 #include "ModelEditorFixture.hpp"
 
 #include "../PathWatcher.hpp"
 #include "../Application.hpp"
 
-#include <utilities/core/Path.hpp>
-#include <utilities/core/System.hpp>
+#include <openstudio/src/utilities/core/Path.hpp>
+#include <openstudio/src/utilities/core/System.hpp>
 
 #include <iostream>
 #include <thread>

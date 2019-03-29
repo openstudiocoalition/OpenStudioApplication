@@ -31,8 +31,8 @@
 
 #include "ModelEditorFixture.hpp"
 
-#include <utilities/idd/IddEnums.hpp>
-#include <utilities/idd/IddEnums.hxx>
+#include <openstudio/src/utilities/idd/IddEnums.hpp>
+#include <openstudio/src/utilities/idd/IddEnums.hxx>
 
 #include "../QMetaTypes.hpp"
 #include <QMetaType>

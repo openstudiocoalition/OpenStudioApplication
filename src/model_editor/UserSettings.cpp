@@ -34,7 +34,7 @@
 #include <openstudio/src/utilities/core/Path.hpp>
 #include <openstudio/src/utilities/core/FilesystemHelpers.hpp>
 
-#include "../model_editor/Utilities.hpp"
+#include "Utilities.hpp"
 
 #include <QString>
 #include <QSettings>

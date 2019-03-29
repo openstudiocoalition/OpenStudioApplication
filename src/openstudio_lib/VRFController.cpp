@@ -52,7 +52,7 @@
 
 #include <openstudio/src/utilities/core/Compare.hpp>
 #include "../shared_gui_components/GraphicsItems.hpp"
-#include <utilities/idd/OS_ComponentData_FieldEnums.hxx>
+#include <openstudio/src/utilities/idd/OS_ComponentData_FieldEnums.hxx>
 #include <QGraphicsScene>
 #include <QGraphicsView>
 #include <QTimer>

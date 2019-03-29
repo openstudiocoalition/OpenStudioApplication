@@ -42,7 +42,7 @@
 #include <QTime>
 #include <QToolBar>
 
-#include <resources.hxx>
+#include <openstudio/src/resources.hxx>
 #include <openstudio/src/energyplus/ReverseTranslator.hpp>
 #include <openstudio/src/model/Model.hpp>
 #include "ClassViewWidget.hpp"
@@ -56,7 +56,7 @@
 #include <openstudio/src/utilities/idf/WorkspaceObjectOrder.hpp>
 #include <openstudio/src/utilities/core/Compare.hpp>
 
-#include <utilities/idd/IddEnums.hxx>
+#include <openstudio/src/utilities/idd/IddEnums.hxx>
 
 #include "ModelExplorer.hpp"
 #include "OSProgressBar.hpp"

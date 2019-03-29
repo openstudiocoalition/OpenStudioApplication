@@ -84,7 +84,7 @@
 #include <openstudio/src/utilities/core/Assert.hpp>
 
 #include <openstudio/src/utilities/idd/IddEnums.hpp>
-#include <utilities/idd/IddEnums.hxx>
+#include <openstudio/src/utilities/idd/IddEnums.hxx>
 
 namespace openstudio {
 

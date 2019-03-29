@@ -30,8 +30,8 @@
 #ifndef MODELEDITOR_USERSETTINGS_HPP
 #define MODELEDITOR_USERSETTINGS_HPP
 
-#include <utilities/core/Path.hpp>
-#include <utilities/bcl/BCLMeasure.hpp>
+#include <openstudio/src/utilities/core/Path.hpp>
+#include <openstudio/src/utilities/bcl/BCLMeasure.hpp>
 
 /// Load all measures in the local BCL.
 std::vector<openstudio::BCLMeasure> localBCLMeasures();

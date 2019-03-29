@@ -39,7 +39,7 @@
 #include <openstudio/src/utilities/core/UUID.hpp>
 #include <openstudio/src/utilities/core/Enum.hpp>
 
-#include <nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/src/nano/nano_signal_slot.hpp> // Signal-Slot replacement
 
 #include <QWidget>
 #include <QMainWindow>

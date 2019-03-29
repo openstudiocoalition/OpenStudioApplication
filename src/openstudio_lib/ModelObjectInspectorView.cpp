@@ -37,7 +37,7 @@
 #include <openstudio/src/model/ModelObject_Impl.hpp>
 #include <openstudio/src/utilities/core/Assert.hpp>
 
-#include <nano/nano_signal_slot.hpp>
+#include <openstudio/src/nano/nano_signal_slot.hpp>
 #include <QStyleOption>
 #include <QPainter>
 #include <QVBoxLayout>

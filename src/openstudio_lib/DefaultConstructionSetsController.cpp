@@ -36,7 +36,7 @@
 #include <openstudio/src/model/DefaultSubSurfaceConstructions.hpp>
 
 #include <openstudio/src/utilities/core/Logger.hpp>
-#include <utilities/idd/IddEnums.hxx>
+#include <openstudio/src/utilities/idd/IddEnums.hxx>
 
 namespace openstudio {
 

@@ -43,7 +43,7 @@
 #include "../shared_gui_components/OSComboBox.hpp"
 #include <QAbstractListModel>
 #include <QPointer>
-#include <nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/src/nano/nano_signal_slot.hpp> // Signal-Slot replacement
 #include "../model_editor/QMetaTypes.hpp"
 
 class QMutex;

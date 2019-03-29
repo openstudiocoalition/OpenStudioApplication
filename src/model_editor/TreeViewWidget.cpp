@@ -35,14 +35,14 @@
 #include <openstudio/src/model/ParentObject_Impl.hpp>
 #include "InspectorGadget.hpp"
 #include "ModelExplorer.hpp"
-#include <model_editor/modeltest.h>
-#include <model_editor/treemodel.h>
+#include "modeltest.h"
+#include "treemodel.h"
 #include "TreeView.hpp"
 
 #include "TreeViewWidget.hpp"
 
 #include <openstudio/src/utilities/core/Assert.hpp>
-#include <utilities/idd/IddEnums.hxx>
+#include <openstudio/src/utilities/idd/IddEnums.hxx>
 
 using namespace openstudio::model;
 

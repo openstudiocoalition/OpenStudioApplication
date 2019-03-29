@@ -48,17 +48,16 @@
 #include <openstudio/src/model/Surface.hpp>
 #include <openstudio/src/model/SubSurface.hpp>
 #include <openstudio/src/model/Space.hpp>
-//#include "../model/test/ModelFixture.hpp"
-#include <model_editor/treeitem.h>
+//#include "<openstudio/src/model/test/ModelFixture.hpp"
+#include "treeitem.h"
+#include "treemodel.h"
 #include "TreeView.hpp"
 #include "TreeViewWidget.hpp"
 #include <openstudio/src/utilities/idf/IdfFile.hpp>
 #include <openstudio/src/utilities/idf/WorkspaceObjectOrder.hpp>
-
-#include <model_editor/treemodel.h>
-#include <utilities/idd/IddEnums.hxx>
-
 #include <openstudio/src/utilities/core/Assert.hpp>
+
+#include <openstudio/src/utilities/utilities/idd/IddEnums.hxx>
 
 #define guidOpenCurlyBrace '{'
 #define guidCloseCurlyBrace '}'

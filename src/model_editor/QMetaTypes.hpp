@@ -35,7 +35,7 @@
 #include <QModelIndex>
 Q_DECLARE_METATYPE(QModelIndex)
 
-#include <utilities/idd/IddEnums.hpp>
+#include <openstudio/src/utilities/idd/IddEnums.hpp>
 Q_DECLARE_METATYPE(openstudio::IddFileType)
 Q_DECLARE_METATYPE(openstudio::IddObjectType)
 
@@ -50,7 +50,7 @@ Q_DECLARE_METATYPE(std::vector<openstudio::OSItemId>)
 // Q_DECLARE_METATYPE(std::vector<openstudio::model::ModelObject>);
 
 
-#include <utilities/core/UUID.hpp>
+#include <openstudio/src/utilities/core/UUID.hpp>
 Q_DECLARE_METATYPE(openstudio::UUID);
 
 #include <string>
@@ -64,18 +64,18 @@ Q_DECLARE_METATYPE(boost::optional<unsigned>);
 Q_DECLARE_METATYPE(boost::optional<int>);
 Q_DECLARE_METATYPE(boost::optional<std::string>);
 
-#include <utilities/data/Attribute.hpp>
+#include <openstudio/src/utilities/data/Attribute.hpp>
 //Q_DECLARE_METATYPE(openstudio::Attribute);
 Q_DECLARE_METATYPE(boost::optional<openstudio::Attribute>);
 Q_DECLARE_METATYPE(std::vector<openstudio::Attribute>);
 
-#include <utilities/units/Quantity.hpp>
+#include <openstudio/src/utilities/units/Quantity.hpp>
 Q_DECLARE_METATYPE(openstudio::Quantity);
 
-#include <utilities/units/OSOptionalQuantity.hpp>
+#include <openstudio/src/utilities/units/OSOptionalQuantity.hpp>
 Q_DECLARE_METATYPE(openstudio::OSOptionalQuantity);
 
-#include <utilities/idf/Workspace_Impl.hpp>
+#include <openstudio/src/utilities/idf/Workspace_Impl.hpp>
 Q_DECLARE_METATYPE(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl>)
 
 #endif // MODELEDITOR_QMETATYPES

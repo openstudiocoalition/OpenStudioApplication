@@ -71,7 +71,7 @@
 #include <openstudio/src/utilities/geometry/ThreeJS.hpp>
 #include <openstudio/src/utilities/core/ApplicationPathHelpers.hpp>
 
-#include <utilities/idd/IddEnums.hxx>
+#include <openstudio/src/utilities/idd/IddEnums.hxx>
 
 #include <QFile>
 #include <QDialog>

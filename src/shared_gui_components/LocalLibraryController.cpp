@@ -52,7 +52,7 @@
 #include <openstudio/src/utilities/core/Compare.hpp>
 #include <openstudio/src/utilities/core/PathHelpers.hpp>
 
-#include <OpenStudio.hxx>
+#include <openstudio/src/OpenStudio.hxx>
 
 #include <QCoreApplication>
 #include <QDesktopServices>

@@ -62,17 +62,17 @@
 #include <openstudio/src/utilities/core/System.hpp>
 #include <openstudio/src/utilities/core/Assert.hpp>
 
-#include <utilities/idd/OS_ElectricEquipment_FieldEnums.hxx>
-#include <utilities/idd/OS_GasEquipment_FieldEnums.hxx>
-#include <utilities/idd/OS_HotWaterEquipment_FieldEnums.hxx>
-#include <utilities/idd/OS_InternalMass_FieldEnums.hxx>
-#include <utilities/idd/OS_Lights_FieldEnums.hxx>
-#include <utilities/idd/OS_Luminaire_FieldEnums.hxx>
-#include <utilities/idd/OS_People_FieldEnums.hxx>
+#include <openstudio/src/utilities/idd/OS_ElectricEquipment_FieldEnums.hxx>
+#include <openstudio/src/utilities/idd/OS_GasEquipment_FieldEnums.hxx>
+#include <openstudio/src/utilities/idd/OS_HotWaterEquipment_FieldEnums.hxx>
+#include <openstudio/src/utilities/idd/OS_InternalMass_FieldEnums.hxx>
+#include <openstudio/src/utilities/idd/OS_Lights_FieldEnums.hxx>
+#include <openstudio/src/utilities/idd/OS_Luminaire_FieldEnums.hxx>
+#include <openstudio/src/utilities/idd/OS_People_FieldEnums.hxx>
 
 #include <openstudio/src/utilities/idd/IddFile.hpp>
 #include <openstudio/src/utilities/idd/IddObject.hpp>
-#include <utilities/idd/IddFactory.hxx>
+#include <openstudio/src/utilities/idd/IddFactory.hxx>
 
 #include <openstudio/src/utilities/core/Compare.hpp>
 

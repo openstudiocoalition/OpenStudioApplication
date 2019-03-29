@@ -39,7 +39,7 @@
 
 #include "ModelEditorAPI.hpp"
 
-#include <nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/src/nano/nano_signal_slot.hpp> // Signal-Slot replacement
 
 #include <openstudio/src/utilities/idd/IddField.hpp>
 #include <openstudio/src/utilities/idf/Workspace.hpp>

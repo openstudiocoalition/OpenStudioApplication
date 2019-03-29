@@ -34,7 +34,7 @@
 #include "../model_editor/QMetaTypes.hpp"
 #include <openstudio/src/model/Model.hpp>
 #include <openstudio/src/model/OutputVariable.hpp>
-#include <nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/src/nano/nano_signal_slot.hpp> // Signal-Slot replacement
 #include <boost/optional.hpp>
 
 class QComboBox;

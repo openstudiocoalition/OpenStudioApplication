@@ -36,7 +36,7 @@
 #include <openstudio/src/model/WaterUseEquipmentDefinition_Impl.hpp>
 #include <openstudio/src/model/Schedule.hpp>
 #include <openstudio/src/model/Schedule_Impl.hpp>
-#include <utilities/idd/OS_WaterUse_Equipment_Definition_FieldEnums.hxx>
+#include <openstudio/src/utilities/idd/OS_WaterUse_Equipment_Definition_FieldEnums.hxx>
 #include <openstudio/src/utilities/core/Assert.hpp>
 #include <QVBoxLayout>
 #include <QHBoxLayout>

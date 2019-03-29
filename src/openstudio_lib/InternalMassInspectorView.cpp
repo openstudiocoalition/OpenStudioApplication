@@ -40,7 +40,7 @@
 #include <openstudio/src/model/ComponentData_Impl.hpp>
 
 #include <openstudio/src/utilities/core/Assert.hpp>
-#include <utilities/idd/OS_InternalMass_Definition_FieldEnums.hxx>
+#include <openstudio/src/utilities/idd/OS_InternalMass_Definition_FieldEnums.hxx>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QLabel>

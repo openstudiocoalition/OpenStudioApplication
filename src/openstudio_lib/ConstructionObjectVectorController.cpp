@@ -39,8 +39,8 @@
 #include <openstudio/src/model/Material_Impl.hpp>
 
 #include <openstudio/src/utilities/core/Assert.hpp>
-#include <utilities/idd/OS_Construction_FieldEnums.hxx>
-#include <utilities/idd/IddEnums.hxx>
+#include <openstudio/src/utilities/idd/OS_Construction_FieldEnums.hxx>
+#include <openstudio/src/utilities/idd/IddEnums.hxx>
 
 #include <QMessageBox>
 

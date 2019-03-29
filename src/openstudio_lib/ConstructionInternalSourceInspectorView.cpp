@@ -45,7 +45,7 @@
 #include <openstudio/src/model/Material_Impl.hpp>
 
 #include <openstudio/src/utilities/core/Assert.hpp>
-#include <utilities/idd/OS_Construction_InternalSource_FieldEnums.hxx>
+#include <openstudio/src/utilities/idd/OS_Construction_InternalSource_FieldEnums.hxx>
 
 #include <QGridLayout>
 #include <QLabel>

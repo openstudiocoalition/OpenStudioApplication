@@ -45,7 +45,7 @@
 #include <openstudio/src/model/WindowDataFile.hpp>
 
 #include <openstudio/src/utilities/core/Logger.hpp>
-#include <utilities/idd/IddEnums.hxx>
+#include <openstudio/src/utilities/idd/IddEnums.hxx>
 
 namespace openstudio {
 

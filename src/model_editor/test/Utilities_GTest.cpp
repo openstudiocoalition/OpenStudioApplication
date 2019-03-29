@@ -29,7 +29,7 @@
 
 #include <gtest/gtest.h>
 
-#include <resources.hxx>
+#include <openstudio/src/resources.hxx>
 
 #include "ModelEditorFixture.hpp"
 #include "../Utilities.hpp"

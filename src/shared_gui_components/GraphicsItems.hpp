@@ -30,7 +30,7 @@
 #ifndef SHAREDGUICOMPONENTS_GRAPHICSITEMS_HPP
 #define SHAREDGUICOMPONENTS_GRAPHICSITEMS_HPP
 
-#include <nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/src/nano/nano_signal_slot.hpp> // Signal-Slot replacement
 #include <QGraphicsObject>
 #include <QSizeF>
 

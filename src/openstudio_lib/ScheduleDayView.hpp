@@ -30,7 +30,7 @@
 #ifndef OPENSTUDIO_SCHEDULEDAYVIEW_HPP
 #define OPENSTUDIO_SCHEDULEDAYVIEW_HPP
 
-#include <nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/src/nano/nano_signal_slot.hpp> // Signal-Slot replacement
 #include <openstudio/src/model/ScheduleDay.hpp>
 #include <openstudio/src/model/ScheduleTypeLimits.hpp>
 #include <openstudio/src/model/YearDescription.hpp>

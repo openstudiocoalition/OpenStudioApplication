@@ -76,7 +76,7 @@
 
 #include <QStringList>
 
-#include <model_editor/treeitem.h>
+#include "treeitem.h"
 
 namespace modeleditor
 {

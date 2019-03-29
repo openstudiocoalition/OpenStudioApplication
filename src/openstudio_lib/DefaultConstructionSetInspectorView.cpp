@@ -47,9 +47,9 @@
 #include <openstudio/src/model/ComponentData.hpp>
 
 #include <openstudio/src/utilities/core/Assert.hpp>
-#include <utilities/idd/OS_DefaultConstructionSet_FieldEnums.hxx>
-#include <utilities/idd/OS_DefaultSubSurfaceConstructions_FieldEnums.hxx>
-#include <utilities/idd/OS_DefaultSurfaceConstructions_FieldEnums.hxx>
+#include <openstudio/src/utilities/idd/OS_DefaultConstructionSet_FieldEnums.hxx>
+#include <openstudio/src/utilities/idd/OS_DefaultSubSurfaceConstructions_FieldEnums.hxx>
+#include <openstudio/src/utilities/idd/OS_DefaultSurfaceConstructions_FieldEnums.hxx>
 
 #include <QGridLayout>
 #include <QLabel>

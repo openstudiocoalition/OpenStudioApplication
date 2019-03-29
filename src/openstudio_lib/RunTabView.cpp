@@ -31,7 +31,7 @@
 
 #include "OSAppBase.hpp"
 #include "OSDocument.hpp"
-#include <OpenStudio.hxx>
+#include <openstudio/src/OpenStudio.hxx>
 
 #include <openstudio/src/model/FileOperations.hpp>
 #include <openstudio/src/model/DaylightingControl.hpp>

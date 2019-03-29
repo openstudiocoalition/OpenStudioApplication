@@ -126,7 +126,7 @@
 
 #include <openstudio/src/utilities/core/Assert.hpp>
 #include <openstudio/src/utilities/core/Compare.hpp>
-#include <utilities/idd/OS_ComponentData_FieldEnums.hxx>
+#include <openstudio/src/utilities/idd/OS_ComponentData_FieldEnums.hxx>
 
 #include <QMessageBox>
 #include <QTimer>

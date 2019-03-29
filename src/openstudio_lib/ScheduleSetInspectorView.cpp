@@ -40,7 +40,7 @@
 #include <openstudio/src/model/Schedule_Impl.hpp>
 
 #include <openstudio/src/utilities/core/Assert.hpp>
-#include <utilities/idd/OS_DefaultScheduleSet_FieldEnums.hxx>
+#include <openstudio/src/utilities/idd/OS_DefaultScheduleSet_FieldEnums.hxx>
 
 #include <QGridLayout>
 #include <QLabel>

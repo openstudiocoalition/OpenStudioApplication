@@ -69,7 +69,7 @@
 #include <openstudio/src/utilities/filetypes/EpwFile.hpp>
 #include <openstudio/src/utilities/idf/IdfFile.hpp>
 
-#include <utilities/idd/IddEnums.hxx>
+#include <openstudio/src/utilities/idd/IddEnums.hxx>
 
 #include <boost/smart_ptr.hpp>
 
