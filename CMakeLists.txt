@@ -76,7 +76,7 @@ if("Ninja" STREQUAL ${CMAKE_GENERATOR})
   if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
     # For some reason it doesn't say its supported, but it works...
     # AddCXXFlagIfSupported(-fdiagnostics-color COMPILER_SUPPORTS_fdiagnostics-color)
-    message(STATUS "Forcing -fdiagnostics-color=always")
+    message(STATUS "Ninja: Forcing -fdiagnostics-color=always")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fdiagnostics-color=always")
   endif()
 endif()
@@ -587,8 +587,6 @@ elseif()
   add_definitions(-Werror)
 endif()
 
-message("PROJECT_SOURCE_DIR=${PROJECT_SOURCE_DIR}")
-
 # Include core
 add_subdirectory(openstudio)
 
@@ -617,6 +615,8 @@ conan_check(VERSION 1.0.0 REQUIRED)
 # openstudio is the one that installs Conan dependencies, we just reload the info so we can link against them (gtest)
 if(EXISTS "${CMAKE_BINARY_DIR}/openstudio/conanbuildinfo.cmake")
   message(STATUS "OpenStudioApplication: Using ${CMAKE_BINARY_DIR}/openstudio/conanbuildinfo.cmake")
+  # Silence this part, it's a repeat of what OScore has done
+  set(CONAN_CMAKE_SILENT_OUTPUT TRUE)
   include(${CMAKE_BINARY_DIR}/openstudio/conanbuildinfo.cmake)
   conan_basic_setup(TARGETS)
   # message("OpenStudioApplication: CONAN_TARGETS=${CONAN_TARGETS}")
@@ -627,8 +627,6 @@ endif()
 ###############################################################################
 #                                T A R G E T S                                #
 ###############################################################################
-
-message("PROJECT_SOURCE_DIR=${PROJECT_SOURCE_DIR}")
 
 set(project_directories "")
 if(BUILD_OS_APP)
