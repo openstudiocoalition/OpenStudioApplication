@@ -377,7 +377,7 @@ if(BUILD_OS_APP)
       else()
         # 16.04
         set(QT_ZIP_FILENAME "qt_5_11_linux_shared_xenial.tar.gz")
-        set(QT_ZIP_EXPECTED_MD5 "9b0e89433cf1a79c84f84f85c8fef168")
+        set(QT_ZIP_EXPECTED_MD5 "cb02b8cb34de94038a1a7cba59c0c43a")
       endif()
     endif()
 
