@@ -621,7 +621,8 @@ if(EXISTS "${CMAKE_BINARY_DIR}/openstudio/conanbuildinfo.cmake")
   # Silence this part, it's a repeat of what OScore has done
   set(CONAN_CMAKE_SILENT_OUTPUT TRUE)
   include(${CMAKE_BINARY_DIR}/openstudio/conanbuildinfo.cmake)
-  conan_basic_setup(TARGETS)
+  # Make sure to pass NO_OUTPUT_DIRS to not override CMAKE_RUNTIME_OUTPUT_DIR etc
+  conan_basic_setup(TARGETS NO_OUTPUT_DIRS)
   # message("OpenStudioApplication: CONAN_TARGETS=${CONAN_TARGETS}")
 else()
   message(STATUS "OpenStudioApp: Conan will need to run in openstudio")
@@ -671,8 +672,13 @@ endif()
 
 if(UNIX AND NOT APPLE)
   foreach(targ ${all_lib_targets} ${all_exe_targets} ${ALL_TESTING_TARGETS})
+    set_target_properties(${targ} PROPERTIES
+      #ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_ARCHIVE_OUTPUT_DIRECTORY}"
+      #LIBRARY_OUTPUT_DIRECTORY "${PROJECT_LIBRARY_OUTPUT_DIRECTORY}"
+      #RUNTIME_OUTPUT_DIRECTORY "${PROJECT_RUNTIME_OUTPUT_DIRECTORY}"
+      VERSION ${OPENSTUDIO_VERSION}
+    )
     target_include_directories(${targ} PUBLIC openstudio)
-    # set_target_properties(${targ} PROPERTIES VERSION ${OPENSTUDIO_VERSION})
   endforeach()
 endif()
 
