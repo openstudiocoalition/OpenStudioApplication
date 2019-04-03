@@ -31,7 +31,6 @@
 #include "../model_editor/Utilities.hpp"
 
 #include <openstudio/src/utilities/core/Path.hpp>
-#include <openstudio/src/utilities/core/ApplicationPathHelpers.hpp>
 #include <QVBoxLayout>
 #include <QLabel>
 #include <QListWidget>

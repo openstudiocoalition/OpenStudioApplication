@@ -49,6 +49,7 @@
 #include <openstudio/src/model/Model_Impl.hpp>
 
 #include "../openstudio_app/OpenStudioApp.hpp"
+#include "../utilities/OpenStudioApplicationPathHelpers.hpp"
 
 #include <openstudio/src/utilities/core/PathHelpers.hpp>
 #include <openstudio/src/utilities/core/RubyException.hpp>
@@ -378,15 +379,16 @@ void ApplyMeasureNowDialog::runMeasure()
   m_runProcess = new QProcess(this);
   connect(m_runProcess, static_cast<void(QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), this, &ApplyMeasureNowDialog::displayResults);
 
-  QStringList paths;
-  paths << QCoreApplication::applicationDirPath();
-  auto openstudioExePath = QStandardPaths::findExecutable("openstudio", paths);
+  // Use OpenStudioApplicationPathHelpers to find the CLI
+  QString openstudioExePath = toQString(openstudio::getOpenStudioCoreCLI());
 
   boost::optional<openstudio::path> tempWorkflowJSONPath = m_tempWorkflowJSON.oswPath();
   OS_ASSERT(tempWorkflowJSONPath);
 
   QStringList arguments;
   arguments << "run" << "-m" << "-w" << toQString(*tempWorkflowJSONPath);
+  LOG(Debug, "openstudioExePath='" << toString(openstudioExePath) << "'");
+  LOG(Debug, "run arguments" << arguments.join(";").toStdString());
 
   m_runProcess->start(openstudioExePath, arguments);
 

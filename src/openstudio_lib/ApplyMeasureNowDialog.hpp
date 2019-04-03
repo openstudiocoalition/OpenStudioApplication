@@ -108,6 +108,8 @@ signals:
 
 private:
 
+  REGISTER_LOGGER("openstudio::ApplyMeasureNowDialog");
+
   void createWidgets();
 
   void runMeasure();

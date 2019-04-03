@@ -52,6 +52,9 @@
 //#include "../runmanager/lib/RubyJobUtils.hpp"
 //#include "../runmanager/lib/RunManager.hpp"
 
+#include "../utilities/OpenStudioApplicationPathHelpers.hpp"
+
+// Include this to find E+ etc
 #include <openstudio/src/utilities/core/ApplicationPathHelpers.hpp>
 #include <openstudio/src/utilities/core/PathHelpers.hpp>
 #include <openstudio/src/utilities/sql/SqlFile.hpp>
@@ -218,9 +221,8 @@ void RunView::playButtonClicked(bool t_checked)
       }
     }
 
-    QStringList paths;
-    paths << QCoreApplication::applicationDirPath();
-    auto openstudioExePath = QStandardPaths::findExecutable("openstudio", paths);
+    // Use OpenStudioApplicationPathHelpers to find the CLI
+    QString openstudioExePath = toQString(openstudio::getOpenStudioCoreCLI());
 
     // run in save dir
     //auto basePath = getCompanionFolder( toPath(osdocument->savePath()) );
@@ -238,7 +240,7 @@ void RunView::playButtonClicked(bool t_checked)
     QStringList arguments;
     arguments << "run" << "-s" << QString::number(m_runTcpServer->serverPort()) << "-w" << workflowJSONPath;
 
-    LOG(Debug, "run exe" << openstudioExePath.toStdString());
+    LOG(Debug, "openstudioExePath='" << toString(openstudioExePath) << "'");
     LOG(Debug, "run arguments" << arguments.join(";").toStdString());
 
     osdocument->disableTabsDuringRun();
