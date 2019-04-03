@@ -29,7 +29,7 @@
 
 #include "Application.hpp"
 
-// TODO: JM 2019-03-28 Should move that file
+// TODO: JM 2019-03-28 Do I also need to make a specific version of getOpenStudioModuleDirectory?
 #include <openstudio/src/utilities/core/ApplicationPathHelpers.hpp>
 
 #include <openstudio/src/utilities/core/String.hpp>

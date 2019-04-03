@@ -297,7 +297,7 @@ if(UNIX)
 endif()
 
 
-# TODO: I think **some** these are Qt related
+# Ruby related
 if(UNIX)
   if(APPLE)
     find_library(GDBM libgdbm.a PATHS /usr/local/opt/gdbm/lib)
