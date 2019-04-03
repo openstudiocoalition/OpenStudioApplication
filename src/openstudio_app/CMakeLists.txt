@@ -189,6 +189,7 @@ elseif( WIN32 )
 endif()
 
 set(depends
+  openstudioapp_utilities
   openstudio_lib
   openstudio_osversion
   openstudio_model

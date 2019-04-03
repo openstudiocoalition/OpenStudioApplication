@@ -41,9 +41,11 @@
 #include "../shared_gui_components/WaitDialog.hpp"
 #include "../shared_gui_components/MeasureManager.hpp"
 
+// Call the OS App specific version, not the core one
+#include "../utilities/OpenStudioApplicationPathHelpers.hpp"
+
 #include <openstudio/src/utilities/core/Assert.hpp>
 #include <openstudio/src/utilities/core/Compare.hpp>
-#include <openstudio/src/utilities/core/ApplicationPathHelpers.hpp>
 #include <openstudio/src/utilities/core/Filesystem.hpp>
 
 #include <openstudio/src/utilities/idf/IdfFile.hpp>
@@ -938,13 +940,13 @@ void OpenStudioApp::reloadFile(const QString& osmPath, bool modified, bool saveC
 openstudio::path OpenStudioApp::resourcesPath() const
 {
   openstudio::path p;
-  if (applicationIsRunningFromBuildDirectory())
+  if (isOpenStudioApplicationRunningFromBuildDirectory())
   {
-    p = boost::filesystem::canonical(openstudio::toPath("src/openstudio_app/Resources"), getApplicationSourceDirectory());
+    p = boost::filesystem::canonical(openstudio::toPath("src/openstudio_app/Resources"), getOpenStudioApplicationSourceDirectory());
   }
   else
   {
-    p = boost::filesystem::canonical(openstudio::toPath("../Resources"), getApplicationDirectory());
+    p = boost::filesystem::canonical(openstudio::toPath("../Resources"), getOpenStudioApplicationDirectory());
   }
 
   return p;
@@ -952,16 +954,20 @@ openstudio::path OpenStudioApp::resourcesPath() const
 
 openstudio::path OpenStudioApp::openstudioCLIPath() const
 {
-  auto dir = applicationDirPath();
-  QString ext;
-  #ifdef _WIN32
-    ext = QFileInfo(applicationFilePath()).suffix();
-  #endif
-  if (ext.isEmpty())
-  {
-    return openstudio::toPath(dir + "/openstudio");
-  }
-  return openstudio::toPath(dir + "/openstudio." + ext);
+  /*
+   *auto dir = applicationDirPath();
+   *QString ext;
+   *#ifdef _WIN32
+   *  ext = QFileInfo(applicationFilePath()).suffix();
+   *#endif
+   *if (ext.isEmpty())
+   *{
+   *  return openstudio::toPath(dir + "/openstudio");
+   *}
+   *return openstudio::toPath(dir + "/openstudio." + ext);
+   */
+
+  return openstudio::getOpenStudioCoreCLI();
 }
 
 bool OpenStudioApp::notify(QObject* receiver, QEvent* event)

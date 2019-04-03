@@ -69,6 +69,8 @@
 #include <openstudio/src/utilities/bcl/RemoteBCL.hpp>
 #include <openstudio/src/utilities/geometry/FloorplanJS.hpp>
 #include <openstudio/src/utilities/geometry/ThreeJS.hpp>
+
+// Needed for getEnergyPlusExecutable for eg
 #include <openstudio/src/utilities/core/ApplicationPathHelpers.hpp>
 
 #include <openstudio/src/utilities/idd/IddEnums.hxx>

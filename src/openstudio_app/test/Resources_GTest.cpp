@@ -40,8 +40,9 @@
 
 #include "../../model_editor/Utilities.hpp"
 
+// Include our OS App specific one
+#include "../../utilities/OpenStudioApplicationPathHelpers.hpp"
 
-#include <openstudio/src/utilities/core/ApplicationPathHelpers.hpp>
 #include <openstudio/src/utilities/core/PathHelpers.hpp>
 
 #include <QDir>
@@ -51,7 +52,7 @@ using namespace openstudio;
 
 TEST_F(OpenStudioAppFixture, Resources_Templates)
 {
-  openstudio::path resourcesPath = getApplicationSourceDirectory() / openstudio::toPath("src/openstudio_app/Resources");
+  openstudio::path resourcesPath = getOpenStudioApplicationSourceDirectory() / openstudio::toPath("src/openstudio_app/Resources");
 
   ASSERT_TRUE(openstudio::filesystem::exists(resourcesPath));
   ASSERT_FALSE(isEmptyDirectory(resourcesPath));
@@ -83,7 +84,7 @@ TEST_F(OpenStudioAppFixture, Resources_Templates)
 
 TEST_F(OpenStudioAppFixture, Resources_HVACLibrary)
 {
-  openstudio::path hvacPath = getApplicationSourceDirectory() / openstudio::toPath("src/openstudio_app/Resources/default/hvac_library.osm");
+  openstudio::path hvacPath = getOpenStudioApplicationSourceDirectory() / openstudio::toPath("src/openstudio_app/Resources/default/hvac_library.osm");
 
   ASSERT_TRUE(openstudio::filesystem::exists(hvacPath));
 
