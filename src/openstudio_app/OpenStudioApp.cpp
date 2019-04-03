@@ -85,7 +85,6 @@
 #include <openstudio/src/model/FanVariableVolume.hpp>
 #include <openstudio/src/model/FanZoneExhaust.hpp>
 #include <openstudio/src/model/GeneratorFuelCellExhaustGasToWaterHeatExchanger.hpp>
-// TODO: Not sure if I need to include GeneratorMicroTurbine.hpp, GeneratorMicroTurbineHeatRecovery.hpp or both
 #include <openstudio/src/model/GeneratorMicroTurbineHeatRecovery.hpp>
 #include <openstudio/src/model/Model.hpp>
 #include <openstudio/src/model/ScheduleCompact.hpp>
@@ -110,8 +109,8 @@
 
 #include <openstudio/src/gbxml/ReverseTranslator.hpp>
 #include <openstudio/src/sdd/ReverseTranslator.hpp>
-#include <openstudio/src/bimserver/BIMserverConnection.hpp>
-#include <openstudio/src/bimserver/ProjectImporter.hpp>
+#include "../bimserver/BIMserverConnection.hpp"
+#include "../bimserver/ProjectImporter.hpp"
 
 #include <QAbstractButton>
 #include <QDesktopServices>
@@ -1433,3 +1432,4 @@ std::vector<openstudio::path> OpenStudioApp::libraryPaths() const {
 }
 
 } // openstudio
+
