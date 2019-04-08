@@ -42,6 +42,7 @@ qt5_wrap_cpp_minimally(${target_name}_moc_src ${${target_name}_moc})
 # this needs to be configured to embed the build number
 CONFIGURE_FILE_WITH_CHECKSUM(AboutBox.hpp.in "${CMAKE_CURRENT_BINARY_DIR}/AboutBox.hpp")
 
+set(ICON_FOLDER "${CMAKE_CURRENT_SOURCE_DIR}/../../openstudio/icons")
 
 if(WIN32)
   CONFIGURE_FILE_WITH_CHECKSUM(OpenStudioApp.rc.in "${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp.rc")
@@ -52,7 +53,14 @@ if(APPLE)
   # set the name of the bundle icon
   set(MACOSX_BUNDLE_ICON_FILE os.icns)
   # set all icons
-  set(ICON_SRC ../../icons/os.icns ../../icons/osm.icns ../../icons/osc.icns ../../icons/ossr.icns ../../icons/folder_icon.rsrc)
+  set(ICON_SRC
+    ${ICON_FOLDER}/os.icns
+    ${ICON_FOLDER}/osm.icns
+    ${ICON_FOLDER}/osc.icns
+    ${ICON_FOLDER}/ossr.icns
+    ${ICON_FOLDER}/folder_icon.rsrc
+  )
+
   set_source_files_properties(${ICON_SRC}
     PROPERTIES MACOSX_PACKAGE_LOCATION Resources
   )
