@@ -12,7 +12,7 @@ OpenStudio Application     |  Sketchup Plug-in
 
 <a class="anchor" id="1"><sup>[1]</sup></a> *To understand why the graphical user interfaces are being separated from the SDK, please refer to [A Shift in BTO’s BEM Strategy: A New Future for the OpenStudio Application](https://www.openstudio.net/new-future-for-openstudio-application)*.
 
-## What is the OpenStudio SDK
+## What is the OpenStudio SDK?
 
 [OpenStudio](https://github.com/NREL/OpenStudio) is a cross-platform (Windows, Mac, and Linux) collection of software tools to support whole building energy modeling
 using [EnergyPlus](https://github.com/NREL/EnergyPlus) and advanced daylight analysis using [Radiance](https://github.com/NREL/Radiance/).
@@ -24,7 +24,7 @@ More information and documentation is available at the [OpenStudio](https://www.
 
 ## Developer Information
 
-OpenStudio (core SDK) is included as a `git submodule` in the folder `./openstudio`. Be sure to initialize submodules, which can be done during cloning by passing the `--recurse-submodules` flag, or after the fact via `cd OpenStudioApplication/openstudio && git submodule init && git submodule update`.
+[OpenStudio](https://github.com/NREL/OpenStudio) (core SDK) is included as a `git submodule` in the folder `./openstudio`. Be sure to initialize submodules, which can be done during cloning by passing the `--recurse-submodules` flag, or after the fact via `cd OpenStudioApplication/openstudio && git submodule init && git submodule update`.
 
 **Temporary information:** Current this submodule is tracking branch `https://github.com/jmarrec/OpenStudio/tree/OS_App_killswitch` which is based off of `NREL/OpenStudio/develop3`.
 
