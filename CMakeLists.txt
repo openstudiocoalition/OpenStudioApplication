@@ -505,6 +505,22 @@ if(BUILD_DVIEW)
 
 endif()
 
+###############################################################################
+#                    G I T    S U B M O D U L E    I N I T                    #
+###############################################################################
+
+if( NOT EXISTS "${PROJECT_SOURCE_DIR}/openstudio/.git" )
+
+  # we couldn't find the header files for FOO or they don't exist
+  message("The git submodule openstudio (core) doesn't seem to be intialized")
+
+  # we have a submodule setup for openstudio
+  # now we need to clone this submodule
+  execute_process(COMMAND git submodule update --init -- openstudio
+                  WORKING_DIRECTORY ${PROJECT_SOURCE_DIR})
+
+endif()
+
 
 ###############################################################################
 #                         I N C L U D E    P A T H S                          #
