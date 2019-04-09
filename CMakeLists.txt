@@ -505,6 +505,22 @@ if(BUILD_DVIEW)
 
 endif()
 
+###############################################################################
+#                    G I T    S U B M O D U L E    I N I T                    #
+###############################################################################
+
+if( NOT EXISTS "${PROJECT_SOURCE_DIR}/openstudio/.git" )
+
+  # we couldn't find the header files for FOO or they don't exist
+  message("The git submodule openstudio (core) doesn't seem to be intialized")
+
+  # we have a submodule setup for openstudio
+  # now we need to clone this submodule
+  execute_process(COMMAND git submodule update --init -- openstudio
+                  WORKING_DIRECTORY ${PROJECT_SOURCE_DIR})
+
+endif()
+
 
 ###############################################################################
 #                         I N C L U D E    P A T H S                          #
@@ -563,11 +579,20 @@ include(${CMAKE_BINARY_DIR}/conan.cmake)
 conan_check(VERSION 1.0.0 REQUIRED)
 
 # openstudio is the one that installs Conan dependencies, we just reload the info so we can link against them (gtest)
-if(EXISTS "${CMAKE_BINARY_DIR}/openstudio/conanbuildinfo.cmake")
-  message(STATUS "OpenStudioApplication: Using ${CMAKE_BINARY_DIR}/openstudio/conanbuildinfo.cmake")
+
+# By default check the single configuration file (which exists also in the multi)
+set(CONAN_BUILD_INFO_MULTI "${CMAKE_BINARY_DIR}/openstudio/conanbuildinfo_multi.cmake")
+set(CONAN_BUILD_INFO_FILE "${CMAKE_BINARY_DIR}/openstudio/conanbuildinfo.cmake")
+# If the multi exists (MSVC), then use that one
+if(EXISTS ${CONAN_BUILD_INFO_MULTI})
+  set(CONAN_BUILD_INFO_FILE "${CONAN_BUILD_INFO_MULTI}")
+endif()
+
+if(EXISTS ${CONAN_BUILD_INFO_FILE})
+  message(STATUS "OpenStudioApplication: Using ${CONAN_BUILD_INFO_FILE}")
   # Silence this part, it's a repeat of what OScore has done
   set(CONAN_CMAKE_SILENT_OUTPUT TRUE)
-  include(${CMAKE_BINARY_DIR}/openstudio/conanbuildinfo.cmake)
+  include(${CONAN_BUILD_INFO_FILE})
   # Make sure to pass NO_OUTPUT_DIRS to not override CMAKE_RUNTIME_OUTPUT_DIR etc
   conan_basic_setup(TARGETS NO_OUTPUT_DIRS)
   # message("OpenStudioApplication: CONAN_TARGETS=${CONAN_TARGETS}")
