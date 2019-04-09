@@ -579,11 +579,20 @@ include(${CMAKE_BINARY_DIR}/conan.cmake)
 conan_check(VERSION 1.0.0 REQUIRED)
 
 # openstudio is the one that installs Conan dependencies, we just reload the info so we can link against them (gtest)
-if(EXISTS "${CMAKE_BINARY_DIR}/openstudio/conanbuildinfo.cmake")
-  message(STATUS "OpenStudioApplication: Using ${CMAKE_BINARY_DIR}/openstudio/conanbuildinfo.cmake")
+
+# By default check the single configuration file (which exists also in the multi)
+set(CONAN_BUILD_INFO_MULTI "${CMAKE_BINARY_DIR}/openstudio/conanbuildinfo_multi.cmake")
+set(CONAN_BUILD_INFO_FILE "${CMAKE_BINARY_DIR}/openstudio/conanbuildinfo.cmake")
+# If the multi exists (MSVC), then use that one
+if(EXISTS ${CONAN_BUILD_INFO_MULTI})
+  set(CONAN_BUILD_INFO_FILE "${CONAN_BUILD_INFO_MULTI}")
+endif()
+
+if(EXISTS ${CONAN_BUILD_INFO_FILE})
+  message(STATUS "OpenStudioApplication: Using ${CONAN_BUILD_INFO_FILE}")
   # Silence this part, it's a repeat of what OScore has done
   set(CONAN_CMAKE_SILENT_OUTPUT TRUE)
-  include(${CMAKE_BINARY_DIR}/openstudio/conanbuildinfo.cmake)
+  include(${CONAN_BUILD_INFO_FILE})
   # Make sure to pass NO_OUTPUT_DIRS to not override CMAKE_RUNTIME_OUTPUT_DIR etc
   conan_basic_setup(TARGETS NO_OUTPUT_DIRS)
   # message("OpenStudioApplication: CONAN_TARGETS=${CONAN_TARGETS}")
