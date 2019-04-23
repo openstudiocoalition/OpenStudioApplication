@@ -26,7 +26,7 @@ More information and documentation is available at the [OpenStudio](https://www.
 
 [OpenStudio](https://github.com/NREL/OpenStudio) (core SDK) is included as a `git submodule` in the folder `./openstudio`. Be sure to initialize submodules, which can be done during cloning by passing the `--recurse-submodules` flag, or after the fact via `cd OpenStudioApplication/openstudio && git submodule init && git submodule update`.
 
-**Temporary information:** Current this submodule is tracking branch `https://github.com/jmarrec/OpenStudio/tree/OS_App_killswitch` which is based off of `NREL/OpenStudio/develop3`.
+**Temporary information:** Current this submodule is tracking branch `https://github.com/NREL/OpenStudio/tree/OS_App_killswitch` which will soon replace `NREL/OpenStudio/develop3`.
 
 To build, use the root of the repo when configuring with ccmake.
 
