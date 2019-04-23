@@ -553,52 +553,12 @@ elseif()
   add_definitions(-Werror)
 endif()
 
+# Let openstudio's conan file do its thing
+set(CONAN_INSTALL_FILE "${PROJECT_SOURCE_DIR}/openstudio/ConanInstall.cmake")
+include("${CONAN_INSTALL_FILE}")
+
 # Include core
 add_subdirectory(openstudio)
-
-
-###############################################################################
-#                                  C O N A N                                  #
-###############################################################################
-
-
-## Conan
-
-## Download automatically, you can also just copy the conan.cmake file
-## Put it in CMAKE_BINARY_DIR so we don't end up with two when building OpenStudioApplication
-if(NOT EXISTS "${CMAKE_BINARY_DIR}/conan.cmake")
-  message(STATUS "OpenStudioApplication: Downloading conan.cmake from https://github.com/conan-io/cmake-conan")
-  file(DOWNLOAD "https://github.com/conan-io/cmake-conan/raw/v0.13/conan.cmake"
-    "${CMAKE_BINARY_DIR}/conan.cmake")
-else()
-  message(STATUS "OpenStudioApplication: using existing conan.cmake")
-endif()
-
-include(${CMAKE_BINARY_DIR}/conan.cmake)
-
-conan_check(VERSION 1.0.0 REQUIRED)
-
-# openstudio is the one that installs Conan dependencies, we just reload the info so we can link against them (gtest)
-
-# By default check the single configuration file (which exists also in the multi)
-set(CONAN_BUILD_INFO_MULTI "${CMAKE_BINARY_DIR}/openstudio/conanbuildinfo_multi.cmake")
-set(CONAN_BUILD_INFO_FILE "${CMAKE_BINARY_DIR}/openstudio/conanbuildinfo.cmake")
-# If the multi exists (MSVC), then use that one
-if(EXISTS ${CONAN_BUILD_INFO_MULTI})
-  set(CONAN_BUILD_INFO_FILE "${CONAN_BUILD_INFO_MULTI}")
-endif()
-
-if(EXISTS ${CONAN_BUILD_INFO_FILE})
-  message(STATUS "OpenStudioApplication: Using ${CONAN_BUILD_INFO_FILE}")
-  # Silence this part, it's a repeat of what OScore has done
-  set(CONAN_CMAKE_SILENT_OUTPUT TRUE)
-  include(${CONAN_BUILD_INFO_FILE})
-  # Make sure to pass NO_OUTPUT_DIRS to not override CMAKE_RUNTIME_OUTPUT_DIR etc
-  conan_basic_setup(TARGETS NO_OUTPUT_DIRS)
-  # message("OpenStudioApplication: CONAN_TARGETS=${CONAN_TARGETS}")
-else()
-  message(STATUS "OpenStudioApp: Conan will need to run in openstudio")
-endif()
 
 ###############################################################################
 #                                T A R G E T S                                #
