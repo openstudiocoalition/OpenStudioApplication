@@ -140,11 +140,6 @@ endif()
 # This option will require shared libs
 option(BUILD_OS_APP "Build OS App" ON)
 
-option(BUILD_PAT "Build PAT" OFF)
-
-# DView
-option(BUILD_DVIEW "Build DView" OFF)
-
 option(BUILD_PACKAGE "Build package" OFF)
 
 ###############################################################################
@@ -460,51 +455,6 @@ if(BUILD_OS_APP)
 
 endif()
 
-# Dview
-if(BUILD_DVIEW)
-  set(DVIEW_INSTALL_DIR "" CACHE PATH "Path to DView Install")
-  mark_as_advanced(DVIEW_INSTALL_DIR)
-
-  if(NOT EXISTS ${DVIEW_INSTALL_DIR})
-    if(WIN32)
-      set(DVIEW_ZIP_FILENAME "DView-windows-20180621.zip")
-      set(DVIEW_ZIP_EXPECTED_MD5 "8443b09cbfcc118943127b006b14dbca")
-    elseif(APPLE)
-      set(DVIEW_ZIP_FILENAME "DView-osx-20180621.tar.gz")
-      set(DVIEW_ZIP_EXPECTED_MD5 "41038cbf7c472522e700d850d9de1133")
-    else()
-      set(DVIEW_ZIP_FILENAME "DView-linux-20180621.tar.gz")
-      set(DVIEW_ZIP_EXPECTED_MD5 "c1d3fb6e736668eb4bdf0a5af2b4506c")
-    endif()
-
-    set(DVIEW_ZIP_LOCAL_PATH "${PROJECT_BINARY_DIR}/${DVIEW_ZIP_FILENAME}")
-    if(EXISTS "${DVIEW_ZIP_LOCAL_PATH}")
-      file(MD5 "${DVIEW_ZIP_LOCAL_PATH}" RUBY_ZIP_MD5)
-    endif()
-
-    if(NOT DVIEW_ZIP_MD5 STREQUAL DVIEW_ZIP_EXPECTED_MD5)
-      message(STATUS "Downloading DView: ${DVIEW_ZIP_FILENAME}")
-      file(DOWNLOAD "http://openstudio-resources.s3.amazonaws.com/dependencies/${DVIEW_ZIP_FILENAME}"
-        ${DVIEW_ZIP_LOCAL_PATH}
-        INACTIVITY_TIMEOUT 120
-        SHOW_PROGRESS
-        EXPECTED_MD5 ${DVIEW_ZIP_EXPECTED_MD5})
-      execute_process(COMMAND ${CMAKE_COMMAND} -E tar xfz ${DVIEW_ZIP_LOCAL_PATH} WORKING_DIRECTORY "${PROJECT_BINARY_DIR}")
-    endif()
-
-    set(DVIEW_INSTALL_DIR "${PROJECT_BINARY_DIR}/DView-install")
-  endif()
-
-  if(WIN32)
-    install(PROGRAMS "${DVIEW_INSTALL_DIR}/DView.exe" DESTINATION ./bin COMPONENT "DView")
-  elseif(APPLE)
-    install(DIRECTORY "${DVIEW_INSTALL_DIR}/DView.app" DESTINATION . USE_SOURCE_PERMISSIONS COMPONENT "DView")
-  else()
-    install(PROGRAMS "${DVIEW_INSTALL_DIR}/DView" DESTINATION ./bin COMPONENT "DView")
-  endif()
-
-endif()
-
 ###############################################################################
 #                    G I T    S U B M O D U L E    I N I T                    #
 ###############################################################################
@@ -559,6 +509,8 @@ include("${CONAN_INSTALL_FILE}")
 
 # Include core
 add_subdirectory(openstudio)
+
+message("RUBY_INCLUDE_DIRS = ${RUBY_INCLUDE_DIRS}")
 
 ###############################################################################
 #                                T A R G E T S                                #
