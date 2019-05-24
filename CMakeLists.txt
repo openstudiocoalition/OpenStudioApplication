@@ -297,12 +297,13 @@ endif()
 # Required dependencies
 
 # Threading library
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+
 find_package(Threads)
 if(UNIX)
   set(CMAKE_THREAD_LIBS "${CMAKE_THREAD_LIBS_INIT}" CACHE STRING "Thread library used.")
   mark_as_advanced(CMAKE_THREAD_LIBS)
 endif()
-
 
 # Qt via conan
 list(APPEND CONAN_OPTIONS "qt:commercial=False") # opensource
@@ -582,6 +583,11 @@ endif()
 
 # CPack: TODO
 
+# TODO: There's a lot of packaging stuff that needs to be done still, and most of it is still in openstudio(core) while it relates to OpenStudioApp and needs to be moved.
+# This is the case for the CPACK_DEBIAN_PACKAGE_DEPENDS for eg: the libwxgtk3 stuff is definitely OS App related
+# We built against shared Qt, so we need to list the required deps here too, like qt5-default, libqt5webkit5(-dev?), etc
+# libwxgtk3: Trusty (14.04) uses 3.0-0, all other including Xenial (16.04) use 3.0-0v5
+set(CPACK_DEBIAN_PACKAGE_DEPENDS "libwxgtk3.0-0v5 (>= 3.0.0) | libwxgtk3.0-0 (>=3.0.0)")
 
 set(CPACK_INSTALL_PREFIX /usr/local/openstudio-${OPENSTUDIO_VERSION}/)
 

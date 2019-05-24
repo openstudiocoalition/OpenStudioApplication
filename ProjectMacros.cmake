@@ -194,8 +194,8 @@ macro(CREATE_TEST_TARGETS BASE_NAME SRC DEPENDENCIES)
     endif()
 
     target_link_libraries(${BASE_NAME}_tests
-      CONAN_PKG::gtest
       ${ALL_DEPENDENCIES}
+      CONAN_PKG::gtest
     )
 
     ADD_GOOGLE_TESTS(${BASE_NAME}_tests ${SRC})
