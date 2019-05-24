@@ -19,6 +19,7 @@ set(${target_name}_test_src
 )
 
 set(${target_name}_depends
+  Threads::Threads
   CONAN_PKG::boost_filesystem
   CONAN_PKG::boost_regex
   CONAN_PKG::boost_log
