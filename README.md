@@ -24,9 +24,14 @@ More information and documentation is available at the [OpenStudio](https://www.
 
 ## Developer Information
 
-[OpenStudio](https://github.com/NREL/OpenStudio) (core SDK) is included as a `git submodule` in the folder `./openstudio`. Be sure to initialize submodules, which can be done during cloning by passing the `--recurse-submodules` flag, or after the fact via `cd OpenStudioApplication/openstudio && git submodule init && git submodule update`.  When pulling updates from the remote repository run `git pull --recurse-submodules` and then `git submodule update --remote --recursive`.
+[OpenStudio](https://github.com/NREL/OpenStudio) (core SDK) is included as a `git submodule` in the folder `./openstudio`.
 
-**Temporary information:** Current this submodule is tracking branch `https://github.com/NREL/OpenStudio/tree/OS_App_killswitch` which will soon replace `NREL/OpenStudio/develop3`.
+* **Be sure to initialize submodules**, which can be done during cloning by passing the `--recurse-submodules` flag, or after the fact via `cd OpenStudioApplication/openstudio && git submodule init && git submodule update`.
+* When pulling updates from the remote repository run `git pull --recurse-submodules` and then `git submodule update --remote --merge --recursive`: this will update all submodules to track the latest from remote (if `.gitmodules` is correctly set)
+
+**Temporary information:**
+* Currently different branches could be tracking several different submodule branches, be sure to check `.gitmodules`.
+* Generally speaking, this submodule is tracking branch `https://github.com/NREL/OpenStudio/tree/OS_App_killswitch` (or a modified version of it) which will soon replace `NREL/OpenStudio/develop3`.
 
 To build, use the root of the repo when configuring with ccmake.
 
