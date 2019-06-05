@@ -1,5 +1,5 @@
 [submodule "openstudio"]
 	path = openstudio
-	url = git@github.com:jmarrec/OpenStudio.git
+	url = git@github.com:NREL/OpenStudio.git
 	branch = OS_App_killswitch_Qt
 
