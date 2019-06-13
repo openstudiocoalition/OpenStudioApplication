@@ -411,8 +411,11 @@ if(BUILD_OS_APP)
       #get_target_property(Qt5QXcbIntegrationPlugin_TYPE Qt5::QXcbIntegrationPlugin TYPE)
       #message("Qt5::QXcbIntegrationPlugin Location = ${Qt5QXcbIntegrationPlugin_LOCATION}")
       #message("Qt5::QXcbIntegrationPlugin Type = ${Qt5QXcbIntegrationPlugin_TYPE}")
-      list(APPEND QT_WEB_LIBS Qt5::QXcbIntegrationPlugin)
-      list(APPEND QT_WEB_LIBS Qt5::QXcbGlxIntegrationPlugin)
+      list(APPEND QT_PLUGINS Qt5::QXcbIntegrationPlugin)
+      list(APPEND QT_PLUGINS Qt5::QXcbGlxIntegrationPlugin)
+      find_library(QT_QXCBQPA NAMES libQt5XcbQpa.so.5.11.2 PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
+
+      list(APPEND QT_EXTRA_LIBS ${QT_QXCBQPA})
     endif()
   endif()
 

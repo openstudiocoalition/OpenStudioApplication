@@ -129,8 +129,24 @@ elseif( UNIX )
   #  VERBATIM
   #  )
 
+  foreach(LIB ${QT_PLUGINS})
+    get_property(LIB_LOCATION TARGET ${LIB} PROPERTY LOCATION)
+    get_filename_component(LIB_BASE_NAME ${LIB_LOCATION} NAME)
+    add_custom_command(TARGET ${target_name}
+      POST_BUILD
+      COMMAND ${CMAKE_COMMAND} -E make_directory $<TARGET_FILE_DIR:${target_name}>/platforms
+      COMMAND ${CMAKE_COMMAND} -E copy_if_different ${LIB_LOCATION} $<TARGET_FILE_DIR:${target_name}>/platforms
+      COMMAND patchelf --set-rpath "$ORIGIN/.." $<TARGET_FILE_DIR:${target_name}>/platforms/${LIB_BASE_NAME}
+      VERBATIM
+    )
+  endforeach()
+
   foreach(LIB ${QT_LIBS} ${QT_WEB_LIBS})
     get_property(LIB_LOCATION TARGET ${LIB} PROPERTY LOCATION)
+    list(APPEND QT_LIB_LOCATIONS "${LIB_LOCATION}")
+  endforeach()
+
+  foreach(LIB_LOCATION ${QT_LIB_LOCATIONS} ${QT_EXTRA_LIBS})
     get_filename_component(LIB_BASE_NAME ${LIB_LOCATION} NAME)
     string(REGEX REPLACE "\\.[^.]*$" "" LIB_MAJOR_MINOR_NAME ${LIB_BASE_NAME})
     string(REGEX REPLACE "\\.[^.]*$" "" LIB_MAJOR_NAME ${LIB_MAJOR_MINOR_NAME})
@@ -142,7 +158,7 @@ elseif( UNIX )
       COMMAND ${CMAKE_COMMAND} -E copy_if_different ${LIB_LOCATION} $<TARGET_FILE_DIR:${target_name}>/
       COMMAND ln -sf "${LIB_BASE_NAME}" "$<TARGET_FILE_DIR:${target_name}>/${LIB_MAJOR_MINOR_NAME}"
       COMMAND ln -sf "${LIB_BASE_NAME}" "$<TARGET_FILE_DIR:${target_name}>/${LIB_MAJOR_NAME}"
-      COMMAND patchelf --set-rpath "$ORIGIN/." $<TARGET_FILE_DIR:${target_name}>/$<TARGET_FILE_NAME:${LIB}>
+      COMMAND patchelf --set-rpath "$ORIGIN/." $<TARGET_FILE_DIR:${target_name}>/${LIB_BASE_NAME}
       VERBATIM
     )
   endforeach()
