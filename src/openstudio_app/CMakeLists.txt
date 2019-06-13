@@ -139,6 +139,7 @@ elseif( UNIX )
       COMMAND patchelf --set-rpath "$ORIGIN/.." $<TARGET_FILE_DIR:${target_name}>/platforms/${LIB_BASE_NAME}
       VERBATIM
     )
+    list(APPEND QT_PLUGIN_LOCATIONS $<TARGET_FILE_DIR:${target_name}>/platforms/${LIB_BASE_NAME})
   endforeach()
 
   foreach(LIB ${QT_LIBS} ${QT_WEB_LIBS})
@@ -258,7 +259,7 @@ if(APPLE)
   install(DIRECTORY ${CMAKE_SOURCE_DIR}/src/openstudio_app/Resources/
           DESTINATION OpenStudioApp.app/Contents/Resources
           COMPONENT "Resources"
-  )
+  /)
 elseif(WIN32)
   install(DIRECTORY ${CMAKE_SOURCE_DIR}/src/openstudio_app/Resources/
     DESTINATION Resources
@@ -294,8 +295,18 @@ if( NOT APPLE )
       install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/$<TARGET_FILE_NAME:${LIB}> DESTINATION bin/ COMPONENT OpenStudioApp)
     endforeach()
 
+    foreach(LIB_LOCATION ${QT_EXTRA_LIBS})
+      get_filename_component(LIB_BASE_NAME ${LIB_LOCATION} NAME)
+      install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/${LIB_BASE_NAME} DESTINATION bin/ COMPONENT OpenStudioApp)
+    endforeach()
+
+
     foreach(LINK ${QT_LIB_SYMLINKS})
       install(FILES $<TARGET_FILE_DIR:${target_name}>/${LINK} DESTINATION bin/ COMPONENT OpenStudioApp)
+    endforeach()
+
+    foreach(PLUGIN ${QT_PLUGIN_LOCATIONS})
+      install(FILES ${PLUGIN} DESTINATION bin/platforms/ COMPONENT OpenStudioApp)
     endforeach()
 
   endif()
