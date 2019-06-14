@@ -1,5 +1,5 @@
 [submodule "openstudio"]
 	path = openstudio
 	url = git@github.com:nrel/OpenStudio.git
-	branch = OS_App_killswitch_Packaging
+	branch = OS_App_killswitch
 
