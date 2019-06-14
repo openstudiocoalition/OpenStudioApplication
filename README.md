@@ -24,7 +24,11 @@ More information and documentation is available at the [OpenStudio](https://www.
 
 ## Developer Information
 
-[OpenStudio](https://github.com/NREL/OpenStudio) (core SDK) is included as a `git submodule` in the folder `./openstudio`. Be sure to initialize submodules, which can be done during cloning by passing the `--recurse-submodules` flag, or after the fact via `cd OpenStudioApplication/openstudio && git submodule init && git submodule update`.
+[OpenStudio](https://github.com/NREL/OpenStudio) (core SDK) is included as a `git submodule` in the folder `./openstudio`. 
+
+On your first checkout be sure to initialize submodules, which can be done during cloning by passing the `--recurse-submodules` flag, or after the fact via `cd OpenStudioApplication/openstudio && git submodule init && git submodule update`.
+
+When pulling new changes to the repository use the commands `git pull --recurse-submodules` and `git submodule update --remote` to update the `./openstudio` checkout.  Use `cd OpenStudioApplication/openstudio && git rev-parse HEAD` to verify that the OpenStudio Core checkout is pointing at the desired SHA.
 
 **Temporary information:** Current this submodule is tracking branch `https://github.com/NREL/OpenStudio/tree/OS_App_killswitch` which will soon replace `NREL/OpenStudio/develop3`.
 
