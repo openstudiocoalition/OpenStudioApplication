@@ -510,7 +510,8 @@ endif()
 set(CONAN_INSTALL_FILE "${PROJECT_SOURCE_DIR}/openstudio/ConanInstall.cmake")
 include("${CONAN_INSTALL_FILE}")
 
-# Include core
+# Include core, but don't let it include(CPack)
+set(DELAY_CPACK_INCLUDE TRUE)
 add_subdirectory(openstudio)
 
 message("RUBY_INCLUDE_DIRS = ${RUBY_INCLUDE_DIRS}")
@@ -617,3 +618,6 @@ if(BUILD_OS_APP)
     REQUIRES_ADMIN_RIGHTS
   )
 endif()
+
+include(CPack)
+
