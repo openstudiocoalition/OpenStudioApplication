@@ -259,7 +259,7 @@ if(APPLE)
   install(DIRECTORY ${CMAKE_SOURCE_DIR}/src/openstudio_app/Resources/
           DESTINATION OpenStudioApp.app/Contents/Resources
           COMPONENT "Resources"
-  /)
+  )
 elseif(WIN32)
   install(DIRECTORY ${CMAKE_SOURCE_DIR}/src/openstudio_app/Resources/
     DESTINATION Resources
@@ -279,6 +279,8 @@ if( NOT APPLE )
   install(FILES ${qweb_resources_100} DESTINATION bin COMPONENT OpenStudioApp )
   install(FILES ${qweb_resources_200} DESTINATION bin COMPONENT OpenStudioApp )
   if(WIN32)
+    install(TARGETS OpenStudioApp DESTINATION bin COMPONENT OpenStudioApp )
+    
     install(PROGRAMS ${QtWebEngineProcess} DESTINATION bin COMPONENT OpenStudioApp )
     install(PROGRAMS $<TARGET_FILE:Qt5::QWindowsIntegrationPlugin> DESTINATION bin/platforms/ COMPONENT OpenStudioApp)
     #install(PROGRAMS $<TARGET_FILE:Qt5::GLTFSceneParserPlugin> DESTINATION bin/sceneparsers/ COMPONENT OpenStudioApp)
