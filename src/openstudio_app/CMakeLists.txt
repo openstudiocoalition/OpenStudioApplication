@@ -129,22 +129,37 @@ elseif( UNIX )
   #  VERBATIM
   #  )
 
-  foreach(LIB ${QT_LIBS})
+  foreach(LIB ${QT_PLUGINS})
     get_property(LIB_LOCATION TARGET ${LIB} PROPERTY LOCATION)
+    get_filename_component(LIB_BASE_NAME ${LIB_LOCATION} NAME)
     add_custom_command(TARGET ${target_name}
       POST_BUILD
-      COMMAND ${CMAKE_COMMAND} -E copy_if_different ${LIB_LOCATION} $<TARGET_FILE_DIR:${target_name}>/
-      COMMAND patchelf --set-rpath "$ORIGIN/." $<TARGET_FILE_DIR:${target_name}>/$<TARGET_FILE_NAME:${LIB}>
+      COMMAND ${CMAKE_COMMAND} -E make_directory $<TARGET_FILE_DIR:${target_name}>/platforms
+      COMMAND ${CMAKE_COMMAND} -E copy_if_different ${LIB_LOCATION} $<TARGET_FILE_DIR:${target_name}>/platforms
+      COMMAND patchelf --set-rpath "$ORIGIN/.." $<TARGET_FILE_DIR:${target_name}>/platforms/${LIB_BASE_NAME}
       VERBATIM
     )
+    list(APPEND QT_PLUGIN_LOCATIONS $<TARGET_FILE_DIR:${target_name}>/platforms/${LIB_BASE_NAME})
   endforeach()
 
-  foreach(LIB ${QT_WEB_LIBS})
+  foreach(LIB ${QT_LIBS} ${QT_WEB_LIBS})
     get_property(LIB_LOCATION TARGET ${LIB} PROPERTY LOCATION)
+    list(APPEND QT_LIB_LOCATIONS "${LIB_LOCATION}")
+  endforeach()
+
+  foreach(LIB_LOCATION ${QT_LIB_LOCATIONS} ${QT_EXTRA_LIBS})
+    get_filename_component(LIB_BASE_NAME ${LIB_LOCATION} NAME)
+    string(REGEX REPLACE "\\.[^.]*$" "" LIB_MAJOR_MINOR_NAME ${LIB_BASE_NAME})
+    string(REGEX REPLACE "\\.[^.]*$" "" LIB_MAJOR_NAME ${LIB_MAJOR_MINOR_NAME})
+
+    list(APPEND QT_LIB_SYMLINKS "${LIB_MAJOR_MINOR_NAME}" "${LIB_MAJOR_NAME}")
+
     add_custom_command(TARGET ${target_name}
       POST_BUILD
       COMMAND ${CMAKE_COMMAND} -E copy_if_different ${LIB_LOCATION} $<TARGET_FILE_DIR:${target_name}>/
-      COMMAND patchelf --set-rpath "$ORIGIN/." $<TARGET_FILE_DIR:${target_name}>/$<TARGET_FILE_NAME:${LIB}>
+      COMMAND ln -sf "${LIB_BASE_NAME}" "$<TARGET_FILE_DIR:${target_name}>/${LIB_MAJOR_MINOR_NAME}"
+      COMMAND ln -sf "${LIB_BASE_NAME}" "$<TARGET_FILE_DIR:${target_name}>/${LIB_MAJOR_NAME}"
+      COMMAND patchelf --set-rpath "$ORIGIN/." $<TARGET_FILE_DIR:${target_name}>/${LIB_BASE_NAME}
       VERBATIM
     )
   endforeach()
@@ -161,17 +176,7 @@ elseif( WIN32 )
     POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:Qt5::QWindowsIntegrationPlugin> $<TARGET_FILE_DIR:${target_name}>/platforms/ )
 
-  foreach(LIB ${QT_LIBS})
-    # release dlls are needed in debug dir for QtWebEngineProcess, second copy_if_different will be a no-op
-    get_property(LIB_RELEASE_PATH TARGET ${LIB} PROPERTY IMPORTED_LOCATION_RELEASE)
-    add_custom_command(TARGET ${target_name}
-      POST_BUILD
-      COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:${LIB}> $<TARGET_FILE_DIR:${target_name}>/
-      COMMAND ${CMAKE_COMMAND} -E copy_if_different ${LIB_RELEASE_PATH} $<TARGET_FILE_DIR:${target_name}>/
-    )
-  endforeach()
-
-  foreach(LIB ${QT_WEB_LIBS})
+  foreach(LIB ${QT_LIBS} ${QT_WEB_LIBS})
     # release dlls are needed in debug dir for QtWebEngineProcess, second copy_if_different will be a no-op
     get_property(LIB_RELEASE_PATH TARGET ${LIB} PROPERTY IMPORTED_LOCATION_RELEASE)
     add_custom_command(TARGET ${target_name}
@@ -274,6 +279,8 @@ if( NOT APPLE )
   install(FILES ${qweb_resources_100} DESTINATION bin COMPONENT OpenStudioApp )
   install(FILES ${qweb_resources_200} DESTINATION bin COMPONENT OpenStudioApp )
   if(WIN32)
+    install(TARGETS OpenStudioApp DESTINATION bin COMPONENT OpenStudioApp )
+    
     install(PROGRAMS ${QtWebEngineProcess} DESTINATION bin COMPONENT OpenStudioApp )
     install(PROGRAMS $<TARGET_FILE:Qt5::QWindowsIntegrationPlugin> DESTINATION bin/platforms/ COMPONENT OpenStudioApp)
     #install(PROGRAMS $<TARGET_FILE:Qt5::GLTFSceneParserPlugin> DESTINATION bin/sceneparsers/ COMPONENT OpenStudioApp)
@@ -286,13 +293,24 @@ if( NOT APPLE )
     #install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/sceneparsers/$<TARGET_FILE_NAME:Qt5::AssimpParserPlugin> DESTINATION bin/sceneparsers/ COMPONENT OpenStudioApp)
     #install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/libQt5XcbQpa.so.5 DESTINATION bin/ COMPONENT OpenStudioApp)
 
-    foreach(LIB ${QT_LIBS})
+    foreach(LIB ${QT_LIBS} ${QT_WEB_LIBS})
       install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/$<TARGET_FILE_NAME:${LIB}> DESTINATION bin/ COMPONENT OpenStudioApp)
     endforeach()
 
-    foreach(LIB ${QT_WEB_LIBS})
-      install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/$<TARGET_FILE_NAME:${LIB}> DESTINATION bin/ COMPONENT OpenStudioApp)
+    foreach(LIB_LOCATION ${QT_EXTRA_LIBS})
+      get_filename_component(LIB_BASE_NAME ${LIB_LOCATION} NAME)
+      install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/${LIB_BASE_NAME} DESTINATION bin/ COMPONENT OpenStudioApp)
     endforeach()
+
+
+    foreach(LINK ${QT_LIB_SYMLINKS})
+      install(FILES $<TARGET_FILE_DIR:${target_name}>/${LINK} DESTINATION bin/ COMPONENT OpenStudioApp)
+    endforeach()
+
+    foreach(PLUGIN ${QT_PLUGIN_LOCATIONS})
+      install(FILES ${PLUGIN} DESTINATION bin/platforms/ COMPONENT OpenStudioApp)
+    endforeach()
+
   endif()
 endif()
 

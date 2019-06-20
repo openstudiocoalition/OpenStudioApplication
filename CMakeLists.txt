@@ -10,7 +10,7 @@ if(CCACHE_PROGRAM)
   set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "${CCACHE_PROGRAM}")
 endif()
 
-project(OpenStudioApplication VERSION 2.7.2)
+project(OpenStudioApplication VERSION 2.8.0)
 
 # The PROJECT_SOURCE_DIR here is OpenStudioApplication/, which we will use instead of using CMAKE_SOURCE_DIR
 set(PROJECT_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
@@ -139,11 +139,6 @@ endif()
 # Build the OpenStudio Application
 # This option will require shared libs
 option(BUILD_OS_APP "Build OS App" ON)
-
-option(BUILD_PAT "Build PAT" OFF)
-
-# DView
-option(BUILD_DVIEW "Build DView" OFF)
 
 option(BUILD_PACKAGE "Build package" OFF)
 
@@ -416,8 +411,11 @@ if(BUILD_OS_APP)
       #get_target_property(Qt5QXcbIntegrationPlugin_TYPE Qt5::QXcbIntegrationPlugin TYPE)
       #message("Qt5::QXcbIntegrationPlugin Location = ${Qt5QXcbIntegrationPlugin_LOCATION}")
       #message("Qt5::QXcbIntegrationPlugin Type = ${Qt5QXcbIntegrationPlugin_TYPE}")
-      list(APPEND QT_WEB_LIBS Qt5::QXcbIntegrationPlugin)
-      list(APPEND QT_WEB_LIBS Qt5::QXcbGlxIntegrationPlugin)
+      list(APPEND QT_PLUGINS Qt5::QXcbIntegrationPlugin)
+      list(APPEND QT_PLUGINS Qt5::QXcbGlxIntegrationPlugin)
+      find_library(QT_QXCBQPA NAMES libQt5XcbQpa.so.5.11.2 PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
+
+      list(APPEND QT_EXTRA_LIBS ${QT_QXCBQPA})
     endif()
   endif()
 
@@ -457,51 +455,6 @@ if(BUILD_OS_APP)
   endif()
 
   set(CMAKE_AUTOMOC OFF)
-
-endif()
-
-# Dview
-if(BUILD_DVIEW)
-  set(DVIEW_INSTALL_DIR "" CACHE PATH "Path to DView Install")
-  mark_as_advanced(DVIEW_INSTALL_DIR)
-
-  if(NOT EXISTS ${DVIEW_INSTALL_DIR})
-    if(WIN32)
-      set(DVIEW_ZIP_FILENAME "DView-windows-20180621.zip")
-      set(DVIEW_ZIP_EXPECTED_MD5 "8443b09cbfcc118943127b006b14dbca")
-    elseif(APPLE)
-      set(DVIEW_ZIP_FILENAME "DView-osx-20180621.tar.gz")
-      set(DVIEW_ZIP_EXPECTED_MD5 "41038cbf7c472522e700d850d9de1133")
-    else()
-      set(DVIEW_ZIP_FILENAME "DView-linux-20180621.tar.gz")
-      set(DVIEW_ZIP_EXPECTED_MD5 "c1d3fb6e736668eb4bdf0a5af2b4506c")
-    endif()
-
-    set(DVIEW_ZIP_LOCAL_PATH "${PROJECT_BINARY_DIR}/${DVIEW_ZIP_FILENAME}")
-    if(EXISTS "${DVIEW_ZIP_LOCAL_PATH}")
-      file(MD5 "${DVIEW_ZIP_LOCAL_PATH}" RUBY_ZIP_MD5)
-    endif()
-
-    if(NOT DVIEW_ZIP_MD5 STREQUAL DVIEW_ZIP_EXPECTED_MD5)
-      message(STATUS "Downloading DView: ${DVIEW_ZIP_FILENAME}")
-      file(DOWNLOAD "http://openstudio-resources.s3.amazonaws.com/dependencies/${DVIEW_ZIP_FILENAME}"
-        ${DVIEW_ZIP_LOCAL_PATH}
-        INACTIVITY_TIMEOUT 120
-        SHOW_PROGRESS
-        EXPECTED_MD5 ${DVIEW_ZIP_EXPECTED_MD5})
-      execute_process(COMMAND ${CMAKE_COMMAND} -E tar xfz ${DVIEW_ZIP_LOCAL_PATH} WORKING_DIRECTORY "${PROJECT_BINARY_DIR}")
-    endif()
-
-    set(DVIEW_INSTALL_DIR "${PROJECT_BINARY_DIR}/DView-install")
-  endif()
-
-  if(WIN32)
-    install(PROGRAMS "${DVIEW_INSTALL_DIR}/DView.exe" DESTINATION ./bin COMPONENT "DView")
-  elseif(APPLE)
-    install(DIRECTORY "${DVIEW_INSTALL_DIR}/DView.app" DESTINATION . USE_SOURCE_PERMISSIONS COMPONENT "DView")
-  else()
-    install(PROGRAMS "${DVIEW_INSTALL_DIR}/DView" DESTINATION ./bin COMPONENT "DView")
-  endif()
 
 endif()
 
@@ -557,8 +510,11 @@ endif()
 set(CONAN_INSTALL_FILE "${PROJECT_SOURCE_DIR}/openstudio/ConanInstall.cmake")
 include("${CONAN_INSTALL_FILE}")
 
-# Include core
+# Include core, but don't let it include(CPack)
+set(DELAY_CPACK_INCLUDE TRUE)
 add_subdirectory(openstudio)
+
+message("RUBY_INCLUDE_DIRS = ${RUBY_INCLUDE_DIRS}")
 
 ###############################################################################
 #                                T A R G E T S                                #
@@ -624,6 +580,25 @@ endif()
 
 
 if(BUILD_OS_APP)
+  set(CPACK_INSTALL_PREFIX /usr/local/openstudio-${OPENSTUDIO_VERSION}/)
+
+  if (UNIX)
+    # Same for OpenStudioApp
+    execute_process(COMMAND ln -sf ${CPACK_INSTALL_PREFIX}bin/OpenStudioApp ${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp)
+    execute_process(COMMAND ln -sf ${CPACK_INSTALL_PREFIX}bin/OpenStudioApp ${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp-${OPENSTUDIO_VERSION})
+
+    # Have this link be installed with the .deb package in /usr/local/bin
+    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp DESTINATION /usr/local/bin COMPONENT CLI)
+    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp-${OPENSTUDIO_VERSION} DESTINATION /usr/local/bin COMPONENT CLI)
+    
+    # Create a proper App with file associations
+
+    # Install the .desktop manifest (allows the App to be seen in the Dash and adding to the dock, and to map it a mimetype)
+    install(FILES "${PROJECT_SOURCE_DIR}/openstudioapp.desktop" DESTINATION /usr/share/applications)
+    # Install the XML mime info
+    install(FILES "${PROJECT_SOURCE_DIR}/x-openstudio.xml" DESTINATION /usr/share/mime/application)
+
+  endif()
 
   cpack_add_component(Resources
     DISPLAY_NAME "Application Resources"
@@ -645,3 +620,6 @@ if(BUILD_OS_APP)
     REQUIRES_ADMIN_RIGHTS
   )
 endif()
+
+include(CPack)
+
