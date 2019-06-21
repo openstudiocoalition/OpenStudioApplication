@@ -136,6 +136,16 @@
 using namespace openstudio::model;
 
 namespace openstudio {
+  
+bool TouchEater::eventFilter(QObject *obj, QEvent *event)
+{
+    if (event->type() == QEvent::TouchBegin) {
+        return true;
+    } else {
+        // standard event processing
+        return QObject::eventFilter(obj, event);
+    }
+}
 
 OpenStudioApp::OpenStudioApp( int & argc, char ** argv)
   : OSAppBase(argc, argv, QSharedPointer<MeasureManager>(new MeasureManager(this))),
@@ -144,6 +154,9 @@ OpenStudioApp::OpenStudioApp( int & argc, char ** argv)
   setOrganizationName("NREL");
   QCoreApplication::setOrganizationDomain("nrel.gov");
   setApplicationName("OpenStudioApp");
+  
+  auto eater = new TouchEater();
+  installEventFilter(eater);
 
   // Don't use native menu bar, necessary on Ubuntu 16.04
   // TODO: check for adverse side effects on other OSes

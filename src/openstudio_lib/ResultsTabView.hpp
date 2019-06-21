@@ -31,6 +31,7 @@
 #define OPENSTUDIO_RESULTSTABVIEW_HPP
 
 #include "MainTabView.hpp"
+#include "OSWebEnginePage.hpp"
 
 #include "../model_editor/QMetaTypes.hpp"
 
@@ -93,6 +94,7 @@ namespace openstudio {
       openstudio::path m_radianceResultsPath;
 
       QWebEngineView * m_view;
+      OSWebEnginePage * m_page;
       QComboBox * m_comboBox;
   };
 

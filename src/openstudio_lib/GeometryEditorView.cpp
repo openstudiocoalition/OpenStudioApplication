@@ -92,7 +92,6 @@
 #include <QProcess>
 #include <QSettings>
 #include <QProcessEnvironment>
-#include <QDesktopServices>
 
 const int CHECKFORUPDATEMSEC = 5000;
 
@@ -109,18 +108,6 @@ QUrl getEmbeddedFileUrl(const QString& filename)
   }
 
   return result;
-}
-
-bool OSWebEnginePage::acceptNavigationRequest(const QUrl & url, QWebEnginePage::NavigationType type, bool isMainFrame)
-{
-  if (type == QWebEnginePage::NavigationTypeLinkClicked)
-  {
-    QString s = url.toString();
-    // open links in system browser rather than embedded view
-    QDesktopServices::openUrl(url);
-    return false;
-  }
-  return true;
 }
 
 GeometryEditorView::GeometryEditorView(bool isIP,
