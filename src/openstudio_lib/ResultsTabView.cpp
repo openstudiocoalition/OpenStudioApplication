@@ -43,7 +43,6 @@
 #include <QPushButton>
 #include <QString>
 #include <QRegExp>
-#include <QWebEnginePage>
 #include <QWebEngineSettings>
 #include <openstudio/src/utilities/core/Assert.hpp>
 #include <openstudio/src/utilities/core/PathHelpers.hpp>
@@ -124,6 +123,9 @@ ResultsView::ResultsView(QWidget *t_parent)
   m_view = new QWebEngineView(this);
   m_view->settings()->setAttribute(QWebEngineSettings::WebAttribute::LocalContentCanAccessRemoteUrls, true);
   m_view->settings()->setAttribute(QWebEngineSettings::WebAttribute::SpatialNavigationEnabled, true);
+  
+  m_page = new OSWebEnginePage(this);
+  m_view->setPage(m_page); // note, view does not take ownership of page
 
   connect(m_view, &QWebEngineView::loadFinished, this, &ResultsView::onLoadFinished);
   connect(m_view, &QWebEngineView::loadProgress, this, &ResultsView::onLoadProgress);
@@ -145,6 +147,7 @@ ResultsView::ResultsView(QWidget *t_parent)
 ResultsView::~ResultsView()
 {
   delete m_view;
+  delete m_page;
 }
 
 void ResultsView::refreshClicked()

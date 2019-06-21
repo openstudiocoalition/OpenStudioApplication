@@ -45,7 +45,6 @@
 #include <QLabel>
 #include <QPushButton>
 #include <QFile>
-#include <QWebEnginePage>
 #include <QWebEngineSettings>
 #include <QWebEngineScriptCollection>
 #include <QtConcurrent>
@@ -118,6 +117,9 @@ PreviewWebView::PreviewWebView(bool isIP, const model::Model& model, QWidget *t_
   m_view = new QWebEngineView(this);
   m_view->settings()->setAttribute(QWebEngineSettings::WebAttribute::LocalContentCanAccessRemoteUrls, true);
   m_view->settings()->setAttribute(QWebEngineSettings::WebAttribute::SpatialNavigationEnabled, true);
+  
+  m_page = new OSWebEnginePage(this);
+  m_view->setPage(m_page); // note, view does not take ownership of page
 
   connect(m_view, &QWebEngineView::loadFinished, this, &PreviewWebView::onLoadFinished);
   //connect(m_view, &QWebEngineView::loadProgress, this, &PreviewWebView::onLoadProgress);
@@ -139,6 +141,7 @@ PreviewWebView::PreviewWebView(bool isIP, const model::Model& model, QWidget *t_
 PreviewWebView::~PreviewWebView()
 {
   delete m_view;
+  delete m_page; 
 }
 
 void PreviewWebView::refreshClicked()
