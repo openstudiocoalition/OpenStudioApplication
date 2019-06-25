@@ -582,7 +582,7 @@ endif()
 if(BUILD_OS_APP)
   set(CPACK_INSTALL_PREFIX /usr/local/openstudio-${OPENSTUDIO_VERSION}/)
 
-  if (UNIX)
+  if (UNIX AND NOT APPLE)
     # Same for OpenStudioApp
     execute_process(COMMAND ln -sf ${CPACK_INSTALL_PREFIX}bin/OpenStudioApp ${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp)
     execute_process(COMMAND ln -sf ${CPACK_INSTALL_PREFIX}bin/OpenStudioApp ${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp-${OPENSTUDIO_VERSION})
