@@ -584,7 +584,8 @@ namespace bimserver {
     parameters["poid"] = QJsonValue(m_poid);
     parameters["comment"] = QJsonValue(QString(""));
     parameters["deserializerOid"] = QJsonValue(m_deserializerOid);
-    parameters["fileSize"] = QJsonValue(toQString(openstudio::string_conversions::number(openstudio::filesystem::file_size(path))));
+    // filesystem::file_size returns a uintmax_t really.
+    parameters["fileSize"] = QJsonValue(toQString(openstudio::string_conversions::number(std::uint64_t(openstudio::filesystem::file_size(path)))));
     parameters["fileName"] = QJsonValue(toQString(toString(path.stem())));
     //encode file into Base64
     std::vector<char> data = openstudio::filesystem::read(file);
