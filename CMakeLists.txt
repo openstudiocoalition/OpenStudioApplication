@@ -307,6 +307,7 @@ if(BUILD_OS_APP)
         set(QT_ZIP_EXPECTED_MD5 "25abd383e7db2dfd971b4a4ef145002b")
       endif()
     elseif(APPLE)
+        # TODO: this is missing a root level "Qt-install" directory.
         set(QT_ZIP_FILENAME "qt_5_11_osx_shared.tar.gz")
         set(QT_ZIP_EXPECTED_MD5 "080ff576111d50be5888807055114166")
     elseif(EXISTS "/etc/redhat-release")
@@ -335,7 +336,13 @@ if(BUILD_OS_APP)
         INACTIVITY_TIMEOUT 120
         SHOW_PROGRESS
         EXPECTED_MD5 ${QT_ZIP_EXPECTED_MD5})
+    # TODO: TEMP
+      if (APPLE)
+        execute_process(COMMAND ${CMAKE_COMMAND} -E make_directory "${PROJECT_BINARY_DIR}/Qt-install")
+        execute_process(COMMAND ${CMAKE_COMMAND} -E tar xfz ${QT_ZIP_LOCAL_PATH} WORKING_DIRECTORY "${PROJECT_BINARY_DIR}/Qt-install")
+      else()
         execute_process(COMMAND ${CMAKE_COMMAND} -E tar xfz ${QT_ZIP_LOCAL_PATH} WORKING_DIRECTORY "${PROJECT_BINARY_DIR}")
+      endif()
     endif()
   endif()
 
