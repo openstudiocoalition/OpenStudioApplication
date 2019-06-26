@@ -589,7 +589,12 @@ endif()
 if(BUILD_OS_APP)
   set(CPACK_INSTALL_PREFIX /usr/local/openstudio-${OPENSTUDIO_VERSION}/)
 
+  set(CPACK_PACKAGE_CONTACT "openstudio@nrel.gov")
+
   if (UNIX AND NOT APPLE)
+
+    set(CPACK_DEBIAN_PACKAGE_MAINTAINER "openstudio@nrel.gov")
+
     # Same for OpenStudioApp
     execute_process(COMMAND ln -sf ${CPACK_INSTALL_PREFIX}bin/OpenStudioApp ${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp)
     execute_process(COMMAND ln -sf ${CPACK_INSTALL_PREFIX}bin/OpenStudioApp ${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp-${OPENSTUDIO_VERSION})
