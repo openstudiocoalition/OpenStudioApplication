@@ -1,10 +1,17 @@
-//Jenkins pipelines are stored in shared libaries. Please see: https://github.com/NREL/cbci_jenkins_libs 
- 
+//Jenkins pipelines are stored in shared libaries. Please see: https://github.com/NREL/cbci_jenkins_libs
+
 @Library('cbci_shared_libs') _
 
-// Build for PR to develop branch only. 
+// Build for PR to develop branch only.
 if ((env.CHANGE_ID) && (env.CHANGE_TARGET) ) {
 
+  // Temp
+  node("openstudio_app_ubuntu_1804_incr") {  
+    stage("Temp clean conan and build tree") {
+      sh("/bin/rm -Rf ~/.conan/data/qt")
+      sh("/bin/rm -Rf /srv/jenkins/git/OpenStudioApplication/build")
+    }
+  }
   openstudio_app_full_linux()
-    
+
 }
