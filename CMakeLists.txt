@@ -307,8 +307,9 @@ if(BUILD_OS_APP)
         set(QT_ZIP_EXPECTED_MD5 "25abd383e7db2dfd971b4a4ef145002b")
       endif()
     elseif(APPLE)
-        set(QT_ZIP_FILENAME "DOES_NOT_EXIST_qt_5_11_osx_shared.tar.gz")
-        set(QT_ZIP_EXPECTED_MD5 "326887393d55b5da97a1be9764fb0d1b")
+        # TODO: this is missing a root level "Qt-install" directory.
+        set(QT_ZIP_FILENAME "qt_5_11_osx_shared.tar.gz")
+        set(QT_ZIP_EXPECTED_MD5 "080ff576111d50be5888807055114166")
     elseif(EXISTS "/etc/redhat-release")
       set(QT_ZIP_FILENAME "DOES_NOT_EXIST_qt_5_11_redhat_shared.tar.gz")
       set(QT_ZIP_EXPECTED_MD5 "b0610716854ed91a003347c455b22eb8")
@@ -335,7 +336,13 @@ if(BUILD_OS_APP)
         INACTIVITY_TIMEOUT 120
         SHOW_PROGRESS
         EXPECTED_MD5 ${QT_ZIP_EXPECTED_MD5})
+    # TODO: TEMP
+      if (APPLE)
+        execute_process(COMMAND ${CMAKE_COMMAND} -E make_directory "${PROJECT_BINARY_DIR}/Qt-install")
+        execute_process(COMMAND ${CMAKE_COMMAND} -E tar xfz ${QT_ZIP_LOCAL_PATH} WORKING_DIRECTORY "${PROJECT_BINARY_DIR}/Qt-install")
+      else()
         execute_process(COMMAND ${CMAKE_COMMAND} -E tar xfz ${QT_ZIP_LOCAL_PATH} WORKING_DIRECTORY "${PROJECT_BINARY_DIR}")
+      endif()
     endif()
   endif()
 
@@ -582,7 +589,12 @@ endif()
 if(BUILD_OS_APP)
   set(CPACK_INSTALL_PREFIX /usr/local/openstudio-${OPENSTUDIO_VERSION}/)
 
-  if (UNIX)
+  set(CPACK_PACKAGE_CONTACT "openstudio@nrel.gov")
+
+  if (UNIX AND NOT APPLE)
+
+    set(CPACK_DEBIAN_PACKAGE_MAINTAINER "openstudio@nrel.gov")
+
     # Same for OpenStudioApp
     execute_process(COMMAND ln -sf ${CPACK_INSTALL_PREFIX}bin/OpenStudioApp ${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp)
     execute_process(COMMAND ln -sf ${CPACK_INSTALL_PREFIX}bin/OpenStudioApp ${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp-${OPENSTUDIO_VERSION})
@@ -590,7 +602,7 @@ if(BUILD_OS_APP)
     # Have this link be installed with the .deb package in /usr/local/bin
     install(FILES ${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp DESTINATION /usr/local/bin COMPONENT CLI)
     install(FILES ${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp-${OPENSTUDIO_VERSION} DESTINATION /usr/local/bin COMPONENT CLI)
-    
+
     # Create a proper App with file associations
 
     # Install the .desktop manifest (allows the App to be seen in the Dash and adding to the dock, and to map it a mimetype)
