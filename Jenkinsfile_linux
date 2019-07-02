@@ -9,6 +9,6 @@
 // Build for PR to develop branch only.
 if ((env.CHANGE_ID) && (env.CHANGE_TARGET) ) {
 
-  openstudio_app_full_linux()
+  openstudio_app_incr_linux()
 
 }
