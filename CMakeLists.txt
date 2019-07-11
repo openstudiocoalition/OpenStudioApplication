@@ -10,13 +10,12 @@ if(CCACHE_PROGRAM)
   set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "${CCACHE_PROGRAM}")
 endif()
 
-project(OpenStudioApplication VERSION 2.8.1)
+project(OpenStudioApplication VERSION 1.0.0)
 
 # The PROJECT_SOURCE_DIR here is OpenStudioApplication/, which we will use instead of using CMAKE_SOURCE_DIR
 set(PROJECT_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
 # We will use BINARY_DIR instead of CMAKE_BINARY_DIR
 set(PROJECT_BINARY_DIR "${CMAKE_BINARY_DIR}")
-
 
 #MESSAGE(FATAL_ERROR "CMAKE_CURRENT_SOURCE_DIR=${CMAKE_CURRENT_SOURCE_DIR}, BINARY_DIR=${BINARY_DIR}, PROJECT_SOURCE_DIR=${PROJECT_SOURCE_DIR}, CMAKE_SOURCE_DIR=${CMAKE_SOURCE_DIR}, CMAKE_BINARY_DIR=${CMAKE_BINARY_DIR}")
 
@@ -126,6 +125,9 @@ endif()
 #if(PATCH_EXE_NOTFOUND)
   #message(SEND_ERROR "Required program patch not found")
 #endif()
+
+set(OPENSTUDIOAPPLICATION_VERSION "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}")
+set(OPENSTUDIOAPPLICATION_LONG_VERSION "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}.${PROJECT_VERSION_BUILD}")
 
 ###############################################################################
 #                         B U I L D    O P T I O N S                          #
@@ -572,7 +574,7 @@ if(UNIX AND NOT APPLE)
       #ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_ARCHIVE_OUTPUT_DIRECTORY}"
       #LIBRARY_OUTPUT_DIRECTORY "${PROJECT_LIBRARY_OUTPUT_DIRECTORY}"
       #RUNTIME_OUTPUT_DIRECTORY "${PROJECT_RUNTIME_OUTPUT_DIRECTORY}"
-      VERSION ${OPENSTUDIO_VERSION}
+      VERSION ${OPENSTUDIOAPPLICATION_VERSION}
     )
     target_include_directories(${targ} PUBLIC openstudio)
   endforeach()
@@ -587,21 +589,43 @@ endif()
 
 
 if(BUILD_OS_APP)
-  set(CPACK_INSTALL_PREFIX /usr/local/openstudio-${OPENSTUDIO_VERSION}/)
 
+  set(CPACK_PACKAGE_VENDOR "National Renewable Energy Laboratory")
+  set(CPACK_PACKAGE_VERSION_MAJOR ${OpenStudioApplication_VERSION_MAJOR})
+  set(CPACK_PACKAGE_VERSION_MINOR ${OpenStudioApplication_VERSION_MINOR})
+  set(CPACK_PACKAGE_VERSION_PATCH ${OpenStudioApplication_VERSION_PATCH})
+
+  # TODO: UPDATE THESE
+  # Trusty (14.04) uses 3.0-0, all other including Xenial (16.04) use 3.0-0v5
+  set(CPACK_DEBIAN_PACKAGE_DEPENDS "libwxgtk3.0-0v5 (>= 3.0.0) | libwxgtk3.0-0 (>=3.0.0)")
+  # CPACK_DEBIAN_PACKAGE_DESCRIPTION defaults to this one too. dpkg-deb -I xxx.deb will show this description
+  set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "OpenStudioApplication ${OpenStudioApplication_VERSION}, based on openstudio (core) ${OPENSTUDIO_VERSION}. OpenStudio is a cross-platform collection of software tools to support whole building energy modeling using EnergyPlus and advanced daylight analysis using Radiance")
+
+  # The actual package file name on disk
+  set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${OPENSTUDIOAPPLICATION_LONG_VERSION}-${CMAKE_SYSTEM_NAME}")
   set(CPACK_PACKAGE_CONTACT "openstudio@nrel.gov")
 
-  if (UNIX AND NOT APPLE)
+
+  if (APPLE)
+    set(CPACK_IFW_TARGET_DIRECTORY /Applications/OpenStudioApplication-${OpenStudioApplication_VERSION}/)
+  elseif(UNIX)
+    # These two will set the .deb install path correctly
+    set(CPACK_SET_DESTDIR ON)
+    set(CPACK_INSTALL_PREFIX /usr/local/openstudioapplication-${OpenStudioApplication_VERSION}/)
 
     set(CPACK_DEBIAN_PACKAGE_MAINTAINER "openstudio@nrel.gov")
+    # Default the debian package name to include version to allow several versions to be installed concurrently instead of overwriting any existing one
+    set(CPACK_DEBIAN_PACKAGE_NAME "openstudioapplication-${OpenStudioApplication_VERSION}")
+    set(CPACK_DEBIAN_PACKAGE_HOMEPAGE "https://www.openstudio.net")
 
+    # TODO: probably want to make this an install(CODE ...) statement instead
     # Same for OpenStudioApp
     execute_process(COMMAND ln -sf ${CPACK_INSTALL_PREFIX}bin/OpenStudioApp ${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp)
-    execute_process(COMMAND ln -sf ${CPACK_INSTALL_PREFIX}bin/OpenStudioApp ${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp-${OPENSTUDIO_VERSION})
+    execute_process(COMMAND ln -sf ${CPACK_INSTALL_PREFIX}bin/OpenStudioApp ${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp-${OPENSTUDIOAPPLICATION_VERSION})
 
     # Have this link be installed with the .deb package in /usr/local/bin
     install(FILES ${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp DESTINATION /usr/local/bin COMPONENT CLI)
-    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp-${OPENSTUDIO_VERSION} DESTINATION /usr/local/bin COMPONENT CLI)
+    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp-${OPENSTUDIOAPPLICATION_VERSION} DESTINATION /usr/local/bin COMPONENT CLI)
 
     # Create a proper App with file associations
 
@@ -610,6 +634,11 @@ if(BUILD_OS_APP)
     # Install the XML mime info
     install(FILES "${PROJECT_SOURCE_DIR}/x-openstudio.xml" DESTINATION /usr/share/mime/application)
 
+  elseif(WIN32)
+    set(CPACK_PACKAGE_INSTALL_DIRECTORY "openstudioapplication-${OpenStudioApplication_VERSION}")
+    set(CPACK_IFW_TARGET_DIRECTORY "C:/${CPACK_PACKAGE_INSTALL_DIRECTORY}")
+    set(CPACK_BINARY_IFW ON CACHE BOOL "Enable to build IFW packages")
+    set(CPACK_BINARY_NSIS OFF CACHE BOOL "Enable to build NSIS packages")
   endif()
 
   cpack_add_component(Resources
