@@ -35,6 +35,7 @@
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>
+#include <QGridLayout>
 #include <QLabel>
 #include <QLineEdit>
 #include <QDialogButtonBox>
@@ -53,42 +54,43 @@ namespace openstudio {
 ExternalToolsDialog::ExternalToolsDialog(openstudio::path t_dviewPath)
   : QDialog()
 {
-  auto mainLayout = new QVBoxLayout();
-  setLayout(mainLayout);
 
+  auto mainLayout = new QGridLayout();
+  setLayout(mainLayout);
+  mainLayout->setColumnMinimumWidth(1, 400);
+
+  int row = 0;
   auto title = new QLabel("Change External Tools");
   title->setObjectName("H1");
-  mainLayout->addWidget(title);
+  mainLayout->addWidget(title, row, 0, 1, 3);
 
   // Dview
-  auto dviewLayout = new QHBoxLayout();
-  mainLayout->addLayout(dviewLayout);
-  dviewLayout->addWidget(new QLabel("Path to DView"));
+  ++row;
+  mainLayout->addWidget(new QLabel("Path to DView"), row, 0);
 
   m_dviewPathLineEdit = new QLineEdit(this);
   m_dviewPathLineEdit->setText(QString::fromStdString(toString(t_dviewPath)));
-  dviewLayout->addWidget(m_dviewPathLineEdit);
+  mainLayout->addWidget(m_dviewPathLineEdit, row, 1);
 
   QPushButton * changeDviewButton = new QPushButton("Change");
   connect(changeDviewButton, &QPushButton::clicked, this, [this]{ ExternalToolsDialog::onChangeClicked(m_dviewPathLineEdit, "DView"); });
-  dviewLayout->addWidget(changeDviewButton);
+  mainLayout->addWidget(changeDviewButton, row, 2);
 
-
-
-  auto otherToolLayout = new QHBoxLayout();
-  mainLayout->addLayout(otherToolLayout);
-  otherToolLayout->addWidget(new QLabel("Path to Another Tool"));
+  // Other Tool
+  ++row;
+  mainLayout->addWidget(new QLabel("Path to Another Tool"), row, 0);
 
   m_otherToolPathLineEdit = new QLineEdit(this);
-  otherToolLayout->addWidget(m_otherToolPathLineEdit);
+  mainLayout->addWidget(m_otherToolPathLineEdit, row, 1);
   QPushButton * changeOtherButton = new QPushButton("Change");
   connect(changeOtherButton, &QPushButton::clicked, this, [this]{ ExternalToolsDialog::onChangeClicked(m_otherToolPathLineEdit, "openstudio"); });
-  otherToolLayout->addWidget(changeOtherButton);
+  mainLayout->addWidget(changeOtherButton, row, 2);
 
   // Buttons Ok/Cancel
+  ++row;
   auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok
                                    | QDialogButtonBox::Cancel);
-  mainLayout->addWidget(buttonBox);
+  mainLayout->addWidget(buttonBox, row, 0, 1, 3);
 
   connect(buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
   connect(buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
