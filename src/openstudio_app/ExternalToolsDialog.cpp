@@ -71,6 +71,7 @@ ExternalToolsDialog::ExternalToolsDialog(openstudio::path t_dviewPath)
 
   QPushButton * changeDviewButton = new QPushButton("Change");
   connect(changeDviewButton, &QPushButton::clicked, this, [this]{ ExternalToolsDialog::onChangeClicked(m_dviewPathLineEdit, "DView"); });
+  dviewLayout->addWidget(changeDviewButton);
 
 
 
@@ -82,6 +83,7 @@ ExternalToolsDialog::ExternalToolsDialog(openstudio::path t_dviewPath)
   otherToolLayout->addWidget(m_otherToolPathLineEdit);
   QPushButton * changeOtherButton = new QPushButton("Change");
   connect(changeOtherButton, &QPushButton::clicked, this, [this]{ ExternalToolsDialog::onChangeClicked(m_otherToolPathLineEdit, "openstudio"); });
+  otherToolLayout->addWidget(changeOtherButton);
 
   // Buttons Ok/Cancel
   auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok
