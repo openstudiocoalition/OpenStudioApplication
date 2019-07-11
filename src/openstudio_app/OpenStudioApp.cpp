@@ -1481,7 +1481,6 @@ void OpenStudioApp::setDviewPath(const openstudio::path& t_dviewPath) {
 
   m_dviewPath.clear();
 
-  // Read from settings
   if (!t_dviewPath.empty()) {
     LOG_FREE(Debug, "OpenStudioApp", "setDViewPath t_dviewPath is not empty");
 
@@ -1491,37 +1490,25 @@ void OpenStudioApp::setDviewPath(const openstudio::path& t_dviewPath) {
     }
   }
 
-  // Still empty? Try to infer it
-  if (m_dviewPath.empty()) {
-    openstudio::path inferredPath = inferredDViewPath();
-    if (!inferredPath.empty()) {
-      m_dviewPath = inferredPath;
-    }
-  }
-
   LOG_FREE(Debug, "OpenStudioApp", "setDViewPath: m_dviewPath " << m_dviewPath);
-
 
 }
 
 openstudio::path OpenStudioApp::dviewPath() const {
-  return m_dviewPath;
+  if (m_dviewPath.empty()) {
+    return inferredDViewPath();
+  } else {
+    return m_dviewPath;
+  }
 }
 
 void OpenStudioApp::configureExternalTools() {
 
+  // Get the actual one, or the inferred one
   openstudio::path t_dviewPath = dviewPath();
   LOG_FREE(Debug, "OpenStudioApp", "configureExternalTools: dviewPath() = " << t_dviewPath);
 
   // Starts the External Tools dialog
-  if (t_dviewPath.empty()) {
-    // Might as well try to infer it too.
-    // Not sure whether we want that or not...
-    t_dviewPath = inferredDViewPath();
-  }
-
-  LOG_FREE(Debug, "OpenStudioApp", "configureExternalTools: t_dviewPath " << t_dviewPath);
-
   ExternalToolsDialog dialog(t_dviewPath); // TODO: currently only sets DView
 
   auto code = dialog.exec();
@@ -1544,18 +1531,19 @@ void OpenStudioApp::configureExternalTools() {
       }
     }
 
-    auto newOtherToolPath = dialog.otherToolPath();
-    if (true) {
-       // Write the library settings
-      QSettings settings(QCoreApplication::organizationName(), QCoreApplication::applicationName());
-
-      if ( newOtherToolPath.empty() ) {
-        settings.remove("otherToolPath");
-        // TODO: log that stuff didn't pan out
-      } else {
-        settings.setValue("otherToolPath", toQString(newOtherToolPath));
-      }
-    }
+    // example if adding another one
+    //auto newOtherToolPath = dialog.otherToolPath();
+    //if (newOtherToolPath != m_otherToolPath) {
+       //// Write the library settings
+      //QSettings settings(QCoreApplication::organizationName(), QCoreApplication::applicationName());
+      //// Set OtherToolPath here
+      //if ( m_otherToolPath.empty() ) {
+        //settings.remove("otherToolPath");
+        //// TODO: log that stuff didn't pan out
+      //} else {
+        //settings.setValue("otherToolPath", toQString(m_otherToolPath));
+      //}
+    //}
 
   }
 }

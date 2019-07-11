@@ -116,7 +116,8 @@ class OpenStudioApp : public OSAppBase
 
   openstudio::path openstudioCLIPath() const;
 
-  // Will return en empty path if not found (no need to wrap into a boost::optional (with overhead) for this)
+   // Returns the hard set path (in settings), and or if not set will try to infer it by looking into the current PATH
+  // If all fails, ends up returning an empty path (no need to wrap into a boost::optional (with overhead) for this)
   openstudio::path dviewPath() const;
 
   virtual bool notify(QObject* receiver, QEvent* event) override;
@@ -252,6 +253,7 @@ class OpenStudioApp : public OSAppBase
 
   QString m_lastPath;
 
+  // Try to find DView (or DView.exe) inside the PATH env variable. Will return an *empty* path if couldn't infer it
   openstudio::path inferredDViewPath() const;
   openstudio::path m_dviewPath;
   void setDviewPath(const openstudio::path& t_dviewPath);
