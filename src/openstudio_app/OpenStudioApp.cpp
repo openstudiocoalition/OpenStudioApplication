@@ -136,7 +136,7 @@
 using namespace openstudio::model;
 
 namespace openstudio {
-  
+
 bool TouchEater::eventFilter(QObject *obj, QEvent *event)
 {
     if (event->type() == QEvent::TouchBegin) {
@@ -154,7 +154,7 @@ OpenStudioApp::OpenStudioApp( int & argc, char ** argv)
   setOrganizationName("NREL");
   QCoreApplication::setOrganizationDomain("nrel.gov");
   setApplicationName("OpenStudioApp");
-  
+
   auto eater = new TouchEater();
   installEventFilter(eater);
 
@@ -908,7 +908,7 @@ void  OpenStudioApp::showAbout()
   details += "Chrome Debugger: http://localhost:" + qgetenv("QTWEBENGINE_REMOTE_DEBUGGING") + "\n";
   details += "Temp Directory: " + currentDocument()->modelTempDir();
   QMessageBox about(parent);
-  about.setText(OPENSTUDIO_ABOUTBOX);
+  about.setText(OPENSTUDIOAPP_ABOUTBOX);
   about.setDetailedText(details);
   about.setStyleSheet("qproperty-alignment: AlignCenter;");
   about.setWindowTitle("About " + applicationName());
