@@ -1451,15 +1451,18 @@ std::vector<openstudio::path> OpenStudioApp::libraryPaths() const {
 
 openstudio::path OpenStudioApp::inferredDViewPath() const {
 
+  openstudio::path result;
+
 #if defined _WIN32
-  std::string dview_executable("DView.exe");
+  openstudio::path dview_executable("DView.exe");
 #else
-  std::string dview_executable("DView");
+  openstudio::path dview_executable("DView");
 #endif
 
 
-  openstudio::path result = openstudio::findInSystemPath(dview_executable);
-  if ( !result.empty() ) {
+  openstudio::path dviewPath = openstudio::findInSystemPath(dview_executable);
+  // findInSystemPath returns whatever was passed if not found...
+  if ( !dviewPath.empty() && (dviewPath != dview_executable)) {
     result = openstudio::completeAndNormalize(result);
   }
 
