@@ -1523,11 +1523,11 @@ void OpenStudioApp::configureExternalTools() {
     }
 
     auto newOtherToolPath = dialog.otherToolPath();
-    if (newOtherToolPath != m_dviewPath) {
+    if (true) {
        // Write the library settings
       QSettings settings(QCoreApplication::organizationName(), QCoreApplication::applicationName());
 
-      if ( m_dviewPath.empty() ) {
+      if ( newOtherToolPath.empty() ) {
         settings.remove("otherToolPath");
         // TODO: log that stuff didn't pan out
       } else {
