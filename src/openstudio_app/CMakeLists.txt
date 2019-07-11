@@ -14,6 +14,8 @@ set(${target_name}_SRC
   StartupMenu.cpp
   LibraryDialog.hpp
   LibraryDialog.cpp
+  ExternalToolsDialog.hpp
+  ExternalToolsDialog.cpp
 
   ../shared_gui_components/BusyWidget.cpp
   ../shared_gui_components/BusyWidget.hpp
@@ -29,6 +31,7 @@ set(${target_name}_moc
   StartupView.hpp
   StartupMenu.hpp
   LibraryDialog.hpp
+  ExternalToolsDialog.hpp
 
   ../shared_gui_components/BusyWidget.hpp
   ../shared_gui_components/OSDialog.hpp

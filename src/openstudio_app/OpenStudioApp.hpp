@@ -157,6 +157,9 @@ class OpenStudioApp : public OSAppBase
   // Checks what happened in the LibraryDialog preference panes, and calls writeLibraryPaths to set the user settings
   void changeDefaultLibraries();
 
+  // Checks what happened in the ExternalToolsDialog preference pane
+  void configureExternalTools();
+
  private slots:
 
   // Returns default/hvac_library.osm and default/hvac_library.osm
@@ -168,6 +171,9 @@ class OpenStudioApp : public OSAppBase
    * (This function is the reciprocal of writeLibraryPaths)
    */
   std::vector<openstudio::path> libraryPaths() const;
+
+  // Will return en empty path if not found (no need to wrap into a boost::optional (with overhead) for this)
+  openstudio::path dviewPath() const;
 
   // Build the component libraries and return a vector of paths that failed to load
   std::vector<std::string> buildCompLibraries();
@@ -245,6 +251,10 @@ class OpenStudioApp : public OSAppBase
   std::shared_ptr<OSDocument> m_osDocument;
 
   QString m_lastPath;
+
+  openstudio::path inferredDViewPath() const;
+  openstudio::path m_dviewPath;
+  void setDviewPath(const openstudio::path& t_dviewPath);
 
   std::shared_ptr<StartupMenu> m_startupMenu;
 

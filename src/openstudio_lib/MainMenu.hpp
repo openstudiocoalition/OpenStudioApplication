@@ -66,6 +66,8 @@ class MainMenu : public QMenuBar
 
   void changeDefaultLibrariesClicked();
 
+  void configureExternalToolsClicked();
+
   void loadLibraryClicked();
 
   void revertFileClicked();

@@ -32,6 +32,7 @@
 #include "StartupMenu.hpp"
 #include "StartupView.hpp"
 #include "LibraryDialog.hpp"
+#include "ExternalToolsDialog.hpp"
 #include "../openstudio_lib/MainWindow.hpp"
 #include "../openstudio_lib/OSDocument.hpp"
 
@@ -43,6 +44,7 @@
 
 // Call the OS App specific version, not the core one
 #include "../utilities/OpenStudioApplicationPathHelpers.hpp"
+#include <openstudio/src/utilities/core/PathHelpers.hpp>
 
 #include <openstudio/src/utilities/core/Assert.hpp>
 #include <openstudio/src/utilities/core/Compare.hpp>
@@ -1102,6 +1104,8 @@ void OpenStudioApp::readSettings()
   QString applicationName = QCoreApplication::applicationName();
   QSettings settings(organizationName, applicationName);
   setLastPath(settings.value("lastPath", QDir::homePath()).toString());
+  setDviewPath(openstudio::toPath(settings.value("dviewPath", "").toString()));
+
 }
 
 void OpenStudioApp::writeSettings()
@@ -1441,6 +1445,92 @@ std::vector<openstudio::path> OpenStudioApp::libraryPaths() const {
     return defaultLibraryPaths();
   } else {
     return paths;
+  }
+}
+
+openstudio::path OpenStudioApp::inferredDViewPath() const {
+
+#if defined _WIN32
+  std::string dview_executable("DView.exe");
+#else
+  std::string dview_executable("DView");
+#endif
+
+
+  openstudio::path result = openstudio::findInSystemPath(dview_executable);
+  if ( !result.empty() ) {
+    result = openstudio::completeAndNormalize(result);
+  }
+
+  return result;
+
+}
+
+
+void OpenStudioApp::setDviewPath(const openstudio::path& t_dviewPath) {
+
+  m_dviewPath.clear();
+
+  // Read from settings
+  if (!t_dviewPath.empty()) {
+    // check if exists?
+    if( openstudio::filesystem::exists( t_dviewPath ) && !openstudio::filesystem::is_directory( t_dviewPath ) ) {
+      m_dviewPath = t_dviewPath;
+    }
+  }
+
+  // Still empty? Try to infer it
+  if (m_dviewPath.empty()) {
+    openstudio::path inferredPath = inferredDViewPath();
+    if (!inferredPath.empty()) {
+      m_dviewPath = inferredPath;
+    }
+  }
+
+}
+
+openstudio::path OpenStudioApp::dviewPath() const {
+  return m_dviewPath;
+}
+
+void OpenStudioApp::configureExternalTools() {
+
+  // Starts the External Tools dialog
+  ExternalToolsDialog dialog(m_dviewPath); // TODO: currently only sets DView
+
+  auto code = dialog.exec();
+
+  // If user accepts its changes, and there are actually changes to the list of paths
+  if ( code == QDialog::Accepted ) {
+
+    auto newDviewPath = dialog.dviewPath();
+    if (newDviewPath != m_dviewPath) {
+
+      // Write the library settings
+      setDviewPath(newDviewPath);
+      QSettings settings(QCoreApplication::organizationName(), QCoreApplication::applicationName());
+
+      if ( m_dviewPath.empty() ) {
+        settings.remove("dviewPath");
+        // TODO: log that stuff didn't pan out
+      } else {
+        settings.setValue("dviewPath", toQString(m_dviewPath));
+      }
+    }
+
+    auto newOtherToolPath = dialog.otherToolPath();
+    if (newOtherToolPath != m_dviewPath) {
+       // Write the library settings
+      QSettings settings(QCoreApplication::organizationName(), QCoreApplication::applicationName());
+
+      if ( m_dviewPath.empty() ) {
+        settings.remove("otherToolPath");
+        // TODO: log that stuff didn't pan out
+      } else {
+        settings.setValue("otherToolPath", toQString(newOtherToolPath));
+      }
+    }
+
   }
 }
 
