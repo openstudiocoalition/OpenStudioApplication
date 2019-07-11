@@ -76,15 +76,15 @@ ExternalToolsDialog::ExternalToolsDialog(openstudio::path t_dviewPath)
   connect(changeDviewButton, &QPushButton::clicked, this, [this]{ ExternalToolsDialog::onChangeClicked(m_dviewPathLineEdit, "DView"); });
   mainLayout->addWidget(changeDviewButton, row, 2);
 
-  // Other Tool
-  ++row;
-  mainLayout->addWidget(new QLabel("Path to Another Tool"), row, 0);
+  // Note JM 2019-07-11: Other Tool: example
+  //++row;
+  //mainLayout->addWidget(new QLabel("Path to Another Tool"), row, 0);
 
-  m_otherToolPathLineEdit = new QLineEdit(this);
-  mainLayout->addWidget(m_otherToolPathLineEdit, row, 1);
-  QPushButton * changeOtherButton = new QPushButton("Change");
-  connect(changeOtherButton, &QPushButton::clicked, this, [this]{ ExternalToolsDialog::onChangeClicked(m_otherToolPathLineEdit, "openstudio"); });
-  mainLayout->addWidget(changeOtherButton, row, 2);
+  //m_otherToolPathLineEdit = new QLineEdit(this);
+  //mainLayout->addWidget(m_otherToolPathLineEdit, row, 1);
+  //QPushButton * changeOtherButton = new QPushButton("Change");
+  //connect(changeOtherButton, &QPushButton::clicked, this, [this]{ ExternalToolsDialog::onChangeClicked(m_otherToolPathLineEdit, "openstudio"); });
+  //mainLayout->addWidget(changeOtherButton, row, 2);
 
   // Buttons Ok/Cancel
   ++row;
@@ -123,8 +123,8 @@ openstudio::path ExternalToolsDialog::dviewPath() const {
   return openstudio::toPath(m_dviewPathLineEdit->text());
 }
 
-openstudio::path ExternalToolsDialog::otherToolPath() const {
-  return openstudio::toPath(m_otherToolPathLineEdit->text());
-}
+//openstudio::path ExternalToolsDialog::otherToolPath() const {
+  //return openstudio::toPath(m_otherToolPathLineEdit->text());
+//}
 
 } // openstudio

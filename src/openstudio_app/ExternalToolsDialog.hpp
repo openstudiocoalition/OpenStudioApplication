@@ -51,7 +51,7 @@ class ExternalToolsDialog: public QDialog
   /** The current externaltools paths */
   openstudio::path dviewPath() const;
 
-  openstudio::path otherToolPath() const;
+  // openstudio::path otherToolPath() const;
 
 
  private:
@@ -61,7 +61,7 @@ class ExternalToolsDialog: public QDialog
 
   QLineEdit * m_dviewPathLineEdit;
 
-  QLineEdit * m_otherToolPathLineEdit;
+  // QLineEdit * m_otherToolPathLineEdit;
 
 };
 
