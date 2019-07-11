@@ -116,6 +116,9 @@ class OpenStudioApp : public OSAppBase
 
   openstudio::path openstudioCLIPath() const;
 
+  // Will return en empty path if not found (no need to wrap into a boost::optional (with overhead) for this)
+  openstudio::path dviewPath() const;
+
   virtual bool notify(QObject* receiver, QEvent* event) override;
 
  protected:
@@ -171,9 +174,6 @@ class OpenStudioApp : public OSAppBase
    * (This function is the reciprocal of writeLibraryPaths)
    */
   std::vector<openstudio::path> libraryPaths() const;
-
-  // Will return en empty path if not found (no need to wrap into a boost::optional (with overhead) for this)
-  openstudio::path dviewPath() const;
 
   // Build the component libraries and return a vector of paths that failed to load
   std::vector<std::string> buildCompLibraries();

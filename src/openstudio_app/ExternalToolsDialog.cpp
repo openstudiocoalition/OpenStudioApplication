@@ -100,6 +100,9 @@ void ExternalToolsDialog::onChangeClicked(QLineEdit * t_lineEdit, QString toolNa
 
 #if defined _WIN32
   QString filter = toolName + QString(" (") + toolName + QString("*.exe)");
+#elif defined Q_OS_DARWIN
+  // TODO: definitely not going to work! Thanks Apple!
+  QString filter = toolName + QString(" (") + toolName + QString("*.app)");
 #else
   QString filter = toolName;
 #endif
