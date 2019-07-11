@@ -51,7 +51,7 @@
 namespace openstudio {
 
 ExternalToolsDialog::ExternalToolsDialog(openstudio::path t_dviewPath)
-  : QDialog(), m_dviewPath(t_dviewPath)
+  : QDialog()
 {
   auto mainLayout = new QVBoxLayout();
   setLayout(mainLayout);
@@ -66,7 +66,7 @@ ExternalToolsDialog::ExternalToolsDialog(openstudio::path t_dviewPath)
   dviewLayout->addWidget(new QLabel("Path to DView"));
 
   m_dviewPathLineEdit = new QLineEdit(this);
-  m_dviewPathLineEdit->setText(QString::fromStdString(toString(m_dviewPath)));
+  m_dviewPathLineEdit->setText(QString::fromStdString(toString(t_dviewPath)));
   dviewLayout->addWidget(m_dviewPathLineEdit);
 
   QPushButton * changeDviewButton = new QPushButton("Change");
@@ -116,14 +116,10 @@ void ExternalToolsDialog::onChangeClicked(QLineEdit * t_lineEdit, QString toolNa
 }
 
 openstudio::path ExternalToolsDialog::dviewPath() const {
-  std::vector<openstudio::path> result;
-
   return openstudio::toPath(m_dviewPathLineEdit->text());
 }
 
 openstudio::path ExternalToolsDialog::otherToolPath() const {
-  std::vector<openstudio::path> result;
-
   return openstudio::toPath(m_otherToolPathLineEdit->text());
 }
 
