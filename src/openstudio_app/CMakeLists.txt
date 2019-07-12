@@ -45,7 +45,7 @@ CONFIGURE_FILE_WITH_CHECKSUM(AboutBox.hpp.in "${CMAKE_CURRENT_BINARY_DIR}/AboutB
 # TODO: probably change that, some icons (all?) will need to move to OSApp repo
 # Note JM 2019-07-12: For now I left OSM and OSC icons in core
 set(OPENSTUDIOAPPLICATION_ICON_FOLDER "${PROJECT_SOURCE_DIR}/icons")
-set(OPENSTUDIOCORE_ICON_FOLDER "${PROJECT_SOURCE_DIR}/openstudio/icons"
+set(OPENSTUDIOCORE_ICON_FOLDER "${PROJECT_SOURCE_DIR}/openstudio/icons")
 if(WIN32)
   CONFIGURE_FILE_WITH_CHECKSUM(OpenStudioApp.rc.in "${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp.rc")
   set(ICON_SRC "${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp.rc")
