@@ -42,6 +42,7 @@
 				<string>gov.nrel.openstudio.osc</string>
 			</array>
 		</dict>
+		<!-- TODO: Probably Unused -->
 		<dict>
 			<key>CFBundleTypeExtensions</key>
 			<array>
@@ -125,6 +126,7 @@
 				</array>
 			</dict>
 		</dict>
+		<!-- TODO: Probably Unused -->
 		<dict>
 			<key>UTTypeConformsTo</key>
 			<array>
