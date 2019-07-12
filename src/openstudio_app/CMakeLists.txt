@@ -57,9 +57,6 @@ elseif(APPLE)
   # set all icons
   set(ICON_SRC
     ${OPENSTUDIOAPPLICATION_ICON_FOLDER}/os.icns
-    ${OPENSTUDIOAPPLICATION_ICON_FOLDER}/ossr.icns # TODO: This is probably not used anymore...
-    ${OPENSTUDIOAPPLICATION_ICON_FOLDER}/folder_icon.rsrc # TODO: is that still needed?!
-
     ${OPENSTUDIOCORE_ICON_FOLDER}/osm.icns
     ${OPENSTUDIOCORE_ICON_FOLDER}/osc.icns
   )
@@ -95,7 +92,13 @@ elseif(UNIX)
       DESTINATION "/usr/share/icons/hicolor/${_size}x${_size}/mimetypes"
       RENAME application-x-openstudio.png
     )
-    # TODO: install OSC?
+  # Install OSC
+    install(
+      FILES "${OPENSTUDIOCORE_ICON_FOLDER}/osc_${_size}.png"
+      DESTINATION "/usr/share/icons/hicolor/${_size}x${_size}/mimetypes"
+      RENAME application-x-openstudio-component.png
+    )
+
   endforeach()
 
   # TODO: probably move to OS App repo
