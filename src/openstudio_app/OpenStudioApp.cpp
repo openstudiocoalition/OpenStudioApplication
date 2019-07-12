@@ -1455,20 +1455,21 @@ openstudio::path OpenStudioApp::inferredDViewPath() const {
 
 #if defined _WIN32
   openstudio::path dview_executable("DView.exe");
+  // todo: add mac
 #else
   openstudio::path dview_executable("DView");
 #endif
 
 
   openstudio::path dviewPath = openstudio::findInSystemPath(dview_executable);
-  LOG_FREE(Debug, "OpenStudioApp", "inferredDViewPath, findInSystemPath returned dviewPath = " << dviewPath);
+  LOG_FREE(Debug, "OpenStudioApp", "inferredDViewPath, findInSystemPath returned dviewPath = '" << dviewPath << "'.");
 
   // findInSystemPath returns whatever was passed if not found...
   if ( !dviewPath.empty() && (dviewPath != dview_executable)) {
     result = openstudio::completeAndNormalize(dviewPath);
   }
 
-  LOG_FREE(Debug, "OpenStudioApp", "inferredDViewPath = " << result);
+  LOG_FREE(Debug, "OpenStudioApp", "inferredDViewPath = '" << result << "'.");
 
   return result;
 
@@ -1477,22 +1478,22 @@ openstudio::path OpenStudioApp::inferredDViewPath() const {
 
 void OpenStudioApp::setDviewPath(const openstudio::path& t_dviewPath) {
 
-  LOG_FREE(Debug, "OpenStudioApp", "setDViewPath called with: " << t_dviewPath);
+  LOG_FREE(Debug, "OpenStudioApp", "setDViewPath called with t_dviewPath = '" << t_dviewPath << "'.");
 
   m_dviewPath.clear();
 
   if (!t_dviewPath.empty()) {
-    LOG_FREE(Debug, "OpenStudioApp", "setDViewPath t_dviewPath is not empty");
+    LOG_FREE(Debug, "OpenStudioApp", "setDViewPath t_dviewPath is not empty.");
 
     // check if exists?
     if( openstudio::filesystem::exists( t_dviewPath ) && !openstudio::filesystem::is_directory( t_dviewPath ) ) {
       m_dviewPath = t_dviewPath;
     } else {
-      LOG_FREE(Error, "OpenStudioApp", "setDViewPath: m_dviewPath doesn't not appear to be valid: " << m_dviewPath);
+      LOG_FREE(Error, "OpenStudioApp", "setDViewPath: t_dviewPath doesn't not appear to be valid: '" << t_dviewPath << "'.");
     }
   }
 
-  LOG_FREE(Debug, "OpenStudioApp", "setDViewPath: m_dviewPath " << m_dviewPath);
+  LOG_FREE(Debug, "OpenStudioApp", "setDViewPath: m_dviewPath = '" << m_dviewPath << "'.");
 
 }
 
@@ -1508,7 +1509,7 @@ void OpenStudioApp::configureExternalTools() {
 
   // Get the actual one, or the inferred one
   openstudio::path t_dviewPath = dviewPath();
-  LOG_FREE(Debug, "OpenStudioApp", "configureExternalTools: dviewPath() = " << t_dviewPath);
+  LOG_FREE(Debug, "OpenStudioApp", "configureExternalTools: dviewPath() = '" << t_dviewPath << "'.");
 
   // Starts the External Tools dialog
   ExternalToolsDialog dialog(t_dviewPath); // TODO: currently only sets DView
