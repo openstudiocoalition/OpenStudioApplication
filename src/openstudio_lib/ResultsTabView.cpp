@@ -122,6 +122,7 @@ ResultsView::ResultsView(QWidget *t_parent)
   m_dviewPath = app->dviewPath();
   if (m_dviewPath.empty()) {
     m_openDViewBtn->setText("Set Path to DView\nin Preferences");
+    connect(m_openDViewBtn, &QPushButton::clicked, app, &OpenStudioApp::configureExternalTools);
   } else {
     connect(m_openDViewBtn, &QPushButton::clicked, this, &ResultsView::openDViewClicked);
   }

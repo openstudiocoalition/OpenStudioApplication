@@ -697,6 +697,7 @@ if(BUILD_OS_APP)
     install(FILES "${PROJECT_SOURCE_DIR}/src/openstudio_app/x-openstudio.xml" DESTINATION /usr/share/mime/application)
 
     ## try to set up the menu system
+    # Problem is the use of "sudo". Perhaps we should copy icons and manifest to $HOME/.local/share/...
     #find_program(XDG-MIME_EXECUTABLE xdg-mime)
     #find_program(XDG-DESKTOP-MENU_EXECUTABLE xdg-desktop-menu)
     #find_program(UPDATE-MIME-DATABASE-EXECUTABLE update-mime-database)
@@ -709,17 +710,17 @@ if(BUILD_OS_APP)
 
     ## Register the mime description: this places it in /usr/share/mime/packages/
     ## sudo xdg-mime install --novendor --mode system x-openstudio.xml
-    #install(CODE "execute_process(COMMAND ${MIME_EXECUTABLE} install --novendor --mode system /usr/share/mime/application/x-openstudio.xml)")
+    #install(CODE "execute_process(COMMAND sudo ${MIME_EXECUTABLE} install --novendor --mode system /usr/share/mime/application/x-openstudio.xml)")
     #install(CODE "execute_process(COMMAND echo COUCOU)")
 
     ## Register the application launcher with the registered mimetype
     ## sudo xdg-mime default openstudio.desktop application/x-openstudio
-    #install(CODE "execute_process(COMMAND ${MIME_EXECUTABLE} default /usr/share/applications/openstudio.desktop application/x-openstudio)")
+    #install(CODE "execute_process(COMMAND sudo ${MIME_EXECUTABLE} default /usr/share/applications/openstudio.desktop application/x-openstudio)")
 
 
     ## Update the mime cache and icon cache
     ## sudo update-mime-database /usr/share/mime
-    #install(CODE "execute_process(COMMAND ${UPDATE-MIME-DATABASE-EXECUTABLE} /usr/share/mime)")
+    #install(CODE "execute_process(COMMAND sudo ${UPDATE-MIME-DATABASE-EXECUTABLE} /usr/share/mime)")
     ## sudo gtk-update-icon-cache /usr/share/icons/hicolor/ -f
     #install(CODE "execute_process(COMMAND ${GTK-UPDATE-ICON-CACHE-EXECUTABLE} /usr/share/icons/hicolor/ -f)")
 
