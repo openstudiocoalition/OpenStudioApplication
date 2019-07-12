@@ -632,14 +632,15 @@ if(BUILD_OS_APP)
     set(CPACK_DEBIAN_PACKAGE_NAME "openstudioapplication-${OPENSTUDIOAPPLICATION_VERSION}")
     set(CPACK_DEBIAN_PACKAGE_HOMEPAGE "https://www.openstudio.net")
 
-    # TODO: probably want to make this an install(CODE ...) statement instead
-    # Same for OpenStudioApp
+    # Add a symlink to the App: /usr/local/bin/OpenStudioApp should point to /usr/local/openstudioapplication-${OPENSTUDIOAPPLICATION_VERSION}/bin/OpenStudioApp
+    # Add an arbitrary link (broken) at build/OpenStudioApp (if build/ is your build folder) that already points to the **future** /usr/local/openstudioapplication-x.y.z/bin/OpenStudioApp
     execute_process(COMMAND ln -sf ${CPACK_INSTALL_PREFIX}bin/OpenStudioApp ${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp)
+    # Plus a versioned one
     execute_process(COMMAND ln -sf ${CPACK_INSTALL_PREFIX}bin/OpenStudioApp ${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp-${OPENSTUDIOAPPLICATION_VERSION})
-
-    # Have this link be installed with the .deb package in /usr/local/bin
+    # Have these links be installed with the .deb package in /usr/local/bin
     install(FILES ${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp DESTINATION /usr/local/bin COMPONENT CLI)
     install(FILES ${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp-${OPENSTUDIOAPPLICATION_VERSION} DESTINATION /usr/local/bin COMPONENT CLI)
+
 
     # Create a proper App with file associations
 
@@ -647,6 +648,35 @@ if(BUILD_OS_APP)
     install(FILES "${PROJECT_SOURCE_DIR}/src/openstudio_app/openstudioapp.desktop" DESTINATION /usr/share/applications)
     # Install the XML mime info
     install(FILES "${PROJECT_SOURCE_DIR}/src/openstudio_app/x-openstudio.xml" DESTINATION /usr/share/mime/application)
+
+    ## try to set up the menu system
+    #find_program(XDG-MIME_EXECUTABLE xdg-mime)
+    #find_program(XDG-DESKTOP-MENU_EXECUTABLE xdg-desktop-menu)
+    #find_program(UPDATE-MIME-DATABASE-EXECUTABLE update-mime-database)
+    #find_program(GTK-UPDATE-ICON-CACHE-EXECUTABLE gtk-update-icon-cache)
+
+
+    ## Install the Desktop Menu
+    ## xdg-desktop-menu install --novendor /usr/share/applications/openstudioapp.desktop
+    #install(CODE "execute_process(COMMAND ${XDG-DESKTOP-MENU_EXECUTABLE} install --novendor --mode system /usr/share/applications/openstudioapp.desktop)")
+
+    ## Register the mime description: this places it in /usr/share/mime/packages/
+    ## sudo xdg-mime install --novendor --mode system x-openstudio.xml
+    #install(CODE "execute_process(COMMAND ${MIME_EXECUTABLE} install --novendor --mode system /usr/share/mime/application/x-openstudio.xml)")
+    #install(CODE "execute_process(COMMAND echo COUCOU)")
+
+    ## Register the application launcher with the registered mimetype
+    ## sudo xdg-mime default openstudio.desktop application/x-openstudio
+    #install(CODE "execute_process(COMMAND ${MIME_EXECUTABLE} default /usr/share/applications/openstudio.desktop application/x-openstudio)")
+
+
+    ## Update the mime cache and icon cache
+    ## sudo update-mime-database /usr/share/mime
+    #install(CODE "execute_process(COMMAND ${UPDATE-MIME-DATABASE-EXECUTABLE} /usr/share/mime)")
+    ## sudo gtk-update-icon-cache /usr/share/icons/hicolor/ -f
+    #install(CODE "execute_process(COMMAND ${GTK-UPDATE-ICON-CACHE-EXECUTABLE} /usr/share/icons/hicolor/ -f)")
+
+
 
   elseif(WIN32)
     set(CPACK_PACKAGE_INSTALL_DIRECTORY "openstudioapplication-${OPENSTUDIOAPPLICATION_VERSION}")
