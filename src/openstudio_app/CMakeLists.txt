@@ -42,6 +42,7 @@ qt5_wrap_cpp_minimally(${target_name}_moc_src ${${target_name}_moc})
 # this needs to be configured to embed the build number
 CONFIGURE_FILE_WITH_CHECKSUM(AboutBox.hpp.in "${CMAKE_CURRENT_BINARY_DIR}/AboutBox.hpp")
 
+# TODO: probably change that, some icons (all?) will need to move to OSApp repo
 set(ICON_FOLDER "${CMAKE_CURRENT_SOURCE_DIR}/../../openstudio/icons")
 
 if(WIN32)
