@@ -126,8 +126,21 @@ endif()
   #message(SEND_ERROR "Required program patch not found")
 #endif()
 
+# OpenStudioApplication version: Allows to add a pre1 tag as needed.
+# Note JM 2019-07-12: DO NOT use OpenStudioApplication_VERSION (and use OpenStudioApplication_VERSION_MINOR carefully etc), use the all-upper-case variables
 set(OPENSTUDIOAPPLICATION_VERSION "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}")
-set(OPENSTUDIOAPPLICATION_LONG_VERSION "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}.${PROJECT_VERSION_BUILD}")
+# TODO JM 2019-07-12: Comment out (or delete) if prerelease tag not needed
+set(OPENSTUDIOAPPLICATION_PRERELEASE_TAG "pre1")
+if (NOT "${OPENSTUDIOAPPLICATION_PRERELEASE_TAG}" STREQUAL "")
+  message(STATUS "We have a prerelease tag set to '${OPENSTUDIOAPPLICATION_PRERELEASE_TAG}'")
+  set(OPENSTUDIOAPPLICATION_VERSION "${OPENSTUDIOAPPLICATION_VERSION}-${OPENSTUDIOAPPLICATION_PRERELEASE_TAG}")
+else()
+  message(STATUS "We do not have a prerelease tag")
+endif()
+set(OPENSTUDIOAPPLICATION_LONG_VERSION "${OPENSTUDIOAPPLICATION_VERSION}.${PROJECT_VERSION_BUILD}")
+message(STATUS "OPENSTUDIOAPPLICATION_VERSION=${OPENSTUDIOAPPLICATION_VERSION}")
+message(STATUS "OPENSTUDIOAPPLICATION_LONG_VERSION=${OPENSTUDIOAPPLICATION_LONG_VERSION}")
+
 
 ###############################################################################
 #                         B U I L D    O P T I O N S                          #
@@ -591,6 +604,7 @@ endif()
 if(BUILD_OS_APP)
 
   set(CPACK_PACKAGE_VENDOR "National Renewable Energy Laboratory")
+  # These are ok, even if we have a prerelease tag
   set(CPACK_PACKAGE_VERSION_MAJOR ${OpenStudioApplication_VERSION_MAJOR})
   set(CPACK_PACKAGE_VERSION_MINOR ${OpenStudioApplication_VERSION_MINOR})
   set(CPACK_PACKAGE_VERSION_PATCH ${OpenStudioApplication_VERSION_PATCH})
@@ -599,7 +613,7 @@ if(BUILD_OS_APP)
   # Trusty (14.04) uses 3.0-0, all other including Xenial (16.04) use 3.0-0v5
   set(CPACK_DEBIAN_PACKAGE_DEPENDS "libwxgtk3.0-0v5 (>= 3.0.0) | libwxgtk3.0-0 (>=3.0.0)")
   # CPACK_DEBIAN_PACKAGE_DESCRIPTION defaults to this one too. dpkg-deb -I xxx.deb will show this description
-  set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "OpenStudioApplication ${OpenStudioApplication_VERSION}, based on openstudio (core) ${OPENSTUDIO_VERSION}. OpenStudio is a cross-platform collection of software tools to support whole building energy modeling using EnergyPlus and advanced daylight analysis using Radiance")
+  set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "OpenStudioApplication ${OPENSTUDIOAPPLICATION_VERSION}, based on openstudio (core) ${OPENSTUDIO_VERSION}. OpenStudio is a cross-platform collection of software tools to support whole building energy modeling using EnergyPlus and advanced daylight analysis using Radiance")
 
   # The actual package file name on disk
   set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${OPENSTUDIOAPPLICATION_LONG_VERSION}-${CMAKE_SYSTEM_NAME}")
@@ -607,15 +621,15 @@ if(BUILD_OS_APP)
 
 
   if (APPLE)
-    set(CPACK_IFW_TARGET_DIRECTORY /Applications/OpenStudioApplication-${OpenStudioApplication_VERSION}/)
+    set(CPACK_IFW_TARGET_DIRECTORY /Applications/OpenStudioApplication-${OPENSTUDIOAPPLICATION_VERSION}/)
   elseif(UNIX)
     # These two will set the .deb install path correctly
     set(CPACK_SET_DESTDIR ON)
-    set(CPACK_INSTALL_PREFIX /usr/local/openstudioapplication-${OpenStudioApplication_VERSION}/)
+    set(CPACK_INSTALL_PREFIX /usr/local/openstudioapplication-${OPENSTUDIOAPPLICATION_VERSION}/)
 
     set(CPACK_DEBIAN_PACKAGE_MAINTAINER "openstudio@nrel.gov")
     # Default the debian package name to include version to allow several versions to be installed concurrently instead of overwriting any existing one
-    set(CPACK_DEBIAN_PACKAGE_NAME "openstudioapplication-${OpenStudioApplication_VERSION}")
+    set(CPACK_DEBIAN_PACKAGE_NAME "openstudioapplication-${OPENSTUDIOAPPLICATION_VERSION}")
     set(CPACK_DEBIAN_PACKAGE_HOMEPAGE "https://www.openstudio.net")
 
     # TODO: probably want to make this an install(CODE ...) statement instead
@@ -635,7 +649,7 @@ if(BUILD_OS_APP)
     install(FILES "${PROJECT_SOURCE_DIR}/x-openstudio.xml" DESTINATION /usr/share/mime/application)
 
   elseif(WIN32)
-    set(CPACK_PACKAGE_INSTALL_DIRECTORY "openstudioapplication-${OpenStudioApplication_VERSION}")
+    set(CPACK_PACKAGE_INSTALL_DIRECTORY "openstudioapplication-${OPENSTUDIOAPPLICATION_VERSION}")
     set(CPACK_IFW_TARGET_DIRECTORY "C:/${CPACK_PACKAGE_INSTALL_DIRECTORY}")
     set(CPACK_BINARY_IFW ON CACHE BOOL "Enable to build IFW packages")
     set(CPACK_BINARY_NSIS OFF CACHE BOOL "Enable to build NSIS packages")
