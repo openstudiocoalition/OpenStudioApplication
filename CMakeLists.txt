@@ -644,9 +644,9 @@ if(BUILD_OS_APP)
     # Create a proper App with file associations
 
     # Install the .desktop manifest (allows the App to be seen in the Dash and adding to the dock, and to map it a mimetype)
-    install(FILES "${PROJECT_SOURCE_DIR}/openstudioapp.desktop" DESTINATION /usr/share/applications)
+    install(FILES "${PROJECT_SOURCE_DIR}/src/openstudio_app/openstudioapp.desktop" DESTINATION /usr/share/applications)
     # Install the XML mime info
-    install(FILES "${PROJECT_SOURCE_DIR}/x-openstudio.xml" DESTINATION /usr/share/mime/application)
+    install(FILES "${PROJECT_SOURCE_DIR}/src/openstudio_app/x-openstudio.xml" DESTINATION /usr/share/mime/application)
 
   elseif(WIN32)
     set(CPACK_PACKAGE_INSTALL_DIRECTORY "openstudioapplication-${OPENSTUDIOAPPLICATION_VERSION}")
