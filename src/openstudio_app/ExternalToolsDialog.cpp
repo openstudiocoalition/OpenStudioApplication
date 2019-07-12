@@ -33,8 +33,6 @@
 
 #include <openstudio/src/utilities/core/Path.hpp>
 
-#include <QVBoxLayout>
-#include <QHBoxLayout>
 #include <QGridLayout>
 #include <QLabel>
 #include <QLineEdit>
@@ -42,9 +40,6 @@
 #include <QPushButton>
 #include <QFileDialog>
 #include <QDir>
-
-// TODO: temp
-#include <QDebug>
 
 #include <iostream>
 
@@ -99,9 +94,6 @@ ExternalToolsDialog::ExternalToolsDialog(openstudio::path t_dviewPath)
 
 void ExternalToolsDialog::onChangeClicked(QLineEdit * t_lineEdit, QString toolName) {
 
-  qDebug() << toolName + QString(" (") + toolName + QString("*.exe)");
-  qDebug() << toolName;
-
 #if defined _WIN32
   QString filter = toolName + QString(" (") + toolName + QString("*.exe)");
 #elif defined Q_OS_DARWIN
@@ -110,6 +102,8 @@ void ExternalToolsDialog::onChangeClicked(QLineEdit * t_lineEdit, QString toolNa
 #else
   QString filter = toolName;
 #endif
+
+  LOG_FREE(Debug, "OpenStudioApp", "ExternalToolsDialog::onChangeClicked: file filter = " << openstudio::toString(filter));
 
   auto fileName = QFileDialog::getOpenFileName(nullptr,
       tr("Select Path to ") + toolName, QDir().homePath(), filter);
