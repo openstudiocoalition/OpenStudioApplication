@@ -1487,6 +1487,8 @@ void OpenStudioApp::setDviewPath(const openstudio::path& t_dviewPath) {
     // check if exists?
     if( openstudio::filesystem::exists( t_dviewPath ) && !openstudio::filesystem::is_directory( t_dviewPath ) ) {
       m_dviewPath = t_dviewPath;
+    } else {
+      LOG_FREE(Error, "OpenStudioApp", "setDViewPath: m_dviewPath doesn't not appear to be valid: " << m_dviewPath);
     }
   }
 
