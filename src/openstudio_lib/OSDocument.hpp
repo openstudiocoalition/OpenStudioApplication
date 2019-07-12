@@ -194,6 +194,8 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController {
 
   void changeDefaultLibrariesClicked();
 
+  void configureExternalToolsClicked();
+
   void loadLibraryClicked();
 
   void newClicked();

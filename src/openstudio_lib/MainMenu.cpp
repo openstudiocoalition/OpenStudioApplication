@@ -170,6 +170,11 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, QWidget *parent) :
   m_preferencesMenu->addAction(action);
   connect(action, &QAction::triggered, this, &MainMenu::changeDefaultLibrariesClicked);
 
+  action = new QAction(tr("&Configure External Tools"), this);
+  m_preferencesActions.push_back(action);
+  m_preferencesMenu->addAction(action);
+  connect(action, &QAction::triggered, this, &MainMenu::configureExternalToolsClicked);
+
   //action = new QAction(tr("&Scan for Tools"),this);
   //m_preferencesMenu->addAction(action);
   //connect(action, &QAction::triggered, this, &MainMenu::scanForToolsClicked);

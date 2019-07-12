@@ -29,6 +29,7 @@
 
 #include "ResultsTabView.hpp"
 #include "OSDocument.hpp"
+#include "../openstudio_app/OpenStudioApp.hpp"
 #include "OSAppBase.hpp"
 #include "../model_editor/Utilities.hpp"
 
@@ -88,7 +89,7 @@ ResultsView::ResultsView(QWidget *t_parent)
 
   connect(m_refreshBtn, &QPushButton::clicked, this, &ResultsView::refreshClicked);
 
-  connect(m_openDViewBtn, &QPushButton::clicked, this, &ResultsView::openDViewClicked);
+
 
   // Prepare the top portion inside a QHBoxLayout
   auto hLayout = new QHBoxLayout(this);
@@ -113,6 +114,18 @@ ResultsView::ResultsView(QWidget *t_parent)
   hLayout->addWidget(m_refreshBtn, 0, Qt::AlignVCenter);
   m_refreshBtn->setVisible(true);
 
+
+
+  // This seems fishy, nowhere is OpenStudioApp::instance used (OSAppBase::instance is used instead), and only one time there's a
+  // static_cast<OpenStudioApp>(app)
+  openstudio::OpenStudioApp * app = OpenStudioApp::instance();
+  m_dviewPath = app->dviewPath();
+  if (m_dviewPath.empty()) {
+    m_openDViewBtn->setText("Set Path to DView\nin Preferences");
+  } else {
+    connect(m_openDViewBtn, &QPushButton::clicked, this, &ResultsView::openDViewClicked);
+  }
+
   hLayout->addWidget(m_openDViewBtn, 0, Qt::AlignVCenter);
 
   // Add the Top portion to the main layout
@@ -123,7 +136,7 @@ ResultsView::ResultsView(QWidget *t_parent)
   m_view = new QWebEngineView(this);
   m_view->settings()->setAttribute(QWebEngineSettings::WebAttribute::LocalContentCanAccessRemoteUrls, true);
   m_view->settings()->setAttribute(QWebEngineSettings::WebAttribute::SpatialNavigationEnabled, true);
-  
+
   m_page = new OSWebEnginePage(this);
   m_view->setPage(m_page); // note, view does not take ownership of page
 
@@ -159,13 +172,13 @@ void ResultsView::openDViewClicked()
 {
   LOG(Debug, "openDViewClicked");
 
-#ifdef Q_OS_DARWIN
-  openstudio::path dview
-    = openstudio::toPath(QCoreApplication::applicationDirPath()) / openstudio::toPath("../../../DView.app/Contents/MacOS/DView");
-#else
-  openstudio::path dview
-    = openstudio::toPath(QCoreApplication::applicationDirPath()) / openstudio::toPath("DView");
-#endif
+//#ifdef Q_OS_DARWIN
+  //openstudio::path dview
+    //= openstudio::toPath(QCoreApplication::applicationDirPath()) / openstudio::toPath("../../../DView.app/Contents/MacOS/DView");
+//#else
+  //openstudio::path dview
+    //= openstudio::toPath(QCoreApplication::applicationDirPath()) / openstudio::toPath("DView");
+//#endif
 
   QStringList args;
 
@@ -179,9 +192,9 @@ void ResultsView::openDViewClicked()
     args.push_back(openstudio::toQString(m_radianceResultsPath));
   }
 
-  if (!QProcess::startDetached(openstudio::toQString(dview), args))
+  if (!QProcess::startDetached(openstudio::toQString(m_dviewPath), args))
   {
-    QMessageBox::critical(this, "Unable to launch DView", "DView was not found in the expected location:\n" + openstudio::toQString(dview));
+    QMessageBox::critical(this, "Unable to launch DView", "DView was not found in the expected location:\n" + openstudio::toQString(m_dviewPath));
   }
 }
 
