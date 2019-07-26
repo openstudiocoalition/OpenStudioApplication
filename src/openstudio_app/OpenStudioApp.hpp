@@ -84,6 +84,14 @@ class OSDocument;
 
 class StartupMenu;
 
+class TouchEater : public QObject
+{
+    Q_OBJECT
+
+protected:
+    bool eventFilter(QObject *obj, QEvent *event);
+};
+
 class OpenStudioApp : public OSAppBase
 {
 
@@ -107,6 +115,10 @@ class OpenStudioApp : public OSAppBase
   openstudio::path resourcesPath() const;
 
   openstudio::path openstudioCLIPath() const;
+
+   // Returns the hard set path (in settings), and or if not set will try to infer it by looking into the current PATH
+  // If all fails, ends up returning an empty path (no need to wrap into a boost::optional (with overhead) for this)
+  openstudio::path dviewPath() const;
 
   virtual bool notify(QObject* receiver, QEvent* event) override;
 
@@ -148,6 +160,9 @@ class OpenStudioApp : public OSAppBase
 
   // Checks what happened in the LibraryDialog preference panes, and calls writeLibraryPaths to set the user settings
   void changeDefaultLibraries();
+
+  // Checks what happened in the ExternalToolsDialog preference pane
+  void configureExternalTools();
 
  private slots:
 
@@ -237,6 +252,11 @@ class OpenStudioApp : public OSAppBase
   std::shared_ptr<OSDocument> m_osDocument;
 
   QString m_lastPath;
+
+  // Try to find DView (or DView.exe) inside the PATH env variable. Will return an *empty* path if couldn't infer it
+  openstudio::path inferredDViewPath() const;
+  openstudio::path m_dviewPath;
+  void setDviewPath(const openstudio::path& t_dviewPath);
 
   std::shared_ptr<StartupMenu> m_startupMenu;
 

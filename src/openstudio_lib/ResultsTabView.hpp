@@ -31,6 +31,7 @@
 #define OPENSTUDIO_RESULTSTABVIEW_HPP
 
 #include "MainTabView.hpp"
+#include "OSWebEnginePage.hpp"
 
 #include "../model_editor/QMetaTypes.hpp"
 
@@ -89,10 +90,12 @@ namespace openstudio {
       QPushButton * m_refreshBtn;
       QPushButton * m_openDViewBtn;
 
+      openstudio::path m_dviewPath;
       openstudio::path m_sqlFilePath;
       openstudio::path m_radianceResultsPath;
 
       QWebEngineView * m_view;
+      OSWebEnginePage * m_page;
       QComboBox * m_comboBox;
   };
 

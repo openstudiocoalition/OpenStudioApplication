@@ -117,6 +117,8 @@ class MainWindow : public QMainWindow
 
   void changeDefaultLibrariesClicked();
 
+  void configureExternalToolsClicked();
+
   void loadLibraryClicked();
 
   void saveAsFileClicked();

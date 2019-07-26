@@ -27,6 +27,8 @@
 *  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ***********************************************************************************************************************/
 
+// TODO: this should probably be renamed and moved to OpenStudioApplication/src/utilities/
+
 #include "Utilities.hpp"
 
 namespace openstudio {

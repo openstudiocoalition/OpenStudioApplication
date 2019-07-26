@@ -14,6 +14,8 @@ set(${target_name}_SRC
   StartupMenu.cpp
   LibraryDialog.hpp
   LibraryDialog.cpp
+  ExternalToolsDialog.hpp
+  ExternalToolsDialog.cpp
 
   ../shared_gui_components/BusyWidget.cpp
   ../shared_gui_components/BusyWidget.hpp
@@ -29,6 +31,7 @@ set(${target_name}_moc
   StartupView.hpp
   StartupMenu.hpp
   LibraryDialog.hpp
+  ExternalToolsDialog.hpp
 
   ../shared_gui_components/BusyWidget.hpp
   ../shared_gui_components/OSDialog.hpp
@@ -42,32 +45,76 @@ qt5_wrap_cpp_minimally(${target_name}_moc_src ${${target_name}_moc})
 # this needs to be configured to embed the build number
 CONFIGURE_FILE_WITH_CHECKSUM(AboutBox.hpp.in "${CMAKE_CURRENT_BINARY_DIR}/AboutBox.hpp")
 
-set(ICON_FOLDER "${CMAKE_CURRENT_SOURCE_DIR}/../../openstudio/icons")
-
+# TODO: probably change that, some icons (all?) will need to move to OSApp repo
+# Note JM 2019-07-12: For now I left OSM and OSC icons in core
+set(OPENSTUDIOAPPLICATION_ICON_FOLDER "${PROJECT_SOURCE_DIR}/icons")
+set(OPENSTUDIOCORE_ICON_FOLDER "${PROJECT_SOURCE_DIR}/openstudio/icons")
 if(WIN32)
   CONFIGURE_FILE_WITH_CHECKSUM(OpenStudioApp.rc.in "${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp.rc")
   set(ICON_SRC "${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp.rc")
-endif()
-# For Apple set the icns file containing icons
-if(APPLE)
+elseif(APPLE)
+  # For Apple set the icns file containing icons
+
   # set the name of the bundle icon
   set(MACOSX_BUNDLE_ICON_FILE os.icns)
   # set all icons
   set(ICON_SRC
-    ${ICON_FOLDER}/os.icns
-    ${ICON_FOLDER}/osm.icns
-    ${ICON_FOLDER}/osc.icns
-    ${ICON_FOLDER}/ossr.icns
-    ${ICON_FOLDER}/folder_icon.rsrc
+    ${OPENSTUDIOAPPLICATION_ICON_FOLDER}/os.icns
+    ${OPENSTUDIOCORE_ICON_FOLDER}/osm.icns
+    ${OPENSTUDIOCORE_ICON_FOLDER}/osc.icns
   )
 
   set_source_files_properties(${ICON_SRC}
     PROPERTIES MACOSX_PACKAGE_LOCATION Resources
   )
+
+  set(MACOSX_BUNDLE_SHORT_VERSION_STRING "${OPENSTUDIOAPPLICATION_VERSION}")
+  set(MACOSX_BUNDLE_BUNDLE_VERSION "${OPENSTUDIOAPPLICATION_LONG_VERSION}")
+  set(MACOSX_BUNDLE_COPYRIGHT "Copyright © 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.")
+
   set(MACOSX_BUNDLE_EXECUTABLE_NAME ${target_name})
-  set(MACOSX_BUNDLE_GUI_IDENTIFIER "gov.nrel.openstudio.${CMAKE_VERSION_BUILD}.openstudio")
-  set(MACOSX_BUNDLE_BUNDLE_NAME "OpenStudio")
+  # PROJECT_VERSION_BUILD = Git SHA. This makes it globally unique, and is what we want to avoid CFBUndleIdenfitied collision
+  set(MACOSX_BUNDLE_GUI_IDENTIFIER "gov.nrel.openstudio.${PROJECT_VERSION_BUILD}.openstudio")
+  set(MACOSX_BUNDLE_BUNDLE_NAME "OpenStudioApplication")
   CONFIGURE_FILE_WITH_CHECKSUM(${CMAKE_CURRENT_SOURCE_DIR}/Info.plist.in ${CMAKE_CURRENT_BINARY_DIR}/Info.plist)
+
+elseif(UNIX)
+
+  # Install the icons
+  # Cf. http://standards.freedesktop.org/icon-theme-spec/icon-theme-spec-latest.html#directory_layout
+  foreach(_size 16 32 48 64 128 256)
+    # Copy OS App icons: TODO probably move them to OS App repo
+    install(
+      FILES "${OPENSTUDIOAPPLICATION_ICON_FOLDER}/os_${_size}.png"
+      DESTINATION "/usr/share/icons/hicolor/${_size}x${_size}/apps"
+      RENAME openstudioapp.png
+    )
+    # Install OSM mimetypes icons
+    install(
+      FILES "${OPENSTUDIOCORE_ICON_FOLDER}/osm_${_size}.png"
+      DESTINATION "/usr/share/icons/hicolor/${_size}x${_size}/mimetypes"
+      RENAME application-x-openstudio.png
+    )
+  # Install OSC
+    install(
+      FILES "${OPENSTUDIOCORE_ICON_FOLDER}/osc_${_size}.png"
+      DESTINATION "/usr/share/icons/hicolor/${_size}x${_size}/mimetypes"
+      RENAME application-x-openstudio-component.png
+    )
+
+  endforeach()
+
+  # TODO: probably move to OS App repo
+  # OS App has a 512 and 1024 too
+  foreach(_size 512 1024)
+    # Copy OS App icons
+    install(
+      FILES "${OPENSTUDIOAPPLICATION_ICON_FOLDER}/os_${_size}.png"
+      DESTINATION "/usr/share/icons/hicolor/${_size}x${_size}/apps"
+      RENAME openstudioapp.png
+    )
+  endforeach()
+
 endif()
 
 #include_directories(${RUBY_INCLUDE_DIRS})
@@ -267,7 +314,7 @@ elseif(WIN32)
   )
 else()
   install(DIRECTORY ${CMAKE_SOURCE_DIR}/src/openstudio_app/Resources/
-	  DESTINATION Resources
+    DESTINATION Resources
     COMPONENT "Resources"
   )
 endif()
@@ -280,7 +327,7 @@ if( NOT APPLE )
   install(FILES ${qweb_resources_200} DESTINATION bin COMPONENT OpenStudioApp )
   if(WIN32)
     install(TARGETS OpenStudioApp DESTINATION bin COMPONENT OpenStudioApp )
-    
+
     install(PROGRAMS ${QtWebEngineProcess} DESTINATION bin COMPONENT OpenStudioApp )
     install(PROGRAMS $<TARGET_FILE:Qt5::QWindowsIntegrationPlugin> DESTINATION bin/platforms/ COMPONENT OpenStudioApp)
     #install(PROGRAMS $<TARGET_FILE:Qt5::GLTFSceneParserPlugin> DESTINATION bin/sceneparsers/ COMPONENT OpenStudioApp)

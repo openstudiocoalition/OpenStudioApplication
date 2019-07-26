@@ -32,6 +32,7 @@
 #include "StartupMenu.hpp"
 #include "StartupView.hpp"
 #include "LibraryDialog.hpp"
+#include "ExternalToolsDialog.hpp"
 #include "../openstudio_lib/MainWindow.hpp"
 #include "../openstudio_lib/OSDocument.hpp"
 
@@ -43,6 +44,7 @@
 
 // Call the OS App specific version, not the core one
 #include "../utilities/OpenStudioApplicationPathHelpers.hpp"
+#include <openstudio/src/utilities/core/PathHelpers.hpp>
 
 #include <openstudio/src/utilities/core/Assert.hpp>
 #include <openstudio/src/utilities/core/Compare.hpp>
@@ -137,6 +139,16 @@ using namespace openstudio::model;
 
 namespace openstudio {
 
+bool TouchEater::eventFilter(QObject *obj, QEvent *event)
+{
+    if (event->type() == QEvent::TouchBegin) {
+        return true;
+    } else {
+        // standard event processing
+        return QObject::eventFilter(obj, event);
+    }
+}
+
 OpenStudioApp::OpenStudioApp( int & argc, char ** argv)
   : OSAppBase(argc, argv, QSharedPointer<MeasureManager>(new MeasureManager(this))),
     m_measureManagerProcess(nullptr)
@@ -144,6 +156,9 @@ OpenStudioApp::OpenStudioApp( int & argc, char ** argv)
   setOrganizationName("NREL");
   QCoreApplication::setOrganizationDomain("nrel.gov");
   setApplicationName("OpenStudioApp");
+
+  auto eater = new TouchEater();
+  installEventFilter(eater);
 
   // Don't use native menu bar, necessary on Ubuntu 16.04
   // TODO: check for adverse side effects on other OSes
@@ -895,7 +910,7 @@ void  OpenStudioApp::showAbout()
   details += "Chrome Debugger: http://localhost:" + qgetenv("QTWEBENGINE_REMOTE_DEBUGGING") + "\n";
   details += "Temp Directory: " + currentDocument()->modelTempDir();
   QMessageBox about(parent);
-  about.setText(OPENSTUDIO_ABOUTBOX);
+  about.setText(OPENSTUDIOAPP_ABOUTBOX);
   about.setDetailedText(details);
   about.setStyleSheet("qproperty-alignment: AlignCenter;");
   about.setWindowTitle("About " + applicationName());
@@ -1089,6 +1104,8 @@ void OpenStudioApp::readSettings()
   QString applicationName = QCoreApplication::applicationName();
   QSettings settings(organizationName, applicationName);
   setLastPath(settings.value("lastPath", QDir::homePath()).toString());
+  setDviewPath(openstudio::toPath(settings.value("dviewPath", "").toString()));
+
 }
 
 void OpenStudioApp::writeSettings()
@@ -1154,6 +1171,7 @@ void OpenStudioApp::connectOSDocumentSignals()
   connect(m_osDocument.get(), &OSDocument::loadFileClicked, this, &OpenStudioApp::open);
   connect(m_osDocument.get(), &OSDocument::osmDropped, this, &OpenStudioApp::openFromDrag);
   connect(m_osDocument.get(), &OSDocument::changeDefaultLibrariesClicked, this, &OpenStudioApp::changeDefaultLibraries);
+  connect(m_osDocument.get(), &OSDocument::configureExternalToolsClicked, this, &OpenStudioApp::configureExternalTools);
   connect(m_osDocument.get(), &OSDocument::loadLibraryClicked, this, &OpenStudioApp::loadLibrary);
   connect(m_osDocument.get(), &OSDocument::newClicked, this, &OpenStudioApp::newModel);
   connect(m_osDocument.get(), &OSDocument::helpClicked, this, &OpenStudioApp::showHelp);
@@ -1428,6 +1446,108 @@ std::vector<openstudio::path> OpenStudioApp::libraryPaths() const {
     return defaultLibraryPaths();
   } else {
     return paths;
+  }
+}
+
+openstudio::path OpenStudioApp::inferredDViewPath() const {
+
+  openstudio::path result;
+
+#if defined _WIN32
+  openstudio::path dview_executable("DView.exe");
+  // todo: add mac
+#else
+  openstudio::path dview_executable("DView");
+#endif
+
+
+  openstudio::path dviewPath = openstudio::findInSystemPath(dview_executable);
+  LOG_FREE(Debug, "OpenStudioApp", "inferredDViewPath, findInSystemPath returned dviewPath = '" << dviewPath << "'.");
+
+  // findInSystemPath returns whatever was passed if not found...
+  if ( !dviewPath.empty() && (dviewPath != dview_executable)) {
+    result = openstudio::completeAndNormalize(dviewPath);
+  }
+
+  LOG_FREE(Debug, "OpenStudioApp", "inferredDViewPath = '" << result << "'.");
+
+  return result;
+
+}
+
+
+void OpenStudioApp::setDviewPath(const openstudio::path& t_dviewPath) {
+
+  LOG_FREE(Debug, "OpenStudioApp", "setDViewPath called with t_dviewPath = '" << t_dviewPath << "'.");
+
+  m_dviewPath.clear();
+
+  if (!t_dviewPath.empty()) {
+    LOG_FREE(Debug, "OpenStudioApp", "setDViewPath t_dviewPath is not empty.");
+
+    // check if exists?
+    if( openstudio::filesystem::exists( t_dviewPath ) && !openstudio::filesystem::is_directory( t_dviewPath ) ) {
+      m_dviewPath = t_dviewPath;
+    } else {
+      LOG_FREE(Error, "OpenStudioApp", "setDViewPath: t_dviewPath doesn't not appear to be valid: '" << t_dviewPath << "'.");
+    }
+  }
+
+  LOG_FREE(Debug, "OpenStudioApp", "setDViewPath: m_dviewPath = '" << m_dviewPath << "'.");
+
+}
+
+openstudio::path OpenStudioApp::dviewPath() const {
+  if (m_dviewPath.empty()) {
+    return inferredDViewPath();
+  } else {
+    return m_dviewPath;
+  }
+}
+
+void OpenStudioApp::configureExternalTools() {
+
+  // Get the actual one, or the inferred one
+  openstudio::path t_dviewPath = dviewPath();
+  LOG_FREE(Debug, "OpenStudioApp", "configureExternalTools: dviewPath() = '" << t_dviewPath << "'.");
+
+  // Starts the External Tools dialog
+  ExternalToolsDialog dialog(t_dviewPath); // TODO: currently only sets DView
+
+  auto code = dialog.exec();
+
+  // If user accepts its changes, and there are actually changes to the list of paths
+  if ( code == QDialog::Accepted ) {
+
+    auto newDviewPath = dialog.dviewPath();
+    if (newDviewPath != m_dviewPath) {
+
+      // Write the library settings
+      setDviewPath(newDviewPath); // This will call inferredDviewPath again if the field was cleared.
+      QSettings settings(QCoreApplication::organizationName(), QCoreApplication::applicationName());
+
+      if ( m_dviewPath.empty() ) {
+        settings.remove("dviewPath");
+        // TODO: log that stuff didn't pan out
+      } else {
+        settings.setValue("dviewPath", toQString(m_dviewPath));
+      }
+    }
+
+    // example if adding another one
+    //auto newOtherToolPath = dialog.otherToolPath();
+    //if (newOtherToolPath != m_otherToolPath) {
+       //// Write the library settings
+      //QSettings settings(QCoreApplication::organizationName(), QCoreApplication::applicationName());
+      //// Set OtherToolPath here
+      //if ( m_otherToolPath.empty() ) {
+        //settings.remove("otherToolPath");
+        //// TODO: log that stuff didn't pan out
+      //} else {
+        //settings.setValue("otherToolPath", toQString(m_otherToolPath));
+      //}
+    //}
+
   }
 }
 
