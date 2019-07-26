@@ -27,79 +27,44 @@
 *  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ***********************************************************************************************************************/
 
-// TODO: this should probably be renamed and moved to OpenStudioApplication/src/utilities/
+#ifndef OPENSTUDIO_EXTERNALTOOLSDIALOG_HPP
+#define OPENSTUDIO_EXTERNALTOOLSDIALOG_HPP
 
-#include "Utilities.hpp"
+#include <QDialog>
+#include <QLineEdit>
+#include <openstudio/src/utilities/core/Filesystem.hpp>
+
+class QListWidget;
 
 namespace openstudio {
-  /** QString to UTF-8 encoded std::string. */
-  std::string toString(const QString& q)
-  {
-    const QByteArray& qb = q.toUtf8();
-    return std::string(qb.data());
-  }
+
+class ExternalToolsDialog: public QDialog
+{
+  Q_OBJECT
+
+ public:
+
+  ExternalToolsDialog(openstudio::path dviewPath);
+
+  virtual ~ExternalToolsDialog() {};
+
+  /** The current externaltools paths */
+  openstudio::path dviewPath() const;
+
+  // openstudio::path otherToolPath() const;
 
 
+ private:
 
-  /** QString to wstring. */
-  std::wstring toWString(const QString& q)
-  {
-#if (defined (_WIN32) || defined (_WIN64))
-    static_assert(sizeof(wchar_t) == sizeof(unsigned short), "Wide characters must have the same size as unsigned shorts");
-    std::wstring w(reinterpret_cast<const wchar_t *>(q.utf16()), q.length());
-    return w;
-#else
-    std::wstring w = q.toStdWString();
-    return w;
-#endif
-  }
+  // Tool name should match the executable name
+  void onChangeClicked(QLineEdit * t_lineEdit, QString toolName);
 
-  /** UTF-8 encoded std::string to QString. */
-  QString toQString(const std::string& s)
-  {
-    return QString::fromUtf8(s.c_str());
-  }
+  QLineEdit * m_dviewPathLineEdit;
 
-  /** wstring to QString. */
-  QString toQString(const std::wstring& w)
-  {
-#if (defined (_WIN32) || defined (_WIN64))
-    static_assert(sizeof(wchar_t) == sizeof(unsigned short), "Wide characters must have the same size as unsigned shorts");
-    return QString::fromUtf16(reinterpret_cast<const unsigned short *>(w.data()), w.length());
-#else
-    return QString::fromStdWString(w);
-#endif
+  // QLineEdit * m_otherToolPathLineEdit;
 
-  }
+};
 
-  UUID toUUID(const QString &str)
-  {
-    return toUUID(toString(str));
-  }
+} // openstudio
 
-  QString toQString(const UUID& uuid)
-  {
-    return toQString(toString(uuid));
-  }
-
-  /** path to QString. */
-  QString toQString(const path& p)
-  {
-#if (defined (_WIN32) || defined (_WIN64))
-    return QString::fromStdWString(p.generic_wstring());
-#endif
-    return QString::fromUtf8(p.generic_string().c_str());
-  }
-
-  /** QString to path*/
-  path toPath(const QString& q)
-  {
-#if (defined (_WIN32) || defined (_WIN64))
-    return path(q.toStdWString());
-#endif
-
-    return path(q.toStdString());
-  }
-
-
-}
+#endif // OPENSTUDIO_EXTERNALTOOLSDIALOG_HPP

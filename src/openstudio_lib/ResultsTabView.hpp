@@ -90,6 +90,7 @@ namespace openstudio {
       QPushButton * m_refreshBtn;
       QPushButton * m_openDViewBtn;
 
+      openstudio::path m_dviewPath;
       openstudio::path m_sqlFilePath;
       openstudio::path m_radianceResultsPath;
 

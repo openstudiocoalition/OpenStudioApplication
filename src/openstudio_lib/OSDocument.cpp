@@ -207,6 +207,7 @@ namespace openstudio {
     connect(m_mainWindow, &MainWindow::importIFCClicked, this, &OSDocument::importIFCClicked);
     connect(m_mainWindow, &MainWindow::loadFileClicked, this, &OSDocument::loadFileClicked);
     connect(m_mainWindow, &MainWindow::changeDefaultLibrariesClicked, this, &OSDocument::changeDefaultLibrariesClicked);
+    connect(m_mainWindow, &MainWindow::configureExternalToolsClicked, this, &OSDocument::configureExternalToolsClicked);
     connect(m_mainWindow, &MainWindow::loadLibraryClicked, this, &OSDocument::loadLibraryClicked);
     connect(m_mainWindow, &MainWindow::newClicked, this, &OSDocument::newClicked);
     connect(m_mainWindow, &MainWindow::exitClicked, this, &OSDocument::exitClicked);
