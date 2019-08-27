@@ -389,7 +389,7 @@ void ResultsView::populateComboBox(std::vector<openstudio::path> reports)
         QString string = doc.toString();
         int startingIndex = string.indexOf("<title>");
         int endingIndex = string.indexOf("</title>");
-        if((startingIndex == -1) | (endingIndex == -1) | (startingIndex >= endingIndex)){
+        if((startingIndex == -1) || (endingIndex == -1) || (startingIndex >= endingIndex)){
           m_comboBox->addItem(QString("Custom Report ") + QString::number(num), fullPathString);
         } else {
           // length of "<title>" = 7
