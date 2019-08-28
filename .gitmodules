@@ -1,4 +1,4 @@
 [submodule "openstudio"]
 	path = openstudio
 	url = git@github.com:nrel/OpenStudio.git
-	branch = develop3
+	branch = test_static_readline_mac
