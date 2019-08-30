@@ -9,20 +9,27 @@ function Component()
 
     var kernel = systemInfo.kernelType;
     if( kernel == "darwin" ) {
-      var appPath = installer.value("TargetDir") + "/OpenStudioApp.app/Contents/";
 
-      var epPath = installer.value("TargetDir") + "/EnergyPlus";
-      var mkPath = appPath + "EnergyPlus";
-      component.addElevatedOperation("Mkdir", mkPath);
-      component.addElevatedOperation("CopyDirectory", epPath, appPath);
+      console.log("This is component " + component.name + ", display " + component.displayName + ", installed=" + component.installed);
 
-      var radPath = installer.value("TargetDir") + "/Radiance";
-      var mkRadPath = appPath + "Radiance";
-      component.addElevatedOperation("Mkdir", mkRadPath);
-      component.addElevatedOperation("CopyDirectory", radPath, appPath);
-      var linktarget = appPath + "/Frameworks/QtWebEngineCore.framework/Versions/5/Helpers/QtWebEngineProcess.app/Contents/Frameworks";
+      // This is equivalent to mkdir -p, will make any directory in between, no
+      // override if it exists already
+      component.addElevatedOperation("Mkdir", "@TargetDir@/OpenStudioApp.app/Contents/");
+
+      // Copies the content of ./EnergyPlus/* into /OpenStudioApp.app/Contents/Resources/*
+      // Be VERY mindful of the trailing slashes... This behaves very weirdly
+      // Source doesn't not include trailing, so it's the directory itself
+      // Target does include trailing, so it's within that directory
+      component.addElevatedOperation("CopyDirectory", "@TargetDir@/EnergyPlus", "@TargetDir@/OpenStudioApp.app/Contents/");
+      component.addElevatedOperation("CopyDirectory", "@TargetDir@/Radiance", "@TargetDir@/OpenStudioApp.app/Contents/");
+
+      // an equivalent is
+      // component.addOperation("Mkdir", "@TargetDir@/OpenStudioApp.app/Contents/EnergyPlus")
+      // component.addOperation("CopyDirectory", "@TargetDir@/EnergyPlus/", "@TargetDir@/OpenStudioApp.app/Contents/EnergyPlus/")
+
+      var linktarget = "@TargetDir@/OpenStudioApp.app/Contents/Frameworks/QtWebEngineCore.framework/Versions/5/Helpers/QtWebEngineProcess.app/Contents/Frameworks";
       var linksource = "../../../../../../../Frameworks";
-      component.addElevatedOperation("Execute", "ln", "-s", linksource, linktarget );
+      component.addElevatedOperation("Execute", "ln", "-s", linksource, linktarget);
     }
 
     if( kernel == "winnt" ) {
