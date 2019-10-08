@@ -10,8 +10,6 @@ function Component()
     var kernel = systemInfo.kernelType;
     if( kernel == "darwin" ) {
 
-      console.log("This is component " + component.name + ", display " + component.displayName + ", installed=" + component.installed);
-
       // This is equivalent to mkdir -p, will make any directory in between, no
       // override if it exists already. You DO need the trailing slash, as it
       // takes sections up to net trailing slash to create directories...
