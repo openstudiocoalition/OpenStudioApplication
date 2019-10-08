@@ -13,8 +13,9 @@ function Component()
       console.log("This is component " + component.name + ", display " + component.displayName + ", installed=" + component.installed);
 
       // This is equivalent to mkdir -p, will make any directory in between, no
-      // override if it exists already
-      component.addElevatedOperation("Mkdir", "@TargetDir@/OpenStudioApp.app/Contents/EnergyPlus");
+      // override if it exists already. You DO need the trailing slash, as it
+      // takes sections up to net trailing slash to create directories...
+      component.addElevatedOperation("Mkdir", "@TargetDir@/OpenStudioApp.app/Contents/EnergyPlus/");
 
       // Copies the content of ./EnergyPlus/* into /OpenStudioApp.app/Contents/EnergyPlus/*
       // Be VERY mindful of the trailing slashes... This behaves very weirdly
@@ -23,7 +24,7 @@ function Component()
       component.addElevatedOperation("CopyDirectory", "@TargetDir@/EnergyPlus", "@TargetDir@/OpenStudioApp.app/Contents/");
 
       // Same ./Radiance/* to OpenStudioApp.app/Contents/Radiance/*
-      component.addElevatedOperation("Mkdir", "@TargetDir@/OpenStudioApp.app/Contents/Radiance");
+      component.addElevatedOperation("Mkdir", "@TargetDir@/OpenStudioApp.app/Contents/Radiance/");
       component.addElevatedOperation("CopyDirectory", "@TargetDir@/Radiance",   "@TargetDir@/OpenStudioApp.app/Contents/");
 
       // an equivalent is
