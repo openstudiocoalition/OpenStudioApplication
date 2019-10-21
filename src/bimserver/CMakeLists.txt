@@ -55,4 +55,4 @@ CREATE_TEST_TARGETS(${target_name} "${${target_name}_test_src}" "${${target_name
 #  add_dependencies(${target_name}_tests openstudio_bimserver_resources)
 #endif()
 
-#MAKE_SWIG_TARGET(OpenStudioGBXML gbXML "${CMAKE_CURRENT_SOURCE_DIR}/gbXML.i" "${${target_name}_swig_src}" ${target_name} OpenStudioEnergyPlus)
+#MAKE_SWIG_TARGET_OSAPP(OpenStudioGBXML gbXML "${CMAKE_CURRENT_SOURCE_DIR}/gbXML.i" "${${target_name}_swig_src}" ${target_name} OpenStudioEnergyPlus)

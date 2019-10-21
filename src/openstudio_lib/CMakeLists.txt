@@ -7,7 +7,8 @@ include_directories(${QT_INCLUDES})
 #
 #add_custom_command(
 #  OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/SWIGRubyRuntime.h"
-#  COMMAND "${SWIG_EXECUTABLE}"
+#  COMMAND ${CMAKE_COMMAND} -E env SWIG_LIB="${SWIG_LIB}"
+#          "${SWIG_EXECUTABLE}"
 #          "-ruby"
 #          -external-runtime "${CMAKE_CURRENT_BINARY_DIR}/SWIGRubyRuntime.h"
 #)
@@ -202,7 +203,7 @@ set(${target_name}_SRC
   OSItemSelectorButtons.cpp
   OSItemSelectorButtons.hpp
   OSWebEnginePage.cpp
-  OSWebEnginePage.hpp  
+  OSWebEnginePage.hpp
   OSVectorController.cpp
   OSVectorController.hpp
   OtherEquipmentInspectorView.cpp
@@ -571,7 +572,7 @@ set(${target_name}_moc
   OSItemList.hpp
   OSItemSelector.hpp
   OSItemSelectorButtons.hpp
-  OSWebEnginePage.hpp  
+  OSWebEnginePage.hpp
   OSVectorController.hpp
   OtherEquipmentInspectorView.hpp
   PeopleInspectorView.hpp

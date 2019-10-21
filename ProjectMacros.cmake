@@ -220,7 +220,6 @@ endmacro()
 # add a swig target
 # KEY_I_FILE should include path, see src/utilities/CMakeLists.txt.
 macro(MAKE_SWIG_TARGET_OSAPP NAME SIMPLENAME KEY_I_FILE I_FILES PARENT_TARGET PARENT_SWIG_TARGETS)
-  set(DEPENDS "${PARENT_TARGET}")
   set(SWIG_DEFINES "")
   set(SWIG_COMMON "")
 
@@ -386,7 +385,8 @@ macro(MAKE_SWIG_TARGET_OSAPP NAME SIMPLENAME KEY_I_FILE I_FILES PARENT_TARGET PA
   message("OpenStudioApplication: SWIGIN' ${NAME}")
   add_custom_command(
     OUTPUT "${SWIG_WRAPPER}"
-    COMMAND "${SWIG_EXECUTABLE}"
+    COMMAND ${CMAKE_COMMAND} -E env SWIG_LIB="${SWIG_LIB}"
+            "${SWIG_EXECUTABLE}"
             "-ruby" "-c++" "-fvirtual"
             # TODO: probably just keep this line
             "-I${PROJECT_SOURCE_DIR}" "-I${PROJECT_BINARY_DIR}"
@@ -470,7 +470,7 @@ macro(MAKE_SWIG_TARGET_OSAPP NAME SIMPLENAME KEY_I_FILE I_FILES PARENT_TARGET PA
   set_target_properties(${swig_target} PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/ruby/")
   set_target_properties(${swig_target} PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/ruby/")
   target_link_libraries(${swig_target} ${PARENT_TARGET})
-  add_dependencies(${swig_target} ${PARENT_TARGET} ${DEPENDS})
+  add_dependencies(${swig_target} ${PARENT_TARGET})
 
   # QT-Separation-Move
   target_include_directories(${swig_target} PUBLIC ${QT_INCLUDES})
@@ -606,7 +606,8 @@ macro(MAKE_SWIG_TARGET_OSAPP NAME SIMPLENAME KEY_I_FILE I_FILES PARENT_TARGET PA
 
     add_custom_command(
       OUTPUT "${SWIG_WRAPPER_FULL_PATH}"
-      COMMAND "${SWIG_EXECUTABLE}"
+      COMMAND ${CMAKE_COMMAND} -E env SWIG_LIB="${SWIG_LIB}"
+              "${SWIG_EXECUTABLE}"
               "-python" ${SWIG_PYTHON_3_FLAG} "-c++" ${PYTHON_AUTODOC}
               -outdir ${PYTHON_GENERATED_SRC_DIR} "-I${PROJECT_SOURCE_DIR}/src" "-I${PROJECT_BINARY_DIR}/src"
               -module "${MODULE}"
@@ -736,7 +737,8 @@ macro(MAKE_SWIG_TARGET_OSAPP NAME SIMPLENAME KEY_I_FILE I_FILES PARENT_TARGET PA
       OUTPUT ${SWIG_WRAPPER_FULL_PATH}
       COMMAND "${CMAKE_COMMAND}" -E remove_directory "${CSHARP_GENERATED_SRC_DIR}"
       COMMAND "${CMAKE_COMMAND}" -E make_directory "${CSHARP_GENERATED_SRC_DIR}"
-      COMMAND "${SWIG_EXECUTABLE}"
+      COMMAND ${CMAKE_COMMAND} -E env SWIG_LIB="${SWIG_LIB}"
+              "${SWIG_EXECUTABLE}"
               "-csharp" "-c++" -namespace ${NAMESPACE} ${CSHARP_AUTODOC}
               -outdir "${CSHARP_GENERATED_SRC_DIR}"  "-I${PROJECT_SOURCE_DIR}/src" "-I${PROJECT_BINARY_DIR}/src"
               -module "${MODULE}"
@@ -766,7 +768,7 @@ macro(MAKE_SWIG_TARGET_OSAPP NAME SIMPLENAME KEY_I_FILE I_FILES PARENT_TARGET PA
     #if(MSVC)
     #  set_target_properties(${swig_target} PROPERTIES COMPILE_FLAGS "/bigobj /wd4996")  ## /wd4996 suppresses deprecated warnings
     #endif()
-    #target_link_libraries(${swig_target} ${PARENT_TARGET} ${DEPENDS})
+    #target_link_libraries(${swig_target} ${PARENT_TARGET})
 
     #ADD_DEPENDENCIES("${swig_target}" "${PARENT_TARGET}_resources")
     add_dependencies(${SWIG_TARGET} ${PARENT_TARGET})
@@ -829,7 +831,8 @@ macro(MAKE_SWIG_TARGET_OSAPP NAME SIMPLENAME KEY_I_FILE I_FILES PARENT_TARGET PA
       OUTPUT ${SWIG_WRAPPER}
       COMMAND "${CMAKE_COMMAND}" -E remove_directory "${JAVA_GENERATED_SRC_DIR}"
       COMMAND "${CMAKE_COMMAND}" -E make_directory "${JAVA_GENERATED_SRC_DIR}"
-      COMMAND "${SWIG_EXECUTABLE}"
+      COMMAND ${CMAKE_COMMAND} -E env SWIG_LIB="${SWIG_LIB}"
+              "${SWIG_EXECUTABLE}"
               "-java" "-c++"
               -package ${NAMESPACE}
               #-features autodoc=1
@@ -870,7 +873,7 @@ macro(MAKE_SWIG_TARGET_OSAPP NAME SIMPLENAME KEY_I_FILE I_FILES PARENT_TARGET PA
       set_target_properties(${swig_target} PROPERTIES COMPILE_FLAGS "-Wno-deprecated-declarations -Wno-sign-compare")
     endif()
 
-    target_link_libraries(${swig_target} ${PARENT_TARGET} ${DEPENDS} ${JAVA_JVM_LIBRARY})
+    target_link_libraries(${swig_target} ${PARENT_TARGET} ${JAVA_JVM_LIBRARY})
     if(APPLE)
       set_target_properties(${swig_target} PROPERTIES SUFFIX ".dylib")
       set(final_name "lib${JAVA_OUTPUT_NAME}.dylib")
@@ -949,7 +952,8 @@ macro(MAKE_SWIG_TARGET_OSAPP NAME SIMPLENAME KEY_I_FILE I_FILES PARENT_TARGET PA
 
     add_custom_command(
       OUTPUT ${SWIG_WRAPPER}
-      COMMAND "${SWIG_EXECUTABLE}"
+      COMMAND ${CMAKE_COMMAND} -E env SWIG_LIB="${SWIG_LIB}"
+              "${SWIG_EXECUTABLE}"
               "-javascript" ${SWIG_ENGINE} "-c++"
               #-namespace ${NAMESPACE}
               #-features autodoc=1
@@ -1001,7 +1005,7 @@ macro(MAKE_SWIG_TARGET_OSAPP NAME SIMPLENAME KEY_I_FILE I_FILES PARENT_TARGET PA
     if(APPLE)
       set_target_properties(${swig_target} PROPERTIES LINK_FLAGS "-undefined suppress -flat_namespace")
     endif()
-    target_link_libraries(${swig_target} ${PARENT_TARGET} ${DEPENDS})
+    target_link_libraries(${swig_target} ${PARENT_TARGET})
 
     #add_dependencies("${swig_target}" "${PARENT_TARGET}_resources")
 
@@ -1058,7 +1062,7 @@ macro(MAKE_SWIG_TARGET_OSAPP NAME SIMPLENAME KEY_I_FILE I_FILES PARENT_TARGET PA
   endif()
 
 
-endmacro()
+endmacro() # End of MAKE_SWIG_TARGET
 
 # add target dependencies
 # this will add targets to a "global" variable marking
