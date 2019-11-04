@@ -641,6 +641,13 @@ if(UNIX AND NOT APPLE)
 endif()
 
 
+if(NOT UNIX)
+  # import for things like MS Visual Studio redistrubution sys depdencies
+  include(InstallRequiredSystemLibraries)
+endif()
+
+
+
 ###############################################################################
 #                              I N S T A L L E R                              #
 ###############################################################################
