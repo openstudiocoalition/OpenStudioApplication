@@ -642,8 +642,12 @@ endif()
 
 
 if(NOT UNIX)
-  # import for things like MS Visual Studio redistrubution sys depdencies
+
   include(InstallRequiredSystemLibraries)
+
+  if(CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS)
+    install(FILES ${CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS} DESTINATION "bin")
+  endif()
 endif()
 
 
