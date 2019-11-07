@@ -120,8 +120,9 @@ void MeasureManager::waitForStarted(int msec)
 
     QNetworkReply* reply = manager.get(request);
 
-    connect(reply, SIGNAL(sslErrors(QList<QSslError>)), this, SLOT(sslErrors(QList<QSslError>)));
-    connect(reply, SIGNAL(sslErrors(QList<QSslError>)), reply, SLOT(ignoreSslErrors()));
+    // If trying to debug a potential SSL error
+    // connect(reply, SIGNAL(sslErrors(QList<QSslError>)), this, SLOT(sslErrors(QList<QSslError>)));
+    // connect(reply, SIGNAL(sslErrors(QList<QSslError>)), reply, SLOT(ignoreSslErrors()));
 
     while (reply->isRunning()){
       Application::instance().processEvents();
@@ -156,6 +157,17 @@ void MeasureManager::sslErrors(const QList<QSslError>& errors)
     LOG(Debug, "sslError" << toString(error.errorString()));
   }
 }
+
+/* If trying to debug a potential SSL error
+ *void MeasureManager::sslErrors(const QList<QSslError>& errors)
+ *{
+ *  // Prints each SSL eorr
+ *  foreach(QSslError error, errors)
+ *  {
+ *    LOG(Debug, "sslError" << toString(error.errorString()));
+ *  }
+ *}
+ */
 
 openstudio::path MeasureManager::tempModelPath() const
 {

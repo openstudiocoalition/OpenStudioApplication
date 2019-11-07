@@ -46,7 +46,7 @@
 
 class QEvent;
 class QNetworkAccessManager;
-class QSslError;
+// class QSslError; // If trying to debug a potential SSL error
 
 namespace Json{
   class Value;
@@ -181,8 +181,9 @@ class MeasureManager : public QObject
 
     void duplicateSelectedMeasure();
 
+    // If trying to debug a potential SSL error
     // Custom slot to debug potential SSL errors
-    void sslErrors(const QList<QSslError>& errors);
+    // void sslErrors(const QList<QSslError>& errors);
 
   signals:
 
