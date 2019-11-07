@@ -214,7 +214,7 @@ OpenStudioApp::OpenStudioApp( int & argc, char ** argv)
   // Non blocking
   startMeasureManagerProcess();
 
-  auto waitForMeasureManagerFuture = QtConcurrent::run(&measureManager(),&MeasureManager::waitForStarted,10000);
+  auto waitForMeasureManagerFuture = QtConcurrent::run(&measureManager(),&MeasureManager::waitForStarted,1000);
   m_waitForMeasureManagerWatcher.setFuture(waitForMeasureManagerFuture);
   connect(&m_waitForMeasureManagerWatcher, &QFutureWatcher<void>::finished, this, &OpenStudioApp::onMeasureManagerAndLibraryReady);
 
@@ -234,6 +234,29 @@ OpenStudioApp::~OpenStudioApp()
 
 void OpenStudioApp::onMeasureManagerAndLibraryReady() {
   if( m_buildCompLibWatcher.isFinished() && m_waitForMeasureManagerWatcher.isFinished() ) {
+    // m_waitForMeasureManagerWatcher might be finished, but that might be because it timeout'ed
+    // So you do want to check the result of the future now that it catches the return type
+    // (or call measureManager().isStarted() equivalently)
+    if (!m_waitForMeasureManagerWatcher.future().result()) {
+      int currentTry = 1;
+      while (!measureManager().isStarted()) {
+        LOG(Fatal, "Failed to start the Measure Manager on try " << currentTry << ", timeout reached.");
+        QMessageBox msgBox;
+        msgBox.setWindowTitle("Timeout");
+        msgBox.setIcon(QMessageBox::Critical);
+        msgBox.setText("Failed to start the Measure Manager. Would you like to retry?");
+        msgBox.setStandardButtons(QMessageBox::Retry | QMessageBox::Close);
+        if (msgBox.exec() == QMessageBox::Close) {
+          LOG_AND_THROW("Exit after measure manager failed to start in given time.");;
+        } else {
+          measureManager().waitForStarted(10000);
+          ++currentTry;
+        }
+      }
+      LOG(Info, "Recovered from Measure Manager problem, managed to start it on try " << currentTry
+             << " at: " << toString(measureManager().url().toString()));
+    }
+
     auto failed = m_buildCompLibWatcher.result();
     showFailedLibraryDialog(failed);
 
