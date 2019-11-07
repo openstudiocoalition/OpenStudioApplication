@@ -213,7 +213,7 @@ int main(int argc, char *argv[])
       debugPort = QString::number(port);
       qputenv("QTWEBENGINE_REMOTE_DEBUGGING", debugPort.toStdString().c_str());
     }
-    
+
     // QCoreApplication::setAttribute should really be put here because it's set before we create the App
     if (!qEnvironmentVariableIsSet("QT_DEVICE_PIXEL_RATIO") &&
         !qEnvironmentVariableIsSet("QT_AUTO_SCREEN_SCALE_FACTOR") &&

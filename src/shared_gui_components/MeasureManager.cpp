@@ -75,6 +75,7 @@
 #include <QNetworkAccessManager>
 #include <QNetworkRequest>
 #include <QNetworkReply>
+#include <QSslError>
 
 namespace openstudio {
 
@@ -118,6 +119,9 @@ void MeasureManager::waitForStarted(int msec)
 
     QNetworkReply* reply = manager.get(request);
 
+    connect(reply, SIGNAL(sslErrors(QList<QSslError>)), this, SLOT(sslErrors(QList<QSslError>)));
+    connect(reply, SIGNAL(sslErrors(QList<QSslError>)), reply, SLOT(ignoreSslErrors()));
+
     while (reply->isRunning()){
       Application::instance().processEvents();
     }
@@ -128,6 +132,7 @@ void MeasureManager::waitForStarted(int msec)
     if (error == QNetworkReply::NoError){
       success = true;
     } else{
+      LOG(Debug, "QNetworkReply is " << error);
       Application::instance().processEvents(msecPerLoop);
     }
 
@@ -137,7 +142,16 @@ void MeasureManager::waitForStarted(int msec)
   if (success){
     m_started = true;
   }else{
-    LOG(Error, "Measure manager server failed to start.")
+    LOG(Error, "Measure manager server failed to start. Was looking at URL="  << toString(url.toString()));
+  }
+}
+
+void MeasureManager::sslErrors(const QList<QSslError>& errors)
+{
+  // Affiche chaque erreur SSL
+  foreach(QSslError error, errors)
+  {
+    LOG(Debug, "sslError" << toString(error.errorString()));
   }
 }
 

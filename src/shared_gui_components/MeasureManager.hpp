@@ -43,8 +43,10 @@
 #include <QApplication>
 #include <QUrl>
 #include <QMutex>
+
 class QEvent;
 class QNetworkAccessManager;
+class QSslError;
 
 namespace Json{
   class Value;
@@ -178,6 +180,9 @@ class MeasureManager : public QObject
     void addMeasure();
 
     void duplicateSelectedMeasure();
+
+    // Custom slot to debug potential SSL errors
+    void sslErrors(const QList<QSslError>& errors);
 
   signals:
 
