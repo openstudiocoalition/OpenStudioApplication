@@ -105,7 +105,7 @@ class MeasureManager : public QObject
 
     void setUrl(const QUrl& url);
 
-    void waitForStarted(int msec=10000);
+    bool waitForStarted(int msec=10000);
 
     void setLibraryController(const QSharedPointer<LocalLibraryController> &t_libraryController);
 
