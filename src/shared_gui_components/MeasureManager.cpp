@@ -75,9 +75,10 @@
 #include <QNetworkAccessManager>
 #include <QNetworkRequest>
 #include <QNetworkReply>
-//#include <QSslError>
-#include <QDateTime>
 #include <QThread>
+// Debug only
+//#include <QSslError>
+//#include <QDateTime>
 
 namespace openstudio {
 
@@ -97,7 +98,7 @@ void MeasureManager::setUrl(const QUrl& url)
   m_url = url;
 }
 
-void MeasureManager::waitForStarted(int msec)
+bool MeasureManager::waitForStarted(int msec)
 {
   if (m_started) {
     return true;
@@ -141,7 +142,8 @@ void MeasureManager::waitForStarted(int msec)
       // Application::instance().processEvents(msecPerLoop);
 
       // So we use QThread::msleep instead, which is not 100% accurate but we do not care. I am getting about 20ms delay in between tries
-      LOG(Debug, "[" << current << ", " << QDateTime::currentDateTime().toMSecsSinceEpoch() << " ms]: QNetworkReply is " << error);
+      // Debug
+      // LOG(Debug, "[" << current << ", " << QDateTime::currentDateTime().toMSecsSinceEpoch() << " ms]: QNetworkReply is " << error);
 
       QThread::msleep(msecPerLoop);
     }
