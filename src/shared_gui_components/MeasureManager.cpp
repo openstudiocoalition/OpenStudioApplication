@@ -75,8 +75,9 @@
 #include <QNetworkAccessManager>
 #include <QNetworkRequest>
 #include <QNetworkReply>
-#include <QSslError>
+//#include <QSslError>
 #include <QDateTime>
+#include <QThread>
 
 namespace openstudio {
 
@@ -98,8 +99,8 @@ void MeasureManager::setUrl(const QUrl& url)
 
 void MeasureManager::waitForStarted(int msec)
 {
-  if (m_started){
-    return;
+  if (m_started) {
+    return true;
   }
 
   // ping server until get a started response
@@ -124,38 +125,41 @@ void MeasureManager::waitForStarted(int msec)
     // connect(reply, SIGNAL(sslErrors(QList<QSslError>)), this, SLOT(sslErrors(QList<QSslError>)));
     // connect(reply, SIGNAL(sslErrors(QList<QSslError>)), reply, SLOT(ignoreSslErrors()));
 
-    while (reply->isRunning()){
+    while (reply->isRunning()) {
       Application::instance().processEvents();
     }
 
     auto error = reply->error();
     delete reply;
 
-    if (error == QNetworkReply::NoError){
+    if (error == QNetworkReply::NoError) {
       success = true;
-    } else{
-      LOG(Debug, "[" << current << ", " << toString(QDateTime::currentDateTime().toString())
-          << ", " << QDateTime::currentDateTime().toMSecsSinceEpoch() << "]: QNetworkReply is " << error);
-      Application::instance().processEvents(msecPerLoop);
+    } else {
+      // We actually want to pause for msecPerLoop, processEvents will only put an upper limit the event processing that needs doing
+      // > processEvents: Processes pending events for the calling thread for maxTime_ms milliseconds or
+      // > ** until there are no more events to process,whichever is shorter**.
+      // Application::instance().processEvents(msecPerLoop);
+
+      // So we use QThread::msleep instead, which is not 100% accurate but we do not care. I am getting about 20ms delay in between tries
+      LOG(Debug, "[" << current << ", " << QDateTime::currentDateTime().toMSecsSinceEpoch() << " ms]: QNetworkReply is " << error);
+
+      QThread::msleep(msecPerLoop);
     }
 
     ++current;
   }
 
-  if (success){
+  if (success) {
     m_started = true;
-  }else{
+  } else {
     LOG(Error, "Measure manager server failed to start. Was looking at URL="  << toString(url.toString()));
   }
+
+  return m_started;
 }
 
-void MeasureManager::sslErrors(const QList<QSslError>& errors)
-{
-  // Affiche chaque erreur SSL
-  foreach(QSslError error, errors)
-  {
-    LOG(Debug, "sslError" << toString(error.errorString()));
-  }
+bool MeasureManager::isStarted() const {
+  return m_started;
 }
 
 /* If trying to debug a potential SSL error

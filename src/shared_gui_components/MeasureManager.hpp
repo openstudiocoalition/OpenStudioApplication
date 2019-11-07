@@ -151,6 +151,8 @@ class MeasureManager : public QObject
 
     bool reset();
 
+    bool isStarted() const;
+
   public slots:
 
     /// Update the UI display for all measures. Does recompute the measure's XML.
