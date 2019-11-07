@@ -76,6 +76,7 @@
 #include <QNetworkRequest>
 #include <QNetworkReply>
 #include <QSslError>
+#include <QDateTime>
 
 namespace openstudio {
 
@@ -132,7 +133,8 @@ void MeasureManager::waitForStarted(int msec)
     if (error == QNetworkReply::NoError){
       success = true;
     } else{
-      LOG(Debug, "QNetworkReply is " << error);
+      LOG(Debug, "[" << current << ", " << toString(QDateTime::currentDateTime().toString())
+          << ", " << QDateTime::currentDateTime().toMSecsSinceEpoch() << "]: QNetworkReply is " << error);
       Application::instance().processEvents(msecPerLoop);
     }
 
