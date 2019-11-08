@@ -1,4 +1,4 @@
 [submodule "openstudio"]
     path = openstudio
     url = git@github.com:NREL/OpenStudio.git
-	branch = v3.0-pre-release
+	branch = develop3
