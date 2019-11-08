@@ -261,7 +261,7 @@ class OpenStudioApp : public OSAppBase
   std::shared_ptr<StartupMenu> m_startupMenu;
 
   QFutureWatcher<std::vector<std::string> > m_buildCompLibWatcher;
-  QFutureWatcher<void> m_waitForMeasureManagerWatcher;
+  QFutureWatcher<bool> m_waitForMeasureManagerWatcher;
   QFutureWatcher<std::vector<std::string> > m_changeLibrariesWatcher;
 };
 
