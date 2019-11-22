@@ -485,6 +485,14 @@ void OSItem::setOSItemType(OSItemType osItemType)
   update();
 }
 
+int OSItem::position() const {
+  return m_position;
+}
+
+void OSItem::setPosition(int position) {
+  m_position = position;
+}
+
 void OSItem::paintEvent(QPaintEvent * event)
 {
   QPainter p(this);
