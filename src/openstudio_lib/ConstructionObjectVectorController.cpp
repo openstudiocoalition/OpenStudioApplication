@@ -43,6 +43,8 @@
 #include <openstudio/src/utilities/idd/IddEnums.hxx>
 
 #include <QMessageBox>
+#include <QTimer>
+#include <QMutex>
 
 namespace openstudio {
 
@@ -52,16 +54,51 @@ ConstructionObjectVectorController::ConstructionObjectVectorController(QWidget *
   : ModelObjectVectorController(),
   m_parentWidget(parentWidget)
 {
+  m_reportItemsMutex = new QMutex();
+}
+
+ConstructionObjectVectorController::~ConstructionObjectVectorController()
+{
+  delete m_reportItemsMutex;
+}
+
+void ConstructionObjectVectorController::reportItemsLater()
+{
+  m_reportScheduled = true;
+
+  QTimer::singleShot(0,this,SLOT(reportItems()));
+}
+
+void ConstructionObjectVectorController::reportItems()
+{
+  if( ! m_reportItemsMutex->tryLock() ) {
+    return;
+  }
+
+  if( m_reportScheduled )
+  {
+    m_reportScheduled = false;
+
+    ModelObjectVectorController::reportItems();
+  }
+
+  m_reportItemsMutex->unlock();
 }
 
 void ConstructionObjectVectorController::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle)
 {
-  emit itemIds(makeVector());
+  reportItemsLater();
 }
+
 
 void ConstructionObjectVectorController::onDataChange(const model::ModelObject& modelObject)
 {
-  emit itemIds(makeVector());
+  reportItemsLater();
+}
+
+void ConstructionObjectVectorController::onChange(const model::ModelObject& modelObject)
+{
+  reportItemsLater();
 }
 
 std::vector<OSItemId> ConstructionObjectVectorController::makeVector()

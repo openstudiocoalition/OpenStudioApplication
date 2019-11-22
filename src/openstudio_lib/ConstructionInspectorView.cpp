@@ -196,6 +196,7 @@ void ConstructionInspectorView::detach()
 {
   m_standardsInformationWidget->detach();
   m_constructionVC->detach();
+  m_constructionVC->reportItems();
   m_construction = boost::none;
 }
 
