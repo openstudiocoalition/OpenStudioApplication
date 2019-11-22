@@ -31,6 +31,7 @@
 #define OPENSTUDIO_CONSTRUCTIONOBJECTVECTORCONTROLLER_HPP
 
 #include "ModelObjectVectorController.hpp"
+#include <openstudio/src/utilities/core/Logger.hpp>
 
 class QMutex;
 
@@ -73,6 +74,10 @@ protected:
   virtual void onDrop(const OSItemId& itemId) override;
 
 private:
+
+  REGISTER_LOGGER("openstudio::ConstructionObjectVectorController");
+
+  void insert(const OSItemId& itemId, int position = -1, bool deleteExisting= false);
 
   bool m_reportScheduled;
   QMutex * m_reportItemsMutex;
