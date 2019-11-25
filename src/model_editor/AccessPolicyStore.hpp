@@ -42,6 +42,8 @@
 
 namespace openstudio
 {
+  class InspectorView;
+
   namespace model
   {
 
@@ -60,6 +62,7 @@ namespace openstudio
     class MODELEDITOR_API AccessPolicy
     {
       friend class AccessParser;
+      friend class openstudio::InspectorView; // For overriding via setAccess
 
     public:
 
@@ -81,6 +84,10 @@ namespace openstudio
         * for that bogus index though. :) )
         */
       ACCESS_LEVEL getAccess(unsigned int index) const;
+
+    protected:
+      // For specific overriding of access policies, such as hiding Fan Schedule only on AirLoopHVAC for eg
+      bool setAccess(unsigned int index, ACCESS_LEVEL);
 
     private:
       std::map<unsigned int, ACCESS_LEVEL> m_accessMap;
@@ -107,7 +114,7 @@ namespace openstudio
       bool loadFile( const openstudio::path& path );
       bool loadFile( const std::vector<char> &data );
 
-      /*!Each IddObjectType has a uniqueAcessPolicy. This function will retrieve it*/
+      /*!Each IddObjectType has a uniqueAccessPolicy. This function will retrieve it*/
       const AccessPolicy* getPolicy( const openstudio::IddObjectType& )const;
 
       /* clear the map*/
