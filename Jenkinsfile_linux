@@ -4,7 +4,7 @@
 // e.g.  @Library('cbci_shared_libs@develop') _
 
 
-@Library('cbci_shared_libs') _
+@Library('cbci_shared_libs@code_reuse2') _
 
 // Build for PR to develop branch only.
 if ((env.CHANGE_ID) && (env.CHANGE_TARGET) ) {
