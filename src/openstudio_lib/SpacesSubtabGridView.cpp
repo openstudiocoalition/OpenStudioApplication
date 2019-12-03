@@ -618,7 +618,7 @@ namespace openstudio {
     else {
       // OSGridController::m_modelObjects returns the Spaces
       for (auto obj : this->m_gridController->m_modelObjects) {
-        LOG(Debug, "spaceTypeFilterChanged, obj=" << obj.briefDescription());
+        // LOG(Debug, "spaceTypeFilterChanged, obj=" << obj.briefDescription());
         auto spaceType = obj.cast<model::Space>().spaceType();
         if (!spaceType || !spaceType->name() || (spaceType && spaceType->name() && spaceType->name().get().c_str() != text)) {
           m_objectsFilteredBySpaceType.insert(obj);
@@ -783,7 +783,7 @@ namespace openstudio {
 
       // ObjectSelector::m_selectorObjects returns Surfaces directly
       for (auto obj : this->m_gridController->getObjectSelector()->m_selectorObjects) {
-        LOG(Debug, "windExposureFilterChanged, obj=" << obj.briefDescription());
+        // LOG(Debug, "windExposureFilterChanged, obj=" << obj.briefDescription());
         auto surface = obj.optionalCast<model::Surface>();
         if (surface) {
           auto windExposure = surface->windExposure();
@@ -810,7 +810,7 @@ namespace openstudio {
 
       // ObjectSelector::m_selectorObjects returns Surfaces directly
       for (auto obj : this->m_gridController->getObjectSelector()->m_selectorObjects) {
-        LOG(Debug, "sunExposureFilterChanged, obj=" << obj.briefDescription());
+        // LOG(Debug, "sunExposureFilterChanged, obj=" << obj.briefDescription());
         auto surface = obj.optionalCast<model::Surface>();
         if (surface) {
           auto sunExposure = surface->sunExposure();
@@ -837,7 +837,7 @@ namespace openstudio {
 
       // ObjectSelector::m_selectorObjects returns either Surfaces or SubSurfaces directly, depending on the subtab it's on
       for (auto obj : this->m_gridController->getObjectSelector()->m_selectorObjects) {
-        LOG(Debug, "outsideBoundaryConditionFilterChanged, obj=" << obj.briefDescription());
+        // LOG(Debug, "outsideBoundaryConditionFilterChanged, obj=" << obj.briefDescription());
         std::string outsideBoundaryCondition;
         if (auto surface = obj.optionalCast<model::Surface>()) {
           outsideBoundaryCondition = surface->outsideBoundaryCondition();
@@ -865,7 +865,7 @@ namespace openstudio {
 
       // ObjectSelector::m_selectorObjects Surfaces directly
       for (auto obj : this->m_gridController->getObjectSelector()->m_selectorObjects) {
-        LOG(Debug, "surfaceTypeFilterChanged, obj=" << obj.briefDescription());
+        // LOG(Debug, "surfaceTypeFilterChanged, obj=" << obj.briefDescription());
         auto surface = obj.optionalCast<model::Surface>();
         if (surface) {
           auto surfaceType = surface->surfaceType();
