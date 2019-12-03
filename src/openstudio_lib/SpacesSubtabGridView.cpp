@@ -601,7 +601,7 @@ namespace openstudio {
 
   void SpacesSubtabGridView::spaceTypeFilterChanged(const QString& text)
   {
-    m_objectsFilterdBySpaceType.clear();
+    m_objectsFilteredBySpaceType.clear();
 
     if (text == ALL) {
       // nothing to filter
@@ -609,7 +609,7 @@ namespace openstudio {
     else if (text == UNASSIGNED) {
       for (auto obj : this->m_gridController->m_modelObjects) {
         if (obj.cast<model::Space>().spaceType()) {
-          m_objectsFilterdBySpaceType.insert(obj);
+          m_objectsFilteredBySpaceType.insert(obj);
         }
       }
     }
@@ -617,7 +617,7 @@ namespace openstudio {
       for (auto obj : this->m_gridController->m_modelObjects) {
         auto spaceType = obj.cast<model::Space>().spaceType();
         if (!spaceType || !spaceType->name() || (spaceType && spaceType->name() && spaceType->name().get().c_str() != text)) {
-          m_objectsFilterdBySpaceType.insert(obj);
+          m_objectsFilteredBySpaceType.insert(obj);
         }
       }
     }
@@ -627,7 +627,7 @@ namespace openstudio {
 
   void SpacesSubtabGridView::subSurfaceTypeFilterChanged(const QString& text)
   {
-    m_objectsFilterdBySubSurfaceType.clear();
+    m_objectsFilteredBySubSurfaceType.clear();
 
     if (text == ALL) {
       // nothing to filter
@@ -641,7 +641,7 @@ namespace openstudio {
           for (auto subsurface : subsurfaces) {
             auto subsurfaceType = subsurface.subSurfaceType();
             if (subsurfaceType.c_str() != text) {
-              m_objectsFilterdBySubSurfaceType.insert(obj);
+              m_objectsFilteredBySubSurfaceType.insert(obj);
               objFiltered = true;
               break;
             }
@@ -881,7 +881,7 @@ namespace openstudio {
       }
     }
 
-    for (auto obj : m_objectsFilterdBySpaceType) {
+    for (auto obj : m_objectsFilteredBySpaceType) {
       if (spaceFilteredObjects.count(obj) == 0) {
         spaceFilteredObjects.insert(obj);
       }
@@ -898,7 +898,7 @@ namespace openstudio {
      ***********************************************************************************/
     std::set<openstudio::model::ModelObject> allFilteredObjects;
 
-    for (auto obj : m_objectsFilterdBySubSurfaceType) {
+    for (auto obj : m_objectsFilteredBySubSurfaceType) {
       if (allFilteredObjects.count(obj) == 0) {
         allFilteredObjects.insert(obj);
       }
