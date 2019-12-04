@@ -30,7 +30,7 @@
 #include "PeopleInspectorView.hpp"
 
 
-#include "../shared_gui_components/OSCheckBox.hpp"
+#include "../shared_gui_components/OSSwitch.hpp"
 #include "../shared_gui_components/OSComboBox.hpp"
 #include "../shared_gui_components/OSDoubleEdit.hpp"
 #include "../shared_gui_components/OSLineEdit.hpp"
@@ -41,6 +41,9 @@
 #include <openstudio/src/model/Schedule.hpp>
 #include <openstudio/src/model/SpaceLoadInstance.hpp>
 
+#include <openstudio/src/utilities/idf/IdfExtensibleGroup.hpp>
+#include <openstudio/src/model/ModelExtensibleGroup.hpp>
+
 #include <openstudio/src/utilities/core/Assert.hpp>
 
 #include <QGridLayout>
@@ -49,6 +52,7 @@
 #include <QScrollArea>
 #include <QStackedWidget>
 #include <QVBoxLayout>
+#include <QPushButton>
 
 namespace openstudio {
 
@@ -67,10 +71,12 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP,
 
   //this->stackedWidget()->setCurrentIndex(0);
 
-  auto mainGridLayout = new QGridLayout();
-  mainGridLayout->setContentsMargins(7,7,7,7);
-  mainGridLayout->setSpacing(14);
-  visibleWidget->setLayout(mainGridLayout);
+  m_mainGridLayout = new QGridLayout();
+  m_mainGridLayout->setContentsMargins(7,7,7,7);
+  m_mainGridLayout->setSpacing(14);
+  visibleWidget->setLayout(m_mainGridLayout);
+
+  int row = m_mainGridLayout->rowCount();
 
   // name
   auto vLayout = new QVBoxLayout();
@@ -82,7 +88,8 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP,
   m_nameEdit = new OSLineEdit2();
   vLayout->addWidget(m_nameEdit);
 
-  mainGridLayout->addLayout(vLayout,0,0,1,3, Qt::AlignTop);
+  m_mainGridLayout->addLayout(vLayout,row,0,1,3, Qt::AlignTop);
+  ++row;
 
   // number of people, people per area, and area per person
   vLayout = new QVBoxLayout();
@@ -94,7 +101,7 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP,
   m_numberofPeopleEdit = new OSDoubleEdit2();
   vLayout->addWidget(m_numberofPeopleEdit);
 
-  mainGridLayout->addLayout(vLayout,1,0, Qt::AlignTop|Qt::AlignLeft);
+  m_mainGridLayout->addLayout(vLayout,row,0, Qt::AlignTop|Qt::AlignLeft);
 
   vLayout = new QVBoxLayout();
 
@@ -106,7 +113,7 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP,
   connect(this, &PeopleDefinitionInspectorView::toggleUnitsClicked, m_peopleperSpaceFloorAreaEdit, &OSQuantityEdit2::onUnitSystemChange);
   vLayout->addWidget(m_peopleperSpaceFloorAreaEdit);
 
-  mainGridLayout->addLayout(vLayout,1,1, Qt::AlignTop|Qt::AlignLeft);
+  m_mainGridLayout->addLayout(vLayout,row,1, Qt::AlignTop|Qt::AlignLeft);
 
   vLayout = new QVBoxLayout();
 
@@ -118,9 +125,10 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP,
   connect(this, &PeopleDefinitionInspectorView::toggleUnitsClicked, m_spaceFloorAreaperPersonEdit, &OSQuantityEdit2::onUnitSystemChange);
   vLayout->addWidget(m_spaceFloorAreaperPersonEdit);
 
-  mainGridLayout->addLayout(vLayout,1,2, Qt::AlignTop|Qt::AlignLeft);
+  m_mainGridLayout->addLayout(vLayout,row,2, Qt::AlignTop|Qt::AlignLeft);
 
-  // fraction radiance, sensible heat fraction, carbon dioxide rate
+  // New Row: fraction radiance, sensible heat fraction, carbon dioxide rate
+  ++row;
   vLayout = new QVBoxLayout();
 
   label = new QLabel("Fraction Radiant: ");
@@ -130,7 +138,7 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP,
   m_fractionRadiantEdit = new OSDoubleEdit2();
   vLayout->addWidget(m_fractionRadiantEdit);
 
-  mainGridLayout->addLayout(vLayout,2,0, Qt::AlignTop|Qt::AlignLeft);
+  m_mainGridLayout->addLayout(vLayout,row,0, Qt::AlignTop|Qt::AlignLeft);
 
   vLayout = new QVBoxLayout();
 
@@ -141,7 +149,7 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP,
   m_sensibleHeatFractionEdit = new OSDoubleEdit2();
   vLayout->addWidget(m_sensibleHeatFractionEdit);
 
-  mainGridLayout->addLayout(vLayout,2,1, Qt::AlignTop|Qt::AlignLeft);
+  m_mainGridLayout->addLayout(vLayout,row,1, Qt::AlignTop|Qt::AlignLeft);
 
   vLayout = new QVBoxLayout();
 
@@ -153,16 +161,82 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP,
   connect(this, &PeopleDefinitionInspectorView::toggleUnitsClicked, m_carbonDioxideGenerationRateEdit, &OSQuantityEdit2::onUnitSystemChange);
   vLayout->addWidget(m_carbonDioxideGenerationRateEdit);
 
-  mainGridLayout->addLayout(vLayout,2,2, Qt::AlignTop|Qt::AlignLeft);
+  m_mainGridLayout->addLayout(vLayout,row,2, Qt::AlignTop|Qt::AlignLeft);
 
-  mainGridLayout->setColumnMinimumWidth(0, 80);
-  mainGridLayout->setColumnMinimumWidth(1, 80);
-  mainGridLayout->setColumnMinimumWidth(2, 80);
-  mainGridLayout->setColumnStretch(3,1);
-  mainGridLayout->setRowMinimumHeight(0, 30);
-  mainGridLayout->setRowMinimumHeight(1, 30);
-  mainGridLayout->setRowMinimumHeight(2, 30);
-  mainGridLayout->setRowStretch(3,1);
+  // Separator
+  ++row;
+  QFrame * line;
+  line = new QFrame();
+  line->setFrameShape(QFrame::HLine);
+  line->setFrameShadow(QFrame::Sunken);
+  m_mainGridLayout->addWidget(line, row, 0, 1, 3, Qt::AlignTop|Qt::AlignLeft);
+
+
+  // Confort stuff
+  ++row;
+
+  vLayout = new QVBoxLayout();
+  label = new QLabel("Enable ASHRAE 55 Comfort Warnings:");
+  label->setObjectName("H2");
+  vLayout->addWidget(label);
+  m_enableASHRAE55ComfortWarningsSwitch = new OSSwitch2();
+  vLayout->addWidget(m_enableASHRAE55ComfortWarningsSwitch);
+  m_mainGridLayout->addLayout(vLayout,row, 0, Qt::AlignTop|Qt::AlignLeft);
+
+  vLayout = new QVBoxLayout();
+  label = new QLabel("Mean Radiant Temperature Calculation Type:");
+  label->setObjectName("H2");
+  vLayout->addWidget(label);
+  m_meanRadiantTemperatureCalculationTypeComboBox = new OSComboBox2();
+  // Populate combobox choices
+  for (const std::string& mrtType: openstudio::model::PeopleDefinition::meanRadiantTemperatureCalculationTypeValues()) {
+    m_meanRadiantTemperatureCalculationTypeComboBox->addItem(QString::fromStdString(mrtType));
+  }
+  vLayout->addWidget(m_meanRadiantTemperatureCalculationTypeComboBox);
+  m_mainGridLayout->addLayout(vLayout,row, 1, Qt::AlignTop|Qt::AlignLeft);
+
+
+  // Extensible Toolbar
+  ++row;
+  auto hbox = new QHBoxLayout();
+  hbox->setSpacing(0);
+  hbox->setMargin(0);
+
+  label = new QLabel(tr("Add/Remove Extensible Groups"));
+
+  auto addBtn = new QPushButton();
+  QIcon ico(":images/edit_add.png");
+  addBtn->setIcon( ico );
+  addBtn->setStyleSheet(" margin: 0px; border: 0px;" );
+
+  auto subBtn = new QPushButton();
+  QIcon ico2(":images/edit_remove.png");
+  subBtn->setIcon( ico2 );
+  subBtn->setStyleSheet(" margin: 0px; border: 0px;" );
+
+  connect(addBtn, &QPushButton::clicked, this, &PeopleDefinitionInspectorView::addExtensible);
+  connect(subBtn, &QPushButton::clicked, this, &PeopleDefinitionInspectorView::removeExtensible);
+
+  // Not attached yet! checkRemoveBtn( subBtn );
+
+  hbox->addSpacing(10);//because this row doesn't have a vbox, we need to move the text over some to get it to line up
+  hbox->addWidget(label);
+  hbox->addWidget(addBtn);
+  hbox->addWidget(subBtn);
+  m_mainGridLayout->addLayout(hbox,row,0,1,3, Qt::AlignTop|Qt::AlignLeft);
+
+  ++row;
+
+  m_mainGridLayout->setColumnMinimumWidth(0, 80);
+  m_mainGridLayout->setColumnMinimumWidth(1, 80);
+  m_mainGridLayout->setColumnMinimumWidth(2, 80);
+  m_mainGridLayout->setRowMinimumHeight(0, 30);
+  m_mainGridLayout->setRowMinimumHeight(1, 30);
+  m_mainGridLayout->setRowMinimumHeight(2, 30);
+
+  // m_mainGridLayout->setColumnStretch(3,1); //set the stretch factor of column 3 (0-indexed) to 1... ?
+  // m_mainGridLayout->setRowStretch(row,1);
+
 }
 
 void PeopleDefinitionInspectorView::onClearSelection()
@@ -236,7 +310,93 @@ void PeopleDefinitionInspectorView::attach(openstudio::model::PeopleDefinition& 
       boost::none,
       boost::optional<BasicQuery>(std::bind(&model::PeopleDefinition::isCarbonDioxideGenerationRateDefaulted,m_peopleDefinition.get_ptr())));
 
+  m_enableASHRAE55ComfortWarningsSwitch->bind(
+      *m_peopleDefinition,
+      std::bind(&model::PeopleDefinition::enableASHRAE55ComfortWarnings,m_peopleDefinition.get_ptr()),
+      BoolSetter(std::bind(&model::PeopleDefinition::setEnableASHRAE55ComfortWarnings,m_peopleDefinition.get_ptr(),std::placeholders::_1)),
+      boost::optional<NoFailAction>(std::bind(&model::PeopleDefinition::resetEnableASHRAE55ComfortWarnings,m_peopleDefinition.get_ptr())),
+      boost::optional<BasicQuery>(std::bind(&model::PeopleDefinition::isEnableASHRAE55ComfortWarningsDefaulted,m_peopleDefinition.get_ptr())));
+
+  m_meanRadiantTemperatureCalculationTypeComboBox->bind<std::string>(
+    *m_peopleDefinition,
+    static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
+    &model::PeopleDefinition::meanRadiantTemperatureCalculationTypeValues,
+    StringGetter(std::bind(&model::PeopleDefinition::meanRadiantTemperatureCalculationType, m_peopleDefinition.get_ptr())),
+    std::bind(&model::PeopleDefinition::setMeanRadiantTemperatureCalculationType, m_peopleDefinition.get_ptr(),std::placeholders::_1),
+    boost::optional<NoFailAction>(std::bind(&model::PeopleDefinition::resetMeanRadiantTemperatureCalculationType, m_peopleDefinition.get_ptr())),
+    boost::optional<BasicQuery>(std::bind(&model::PeopleDefinition::isMeanRadiantTemperatureCalculationTypeDefaulted, m_peopleDefinition.get_ptr()))
+  );
+
+  // Extensible groups
+  for (const IdfExtensibleGroup& i_eg: m_peopleDefinition->extensibleGroups()) {
+    addThermalComfortModelTypeComboBox(i_eg.groupIndex());
+  }
+
+    //std::function<boost::optional<std::string>(model::PeopleDefinition *)> getter =
+      //[i](model::PeopleDefinition *t_peopleDefinition) {
+        //return t_peopleDefinition->getThermalComfortModelType(i);
+      //};
+
+    //std::function<bool(model::PeopleDefinition *, std::string)> setter =
+      //[this, i](model::PeopleDefinition *t_peopleDefinition, std::string t_value) {
+        //return t_peopleDefinition->setThermalComfortModelType(i, t_value);
+      //};
+
+    /*
+     *std::function<std::vector<std::string>()> choices =
+     *  []() {
+     *      //std::vector<std::string> result;
+     *      //result.push_back("Fanger");
+     *      //result.push_back("Pierce");
+     *      //result.push_back("KSU");
+     *      //result.push_back("AdaptiveASH55");
+     *      //result.push_back("AdaptiveCEN15251");
+     *      return std::vector<std::string>({"Fanger", "Pierce", "KSU", "AdaptiveASH55", "AdaptiveCEN15251"});
+     *  };
+     */
+
+
   this->stackedWidget()->setCurrentIndex(1);
+}
+
+OSComboBox2 * PeopleDefinitionInspectorView::addThermalComfortModelTypeComboBox(int groupIndex) {
+
+  int row = m_mainGridLayout->rowCount();
+
+  QHBoxLayout * hLayout = new QHBoxLayout();
+  // groupIndex is 0-indexed
+  QLabel * label = new QLabel("Thermal Comfort Model Type " + QString::number(groupIndex + 1));
+  label->setObjectName("H2");
+  hLayout->addWidget(label);
+
+  OSComboBox2 * thermalComfortModelTypeComboBox = new OSComboBox2();
+
+  for (const std::string& val: model::PeopleDefinition::thermalComfortModelTypeValues()) {
+    thermalComfortModelTypeComboBox->addItem(QString::fromStdString(val));
+  }
+  //thermalComfortModelTypeComboBox->addItem("Fanger");
+  //thermalComfortModelTypeComboBox->addItem("Pierce");
+  //thermalComfortModelTypeComboBox->addItem("KSU");
+  //thermalComfortModelTypeComboBox->addItem("AdaptiveASH55");
+  //thermalComfortModelTypeComboBox->addItem("AdaptiveCEN15251");
+
+  hLayout->addWidget(thermalComfortModelTypeComboBox);
+  m_mainGridLayout->addLayout(hLayout,row, 0, 3, Qt::AlignTop|Qt::AlignLeft);
+
+  thermalComfortModelTypeComboBox->bind<std::string>(
+    *m_peopleDefinition,
+    static_cast<std::string (*)(const std::string&)>(&openstudio::toString),   // toString
+    &model::PeopleDefinition::thermalComfortModelTypeValues, // choices: This returns an empty array...
+    OptionalStringGetter(std::bind(&model::PeopleDefinition::getThermalComfortModelType, m_peopleDefinition.get_ptr(), groupIndex)), // getter
+    std::bind(&model::PeopleDefinition::setThermalComfortModelType, m_peopleDefinition.get_ptr(), groupIndex, std::placeholders::_1)
+    // getter,
+    // setter
+  ); // No reset nor isDefaulted
+
+  // Store a ref for unbind in detach
+  m_thermalComfortModelTypeComboBoxes.push_back(thermalComfortModelTypeComboBox);
+
+  return thermalComfortModelTypeComboBox;
 }
 
 void PeopleDefinitionInspectorView::detach()
@@ -250,6 +410,13 @@ void PeopleDefinitionInspectorView::detach()
   m_fractionRadiantEdit->unbind();
   m_sensibleHeatFractionEdit->unbind();
   m_carbonDioxideGenerationRateEdit->unbind();
+  m_enableASHRAE55ComfortWarningsSwitch->unbind();
+  m_meanRadiantTemperatureCalculationTypeComboBox->unbind();
+
+  for (OSComboBox2 * thermalComfortModelTypeComboBox: m_thermalComfortModelTypeComboBoxes) {
+    thermalComfortModelTypeComboBox->unbind();
+  }
+
   m_peopleDefinition.reset();
 }
 
@@ -259,6 +426,51 @@ void PeopleDefinitionInspectorView::refresh()
 
 void PeopleDefinitionInspectorView::toggleUnits(bool displayIP)
 {
+}
+
+void PeopleDefinitionInspectorView::checkRemoveBtn( QPushButton* btn )
+{
+  if (m_peopleDefinition) {
+    unsigned int numFields = m_peopleDefinition->numFields();
+    unsigned int numNonEx = m_peopleDefinition->numNonextensibleFields();
+
+    if((numFields - numNonEx) <=0 ){
+      btn->setEnabled( false );
+    }
+    else{
+      btn->setEnabled( true );
+    }
+  }
+}
+
+void PeopleDefinitionInspectorView::addExtensible()
+{
+  // disconnectWorkspaceObjectSignals();
+  IdfExtensibleGroup eg = m_peopleDefinition->pushExtensibleGroup();
+  addThermalComfortModelTypeComboBox(eg.groupIndex());
+  // Default to Fanger so we have a value...
+  // eg.setString(0, "Fanger");
+  // connectWorkspaceObjectSignals();
+
+  // Always want the "+" button enabled
+  //QPushButton* source = dynamic_cast<QPushButton*>(sender());
+  //OS_ASSERT(source);
+  // checkRemoveBtn( source );
+  //emit dirty();
+  //rebuild(false);
+}
+
+void PeopleDefinitionInspectorView::removeExtensible()
+{
+  // disconnectWorkspaceObjectSignals();
+  m_peopleDefinition->popExtensibleGroup();
+  // connectWorkspaceObjectSignals();
+
+  QPushButton* source = dynamic_cast<QPushButton*>(sender());
+  OS_ASSERT(source);
+  checkRemoveBtn( source );
+  //emit dirty();
+  //rebuild(false);
 }
 
 } // openstudio
