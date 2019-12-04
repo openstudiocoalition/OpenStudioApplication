@@ -53,6 +53,7 @@
 #include <QStackedWidget>
 #include <QVBoxLayout>
 #include <QPushButton>
+#include <QDebug>
 
 namespace openstudio {
 
@@ -88,6 +89,7 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP,
   m_nameEdit = new OSLineEdit2();
   vLayout->addWidget(m_nameEdit);
 
+  // Spans 1 row and 3 columns
   m_mainGridLayout->addLayout(vLayout,row,0,1,3, Qt::AlignTop);
   ++row;
 
@@ -204,26 +206,29 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP,
 
   label = new QLabel(tr("Add/Remove Extensible Groups"));
 
-  auto addBtn = new QPushButton();
+  addBtn = new QPushButton();
   QIcon ico(":images/edit_add.png");
   addBtn->setIcon( ico );
   addBtn->setStyleSheet(" margin: 0px; border: 0px;" );
 
-  auto subBtn = new QPushButton();
+  removeBtn = new QPushButton();
   QIcon ico2(":images/edit_remove.png");
-  subBtn->setIcon( ico2 );
-  subBtn->setStyleSheet(" margin: 0px; border: 0px;" );
+  removeBtn->setIcon( ico2 );
+  removeBtn->setStyleSheet(" margin: 0px; border: 0px;" );
 
   connect(addBtn, &QPushButton::clicked, this, &PeopleDefinitionInspectorView::addExtensible);
-  connect(subBtn, &QPushButton::clicked, this, &PeopleDefinitionInspectorView::removeExtensible);
+  connect(removeBtn, &QPushButton::clicked, this, &PeopleDefinitionInspectorView::removeExtensible);
 
   // Not attached yet! checkRemoveBtn( subBtn );
+  removeBtn->setEnabled(false);
 
-  hbox->addSpacing(10);//because this row doesn't have a vbox, we need to move the text over some to get it to line up
+  // hbox->addSpacing(10);//because this row doesn't have a vbox, we need to move the text over some to get it to line up
   hbox->addWidget(label);
   hbox->addWidget(addBtn);
-  hbox->addWidget(subBtn);
+  hbox->addWidget(removeBtn);
   m_mainGridLayout->addLayout(hbox,row,0,1,3, Qt::AlignTop|Qt::AlignLeft);
+
+  lastRow = row;
 
   ++row;
 
@@ -234,9 +239,26 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP,
   m_mainGridLayout->setRowMinimumHeight(1, 30);
   m_mainGridLayout->setRowMinimumHeight(2, 30);
 
-  // m_mainGridLayout->setColumnStretch(3,1); //set the stretch factor of column 3 (0-indexed) to 1... ?
-  // m_mainGridLayout->setRowStretch(row,1);
+  m_mainGridLayout->setColumnStretch(3,1); //set the stretch factor of column 3 (0-indexed) to 1, to push everything left
+  LOG(Debug, "Before setRowStretch, row=" << row << ", rowCount=" << m_mainGridLayout->rowCount() << ", lastRow=" << lastRow);
+  m_mainGridLayout->setRowStretch(row,1);
+  LOG(Debug, "After setRowStretch, row=" << row << ", rowCount=" << m_mainGridLayout->rowCount() << ", lastRow=" << lastRow);
 
+}
+
+void PeopleDefinitionInspectorView::adjustRowStretch() {
+
+  LOG(Debug, "adjustRowStretch, rowCount=" << m_mainGridLayout->rowCount() << ", alt=" << m_mainGridLayout->count()/m_mainGridLayout->columnCount()
+      << ", lastRow=" << lastRow);
+
+  int row = m_mainGridLayout->rowCount();
+  for (int i = 0; i < row; ++i) {
+    // set Row Stretch to the default of 0
+    m_mainGridLayout->setRowStretch(i, 0);
+    m_mainGridLayout->setRowMinimumHeight(i, 30);
+  }
+  // row after the last used: set a strech of 1 to push everything up
+  m_mainGridLayout->setRowStretch(row, 1);
 }
 
 void PeopleDefinitionInspectorView::onClearSelection()
@@ -355,6 +377,7 @@ void PeopleDefinitionInspectorView::attach(openstudio::model::PeopleDefinition& 
      *  };
      */
 
+  checkButtons();
 
   this->stackedWidget()->setCurrentIndex(1);
 }
@@ -363,11 +386,17 @@ OSComboBox2 * PeopleDefinitionInspectorView::addThermalComfortModelTypeComboBox(
 
   int row = m_mainGridLayout->rowCount();
 
-  QHBoxLayout * hLayout = new QHBoxLayout();
+  // Increment last row
+  ++lastRow;
+
+  LOG(Debug, "addThermalComfortModelTypeComboBox, rowCount=" << m_mainGridLayout->rowCount() << ", alt=" << m_mainGridLayout->count()/m_mainGridLayout->columnCount() << ", lastRow=" << lastRow);
+
+  lastHBoxLayout = new QHBoxLayout();
+  m_HBoxLayouts.push_back(lastHBoxLayout);
   // groupIndex is 0-indexed
   QLabel * label = new QLabel("Thermal Comfort Model Type " + QString::number(groupIndex + 1));
   label->setObjectName("H2");
-  hLayout->addWidget(label);
+  lastHBoxLayout->addWidget(label);
 
   OSComboBox2 * thermalComfortModelTypeComboBox = new OSComboBox2();
 
@@ -380,8 +409,9 @@ OSComboBox2 * PeopleDefinitionInspectorView::addThermalComfortModelTypeComboBox(
   //thermalComfortModelTypeComboBox->addItem("AdaptiveASH55");
   //thermalComfortModelTypeComboBox->addItem("AdaptiveCEN15251");
 
-  hLayout->addWidget(thermalComfortModelTypeComboBox);
-  m_mainGridLayout->addLayout(hLayout,row, 0, 3, Qt::AlignTop|Qt::AlignLeft);
+  lastHBoxLayout->addWidget(thermalComfortModelTypeComboBox);
+  // Spans 1 row and 3 columns
+  m_mainGridLayout->addLayout(lastHBoxLayout,row, 0, 1, 3, Qt::AlignTop|Qt::AlignLeft);
 
   thermalComfortModelTypeComboBox->bind<std::string>(
     *m_peopleDefinition,
@@ -395,6 +425,9 @@ OSComboBox2 * PeopleDefinitionInspectorView::addThermalComfortModelTypeComboBox(
 
   // Store a ref for unbind in detach
   m_thermalComfortModelTypeComboBoxes.push_back(thermalComfortModelTypeComboBox);
+
+  // Adjust stretch
+  adjustRowStretch();
 
   return thermalComfortModelTypeComboBox;
 }
@@ -428,17 +461,25 @@ void PeopleDefinitionInspectorView::toggleUnits(bool displayIP)
 {
 }
 
-void PeopleDefinitionInspectorView::checkRemoveBtn( QPushButton* btn )
+void PeopleDefinitionInspectorView::checkButtons()
 {
   if (m_peopleDefinition) {
     unsigned int numFields = m_peopleDefinition->numFields();
-    unsigned int numNonEx = m_peopleDefinition->numNonextensibleFields();
 
+    unsigned int numNonEx = m_peopleDefinition->numNonextensibleFields();
     if((numFields - numNonEx) <=0 ){
-      btn->setEnabled( false );
+      removeBtn->setEnabled( false );
     }
     else{
-      btn->setEnabled( true );
+      removeBtn->setEnabled( true );
+    }
+
+    unsigned int numMax = m_peopleDefinition->maxFields().get();
+    if (numFields == numMax) {
+      addBtn->setEnabled( false );
+    }
+    else{
+      addBtn->setEnabled( true );
     }
   }
 }
@@ -452,10 +493,10 @@ void PeopleDefinitionInspectorView::addExtensible()
   // eg.setString(0, "Fanger");
   // connectWorkspaceObjectSignals();
 
-  // Always want the "+" button enabled
-  //QPushButton* source = dynamic_cast<QPushButton*>(sender());
-  //OS_ASSERT(source);
-  // checkRemoveBtn( source );
+  LOG(Debug, "addExtensible, rowCount=" << m_mainGridLayout->rowCount() << ", alt=" << m_mainGridLayout->count()/m_mainGridLayout->columnCount()
+      << ", lastRow=" << lastRow);
+
+  checkButtons();
   //emit dirty();
   //rebuild(false);
 }
@@ -466,9 +507,37 @@ void PeopleDefinitionInspectorView::removeExtensible()
   m_peopleDefinition->popExtensibleGroup();
   // connectWorkspaceObjectSignals();
 
-  QPushButton* source = dynamic_cast<QPushButton*>(sender());
-  OS_ASSERT(source);
-  checkRemoveBtn( source );
+  OSComboBox2 * thermalComfortModelTypeComboBox = m_thermalComfortModelTypeComboBoxes.back();
+  thermalComfortModelTypeComboBox->unbind();
+
+  LOG(Debug, "removeExtensible, rowCount=" << m_mainGridLayout->rowCount() << ", alt=" << m_mainGridLayout->count()/m_mainGridLayout->columnCount()
+      << ", lastRow=" << lastRow);
+
+  QHBoxLayout * x = m_HBoxLayouts.back();
+  LOG(Debug, "Pointing to same? " << std::boolalpha << (x == lastHBoxLayout));
+
+  // Remove from Grid
+  // m_mainGridLayout->removeWidget(lastHBoxLayout->widget());
+
+  // NOT WORKING: m_mainGridLayout->removeWidget(m_mainGridLayout->itemAtPosition(lastRow, 0)->widget());
+
+  --lastRow;
+  // Then delete
+  //QLayoutItem *child;
+  //while ((child = lastHBoxLayout->takeAt(0)) != 0) {
+    //delete child;
+  //}
+  // delete lastHBoxLayout;
+
+  // Remove from vector and Set pointer to new last
+  m_HBoxLayouts.pop_back();
+  if (m_HBoxLayouts.empty()) {
+    lastHBoxLayout = nullptr;
+  } else {
+    lastHBoxLayout = m_HBoxLayouts.back();
+  }
+
+  checkButtons();
   //emit dirty();
   //rebuild(false);
 }

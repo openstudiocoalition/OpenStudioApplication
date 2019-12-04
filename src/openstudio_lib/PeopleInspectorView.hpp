@@ -33,8 +33,11 @@
 #include "ModelObjectInspectorView.hpp"
 #include <openstudio/src/model/PeopleDefinition.hpp>
 
+#include <openstudio/src/utilities/core/Logger.hpp>
+
 class QGridLayout;
 class QPushButton;
+class QHBoxLayout;
 
 namespace openstudio {
 
@@ -59,6 +62,8 @@ class PeopleDefinitionInspectorView : public ModelObjectInspectorView
 
     void removeExtensible();
 
+    void toggleUnits(bool displayIP) override;
+
   protected:
 
     virtual void onClearSelection() override;
@@ -67,9 +72,13 @@ class PeopleDefinitionInspectorView : public ModelObjectInspectorView
 
     virtual void onUpdate() override;
 
-    void checkRemoveBtn( QPushButton* btn );
+    // Disable remove extensible group button if no groups left to remove
+    // Disable add extensible group button if can't add more (maxFields)
+    void checkButtons();
 
   private:
+
+    REGISTER_LOGGER("openstudio.PeopleDefinitionInspectorView");
 
     void attach(openstudio::model::PeopleDefinition& peopleDefinition);
 
@@ -77,9 +86,12 @@ class PeopleDefinitionInspectorView : public ModelObjectInspectorView
 
     void refresh();
 
+    void adjustRowStretch();
+
     OSComboBox2 * addThermalComfortModelTypeComboBox(int groupIndex);
 
     QGridLayout* m_mainGridLayout;
+    int lastRow;
 
     OSLineEdit2* m_nameEdit;
 
@@ -90,18 +102,20 @@ class PeopleDefinitionInspectorView : public ModelObjectInspectorView
     OSDoubleEdit2* m_sensibleHeatFractionEdit;
     OSQuantityEdit2* m_carbonDioxideGenerationRateEdit;
 
-
-    // how to handle the extensible groups
     OSSwitch2* m_enableASHRAE55ComfortWarningsSwitch;
     OSComboBox2* m_meanRadiantTemperatureCalculationTypeComboBox;
+
+    // how to handle the extensible groups
     std::vector<OSComboBox2*> m_thermalComfortModelTypeComboBoxes;
+    QPushButton * addBtn;
+    QPushButton * removeBtn;
+    QHBoxLayout * lastHBoxLayout; // For deletion
+    std::vector<QHBoxLayout*> m_HBoxLayouts;
+
 
     bool m_isIP;
     boost::optional<model::PeopleDefinition> m_peopleDefinition;
 
-  public slots:
-
-    void toggleUnits(bool displayIP) override;
 };
 
 } // openstudio
