@@ -78,6 +78,7 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP,
   visibleWidget->setLayout(m_mainGridLayout);
 
   int row = m_mainGridLayout->rowCount();
+  LOG(Debug, "Initial row=" << row);
 
   // name
   auto vLayout = new QVBoxLayout();
@@ -251,14 +252,14 @@ void PeopleDefinitionInspectorView::adjustRowStretch() {
   LOG(Debug, "adjustRowStretch, rowCount=" << m_mainGridLayout->rowCount() << ", alt=" << m_mainGridLayout->count()/m_mainGridLayout->columnCount()
       << ", lastRow=" << lastRow);
 
-  int row = m_mainGridLayout->rowCount();
-  for (int i = 0; i < row; ++i) {
+  // int row = m_mainGridLayout->rowCount();
+  for (int i = 0; i <= lastRow; ++i) {
     // set Row Stretch to the default of 0
     m_mainGridLayout->setRowStretch(i, 0);
     m_mainGridLayout->setRowMinimumHeight(i, 30);
   }
   // row after the last used: set a strech of 1 to push everything up
-  m_mainGridLayout->setRowStretch(row, 1);
+  m_mainGridLayout->setRowStretch(lastRow+1, 1);
 }
 
 void PeopleDefinitionInspectorView::onClearSelection()
@@ -384,14 +385,17 @@ void PeopleDefinitionInspectorView::attach(openstudio::model::PeopleDefinition& 
 
 OSComboBox2 * PeopleDefinitionInspectorView::addThermalComfortModelTypeComboBox(int groupIndex) {
 
-  int row = m_mainGridLayout->rowCount();
+  // int row = m_mainGridLayout->rowCount();
 
   // Increment last row
   ++lastRow;
 
   LOG(Debug, "addThermalComfortModelTypeComboBox, rowCount=" << m_mainGridLayout->rowCount() << ", alt=" << m_mainGridLayout->count()/m_mainGridLayout->columnCount() << ", lastRow=" << lastRow);
 
-  lastHBoxLayout = new QHBoxLayout();
+  // Put it in a widget so we can delete and hide
+  lastRowWidget = new QWidget();
+  m_rowWidgets.push_back(lastRowWidget);
+  lastHBoxLayout = new QHBoxLayout(lastRowWidget);
   m_HBoxLayouts.push_back(lastHBoxLayout);
   // groupIndex is 0-indexed
   QLabel * label = new QLabel("Thermal Comfort Model Type " + QString::number(groupIndex + 1));
@@ -411,7 +415,7 @@ OSComboBox2 * PeopleDefinitionInspectorView::addThermalComfortModelTypeComboBox(
 
   lastHBoxLayout->addWidget(thermalComfortModelTypeComboBox);
   // Spans 1 row and 3 columns
-  m_mainGridLayout->addLayout(lastHBoxLayout,row, 0, 1, 3, Qt::AlignTop|Qt::AlignLeft);
+  m_mainGridLayout->addWidget(lastRowWidget,lastRow, 0, 1, 3, Qt::AlignTop|Qt::AlignLeft);
 
   thermalComfortModelTypeComboBox->bind<std::string>(
     *m_peopleDefinition,
@@ -503,12 +507,14 @@ void PeopleDefinitionInspectorView::addExtensible()
 
 void PeopleDefinitionInspectorView::removeExtensible()
 {
+
+  OSComboBox2 * thermalComfortModelTypeComboBox = m_thermalComfortModelTypeComboBoxes.back();
+  thermalComfortModelTypeComboBox->unbind();
+
   // disconnectWorkspaceObjectSignals();
   m_peopleDefinition->popExtensibleGroup();
   // connectWorkspaceObjectSignals();
 
-  OSComboBox2 * thermalComfortModelTypeComboBox = m_thermalComfortModelTypeComboBoxes.back();
-  thermalComfortModelTypeComboBox->unbind();
 
   LOG(Debug, "removeExtensible, rowCount=" << m_mainGridLayout->rowCount() << ", alt=" << m_mainGridLayout->count()/m_mainGridLayout->columnCount()
       << ", lastRow=" << lastRow);
@@ -519,17 +525,33 @@ void PeopleDefinitionInspectorView::removeExtensible()
   // Remove from Grid
   // m_mainGridLayout->removeWidget(lastHBoxLayout->widget());
 
-  // NOT WORKING: m_mainGridLayout->removeWidget(m_mainGridLayout->itemAtPosition(lastRow, 0)->widget());
+  LOG(Debug, "m_rowWidgets.back() == lastRowWidget : " << std::boolalpha << (m_rowWidgets.back() == lastRowWidget));
+  LOG(Debug, "lastHBoxLayout->widget() == lastRowWidget : " << std::boolalpha << (lastHBoxLayout->widget() == lastRowWidget));
+  LOG(Debug, "m_mainGridLayout->itemAtPosition(lastRow, 0)->widget() == lastRowWidget: " << std::boolalpha << (m_mainGridLayout->itemAtPosition(lastRow, 0)->widget() == lastRowWidget));
+
+  m_mainGridLayout->removeWidget(m_mainGridLayout->itemAtPosition(lastRow, 0)->widget());
+
+  lastRowWidget->setVisible(false);
+
+
+  // Then delete
+  QLayoutItem *child;
+  while ((child = lastHBoxLayout->takeAt(0)) != 0) {
+    delete child;
+  }
+  delete lastHBoxLayout;
+  delete lastRowWidget;
 
   --lastRow;
-  // Then delete
-  //QLayoutItem *child;
-  //while ((child = lastHBoxLayout->takeAt(0)) != 0) {
-    //delete child;
-  //}
-  // delete lastHBoxLayout;
 
   // Remove from vector and Set pointer to new last
+  m_rowWidgets.pop_back();
+  if (m_rowWidgets.empty()) {
+    lastRowWidget = nullptr;
+  } else {
+    lastRowWidget = m_rowWidgets.back();
+  }
+
   m_HBoxLayouts.pop_back();
   if (m_HBoxLayouts.empty()) {
     lastHBoxLayout = nullptr;

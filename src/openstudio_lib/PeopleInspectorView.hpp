@@ -110,8 +110,9 @@ class PeopleDefinitionInspectorView : public ModelObjectInspectorView
     QPushButton * addBtn;
     QPushButton * removeBtn;
     QHBoxLayout * lastHBoxLayout; // For deletion
+    QWidget* lastRowWidget;
     std::vector<QHBoxLayout*> m_HBoxLayouts;
-
+    std::vector<QWidget*> m_rowWidgets;
 
     bool m_isIP;
     boost::optional<model::PeopleDefinition> m_peopleDefinition;
