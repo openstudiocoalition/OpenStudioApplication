@@ -593,42 +593,83 @@ void OpenStudioApp::importIdf()
 
         connectOSDocumentSignals();
 
-        QMessageBox messageBox; // (parent); ETH: ... but is hidden, so don't actually use
-        messageBox.setText("Some portions of the idf file were not imported.");
-        messageBox.setInformativeText("Only geometry, constructions, loads, thermal zones, and schedules are supported by the OpenStudio IDF import feature.");
-
         QString log;
 
-        for( const auto & message : trans.errors() ) {
-          log.append("\n");
-          log.append("\n");
-          log.append(QString::fromStdString(message.logMessage()));
-          log.append("\n");
-          log.append("\n");
-        }
+        // DetailedText of QMessageBox is always interpreted a raw text, so not HTML formatting.
+/*
+ *        if (!trans.errors().empty()) {
+ *          log.append("<h3>Errors:</h3>");
+ *          log.append("<ul>");
+ *          for( const auto & message : trans.errors() ) {
+ *            log.append("<li>" + QString::fromStdString(message.logMessage()) + "</li>");
+ *          }
+ *          log.append("</ul>");
+ *        }
+ *
+ *        if (!trans.warnings().empty()) {
+ *          log.append("<h3>Warnings:</h3>");
+ *          log.append("<ul>");
+ *          for( const auto & message : trans.warnings() ) {
+ *            log.append("<li>" + QString::fromStdString(message.logMessage()) + "</li>");
+ *          }
+ *          log.append("</ul>");
+ *        }
+ *
+ *        if (!trans.untranslatedIdfObjects().empty()) {
+ *          log.append("<h3>The following idf objects were not imported:</h3>");
+ *          log.append("<ul>");
+ *
+ *          for( const auto & idfObject : trans.untranslatedIdfObjects() ) {
+ *            std::string message;
+ *            if( auto name = idfObject.name() ) {
+ *              message = idfObject.iddObject().name() + " named " + name.get();
+ *            } else {
+ *              message = "Unnamed " + idfObject.iddObject().name();
+ *            }
+ *            log.append("<li>" + QString::fromStdString(message) + "</li>");
+ *          }
+ *          log.append("</ul>");
+ *        }
+ */
 
-        for( const auto & message : trans.warnings() ) {
-          log.append(QString::fromStdString(message.logMessage()));
-          log.append("\n");
-          log.append("\n");
-        }
-
-        log.append("The following idf objects were not imported.");
-        log.append("\n");
-        log.append("\n");
-
-        for( const auto & idfObject : trans.untranslatedIdfObjects() ) {
-          std::string message;
-          if( auto name = idfObject.name() ) {
-            message = idfObject.iddObject().name() + " named " + name.get();
-          } else {
-            message = "Unammed " + idfObject.iddObject().name();
+        if (!trans.errors().empty()) {
+          log.append("=============== Errors ===============\n\n");
+          for( const auto & message : trans.errors() ) {
+            log.append(" * " + QString::fromStdString(message.logMessage()) + "\n");
           }
-          log.append(QString::fromStdString(message));
-          log.append("\n");
-          log.append("\n");
+          log.append("\n\n");
         }
 
+        if (!trans.warnings().empty()) {
+          log.append("============== Warnings ==============\n\n");
+          for( const auto & message : trans.warnings() ) {
+            log.append(" * " + QString::fromStdString(message.logMessage()) + "\n");
+          }
+          log.append("\n\n");
+        }
+
+        if (!trans.untranslatedIdfObjects().empty()) {
+          log.append("==== The following idf objects were not imported ====\n\n");
+
+          for( const auto & idfObject : trans.untranslatedIdfObjects() ) {
+            std::string message;
+            if( auto name = idfObject.name() ) {
+              message = idfObject.iddObject().name() + " named " + name.get();
+            } else {
+              message = "Unnamed " + idfObject.iddObject().name();
+            }
+            log.append(" * " + QString::fromStdString(message) + "\n");
+          }
+        }
+
+        QString text("<strong>Some portions of the IDF file were not imported.</strong>");
+
+        // QMessageBox messageBox; // (parent); ETH: ... but is hidden, so don't actually use
+        // messageBox.setText(text);
+
+        // Passing parent = nullptr on purpose here
+        QMessageBox messageBox(QMessageBox::Warning, "IDF Import", text, QMessageBox::NoButton, nullptr, Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
+        messageBox.setInformativeText("Only geometry, constructions, loads, thermal zones, and schedules are supported by the OpenStudio IDF import feature.");
         messageBox.setDetailedText(log);
 
         messageBox.exec();
