@@ -104,6 +104,8 @@
 #include <openstudio/src/model/ZoneHVACUnitHeater.hpp>
 #include <openstudio/src/model/ZoneHVACWaterToAirHeatPump.hpp>
 
+#include <openstudio/src/OpenStudio.hxx>
+
 #include <openstudio/src/osversion/VersionTranslator.hpp>
 
 #include <openstudio/src/energyplus/ForwardTranslator.hpp>
@@ -507,23 +509,63 @@ void OpenStudioApp::importIdf()
 
     boost::optional<IdfFile> idfFile;
 
-    idfFile = openstudio::IdfFile::load(toPath(fileName),IddFileType::EnergyPlus);
+    openstudio::path path = toPath(fileName);
+    idfFile = openstudio::IdfFile::load(path,IddFileType::EnergyPlus);
 
     if( idfFile )
     {
 
       IdfFile _idfFile = idfFile.get();
 
-      if (!_idfFile.isValid(StrictnessLevel::Draft)){
+      if (!_idfFile.isValid(StrictnessLevel::Draft)) {
 
-        QMessageBox messageBox(parent);
-        messageBox.setText("File is not valid to draft strictness.  Check that IDF is of correct version and that all fields are valid against Energy+.idd.");
+        // Something is wrong, try to be informative
+
+        // Retrieve IDF File Version
+        boost::optional<VersionString> idfFileVersion = openstudio::IdfFile::loadVersionOnly(path);
+
+        // Retrieve current version of E+ used by OS
+        VersionString currentVersion(energyPlusVersion());
+
+        QString informativeText;
+
+        if (idfFileVersion.has_value()) {
+
+          informativeText = QString("The IDF is at version '") + toQString(idfFileVersion->str());
+
+          if (idfFileVersion.get() < currentVersion) {
+            informativeText.append(QString("' while OpenStudio uses a <strong>newer</strong> EnergyPlus '")  + toQString(currentVersion.str())
+                                 + QString("'. Consider using the EnergyPlus Auxiliary program IDFVersionUpdater to update your IDF file."));
+          } else if (idfFileVersion.get() > currentVersion) {
+            informativeText.append(QString("' while OpenStudio uses an <strong>older</strong> EnergyPlus '")  + toQString(currentVersion.str()) + QString("'."));
+          } else {
+            informativeText.append(QString("' which is the <strong>same</strong> version of EnergyPlus that OpenStudio uses (")
+                                 + toQString(currentVersion.str()) + QString(")."));
+          }
+        } else {
+          informativeText = QString("<strong>The IDF does not have a VersionObject</strong>. Check that it is of correct version (")
+                          + toQString(currentVersion.str())
+                          + QString(") and that all fields are valid against Energy+.idd. ");
+        }
+
+        informativeText.append("<br/><br/>The ValidityReport follows.");
+
+        QString text("<strong>File is not valid to draft strictness</strong>. Check that all fields are valid against Energy+.idd.");
+
+        //QMessageBox messageBox(parent);
+        //messageBox.setText(text);
+
+        // Customize with title and critical icon
+        QMessageBox messageBox(QMessageBox::Critical, " IDF Import Failed", text, QMessageBox::NoButton, parent, Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
+
+        messageBox.setInformativeText(informativeText);
+
         std::stringstream ss;
         ss << _idfFile.validityReport(StrictnessLevel::Draft);
         messageBox.setDetailedText(toQString(ss.str()));
         messageBox.exec();
 
-      }else{
+      } else {
 
         Workspace workspace(_idfFile);
 
