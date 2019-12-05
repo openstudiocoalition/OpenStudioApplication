@@ -77,8 +77,8 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP,
   m_mainGridLayout->setSpacing(14);
   visibleWidget->setLayout(m_mainGridLayout);
 
-  int row = m_mainGridLayout->rowCount();
-  LOG(Debug, "Initial row=" << row);
+  // int row = m_mainGridLayout->rowCount(); // Starts at 1, I actually want 0
+  int row = 0;
 
   // name
   auto vLayout = new QVBoxLayout();
@@ -168,6 +168,7 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP,
 
   // Separator
   ++row;
+  // LOG(Debug, "Adding first separator at row=" << row);
   QFrame * line = new QFrame();
   line->setFrameShape(QFrame::HLine);
   line->setFrameShadow(QFrame::Sunken);
@@ -230,36 +231,37 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP,
 
   // Separator
   ++row;
+  // LOG(Debug, "Adding second separator at row=" << row);
   line = new QFrame();
   line->setFrameShape(QFrame::HLine);
   line->setFrameShadow(QFrame::Sunken);
   m_mainGridLayout->addWidget(line, row, 0, 1, 3); // , Qt::AlignTop|Qt::AlignLeft);
 
+  // Save position
   lastRow = row;
+  lastRowNonExtensible = lastRow;
 
-  ++row;
-
+  // Set row / col minimum dimensions
   m_mainGridLayout->setColumnMinimumWidth(0, 80);
   m_mainGridLayout->setColumnMinimumWidth(1, 80);
   m_mainGridLayout->setColumnMinimumWidth(2, 80);
-  m_mainGridLayout->setRowMinimumHeight(0, 30);
-  m_mainGridLayout->setRowMinimumHeight(1, 30);
-  m_mainGridLayout->setRowMinimumHeight(2, 30);
 
-  m_mainGridLayout->setColumnStretch(3,1); //set the stretch factor of column 3 (0-indexed) to 1, to push everything left
-  LOG(Debug, "Before setRowStretch, row=" << row << ", rowCount=" << m_mainGridLayout->rowCount() << ", lastRow=" << lastRow);
-  m_mainGridLayout->setRowStretch(row,1);
-  LOG(Debug, "After setRowStretch, row=" << row << ", rowCount=" << m_mainGridLayout->rowCount() << ", lastRow=" << lastRow);
+  for (int i = 0; i <= lastRow; ++i) {
+    m_mainGridLayout->setRowMinimumHeight(0, 30);
+  }
+
+  // The Idea here is to set the Strech factor of the row / column **after** the last one used to 1
+  // So that we basically push everything in the top left corner.
+  // Remember that row/cols are 0-indexed. We use 3 columns, so we set the column strech factor of the 4th column below
+  m_mainGridLayout->setColumnStretch(3, 1);
+  m_mainGridLayout->setRowStretch(lastRow + 1, 1);
 
 }
 
 void PeopleDefinitionInspectorView::adjustRowStretch() {
 
-  LOG(Debug, "adjustRowStretch, rowCount=" << m_mainGridLayout->rowCount() << ", alt=" << m_mainGridLayout->count()/m_mainGridLayout->columnCount()
-      << ", lastRow=" << lastRow);
-
   // int row = m_mainGridLayout->rowCount();
-  for (int i = 0; i <= lastRow; ++i) {
+  for (int i = lastRowNonExtensible + 1; i <= lastRow; ++i) {
     // set Row Stretch to the default of 0
     m_mainGridLayout->setRowStretch(i, 0);
     m_mainGridLayout->setRowMinimumHeight(i, 30);
@@ -361,29 +363,6 @@ void PeopleDefinitionInspectorView::attach(openstudio::model::PeopleDefinition& 
     addThermalComfortModelTypeComboBox(i_eg.groupIndex());
   }
 
-    //std::function<boost::optional<std::string>(model::PeopleDefinition *)> getter =
-      //[i](model::PeopleDefinition *t_peopleDefinition) {
-        //return t_peopleDefinition->getThermalComfortModelType(i);
-      //};
-
-    //std::function<bool(model::PeopleDefinition *, std::string)> setter =
-      //[this, i](model::PeopleDefinition *t_peopleDefinition, std::string t_value) {
-        //return t_peopleDefinition->setThermalComfortModelType(i, t_value);
-      //};
-
-    /*
-     *std::function<std::vector<std::string>()> choices =
-     *  []() {
-     *      //std::vector<std::string> result;
-     *      //result.push_back("Fanger");
-     *      //result.push_back("Pierce");
-     *      //result.push_back("KSU");
-     *      //result.push_back("AdaptiveASH55");
-     *      //result.push_back("AdaptiveCEN15251");
-     *      return std::vector<std::string>({"Fanger", "Pierce", "KSU", "AdaptiveASH55", "AdaptiveCEN15251"});
-     *  };
-     */
-
   checkButtons();
 
   this->stackedWidget()->setCurrentIndex(1);
@@ -391,12 +370,8 @@ void PeopleDefinitionInspectorView::attach(openstudio::model::PeopleDefinition& 
 
 OSComboBox2 * PeopleDefinitionInspectorView::addThermalComfortModelTypeComboBox(int groupIndex) {
 
-  // int row = m_mainGridLayout->rowCount();
-
   // Increment last row
   ++lastRow;
-
-  LOG(Debug, "addThermalComfortModelTypeComboBox, rowCount=" << m_mainGridLayout->rowCount() << ", alt=" << m_mainGridLayout->count()/m_mainGridLayout->columnCount() << ", lastRow=" << lastRow);
 
   // Put it in a widget so we can delete and hide
   lastRowWidget = new QWidget();
@@ -427,11 +402,11 @@ OSComboBox2 * PeopleDefinitionInspectorView::addThermalComfortModelTypeComboBox(
     *m_peopleDefinition,
     static_cast<std::string (*)(const std::string&)>(&openstudio::toString),   // toString
     &model::PeopleDefinition::thermalComfortModelTypeValues, // choices: This returns an empty array...
-    OptionalStringGetter(std::bind(&model::PeopleDefinition::getThermalComfortModelType, m_peopleDefinition.get_ptr(), groupIndex)), // getter
+    // getter, passing groupIndex as 1st and only parameter
+    OptionalStringGetter(std::bind(&model::PeopleDefinition::getThermalComfortModelType, m_peopleDefinition.get_ptr(), groupIndex)),
+    // setter, passing groupIndex as first param, then the placeholder (string)
     std::bind(&model::PeopleDefinition::setThermalComfortModelType, m_peopleDefinition.get_ptr(), groupIndex, std::placeholders::_1)
-    // getter,
-    // setter
-  ); // No reset nor isDefaulted
+    ); // No reset nor isDefaulted
 
   // Store a ref for unbind in detach
   m_thermalComfortModelTypeComboBoxes.push_back(thermalComfortModelTypeComboBox);
@@ -496,48 +471,38 @@ void PeopleDefinitionInspectorView::checkButtons()
 
 void PeopleDefinitionInspectorView::addExtensible()
 {
-  // disconnectWorkspaceObjectSignals();
   IdfExtensibleGroup eg = m_peopleDefinition->pushExtensibleGroup();
-  addThermalComfortModelTypeComboBox(eg.groupIndex());
   // Default to Fanger so we have a value...
   // eg.setString(0, "Fanger");
-  // connectWorkspaceObjectSignals();
-
-  LOG(Debug, "addExtensible, rowCount=" << m_mainGridLayout->rowCount() << ", alt=" << m_mainGridLayout->count()/m_mainGridLayout->columnCount()
-      << ", lastRow=" << lastRow);
+  addThermalComfortModelTypeComboBox(eg.groupIndex());
 
   checkButtons();
-  //emit dirty();
-  //rebuild(false);
 }
 
 void PeopleDefinitionInspectorView::removeExtensible()
 {
-  LOG(Debug, "Start of removeExtensible, size of m_thermalComfortModelTypeComboBoxes=" << m_thermalComfortModelTypeComboBoxes.size()
-      << ", m_HBoxLayouts=" << m_HBoxLayouts.size());
-
+  //LOG(Debug, "Start of removeExtensible, size of m_thermalComfortModelTypeComboBoxes=" << m_thermalComfortModelTypeComboBoxes.size()
+  //    << ", m_HBoxLayouts=" << m_HBoxLayouts.size());
 
   OSComboBox2 * thermalComfortModelTypeComboBox = m_thermalComfortModelTypeComboBoxes.back();
   thermalComfortModelTypeComboBox->unbind();
   m_thermalComfortModelTypeComboBoxes.pop_back();
 
-  // disconnectWorkspaceObjectSignals();
   m_peopleDefinition->popExtensibleGroup();
-  // connectWorkspaceObjectSignals();
 
+  // LOG(Debug, "removeExtensible, rowCount=" << m_mainGridLayout->rowCount() << ", lastRow=" << lastRow);
 
-  LOG(Debug, "removeExtensible, rowCount=" << m_mainGridLayout->rowCount() << ", alt=" << m_mainGridLayout->count()/m_mainGridLayout->columnCount()
-      << ", lastRow=" << lastRow);
+  // true
+  // LOG(Debug, "Pointing to same? " << std::boolalpha << (m_HBoxLayouts.back() == lastHBoxLayout));
 
-  QHBoxLayout * x = m_HBoxLayouts.back();
-  LOG(Debug, "Pointing to same? " << std::boolalpha << (x == lastHBoxLayout));
+  // LOG(Debug, "m_rowWidgets.back() == lastRowWidget : " << std::boolalpha << (m_rowWidgets.back() == lastRowWidget));
+  // LOG(Debug, "lastHBoxLayout->widget() == lastRowWidget : " << std::boolalpha << (lastHBoxLayout->widget() == lastRowWidget));
+  // LOG(Debug, "m_mainGridLayout->itemAtPosition(lastRow, 0)->widget() == lastRowWidget: " << std::boolalpha << (m_mainGridLayout->itemAtPosition(lastRow, 0)->widget() == lastRowWidget));
+  // Output:
+  // lastHBoxLayout->widget() == lastRowWidget : false
+  // m_mainGridLayout->itemAtPosition(lastRow, 0)->widget() == lastRowWidget: true
+  // m_rowWidgets.back() == lastRowWidget : true
 
-  // Remove from Grid
-  // m_mainGridLayout->removeWidget(lastHBoxLayout->widget());
-
-  LOG(Debug, "m_rowWidgets.back() == lastRowWidget : " << std::boolalpha << (m_rowWidgets.back() == lastRowWidget));
-  LOG(Debug, "lastHBoxLayout->widget() == lastRowWidget : " << std::boolalpha << (lastHBoxLayout->widget() == lastRowWidget));
-  LOG(Debug, "m_mainGridLayout->itemAtPosition(lastRow, 0)->widget() == lastRowWidget: " << std::boolalpha << (m_mainGridLayout->itemAtPosition(lastRow, 0)->widget() == lastRowWidget));
 
   m_mainGridLayout->removeWidget(m_mainGridLayout->itemAtPosition(lastRow, 0)->widget());
 
@@ -552,6 +517,7 @@ void PeopleDefinitionInspectorView::removeExtensible()
   delete lastHBoxLayout;
   delete lastRowWidget;
 
+  // Decrement last row used
   --lastRow;
 
   // Remove from vector and Set pointer to new last
@@ -570,10 +536,6 @@ void PeopleDefinitionInspectorView::removeExtensible()
   }
 
   checkButtons();
-  //emit dirty();
-  //rebuild(false);
-  LOG(Debug, "End of removeExtensible, size of m_thermalComfortModelTypeComboBoxes=" << m_thermalComfortModelTypeComboBoxes.size()
-      << ", m_HBoxLayouts=" << m_HBoxLayouts.size());
 }
 
 } // openstudio

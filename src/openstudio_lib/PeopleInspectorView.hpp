@@ -91,6 +91,7 @@ class PeopleDefinitionInspectorView : public ModelObjectInspectorView
     OSComboBox2 * addThermalComfortModelTypeComboBox(int groupIndex);
 
     QGridLayout* m_mainGridLayout;
+    int lastRowNonExtensible;
     int lastRow;
 
     OSLineEdit2* m_nameEdit;
