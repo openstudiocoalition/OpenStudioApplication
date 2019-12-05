@@ -86,6 +86,8 @@ class PeopleDefinitionInspectorView : public ModelObjectInspectorView
 
     void refresh();
 
+    // Adjusts the stretch of rows after adding/removing extensible groups, so that all rows have a stretch factor or 0 (default)
+    // except the row following the last row with data that has a strech of 1 => pushes everything up
     void adjustRowStretch();
 
     OSComboBox2 * addThermalComfortModelTypeComboBox(int groupIndex);
@@ -110,7 +112,9 @@ class PeopleDefinitionInspectorView : public ModelObjectInspectorView
     std::vector<OSComboBox2*> m_thermalComfortModelTypeComboBoxes;
     QPushButton * addBtn;
     QPushButton * removeBtn;
-    QHBoxLayout * lastHBoxLayout; // For deletion
+
+    // For deletion / indexing (really only the vectors could be used)
+    QHBoxLayout * lastHBoxLayout;
     QWidget* lastRowWidget;
     std::vector<QHBoxLayout*> m_HBoxLayouts;
     std::vector<QWidget*> m_rowWidgets;

@@ -172,6 +172,7 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP,
   QFrame * line = new QFrame();
   line->setFrameShape(QFrame::HLine);
   line->setFrameShadow(QFrame::Sunken);
+  // Important not to specific AlignTop & AlignLeft  or it's not displayed
   m_mainGridLayout->addWidget(line, row, 0, 1, 3); // , Qt::AlignTop|Qt::AlignLeft);
 
   // Confort stuff
