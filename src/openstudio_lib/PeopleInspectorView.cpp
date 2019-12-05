@@ -168,12 +168,10 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP,
 
   // Separator
   ++row;
-  QFrame * line;
-  line = new QFrame();
+  QFrame * line = new QFrame();
   line->setFrameShape(QFrame::HLine);
   line->setFrameShadow(QFrame::Sunken);
-  m_mainGridLayout->addWidget(line, row, 0, 1, 3, Qt::AlignTop|Qt::AlignLeft);
-
+  m_mainGridLayout->addWidget(line, row, 0, 1, 3); // , Qt::AlignTop|Qt::AlignLeft);
 
   // Confort stuff
   ++row;
@@ -206,6 +204,7 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP,
   hbox->setMargin(0);
 
   label = new QLabel(tr("Add/Remove Extensible Groups"));
+  label->setObjectName("H2");
 
   addBtn = new QPushButton();
   QIcon ico(":images/edit_add.png");
@@ -228,6 +227,13 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP,
   hbox->addWidget(addBtn);
   hbox->addWidget(removeBtn);
   m_mainGridLayout->addLayout(hbox,row,0,1,3, Qt::AlignTop|Qt::AlignLeft);
+
+  // Separator
+  ++row;
+  line = new QFrame();
+  line->setFrameShape(QFrame::HLine);
+  line->setFrameShadow(QFrame::Sunken);
+  m_mainGridLayout->addWidget(line, row, 0, 1, 3); // , Qt::AlignTop|Qt::AlignLeft);
 
   lastRow = row;
 
