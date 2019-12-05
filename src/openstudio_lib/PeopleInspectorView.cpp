@@ -507,9 +507,13 @@ void PeopleDefinitionInspectorView::addExtensible()
 
 void PeopleDefinitionInspectorView::removeExtensible()
 {
+  LOG(Debug, "Start of removeExtensible, size of m_thermalComfortModelTypeComboBoxes=" << m_thermalComfortModelTypeComboBoxes.size()
+      << ", m_HBoxLayouts=" << m_HBoxLayouts.size());
+
 
   OSComboBox2 * thermalComfortModelTypeComboBox = m_thermalComfortModelTypeComboBoxes.back();
   thermalComfortModelTypeComboBox->unbind();
+  m_thermalComfortModelTypeComboBoxes.pop_back();
 
   // disconnectWorkspaceObjectSignals();
   m_peopleDefinition->popExtensibleGroup();
@@ -562,6 +566,8 @@ void PeopleDefinitionInspectorView::removeExtensible()
   checkButtons();
   //emit dirty();
   //rebuild(false);
+  LOG(Debug, "End of removeExtensible, size of m_thermalComfortModelTypeComboBoxes=" << m_thermalComfortModelTypeComboBoxes.size()
+      << ", m_HBoxLayouts=" << m_HBoxLayouts.size());
 }
 
 } // openstudio
