@@ -29,6 +29,7 @@
     <file>images/coil_ht_dx_singlespeed.png</file>
     <file>images/coil_system_coolingwater_heat_exchanger.png</file>
     <file>images/coilcoolingchilledbeam.png</file>
+    <file>images/coilheatingdesuperheater.png</file>
     <file>images/coilcoolingfourpipebeam.png</file>
     <file>images/coilheatingfourpipebeam.png</file>
     <file>images/coilcoolinglowtemprad_constflow.png</file>
@@ -150,6 +151,7 @@
     <file>images/lowtempradiant_constflow.png</file>
     <file>images/lowtempradiant_varflow.png</file>
     <file>images/mechanical-sub-cooler.png</file>
+    <file>images/missing_icon.png</file>
     <file>images/mixer.png</file>
     <file>images/OAMixer.png</file>
     <file>images/off_building_tab.png</file>
@@ -356,6 +358,7 @@
     <file>images/mini_icons/coilcoolingchilledbeam_mini.png</file>
     <file>images/mini_icons/coilcoolingfourpipebeam.png</file>
     <file>images/mini_icons/coilheatingfourpipebeam.png</file>
+    <file>images/mini_icons/coilheatingdesuperheater.png</file>
     <file>images/mini_icons/coilcoolinglowtemprad_constflow.png</file>
     <file>images/mini_icons/coilcoolinglowtemprad_varflow.png</file>
     <file>images/mini_icons/coilheatinglowtemprad_constflow.png</file>
@@ -466,6 +469,7 @@
     <file>images/mini_icons/mini_headered_pumps_variable.png</file>
     <file>images/mini_icons/mini_infiltration_leak.png</file>
     <file>images/mini_icons/mini_mechanical-sub-cooler.png</file>
+    <file>images/mini_icons/missing_icon.png</file>
     <file>images/mini_icons/pipe.png</file>
     <file>images/mini_icons/mini_pipe_adiabatic.png</file>
     <file>images/mini_icons/mini_pipe_indoor.png</file>
