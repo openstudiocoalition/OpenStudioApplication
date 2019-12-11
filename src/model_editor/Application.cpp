@@ -83,10 +83,17 @@ QCoreApplication* ApplicationSingleton::application(bool gui)
       QCoreApplication::setAttribute(Qt::AA_MacPluginApplication, true);
 
       // dir containing the current module, can be openstudio.so or openstudio.exe
-      openstudio::path openstudioDirPath = getOpenStudioModuleDirectory();
+      openstudio::path openstudioModuleDirPath = getOpenStudioModuleDirectory();
 
       // Add the current module path to the backup plugin search location
-      QCoreApplication::addLibraryPath(toQString(openstudioDirPath));
+      QCoreApplication::addLibraryPath(toQString(openstudioModuleDirPath));
+
+      // DLM: the code below is pretty kludgy, it depends on installation of the OpenStudio Application components
+      openstudio::path openstudioPossibleBinDirPath = openstudioModuleDirPath / openstudio::toPath("../bin/");
+      QCoreApplication::addLibraryPath(toQString(openstudioPossibleBinDirPath));
+      
+      openstudioPossibleBinDirPath = openstudioModuleDirPath / openstudio::toPath("../bin/platforms/");
+      QCoreApplication::addLibraryPath(toQString(openstudioPossibleBinDirPath));
 
       // Make the ruby path the default plugin search location
 //#if defined(Q_OS_DARWIN)

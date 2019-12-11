@@ -7,17 +7,19 @@ elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
   set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} --unresolved-symbols=ignore-all")
 endif()
 
+if (UNIX)
+  # Disable register warnings
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-error=register -Wno-register")
+endif()
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR} ${PROJECT_BINARY_DIR} ${PROJECT_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DIR} )
-
-#target_link_libraries(init_openstudio
- ##ruby_OpenStudioModelEditor # linked by openstudio_modeleditor.so only, for SketchUp plugin
-#)
 
 add_library(openstudio_modeleditor_rb MODULE
   RubyAPI.hpp
   openstudio_modeleditor_rb.cpp
 )
+target_include_directories(openstudio_modeleditor_rb PRIVATE ${RUBY_INCLUDE_DIRS})
+
 set_target_properties(openstudio_modeleditor_rb PROPERTIES PREFIX "")
 set_target_properties(openstudio_modeleditor_rb PROPERTIES OUTPUT_NAME openstudio_modeleditor)
 
@@ -32,6 +34,7 @@ else()
 endif()
 
 if(MSVC)
+  # wd4996=no deprecated warnings ; wd5033=register
   set_target_properties(openstudio_modeleditor_rb PROPERTIES COMPILE_FLAGS "/bigobj /wd4996 /wd5033")
 endif()
 
@@ -42,13 +45,10 @@ add_custom_command(TARGET openstudio_modeleditor_rb
 
 target_link_libraries(openstudio_modeleditor_rb
   ruby_OpenStudioModelEditor
-  openstudio_modeleditor
-  ${QT_LIBS}
+  openstudio_lib
+  openstudio_bimserver
+  ${QT_WEB_LIBS}
 )
-
-if( UNIX AND NOT APPLE )
-  target_link_libraries(openstudio_modeleditor_rb ${QT_WEB_LIBS})
-endif()
 
 if( WIN32 )
   target_link_libraries(openstudio_modeleditor_rb ${RUBY_MINGW_STUB_LIB})
@@ -57,21 +57,6 @@ endif()
 install(TARGETS openstudio_modeleditor_rb DESTINATION Ruby COMPONENT "RubyAPI")
 install(FILES openstudio_modeleditor.rb DESTINATION Ruby COMPONENT "RubyAPI")
 
-
-# don't need modeleditor libs in pat
 if( BUILD_PAT )
-  if( APPLE )
-    install(TARGETS openstudio_rb
-      DESTINATION ParametricAnalysisTool.app/Contents/Resources/OpenStudio/Ruby/
-      COMPONENT PAT
-    )
-    install(FILES openstudio.rb
-      DESTINATION ParametricAnalysisTool.app/Contents/Resources/OpenStudio/Ruby/
-      COMPONENT PAT
-    )
-    install(DIRECTORY openstudio
-      DESTINATION ParametricAnalysisTool.app/Contents/Resources/OpenStudio/Ruby/
-      COMPONENT PAT
-    )
-  endif()
+  # don't need modeleditor libs in pat
 endif()
