@@ -3,7 +3,6 @@ name: Bug Report
 about: Use this template for reporting an issue.
 labels: Triage
 ---
-
 Issue overview
 --------------
 
@@ -21,6 +20,7 @@ Steps to Reproduce:
 **Reason to think this is a bug:**
 
 ### Details
+
 Some additional details for this issue (if relevant):
  - Platform (Operating system, version)
  - Version of OpenStudioApplication (if using an intermediate build, include SHA)
