@@ -5,23 +5,32 @@ labels: Triage
 ---
 Issue overview
 --------------
+<!--- Provide a general summary of the issue -->
 
-Please change this line to a description of the defect, with useful supporting information including how the issue was found, conditions that trigger this defect,
-workarounds for users of the current version, and a clear description of how to validate that a fix is complete for this defect.
+## Current Behavior
+<!--- Tell us what happens instead of the expected behavior -->
 
-Steps to Reproduce:
+## Expected Behavior
+<!--- Tell us what should happen -->
 
-**Observed Result:**
+## Steps to Reproduce
+<!-- Provide an unambiguous set of steps to reproduce this bug. -->
+<!--- Provide a link to a model that has the bug (a minimum complete and verifiable example (MCVE) is preferred) and/or code to reproduce -->
+1.
+2.
+3.
+4.
 
-**Expected Result:**
+## Possible Solution
+<!--- Optional, but if you can, suggest a fix/reason for the bug, -->
 
-**Desired Action:**
+## Details
 
-**Reason to think this is a bug:**
+### Environment
 
-### Details
+Some additional details about your environment for this issue (if relevant):
+ - Platform (Operating system, version):
+ - Version of OpenStudioApplication (if using an intermediate build, include SHA):
 
-Some additional details for this issue (if relevant):
- - Platform (Operating system, version)
- - Version of OpenStudioApplication (if using an intermediate build, include SHA)
-
+### Context
+<!--- How has this issue affected you? What are you trying to accomplish? -->
