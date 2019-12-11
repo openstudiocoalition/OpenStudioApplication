@@ -495,6 +495,7 @@ void SchedulesTabController::setSubTab(int index)
     disconnect(qobject_cast<SchedulesView *>(m_currentView), &SchedulesView::addRuleClicked, this, &SchedulesTabController::addRule);
     disconnect(qobject_cast<SchedulesView *>(m_currentView), &SchedulesView::addSummerProfileClicked, this, &SchedulesTabController::addSummerProfile);
     disconnect(qobject_cast<SchedulesView *>(m_currentView), &SchedulesView::addWinterProfileClicked, this, &SchedulesTabController::addWinterProfile);
+    disconnect(qobject_cast<SchedulesView *>(m_currentView), &SchedulesView::addHolidayProfileClicked, this, &SchedulesTabController::addHolidayProfile);
     disconnect(qobject_cast<SchedulesView *>(m_currentView), &SchedulesView::dayScheduleSceneChanged, this, &SchedulesTabController::onDayScheduleSceneChanged);
     disconnect(qobject_cast<SchedulesView *>(m_currentView), &SchedulesView::startDateTimeChanged, this, &SchedulesTabController::onStartDateTimeChanged);
     disconnect(qobject_cast<SchedulesView *>(m_currentView), &SchedulesView::endDateTimeChanged, this, &SchedulesTabController::onEndDateTimeChanged);
@@ -532,6 +533,7 @@ void SchedulesTabController::setSubTab(int index)
     connect(schedulesView, &SchedulesView::addRuleClicked, this, &SchedulesTabController::addRule);
     connect(schedulesView, &SchedulesView::addSummerProfileClicked, this, &SchedulesTabController::addSummerProfile);
     connect(schedulesView, &SchedulesView::addWinterProfileClicked, this, &SchedulesTabController::addWinterProfile);
+    connect(schedulesView, &SchedulesView::addHolidayProfileClicked, this, &SchedulesTabController::addHolidayProfile);
     connect(schedulesView, &SchedulesView::dayScheduleSceneChanged, this, &SchedulesTabController::onDayScheduleSceneChanged);
     connect(schedulesView, &SchedulesView::startDateTimeChanged, this, &SchedulesTabController::onStartDateTimeChanged);
     connect(schedulesView, &SchedulesView::endDateTimeChanged, this, &SchedulesTabController::onEndDateTimeChanged);
