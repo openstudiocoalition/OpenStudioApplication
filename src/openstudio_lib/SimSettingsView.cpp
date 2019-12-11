@@ -116,13 +116,19 @@ SimSettingsView::SimSettingsView(bool isIP,
   m_performZoneSizing(nullptr),
   m_performSystemSizing(nullptr),
   m_performPlantSizing(nullptr),
-  m_dateRangelabel(nullptr),
-  m_startDateEdit(nullptr),
-  m_endDateEdit(nullptr),
   m_runPeriodGroup(nullptr),
   m_radianceGroup(nullptr),
   m_runPeriodName(nullptr),
   m_isIP(isIP),
+  // Run Period
+  m_dateRangelabel(nullptr),
+  m_startDateEdit(nullptr),
+  m_endDateEdit(nullptr),
+  m_useWeatherFileHolidaysandSpecialDays(nullptr),
+  m_useWeatherFileDaylightSavingsPeriod(nullptr),
+  m_applyWeekendHolidayRule(nullptr),
+  m_useWeatherFileRainIndicators(nullptr),
+  m_useWeatherFileSnowIndicators(nullptr),
   // SimulationControl
   m_doZoneSizingCalculation(nullptr),
   m_doSystemSizingCalculation(nullptr),
@@ -236,6 +242,9 @@ void SimSettingsView::createWidgets()
 
   //******************* OS:Timestep *******************
   mainLayout->addWidget(createTimestepWidget());
+
+  collapsibleInspector = new CollapsibleInspector("Advanced RunPeriod Parameters",createRunPeriodAdvancedWidget());
+  mainLayout->addWidget(collapsibleInspector);
 
   //******************* OS:RadianceParameters *******************
   collapsibleInspector = new CollapsibleInspector("Radiance Parameters",createRadianceParametersWidget());
@@ -400,6 +409,55 @@ QWidget * SimSettingsView::createRunPeriodWidget()
 
   auto widget = new QWidget();
   widget->setLayout(mainVLayout);
+
+  return widget;
+}
+
+QWidget * SimSettingsView::createRunPeriodAdvancedWidget()
+{
+  // These are the "advanced" fields from the RunPeriod object
+  auto gridLayout = new QGridLayout();
+  gridLayout->setContentsMargins(7,7,7,7);
+  gridLayout->setSpacing(GRID_LAYOUT_SPACING);
+
+  // Number of times repeated isn't translated
+
+  int row = 0;
+  int col = 0;
+  QSpacerItem * spacerItem = nullptr;
+
+  addField(gridLayout,row,col,"Use Weather File Holidays and Special Days",m_useWeatherFileHolidaysandSpecialDays);
+  col++;
+  spacerItem = new QSpacerItem(SPACERITEM_WIDTH,1,QSizePolicy::Fixed,QSizePolicy::Fixed);
+  gridLayout->addItem(spacerItem,row,col++);
+  addField(gridLayout,row,col,"Use Weather File Daylight Savings Period",m_useWeatherFileDaylightSavingsPeriod);
+
+  row = row + 2;
+  spacerItem = new QSpacerItem(1,SPACERITEM_HEIGHT,QSizePolicy::Fixed,QSizePolicy::Fixed);
+  gridLayout->addItem(spacerItem,row++,0);
+  col = 0;
+
+  addField(gridLayout,row,col,"Use Weather File Rain Indicators",m_useWeatherFileRainIndicators);
+  col = col + 2;
+  addField(gridLayout,row,col,"Use Weather File Snow Indicators",m_useWeatherFileSnowIndicators);
+
+  row = row + 2;
+  spacerItem = new QSpacerItem(1,SPACERITEM_HEIGHT,QSizePolicy::Fixed,QSizePolicy::Fixed);
+  gridLayout->addItem(spacerItem,row++,0);
+  col = 0;
+
+
+  addField(gridLayout,row,col,"Apply Weekend Holiday Rule",m_applyWeekendHolidayRule);
+  col = col + 2;
+  // Number of times repeated isn't translated
+  // addField(gridLayout,row,col,"Number of Times Runperiod to be Repeate", m_numberTimeRepeat);
+
+  gridLayout->setRowStretch(100,100);
+  gridLayout->setColumnStretch(100,100);
+
+  auto widget = new QWidget();
+  widget->setLayout(gridLayout);
+  widget->hide();
 
   return widget;
 }
@@ -1182,6 +1240,48 @@ void SimSettingsView::detachAll()
 
 void SimSettingsView::attachRunPeriod()
 {
+  m_runPeriod = m_model.getUniqueModelObject<model::RunPeriod>();
+
+  m_useWeatherFileHolidaysandSpecialDays->bind(
+      *m_runPeriod,
+      std::bind(&model::RunPeriod::getUseWeatherFileHolidays,m_runPeriod.get_ptr()),
+      boost::optional<BoolSetter>(std::bind(&model::RunPeriod::setUseWeatherFileHolidays,m_runPeriod.get_ptr(),std::placeholders::_1)),
+      boost::none, // reset
+      boost::none // isDefaulted
+  );
+
+  m_useWeatherFileDaylightSavingsPeriod->bind(
+      *m_runPeriod,
+      std::bind(&model::RunPeriod::getUseWeatherFileDaylightSavings,m_runPeriod.get_ptr()),
+      boost::optional<BoolSetter>(std::bind(&model::RunPeriod::setUseWeatherFileDaylightSavings,m_runPeriod.get_ptr(),std::placeholders::_1)),
+      boost::none, // reset
+      boost::none // isDefaulted
+  );
+
+  m_useWeatherFileRainIndicators->bind(
+      *m_runPeriod,
+      std::bind(&model::RunPeriod::getUseWeatherFileRainInd,m_runPeriod.get_ptr()),
+      boost::optional<BoolSetter>(std::bind(&model::RunPeriod::setUseWeatherFileRainInd,m_runPeriod.get_ptr(),std::placeholders::_1)),
+      boost::none, // reset
+      boost::none // isDefaulted
+  );
+
+  m_useWeatherFileSnowIndicators->bind(
+      *m_runPeriod,
+      std::bind(&model::RunPeriod::getUseWeatherFileSnowInd,m_runPeriod.get_ptr()),
+      boost::optional<BoolSetter>(std::bind(&model::RunPeriod::setUseWeatherFileSnowInd,m_runPeriod.get_ptr(),std::placeholders::_1)),
+      boost::none, // reset
+      boost::none // isDefaulted
+  );
+
+  m_applyWeekendHolidayRule->bind(
+      *m_runPeriod,
+      std::bind(&model::RunPeriod::getApplyWeekendHolidayRule,m_runPeriod.get_ptr()),
+      boost::optional<BoolSetter>(std::bind(&model::RunPeriod::setApplyWeekendHolidayRule,m_runPeriod.get_ptr(),std::placeholders::_1)),
+      boost::none, // reset
+      boost::none // isDefaulted
+  );
+
 }
 
 void SimSettingsView::attachRunPeriodControlDaylightSavingTime()
@@ -1826,6 +1926,11 @@ void SimSettingsView::attachRadianceParameters()
 
 void SimSettingsView::detachRunPeriod()
 {
+  m_useWeatherFileHolidaysandSpecialDays->unbind();
+  m_useWeatherFileDaylightSavingsPeriod->unbind();
+  m_applyWeekendHolidayRule->unbind();
+  m_useWeatherFileRainIndicators->unbind();
+  m_useWeatherFileSnowIndicators->unbind();
 }
 
 void SimSettingsView::detachRunPeriodControlDaylightSavingTime()
@@ -2006,22 +2111,22 @@ void SimSettingsView::on_startDateChanged(const QDate & date)
     m_endDateEdit->blockSignals(false);
   }
 
-  model::RunPeriod mo = m_model.getUniqueModelObject<model::RunPeriod>();
+  m_runPeriod = m_model.getUniqueModelObject<model::RunPeriod>();
 
-  mo.setBeginMonth(m_startDateEdit->date().month());
-  mo.setBeginDayOfMonth(m_startDateEdit->date().day());
+  m_runPeriod->setBeginMonth(m_startDateEdit->date().month());
+  m_runPeriod->setBeginDayOfMonth(m_startDateEdit->date().day());
 
-  mo.setEndMonth(m_endDateEdit->date().month());
-  mo.setEndDayOfMonth(m_endDateEdit->date().day());
+  m_runPeriod->setEndMonth(m_endDateEdit->date().month());
+  m_runPeriod->setEndDayOfMonth(m_endDateEdit->date().day());
 }
 
 void SimSettingsView::initStartDateEdit()
 {
   // Note: QDateEdit bug workaround
   int year = m_startDateEdit->date().year();
-  model::RunPeriod runPeriod = m_model.getUniqueModelObject<model::RunPeriod>();
+  m_runPeriod = m_model.getUniqueModelObject<model::RunPeriod>();
   m_startDateEdit->blockSignals(true);
-  m_startDateEdit->setDate(QDate(year, runPeriod.getBeginMonth(), runPeriod.getBeginDayOfMonth()));
+  m_startDateEdit->setDate(QDate(year, m_runPeriod->getBeginMonth(), m_runPeriod->getBeginDayOfMonth()));
   m_startDateEdit->blockSignals(false);
 }
 
@@ -2033,13 +2138,13 @@ void SimSettingsView::on_endDateChanged(const QDate & date)
     m_startDateEdit->blockSignals(false);
   }
 
-  model::RunPeriod mo = m_model.getUniqueModelObject<model::RunPeriod>();
+  m_runPeriod = m_model.getUniqueModelObject<model::RunPeriod>();
 
-  mo.setBeginMonth(m_startDateEdit->date().month());
-  mo.setBeginDayOfMonth(m_startDateEdit->date().day());
+  m_runPeriod->setBeginMonth(m_startDateEdit->date().month());
+  m_runPeriod->setBeginDayOfMonth(m_startDateEdit->date().day());
 
-  mo.setEndMonth(m_endDateEdit->date().month());
-  mo.setEndDayOfMonth(m_endDateEdit->date().day());
+  m_runPeriod->setEndMonth(m_endDateEdit->date().month());
+  m_runPeriod->setEndDayOfMonth(m_endDateEdit->date().day());
 }
 
 void SimSettingsView::on_runSimWeatherFiles(int state)
