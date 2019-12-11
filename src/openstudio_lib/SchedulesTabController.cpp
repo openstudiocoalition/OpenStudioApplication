@@ -205,6 +205,34 @@ void SchedulesTabController::addWinterProfile(model::ScheduleRuleset & scheduleR
   }
 }
 
+void SchedulesTabController::addHolidayProfile(model::ScheduleRuleset & scheduleRuleset, UUID scheduleDayHandle)
+{
+  boost::optional<model::ScheduleDay> scheduleDay;
+  if (!scheduleDayHandle.isNull()){
+    boost::optional<model::ScheduleDay> scheduleDayToCopy = scheduleRuleset.model().getModelObject<model::ScheduleDay>(scheduleDayHandle);
+    if (scheduleDayToCopy){
+      scheduleDay = scheduleDayToCopy->clone().cast<model::ScheduleDay>();
+    }
+  }
+  if (!scheduleDay){
+    scheduleDay = model::ScheduleDay(scheduleRuleset.model());
+    boost::optional<model::ScheduleTypeLimits> limits = scheduleRuleset.scheduleTypeLimits();
+    if (limits) {
+      scheduleDay->setScheduleTypeLimits(*limits);
+    }
+    scheduleDay->addValue(Time(1, 0), defaultStartingValue(*scheduleDay));
+  }
+  OS_ASSERT(scheduleDay);
+
+  scheduleRuleset.setHolidaySchedule(*scheduleDay);
+
+  scheduleDay->remove();
+
+  if (qobject_cast<SchedulesView *>(m_currentView)) {
+    (qobject_cast<SchedulesView *>(m_currentView))->showHolidayScheduleDay(scheduleRuleset);
+  }
+}
+
 void SchedulesTabController::onDayScheduleSceneChanged( DayScheduleScene * scene, double lowerLimitValue, double upperLimitValue )
 {
   std::vector<CalendarSegmentItem *> segments = scene->segments();
