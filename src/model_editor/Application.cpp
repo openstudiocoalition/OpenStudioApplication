@@ -88,10 +88,13 @@ QCoreApplication* ApplicationSingleton::application(bool gui)
       // Add the current module path to the backup plugin search location
       QCoreApplication::addLibraryPath(toQString(openstudioModuleDirPath));
 
-      // DLM: the code below is pretty kludgy, it depends on installation of the OpenStudio Application components
-      openstudio::path openstudioPossibleBinDirPath = openstudioModuleDirPath / openstudio::toPath("../bin/");
+      openstudio::path openstudioPossibleBinDirPath = openstudioModuleDirPath / openstudio::toPath("platforms/");
       QCoreApplication::addLibraryPath(toQString(openstudioPossibleBinDirPath));
-      
+
+      // DLM: the code below is pretty kludgy, it depends on installation of the OpenStudio Application components
+      openstudioPossibleBinDirPath = openstudioModuleDirPath / openstudio::toPath("../bin/");
+      QCoreApplication::addLibraryPath(toQString(openstudioPossibleBinDirPath));
+
       openstudioPossibleBinDirPath = openstudioModuleDirPath / openstudio::toPath("../bin/platforms/");
       QCoreApplication::addLibraryPath(toQString(openstudioPossibleBinDirPath));
 
