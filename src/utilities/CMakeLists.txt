@@ -19,9 +19,10 @@ set(${target_name}_test_src
 )
 
 set(${target_name}_depends
-  CONAN_PKG::boost_filesystem
-  CONAN_PKG::boost_regex
-  CONAN_PKG::boost_log
+  CONAN_PKG::Boost
+  #CONAN_PKG::boost_filesystem
+  #CONAN_PKG::boost_regex
+  #CONAN_PKG::boost_log
 )
 
 add_library(${target_name}
