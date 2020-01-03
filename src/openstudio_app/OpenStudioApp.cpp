@@ -104,6 +104,8 @@
 #include <openstudio/src/model/ZoneHVACUnitHeater.hpp>
 #include <openstudio/src/model/ZoneHVACWaterToAirHeatPump.hpp>
 
+#include <openstudio/src/OpenStudio.hxx>
+
 #include <openstudio/src/osversion/VersionTranslator.hpp>
 
 #include <openstudio/src/energyplus/ForwardTranslator.hpp>
@@ -507,23 +509,63 @@ void OpenStudioApp::importIdf()
 
     boost::optional<IdfFile> idfFile;
 
-    idfFile = openstudio::IdfFile::load(toPath(fileName),IddFileType::EnergyPlus);
+    openstudio::path path = toPath(fileName);
+    idfFile = openstudio::IdfFile::load(path,IddFileType::EnergyPlus);
 
     if( idfFile )
     {
 
       IdfFile _idfFile = idfFile.get();
 
-      if (!_idfFile.isValid(StrictnessLevel::Draft)){
+      if (!_idfFile.isValid(StrictnessLevel::Draft)) {
 
-        QMessageBox messageBox(parent);
-        messageBox.setText("File is not valid to draft strictness.  Check that IDF is of correct version and that all fields are valid against Energy+.idd.");
+        // Something is wrong, try to be informative
+
+        // Retrieve IDF File Version
+        boost::optional<VersionString> idfFileVersion = openstudio::IdfFile::loadVersionOnly(path);
+
+        // Retrieve current version of E+ used by OS
+        VersionString currentVersion(energyPlusVersion());
+
+        QString informativeText;
+
+        if (idfFileVersion.has_value()) {
+
+          informativeText = QString("The IDF is at version '") + toQString(idfFileVersion->str());
+
+          if (idfFileVersion.get() < currentVersion) {
+            informativeText.append(QString("' while OpenStudio uses a <strong>newer</strong> EnergyPlus '")  + toQString(currentVersion.str())
+                                 + QString("'. Consider using the EnergyPlus Auxiliary program IDFVersionUpdater to update your IDF file."));
+          } else if (idfFileVersion.get() > currentVersion) {
+            informativeText.append(QString("' while OpenStudio uses an <strong>older</strong> EnergyPlus '")  + toQString(currentVersion.str()) + QString("'."));
+          } else {
+            informativeText.append(QString("' which is the <strong>same</strong> version of EnergyPlus that OpenStudio uses (")
+                                 + toQString(currentVersion.str()) + QString(")."));
+          }
+        } else {
+          informativeText = QString("<strong>The IDF does not have a VersionObject</strong>. Check that it is of correct version (")
+                          + toQString(currentVersion.str())
+                          + QString(") and that all fields are valid against Energy+.idd. ");
+        }
+
+        informativeText.append("<br/><br/>The ValidityReport follows.");
+
+        QString text("<strong>File is not valid to draft strictness</strong>. Check that all fields are valid against Energy+.idd.");
+
+        //QMessageBox messageBox(parent);
+        //messageBox.setText(text);
+
+        // Customize with title and critical icon
+        QMessageBox messageBox(QMessageBox::Critical, " IDF Import Failed", text, QMessageBox::NoButton, parent, Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
+
+        messageBox.setInformativeText(informativeText);
+
         std::stringstream ss;
         ss << _idfFile.validityReport(StrictnessLevel::Draft);
         messageBox.setDetailedText(toQString(ss.str()));
         messageBox.exec();
 
-      }else{
+      } else {
 
         Workspace workspace(_idfFile);
 
@@ -551,42 +593,83 @@ void OpenStudioApp::importIdf()
 
         connectOSDocumentSignals();
 
-        QMessageBox messageBox; // (parent); ETH: ... but is hidden, so don't actually use
-        messageBox.setText("Some portions of the idf file were not imported.");
-        messageBox.setInformativeText("Only geometry, constructions, loads, thermal zones, and schedules are supported by the OpenStudio IDF import feature.");
-
         QString log;
 
-        for( const auto & message : trans.errors() ) {
-          log.append("\n");
-          log.append("\n");
-          log.append(QString::fromStdString(message.logMessage()));
-          log.append("\n");
-          log.append("\n");
-        }
+        // DetailedText of QMessageBox is always interpreted a raw text, so not HTML formatting.
+/*
+ *        if (!trans.errors().empty()) {
+ *          log.append("<h3>Errors:</h3>");
+ *          log.append("<ul>");
+ *          for( const auto & message : trans.errors() ) {
+ *            log.append("<li>" + QString::fromStdString(message.logMessage()) + "</li>");
+ *          }
+ *          log.append("</ul>");
+ *        }
+ *
+ *        if (!trans.warnings().empty()) {
+ *          log.append("<h3>Warnings:</h3>");
+ *          log.append("<ul>");
+ *          for( const auto & message : trans.warnings() ) {
+ *            log.append("<li>" + QString::fromStdString(message.logMessage()) + "</li>");
+ *          }
+ *          log.append("</ul>");
+ *        }
+ *
+ *        if (!trans.untranslatedIdfObjects().empty()) {
+ *          log.append("<h3>The following idf objects were not imported:</h3>");
+ *          log.append("<ul>");
+ *
+ *          for( const auto & idfObject : trans.untranslatedIdfObjects() ) {
+ *            std::string message;
+ *            if( auto name = idfObject.name() ) {
+ *              message = idfObject.iddObject().name() + " named " + name.get();
+ *            } else {
+ *              message = "Unnamed " + idfObject.iddObject().name();
+ *            }
+ *            log.append("<li>" + QString::fromStdString(message) + "</li>");
+ *          }
+ *          log.append("</ul>");
+ *        }
+ */
 
-        for( const auto & message : trans.warnings() ) {
-          log.append(QString::fromStdString(message.logMessage()));
-          log.append("\n");
-          log.append("\n");
-        }
-
-        log.append("The following idf objects were not imported.");
-        log.append("\n");
-        log.append("\n");
-
-        for( const auto & idfObject : trans.untranslatedIdfObjects() ) {
-          std::string message;
-          if( auto name = idfObject.name() ) {
-            message = idfObject.iddObject().name() + " named " + name.get();
-          } else {
-            message = "Unammed " + idfObject.iddObject().name();
+        if (!trans.errors().empty()) {
+          log.append("=============== Errors ===============\n\n");
+          for( const auto & message : trans.errors() ) {
+            log.append(" * " + QString::fromStdString(message.logMessage()) + "\n");
           }
-          log.append(QString::fromStdString(message));
-          log.append("\n");
-          log.append("\n");
+          log.append("\n\n");
         }
 
+        if (!trans.warnings().empty()) {
+          log.append("============== Warnings ==============\n\n");
+          for( const auto & message : trans.warnings() ) {
+            log.append(" * " + QString::fromStdString(message.logMessage()) + "\n");
+          }
+          log.append("\n\n");
+        }
+
+        if (!trans.untranslatedIdfObjects().empty()) {
+          log.append("==== The following idf objects were not imported ====\n\n");
+
+          for( const auto & idfObject : trans.untranslatedIdfObjects() ) {
+            std::string message;
+            if( auto name = idfObject.name() ) {
+              message = idfObject.iddObject().name() + " named " + name.get();
+            } else {
+              message = "Unnamed " + idfObject.iddObject().name();
+            }
+            log.append(" * " + QString::fromStdString(message) + "\n");
+          }
+        }
+
+        QString text("<strong>Some portions of the IDF file were not imported.</strong>");
+
+        // QMessageBox messageBox; // (parent); ETH: ... but is hidden, so don't actually use
+        // messageBox.setText(text);
+
+        // Passing parent = nullptr on purpose here
+        QMessageBox messageBox(QMessageBox::Warning, "IDF Import", text, QMessageBox::NoButton, nullptr, Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
+        messageBox.setInformativeText("Only geometry, constructions, loads, thermal zones, and schedules are supported by the OpenStudio IDF import feature.");
         messageBox.setDetailedText(log);
 
         messageBox.exec();

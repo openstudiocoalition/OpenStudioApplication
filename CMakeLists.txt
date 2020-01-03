@@ -606,6 +606,11 @@ foreach(D ${project_directories})
   add_subdirectory(src/${D})
 endforeach()
 
+if( WIN32 )
+  set(RUBY_MINGW_STUB_LIB "${PROJECT_BINARY_DIR}/openstudio/Ruby-mingw-install/libx64-msvcrt-ruby250.dll.a")
+endif()
+
+add_subdirectory("ruby")
 
 ###############################################################################
 #                        E X P O R T    T A R G E T S                         #

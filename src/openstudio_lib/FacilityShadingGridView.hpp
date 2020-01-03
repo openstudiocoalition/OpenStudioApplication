@@ -82,7 +82,7 @@ namespace openstudio{
 
     std::set<openstudio::model::ModelObject> m_objectsFilteredByTilt;
 
-    std::set<openstudio::model::ModelObject> m_objectsFilterdByType;
+    std::set<openstudio::model::ModelObject> m_objectsFilteredByType;
 
     std::set<openstudio::model::ModelObject> m_objectsFilteredByOrientation;
 

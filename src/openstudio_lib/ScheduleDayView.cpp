@@ -2034,7 +2034,7 @@ void DayScheduleScene::refresh()
       boost::optional<Unit> _toUnits = _scheduleTypeLimits->units(isIP);
 
       if (isIP && (_siUnits.get() != _toUnits.get())) {
-        OSQuantityVector quantities;
+        OSQuantityVector quantities(_toUnits.get());
         for (const auto& value: m_scheduleDay.values()) {
           // Do conversion:
           Quantity q = openstudio::Quantity(value, _siUnits.get());

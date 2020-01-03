@@ -27,72 +27,19 @@
 *  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ***********************************************************************************************************************/
 
-#ifndef OPENSTUDIO_CONSTRUCTIONOBJECTVECTORCONTROLLER_HPP
-#define OPENSTUDIO_CONSTRUCTIONOBJECTVECTORCONTROLLER_HPP
+#ifndef RUBYAPI_HPP
+#define RUBYAPI_HPP
 
-#include "ModelObjectVectorController.hpp"
+  #if (_WIN32 || _MSC_VER)
+    #ifdef openstudio_rb_EXPORTS 
+      #define RUBY_API __declspec(dllexport)
+    #elif defined openstudio_modeleditor_rb_EXPORTS
+      #define RUBY_API __declspec(dllexport)
+    #else
+      #define RUBY_API __declspec(dllimport)
+    #endif
+  #else
+    #define RUBY_API
+  #endif
 
-class QMutex;
-
-namespace openstudio {
-
-class ConstructionObjectVectorController : public ModelObjectVectorController
-{
-  Q_OBJECT
-
-public:
-
-  ConstructionObjectVectorController(QWidget * parentWidget);
-
-  // Need to delete the QMutex
-  virtual ~ConstructionObjectVectorController();
-
-  void setParentWidget(QWidget * parentWidget);
-
-public slots:
-
-  // reportItemsLater should be used as it wraps the call to reportItems in a QTimer::singleShot
-  // which eventually calls ModelObjectVector::reportItems
-  void reportItemsLater();
-  void reportItems();
-
-protected:
-
-  virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
-
-  virtual void onDataChange(const model::ModelObject& modelObject) override;
-
-  virtual void onChange(const model::ModelObject& modelObject) override;
-
-  virtual std::vector<OSItemId> makeVector() override;
-
-  virtual void onRemoveItem(OSItem* item) override;
-
-  virtual void onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId) override;
-
-  virtual void onDrop(const OSItemId& itemId) override;
-
-private:
-
-  bool m_reportScheduled;
-  QMutex * m_reportItemsMutex;
-
-  enum LayerType
-  {
-    FENESTRATION,
-    OPAQUE,
-    AIRWALL,
-    UNKNOWN
-  };
-
-  LayerType getLayerType(IddObjectType iddObjectType);
-  QWidget * parentWidget();
-
-  QWidget * m_parentWidget;
-
-};
-
-} // openstudio
-
-#endif // OPENSTUDIO_CONSTRUCTIONOBJECTVECTORCONTROLLER_HPP
-
+#endif

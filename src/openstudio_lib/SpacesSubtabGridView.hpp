@@ -136,9 +136,9 @@ namespace openstudio{
 
     std::set<openstudio::model::ModelObject> m_objectsFilteredByThermalZone;
 
-    std::set<openstudio::model::ModelObject> m_objectsFilterdBySpaceType;
+    std::set<openstudio::model::ModelObject> m_objectsFilteredBySpaceType;
 
-    std::set<openstudio::model::ModelObject> m_objectsFilterdBySubSurfaceType;
+    std::set<openstudio::model::ModelObject> m_objectsFilteredBySubSurfaceType;
 
     std::set<openstudio::model::ModelObject> m_objectsFilteredBySpaceName;
 
