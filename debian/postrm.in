@@ -11,22 +11,32 @@ rm -f /usr/local/bin/OpenStudioApp-@OPENSTUDIOAPPLICATION_VERSION@
 rm -f /usr/local/bin/openstudio
 rm -f /usr/local/bin/openstudio-@OPENSTUDIO_VERSION@
 
-osapps=($(dpkg -l | grep '^ii  openstudio' | awk '{print $2}'))
-n_osapps=${#osapps[@]}
-echo "Found $n_osapps installations of openstudioapplication:"
-for (( i=0; i<$n_osapps; i++ )); do echo "${osapps[$i]}" ; done
+# Can't do arrays apparently...
+#osapps=$(dpkg -l | grep '^ii  openstudio' | awk '{print $2}')
+#n_osapps=${#osapps[@]}
+#echo "Found $n_osapps installations of openstudioapplication:"
+#for (( i=0; i<$n_osapps; i++ )); do echo "${osapps[$i]}" ; done
+
+first_osapp_found=$(dpkg -l | grep '^ii  openstudioapplication' | head -1 | awk '{print $2}')
+n_osapps=$(dpkg -l | grep '^ii  openstudioapplication' | awk '{print $2}' | wc -l)
+echo "Found $n_osapps installations of openstudioapplication, first found: $first_osapp_found"
+
 
 if (( $n_osapps > 0 )); then
   echo "Detected another installation of openstudioapplication. You will need to recreate the symbolic links, example follows:"
-  echo "ln -sf /usr/local/${osapps[0]}/bin/OpenStudioApp /usr/local/bin/OpenStudioApp"
-  echo "ln -sf /usr/local/${osapps[0]}/bin/openstudio /usr/local/bin/openstudio"
+  echo "ln -sf /usr/local/$first_osapp_found/bin/OpenStudioApp /usr/local/bin/OpenStudioApp"
+  echo "ln -sf /usr/local/$first_osapp_found/bin/openstudio /usr/local/bin/openstudio"
 else
-  ossdks=($(dpkg -l | grep '^ii openstudio-' | awk '{print $2}'))
-  n_ossdks=${#ossdks[@]}
+  echo "No Other OpenStudioApplication installation found. Will remove manifest, mimetype and icons"
+  echo ""
+  #ossdks=$(dpkg -l | grep '^ii openstudio-' | awk '{print $2}')
+  #n_ossdks=${#ossdks[@]}
+  first_ossdk_found=$(dpkg -l | grep '^ii  openstudio-' | head -1 | awk '{print $2}')
+  n_ossdks=$(dpkg -l | grep '^ii  openstudio-' | awk '{print $2}' | wc -l)
 
   if (( $n_ossdks > 0 )); then
     echo "Detected $n_ossdks other installation(s) of openstudio (SDK). You should probably recrete the symbolic links, example follows:"
-    echo "ln -sf /usr/local/${ossdks[0]}/bin/openstudio /usr/local/bin/openstudio"
+    echo "ln -sf /usr/local/$first_ossdk_found/bin/openstudio /usr/local/bin/openstudio"
   fi;
 
   # The .desktop manifest: points to /usr/local/bin/OpenStudioApp
