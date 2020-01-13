@@ -82,38 +82,43 @@ elseif(UNIX)
 
   # Install the icons
   # Cf. http://standards.freedesktop.org/icon-theme-spec/icon-theme-spec-latest.html#directory_layout
-  foreach(_size 16 32 48 64 128 256)
-    # Copy OS App icons: TODO probably move them to OS App repo
-    install(
-      FILES "${OPENSTUDIOAPPLICATION_ICON_FOLDER}/os_${_size}.png"
-      DESTINATION "/usr/share/icons/hicolor/${_size}x${_size}/apps"
-      RENAME openstudioapp.png
-    )
-    # Install OSM mimetypes icons
-    install(
-      FILES "${OPENSTUDIOCORE_ICON_FOLDER}/osm_${_size}.png"
-      DESTINATION "/usr/share/icons/hicolor/${_size}x${_size}/mimetypes"
-      RENAME application-x-openstudio.png
-    )
-  # Install OSC
-    install(
-      FILES "${OPENSTUDIOCORE_ICON_FOLDER}/osc_${_size}.png"
-      DESTINATION "/usr/share/icons/hicolor/${_size}x${_size}/mimetypes"
-      RENAME application-x-openstudio-component.png
-    )
 
-  endforeach()
+  # NOTE: Instead, to avoid dpkg issuing conflicts when installing several different versions, we use a post-installation script
+  # So install them to a temp directory that we'll remove later
+  install(DIRECTORY ${OPENSTUDIOCORE_ICON_FOLDER} DESTINATION Temp
+          FILES_MATCHING PATTERN "*.png")
 
-  # TODO: probably move to OS App repo
-  # OS App has a 512 and 1024 too
-  foreach(_size 512 1024)
-    # Copy OS App icons
-    install(
-      FILES "${OPENSTUDIOAPPLICATION_ICON_FOLDER}/os_${_size}.png"
-      DESTINATION "/usr/share/icons/hicolor/${_size}x${_size}/apps"
-      RENAME openstudioapp.png
-    )
-  endforeach()
+  #foreach(_size 16 32 48 64 128 256)
+    ## Copy OS App icons:
+    #install(
+      #FILES "${OPENSTUDIOAPPLICATION_ICON_FOLDER}/os_${_size}.png"
+      #DESTINATION "/usr/share/icons/hicolor/${_size}x${_size}/apps"
+      #RENAME openstudioapp.png
+    #)
+    ## Install OSM mimetypes icons
+    #install(
+      #FILES "${OPENSTUDIOCORE_ICON_FOLDER}/osm_${_size}.png"
+      #DESTINATION "/usr/share/icons/hicolor/${_size}x${_size}/mimetypes"
+      #RENAME application-x-openstudio.png
+    #)
+  ## Install OSC
+    #install(
+      #FILES "${OPENSTUDIOCORE_ICON_FOLDER}/osc_${_size}.png"
+      #DESTINATION "/usr/share/icons/hicolor/${_size}x${_size}/mimetypes"
+      #RENAME application-x-openstudio-component.png
+    #)
+
+  #endforeach()
+
+  ## OS App has a 512 and 1024 too
+  #foreach(_size 512 1024)
+    ## Copy OS App icons
+    #install(
+      #FILES "${OPENSTUDIOAPPLICATION_ICON_FOLDER}/os_${_size}.png"
+      #DESTINATION "/usr/share/icons/hicolor/${_size}x${_size}/apps"
+      #RENAME openstudioapp.png
+    #)
+  #endforeach()
 
 endif()
 

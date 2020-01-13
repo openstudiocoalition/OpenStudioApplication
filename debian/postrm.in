@@ -1,0 +1,50 @@
+#!/bin/sh
+# prerm script
+#
+# Removes necessary stuff that was created by postinst
+
+# Removing symlink makes perfect sense, they'll be broken anyways
+rm /usr/local/bin/OpenStudioApp
+rm /usr/local/bin/OpenStudioApp-@OPENSTUDIOAPPLICATION_VERSION@
+
+rm /usr/local/bin/openstudio
+rm /usr/local/bin/openstudio-@OPENSTUDIO_VERSION@
+
+osapps=$(dpkg -l | grep ^ii | awk '{print $2}' | /bin/grep 'openstudioapplication')
+n_osapps=${#osapps[@]}
+echo "Found $n_osapps installations of openstudioapplication:"
+for (( i=0; i<$n_osapps; i++ )); do echo "${osapps[$i]}" ; done
+
+if (( $n_osapps > 0 )); then
+  echo "Detected another installation of openstudioapplication. You will need to recreate the symbolic links, example follows:"
+  echo "ln -sf /usr/local/${osapps[0]}/bin/OpenStudioApp /usr/local/bin/OpenStudioApp"
+  echo "ln -sf /usr/local/${osapps[0]}/bin/openstudio /usr/local/bin/openstudio"
+else
+  ossdks=$(dpkg -l | grep ^ii | awk '{print $2}' | /bin/grep 'openstudio-')
+  n_ossdks=${#ossdks[@]}
+
+  if (( $n_ossdks > 0 )); then
+    echo "Detected $n_ossdks other installation(s) of openstudio (SDK). You should probably recrete the symbolic links, example follows:"
+    echo "ln -sf /usr/local/${ossdks[0]}/bin/openstudio /usr/local/bin/openstudio"
+  fi;
+
+  # The .desktop manifest: points to /usr/local/bin/OpenStudioApp
+  rm /usr/share/applications/openstudioapp.desktop
+
+  # The mimetype?
+  rm /usr/share/mime/application/x-openstudio.xml
+
+  # Uninstall icons? I think they could stay...
+  for i in {4..10}; do
+    size=$((2**$i))
+    # OS App is the only one that also has 512 and 1024
+    if (( $size < 512)); then
+      rm "/usr/share/icons/hicolor/${size}x${size}/mimetypes/application-x-openstudio.png"
+      rm "/usr/share/icons/hicolor/${size}x${size}/mimetypes/application-x-openstudio-component.png"
+    fi;
+
+    rm "/usr/share/icons/hicolor/${size}x${size}/mimetypes/openstudioapp.png"
+  done
+fi;
+
+exit 0;
