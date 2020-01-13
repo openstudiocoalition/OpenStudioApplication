@@ -22,7 +22,7 @@ n_osapps=$(dpkg -l | grep '^ii  openstudioapplication' | awk '{print $2}' | wc -
 echo "Found $n_osapps installations of openstudioapplication, first found: $first_osapp_found"
 
 
-if (( $n_osapps > 0 )); then
+if [ "$n_osapps" -gt "0" ]; then
   echo "Detected another installation of openstudioapplication. You will need to recreate the symbolic links, example follows:"
   echo "ln -sf /usr/local/$first_osapp_found/bin/OpenStudioApp /usr/local/bin/OpenStudioApp"
   echo "ln -sf /usr/local/$first_osapp_found/bin/openstudio /usr/local/bin/openstudio"
@@ -34,8 +34,8 @@ else
   first_ossdk_found=$(dpkg -l | grep '^ii  openstudio-' | head -1 | awk '{print $2}')
   n_ossdks=$(dpkg -l | grep '^ii  openstudio-' | awk '{print $2}' | wc -l)
 
-  if (( $n_ossdks > 0 )); then
-    echo "Detected $n_ossdks other installation(s) of openstudio (SDK). You should probably recrete the symbolic links, example follows:"
+  if [ "$n_ossdks" -gt "0" ]; then
+    echo "Detected $n_ossdks other installation(s) of openstudio (SDK). You should probably recreate the symbolic links, example follows:"
     echo "ln -sf /usr/local/$first_ossdk_found/bin/openstudio /usr/local/bin/openstudio"
   fi;
 
