@@ -87,6 +87,8 @@ elseif(UNIX)
   # So install them to a temp directory that we'll remove later
   install(DIRECTORY ${OPENSTUDIOCORE_ICON_FOLDER} DESTINATION Temp
           FILES_MATCHING PATTERN "*.png")
+  install(DIRECTORY ${OPENSTUDIOAPPLICATION_ICON_FOLDER} DESTINATION Temp
+          FILES_MATCHING PATTERN "*.png")
 
   #foreach(_size 16 32 48 64 128 256)
     ## Copy OS App icons:
