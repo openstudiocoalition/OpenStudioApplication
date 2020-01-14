@@ -684,8 +684,8 @@ if(BUILD_OS_APP)
     set(CPACK_IFW_TARGET_DIRECTORY /Applications/OpenStudioApplication-${OPENSTUDIOAPPLICATION_VERSION}/)
   elseif(UNIX)
 
-    # TODO: TEMP for debug
-    set(CPACK_DEBIAN_PACKAGE_DEBUG ON)
+    # For debug
+    # set(CPACK_DEBIAN_PACKAGE_DEBUG ON)
 
     # Trusty (14.04) uses 3.0-0, all other including Xenial (16.04) and most importantly the supported one Bionic (18.04) use 3.0-0v5
     set(CPACK_DEBIAN_PACKAGE_DEPENDS "libwxgtk3.0-0v5 (>= 3.0.0) | libwxgtk3.0-0 (>=3.0.0)")
