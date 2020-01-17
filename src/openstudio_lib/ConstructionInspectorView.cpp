@@ -125,7 +125,11 @@ void ConstructionInspectorView::createLayout()
   m_constructionDZ = new OSDropZone(m_constructionVC,"Drag From Library",QSize(0,0),false);
   m_constructionDZ->setMinItems(0);
   m_constructionDZ->setMaxItems(12);
+  m_constructionDZ->setItemsRemoveable(true);
+  m_constructionDZ->setAcceptDrops(true);
   m_constructionDZ->setItemsAcceptDrops(true);
+  m_constructionDZ->setEnabled(true);
+  m_constructionDZ->setItemsDraggable(true);
   m_constructionDZ->setFixedSize(QSize(OSItem::ITEM_WIDTH + 20,600));
   mainGridLayout->addWidget(m_constructionDZ, row, 0);
 

@@ -307,6 +307,9 @@ void OSDropZone::setItemIds(const std::vector<OSItemId>& itemIds)
       continue;
     }
 
+    // Set the position of the item in the dropzone
+    item->setPosition(numItems);
+
     ++numItems;
 
     connect(item, &OSItem::itemRemoveClicked, this, &OSDropZone::itemRemoveClicked);
