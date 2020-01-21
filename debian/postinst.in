@@ -1,0 +1,64 @@
+#!/bin/sh
+# Author: Julien Marrec
+
+# Exit immediately if a command exits with a non-zero status
+set -e
+
+# Create symlinks
+ln -sf @CPACK_INSTALL_PREFIX@/bin/OpenStudioApp /usr/local/bin/OpenStudioApp
+ln -sf @CPACK_INSTALL_PREFIX@/bin/OpenStudioApp /usr/local/bin/OpenStudioApp-@OPENSTUDIOAPPLICATION_VERSION@
+
+ln -sf @CPACK_INSTALL_PREFIX@/bin/openstudio /usr/local/bin/openstudio
+ln -sf @CPACK_INSTALL_PREFIX@/bin/openstudio /usr/local/bin/openstudio-@OPENSTUDIO_VERSION@
+
+cp @CPACK_INSTALL_PREFIX@/Temp/openstudioapp.desktop /usr/share/applications
+cp @CPACK_INSTALL_PREFIX@/Temp/x-openstudio.xml /usr/share/mime/application
+
+# Install icons
+# Works in bash, not in dpkg...
+#for i in {4..10}; do
+  #size=$((2**$i))
+  ## OS App is the only one that also has 512 and 1024
+  #if (( $size < 512)); then
+    #cp "@CPACK_INSTALL_PREFIX@/Temp/icons/osm_${size}.png" "/usr/share/icons/hicolor/${size}x${size}/mimetypes/application-x-openstudio.png"
+    #cp "@CPACK_INSTALL_PREFIX@/Temp/icons/osc_${size}.png" "/usr/share/icons/hicolor/${size}x${size}/mimetypes/application-x-openstudio-component.png"
+  #fi;
+  #cp "@CPACK_INSTALL_PREFIX@/Temp/icons/os_${size}.png" "/usr/share/icons/hicolor/${size}x${size}/mimetypes/openstudioapp.png"
+#done
+
+mkdir -p /usr/share/icons/hicolor/16x16/mimetypes
+mkdir -p /usr/share/icons/hicolor/32x32/mimetypes
+mkdir -p /usr/share/icons/hicolor/64x64/mimetypes
+mkdir -p /usr/share/icons/hicolor/128x128/mimetypes
+mkdir -p /usr/share/icons/hicolor/256x256/mimetypes
+mkdir -p /usr/share/icons/hicolor/512x512/mimetypes
+mkdir -p /usr/share/icons/hicolor/1024x1024/mimetypes
+
+# OpenStudio Model
+cp "@CPACK_INSTALL_PREFIX@/Temp/icons/osm_16.png" "/usr/share/icons/hicolor/16x16/mimetypes/application-x-openstudio.png"
+cp "@CPACK_INSTALL_PREFIX@/Temp/icons/osm_32.png" "/usr/share/icons/hicolor/32x32/mimetypes/application-x-openstudio.png"
+cp "@CPACK_INSTALL_PREFIX@/Temp/icons/osm_64.png" "/usr/share/icons/hicolor/64x64/mimetypes/application-x-openstudio.png"
+cp "@CPACK_INSTALL_PREFIX@/Temp/icons/osm_128.png" "/usr/share/icons/hicolor/128x128/mimetypes/application-x-openstudio.png"
+cp "@CPACK_INSTALL_PREFIX@/Temp/icons/osm_256.png" "/usr/share/icons/hicolor/256x256/mimetypes/application-x-openstudio.png"
+
+# OpenStudio Component
+cp "@CPACK_INSTALL_PREFIX@/Temp/icons/osc_16.png" "/usr/share/icons/hicolor/16x16/mimetypes/application-x-openstudio-component.png"
+cp "@CPACK_INSTALL_PREFIX@/Temp/icons/osc_32.png" "/usr/share/icons/hicolor/32x32/mimetypes/application-x-openstudio-component.png"
+cp "@CPACK_INSTALL_PREFIX@/Temp/icons/osc_64.png" "/usr/share/icons/hicolor/64x64/mimetypes/application-x-openstudio-component.png"
+cp "@CPACK_INSTALL_PREFIX@/Temp/icons/osc_128.png" "/usr/share/icons/hicolor/128x128/mimetypes/application-x-openstudio-component.png"
+cp "@CPACK_INSTALL_PREFIX@/Temp/icons/osc_256.png" "/usr/share/icons/hicolor/256x256/mimetypes/application-x-openstudio-component.png"
+
+# OpenStudioApplication
+cp "@CPACK_INSTALL_PREFIX@/Temp/icons/os_16.png" "/usr/share/icons/hicolor/16x16/mimetypes/openstudioapp.png"
+cp "@CPACK_INSTALL_PREFIX@/Temp/icons/os_32.png" "/usr/share/icons/hicolor/32x32/mimetypes/openstudioapp.png"
+cp "@CPACK_INSTALL_PREFIX@/Temp/icons/os_64.png" "/usr/share/icons/hicolor/64x64/mimetypes/openstudioapp.png"
+cp "@CPACK_INSTALL_PREFIX@/Temp/icons/os_128.png" "/usr/share/icons/hicolor/128x128/mimetypes/openstudioapp.png"
+cp "@CPACK_INSTALL_PREFIX@/Temp/icons/os_256.png" "/usr/share/icons/hicolor/256x256/mimetypes/openstudioapp.png"
+# OS App is the only one that also has 512 and 1024
+cp "@CPACK_INSTALL_PREFIX@/Temp/icons/os_512.png" "/usr/share/icons/hicolor/512x512/mimetypes/openstudioapp.png"
+cp "@CPACK_INSTALL_PREFIX@/Temp/icons/os_1024.png" "/usr/share/icons/hicolor/1024x1024/mimetypes/openstudioapp.png"
+
+# Delete the Temp directory
+rm -Rf "@CPACK_INSTALL_PREFIX@/Temp"
+
+exit 0;

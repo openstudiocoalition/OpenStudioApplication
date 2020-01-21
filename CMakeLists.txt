@@ -672,9 +672,6 @@ if(BUILD_OS_APP)
   set(CPACK_PACKAGE_VERSION_MINOR ${OpenStudioApplication_VERSION_MINOR})
   set(CPACK_PACKAGE_VERSION_PATCH ${OpenStudioApplication_VERSION_PATCH})
 
-  # TODO: UPDATE THESE
-  # Trusty (14.04) uses 3.0-0, all other including Xenial (16.04) use 3.0-0v5
-  set(CPACK_DEBIAN_PACKAGE_DEPENDS "libwxgtk3.0-0v5 (>= 3.0.0) | libwxgtk3.0-0 (>=3.0.0)")
   # CPACK_DEBIAN_PACKAGE_DESCRIPTION defaults to this one too. dpkg-deb -I xxx.deb will show this description
   set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "OpenStudioApplication ${OPENSTUDIOAPPLICATION_VERSION}, based on openstudio (core) ${OPENSTUDIO_VERSION}. OpenStudio is a cross-platform collection of software tools to support whole building energy modeling using EnergyPlus and advanced daylight analysis using Radiance")
 
@@ -686,31 +683,58 @@ if(BUILD_OS_APP)
   if (APPLE)
     set(CPACK_IFW_TARGET_DIRECTORY /Applications/OpenStudioApplication-${OPENSTUDIOAPPLICATION_VERSION}/)
   elseif(UNIX)
+
+    # For debug
+    # set(CPACK_DEBIAN_PACKAGE_DEBUG ON)
+
+    # Trusty (14.04) uses 3.0-0, all other including Xenial (16.04) and most importantly the supported one Bionic (18.04) use 3.0-0v5
+    set(CPACK_DEBIAN_PACKAGE_DEPENDS "libwxgtk3.0-0v5 (>= 3.0.0) | libwxgtk3.0-0 (>=3.0.0)")
+
     # These two will set the .deb install path correctly
     set(CPACK_SET_DESTDIR ON)
-    set(CPACK_INSTALL_PREFIX /usr/local/openstudioapplication-${OPENSTUDIOAPPLICATION_VERSION}/)
+    set(CPACK_INSTALL_PREFIX /usr/local/openstudioapplication-${OPENSTUDIOAPPLICATION_VERSION})
 
     set(CPACK_DEBIAN_PACKAGE_MAINTAINER "openstudio@nrel.gov")
     # Default the debian package name to include version to allow several versions to be installed concurrently instead of overwriting any existing one
     set(CPACK_DEBIAN_PACKAGE_NAME "openstudioapplication-${OPENSTUDIOAPPLICATION_VERSION}")
     set(CPACK_DEBIAN_PACKAGE_HOMEPAGE "https://www.openstudio.net")
 
-    # Add a symlink to the App: /usr/local/bin/OpenStudioApp should point to /usr/local/openstudioapplication-${OPENSTUDIOAPPLICATION_VERSION}/bin/OpenStudioApp
-    # Add an arbitrary link (broken) at build/OpenStudioApp (if build/ is your build folder) that already points to the **future** /usr/local/openstudioapplication-x.y.z/bin/OpenStudioApp
-    execute_process(COMMAND ln -sf ${CPACK_INSTALL_PREFIX}bin/OpenStudioApp ${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp)
-    # Plus a versioned one
-    execute_process(COMMAND ln -sf ${CPACK_INSTALL_PREFIX}bin/OpenStudioApp ${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp-${OPENSTUDIOAPPLICATION_VERSION})
-    # Have these links be installed with the .deb package in /usr/local/bin
-    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp DESTINATION /usr/local/bin COMPONENT CLI)
-    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp-${OPENSTUDIOAPPLICATION_VERSION} DESTINATION /usr/local/bin COMPONENT CLI)
+    set(POSTINST_FILE "${PROJECT_BINARY_DIR}/postinst")
+    set(POSTRM_FILE "${PROJECT_BINARY_DIR}/postrm")
+    configure_file(${PROJECT_SOURCE_DIR}/debian/postinst.in ${POSTINST_FILE} @ONLY)
+    configure_file(${PROJECT_SOURCE_DIR}/debian/postrm.in ${POSTRM_FILE} @ONLY)
+    execute_process(COMMAND chmod 755 "${POSTINST_FILE}")
+    execute_process(COMMAND chmod 755 "${POSTRM_FILE}")
+
+    ## Add a symlink to the App: /usr/local/bin/OpenStudioApp should point to /usr/local/openstudioapplication-${OPENSTUDIOAPPLICATION_VERSION}/bin/OpenStudioApp
+    ## Add an arbitrary link (broken) at build/OpenStudioApp (if build/ is your build folder) that already points to the **future** /usr/local/openstudioapplication-x.y.z/bin/OpenStudioApp
+    #execute_process(COMMAND ln -sf ${CPACK_INSTALL_PREFIX}/bin/OpenStudioApp ${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp)
+    ## Plus a versioned one
+    #execute_process(COMMAND ln -sf ${CPACK_INSTALL_PREFIX}/bin/OpenStudioApp ${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp-${OPENSTUDIOAPPLICATION_VERSION})
+    ## Have these links be installed with the .deb package in /usr/local/bin
+    #install(FILES ${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp DESTINATION /usr/local/bin COMPONENT OpenStudioApp)
+    #install(FILES ${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp-${OPENSTUDIOAPPLICATION_VERSION} DESTINATION /usr/local/bin COMPONENT OpenStudioApp)
+
+    ## Add an arbitrary link (broken) at build/openstudio (if build/ is your build folder) that already points to the **future** /usr/local/openstudioapplication-x.y.z/bin/openstudio
+    #execute_process(COMMAND ln -sf ${CPACK_INSTALL_PREFIX}/bin/openstudio ${CMAKE_CURRENT_BINARY_DIR}/openstudio)
+    ## Plus a versioned one
+    #execute_process(COMMAND ln -sf ${CPACK_INSTALL_PREFIX}/bin/openstudio ${CMAKE_CURRENT_BINARY_DIR}/openstudio-${OPENSTUDIO_VERSION})
+    ## Have this link be installed with the .deb package in /usr/local/bin
+    #install(FILES ${CMAKE_CURRENT_BINARY_DIR}/openstudio DESTINATION /usr/local/bin COMPONENT CLI)
+    #install(FILES ${CMAKE_CURRENT_BINARY_DIR}/openstudio-${OpenStudio_VERSION} DESTINATION /usr/local/bin COMPONENT CLI)
 
 
     # Create a proper App with file associations
 
     # Install the .desktop manifest (allows the App to be seen in the Dash and adding to the dock, and to map it a mimetype)
-    install(FILES "${PROJECT_SOURCE_DIR}/src/openstudio_app/openstudioapp.desktop" DESTINATION /usr/share/applications)
+    # install(FILES "${PROJECT_SOURCE_DIR}/src/openstudio_app/openstudioapp.desktop" DESTINATION /usr/share/applications)
+    install(FILES "${PROJECT_SOURCE_DIR}/src/openstudio_app/openstudioapp.desktop" DESTINATION Temp/)
+
     # Install the XML mime info
-    install(FILES "${PROJECT_SOURCE_DIR}/src/openstudio_app/x-openstudio.xml" DESTINATION /usr/share/mime/application)
+    # install(FILES "${PROJECT_SOURCE_DIR}/src/openstudio_app/x-openstudio.xml" DESTINATION /usr/share/mime/application)
+    install(FILES "${PROJECT_SOURCE_DIR}/src/openstudio_app/x-openstudio.xml" DESTINATION Temp/)
+
+    set(CPACK_DEBIAN_PACKAGE_CONTROL_EXTRA "${CPACK_DEBIAN_BIN_PACKAGE_CONTROL_EXTRA};${POSTINST_FILE};${POSTRM_FILE}")
 
     ## try to set up the menu system
     # Problem is the use of "sudo". Perhaps we should copy icons and manifest to $HOME/.local/share/...
