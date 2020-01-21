@@ -137,6 +137,7 @@ IconLibrary::IconLibrary()
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_EvaporativeCooler_Indirect_ResearchSpecial).value()] = new QPixmap(":images/indirectEvap.png");
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Fan_ConstantVolume).value()] = new QPixmap(":images/fan_constant.png");
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Fan_OnOff).value()] = new QPixmap(":images/fan_on_off.png");
+  m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Fan_SystemModel).value()] = new QPixmap(":images/fan_systemmodel.png");
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Fan_VariableVolume).value()] = new QPixmap(":images/fan_variable.png");
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Fan_ZoneExhaust).value()] = new QPixmap(":images/fan_zoneexhaust.png");
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_FluidCooler_SingleSpeed).value()] = new QPixmap(":images/fluid_cooler_single.png");
@@ -390,6 +391,7 @@ IconLibrary::IconLibrary()
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_EvaporativeCooler_Indirect_ResearchSpecial).value()] = new QPixmap(":images/mini_icons/indirectEvap.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Fan_ConstantVolume).value()] = new QPixmap(":images/mini_icons/fan_constant.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Fan_OnOff).value()] = new QPixmap(":images/mini_icons/fan_on_off_mini.png");
+  m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Fan_SystemModel).value()] = new QPixmap(":images/mini_icons/fan_systemmodel.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Fan_VariableVolume).value()] = new QPixmap(":images/mini_icons/fan_variable.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Fan_ZoneExhaust).value()] = new QPixmap(":images/mini_icons/fan_zoneexhaust.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_EvaporativeFluidCooler_SingleSpeed).value()] = new QPixmap(":images/mini_icons/evap_fluid_cooler.png");
