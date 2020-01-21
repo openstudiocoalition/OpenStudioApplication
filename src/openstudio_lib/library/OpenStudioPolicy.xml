@@ -440,7 +440,6 @@
     <rule IddField="Air Inlet Node Name" Access="HIDDEN"/>
     <rule IddField="Air Outlet Node Name" Access="HIDDEN"/>
     <rule IddField="Electric Power Function of Flow Fraction Curve Name" Access="LOCKED"/>
-    <rule IddField="Number of Speeds" Access="LOCKED"/>
   </POLICY>
   <POLICY IddObjectType="OS_Fan_VariableVolume">
     <rule IddField="Air Inlet Node Name" Access="HIDDEN"/>
