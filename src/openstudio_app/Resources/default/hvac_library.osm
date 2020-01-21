@@ -1,7 +1,7 @@
 
 OS:Version,
-  {e5f51381-88d5-414c-92ad-658163b12e1c}, !- Handle
-  2.9.0;                                  !- Version Identifier
+  {3c089b34-bc24-41b4-ab70-34a6247458c2}, !- Handle
+  3.0.0-rc1;                              !- Version Identifier
 
 ! Always OnOff Discrete Schedule Type Limits
 OS:ScheduleTypeLimits,
@@ -5265,7 +5265,12 @@ OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow,
   {8e3a36fc-1c04-4c13-804d-32e93dec19b3}, !- Heating Coil
   30,                                     !- Zone Terminal Unit On Parasitic Electric Energy Use {W}
   20,                                     !- Zone Terminal Unit Off Parasitic Electric Energy Use {W}
-  1;                                      !- Rated Total Heating Capacity Sizing Ratio {W/W}
+  1,                                      !- Rated Total Heating Capacity Sizing Ratio {W/W}
+  ,                                       !- Availability Manager List Name
+  ,                                       !- Design Specification ZoneHVAC Sizing Object Name
+  ,                                       !- Supplemental Heating Coil Name
+  ,                                       !- Maximum Supply Air Temperature from Supplemental Heater {C}
+  ;                                       !- Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation {C}
 
 OS:Coil:Cooling:DX:VariableRefrigerantFlow,
   {8c84c0ac-6832-4444-a64f-9d88308c1b14}, !- Handle
@@ -11450,7 +11455,7 @@ OS:AvailabilityManager:Scheduled,
 OS:AvailabilityManager:NightCycle,
   {057d50db-daf1-4590-9194-ecba8c21971f}, !- Handle
   AVM Night Cycle,                        !- Name
-  ,                                       !- Applicability Schedule
+  {9f54092d-a4a8-41b8-a381-c4c332ecb843}, !- Applicability Schedule
   ,                                       !- Fan Schedule
   ,                                       !- Control Type
   1,                                      !- Thermostat Tolerance {deltaC}
@@ -12042,4 +12047,25 @@ OS:LifeCycleCost:Parameters,
   ,                                       !- Service Date Month
   ,                                       !- Service Date Year
   ;                                       !- Length of Study Period in Years
+
+OS:ZoneVentilation:WindandStackOpenArea,
+  {0ddb3da5-abb8-4c8d-ac92-d21503d6b1b9}, !- Handle
+  Zone Ventilation Wind and Stack Open Area, !- Name
+  0,                                      !- Opening Area {m2}
+  {9f54092d-a4a8-41b8-a381-c4c332ecb843}, !- Opening Area Fraction Schedule Name
+  autocalculate,                          !- Opening Effectiveness {dimensionless}
+  0,                                      !- Effective Angle {deg}
+  0,                                      !- Height Difference {m}
+  autocalculate,                          !- Discharge Coefficient for Opening
+  -100,                                   !- Minimum Indoor Temperature {C}
+  ,                                       !- Minimum Indoor Temperature Schedule Name
+  100,                                    !- Maximum Indoor Temperature {C}
+  ,                                       !- Maximum Indoor Temperature Schedule Name
+  -100,                                   !- Delta Temperature {deltaC}
+  ,                                       !- Delta Temperature Schedule Name
+  -100,                                   !- Minimum Outdoor Temperature {C}
+  ,                                       !- Minimum Outdoor Temperature Schedule Name
+  100,                                    !- Maximum Outdoor Temperature {C}
+  ,                                       !- Maximum Outdoor Temperature Schedule Name
+  40;                                     !- Maximum Wind Speed {m/s}
 
