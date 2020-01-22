@@ -157,6 +157,8 @@ class SchedulesView : public QWidget, public Nano::Observer
 
     void showWinterScheduleDay(model::ScheduleRuleset schedule);
 
+    void showHolidayScheduleDay(model::ScheduleRuleset schedule);
+
     // DLM: might remove this
     void showScheduleRuleset(const model::ScheduleRuleset & schedule);
 
@@ -185,6 +187,8 @@ class SchedulesView : public QWidget, public Nano::Observer
     void addSummerProfileClicked(model::ScheduleRuleset & scheduleRuleset, UUID dayScheduleHandle);
 
     void addWinterProfileClicked(model::ScheduleRuleset & scheduleRuleset, UUID dayScheduleHandle);
+
+    void addHolidayProfileClicked(model::ScheduleRuleset & scheduleRuleset, UUID dayScheduleHandle);
 
     void dayScheduleSceneChanged( DayScheduleScene * scene, double lowerValue, double upperValue );
 
@@ -472,7 +476,7 @@ class ScheduleTabDefault : public QWidget, public Nano::Observer
 
   public:
 
-  enum ScheduleTabDefaultType { DEFAULT, SUMMER, WINTER };
+  enum ScheduleTabDefaultType { DEFAULT, SUMMER, WINTER, HOLIDAY };
 
   ScheduleTabDefault(ScheduleTab * scheduleTab, ScheduleTabDefaultType type);
 
@@ -485,6 +489,8 @@ class ScheduleTabDefault : public QWidget, public Nano::Observer
   void summerClicked(model::ScheduleRuleset scheduleRuleset);
 
   void winterClicked(model::ScheduleRuleset scheduleRuleset);
+
+  void holidayClicked(model::ScheduleRuleset scheduleRuleset);
 
   protected:
 
@@ -523,7 +529,7 @@ class NewProfileView : public QWidget, public Nano::Observer
 
   public:
 
-    enum NewProfileViewType { SCHEDULERULE, SUMMER, WINTER };
+    enum NewProfileViewType { SCHEDULERULE, SUMMER, WINTER, HOLIDAY };
 
     NewProfileView(const model::ScheduleRuleset & scheduleRuleset, SchedulesView * schedulesView, NewProfileViewType type);
 
@@ -536,6 +542,8 @@ class NewProfileView : public QWidget, public Nano::Observer
     void addSummerProfileClicked(model::ScheduleRuleset & scheduleRuleset, UUID dayScheduleHandle);
 
     void addWinterProfileClicked(model::ScheduleRuleset & scheduleRuleset, UUID dayScheduleHandle);
+
+    void addHolidayProfileClicked(model::ScheduleRuleset & scheduleRuleset, UUID dayScheduleHandle);
 
   private slots:
 
@@ -592,21 +600,21 @@ class DefaultScheduleDayView : public QWidget
 
 };
 
-// View a sizing day schedule of a schedule ruleset
-class SizingScheduleDayView : public QWidget
+// View a Special Day (sizing day or holiday) schedule of a schedule ruleset
+class SpecialScheduleDayView : public QWidget
 {
   Q_OBJECT
 
 public:
 
-  enum SizingScheduleDayType { SUMMER, WINTER };
+  enum SpecialScheduleDayType { SUMMER, WINTER, HOLIDAY };
 
-  SizingScheduleDayView(bool isIP,
+  SpecialScheduleDayView(bool isIP,
                         const model::ScheduleRuleset & scheduleRuleset,
                         SchedulesView * schedulesView,
-                        SizingScheduleDayType type);
+                        SpecialScheduleDayType type);
 
-  virtual ~SizingScheduleDayView() {}
+  virtual ~SpecialScheduleDayView() {}
 
 signals:
 
@@ -614,7 +622,7 @@ signals:
 
 private:
 
-  SizingScheduleDayType m_type;
+  SpecialScheduleDayType m_type;
 };
 
 // View a schedule rule of a schedule ruleset

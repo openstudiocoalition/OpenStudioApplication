@@ -216,6 +216,8 @@ public slots:
 
   void IGautosize(bool toggled);
 
+  void IGautocalculate(bool toggled);
+
   /*! \brief show/hide comment fields
    *
    * \param showComments if true, show comments, if false, hide them

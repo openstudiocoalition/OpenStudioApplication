@@ -119,6 +119,8 @@ class SchedulesTabController : public MainTabController
 
   void addWinterProfile(model::ScheduleRuleset & scheduleRuleset, UUID scheduleDayHandle);
 
+  void addHolidayProfile(model::ScheduleRuleset & scheduleRuleset, UUID scheduleDayHandle);
+
   void removeScheduleRule(model::ScheduleRule & scheduleRule);
 
   void onDayScheduleSceneChanged(DayScheduleScene * scene, double lowerLimitValue, double upperLimitValue);
