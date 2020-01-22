@@ -110,6 +110,7 @@
     <file>images/evap_fluid_cooler_two_speed.png</file>
     <file>images/fan_constant.png</file>
     <file>images/fan_on_off.png</file>
+    <file>images/fan_systemmodel.png</file>
     <file>images/fan_variable.png</file>
     <file>images/fan_zoneexhaust.png</file>
     <file>images/fast_forward.png</file>
@@ -392,6 +393,7 @@
     <file>images/mini_icons/facility.png</file>
     <file>images/mini_icons/fan_constant.png</file>
     <file>images/mini_icons/fan_on_off_mini.png</file>
+    <file>images/mini_icons/fan_systemmodel.png</file>
     <file>images/mini_icons/fan_variable.png</file>
     <file>images/mini_icons/fan_zoneexhaust.png</file>
     <file>images/mini_icons/fluid_hx_mini.png</file>
