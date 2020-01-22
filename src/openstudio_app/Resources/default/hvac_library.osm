@@ -1,7 +1,7 @@
 
 OS:Version,
   {3c089b34-bc24-41b4-ab70-34a6247458c2}, !- Handle
-  3.0.0-rc1;                              !- Version Identifier
+  3.0.0-beta;                              !- Version Identifier
 
 ! Always OnOff Discrete Schedule Type Limits
 OS:ScheduleTypeLimits,
@@ -11492,10 +11492,10 @@ OS:AvailabilityManager:OptimumStart,
   ,                                       !- Zone List
   6,                                      !- Maximum Value for Optimum Start Time {hr}
   AdaptiveTemperatureGradient,            !- Control Algorithm
-  3,                                      !- Constant Temperature Gradient during Cooling {deltaC/hr}
-  3,                                      !- Constant Temperature Gradient during Heating {deltaC/hr}
-  2,                                      !- Initial Temperature Gradient during Cooling {deltaC/hr}
-  2,                                      !- Initial Temperature Gradient during Heating {deltaC/hr}
+  3,                                      !- Constant Temperature Gradient during Cooling {K/hr}
+  3,                                      !- Constant Temperature Gradient during Heating {K/hr}
+  2,                                      !- Initial Temperature Gradient during Cooling {K/hr}
+  2,                                      !- Initial Temperature Gradient during Heating {K/hr}
   2,                                      !- Constant Start Time {hr}
   3;                                      !- Number of Previous Days {days}
 
@@ -12068,4 +12068,67 @@ OS:ZoneVentilation:WindandStackOpenArea,
   100,                                    !- Maximum Outdoor Temperature {C}
   ,                                       !- Maximum Outdoor Temperature Schedule Name
   40;                                     !- Maximum Wind Speed {m/s}
+
+OS:Fan:SystemModel,
+  {cd469ee6-ebb7-4973-a495-545a15957788}, !- Handle
+  FanSystemModel ConstantVolume,          !- Name
+  {9f54092d-a4a8-41b8-a381-c4c332ecb843}, !- Availability Schedule Name
+  ,                                       !- Air Inlet Node Name
+  ,                                       !- Air Outlet Node Name
+  autosize,                               !- Design Maximum Air Flow Rate {m3/s}
+  Discrete,                               !- Speed Control Method
+  0.2,                                    !- Electric Power Minimum Flow Rate Fraction
+  250,                                    !- Design Pressure Rise {Pa}
+  0.9,                                    !- Motor Efficiency
+  1,                                      !- Motor In Air Stream Fraction
+  autosize,                               !- Design Electric Power Consumption {W}
+  TotalEfficiencyAndPressure,             !- Design Power Sizing Method
+  840,                                    !- Electric Power Per Unit Flow Rate {W/(m3/s)}
+  1.66667,                                !- Electric Power Per Unit Flow Rate Per Unit Pressure {W/((m3/s)-Pa)}
+  0.7,                                    !- Fan Total Efficiency
+  ,                                       !- Electric Power Function of Flow Fraction Curve Name
+  ,                                       !- Night Ventilation Mode Pressure Rise {Pa}
+  ,                                       !- Night Ventilation Mode Flow Fraction
+  ,                                       !- Motor Loss Zone Name
+  0,                                      !- Motor Loss Radiative Fraction
+  General;                                !- End-Use Subcategory
+
+OS:Fan:SystemModel,
+  {48234dd8-7f8e-44f3-b64a-c29244c188cf}, !- Handle
+  FanSystemModel VAV,                     !- Name
+  {9f54092d-a4a8-41b8-a381-c4c332ecb843}, !- Availability Schedule Name
+  ,                                       !- Air Inlet Node Name
+  ,                                       !- Air Outlet Node Name
+  autosize,                               !- Design Maximum Air Flow Rate {m3/s}
+  Continuous,                             !- Speed Control Method
+  0,                                      !- Electric Power Minimum Flow Rate Fraction
+  1017.592,                               !- Design Pressure Rise {Pa}
+  0.93,                                   !- Motor Efficiency
+  1,                                      !- Motor In Air Stream Fraction
+  autosize,                               !- Design Electric Power Consumption {W}
+  TotalEfficiencyAndPressure,             !- Design Power Sizing Method
+  840,                                    !- Electric Power Per Unit Flow Rate {W/(m3/s)}
+  1.66667,                                !- Electric Power Per Unit Flow Rate Per Unit Pressure {W/((m3/s)-Pa)}
+  0.6045,                                 !- Fan Total Efficiency
+  {c6255a10-8ec4-4982-a181-f3fda6823e3b}, !- Electric Power Function of Flow Fraction Curve Name
+  ,                                       !- Night Ventilation Mode Pressure Rise {Pa}
+  ,                                       !- Night Ventilation Mode Flow Fraction
+  ,                                       !- Motor Loss Zone Name
+  0,                                      !- Motor Loss Radiative Fraction
+  General;                                !- End-Use Subcategory
+
+OS:Curve:Quartic,
+  {c6255a10-8ec4-4982-a181-f3fda6823e3b}, !- Handle
+  VAV Fan Curve,                          !- Name
+  0.040759894,                            !- Coefficient1 Constant
+  0.08804497,                             !- Coefficient2 x
+  -0.07292612,                            !- Coefficient3 x**2
+  0.943739823,                            !- Coefficient4 x**3
+  0,                                      !- Coefficient5 x**4
+  0,                                      !- Minimum Value of x
+  1,                                      !- Maximum Value of x
+  0,                                      !- Minimum Curve Output
+  1,                                      !- Maximum Curve Output
+  Dimensionless,                          !- Input Unit Type for X
+  Dimensionless;                          !- Output Unit Type
 
