@@ -93,6 +93,8 @@
 #include <openstudio/src/model/FanConstantVolume_Impl.hpp>
 #include <openstudio/src/model/FanVariableVolume.hpp>
 #include <openstudio/src/model/FanVariableVolume_Impl.hpp>
+#include <openstudio/src/model/FanSystemModel.hpp>
+#include <openstudio/src/model/FanSystemModel_Impl.hpp>
 #include <openstudio/src/model/HVACComponent.hpp>
 #include <openstudio/src/model/HVACComponent_Impl.hpp>
 #include <openstudio/src/model/ModelObject_Impl.hpp>
@@ -784,6 +786,43 @@ void InspectorView::layoutModelObject(openstudio::model::OptionalModelObject & m
     }
     else if (boost::optional<model::FanConstantVolume> component =
       modelObject->optionalCast<model::FanConstantVolume>())
+    {
+      // Override the access policy to hide the Fan Availability Schedule Name if part of an AirLoopHVAC
+      // as it will be overriden by the Loop HVAC Operation Schedule
+      openstudio::model::AccessPolicy::ACCESS_LEVEL oldLevel;
+      openstudio::model::AccessPolicy* pAccessPolicy;
+
+      // Note JM 2019-11-25: In fact, the only case where we'll hit this block *right now* is on an AirLoopHVAC,
+      // otherwise the fan is a child so this check is *currently uncessary* (but right and safer, so leaving it in place)
+      bool overrideAccess = component->airLoopHVAC().has_value();
+      if (overrideAccess) {
+        IddObject iddObject = component->iddObject();
+        pAccessPolicy = const_cast<openstudio::model::AccessPolicy*>(openstudio::model::AccessPolicyStore::Instance().getPolicy( iddObject.type()));
+        OS_ASSERT(openstudio::istringEqual(iddObject.getField(2)->name(), "Availability Schedule Name"));
+        oldLevel = pAccessPolicy->getAccess(2);
+        pAccessPolicy->setAccess(2, openstudio::model::AccessPolicy::ACCESS_LEVEL::HIDDEN);
+      }
+
+      if( m_currentView )
+      {
+        delete m_currentView;
+      }
+
+      m_currentView = new GenericInspectorView();
+
+      connect(this, &InspectorView::toggleUnitsClicked, m_currentView, &BaseInspectorView::toggleUnitsClicked);
+
+      m_currentView->layoutModelObject(modelObject.get(), readOnly, displayIP);
+
+      m_vLayout->addWidget(m_currentView);
+
+      // Restore old level (FREE)
+      if (overrideAccess) {
+        pAccessPolicy->setAccess(2, oldLevel);
+      }
+    }
+    else if (boost::optional<model::FanSystemModel> component =
+      modelObject->optionalCast<model::FanSystemModel>())
     {
       // Override the access policy to hide the Fan Availability Schedule Name if part of an AirLoopHVAC
       // as it will be overriden by the Loop HVAC Operation Schedule
