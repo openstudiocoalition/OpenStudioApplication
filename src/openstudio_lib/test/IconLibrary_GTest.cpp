@@ -69,6 +69,8 @@ TEST_F(OpenStudioLibFixture, IconLibrary_Icon)
   iddObjectTypes.push_back(IddObjectType::OS_EvaporativeCooler_Direct_ResearchSpecial);
   //iddObjectTypes.push_back(IddObjectType::OS_Facility);
   iddObjectTypes.push_back(IddObjectType::OS_Fan_ConstantVolume);
+  iddObjectTypes.push_back(IddObjectType::OS_Fan_OnOff);
+  iddObjectTypes.push_back(IddObjectType::OS_Fan_SystemModel);
   iddObjectTypes.push_back(IddObjectType::OS_Fan_VariableVolume);
   //iddObjectTypes.push_back(IddObjectType::OS_GasEquipment);
   //iddObjectTypes.push_back(IddObjectType::OS_GasEquipment_Definition);
@@ -158,6 +160,8 @@ TEST_F(OpenStudioLibFixture, IconLibrary_MiniIcon)
   iddObjectTypes.push_back(IddObjectType::OS_EvaporativeCooler_Direct_ResearchSpecial);
   iddObjectTypes.push_back(IddObjectType::OS_Facility);
   iddObjectTypes.push_back(IddObjectType::OS_Fan_ConstantVolume);
+  iddObjectTypes.push_back(IddObjectType::OS_Fan_OnOff);
+  iddObjectTypes.push_back(IddObjectType::OS_Fan_SystemModel);
   iddObjectTypes.push_back(IddObjectType::OS_Fan_VariableVolume);
   iddObjectTypes.push_back(IddObjectType::OS_GasEquipment);
   iddObjectTypes.push_back(IddObjectType::OS_GasEquipment_Definition);
