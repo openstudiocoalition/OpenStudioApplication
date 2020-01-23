@@ -12,6 +12,43 @@ endif()
 
 project(OpenStudioApplication VERSION 1.0.0)
 
+find_package(openstudio CONFIG REQUIRED)
+
+###############################################################################
+
+###############################################################################
+# Conan
+
+# Note JM 2019-04-24: Another option is to globally set "print_run_commands = True" in ~/.conan/conan.conf
+option(CONAN_PRINT_RUN_COMMANDS "Log every conan self.run command" OFF)
+mark_as_advanced(CONAN_PRINT_RUN_COMMANDS)
+if(CONAN_PRINT_RUN_COMMANDS)
+  set(ENV{CONAN_PRINT_RUN_COMMANDS} "1")
+  message("Setting CONAN_PRINT_RUN_COMMANDS: $ENV{CONAN_PRINT_RUN_COMMANDS}")
+else()
+  unset(ENV{CONAN_PRINT_RUN_COMMANDS})
+  message("CONAN_PRINT_RUN_COMMANDS: $ENV{CONAN_PRINT_RUN_COMMANDS}")
+endif()
+
+# Attempt to run, it'll do the right thing if the calling cmake script already ran it
+set(CONAN_INSTALL_FILE "${PROJECT_SOURCE_DIR}/ConanInstall.cmake")
+include("${CONAN_INSTALL_FILE}")
+
+# A macro to find a conan related value especially when using multi-config builds (MSVC)
+# But it also works with single-config builds
+macro(FindValue ValueName)
+  set(LocalVar "")
+  set(LocalVar $<$<CONFIG:Debug>:${${ValueName}_DEBUG}>$<$<CONFIG:Release>:${${ValueName}_RELEASE}>$<$<CONFIG:RelWithDebInfo>:${$ValueName}_RELWITHDEBINFO}>$<$<CONFIG:MinSizeRel>:${${ValueName}_MINSIZEREL}>
+  )
+#  list(JOIN LocalVar "" LocalVar)
+  string(STRIP ${LocalVar} LocalVar)
+  set(CURRENT_${ValueName} $<IF:$<BOOL:${LocalVar}>,${LocalVar},${${ValueName}}>)
+  # For debug purposes
+  # message(STATUS "Found '${ValueName}' as '${CURRENT_${ValueName}}'")
+endmacro()
+
+###############################################################################
+
 # The PROJECT_SOURCE_DIR here is OpenStudioApplication/, which we will use instead of using CMAKE_SOURCE_DIR
 set(PROJECT_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
 # We will use BINARY_DIR instead of CMAKE_BINARY_DIR
@@ -483,67 +520,6 @@ if(BUILD_OS_APP)
 
 endif()
 
-#if(BUILD_DVIEW)
-  #set(DVIEW_INSTALL_DIR "" CACHE PATH "Path to DView Install")
-  #mark_as_advanced(DVIEW_INSTALL_DIR)
-
-  #if(NOT EXISTS ${DVIEW_INSTALL_DIR})
-    #if(WIN32)
-      #set(DVIEW_ZIP_FILENAME "DView-windows-20180621.zip")
-      #set(DVIEW_ZIP_EXPECTED_MD5 "8443b09cbfcc118943127b006b14dbca")
-    #elseif(APPLE)
-      #set(DVIEW_ZIP_FILENAME "DView-osx-20180621.tar.gz")
-      #set(DVIEW_ZIP_EXPECTED_MD5 "41038cbf7c472522e700d850d9de1133")
-    #else()
-      #set(DVIEW_ZIP_FILENAME "DView-linux-20180621.tar.gz")
-      #set(DVIEW_ZIP_EXPECTED_MD5 "c1d3fb6e736668eb4bdf0a5af2b4506c")
-    #endif()
-
-    #set(DVIEW_ZIP_LOCAL_PATH "${PROJECT_BINARY_DIR}/${DVIEW_ZIP_FILENAME}")
-    #if(EXISTS "${DVIEW_ZIP_LOCAL_PATH}")
-      #file(MD5 "${DVIEW_ZIP_LOCAL_PATH}" DVIEW_ZIP_MD5)
-    #endif()
-
-    #if(NOT DVIEW_ZIP_MD5 STREQUAL DVIEW_ZIP_EXPECTED_MD5)
-      #message(STATUS "Downloading DView: ${DVIEW_ZIP_FILENAME}")
-      #file(DOWNLOAD "http://openstudio-resources.s3.amazonaws.com/dependencies/${DVIEW_ZIP_FILENAME}"
-        #${DVIEW_ZIP_LOCAL_PATH}
-        #INACTIVITY_TIMEOUT 120
-        #SHOW_PROGRESS
-        #EXPECTED_MD5 ${DVIEW_ZIP_EXPECTED_MD5})
-      #execute_process(COMMAND ${CMAKE_COMMAND} -E tar xfz ${DVIEW_ZIP_LOCAL_PATH} WORKING_DIRECTORY "${PROJECT_BINARY_DIR}")
-    #endif()
-
-    #set(DVIEW_INSTALL_DIR "${PROJECT_BINARY_DIR}/DView-install")
-  #endif()
-
-  #if(WIN32)
-    #install(PROGRAMS "${DVIEW_INSTALL_DIR}/DView.exe" DESTINATION ./bin COMPONENT "DView")
-  #elseif(APPLE)
-    #install(DIRECTORY "${DVIEW_INSTALL_DIR}/DView.app" DESTINATION . USE_SOURCE_PERMISSIONS COMPONENT "DView")
-  #else()
-    #install(PROGRAMS "${DVIEW_INSTALL_DIR}/DView" DESTINATION ./bin COMPONENT "DView")
-  #endif()
-
-#endif()
-
-###############################################################################
-#                    G I T    S U B M O D U L E    I N I T                    #
-###############################################################################
-
-if( NOT EXISTS "${PROJECT_SOURCE_DIR}/openstudio/.git" )
-
-  # we couldn't find the header files for FOO or they don't exist
-  message("The git submodule openstudio (core) doesn't seem to be intialized")
-
-  # we have a submodule setup for openstudio
-  # now we need to clone this submodule
-  execute_process(COMMAND git submodule update --init -- openstudio
-                  WORKING_DIRECTORY ${PROJECT_SOURCE_DIR})
-
-endif()
-
-
 ###############################################################################
 #                         I N C L U D E    P A T H S                          #
 ###############################################################################
@@ -551,17 +527,10 @@ endif()
 
 include_directories("${PROJECT_SOURCE_DIR}/")
 include_directories("${PROJECT_SOURCE_DIR}/src/")
-# Include openstudio (core) source
-# TODO: JM 2019-03-29
-# I'm aggressively including directories due to build errors. Need to revisit this later, changing include statements in openstudio (core) as needed too.
-include_directories("${PROJECT_SOURCE_DIR}/openstudio")
-include_directories("${PROJECT_SOURCE_DIR}/openstudio/src/")
 
 # Project binary directory
 include_directories("${PROJECT_BINARY_DIR}/")
 include_directories("${PROJECT_BINARY_DIR}/src/")
-include_directories("${PROJECT_BINARY_DIR}/openstudio/")
-include_directories("${PROJECT_BINARY_DIR}/openstudio/src/")
 
 ###############################################################################
 #                         S U B D I R E C T O R I E S                         #
@@ -574,16 +543,6 @@ if(MSVC)
 elseif()
   add_definitions(-Werror)
 endif()
-
-# Let openstudio's conan file do its thing
-set(CONAN_INSTALL_FILE "${PROJECT_SOURCE_DIR}/openstudio/ConanInstall.cmake")
-include("${CONAN_INSTALL_FILE}")
-
-# Include core, but don't let it include(CPack)
-set(DELAY_CPACK_INCLUDE TRUE)
-add_subdirectory(openstudio)
-
-message("RUBY_INCLUDE_DIRS = ${RUBY_INCLUDE_DIRS}")
 
 ###############################################################################
 #                                T A R G E T S                                #
@@ -606,9 +565,9 @@ foreach(D ${project_directories})
   add_subdirectory(src/${D})
 endforeach()
 
-if( WIN32 )
-  set(RUBY_MINGW_STUB_LIB "${PROJECT_BINARY_DIR}/openstudio/Ruby-mingw-install/libx64-msvcrt-ruby250.dll.a")
-endif()
+#if( WIN32 )
+#  set(RUBY_MINGW_STUB_LIB "${PROJECT_BINARY_DIR}/openstudio/Ruby-mingw-install/libx64-msvcrt-ruby250.dll.a")
+#endif()
 
 add_subdirectory("ruby")
 
@@ -641,7 +600,7 @@ if(UNIX AND NOT APPLE)
       #RUNTIME_OUTPUT_DIRECTORY "${PROJECT_RUNTIME_OUTPUT_DIRECTORY}"
       VERSION ${OPENSTUDIOAPPLICATION_VERSION}
     )
-    target_include_directories(${targ} PUBLIC openstudio)
+  #target_include_directories(${targ} PUBLIC openstudio)
   endforeach()
 endif()
 
@@ -772,6 +731,8 @@ if(BUILD_OS_APP)
     set(CPACK_BINARY_IFW ON CACHE BOOL "Enable to build IFW packages")
     set(CPACK_BINARY_NSIS OFF CACHE BOOL "Enable to build NSIS packages")
   endif()
+
+  include(CPackIFW)
 
   cpack_add_component(Resources
     DISPLAY_NAME "Application Resources"

@@ -36,11 +36,11 @@
 #include "../shared_gui_components/OSQuantityEdit.hpp"
 #include "../shared_gui_components/OSComboBox.hpp"
 
-#include <openstudio/src/model/ConstructionAirBoundary.hpp>
-#include <openstudio/src/model/ConstructionAirBoundary_Impl.hpp>
+#include <openstudio/model/ConstructionAirBoundary.hpp>
+#include <openstudio/model/ConstructionAirBoundary_Impl.hpp>
 
 
-#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
 
 
 

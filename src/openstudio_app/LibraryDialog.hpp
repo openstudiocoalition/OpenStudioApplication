@@ -32,7 +32,7 @@
 
 #include <QDialog>
 #include <vector>
-#include <openstudio/src/utilities/core/Filesystem.hpp>
+#include <openstudio/utilities/core/Filesystem.hpp>
 
 class QListWidget;
 

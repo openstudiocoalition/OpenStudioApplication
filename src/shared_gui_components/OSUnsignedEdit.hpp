@@ -32,10 +32,10 @@
 
 #include "FieldMethodTypedefs.hpp"
 
-#include <openstudio/src/model/ModelObject.hpp>
-#include <openstudio/src/model/ModelExtensibleGroup.hpp>
+#include <openstudio/model/ModelObject.hpp>
+#include <openstudio/model/ModelExtensibleGroup.hpp>
 
-#include <openstudio/src/utilities/core/Logger.hpp>
+#include <openstudio/utilities/core/Logger.hpp>
 
 #include <QLineEdit>
 #include <QString>

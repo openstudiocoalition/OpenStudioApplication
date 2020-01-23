@@ -32,14 +32,14 @@
 
 #include "ModelEditorAPI.hpp"
 
-#include <openstudio/src/model/Model.hpp>
+#include <openstudio/model/Model.hpp>
 
-#include <openstudio/src/utilities/idd/IddEnums.hpp>
-#include <openstudio/src/utilities/idd/IddFile.hpp>
-#include <openstudio/src/utilities/core/UUID.hpp>
-#include <openstudio/src/utilities/core/Enum.hpp>
+#include <openstudio/utilities/idd/IddEnums.hpp>
+#include <openstudio/utilities/idd/IddFile.hpp>
+#include <openstudio/utilities/core/UUID.hpp>
+#include <openstudio/utilities/core/Enum.hpp>
 
-#include <openstudio/src/nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/nano/nano_signal_slot.hpp> // Signal-Slot replacement
 
 #include <QWidget>
 #include <QMainWindow>

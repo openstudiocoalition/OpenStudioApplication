@@ -36,10 +36,10 @@
 #include "../shared_gui_components/OSLineEdit.hpp"
 #include "../shared_gui_components/OSQuantityEdit.hpp"
 
-#include <openstudio/src/model/GasMixture.hpp>
-#include <openstudio/src/model/GasMixture_Impl.hpp>
+#include <openstudio/model/GasMixture.hpp>
+#include <openstudio/model/GasMixture_Impl.hpp>
 
-#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
 
 #include <QGridLayout>
 #include <QLabel>

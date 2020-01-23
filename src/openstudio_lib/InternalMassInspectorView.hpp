@@ -32,7 +32,7 @@
 
 #include "ModelObjectInspectorView.hpp"
 #include "ModelObjectVectorController.hpp"
-#include <openstudio/src/model/InternalMassDefinition.hpp>
+#include <openstudio/model/InternalMassDefinition.hpp>
 
 namespace openstudio {
 

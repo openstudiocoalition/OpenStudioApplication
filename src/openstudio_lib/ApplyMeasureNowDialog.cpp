@@ -45,18 +45,18 @@
 #include "OSItem.hpp"
 #include "../model_editor/Utilities.hpp"
 
-#include <openstudio/src/model/Model.hpp>
-#include <openstudio/src/model/Model_Impl.hpp>
+#include <openstudio/model/Model.hpp>
+#include <openstudio/model/Model_Impl.hpp>
 
 #include "../openstudio_app/OpenStudioApp.hpp"
 #include "../utilities/OpenStudioApplicationPathHelpers.hpp"
 
-#include <openstudio/src/utilities/core/PathHelpers.hpp>
-#include <openstudio/src/utilities/core/RubyException.hpp>
-#include <openstudio/src/utilities/filetypes/WorkflowJSON.hpp>
-#include <openstudio/src/utilities/filetypes/WorkflowStep.hpp>
-#include <openstudio/src/utilities/filetypes/WorkflowStepResult.hpp>
-#include <openstudio/src/utilities/time/DateTime.hpp>
+#include <openstudio/utilities/core/PathHelpers.hpp>
+#include <openstudio/utilities/core/RubyException.hpp>
+#include <openstudio/utilities/filetypes/WorkflowJSON.hpp>
+#include <openstudio/utilities/filetypes/WorkflowStep.hpp>
+#include <openstudio/utilities/filetypes/WorkflowStepResult.hpp>
+#include <openstudio/utilities/time/DateTime.hpp>
 
 #include <QBoxLayout>
 #include <QCloseEvent>

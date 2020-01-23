@@ -32,10 +32,10 @@
 #include "OSAppBase.hpp"
 #include "OSDocument.hpp"
 
-#include <openstudio/src/osversion/VersionTranslator.hpp>
+#include <openstudio/osversion/VersionTranslator.hpp>
 
-#include <openstudio/src/utilities/core/Assert.hpp>
-#include <openstudio/src/utilities/core/Path.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Path.hpp>
 
 #include <QMenu>
 

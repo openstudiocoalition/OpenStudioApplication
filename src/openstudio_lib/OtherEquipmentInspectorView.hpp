@@ -31,7 +31,7 @@
 #define OPENSTUDIO_OTHEREQUIPMENTINSPECTORVIEW_HPP
 
 #include "ModelObjectInspectorView.hpp"
-#include <openstudio/src/model/OtherEquipmentDefinition.hpp>
+#include <openstudio/model/OtherEquipmentDefinition.hpp>
 
 namespace openstudio {
 

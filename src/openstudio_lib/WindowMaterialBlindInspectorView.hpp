@@ -31,7 +31,7 @@
 #define OPENSTUDIO_WINDOWMATERIALBLINDINSPECTORVIEW_HPP
 
 #include "ModelObjectInspectorView.hpp"
-#include <openstudio/src/model/Blind.hpp>
+#include <openstudio/model/Blind.hpp>
 
 namespace openstudio {
 

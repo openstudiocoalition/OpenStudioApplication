@@ -35,8 +35,8 @@
 #include "../shared_gui_components/OSQObjectController.hpp"
 #include "../model_editor/QMetaTypes.hpp"
 
-#include <openstudio/src/model/Model.hpp>
-#include <openstudio/src/model/ModelObject.hpp>
+#include <openstudio/model/Model.hpp>
+#include <openstudio/model/ModelObject.hpp>
 
 #include <QObject>
 #include <QString>

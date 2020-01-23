@@ -34,9 +34,9 @@
 #include "../shared_gui_components/OSDialog.hpp"
 #include "../shared_gui_components/OSListView.hpp"
 
-#include <openstudio/src/model/Model.hpp>
+#include <openstudio/model/Model.hpp>
 
-#include <openstudio/src/utilities/bcl/BCLMeasure.hpp>
+#include <openstudio/utilities/bcl/BCLMeasure.hpp>
 
 class QPushButton;
 class QStackedWidget;

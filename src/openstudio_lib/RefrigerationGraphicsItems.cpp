@@ -29,7 +29,7 @@
 
 #include "OSItem.hpp"
 #include "RefrigerationGraphicsItems.hpp"
-#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
 #include "../shared_gui_components/Buttons.hpp"
 #include <QPainter>
 #include <utility>

@@ -35,9 +35,9 @@
 
 #include "../openstudio_lib/OSItem.hpp"
 
-#include <openstudio/src/model/Model_Impl.hpp>
+#include <openstudio/model/Model_Impl.hpp>
 
-#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
 
 #include <QLabel>
 #include <QPainter>
@@ -49,7 +49,7 @@
 
 #include <sstream>
 
-#include <openstudio/src/utilities/idd/IddEnums.hxx>
+#include <openstudio/utilities/idd/IddEnums.hxx>
 
 
 namespace openstudio {

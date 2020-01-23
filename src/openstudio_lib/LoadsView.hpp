@@ -34,9 +34,9 @@
 #include "ModelSubTabView.hpp"
 #include "ModelObjectInspectorView.hpp"
 
-#include <openstudio/src/model/Model.hpp>
+#include <openstudio/model/Model.hpp>
 
-#include <openstudio/src/utilities/idf/WorkspaceObject_Impl.hpp>
+#include <openstudio/utilities/idf/WorkspaceObject_Impl.hpp>
 
 class QStackedWidget;
 

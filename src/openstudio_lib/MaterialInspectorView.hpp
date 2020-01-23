@@ -31,7 +31,7 @@
 #define OPENSTUDIO_MATERIALINSPECTORVIEW_HPP
 
 #include "ModelObjectInspectorView.hpp"
-#include <openstudio/src/model/StandardOpaqueMaterial.hpp>
+#include <openstudio/model/StandardOpaqueMaterial.hpp>
 
 class QComboBox;
 

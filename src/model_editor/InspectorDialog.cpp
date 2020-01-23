@@ -33,18 +33,18 @@
 #include "AccessPolicyStore.hpp"
 #include "Utilities.hpp"
 
-#include <openstudio/src/model/Model.hpp>
-#include <openstudio/src/model/Model_Impl.hpp>
-#include <openstudio/src/model/ModelObject.hpp>
-#include <openstudio/src/model/ModelObject_Impl.hpp>
-#include <openstudio/src/model/ResourceObject.hpp>
-#include <openstudio/src/model/ResourceObject_Impl.hpp>
+#include <openstudio/model/Model.hpp>
+#include <openstudio/model/Model_Impl.hpp>
+#include <openstudio/model/ModelObject.hpp>
+#include <openstudio/model/ModelObject_Impl.hpp>
+#include <openstudio/model/ResourceObject.hpp>
+#include <openstudio/model/ResourceObject_Impl.hpp>
 
-#include <openstudio/src/utilities/core/Assert.hpp>
-#include <openstudio/src/utilities/idd/IddFile.hpp>
-#include <openstudio/src/utilities/idd/IddObject.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/idd/IddFile.hpp>
+#include <openstudio/utilities/idd/IddObject.hpp>
 
-#include <openstudio/src/utilities/idd/IddFactory.hxx>
+#include <openstudio/utilities/idd/IddFactory.hxx>
 
 #include <QLabel>
 #include <QIcon>

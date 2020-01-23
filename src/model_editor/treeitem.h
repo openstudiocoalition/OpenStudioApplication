@@ -46,7 +46,7 @@
 #include <QVariant>
 
 #include "ModelEditorAPI.hpp"
-#include <openstudio/src/model/Building.hpp>
+#include <openstudio/model/Building.hpp>
 
 namespace modeleditor
 {

@@ -32,7 +32,7 @@
 
 #include "../shared_gui_components/OSQObjectController.hpp"
 #include <boost/smart_ptr.hpp>
-#include <openstudio/src/model/Model.hpp>
+#include <openstudio/model/Model.hpp>
 #include "../shared_gui_components/EditController.hpp"
 #include "../shared_gui_components/LocalLibraryController.hpp"
 

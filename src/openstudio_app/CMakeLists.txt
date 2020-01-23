@@ -257,24 +257,12 @@ elseif( WIN32 )
 endif()
 
 set(depends
-  openstudioapp_utilities
   openstudio_lib
-  openstudio_osversion
-  openstudio_model
-  openstudio_energyplus
-  openstudio_modeleditor
-  openstudio_sdd
-  openstudio_gbxml
-  openstudio_bimserver
+  openstudio::openstudiolib
   ${QT_WEB_LIBS}
-  #${QT_PLUGIN_LIBS}
-  #${COREFOUNDATION_LIBRARY}
 )
 
 target_link_libraries(${target_name} ${depends})
-
-# because the app calls the cli
-add_dependencies(${target_name} openstudio)
 
 #AddPCH(${target_name})
 

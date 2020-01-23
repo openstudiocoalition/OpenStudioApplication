@@ -31,7 +31,7 @@
 
 #include "../model_editor/Utilities.hpp"
 
-#include <openstudio/src/utilities/core/Path.hpp>
+#include <openstudio/utilities/core/Path.hpp>
 
 #include <QGridLayout>
 #include <QLabel>

@@ -28,8 +28,8 @@
 ***********************************************************************************************************************/
 
 #include "HVACTemplateHelperDialog.hpp"
-#include <openstudio/src/model/ThermalZone.hpp>
-#include <openstudio/src/model/ThermalZone_Impl.hpp>
+#include <openstudio/model/ThermalZone.hpp>
+#include <openstudio/model/ThermalZone_Impl.hpp>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QButtonGroup>

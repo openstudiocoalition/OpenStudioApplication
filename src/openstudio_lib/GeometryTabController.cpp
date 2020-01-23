@@ -35,9 +35,9 @@
 #include "GeometryEditorController.hpp"
 #include "GeometryEditorView.hpp"
 
-#include <openstudio/src/model/Model.hpp>
+#include <openstudio/model/Model.hpp>
 
-#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
 
 // DLM: remove once editor is always enabled
 #include <QProcessEnvironment>

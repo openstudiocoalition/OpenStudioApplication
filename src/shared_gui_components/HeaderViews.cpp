@@ -34,7 +34,7 @@
 #include <QStyleOption>
 #include <QPainter>
 
-#include <openstudio/src/utilities/bcl/BCLMeasure.hpp>
+#include <openstudio/utilities/bcl/BCLMeasure.hpp>
 
 namespace openstudio{
 

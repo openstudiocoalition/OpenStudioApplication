@@ -35,17 +35,17 @@
 #include "../shared_gui_components/OSComboBox.hpp"
 #include "../shared_gui_components/OSSwitch.hpp"
 
-#include <openstudio/src/model/RunPeriodControlDaylightSavingTime.hpp>
-#include <openstudio/src/model/RunPeriodControlDaylightSavingTime_Impl.hpp>
-#include <openstudio/src/model/WeatherFile.hpp>
-#include <openstudio/src/model/WeatherFile_Impl.hpp>
+#include <openstudio/model/RunPeriodControlDaylightSavingTime.hpp>
+#include <openstudio/model/RunPeriodControlDaylightSavingTime_Impl.hpp>
+#include <openstudio/model/WeatherFile.hpp>
+#include <openstudio/model/WeatherFile_Impl.hpp>
 
 #include "../model_editor/Utilities.hpp"
 
-#include <openstudio/src/utilities/core/Compare.hpp>
-#include <openstudio/src/utilities/filetypes/EpwFile.hpp>
-#include <openstudio/src/utilities/idd/IddEnums.hxx>
-#include <openstudio/src/utilities/time/Date.hpp>
+#include <openstudio/utilities/core/Compare.hpp>
+#include <openstudio/utilities/filetypes/EpwFile.hpp>
+#include <openstudio/utilities/idd/IddEnums.hxx>
+#include <openstudio/utilities/time/Date.hpp>
 
 #include <QBoxLayout>
 #include <QButtonGroup>

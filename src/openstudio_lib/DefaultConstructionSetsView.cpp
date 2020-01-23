@@ -31,7 +31,7 @@
 #include "DefaultConstructionSetInspectorView.hpp"
 #include "ModelObjectListView.hpp"
 
-#include <openstudio/src/model/Model_Impl.hpp>
+#include <openstudio/model/Model_Impl.hpp>
 #include <QStyleOption>
 #include <QPainter>
 #include <QVBoxLayout>
@@ -40,7 +40,7 @@
 #include <QStackedWidget>
 #include <QScrollArea>
 #include <sstream>
-#include <openstudio/src/utilities/idd/IddEnums.hxx>
+#include <openstudio/utilities/idd/IddEnums.hxx>
 
 namespace openstudio {
 

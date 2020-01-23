@@ -30,22 +30,22 @@
 #include "ConstructionsController.hpp"
 #include "ConstructionsView.hpp"
 
-#include <openstudio/src/model/CFactorUndergroundWallConstruction.hpp>
-#include <openstudio/src/model/Component.hpp>
-#include <openstudio/src/model/Component_Impl.hpp>
-#include <openstudio/src/model/ComponentData.hpp>
-#include <openstudio/src/model/ComponentData_Impl.hpp>
-#include <openstudio/src/model/Construction.hpp>
-#include <openstudio/src/model/ConstructionBase.hpp>
-#include <openstudio/src/model/ConstructionBase_Impl.hpp>
-#include <openstudio/src/model/ConstructionWithInternalSource.hpp>
-#include <openstudio/src/model/DefaultConstructionSet.hpp>
-#include <openstudio/src/model/DefaultConstructionSet_Impl.hpp>
-#include <openstudio/src/model/FFactorGroundFloorConstruction.hpp>
-#include <openstudio/src/model/WindowDataFile.hpp>
+#include <openstudio/model/CFactorUndergroundWallConstruction.hpp>
+#include <openstudio/model/Component.hpp>
+#include <openstudio/model/Component_Impl.hpp>
+#include <openstudio/model/ComponentData.hpp>
+#include <openstudio/model/ComponentData_Impl.hpp>
+#include <openstudio/model/Construction.hpp>
+#include <openstudio/model/ConstructionBase.hpp>
+#include <openstudio/model/ConstructionBase_Impl.hpp>
+#include <openstudio/model/ConstructionWithInternalSource.hpp>
+#include <openstudio/model/DefaultConstructionSet.hpp>
+#include <openstudio/model/DefaultConstructionSet_Impl.hpp>
+#include <openstudio/model/FFactorGroundFloorConstruction.hpp>
+#include <openstudio/model/WindowDataFile.hpp>
 
-#include <openstudio/src/utilities/core/Logger.hpp>
-#include <openstudio/src/utilities/idd/IddEnums.hxx>
+#include <openstudio/utilities/core/Logger.hpp>
+#include <openstudio/utilities/idd/IddEnums.hxx>
 
 namespace openstudio {
 

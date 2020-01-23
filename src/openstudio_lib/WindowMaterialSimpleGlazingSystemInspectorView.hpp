@@ -31,7 +31,7 @@
 #define OPENSTUDIO_WINDOWMATERIALSIMPLEGLAZINGSYSTEMINSPECTORVIEW_HPP
 
 #include "ModelObjectInspectorView.hpp"
-#include <openstudio/src/model/SimpleGlazing.hpp>
+#include <openstudio/model/SimpleGlazing.hpp>
 
 namespace openstudio {
 

@@ -30,8 +30,8 @@
 #ifndef OSAPP_UTILITIES_APPLICATIONPATHHELPERS_HPP
 #define OSAPP_UTILITIES_APPLICATIONPATHHELPERS_HPP
 
-#include <openstudio/src/utilities/UtilitiesAPI.hpp>
-#include <openstudio/src/utilities/core/Path.hpp>
+#include <openstudio/utilities/UtilitiesAPI.hpp>
+#include <openstudio/utilities/core/Path.hpp>
 #include <vector>
 
 namespace openstudio {

@@ -30,9 +30,9 @@
 #ifndef OPENSTUDIO_HVACSYSTEMSCONTROLLER_HPP
 #define OPENSTUDIO_HVACSYSTEMSCONTROLLER_HPP
 
-#include <openstudio/src/model/Model.hpp>
-#include <openstudio/src/model/ModelObject.hpp>
-#include <openstudio/src/model/Loop.hpp>
+#include <openstudio/model/Model.hpp>
+#include <openstudio/model/ModelObject.hpp>
+#include <openstudio/model/Loop.hpp>
 #include "OSDropZone.hpp"
 #include "ModelObjectItem.hpp"
 #include "ModelObjectVectorController.hpp"
@@ -43,7 +43,7 @@
 #include "../shared_gui_components/OSComboBox.hpp"
 #include <QAbstractListModel>
 #include <QPointer>
-#include <openstudio/src/nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/nano/nano_signal_slot.hpp> // Signal-Slot replacement
 #include "../model_editor/QMetaTypes.hpp"
 
 class QMutex;

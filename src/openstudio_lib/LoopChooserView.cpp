@@ -28,15 +28,15 @@
 ***********************************************************************************************************************/
 
 #include "LoopChooserView.hpp"
-#include <openstudio/src/model/Model.hpp>
-#include <openstudio/src/model/WaterToAirComponent.hpp>
-#include <openstudio/src/model/WaterToAirComponent_Impl.hpp>
-#include <openstudio/src/model/HVACComponent.hpp>
-#include <openstudio/src/model/HVACComponent_Impl.hpp>
-#include <openstudio/src/model/Loop.hpp>
-#include <openstudio/src/model/Loop_Impl.hpp>
-#include <openstudio/src/model/PlantLoop.hpp>
-#include <openstudio/src/model/PlantLoop_Impl.hpp>
+#include <openstudio/model/Model.hpp>
+#include <openstudio/model/WaterToAirComponent.hpp>
+#include <openstudio/model/WaterToAirComponent_Impl.hpp>
+#include <openstudio/model/HVACComponent.hpp>
+#include <openstudio/model/HVACComponent_Impl.hpp>
+#include <openstudio/model/Loop.hpp>
+#include <openstudio/model/Loop_Impl.hpp>
+#include <openstudio/model/PlantLoop.hpp>
+#include <openstudio/model/PlantLoop_Impl.hpp>
 
 #include "../model_editor/Utilities.hpp"
 

@@ -31,7 +31,7 @@
 
 #include "modeltest.h"
 
-#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
 
 /*!
     Connect to all of the models signals.  Whenever anything happens recheck everything.

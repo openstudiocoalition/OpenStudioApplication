@@ -32,7 +32,7 @@
 
 #include "ModelObjectInspectorView.hpp"
 #include "ModelObjectVectorController.hpp"
-#include <openstudio/src/model/ConstructionAirBoundary.hpp>
+#include <openstudio/model/ConstructionAirBoundary.hpp>
 
 class QComboBox;
 

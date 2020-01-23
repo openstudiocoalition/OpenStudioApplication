@@ -30,14 +30,14 @@
 #ifndef OPENSTUDIO_UTILITYBILLSVIEW_HPP
 #define OPENSTUDIO_UTILITYBILLSVIEW_HPP
 
-#include <openstudio/src/nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/nano/nano_signal_slot.hpp> // Signal-Slot replacement
 #include "ModelObjectInspectorView.hpp"
 #include "ModelSubTabView.hpp"
 
-#include <openstudio/src/model/Model.hpp>
-#include <openstudio/src/model/UtilityBill.hpp>
+#include <openstudio/model/Model.hpp>
+#include <openstudio/model/UtilityBill.hpp>
 
-#include <openstudio/src/utilities/data/DataEnums.hpp>
+#include <openstudio/utilities/data/DataEnums.hpp>
 
 #include <QWidget>
 

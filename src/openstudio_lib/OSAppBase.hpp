@@ -32,11 +32,11 @@
 
 #include "../shared_gui_components/BaseApp.hpp"
 
-#include <openstudio/src/measure/OSMeasureInfoGetter.hpp>
+#include <openstudio/measure/OSMeasureInfoGetter.hpp>
 #include "../model_editor/QMetaTypes.hpp"
 
 #include "OpenStudioAPI.hpp"
-#include <openstudio/src/utilities/core/Logger.hpp>
+#include <openstudio/utilities/core/Logger.hpp>
 
 #include <QApplication>
 

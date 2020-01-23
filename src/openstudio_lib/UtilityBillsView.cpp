@@ -41,17 +41,17 @@
 #include "../shared_gui_components/OSLineEdit.hpp"
 #include "../shared_gui_components/OSUnsignedEdit.hpp"
 
-#include <openstudio/src/model/Model_Impl.hpp>
-#include <openstudio/src/model/RunPeriod.hpp>
-#include <openstudio/src/model/RunPeriod_Impl.hpp>
-#include <openstudio/src/model/UtilityBill_Impl.hpp>
-#include <openstudio/src/model/WeatherFile.hpp>
-#include <openstudio/src/model/WeatherFile_Impl.hpp>
-#include <openstudio/src/model/YearDescription.hpp>
-#include <openstudio/src/model/YearDescription_Impl.hpp>
+#include <openstudio/model/Model_Impl.hpp>
+#include <openstudio/model/RunPeriod.hpp>
+#include <openstudio/model/RunPeriod_Impl.hpp>
+#include <openstudio/model/UtilityBill_Impl.hpp>
+#include <openstudio/model/WeatherFile.hpp>
+#include <openstudio/model/WeatherFile_Impl.hpp>
+#include <openstudio/model/YearDescription.hpp>
+#include <openstudio/model/YearDescription_Impl.hpp>
 
-#include <openstudio/src/utilities/core/Assert.hpp>
-#include <openstudio/src/utilities/time/Date.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/time/Date.hpp>
 
 #include <QBoxLayout>
 #include <QButtonGroup>

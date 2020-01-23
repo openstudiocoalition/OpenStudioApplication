@@ -31,8 +31,8 @@
 #define OPENSTUDIO_MODELOBJECTVECTORCONTROLLER_HPP
 
 #include "OSVectorController.hpp"
-#include <openstudio/src/model/ModelObject.hpp>
-#include <openstudio/src/model/Component.hpp>
+#include <openstudio/model/ModelObject.hpp>
+#include <openstudio/model/Component.hpp>
 #include "../model_editor/QMetaTypes.hpp"
 #include <vector>
 

@@ -19,17 +19,18 @@ set(${target_name}_test_src
 )
 
 set(${target_name}_depends
-  CONAN_PKG::boost
-  #CONAN_PKG::boost_filesystem
-  #CONAN_PKG::boost_regex
-  #CONAN_PKG::boost_log
+  openstudio::openstudiolib
+  #CONAN_PKG::boost
+  CONAN_PKG::boost_filesystem
+  CONAN_PKG::boost_regex
+  CONAN_PKG::boost_log
 )
 
 add_library(${target_name}
   ${${target_name}_src}
 )
 
-target_link_libraries(${target_name} ${${target_name}_depends} openstudio_utilities)
+target_link_libraries(${target_name} ${${target_name}_depends} )
 
 
 if(BUILD_TESTING)

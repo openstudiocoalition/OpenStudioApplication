@@ -30,8 +30,8 @@
 #include "GeometryEditorController.hpp"
 #include "GeometryEditorView.hpp"
 
-#include <openstudio/src/utilities/core/Logger.hpp>
-#include <openstudio/src/utilities/idd/IddEnums.hxx>
+#include <openstudio/utilities/core/Logger.hpp>
+#include <openstudio/utilities/idd/IddEnums.hxx>
 
 namespace openstudio {
 

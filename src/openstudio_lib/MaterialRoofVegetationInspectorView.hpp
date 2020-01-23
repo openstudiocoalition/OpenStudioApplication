@@ -31,7 +31,7 @@
 #define OPENSTUDIO_MATERIALROOFVEGETATIONINSPECTORVIEW_HPP
 
 #include "ModelObjectInspectorView.hpp"
-#include <openstudio/src/model/RoofVegetation.hpp>
+#include <openstudio/model/RoofVegetation.hpp>
 
 namespace openstudio {
 

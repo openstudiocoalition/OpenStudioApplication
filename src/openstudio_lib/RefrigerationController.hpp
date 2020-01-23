@@ -34,7 +34,7 @@
 #include <boost/optional.hpp>
 #include "../shared_gui_components/OSListController.hpp"
 #include "../model_editor/QMetaTypes.hpp"
-#include <openstudio/src/model/RefrigerationSystem.hpp>
+#include <openstudio/model/RefrigerationSystem.hpp>
 
 class QGraphicsScene;
 class QGraphicsView;

@@ -34,26 +34,26 @@
 #include "IGPrecisionDialog.hpp"
 #include "IGSpinBoxes.hpp"
 
-#include <openstudio/src/model/Model.hpp>
-#include <openstudio/src/model/ParentObject.hpp>
-#include <openstudio/src/model/ParentObject_Impl.hpp>
+#include <openstudio/model/Model.hpp>
+#include <openstudio/model/ParentObject.hpp>
+#include <openstudio/model/ParentObject_Impl.hpp>
 
 #include "../model_editor/Utilities.hpp"
 
-#include <openstudio/src/utilities/core/Assert.hpp>
-#include <openstudio/src/utilities/core/Compare.hpp>
-#include <openstudio/src/utilities/core/StringHelpers.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Compare.hpp>
+#include <openstudio/utilities/core/StringHelpers.hpp>
 
-#include <openstudio/src/utilities/idd/IddField.hpp>
-#include <openstudio/src/utilities/idd/IddFieldProperties.hpp>
-#include <openstudio/src/utilities/idd/IddKey.hpp>
-#include <openstudio/src/utilities/idd/IddObject.hpp>
-#include <openstudio/src/utilities/idd/IddObjectProperties.hpp>
-#include <openstudio/src/utilities/idf/IdfExtensibleGroup.hpp>
+#include <openstudio/utilities/idd/IddField.hpp>
+#include <openstudio/utilities/idd/IddFieldProperties.hpp>
+#include <openstudio/utilities/idd/IddKey.hpp>
+#include <openstudio/utilities/idd/IddObject.hpp>
+#include <openstudio/utilities/idd/IddObjectProperties.hpp>
+#include <openstudio/utilities/idf/IdfExtensibleGroup.hpp>
 
-#include <openstudio/src/utilities/units/OSOptionalQuantity.hpp>
-#include <openstudio/src/utilities/units/Quantity.hpp>
-#include <openstudio/src/utilities/units/QuantityConverter.hpp>
+#include <openstudio/utilities/units/OSOptionalQuantity.hpp>
+#include <openstudio/utilities/units/Quantity.hpp>
+#include <openstudio/utilities/units/QuantityConverter.hpp>
 
 #include <boost/numeric/conversion/cast.hpp>
 

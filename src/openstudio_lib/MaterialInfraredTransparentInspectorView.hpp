@@ -31,7 +31,7 @@
 #define OPENSTUDIO_MATERIALINFRAREDTRANSPARENTINSPECTORVIEW_HPP
 
 #include "ModelObjectInspectorView.hpp"
-#include <openstudio/src/model/InfraredTransparentMaterial.hpp>
+#include <openstudio/model/InfraredTransparentMaterial.hpp>
 
 namespace openstudio {
 

@@ -37,7 +37,7 @@
 #include "LocalLibrary.hpp"
 #include "BaseApp.hpp"
 
-#include <openstudio/src/utilities/bcl/BCLMeasure.hpp>
+#include <openstudio/utilities/bcl/BCLMeasure.hpp>
 
 #include <QHBoxLayout>
 #include <QLabel>

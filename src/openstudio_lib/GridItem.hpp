@@ -34,12 +34,12 @@
 #include <QCoreApplication>
 #include <QPixmap>
 #include <QPointer>
-#include <openstudio/src/nano/nano_signal_slot.hpp> // Signal-Slot replacement
-#include <openstudio/src/model/ModelObject.hpp>
-#include <openstudio/src/model/Node.hpp>
-#include <openstudio/src/model/Mixer.hpp>
-#include <openstudio/src/model/Splitter.hpp>
-#include <openstudio/src/model/Loop.hpp>
+#include <openstudio/nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/model/ModelObject.hpp>
+#include <openstudio/model/Node.hpp>
+#include <openstudio/model/Mixer.hpp>
+#include <openstudio/model/Splitter.hpp>
+#include <openstudio/model/Loop.hpp>
 #include "OSItem.hpp"
 #include "shared_gui_components/GraphicsItems.hpp"
 

@@ -33,14 +33,14 @@
 #include "OSAppBase.hpp"
 #include "OSDocument.hpp"
 
-#include <openstudio/src/model/Construction.hpp>
-#include <openstudio/src/model/Construction_Impl.hpp>
-#include <openstudio/src/model/Material.hpp>
-#include <openstudio/src/model/Material_Impl.hpp>
+#include <openstudio/model/Construction.hpp>
+#include <openstudio/model/Construction_Impl.hpp>
+#include <openstudio/model/Material.hpp>
+#include <openstudio/model/Material_Impl.hpp>
 
-#include <openstudio/src/utilities/core/Assert.hpp>
-#include <openstudio/src/utilities/idd/OS_Construction_FieldEnums.hxx>
-#include <openstudio/src/utilities/idd/IddEnums.hxx>
+#include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/idd/OS_Construction_FieldEnums.hxx>
+#include <openstudio/utilities/idd/IddEnums.hxx>
 
 #include <QMessageBox>
 #include <QTimer>

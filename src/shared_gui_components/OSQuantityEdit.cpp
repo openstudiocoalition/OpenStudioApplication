@@ -31,13 +31,13 @@
 
 #include "../model_editor/Utilities.hpp"
 
-#include <openstudio/src/model/ModelObject_Impl.hpp>
+#include <openstudio/model/ModelObject_Impl.hpp>
 
-#include <openstudio/src/utilities/core/Containers.hpp>
-#include <openstudio/src/utilities/units/QuantityConverter.hpp>
+#include <openstudio/utilities/core/Containers.hpp>
+#include <openstudio/utilities/units/QuantityConverter.hpp>
 
-#include <openstudio/src/utilities/core/Assert.hpp>
-#include <openstudio/src/utilities/core/StringHelpers.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/StringHelpers.hpp>
 
 #include <QBoxLayout>
 #include <QDoubleValidator>

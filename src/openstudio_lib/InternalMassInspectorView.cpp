@@ -32,15 +32,15 @@
 #include "../shared_gui_components/OSQuantityEdit.hpp"
 #include "OSDropZone.hpp"
 #include "ModelObjectItem.hpp"
-#include <openstudio/src/model/InternalMassDefinition.hpp>
-#include <openstudio/src/model/InternalMassDefinition_Impl.hpp>
-#include <openstudio/src/model/ConstructionBase.hpp>
-#include <openstudio/src/model/ConstructionBase_Impl.hpp>
-#include <openstudio/src/model/ComponentData.hpp>
-#include <openstudio/src/model/ComponentData_Impl.hpp>
+#include <openstudio/model/InternalMassDefinition.hpp>
+#include <openstudio/model/InternalMassDefinition_Impl.hpp>
+#include <openstudio/model/ConstructionBase.hpp>
+#include <openstudio/model/ConstructionBase_Impl.hpp>
+#include <openstudio/model/ComponentData.hpp>
+#include <openstudio/model/ComponentData_Impl.hpp>
 
-#include <openstudio/src/utilities/core/Assert.hpp>
-#include <openstudio/src/utilities/idd/OS_InternalMass_Definition_FieldEnums.hxx>
+#include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/idd/OS_InternalMass_Definition_FieldEnums.hxx>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QLabel>

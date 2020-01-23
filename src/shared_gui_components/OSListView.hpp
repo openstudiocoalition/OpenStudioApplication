@@ -34,7 +34,7 @@
 #include <QWidget>
 #include <QSharedPointer>
 #include <map>
-#include <openstudio/src/utilities/core/Logger.hpp>
+#include <openstudio/utilities/core/Logger.hpp>
 
 class QScrollArea;
 class QVBoxLayout;

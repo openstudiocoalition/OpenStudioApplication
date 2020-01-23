@@ -33,7 +33,7 @@
 #include <QGraphicsObject>
 #include <QCoreApplication>
 #include <QPixmap>
-#include <openstudio/src/model/ModelObject.hpp>
+#include <openstudio/model/ModelObject.hpp>
 #include "OSItem.hpp"
 #include "GridItem.hpp"
 

@@ -39,8 +39,8 @@
 
 #include "../shared_gui_components/MeasureBadge.hpp"
 
-#include <openstudio/src/utilities/bcl/LocalBCL.hpp>
-#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/utilities/bcl/LocalBCL.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
 
 #include "../model_editor/Utilities.hpp"
 

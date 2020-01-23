@@ -32,7 +32,7 @@
 
 #include "BIMserverAPI.hpp"
 
-#include <openstudio/src/utilities/core/Logger.hpp>
+#include <openstudio/utilities/core/Logger.hpp>
 
 #include <QString>
 #include <QUrl>

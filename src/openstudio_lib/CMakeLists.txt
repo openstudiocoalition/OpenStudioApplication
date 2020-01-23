@@ -728,12 +728,7 @@ add_library(${target_name}
 )
 
 set(depends
-  openstudio_model
-  openstudio_energyplus
-  openstudio_modeleditor
-  openstudio_measure
-  openstudio_sdd
-  openstudio_gbxml
+  openstudio::openstudiolib
   ${QT_LIBS}
 )
 if(WIN32)

@@ -30,13 +30,13 @@
 #ifndef SHAREDGUICOMPONENTS_OSQUANTITYEDIT_HPP
 #define SHAREDGUICOMPONENTS_OSQUANTITYEDIT_HPP
 
-#include <openstudio/src/nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/nano/nano_signal_slot.hpp> // Signal-Slot replacement
 #include "FieldMethodTypedefs.hpp"
 
-#include <openstudio/src/model/ModelObject.hpp>
+#include <openstudio/model/ModelObject.hpp>
 
-#include <openstudio/src/utilities/units/Unit.hpp>
-#include <openstudio/src/utilities/core/Logger.hpp>
+#include <openstudio/utilities/units/Unit.hpp>
+#include <openstudio/utilities/core/Logger.hpp>
 
 #include <QLineEdit>
 #include <QLabel>

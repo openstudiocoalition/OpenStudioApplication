@@ -31,7 +31,7 @@
 #define OPENSTUDIO_WINDOWMATERIALGASINSPECTORVIEW_HPP
 
 #include "ModelObjectInspectorView.hpp"
-#include <openstudio/src/model/Gas.hpp>
+#include <openstudio/model/Gas.hpp>
 
 namespace openstudio {
 

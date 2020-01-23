@@ -31,8 +31,8 @@
 #define SHAREDGUICOMPONENTS_MEASUREDRAGDATA_HPP
 
 #include "LocalLibrary.hpp"
-#include <openstudio/src/utilities/core/UUID.hpp>
-#include <openstudio/src/utilities/bcl/BCLMeasure.hpp>
+#include <openstudio/utilities/core/UUID.hpp>
+#include <openstudio/utilities/bcl/BCLMeasure.hpp>
 #include <QObject>
 #include <QByteArray>
 

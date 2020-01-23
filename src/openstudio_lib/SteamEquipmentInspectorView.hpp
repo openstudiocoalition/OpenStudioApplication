@@ -31,7 +31,7 @@
 #define OPENSTUDIO_STEAMEQUIPMENTINSPECTORVIEW_HPP
 
 #include "ModelObjectInspectorView.hpp"
-#include <openstudio/src/model/SteamEquipmentDefinition.hpp>
+#include <openstudio/model/SteamEquipmentDefinition.hpp>
 
 namespace openstudio {
 

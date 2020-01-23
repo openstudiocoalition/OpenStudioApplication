@@ -32,7 +32,7 @@
 
 #include "ModelObjectInspectorView.hpp"
 
-#include <openstudio/src/model/DaylightRedirectionDevice.hpp>
+#include <openstudio/model/DaylightRedirectionDevice.hpp>
 
 namespace openstudio {
 

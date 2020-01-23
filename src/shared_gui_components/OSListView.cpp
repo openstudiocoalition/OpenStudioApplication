@@ -30,7 +30,7 @@
 #include "OSListView.hpp"
 #include "OSListController.hpp"
 
-#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
 
 #include <QVBoxLayout>
 #include <QScrollArea>

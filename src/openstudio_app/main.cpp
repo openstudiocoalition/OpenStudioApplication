@@ -37,15 +37,15 @@
 #include "../model_editor/AccessPolicyStore.hpp"
 #include "../model_editor/Utilities.hpp"
 
-#include <openstudio/src/measure/OSArgument.hpp>
+#include <openstudio/measure/OSArgument.hpp>
 
 #include "../openstudio_lib/MainWindow.hpp"
 
-#include <openstudio/src/utilities/core/FileLogSink.hpp>
-#include <openstudio/src/utilities/bcl/BCLMeasure.hpp>
-#include <openstudio/src/utilities/core/Logger.hpp>
-#include <openstudio/src/utilities/core/String.hpp>
-#include <openstudio/src/utilities/idf/Workspace_Impl.hpp>
+#include <openstudio/utilities/core/FileLogSink.hpp>
+#include <openstudio/utilities/bcl/BCLMeasure.hpp>
+#include <openstudio/utilities/core/Logger.hpp>
+#include <openstudio/utilities/core/String.hpp>
+#include <openstudio/utilities/idf/Workspace_Impl.hpp>
 
 #include <QAbstractButton>
 #include <QApplication>
@@ -60,7 +60,7 @@
 #endif
 
 #define WSAAPI
-#include <openstudio/src/utilities/core/Path.hpp>
+#include <openstudio/utilities/core/Path.hpp>
 
 #include <thread>
 #include <chrono>

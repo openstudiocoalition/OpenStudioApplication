@@ -31,7 +31,7 @@
 #define OPENSTUDIO_ICONLIBRARY_HPP
 
 #include "OpenStudioAPI.hpp"
-#include <openstudio/src/utilities/core/Logger.hpp>
+#include <openstudio/utilities/core/Logger.hpp>
 
 #include <QPixmap>
 #include <map>
