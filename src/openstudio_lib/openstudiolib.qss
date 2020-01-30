@@ -109,7 +109,7 @@ QComboBox {
     color: black;
     background-color: white;
     selection-color: white;
-    selection-background-color: darkblue;
+    selection-background-color: gray;
 }
 
 QComboBox:!editable, QComboBox::drop-down:editable {
