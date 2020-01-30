@@ -107,6 +107,9 @@ QComboBox {
     padding-right: 10px;
     padding-top: 1px;
     color: black;
+    background-color: white;
+    selection-color: white;
+    selection-background-color: darkblue;
 }
 
 QComboBox:!editable, QComboBox::drop-down:editable {
