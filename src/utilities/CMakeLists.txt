@@ -4,6 +4,8 @@ set(target_name openstudioapp_utilities)
 include_directories(${PROJECT_BINARY_DIR})
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
+get_target_property(CLI_IMPORTED_PATH openstudio::openstudio LOCATION)
+
 CONFIGURE_FILE_WITH_CHECKSUM("OpenStudioApplicationPathHelpers.cxx.in" "${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApplicationPathHelpers.cxx")
 
 set(${target_name}_src
