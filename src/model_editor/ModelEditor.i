@@ -9,15 +9,15 @@
 #define MODEL_API
 #define MODELEDITOR_API
 
-%include <openstudio/src/utilities/core/CommonInclude.i>
-%import <openstudio/src/utilities/core/CommonImport.i>
-%import <openstudio/src/utilities/Utilities.i>
+%include <openstudio/utilities/core/CommonInclude.i>
+%import <openstudio/utilities/core/CommonImport.i>
+%import <openstudio/utilities/Utilities.i>
 
 #if defined(SWIGCSHARP) || defined(SWIGJAVA)
-%import <openstudio/src/model/Model.i>
+%import <openstudio/model/Model.i>
 #else
-%import(module="openstudiomodel") <openstudio/src/model/Model.hpp>
-%import(module="openstudiomodel") <openstudio/src/model/ModelObject.hpp>
+%import(module="openstudiomodel") <openstudio/model/Model.hpp>
+%import(module="openstudiomodel") <openstudio/model/ModelObject.hpp>
 #endif
 
 %{
@@ -29,8 +29,8 @@
   #include <model_editor/PathWatcher.hpp>
   #include <model_editor/Utilities.hpp>
 
-  #include <openstudio/src/model/Model.hpp>
-  #include <openstudio/src/model/ModelObject.hpp>
+  #include <openstudio/model/Model.hpp>
+  #include <openstudio/model/ModelObject.hpp>
 
   using namespace openstudio;
   using namespace openstudio::model;

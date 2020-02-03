@@ -134,8 +134,8 @@ add_library(${target_name}
 # lib dependencies
 set(${target_name}_depends
   openstudio::openstudiolib
-  CONAN_PKG::openstudio_ruby
   ${QT_LIBS}
+  #CONAN_PKG::openstudio_ruby
 )
 if(WIN32)
   list(APPEND ${target_name}_depends qtwinmigrate)
@@ -174,13 +174,12 @@ set(${target_name}_test_depends
 CREATE_TEST_TARGETS(${target_name} "${${target_name}_test_src}" "${${target_name}_test_depends}")
 CREATE_SRC_GROUPS("${${target_name}_test_src}")
 
-## # lib swig files
-## set(${target_name}_swig_src
-##   ModelEditor.i
-##   Qt.i
-## )
-## 
-## set(swig_target_name ${target_name})
-## 
-## MAKE_SWIG_TARGET_OSAPP(OpenStudioModelEditor modeleditor "${CMAKE_CURRENT_SOURCE_DIR}/ModelEditor.i" "${${target_name}_swig_src}" ${swig_target_name} OpenStudioEnergyPlus)
-## add_dependencies(ruby_OpenStudioModelEditor ruby_OpenStudioModel)
+# lib swig files
+set(${target_name}_swig_src
+  ModelEditor.i
+  Qt.i
+)
+
+set(swig_target_name ${target_name})
+MAKE_SWIG_TARGET_OSAPP(OpenStudioModelEditor modeleditor "${CMAKE_CURRENT_SOURCE_DIR}/ModelEditor.i" "${${target_name}_swig_src}" ${swig_target_name} "")
+

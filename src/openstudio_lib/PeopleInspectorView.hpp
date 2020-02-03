@@ -32,8 +32,7 @@
 
 #include "ModelObjectInspectorView.hpp"
 #include <openstudio/model/PeopleDefinition.hpp>
-
-#include <openstudio/src/utilities/core/Logger.hpp>
+#include <openstudio/utilities/core/Logger.hpp>
 
 class QGridLayout;
 class QPushButton;

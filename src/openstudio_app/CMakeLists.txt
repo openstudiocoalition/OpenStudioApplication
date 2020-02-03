@@ -258,6 +258,9 @@ endif()
 
 set(depends
   openstudio_lib
+  openstudio_bimserver
+  openstudio_modeleditor
+  openstudioapp_utilities
   openstudio::openstudiolib
   ${QT_WEB_LIBS}
 )

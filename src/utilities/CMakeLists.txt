@@ -20,10 +20,7 @@ set(${target_name}_test_src
 
 set(${target_name}_depends
   openstudio::openstudiolib
-  #CONAN_PKG::boost
-  CONAN_PKG::boost_filesystem
-  CONAN_PKG::boost_regex
-  CONAN_PKG::boost_log
+  CONAN_PKG::boost
 )
 
 add_library(${target_name}

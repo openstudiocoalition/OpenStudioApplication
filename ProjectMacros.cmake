@@ -231,6 +231,7 @@ macro(MAKE_SWIG_TARGET_OSAPP NAME SIMPLENAME KEY_I_FILE I_FILES PARENT_TARGET PA
 
   # Get all of the source files for the parent target this SWIG library is wrapping
   get_target_property(target_files ${PARENT_TARGET} SOURCES)
+  get_target_property(swig_include_directories openstudio::openstudio_rb INTERFACE_INCLUDE_DIRECTORIES)
 
   foreach(f ${target_files})
     # Get the extension of the source file
@@ -375,30 +376,23 @@ macro(MAKE_SWIG_TARGET_OSAPP NAME SIMPLENAME KEY_I_FILE I_FILES PARENT_TARGET PA
   set(${NAME}_SWIG_Depends "${this_depends}")
   set(${NAME}_SWIG_Depends "${this_depends}" PARENT_SCOPE)
 
-  #message(STATUS "${${NAME}_SWIG_Depends}")
+  set(swig_include_string "")
+  foreach(path IN LISTS swig_include_directories)
+    string(CONCAT swig_include_string "${swig_include_string}-I${path};")
+  endforeach()
 
-  #set(RUBY_AUTODOC "")
-  #if(BUILD_DOCUMENTATION)
-  #  set(RUBY_AUTODOC -features autodoc=1)
-  #endif()
-
-  message("OpenStudioApplication: SWIGIN' ${NAME}")
   add_custom_command(
     OUTPUT "${SWIG_WRAPPER}"
     COMMAND ${CMAKE_COMMAND} -E env SWIG_LIB="${SWIG_LIB}"
             "${SWIG_EXECUTABLE}"
             "-ruby" "-c++" "-fvirtual"
-            # TODO: probably just keep this line
-            "-I${PROJECT_SOURCE_DIR}" "-I${PROJECT_BINARY_DIR}"
-            # And clean up the rest of the includes
+            ${swig_include_string}
             "-I${PROJECT_SOURCE_DIR}/src" "-I${PROJECT_BINARY_DIR}/src"
-            "-I${PROJECT_SOURCE_DIR}/openstudio/src" "-I${PROJECT_BINARY_DIR}/openstudio/src"
-            "${extra_includes}" "${extra_includes2}" ${RUBY_AUTODOC}
-
             -module "${MODULE}" -initname "${LOWER_NAME}"
             "-I${PROJECT_SOURCE_DIR}/openstudio/ruby"
             -o "${SWIG_WRAPPER_FULL_PATH}"
-            "${SWIG_DEFINES}" ${SWIG_COMMON} "${KEY_I_FILE}"
+            #"${SWIG_DEFINES}" ${SWIG_COMMON} "${KEY_I_FILE}"
+            "${KEY_I_FILE}"
     DEPENDS ${this_depends}
   )
 
@@ -415,6 +409,9 @@ macro(MAKE_SWIG_TARGET_OSAPP NAME SIMPLENAME KEY_I_FILE I_FILES PARENT_TARGET PA
     ${swig_target} STATIC
     ${SWIG_WRAPPER}
   )
+
+  get_target_property(ruby_includes CONAN_PKG::openstudio_ruby INTERFACE_INCLUDE_DIRECTORIES)
+  target_include_directories(${swig_target} PUBLIC ${ruby_includes})
 
   AddPCH(${swig_target})
 

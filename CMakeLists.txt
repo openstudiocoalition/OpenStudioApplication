@@ -346,6 +346,12 @@ if(UNIX)
   mark_as_advanced(CMAKE_THREAD_LIBS)
 endif()
 
+# Swig
+FindValue(CONAN_SWIG_INSTALLER_ROOT)
+set(SWIG_EXECUTABLE "${CURRENT_CONAN_SWIG_INSTALLER_ROOT}/bin/swig")
+# The conan-provided binary has a built-in swiglib (`swig -swiglib`) that points to the build box on which it was built, which is problematic for us.
+set(SWIG_LIB "${CURRENT_CONAN_SWIG_INSTALLER_ROOT}/share/swig/4.0.1")
+
 if(BUILD_OS_APP)
   # Qt
   set(QT_INSTALL_DIR "" CACHE PATH "Path to Qt Install")
