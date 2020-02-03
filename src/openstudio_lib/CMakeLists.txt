@@ -2,16 +2,6 @@ set(target_name openstudio_lib)
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 include_directories(${QT_INCLUDES})
-#include_directories(${RUBY_INCLUDE_DIR})
-#include_directories(${SWIG_DIR})
-#
-#add_custom_command(
-#  OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/SWIGRubyRuntime.h"
-#  COMMAND ${CMAKE_COMMAND} -E env SWIG_LIB="${SWIG_LIB}"
-#          "${SWIG_EXECUTABLE}"
-#          "-ruby"
-#          -external-runtime "${CMAKE_CURRENT_BINARY_DIR}/SWIGRubyRuntime.h"
-#)
 
 # source files
 set(${target_name}_SRC

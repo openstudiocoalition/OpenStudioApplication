@@ -81,7 +81,6 @@ set(${target_name}_moc
   ModelExplorer.hpp
   ObjectExplorer.hpp
   PathWatcher.hpp
-  # QMetaTypes.hpp # Not needed
   tablemodel.h
   TableView.hpp
   TableWidget.hpp
@@ -149,13 +148,6 @@ if(BUILD_SHARED_LIBS)
 else()
   target_compile_definitions(${target_name} PUBLIC model_editor_EXPORTS)
 endif()
-
-#if(NOT APPLE)
-#  install(TARGETS ${target_name}
-#    RUNTIME DESTINATION bin
-#    LIBRARY DESTINATION lib
-#  )
-#endif()
 
 set(${target_name}_test_src
   test/ModelEditorFixture.hpp
