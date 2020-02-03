@@ -1,7 +1,7 @@
 
 OS:Version,
   {3c089b34-bc24-41b4-ab70-34a6247458c2}, !- Handle
-  3.0.0-beta;                              !- Version Identifier
+  3.0.0;                                  !- Version Identifier
 
 ! Always OnOff Discrete Schedule Type Limits
 OS:ScheduleTypeLimits,
@@ -12084,7 +12084,7 @@ OS:Fan:SystemModel,
   autosize,                               !- Design Electric Power Consumption {W}
   TotalEfficiencyAndPressure,             !- Design Power Sizing Method
   840,                                    !- Electric Power Per Unit Flow Rate {W/(m3/s)}
-  1.66667,                                !- Electric Power Per Unit Flow Rate Per Unit Pressure {W/((m3/s)-Pa)}
+  1.66667,                                !- Electric Power Per Unit Flow Rate Per Unit Pressure {W-s/m3-Pa}
   0.7,                                    !- Fan Total Efficiency
   ,                                       !- Electric Power Function of Flow Fraction Curve Name
   ,                                       !- Night Ventilation Mode Pressure Rise {Pa}
@@ -12108,7 +12108,7 @@ OS:Fan:SystemModel,
   autosize,                               !- Design Electric Power Consumption {W}
   TotalEfficiencyAndPressure,             !- Design Power Sizing Method
   840,                                    !- Electric Power Per Unit Flow Rate {W/(m3/s)}
-  1.66667,                                !- Electric Power Per Unit Flow Rate Per Unit Pressure {W/((m3/s)-Pa)}
+  1.66667,                                !- Electric Power Per Unit Flow Rate Per Unit Pressure {W-s/m3-Pa}
   0.6045,                                 !- Fan Total Efficiency
   {c6255a10-8ec4-4982-a181-f3fda6823e3b}, !- Electric Power Function of Flow Fraction Curve Name
   ,                                       !- Night Ventilation Mode Pressure Rise {Pa}
