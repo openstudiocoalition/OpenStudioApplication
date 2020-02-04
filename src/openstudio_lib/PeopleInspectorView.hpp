@@ -32,7 +32,6 @@
 
 #include "ModelObjectInspectorView.hpp"
 #include <openstudio/src/model/PeopleDefinition.hpp>
-
 #include <openstudio/src/utilities/core/Logger.hpp>
 
 class QGridLayout;

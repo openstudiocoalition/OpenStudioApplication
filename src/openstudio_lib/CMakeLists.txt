@@ -2,16 +2,6 @@ set(target_name openstudio_lib)
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 include_directories(${QT_INCLUDES})
-#include_directories(${RUBY_INCLUDE_DIR})
-#include_directories(${SWIG_DIR})
-#
-#add_custom_command(
-#  OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/SWIGRubyRuntime.h"
-#  COMMAND ${CMAKE_COMMAND} -E env SWIG_LIB="${SWIG_LIB}"
-#          "${SWIG_EXECUTABLE}"
-#          "-ruby"
-#          -external-runtime "${CMAKE_CURRENT_BINARY_DIR}/SWIGRubyRuntime.h"
-#)
 
 # source files
 set(${target_name}_SRC
@@ -719,7 +709,6 @@ qt5_wrap_cpp_minimally(${target_name}_moc_src ${${target_name}_moc})
 # generate rules for building source files from the resources
 qt5_add_resources(${target_name}_qrcs ${${target_name}_qrc})
 
-
 add_library(${target_name}
   ${${target_name}_SRC}
   ${${target_name}_moc_src}
@@ -728,12 +717,7 @@ add_library(${target_name}
 )
 
 set(depends
-  openstudio_model
-  openstudio_energyplus
-  openstudio_modeleditor
-  openstudio_measure
-  openstudio_sdd
-  openstudio_gbxml
+  openstudio::openstudiolib
   ${QT_LIBS}
 )
 if(WIN32)

@@ -36,14 +36,12 @@
 #include "../shared_gui_components/OSLineEdit.hpp"
 #include "../shared_gui_components/OSQuantityEdit.hpp"
 
+#include <openstudio/src/model/ModelExtensibleGroup.hpp>
 #include <openstudio/src/model/PeopleDefinition.hpp>
 #include <openstudio/src/model/PeopleDefinition_Impl.hpp>
 #include <openstudio/src/model/Schedule.hpp>
 #include <openstudio/src/model/SpaceLoadInstance.hpp>
-
 #include <openstudio/src/utilities/idf/IdfExtensibleGroup.hpp>
-#include <openstudio/src/model/ModelExtensibleGroup.hpp>
-
 #include <openstudio/src/utilities/core/Assert.hpp>
 
 #include <QGridLayout>
