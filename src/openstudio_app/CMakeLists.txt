@@ -80,7 +80,6 @@ elseif(APPLE)
   CONFIGURE_FILE_WITH_CHECKSUM(${CMAKE_CURRENT_SOURCE_DIR}/Info.plist.in ${CMAKE_CURRENT_BINARY_DIR}/Info.plist)
 
 elseif(UNIX)
-
   # Install the icons
   # Cf. http://standards.freedesktop.org/icon-theme-spec/icon-theme-spec-latest.html#directory_layout
 
@@ -160,30 +159,6 @@ if( APPLE )
     POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:Qt5::QCocoaIntegrationPlugin> $<TARGET_FILE_DIR:${target_name}>/platforms/ )
 elseif( UNIX )
-
-  #add_custom_command(TARGET ${target_name}
-  #  POST_BUILD
-  #  COMMAND chrpath -r "$ORIGIN/." $<TARGET_FILE:${target_name}>
-  #  VERBATIM
-  #)
-
-  #add_custom_command(TARGET ${target_name}
-  #  POST_BUILD
-  #  COMMAND ${CMAKE_COMMAND} -E make_directory $<TARGET_FILE_DIR:${target_name}>/xcbglintegrations/
-  #)
-
-  #add_custom_command(TARGET ${target_name}
-  #  POST_BUILD
-  #  COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:Qt5::QXcbIntegrationPlugin> $<TARGET_FILE_DIR:${target_name}>/platforms/
-  #  COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:Qt5::QXcbGlxIntegrationPlugin> $<TARGET_FILE_DIR:${target_name}>/xcbglintegrations/
-  #  COMMAND ${CMAKE_COMMAND} -E copy_if_different ${Qt5XcbQpaLib} $<TARGET_FILE_DIR:${target_name}>/
-  #  COMMAND chrpath -r "$ORIGIN/.." $<TARGET_FILE_DIR:${target_name}>/platforms/$<TARGET_FILE_NAME:Qt5::QXcbIntegrationPlugin>
-  #  COMMAND chrpath -r "$ORIGIN/.." $<TARGET_FILE_DIR:${target_name}>/xcbglintegrations/$<TARGET_FILE_NAME:Qt5::QXcbGlxIntegrationPlugin>
-  #  #COMMAND chrpath -r "$ORIGIN/.." $<TARGET_FILE_DIR:${target_name}>/sceneparsers/$<TARGET_FILE_NAME:Qt5::GLTFSceneParserPlugin>
-  #  #COMMAND chrpath -r "$ORIGIN/.." $<TARGET_FILE_DIR:${target_name}>/sceneparsers/$<TARGET_FILE_NAME:Qt5::AssimpParserPlugin>
-  #  VERBATIM
-  #  )
-
   foreach(LIB ${QT_PLUGINS})
     get_property(LIB_LOCATION TARGET ${LIB} PROPERTY LOCATION)
     get_filename_component(LIB_BASE_NAME ${LIB_LOCATION} NAME)
@@ -297,9 +272,16 @@ else()
   )
 endif()
 
+get_target_property(os_cli_location openstudio::openstudio LOCATION)
+install(PROGRAMS ${os_cli_location}
+  DESTINATION bin
+  COMPONENT "OpenStudioApp"
+)
+
 # directories to look for dependencies
-# This is probably out of date
-set(DIRS "${QT_INSTALL_DIR}/bin" "${QT_INSTALL_DIR}/lib" "${RUBY_INSTALL_DIR}/bin")
+get_target_property(os_lib_location openstudio::openstudiolib LOCATION)
+get_filename_component(os_lib_dir ${os_lib_location} DIRECTORY)
+set(DIRS "${QT_INSTALL_DIR}/bin" "${QT_INSTALL_DIR}/lib" "${os_lib_dir}")
 
 if(APPLE)
   install(DIRECTORY ${CMAKE_SOURCE_DIR}/src/openstudio_app/Resources/
@@ -368,13 +350,12 @@ if( APPLE )
   list(APPEND QTPLUGINS "\${CMAKE_INSTALL_PREFIX}/OpenStudioApp.app/Contents/Frameworks/QtWebEngineCore.framework/Versions/5/Helpers/QtWebEngineProcess.app/Contents/MacOS/QtWebEngineProcess")
 endif()
 
-if(WIN32 OR APPLE)
-  install(CODE "
-    include(BundleUtilities)
-    include(\"${CMAKE_SOURCE_DIR}/CMake/FixupBundleOverrides.cmake\")
-    fixup_bundle(\"${APPS}\" \"${QTPLUGINS}\" \"${DIRS}\")
-    " COMPONENT "OpenStudioApp" )
-endif()
+install(CODE "
+  get_filename_component(APPS ${APPS} REALPATH)
+  include(BundleUtilities)
+  include(\"${CMAKE_SOURCE_DIR}/CMake/FixupBundleOverrides.cmake\")
+  fixup_bundle(\"\${APPS}\" \"${QTPLUGINS}\" \"${DIRS}\")
+  " COMPONENT "OpenStudioApp" )
 
 set(${target_name}_test_src
   test/OpenStudioAppFixture.hpp

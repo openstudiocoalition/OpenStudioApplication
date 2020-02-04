@@ -200,11 +200,7 @@ namespace openstudio {
     // │   │   └── openstudio.so
     // │   └─── openstudio
 
-    #if defined _WIN32
-      cliPath = getOpenStudioApplicationModuleDirectory() / toPath("openstudio.exe");
-    #else
-      cliPath = getOpenStudioApplicationModuleDirectory() / toPath("openstudio");
-    #endif
+    cliPath = getOpenStudioApplicationModuleDirectory() / toPath("${CLI_IMPORTED_NAME}");
 
     // If it doesn't exist or it's a directory, try the imported location from the sdk
     if (!openstudio::filesystem::exists(cliPath) || openstudio::filesystem::is_directory(cliPath)) {

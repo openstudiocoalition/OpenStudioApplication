@@ -656,8 +656,9 @@ if(BUILD_OS_APP)
     set(CPACK_DEBIAN_PACKAGE_DEPENDS "libwxgtk3.0-0v5 (>= 3.0.0) | libwxgtk3.0-0 (>=3.0.0)")
 
     # These two will set the .deb install path correctly
-    set(CPACK_SET_DESTDIR ON)
-    set(CPACK_INSTALL_PREFIX /usr/local/openstudioapplication-${OPENSTUDIOAPPLICATION_VERSION})
+    #set(CPACK_SET_DESTDIR ON)
+    #set(CPACK_INSTALL_PREFIX /usr/local/openstudioapplication-${OPENSTUDIOAPPLICATION_VERSION})
+    set(CPACK_PACKAGING_INSTALL_PREFIX /usr/local/openstudioapplication-${OPENSTUDIOAPPLICATION_VERSION})
 
     set(CPACK_DEBIAN_PACKAGE_MAINTAINER "openstudio@nrel.gov")
     # Default the debian package name to include version to allow several versions to be installed concurrently instead of overwriting any existing one
