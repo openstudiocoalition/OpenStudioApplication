@@ -717,6 +717,7 @@ add_library(${target_name}
 )
 
 set(depends
+  openstudio_modeleditor
   openstudio::openstudiolib
   ${QT_LIBS}
 )
