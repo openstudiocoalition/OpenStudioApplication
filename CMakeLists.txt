@@ -12,7 +12,7 @@ endif()
 
 project(OpenStudioApplication VERSION 1.0.0)
 
-find_package(openstudio CONFIG REQUIRED)
+find_package(openstudio 3.0.0 CONFIG REQUIRED)
 
 ###############################################################################
 
