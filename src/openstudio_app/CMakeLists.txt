@@ -345,11 +345,14 @@ if( APPLE )
 endif()
 
 install(CODE "
-  get_filename_component(APPS ${APPS} REALPATH)
+  # APPS might be a symbolic link which does not work with fixup_bundle
+  # expand APPS to a real path
+  get_filename_component(APPS_EXPANDED ${APPS} REALPATH)
   include(BundleUtilities)
   include(\"${CMAKE_SOURCE_DIR}/CMake/FixupBundleOverrides.cmake\")
-  fixup_bundle(\"\${APPS}\" \"${QTPLUGINS}\" \"${DIRS}\")
-  " COMPONENT "OpenStudioApp" )
+  fixup_bundle(\"\${APPS_EXPANDED}\" \"${QTPLUGINS}\" \"${DIRS}\")
+  " COMPONENT "OpenStudioApp"
+)
 
 set(${target_name}_test_src
   test/OpenStudioAppFixture.hpp
