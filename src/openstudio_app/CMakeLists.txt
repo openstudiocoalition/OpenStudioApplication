@@ -272,12 +272,6 @@ else()
   )
 endif()
 
-get_target_property(os_cli_location openstudio::openstudio LOCATION)
-install(PROGRAMS ${os_cli_location}
-  DESTINATION bin
-  COMPONENT "OpenStudioApp"
-)
-
 # directories to look for dependencies
 get_target_property(os_lib_location openstudio::openstudiolib LOCATION)
 get_filename_component(os_lib_dir ${os_lib_location} DIRECTORY)

@@ -200,7 +200,7 @@ namespace openstudio {
     // │   │   └── openstudio.so
     // │   └─── openstudio
 
-    cliPath = getOpenStudioApplicationModuleDirectory() / toPath("${CLI_IMPORTED_NAME}");
+    cliPath = getOpenStudioApplicationModuleDirectory() / toPath("${os_cli_install_name}");
 
     // If it doesn't exist or it's a directory, try the imported location from the sdk
     if (!openstudio::filesystem::exists(cliPath) || openstudio::filesystem::is_directory(cliPath)) {
