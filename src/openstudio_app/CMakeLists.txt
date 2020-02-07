@@ -45,10 +45,7 @@ qt5_wrap_cpp_minimally(${target_name}_moc_src ${${target_name}_moc})
 # this needs to be configured to embed the build number
 CONFIGURE_FILE_WITH_CHECKSUM(AboutBox.hpp.in "${CMAKE_CURRENT_BINARY_DIR}/AboutBox.hpp")
 
-# TODO: probably change that, some icons (all?) will need to move to OSApp repo
-# Note JM 2019-07-12: For now I left OSM and OSC icons in core
 set(OPENSTUDIOAPPLICATION_ICON_FOLDER "${PROJECT_SOURCE_DIR}/icons")
-set(OPENSTUDIOCORE_ICON_FOLDER "${PROJECT_SOURCE_DIR}/openstudio/icons")
 if(WIN32)
   remove_definitions(/bigobj)
   CONFIGURE_FILE_WITH_CHECKSUM(OpenStudioApp.rc.in "${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp.rc")
@@ -61,8 +58,8 @@ elseif(APPLE)
   # set all icons
   set(ICON_SRC
     ${OPENSTUDIOAPPLICATION_ICON_FOLDER}/os.icns
-    ${OPENSTUDIOCORE_ICON_FOLDER}/osm.icns
-    ${OPENSTUDIOCORE_ICON_FOLDER}/osc.icns
+    ${OPENSTUDIOAPPLICATION_ICON_FOLDER}/osm.icns
+    ${OPENSTUDIOAPPLICATION_ICON_FOLDER}/osc.icns
   )
 
   set_source_files_properties(${ICON_SRC}
@@ -85,8 +82,6 @@ elseif(UNIX)
 
   # NOTE: Instead, to avoid dpkg issuing conflicts when installing several different versions, we use a post-installation script
   # So install them to a temp directory that we'll remove later
-  install(DIRECTORY ${OPENSTUDIOCORE_ICON_FOLDER} DESTINATION Temp
-          FILES_MATCHING PATTERN "*.png")
   install(DIRECTORY ${OPENSTUDIOAPPLICATION_ICON_FOLDER} DESTINATION Temp
           FILES_MATCHING PATTERN "*.png")
 
@@ -142,7 +137,7 @@ add_executable(${target_name}
 if( APPLE )
 add_custom_command(TARGET ${target_name}
   POST_BUILD
-  COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:openstudio> $<TARGET_FILE_DIR:${target_name}>/$<TARGET_FILE_NAME:openstudio>
+  COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:openstudio::openstudio> $<TARGET_FILE_DIR:${target_name}>/$<TARGET_FILE_NAME:openstudio::openstudio>
 )
 endif()
 
