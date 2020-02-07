@@ -257,7 +257,7 @@ elseif(WIN32)
 else()
   set_target_properties(${target_name} PROPERTIES INSTALL_RPATH "$ORIGIN/.")
   set(plugin_dest_dir bin)
-  set(APPS "\${CMAKE_INSTALL_PREFIX}/bin/OpenStudioApp")
+  set(APPS "\$ENV{DESTDIR}\${CMAKE_INSTALL_PREFIX}/bin/OpenStudioApp")
 endif()
 
 if( APPLE )
