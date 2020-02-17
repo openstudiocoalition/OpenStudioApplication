@@ -40,4 +40,4 @@ The GitLab CI repositories each mirror their respective, public-facing GitHub re
 
 ## Pull Requests
 
-OpenStudio CI automatically builds and tests OpenStudio pull requests[OpenStudio pull requests](http://https://github.com/NREL/OpenStudio/wiki/OpenStudio-Pull-Requests).
+OpenStudio CI automatically builds and tests OpenStudio pull requests[OpenStudio Application pull requests](OpenStudio-Application-Pull-Requests).
