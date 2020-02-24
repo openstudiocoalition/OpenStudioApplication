@@ -447,6 +447,11 @@ if(BUILD_OS_APP)
     endif()
   endif()
 
+  if(APPLE)
+    find_package(Qt5DBus 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+    list(APPEND QT_WEB_LIBS Qt5::DBus)
+  endif()
+
   list(APPEND QT_LIBS Qt5::Core)
   list(APPEND QT_LIBS Qt5::Widgets)
   list(APPEND QT_LIBS Qt5::Network)
