@@ -247,8 +247,11 @@ if(MSVC)
     add_definitions(/MP)
   endif()
 
-  #Enable warning on thread un-safe static member initialization - DLM: we have been bit by this many times
-  add_definitions(/w44640)
+  # Enable warning on thread un-safe static member initialization - DLM: we have been bit by this many times
+  # TODO: JM 2019-09-19: Disabling for now
+  # Using the righg flag (/w14460 and not the previously mispelled /w44640) will make compilation fail with many warnings treated as error,
+  # eg: IddRegex.cpp all scoped `const static std::string result` inside functions will issue that and make it fatal
+  # add_definitions(/w14640)
 
   # ignore decorated name length exceeded
   add_definitions(/wd4503)
@@ -442,6 +445,11 @@ if(BUILD_OS_APP)
 
       list(APPEND QT_EXTRA_LIBS ${QT_QXCBQPA})
     endif()
+  endif()
+
+  if(APPLE)
+    find_package(Qt5DBus 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+    list(APPEND QT_WEB_LIBS Qt5::DBus)
   endif()
 
   list(APPEND QT_LIBS Qt5::Core)
