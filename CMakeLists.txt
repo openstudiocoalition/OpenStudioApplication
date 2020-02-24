@@ -732,6 +732,12 @@ if(BUILD_OS_APP)
     #install(FILES ${CMAKE_CURRENT_BINARY_DIR}/openstudio-${OpenStudio_VERSION} DESTINATION /usr/local/bin COMPONENT CLI)
 
 
+    # Install additional Documents, such as release notes
+    install(FILES "${PROJECT_SOURCE_DIR}//QT_LICENSE_GPL_3_0.txt" DESTINATION .)
+    install(FILES "${PROJECT_SOURCE_DIR}//QT_LICENSE_LGPL_3_0.txt" DESTINATION .)
+    install(FILES "${PROJECT_SOURCE_DIR}//LICENSE.md" DESTINATION .)
+
+
     # Create a proper App with file associations
 
     # Install the .desktop manifest (allows the App to be seen in the Dash and adding to the dock, and to map it a mimetype)
