@@ -451,38 +451,43 @@ set_target_properties(${QT_WEB_LIBS} PROPERTIES INTERFACE_LINK_LIBRARIES "")
 
 if(NOT APPLE)
 
-  find_package(Qt5WebChannel 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-  list(APPEND QT_WEB_LIBS Qt5::WebChannel)
+    find_package(Qt5WebChannel 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+    list(APPEND QT_WEB_LIBS Qt5::WebChannel)
 
-  find_package(Qt5Quick 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-  list(APPEND QT_WEB_LIBS Qt5::Quick)
+    find_package(Qt5Quick 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+    list(APPEND QT_WEB_LIBS Qt5::Quick)
 
-  find_package(Qt5QuickWidgets 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-  list(APPEND QT_WEB_LIBS Qt5::QuickWidgets)
+    find_package(Qt5QuickWidgets 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+    list(APPEND QT_WEB_LIBS Qt5::QuickWidgets)
 
-  find_package(Qt5Qml 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-  list(APPEND QT_WEB_LIBS Qt5::Qml)
+    find_package(Qt5Qml 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+    list(APPEND QT_WEB_LIBS Qt5::Qml)
 
-  find_package(Qt5Positioning 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-  list(APPEND QT_WEB_LIBS Qt5::Positioning)
+    find_package(Qt5Positioning 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+    list(APPEND QT_WEB_LIBS Qt5::Positioning)
 
-  if(UNIX)
-    find_package(Qt5DBus 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-    list(APPEND QT_WEB_LIBS Qt5::DBus)
+    if(UNIX)
+      find_package(Qt5DBus 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+      list(APPEND QT_WEB_LIBS Qt5::DBus)
 
-    # there does not appear to be a normal qt finder for this
-    # DLM: actually there is, it is a plugin associated with Qt5::Gui
-    #message( Qt5Gui_PLUGINS = ${Qt5Gui_PLUGINS})
-    #get_target_property(Qt5QXcbIntegrationPlugin_LOCATION Qt5::QXcbIntegrationPlugin LOCATION)
-    #get_target_property(Qt5QXcbIntegrationPlugin_TYPE Qt5::QXcbIntegrationPlugin TYPE)
-    #message("Qt5::QXcbIntegrationPlugin Location = ${Qt5QXcbIntegrationPlugin_LOCATION}")
-    #message("Qt5::QXcbIntegrationPlugin Type = ${Qt5QXcbIntegrationPlugin_TYPE}")
-    list(APPEND QT_PLUGINS Qt5::QXcbIntegrationPlugin)
-    list(APPEND QT_PLUGINS Qt5::QXcbGlxIntegrationPlugin)
-    find_library(QT_QXCBQPA NAMES libQt5XcbQpa.so.5.11.2 PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
+      # there does not appear to be a normal qt finder for this
+      # DLM: actually there is, it is a plugin associated with Qt5::Gui
+      #message( Qt5Gui_PLUGINS = ${Qt5Gui_PLUGINS})
+      #get_target_property(Qt5QXcbIntegrationPlugin_LOCATION Qt5::QXcbIntegrationPlugin LOCATION)
+      #get_target_property(Qt5QXcbIntegrationPlugin_TYPE Qt5::QXcbIntegrationPlugin TYPE)
+      #message("Qt5::QXcbIntegrationPlugin Location = ${Qt5QXcbIntegrationPlugin_LOCATION}")
+      #message("Qt5::QXcbIntegrationPlugin Type = ${Qt5QXcbIntegrationPlugin_TYPE}")
+      list(APPEND QT_PLUGINS Qt5::QXcbIntegrationPlugin)
+      list(APPEND QT_PLUGINS Qt5::QXcbGlxIntegrationPlugin)
+      find_library(QT_QXCBQPA NAMES libQt5XcbQpa.so.5.11.2 PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
 
-    list(APPEND QT_EXTRA_LIBS ${QT_QXCBQPA})
-  endif()
+      list(APPEND QT_EXTRA_LIBS ${QT_QXCBQPA})
+    endif()
+endif()
+
+if(APPLE)
+  find_package(Qt5DBus 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+  list(APPEND QT_WEB_LIBS Qt5::DBus)
 endif()
 
 list(APPEND QT_LIBS Qt5::Core)

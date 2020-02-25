@@ -51,11 +51,14 @@ if /mswin/.match(RUBY_PLATFORM) or /mingw/.match(RUBY_PLATFORM)
   qt_dll_path = File.expand_path(File.join(File.dirname(__FILE__), '../bin/'))
   WinAPI.SetDllDirectory(qt_dll_path)
 
+  $OPENSTUDIO_APPLICATION_DIR = File.join(File.dirname(__FILE__), '../bin/')
 else
 
   # Do something here for Mac OSX environments
   qt_so_path = File.expand_path(File.join(File.dirname(__FILE__), '../bin/'))
   ENV['PATH'] = "#{qt_so_path}:#{original_path}"
+  
+  $OPENSTUDIO_APPLICATION_DIR = File.join(File.dirname(__FILE__), '../bin/')
 end
 
 begin
