@@ -687,6 +687,10 @@ if(BUILD_OS_APP)
   set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${OPENSTUDIOAPPLICATION_LONG_VERSION}-${CMAKE_SYSTEM_NAME}")
   set(CPACK_PACKAGE_CONTACT "openstudio@nrel.gov")
 
+  # Install additional Documents, such as release notes
+  install(FILES "${PROJECT_SOURCE_DIR}/QT_LICENSE_GPL_3_0.txt" DESTINATION .)
+  install(FILES "${PROJECT_SOURCE_DIR}/QT_LICENSE_LGPL_3_0.txt" DESTINATION .)
+  install(FILES "${PROJECT_SOURCE_DIR}/LICENSE.md" DESTINATION .)
 
   if (APPLE)
     set(CPACK_IFW_TARGET_DIRECTORY /Applications/OpenStudioApplication-${OPENSTUDIOAPPLICATION_VERSION}/)
@@ -730,12 +734,6 @@ if(BUILD_OS_APP)
     ## Have this link be installed with the .deb package in /usr/local/bin
     #install(FILES ${CMAKE_CURRENT_BINARY_DIR}/openstudio DESTINATION /usr/local/bin COMPONENT CLI)
     #install(FILES ${CMAKE_CURRENT_BINARY_DIR}/openstudio-${OpenStudio_VERSION} DESTINATION /usr/local/bin COMPONENT CLI)
-
-
-    # Install additional Documents, such as release notes
-    install(FILES "${PROJECT_SOURCE_DIR}//QT_LICENSE_GPL_3_0.txt" DESTINATION .)
-    install(FILES "${PROJECT_SOURCE_DIR}//QT_LICENSE_LGPL_3_0.txt" DESTINATION .)
-    install(FILES "${PROJECT_SOURCE_DIR}//LICENSE.md" DESTINATION .)
 
 
     # Create a proper App with file associations
