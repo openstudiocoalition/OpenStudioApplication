@@ -16,13 +16,6 @@ derived from this software without specific prior written permission from the re
 may not use the "OpenStudio" trademark, "OS", "os", or any other confusingly similar designation without specific prior
 written permission from Alliance for Sustainable Energy, LLC.
 
-QT Modules and License
-
-OpenStudio(R) uses the following [QT](https://doc.qt.io/qt-5.11/qtmodules.html) modules (v5.11.2) that are dynamically linked using GNU Lesser General Public License (LGPL):
-
-Qt5Core, Qt5Widgets, Qt5Sql, Qt5Network, Qt5Xml, Qt5Concurrent, Qt5PrintSupport, Qt5Gui,Qt5Quick, Qt5QuickWidgets, Qt5Qml, Qt5WebChannel, Qt5Positioning, Qt5WebEngine, Qt5WebEngineWidgets, QtWebEngineCore, Qt5DBus, Qt5WinExtras
-
-
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDER(S) AND ANY CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
 INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
 DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER(S), ANY CONTRIBUTORS, THE UNITED STATES GOVERNMENT, OR THE UNITED
