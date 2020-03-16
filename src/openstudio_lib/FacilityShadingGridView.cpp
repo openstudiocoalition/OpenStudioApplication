@@ -430,6 +430,14 @@ namespace openstudio {
       }
     }
 
+    // If a shading surface isn't part of a Shading Surface Group, it won't be translated to IDF anyways and should be considered orphaned
+    for (auto mo: this->m_model.getConcreteModelObjects<model::ShadingSurface>()) {
+      if (!mo.shadingSurfaceGroup().has_value()) {
+        mo.remove();
+      }
+    }
+  }
+
   void FacilityShadingGridView::onSelectItem()
   {
     //m_itemSelectorButtons->enableAddButton();
