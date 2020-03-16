@@ -423,10 +423,12 @@ namespace openstudio {
 
   void FacilityShadingGridView::purgeObjects(const IddObjectType& iddObjectType)
   {
-    for (auto mo : this->m_model.getConcreteModelObjects<model::ShadingSurface>()){
-      mo.remove();
+    // If no shading surfaces in the Shading Surface Group -> remove
+    for (auto mo : this->m_model.getConcreteModelObjects<model::ShadingSurfaceGroup>()){
+      if (mo.shadingSurfaces().empty()) {
+        mo.remove();
+      }
     }
-  }
 
   void FacilityShadingGridView::onSelectItem()
   {
