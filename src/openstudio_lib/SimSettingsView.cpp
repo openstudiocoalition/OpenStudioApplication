@@ -186,7 +186,7 @@ SimSettingsView::SimSettingsView(bool isIP,
   m_maximumPlantIterations(nullptr),
   m_minimumSystemTimestep(nullptr),
   // ShadowCalculation
-  m_calculationFrequency(nullptr),
+  m_shadingCalculationUpdateFrequency(nullptr),
   m_maximumFiguresInShadowOverlapCalculations(nullptr),
   m_polygonClippingAlgorithm(nullptr),
   m_skyDiffuseModelingAlgorithm(nullptr),
@@ -729,7 +729,7 @@ QWidget * SimSettingsView::createShadowCalculationWidget()
   int col = 0;
   QSpacerItem * spacerItem = nullptr;
 
-  addField(gridLayout,row,col,"Calculation Frequency",m_calculationFrequency);
+  addField(gridLayout,row,col,"Shading Calculation Update Frequency", m_shadingCalculationUpdateFrequency);
   col++;
   spacerItem = new QSpacerItem(SPACERITEM_WIDTH,1,QSizePolicy::Fixed,QSizePolicy::Fixed);
   gridLayout->addItem(spacerItem,row,col++);
@@ -1529,15 +1529,15 @@ void SimSettingsView::attachShadowCalculation()
 {
   m_shadowCalculation = m_model.getUniqueModelObject<model::ShadowCalculation>();
 
-  // m_calculationFrequency->bind(*m_shadowCalculation,"calculationFrequency");
-  m_calculationFrequency->bind(
+  // m_shadingCalculationUpdateFrequency->bind(*m_shadowCalculation,"shadingCalculationUpdateFrequency");
+  m_shadingCalculationUpdateFrequency->bind(
     *m_shadowCalculation,
-    IntGetter(std::bind(&model::ShadowCalculation::calculationFrequency, m_shadowCalculation.get_ptr())),
-    boost::optional<IntSetter>(std::bind(&model::ShadowCalculation::setCalculationFrequency, m_shadowCalculation.get_ptr(), std::placeholders::_1)),
-    boost::optional<NoFailAction>(std::bind(&model::ShadowCalculation::resetCalculationFrequency, m_shadowCalculation.get_ptr())),
+    IntGetter(std::bind(&model::ShadowCalculation::shadingCalculationUpdateFrequency, m_shadowCalculation.get_ptr())),
+    boost::optional<IntSetter>(std::bind(&model::ShadowCalculation::setShadingCalculationUpdateFrequency, m_shadowCalculation.get_ptr(), std::placeholders::_1)),
+    boost::optional<NoFailAction>(std::bind(&model::ShadowCalculation::resetShadingCalculationUpdateFrequency, m_shadowCalculation.get_ptr())),
     boost::none,
     boost::none,
-    boost::optional<BasicQuery>(std::bind(&model::ShadowCalculation::isCalculationFrequencyDefaulted, m_shadowCalculation.get_ptr()))
+    boost::optional<BasicQuery>(std::bind(&model::ShadowCalculation::isShadingCalculationUpdateFrequencyDefaulted, m_shadowCalculation.get_ptr()))
   );
 
   // m_maximumFiguresInShadowOverlapCalculations->bind(*m_shadowCalculation, "maximumFiguresInShadowOverlapCalculations");
@@ -1558,6 +1558,7 @@ void SimSettingsView::attachShadowCalculation()
       std::function<boost::optional<std::string> ()>(std::bind(&model::ShadowCalculation::polygonClippingAlgorithm,m_shadowCalculation.get_ptr())),
       std::bind(&model::ShadowCalculation::setPolygonClippingAlgorithm,m_shadowCalculation.get_ptr(),std::placeholders::_1),
       NoFailAction(std::bind(&model::ShadowCalculation::resetPolygonClippingAlgorithm,m_shadowCalculation.get_ptr())));
+
   m_skyDiffuseModelingAlgorithm->bind<std::string>(
       *m_shadowCalculation,
       static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
@@ -1983,7 +1984,7 @@ void SimSettingsView::detachConvergenceLimits()
 
 void SimSettingsView::detachShadowCalculation()
 {
-  m_calculationFrequency->unbind();
+  m_shadingCalculationUpdateFrequency->unbind();
   m_maximumFiguresInShadowOverlapCalculations->unbind();
   m_polygonClippingAlgorithm->unbind();
   m_skyDiffuseModelingAlgorithm->unbind();

@@ -278,7 +278,7 @@ private:
   OSIntegerEdit2 * m_minimumSystemTimestep;
 
   // ShadowCalculation
-  OSIntegerEdit2 * m_calculationFrequency;
+  OSIntegerEdit2 * m_shadingCalculationUpdateFrequency;
   OSIntegerEdit2 * m_maximumFiguresInShadowOverlapCalculations;
   OSComboBox2 * m_polygonClippingAlgorithm;
   OSComboBox2 * m_skyDiffuseModelingAlgorithm;
