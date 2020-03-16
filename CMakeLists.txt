@@ -14,6 +14,8 @@ project(OpenStudioApplication VERSION 1.0.0)
 
 find_package(openstudio 3.0.0 CONFIG REQUIRED)
 
+set(SDK_OPENSTUDIO_PATH "Unknown" CACHE STRING "Unknown") # path to openstudio SDK
+
 ###############################################################################
 
 ###############################################################################
@@ -619,11 +621,18 @@ endif()
 #                              I N S T A L L E R                              #
 ###############################################################################
 
+######### Install SDK dependencies here ################
+
+install(DIRECTORY "${SDK_OPENSTUDIO_PATH}/EnergyPlus" DESTINATION "." COMPONENT "EnergyPlus" USE_SOURCE_PERMISSIONS)
+install(DIRECTORY "${SDK_OPENSTUDIO_PATH}/Radiance" DESTINATION "." COMPONENT "Radiance" USE_SOURCE_PERMISSIONS)
+install(DIRECTORY "${SDK_OPENSTUDIO_PATH}/Ruby" DESTINATION "." COMPONENT "RubyAPI" USE_SOURCE_PERMISSIONS)
+
 install(PROGRAMS ${os_cli_location}
   DESTINATION bin
   COMPONENT "OpenStudioApp"
   RENAME "${os_cli_install_name}"
 )
+
 
 set(CPACK_PACKAGE_VENDOR "National Renewable Energy Laboratory")
 # These are ok, even if we have a prerelease tag
@@ -753,7 +762,7 @@ cpack_ifw_configure_component(Resources
 )
 
 cpack_ifw_configure_component(OpenStudioApp
-  DEPENDS Resources CLI
+  #DEPENDS Resources CLI
   SCRIPT src/openstudio_app/install_operations.qs
   REQUIRES_ADMIN_RIGHTS
 )
