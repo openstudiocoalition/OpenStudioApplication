@@ -1537,4 +1537,23 @@ void CaseViewExpandButton::paint(QPainter *painter,
   }
 }
 
+NoRefrigerationView::NoRefrigerationView()
+  : QWidget()
+{
+  auto mainVLayout = new QVBoxLayout();
+  mainVLayout->setContentsMargins(5,5,5,5);
+  mainVLayout->setSpacing(10);
+  mainVLayout->setAlignment(Qt::AlignTop);
+  setLayout(mainVLayout);
+
+  QLabel * label = new QLabel("Refrigeration options are only available for Refrigeration systems.");
+  label->setWordWrap(true);
+  label->setObjectName("H1");
+  mainVLayout->addWidget(label);
+}
+
+NoRefrigerationView::~NoRefrigerationView()
+{
+}
+
 } // openstudio

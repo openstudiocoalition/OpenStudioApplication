@@ -771,6 +771,16 @@ class RefrigerationSecondaryView : public QGraphicsObject
   int m_height;
 };
 
+// A class to display that Refrigeration isn't allowed on that tab
+class NoRefrigerationView : public QWidget
+{
+  public:
+
+  NoRefrigerationView();
+
+  virtual ~NoRefrigerationView();
+};
+
 } // openstudio
 
 #endif // OPENSTUDIO_REFRIGERATIONGRAPHICSITEMS_HPP

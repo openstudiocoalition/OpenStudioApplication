@@ -385,9 +385,10 @@ void HVACSystemsController::update()
       }
       else
       {
-          m_hvacControlsController = std::shared_ptr<HVACControlsController>(new HVACControlsController(this));
+        // Not allowed
+        m_hvacControlsController = std::shared_ptr<HVACControlsController>(new HVACControlsController(this));
 
-          m_hvacSystemsView->mainViewSwitcher->setView(m_hvacControlsController->noControlsView());
+        m_hvacSystemsView->mainViewSwitcher->setView(m_hvacControlsController->noControlsView());
       }
     }
     else if( handle == VRF )
@@ -401,14 +402,21 @@ void HVACSystemsController::update()
 
         m_hvacSystemsView->mainViewSwitcher->setView(m_vrfController->vrfView());
       }
+      else if( m_hvacSystemsView->hvacToolbarView->gridViewButton->isChecked() )
+      {
+        // Not allowed: Refrigeration only on Refrigeration tab
+        m_refrigerationController = std::shared_ptr<RefrigerationController>(new RefrigerationController());
+
+        m_hvacSystemsView->mainViewSwitcher->setView(m_refrigerationController->noRefrigerationView());
+      }
       else
       {
-          m_hvacControlsController = std::shared_ptr<HVACControlsController>(new HVACControlsController(this));
+        m_hvacControlsController = std::shared_ptr<HVACControlsController>(new HVACControlsController(this));
 
-          m_hvacSystemsView->mainViewSwitcher->setView(m_hvacControlsController->noControlsView());
+        m_hvacSystemsView->mainViewSwitcher->setView(m_hvacControlsController->noControlsView());
       }
     }
-    else
+    else  // NOT VRF NOR REFRIGERATION
     {
       if( m_hvacSystemsView->hvacToolbarView->topologyViewButton->isChecked() )
       {
@@ -422,14 +430,10 @@ void HVACSystemsController::update()
       }
       else if( m_hvacSystemsView->hvacToolbarView->gridViewButton->isChecked() )
       {
-        // TODO
-        m_refrigerationGridController = std::shared_ptr<RefrigerationGridController>(new RefrigerationGridController(m_isIP, m_model));
+        // Not allowed: Refrigeration only on Refrigeration tab
+        m_refrigerationController = std::shared_ptr<RefrigerationController>(new RefrigerationController());
 
-        connect(this, &HVACSystemsController::toggleUnitsClicked, m_refrigerationGridController.get()->refrigerationGridView(), &RefrigerationGridView::toggleUnitsClicked);
-
-        connect(this, &HVACSystemsController::toggleUnitsClicked, this, &HVACSystemsController::toggleUnits);
-
-        m_hvacSystemsView->mainViewSwitcher->setView(m_refrigerationGridController->refrigerationGridView());
+        m_hvacSystemsView->mainViewSwitcher->setView(m_refrigerationController->noRefrigerationView());
       }
       else
       {
