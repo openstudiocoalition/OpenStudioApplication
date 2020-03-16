@@ -159,6 +159,7 @@ namespace openstudio {
     layout->addWidget(label, Qt::AlignTop | Qt::AlignLeft);
 
     m_typeFilter = new QComboBox();
+    m_typeFilter->addItem("All");
     m_typeFilter->addItem("Site");
     m_typeFilter->addItem("Building");
     // Space-level shading is on the Space's "Shading" subtab
@@ -283,13 +284,16 @@ namespace openstudio {
   void FacilityShadingGridView::typeFilterChanged(const QString& text)
   {
     m_objectsFilteredByType.clear();
-
-    for (auto obj : this->m_gridController->getObjectSelector()->m_selectorObjects) {
-      auto parent = obj.parent();
-      if (parent && parent->iddObjectType() == IddObjectType::OS_ShadingSurfaceGroup){
-        if (m_typeFilter->currentText() != parent->cast<model::ShadingSurfaceGroup>().shadingSurfaceType().c_str()) {
-          if (m_objectsFilteredByType.count(obj) == 0) {
-            m_objectsFilteredByType.insert(obj);
+    if (m_typeFilter->currentText() == "All") {
+      // Nothing to filter
+    } else {
+      for (auto obj : this->m_gridController->getObjectSelector()->m_selectorObjects) {
+        auto parent = obj.parent();
+        if (parent && parent->iddObjectType() == IddObjectType::OS_ShadingSurfaceGroup){
+          if (m_typeFilter->currentText() != parent->cast<model::ShadingSurfaceGroup>().shadingSurfaceType().c_str()) {
+            if (m_objectsFilteredByType.count(obj) == 0) {
+              m_objectsFilteredByType.insert(obj);
+            }
           }
         }
       }
