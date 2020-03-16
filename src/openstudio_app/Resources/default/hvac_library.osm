@@ -1421,7 +1421,7 @@ OS:Chiller:Electric:EIR,
   5.5,                                    !- Reference COP {W/W}
   ,                                       !- Reference Leaving Chilled Water Temperature {C}
   ,                                       !- Reference Entering Condenser Fluid Temperature {C}
-  ,                                       !- Reference Chilled Water Flow Rate {m3/s}
+  Autosize,                               !- Reference Chilled Water Flow Rate {m3/s}
   ,                                       !- Reference Condenser Fluid Flow Rate {m3/s}
   {238cb0b4-afac-4115-8524-7778555d6cfb}, !- Cooling Capacity Function of Temperature Curve Name
   {50d61daa-6f6c-414f-ac1a-30a0507bc220}, !- Electric Input to Cooling Output Ratio Function of Temperature Curve Name
@@ -1436,17 +1436,17 @@ OS:Chiller:Electric:EIR,
   ,                                       !- Condenser Outlet Node Name
   AirCooled,                              !- Condenser Type
   ,                                       !- Condenser Fan Power Ratio {W/W}
-  ,                                       !- Compressor Motor Efficiency
+  ,                                       !- Fraction of Compressor Electric Consumption Rejected by Condenser
   ,                                       !- Leaving Chilled Water Lower Temperature Limit {C}
   ,                                       !- Chiller Flow Mode
-  0,                                      !- Design Heat Recovery Water Flow Rate {m3/s}
+  Autosize,                               !- Design Heat Recovery Water Flow Rate {m3/s}
   ,                                       !- Heat Recovery Inlet Node Name
   ,                                       !- Heat Recovery Outlet Node Name
   1,                                      !- Sizing Factor
   0,                                      !- Basin Heater Capacity {W/K}
   10,                                     !- Basin Heater Setpoint Temperature {C}
   ,                                       !- Basin Heater Operating Schedule Name
-  ,                                       !- Condenser Heat Recovery Relative Capacity Fraction
+  1,                                      !- Condenser Heat Recovery Relative Capacity Fraction
   ,                                       !- Heat Recovery Inlet High Temperature Limit Schedule Name
   ,                                       !- Heat Recovery Leaving Temperature Setpoint Node Name
   General;                                !- End-Use Subcategory
@@ -1532,7 +1532,7 @@ OS:Chiller:Electric:EIR,
   5.5,                                    !- Reference COP {W/W}
   ,                                       !- Reference Leaving Chilled Water Temperature {C}
   ,                                       !- Reference Entering Condenser Fluid Temperature {C}
-  ,                                       !- Reference Chilled Water Flow Rate {m3/s}
+  Autosize,                               !- Reference Chilled Water Flow Rate {m3/s}
   ,                                       !- Reference Condenser Fluid Flow Rate {m3/s}
   {aeee1604-1859-46a8-9be1-4607fb0562ea}, !- Cooling Capacity Function of Temperature Curve Name
   {6d4f917a-2262-4a69-9249-643fa85b4a69}, !- Electric Input to Cooling Output Ratio Function of Temperature Curve Name
@@ -1547,17 +1547,17 @@ OS:Chiller:Electric:EIR,
   ,                                       !- Condenser Outlet Node Name
   AirCooled,                              !- Condenser Type
   ,                                       !- Condenser Fan Power Ratio {W/W}
-  ,                                       !- Compressor Motor Efficiency
+  ,                                       !- Fraction of Compressor Electric Consumption Rejected by Condenser
   ,                                       !- Leaving Chilled Water Lower Temperature Limit {C}
   ,                                       !- Chiller Flow Mode
-  0,                                      !- Design Heat Recovery Water Flow Rate {m3/s}
+  Autosize,                               !- Design Heat Recovery Water Flow Rate {m3/s}
   ,                                       !- Heat Recovery Inlet Node Name
   ,                                       !- Heat Recovery Outlet Node Name
   1,                                      !- Sizing Factor
   0,                                      !- Basin Heater Capacity {W/K}
   10,                                     !- Basin Heater Setpoint Temperature {C}
   ,                                       !- Basin Heater Operating Schedule Name
-  ,                                       !- Condenser Heat Recovery Relative Capacity Fraction
+  1,                                      !- Condenser Heat Recovery Relative Capacity Fraction
   ,                                       !- Heat Recovery Inlet High Temperature Limit Schedule Name
   ,                                       !- Heat Recovery Leaving Temperature Setpoint Node Name
   General;                                !- End-Use Subcategory
@@ -1570,7 +1570,6 @@ OS:Boiler:HotWater,
   ,                                       !- Nominal Thermal Efficiency
   LeavingBoiler,                          !- Efficiency Curve Temperature Evaluation Variable
   {7a46b48b-f003-42e6-9865-b04b98d124aa}, !- Normalized Boiler Efficiency Curve Name
-  ,                                       !- Design Water Outlet Temperature {C}
   ,                                       !- Design Water Flow Rate {m3/s}
   ,                                       !- Minimum Part Load Ratio
   ,                                       !- Maximum Part Load Ratio
@@ -10808,7 +10807,7 @@ OS:HeatPump:WaterToWater:EquationFit:Cooling,
   8.69489229,                             !- Cooling Compressor Power Coefficient 3
   0.02501669,                             !- Cooling Compressor Power Coefficient 4
   -0.20132665,                            !- Cooling Compressor Power Coefficient 5
-  8.0,                                    !- Reference Coefficient of Performance
+  8.0,                                    !- Reference Coefficient of Performance {W/W}
   1.0,                                    !- Sizing Factor
   ;                                       !- Companion Heating Heat Pump Name
 
@@ -10833,7 +10832,7 @@ OS:HeatPump:WaterToWater:EquationFit:Heating,
   1.29660976,                             !- Heating Compressor Power Coefficient 3
   -0.21629222,                            !- Heating Compressor Power Coefficient 4
   0.033862378,                            !- Heating Compressor Power Coefficient 5
-  7.5,                                    !- Reference Coefficient of Performance
+  7.5,                                    !- Reference Coefficient of Performance {W/W}
   1.0,                                    !- Sizing Factor
   ;                                       !- Companion Cooling Heat Pump Name
 
@@ -11957,96 +11956,6 @@ OS:Schedule:Day,
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   0.05;                                   !- Value Until Time 1
-
-! TO DELETE ?
-
-OS:Site,
-  {54a213fc-e638-47e4-b9c7-684370e74122}, !- Handle
-  Site 1,                                 !- Name
-  ,                                       !- Latitude {deg}
-  ,                                       !- Longitude {deg}
-  ,                                       !- Time Zone {hr}
-  ,                                       !- Elevation {m}
-  ;                                       !- Terrain
-
-OS:YearDescription,
-  {5199437f-8c3e-4006-a295-abcc76194452}; !- Handle
-
-OS:ClimateZones,
-  {3a0639cd-6622-4ae1-a478-e123c2c89477}, !- Handle
-  ,                                       !- Active Institution
-  ,                                       !- Active Year
-  ASHRAE,                                 !- Climate Zone Institution Name 1
-  ANSI/ASHRAE Standard 169,               !- Climate Zone Document Name 1
-  2006,                                   !- Climate Zone Document Year 1
-  ,                                       !- Climate Zone Value 1
-  CEC,                                    !- Climate Zone Institution Name 2
-  California Climate Zone Descriptions,   !- Climate Zone Document Name 2
-  1995,                                   !- Climate Zone Document Year 2
-  ;                                       !- Climate Zone Value 2
-
-OS:Building,
-  {96010d35-3a48-443c-b980-90d35f88d618}, !- Handle
-  Building,                               !- Name
-  ,                                       !- Building Sector Type
-  ,                                       !- North Axis {deg}
-  ,                                       !- Nominal Floor to Floor Height {m}
-  ,                                       !- Space Type Name
-  ,                                       !- Default Construction Set Name
-  ;                                       !- Default Schedule Set Name
-
-OS:Facility,
-  {684c605f-552c-4511-9d60-9f06a9cc1013}; !- Handle
-
-OS:SimulationControl,
-  {3000fb01-12a5-4a2c-9c70-373aa7801ba5}; !- Handle
-
-OS:Sizing:Parameters,
-  {8a5f5dab-babf-4c1f-9080-63789067fe96}, !- Handle
-  1.25,                                   !- Heating Sizing Factor
-  1.15;                                   !- Cooling Sizing Factor
-
-OS:Timestep,
-  {b402730b-59c6-4ec1-aa84-8edcca516d89}, !- Handle
-  4;                                      !- Number of Timesteps per Hour
-
-OS:ShadowCalculation,
-  {c5d35f99-a723-49bf-a820-2b36f6320bef}, !- Handle
-  20,                                     !- Calculation Frequency
-  15000;                                  !- Maximum Figures in Shadow Overlap Calculations
-
-OS:HeatBalanceAlgorithm,
-  {367f9238-f07b-4231-a8cb-c976e4b20a9a}, !- Handle
-  ConductionTransferFunction,             !- Algorithm
-  200;                                    !- Surface Temperature Upper Limit {C}
-
-OS:RunPeriod,
-  {ee142eed-73a7-4814-9962-92b0a452399d}, !- Handle
-  Run Period 1,                           !- Name
-  1,                                      !- Begin Month
-  1,                                      !- Begin Day of Month
-  12,                                     !- End Month
-  31,                                     !- End Day of Month
-  ,                                       !- Use Weather File Holidays and Special Days
-  ,                                       !- Use Weather File Daylight Saving Period
-  ,                                       !- Apply Weekend Holiday Rule
-  ,                                       !- Use Weather File Rain Indicators
-  ,                                       !- Use Weather File Snow Indicators
-  ;                                       !- Number of Times Runperiod to be Repeated
-
-OS:LifeCycleCost:Parameters,
-  {e5203ecd-87ec-4286-96da-2f01f09ac409}, !- Handle
-  ,                                       !- Analysis Type
-  ,                                       !- Discounting Convention
-  ,                                       !- Inflation Approach
-  ,                                       !- Real Discount Rate
-  ,                                       !- Nominal Discount Rate
-  ,                                       !- Inflation
-  ,                                       !- Base Date Month
-  ,                                       !- Base Date Year
-  ,                                       !- Service Date Month
-  ,                                       !- Service Date Year
-  ;                                       !- Length of Study Period in Years
 
 OS:ZoneVentilation:WindandStackOpenArea,
   {0ddb3da5-abb8-4c8d-ac92-d21503d6b1b9}, !- Handle
