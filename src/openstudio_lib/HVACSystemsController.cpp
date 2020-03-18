@@ -347,6 +347,9 @@ void HVACSystemsController::update()
     m_hvacSystemsView->hvacToolbarView->addButton->show();
     m_hvacSystemsView->hvacToolbarView->deleteButton->show();
 
+    // Show Controls, to avoid still displaying the name of a previously selected "Water Use Connection" object for eg
+    m_hvacSystemsView->hvacToolbarView->showControls(true);
+
     m_hvacLayoutController.reset();
     m_hvacControlsController.reset();
     m_refrigerationController.reset();
