@@ -296,6 +296,10 @@ if(MSVC)
   # be linked against the same runtime
   add_definitions(/wd4251)
 
+  # ignore base class not dll-exported error
+  add_definitions(/wd4275)
+
+
   add_definitions(/bigobj)
 
   if(CMAKE_CL_64)
