@@ -130,7 +130,7 @@ add_library(${target_name}
   ${${target_name}_uis}
 )
 
-target_compile_definitions(${target_name} PRIVATE ${target_name}_EXPORTS PUBLIC SHARED_OS_LIBS)
+# target_compile_definitions(${target_name} PRIVATE ${target_name}_EXPORTS PUBLIC SHARED_OS_LIBS)
 
 # lib dependencies
 set(${target_name}_depends
