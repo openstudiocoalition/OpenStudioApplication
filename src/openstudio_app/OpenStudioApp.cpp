@@ -832,7 +832,24 @@ void OpenStudioApp::import(OpenStudioApp::fileType type)
 
       QMessageBox messageBox; // (parent); ETH: ... but is hidden, so don't actually use
       messageBox.setText("Could not import SDD file.");
-      messageBox.setDetailedText(QString("Could not import " + fileExtension + " file at ") + fileName);
+
+      QString log("Could not import " + fileExtension + " file at " + fileName + ".\n\n");
+
+      for( const auto & error : translatorErrors )
+      {
+        log.append(QString::fromStdString(error.logMessage()));
+        log.append("\n");
+        log.append("\n");
+      }
+
+      for( const auto & warning : translatorWarnings )
+      {
+        log.append(QString::fromStdString(warning.logMessage()));
+        log.append("\n");
+        log.append("\n");
+      }
+
+      messageBox.setDetailedText(log);
       messageBox.exec();
     }
   }
