@@ -338,6 +338,15 @@ if(UNIX AND NOT APPLE)
   message(STATUS "LSB_RELEASE_ID_SHORT = ${LSB_RELEASE_ID_SHORT}")
 endif()
 
+# compiler id for about boxes
+if(MSVC)
+  set(ABOUT_COMPILER "${CMAKE_GENERATOR}")
+elseif(APPLE)
+  set(ABOUT_COMPILER "${CMAKE_CXX_COMPILER_ID} ${CMAKE_OSX_ARCHITECTURES}")
+else()
+  set(ABOUT_COMPILER "${CMAKE_CXX_COMPILER_ID}")
+endif()
+
 ###############################################################################
 #                           D E P E N D E N C I E S                           #
 ###############################################################################
