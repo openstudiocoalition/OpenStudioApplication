@@ -29,7 +29,6 @@ set(${target_name}_depends
 add_library(${target_name}
   ${${target_name}_src}
 )
-#target_compile_definitions(${target_name} PRIVATE ${target_name}_EXPORTS PUBLIC SHARED_OSAPP_LIBS)
 target_link_libraries(${target_name} ${${target_name}_depends} )
 
 

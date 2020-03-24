@@ -716,8 +716,6 @@ add_library(${target_name}
   ${${target_name}_qrcs}
 )
 
-#target_compile_definitions(${target_name} PRIVATE ${target_name}_EXPORTS PUBLIC SHARED_OS_LIBS)
-
 set(depends
   openstudio_modeleditor
   openstudio::openstudiolib

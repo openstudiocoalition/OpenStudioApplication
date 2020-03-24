@@ -230,6 +230,13 @@ endif()
 ###############################################################################
 # Compiler and system specific options
 
+if(MSVC AND NOT NINJA)
+  # Build with Multiple Processes
+  set(BUILD_WITH_MULTIPLE_PROCESSES ON CACHE BOOL "/MP compiler flag for full processor utilization")
+  mark_as_advanced(BUILD_WITH_MULTIPLE_PROCESSES)
+endif()
+
+
 if(UNIX)
 
   #set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -fPIC -fno-strict-aliasing")
@@ -337,6 +344,8 @@ if(UNIX AND NOT APPLE)
   )
   message(STATUS "LSB_RELEASE_ID_SHORT = ${LSB_RELEASE_ID_SHORT}")
 endif()
+
+
 
 ###############################################################################
 #                           D E P E N D E N C I E S                           #
