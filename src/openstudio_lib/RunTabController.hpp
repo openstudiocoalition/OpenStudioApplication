@@ -31,7 +31,7 @@
 #define OPENSTUDIO_RUNTABCONTROLLER_HPP
 
 #include "MainTabController.hpp"
-#include <openstudio/src/utilities/core/Path.hpp>
+#include <openstudio/utilities/core/Path.hpp>
 
 namespace openstudio {
 

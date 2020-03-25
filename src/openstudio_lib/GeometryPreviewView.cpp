@@ -34,11 +34,11 @@
 #include "../model_editor/Application.hpp"
 
 
-#include <openstudio/src/model/Model_Impl.hpp>
-#include <openstudio/src/model/ThreeJSForwardTranslator.hpp>
+#include <openstudio/model/Model_Impl.hpp>
+#include <openstudio/model/ThreeJSForwardTranslator.hpp>
 
-#include <openstudio/src/utilities/core/Assert.hpp>
-#include <openstudio/src/utilities/idd/IddEnums.hxx>
+#include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/idd/IddEnums.hxx>
 
 #include <QStackedWidget>
 #include <QVBoxLayout>

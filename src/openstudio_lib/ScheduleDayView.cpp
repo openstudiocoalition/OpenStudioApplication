@@ -36,23 +36,23 @@
 #include "OSItemSelectorButtons.hpp"
 #include "../shared_gui_components/OSLineEdit.hpp"
 
-#include <openstudio/src/model/Model.hpp>
-#include <openstudio/src/model/Model_Impl.hpp>
-#include <openstudio/src/model/ScheduleRule.hpp>
-#include <openstudio/src/model/ScheduleRuleset.hpp>
-#include <openstudio/src/model/ScheduleRuleset_Impl.hpp>
-#include <openstudio/src/model/ScheduleRule_Impl.hpp>
-#include <openstudio/src/model/ScheduleTypeLimits.hpp>
-#include <openstudio/src/model/ScheduleTypeLimits_Impl.hpp>
+#include <openstudio/model/Model.hpp>
+#include <openstudio/model/Model_Impl.hpp>
+#include <openstudio/model/ScheduleRule.hpp>
+#include <openstudio/model/ScheduleRuleset.hpp>
+#include <openstudio/model/ScheduleRuleset_Impl.hpp>
+#include <openstudio/model/ScheduleRule_Impl.hpp>
+#include <openstudio/model/ScheduleTypeLimits.hpp>
+#include <openstudio/model/ScheduleTypeLimits_Impl.hpp>
 
-#include <openstudio/src/utilities/time/Date.hpp>
-#include <openstudio/src/utilities/time/Time.hpp>
-#include <openstudio/src/utilities/units/QuantityConverter.hpp>
-#include <openstudio/src/utilities/units/Quantity.hpp>
-#include <openstudio/src/utilities/units/OSOptionalQuantity.hpp>
-#include <openstudio/src/utilities/units/OSQuantityVector.hpp>
+#include <openstudio/utilities/time/Date.hpp>
+#include <openstudio/utilities/time/Time.hpp>
+#include <openstudio/utilities/units/QuantityConverter.hpp>
+#include <openstudio/utilities/units/Quantity.hpp>
+#include <openstudio/utilities/units/OSOptionalQuantity.hpp>
+#include <openstudio/utilities/units/OSQuantityVector.hpp>
 
-#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
 
 #include <QButtonGroup>
 #include <QCalendarWidget>
@@ -78,7 +78,7 @@
 #include <algorithm>
 #include <iterator>
 
-#include <openstudio/src/utilities/idd/IddEnums.hxx>
+#include <openstudio/utilities/idd/IddEnums.hxx>
 
 namespace openstudio {
 

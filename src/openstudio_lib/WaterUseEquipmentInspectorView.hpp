@@ -32,7 +32,7 @@
 
 #include "ModelObjectInspectorView.hpp"
 #include "ModelObjectVectorController.hpp"
-#include <openstudio/src/model/WaterUseEquipmentDefinition.hpp>
+#include <openstudio/model/WaterUseEquipmentDefinition.hpp>
 
 namespace openstudio {
 

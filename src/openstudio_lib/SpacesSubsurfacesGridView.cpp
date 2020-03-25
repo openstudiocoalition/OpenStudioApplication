@@ -34,30 +34,30 @@
 
 #include "../shared_gui_components/OSGridView.hpp"
 
-#include <openstudio/src/model/ConstructionBase.hpp>
-#include <openstudio/src/model/ConstructionBase_Impl.hpp>
-#include <openstudio/src/model/DaylightingDeviceShelf.hpp>
-#include <openstudio/src/model/DaylightingDeviceShelf_Impl.hpp>
-#include <openstudio/src/model/InteriorPartitionSurface.hpp>
-#include <openstudio/src/model/InteriorPartitionSurface_Impl.hpp>
-#include <openstudio/src/model/Schedule.hpp>
-#include <openstudio/src/model/Schedule_Impl.hpp>
-#include <openstudio/src/model/ShadingControl.hpp>
-#include <openstudio/src/model/ShadingControl_Impl.hpp>
-#include <openstudio/src/model/ShadingSurface.hpp>
-#include <openstudio/src/model/ShadingSurface_Impl.hpp>
-#include <openstudio/src/model/Space.hpp>
-#include <openstudio/src/model/Space_Impl.hpp>
-#include <openstudio/src/model/Surface.hpp>
-#include <openstudio/src/model/Surface_Impl.hpp>
-#include <openstudio/src/model/SubSurface.hpp>
-#include <openstudio/src/model/SubSurface_Impl.hpp>
-#include <openstudio/src/model/WindowPropertyFrameAndDivider.hpp>
-#include <openstudio/src/model/WindowPropertyFrameAndDivider_Impl.hpp>
+#include <openstudio/model/ConstructionBase.hpp>
+#include <openstudio/model/ConstructionBase_Impl.hpp>
+#include <openstudio/model/DaylightingDeviceShelf.hpp>
+#include <openstudio/model/DaylightingDeviceShelf_Impl.hpp>
+#include <openstudio/model/InteriorPartitionSurface.hpp>
+#include <openstudio/model/InteriorPartitionSurface_Impl.hpp>
+#include <openstudio/model/Schedule.hpp>
+#include <openstudio/model/Schedule_Impl.hpp>
+#include <openstudio/model/ShadingControl.hpp>
+#include <openstudio/model/ShadingControl_Impl.hpp>
+#include <openstudio/model/ShadingSurface.hpp>
+#include <openstudio/model/ShadingSurface_Impl.hpp>
+#include <openstudio/model/Space.hpp>
+#include <openstudio/model/Space_Impl.hpp>
+#include <openstudio/model/Surface.hpp>
+#include <openstudio/model/Surface_Impl.hpp>
+#include <openstudio/model/SubSurface.hpp>
+#include <openstudio/model/SubSurface_Impl.hpp>
+#include <openstudio/model/WindowPropertyFrameAndDivider.hpp>
+#include <openstudio/model/WindowPropertyFrameAndDivider_Impl.hpp>
 
-#include <openstudio/src/utilities/core/Assert.hpp>
-#include <openstudio/src/utilities/idd/IddEnums.hxx>
-#include <openstudio/src/utilities/idd/OS_Space_FieldEnums.hxx>
+#include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/idd/IddEnums.hxx>
+#include <openstudio/utilities/idd/OS_Space_FieldEnums.hxx>
 
 #include <QCheckBox>
 

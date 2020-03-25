@@ -29,20 +29,20 @@
 
 #include "RenderingColorWidget.hpp"
 
-#include <openstudio/src/model/RenderingColor_Impl.hpp>
+#include <openstudio/model/RenderingColor_Impl.hpp>
 
-#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
 
-#include <openstudio/src/model/BuildingStory.hpp>
-#include <openstudio/src/model/BuildingStory_Impl.hpp>
-#include <openstudio/src/model/ConstructionBase.hpp>
-#include <openstudio/src/model/ConstructionBase_Impl.hpp>
-#include <openstudio/src/model/LightingSimulationZone.hpp>
-#include <openstudio/src/model/LightingSimulationZone_Impl.hpp>
-#include <openstudio/src/model/SpaceType.hpp>
-#include <openstudio/src/model/SpaceType_Impl.hpp>
-#include <openstudio/src/model/ThermalZone.hpp>
-#include <openstudio/src/model/ThermalZone_Impl.hpp>
+#include <openstudio/model/BuildingStory.hpp>
+#include <openstudio/model/BuildingStory_Impl.hpp>
+#include <openstudio/model/ConstructionBase.hpp>
+#include <openstudio/model/ConstructionBase_Impl.hpp>
+#include <openstudio/model/LightingSimulationZone.hpp>
+#include <openstudio/model/LightingSimulationZone_Impl.hpp>
+#include <openstudio/model/SpaceType.hpp>
+#include <openstudio/model/SpaceType_Impl.hpp>
+#include <openstudio/model/ThermalZone.hpp>
+#include <openstudio/model/ThermalZone_Impl.hpp>
 
 #include <QBoxLayout>
 #include <QColor>

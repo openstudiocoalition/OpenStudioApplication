@@ -32,8 +32,8 @@
 
 #include "SubTabView.hpp"
 
-#include <openstudio/src/model/Model.hpp>
-#include <openstudio/src/model/ModelObject.hpp>
+#include <openstudio/model/Model.hpp>
+#include <openstudio/model/ModelObject.hpp>
 
 #include <QWidget>
 

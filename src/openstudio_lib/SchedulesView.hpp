@@ -32,15 +32,15 @@
 
 #include "../model_editor/QMetaTypes.hpp"
 
-#include <openstudio/src/model/Model.hpp>
-#include <openstudio/src/model/ScheduleDay.hpp>
-#include <openstudio/src/model/ScheduleDay_Impl.hpp>
-#include <openstudio/src/model/ScheduleRule.hpp>
-#include <openstudio/src/model/ScheduleRule_Impl.hpp>
-#include <openstudio/src/model/ScheduleRuleset.hpp>
-#include <openstudio/src/model/ScheduleRuleset_Impl.hpp>
-#include <openstudio/src/model/YearDescription.hpp>
-#include <openstudio/src/model/YearDescription_Impl.hpp>
+#include <openstudio/model/Model.hpp>
+#include <openstudio/model/ScheduleDay.hpp>
+#include <openstudio/model/ScheduleDay_Impl.hpp>
+#include <openstudio/model/ScheduleRule.hpp>
+#include <openstudio/model/ScheduleRule_Impl.hpp>
+#include <openstudio/model/ScheduleRuleset.hpp>
+#include <openstudio/model/ScheduleRuleset_Impl.hpp>
+#include <openstudio/model/YearDescription.hpp>
+#include <openstudio/model/YearDescription_Impl.hpp>
 
 #include <boost/optional.hpp>
 #include <boost/smart_ptr.hpp>
@@ -53,7 +53,7 @@
 #include <QDialog>
 #include <QGraphicsItem>
 #include <QGraphicsView>
-#include <openstudio/src/nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/nano/nano_signal_slot.hpp> // Signal-Slot replacement
 #include <QWidget>
 
 class QPushButton;

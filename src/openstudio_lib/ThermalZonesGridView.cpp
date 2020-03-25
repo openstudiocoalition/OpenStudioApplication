@@ -38,29 +38,29 @@
 
 #include "../shared_gui_components/OSGridView.hpp"
 
-#include <openstudio/src/model/AirLoopHVAC.hpp>
-#include <openstudio/src/model/AirLoopHVAC_Impl.hpp>
-#include <openstudio/src/model/Model.hpp>
-#include <openstudio/src/model/ModelObject.hpp>
-#include <openstudio/src/model/ModelObject_Impl.hpp>
-#include <openstudio/src/model/Model_Impl.hpp>
-#include <openstudio/src/model/RenderingColor.hpp>
-#include <openstudio/src/model/RenderingColor_Impl.hpp>
-#include <openstudio/src/model/Schedule.hpp>
-#include <openstudio/src/model/Schedule_Impl.hpp>
-#include <openstudio/src/model/SizingZone.hpp>
-#include <openstudio/src/model/SizingZone_Impl.hpp>
-#include <openstudio/src/model/ThermalZone.hpp>
-#include <openstudio/src/model/ThermalZone_Impl.hpp>
-#include <openstudio/src/model/ThermostatSetpointDualSetpoint.hpp>
-#include <openstudio/src/model/ThermostatSetpointDualSetpoint_Impl.hpp>
-#include <openstudio/src/model/ZoneControlHumidistat.hpp>
-#include <openstudio/src/model/ZoneControlHumidistat_Impl.hpp>
-#include <openstudio/src/model/ZoneHVACComponent.hpp>
-#include <openstudio/src/model/ZoneHVACComponent_Impl.hpp>
+#include <openstudio/model/AirLoopHVAC.hpp>
+#include <openstudio/model/AirLoopHVAC_Impl.hpp>
+#include <openstudio/model/Model.hpp>
+#include <openstudio/model/ModelObject.hpp>
+#include <openstudio/model/ModelObject_Impl.hpp>
+#include <openstudio/model/Model_Impl.hpp>
+#include <openstudio/model/RenderingColor.hpp>
+#include <openstudio/model/RenderingColor_Impl.hpp>
+#include <openstudio/model/Schedule.hpp>
+#include <openstudio/model/Schedule_Impl.hpp>
+#include <openstudio/model/SizingZone.hpp>
+#include <openstudio/model/SizingZone_Impl.hpp>
+#include <openstudio/model/ThermalZone.hpp>
+#include <openstudio/model/ThermalZone_Impl.hpp>
+#include <openstudio/model/ThermostatSetpointDualSetpoint.hpp>
+#include <openstudio/model/ThermostatSetpointDualSetpoint_Impl.hpp>
+#include <openstudio/model/ZoneControlHumidistat.hpp>
+#include <openstudio/model/ZoneControlHumidistat_Impl.hpp>
+#include <openstudio/model/ZoneHVACComponent.hpp>
+#include <openstudio/model/ZoneHVACComponent_Impl.hpp>
 
-#include <openstudio/src/utilities/idd/IddEnums.hxx>
-#include <openstudio/src/utilities/idd/OS_ThermalZone_FieldEnums.hxx>
+#include <openstudio/utilities/idd/IddEnums.hxx>
+#include <openstudio/utilities/idd/OS_ThermalZone_FieldEnums.hxx>
 
 #include <QBoxLayout>
 #include <QCheckBox>

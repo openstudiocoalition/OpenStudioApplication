@@ -29,7 +29,7 @@
 
 #include "MeasureBadge.hpp"
 
-#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
 
 namespace openstudio {
 

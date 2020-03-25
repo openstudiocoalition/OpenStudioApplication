@@ -32,8 +32,8 @@
 
 #include "FieldMethodTypedefs.hpp"
 
-#include <openstudio/src/nano/nano_signal_slot.hpp> // Signal-Slot replacement
-#include <openstudio/src/model/Model.hpp>
+#include <openstudio/nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/model/Model.hpp>
 
 #include <QLineEdit>
 

@@ -33,7 +33,7 @@
 #include "ModelObjectInspectorView.hpp"
 #include "ModelSubTabView.hpp"
 
-#include <openstudio/src/model/ThermalZone.hpp>
+#include <openstudio/model/ThermalZone.hpp>
 
 namespace openstudio {
 

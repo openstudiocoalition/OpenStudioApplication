@@ -32,9 +32,9 @@
 #include "../model_editor/UserSettings.hpp"
 #include "../model_editor/Utilities.hpp"
 
-#include <openstudio/src/utilities/core/Assert.hpp>
-#include <openstudio/src/utilities/core/StringHelpers.hpp>
-#include <openstudio/src/utilities/core/PathHelpers.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/StringHelpers.hpp>
+#include <openstudio/utilities/core/PathHelpers.hpp>
 
 #include <QBoxLayout>
 #include <QComboBox>

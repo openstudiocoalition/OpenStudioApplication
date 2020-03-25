@@ -40,11 +40,11 @@
 #include "../openstudio_lib/OSDropZone.hpp"
 #include "../openstudio_lib/OSItem.hpp"
 
-#include <openstudio/src/model/Model_Impl.hpp>
-#include <openstudio/src/model/ModelObject_Impl.hpp>
+#include <openstudio/model/Model_Impl.hpp>
+#include <openstudio/model/ModelObject_Impl.hpp>
 
-#include <openstudio/src/utilities/core/Assert.hpp>
-#include <openstudio/src/utilities/idd/IddObject.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/idd/IddObject.hpp>
 
 #include <QApplication>
 #include <QBoxLayout>

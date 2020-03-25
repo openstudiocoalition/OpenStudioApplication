@@ -30,8 +30,8 @@
 #ifndef SHAREDGUICOMPONENTS_EDITCONTROLLER_HPP
 #define SHAREDGUICOMPONENTS_EDITCONTROLLER_HPP
 
-#include <openstudio/src/measure/OSArgument.hpp>
-#include <openstudio/src/utilities/core/Logger.hpp>
+#include <openstudio/measure/OSArgument.hpp>
+#include <openstudio/utilities/core/Logger.hpp>
 #include <QObject>
 #include <QPointer>
 #include <QSharedPointer>

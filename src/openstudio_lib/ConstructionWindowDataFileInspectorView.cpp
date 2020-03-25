@@ -31,10 +31,10 @@
 
 #include "../shared_gui_components/OSLineEdit.hpp"
 
-#include <openstudio/src/model/WindowDataFile.hpp>
-#include <openstudio/src/model/WindowDataFile_Impl.hpp>
+#include <openstudio/model/WindowDataFile.hpp>
+#include <openstudio/model/WindowDataFile_Impl.hpp>
 
-#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
 
 #include <QGridLayout>
 #include <QLabel>

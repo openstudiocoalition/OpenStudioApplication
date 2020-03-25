@@ -34,8 +34,8 @@
 #include "../openstudio_lib/IconLibrary.hpp"
 #include "../openstudio_lib/OSItem.hpp"
 
-#include <openstudio/src/model/ModelObject.hpp>
-#include <openstudio/src/model/ModelObject_Impl.hpp>
+#include <openstudio/model/ModelObject.hpp>
+#include <openstudio/model/ModelObject_Impl.hpp>
 
 #include <QBoxLayout>
 #include <QLabel>

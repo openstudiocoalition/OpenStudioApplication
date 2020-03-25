@@ -30,7 +30,7 @@
 #ifndef OPENSTUDIO_REFRIGERATIONGRIDCONTROLLER_HPP
 #define OPENSTUDIO_REFRIGERATIONGRIDCONTROLLER_HPP
 
-#include <openstudio/src/model/Model.hpp>
+#include <openstudio/model/Model.hpp>
 
 #include <QObject>
 #include <QPointer>

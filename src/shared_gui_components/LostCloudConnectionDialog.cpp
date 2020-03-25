@@ -30,7 +30,7 @@
 #include "LostCloudConnectionDialog.hpp"
 #include "../shared_gui_components/Buttons.hpp"
 
-#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
 
 #include <QBoxLayout>
 #include <QDesktopServices>

@@ -31,7 +31,7 @@
 
 #include "OpenStudioAppFixture.hpp"
 
-#include <openstudio/src/utilities/units/QuantityConverter.hpp>
+#include <openstudio/utilities/units/QuantityConverter.hpp>
 
 #include <QDir>
 #include <QFileInfo>

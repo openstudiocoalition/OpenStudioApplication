@@ -30,9 +30,9 @@
 #ifndef MODELEDITOR_OSProgressBar_HPP
 #define MODELEDITOR_OSProgressBar_HPP
 
-#include <openstudio/src/utilities/plot/ProgressBar.hpp>
-#include <openstudio/src/utilities/core/Macro.hpp>
-#include <openstudio/src/utilities/core/String.hpp>
+#include <openstudio/utilities/plot/ProgressBar.hpp>
+#include <openstudio/utilities/core/Macro.hpp>
+#include <openstudio/utilities/core/String.hpp>
 
 #include <QProgressBar>
 #include <memory>

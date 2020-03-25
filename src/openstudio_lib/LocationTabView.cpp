@@ -41,35 +41,35 @@
 
 #include "../openstudio_app/OpenStudioApp.hpp"
 
-#include <openstudio/src/model/ClimateZones.hpp>
-#include <openstudio/src/model/ClimateZones_Impl.hpp>
-#include <openstudio/src/model/DesignDay.hpp>
-#include <openstudio/src/model/DesignDay_Impl.hpp>
-#include <openstudio/src/model/Model_Impl.hpp>
-#include <openstudio/src/model/RunPeriod.hpp>
-#include <openstudio/src/model/RunPeriodControlDaylightSavingTime.hpp>
-#include <openstudio/src/model/RunPeriodControlDaylightSavingTime_Impl.hpp>
-#include <openstudio/src/model/RunPeriod_Impl.hpp>
-#include <openstudio/src/model/Site_Impl.hpp>
-#include <openstudio/src/model/SizingPeriod.hpp>
-#include <openstudio/src/model/SizingPeriod_Impl.hpp>
-#include <openstudio/src/model/WeatherFile.hpp>
-#include <openstudio/src/model/WeatherFileConditionType.hpp>
-#include <openstudio/src/model/WeatherFileDays.hpp>
-#include <openstudio/src/model/WeatherFile_Impl.hpp>
-#include <openstudio/src/model/YearDescription_Impl.hpp>
+#include <openstudio/model/ClimateZones.hpp>
+#include <openstudio/model/ClimateZones_Impl.hpp>
+#include <openstudio/model/DesignDay.hpp>
+#include <openstudio/model/DesignDay_Impl.hpp>
+#include <openstudio/model/Model_Impl.hpp>
+#include <openstudio/model/RunPeriod.hpp>
+#include <openstudio/model/RunPeriodControlDaylightSavingTime.hpp>
+#include <openstudio/model/RunPeriodControlDaylightSavingTime_Impl.hpp>
+#include <openstudio/model/RunPeriod_Impl.hpp>
+#include <openstudio/model/Site_Impl.hpp>
+#include <openstudio/model/SizingPeriod.hpp>
+#include <openstudio/model/SizingPeriod_Impl.hpp>
+#include <openstudio/model/WeatherFile.hpp>
+#include <openstudio/model/WeatherFileConditionType.hpp>
+#include <openstudio/model/WeatherFileDays.hpp>
+#include <openstudio/model/WeatherFile_Impl.hpp>
+#include <openstudio/model/YearDescription_Impl.hpp>
 
 #include "../model_editor/Utilities.hpp"
 
-#include <openstudio/src/energyplus/ReverseTranslator.hpp>
+#include <openstudio/energyplus/ReverseTranslator.hpp>
 
 //#include "../runmanager/lib/ConfigOptions.hpp"
 
-#include <openstudio/src/utilities/core/Assert.hpp>
-#include <openstudio/src/utilities/filetypes/EpwFile.hpp>
-#include <openstudio/src/utilities/idf/IdfFile.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/filetypes/EpwFile.hpp>
+#include <openstudio/utilities/idf/IdfFile.hpp>
 
-#include <openstudio/src/utilities/idd/IddEnums.hxx>
+#include <openstudio/utilities/idd/IddEnums.hxx>
 
 #include <boost/smart_ptr.hpp>
 

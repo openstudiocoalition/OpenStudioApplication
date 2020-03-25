@@ -30,7 +30,7 @@
 #ifndef OPENSTUDIO_FACILITYTABVIEW_HPP
 #define OPENSTUDIO_FACILITYTABVIEW_HPP
 
-#include <openstudio/src/model/Model.hpp>
+#include <openstudio/model/Model.hpp>
 
 #include "MainTabView.hpp"
 

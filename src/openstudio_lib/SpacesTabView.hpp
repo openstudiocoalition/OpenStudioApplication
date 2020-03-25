@@ -30,7 +30,7 @@
 #ifndef OPENSTUDIO_SPACESTABVIEW_HPP
 #define OPENSTUDIO_SPACESTABVIEW_HPP
 
-#include <openstudio/src/model/Model.hpp>
+#include <openstudio/model/Model.hpp>
 
 #include "MainTabView.hpp"
 

@@ -33,7 +33,7 @@
 #include <QObject>
 #include <QSharedPointer>
 #include <boost/optional.hpp>
-#include <openstudio/src/model/AirConditionerVariableRefrigerantFlow.hpp>
+#include <openstudio/model/AirConditionerVariableRefrigerantFlow.hpp>
 #include "../shared_gui_components/OSListController.hpp"
 
 class QGraphicsScene;

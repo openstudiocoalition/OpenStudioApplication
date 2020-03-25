@@ -31,30 +31,30 @@
 
 #include "MaterialsView.hpp"
 
-#include <openstudio/src/model/AirGap.hpp>
-#include <openstudio/src/model/AirWallMaterial.hpp>
-#include <openstudio/src/model/Blind.hpp>
-#include <openstudio/src/model/Component.hpp>
-#include <openstudio/src/model/Component_Impl.hpp>
-#include <openstudio/src/model/DaylightRedirectionDevice.hpp>
-#include <openstudio/src/model/InfraredTransparentMaterial.hpp>
-#include <openstudio/src/model/MasslessOpaqueMaterial.hpp>
-#include <openstudio/src/model/Material.hpp>
-#include <openstudio/src/model/Material_Impl.hpp>
-#include <openstudio/src/model/Gas.hpp>
-#include <openstudio/src/model/GasMixture.hpp>
-#include <openstudio/src/model/RefractionExtinctionGlazing.hpp>
-#include <openstudio/src/model/RoofVegetation.hpp>
-#include <openstudio/src/model/Screen.hpp>
-#include <openstudio/src/model/Shade.hpp>
-#include <openstudio/src/model/SimpleGlazing.hpp>
-#include <openstudio/src/model/StandardGlazing.hpp>
-#include <openstudio/src/model/StandardOpaqueMaterial.hpp>
-#include <openstudio/src/model/ThermochromicGlazing.hpp>
+#include <openstudio/model/AirGap.hpp>
+#include <openstudio/model/AirWallMaterial.hpp>
+#include <openstudio/model/Blind.hpp>
+#include <openstudio/model/Component.hpp>
+#include <openstudio/model/Component_Impl.hpp>
+#include <openstudio/model/DaylightRedirectionDevice.hpp>
+#include <openstudio/model/InfraredTransparentMaterial.hpp>
+#include <openstudio/model/MasslessOpaqueMaterial.hpp>
+#include <openstudio/model/Material.hpp>
+#include <openstudio/model/Material_Impl.hpp>
+#include <openstudio/model/Gas.hpp>
+#include <openstudio/model/GasMixture.hpp>
+#include <openstudio/model/RefractionExtinctionGlazing.hpp>
+#include <openstudio/model/RoofVegetation.hpp>
+#include <openstudio/model/Screen.hpp>
+#include <openstudio/model/Shade.hpp>
+#include <openstudio/model/SimpleGlazing.hpp>
+#include <openstudio/model/StandardGlazing.hpp>
+#include <openstudio/model/StandardOpaqueMaterial.hpp>
+#include <openstudio/model/ThermochromicGlazing.hpp>
 
-#include <openstudio/src/utilities/core/Logger.hpp>
+#include <openstudio/utilities/core/Logger.hpp>
 
-#include <openstudio/src/utilities/idd/IddEnums.hxx>
+#include <openstudio/utilities/idd/IddEnums.hxx>
 
 namespace openstudio {
 

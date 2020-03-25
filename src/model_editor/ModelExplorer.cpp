@@ -42,21 +42,21 @@
 #include <QTime>
 #include <QToolBar>
 
-#include <openstudio/src/resources.hxx>
-#include <openstudio/src/energyplus/ReverseTranslator.hpp>
-#include <openstudio/src/model/Model.hpp>
+#include <openstudio/resources.hxx>
+#include <openstudio/energyplus/ReverseTranslator.hpp>
+#include <openstudio/model/Model.hpp>
 #include "ClassViewWidget.hpp"
 #include "ObjectExplorer.hpp"
 #include "TreeViewWidget.hpp"
 #include "ViewWidget.hpp"
-#include <openstudio/src/utilities/core/Assert.hpp>
-#include <openstudio/src/utilities/core/PathHelpers.hpp>
-#include <openstudio/src/utilities/idf/IdfFile.hpp>
-#include <openstudio/src/utilities/idf/Workspace.hpp>
-#include <openstudio/src/utilities/idf/WorkspaceObjectOrder.hpp>
-#include <openstudio/src/utilities/core/Compare.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/PathHelpers.hpp>
+#include <openstudio/utilities/idf/IdfFile.hpp>
+#include <openstudio/utilities/idf/Workspace.hpp>
+#include <openstudio/utilities/idf/WorkspaceObjectOrder.hpp>
+#include <openstudio/utilities/core/Compare.hpp>
 
-#include <openstudio/src/utilities/idd/IddEnums.hxx>
+#include <openstudio/utilities/idd/IddEnums.hxx>
 
 #include "ModelExplorer.hpp"
 #include "OSProgressBar.hpp"

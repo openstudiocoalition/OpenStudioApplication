@@ -34,7 +34,7 @@
 
 #include "ViewWidget.hpp"
 
-#include <openstudio/src/model/Building.hpp>
+#include <openstudio/model/Building.hpp>
 #include "ModelEditorAPI.hpp"
 
 namespace modeleditor

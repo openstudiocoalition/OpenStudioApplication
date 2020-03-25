@@ -29,9 +29,9 @@
 
 #include "PlanarSurfaceWidget.hpp"
 
-#include <openstudio/src/model/PlanarSurface_Impl.hpp>
+#include <openstudio/model/PlanarSurface_Impl.hpp>
 
-#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>

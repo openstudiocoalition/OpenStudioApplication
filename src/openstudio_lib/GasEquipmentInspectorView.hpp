@@ -31,7 +31,7 @@
 #define OPENSTUDIO_GASEQUIPMENTINSPECTORVIEW_HPP
 
 #include "ModelObjectInspectorView.hpp"
-#include <openstudio/src/model/GasEquipmentDefinition.hpp>
+#include <openstudio/model/GasEquipmentDefinition.hpp>
 
 namespace openstudio {
 

@@ -40,15 +40,15 @@
 #include "../model_editor/OSProgressBar.hpp"
 #include "../model_editor/Utilities.hpp"
 
-#include <openstudio/src/energyplus/ForwardTranslator.hpp>
+#include <openstudio/energyplus/ForwardTranslator.hpp>
 
-#include <openstudio/src/utilities/core/Assert.hpp>
-#include <openstudio/src/utilities/core/Compare.hpp>
-#include <openstudio/src/utilities/core/Containers.hpp>
-#include <openstudio/src/utilities/core/RubyException.hpp>
-#include <openstudio/src/utilities/core/PathHelpers.hpp>
-#include <openstudio/src/utilities/bcl/BCLMeasure.hpp>
-#include <openstudio/src/utilities/filetypes/WorkflowStep_Impl.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Compare.hpp>
+#include <openstudio/utilities/core/Containers.hpp>
+#include <openstudio/utilities/core/RubyException.hpp>
+#include <openstudio/utilities/core/PathHelpers.hpp>
+#include <openstudio/utilities/bcl/BCLMeasure.hpp>
+#include <openstudio/utilities/filetypes/WorkflowStep_Impl.hpp>
 
 #include <QByteArray>
 #include <QDialog>

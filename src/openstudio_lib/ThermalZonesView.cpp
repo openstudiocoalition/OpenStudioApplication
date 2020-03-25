@@ -38,7 +38,7 @@
 #include <QTimer>
 #include <QVBoxLayout>
 
-#include <openstudio/src/utilities/idd/IddEnums.hxx>
+#include <openstudio/utilities/idd/IddEnums.hxx>
 
 namespace openstudio {
 

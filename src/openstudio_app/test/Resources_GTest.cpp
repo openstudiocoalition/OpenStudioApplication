@@ -31,19 +31,19 @@
 
 #include "OpenStudioAppFixture.hpp"
 
-#include <openstudio/src/osversion/VersionTranslator.hpp>
+#include <openstudio/osversion/VersionTranslator.hpp>
 
-#include <openstudio/src/model/Model.hpp>
-#include <openstudio/src/model/SpaceLoad.hpp>
-#include <openstudio/src/model/SpaceLoad_Impl.hpp>
-#include <openstudio/src/model/SpaceType.hpp>
+#include <openstudio/model/Model.hpp>
+#include <openstudio/model/SpaceLoad.hpp>
+#include <openstudio/model/SpaceLoad_Impl.hpp>
+#include <openstudio/model/SpaceType.hpp>
 
 #include "../../model_editor/Utilities.hpp"
 
 // Include our OS App specific one
 #include "../../utilities/OpenStudioApplicationPathHelpers.hpp"
 
-#include <openstudio/src/utilities/core/PathHelpers.hpp>
+#include <openstudio/utilities/core/PathHelpers.hpp>
 
 #include <QDir>
 #include <QFileInfo>

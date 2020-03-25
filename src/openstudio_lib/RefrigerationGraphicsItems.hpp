@@ -36,7 +36,7 @@
 #include "../shared_gui_components/OSListController.hpp"
 #include "../shared_gui_components/OSListView.hpp"
 #include "../shared_gui_components/GraphicsItems.hpp"
-#include <openstudio/src/utilities/idf/Handle.hpp>
+#include <openstudio/utilities/idf/Handle.hpp>
 
 class QGraphicsView;
 class QPushButton;

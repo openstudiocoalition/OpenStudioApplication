@@ -29,10 +29,10 @@
 
 #include "UserSettings.hpp"
 
-#include <openstudio/src/utilities/bcl/LocalBCL.hpp>
-#include <openstudio/src/utilities/bcl/BCLMeasure.hpp>
-#include <openstudio/src/utilities/core/Path.hpp>
-#include <openstudio/src/utilities/core/FilesystemHelpers.hpp>
+#include <openstudio/utilities/bcl/LocalBCL.hpp>
+#include <openstudio/utilities/bcl/BCLMeasure.hpp>
+#include <openstudio/utilities/core/Path.hpp>
+#include <openstudio/utilities/core/FilesystemHelpers.hpp>
 
 #include "Utilities.hpp"
 

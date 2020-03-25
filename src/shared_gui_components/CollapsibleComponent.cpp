@@ -31,7 +31,7 @@
 #include "CollapsibleComponentHeader.hpp"
 #include "ComponentList.hpp"
 
-#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
 
 #include <QBoxLayout>
 #include <QButtonGroup>

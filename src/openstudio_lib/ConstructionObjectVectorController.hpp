@@ -31,7 +31,7 @@
 #define OPENSTUDIO_CONSTRUCTIONOBJECTVECTORCONTROLLER_HPP
 
 #include "ModelObjectVectorController.hpp"
-#include <openstudio/src/utilities/core/Logger.hpp>
+#include <openstudio/utilities/core/Logger.hpp>
 
 class QMutex;
 

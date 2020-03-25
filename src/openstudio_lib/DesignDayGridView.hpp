@@ -34,7 +34,7 @@
 
 #include "OSItem.hpp"
 
-#include <openstudio/src/model/Model.hpp>
+#include <openstudio/model/Model.hpp>
 
 #include <QWidget>
 

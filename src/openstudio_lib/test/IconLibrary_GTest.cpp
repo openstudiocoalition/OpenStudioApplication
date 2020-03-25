@@ -33,7 +33,7 @@
 
 #include "../IconLibrary.hpp"
 
-#include <openstudio/src/utilities/idd/IddFactory.hxx>
+#include <openstudio/utilities/idd/IddFactory.hxx>
 
 #include <QPixmap>
 

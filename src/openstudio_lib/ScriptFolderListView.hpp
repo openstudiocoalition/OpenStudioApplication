@@ -32,13 +32,13 @@
 
 #include "OSCollapsibleItemList.hpp"
 
-#include <openstudio/src/measure/OSArgument.hpp>
-#include <openstudio/src/measure/OSMeasureInfoGetter.hpp>
+#include <openstudio/measure/OSArgument.hpp>
+#include <openstudio/measure/OSMeasureInfoGetter.hpp>
 
-#include <openstudio/src/model/Model.hpp>
-#include <openstudio/src/model/ModelObject.hpp>
+#include <openstudio/model/Model.hpp>
+#include <openstudio/model/ModelObject.hpp>
 
-#include <openstudio/src/utilities/core/Logger.hpp>
+#include <openstudio/utilities/core/Logger.hpp>
 
 #include <QFileSystemWatcher>
 

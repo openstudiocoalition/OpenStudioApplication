@@ -37,15 +37,15 @@
 #include "../model_editor/AccessPolicyStore.hpp"
 #include "../model_editor/Utilities.hpp"
 
-#include <openstudio/src/measure/OSArgument.hpp>
+#include <openstudio/measure/OSArgument.hpp>
 
 #include "../openstudio_lib/MainWindow.hpp"
 
-#include <openstudio/src/utilities/core/FileLogSink.hpp>
-#include <openstudio/src/utilities/bcl/BCLMeasure.hpp>
-#include <openstudio/src/utilities/core/Logger.hpp>
-#include <openstudio/src/utilities/core/String.hpp>
-#include <openstudio/src/utilities/idf/Workspace_Impl.hpp>
+#include <openstudio/utilities/core/FileLogSink.hpp>
+#include <openstudio/utilities/bcl/BCLMeasure.hpp>
+#include <openstudio/utilities/core/Logger.hpp>
+#include <openstudio/utilities/core/String.hpp>
+#include <openstudio/utilities/idf/Workspace_Impl.hpp>
 
 #include <QAbstractButton>
 #include <QApplication>
@@ -60,7 +60,7 @@
 #endif
 
 #define WSAAPI
-#include <openstudio/src/utilities/core/Path.hpp>
+#include <openstudio/utilities/core/Path.hpp>
 
 #include <thread>
 #include <chrono>
@@ -120,17 +120,7 @@ void qMessageHandler(QtMsgType type, const QMessageLogContext &context, const QS
 
 int main(int argc, char *argv[])
 {
-  /*
-  ruby_sysinit(&argc, &argv);
-  {
-    RUBY_INIT_STACK;
-    ruby_init();
-  }
-  */
-
-#ifndef SHARED_OS_LIBS
   Q_INIT_RESOURCE(openstudio);
-#endif // SHARED_OS_LIBS
 
 // DLM: on Windows run with 'OpenStudioApp.exe  > out.log 2>&1' to capture all debug output
 // DLM: set env var 'QT_FATAL_WARNINGS' to error on qt warnings for debugging

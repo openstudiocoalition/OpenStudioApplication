@@ -40,7 +40,7 @@
 #include <QStackedWidget>
 #include <QStyleOption>
 
-#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
 
 #include <vector>
 

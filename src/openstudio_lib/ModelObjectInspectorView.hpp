@@ -30,10 +30,10 @@
 #ifndef OPENSTUDIO_MODELOBJECTINSPECTORVIEW_HPP
 #define OPENSTUDIO_MODELOBJECTINSPECTORVIEW_HPP
 
-#include <openstudio/src/model/ComponentData.hpp>
+#include <openstudio/model/ComponentData.hpp>
 
-#include <openstudio/src/model/Model.hpp>
-#include <openstudio/src/model/ModelObject.hpp>
+#include <openstudio/model/Model.hpp>
+#include <openstudio/model/ModelObject.hpp>
 
 #include <boost/smart_ptr.hpp>
 #include <boost/optional.hpp>

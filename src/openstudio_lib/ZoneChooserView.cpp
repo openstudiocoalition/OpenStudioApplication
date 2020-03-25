@@ -28,14 +28,14 @@
 ***********************************************************************************************************************/
 
 #include "ZoneChooserView.hpp"
-#include <openstudio/src/model/AirLoopHVAC.hpp>
-#include <openstudio/src/model/Model.hpp>
-#include <openstudio/src/model/ThermalZone.hpp>
-#include <openstudio/src/model/ThermalZone_Impl.hpp>
-#include <openstudio/src/model/AirLoopHVACZoneSplitter.hpp>
-#include <openstudio/src/model/AirLoopHVACZoneSplitter_Impl.hpp>
-#include <openstudio/src/model/AirLoopHVACZoneMixer.hpp>
-#include <openstudio/src/model/AirLoopHVACZoneMixer_Impl.hpp>
+#include <openstudio/model/AirLoopHVAC.hpp>
+#include <openstudio/model/Model.hpp>
+#include <openstudio/model/ThermalZone.hpp>
+#include <openstudio/model/ThermalZone_Impl.hpp>
+#include <openstudio/model/AirLoopHVACZoneSplitter.hpp>
+#include <openstudio/model/AirLoopHVACZoneSplitter_Impl.hpp>
+#include <openstudio/model/AirLoopHVACZoneMixer.hpp>
+#include <openstudio/model/AirLoopHVACZoneMixer_Impl.hpp>
 
 #include "../model_editor/Utilities.hpp"
 

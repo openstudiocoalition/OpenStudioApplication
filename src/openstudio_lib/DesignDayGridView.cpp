@@ -36,13 +36,13 @@
 #include "OSDocument.hpp"
 #include "OSDropZone.hpp"
 
-#include <openstudio/src/model/DesignDay.hpp>
-#include <openstudio/src/model/DesignDay_Impl.hpp>
-#include <openstudio/src/model/ScheduleDay.hpp>
-#include <openstudio/src/model/ScheduleDay_Impl.hpp>
+#include <openstudio/model/DesignDay.hpp>
+#include <openstudio/model/DesignDay_Impl.hpp>
+#include <openstudio/model/ScheduleDay.hpp>
+#include <openstudio/model/ScheduleDay_Impl.hpp>
 
-#include <openstudio/src/utilities/idd/IddEnums.hxx>
-#include <openstudio/src/utilities/idd/SizingPeriod_DesignDay_FieldEnums.hxx>
+#include <openstudio/utilities/idd/IddEnums.hxx>
+#include <openstudio/utilities/idd/SizingPeriod_DesignDay_FieldEnums.hxx>
 
 #include <QBoxLayout>
 #include <QCheckBox>

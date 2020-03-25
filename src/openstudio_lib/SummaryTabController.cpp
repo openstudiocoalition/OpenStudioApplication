@@ -29,8 +29,8 @@
 
 #include "SummaryTabController.hpp"
 #include "SummaryTabView.hpp"
-#include <openstudio/src/model/Model.hpp>
-#include <openstudio/src/model/Model_Impl.hpp>
+#include <openstudio/model/Model.hpp>
+#include <openstudio/model/Model_Impl.hpp>
 
 namespace openstudio {
 

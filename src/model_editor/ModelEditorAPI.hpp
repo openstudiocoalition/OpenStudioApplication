@@ -32,7 +32,7 @@
 #ifndef MODELEDITOR_MODELEDITORAPI_HPP
 #define MODELEDITOR_MODELEDITORAPI_HPP
 
-#if (_WIN32 || _MSC_VER) && SHARED_OS_LIBS
+#if (_WIN32 || _MSC_VER) && SHARED_OSAPP_LIBS
 
 #ifdef openstudio_modeleditor_EXPORTS
 #define MODELEDITOR_API __declspec(dllexport)

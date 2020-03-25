@@ -39,14 +39,14 @@
 #include "../shared_gui_components/OSComboBox.hpp"
 #include "../shared_gui_components/OSLineEdit.hpp"
 
-#include <openstudio/src/model/Construction.hpp>
-#include <openstudio/src/model/Construction_Impl.hpp>
-#include <openstudio/src/model/Material.hpp>
-#include <openstudio/src/model/Material_Impl.hpp>
-#include <openstudio/src/model/StandardsInformationConstruction.hpp>
+#include <openstudio/model/Construction.hpp>
+#include <openstudio/model/Construction_Impl.hpp>
+#include <openstudio/model/Material.hpp>
+#include <openstudio/model/Material_Impl.hpp>
+#include <openstudio/model/StandardsInformationConstruction.hpp>
 
-#include <openstudio/src/utilities/core/Assert.hpp>
-#include <openstudio/src/utilities/idd/OS_Construction_FieldEnums.hxx>
+#include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/idd/OS_Construction_FieldEnums.hxx>
 
 #include <QComboBox>
 #include <QGridLayout>

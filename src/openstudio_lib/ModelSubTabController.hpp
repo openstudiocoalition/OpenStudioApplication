@@ -33,7 +33,7 @@
 #include "SubTabController.hpp"
 #include "ModelSubTabView.hpp"
 
-#include <openstudio/src/model/Model.hpp>
+#include <openstudio/model/Model.hpp>
 
 #include <QObject>
 

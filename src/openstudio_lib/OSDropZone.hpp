@@ -31,12 +31,12 @@
 #define OPENSTUDIO_OSDROPZONE_HPP
 
 #include "OSItem.hpp"
-#include <openstudio/src/nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/nano/nano_signal_slot.hpp> // Signal-Slot replacement
 
 #include "../shared_gui_components/FieldMethodTypedefs.hpp"
 
-#include <openstudio/src/model/Model.hpp>
-#include <openstudio/src/model/ModelObject.hpp>
+#include <openstudio/model/Model.hpp>
+#include <openstudio/model/ModelObject.hpp>
 
 #include <QLabel>
 #include <QWidget>

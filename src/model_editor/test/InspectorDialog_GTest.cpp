@@ -34,20 +34,20 @@
 #include "../InspectorDialog.hpp"
 #include "../TestButton.hpp"
 
-#include <openstudio/src/model/Model.hpp>
-#include <openstudio/src/model/ModelObject.hpp>
-#include <openstudio/src/model/Building.hpp>
-#include <openstudio/src/model/Building_Impl.hpp>
-#include <openstudio/src/model/Space.hpp>
-#include <openstudio/src/model/Space_Impl.hpp>
-#include <openstudio/src/model/Lights.hpp>
-#include <openstudio/src/model/Lights_Impl.hpp>
-#include <openstudio/src/model/LightsDefinition.hpp>
-#include <openstudio/src/model/LightsDefinition_Impl.hpp>
-#include <openstudio/src/model/ThermalZone.hpp>
-#include <openstudio/src/model/ThermalZone_Impl.hpp>
+#include <openstudio/model/Model.hpp>
+#include <openstudio/model/ModelObject.hpp>
+#include <openstudio/model/Building.hpp>
+#include <openstudio/model/Building_Impl.hpp>
+#include <openstudio/model/Space.hpp>
+#include <openstudio/model/Space_Impl.hpp>
+#include <openstudio/model/Lights.hpp>
+#include <openstudio/model/Lights_Impl.hpp>
+#include <openstudio/model/LightsDefinition.hpp>
+#include <openstudio/model/LightsDefinition_Impl.hpp>
+#include <openstudio/model/ThermalZone.hpp>
+#include <openstudio/model/ThermalZone_Impl.hpp>
 
-#include <openstudio/src/utilities/idf/WorkspaceObjectWatcher.hpp>
+#include <openstudio/utilities/idf/WorkspaceObjectWatcher.hpp>
 
 #include <QObject>
 

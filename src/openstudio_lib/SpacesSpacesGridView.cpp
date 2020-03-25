@@ -34,28 +34,28 @@
 
 #include "../shared_gui_components/OSGridView.hpp"
 
-#include <openstudio/src/model/BuildingStory.hpp>
-#include <openstudio/src/model/BuildingStory_Impl.hpp>
-#include <openstudio/src/model/DefaultConstructionSet.hpp>
-#include <openstudio/src/model/DefaultConstructionSet_Impl.hpp>
-#include <openstudio/src/model/DefaultScheduleSet.hpp>
-#include <openstudio/src/model/DefaultScheduleSet_Impl.hpp>
-#include <openstudio/src/model/DesignSpecificationOutdoorAir.hpp>
-#include <openstudio/src/model/DesignSpecificationOutdoorAir_Impl.hpp>
-#include <openstudio/src/model/Space.hpp>
-#include <openstudio/src/model/Space_Impl.hpp>
-#include <openstudio/src/model/SpaceInfiltrationDesignFlowRate.hpp>
-#include <openstudio/src/model/SpaceInfiltrationDesignFlowRate_Impl.hpp>
-#include <openstudio/src/model/SpaceInfiltrationEffectiveLeakageArea.hpp>
-#include <openstudio/src/model/SpaceInfiltrationEffectiveLeakageArea_Impl.hpp>
-#include <openstudio/src/model/SpaceType.hpp>
-#include <openstudio/src/model/SpaceType_Impl.hpp>
-#include <openstudio/src/model/ThermalZone.hpp>
-#include <openstudio/src/model/ThermalZone_Impl.hpp>
+#include <openstudio/model/BuildingStory.hpp>
+#include <openstudio/model/BuildingStory_Impl.hpp>
+#include <openstudio/model/DefaultConstructionSet.hpp>
+#include <openstudio/model/DefaultConstructionSet_Impl.hpp>
+#include <openstudio/model/DefaultScheduleSet.hpp>
+#include <openstudio/model/DefaultScheduleSet_Impl.hpp>
+#include <openstudio/model/DesignSpecificationOutdoorAir.hpp>
+#include <openstudio/model/DesignSpecificationOutdoorAir_Impl.hpp>
+#include <openstudio/model/Space.hpp>
+#include <openstudio/model/Space_Impl.hpp>
+#include <openstudio/model/SpaceInfiltrationDesignFlowRate.hpp>
+#include <openstudio/model/SpaceInfiltrationDesignFlowRate_Impl.hpp>
+#include <openstudio/model/SpaceInfiltrationEffectiveLeakageArea.hpp>
+#include <openstudio/model/SpaceInfiltrationEffectiveLeakageArea_Impl.hpp>
+#include <openstudio/model/SpaceType.hpp>
+#include <openstudio/model/SpaceType_Impl.hpp>
+#include <openstudio/model/ThermalZone.hpp>
+#include <openstudio/model/ThermalZone_Impl.hpp>
 
-#include <openstudio/src/utilities/core/Assert.hpp>
-#include <openstudio/src/utilities/idd/IddEnums.hxx>
-#include <openstudio/src/utilities/idd/OS_Space_FieldEnums.hxx>
+#include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/idd/IddEnums.hxx>
+#include <openstudio/utilities/idd/OS_Space_FieldEnums.hxx>
 
 #include <QCheckBox>
 

@@ -30,9 +30,9 @@
 #ifndef OPENSTUDIO_SCHEDULEDIALOG_HPP
 #define OPENSTUDIO_SCHEDULEDIALOG_HPP
 
-#include <openstudio/src/model/Model.hpp>
-#include <openstudio/src/model/ScheduleTypeRegistry.hpp>
-#include <openstudio/src/model/ScheduleTypeLimits.hpp>
+#include <openstudio/model/Model.hpp>
+#include <openstudio/model/ScheduleTypeRegistry.hpp>
+#include <openstudio/model/ScheduleTypeLimits.hpp>
 
 #include "../shared_gui_components/OSDialog.hpp"
 

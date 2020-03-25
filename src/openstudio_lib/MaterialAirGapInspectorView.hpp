@@ -31,7 +31,7 @@
 #define OPENSTUDIO_MATERIALAIRGAPINSPECTORVIEW_HPP
 
 #include "ModelObjectInspectorView.hpp"
-#include <openstudio/src/model/AirGap.hpp>
+#include <openstudio/model/AirGap.hpp>
 
 namespace openstudio {
 

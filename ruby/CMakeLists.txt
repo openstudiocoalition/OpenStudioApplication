@@ -18,6 +18,7 @@ add_library(openstudio_modeleditor_rb MODULE
   RubyAPI.hpp
   openstudio_modeleditor_rb.cpp
 )
+
 target_include_directories(openstudio_modeleditor_rb PRIVATE ${RUBY_INCLUDE_DIRS})
 
 set_target_properties(openstudio_modeleditor_rb PROPERTIES PREFIX "")
@@ -80,6 +81,8 @@ target_link_libraries(openstudio_modeleditor_rb
 )
 
 if( WIN32 )
+  include("${OPENSTUDIO_SDK_PATH}/lib/cmake/openstudio/FetchRubyMinGW.cmake")
+  FetchRubyMinGW()
   target_link_libraries(openstudio_modeleditor_rb ${RUBY_MINGW_STUB_LIB})
 endif()
 

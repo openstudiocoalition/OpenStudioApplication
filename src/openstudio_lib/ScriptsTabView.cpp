@@ -39,7 +39,7 @@
 #include "../shared_gui_components/SyncMeasuresDialog.hpp"
 #include "../shared_gui_components/EditController.hpp"
 
-#include <openstudio/src/energyplus/ForwardTranslator.hpp>
+#include <openstudio/energyplus/ForwardTranslator.hpp>
 
 #include <QLabel>
 #include <QVBoxLayout>

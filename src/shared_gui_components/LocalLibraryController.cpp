@@ -47,12 +47,12 @@
 #include "../model_editor/UserSettings.hpp"
 #include "../model_editor/Utilities.hpp"
 
-#include <openstudio/src/utilities/bcl/LocalBCL.hpp>
-#include <openstudio/src/utilities/core/Assert.hpp>
-#include <openstudio/src/utilities/core/Compare.hpp>
-#include <openstudio/src/utilities/core/PathHelpers.hpp>
+#include <openstudio/utilities/bcl/LocalBCL.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Compare.hpp>
+#include <openstudio/utilities/core/PathHelpers.hpp>
 
-#include <openstudio/src/OpenStudio.hxx>
+#include <openstudio/OpenStudio.hxx>
 
 #include <QCoreApplication>
 #include <QDesktopServices>

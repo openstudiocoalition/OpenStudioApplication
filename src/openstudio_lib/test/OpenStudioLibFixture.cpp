@@ -31,7 +31,7 @@
 
 #include "../../model_editor/Application.hpp"
 
-#include <openstudio/src/utilities/core/Path.hpp>
+#include <openstudio/utilities/core/Path.hpp>
 
 void OpenStudioLibFixture::SetUp() {
   openstudio::Application::instance().application(true);

@@ -38,9 +38,9 @@
 
 #include "ViewWidget.hpp"
 
-#include <openstudio/src/utilities/idd/IddFile.hpp>
+#include <openstudio/utilities/idd/IddFile.hpp>
 
-#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
 
 namespace modeleditor
 {

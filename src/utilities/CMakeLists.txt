@@ -4,6 +4,9 @@ set(target_name openstudioapp_utilities)
 include_directories(${PROJECT_BINARY_DIR})
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
+get_target_property(CLI_IMPORTED_PATH openstudio::openstudio LOCATION)
+get_filename_component(CLI_IMPORTED_NAME ${CLI_IMPORTED_PATH} NAME)
+
 CONFIGURE_FILE_WITH_CHECKSUM("OpenStudioApplicationPathHelpers.cxx.in" "${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApplicationPathHelpers.cxx")
 
 set(${target_name}_src
@@ -19,17 +22,14 @@ set(${target_name}_test_src
 )
 
 set(${target_name}_depends
+  openstudio::openstudiolib
   CONAN_PKG::boost
-  #CONAN_PKG::boost_filesystem
-  #CONAN_PKG::boost_regex
-  #CONAN_PKG::boost_log
 )
 
 add_library(${target_name}
   ${${target_name}_src}
 )
-
-target_link_libraries(${target_name} ${${target_name}_depends} openstudio_utilities)
+target_link_libraries(${target_name} ${${target_name}_depends} )
 
 
 if(BUILD_TESTING)

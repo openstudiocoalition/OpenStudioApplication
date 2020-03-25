@@ -31,7 +31,7 @@
 #define OPENSTUDIO_MATERIALAIRWALLINSPECTORVIEW_HPP
 
 #include "ModelObjectInspectorView.hpp"
-#include <openstudio/src/model/AirWallMaterial.hpp>
+#include <openstudio/model/AirWallMaterial.hpp>
 
 namespace openstudio {
 

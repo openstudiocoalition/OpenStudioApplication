@@ -32,10 +32,10 @@
 
 #include "FieldMethodTypedefs.hpp"
 
-#include <openstudio/src/model/Model.hpp>
+#include <openstudio/model/Model.hpp>
 
 #include <QCheckBox>
-#include <openstudio/src/nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/nano/nano_signal_slot.hpp> // Signal-Slot replacement
 #include <QPushButton>
 
 // Forward declaration

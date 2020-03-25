@@ -35,11 +35,11 @@
 
 #include "OSGridController.hpp" // Needed for DataSource
 
-#include <openstudio/src/nano/nano_signal_slot.hpp> // Signal-Slot replacement
-#include <openstudio/src/model/Model.hpp>
-#include <openstudio/src/model/ModelObject.hpp>
+#include <openstudio/nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/model/Model.hpp>
+#include <openstudio/model/ModelObject.hpp>
 
-#include <openstudio/src/utilities/idf/WorkspaceObject.hpp>
+#include <openstudio/utilities/idf/WorkspaceObject.hpp>
 
 #include <QComboBox>
 #include <QList>

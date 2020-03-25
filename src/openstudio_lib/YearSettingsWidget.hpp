@@ -31,11 +31,11 @@
 #define OPENSTUDIO_YEARSETTINGSWIDGET_HPP
 
 #include "../model_editor/QMetaTypes.hpp"
-#include <openstudio/src/model/Model.hpp>
-#include <openstudio/src/model/Model_Impl.hpp>
-#include <openstudio/src/model/YearDescription.hpp>
-#include <openstudio/src/model/YearDescription_Impl.hpp>
-#include <openstudio/src/nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/model/Model.hpp>
+#include <openstudio/model/Model_Impl.hpp>
+#include <openstudio/model/YearDescription.hpp>
+#include <openstudio/model/YearDescription_Impl.hpp>
+#include <openstudio/nano/nano_signal_slot.hpp> // Signal-Slot replacement
 
 #include <QRadioButton>
 #include <QWidget>

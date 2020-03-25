@@ -12,6 +12,45 @@ endif()
 
 project(OpenStudioApplication VERSION 1.0.0)
 
+find_package(openstudio 3.0.0 CONFIG REQUIRED)
+
+set(OPENSTUDIO_SDK_PATH "Unknown" CACHE STRING "Unknown") # path to openstudio SDK
+
+###############################################################################
+
+###############################################################################
+# Conan
+
+# Note JM 2019-04-24: Another option is to globally set "print_run_commands = True" in ~/.conan/conan.conf
+option(CONAN_PRINT_RUN_COMMANDS "Log every conan self.run command" OFF)
+mark_as_advanced(CONAN_PRINT_RUN_COMMANDS)
+if(CONAN_PRINT_RUN_COMMANDS)
+  set(ENV{CONAN_PRINT_RUN_COMMANDS} "1")
+  message("Setting CONAN_PRINT_RUN_COMMANDS: $ENV{CONAN_PRINT_RUN_COMMANDS}")
+else()
+  unset(ENV{CONAN_PRINT_RUN_COMMANDS})
+  message("CONAN_PRINT_RUN_COMMANDS: $ENV{CONAN_PRINT_RUN_COMMANDS}")
+endif()
+
+# Attempt to run, it'll do the right thing if the calling cmake script already ran it
+set(CONAN_INSTALL_FILE "${PROJECT_SOURCE_DIR}/ConanInstall.cmake")
+include("${CONAN_INSTALL_FILE}")
+
+# A macro to find a conan related value especially when using multi-config builds (MSVC)
+# But it also works with single-config builds
+macro(FindValue ValueName)
+  set(LocalVar "")
+  set(LocalVar $<$<CONFIG:Debug>:${${ValueName}_DEBUG}>$<$<CONFIG:Release>:${${ValueName}_RELEASE}>$<$<CONFIG:RelWithDebInfo>:${$ValueName}_RELWITHDEBINFO}>$<$<CONFIG:MinSizeRel>:${${ValueName}_MINSIZEREL}>
+  )
+#  list(JOIN LocalVar "" LocalVar)
+  string(STRIP ${LocalVar} LocalVar)
+  set(CURRENT_${ValueName} $<IF:$<BOOL:${LocalVar}>,${LocalVar},${${ValueName}}>)
+  # For debug purposes
+  # message(STATUS "Found '${ValueName}' as '${CURRENT_${ValueName}}'")
+endmacro()
+
+###############################################################################
+
 # The PROJECT_SOURCE_DIR here is OpenStudioApplication/, which we will use instead of using CMAKE_SOURCE_DIR
 set(PROJECT_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
 # We will use BINARY_DIR instead of CMAKE_BINARY_DIR
@@ -151,10 +190,6 @@ if(UNIX AND NOT APPLE)
   set(CMAKE_INSTALL_RPATH "$ORIGIN/../lib")
 endif()
 
-# Build the OpenStudio Application
-# This option will require shared libs
-option(BUILD_OS_APP "Build OS App" ON)
-
 option(BUILD_PACKAGE "Build package" OFF)
 
 # DView
@@ -194,6 +229,13 @@ endif()
 #          C O M P I L E R    A N D    S Y S T E M    O P T I O N S           #
 ###############################################################################
 # Compiler and system specific options
+
+if(MSVC AND NOT NINJA)
+  # Build with Multiple Processes
+  set(BUILD_WITH_MULTIPLE_PROCESSES ON CACHE BOOL "/MP compiler flag for full processor utilization")
+  mark_as_advanced(BUILD_WITH_MULTIPLE_PROCESSES)
+endif()
+
 
 if(UNIX)
 
@@ -261,6 +303,10 @@ if(MSVC)
   # be linked against the same runtime
   add_definitions(/wd4251)
 
+  # ignore base class not dll-exported error
+  add_definitions(/wd4275)
+
+
   add_definitions(/bigobj)
 
   if(CMAKE_CL_64)
@@ -299,6 +345,15 @@ if(UNIX AND NOT APPLE)
   message(STATUS "LSB_RELEASE_ID_SHORT = ${LSB_RELEASE_ID_SHORT}")
 endif()
 
+# compiler id for about boxes
+if(MSVC)
+  set(ABOUT_COMPILER "${CMAKE_GENERATOR}")
+elseif(APPLE)
+  set(ABOUT_COMPILER "${CMAKE_CXX_COMPILER_ID} ${CMAKE_OSX_ARCHITECTURES}")
+else()
+  set(ABOUT_COMPILER "${CMAKE_CXX_COMPILER_ID}")
+endif()
+
 ###############################################################################
 #                           D E P E N D E N C I E S                           #
 ###############################################################################
@@ -312,106 +367,111 @@ if(UNIX)
   mark_as_advanced(CMAKE_THREAD_LIBS)
 endif()
 
-if(BUILD_OS_APP)
-  # Qt
-  set(QT_INSTALL_DIR "" CACHE PATH "Path to Qt Install")
-  mark_as_advanced(QT_INSTALL_DIR)
+# Swig
+FindValue(CONAN_SWIG_INSTALLER_ROOT)
+set(SWIG_EXECUTABLE "${CURRENT_CONAN_SWIG_INSTALLER_ROOT}/bin/swig")
+# The conan-provided binary has a built-in swiglib (`swig -swiglib`) that points to the build box on which it was built, which is problematic for us.
+set(SWIG_LIB "${CURRENT_CONAN_SWIG_INSTALLER_ROOT}/share/swig/4.0.1")
 
-  if(NOT EXISTS ${QT_INSTALL_DIR})
-    # download qt
-    if(WIN32)
-      if(CMAKE_CL_64)
-        set(QT_ZIP_FILENAME "qt_5_11_msvc2017_64_shared.zip")
-        set(QT_ZIP_EXPECTED_MD5 "82f44a8decf101ca7cb7efafd899e8ee")
-      else()
-        set(QT_ZIP_FILENAME "DOES_NOT_EXIST_qt_5_11_msvc2017_32_shared.zip")
-        set(QT_ZIP_EXPECTED_MD5 "25abd383e7db2dfd971b4a4ef145002b")
-      endif()
-    elseif(APPLE)
-        # TODO: this is missing a root level "Qt-install" directory.
-        set(QT_ZIP_FILENAME "qt_5_11_osx_shared.tar.gz")
-        set(QT_ZIP_EXPECTED_MD5 "080ff576111d50be5888807055114166")
-    elseif(EXISTS "/etc/redhat-release")
-      set(QT_ZIP_FILENAME "DOES_NOT_EXIST_qt_5_11_redhat_shared.tar.gz")
-      set(QT_ZIP_EXPECTED_MD5 "b0610716854ed91a003347c455b22eb8")
+# Qt
+set(QT_INSTALL_DIR "" CACHE PATH "Path to Qt Install")
+mark_as_advanced(QT_INSTALL_DIR)
+
+if(NOT EXISTS ${QT_INSTALL_DIR})
+  # download qt
+  if(WIN32)
+    if(CMAKE_CL_64)
+      set(QT_ZIP_FILENAME "qt_5_11_msvc2017_64_shared.zip")
+      set(QT_ZIP_EXPECTED_MD5 "82f44a8decf101ca7cb7efafd899e8ee")
     else()
-      if(LSB_RELEASE_ID_SHORT MATCHES "18.04")
-        set(QT_ZIP_FILENAME "qt_5_11_linux_shared.tar.gz")
-        set(QT_ZIP_EXPECTED_MD5 "33c5a562935612625ec5e41fe4b75e17")
-      else()
-        # 16.04
-        set(QT_ZIP_FILENAME "qt_5_11_linux_shared_xenial.tar.gz")
-        set(QT_ZIP_EXPECTED_MD5 "cb02b8cb34de94038a1a7cba59c0c43a")
-      endif()
+      set(QT_ZIP_FILENAME "DOES_NOT_EXIST_qt_5_11_msvc2017_32_shared.zip")
+      set(QT_ZIP_EXPECTED_MD5 "25abd383e7db2dfd971b4a4ef145002b")
     endif()
-
-    set(QT_ZIP_LOCAL_PATH "${PROJECT_BINARY_DIR}/${QT_ZIP_FILENAME}")
-    if(EXISTS "${QT_ZIP_LOCAL_PATH}")
-      file(MD5 "${QT_ZIP_LOCAL_PATH}" QT_ZIP_MD5)
-    endif()
-
-    if(NOT QT_ZIP_MD5 STREQUAL QT_ZIP_EXPECTED_MD5)
-      message(STATUS "Downloading Qt: ${QT_ZIP_FILENAME}")
-      file(DOWNLOAD "http://openstudio-resources.s3.amazonaws.com/dependencies/${QT_ZIP_FILENAME}"
-        ${QT_ZIP_LOCAL_PATH}
-        INACTIVITY_TIMEOUT 120
-        SHOW_PROGRESS
-        EXPECTED_MD5 ${QT_ZIP_EXPECTED_MD5})
-    # TODO: TEMP
-      if (APPLE)
-        execute_process(COMMAND ${CMAKE_COMMAND} -E make_directory "${PROJECT_BINARY_DIR}/Qt-install")
-        execute_process(COMMAND ${CMAKE_COMMAND} -E tar xfz ${QT_ZIP_LOCAL_PATH} WORKING_DIRECTORY "${PROJECT_BINARY_DIR}/Qt-install")
-      else()
-        execute_process(COMMAND ${CMAKE_COMMAND} -E tar xfz ${QT_ZIP_LOCAL_PATH} WORKING_DIRECTORY "${PROJECT_BINARY_DIR}")
-      endif()
-    endif()
-  endif()
-
-  set(QT_INSTALL_DIR "${PROJECT_BINARY_DIR}/Qt-install/")
-
-  find_package(Qt5Core 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-  find_package(Qt5Widgets 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-  find_package(Qt5Sql 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-  find_package(Qt5Network 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-  find_package(Qt5Xml 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-  find_package(Qt5Concurrent 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-  find_package(Qt5PrintSupport 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-  find_package(Qt5Gui 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-  find_package(Qt5Quick 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-  find_package(Qt5QuickWidgets 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-  find_package(Qt5Qml 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-  find_package(Qt5WebChannel 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-  find_package(Qt5Positioning 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-
-  find_package(Qt5WebEngine 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-  find_package(Qt5WebEngineWidgets 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-  #find_package(Qt53DCore 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-  #find_package(Qt53DInput 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-  #find_package(Qt53DRender 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-
-  if(APPLE)
-    set(QtWebEngineProcess "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Helpers/QtWebEngineProcess.app" CACHE PATH "Path to the QtWebEngineProcess")
+  elseif(APPLE)
+      # TODO: this is missing a root level "Qt-install" directory.
+      set(QT_ZIP_FILENAME "qt_5_11_osx_shared.tar.gz")
+      set(QT_ZIP_EXPECTED_MD5 "080ff576111d50be5888807055114166")
+  elseif(EXISTS "/etc/redhat-release")
+    set(QT_ZIP_FILENAME "DOES_NOT_EXIST_qt_5_11_redhat_shared.tar.gz")
+    set(QT_ZIP_EXPECTED_MD5 "b0610716854ed91a003347c455b22eb8")
   else()
-    find_program(QtWebEngineProcess NAMES QtWebEngineProcess PATHS "${QT_INSTALL_DIR}/bin/" "${QT_INSTALL_DIR}/libexec/" "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Helpers" NO_DEFAULT_PATH)
+    if(LSB_RELEASE_ID_SHORT MATCHES "18.04")
+      set(QT_ZIP_FILENAME "qt_5_11_linux_shared.tar.gz")
+      set(QT_ZIP_EXPECTED_MD5 "33c5a562935612625ec5e41fe4b75e17")
+    else()
+      # 16.04
+      set(QT_ZIP_FILENAME "qt_5_11_linux_shared_xenial.tar.gz")
+      set(QT_ZIP_EXPECTED_MD5 "cb02b8cb34de94038a1a7cba59c0c43a")
+    endif()
   endif()
-  find_file(icudtl NAMES icudtl.dat PATHS "${QT_INSTALL_DIR}/resources/" "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Resources" NO_DEFAULT_PATH)
-  find_file(qweb_resources NAMES qtwebengine_resources.pak PATHS "${QT_INSTALL_DIR}/resources/" "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Resources" NO_DEFAULT_PATH)
-  find_file(qweb_resources_100 NAMES qtwebengine_resources_100p.pak PATHS "${QT_INSTALL_DIR}/resources/" "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Resources" NO_DEFAULT_PATH)
-  find_file(qweb_resources_200 NAMES qtwebengine_resources_200p.pak PATHS "${QT_INSTALL_DIR}/resources/" "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Resources" NO_DEFAULT_PATH)
 
-  # DLM: why do we have QT_WEB_LIBS separate from QT_LIBS?  can we combine these?
-  # DLM: now the distincton should be between Qt libs linked by openstudio_modeleditor.so and the OS App
-  list(APPEND QT_WEB_LIBS Qt5::Core)
-  list(APPEND QT_WEB_LIBS Qt5::Gui)
-  list(APPEND QT_WEB_LIBS Qt5::WebEngine)
-  list(APPEND QT_WEB_LIBS Qt5::WebEngineCore)
-  list(APPEND QT_WEB_LIBS Qt5::WebEngineWidgets)
-  #list(APPEND QT_WEB_LIBS Qt5::3DCore)
-  #list(APPEND QT_WEB_LIBS Qt5::3DInput)
-  #list(APPEND QT_WEB_LIBS Qt5::3DRender)
-  set_target_properties(${QT_WEB_LIBS} PROPERTIES INTERFACE_LINK_LIBRARIES "")
+  set(QT_ZIP_LOCAL_PATH "${PROJECT_BINARY_DIR}/${QT_ZIP_FILENAME}")
+  if(EXISTS "${QT_ZIP_LOCAL_PATH}")
+    file(MD5 "${QT_ZIP_LOCAL_PATH}" QT_ZIP_MD5)
+  endif()
 
-  if(NOT APPLE)
+  if(NOT QT_ZIP_MD5 STREQUAL QT_ZIP_EXPECTED_MD5)
+    message(STATUS "Downloading Qt: ${QT_ZIP_FILENAME}")
+    file(DOWNLOAD "http://openstudio-resources.s3.amazonaws.com/dependencies/${QT_ZIP_FILENAME}"
+      ${QT_ZIP_LOCAL_PATH}
+      INACTIVITY_TIMEOUT 120
+      SHOW_PROGRESS
+      EXPECTED_MD5 ${QT_ZIP_EXPECTED_MD5})
+  # TODO: TEMP
+    if (APPLE)
+      execute_process(COMMAND ${CMAKE_COMMAND} -E make_directory "${PROJECT_BINARY_DIR}/Qt-install")
+      execute_process(COMMAND ${CMAKE_COMMAND} -E tar xfz ${QT_ZIP_LOCAL_PATH} WORKING_DIRECTORY "${PROJECT_BINARY_DIR}/Qt-install")
+    else()
+      execute_process(COMMAND ${CMAKE_COMMAND} -E tar xfz ${QT_ZIP_LOCAL_PATH} WORKING_DIRECTORY "${PROJECT_BINARY_DIR}")
+    endif()
+  endif()
+endif()
+
+set(QT_INSTALL_DIR "${PROJECT_BINARY_DIR}/Qt-install/")
+
+find_package(Qt5Core 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+find_package(Qt5Widgets 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+find_package(Qt5Sql 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+find_package(Qt5Network 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+find_package(Qt5Xml 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+find_package(Qt5Concurrent 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+find_package(Qt5PrintSupport 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+find_package(Qt5Gui 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+find_package(Qt5Quick 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+find_package(Qt5QuickWidgets 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+find_package(Qt5Qml 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+find_package(Qt5WebChannel 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+find_package(Qt5Positioning 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+
+find_package(Qt5WebEngine 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+find_package(Qt5WebEngineWidgets 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+#find_package(Qt53DCore 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+#find_package(Qt53DInput 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+#find_package(Qt53DRender 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+
+if(APPLE)
+  set(QtWebEngineProcess "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Helpers/QtWebEngineProcess.app" CACHE PATH "Path to the QtWebEngineProcess")
+else()
+  find_program(QtWebEngineProcess NAMES QtWebEngineProcess PATHS "${QT_INSTALL_DIR}/bin/" "${QT_INSTALL_DIR}/libexec/" "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Helpers" NO_DEFAULT_PATH)
+endif()
+find_file(icudtl NAMES icudtl.dat PATHS "${QT_INSTALL_DIR}/resources/" "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Resources" NO_DEFAULT_PATH)
+find_file(qweb_resources NAMES qtwebengine_resources.pak PATHS "${QT_INSTALL_DIR}/resources/" "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Resources" NO_DEFAULT_PATH)
+find_file(qweb_resources_100 NAMES qtwebengine_resources_100p.pak PATHS "${QT_INSTALL_DIR}/resources/" "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Resources" NO_DEFAULT_PATH)
+find_file(qweb_resources_200 NAMES qtwebengine_resources_200p.pak PATHS "${QT_INSTALL_DIR}/resources/" "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Resources" NO_DEFAULT_PATH)
+
+# DLM: why do we have QT_WEB_LIBS separate from QT_LIBS?  can we combine these?
+# DLM: now the distincton should be between Qt libs linked by openstudio_modeleditor.so and the OS App
+list(APPEND QT_WEB_LIBS Qt5::Core)
+list(APPEND QT_WEB_LIBS Qt5::Gui)
+list(APPEND QT_WEB_LIBS Qt5::WebEngine)
+list(APPEND QT_WEB_LIBS Qt5::WebEngineCore)
+list(APPEND QT_WEB_LIBS Qt5::WebEngineWidgets)
+#list(APPEND QT_WEB_LIBS Qt5::3DCore)
+#list(APPEND QT_WEB_LIBS Qt5::3DInput)
+#list(APPEND QT_WEB_LIBS Qt5::3DRender)
+set_target_properties(${QT_WEB_LIBS} PROPERTIES INTERFACE_LINK_LIBRARIES "")
+
+if(NOT APPLE)
 
     find_package(Qt5WebChannel 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
     list(APPEND QT_WEB_LIBS Qt5::WebChannel)
@@ -445,112 +505,49 @@ if(BUILD_OS_APP)
 
       list(APPEND QT_EXTRA_LIBS ${QT_QXCBQPA})
     endif()
-  endif()
-
-  if(APPLE)
-    find_package(Qt5DBus 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-    list(APPEND QT_WEB_LIBS Qt5::DBus)
-  endif()
-
-  list(APPEND QT_LIBS Qt5::Core)
-  list(APPEND QT_LIBS Qt5::Widgets)
-  list(APPEND QT_LIBS Qt5::Network)
-  list(APPEND QT_LIBS Qt5::Xml)
-  list(APPEND QT_LIBS Qt5::Concurrent)
-  list(APPEND QT_LIBS Qt5::PrintSupport)
-  list(APPEND QT_LIBS Qt5::Gui)
-
-  if(WIN32)
-    find_package(Qt5WinExtras 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-    list(APPEND QT_LIBS Qt5::WinExtras)
-
-    find_library(QT_MAIN_LIB NAMES qtmain PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
-    find_library(QT_MAIN_LIB_D NAMES qtmaind PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
-  endif()
-
-  list(APPEND QT_INCLUDES ${Qt5Core_INCLUDE_DIRS})
-  list(APPEND QT_INCLUDES ${Qt5Concurrent_INCLUDE_DIRS})
-  list(APPEND QT_INCLUDES ${Qt5Widgets_INCLUDE_DIRS})
-  list(APPEND QT_INCLUDES ${Qt5Xml_INCLUDE_DIRS})
-  list(APPEND QT_INCLUDES ${Qt5Network_INCLUDE_DIRS})
-  list(APPEND QT_INCLUDES ${Qt5Gui_INCLUDE_DIRS})
-  list(APPEND QT_INCLUDES "${QT_INSTALL_DIR}/include/QtGui/5.11.2/QtGui") # needed by qtwinmigrate
-  list(APPEND QT_INCLUDES ${Qt5PrintSupport_INCLUDE_DIRS})
-
-  # DLM: added this, but seems to conflict with idea of a separate set of Qt Web dependencies?
-  list(APPEND QT_INCLUDES ${Qt5Network_INCLUDE_DIRS})
-  list(APPEND QT_INCLUDES ${Qt5WebEngine_INCLUDE_DIRS})
-  list(APPEND QT_INCLUDES ${Qt5WebEngineCore_INCLUDE_DIRS})
-  list(APPEND QT_INCLUDES ${Qt5WebEngineWidgets_INCLUDE_DIRS})
-
-  if(UNIX)
-    list(APPEND QT_INCLUDES ${Qt5XcbQpa_INCLUDE_DIRS})
-  endif()
-
-  set(CMAKE_AUTOMOC OFF)
-
 endif()
 
-#if(BUILD_DVIEW)
-  #set(DVIEW_INSTALL_DIR "" CACHE PATH "Path to DView Install")
-  #mark_as_advanced(DVIEW_INSTALL_DIR)
-
-  #if(NOT EXISTS ${DVIEW_INSTALL_DIR})
-    #if(WIN32)
-      #set(DVIEW_ZIP_FILENAME "DView-windows-20180621.zip")
-      #set(DVIEW_ZIP_EXPECTED_MD5 "8443b09cbfcc118943127b006b14dbca")
-    #elseif(APPLE)
-      #set(DVIEW_ZIP_FILENAME "DView-osx-20180621.tar.gz")
-      #set(DVIEW_ZIP_EXPECTED_MD5 "41038cbf7c472522e700d850d9de1133")
-    #else()
-      #set(DVIEW_ZIP_FILENAME "DView-linux-20180621.tar.gz")
-      #set(DVIEW_ZIP_EXPECTED_MD5 "c1d3fb6e736668eb4bdf0a5af2b4506c")
-    #endif()
-
-    #set(DVIEW_ZIP_LOCAL_PATH "${PROJECT_BINARY_DIR}/${DVIEW_ZIP_FILENAME}")
-    #if(EXISTS "${DVIEW_ZIP_LOCAL_PATH}")
-      #file(MD5 "${DVIEW_ZIP_LOCAL_PATH}" DVIEW_ZIP_MD5)
-    #endif()
-
-    #if(NOT DVIEW_ZIP_MD5 STREQUAL DVIEW_ZIP_EXPECTED_MD5)
-      #message(STATUS "Downloading DView: ${DVIEW_ZIP_FILENAME}")
-      #file(DOWNLOAD "http://openstudio-resources.s3.amazonaws.com/dependencies/${DVIEW_ZIP_FILENAME}"
-        #${DVIEW_ZIP_LOCAL_PATH}
-        #INACTIVITY_TIMEOUT 120
-        #SHOW_PROGRESS
-        #EXPECTED_MD5 ${DVIEW_ZIP_EXPECTED_MD5})
-      #execute_process(COMMAND ${CMAKE_COMMAND} -E tar xfz ${DVIEW_ZIP_LOCAL_PATH} WORKING_DIRECTORY "${PROJECT_BINARY_DIR}")
-    #endif()
-
-    #set(DVIEW_INSTALL_DIR "${PROJECT_BINARY_DIR}/DView-install")
-  #endif()
-
-  #if(WIN32)
-    #install(PROGRAMS "${DVIEW_INSTALL_DIR}/DView.exe" DESTINATION ./bin COMPONENT "DView")
-  #elseif(APPLE)
-    #install(DIRECTORY "${DVIEW_INSTALL_DIR}/DView.app" DESTINATION . USE_SOURCE_PERMISSIONS COMPONENT "DView")
-  #else()
-    #install(PROGRAMS "${DVIEW_INSTALL_DIR}/DView" DESTINATION ./bin COMPONENT "DView")
-  #endif()
-
-#endif()
-
-###############################################################################
-#                    G I T    S U B M O D U L E    I N I T                    #
-###############################################################################
-
-if( NOT EXISTS "${PROJECT_SOURCE_DIR}/openstudio/.git" )
-
-  # we couldn't find the header files for FOO or they don't exist
-  message("The git submodule openstudio (core) doesn't seem to be intialized")
-
-  # we have a submodule setup for openstudio
-  # now we need to clone this submodule
-  execute_process(COMMAND git submodule update --init -- openstudio
-                  WORKING_DIRECTORY ${PROJECT_SOURCE_DIR})
-
+if(APPLE)
+  find_package(Qt5DBus 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+  list(APPEND QT_WEB_LIBS Qt5::DBus)
 endif()
 
+list(APPEND QT_LIBS Qt5::Core)
+list(APPEND QT_LIBS Qt5::Widgets)
+list(APPEND QT_LIBS Qt5::Network)
+list(APPEND QT_LIBS Qt5::Xml)
+list(APPEND QT_LIBS Qt5::Concurrent)
+list(APPEND QT_LIBS Qt5::PrintSupport)
+list(APPEND QT_LIBS Qt5::Gui)
+
+if(WIN32)
+  find_package(Qt5WinExtras 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+  list(APPEND QT_LIBS Qt5::WinExtras)
+
+  find_library(QT_MAIN_LIB NAMES qtmain PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
+  find_library(QT_MAIN_LIB_D NAMES qtmaind PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
+endif()
+
+list(APPEND QT_INCLUDES ${Qt5Core_INCLUDE_DIRS})
+list(APPEND QT_INCLUDES ${Qt5Concurrent_INCLUDE_DIRS})
+list(APPEND QT_INCLUDES ${Qt5Widgets_INCLUDE_DIRS})
+list(APPEND QT_INCLUDES ${Qt5Xml_INCLUDE_DIRS})
+list(APPEND QT_INCLUDES ${Qt5Network_INCLUDE_DIRS})
+list(APPEND QT_INCLUDES ${Qt5Gui_INCLUDE_DIRS})
+list(APPEND QT_INCLUDES "${QT_INSTALL_DIR}/include/QtGui/5.11.2/QtGui") # needed by qtwinmigrate
+list(APPEND QT_INCLUDES ${Qt5PrintSupport_INCLUDE_DIRS})
+
+# DLM: added this, but seems to conflict with idea of a separate set of Qt Web dependencies?
+list(APPEND QT_INCLUDES ${Qt5Network_INCLUDE_DIRS})
+list(APPEND QT_INCLUDES ${Qt5WebEngine_INCLUDE_DIRS})
+list(APPEND QT_INCLUDES ${Qt5WebEngineCore_INCLUDE_DIRS})
+list(APPEND QT_INCLUDES ${Qt5WebEngineWidgets_INCLUDE_DIRS})
+
+if(UNIX)
+  list(APPEND QT_INCLUDES ${Qt5XcbQpa_INCLUDE_DIRS})
+endif()
+
+set(CMAKE_AUTOMOC OFF)
 
 ###############################################################################
 #                         I N C L U D E    P A T H S                          #
@@ -559,17 +556,10 @@ endif()
 
 include_directories("${PROJECT_SOURCE_DIR}/")
 include_directories("${PROJECT_SOURCE_DIR}/src/")
-# Include openstudio (core) source
-# TODO: JM 2019-03-29
-# I'm aggressively including directories due to build errors. Need to revisit this later, changing include statements in openstudio (core) as needed too.
-include_directories("${PROJECT_SOURCE_DIR}/openstudio")
-include_directories("${PROJECT_SOURCE_DIR}/openstudio/src/")
 
 # Project binary directory
 include_directories("${PROJECT_BINARY_DIR}/")
 include_directories("${PROJECT_BINARY_DIR}/src/")
-include_directories("${PROJECT_BINARY_DIR}/openstudio/")
-include_directories("${PROJECT_BINARY_DIR}/openstudio/src/")
 
 ###############################################################################
 #                         S U B D I R E C T O R I E S                         #
@@ -583,40 +573,32 @@ elseif()
   add_definitions(-Werror)
 endif()
 
-# Let openstudio's conan file do its thing
-set(CONAN_INSTALL_FILE "${PROJECT_SOURCE_DIR}/openstudio/ConanInstall.cmake")
-include("${CONAN_INSTALL_FILE}")
-
-# Include core, but don't let it include(CPack)
-set(DELAY_CPACK_INCLUDE TRUE)
-add_subdirectory(openstudio)
-
-message("RUBY_INCLUDE_DIRS = ${RUBY_INCLUDE_DIRS}")
-
 ###############################################################################
 #                                T A R G E T S                                #
 ###############################################################################
 
-set(project_directories "")
-if(BUILD_OS_APP)
-  if(WIN32)
-    include_directories("${PROJECT_SOURCE_DIR}/src/qtwinmigrate")
-    list(APPEND project_directories "qtwinmigrate")
-  endif()
-  list(APPEND project_directories "utilities")
-  list(APPEND project_directories "model_editor")
-  list(APPEND project_directories "bimserver")
-  list(APPEND project_directories "openstudio_lib")
-  list(APPEND project_directories "openstudio_app")
+# The openstudio::openstudio target (which is the cli) includes a version string
+# in the file name. We don't want that degree of coupling between app and sdk
+# (we want the app to be able to use different sdk version without recompile,
+# so this project (the app) will install and identify the cli generically as
+# openstudio or openstudio.exe on windows. The os_cli_install_name is configured
+# into the utilities target so we need to set it before the uilities target is defined
+get_target_property(os_cli_location openstudio::openstudio LOCATION)
+set(os_cli_install_name "openstudio${CMAKE_EXECUTABLE_SUFFIX}")
+
+if(WIN32)
+  include_directories("${PROJECT_SOURCE_DIR}/src/qtwinmigrate")
+  list(APPEND project_directories "qtwinmigrate")
 endif()
+list(APPEND project_directories "utilities")
+list(APPEND project_directories "model_editor")
+list(APPEND project_directories "bimserver")
+list(APPEND project_directories "openstudio_lib")
+list(APPEND project_directories "openstudio_app")
 
 foreach(D ${project_directories})
   add_subdirectory(src/${D})
 endforeach()
-
-if( WIN32 )
-  set(RUBY_MINGW_STUB_LIB "${PROJECT_BINARY_DIR}/openstudio/Ruby-mingw-install/libx64-msvcrt-ruby250.dll.a")
-endif()
 
 add_subdirectory("ruby")
 
@@ -625,21 +607,14 @@ add_subdirectory("ruby")
 ###############################################################################
 # Export targets and generate OpenStudioCoreConfig.cmake
 
-set(all_lib_targets "")
-if(BUILD_OS_APP)
-  if(WIN32)
-    list(APPEND all_lib_targets "qtwinmigrate")
-  endif()
-  list(APPEND all_lib_targets "openstudio_modeleditor")
-  list(APPEND all_lib_targets "openstudio_bimserver")
-  list(APPEND all_lib_targets "openstudio_lib")
+if(WIN32)
+  list(APPEND all_lib_targets "qtwinmigrate")
 endif()
+list(APPEND all_lib_targets "openstudio_modeleditor")
+list(APPEND all_lib_targets "openstudio_bimserver")
+list(APPEND all_lib_targets "openstudio_lib")
 
-set(all_exe_targets "")
-
-if(BUILD_OS_APP)
-  list(APPEND all_exe_targets "OpenStudioApp")
-endif()
+list(APPEND all_exe_targets "OpenStudioApp")
 
 if(UNIX AND NOT APPLE)
   foreach(targ ${all_lib_targets} ${all_exe_targets} ${ALL_TESTING_TARGETS})
@@ -649,13 +624,12 @@ if(UNIX AND NOT APPLE)
       #RUNTIME_OUTPUT_DIRECTORY "${PROJECT_RUNTIME_OUTPUT_DIRECTORY}"
       VERSION ${OPENSTUDIOAPPLICATION_VERSION}
     )
-    target_include_directories(${targ} PUBLIC openstudio)
+  #target_include_directories(${targ} PUBLIC openstudio)
   endforeach()
 endif()
 
 
 if(NOT UNIX)
-
   include(InstallRequiredSystemLibraries)
 
   if(CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS)
@@ -663,160 +637,159 @@ if(NOT UNIX)
   endif()
 endif()
 
-
-
 ###############################################################################
 #                              I N S T A L L E R                              #
 ###############################################################################
 
-# CPack: TODO
+######### Install SDK dependencies here ################
+
+#install(DIRECTORY "${OPENSTUDIO_SDK_PATH}/EnergyPlus" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
+install(DIRECTORY "${OPENSTUDIO_SDK_PATH}/Radiance" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
+install(DIRECTORY "${OPENSTUDIO_SDK_PATH}/Ruby" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
+install(DIRECTORY "${OPENSTUDIO_SDK_PATH}/EnergyPlus" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
+install(DIRECTORY "${OPENSTUDIO_SDK_PATH}/Examples" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
+
+install(PROGRAMS ${os_cli_location} DESTINATION bin COMPONENT "CLI" RENAME "${os_cli_install_name}")
+
+if(WIN32)
+  install(PROGRAMS "${OPENSTUDIO_SDK_PATH}/bin/install_utility.exe" DESTINATION bin COMPONENT "CLI")
+else()
+  install(PROGRAMS "${OPENSTUDIO_SDK_PATH}/bin/install_utility" DESTINATION bin COMPONENT "CLI")
+endif()
 
 
-if(BUILD_OS_APP)
+set(CPACK_PACKAGE_VENDOR "National Renewable Energy Laboratory")
+# These are ok, even if we have a prerelease tag
+set(CPACK_PACKAGE_VERSION_MAJOR ${OpenStudioApplication_VERSION_MAJOR})
+set(CPACK_PACKAGE_VERSION_MINOR ${OpenStudioApplication_VERSION_MINOR})
+set(CPACK_PACKAGE_VERSION_PATCH ${OpenStudioApplication_VERSION_PATCH})
 
-  set(CPACK_PACKAGE_VENDOR "National Renewable Energy Laboratory")
-  # These are ok, even if we have a prerelease tag
-  set(CPACK_PACKAGE_VERSION_MAJOR ${OpenStudioApplication_VERSION_MAJOR})
-  set(CPACK_PACKAGE_VERSION_MINOR ${OpenStudioApplication_VERSION_MINOR})
-  set(CPACK_PACKAGE_VERSION_PATCH ${OpenStudioApplication_VERSION_PATCH})
+# CPACK_DEBIAN_PACKAGE_DESCRIPTION defaults to this one too. dpkg-deb -I xxx.deb will show this description
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "OpenStudioApplication ${OPENSTUDIOAPPLICATION_VERSION}, based on openstudio (core) ${OPENSTUDIO_VERSION}. OpenStudio is a cross-platform collection of software tools to support whole building energy modeling using EnergyPlus and advanced daylight analysis using Radiance")
 
-  # CPACK_DEBIAN_PACKAGE_DESCRIPTION defaults to this one too. dpkg-deb -I xxx.deb will show this description
-  set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "OpenStudioApplication ${OPENSTUDIOAPPLICATION_VERSION}, based on openstudio (core) ${OPENSTUDIO_VERSION}. OpenStudio is a cross-platform collection of software tools to support whole building energy modeling using EnergyPlus and advanced daylight analysis using Radiance")
-
-  # The actual package file name on disk
-  set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${OPENSTUDIOAPPLICATION_LONG_VERSION}-${CMAKE_SYSTEM_NAME}")
-  set(CPACK_PACKAGE_CONTACT "openstudio@nrel.gov")
+# The actual package file name on disk
+set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${OPENSTUDIOAPPLICATION_LONG_VERSION}-${CMAKE_SYSTEM_NAME}")
+set(CPACK_PACKAGE_CONTACT "openstudio@nrel.gov")
 
   # Install additional Documents, such as release notes
   install(FILES "${PROJECT_SOURCE_DIR}/QT_LICENSE_GPL_3_0.txt" DESTINATION .)
   install(FILES "${PROJECT_SOURCE_DIR}/QT_LICENSE_LGPL_3_0.txt" DESTINATION .)
   install(FILES "${PROJECT_SOURCE_DIR}/LICENSE.md" DESTINATION .)
 
-  if (APPLE)
-    set(CPACK_IFW_TARGET_DIRECTORY /Applications/OpenStudioApplication-${OPENSTUDIOAPPLICATION_VERSION}/)
-  elseif(UNIX)
+if (APPLE)
+  set(CPACK_IFW_TARGET_DIRECTORY /Applications/OpenStudioApplication-${OPENSTUDIOAPPLICATION_VERSION}/)
+elseif(UNIX)
 
-    # For debug
-    # set(CPACK_DEBIAN_PACKAGE_DEBUG ON)
+  # For debug
+  # set(CPACK_DEBIAN_PACKAGE_DEBUG ON)
 
-    # Trusty (14.04) uses 3.0-0, all other including Xenial (16.04) and most importantly the supported one Bionic (18.04) use 3.0-0v5
-    set(CPACK_DEBIAN_PACKAGE_DEPENDS "libwxgtk3.0-0v5 (>= 3.0.0) | libwxgtk3.0-0 (>=3.0.0)")
+  # Trusty (14.04) uses 3.0-0, all other including Xenial (16.04) and most importantly the supported one Bionic (18.04) use 3.0-0v5
+  set(CPACK_DEBIAN_PACKAGE_DEPENDS "libwxgtk3.0-0v5 (>= 3.0.0) | libwxgtk3.0-0 (>=3.0.0)")
 
-    # These two will set the .deb install path correctly
-    set(CPACK_SET_DESTDIR ON)
-    set(CPACK_INSTALL_PREFIX /usr/local/openstudioapplication-${OPENSTUDIOAPPLICATION_VERSION})
+  # These two will set the .deb install path correctly
+  set(CPACK_SET_DESTDIR ON)
+  set(CPACK_INSTALL_PREFIX /usr/local/openstudioapplication-${OPENSTUDIOAPPLICATION_VERSION})
 
-    set(CPACK_DEBIAN_PACKAGE_MAINTAINER "openstudio@nrel.gov")
-    # Default the debian package name to include version to allow several versions to be installed concurrently instead of overwriting any existing one
-    set(CPACK_DEBIAN_PACKAGE_NAME "openstudioapplication-${OPENSTUDIOAPPLICATION_VERSION}")
-    set(CPACK_DEBIAN_PACKAGE_HOMEPAGE "https://www.openstudio.net")
+  set(CPACK_DEBIAN_PACKAGE_MAINTAINER "openstudio@nrel.gov")
+  # Default the debian package name to include version to allow several versions to be installed concurrently instead of overwriting any existing one
+  set(CPACK_DEBIAN_PACKAGE_NAME "openstudioapplication-${OPENSTUDIOAPPLICATION_VERSION}")
+  set(CPACK_DEBIAN_PACKAGE_HOMEPAGE "https://www.openstudio.net")
 
-    set(POSTINST_FILE "${PROJECT_BINARY_DIR}/postinst")
-    set(POSTRM_FILE "${PROJECT_BINARY_DIR}/postrm")
-    configure_file(${PROJECT_SOURCE_DIR}/debian/postinst.in ${POSTINST_FILE} @ONLY)
-    configure_file(${PROJECT_SOURCE_DIR}/debian/postrm.in ${POSTRM_FILE} @ONLY)
-    execute_process(COMMAND chmod 755 "${POSTINST_FILE}")
-    execute_process(COMMAND chmod 755 "${POSTRM_FILE}")
+  set(POSTINST_FILE "${PROJECT_BINARY_DIR}/postinst")
+  set(POSTRM_FILE "${PROJECT_BINARY_DIR}/postrm")
+  configure_file(${PROJECT_SOURCE_DIR}/debian/postinst.in ${POSTINST_FILE} @ONLY)
+  configure_file(${PROJECT_SOURCE_DIR}/debian/postrm.in ${POSTRM_FILE} @ONLY)
+  execute_process(COMMAND chmod 755 "${POSTINST_FILE}")
+  execute_process(COMMAND chmod 755 "${POSTRM_FILE}")
 
-    ## Add a symlink to the App: /usr/local/bin/OpenStudioApp should point to /usr/local/openstudioapplication-${OPENSTUDIOAPPLICATION_VERSION}/bin/OpenStudioApp
-    ## Add an arbitrary link (broken) at build/OpenStudioApp (if build/ is your build folder) that already points to the **future** /usr/local/openstudioapplication-x.y.z/bin/OpenStudioApp
-    #execute_process(COMMAND ln -sf ${CPACK_INSTALL_PREFIX}/bin/OpenStudioApp ${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp)
-    ## Plus a versioned one
-    #execute_process(COMMAND ln -sf ${CPACK_INSTALL_PREFIX}/bin/OpenStudioApp ${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp-${OPENSTUDIOAPPLICATION_VERSION})
-    ## Have these links be installed with the .deb package in /usr/local/bin
-    #install(FILES ${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp DESTINATION /usr/local/bin COMPONENT OpenStudioApp)
-    #install(FILES ${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp-${OPENSTUDIOAPPLICATION_VERSION} DESTINATION /usr/local/bin COMPONENT OpenStudioApp)
+  ## Add a symlink to the App: /usr/local/bin/OpenStudioApp should point to /usr/local/openstudioapplication-${OPENSTUDIOAPPLICATION_VERSION}/bin/OpenStudioApp
+  ## Add an arbitrary link (broken) at build/OpenStudioApp (if build/ is your build folder) that already points to the **future** /usr/local/openstudioapplication-x.y.z/bin/OpenStudioApp
+  #execute_process(COMMAND ln -sf ${CPACK_INSTALL_PREFIX}/bin/OpenStudioApp ${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp)
+  ## Plus a versioned one
+  #execute_process(COMMAND ln -sf ${CPACK_INSTALL_PREFIX}/bin/OpenStudioApp ${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp-${OPENSTUDIOAPPLICATION_VERSION})
+  ## Have these links be installed with the .deb package in /usr/local/bin
+  #install(FILES ${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp DESTINATION /usr/local/bin COMPONENT OpenStudioApp)
+  #install(FILES ${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp-${OPENSTUDIOAPPLICATION_VERSION} DESTINATION /usr/local/bin COMPONENT OpenStudioApp)
 
-    ## Add an arbitrary link (broken) at build/openstudio (if build/ is your build folder) that already points to the **future** /usr/local/openstudioapplication-x.y.z/bin/openstudio
-    #execute_process(COMMAND ln -sf ${CPACK_INSTALL_PREFIX}/bin/openstudio ${CMAKE_CURRENT_BINARY_DIR}/openstudio)
-    ## Plus a versioned one
-    #execute_process(COMMAND ln -sf ${CPACK_INSTALL_PREFIX}/bin/openstudio ${CMAKE_CURRENT_BINARY_DIR}/openstudio-${OPENSTUDIO_VERSION})
-    ## Have this link be installed with the .deb package in /usr/local/bin
-    #install(FILES ${CMAKE_CURRENT_BINARY_DIR}/openstudio DESTINATION /usr/local/bin COMPONENT CLI)
-    #install(FILES ${CMAKE_CURRENT_BINARY_DIR}/openstudio-${OpenStudio_VERSION} DESTINATION /usr/local/bin COMPONENT CLI)
-
-
-    # Create a proper App with file associations
-
-    # Install the .desktop manifest (allows the App to be seen in the Dash and adding to the dock, and to map it a mimetype)
-    # install(FILES "${PROJECT_SOURCE_DIR}/src/openstudio_app/openstudioapp.desktop" DESTINATION /usr/share/applications)
-    install(FILES "${PROJECT_SOURCE_DIR}/src/openstudio_app/openstudioapp.desktop" DESTINATION Temp/)
-
-    # Install the XML mime info
-    # install(FILES "${PROJECT_SOURCE_DIR}/src/openstudio_app/x-openstudio.xml" DESTINATION /usr/share/mime/application)
-    install(FILES "${PROJECT_SOURCE_DIR}/src/openstudio_app/x-openstudio.xml" DESTINATION Temp/)
-
-    set(CPACK_DEBIAN_PACKAGE_CONTROL_EXTRA "${CPACK_DEBIAN_BIN_PACKAGE_CONTROL_EXTRA};${POSTINST_FILE};${POSTRM_FILE}")
-
-    ## try to set up the menu system
-    # Problem is the use of "sudo". Perhaps we should copy icons and manifest to $HOME/.local/share/...
-    #find_program(XDG-MIME_EXECUTABLE xdg-mime)
-    #find_program(XDG-DESKTOP-MENU_EXECUTABLE xdg-desktop-menu)
-    #find_program(UPDATE-MIME-DATABASE-EXECUTABLE update-mime-database)
-    #find_program(GTK-UPDATE-ICON-CACHE-EXECUTABLE gtk-update-icon-cache)
+  ## Add an arbitrary link (broken) at build/openstudio (if build/ is your build folder) that already points to the **future** /usr/local/openstudioapplication-x.y.z/bin/openstudio
+  #execute_process(COMMAND ln -sf ${CPACK_INSTALL_PREFIX}/bin/openstudio ${CMAKE_CURRENT_BINARY_DIR}/openstudio)
+  ## Plus a versioned one
+  #execute_process(COMMAND ln -sf ${CPACK_INSTALL_PREFIX}/bin/openstudio ${CMAKE_CURRENT_BINARY_DIR}/openstudio-${OPENSTUDIO_VERSION})
+  ## Have this link be installed with the .deb package in /usr/local/bin
+  #install(FILES ${CMAKE_CURRENT_BINARY_DIR}/openstudio DESTINATION /usr/local/bin COMPONENT CLI)
+  #install(FILES ${CMAKE_CURRENT_BINARY_DIR}/openstudio-${OpenStudio_VERSION} DESTINATION /usr/local/bin COMPONENT CLI)
 
 
-    ## Install the Desktop Menu
-    ## xdg-desktop-menu install --novendor /usr/share/applications/openstudioapp.desktop
-    #install(CODE "execute_process(COMMAND ${XDG-DESKTOP-MENU_EXECUTABLE} install --novendor --mode system /usr/share/applications/openstudioapp.desktop)")
+  # Create a proper App with file associations
 
-    ## Register the mime description: this places it in /usr/share/mime/packages/
-    ## sudo xdg-mime install --novendor --mode system x-openstudio.xml
-    #install(CODE "execute_process(COMMAND sudo ${MIME_EXECUTABLE} install --novendor --mode system /usr/share/mime/application/x-openstudio.xml)")
-    #install(CODE "execute_process(COMMAND echo COUCOU)")
+  # Install the .desktop manifest (allows the App to be seen in the Dash and adding to the dock, and to map it a mimetype)
+  # install(FILES "${PROJECT_SOURCE_DIR}/src/openstudio_app/openstudioapp.desktop" DESTINATION /usr/share/applications)
+  install(FILES "${PROJECT_SOURCE_DIR}/src/openstudio_app/openstudioapp.desktop" DESTINATION Temp/)
 
-    ## Register the application launcher with the registered mimetype
-    ## sudo xdg-mime default openstudio.desktop application/x-openstudio
-    #install(CODE "execute_process(COMMAND sudo ${MIME_EXECUTABLE} default /usr/share/applications/openstudio.desktop application/x-openstudio)")
+  # Install the XML mime info
+  # install(FILES "${PROJECT_SOURCE_DIR}/src/openstudio_app/x-openstudio.xml" DESTINATION /usr/share/mime/application)
+  install(FILES "${PROJECT_SOURCE_DIR}/src/openstudio_app/x-openstudio.xml" DESTINATION Temp/)
 
+  set(CPACK_DEBIAN_PACKAGE_CONTROL_EXTRA "${CPACK_DEBIAN_BIN_PACKAGE_CONTROL_EXTRA};${POSTINST_FILE};${POSTRM_FILE}")
 
-    ## Update the mime cache and icon cache
-    ## sudo update-mime-database /usr/share/mime
-    #install(CODE "execute_process(COMMAND sudo ${UPDATE-MIME-DATABASE-EXECUTABLE} /usr/share/mime)")
-    ## sudo gtk-update-icon-cache /usr/share/icons/hicolor/ -f
-    #install(CODE "execute_process(COMMAND ${GTK-UPDATE-ICON-CACHE-EXECUTABLE} /usr/share/icons/hicolor/ -f)")
-
+  ## try to set up the menu system
+  # Problem is the use of "sudo". Perhaps we should copy icons and manifest to $HOME/.local/share/...
+  #find_program(XDG-MIME_EXECUTABLE xdg-mime)
+  #find_program(XDG-DESKTOP-MENU_EXECUTABLE xdg-desktop-menu)
+  #find_program(UPDATE-MIME-DATABASE-EXECUTABLE update-mime-database)
+  #find_program(GTK-UPDATE-ICON-CACHE-EXECUTABLE gtk-update-icon-cache)
 
 
-  elseif(WIN32)
-    set(CPACK_PACKAGE_INSTALL_DIRECTORY "openstudioapplication-${OPENSTUDIOAPPLICATION_VERSION}")
-    set(CPACK_IFW_TARGET_DIRECTORY "C:/${CPACK_PACKAGE_INSTALL_DIRECTORY}")
-    set(CPACK_BINARY_IFW ON CACHE BOOL "Enable to build IFW packages")
-    set(CPACK_BINARY_NSIS OFF CACHE BOOL "Enable to build NSIS packages")
-  endif()
+  ## Install the Desktop Menu
+  ## xdg-desktop-menu install --novendor /usr/share/applications/openstudioapp.desktop
+  #install(CODE "execute_process(COMMAND ${XDG-DESKTOP-MENU_EXECUTABLE} install --novendor --mode system /usr/share/applications/openstudioapp.desktop)")
 
-  cpack_add_component(Resources
-    DISPLAY_NAME "Application Resources"
-    DESCRIPTION "Resource Files used by the OpenStudio Application"
-  )
+  ## Register the mime description: this places it in /usr/share/mime/packages/
+  ## sudo xdg-mime install --novendor --mode system x-openstudio.xml
+  #install(CODE "execute_process(COMMAND sudo ${MIME_EXECUTABLE} install --novendor --mode system /usr/share/mime/application/x-openstudio.xml)")
+  #install(CODE "execute_process(COMMAND echo COUCOU)")
 
-  cpack_add_component(OpenStudioApp
-    DISPLAY_NAME "OpenStudio Application"
-    DESCRIPTION "OpenStudio Application"
-  )
+  ## Register the application launcher with the registered mimetype
+  ## sudo xdg-mime default openstudio.desktop application/x-openstudio
+  #install(CODE "execute_process(COMMAND sudo ${MIME_EXECUTABLE} default /usr/share/applications/openstudio.desktop application/x-openstudio)")
 
-  cpack_ifw_configure_component(Resources
-    REQUIRES_ADMIN_RIGHTS
-  )
 
-  cpack_ifw_configure_component(OpenStudioApp
-    DEPENDS Resources CLI
-    SCRIPT src/openstudio_app/install_operations.qs
-    REQUIRES_ADMIN_RIGHTS
-  )
+  ## Update the mime cache and icon cache
+  ## sudo update-mime-database /usr/share/mime
+  #install(CODE "execute_process(COMMAND sudo ${UPDATE-MIME-DATABASE-EXECUTABLE} /usr/share/mime)")
+  ## sudo gtk-update-icon-cache /usr/share/icons/hicolor/ -f
+  #install(CODE "execute_process(COMMAND ${GTK-UPDATE-ICON-CACHE-EXECUTABLE} /usr/share/icons/hicolor/ -f)")
 
-  #if(BUILD_DVIEW)
-    #cpack_add_component(DView
-      #DISPLAY_NAME "DView"
-      #DESCRIPTION "DView Application for viewing results"
-    #)
 
-    #cpack_ifw_configure_component(DView
-      #REQUIRES_ADMIN_RIGHTS
-    #)
-  #endif()
 
+elseif(WIN32)
+  set(CPACK_PACKAGE_INSTALL_DIRECTORY "openstudioapplication-${OPENSTUDIOAPPLICATION_VERSION}")
+  set(CPACK_IFW_TARGET_DIRECTORY "C:/${CPACK_PACKAGE_INSTALL_DIRECTORY}")
+  set(CPACK_BINARY_IFW ON CACHE BOOL "Enable to build IFW packages")
+  set(CPACK_BINARY_NSIS OFF CACHE BOOL "Enable to build NSIS packages")
 endif()
+
+include(CPackIFW)
+
+cpack_add_component(Resources
+  DISPLAY_NAME "Application Resources"
+  DESCRIPTION "Resource Files used by the OpenStudio Application"
+)
+
+cpack_add_component(OpenStudioApp
+  DISPLAY_NAME "OpenStudio Application"
+  DESCRIPTION "OpenStudio Application"
+)
+
+cpack_ifw_configure_component(Resources
+  REQUIRES_ADMIN_RIGHTS
+)
+
+cpack_ifw_configure_component(OpenStudioApp
+  DEPENDS Resources CLI
+  SCRIPT src/openstudio_app/install_operations.qs
+  REQUIRES_ADMIN_RIGHTS
+)
 
 include(CPack)
 

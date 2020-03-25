@@ -35,10 +35,10 @@
 #include "../shared_gui_components/OSLineEdit.hpp"
 #include "../shared_gui_components/OSQuantityEdit.hpp"
 
-#include <openstudio/src/model/Screen.hpp>
-#include <openstudio/src/model/Screen_Impl.hpp>
+#include <openstudio/model/Screen.hpp>
+#include <openstudio/model/Screen_Impl.hpp>
 
-#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
 
 #include <QGridLayout>
 #include <QLabel>

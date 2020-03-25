@@ -37,7 +37,7 @@
 #include "../shared_gui_components/WorkflowController.hpp"
 #include "../shared_gui_components/WorkflowView.hpp"
 
-#include <openstudio/src/model/Model.hpp>
+#include <openstudio/model/Model.hpp>
 
 namespace openstudio {
 
