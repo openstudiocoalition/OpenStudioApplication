@@ -650,7 +650,12 @@ install(DIRECTORY "${OPENSTUDIO_SDK_PATH}/EnergyPlus" DESTINATION "." COMPONENT 
 install(DIRECTORY "${OPENSTUDIO_SDK_PATH}/Examples" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
 
 install(PROGRAMS ${os_cli_location} DESTINATION bin COMPONENT "CLI" RENAME "${os_cli_install_name}")
-install(PROGRAMS "${OPENSTUDIO_SDK_PATH}/bin/install_utility" DESTINATION bin COMPONENT "CLI")
+
+if(WIN32)
+  install(PROGRAMS "${OPENSTUDIO_SDK_PATH}/bin/install_utility.exe" DESTINATION bin COMPONENT "CLI")
+else()
+  install(PROGRAMS "${OPENSTUDIO_SDK_PATH}/bin/install_utility" DESTINATION bin COMPONENT "CLI")
+endif()
 
 
 set(CPACK_PACKAGE_VENDOR "National Renewable Energy Laboratory")
