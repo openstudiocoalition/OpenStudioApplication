@@ -149,6 +149,13 @@ add_custom_command(TARGET ${target_name}
   #COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:Qt5::AssimpParserPlugin> $<TARGET_FILE_DIR:${target_name}>/sceneparsers/
 )
 
+if(WIN32)
+  add_custom_command(TARGET ${target_name}
+    POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E make_directory $<TARGET_FILE_DIR:${target_name}>/styles/
+  )
+endif()
+
 if( APPLE )
   add_custom_command(TARGET ${target_name}
     POST_BUILD
@@ -159,7 +166,6 @@ elseif( UNIX )
     get_filename_component(LIB_BASE_NAME ${LIB_LOCATION} NAME)
     add_custom_command(TARGET ${target_name}
       POST_BUILD
-      COMMAND ${CMAKE_COMMAND} -E make_directory $<TARGET_FILE_DIR:${target_name}>/platforms
       COMMAND ${CMAKE_COMMAND} -E copy_if_different ${LIB_LOCATION} $<TARGET_FILE_DIR:${target_name}>/platforms
       COMMAND patchelf --set-rpath "$ORIGIN/.." $<TARGET_FILE_DIR:${target_name}>/platforms/${LIB_BASE_NAME}
       VERBATIM
