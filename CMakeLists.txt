@@ -12,9 +12,13 @@ endif()
 
 project(OpenStudioApplication VERSION 1.0.0)
 
+# set openstudio_DIR to the directory that contains the openstudioConfig.cmake,
+# eg C:\src\OpenStudio\build-vs\_CPack_Packages\win64\ZIP\OpenStudio-3.0.0-rc2+ce27ae6b85-Windows\lib\cmake\openstudio
 find_package(openstudio 3.0.0 CONFIG REQUIRED)
 
-set(OPENSTUDIO_SDK_PATH "Unknown" CACHE STRING "Unknown") # path to openstudio SDK
+# Try to resolve the root of the openstudio project
+get_filename_component(OPENSTUDIO_SDK_PATH "${openstudio_DIR}/../../../" ABSOLUTE)
+set(OPENSTUDIO_SDK_PATH "${OPENSTUDIO_SDK_PATH}" CACHE STRING "This is the path to the root of SDK, under which you'll find bin/, lib/, etc")
 
 ###############################################################################
 
