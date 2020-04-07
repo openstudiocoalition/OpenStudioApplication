@@ -74,6 +74,8 @@ namespace openstudio{
 
     virtual void addObject(const openstudio::IddObjectType& iddObjectType) override;
 
+    // Purges empty Shading Surface Groups (groups with no shading Surfaces)
+    // Also purges Shading Surfaces which do not belong to a Shading Surface Group (these won't be translated to IDF)
     virtual void purgeObjects(const openstudio::IddObjectType& iddObjectType) override;
 
     void filterChanged();
