@@ -12,9 +12,10 @@ endif()
 
 project(OpenStudioApplication VERSION 1.0.0)
 
-find_package(openstudio 3.0.0 CONFIG REQUIRED)
-
-set(OPENSTUDIO_SDK_PATH "Unknown" CACHE STRING "Unknown") # path to openstudio SDK
+# set openstudio_DIR to the directory that contains the openstudioConfig.cmake
+# eg C:\src\OpenStudio\build-vs\_CPack_Packages\win64\ZIP\OpenStudio-3.0.0-rc2+ce27ae6b85-Windows\lib\cmake\openstudio
+# Or it'll download a zip/tar.gz for you
+include(FindOpenStudioSDK.cmake)
 
 ###############################################################################
 
