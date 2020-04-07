@@ -228,6 +228,8 @@ RefrigerationController::RefrigerationController()
 
   m_refrigerationGridScene->addItem(m_refrigerationSystemGridView);
 
+  m_noRefrigerationView = new NoRefrigerationView();
+
   zoomOutToSystemGridView();
 }
 
@@ -236,6 +238,9 @@ RefrigerationController::~RefrigerationController()
   delete m_refrigerationView;
 
   delete m_refrigerationScene;
+
+  delete m_noRefrigerationView;
+
 }
 
 boost::optional<model::RefrigerationSystem> RefrigerationController::supplySystem(const model::RefrigerationCondenserCascade & condenser)
@@ -704,6 +709,11 @@ void RefrigerationController::refreshNow()
 RefrigerationView * RefrigerationController::refrigerationView() const
 {
   return m_refrigerationView;
+}
+
+NoRefrigerationView * RefrigerationController::noRefrigerationView() const
+{
+  return m_noRefrigerationView;
 }
 
 void RefrigerationController::inspectOSItem(const OSItemId & itemid)
