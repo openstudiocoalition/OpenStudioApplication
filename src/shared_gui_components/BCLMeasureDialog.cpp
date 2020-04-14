@@ -88,6 +88,8 @@ BCLMeasureDialog::BCLMeasureDialog(const BCLMeasure& bclMeasure, QWidget* parent
     measureTypeString = "Utility Measure";
   }else if ( measureType == MeasureType::ReportingMeasure){
     measureTypeString = "Reporting Measure";
+  }else if ( measureType == MeasureType::FMUMeasure){
+	measureTypeString = "FMU Measure";
   }
   int index = m_measureTypeComboBox->findText(measureTypeString);
   m_measureTypeComboBox->setCurrentIndex(index);
@@ -160,6 +162,8 @@ boost::optional<openstudio::BCLMeasure> BCLMeasureDialog::createMeasure()
     measureType = MeasureType::UtilityMeasure;
   }else if ( measureTypeStr == "Reporting Measure"){
     measureType = MeasureType::ReportingMeasure;
+  }else if ( measureTypeStr == "FMU Measure"){
+	measureType = MeasureType::FMUMeasure;
   }
 
   QString folderName = toQString(lowerClassName).append("/");
@@ -377,6 +381,7 @@ void BCLMeasureDialog::init()
   m_measureTypeComboBox->addItem("EnergyPlus Measure");
   //m_measureTypeComboBox->addItem("Utility Measure"); // Disable for now
   m_measureTypeComboBox->addItem("Reporting Measure");
+  m_measureTypeComboBox->addItem("FMU Measure");
   m_measureTypeComboBox->setCurrentIndex(0);
   tempVLayout->addWidget(m_measureTypeComboBox);
   tempVLayout->addSpacing(10);

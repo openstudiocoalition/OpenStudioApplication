@@ -80,6 +80,9 @@ WorkflowController::WorkflowController(BaseApp *t_app)
 
   workflowSectionItem = QSharedPointer<WorkflowSectionItem>(new WorkflowSectionItem(MeasureType::ReportingMeasure, "Reporting Measures", t_app));
   addItem(workflowSectionItem);
+
+  workflowSectionItem = QSharedPointer<WorkflowSectionItem>(new WorkflowSectionItem(MeasureType::FMUMeasure, "FMU Measures", t_app));
+  addItem(workflowSectionItem);
 }
 
 void WorkflowController::addItem(QSharedPointer<OSListItem> item)

@@ -608,6 +608,7 @@
     <file alias="shared_gui_components/images/error-alert.png">../shared_gui_components/images/error-alert.png</file>
     <file alias="shared_gui_components/images/fast_forward.png">../shared_gui_components/images/fast_forward.png</file>
     <file alias="shared_gui_components/images/fast_reverse.png">../shared_gui_components/images/fast_reverse.png</file>
+    <file alias="shared_gui_components/images/fmu_measure_icon.png">../shared_gui_components/images/fmu_measure_icon.png</file>
     <file alias="shared_gui_components/images/forward.png">../shared_gui_components/images/forward.png</file>
     <file alias="shared_gui_components/images/gray_add_icon.png">../shared_gui_components/images/gray_add_icon.png</file>
     <file alias="shared_gui_components/images/launch_aws.png">../shared_gui_components/images/launch_aws.png</file>

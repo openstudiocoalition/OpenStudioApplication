@@ -588,7 +588,10 @@ QWidget * LibraryItemDelegate::view(QSharedPointer<OSListItem> dataSource)
     }else if (measureType == MeasureType::ReportingMeasure){
       widget->m_measureTypeBadge->setPixmap(QPixmap(":/shared_gui_components/images/report_measure_icon.png").scaled(25,25,Qt::IgnoreAspectRatio,Qt::SmoothTransformation));
       widget->m_measureTypeBadge->setVisible(true);
-    }
+    }else if (measureType == MeasureType::FMUMeasure){
+	  widget->m_measureTypeBadge->setPixmap(QPixmap(":/shared_gui_components/images/fmu_measure_icon.png").scaled(25,25,Qt::IgnoreAspectRatio,Qt::SmoothTransformation));
+	  widget->m_measureTypeBadge->setVisible(true);
+	}
 
     if (libraryItem->m_source == LocalLibrary::BCL){
       widget->m_measureBadge->setMeasureBadgeType(MeasureBadgeType::BCLMeasure);
