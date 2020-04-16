@@ -10,26 +10,26 @@ else()
 
   # TODO: currently unsupported, we do not host zip/tar.gz anywhere
   # This will make it throw, which an informative message
-  find_package(openstudio "${OPENSTUDIO_VERSION}" CONFIG REQUIRED)
+#  find_package(openstudio "${OPENSTUDIO_VERSION}" CONFIG REQUIRED)
 
 
   set(OPENSTUDIO_BASELINK "https://openstudio-builds.s3.amazonaws.com/${OPENSTUDIO_VERSION}"
     CACHE STRING "Base link to where the openstudio archives are hosted" FORCE)
 
-  set(OPENSTUDIO_VERSION_SHA "rc2+c1a45f4753")
+  set(OPENSTUDIO_VERSION_SHA "rc3+949b904134")
 
   if(APPLE)
-    set(OPENSTUDIO_EXPECTED_HASH 20c12af58cb9ed8b3c30c206f7123498)
+    set(OPENSTUDIO_EXPECTED_HASH 7ff44fab6fa66b4248833273948e4bcf)
     set(OPENSTUDIO_PLATFORM "Darwin")
     set(OPENSTUDIO_EXT "tar.gz")
   elseif(UNIX)
-    set(OPENSTUDIO_EXPECTED_HASH 20c12af58cb9ed8b3c30c206f7123498)
+    set(OPENSTUDIO_EXPECTED_HASH 9a04320fa80c70725e58326625dc9b8d)
     set(OPENSTUDIO_PLATFORM "Linux")
     set(OPENSTUDIO_EXT "tar.gz")
   elseif(WIN32)
-    set(OPENSTUDIO_EXPECTED_HASH 20c12af58cb9ed8b3c30c206f7123498)
+    set(OPENSTUDIO_EXPECTED_HASH 8017e931f589078986f9185df91020a2)
     set(OPENSTUDIO_PLATFORM "Windows")
-    set(OPENSTUDIO_EXT "zip")
+    set(OPENSTUDIO_EXT "tar.gz")
   endif()
 
   set(OPENSTUDIO_ARCHIVE_BASENAME "OpenStudio-${OPENSTUDIO_VERSION}-${OPENSTUDIO_VERSION_SHA}-${OPENSTUDIO_PLATFORM}")
@@ -44,7 +44,7 @@ else()
     string(REPLACE "+" "%2B" OPENSTUDIO_URL ${OPENSTUDIO_URL})
     message(STATUS "Downloading OpenStudio SDK: ${OPENSTUDIO_URL}")
 
-    file(DOWNLOAD "${OPENSTUDIO_BASELINK}/${OPENSTUDIO_ARCHIVE_NAME}" "${PROJECT_BINARY_DIR}/${OPENSTUDIO_ARCHIVE_NAME}"
+    file(DOWNLOAD "${OPENSTUDIO_URL}" "${PROJECT_BINARY_DIR}/${OPENSTUDIO_ARCHIVE_NAME}"
        INACTIVITY_TIMEOUT 300 # 5-min timeout
        SHOW_PROGRESS
        EXPECTED_MD5 ${OPENSTUDIO_EXPECTED_HASH})
@@ -62,7 +62,7 @@ else()
   endif()
 
   find_package(openstudio "${OPENSTUDIO_VERSION}" CONFIG REQUIRED
-    PATHS "${OPENSTUDIO_ARCHIVE_NAME}"
+    PATHS "${PROJECT_BINARY_DIR}/${OPENSTUDIO_ARCHIVE_BASENAME}"
     NO_CMAKE_PATH
     NO_CMAKE_ENVIRONMENT_PATH
     NO_SYSTEM_ENVIRONMENT_PATH
