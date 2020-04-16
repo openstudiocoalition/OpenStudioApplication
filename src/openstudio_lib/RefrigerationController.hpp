@@ -50,6 +50,7 @@ class RefrigerationScene;
 class RefrigerationSystemDetailView;
 class OSItemId;
 class RefrigerationView;
+class NoRefrigerationView;
 // TODO class RefrigerationGridView;
 
 class RefrigerationController : public QObject
@@ -63,6 +64,8 @@ class RefrigerationController : public QObject
   virtual ~RefrigerationController();
 
   RefrigerationView * refrigerationView() const;
+
+  NoRefrigerationView * noRefrigerationView() const;
 
   // TODO RefrigerationGridView * refrigerationGridView() const;
 
@@ -126,6 +129,8 @@ class RefrigerationController : public QObject
   QSharedPointer<QGraphicsScene> m_refrigerationGridScene;
 
   QPointer<QGraphicsScene> m_refrigerationScene;
+
+  QPointer<NoRefrigerationView> m_noRefrigerationView;
 
   bool m_dirty;
 

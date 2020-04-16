@@ -12,9 +12,10 @@ endif()
 
 project(OpenStudioApplication VERSION 1.0.0)
 
-find_package(openstudio 3.0.0 CONFIG REQUIRED)
-
-set(OPENSTUDIO_SDK_PATH "Unknown" CACHE STRING "Unknown") # path to openstudio SDK
+# set openstudio_DIR to the directory that contains the openstudioConfig.cmake
+# eg C:\src\OpenStudio\build-vs\_CPack_Packages\win64\ZIP\OpenStudio-3.0.0-rc2+ce27ae6b85-Windows\lib\cmake\openstudio
+# Or it'll download a zip/tar.gz for you
+include(FindOpenStudioSDK.cmake)
 
 ###############################################################################
 
@@ -500,7 +501,8 @@ if(NOT APPLE)
       #message("Qt5::QXcbIntegrationPlugin Location = ${Qt5QXcbIntegrationPlugin_LOCATION}")
       #message("Qt5::QXcbIntegrationPlugin Type = ${Qt5QXcbIntegrationPlugin_TYPE}")
       list(APPEND QT_PLUGINS Qt5::QXcbIntegrationPlugin)
-      list(APPEND QT_PLUGINS Qt5::QXcbGlxIntegrationPlugin)
+      # This one doesn't end up in bin/platforms/, but in bin/xcbglintegrations/ so do not append, will be treated separately
+      # list(APPEND QT_PLUGINS Qt5::QXcbGlxIntegrationPlugin)
       find_library(QT_QXCBQPA NAMES libQt5XcbQpa.so.5.11.2 PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
 
       list(APPEND QT_EXTRA_LIBS ${QT_QXCBQPA})
