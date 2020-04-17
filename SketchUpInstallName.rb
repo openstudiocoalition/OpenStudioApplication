@@ -15,6 +15,13 @@ def fixup(file, rpath_replacement)
   end
 end
 
+# Fix up any load paths in openstudio_modeleditor.bundle
+def fixup_model_editor(lib_path, lib_path_replacemant, openstudio_modeleditor_path)
+
+ puts "#{lib_path} -> #{lib_path_replacemant} in #{openstudio_modeleditor_path}"
+      `install_name_tool -change #{lib_path} #{lib_path_replacemant} #{openstudio_modeleditor_path}`
+end
+
 dir = File.dirname(ARGV[0])
 fixup(ARGV[0], "@loader_path")
 fixup(File.join(dir, "QtConcurrent"), "@loader_path")
@@ -25,3 +32,5 @@ fixup(File.join(dir, "QtPrintSupport"), "@loader_path")
 fixup(File.join(dir, "QtWidgets"), "@loader_path")
 fixup(File.join(dir, "QtXml"), "@loader_path")
 fixup(File.join(dir, "platforms/libqcocoa.dylib"), "@loader_path/..")
+
+fixup_model_editor("libopenstudiolib.dylib", "@loader_path/libopenstudiolib.dylib", File.join(dir, "openstudio_modeleditor.bundle"))

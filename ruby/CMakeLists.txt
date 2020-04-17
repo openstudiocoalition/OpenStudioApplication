@@ -69,6 +69,7 @@ if(APPLE)
     COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:Qt5::PrintSupport> $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/.
     COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:Qt5::Widgets> $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/.
     COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:Qt5::Xml> $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/.
+    COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:openstudio::openstudiolib> $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/.
     COMMAND ruby "${PROJECT_SOURCE_DIR}/SketchUpInstallName.rb" "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/ruby/openstudio_modeleditor.bundle"
   )
 endif()
@@ -97,6 +98,7 @@ if(APPLE)
   install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/$<TARGET_FILE_NAME:Qt5::Network> DESTINATION Ruby COMPONENT "RubyAPI")
   install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/$<TARGET_FILE_NAME:Qt5::PrintSupport> DESTINATION Ruby COMPONENT "RubyAPI")
   install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/$<TARGET_FILE_NAME:Qt5::Widgets> DESTINATION Ruby COMPONENT "RubyAPI")
+  install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/$<TARGET_FILE_NAME:openstudio::openstudiolib> DESTINATION Ruby COMPONENT "RubyAPI")
   install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/$<TARGET_FILE_NAME:Qt5::Xml> DESTINATION Ruby COMPONENT "RubyAPI")
 endif()
 
