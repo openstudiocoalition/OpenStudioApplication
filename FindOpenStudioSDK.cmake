@@ -69,7 +69,7 @@ else()
       NO_SYSTEM_ENVIRONMENT_PATH
       NO_CMAKE_SYSTEM_PATH
     )
-  else()   
+  else()
     find_package(openstudio "${OPENSTUDIO_VERSION}" CONFIG REQUIRED
       PATHS "${PROJECT_BINARY_DIR}/${OPENSTUDIO_ARCHIVE_BASENAME}"
       NO_CMAKE_PATH
