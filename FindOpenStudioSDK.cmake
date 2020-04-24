@@ -16,6 +16,7 @@ else()
   set(OPENSTUDIO_BASELINK "https://openstudio-builds.s3.amazonaws.com/${OPENSTUDIO_VERSION}"
     CACHE STRING "Base link to where the openstudio archives are hosted" FORCE)
 
+  #If this is a pre-release enter the SHA as "-rc1+79857912c4"
   set(OPENSTUDIO_VERSION_SHA "+79857912c4")
 
   if(APPLE)
@@ -32,7 +33,7 @@ else()
     set(OPENSTUDIO_EXT "tar.gz")
   endif()
 
-  set(OPENSTUDIO_ARCHIVE_BASENAME "OpenStudio-${OPENSTUDIO_VERSION}-${OPENSTUDIO_VERSION_SHA}-${OPENSTUDIO_PLATFORM}")
+  set(OPENSTUDIO_ARCHIVE_BASENAME "OpenStudio-${OPENSTUDIO_VERSION}${OPENSTUDIO_VERSION_SHA}-${OPENSTUDIO_PLATFORM}")
   set(OPENSTUDIO_ARCHIVE_NAME "${OPENSTUDIO_ARCHIVE_BASENAME}.${OPENSTUDIO_EXT}"
       CACHE STRING "Archive Name, with extension" FORCE)
 
