@@ -17,7 +17,7 @@ Going forward, the SDK will continue to be distributed and released two times pe
 Below is the list of components that is included in this SDK installer:
 
 __**OpenStudio Application 1.0.0**__
-- Application Resources ((includes EnergyPlus & Radiance)
+- Application Resources (Includes EnergyPlus & Radiance)
 - Ruby API
 - Command Line Interface (CLI)
 - OpenStudio Application
@@ -46,7 +46,7 @@ OpenStudio Application 1.0.0 now uses **Ruby 2.5.5** as the supported version (2
 
 - Download and install [OpenStudioApplication](https://github.com/NREL/OpenStudioApplication/). Select components for installation. Note that OpenStudio Application is a standalone app and does not require you to install OpenStudio SDK.
 - Setup a Building Component Library (BCL) account to access online building components and measures. View instructions on how to setup your account and configure the key in OpenStudio.
-- The [OpenStudio Application SketchUp Plug-in](https://github.com/NREL/openstudio-sketchup-plugin) requires SketchUp 2019 (not available for Linux). The OpenStudio Application SketchUp Plug-in does not support older versions of SketchUp. SketchUp must be installed before OpenStudio Application to automatically activate the plugin. If you install SketchUp after OpenStudio Application, simply rerun the OpenStudio Application installer. Please see the installation guide on [OpenStudio Application SketchUp Plug-in](https://github.com/NREL/openstudio-sketchup-plugin). 
+- The [OpenStudio Application SketchUp Plug-in](https://github.com/NREL/openstudio-sketchup-plugin) requires SketchUp 2019 (not available for Linux). The OpenStudio Application SketchUp Plug-in does not support older versions of SketchUp. SketchUp must be installed before OpenStudio Application to automatically activate the plugin. If you install SketchUp after OpenStudio Application, simply rerun the OpenStudio Application installer. Please see the installation guide on [OpenStudio Application SketchUp Plugin](https://github.com/NREL/openstudio-sketchup-plugin). 
 
 # OpenStudio Application: Changelog
 
@@ -56,44 +56,44 @@ The 1.0.0 release updates OpenStudio SDK to 3.0.0 and to use EnergyPlus 9.3. Thi
 
 ## New Features and Fixes
 
-These are specifc to the Application. Please refer to the release notes for OpenStudio SDK for 3.0.0 release to see what has 
+These are specific to the Application. Please refer to the release notes for OpenStudio SDK for 3.0.0 release to see what has 
 changed with the SDK. 
 
-* Updated OpenStudio SDK from v2.9.1 to v3.0.0
+* Updated [OpenStudio SDK](https://github.com/NREL/OpenStudio) from v2.9.1 to v3.0.0
 
-* Updated EnergyPlus from v9.2.0 to v9.3.0
+* Updated [EnergyPlus](https://github.com/NREL/EnergyPlus) from v9.2.0 to v9.3.0
 
-* [#100](https://github.com/NREL/OpenStudioApplication/pull/100) Properly register the OS:Construction:AirBoundary in OS App
+* [#100](https://github.com/NREL/OpenStudioApplication/pull/100) - Properly register the OS:Construction:AirBoundary in OS App
 
-* [#98](https://github.com/NREL/OpenStudioApplication/pull/98) Make Geometry Editor work on Ubuntu (including in local build folder)
+* [#98](https://github.com/NREL/OpenStudioApplication/pull/98) - Make Geometry Editor work on Ubuntu (including in local build folder)
 
-* [#94](https://github.com/NREL/OpenStudioApplication/pull/94) Add cmake macro to find SDK for published s3 bucket
+* [#94](https://github.com/NREL/OpenStudioApplication/pull/94) - Add cmake macro to find SDK for published s3 bucket
 
-* [#93](https://github.com/NREL/OpenStudioApplication/pull/93) Restore the style of the OSApp on Windows
+* [#93](https://github.com/NREL/OpenStudioApplication/pull/93) - Restore the style of the OSApp on Windows
 
-* [#90](https://github.com/NREL/OpenStudioApplication/pull/90) Fix Download progress bar cleared when finished downloading
+* [#90](https://github.com/NREL/OpenStudioApplication/pull/90) - Fix Download progress bar cleared when finished downloading
 
-* [#89](https://github.com/NREL/OpenStudioApplication/pull/89) Enable MP builds and link to ruby lib for bindings (Windows)
+* [#89](https://github.com/NREL/OpenStudioApplication/pull/89) - Enable MP builds and link to ruby lib for bindings (Windows)
 
-* [#88](https://github.com/NREL/OpenStudioApplication/pull/88) Improve reporting for Import SDD Xml file to include Logger errors/warnings 
+* [#88](https://github.com/NREL/OpenStudioApplication/pull/88) - Improve reporting for Import SDD Xml file to include Logger errors/warnings 
 
-* [#86](https://github.com/NREL/OpenStudioApplication/pull/86) Fix need to showControls when switching tabs 
+* [#86](https://github.com/NREL/OpenStudioApplication/pull/86) - Fix need to showControls when switching tabs 
 
-* [#84](https://github.com/NREL/OpenStudioApplication/pull/84) Fix Refrigeration Grid should be declared unavailable for all but "Refigeration"
+* [#84](https://github.com/NREL/OpenStudioApplication/pull/84) - Fix Refrigeration Grid should be declared unavailable for all but "Refigeration"
 
-* [82](https://github.com/NREL/OpenStudioApplication/pull/82) Fix purge on Facility > Shading subtab should delete empty shading surface groups and shading surfaces without groups
+* [#82](https://github.com/NREL/OpenStudioApplication/pull/82) - Fix purge on Facility > Shading subtab should delete empty shading surface groups and shading surfaces without groups
 
-* [#75](https://github.com/NREL/OpenStudioApplication/pull/75)  Application can now use the OpenStudio SDK to build vs having to build the submodule first, which simplifies the build process.
+* [#75](https://github.com/NREL/OpenStudioApplication/pull/75) - Application can now use the OpenStudio SDK to build vs having to build the submodule first, which simplifies the build process.
 
-* [#73](https://github.com/NREL/OpenStudioApplication/pull/73) Fix Blacked Out User Selection within Dropdown Menus on Ubuntu 
+* [#73](https://github.com/NREL/OpenStudioApplication/pull/73) - Fix Blacked Out User Selection within Dropdown Menus on Ubuntu 
 
-* [#72](https://github.com/NREL/OpenStudioApplication/pull/72) Add Fan:SystemModel to OpenStudioApplication 
+* [#72](https://github.com/NREL/OpenStudioApplication/pull/72) - Add Fan:SystemModel to OpenStudioApplication 
 
-* [#69](https://github.com/NREL/OpenStudioApplication/pull/69) Fix Sketchup 2019 plugin for Mac osx
+* [#69](https://github.com/NREL/OpenStudioApplication/pull/69) - Fix Sketchup 2019 plugin for Mac osx
 
-* [#61](https://github.com/NREL/OpenStudioApplication/pull/61) Fix crash in Schedule tab
+* [#61](https://github.com/NREL/OpenStudioApplication/pull/61) - Fix crash in Schedule tab
 
-* [#60](https://github.com/NREL/OpenStudioApplication/pull/60) Support holidays in schedule GUI
+* [#60](https://github.com/NREL/OpenStudioApplication/pull/60) - Support holidays in schedule GUI
 
 
 ## Issue Statistics Since Previous Release
