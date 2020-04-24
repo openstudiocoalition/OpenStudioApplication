@@ -415,7 +415,7 @@ if(NOT EXISTS ${QT_INSTALL_DIR})
     message(STATUS "Downloading Qt: ${QT_ZIP_FILENAME}")
     file(DOWNLOAD "http://openstudio-resources.s3.amazonaws.com/dependencies/${QT_ZIP_FILENAME}"
       ${QT_ZIP_LOCAL_PATH}
-      INACTIVITY_TIMEOUT 120
+      INACTIVITY_TIMEOUT 900
       SHOW_PROGRESS
       EXPECTED_MD5 ${QT_ZIP_EXPECTED_MD5})
   # TODO: TEMP
