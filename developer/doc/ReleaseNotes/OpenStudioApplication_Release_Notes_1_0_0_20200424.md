@@ -12,8 +12,7 @@ These release notes describe version 1.0.0 of the OpenStudio Application develop
 
 # Overview
 
-Following an important announcement related to future development of the OpenStudio Application released in September 2019 ([A Shift in BTO’s BEM Strategy: A New Future for the OpenStudio Application](https://www.openstudio.net/new-future-for-openstudio-application)), **this release marks the last NREL supported release of the OpenStudio Application.**
-Going forward, the SDK will continue to be distributed and released two times per year, in April and October. 
+Following an important announcement related to future development of the OpenStudio Application released in September 2019 ([A Shift in BTO’s BEM Strategy: A New Future for the OpenStudio Application](https://www.openstudio.net/new-future-for-openstudio-application)), **this release marks the last NREL planned software distribution of the OpenStudio Application.**
 Below is the list of components that is included in this SDK installer:
 
 __**OpenStudio Application 1.0.0**__
@@ -28,8 +27,10 @@ __**OpenStudio Application 1.0.0**__
 
 - OpenStudio release documentation, including these release notes, tutorials, and other user documentation, is available at [https://www.openstudio.net/](https://www.openstudio.net/.)
 - C++ API documentation is available at [https://openstudio-sdk-documentation.s3.amazonaws.com/index.html](https://openstudio-sdk-documentation.s3.amazonaws.com/index.html)
+- OpenStudio Application Developer docs at [https://github.com/NREL/OpenStudioApplication/wiki](https://github.com/NREL/OpenStudioApplication/wiki)
 - Measure development documentation is available at [http://nrel.github.io/OpenStudio-user-documentation/reference/measure_writing_guide/](http://nrel.github.io/OpenStudio-user-documentation/reference/measure_writing_guide/ )
 - A roadmap for planned features is available at http://nrel.github.io/OpenStudio-user-documentation/getting_started/roadmap/.
+
 
 # Installation Notes
 
@@ -100,4 +101,4 @@ changed with the SDK.
 
 * 47 new issues were filed since 2020-01-01 (not including opened pull requests)
 
-* 34 closed issues were closed since the 2020-01-01
+* 34 issues were closed since the 2020-01-01
