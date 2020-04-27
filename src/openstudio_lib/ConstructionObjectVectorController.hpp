@@ -31,6 +31,9 @@
 #define OPENSTUDIO_CONSTRUCTIONOBJECTVECTORCONTROLLER_HPP
 
 #include "ModelObjectVectorController.hpp"
+#include <openstudio/utilities/core/Logger.hpp>
+
+class QMutex;
 
 namespace openstudio {
 
@@ -42,15 +45,25 @@ public:
 
   ConstructionObjectVectorController(QWidget * parentWidget);
 
-  virtual ~ConstructionObjectVectorController() {}
+  // Need to delete the QMutex
+  virtual ~ConstructionObjectVectorController();
 
   void setParentWidget(QWidget * parentWidget);
+
+public slots:
+
+  // reportItemsLater should be used as it wraps the call to reportItems in a QTimer::singleShot
+  // which eventually calls ModelObjectVector::reportItems
+  void reportItemsLater();
+  void reportItems();
 
 protected:
 
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
 
   virtual void onDataChange(const model::ModelObject& modelObject) override;
+
+  virtual void onChange(const model::ModelObject& modelObject) override;
 
   virtual std::vector<OSItemId> makeVector() override;
 
@@ -61,6 +74,13 @@ protected:
   virtual void onDrop(const OSItemId& itemId) override;
 
 private:
+
+  REGISTER_LOGGER("openstudio::ConstructionObjectVectorController");
+
+  void insert(const OSItemId& itemId, int position = -1, bool deleteExisting= false);
+
+  bool m_reportScheduled;
+  QMutex * m_reportItemsMutex;
 
   enum LayerType
   {

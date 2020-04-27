@@ -34,14 +34,14 @@
 #include "UtilityBillsView.hpp"
 #include "UtilityBillsController.hpp"
 
-#include <openstudio/src/model/Model.hpp>
-#include <openstudio/src/model/Model_Impl.hpp>
-#include <openstudio/src/model/RunPeriod.hpp>
-#include <openstudio/src/model/RunPeriod_Impl.hpp>
-#include <openstudio/src/model/WeatherFile.hpp>
-#include <openstudio/src/model/WeatherFile_Impl.hpp>
-#include <openstudio/src/model/YearDescription.hpp>
-#include <openstudio/src/model/YearDescription_Impl.hpp>
+#include <openstudio/model/Model.hpp>
+#include <openstudio/model/Model_Impl.hpp>
+#include <openstudio/model/RunPeriod.hpp>
+#include <openstudio/model/RunPeriod_Impl.hpp>
+#include <openstudio/model/WeatherFile.hpp>
+#include <openstudio/model/WeatherFile_Impl.hpp>
+#include <openstudio/model/YearDescription.hpp>
+#include <openstudio/model/YearDescription_Impl.hpp>
 
 #include <QLabel>
 #include <QStackedWidget>

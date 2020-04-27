@@ -25,10 +25,7 @@ set(${target_name}_swig_src
 set(${target_name}_depends
   ${Boost_LIBRARIES}
   ${CMAKE_THREAD_LIBS}
-  openstudio_utilities
-  openstudio_model
-  openstudio_energyplus
-  openstudio_osversion
+  openstudio::openstudiolib
   ${QT_LIBS}
 )
 if(WIN32)
@@ -55,4 +52,4 @@ CREATE_TEST_TARGETS(${target_name} "${${target_name}_test_src}" "${${target_name
 #  add_dependencies(${target_name}_tests openstudio_bimserver_resources)
 #endif()
 
-#MAKE_SWIG_TARGET(OpenStudioGBXML gbXML "${CMAKE_CURRENT_SOURCE_DIR}/gbXML.i" "${${target_name}_swig_src}" ${target_name} OpenStudioEnergyPlus)
+#MAKE_SWIG_TARGET_OSAPP(OpenStudioGBXML gbXML "${CMAKE_CURRENT_SOURCE_DIR}/gbXML.i" "${${target_name}_swig_src}" ${target_name} OpenStudioEnergyPlus)

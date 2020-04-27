@@ -32,7 +32,7 @@
 
 #include "ModelObjectInspectorView.hpp"
 #include "ModelObjectVectorController.hpp"
-#include <openstudio/src/model/FFactorGroundFloorConstruction.hpp>
+#include <openstudio/model/FFactorGroundFloorConstruction.hpp>
 
 class QComboBox;
 

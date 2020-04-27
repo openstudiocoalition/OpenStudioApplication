@@ -35,9 +35,9 @@
 
 #include "AccessPolicyStore.hpp"
 
-#include <openstudio/src/utilities/core/Assert.hpp>
-#include <openstudio/src/utilities/core/FilesystemHelpers.hpp>
-#include <openstudio/src/utilities/idd/IddFileAndFactoryWrapper.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/FilesystemHelpers.hpp>
+#include <openstudio/utilities/idd/IddFileAndFactoryWrapper.hpp>
 
 using std::map;
 using std::stringstream;
@@ -279,6 +279,42 @@ namespace openstudio
         }
       }
       return FREE;
+    }
+
+    bool AccessPolicy::setAccess(unsigned int index, AccessPolicy::ACCESS_LEVEL accessLevel)
+    {
+      if (m_numNormalFields == std::numeric_limits<unsigned>::max()){
+        OS_ASSERT(false);
+      }
+      if (m_extensibleSize == std::numeric_limits<unsigned>::max()){
+        OS_ASSERT(false);
+      }
+
+      if(index<m_numNormalFields)
+      {
+        auto i = m_accessMap.find(index);
+        if( i != m_accessMap.end() )
+        {
+          (*i).second = accessLevel;
+          return true;
+        } else {
+          m_accessMap[index] = accessLevel;
+        }
+      }
+      else
+      {
+        index-=m_numNormalFields;
+        index = index % m_extensibleSize;
+        auto i = m_extensibleAccessMap.find(index);
+        if( i != m_extensibleAccessMap.end() )
+        {
+          (*i).second = accessLevel;
+          return true;
+        } else {
+          m_extensibleAccessMap[index] = accessLevel;
+        }
+      }
+      return false;
     }
 
 

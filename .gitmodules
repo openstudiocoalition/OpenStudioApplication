@@ -1,4 +1,0 @@
-[submodule "openstudio"]
-	path = openstudio
-	url = git@github.com:nrel/OpenStudio.git
-	branch = develop3

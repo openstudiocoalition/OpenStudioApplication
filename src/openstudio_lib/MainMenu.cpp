@@ -32,10 +32,10 @@
 #include "OSAppBase.hpp"
 #include "OSDocument.hpp"
 
-#include <openstudio/src/osversion/VersionTranslator.hpp>
+#include <openstudio/osversion/VersionTranslator.hpp>
 
-#include <openstudio/src/utilities/core/Assert.hpp>
-#include <openstudio/src/utilities/core/Path.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Path.hpp>
 
 #include <QMenu>
 
@@ -67,6 +67,7 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, QWidget *parent) :
   m_fileMenu->addSeparator();
 
   m_revertToSavedAction = new QAction(tr("&Revert to Saved"), this);
+  m_revertToSavedAction->setShortcut(QKeySequence(QKeySequence(tr("Ctrl+R")))); // QKeySequence(Qt::CTRL + Qt::Key_R)
   // m_revertToSavedAction->setDisabled(true);
   m_revertToSavedAction->setDisabled(false);
   m_fileMenu->addAction(m_revertToSavedAction);
@@ -78,6 +79,7 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, QWidget *parent) :
   connect(action, &QAction::triggered, this, &MainMenu::saveFileClicked);
 
   action = new QAction(tr("Save &As"), this);
+  action->setShortcut(QKeySequence(QKeySequence::SaveAs));
   m_fileMenu->addAction(action);
   connect(action, &QAction::triggered, this, &MainMenu::saveAsFileClicked);
 

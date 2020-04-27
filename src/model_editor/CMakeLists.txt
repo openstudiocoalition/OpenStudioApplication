@@ -81,7 +81,6 @@ set(${target_name}_moc
   ModelExplorer.hpp
   ObjectExplorer.hpp
   PathWatcher.hpp
-  # QMetaTypes.hpp # Not needed
   tablemodel.h
   TableView.hpp
   TableWidget.hpp
@@ -133,9 +132,9 @@ add_library(${target_name}
 
 # lib dependencies
 set(${target_name}_depends
-  openstudio_energyplus
-  openstudio_model
+  openstudio::openstudiolib
   ${QT_LIBS}
+  #CONAN_PKG::openstudio_ruby
 )
 if(WIN32)
   list(APPEND ${target_name}_depends qtwinmigrate)
@@ -149,13 +148,6 @@ if(BUILD_SHARED_LIBS)
 else()
   target_compile_definitions(${target_name} PUBLIC model_editor_EXPORTS)
 endif()
-
-#if(NOT APPLE)
-#  install(TARGETS ${target_name}
-#    RUNTIME DESTINATION bin
-#    LIBRARY DESTINATION lib
-#  )
-#endif()
 
 set(${target_name}_test_src
   test/ModelEditorFixture.hpp
@@ -181,6 +173,5 @@ set(${target_name}_swig_src
 )
 
 set(swig_target_name ${target_name})
+MAKE_SWIG_TARGET_OSAPP(OpenStudioModelEditor modeleditor "${CMAKE_CURRENT_SOURCE_DIR}/ModelEditor.i" "${${target_name}_swig_src}" ${swig_target_name} "")
 
-MAKE_SWIG_TARGET_OSAPP(OpenStudioModelEditor modeleditor "${CMAKE_CURRENT_SOURCE_DIR}/ModelEditor.i" "${${target_name}_swig_src}" ${swig_target_name} OpenStudioEnergyPlus)
-add_dependencies(ruby_OpenStudioModelEditor ruby_OpenStudioModel)

@@ -35,19 +35,19 @@
 //#include "../runmanager/lib/WorkItem.hpp"
 //#include "../runmanager/lib/Workflow.hpp"
 
-#include <openstudio/src/model/ThermalZone.hpp>
-#include <openstudio/src/model/DaylightingControl.hpp>
-#include <openstudio/src/model/Space.hpp>
-#include <openstudio/src/model/Model.hpp>
-#include <openstudio/src/model/IlluminanceMap.hpp>
-#include <openstudio/src/model/GlareSensor.hpp>
+#include <openstudio/model/ThermalZone.hpp>
+#include <openstudio/model/DaylightingControl.hpp>
+#include <openstudio/model/Space.hpp>
+#include <openstudio/model/Model.hpp>
+#include <openstudio/model/IlluminanceMap.hpp>
+#include <openstudio/model/GlareSensor.hpp>
 
-#include <openstudio/src/model/ThermalZone_Impl.hpp>
-#include <openstudio/src/model/DaylightingControl_Impl.hpp>
-#include <openstudio/src/model/Space_Impl.hpp>
-#include <openstudio/src/model/Model_Impl.hpp>
-#include <openstudio/src/model/IlluminanceMap_Impl.hpp>
-#include <openstudio/src/model/GlareSensor_Impl.hpp>
+#include <openstudio/model/ThermalZone_Impl.hpp>
+#include <openstudio/model/DaylightingControl_Impl.hpp>
+#include <openstudio/model/Space_Impl.hpp>
+#include <openstudio/model/Model_Impl.hpp>
+#include <openstudio/model/IlluminanceMap_Impl.hpp>
+#include <openstudio/model/GlareSensor_Impl.hpp>
 
 //#include "../analysis/Problem.hpp"
 //#include "../analysis/Analysis.hpp"

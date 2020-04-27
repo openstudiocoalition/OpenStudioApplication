@@ -28,6 +28,7 @@
 ***********************************************************************************************************************/
 
 #include "InspectorView.hpp"
+#include "../model_editor/AccessPolicyStore.hpp"
 
 #include "GridItem.hpp"
 #include "LibraryTabWidget.hpp"
@@ -40,96 +41,102 @@
 #include "ZoneChooserView.hpp"
 #include "EMSInspectorView.hpp"
 
-#include <openstudio/src/model/AirLoopHVACReturnPlenum.hpp>
-#include <openstudio/src/model/AirLoopHVACReturnPlenum_Impl.hpp>
-#include <openstudio/src/model/AirLoopHVACSupplyPlenum.hpp>
-#include <openstudio/src/model/AirLoopHVACSupplyPlenum_Impl.hpp>
-#include <openstudio/src/model/AirLoopHVACUnitarySystem.hpp>
-#include <openstudio/src/model/AirLoopHVACUnitarySystem_Impl.hpp>
-#include <openstudio/src/model/AirLoopHVACZoneMixer.hpp>
-#include <openstudio/src/model/AirLoopHVACZoneMixer_Impl.hpp>
-#include <openstudio/src/model/AirLoopHVACZoneSplitter.hpp>
-#include <openstudio/src/model/AirLoopHVACZoneSplitter_Impl.hpp>
-#include <openstudio/src/model/AirTerminalSingleDuctConstantVolumeCooledBeam.hpp>
-#include <openstudio/src/model/AirTerminalSingleDuctConstantVolumeCooledBeam_Impl.hpp>
-#include <openstudio/src/model/AirTerminalSingleDuctConstantVolumeReheat.hpp>
-#include <openstudio/src/model/AirTerminalSingleDuctConstantVolumeReheat_Impl.hpp>
-#include <openstudio/src/model/AirTerminalSingleDuctConstantVolumeFourPipeInduction.hpp>
-#include <openstudio/src/model/AirTerminalSingleDuctConstantVolumeFourPipeInduction_Impl.hpp>
-#include <openstudio/src/model/AirTerminalSingleDuctConstantVolumeFourPipeBeam.hpp>
-#include <openstudio/src/model/AirTerminalSingleDuctConstantVolumeFourPipeBeam_Impl.hpp>
-#include <openstudio/src/model/AirTerminalSingleDuctVAVHeatAndCoolReheat.hpp>
-#include <openstudio/src/model/AirTerminalSingleDuctVAVHeatAndCoolReheat_Impl.hpp>
-#include <openstudio/src/model/AirTerminalSingleDuctVAVReheat.hpp>
-#include <openstudio/src/model/AirTerminalSingleDuctVAVReheat_Impl.hpp>
-#include <openstudio/src/model/AirTerminalSingleDuctParallelPIUReheat.hpp>
-#include <openstudio/src/model/AirTerminalSingleDuctParallelPIUReheat_Impl.hpp>
-#include <openstudio/src/model/AirTerminalSingleDuctSeriesPIUReheat.hpp>
-#include <openstudio/src/model/AirTerminalSingleDuctSeriesPIUReheat_Impl.hpp>
-#include <openstudio/src/model/CoilCoolingCooledBeam.hpp>
-#include <openstudio/src/model/CoilCoolingCooledBeam_Impl.hpp>
-#include <openstudio/src/model/CoilCoolingLowTempRadiantConstFlow.hpp>
-#include <openstudio/src/model/CoilCoolingLowTempRadiantConstFlow_Impl.hpp>
-#include <openstudio/src/model/CoilCoolingLowTempRadiantVarFlow.hpp>
-#include <openstudio/src/model/CoilCoolingLowTempRadiantVarFlow_Impl.hpp>
-#include <openstudio/src/model/CoilCoolingWater.hpp>
-#include <openstudio/src/model/CoilCoolingWater_Impl.hpp>
-#include <openstudio/src/model/CoilHeatingLowTempRadiantConstFlow.hpp>
-#include <openstudio/src/model/CoilHeatingLowTempRadiantConstFlow_Impl.hpp>
-#include <openstudio/src/model/CoilHeatingLowTempRadiantVarFlow.hpp>
-#include <openstudio/src/model/CoilHeatingLowTempRadiantVarFlow_Impl.hpp>
-#include <openstudio/src/model/CoilHeatingWater.hpp>
-#include <openstudio/src/model/CoilHeatingWaterBaseboard.hpp>
-#include <openstudio/src/model/CoilHeatingWaterBaseboard_Impl.hpp>
-#include <openstudio/src/model/CoilHeatingWater_Impl.hpp>
-#include <openstudio/src/model/ConnectorMixer.hpp>
-#include <openstudio/src/model/ConnectorMixer_Impl.hpp>
-#include <openstudio/src/model/ConnectorSplitter.hpp>
-#include <openstudio/src/model/ConnectorSplitter_Impl.hpp>
-#include <openstudio/src/model/ControllerWaterCoil.hpp>
-#include <openstudio/src/model/ControllerWaterCoil_Impl.hpp>
-#include <openstudio/src/model/HVACComponent.hpp>
-#include <openstudio/src/model/HVACComponent_Impl.hpp>
-#include <openstudio/src/model/ModelObject_Impl.hpp>
-#include <openstudio/src/model/RefrigerationWalkIn.hpp>
-#include <openstudio/src/model/RefrigerationWalkInZoneBoundary.hpp>
-#include <openstudio/src/model/RefrigerationWalkInZoneBoundary_Impl.hpp>
-#include <openstudio/src/model/RefrigerationWalkIn_Impl.hpp>
-#include <openstudio/src/model/ScheduleRuleset.hpp>
-#include <openstudio/src/model/ScheduleRuleset_Impl.hpp>
-#include <openstudio/src/model/StraightComponent.hpp>
-#include <openstudio/src/model/StraightComponent_Impl.hpp>
-#include <openstudio/src/model/WaterToAirComponent.hpp>
-#include <openstudio/src/model/WaterToAirComponent_Impl.hpp>
-#include <openstudio/src/model/WaterToWaterComponent.hpp>
-#include <openstudio/src/model/WaterToWaterComponent_Impl.hpp>
-#include <openstudio/src/model/WaterHeaterHeatPump.hpp>
-#include <openstudio/src/model/WaterHeaterHeatPump_Impl.hpp>
-#include <openstudio/src/model/ZoneHVACBaseboardConvectiveWater.hpp>
-#include <openstudio/src/model/ZoneHVACBaseboardConvectiveWater_Impl.hpp>
-#include <openstudio/src/model/ZoneHVACBaseboardRadiantConvectiveWater.hpp>
-#include <openstudio/src/model/ZoneHVACBaseboardRadiantConvectiveWater_Impl.hpp>
-#include <openstudio/src/model/ZoneHVACFourPipeFanCoil.hpp>
-#include <openstudio/src/model/ZoneHVACFourPipeFanCoil_Impl.hpp>
-#include <openstudio/src/model/ZoneHVACLowTempRadiantConstFlow.hpp>
-#include <openstudio/src/model/ZoneHVACLowTempRadiantConstFlow_Impl.hpp>
-#include <openstudio/src/model/ZoneHVACLowTempRadiantVarFlow.hpp>
-#include <openstudio/src/model/ZoneHVACLowTempRadiantVarFlow_Impl.hpp>
-#include <openstudio/src/model/ZoneHVACPackagedTerminalAirConditioner.hpp>
-#include <openstudio/src/model/ZoneHVACPackagedTerminalAirConditioner_Impl.hpp>
-#include <openstudio/src/model/ZoneHVACPackagedTerminalHeatPump.hpp>
-#include <openstudio/src/model/ZoneHVACPackagedTerminalHeatPump_Impl.hpp>
-#include <openstudio/src/model/ZoneHVACUnitHeater.hpp>
-#include <openstudio/src/model/ZoneHVACUnitHeater_Impl.hpp>
-#include <openstudio/src/model/ZoneHVACUnitVentilator.hpp>
-#include <openstudio/src/model/ZoneHVACUnitVentilator_Impl.hpp>
-#include <openstudio/src/model/ZoneHVACWaterToAirHeatPump.hpp>
-#include <openstudio/src/model/ZoneHVACWaterToAirHeatPump_Impl.hpp>
+#include <openstudio/model/AirLoopHVACReturnPlenum.hpp>
+#include <openstudio/model/AirLoopHVACReturnPlenum_Impl.hpp>
+#include <openstudio/model/AirLoopHVACSupplyPlenum.hpp>
+#include <openstudio/model/AirLoopHVACSupplyPlenum_Impl.hpp>
+#include <openstudio/model/AirLoopHVACUnitarySystem.hpp>
+#include <openstudio/model/AirLoopHVACUnitarySystem_Impl.hpp>
+#include <openstudio/model/AirLoopHVACZoneMixer.hpp>
+#include <openstudio/model/AirLoopHVACZoneMixer_Impl.hpp>
+#include <openstudio/model/AirLoopHVACZoneSplitter.hpp>
+#include <openstudio/model/AirLoopHVACZoneSplitter_Impl.hpp>
+#include <openstudio/model/AirTerminalSingleDuctConstantVolumeCooledBeam.hpp>
+#include <openstudio/model/AirTerminalSingleDuctConstantVolumeCooledBeam_Impl.hpp>
+#include <openstudio/model/AirTerminalSingleDuctConstantVolumeReheat.hpp>
+#include <openstudio/model/AirTerminalSingleDuctConstantVolumeReheat_Impl.hpp>
+#include <openstudio/model/AirTerminalSingleDuctConstantVolumeFourPipeInduction.hpp>
+#include <openstudio/model/AirTerminalSingleDuctConstantVolumeFourPipeInduction_Impl.hpp>
+#include <openstudio/model/AirTerminalSingleDuctConstantVolumeFourPipeBeam.hpp>
+#include <openstudio/model/AirTerminalSingleDuctConstantVolumeFourPipeBeam_Impl.hpp>
+#include <openstudio/model/AirTerminalSingleDuctVAVHeatAndCoolReheat.hpp>
+#include <openstudio/model/AirTerminalSingleDuctVAVHeatAndCoolReheat_Impl.hpp>
+#include <openstudio/model/AirTerminalSingleDuctVAVReheat.hpp>
+#include <openstudio/model/AirTerminalSingleDuctVAVReheat_Impl.hpp>
+#include <openstudio/model/AirTerminalSingleDuctParallelPIUReheat.hpp>
+#include <openstudio/model/AirTerminalSingleDuctParallelPIUReheat_Impl.hpp>
+#include <openstudio/model/AirTerminalSingleDuctSeriesPIUReheat.hpp>
+#include <openstudio/model/AirTerminalSingleDuctSeriesPIUReheat_Impl.hpp>
+#include <openstudio/model/CoilCoolingCooledBeam.hpp>
+#include <openstudio/model/CoilCoolingCooledBeam_Impl.hpp>
+#include <openstudio/model/CoilCoolingLowTempRadiantConstFlow.hpp>
+#include <openstudio/model/CoilCoolingLowTempRadiantConstFlow_Impl.hpp>
+#include <openstudio/model/CoilCoolingLowTempRadiantVarFlow.hpp>
+#include <openstudio/model/CoilCoolingLowTempRadiantVarFlow_Impl.hpp>
+#include <openstudio/model/CoilCoolingWater.hpp>
+#include <openstudio/model/CoilCoolingWater_Impl.hpp>
+#include <openstudio/model/CoilHeatingLowTempRadiantConstFlow.hpp>
+#include <openstudio/model/CoilHeatingLowTempRadiantConstFlow_Impl.hpp>
+#include <openstudio/model/CoilHeatingLowTempRadiantVarFlow.hpp>
+#include <openstudio/model/CoilHeatingLowTempRadiantVarFlow_Impl.hpp>
+#include <openstudio/model/CoilHeatingWater.hpp>
+#include <openstudio/model/CoilHeatingWaterBaseboard.hpp>
+#include <openstudio/model/CoilHeatingWaterBaseboard_Impl.hpp>
+#include <openstudio/model/CoilHeatingWater_Impl.hpp>
+#include <openstudio/model/ConnectorMixer.hpp>
+#include <openstudio/model/ConnectorMixer_Impl.hpp>
+#include <openstudio/model/ConnectorSplitter.hpp>
+#include <openstudio/model/ConnectorSplitter_Impl.hpp>
+#include <openstudio/model/ControllerWaterCoil.hpp>
+#include <openstudio/model/ControllerWaterCoil_Impl.hpp>
+#include <openstudio/model/FanConstantVolume.hpp>
+#include <openstudio/model/FanConstantVolume_Impl.hpp>
+#include <openstudio/model/FanVariableVolume.hpp>
+#include <openstudio/model/FanVariableVolume_Impl.hpp>
+#include <openstudio/model/FanSystemModel.hpp>
+#include <openstudio/model/FanSystemModel_Impl.hpp>
+#include <openstudio/model/HVACComponent.hpp>
+#include <openstudio/model/HVACComponent_Impl.hpp>
+#include <openstudio/model/ModelObject_Impl.hpp>
+#include <openstudio/model/RefrigerationWalkIn.hpp>
+#include <openstudio/model/RefrigerationWalkInZoneBoundary.hpp>
+#include <openstudio/model/RefrigerationWalkInZoneBoundary_Impl.hpp>
+#include <openstudio/model/RefrigerationWalkIn_Impl.hpp>
+#include <openstudio/model/ScheduleRuleset.hpp>
+#include <openstudio/model/ScheduleRuleset_Impl.hpp>
+#include <openstudio/model/StraightComponent.hpp>
+#include <openstudio/model/StraightComponent_Impl.hpp>
+#include <openstudio/model/WaterToAirComponent.hpp>
+#include <openstudio/model/WaterToAirComponent_Impl.hpp>
+#include <openstudio/model/WaterToWaterComponent.hpp>
+#include <openstudio/model/WaterToWaterComponent_Impl.hpp>
+#include <openstudio/model/WaterHeaterHeatPump.hpp>
+#include <openstudio/model/WaterHeaterHeatPump_Impl.hpp>
+#include <openstudio/model/ZoneHVACBaseboardConvectiveWater.hpp>
+#include <openstudio/model/ZoneHVACBaseboardConvectiveWater_Impl.hpp>
+#include <openstudio/model/ZoneHVACBaseboardRadiantConvectiveWater.hpp>
+#include <openstudio/model/ZoneHVACBaseboardRadiantConvectiveWater_Impl.hpp>
+#include <openstudio/model/ZoneHVACFourPipeFanCoil.hpp>
+#include <openstudio/model/ZoneHVACFourPipeFanCoil_Impl.hpp>
+#include <openstudio/model/ZoneHVACLowTempRadiantConstFlow.hpp>
+#include <openstudio/model/ZoneHVACLowTempRadiantConstFlow_Impl.hpp>
+#include <openstudio/model/ZoneHVACLowTempRadiantVarFlow.hpp>
+#include <openstudio/model/ZoneHVACLowTempRadiantVarFlow_Impl.hpp>
+#include <openstudio/model/ZoneHVACPackagedTerminalAirConditioner.hpp>
+#include <openstudio/model/ZoneHVACPackagedTerminalAirConditioner_Impl.hpp>
+#include <openstudio/model/ZoneHVACPackagedTerminalHeatPump.hpp>
+#include <openstudio/model/ZoneHVACPackagedTerminalHeatPump_Impl.hpp>
+#include <openstudio/model/ZoneHVACUnitHeater.hpp>
+#include <openstudio/model/ZoneHVACUnitHeater_Impl.hpp>
+#include <openstudio/model/ZoneHVACUnitVentilator.hpp>
+#include <openstudio/model/ZoneHVACUnitVentilator_Impl.hpp>
+#include <openstudio/model/ZoneHVACWaterToAirHeatPump.hpp>
+#include <openstudio/model/ZoneHVACWaterToAirHeatPump_Impl.hpp>
 
 #include "../model_editor/InspectorGadget.hpp"
 #include "../model_editor/Utilities.hpp"
 
-#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
 
 #include <QApplication>
 #include <QBitmap>
@@ -740,6 +747,117 @@ void InspectorView::layoutModelObject(openstudio::model::OptionalModelObject & m
 
       m_vLayout->addWidget(m_currentView);
     }
+    else if (boost::optional<model::FanVariableVolume> component =
+      modelObject->optionalCast<model::FanVariableVolume>())
+    {
+      // Override the access policy to hide the Fan Availability Schedule Name if part of an AirLoopHVAC
+      // as it will be overriden by the Loop HVAC Operation Schedule
+      openstudio::model::AccessPolicy::ACCESS_LEVEL oldLevel;
+      openstudio::model::AccessPolicy* pAccessPolicy;
+
+      // Note JM 2019-11-25: In fact, the only case where we'll hit this block *right now* is on an AirLoopHVAC,
+      // otherwise the fan is a child so this check is *currently uncessary* (but right and safer, so leaving it in place)
+      bool overrideAccess = component->airLoopHVAC().has_value();
+      if (overrideAccess) {
+        IddObject iddObject = component->iddObject();
+        pAccessPolicy = const_cast<openstudio::model::AccessPolicy*>(openstudio::model::AccessPolicyStore::Instance().getPolicy( iddObject.type()));
+        OS_ASSERT(openstudio::istringEqual(iddObject.getField(2)->name(), "Availability Schedule Name"));
+        oldLevel = pAccessPolicy->getAccess(2);
+        pAccessPolicy->setAccess(2, openstudio::model::AccessPolicy::ACCESS_LEVEL::HIDDEN);
+      }
+
+      if( m_currentView )
+      {
+        delete m_currentView;
+      }
+
+      m_currentView = new GenericInspectorView();
+
+      connect(this, &InspectorView::toggleUnitsClicked, m_currentView, &BaseInspectorView::toggleUnitsClicked);
+
+      m_currentView->layoutModelObject(modelObject.get(), readOnly, displayIP);
+
+      m_vLayout->addWidget(m_currentView);
+
+      // Restore old level (FREE)
+      if (overrideAccess) {
+        pAccessPolicy->setAccess(2, oldLevel);
+      }
+    }
+    else if (boost::optional<model::FanConstantVolume> component =
+      modelObject->optionalCast<model::FanConstantVolume>())
+    {
+      // Override the access policy to hide the Fan Availability Schedule Name if part of an AirLoopHVAC
+      // as it will be overriden by the Loop HVAC Operation Schedule
+      openstudio::model::AccessPolicy::ACCESS_LEVEL oldLevel;
+      openstudio::model::AccessPolicy* pAccessPolicy;
+
+      // Note JM 2019-11-25: In fact, the only case where we'll hit this block *right now* is on an AirLoopHVAC,
+      // otherwise the fan is a child so this check is *currently uncessary* (but right and safer, so leaving it in place)
+      bool overrideAccess = component->airLoopHVAC().has_value();
+      if (overrideAccess) {
+        IddObject iddObject = component->iddObject();
+        pAccessPolicy = const_cast<openstudio::model::AccessPolicy*>(openstudio::model::AccessPolicyStore::Instance().getPolicy( iddObject.type()));
+        OS_ASSERT(openstudio::istringEqual(iddObject.getField(2)->name(), "Availability Schedule Name"));
+        oldLevel = pAccessPolicy->getAccess(2);
+        pAccessPolicy->setAccess(2, openstudio::model::AccessPolicy::ACCESS_LEVEL::HIDDEN);
+      }
+
+      if( m_currentView )
+      {
+        delete m_currentView;
+      }
+
+      m_currentView = new GenericInspectorView();
+
+      connect(this, &InspectorView::toggleUnitsClicked, m_currentView, &BaseInspectorView::toggleUnitsClicked);
+
+      m_currentView->layoutModelObject(modelObject.get(), readOnly, displayIP);
+
+      m_vLayout->addWidget(m_currentView);
+
+      // Restore old level (FREE)
+      if (overrideAccess) {
+        pAccessPolicy->setAccess(2, oldLevel);
+      }
+    }
+    else if (boost::optional<model::FanSystemModel> component =
+      modelObject->optionalCast<model::FanSystemModel>())
+    {
+      // Override the access policy to hide the Fan Availability Schedule Name if part of an AirLoopHVAC
+      // as it will be overriden by the Loop HVAC Operation Schedule
+      openstudio::model::AccessPolicy::ACCESS_LEVEL oldLevel;
+      openstudio::model::AccessPolicy* pAccessPolicy;
+
+      // Note JM 2019-11-25: In fact, the only case where we'll hit this block *right now* is on an AirLoopHVAC,
+      // otherwise the fan is a child so this check is *currently uncessary* (but right and safer, so leaving it in place)
+      bool overrideAccess = component->airLoopHVAC().has_value();
+      if (overrideAccess) {
+        IddObject iddObject = component->iddObject();
+        pAccessPolicy = const_cast<openstudio::model::AccessPolicy*>(openstudio::model::AccessPolicyStore::Instance().getPolicy( iddObject.type()));
+        OS_ASSERT(openstudio::istringEqual(iddObject.getField(2)->name(), "Availability Schedule Name"));
+        oldLevel = pAccessPolicy->getAccess(2);
+        pAccessPolicy->setAccess(2, openstudio::model::AccessPolicy::ACCESS_LEVEL::HIDDEN);
+      }
+
+      if( m_currentView )
+      {
+        delete m_currentView;
+      }
+
+      m_currentView = new GenericInspectorView();
+
+      connect(this, &InspectorView::toggleUnitsClicked, m_currentView, &BaseInspectorView::toggleUnitsClicked);
+
+      m_currentView->layoutModelObject(modelObject.get(), readOnly, displayIP);
+
+      m_vLayout->addWidget(m_currentView);
+
+      // Restore old level (FREE)
+      if (overrideAccess) {
+        pAccessPolicy->setAccess(2, oldLevel);
+      }
+    }
     else
     {
       if( m_currentView )
@@ -919,7 +1037,9 @@ NewPlenumDialog::NewPlenumDialog(QWidget * parent)
       it != allZones.end();
       ++it)
   {
-    if( (! it->isPlenum()) && it->equipment().empty() && (! it->airLoopHVAC()) )
+    // equipment() is empty if you useIdealAirLoads, so we have to filter that out explicitly
+    // to match AirLoopHVACSupplyReturnPlenum_Impl::setThermalZone and AirLoopHVACReturnPlenum_Impl::setThermalZone
+    if( (! it->isPlenum()) && it->equipment().empty() && (! it->airLoopHVAC()) && (! it->useIdealAirLoads()) )
     {
       zoneChooser->addItem(QString::fromStdString(it->name().get()),toQString(it->handle()));
     }

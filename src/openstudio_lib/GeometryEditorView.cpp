@@ -33,47 +33,47 @@
 #include "OSDocument.hpp"
 #include "MainWindow.hpp"
 
-#include <openstudio/src/model/Model.hpp>
-#include <openstudio/src/model/Model_Impl.hpp>
-#include <openstudio/src/model/ModelMerger.hpp>
-#include <openstudio/src/model/ThreeJSReverseTranslator.hpp>
-#include <openstudio/src/model/ThreeJSForwardTranslator.hpp>
-#include <openstudio/src/model/FloorplanJSForwardTranslator.hpp>
-#include <openstudio/src/model/Building.hpp>
-#include <openstudio/src/model/Building_Impl.hpp>
-#include <openstudio/src/model/BuildingStory.hpp>
-#include <openstudio/src/model/BuildingStory_Impl.hpp>
-#include <openstudio/src/model/PlanarSurfaceGroup.hpp>
-#include <openstudio/src/model/PlanarSurfaceGroup_Impl.hpp>
-#include <openstudio/src/model/Space.hpp>
-#include <openstudio/src/model/Space_Impl.hpp>
-#include <openstudio/src/model/ShadingSurfaceGroup.hpp>
-#include <openstudio/src/model/ShadingSurfaceGroup_Impl.hpp>
-#include <openstudio/src/model/Site.hpp>
-#include <openstudio/src/model/Site_Impl.hpp>
-#include <openstudio/src/model/Surface.hpp>
-#include <openstudio/src/model/Surface_Impl.hpp>
-#include <openstudio/src/model/SubSurface.hpp>
-#include <openstudio/src/model/SubSurface_Impl.hpp>
-#include <openstudio/src/model/ShadingSurface.hpp>
-#include <openstudio/src/model/ShadingSurface_Impl.hpp>
+#include <openstudio/model/Model.hpp>
+#include <openstudio/model/Model_Impl.hpp>
+#include <openstudio/model/ModelMerger.hpp>
+#include <openstudio/model/ThreeJSReverseTranslator.hpp>
+#include <openstudio/model/ThreeJSForwardTranslator.hpp>
+#include <openstudio/model/FloorplanJSForwardTranslator.hpp>
+#include <openstudio/model/Building.hpp>
+#include <openstudio/model/Building_Impl.hpp>
+#include <openstudio/model/BuildingStory.hpp>
+#include <openstudio/model/BuildingStory_Impl.hpp>
+#include <openstudio/model/PlanarSurfaceGroup.hpp>
+#include <openstudio/model/PlanarSurfaceGroup_Impl.hpp>
+#include <openstudio/model/Space.hpp>
+#include <openstudio/model/Space_Impl.hpp>
+#include <openstudio/model/ShadingSurfaceGroup.hpp>
+#include <openstudio/model/ShadingSurfaceGroup_Impl.hpp>
+#include <openstudio/model/Site.hpp>
+#include <openstudio/model/Site_Impl.hpp>
+#include <openstudio/model/Surface.hpp>
+#include <openstudio/model/Surface_Impl.hpp>
+#include <openstudio/model/SubSurface.hpp>
+#include <openstudio/model/SubSurface_Impl.hpp>
+#include <openstudio/model/ShadingSurface.hpp>
+#include <openstudio/model/ShadingSurface_Impl.hpp>
 
 #include "../model_editor/Utilities.hpp"
 
-#include <openstudio/src/gbxml/ReverseTranslator.hpp>
-#include <openstudio/src/energyplus/ReverseTranslator.hpp>
-#include <openstudio/src/osversion/VersionTranslator.hpp>
+#include <openstudio/gbxml/ReverseTranslator.hpp>
+#include <openstudio/energyplus/ReverseTranslator.hpp>
+#include <openstudio/osversion/VersionTranslator.hpp>
 
-#include <openstudio/src/utilities/core/Assert.hpp>
-#include <openstudio/src/utilities/core/Checksum.hpp>
-#include <openstudio/src/utilities/bcl/RemoteBCL.hpp>
-#include <openstudio/src/utilities/geometry/FloorplanJS.hpp>
-#include <openstudio/src/utilities/geometry/ThreeJS.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Checksum.hpp>
+#include <openstudio/utilities/bcl/RemoteBCL.hpp>
+#include <openstudio/utilities/geometry/FloorplanJS.hpp>
+#include <openstudio/utilities/geometry/ThreeJS.hpp>
 
 // Needed for getEnergyPlusExecutable for eg
-#include <openstudio/src/utilities/core/ApplicationPathHelpers.hpp>
+#include <openstudio/utilities/core/ApplicationPathHelpers.hpp>
 
-#include <openstudio/src/utilities/idd/IddEnums.hxx>
+#include <openstudio/utilities/idd/IddEnums.hxx>
 
 #include <QFile>
 #include <QDialog>

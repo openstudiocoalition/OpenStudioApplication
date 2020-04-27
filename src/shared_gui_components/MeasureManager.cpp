@@ -41,20 +41,20 @@
 #include "../model_editor/UserSettings.hpp"
 #include "../model_editor/Utilities.hpp"
 
-#include <openstudio/src/measure/OSArgument.hpp>
+#include <openstudio/measure/OSArgument.hpp>
 
-#include <openstudio/src/model/Model.hpp>
+#include <openstudio/model/Model.hpp>
 
-#include <openstudio/src/utilities/core/Assert.hpp>
-#include <openstudio/src/utilities/core/PathHelpers.hpp>
-#include <openstudio/src/utilities/core/RubyException.hpp>
-#include <openstudio/src/utilities/core/System.hpp>
-#include <openstudio/src/utilities/bcl/BCLMeasure.hpp>
-#include <openstudio/src/utilities/bcl/RemoteBCL.hpp>
-#include <openstudio/src/utilities/bcl/LocalBCL.hpp>
-#include <openstudio/src/utilities/filetypes/WorkflowJSON.hpp>
-#include <openstudio/src/utilities/filetypes/WorkflowStep.hpp>
-#include <openstudio/src/utilities/filetypes/WorkflowStep_Impl.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/PathHelpers.hpp>
+#include <openstudio/utilities/core/RubyException.hpp>
+#include <openstudio/utilities/core/System.hpp>
+#include <openstudio/utilities/bcl/BCLMeasure.hpp>
+#include <openstudio/utilities/bcl/RemoteBCL.hpp>
+#include <openstudio/utilities/bcl/LocalBCL.hpp>
+#include <openstudio/utilities/filetypes/WorkflowJSON.hpp>
+#include <openstudio/utilities/filetypes/WorkflowStep.hpp>
+#include <openstudio/utilities/filetypes/WorkflowStep_Impl.hpp>
 
 #include <json/json.h>
 
@@ -75,6 +75,10 @@
 #include <QNetworkAccessManager>
 #include <QNetworkRequest>
 #include <QNetworkReply>
+#include <QThread>
+// Debug only
+//#include <QSslError>
+//#include <QDateTime>
 
 namespace openstudio {
 
@@ -94,10 +98,10 @@ void MeasureManager::setUrl(const QUrl& url)
   m_url = url;
 }
 
-void MeasureManager::waitForStarted(int msec)
+bool MeasureManager::waitForStarted(int msec)
 {
-  if (m_started){
-    return;
+  if (m_started) {
+    return true;
   }
 
   // ping server until get a started response
@@ -118,28 +122,58 @@ void MeasureManager::waitForStarted(int msec)
 
     QNetworkReply* reply = manager.get(request);
 
-    while (reply->isRunning()){
+    // If trying to debug a potential SSL error
+    // connect(reply, SIGNAL(sslErrors(QList<QSslError>)), this, SLOT(sslErrors(QList<QSslError>)));
+    // connect(reply, SIGNAL(sslErrors(QList<QSslError>)), reply, SLOT(ignoreSslErrors()));
+
+    while (reply->isRunning()) {
       Application::instance().processEvents();
     }
 
     auto error = reply->error();
     delete reply;
 
-    if (error == QNetworkReply::NoError){
+    if (error == QNetworkReply::NoError) {
       success = true;
-    } else{
-      Application::instance().processEvents(msecPerLoop);
+    } else {
+      // We actually want to pause for msecPerLoop, processEvents will only put an upper limit the event processing that needs doing
+      // > processEvents: Processes pending events for the calling thread for maxTime_ms milliseconds or
+      // > ** until there are no more events to process,whichever is shorter**.
+      // Application::instance().processEvents(msecPerLoop);
+
+      // So we use QThread::msleep instead, which is not 100% accurate but we do not care. I am getting about 20ms delay in between tries
+      // Debug
+      // LOG(Debug, "[" << current << ", " << QDateTime::currentDateTime().toMSecsSinceEpoch() << " ms]: QNetworkReply is " << error);
+
+      QThread::msleep(msecPerLoop);
     }
 
     ++current;
   }
 
-  if (success){
+  if (success) {
     m_started = true;
-  }else{
-    LOG(Error, "Measure manager server failed to start.")
+  } else {
+    LOG(Error, "Measure manager server failed to start. Was looking at URL="  << toString(url.toString()));
   }
+
+  return m_started;
 }
+
+bool MeasureManager::isStarted() const {
+  return m_started;
+}
+
+/* If trying to debug a potential SSL error
+ *void MeasureManager::sslErrors(const QList<QSslError>& errors)
+ *{
+ *  // Prints each SSL eorr
+ *  foreach(QSslError error, errors)
+ *  {
+ *    LOG(Debug, "sslError" << toString(error.errorString()));
+ *  }
+ *}
+ */
 
 openstudio::path MeasureManager::tempModelPath() const
 {

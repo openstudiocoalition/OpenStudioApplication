@@ -39,14 +39,14 @@
 #include "../shared_gui_components/OSComboBox.hpp"
 #include "../shared_gui_components/OSLineEdit.hpp"
 
-#include <openstudio/src/model/Construction.hpp>
-#include <openstudio/src/model/Construction_Impl.hpp>
-#include <openstudio/src/model/Material.hpp>
-#include <openstudio/src/model/Material_Impl.hpp>
-#include <openstudio/src/model/StandardsInformationConstruction.hpp>
+#include <openstudio/model/Construction.hpp>
+#include <openstudio/model/Construction_Impl.hpp>
+#include <openstudio/model/Material.hpp>
+#include <openstudio/model/Material_Impl.hpp>
+#include <openstudio/model/StandardsInformationConstruction.hpp>
 
-#include <openstudio/src/utilities/core/Assert.hpp>
-#include <openstudio/src/utilities/idd/OS_Construction_FieldEnums.hxx>
+#include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/idd/OS_Construction_FieldEnums.hxx>
 
 #include <QComboBox>
 #include <QGridLayout>
@@ -125,7 +125,11 @@ void ConstructionInspectorView::createLayout()
   m_constructionDZ = new OSDropZone(m_constructionVC,"Drag From Library",QSize(0,0),false);
   m_constructionDZ->setMinItems(0);
   m_constructionDZ->setMaxItems(12);
+  m_constructionDZ->setItemsRemoveable(true);
+  m_constructionDZ->setAcceptDrops(true);
   m_constructionDZ->setItemsAcceptDrops(true);
+  m_constructionDZ->setEnabled(true);
+  m_constructionDZ->setItemsDraggable(true);
   m_constructionDZ->setFixedSize(QSize(OSItem::ITEM_WIDTH + 20,600));
   mainGridLayout->addWidget(m_constructionDZ, row, 0);
 
@@ -196,6 +200,7 @@ void ConstructionInspectorView::detach()
 {
   m_standardsInformationWidget->detach();
   m_constructionVC->detach();
+  m_constructionVC->reportItems();
   m_construction = boost::none;
 }
 

@@ -32,7 +32,7 @@
 
 #include "OSCollapsibleItem.hpp"
 
-#include <openstudio/src/model/Model.hpp>
+#include <openstudio/model/Model.hpp>
 
 namespace openstudio {
 

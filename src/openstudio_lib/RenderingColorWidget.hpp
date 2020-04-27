@@ -30,10 +30,10 @@
 #ifndef OPENSTUDIO_RENDERINGCOLORWIDGET_HPP
 #define OPENSTUDIO_RENDERINGCOLORWIDGET_HPP
 
-#include <openstudio/src/nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/nano/nano_signal_slot.hpp> // Signal-Slot replacement
 #include "../shared_gui_components/FieldMethodTypedefs.hpp"
 
-#include <openstudio/src/model/RenderingColor.hpp>
+#include <openstudio/model/RenderingColor.hpp>
 
 #include <QWidget>
 

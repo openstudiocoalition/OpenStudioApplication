@@ -34,7 +34,7 @@
 #include <boost/optional.hpp>
 #include "../shared_gui_components/OSListController.hpp"
 #include "../model_editor/QMetaTypes.hpp"
-#include <openstudio/src/model/RefrigerationSystem.hpp>
+#include <openstudio/model/RefrigerationSystem.hpp>
 
 class QGraphicsScene;
 class QGraphicsView;
@@ -50,6 +50,7 @@ class RefrigerationScene;
 class RefrigerationSystemDetailView;
 class OSItemId;
 class RefrigerationView;
+class NoRefrigerationView;
 // TODO class RefrigerationGridView;
 
 class RefrigerationController : public QObject
@@ -63,6 +64,8 @@ class RefrigerationController : public QObject
   virtual ~RefrigerationController();
 
   RefrigerationView * refrigerationView() const;
+
+  NoRefrigerationView * noRefrigerationView() const;
 
   // TODO RefrigerationGridView * refrigerationGridView() const;
 
@@ -126,6 +129,8 @@ class RefrigerationController : public QObject
   QSharedPointer<QGraphicsScene> m_refrigerationGridScene;
 
   QPointer<QGraphicsScene> m_refrigerationScene;
+
+  QPointer<NoRefrigerationView> m_noRefrigerationView;
 
   bool m_dirty;
 

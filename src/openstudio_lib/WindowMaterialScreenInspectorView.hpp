@@ -31,7 +31,7 @@
 #define OPENSTUDIO_WINDOWMATERIALSCREENINSPECTORVIEW_HPP
 
 #include "ModelObjectInspectorView.hpp"
-#include <openstudio/src/model/Screen.hpp>
+#include <openstudio/model/Screen.hpp>
 
 namespace openstudio {
 

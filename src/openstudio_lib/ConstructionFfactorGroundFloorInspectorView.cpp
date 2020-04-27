@@ -35,10 +35,10 @@
 #include "../shared_gui_components/OSQuantityEdit.hpp"
 #include "../shared_gui_components/OSComboBox.hpp"
 
-#include <openstudio/src/model/FFactorGroundFloorConstruction.hpp>
-#include <openstudio/src/model/FFactorGroundFloorConstruction_Impl.hpp>
+#include <openstudio/model/FFactorGroundFloorConstruction.hpp>
+#include <openstudio/model/FFactorGroundFloorConstruction_Impl.hpp>
 
-#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
 
 #include <QGridLayout>
 #include <QLabel>

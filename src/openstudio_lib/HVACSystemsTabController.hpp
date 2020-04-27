@@ -31,7 +31,7 @@
 #define OPENSTUDIO_HVACSYSTEMSTABCONTROLLER_HPP
 
 #include "MainTabController.hpp"
-#include <openstudio/src/model/Model.hpp>
+#include <openstudio/model/Model.hpp>
 
 namespace openstudio {
 

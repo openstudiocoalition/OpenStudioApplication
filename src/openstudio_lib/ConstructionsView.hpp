@@ -33,7 +33,7 @@
 #include "ModelObjectInspectorView.hpp"
 #include "ModelSubTabView.hpp"
 
-#include <openstudio/src/model/Model.hpp>
+#include <openstudio/model/Model.hpp>
 
 namespace openstudio {
 
@@ -78,6 +78,8 @@ class ConstructionsInspectorView : public ModelObjectInspectorView
   private:
 
     void showConstructionInspector(const openstudio::model::ModelObject & modelObject);
+
+    void showAirBoundaryInspector(const openstudio::model::ModelObject & modelObject);
 
     void showCfactorUndergroundWallInspector(const openstudio::model::ModelObject & modelObject);
 

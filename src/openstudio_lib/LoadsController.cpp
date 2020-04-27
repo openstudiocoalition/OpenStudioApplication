@@ -30,35 +30,35 @@
 #include "LoadsController.hpp"
 #include "LoadsView.hpp"
 
-#include <openstudio/src/model/SpaceLoadDefinition.hpp>
-#include <openstudio/src/model/SpaceLoadDefinition_Impl.hpp>
-#include <openstudio/src/model/SpaceLoadInstance.hpp>
-#include <openstudio/src/model/InternalMassDefinition.hpp>
-#include <openstudio/src/model/InternalMassDefinition_Impl.hpp>
-#include <openstudio/src/model/LightsDefinition.hpp>
-#include <openstudio/src/model/LightsDefinition_Impl.hpp>
-#include <openstudio/src/model/LuminaireDefinition.hpp>
-#include <openstudio/src/model/LuminaireDefinition_Impl.hpp>
-#include <openstudio/src/model/ElectricEquipmentDefinition.hpp>
-#include <openstudio/src/model/ElectricEquipmentDefinition_Impl.hpp>
-#include <openstudio/src/model/GasEquipmentDefinition.hpp>
-#include <openstudio/src/model/GasEquipmentDefinition_Impl.hpp>
-#include <openstudio/src/model/SteamEquipmentDefinition.hpp>
-#include <openstudio/src/model/SteamEquipmentDefinition_Impl.hpp>
-#include <openstudio/src/model/OtherEquipmentDefinition.hpp>
-#include <openstudio/src/model/OtherEquipmentDefinition_Impl.hpp>
-#include <openstudio/src/model/WaterUseEquipmentDefinition.hpp>
-#include <openstudio/src/model/WaterUseEquipmentDefinition_Impl.hpp>
-#include <openstudio/src/model/PeopleDefinition.hpp>
-#include <openstudio/src/model/PeopleDefinition_Impl.hpp>
+#include <openstudio/model/SpaceLoadDefinition.hpp>
+#include <openstudio/model/SpaceLoadDefinition_Impl.hpp>
+#include <openstudio/model/SpaceLoadInstance.hpp>
+#include <openstudio/model/InternalMassDefinition.hpp>
+#include <openstudio/model/InternalMassDefinition_Impl.hpp>
+#include <openstudio/model/LightsDefinition.hpp>
+#include <openstudio/model/LightsDefinition_Impl.hpp>
+#include <openstudio/model/LuminaireDefinition.hpp>
+#include <openstudio/model/LuminaireDefinition_Impl.hpp>
+#include <openstudio/model/ElectricEquipmentDefinition.hpp>
+#include <openstudio/model/ElectricEquipmentDefinition_Impl.hpp>
+#include <openstudio/model/GasEquipmentDefinition.hpp>
+#include <openstudio/model/GasEquipmentDefinition_Impl.hpp>
+#include <openstudio/model/SteamEquipmentDefinition.hpp>
+#include <openstudio/model/SteamEquipmentDefinition_Impl.hpp>
+#include <openstudio/model/OtherEquipmentDefinition.hpp>
+#include <openstudio/model/OtherEquipmentDefinition_Impl.hpp>
+#include <openstudio/model/WaterUseEquipmentDefinition.hpp>
+#include <openstudio/model/WaterUseEquipmentDefinition_Impl.hpp>
+#include <openstudio/model/PeopleDefinition.hpp>
+#include <openstudio/model/PeopleDefinition_Impl.hpp>
 
-#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
 
 #include <QMessageBox>
 
-#include <openstudio/src/utilities/core/Logger.hpp>
+#include <openstudio/utilities/core/Logger.hpp>
 
-#include <openstudio/src/utilities/idd/IddEnums.hxx>
+#include <openstudio/utilities/idd/IddEnums.hxx>
 
 namespace openstudio {
 

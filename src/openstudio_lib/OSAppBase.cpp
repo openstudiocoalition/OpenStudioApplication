@@ -43,8 +43,8 @@
 
 #include "../model_editor/UserSettings.hpp"
 
-#include <openstudio/src/utilities/bcl/LocalBCL.hpp>
-#include <openstudio/src/utilities/core/PathHelpers.hpp>
+#include <openstudio/utilities/bcl/LocalBCL.hpp>
+#include <openstudio/utilities/core/PathHelpers.hpp>
 
 #include <QDir>
 #include <QEvent>

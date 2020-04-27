@@ -33,8 +33,8 @@
 
 #include "../shared_gui_components/MeasureBadge.hpp"
 
-#include <openstudio/src/utilities/bcl/BCLComponent.hpp>
-#include <openstudio/src/utilities/bcl/LocalBCL.hpp>
+#include <openstudio/utilities/bcl/BCLComponent.hpp>
+#include <openstudio/utilities/bcl/LocalBCL.hpp>
 
 #include <QLabel>
 

@@ -35,10 +35,10 @@
 #include "../shared_gui_components/OSQuantityEdit.hpp"
 #include "../shared_gui_components/OSSwitch.hpp"
 
-#include <openstudio/src/model/RefractionExtinctionGlazing.hpp>
-#include <openstudio/src/model/RefractionExtinctionGlazing_Impl.hpp>
+#include <openstudio/model/RefractionExtinctionGlazing.hpp>
+#include <openstudio/model/RefractionExtinctionGlazing_Impl.hpp>
 
-#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
 
 #include <QGridLayout>
 #include <QLabel>

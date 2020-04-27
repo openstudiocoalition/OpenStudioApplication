@@ -34,26 +34,26 @@
 #include "IGPrecisionDialog.hpp"
 #include "IGSpinBoxes.hpp"
 
-#include <openstudio/src/model/Model.hpp>
-#include <openstudio/src/model/ParentObject.hpp>
-#include <openstudio/src/model/ParentObject_Impl.hpp>
+#include <openstudio/model/Model.hpp>
+#include <openstudio/model/ParentObject.hpp>
+#include <openstudio/model/ParentObject_Impl.hpp>
 
 #include "../model_editor/Utilities.hpp"
 
-#include <openstudio/src/utilities/core/Assert.hpp>
-#include <openstudio/src/utilities/core/Compare.hpp>
-#include <openstudio/src/utilities/core/StringHelpers.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Compare.hpp>
+#include <openstudio/utilities/core/StringHelpers.hpp>
 
-#include <openstudio/src/utilities/idd/IddField.hpp>
-#include <openstudio/src/utilities/idd/IddFieldProperties.hpp>
-#include <openstudio/src/utilities/idd/IddKey.hpp>
-#include <openstudio/src/utilities/idd/IddObject.hpp>
-#include <openstudio/src/utilities/idd/IddObjectProperties.hpp>
-#include <openstudio/src/utilities/idf/IdfExtensibleGroup.hpp>
+#include <openstudio/utilities/idd/IddField.hpp>
+#include <openstudio/utilities/idd/IddFieldProperties.hpp>
+#include <openstudio/utilities/idd/IddKey.hpp>
+#include <openstudio/utilities/idd/IddObject.hpp>
+#include <openstudio/utilities/idd/IddObjectProperties.hpp>
+#include <openstudio/utilities/idf/IdfExtensibleGroup.hpp>
 
-#include <openstudio/src/utilities/units/OSOptionalQuantity.hpp>
-#include <openstudio/src/utilities/units/Quantity.hpp>
-#include <openstudio/src/utilities/units/QuantityConverter.hpp>
+#include <openstudio/utilities/units/OSOptionalQuantity.hpp>
+#include <openstudio/utilities/units/Quantity.hpp>
+#include <openstudio/utilities/units/QuantityConverter.hpp>
 
 #include <boost/numeric/conversion/cast.hpp>
 
@@ -790,6 +790,57 @@ void InspectorGadget::layoutText( QVBoxLayout* layout,
       vbox->addLayout(hardSizedLayout);
       vbox->addLayout(autoSizedLayout);
     }
+    else if( prop.autocalculatable)
+    {
+      auto autoCalcdLayout = new QHBoxLayout();
+      QRadioButton* hardSizedRadio = new QRadioButton(tr("Hard Sized"), parent );
+      QRadioButton* autocalculatedRadio = new QRadioButton(tr("Autocalculate"), parent );
+      autocalculatedRadio->setProperty(s_indexSlotName,index);
+
+      if( level == AccessPolicy::LOCKED )
+      {
+        hardSizedRadio->setEnabled(false);
+        autocalculatedRadio->setEnabled(false);
+      }
+
+      bool isAutocalculated = istringEqual(curVal, "autocalculate");
+      if (curVal.empty() && prop.stringDefault && istringEqual(prop.stringDefault.get(), "autocalculate")){
+        isAutocalculated = true;
+      }
+
+      if(isAutocalculated)
+      {
+        autocalculatedRadio->setChecked(true);
+        hardSizedRadio->setChecked(false);
+        text->setText("");
+        text->setEnabled(false);
+      }
+      else
+      {
+        autocalculatedRadio->setChecked(false);
+        hardSizedRadio->setChecked(true);
+        text->setEnabled(true);
+      }
+
+      QLabel* autolabel = new QLabel("Autocalculate", parent );
+      autolabel->setEnabled(false);
+
+      autoCalcdLayout->addWidget( autocalculatedRadio );
+      autoCalcdLayout->addWidget( autolabel );
+
+      hardSizedLayout->addWidget( hardSizedRadio );
+      hardSizedLayout->addWidget( text );
+      hardSizedLayout->addWidget( units );
+
+      // enable the hard size field
+      connect(hardSizedRadio, &QRadioButton::toggled, text, &IGLineEdit::setEnabled);
+      // when clicking on the hard size radio set text
+      connect(hardSizedRadio, &QRadioButton::clicked, text, &IGLineEdit::hardsizeClicked);
+      // set the field to autcalculate
+      connect(autocalculatedRadio, &QRadioButton::toggled, this, &InspectorGadget::IGautocalculate);
+      vbox->addLayout(hardSizedLayout);
+      vbox->addLayout(autoCalcdLayout);
+    }
     else
     {
       hardSizedLayout->addWidget(text);
@@ -1105,8 +1156,9 @@ void InspectorGadget::IGcommentChanged( const QString& value )
 
 void InspectorGadget::IGautosize(bool toggled)
 {
-  if(!toggled)
+  if (!toggled) {
     return;
+  }
 
   QObject* source = sender();
   QVariant v = source->property(InspectorGadget::s_indexSlotName);
@@ -1114,6 +1166,21 @@ void InspectorGadget::IGautosize(bool toggled)
 
   disconnectWorkspaceObjectSignals();
   m_workspaceObj->setString(index,"Autosize");
+  connectWorkspaceObjectSignals();
+}
+
+void InspectorGadget::IGautocalculate(bool toggled)
+{
+  if (!toggled) {
+    return;
+  }
+
+  QObject* source = sender();
+  QVariant v = source->property(InspectorGadget::s_indexSlotName);
+  int index = v.toInt();
+
+  disconnectWorkspaceObjectSignals();
+  m_workspaceObj->setString(index, "Autocalculate");
   connectWorkspaceObjectSignals();
 }
 

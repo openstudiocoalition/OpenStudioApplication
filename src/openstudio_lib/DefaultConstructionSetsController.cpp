@@ -30,13 +30,13 @@
 #include "DefaultConstructionSetsController.hpp"
 #include "DefaultConstructionSetsView.hpp"
 
-#include <openstudio/src/model/DefaultConstructionSet.hpp>
-#include <openstudio/src/model/DefaultConstructionSet_Impl.hpp>
-#include <openstudio/src/model/DefaultSurfaceConstructions.hpp>
-#include <openstudio/src/model/DefaultSubSurfaceConstructions.hpp>
+#include <openstudio/model/DefaultConstructionSet.hpp>
+#include <openstudio/model/DefaultConstructionSet_Impl.hpp>
+#include <openstudio/model/DefaultSurfaceConstructions.hpp>
+#include <openstudio/model/DefaultSubSurfaceConstructions.hpp>
 
-#include <openstudio/src/utilities/core/Logger.hpp>
-#include <openstudio/src/utilities/idd/IddEnums.hxx>
+#include <openstudio/utilities/core/Logger.hpp>
+#include <openstudio/utilities/idd/IddEnums.hxx>
 
 namespace openstudio {
 

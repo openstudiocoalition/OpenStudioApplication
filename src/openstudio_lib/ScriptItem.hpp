@@ -32,12 +32,12 @@
 
 #include "OSItem.hpp"
 
-#include <openstudio/src/measure/OSArgument.hpp>
-#include <openstudio/src/measure/OSMeasureInfoGetter.hpp>
+#include <openstudio/measure/OSArgument.hpp>
+#include <openstudio/measure/OSMeasureInfoGetter.hpp>
 //#include "../runmanager/lib/RunManager.hpp"
 //#include "../runmanager/lib/RubyJobUtils.hpp"
 
-#include <openstudio/src/utilities/core/Path.hpp>
+#include <openstudio/utilities/core/Path.hpp>
 
 #include <QWidget>
 

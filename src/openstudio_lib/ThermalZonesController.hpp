@@ -34,8 +34,8 @@
 
 #include "../shared_gui_components/OSQObjectController.hpp"
 
-#include <openstudio/src/model/Model.hpp>
-#include <openstudio/src/model/Schedule.hpp>
+#include <openstudio/model/Model.hpp>
+#include <openstudio/model/Schedule.hpp>
 
 #include <boost/smart_ptr.hpp>
 

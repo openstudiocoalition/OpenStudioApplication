@@ -36,10 +36,10 @@
 #include "TableView.hpp"
 #include "tablemodel.h"
 
-#include <openstudio/src/model/Model.hpp>
-#include <openstudio/src/utilities/idf/IdfFile.hpp>
-#include <openstudio/src/utilities/idf/WorkspaceObjectOrder.hpp>
-#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/model/Model.hpp>
+#include <openstudio/utilities/idf/IdfFile.hpp>
+#include <openstudio/utilities/idf/WorkspaceObjectOrder.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
 
 #define guidOpenCurlyBrace '{'
 #define guidCloseCurlyBrace '}'

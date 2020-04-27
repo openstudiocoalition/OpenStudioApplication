@@ -31,56 +31,56 @@
 
 #include "../shared_gui_components/OSGridView.hpp"
 
-#include <openstudio/src/model/BuildingStory.hpp>
-#include <openstudio/src/model/BuildingStory_Impl.hpp>
-#include <openstudio/src/model/ElectricEquipment.hpp>
-#include <openstudio/src/model/ElectricEquipment_Impl.hpp>
-#include <openstudio/src/model/GasEquipment.hpp>
-#include <openstudio/src/model/GasEquipment_Impl.hpp>
-#include <openstudio/src/model/HotWaterEquipment.hpp>
-#include <openstudio/src/model/HotWaterEquipment_Impl.hpp>
-#include <openstudio/src/model/InteriorPartitionSurface.hpp>
-#include <openstudio/src/model/InteriorPartitionSurface_Impl.hpp>
-#include <openstudio/src/model/InteriorPartitionSurfaceGroup.hpp>
-#include <openstudio/src/model/InteriorPartitionSurfaceGroup_Impl.hpp>
-#include <openstudio/src/model/InternalMass.hpp>
-#include <openstudio/src/model/InternalMass_Impl.hpp>
-#include <openstudio/src/model/Lights.hpp>
-#include <openstudio/src/model/Lights_Impl.hpp>
-#include <openstudio/src/model/Luminaire.hpp>
-#include <openstudio/src/model/Luminaire_Impl.hpp>
-#include <openstudio/src/model/Model.hpp>
-#include <openstudio/src/model/ModelObject.hpp>
-#include <openstudio/src/model/ModelObject_Impl.hpp>
-#include <openstudio/src/model/Model_Impl.hpp>
-#include <openstudio/src/model/OtherEquipment.hpp>
-#include <openstudio/src/model/OtherEquipment_Impl.hpp>
-#include <openstudio/src/model/People.hpp>
-#include <openstudio/src/model/People_Impl.hpp>
-#include <openstudio/src/model/Space.hpp>
-#include <openstudio/src/model/Space_Impl.hpp>
-#include <openstudio/src/model/SpaceInfiltrationDesignFlowRate.hpp>
-#include <openstudio/src/model/SpaceInfiltrationDesignFlowRate_Impl.hpp>
-#include <openstudio/src/model/SpaceInfiltrationEffectiveLeakageArea.hpp>
-#include <openstudio/src/model/SpaceInfiltrationEffectiveLeakageArea_Impl.hpp>
-#include <openstudio/src/model/SpaceLoadInstance.hpp>
-#include <openstudio/src/model/SpaceLoadInstance_Impl.hpp>
-#include <openstudio/src/model/SpaceType.hpp>
-#include <openstudio/src/model/SpaceType_Impl.hpp>
-#include <openstudio/src/model/SteamEquipment.hpp>
-#include <openstudio/src/model/SteamEquipment_Impl.hpp>
-#include <openstudio/src/model/SubSurface.hpp>
-#include <openstudio/src/model/SubSurface_Impl.hpp>
-#include <openstudio/src/model/Surface.hpp>
-#include <openstudio/src/model/Surface_Impl.hpp>
-#include <openstudio/src/model/ThermalZone.hpp>
-#include <openstudio/src/model/ThermalZone_Impl.hpp>
+#include <openstudio/model/BuildingStory.hpp>
+#include <openstudio/model/BuildingStory_Impl.hpp>
+#include <openstudio/model/ElectricEquipment.hpp>
+#include <openstudio/model/ElectricEquipment_Impl.hpp>
+#include <openstudio/model/GasEquipment.hpp>
+#include <openstudio/model/GasEquipment_Impl.hpp>
+#include <openstudio/model/HotWaterEquipment.hpp>
+#include <openstudio/model/HotWaterEquipment_Impl.hpp>
+#include <openstudio/model/InteriorPartitionSurface.hpp>
+#include <openstudio/model/InteriorPartitionSurface_Impl.hpp>
+#include <openstudio/model/InteriorPartitionSurfaceGroup.hpp>
+#include <openstudio/model/InteriorPartitionSurfaceGroup_Impl.hpp>
+#include <openstudio/model/InternalMass.hpp>
+#include <openstudio/model/InternalMass_Impl.hpp>
+#include <openstudio/model/Lights.hpp>
+#include <openstudio/model/Lights_Impl.hpp>
+#include <openstudio/model/Luminaire.hpp>
+#include <openstudio/model/Luminaire_Impl.hpp>
+#include <openstudio/model/Model.hpp>
+#include <openstudio/model/ModelObject.hpp>
+#include <openstudio/model/ModelObject_Impl.hpp>
+#include <openstudio/model/Model_Impl.hpp>
+#include <openstudio/model/OtherEquipment.hpp>
+#include <openstudio/model/OtherEquipment_Impl.hpp>
+#include <openstudio/model/People.hpp>
+#include <openstudio/model/People_Impl.hpp>
+#include <openstudio/model/Space.hpp>
+#include <openstudio/model/Space_Impl.hpp>
+#include <openstudio/model/SpaceInfiltrationDesignFlowRate.hpp>
+#include <openstudio/model/SpaceInfiltrationDesignFlowRate_Impl.hpp>
+#include <openstudio/model/SpaceInfiltrationEffectiveLeakageArea.hpp>
+#include <openstudio/model/SpaceInfiltrationEffectiveLeakageArea_Impl.hpp>
+#include <openstudio/model/SpaceLoadInstance.hpp>
+#include <openstudio/model/SpaceLoadInstance_Impl.hpp>
+#include <openstudio/model/SpaceType.hpp>
+#include <openstudio/model/SpaceType_Impl.hpp>
+#include <openstudio/model/SteamEquipment.hpp>
+#include <openstudio/model/SteamEquipment_Impl.hpp>
+#include <openstudio/model/SubSurface.hpp>
+#include <openstudio/model/SubSurface_Impl.hpp>
+#include <openstudio/model/Surface.hpp>
+#include <openstudio/model/Surface_Impl.hpp>
+#include <openstudio/model/ThermalZone.hpp>
+#include <openstudio/model/ThermalZone_Impl.hpp>
 
 #include "../model_editor/Utilities.hpp"
 
-#include <openstudio/src/utilities/core/Assert.hpp>
-#include <openstudio/src/utilities/idd/IddEnums.hxx>
-#include <openstudio/src/utilities/idd/OS_Space_FieldEnums.hxx>
+#include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/idd/IddEnums.hxx>
+#include <openstudio/utilities/idd/OS_Space_FieldEnums.hxx>
 
 #include <QBoxLayout>
 #include <QCheckBox>
@@ -562,6 +562,7 @@ namespace openstudio {
       }
     }
     else {
+      // OSGridController::m_modelObjects returns the Spaces
       for (auto obj : this->m_gridController->m_modelObjects) {
         auto buildingStory = obj.cast<model::Space>().buildingStory();
         if (!buildingStory || !buildingStory->name() || (buildingStory && buildingStory->name() && buildingStory->name().get().c_str() != text)) {
@@ -588,6 +589,7 @@ namespace openstudio {
       }
     }
     else {
+      // OSGridController::m_modelObjects returns the Spaces
       for (auto obj : this->m_gridController->m_modelObjects) {
         auto thermalZone = obj.cast<model::Space>().thermalZone();
         if (!thermalZone || !thermalZone->name() || (thermalZone && thermalZone->name() && thermalZone->name().get().c_str() != text)) {
@@ -601,7 +603,7 @@ namespace openstudio {
 
   void SpacesSubtabGridView::spaceTypeFilterChanged(const QString& text)
   {
-    m_objectsFilterdBySpaceType.clear();
+    m_objectsFilteredBySpaceType.clear();
 
     if (text == ALL) {
       // nothing to filter
@@ -609,15 +611,17 @@ namespace openstudio {
     else if (text == UNASSIGNED) {
       for (auto obj : this->m_gridController->m_modelObjects) {
         if (obj.cast<model::Space>().spaceType()) {
-          m_objectsFilterdBySpaceType.insert(obj);
+          m_objectsFilteredBySpaceType.insert(obj);
         }
       }
     }
     else {
+      // OSGridController::m_modelObjects returns the Spaces
       for (auto obj : this->m_gridController->m_modelObjects) {
+        // LOG(Debug, "spaceTypeFilterChanged, obj=" << obj.briefDescription());
         auto spaceType = obj.cast<model::Space>().spaceType();
         if (!spaceType || !spaceType->name() || (spaceType && spaceType->name() && spaceType->name().get().c_str() != text)) {
-          m_objectsFilterdBySpaceType.insert(obj);
+          m_objectsFilteredBySpaceType.insert(obj);
         }
       }
     }
@@ -627,28 +631,46 @@ namespace openstudio {
 
   void SpacesSubtabGridView::subSurfaceTypeFilterChanged(const QString& text)
   {
-    m_objectsFilterdBySubSurfaceType.clear();
+    m_objectsFilteredBySubSurfaceType.clear();
 
     if (text == ALL) {
       // nothing to filter
     }
     else {
-      for (auto obj : this->m_gridController->m_modelObjects) {
-        auto objFiltered = false;
-        auto surfaces = obj.cast<model::Space>().surfaces();
-        for (auto surface : surfaces) {
-          auto subsurfaces = surface.subSurfaces();
-          for (auto subsurface : subsurfaces) {
-            auto subsurfaceType = subsurface.subSurfaceType();
-            if (subsurfaceType.c_str() != text) {
-              m_objectsFilterdBySubSurfaceType.insert(obj);
-              objFiltered = true;
-              break;
-            }
+
+      // It's possible that "fixedwindow" might be returned when querying later, instead of "FixedWindow" returned
+      // by SubSurface::validSubSurfaceTypes(), so we'll do a case-insensitive string comparison later
+      std::string subSurfaceTypeToKeep = openstudio::toString(text);
+
+      // ObjectSelector::m_selectorObjects returns SubSurfaces directly
+      for (auto obj: this->m_gridController->getObjectSelector()->m_selectorObjects) {
+        // LOG(Debug, "subSurfaceTypeFilterChanged, obj=" << obj.briefDescription());
+        auto subsurface = obj.optionalCast<model::SubSurface>();
+        if (subsurface) {
+          auto subsurfaceType = subsurface->subSurfaceType();
+          // Case insensitive
+          if (!openstudio::istringEqual(subsurfaceType, subSurfaceTypeToKeep)) {
+            // LOG(Debug, "Adding obj=" << obj.briefDescription());
+            m_objectsFilteredBySubSurfaceType.insert(obj);
           }
-          if (objFiltered) break;
         }
       }
+
+      // Alternatively, we could have done this:
+      //for (auto obj : this->m_gridController->m_modelObjects) {
+        //LOG(Debug, "subSurfaceTypeFilterChanged, obj=" << obj.briefDescription());
+        //auto surfaces = obj.cast<model::Space>().surfaces();
+        //for (auto surface : surfaces) {
+          //auto subsurfaces = surface.subSurfaces();
+          //for (auto subsurface : subsurfaces) {
+            //auto subsurfaceType = subsurface.subSurfaceType();
+            //if (!openstudio::istringEqual(subsurfaceType, subSurfaceTypeToKeep)) {
+              //LOG(Debug, "Adding obj=" << obj.briefDescription());
+              //m_objectsFilteredBySubSurfaceType.insert(obj);
+            //}
+          //}
+        //}
+      //}
     }
 
    filterChanged();
@@ -756,11 +778,16 @@ namespace openstudio {
       // nothing to filter
     }
     else {
+      // For a case-insensitive comparison later
+      std::string windExposureToKeep = openstudio::toString(text);
+
+      // ObjectSelector::m_selectorObjects returns Surfaces directly
       for (auto obj : this->m_gridController->getObjectSelector()->m_selectorObjects) {
+        // LOG(Debug, "windExposureFilterChanged, obj=" << obj.briefDescription());
         auto surface = obj.optionalCast<model::Surface>();
         if (surface) {
-          QString  windExposure = surface->windExposure().c_str();
-          if (windExposure.isEmpty() || windExposure != text) {
+          auto windExposure = surface->windExposure();
+          if (windExposure.empty() || !openstudio::istringEqual(windExposure, windExposureToKeep)) {
             m_objectsFilteredByWindExposure.insert(obj);
           }
         }
@@ -778,11 +805,16 @@ namespace openstudio {
       // nothing to filter
     }
     else {
+      // For a case-insensitive comparison later
+      std::string sunExposureToKeep = openstudio::toString(text);
+
+      // ObjectSelector::m_selectorObjects returns Surfaces directly
       for (auto obj : this->m_gridController->getObjectSelector()->m_selectorObjects) {
+        // LOG(Debug, "sunExposureFilterChanged, obj=" << obj.briefDescription());
         auto surface = obj.optionalCast<model::Surface>();
         if (surface) {
-          QString sunExposure = surface->sunExposure().c_str();
-          if (sunExposure.isEmpty() || sunExposure != text) {
+          auto sunExposure = surface->sunExposure();
+          if (sunExposure.empty() || !openstudio::istringEqual(sunExposure, sunExposureToKeep)) {
             m_objectsFilteredBySunExposure.insert(obj);
           }
         }
@@ -800,20 +832,20 @@ namespace openstudio {
       // nothing to filter
     }
     else {
+      // For a case-insensitive comparison later
+      std::string outsideBoundCondToKeep = openstudio::toString(text);
+
+      // ObjectSelector::m_selectorObjects returns either Surfaces or SubSurfaces directly, depending on the subtab it's on
       for (auto obj : this->m_gridController->getObjectSelector()->m_selectorObjects) {
-        auto surface = obj.optionalCast<model::Surface>();
-        auto subSurface = obj.optionalCast<model::SubSurface>();
-        if (surface) {
-          QString outsideBoundaryCondition = surface->outsideBoundaryCondition().c_str();
-          if (outsideBoundaryCondition.isEmpty() || outsideBoundaryCondition != text) {
-            m_objectsFilteredByOutsideBoundaryCondition.insert(obj);
-          }
+        // LOG(Debug, "outsideBoundaryConditionFilterChanged, obj=" << obj.briefDescription());
+        std::string outsideBoundaryCondition;
+        if (auto surface = obj.optionalCast<model::Surface>()) {
+          outsideBoundaryCondition = surface->outsideBoundaryCondition();
+        } else if (auto subSurface = obj.optionalCast<model::SubSurface>()) {
+          outsideBoundaryCondition = subSurface->outsideBoundaryCondition();
         }
-        else if (subSurface) {
-          QString outsideBoundaryCondition = subSurface->outsideBoundaryCondition().c_str();
-          if (outsideBoundaryCondition.isEmpty() || outsideBoundaryCondition != text) {
-            m_objectsFilteredByOutsideBoundaryCondition.insert(obj);
-          }
+        if (outsideBoundaryCondition.empty() || !openstudio::istringEqual(outsideBoundaryCondition, outsideBoundCondToKeep)) {
+          m_objectsFilteredByOutsideBoundaryCondition.insert(obj);
         }
       }
     }
@@ -827,13 +859,17 @@ namespace openstudio {
 
     if (text == ALL) {
       // nothing to filter
-    }
-    else {
+    } else {
+      // For a case-insensitive comparison later
+      std::string surfaceTypeToKeep = openstudio::toString(text);
+
+      // ObjectSelector::m_selectorObjects Surfaces directly
       for (auto obj : this->m_gridController->getObjectSelector()->m_selectorObjects) {
+        // LOG(Debug, "surfaceTypeFilterChanged, obj=" << obj.briefDescription());
         auto surface = obj.optionalCast<model::Surface>();
         if (surface) {
-          QString surfaceType(surface->surfaceType().c_str());
-          if (surfaceType != text) {
+          auto surfaceType = surface->surfaceType();
+          if (!openstudio::istringEqual(surfaceType, surfaceTypeToKeep)) {
             m_objectsFilteredBySurfaceType.insert(obj);
           }
         }
@@ -881,7 +917,7 @@ namespace openstudio {
       }
     }
 
-    for (auto obj : m_objectsFilterdBySpaceType) {
+    for (auto obj : m_objectsFilteredBySpaceType) {
       if (spaceFilteredObjects.count(obj) == 0) {
         spaceFilteredObjects.insert(obj);
       }
@@ -898,7 +934,7 @@ namespace openstudio {
      ***********************************************************************************/
     std::set<openstudio::model::ModelObject> allFilteredObjects;
 
-    for (auto obj : m_objectsFilterdBySubSurfaceType) {
+    for (auto obj : m_objectsFilteredBySubSurfaceType) {
       if (allFilteredObjects.count(obj) == 0) {
         allFilteredObjects.insert(obj);
       }

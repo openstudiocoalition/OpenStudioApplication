@@ -31,4 +31,5 @@ developer/msvc/Visualizers/all_concat.natvis
 .vscode/
 .vs/
 *.cache
+.DS_Store
 

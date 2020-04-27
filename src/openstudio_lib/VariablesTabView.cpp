@@ -29,14 +29,14 @@
 
 #include "VariablesTabView.hpp"
 
-#include <openstudio/src/model/Model_Impl.hpp>
-#include <openstudio/src/model/OutputVariable.hpp>
-#include <openstudio/src/model/ModelObject_Impl.hpp>
-#include <openstudio/src/model/OutputVariable_Impl.hpp>
+#include <openstudio/model/Model_Impl.hpp>
+#include <openstudio/model/OutputVariable.hpp>
+#include <openstudio/model/ModelObject_Impl.hpp>
+#include <openstudio/model/OutputVariable_Impl.hpp>
 
 #include "../model_editor/Utilities.hpp"
 
-#include <openstudio/src/utilities/sql/SqlFileEnums.hpp>
+#include <openstudio/utilities/sql/SqlFileEnums.hpp>
 
 #include <QHBoxLayout>
 #include <QVBoxLayout>
@@ -49,7 +49,7 @@
 #include "../shared_gui_components/OSSwitch.hpp"
 #include "../shared_gui_components/OSComboBox.hpp"
 
-#include <openstudio/src/utilities/idd/IddEnums.hxx>
+#include <openstudio/utilities/idd/IddEnums.hxx>
 
 namespace openstudio {
 

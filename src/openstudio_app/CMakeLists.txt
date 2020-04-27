@@ -45,11 +45,9 @@ qt5_wrap_cpp_minimally(${target_name}_moc_src ${${target_name}_moc})
 # this needs to be configured to embed the build number
 CONFIGURE_FILE_WITH_CHECKSUM(AboutBox.hpp.in "${CMAKE_CURRENT_BINARY_DIR}/AboutBox.hpp")
 
-# TODO: probably change that, some icons (all?) will need to move to OSApp repo
-# Note JM 2019-07-12: For now I left OSM and OSC icons in core
 set(OPENSTUDIOAPPLICATION_ICON_FOLDER "${PROJECT_SOURCE_DIR}/icons")
-set(OPENSTUDIOCORE_ICON_FOLDER "${PROJECT_SOURCE_DIR}/openstudio/icons")
 if(WIN32)
+  remove_definitions(/bigobj)
   CONFIGURE_FILE_WITH_CHECKSUM(OpenStudioApp.rc.in "${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp.rc")
   set(ICON_SRC "${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp.rc")
 elseif(APPLE)
@@ -60,8 +58,8 @@ elseif(APPLE)
   # set all icons
   set(ICON_SRC
     ${OPENSTUDIOAPPLICATION_ICON_FOLDER}/os.icns
-    ${OPENSTUDIOCORE_ICON_FOLDER}/osm.icns
-    ${OPENSTUDIOCORE_ICON_FOLDER}/osc.icns
+    ${OPENSTUDIOAPPLICATION_ICON_FOLDER}/osm.icns
+    ${OPENSTUDIOAPPLICATION_ICON_FOLDER}/osc.icns
   )
 
   set_source_files_properties(${ICON_SRC}
@@ -79,41 +77,45 @@ elseif(APPLE)
   CONFIGURE_FILE_WITH_CHECKSUM(${CMAKE_CURRENT_SOURCE_DIR}/Info.plist.in ${CMAKE_CURRENT_BINARY_DIR}/Info.plist)
 
 elseif(UNIX)
-
   # Install the icons
   # Cf. http://standards.freedesktop.org/icon-theme-spec/icon-theme-spec-latest.html#directory_layout
-  foreach(_size 16 32 48 64 128 256)
-    # Copy OS App icons: TODO probably move them to OS App repo
-    install(
-      FILES "${OPENSTUDIOAPPLICATION_ICON_FOLDER}/os_${_size}.png"
-      DESTINATION "/usr/share/icons/hicolor/${_size}x${_size}/apps"
-      RENAME openstudioapp.png
-    )
-    # Install OSM mimetypes icons
-    install(
-      FILES "${OPENSTUDIOCORE_ICON_FOLDER}/osm_${_size}.png"
-      DESTINATION "/usr/share/icons/hicolor/${_size}x${_size}/mimetypes"
-      RENAME application-x-openstudio.png
-    )
-  # Install OSC
-    install(
-      FILES "${OPENSTUDIOCORE_ICON_FOLDER}/osc_${_size}.png"
-      DESTINATION "/usr/share/icons/hicolor/${_size}x${_size}/mimetypes"
-      RENAME application-x-openstudio-component.png
-    )
 
-  endforeach()
+  # NOTE: Instead, to avoid dpkg issuing conflicts when installing several different versions, we use a post-installation script
+  # So install them to a temp directory that we'll remove later
+  install(DIRECTORY ${OPENSTUDIOAPPLICATION_ICON_FOLDER} DESTINATION Temp
+          FILES_MATCHING PATTERN "*.png")
 
-  # TODO: probably move to OS App repo
-  # OS App has a 512 and 1024 too
-  foreach(_size 512 1024)
-    # Copy OS App icons
-    install(
-      FILES "${OPENSTUDIOAPPLICATION_ICON_FOLDER}/os_${_size}.png"
-      DESTINATION "/usr/share/icons/hicolor/${_size}x${_size}/apps"
-      RENAME openstudioapp.png
-    )
-  endforeach()
+  #foreach(_size 16 32 48 64 128 256)
+    ## Copy OS App icons:
+    #install(
+      #FILES "${OPENSTUDIOAPPLICATION_ICON_FOLDER}/os_${_size}.png"
+      #DESTINATION "/usr/share/icons/hicolor/${_size}x${_size}/apps"
+      #RENAME openstudioapp.png
+    #)
+    ## Install OSM mimetypes icons
+    #install(
+      #FILES "${OPENSTUDIOCORE_ICON_FOLDER}/osm_${_size}.png"
+      #DESTINATION "/usr/share/icons/hicolor/${_size}x${_size}/mimetypes"
+      #RENAME application-x-openstudio.png
+    #)
+  ## Install OSC
+    #install(
+      #FILES "${OPENSTUDIOCORE_ICON_FOLDER}/osc_${_size}.png"
+      #DESTINATION "/usr/share/icons/hicolor/${_size}x${_size}/mimetypes"
+      #RENAME application-x-openstudio-component.png
+    #)
+
+  #endforeach()
+
+  ## OS App has a 512 and 1024 too
+  #foreach(_size 512 1024)
+    ## Copy OS App icons
+    #install(
+      #FILES "${OPENSTUDIOAPPLICATION_ICON_FOLDER}/os_${_size}.png"
+      #DESTINATION "/usr/share/icons/hicolor/${_size}x${_size}/apps"
+      #RENAME openstudioapp.png
+    #)
+  #endforeach()
 
 endif()
 
@@ -135,7 +137,7 @@ add_executable(${target_name}
 if( APPLE )
 add_custom_command(TARGET ${target_name}
   POST_BUILD
-  COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:openstudio> $<TARGET_FILE_DIR:${target_name}>/$<TARGET_FILE_NAME:openstudio>
+  COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:openstudio::openstudio> $<TARGET_FILE_DIR:${target_name}>/$<TARGET_FILE_NAME:openstudio::openstudio>
 )
 endif()
 
@@ -147,41 +149,30 @@ add_custom_command(TARGET ${target_name}
   #COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:Qt5::AssimpParserPlugin> $<TARGET_FILE_DIR:${target_name}>/sceneparsers/
 )
 
+if(WIN32)
+  add_custom_command(TARGET ${target_name}
+    POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E make_directory $<TARGET_FILE_DIR:${target_name}>/styles/
+  )
+endif()
+
+if(UNIX AND NOT APPLE)
+  add_custom_command(TARGET ${target_name}
+    POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E make_directory $<TARGET_FILE_DIR:${target_name}>/xcbglintegrations/
+  )
+endif()
+
 if( APPLE )
   add_custom_command(TARGET ${target_name}
     POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:Qt5::QCocoaIntegrationPlugin> $<TARGET_FILE_DIR:${target_name}>/platforms/ )
 elseif( UNIX )
-
-  #add_custom_command(TARGET ${target_name}
-  #  POST_BUILD
-  #  COMMAND chrpath -r "$ORIGIN/." $<TARGET_FILE:${target_name}>
-  #  VERBATIM
-  #)
-
-  #add_custom_command(TARGET ${target_name}
-  #  POST_BUILD
-  #  COMMAND ${CMAKE_COMMAND} -E make_directory $<TARGET_FILE_DIR:${target_name}>/xcbglintegrations/
-  #)
-
-  #add_custom_command(TARGET ${target_name}
-  #  POST_BUILD
-  #  COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:Qt5::QXcbIntegrationPlugin> $<TARGET_FILE_DIR:${target_name}>/platforms/
-  #  COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:Qt5::QXcbGlxIntegrationPlugin> $<TARGET_FILE_DIR:${target_name}>/xcbglintegrations/
-  #  COMMAND ${CMAKE_COMMAND} -E copy_if_different ${Qt5XcbQpaLib} $<TARGET_FILE_DIR:${target_name}>/
-  #  COMMAND chrpath -r "$ORIGIN/.." $<TARGET_FILE_DIR:${target_name}>/platforms/$<TARGET_FILE_NAME:Qt5::QXcbIntegrationPlugin>
-  #  COMMAND chrpath -r "$ORIGIN/.." $<TARGET_FILE_DIR:${target_name}>/xcbglintegrations/$<TARGET_FILE_NAME:Qt5::QXcbGlxIntegrationPlugin>
-  #  #COMMAND chrpath -r "$ORIGIN/.." $<TARGET_FILE_DIR:${target_name}>/sceneparsers/$<TARGET_FILE_NAME:Qt5::GLTFSceneParserPlugin>
-  #  #COMMAND chrpath -r "$ORIGIN/.." $<TARGET_FILE_DIR:${target_name}>/sceneparsers/$<TARGET_FILE_NAME:Qt5::AssimpParserPlugin>
-  #  VERBATIM
-  #  )
-
   foreach(LIB ${QT_PLUGINS})
     get_property(LIB_LOCATION TARGET ${LIB} PROPERTY LOCATION)
     get_filename_component(LIB_BASE_NAME ${LIB_LOCATION} NAME)
     add_custom_command(TARGET ${target_name}
       POST_BUILD
-      COMMAND ${CMAKE_COMMAND} -E make_directory $<TARGET_FILE_DIR:${target_name}>/platforms
       COMMAND ${CMAKE_COMMAND} -E copy_if_different ${LIB_LOCATION} $<TARGET_FILE_DIR:${target_name}>/platforms
       COMMAND patchelf --set-rpath "$ORIGIN/.." $<TARGET_FILE_DIR:${target_name}>/platforms/${LIB_BASE_NAME}
       VERBATIM
@@ -218,10 +209,29 @@ elseif( UNIX )
     VERBATIM
   )
 
+  add_custom_command(TARGET ${target_name}
+    POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${icudtl} $<TARGET_FILE_DIR:${target_name}>/
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources} $<TARGET_FILE_DIR:${target_name}>/
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_100} $<TARGET_FILE_DIR:${target_name}>/
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_200} $<TARGET_FILE_DIR:${target_name}>/ )
+
+  # TODO: not sure if chrpath is needed
+  add_custom_command(TARGET ${target_name}
+    POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:Qt5::QXcbGlxIntegrationPlugin> $<TARGET_FILE_DIR:${target_name}>/xcbglintegrations/
+    COMMAND chrpath -r "$ORIGIN/." $<TARGET_FILE_DIR:${target_name}>/xcbglintegrations/$<TARGET_FILE_NAME:Qt5::QXcbGlxIntegrationPlugin>
+    VERBATIM
+  )
+
 elseif( WIN32 )
   add_custom_command(TARGET ${target_name}
     POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:Qt5::QWindowsIntegrationPlugin> $<TARGET_FILE_DIR:${target_name}>/platforms/ )
+
+  add_custom_command(TARGET ${target_name}
+    POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:Qt5::QWindowsVistaStylePlugin> $<TARGET_FILE_DIR:${target_name}>/styles/ )
 
   foreach(LIB ${QT_LIBS} ${QT_WEB_LIBS})
     # release dlls are needed in debug dir for QtWebEngineProcess, second copy_if_different will be a no-op
@@ -246,27 +256,22 @@ elseif( WIN32 )
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_100} $<TARGET_FILE_DIR:${target_name}>/
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_200} $<TARGET_FILE_DIR:${target_name}>/ )
 
+  add_custom_command(TARGET ${target_name}
+    POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:openstudio::openstudiolib> $<TARGET_FILE_DIR:${target_name}>/ )
+
 endif()
 
 set(depends
-  openstudioapp_utilities
   openstudio_lib
-  openstudio_osversion
-  openstudio_model
-  openstudio_energyplus
-  openstudio_modeleditor
-  openstudio_sdd
-  openstudio_gbxml
   openstudio_bimserver
+  openstudio_modeleditor
+  openstudioapp_utilities
+  openstudio::openstudiolib
   ${QT_WEB_LIBS}
-  #${QT_PLUGIN_LIBS}
-  #${COREFOUNDATION_LIBRARY}
 )
 
 target_link_libraries(${target_name} ${depends})
-
-# because the app calls the cli
-add_dependencies(${target_name} openstudio)
 
 #AddPCH(${target_name})
 
@@ -283,7 +288,7 @@ elseif(WIN32)
 else()
   set_target_properties(${target_name} PROPERTIES INSTALL_RPATH "$ORIGIN/.")
   set(plugin_dest_dir bin)
-  set(APPS "\${CMAKE_INSTALL_PREFIX}/bin/OpenStudioApp")
+  set(APPS "\$ENV{DESTDIR}\${CMAKE_INSTALL_PREFIX}/bin/OpenStudioApp")
 endif()
 
 if( APPLE )
@@ -299,8 +304,9 @@ else()
 endif()
 
 # directories to look for dependencies
-# This is probably out of date
-set(DIRS "${QT_INSTALL_DIR}/bin" "${QT_INSTALL_DIR}/lib" "${RUBY_INSTALL_DIR}/bin")
+get_target_property(os_lib_location openstudio::openstudiolib LOCATION)
+get_filename_component(os_lib_dir ${os_lib_location} DIRECTORY)
+set(DIRS "${QT_INSTALL_DIR}/bin" "${QT_INSTALL_DIR}/lib" "${os_lib_dir}")
 
 if(APPLE)
   install(DIRECTORY ${CMAKE_SOURCE_DIR}/src/openstudio_app/Resources/
@@ -330,12 +336,13 @@ if( NOT APPLE )
 
     install(PROGRAMS ${QtWebEngineProcess} DESTINATION bin COMPONENT OpenStudioApp )
     install(PROGRAMS $<TARGET_FILE:Qt5::QWindowsIntegrationPlugin> DESTINATION bin/platforms/ COMPONENT OpenStudioApp)
+    install(PROGRAMS $<TARGET_FILE:Qt5::QWindowsVistaStylePlugin> DESTINATION bin/styles/ COMPONENT OpenStudioApp)
     #install(PROGRAMS $<TARGET_FILE:Qt5::GLTFSceneParserPlugin> DESTINATION bin/sceneparsers/ COMPONENT OpenStudioApp)
     #install(PROGRAMS $<TARGET_FILE:Qt5::AssimpParserPlugin> DESTINATION bin/sceneparsers/ COMPONENT OpenStudioApp)
   elseif(UNIX)
     install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/QtWebEngineProcess DESTINATION bin/ COMPONENT OpenStudioApp)
     #install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/platforms/$<TARGET_FILE_NAME:Qt5::QXcbIntegrationPlugin> DESTINATION bin/platforms/ COMPONENT OpenStudioApp)
-    #install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/xcbglintegrations/$<TARGET_FILE_NAME:Qt5::QXcbGlxIntegrationPlugin> DESTINATION bin/xcbglintegrations/ COMPONENT OpenStudioApp)
+    install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/xcbglintegrations/$<TARGET_FILE_NAME:Qt5::QXcbGlxIntegrationPlugin> DESTINATION bin/xcbglintegrations/ COMPONENT OpenStudioApp)
     #install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/sceneparsers/$<TARGET_FILE_NAME:Qt5::GLTFSceneParserPlugin> DESTINATION bin/sceneparsers/ COMPONENT OpenStudioApp)
     #install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/sceneparsers/$<TARGET_FILE_NAME:Qt5::AssimpParserPlugin> DESTINATION bin/sceneparsers/ COMPONENT OpenStudioApp)
     #install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/libQt5XcbQpa.so.5 DESTINATION bin/ COMPONENT OpenStudioApp)
@@ -369,13 +376,15 @@ if( APPLE )
   list(APPEND QTPLUGINS "\${CMAKE_INSTALL_PREFIX}/OpenStudioApp.app/Contents/Frameworks/QtWebEngineCore.framework/Versions/5/Helpers/QtWebEngineProcess.app/Contents/MacOS/QtWebEngineProcess")
 endif()
 
-if(WIN32 OR APPLE)
-  install(CODE "
-    include(BundleUtilities)
-    include(\"${CMAKE_SOURCE_DIR}/CMake/FixupBundleOverrides.cmake\")
-    fixup_bundle(\"${APPS}\" \"${QTPLUGINS}\" \"${DIRS}\")
-    " COMPONENT "OpenStudioApp" )
-endif()
+install(CODE "
+  # APPS might be a symbolic link which does not work with fixup_bundle
+  # expand APPS to a real path
+  get_filename_component(APPS_EXPANDED ${APPS} REALPATH)
+  include(BundleUtilities)
+  include(\"${CMAKE_SOURCE_DIR}/CMake/FixupBundleOverrides.cmake\")
+  fixup_bundle(\"\${APPS_EXPANDED}\" \"${QTPLUGINS}\" \"${DIRS}\")
+  " COMPONENT "OpenStudioApp"
+)
 
 set(${target_name}_test_src
   test/OpenStudioAppFixture.hpp

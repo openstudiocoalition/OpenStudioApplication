@@ -31,7 +31,7 @@
 #define OPENSTUDIO_MATERIALNOMASSINSPECTORVIEW_HPP
 
 #include "ModelObjectInspectorView.hpp"
-#include <openstudio/src/model/MasslessOpaqueMaterial.hpp>
+#include <openstudio/model/MasslessOpaqueMaterial.hpp>
 
 namespace openstudio {
 

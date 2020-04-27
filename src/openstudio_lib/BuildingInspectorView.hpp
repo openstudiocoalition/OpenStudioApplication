@@ -33,7 +33,7 @@
 #include "ModelObjectInspectorView.hpp"
 #include "ModelObjectVectorController.hpp"
 
-#include <openstudio/src/model/Building.hpp>
+#include <openstudio/model/Building.hpp>
 
 class QColor;
 class QComboBox;

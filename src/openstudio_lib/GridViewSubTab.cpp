@@ -33,13 +33,13 @@
 #include "OSDocument.hpp"
 #include "OSItemSelectorButtons.hpp"
 
-#include <openstudio/src/model/Model.hpp>
-#include <openstudio/src/model/Model_Impl.hpp>
+#include <openstudio/model/Model.hpp>
+#include <openstudio/model/Model_Impl.hpp>
 
-#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
 
-#include <openstudio/src/utilities/idd/IddEnums.hpp>
-#include <openstudio/src/utilities/idd/IddEnums.hxx>
+#include <openstudio/utilities/idd/IddEnums.hpp>
+#include <openstudio/utilities/idd/IddEnums.hxx>
 
 #include <QBoxLayout>
 #include <QScrollArea>

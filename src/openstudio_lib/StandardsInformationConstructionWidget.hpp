@@ -30,8 +30,8 @@
 #ifndef OPENSTUDIO_STANDARDSINFORMATIONCONSTRUCTIONWIDGET_HPP
 #define OPENSTUDIO_STANDARDSINFORMATIONCONSTRUCTIONWIDGET_HPP
 
-#include <openstudio/src/model/ConstructionBase.hpp>
-#include <openstudio/src/model/StandardsInformationConstruction.hpp>
+#include <openstudio/model/ConstructionBase.hpp>
+#include <openstudio/model/StandardsInformationConstruction.hpp>
 
 #include <QWidget>
 

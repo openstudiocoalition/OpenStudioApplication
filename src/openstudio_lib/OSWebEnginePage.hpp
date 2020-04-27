@@ -32,7 +32,7 @@
 
 #include <QWebEnginePage>
 
-#include <openstudio/src/utilities/core/Logger.hpp>
+#include <openstudio/utilities/core/Logger.hpp>
 
 namespace openstudio {
 

@@ -32,10 +32,11 @@
 
 #include <QWidget>
 
-#include <openstudio/src/nano/nano_signal_slot.hpp> // Signal-Slot replacement
-#include <openstudio/src/model/Model.hpp>
-#include <openstudio/src/model/ShadowCalculation.hpp>
-#include <openstudio/src/model/SimulationControl.hpp>
+#include <openstudio/nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/model/Model.hpp>
+#include <openstudio/model/ShadowCalculation.hpp>
+#include <openstudio/model/SimulationControl.hpp>
+#include <openstudio/model/RunPeriod.hpp>
 
 class QButtonGroup;
 class QCheckBox;
@@ -75,6 +76,7 @@ private:
   void enableRadianceParametersWidget(bool isEnabled);
 
   QWidget * createRunPeriodWidget();
+  QWidget * createRunPeriodAdvancedWidget();
   QWidget * createRunControlWidget();
   QWidget * createSimulationControlWidget();
   QWidget * createSizingParametersWidget();
@@ -194,17 +196,23 @@ private:
   QCheckBox * m_performSystemSizing;
   QCheckBox * m_performPlantSizing;
 
-  QLabel * m_dateRangelabel;
-
-  QDateEdit * m_startDateEdit;
-  QDateEdit * m_endDateEdit;
-
   QButtonGroup * m_runPeriodGroup;
   QButtonGroup * m_radianceGroup;
 
   QLineEdit * m_runPeriodName;
 
   bool m_isIP;
+
+  // Run Period
+  boost::optional<model::RunPeriod> m_runPeriod;
+  QLabel * m_dateRangelabel;
+  QDateEdit * m_startDateEdit;
+  QDateEdit * m_endDateEdit;
+  OSSwitch2 * m_useWeatherFileHolidaysandSpecialDays;
+  OSSwitch2 * m_useWeatherFileDaylightSavingsPeriod;
+  OSSwitch2 * m_applyWeekendHolidayRule;
+  OSSwitch2 * m_useWeatherFileRainIndicators;
+  OSSwitch2 * m_useWeatherFileSnowIndicators;
 
   // SimulationControl
   OSSwitch2 * m_doZoneSizingCalculation;
@@ -270,7 +278,7 @@ private:
   OSIntegerEdit2 * m_minimumSystemTimestep;
 
   // ShadowCalculation
-  OSIntegerEdit2 * m_calculationFrequency;
+  OSIntegerEdit2 * m_shadingCalculationUpdateFrequency;
   OSIntegerEdit2 * m_maximumFiguresInShadowOverlapCalculations;
   OSComboBox2 * m_polygonClippingAlgorithm;
   OSComboBox2 * m_skyDiffuseModelingAlgorithm;

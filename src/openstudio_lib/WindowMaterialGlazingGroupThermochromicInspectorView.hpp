@@ -31,7 +31,7 @@
 #define OPENSTUDIO_WINDOWMATERIALGLAZINGGROUPTHERMOCHROMICINSPECTORVIEW_HPP
 
 #include "ModelObjectInspectorView.hpp"
-#include <openstudio/src/model/ThermochromicGlazing.hpp>
+#include <openstudio/model/ThermochromicGlazing.hpp>
 
 namespace openstudio {
 

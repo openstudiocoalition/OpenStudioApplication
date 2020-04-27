@@ -36,7 +36,7 @@
 #include "../shared_gui_components/OSListController.hpp"
 #include "../shared_gui_components/OSListView.hpp"
 #include "../shared_gui_components/GraphicsItems.hpp"
-#include <openstudio/src/utilities/idf/Handle.hpp>
+#include <openstudio/utilities/idf/Handle.hpp>
 
 class QGraphicsView;
 class QPushButton;
@@ -769,6 +769,16 @@ class RefrigerationSecondaryView : public QGraphicsObject
 
   std::vector<QGraphicsObject *> m_secondaryDetailViews;
   int m_height;
+};
+
+// A class to display that Refrigeration isn't allowed on that tab
+class NoRefrigerationView : public QWidget
+{
+  public:
+
+  NoRefrigerationView();
+
+  virtual ~NoRefrigerationView();
 };
 
 } // openstudio

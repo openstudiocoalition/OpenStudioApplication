@@ -30,7 +30,7 @@
 #ifndef OPENSTUDIO_SUMMARYTABCONTROLLER_HPP
 #define OPENSTUDIO_SUMMARYTABCONTROLLER_HPP
 
-#include <openstudio/src/model/Model.hpp>
+#include <openstudio/model/Model.hpp>
 #include <boost/smart_ptr.hpp>
 #include "MainTabController.hpp"
 

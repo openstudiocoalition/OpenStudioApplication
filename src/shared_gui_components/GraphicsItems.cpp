@@ -29,7 +29,7 @@
 
 #include "../shared_gui_components/GraphicsItems.hpp"
 #include "../shared_gui_components/OSListController.hpp"
-#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
 #include <QGraphicsSceneMouseEvent>
 #include <QPainter>
 #include <QApplication>

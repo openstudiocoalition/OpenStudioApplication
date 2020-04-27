@@ -33,7 +33,7 @@
 #include "Utilities.hpp"
 
 #include <cmath>
-#include <openstudio/src/nano/nano_signal_slot.hpp>
+#include <openstudio/nano/nano_signal_slot.hpp>
 
 /// constructor
 OSProgressBar::OSProgressBar(QWidget* parent)

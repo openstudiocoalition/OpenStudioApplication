@@ -44,73 +44,75 @@
 
 // Call the OS App specific version, not the core one
 #include "../utilities/OpenStudioApplicationPathHelpers.hpp"
-#include <openstudio/src/utilities/core/PathHelpers.hpp>
+#include <openstudio/utilities/core/PathHelpers.hpp>
 
-#include <openstudio/src/utilities/core/Assert.hpp>
-#include <openstudio/src/utilities/core/Compare.hpp>
-#include <openstudio/src/utilities/core/Filesystem.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Compare.hpp>
+#include <openstudio/utilities/core/Filesystem.hpp>
 
-#include <openstudio/src/utilities/idf/IdfFile.hpp>
-#include <openstudio/src/utilities/idf/IdfObject.hpp>
-#include <openstudio/src/utilities/idf/ValidityReport.hpp>
-#include <openstudio/src/utilities/idf/Workspace.hpp>
+#include <openstudio/utilities/idf/IdfFile.hpp>
+#include <openstudio/utilities/idf/IdfObject.hpp>
+#include <openstudio/utilities/idf/ValidityReport.hpp>
+#include <openstudio/utilities/idf/Workspace.hpp>
 
-#include <openstudio/src/model/EvaporativeFluidCoolerSingleSpeed.hpp>
-#include <openstudio/src/model/AirLoopHVACOutdoorAirSystem.hpp>
-#include <openstudio/src/model/AirLoopHVACUnitaryHeatPumpAirToAir.hpp>
-#include <openstudio/src/model/AirLoopHVACUnitarySystem.hpp>
-#include <openstudio/src/model/AirTerminalSingleDuctConstantVolumeCooledBeam.hpp>
-#include <openstudio/src/model/AirTerminalSingleDuctConstantVolumeReheat.hpp>
-#include <openstudio/src/model/AirTerminalSingleDuctParallelPIUReheat.hpp>
-#include <openstudio/src/model/AirTerminalSingleDuctConstantVolumeNoReheat.hpp>
-#include <openstudio/src/model/AirTerminalSingleDuctVAVReheat.hpp>
-#include <openstudio/src/model/AirTerminalSingleDuctVAVNoReheat.hpp>
-#include <openstudio/src/model/BuildingStory.hpp>
-#include <openstudio/src/model/CoilCoolingCooledBeam.hpp>
-#include <openstudio/src/model/CoilCoolingDXSingleSpeed.hpp>
-#include <openstudio/src/model/CoilCoolingDXTwoSpeed.hpp>
-#include <openstudio/src/model/CoilCoolingWaterToAirHeatPumpEquationFit.hpp>
-#include <openstudio/src/model/CoilHeatingDXSingleSpeed.hpp>
-#include <openstudio/src/model/CoilHeatingElectric.hpp>
-#include <openstudio/src/model/CoilHeatingGas.hpp>
-#include <openstudio/src/model/CoilHeatingGas_Impl.hpp>
-#include <openstudio/src/model/CoilHeatingWaterBaseboard.hpp>
-#include <openstudio/src/model/CoilHeatingWaterToAirHeatPumpEquationFit.hpp>
-#include <openstudio/src/model/ControllerOutdoorAir.hpp>
-#include <openstudio/src/model/CurveBiquadratic.hpp>
-#include <openstudio/src/model/CurveQuadratic.hpp>
-#include <openstudio/src/model/DistrictCooling.hpp>
-#include <openstudio/src/model/DistrictHeating.hpp>
-#include <openstudio/src/model/EvaporativeCoolerDirectResearchSpecial.hpp>
-#include <openstudio/src/model/FanConstantVolume.hpp>
-#include <openstudio/src/model/FanOnOff.hpp>
-#include <openstudio/src/model/FanVariableVolume.hpp>
-#include <openstudio/src/model/FanZoneExhaust.hpp>
-#include <openstudio/src/model/GeneratorFuelCellExhaustGasToWaterHeatExchanger.hpp>
-#include <openstudio/src/model/GeneratorMicroTurbineHeatRecovery.hpp>
-#include <openstudio/src/model/Model.hpp>
-#include <openstudio/src/model/ScheduleCompact.hpp>
-#include <openstudio/src/model/SetpointManagerMixedAir.hpp>
-#include <openstudio/src/model/SetpointManagerScheduled.hpp>
-#include <openstudio/src/model/SetpointManagerSingleZoneReheat.hpp>
-#include <openstudio/src/model/PlantComponentUserDefined.hpp>
-#include <openstudio/src/model/ZoneHVACBaseboardConvectiveWater.hpp>
-#include <openstudio/src/model/ZoneHVACFourPipeFanCoil.hpp>
-#include <openstudio/src/model/ZoneHVACLowTempRadiantConstFlow.hpp>
-#include <openstudio/src/model/ZoneHVACLowTemperatureRadiantElectric.hpp>
-#include <openstudio/src/model/ZoneHVACLowTempRadiantVarFlow.hpp>
-#include <openstudio/src/model/ZoneHVACPackagedTerminalHeatPump.hpp>
-#include <openstudio/src/model/ZoneHVACPackagedTerminalAirConditioner.hpp>
-#include <openstudio/src/model/ZoneHVACUnitHeater.hpp>
-#include <openstudio/src/model/ZoneHVACWaterToAirHeatPump.hpp>
+#include <openstudio/model/EvaporativeFluidCoolerSingleSpeed.hpp>
+#include <openstudio/model/AirLoopHVACOutdoorAirSystem.hpp>
+#include <openstudio/model/AirLoopHVACUnitaryHeatPumpAirToAir.hpp>
+#include <openstudio/model/AirLoopHVACUnitarySystem.hpp>
+#include <openstudio/model/AirTerminalSingleDuctConstantVolumeCooledBeam.hpp>
+#include <openstudio/model/AirTerminalSingleDuctConstantVolumeReheat.hpp>
+#include <openstudio/model/AirTerminalSingleDuctParallelPIUReheat.hpp>
+#include <openstudio/model/AirTerminalSingleDuctConstantVolumeNoReheat.hpp>
+#include <openstudio/model/AirTerminalSingleDuctVAVReheat.hpp>
+#include <openstudio/model/AirTerminalSingleDuctVAVNoReheat.hpp>
+#include <openstudio/model/BuildingStory.hpp>
+#include <openstudio/model/CoilCoolingCooledBeam.hpp>
+#include <openstudio/model/CoilCoolingDXSingleSpeed.hpp>
+#include <openstudio/model/CoilCoolingDXTwoSpeed.hpp>
+#include <openstudio/model/CoilCoolingWaterToAirHeatPumpEquationFit.hpp>
+#include <openstudio/model/CoilHeatingDXSingleSpeed.hpp>
+#include <openstudio/model/CoilHeatingElectric.hpp>
+#include <openstudio/model/CoilHeatingGas.hpp>
+#include <openstudio/model/CoilHeatingGas_Impl.hpp>
+#include <openstudio/model/CoilHeatingWaterBaseboard.hpp>
+#include <openstudio/model/CoilHeatingWaterToAirHeatPumpEquationFit.hpp>
+#include <openstudio/model/ControllerOutdoorAir.hpp>
+#include <openstudio/model/CurveBiquadratic.hpp>
+#include <openstudio/model/CurveQuadratic.hpp>
+#include <openstudio/model/DistrictCooling.hpp>
+#include <openstudio/model/DistrictHeating.hpp>
+#include <openstudio/model/EvaporativeCoolerDirectResearchSpecial.hpp>
+#include <openstudio/model/FanConstantVolume.hpp>
+#include <openstudio/model/FanOnOff.hpp>
+#include <openstudio/model/FanVariableVolume.hpp>
+#include <openstudio/model/FanZoneExhaust.hpp>
+#include <openstudio/model/GeneratorFuelCellExhaustGasToWaterHeatExchanger.hpp>
+#include <openstudio/model/GeneratorMicroTurbineHeatRecovery.hpp>
+#include <openstudio/model/Model.hpp>
+#include <openstudio/model/ScheduleCompact.hpp>
+#include <openstudio/model/SetpointManagerMixedAir.hpp>
+#include <openstudio/model/SetpointManagerScheduled.hpp>
+#include <openstudio/model/SetpointManagerSingleZoneReheat.hpp>
+#include <openstudio/model/PlantComponentUserDefined.hpp>
+#include <openstudio/model/ZoneHVACBaseboardConvectiveWater.hpp>
+#include <openstudio/model/ZoneHVACFourPipeFanCoil.hpp>
+#include <openstudio/model/ZoneHVACLowTempRadiantConstFlow.hpp>
+#include <openstudio/model/ZoneHVACLowTemperatureRadiantElectric.hpp>
+#include <openstudio/model/ZoneHVACLowTempRadiantVarFlow.hpp>
+#include <openstudio/model/ZoneHVACPackagedTerminalHeatPump.hpp>
+#include <openstudio/model/ZoneHVACPackagedTerminalAirConditioner.hpp>
+#include <openstudio/model/ZoneHVACUnitHeater.hpp>
+#include <openstudio/model/ZoneHVACWaterToAirHeatPump.hpp>
 
-#include <openstudio/src/osversion/VersionTranslator.hpp>
+#include <openstudio/OpenStudio.hxx>
 
-#include <openstudio/src/energyplus/ForwardTranslator.hpp>
-#include <openstudio/src/energyplus/ReverseTranslator.hpp>
+#include <openstudio/osversion/VersionTranslator.hpp>
 
-#include <openstudio/src/gbxml/ReverseTranslator.hpp>
-#include <openstudio/src/sdd/ReverseTranslator.hpp>
+#include <openstudio/energyplus/ForwardTranslator.hpp>
+#include <openstudio/energyplus/ReverseTranslator.hpp>
+
+#include <openstudio/gbxml/ReverseTranslator.hpp>
+#include <openstudio/sdd/ReverseTranslator.hpp>
 #include "../bimserver/BIMserverConnection.hpp"
 #include "../bimserver/ProjectImporter.hpp"
 
@@ -130,8 +132,8 @@
 #include <QtConcurrent>
 #include <QtGlobal>
 
-#include <openstudio/src/OpenStudio.hxx>
-#include <openstudio/src/utilities/idd/IddEnums.hxx>
+#include <openstudio/OpenStudio.hxx>
+#include <openstudio/utilities/idd/IddEnums.hxx>
 #include <sstream>
 #include <cstdlib>
 
@@ -234,6 +236,29 @@ OpenStudioApp::~OpenStudioApp()
 
 void OpenStudioApp::onMeasureManagerAndLibraryReady() {
   if( m_buildCompLibWatcher.isFinished() && m_waitForMeasureManagerWatcher.isFinished() ) {
+    // m_waitForMeasureManagerWatcher might be finished, but that might be because it timeout'ed
+    // So you do want to check the result of the future now that it catches the return type
+    // (or call measureManager().isStarted() equivalently)
+    if (!m_waitForMeasureManagerWatcher.future().result()) {
+      int currentTry = 1;
+      while (!measureManager().isStarted()) {
+        LOG(Fatal, "Failed to start the Measure Manager on try " << currentTry << ", timeout reached.");
+        QMessageBox msgBox;
+        msgBox.setWindowTitle("Timeout");
+        msgBox.setIcon(QMessageBox::Critical);
+        msgBox.setText("Failed to start the Measure Manager. Would you like to retry?");
+        msgBox.setStandardButtons(QMessageBox::Retry | QMessageBox::Close);
+        if (msgBox.exec() == QMessageBox::Close) {
+          LOG_AND_THROW("Exit after measure manager failed to start in given time.");;
+        } else {
+          measureManager().waitForStarted(10000);
+          ++currentTry;
+        }
+      }
+      LOG(Info, "Recovered from Measure Manager problem, managed to start it on try " << currentTry
+             << " at: " << toString(measureManager().url().toString()));
+    }
+
     auto failed = m_buildCompLibWatcher.result();
     showFailedLibraryDialog(failed);
 
@@ -484,23 +509,63 @@ void OpenStudioApp::importIdf()
 
     boost::optional<IdfFile> idfFile;
 
-    idfFile = openstudio::IdfFile::load(toPath(fileName),IddFileType::EnergyPlus);
+    openstudio::path path = toPath(fileName);
+    idfFile = openstudio::IdfFile::load(path,IddFileType::EnergyPlus);
 
     if( idfFile )
     {
 
       IdfFile _idfFile = idfFile.get();
 
-      if (!_idfFile.isValid(StrictnessLevel::Draft)){
+      if (!_idfFile.isValid(StrictnessLevel::Draft)) {
 
-        QMessageBox messageBox(parent);
-        messageBox.setText("File is not valid to draft strictness.  Check that IDF is of correct version and that all fields are valid against Energy+.idd.");
+        // Something is wrong, try to be informative
+
+        // Retrieve IDF File Version
+        boost::optional<VersionString> idfFileVersion = openstudio::IdfFile::loadVersionOnly(path);
+
+        // Retrieve current version of E+ used by OS
+        VersionString currentVersion(energyPlusVersion());
+
+        QString informativeText;
+
+        if (idfFileVersion.has_value()) {
+
+          informativeText = QString("The IDF is at version '") + toQString(idfFileVersion->str());
+
+          if (idfFileVersion.get() < currentVersion) {
+            informativeText.append(QString("' while OpenStudio uses a <strong>newer</strong> EnergyPlus '")  + toQString(currentVersion.str())
+                                 + QString("'. Consider using the EnergyPlus Auxiliary program IDFVersionUpdater to update your IDF file."));
+          } else if (idfFileVersion.get() > currentVersion) {
+            informativeText.append(QString("' while OpenStudio uses an <strong>older</strong> EnergyPlus '")  + toQString(currentVersion.str()) + QString("'."));
+          } else {
+            informativeText.append(QString("' which is the <strong>same</strong> version of EnergyPlus that OpenStudio uses (")
+                                 + toQString(currentVersion.str()) + QString(")."));
+          }
+        } else {
+          informativeText = QString("<strong>The IDF does not have a VersionObject</strong>. Check that it is of correct version (")
+                          + toQString(currentVersion.str())
+                          + QString(") and that all fields are valid against Energy+.idd. ");
+        }
+
+        informativeText.append("<br/><br/>The ValidityReport follows.");
+
+        QString text("<strong>File is not valid to draft strictness</strong>. Check that all fields are valid against Energy+.idd.");
+
+        //QMessageBox messageBox(parent);
+        //messageBox.setText(text);
+
+        // Customize with title and critical icon
+        QMessageBox messageBox(QMessageBox::Critical, " IDF Import Failed", text, QMessageBox::NoButton, parent, Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
+
+        messageBox.setInformativeText(informativeText);
+
         std::stringstream ss;
         ss << _idfFile.validityReport(StrictnessLevel::Draft);
         messageBox.setDetailedText(toQString(ss.str()));
         messageBox.exec();
 
-      }else{
+      } else {
 
         Workspace workspace(_idfFile);
 
@@ -528,42 +593,83 @@ void OpenStudioApp::importIdf()
 
         connectOSDocumentSignals();
 
-        QMessageBox messageBox; // (parent); ETH: ... but is hidden, so don't actually use
-        messageBox.setText("Some portions of the idf file were not imported.");
-        messageBox.setInformativeText("Only geometry, constructions, loads, thermal zones, and schedules are supported by the OpenStudio IDF import feature.");
-
         QString log;
 
-        for( const auto & message : trans.errors() ) {
-          log.append("\n");
-          log.append("\n");
-          log.append(QString::fromStdString(message.logMessage()));
-          log.append("\n");
-          log.append("\n");
-        }
+        // DetailedText of QMessageBox is always interpreted a raw text, so not HTML formatting.
+/*
+ *        if (!trans.errors().empty()) {
+ *          log.append("<h3>Errors:</h3>");
+ *          log.append("<ul>");
+ *          for( const auto & message : trans.errors() ) {
+ *            log.append("<li>" + QString::fromStdString(message.logMessage()) + "</li>");
+ *          }
+ *          log.append("</ul>");
+ *        }
+ *
+ *        if (!trans.warnings().empty()) {
+ *          log.append("<h3>Warnings:</h3>");
+ *          log.append("<ul>");
+ *          for( const auto & message : trans.warnings() ) {
+ *            log.append("<li>" + QString::fromStdString(message.logMessage()) + "</li>");
+ *          }
+ *          log.append("</ul>");
+ *        }
+ *
+ *        if (!trans.untranslatedIdfObjects().empty()) {
+ *          log.append("<h3>The following idf objects were not imported:</h3>");
+ *          log.append("<ul>");
+ *
+ *          for( const auto & idfObject : trans.untranslatedIdfObjects() ) {
+ *            std::string message;
+ *            if( auto name = idfObject.name() ) {
+ *              message = idfObject.iddObject().name() + " named " + name.get();
+ *            } else {
+ *              message = "Unnamed " + idfObject.iddObject().name();
+ *            }
+ *            log.append("<li>" + QString::fromStdString(message) + "</li>");
+ *          }
+ *          log.append("</ul>");
+ *        }
+ */
 
-        for( const auto & message : trans.warnings() ) {
-          log.append(QString::fromStdString(message.logMessage()));
-          log.append("\n");
-          log.append("\n");
-        }
-
-        log.append("The following idf objects were not imported.");
-        log.append("\n");
-        log.append("\n");
-
-        for( const auto & idfObject : trans.untranslatedIdfObjects() ) {
-          std::string message;
-          if( auto name = idfObject.name() ) {
-            message = idfObject.iddObject().name() + " named " + name.get();
-          } else {
-            message = "Unammed " + idfObject.iddObject().name();
+        if (!trans.errors().empty()) {
+          log.append("=============== Errors ===============\n\n");
+          for( const auto & message : trans.errors() ) {
+            log.append(" * " + QString::fromStdString(message.logMessage()) + "\n");
           }
-          log.append(QString::fromStdString(message));
-          log.append("\n");
-          log.append("\n");
+          log.append("\n\n");
         }
 
+        if (!trans.warnings().empty()) {
+          log.append("============== Warnings ==============\n\n");
+          for( const auto & message : trans.warnings() ) {
+            log.append(" * " + QString::fromStdString(message.logMessage()) + "\n");
+          }
+          log.append("\n\n");
+        }
+
+        if (!trans.untranslatedIdfObjects().empty()) {
+          log.append("==== The following idf objects were not imported ====\n\n");
+
+          for( const auto & idfObject : trans.untranslatedIdfObjects() ) {
+            std::string message;
+            if( auto name = idfObject.name() ) {
+              message = idfObject.iddObject().name() + " named " + name.get();
+            } else {
+              message = "Unnamed " + idfObject.iddObject().name();
+            }
+            log.append(" * " + QString::fromStdString(message) + "\n");
+          }
+        }
+
+        QString text("<strong>Some portions of the IDF file were not imported.</strong>");
+
+        // QMessageBox messageBox; // (parent); ETH: ... but is hidden, so don't actually use
+        // messageBox.setText(text);
+
+        // Passing parent = nullptr on purpose here
+        QMessageBox messageBox(QMessageBox::Warning, "IDF Import", text, QMessageBox::NoButton, nullptr, Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
+        messageBox.setInformativeText("Only geometry, constructions, loads, thermal zones, and schedules are supported by the OpenStudio IDF import feature.");
         messageBox.setDetailedText(log);
 
         messageBox.exec();
@@ -726,7 +832,24 @@ void OpenStudioApp::import(OpenStudioApp::fileType type)
 
       QMessageBox messageBox; // (parent); ETH: ... but is hidden, so don't actually use
       messageBox.setText("Could not import SDD file.");
-      messageBox.setDetailedText(QString("Could not import " + fileExtension + " file at ") + fileName);
+
+      QString log("Could not import " + fileExtension + " file at " + fileName + ".\n\n");
+
+      for( const auto & error : translatorErrors )
+      {
+        log.append(QString::fromStdString(error.logMessage()));
+        log.append("\n");
+        log.append("\n");
+      }
+
+      for( const auto & warning : translatorWarnings )
+      {
+        log.append(QString::fromStdString(warning.logMessage()));
+        log.append("\n");
+        log.append("\n");
+      }
+
+      messageBox.setDetailedText(log);
       messageBox.exec();
     }
   }

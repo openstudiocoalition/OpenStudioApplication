@@ -34,36 +34,36 @@
 #include "OSAppBase.hpp"
 #include "OSDocument.hpp"
 
-#include <openstudio/src/model/AirLoopHVAC.hpp>
-#include <openstudio/src/model/AirLoopHVACReturnPlenum.hpp>
-#include <openstudio/src/model/AirLoopHVACReturnPlenum_Impl.hpp>
-#include <openstudio/src/model/AirLoopHVACSupplyPlenum.hpp>
-#include <openstudio/src/model/AirLoopHVACSupplyPlenum_Impl.hpp>
-#include <openstudio/src/model/AirLoopHVACZoneMixer.hpp>
-#include <openstudio/src/model/AirLoopHVACZoneMixer_Impl.hpp>
-#include <openstudio/src/model/AirLoopHVACZoneSplitter.hpp>
-#include <openstudio/src/model/AirLoopHVACZoneSplitter_Impl.hpp>
-#include <openstudio/src/model/AirLoopHVAC_Impl.hpp>
-#include <openstudio/src/model/HVACComponent.hpp>
-#include <openstudio/src/model/HVACComponent_Impl.hpp>
-#include <openstudio/src/model/PlantLoop.hpp>
-#include <openstudio/src/model/PlantLoop_Impl.hpp>
-#include <openstudio/src/model/ScheduleCompact.hpp>
-#include <openstudio/src/model/ScheduleCompact_Impl.hpp>
-#include <openstudio/src/model/ThermalZone.hpp>
-#include <openstudio/src/model/ThermalZone_Impl.hpp>
-#include <openstudio/src/model/WaterToAirComponent.hpp>
-#include <openstudio/src/model/WaterToAirComponent_Impl.hpp>
-#include <openstudio/src/model/WaterHeaterMixed.hpp>
-#include <openstudio/src/model/WaterHeaterMixed_Impl.hpp>
-#include <openstudio/src/model/ZoneHVACFourPipeFanCoil.hpp>
-#include <openstudio/src/model/ZoneHVACFourPipeFanCoil_Impl.hpp>
-#include <openstudio/src/model/ZoneHVACPackagedTerminalAirConditioner.hpp>
-#include <openstudio/src/model/ZoneHVACPackagedTerminalAirConditioner_Impl.hpp>
-#include <openstudio/src/model/ZoneHVACUnitHeater.hpp>
-#include <openstudio/src/model/ZoneHVACUnitHeater_Impl.hpp>
+#include <openstudio/model/AirLoopHVAC.hpp>
+#include <openstudio/model/AirLoopHVACReturnPlenum.hpp>
+#include <openstudio/model/AirLoopHVACReturnPlenum_Impl.hpp>
+#include <openstudio/model/AirLoopHVACSupplyPlenum.hpp>
+#include <openstudio/model/AirLoopHVACSupplyPlenum_Impl.hpp>
+#include <openstudio/model/AirLoopHVACZoneMixer.hpp>
+#include <openstudio/model/AirLoopHVACZoneMixer_Impl.hpp>
+#include <openstudio/model/AirLoopHVACZoneSplitter.hpp>
+#include <openstudio/model/AirLoopHVACZoneSplitter_Impl.hpp>
+#include <openstudio/model/AirLoopHVAC_Impl.hpp>
+#include <openstudio/model/HVACComponent.hpp>
+#include <openstudio/model/HVACComponent_Impl.hpp>
+#include <openstudio/model/PlantLoop.hpp>
+#include <openstudio/model/PlantLoop_Impl.hpp>
+#include <openstudio/model/ScheduleCompact.hpp>
+#include <openstudio/model/ScheduleCompact_Impl.hpp>
+#include <openstudio/model/ThermalZone.hpp>
+#include <openstudio/model/ThermalZone_Impl.hpp>
+#include <openstudio/model/WaterToAirComponent.hpp>
+#include <openstudio/model/WaterToAirComponent_Impl.hpp>
+#include <openstudio/model/WaterHeaterMixed.hpp>
+#include <openstudio/model/WaterHeaterMixed_Impl.hpp>
+#include <openstudio/model/ZoneHVACFourPipeFanCoil.hpp>
+#include <openstudio/model/ZoneHVACFourPipeFanCoil_Impl.hpp>
+#include <openstudio/model/ZoneHVACPackagedTerminalAirConditioner.hpp>
+#include <openstudio/model/ZoneHVACPackagedTerminalAirConditioner_Impl.hpp>
+#include <openstudio/model/ZoneHVACUnitHeater.hpp>
+#include <openstudio/model/ZoneHVACUnitHeater_Impl.hpp>
 
-#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
 
 namespace openstudio {
 

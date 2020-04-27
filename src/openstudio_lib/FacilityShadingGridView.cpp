@@ -34,27 +34,27 @@
 
 #include "../shared_gui_components/OSGridView.hpp"
 
-#include <openstudio/src/model/Blind.hpp>
-#include <openstudio/src/model/Blind_Impl.hpp>
-#include <openstudio/src/model/ConstructionBase.hpp>
-#include <openstudio/src/model/ConstructionBase_Impl.hpp>
-#include <openstudio/src/model/Model.hpp>
-#include <openstudio/src/model/Model_Impl.hpp>
-#include <openstudio/src/model/ModelObject.hpp>
-#include <openstudio/src/model/ModelObject_Impl.hpp>
-#include <openstudio/src/model/Schedule.hpp>
-#include <openstudio/src/model/Schedule_Impl.hpp>
-#include <openstudio/src/model/ShadingSurface.hpp>
-#include <openstudio/src/model/ShadingSurface_Impl.hpp>
-#include <openstudio/src/model/ShadingSurfaceGroup.hpp>
-#include <openstudio/src/model/ShadingSurfaceGroup_Impl.hpp>
+#include <openstudio/model/Blind.hpp>
+#include <openstudio/model/Blind_Impl.hpp>
+#include <openstudio/model/ConstructionBase.hpp>
+#include <openstudio/model/ConstructionBase_Impl.hpp>
+#include <openstudio/model/Model.hpp>
+#include <openstudio/model/Model_Impl.hpp>
+#include <openstudio/model/ModelObject.hpp>
+#include <openstudio/model/ModelObject_Impl.hpp>
+#include <openstudio/model/Schedule.hpp>
+#include <openstudio/model/Schedule_Impl.hpp>
+#include <openstudio/model/ShadingSurface.hpp>
+#include <openstudio/model/ShadingSurface_Impl.hpp>
+#include <openstudio/model/ShadingSurfaceGroup.hpp>
+#include <openstudio/model/ShadingSurfaceGroup_Impl.hpp>
 
-#include <openstudio/src/utilities/core/Assert.hpp>
-#include <openstudio/src/utilities/idd/IddEnums.hxx>
-#include <openstudio/src/utilities/idd/OS_ShadingSurface_FieldEnums.hxx>
-#include <openstudio/src/utilities/idd/OS_ShadingSurfaceGroup_FieldEnums.hxx>
-#include <openstudio/src/utilities/idd/OS_WindowMaterial_Blind_FieldEnums.hxx>
-#include <openstudio/src/utilities/units/QuantityConverter.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/idd/IddEnums.hxx>
+#include <openstudio/utilities/idd/OS_ShadingSurface_FieldEnums.hxx>
+#include <openstudio/utilities/idd/OS_ShadingSurfaceGroup_FieldEnums.hxx>
+#include <openstudio/utilities/idd/OS_WindowMaterial_Blind_FieldEnums.hxx>
+#include <openstudio/utilities/units/QuantityConverter.hpp>
 
 #include <QBoxLayout>
 #include <QCheckBox>
@@ -159,6 +159,7 @@ namespace openstudio {
     layout->addWidget(label, Qt::AlignTop | Qt::AlignLeft);
 
     m_typeFilter = new QComboBox();
+    m_typeFilter->addItem("All");
     m_typeFilter->addItem("Site");
     m_typeFilter->addItem("Building");
     // Space-level shading is on the Space's "Shading" subtab
@@ -282,14 +283,17 @@ namespace openstudio {
 
   void FacilityShadingGridView::typeFilterChanged(const QString& text)
   {
-    m_objectsFilterdByType.clear();
-
-    for (auto obj : this->m_gridController->getObjectSelector()->m_selectorObjects) {
-      auto parent = obj.parent();
-      if (parent && parent->iddObjectType() == IddObjectType::OS_ShadingSurfaceGroup){
-        if (m_typeFilter->currentText() != parent->cast<model::ShadingSurfaceGroup>().shadingSurfaceType().c_str()) {
-          if (m_objectsFilterdByType.count(obj) == 0) {
-            m_objectsFilterdByType.insert(obj);
+    m_objectsFilteredByType.clear();
+    if (m_typeFilter->currentText() == "All") {
+      // Nothing to filter
+    } else {
+      for (auto obj : this->m_gridController->getObjectSelector()->m_selectorObjects) {
+        auto parent = obj.parent();
+        if (parent && parent->iddObjectType() == IddObjectType::OS_ShadingSurfaceGroup){
+          if (m_typeFilter->currentText() != parent->cast<model::ShadingSurfaceGroup>().shadingSurfaceType().c_str()) {
+            if (m_objectsFilteredByType.count(obj) == 0) {
+              m_objectsFilteredByType.insert(obj);
+            }
           }
         }
       }
@@ -395,7 +399,7 @@ namespace openstudio {
       }
     }
 
-    for (auto obj : m_objectsFilterdByType) {
+    for (auto obj : m_objectsFilteredByType) {
       if (allFilteredObjects.count(obj) == 0) {
         allFilteredObjects.insert(obj);
       }
@@ -423,8 +427,18 @@ namespace openstudio {
 
   void FacilityShadingGridView::purgeObjects(const IddObjectType& iddObjectType)
   {
-    for (auto mo : this->m_model.getConcreteModelObjects<model::ShadingSurface>()){
-      mo.remove();
+    // If no shading surfaces in the Shading Surface Group -> remove
+    for (auto mo : this->m_model.getConcreteModelObjects<model::ShadingSurfaceGroup>()){
+      if (mo.shadingSurfaces().empty()) {
+        mo.remove();
+      }
+    }
+
+    // If a shading surface isn't part of a Shading Surface Group, it won't be translated to IDF anyways and should be considered orphaned
+    for (auto mo: this->m_model.getConcreteModelObjects<model::ShadingSurface>()) {
+      if (!mo.shadingSurfaceGroup().has_value()) {
+        mo.remove();
+      }
     }
   }
 

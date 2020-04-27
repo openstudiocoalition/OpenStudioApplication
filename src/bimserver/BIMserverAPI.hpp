@@ -30,7 +30,7 @@
 #ifndef BIMSERVER_BIMSERVERAPI_HPP
 #define BIMSERVER_BIMSERVERAPI_HPP
 
-#if (_WIN32 || _MSC_VER) && SHARED_OS_LIBS
+#if (_WIN32 || _MSC_VER) && SHARED_OSAPP_LIBS
 
 #ifdef openstudio_bimserver_EXPORTS
 #define BIMSERVER_API __declspec(dllexport)

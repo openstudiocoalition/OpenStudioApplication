@@ -36,9 +36,9 @@
 #include "OSCollapsibleItem.hpp"
 #include "OSItem.hpp"
 
-#include <openstudio/src/model/Model.hpp>
-#include <openstudio/src/model/Model_Impl.hpp>
-#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/model/Model.hpp>
+#include <openstudio/model/Model_Impl.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
 
 #include <iostream>
 #include <fstream>

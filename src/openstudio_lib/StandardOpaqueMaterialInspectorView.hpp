@@ -32,7 +32,7 @@
 
 #include "ModelObjectInspectorView.hpp"
 
-#include <openstudio/src/model/Model.hpp>
+#include <openstudio/model/Model.hpp>
 
 class QLabel;
 

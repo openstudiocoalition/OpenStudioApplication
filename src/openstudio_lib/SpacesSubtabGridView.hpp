@@ -35,7 +35,7 @@
 #include "GridViewSubTab.hpp"
 #include "OSItem.hpp"
 
-#include <openstudio/src/model/Model.hpp>
+#include <openstudio/model/Model.hpp>
 
 class QComboBox;
 class QLineEdit;
@@ -136,9 +136,9 @@ namespace openstudio{
 
     std::set<openstudio::model::ModelObject> m_objectsFilteredByThermalZone;
 
-    std::set<openstudio::model::ModelObject> m_objectsFilterdBySpaceType;
+    std::set<openstudio::model::ModelObject> m_objectsFilteredBySpaceType;
 
-    std::set<openstudio::model::ModelObject> m_objectsFilterdBySubSurfaceType;
+    std::set<openstudio::model::ModelObject> m_objectsFilteredBySubSurfaceType;
 
     std::set<openstudio::model::ModelObject> m_objectsFilteredBySpaceName;
 

@@ -29,37 +29,56 @@
 
 # add binary dir to system path
 original_path = ENV['PATH']
+original_dll_directory = nil
 platform_specific_path = nil
+
 if /mswin/.match(RUBY_PLATFORM) or /mingw/.match(RUBY_PLATFORM)
-  front = []
-  back = []
-  original_path.split(';').each do |p|
-    if /SketchUp/.match(p)
-      if /platform_specific/.match(p)
-        platform_specific_path = p
-      end
-      front << p
-    else
-      back << p
-    end
+  
+  require 'fiddle/import'
+  require 'fiddle/types'
+  module WinAPI
+    extend Fiddle::Importer
+    dlload 'kernel32.dll'
+    include Fiddle::Win32Types
+    extern 'BOOL SetDllDirectory(LPCSTR)'
+    extern 'DWORD GetDllDirectory(DWORD, LPSTR)'
   end
 
-  ENV['PATH'] = "#{front.join(';')};#{File.dirname(__FILE__)};#{back.join(';')}"
+  buffer = 1024
+  original_dll_directory = Fiddle::Pointer.malloc(buffer) 
+  WinAPI.GetDllDirectory(buffer, original_dll_directory)
+  
+  qt_dll_path = File.expand_path(File.join(File.dirname(__FILE__), '../bin/'))
+  WinAPI.SetDllDirectory(qt_dll_path)
 
+  $OPENSTUDIO_APPLICATION_DIR = File.join(File.dirname(__FILE__), '../bin/')
 else
 
   # Do something here for Mac OSX environments
-  ENV['PATH'] = "#{File.dirname(__FILE__)}:#{original_path}"
+  qt_so_path = File.expand_path(File.join(File.dirname(__FILE__), '../bin/'))
+  ENV['PATH'] = "#{qt_so_path}:#{original_path}"
+  
+  $OPENSTUDIO_APPLICATION_DIR = File.join(File.dirname(__FILE__), '../bin/')
 end
 
-# require openstudio
-require_relative 'openstudio'
+begin
 
-# require openstudio_modeleditor.so
-require_relative 'openstudio_modeleditor.so'
+  # require openstudio
+  require_relative 'openstudio'
 
-# restore original path
-ENV['PATH'] = original_path
+  # require openstudio_modeleditor.so
+  require_relative 'openstudio_modeleditor.so'
+  
+  # add this directory to Ruby load path
+  $:.unshift(File.expand_path(File.dirname(__FILE__)))
+  
+ensure
 
-# add this directory to Ruby load path
-$:.unshift(File.expand_path(File.dirname(__FILE__)))
+  # restore original path
+  ENV['PATH'] = original_path
+  
+  if original_dll_directory
+    WinAPI.SetDllDirectory(original_dll_directory)
+  end
+  
+end

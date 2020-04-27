@@ -31,9 +31,9 @@
 #include "../shared_gui_components/OSLineEdit.hpp"
 #include "../shared_gui_components/OSQuantityEdit.hpp"
 #include "OSDropZone.hpp"
-#include <openstudio/src/model/SteamEquipmentDefinition.hpp>
-#include <openstudio/src/model/SteamEquipmentDefinition_Impl.hpp>
-#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/model/SteamEquipmentDefinition.hpp>
+#include <openstudio/model/SteamEquipmentDefinition_Impl.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QLabel>

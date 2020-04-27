@@ -28,8 +28,8 @@
 ***********************************************************************************************************************/
 
 #include "IconLibrary.hpp"
-#include <openstudio/src/utilities/idd/IddEnums.hpp>
-#include <openstudio/src/utilities/idd/IddEnums.hxx>
+#include <openstudio/utilities/idd/IddEnums.hpp>
+#include <openstudio/utilities/idd/IddEnums.hxx>
 
 using std::map;
 
@@ -50,25 +50,31 @@ namespace openstudio {
   const QPixmap* IconLibrary::findIcon(unsigned int v) const
   {
     auto i = m_icons.find(v);
-    if (i != m_icons.end())
+    if (i != m_icons.end()) {
       return (*i).second;
-
-    return nullptr;
+    } else {
+      // LOG(Debug, "Missing Icon for IddObjectType=" << openstudio::IddObjectType(v).valueName());
+      return m_icons.at(openstudio::IddObjectType(openstudio::IddObjectType::Catchall).value());
+    }
 
   }
 
   const QPixmap* IconLibrary::findMiniIcon(unsigned int v) const
   {
     auto i = m_miniIcons.find(v);
-    if (i != m_miniIcons.end())
+    if (i != m_miniIcons.end()) {
       return (*i).second;
-
-    return nullptr;
-
+    } else {
+      // LOG(Debug, "Missing Mini Icon for IddObjectType=" << openstudio::IddObjectType(v).valueName());
+      return m_miniIcons.at(openstudio::IddObjectType(openstudio::IddObjectType::Catchall).value());
+    }
   }
 
 IconLibrary::IconLibrary()
 {
+  // Default icon to avoid a crash
+  m_icons[openstudio::IddObjectType(openstudio::IddObjectType::Catchall).value()] = new QPixmap(":images/missing_icon.png");
+
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_AirLoopHVAC_OutdoorAirSystem).value()] = new QPixmap(":images/OAMixer.png");
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_AirLoopHVAC_UnitaryCoolOnly).value()] = new QPixmap(":images/DXCoolingCoil.png");
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_AirLoopHVAC_UnitaryHeatPump_AirToAir).value()] = new QPixmap(":images/heat_pump3.png");
@@ -131,6 +137,7 @@ IconLibrary::IconLibrary()
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_EvaporativeCooler_Indirect_ResearchSpecial).value()] = new QPixmap(":images/indirectEvap.png");
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Fan_ConstantVolume).value()] = new QPixmap(":images/fan_constant.png");
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Fan_OnOff).value()] = new QPixmap(":images/fan_on_off.png");
+  m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Fan_SystemModel).value()] = new QPixmap(":images/fan_systemmodel.png");
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Fan_VariableVolume).value()] = new QPixmap(":images/fan_variable.png");
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Fan_ZoneExhaust).value()] = new QPixmap(":images/fan_zoneexhaust.png");
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_FluidCooler_SingleSpeed).value()] = new QPixmap(":images/fluid_cooler_single.png");
@@ -183,6 +190,7 @@ IconLibrary::IconLibrary()
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Coil_Cooling_CooledBeam).value()] = new QPixmap(":images/coilcoolingchilledbeam.png");
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Coil_Cooling_FourPipeBeam).value()] = new QPixmap(":images/coilcoolingfourpipebeam.png");
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Coil_Heating_FourPipeBeam).value()] = new QPixmap(":images/coilheatingfourpipebeam.png");
+  m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Coil_Heating_Desuperheater).value()] = new QPixmap(":images/coilheatingdesuperheater.png");
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Coil_Cooling_DX_TwoStageWithHumidityControlMode).value()] = new QPixmap(":images/dxcoolingcoil_2stage_humidity.png");
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_CoilSystem_Cooling_Water_HeatExchangerAssisted).value()] = new QPixmap(":images/coil_system_coolingwater_heat_exchanger.png");
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_CoilSystem_Cooling_DX_HeatExchangerAssisted).value()] = new QPixmap(":images/coilsystem_cooling_dx.png");
@@ -214,10 +222,14 @@ IconLibrary::IconLibrary()
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_AvailabilityManager_HybridVentilation).value()] = new QPixmap(":images/hvac-icon.png");
 
   // mini icons
+  // Default mini icon to avoid a crash
+  m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::Catchall).value()] = new QPixmap(":images/mini_icons/missing_icon.png");
+
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_AirConditioner_VariableRefrigerantFlow).value()] = new QPixmap(":images/mini_icons/mini_vrf_outdoor.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Building).value()] = new QPixmap(":images/mini_icons/building.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_BuildingStory).value()] = new QPixmap(":images/mini_icons/building_story.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Construction).value()] = new QPixmap(":images/mini_icons/construction.png");
+  m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Construction_AirBoundary).value()] = new QPixmap(":images/mini_icons/construction_air_boundary.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Construction_CfactorUndergroundWall).value()] = new QPixmap(":images/mini_icons/construction_undergnd.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Construction_FfactorGroundFloor).value()] = new QPixmap(":images/mini_icons/construction_gnd.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Construction_InternalSource).value()] = new QPixmap(":images/mini_icons/construct_inter_source.png");
@@ -350,6 +362,7 @@ IconLibrary::IconLibrary()
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Coil_Cooling_CooledBeam).value()] = new QPixmap(":images/mini_icons/coilcoolingchilledbeam_mini.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Coil_Cooling_FourPipeBeam).value()] = new QPixmap(":images/mini_icons/coilcoolingfourpipebeam.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Coil_Heating_FourPipeBeam).value()] = new QPixmap(":images/mini_icons/coilheatingfourpipebeam.png");
+  m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Coil_Heating_Desuperheater).value()] = new QPixmap(":images/mini_icons/coilheatingdesuperheater.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Coil_Cooling_DX_SingleSpeed).value()] = new QPixmap(":images/mini_icons/mini_dxcoolingcoil_singlespeed.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Coil_Cooling_DX_TwoSpeed).value()] = new QPixmap(":images/mini_icons/mini-dxcoolingcoil_2speed.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Coil_Cooling_DX_TwoStageWithHumidityControlMode).value()] = new QPixmap(":images/mini_icons/mini_dxcoolingcoil_2stage_humidity.png");
@@ -379,6 +392,7 @@ IconLibrary::IconLibrary()
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_EvaporativeCooler_Indirect_ResearchSpecial).value()] = new QPixmap(":images/mini_icons/indirectEvap.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Fan_ConstantVolume).value()] = new QPixmap(":images/mini_icons/fan_constant.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Fan_OnOff).value()] = new QPixmap(":images/mini_icons/fan_on_off_mini.png");
+  m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Fan_SystemModel).value()] = new QPixmap(":images/mini_icons/fan_systemmodel.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Fan_VariableVolume).value()] = new QPixmap(":images/mini_icons/fan_variable.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Fan_ZoneExhaust).value()] = new QPixmap(":images/mini_icons/fan_zoneexhaust.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_EvaporativeFluidCooler_SingleSpeed).value()] = new QPixmap(":images/mini_icons/evap_fluid_cooler.png");

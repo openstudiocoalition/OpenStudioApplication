@@ -29,7 +29,7 @@
 
 #include "OSDialog.hpp"
 
-#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
 
 #include <QBoxLayout>
 #include <QMouseEvent>

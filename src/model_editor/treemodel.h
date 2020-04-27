@@ -47,8 +47,8 @@
 
 #include "ModelEditorAPI.hpp"
 
-#include <openstudio/src/model/ParentObject.hpp>
-#include <openstudio/src/model/Building.hpp>
+#include <openstudio/model/ParentObject.hpp>
+#include <openstudio/model/Building.hpp>
 
 class QModelIndex;
 

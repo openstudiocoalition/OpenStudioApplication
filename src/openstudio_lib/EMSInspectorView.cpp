@@ -28,14 +28,14 @@
 ***********************************************************************************************************************/
 
 #include "EMSInspectorView.hpp"
-#include <openstudio/src/model/ModelObject.hpp>
-#include <openstudio/src/model/EnergyManagementSystemActuator.hpp>
-#include <openstudio/src/model/EnergyManagementSystemActuator_Impl.hpp>
-#include <openstudio/src/model/EnergyManagementSystemSensor.hpp>
-#include <openstudio/src/model/EnergyManagementSystemSensor_Impl.hpp>
-#include <openstudio/src/model/ParentObject.hpp>
-#include <openstudio/src/model/ParentObject_Impl.hpp>
-#include <openstudio/src/model/Model.hpp>
+#include <openstudio/model/ModelObject.hpp>
+#include <openstudio/model/EnergyManagementSystemActuator.hpp>
+#include <openstudio/model/EnergyManagementSystemActuator_Impl.hpp>
+#include <openstudio/model/EnergyManagementSystemSensor.hpp>
+#include <openstudio/model/EnergyManagementSystemSensor_Impl.hpp>
+#include <openstudio/model/ParentObject.hpp>
+#include <openstudio/model/ParentObject_Impl.hpp>
+#include <openstudio/model/Model.hpp>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QCheckBox>
@@ -242,11 +242,11 @@ void EMSInspectorView::layoutModelObject( const model::ModelObject & modelObject
   for( const auto & objecti : modelObjects ) {
     if( m_type == Type::ACTUATOR ) {
       if (objecti.nameString().empty()) {
-        auto label = new EMSInspectorHeader(QString::fromStdString(objecti.iddObjectType().valueName()) + " Acuators");
+        auto label = new EMSInspectorHeader(QString::fromStdString(objecti.iddObjectType().valueName()) + " Actuators");
         m_layout->addWidget(label);
       }
       else {
-        auto label = new EMSInspectorHeader(QString::fromStdString(objecti.nameString()) + " Acuators");
+        auto label = new EMSInspectorHeader(QString::fromStdString(objecti.nameString()) + " Actuators");
         m_layout->addWidget(label);
       }
 

@@ -32,8 +32,8 @@
 #include "OSViewSwitcher.hpp"
 #include "WorkflowController.hpp"
 
-#include <openstudio/src/utilities/bcl/BCLMeasure.hpp>
-#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/utilities/bcl/BCLMeasure.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
 
 #include <QWidget>
 #include <QLineEdit>

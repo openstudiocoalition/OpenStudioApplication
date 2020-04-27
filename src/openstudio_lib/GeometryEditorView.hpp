@@ -34,9 +34,9 @@
 #include "ModelSubTabView.hpp"
 #include "OSWebEnginePage.hpp"
 
-#include <openstudio/src/model/Model.hpp>
+#include <openstudio/model/Model.hpp>
 
-#include <openstudio/src/utilities/geometry/FloorplanJS.hpp>
+#include <openstudio/utilities/geometry/FloorplanJS.hpp>
 
 #include <QWidget>
 #include <QDialog>

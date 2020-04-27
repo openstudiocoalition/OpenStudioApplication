@@ -37,7 +37,7 @@
 
 #include "ObjectExplorer.hpp"
 
-#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
 
 namespace modeleditor
 {

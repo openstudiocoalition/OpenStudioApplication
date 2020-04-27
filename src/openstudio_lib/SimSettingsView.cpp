@@ -40,49 +40,49 @@
 #include "../shared_gui_components/OSSwitch.hpp"
 #include "SchedulesView.hpp" // ScheduleCalendarWidget, MonthView
 
-#include <openstudio/src/model/ConvergenceLimits.hpp>
-#include <openstudio/src/model/ConvergenceLimits_Impl.hpp>
-#include <openstudio/src/model/HeatBalanceAlgorithm.hpp>
-#include <openstudio/src/model/HeatBalanceAlgorithm_Impl.hpp>
-#include <openstudio/src/model/InsideSurfaceConvectionAlgorithm.hpp>
-#include <openstudio/src/model/InsideSurfaceConvectionAlgorithm_Impl.hpp>
-#include <openstudio/src/model/Model_Impl.hpp>
-#include <openstudio/src/model/OutputControlReportingTolerances.hpp>
-#include <openstudio/src/model/OutputControlReportingTolerances_Impl.hpp>
-#include <openstudio/src/model/OutsideSurfaceConvectionAlgorithm.hpp>
-#include <openstudio/src/model/OutsideSurfaceConvectionAlgorithm_Impl.hpp>
-#include <openstudio/src/model/ProgramControl.hpp>
-#include <openstudio/src/model/ProgramControl_Impl.hpp>
-#include <openstudio/src/model/RadianceParameters.hpp>
-#include <openstudio/src/model/RadianceParameters_Impl.hpp>
-#include <openstudio/src/model/RunPeriod.hpp>
-#include <openstudio/src/model/RunPeriod_Impl.hpp>
-#include <openstudio/src/model/RunPeriodControlDaylightSavingTime.hpp>
-#include <openstudio/src/model/RunPeriodControlDaylightSavingTime_Impl.hpp>
-#include <openstudio/src/model/ShadowCalculation.hpp>
-#include <openstudio/src/model/ShadowCalculation_Impl.hpp>
-#include <openstudio/src/model/SimulationControl.hpp>
-#include <openstudio/src/model/SimulationControl_Impl.hpp>
-#include <openstudio/src/model/SizingParameters.hpp>
-#include <openstudio/src/model/SizingParameters_Impl.hpp>
-#include <openstudio/src/model/Timestep.hpp>
-#include <openstudio/src/model/Timestep_Impl.hpp>
-#include <openstudio/src/model/YearDescription.hpp>
-#include <openstudio/src/model/YearDescription_Impl.hpp>
-#include <openstudio/src/model/ZoneAirContaminantBalance.hpp>
-#include <openstudio/src/model/ZoneAirContaminantBalance_Impl.hpp>
-#include <openstudio/src/model/ZoneAirHeatBalanceAlgorithm.hpp>
-#include <openstudio/src/model/ZoneAirHeatBalanceAlgorithm_Impl.hpp>
-#include <openstudio/src/model/ZoneCapacitanceMultiplierResearchSpecial.hpp>
-#include <openstudio/src/model/ZoneCapacitanceMultiplierResearchSpecial_Impl.hpp>
-#include <openstudio/src/model/Schedule.hpp>
-#include <openstudio/src/model/Schedule_Impl.hpp>
-#include <openstudio/src/model/ScheduleTypeRegistry.hpp>
+#include <openstudio/model/ConvergenceLimits.hpp>
+#include <openstudio/model/ConvergenceLimits_Impl.hpp>
+#include <openstudio/model/HeatBalanceAlgorithm.hpp>
+#include <openstudio/model/HeatBalanceAlgorithm_Impl.hpp>
+#include <openstudio/model/InsideSurfaceConvectionAlgorithm.hpp>
+#include <openstudio/model/InsideSurfaceConvectionAlgorithm_Impl.hpp>
+#include <openstudio/model/Model_Impl.hpp>
+#include <openstudio/model/OutputControlReportingTolerances.hpp>
+#include <openstudio/model/OutputControlReportingTolerances_Impl.hpp>
+#include <openstudio/model/OutsideSurfaceConvectionAlgorithm.hpp>
+#include <openstudio/model/OutsideSurfaceConvectionAlgorithm_Impl.hpp>
+#include <openstudio/model/ProgramControl.hpp>
+#include <openstudio/model/ProgramControl_Impl.hpp>
+#include <openstudio/model/RadianceParameters.hpp>
+#include <openstudio/model/RadianceParameters_Impl.hpp>
+#include <openstudio/model/RunPeriod.hpp>
+#include <openstudio/model/RunPeriod_Impl.hpp>
+#include <openstudio/model/RunPeriodControlDaylightSavingTime.hpp>
+#include <openstudio/model/RunPeriodControlDaylightSavingTime_Impl.hpp>
+#include <openstudio/model/ShadowCalculation.hpp>
+#include <openstudio/model/ShadowCalculation_Impl.hpp>
+#include <openstudio/model/SimulationControl.hpp>
+#include <openstudio/model/SimulationControl_Impl.hpp>
+#include <openstudio/model/SizingParameters.hpp>
+#include <openstudio/model/SizingParameters_Impl.hpp>
+#include <openstudio/model/Timestep.hpp>
+#include <openstudio/model/Timestep_Impl.hpp>
+#include <openstudio/model/YearDescription.hpp>
+#include <openstudio/model/YearDescription_Impl.hpp>
+#include <openstudio/model/ZoneAirContaminantBalance.hpp>
+#include <openstudio/model/ZoneAirContaminantBalance_Impl.hpp>
+#include <openstudio/model/ZoneAirHeatBalanceAlgorithm.hpp>
+#include <openstudio/model/ZoneAirHeatBalanceAlgorithm_Impl.hpp>
+#include <openstudio/model/ZoneCapacitanceMultiplierResearchSpecial.hpp>
+#include <openstudio/model/ZoneCapacitanceMultiplierResearchSpecial_Impl.hpp>
+#include <openstudio/model/Schedule.hpp>
+#include <openstudio/model/Schedule_Impl.hpp>
+#include <openstudio/model/ScheduleTypeRegistry.hpp>
 
-#include <openstudio/src/utilities/time/Date.hpp>
-#include <openstudio/src/utilities/time/Time.hpp>
+#include <openstudio/utilities/time/Date.hpp>
+#include <openstudio/utilities/time/Time.hpp>
 
-#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
 
 #include <QBoxLayout>
 #include <QButtonGroup>
@@ -116,13 +116,19 @@ SimSettingsView::SimSettingsView(bool isIP,
   m_performZoneSizing(nullptr),
   m_performSystemSizing(nullptr),
   m_performPlantSizing(nullptr),
-  m_dateRangelabel(nullptr),
-  m_startDateEdit(nullptr),
-  m_endDateEdit(nullptr),
   m_runPeriodGroup(nullptr),
   m_radianceGroup(nullptr),
   m_runPeriodName(nullptr),
   m_isIP(isIP),
+  // Run Period
+  m_dateRangelabel(nullptr),
+  m_startDateEdit(nullptr),
+  m_endDateEdit(nullptr),
+  m_useWeatherFileHolidaysandSpecialDays(nullptr),
+  m_useWeatherFileDaylightSavingsPeriod(nullptr),
+  m_applyWeekendHolidayRule(nullptr),
+  m_useWeatherFileRainIndicators(nullptr),
+  m_useWeatherFileSnowIndicators(nullptr),
   // SimulationControl
   m_doZoneSizingCalculation(nullptr),
   m_doSystemSizingCalculation(nullptr),
@@ -180,7 +186,7 @@ SimSettingsView::SimSettingsView(bool isIP,
   m_maximumPlantIterations(nullptr),
   m_minimumSystemTimestep(nullptr),
   // ShadowCalculation
-  m_calculationFrequency(nullptr),
+  m_shadingCalculationUpdateFrequency(nullptr),
   m_maximumFiguresInShadowOverlapCalculations(nullptr),
   m_polygonClippingAlgorithm(nullptr),
   m_skyDiffuseModelingAlgorithm(nullptr),
@@ -236,6 +242,9 @@ void SimSettingsView::createWidgets()
 
   //******************* OS:Timestep *******************
   mainLayout->addWidget(createTimestepWidget());
+
+  collapsibleInspector = new CollapsibleInspector("Advanced RunPeriod Parameters",createRunPeriodAdvancedWidget());
+  mainLayout->addWidget(collapsibleInspector);
 
   //******************* OS:RadianceParameters *******************
   collapsibleInspector = new CollapsibleInspector("Radiance Parameters",createRadianceParametersWidget());
@@ -400,6 +409,55 @@ QWidget * SimSettingsView::createRunPeriodWidget()
 
   auto widget = new QWidget();
   widget->setLayout(mainVLayout);
+
+  return widget;
+}
+
+QWidget * SimSettingsView::createRunPeriodAdvancedWidget()
+{
+  // These are the "advanced" fields from the RunPeriod object
+  auto gridLayout = new QGridLayout();
+  gridLayout->setContentsMargins(7,7,7,7);
+  gridLayout->setSpacing(GRID_LAYOUT_SPACING);
+
+  // Number of times repeated isn't translated
+
+  int row = 0;
+  int col = 0;
+  QSpacerItem * spacerItem = nullptr;
+
+  addField(gridLayout,row,col,"Use Weather File Holidays and Special Days",m_useWeatherFileHolidaysandSpecialDays);
+  col++;
+  spacerItem = new QSpacerItem(SPACERITEM_WIDTH,1,QSizePolicy::Fixed,QSizePolicy::Fixed);
+  gridLayout->addItem(spacerItem,row,col++);
+  addField(gridLayout,row,col,"Use Weather File Daylight Savings Period",m_useWeatherFileDaylightSavingsPeriod);
+
+  row = row + 2;
+  spacerItem = new QSpacerItem(1,SPACERITEM_HEIGHT,QSizePolicy::Fixed,QSizePolicy::Fixed);
+  gridLayout->addItem(spacerItem,row++,0);
+  col = 0;
+
+  addField(gridLayout,row,col,"Use Weather File Rain Indicators",m_useWeatherFileRainIndicators);
+  col = col + 2;
+  addField(gridLayout,row,col,"Use Weather File Snow Indicators",m_useWeatherFileSnowIndicators);
+
+  row = row + 2;
+  spacerItem = new QSpacerItem(1,SPACERITEM_HEIGHT,QSizePolicy::Fixed,QSizePolicy::Fixed);
+  gridLayout->addItem(spacerItem,row++,0);
+  col = 0;
+
+
+  addField(gridLayout,row,col,"Apply Weekend Holiday Rule",m_applyWeekendHolidayRule);
+  col = col + 2;
+  // Number of times repeated isn't translated
+  // addField(gridLayout,row,col,"Number of Times Runperiod to be Repeate", m_numberTimeRepeat);
+
+  gridLayout->setRowStretch(100,100);
+  gridLayout->setColumnStretch(100,100);
+
+  auto widget = new QWidget();
+  widget->setLayout(gridLayout);
+  widget->hide();
 
   return widget;
 }
@@ -671,7 +729,7 @@ QWidget * SimSettingsView::createShadowCalculationWidget()
   int col = 0;
   QSpacerItem * spacerItem = nullptr;
 
-  addField(gridLayout,row,col,"Calculation Frequency",m_calculationFrequency);
+  addField(gridLayout,row,col,"Shading Calculation Update Frequency", m_shadingCalculationUpdateFrequency);
   col++;
   spacerItem = new QSpacerItem(SPACERITEM_WIDTH,1,QSizePolicy::Fixed,QSizePolicy::Fixed);
   gridLayout->addItem(spacerItem,row,col++);
@@ -1182,6 +1240,48 @@ void SimSettingsView::detachAll()
 
 void SimSettingsView::attachRunPeriod()
 {
+  m_runPeriod = m_model.getUniqueModelObject<model::RunPeriod>();
+
+  m_useWeatherFileHolidaysandSpecialDays->bind(
+      *m_runPeriod,
+      std::bind(&model::RunPeriod::getUseWeatherFileHolidays,m_runPeriod.get_ptr()),
+      boost::optional<BoolSetter>(std::bind(&model::RunPeriod::setUseWeatherFileHolidays,m_runPeriod.get_ptr(),std::placeholders::_1)),
+      boost::none, // reset
+      boost::none // isDefaulted
+  );
+
+  m_useWeatherFileDaylightSavingsPeriod->bind(
+      *m_runPeriod,
+      std::bind(&model::RunPeriod::getUseWeatherFileDaylightSavings,m_runPeriod.get_ptr()),
+      boost::optional<BoolSetter>(std::bind(&model::RunPeriod::setUseWeatherFileDaylightSavings,m_runPeriod.get_ptr(),std::placeholders::_1)),
+      boost::none, // reset
+      boost::none // isDefaulted
+  );
+
+  m_useWeatherFileRainIndicators->bind(
+      *m_runPeriod,
+      std::bind(&model::RunPeriod::getUseWeatherFileRainInd,m_runPeriod.get_ptr()),
+      boost::optional<BoolSetter>(std::bind(&model::RunPeriod::setUseWeatherFileRainInd,m_runPeriod.get_ptr(),std::placeholders::_1)),
+      boost::none, // reset
+      boost::none // isDefaulted
+  );
+
+  m_useWeatherFileSnowIndicators->bind(
+      *m_runPeriod,
+      std::bind(&model::RunPeriod::getUseWeatherFileSnowInd,m_runPeriod.get_ptr()),
+      boost::optional<BoolSetter>(std::bind(&model::RunPeriod::setUseWeatherFileSnowInd,m_runPeriod.get_ptr(),std::placeholders::_1)),
+      boost::none, // reset
+      boost::none // isDefaulted
+  );
+
+  m_applyWeekendHolidayRule->bind(
+      *m_runPeriod,
+      std::bind(&model::RunPeriod::getApplyWeekendHolidayRule,m_runPeriod.get_ptr()),
+      boost::optional<BoolSetter>(std::bind(&model::RunPeriod::setApplyWeekendHolidayRule,m_runPeriod.get_ptr(),std::placeholders::_1)),
+      boost::none, // reset
+      boost::none // isDefaulted
+  );
+
 }
 
 void SimSettingsView::attachRunPeriodControlDaylightSavingTime()
@@ -1429,15 +1529,15 @@ void SimSettingsView::attachShadowCalculation()
 {
   m_shadowCalculation = m_model.getUniqueModelObject<model::ShadowCalculation>();
 
-  // m_calculationFrequency->bind(*m_shadowCalculation,"calculationFrequency");
-  m_calculationFrequency->bind(
+  // m_shadingCalculationUpdateFrequency->bind(*m_shadowCalculation,"shadingCalculationUpdateFrequency");
+  m_shadingCalculationUpdateFrequency->bind(
     *m_shadowCalculation,
-    IntGetter(std::bind(&model::ShadowCalculation::calculationFrequency, m_shadowCalculation.get_ptr())),
-    boost::optional<IntSetter>(std::bind(&model::ShadowCalculation::setCalculationFrequency, m_shadowCalculation.get_ptr(), std::placeholders::_1)),
-    boost::optional<NoFailAction>(std::bind(&model::ShadowCalculation::resetCalculationFrequency, m_shadowCalculation.get_ptr())),
+    IntGetter(std::bind(&model::ShadowCalculation::shadingCalculationUpdateFrequency, m_shadowCalculation.get_ptr())),
+    boost::optional<IntSetter>(std::bind(&model::ShadowCalculation::setShadingCalculationUpdateFrequency, m_shadowCalculation.get_ptr(), std::placeholders::_1)),
+    boost::optional<NoFailAction>(std::bind(&model::ShadowCalculation::resetShadingCalculationUpdateFrequency, m_shadowCalculation.get_ptr())),
     boost::none,
     boost::none,
-    boost::optional<BasicQuery>(std::bind(&model::ShadowCalculation::isCalculationFrequencyDefaulted, m_shadowCalculation.get_ptr()))
+    boost::optional<BasicQuery>(std::bind(&model::ShadowCalculation::isShadingCalculationUpdateFrequencyDefaulted, m_shadowCalculation.get_ptr()))
   );
 
   // m_maximumFiguresInShadowOverlapCalculations->bind(*m_shadowCalculation, "maximumFiguresInShadowOverlapCalculations");
@@ -1458,6 +1558,7 @@ void SimSettingsView::attachShadowCalculation()
       std::function<boost::optional<std::string> ()>(std::bind(&model::ShadowCalculation::polygonClippingAlgorithm,m_shadowCalculation.get_ptr())),
       std::bind(&model::ShadowCalculation::setPolygonClippingAlgorithm,m_shadowCalculation.get_ptr(),std::placeholders::_1),
       NoFailAction(std::bind(&model::ShadowCalculation::resetPolygonClippingAlgorithm,m_shadowCalculation.get_ptr())));
+
   m_skyDiffuseModelingAlgorithm->bind<std::string>(
       *m_shadowCalculation,
       static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
@@ -1826,6 +1927,11 @@ void SimSettingsView::attachRadianceParameters()
 
 void SimSettingsView::detachRunPeriod()
 {
+  m_useWeatherFileHolidaysandSpecialDays->unbind();
+  m_useWeatherFileDaylightSavingsPeriod->unbind();
+  m_applyWeekendHolidayRule->unbind();
+  m_useWeatherFileRainIndicators->unbind();
+  m_useWeatherFileSnowIndicators->unbind();
 }
 
 void SimSettingsView::detachRunPeriodControlDaylightSavingTime()
@@ -1878,7 +1984,7 @@ void SimSettingsView::detachConvergenceLimits()
 
 void SimSettingsView::detachShadowCalculation()
 {
-  m_calculationFrequency->unbind();
+  m_shadingCalculationUpdateFrequency->unbind();
   m_maximumFiguresInShadowOverlapCalculations->unbind();
   m_polygonClippingAlgorithm->unbind();
   m_skyDiffuseModelingAlgorithm->unbind();
@@ -2006,22 +2112,22 @@ void SimSettingsView::on_startDateChanged(const QDate & date)
     m_endDateEdit->blockSignals(false);
   }
 
-  model::RunPeriod mo = m_model.getUniqueModelObject<model::RunPeriod>();
+  m_runPeriod = m_model.getUniqueModelObject<model::RunPeriod>();
 
-  mo.setBeginMonth(m_startDateEdit->date().month());
-  mo.setBeginDayOfMonth(m_startDateEdit->date().day());
+  m_runPeriod->setBeginMonth(m_startDateEdit->date().month());
+  m_runPeriod->setBeginDayOfMonth(m_startDateEdit->date().day());
 
-  mo.setEndMonth(m_endDateEdit->date().month());
-  mo.setEndDayOfMonth(m_endDateEdit->date().day());
+  m_runPeriod->setEndMonth(m_endDateEdit->date().month());
+  m_runPeriod->setEndDayOfMonth(m_endDateEdit->date().day());
 }
 
 void SimSettingsView::initStartDateEdit()
 {
   // Note: QDateEdit bug workaround
   int year = m_startDateEdit->date().year();
-  model::RunPeriod runPeriod = m_model.getUniqueModelObject<model::RunPeriod>();
+  m_runPeriod = m_model.getUniqueModelObject<model::RunPeriod>();
   m_startDateEdit->blockSignals(true);
-  m_startDateEdit->setDate(QDate(year, runPeriod.getBeginMonth(), runPeriod.getBeginDayOfMonth()));
+  m_startDateEdit->setDate(QDate(year, m_runPeriod->getBeginMonth(), m_runPeriod->getBeginDayOfMonth()));
   m_startDateEdit->blockSignals(false);
 }
 
@@ -2033,13 +2139,13 @@ void SimSettingsView::on_endDateChanged(const QDate & date)
     m_startDateEdit->blockSignals(false);
   }
 
-  model::RunPeriod mo = m_model.getUniqueModelObject<model::RunPeriod>();
+  m_runPeriod = m_model.getUniqueModelObject<model::RunPeriod>();
 
-  mo.setBeginMonth(m_startDateEdit->date().month());
-  mo.setBeginDayOfMonth(m_startDateEdit->date().day());
+  m_runPeriod->setBeginMonth(m_startDateEdit->date().month());
+  m_runPeriod->setBeginDayOfMonth(m_startDateEdit->date().day());
 
-  mo.setEndMonth(m_endDateEdit->date().month());
-  mo.setEndDayOfMonth(m_endDateEdit->date().day());
+  m_runPeriod->setEndMonth(m_endDateEdit->date().month());
+  m_runPeriod->setEndDayOfMonth(m_endDateEdit->date().day());
 }
 
 void SimSettingsView::on_runSimWeatherFiles(int state)

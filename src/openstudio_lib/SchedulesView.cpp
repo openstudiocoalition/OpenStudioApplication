@@ -36,25 +36,25 @@
 #include "OSItemSelectorButtons.hpp"
 #include "../shared_gui_components/OSLineEdit.hpp"
 
-#include <openstudio/src/model/Model.hpp>
-#include <openstudio/src/model/Model_Impl.hpp>
-#include <openstudio/src/model/ScheduleRule.hpp>
-#include <openstudio/src/model/ScheduleRuleset.hpp>
-#include <openstudio/src/model/ScheduleRuleset_Impl.hpp>
-#include <openstudio/src/model/ScheduleRule_Impl.hpp>
-#include <openstudio/src/model/ScheduleTypeLimits.hpp>
-#include <openstudio/src/model/ScheduleTypeLimits_Impl.hpp>
+#include <openstudio/model/Model.hpp>
+#include <openstudio/model/Model_Impl.hpp>
+#include <openstudio/model/ScheduleRule.hpp>
+#include <openstudio/model/ScheduleRuleset.hpp>
+#include <openstudio/model/ScheduleRuleset_Impl.hpp>
+#include <openstudio/model/ScheduleRule_Impl.hpp>
+#include <openstudio/model/ScheduleTypeLimits.hpp>
+#include <openstudio/model/ScheduleTypeLimits_Impl.hpp>
 
 #include "../model_editor/Utilities.hpp"
 
-#include <openstudio/src/utilities/time/Date.hpp>
-#include <openstudio/src/utilities/time/Time.hpp>
-#include <openstudio/src/utilities/units/QuantityConverter.hpp>
-#include <openstudio/src/utilities/units/Quantity.hpp>
-#include <openstudio/src/utilities/units/OSOptionalQuantity.hpp>
-#include <openstudio/src/utilities/units/OSQuantityVector.hpp>
+#include <openstudio/utilities/time/Date.hpp>
+#include <openstudio/utilities/time/Time.hpp>
+#include <openstudio/utilities/units/QuantityConverter.hpp>
+#include <openstudio/utilities/units/Quantity.hpp>
+#include <openstudio/utilities/units/OSOptionalQuantity.hpp>
+#include <openstudio/utilities/units/OSQuantityVector.hpp>
 
-#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
 
 #include <QButtonGroup>
 #include <QCalendarWidget>
@@ -80,7 +80,7 @@
 #include <algorithm>
 #include <iterator>
 
-#include <openstudio/src/utilities/idd/IddEnums.hxx>
+#include <openstudio/utilities/idd/IddEnums.hxx>
 
 namespace openstudio {
 
@@ -524,9 +524,9 @@ void SchedulesView::showSummerScheduleDay(model::ScheduleRuleset schedule)
   if (!schedule.isSummerDesignDayScheduleDefaulted())
   {
 
-    auto scheduleView = new SizingScheduleDayView(m_isIP, schedule, this, SizingScheduleDayView::SUMMER);
+    auto scheduleView = new SpecialScheduleDayView(m_isIP, schedule, this, SpecialScheduleDayView::SUMMER);
 
-    connect(this, &SchedulesView::toggleUnitsClicked, scheduleView, &SizingScheduleDayView::toggleUnitsClicked);
+    connect(this, &SchedulesView::toggleUnitsClicked, scheduleView, &SpecialScheduleDayView::toggleUnitsClicked);
 
     m_contentLayout->addWidget(scheduleView);
 
@@ -560,9 +560,9 @@ void SchedulesView::showWinterScheduleDay(model::ScheduleRuleset schedule)
 
   if (!schedule.isWinterDesignDayScheduleDefaulted())
   {
-    auto scheduleView = new SizingScheduleDayView(m_isIP, schedule, this, SizingScheduleDayView::WINTER);
+    auto scheduleView = new SpecialScheduleDayView(m_isIP, schedule, this, SpecialScheduleDayView::WINTER);
 
-    connect(this, &SchedulesView::toggleUnitsClicked, scheduleView, &SizingScheduleDayView::toggleUnitsClicked);
+    connect(this, &SchedulesView::toggleUnitsClicked, scheduleView, &SpecialScheduleDayView::toggleUnitsClicked);
 
     m_contentLayout->addWidget(scheduleView);
 
@@ -572,6 +572,42 @@ void SchedulesView::showWinterScheduleDay(model::ScheduleRuleset schedule)
     emit modelObjectSelected(mo, true);
   } else {
     auto newProfileView = new NewProfileView(schedule, this, NewProfileView::WINTER);
+
+    m_contentLayout->addWidget(newProfileView, 100);
+
+    boost::optional<model::ModelObject> mo;
+    emit modelObjectSelected(mo, true);
+  }
+
+  setUpdatesEnabled(true);
+}
+
+void SchedulesView::showHolidayScheduleDay(model::ScheduleRuleset schedule)
+{
+  setUpdatesEnabled(false);
+
+  QLayoutItem *child;
+  while ((child = m_contentLayout->takeAt(0)) != nullptr)
+  {
+    delete child->widget();
+
+    delete child;
+  }
+
+  if (!schedule.isHolidayScheduleDefaulted())
+  {
+    auto scheduleView = new SpecialScheduleDayView(m_isIP, schedule, this, SpecialScheduleDayView::HOLIDAY);
+
+    connect(this, &SchedulesView::toggleUnitsClicked, scheduleView, &SpecialScheduleDayView::toggleUnitsClicked);
+
+    m_contentLayout->addWidget(scheduleView);
+
+    scheduleView->show();
+
+    boost::optional<model::ModelObject> mo = schedule.holidaySchedule();
+    emit modelObjectSelected(mo, true);
+  } else {
+    auto newProfileView = new NewProfileView(schedule, this, NewProfileView::HOLIDAY);
 
     m_contentLayout->addWidget(newProfileView, 100);
 
@@ -944,8 +980,8 @@ ScheduleTabContent::ScheduleTabContent(ScheduleTab * scheduleTab, QWidget * pare
   mainVLayout->setSpacing(5);
   setLayout(mainVLayout);
 
-  QLabel * designDayLabel = new QLabel("Design Day Profiles");
-  mainVLayout->addWidget(designDayLabel);
+  QLabel * specialDayLabel = new QLabel("Special Day Profiles");
+  mainVLayout->addWidget(specialDayLabel);
 
   auto summerDesignDayLayout = new QHBoxLayout();
   summerDesignDayLayout->setContentsMargins(0, 0, 0, 0);
@@ -960,6 +996,13 @@ ScheduleTabContent::ScheduleTabContent(ScheduleTab * scheduleTab, QWidget * pare
 
   auto winterTab = new ScheduleTabDefault(m_scheduleTab, ScheduleTabDefault::WINTER);
   winterDesignDayLayout->addWidget(winterTab);
+
+  auto holidayLayout = new QHBoxLayout();
+  holidayLayout->setContentsMargins(0, 0, 0, 0);
+  mainVLayout->addLayout(holidayLayout);
+
+  auto holidayTab = new ScheduleTabDefault(m_scheduleTab, ScheduleTabDefault::HOLIDAY);
+  holidayLayout->addWidget(holidayTab);
 
   auto runPeriodLayout = new QHBoxLayout();
   runPeriodLayout->setContentsMargins(0, 0, 0, 0);
@@ -1204,9 +1247,11 @@ ScheduleTabDefault::ScheduleTabDefault(ScheduleTab * scheduleTab, ScheduleTabDef
 
   connect(this, &ScheduleTabDefault::defaultClicked, m_scheduleTab->schedulesView(), &SchedulesView::showDefaultScheduleDay);
 
+  connect(this, &ScheduleTabDefault::summerClicked, m_scheduleTab->schedulesView(), &SchedulesView::showSummerScheduleDay);
+
   connect(this, &ScheduleTabDefault::winterClicked, m_scheduleTab->schedulesView(), &SchedulesView::showWinterScheduleDay);
 
-  connect(this, &ScheduleTabDefault::summerClicked, m_scheduleTab->schedulesView(), &SchedulesView::showSummerScheduleDay);
+  connect(this, &ScheduleTabDefault::holidayClicked, m_scheduleTab->schedulesView(), &SchedulesView::showHolidayScheduleDay);
 
   auto mainHLayout = new QHBoxLayout();
   mainHLayout->setContentsMargins(10, 0, 0, 0);
@@ -1217,12 +1262,16 @@ ScheduleTabDefault::ScheduleTabDefault(ScheduleTab * scheduleTab, ScheduleTabDef
   switch (m_type)
   {
   case SUMMER:
-    m_label = new QLabel("Summer");
+    m_label = new QLabel("Summer Design Day");
     setToolTip("Click to edit summer design day profile");
     break;
   case WINTER:
-    m_label = new QLabel("Winter");
+    m_label = new QLabel("Winter Design Day");
     setToolTip("Click to edit winter design day profile");
+    break;
+  case HOLIDAY:
+    m_label = new QLabel("Holiday");
+    setToolTip("Click to edit holiday profile");
     break;
   default:
     m_label = new QLabel("Default");
@@ -1253,7 +1302,7 @@ void ScheduleTabDefault::paintEvent(QPaintEvent * event)
 
   p.setPen(Qt::SolidLine);
 
-  // DLM: don't draw color squares for summer and winter design days
+  // DLM: don't draw color squares for special days (winter/summer design days and Holiday)
   if (m_type == DEFAULT)
   {
     p.setBrush(QBrush(m_scheduleTab->schedulesView()->colors[12]));
@@ -1283,6 +1332,9 @@ void ScheduleTabDefault::mouseReleaseEvent(QMouseEvent * event)
       break;
     case WINTER:
       emit winterClicked(schedule);
+      break;
+    case HOLIDAY:
+      emit holidayClicked(schedule);
       break;
     }
   }
@@ -1363,6 +1415,18 @@ NewProfileView::NewProfileView(const model::ScheduleRuleset & scheduleRuleset, S
     mainVLayout->addSpacing(10);
     break;
   }
+  case HOLIDAY:
+  {
+    auto label = new QLabel();
+    QString text;
+    text.append("The holiday profile is not set, therefore the default run period profile will be used.");
+    text.append("  Create a new profile to override the default run period profile.");
+    label->setText(text);
+    label->setWordWrap(true);
+    mainVLayout->addWidget(label);
+    mainVLayout->addSpacing(10);
+    break;
+  }
   default:
     break;
   }
@@ -1409,6 +1473,7 @@ NewProfileView::NewProfileView(const model::ScheduleRuleset & scheduleRuleset, S
   connect(this, &NewProfileView::addRuleClicked, schedulesView, &SchedulesView::addRuleClicked);
   connect(this, &NewProfileView::addSummerProfileClicked, schedulesView, &SchedulesView::addSummerProfileClicked);
   connect(this, &NewProfileView::addWinterProfileClicked, schedulesView, &SchedulesView::addWinterProfileClicked);
+  connect(this, &NewProfileView::addHolidayProfileClicked, schedulesView, &SchedulesView::addHolidayProfileClicked);
 
   innerVLayout->addStretch();
 
@@ -1427,6 +1492,9 @@ void NewProfileView::onAddClicked()
     break;
   case WINTER:
     emit addWinterProfileClicked(m_scheduleRuleset, handle);
+    break;
+  case HOLIDAY:
+    emit addHolidayProfileClicked(m_scheduleRuleset, handle);
     break;
   default:
     emit addRuleClicked(m_scheduleRuleset, handle);
@@ -1447,6 +1515,10 @@ void NewProfileView::populateComboBox(const model::ScheduleRuleset & scheduleRul
 
   if (!scheduleRuleset.isWinterDesignDayScheduleDefaulted()){
     m_scheduleRuleComboBox->addItem("Winter Design Day Schedule", toQString(scheduleRuleset.winterDesignDaySchedule().handle()));
+  }
+
+  if (!scheduleRuleset.isHolidayScheduleDefaulted()){
+    m_scheduleRuleComboBox->addItem("Holiday Design Day Schedule", toQString(scheduleRuleset.holidaySchedule().handle()));
   }
 
   for (const auto& rule : scheduleRuleset.scheduleRules()){
@@ -1531,13 +1603,13 @@ DefaultScheduleDayView::DefaultScheduleDayView(bool isIP,
 }
 
 /******************************************************************************/
-// SizingScheduleDayView
+// SpecialScheduleDayView
 /******************************************************************************/
 
-SizingScheduleDayView::SizingScheduleDayView(bool isIP,
+SpecialScheduleDayView::SpecialScheduleDayView(bool isIP,
                                              const model::ScheduleRuleset & scheduleRuleset,
                                              SchedulesView * schedulesView,
-                                             SizingScheduleDayType type)
+                                             SpecialScheduleDayType type)
                                              : QWidget(schedulesView),
                                              m_type(type)
 {
@@ -1576,11 +1648,11 @@ SizingScheduleDayView::SizingScheduleDayView(bool isIP,
 
       auto scheduleDayView = new ScheduleDayView(isIP, scheduleDay, schedulesView);
 
-      connect(this, &SizingScheduleDayView::toggleUnitsClicked, scheduleDayView, &ScheduleDayView::toggleUnitsClicked);
+      connect(this, &SpecialScheduleDayView::toggleUnitsClicked, scheduleDayView, &ScheduleDayView::toggleUnitsClicked);
 
       mainVLayout->addWidget(scheduleDayView);
     }
-  } else
+  } else if (m_type == WINTER)
   {
     if (!scheduleRuleset.isWinterDesignDayScheduleDefaulted())
     {
@@ -1596,10 +1668,33 @@ SizingScheduleDayView::SizingScheduleDayView(bool isIP,
 
       auto scheduleDayView = new ScheduleDayView(isIP, scheduleDay, schedulesView);
 
-      connect(this, &SizingScheduleDayView::toggleUnitsClicked, scheduleDayView, &ScheduleDayView::toggleUnitsClicked);
+      connect(this, &SpecialScheduleDayView::toggleUnitsClicked, scheduleDayView, &ScheduleDayView::toggleUnitsClicked);
 
       mainVLayout->addWidget(scheduleDayView);
     }
+  } else if (m_type == HOLIDAY)
+  {
+    if (!scheduleRuleset.isHolidayScheduleDefaulted())
+    {
+      QLabel * label = new QLabel("Holiday profile.");
+      label->setObjectName("H2");
+
+      auto hLayout = new QHBoxLayout();
+      hLayout->setContentsMargins(60, 0, 0, 10);
+      hLayout->addWidget(label);
+      mainVLayout->addLayout(hLayout);
+
+      model::ScheduleDay scheduleDay = scheduleRuleset.holidaySchedule();
+
+      auto scheduleDayView = new ScheduleDayView(isIP, scheduleDay, schedulesView);
+
+      connect(this, &SpecialScheduleDayView::toggleUnitsClicked, scheduleDayView, &ScheduleDayView::toggleUnitsClicked);
+
+      mainVLayout->addWidget(scheduleDayView);
+    }
+  } else {
+    // Shouldn't happen
+    OS_ASSERT(false);
   }
 }
 

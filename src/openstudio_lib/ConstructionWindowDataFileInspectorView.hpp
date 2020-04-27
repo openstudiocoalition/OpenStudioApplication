@@ -32,7 +32,7 @@
 
 #include "ModelObjectInspectorView.hpp"
 #include "ModelObjectVectorController.hpp"
-#include <openstudio/src/model/WindowDataFile.hpp>
+#include <openstudio/model/WindowDataFile.hpp>
 
 namespace openstudio {
 

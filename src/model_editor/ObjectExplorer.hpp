@@ -32,7 +32,7 @@
 
 #include <QWidget>
 
-#include <openstudio/src/utilities/idf/IdfFile.hpp>
+#include <openstudio/utilities/idf/IdfFile.hpp>
 
 class QLineEdit;
 class QListWidget;

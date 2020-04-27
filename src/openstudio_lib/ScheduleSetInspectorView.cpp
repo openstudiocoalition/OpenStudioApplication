@@ -34,13 +34,13 @@
 #include "OSDropZone.hpp"
 #include "../shared_gui_components/OSLineEdit.hpp"
 
-#include <openstudio/src/model/DefaultScheduleSet_Impl.hpp>
-#include <openstudio/src/model/Model_Impl.hpp>
-#include <openstudio/src/model/Schedule.hpp>
-#include <openstudio/src/model/Schedule_Impl.hpp>
+#include <openstudio/model/DefaultScheduleSet_Impl.hpp>
+#include <openstudio/model/Model_Impl.hpp>
+#include <openstudio/model/Schedule.hpp>
+#include <openstudio/model/Schedule_Impl.hpp>
 
-#include <openstudio/src/utilities/core/Assert.hpp>
-#include <openstudio/src/utilities/idd/OS_DefaultScheduleSet_FieldEnums.hxx>
+#include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/idd/OS_DefaultScheduleSet_FieldEnums.hxx>
 
 #include <QGridLayout>
 #include <QLabel>

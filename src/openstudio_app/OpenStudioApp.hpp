@@ -33,30 +33,30 @@
 #include "../openstudio_lib/SOConstants.hpp"
 #include "../openstudio_lib/OSAppBase.hpp"
 
-#include <openstudio/src/model/Model.hpp>
-#include <openstudio/src/model/AirTerminalSingleDuctConstantVolumeNoReheat.hpp>
-#include <openstudio/src/model/AirTerminalSingleDuctVAVReheat.hpp>
-#include <openstudio/src/model/FanConstantVolume.hpp>
-#include <openstudio/src/model/CurveQuadratic.hpp>
-#include <openstudio/src/model/CurveBiquadratic.hpp>
-#include <openstudio/src/model/AirLoopHVACOutdoorAirSystem.hpp>
-#include <openstudio/src/model/ControllerOutdoorAir.hpp>
-#include <openstudio/src/model/CoilHeatingGas.hpp>
-#include <openstudio/src/model/CoilCoolingDXSingleSpeed.hpp>
-#include <openstudio/src/model/EvaporativeCoolerDirectResearchSpecial.hpp>
-#include <openstudio/src/model/ScheduleCompact.hpp>
-#include <openstudio/src/model/SetpointManagerSingleZoneReheat.hpp>
-#include <openstudio/src/model/SetpointManagerMixedAir.hpp>
-#include <openstudio/src/model/SetpointManagerScheduled.hpp>
-#include <openstudio/src/model/ChillerElectricEIR.hpp>
-#include <openstudio/src/model/BoilerHotWater.hpp>
-#include <openstudio/src/model/PumpVariableSpeed.hpp>
-#include <openstudio/src/model/CoilCoolingWater.hpp>
-#include <openstudio/src/model/CoilHeatingWater.hpp>
-#include <openstudio/src/model/DistrictHeating.hpp>
-#include <openstudio/src/model/DistrictCooling.hpp>
+#include <openstudio/model/Model.hpp>
+#include <openstudio/model/AirTerminalSingleDuctConstantVolumeNoReheat.hpp>
+#include <openstudio/model/AirTerminalSingleDuctVAVReheat.hpp>
+#include <openstudio/model/FanConstantVolume.hpp>
+#include <openstudio/model/CurveQuadratic.hpp>
+#include <openstudio/model/CurveBiquadratic.hpp>
+#include <openstudio/model/AirLoopHVACOutdoorAirSystem.hpp>
+#include <openstudio/model/ControllerOutdoorAir.hpp>
+#include <openstudio/model/CoilHeatingGas.hpp>
+#include <openstudio/model/CoilCoolingDXSingleSpeed.hpp>
+#include <openstudio/model/EvaporativeCoolerDirectResearchSpecial.hpp>
+#include <openstudio/model/ScheduleCompact.hpp>
+#include <openstudio/model/SetpointManagerSingleZoneReheat.hpp>
+#include <openstudio/model/SetpointManagerMixedAir.hpp>
+#include <openstudio/model/SetpointManagerScheduled.hpp>
+#include <openstudio/model/ChillerElectricEIR.hpp>
+#include <openstudio/model/BoilerHotWater.hpp>
+#include <openstudio/model/PumpVariableSpeed.hpp>
+#include <openstudio/model/CoilCoolingWater.hpp>
+#include <openstudio/model/CoilHeatingWater.hpp>
+#include <openstudio/model/DistrictHeating.hpp>
+#include <openstudio/model/DistrictCooling.hpp>
 
-#include <openstudio/src/utilities/core/Path.hpp>
+#include <openstudio/utilities/core/Path.hpp>
 
 #include <QProcess>
 #include <QFutureWatcher>
@@ -261,7 +261,7 @@ class OpenStudioApp : public OSAppBase
   std::shared_ptr<StartupMenu> m_startupMenu;
 
   QFutureWatcher<std::vector<std::string> > m_buildCompLibWatcher;
-  QFutureWatcher<void> m_waitForMeasureManagerWatcher;
+  QFutureWatcher<bool> m_waitForMeasureManagerWatcher;
   QFutureWatcher<std::vector<std::string> > m_changeLibrariesWatcher;
 };
 

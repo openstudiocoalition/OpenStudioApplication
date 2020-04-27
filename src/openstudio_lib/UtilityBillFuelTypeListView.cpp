@@ -33,14 +33,14 @@
 #include "OSItemList.hpp"
 #include "OSAppBase.hpp"
 
-#include <openstudio/src/model/Model_Impl.hpp>
-#include <openstudio/src/model/ModelObject_Impl.hpp>
-#include <openstudio/src/model/UtilityBill.hpp>
-#include <openstudio/src/model/UtilityBill_Impl.hpp>
+#include <openstudio/model/Model_Impl.hpp>
+#include <openstudio/model/ModelObject_Impl.hpp>
+#include <openstudio/model/UtilityBill.hpp>
+#include <openstudio/model/UtilityBill_Impl.hpp>
 
 #include "../model_editor/Utilities.hpp"
 
-#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
 
 #include <iostream>
 

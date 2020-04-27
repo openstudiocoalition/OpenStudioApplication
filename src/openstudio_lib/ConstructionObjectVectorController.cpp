@@ -33,16 +33,18 @@
 #include "OSAppBase.hpp"
 #include "OSDocument.hpp"
 
-#include <openstudio/src/model/Construction.hpp>
-#include <openstudio/src/model/Construction_Impl.hpp>
-#include <openstudio/src/model/Material.hpp>
-#include <openstudio/src/model/Material_Impl.hpp>
+#include <openstudio/model/Construction.hpp>
+#include <openstudio/model/Construction_Impl.hpp>
+#include <openstudio/model/Material.hpp>
+#include <openstudio/model/Material_Impl.hpp>
 
-#include <openstudio/src/utilities/core/Assert.hpp>
-#include <openstudio/src/utilities/idd/OS_Construction_FieldEnums.hxx>
-#include <openstudio/src/utilities/idd/IddEnums.hxx>
+#include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/idd/OS_Construction_FieldEnums.hxx>
+#include <openstudio/utilities/idd/IddEnums.hxx>
 
 #include <QMessageBox>
+#include <QTimer>
+#include <QMutex>
 
 namespace openstudio {
 
@@ -52,16 +54,51 @@ ConstructionObjectVectorController::ConstructionObjectVectorController(QWidget *
   : ModelObjectVectorController(),
   m_parentWidget(parentWidget)
 {
+  m_reportItemsMutex = new QMutex();
+}
+
+ConstructionObjectVectorController::~ConstructionObjectVectorController()
+{
+  delete m_reportItemsMutex;
+}
+
+void ConstructionObjectVectorController::reportItemsLater()
+{
+  m_reportScheduled = true;
+
+  QTimer::singleShot(0,this,SLOT(reportItems()));
+}
+
+void ConstructionObjectVectorController::reportItems()
+{
+  if( ! m_reportItemsMutex->tryLock() ) {
+    return;
+  }
+
+  if( m_reportScheduled )
+  {
+    m_reportScheduled = false;
+
+    ModelObjectVectorController::reportItems();
+  }
+
+  m_reportItemsMutex->unlock();
 }
 
 void ConstructionObjectVectorController::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle)
 {
-  emit itemIds(makeVector());
+  reportItemsLater();
 }
+
 
 void ConstructionObjectVectorController::onDataChange(const model::ModelObject& modelObject)
 {
-  emit itemIds(makeVector());
+  reportItemsLater();
+}
+
+void ConstructionObjectVectorController::onChange(const model::ModelObject& modelObject)
+{
+  reportItemsLater();
 }
 
 std::vector<OSItemId> ConstructionObjectVectorController::makeVector()
@@ -97,13 +134,7 @@ void ConstructionObjectVectorController::onRemoveItem(OSItem * item)
   }
 }
 
-void ConstructionObjectVectorController::onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId)
-{
-  onDrop(replacementItemId);
-}
-
-void ConstructionObjectVectorController::onDrop(const OSItemId& itemId)
-{
+void ConstructionObjectVectorController::insert(const OSItemId& itemId, int position, bool deleteExisting) {
   if(m_modelObject){
     boost::optional<model::Material> material = this->addToModel<model::Material>(itemId);
     if(!material) return;
@@ -138,8 +169,80 @@ void ConstructionObjectVectorController::onDrop(const OSItemId& itemId)
         return;
       }
     }
-    construction.insertLayer(construction.numLayers(),*material);
+
+    if (position < 0) {
+      position = construction.numLayers();
+    }
+
+    if (deleteExisting) {
+      //  Checking if from library or from model isn't sufficient, if from model it also HAS to be already in the layer list
+      std::vector<unsigned> existingIndices = construction.getLayerIndices(*material);
+      if (!existingIndices.empty()){
+        int existingPos = existingIndices[0];
+        LOG(Debug, "Erasing layer at position = " << existingPos);
+        construction.eraseLayer(existingPos);
+      } else {
+        LOG(Debug, "Layer wasn't present to begin with");
+      }
+    }
+
+    construction.insertLayer(position, *material);
   }
+}
+
+void ConstructionObjectVectorController::onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId)
+{
+  if(m_modelObject){
+
+    // If we drag from the library onto an existing, we want clone, then add at the position of the one existing
+    // It will shift all other layers forward, and the user will be able to delete the one he dragged onto if he wants
+    // If not from library, we want to **update** the position instead.
+    bool deleteExisting = true;
+    if (this->fromComponentLibrary(replacementItemId))
+    {
+      deleteExisting = false;
+    } else {
+
+      // Unfortunately, layers aren't necesarilly unique, and there is no way to get the actualy layerIndex from an OSItemId,
+      // which means that we cannot determine the specific position of the replacementItemId to move it (delete before insert)
+      // It's too dangerous to just assume it's arbitrarily the first found, so we don't do anything, the user will have
+      // to remove the old one herself.
+      // So we can deleteExisting only if unique layers
+
+      // Ensure layers are unique
+      model::LayeredConstruction construction = m_modelObject->cast<model::LayeredConstruction>();
+      std::vector<model::Material> layers =  construction.layers();
+      auto it = std::unique(layers.begin(), layers.end());
+      deleteExisting = (it == layers.end());
+      if (!deleteExisting) {
+        LOG(Debug, "Layers aren't unique, so we can't remove the existing one, occured for " << m_modelObject->nameString());
+      } else {
+        LOG(Debug, "Layers are unique, occured for " << m_modelObject->nameString());
+      }
+
+    }
+
+    // Here's the difference with onDrop: we want to INSERT at the position of the currentItem
+    // So we need to start by finding out which position that is
+    // start by getting the one being dragged ONTO
+    ModelObjectItem* modelObjectItem = qobject_cast<ModelObjectItem*>(currentItem);
+    OS_ASSERT(modelObjectItem);
+
+    model::ModelObject modelObject = modelObjectItem->modelObject();
+    if (!modelObject.handle().isNull()) {
+      // There is no reason we shouldn't enter this code block if the onDrop is fine...
+      if (modelObject.optionalCast<model::Material>()) {
+        int position = currentItem->position();
+        LOG(Debug, m_modelObject->nameString() << ", position = " << position);
+        insert(replacementItemId,  position, deleteExisting);
+      }
+    }
+  }
+}
+
+void ConstructionObjectVectorController::onDrop(const OSItemId& itemId)
+{
+  insert(itemId);
 }
 
 QWidget * ConstructionObjectVectorController::parentWidget()

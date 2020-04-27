@@ -30,8 +30,8 @@
 #ifndef SHAREDGUICOMPONENTS_COMPONENT_HPP
 #define SHAREDGUICOMPONENTS_COMPONENT_HPP
 
-#include <openstudio/src/utilities/bcl/BCL.hpp>
-#include <openstudio/src/utilities/data/Attribute.hpp>
+#include <openstudio/utilities/bcl/BCL.hpp>
+#include <openstudio/utilities/data/Attribute.hpp>
 
 #include <QAbstractButton>
 

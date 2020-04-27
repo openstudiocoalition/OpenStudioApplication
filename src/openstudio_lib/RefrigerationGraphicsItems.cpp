@@ -29,7 +29,7 @@
 
 #include "OSItem.hpp"
 #include "RefrigerationGraphicsItems.hpp"
-#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
 #include "../shared_gui_components/Buttons.hpp"
 #include <QPainter>
 #include <utility>
@@ -1535,6 +1535,25 @@ void CaseViewExpandButton::paint(QPainter *painter,
   {
     painter->drawPixmap(rect,m_openImage);
   }
+}
+
+NoRefrigerationView::NoRefrigerationView()
+  : QWidget()
+{
+  auto mainVLayout = new QVBoxLayout();
+  mainVLayout->setContentsMargins(5,5,5,5);
+  mainVLayout->setSpacing(10);
+  mainVLayout->setAlignment(Qt::AlignTop);
+  setLayout(mainVLayout);
+
+  QLabel * label = new QLabel("Refrigeration options are only available for Refrigeration systems.");
+  label->setWordWrap(true);
+  label->setObjectName("H1");
+  mainVLayout->addWidget(label);
+}
+
+NoRefrigerationView::~NoRefrigerationView()
+{
 }
 
 } // openstudio

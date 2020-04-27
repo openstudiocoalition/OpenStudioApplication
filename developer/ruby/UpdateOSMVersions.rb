@@ -2,20 +2,12 @@
 #
 # openstudio.exe UpdateHVACLibrary.rb
 
-# TODO: Julien Marrec 2019-05-23
-# Note: this takes a rather long time to run (due to the size of the standards
-# files like ASHRAE and DEER), about 2h on my 8 core machine. So yo should
-# probably take a look at the VersionTranslator.cpp to see if there's VT that's
-# going to happen for your version, otherwise just bump the version string
-# itself without calling VT.
-
 require 'openstudio'
 require 'etc'
 # gem install parallel
 # gem install ruby-progressbar
 require 'parallel'
-
-ROOT_DIR = File.absolute_path(File.join(File.dirname(__FILE__), "../../"))
+require_relative 'OSMVersionsLib.rb'
 
 # Environment variables
 if ENV['N'].nil?
@@ -36,16 +28,22 @@ end
 
 start_time = Time.now
 
-path = File.join(ROOT_DIR, 'src/**/*.osm')
-files = Dir.glob(path)
-# Only keep the ones we're interested in
-files = files.grep(/openstudio_app\/Resources|sketchup_plugin\/resources\/templates|sketchup_plugin\/user_scripts/)
+os_version_str = parse_version_from_cmake(SDK_CMAKE_PATH)
+puts "FindOpenStudioSDK.cmake has OpenStudio at version #{os_version_str}"
+current_os_version = OpenStudio::openStudioVersion
+if (os_version_str != current_os_version)
+  raise "Current openstudio used is as version #{current_os_version} while FindOpenStudioSDK.cmake has it at #{os_version_str}"
+end
 
-Parallel.map(files,
+all_osms = find_resource_osms()
+
+mismatches = check_all_osm_versions(all_osms, os_version_str)
+
+Parallel.map(mismatches,
              in_threads: nproc,
              progress: "Updating Libraries") do |model_path|
 
-  puts "Starting for '#{model_path}'"
+  # puts "Starting for '#{model_path}'"
 
   model_path = OpenStudio::Path.new(model_path)
   #model_path = OpenStudio::Path.new('hvac_library.osm')
@@ -72,5 +70,4 @@ end
 # Show the timing
 end_time = Time.now
 total_time_min = ((end_time - start_time)/60.0).round(1)
-puts "*** Finished Updating #{files.size} files at: #{end_time}, time elapsed = #{total_time_min} min."
-
+puts "*** Finished Updating #{mismatches.size} files at: #{end_time}, time elapsed = #{total_time_min} min."

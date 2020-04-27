@@ -36,7 +36,7 @@
 #include <QWidget>
 #include <vector>
 
-#include <openstudio/src/nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/nano/nano_signal_slot.hpp> // Signal-Slot replacement
 
 class QDragEnterEvent;
 class QDropEvent;
@@ -136,6 +136,9 @@ class OSItem : public QWidget, public Nano::Observer
     static const int BTN_HEIGHT = 20;
     static const int BTN_WIDTH = 20;
 
+    int position() const;
+    void setPosition(int position);
+
   signals:
     void itemClicked(OSItem *);
     void itemRemoveClicked(OSItem *);
@@ -191,6 +194,9 @@ class OSItem : public QWidget, public Nano::Observer
     // Large icon used behind everything else
     // For items that map to model objects, this will be set to the icon as opposed to the mini icon mapped to the type.
     QPixmap m_largePixmap;
+
+    int m_position = -1; // will be set to something >= 0 eventually
+
 };
 
 } // openstudio

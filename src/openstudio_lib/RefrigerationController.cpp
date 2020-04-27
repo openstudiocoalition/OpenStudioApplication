@@ -35,32 +35,32 @@
 #include "MainWindow.hpp"
 #include "MainRightColumnController.hpp"
 #include "IconLibrary.hpp"
-#include <openstudio/src/model/Model.hpp>
-#include <openstudio/src/model/Model_Impl.hpp>
-#include <openstudio/src/model/RefrigerationSystem.hpp>
-#include <openstudio/src/model/RefrigerationSystem_Impl.hpp>
-#include <openstudio/src/model/RefrigerationCondenserAirCooled.hpp>
-#include <openstudio/src/model/RefrigerationCondenserAirCooled_Impl.hpp>
-#include <openstudio/src/model/RefrigerationCondenserCascade.hpp>
-#include <openstudio/src/model/RefrigerationCondenserCascade_Impl.hpp>
-#include <openstudio/src/model/RefrigerationCondenserEvaporativeCooled.hpp>
-#include <openstudio/src/model/RefrigerationCondenserEvaporativeCooled_Impl.hpp>
-#include <openstudio/src/model/RefrigerationCondenserWaterCooled.hpp>
-#include <openstudio/src/model/RefrigerationCondenserWaterCooled_Impl.hpp>
-#include <openstudio/src/model/RefrigerationCompressor.hpp>
-#include <openstudio/src/model/RefrigerationCompressor_Impl.hpp>
-#include <openstudio/src/model/RefrigerationCase.hpp>
-#include <openstudio/src/model/RefrigerationCase_Impl.hpp>
-#include <openstudio/src/model/RefrigerationWalkIn.hpp>
-#include <openstudio/src/model/RefrigerationWalkIn_Impl.hpp>
-#include <openstudio/src/model/RefrigerationSubcoolerMechanical.hpp>
-#include <openstudio/src/model/RefrigerationSubcoolerMechanical_Impl.hpp>
-#include <openstudio/src/model/RefrigerationSubcoolerLiquidSuction.hpp>
-#include <openstudio/src/model/RefrigerationSubcoolerLiquidSuction_Impl.hpp>
+#include <openstudio/model/Model.hpp>
+#include <openstudio/model/Model_Impl.hpp>
+#include <openstudio/model/RefrigerationSystem.hpp>
+#include <openstudio/model/RefrigerationSystem_Impl.hpp>
+#include <openstudio/model/RefrigerationCondenserAirCooled.hpp>
+#include <openstudio/model/RefrigerationCondenserAirCooled_Impl.hpp>
+#include <openstudio/model/RefrigerationCondenserCascade.hpp>
+#include <openstudio/model/RefrigerationCondenserCascade_Impl.hpp>
+#include <openstudio/model/RefrigerationCondenserEvaporativeCooled.hpp>
+#include <openstudio/model/RefrigerationCondenserEvaporativeCooled_Impl.hpp>
+#include <openstudio/model/RefrigerationCondenserWaterCooled.hpp>
+#include <openstudio/model/RefrigerationCondenserWaterCooled_Impl.hpp>
+#include <openstudio/model/RefrigerationCompressor.hpp>
+#include <openstudio/model/RefrigerationCompressor_Impl.hpp>
+#include <openstudio/model/RefrigerationCase.hpp>
+#include <openstudio/model/RefrigerationCase_Impl.hpp>
+#include <openstudio/model/RefrigerationWalkIn.hpp>
+#include <openstudio/model/RefrigerationWalkIn_Impl.hpp>
+#include <openstudio/model/RefrigerationSubcoolerMechanical.hpp>
+#include <openstudio/model/RefrigerationSubcoolerMechanical_Impl.hpp>
+#include <openstudio/model/RefrigerationSubcoolerLiquidSuction.hpp>
+#include <openstudio/model/RefrigerationSubcoolerLiquidSuction_Impl.hpp>
 
 #include "../model_editor/Utilities.hpp"
 
-#include <openstudio/src/utilities/core/Compare.hpp>
+#include <openstudio/utilities/core/Compare.hpp>
 
 #include "../shared_gui_components/GraphicsItems.hpp"
 #include <QGraphicsScene>
@@ -228,6 +228,8 @@ RefrigerationController::RefrigerationController()
 
   m_refrigerationGridScene->addItem(m_refrigerationSystemGridView);
 
+  m_noRefrigerationView = new NoRefrigerationView();
+
   zoomOutToSystemGridView();
 }
 
@@ -236,6 +238,9 @@ RefrigerationController::~RefrigerationController()
   delete m_refrigerationView;
 
   delete m_refrigerationScene;
+
+  delete m_noRefrigerationView;
+
 }
 
 boost::optional<model::RefrigerationSystem> RefrigerationController::supplySystem(const model::RefrigerationCondenserCascade & condenser)
@@ -704,6 +709,11 @@ void RefrigerationController::refreshNow()
 RefrigerationView * RefrigerationController::refrigerationView() const
 {
   return m_refrigerationView;
+}
+
+NoRefrigerationView * RefrigerationController::noRefrigerationView() const
+{
+  return m_noRefrigerationView;
 }
 
 void RefrigerationController::inspectOSItem(const OSItemId & itemid)

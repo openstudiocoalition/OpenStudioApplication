@@ -29,6 +29,7 @@
     <file>images/coil_ht_dx_singlespeed.png</file>
     <file>images/coil_system_coolingwater_heat_exchanger.png</file>
     <file>images/coilcoolingchilledbeam.png</file>
+    <file>images/coilheatingdesuperheater.png</file>
     <file>images/coilcoolingfourpipebeam.png</file>
     <file>images/coilheatingfourpipebeam.png</file>
     <file>images/coilcoolinglowtemprad_constflow.png</file>
@@ -109,6 +110,7 @@
     <file>images/evap_fluid_cooler_two_speed.png</file>
     <file>images/fan_constant.png</file>
     <file>images/fan_on_off.png</file>
+    <file>images/fan_systemmodel.png</file>
     <file>images/fan_variable.png</file>
     <file>images/fan_zoneexhaust.png</file>
     <file>images/fast_forward.png</file>
@@ -150,6 +152,7 @@
     <file>images/lowtempradiant_constflow.png</file>
     <file>images/lowtempradiant_varflow.png</file>
     <file>images/mechanical-sub-cooler.png</file>
+    <file>images/missing_icon.png</file>
     <file>images/mixer.png</file>
     <file>images/OAMixer.png</file>
     <file>images/off_building_tab.png</file>
@@ -356,6 +359,7 @@
     <file>images/mini_icons/coilcoolingchilledbeam_mini.png</file>
     <file>images/mini_icons/coilcoolingfourpipebeam.png</file>
     <file>images/mini_icons/coilheatingfourpipebeam.png</file>
+    <file>images/mini_icons/coilheatingdesuperheater.png</file>
     <file>images/mini_icons/coilcoolinglowtemprad_constflow.png</file>
     <file>images/mini_icons/coilcoolinglowtemprad_varflow.png</file>
     <file>images/mini_icons/coilheatinglowtemprad_constflow.png</file>
@@ -365,6 +369,7 @@
     <file>images/mini_icons/mini_ht_coil_dx_vari.png</file>
     <file>images/mini_icons/construct_inter_source.png</file>
     <file>images/mini_icons/construction.png</file>
+    <file>images/mini_icons/construction_air_boundary.png</file>
     <file>images/mini_icons/construction_gnd.png</file>
     <file>images/mini_icons/construction_undergnd.png</file>
     <file>images/mini_icons/cool_coil.png</file>
@@ -389,6 +394,7 @@
     <file>images/mini_icons/facility.png</file>
     <file>images/mini_icons/fan_constant.png</file>
     <file>images/mini_icons/fan_on_off_mini.png</file>
+    <file>images/mini_icons/fan_systemmodel.png</file>
     <file>images/mini_icons/fan_variable.png</file>
     <file>images/mini_icons/fan_zoneexhaust.png</file>
     <file>images/mini_icons/fluid_hx_mini.png</file>
@@ -466,6 +472,7 @@
     <file>images/mini_icons/mini_headered_pumps_variable.png</file>
     <file>images/mini_icons/mini_infiltration_leak.png</file>
     <file>images/mini_icons/mini_mechanical-sub-cooler.png</file>
+    <file>images/mini_icons/missing_icon.png</file>
     <file>images/mini_icons/pipe.png</file>
     <file>images/mini_icons/mini_pipe_adiabatic.png</file>
     <file>images/mini_icons/mini_pipe_indoor.png</file>

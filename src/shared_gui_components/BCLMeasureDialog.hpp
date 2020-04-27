@@ -32,7 +32,7 @@
 
 #include "OSDialog.hpp"
 
-#include <openstudio/src/utilities/bcl/BCLMeasure.hpp>
+#include <openstudio/utilities/bcl/BCLMeasure.hpp>
 
 class QLineEdit;
 class QTextEdit;

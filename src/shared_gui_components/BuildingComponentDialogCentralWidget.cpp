@@ -37,12 +37,12 @@
 #include "BaseApp.hpp"
 #include "MeasureManager.hpp"
 
-#include <openstudio/src/measure/OSArgument.hpp>
+#include <openstudio/measure/OSArgument.hpp>
 
-#include <openstudio/src/utilities/bcl/BCL.hpp>
-#include <openstudio/src/utilities/bcl/LocalBCL.hpp>
-#include <openstudio/src/utilities/bcl/RemoteBCL.hpp>
-#include <openstudio/src/utilities/core/Assert.hpp>
+#include <openstudio/utilities/bcl/BCL.hpp>
+#include <openstudio/utilities/bcl/LocalBCL.hpp>
+#include <openstudio/utilities/bcl/RemoteBCL.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
 
 #include "../model_editor/Application.hpp"
 
@@ -268,8 +268,8 @@ void BuildingComponentDialogCentralWidget::lowerPushButtonClicked()
 
       if (m_filterType == "components")
       {
-        // DLM: replace with Nano Signal
-        //connect(remoteBCL, &RemoteBCL::componentDownloaded, this, &BuildingComponentDialogCentralWidget::componentDownloadComplete);
+        // Connect to Nano Signal
+        remoteBCL->componentDownloaded.connect<BuildingComponentDialogCentralWidget, &BuildingComponentDialogCentralWidget::componentDownloadComplete>(const_cast<BuildingComponentDialogCentralWidget *>(this));
 
         bool downloadStarted = remoteBCL->downloadComponent(component->uid());
         if (downloadStarted){
@@ -294,8 +294,8 @@ void BuildingComponentDialogCentralWidget::lowerPushButtonClicked()
       }
       else if (m_filterType == "measures")
       {
-        // DLM: replace with Nano Signal
-        //connect(remoteBCL, &RemoteBCL::measureDownloaded, this, &BuildingComponentDialogCentralWidget::measureDownloadComplete);
+        // Connect to Nano Signal
+        remoteBCL->measureDownloaded.connect<BuildingComponentDialogCentralWidget, &BuildingComponentDialogCentralWidget::measureDownloadComplete>(const_cast<BuildingComponentDialogCentralWidget *>(this));
 
         bool downloadStarted = remoteBCL->downloadMeasure(component->uid());
         if (downloadStarted){

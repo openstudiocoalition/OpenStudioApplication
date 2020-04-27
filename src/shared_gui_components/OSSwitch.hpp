@@ -30,10 +30,10 @@
 #ifndef SHAREDGUICOMPONENTS_OSSWITCH_HPP
 #define SHAREDGUICOMPONENTS_OSSWITCH_HPP
 
-#include <openstudio/src/nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/nano/nano_signal_slot.hpp> // Signal-Slot replacement
 #include "FieldMethodTypedefs.hpp"
 
-#include <openstudio/src/model/Model.hpp>
+#include <openstudio/model/Model.hpp>
 #include <QPushButton>
 
 namespace openstudio {

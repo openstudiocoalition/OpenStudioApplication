@@ -32,9 +32,9 @@
 
 #include <gtest/gtest.h>
 
-#include <openstudio/src/utilities/core/Logger.hpp>
-#include <openstudio/src/utilities/core/FileLogSink.hpp>
-#include <openstudio/src/utilities/core/Path.hpp>
+#include <openstudio/utilities/core/Logger.hpp>
+#include <openstudio/utilities/core/FileLogSink.hpp>
+#include <openstudio/utilities/core/Path.hpp>
 
 #include <vector>
 #include <string>

@@ -41,24 +41,24 @@
 #include "ScheduleDayView.hpp"
 #include "SubTabView.hpp"
 
-#include <openstudio/src/model/Model.hpp>
-#include <openstudio/src/model/Model_Impl.hpp>
-#include <openstudio/src/model/ScheduleRule.hpp>
-#include <openstudio/src/model/ScheduleRuleset.hpp>
-#include <openstudio/src/model/ScheduleRuleset_Impl.hpp>
-#include <openstudio/src/model/ScheduleRule_Impl.hpp>
-#include <openstudio/src/model/ScheduleTypeLimits.hpp>
+#include <openstudio/model/Model.hpp>
+#include <openstudio/model/Model_Impl.hpp>
+#include <openstudio/model/ScheduleRule.hpp>
+#include <openstudio/model/ScheduleRuleset.hpp>
+#include <openstudio/model/ScheduleRuleset_Impl.hpp>
+#include <openstudio/model/ScheduleRule_Impl.hpp>
+#include <openstudio/model/ScheduleTypeLimits.hpp>
 
-#include <openstudio/src/utilities/core/Assert.hpp>
-#include <openstudio/src/utilities/idf/IdfFile.hpp>
-#include <openstudio/src/utilities/time/Date.hpp>
-#include <openstudio/src/utilities/time/Time.hpp>
-#include <openstudio/src/utilities/units/Unit.hpp>
-#include <openstudio/src/utilities/units/OSOptionalQuantity.hpp>
-#include <openstudio/src/utilities/units/Quantity.hpp>
-#include <openstudio/src/utilities/units/QuantityConverter.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/idf/IdfFile.hpp>
+#include <openstudio/utilities/time/Date.hpp>
+#include <openstudio/utilities/time/Time.hpp>
+#include <openstudio/utilities/units/Unit.hpp>
+#include <openstudio/utilities/units/OSOptionalQuantity.hpp>
+#include <openstudio/utilities/units/Quantity.hpp>
+#include <openstudio/utilities/units/QuantityConverter.hpp>
 
-#include <openstudio/src/energyplus/ReverseTranslator.hpp>
+#include <openstudio/energyplus/ReverseTranslator.hpp>
 
 #include <QApplication>
 #include <QDialog>
@@ -202,6 +202,34 @@ void SchedulesTabController::addWinterProfile(model::ScheduleRuleset & scheduleR
 
   if (qobject_cast<SchedulesView *>(m_currentView)) {
     (qobject_cast<SchedulesView *>(m_currentView))->showWinterScheduleDay(scheduleRuleset);
+  }
+}
+
+void SchedulesTabController::addHolidayProfile(model::ScheduleRuleset & scheduleRuleset, UUID scheduleDayHandle)
+{
+  boost::optional<model::ScheduleDay> scheduleDay;
+  if (!scheduleDayHandle.isNull()){
+    boost::optional<model::ScheduleDay> scheduleDayToCopy = scheduleRuleset.model().getModelObject<model::ScheduleDay>(scheduleDayHandle);
+    if (scheduleDayToCopy){
+      scheduleDay = scheduleDayToCopy->clone().cast<model::ScheduleDay>();
+    }
+  }
+  if (!scheduleDay){
+    scheduleDay = model::ScheduleDay(scheduleRuleset.model());
+    boost::optional<model::ScheduleTypeLimits> limits = scheduleRuleset.scheduleTypeLimits();
+    if (limits) {
+      scheduleDay->setScheduleTypeLimits(*limits);
+    }
+    scheduleDay->addValue(Time(1, 0), defaultStartingValue(*scheduleDay));
+  }
+  OS_ASSERT(scheduleDay);
+
+  scheduleRuleset.setHolidaySchedule(*scheduleDay);
+
+  scheduleDay->remove();
+
+  if (qobject_cast<SchedulesView *>(m_currentView)) {
+    (qobject_cast<SchedulesView *>(m_currentView))->showHolidayScheduleDay(scheduleRuleset);
   }
 }
 
@@ -467,6 +495,7 @@ void SchedulesTabController::setSubTab(int index)
     disconnect(qobject_cast<SchedulesView *>(m_currentView), &SchedulesView::addRuleClicked, this, &SchedulesTabController::addRule);
     disconnect(qobject_cast<SchedulesView *>(m_currentView), &SchedulesView::addSummerProfileClicked, this, &SchedulesTabController::addSummerProfile);
     disconnect(qobject_cast<SchedulesView *>(m_currentView), &SchedulesView::addWinterProfileClicked, this, &SchedulesTabController::addWinterProfile);
+    disconnect(qobject_cast<SchedulesView *>(m_currentView), &SchedulesView::addHolidayProfileClicked, this, &SchedulesTabController::addHolidayProfile);
     disconnect(qobject_cast<SchedulesView *>(m_currentView), &SchedulesView::dayScheduleSceneChanged, this, &SchedulesTabController::onDayScheduleSceneChanged);
     disconnect(qobject_cast<SchedulesView *>(m_currentView), &SchedulesView::startDateTimeChanged, this, &SchedulesTabController::onStartDateTimeChanged);
     disconnect(qobject_cast<SchedulesView *>(m_currentView), &SchedulesView::endDateTimeChanged, this, &SchedulesTabController::onEndDateTimeChanged);
@@ -504,6 +533,7 @@ void SchedulesTabController::setSubTab(int index)
     connect(schedulesView, &SchedulesView::addRuleClicked, this, &SchedulesTabController::addRule);
     connect(schedulesView, &SchedulesView::addSummerProfileClicked, this, &SchedulesTabController::addSummerProfile);
     connect(schedulesView, &SchedulesView::addWinterProfileClicked, this, &SchedulesTabController::addWinterProfile);
+    connect(schedulesView, &SchedulesView::addHolidayProfileClicked, this, &SchedulesTabController::addHolidayProfile);
     connect(schedulesView, &SchedulesView::dayScheduleSceneChanged, this, &SchedulesTabController::onDayScheduleSceneChanged);
     connect(schedulesView, &SchedulesView::startDateTimeChanged, this, &SchedulesTabController::onStartDateTimeChanged);
     connect(schedulesView, &SchedulesView::endDateTimeChanged, this, &SchedulesTabController::onEndDateTimeChanged);

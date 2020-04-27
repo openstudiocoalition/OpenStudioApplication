@@ -36,20 +36,20 @@
 #include "OSDocument.hpp"
 #include "MainWindow.hpp"
 
-#include <openstudio/src/model/ConstructionBase.hpp>
-#include <openstudio/src/model/ConstructionBase_Impl.hpp>
-#include <openstudio/src/model/DefaultConstructionSet_Impl.hpp>
-#include <openstudio/src/model/DefaultSubSurfaceConstructions.hpp>
-#include <openstudio/src/model/DefaultSubSurfaceConstructions_Impl.hpp>
-#include <openstudio/src/model/DefaultSurfaceConstructions.hpp>
-#include <openstudio/src/model/DefaultSurfaceConstructions_Impl.hpp>
-#include <openstudio/src/model/Model_Impl.hpp>
-#include <openstudio/src/model/ComponentData.hpp>
+#include <openstudio/model/ConstructionBase.hpp>
+#include <openstudio/model/ConstructionBase_Impl.hpp>
+#include <openstudio/model/DefaultConstructionSet_Impl.hpp>
+#include <openstudio/model/DefaultSubSurfaceConstructions.hpp>
+#include <openstudio/model/DefaultSubSurfaceConstructions_Impl.hpp>
+#include <openstudio/model/DefaultSurfaceConstructions.hpp>
+#include <openstudio/model/DefaultSurfaceConstructions_Impl.hpp>
+#include <openstudio/model/Model_Impl.hpp>
+#include <openstudio/model/ComponentData.hpp>
 
-#include <openstudio/src/utilities/core/Assert.hpp>
-#include <openstudio/src/utilities/idd/OS_DefaultConstructionSet_FieldEnums.hxx>
-#include <openstudio/src/utilities/idd/OS_DefaultSubSurfaceConstructions_FieldEnums.hxx>
-#include <openstudio/src/utilities/idd/OS_DefaultSurfaceConstructions_FieldEnums.hxx>
+#include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/idd/OS_DefaultConstructionSet_FieldEnums.hxx>
+#include <openstudio/utilities/idd/OS_DefaultSubSurfaceConstructions_FieldEnums.hxx>
+#include <openstudio/utilities/idd/OS_DefaultSurfaceConstructions_FieldEnums.hxx>
 
 #include <QGridLayout>
 #include <QLabel>

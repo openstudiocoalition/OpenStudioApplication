@@ -33,14 +33,14 @@
 #include <QDialog>
 #include <QWidget>
 
-#include <openstudio/src/model/HVACComponent.hpp>
-#include <openstudio/src/model/HVACComponent_Impl.hpp>
-#include <openstudio/src/model/ModelObject.hpp>
-#include <openstudio/src/model/StraightComponent.hpp>
-#include <openstudio/src/model/StraightComponent_Impl.hpp>
-#include <openstudio/src/model/WaterToAirComponent.hpp>
-#include <openstudio/src/model/WaterToAirComponent_Impl.hpp>
-#include <openstudio/src/nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/model/HVACComponent.hpp>
+#include <openstudio/model/HVACComponent_Impl.hpp>
+#include <openstudio/model/ModelObject.hpp>
+#include <openstudio/model/StraightComponent.hpp>
+#include <openstudio/model/StraightComponent_Impl.hpp>
+#include <openstudio/model/WaterToAirComponent.hpp>
+#include <openstudio/model/WaterToAirComponent_Impl.hpp>
+#include <openstudio/nano/nano_signal_slot.hpp> // Signal-Slot replacement
 
 
 class InspectorGadget;

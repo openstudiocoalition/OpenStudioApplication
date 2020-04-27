@@ -39,7 +39,7 @@
 #include "../shared_gui_components/SyncMeasuresDialog.hpp"
 #include "../shared_gui_components/EditController.hpp"
 
-#include <openstudio/src/energyplus/ForwardTranslator.hpp>
+#include <openstudio/energyplus/ForwardTranslator.hpp>
 
 #include <QLabel>
 #include <QVBoxLayout>
@@ -107,6 +107,7 @@ void ScriptsTabView::openUpdateMeasuresDlg()
 
   openstudio::OSAppBase * app = OSAppBase::instance();
 
+  // Disable all Vertical Tab Buttons (so you can't click on another tab while it's doing its thing)
   app->currentDocument()->disable();
 
   WorkflowJSON workflow = app->currentDocument()->model().workflowJSON();
@@ -115,12 +116,14 @@ void ScriptsTabView::openUpdateMeasuresDlg()
   m_syncMeasuresDialog->setGeometry(app->currentDocument()->mainWindow()->geometry());
   m_syncMeasuresDialog->exec();
 
-  app->currentDocument()->enable();
-
   app->editController()->reset();
   workflowView->refreshAllViews();
 
   m_updateMeasuresButton->setEnabled(true);
+
+  // Re-enable the ability to switch tabs
+  app->currentDocument()->enable();
+
 }
 
 } // openstudio

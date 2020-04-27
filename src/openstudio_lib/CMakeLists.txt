@@ -2,15 +2,6 @@ set(target_name openstudio_lib)
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 include_directories(${QT_INCLUDES})
-#include_directories(${RUBY_INCLUDE_DIR})
-#include_directories(${SWIG_DIR})
-#
-#add_custom_command(
-#  OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/SWIGRubyRuntime.h"
-#  COMMAND "${SWIG_EXECUTABLE}"
-#          "-ruby"
-#          -external-runtime "${CMAKE_CURRENT_BINARY_DIR}/SWIGRubyRuntime.h"
-#)
 
 # source files
 set(${target_name}_SRC
@@ -28,6 +19,8 @@ set(${target_name}_SRC
   ConstructionFfactorGroundFloorInspectorView.hpp
   ConstructionInspectorView.cpp
   ConstructionInspectorView.hpp
+  ConstructionAirBoundaryInspectorView.cpp
+  ConstructionAirBoundaryInspectorView.hpp
   ConstructionInternalSourceInspectorView.cpp
   ConstructionInternalSourceInspectorView.hpp
   ConstructionObjectVectorController.cpp
@@ -200,7 +193,7 @@ set(${target_name}_SRC
   OSItemSelectorButtons.cpp
   OSItemSelectorButtons.hpp
   OSWebEnginePage.cpp
-  OSWebEnginePage.hpp  
+  OSWebEnginePage.hpp
   OSVectorController.cpp
   OSVectorController.hpp
   OtherEquipmentInspectorView.cpp
@@ -484,6 +477,7 @@ set(${target_name}_moc
   ConstructionCfactorUndergroundWallInspectorView.hpp
   ConstructionFfactorGroundFloorInspectorView.hpp
   ConstructionInspectorView.hpp
+  ConstructionAirBoundaryInspectorView.hpp
   ConstructionInternalSourceInspectorView.hpp
   ConstructionObjectVectorController.hpp
   ConstructionsController.hpp
@@ -568,7 +562,7 @@ set(${target_name}_moc
   OSItemList.hpp
   OSItemSelector.hpp
   OSItemSelectorButtons.hpp
-  OSWebEnginePage.hpp  
+  OSWebEnginePage.hpp
   OSVectorController.hpp
   OtherEquipmentInspectorView.hpp
   PeopleInspectorView.hpp
@@ -715,7 +709,6 @@ qt5_wrap_cpp_minimally(${target_name}_moc_src ${${target_name}_moc})
 # generate rules for building source files from the resources
 qt5_add_resources(${target_name}_qrcs ${${target_name}_qrc})
 
-
 add_library(${target_name}
   ${${target_name}_SRC}
   ${${target_name}_moc_src}
@@ -724,12 +717,8 @@ add_library(${target_name}
 )
 
 set(depends
-  openstudio_model
-  openstudio_energyplus
   openstudio_modeleditor
-  openstudio_measure
-  openstudio_sdd
-  openstudio_gbxml
+  openstudio::openstudiolib
   ${QT_LIBS}
 )
 if(WIN32)

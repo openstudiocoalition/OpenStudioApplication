@@ -30,9 +30,9 @@
 #include "Application.hpp"
 
 // TODO: JM 2019-03-28 Do I also need to make a specific version of getOpenStudioModuleDirectory?
-#include <openstudio/src/utilities/core/ApplicationPathHelpers.hpp>
+#include <openstudio/utilities/core/ApplicationPathHelpers.hpp>
 
-#include <openstudio/src/utilities/core/String.hpp>
+#include <openstudio/utilities/core/String.hpp>
 
 #include "Utilities.hpp"
 
@@ -83,10 +83,20 @@ QCoreApplication* ApplicationSingleton::application(bool gui)
       QCoreApplication::setAttribute(Qt::AA_MacPluginApplication, true);
 
       // dir containing the current module, can be openstudio.so or openstudio.exe
-      openstudio::path openstudioDirPath = getOpenStudioModuleDirectory();
+      openstudio::path openstudioModuleDirPath = getOpenStudioModuleDirectory();
 
       // Add the current module path to the backup plugin search location
-      QCoreApplication::addLibraryPath(toQString(openstudioDirPath));
+      QCoreApplication::addLibraryPath(toQString(openstudioModuleDirPath));
+
+      openstudio::path openstudioPossibleBinDirPath = openstudioModuleDirPath / openstudio::toPath("platforms/");
+      QCoreApplication::addLibraryPath(toQString(openstudioPossibleBinDirPath));
+
+      // DLM: the code below is pretty kludgy, it depends on installation of the OpenStudio Application components
+      openstudioPossibleBinDirPath = openstudioModuleDirPath / openstudio::toPath("../bin/");
+      QCoreApplication::addLibraryPath(toQString(openstudioPossibleBinDirPath));
+
+      openstudioPossibleBinDirPath = openstudioModuleDirPath / openstudio::toPath("../bin/platforms/");
+      QCoreApplication::addLibraryPath(toQString(openstudioPossibleBinDirPath));
 
       // Make the ruby path the default plugin search location
 //#if defined(Q_OS_DARWIN)

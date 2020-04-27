@@ -32,10 +32,10 @@
 
 #include "OSCollapsibleItemList.hpp"
 
-#include <openstudio/src/model/Model.hpp>
-#include <openstudio/src/model/ModelObject.hpp>
+#include <openstudio/model/Model.hpp>
+#include <openstudio/model/ModelObject.hpp>
 
-#include <openstudio/src/utilities/data/DataEnums.hpp>
+#include <openstudio/utilities/data/DataEnums.hpp>
 
 #include <boost/optional.hpp>
 

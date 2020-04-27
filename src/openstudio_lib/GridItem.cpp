@@ -36,8 +36,8 @@
 #include "OSAppBase.hpp"
 #include "MainRightColumnController.hpp"
 
-#include <openstudio/src/utilities/core/Assert.hpp>
-#include <openstudio/src/utilities/core/Compare.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Compare.hpp>
 
 #include <QPainter>
 #include <QMimeData>
@@ -50,72 +50,72 @@
 #include <QMenu>
 #include <QMessageBox>
 
-#include <openstudio/src/model/HVACComponent.hpp>
-#include <openstudio/src/model/HVACComponent_Impl.hpp>
-#include <openstudio/src/model/ZoneHVACComponent.hpp>
-#include <openstudio/src/model/ZoneHVACComponent_Impl.hpp>
-#include <openstudio/src/model/WaterUseConnections.hpp>
-#include <openstudio/src/model/WaterUseConnections_Impl.hpp>
-#include <openstudio/src/model/WaterToAirComponent.hpp>
-#include <openstudio/src/model/WaterToAirComponent_Impl.hpp>
-#include <openstudio/src/model/WaterToWaterComponent.hpp>
-#include <openstudio/src/model/WaterToWaterComponent_Impl.hpp>
-#include <openstudio/src/model/AirLoopHVACOutdoorAirSystem.hpp>
-#include <openstudio/src/model/AirLoopHVACOutdoorAirSystem_Impl.hpp>
-#include <openstudio/src/model/AirLoopHVAC.hpp>
-#include <openstudio/src/model/AirLoopHVAC_Impl.hpp>
-#include <openstudio/src/model/AirLoopHVACSupplyPlenum.hpp>
-#include <openstudio/src/model/AirLoopHVACSupplyPlenum_Impl.hpp>
-#include <openstudio/src/model/AirLoopHVACReturnPlenum.hpp>
-#include <openstudio/src/model/AirLoopHVACReturnPlenum_Impl.hpp>
-#include <openstudio/src/model/AirLoopHVACZoneMixer.hpp>
-#include <openstudio/src/model/AirLoopHVACZoneMixer_Impl.hpp>
-#include <openstudio/src/model/AirLoopHVACZoneSplitter.hpp>
-#include <openstudio/src/model/AirLoopHVACZoneSplitter_Impl.hpp>
-#include <openstudio/src/model/AirToAirComponent.hpp>
-#include <openstudio/src/model/AirToAirComponent_Impl.hpp>
-#include <openstudio/src/model/PlantLoop.hpp>
-#include <openstudio/src/model/PlantLoop_Impl.hpp>
-#include <openstudio/src/model/SetpointManager.hpp>
-#include <openstudio/src/model/SetpointManagerColdest.hpp>
-#include <openstudio/src/model/SetpointManagerFollowGroundTemperature.hpp>
-#include <openstudio/src/model/SetpointManagerFollowOutdoorAirTemperature.hpp>
-#include <openstudio/src/model/SetpointManagerFollowSystemNodeTemperature.hpp>
-#include <openstudio/src/model/SetpointManagerMixedAir.hpp>
-#include <openstudio/src/model/SetpointManagerMultiZoneCoolingAverage.hpp>
-#include <openstudio/src/model/SetpointManagerMultiZoneHeatingAverage.hpp>
-#include <openstudio/src/model/SetpointManagerMultiZoneHumidityMaximum.hpp>
-#include <openstudio/src/model/SetpointManagerMultiZoneHumidityMinimum.hpp>
-#include <openstudio/src/model/SetpointManagerMultiZoneMaximumHumidityAverage.hpp>
-#include <openstudio/src/model/SetpointManagerMultiZoneMinimumHumidityAverage.hpp>
-#include <openstudio/src/model/SetpointManagerOutdoorAirPretreat.hpp>
-#include <openstudio/src/model/SetpointManagerOutdoorAirReset.hpp>
-#include <openstudio/src/model/SetpointManagerScheduled.hpp>
-#include <openstudio/src/model/SetpointManagerScheduledDualSetpoint.hpp>
-#include <openstudio/src/model/SetpointManagerSingleZoneHumidityMaximum.hpp>
-#include <openstudio/src/model/SetpointManagerSingleZoneHumidityMinimum.hpp>
-#include <openstudio/src/model/SetpointManagerSingleZoneOneStageCooling.hpp>
-#include <openstudio/src/model/SetpointManagerSingleZoneOneStageHeating.hpp>
-#include <openstudio/src/model/SetpointManagerSingleZoneReheat.hpp>
-#include <openstudio/src/model/SetpointManagerSingleZoneCooling.hpp>
-#include <openstudio/src/model/SetpointManagerSingleZoneHeating.hpp>
-#include <openstudio/src/model/SetpointManagerWarmest.hpp>
-#include <openstudio/src/model/SetpointManagerWarmestTemperatureFlow.hpp>
-#include <openstudio/src/model/RenderingColor.hpp>
-#include <openstudio/src/model/RenderingColor_Impl.hpp>
-#include <openstudio/src/model/Node.hpp>
-#include <openstudio/src/model/Node_Impl.hpp>
-#include <openstudio/src/model/Splitter.hpp>
-#include <openstudio/src/model/Splitter_Impl.hpp>
-#include <openstudio/src/model/Mixer.hpp>
-#include <openstudio/src/model/ThermalZone.hpp>
-#include <openstudio/src/model/ThermalZone_Impl.hpp>
+#include <openstudio/model/HVACComponent.hpp>
+#include <openstudio/model/HVACComponent_Impl.hpp>
+#include <openstudio/model/ZoneHVACComponent.hpp>
+#include <openstudio/model/ZoneHVACComponent_Impl.hpp>
+#include <openstudio/model/WaterUseConnections.hpp>
+#include <openstudio/model/WaterUseConnections_Impl.hpp>
+#include <openstudio/model/WaterToAirComponent.hpp>
+#include <openstudio/model/WaterToAirComponent_Impl.hpp>
+#include <openstudio/model/WaterToWaterComponent.hpp>
+#include <openstudio/model/WaterToWaterComponent_Impl.hpp>
+#include <openstudio/model/AirLoopHVACOutdoorAirSystem.hpp>
+#include <openstudio/model/AirLoopHVACOutdoorAirSystem_Impl.hpp>
+#include <openstudio/model/AirLoopHVAC.hpp>
+#include <openstudio/model/AirLoopHVAC_Impl.hpp>
+#include <openstudio/model/AirLoopHVACSupplyPlenum.hpp>
+#include <openstudio/model/AirLoopHVACSupplyPlenum_Impl.hpp>
+#include <openstudio/model/AirLoopHVACReturnPlenum.hpp>
+#include <openstudio/model/AirLoopHVACReturnPlenum_Impl.hpp>
+#include <openstudio/model/AirLoopHVACZoneMixer.hpp>
+#include <openstudio/model/AirLoopHVACZoneMixer_Impl.hpp>
+#include <openstudio/model/AirLoopHVACZoneSplitter.hpp>
+#include <openstudio/model/AirLoopHVACZoneSplitter_Impl.hpp>
+#include <openstudio/model/AirToAirComponent.hpp>
+#include <openstudio/model/AirToAirComponent_Impl.hpp>
+#include <openstudio/model/PlantLoop.hpp>
+#include <openstudio/model/PlantLoop_Impl.hpp>
+#include <openstudio/model/SetpointManager.hpp>
+#include <openstudio/model/SetpointManagerColdest.hpp>
+#include <openstudio/model/SetpointManagerFollowGroundTemperature.hpp>
+#include <openstudio/model/SetpointManagerFollowOutdoorAirTemperature.hpp>
+#include <openstudio/model/SetpointManagerFollowSystemNodeTemperature.hpp>
+#include <openstudio/model/SetpointManagerMixedAir.hpp>
+#include <openstudio/model/SetpointManagerMultiZoneCoolingAverage.hpp>
+#include <openstudio/model/SetpointManagerMultiZoneHeatingAverage.hpp>
+#include <openstudio/model/SetpointManagerMultiZoneHumidityMaximum.hpp>
+#include <openstudio/model/SetpointManagerMultiZoneHumidityMinimum.hpp>
+#include <openstudio/model/SetpointManagerMultiZoneMaximumHumidityAverage.hpp>
+#include <openstudio/model/SetpointManagerMultiZoneMinimumHumidityAverage.hpp>
+#include <openstudio/model/SetpointManagerOutdoorAirPretreat.hpp>
+#include <openstudio/model/SetpointManagerOutdoorAirReset.hpp>
+#include <openstudio/model/SetpointManagerScheduled.hpp>
+#include <openstudio/model/SetpointManagerScheduledDualSetpoint.hpp>
+#include <openstudio/model/SetpointManagerSingleZoneHumidityMaximum.hpp>
+#include <openstudio/model/SetpointManagerSingleZoneHumidityMinimum.hpp>
+#include <openstudio/model/SetpointManagerSingleZoneOneStageCooling.hpp>
+#include <openstudio/model/SetpointManagerSingleZoneOneStageHeating.hpp>
+#include <openstudio/model/SetpointManagerSingleZoneReheat.hpp>
+#include <openstudio/model/SetpointManagerSingleZoneCooling.hpp>
+#include <openstudio/model/SetpointManagerSingleZoneHeating.hpp>
+#include <openstudio/model/SetpointManagerWarmest.hpp>
+#include <openstudio/model/SetpointManagerWarmestTemperatureFlow.hpp>
+#include <openstudio/model/RenderingColor.hpp>
+#include <openstudio/model/RenderingColor_Impl.hpp>
+#include <openstudio/model/Node.hpp>
+#include <openstudio/model/Node_Impl.hpp>
+#include <openstudio/model/Splitter.hpp>
+#include <openstudio/model/Splitter_Impl.hpp>
+#include <openstudio/model/Mixer.hpp>
+#include <openstudio/model/ThermalZone.hpp>
+#include <openstudio/model/ThermalZone_Impl.hpp>
 
 #include "../model_editor/Utilities.hpp"
 
 #include <algorithm>
 
-#include <openstudio/src/utilities/idd/IddEnums.hxx>
+#include <openstudio/utilities/idd/IddEnums.hxx>
 
 using namespace openstudio::model;
 
@@ -984,6 +984,11 @@ void ReverseVerticalBranchItem::layout()
   setVGridLength( j );
 }
 
+/* Sort the (parallel) branches by:
+ * - ThermalZone name if applicable,
+ * - First component's name after the initial Node if more than one component
+ * - Only component (=a node) otherwise
+ */
 bool sortBranches(std::vector<ModelObject> i, std::vector<ModelObject> j)
 {
   OS_ASSERT(! i.empty());
@@ -1243,7 +1248,15 @@ HorizontalBranchGroupItem::HorizontalBranchGroupItem( model::Splitter & splitter
         }
       }
 
-      std::sort(allBranchComponents.begin(),allBranchComponents.end(),sortBranches);
+      // Note JM 2019-07-16: If this is the demand side, we order it by the thermal zone names (airLoopHVAC),
+      // or the component after the node names,makes it easier to find stuff
+      // If this is the supply side (which only affects PlantLoop in effect, since a single duct doesn't have parallel branches,
+      // and a dual duct uses vertical branches - but might as well not call a sort function that will do nothing for AirLoopHVAC),
+      // we don't want to do it because we want it to display in the same order
+      // that will end up in the PlantEquipmentList after Forward Translatation (affects Load Distribution substantially!)
+      if (!isSupplySide) {
+        std::sort(allBranchComponents.begin(),allBranchComponents.end(),sortBranches);
+      }
       for(auto it = allBranchComponents.begin();
           it != allBranchComponents.end();
           ++it)

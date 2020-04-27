@@ -76,26 +76,26 @@
 
 //#include "../analysis/Analysis.hpp"
 
-#include <openstudio/src/model/FileOperations.hpp>
-#include <openstudio/src/model/Component.hpp>
-#include <openstudio/src/model/WeatherFile.hpp>
-#include <openstudio/src/model/WeatherFile_Impl.hpp>
+#include <openstudio/model/FileOperations.hpp>
+#include <openstudio/model/Component.hpp>
+#include <openstudio/model/WeatherFile.hpp>
+#include <openstudio/model/WeatherFile_Impl.hpp>
 
-#include <openstudio/src/utilities/bcl/BCLComponent.hpp>
-#include <openstudio/src/utilities/bcl/LocalBCL.hpp>
-#include <openstudio/src/utilities/bcl/RemoteBCL.hpp>
-#include <openstudio/src/utilities/core/Assert.hpp>
-#include <openstudio/src/utilities/core/Checksum.hpp>
-#include <openstudio/src/utilities/core/PathHelpers.hpp>
-#include <openstudio/src/utilities/data/Attribute.hpp>
-#include <openstudio/src/utilities/idf/IdfFile.hpp>
-#include <openstudio/src/utilities/idf/ValidityReport.hpp>
-#include <openstudio/src/utilities/idf/Workspace.hpp>
-#include <openstudio/src/utilities/filetypes/EpwFile.hpp>
-#include <openstudio/src/utilities/filetypes/WorkflowJSON.hpp>
-#include <openstudio/src/utilities/filetypes/WorkflowJSON_Impl.hpp>
+#include <openstudio/utilities/bcl/BCLComponent.hpp>
+#include <openstudio/utilities/bcl/LocalBCL.hpp>
+#include <openstudio/utilities/bcl/RemoteBCL.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Checksum.hpp>
+#include <openstudio/utilities/core/PathHelpers.hpp>
+#include <openstudio/utilities/data/Attribute.hpp>
+#include <openstudio/utilities/idf/IdfFile.hpp>
+#include <openstudio/utilities/idf/ValidityReport.hpp>
+#include <openstudio/utilities/idf/Workspace.hpp>
+#include <openstudio/utilities/filetypes/EpwFile.hpp>
+#include <openstudio/utilities/filetypes/WorkflowJSON.hpp>
+#include <openstudio/utilities/filetypes/WorkflowJSON_Impl.hpp>
 
-#include <openstudio/src/osversion/VersionTranslator.hpp>
+#include <openstudio/osversion/VersionTranslator.hpp>
 
 //#include "../analysis/DataPoint.hpp"
 //#include "../analysis/MeasureGroup.hpp"
@@ -109,11 +109,11 @@
 
 #include "../model_editor/Application.hpp"
 
-#include <openstudio/src/OpenStudio.hxx>
+#include <openstudio/OpenStudio.hxx>
 
-#include <openstudio/src/energyplus/ForwardTranslator.hpp>
-#include <openstudio/src/gbxml/ForwardTranslator.hpp>
-#include <openstudio/src/sdd/ForwardTranslator.hpp>
+#include <openstudio/energyplus/ForwardTranslator.hpp>
+#include <openstudio/gbxml/ForwardTranslator.hpp>
+#include <openstudio/sdd/ForwardTranslator.hpp>
 
 
 

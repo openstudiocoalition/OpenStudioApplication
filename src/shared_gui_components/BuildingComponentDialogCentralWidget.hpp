@@ -35,6 +35,7 @@
 #include <set>
 #include <vector>
 
+#include <openstudio/nano/nano_signal_slot.hpp> // Signal-Slot replacement
 #include <boost/optional.hpp>
 
 class QProgressBar;
@@ -47,7 +48,7 @@ class Component;
 class ComponentList;
 class CollapsibleComponentList;
 
-class BuildingComponentDialogCentralWidget : public QWidget
+class BuildingComponentDialogCentralWidget : public QWidget, public Nano::Observer
 {
   Q_OBJECT
 

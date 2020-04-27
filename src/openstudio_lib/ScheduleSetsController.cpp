@@ -30,12 +30,12 @@
 #include "ScheduleSetsController.hpp"
 #include "ScheduleSetsView.hpp"
 
-#include <openstudio/src/model/DefaultScheduleSet.hpp>
-#include <openstudio/src/model/DefaultScheduleSet_Impl.hpp>
+#include <openstudio/model/DefaultScheduleSet.hpp>
+#include <openstudio/model/DefaultScheduleSet_Impl.hpp>
 
-#include <openstudio/src/utilities/core/Logger.hpp>
+#include <openstudio/utilities/core/Logger.hpp>
 
-#include <openstudio/src/utilities/idd/IddEnums.hxx>
+#include <openstudio/utilities/idd/IddEnums.hxx>
 
 namespace openstudio {
 

@@ -33,7 +33,7 @@
 #include <QMainWindow>
 #include <QString>
 
-#include <openstudio/src/model/Building.hpp>
+#include <openstudio/model/Building.hpp>
 #include "ModelEditorAPI.hpp"
 
 class QAbstractItemModel;

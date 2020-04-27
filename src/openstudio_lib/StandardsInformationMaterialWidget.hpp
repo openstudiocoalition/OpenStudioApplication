@@ -30,9 +30,9 @@
 #ifndef OPENSTUDIO_STANDARDSINFORMATIONMATERIALWIDGET_HPP
 #define OPENSTUDIO_STANDARDSINFORMATIONMATERIALWIDGET_HPP
 
-#include <openstudio/src/model/Material.hpp>
+#include <openstudio/model/Material.hpp>
 
-#include <openstudio/src/model/StandardsInformationMaterial.hpp>
+#include <openstudio/model/StandardsInformationMaterial.hpp>
 
 #include <QWidget>
 

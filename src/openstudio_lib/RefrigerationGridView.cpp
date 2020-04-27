@@ -35,25 +35,25 @@
 #include "OSAppBase.hpp"
 #include "OSDocument.hpp"
 
-#include <openstudio/src/model/ModelObject.hpp>
-#include <openstudio/src/model/ModelObject_Impl.hpp>
-#include <openstudio/src/model/RefrigerationCase.hpp>
-#include <openstudio/src/model/RefrigerationCase_Impl.hpp>
-#include <openstudio/src/model/RefrigerationSystem.hpp>
-#include <openstudio/src/model/RefrigerationSystem_Impl.hpp>
-#include <openstudio/src/model/RefrigerationWalkIn.hpp>
-#include <openstudio/src/model/RefrigerationWalkIn_Impl.hpp>
-#include <openstudio/src/model/Schedule.hpp>
-#include <openstudio/src/model/Schedule_Impl.hpp>
-#include <openstudio/src/model/ScheduleTypeRegistry.hpp>
-#include <openstudio/src/model/ThermalZone.hpp>
-#include <openstudio/src/model/ThermalZone_Impl.hpp>
-#include <openstudio/src/model/Model.hpp>
-#include <openstudio/src/model/Model_Impl.hpp>
+#include <openstudio/model/ModelObject.hpp>
+#include <openstudio/model/ModelObject_Impl.hpp>
+#include <openstudio/model/RefrigerationCase.hpp>
+#include <openstudio/model/RefrigerationCase_Impl.hpp>
+#include <openstudio/model/RefrigerationSystem.hpp>
+#include <openstudio/model/RefrigerationSystem_Impl.hpp>
+#include <openstudio/model/RefrigerationWalkIn.hpp>
+#include <openstudio/model/RefrigerationWalkIn_Impl.hpp>
+#include <openstudio/model/Schedule.hpp>
+#include <openstudio/model/Schedule_Impl.hpp>
+#include <openstudio/model/ScheduleTypeRegistry.hpp>
+#include <openstudio/model/ThermalZone.hpp>
+#include <openstudio/model/ThermalZone_Impl.hpp>
+#include <openstudio/model/Model.hpp>
+#include <openstudio/model/Model_Impl.hpp>
 
-#include <openstudio/src/utilities/idd/IddEnums.hxx>
-#include <openstudio/src/utilities/idd/Refrigeration_Case_FieldEnums.hxx>
-#include <openstudio/src/utilities/idd/Refrigeration_WalkIn_FieldEnums.hxx>
+#include <openstudio/utilities/idd/IddEnums.hxx>
+#include <openstudio/utilities/idd/Refrigeration_Case_FieldEnums.hxx>
+#include <openstudio/utilities/idd/Refrigeration_WalkIn_FieldEnums.hxx>
 
 #include <QBoxLayout>
 #include <QCheckBox>

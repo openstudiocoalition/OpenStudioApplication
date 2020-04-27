@@ -31,11 +31,11 @@
 #define SHAREDGUICOMPONENTS_MEASUREMANAGER_HPP
 
 #include "LocalLibraryController.hpp"
-#include <openstudio/src/utilities/bcl/BCLMeasure.hpp>
-#include <openstudio/src/utilities/core/Path.hpp>
-#include <openstudio/src/utilities/core/UUID.hpp>
-#include <openstudio/src/model/Model.hpp>
-#include <openstudio/src/measure/OSArgument.hpp>
+#include <openstudio/utilities/bcl/BCLMeasure.hpp>
+#include <openstudio/utilities/core/Path.hpp>
+#include <openstudio/utilities/core/UUID.hpp>
+#include <openstudio/model/Model.hpp>
+#include <openstudio/measure/OSArgument.hpp>
 #include <vector>
 #include <map>
 #include <QSharedPointer>
@@ -43,8 +43,10 @@
 #include <QApplication>
 #include <QUrl>
 #include <QMutex>
+
 class QEvent;
 class QNetworkAccessManager;
+// class QSslError; // If trying to debug a potential SSL error
 
 namespace Json{
   class Value;
@@ -103,7 +105,7 @@ class MeasureManager : public QObject
 
     void setUrl(const QUrl& url);
 
-    void waitForStarted(int msec=10000);
+    bool waitForStarted(int msec=10000);
 
     void setLibraryController(const QSharedPointer<LocalLibraryController> &t_libraryController);
 
@@ -149,6 +151,8 @@ class MeasureManager : public QObject
 
     bool reset();
 
+    bool isStarted() const;
+
   public slots:
 
     /// Update the UI display for all measures. Does recompute the measure's XML.
@@ -178,6 +182,10 @@ class MeasureManager : public QObject
     void addMeasure();
 
     void duplicateSelectedMeasure();
+
+    // If trying to debug a potential SSL error
+    // Custom slot to debug potential SSL errors
+    // void sslErrors(const QList<QSslError>& errors);
 
   signals:
 

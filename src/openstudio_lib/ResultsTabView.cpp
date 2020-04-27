@@ -45,8 +45,8 @@
 #include <QString>
 #include <QRegExp>
 #include <QWebEngineSettings>
-#include <openstudio/src/utilities/core/Assert.hpp>
-#include <openstudio/src/utilities/core/PathHelpers.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/PathHelpers.hpp>
 
 namespace openstudio {
 
@@ -364,7 +364,13 @@ void ResultsView::populateComboBox(std::vector<openstudio::path> reports)
   m_comboBox->clear();
   for (const openstudio::path& report : reports) {
 
-    fullPathString = toQString(report.string());
+	// Here we DO want to call MODELEDITOR_API QString toQString(const path&) overload, which should automatically
+	// convert that to a unix-style path (with forward slashes) which is what we do want here.
+    // fullPathString = toQString(report.string()); // This will mix slashes and backslashes (without escaping...) => C:/companion_folder\reports\eplustbl.html
+	// (Alternatively, we could just use QUrl::fromLocalFile in comboBoxChanged instead of manually preprending "file:///" here)
+	fullPathString = toQString(report);
+
+
     QFile file(fullPathString);
     fullPathString.prepend("file:///");
 
@@ -383,7 +389,7 @@ void ResultsView::populateComboBox(std::vector<openstudio::path> reports)
         QString string = doc.toString();
         int startingIndex = string.indexOf("<title>");
         int endingIndex = string.indexOf("</title>");
-        if((startingIndex == -1) | (endingIndex == -1) | (startingIndex >= endingIndex)){
+        if((startingIndex == -1) || (endingIndex == -1) || (startingIndex >= endingIndex)){
           m_comboBox->addItem(QString("Custom Report ") + QString::number(num), fullPathString);
         } else {
           // length of "<title>" = 7
@@ -429,7 +435,8 @@ void ResultsView::comboBoxChanged(int index)
   m_progressBar->setFormat("");
   m_progressBar->setTextVisible(false);
 
-  m_view->load(QUrl(filename));
+  QUrl url(filename);
+  m_view->load(url);
 }
 
 void 	ResultsView::onLoadFinished(bool ok)

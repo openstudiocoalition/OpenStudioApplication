@@ -31,11 +31,11 @@
 #define OPENSTUDIO_OSVECTORCONTROLLER_HPP
 
 #include <QWidget>
-#include <openstudio/src/model/ComponentData.hpp>
-#include <openstudio/src/model/Model.hpp>
-#include <openstudio/src/model/ModelObject.hpp>
+#include <openstudio/model/ComponentData.hpp>
+#include <openstudio/model/Model.hpp>
+#include <openstudio/model/ModelObject.hpp>
 #include <vector>
-#include <openstudio/src/nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/nano/nano_signal_slot.hpp> // Signal-Slot replacement
 
 namespace openstudio {
 

@@ -33,8 +33,8 @@
 #include "GridScene.hpp"
 #include "OSItem.hpp"
 #include "../model_editor/QMetaTypes.hpp"
-#include <openstudio/src/model/Model.hpp>
-#include <openstudio/src/model/WaterUseConnections.hpp>
+#include <openstudio/model/Model.hpp>
+#include <openstudio/model/WaterUseConnections.hpp>
 
 namespace openstudio {
 
