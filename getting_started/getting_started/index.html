@@ -54,10 +54,6 @@
                 <a href=".">Installation and Introductory Tutorial</a>
               </li>
             
-              <li>
-                <a href="../about_measures">About Measures</a>
-              </li>
-            
             </ul>
           </li>
           
@@ -91,10 +87,6 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Advanced Tutorials <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-            
-              <li>
-                <a href="../../tutorials/utility_rate_tariffs">Utiity Rate Tariffs</a>
-              </li>
             
               <li>
                 <a href="../../tutorials/life_cycle_costing_examples">Life Cycle Cost Analysis</a>
@@ -134,34 +126,6 @@
               </li>
             
               <li>
-                <a href="../../reference/command_line_interface">Command Line Interface</a>
-              </li>
-            
-              <li>
-                <a href="../../reference/parametric_analysis_tool_2">Parametric Analysis Tool Version 2 (PAT) Interface Guide</a>
-              </li>
-            
-              <li>
-                <a href="../../reference/model_objects">OpenStudio Model Objects Overview</a>
-              </li>
-            
-              <li>
-                <a href="../../reference/measure_writing_guide">Measure Writer's Reference Guide</a>
-              </li>
-            
-              <li>
-                <a href="../../reference/measure_code_examples">Measure Code Examples</a>
-              </li>
-            
-              <li>
-                <a href="../../reference/developing_measure_collections">Developing Measure Collections</a>
-              </li>
-            
-              <li>
-                <a href="../../reference/refguide_radiance">OpenStudio-Radiance Reference Guide</a>
-              </li>
-            
-              <li>
                 <a href="../../reference/openstudio_results_measure">OpenStudio Results Measure</a>
               </li>
             
@@ -173,14 +137,6 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Help <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-            
-              <li>
-                <a href="../../help/training">Find Training</a>
-              </li>
-            
-              <li>
-                <a href="../../help/best_practices">Modeling Best Practices</a>
-              </li>
             
               <li>
                 <a href="../../help/troubleshooting">Troubleshooting</a>
@@ -245,15 +201,15 @@
         <div class="col-md-9" role="main">
           <h1>Installation and Introductory Tutorial</h1>
 
-<p>This page walks you through installing OpenStudio, the basics of the applications, and the basic workflow.</p>
+<p>This page walks you through installing the OpenStudio Application, the basics of its suite of applications, and the fundamental workflow.</p>
 <h2 id="installation-instructions">Installation Instructions</h2>
-<p>OpenStudio is supported on 64-bit versions of Windows 7 &ndash; Windows 10, OS X 10.12 &ndash; 10.14, and Ubuntu 18.04.
-OpenStudio supports the latest EnergyPlus release which is bundled with the OpenStudio installer. The <a href="https://github.com/NREL/OpenStudio/wiki/OpenStudio-Version-Compatibility-Matrix">version compatibility matrix</a> lists specific versions of EnergyPlus and other dependencies for each version of OpenStudio. </p>
+<p>OpenStudio Application is supported on 64-bit versions of Windows 7 &ndash; Windows 10, OS X 10.12 &ndash; 10.14, and Ubuntu 18.04.
+OpenStudio Application supports the latest EnergyPlus release which is bundled with the OpenStudio Application installer. The dependencies for the OpenStudio Application 1.0.0 include EnergyPlus 9.3.0, Radiance 5.0.a.12, SketchUp 2019 Pro, and Ruby 2.5.5.</p>
 <h3 id="installation-steps">Installation Steps</h3>
-<p><strong>Download and install OpenStudio</strong></p>
+<p><strong>Download and install OpenStudio Application</strong></p>
 <ol>
-<li>Download the latest release of OpenStudio <a href="https://github.com/NREL/OpenStudioApplication/releases">here</a>.</li>
-<li>Choose the installer that matches your operating system. The OpenStudio package contains the following components:<ul>
+<li>Download the latest release of OpenStudio Application <a href="https://github.com/NREL/OpenStudioApplication/releases">here</a>.</li>
+<li>Choose the installer that matches your operating system. The OpenStudio Application package contains the following components:<ul>
 <li>OpenStudio Application</li>
 <li>EnergyPlus</li>
 <li>Ruby API</li>
@@ -265,17 +221,17 @@ OpenStudio supports the latest EnergyPlus release which is bundled with the Open
 </li>
 </ol>
 <p><strong>Optional - Download and install SketchUp and the Openstudio SketchUp Plugin</strong></p>
-<p>There are a few options for generating geometry for the OpenStudio Application, including the built-in FloorspaceJS interface. One option is to use the OpenStudio Sketchup Plugin. To use the pugin:</p>
+<p>There are a few options for generating geometry for the OpenStudio Application, including the built-in FloorspaceJS interface. One option is to use the OpenStudio Sketchup Plugin. To use the plugin:</p>
 <ol>
 <li>Download and install SketchUp. Presently, the OpenStudio SketchUp Plugin requires <a href="https://www.sketchup.com/">SketchUp 2019 Pro</a> (not available for Linux). </li>
 <li>Download the OpenStudio SketchUp Plugin <a href="https://github.com/NREL/openstudio-sketchup-plugin/releases">here</a>. Follow the <a href="https://help.sketchup.com/en/installing-ruby-plugins-extensions">procedure to install the Plugin</a>.</li>
 </ol>
 <p><strong>Optional - Setup a Building Component Library (BCL) Account</strong>  </p>
-<p>BCL content can now be accessed from within the OpenStudio SketchUp Plugin and from the standalone OpenStudio application. To take advantage of this integration, you will need to follow the steps outlined here to request a BCL key.</p>
+<p>BCL content can now be accessed from within the OpenStudio SketchUp Plugin and from the standalone OpenStudio Application. To take advantage of this integration, you will need to follow the steps outlined here to request a BCL key.</p>
 <ol>
 <li>Login to <a href="https://bcl.nrel.gov/">Building Component Library (BCL)</a>. Create an account if you don't have one. Follow the instructions from the email sent to you upon registration and then login.</li>
 <li>Click on the <code>My Dashboard</code> near the top right of the website.</li>
-<li>Copy the text after <code>API v1.1 key</code>: then paste the key into the OpenStudio application, or the SketchUp Plugin. <strong>You only need to configure the key in one place and it will be used globally throughout the OpenStudio tools.</strong> Additionally, this key will be maintained when you install updates to OpenStudio.</li>
+<li>Copy the text after <code>API v1.1 key</code>: then paste the key into the OpenStudio Application, or the SketchUp Plugin. <strong>You only need to configure the key in one place and it will be used globally throughout the OpenStudio Application tools.</strong> Additionally, this key will be maintained when you install updates to the OpenStudio Application.</li>
 </ol>
 <p>Enter the key through the OpenStudio SketchUp Plugin under the menu <code>Extensions-&gt;OpenStudio User Scripts-&gt;Building Component Library-&gt;Setup BCL Key</code> and click <code>OK</code>. <strong>Or</strong> register the key through the OpenStudio Application under the menu <code>Components &amp; Measures-&gt;Find Components</code>. If a key is not already registered, it will prompt you for one.</p>
 <p><img alt="Key request dialog" src="../../img/bcl_key_request.png" /></p>
@@ -284,18 +240,18 @@ OpenStudio supports the latest EnergyPlus release which is bundled with the Open
 <li>Download the latest release of PAT <a href="https://github.com/NREL/OpenStudio-PAT/releases">here</a> (not available for Linux).</li>
 </ol>
 <h2 id="workflow-overview">Workflow Overview</h2>
-<p>The typical OpenStudio workflow is shown in the diagram below.</p>
+<p>The typical OpenStudio Application workflow is shown in the diagram below.</p>
 <p><a href="../../img/workflow_diagram.png"><img alt="Workflow Diagram" src="../../img/workflow_diagram.png" title="Click to view" /></a></p>
 <p><em>About: Click on the diagram above to view a larger version.</em></p>
 <p>Data Viewer is used to view simulation results. The section within documentation for Running Simulation &amp; Viewing Results has information on using <a href="../../../tutorials/running_your_simulation/#using-data-viewer">Data Viewer</a>.</p>
-<p>The <a href="../../reference/parametric_analysis_tool_2">Parametric Analysis Tool Interface Guide</a> provides an introduction to the interface and workflow for creating multiple design alternatives from a seed model.</p>
+<p>The <a href="http://nrel.github.io/OpenStudio-user-documentation/reference/parametric_analysis_tool_2/">Parametric Analysis Tool Interface Guide</a> provides an introduction to the interface and workflow for creating multiple design alternatives from a seed model.</p>
 <h2 id="introductory-tutorial">Introductory Tutorial</h2>
 <p>The tutorial below was created before the grid view was added to the Space Types and Thermal Zones tabs. Grid view allows you to view and edit more than one space type or thermal zone at a time. Go to the <a href="../../reference/openstudio_application_interface">OpenStudio Application Interface Guide</a> to learn more about grid view.</p>
 <h3 id="selecting-a-library-for-constructions-loads-and-schedules">Selecting a Library for Constructions, Loads, and Schedules</h3>
-<p>Libraries that are included with the OpenStudio Application contain data for constructions, loads, and schedules for 6 vintages across all U.S. climate zones. They also contain data for 9 vintages specific to DEER. The Libraries do not contain any geometry. Load libraries by using the menu under <strong>File/Load Library</strong>. Then select your vintage from the default file set. The Library data is organized such that you can access specific Constructions and Loads or you can apply Construction Sets and Space Types that contain whole packages of subsequent dependent characteristics. For example a Library Space Type contains several specific Loads and associated Schedules for that space type, all of whhich become part of your model if you add the Space Type to your model. You can also load previously generated models as Libraries through the <strong>File/Load Library</strong> menu by navigating to any OSM file from the browser window that pops up. It can take a few minutes to load. </p>
+<p>Libraries that are included with the OpenStudio Application contain data for constructions, loads, and schedules for 6 vintages across all U.S. climate zones. They also contain data for 9 vintages specific to DEER. The Libraries do not contain any geometry. Load libraries by using the menu under <strong>File/Load Library</strong>. Then select your vintage from the default file set. The Library data is organized such that you can access specific constructions and loads, or you can apply construction sets and space types that contain whole packages of subsequent dependent characteristics. For example a Library Space Type contains several specific loads and associated schedules for that space type, all of which become part of your model if you add the Space Type to your model. You can also load previously generated models as Libraries through the <strong>File/Load Library</strong> menu by navigating to any OpenStudio Model file from the browser window that pops up. It can take a few minutes to load. </p>
 <p><img alt="New OpenStudio Model From Template Dialog" src="../../img/menu_libraries.png" /></p>
 <p><em>Above: Load a new Library using the menu.</em></p>
-<p>It is a good practice to regularly clear the Libraries that load when the OpenStudio Application opens by using the menu under <strong>Preferences/Change Default Libraries</strong> and selecting <strong>Restore Defaults</strong>. If the OpenStudio Application is loading several Libraries it will slow down significantly.</p>
+<p>It is good practice to regularly clear the Libraries that load when the OpenStudio Application opens by using the menu under <strong>Preferences/Change Default Libraries</strong> and selecting <strong>Restore Defaults</strong>. If the OpenStudio Application is loading several Libraries it will slow down significantly.</p>
 <p><img alt="New OpenStudio Model From Template Dialog" src="../../img/default_libraries.png" /></p>
 <p>Vintages:</p>
 <ul>
@@ -316,7 +272,7 @@ OpenStudio supports the latest EnergyPlus release which is bundled with the Open
 - Assigning Building Activity
 - Assigning Thermal Zones
 - Assign Thermostats
-- Saving the OSM model from the SketchUp Plugin
+- Saving the OpenStudio Model from the SketchUp Plugin
 - Moving from the Plugin to the OpenStudio Application
 - Adding Weather and Design Day Files
 - Adding a Mechanical System

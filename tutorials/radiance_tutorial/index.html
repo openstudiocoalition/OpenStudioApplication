@@ -54,10 +54,6 @@
                 <a href="../../getting_started/getting_started">Installation and Introductory Tutorial</a>
               </li>
             
-              <li>
-                <a href="../../getting_started/about_measures">About Measures</a>
-              </li>
-            
             </ul>
           </li>
           
@@ -91,10 +87,6 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Advanced Tutorials <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-            
-              <li>
-                <a href="../utility_rate_tariffs">Utiity Rate Tariffs</a>
-              </li>
             
               <li>
                 <a href="../life_cycle_costing_examples">Life Cycle Cost Analysis</a>
@@ -134,34 +126,6 @@
               </li>
             
               <li>
-                <a href="../../reference/command_line_interface">Command Line Interface</a>
-              </li>
-            
-              <li>
-                <a href="../../reference/parametric_analysis_tool_2">Parametric Analysis Tool Version 2 (PAT) Interface Guide</a>
-              </li>
-            
-              <li>
-                <a href="../../reference/model_objects">OpenStudio Model Objects Overview</a>
-              </li>
-            
-              <li>
-                <a href="../../reference/measure_writing_guide">Measure Writer's Reference Guide</a>
-              </li>
-            
-              <li>
-                <a href="../../reference/measure_code_examples">Measure Code Examples</a>
-              </li>
-            
-              <li>
-                <a href="../../reference/developing_measure_collections">Developing Measure Collections</a>
-              </li>
-            
-              <li>
-                <a href="../../reference/refguide_radiance">OpenStudio-Radiance Reference Guide</a>
-              </li>
-            
-              <li>
                 <a href="../../reference/openstudio_results_measure">OpenStudio Results Measure</a>
               </li>
             
@@ -173,14 +137,6 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Help <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-            
-              <li>
-                <a href="../../help/training">Find Training</a>
-              </li>
-            
-              <li>
-                <a href="../../help/best_practices">Modeling Best Practices</a>
-              </li>
             
               <li>
                 <a href="../../help/troubleshooting">Troubleshooting</a>
@@ -235,13 +191,12 @@
 </div>
         </div>
         <div class="col-md-9" role="main">
-          <h1>Radiance and OpenStudio</h1>
+          <h1>Radiance and OpenStudio Application</h1>
 
-<p>This tutorial explains how to use <a href="http://www.radiance-online.org/">Radiance</a> to simulate the daylight ingress in your OpenStudio model, allowing for higher fidelity simulations of daylighting-related energy efficiency measures.</p>
-<p>For OpenStudio <a href="https://github.com/NREL/OpenStudio/releases/tag/v1.9.0">v1.9.0</a>, the Radiance simulation option has been refactored (moved) to a measure, eliminating the "daylight simulation engine" selection radio buttons from the app, and modifying the workflow slightly. We've also added support for more shading options, including daylight redirecting louvers.</p>
+<p>This tutorial explains how to use <a href="http://www.radiance-online.org/">Radiance</a> to simulate the daylight ingress in your OpenStudio Model, allowing for higher fidelity simulations of daylighting-related energy efficiency measures. For the OpenStudio Application, the Radiance simulation option has been refactored (moved) to a <a href="https://bcl.nrel.gov/node/84189">measure</a>.</p>
 <h2 id="workflow">Workflow</h2>
-<p>This workflow uses OpenStudio (the plug-in and the application) to perform a <a href="http://climate-based-daylighting.com/doku.php?id=academic:climate-based-daylight-modelling">climate-based daylight simulation</a>, using Radiance as the lighting simulation engine (in lieu of EnergyPlus' daylight simulation options). For implementation details, and caveats, refer to the OpenStudio-Radiance Reference Guide.</p>
-<p>The process for using Radiance for daylighting analysis in OpenStudio is not dissimilar from using EnergyPlus. The basic steps are as follows, with the required applications in parentheses:</p>
+<p>This workflow uses the OpenStudio Application (and the Plug-in) to perform a <a href="http://climate-based-daylighting.com/doku.php?id=academic:climate-based-daylight-modelling">climate-based daylight simulation</a>, using Radiance as the lighting simulation engine (in lieu of EnergyPlus' daylight simulation options).</p>
+<p>The process for using Radiance for daylighting analysis in the OpenStudio Application is not dissimilar from using EnergyPlus. The basic steps are as follows, with the required applications in parentheses:</p>
 <h3 id="1-create-or-import-building-geometry-define-thermal-zones-spaces-sketchup-plug-in">1. Create (or Import) Building Geometry, Define Thermal Zones &amp; Spaces (SketchUp Plug-in)</h3>
 <p>Many of the Radiance-related elements are not directly accessible from the OpenStudio Application, so regardless of whether you are starting your geometric model from scratch or importing from another CAD tool, you must start in the SketchUp Plugin.</p>
 <p>Using the SketchUp Plugin tools, create the following elements:</p>
@@ -271,23 +226,23 @@
 </ul>
 <h3 id="4-configure-daylighting-elements-sketchup-plugin">4. Configure Daylighting Elements (SketchUp Plugin)</h3>
 <ul>
-<li>Associate Space with Thermal Zone(s)</li>
-<li>Assign primary Illuminance Map to daylit Thermal Zone(s)</li>
-<li>Assign primary Daylighting Control Point to Thermal Zone</li>
+<li>Associate space with thermal zone(s)</li>
+<li>Assign primary illuminance map to daylit thermal zone(s)</li>
+<li>Assign primary daylighting control point to thermal zone</li>
 <li>Thermal zone load percentages to daylighting controls</li>
 </ul>
 <h3 id="5-run-simulation-openstudio-application">5. Run Simulation (OpenStudio Application)</h3>
 <ul>
-<li>Attach a weather file (Site Tab)</li>
-<li>Select Radiance simulation parameters (Simulation Settings Tab)</li>
-<li>Add the "Radiance Daylighting Measure" to the model's workflow (Measures Tab)</li>
-<li>Run the analysis (Run Tab (<em>duh</em>))</li>
+<li>Attach a weather file (Site tab)</li>
+<li>Select Radiance simulation parameters (Simulation Settings tab)</li>
+<li>Add the "Radiance Daylighting Measure" to the model's workflow (Measures tab)</li>
+<li>Run the analysis (Run Simulation tab)</li>
 </ul>
 <p>The Radiance daylighting results will inform the electric lighting load schedules and will be automatically used in the EnergyPlus model</p>
 <h3 id="6-review-results-excel-et-al">6. Review Results (Excel, et al.)</h3>
 <p>The results of the Radiance/EnergyPlus simulation are stored in a few locations:</p>
 <ul>
-<li><strong>radout.sql</strong> - this file contains all the Radiance-computed daylighting information, as well as the exterior daylight data from the weather file, for reference. Its data can be reviewed with the Results Viewer application.</li>
+<li><strong>radout.sql</strong> - this file contains all the Radiance-computed daylighting information, as well as the exterior daylight data from the weather file, for reference. Its data can be reviewed with the Data Viewer application.</li>
 <li><strong>daylightmetrics.csv</strong> - this file contains data for the following metrics:<ul>
 <li>Daylight Autonomy (DA)</li>
 <li>Continuous Daylight Autonomy (cDA)</li>

@@ -54,10 +54,6 @@
                 <a href="../../getting_started/getting_started">Installation and Introductory Tutorial</a>
               </li>
             
-              <li>
-                <a href="../../getting_started/about_measures">About Measures</a>
-              </li>
-            
             </ul>
           </li>
           
@@ -91,10 +87,6 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Advanced Tutorials <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-            
-              <li>
-                <a href="../../tutorials/utility_rate_tariffs">Utiity Rate Tariffs</a>
-              </li>
             
               <li>
                 <a href="../../tutorials/life_cycle_costing_examples">Life Cycle Cost Analysis</a>
@@ -134,34 +126,6 @@
               </li>
             
               <li>
-                <a href="../command_line_interface">Command Line Interface</a>
-              </li>
-            
-              <li>
-                <a href="../parametric_analysis_tool_2">Parametric Analysis Tool Version 2 (PAT) Interface Guide</a>
-              </li>
-            
-              <li>
-                <a href="../model_objects">OpenStudio Model Objects Overview</a>
-              </li>
-            
-              <li>
-                <a href="../measure_writing_guide">Measure Writer's Reference Guide</a>
-              </li>
-            
-              <li>
-                <a href="../measure_code_examples">Measure Code Examples</a>
-              </li>
-            
-              <li>
-                <a href="../developing_measure_collections">Developing Measure Collections</a>
-              </li>
-            
-              <li>
-                <a href="../refguide_radiance">OpenStudio-Radiance Reference Guide</a>
-              </li>
-            
-              <li>
                 <a href="../openstudio_results_measure">OpenStudio Results Measure</a>
               </li>
             
@@ -173,14 +137,6 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Help <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-            
-              <li>
-                <a href="../../help/training">Find Training</a>
-              </li>
-            
-              <li>
-                <a href="../../help/best_practices">Modeling Best Practices</a>
-              </li>
             
               <li>
                 <a href="../../help/troubleshooting">Troubleshooting</a>
@@ -231,25 +187,25 @@
         <div class="col-md-9" role="main">
           <h1 id="floorspacejs"><img alt="" src="../../img/favicon-32x32.png" /> <a href="https://github.com/NREL/floorspace.js">FloorspaceJS</a></h1>
 <p>The OpenStudio Application has integrated the FloorspaceJS web-based geometry editor for simplified entry of 2D floor plans.  More information about FloorspaceJS, including a tutorial on its use, can be found at the <a href="https://github.com/NREL/floorspace.js">FloorspaceJS project site</a>.</p>
-<p><a href="https://github.com/NREL/floorspace.js">FloorspaceJS</a> is an open source software module that developers can leverage for geometry creation.  FloorspaceJS is meant to cover simple building geometry use cases only.  More complex building geometry is best developed in a full featured CAD tool and exported to gbXML for building energy modeling.  FloorspaceJS reads and writes a custom <a href="https://raw.githubusercontent.com/NREL/floorspace.js/develop/schema/geometry_schema.json">floorplan.json</a> JSON file format.  New methods have been added to the OpenStudio SDK, which can translate this file format to ThreeJS JSON as well as to OSM.  Additionally, new methods have been added to the SDK, which allows two OpenStudio Models to be merged.  These functionalities are demonstrated by integrating FloorspaceJS directly within the OpenStudio Application.</p>
+<p><a href="https://github.com/NREL/floorspace.js">FloorspaceJS</a> is an open source software module that developers can leverage for geometry creation.  FloorspaceJS is meant to cover simple building geometry use cases only.  More complex building geometry is best developed in a full featured CAD tool and exported to gbXML for building energy modeling.  FloorspaceJS reads and writes a custom <a href="https://raw.githubusercontent.com/NREL/floorspace.js/develop/schema/geometry_schema.json">floorplan.json</a> JSON file format.  New methods have been added to the OpenStudio Software Development KIt (SDK), which can translate this file format to ThreeJS JSON, as well as to an OpenStudio Model file.  Additionally, new methods have been added to the SDK, which allows two OpenStudio Models to be merged.  These functionalities are demonstrated by integrating FloorspaceJS directly within the OpenStudio Application.</p>
 <hr />
 <h2 id="getting-started">Getting Started</h2>
-<p>To try FloorspaceJS within the OpenStudio Application, first navigate to the "Geometry" vertical tab and then to the "Editor" sub tab.  At this time, FloorspaceJS cannot be used on OpenStudio Models with existing geometry (either developed in the OpenStudio SketchUp plug-in, imported through gbXML, or procedurally generated from scripts like the DOE Prototype Measure) as these models do not include the requisite floorplan.json file used by the editor.  For models with no existing geometry a new floorplan may be created by pressing the "New" button next to the "Floorplan" dialog box.  Existing OpenStudio Models that include a floorplan.json model may be edited.</p>
+<p>To try FloorspaceJS within the OpenStudio Application, first navigate to the Geometry tab and then to the Editor sub-tab.  At this time, FloorspaceJS cannot be used on OpenStudio Models with existing geometry (either developed in the OpenStudio SketchUp Plug-in, imported through gbXML, or procedurally generated from scripts like the DOE Prototype measure) as these models do not include the requisite floorplan.json file used by the editor.  For models with no existing geometry, a new floorplan may be created by pressing the New button.  Existing OpenStudio Models that include a floorplan.json model may be edited.</p>
 <p><a href="../../img/geometry_editor/start_screen.png"><img alt="Start Screen" src="../../img/geometry_editor/start_screen.png" title="Start Screen" /></a></p>
 <hr />
 <h2 id="using-floorspacejs">Using FloorspaceJS</h2>
 <p>A detailed tutorial on FloorspaceJS usage is available at the <a href="https://github.com/NREL/floorspace.js">FloorspaceJS project site</a>.</p>
 <hr />
 <h2 id="preview-and-merge">Preview and Merge</h2>
-<p>At any time, you can preview your floorplan in 3D by pressing the "Preview" button.</p>
+<p>At any time, you can preview your floorplan in 3D by pressing the Preview tab.</p>
 <p><a href="../../img/geometry_editor/preview1.png"><img alt="Preview 1" src="../../img/geometry_editor/preview1.png" title="Preview 1" /></a></p>
 <p><a href="../../img/geometry_editor/preview2.png"><img alt="Preview 2" src="../../img/geometry_editor/preview2.png" title="Preview 2" /></a></p>
-<p>Your OpenStudio Model is not altered until you press the "Merge" button.  Performing a merge translates your floorplan to a new OpenStudio Model that is merged them with your current OpenStudio Model.  Any geometry in your current OSM will be replaced by new geometry from the floorplan OSM.  However, non-geometry objects such as HVAC in your current OSM will be preserved.</p>
+<p>Your OpenStudio Model is not altered until you press the Merge button.  Performing a merge translates your floorplan to a new OpenStudio Model that is merged them with your current OpenStudio Model file (OSM file).  Any geometry in your current OSM file will be replaced by new geometry from the floorplan OpenStudio Model.  However, non-geometry objects such as HVAC in your current OSM file will be preserved.</p>
 <p><a href="../../img/geometry_editor/merge.png"><img alt="Merge" src="../../img/geometry_editor/merge.png" title="Merge" /></a></p>
-<p>Once your floorplan has been merged with the current OSM you will see new objects associated with your floorplan throughout the rest of the OpenStudio Application.</p>
+<p>Once your floorplan has been merged with the current OSM file, you will see new objects associated with your floorplan throughout the rest of the OpenStudio Application.</p>
 <p><a href="../../img/geometry_editor/post-merge.png"><img alt="Post Merge" src="../../img/geometry_editor/post-merge.png" title="Post Merge" /></a></p>
 <p><a href="../../img/geometry_editor/space-tab.png"><img alt="Space Tab" src="../../img/geometry_editor/space-tab.png" title="Space Tab" /></a></p>
-<p>The intention of integrating FloorspaceJS with the OpenStudio Application is to demonstrate how geometry data may be merged seamlessly into the OpenStudio Model to support a variety of sophisticated workflows.  Thermal zones, space types, default construction sets, and building units are synchronized between the two interfaces intuitively and with little effort on the part of the user.  As with any new software feature, some rough edges are expected.  Please let us know of issues you find by sending email to <a href="mailto:OpenStudio@nrel.gov">OpenStudio@nrel.gov</a>.  If FloorspaceJS becomes unresponsive, please press the "Debug" button, navigate to the console, and cut/paste diagnostic messages that may help us identify and fix any issues.</p>
+<p>The intention of integrating FloorspaceJS with the OpenStudio Application is to demonstrate how geometry data may be merged seamlessly into the OpenStudio Model to support a variety of sophisticated workflows.  Thermal zones, space types, default construction sets, and building units are synchronized between the two interfaces intuitively and with little effort on the part of the user.  As with any new software feature, some rough edges are expected.  Please let us know of issues you find by sending email to <a href="mailto:OpenStudio@nrel.gov">OpenStudio@nrel.gov</a>.  If FloorspaceJS becomes unresponsive, please press the Debug button, navigate to the console, and cut/paste diagnostic messages that may help us identify and fix any issues.</p>
 
           <div class="footer">
   <p class="text-center"><a href="https://unmethours.com/questions/scope:all/sort:activity-desc/tags:openstudio/">Get Help</a> | <a href="https://www.openstudio.net/contact">Contact Us</a></p>

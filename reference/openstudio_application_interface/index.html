@@ -54,10 +54,6 @@
                 <a href="../../getting_started/getting_started">Installation and Introductory Tutorial</a>
               </li>
             
-              <li>
-                <a href="../../getting_started/about_measures">About Measures</a>
-              </li>
-            
             </ul>
           </li>
           
@@ -91,10 +87,6 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Advanced Tutorials <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-            
-              <li>
-                <a href="../../tutorials/utility_rate_tariffs">Utiity Rate Tariffs</a>
-              </li>
             
               <li>
                 <a href="../../tutorials/life_cycle_costing_examples">Life Cycle Cost Analysis</a>
@@ -134,34 +126,6 @@
               </li>
             
               <li>
-                <a href="../command_line_interface">Command Line Interface</a>
-              </li>
-            
-              <li>
-                <a href="../parametric_analysis_tool_2">Parametric Analysis Tool Version 2 (PAT) Interface Guide</a>
-              </li>
-            
-              <li>
-                <a href="../model_objects">OpenStudio Model Objects Overview</a>
-              </li>
-            
-              <li>
-                <a href="../measure_writing_guide">Measure Writer's Reference Guide</a>
-              </li>
-            
-              <li>
-                <a href="../measure_code_examples">Measure Code Examples</a>
-              </li>
-            
-              <li>
-                <a href="../developing_measure_collections">Developing Measure Collections</a>
-              </li>
-            
-              <li>
-                <a href="../refguide_radiance">OpenStudio-Radiance Reference Guide</a>
-              </li>
-            
-              <li>
                 <a href="../openstudio_results_measure">OpenStudio Results Measure</a>
               </li>
             
@@ -173,14 +137,6 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Help <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-            
-              <li>
-                <a href="../../help/training">Find Training</a>
-              </li>
-            
-              <li>
-                <a href="../../help/best_practices">Modeling Best Practices</a>
-              </li>
             
               <li>
                 <a href="../../help/troubleshooting">Troubleshooting</a>
@@ -277,11 +233,6 @@
         <div class="col-md-9" role="main">
           <h1>OpenStudio Application Interface Guide</h1>
 
-<p>This section contains an overview of the OpenStudio Application.</p>
-<p>The <a href="../../img/pdfs/openstudio_interface_quickstart.pdf">OpenStudio Quick Start Guide</a> provides an introduction to the interface for the Plug-in and the OpenStudio application. It also provides guidance on the basic workflow.</p>
-<iframe width="640" height="360" src="https://www.youtube.com/embed/9uBcb3NBQ84" allowfullscreen></iframe>
-
-<p><em>Above: This video demonstrates the new Spaces tab and the redesigned Facilities and Site tab from version 1.9.0.</em></p>
 <hr />
 <h2 id="overview">Overview</h2>
 <p>The tabs on the left that move vertically are ordered in a suggested workflow.</p>
@@ -289,81 +240,78 @@
 <p><em>Above: Overview of the OpenStudio Application Interface.</em></p>
 <hr />
 <h2 id="sub-tabs">Sub-tabs</h2>
-<p>Sub-tabs are designed to move from more general categories on the left to more specific on the right. On the constructions tab, the sub-tabs are "Construction Sets", "Constructions", and "Materials." If you are not building your own materials and constructions you may not need to go to the "Materials" sub-tab.</p>
+<p>Sub-tabs are designed to move from more general categories on the left to more specific on the right. On the Constructions tab, the sub-tabs are Construction Sets, Constructions, and Materials. If you are not building your own materials and constructions you may not need to go to the Materials sub-tab.</p>
 <hr />
 <h2 id="right-panel">Right Panel</h2>
-<p>The right panel provides access to items in the library or in your model, and allows you to edit some of these items.</p>
+<p>The right panel provides access to items in the library or in your Model, and allows you to edit some of these items.</p>
 <ul>
 <li>
-<p><strong>"My Model"</strong> displays items that are part of your model already.</p>
+<p><strong>"My Model"</strong> displays items that are part of your Model already.</p>
 </li>
 <li>
 <p><strong>"Library"</strong> includes components and measures that come with the application or are downloaded from the Building Component Library (BCL).</p>
 </li>
 <li>
-<p><strong>"Edit"</strong> allows you to select certain components and edit the settings for that component. It is used in the HVAC tab to edit component settings, assign thermal zones to loops, and to add plenums.</p>
+<p><strong>"Edit"</strong> allows you to select certain Components and edit the settings for that Component. It is used in the HVAC Systemstab to edit component settings, assign thermal zones to loops, and to add plenums.</p>
 </li>
 </ul>
 <p><a href="../../img/os_interface/edit_tab.png"><img alt="Edit Tab" src="../../img/os_interface/edit_tab.png" title="Click to view" /></a></p>
-<p><em>Above: Edit settings on some objects in the edit panel.</em></p>
+<p><em>Above: Edit settings on some objects in the right panel Edit tab.</em></p>
 <hr />
 <h2 id="left-panel-bottom">Left Panel Bottom</h2>
-<p><img alt="Add" src="../../img/os_interface/add.png" /> Add New Item allows the user to add a new component to the interface. Sometimes the type of item added depends on the selection in the left panel.</p>
+<p><img alt="Add" src="../../img/os_interface/add.png" /> Add New Item allows the user to add a new Component to the interface. Sometimes the type of item added depends on the selection in the left panel.</p>
 <p><a href="../../img/os_interface/add_example.png"><img alt="Add Example" src="../../img/os_interface/add_example.png" title="Click to view" /></a></p>
-<p><em>Above: On the "Utility Bill" sub-tab, select the type of bill you want to add before hitting the add button.</em></p>
+<p><em>Above: On the Utility Bill sub-tab, select the type of bill you want to add before hitting the Add button.</em></p>
 <p><img alt="Duplicate" src="../../img/os_interface/duplicate.png" /> Duplicate a selected object with this button.</p>
 <p><img alt="Delete" src="../../img/os_interface/delete.png" /> Delete a selected object with this button.</p>
 <p><img alt="Purge" src="../../img/os_interface/purge.png" /> Purge unused objects with this button.</p>
 <hr />
 <h2 id="adding-objects-from-the-library">Adding Objects from the Library</h2>
-<p>To add items from the library, select the "Library" tab on the right panel and find the item you want to add to the model. Select that item and drag and drop it into the correct drop zone. Drop zones are surrounded by a dotted line and are programmed to only accept items that will work for that field.</p>
+<p>To add items from the library, select the Library tab on the right panel and find the item you want to add to the Model. Select that item and drag and drop it into the correct drop zone. Drop zones are surrounded by a dotted line and are programmed to only accept items that will work for that field.</p>
 <p><a href="../../img/os_interface/drag_drop.png"><img alt="Drag-and-drop Constructions" src="../../img/os_interface/drag_drop.png" title="Click to view" /></a></p>
-<p><em>Above: Drag-and-drop items from the library to the drop zones in the model.</em></p>
+<p><em>Above: Drag-and-drop items from the library to the drop zones in the Model.</em></p>
 <p><a href="../../img/os_interface/drag_drop_vrf.png"><img alt="Drag-and-drop Service Hot Water" src="../../img/os_interface/drag_drop_vrf.png" title="Click to view" /></a></p>
 <p><em>Above: Drag-and-drop example on the HVAC service hot water.</em></p>
 <hr />
 <h2 id="grid-view-and-multi-edit-thermal-zones-space-types-and-refrigeration">Grid View and Multi-edit: Thermal Zones, Space Types, and Refrigeration</h2>
-<p>Earlier releases have included a grid view for the refrigeration section in the HVAC tab. Now you can edit thermal zones and space types in a grid view. This makes it easier to view all your zones and space types at once and compare settings. By selecting the buttons across the top you can select the fields you would like to see and edit.</p>
+<p>Earlier releases have included a grid view for the refrigeration section in the HVAC Systems tab. Now you can edit thermal zones and space types in a grid view. This makes it easier to view all your Zones and Space Types at once and compare settings. By selecting the buttons across the top you can select the fields you would like to see and edit.</p>
 <p><a href="../../img/os_interface/grid_view_multi1_small.png"><img alt="Grid Image" src="../../img/os_interface/grid_view_multi1_small.png" title="Click to view" /></a></p>
 <p><em>Above: The grid view provides a spreadsheet style layout. Click on the image to view a larger version.</em></p>
-<iframe width="640" height="360" src="https://www.youtube.com/embed/LnOUfiMajD0?rel=0&start=0&end=340&autoplay=0" frameborder="0" allowfullscreen></iframe>
-
-<p><em>View this video to see multi-edit in action.</em></p>
-<p>Drag components and schedules into the grid view. Most items on the grid can be inspected in the right panel "Edit" tab, except schedules. To edit or view schedules, go to the schedules tab.</p>
-<p>A yellow highlight indicates the item you have selected in the grid. When you start editing the item in the "Edit" tab the highlight will disappear, indicating that the focus is now on editing the item. Use the delete in the "Edit" panel to remove a component from the grid.</p>
+<p>Drag Components and Schedules into the grid view. Most items on the grid can be inspected in the right panel Edit tab, except schedules. To edit or view schedules, go to the Schedules tab.</p>
+<p>A yellow highlight indicates the item you have selected in the grid. When you start editing the item in the right panel Edit tab, the highlight will disappear, indicating that the focus is now on editing the item. Use the Delete button in the Edit tab to remove a Component from the grid.</p>
 <p>Click the shaded portion of a column header if you want to view that column in the "Custom" category.</p>
-<p>Click on the color box on the "General" button to change the rendering color of the space type. This will change the rendering color in the SketchUp Plug-in as well.</p>
-<p>You can use the Multi-edit feature on individual columns (as shown below) or on whole rows by selecting a row or rows and hitting the "2X" button on the bottom left to duplicate those rows.</p>
+<p>Click on the color box on the General button to change the rendering color of the Space Type. This will change the rendering color in the SketchUp Plug-in as well.</p>
+<p>You can use the Multi-edit feature on individual columns (as shown below) or on whole rows by selecting a row or rows and hitting the Copy button on the bottom left to duplicate those rows.</p>
 <p><a href="../../img/os_interface/multi-edit-steps-small.png"><img alt="Grid Image" src="../../img/os_interface/multi-edit-steps-small.png" title="Click to view" /></a></p>
 <p><em>Above: The steps for using the multi-edit function are shown above.</em></p>
 <p><a href="../../img/os_interface/loads_filter_small.png"><img alt="Grid Image" src="../../img/os_interface/loads_filter_small.png" title="Click to view" /></a></p>
-<p><em>Above: Hit the "Loads" button to edit and view loads by space type. Click on the name of a component and select the  "Edit" panel on the right to inspect and edit that item.</em></p>
+<p><em>Above: Hit the Loads button to edit and view loads by space type. Click on the name of a component and select the right panel Edit tab to inspect and edit that item.</em></p>
 <hr />
 <h2 id="file-menu">File Menu</h2>
-<p>If you launch the OpenStudio application from the SketchUp Plug-in, your open file will automatically open in the application. To save the file or open a new file, select file open from the menu.</p>
-<p>When you save an OSM model in the OpenStudio Application or the SketchUp Plug-in a folder is saved next to the OSM file. This folder contains external resources such as the weather file, scripts, and simulation results.</p>
+<p>If you launch the OpenStudio Application from the SketchUp Plug-in, your open file will automatically open in the application. To save a file or open a new file from within the OpenStudio Application, access the corresponding options within the File menu. </p>
+<p>When you save an OpenStudio Model (OSM) in the OpenStudio Application or the SketchUp Plug-in, a folder is saved next to the OSM file. This folder contains external resources such as the weather file, scripts, and simulation results.</p>
 <p>Load Library is also a very important feature. This allows you to load building component libraries for specific building types. These libraries are the same as those used in the SketchUp Plug-in templates.</p>
 <p><a href="../../img/os_interface/file_menu.png"><img alt="File Menu" src="../../img/os_interface/file_menu.png" title="File Menu&quot; &quot;Click to view" /></a></p>
-<p><em>Above: The file menu contains the new, open, revert, save, import, and export functions.</em></p>
+<p><em>Above: The File menu contains the new, open, revert, save, import, and export functions.</em></p>
 <hr />
 <h2 id="preferences-menu">Preferences Menu</h2>
-<p>The Units menu lets you switch between SI and IP units. This affects both input fields and output data on the results tab. It does not currently affect standard EnergyPlus output files.</p>
-<p>The SketchUp Plug-in has access to this as well under <code>Plugins-&gt;OpenStudio-&gt;Preferences</code>.</p>
-<p>Change Default Libraries allows one to restore default libraries. This feature complements the Load Library feature within the File Menu. Loading several libraries could increase the duration to boot the OpenStudio application. To reduce this duration, restore default libraries. </p>
+<p>The Units menu lets you switch between SI and IP units. This affects both input fields and output data on the Results Summary tab. It does not currently affect standard EnergyPlus output files.</p>
+<p>The SketchUp Plug-in has access to this as well under <code>Extensions-&gt;OpenStudio-&gt;Preferences</code>.</p>
+<p>"Change Default Libraries" allows one to restore default libraries. This feature complements the Load Library feature within the File menu. Loading several libraries could increase the duration to boot the OpenStudio Application. To reduce this duration, restore default libraries. </p>
 <p><a href="../../img/os_interface/prefer_menu.png"><img alt="Preferences Menu" src="../../img/os_interface/prefer_menu.png" title="Click to view" /></a></p>
-<p><em>Above: The preferences menu contains the units, measure directory, and tool location options.</em></p>
+<p><em>Above: The Preferences menu contains the units, measure directory, and tool location options.</em></p>
 <hr />
 <h2 id="components-measures-menu">Components &amp; Measures Menu</h2>
 <p><a href="../../img/os_interface/measures_components_menu.png"><img alt="Components &amp; Measures Menu" src="../../img/os_interface/measures_components_menu.png" title="Click to view" /></a></p>
-<p><em>Above: This menu item allows you to run one measure on you model.</em></p>
+<p><em>Above: The Components &amp; Measures menu contains the Apply Measure Now, Find Measures, and Find Components features</em></p>
 <h3 id="apply-measures-now">Apply Measures Now</h3>
-<p>You can apply measures to your model at any time by going to the "Components and Measures" menu and selecting the "Apply Measures Now" option.</p>
-<p>This will open a dialog that allows you to choose a measure from the library to apply, go to BCL to find a measure to apply, or even write your own measure and test it.</p>
-<p>Once you select a measure you may edit the measure inputs on the right side of the dialog. Hit apply measure to start.</p>
+<p>You can apply measures to your Model at any time by going to the Components and Measures menu and selecting the Apply Measures Now option.</p>
+<p>This will open a dialog that allows you to choose a measure (downloaded from the BCL) to apply, or even write your own measure and test it.</p>
+<p>Once you select a measure you may edit the measure inputs on the right side of the dialog. Click "Apply Measure" to start.</p>
 <p><a href="../../img/os_interface/apply_measure_now.png"><img alt="Apply Measure Now" src="../../img/os_interface/apply_measure_now.png" title="Click to view" /></a></p>
 <p><em>Above: This menu item allows you to run one measure on your model.</em></p>
 <h3 id="find-measures-and-find-components">Find Measures and Find Components</h3>
-<p>The BCL window gives you access to an online repository of building energy modeling data called the Building Component Library. Although you can access the BCL website on its own, OpenStudio has integrated access to the BCL from within the application. You can access this through the "Components &amp; Measures" menu.</p>
+<p>The Online BCL window gives you access to an online repository of building energy modeling data called the Building Component Library. Although you can access the <a href="https://bcl.nrel.gov/">BCL website</a> on its own, OpenStudio Application has integrated access to the BCL. You can access this through the Components &amp; Measures menu.</p>
 <p>The first time you open this window you will be prompted for an API key, unless you have already used BCL functionality in the SketchUp Plug-in. <a href="../../getting_started/getting_started#connecting-with-the-building-component-library">Instructions for finding your API Key</a> are in the "Getting Started" section.</p>
 <p><a href="../../img/os_interface/bcl_window.png"><img alt="BCL Window" src="../../img/os_interface/bcl_window.png" title="Click to view" /></a></p>
 <p><em>Above: This window gives you access to the online BCL to download measures or components.</em></p>

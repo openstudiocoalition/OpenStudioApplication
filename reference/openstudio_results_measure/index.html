@@ -54,10 +54,6 @@
                 <a href="../../getting_started/getting_started">Installation and Introductory Tutorial</a>
               </li>
             
-              <li>
-                <a href="../../getting_started/about_measures">About Measures</a>
-              </li>
-            
             </ul>
           </li>
           
@@ -91,10 +87,6 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Advanced Tutorials <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-            
-              <li>
-                <a href="../../tutorials/utility_rate_tariffs">Utiity Rate Tariffs</a>
-              </li>
             
               <li>
                 <a href="../../tutorials/life_cycle_costing_examples">Life Cycle Cost Analysis</a>
@@ -133,34 +125,6 @@
                 <a href="../geometry_editor">FloorspaceJS</a>
               </li>
             
-              <li>
-                <a href="../command_line_interface">Command Line Interface</a>
-              </li>
-            
-              <li>
-                <a href="../parametric_analysis_tool_2">Parametric Analysis Tool Version 2 (PAT) Interface Guide</a>
-              </li>
-            
-              <li>
-                <a href="../model_objects">OpenStudio Model Objects Overview</a>
-              </li>
-            
-              <li>
-                <a href="../measure_writing_guide">Measure Writer's Reference Guide</a>
-              </li>
-            
-              <li>
-                <a href="../measure_code_examples">Measure Code Examples</a>
-              </li>
-            
-              <li>
-                <a href="../developing_measure_collections">Developing Measure Collections</a>
-              </li>
-            
-              <li>
-                <a href="../refguide_radiance">OpenStudio-Radiance Reference Guide</a>
-              </li>
-            
               <li class="active">
                 <a href=".">OpenStudio Results Measure</a>
               </li>
@@ -173,14 +137,6 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Help <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-            
-              <li>
-                <a href="../../help/training">Find Training</a>
-              </li>
-            
-              <li>
-                <a href="../../help/best_practices">Modeling Best Practices</a>
-              </li>
             
               <li>
                 <a href="../../help/troubleshooting">Troubleshooting</a>
@@ -364,103 +320,102 @@
           <h1>OpenStudio Results Measure</h1>
 
 <h2 id="measure-overview">Measure Overview</h2>
-<p>In OpenStudio 1.8.1 and later this measure replaces the monthly end use overview as the default measure on any simulation. You don't have to add it to your workflow, it just runs. This measure creates high level tables and charts pulling both from model inputs and EnergyPlus results, all data is in IP units. It has building level information as well as detail on space types, thermal zones, HVAC systems, envelope characteristics, and economics. Click the heading above a chart to view a table of the chart data. If you have OpenStudio 1.7.5 or later, you can also download a copy of this from the <a href="https://bcl.nrel.gov/node/82918">BCL</a>, however offline viewing of charts within the OpenStudio Application requires 1.8.1 or later. If you are viewing the report through a web browser you won't see charts if you are offline, but you will still see tables. While the report generally uses high level model data or tabular results, a few sections do request hourly or monthly time-series data. This applies to the HVAC Load Profiles and Zone Conditions sections.</p>
-<iframe width="640" height="360" src="https://www.youtube.com/embed/PlrWE3ugcdE" allowfullscreen></iframe>
-
-<p><em>Above: This video demonstrates the 1.9.0 Release with the Reporting Measure.</em></p>
+<p>This is the default measure on any simulation. You don't have to add it to your workflow; it just runs. This measure creates high level tables and charts pulling both from model inputs and EnergyPlus results, all data is in IP units. It has building level information as well as detail on space types, thermal zones, HVAC systems, envelope characteristics, and economics. Click the heading above a chart to view a table of the chart data. You can also download a copy of this from the <a href="https://bcl.nrel.gov/node/82918">BCL</a>, and view charts offline. If you are viewing the report through a web browser you won't see charts if you are offline, but you will still see tables. While the report generally uses high level model data or tabular results, a few sections do request hourly or monthly time-series data. This applies to the HVAC Load Profiles and Zone Conditions sections.</p>
 <p>The report is broken down into 21 sections which can be navigated using the table of contents at the left side of the report. If the table of contents and the main body of the report start to overlap with each other,  increase the width of your application or web browser window. Each section has one or moore tables or charts. Be default where there is a chart, table data is hidden, but you can expand it by clicking on the blue title above the chart that says "view table". If there is no data for a section, the header for the section will still show but you will see a message that says "No Data to Show for ...". For some tables or charts within a section the table may be hidden if there isn't any content. This is true for example for Renewable Energy Source Summary in  Model Summary, Fuel Tables in  Monthly Overview, and Thermal Zones in Zone Equipment Detail.</p>
-<p>As this measure develops more data may be added to specific sections and new sections may be added, but we don't want this to be an all purpose measure. It is meant to provide general data that you would typically want on any simulation. If you want to trouble shoot specific aspects of your model or have use case or specific reporting requirements, you can add additional reporting measures to the workflow. As described in the "Developing Your Own Reporting Measures" section below, we hope both internally and externally to see the same framework and charting libraries used as much as possible. This will provide a more consistent experience for users and measure writers.</p>
+<p>As this measure develops more data may be added to specific sections and new sections may be added, but we don't want this to be an all purpose measure. It is meant to provide general data that you would typically want on any simulation. If you want to trouble shoot specific aspects of your model or have use case or specific reporting requirements, you can add additional reporting measures to the workflow. As described in the <a href="../../../reference/openstudio_results_measure/#developing-your-own-reporting-measures">Developing Your Own Reporting Measures</a> section below, we hope both internally and externally to see the same framework and charting libraries used as much as possible. This will provide a more consistent experience for users and measure writers.</p>
 <p>The rest of this section describes the specific sections of the current version of the measure.</p>
 <h2 id="model-summary">Model Summary</h2>
 <p>This section provides quick access to high level information about your model such as the building area and the Energy Use Intensity (EUI). It includes tables for Building Summary, Weather Summary Sizing Period Design Days, Unmet Hours Summary, and Renewable Energy Source Summary.</p>
-<p><img alt="First few tables in Model Summary section" src="../../img/openstudio_results/app_initial_view.png" /></p>
+<p><a href="../../img/openstudio_results/app_initial_view.png"><img alt="First few tables in Model Summary section" src="../../img/openstudio_results/app_initial_view.png" /></a></p>
 <p><em>Above: First few tables in Model Summary section.</em></p>
 <h2 id="annual-overview">Annual Overview</h2>
-<p>This section consists of a number of pie charts that break down annual consumption by end use, fuel or both. The chart legend is sorted for largest (top) to smallest (bottom) and only shows end uses or fuels which ar used in the model. The end use and fuel color keys are consistent with charts in other sections of the report. As is typical in chart throughout the report, hovering over chart elements provides additional information.</p>
-<p><img alt="First few charts in Annual Summary section" src="../../img/openstudio_results/annual_overview.png" /></p>
+<p>This section consists of a number of pie charts that break down annual consumption by end use, fuel or both. The chart legend is sorted for largest (top) to smallest (bottom) and only shows end uses or fuels which are used in the model. The end use and fuel color keys are consistent with charts in other sections of the report. As is typical in charts throughout the report, hovering over chart elements provides additional information.</p>
+<p><a href="../../img/openstudio_results/annual_overview.png"><img alt="First few charts in Annual Summary section" src="../../img/openstudio_results/annual_overview.png" /></a></p>
 <p><em>Above: First few charts in Annual Summary section.</em></p>
 <h2 id="monthly-overview">Monthly Overview</h2>
 <p>This section is most like what the previous default report looked like. It has consumption charts by month, fuel, and end use. It will create charts as needed based on fuel types used in the model. This includes district heating and cooling. In addition to monthly consumption breakdown, there are also charts for monthly demand by fuel. The end uses shown in the demand charts are the value of that end use at peak demand for that fuel. Keep in mind that this may not represent the monthly peak load for that end use by itself, it is just a snapshot at the monthly peak demand for that fuel.</p>
-<p><img alt="Monthly Electricity Consumption table" src="../../img/openstudio_results/monthly_overview.png" /></p>
+<p><a href="../../img/openstudio_results/monthly_overview.png"><img alt="Monthly Electricity Consumption table" src="../../img/openstudio_results/monthly_overview.png" /></a></p>
 <p><em>Above: Monthly Electricity Consumption table.</em></p>
 <h2 id="utility-billsrates">Utility Bills/Rates</h2>
-<p>This section includes a table showing average utility rate by fuel as well as a table that shows process and total energy costs by fuel. Note that on both tables the "Other" row includes water; as a result when you have added a cost to watter as a fuel the average rate value and units don't make sense for the "Other" row. They can be ignored.</p>
-<p><img alt="Utility Bills/Rates tables" src="../../img/openstudio_results/utility_bills_rates.png" /></p>
+<p>This section includes a table showing average utility rate by fuel as well as a table that shows process and total energy costs by fuel. Note that on the Energy Cost Summary table the "Other" row includes water. To get an accurate total water cost the model would need to include Water Use Equipment that are representative of both hot and cold water use. Traditionally many energy models only include hot water use. Therefore, the user should be cautious about using water costs without inspecting the OpenStudio Model to know whether cold water use is included.</p>
+<p><a href="../../img/openstudio_results/utility_bills_rates.png"><img alt="Utility Bills/Rates tables" src="../../img/openstudio_results/utility_bills_rates.png" /></a></p>
 <p><em>Above: Utility Bills/Rates tables.</em></p>
 <h2 id="envelope">Envelope</h2>
-<p>This section lists constructions used for base and sub surfaces in the model along with the area, surface count, and R value or U-Factor for the construction. This data comes from the OpenStudio model, however the orientation specific window-wall ratios and skylight-roof ratio come from the EnergyPlus results.</p>
-<p><img alt="Envelope tables" src="../../img/openstudio_results/envelope.png" /></p>
+<p>This section lists constructions used for base and sub surfaces in the model along with the area, surface count, and R value or U-Factor for the construction. This data comes from the OpenStudio Model, however the orientation specific window-wall ratios and skylight-roof ratio come from the EnergyPlus results.</p>
+<p><a href="../../img/openstudio_results/envelope.png"><img alt="Envelope tables" src="../../img/openstudio_results/envelope.png" /></a></p>
 <p><em>Above: Envelope tables.</em></p>
 <h2 id="space-type-breakdown">Space Type Breakdown</h2>
-<p>This chart is generated from the OpenStudio model. If you expand the table or hover over pie chart sections you can see the floor area in the model accounted for by each space type. If you have spaces in your model that don't have a space type assigned, they will show under a heading of "No Space Type Assigned". This accounts for zone multipliers. If you have spaces in your model that are not included in a thermal zone you may have unexpected results.</p>
-<p><img alt="Space Type Breakdown chart and first Space Type Summary table" src="../../img/openstudio_results/spacetype_breakdown_and_summary.png" /></p>
+<p>This chart is generated from the OpenStudio Model. If you expand the table or hover over pie chart sections you can see the floor area in the model accounted for by each space type. If you have spaces in your model that don't have a space type assigned, they will show under a heading of "No Space Type Assigned". This accounts for zone multipliers. If you have spaces in your model that are not included in a thermal zone you may have unexpected results.</p>
+<p><a href="../../img/openstudio_results/spacetype_breakdown_and_summary.png"><img alt="Space Type Breakdown chart and first Space Type Summary table" src="../../img/openstudio_results/spacetype_breakdown_and_summary.png" /></a></p>
 <p><em>Above: Space Type Breakdown chart and first Space Type Summary table.</em></p>
 <h2 id="space-type-summary">Space Type Summary</h2>
 <p>These tables provide detail on internal loads for each of the space types used in the model. This includes loads such as people, lights, and electric and gas equipment, as well as internal mass, outdoor air requirements, infiltration. Currently Water Use Equipment isn't part of a space type and doesn't show on these tables. There is a separate section for water use equipment. If you have multiple instances of a specific load type such as lights, each instance will each be listed individually vs. having a lighting total for the space type.</p>
 <p>Note that loads assigned directly to a space don't show anywhere in this section. This would occur for all loads in a space when there is no space type assigned, and can also occur when a space type is assigned to a space, but the space also has additional loads assigned to it, beyond what it inherits from the space type.</p>
 <h2 id="interior-lighting-summary">Interior Lighting Summary</h2>
-<p>This section contains one table that lists all lighting instances in the model by thermal zone. This comes from EnergyPlus post simulation. As a result we can include "Actual Load Hours/Week" and "Consumption". Actual load horus per week account for reductions due to daylight controls. Additional information such as schedule name and return air fraction are included. This can be a very long table on a large model. For convince you can click the blue heading to collapse a table, but you can also use teh left navigation to skip past it.</p>
-<p><img alt="Interior Lighting Summary table" src="../../img/openstudio_results/lighting_summary.png" /></p>
+<p>This section contains one table that lists all lighting instances in the model by thermal zone. This comes from EnergyPlus post simulation. As a result we can include "Actual Load Hours/Week" and "Consumption". Actual load horus per week account for reductions due to daylight controls. Additional information such as schedule name and return air fraction are included. This can be a very long table on a large model. For convenience you can click the blue heading to collapse a table, but you can also use the left navigation to skip past it.</p>
+<p><a href="../../img/openstudio_results/lighting_summary.png"><img alt="Interior Lighting Summary table" src="../../img/openstudio_results/lighting_summary.png" /></a></p>
 <p><em>Above: Interior Lighting Summary table.</em></p>
 <h2 id="plug-loads-summary">Plug Loads Summary</h2>
-<p>The Plug Loads summary section is similar to Interior Lighting Summary in that it lists all plug loads, however it only shows the instance name and the consumption. There are separate tables for electric equipment and gas equipment, if both types of loads exist in the model.</p>
-<p><img alt="Above: Plug Loads Summary table" src="../../img/openstudio_results/plug_loads_summary.png" /></p>
-<p><em>Above: Plug Loads Summary table.</em></p>
+<p>The Plug Loads summary section is similar to Interior Lighting Summary in that it lists all plug loads. There are two sets of tables, the Plug Load Consumption tables that display annual plug load consumption by thermal zone, and the Space-level Plug Loads that display the space-level Equipment Definitions. There are separate tables for electric equipment and gas equipment, if both types of loads exist in the model.</p>
+<p><a href="../../img/openstudio_results/plug_loads_summary.png"><img alt="Above: Plug Loads Summary table" src="../../img/openstudio_results/plug_loads_summary.png" /></a></p>
+<p><em>Above: Electric Plug Load Consumption table.</em></p>
+<p><a href="../../img/openstudio_results/plug_loads_space.png"><img alt="Above: Plug Loads Summary table" src="../../img/openstudio_results/plug_loads_space.png" /></a></p>
+<p><em>Above: Space-level Electric Plug Loads table.</em></p>
 <h2 id="exterior-lighting">Exterior Lighting</h2>
 <p>This section has a single table that last all exterior lights objects in the model along with their power and consumption. As this comes from the EnergyPlus results consumption accounts for schedules adjusted for an astronomical clock.</p>
-<p><img alt="Above: Exterior Lighting and Water Use Equipment section" src="../../img/openstudio_results/exterior_lighting_water.png" /></p>
+<p><a href="../../img/openstudio_results/exterior_lighting_water.png"><img alt="Above: Exterior Lighting and Water Use Equipment section" src="../../img/openstudio_results/exterior_lighting_water.png" /></a></p>
 <p><em>Above: Exterior Lighting and Water Use Equipment section.</em></p>
 <h2 id="water-use-equipment">Water Use Equipment</h2>
 <p>The water use equipment table lists all water use equipment objects in the model. This comes from the model, so it doesn't provide consumption but it does identify the service water heating loop, the load definition, the space the equipment is in, along with the peak flow rate, flow rate schedule, and the target temperature range. In a number of places in this reporting measure where an object refers to a temperature schedule or schedules, a range of values is listed vs. the name of the schedules. This allows for quick validation of reasonable values.</p>
 <h2 id="hvac-load-profiles">HVAC Load Profiles</h2>
-<p>This measures overlays monthly heating and cooling demand, that we saw earlier in the Monthly Overview section with the monthly average outdoor dry bulb temperature. This is the first section in the measure that requires time series output, although in this case just the monthly values for one variable (dry bulb temperature).</p>
-<p><img alt="HVAC Load Profiles chart" src="../../img/openstudio_results/hvac_load_profiles.png" /></p>
+<p>This measure overlays monthly heating and cooling demand, that we saw earlier in the Monthly Overview section with the monthly average outdoor dry bulb temperature. This is the first section in the measure that requires time series output, although in this case just the monthly values for one variable (dry bulb temperature).</p>
+<p><a href="../../img/openstudio_results/hvac_load_profiles.png"><img alt="HVAC Load Profiles chart" src="../../img/openstudio_results/hvac_load_profiles.png" /></a></p>
 <p><em>Above: HVAC Load Profiles chart.</em></p>
 <h2 id="zone-conditions">Zone Conditions</h2>
 <p>The zone conditions section has two tables. Both tables list all of the zones in the model and break down the hours of the simulation that are spent in a specific value range. The first table catagories hours of simulation (8760 if running a full year) by temperature ranges in 5 degree(F) bins. Additionally the number of hours heating and cooling setpoints are not met are also shown, along with the mean zone temperature. The unmet hours and mean temperature include both occupied and unoccupied hours.</p>
-<p><img alt="Zone Conditions - Temperature table" src="../../img/openstudio_results/zone_conditions_temp.png" /></p>
+<p><a href="../../img/openstudio_results/zone_conditions_temp.png"><img alt="Zone Conditions - Temperature table" src="../../img/openstudio_results/zone_conditions_temp.png" /></a></p>
 <p><em>Above: Zone Conditions - Temperature table.</em></p>
-<p>The second table shows relative humidity in 5% bins, along with mean relative humidity for each zone. In both cases the table cells are color coded to make it easier to quickly can over. Cells with under 500 hours are not colored. Cells with more than 500 hours are yellow. More than 1000 hours - orange. More than 200 hours - red.</p>
-<p><img alt="Zone Conditions - Humidity Table" src="../../img/openstudio_results/zone_conditions_rh.png" /></p>
+<p>The second table shows relative humidity in 5% bins, along with mean relative humidity for each zone. In both cases the table cells are color coded to make it easier to quickly can over. Cells with under 500 hours are not colored. Cells with more than 500 hours are yellow. More than 1000 hours - orange. More than 2000 hours - red.</p>
+<p><a href="../../img/openstudio_results/zone_conditions_rh.png"><img alt="Zone Conditions - Humidity Table" src="../../img/openstudio_results/zone_conditions_rh.png" /></a></p>
 <p><em>Above: Zone Conditions - Humidity Table.</em></p>
 <h2 id="zone-overview">Zone Overview</h2>
 <p>This section gives an overview of zone geometry and internal loads. It also identifies if a zone is conditioned, is part of the flor area, and what its zone multiplier is.</p>
-<p><img alt="Zone Overview section" src="../../img/openstudio_results/zone_overview.png" /></p>
+<p><a href="../../img/openstudio_results/zone_overview.png"><img alt="Zone Overview section" src="../../img/openstudio_results/zone_overview.png" /></a></p>
 <p><em>Above: Zone Overview section.</em></p>
 <h2 id="zone-equipment-detail">Zone Equipment Detail</h2>
 <p>This section lists creates a table for each thermal zone that has zone equipment, other than a terminal. Each table lists all zone equipment except for terminals, information on terminal types used can be found in the Air Loops Details section. For some types of equipment we list additional information, for others we just list the object type. Over time we will provide more information on additional object types. This is also true for the Air Loops and Plant Loops Detail sections.</p>
-<p><img alt="Zone Equipment section" src="../../img/openstudio_results/zone_equip_k12.png" /></p>
+<p><a href="../../img/openstudio_results/zone_equip_k12.png"><img alt="Zone Equipment section" src="../../img/openstudio_results/zone_equip_k12.png" /></a></p>
 <p><em>Above: Zone Equipment section.</em></p>
 <h2 id="air-loops-detail">Air Loops Detail</h2>
 <p>This section has a table for each air loop in the model. Each table is broken down into supply, demand, and controls sub-tables. The demand supply section lists objects on the supply side of the air loop. As with Zone Equipment Detail section, some objects have additional information listed, other objects just list the class of object. The demand section summaries the number of zones on the air loop along with the floor area of those thermal zones, the range of thermostat setpoint values for both heating and cooling, and a list of the types of terminals used on the air loop. The controls sub-table provides high level controls information about the air loop.</p>
-<p><img alt="First table in Air Loops Detail section" src="../../img/openstudio_results/air_loop.png" /></p>
+<p><a href="../../img/openstudio_results/air_loop.png"><img alt="First table in Air Loops Detail section" src="../../img/openstudio_results/air_loop.png" /></a></p>
 <p><em>Above: First table in Air Loops Detail section.</em></p>
 <h2 id="plant-loops-detail">Plant Loops Detail</h2>
 <p>This section has a table for each plant loop in the model. It is organized very much like the Air Loops Detail section. The demand section of the plant loop summary will list thermal zones, air loops or other plant loops that are on the demand side of the loop. In addition to loops that condition the building, loops providing service water heating will also appear hear.</p>
-<p><img alt="First table in Plant Loops Detail section" src="../../img/openstudio_results/plant_loop.png" /></p>
+<p><a href="../../img/openstudio_results/plant_loop.png"><img alt="First table in Plant Loops Detail section" src="../../img/openstudio_results/plant_loop.png" /></a></p>
 <p><em>Above: First table in Plant Loops Detail section.</em></p>
 <h2 id="outdoor-air">Outdoor Air</h2>
 <p>This section has a table that lists the number of occupants and volume of each zone along with the average and minimum values for mechanical ventilation and infiltration.</p>
-<p><img alt="Outdoor Air section" src="../../img/openstudio_results/outdoor_air.png" /></p>
+<p><a href="../../img/openstudio_results/outdoor_air.png"><img alt="Outdoor Air section" src="../../img/openstudio_results/outdoor_air.png" /></a></p>
 <p><em>Above: Outdoor Air section.</em></p>
 <h2 id="cash-flow">Cash Flow</h2>
 <p>This section shows the cash flow over the analysis period for your project, which defaults to 25 years. You wont see any data in this section unless you have added lifecycle costs and or utility rates to your model. As with other charts you can hover over chart data or click the blue heading above the chart to view precise value in tabular form.</p>
-<p><img alt="Cash Flow chart" src="../../img/openstudio_results/cash_flow.png" /></p>
+<p><a href="../../img/openstudio_results/cash_flow.png"><img alt="Cash Flow chart" src="../../img/openstudio_results/cash_flow.png" /></a></p>
 <p><em>Above: Cash Flow chart.</em></p>
 <h2 id="site-and-source-summary">Site and Source Summary</h2>
 <p>This section has two tables. The lists total and net values for both site and source energy. The second table lists the site to source conversion factors by fuel to calculate values in the first table.</p>
-<p><img alt="Site and Source Summary section" src="../../img/openstudio_results/site_and_source.png" /></p>
+<p><a href="../../img/openstudio_results/site_and_source.png"><img alt="Site and Source Summary section" src="../../img/openstudio_results/site_and_source.png" /></a></p>
 <p><em>Above: Site and Source Summary section.</em></p>
 <h2 id="schedule-overview">Schedule Overview</h2>
-<p>This section provides a small chart for each schedule used in the model. This looks very much like what you can see in the Schedule Tab of the OpenStudio application except that all of the possible day profiles for a schedule are overlaid on each other. Rules are listed by their priority with a description for the days of teh week and dates of the year they are applicable. The colors for the default profile adn rules match what is used in the application. You can expand the table for this section to see the use count for each schedule.</p>
-<p><img alt="Schedule Overview charts" src="../../img/openstudio_results/schedule_overview.png" /></p>
+<p>This section provides a small chart for each schedule used in the model. All of the possible day profiles for a schedule are overlaid on each other. Rules are listed by their priority with a description for the days of the week and dates of the year they are applicable. The colors for the default profile and rules match what is used in the application. You can expand the table for this section to see the use count for each schedule.</p>
+<p><a href="../../img/openstudio_results/schedule_overview.png"><img alt="Schedule Overview charts" src="../../img/openstudio_results/schedule_overview.png" /></a></p>
 <p><em>Above: Schedule Overview charts.</em></p>
 <h2 id="measure-arguments">Measure Arguments</h2>
-<p>If you are running this report in OpenStudio 8.1 or later all sections are automatically shown. If you add it to the workflow then user arguments will become visible. For this measure there is a check box for each section to determine if you want to generate that section or not. You could use this to create a streamline report with only the sections are are interested visible. If you disable sections that request time-series data, then those output variables wont' be requested, resulting in a smaller SQL file. Since most sections in this report only request tabular data, it won't affect much, but for other future reports this coudl be more useful. The Zone Conditions section requests hourly zone temperature and humidity values and the HVAC Load Profiles section requests monthly outdoor air dry bulb temperatures.</p>
-<p><img alt="View of Arguments in OpenStudio Results measure" src="../../img/openstudio_results/measure_args.png" /></p>
+<p>For this measure, there is a check box for each section to determine if you want to generate that section or not. You could use this to create a streamline report with only the sections are are interested visible. If you disable sections that request time-series data, then those output variables won't be requested, resulting in a smaller SQL file. Since most sections in this report only request tabular data, it won't affect much, but for other future reports this could be more useful. The Zone Conditions section requests hourly zone temperature and humidity values and the HVAC Load Profiles section requests monthly outdoor air dry bulb temperatures.</p>
+<p><a href="../../img/openstudio_results/measure_args.png"><img alt="View of Arguments in OpenStudio Results measure" src="../../img/openstudio_results/measure_args.png" /></a></p>
 <p><em>Above: View of Arguments in OpenStudio Results measure.</em></p>
 <h2 id="developing-your-own-reporting-measures">Developing Your Own Reporting Measures</h2>
-<p>This measure was created to fill a need in providing easy access to more detailed model and simulation results data, but it serves another role as well. It was created in a way that was very easy to use as a template for custom user reports. We setup a framework and added support for a variety of chart types. The only coding required to make your own custom report is to provide the data. While we have a separate <a href="http://nrel.github.io/OpenStudio-user-documentation/reference/measure_writing_guide/">Measure Writing Guide</a> in our documentation, it seemed fitting to explain here how you would add your own tables and charts to this report, or to create a new clean report.</p>
+<p>This measure was created to fill a need in providing easy access to more detailed model and simulation results data, but it serves another role as well. It was created in a way that was very easy to use as a template for custom user reports. We setup a framework and added support for a variety of chart types. The only coding required to make your own custom report is to provide the data. While there is a <a href="http://nrel.github.io/OpenStudio-user-documentation/reference/measure_writing_guide/">Measure Writing Guide</a> within the OpenStudio Software Development Kit (SDK) documentation, it seemed fitting to explain here how you would add your own tables and charts to this report, or to create a new clean report.</p>
 <p>The first step is to gather the data you want in a table or chart. This could be simulation results, model inputs, or even just hard coded table as in this example. It could also be read in from a text file. In the "resources" folder of the measure this is a file named "os_lib_reporting.rb". Most of the methods (start with "def OsLib_Reporting.my_method") in this file do one of two things. They define a section used in the report or they define a table that is used by one of the sections. The code below shows two sample methods with hard coded table data about tasty treats. You can copy and modify these methods to show what you want. The section description and all of the table data can be in one method, or if it is easier to break things up you can have a method for each table, and then call it from the method that makes the section. in this case.  <code>template_tables &lt;&lt; OsLib_Reporting.template_table(model,sqlFile,runner)</code> adds in a table defined elsewhere. The code for a sample section method and table method are shown below.</p>
 <pre><code class="ruby">  # create template section
   def OsLib_Reporting.template_section(model,sqlFile,runner,name_only = false)
@@ -555,7 +510,7 @@
 </code></pre>
 
 <p>Adding that line of code will not only add the new section to the arguments for the measure, but will also call the method in the run method of the measure to gather the data and generate an HTML table. If you don't want to extend the os_lib_reporting.rb file, you can create your own version that functions in the same way, but only has code for sections you are using. You just need to modify this line at the top of the "measure.rb" file to point to your library <code>require "#{File.dirname(__FILE__)}/resources/os_lib_reporting"</code>. Below is a screenshot of the resting Tasty Treats section. If you want to change the title in the HTML file it is in this code in the "report.html.erb" file in the "resources" directory <code>&lt;title&gt;OpenStudio Results&lt;/title&gt;</code>.</p>
-<p><img alt="Example section with two tables" src="../../img/openstudio_results/example_section.png" /></p>
+<p><a href="../../img/openstudio_results/example_section.png"><img alt="Example section with two tables" src="../../img/openstudio_results/example_section.png" /></a></p>
 <p><em>Above: Example section with two tables.</em></p>
 <p>You can write completely custom measure reports that don't look anything like this, and use different html and charting technologies. This framework is just provided as a way to make reports where all you want to worry about is how to get the data you want to see, and not how to generate the HTML code.</p>
 
