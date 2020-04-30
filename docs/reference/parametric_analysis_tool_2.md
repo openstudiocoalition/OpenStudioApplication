@@ -1,5 +1,5 @@
 <h1>Parametric Analysis Tool 2.x (PAT) Interface Guide</h1>
-PAT allows you to quickly try out and compare manually specified combinations of measures, optimize designs, calibrate models, perform parametric sensitivity analysis, and much more.  Manually specified combinations of measures may be run locally on your computer.  Algorithmic analyses (e.g. optimization, design of experiments, etc) can be run by connecting to a separately provisioned instance of the OpenStudio server.
+PAT allows you to quickly try out and compare manually specified combinations of measures, optimize designs, calibrate models, perform parametric sensitivity analysis, and much more.  Manually specified combinations of measures may be run locally on your computer.  Algorithmic analyses (e.g. optimization, design of experiments, etc) can be run by connecting to a separately provisioned instance of the OpenStudio Server.
 
 ___________________
 
@@ -42,12 +42,7 @@ PAT 2.x functionality is broken down into six tabs along the left side of the wi
 5. View reports
 6. View the server
 
-In general, a PAT workflow moves through the six vertical tabs from top to bottom.  PAT allows the user to specify design alternatives manually or automate the process using a selection of algorithms - e.g. sampling, optimization, etc.  The analysis mode is selected at the top of tab one, and dictates whether tabs two or three are used along with the types of computing resources (local or cloud) that can be selected on tab four.  The video below shows the creation of a new project and walks through the workflow to create and run a **manual** analysis.
-
-<iframe width="640" height="360" src="https://www.youtube.com/embed/a3lg7UbE6JU" allowfullscreen></iframe>
-
-*Above: PAT 2.0.0 introduction video for manual analysis mode*
-<br><br>
+In general, a PAT workflow moves through the six vertical tabs from top to bottom.  PAT allows the user to specify design alternatives manually or automate the process using a selection of algorithms - e.g. sampling, optimization, etc.  The analysis mode is selected at the top of tab one, and dictates whether tabs two or three are used along with the types of computing resources (local or cloud) that can be selected on tab four.
 ___________________
 
 ## Load a Seed Model and Weather File
@@ -61,16 +56,16 @@ ___________________
 
 ## Add Measures and Create Measure Options
 
-If you want to learn more about measures, check out the [About Measures](../getting_started/about_measures.md) section.
-<br>Check out the [Measure Writing Guide](../reference/measure_writing_guide.md) to start writing your own custom measures.
+If you want to learn more about measures, check out the [About Measures](http://nrel.github.io/OpenStudio-user-documentation/getting_started/about_measures/) section.
+<br>Check out the [Measure Writing Guide](http://nrel.github.io/OpenStudio-user-documentation/reference/measure_writing_guide/) to start writing your own custom measures.
 
 PAT works with three classes of measures:
 
-1. __OpenStudio measures__ operate on the OpenStudio model (.osm) before it is converted to an EnergyPlus input file (.idf).
-2. __EnergyPlus measures__ operate on the .idf file just before it is simulated in EnergyPlus.
-3. __Reporting measures__ run after the simulation has been performed and are used to produce postprocess results, automate quality checks, and create custom reports and chart.
+1. __OpenStudio Measures__ operate on the OpenStudio Model (.osm) before it is converted to an EnergyPlus input file (.idf).
+2. __EnergyPlus Measures__ operate on the .idf file just before it is simulated in EnergyPlus.
+3. __Reporting Measures__ run after the simulation has been performed and are used to produce postprocess results, automate quality checks, and create custom reports and chart.
 
-Click the "Add Measure" buttons by the OpenStudio, EnergyPlus, or Reporting measure text to add measures of that type to your project. The Building Component Library (BCL) dialog that opens after clicking the buttons allows you to add measures stored on your computer or to find new measures from the online BCL.
+Click the "Add Measure" buttons by the OpenStudio, EnergyPlus, or Reporting Measure text to add measures of that type to your project. The Building Component Library (BCL) dialog that opens after clicking the buttons allows you to add measures stored on your computer or to find new measures from the online BCL.
 
 ### Download Measures From the Building Component Library (BCL)
 
@@ -105,7 +100,7 @@ Clicking the blue plus will add a measure from your local library or "MyMeasures
 
  <img src="img/pat2/bcl_03.png" width="500">
 
-*Above: Filtered View showing Online BCL OpenStudio Fenestration measures. The "Set Window to Wall Ratio" measure has been downloaded from the BCL but not yet added to the project.*
+*Above: Filtered View showing Online BCL OpenStudio Fenestration Measures. The "Set Window to Wall Ratio" Measure has been downloaded from the BCL but not yet added to the project.*
 <br><br>
 After adding a measure to your project the blue plus will change to a green check mark.
 
@@ -135,7 +130,7 @@ The variable column and associated checkboxes are used to specify which argument
 
 ### Add the OpenStudio Results Reporting Measure to the Project
 
-The standard OpenStudio Results measure **must** be added to every project as an option for each design alternative.  Manual project reports and most algorithmic workflows rely on outputs defined by this measure to work properly.  PAT will run without this measure and an associated measure option, but results will not appear correctly.
+The standard OpenStudio Results Measure **must** be added to every project as an option for each design alternative.  Manual project reports and most algorithmic workflows rely on outputs defined by this measure to work properly.  PAT will run without this measure and an associated measure option, but results will not appear correctly.
 
 ![Measures Tab With Measures Collapsed](img/pat2/measures_07.png)
 <br><br>
@@ -149,7 +144,7 @@ The second tab is used to create design alternatives.  Buttons can be used to cr
 
 Design alternatives may be deleted using the "x" button on the left side of the screen.  Rows may be rearranged manually using the up and down arrows to the left, or sorted alphabetically by clicking the grid headings.  The order of design alternatives on this tab has no bearing on simulation order or results reporting.
 
-_Note: Recall from the previous section that each design alternative must have an OpenStudio Results measure option.  A useful tip for accomplishing this quickly is to highlight the first option cell in the OpenStudio Results column, type the first letter of your Option (the letter O in this example), tap the down arrow, and repeat._
+_Note: Recall from the previous section that each design alternative must have an OpenStudio Results Measure option.  A useful tip for accomplishing this quickly is to highlight the first option cell in the OpenStudio Results column, type the first letter of your Option (the letter O in this example), tap the down arrow, and repeat._
 <br><br>
 ___________________
 
@@ -175,7 +170,7 @@ As simulation results are completed, PAT's status will update to appraise you of
 
 ![Run Tab complete](img/pat2/run_03.png)
 
-Completed design alternatives may be expanded to view measure or simulation log messages. The OpenStudio standard report, EnergyPlus output, results from any other reporting measure options may be viewed by clicking the graph symbol and selecting the report of interest.
+Completed design alternatives may be expanded to view measure or simulation log messages. The OpenStudio Standard Report, EnergyPlus output, results from any other reporting measure options may be viewed by clicking the graph symbol and selecting the report of interest.
 
 ![Run Tab post run](img/pat2/run_04.png)
 <br><br>
@@ -201,7 +196,7 @@ ___________________
 
 ## View OpenStudio Server
 
-The final tab provides a view into PAT's OpenStudio server, and will not be necessary for users performing manual analyses.  It is of greater importance when performing algorithmic analysis, and will be discussed later in this document.
+The final tab provides a view into PAT's OpenStudio Server, and will not be necessary for users performing manual analyses.  It is of greater importance when performing algorithmic analysis, and will be discussed later in this document.
 
 ![EDAPT Export](img/pat2/server_01.png)
 <br><br>
@@ -261,7 +256,7 @@ Since the algorithm is specifying the design algorithms, there is no need to use
 
 Analysis via algorithm tends to produce very large data sets.  As such, the methods for visualizing results and teasing out valuable insights differ from the simple table views available in manual mode.  In addition, some algorithms (e.g. optimizers) are goal seeking, and require specification of performance metrics to function properly.  PAT's outputs tab is designed to specify key simulation outputs for use in post-processing large sets of simulation results or in forming performance objective functions.
 
-By default the outputs tab expects the OpenStudio Results measure to be available to provide a nominal set of outputs, although additional reporting measures can be used to add more outputs.
+By default the outputs tab expects the OpenStudio Results Measure to be available to provide a nominal set of outputs, although additional reporting measures can be used to add more outputs.
 
 ![Algorithm Setup](img/pat2/out_01.png)
 
@@ -309,14 +304,14 @@ At this point, the server and worker provisioning process begins.  As the dialog
 
 ![Algorithm Setup](img/pat2/cloud_04.png)
 
-Once the server is running, clicking the "Run Entire Workflow" button starts the analysis.  Progress can be monitored within PAT or via the OpenStudio server.  One notable difference between running in manual mode with local computing resources and on the server is that detailed simulations are not automatically downloaded.  These files can be quite large.  Clicking on the blue "OSM" or "Results" cloud next to a data point will download the OpenStudio model or completed data point zip file. The cloud buttons appear as green checkmarks when a download has occurred.  Data point files are lost when the server shuts down, so it is important to download results that may be of particular interest.
+Once the server is running, clicking the "Run Entire Workflow" button starts the analysis.  Progress can be monitored within PAT or via the OpenStudio Server.  One notable difference between running in manual mode with local computing resources and on the server is that detailed simulations are not automatically downloaded.  These files can be quite large.  Clicking on the blue "OSM" or "Results" cloud next to a data point will download the OpenStudio Model or completed data point zip file. The cloud buttons appear as green checkmarks when a download has occurred.  Data point files are lost when the server shuts down, so it is important to download results that may be of particular interest.
 
 ![Algorithm Setup](img/pat2/cloud_05.png)
 
 
 ## Exploring Algorithm Results with OpenStudio Server
 
-The OpenStudio Server tab is of much greater importance with algorithmic workflows.  This same content may also be accessed through any web browser by clinking PAT's "View Server" button in the run tab or manually directing a web browser to http://**yourserverurl**:8080.  The top level view of OpenStudio server provides a summary of completed or in-progress projects and analyses along with navigation options.
+The OpenStudio Server tab is of much greater importance with algorithmic workflows.  This same content may also be accessed through any web browser by clinking PAT's "View Server" button in the run tab or manually directing a web browser to http://**yourserverurl**:8080.  The top level view of OpenStudio Server provides a summary of completed or in-progress projects and analyses along with navigation options.
 
 ![OpenStudio Server Landing Page](img/pat2/server_01b.png)
 
@@ -326,7 +321,7 @@ The top level of an analysis (a specific run of a project) provides a high level
 2. __Project Log__ - Immediately next to the Project JSON is a log file, which can be helpful in debugging failed analyses.
 3. __Downloads__ - These links download high level meta data and simulation results as CSV or R Data Frames for subsequent analysis.  These results include only analysis inputs and outputs that have been defined in PAT.  Detailed simulation results associated with individual data points must be downloaded in PAT or via individual data point web links.
 4. __Data points__ - The bottom of the analysis page includes a snapshot of all data points along with their status, run times, and data point-specific links including the data point JSON file (OSW) and the data point zip file.
-5. __Data and Visualizations__ - A number of useful project summaries and interactive visualization tools are built into OpenStudio server.  One of these, the parallel coordinate plot, is described in further detail below.
+5. __Data and Visualizations__ - A number of useful project summaries and interactive visualization tools are built into OpenStudio Server.  One of these, the parallel coordinate plot, is described in further detail below.
 
 ![OpenStudio Server Analysis Summary](img/pat2/server_02.png)
 

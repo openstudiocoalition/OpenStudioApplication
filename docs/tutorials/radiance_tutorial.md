@@ -1,12 +1,10 @@
-<h1>Radiance and OpenStudio</h1>
-This tutorial explains how to use [Radiance](http://www.radiance-online.org/) to simulate the daylight ingress in your OpenStudio model, allowing for higher fidelity simulations of daylighting-related energy efficiency measures.
-
-For OpenStudio [v1.9.0](https://github.com/NREL/OpenStudio/releases/tag/v1.9.0), the Radiance simulation option has been refactored (moved) to a measure, eliminating the "daylight simulation engine" selection radio buttons from the app, and modifying the workflow slightly. We've also added support for more shading options, including daylight redirecting louvers.
+<h1>Radiance and OpenStudio Application</h1>
+This tutorial explains how to use [Radiance](http://www.radiance-online.org/) to simulate the daylight ingress in your OpenStudio Model, allowing for higher fidelity simulations of daylighting-related energy efficiency measures. For the OpenStudio Application, the Radiance simulation option has been refactored (moved) to a [measure](https://bcl.nrel.gov/node/84189).
 
 ## Workflow
-This workflow uses OpenStudio (the plug-in and the application) to perform a [climate-based daylight simulation](http://climate-based-daylighting.com/doku.php?id=academic:climate-based-daylight-modelling), using Radiance as the lighting simulation engine (in lieu of EnergyPlus' daylight simulation options). For implementation details, and caveats, refer to the OpenStudio-Radiance Reference Guide.
+This workflow uses the OpenStudio Application (and the Plug-in) to perform a [climate-based daylight simulation](http://climate-based-daylighting.com/doku.php?id=academic:climate-based-daylight-modelling), using Radiance as the lighting simulation engine (in lieu of EnergyPlus' daylight simulation options).
 
-The process for using Radiance for daylighting analysis in OpenStudio is not dissimilar from using EnergyPlus. The basic steps are as follows, with the required applications in parentheses:
+The process for using Radiance for daylighting analysis in the OpenStudio Application is not dissimilar from using EnergyPlus. The basic steps are as follows, with the required applications in parentheses:
 ### 1. Create (or Import) Building Geometry, Define Thermal Zones & Spaces (SketchUp Plug-in)
 
 Many of the Radiance-related elements are not directly accessible from the OpenStudio Application, so regardless of whether you are starting your geometric model from scratch or importing from another CAD tool, you must start in the SketchUp Plugin.
@@ -39,23 +37,23 @@ Optionally to these spaces, add:
 
 ###4. Configure Daylighting Elements (SketchUp Plugin)
 
-- Associate Space with Thermal Zone(s)
-- Assign primary Illuminance Map to daylit Thermal Zone(s)
-- Assign primary Daylighting Control Point to Thermal Zone
+- Associate space with thermal zone(s)
+- Assign primary illuminance map to daylit thermal zone(s)
+- Assign primary daylighting control point to thermal zone
 - Thermal zone load percentages to daylighting controls
 
 ###5. Run Simulation (OpenStudio Application)
-- Attach a weather file (Site Tab)
-- Select Radiance simulation parameters (Simulation Settings Tab)
-- Add the "Radiance Daylighting Measure" to the model's workflow (Measures Tab)
-- Run the analysis (Run Tab (_duh_))
+- Attach a weather file (Site tab)
+- Select Radiance simulation parameters (Simulation Settings tab)
+- Add the "Radiance Daylighting Measure" to the model's workflow (Measures tab)
+- Run the analysis (Run Simulation tab)
 
 The Radiance daylighting results will inform the electric lighting load schedules and will be automatically used in the EnergyPlus model
 
 ###6. Review Results (Excel, et al.)
 The results of the Radiance/EnergyPlus simulation are stored in a few locations:
 
-- **radout.sql** - this file contains all the Radiance-computed daylighting information, as well as the exterior daylight data from the weather file, for reference. Its data can be reviewed with the Results Viewer application.
+- **radout.sql** - this file contains all the Radiance-computed daylighting information, as well as the exterior daylight data from the weather file, for reference. Its data can be reviewed with the Data Viewer application.
 - **daylightmetrics.csv** - this file contains data for the following metrics:
     - Daylight Autonomy (DA)
     - Continuous Daylight Autonomy (cDA)
