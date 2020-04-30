@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Radiance and OpenStudio - OpenStudio<sup>&reg;</sup> User Docs</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    
+    <link href="../../css/bootstrap-3.3.0.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.2.0.min.css" rel="stylesheet">
+    <link href="../../css/prettify-1.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../.."><img alt="" src="../../img/OS_32x32.png"> OpenStudio<sup>&reg;</sup> User Docs</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <!-- Main navigation -->
+        <ul class="nav navbar-nav">
+        
+          
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Getting Started <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+            
+              <li>
+                <a href="../../getting_started/features">Current Features</a>
+              </li>
+            
+              <li>
+                <a href="../../getting_started/roadmap">Planned Features</a>
+              </li>
+            
+              <li>
+                <a href="../../getting_started/getting_started">Installation and Introductory Tutorial</a>
+              </li>
+            
+              <li>
+                <a href="../../getting_started/about_measures">About Measures</a>
+              </li>
+            
+            </ul>
+          </li>
+          
+        
+          
+          <li class="dropdown active">
+            <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Essential Tutorials <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+            
+              <li>
+                <a href="../creating_your_model">Creating Your Model</a>
+              </li>
+            
+              <li>
+                <a href="../running_your_simulation">Running Simulations & Viewing Results</a>
+              </li>
+            
+              <li class="active">
+                <a href=".">Radiance and OpenStudio</a>
+              </li>
+            
+              <li>
+                <a href="../tutorial_bcl">Building Component Library</a>
+              </li>
+            
+            </ul>
+          </li>
+          
+        
+          
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Advanced Tutorials <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+            
+              <li>
+                <a href="../utility_rate_tariffs">Utiity Rate Tariffs</a>
+              </li>
+            
+              <li>
+                <a href="../life_cycle_costing_examples">Life Cycle Cost Analysis</a>
+              </li>
+            
+              <li>
+                <a href="../tutorial_gbxmlimport">Import gbXML</a>
+              </li>
+            
+              <li>
+                <a href="../tutorial_shadingcontrols">Shading Controls</a>
+              </li>
+            
+              <li>
+                <a href="../tutorial_windowproperty_frameanddivider">Window Property Frame and Divider</a>
+              </li>
+            
+            </ul>
+          </li>
+          
+        
+          
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Reference <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+            
+              <li>
+                <a href="../../reference/openstudio_application_interface">OpenStudio Application Interface Guide</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/sketchup_plugin_interface">SketchUp Plug-in Interface Guide</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/geometry_editor">FloorspaceJS</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/command_line_interface">Command Line Interface</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/parametric_analysis_tool_2">Parametric Analysis Tool Version 2 (PAT) Interface Guide</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/model_objects">OpenStudio Model Objects Overview</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/measure_writing_guide">Measure Writer's Reference Guide</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/measure_code_examples">Measure Code Examples</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/developing_measure_collections">Developing Measure Collections</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/refguide_radiance">OpenStudio-Radiance Reference Guide</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/openstudio_results_measure">OpenStudio Results Measure</a>
+              </li>
+            
+            </ul>
+          </li>
+          
+        
+          
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Help <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+            
+              <li>
+                <a href="../../help/training">Find Training</a>
+              </li>
+            
+              <li>
+                <a href="../../help/best_practices">Modeling Best Practices</a>
+              </li>
+            
+              <li>
+                <a href="../../help/troubleshooting">Troubleshooting</a>
+              </li>
+            
+              <li>
+                <a href="../../help/software_license">Software License</a>
+              </li>
+            
+            </ul>
+          </li>
+          
+        
+        </ul>
+
+        <!-- Search, Navigation and Repo links -->
+        <ul class="nav navbar-nav navbar-right">
+        
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="bs-docs-sidebar hidden-print affix well" role="complementary">
+  <ul class="nav">
+  
+    <li class="main active"><a href="#workflow">Workflow</a>
+      <ul class="nav">
+        
+        <li><a href="#1-create-or-import-building-geometry-define-thermal-zones-spaces-sketchup-plug-in">1. Create (or Import) Building Geometry, Define Thermal Zones &amp; Spaces (SketchUp Plug-in)</a></li>
+        
+        <li><a href="#2-define-materials-sketchup-plug-in-or-openstudio-application">2. Define Materials (SketchUp Plug-in or OpenStudio Application)</a></li>
+        
+        <li><a href="#3-add-daylighting-elements-sketchup-plugin">3. Add Daylighting Elements (SketchUp Plugin)</a></li>
+        
+        <li><a href="#4-configure-daylighting-elements-sketchup-plugin">4. Configure Daylighting Elements (SketchUp Plugin)</a></li>
+        
+        <li><a href="#5-run-simulation-openstudio-application">5. Run Simulation (OpenStudio Application)</a></li>
+        
+        <li><a href="#6-review-results-excel-et-al">6. Review Results (Excel, et al.)</a></li>
+        
+      </ul>
+    </li>
+  
+  </ul>
+  <div class="home-btn">
+    <a class="btn btn-default" role="button" href="https://www.openstudio.net">Back to OpenStudio<sup>&reg;</sup></a>
+  </div>
+</div>
+        </div>
+        <div class="col-md-9" role="main">
+          <h1>Radiance and OpenStudio</h1>
+
+<p>This tutorial explains how to use <a href="http://www.radiance-online.org/">Radiance</a> to simulate the daylight ingress in your OpenStudio model, allowing for higher fidelity simulations of daylighting-related energy efficiency measures.</p>
+<p>For OpenStudio <a href="https://github.com/NREL/OpenStudio/releases/tag/v1.9.0">v1.9.0</a>, the Radiance simulation option has been refactored (moved) to a measure, eliminating the "daylight simulation engine" selection radio buttons from the app, and modifying the workflow slightly. We've also added support for more shading options, including daylight redirecting louvers.</p>
+<h2 id="workflow">Workflow</h2>
+<p>This workflow uses OpenStudio (the plug-in and the application) to perform a <a href="http://climate-based-daylighting.com/doku.php?id=academic:climate-based-daylight-modelling">climate-based daylight simulation</a>, using Radiance as the lighting simulation engine (in lieu of EnergyPlus' daylight simulation options). For implementation details, and caveats, refer to the OpenStudio-Radiance Reference Guide.</p>
+<p>The process for using Radiance for daylighting analysis in OpenStudio is not dissimilar from using EnergyPlus. The basic steps are as follows, with the required applications in parentheses:</p>
+<h3 id="1-create-or-import-building-geometry-define-thermal-zones-spaces-sketchup-plug-in">1. Create (or Import) Building Geometry, Define Thermal Zones &amp; Spaces (SketchUp Plug-in)</h3>
+<p>Many of the Radiance-related elements are not directly accessible from the OpenStudio Application, so regardless of whether you are starting your geometric model from scratch or importing from another CAD tool, you must start in the SketchUp Plugin.</p>
+<p>Using the SketchUp Plugin tools, create the following elements:</p>
+<ul>
+<li>Building Shading Objects - to represent overhangs, fins, parapets</li>
+<li>Site Shading Objects - to represent other buildings, trees, ground</li>
+<li><a href="../../../reference/sketchup_plugin_interface#NewInteriorPartitionSurfaceGroup">Interior Partition Surfaces</a> - can be used to define furniture, cubicle walls, &amp; other relevant structures, in addition to refining the interior space geometry (e.g. adding columns, ceiling coffers, soffits)</li>
+</ul>
+<h3 id="2-define-materials-sketchup-plug-in-or-openstudio-application">2. Define Materials (SketchUp Plug-in or OpenStudio Application)</h3>
+<p>It is recommended to review the materials of your model constructions to ensure the photometric properties, e.g., visible light transmittance, transmittance model (specular or diffuse), and visible light reflectance, are correct.</p>
+<ul>
+<li>Interior finishes</li>
+<li>Glazing</li>
+</ul>
+<h3 id="3-add-daylighting-elements-sketchup-plugin">3. Add Daylighting Elements (SketchUp Plugin)</h3>
+<p>For each space where you wish to analyze daylighting, add:</p>
+<ul>
+<li>Illuminance map (primary)</li>
+<li>Daylighting control point (primary)</li>
+<li>Define shading controls</li>
+<li>Assign shading controls</li>
+</ul>
+<p>Optionally to these spaces, add:</p>
+<ul>
+<li>Glare sensors</li>
+<li>Create &amp; assign OS:WindowFrameAndDivider objects, to represent wall thickness in the Radiance model (user script)</li>
+</ul>
+<h3 id="4-configure-daylighting-elements-sketchup-plugin">4. Configure Daylighting Elements (SketchUp Plugin)</h3>
+<ul>
+<li>Associate Space with Thermal Zone(s)</li>
+<li>Assign primary Illuminance Map to daylit Thermal Zone(s)</li>
+<li>Assign primary Daylighting Control Point to Thermal Zone</li>
+<li>Thermal zone load percentages to daylighting controls</li>
+</ul>
+<h3 id="5-run-simulation-openstudio-application">5. Run Simulation (OpenStudio Application)</h3>
+<ul>
+<li>Attach a weather file (Site Tab)</li>
+<li>Select Radiance simulation parameters (Simulation Settings Tab)</li>
+<li>Add the "Radiance Daylighting Measure" to the model's workflow (Measures Tab)</li>
+<li>Run the analysis (Run Tab (<em>duh</em>))</li>
+</ul>
+<p>The Radiance daylighting results will inform the electric lighting load schedules and will be automatically used in the EnergyPlus model</p>
+<h3 id="6-review-results-excel-et-al">6. Review Results (Excel, et al.)</h3>
+<p>The results of the Radiance/EnergyPlus simulation are stored in a few locations:</p>
+<ul>
+<li><strong>radout.sql</strong> - this file contains all the Radiance-computed daylighting information, as well as the exterior daylight data from the weather file, for reference. Its data can be reviewed with the Results Viewer application.</li>
+<li><strong>daylightmetrics.csv</strong> - this file contains data for the following metrics:<ul>
+<li>Daylight Autonomy (DA)</li>
+<li>Continuous Daylight Autonomy (cDA)</li>
+<li>Useful Daylight Illuminance (UDI)</li>
+</ul>
+</li>
+<li><strong>[windowGroupName].ill</strong> - annual daylight illuminance schedules for each window group, used for the shade control simulation</li>
+</ul>
+
+          <div class="footer">
+  <p class="text-center"><a href="https://unmethours.com/questions/scope:all/sort:activity-desc/tags:openstudio/">Get Help</a> | <a href="https://www.openstudio.net/contact">Contact Us</a></p>
+  <p class="text-center"><a href="https://www.openstudio.net">OpenStudio</a><sup>&reg;</sup> is developed in collaboration by NREL, ANL, LBNL, ORNL, and PNNL.</p>
+  <p class="text-center">OpenStudio<sup>&reg;</sup> is a registered trademark of the Alliance for Sustainable Energy, LLC.</p>
+  <p class="text-center"><a href="http://www.nrel.gov">NREL</a> is a National Laboratory of the U.S. Department of Energy, Office of Energy Efficiency and Renewable Energy, operated by the Alliance for Sustainable Energy, LLC.</p>
+  <p class="text-center"><a href="#">Back to Top</a></p>
+</div>
+        </div>
+      </div>
+    </div>
+    
+
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.0.min.js"></script>
+    <script src="../../js/bootstrap-hover-dropdown-2.0.11.min.js"></script>
+    <script src="../../js/prettify-1.0.min.js"></script>
+    <script src="../../js/base.js"></script>
+  </body>
+</html>

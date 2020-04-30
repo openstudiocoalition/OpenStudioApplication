@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Running Simulations & Viewing Results - OpenStudio<sup>&reg;</sup> User Docs</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    
+    <link href="../../css/bootstrap-3.3.0.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.2.0.min.css" rel="stylesheet">
+    <link href="../../css/prettify-1.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../.."><img alt="" src="../../img/OS_32x32.png"> OpenStudio<sup>&reg;</sup> User Docs</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <!-- Main navigation -->
+        <ul class="nav navbar-nav">
+        
+          
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Getting Started <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+            
+              <li>
+                <a href="../../getting_started/features">Current Features</a>
+              </li>
+            
+              <li>
+                <a href="../../getting_started/roadmap">Planned Features</a>
+              </li>
+            
+              <li>
+                <a href="../../getting_started/getting_started">Installation and Introductory Tutorial</a>
+              </li>
+            
+              <li>
+                <a href="../../getting_started/about_measures">About Measures</a>
+              </li>
+            
+            </ul>
+          </li>
+          
+        
+          
+          <li class="dropdown active">
+            <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Essential Tutorials <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+            
+              <li>
+                <a href="../creating_your_model">Creating Your Model</a>
+              </li>
+            
+              <li class="active">
+                <a href=".">Running Simulations & Viewing Results</a>
+              </li>
+            
+              <li>
+                <a href="../radiance_tutorial">Radiance and OpenStudio</a>
+              </li>
+            
+              <li>
+                <a href="../tutorial_bcl">Building Component Library</a>
+              </li>
+            
+            </ul>
+          </li>
+          
+        
+          
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Advanced Tutorials <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+            
+              <li>
+                <a href="../utility_rate_tariffs">Utiity Rate Tariffs</a>
+              </li>
+            
+              <li>
+                <a href="../life_cycle_costing_examples">Life Cycle Cost Analysis</a>
+              </li>
+            
+              <li>
+                <a href="../tutorial_gbxmlimport">Import gbXML</a>
+              </li>
+            
+              <li>
+                <a href="../tutorial_shadingcontrols">Shading Controls</a>
+              </li>
+            
+              <li>
+                <a href="../tutorial_windowproperty_frameanddivider">Window Property Frame and Divider</a>
+              </li>
+            
+            </ul>
+          </li>
+          
+        
+          
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Reference <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+            
+              <li>
+                <a href="../../reference/openstudio_application_interface">OpenStudio Application Interface Guide</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/sketchup_plugin_interface">SketchUp Plug-in Interface Guide</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/geometry_editor">FloorspaceJS</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/command_line_interface">Command Line Interface</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/parametric_analysis_tool_2">Parametric Analysis Tool Version 2 (PAT) Interface Guide</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/model_objects">OpenStudio Model Objects Overview</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/measure_writing_guide">Measure Writer's Reference Guide</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/measure_code_examples">Measure Code Examples</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/developing_measure_collections">Developing Measure Collections</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/refguide_radiance">OpenStudio-Radiance Reference Guide</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/openstudio_results_measure">OpenStudio Results Measure</a>
+              </li>
+            
+            </ul>
+          </li>
+          
+        
+          
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Help <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+            
+              <li>
+                <a href="../../help/training">Find Training</a>
+              </li>
+            
+              <li>
+                <a href="../../help/best_practices">Modeling Best Practices</a>
+              </li>
+            
+              <li>
+                <a href="../../help/troubleshooting">Troubleshooting</a>
+              </li>
+            
+              <li>
+                <a href="../../help/software_license">Software License</a>
+              </li>
+            
+            </ul>
+          </li>
+          
+        
+        </ul>
+
+        <!-- Search, Navigation and Repo links -->
+        <ul class="nav navbar-nav navbar-right">
+        
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="bs-docs-sidebar hidden-print affix well" role="complementary">
+  <ul class="nav">
+  
+    <li class="main active"><a href="#weather-file-and-design-days">Weather File and Design Days</a>
+      <ul class="nav">
+        
+      </ul>
+    </li>
+  
+    <li class="main"><a href="#requesting-output-variables">Requesting Output Variables</a>
+      <ul class="nav">
+        
+      </ul>
+    </li>
+  
+    <li class="main"><a href="#running-a-simulation">Running a Simulation</a>
+      <ul class="nav">
+        
+      </ul>
+    </li>
+  
+    <li class="main"><a href="#looking-at-results">Looking at Results</a>
+      <ul class="nav">
+        
+      </ul>
+    </li>
+  
+    <li class="main"><a href="#using-data-viewer">Using Data Viewer</a>
+      <ul class="nav">
+        
+      </ul>
+    </li>
+  
+  </ul>
+  <div class="home-btn">
+    <a class="btn btn-default" role="button" href="https://www.openstudio.net">Back to OpenStudio<sup>&reg;</sup></a>
+  </div>
+</div>
+        </div>
+        <div class="col-md-9" role="main">
+          <h1>Running Simulations & Viewing Results</h1>
+
+<p>These guides provide a handy reference to the features of the applications that are installed with OpenStudio.</p>
+<h2 id="weather-file-and-design-days">Weather File and Design Days</h2>
+<p>Add weather files in the OpenStudio application under the Site tab (first vertical tab) on the left and the "Weather File &amp; Design Days" sub-tab across the top. You can <a href="https://www.energyplus.net/weather">download weather files</a> on the EnergyPlus site.</p>
+<p><a href="../../img/run/weather_ddy.png"><img alt="Open DDY File Dialog" src="../../img/run/weather_ddy.png" title="Click to view" /></a></p>
+<p><em>Above: Screenshot of browsing for design day file.</em></p>
+<h2 id="requesting-output-variables">Requesting Output Variables</h2>
+<p>To select an output variable turn the toggle button to show a blue on. Then set the detail level you want from the drop down menu.</p>
+<p><a href="../../img/run/output_variables.png"><img alt="Output Variables Tab" src="../../img/run/output_variables.png" title="Click to view" /></a></p>
+<p><em>Above: Screenshot of selecting output variables.</em></p>
+<p>You can also choose variables to collect data on by using the "Add Output Variable" measure after downloading it from the <a href="../../reference/openstudio_application_interface#find-measures-and-find-components">BCL</a>.</p>
+<p><a href="../../img/run/variables_measure.png"><img alt="Measures Tab" src="../../img/run/variables_measure.png" title="Click to view" /></a></p>
+<p><em>Above: Screenshot of the variable measure being added to a project. Just type in the variable you want to collect. This will return the variable's value for all associated objects within the model. To get the variable's value for a specific object, enter the full name of this object.</em></p>
+<h2 id="running-a-simulation">Running a Simulation</h2>
+<p>To run your simulation click the green run button. </p>
+<p><a href="../../img/run/run.png"><img alt="Run Simulation Tab" src="../../img/run/run.png" title="Click to view" /></a></p>
+<p><em>Above: The progress bar displays the status of the run.</em></p>
+<h2 id="looking-at-results">Looking at Results</h2>
+<p>Standard OpenStudio results are provided with your run. Learn more about the OpenStudio Standard Results Measure in our <a href="../../reference/openstudio_results_measure">References Section</a>.</p>
+<iframe width="640" height="360" src="https://www.youtube.com/embed/PlrWE3ugcdE" allowfullscreen></iframe>
+
+<p><em>Above: This video demonstrates the 1.9.0 Release with the Reporting Measure.</em></p>
+<p><a href="../../img/run/os_results.png"><img alt="Results Summary Tab" src="../../img/run/os_results.png" title="Click to view" /></a></p>
+<p><em>Above: This screenshot shows and example of the standard OpenStudio results.</em></p>
+<p><a href="../../img/run/reports2.png"><img alt="Results 2 Summary Tab" src="../../img/run/reports2.png" title="Click to view" /></a></p>
+<p><em>Above: This is another chart available in the standard OpenStudio results.</em></p>
+<p>You can also use measures to add additional reports. For instance, you can download the calibration report measure from the <a href="../../reference/openstudio_application_interface#find-measures-and-find-components">BCL</a>. This measure allows you to view simulation results that are associated with any added utility bills. Another option available for adding additional reports is the generation of custom reports. These are created by writing your own measures. Downloaded or created reporting measures are applied within the OpenStudio Measures tab.</p>
+<p><a href="../../img/run/calibration_report.png"><img alt="Calibration Report" src="../../img/run/calibration_report.png" title="Click to view" /></a></p>
+<p><em>Above: The calibration report compares utility bills with the model.</em></p>
+<h2 id="using-data-viewer">Using Data Viewer</h2>
+<p>Data Viewer (DView) displays time series results, which are produced from EnergyPlus report variable requests. It reads the SQLite database of the EnergyPlus engine and presents the time series data using line plots and heat maps. Furthermore, additional graphical/tabular formats can be harnessed to visualize simulation variables that are independent of time. <a href="https://github.com/NREL/wex/wiki/DView">Learn more about DView using guides created by researchers at the National Renewable Energy Laboratory</a>.</p>
+
+          <div class="footer">
+  <p class="text-center"><a href="https://unmethours.com/questions/scope:all/sort:activity-desc/tags:openstudio/">Get Help</a> | <a href="https://www.openstudio.net/contact">Contact Us</a></p>
+  <p class="text-center"><a href="https://www.openstudio.net">OpenStudio</a><sup>&reg;</sup> is developed in collaboration by NREL, ANL, LBNL, ORNL, and PNNL.</p>
+  <p class="text-center">OpenStudio<sup>&reg;</sup> is a registered trademark of the Alliance for Sustainable Energy, LLC.</p>
+  <p class="text-center"><a href="http://www.nrel.gov">NREL</a> is a National Laboratory of the U.S. Department of Energy, Office of Energy Efficiency and Renewable Energy, operated by the Alliance for Sustainable Energy, LLC.</p>
+  <p class="text-center"><a href="#">Back to Top</a></p>
+</div>
+        </div>
+      </div>
+    </div>
+    
+
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.0.min.js"></script>
+    <script src="../../js/bootstrap-hover-dropdown-2.0.11.min.js"></script>
+    <script src="../../js/prettify-1.0.min.js"></script>
+    <script src="../../js/base.js"></script>
+  </body>
+</html>
