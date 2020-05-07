@@ -384,6 +384,9 @@ void HVACSystemsController::update()
 
         connect(this, &HVACSystemsController::toggleUnitsClicked, this, &HVACSystemsController::toggleUnits);
 
+        connect(m_hvacSystemsView->hvacToolbarView->copyButton, &QPushButton::clicked,
+                m_refrigerationGridController.get()->refrigerationGridView(), &RefrigerationGridView::onCopyClicked);
+
         m_hvacSystemsView->mainViewSwitcher->setView(m_refrigerationGridController->refrigerationGridView());
       }
       else
@@ -1004,13 +1007,24 @@ void HVACSystemsController::onSystemComboBoxIndexChanged(int i)
 
 void HVACSystemsController::onCopySystemClicked()
 {
-  auto loop = currentLoop();
-  if ( loop ) {
-    auto airloop = loop->optionalCast<model::AirLoopHVAC>();
 
-    if ( airloop ) {
-      auto clone = airloop->clone(loop->model());
-      setCurrentHandle(toQString(clone.handle()));
+  QString handle = currentHandle();
+  if( handle == REFRIGERATION) {
+
+  } else {
+    auto loop = currentLoop();
+    if ( loop ) {
+      auto airloop = loop->optionalCast<model::AirLoopHVAC>();
+      if ( airloop ) {
+        auto clone = airloop->clone(loop->model());
+        setCurrentHandle(toQString(clone.handle()));
+      } else {
+        auto plantLoop = loop->optionalCast<model::PlantLoop>();
+        if (plantLoop) {
+          auto clone = plantLoop->clone(loop->model());
+          setCurrentHandle(toQString(clone.handle()));
+        }
+      }
     }
   }
 }

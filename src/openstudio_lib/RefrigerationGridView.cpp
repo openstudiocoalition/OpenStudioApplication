@@ -209,6 +209,10 @@ RefrigerationGridView::RefrigerationGridView(bool isIP, const model::Model & mod
 
   connect(this, &RefrigerationGridView::toggleUnitsClicked, refrigerationWalkInGridController, &RefrigerationWalkInGridController::toggleUnits);
 
+  // Connect the duplicate buttons
+  connect(this, &RefrigerationGridView::onCopyClicked, refrigerationCaseGridController, &RefrigerationCaseGridController::onCopyClicked);
+  connect(this, &RefrigerationGridView::onCopyClicked, refrigerationWalkInGridController, &RefrigerationWalkInGridController::onCopyClicked);
+
   std::vector<model::RefrigerationSystem> refrigerationSystems = model.getConcreteModelObjects<model::RefrigerationSystem>(); // NOTE for horizontal system list
 
 }
@@ -663,6 +667,21 @@ void RefrigerationCaseGridController::onComboBoxIndexChanged(int index)
       break;
     }
   }
+}
+
+void RefrigerationCaseGridController::onCopyClicked()
+{
+  for (auto &obj : this->selectedObjects())
+  {
+    if (!obj.handle().isNull()){
+      copyObject(obj);
+    }
+  }
+}
+
+void RefrigerationCaseGridController::copyObject(const openstudio::model::ModelObject& modelObject)
+{
+  modelObject.clone(this->model());
 }
 
 RefrigerationWalkInGridController::RefrigerationWalkInGridController(bool isIP,
@@ -1148,6 +1167,21 @@ void RefrigerationWalkInGridController::onComboBoxIndexChanged(int index)
       break;
     }
   }
+}
+
+void RefrigerationWalkInGridController::onCopyClicked()
+{
+  for (auto &obj : this->selectedObjects())
+  {
+    if (!obj.handle().isNull()){
+      copyObject(obj);
+    }
+  }
+}
+
+void RefrigerationWalkInGridController::copyObject(const openstudio::model::ModelObject& modelObject)
+{
+  modelObject.clone(this->model());
 }
 
 } // openstudio

@@ -59,6 +59,8 @@ signals:
 
   void dropZoneItemClicked(OSItem* item);
 
+  void onCopyClicked();
+
 };
 
 class RefrigerationCaseGridController : public OSGridController
@@ -78,6 +80,9 @@ public:
 
   virtual void refreshModelObjects() override;
 
+private:
+  void copyObject(const openstudio::model::ModelObject& modelObject);
+
 protected:
 
   virtual void setCategoriesAndFields() override;
@@ -93,6 +98,8 @@ public slots:
   virtual void onItemDropped(const OSItemId& itemId) override;
 
   virtual void onComboBoxIndexChanged(int index) override;
+
+  void onCopyClicked();
 
 };
 
@@ -113,6 +120,9 @@ public:
 
   virtual void refreshModelObjects() override;
 
+private:
+  void copyObject(const openstudio::model::ModelObject& modelObject);
+
 protected:
 
   virtual void setCategoriesAndFields() override;
@@ -129,6 +139,7 @@ public slots:
 
   virtual void onComboBoxIndexChanged(int index) override;
 
+  void onCopyClicked();
 };
 
 } // openstudio
