@@ -32,6 +32,9 @@
 
 #include <QXmlDefaultHandler>
 #include <QXmlReader>
+#include <QXmlSimpleReader>
+#include <QXmlInputSource>
+#include <QXmlAttributes>
 
 #include "AccessPolicyStore.hpp"
 

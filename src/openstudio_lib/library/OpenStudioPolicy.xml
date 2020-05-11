@@ -1,5 +1,4 @@
 <?xml version="1.0"?>
-<!-- edited with XMLSpy v2008 (http://www.altova.com) by Daniel Macumber (NREL) -->
 <ROOT>
   <POLICY IddObjectType="OS_AirLoopHVAC_SupplyPlenum">
     <rule IddField="Thermal Zone" Access="LOCKED"/>
@@ -764,11 +763,6 @@
     <rule IddField="Availability Schedule Name" Access="HIDDEN"/>
     <rule IddField="Air Inlet Node Name" Access="HIDDEN"/>
     <rule IddField="Air Outlet Node Name" Access="HIDDEN"/>
-  </POLICY>
-  <POLICY IddObjectType="OS_AirTerminal_SingleDuct_Uncontrolled">
-    <rule IddField="Availability Schedule Name" Access="HIDDEN"/>
-    <rule IddField="Inlet Air Node Name" Access="HIDDEN"/>
-    <rule IddField="Zone Supply Air Node Name" Access="HIDDEN"/>
   </POLICY>
   <POLICY IddObjectType="OS_AirTerminal_SingleDuct_ParallelPIU_Reheat">
     <rule IddField="Availability Schedule Name" Access="HIDDEN"/>
