@@ -1101,8 +1101,6 @@
     <rule IddField="Piping Correction Factor for Length in Cooling Mode Curve" Access="LOCKED"/>
     <rule IddField="Piping Correction Factor for Length in Heating Mode Curve" Access="LOCKED"/>
     <rule IddField="Defrost Energy Input Ratio Modifier Function of Temperature Curve" Access="LOCKED"/>
-    <rule IddField="Condenser Inlet Node" Access="HIDDEN"/>
-    <rule IddField="Condenser Outlet Node" Access="HIDDEN"/>
     <rule IddField="Heat Recovery Cooling Capacity Modifier Curve" Access="LOCKED"/>
     <rule IddField="Heat Recovery Cooling Energy Modifier Curve" Access="LOCKED"/>
     <rule IddField="Heat Recovery Heating Capacity Modifier Curve" Access="LOCKED"/>
