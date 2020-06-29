@@ -1019,6 +1019,7 @@ void MainRightColumnController::configureForHVACSystemsSubTab(int subTabID)
   myModelList->addModelObjectType(IddObjectType::OS_WaterUse_Connections,"Water Use Connections");
   myModelList->addModelObjectType(IddObjectType::OS_WaterHeater_Mixed, "Water Heater Mixed");
   myModelList->addModelObjectType(IddObjectType::OS_WaterHeater_Stratified, "Water Heater Stratified");
+  myModelList->addModelObjectType(IddObjectType::OS_AirConditioner_VariableRefrigerantFlow,"VRF System");
   myModelList->addModelObjectType(IddObjectType::OS_ThermalStorage_ChilledWater_Stratified,"Thermal Storage - Chilled Water");
 
   // Refrigeration
