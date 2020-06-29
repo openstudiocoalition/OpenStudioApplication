@@ -716,7 +716,7 @@ add_library(${target_name}
   ${${target_name}_qrcs}
 )
 
-set(depends
+set(${target_name}_depends
   openstudio_modeleditor
   openstudio::openstudiolib
   ${QT_LIBS}
@@ -725,7 +725,7 @@ if(WIN32)
   list(APPEND ${target_name}_depends qtwinmigrate)
 endif()
 
-target_link_libraries(${target_name} ${depends})
+target_link_libraries(${target_name} ${${target_name}_depends})
 
 AddPCH(${target_name})
 
