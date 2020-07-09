@@ -54,6 +54,10 @@
                 <a href="../../getting_started/getting_started">Installation and Introductory Tutorial</a>
               </li>
             
+              <li>
+                <a href="../../getting_started/about_measures">About Measures</a>
+              </li>
+            
             </ul>
           </li>
           
@@ -72,6 +76,10 @@
               </li>
             
               <li>
+                <a href="../large_scale_analysis">Large Scale Analysis</a>
+              </li>
+            
+              <li>
                 <a href="../radiance_tutorial">Radiance and OpenStudio</a>
               </li>
             
@@ -87,6 +95,10 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Advanced Tutorials <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
+            
+              <li>
+                <a href="../utility_rate_tariffs">Utiity Rate Tariffs</a>
+              </li>
             
               <li>
                 <a href="../life_cycle_costing_examples">Life Cycle Cost Analysis</a>
@@ -126,6 +138,34 @@
               </li>
             
               <li>
+                <a href="../../reference/command_line_interface">Command Line Interface</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/parametric_analysis_tool_2">Parametric Analysis Tool Version 2 (PAT) Interface Guide</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/model_objects">OpenStudio Model Objects Overview</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/measure_writing_guide">Measure Writer's Reference Guide</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/measure_code_examples">Measure Code Examples</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/developing_measure_collections">Developing Measure Collections</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/refguide_radiance">OpenStudio-Radiance Reference Guide</a>
+              </li>
+            
+              <li>
                 <a href="../../reference/openstudio_results_measure">OpenStudio Results Measure</a>
               </li>
             
@@ -137,6 +177,14 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Help <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
+            
+              <li>
+                <a href="../../help/training">Find Training</a>
+              </li>
+            
+              <li>
+                <a href="../../help/best_practices">Modeling Best Practices</a>
+              </li>
             
               <li>
                 <a href="../../help/troubleshooting">Troubleshooting</a>
@@ -166,6 +214,36 @@
           <div class="bs-docs-sidebar hidden-print affix well" role="complementary">
   <ul class="nav">
   
+    <li class="main active"><a href="#groups">Groups</a>
+      <ul class="nav">
+        
+        <li><a href="#creating-a-group">Creating a Group</a></li>
+        
+        <li><a href="#joining-a-group">Joining a Group</a></li>
+        
+        <li><a href="#adding-a-member-to-a-group">Adding a Member to a Group</a></li>
+        
+        <li><a href="#approving-a-membership">Approving a Membership</a></li>
+        
+        <li><a href="#group-roles">Group Roles</a></li>
+        
+      </ul>
+    </li>
+  
+    <li class="main"><a href="#uploading-and-publishing-content">Uploading and Publishing Content</a>
+      <ul class="nav">
+        
+        <li><a href="#creating-the-measure-zip-file">Creating the Measure Zip File</a></li>
+        
+        <li><a href="#uploading-the-measure-zip-file">Uploading the Measure Zip File</a></li>
+        
+        <li><a href="#editing-an-existing-measure">Editing an Existing Measure</a></li>
+        
+        <li><a href="#publishing-content">Publishing Content</a></li>
+        
+      </ul>
+    </li>
+  
   </ul>
   <div class="home-btn">
     <a class="btn btn-default" role="button" href="https://www.openstudio.net">Back to OpenStudio<sup>&reg;</sup></a>
@@ -175,7 +253,172 @@
         <div class="col-md-9" role="main">
           <h1>The Building Component Library</h1>
 
-<p>Please refer to the <a href="http://nrel.github.io/OpenStudio-user-documentation/tutorials/tutorial_bcl/">OpenStudio Software Development Kit Documentation</a> for a tutorial on the Building Component Library.</p>
+<p>The <a href="https://bcl.nrel.gov">BCL</a> is an online repository of components and measures that can be used in OpenStudio.  Registering on the BCL website provides you with an API key that can be used by the OpenStudio Application to access online components and measures.  BCL users who belong to a group can also upload their own content&mdash;public or private&mdash;to the BCL.  Users can either create a new group or request to join an existing one. The following tutorial provides information on common BCL tasks.</p>
+<h2 id="groups">Groups</h2>
+<h3 id="creating-a-group">Creating a Group</h3>
+<p>To create a group, first login to the site and click the <em>My Dashboard</em> link at the top right of the BCL site.  Click on the <em>Create Content</em> tab, and then the <em>Group</em> button.  Fill out the form and click the <em>Save</em> button.</p>
+<div class="centered-image">
+    <figure>
+        <img src="../../img/bcl/create_group.png" alt="Create a Group">
+        <figcaption>Creating a BCL group.</figcaption>
+    </figure>
+</div>
+
+<p>A note on group visibility: if you create a private group, BCL users will not be able to see the group, or request membership.  You will have to manually add all users to the group (see <a href="#adding-a-member-to-a-group">Adding a Member to a Group</a>).  Additionally, creating a public group does not restrict you to having only public content; a public group can have both public and private content.</p>
+<p>Once you submit the form, a BCL admin will be notified and will review your group creation request.  You will receive an email when the group is approved, at which time you can upload content.</p>
+<h3 id="joining-a-group">Joining a Group</h3>
+<p>To join a public group, click the <em>Groups</em> button on the BCL homepage.  Select the group you would like to join and click the <em>Subscribe to Group</em> or <em>Request Group Membership</em> button. Your membership will be pending until the group admin reviews and approves your request.</p>
+<div class="centered-image">
+    <figure>
+        <img src="../../img/bcl/request_membership.png" alt="Request Membership">
+        <figcaption>Requesting group membership.</figcaption>
+    </figure>
+</div>
+
+<h3 id="adding-a-member-to-a-group">Adding a Member to a Group</h3>
+<p>If you are a group administrator, you can add members to your group by clicking the <em>My Dashboard</em> link at the top right of the page, then clicking on the <em>My groups</em> tab. Your group should now be listed on the page. Click on the linked group's name, which will take you to the group description page.</p>
+<div class="centered-image">
+    <figure>
+        <img src="../../img/bcl/select_group.png" alt="Select Group">
+        <figcaption>Selecting your group for viewing.</figcaption>
+    </figure>
+</div>
+
+<p>Click on the <em>Group</em> tab at the top of the page.</p>
+<div class="centered-image">
+    <figure>
+        <img src="../../img/bcl/view_group.png" alt="View Group">
+        <figcaption>View Group by clicking on the Group tab.</figcaption>
+    </figure>
+</div>
+
+<p>From this page you can add new members by clicking on the <em>Add people</em> link.</p>
+<div class="centered-image">
+    <figure>
+        <img src="../../img/bcl/add_members.png" alt="Add Members">
+        <figcaption>Add Members to group.</figcaption>
+    </figure>
+</div>
+
+<p>New members will need to provide you with their BCL account username.</p>
+<div class="centered-image">
+    <figure>
+        <img src="../../img/bcl/add_member_username.png" alt="Add Member by Username">
+        <figcaption>Add Member by Username.</figcaption>
+    </figure>
+</div>
+
+<h3 id="approving-a-membership">Approving a Membership</h3>
+<p>If you are the group admin of a public group, you can approved requested memberships to your group by clicking the <em>My Dashboard</em> link at the top right of the page and then clicking on the <em>My groups</em> tab.  Your group should now be listed on the page. Click on the linked group's name, which will take you to the group description page.</p>
+<div class="centered-image">
+    <figure>
+        <img src="../../img/bcl/select_group.png" alt="Select Group">
+        <figcaption>Selecting your group for viewing.</figcaption>
+    </figure>
+</div>
+
+<p>Click on the "Group" tab at the top of the page.  You can then approve pending memberships by clicking on the <em>People</em> link.</p>
+<div class="centered-image">
+    <figure>
+        <img src="../../img/bcl/manage_members.png" alt="Manage Members">
+        <figcaption>Manage group members by clicking on the People link.</figcaption>
+    </figure>
+</div>
+
+<p>Check the checkbox next to the pending users to approve, choose <em>Modify membership status</em> from the <em>Operations</em> dropdown, and press the <em>Execute</em> button.</p>
+<div class="centered-image">
+    <figure>
+        <img src="../../img/bcl/modify_membership_status.png" alt="Modify membership status">
+        <figcaption>Modify membership status.</figcaption>
+    </figure>
+</div>
+
+<p>Change the membership status to <em>Active</em> and click <em>Next</em>, then <em>Confirm</em>.</p>
+<div class="centered-image">
+    <figure>
+        <img src="../../img/bcl/approve_members.png" alt="Approve new members">
+        <figcaption>Approve new members.</figcaption>
+    </figure>
+</div>
+
+<p>You can follow steps similar to these to remove a user from a group.  Check the checkbox next to the user to remove, choose <em>Remove from Group</em> from the <em>Operations</em> dropdown, and click the <em>Execute</em> button.  You can also change a user's group permissions by assigning group roles.  Choose <em>Modify OG User Role</em> from the <em>Operations</em> dropdown, and click the *Execute button.  Group roles are described in the next section.</p>
+<h3 id="group-roles">Group Roles</h3>
+<p>There are 4 roles that users can have relative to the group to which they belong: group manager, administrator member, editor, and member.</p>
+<ul>
+<li>
+<p><strong>Group Manager</strong>: This role is assigned to the user who created the group.  There is only one group manager per group, and this   user will receive e-mails when other users request membership to the group.</p>
+</li>
+<li>
+<p><strong>Administrator Member</strong>: Users with the administrator role can assign roles to other group users and approve group membership.  They can also edit the group description and review, publish, and delete group content.</p>
+</li>
+<li>
+<p><strong>Editor</strong>: Users with the editor role can review and publish group content.</p>
+</li>
+<li>
+<p><strong>Member</strong>: The member role is the default role assigned to new group members. These users can create draft content and submit content for review.  An editor or administrator member of the group will then need to review and publish it.</p>
+</li>
+</ul>
+<h2 id="uploading-and-publishing-content">Uploading and Publishing Content</h2>
+<p>There are 2 types of content on the BCL:  components and measures.  Components are the building blocks of an energy model, and include roofs, walls, windows, occupancy and equipment schedules, and weather information, to name a few.  Measures describe a change to an energy model for purposes such as comparison to a baseline model or estimation of potential energy savings. Users must be part of a group to upload content, and only group admins can publish content for their group.  Although the instructions below pertain to measures, a similar process can be followed for uploading and updating components.</p>
+<h3 id="creating-the-measure-zip-file">Creating the Measure Zip File</h3>
+<p>New measures are made in the OpenStudio application or Parametric Analysis tool by either creating a new measure or cloning an existing one. OpenStudio will place all necessary files in the directory set under preferences as <em>My Measures Directory</em>. Go within the directory for the measure and compress the files as shown below. Confirm that the xml file is updated after your last edit of the measure.rb file by clicking the <em>Sync Project Measures with Library</em> button or opening the <em>Apply Measure Now</em> dialog.</p>
+<div class="centered-image">
+    <figure>
+        <img src="../../img/bcl/create_measure_package.png" alt="Measure Package Creation">
+        <figcaption>Compress the files directly to create the measure package; do not compress a directory containing the files.</figcaption>
+    </figure>
+</div>
+
+<p>Additional details on the xml and other files can be found below:</p>
+<blockquote>
+<p>The measure package to upload should contain a measure.xml file created with the current <a href="https://bcl.nrel.gov/xsd/measure/v/2">measure schema</a>, available on the <a href="https://bcl.nrel.gov">BCL</a> website. The &lt;uid&gt; and &lt;version_id&gt; fields can be left blank as they will be assigned by the BCL.</p>
+<p>Make sure to include the type of your measure in the &lt;tag&gt; field. Select from the available <a href="https://bcl.nrel.gov/measure-types">BCL measure types</a>, and include the full hierarchy. This is usually 2 or 3 levels separated by a dot.  For example, if you are uploading a space types measure, the &lt;tag&gt; should be: <em>Whole Building.Space Types</em>. If you do not see a suitable measure type for your measure in the list, please <a href="https://www.openstudio.net/contact">contact us</a>.  Attributes can also be applied to measures via the measure.xml file.  Consult the supported list of <a href="https://bcl.nrel.gov/list-of-attributes">BCL attributes</a> to view the correct names. For more detailed information on writing OpenStudio measures, consult the <a href="../../reference/measure_writing_guide">Measure Writing Guide</a> for further details.</p>
+<p>The package should also contain the associated files referenced inside the measure.xml file's &lt;files&gt; section. These files should be contained in directories according to usage type:  the main measure file, usually named <em>measure.rb</em> should be compressed directly (same level as measure.xml), resource files should be in a <em>resources</em> directory, and test files should be in a <em>tests</em> directory. The compressed package should directly contain these files and directories; the upload will fail if the package has an inner directory containing the files.</p>
+</blockquote>
+<h3 id="uploading-the-measure-zip-file">Uploading the Measure Zip File</h3>
+<p>To begin, click on the <em>My Dashboard</em> link at the top right of the BCL site. Click on the <em>Create content</em> tab.  You should see a list of buttons.  Press the <em>Upload Measure</em> button, which will direct you to a multi-tab form.</p>
+<div class="centered-image">
+    <figure>
+        <img src="../../img/bcl/upload_measure.png" alt="Upload Measure">
+        <figcaption>Upload a Measure.</figcaption>
+    </figure>
+</div>
+
+<p>The <em>Data</em> tab contains a file upload field that will accept either a zip measure or a tar.gz measure package.  The <em>Group</em> tab contains a list of the groups with which you are affiliated.  Select the appropriate group, as well as your desired content visibility for this measure (public or private to the group). Save the form.</p>
+<div class="centered-image">
+    <figure>
+        <img src="../../img/bcl/measure_visibility.png" alt="Measure Visibility">
+        <figcaption>Select desired group and measure visibility.</figcaption>
+    </figure>
+</div>
+
+<p>Once the measure has been saved, follow instructions in the <a href="#publishing-content">Publishing Content</a> section below for instructions on making the measure visible to others.</p>
+<h3 id="editing-an-existing-measure">Editing an Existing Measure</h3>
+<p>If you want to update a measure that has already been uploaded to the BCL, first go to the URL for your component and click the <em>Upload New Version</em> button.  To properly update an existing measure, you must re-upload the entire updated zip file.</p>
+<div class="centered-image">
+    <figure>
+        <img src="../../img/bcl/new_version_measure.png" alt="Upload New Version of Existing Component">
+        <figcaption>New Version of Existing Component.</figcaption>
+    </figure>
+</div>
+
+<p>Once the new version of the measure has been saved, follow instructions in the <a href="#publishing-content">Publishing Content</a> section below for instructions on making the measure visible to others.</p>
+<h3 id="publishing-content">Publishing Content</h3>
+<p>All members of a group can add content to the BCL, but only users with the <em>editor</em> or <em>administrator member</em> group roles can review and publish their group's content.  Content can be published by clicking the <em>My Dashboard</em> link at the top right of the page, then clicking on the <em>My content</em> tab and selecting the <em>group content</em> sub-tab.</p>
+<div class="centered-image">
+    <figure>
+        <img src="../../img/bcl/moderate_content.png" alt="Review Content for Publication">
+        <figcaption>Review group content.</figcaption>
+    </figure>
+</div>
+
+<p>Content in either the <em>Draft</em> or <em>Needs Review</em> states can be published by changing the moderation state to <em>Published</em>.  The intended workflow is as follows:</p>
+<ul>
+<li>A content author creates a component or measure.  The content is in the <em>Draft</em> state.</li>
+<li>Once the author is satisfied with the content, he/she sets the state to <em>Needs Review</em>. This indicates to the group editors and administrators that content is ready to be reviewed and published.</li>
+<li>Once reviewed, a group editor or administrator sets the state to *Published.</li>
+<li>The process is repeated for future revisions to the content.</li>
+</ul>
 
           <div class="footer">
   <p class="text-center"><a href="https://unmethours.com/questions/scope:all/sort:activity-desc/tags:openstudio/">Get Help</a> | <a href="https://www.openstudio.net/contact">Contact Us</a></p>

@@ -54,6 +54,10 @@
                 <a href="../getting_started">Installation and Introductory Tutorial</a>
               </li>
             
+              <li>
+                <a href="../about_measures">About Measures</a>
+              </li>
+            
             </ul>
           </li>
           
@@ -72,6 +76,10 @@
               </li>
             
               <li>
+                <a href="../../tutorials/large_scale_analysis">Large Scale Analysis</a>
+              </li>
+            
+              <li>
                 <a href="../../tutorials/radiance_tutorial">Radiance and OpenStudio</a>
               </li>
             
@@ -87,6 +95,10 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Advanced Tutorials <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
+            
+              <li>
+                <a href="../../tutorials/utility_rate_tariffs">Utiity Rate Tariffs</a>
+              </li>
             
               <li>
                 <a href="../../tutorials/life_cycle_costing_examples">Life Cycle Cost Analysis</a>
@@ -126,6 +138,34 @@
               </li>
             
               <li>
+                <a href="../../reference/command_line_interface">Command Line Interface</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/parametric_analysis_tool_2">Parametric Analysis Tool Version 2 (PAT) Interface Guide</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/model_objects">OpenStudio Model Objects Overview</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/measure_writing_guide">Measure Writer's Reference Guide</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/measure_code_examples">Measure Code Examples</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/developing_measure_collections">Developing Measure Collections</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/refguide_radiance">OpenStudio-Radiance Reference Guide</a>
+              </li>
+            
+              <li>
                 <a href="../../reference/openstudio_results_measure">OpenStudio Results Measure</a>
               </li>
             
@@ -137,6 +177,14 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Help <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
+            
+              <li>
+                <a href="../../help/training">Find Training</a>
+              </li>
+            
+              <li>
+                <a href="../../help/best_practices">Modeling Best Practices</a>
+              </li>
             
               <li>
                 <a href="../../help/troubleshooting">Troubleshooting</a>
@@ -166,7 +214,7 @@
           <div class="bs-docs-sidebar hidden-print affix well" role="complementary">
   <ul class="nav">
   
-    <li class="main active"><a href="#as-of-openstudio-application-version-100">As of OpenStudio Application Version 1.0.0</a>
+    <li class="main active"><a href="#as-of-openstudio-version-300">As of OpenStudio Version 3.0.0</a>
       <ul class="nav">
         
         <li><a href="#building-geometry3d-cad">Building Geometry/3D CAD</a></li>
@@ -203,6 +251,8 @@
         
         <li><a href="#share-modeling-best-practices">Share Modeling Best-Practices</a></li>
         
+        <li><a href="#documentation">Documentation</a></li>
+        
       </ul>
     </li>
   
@@ -215,10 +265,14 @@
         <div class="col-md-9" role="main">
           <h1>Current Features</h1>
 
-<p>The OpenStudio Application uses the <a href="https://openstudio-sdk-documentation.s3.amazonaws.com/index.html">OpenStudio SDK Version 3.0.0</a>. The features that are available in the current major release are described below. To learn about the future of this software, see the <a href="../roadmap">Planned Features</a> page.</p>
-<h2 id="as-of-openstudio-application-version-100">As of OpenStudio Application Version 1.0.0</h2>
+<p>OpenStudio is constantly being improved, with a less stable developer release available every 2 weeks and a stable major release quarterly (4 per year). The features that are available in the current major release are described below. To learn what is coming in the future, see the <a href="../roadmap">Planned Features</a> page.</p>
+<h2 id="as-of-openstudio-version-300">As of OpenStudio Version 3.0.0</h2>
 <h3 id="building-geometry3d-cad">Building Geometry/3D CAD</h3>
 <ul>
+<li>Quickly draw 3D building geometry using free plugin for SketchUp</li>
+<li>Building envelope, shading on windows, shading from other buildings, etc.</li>
+<li>Draw detailed shapes, trace floor plans, or a combination</li>
+<li>Use wizard to create standard shapes (H, L, E, Courtyard, Rectangle)</li>
 <li>Import geometry from gbXML files (from Revit, GreenBuildingStudio, Trace700, etc.)</li>
 <li>Import geometry from EnergyPlus files (IDF)</li>
 <li>Import model from SDD files (California Energy Commission)</li>
@@ -226,89 +280,8 @@
 <li>Assign and visually inspect space types assignments</li>
 <li>Define thermal zones and add/remove spaces</li>
 <li>Assign and see building envelope constructions</li>
-</ul>
-<h4 id="floorspcejs">FloorspceJS</h4>
-<ul>
-<li>Draw 2D building geometry (that will be extruded to 3D) using the built-in FloorspaceJS interface</li>
-<li>Trace images of floor plans, or maps </li>
-<li>Building envelope, shading on windows, shading from other buildings, etc.</li>
-<li>Assign constructions, space types, thermal zones</li>
 <li>Add daylighting sensors</li>
 </ul>
-<h4 id="sketchup-plugin">Sketchup Plugin</h4>
-<ul>
-<li>Draw 3D building geometry using free plugin for SketchUp</li>
-<li>Building envelope, shading on windows, shading from other buildings, etc.</li>
-<li>Draw detailed shapes, trace floor plans, or a combination</li>
-<li>Use wizard to create standard shapes (H, L, E, Courtyard, Rectangle)</li>
-<li>Add daylighting sensors</li>
-</ul>
-<h4 id="building-geometry-tool-matrix">Building Geometry Tool Matrix</h4>
-<p>The following table is intended to provide users with some guidance around which of the primary geometry tools may be best suited to a given modeling scenario. In general, if the model will suffice with relatively simple geometry elements and doesn't require the use of external 3D drawing files or imported geometry from other models, then FloorspaceJS is typically quicker and creates simpler elements that run faster. If there is a need to represent more complicated 3D shapes or work with thrid party drawing and model files, then the SketchUp Plugin may be needed. Also keep in mind that geoetry created in FloorspaceJS can be brought into SketchUp (as an OSM file), but FloorspaceJS will not recognize geometry from any other source. So in some cases it may make sense to begin simpler forms in FloorspaceJS and transition to SketchUp for later, more detailed representations.</p>
-<table class="table table-striped", style="width:60%; margin: 15px 0 5px 25px">
-  <tr>
-    <th>Feature</th>
-    <th style="text-align: center">FloorspaceJS</th>
-    <th style="text-align: center">SketchUp Plugin</th>
-  </tr>
-  <tr>
-    <td>Trace 2D Floorplans</td>
-    <td style="text-align: center">X</td>
-    <td style="text-align: center">X</td>
-  </tr>
-  <tr>
-    <td>Assign Thermal Zones, Space Types, Construction Sets</td>
-    <td style="text-align: center; vertical-align: middle">X</td>
-    <td style="text-align: center; vertical-align: middle">X</td>
-  </tr>
-  <tr>
-    <td>Add Windows and Doors</td>
-    <td style="text-align: center">X</td>
-    <td style="text-align: center">X</td>
-  </tr>
-  <tr>
-    <td>Add Daylight Controls</td>
-    <td style="text-align: center">X</td>
-    <td style="text-align: center">X</td>
-  </tr>
-  <tr>
-    <td>Building and Window Shading</td>
-    <td style="text-align: center">X</td>
-    <td style="text-align: center">X</td>
-  </tr>
-  <tr>
-    <td>Smooth Transitions Between OS App and Geometry Editor</td>
-    <td style="text-align: center; vertical-align: middle">X</td>
-    <td style="text-align: center; vertical-align: middle">+</td>
-  </tr>
-  <tr>
-    <td>Draw Complex 3D Shapes</td>
-    <td style="text-align: center"> </td>
-    <td style="text-align: center">X</td>
-  </tr>
-  <tr>
-    <td>Import IDF, gbXML, OSM, SDD</td>
-    <td style="text-align: center"> </td>
-    <td style="text-align: center">X</td>
-  </tr>
-  <tr>
-    <td>Leverage 3rd Party CAD Files</td>
-    <td style="text-align: center"> </td>
-    <td style="text-align: center">X</td>
-  </tr>
-  <tr>
-    <td>Add Detailed Daylighting Analysis Elements</td>
-    <td style="text-align: center; vertical-align: middle"> </td>
-    <td style="text-align: center; vertical-align: middle">X</td>
-  </tr>
-  <tr>
-    <td>Pugin-specific OS Measures</td>
-    <td style="text-align: center"> </td>
-    <td style="text-align: center">X</td>
-  </tr>
-</table>
-
-<p><em>+ The User may move back and forth between the OS App and the SketchUp Plugin, but is more likely to generate model errors in the process unless they are careful.</em></p>
 <h3 id="building-constructions-and-materials">Building Constructions and Materials</h3>
 <ul>
 <li>Specify default materials for each type of surface and subsurface (exterior walls, windows, floors, etc.) in building</li>
@@ -332,7 +305,7 @@
 <ul>
 <li>Viewing and editing your model in a grid view allows you to see many objects at once and compare settings.</li>
 </ul>
-<p><a href="../../img/features/grid_thumb.png"><img alt="Grid view example" src="../../img/features/grid_thumb.png" /></a></p>
+<p><img alt="Grid view example" src="../../img/features/grid_thumb.png" /></p>
 <h3 id="hvac">HVAC</h3>
 <ul>
 <li>Graphical representation of HVAC systems, zones, and their connections</li>
@@ -479,29 +452,29 @@
 </ul>
 <h3 id="daylighting">Daylighting</h3>
 <ul>
-<li>Add daylighting control points via the SketchUp plugin or OpenStudio Application</li>
+<li>Add daylighting control points via the SketchUp plugin or OpenStudio</li>
 <li>Create interior partitions and glare sensors for modeling daylight analysis with improved accuracy, using the Sketchup Plugin</li>
 <li>Create and configure window shading controls for modeling daylight analysis using the Sketchup plugin</li>
 <li>Insert illuminance map for visualizing daylight analysis using the Sketchup plugin</li>
-<li>Use built-in OpenStudio measure to run daylighting analysis using Radiance, state-of-the-art ray-tracing daylight simulation engine without making a separate model</li>
+<li>Use built-in OpenStudio Measure to run daylighting analysis using Radiance, state-of-the-art ray-tracing daylight simulation engine without making a separate model</li>
 <li>Configure daylight analysis parameters used by radiance simulation</li>
-<li>Lights in the EnergyPlus Model controlled based on daylight available per radiance</li>
+<li>Lights in the EnergyPlus model controlled based on daylight available per radiance</li>
 </ul>
 <h3 id="custom-controls">Custom Controls</h3>
-<p>Within EnergyPlus, advanced controls that are not built-in can be implemented utilizing the <a href="https://energyplus.net/sites/all/modules/custom/nrel_custom/pdfs/pdfs_v9.2.0/EMSApplicationGuide.pdf">EnergyManagementSystem (EMS)</a> suite of objects. This involves defining Sensors and Actuators that interact with building parameters through Programs which are written in the EnergyPlus Runtime Language (ERL), which is based on a common building-controls language. OpenStudio Application supports the creation of EMS programs.</p>
+<p>Within EnergyPlus, advanced controls that are not built-in can be implemented utilizing the <a href="https://energyplus.net/sites/all/modules/custom/nrel_custom/pdfs/pdfs_v9.2.0/EMSApplicationGuide.pdf">EnergyManagementSystem (EMS)</a> suite of objects. This involves defining Sensors and Actuators that interact with building parameters through Programs which are written in the EnergyPlus Runtime Language (ERL), which is based on a common building-controls language. OpenStudio supports the creation of EMS programs.</p>
 <h3 id="location-specific-information">Location-Specific Information</h3>
 <ul>
 <li>Find typical <a href="https://energyplus.net/weather">weather data and ASHRAE design conditions</a> for most locations in the world</li>
 <li>Use actual weather data (AMY) from a variety of vendors/sources</li>
-<li>Store ASHRAE/CEC climate zone to trigger calculations within measures</li>
+<li>Store ASHRAE/CEC climate zone to trigger calculations within Measures</li>
 </ul>
 <h3 id="economics">Economics</h3>
 <ul>
 <li>Full lifecycle costing (NIST Handbook 135 compliant) including built-in EIA fuel escalation rates and inflation</li>
 <li>Adjustable analysis period length</li>
-<li>Add capital, recurring O&amp;M, salvage, and replacement costs to model using measures</li>
+<li>Add capital, recurring O&amp;M, salvage, and replacement costs to model using Measures</li>
 <li>Lifecycle is adjustable per-cost (IE windows can last longer than lamps)</li>
-<li>Add utility rates (which include time-of-use, demand charges, ratchets, seasonal values, etc.) to model using measures</li>
+<li>Add utility rates (which include time-of-use, demand charges, ratchets, seasonal values, etc.) to model using Measures</li>
 </ul>
 <h3 id="import-and-export-options">Import and Export Options</h3>
 <ul>
@@ -532,12 +505,12 @@
 <h3 id="parametric-analysis-using-pat">Parametric Analysis Using <a href="https://github.com/NREL/OpenStudio-PAT/releases">PAT</a></h3>
 <ul>
 <li>OpenStudio Measures provide reliable and repeatable mechanism to apply transforms to models</li>
-<li>Eliminates ambiguity and user error; all rules encapsulated in measure itself</li>
-<li>More than 316 measures available <a href="../../bcl.nrel.gov">online</a> and always growing</li>
-<li>Write measure once and apply to many projects</li>
+<li>Eliminates ambiguity and user error; all rules encapsulated in Measure itself</li>
+<li>More than 316 Measures available <a href="../../bcl.nrel.gov">online</a> and always growing</li>
+<li>Write Measure once and apply to many projects</li>
 <li>Perform complex ECMs, like full HVAC replacement, easily</li>
 <li>Quickly access online and local libraries of measures from drag-and-drop interface</li>
-<li>Edit user inputs to control how measure modifies the model</li>
+<li>Edit user inputs to control how Measure modifies the model</li>
 <li>Create meaningful results, ready for inclusion in reports to design team, building owners, etc.</li>
 </ul>
 <h3 id="qaqc">QAQC</h3>
@@ -564,10 +537,18 @@
 </ul>
 <h3 id="share-modeling-best-practices">Share Modeling Best-Practices</h3>
 <ul>
-<li>Online database called <a href="../../bcl.nrel.gov">BCL</a> (Building Component Library) can be used to share measures</li>
+<li>Online database called BCL (Building Component Library) can be used to share Measures</li>
 <li>BCL can be used to share building components</li>
 <li>Instantaneous world-wide distribution and updating of content</li>
 <li>Allows utilities to ensure uniformity and best-practices across many energy consulting firms</li>
+</ul>
+<h3 id="documentation">Documentation</h3>
+<ul>
+<li>More than 100 YouTube video tutorials</li>
+<li>Interactive PDFs describing each Application</li>
+<li>Measure writing guide</li>
+<li>Lifecycle costing guide</li>
+<li>Documentation of all modeling commands (SDK) online, updated bi-weekly</li>
 </ul>
 
           <div class="footer">

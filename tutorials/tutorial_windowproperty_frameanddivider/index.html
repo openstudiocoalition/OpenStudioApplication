@@ -54,6 +54,10 @@
                 <a href="../../getting_started/getting_started">Installation and Introductory Tutorial</a>
               </li>
             
+              <li>
+                <a href="../../getting_started/about_measures">About Measures</a>
+              </li>
+            
             </ul>
           </li>
           
@@ -72,6 +76,10 @@
               </li>
             
               <li>
+                <a href="../large_scale_analysis">Large Scale Analysis</a>
+              </li>
+            
+              <li>
                 <a href="../radiance_tutorial">Radiance and OpenStudio</a>
               </li>
             
@@ -87,6 +95,10 @@
           <li class="dropdown active">
             <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Advanced Tutorials <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
+            
+              <li>
+                <a href="../utility_rate_tariffs">Utiity Rate Tariffs</a>
+              </li>
             
               <li>
                 <a href="../life_cycle_costing_examples">Life Cycle Cost Analysis</a>
@@ -126,6 +138,34 @@
               </li>
             
               <li>
+                <a href="../../reference/command_line_interface">Command Line Interface</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/parametric_analysis_tool_2">Parametric Analysis Tool Version 2 (PAT) Interface Guide</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/model_objects">OpenStudio Model Objects Overview</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/measure_writing_guide">Measure Writer's Reference Guide</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/measure_code_examples">Measure Code Examples</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/developing_measure_collections">Developing Measure Collections</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/refguide_radiance">OpenStudio-Radiance Reference Guide</a>
+              </li>
+            
+              <li>
                 <a href="../../reference/openstudio_results_measure">OpenStudio Results Measure</a>
               </li>
             
@@ -137,6 +177,14 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Help <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
+            
+              <li>
+                <a href="../../help/training">Find Training</a>
+              </li>
+            
+              <li>
+                <a href="../../help/best_practices">Modeling Best Practices</a>
+              </li>
             
               <li>
                 <a href="../../help/troubleshooting">Troubleshooting</a>
@@ -169,7 +217,7 @@
     <li class="main active"><a href="#create-window-property-frame-and-divider">Create Window Property Frame and Divider</a>
       <ul class="nav">
         
-        <li><a href="#importing-input-data-files-idf-from-the-window-program">Importing Input Data Files (IDF) from the WINDOW program</a></li>
+        <li><a href="#importing-idf-files-from-the-window-program">Importing IDF files from the WINDOW program</a></li>
         
       </ul>
     </li>
@@ -189,18 +237,18 @@
         <div class="col-md-9" role="main">
           <h1>Window Property Frame and Divider</h1>
 
-<p>This tutorial explains how to use the OS:WindowProperty:FrameAndDivider object to study the impact of window frame and divider materials as well as the impact of sill and outside reveal surfaces. The OS:WindowProperty:FrameAndDivider object closely follows the EnergyPlus <a href="http://bigladdersoftware.com/epx/docs/8-2/input-output-reference/page-011.html#windowpropertyframeanddivider">WindowProperty:FrameAndDivider</a> object with only one difference.  The OpenStudio object includes one additional field, Outside Reveal Depth, which the EnergyPlus object does not.  During translation from OpenStudio Application to EnergyPlus, OS:SubSurface vertices are offset by this amount in order to model the additional shading provided by the outside reveal surface.</p>
+<p>This tutorial explains how to use the OS:WindowProperty:FrameAndDivider object to study the impact of window frame and divider materials as well as the impact of sill and outside reveal surfaces. The OS:WindowProperty:FrameAndDivider object closely follows the EnergyPlus <a href="http://bigladdersoftware.com/epx/docs/8-2/input-output-reference/page-011.html#windowpropertyframeanddivider">WindowProperty:FrameAndDivider</a> object with only one difference.  The OpenStudio object includes one additional field, Outside Reveal Depth, which the EnergyPlus object does not.  During translation from OpenStudio to EnergyPlus, OS:SubSurface vertices are offset by this amount in order to model the additional shading provided by the outside reveal surface.</p>
 <h2 id="create-window-property-frame-and-divider">Create Window Property Frame and Divider</h2>
 <p>Window Property Frame and Divider objects can be created using the object inspector in the OpenStudio SketchUp plug-in. The inspector can also be used to edit any properties of the Window Property Frame and Divider object.</p>
-<p><a href="../../img/windowproperty_frameanddivider/windowproperty_frameanddivider1.jpg"><img alt="Add Window Property Frame and Divider" src="../../img/windowproperty_frameanddivider/windowproperty_frameanddivider1.jpg" /></a></p>
-<h3 id="importing-input-data-files-idf-from-the-window-program">Importing Input Data Files (IDF) from the WINDOW program</h3>
-<p>IDFs exported from <a href="http://windows.lbl.gov/software/window/window.html">WINDOW</a> containing Window Property Frame and Divider objects can be imported using the OpenStudio SketchUp plug-in via Extensions&gt;OpenStudio&gt;Import&gt;Import EnergyPlus Idf Constructions.  WINDOW exports two IDF files, a <em>_Avg.idf and a </em>_Spec.idf file. Only the <em>_Avg.idf file may be imported as the MaterialProperty:GlazingSpectralData object in the </em>_Spec.idf file is not yet supported by the OpenStudio Application.</p>
-<p><a href="../../img/windowproperty_frameanddivider/windowproperty_frameanddivider2.jpg"><img alt="Import Window Property Frame and Divider" src="../../img/windowproperty_frameanddivider/windowproperty_frameanddivider2.jpg" /></a></p>
+<p><img alt="Add Window Property Frame and Divider" src="../../img/windowproperty_frameanddivider/windowproperty_frameanddivider1.jpg" /></p>
+<h3 id="importing-idf-files-from-the-window-program">Importing IDF files from the WINDOW program</h3>
+<p>IDF files exported from <a href="http://windows.lbl.gov/software/window/window.html">WINDOW</a> containing Window Property Frame and Divider objects can be imported using the OpenStudio SketchUp plug-in via Extensions&gt;OpenStudio&gt;Import&gt;Import EnergyPlus Idf Constructions.  WINDOW exports two IDF files, a <em>_Avg.idf and a </em>_Spec.idf file. Only the <em>_Avg.idf file may be imported as the MaterialProperty:GlazingSpectralData object in the </em>_Spec.idf file is not yet supported by OpenStudio.</p>
+<p><img alt="Import Window Property Frame and Divider" src="../../img/windowproperty_frameanddivider/windowproperty_frameanddivider2.jpg" /></p>
 <h2 id="apply-window-property-frame-and-divider">Apply Window Property Frame and Divider</h2>
 <p>Once you have a Window Property Frame and Divider object in your model, you can apply it to sub surfaces using the object inspector.  Only exterior windows and glass doors can reference Window Property Frame and Divider objects.</p>
-<p><a href="../../img/windowproperty_frameanddivider/windowproperty_frameanddivider3.jpg"><img alt="Set Window Property Frame and Divider" src="../../img/windowproperty_frameanddivider/windowproperty_frameanddivider3.jpg" /></a></p>
-<p>The Window Property Frame and Divider object can also be applied to all valid sub surfaces in the current selection using the OpenStudio User Script "Set Window Property Frame and Divider" under "Alter or Add Model Elements".</p>
-<p><a href="../../img/windowproperty_frameanddivider/windowproperty_frameanddivider4.jpg"><img alt="Add Window Property Frame and Divider Script" src="../../img/windowproperty_frameanddivider/windowproperty_frameanddivider4.jpg" /></a></p>
+<p><img alt="Set Window Property Frame and Divider" src="../../img/windowproperty_frameanddivider/windowproperty_frameanddivider3.jpg" /></p>
+<p>The Window Property Frame and Divider object can also be applied to all valid sub surfaces in the current selection using the OpenStudio user script "Set Window Property Frame and Divider" under "Alter or Add Model Elements.</p>
+<p><img alt="Add Window Property Frame and Divider Script" src="../../img/windowproperty_frameanddivider/windowproperty_frameanddivider4.jpg" /></p>
 
           <div class="footer">
   <p class="text-center"><a href="https://unmethours.com/questions/scope:all/sort:activity-desc/tags:openstudio/">Get Help</a> | <a href="https://www.openstudio.net/contact">Contact Us</a></p>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Utiity Rate Tariffs - OpenStudio<sup>&reg;</sup> User Docs</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    
+    <link href="../../css/bootstrap-3.3.0.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.2.0.min.css" rel="stylesheet">
+    <link href="../../css/prettify-1.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../.."><img alt="" src="../../img/OS_32x32.png"> OpenStudio<sup>&reg;</sup> User Docs</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <!-- Main navigation -->
+        <ul class="nav navbar-nav">
+        
+          
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Getting Started <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+            
+              <li>
+                <a href="../../getting_started/features">Current Features</a>
+              </li>
+            
+              <li>
+                <a href="../../getting_started/roadmap">Planned Features</a>
+              </li>
+            
+              <li>
+                <a href="../../getting_started/getting_started">Installation and Introductory Tutorial</a>
+              </li>
+            
+              <li>
+                <a href="../../getting_started/about_measures">About Measures</a>
+              </li>
+            
+            </ul>
+          </li>
+          
+        
+          
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Essential Tutorials <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+            
+              <li>
+                <a href="../creating_your_model">Creating Your Model</a>
+              </li>
+            
+              <li>
+                <a href="../running_your_simulation">Running Simulations & Viewing Results</a>
+              </li>
+            
+              <li>
+                <a href="../large_scale_analysis">Large Scale Analysis</a>
+              </li>
+            
+              <li>
+                <a href="../radiance_tutorial">Radiance and OpenStudio</a>
+              </li>
+            
+              <li>
+                <a href="../tutorial_bcl">Building Component Library</a>
+              </li>
+            
+            </ul>
+          </li>
+          
+        
+          
+          <li class="dropdown active">
+            <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Advanced Tutorials <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+            
+              <li class="active">
+                <a href=".">Utiity Rate Tariffs</a>
+              </li>
+            
+              <li>
+                <a href="../life_cycle_costing_examples">Life Cycle Cost Analysis</a>
+              </li>
+            
+              <li>
+                <a href="../tutorial_gbxmlimport">Import gbXML</a>
+              </li>
+            
+              <li>
+                <a href="../tutorial_shadingcontrols">Shading Controls</a>
+              </li>
+            
+              <li>
+                <a href="../tutorial_windowproperty_frameanddivider">Window Property Frame and Divider</a>
+              </li>
+            
+            </ul>
+          </li>
+          
+        
+          
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Reference <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+            
+              <li>
+                <a href="../../reference/openstudio_application_interface">OpenStudio Application Interface Guide</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/sketchup_plugin_interface">SketchUp Plug-in Interface Guide</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/geometry_editor">FloorspaceJS</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/command_line_interface">Command Line Interface</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/parametric_analysis_tool_2">Parametric Analysis Tool Version 2 (PAT) Interface Guide</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/model_objects">OpenStudio Model Objects Overview</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/measure_writing_guide">Measure Writer's Reference Guide</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/measure_code_examples">Measure Code Examples</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/developing_measure_collections">Developing Measure Collections</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/refguide_radiance">OpenStudio-Radiance Reference Guide</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/openstudio_results_measure">OpenStudio Results Measure</a>
+              </li>
+            
+            </ul>
+          </li>
+          
+        
+          
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Help <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+            
+              <li>
+                <a href="../../help/training">Find Training</a>
+              </li>
+            
+              <li>
+                <a href="../../help/best_practices">Modeling Best Practices</a>
+              </li>
+            
+              <li>
+                <a href="../../help/troubleshooting">Troubleshooting</a>
+              </li>
+            
+              <li>
+                <a href="../../help/software_license">Software License</a>
+              </li>
+            
+            </ul>
+          </li>
+          
+        
+        </ul>
+
+        <!-- Search, Navigation and Repo links -->
+        <ul class="nav navbar-nav navbar-right">
+        
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="bs-docs-sidebar hidden-print affix well" role="complementary">
+  <ul class="nav">
+  
+    <li class="main active"><a href="#eda-program-tariffs">EDA Program Tariffs</a>
+      <ul class="nav">
+        
+      </ul>
+    </li>
+  
+    <li class="main"><a href="#flat-tariffs">Flat Tariffs</a>
+      <ul class="nav">
+        
+      </ul>
+    </li>
+  
+    <li class="main"><a href="#block-tariffs">Block Tariffs</a>
+      <ul class="nav">
+        
+      </ul>
+    </li>
+  
+    <li class="main"><a href="#time-and-date-dependent-tariffs">Time and Date Dependent Tariffs</a>
+      <ul class="nav">
+        
+      </ul>
+    </li>
+  
+    <li class="main"><a href="#custom-tariff-solutions">Custom Tariff Solutions</a>
+      <ul class="nav">
+        
+      </ul>
+    </li>
+  
+  </ul>
+  <div class="home-btn">
+    <a class="btn btn-default" role="button" href="https://www.openstudio.net">Back to OpenStudio<sup>&reg;</sup></a>
+  </div>
+</div>
+        </div>
+        <div class="col-md-9" role="main">
+          <h1>Adding Utility Rate Tariffs</h1>
+
+<p>Typically, life cycle cost analyses compare current capital costs required to implement energy conservation measures with future energy cost savings over the analysis period. In order to compute future energy cost savings the model must include information about the utility rate tariffs which apply to the project. Higher energy costs will give energy conservation measures a better pay back relative to their initial costs.</p>
+<p>Currently the OpenStudio Application doesn't have a built in interface to add utility rates. Utility rates are added by including an EnergyPlus measure in your workflow as an always run measure. If you are participating in a Utility Energy Design Assistance Program then your utility has likely placed a custom measure on the <a href="https://bcl.nrel.gov/">Building Component Library (BCL)</a> with valid utility rate structures. The "EDA Program Tariffs" section below covers this use case. The rest of the use cases cover users who want to create their own tariffs vs. using someone else's pre-made tariffs. Most of the measures have an argument for the "Demand Window Length". The measures confirm that the demand window length is in sync with EnergyPlus's simulation timestep.</p>
+<p>Currently the EDA measures have tariffs for electricity and natural gas. The non-EDA measures have tariffs for electricity, natural gas, water, district heating, and district cooling. if you are running an early design simulation using Ideal air loads, your heating and cooling loads will show up ad district heating and cooling. The naming of the non-EDA measures relate to how electricity tariffs are handled. All other fuels are flat tariffs. Demand charges are only included for electricity.</p>
+<h2 id="eda-program-tariffs">EDA Program Tariffs</h2>
+<p>The arguments on an EDA based tariff measure are pretty simple. The two choices are choosing electric and gas tariffs from a pre-populated list. Currently the demand window length is hard coded to correctly match each rate. Refer to the utility's rate information or look in the "resources" directory of the measure if you want to see what goes into each tariff option.</p>
+<p><img alt="Xcel Energy EDA Tariff selection measure inputs" src="../../img/tariffs/tariffs_xcel.png" /></p>
+<p><em>Above: Screenshot of Xcel Energy EDA Tariff selection measure inputs.</em></p>
+<h2 id="flat-tariffs">Flat Tariffs</h2>
+<p>The flat tariff measure is the most basic non-EDA tariff measures. It has a single argument for each fuel type to define a flat tariff. It doesn't have an electricity demand change.</p>
+<p><img alt="Flat Tariff measure inputs" src="../../img/tariffs/tariffs_flat.png" /></p>
+<p><em>Above: Screenshot of Flat Tariff measure inputs.</em></p>
+<h2 id="block-tariffs">Block Tariffs</h2>
+<p>The block tariff is similar to the flat tariff, but it allows you to define multiple blocks where the rate increases as you move into another block of consumption. There is one argument that expects comma separated values for the consumption blocks. The next argument expects comma separated values for the corresponding rates for each block described in the first measure. You should have the same number of values in each of the first two arguments. The next field defines a rate when you have exceeded the last block defined in the earlier arguments. After this you have arguments for flat rates for other fuels.</p>
+<p><img alt="Block Tariff measure inputs" src="../../img/tariffs/tariffs_block.png" /></p>
+<p><em>Above: Screenshot of Block Tariff measure inputs.</em></p>
+<h2 id="time-and-date-dependent-tariffs">Time and Date Dependent Tariffs</h2>
+<p>The time and date dependent tariff has four possible rates for electricity consumption. There are on and off peak summer rates, and on and off non-summer rates. The time of day for peak and the dates for summer are user configurable. For electricity demand charge, only the season is taken into account, not the time of day. The rest of the fuels are flat rates.</p>
+<p><img alt="Time and Date Dependant Tariff measure inputs" src="../../img/tariffs/tariffs_time_and_date.png" /></p>
+<p><em>Above: Screenshot of Time and Date Dependant Tariff measure inputs.</em></p>
+<h2 id="custom-tariff-solutions">Custom Tariff Solutions</h2>
+<p>If none of these tariff examples meet your needs we have created a generic tariff measure. You can save your own IDF snippets into the "resources" directory for this measure. Each file should have one UtilityCost:Tariff object, and any associated objects that refer to it such as UtilityCost:Charge:Simple or Schedule:Compact. The Measure will create a user argument for each type of meter referred to by UtilityCost:Tariff objects in the directory. You can then choose one tariff object to be imported for each meter. It has been pre-loaded with a number of examples from the <a href="http://nrel.github.io/EnergyPlus/InputOutputReference/03-Economics/#utilitycosttariff-examples">EnergyPlus Input/Output Reference</a></p>
+<p><img alt="Generic Tariff measure inputs" src="../../img/tariffs/tariffs_generic.png" /></p>
+<p><em>Above: Screenshot of Generic Tariff measure inputs.</em></p>
+
+          <div class="footer">
+  <p class="text-center"><a href="https://unmethours.com/questions/scope:all/sort:activity-desc/tags:openstudio/">Get Help</a> | <a href="https://www.openstudio.net/contact">Contact Us</a></p>
+  <p class="text-center"><a href="https://www.openstudio.net">OpenStudio</a><sup>&reg;</sup> is developed in collaboration by NREL, ANL, LBNL, ORNL, and PNNL.</p>
+  <p class="text-center">OpenStudio<sup>&reg;</sup> is a registered trademark of the Alliance for Sustainable Energy, LLC.</p>
+  <p class="text-center"><a href="http://www.nrel.gov">NREL</a> is a National Laboratory of the U.S. Department of Energy, Office of Energy Efficiency and Renewable Energy, operated by the Alliance for Sustainable Energy, LLC.</p>
+  <p class="text-center"><a href="#">Back to Top</a></p>
+</div>
+        </div>
+      </div>
+    </div>
+    
+
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.0.min.js"></script>
+    <script src="../../js/bootstrap-hover-dropdown-2.0.11.min.js"></script>
+    <script src="../../js/prettify-1.0.min.js"></script>
+    <script src="../../js/base.js"></script>
+  </body>
+</html>

@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Command Line Interface - OpenStudio<sup>&reg;</sup> User Docs</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    
+    <link href="../../css/bootstrap-3.3.0.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.2.0.min.css" rel="stylesheet">
+    <link href="../../css/prettify-1.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../.."><img alt="" src="../../img/OS_32x32.png"> OpenStudio<sup>&reg;</sup> User Docs</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <!-- Main navigation -->
+        <ul class="nav navbar-nav">
+        
+          
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Getting Started <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+            
+              <li>
+                <a href="../../getting_started/features">Current Features</a>
+              </li>
+            
+              <li>
+                <a href="../../getting_started/roadmap">Planned Features</a>
+              </li>
+            
+              <li>
+                <a href="../../getting_started/getting_started">Installation and Introductory Tutorial</a>
+              </li>
+            
+              <li>
+                <a href="../../getting_started/about_measures">About Measures</a>
+              </li>
+            
+            </ul>
+          </li>
+          
+        
+          
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Essential Tutorials <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+            
+              <li>
+                <a href="../../tutorials/creating_your_model">Creating Your Model</a>
+              </li>
+            
+              <li>
+                <a href="../../tutorials/running_your_simulation">Running Simulations & Viewing Results</a>
+              </li>
+            
+              <li>
+                <a href="../../tutorials/large_scale_analysis">Large Scale Analysis</a>
+              </li>
+            
+              <li>
+                <a href="../../tutorials/radiance_tutorial">Radiance and OpenStudio</a>
+              </li>
+            
+              <li>
+                <a href="../../tutorials/tutorial_bcl">Building Component Library</a>
+              </li>
+            
+            </ul>
+          </li>
+          
+        
+          
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Advanced Tutorials <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+            
+              <li>
+                <a href="../../tutorials/utility_rate_tariffs">Utiity Rate Tariffs</a>
+              </li>
+            
+              <li>
+                <a href="../../tutorials/life_cycle_costing_examples">Life Cycle Cost Analysis</a>
+              </li>
+            
+              <li>
+                <a href="../../tutorials/tutorial_gbxmlimport">Import gbXML</a>
+              </li>
+            
+              <li>
+                <a href="../../tutorials/tutorial_shadingcontrols">Shading Controls</a>
+              </li>
+            
+              <li>
+                <a href="../../tutorials/tutorial_windowproperty_frameanddivider">Window Property Frame and Divider</a>
+              </li>
+            
+            </ul>
+          </li>
+          
+        
+          
+          <li class="dropdown active">
+            <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Reference <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+            
+              <li>
+                <a href="../openstudio_application_interface">OpenStudio Application Interface Guide</a>
+              </li>
+            
+              <li>
+                <a href="../sketchup_plugin_interface">SketchUp Plug-in Interface Guide</a>
+              </li>
+            
+              <li>
+                <a href="../geometry_editor">FloorspaceJS</a>
+              </li>
+            
+              <li class="active">
+                <a href=".">Command Line Interface</a>
+              </li>
+            
+              <li>
+                <a href="../parametric_analysis_tool_2">Parametric Analysis Tool Version 2 (PAT) Interface Guide</a>
+              </li>
+            
+              <li>
+                <a href="../model_objects">OpenStudio Model Objects Overview</a>
+              </li>
+            
+              <li>
+                <a href="../measure_writing_guide">Measure Writer's Reference Guide</a>
+              </li>
+            
+              <li>
+                <a href="../measure_code_examples">Measure Code Examples</a>
+              </li>
+            
+              <li>
+                <a href="../developing_measure_collections">Developing Measure Collections</a>
+              </li>
+            
+              <li>
+                <a href="../refguide_radiance">OpenStudio-Radiance Reference Guide</a>
+              </li>
+            
+              <li>
+                <a href="../openstudio_results_measure">OpenStudio Results Measure</a>
+              </li>
+            
+            </ul>
+          </li>
+          
+        
+          
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Help <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+            
+              <li>
+                <a href="../../help/training">Find Training</a>
+              </li>
+            
+              <li>
+                <a href="../../help/best_practices">Modeling Best Practices</a>
+              </li>
+            
+              <li>
+                <a href="../../help/troubleshooting">Troubleshooting</a>
+              </li>
+            
+              <li>
+                <a href="../../help/software_license">Software License</a>
+              </li>
+            
+            </ul>
+          </li>
+          
+        
+        </ul>
+
+        <!-- Search, Navigation and Repo links -->
+        <ul class="nav navbar-nav navbar-right">
+        
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="bs-docs-sidebar hidden-print affix well" role="complementary">
+  <ul class="nav">
+  
+    <li class="main active"><a href="#command-overview">Command Overview</a>
+      <ul class="nav">
+        
+      </ul>
+    </li>
+  
+    <li class="main"><a href="#measure-subcommand">Measure Subcommand</a>
+      <ul class="nav">
+        
+      </ul>
+    </li>
+  
+    <li class="main"><a href="#run-subcommand">Run Subcommand</a>
+      <ul class="nav">
+        
+      </ul>
+    </li>
+  
+    <li class="main"><a href="#osw-structure">OSW Structure</a>
+      <ul class="nav">
+        
+        <li><a href="#seed-file">Seed File</a></li>
+        
+        <li><a href="#weather-file">Weather File</a></li>
+        
+        <li><a href="#workflow-steps">Workflow Steps</a></li>
+        
+      </ul>
+    </li>
+  
+    <li class="main"><a href="#environment-variables">Environment Variables</a>
+      <ul class="nav">
+        
+      </ul>
+    </li>
+  
+    <li class="main"><a href="#loading-custom-gems">Loading Custom Gems</a>
+      <ul class="nav">
+        
+      </ul>
+    </li>
+  
+    <li class="main"><a href="#using-the-ruby-bindings-instead">Using the Ruby bindings instead</a>
+      <ul class="nav">
+        
+      </ul>
+    </li>
+  
+    <li class="main"><a href="#loading-custom-gems-with-bundler-in-the-cli">Loading Custom Gems with Bundler in the CLI</a>
+      <ul class="nav">
+        
+      </ul>
+    </li>
+  
+    <li class="main"><a href="#calling-the-cli-from-a-separate-ruby-application-with-its-own-gemfile">Calling the CLI from a separate Ruby application with its own Gemfile</a>
+      <ul class="nav">
+        
+      </ul>
+    </li>
+  
+  </ul>
+  <div class="home-btn">
+    <a class="btn btn-default" role="button" href="https://www.openstudio.net">Back to OpenStudio<sup>&reg;</sup></a>
+  </div>
+</div>
+        </div>
+        <div class="col-md-9" role="main">
+          <h1>OpenStudio Command Line Interface</h1>
+
+<p>The OpenStudio Command Line Interface (CLI) is a self-contained executable which includes everything needed to apply OpenStudio Measures to an OpenStudio Model and run an EnergyPlus simulation.  The CLI is only avaiable in OpenStudio version 2.0 and higher. The CLI contains a full OpenStudio Ruby environment, the list of Ruby Gems available in each version of OpenStudio can be found <a href="https://github.com/NREL/OpenStudio/wiki/OpenStudio-Version-Compatibility-Matrix">here</a>.</p>
+<p>This document provides an overview of the most important features of the CLI, it is not meant to be an exhaustive reference.  For an exhaustive list of features available in the CLI please refer to the command line output of the <code>--help</code> command.  For a complete list of the properties available in the OSW file format please refer to the <a href="https://raw.githubusercontent.com/NREL/OpenStudio-workflow-gem/develop/spec/schema/osw_output.json">OSW JSON schema</a>.  For a complete description of the WorkflowJSON class please refer to the <a href="https://github.com/NREL/OpenStudio/tree/develop/openstudiocore/src/utilities/filetypes/WorkflowJSON.hpp">documentation</a>.</p>
+<h1 id="command-overview">Command Overview</h1>
+<p>The CLI is executed by calling the OpenStudio executable from the command line with a set of command line arguments.  Calling the CLI with no arguments (such as when double-clicking the executable) causes the CLI to print a help message and then exit.  Several switches which control program behavior may be passed immediately following the OpenStudio executable.  Switches often have both a short form and a long form for convienence. Multiple program level switches may be combined.  Program level switches include:</p>
+<p>The <code>-h</code> or <code>--help</code> switches print the help message:</p>
+<pre><code>openstudio.exe --help
+</code></pre>
+
+<p>The <code>-I</code> or <code>--include</code> switches can be used to add additional directories to the Ruby $LOAD_PATH (this switch may be used more than once):</p>
+<pre><code>openstudio.exe --include /path/to/add/ --include /another/path/to/add
+</code></pre>
+
+<p>The <code>--gem_path</code> switch can be used to load gems from a location on the user's disk (this switch may be used more than once):</p>
+<pre><code>openstudio.exe --gem_path /home/gems1 --include /home/gems2
+</code></pre>
+
+<p>The <code>--gem_home</code> switch can be used to set the directory to install gems to (note that the <code>gem_install</code> command does not yet work):</p>
+<pre><code>openstudio.exe --gem_home /home/gems
+</code></pre>
+
+<p>The <code>--verbose</code> switch can be used to print additional information for debugging:</p>
+<pre><code>openstudio.exe --verbose
+</code></pre>
+
+<p>Program level switches (if any) are followed by a subcommand which directs the program to perform a particular function.  These subcommands are explained in further detail below.</p>
+<h1 id="measure-subcommand">Measure Subcommand</h1>
+<p>The <code>measure</code> subcommand is used to query OpenStudio Measures on disk.  The following arguments may be passed to the <code>measure</code> subcommand.</p>
+<p>The <code>-h</code> switch prints help specific to the <code>measure</code> subcommand:</p>
+<pre><code>openstudio.exe measure -h
+</code></pre>
+
+<p>The <code>-t</code> or <code>--update_all</code> switches process all measures in a given directory and updates their measure.xml files if updates to their content are detected.  If present, each measure's README.md.erb file will be configured and saved to a README.md file. Information about the measures is printed to standard out in JSON format:</p>
+<pre><code>openstudio.exe measure --update_all /path/to/measures/
+</code></pre>
+
+<p>The <code>-u</code> or <code>--update</code> switches process a single measure in a given directory and updates its measure.xml file if updates to the content are detected. If present, the measure's README.md.erb file will be configured and saved to a README.md file. Information about the measure is printed to standard out in JSON format:</p>
+<pre><code>openstudio.exe measure --update /path/to/measure/
+</code></pre>
+
+<p>The <code>-a</code> or <code>--compute_arguments</code> switches process a single measure in a given directory and updates its measure.xml file if updates to the content are detected. Information about the measure, including model specific arguments, is printed to standard out in JSON format:</p>
+<pre><code>openstudio.exe measure --compute_arguments /path/to/model.osm /path/to/measure/
+</code></pre>
+
+<p>or for an EnergyPlus Measure:</p>
+<pre><code>openstudio.exe measure --compute_arguments /path/to/model.idf /path/to/measure/
+</code></pre>
+
+<p>The <code>-r</code> or <code>--run_tests</code> will find all measures the given directory, run their associated tests, and save results to a dashboard under a <code>test_results</code> directory in the measure directory:</p>
+<pre><code>openstudio.exe measure --run_tests /path/to/measure_dir/
+</code></pre>
+
+<h1 id="run-subcommand">Run Subcommand</h1>
+<p>The <code>run</code> subcommand is used to load an OpenStudio Model, apply a series of OpenStudio Model Measures, translate to EnergyPlus IDF, apply a series of OpenStudio EnergyPlus Measures, run an EnergyPlus simulation on the resulting model, and finally apply a series of OpenStudio Reporting Measures. The OpenStudio Workflow (OSW) file format is used to describe which OpenStudio Measures to apply to the model and what arguments to pass to each measure.  The OSW format is explained in the following section.</p>
+<p>The <code>-h</code> switch prints help specific to the <code>run</code> subcommand:</p>
+<pre><code>openstudio.exe run -h
+</code></pre>
+
+<p>The <code>-w</code> or <code>--workflow</code> switches run the complete simulation workflow as described in an OSW file:</p>
+<pre><code>openstudio.exe run --workflow /path/to/workflow.osw
+</code></pre>
+
+<p>The <code>--debug</code> switch can be used to include additional outputs for debugging failing workflows and does not clean up the run directory:</p>
+<pre><code>openstudio.exe run --debug --workflow /path/to/workflow.osw
+</code></pre>
+
+<p>The <code>-m</code> or <code>--measures_only</code> switches run only the OpenStudio Model and EnergyPlus Measures but do not run the EnergyPlus simulation or OpenStudio Reporting Measures in an OSW file:</p>
+<pre><code>openstudio.exe run --measures_only --workflow /path/to/workflow.osw
+</code></pre>
+
+<p>The <code>-p</code> or <code>--postprocess_only</code> switches do not run the OpenStudio Model or EnergyPlus Measures, or EnergyPlus simulation in an OSW file.  Existing simulation results are loaded and only OpenStudio Reporting Measures are run, this is useful for generating new reports without re-running simulations:</p>
+<pre><code>openstudio.exe run --postprocess_only --workflow /path/to/workflow.osw
+</code></pre>
+
+<h1 id="osw-structure">OSW Structure</h1>
+<p>The OpenStudio Workflow (OSW) format is a JSON file format that describes a simulation workflow.  In an OpenStudio Workflow, a seed OpenStudio Model is loaded.  OpenStudio Model Measures are applied to the seed model.  After these measures, the OpenStudio Model is translated to EnergyPlus IDF format.  Once in EnergyPlus IDF format, OpenStudio EnergyPlus Measures are applied.  After these measures, the EnergyPlus simulation is executed.  Once the EnergyPlus simulation is complete, OpenStudio Reporting Measures are applied which generate reports.  An error at any point in the workflow will halt the workflow.  Once the workflow is completed (successfully or unsuccessfully) an output OSW file is written which contains output related to running the workflow.</p>
+<p>An example OSW project is included in the OpenStudio installer under './Examples/compact_osw'. To run this example, copy it to a user writable location and then:</p>
+<p>/path/to/openstudio.exe run -w /path/to/compact.osw</p>
+<p>The OSW file format is described in JSON schema format <a href="https://raw.githubusercontent.com/NREL/OpenStudio-workflow-gem/develop/spec/schema/osw_output.json">here</a>.</p>
+<p>The OpenStudio API includes the class <a href="https://github.com/NREL/OpenStudio/tree/develop/openstudiocore/src/utilities/filetypes/WorkflowJSON.hpp">WorkflowJSON</a> which is able read, modify, and write the OSW file format.  The WorkflowJSON class also includes features for finding measures and files associated with a simulation workflow.</p>
+<p>The WorkflowJSON associated with an OpenStudio Model can be accessed using <code>model.workflowJSON</code>.  The WorkflowJSON object can also be accessed from the OSRunner object within a measure using <code>runner.workflow</code>.  Within the context of a measure, the WorkflowJSON object can be used to find files and measures associated with the simulation.  It can also be used to tell which OpenStudio Measures will be run during the workflow, what arguments they will be passed, and capture output from previously run measures.  However, during the course of a simulation workflow the OSW associated with an OpenStudio Model or OSRunner cannot be altered.</p>
+<p>An example OSW is shown below, the meaning of key terms is explained in more detail later in this section:</p>
+<pre><code class="json">{
+  &quot;seed_file&quot;: &quot;baseline.osm&quot;,
+  &quot;weather_file&quot;: &quot;USA_CO_Golden-NREL.724666_TMY3.epw&quot;,
+  &quot;steps&quot;: [
+    {
+      &quot;measure_dir_name&quot;: &quot;IncreaseWallRValue&quot;,
+      &quot;arguments&quot;: {}
+    },
+    {
+      &quot;measure_dir_name&quot;: &quot;IncreaseRoofRValue&quot;,
+      &quot;arguments&quot;: {
+        &quot;r_value&quot;: 45
+      }
+    },
+    {
+      &quot;measure_dir_name&quot;: &quot;SetEplusInfiltration&quot;,
+      &quot;arguments&quot;: {
+        &quot;flowPerZoneFloorArea&quot;: 10.76
+      }
+    },
+    {
+      &quot;measure_dir_name&quot;: &quot;DencityReports&quot;,
+      &quot;arguments&quot;: {
+        &quot;output_format&quot;: &quot;CSV&quot;
+      }
+    }
+  ]
+}
+</code></pre>
+
+<h2 id="seed-file">Seed File</h2>
+<p>The seed file is the file name of the OpenStudio Model to be loaded at the beginning of the simulation workflow.  The seed model may be empty or the memeber may be missing, in this case a newly constructed OpenStudio Model is passed to the first OpenStudio Model Measure.  The seed model is found using the logic documented for <code>WorkflowJSON::findFile</code>.</p>
+<h2 id="weather-file">Weather File</h2>
+<p>The weather file is the file name of the EnergyPlus Weather (EPW) file loaded at the beginning of the simulation workflow.  The weather file may be empty or the memeber may be missing.  The weather file is found using the logic documented for <code>WorkflowJSON::findFile</code>.  The following logic applies to the weather file during a simulation workflow:</p>
+<ol>
+<li>If a weather file is specified in the OSW, that file replaces any weather file specified in the seed OpenStudio Model before measure processing begins.</li>
+<li>During OpenStudio Model Measure processing, the weather file may be changed by altering the WeatherFile object in the OpenStudio Model.</li>
+<li>On translation to EnergyPlus, the weather file referenced in the OSM is found using WorkflowJSON.findFile and copied to in.epw in the run directory.
+EnergyPlus measures may change the weather file by copying files on top of in.epw.</li>
+</ol>
+<h2 id="workflow-steps">Workflow Steps</h2>
+<p>Each step listed in the OSW file describes an OpenStudio Measure to apply.  Measures are applied in order and must progress from OpenStudio Model Measures to OpenStudio EnergyPlus Measures to OpenStudio Reporting Measures.  Each step lists a <code>measure_dir_name</code> which is the directory name of an OpenStudio Measure to apply. Measures are found at run time according to logic in <code>WorkflowJSON::findMeasure</code>.  Each step specifies arguments to be passed to the measure, the measure argument's name is the key and the value to pass is the measure.  Optional arguments may be ommitted, default values will be used in this case.  The value passed to choice arguments may be either a valid choice value or a valid choice value display name.</p>
+<h1 id="environment-variables">Environment Variables</h1>
+<p>The OpenStudio Command Line Interface can be configured with several environment variables.  In cases where a value can be configured with either a command line switch or an environment variable, the command line switch will take precedence. Custom environment variables configurations do not impact local or remote PAT runs.</p>
+<p>The <code>ENERGYPLUS_EXE_PATH</code> environment variable can be used to configure the CLI to use a different version of the EnergyPlus engine than the one OpenStudio is installed with:</p>
+<p>Windows</p>
+<pre><code>set ENERGYPLUS_EXE_PATH=/path/to/EnergyPlus.exe
+</code></pre>
+
+<p>Unix</p>
+<pre><code>export ENERGYPLUS_EXE_PATH=/path/to/energyplus
+</code></pre>
+
+<p>The <code>RUBYLIB</code> environment variable can be used to configure the CLI to require Ruby files from locations on the user's disk. Locations passed using the <code>--include</code> switch take precedence over the paths found in this environment variable:</p>
+<p>Windows</p>
+<pre><code>set RUBYLIB=/home/git/project;/home/git/project/app/helpers
+</code></pre>
+
+<p>Unix</p>
+<pre><code>export RUBYLIB=/home/git/project:/home/git/project/app/helpers
+</code></pre>
+
+<p>The <code>GEM_PATH</code> environment variable can be used to configure the CLI to load gems from a location on the user's disk. Locations passed using the <code>--gem_path</code> switch take precedence over the paths found in this environment variable:</p>
+<p>Windows</p>
+<pre><code>set GEM_PATH=/home/gems1;/home/gems2
+</code></pre>
+
+<p>Unix</p>
+<pre><code>export GEM_PATH=/home/gems1:/home/gems2
+</code></pre>
+
+<p>The <code>GEM_HOME</code> environment variable can be used to configure the CLI to install gems to a location on the user's disk. The location passed using the <code>--gem_home</code> switch takes precedence over the path found in this environment variable (note that the <code>gem_install</code> command does not yet work):</p>
+<p>Windows</p>
+<pre><code>set GEM_HOME=/home/gems
+</code></pre>
+
+<p>Unix</p>
+<pre><code>export GEM_HOME=/home/gems
+</code></pre>
+
+<p>These same environment variables apply when requiring <code>openstudio.rb</code> from system ruby.  Note, that requiring <code>openstudio.rb</code> from system ruby does not bring in any of the default gems that are embedded inside the CLI (i.e. the <code>openstudio-standards</code> gem).  You must install these gems separately to ensure they are available when using system ruby.  The standard way to do this is with <a href="http://bundler.io/">Bundler</a>.  A Gemfile is included in the Ruby directory of the OpenStudio installation, this can be used as a reference when setting up your own Gemfile to ensure that gems are compatible with the version of OpenStudio.</p>
+<h1 id="loading-custom-gems">Loading Custom Gems</h1>
+<p>Developers commonly need to be able to override the version of a gem embedded in the OpenStudio CLI with one that they are working on.  Additionally, measure writers may wish to use gems that are not distributed with the OpenStudio CLI.  Neither of these use cases are an issue when using system ruby as the OpenStudio ruby bindings (i.e. <code>openstudio.rb</code>) do not have embedded gems, bundler can be used to specify gem versions in this case.  When using the CLI there are two ways to override an embedded gem or provide access to another gem.  The first is to use the <code>--include</code> switch to add the directory containing the primary gem file (e.g. the directory containing <code>openstudio-standards.rb</code>) to the ruby load path. The second is to install the gem to your system location, then use the <code>--gem_path</code> switch to include this location (e.g. <code>C:\ruby-2.2.4-x64-mingw32\lib\ruby\gems\2.2.0\</code>). Note that the gem path directory should have <code>specifications</code>, <code>gems</code>, and other subdirectories in it.  Also, note that when using this second approach, a system gem will only override the embedded gem if the version is equal or greater to the embedded gem and the major version is the same.  It can be useful to use the <code>--verbose</code> and <code>-e</code> switches to print some information that can verify the correct version of the gem is being loaded:</p>
+<pre><code>openstudio --verbose -I \openstudio-standards\openstudio-standards\lib\ -e &quot;require 'openstudio-standards'&quot; -e &quot;puts OpenstudioStandards::VERSION&quot;
+</code></pre>
+
+<pre><code>openstudio --verbose --gem_path C:\ruby-2.2.4-x64-mingw32\lib\ruby\gems\2.2.0\ -e &quot;require 'openstudio-standards'&quot; -e &quot;puts OpenstudioStandards::VERSION&quot;
+</code></pre>
+
+<h1 id="using-the-ruby-bindings-instead">Using the Ruby bindings instead</h1>
+<p>The OpenStudio CLI is suggested for most users.  However, there are some cases where the OpenStudio Ruby bindings can be used directly.  The OpenStudio CLI has a Ruby interpreter built directly into it.  To use the OpenStudio Ruby bindings you must install a Ruby interpreter manually, the version of Ruby installed must match the version the OpenStudio Ruby bindings were built against as described in the <a href="https://github.com/NREL/OpenStudio/wiki/OpenStudio-Version-Compatibility-Matrix">OpenStudio Version Compatibility Matrix</a>. Compatible Ruby versions can be downloaded (for Windows)[https://rubyinstaller.org/downloads/archives/] and (for Mac)[http://rvm.io/]. Ruby can be installed on Ubunutu using <code>apt-get install ruby2.2</code>.</p>
+<p><em>Ruby gems with native MinGW extensions (the default on Windows) are not compatible with the OpenStudio CLI which is built against the MSWin Ruby runtime.  These gems can only be used with the OpenStudio Ruby bindings using the MinGW Ruby runtime.</em></p>
+<p>When using the OpenStudio CLI, the OpenStudio Ruby bindings and a number of other Ruby Gems are automatically loaded when the CLI is invoked.  When using the OpenStudio Ruby bindings these dependencies must be manually configured and explicitly loaded with require statements.  The best way to do manage your Ruby gems is with a <a href="http://bundler.io/gemfile.html">Gemfile</a> and <a href="http://bundler.io/">Bundler</a>.  A Gemfile specifies the versions of Ruby gems to use when running your application.  The Bundler gem is used to install and manage these gems, it can also be used to invoke Ruby with the correct path to all gems.  To install Bundler, first install Ruby, make sure the correct version of Ruby is in your path, then:</p>
+<pre><code>gem install bundler
+</code></pre>
+
+<p>Next, write a Gemfile that specifies all dependencies for your application.  Gemfiles corresponding to the dependencies for OpenStudio releases may be found in the <a href="https://github.com/NREL/OpenStudio/wiki/OpenStudio-Version-Compatibility-Matrix">OpenStudio Version Compatibility Matrix</a> and used as a starting point.  Note, you may want to relax or remove the Bundler gem dependency if you are using a different version of Bundler.  Place your Gemfile in a directory specific to your application and run:</p>
+<pre><code>bundle install
+bundle update
+</code></pre>
+
+<p>To run a Ruby script with the Ruby gems specified in your Gemfile, call <code>bundle exec</code> before invoking Ruby in the same directory as your Gemfile:</p>
+<pre><code>bundle update ruby my_script.rb
+</code></pre>
+
+<p>If you update your Gemfile simply do:</p>
+<pre><code>bundle update
+</code></pre>
+
+<p>Now you can run any Ruby script with the OpenStudio Ruby bindings and other Ruby gems of your choice.  Note that the OpenStudio Ruby bindings are not packaged as a Ruby gem so the version of the OpenStudio Ruby bindings is not specified in the Gemfile.  Instead, the version of the OpenStudio Ruby bindings loaded can be controlled using the <code>-I</code> Ruby command line option.  You may use the <code>openstudio_cli.rb</code> Ruby script with all of the same command line options as the OpenStudio CLI described above.</p>
+<pre><code>bundle exec ruby -I c:\openstudio-2.4.0\Ruby\ c:\openstudio-2.4.0\Ruby\openstudio_cli.rb run -w in.osw
+</code></pre>
+
+<h1 id="loading-custom-gems-with-bundler-in-the-cli">Loading Custom Gems with Bundler in the CLI</h1>
+<p>As of OpenStudio 2.7.0, the CLI can load a pre-made gem bundle made with Bundler.  As with the Ruby bindings, a Ruby interpreter must be installed manually along with the Bundler gem.  Once this is done, a bundle can be made by executing the following in a directory with your Gemfile:</p>
+<pre><code>bundle install --path /path/to/gem/bundle
+</code></pre>
+
+<p>The <code>--path</code> argument above tells Bundler where to store your bundled gems.  On Windows, it may also be required to run the following command to install a list of gems compatible with the OpenStudio CLI:</p>
+<pre><code>bundle lock --add_platform ruby
+</code></pre>
+
+<p><em>Ruby gems with native MinGW extensions (the default on Windows) are not compatible with the OpenStudio CLI which is built against the MSWin Ruby runtime.  These gems can only be used with the OpenStudio Ruby bindings using the MinGW Ruby runtime.</em></p>
+<p>Once these steps are complete, you can execute the OpenStudio CLI with the following command line switches (both switches below must be present when using pre-made gem bundles in the CLI):</p>
+<p>The <code>--bundle</code> switch is used to point the OpenStudio CLI to your Gemfile, the <code>BUNDLE_GEMFILE</code> environment variable may also be set but is overridden by the command line switch.</p>
+<p>The <code>--bundle_path</code> switch is used to point the OpenStudio CLI to your premade bundle, the <code>BUNDLE_PATH</code> environment variable may also be set but is overridden by the command line switch.</p>
+<p>The <code>--bundle_without</code> switch is used to tell the OpenStudio CLI not to load gems in specific groups, the <code>BUNDLE_WITHOUT</code> environment variable may also be set but is overridden by the command line switch.  The argument to this switch is a space separated list of groups for bundler to exclude. Surround multiple groups with quotes like <code>"test development"</code>.</p>
+<p>For example, the following commands would run the workflow in <code>in.osw</code> using the pre-made gem bundle at <code>/path/to/gem/bundle</code> described by the Gemfile at <code>./Gemfile</code> without the groups <code>test</code> and <code>development</code>:</p>
+<pre><code>openstudio.exe --bundle ./Gemfile --bundle_path /path/to/gem/bundle --bundle_without &quot;test development&quot; run -w /path/to/in.osw
+</code></pre>
+
+<h1 id="calling-the-cli-from-a-separate-ruby-application-with-its-own-gemfile">Calling the CLI from a separate Ruby application with its own Gemfile</h1>
+<p>In some cases, the OpenStudio CLI may be called from a separate Ruby application with its own Gemfile.  For example, the OpenStudio Server is a Ruby on Rails application.  The <a href="https://github.com/NREL/OpenStudio-server/blob/develop/server/Gemfile">OpenStudio Server Gemfile</a> includes Ruby gems that OpenStudio Server needs for talking with clients over http, communicating with the database, and other tasks.</p>
+<p>The OpenStudio Server is invoked using a call to <code>bundle exec</code>, this call <a href="https://bundler.io/man/bundle-exec.1.html#ENVIRONMENT-MODIFICATIONS">modifies environment variables</a> in the OpenStudio Server process.  This includes setting the <code>BUNDLE_GEMFILE</code> and <code>BUNDLE_PATH</code> environment variables.  If the CLI is invoked in this environment, it will read these environment variables and think that it is being requested to load these gems.</p>
+<p>If this is not desired, the user can use the command line switches to point to a separate bundle for the CLI.  If the user wants the CLI to run without loading a premade bundle, they must clear these environment variables in the child process that the CLI is launched in.  The <a href="https://github.com/NREL/openstudio-extension-gem/blob/develop/lib/openstudio/extension/runner.rb">OpenStudio::Extension::Runner::get_clean_env</a> method returns a hash which will clear these environment variables when passed to Ruby's <a href="https://www.rubydoc.info/stdlib/core/Process.spawn">Process::spawn</a> or <a href="https://docs.ruby-lang.org/en/2.0.0/Open3.html">Open3</a> methods to launch the CLI in a child process.</p>
+<p>For example, to run an OSW in a clean environment (the <code>--verbose</code> flag can be useful when diagnosing these issues):</p>
+<pre><code>def get_clean_env
+  # blank out bundler and gem path modifications, will be re-setup by new call
+  new_env = {}
+  new_env['BUNDLER_ORIG_MANPATH'] = nil
+  new_env['BUNDLER_ORIG_PATH'] = nil
+  new_env['BUNDLER_VERSION'] = nil
+  new_env['BUNDLE_BIN_PATH'] = nil
+  new_env['RUBYLIB'] = nil
+  new_env['RUBYOPT'] = nil
+  new_env['GEM_PATH'] = nil
+  new_env['GEM_HOME'] = nil
+  new_env['BUNDLE_GEMFILE'] = nil
+  new_env['BUNDLE_PATH'] = nil
+  new_env['BUNDLE_WITHOUT'] = nil
+
+  return new_env
+end
+
+cli = OpenStudio.getOpenStudioCLI
+
+command = &quot;#{cli} --verbose run -w '#{osw_path}'&quot;
+
+stdout_str, stderr_str, status = Open3.capture3(get_clean_env, command)
+</code></pre>
+
+
+          <div class="footer">
+  <p class="text-center"><a href="https://unmethours.com/questions/scope:all/sort:activity-desc/tags:openstudio/">Get Help</a> | <a href="https://www.openstudio.net/contact">Contact Us</a></p>
+  <p class="text-center"><a href="https://www.openstudio.net">OpenStudio</a><sup>&reg;</sup> is developed in collaboration by NREL, ANL, LBNL, ORNL, and PNNL.</p>
+  <p class="text-center">OpenStudio<sup>&reg;</sup> is a registered trademark of the Alliance for Sustainable Energy, LLC.</p>
+  <p class="text-center"><a href="http://www.nrel.gov">NREL</a> is a National Laboratory of the U.S. Department of Energy, Office of Energy Efficiency and Renewable Energy, operated by the Alliance for Sustainable Energy, LLC.</p>
+  <p class="text-center"><a href="#">Back to Top</a></p>
+</div>
+        </div>
+      </div>
+    </div>
+    
+
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.0.min.js"></script>
+    <script src="../../js/bootstrap-hover-dropdown-2.0.11.min.js"></script>
+    <script src="../../js/prettify-1.0.min.js"></script>
+    <script src="../../js/base.js"></script>
+  </body>
+</html>

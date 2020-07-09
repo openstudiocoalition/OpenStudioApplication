@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Parametric Analysis Tool Version 2 (PAT) Interface Guide - OpenStudio<sup>&reg;</sup> User Docs</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    
+    <link href="../../css/bootstrap-3.3.0.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.2.0.min.css" rel="stylesheet">
+    <link href="../../css/prettify-1.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../.."><img alt="" src="../../img/OS_32x32.png"> OpenStudio<sup>&reg;</sup> User Docs</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <!-- Main navigation -->
+        <ul class="nav navbar-nav">
+        
+          
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Getting Started <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+            
+              <li>
+                <a href="../../getting_started/features">Current Features</a>
+              </li>
+            
+              <li>
+                <a href="../../getting_started/roadmap">Planned Features</a>
+              </li>
+            
+              <li>
+                <a href="../../getting_started/getting_started">Installation and Introductory Tutorial</a>
+              </li>
+            
+              <li>
+                <a href="../../getting_started/about_measures">About Measures</a>
+              </li>
+            
+            </ul>
+          </li>
+          
+        
+          
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Essential Tutorials <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+            
+              <li>
+                <a href="../../tutorials/creating_your_model">Creating Your Model</a>
+              </li>
+            
+              <li>
+                <a href="../../tutorials/running_your_simulation">Running Simulations & Viewing Results</a>
+              </li>
+            
+              <li>
+                <a href="../../tutorials/large_scale_analysis">Large Scale Analysis</a>
+              </li>
+            
+              <li>
+                <a href="../../tutorials/radiance_tutorial">Radiance and OpenStudio</a>
+              </li>
+            
+              <li>
+                <a href="../../tutorials/tutorial_bcl">Building Component Library</a>
+              </li>
+            
+            </ul>
+          </li>
+          
+        
+          
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Advanced Tutorials <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+            
+              <li>
+                <a href="../../tutorials/utility_rate_tariffs">Utiity Rate Tariffs</a>
+              </li>
+            
+              <li>
+                <a href="../../tutorials/life_cycle_costing_examples">Life Cycle Cost Analysis</a>
+              </li>
+            
+              <li>
+                <a href="../../tutorials/tutorial_gbxmlimport">Import gbXML</a>
+              </li>
+            
+              <li>
+                <a href="../../tutorials/tutorial_shadingcontrols">Shading Controls</a>
+              </li>
+            
+              <li>
+                <a href="../../tutorials/tutorial_windowproperty_frameanddivider">Window Property Frame and Divider</a>
+              </li>
+            
+            </ul>
+          </li>
+          
+        
+          
+          <li class="dropdown active">
+            <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Reference <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+            
+              <li>
+                <a href="../openstudio_application_interface">OpenStudio Application Interface Guide</a>
+              </li>
+            
+              <li>
+                <a href="../sketchup_plugin_interface">SketchUp Plug-in Interface Guide</a>
+              </li>
+            
+              <li>
+                <a href="../geometry_editor">FloorspaceJS</a>
+              </li>
+            
+              <li>
+                <a href="../command_line_interface">Command Line Interface</a>
+              </li>
+            
+              <li class="active">
+                <a href=".">Parametric Analysis Tool Version 2 (PAT) Interface Guide</a>
+              </li>
+            
+              <li>
+                <a href="../model_objects">OpenStudio Model Objects Overview</a>
+              </li>
+            
+              <li>
+                <a href="../measure_writing_guide">Measure Writer's Reference Guide</a>
+              </li>
+            
+              <li>
+                <a href="../measure_code_examples">Measure Code Examples</a>
+              </li>
+            
+              <li>
+                <a href="../developing_measure_collections">Developing Measure Collections</a>
+              </li>
+            
+              <li>
+                <a href="../refguide_radiance">OpenStudio-Radiance Reference Guide</a>
+              </li>
+            
+              <li>
+                <a href="../openstudio_results_measure">OpenStudio Results Measure</a>
+              </li>
+            
+            </ul>
+          </li>
+          
+        
+          
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Help <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+            
+              <li>
+                <a href="../../help/training">Find Training</a>
+              </li>
+            
+              <li>
+                <a href="../../help/best_practices">Modeling Best Practices</a>
+              </li>
+            
+              <li>
+                <a href="../../help/troubleshooting">Troubleshooting</a>
+              </li>
+            
+              <li>
+                <a href="../../help/software_license">Software License</a>
+              </li>
+            
+            </ul>
+          </li>
+          
+        
+        </ul>
+
+        <!-- Search, Navigation and Repo links -->
+        <ul class="nav navbar-nav navbar-right">
+        
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="bs-docs-sidebar hidden-print affix well" role="complementary">
+  <ul class="nav">
+  
+    <li class="main active"><a href="#create-a-project">Create a Project</a>
+      <ul class="nav">
+        
+      </ul>
+    </li>
+  
+    <li class="main"><a href="#open-an-existing-project">Open an Existing Project</a>
+      <ul class="nav">
+        
+      </ul>
+    </li>
+  
+    <li class="main"><a href="#interface-overview">Interface Overview</a>
+      <ul class="nav">
+        
+      </ul>
+    </li>
+  
+    <li class="main"><a href="#load-a-seed-model-and-weather-file">Load a Seed Model and Weather File</a>
+      <ul class="nav">
+        
+      </ul>
+    </li>
+  
+    <li class="main"><a href="#add-measures-and-create-measure-options">Add Measures and Create Measure Options</a>
+      <ul class="nav">
+        
+        <li><a href="#download-measures-from-the-building-component-library-bcl">Download Measures From the Building Component Library (BCL)</a></li>
+        
+        <li><a href="#add-measures-to-the-project">Add Measures to the Project</a></li>
+        
+        <li><a href="#create-measure-options-and-define-variables">Create Measure Options and Define Variables</a></li>
+        
+        <li><a href="#add-the-openstudio-results-reporting-measure-to-the-project">Add the OpenStudio Results Reporting Measure to the Project</a></li>
+        
+      </ul>
+    </li>
+  
+    <li class="main"><a href="#create-design-alternatives">Create Design Alternatives</a>
+      <ul class="nav">
+        
+      </ul>
+    </li>
+  
+    <li class="main"><a href="#adding-outputs-in-manual-mode">Adding Outputs in Manual Mode</a>
+      <ul class="nav">
+        
+      </ul>
+    </li>
+  
+    <li class="main"><a href="#running-an-analysis-locally">Running an Analysis Locally</a>
+      <ul class="nav">
+        
+      </ul>
+    </li>
+  
+    <li class="main"><a href="#view-analysis-reports">View Analysis Reports</a>
+      <ul class="nav">
+        
+      </ul>
+    </li>
+  
+    <li class="main"><a href="#view-openstudio-server">View OpenStudio Server</a>
+      <ul class="nav">
+        
+      </ul>
+    </li>
+  
+    <li class="main"><a href="#menu-bar-functions">Menu Bar Functions</a>
+      <ul class="nav">
+        
+      </ul>
+    </li>
+  
+    <li class="main"><a href="#algorithmic-mode">Algorithmic Mode</a>
+      <ul class="nav">
+        
+        <li><a href="#setting-up-an-algorithm-with-the-measures-tab">Setting Up an Algorithm with the Measures Tab</a></li>
+        
+        <li><a href="#the-design-alternatives-tab-in-algorithmic-mode">The Design Alternatives Tab in Algorithmic Mode</a></li>
+        
+        <li><a href="#the-outputs-tab-in-algorithmic-mode">The Outputs Tab in Algorithmic Mode</a></li>
+        
+        <li><a href="#the-run-tab-in-algorithmic-mode">The Run Tab in Algorithmic Mode</a></li>
+        
+        <li><a href="#exploring-algorithm-results-with-openstudio-server">Exploring Algorithm Results with OpenStudio Server</a></li>
+        
+        <li><a href="#example-projects">Example Projects</a></li>
+        
+      </ul>
+    </li>
+  
+  </ul>
+  <div class="home-btn">
+    <a class="btn btn-default" role="button" href="https://www.openstudio.net">Back to OpenStudio<sup>&reg;</sup></a>
+  </div>
+</div>
+        </div>
+        <div class="col-md-9" role="main">
+          <h1>Parametric Analysis Tool 2.x (PAT) Interface Guide</h1>
+
+<p>OpenStudio's PAT allows you to quickly try out and compare manually specified combinations of measures, optimize designs, calibrate models, perform parametric sensitivity analysis, and much more.  Manually specified combinations of measures may be run locally on your computer.  Algorithmic analyses (e.g. optimization, design of experiments, etc) can be run by connecting to a separately provisioned instance of the OpenStudio server.</p>
+<hr />
+<h2 id="create-a-project">Create a Project</h2>
+<p>When you launch PAT you have the option to create a new project or open an existing project.</p>
+<p><img alt="PAT Opening Screen" src="../../img/pat2/launch_01.png" />
+<br><br></p>
+<p>To create a new project :</p>
+<ul>
+<li>Click the "Make New Project" button.</li>
+<li>Type the name for the project, and click "Continue."  <em>Note that project names should not include spaces.</em></li>
+</ul>
+<p><img alt="Make New Project" src="../../img/pat2/launch_02.png" /></p>
+<ul>
+<li>Browse to the directory where you want the project saved, and click the "Open" button.  <em>PAT will create a new directory for your project at this location.</em></li>
+</ul>
+<p><img alt="Select Project Directory" src="../../img/pat2/launch_03.png" />
+<br><br></p>
+<hr />
+<h2 id="open-an-existing-project">Open an Existing Project</h2>
+<p>You can open an existing PAT project when you first launch PAT or from the file menu. In either case a dialog will open to find the path where you created your Project. There is no file to select, just browse to the top level project directory.</p>
+<p><img alt="Open Existing Project" src="../../img/pat2/launch_04.png" />
+<br><br></p>
+<hr />
+<h2 id="interface-overview">Interface Overview</h2>
+<p>PAT 2.x functionality is broken down into six tabs along the left side of the window:</p>
+<ol>
+<li>Specify analysis mode (manual or algorithmic), seed models, weather files, measures, and measure options.</li>
+<li>Manually create design alternatives <em>(Not used for algorithmic analysis)</em></li>
+<li>Specify outputs for algorithm-based analysis <em>(Not used for manual analysis)</em></li>
+<li>Run an analysis and manage the analysis server</li>
+<li>View reports</li>
+<li>View the server</li>
+</ol>
+<p>In general, a PAT workflow moves through the six vertical tabs from top to bottom.  PAT allows the user to specify design alternatives manually or automate the process using a selection of algorithms - e.g. sampling, optimization, etc.  The analysis mode is selected at the top of tab one, and dictates whether tabs two or three are used along with the types of computing resources (local or cloud) that can be selected on tab four.  The video below shows the creation of a new project and walks through the workflow to create and run a <strong>manual</strong> analysis.</p>
+<iframe width="640" height="360" src="https://www.youtube.com/embed/a3lg7UbE6JU" allowfullscreen></iframe>
+
+<p><em>Above: PAT 2.0.0 introduction video for manual analysis mode</em>
+<br><br></p>
+<hr />
+<h2 id="load-a-seed-model-and-weather-file">Load a Seed Model and Weather File</h2>
+<p>Select your seed model, the model that will serve as the basis for creating design alternatives, by clicking the folder symbol for the "Default Seed Model". Select your weather file by clicking the folder symbol for the "Default Weather File."</p>
+<p><img alt="Select Baseline Model and Weather File" src="../../img/pat2/measures_02.png" />
+<br><br></p>
+<p>Note: PAT 2.x allows the user to specify multiple seed and weather files that may all be used within a project.</p>
+<hr />
+<h2 id="add-measures-and-create-measure-options">Add Measures and Create Measure Options</h2>
+<p>If you want to learn more about measures, check out the <a href="../../getting_started/about_measures">About Measures</a> section.
+<br>Check out the <a href="../measure_writing_guide">Measure Writing Guide</a> to start writing your own custom measures.</p>
+<p>PAT works with three classes of measures:</p>
+<ol>
+<li><strong>OpenStudio measures</strong> operate on the OpenStudio model (.osm) before it is converted to an EnergyPlus input file (.idf).</li>
+<li><strong>EnergyPlus measures</strong> operate on the .idf file just before it is simulated in EnergyPlus.</li>
+<li><strong>Reporting measures</strong> run after the simulation has been performed and are used to produce postprocess results, automate quality checks, and create custom reports and chart.</li>
+</ol>
+<p>Click the "Add Measure" buttons by the OpenStudio, EnergyPlus, or Reporting measure text to add measures of that type to your project. The Building Component Library (BCL) dialog that opens after clicking the buttons allows you to add measures stored on your computer or to find new measures from the online BCL.</p>
+<h3 id="download-measures-from-the-building-component-library-bcl">Download Measures From the Building Component Library (BCL)</h3>
+<p>The Building Component Library dialog allows you to filter by measure location, measure type, measure category, and  measures sub-category. When it first opens it will have all locations checked except for BCL (Online). It will also have only one measure type checked, based on which button you clicked in the measures tab. Nothing is checked by default in the "Category" section which has the effect of all categories showing. Once you check one or more categories or sub-categories only those will be shown. That filter will remain in place when you come back to this dialog in the future. So if you don't see the measure you expect, make sure the category filters are setup correctly.</p>
+<p>PAT keeps track of four distinct measure locations:</p>
+<ol>
+<li><strong>My Project</strong> - includes measures that have already been added to your current PAT project.</li>
+<li><strong>Measure Directory</strong> - shows measures you have stored in a user configurable "MyMeasures" directory on your computer.  A best practice is to only create or modify measures in your "MyMeasures" directory.</li>
+<li><strong>Local </strong> - includes any BCL measures you may have already downloaded to your computer.</li>
+<li><strong>BCL (Online)</strong>  - contains all publicly available measures located in the online BCL. To use add these to a project they must first be downloaded, which copies them to your local library.</li>
+</ol>
+<p><img src="../../img/pat2/bcl_01.png" width="500"></p>
+<p><em>Note: In rare instances, the BCL dialog may appear empty even when local content exists or the online BCL has been added to the filter.  This can happen when OpenStudio's "measure manager" process is not halted normally.  The issue is easily resolved by quitting PAT, and using your computer's task manager to look for an "openstudio" process.  Halting this process enables the BCL dialog to work normally again.</em>
+<br><br></p>
+<p>To download measures:</p>
+<ol>
+<li><strong>Check the "BCL (Online)" box</strong> under filter options to show BCL content.</li>
+<li><strong>Check filters</strong> to narrow down the list of measures by type, category, and subcategory.</li>
+<li><strong>Click the black arrow</strong> in the "Edit/Copy" column of the grid once you've found a measure you're interested in.</li>
+</ol>
+<p>When the symbol changes from a black download arrow to the green document symbol the measure has been downloaded and added to your local library.  Clicking the green document symbol will create a copy of the measure in your "MyMeasures" directory.  This is useful when creating variations of existing measures.</p>
+<p>Once downloaded, PAT will continue to check to see if an updated version is available in the BCL.  Available updates will be indicated with a symbol in the
+"updates" column.  Simply click the symbol to download the latest version to your local library.</p>
+<h3 id="add-measures-to-the-project">Add Measures to the Project</h3>
+<p>Clicking the blue plus will add a measure from your local library or "MyMeasures" directory to your project.  Measures with a gray plus have not yet been downloaded from the BCL, and cannot be added.</p>
+<p><img src="../../img/pat2/bcl_03.png" width="500"></p>
+<p><em>Above: Filtered View showing Online BCL OpenStudio Fenestration measures. The "Set Window to Wall Ratio" measure has been downloaded from the BCL but not yet added to the project.</em>
+<br><br>
+After adding a measure to your project the blue plus will change to a green check mark.</p>
+<p><img src="../../img/pat2/bcl_04.png" width="500">
+<br><br>
+After closing the BCL dialog, measures are now loaded into the project.  In this example, two measures have been added.</p>
+<p><img alt="Measures Tab With Measures Loaded" src="../../img/pat2/measures_03.png" /></p>
+<p><strong>The ordering of measures in PAT matters.</strong> Measures run from top to bottom in the user interface, and they may be reordered using the up or down arrows at the right.  The "x," also at the right, may be used to delete a measure from the project.</p>
+<p>Note that each measure also has an arrow just to its left.  This arrow is used to expand and collapse the measure, allowing the user to specify variables, arguments, and more.
+<br><br>
+<img alt="Measures Tab With Measure Options" src="../../img/pat2/measures_04.png" /></p>
+<h3 id="create-measure-options-and-define-variables">Create Measure Options and Define Variables</h3>
+<p>Every measure in the manual analysis project needs at least one measure "option."  An option describes a measure and particular set of measure arguments that will be applied to create a specific design alternative.  For example, a generic fan efficiency measure would likely have an efficiency argument.  Applying that generic measure with a specific value for efficiency would constitute an option representing a specific fan product.</p>
+<p>Clicking the <strong>"Add Measure Option"</strong> button adds a column to the right side of the grid for the measure.  Newly created options have a generic option name, description, and inherit any default values specified by the measure.</p>
+<p><img alt="Measures Tab With Measure Options" src="../../img/pat2/measures_05.png" />
+<br><br>
+The variable column and associated checkboxes are used to specify which arguments will vary across design options.  Each option must be given a unique (and meaningful) name that will be referenced when constructing design alternatives.  The option description field is free-form, and can be used to capture notes regarding the option that may be used by reporting measures.  In this example, three design options have been created with variable window to wall ratios.
+<img alt="Measures Tab With Measure Options" src="../../img/pat2/measures_06.png" />
+<br><br></p>
+<h3 id="add-the-openstudio-results-reporting-measure-to-the-project">Add the OpenStudio Results Reporting Measure to the Project</h3>
+<p>The standard OpenStudio Results measure <strong>must</strong> be added to every project as an option for each design alternative.  Manual project reports and most algorithmic workflows rely on outputs defined by this measure to work properly.  PAT will run without this measure and an associated measure option, but results will not appear correctly.</p>
+<p><img alt="Measures Tab With Measures Collapsed" src="../../img/pat2/measures_07.png" />
+<br><br></p>
+<hr />
+<h2 id="create-design-alternatives">Create Design Alternatives</h2>
+<p>The second tab is used to create design alternatives.  Buttons can be used to create and copy individual alternatives or create one alternative for each measure option in the project.  Design alternatives appear in a simple grid that allows rapid "pull down menu" selection of seed model, weather file, and measure options.  Design alternative name and description fields are free form.  It is considered a best practice to enter meaningful descriptions in these fields to document the project.</p>
+<p><img alt="Populated Design Alternatives Tab" src="../../img/pat2/alternatives_02.png" /></p>
+<p>Design alternatives may be deleted using the "x" button on the left side of the screen.  Rows may be rearranged manually using the up and down arrows to the left, or sorted alphabetically by clicking the grid headings.  The order of design alternatives on this tab has no bearing on simulation order or results reporting.</p>
+<p><em>Note: Recall from the previous section that each design alternative must have an OpenStudio Results measure option.  A useful tip for accomplishing this quickly is to highlight the first option cell in the OpenStudio Results column, type the first letter of your Option (the letter O in this example), tap the down arrow, and repeat.</em>
+<br><br></p>
+<hr />
+<h2 id="adding-outputs-in-manual-mode">Adding Outputs in Manual Mode</h2>
+<p>This tab is unused in manual mode, and is revisted later in this document when discussing algorithmic workflows.</p>
+<p><img alt="Output Tab in Manual Mode" src="../../img/pat2/tab3.png" /></p>
+<hr />
+<h2 id="running-an-analysis-locally">Running an Analysis Locally</h2>
+<p>PAT 2.x configures a "mini server" on your computer to perform local analysis.  This is essentially the same server that is used to run large-scale cloud analyses, enabling projects to scale and migrate between computing systems easily.  The local server begins to start up as soon as you launch PAT, and is usually ready to perform analysis within a minute.  This is indicated by a server status green checkmark at the top of the screen.</p>
+<p><img alt="Run Tab pre run" src="../../img/pat2/run_01.png" /></p>
+<p>Clicking the Run Entire Workflow button starts an analysis.</p>
+<p><img alt="Run Tab mid run" src="../../img/pat2/run_02.png" /></p>
+<p>As simulation results are completed, PAT's status will update to appraise you of progress.  Changing tabs during active simulation is prevented to avoid accidentally altering an analysis mid-run.</p>
+<p><img alt="Run Tab complete" src="../../img/pat2/run_03.png" /></p>
+<p>Completed design alternatives may be expanded to view measure or simulation log messages. The OpenStudio standard report, EnergyPlus output, results from any other reporting measure options may be viewed by clicking the graph symbol and selecting the report of interest.</p>
+<p><img alt="Run Tab post run" src="../../img/pat2/run_04.png" />
+<br><br></p>
+<hr />
+<h2 id="view-analysis-reports">View Analysis Reports</h2>
+<p>PAT 2.x includes three built-in reports that help the user compare design alternatives.</p>
+<p>The default summary table compares consumption, demand, and economic metrics for all of the design alternatives. A selection field near the top of the table allows the user to specify which of the alternatives is to be used as the datum for performance comparison.  Analysis results shown in subsequent rows are relative to the datum's modeled values.</p>
+<p><img alt="Summary Table" src="../../img/pat2/results_01.png" />
+<br><br>
+The reports selection field at the top of the window may also be used to produce end use stacked bar charts broken down by fuel type.</p>
+<p><img alt="End Use Comparison" src="../../img/pat2/results_02.png" />
+<br><br>
+The third default report is intended for use by modelers working with utility design assistance programs and the Energy Design Assistance Project Tracker (EDAPT). This report is used to generate data for upload to EDAPT.</p>
+<p><img alt="EDAPT Export" src="../../img/pat2/results_03.png" />
+<br><br></p>
+<hr />
+<h2 id="view-openstudio-server">View OpenStudio Server</h2>
+<p>The final tab provides a view into PAT's OpenStudio server, and will not be necessary for users performing manual analyses.  It is of greater importance when performing algorithmic analysis, and will be discussed later in this document.</p>
+<p><img alt="EDAPT Export" src="../../img/pat2/server_01.png" />
+<br><br></p>
+<hr />
+<h2 id="menu-bar-functions">Menu Bar Functions</h2>
+<p>The File menu allows you to create a new project, open an existing project, save a project, or save a copy of a project under a new name.  Saving a copy of a project creates a new directory structure including copies of seed models, weather files, project measures, etc.</p>
+<p>The Windows menu allows the user to open the BCL dialog, set the location of the "MyMeasures" directory, and open up a set of server troubleshooting tools that may be helpful for advanced users.</p>
+<p><img alt="Server Troubleshooting Tools" src="../../img/pat2/server.png" />
+<br><br></p>
+<hr />
+<h1 id="algorithmic-mode">Algorithmic Mode</h1>
+<h2 id="setting-up-an-algorithm-with-the-measures-tab">Setting Up an Algorithm with the Measures Tab</h2>
+<p>PAT 2.x has also been designed to enable large-scale exploration of design spaces using a range of sampling, optimization, and machine learning algorithms.  Switching from "Manual" to "Algorithmic" in the Analysis selection field of tab one alters PAT's interface and functionality in a number of ways.</p>
+<p>The first distinction is the addition of "sampling method" as a selection field near the top of tab one.  This field includes a number of methods.</p>
+<p><img alt="Algorithm Setup" src="../../img/pat2/alg_00.png" /></p>
+<p>In this example, Latin Hypercube Sampling (LHS) is selected as the algorithm that will be used to guide exploration of the design space.  Immediately below the sampling method field are collapsable sections for algorithm settings, supplementary analysis files, and server scripts.  A documentation button provides guidance relevant to each algorithm and its settings.</p>
+<p><img alt="Algorithm Setup" src="../../img/pat2/alg_02.png" /></p>
+<p>Algorithmic mode significantly alters the measure section of tab one.  The concept of manual mode's measure "option" no longer applies and variable checkboxes now become selection fields that allow the user to specify the nature of measure quantities.</p>
+<ol>
+<li><strong>Argument</strong> - Fixes the quanity as a static value for the analysis.</li>
+<li><strong>Continuous</strong> - Assigns a continuous probability density function to a variable.  Available distributions include uniform, triangular, normal, and log normal.</li>
+<li><strong>Discrete</strong> - Allows the user to specify a specific set of distinct values with associated weights.</li>
+<li><strong>Pivot</strong> - Forces the entire analysis to be performed against each specified value.  <em>e.g. An analysis problem with 25 samples and 3 pivots would create a total of 75 data points.</em></li>
+</ol>
+<p><img alt="Algorithm Setup" src="../../img/pat2/alg_04.png" /></p>
+<p><em>Above: A measure contains both continuous and discrete variables.</em></p>
+<p><img alt="Algorithm Setup" src="../../img/pat2/alg_06.png" /></p>
+<p><em>Above: The DOE Prototype Measure is applied to an empty seed model with three pivots: SmallOffice, MediumOffice, and LargeOffice.  Subsequent measures will be applied to each of these building types, perhaps creating an office-centric technology potential analysis.  This project is available as the Office Study example <a href="https://github.com/NREL/OpenStudio-PAT/tree/develop/sample_projects">here</a>.</em></p>
+<h2 id="the-design-alternatives-tab-in-algorithmic-mode">The Design Alternatives Tab in Algorithmic Mode</h2>
+<p>Since the algorithm is specifying the design algorithms, there is no need to use the second tab.</p>
+<p><img alt="Algorithm Setup" src="../../img/pat2/alg_05.png" /></p>
+<h2 id="the-outputs-tab-in-algorithmic-mode">The Outputs Tab in Algorithmic Mode</h2>
+<p>Analysis via algorithm tends to produce very large data sets.  As such, the methods for visualizing results and teasing out valuable insights differ from the simple table views available in manual mode.  In addition, some algorithms (e.g. optimizers) are goal seeking, and require specification of performance metrics to function properly.  PAT's outputs tab is designed to specify key simulation outputs for use in post-processing large sets of simulation results or in forming performance objective functions.</p>
+<p>By default the outputs tab expects the OpenStudio Results measure to be available to provide a nominal set of outputs, although additional reporting measures can be used to add more outputs.</p>
+<p><img alt="Algorithm Setup" src="../../img/pat2/out_01.png" /></p>
+<p>Pressing the "Select Outputs" button brings up a dialog of all measures specified by the reporting measure.  The user can choose to select all of the outputs, or individual outputs.</p>
+<p><img alt="Algorithm Setup" src="../../img/pat2/out_02.png" /></p>
+<p>Selected outputs appear in the outputs tab along with additional fields.</p>
+<ol>
+<li><strong>Visualize</strong> - Should be set to true for any variables the user wishes to examine via interactive visualizations, spreadsheet, or R dataframe export.</li>
+<li><strong>Objective Function</strong> - Should be set to true for any variables that will be used by a goal-seeking algorithm as part of an objective function.</li>
+<li><strong>Target Value</strong> - The target value for the output variable that will be sought by the goal-seeking algorithm.</li>
+<li><strong>Weighting Factor</strong> - A multiplier used to create linear combinations of error functions in multi-objective optimization problems.</li>
+</ol>
+<p><img alt="Algorithm Setup" src="../../img/pat2/out_03.png" /></p>
+<h2 id="the-run-tab-in-algorithmic-mode">The Run Tab in Algorithmic Mode</h2>
+<p>The size of algorithm-based analysis problems generally exceeds the computational capability of a personal computer.  PAT 2.x has been designed to run these sorts of analysis in the cloud or on dedicated servers.  While PAT's "mini-server" still launches in the background, the application does not currently support simulation using local computing resources.</p>
+<p><img alt="Algorithm Setup" src="../../img/pat2/cloud_01.png" /></p>
+<p>Instead, PAT expects the user to select "Run on Cloud" as the Run option.  This selection produces a dialog that enables the user to specify either an "Existing Remote Server" or Amazon Cloud.  Provisioning a dedicated server with OpenStudio Server is beyond the scope of this tutorial.  Interested users are referred to the    <a href="https://github.com/NREL/OpenStudio-server">OpenStudio-Server GitHub repository</a> for further guidance on the topic.</p>
+<p>Amazon Web Service (AWS) has been pre-provisioned with Amazon Machine Images (AMIs) for OpenStudio Server that enable users to leverage large-scale computing with minimal effort and cost.  New users will need to establish an <a href="https://aws.amazon.com">account</a>.  Once created, use your AWS account to generate an Access and Secret key pair.</p>
+<ol>
+<li>In the PAT Run Tab, select "Run on Cloud" with "Amazon Cloud" as the server type.</li>
+<li>Press the New Cluster button and choose a cluster name to store your AWS cluster settings.</li>
+<li>Press the New AWS Credentials button and follow the prompts to enter your Access and Secret Keys.  Like the Cluster name, the AWS credential name is used by PAT to help you manage multiple cluster or credential configurations.</li>
+</ol>
+<p><img alt="Algorithm Setup" src="../../img/pat2/cloud_00.png" /></p>
+<p>A field labeled "AMI Name" is used to specify the version of OpenStudio that the server and worker nodes will be provisioned with.  The specific version of OpenStudio and the Standards Gem are listed next to this field once selected.</p>
+<p>The user is referred to AWS documentation related to server and worker options.  The PAT UI provides an a brief description of the compute node configuration and approximate cost/hour.  A PAT analysis requires a server and a minimum of one worker.</p>
+<p><img alt="Algorithm Setup" src="../../img/pat2/cloud_02.png" /></p>
+<p>Once configured, the user should press the start button next to the Cluster Status indicator on the right side of the UI.  A dialog explaining the user's responsibility to monitor and manage AWS computing resources appears and must be acknowledge before proceeding.</p>
+<p><img alt="Algorithm Setup" src="../../img/pat2/cloud_03.png" /></p>
+<p>At this point, the server and worker provisioning process begins.  As the dialog states, this process can take many minutes.  Clicking on the View AWS Console button allows the user to monitor the process.</p>
+<p><img alt="Algorithm Setup" src="../../img/pat2/cloud_04.png" /></p>
+<p>Once the server is running, clicking the "Run Entire Workflow" button starts the analysis.  Progress can be monitored within PAT or via the OpenStudio server.  One notable difference between running in manual mode with local computing resources and on the server is that detailed simulations are not automatically downloaded.  These files can be quite large.  Clicking on the blue "OSM" or "Results" cloud next to a data point will download the OpenStudio model or completed data point zip file. The cloud buttons appear as green checkmarks when a download has occurred.  Data point files are lost when the server shuts down, so it is important to download results that may be of particular interest.</p>
+<p><img alt="Algorithm Setup" src="../../img/pat2/cloud_05.png" /></p>
+<h2 id="exploring-algorithm-results-with-openstudio-server">Exploring Algorithm Results with OpenStudio Server</h2>
+<p>The OpenStudio Server tab is of much greater importance with algorithmic workflows.  This same content may also be accessed through any web browser by clinking PAT's "View Server" button in the run tab or manually directing a web browser to http://<strong>yourserverurl</strong>:8080.  The top level view of OpenStudio server provides a summary of completed or in-progress projects and analyses along with navigation options.</p>
+<p><img alt="OpenStudio Server Landing Page" src="../../img/pat2/server_01b.png" /></p>
+<p>The top level of an analysis (a specific run of a project) provides a high level summary of the project, links to more detail about the analysis, and status updates for all data points that have been completed, queued for simulation, or are in process.  Important links on this page include:</p>
+<ol>
+<li><strong>Project JSON</strong> - The JSON link near the top left of this screen is the OpenStudio Analysis (OSA) JSON that PAT produces for the Server.  It is a complete definition of the analysis to be performed including SEED models, weather files, measures, arguments &amp; variables, outputs, algorithms, etc.</li>
+<li><strong>Project Log</strong> - Immediately next to the Project JSON is a log file, which can be helpful in debugging failed analyses.</li>
+<li><strong>Downloads</strong> - These links download high level meta data and simulation results as CSV or R Data Frames for subsequent analysis.  These results include only analysis inputs and outputs that have been defined in PAT.  Detailed simulation results associated with individual data points must be downloaded in PAT or via individual data point web links.</li>
+<li><strong>Data points</strong> - The bottom of the analysis page includes a snapshot of all data points along with their status, run times, and data point-specific links including the data point JSON file (OSW) and the data point zip file.</li>
+<li><strong>Data and Visualizations</strong> - A number of useful project summaries and interactive visualization tools are built into OpenStudio server.  One of these, the parallel coordinate plot, is described in further detail below.</li>
+</ol>
+<p><img alt="OpenStudio Server Analysis Summary" src="../../img/pat2/server_02.png" /></p>
+<p>The variables link near the top center of the analysis web page provides a concise summary of variables and arguments utilized by the analysis' algorithm.  While any applicable measures are summarized in an adjacent page, this section provides more detail about how data points have been generated.  In the example below, three building types form the core of the analysis.  A five level "Design of Experiments" with lighting power density reduction percentage and window to wall ratio variables complete the study space.  Other sampling methods (e.g. LHS) include thumbail graphics illustrating variable distributions.</p>
+<p><img alt="OpenStudio Server Variables Summary" src="../../img/pat2/server_04.png" /></p>
+<p>Parallel coordinate plots provide an interactive means of exploring large data sets and teasing out valuable insights.  OpenStudio enables the user to select inputs and outputs that have been pre-defined in PAT's measures and outputs tabs.  Checkboxes turn inputs on and off, and the individual plot axes can be re-ordered via drag and drop.  In this first example, LHS is used to sample the parameter space for lighting power density, window to wall ratio, and the facade on which windows are placed.  Energy Use Intensity (EUI) is selected as the output of interest.</p>
+<p><img alt="OpenStudio Server Parallel Coordinate Plot" src="../../img/pat2/server_05.png" /></p>
+<h2 id="example-projects">Example Projects</h2>
+<p>Several sample PAT projects may be found <a href="https://github.com/NREL/OpenStudio-PAT/tree/develop/sample_projects">here</a>.  Both the Office_Hvac and Office_Study projects are configured to run in manual model using local computing resources.  The remaining "SEB" projects pertain to NREL's Site Entrance Building (SEB), and demonstrate the various algorithms available for use in the cloud.  Several of the SEB projects are also notable as examples of performing sampling or optimization-based calibrations of a model using Actual Meteorlogic Year (AMY) and consumption data.
+The "AddMonthlyJSONUtilityData" measure is used to add electric and gas consumption data to the model.  The "CalibrationReportsEnhanced20" reporting measure is used to create analysis outputs and charts that describe the calibration's "goodness of fit."</p>
+<h3 id="a-model-calibration-example">A Model Calibration Example</h3>
+<p>As a closing example, consider the SEB "PSO_2013" project.  This project utilizes the particle swarm algorithm to explore variations of the SEB seed model.  OpenStudio Server's parallel coordinate plot is a convenient means of interacting with the large number of solutions generated during the analysis.  Input or output coordinate ranges may be selected using the mouse to filter out solutions of interest - in this case, data points with low Coefficient of Variation of the Root Mean Squared Error (CVRMSE) and Net Mean Bias Error (NMBE) for both gas and electricity consumption.  Data points which fall within the filtered ranges (indicated in blue) are provided as links below the plot.</p>
+<p><img alt="OpenStudio Server with Multiple Projects" src="../../img/pat2/pso_01.png" /></p>
+<p>Clicking on one of these data points allows us to see the specific measure variable values that define the data point.  This page also allows convenient download of the specific OpenStudio Workflow (OSW) that generate the point, the resulting model, simulation results, and associated reports.</p>
+<p><img alt="OpenStudio Server with Multiple Projects" src="../../img/pat2/pso_02.png" /></p>
+<p>Output from the Enhanced Calibration Report for this data point is one of the available report links, and allows us to quickly visualize the performance of this particular model variant relative to the building's original measured consumption data.</p>
+<p><img alt="OpenStudio Server with Multiple Projects" src="../../img/pat2/pso_03.png" /></p>
+
+          <div class="footer">
+  <p class="text-center"><a href="https://unmethours.com/questions/scope:all/sort:activity-desc/tags:openstudio/">Get Help</a> | <a href="https://www.openstudio.net/contact">Contact Us</a></p>
+  <p class="text-center"><a href="https://www.openstudio.net">OpenStudio</a><sup>&reg;</sup> is developed in collaboration by NREL, ANL, LBNL, ORNL, and PNNL.</p>
+  <p class="text-center">OpenStudio<sup>&reg;</sup> is a registered trademark of the Alliance for Sustainable Energy, LLC.</p>
+  <p class="text-center"><a href="http://www.nrel.gov">NREL</a> is a National Laboratory of the U.S. Department of Energy, Office of Energy Efficiency and Renewable Energy, operated by the Alliance for Sustainable Energy, LLC.</p>
+  <p class="text-center"><a href="#">Back to Top</a></p>
+</div>
+        </div>
+      </div>
+    </div>
+    
+
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.0.min.js"></script>
+    <script src="../../js/bootstrap-hover-dropdown-2.0.11.min.js"></script>
+    <script src="../../js/prettify-1.0.min.js"></script>
+    <script src="../../js/base.js"></script>
+  </body>
+</html>

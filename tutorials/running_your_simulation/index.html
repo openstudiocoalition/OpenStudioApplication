@@ -54,6 +54,10 @@
                 <a href="../../getting_started/getting_started">Installation and Introductory Tutorial</a>
               </li>
             
+              <li>
+                <a href="../../getting_started/about_measures">About Measures</a>
+              </li>
+            
             </ul>
           </li>
           
@@ -72,6 +76,10 @@
               </li>
             
               <li>
+                <a href="../large_scale_analysis">Large Scale Analysis</a>
+              </li>
+            
+              <li>
                 <a href="../radiance_tutorial">Radiance and OpenStudio</a>
               </li>
             
@@ -87,6 +95,10 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Advanced Tutorials <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
+            
+              <li>
+                <a href="../utility_rate_tariffs">Utiity Rate Tariffs</a>
+              </li>
             
               <li>
                 <a href="../life_cycle_costing_examples">Life Cycle Cost Analysis</a>
@@ -126,6 +138,34 @@
               </li>
             
               <li>
+                <a href="../../reference/command_line_interface">Command Line Interface</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/parametric_analysis_tool_2">Parametric Analysis Tool Version 2 (PAT) Interface Guide</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/model_objects">OpenStudio Model Objects Overview</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/measure_writing_guide">Measure Writer's Reference Guide</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/measure_code_examples">Measure Code Examples</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/developing_measure_collections">Developing Measure Collections</a>
+              </li>
+            
+              <li>
+                <a href="../../reference/refguide_radiance">OpenStudio-Radiance Reference Guide</a>
+              </li>
+            
+              <li>
                 <a href="../../reference/openstudio_results_measure">OpenStudio Results Measure</a>
               </li>
             
@@ -137,6 +177,14 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Help <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
+            
+              <li>
+                <a href="../../help/training">Find Training</a>
+              </li>
+            
+              <li>
+                <a href="../../help/best_practices">Modeling Best Practices</a>
+              </li>
             
               <li>
                 <a href="../../help/troubleshooting">Troubleshooting</a>
@@ -205,29 +253,32 @@
         <div class="col-md-9" role="main">
           <h1>Running Simulations & Viewing Results</h1>
 
-<p>These guides provide a handy reference to the features of the applications that are installed with the OpenStudio Application.</p>
+<p>These guides provide a handy reference to the features of the applications that are installed with OpenStudio.</p>
 <h2 id="weather-file-and-design-days">Weather File and Design Days</h2>
-<p>Add weather files in the OpenStudio application under the Site tab (first vertical tab) on the left and the Weather File &amp; Design Days sub-tab across the top. You can <a href="https://www.energyplus.net/weather">download weather files</a> on the EnergyPlus site.</p>
+<p>Add weather files in the OpenStudio application under the Site tab (first vertical tab) on the left and the "Weather File &amp; Design Days" sub-tab across the top. You can <a href="https://www.energyplus.net/weather">download weather files</a> on the EnergyPlus site.</p>
 <p><a href="../../img/run/weather_ddy.png"><img alt="Open DDY File Dialog" src="../../img/run/weather_ddy.png" title="Click to view" /></a></p>
 <p><em>Above: Screenshot of browsing for design day file.</em></p>
 <h2 id="requesting-output-variables">Requesting Output Variables</h2>
 <p>To select an output variable turn the toggle button to show a blue on. Then set the detail level you want from the drop down menu.</p>
 <p><a href="../../img/run/output_variables.png"><img alt="Output Variables Tab" src="../../img/run/output_variables.png" title="Click to view" /></a></p>
 <p><em>Above: Screenshot of selecting output variables.</em></p>
-<p>You can also choose variables to collect data on by using the Add Output Variable measure after downloading it from the <a href="../../reference/openstudio_application_interface#find-measures-and-find-components">BCL</a>.</p>
+<p>You can also choose variables to collect data on by using the "Add Output Variable" measure after downloading it from the <a href="../../reference/openstudio_application_interface#find-measures-and-find-components">BCL</a>.</p>
 <p><a href="../../img/run/variables_measure.png"><img alt="Measures Tab" src="../../img/run/variables_measure.png" title="Click to view" /></a></p>
 <p><em>Above: Screenshot of the variable measure being added to a project. Just type in the variable you want to collect. This will return the variable's value for all associated objects within the model. To get the variable's value for a specific object, enter the full name of this object.</em></p>
 <h2 id="running-a-simulation">Running a Simulation</h2>
-<p>To run your simulation click the green Run button. </p>
+<p>To run your simulation click the green run button. </p>
 <p><a href="../../img/run/run.png"><img alt="Run Simulation Tab" src="../../img/run/run.png" title="Click to view" /></a></p>
 <p><em>Above: The progress bar displays the status of the run.</em></p>
 <h2 id="looking-at-results">Looking at Results</h2>
-<p>Standard OpenStudio Results are provided with your run. Learn more about the OpenStudio Standard Results measure in our <a href="../../reference/openstudio_results_measure">References Section</a>.</p>
+<p>Standard OpenStudio results are provided with your run. Learn more about the OpenStudio Standard Results Measure in our <a href="../../reference/openstudio_results_measure">References Section</a>.</p>
+<iframe width="640" height="360" src="https://www.youtube.com/embed/PlrWE3ugcdE" allowfullscreen></iframe>
+
+<p><em>Above: This video demonstrates the 1.9.0 Release with the Reporting Measure.</em></p>
 <p><a href="../../img/run/os_results.png"><img alt="Results Summary Tab" src="../../img/run/os_results.png" title="Click to view" /></a></p>
-<p><em>Above: This screenshot shows an example of the standard OpenStudio Results.</em></p>
+<p><em>Above: This screenshot shows and example of the standard OpenStudio results.</em></p>
 <p><a href="../../img/run/reports2.png"><img alt="Results 2 Summary Tab" src="../../img/run/reports2.png" title="Click to view" /></a></p>
-<p><em>Above: This is another chart available in the standard OpenStudio Results.</em></p>
-<p>You can also use measures to add additional reports. For instance, you can download the calibration report measure from the <a href="../../reference/openstudio_application_interface#find-measures-and-find-components">BCL</a>. This measure allows you to view simulation results that are associated with any added utility bills. Another option available for adding additional reports is the generation of custom reports. These are created by writing your own measures. Downloaded or created reporting measures are applied within the OpenStudio Application Measures tab.</p>
+<p><em>Above: This is another chart available in the standard OpenStudio results.</em></p>
+<p>You can also use measures to add additional reports. For instance, you can download the calibration report measure from the <a href="../../reference/openstudio_application_interface#find-measures-and-find-components">BCL</a>. This measure allows you to view simulation results that are associated with any added utility bills. Another option available for adding additional reports is the generation of custom reports. These are created by writing your own measures. Downloaded or created reporting measures are applied within the OpenStudio Measures tab.</p>
 <p><a href="../../img/run/calibration_report.png"><img alt="Calibration Report" src="../../img/run/calibration_report.png" title="Click to view" /></a></p>
 <p><em>Above: The calibration report compares utility bills with the model.</em></p>
 <h2 id="using-data-viewer">Using Data Viewer</h2>
