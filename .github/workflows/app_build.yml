@@ -38,6 +38,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+      with:
+        python-version: '3.8.x'
 
     - name: Set OS-specific options
       # Use a bash shell so we can use the same syntax for environment variable
@@ -64,13 +67,12 @@ jobs:
       id: cacheossdk
       uses: actions/cache@v2
       with:
-        path: ./OpenStudio-${{ env.OS_SDK_VERSION }}
+        path: OpenStudio-${{ env.OS_SDK_VERSION }}
         key: OpenStudio-SDK-${{ runner.os }}-${{ env.OS_SDK_VERSION }}
 
     - name: Download the OpenStudio installer
       # If the SDK wasn't found in the cache
       if: steps.cacheossdk.outputs.cache-hit != 'true'
-      working-directory: ./
       # Use a bash shell so we can use the same syntax for environment variable
       # access regardless of the host operating system
       shell: bash
@@ -92,7 +94,7 @@ jobs:
 
     - name: Install conan
       run: |
-          python --version
+          python3 --version
           pip install conan
           conan --version
 
