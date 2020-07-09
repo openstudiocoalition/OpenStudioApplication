@@ -1,5 +1,4 @@
 <?xml version="1.0"?>
-<!-- edited with XMLSpy v2008 (http://www.altova.com) by Daniel Macumber (NREL) -->
 <ROOT>
   <POLICY IddObjectType="OS_AirLoopHVAC_SupplyPlenum">
     <rule IddField="Thermal Zone" Access="LOCKED"/>
@@ -765,11 +764,6 @@
     <rule IddField="Air Inlet Node Name" Access="HIDDEN"/>
     <rule IddField="Air Outlet Node Name" Access="HIDDEN"/>
   </POLICY>
-  <POLICY IddObjectType="OS_AirTerminal_SingleDuct_Uncontrolled">
-    <rule IddField="Availability Schedule Name" Access="HIDDEN"/>
-    <rule IddField="Inlet Air Node Name" Access="HIDDEN"/>
-    <rule IddField="Zone Supply Air Node Name" Access="HIDDEN"/>
-  </POLICY>
   <POLICY IddObjectType="OS_AirTerminal_SingleDuct_ParallelPIU_Reheat">
     <rule IddField="Availability Schedule Name" Access="HIDDEN"/>
     <rule IddField="Supply Air Inlet Node Name" Access="HIDDEN"/>
@@ -1236,7 +1230,7 @@
     <rule IddField="Nominal Floor to Ceiling Height" Access="LOCKED"/>
   </POLICY>
   <POLICY IddObjectType="OS_DefaultConstructionSet">
-    <rule IddField="Name" Access="LOCKED"/>
+    <!--<rule IddField="Name" Access="LOCKED"/>-->
     <rule IddField="Default Exterior Surface Constructions Name" Access="LOCKED"/>
     <rule IddField="Default Interior Surface Constructions Name" Access="LOCKED"/>
     <rule IddField="Default Ground Contact Surface Constructions Name" Access="LOCKED"/>
@@ -1248,7 +1242,7 @@
     <rule IddField="Site Shading Construction Name" Access="LOCKED"/>
   </POLICY>
   <POLICY IddObjectType="OS_DefaultScheduleSet">
-    <rule IddField="Name" Access="LOCKED"/>
+    <!--<rule IddField="Name" Access="LOCKED"/>-->
     <rule IddField="Hours of Operation Schedule Name" Access="LOCKED"/>
     <rule IddField="Number of People Schedule Name" Access="LOCKED"/>
     <rule IddField="People Activity Level Schedule Name" Access="LOCKED"/>
