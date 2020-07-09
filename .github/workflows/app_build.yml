@@ -52,15 +52,18 @@ jobs:
           echo "::set-env name=CPACK_BINARY_DEB::ON"
           echo "::set-env name=CPACK_BINARY_IFW::OFF"
           echo "::set-env name=PLATFORM_NAME::Linux"
+          echo "::set-env name=BINARY_EXT::deb"
           sudo apt install mesa-common-dev libglu1-mesa-dev
         elif [ "$RUNNER_OS" == "Windows" ]; then
           echo "::set-env name=CPACK_BINARY_DEB::OFF"
           echo "::set-env name=CPACK_BINARY_IFW::ON"
           echo "::set-env name=PLATFORM_NAME::Windows"
+          echo "::set-env name=BINARY_EXT::exe"
           echo "::set-env name=CMAKE_GENERATOR='-G \"Visual Studio 16 2019 Win64\"'"
         elif [ "$RUNNER_OS" == "macOS" ]; then
           echo "::set-env name=CPACK_BINARY_DEB::OFF"
           echo "::set-env name=CPACK_BINARY_IFW::ON"
+          echo "::set-env name=BINARY_EXT::dmg"
           echo "::set-env name=PLATFORM_NAME::Darwin"
         fi;
 
@@ -71,26 +74,6 @@ jobs:
       with:
         path: OpenStudio-${{ env.OS_SDK_VERSION }}
         key: OpenStudio-SDK-${{ runner.os }}-${{ env.OS_SDK_VERSION }}
-
-    - name: Cache conan cache?
-      # To avoid downloading the SDK all the time, we try to cache it
-      id: cacheconan
-      uses: actions/cache@v2
-      with:
-        path: ~/.conan
-        key: conan-cache
-
-    - name: Did restoring the conan-cache work?
-      # If the SDK wasn't found in the cache
-      if: steps.cacheconan.outputs.cache-hit != 'true'
-      run: |
-          echo "Conan cache not found"
-
-    - name: Cache other dependencies
-      # Should probably cache the CMake-downloaded Qt at least
-      shell: bash
-      run: |
-          echo "Not implemented yet"
 
     - name: Download the OpenStudio installer
       # If the SDK wasn't found in the cache
@@ -111,8 +94,22 @@ jobs:
         echo "Downloading $tar_gz_link"
         wget $tar_gz_link
         mkdir OpenStudio-$OS_SDK_VERSION
-        # Extract this into the OpenStudio-$OS_SDK_VERSION directory, omitting the first directory level in the tar.gz
+        echo "Extract this into the OpenStudio-$OS_SDK_VERSION directory, omitting the first directory level in the tar.gz"
         tar xfz OpenStudio-3.0.1+09b7c8a554-Linux.tar.gz --strip-components 1 -C OpenStudio-$OS_SDK_VERSION
+
+    - name: Cache conan cache?
+      # To avoid downloading the SDK all the time, we try to cache it
+      id: cacheconan
+      uses: actions/cache@v2
+      with:
+        path: ~/.conan
+        key: conan-cache
+
+    - name: Did restoring the conan-cache work?
+      # If the SDK wasn't found in the cache
+      if: steps.cacheconan.outputs.cache-hit != 'true'
+      run: |
+          echo "Conan cache not found"
 
     - name: Install conan
       run: |
@@ -130,6 +127,27 @@ jobs:
         echo "::set-env name=openstudio_DIR::$openstudio_DIR"
         cmake -E make_directory ./build
 
+
+    - name: Cache Qt dep cache?
+      # To avoid downloading the Qt dependency all the time, we try to cache it
+      id: cacheqt
+      uses: actions/cache@v2
+      with:
+        path: build/qt_5_11_*.tar.gz
+        key: qt-5-11-cache
+
+    - name: Did restoring the qt cache work?
+      # If the SDK wasn't found in the cache
+      if: steps.cacheqt.outputs.cache-hit != 'true'
+      run: |
+          echo "qt tar.gz was not found"
+
+    - name: Cache other dependencies
+      # Should probably cache the CMake-downloaded Qt at least
+      shell: bash
+      run: |
+          echo "Not implemented yet"
+
     - name: Configure CMake
       # Use a bash shell so we can use the same syntax for environment variable
       # access regardless of the host operating system
@@ -145,11 +163,35 @@ jobs:
       working-directory: ./build
       shell: bash
       # Execute the build.  You can specify a specific target with "--target <NAME>"
-      run: cmake --build . --config $BUILD_TYPE
+      run: cmake --build . --target package --config $BUILD_TYPE
+
+    - name: Archive binary artifacts
+      uses: actions/upload-artifact@v2
+      with:
+          path: build/_CPack_Packages/**/*.${{ env.BINARY_EXT }}
+
+    - name: Archive TGZ artifacts
+      uses: actions/upload-artifact@v2
+      with:
+          name: Tar.gz
+          path: build/_CPack_Packages/**/*.tar.gz
 
     - name: Test
       working-directory: ./build
       shell: bash
       # Execute tests defined by the CMake configuration.
       # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
-      run: ctest -j -c $BUILD_TYPE
+      run: |
+          Xvfb :99 &
+          export DISPLAY=:99
+          ctest -j -T test --no-compress-output -c $BUILD_TYPE
+
+    - name: Archive test results?
+      # Run even if tests failed
+      if: ${{ always() }}
+      uses: actions/upload-artifact@v2
+      with:
+          name: ${{ env.PLATFORM_NAME }}-Test.xml
+          path: build/Testing/**/*.xml
+
+
