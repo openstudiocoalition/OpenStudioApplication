@@ -99,6 +99,12 @@ jobs:
         echo "Extract this into the OpenStudio-$OS_SDK_VERSION directory, omitting the first directory level in the tar.gz"
         tar xfz OpenStudio-3.0.1+09b7c8a554-Linux.tar.gz --strip-components 1 -C OpenStudio-$OS_SDK_VERSION
 
+    - name: Install conan
+      run: |
+          python --version
+          pip install conan
+          conan --version
+
     - name: Cache conan cache?
       # To avoid downloading the SDK all the time, we try to cache it
       id: cacheconan
@@ -107,17 +113,18 @@ jobs:
         path: ~/.conan
         key: conan-cache
 
-    - name: Did restoring the conan-cache work?
+    - name: Did restoring the conan-cache work? No
       # If the SDK wasn't found in the cache
       if: steps.cacheconan.outputs.cache-hit != 'true'
       run: |
           echo "Conan cache not found"
 
-    - name: Install conan
+    - name: Did restoring the conan-cache work? Yes
+      # If the SDK wasn't found in the cache
+      if: steps.cacheconan.outputs.cache-hit == 'true'
       run: |
-          python --version
-          pip install conan
-          conan --version
+          ls ~/.conan/
+          ls ~/.conan/data/
 
     - name: Cache entire build directory
       id: cachebuild
@@ -126,11 +133,18 @@ jobs:
         path: build/
         key: build-cache
 
-    - name: Did restoring the build-cache work?
+    - name: Did restoring the build-cache work? No
       # If the SDK wasn't found in the cache
       if: steps.cachebuild.outputs.cache-hit != 'true'
       run: |
           echo "Build cache not found"
+
+    - name: Did restoring the build-cache work? Yes
+      # If the SDK wasn't found in the cache
+      if: steps.cachebuild.outputs.cache-hit == 'true'
+      run: |
+          ls build/
+          cat build/CMakeCache.txt
 
     - name: Create Build Environment and locate openstudio
       # Some projects don't allow in-source building, so create a separate build directory
@@ -209,5 +223,4 @@ jobs:
       with:
           name: OpenStudioApplication-$OS_APP_VERSION.${{ github.sha }}-${{ env.PLATFORM_NAME }}-Test.xml
           path: build/Testing/**/*.xml
-
 
