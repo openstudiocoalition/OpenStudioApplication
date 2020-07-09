@@ -48,6 +48,8 @@ jobs:
       # access regardless of the host operating system
       shell: bash
       run: |
+        OS_APP_VERSION=$(/bin/grep -Po "(?<=project\(OpenStudioApplication VERSION )(\d+\.\d+\.\d+)" CMakeLists.txt)
+        echo "::set-env name=OS_APP_VERSION::$OS_APP_VERSION"
         if [ "$RUNNER_OS" == "Linux" ]; then
           echo "::set-env name=CPACK_BINARY_DEB::ON"
           echo "::set-env name=CPACK_BINARY_IFW::OFF"
@@ -183,12 +185,13 @@ jobs:
     - name: Archive binary artifacts
       uses: actions/upload-artifact@v2
       with:
+          name: OpenStudioApplication-$OS_APP_VERSION.${{ github.sha }}-${{ env.PLATFORM_NAME }}.${{ env.BINARY_EXT }}
           path: build/_CPack_Packages/**/*.${{ env.BINARY_EXT }}
 
     - name: Archive TGZ artifacts
       uses: actions/upload-artifact@v2
       with:
-          name: Tar.gz
+          name: OpenStudioApplication-$OS_APP_VERSION.${{ github.sha }}-${{ env.PLATFORM_NAME }}.tar.gz
           path: build/_CPack_Packages/**/*.tar.gz
 
     - name: Test
@@ -204,7 +207,7 @@ jobs:
     - name: Archive test results?
       uses: actions/upload-artifact@v2
       with:
-          name: ${{ env.PLATFORM_NAME }}-Test.xml
+          name: OpenStudioApplication-$OS_APP_VERSION.${{ github.sha }}-${{ env.PLATFORM_NAME }}-Test.xml
           path: build/Testing/**/*.xml
 
 
