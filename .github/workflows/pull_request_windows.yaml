@@ -1,0 +1,30 @@
+name: CI (windows)
+
+on:
+  pull_request:
+    branches:
+      - master
+      - develop
+      
+jobs:
+  Windows:
+    name: build-windows
+    runs-on: [self-hosted, windows]
+
+    steps:
+    - name: Clean
+      uses: AutoModality/action-clean@v1
+          
+    - name: Checkout
+      uses: actions/checkout@v1
+
+    - name: Running CMake (windows)
+      run: |
+        mkdir build
+        cd build
+        cmake .. 
+
+    - name: Build Solution (windows)
+      run: |
+        cd build
+        MSBuild.exe OpenStudio.sln
