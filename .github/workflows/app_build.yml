@@ -238,13 +238,13 @@ jobs:
     - name: Archive binary artifacts
       uses: actions/upload-artifact@v2
       with:
-          name: OpenStudioApplication-$OS_APP_VERSION.${{ github.sha }}-${{ env.PLATFORM_NAME }}.${{ env.BINARY_EXT }}
+          name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ env.PLATFORM_NAME }}.${{ env.BINARY_EXT }}
           path: build/_CPack_Packages/**/*.${{ env.BINARY_EXT }}
 
     - name: Archive TGZ artifacts
       uses: actions/upload-artifact@v2
       with:
-          name: OpenStudioApplication-$OS_APP_VERSION.${{ github.sha }}-${{ env.PLATFORM_NAME }}.tar.gz
+          name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ env.PLATFORM_NAME }}.tar.gz
           path: build/_CPack_Packages/**/*.tar.gz
 
     - name: Test
@@ -260,6 +260,6 @@ jobs:
     - name: Archive test results?
       uses: actions/upload-artifact@v2
       with:
-          name: OpenStudioApplication-$OS_APP_VERSION.${{ github.sha }}-${{ env.PLATFORM_NAME }}-Test.xml
+          name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ env.PLATFORM_NAME }}-Test.xml
           path: build/Testing/**/*.xml
 
