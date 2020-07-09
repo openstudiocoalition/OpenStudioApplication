@@ -112,7 +112,7 @@ jobs:
       # Note: wget not available on windows, even in bash, so use curl
       shell: bash
       run: |
-        curl -H "Authorization: token $GITHUB_TOKEN" https://api.github.com/repos/NREL/OpenStudio/releases/tags/v$OS_SDK_VERSION > os_tag.json
+        curl --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' https://api.github.com/repos/NREL/OpenStudio/releases/tags/v$OS_SDK_VERSION > os_tag.json
         echo "PLATFORM_NAME=${{ env.PLATFORM_NAME }}"
         cat os_tag.json
         tar_gz_link=$(cat os_tag.json | jq -r '.assets | .[] | select(.name | contains("${{ env.PLATFORM_NAME }}")) | select(.name | contains("tar.gz")) | .browser_download_url')
