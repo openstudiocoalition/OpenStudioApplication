@@ -109,9 +109,10 @@ jobs:
       if: steps.cacheossdk.outputs.cache-hit != 'true'
       # Use a bash shell so we can use the same syntax for environment variable
       # access regardless of the host operating system
+      # Note: wget not available on windows, even in bash, so use curl
       shell: bash
       run: |
-        curl https://api.github.com/repos/NREL/OpenStudio/releases/tags/v$OS_SDK_VERSION > os_tag.json
+        curl -H "Authorization: token $GITHUB_TOKEN" https://api.github.com/repos/NREL/OpenStudio/releases/tags/v$OS_SDK_VERSION > os_tag.json
         echo "PLATFORM_NAME=${{ env.PLATFORM_NAME }}"
         cat os_tag.json
         tar_gz_link=$(cat os_tag.json | jq -r '.assets | .[] | select(.name | contains("${{ env.PLATFORM_NAME }}")) | select(.name | contains("tar.gz")) | .browser_download_url')
@@ -121,10 +122,10 @@ jobs:
         fi;
         tar_gz_name=$(basename -- $tar_gz_link)
         echo "Downloading $tar_gz_link"
-        wget $tar_gz_link
+        curl -O $tar_gz_link
         cmake -E make_directory OpenStudio-$OS_SDK_VERSION
         echo "Extract this into the OpenStudio-$OS_SDK_VERSION directory, omitting the first directory level in the tar.gz"
-        tar xfz OpenStudio-3.0.1+09b7c8a554-Linux.tar.gz --strip-components 1 -C OpenStudio-$OS_SDK_VERSION
+        cmake -E tar xfz OpenStudio-3.0.1+09b7c8a554-Linux.tar.gz --strip-components 1 -C OpenStudio-$OS_SDK_VERSION
 
     - name: Install conan
       run: |
