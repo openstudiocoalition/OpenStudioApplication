@@ -125,7 +125,7 @@ jobs:
         curl -O $tar_gz_link
         cmake -E make_directory OpenStudio-$OS_SDK_VERSION
         echo "Extract this into the OpenStudio-$OS_SDK_VERSION directory, omitting the first directory level in the tar.gz"
-        cmake -E tar xfz OpenStudio-3.0.1+09b7c8a554-Linux.tar.gz --strip-components 1 -C OpenStudio-$OS_SDK_VERSION
+        tar xfz OpenStudio-3.0.1+09b7c8a554-Linux.tar.gz --strip-components 1 -C OpenStudio-$OS_SDK_VERSION
 
     - name: Install conan
       run: |
