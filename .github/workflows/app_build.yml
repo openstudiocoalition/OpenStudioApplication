@@ -30,12 +30,12 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-18.04
-    #runs-ons: ${{ matrix.os }}
-    #strategy:
-      #matrix:
-      #os: [ubuntu-18.04, windows-2019, macos-10.15]
-      #strategy.fail-fast: true # Defualt is true, switch to false later to allow one platform to fail and still run others
+    # runs-on: ubuntu-18.04
+    runs-ons: ${{ matrix.os }}
+    strategy:
+      matrix:
+      os: [ubuntu-18.04, windows-2019, macos-10.15]
+      strategy.fail-fast: false # Default is true, switch to false to allow one platform to fail and still run others
 
     steps:
     - uses: actions/checkout@v2
