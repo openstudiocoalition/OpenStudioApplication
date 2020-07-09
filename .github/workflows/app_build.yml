@@ -92,12 +92,11 @@ jobs:
       # Some projects don't allow in-source building, so create a separate build directory
       # We'll use this as our working directory for all subsequent commands
       run: |
-        ls
         openstudio_DIR=$(find `pwd`/OpenStudio-$OS_SDK_VERSION/ -name "openstudioConfig.cmake")
         openstudio_DIR=$(dirname "${openstudio_DIR}")
         echo "openstudio_DIR=${openstudio_DIR}"
         echo "::set-env name=openstudio_DIR::$openstudio_DIR"
-        cmake -E make_directory ${{ runner.workspac e}}/build
+        cmake -E make_directory ./build
 
     - name: Configure CMake
       # Use a bash shell so we can use the same syntax for environment variable
