@@ -121,7 +121,7 @@ jobs:
           exit 1;
         fi;
         tar_gz_name=$(basename -- $tar_gz_link)
-        tar_gz_name=$(python3 -c "import sys, urllib.parse as ul; print(ul.unquote_plus(\"$tar_gz_name\"))")
+        tar_gz_name=$(python -c "import sys, urllib.parse as ul; print(ul.unquote_plus(\"$tar_gz_name\"))")
         echo "Downloading $tar_gz_link"
         curl --output "$tar_gz_name" "$tar_gz_link"
         ls
