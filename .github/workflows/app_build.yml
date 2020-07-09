@@ -39,11 +39,20 @@ jobs:
         os: [ubuntu-18.04, windows-2019, macos-10.15]
         include:
         - os: ubuntu-18.04
-          OS_DEPENDENT_VAR: Linux
+          PLATFORM_NAME: Linux
+          CPACK_BINARY_DEB: ON
+          CPACK_BINARY_IFW: OFF
+          BINARY_EXT: deb
         - os: windows-2019
-          OS_DEPENDENT_VAR: Windows
+          PLATFORM_NAME: Windows
+          CPACK_BINARY_DEB: OFF
+          CPACK_BINARY_IFW: ON
+          BINARY_EXT: exe
         - os: macos-10.15
           OS_DEPENDENT_VAR: Darwin
+          CPACK_BINARY_DEB: OFF
+          CPACK_BINARY_IFW: ON
+          BINARY_EXT: dmg
 
     steps:
     - uses: actions/checkout@v2
@@ -51,33 +60,40 @@ jobs:
       with:
         python-version: '3.8.x'
 
+    - name: Extract OSApp version from CMakeLists.txt
+      shell: python
+      run: |
+        import re
+        with open('CMakeLists.txt', 'r') as f:
+            content = f.read()
+        m = re.search('project\(OpenStudioApplication VERSION (\d+\.\d+\.\d+)\)', content)
+        version='X.Y.Z'
+        if m:
+            version = m.groups()[0]
+        with open('version.txt', 'w') as f:
+            f.write(version)
+
+
     - name: Set OS-specific options and system dependencies
       # Use a bash shell so we can use the same syntax for environment variable
       # access regardless of the host operating system
       shell: bash
       run: |
-        OS_APP_VERSION=$(/bin/grep -Po "(?<=project\(OpenStudioApplication VERSION )(\d+\.\d+\.\d+)" CMakeLists.txt)
-        echo "OS_APP_VERSION=$OS_APP_VERSION"
-        echo "OS_DEPENDENT_VAR=$OS_DEPENDENT_VAR"
-        echo "matrix.OS_DEPENDENT_VAR=${{ matrix.OS_DEPENDENT_VAR }}"
+        OS_APP_VERSION=$(cat version.txt)
         echo "::set-env name=OS_APP_VERSION::$OS_APP_VERSION"
+
+        echo "::set-env name=PLATFORM_NAME::${{ matrix.PLATFORM_NAME }}"
+        echo "::set-env name=CPACK_BINARY_DEB::${{ matrix.CPACK_BINARY_DEB }}"
+        echo "::set-env name=CPACK_BINARY_IFW::${{ matrix.CPACK_BINARY_IFW }}"
+        echo "::set-env name=BINARY_EXT::${{ matrix.BINARY_EXT }}"
+
         if [ "$RUNNER_OS" == "Linux" ]; then
-          echo "::set-env name=CPACK_BINARY_DEB::ON"
-          echo "::set-env name=CPACK_BINARY_IFW::OFF"
-          echo "::set-env name=PLATFORM_NAME::Linux"
-          echo "::set-env name=BINARY_EXT::deb"
+          echo "Install needed system dependencies for OPENGL (due to Qt) for Linux"
           sudo apt install mesa-common-dev libglu1-mesa-dev
         elif [ "$RUNNER_OS" == "Windows" ]; then
-          echo "::set-env name=CPACK_BINARY_DEB::OFF"
-          echo "::set-env name=CPACK_BINARY_IFW::ON"
-          echo "::set-env name=PLATFORM_NAME::Windows"
-          echo "::set-env name=BINARY_EXT::exe"
-          echo "::set-env name=CMAKE_GENERATOR='-G \"Visual Studio 16 2019 Win64\"'"
+          true
         elif [ "$RUNNER_OS" == "macOS" ]; then
-          echo "::set-env name=CPACK_BINARY_DEB::OFF"
-          echo "::set-env name=CPACK_BINARY_IFW::ON"
-          echo "::set-env name=BINARY_EXT::dmg"
-          echo "::set-env name=PLATFORM_NAME::Darwin"
+          true
         fi;
 
     - name: Cache OpenStudio tar.gz
