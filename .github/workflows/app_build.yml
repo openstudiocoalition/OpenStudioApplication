@@ -117,6 +117,19 @@ jobs:
           pip install conan
           conan --version
 
+    - name: Cache entire build directory
+      id: cachebuild
+      uses: actions/cache@v2
+      with:
+        path: build/
+        key: build-cache
+
+    - name: Did restoring the build-cache work?
+      # If the SDK wasn't found in the cache
+      if: steps.cachebuild.outputs.cache-hit != 'true'
+      run: |
+          echo "Build cache not found"
+
     - name: Create Build Environment and locate openstudio
       # Some projects don't allow in-source building, so create a separate build directory
       # We'll use this as our working directory for all subsequent commands
@@ -128,27 +141,27 @@ jobs:
         cmake -E make_directory ./build
 
 
-    - name: Cache Qt dep cache?
-      # To avoid downloading the Qt dependency all the time, we try to cache it
-      id: cacheqt
-      uses: actions/cache@v2
-      with:
-        path: build/qt_5_11_*.tar.gz
-        key: qt-5-11-cache
+    #- name: Cache Qt dep cache?
+      ## To avoid downloading the Qt dependency all the time, we try to cache it
+      #id: cacheqt
+      #uses: actions/cache@v2
+      #with:
+        #path: build/qt_5_11_*.tar.gz
+        #key: qt-5-11-cache
 
-    - name: Did restoring the qt cache work?
-      # If the SDK wasn't found in the cache
-      if: steps.cacheqt.outputs.cache-hit != 'true'
-      run: |
-          echo "qt tar.gz was not found"
+    #- name: Did restoring the qt cache work?
+      ## If the SDK wasn't found in the cache
+      #if: steps.cacheqt.outputs.cache-hit != 'true'
+      #run: |
+          #echo "qt tar.gz was not found"
 
-    - name: Cache other dependencies
-      # Should probably cache the CMake-downloaded Qt at least
-      shell: bash
-      run: |
-          echo "Not implemented yet"
-          echo "The more I think about it, the more I think we should cache the entire build/ directory to speed up builds"
-          echo "We can use a manual counter in the key so we can effectively wipe the build directory when we want to"
+    #- name: Cache other dependencies
+      ## Should probably cache the CMake-downloaded Qt at least
+      #shell: bash
+      #run: |
+          #echo "Not implemented yet"
+          #echo "The more I think about it, the more I think we should cache the entire build/ directory to speed up builds"
+          #echo "We can use a manual counter in the key so we can effectively wipe the build directory when we want to"
 
     - name: Configure CMake
       # Use a bash shell so we can use the same syntax for environment variable
