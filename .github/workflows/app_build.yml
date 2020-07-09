@@ -42,7 +42,7 @@ jobs:
       with:
         python-version: '3.8.x'
 
-    - name: Set OS-specific options
+    - name: Set OS-specific options and system dependencies
       # Use a bash shell so we can use the same syntax for environment variable
       # access regardless of the host operating system
       shell: bash
@@ -51,6 +51,7 @@ jobs:
           echo "::set-env name=CPACK_BINARY_DEB::ON"
           echo "::set-env name=CPACK_BINARY_IFW::OFF"
           echo "::set-env name=PLATFORM_NAME::Linux"
+          apt install mesa-common-dev libglu1-mesa-dev
         elif [ "$RUNNER_OS" == "Windows" ]; then
           echo "::set-env name=CPACK_BINARY_DEB::OFF"
           echo "::set-env name=CPACK_BINARY_IFW::ON"
@@ -69,6 +70,26 @@ jobs:
       with:
         path: OpenStudio-${{ env.OS_SDK_VERSION }}
         key: OpenStudio-SDK-${{ runner.os }}-${{ env.OS_SDK_VERSION }}
+
+    - name: Cache conan cache?
+      # To avoid downloading the SDK all the time, we try to cache it
+      id: cacheconan
+      uses: actions/cache@v2
+      with:
+        path: ~/.conan
+        key: conan-cache
+
+    - name: Did restoring the conan-cache work?
+      # If the SDK wasn't found in the cache
+      if: steps.cacheconan.outputs.cache-hit != 'true'
+      run: |
+          echo "Conan cache not found"
+
+    - name: Cache other dependencies
+      # Should probably cache the CMake-downloaded Qt at least
+      shell: bash
+      run: |
+          echo "Not implemented yet"
 
     - name: Download the OpenStudio installer
       # If the SDK wasn't found in the cache
@@ -95,7 +116,6 @@ jobs:
     - name: Install conan
       run: |
           python --version
-          python3 --version
           pip install conan
           conan --version
 
