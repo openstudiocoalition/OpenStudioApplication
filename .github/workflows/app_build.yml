@@ -123,8 +123,10 @@ jobs:
         tar_gz_name=$(basename -- $tar_gz_link)
         tar_gz_name=$(python -c "import sys, urllib.parse as ul; print(ul.unquote_plus(\"$tar_gz_name\"))")
         echo "Downloading $tar_gz_link"
+        echo "Normally, tar_gz_name=$tar_gz_name"
         curl --output "$tar_gz_name" "$tar_gz_link"
         ls
+        ls -la $tar_gz_name
         echo "Extract this into the OpenStudio-$OS_SDK_VERSION directory, omitting the first directory level in the tar.gz"
         echo "This isn't working, so use cmake to tar, then rename"
         echo "tar xfz $tar_gz_name --strip-components 1 -C OpenStudio-$OS_SDK_VERSION"
