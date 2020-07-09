@@ -121,10 +121,9 @@ jobs:
           exit 1;
         fi;
         tar_gz_name=$(basename -- $tar_gz_link)
-        alias urldecode='python3 -c "import sys, urllib.parse as ul; print(ul.unquote_plus(sys.argv[1]))"'
-        tar_gz_name=$(urldecode $tar_gz_name)
+        tar_gz_name=$(python3 -c "import sys, urllib.parse as ul; print(ul.unquote_plus(\"$tar_gz_name\"))")
         echo "Downloading $tar_gz_link"
-        curl --output $tar_gz_name "$tar_gz_link"
+        curl --output "$tar_gz_name" "$tar_gz_link"
         ls
         echo "Extract this into the OpenStudio-$OS_SDK_VERSION directory, omitting the first directory level in the tar.gz"
         echo "This isn't working, so use cmake to tar, then rename"
