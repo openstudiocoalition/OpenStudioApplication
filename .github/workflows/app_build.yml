@@ -78,7 +78,7 @@ jobs:
         curl https://api.github.com/repos/NREL/OpenStudio/releases/tags/v$OS_SDK_VERSION > os_tag.json
         echo "PLATFORM_NAME=${{ env.PLATFORM_NAME }}"
         cat os_tag.json
-        tar_gz_link=$(cat os_tag.json | jq -r '.assets | .[] | select(.name | contains(${{ env.PLATFORM_NAME }})) | select(.name | contains("tar.gz")) | .browser_download_url')
+        tar_gz_link=$(cat os_tag.json | jq -r '.assets | .[] | select(.name | contains("${{ env.PLATFORM_NAME }}")) | select(.name | contains("tar.gz")) | .browser_download_url')
         if [ -z "$tar_gz_link" ]; then
           echo "Could not locate the OpenStudio tar.gz for OS_SDK_VERSION=$OS_SDK_VERSION and PLATFORM_NAME=$PLATFORM_NAME"
           exit 1;
