@@ -44,9 +44,9 @@
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/Model_Impl.hpp>
 #include <openstudio/model/ScheduleRule.hpp>
+#include <openstudio/model/ScheduleRule_Impl.hpp>
 #include <openstudio/model/ScheduleRuleset.hpp>
 #include <openstudio/model/ScheduleRuleset_Impl.hpp>
-#include <openstudio/model/ScheduleRule_Impl.hpp>
 #include <openstudio/model/ScheduleTypeLimits.hpp>
 
 #include <openstudio/utilities/core/Assert.hpp>
@@ -334,7 +334,33 @@ void SchedulesTabController::removeScheduleRule(model::ScheduleRule & scheduleRu
     // Set the new displayed ScheduleRule to the last one
     qobject_cast<SchedulesView *>(m_currentView)->showScheduleRule(rules[n_rules - 1]);
   }
+}
 
+void SchedulesTabController::removeSpecialScheduleDay(model::ScheduleRuleset & scheduleRuleset, SpecialScheduleDayType type) {
+
+  // TODO: why is this calling Impl and not doing anything with it?
+  scheduleRuleset.getImpl<openstudio::model::detail::ScheduleRuleset_Impl>();
+
+  std::string schedule_name = scheduleRuleset.nameString();
+
+  if (type == SpecialScheduleDayType::SUMMER) {
+    scheduleRuleset.resetSummerDesignDaySchedule();
+  } else if (type == SpecialScheduleDayType::WINTER) {
+    scheduleRuleset.resetWinterDesignDaySchedule();
+  } else if (type == SpecialScheduleDayType::HOLIDAY) {
+    scheduleRuleset.resetHolidaySchedule();
+  } else {
+    OS_ASSERT(false);
+  }
+
+  if (qobject_cast<SchedulesView *>(m_currentView)) {
+    if (boost::optional<model::ScheduleRuleset> schedule = (qobject_cast<SchedulesView *>(m_currentView))->currentSchedule()) {
+      std::string schedule_name = schedule->nameString();
+    }
+  }
+
+  // Set the new displayed to the defaultDaySchedule
+  qobject_cast<SchedulesView *>(m_currentView)->showDefaultScheduleDay(scheduleRuleset);
 }
 
 void SchedulesTabController::onItemDropped(const OSItemId& itemId)
@@ -500,6 +526,7 @@ void SchedulesTabController::setSubTab(int index)
     disconnect(qobject_cast<SchedulesView *>(m_currentView), &SchedulesView::startDateTimeChanged, this, &SchedulesTabController::onStartDateTimeChanged);
     disconnect(qobject_cast<SchedulesView *>(m_currentView), &SchedulesView::endDateTimeChanged, this, &SchedulesTabController::onEndDateTimeChanged);
     disconnect(qobject_cast<SchedulesView *>(m_currentView), &SchedulesView::removeScheduleRuleClicked, this, &SchedulesTabController::removeScheduleRule);
+    disconnect(qobject_cast<SchedulesView *>(m_currentView), &SchedulesView::removeSpecialScheduleDayClicked, this, &SchedulesTabController::removeSpecialScheduleDay);
     disconnect(qobject_cast<SchedulesView *>(m_currentView), &SchedulesView::itemDropped, this, &SchedulesTabController::onItemDropped);
     disconnect(qobject_cast<SchedulesView *>(m_currentView), &SchedulesView::modelObjectSelected, this, &SchedulesTabController::modelObjectSelected);
     disconnect(this, &SchedulesTabController::toggleUnitsClicked, this, &SchedulesTabController::toggleUnits);
@@ -538,6 +565,7 @@ void SchedulesTabController::setSubTab(int index)
     connect(schedulesView, &SchedulesView::startDateTimeChanged, this, &SchedulesTabController::onStartDateTimeChanged);
     connect(schedulesView, &SchedulesView::endDateTimeChanged, this, &SchedulesTabController::onEndDateTimeChanged);
     connect(schedulesView, &SchedulesView::removeScheduleRuleClicked, this, &SchedulesTabController::removeScheduleRule);
+    connect(schedulesView, &SchedulesView::removeSpecialScheduleDayClicked, this, &SchedulesTabController::removeSpecialScheduleDay);
     connect(schedulesView, &SchedulesView::itemDropped, this, &SchedulesTabController::onItemDropped);
     connect(schedulesView, &SchedulesView::modelObjectSelected, this, &SchedulesTabController::modelObjectSelected);
     connect(this, &SchedulesTabController::toggleUnitsClicked, this, &SchedulesTabController::toggleUnits);

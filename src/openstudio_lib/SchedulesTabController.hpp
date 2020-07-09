@@ -62,6 +62,8 @@ class ScheduleSetsController;
 
 class SchedulesView;
 
+enum class SpecialScheduleDayType ;
+
 class SchedulesTabController : public MainTabController
 {
   Q_OBJECT
@@ -122,6 +124,8 @@ class SchedulesTabController : public MainTabController
   void addHolidayProfile(model::ScheduleRuleset & scheduleRuleset, UUID scheduleDayHandle);
 
   void removeScheduleRule(model::ScheduleRule & scheduleRule);
+
+  void removeSpecialScheduleDay(model::ScheduleRuleset & scheduleRuleset, SpecialScheduleDayType );
 
   void onDayScheduleSceneChanged(DayScheduleScene * scene, double lowerLimitValue, double upperLimitValue);
 

@@ -44,6 +44,8 @@
 #include <openstudio/model/ScheduleRule_Impl.hpp>
 #include <openstudio/model/ScheduleTypeLimits.hpp>
 #include <openstudio/model/ScheduleTypeLimits_Impl.hpp>
+#include <openstudio/model/ScheduleDay.hpp>
+#include <openstudio/model/ScheduleDay_Impl.hpp>
 
 #include "../model_editor/Utilities.hpp"
 
@@ -296,6 +298,9 @@ void SchedulesView::onModelObjectAdded(std::shared_ptr<openstudio::detail::Works
                                        const openstudio::IddObjectType&,
                                        const openstudio::UUID&)
 {
+
+  std::string wo_name = workspaceObjectImpl->nameString();
+
   boost::optional<model::ScheduleRuleset> schedule = m_model.getModelObject<model::ScheduleRuleset>(workspaceObjectImpl->handle());
   if (schedule)
   {
@@ -310,6 +315,15 @@ void SchedulesView::onModelObjectAdded(std::shared_ptr<openstudio::detail::Works
 
     addScheduleRule(rule.get());
   }
+
+  //boost::optional<model::ScheduleDay> specialDaySchedule = m_model.getModelObject<model::ScheduleDay>(workspaceObjectImpl->handle());
+  //if (specialDaySchedule) {
+
+    //// Is it worth filtering out the defaultDaySchedules? That is make sure this is either a summer or winder design day schedule or a holiday one
+
+    //specialDaySchedule->getImpl<detail::WorkspaceObject_Impl>().get()->onRemoveFromWorkspace.connect<SchedulesView, &SchedulesView::onSpecialDayScheduleRemoved>(this);
+  //}
+
 }
 
 void SchedulesView::onModelObjectRemoved(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> workspaceObjectImpl,
@@ -484,6 +498,10 @@ void SchedulesView::onScheduleRuleRemoved(const Handle& handle)
   showEmptyPage();
 }
 
+void SchedulesView::onSpecialDayScheduleRemoved(const Handle& handle) {
+  showEmptyPage();
+}
+
 void SchedulesView::showDefaultScheduleDay(const model::ScheduleRuleset & schedule)
 {
   setUpdatesEnabled(false);
@@ -524,7 +542,7 @@ void SchedulesView::showSummerScheduleDay(model::ScheduleRuleset schedule)
   if (!schedule.isSummerDesignDayScheduleDefaulted())
   {
 
-    auto scheduleView = new SpecialScheduleDayView(m_isIP, schedule, this, SpecialScheduleDayView::SUMMER);
+    auto scheduleView = new SpecialScheduleDayView(m_isIP, schedule, this, SpecialScheduleDayType::SUMMER);
 
     connect(this, &SchedulesView::toggleUnitsClicked, scheduleView, &SpecialScheduleDayView::toggleUnitsClicked);
 
@@ -560,7 +578,7 @@ void SchedulesView::showWinterScheduleDay(model::ScheduleRuleset schedule)
 
   if (!schedule.isWinterDesignDayScheduleDefaulted())
   {
-    auto scheduleView = new SpecialScheduleDayView(m_isIP, schedule, this, SpecialScheduleDayView::WINTER);
+    auto scheduleView = new SpecialScheduleDayView(m_isIP, schedule, this, SpecialScheduleDayType::WINTER);
 
     connect(this, &SchedulesView::toggleUnitsClicked, scheduleView, &SpecialScheduleDayView::toggleUnitsClicked);
 
@@ -596,7 +614,7 @@ void SchedulesView::showHolidayScheduleDay(model::ScheduleRuleset schedule)
 
   if (!schedule.isHolidayScheduleDefaulted())
   {
-    auto scheduleView = new SpecialScheduleDayView(m_isIP, schedule, this, SpecialScheduleDayView::HOLIDAY);
+    auto scheduleView = new SpecialScheduleDayView(m_isIP, schedule, this, SpecialScheduleDayType::HOLIDAY);
 
     connect(this, &SchedulesView::toggleUnitsClicked, scheduleView, &SpecialScheduleDayView::toggleUnitsClicked);
 
@@ -1611,7 +1629,9 @@ SpecialScheduleDayView::SpecialScheduleDayView(bool isIP,
                                              SchedulesView * schedulesView,
                                              SpecialScheduleDayType type)
                                              : QWidget(schedulesView),
-                                             m_type(type)
+                                               m_scheduleRuleset(scheduleRuleset),
+                                               m_schedulesView(schedulesView),
+                                               m_type(type)
 {
   // Layout
 
@@ -1630,9 +1650,16 @@ SpecialScheduleDayView::SpecialScheduleDayView(bool isIP,
   auto scheduleRulesetNameWidget = new ScheduleRulesetNameWidget(scheduleRuleset);
   mainVLayout->addWidget(scheduleRulesetNameWidget);
 
+  // TODO add delete button
+  auto removeButton = new QPushButton();
+  removeButton->setObjectName("DeleteButton");
+  removeButton->setFlat(true);
+  removeButton->setFixedSize(24,24);
+  removeButton->setToolTip("Click to remove Special Day Schedule for " + openstudio::toQString(scheduleRuleset.nameString()));
+
   // Schedule Day
 
-  if (m_type == SUMMER)
+  if (m_type == SpecialScheduleDayType::SUMMER)
   {
     if (!scheduleRuleset.isSummerDesignDayScheduleDefaulted())
     {
@@ -1642,6 +1669,7 @@ SpecialScheduleDayView::SpecialScheduleDayView(bool isIP,
       auto hLayout = new QHBoxLayout();
       hLayout->setContentsMargins(60, 0, 0, 10);
       hLayout->addWidget(label);
+      hLayout->addWidget(removeButton);
       mainVLayout->addLayout(hLayout);
 
       model::ScheduleDay scheduleDay = scheduleRuleset.summerDesignDaySchedule();
@@ -1649,10 +1677,16 @@ SpecialScheduleDayView::SpecialScheduleDayView(bool isIP,
       auto scheduleDayView = new ScheduleDayView(isIP, scheduleDay, schedulesView);
 
       connect(this, &SpecialScheduleDayView::toggleUnitsClicked, scheduleDayView, &ScheduleDayView::toggleUnitsClicked);
+      /*
+       *connect(removeButton, &QPushButton::clicked,  [&scheduleDay, &schedulesView, &scheduleRuleset]( bool checked ) {
+       *    const_cast<openstudio::model::ScheduleRuleset*>(&scheduleRuleset)->resetSummerDesignDaySchedule();
+       *    schedulesView->showDefaultScheduleDay(scheduleRuleset);
+
+      });*/
 
       mainVLayout->addWidget(scheduleDayView);
     }
-  } else if (m_type == WINTER)
+  } else if (m_type == SpecialScheduleDayType::WINTER)
   {
     if (!scheduleRuleset.isWinterDesignDayScheduleDefaulted())
     {
@@ -1662,6 +1696,7 @@ SpecialScheduleDayView::SpecialScheduleDayView(bool isIP,
       auto hLayout = new QHBoxLayout();
       hLayout->setContentsMargins(60, 0, 0, 10);
       hLayout->addWidget(label);
+      hLayout->addWidget(removeButton);
       mainVLayout->addLayout(hLayout);
 
       model::ScheduleDay scheduleDay = scheduleRuleset.winterDesignDaySchedule();
@@ -1672,7 +1707,7 @@ SpecialScheduleDayView::SpecialScheduleDayView(bool isIP,
 
       mainVLayout->addWidget(scheduleDayView);
     }
-  } else if (m_type == HOLIDAY)
+  } else if (m_type == SpecialScheduleDayType::HOLIDAY)
   {
     if (!scheduleRuleset.isHolidayScheduleDefaulted())
     {
@@ -1682,6 +1717,7 @@ SpecialScheduleDayView::SpecialScheduleDayView(bool isIP,
       auto hLayout = new QHBoxLayout();
       hLayout->setContentsMargins(60, 0, 0, 10);
       hLayout->addWidget(label);
+      hLayout->addWidget(removeButton);
       mainVLayout->addLayout(hLayout);
 
       model::ScheduleDay scheduleDay = scheduleRuleset.holidaySchedule();
@@ -1696,6 +1732,18 @@ SpecialScheduleDayView::SpecialScheduleDayView(bool isIP,
     // Shouldn't happen
     OS_ASSERT(false);
   }
+
+  connect(removeButton, &QPushButton::clicked, this, &SpecialScheduleDayView::onRemoveClicked);
+  connect(this, &SpecialScheduleDayView::removeSpecialScheduleDayClicked, m_schedulesView, &SchedulesView::removeSpecialScheduleDayClicked);
+
+}
+
+
+void SpecialScheduleDayView::onRemoveClicked()
+{
+  m_scheduleRuleset.getImpl<openstudio::model::detail::ScheduleRuleset_Impl>();
+
+  emit removeSpecialScheduleDayClicked(m_scheduleRuleset, m_type);
 }
 
 /******************************************************************************/

@@ -122,6 +122,9 @@ class MonthView;
 
 class ScheduleCalendarWidget;
 
+enum class SpecialScheduleDayType { SUMMER, WINTER, HOLIDAY };
+
+
 // Overall view for the schedules tab, includes left column selector
 class SchedulesView : public QWidget, public Nano::Observer
 {
@@ -182,6 +185,8 @@ class SchedulesView : public QWidget, public Nano::Observer
 
     void removeScheduleRuleClicked(model::ScheduleRule & scheduleRule);
 
+    void removeSpecialScheduleDayClicked(model::ScheduleRuleset & scheduleRuleset, SpecialScheduleDayType type);
+
     void addRuleClicked(model::ScheduleRuleset & scheduleRuleset, UUID dayScheduleHandle);
 
     void addSummerProfileClicked(model::ScheduleRuleset & scheduleRuleset, UUID dayScheduleHandle);
@@ -222,6 +227,7 @@ class SchedulesView : public QWidget, public Nano::Observer
 
     void onScheduleRuleRemoved(const Handle& handle);
 
+    void onSpecialDayScheduleRemoved(const Handle& handle);
   private:
 
     void updateRowColors();
@@ -601,13 +607,11 @@ class DefaultScheduleDayView : public QWidget
 };
 
 // View a Special Day (sizing day or holiday) schedule of a schedule ruleset
-class SpecialScheduleDayView : public QWidget
+class SpecialScheduleDayView : public QWidget, public Nano::Observer
 {
   Q_OBJECT
 
 public:
-
-  enum SpecialScheduleDayType { SUMMER, WINTER, HOLIDAY };
 
   SpecialScheduleDayView(bool isIP,
                         const model::ScheduleRuleset & scheduleRuleset,
@@ -616,12 +620,22 @@ public:
 
   virtual ~SpecialScheduleDayView() {}
 
+
 signals:
 
   void toggleUnitsClicked(bool displayIP);
 
+  void removeSpecialScheduleDayClicked(model::ScheduleRuleset & scheduleRuleset, SpecialScheduleDayType type);
+
+private slots:
+
+  // This gets the button signal, then emits the two args `removeSpecialScheduleDayClicked`
+  void onRemoveClicked();
+
 private:
 
+  model::ScheduleRuleset m_scheduleRuleset;
+  SchedulesView * m_schedulesView;
   SpecialScheduleDayType m_type;
 };
 
