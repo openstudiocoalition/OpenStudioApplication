@@ -35,7 +35,14 @@ jobs:
     strategy:
       matrix:
       os: [ubuntu-18.04, windows-2019, macos-10.15]
-      strategy.fail-fast: false # Default is true, switch to false to allow one platform to fail and still run others
+      fail-fast: false # Default is true, switch to false to allow one platform to fail and still run others
+        include:
+        - os: ubuntu-18.04
+          OS_DEPENDENT_VAR: Linux
+        - os: windows-2019
+          OS_DEPENDENT_VAR: Windows
+        - os: macos-10.15
+          OS_DEPENDENT_VAR: Darwin
 
     steps:
     - uses: actions/checkout@v2
@@ -49,6 +56,9 @@ jobs:
       shell: bash
       run: |
         OS_APP_VERSION=$(/bin/grep -Po "(?<=project\(OpenStudioApplication VERSION )(\d+\.\d+\.\d+)" CMakeLists.txt)
+        echo "OS_APP_VERSION=$OS_APP_VERSION"
+        echo "OS_DEPENDENT_VAR=$OS_DEPENDENT_VAR"
+        echo "matrix.OS_DEPENDENT_VAR=${{ matrix.OS_DEPENDENT_VAR }}"
         echo "::set-env name=OS_APP_VERSION::$OS_APP_VERSION"
         if [ "$RUNNER_OS" == "Linux" ]; then
           echo "::set-env name=CPACK_BINARY_DEB::ON"
