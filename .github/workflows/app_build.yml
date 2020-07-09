@@ -1,0 +1,124 @@
+name: C/C++ CI for OpenStudioApplication
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+env:
+  OS_SDK_VERSION: 3.0.1
+  BUILD_TYPE: Release
+  BUILD_DOCUMENTATION: OFF
+  BUILD_TESTING: OFF
+  BUILD_PACKAGE: ON
+  # CPACK_BINARY_DEB: OS-SPECIFIC
+  # CPACK_BINARY_IFW: OS-SPECIFIC
+  CPACK_BINARY_NSIS: OFF
+  CPACK_BINARY_RPM: OFF
+  CPACK_BINARY_STGZ: OFF
+  CPACK_BINARY_TBZ2: OFF
+  CPACK_BINARY_TGZ: OFF
+  CPACK_BINARY_TXZ: OFF
+  CPACK_BINARY_TZ: OFF
+  CPACK_SOURCE_RPM:BOOL: OFF
+  CPACK_SOURCE_TBZ2:BOOL: OFF
+  CPACK_SOURCE_TGZ:BOOL: OFF
+  CPACK_SOURCE_TXZ:BOOL: OFF
+  CPACK_SOURCE_TZ:BOOL: OFF
+  CPACK_SOURCE_ZIP:BOOL: OFF
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    #runs-ons: ${{ matrix.os }}
+    #strategy:
+      #matrix:
+      #os: [ubuntu-18.04, windows-2019, macos-10.15]
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set OS-specific options
+      # Use a bash shell so we can use the same syntax for environment variable
+      # access regardless of the host operating system
+      shell: bash
+      run: |
+        if [ "$RUNNER_OS" == "Linux" ]; then
+          echo "::set-env name=CPACK_BINARY_DEB::ON"
+          echo "::set-env name=CPACK_BINARY_IFW::OFF"
+          echo "::set-env name=PLATFORM_NAME::Linux"
+        elif [ "$RUNNER_OS" == "Windows" ]; then
+          echo "::set-env name=CPACK_BINARY_DEB::OFF"
+          echo "::set-env name=CPACK_BINARY_IFW::ON"
+          echo "::set-env name=PLATFORM_NAME::Windows"
+          echo "::set-env name=CMAKE_GENERATOR='-G \"Visual Studio 16 2019 Win64\"'"
+        elif [ "$RUNNER_OS" == "macOS" ]; then
+          echo "::set-env name=CPACK_BINARY_DEB::OFF"
+          echo "::set-env name=CPACK_BINARY_IFW::ON"
+          echo "::set-env name=PLATFORM_NAME::Darwin"
+        fi;
+
+    - name: Cache OpenStudio tar.gz
+      # To avoid downloading the SDK all the time, we try to cache it
+      id: cacheossdk
+      uses: actions/cache@v2
+      with:
+        path: ./OpenStudio-${{ env.OS_SDK_VERSION }}
+        key: ${{ runner.os }}-OpenStudio-SDK-${{ env.OS_SDK_VERSION }}
+
+    - name: Download the OpenStudio installer
+      # If the SDK wasn't found in the cache
+      if: steps.cacheossdk.outputs.cache-hit != 'true'
+      working-directory: ./
+      # Use a bash shell so we can use the same syntax for environment variable
+      # access regardless of the host operating system
+      shell: bash
+      run: |
+        tar_gz_link=$(curl https://api.github.com/repos/NREL/OpenStudio/releases/tags/v$OS_SDK_VERSION | jq -r '.assets | .[] | select(.name | contains($PLATFORM_NAME)) | select(.name | contains("tar.gz")) | .browser_download_url')
+        if [ -z "$tar_gz_link" ]; then
+          echo "Could not locate the OpenStudio tar.gz for OS_SDK_VERSION=$OS_SDK_VERSION and PLATFORM_NAME=$PLATFORM_NAME"
+          exit 1;
+        fi;
+        tar_gz_name=$(basename -- $tar_gz_link)
+        echo "Downloading $tar_gz_link"
+        wget $tar_gz_link
+        mkdir OpenStudio-$OS_SDK_VERSION
+        # Extract this into the OpenStudio-$OS_SDK_VERSION directory, omitting the first directory level in the tar.gz
+        tar xfz OpenStudio-3.0.1+09b7c8a554-Linux.tar.gz --strip-components 1 -C OpenStudio-$OS_SDK_VERSION
+
+
+    - name: Create Build Environment and locate openstudio
+      # Some projects don't allow in-source building, so create a separate build directory
+      # We'll use this as our working directory for all subsequent commands
+      run: |
+        ls
+        openstudio_DIR=$(find `pwd`/OpenStudio-$OS_SDK_VERSION/ -name "openstudioConfig.cmake")
+        openstudio_DIR=$(dirname "${openstudio_DIR}")
+        echo "openstudio_DIR=${openstudio_DIR}"
+        echo "::set-env name=openstudio_DIR::$openstudio_DIR"
+        cmake -E make_directory ${{ runner.workspac e}}/build
+
+    - name: Configure CMake
+      # Use a bash shell so we can use the same syntax for environment variable
+      # access regardless of the host operating system
+      shell: bash
+      working-directory: ./build
+      # Note the current convention is to use the -S and -B options here to specify source
+      # and build directories, but this is only available with CMake 3.13 and higher.
+      # The CMake binaries on the Github Actions machines are (as of this writing) 3.12
+      run: |
+        openstudio_DIR=$openstudio_DIR cmake $CMAKE_GENERATOR $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DBUILD_DOCUMENTATION=$DBUILD_DOCUMENTATION -DBUILD_TESTING=$BUILD_TESTING -DBUILD_PACKAGE=$BUILD_PACKAGE -DCPACK_BINARY_DEB=$CPACK_BINARY_DEB -DCPACK_BINARY_IFW=$CPACK_BINARY_IFW -DCPACK_BINARY_NSIS=$CPACK_BINARY_NSIS -DCPACK_BINARY_RPM=$CPACK_BINARY_RPM -DCPACK_BINARY_STGZ=$CPACK_BINARY_STGZ -DCPACK_BINARY_TBZ2=$CPACK_BINARY_TBZ2 -DCPACK_BINARY_TGZ=$CPACK_BINARY_TGZ -DCPACK_BINARY_TXZ=$CPACK_BINARY_TXZ -DCPACK_BINARY_TZ=$CPACK_BINARY_TZ -DCPACK_SOURCE_RPM=$CPACK_SOURCE_RPM -DCPACK_SOURCE_TBZ2=$CPACK_SOURCE_TBZ2 -DCPACK_SOURCE_TGZ=$CPACK_SOURCE_TGZ -DCPACK_SOURCE_TXZ=$CPACK_SOURCE_TXZ -DCPACK_SOURCE_TZ=$CPACK_SOURCE_TZ -DCPACK_SOURCE_ZIP=$CPACK_SOURCE_ZIP ../
+
+    - name: Build
+      working-directory: ./build
+      shell: bash
+      # Execute the build.  You can specify a specific target with "--target <NAME>"
+      run: cmake --build . --config $BUILD_TYPE
+
+    - name: Test
+      working-directory: ./build
+      shell: bash
+      # Execute tests defined by the CMake configuration.
+      # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
+      run: ctest -j -c $BUILD_TYPE
