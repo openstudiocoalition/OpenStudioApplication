@@ -10,10 +10,8 @@ env:
   OS_SDK_VERSION: 3.0.1
   BUILD_TYPE: Release
   BUILD_DOCUMENTATION: OFF
-  BUILD_TESTING: OFF
+  BUILD_TESTING: ON
   BUILD_PACKAGE: ON
-  # CPACK_BINARY_DEB: OS-SPECIFIC
-  # CPACK_BINARY_IFW: OS-SPECIFIC
   CPACK_BINARY_NSIS: OFF
   CPACK_BINARY_RPM: OFF
   CPACK_BINARY_STGZ: OFF
@@ -27,6 +25,8 @@ env:
   CPACK_SOURCE_TXZ:BOOL: OFF
   CPACK_SOURCE_TZ:BOOL: OFF
   CPACK_SOURCE_ZIP:BOOL: OFF
+  # CPACK_BINARY_DEB: OS-SPECIFIC
+  # CPACK_BINARY_IFW: OS-SPECIFIC
 
 jobs:
   build:
@@ -93,7 +93,7 @@ jobs:
         tar_gz_name=$(basename -- $tar_gz_link)
         echo "Downloading $tar_gz_link"
         wget $tar_gz_link
-        mkdir OpenStudio-$OS_SDK_VERSION
+        cmake -E make_directory OpenStudio-$OS_SDK_VERSION
         echo "Extract this into the OpenStudio-$OS_SDK_VERSION directory, omitting the first directory level in the tar.gz"
         tar xfz OpenStudio-3.0.1+09b7c8a554-Linux.tar.gz --strip-components 1 -C OpenStudio-$OS_SDK_VERSION
 
@@ -147,6 +147,8 @@ jobs:
       shell: bash
       run: |
           echo "Not implemented yet"
+          echo "The more I think about it, the more I think we should cache the entire build/ directory to speed up builds"
+          echo "We can use a manual counter in the key so we can effectively wipe the build directory when we want to"
 
     - name: Configure CMake
       # Use a bash shell so we can use the same syntax for environment variable
@@ -184,11 +186,9 @@ jobs:
       run: |
           Xvfb :99 &
           export DISPLAY=:99
-          ctest -j -T test --no-compress-output -c $BUILD_TYPE
+          ctest -j -T test --no-compress-output -c $BUILD_TYPE || true
 
     - name: Archive test results?
-      # Run even if tests failed
-      if: ${{ always() }}
       uses: actions/upload-artifact@v2
       with:
           name: ${{ env.PLATFORM_NAME }}-Test.xml
