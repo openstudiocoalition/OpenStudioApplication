@@ -94,6 +94,7 @@ jobs:
 
     - name: Install conan
       run: |
+          python --version
           python3 --version
           pip install conan
           conan --version
