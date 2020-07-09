@@ -149,7 +149,7 @@ jobs:
       uses: actions/cache@v2
       with:
         path: ~/.conan
-        key: conan-cache
+        key: ${{ runner.os }}-conan-cache
 
     - name: Did restoring the conan-cache work? No
       # If the SDK wasn't found in the cache
@@ -169,7 +169,7 @@ jobs:
       uses: actions/cache@v2
       with:
         path: build/
-        key: build-cache
+        key: ${{ runner.os }}-build-cache
 
     - name: Did restoring the build-cache work? No
       # If the SDK wasn't found in the cache
@@ -202,7 +202,7 @@ jobs:
       #uses: actions/cache@v2
       #with:
         #path: build/qt_5_11_*.tar.gz
-        #key: qt-5-11-cache
+        #key: ${{ runner.os }}-qt-5-11-cache
 
     #- name: Did restoring the qt cache work?
       ## If the SDK wasn't found in the cache
