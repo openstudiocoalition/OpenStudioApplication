@@ -92,11 +92,13 @@ jobs:
           sudo apt install mesa-common-dev libglu1-mesa-dev
         elif [ "$RUNNER_OS" == "Windows" ]; then
           curl -L -O https://download.qt.io/official_releases/qt-installer-framework/3.2.2/QtInstallerFramework-win-x86.exe
-          ./QtInstallerFramework-win-x86.exe --verbose --script ./ci/install_script_qtifw.qs TargetDir=~/Qt/QtIFW-3.2.2/
-          echo "::add-path::~/Qt/QtIFW-3.2.2/bin/"
+          ./QtInstallerFramework-win-x86.exe --verbose --script ./ci/install_script_qtifw.qs
+          echo "::add-path::C:/Qt/QtIFW-3.2.2/bin"
         elif [ "$RUNNER_OS" == "macOS" ]; then
           curl -L -O https://download.qt.io/official_releases/qt-installer-framework/3.2.2/QtInstallerFramework-mac-x64.dmg
-          sudo ./QtInstallerFramework-mac-x64.dmg --verbose --script ./ci/install_script_qtifw.qs
+          hdiutil attach -mountpoint ./qtfiw_installer QtInstallerFramework-mac-x64.dmg
+          ls ./qtfiw_installer
+          sudo ./qtfiw_installer/QtInstallerFramework-mac-x64.dmg --verbose --script ./ci/install_script_qtifw.qs
           echo "::add-path::~/Qt/QtIFW-3.2.2/bin/"
         fi;
 
