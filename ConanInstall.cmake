@@ -23,19 +23,19 @@ if(NOT CONAN_OPENSTUDIO_ALREADY_RUN)
 
   include(${CMAKE_BINARY_DIR}/conan.cmake)
 
-  conan_check(VERSION 1.21.0 REQUIRED)
+  conan_check(VERSION 1.24.0 REQUIRED)
 
   message(STATUS "openstudio: RUNNING CONAN")
 
+  # Add NREL remote and place it first in line, so that if we vendor dependencies to NREL's repo they will be picked first
+  conan_add_remote(NAME nrel INDEX 0
+    URL https://api.bintray.com/conan/commercialbuilding/nrel)
+
   conan_add_remote(NAME bincrafters
     URL https://api.bintray.com/conan/bincrafters/public-conan)
-  conan_add_remote(NAME nrel
-    URL https://api.bintray.com/conan/commercialbuilding/nrel)
+
   #conan_add_remote(NAME jmarrec
   #  URL https://api.bintray.com/conan/jmarrec/testing)
-
-  # Convenience variable to set a consistent version for individual boost packages
-  # set(BOOST_VERSION "1.71.0")
 
   #list(APPEND CONAN_OPTIONS "zlib:minizip=True")
   # You do want to rebuild packages if there's a newer recipe in the remote (which applies mostly to our own openstudio_ruby where we don't
@@ -57,18 +57,18 @@ if(NOT CONAN_OPENSTUDIO_ALREADY_RUN)
     ${CONAN_QT}
     openssl/1.1.0l # ruby 2.5.5 won't work with 1.1.1x, so use 1.1.0l here to try to force every package to align on the same as ruby
     # Track NREL/stable in general, on a feature branch this could be temporarily switched to NREL/testing
-    openstudio_ruby/2.5.5@nrel/stable    # TODO: Temp #@nrel/stable
-    boost/1.71.0
-    pugixml/1.10@bincrafters/stable
-    jsoncpp/1.9.2
+    openstudio_ruby/2.5.5@nrel/testing    # TODO: Temp #@nrel/stable
+    boost/1.72.0
+    pugixml/1.10
+    jsoncpp/1.9.3
     zlib/1.2.11
     minizip/1.2.11
-    fmt/6.2.0
-    sqlite3/3.30.1
-    cpprestsdk/2.10.14@bincrafters/stable
-    websocketpp/0.8.1@bincrafters/stable
-    geographiclib/1.49@bincrafters/stable
-    swig_installer/4.0.1@bincrafters/stable
+    fmt/7.0.1
+    sqlite3/3.32.3
+    cpprestsdk/2.10.16
+    websocketpp/0.8.2
+    geographiclib/1.50.1
+    swig/4.0.1
     ${CONAN_GTEST}
 
     # Override to avoid dependency mismatches
