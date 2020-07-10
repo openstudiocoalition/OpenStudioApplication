@@ -76,7 +76,7 @@ jobs:
             f.write(version)
 
 
-    - name: Set OS-specific options and system dependencies
+    - name: Set OS-specific options and system dependencies (and QtIFW)
       # Use a bash shell so we can use the same syntax for environment variable
       # access regardless of the host operating system
       shell: bash
@@ -114,6 +114,8 @@ jobs:
           sudo ./qtfiw_installer/QtInstallerFramework-mac-x64.app/Contents/MacOS/QtInstallerFramework-mac-x64 --verbose --script ./ci/install_script_qtifw.qs
           echo "::add-path::~/Qt/QtIFW-3.2.2/bin/"
         fi;
+
+    # TODO: cache the QtIFW folder too
 
     - name: Cache OpenStudio tar.gz
       # To avoid downloading the SDK all the time, we try to cache it
@@ -248,6 +250,7 @@ jobs:
       run: |
         openstudio_DIR=$openstudio_DIR cmake $CMAKE_GENERATOR $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DBUILD_DOCUMENTATION=$DBUILD_DOCUMENTATION -DBUILD_TESTING=$BUILD_TESTING -DBUILD_PACKAGE=$BUILD_PACKAGE -DCPACK_BINARY_DEB=$CPACK_BINARY_DEB -DCPACK_BINARY_IFW=$CPACK_BINARY_IFW -DCPACK_BINARY_NSIS=$CPACK_BINARY_NSIS -DCPACK_BINARY_RPM=$CPACK_BINARY_RPM -DCPACK_BINARY_STGZ=$CPACK_BINARY_STGZ -DCPACK_BINARY_TBZ2=$CPACK_BINARY_TBZ2 -DCPACK_BINARY_TGZ=$CPACK_BINARY_TGZ -DCPACK_BINARY_TXZ=$CPACK_BINARY_TXZ -DCPACK_BINARY_TZ=$CPACK_BINARY_TZ -DCPACK_SOURCE_RPM=$CPACK_SOURCE_RPM -DCPACK_SOURCE_TBZ2=$CPACK_SOURCE_TBZ2 -DCPACK_SOURCE_TGZ=$CPACK_SOURCE_TGZ -DCPACK_SOURCE_TXZ=$CPACK_SOURCE_TXZ -DCPACK_SOURCE_TZ=$CPACK_SOURCE_TZ -DCPACK_SOURCE_ZIP=$CPACK_SOURCE_ZIP ../
 
+    # TODO: delete these two
     - name: upload config.log for failed gdbm build
       if: ${{ failure() }}
       shell: bash
