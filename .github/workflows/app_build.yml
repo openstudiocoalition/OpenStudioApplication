@@ -97,11 +97,19 @@ jobs:
         elif [ "$RUNNER_OS" == "macOS" ]; then
           curl -L -O https://download.qt.io/official_releases/qt-installer-framework/3.2.2/QtInstallerFramework-mac-x64.dmg
           hdiutil attach -mountpoint ./qtfiw_installer QtInstallerFramework-mac-x64.dmg
+          echo "ls ./qtfiw_installer"
           ls ./qtfiw_installer
-          ls ./qtfiw_installer/QtInstallerFramework-mac-x64.app/ || true
+          echo "ls ./qtfiw_installer/QtInstallerFramework-mac-x64.app/"
+          ls ./qtfiw_installer/QtInstallerFramework-mac-x64.app/
+          echo "ls ./qtfiw_installer/QtInstallerFramework-mac-x64.app/Contents/"
           ls ./qtfiw_installer/QtInstallerFramework-mac-x64.app/Contents/ || true
+          echo "ls ./qtfiw_installer/QtInstallerFramework-mac-x64.app/MacOS/"
           ls ./qtfiw_installer/QtInstallerFramework-mac-x64.app/MacOS/ || true
-          ls ./qtfiw_installer/QtInstallerFramework-mac-x64.app/Resources/ || true
+          echo "ls ./qtfiw_installer/QtInstallerFramework-mac-x64.app/Contents/MacOS"
+          ls ./qtfiw_installer/QtInstallerFramework-mac-x64.app/Contents/MacOS || true
+          echo "ls ./qtfiw_installer/QtInstallerFramework-mac-x64.app/Contents/Resources"
+          ls ./qtfiw_installer/QtInstallerFramework-mac-x64.app/Contents/Resources/ || true
+          echo "ls ./qtfiw_installer/QtInstallerFramework-mac-x64.app/Contents/Frameworks"
           ls ./qtfiw_installer/QtInstallerFramework-mac-x64.app/Contents/Frameworks/ || true
 
           sudo ./qtfiw_installer/QtInstallerFramework-mac-x64.app/ --verbose --script ./ci/install_script_qtifw.qs
