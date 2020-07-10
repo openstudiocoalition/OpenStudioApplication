@@ -53,6 +53,8 @@ jobs:
           CPACK_BINARY_DEB: OFF
           CPACK_BINARY_IFW: ON
           BINARY_EXT: dmg
+          MACOSX_DEPLOYMENT_TARGET: 10.14
+          SDKROOT: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
 
     steps:
     - uses: actions/checkout@v2
@@ -95,6 +97,10 @@ jobs:
           ./QtInstallerFramework-win-x86.exe --verbose --script ./ci/install_script_qtifw.qs
           echo "::add-path::C:/Qt/QtIFW-3.2.2/bin"
         elif [ "$RUNNER_OS" == "macOS" ]; then
+          echo "::set-env name=MACOSX_DEPLOYMENT_TARGET::${{ matrix.MACOSX_DEPLOYMENT_TARGET }}"
+          echo "::set-env name=SDKROOT::${{ matrix.SDKROOT }}"
+          echo "::set-env name=CMAKE_MACOSX_DEPLOYMENT_TARGET::'-DCMAKE_OSX_DEPLOYMENT_TARGET=$MACOSX_DEPLOYMENT_TARGET'"
+
           curl -L -O https://download.qt.io/official_releases/qt-installer-framework/3.2.2/QtInstallerFramework-mac-x64.dmg
           hdiutil attach -mountpoint ./qtfiw_installer QtInstallerFramework-mac-x64.dmg
           echo "ls ./qtfiw_installer"
