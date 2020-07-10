@@ -98,7 +98,13 @@ jobs:
           curl -L -O https://download.qt.io/official_releases/qt-installer-framework/3.2.2/QtInstallerFramework-mac-x64.dmg
           hdiutil attach -mountpoint ./qtfiw_installer QtInstallerFramework-mac-x64.dmg
           ls ./qtfiw_installer
-          sudo ./qtfiw_installer/QtInstallerFramework-mac-x64.app --verbose --script ./ci/install_script_qtifw.qs
+          ls ./qtfiw_installer/QtInstallerFramework-mac-x64.app/ || true
+          ls ./qtfiw_installer/QtInstallerFramework-mac-x64.app/Contents/ || true
+          ls ./qtfiw_installer/QtInstallerFramework-mac-x64.app/MacOS/ || true
+          ls ./qtfiw_installer/QtInstallerFramework-mac-x64.app/Resources/ || true
+          ls ./qtfiw_installer/QtInstallerFramework-mac-x64.app/Contents/Frameworks/ || true
+
+          sudo ./qtfiw_installer/QtInstallerFramework-mac-x64.app/ --verbose --script ./ci/install_script_qtifw.qs
           echo "::add-path::~/Qt/QtIFW-3.2.2/bin/"
         fi;
 
