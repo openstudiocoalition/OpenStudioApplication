@@ -270,15 +270,18 @@ jobs:
 
     - name: Archive binary artifacts
       uses: actions/upload-artifact@v2
+      # build/_CPack_Packages/win64/IFW/*.exe
+      # build/_CPack_Packages/Linux/DEB/*.deb
+      # build/_CPack_Packages/Darwin/IFW/*.dmg
       with:
           name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ env.PLATFORM_NAME }}.${{ env.BINARY_EXT }}
-          path: build/_CPack_Packages/**/*.${{ env.BINARY_EXT }}
+          path: build/_CPack_Packages/*/*/*.${{ env.BINARY_EXT }}
 
     - name: Archive TGZ artifacts
       uses: actions/upload-artifact@v2
       with:
           name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ env.PLATFORM_NAME }}.tar.gz
-          path: build/_CPack_Packages/**/*.tar.gz
+          path: build/_CPack_Packages/*/*/*.tar.gz
 
     - name: Test
       working-directory: ./build
