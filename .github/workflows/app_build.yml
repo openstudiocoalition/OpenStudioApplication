@@ -247,7 +247,7 @@ jobs:
       shell: bash
       run: |
         configlog=$(find ~/.conan/data/gdbm/1.18.1/_/_/build -name config.log)
-        cat configlog
+        cat $configlog
 
     - name: upload config.log for failed gdbm build
       if: ${{ failure() }}
