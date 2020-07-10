@@ -1,5 +1,5 @@
 <h1>Current Features</h1>
-The OpenStudio Application uses the [OpenStudio SDK Version 3.0.0](https://openstudio-sdk-documentation.s3.amazonaws.com/index.html). The features that are available in the current major release are described below. To learn about the future of this software, see the [Planned Features](../getting_started/roadmap.md) page.
+The OpenStudio Application uses the [OpenStudio SDK](https://openstudio-sdk-documentation.s3.amazonaws.com/index.html). The features that are available in the current major release are described below.
 
 ## As of OpenStudio Application Version 1.0.0
 

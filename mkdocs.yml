@@ -1,19 +1,21 @@
-site_name: 'OpenStudio<sup>&reg;</sup> User Docs'
+site_name: 'OpenStudio Coalition User Docs'
 site_favicon: favicon.ico
 site_logo: 'OS_32x32.png'
 
 pages:
 - [index.md]
 
-- [getting_started/features.md, Getting Started, Current Features]
-- [getting_started/roadmap.md, Getting Started, Planned Features]
 - [getting_started/getting_started.md, Getting Started, Installation and Introductory Tutorial]
+- [getting_started/features.md, Getting Started, Current Features]
 
 - [tutorials/creating_your_model.md, Essential Tutorials, Creating Your Model]
+- [help/best_practices.md, Essential Tutorials, Best Practices]
 - [tutorials/running_your_simulation.md, Essential Tutorials, Running Simulations & Viewing Results]
+- [tutorials/large_scale_analysis.md, Essential Tutorials, Large Scale Analysis]
 - [tutorials/radiance_tutorial.md, Essential Tutorials, Radiance and OpenStudio]
 - [tutorials/tutorial_bcl.md, Essential Tutorials, Building Component Library]
 
+- [tutorials/utility_rate_tariffs.md, Advanced Tutorials, Utility Rate Tariffs]
 - [tutorials/life_cycle_costing_examples.md, Advanced Tutorials, Life Cycle Cost Analysis]
 - [tutorials/tutorial_gbxmlimport.md, Advanced Tutorials, Import gbXML]
 - [tutorials/tutorial_shadingcontrols.md, Advanced Tutorials, Shading Controls]
