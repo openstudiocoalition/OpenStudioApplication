@@ -14,6 +14,8 @@
           <h3>About the OpenStudio Coalition</h3>
           <p>Learn more about the OpenStudio Coalition.</p>
           <p><a href="about/openstudio_coalition.md" class="btn btn-primary" role="button">OpenStudio Coalition</a></p>
+          <p>Join our mailing list to stay up to date with the latest news.</p>
+          <p><a href="about/mailing_list.md" class="btn btn-primary" role="button">Mailing List</a></p>
           <p>Check out video tutorials on YouTube.</p>
           <p><a href="https://www.youtube.com/channel/UC8ZEW4PXKOsveko55XCJTUA" class="btn btn-primary" role="button">Video Tutorials</a></p>
         </div>
