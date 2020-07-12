@@ -15,7 +15,7 @@
           <p>Learn more about the OpenStudio Coalition.</p>
           <p><a href="about/openstudio_coalition.md" class="btn btn-primary" role="button">OpenStudio Coalition</a></p>
           <p>Check out video tutorials on YouTube.</p>
-          <p><a href=""https://www.youtube.com/channel/UC8ZEW4PXKOsveko55XCJTUA"" class="btn btn-primary" role="button">Video Tutorials</a></p>
+          <p><a href="https://www.youtube.com/channel/UC8ZEW4PXKOsveko55XCJTUA" class="btn btn-primary" role="button">Video Tutorials</a></p>
         </div>
       </div>
     </div>
