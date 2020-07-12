@@ -5,29 +5,29 @@ site_logo: 'OS_32x32.png'
 pages:
 - [index.md]
 
+- [about/openstudio_coalition.md, About, About the OpenStudio Coalition]
+- [about/software_license.md, About, Software License]
+- [about/features.md, About, Current Features]
+
 - [getting_started/getting_started.md, Getting Started, Installation and Introductory Tutorial]
-- [getting_started/features.md, Getting Started, Current Features]
+- [getting_started/creating_your_model.md, Getting Started, Creating Your Model]
+- [getting_started/best_practices.md, Getting Started, Best Practices]
+- [getting_started/running_your_simulation.md, Getting Started, Running Simulations & Viewing Results]
+- [getting_started/using_bcl.md, Getting Started, Building Component Library]
+- [getting_started/large_scale_analysis.md, Getting Started, Large Scale Analysis]
+- [getting_started/troubleshooting.md, Getting Started, Troubleshooting]
 
-- [tutorials/creating_your_model.md, Essential Tutorials, Creating Your Model]
-- [help/best_practices.md, Essential Tutorials, Best Practices]
-- [tutorials/running_your_simulation.md, Essential Tutorials, Running Simulations & Viewing Results]
-- [tutorials/large_scale_analysis.md, Essential Tutorials, Large Scale Analysis]
-- [tutorials/radiance_tutorial.md, Essential Tutorials, Radiance and OpenStudio]
-- [tutorials/tutorial_bcl.md, Essential Tutorials, Building Component Library]
-
-- [tutorials/utility_rate_tariffs.md, Advanced Tutorials, Utility Rate Tariffs]
-- [tutorials/life_cycle_costing_examples.md, Advanced Tutorials, Life Cycle Cost Analysis]
-- [tutorials/tutorial_gbxmlimport.md, Advanced Tutorials, Import gbXML]
-- [tutorials/tutorial_shadingcontrols.md, Advanced Tutorials, Shading Controls]
-- [tutorials/tutorial_windowproperty_frameanddivider.md, Advanced Tutorials, Window Property Frame and Divider]
+- [tutorials/utility_rate_tariffs.md, Tutorials, Utility Rate Tariffs]
+- [tutorials/life_cycle_costing_examples.md, Tutorials, Life Cycle Cost Analysis]
+- [tutorials/tutorial_gbxmlimport.md, Tutorials, Import gbXML]
+- [tutorials/radiance_tutorial.md, Tutorials, Radiance and OpenStudio]
+- [tutorials/tutorial_shadingcontrols.md, Tutorials, Shading Controls]
+- [tutorials/tutorial_windowproperty_frameanddivider.md, Tutorials, Window Property Frame and Divider]
 
 - [reference/openstudio_application_interface.md, Reference, OpenStudio Application Interface Guide]
 - [reference/sketchup_plugin_interface.md, Reference, SketchUp Plug-in Interface Guide]
 - [reference/geometry_editor.md, Reference, FloorspaceJS]
 - [reference/openstudio_results_measure.md, Reference, OpenStudio Results Measure]
-
-- [help/troubleshooting.md, Help, Troubleshooting]
-- [help/software_license.md, Help, Software License]
 
 theme: simplex
 theme_dir: 'bootstrap_nrel'

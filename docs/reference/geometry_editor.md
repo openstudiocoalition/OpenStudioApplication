@@ -1,5 +1,5 @@
 # ![][1] [FloorspaceJS](https://github.com/NREL/floorspace.js)
-[1]: img/favicon-32x32.png
+[1]: img/FloorspaceJS-favicon-32x32.png
 
 The OpenStudio Application has integrated the FloorspaceJS web-based geometry editor for simplified entry of 2D floor plans.  More information about FloorspaceJS, including a tutorial on its use, can be found at the [FloorspaceJS project site](https://github.com/NREL/floorspace.js).
 

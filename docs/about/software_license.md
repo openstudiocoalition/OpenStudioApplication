@@ -1,0 +1,2 @@
+<h1>Software License Description and Terms</h1>
+The OpenStudio Application and OpenStudio SketchUp Plug-in are licensed under the Revised Berkeley Software Distribution (BSD3) License, and are free for use and development. Visit the [BSD3 license web page](https://github.com/NREL/OpenStudioApplication/blob/develop/LICENSE.md) for details on the terms of use.
