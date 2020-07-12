@@ -46,7 +46,7 @@
     <div class="col-sm-6 col-md-6">
       <div class="thumbnail"> <img src="img/measures_thumb.png" alt="Daylighting Measure Example">
         <div class="caption">
-          <h3>OpenStudio Application References</h3>
+          <h3>Application References</h3>
           <p>Interface guides give detailed overviews of the OpenStudio Coalition suite of applications.</p>
           <p><a href="reference/sketchup_plugin_interface.md" class="btn btn-primary" role="button">SketchUp Plug-in</a></p>
           <p><a href="reference/openstudio_application_interface.md" class="btn btn-primary" role="button">OpenStudio Application</a></p>
