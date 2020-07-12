@@ -9,7 +9,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-6 col-md-6">
-      <div class="thumbnail"> <img src="img/OpenStudio+Coalition-logo-crop.png" width=300 height=300 alt="Openstudio Coalition">
+      <div class="thumbnail"> <img src="img/OpenStudio+Coalition-logo-crop.png" width=275 height=275 alt="Openstudio Coalition">
         <div class="caption">
           <h3>About the OpenStudio Coalition</h3>
           <p>Learn more about the OpenStudio Coalition.</p>
