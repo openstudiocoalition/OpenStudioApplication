@@ -5,18 +5,18 @@
 <li>Keeping OpenStudio Applications Current and Functional</li>
 <li>Supporting OpenStudio Applications Use</li>
 </ul>
-<p>Use the buttons or the horizontal navigation above to learn more about the OpenStudio Applications maintained by the OpenStudio Coalition.</p>
+<p>Use the buttons below or navigation above to learn more about the OpenStudio Coalition.</p>
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-6 col-md-6">
-      <div class="thumbnail"> <img src="img/OpenStudio+Coalition-logo-crop.png" width=275 height=275 alt="Openstudio Coalition">
+      <div class="thumbnail"> <img src="img/OpenStudio+Coalition-logo-crop.png" width=250 height=250 alt="Openstudio Coalition">
         <div class="caption">
-          <h3>About the OpenStudio Coalition</h3>
+          <h3>The OpenStudio Coalition</h3>
           <p>Learn more about the OpenStudio Coalition.</p>
           <p><a href="about/openstudio_coalition.md" class="btn btn-primary" role="button">OpenStudio Coalition</a></p>
-          <p>Join our mailing list to stay up to date with the latest news.</p>
+          <p>Stay up to date with the latest news.</p>
           <p><a href="about/mailing_list.md" class="btn btn-primary" role="button">Mailing List</a></p>
-          <p>Check out video tutorials on YouTube.</p>
+          <p>Watch video tutorials on YouTube.</p>
           <p><a href="https://www.youtube.com/channel/UC8ZEW4PXKOsveko55XCJTUA" class="btn btn-primary" role="button">Video Tutorials</a></p>
         </div>
       </div>
@@ -27,7 +27,7 @@
           <h3>Getting Started</h3>
           <p>Installation instructions and getting started.</p>
           <p><a href="getting_started/getting_started.md" class="btn btn-primary" role="button">Installation &amp; Tutorial</a></p>
-          <p>Getting started lessons cover essential workflows and best practices.</p>
+          <p>Essential workflows and best practices.</p>
           <p><a href="getting_started/creating_your_model.md" class="btn btn-primary" role="button">Creating Your Model</a></p>
           <p><a href="getting_started/running_your_simulation.md" class="btn btn-primary" role="button">Running Your Simulation</a></p>
         </div>
