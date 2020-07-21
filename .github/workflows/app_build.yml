@@ -16,7 +16,7 @@ env:
   CPACK_BINARY_RPM: OFF
   CPACK_BINARY_STGZ: OFF
   CPACK_BINARY_TBZ2: OFF
-  CPACK_BINARY_TGZ: OFF
+  CPACK_BINARY_TGZ: ON
   CPACK_BINARY_TXZ: OFF
   CPACK_BINARY_TZ: OFF
   CPACK_SOURCE_RPM:BOOL: OFF
@@ -284,7 +284,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
           name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ env.PLATFORM_NAME }}.tar.gz
-          path: build/_CPack_Packages/*/*/*.tar.gz
+          path: build/_CPack_Packages/*/TGZ/*.tar.gz
 
     - name: Test
       working-directory: ./build
