@@ -49,6 +49,8 @@
 #include <openstudio/model/Model_Impl.hpp>
 #include <openstudio/model/OutputControlReportingTolerances.hpp>
 #include <openstudio/model/OutputControlReportingTolerances_Impl.hpp>
+#include <openstudio/model/OutputJSON.hpp>
+#include <openstudio/model/OutputJSON_Impl.hpp>
 #include <openstudio/model/OutsideSurfaceConvectionAlgorithm.hpp>
 #include <openstudio/model/OutsideSurfaceConvectionAlgorithm_Impl.hpp>
 #include <openstudio/model/ProgramControl.hpp>
@@ -210,7 +212,12 @@ SimSettingsView::SimSettingsView(bool isIP,
   // ZoneCapacitanceMultiplierResearchSpecial
   m_temperatureCapacityMultiplier(nullptr),
   m_humidityCapacityMultiplier(nullptr),
-  m_carbonDioxideCapacityMultiplier(nullptr)
+  m_carbonDioxideCapacityMultiplier(nullptr),
+  // OutputJSON
+  m_json_optionType(nullptr),
+  m_json_outputJSON(nullptr),
+  m_json_outputCBOR(nullptr),
+  m_json_outputMessagePack(nullptr)
 {
   connect(this, &SimSettingsView::toggleUnitsClicked, this, &SimSettingsView::toggleUnits);
 
@@ -295,6 +302,10 @@ void SimSettingsView::createWidgets()
 
   //******************* OS:ZoneCapacitanceMultiplier:ResearchSpecial *******************
   collapsibleInspector = new CollapsibleInspector("Zone Capacitance Multiple Research Special",createZoneCapacitanceMultipleResearchSpecialWidget());
+  mainLayout->addWidget(collapsibleInspector);
+
+  //******************* OS:Output:JSON *******************
+  collapsibleInspector = new CollapsibleInspector("Output JSON",createOutputJSONWidget());
   mainLayout->addWidget(collapsibleInspector);
 
   mainLayout->addStretch();
@@ -1073,6 +1084,48 @@ void SimSettingsView::enableRadianceParametersWidget(bool isEnabled)
   m_skyDiscretizationResolutionLbl->setEnabled(isEnabled);
 }
 
+QWidget * SimSettingsView::createOutputJSONWidget()
+{
+  auto gridLayout = new QGridLayout();
+  gridLayout->setContentsMargins(7,7,7,7);
+  gridLayout->setSpacing(GRID_LAYOUT_SPACING);
+  gridLayout->setAlignment(Qt::AlignLeft);
+
+  int row = 0;
+  int col = 0;
+  QSpacerItem * spacerItem = nullptr;
+
+  addField(gridLayout,row,col,"Option Type",m_json_optionType);
+  col++;
+  std::vector<std::string>  optionValues = model::OutputJSON::optionTypeValues();
+  for (const auto& optionValue : optionValues){
+    m_json_optionType->addItem(optionValue.c_str());
+  }
+
+  spacerItem = new QSpacerItem(SPACERITEM_WIDTH,1,QSizePolicy::Fixed,QSizePolicy::Fixed);
+  gridLayout->addItem(spacerItem,row,col++);
+  addField(gridLayout,row,col,"Output JSON",m_json_outputJSON);
+
+  row = row + 2;
+  spacerItem = new QSpacerItem(1,SPACERITEM_HEIGHT,QSizePolicy::Fixed,QSizePolicy::Fixed);
+  gridLayout->addItem(spacerItem,row++,0);
+  col = 0;
+
+  addField(gridLayout,row,col,"Output CBOR",m_json_outputCBOR);
+  col = col + 2;
+  addField(gridLayout,row,col,"Output MessagePack",m_json_outputMessagePack);
+
+  gridLayout->setRowStretch(100,100);
+  gridLayout->setColumnStretch(100,100);
+
+  auto widget = new QWidget();
+  widget->setLayout(gridLayout);
+  widget->hide();
+
+  return widget;
+}
+
+
 void SimSettingsView::addField(QGridLayout * gridLayout,
                                int row,
                                int column,
@@ -1228,6 +1281,7 @@ void SimSettingsView::attachAll()
   attachZoneAirHeatBalanceAlgorithm();
   attachZoneAirContaminantBalance();
   attachZoneCapacitanceMultipleResearchSpecial();
+  attachOutputJSON();
 }
 
 void SimSettingsView::detachAll()
@@ -1248,6 +1302,7 @@ void SimSettingsView::detachAll()
   detachZoneAirContaminantBalance();
   detachZoneCapacitanceMultipleResearchSpecial();
   detachRadianceParameters();
+  detachOutputJSON();
 }
 
 void SimSettingsView::attachRunPeriod()
@@ -1953,6 +2008,46 @@ void SimSettingsView::attachRadianceParameters()
   );
 }
 
+void SimSettingsView::attachOutputJSON()
+{
+
+  model::OutputJSON mo = m_model.getUniqueModelObject<model::OutputJSON>();
+
+  m_json_optionType->bind<std::string>(
+    mo,
+    static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
+    &model::OutputJSON::optionTypeValues,
+    StringGetter(std::bind(&model::OutputJSON::optionType, mo)),
+    std::bind(&model::OutputJSON::setOptionType, mo, std::placeholders::_1),
+    boost::none,  // No reset
+    boost::none   // No isDefaulted
+  );
+
+  m_json_outputJSON->bind(
+    mo,
+    std::bind(&model::OutputJSON::outputJSON, mo),
+    boost::optional<BoolSetter>(std::bind(&model::OutputJSON::setOutputJSON, mo, std::placeholders::_1)),
+    boost::none, // reset
+    boost::none // isDefaulted;
+  );
+
+  m_json_outputCBOR->bind(
+    mo,
+    std::bind(&model::OutputJSON::outputCBOR, mo),
+    boost::optional<BoolSetter>(std::bind(&model::OutputJSON::setOutputCBOR, mo, std::placeholders::_1)),
+    boost::none, // reset
+    boost::none // isDefaulted;
+  );
+
+  m_json_outputMessagePack->bind(
+    mo,
+    std::bind(&model::OutputJSON::outputMessagePack, mo),
+    boost::optional<BoolSetter>(std::bind(&model::OutputJSON::setOutputMessagePack, mo, std::placeholders::_1)),
+    boost::none, // reset
+    boost::none // isDefaulted;
+  );
+}
+
 void SimSettingsView::detachRunPeriod()
 {
   m_useWeatherFileHolidaysandSpecialDays->unbind();
@@ -2086,6 +2181,14 @@ void SimSettingsView::setFineRadianceSettings()
   auto radianceParameters = m_model.getUniqueModelObject<model::RadianceParameters>();
 
   radianceParameters.applyFineSettings();
+}
+
+void SimSettingsView::detachOutputJSON()
+{
+  m_json_optionType->unbind();
+  m_json_outputJSON->unbind();
+  m_json_outputCBOR->unbind();
+  m_json_outputMessagePack->unbind();
 }
 
 //***** SLOTS *****

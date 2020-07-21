@@ -92,6 +92,7 @@ private:
   QWidget * createZoneAirContaminantBalanceWidget();
   QWidget * createZoneCapacitanceMultipleResearchSpecialWidget();
   QWidget * createRadianceParametersWidget();
+  QWidget * createOutputJSONWidget();
 
   void addField(QGridLayout * gridLayout,
                 int row,
@@ -167,6 +168,7 @@ private:
   void attachZoneAirContaminantBalance();
   void attachZoneCapacitanceMultipleResearchSpecial();
   void attachRadianceParameters();
+  void attachOutputJSON();
 
   void detachAll();
   void detachRunPeriod();
@@ -185,6 +187,7 @@ private:
   void detachZoneAirContaminantBalance();
   void detachZoneCapacitanceMultipleResearchSpecial();
   void detachRadianceParameters();
+  void detachOutputJSON();
 
   model::Model m_model;
   boost::optional<model::ShadowCalculation> m_shadowCalculation;
@@ -312,6 +315,12 @@ private:
   OSQuantityEdit2 * m_temperatureCapacityMultiplier;
   OSQuantityEdit2 * m_humidityCapacityMultiplier;
   OSQuantityEdit2 * m_carbonDioxideCapacityMultiplier;
+
+  // OutputJSON
+  OSComboBox2 * m_json_optionType;
+  OSSwitch2 * m_json_outputJSON;
+  OSSwitch2 * m_json_outputCBOR;
+  OSSwitch2 * m_json_outputMessagePack;
 
 signals:
 
