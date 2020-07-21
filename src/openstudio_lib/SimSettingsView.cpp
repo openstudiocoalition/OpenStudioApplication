@@ -2010,8 +2010,17 @@ void SimSettingsView::attachRadianceParameters()
 
 void SimSettingsView::attachOutputJSON()
 {
+  bool forceOutputJSON = false;
+  // If it wasn't already in the model, it'll be initialized, and the Ctor defaults Output JSON field to "Yes"
+  // We do NOT want to enable Output:JSON for all models now, so force it to False
+  if (!m_model.getOptionalUniqueModelObject<model::OutputJSON>()) {
+    forceOutputJSON = true;
+  }
 
   model::OutputJSON mo = m_model.getUniqueModelObject<model::OutputJSON>();
+  if (forceOutputJSON) {
+    mo.setOutputJSON(false);
+  }
 
   m_json_optionType->bind<std::string>(
     mo,
