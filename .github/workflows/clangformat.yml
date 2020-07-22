@@ -1,0 +1,21 @@
+name: Clang Format
+
+on:
+  pull_request:
+    branches: [ master, develop ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Run clang-format against C++ files touched by the PR
+      shell: bash
+      run: ./ci/clang-format.sh $GITHUB_REF $GITHUB_BASE_REF
+
+    - name: Upload clang-format patch as artifact
+      uses: actions/upload-artifact@v2
+      with:
+          name: OpenStudioApplication-${{ github.sha }}-clang_format.patch
+          path: CCCCLANG_clang_format.patch
