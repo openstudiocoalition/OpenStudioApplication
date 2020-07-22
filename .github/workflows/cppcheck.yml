@@ -7,12 +7,12 @@ on:
     branches: [ master, develop ]
 
 jobs:
-  cppcheck:
+  build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
 
-    - name: manual cppcheck
+    - name: Run cppcheck
       shell: bash
       run: |
           sudo snap install cppcheck
@@ -25,20 +25,5 @@ jobs:
     - name: Upload cppcheck results as artifact
       uses: actions/upload-artifact@v2
       with:
-          name: OpenStudioApplication-${{ github.sha }}-cppcheck_results.txt
+          name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-cppcheck_results.txt
           path: cppcheck.txt
-
-  clang-format:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-
-    - name: Run clang-format against C++ files touched by the PR
-      shell: bash
-      run: ./ci/clang-format.sh $GITHUB_REF $GITHUB_BASE_REF
-
-    - name: Upload clang-format patch as artifact
-      uses: actions/upload-artifact@v2
-      with:
-          name: OpenStudioApplication-${{ github.sha }}-clang_format.patch
-          path: clang_format.patch
