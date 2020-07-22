@@ -230,14 +230,13 @@ void SpacesInteriorPartitionsGridController::addColumns(const QString& category,
           });
 
         addValueEditColumn(Heading(QString(SURFACEAREA)),
-                           CastNullAdapter<model::InteriorPartitionSurface>(&model::InteriorPartitionSurface::surfaceArea),
-                           setter  //,
-                           //boost::optional<std::function<void(model::ModelObject *)>>(),
-                           //boost::optional<std::function<bool(model::ModelObject *)>>()//,
-                           //DataSource(
-                           //allInteriorPartitionSurfaces,
-                           //true
-                           //)
+                           CastNullAdapter<model::InteriorPartitionSurface>(&model::InteriorPartitionSurface::surfaceArea), setter
+                           // boost::optional<std::function<void(model::ModelObject *)>>(),
+                           // boost::optional<std::function<bool(model::ModelObject *)>>()//,
+                           // DataSource(
+                           //  allInteriorPartitionSurfaces,
+                           //  true
+                           // )
         );
 
         //boost::optional<double> surfaceArea() const; // TODO this optional is causing troubles
