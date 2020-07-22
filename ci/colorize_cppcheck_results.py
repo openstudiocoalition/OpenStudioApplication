@@ -4,25 +4,25 @@ import sys
 
 def colorize(lines):
     def bold(s):
-        return u'\u001b[1m' + s + '\u001b[0m'
+        return '\x1b[1m' + s + '\x1b[0m'
 
     def red(s):
-        return u'\u001b[31m' + s + '\u001b[0m'
+        return '\x1b[31m' + s + '\x1b[0m'
 
     def green(s):
-        return u'\u001b[32m' + s + '\u001b[0m'
+        return '\x1b[32m' + s + '\x1b[0m'
 
     def yellow(s):
-        return u'\u001b[33m' + s + '\u001b[0m'
+        return '\x1b[33m' + s + '\x1b[0m'
 
     def blue(s):
-        return u'\u001b[34m' + s + '\u001b[0m'
+        return '\x1b[34m' + s + '\x1b[0m'
 
     def magenta(s):  # purple
-        return u'\u001b[35m' + s + '\u001b[0m'
+        return '\x1b[35m' + s + '\x1b[0m'
 
     def cyan(s):
-        return u'\u001b[36m' + s + '\u001b[0m'
+        return '\x1b[36m' + s + '\x1b[0m'
 
     def format_severity(txt, severity):
         """
