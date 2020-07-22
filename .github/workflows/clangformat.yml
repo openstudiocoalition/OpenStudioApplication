@@ -1,0 +1,29 @@
+name: Static Analyzers
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master, develop ]
+
+jobs:
+  cppcheck:
+    name: cppcheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: cppcheck
+        uses: deep5050/cppcheck-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN}}
+
+  clang-format:
+    runs-on: ubuntu-latest
+    - uses: DoozyX/clang-format-lint-action@v0.8
+      with:
+        source: './src'
+        exclude: '.git'
+        extensions: 'cpp,hpp,cxx,hxx,cxx.in'
+        clangFormatVersion: 10
+        style: file
+
