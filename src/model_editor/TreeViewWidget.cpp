@@ -46,14 +46,9 @@
 
 using namespace openstudio::model;
 
-namespace modeleditor
-{
+namespace modeleditor {
 
-TreeViewWidget::TreeViewWidget(openstudio::model::Model& model, QWidget *parent)
-  : ViewWidget(parent),
-  mTreeView(nullptr),
-  mTreeModel(nullptr)
-{
+TreeViewWidget::TreeViewWidget(openstudio::model::Model& model, QWidget* parent) : ViewWidget(parent), mTreeView(nullptr), mTreeModel(nullptr) {
   mSplitterSetting = "TreeViewWidgetSplitterSizes";
   createWidgets();
 
@@ -69,11 +64,7 @@ TreeViewWidget::TreeViewWidget(openstudio::model::Model& model, QWidget *parent)
   loadData();
 }
 
-TreeViewWidget::TreeViewWidget(QWidget *parent)
-  : ViewWidget(parent),
-  mTreeView(nullptr),
-  mTreeModel(nullptr)
-{
+TreeViewWidget::TreeViewWidget(QWidget* parent) : ViewWidget(parent), mTreeView(nullptr), mTreeModel(nullptr) {
   mSplitterSetting = "TreeViewWidgetSplitterSizes";
   createWidgets();
 
@@ -85,33 +76,27 @@ TreeViewWidget::TreeViewWidget(QWidget *parent)
   loadData();
 }
 
-TreeViewWidget::~TreeViewWidget()
-{
-}
+TreeViewWidget::~TreeViewWidget() {}
 
-TreeView* TreeViewWidget::getTreeView()
-{
+TreeView* TreeViewWidget::getTreeView() {
   return mTreeView;
 }
 
-TreeModel* TreeViewWidget::getTreeModel()
-{
+TreeModel* TreeViewWidget::getTreeModel() {
   return mTreeModel;
 }
 
-void TreeViewWidget::loadData()
-{
+void TreeViewWidget::loadData() {
   loadModel();
   QModelIndex index = mTreeModel->index(0, 0);
   mTreeView->setCurrentIndex(index);
   QModelIndexList rowList;
-  if(mTreeView->getSelectedRows(rowList)){
+  if (mTreeView->getSelectedRows(rowList)) {
     viewSelection(rowList.at(0));
   }
 }
 
-void TreeViewWidget::loadModel(openstudio::model::Model& model)
-{
+void TreeViewWidget::loadModel(openstudio::model::Model& model) {
   ///! Creating and loading the simulation adds objects
   ///! to the model which is shared by the app's views
   //int size1 = mModel.workspace().objects().size();
@@ -126,9 +111,8 @@ void TreeViewWidget::loadModel(openstudio::model::Model& model)
   mTreeView->setModel(mTreeModel);
 }
 
-void TreeViewWidget::loadModel()
-{
-  if(mModelExplorer){
+void TreeViewWidget::loadModel() {
+  if (mModelExplorer) {
     setExpandedIndexHandles();
     mModel = mModelExplorer->getModel();
     loadModel(mModel);
@@ -137,8 +121,7 @@ void TreeViewWidget::loadModel()
   }
 }
 
-void TreeViewWidget::createWidgets()
-{
+void TreeViewWidget::createWidgets() {
   mTreeView = new TreeView(this);
   mTreeView->setEditTriggers(QAbstractItemView::NoEditTriggers);
   mTreeView->setSelectionBehavior(QAbstractItemView::SelectRows);
@@ -148,8 +131,7 @@ void TreeViewWidget::createWidgets()
   mTreeView->setDropIndicatorShown(true);
 }
 
-void TreeViewWidget::connectSignalsAndSlots()
-{
+void TreeViewWidget::connectSignalsAndSlots() {
   connect(mTreeView, &TreeView::eventUpDnKeyRelease, this, static_cast<void (TreeViewWidget::*)()>(&TreeViewWidget::viewSelection));
 
   connect(mTreeView, &TreeView::clicked, this, static_cast<void (TreeViewWidget::*)()>(&TreeViewWidget::viewSelection));
@@ -163,34 +145,30 @@ void TreeViewWidget::connectSignalsAndSlots()
   connect(this, &TreeViewWidget::collapseAll, mTreeView, &TreeView::collapseAll);
 }
 
-void TreeViewWidget::expandAllNodes()
-{
+void TreeViewWidget::expandAllNodes() {
   emit expandAll();
 }
 
-void TreeViewWidget::collapseAllNodes()
-{
+void TreeViewWidget::collapseAllNodes() {
   emit collapseAll();
 }
 
-void TreeViewWidget::createLayout()
-{
+void TreeViewWidget::createLayout() {
   mSplitter->addWidget(mTreeView);
   mSplitter->addWidget(mIG);
 }
 
-void TreeViewWidget::addObjects(openstudio::IddObjectType type)
-{
-  if(type == openstudio::IddObjectType::UserCustom){
+void TreeViewWidget::addObjects(openstudio::IddObjectType type) {
+  if (type == openstudio::IddObjectType::UserCustom) {
     return;
   }
 
   QModelIndexList rowList;
-  if(mTreeView->getSelectedRows(rowList)){
+  if (mTreeView->getSelectedRows(rowList)) {
     mTreeView->expand(rowList.at(0));
     openstudio::Handle handle = mTreeModel->modelAtIndex(rowList.at(0))->handle();
-    TreeModel * model = static_cast<TreeModel *>(mTreeView->model());
-    model->addRows(rowList,type);
+    TreeModel* model = static_cast<TreeModel*>(mTreeView->model());
+    model->addRows(rowList, type);
     loadModel();
 
     ///! TODO this is a hack to get all indexes on all tree nodes
@@ -198,10 +176,10 @@ void TreeViewWidget::addObjects(openstudio::IddObjectType type)
     QModelIndex index;
     QModelIndexList persistentIndexList = mTreeModel->getPersistentIndexList();
 
-    for(int i=0; i<persistentIndexList.size(); i++){
+    for (int i = 0; i < persistentIndexList.size(); i++) {
       index = persistentIndexList.at(i);
-      if(index.isValid()){
-        if(mTreeModel->modelAtIndex(index)->handle() == handle){
+      if (index.isValid()) {
+        if (mTreeModel->modelAtIndex(index)->handle() == handle) {
           mTreeView->setCurrentIndex(index);
           break;
         }
@@ -212,41 +190,38 @@ void TreeViewWidget::addObjects(openstudio::IddObjectType type)
   }
 }
 
-void TreeViewWidget::removeObjects()
-{
+void TreeViewWidget::removeObjects() {
   QModelIndexList rowList;
-  if(mTreeView->getSelectedRows(rowList)){
+  if (mTreeView->getSelectedRows(rowList)) {
     std::vector<openstudio::Handle> handles;
-    TreeModel * model = static_cast<TreeModel *>(mTreeView->model());
-    model->removeRows(rowList,handles);
-    if(!handles.empty()){
+    TreeModel* model = static_cast<TreeModel*>(mTreeView->model());
+    model->removeRows(rowList, handles);
+    if (!handles.empty()) {
       loadModel();
       emit modelDirty();
     }
   }
 }
 
-void TreeViewWidget::copyObjects()
-{
+void TreeViewWidget::copyObjects() {
   mModelObjectsToPaste.clear();
   QModelIndexList rowList;
-  if(mTreeView->getSelectedRows(rowList)){
-    TreeModel * model = static_cast<TreeModel *>(mTreeView->model());
-    for (const QModelIndex& row : rowList){
+  if (mTreeView->getSelectedRows(rowList)) {
+    TreeModel* model = static_cast<TreeModel*>(mTreeView->model());
+    for (const QModelIndex& row : rowList) {
       mModelObjectsToPaste.push_back(*(model->modelAtIndex(row)));
     }
   }
 }
 
-void TreeViewWidget::pasteObjects()
-{
+void TreeViewWidget::pasteObjects() {
   QModelIndexList rowList;
-  if(mTreeView->getSelectedRows(rowList)){
+  if (mTreeView->getSelectedRows(rowList)) {
     mTreeView->expand(rowList.at(0));
     openstudio::Handle handle = mModelObjectsToPaste.at(0).handle();
 
-    TreeModel * model = static_cast<TreeModel *>(mTreeView->model());
-    model->pasteRows(rowList.at(0),mModelObjectsToPaste);
+    TreeModel* model = static_cast<TreeModel*>(mTreeView->model());
+    model->pasteRows(rowList.at(0), mModelObjectsToPaste);
     loadModel();
 
     ///! TODO this is a hack to get all indexes on all tree nodes
@@ -254,10 +229,10 @@ void TreeViewWidget::pasteObjects()
     QModelIndex index;
     QModelIndexList persistentIndexList = mTreeModel->getPersistentIndexList();
 
-    for(int i=0; i<persistentIndexList.size(); i++){
+    for (int i = 0; i < persistentIndexList.size(); i++) {
       index = persistentIndexList.at(i);
-      if(index.isValid()){
-        if(mTreeModel->modelAtIndex(index)->handle() == handle){
+      if (index.isValid()) {
+        if (mTreeModel->modelAtIndex(index)->handle() == handle) {
           mTreeView->setCurrentIndex(index);
           break;
         }
@@ -268,35 +243,29 @@ void TreeViewWidget::pasteObjects()
   }
 }
 
-std::vector<openstudio::IddObjectType> TreeViewWidget::getAllowableChildTypes()
-{
+std::vector<openstudio::IddObjectType> TreeViewWidget::getAllowableChildTypes() {
   QModelIndexList rowList;
   std::vector<openstudio::IddObjectType> allowableChildTypes;
-  if(mTreeView->getSelectedRows(rowList)){
-    TreeModel * model = static_cast<TreeModel *>(mTreeView->model());
+  if (mTreeView->getSelectedRows(rowList)) {
+    TreeModel* model = static_cast<TreeModel*>(mTreeView->model());
     OptionalModelObject temp = model->modelAtIndex(rowList.at(0));
     OptionalParentObject tempParent;
-    if( temp &&
-        ( tempParent = temp->optionalCast<ParentObject>() ) )
-    {
+    if (temp && (tempParent = temp->optionalCast<ParentObject>())) {
       allowableChildTypes = tempParent->allowableChildTypes();
     }
   }
   return allowableChildTypes;
 }
 
-bool TreeViewWidget::hasSelectedRows()
-{
+bool TreeViewWidget::hasSelectedRows() {
   return mTreeView->hasSelectedRows();
 }
 
-bool TreeViewWidget::hasRowsToPaste()
-{
+bool TreeViewWidget::hasRowsToPaste() {
   return mModelObjectsToPaste.size();
 }
 
-void TreeViewWidget::setExpandedIndexHandles()
-{
+void TreeViewWidget::setExpandedIndexHandles() {
   mExpandedIndexHandles.clear();
 
   std::pair<QModelIndex, openstudio::Handle> expandedIndexHandle;
@@ -304,9 +273,9 @@ void TreeViewWidget::setExpandedIndexHandles()
   QModelIndex index;
   QModelIndexList persistentIndexList = mTreeModel->getPersistentIndexList();
 
-  for(int i=0; i<persistentIndexList.size(); i++){
+  for (int i = 0; i < persistentIndexList.size(); i++) {
     index = persistentIndexList.at(i);
-    if(index.isValid() && mTreeView->isExpanded(index)){
+    if (index.isValid() && mTreeView->isExpanded(index)) {
       expandedIndexHandle.first = index;
       expandedIndexHandle.second = mTreeModel->modelAtIndex(index)->handle();
       mExpandedIndexHandles.push_back(expandedIndexHandle);
@@ -314,19 +283,18 @@ void TreeViewWidget::setExpandedIndexHandles()
   }
 }
 
-void TreeViewWidget::expandAppropriateTreeNodes()
-{
+void TreeViewWidget::expandAppropriateTreeNodes() {
   ///! TODO this is a hack to get all indexes on all tree nodes
   expandAllNodes();
   QModelIndex index;
   QModelIndexList persistentIndexList = mTreeModel->getPersistentIndexList();
   collapseAllNodes();
 
-  for(int i=0; i<persistentIndexList.size(); i++){
+  for (int i = 0; i < persistentIndexList.size(); i++) {
     index = persistentIndexList.at(i);
-    if(index.isValid()){
-      for(unsigned j=0; j<mExpandedIndexHandles.size(); j++){
-        if(mTreeModel->modelAtIndex(index)->handle() == mExpandedIndexHandles.at(j).second){
+    if (index.isValid()) {
+      for (unsigned j = 0; j < mExpandedIndexHandles.size(); j++) {
+        if (mTreeModel->modelAtIndex(index)->handle() == mExpandedIndexHandles.at(j).second) {
           mTreeView->expand(index);
           break;
         }
@@ -335,29 +303,25 @@ void TreeViewWidget::expandAppropriateTreeNodes()
   }
 }
 
-void TreeViewWidget::toggleGUIDs()
-{
+void TreeViewWidget::toggleGUIDs() {
   mTreeModel->toggleGUIDs();
 }
 
 ///! Slots
-void TreeViewWidget::viewSelection()
-{
-  QItemSelectionModel * itemSelectionModel = mTreeView->selectionModel();
+void TreeViewWidget::viewSelection() {
+  QItemSelectionModel* itemSelectionModel = mTreeView->selectionModel();
   viewSelection(itemSelectionModel->currentIndex());
 }
 
-void TreeViewWidget::viewSelection(const QModelIndex& modelIndex)
-{
+void TreeViewWidget::viewSelection(const QModelIndex& modelIndex) {
   // get the available object
   openstudio::model::OptionalModelObject modelObject = mTreeModel->modelAtIndex(modelIndex);
   mIG->layoutModelObj(*modelObject);
 }
 
-void TreeViewWidget::on_nameChanged(QString)
-{
-  if(isVisible()){
-    loadModel(); // TODO costly and clunky
+void TreeViewWidget::on_nameChanged(QString) {
+  if (isVisible()) {
+    loadModel();  // TODO costly and clunky
     update();
     return;
     /*QModelIndexList rowList;
@@ -366,10 +330,9 @@ void TreeViewWidget::on_nameChanged(QString)
       OS_ASSERT(rowList.size() == 1);
       //rowList.at(0).
     }*/
-  }
-  else{
+  } else {
     mModelDirty = true;
   }
 }
 
-} // namespace modeleditor
+}  // namespace modeleditor

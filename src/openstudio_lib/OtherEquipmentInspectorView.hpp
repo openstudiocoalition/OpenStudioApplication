@@ -46,50 +46,47 @@ class OtherEquipmentDefinitionInspectorView : public ModelObjectInspectorView
   Q_OBJECT
 
   public:
+  OtherEquipmentDefinitionInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
-    OtherEquipmentDefinitionInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent = nullptr );
-
-    virtual ~OtherEquipmentDefinitionInspectorView() {}
+  virtual ~OtherEquipmentDefinitionInspectorView() {}
 
   protected:
+  virtual void onClearSelection() override;
 
-    virtual void onClearSelection() override;
+  virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
-    virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
-
-    virtual void onUpdate() override;
+  virtual void onUpdate() override;
 
   private:
+  void attach(openstudio::model::OtherEquipmentDefinition& otherEquipmentDefinition);
 
-    void attach(openstudio::model::OtherEquipmentDefinition & otherEquipmentDefinition);
+  void detach();
 
-    void detach();
+  void refresh();
 
-    void refresh();
+  OSLineEdit2* m_nameEdit;
 
-    OSLineEdit2 * m_nameEdit;
+  OSQuantityEdit2* m_designLevelEdit;
 
-    OSQuantityEdit2 * m_designLevelEdit;
+  OSQuantityEdit2* m_wattsPerSpaceFloorAreaEdit;
 
-    OSQuantityEdit2 * m_wattsPerSpaceFloorAreaEdit;
+  OSQuantityEdit2* m_wattsPerPersonEdit;
 
-    OSQuantityEdit2 * m_wattsPerPersonEdit;
+  OSQuantityEdit2* m_fractionLatentEdit;
 
-    OSQuantityEdit2 * m_fractionLatentEdit;
+  OSQuantityEdit2* m_fractionRadiantEdit;
 
-    OSQuantityEdit2 * m_fractionRadiantEdit;
+  OSQuantityEdit2* m_fractionLostEdit;
 
-    OSQuantityEdit2 * m_fractionLostEdit;
+  bool m_isIP;
 
-    bool m_isIP;
-
-    boost::optional<model::OtherEquipmentDefinition> m_otherEquipmentDefinition;
+  boost::optional<model::OtherEquipmentDefinition> m_otherEquipmentDefinition;
 
   public slots:
 
-    void toggleUnits(bool displayIP) override;
+  void toggleUnits(bool displayIP) override;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_OTHEREQUIPMENTINSPECTORVIEW_HPP
+#endif  // OPENSTUDIO_OTHEREQUIPMENTINSPECTORVIEW_HPP

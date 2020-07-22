@@ -35,86 +35,47 @@
 #include <openstudio/model/Model.hpp>
 
 #include <QCheckBox>
-#include <openstudio/nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/nano/nano_signal_slot.hpp>  // Signal-Slot replacement
 #include <QPushButton>
 
 // Forward declaration
 class QFocusEvent;
 
-
 namespace openstudio {
 
-  class OSCheckBox3 : public QCheckBox, public Nano::Observer {
-    Q_OBJECT
-
-  public:
-
-    OSCheckBox3(QWidget * parent = nullptr);
-
-    virtual ~OSCheckBox3();
-
-    // This method will be called to enable the Checkbox to accept focus
-    // (typically by the OSGridController depending on whether the underlying BaseConcept allows it)
-    void enableClickFocus() { this->setFocusPolicy(Qt::ClickFocus); }
-
-    void bind(model::ModelObject & modelObject,
-      BoolGetter get,
-      boost::optional<BoolSetter> set = boost::none,
-      boost::optional<NoFailAction> reset = boost::none,
-      boost::optional<BasicQuery> isDefaulted = boost::none);
-
-    void bind(model::ModelObject & modelObject,
-      BoolGetter get,
-      boost::optional<BoolSetterBoolReturn> set = boost::none,
-      boost::optional<NoFailAction> reset = boost::none,
-      boost::optional<BasicQuery> isDefaulted = boost::none);
-
-    void unbind();
-
-  signals:
-
-    void inFocus(bool inFocus, bool hasData);
-
-  protected:
-    // We override these methods to emit inFocus as appropriate to enable/disable the header button
-    virtual void focusInEvent(QFocusEvent * e) override;
-    virtual void focusOutEvent(QFocusEvent * e) override;
-
-  private slots:
-
-    void onToggled(bool checked);
-
-    void onModelObjectChange();
-
-    void onModelObjectRemove(const Handle& handle);
-
-  private:
-    boost::optional<model::ModelObject> m_modelObject;
-    boost::optional<BoolGetter> m_get;
-    boost::optional<BoolSetter> m_set;
-    boost::optional<BoolSetterBoolReturn> m_setBoolReturn;
-    boost::optional<NoFailAction> m_reset;
-    boost::optional<BasicQuery> m_isDefaulted;
-  };
-
-  class OSCheckBox2 : public QPushButton, public Nano::Observer {
+class OSCheckBox3 : public QCheckBox, public Nano::Observer
+{
   Q_OBJECT
 
- public:
+  public:
+  OSCheckBox3(QWidget* parent = nullptr);
 
-  OSCheckBox2(QWidget * parent = nullptr);
+  virtual ~OSCheckBox3();
 
-  virtual ~OSCheckBox2() {}
+  // This method will be called to enable the Checkbox to accept focus
+  // (typically by the OSGridController depending on whether the underlying BaseConcept allows it)
+  void enableClickFocus() {
+    this->setFocusPolicy(Qt::ClickFocus);
+  }
 
-  void bind(model::ModelObject & modelObject,
-            BoolGetter get,
-            boost::optional<BoolSetter> set=boost::none,
-            boost::optional<NoFailAction> reset=boost::none,
-            boost::optional<BasicQuery> isDefaulted=boost::none);
+  void bind(model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetter> set = boost::none,
+            boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none);
+
+  void bind(model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetterBoolReturn> set = boost::none,
+            boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none);
 
   void unbind();
 
- private slots:
+  signals:
+
+  void inFocus(bool inFocus, bool hasData);
+
+  protected:
+  // We override these methods to emit inFocus as appropriate to enable/disable the header button
+  virtual void focusInEvent(QFocusEvent* e) override;
+  virtual void focusOutEvent(QFocusEvent* e) override;
+
+  private slots:
 
   void onToggled(bool checked);
 
@@ -122,7 +83,38 @@ namespace openstudio {
 
   void onModelObjectRemove(const Handle& handle);
 
- private:
+  private:
+  boost::optional<model::ModelObject> m_modelObject;
+  boost::optional<BoolGetter> m_get;
+  boost::optional<BoolSetter> m_set;
+  boost::optional<BoolSetterBoolReturn> m_setBoolReturn;
+  boost::optional<NoFailAction> m_reset;
+  boost::optional<BasicQuery> m_isDefaulted;
+};
+
+class OSCheckBox2 : public QPushButton, public Nano::Observer
+{
+  Q_OBJECT
+
+  public:
+  OSCheckBox2(QWidget* parent = nullptr);
+
+  virtual ~OSCheckBox2() {}
+
+  void bind(model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetter> set = boost::none,
+            boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none);
+
+  void unbind();
+
+  private slots:
+
+  void onToggled(bool checked);
+
+  void onModelObjectChange();
+
+  void onModelObjectRemove(const Handle& handle);
+
+  private:
   boost::optional<model::ModelObject> m_modelObject;
   boost::optional<BoolGetter> m_get;
   boost::optional<BoolSetter> m_set;
@@ -158,6 +150,6 @@ namespace openstudio {
 //   std::string m_property;
 // };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // SHAREDGUICOMPONENTS_OSCHECKBOX_HPP
+#endif  // SHAREDGUICOMPONENTS_OSCHECKBOX_HPP

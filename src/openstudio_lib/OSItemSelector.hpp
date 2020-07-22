@@ -46,27 +46,23 @@ class OSItemSelector : public QWidget
   Q_OBJECT
 
   public:
+  OSItemSelector(QWidget* parent = nullptr);
 
-    OSItemSelector(QWidget * parent = nullptr);
+  virtual ~OSItemSelector() {}
 
-    virtual ~OSItemSelector() {}
-
-    virtual OSItem* selectedItem() const = 0;
+  virtual OSItem* selectedItem() const = 0;
 
   signals:
 
-    void itemSelected(OSItem* item);
+  void itemSelected(OSItem* item);
 
-    void itemRemoveClicked(OSItem* item);
+  void itemRemoveClicked(OSItem* item);
 
-    void itemReplacementDropped(OSItem * currentItem, const OSItemId& replacementItemId);
+  void itemReplacementDropped(OSItem* currentItem, const OSItemId& replacementItemId);
 
-    void selectionCleared();
-
+  void selectionCleared();
 };
 
+}  // namespace openstudio
 
-} // openstudio
-
-#endif // OPENSTUDIO_OSITEMSELECTOR_HPP
-
+#endif  // OPENSTUDIO_OSITEMSELECTOR_HPP

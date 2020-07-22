@@ -34,9 +34,6 @@
 
 namespace openstudio {
 
-SummaryTabController::SummaryTabController(const model::Model & model)
-  : MainTabController(new SummaryTabView(model))
-{
-}
+SummaryTabController::SummaryTabController(const model::Model& model) : MainTabController(new SummaryTabView(model)) {}
 
-} // openstudio
+}  // namespace openstudio

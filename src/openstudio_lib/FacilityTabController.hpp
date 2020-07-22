@@ -39,13 +39,11 @@ class FacilityTabController : public MainTabController
   Q_OBJECT
 
   public:
-
-  FacilityTabController(bool isIP, const model::Model & model);
+  FacilityTabController(bool isIP, const model::Model& model);
 
   virtual ~FacilityTabController();
 
   private:
-
   enum TabID
   {
     BUILDING,
@@ -58,7 +56,7 @@ class FacilityTabController : public MainTabController
 
   bool m_isIP;
 
-  QWidget * m_currentView = nullptr;
+  QWidget* m_currentView = nullptr;
 
   int m_currentIndex = -1;
 
@@ -69,6 +67,6 @@ class FacilityTabController : public MainTabController
   virtual void setSubTab(int index) override;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_FACILITYTABCONTROLLER_HPP
+#endif  // OPENSTUDIO_FACILITYTABCONTROLLER_HPP

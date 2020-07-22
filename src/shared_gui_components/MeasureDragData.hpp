@@ -43,14 +43,13 @@ class MeasureDragData : QObject
   Q_OBJECT
 
   public:
-
   static QString mimeType();
 
   static QString mimeType(openstudio::MeasureType type);
 
-  MeasureDragData(const QByteArray & data);
+  MeasureDragData(const QByteArray& data);
 
-  MeasureDragData(const UUID & id);
+  MeasureDragData(const UUID& id);
 
   virtual ~MeasureDragData() {}
 
@@ -63,12 +62,11 @@ class MeasureDragData : QObject
   QByteArray data();
 
   private:
-
   UUID m_id;
 
   LocalLibrary::LibrarySource m_sourceEnum;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // SHAREDGUICOMPONENTS_MEASUREDRAGDATA_HPP
+#endif  // SHAREDGUICOMPONENTS_MEASUREDRAGDATA_HPP

@@ -39,8 +39,9 @@
 #include <vector>
 #include <string>
 
-class BIMserverFixture : public ::testing::Test {
- protected:
+class BIMserverFixture : public ::testing::Test
+{
+  protected:
   /// initialize for each test
   virtual void SetUp() override;
 
@@ -58,4 +59,4 @@ class BIMserverFixture : public ::testing::Test {
   REGISTER_LOGGER("BIMserver");
 };
 
-#endif // BIMSERVER_TEST_BIMSERVERFIXTURE_HPP
+#endif  // BIMSERVER_TEST_BIMSERVERFIXTURE_HPP

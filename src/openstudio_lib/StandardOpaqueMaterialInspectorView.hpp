@@ -43,26 +43,21 @@ class StandardOpaqueMaterialInspectorView : public ModelObjectInspectorView
   Q_OBJECT
 
   public:
+  StandardOpaqueMaterialInspectorView(const model::Model& model, QWidget* parent = nullptr);
 
-    StandardOpaqueMaterialInspectorView(const model::Model& model,
-                                        QWidget * parent = nullptr);
-
-    virtual ~StandardOpaqueMaterialInspectorView() {}
+  virtual ~StandardOpaqueMaterialInspectorView() {}
 
   protected:
+  virtual void onClearSelection() override;
 
-    virtual void onClearSelection() override;
+  virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
-    virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
-
-    virtual void onUpdate() override;
+  virtual void onUpdate() override;
 
   private:
-
-    QLabel * m_mainLabel;
+  QLabel* m_mainLabel;
 };
 
+}  // namespace openstudio
 
-} // openstudio
-
-#endif // OPENSTUDIO_STANDARDOPAQUEMATERIALINSPECTORVIEW_HPP
+#endif  // OPENSTUDIO_STANDARDOPAQUEMATERIALINSPECTORVIEW_HPP

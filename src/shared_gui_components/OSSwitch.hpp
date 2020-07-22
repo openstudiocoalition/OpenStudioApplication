@@ -30,7 +30,7 @@
 #ifndef SHAREDGUICOMPONENTS_OSSWITCH_HPP
 #define SHAREDGUICOMPONENTS_OSSWITCH_HPP
 
-#include <openstudio/nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/nano/nano_signal_slot.hpp>  // Signal-Slot replacement
 #include "FieldMethodTypedefs.hpp"
 
 #include <openstudio/model/Model.hpp>
@@ -38,11 +38,11 @@
 
 namespace openstudio {
 
-class OSSwitch2 : public QPushButton, public Nano::Observer {
+class OSSwitch2 : public QPushButton, public Nano::Observer
+{
   Q_OBJECT
- public:
-
-  OSSwitch2(QWidget * parent = nullptr);
+  public:
+  OSSwitch2(QWidget* parent = nullptr);
 
   virtual ~OSSwitch2();
 
@@ -51,15 +51,12 @@ class OSSwitch2 : public QPushButton, public Nano::Observer {
 
   void makeTrueFalse();
 
-  void bind(model::ModelObject & modelObject,
-            BoolGetter get,
-            boost::optional<BoolSetter> set=boost::none,
-            boost::optional<NoFailAction> reset=boost::none,
-            boost::optional<BasicQuery> isDefaulted=boost::none);
+  void bind(model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetter> set = boost::none,
+            boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none);
 
   void unbind();
 
- private slots:
+  private slots:
 
   void onClicked(bool checked);
 
@@ -67,7 +64,7 @@ class OSSwitch2 : public QPushButton, public Nano::Observer {
 
   void onModelObjectRemove(const Handle& handle);
 
- private:
+  private:
   boost::optional<model::ModelObject> m_modelObject;
   boost::optional<BoolGetter> m_get;
   boost::optional<BoolSetter> m_set;
@@ -104,6 +101,6 @@ class OSSwitch2 : public QPushButton, public Nano::Observer {
 //   std::string m_property;
 // };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // SHAREDGUICOMPONENTS_OSSWITCH_HPP
+#endif  // SHAREDGUICOMPONENTS_OSSWITCH_HPP

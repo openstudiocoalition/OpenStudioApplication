@@ -48,36 +48,27 @@ class ModelObjectTypeListView : public OSCollapsibleItemList
   Q_OBJECT
 
   public:
-    ModelObjectTypeListView(const model::Model& model,
-                            bool addScrollArea,
-                            OSItemType headerType,
-                            bool showLocalBCL = false,
-                            QWidget * parent = nullptr);
+  ModelObjectTypeListView(const model::Model& model, bool addScrollArea, OSItemType headerType, bool showLocalBCL = false, QWidget* parent = nullptr);
 
-    ModelObjectTypeListView(const std::vector<std::pair<IddObjectType, std::string> >& modelObjectTypesAndNames,
-                            const model::Model& model, bool addScrollArea, OSItemType headerType,
-                            bool showLocalBCL = false,
-                            QWidget * parent = nullptr);
+  ModelObjectTypeListView(const std::vector<std::pair<IddObjectType, std::string>>& modelObjectTypesAndNames, const model::Model& model,
+                          bool addScrollArea, OSItemType headerType, bool showLocalBCL = false, QWidget* parent = nullptr);
 
-    virtual ~ModelObjectTypeListView() {}
+  virtual ~ModelObjectTypeListView() {}
 
-    void addModelObjectType(const IddObjectType& iddObjectType, const std::string& name);
+  void addModelObjectType(const IddObjectType& iddObjectType, const std::string& name);
 
-    virtual IddObjectType currentIddObjectType() const;
+  virtual IddObjectType currentIddObjectType() const;
 
-    virtual boost::optional<openstudio::model::ModelObject> selectedModelObject() const;
+  virtual boost::optional<openstudio::model::ModelObject> selectedModelObject() const;
 
   private:
+  std::vector<std::pair<IddObjectType, std::string>> m_modelObjectTypesAndNames;
 
-    std::vector<std::pair<IddObjectType, std::string> > m_modelObjectTypesAndNames;
-
-    model::Model m_model;
-    OSItemType m_headerType;
-    bool m_showLocalBCL;
+  model::Model m_model;
+  OSItemType m_headerType;
+  bool m_showLocalBCL;
 };
 
+}  // namespace openstudio
 
-
-} // openstudio
-
-#endif // OPENSTUDIO_MODELOBJECTTYPELISTVIEW_HPP
+#endif  // OPENSTUDIO_MODELOBJECTTYPELISTVIEW_HPP

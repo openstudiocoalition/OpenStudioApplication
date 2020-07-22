@@ -50,40 +50,37 @@ class LoopChooserView : public QWidget
   Q_OBJECT;
 
   public:
-
   LoopChooserView(QWidget* parent = nullptr);
 
   virtual ~LoopChooserView() {}
 
-  LoopChooserItem * loopChooserItemForLoop(std::string loopName);
+  LoopChooserItem* loopChooserItemForLoop(std::string loopName);
 
   void layoutView();
 
   public slots:
 
-  void layoutModelObject(boost::optional<model::ModelObject> & modelObject);
+  void layoutModelObject(boost::optional<model::ModelObject>& modelObject);
 
-  void onAddToLoopClicked(model::Loop &);
+  void onAddToLoopClicked(model::Loop&);
 
-  void onRemoveFromLoopClicked(model::Loop &);
+  void onRemoveFromLoopClicked(model::Loop&);
 
   signals:
 
-  void addToLoopClicked(model::Loop &, boost::optional<model::HVACComponent> &);
+  void addToLoopClicked(model::Loop&, boost::optional<model::HVACComponent>&);
 
-  void removeFromLoopClicked(model::Loop &, boost::optional<model::HVACComponent> &);
+  void removeFromLoopClicked(model::Loop&, boost::optional<model::HVACComponent>&);
 
   protected:
+  void paintEvent(QPaintEvent* event) override;
 
-  void paintEvent ( QPaintEvent * event ) override;
-
- private:
-
+  private:
   boost::optional<model::HVACComponent> m_component;
 
-  QVBoxLayout * m_vLayout;
+  QVBoxLayout* m_vLayout;
 
-  std::vector<LoopChooserItem *> m_loopChooserItems;
+  std::vector<LoopChooserItem*> m_loopChooserItems;
 };
 
 class LoopChooserItem : public QWidget
@@ -91,8 +88,7 @@ class LoopChooserItem : public QWidget
   Q_OBJECT;
 
   public:
-
-  LoopChooserItem(model::Loop &, LoopChooserView * parent = nullptr);
+  LoopChooserItem(model::Loop&, LoopChooserView* parent = nullptr);
 
   virtual ~LoopChooserItem() {}
 
@@ -100,27 +96,26 @@ class LoopChooserItem : public QWidget
 
   signals:
 
-  void addToLoopClicked(model::Loop &);
+  void addToLoopClicked(model::Loop&);
 
-  void removeFromLoopClicked(model::Loop &);
+  void removeFromLoopClicked(model::Loop&);
 
   public slots:
 
-  void setChecked( bool checked );
+  void setChecked(bool checked);
 
   private slots:
 
-  void sendClickedSignal( bool checked );
+  void sendClickedSignal(bool checked);
 
   private:
+  QCheckBox* m_checkBox;
 
-  QCheckBox * m_checkBox;
-
-  LoopChooserView * m_loopChooserView;
+  LoopChooserView* m_loopChooserView;
 
   model::Loop m_loop;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_LOOPCHOOSERVIEW_HPP
+#endif  // OPENSTUDIO_LOOPCHOOSERVIEW_HPP

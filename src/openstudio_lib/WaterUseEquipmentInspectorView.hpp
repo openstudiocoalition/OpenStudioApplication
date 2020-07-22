@@ -47,15 +47,13 @@ class TargetTemperatureScheduleVC : public ModelObjectVectorController
   Q_OBJECT
 
   public:
-
   virtual ~TargetTemperatureScheduleVC() {}
 
   protected:
-
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onRemoveItem(OSItem* item) override;
-  virtual void onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId) override;
+  virtual void onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) override;
   virtual void onDrop(const OSItemId& itemId) override;
 
   boost::optional<model::WaterUseEquipmentDefinition> waterUseEquipmentDefinition() const;
@@ -66,15 +64,13 @@ class SensibleFractionScheduleVC : public ModelObjectVectorController
   Q_OBJECT
 
   public:
-
   virtual ~SensibleFractionScheduleVC() {}
 
   protected:
-
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onRemoveItem(OSItem* item) override;
-  virtual void onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId) override;
+  virtual void onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) override;
   virtual void onDrop(const OSItemId& itemId) override;
 
   boost::optional<model::WaterUseEquipmentDefinition> waterUseEquipmentDefinition() const;
@@ -85,15 +81,13 @@ class LatentFractionScheduleVC : public ModelObjectVectorController
   Q_OBJECT
 
   public:
-
   virtual ~LatentFractionScheduleVC() {}
 
   protected:
-
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onRemoveItem(OSItem* item) override;
-  virtual void onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId) override;
+  virtual void onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) override;
   virtual void onDrop(const OSItemId& itemId) override;
 
   boost::optional<model::WaterUseEquipmentDefinition> waterUseEquipmentDefinition() const;
@@ -104,50 +98,47 @@ class WaterUseEquipmentDefinitionInspectorView : public ModelObjectInspectorView
   Q_OBJECT
 
   public:
+  WaterUseEquipmentDefinitionInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
-    WaterUseEquipmentDefinitionInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent = nullptr );
-
-    virtual ~WaterUseEquipmentDefinitionInspectorView() {}
+  virtual ~WaterUseEquipmentDefinitionInspectorView() {}
 
   protected:
+  virtual void onClearSelection() override;
 
-    virtual void onClearSelection() override;
+  virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
-    virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
-
-    virtual void onUpdate() override;
+  virtual void onUpdate() override;
 
   private:
+  void attach(openstudio::model::WaterUseEquipmentDefinition& waterUseEquipmentDefinition);
 
-    void attach(openstudio::model::WaterUseEquipmentDefinition & waterUseEquipmentDefinition);
+  void detach();
 
-    void detach();
+  void refresh();
 
-    void refresh();
+  OSLineEdit2* m_nameEdit;
 
-    OSLineEdit2 * m_nameEdit;
+  OSLineEdit2* m_endUseSubcategoryEdit;
 
-    OSLineEdit2 * m_endUseSubcategoryEdit;
+  OSQuantityEdit2* m_peakFlowRateEdit;
 
-    OSQuantityEdit2 * m_peakFlowRateEdit;
+  TargetTemperatureScheduleVC* m_targetTemperatureScheduleVC;
+  SensibleFractionScheduleVC* m_sensibleFractionScheduleVC;
+  LatentFractionScheduleVC* m_latentFractionScheduleVC;
 
-    TargetTemperatureScheduleVC * m_targetTemperatureScheduleVC;
-    SensibleFractionScheduleVC * m_sensibleFractionScheduleVC;
-    LatentFractionScheduleVC * m_latentFractionScheduleVC;
+  OSDropZone* m_targetTemperatureScheduleDZ;
+  OSDropZone* m_sensibleFractionScheduleDZ;
+  OSDropZone* m_latentFractionScheduleDZ;
 
-    OSDropZone * m_targetTemperatureScheduleDZ;
-    OSDropZone * m_sensibleFractionScheduleDZ;
-    OSDropZone * m_latentFractionScheduleDZ;
+  bool m_isIP;
 
-    bool m_isIP;
-
-    boost::optional<model::WaterUseEquipmentDefinition> m_waterUseEquipmentDefinition;
+  boost::optional<model::WaterUseEquipmentDefinition> m_waterUseEquipmentDefinition;
 
   public slots:
 
-    void toggleUnits(bool displayIP) override;
+  void toggleUnits(bool displayIP) override;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_WATERUSEEQUIPMENTINSPECTORVIEW_HPP
+#endif  // OPENSTUDIO_WATERUSEEQUIPMENTINSPECTORVIEW_HPP

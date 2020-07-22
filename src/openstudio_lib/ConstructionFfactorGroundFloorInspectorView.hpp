@@ -51,42 +51,39 @@ class ConstructionFfactorGroundFloorInspectorView : public ModelObjectInspectorV
   Q_OBJECT
 
   public:
+  ConstructionFfactorGroundFloorInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
-    ConstructionFfactorGroundFloorInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent = nullptr);
-
-    virtual ~ConstructionFfactorGroundFloorInspectorView() {}
+  virtual ~ConstructionFfactorGroundFloorInspectorView() {}
 
   protected:
+  virtual void onClearSelection() override;
 
-    virtual void onClearSelection() override;
+  virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
-    virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
-
-    virtual void onUpdate() override;
+  virtual void onUpdate() override;
 
   private:
+  void createLayout();
 
-    void createLayout();
+  void attach(openstudio::model::FFactorGroundFloorConstruction& fFactorGroundFloorConstruction);
 
-    void attach(openstudio::model::FFactorGroundFloorConstruction & fFactorGroundFloorConstruction);
+  void detach();
 
-    void detach();
+  bool m_isIP;
 
-    bool m_isIP;
+  OSLineEdit2* m_nameEdit;
 
-    OSLineEdit2 * m_nameEdit;
+  StandardsInformationConstructionWidget* m_standardsInformationWidget;
 
-    StandardsInformationConstructionWidget * m_standardsInformationWidget;
+  OSQuantityEdit2* m_ffactorEdit;
 
-    OSQuantityEdit2 * m_ffactorEdit;
+  OSQuantityEdit2* m_areaEdit;
 
-    OSQuantityEdit2 * m_areaEdit;
+  OSQuantityEdit2* m_perimeterExposedEdit;
 
-    OSQuantityEdit2 * m_perimeterExposedEdit;
-
-    boost::optional<model::FFactorGroundFloorConstruction> m_fFactorGroundFloorConstruction;
+  boost::optional<model::FFactorGroundFloorConstruction> m_fFactorGroundFloorConstruction;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_CONSTRUCTIONFFACTORGROUNDFLOORINSPECTORVIEW_HPP
+#endif  // OPENSTUDIO_CONSTRUCTIONFFACTORGROUNDFLOORINSPECTORVIEW_HPP

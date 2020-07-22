@@ -40,15 +40,10 @@
 
 namespace openstudio {
 
-OSCollapsibleItemHeader::OSCollapsibleItemHeader(const std::string & text,
-                                                 const OSItemId& itemId,
-                                                 OSItemType type,
-                                                 QWidget * parent)
-  : QWidget(parent),
-    m_mouseDown(false)
-{
+OSCollapsibleItemHeader::OSCollapsibleItemHeader(const std::string& text, const OSItemId& itemId, OSItemType type, QWidget* parent)
+  : QWidget(parent), m_mouseDown(false) {
   setFixedHeight(50);
-  setSizePolicy(QSizePolicy::Preferred,QSizePolicy::Fixed);
+  setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
   setObjectName("OSCollapsibleItemHeader");
 
   auto mainHLayout = new QHBoxLayout();
@@ -57,10 +52,10 @@ OSCollapsibleItemHeader::OSCollapsibleItemHeader(const std::string & text,
 
   // Label
 
-  QLabel * textLabel = new QLabel(QString::fromStdString(text));
+  QLabel* textLabel = new QLabel(QString::fromStdString(text));
   textLabel->setWordWrap(true);
   textLabel->setObjectName("H2");
-  mainHLayout->addWidget(textLabel,10);
+  mainHLayout->addWidget(textLabel, 10);
 
   mainHLayout->addStretch();
 
@@ -74,42 +69,35 @@ OSCollapsibleItemHeader::OSCollapsibleItemHeader(const std::string & text,
   setExpanded(false);
 }
 
-QSize OSCollapsibleItemHeader::sizeHint() const
-{
-  return QSize(150,50);
+QSize OSCollapsibleItemHeader::sizeHint() const {
+  return QSize(150, 50);
 }
 
-bool OSCollapsibleItemHeader::expanded() const
-{
+bool OSCollapsibleItemHeader::expanded() const {
   return m_expanded;
 }
 
-void OSCollapsibleItemHeader::setExpanded(bool expanded)
-{
+void OSCollapsibleItemHeader::setExpanded(bool expanded) {
   m_expanded = expanded;
   setImage(m_expanded);
 }
 
-void OSCollapsibleItemHeader::setImage(bool expanded)
-{
-  if(m_expanded){
+void OSCollapsibleItemHeader::setImage(bool expanded) {
+  if (m_expanded) {
     m_arrowLabel->setPixmap(QPixmap(":/images/toggle_arrow.png"));
-  }else{
+  } else {
     m_arrowLabel->setPixmap(QPixmap(":/images/toggle_arrow_closed.png"));
   }
 }
 
-bool OSCollapsibleItemHeader::selected() const
-{
+bool OSCollapsibleItemHeader::selected() const {
   return m_selected;
 }
 
-void OSCollapsibleItemHeader::setSelected(bool isSelected)
-{
+void OSCollapsibleItemHeader::setSelected(bool isSelected) {
   m_selected = isSelected;
 
-  if( m_selected )
-  {
+  if (m_selected) {
     QString style;
     style.append("QWidget#OSCollapsibleItemHeader {");
     style.append(" background: qlineargradient(x1:0,y1:0,x2:0,y2:1,");
@@ -120,25 +108,21 @@ void OSCollapsibleItemHeader::setSelected(bool isSelected)
     style.append(" border-bottom: 1px solid black;");
     style.append(" }");
     setStyleSheet(style);
-  }
-  else
-  {
+  } else {
     setStyleSheet("QWidget#OSCollapsibleItemHeader { background: #CECECE; border-bottom: 1px solid black;}");
   }
 }
 
-void OSCollapsibleItemHeader::paintEvent(QPaintEvent * event)
-{
+void OSCollapsibleItemHeader::paintEvent(QPaintEvent* event) {
   QStyleOption opt;
   opt.init(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
 
-void OSCollapsibleItemHeader::mouseReleaseEvent(QMouseEvent * event)
-{
-  if (event->button() == Qt::LeftButton){
-    if( m_mouseDown ){
+void OSCollapsibleItemHeader::mouseReleaseEvent(QMouseEvent* event) {
+  if (event->button() == Qt::LeftButton) {
+    if (m_mouseDown) {
       emit clicked(this);
       setSelected(true);
       m_mouseDown = false;
@@ -146,16 +130,14 @@ void OSCollapsibleItemHeader::mouseReleaseEvent(QMouseEvent * event)
   }
 }
 
-void OSCollapsibleItemHeader::mousePressEvent(QMouseEvent * event)
-{
-  if (event->button() == Qt::LeftButton){
+void OSCollapsibleItemHeader::mousePressEvent(QMouseEvent* event) {
+  if (event->button() == Qt::LeftButton) {
     m_mouseDown = true;
   }
 }
 
-void OSCollapsibleItemHeader::leaveEvent(QEvent * event)
-{
+void OSCollapsibleItemHeader::leaveEvent(QEvent* event) {
   m_mouseDown = false;
 }
 
-} // openstudio
+}  // namespace openstudio

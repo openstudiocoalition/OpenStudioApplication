@@ -40,154 +40,152 @@
 class QComboBox;
 class QLineEdit;
 
-namespace openstudio{
+namespace openstudio {
 
-  class SpacesSubsurfacesGridController;
+class SpacesSubsurfacesGridController;
 
-  class SpacesSubtabGridView : public GridViewSubTab
-  {
-    Q_OBJECT
+class SpacesSubtabGridView : public GridViewSubTab
+{
+  Q_OBJECT
 
   public:
+  SpacesSubtabGridView(bool isIP, const model::Model& model, QWidget* parent = nullptr);
 
-    SpacesSubtabGridView(bool isIP, const model::Model & model, QWidget * parent = nullptr);
+  virtual ~SpacesSubtabGridView() {}
 
-    virtual ~SpacesSubtabGridView() {}
+  QLineEdit* m_thermalZoneNameFilter = nullptr;
 
-    QLineEdit *  m_thermalZoneNameFilter = nullptr;
+  QLineEdit* m_spaceNameFilter = nullptr;
 
-    QLineEdit *  m_spaceNameFilter = nullptr;
+  QComboBox* m_storyFilter = nullptr;
 
-    QComboBox *  m_storyFilter = nullptr;
+  QComboBox* m_thermalZoneFilter = nullptr;
 
-    QComboBox *  m_thermalZoneFilter = nullptr;
+  QComboBox* m_spaceTypeFilter = nullptr;
 
-    QComboBox *  m_spaceTypeFilter = nullptr;
+  QComboBox* m_subSurfaceTypeFilter = nullptr;
 
-    QComboBox *  m_subSurfaceTypeFilter = nullptr;
+  QComboBox* m_loadTypeFilter = nullptr;
 
-    QComboBox *  m_loadTypeFilter = nullptr;
+  QComboBox* m_windExposureFilter = nullptr;
 
-    QComboBox *  m_windExposureFilter = nullptr;
+  QComboBox* m_sunExposureFilter = nullptr;
 
-    QComboBox *  m_sunExposureFilter = nullptr;
+  QComboBox* m_outsideBoundaryConditionFilter = nullptr;
 
-    QComboBox *  m_outsideBoundaryConditionFilter = nullptr;
+  QComboBox* m_surfaceTypeFilter = nullptr;
 
-    QComboBox *  m_surfaceTypeFilter = nullptr;
-
-    QComboBox *  m_interiorPartitionGroupFilter = nullptr;
+  QComboBox* m_interiorPartitionGroupFilter = nullptr;
 
   protected:
+  REGISTER_LOGGER("openstudio.SpacesSubtabGridView");
 
-    REGISTER_LOGGER("openstudio.SpacesSubtabGridView");
+  virtual void addObject(const openstudio::IddObjectType& iddObjectType);
 
-    virtual void addObject(const openstudio::IddObjectType& iddObjectType);
+  virtual void purgeObjects(const openstudio::IddObjectType& iddObjectType);
 
-    virtual void purgeObjects(const openstudio::IddObjectType& iddObjectType);
+  void showStoryFilter();
 
-    void showStoryFilter();
+  void showThermalZoneFilter();
 
-    void showThermalZoneFilter();
+  void showSpaceTypeFilter();
 
-    void showSpaceTypeFilter();
+  void showSubSurfaceTypeFilter();
 
-    void showSubSurfaceTypeFilter();
+  void showSpaceNameFilter();
 
-    void showSpaceNameFilter();
+  void showWindExposureFilter();
 
-    void showWindExposureFilter();
+  void showSunExposureFilter();
 
-    void showSunExposureFilter();
+  void showOutsideBoundaryConditionFilter();
 
-    void showOutsideBoundaryConditionFilter();
+  void showSurfaceTypeFilter();
 
-    void showSurfaceTypeFilter();
+  void showInteriorPartitionGroupFilter();
 
-    void showInteriorPartitionGroupFilter();
+  void showLoadTypeFilter();
 
-    void showLoadTypeFilter();
+  void initializeStoryFilter();
 
-    void initializeStoryFilter();
+  void initializeThermalZoneFilter();
 
-    void initializeThermalZoneFilter();
+  void initializeSpaceTypeFilter();
 
-    void initializeSpaceTypeFilter();
+  void initializeSubSurfaceTypeFilter();
 
-    void initializeSubSurfaceTypeFilter();
+  void initializeLoadTypeFilter();
 
-    void initializeLoadTypeFilter();
+  void initializeWindExposureFilter();
 
-    void initializeWindExposureFilter();
+  void initializeSunExposureFilter();
 
-    void initializeSunExposureFilter();
+  void initializeOutsideBoundaryConditionFilter();
 
-    void initializeOutsideBoundaryConditionFilter();
+  void initializeSurfaceTypeFilter();
 
-    void initializeSurfaceTypeFilter();
+  void initializeInteriorPartitionGroupFilter();
 
-    void initializeInteriorPartitionGroupFilter();
+  void filterChanged();
 
-    void filterChanged();
+  // All these sets will store the objects that DO NEED to be hidden
+  // So if the set is empty -> show all
+  std::set<openstudio::model::ModelObject> m_objectsFilteredByStory;
 
-    // All these sets will store the objects that DO NEED to be hidden
-    // So if the set is empty -> show all
-    std::set<openstudio::model::ModelObject> m_objectsFilteredByStory;
+  std::set<openstudio::model::ModelObject> m_objectsFilteredByThermalZone;
 
-    std::set<openstudio::model::ModelObject> m_objectsFilteredByThermalZone;
+  std::set<openstudio::model::ModelObject> m_objectsFilteredBySpaceType;
 
-    std::set<openstudio::model::ModelObject> m_objectsFilteredBySpaceType;
+  std::set<openstudio::model::ModelObject> m_objectsFilteredBySubSurfaceType;
 
-    std::set<openstudio::model::ModelObject> m_objectsFilteredBySubSurfaceType;
+  std::set<openstudio::model::ModelObject> m_objectsFilteredBySpaceName;
 
-    std::set<openstudio::model::ModelObject> m_objectsFilteredBySpaceName;
+  std::set<openstudio::model::ModelObject> m_objectsFilteredByWindExposure;
 
-    std::set<openstudio::model::ModelObject> m_objectsFilteredByWindExposure;
+  std::set<openstudio::model::ModelObject> m_objectsFilteredBySunExposure;
 
-    std::set<openstudio::model::ModelObject> m_objectsFilteredBySunExposure;
+  std::set<openstudio::model::ModelObject> m_objectsFilteredByOutsideBoundaryCondition;
 
-    std::set<openstudio::model::ModelObject> m_objectsFilteredByOutsideBoundaryCondition;
+  std::set<openstudio::model::ModelObject> m_objectsFilteredBySurfaceType;
 
-    std::set<openstudio::model::ModelObject> m_objectsFilteredBySurfaceType;
+  std::set<openstudio::model::ModelObject> m_objectsFilteredByInteriorPartitionGroup;
 
-    std::set<openstudio::model::ModelObject> m_objectsFilteredByInteriorPartitionGroup;
+  QGridLayout* m_filterGridLayout = nullptr;
 
-    QGridLayout * m_filterGridLayout = nullptr;
-
-    std::vector<model::ModelObject> m_spacesModelObjects = std::vector<model::ModelObject>();
+  std::vector<model::ModelObject> m_spacesModelObjects = std::vector<model::ModelObject>();
 
   protected slots:
 
-    virtual void spaceNameFilterChanged();
+  virtual void spaceNameFilterChanged();
 
-    virtual void subSurfaceTypeFilterChanged(const QString & text);
+  virtual void subSurfaceTypeFilterChanged(const QString& text);
 
-    virtual void storyFilterChanged(const QString & text);
+  virtual void storyFilterChanged(const QString& text);
 
-    virtual void thermalZoneFilterChanged(const QString & text);
+  virtual void thermalZoneFilterChanged(const QString& text);
 
-    virtual void spaceTypeFilterChanged(const QString & text);
+  virtual void spaceTypeFilterChanged(const QString& text);
 
-    virtual void loadTypeFilterChanged(const QString & text);
+  virtual void loadTypeFilterChanged(const QString& text);
 
-    virtual void windExposureFilterChanged(const QString & text);
+  virtual void windExposureFilterChanged(const QString& text);
 
-    virtual void sunExposureFilterChanged(const QString & text);
+  virtual void sunExposureFilterChanged(const QString& text);
 
-    virtual void outsideBoundaryConditionFilterChanged(const QString & text);
+  virtual void outsideBoundaryConditionFilterChanged(const QString& text);
 
-    virtual void surfaceTypeFilterChanged(const QString & text);
+  virtual void surfaceTypeFilterChanged(const QString& text);
 
-    virtual void interiorPartitionGroupFilterChanged(const QString & text);
+  virtual void interiorPartitionGroupFilterChanged(const QString& text);
 
   private:
-    // All of the subtabs except the main SpacesSpace subtab will return true
-    // We use this in filterChanged
-    virtual bool hasSubRows() { return true; };
+  // All of the subtabs except the main SpacesSpace subtab will return true
+  // We use this in filterChanged
+  virtual bool hasSubRows() {
+    return true;
   };
+};
 
+}  // namespace openstudio
 
-
-} // openstudio
-
-#endif // OPENSTUDIO_SPACESSUBTABGRIDVIEW_HPP
+#endif  // OPENSTUDIO_SPACESSUBTABGRIDVIEW_HPP

@@ -40,107 +40,98 @@
 class QComboBox;
 class QLineEdit;
 
-namespace openstudio{
+namespace openstudio {
 
-  class OSQuantityEdit2;
+class OSQuantityEdit2;
 
-  class FacilityShadingGridController;
+class FacilityShadingGridController;
 
-  class FacilityShadingGridView : public GridViewSubTab
-  {
-    Q_OBJECT
+class FacilityShadingGridView : public GridViewSubTab
+{
+  Q_OBJECT
 
   public:
+  FacilityShadingGridView(bool isIP, const model::Model& model, QWidget* parent = 0);
 
-    FacilityShadingGridView(bool isIP, const model::Model & model, QWidget * parent = 0);
+  virtual ~FacilityShadingGridView() {}
 
-    virtual ~FacilityShadingGridView() {}
+  QLineEdit* m_nameFilter = nullptr;
 
-    QLineEdit *  m_nameFilter = nullptr;
+  QLineEdit* m_tiltGreaterThanFilter = nullptr;
 
-    QLineEdit *  m_tiltGreaterThanFilter = nullptr;
+  QLineEdit* m_tiltLessThanFilter = nullptr;
 
-    QLineEdit *  m_tiltLessThanFilter = nullptr;
+  QComboBox* m_typeFilter = nullptr;
 
-    QComboBox *  m_typeFilter = nullptr;
+  QLineEdit* m_orientationGreaterThanFilter = nullptr;
 
-    QLineEdit *  m_orientationGreaterThanFilter = nullptr;
-
-    QLineEdit *  m_orientationLessThanFilter = nullptr;
+  QLineEdit* m_orientationLessThanFilter = nullptr;
 
   private:
+  REGISTER_LOGGER("openstudio.FacilityShadingGridView");
 
-    REGISTER_LOGGER("openstudio.FacilityShadingGridView");
+  virtual void addObject(const openstudio::IddObjectType& iddObjectType) override;
 
-    virtual void addObject(const openstudio::IddObjectType& iddObjectType) override;
+  // Purges empty Shading Surface Groups (groups with no shading Surfaces)
+  // Also purges Shading Surfaces which do not belong to a Shading Surface Group (these won't be translated to IDF)
+  virtual void purgeObjects(const openstudio::IddObjectType& iddObjectType) override;
 
-    // Purges empty Shading Surface Groups (groups with no shading Surfaces)
-    // Also purges Shading Surfaces which do not belong to a Shading Surface Group (these won't be translated to IDF)
-    virtual void purgeObjects(const openstudio::IddObjectType& iddObjectType) override;
+  void filterChanged();
 
-    void filterChanged();
+  std::set<openstudio::model::ModelObject> m_objectsFilteredByName;
 
-    std::set<openstudio::model::ModelObject> m_objectsFilteredByName;
+  std::set<openstudio::model::ModelObject> m_objectsFilteredByTilt;
 
-    std::set<openstudio::model::ModelObject> m_objectsFilteredByTilt;
+  std::set<openstudio::model::ModelObject> m_objectsFilteredByType;
 
-    std::set<openstudio::model::ModelObject> m_objectsFilteredByType;
+  std::set<openstudio::model::ModelObject> m_objectsFilteredByOrientation;
 
-    std::set<openstudio::model::ModelObject> m_objectsFilteredByOrientation;
+  protected slots:
 
-  protected slots :
+  virtual void onSelectItem() override;
 
-    virtual void onSelectItem() override;
+  virtual void onClearSelection() override;
 
-    virtual void onClearSelection() override;
+  private slots:
 
-  private slots :
+  void tiltFilterChanged();
 
-    void tiltFilterChanged();
+  void orientationFilterChanged();
 
-    void orientationFilterChanged();
+  void nameFilterChanged();
 
-    void nameFilterChanged();
+  void typeFilterChanged(const QString& text);
+};
 
-    void typeFilterChanged(const QString & text);
+class FacilityShadingGridController : public OSGridController
+{
 
-  };
-
-  class FacilityShadingGridController : public OSGridController
-  {
-
-    Q_OBJECT
+  Q_OBJECT
 
   public:
+  FacilityShadingGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model model,
+                                std::vector<model::ModelObject> modelObjects);
 
-    FacilityShadingGridController(bool isIP,
-      const QString & headerText,
-      IddObjectType iddObjectType,
-      model::Model model,
-      std::vector<model::ModelObject> modelObjects);
+  virtual ~FacilityShadingGridController() {}
 
-    virtual ~FacilityShadingGridController() {}
+  virtual void refreshModelObjects();
 
-    virtual void refreshModelObjects();
-
-    virtual void categorySelected(int index);
+  virtual void categorySelected(int index);
 
   protected:
+  virtual void setCategoriesAndFields();
 
-    virtual void setCategoriesAndFields();
+  virtual void addColumns(const QString& category, std::vector<QString>& fields);
 
-    virtual void addColumns(const QString &category, std::vector<QString> & fields);
+  virtual void checkSelectedFields();
 
-    virtual void checkSelectedFields();
-
-    virtual QString getColor(const model::ModelObject & modelObject);
+  virtual QString getColor(const model::ModelObject& modelObject);
 
   public slots:
 
-    virtual void onItemDropped(const OSItemId& itemId);
+  virtual void onItemDropped(const OSItemId& itemId);
+};
 
-  };
+}  // namespace openstudio
 
-} // openstudio
-
-#endif // OPENSTUDIO_FACILITYSHADINGGRIDVIEW_HPP
+#endif  // OPENSTUDIO_FACILITYSHADINGGRIDVIEW_HPP

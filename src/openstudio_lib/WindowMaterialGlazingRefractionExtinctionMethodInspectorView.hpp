@@ -48,59 +48,55 @@ class WindowMaterialGlazingRefractionExtinctionMethodInspectorView : public Mode
   Q_OBJECT
 
   public:
+  WindowMaterialGlazingRefractionExtinctionMethodInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
-    WindowMaterialGlazingRefractionExtinctionMethodInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent = nullptr);
-
-    virtual ~WindowMaterialGlazingRefractionExtinctionMethodInspectorView() {}
+  virtual ~WindowMaterialGlazingRefractionExtinctionMethodInspectorView() {}
 
   protected:
+  virtual void onClearSelection() override;
 
-    virtual void onClearSelection() override;
+  virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
-    virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
-
-    virtual void onUpdate() override;
+  virtual void onUpdate() override;
 
   private:
+  void createLayout();
 
-    void createLayout();
+  void attach(openstudio::model::RefractionExtinctionGlazing& RefractionExtinctionGlazing);
 
-    void attach(openstudio::model::RefractionExtinctionGlazing & RefractionExtinctionGlazing);
+  void detach();
 
-    void detach();
+  void refresh();
 
-    void refresh();
+  bool m_isIP;
 
-    bool m_isIP;
+  boost::optional<model::RefractionExtinctionGlazing> m_refractionExtinctionGlazing;
 
-    boost::optional<model::RefractionExtinctionGlazing> m_refractionExtinctionGlazing;
+  OSLineEdit2* m_nameEdit = nullptr;
 
-    OSLineEdit2 * m_nameEdit = nullptr;
+  OSSwitch2* m_solarDiffusing = nullptr;
 
-    OSSwitch2 * m_solarDiffusing = nullptr;
+  OSQuantityEdit2* m_thickness = nullptr;
 
-    OSQuantityEdit2 * m_thickness = nullptr;
+  OSQuantityEdit2* m_solarIndexOfRefraction = nullptr;
 
-    OSQuantityEdit2 * m_solarIndexOfRefraction = nullptr;
+  OSQuantityEdit2* m_solarExtinctionCoefficient = nullptr;
 
-    OSQuantityEdit2 * m_solarExtinctionCoefficient = nullptr;
+  OSQuantityEdit2* m_visibleIndexOfRefraction = nullptr;
 
-    OSQuantityEdit2 * m_visibleIndexOfRefraction = nullptr;
+  OSQuantityEdit2* m_visibleExtinctionCoefficient = nullptr;
 
-    OSQuantityEdit2 * m_visibleExtinctionCoefficient = nullptr;
+  OSQuantityEdit2* m_infraredTransmittanceAtNormalIncidence = nullptr;
 
-    OSQuantityEdit2 * m_infraredTransmittanceAtNormalIncidence = nullptr;
+  OSQuantityEdit2* m_infraredHemisphericalEmissivity = nullptr;
 
-    OSQuantityEdit2 * m_infraredHemisphericalEmissivity = nullptr;
+  OSQuantityEdit2* m_conductivity = nullptr;
 
-    OSQuantityEdit2 * m_conductivity = nullptr;
+  OSQuantityEdit2* m_dirtCorrectionFactorForSolarAndVisibleTransmittance = nullptr;
 
-    OSQuantityEdit2 * m_dirtCorrectionFactorForSolarAndVisibleTransmittance = nullptr;
-
-    StandardsInformationMaterialWidget * m_standardsInformationWidget = nullptr;
-
+  StandardsInformationMaterialWidget* m_standardsInformationWidget = nullptr;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_WINDOWMATERIALGLAZINGREFRACTIONEXTINCTIONMETHODINSPECTORVIEW_HPP
+#endif  // OPENSTUDIO_WINDOWMATERIALGLAZINGREFRACTIONEXTINCTIONMETHODINSPECTORVIEW_HPP

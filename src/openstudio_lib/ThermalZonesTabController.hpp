@@ -42,7 +42,6 @@ class ThermalZonesTabController : public MainTabController
   Q_OBJECT
 
   public:
-
   ThermalZonesTabController(bool isIP, const model::Model& model);
 
   virtual ~ThermalZonesTabController() {}
@@ -52,10 +51,9 @@ class ThermalZonesTabController : public MainTabController
   void toggleUnitsClicked(bool);
 
   private:
-
   std::shared_ptr<ThermalZonesController> m_thermalZonesController;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_THERMALZONESTABCONTROLLER_HPP
+#endif  // OPENSTUDIO_THERMALZONESTABCONTROLLER_HPP

@@ -47,76 +47,73 @@ class SubTabController : public OSQObjectController
   Q_OBJECT
 
   public:
+  SubTabController(SubTabView* subTabView);
+  virtual ~SubTabController() {}
 
-    SubTabController(SubTabView* subTabView);
-    virtual ~SubTabController() {}
-
-    SubTabView* subTabView();
-    const SubTabView* subTabView() const;
+  SubTabView* subTabView();
+  const SubTabView* subTabView() const;
 
   protected:
+  virtual void onSelectItem(OSItem* item);
 
-    virtual void onSelectItem(OSItem *item);
+  virtual void onClearSelection();
 
-    virtual void onClearSelection();
+  virtual void onAddItem() = 0;
 
-    virtual void onAddItem() = 0;
+  virtual void onCopyItem() = 0;
 
-    virtual void onCopyItem() = 0;
+  virtual void onRemoveItem(OSItem* item) = 0;
 
-    virtual void onRemoveItem(OSItem *item) = 0;
+  virtual void onReplaceItem(OSItem* item, const OSItemId& replacementItemId) = 0;
 
-    virtual void onReplaceItem(OSItem *item, const OSItemId& replacementItemId) = 0;
+  virtual void onPurgeItems() = 0;
 
-    virtual void onPurgeItems() = 0;
+  virtual void onDrop(const OSItemId& itemId) = 0;
 
-    virtual void onDrop(const OSItemId& itemId) = 0;
+  virtual void onInspectItem(OSItem* item) = 0;
 
-    virtual void onInspectItem(OSItem* item) = 0;
+  SubTabView* m_subTabView;
 
-    SubTabView* m_subTabView;
+  signals:
 
-signals:
+  void downloadComponentsClicked();
 
-    void downloadComponentsClicked();
-
-    void openLibDlgClicked();
+  void openLibDlgClicked();
 
   public slots:
 
-    void removeItem(OSItem* item);
+  void removeItem(OSItem* item);
 
   protected slots:
 
-    void selectItem(OSItem* item);
+  void selectItem(OSItem* item);
 
   private slots:
 
-    void replaceItem(OSItem* item, const OSItemId& replacementItemId);
+  void replaceItem(OSItem* item, const OSItemId& replacementItemId);
 
-    void clearSelection();
+  void clearSelection();
 
-    void handleDrop(const OSItemId&);
+  void handleDrop(const OSItemId&);
 
-    void doAdd();
+  void doAdd();
 
-    void doCopy();
+  void doCopy();
 
-    void doRemove();
+  void doRemove();
 
-    void doPurge();
+  void doPurge();
 
-    void inspectItem(OSItem* item);
+  void inspectItem(OSItem* item);
 
   private:
+  boost::optional<openstudio::model::ModelObject> selectedModelObject() const;
 
-    boost::optional<openstudio::model::ModelObject> selectedModelObject() const;
+  openstudio::IddObjectType currentIddObjectType() const;
 
-    openstudio::IddObjectType currentIddObjectType() const;
-
-    openstudio::model::Model m_model;
+  openstudio::model::Model m_model;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_SUBTABCONTROLLER_HPP
+#endif  // OPENSTUDIO_SUBTABCONTROLLER_HPP

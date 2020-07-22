@@ -41,8 +41,7 @@ class QLineEdit;
 class QTextEdit;
 class QVBoxLayout;
 
-namespace openstudio{
-
+namespace openstudio {
 
 class InputCheckBox;
 
@@ -51,13 +50,11 @@ class EditNullView : public QWidget
   Q_OBJECT
 
   public:
-
-  EditNullView(const QString & text = "Select a Measure to Edit");
+  EditNullView(const QString& text = "Select a Measure to Edit");
   virtual ~EditNullView() {}
 
   protected:
-
-  void paintEvent(QPaintEvent *) override;
+  void paintEvent(QPaintEvent*) override;
 };
 
 class EditRubyMeasureView : public QWidget
@@ -65,41 +62,37 @@ class EditRubyMeasureView : public QWidget
   Q_OBJECT
 
   public:
-
   EditRubyMeasureView(bool applyMeasureNow);
   virtual ~EditRubyMeasureView() {}
 
-  QLineEdit * nameLineEdit;
+  QLineEdit* nameLineEdit;
 
-  QTextEdit * descriptionTextEdit;
+  QTextEdit* descriptionTextEdit;
 
-  QTextEdit * modelerDescriptionTextEdit;
+  QTextEdit* modelerDescriptionTextEdit;
 
-  void addInputView(QWidget * widget);
+  void addInputView(QWidget* widget);
 
   // Clear all of the information specific to a particular ruby perturbation
   void clear();
 
   protected:
-
-  void paintEvent(QPaintEvent *) override;
+  void paintEvent(QPaintEvent*) override;
 
   private:
+  std::vector<QWidget*> m_inputViews;
 
-  std::vector<QWidget *> m_inputViews;
+  QVBoxLayout* m_mainVLayout;
 
-  QVBoxLayout * m_mainVLayout;
-
-  QVBoxLayout * m_inputsVLayout;
+  QVBoxLayout* m_inputsVLayout;
 };
 
 class InputView : public QWidget
 {
   public:
-
   virtual void setIncomplete(bool incomplete) {}
 
-  virtual void setDisplayValue(const QVariant & value) {}
+  virtual void setDisplayValue(const QVariant& value) {}
 };
 
 class DoubleInputView : public InputView
@@ -107,21 +100,19 @@ class DoubleInputView : public InputView
   Q_OBJECT
 
   public:
-
   DoubleInputView();
   virtual ~DoubleInputView() {}
 
-  QLineEdit * lineEdit;
+  QLineEdit* lineEdit;
 
   void setName(const std::string& name, const boost::optional<std::string>& units, const boost::optional<std::string>& description);
 
   void setIncomplete(bool incomplete) override;
 
-  void setDisplayValue(const QVariant & value) override;
+  void setDisplayValue(const QVariant& value) override;
 
   private:
-
-  QLabel * nameLabel;
+  QLabel* nameLabel;
 };
 
 class ChoiceInputView : public InputView
@@ -129,21 +120,19 @@ class ChoiceInputView : public InputView
   Q_OBJECT
 
   public:
-
   ChoiceInputView();
   virtual ~ChoiceInputView() {}
 
-  QComboBox * comboBox;
+  QComboBox* comboBox;
 
   void setName(const std::string& name, const boost::optional<std::string>& units, const boost::optional<std::string>& description);
 
   void setIncomplete(bool incomplete) override;
 
-  void setDisplayValue(const QVariant & value) override;
+  void setDisplayValue(const QVariant& value) override;
 
   private:
-
-  QLabel * nameLabel;
+  QLabel* nameLabel;
 };
 
 class BoolInputView : public InputView
@@ -151,17 +140,16 @@ class BoolInputView : public InputView
   Q_OBJECT
 
   public:
-
   BoolInputView();
   virtual ~BoolInputView() {}
 
-  InputCheckBox * checkBox;
+  InputCheckBox* checkBox;
 
   void setName(const std::string& name, const boost::optional<std::string>& units, const boost::optional<std::string>& description);
 
   void setIncomplete(bool incomplete) override;
 
-  void setDisplayValue(const QVariant & value) override;
+  void setDisplayValue(const QVariant& value) override;
 };
 
 class IntegerInputView : public InputView
@@ -169,21 +157,19 @@ class IntegerInputView : public InputView
   Q_OBJECT
 
   public:
-
   IntegerInputView();
   virtual ~IntegerInputView() {}
 
-  QLineEdit * lineEdit;
+  QLineEdit* lineEdit;
 
   void setName(const std::string& name, const boost::optional<std::string>& units, const boost::optional<std::string>& description);
 
   void setIncomplete(bool incomplete) override;
 
-  void setDisplayValue(const QVariant & value) override;
+  void setDisplayValue(const QVariant& value) override;
 
   private:
-
-  QLabel * nameLabel;
+  QLabel* nameLabel;
 };
 
 class StringInputView : public InputView
@@ -191,21 +177,19 @@ class StringInputView : public InputView
   Q_OBJECT
 
   public:
-
   StringInputView();
   virtual ~StringInputView() {}
 
-  QLineEdit * lineEdit;
+  QLineEdit* lineEdit;
 
   void setName(const std::string& name, const boost::optional<std::string>& units, const boost::optional<std::string>& description);
 
   void setIncomplete(bool incomplete) override;
 
-  void setDisplayValue(const QVariant & value) override;
+  void setDisplayValue(const QVariant& value) override;
 
   private:
-
-  QLabel * nameLabel;
+  QLabel* nameLabel;
 };
 
 class InputComboBox : public QComboBox
@@ -213,8 +197,7 @@ class InputComboBox : public QComboBox
   Q_OBJECT
 
   protected:
-
-  void wheelEvent(QWheelEvent * e) override;
+  void wheelEvent(QWheelEvent* e) override;
 };
 
 class InputCheckBox : public QAbstractButton
@@ -222,26 +205,21 @@ class InputCheckBox : public QAbstractButton
   Q_OBJECT
 
   public:
-
   InputCheckBox();
 
   virtual ~InputCheckBox();
 
-  void setText(const QString & text);
+  void setText(const QString& text);
 
   void setIncomplete(bool incomplete);
 
   protected:
-
-  void paintEvent(QPaintEvent * event) override;
+  void paintEvent(QPaintEvent* event) override;
 
   private:
-
-  QLabel * m_label;
+  QLabel* m_label;
 };
 
+}  // namespace openstudio
 
-} // openstudio
-
-#endif // SHAREDGUICOMPONENTS_EDITVIEW_HPP
-
+#endif  // SHAREDGUICOMPONENTS_EDITVIEW_HPP

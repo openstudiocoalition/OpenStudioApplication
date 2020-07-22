@@ -47,10 +47,8 @@
 
 namespace openstudio {
 
-StartupView::StartupView( QWidget * parent )
-  : QWidget( parent )
-{
-  m_templateListModel = std::shared_ptr<TemplateListModel>( new TemplateListModel() );
+StartupView::StartupView(QWidget* parent) : QWidget(parent) {
+  m_templateListModel = std::shared_ptr<TemplateListModel>(new TemplateListModel());
 
   setStyleSheet("openstudio--StartupView { background: #E6E6E6; }");
 
@@ -63,10 +61,10 @@ StartupView::StartupView( QWidget * parent )
   auto recentProjectsView = new QWidget();
   recentProjectsView->setStyleSheet("QWidget { background: #F2F2F2; }");
   auto recentProjectsLayout = new QVBoxLayout();
-  recentProjectsLayout->setContentsMargins(10,10,10,10);
-  QLabel * recentProjectsLabel = new QLabel("Recent Projects");
+  recentProjectsLayout->setContentsMargins(10, 10, 10, 10);
+  QLabel* recentProjectsLabel = new QLabel("Recent Projects");
   recentProjectsLabel->setStyleSheet("QLabel { font: bold }");
-  recentProjectsLayout->addWidget(recentProjectsLabel,0,Qt::AlignTop);
+  recentProjectsLayout->addWidget(recentProjectsLabel, 0, Qt::AlignTop);
   recentProjectsView->setLayout(recentProjectsLayout);
 
   auto openButton = new QToolButton();
@@ -75,7 +73,7 @@ StartupView::StartupView( QWidget * parent )
   openButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
   QIcon openIcon(":/images/open_file.png");
   openButton->setIcon(openIcon);
-  openButton->setIconSize(QSize(40,40));
+  openButton->setIconSize(QSize(40, 40));
   connect(openButton, &QToolButton::clicked, this, &StartupView::openClicked);
   auto importButton = new QToolButton();
   importButton->setText("Import Idf");
@@ -83,9 +81,9 @@ StartupView::StartupView( QWidget * parent )
   importButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
   QIcon importIcon(":/images/import_file.png");
   importButton->setIcon(importIcon);
-  importButton->setIconSize(QSize(40,40));
+  importButton->setIconSize(QSize(40, 40));
   connect(importButton, &QToolButton::clicked, this, &StartupView::importClicked);
-/*
+  /*
   QToolButton * importSDDButton = new QToolButton();
   importSDDButton->setText("Import SDD");
   importSDDButton->setStyleSheet("QToolButton { font: bold; }");
@@ -99,10 +97,10 @@ StartupView::StartupView( QWidget * parent )
   projectChooserView->setFixedWidth(238);
   projectChooserView->setStyleSheet("QWidget { background: #F2F2F2; }");
   auto projectChooserLayout = new QVBoxLayout();
-  projectChooserLayout->setContentsMargins(10,10,10,10);
-  QLabel * projectChooserLabel = new QLabel("Create New From Template");
+  projectChooserLayout->setContentsMargins(10, 10, 10, 10);
+  QLabel* projectChooserLabel = new QLabel("Create New From Template");
   projectChooserLabel->setStyleSheet("QLabel { font: bold }");
-  projectChooserLayout->addWidget(projectChooserLabel,0,Qt::AlignTop);
+  projectChooserLayout->addWidget(projectChooserLabel, 0, Qt::AlignTop);
   m_listView = new QListView();
   m_listView->setViewMode(QListView::IconMode);
   m_listView->setModel(m_templateListModel.get());
@@ -116,7 +114,7 @@ StartupView::StartupView( QWidget * parent )
   m_projectDetailView = new QWidget();
   m_projectDetailView->setStyleSheet("QWidget { background: #F2F2F2; }");
   auto projectDetailLayout = new QVBoxLayout();
-  projectDetailLayout->setContentsMargins(10,10,10,10);
+  projectDetailLayout->setContentsMargins(10, 10, 10, 10);
   m_projectDetailView->setLayout(projectDetailLayout);
 
   auto footerView = new QWidget();
@@ -127,30 +125,30 @@ StartupView::StartupView( QWidget * parent )
 
   auto cancelButton = new QPushButton();
   cancelButton->setObjectName("StandardGrayButton");
-  cancelButton->setMinimumSize(QSize(99,28));
-  #ifdef OPENSTUDIO_PLUGIN
-    cancelButton->setText("Cancel");
-    connect(cancelButton, &QPushButton::clicked, this, &StartupView::hide);
-  #else
-    #ifdef Q_OS_DARWIN
-      cancelButton->setText("Quit");
-    #else
-      cancelButton->setText("Exit");
-    #endif
-    connect(cancelButton, &QPushButton::clicked, OpenStudioApp::instance(), &OpenStudioApp::quit);
-  #endif
+  cancelButton->setMinimumSize(QSize(99, 28));
+#ifdef OPENSTUDIO_PLUGIN
+  cancelButton->setText("Cancel");
+  connect(cancelButton, &QPushButton::clicked, this, &StartupView::hide);
+#else
+#  ifdef Q_OS_DARWIN
+  cancelButton->setText("Quit");
+#  else
+  cancelButton->setText("Exit");
+#  endif
+  connect(cancelButton, &QPushButton::clicked, OpenStudioApp::instance(), &OpenStudioApp::quit);
+#endif
   cancelButton->setStyleSheet("QPushButton { font: bold; }");
 
   auto chooseButton = new QPushButton();
   chooseButton->setObjectName("StandardBlueButton");
   chooseButton->setText("Choose");
-  chooseButton->setMinimumSize(QSize(99,28));
+  chooseButton->setMinimumSize(QSize(99, 28));
   connect(chooseButton, &QPushButton::clicked, this, &StartupView::newFromTemplateSlot);
   chooseButton->setStyleSheet("QPushButton { font: bold; }");
 
   auto hFooterLayout = new QHBoxLayout();
   hFooterLayout->setSpacing(25);
-  hFooterLayout->setContentsMargins(0,0,0,0);
+  hFooterLayout->setContentsMargins(0, 0, 0, 0);
   hFooterLayout->addStretch();
   hFooterLayout->addWidget(cancelButton);
   hFooterLayout->addWidget(chooseButton);
@@ -167,7 +165,7 @@ StartupView::StartupView( QWidget * parent )
 
   hLayout->addLayout(vOpenLayout);
   hLayout->addWidget(projectChooserView);
-  hLayout->addWidget(m_projectDetailView,1);
+  hLayout->addWidget(m_projectDetailView, 1);
 
   vLayout->addSpacing(50);
   vLayout->addLayout(hLayout);
@@ -177,86 +175,68 @@ StartupView::StartupView( QWidget * parent )
 
   connect(m_listView, &QListView::clicked, this, &StartupView::showDetailsForItem);
 
-  m_listView->setCurrentIndex(m_templateListModel->index(0,0));
-  showDetailsForItem(m_templateListModel->index(0,0));
+  m_listView->setCurrentIndex(m_templateListModel->index(0, 0));
+  showDetailsForItem(m_templateListModel->index(0, 0));
 }
 
-void StartupView::resizeEvent(QResizeEvent * event)
-{
+void StartupView::resizeEvent(QResizeEvent* event) {
 #ifdef Q_OS_DARWIN
   QPainterPath path;
-  path.addRoundedRect(rect(),9.0,9.0);
+  path.addRoundedRect(rect(), 9.0, 9.0);
   QPolygon p = path.toFillPolygon().toPolygon();
   QRegion region(p);
   setMask(region);
 #endif
 }
 
-void StartupView::paintEvent(QPaintEvent *event)
-{
+void StartupView::paintEvent(QPaintEvent* event) {
   QPainter painter(this);
 
   painter.setRenderHint(QPainter::Antialiasing);
 
   QImage leftHeader = QImage(":/images/image_header.png");
-  painter.drawImage(0,0,leftHeader);
+  painter.drawImage(0, 0, leftHeader);
 
   QImage centerHeader = QImage(":/images/header-backgnd-1px-wide.png");
 
   int i;
-  for( i = leftHeader.width();
-       i < width();
-       i++ )
-  {
-    painter.drawImage(i,0,centerHeader);
+  for (i = leftHeader.width(); i < width(); i++) {
+    painter.drawImage(i, 0, centerHeader);
   }
 }
 
-QSize StartupView::sizeHint() const
-{
-  return QSize(800,500);
+QSize StartupView::sizeHint() const {
+  return QSize(800, 500);
 }
 
-void StartupView::mousePressEvent(QMouseEvent *event)
-{
-  if (event->button() == Qt::LeftButton)
-  {
-    if( event->y() < 50 )
-    {
-        dragPosition = event->globalPos() - frameGeometry().topLeft();
-        event->accept();
-        _move = true;
-    }
-    else
-    {
+void StartupView::mousePressEvent(QMouseEvent* event) {
+  if (event->button() == Qt::LeftButton) {
+    if (event->y() < 50) {
+      dragPosition = event->globalPos() - frameGeometry().topLeft();
+      event->accept();
+      _move = true;
+    } else {
       _move = false;
     }
   }
 }
 
-void StartupView::mouseMoveEvent(QMouseEvent *event)
-{
-  if(event->buttons() & Qt::LeftButton)
-  {
-    if( _move )
-    {
+void StartupView::mouseMoveEvent(QMouseEvent* event) {
+  if (event->buttons() & Qt::LeftButton) {
+    if (_move) {
       move(event->globalPos() - dragPosition);
       event->accept();
     }
   }
 }
 
-void StartupView::newFromTemplateSlot()
-{
-  switch(m_listView->currentIndex().row())
-  {
-    case NEWFROMTEMPLATE_EMPTY:
-    {
-      emit newFromTemplate( NEWFROMTEMPLATE_EMPTY );
+void StartupView::newFromTemplateSlot() {
+  switch (m_listView->currentIndex().row()) {
+    case NEWFROMTEMPLATE_EMPTY: {
+      emit newFromTemplate(NEWFROMTEMPLATE_EMPTY);
       break;
     }
-    case NEWFROMTEMPLATE_WIZARD:
-    {
+    case NEWFROMTEMPLATE_WIZARD: {
       QMessageBox message(this);
       message.setText("Sorry the wizard option is not available yet.");
       message.exec();
@@ -265,22 +245,19 @@ void StartupView::newFromTemplateSlot()
   }
 }
 
-void StartupView::showDetailsForItem( const QModelIndex & index )
-{
-  QLayout * layout = m_projectDetailView->layout();
+void StartupView::showDetailsForItem(const QModelIndex& index) {
+  QLayout* layout = m_projectDetailView->layout();
 
-  for( int i = 0; i < layout->count(); i++ )
-  {
+  for (int i = 0; i < layout->count(); i++) {
     delete layout->itemAt(i)->widget();
     layout->removeItem(layout->itemAt(i));
   }
 
-  QString name = m_templateListModel->data(index,Qt::ToolTipRole).toString();
+  QString name = m_templateListModel->data(index, Qt::ToolTipRole).toString();
 
-  QString description = m_templateListModel->data(index,Qt::WhatsThisRole).toString();
+  QString description = m_templateListModel->data(index, Qt::WhatsThisRole).toString();
 
-  if( ! name.isEmpty() )
-  {
+  if (!name.isEmpty()) {
     auto nameLabel = new QLabel(name);
 
     nameLabel->setStyleSheet("QLabel { font: bold }");
@@ -288,8 +265,7 @@ void StartupView::showDetailsForItem( const QModelIndex & index )
     layout->addWidget(nameLabel);
   }
 
-  if( ! description.isEmpty() )
-  {
+  if (!description.isEmpty()) {
     auto descriptionLabel = new QTextEdit(description);
 
     descriptionLabel->setStyleSheet("QTextEdit { border: none; }");
@@ -298,94 +274,63 @@ void StartupView::showDetailsForItem( const QModelIndex & index )
 
     layout->addWidget(descriptionLabel);
   }
-
 }
 
-TemplateListModel::TemplateListModel(QObject * parent)
-  : QAbstractListModel(parent)
-{
-}
+TemplateListModel::TemplateListModel(QObject* parent) : QAbstractListModel(parent) {}
 
-int TemplateListModel::rowCount( const QModelIndex & parent ) const
-{
+int TemplateListModel::rowCount(const QModelIndex& parent) const {
   return 2;
 }
 
-QVariant TemplateListModel::data( const QModelIndex & index, int role ) const
-{
-  if(!index.isValid())
-  {
+QVariant TemplateListModel::data(const QModelIndex& index, int role) const {
+  if (!index.isValid()) {
     return QVariant();
-  }
-  else if( role == Qt::DecorationRole )
-  {
-    switch( index.row() )
-    {
-      case NEWFROMTEMPLATE_EMPTY:
-      {
-        return QPixmap(":/images/osm-icon-open.png").scaled(85,85,Qt::KeepAspectRatio,Qt::SmoothTransformation);
+  } else if (role == Qt::DecorationRole) {
+    switch (index.row()) {
+      case NEWFROMTEMPLATE_EMPTY: {
+        return QPixmap(":/images/osm-icon-open.png").scaled(85, 85, Qt::KeepAspectRatio, Qt::SmoothTransformation);
       }
-      case NEWFROMTEMPLATE_WIZARD:
-      {
-        return QPixmap(":/images/wizard.png").scaled(85,85,Qt::KeepAspectRatio,Qt::SmoothTransformation);
+      case NEWFROMTEMPLATE_WIZARD: {
+        return QPixmap(":/images/wizard.png").scaled(85, 85, Qt::KeepAspectRatio, Qt::SmoothTransformation);
       }
-      default:
-      {
+      default: {
         return QVariant();
       }
     }
-  }
-  else if( role == Qt::SizeHintRole )
-  {
-    return QSize(100,100);
-  }
-  else if( role == Qt::ToolTipRole )
-  {
-    switch( index.row() )
-    {
-      case NEWFROMTEMPLATE_EMPTY:
-      {
+  } else if (role == Qt::SizeHintRole) {
+    return QSize(100, 100);
+  } else if (role == Qt::ToolTipRole) {
+    switch (index.row()) {
+      case NEWFROMTEMPLATE_EMPTY: {
         return QString("Empty Building Model");
       }
-      case NEWFROMTEMPLATE_WIZARD:
-      {
+      case NEWFROMTEMPLATE_WIZARD: {
         return QString("Building Model From Wizard");
       }
-      default:
-      {
+      default: {
         return QVariant();
       }
     }
-  }
-  else if( role == Qt::WhatsThisRole )
-  {
-    switch( index.row() )
-    {
-      case NEWFROMTEMPLATE_EMPTY:
-      {
+  } else if (role == Qt::WhatsThisRole) {
+    switch (index.row()) {
+      case NEWFROMTEMPLATE_EMPTY: {
         return QString("Create a new empty building model.  Start here if you want to add your own Zones and HVAC Systems.");
       }
-      case NEWFROMTEMPLATE_WIZARD:
-      {
+      case NEWFROMTEMPLATE_WIZARD: {
         return QString("Create a new building model using a wizard.  \
 This option will create a complete building model through a series of basic inputs.");
       }
-      default:
-      {
+      default: {
         return QVariant();
       }
     }
-  }
-  else
-  {
+  } else {
     return QVariant();
   }
 }
 
-Qt::ItemFlags TemplateListModel::flags(const QModelIndex &index) const
-{
-  return (Qt::ItemIsEnabled | Qt::ItemIsSelectable );
+Qt::ItemFlags TemplateListModel::flags(const QModelIndex& index) const {
+  return (Qt::ItemIsEnabled | Qt::ItemIsSelectable);
 }
 
-} // openstudio
-
+}  // namespace openstudio

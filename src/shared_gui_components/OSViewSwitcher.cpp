@@ -38,13 +38,10 @@
 
 namespace openstudio {
 
-OSViewSwitcher::OSViewSwitcher(QWidget * parent)
-  : QWidget(parent),
-    m_view(nullptr)
-{
+OSViewSwitcher::OSViewSwitcher(QWidget* parent) : QWidget(parent), m_view(nullptr) {
   // This is weird. A QWidget with a QVBoxLayout that has a QStackedWidget (which is a convenience Widget that exposes a QStackedLayout)
   auto layout = new QVBoxLayout();
-  layout->setContentsMargins(0,0,0,0);
+  layout->setContentsMargins(0, 0, 0, 0);
   setLayout(layout);
 
   m_stack = new QStackedWidget();
@@ -52,21 +49,17 @@ OSViewSwitcher::OSViewSwitcher(QWidget * parent)
   layout->addWidget(m_stack);
 }
 
-OSViewSwitcher::~OSViewSwitcher()
-{
-}
+OSViewSwitcher::~OSViewSwitcher() {}
 
-void OSViewSwitcher::setView(QWidget * view)
-{
+void OSViewSwitcher::setView(QWidget* view) {
   // Evan note: It's bad to play with null pointers
   // Unfortunately, the app crashes if you don't them
   if (!view) {
     //return;
   }
   // If the QStackWidget already has a widget, we remove it
-  if( QWidget * widget = m_stack->currentWidget() )
-  {
-    m_stack->removeWidget( widget );
+  if (QWidget* widget = m_stack->currentWidget()) {
+    m_stack->removeWidget(widget);
     // When we determine why there is a crash in Pat frm not
     // using a null pointer, we can again delte these widgets
     //widget->deleteLater();
@@ -86,27 +79,23 @@ void OSViewSwitcher::setView(QWidget * view)
   m_stack->addWidget(m_view);
 }
 
-QWidget * OSViewSwitcher::view() const
-{
+QWidget* OSViewSwitcher::view() const {
   return m_view;
 }
 
-void OSViewSwitcher::clear()
-{
-  if( m_view )
-  {
+void OSViewSwitcher::clear() {
+  if (m_view) {
     m_stack->removeWidget(m_view);
   }
 
   m_view = nullptr;
 }
 
-void OSViewSwitcher::paintEvent(QPaintEvent *)
-{
+void OSViewSwitcher::paintEvent(QPaintEvent*) {
   QStyleOption opt;
   opt.init(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
 
-}
+}  // namespace openstudio

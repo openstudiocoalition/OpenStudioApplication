@@ -35,20 +35,16 @@
 #include <model_editor/ui_precisiondialog.h>
 #include "ModelEditorAPI.hpp"
 
-class MODELEDITOR_API IGPrecisionDialog:
-  public QDialog,
-  public Ui::PrecisionDialog
+class MODELEDITOR_API IGPrecisionDialog : public QDialog, public Ui::PrecisionDialog
 {
-Q_OBJECT
+  Q_OBJECT
 
-public:
-  IGPrecisionDialog(QWidget* parent=nullptr);
+  public:
+  IGPrecisionDialog(QWidget* parent = nullptr);
 
-public slots:
+  public slots:
   void on_buttonBox_accepted();
   void on_buttonBox_rejected();
-
 };
 
-#endif // MODELEDITOR_IGPRECISIONDIALOG_HPP
-
+#endif  // MODELEDITOR_IGPRECISIONDIALOG_HPP

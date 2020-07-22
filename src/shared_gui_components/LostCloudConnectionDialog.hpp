@@ -34,45 +34,39 @@
 
 class QVBoxLayout;
 
-namespace openstudio{
+namespace openstudio {
 
 class LostCloudConnectionDialog : public OSDialog
 {
   Q_OBJECT
 
-public:
-
-  LostCloudConnectionDialog(bool internetAvailable,
-    bool authenticated,
-    bool cloudRunning,
-    QWidget * parent = nullptr);
+  public:
+  LostCloudConnectionDialog(bool internetAvailable, bool authenticated, bool cloudRunning, QWidget* parent = nullptr);
 
   virtual ~LostCloudConnectionDialog();
 
-  bool clearCloudSession() {return m_clearCloudSession;}
+  bool clearCloudSession() {
+    return m_clearCloudSession;
+  }
 
-protected slots:
+  protected slots:
 
   //virtual void on_okButton(bool checked);
 
-private:
+  private:
+  void createWidgets(bool internetAvailable, bool authenticated, bool cloudRunning);
 
-  void createWidgets(bool internetAvailable,
-    bool authenticated,
-    bool cloudRunning);
-
-  void createCloudConnectionWidgets(QVBoxLayout * vLayout);
+  void createCloudConnectionWidgets(QVBoxLayout* vLayout);
 
   bool m_clearCloudSession;
 
-private slots:
+  private slots:
 
   void on_launchAWSConsole(bool checked);
 
   void on_clearCloudSession(bool checked);
-
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // SHAREDGUICOMPONENTS_LOSTCLOUDCONNECTIONDIALOG_HPP
+#endif  // SHAREDGUICOMPONENTS_LOSTCLOUDCONNECTIONDIALOG_HPP

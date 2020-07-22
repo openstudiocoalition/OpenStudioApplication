@@ -78,83 +78,65 @@
 
 #include "treeitem.h"
 
-namespace modeleditor
-{
+namespace modeleditor {
 
-TreeItem::TreeItem(const openstudio::model::ModelObject& object, const QList<QVariant> &data, TreeItem *parent)
-: mObject(object)
-{
+TreeItem::TreeItem(const openstudio::model::ModelObject& object, const QList<QVariant>& data, TreeItem* parent) : mObject(object) {
   mParentItem = parent;
   mItemData = data;
 }
 
-TreeItem::~TreeItem()
-{
+TreeItem::~TreeItem() {
   qDeleteAll(mChildItems);
 }
 
-void TreeItem::appendChild(TreeItem *item)
-{
+void TreeItem::appendChild(TreeItem* item) {
   mChildItems.append(item);
 }
 
-TreeItem *TreeItem::child(int row)
-{
+TreeItem* TreeItem::child(int row) {
   return mChildItems.value(row);
 }
 
-int TreeItem::childCount() const
-{
+int TreeItem::childCount() const {
   return mChildItems.count();
 }
 
-int TreeItem::columnCount() const
-{
+int TreeItem::columnCount() const {
   return mItemData.count();
 }
 
-QVariant TreeItem::data(int column) const
-{
+QVariant TreeItem::data(int column) const {
   return mItemData.value(column);
 }
 
-openstudio::model::ModelObject TreeItem::modelObject() const
-{
+openstudio::model::ModelObject TreeItem::modelObject() const {
   return mObject;
 }
 
-TreeItem *TreeItem::parent()
-{
+TreeItem* TreeItem::parent() {
   return mParentItem;
 }
 
-int TreeItem::row() const
-{
-  if (mParentItem)
-    return mParentItem->mChildItems.indexOf(const_cast<TreeItem*>(this));
+int TreeItem::row() const {
+  if (mParentItem) return mParentItem->mChildItems.indexOf(const_cast<TreeItem*>(this));
 
   return 0;
 }
 
-bool TreeItem::setData(int column, const QVariant &value)
-{
-  if (column < 0 || column >= mItemData.size())
-    return false;
+bool TreeItem::setData(int column, const QVariant& value) {
+  if (column < 0 || column >= mItemData.size()) return false;
 
   mItemData[column] = value;
-    return true;
+  return true;
 }
 
-bool TreeItem::setData(openstudio::model::ModelObject &data)
-{
+bool TreeItem::setData(openstudio::model::ModelObject& data) {
   mObject = data;
   return true;
 }
 
-bool TreeItem::insertChildren(openstudio::model::ModelObject& object, const QList<QVariant> &data, int position, int count, int columns)
-{
-  if (position < 0 || position > mChildItems.size())
-    return false;
+bool TreeItem::insertChildren(openstudio::model::ModelObject& object, const QList<QVariant>& data, int position, int count, int columns) {
+  if (position < 0 || position > mChildItems.size()) return false;
 
   for (int row = 0; row < count; ++row) {
     auto item = new TreeItem(object, data, this);
@@ -164,10 +146,8 @@ bool TreeItem::insertChildren(openstudio::model::ModelObject& object, const QLis
   return true;
 }
 
-bool TreeItem::removeChildren(int position, int count)
-{
-  if (position < 0 || position + count > mChildItems.size())
-    return false;
+bool TreeItem::removeChildren(int position, int count) {
+  if (position < 0 || position + count > mChildItems.size()) return false;
 
   for (int row = 0; row < count; ++row)
     delete mChildItems.takeAt(position);
@@ -175,10 +155,8 @@ bool TreeItem::removeChildren(int position, int count)
   return true;
 }
 
-bool TreeItem::moveChildren(int position, int count)
-{
-  if (position < 0 || position + count > mChildItems.size())
-    return false;
+bool TreeItem::moveChildren(int position, int count) {
+  if (position < 0 || position + count > mChildItems.size()) return false;
 
   for (int row = 0; row < count; ++row)
     delete mChildItems.takeAt(position);
@@ -186,4 +164,4 @@ bool TreeItem::moveChildren(int position, int count)
   return true;
 }
 
-} // namespace modeleditor
+}  // namespace modeleditor

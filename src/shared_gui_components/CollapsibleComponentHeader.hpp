@@ -47,11 +47,8 @@ class CollapsibleComponentHeader : public QAbstractButton
 {
   Q_OBJECT
 
-public:
-  CollapsibleComponentHeader(const std::string& text,
-    int numResults,
-    int numPages,
-    QWidget * parent = nullptr);
+  public:
+  CollapsibleComponentHeader(const std::string& text, int numResults, int numPages, QWidget* parent = nullptr);
   virtual ~CollapsibleComponentHeader() {}
   void setChecked(bool isChecked);
   void setText(const QString& text);
@@ -59,28 +56,26 @@ public:
   void setNumPages(int numPages);
   void firstPage();
 
-protected:
-  void paintEvent(QPaintEvent * event) override;
+  protected:
+  void paintEvent(QPaintEvent* event) override;
   QSize sizeHint() const override;
 
-private:
+  private:
   void createLayout(const std::string& text, int numResults, int numPages);
   void setImage(bool isChecked);
 
-  QLabel * m_text;
-  QLabel * m_arrowLabel;
-  PageNavigator * m_pageNavigator;
-  QLabel * m_numLabel;
+  QLabel* m_text;
+  QLabel* m_arrowLabel;
+  PageNavigator* m_pageNavigator;
+  QLabel* m_numLabel;
 
-signals:
+  signals:
   void getComponentsByPage(int pageNum);
 
-private slots:
+  private slots:
   void on_getComponentsByPage(int pageIdx);
-
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // SHAREDGUICOMPONENTS_COLLAPSIBLECOMPONENTHEADER_HPP
-
+#endif  // SHAREDGUICOMPONENTS_COLLAPSIBLECOMPONENTHEADER_HPP

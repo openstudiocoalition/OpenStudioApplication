@@ -51,21 +51,17 @@ class MainWindow : public QMainWindow
   Q_OBJECT
 
   public:
-
-  MainWindow(bool isPlugin, QWidget *parent = nullptr);
+  MainWindow(bool isPlugin, QWidget* parent = nullptr);
   virtual ~MainWindow() {}
 
-  void addVerticalTabButton(int id,
-    QString toolTip,
-    const QString & selectedImagePath,
-    const QString & unSelectedImagePath,
-    const QString & disabledImagePath);
+  void addVerticalTabButton(int id, QString toolTip, const QString& selectedImagePath, const QString& unSelectedImagePath,
+                            const QString& disabledImagePath);
 
-  void setView(MainTabView * view, int id);
+  void setView(MainTabView* view, int id);
 
-  MainTabView * view() const;
+  MainTabView* view() const;
 
-  void setMainRightColumnView(QWidget * widget);
+  void setMainRightColumnView(QWidget* widget);
 
   void selectVerticalTab(int id);
 
@@ -89,7 +85,9 @@ class MainWindow : public QMainWindow
 
   QString lastPath() const;
 
-  VerticalTabWidget * verticalTabWidget() { return m_verticalTabWidget; }
+  VerticalTabWidget* verticalTabWidget() {
+    return m_verticalTabWidget;
+  }
 
   signals:
 
@@ -164,30 +162,28 @@ class MainWindow : public QMainWindow
   void enableComponentsMeasures(bool enable);
 
   protected:
+  void closeEvent(QCloseEvent* event) override;
 
-  void closeEvent(QCloseEvent * event) override;
+  void dragEnterEvent(QDragEnterEvent* event) override;
 
-  void dragEnterEvent(QDragEnterEvent * event) override;
-
-  void dropEvent(QDropEvent * event) override;
+  void dropEvent(QDropEvent* event) override;
 
   QSize sizeHint() const override;
 
   private:
-
   void readSettings();
 
   void writeSettings();
 
   bool m_isPlugin;
 
-  QStackedWidget * m_mainRightColumnContainer;
+  QStackedWidget* m_mainRightColumnContainer;
 
-  VerticalTabWidget * m_verticalTabWidget;
+  VerticalTabWidget* m_verticalTabWidget;
 
-  QSplitter * m_mainSplitter;
+  QSplitter* m_mainSplitter;
 
-  MainMenu * m_mainMenu;
+  MainMenu* m_mainMenu;
 
   bool m_displayIP;
 
@@ -200,9 +196,8 @@ class MainWindow : public QMainWindow
   void configureProxyClicked();
 
   void loadProxySettings();
-
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_MAINWINDOW_HPP
+#endif  // OPENSTUDIO_MAINWINDOW_HPP

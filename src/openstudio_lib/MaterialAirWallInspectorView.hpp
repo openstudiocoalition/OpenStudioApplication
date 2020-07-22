@@ -46,39 +46,35 @@ class MaterialAirWallInspectorView : public ModelObjectInspectorView
   Q_OBJECT
 
   public:
+  MaterialAirWallInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
-    MaterialAirWallInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent = nullptr);
-
-    virtual ~MaterialAirWallInspectorView() {}
+  virtual ~MaterialAirWallInspectorView() {}
 
   protected:
+  virtual void onClearSelection() override;
 
-    virtual void onClearSelection() override;
+  virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
-    virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
-
-    virtual void onUpdate() override;
+  virtual void onUpdate() override;
 
   private:
+  void createLayout();
 
-    void createLayout();
+  void attach(openstudio::model::AirWallMaterial& airWallMaterial);
 
-    void attach(openstudio::model::AirWallMaterial & airWallMaterial);
+  void detach();
 
-    void detach();
+  void refresh();
 
-    void refresh();
+  bool m_isIP;
 
-    bool m_isIP;
+  boost::optional<model::AirWallMaterial> m_airWallMaterial;
 
-    boost::optional<model::AirWallMaterial> m_airWallMaterial;
+  OSLineEdit2* m_nameEdit = nullptr;
 
-    OSLineEdit2 * m_nameEdit = nullptr;
-
-    StandardsInformationMaterialWidget * m_standardsInformationWidget = nullptr;
-
+  StandardsInformationMaterialWidget* m_standardsInformationWidget = nullptr;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_MATERIALAIRWALLINSPECTORVIEW_HPP
+#endif  // OPENSTUDIO_MATERIALAIRWALLINSPECTORVIEW_HPP

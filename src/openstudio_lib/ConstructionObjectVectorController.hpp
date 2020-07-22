@@ -41,24 +41,22 @@ class ConstructionObjectVectorController : public ModelObjectVectorController
 {
   Q_OBJECT
 
-public:
-
-  ConstructionObjectVectorController(QWidget * parentWidget);
+  public:
+  ConstructionObjectVectorController(QWidget* parentWidget);
 
   // Need to delete the QMutex
   virtual ~ConstructionObjectVectorController();
 
-  void setParentWidget(QWidget * parentWidget);
+  void setParentWidget(QWidget* parentWidget);
 
-public slots:
+  public slots:
 
   // reportItemsLater should be used as it wraps the call to reportItems in a QTimer::singleShot
   // which eventually calls ModelObjectVector::reportItems
   void reportItemsLater();
   void reportItems();
 
-protected:
-
+  protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
 
   virtual void onDataChange(const model::ModelObject& modelObject) override;
@@ -69,18 +67,17 @@ protected:
 
   virtual void onRemoveItem(OSItem* item) override;
 
-  virtual void onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId) override;
+  virtual void onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) override;
 
   virtual void onDrop(const OSItemId& itemId) override;
 
-private:
-
+  private:
   REGISTER_LOGGER("openstudio::ConstructionObjectVectorController");
 
-  void insert(const OSItemId& itemId, int position = -1, bool deleteExisting= false);
+  void insert(const OSItemId& itemId, int position = -1, bool deleteExisting = false);
 
   bool m_reportScheduled;
-  QMutex * m_reportItemsMutex;
+  QMutex* m_reportItemsMutex;
 
   enum LayerType
   {
@@ -91,13 +88,11 @@ private:
   };
 
   LayerType getLayerType(IddObjectType iddObjectType);
-  QWidget * parentWidget();
+  QWidget* parentWidget();
 
-  QWidget * m_parentWidget;
-
+  QWidget* m_parentWidget;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_CONSTRUCTIONOBJECTVECTORCONTROLLER_HPP
-
+#endif  // OPENSTUDIO_CONSTRUCTIONOBJECTVECTORCONTROLLER_HPP

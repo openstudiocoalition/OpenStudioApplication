@@ -32,13 +32,13 @@
 
 #if (_WIN32 || _MSC_VER) && SHARED_OSAPP_LIBS
 
-#ifdef openstudioapp_utilities_EXPORTS
-#define OSAPP_UTILITIES_API __declspec(dllexport)
+#  ifdef openstudioapp_utilities_EXPORTS
+#    define OSAPP_UTILITIES_API __declspec(dllexport)
+#  else
+#    define OSAPP_UTILITIES_API __declspec(dllimport)
+#  endif
 #else
-#define OSAPP_UTILITIES_API __declspec(dllimport)
-#endif
-#else
-#define OSAPP_UTILITIES_API
+#  define OSAPP_UTILITIES_API
 #endif
 
 #endif

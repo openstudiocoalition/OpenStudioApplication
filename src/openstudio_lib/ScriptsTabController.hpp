@@ -42,31 +42,27 @@ namespace measuretab {
 
 class WorkflowController;
 class WorkflowSectionItemDelegate;
-}
+}  // namespace measuretab
 
 class ScriptsTabController : public MainTabController
 {
   Q_OBJECT
 
   public:
-
   ScriptsTabController();
 
   virtual ~ScriptsTabController();
 
   private:
-
   QPointer<ScriptsTabView> scriptsTabView;
 
   private:
-
   REGISTER_LOGGER("openstudio.measuretab.MeasuresTabController");
 
   QSharedPointer<measuretab::WorkflowController> m_workflowController;
   QSharedPointer<measuretab::WorkflowSectionItemDelegate> m_workflowSectionItemDelegate;
-
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_SCRIPTSTABCONTROLLER_HPP
+#endif  // OPENSTUDIO_SCRIPTSTABCONTROLLER_HPP

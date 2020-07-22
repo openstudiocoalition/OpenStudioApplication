@@ -49,71 +49,62 @@ class InternalMassDefinitionInspectorView : public ModelObjectInspectorView
   Q_OBJECT
 
   public:
+  InternalMassDefinitionInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
-    InternalMassDefinitionInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent = nullptr );
-
-    virtual ~InternalMassDefinitionInspectorView() {}
+  virtual ~InternalMassDefinitionInspectorView() {}
 
   protected:
+  virtual void onClearSelection() override;
 
-    virtual void onClearSelection() override;
+  virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
-    virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
-
-    virtual void onUpdate() override;
+  virtual void onUpdate() override;
 
   private:
+  void attach(openstudio::model::InternalMassDefinition& internalMassDefinition);
 
-    void attach(openstudio::model::InternalMassDefinition& internalMassDefinition);
+  void detach();
 
-    void detach();
+  void refresh();
 
-    void refresh();
+  OSLineEdit2* m_nameEdit;
 
-    OSLineEdit2* m_nameEdit;
+  OSQuantityEdit2* m_surfaceAreaEdit;
 
-    OSQuantityEdit2 * m_surfaceAreaEdit;
+  OSQuantityEdit2* m_surfaceAreaPerSpaceFloorAreaEdit;
 
-    OSQuantityEdit2 * m_surfaceAreaPerSpaceFloorAreaEdit;
+  OSQuantityEdit2* m_surfaceAreaPerPersonEdit;
 
-    OSQuantityEdit2 * m_surfaceAreaPerPersonEdit;
+  OSDropZone* m_ConstructionDropZone;
 
-    OSDropZone * m_ConstructionDropZone;
+  ModelObjectVectorController* m_ConstructionVectorController;
 
-    ModelObjectVectorController * m_ConstructionVectorController;
+  bool m_isIP;
 
-    bool m_isIP;
+  boost::optional<model::InternalMassDefinition> m_internalMassDefinition;
 
-    boost::optional<model::InternalMassDefinition> m_internalMassDefinition;
+  class ConstructionVectorController : public ModelObjectVectorController
+  {
+public:
+    boost::optional<model::InternalMassDefinition> internalMassDefinition();
 
-    class ConstructionVectorController : public ModelObjectVectorController
-    {
-      public:
+protected:
+    std::vector<OSItemId> makeVector() override;
 
-      boost::optional<model::InternalMassDefinition> internalMassDefinition();
+    void onChangeRelationship(const openstudio::model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
 
-      protected:
+    void onRemoveItem(OSItem* item) override;
 
-      std::vector<OSItemId> makeVector() override;
+    void onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) override;
 
-      void onChangeRelationship(
-             const openstudio::model::ModelObject& modelObject,
-             int index,
-             Handle newHandle,
-             Handle oldHandle) override;
-
-      void onRemoveItem(OSItem* item) override;
-
-      void onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId) override;
-
-      void onDrop(const OSItemId& itemId) override;
-    };
+    void onDrop(const OSItemId& itemId) override;
+  };
 
   public slots:
 
-    void toggleUnits(bool displayIP) override;
+  void toggleUnits(bool displayIP) override;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_INTERNALMASSINSPECTORVIEW_HPP
+#endif  // OPENSTUDIO_INTERNALMASSINSPECTORVIEW_HPP

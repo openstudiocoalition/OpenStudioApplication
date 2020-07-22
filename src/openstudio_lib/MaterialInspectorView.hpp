@@ -50,55 +50,51 @@ class MaterialInspectorView : public ModelObjectInspectorView
   Q_OBJECT
 
   public:
+  MaterialInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
-    MaterialInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent = nullptr);
-
-    virtual ~MaterialInspectorView() {}
+  virtual ~MaterialInspectorView() {}
 
   protected:
+  virtual void onClearSelection() override;
 
-    virtual void onClearSelection() override;
+  virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
-    virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
-
-    virtual void onUpdate() override;
+  virtual void onUpdate() override;
 
   private:
+  void createLayout();
 
-    void createLayout();
+  void attach(openstudio::model::StandardOpaqueMaterial& material);
 
-    void attach(openstudio::model::StandardOpaqueMaterial & material);
+  void detach();
 
-    void detach();
+  void refresh();
 
-    void refresh();
+  bool m_isIP;
 
-    bool m_isIP;
+  boost::optional<model::StandardOpaqueMaterial> m_standardOpaqueMaterial;
 
-    boost::optional<model::StandardOpaqueMaterial> m_standardOpaqueMaterial;
+  OSLineEdit2* m_nameEdit = nullptr;
 
-    OSLineEdit2 * m_nameEdit = nullptr;
+  OSComboBox2* m_roughness = nullptr;
 
-    OSComboBox2 * m_roughness = nullptr;
+  OSQuantityEdit2* m_thickness = nullptr;
 
-    OSQuantityEdit2 * m_thickness = nullptr;
+  OSQuantityEdit2* m_conductivity = nullptr;
 
-    OSQuantityEdit2 * m_conductivity = nullptr;
+  OSQuantityEdit2* m_density = nullptr;
 
-    OSQuantityEdit2 * m_density = nullptr;
+  OSQuantityEdit2* m_specificHeat = nullptr;
 
-    OSQuantityEdit2 * m_specificHeat = nullptr;
+  OSQuantityEdit2* m_thermalAbsorptance = nullptr;
 
-    OSQuantityEdit2 * m_thermalAbsorptance = nullptr;
+  OSQuantityEdit2* m_solarAbsorptance = nullptr;
 
-    OSQuantityEdit2 * m_solarAbsorptance = nullptr;
+  OSQuantityEdit2* m_visibleAbsorptance = nullptr;
 
-    OSQuantityEdit2 * m_visibleAbsorptance = nullptr;
-
-    StandardsInformationMaterialWidget * m_standardsInformationWidget = nullptr;
-
+  StandardsInformationMaterialWidget* m_standardsInformationWidget = nullptr;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_MATERIALINSPECTORVIEW_HPP
+#endif  // OPENSTUDIO_MATERIALINSPECTORVIEW_HPP

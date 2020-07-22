@@ -53,47 +53,43 @@ class ConstructionAirBoundaryInspectorView : public ModelObjectInspectorView
   Q_OBJECT
 
   public:
+  ConstructionAirBoundaryInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
-    ConstructionAirBoundaryInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent = nullptr);
-
-    virtual ~ConstructionAirBoundaryInspectorView() {}
+  virtual ~ConstructionAirBoundaryInspectorView() {}
 
   protected:
+  virtual void onClearSelection() override;
 
-    virtual void onClearSelection() override;
+  virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
-    virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
-
-    virtual void onUpdate() override;
+  virtual void onUpdate() override;
 
   private:
+  void createLayout();
 
-    void createLayout();
+  void attach(openstudio::model::ConstructionAirBoundary& constructionAirBoundary);
 
-    void attach(openstudio::model::ConstructionAirBoundary & constructionAirBoundary);
+  void detach();
 
-    void detach();
+  bool m_isIP;
 
-    bool m_isIP;
+  OSLineEdit2* m_nameEdit;
 
-    OSLineEdit2 * m_nameEdit;
+  StandardsInformationConstructionWidget* m_standardsInformationWidget;
 
-    StandardsInformationConstructionWidget * m_standardsInformationWidget;
+  OSComboBox2* m_solarAndDaylightingMethod;
 
-    OSComboBox2 * m_solarAndDaylightingMethod;
+  OSComboBox2* m_radiantExchangeMethod;
 
-    OSComboBox2 * m_radiantExchangeMethod;
+  OSComboBox2* m_airExchangeMethod;
 
-    OSComboBox2 * m_airExchangeMethod;
+  OSQuantityEdit2* m_simpleMixingAirChangesPerHour;
 
-    OSQuantityEdit2 * m_simpleMixingAirChangesPerHour;
+  OSDropZone* m_scheduleDropZone;
 
-    OSDropZone * m_scheduleDropZone;
-
-    boost::optional<model::ConstructionAirBoundary> m_constructionAirBoundary;
+  boost::optional<model::ConstructionAirBoundary> m_constructionAirBoundary;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_CONSTRUCTIONAIRBOUNDARYINSPECTORVIEW_HPP
-
+#endif  // OPENSTUDIO_CONSTRUCTIONAIRBOUNDARYINSPECTORVIEW_HPP

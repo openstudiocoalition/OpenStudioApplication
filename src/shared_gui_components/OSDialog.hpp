@@ -48,56 +48,52 @@ class OSDialog : public QDialog
 {
   Q_OBJECT
 
-public:
-
-  OSDialog(bool isIP = false,
-           QWidget * parent = nullptr);
+  public:
+  OSDialog(bool isIP = false, QWidget* parent = nullptr);
 
   virtual ~OSDialog() {}
 
   QSize sizeHint() const override;
 
-  void setSizeHint(const QSize & sizeHint);
+  void setSizeHint(const QSize& sizeHint);
 
   QMargins layoutContentsMargins() const;
 
-  void setLayoutContentsMargins(const QMargins & layoutContentsMargins);
+  void setLayoutContentsMargins(const QMargins& layoutContentsMargins);
 
-  QVBoxLayout * upperLayout();
+  QVBoxLayout* upperLayout();
 
-  QPushButton * backButton();
+  QPushButton* backButton();
 
-  QPushButton * cancelButton();
+  QPushButton* cancelButton();
 
-  QPushButton * okButton();
+  QPushButton* okButton();
 
-protected:
-
+  protected:
   void setOkButtonAsDefault(bool isDefault);
 
-  void mouseMoveEvent(QMouseEvent *event) override;
+  void mouseMoveEvent(QMouseEvent* event) override;
 
-  void mouseReleaseEvent(QMouseEvent *event) override;
+  void mouseReleaseEvent(QMouseEvent* event) override;
 
-  void mousePressEvent(QMouseEvent *event) override;
+  void mousePressEvent(QMouseEvent* event) override;
 
-  void resizeEvent(QResizeEvent * event) override;
+  void resizeEvent(QResizeEvent* event) override;
 
-  void paintEvent(QPaintEvent *event) override;
+  void paintEvent(QPaintEvent* event) override;
 
   bool m_isIP;
 
-  QPushButton * m_backButton;
+  QPushButton* m_backButton;
 
-  QPushButton * m_cancelButton;
+  QPushButton* m_cancelButton;
 
-  QPushButton * m_okButton;
+  QPushButton* m_okButton;
 
-private:
-
+  private:
   virtual void createLayout();
 
-  QVBoxLayout * m_upperLayout;
+  QVBoxLayout* m_upperLayout;
 
   QSize m_sizeHint;
 
@@ -107,7 +103,7 @@ private:
 
   bool _move;
 
-signals:
+  signals:
 
   void backButtonClicked(bool checked);
 
@@ -117,7 +113,7 @@ signals:
 
   void toggleUnitsClicked(bool displayIP);
 
-protected slots:
+  protected slots:
 
   virtual void on_backButton(bool checked);
 
@@ -126,9 +122,8 @@ protected slots:
   virtual void on_okButton(bool checked);
 
   virtual void toggleUnits(bool displayIP);
-
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // SHAREDGUICOMPONENTS_OSDIALOG_HPP
+#endif  // SHAREDGUICOMPONENTS_OSDIALOG_HPP

@@ -51,40 +51,37 @@ class ConstructionCfactorUndergroundWallInspectorView : public ModelObjectInspec
   Q_OBJECT
 
   public:
+  ConstructionCfactorUndergroundWallInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
-    ConstructionCfactorUndergroundWallInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent = nullptr);
-
-    virtual ~ConstructionCfactorUndergroundWallInspectorView() {}
+  virtual ~ConstructionCfactorUndergroundWallInspectorView() {}
 
   protected:
+  virtual void onClearSelection() override;
 
-    virtual void onClearSelection() override;
+  virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
-    virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
-
-    virtual void onUpdate() override;
+  virtual void onUpdate() override;
 
   private:
+  void createLayout();
 
-    void createLayout();
+  void attach(openstudio::model::CFactorUndergroundWallConstruction& cFactorUndergroundWallConstruction);
 
-    void attach(openstudio::model::CFactorUndergroundWallConstruction & cFactorUndergroundWallConstruction);
+  void detach();
 
-    void detach();
+  bool m_isIP;
 
-    bool m_isIP;
+  OSLineEdit2* m_nameEdit;
 
-    OSLineEdit2 * m_nameEdit;
+  StandardsInformationConstructionWidget* m_standardsInformationWidget;
 
-    StandardsInformationConstructionWidget * m_standardsInformationWidget;
+  OSQuantityEdit2* m_cfactorEdit;
 
-    OSQuantityEdit2 * m_cfactorEdit;
+  OSQuantityEdit2* m_heightEdit;
 
-    OSQuantityEdit2 * m_heightEdit;
-
-    boost::optional<model::CFactorUndergroundWallConstruction> m_cFactorUndergroundWallConstruction;
+  boost::optional<model::CFactorUndergroundWallConstruction> m_cFactorUndergroundWallConstruction;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_CONSTRUCTIONCFACTORUNDERGROUNDWALLINSPECTORVIEW_HPP
+#endif  // OPENSTUDIO_CONSTRUCTIONCFACTORUNDERGROUNDWALLINSPECTORVIEW_HPP

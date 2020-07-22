@@ -56,20 +56,18 @@ class HVACSystemsView : public QWidget
   Q_OBJECT
 
   public:
-
   HVACSystemsView();
 
   virtual ~HVACSystemsView() {}
 
-  OSViewSwitcher * mainViewSwitcher;
+  OSViewSwitcher* mainViewSwitcher;
 
-  HVACToolbarView * hvacToolbarView;
+  HVACToolbarView* hvacToolbarView;
 
   QSize sizeHint() const override;
 
   protected:
-
-  void paintEvent(QPaintEvent * event) override;
+  void paintEvent(QPaintEvent* event) override;
 };
 
 class HVACToolbarView : public QWidget
@@ -77,42 +75,39 @@ class HVACToolbarView : public QWidget
   Q_OBJECT
 
   public:
-
   HVACToolbarView();
 
   virtual ~HVACToolbarView();
 
-  QLabel * label;
+  QLabel* label;
 
-  QPushButton * addButton;
+  QPushButton* addButton;
 
-  QPushButton * copyButton;
+  QPushButton* copyButton;
 
-  QPushButton * deleteButton;
+  QPushButton* deleteButton;
 
-  QPushButton * topologyViewButton;
+  QPushButton* topologyViewButton;
 
-  QPushButton * controlsViewButton;
+  QPushButton* controlsViewButton;
 
-  QPushButton * gridViewButton;
+  QPushButton* gridViewButton;
 
-  QPushButton * zoomInButton;
+  QPushButton* zoomInButton;
 
-  QPushButton * zoomOutButton;
+  QPushButton* zoomOutButton;
 
-  OSComboBox2 * systemComboBox;
+  OSComboBox2* systemComboBox;
 
   // Hide or show add, delete, zoom in, and zoom out buttons.
   // If control buttons are hidden only the systemComboBox and label are shown.
   void showControls(bool show);
 
   protected:
-
-  void paintEvent(QPaintEvent * event) override;
+  void paintEvent(QPaintEvent* event) override;
 
   private:
-
-  QStackedWidget * m_viewStack;
+  QStackedWidget* m_viewStack;
 };
 
 class HVACGraphicsView : public QGraphicsView
@@ -120,8 +115,7 @@ class HVACGraphicsView : public QGraphicsView
   Q_OBJECT
 
   public:
-
-  HVACGraphicsView( QWidget * parent = nullptr );
+  HVACGraphicsView(QWidget* parent = nullptr);
 
   virtual ~HVACGraphicsView() {}
 
@@ -134,12 +128,10 @@ class HVACGraphicsView : public QGraphicsView
   void resetZoom();
 
   private:
-
   float m_zoomX;
 
   float m_zoomY;
 };
-
 
 /* Controls tab for an AirLoopHVAC */
 class HVACAirLoopControlsView : public QScrollArea
@@ -147,26 +139,25 @@ class HVACAirLoopControlsView : public QScrollArea
   Q_OBJECT
 
   public:
-
   HVACAirLoopControlsView();
 
   virtual ~HVACAirLoopControlsView() {}
 
-  QLabel * coolingTypeLabel;
+  QLabel* coolingTypeLabel;
 
-  QLabel * heatingTypeLabel;
+  QLabel* heatingTypeLabel;
 
-  QLabel * systemNameLabel;
+  QLabel* systemNameLabel;
 
-  OSViewSwitcher * supplyAirTemperatureViewSwitcher;
+  OSViewSwitcher* supplyAirTemperatureViewSwitcher;
 
-  OSViewSwitcher * ventilationViewSwitcher;
+  OSViewSwitcher* ventilationViewSwitcher;
 
-  OSViewSwitcher * hvacOperationViewSwitcher;
+  OSViewSwitcher* hvacOperationViewSwitcher;
 
-  OSComboBox2 * nightCycleComboBox;
+  OSComboBox2* nightCycleComboBox;
 
-  OSViewSwitcher * availabilityManagerViewSwitcher;
+  OSViewSwitcher* availabilityManagerViewSwitcher;
 };
 
 class HVACPlantLoopControlsView : public QScrollArea
@@ -174,19 +165,18 @@ class HVACPlantLoopControlsView : public QScrollArea
   Q_OBJECT
 
   public:
-
   HVACPlantLoopControlsView();
 
   virtual ~HVACPlantLoopControlsView() {}
 
-  QLabel * systemNameLabel;
-  QLabel * plantLoopTypeLabel;
-  QLabel * heatingComponentsLabel;
-  QLabel * coolingComponentsLabel;
-  QLabel * setpointComponentsLabel;
-  QLabel * uncontrolledComponentsLabel;
+  QLabel* systemNameLabel;
+  QLabel* plantLoopTypeLabel;
+  QLabel* heatingComponentsLabel;
+  QLabel* coolingComponentsLabel;
+  QLabel* setpointComponentsLabel;
+  QLabel* uncontrolledComponentsLabel;
 
-  OSViewSwitcher * availabilityManagerViewSwitcher;
+  OSViewSwitcher* availabilityManagerViewSwitcher;
 };
 
 class MechanicalVentilationView : public QWidget
@@ -194,16 +184,15 @@ class MechanicalVentilationView : public QWidget
   Q_OBJECT;
 
   public:
-
   MechanicalVentilationView();
 
   virtual ~MechanicalVentilationView();
 
-  QComboBox * economizerComboBox;
+  QComboBox* economizerComboBox;
 
-  QComboBox * ventilationCalcMethodComboBox;
+  QComboBox* ventilationCalcMethodComboBox;
 
-  OSSwitch2 * dcvButton;
+  OSSwitch2* dcvButton;
 };
 
 class NoMechanicalVentilationView : public QWidget
@@ -211,7 +200,6 @@ class NoMechanicalVentilationView : public QWidget
   Q_OBJECT;
 
   public:
-
   NoMechanicalVentilationView();
 
   virtual ~NoMechanicalVentilationView();
@@ -220,29 +208,26 @@ class NoMechanicalVentilationView : public QWidget
 class SingleZoneReheatSPMView : public QWidget
 {
   public:
-
   SingleZoneReheatSPMView();
 
   virtual ~SingleZoneReheatSPMView();
 
-  OSComboBox2 * controlZoneComboBox;
+  OSComboBox2* controlZoneComboBox;
 };
 
 class ScheduledSPMView : public QWidget
 {
   public:
-
   ScheduledSPMView();
 
   virtual ~ScheduledSPMView();
 
-  OSViewSwitcher * supplyAirTemperatureViewSwitcher;
+  OSViewSwitcher* supplyAirTemperatureViewSwitcher;
 };
 
 class FollowOATempSPMView : public QWidget
 {
   public:
-
   FollowOATempSPMView();
 
   virtual ~FollowOATempSPMView();
@@ -251,7 +236,6 @@ class FollowOATempSPMView : public QWidget
 class OAResetSPMView : public QWidget
 {
   public:
-
   OAResetSPMView();
 
   virtual ~OAResetSPMView();
@@ -260,18 +244,16 @@ class OAResetSPMView : public QWidget
 class AirLoopHVACUnitaryHeatPumpAirToAirControlView : public QWidget
 {
   public:
-
   AirLoopHVACUnitaryHeatPumpAirToAirControlView();
 
   virtual ~AirLoopHVACUnitaryHeatPumpAirToAirControlView();
 
-  OSComboBox2 * controlZoneComboBox;
+  OSComboBox2* controlZoneComboBox;
 };
 
 class NoSupplyAirTempControlView : public QWidget
 {
   public:
-
   NoSupplyAirTempControlView();
 
   virtual ~NoSupplyAirTempControlView();
@@ -280,13 +262,11 @@ class NoSupplyAirTempControlView : public QWidget
 class NoControlsView : public QWidget
 {
   public:
-
   NoControlsView();
 
   virtual ~NoControlsView();
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_HVACSYSTEMSVIEW_HPP
-
+#endif  // OPENSTUDIO_HVACSYSTEMSVIEW_HPP

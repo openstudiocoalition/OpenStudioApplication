@@ -46,26 +46,22 @@ class HorizontalTabWidget : public QWidget
   Q_OBJECT
 
   public:
-
-  HorizontalTabWidget(QWidget * parent = nullptr);
+  HorizontalTabWidget(QWidget* parent = nullptr);
 
   virtual ~HorizontalTabWidget() {}
 
-  void addTab( QWidget * widget,
-               int id,
-               const QString & label );
+  void addTab(QWidget* widget, int id, const QString& label);
 
-  void hideTab(QWidget * widget, bool hide);
+  void hideTab(QWidget* widget, bool hide);
 
   public slots:
 
   void setCurrentId(int id);
 
-  void setCurrentWidget(QWidget * widget);
+  void setCurrentWidget(QWidget* widget);
 
   protected:
-
-  void paintEvent( QPaintEvent * event ) override;
+  void paintEvent(QPaintEvent* event) override;
 
   private slots:
 
@@ -74,12 +70,11 @@ class HorizontalTabWidget : public QWidget
   void setCurrentIndex(int index);
 
   private:
+  QStackedWidget* m_pageStack;
 
-  QStackedWidget * m_pageStack;
+  QWidget* m_tabBar;
 
-  QWidget * m_tabBar;
-
-  QWidget * m_tabBarLine;
+  QWidget* m_tabBarLine;
 
   std::vector<QString> m_selectedPixmaps;
 
@@ -87,13 +82,11 @@ class HorizontalTabWidget : public QWidget
 
   std::vector<QString> m_unSelectedPixmaps;
 
-  std::vector<QPushButton *> m_tabButtons;
+  std::vector<QPushButton*> m_tabButtons;
 
   std::vector<int> m_ids;
-
 };
 
-} // namespace openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_HORIZONTALTABWIDGET_HPP
-
+#endif  // OPENSTUDIO_HORIZONTALTABWIDGET_HPP

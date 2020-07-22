@@ -48,22 +48,18 @@ class ScheduleDialog : public OSDialog
 {
   Q_OBJECT
 
-public:
-
-  ScheduleDialog(bool isIP,
-                 const model::Model & model,
-                 QWidget * parent = nullptr);
+  public:
+  ScheduleDialog(bool isIP, const model::Model& model, QWidget* parent = nullptr);
 
   virtual ~ScheduleDialog() {}
 
   void setIsIP(bool isIP);
 
-private slots:
+  private slots:
 
   void onCurrentIndexChanged(int index);
 
-private:
-
+  private:
   virtual void createLayout() override;
 
   bool m_isIP;
@@ -72,20 +68,19 @@ private:
 
   boost::optional<model::ScheduleTypeLimits> m_scheduleTypeLimits;
 
-  QComboBox * m_scheduleTypeComboBox;
+  QComboBox* m_scheduleTypeComboBox;
 
-  QLabel * m_numericTypeLabel;
+  QLabel* m_numericTypeLabel;
 
-  QLabel * m_lowerLimitLabel;
+  QLabel* m_lowerLimitLabel;
 
-  QLabel * m_upperLimitLabel;
+  QLabel* m_upperLimitLabel;
 
-protected slots:
+  protected slots:
 
   virtual void on_okButton(bool checked) override;
-
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_SCHEDULEDIALOG_HPP
+#endif  // OPENSTUDIO_SCHEDULEDIALOG_HPP

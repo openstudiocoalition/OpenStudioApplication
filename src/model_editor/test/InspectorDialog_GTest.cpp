@@ -54,8 +54,7 @@
 using namespace openstudio::model;
 using namespace openstudio;
 
-TEST_F(ModelEditorFixture, InspectorDialog_EmptyModel)
-{
+TEST_F(ModelEditorFixture, InspectorDialog_EmptyModel) {
   std::shared_ptr<InspectorDialog> inspectorDialog(new InspectorDialog());
 
   EXPECT_TRUE(inspectorDialog->setIddObjectType(Space::iddObjectType()));
@@ -72,12 +71,9 @@ TEST_F(ModelEditorFixture, InspectorDialog_EmptyModel)
 
   ASSERT_EQ(1u, model.objects(true).size());
   EXPECT_TRUE(model.objects(true)[0].optionalCast<Space>());
-
 }
 
-
-TEST_F(ModelEditorFixture, InspectorDialog_Remove1Object)
-{
+TEST_F(ModelEditorFixture, InspectorDialog_Remove1Object) {
   Model model;
   Space space1(model);
   Space space2(model);
@@ -108,8 +104,7 @@ TEST_F(ModelEditorFixture, InspectorDialog_Remove1Object)
   EXPECT_EQ(space2.handle(), inspectorDialog->selectedObjectHandles()[0]);
 }
 
-TEST_F(ModelEditorFixture, InspectorDialog_Copy1Object)
-{
+TEST_F(ModelEditorFixture, InspectorDialog_Copy1Object) {
   Model model;
   Space space1(model);
   Space space2(model);
@@ -144,9 +139,7 @@ TEST_F(ModelEditorFixture, InspectorDialog_Copy1Object)
   EXPECT_EQ(model.objects(true)[2].handle(), inspectorDialog->selectedObjectHandles()[0]);
 }
 
-
-TEST_F(ModelEditorFixture, InspectorDialog_ModelObjectRemove)
-{
+TEST_F(ModelEditorFixture, InspectorDialog_ModelObjectRemove) {
   Model model;
   LightsDefinition definition(model);
   Lights lights(definition);
@@ -174,9 +167,7 @@ TEST_F(ModelEditorFixture, InspectorDialog_ModelObjectRemove)
   ASSERT_EQ(0u, model.numObjects());
 }
 
-
-TEST_F(ModelEditorFixture, InspectorDialog_SignalsOnIddObjectTypeChange)
-{
+TEST_F(ModelEditorFixture, InspectorDialog_SignalsOnIddObjectTypeChange) {
   Model model;
   Space space(model);
   ThermalZone thermalZone(model);
@@ -204,7 +195,7 @@ TEST_F(ModelEditorFixture, InspectorDialog_SignalsOnIddObjectTypeChange)
   EXPECT_EQ(thermalZone.handle(), inspectorDialog->selectedObjectHandles()[0]);
 
   EXPECT_FALSE(spaceWatcher.dirty());
-  EXPECT_TRUE(thermalZoneWatcher.dirty()); // created new field for humidistat
+  EXPECT_TRUE(thermalZoneWatcher.dirty());  // created new field for humidistat
 
   spaceWatcher.clearState();
   thermalZoneWatcher.clearState();
@@ -229,7 +220,6 @@ TEST_F(ModelEditorFixture, InspectorDialog_SignalsOnIddObjectTypeChange)
   EXPECT_FALSE(thermalZoneWatcher.dirty());
 }
 
-TEST_F(ModelEditorFixture, InspectorDialog_SketchUpPlugin)
-{
+TEST_F(ModelEditorFixture, InspectorDialog_SketchUpPlugin) {
   std::shared_ptr<InspectorDialog> inspectorDialog(new InspectorDialog(InspectorDialogClient::SketchUpPlugin));
 }

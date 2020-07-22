@@ -43,36 +43,33 @@ class ConstructionWindowDataFileInspectorView : public ModelObjectInspectorView
   Q_OBJECT
 
   public:
+  ConstructionWindowDataFileInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
-    ConstructionWindowDataFileInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent = nullptr);
-
-    virtual ~ConstructionWindowDataFileInspectorView() {}
+  virtual ~ConstructionWindowDataFileInspectorView() {}
 
   protected:
+  virtual void onClearSelection() override;
 
-    virtual void onClearSelection() override;
+  virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
-    virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
-
-    virtual void onUpdate() override;
+  virtual void onUpdate() override;
 
   private:
+  void createLayout();
 
-    void createLayout();
+  void attach(openstudio::model::WindowDataFile& windowDataFile);
 
-    void attach(openstudio::model::WindowDataFile & windowDataFile);
+  void detach();
 
-    void detach();
+  bool m_isIP;
 
-    bool m_isIP;
+  OSLineEdit2* m_nameEdit;
 
-    OSLineEdit2 * m_nameEdit;
+  OSLineEdit2* m_urlEdit;
 
-    OSLineEdit2 * m_urlEdit;
-
-    boost::optional<model::WindowDataFile> m_windowDataFile;
+  boost::optional<model::WindowDataFile> m_windowDataFile;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_CONSTRUCTIONWINDOWDATAFILEINSPECTORVIEW_HPP
+#endif  // OPENSTUDIO_CONSTRUCTIONWINDOWDATAFILEINSPECTORVIEW_HPP

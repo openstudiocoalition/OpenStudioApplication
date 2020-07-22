@@ -39,7 +39,7 @@
 
 #include "ModelEditorAPI.hpp"
 
-#include <openstudio/nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/nano/nano_signal_slot.hpp>  // Signal-Slot replacement
 
 #include <openstudio/utilities/idd/IddField.hpp>
 #include <openstudio/utilities/idf/Workspace.hpp>
@@ -61,8 +61,7 @@ class ComboHighlightBridge;
 class MODELEDITOR_API IGWidget : public QWidget, public Nano::Observer
 {
   public:
-
-  IGWidget(QWidget * parent = nullptr);
+  IGWidget(QWidget* parent = nullptr);
 
   QSize sizeHint() const override;
 };
@@ -70,22 +69,13 @@ class MODELEDITOR_API IGWidget : public QWidget, public Nano::Observer
 class IGComboBox : public QComboBox
 {
   public:
-
-  IGComboBox( QWidget * parent = nullptr )
-    : QComboBox( parent )
-  {
-  }
+  IGComboBox(QWidget* parent = nullptr) : QComboBox(parent) {}
 
   protected:
-
-  bool event ( QEvent * e ) override
-  {
-    if( e->type() == QEvent::Wheel )
-    {
+  bool event(QEvent* e) override {
+    if (e->type() == QEvent::Wheel) {
       return false;
-    }
-    else
-    {
+    } else {
       return QComboBox::event(e);
     }
   }
@@ -107,14 +97,22 @@ class MODELEDITOR_API InspectorGadget : public QWidget, public Nano::Observer
 
   Q_OBJECT
 
-public:
-
+  public:
   friend class IGLineEdit;
   friend class IGDSpinBox;
 
-  enum FLOAT_DISPLAY { FIXED, SCIENTIFIC, UNFORMATED };
+  enum FLOAT_DISPLAY
+  {
+    FIXED,
+    SCIENTIFIC,
+    UNFORMATED
+  };
 
-  enum UNIT_SYSTEM { SI, IP };
+  enum UNIT_SYSTEM
+  {
+    SI,
+    IP
+  };
 
   /*! constructor
    *
@@ -126,7 +124,7 @@ public:
    * \sa IGChildFrame
    * \sa layoutModel
    */
-  InspectorGadget(QWidget* parent = nullptr, int indent = 0, ComboHighlightBridge* bridge=nullptr);
+  InspectorGadget(QWidget* parent = nullptr, int indent = 0, ComboHighlightBridge* bridge = nullptr);
   /*! destructor
    *
    * The really shouldn't need to call this, the parent Widget ought to delete the IG.
@@ -157,11 +155,8 @@ public:
    * parameter to true
    *
    */
-  void layoutModelObj(openstudio::WorkspaceObject& workObj,
-                      bool force=false,
-                      bool recursive=true,
-                      bool locked=false,
-                      bool hideChildren=false);
+  void layoutModelObj(openstudio::WorkspaceObject& workObj, bool force = false, bool recursive = true, bool locked = false,
+                      bool hideChildren = false);
 
   /*! \brief sets the display precision for number fields
    *
@@ -173,17 +168,17 @@ public:
    * If you pass in a non zero number, all number fields will display that number of significant figures
    * in scientific notation.
    */
-  void setPrecision( unsigned int prec, FLOAT_DISPLAY dispType );
+  void setPrecision(unsigned int prec, FLOAT_DISPLAY dispType);
 
   void setUnitSystem(const UNIT_SYSTEM unitSystem);
 
-  void removeWorkspaceObject(const openstudio::Handle &); // Middleman nano slot to emit QT signal to simulate signal chaining
+  void removeWorkspaceObject(const openstudio::Handle&);  // Middleman nano slot to emit QT signal to simulate signal chaining
 
-public slots:
+  public slots:
 
-    void toggleUnits(bool displayIP);
+  void toggleUnits(bool displayIP);
 
-/*! \brief lays out the last object again.
+  /*! \brief lays out the last object again.
    *
    *\param recursive if true, apply the change to the children
    * Use this if you change a config parameter that controls how the layout happens.
@@ -242,9 +237,9 @@ public slots:
 
   void showAllFields(bool state);
 
-  void setRecursive( bool recursive);
+  void setRecursive(bool recursive);
 
- signals:
+  signals:
 
   void nameChanged(QString);
 
@@ -257,20 +252,18 @@ public slots:
    */
   void dirty();
 
-  void workspaceObjectRemoved(const openstudio::Handle &);
+  void workspaceObjectRemoved(const openstudio::Handle&);
 
-
-protected slots:
+  protected slots:
 
   void onWorkspaceObjectChanged();
 
   void onTimeout();
 
-  void onWorkspaceObjectRemoved(const openstudio::Handle &);
+  void onWorkspaceObjectRemoved(const openstudio::Handle&);
 
-protected:
-
-/*! \brief constructor
+  protected:
+  /*! \brief constructor
     \param workspaceObj the current workspace
     \param indent indentation for the child frame
     \param bridge pass in a bridge here if you need signals to get out of the IG (or the IG's children)
@@ -283,15 +276,8 @@ protected:
     If model has children, those children will get their own InspectorGadget, indent
     will be passed again to that constructor so the frames will nest.
   */
-  InspectorGadget( openstudio::WorkspaceObject& workspaceObj,
-                   int indent,
-                   ComboHighlightBridge* bridge,
-                   int precision,
-                   FLOAT_DISPLAY style,
-                   bool showComments,
-                   bool showAllFields,
-                   bool recursive,
-                   bool locked);
+  InspectorGadget(openstudio::WorkspaceObject& workspaceObj, int indent, ComboHighlightBridge* bridge, int precision, FLOAT_DISPLAY style,
+                  bool showComments, bool showAllFields, bool recursive, bool locked);
   /*!
     \param layout the layout to attach the items to
     \param parent the widget that owns all the items that will be created.
@@ -304,74 +290,44 @@ protected:
 
     *It depends on weather or not you called layoutModel with a ModelObject or a WorkspaceObj
     */
-  virtual void layoutItems( QVBoxLayout* layout,
-                            QWidget* parent,
-                            bool hideChildren=false);
+  virtual void layoutItems(QVBoxLayout* layout, QWidget* parent, bool hideChildren = false);
 
-  void parseItem( QVBoxLayout* layout,
-                  QWidget* parent,
-                  openstudio::IddField& field,
-                  const std::string& name,
-                  const std::string& curVal,
-                  openstudio::model::AccessPolicy::ACCESS_LEVEL level,
-                  int index,
-                  const std::string& comment,
-                  bool exists);
+  void parseItem(QVBoxLayout* layout, QWidget* parent, openstudio::IddField& field, const std::string& name, const std::string& curVal,
+                 openstudio::model::AccessPolicy::ACCESS_LEVEL level, int index, const std::string& comment, bool exists);
 
-  void layoutText( QVBoxLayout* layout,
-                   QWidget* parent,
-                   openstudio::model::AccessPolicy::ACCESS_LEVEL level,
-                   const std::string& val,
-                   int index,
-                   const std::string& comment);
+  void layoutText(QVBoxLayout* layout, QWidget* parent, openstudio::model::AccessPolicy::ACCESS_LEVEL level, const std::string& val, int index,
+                  const std::string& comment);
 
-  virtual void layoutText( QVBoxLayout* layout,
-                           QWidget* parent,
-                           openstudio::IddField& field,
-                           openstudio::model::AccessPolicy::ACCESS_LEVEL level,
-                           const std::string& name,
-                           const std::string& curVal,
-                           int index,
-                           const std::string& comment,
-                           bool exists,
-                           bool number,
-                           bool real=false);
+  virtual void layoutText(QVBoxLayout* layout, QWidget* parent, openstudio::IddField& field, openstudio::model::AccessPolicy::ACCESS_LEVEL level,
+                          const std::string& name, const std::string& curVal, int index, const std::string& comment, bool exists, bool number,
+                          bool real = false);
 
-  void layoutComboBox( QVBoxLayout* layout,
-                       QWidget* parent,
-                       openstudio::IddField& field,
-                       openstudio::IddFieldProperties& properties,
-                       const std::string& name,
-                       const std::string& curVal,
-                       int index,
-                       const std::string& comment,
-                       bool exists);
+  void layoutComboBox(QVBoxLayout* layout, QWidget* parent, openstudio::IddField& field, openstudio::IddFieldProperties& properties,
+                      const std::string& name, const std::string& curVal, int index, const std::string& comment, bool exists);
 
-  void createExtensibleToolBar( QVBoxLayout* layout,
-                                QWidget* parent,
-                                const openstudio::IddObjectProperties& props );
+  void createExtensibleToolBar(QVBoxLayout* layout, QWidget* parent, const openstudio::IddObjectProperties& props);
 
-  void checkRemoveBtn( QPushButton* btn );
+  void checkRemoveBtn(QPushButton* btn);
 
-  void stripchar(std::string& strip,char c);
+  void stripchar(std::string& strip, char c);
 
-  QVBoxLayout * m_layout;
-  QScrollArea * m_scroll;
-  QWidget *     m_deleteHandle; // we need a parent for everything in IG so we can delete it all.
+  QVBoxLayout* m_layout;
+  QScrollArea* m_scroll;
+  QWidget* m_deleteHandle;  // we need a parent for everything in IG so we can delete it all.
 
-  int m_indent; // how much we indent each IGChildFrame widget by
+  int m_indent;  // how much we indent each IGChildFrame widget by
   // TODO replace below by m_workspaceObjs[0]
   openstudio::OptionalWorkspaceObject m_workspaceObj;
   //std::vector<openstudio::OptionalWorkspaceObject>& m_workspaceObjs;
-  QErrorMessage * m_errorMessage;
+  QErrorMessage* m_errorMessage;
   bool m_locked;
-  bool m_stretch; // shall we put a stretch in after we layout items?
+  bool m_stretch;  // shall we put a stretch in after we layout items?
 
-  ComboHighlightBridge * m_comboBridge;
+  ComboHighlightBridge* m_comboBridge;
 
   REGISTER_LOGGER("InspectorGadget");
 
-  static const char * s_indexSlotName;
+  static const char* s_indexSlotName;
 
   bool m_objectHasName;
   boost::optional<int> m_nameIndex;
@@ -385,16 +341,15 @@ protected:
   UNIT_SYSTEM m_unitSystem;
   bool m_workspaceObjectChanged;
 
-  typedef std::map <openstudio::model::ModelObject,InspectorGadget*> MODELMAP;
+  typedef std::map<openstudio::model::ModelObject, InspectorGadget*> MODELMAP;
   MODELMAP m_childMap;
 
   void connectWorkspaceObjectSignals() const;
 
   void disconnectWorkspaceObjectSignals() const;
 
-private:
-
+  private:
   void connectSignalsAndSlots();
 };
 
-#endif // MODELEDITOR_INSPECTORGADGET_HPP
+#endif  // MODELEDITOR_INSPECTORGADGET_HPP

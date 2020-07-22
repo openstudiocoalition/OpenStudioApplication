@@ -95,19 +95,14 @@
 
 namespace openstudio {
 
-RunTabView::RunTabView(const model::Model & model,
-  QWidget * parent)
-  : MainTabView("Run Simulation", MainTabView::MAIN_TAB, parent),
-    m_runView(new RunView())
-{
+RunTabView::RunTabView(const model::Model& model, QWidget* parent)
+  : MainTabView("Run Simulation", MainTabView::MAIN_TAB, parent), m_runView(new RunView()) {
   addTabWidget(m_runView);
 }
 
-RunView::RunView()
-  : QWidget(), m_runSocket(nullptr)
-{
+RunView::RunView() : QWidget(), m_runSocket(nullptr) {
   auto mainLayout = new QGridLayout();
-  mainLayout->setContentsMargins(10,10,10,10);
+  mainLayout->setContentsMargins(10, 10, 10, 10);
   mainLayout->setSpacing(5);
   setLayout(mainLayout);
 
@@ -119,7 +114,7 @@ RunView::RunView()
   playbuttonicon.addPixmap(QPixmap(":/images/run_simulation_button.png"), QIcon::Normal, QIcon::Off);
   playbuttonicon.addPixmap(QPixmap(":/images/cancel_simulation_button.png"), QIcon::Normal, QIcon::On);
   m_playButton->setStyleSheet("QToolButton { background:transparent; font: bold; }");
-  m_playButton->setIconSize(QSize(35,35));
+  m_playButton->setIconSize(QSize(35, 35));
   m_playButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
   m_playButton->setIcon(playbuttonicon);
   m_playButton->setLayoutDirection(Qt::RightToLeft);
@@ -141,29 +136,29 @@ RunView::RunView()
   m_openSimDirButton->setFlat(true);
   m_openSimDirButton->setObjectName("StandardGrayButton");
   connect(m_openSimDirButton, &QPushButton::clicked, this, &RunView::onOpenSimDirClicked);
-  mainLayout->addWidget(m_openSimDirButton,0,2);
+  mainLayout->addWidget(m_openSimDirButton, 0, 2);
 
   m_textInfo = new QTextEdit();
   m_textInfo->setReadOnly(true);
-  mainLayout->addWidget(m_textInfo,1,0,1,3);
+  mainLayout->addWidget(m_textInfo, 1, 0, 1, 3);
 
   m_runProcess = new QProcess(this);
-  connect(m_runProcess, static_cast<void(QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), this, &RunView::onRunProcessFinished);
+  connect(m_runProcess, static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), this, &RunView::onRunProcessFinished);
 
   QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
 
   auto energyPlusExePath = getEnergyPlusExecutable();
-  if (!energyPlusExePath.empty()){
+  if (!energyPlusExePath.empty()) {
     env.insert("ENERGYPLUS_EXE_PATH", toQString(energyPlusExePath));
   }
 
   auto radianceDirectory = getRadianceDirectory();
-  if (!radianceDirectory.empty()){
+  if (!radianceDirectory.empty()) {
     env.insert("OS_RAYPATH", toQString(radianceDirectory));
   }
 
   auto perlExecutablePath = getPerlExecutable();
-  if (!perlExecutablePath.empty()){
+  if (!perlExecutablePath.empty()) {
     env.insert("PERL_EXE_PATH", toQString(perlExecutablePath));
   }
 
@@ -174,18 +169,16 @@ RunView::RunView()
   connect(m_runTcpServer, &QTcpServer::newConnection, this, &RunView::onNewConnection);
 }
 
-void RunView::onOpenSimDirClicked()
-{
+void RunView::onOpenSimDirClicked() {
   std::shared_ptr<OSDocument> osdocument = OSAppBase::instance()->currentDocument();
-  QString url = QString::fromStdString(( getCompanionFolder( toPath(osdocument->savePath()) ) / toPath("run") ).string());
+  QString url = QString::fromStdString((getCompanionFolder(toPath(osdocument->savePath())) / toPath("run")).string());
   QUrl qurl = QUrl::fromLocalFile(url);
-  if( ! QDesktopServices::openUrl(qurl) ) {
+  if (!QDesktopServices::openUrl(qurl)) {
     QMessageBox::critical(this, "Unable to open simulation", "Please save the OpenStudio Model to view the simulation.");
   }
 }
 
-void RunView::onRunProcessFinished(int exitCode, QProcess::ExitStatus status)
-{
+void RunView::onRunProcessFinished(int exitCode, QProcess::ExitStatus status) {
   LOG(Debug, "run finished");
   m_playButton->setChecked(false);
   m_state = State::stopped;
@@ -196,14 +189,13 @@ void RunView::onRunProcessFinished(int exitCode, QProcess::ExitStatus status)
   osdocument->enableTabsAfterRun();
   m_openSimDirButton->setEnabled(true);
 
-  if (m_runSocket){
+  if (m_runSocket) {
     delete m_runSocket;
   }
   m_runSocket = nullptr;
 }
 
-void RunView::playButtonClicked(bool t_checked)
-{
+void RunView::playButtonClicked(bool t_checked) {
   LOG(Debug, "playButtonClicked " << t_checked);
 
   std::shared_ptr<OSDocument> osdocument = OSAppBase::instance()->currentDocument();
@@ -211,11 +203,10 @@ void RunView::playButtonClicked(bool t_checked)
   if (t_checked) {
     // run
 
-    if(osdocument->modified())
-    {
+    if (osdocument->modified()) {
       osdocument->save();
       // save dialog was canceled
-      if(osdocument->modified()) {
+      if (osdocument->modified()) {
         m_playButton->setChecked(false);
         return;
       }
@@ -238,7 +229,8 @@ void RunView::playButtonClicked(bool t_checked)
 
     auto workflowJSONPath = QString::fromStdString(workflowPath.string());
     QStringList arguments;
-    arguments << "run" << "-s" << QString::number(m_runTcpServer->serverPort()) << "-w" << workflowJSONPath;
+    arguments << "run"
+              << "-s" << QString::number(m_runTcpServer->serverPort()) << "-w" << workflowJSONPath;
 
     LOG(Debug, "openstudioExePath='" << toString(openstudioExePath) << "'");
     LOG(Debug, "run arguments" << arguments.join(";").toStdString());
@@ -246,18 +238,18 @@ void RunView::playButtonClicked(bool t_checked)
     osdocument->disableTabsDuringRun();
     m_openSimDirButton->setEnabled(false);
 
-    if (exists(stdoutPath)){
+    if (exists(stdoutPath)) {
       remove(stdoutPath);
     }
-    if (exists(stderrPath)){
+    if (exists(stderrPath)) {
       remove(stderrPath);
     }
 
     m_progressBar->setValue(0);
     m_state = State::stopped;
     m_textInfo->clear();
-    m_runProcess->setStandardOutputFile( toQString(stdoutPath) );
-    m_runProcess->setStandardErrorFile( toQString(stderrPath) );
+    m_runProcess->setStandardOutputFile(toQString(stdoutPath));
+    m_runProcess->setStandardErrorFile(toQString(stderrPath));
     m_runProcess->start(openstudioExePath, arguments);
   } else {
     // stop running
@@ -266,33 +258,31 @@ void RunView::playButtonClicked(bool t_checked)
   }
 }
 
-void RunView::onNewConnection()
-{
+void RunView::onNewConnection() {
   m_runSocket = m_runTcpServer->nextPendingConnection();
-  connect(m_runSocket,&QTcpSocket::readyRead,this,&RunView::onRunDataReady);
+  connect(m_runSocket, &QTcpSocket::readyRead, this, &RunView::onRunDataReady);
 }
 
-void RunView::onRunDataReady()
-{
-  auto appendErrorText = [&](const QString & text) {
+void RunView::onRunDataReady() {
+  auto appendErrorText = [&](const QString& text) {
     m_textInfo->setTextColor(Qt::red);
     m_textInfo->setFontPointSize(18);
     m_textInfo->append(text);
   };
 
-  auto appendNormalText = [&](const QString & text) {
+  auto appendNormalText = [&](const QString& text) {
     m_textInfo->setTextColor(Qt::black);
     m_textInfo->setFontPointSize(12);
     m_textInfo->append(text);
   };
 
-  auto appendH1Text = [&](const QString & text) {
+  auto appendH1Text = [&](const QString& text) {
     m_textInfo->setTextColor(Qt::black);
     m_textInfo->setFontPointSize(18);
     m_textInfo->append(text);
   };
 
-  auto appendH2Text = [&](const QString & text) {
+  auto appendH2Text = [&](const QString& text) {
     m_textInfo->setTextColor(Qt::black);
     m_textInfo->setFontPointSize(15);
     m_textInfo->append(text);
@@ -301,13 +291,13 @@ void RunView::onRunDataReady()
   QString data = m_runSocket->readAll();
   QStringList lines = data.split("\n");
 
-  for (const auto& line: lines){
+  for (const auto& line : lines) {
     //std::cout << data.toStdString() << std::endl;
 
     QString trimmedLine = line.trimmed();
 
     // DLM: coordinate with openstudio-workflow-gem\lib\openstudio\workflow\adapters\output\socket.rb
-    if (trimmedLine.isEmpty()){
+    if (trimmedLine.isEmpty()) {
       continue;
     } else if (QString::compare(trimmedLine, "Starting state initialization", Qt::CaseInsensitive) == 0) {
       appendH1Text("Initializing workflow.");
@@ -367,10 +357,10 @@ void RunView::onRunDataReady()
       appendH2Text(line);
     } else if (trimmedLine.startsWith("Applied", Qt::CaseInsensitive)) {
       // no-op
-    } else{
+    } else {
       appendNormalText(line);
     }
   }
 }
 
-} // openstudio
+}  // namespace openstudio

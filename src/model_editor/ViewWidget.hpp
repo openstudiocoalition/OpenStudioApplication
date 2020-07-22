@@ -44,11 +44,10 @@ class QModelIndex;
 class QSplitter;
 
 namespace openstudio {
-  class IddFile;
+class IddFile;
 }
 
-namespace modeleditor
-{
+namespace modeleditor {
 
 class ModelExplorer;
 
@@ -56,9 +55,9 @@ class ViewWidget : public QWidget
 {
   Q_OBJECT
 
-public:
-  ViewWidget(QWidget *parent = nullptr);
-  ViewWidget(openstudio::model::Model model, QWidget *parent = nullptr);
+  public:
+  ViewWidget(QWidget* parent = nullptr);
+  ViewWidget(openstudio::model::Model model, QWidget* parent = nullptr);
   virtual ~ViewWidget();
   virtual void addObjects(openstudio::IddObjectType type = openstudio::IddObjectType("UserCustom")) = 0;
   virtual void loadModel() = 0;
@@ -69,7 +68,7 @@ public:
   virtual bool hasRowsToPaste() = 0;
   virtual openstudio::model::Model& getModel();
   virtual const openstudio::IddFile& getIddFile();
-  virtual bool getModelDirty()const;
+  virtual bool getModelDirty() const;
   virtual void setModelDirty(const bool modelDirty);
   virtual void emitModelDirty();
   virtual void toggleGUIDs() = 0;
@@ -80,32 +79,31 @@ public:
   virtual void createAllFields();
   virtual void setRecursive(bool state);
 
-
-public slots:
+  public slots:
   virtual void viewSelection(const QModelIndex& modelIndex) = 0;
   void on_modelDirty();
   virtual void on_nameChanged(QString);
 
-signals:
+  signals:
   void eventEnter();
   void eventLeave();
   void modelDirty();
-  void modelUpdated(QAbstractItemModel * model);
+  void modelUpdated(QAbstractItemModel* model);
   void commentsShow(bool);
   void precisionDlgShow();
   void precisionDlgHide();
   void precisionDlgFinished();
 
-protected:
-  QSplitter * mSplitter;
-  InspectorGadget * mIG;
-  IGPrecisionDialog * mIGPrecisionDlg;
-  ModelExplorer * mModelExplorer;
+  protected:
+  QSplitter* mSplitter;
+  InspectorGadget* mIG;
+  IGPrecisionDialog* mIGPrecisionDlg;
+  ModelExplorer* mModelExplorer;
   openstudio::model::Model mModel;
   bool mModelDirty;
   QString mSplitterSetting;
 
-private:
+  private:
   virtual void connectSignalsAndSlots();
   virtual void createLayout();
   virtual void createWidgets();
@@ -114,6 +112,6 @@ private:
   virtual void saveState();
 };
 
-} // namespace modeleditor
+}  // namespace modeleditor
 
-#endif // MODELEDITOR_VIEWWIDGET_HPP
+#endif  // MODELEDITOR_VIEWWIDGET_HPP

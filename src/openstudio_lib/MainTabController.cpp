@@ -35,21 +35,16 @@
 
 namespace openstudio {
 
-MainTabController::MainTabController(MainTabView* mainContentWidget)
-  : OSQObjectController()
-{
+MainTabController::MainTabController(MainTabView* mainContentWidget) : OSQObjectController() {
   m_mainContentWidget = mainContentWidget;
 
   addQObject(mainContentWidget);
 }
 
-MainTabController::~MainTabController()
-{
-}
+MainTabController::~MainTabController() {}
 
-MainTabView* MainTabController::mainContentWidget() const
-{
+MainTabView* MainTabController::mainContentWidget() const {
   return m_mainContentWidget;
 }
 
-} // openstudio
+}  // namespace openstudio

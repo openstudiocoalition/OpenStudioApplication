@@ -48,43 +48,39 @@ class WindowMaterialGlazingGroupThermochromicInspectorView : public ModelObjectI
   Q_OBJECT
 
   public:
+  WindowMaterialGlazingGroupThermochromicInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
-    WindowMaterialGlazingGroupThermochromicInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent = nullptr);
-
-    virtual ~WindowMaterialGlazingGroupThermochromicInspectorView() {}
+  virtual ~WindowMaterialGlazingGroupThermochromicInspectorView() {}
 
   protected:
+  virtual void onClearSelection() override;
 
-    virtual void onClearSelection() override;
+  virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
-    virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
-
-    virtual void onUpdate() override;
+  virtual void onUpdate() override;
 
   private:
+  void createLayout();
 
-    void createLayout();
+  void attach(openstudio::model::ThermochromicGlazing& ThermochromicGlazing);
 
-    void attach(openstudio::model::ThermochromicGlazing & ThermochromicGlazing);
+  void detach();
 
-    void detach();
+  void refresh();
 
-    void refresh();
+  bool m_isIP;
 
-    bool m_isIP;
+  boost::optional<model::ThermochromicGlazing> m_thermochromicGlazing;
 
-    boost::optional<model::ThermochromicGlazing> m_thermochromicGlazing;
+  OSLineEdit2* m_nameEdit = nullptr;
 
-    OSLineEdit2 * m_nameEdit = nullptr;
+  OSQuantityEdit2* m_opticalDataTemperature = nullptr;
 
-    OSQuantityEdit2 * m_opticalDataTemperature = nullptr;
+  OSLineEdit2* m_windowMaterialGlazingName = nullptr;
 
-    OSLineEdit2 * m_windowMaterialGlazingName = nullptr;
-
-    StandardsInformationMaterialWidget * m_standardsInformationWidget = nullptr;
-
+  StandardsInformationMaterialWidget* m_standardsInformationWidget = nullptr;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_WINDOWMATERIALGLAZINGGROUPTHERMOCHROMICINSPECTORVIEW_HPP
+#endif  // OPENSTUDIO_WINDOWMATERIALGLAZINGGROUPTHERMOCHROMICINSPECTORVIEW_HPP

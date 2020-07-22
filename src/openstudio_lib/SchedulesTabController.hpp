@@ -67,8 +67,7 @@ class SchedulesTabController : public MainTabController
   Q_OBJECT
 
   public:
-
-  SchedulesTabController(bool isIP, const model::Model & model);
+  SchedulesTabController(bool isIP, const model::Model& model);
 
   virtual ~SchedulesTabController();
 
@@ -82,18 +81,17 @@ class SchedulesTabController : public MainTabController
   static double defaultStartingValue(const model::ScheduleDay& scheduleDay);
 
   private:
-
   void showScheduleDialog();
 
-  ScheduleDialog * m_scheduleDialog = nullptr;
+  ScheduleDialog* m_scheduleDialog = nullptr;
 
   model::Model m_model;
 
   bool m_isIP;
 
-  QWidget * m_currentView = nullptr;
+  QWidget* m_currentView = nullptr;
 
-  QObject * m_currentController = nullptr;
+  QObject* m_currentController = nullptr;
 
   int m_currentIndex = -1;
 
@@ -113,26 +111,25 @@ class SchedulesTabController : public MainTabController
 
   void purgeUnusedScheduleRulesets();
 
-  void addRule(model::ScheduleRuleset & scheduleRuleset, UUID scheduleDayHandle);
+  void addRule(model::ScheduleRuleset& scheduleRuleset, UUID scheduleDayHandle);
 
-  void addSummerProfile(model::ScheduleRuleset & scheduleRuleset, UUID scheduleDayHandle);
+  void addSummerProfile(model::ScheduleRuleset& scheduleRuleset, UUID scheduleDayHandle);
 
-  void addWinterProfile(model::ScheduleRuleset & scheduleRuleset, UUID scheduleDayHandle);
+  void addWinterProfile(model::ScheduleRuleset& scheduleRuleset, UUID scheduleDayHandle);
 
-  void addHolidayProfile(model::ScheduleRuleset & scheduleRuleset, UUID scheduleDayHandle);
+  void addHolidayProfile(model::ScheduleRuleset& scheduleRuleset, UUID scheduleDayHandle);
 
-  void removeScheduleRule(model::ScheduleRule & scheduleRule);
+  void removeScheduleRule(model::ScheduleRule& scheduleRule);
 
-  void onDayScheduleSceneChanged(DayScheduleScene * scene, double lowerLimitValue, double upperLimitValue);
+  void onDayScheduleSceneChanged(DayScheduleScene* scene, double lowerLimitValue, double upperLimitValue);
 
-  void onStartDateTimeChanged(model::ScheduleRule & scheduleRule, const QDateTime & newDate);
+  void onStartDateTimeChanged(model::ScheduleRule& scheduleRule, const QDateTime& newDate);
 
-  void onEndDateTimeChanged(model::ScheduleRule & scheduleRule, const QDateTime & newDate);
+  void onEndDateTimeChanged(model::ScheduleRule& scheduleRule, const QDateTime& newDate);
 
   void onItemDropped(const OSItemId& itemId);
-
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_SCHEDULESTABCONTROLLER_HPP
+#endif  // OPENSTUDIO_SCHEDULESTABCONTROLLER_HPP

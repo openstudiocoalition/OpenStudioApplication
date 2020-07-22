@@ -34,34 +34,29 @@
 
 class QTextEdit;
 
-namespace openstudio{
+namespace openstudio {
 
 class TextEditDialog : public OSDialog
 {
   Q_OBJECT
 
-public:
-
-  TextEditDialog(const QString & windowTitle,
-    const QString & windowMessage = QString(),
-    QWidget * parent = nullptr);
+  public:
+  TextEditDialog(const QString& windowTitle, const QString& windowMessage = QString(), QWidget* parent = nullptr);
 
   virtual ~TextEditDialog();
 
   QString text();
 
-  void setText(const QString & text);
+  void setText(const QString& text);
 
-private:
-
+  private:
   virtual void createWidgets();
 
-  QTextEdit * m_textEdit;
+  QTextEdit* m_textEdit;
 
   QString m_windowMessage;
-
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // SHAREDGUICOMPONENTS_TEXTEDITDIALOG_HPP
+#endif  // SHAREDGUICOMPONENTS_TEXTEDITDIALOG_HPP

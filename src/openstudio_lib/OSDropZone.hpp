@@ -31,7 +31,7 @@
 #define OPENSTUDIO_OSDROPZONE_HPP
 
 #include "OSItem.hpp"
-#include <openstudio/nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/nano/nano_signal_slot.hpp>  // Signal-Slot replacement
 
 #include "../shared_gui_components/FieldMethodTypedefs.hpp"
 
@@ -65,50 +65,52 @@ class OSDropZone2 : public QWidget, public Nano::Observer
 {
   Q_OBJECT
 
-public:
-
+  public:
   OSDropZone2();
 
   ~OSDropZone2();
 
-  void enableClickFocus() { this->setFocusPolicy(Qt::ClickFocus); }
-  bool hasData() { return !this->m_label->text().isEmpty(); }
-  void setDeleteObject(bool deleteObject) { m_deleteObject = deleteObject; }
-  bool deleteObject() { return m_deleteObject; }
+  void enableClickFocus() {
+    this->setFocusPolicy(Qt::ClickFocus);
+  }
+  bool hasData() {
+    return !this->m_label->text().isEmpty();
+  }
+  void setDeleteObject(bool deleteObject) {
+    m_deleteObject = deleteObject;
+  }
+  bool deleteObject() {
+    return m_deleteObject;
+  }
   void setIsDefaulted(bool defaulted);
   bool isDefaulted();
-  void bind(model::ModelObject & modelObject,
-            OptionalModelObjectGetter get,
-            ModelObjectSetter set,
-            boost::optional<NoFailAction> reset = boost::none);
+  void bind(model::ModelObject& modelObject, OptionalModelObjectGetter get, ModelObjectSetter set, boost::optional<NoFailAction> reset = boost::none);
 
   void unbind();
 
-signals:
+  signals:
 
   void itemClicked(OSItem* item);
   void objectRemoved(boost::optional<model::ParentObject> parent);
   void inFocus(bool inFocus, bool hasData);
 
-protected:
-
-  void paintEvent ( QPaintEvent * event ) override;
+  protected:
+  void paintEvent(QPaintEvent* event) override;
   void mouseReleaseEvent(QMouseEvent* event) override;
-  virtual void focusInEvent(QFocusEvent * e) override;
-  virtual void focusOutEvent(QFocusEvent * e) override;
+  virtual void focusInEvent(QFocusEvent* e) override;
+  virtual void focusOutEvent(QFocusEvent* e) override;
 
-public slots:
+  public slots:
 
   void onItemRemoveClicked();
 
-private slots:
+  private slots:
 
   void refresh();
-  void dragEnterEvent(QDragEnterEvent *event) override;
-  void dropEvent(QDropEvent *event) override;
+  void dragEnterEvent(QDragEnterEvent* event) override;
+  void dropEvent(QDropEvent* event) override;
 
-private:
-
+  private:
   void makeItem();
 
   boost::optional<OptionalModelObjectGetter> m_get;
@@ -116,22 +118,18 @@ private:
   boost::optional<NoFailAction> m_reset;
   boost::optional<model::ModelObject> m_modelObject;
   //QString m_text;
-  OSItem * m_item = nullptr;
+  OSItem* m_item = nullptr;
   bool m_deleteObject = false;
-  QLabel * m_label;
+  QLabel* m_label;
 };
 
 class OSDropZone : public QWidget, public Nano::Observer
 {
   Q_OBJECT
 
-public:
-
-  OSDropZone(OSVectorController* vectorController,
-             const QString & text = "Drag From Library",
-             const QSize & size = QSize(0,0),
-             bool m_growsHorizontally = true,
-             QWidget * parent = nullptr );
+  public:
+  OSDropZone(OSVectorController* vectorController, const QString& text = "Drag From Library", const QSize& size = QSize(0, 0),
+             bool m_growsHorizontally = true, QWidget* parent = nullptr);
 
   virtual ~OSDropZone() {}
 
@@ -156,7 +154,7 @@ public:
   bool useLargeIcon();
   void setUseLargeIcon(bool userLargeIcon);
 
-signals:
+  signals:
 
   // request items from vector controller
   void itemsRequested();
@@ -171,29 +169,27 @@ signals:
   void itemRemoveClicked(OSItem* item);
 
   // emitted if item is dropped on existing item
-  void itemReplacementDropped(OSItem * currentItem, const OSItemId& replacementItemId);
+  void itemReplacementDropped(OSItem* currentItem, const OSItemId& replacementItemId);
 
   void addButtonClicked();
 
-protected:
-
+  protected:
   // called when drop occurs, emit onDrop here if needed
   virtual void onDrop(const OSItemId& itemId);
 
-  void paintEvent ( QPaintEvent * event ) override;
+  void paintEvent(QPaintEvent* event) override;
 
   //void resizeEvent(QResizeEvent * event);
 
-private slots:
+  private slots:
 
   // set this objects item ids
   void setItemIds(const std::vector<OSItemId>& itemIds);
 
   // called on drop
-  void handleDrop( QDropEvent * event );
+  void handleDrop(QDropEvent* event);
 
-private:
-
+  private:
   OSVectorController* m_vectorController;
   int m_minItems;
   int m_maxItems;
@@ -201,9 +197,9 @@ private:
   bool m_itemsAcceptDrops;
   bool m_itemsRemoveable;
   bool m_allowAdd;
-  QBoxLayout * m_mainBoxLayout;
+  QBoxLayout* m_mainBoxLayout;
   QScrollArea* m_scrollArea;
-  QPushButton * m_addButton;
+  QPushButton* m_addButton;
   bool m_growsHorizontally;
   bool m_useLargeIcon;
   QString m_text;
@@ -214,28 +210,24 @@ class OSItemDropZone : public QWidget
 {
   Q_OBJECT
 
-public:
-  OSItemDropZone(bool growsHorizontally,
-                 const QString & text,
-                 const QSize & size,
-                 QWidget * parent = nullptr);
+  public:
+  OSItemDropZone(bool growsHorizontally, const QString& text, const QSize& size, QWidget* parent = nullptr);
 
   virtual ~OSItemDropZone() {}
 
   void setExtensible(bool extensible);
 
-signals:
-  void dropped( QDropEvent * event );
+  signals:
+  void dropped(QDropEvent* event);
 
-protected:
-  void paintEvent ( QPaintEvent * event ) override;
-  void dragEnterEvent( QDragEnterEvent * event ) override;
-  void dropEvent( QDropEvent * event ) override;
+  protected:
+  void paintEvent(QPaintEvent* event) override;
+  void dragEnterEvent(QDragEnterEvent* event) override;
+  void dropEvent(QDropEvent* event) override;
 
-private:
+  private:
   QSize m_size;
   bool m_growsHorizontally;
-
 };
 
 // This is a version of OSDropZone that works with QGraphicsScene
@@ -246,7 +238,6 @@ class OSDropZoneItem : public QGraphicsObject, public Nano::Observer
   Q_OBJECT;
 
   public:
-
   OSDropZoneItem();
 
   virtual ~OSDropZoneItem() {}
@@ -255,34 +246,30 @@ class OSDropZoneItem : public QGraphicsObject, public Nano::Observer
 
   void setSize(double width, double height);
 
-  void setText(const QString & text);
+  void setText(const QString& text);
 
   signals:
 
   void mouseClicked();
 
-  void componentDropped(const OSItemId & itemid);
+  void componentDropped(const OSItemId& itemid);
 
   protected:
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
 
-  void paint( QPainter *painter,
-              const QStyleOptionGraphicsItem *option,
-              QWidget *widget ) override;
-
-  void mousePressEvent(QGraphicsSceneMouseEvent * event) override;
-  void mouseReleaseEvent(QGraphicsSceneMouseEvent * event) override;
-  void dropEvent(QGraphicsSceneDragDropEvent *event) override;
+  void mousePressEvent(QGraphicsSceneMouseEvent* event) override;
+  void mouseReleaseEvent(QGraphicsSceneMouseEvent* event) override;
+  void dropEvent(QGraphicsSceneDragDropEvent* event) override;
 
   QString m_text;
 
   private:
-
   bool m_mouseDown;
 
   double m_width;
   double m_height;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_OSDROPZONE_HPP
+#endif  // OPENSTUDIO_OSDROPZONE_HPP

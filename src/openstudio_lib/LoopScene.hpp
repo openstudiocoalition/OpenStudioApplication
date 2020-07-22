@@ -41,16 +41,16 @@
 namespace openstudio {
 
 namespace model {
-  class Splitter;
+class Splitter;
 
-  class Mixer;
+class Mixer;
 
-  class Node;
+class Node;
 
-  class HVACComponent;
+class HVACComponent;
 
-  class ModelObject;
-}
+class ModelObject;
+}  // namespace model
 
 class HorizontalBranchItem;
 
@@ -70,9 +70,7 @@ class LoopScene : public GridScene
   Q_OBJECT
 
   public:
-
-  LoopScene( model::Loop loop,
-             QObject *parent = nullptr );
+  LoopScene(model::Loop loop, QObject* parent = nullptr);
 
   virtual ~LoopScene() {}
 
@@ -80,9 +78,11 @@ class LoopScene : public GridScene
 
   public slots:
 
-  void addedWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> wPtr, const openstudio::IddObjectType& type, const openstudio::UUID& uuid);
+  void addedWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> wPtr, const openstudio::IddObjectType& type,
+                            const openstudio::UUID& uuid);
 
-  void removedWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> wPtr, const openstudio::IddObjectType& type, const openstudio::UUID& uuid);
+  void removedWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> wPtr, const openstudio::IddObjectType& type,
+                              const openstudio::UUID& uuid);
 
   void layout();
 
@@ -97,10 +97,9 @@ class LoopScene : public GridScene
   //void innerNodeClicked( model::ModelObject & );
 
   private:
+  DemandSideItem* createDemandSide();
 
-  DemandSideItem * createDemandSide();
-
-  SupplySideItem * createSupplySide();
+  SupplySideItem* createSupplySide();
 
   void initDefault();
 
@@ -109,6 +108,6 @@ class LoopScene : public GridScene
   bool m_dirty;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_LOOPSCENE_HPP
+#endif  // OPENSTUDIO_LOOPSCENE_HPP

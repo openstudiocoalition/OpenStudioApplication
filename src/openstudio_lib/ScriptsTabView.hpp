@@ -45,30 +45,27 @@ class ScriptsTabView : public MainTabView
   Q_OBJECT
 
   public:
-  ScriptsTabView(QWidget *t_parent);
+  ScriptsTabView(QWidget* t_parent);
 
   virtual ~ScriptsTabView() {}
 
-  QWidget * mainContent;
+  QWidget* mainContent;
 
-  OSListView * workflowView;
+  OSListView* workflowView;
 
   protected:
-
-  virtual void showEvent(QShowEvent *e) override;
+  virtual void showEvent(QShowEvent* e) override;
 
   private:
-
-  QPushButton * m_updateMeasuresButton;
+  QPushButton* m_updateMeasuresButton;
 
   boost::shared_ptr<SyncMeasuresDialog> m_syncMeasuresDialog;
 
   private slots:
 
   void openUpdateMeasuresDlg();
-
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_SCRIPTSTABVIEW_HPP
+#endif  // OPENSTUDIO_SCRIPTSTABVIEW_HPP

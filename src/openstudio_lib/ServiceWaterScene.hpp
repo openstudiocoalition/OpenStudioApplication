@@ -49,8 +49,7 @@ class ServiceWaterScene : public GridScene
   Q_OBJECT
 
   public:
-
-  ServiceWaterScene(const model::Model & model);
+  ServiceWaterScene(const model::Model& model);
 
   virtual ~ServiceWaterScene() {}
 
@@ -62,12 +61,13 @@ class ServiceWaterScene : public GridScene
 
   private slots:
 
-  void onAddedWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> wPtr, const openstudio::IddObjectType& type, const openstudio::UUID& uuid);
+  void onAddedWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> wPtr, const openstudio::IddObjectType& type,
+                              const openstudio::UUID& uuid);
 
-  void onRemovedWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> wPtr, const openstudio::IddObjectType& type, const openstudio::UUID& uuid);
+  void onRemovedWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> wPtr, const openstudio::IddObjectType& type,
+                                const openstudio::UUID& uuid);
 
   private:
-
   bool m_dirty;
 
   model::Model m_model;
@@ -78,8 +78,7 @@ class WaterUseConnectionsDetailScene : public GridScene
   Q_OBJECT
 
   public:
-
-  WaterUseConnectionsDetailScene(const model::WaterUseConnections & waterUseConnections);
+  WaterUseConnectionsDetailScene(const model::WaterUseConnections& waterUseConnections);
 
   virtual ~WaterUseConnectionsDetailScene() {}
 
@@ -95,17 +94,18 @@ class WaterUseConnectionsDetailScene : public GridScene
 
   private slots:
 
-  void onAddedWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> wPtr, const openstudio::IddObjectType& type, const openstudio::UUID& uuid);
+  void onAddedWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> wPtr, const openstudio::IddObjectType& type,
+                              const openstudio::UUID& uuid);
 
-  void onRemovedWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> wPtr, const openstudio::IddObjectType& type, const openstudio::UUID& uuid);
+  void onRemovedWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> wPtr, const openstudio::IddObjectType& type,
+                                const openstudio::UUID& uuid);
 
   private:
-
   bool m_dirty;
 
   model::WaterUseConnections m_waterUseConnections;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_SERVICEWATERSCENE_HPP
+#endif  // OPENSTUDIO_SERVICEWATERSCENE_HPP

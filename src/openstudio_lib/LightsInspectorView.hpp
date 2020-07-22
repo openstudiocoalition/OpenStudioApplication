@@ -46,50 +46,47 @@ class LightsDefinitionInspectorView : public ModelObjectInspectorView
   Q_OBJECT
 
   public:
+  LightsDefinitionInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
-    LightsDefinitionInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent = nullptr );
-
-    virtual ~LightsDefinitionInspectorView() {}
+  virtual ~LightsDefinitionInspectorView() {}
 
   protected:
+  virtual void onClearSelection() override;
 
-    virtual void onClearSelection() override;
+  virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
-    virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
-
-    virtual void onUpdate() override;
+  virtual void onUpdate() override;
 
   private:
+  void attach(openstudio::model::LightsDefinition& lightsDefinition);
 
-    void attach(openstudio::model::LightsDefinition & lightsDefinition);
+  void detach();
 
-    void detach();
+  void refresh();
 
-    void refresh();
+  OSLineEdit2* m_nameEdit;
 
-    OSLineEdit2* m_nameEdit;
+  OSQuantityEdit2* m_lightingLevelEdit;
 
-    OSQuantityEdit2 * m_lightingLevelEdit;
+  OSQuantityEdit2* m_wattsPerSpaceFloorAreaEdit;
 
-    OSQuantityEdit2 * m_wattsPerSpaceFloorAreaEdit;
+  OSQuantityEdit2* m_wattsPerPersonEdit;
 
-    OSQuantityEdit2 * m_wattsPerPersonEdit;
+  OSQuantityEdit2* m_fractionRadiantEdit;
 
-    OSQuantityEdit2 * m_fractionRadiantEdit;
+  OSQuantityEdit2* m_fractionVisibleEdit;
 
-    OSQuantityEdit2 * m_fractionVisibleEdit;
+  OSQuantityEdit2* m_returnAirFractionEdit;
 
-    OSQuantityEdit2 * m_returnAirFractionEdit;
+  bool m_isIP;
 
-    bool m_isIP;
-
-    boost::optional<model::LightsDefinition> m_lightsDefinition;
+  boost::optional<model::LightsDefinition> m_lightsDefinition;
 
   public slots:
 
-    void toggleUnits(bool displayIP) override;
+  void toggleUnits(bool displayIP) override;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_LIGHTSINSPECTORVIEW_HPP
+#endif  // OPENSTUDIO_LIGHTSINSPECTORVIEW_HPP

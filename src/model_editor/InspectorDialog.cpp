@@ -67,45 +67,33 @@
 using namespace openstudio;
 using namespace openstudio::model;
 
-InspectorDialog::InspectorDialog(InspectorDialogClient client, QWidget * parent)
-  : QMainWindow(parent),
-    m_inspectorGadget(nullptr),
-    m_workspaceChanged(false),
-    m_workspaceObjectAdded(false),
-    m_workspaceObjectRemoved(false)
-{
+InspectorDialog::InspectorDialog(InspectorDialogClient client, QWidget* parent)
+  : QMainWindow(parent), m_inspectorGadget(nullptr), m_workspaceChanged(false), m_workspaceObjectAdded(false), m_workspaceObjectRemoved(false) {
   init(client);
 }
 
-InspectorDialog::InspectorDialog(openstudio::model::Model& model,
-                                 InspectorDialogClient client,
-                                 QWidget * parent)
+InspectorDialog::InspectorDialog(openstudio::model::Model& model, InspectorDialogClient client, QWidget* parent)
   : QMainWindow(parent),
     m_inspectorGadget(nullptr),
     m_model(model),
     m_workspaceChanged(false),
     m_workspaceObjectAdded(false),
-    m_workspaceObjectRemoved(false)
-{
+    m_workspaceObjectRemoved(false) {
   init(client);
 }
 
-InspectorDialog::~InspectorDialog()
-{
-}
+InspectorDialog::~InspectorDialog() {}
 
-openstudio::IddObjectType InspectorDialog::iddObjectType() const
-{
+openstudio::IddObjectType InspectorDialog::iddObjectType() const {
   return m_iddObjectType;
 }
 
-bool InspectorDialog::setIddObjectType(const openstudio::IddObjectType& iddObjectType, bool force)
-{
-  if ((iddObjectType == m_iddObjectType) && !force){
+bool InspectorDialog::setIddObjectType(const openstudio::IddObjectType& iddObjectType, bool force) {
+  if ((iddObjectType == m_iddObjectType) && !force) {
     return true;
   }
 
-  if (m_typesToDisplay.find(iddObjectType) == m_typesToDisplay.end()){
+  if (m_typesToDisplay.find(iddObjectType) == m_typesToDisplay.end()) {
     return false;
   }
 
@@ -118,14 +106,14 @@ bool InspectorDialog::setIddObjectType(const openstudio::IddObjectType& iddObjec
   m_listWidget->setSortingEnabled(false);
   m_listWidget->clearSelection();
 
-  for (int i = 0; i < m_listWidget->count(); ++i){
+  for (int i = 0; i < m_listWidget->count(); ++i) {
 
     QVariant data = m_listWidget->item(i)->data(Qt::UserRole);
-    if (!data.isValid()){
+    if (!data.isValid()) {
       continue;
     }
 
-    if (data.toInt() == iddObjectType.value()){
+    if (data.toInt() == iddObjectType.value()) {
       //select this row
       m_listWidget->setCurrentRow(i);
       break;
@@ -141,14 +129,14 @@ bool InspectorDialog::setIddObjectType(const openstudio::IddObjectType& iddObjec
 
   // set the selection
   std::vector<Handle> selectedObjectHandles;
-  if (!m_objectHandles.empty()){
+  if (!m_objectHandles.empty()) {
     selectedObjectHandles.push_back(m_objectHandles[0]);
   }
   setSelectedObjectHandles(selectedObjectHandles, true);
 
   // determine if the selection widget should be hidden
   bool disabledType = true;
-  if (m_disableSelectionTypes.find(iddObjectType) == m_disableSelectionTypes.end()){
+  if (m_disableSelectionTypes.find(iddObjectType) == m_disableSelectionTypes.end()) {
     disabledType = false;
   }
 
@@ -159,36 +147,34 @@ bool InspectorDialog::setIddObjectType(const openstudio::IddObjectType& iddObjec
   return true;
 }
 
-std::vector<openstudio::Handle> InspectorDialog::selectedObjectHandles() const
-{
+std::vector<openstudio::Handle> InspectorDialog::selectedObjectHandles() const {
   return m_selectedObjectHandles;
 }
 
-bool InspectorDialog::setSelectedObjectHandles(const std::vector<openstudio::Handle>& selectedObjectHandles, bool force)
-{
+bool InspectorDialog::setSelectedObjectHandles(const std::vector<openstudio::Handle>& selectedObjectHandles, bool force) {
   // temporary disable multi select
-  if (selectedObjectHandles.size() > 1){
+  if (selectedObjectHandles.size() > 1) {
     return false;
   }
 
   // see if same selection
-  if (m_selectedObjectHandles.size() == selectedObjectHandles.size()){
+  if (m_selectedObjectHandles.size() == selectedObjectHandles.size()) {
     bool allMatch = true;
-    for (unsigned i = 0; i < m_selectedObjectHandles.size(); ++i){
-      if (m_selectedObjectHandles[i] != selectedObjectHandles[i]){
+    for (unsigned i = 0; i < m_selectedObjectHandles.size(); ++i) {
+      if (m_selectedObjectHandles[i] != selectedObjectHandles[i]) {
         allMatch = false;
         break;
       }
     }
-    if (allMatch && !force){
+    if (allMatch && !force) {
       return true;
     }
   }
 
   // check if selection is ok
-  for (Handle handle : selectedObjectHandles){
+  for (Handle handle : selectedObjectHandles) {
     boost::optional<WorkspaceObject> object = m_model.getObject(handle);
-    if (!object || (object->iddObject().type() != m_iddObjectType)){
+    if (!object || (object->iddObject().type() != m_iddObjectType)) {
       return false;
     }
   }
@@ -202,16 +188,14 @@ bool InspectorDialog::setSelectedObjectHandles(const std::vector<openstudio::Han
   m_tableWidget->setSortingEnabled(false);
   m_tableWidget->clearSelection();
 
-  for (int i = 0; i < m_tableWidget->rowCount(); ++i){
+  for (int i = 0; i < m_tableWidget->rowCount(); ++i) {
 
-    QString handleString = m_tableWidget->item(i,0)->data(Qt::UserRole).toString();
+    QString handleString = m_tableWidget->item(i, 0)->data(Qt::UserRole).toString();
     //std::string temp = toString(handleString);
     Handle handle(toUUID(handleString));
 
-    auto it = std::find(m_selectedObjectHandles.begin(),
-                        m_selectedObjectHandles.end(),
-                        handle);
-    if (it != m_selectedObjectHandles.end()){
+    auto it = std::find(m_selectedObjectHandles.begin(), m_selectedObjectHandles.end(), handle);
+    if (it != m_selectedObjectHandles.end()) {
       //select this row
       m_tableWidget->selectRow(i);
     }
@@ -223,14 +207,14 @@ bool InspectorDialog::setSelectedObjectHandles(const std::vector<openstudio::Han
   m_tableWidget->setUpdatesEnabled(true);
 
   // update inspector gadget
-  if (m_selectedObjectHandles.empty()){
+  if (m_selectedObjectHandles.empty()) {
     m_inspectorGadget->clear(true);
-  }else if (m_selectedObjectHandles.size() == 1){
+  } else if (m_selectedObjectHandles.size() == 1) {
     boost::optional<WorkspaceObject> workspaceObject = m_model.getObject(m_selectedObjectHandles[0]);
     OS_ASSERT(workspaceObject);
-    m_inspectorGadget->layoutModelObj(*workspaceObject,false,false,false,true);
+    m_inspectorGadget->layoutModelObj(*workspaceObject, false, false, false, true);
     m_inspectorGadget->createAllFields();
-  }else{
+  } else {
     // temporary do not allow multi select
     OS_ASSERT(false);
   }
@@ -243,32 +227,32 @@ bool InspectorDialog::setSelectedObjectHandles(const std::vector<openstudio::Han
   boost::optional<IddObject> iddObject = IddFactory::instance().getObject(m_iddObjectType);
   OS_ASSERT(iddObject);
 
-  if (iddObject->properties().unique){
+  if (iddObject->properties().unique) {
     enableCopy = false;
     enablePurge = false;
-    if (m_objectHandles.empty()){
+    if (m_objectHandles.empty()) {
       enableRemove = false;
-    }else{
+    } else {
       enableAdd = false;
-      if (iddObject->properties().required){
+      if (iddObject->properties().required) {
         enableRemove = false;
       }
     }
-  }else{
-    if (m_selectedObjectHandles.empty()){
+  } else {
+    if (m_selectedObjectHandles.empty()) {
       enableCopy = false;
       enableRemove = false;
-    }else if (m_selectedObjectHandles.size() == 1){
+    } else if (m_selectedObjectHandles.size() == 1) {
       // no-op
-    }else{
+    } else {
       enableCopy = false;
     }
   }
 
   std::vector<WorkspaceObject> objects = m_model.getObjectsByType(m_iddObjectType);
-  if (objects.empty()){
+  if (objects.empty()) {
     enablePurge = false;
-  }else if(!objects[0].optionalCast<ResourceObject>()){
+  } else if (!objects[0].optionalCast<ResourceObject>()) {
     enablePurge = false;
   }
 
@@ -283,14 +267,12 @@ bool InspectorDialog::setSelectedObjectHandles(const std::vector<openstudio::Han
   return true;
 }
 
-openstudio::model::Model InspectorDialog::model() const
-{
+openstudio::model::Model InspectorDialog::model() const {
   return m_model;
 }
 
-void InspectorDialog::setModel(openstudio::model::Model& model, bool force)
-{
-  if ((model == m_model) && !force){
+void InspectorDialog::setModel(openstudio::model::Model& model, bool force) {
+  if ((model == m_model) && !force) {
     return;
   }
 
@@ -313,13 +295,11 @@ void InspectorDialog::setModel(openstudio::model::Model& model, bool force)
   QTimer::singleShot(0, this, SLOT(setFocus()));
 }
 
-void InspectorDialog::rebuildInspectorGadget(bool recursive)
-{
+void InspectorDialog::rebuildInspectorGadget(bool recursive) {
   m_inspectorGadget->rebuild(recursive);
 }
 
-void InspectorDialog::saveState()
-{
+void InspectorDialog::saveState() {
   QString organizationName("OpenStudio");
   QString applicationName("InspectorDialog");
   QSettings settings(organizationName, applicationName);
@@ -327,8 +307,7 @@ void InspectorDialog::saveState()
   settings.setValue("State", QMainWindow::saveState());
 }
 
-void InspectorDialog::restoreState()
-{
+void InspectorDialog::restoreState() {
   QString organizationName("OpenStudio");
   QString applicationName("InspectorDialog");
   QSettings settings(organizationName, applicationName);
@@ -336,46 +315,36 @@ void InspectorDialog::restoreState()
   QMainWindow::restoreState(settings.value("State").toByteArray());
 }
 
-void InspectorDialog::onIddObjectTypeChanged(const openstudio::IddObjectType& iddObjectType)
-{
-}
+void InspectorDialog::onIddObjectTypeChanged(const openstudio::IddObjectType& iddObjectType) {}
 
-void InspectorDialog::onSelectedObjectHandlesChanged(const std::vector<openstudio::Handle>& selectedObjectHandles)
-{
-}
+void InspectorDialog::onSelectedObjectHandlesChanged(const std::vector<openstudio::Handle>& selectedObjectHandles) {}
 
-void InspectorDialog::onModelChanged(Model&)
-{
-}
+void InspectorDialog::onModelChanged(Model&) {}
 
-void InspectorDialog::showEvent(QShowEvent* event)
-{
+void InspectorDialog::showEvent(QShowEvent* event) {
   //restoreState();
   QWidget::showEvent(event);
 }
 
-void InspectorDialog::closeEvent(QCloseEvent* event)
-{
+void InspectorDialog::closeEvent(QCloseEvent* event) {
   saveState();
   QWidget::closeEvent(event);
 }
 
-void InspectorDialog::onPushButtonNew(bool)
-{
+void InspectorDialog::onPushButtonNew(bool) {
   boost::optional<WorkspaceObject> object = m_model.addObject(IdfObject(m_iddObjectType));
 
-  if (object){
+  if (object) {
     m_selectedObjectHandles.clear();
     m_selectedObjectHandles.push_back(object->handle());
     //setSelectedObjectHandles(m_selectedObjectHandles, true);
   }
 }
 
-void InspectorDialog::onPushButtonCopy(bool)
-{
-  if (m_selectedObjectHandles.size() == 1){
+void InspectorDialog::onPushButtonCopy(bool) {
+  if (m_selectedObjectHandles.size() == 1) {
     boost::optional<WorkspaceObject> workspaceObject = m_model.getObject(m_selectedObjectHandles[0]);
-    if (workspaceObject){
+    if (workspaceObject) {
       ModelObject object = workspaceObject->cast<ModelObject>().clone(m_model);
       m_selectedObjectHandles.clear();
       m_selectedObjectHandles.push_back(object.handle());
@@ -384,20 +353,18 @@ void InspectorDialog::onPushButtonCopy(bool)
   }
 }
 
-void InspectorDialog::onPushButtonDelete(bool)
-{
+void InspectorDialog::onPushButtonDelete(bool) {
   std::vector<Handle> handles = m_selectedObjectHandles;
-  for (Handle handle : handles){
+  for (Handle handle : handles) {
     boost::optional<WorkspaceObject> object = m_model.getObject(handle);
-    if (object){
+    if (object) {
       // calls model object remove
       object->remove();
     }
   }
 }
 
-void InspectorDialog::onPushButtonPurge(bool)
-{
+void InspectorDialog::onPushButtonPurge(bool) {
   m_model.purgeUnusedResourceObjects(m_iddObjectType);
 }
 
@@ -415,17 +382,16 @@ void InspectorDialog::onCheckBox(bool checked)
 }
 */
 
-void InspectorDialog::onListWidgetSelectionChanged()
-{
-  QList<QListWidgetItem *> selectedItems = m_listWidget->selectedItems();
+void InspectorDialog::onListWidgetSelectionChanged() {
+  QList<QListWidgetItem*> selectedItems = m_listWidget->selectedItems();
 
   // One row must be selected
-  if(selectedItems.count() == 1){
+  if (selectedItems.count() == 1) {
 
     //m_tableWidget->setSortingEnabled(false);
 
     QVariant data = selectedItems.at(0)->data(Qt::UserRole);
-    if (data.isValid()){
+    if (data.isValid()) {
       IddObjectType iddObjectType(data.toInt());
       setIddObjectType(iddObjectType);
     }
@@ -433,28 +399,26 @@ void InspectorDialog::onListWidgetSelectionChanged()
     // do not enable sorting
     //m_tableWidget->setSortingEnabled(true);
   }
-
 }
 
-void InspectorDialog::onTableWidgetSelectionChanged()
-{
+void InspectorDialog::onTableWidgetSelectionChanged() {
   std::vector<openstudio::Handle> selectedObjectHandles;
   getTableWidgetSelected(selectedObjectHandles);
   setSelectedObjectHandles(selectedObjectHandles, true);
 }
 
-void InspectorDialog::onAddWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl, const openstudio::IddObjectType& type, const openstudio::UUID& uuid)
-{
+void InspectorDialog::onAddWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl, const openstudio::IddObjectType& type,
+                                           const openstudio::UUID& uuid) {
   m_workspaceObjectAdded = true;
   m_workspaceChanged = true;
 
-  if (impl->iddObject().type() == m_iddObjectType){
+  if (impl->iddObject().type() == m_iddObjectType) {
 
     m_objectHandles.push_back(impl->handle());
 
-    if (m_selectedObjectHandles.empty()){
+    if (m_selectedObjectHandles.empty()) {
       m_selectedObjectHandles.push_back(impl->handle());
-    }else{
+    } else {
       // do we want to do this or preserve the current selection?
       // this functionality is now in onPushButtonNew
       //m_selectedObjectHandles.clear();
@@ -463,79 +427,73 @@ void InspectorDialog::onAddWorkspaceObject(std::shared_ptr<openstudio::detail::W
     }
   }
 
-  QTimer::singleShot(0,this,SLOT(onTimeout()));
-
+  QTimer::singleShot(0, this, SLOT(onTimeout()));
 }
 
-void InspectorDialog::onWorkspaceChange()
-{
+void InspectorDialog::onWorkspaceChange() {
   m_workspaceChanged = true;
 
-  QTimer::singleShot(0,this,SLOT(onTimeout()));
+  QTimer::singleShot(0, this, SLOT(onTimeout()));
 }
 
-void InspectorDialog::onTimeout()
-{
-  if (m_workspaceObjectAdded){
+void InspectorDialog::onTimeout() {
+  if (m_workspaceObjectAdded) {
     updateListWidgetData();
     m_workspaceObjectAdded = false;
   }
 
-  if (m_workspaceObjectRemoved){
+  if (m_workspaceObjectRemoved) {
     updateListWidgetData();
     m_workspaceObjectRemoved = false;
   }
 
-  if (m_workspaceChanged){
+  if (m_workspaceChanged) {
     loadTableWidgetData();
     setSelectedObjectHandles(m_selectedObjectHandles, true);
     m_workspaceChanged = false;
   }
 }
 
-void InspectorDialog::onRemoveWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl, const openstudio::IddObjectType& type, const openstudio::UUID& uuid)
-{
+void InspectorDialog::onRemoveWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl, const openstudio::IddObjectType& type,
+                                              const openstudio::UUID& uuid) {
   m_workspaceObjectRemoved = true;
   m_workspaceChanged = true;
 
   // if removed object is of current type
-  if (impl->iddObject().type() == m_iddObjectType){
+  if (impl->iddObject().type() == m_iddObjectType) {
 
-    auto it = std::remove(m_objectHandles.begin(),m_objectHandles.end(),impl->handle());
-    if (it != m_objectHandles.end()){
+    auto it = std::remove(m_objectHandles.begin(), m_objectHandles.end(), impl->handle());
+    if (it != m_objectHandles.end()) {
       m_objectHandles.erase(it, m_objectHandles.end());
     }
 
-    it = std::remove(m_selectedObjectHandles.begin(),m_selectedObjectHandles.end(),impl->handle());
-    if (it != m_selectedObjectHandles.end()){
+    it = std::remove(m_selectedObjectHandles.begin(), m_selectedObjectHandles.end(), impl->handle());
+    if (it != m_selectedObjectHandles.end()) {
       m_selectedObjectHandles.erase(it, m_selectedObjectHandles.end());
     }
 
-    if (m_selectedObjectHandles.empty()){
-      if (!m_objectHandles.empty()){
+    if (m_selectedObjectHandles.empty()) {
+      if (!m_objectHandles.empty()) {
         m_selectedObjectHandles.push_back(m_objectHandles[0]);
       }
     }
   }
 
-  QTimer::singleShot(0,this,SLOT(onTimeout()));
+  QTimer::singleShot(0, this, SLOT(onTimeout()));
 }
 
-void InspectorDialog::init(InspectorDialogClient client)
-{
+void InspectorDialog::init(InspectorDialogClient client) {
 
   QFile sketchUpPluginPolicy(":/SketchUpPluginPolicy.xml");
-  const auto toVector = [](const auto &data) {
-    return std::vector<char>(data.begin(), data.end());
-  };
+  const auto toVector = [](const auto& data) { return std::vector<char>(data.begin(), data.end()); };
 
-  switch (client.value()){
+  switch (client.value()) {
     case InspectorDialogClient::AllOpenStudio:
 
       m_iddFile = IddFactory::instance().getIddFile(IddFileType::OpenStudio);
 
       // everything is allowable
-      for (IddObject iddObject : m_iddFile.objects()){
+      for (IddObject iddObject : m_iddFile.objects()) {
         m_typesToDisplay.insert(iddObject.type());
       }
 
@@ -737,7 +695,7 @@ void InspectorDialog::init(InspectorDialogClient client)
 
   OS_ASSERT(!m_typesToDisplay.empty());
 
-  Qt::WindowFlags flags = Qt::Dialog | Qt::WindowMinMaxButtonsHint | Qt::WindowCloseButtonHint; // | Qt::WindowStaysOnTopHint;
+  Qt::WindowFlags flags = Qt::Dialog | Qt::WindowMinMaxButtonsHint | Qt::WindowCloseButtonHint;  // | Qt::WindowStaysOnTopHint;
   this->setWindowFlags(flags);
 
   setWindowIcon(QIcon(":/images/me_16.png"));
@@ -750,8 +708,7 @@ void InspectorDialog::init(InspectorDialogClient client)
   setModel(m_model, true);
 }
 
-void InspectorDialog::createWidgets()
-{
+void InspectorDialog::createWidgets() {
   /// The list widget
 
   QFont labelFont;
@@ -807,7 +764,7 @@ void InspectorDialog::createWidgets()
   m_tableWidget->setObjectName("tableWidget");
   m_tableWidget->setRowCount(0);
   m_tableWidget->setColumnCount(2);
-  m_tableWidget->sortByColumn (0, Qt::AscendingOrder);
+  m_tableWidget->sortByColumn(0, Qt::AscendingOrder);
   m_tableWidget->setSortingEnabled(false);
   m_tableWidget->setAlternatingRowColors(true);
   m_tableWidget->setShowGrid(false);
@@ -860,7 +817,7 @@ void InspectorDialog::createWidgets()
   auto noSelectionImage = new QLabel(this);
   noSelectionImage->setPixmap(QPixmap(":/images/alert_image.png"));
 
-  QLabel * noSelectionLabel = new QLabel("Pick your selection in SketchUp.", this);
+  QLabel* noSelectionLabel = new QLabel("Pick your selection in SketchUp.", this);
   noSelectionLabel->setFont(labelFont);
   noSelectionLabel->setMinimumHeight(40);
   noSelectionLabel->setAlignment(Qt::AlignCenter);
@@ -868,8 +825,8 @@ void InspectorDialog::createWidgets()
 
   auto noSelectionLayout = new QVBoxLayout;
   noSelectionLayout->addStretch();
-  noSelectionLayout->addWidget(noSelectionImage,0,Qt::AlignCenter);
-  noSelectionLayout->addWidget(noSelectionLabel,0,Qt::AlignCenter);
+  noSelectionLayout->addWidget(noSelectionImage, 0, Qt::AlignCenter);
+  noSelectionLayout->addWidget(noSelectionLabel, 0, Qt::AlignCenter);
   noSelectionLayout->addStretch();
 
   auto noSelectionWidget = new QWidget(this);
@@ -914,7 +871,7 @@ void InspectorDialog::createWidgets()
   leftSplitter->addWidget(tableHolderWidget);
 
   // The right widget
-/*
+  /*
   QSplitter* rightSplitter = new QSplitter(this);
   rightSplitter->setOrientation(Qt::Vertical);
   rightSplitter->addWidget(tableHolderWidget);
@@ -932,8 +889,7 @@ void InspectorDialog::createWidgets()
   hideSelectionWidget(true);
 }
 
-void InspectorDialog::connectSelfSignalsAndSlots()
-{
+void InspectorDialog::connectSelfSignalsAndSlots() {
   connect(m_pushButtonNew, &QPushButton::clicked, this, &InspectorDialog::onPushButtonNew);
 
   connect(m_pushButtonCopy, &QPushButton::clicked, this, &InspectorDialog::onPushButtonCopy);
@@ -953,37 +909,33 @@ void InspectorDialog::connectSelfSignalsAndSlots()
   connect(this, &InspectorDialog::modelChanged, this, &InspectorDialog::onModelChanged);
 }
 
-void InspectorDialog::connectModelSignalsAndSlots()
-{
+void InspectorDialog::connectModelSignalsAndSlots() {
   m_model.getImpl<model::detail::Model_Impl>().get()->addWorkspaceObjectPtr.connect<InspectorDialog, &InspectorDialog::onAddWorkspaceObject>(this);
 
   m_model.getImpl<model::detail::Model_Impl>().get()->onChange.connect<InspectorDialog, &InspectorDialog::onWorkspaceChange>(this);
 
-  m_model.getImpl<model::detail::Model_Impl>().get()->removeWorkspaceObjectPtr.connect<InspectorDialog, &InspectorDialog::onRemoveWorkspaceObject>(this);
+  m_model.getImpl<model::detail::Model_Impl>().get()->removeWorkspaceObjectPtr.connect<InspectorDialog, &InspectorDialog::onRemoveWorkspaceObject>(
+    this);
 }
 
-void InspectorDialog::hideSelectionWidget(bool hideSelectionWidget)
-{
+void InspectorDialog::hideSelectionWidget(bool hideSelectionWidget) {
   /// \todo If the code in InspectorDialog::setModel does not properly reset the focus as desired,
   ///       this is the backup plan. After the user clicks on a new section, this hack makes sure
   ///       the keyboard focus is correct. Todo: reevaluate with a new version of Qt in the future.
   /// \sa InspectorDialog::setModel
   setFocus();
 
-  if(hideSelectionWidget){
+  if (hideSelectionWidget) {
     m_stackedWidget->setCurrentIndex(1);
-  }
-  else{
+  } else {
     m_stackedWidget->setCurrentIndex(0);
   }
 }
 
-void InspectorDialog::loadStyleSheet()
-{
+void InspectorDialog::loadStyleSheet() {
   QFile data(":/InspectorDialog.qss");
   QString style;
-  if(data.open(QFile::ReadOnly))
-  {
+  if (data.open(QFile::ReadOnly)) {
     QTextStream styleIn(&data);
     style = styleIn.readAll();
     data.close();
@@ -991,35 +943,34 @@ void InspectorDialog::loadStyleSheet()
   }
 }
 
-void InspectorDialog::loadListWidgetData()
-{
+void InspectorDialog::loadListWidgetData() {
   QFont groupFont;
   //groupFont.setPointSize(12);
   groupFont.setBold(true);
 
   //backgroundGradient.setColorAt(0.66, QColor(208,212,215));
   //backgroundGradient.setColorAt(1, QColor(107,116,123));
-  QBrush groupBackground(QColor(208,212,215));
+  QBrush groupBackground(QColor(208, 212, 215));
 
-  QBrush groupForeground(QColor(0,0,0));
+  QBrush groupForeground(QColor(0, 0, 0));
 
-  QBrush itemBackground(QColor(255,255,255));
+  QBrush itemBackground(QColor(255, 255, 255));
 
-  QBrush itemAlternateBackground(QColor(238,238,238));
+  QBrush itemAlternateBackground(QColor(238, 238, 238));
 
   QListWidgetItem* listItem;
-  for (const std::string& group : m_iddFile.groups()){
+  for (const std::string& group : m_iddFile.groups()) {
 
     // quick check if group is empty
     bool empty = true;
-    for (const IddObject& iddObject : m_iddFile.getObjectsInGroup(group)){
-      if (m_typesToDisplay.find(iddObject.type()) != m_typesToDisplay.end()){
+    for (const IddObject& iddObject : m_iddFile.getObjectsInGroup(group)) {
+      if (m_typesToDisplay.find(iddObject.type()) != m_typesToDisplay.end()) {
         empty = false;
         break;
       }
     }
 
-    if (empty){
+    if (empty) {
       continue;
     }
 
@@ -1034,10 +985,10 @@ void InspectorDialog::loadListWidgetData()
 
     // add each object
     bool alternate = false;
-    for (const IddObject& iddObject : m_iddFile.getObjectsInGroup(group)){
+    for (const IddObject& iddObject : m_iddFile.getObjectsInGroup(group)) {
 
       IddObjectType type = iddObject.type();
-      if (m_typesToDisplay.find(type) == m_typesToDisplay.end()){
+      if (m_typesToDisplay.find(type) == m_typesToDisplay.end()) {
         continue;
       }
 
@@ -1050,10 +1001,10 @@ void InspectorDialog::loadListWidgetData()
       listItem->setFlags(Qt::NoItemFlags | Qt::ItemIsEnabled | Qt::ItemIsSelectable);
       listItem->setData(Qt::UserRole, type.value());
 
-      if (alternate){
+      if (alternate) {
         listItem->setBackground(itemAlternateBackground);
 
-      }else{
+      } else {
         listItem->setBackground(itemBackground);
       }
 
@@ -1064,12 +1015,11 @@ void InspectorDialog::loadListWidgetData()
   }
 }
 
-void InspectorDialog::updateListWidgetData()
-{
-  for (int i = 0; i < m_listWidget->count(); ++i){
+void InspectorDialog::updateListWidgetData() {
+  for (int i = 0; i < m_listWidget->count(); ++i) {
 
     QVariant data = m_listWidget->item(i)->data(Qt::UserRole);
-    if (!data.isValid()){
+    if (!data.isValid()) {
       continue;
     }
 
@@ -1080,13 +1030,9 @@ void InspectorDialog::updateListWidgetData()
     text += QString(" (") + QString::number(numObjects) + QString(")");
     m_listWidget->item(i)->setText(text);
   }
-
-
 }
 
-
-void InspectorDialog::loadTableWidgetData()
-{
+void InspectorDialog::loadTableWidgetData() {
   m_tableWidget->setUpdatesEnabled(false);
   m_tableWidget->blockSignals(true);
 
@@ -1103,20 +1049,20 @@ void InspectorDialog::loadTableWidgetData()
   // all object handles
   m_objectHandles.clear();
 
-  int i=0, j=0;
+  int i = 0, j = 0;
   //bool connected;
   //QCheckBox * checkBox;
 
   std::vector<WorkspaceObject> objects = m_model.getObjectsByType(m_iddObjectType);
 
-  for (WorkspaceObject object : objects){
+  for (WorkspaceObject object : objects) {
 
     m_objectHandles.push_back(object.handle());
 
     m_tableWidget->insertRow(m_tableWidget->rowCount());
 
     QString displayName("(No Name)");
-    if(object.name()){
+    if (object.name()) {
       displayName = object.name().get().c_str();
     }
     unsigned numSources = object.numSources();
@@ -1127,35 +1073,33 @@ void InspectorDialog::loadTableWidgetData()
     QString handleString(toQString(object.handle()));
     //std::string temp = toString(handleString);
     tableItem->setData(Qt::UserRole, handleString);
-    m_tableWidget->setItem(i,j++,tableItem);
+    m_tableWidget->setItem(i, j++, tableItem);
 
     QString description = object.comment().c_str();
     tableItem = new QTableWidgetItem(description);
     tableItem->setFlags(Qt::NoItemFlags | Qt::ItemIsEnabled | Qt::ItemIsSelectable);
-    m_tableWidget->setItem(i,j++,tableItem);
+    m_tableWidget->setItem(i, j++, tableItem);
 
     i++;
-    j=0;
+    j = 0;
   }
   m_tableWidget->setSortingEnabled(true);
   m_tableWidget->horizontalHeader()->resizeSections(QHeaderView::ResizeToContents);
   m_tableWidget->horizontalHeader()->setStretchLastSection(true);
   m_tableWidget->blockSignals(false);
   m_tableWidget->setUpdatesEnabled(true);
-
 }
 
-void InspectorDialog::getTableWidgetSelected(std::vector<openstudio::Handle>& selectedHandles)
-{
+void InspectorDialog::getTableWidgetSelected(std::vector<openstudio::Handle>& selectedHandles) {
   m_tableWidget->setSortingEnabled(false);
 
   selectedHandles.clear();
 
-  QList<QTableWidgetItem *> selectedItems = m_tableWidget->selectedItems();
+  QList<QTableWidgetItem*> selectedItems = m_tableWidget->selectedItems();
 
-  for (int i = 0; i < selectedItems.size(); ++i){
+  for (int i = 0; i < selectedItems.size(); ++i) {
     int column = m_tableWidget->column(selectedItems.at(i));
-    if (column == 0){
+    if (column == 0) {
       QString handleString = selectedItems.at(i)->data(Qt::UserRole).toString();
       //std::string temp = toString(handleString);
       selectedHandles.push_back(Handle(toUUID(handleString)));
@@ -1165,7 +1109,6 @@ void InspectorDialog::getTableWidgetSelected(std::vector<openstudio::Handle>& se
   m_tableWidget->setSortingEnabled(true);
 }
 
-void InspectorDialog::displayIP(const bool displayIP)
-{
-  if(m_inspectorGadget) m_inspectorGadget->toggleUnits(displayIP);
+void InspectorDialog::displayIP(const bool displayIP) {
+  if (m_inspectorGadget) m_inspectorGadget->toggleUnits(displayIP);
 }

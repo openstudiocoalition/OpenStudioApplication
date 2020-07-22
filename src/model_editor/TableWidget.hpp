@@ -35,28 +35,25 @@
 #include <openstudio/model/Building.hpp>
 #include "ModelEditorAPI.hpp"
 
-namespace modeleditor
-{
+namespace modeleditor {
 
 class MODELEDITOR_API TableWidget : public QTableWidget
 {
   Q_OBJECT
 
-public:
-  TableWidget(QWidget *parent = nullptr);
+  public:
+  TableWidget(QWidget* parent = nullptr);
   virtual ~TableWidget();
   void populateTable(const openstudio::WorkspaceObject& obj);
 
-public slots:
+  public slots:
 
-signals:
+  signals:
 
-protected:
-
-private:
-
+  protected:
+  private:
 };
 
-} // namespace modeleditor
+}  // namespace modeleditor
 
-#endif // MODELEDITOR_TABLEWIDGET_HPP
+#endif  // MODELEDITOR_TABLEWIDGET_HPP

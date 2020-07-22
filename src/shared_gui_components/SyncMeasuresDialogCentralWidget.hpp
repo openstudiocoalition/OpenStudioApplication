@@ -51,44 +51,40 @@ class SyncMeasuresDialogCentralWidget : public QWidget
 {
   Q_OBJECT
 
-public:
-  SyncMeasuresDialogCentralWidget(const WorkflowJSON& workflow,
-    MeasureManager * measureManager,
-    QWidget * parent = nullptr);
+  public:
+  SyncMeasuresDialogCentralWidget(const WorkflowJSON& workflow, MeasureManager* measureManager, QWidget* parent = nullptr);
   virtual ~SyncMeasuresDialogCentralWidget() {}
 
-  Component * checkedComponent() const;
-  void setMeasures(const std::vector<BCLMeasure> & measures);
-  QProgressBar * progressBar;
-  QPushButton * lowerPushButton;
+  Component* checkedComponent() const;
+  void setMeasures(const std::vector<BCLMeasure>& measures);
+  QProgressBar* progressBar;
+  QPushButton* lowerPushButton;
 
-protected:
-
-private:
+  protected:
+  private:
   void createLayout();
   void init();
   void displayMeasures(int pageIdx);
 
-  CollapsibleComponentList * m_collapsibleComponentList;
-  ComponentList * m_componentList;
+  CollapsibleComponentList* m_collapsibleComponentList;
+  ComponentList* m_componentList;
   int m_pageIdx;
   std::vector<BCLMeasure> m_measures;
   WorkflowJSON m_workflow;
-  MeasureManager * m_measureManager;
+  MeasureManager* m_measureManager;
 
-signals:
+  signals:
   void componentClicked(bool checked);
   void getComponentsByPage(int pageNum);
   void noComponents();
   void closeDlg();
 
-private slots:
+  private slots:
   void upperPushButtonClicked();
   void lowerPushButtonClicked();
   void on_getComponentsByPage(int pageIdx);
-
 };
 
-} // namespace openstudio
+}  // namespace openstudio
 
-#endif // SHAREDGUICOMPONENTS_SYNCMEASURESDIALOGCENTRALWIDGET_HPP
+#endif  // SHAREDGUICOMPONENTS_SYNCMEASURESDIALOGCENTRALWIDGET_HPP

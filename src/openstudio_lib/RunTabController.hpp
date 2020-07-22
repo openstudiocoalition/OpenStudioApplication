@@ -41,7 +41,7 @@ namespace openstudio {
 //}
 
 namespace model {
-  class Model;
+class Model;
 }
 
 class RunView;
@@ -50,10 +50,9 @@ class RunTabController : public MainTabController
 {
   Q_OBJECT
 
- public:
-
-  RunTabController(const model::Model & model, const openstudio::path &t_modelPath,
-      const openstudio::path &t_tempFolder);//, openstudio::runmanager::RunManager t_runManager);
+  public:
+  RunTabController(const model::Model& model, const openstudio::path& t_modelPath,
+                   const openstudio::path& t_tempFolder);  //, openstudio::runmanager::RunManager t_runManager);
 
   virtual ~RunTabController() {}
 
@@ -67,22 +66,20 @@ class RunTabController : public MainTabController
     TREE
   };
 
- signals:
-    void resultsGenerated(const openstudio::path &t_sqlFile, const openstudio::path &t_radianceOutputFile);
-    void toolsUpdated();
-    //void useRadianceStateChanged(bool);
+  signals:
+  void resultsGenerated(const openstudio::path& t_sqlFile, const openstudio::path& t_radianceOutputFile);
+  void toolsUpdated();
+  //void useRadianceStateChanged(bool);
 
+  public slots:
+  void updateToolsWarnings();
 
- public slots:
-    void updateToolsWarnings();
-
- private:
-
+  private:
   //RunView * m_runView;
 
   //openstudio::runmanager::JobStatusWidget * m_status;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_RUNTABCONTROLLER_HPP
+#endif  // OPENSTUDIO_RUNTABCONTROLLER_HPP

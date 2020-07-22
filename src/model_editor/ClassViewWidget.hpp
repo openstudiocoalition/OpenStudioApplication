@@ -37,8 +37,7 @@
 #include <openstudio/model/Building.hpp>
 #include "ModelEditorAPI.hpp"
 
-namespace modeleditor
-{
+namespace modeleditor {
 
 class TableModel;
 class TableView;
@@ -47,9 +46,9 @@ class ClassViewWidget : public ViewWidget
 {
   Q_OBJECT
 
-public:
-  ClassViewWidget(openstudio::model::Model& model, QWidget *parent = nullptr);
-  ClassViewWidget(QWidget *parent = nullptr);
+  public:
+  ClassViewWidget(openstudio::model::Model& model, QWidget* parent = nullptr);
+  ClassViewWidget(QWidget* parent = nullptr);
   virtual ~ClassViewWidget();
   void loadWorkspace(const openstudio::Workspace& workspace);
   virtual void addObjects(openstudio::IddObjectType type = openstudio::IddObjectType("UserCustom")) override;
@@ -59,34 +58,33 @@ public:
   virtual void pasteObjects() override;
   virtual bool hasSelectedRows() override;
   virtual bool hasRowsToPaste() override;
-  TableView * getTableView();
-  TableModel * getTableModel();
+  TableView* getTableView();
+  TableModel* getTableModel();
   virtual void toggleGUIDs() override;
 
-public slots:
+  public slots:
   virtual void viewSelection(const QModelIndex& modelIndex) override;
   virtual void on_nameChanged(QString) override;
   virtual void viewSelection();
 
-signals:
+  signals:
 
-protected:
-  TableView * mTableView;
-  TableModel * mTableModel;
+  protected:
+  TableView* mTableView;
+  TableModel* mTableModel;
 
-private:
+  private:
   virtual void createWidgets() override;
   virtual void connectSignalsAndSlots() override;
   virtual void createLayout() override;
   virtual void loadData() override;
   virtual void loadModel(openstudio::model::Model& model) override;
-  void insertObjects(const QModelIndexList& rowList,
-    const std::vector<openstudio::IdfObject>& idfObjects,
-    std::vector<openstudio::WorkspaceObject>& wsObjects);
+  void insertObjects(const QModelIndexList& rowList, const std::vector<openstudio::IdfObject>& idfObjects,
+                     std::vector<openstudio::WorkspaceObject>& wsObjects);
 
   std::vector<openstudio::IdfObject> mIdfObjectsToPaste;
 };
 
-} // namespace modeleditor
+}  // namespace modeleditor
 
-#endif // MODELEDITOR_CLASSVIEWWIDGET_HPP
+#endif  // MODELEDITOR_CLASSVIEWWIDGET_HPP

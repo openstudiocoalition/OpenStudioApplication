@@ -44,17 +44,13 @@ class ModelObjectTypeItem : public OSCollapsibleItem
   Q_OBJECT
 
   public:
+  ModelObjectTypeItem(OSCollapsibleItemHeader* collapsibleItemHeader, ModelObjectListView* modelObjectListView, QWidget* parent = nullptr);
 
-    ModelObjectTypeItem(OSCollapsibleItemHeader* collapsibleItemHeader,
-                        ModelObjectListView* modelObjectListView,
-                        QWidget * parent = nullptr );
+  virtual ~ModelObjectTypeItem() {}
 
-    virtual ~ModelObjectTypeItem() {}
-
-    IddObjectType iddObjectType() const;
-
+  IddObjectType iddObjectType() const;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_MODELOBJECTTYPEITEM_HPP
+#endif  // OPENSTUDIO_MODELOBJECTTYPEITEM_HPP

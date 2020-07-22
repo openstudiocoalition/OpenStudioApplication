@@ -98,27 +98,18 @@
 
 namespace openstudio {
 
-LocationTabView::LocationTabView(const model::Model & model,
-  const QString& modelTempDir,
-  QWidget * parent)
-  : MainTabView("Site", MainTabView::SUB_TAB, parent)
-{
-}
+LocationTabView::LocationTabView(const model::Model& model, const QString& modelTempDir, QWidget* parent)
+  : MainTabView("Site", MainTabView::SUB_TAB, parent) {}
 
-LocationTabView::~LocationTabView()
-{
-}
+LocationTabView::~LocationTabView() {}
 
-LocationView::LocationView(bool isIP,
-  const model::Model & model,
-  const QString& modelTempDir)
+LocationView::LocationView(bool isIP, const model::Model& model, const QString& modelTempDir)
   : QWidget(),
-  m_model(model),
-  m_site(m_model.getUniqueModelObject<model::Site>()),
-  m_yearDescription(m_model.getUniqueModelObject<model::YearDescription>()),
-  m_modelTempDir(modelTempDir),
-  m_isIP(isIP)
-{
+    m_model(model),
+    m_site(m_model.getUniqueModelObject<model::Site>()),
+    m_yearDescription(m_model.getUniqueModelObject<model::YearDescription>()),
+    m_modelTempDir(modelTempDir),
+    m_isIP(isIP) {
   OS_ASSERT(m_site);
 
   loadQSettings();
@@ -266,13 +257,15 @@ LocationView::LocationView(bool isIP,
   measureTagsGridLayout->addWidget(m_ashraeClimateZone, i++, 1);
 
   m_ashraeClimateZone->addItem("");
-  std::vector<std::string> ashraeClimateZoneValues = model::ClimateZones::validClimateZoneValues(model::ClimateZones::ashraeInstitutionName(), model::ClimateZones::ashraeDefaultYear());
-  for (const std::string& climateZone : ashraeClimateZoneValues){
+  std::vector<std::string> ashraeClimateZoneValues =
+    model::ClimateZones::validClimateZoneValues(model::ClimateZones::ashraeInstitutionName(), model::ClimateZones::ashraeDefaultYear());
+  for (const std::string& climateZone : ashraeClimateZoneValues) {
     m_ashraeClimateZone->addItem(toQString(climateZone));
   }
 
-  model::ClimateZone ashraeClimateZone = climateZones.getClimateZone(model::ClimateZones::ashraeInstitutionName(), model::ClimateZones::ashraeDefaultYear());
-  if (ashraeClimateZone.empty()){
+  model::ClimateZone ashraeClimateZone =
+    climateZones.getClimateZone(model::ClimateZones::ashraeInstitutionName(), model::ClimateZones::ashraeDefaultYear());
+  if (ashraeClimateZone.empty()) {
     ashraeClimateZone = climateZones.appendClimateZone(model::ClimateZones::ashraeInstitutionName(), model::ClimateZones::ashraeDefaultYear(), "");
   }
   //ashraeClimateZone.setType(model::ClimateZones::ashraeInstitutionName(), model::ClimateZones::ashraeDocumentName(), model::ClimateZones::ashraeDefaultYear());
@@ -282,7 +275,8 @@ LocationView::LocationView(bool isIP,
   OS_ASSERT(idx != -1);
   m_ashraeClimateZone->setCurrentIndex(idx);
 
-  connect(m_ashraeClimateZone, static_cast<void (QComboBox::*)(const QString &)>(&QComboBox::currentIndexChanged), this, &LocationView::onASHRAEClimateZoneChanged);
+  connect(m_ashraeClimateZone, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentIndexChanged), this,
+          &LocationView::onASHRAEClimateZoneChanged);
 
   label = new QLabel("CEC Climate Zone");
   label->setObjectName("StandardsInfo");
@@ -294,13 +288,14 @@ LocationView::LocationView(bool isIP,
   measureTagsGridLayout->addWidget(m_cecClimateZone, i++, 1);
 
   m_cecClimateZone->addItem("");
-  std::vector<std::string> cecClimateZoneValues = model::ClimateZones::validClimateZoneValues(model::ClimateZones::cecInstitutionName(), model::ClimateZones::cecDefaultYear());
-  for (const std::string& climateZone : cecClimateZoneValues){
+  std::vector<std::string> cecClimateZoneValues =
+    model::ClimateZones::validClimateZoneValues(model::ClimateZones::cecInstitutionName(), model::ClimateZones::cecDefaultYear());
+  for (const std::string& climateZone : cecClimateZoneValues) {
     m_cecClimateZone->addItem(toQString(climateZone));
   }
 
   model::ClimateZone cecClimateZone = climateZones.getClimateZone(model::ClimateZones::cecInstitutionName(), model::ClimateZones::cecDefaultYear());
-   if (cecClimateZone.empty()){
+  if (cecClimateZone.empty()) {
     cecClimateZone = climateZones.appendClimateZone(model::ClimateZones::cecInstitutionName(), model::ClimateZones::cecDefaultYear(), "");
   }
   //cecClimateZone.setType(model::ClimateZones::cecInstitutionName(), model::ClimateZones::cecDocumentName(), model::ClimateZones::cecDefaultYear());
@@ -310,7 +305,8 @@ LocationView::LocationView(bool isIP,
   OS_ASSERT(idx != -1);
   m_cecClimateZone->setCurrentIndex(idx);
 
-  connect(m_cecClimateZone, static_cast<void (QComboBox::*)(const QString &)>(&QComboBox::currentIndexChanged), this, &LocationView::onCECClimateZoneChanged);
+  connect(m_cecClimateZone, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentIndexChanged), this,
+          &LocationView::onCECClimateZoneChanged);
 
   // ***** Measure Tags GridLayout *****
   measureTagsGridLayout->setColumnStretch(i, 10);
@@ -389,52 +385,42 @@ LocationView::LocationView(bool isIP,
   onSelectItem();
 }
 
-LocationView::~LocationView()
-{
+LocationView::~LocationView() {
   saveQSettings();
 }
 
 bool LocationView::calendarYearChecked() {
   if (m_yearSettingsWidget) {
     return m_yearSettingsWidget->calendarYearChecked();
-  }
-  else {
+  } else {
     return false;
   }
 }
 
-std::vector<model::ModelObject> LocationView::selectedObjects() const
-{
+std::vector<model::ModelObject> LocationView::selectedObjects() const {
   return m_designDaysGridView->selectedObjects();
 }
 
-void LocationView::onSelectModelObject(const openstudio::model::ModelObject& modelObject)
-{}
+void LocationView::onSelectModelObject(const openstudio::model::ModelObject& modelObject) {}
 
-void LocationView::onUpdate()
-{}
+void LocationView::onUpdate() {}
 
-void LocationView::refresh()
-{}
+void LocationView::refresh() {}
 
-void LocationView::toggleUnits(bool isIP)
-{
+void LocationView::toggleUnits(bool isIP) {
   m_isIP = isIP;
 }
 
-void LocationView::onSiteNameChanged(const QString & text)
-{
+void LocationView::onSiteNameChanged(const QString& text) {
   auto temp = m_site->setName(text.toStdString());
   if (!temp) {
     m_siteName->setText("");
-  }
-  else if (QString(temp.get().c_str()) != text) {
+  } else if (QString(temp.get().c_str()) != text) {
     m_siteName->setText(temp.get().c_str());
   }
 }
 
-void LocationView::loadQSettings()
-{
+void LocationView::loadQSettings() {
   QString organizationName = QCoreApplication::organizationName();
   QString applicationName = QCoreApplication::applicationName();
   QSettings settings(organizationName, applicationName);
@@ -442,8 +428,7 @@ void LocationView::loadQSettings()
   m_lastDdyPathOpened = settings.value("m_lastDdyPathOpened").toString();
 }
 
-void LocationView::saveQSettings() const
-{
+void LocationView::saveQSettings() const {
   QString organizationName = QCoreApplication::organizationName();
   QString applicationName = QCoreApplication::applicationName();
   QSettings settings(organizationName, applicationName);
@@ -451,8 +436,7 @@ void LocationView::saveQSettings() const
   settings.setValue("m_lastDdyPathOpened", m_lastDdyPathOpened);
 }
 
-void LocationView::update()
-{
+void LocationView::update() {
   boost::optional<model::WeatherFile> weatherFile = m_model.getOptionalUniqueModelObject<model::WeatherFile>();
   if (weatherFile) {
 
@@ -467,7 +451,7 @@ void LocationView::update()
           // Construct the absolute path as dictated by the osm location, and check for the file
           QString savePath, filePath;
 
-          openstudio::OSAppBase * app = OSAppBase::instance();
+          openstudio::OSAppBase* app = OSAppBase::instance();
           if (app && app->currentDocument()) {
 
             savePath = app->currentDocument()->savePath();
@@ -489,28 +473,23 @@ void LocationView::update()
     if (fileExists) {
       m_weatherFileBtn->setText(CHANGEWEATHERFILE);
       setSiteInfo();
-    }
-    else {
+    } else {
       m_weatherFileBtn->setText(SETWEATHERFILE);
       clearSiteInfo();
     }
-  }
-  else {
+  } else {
     m_weatherFileBtn->setText(SETWEATHERFILE);
     clearSiteInfo();
   }
-
 }
 
-void LocationView::setSiteInfo()
-{
+void LocationView::setSiteInfo() {
   QString info;
   QString temp;
 
   if (m_site->name() && !m_site->name()->empty()) {
     m_siteName->setText(m_site->name().get().c_str());
-  }
-  else {
+  } else {
     m_siteName->setText("");
   }
 
@@ -535,8 +514,7 @@ void LocationView::setSiteInfo()
   m_timeZoneLbl->setText(info);
 }
 
-void LocationView::clearSiteInfo()
-{
+void LocationView::clearSiteInfo() {
   m_siteName->setText("");
 
   m_latitudeLbl->setText(LATITUDE);
@@ -549,12 +527,11 @@ void LocationView::clearSiteInfo()
 }
 
 // ***** SLOTS *****
-void LocationView::onWeatherFileBtnClicked()
-{
+void LocationView::onWeatherFileBtnClicked() {
   QString fileTypes("EPW Files (*.epw);; All Files (*.*)");
 
   QString lastPath = m_lastEpwPathOpened;
-  if (lastPath.isEmpty() && m_lastDdyPathOpened.isEmpty()){
+  if (lastPath.isEmpty() && m_lastDdyPathOpened.isEmpty()) {
     //openstudio::runmanager::ConfigOptions co(true);
     //lastPath = toQString(co.getDefaultEPWLocation().native());
   } else if (lastPath.isEmpty()) {
@@ -562,8 +539,8 @@ void LocationView::onWeatherFileBtnClicked()
     lastPath = path.replace(".ddy", ".epw");
   }
 
-  QString fileName = QFileDialog::getOpenFileName(this,"Open Weather File",lastPath,fileTypes);
-  if(!fileName.isEmpty()){
+  QString fileName = QFileDialog::getOpenFileName(this, "Open Weather File", lastPath, fileTypes);
+  if (!fileName.isEmpty()) {
 
     openstudio::path epwPath = toPath(fileName);
     openstudio::path newPath = toPath(m_modelTempDir) / toPath("resources/files") / epwPath.filename();
@@ -573,16 +550,16 @@ void LocationView::onWeatherFileBtnClicked()
     ss.setChannelRegex(boost::regex(".*EpwFile.*"));
     ss.setLogLevel(Error);
 
-    try{
+    try {
 
       boost::optional<openstudio::model::WeatherFile> weatherFile = m_model.getOptionalUniqueModelObject<model::WeatherFile>();
 
-      if (weatherFile){
+      if (weatherFile) {
         boost::optional<openstudio::path> temp = weatherFile->path();
-        if (temp){
+        if (temp) {
           openstudio::path previousEPWName = temp->filename();
           //std::string ex = toString(previousEPWName.extension());
-          if (!previousEPWName.empty() && previousEPWName.extension() == toPath(".epw")){
+          if (!previousEPWName.empty() && previousEPWName.extension() == toPath(".epw")) {
             previousEPWPath = toPath(m_modelTempDir) / toPath("resources/files") / previousEPWName;
           }
         }
@@ -596,7 +573,7 @@ void LocationView::onWeatherFileBtnClicked()
       EpwFile epwFile(newPath);
 
       double totalDays = (epwFile.endDate() - epwFile.startDate()).totalDays() + 1;
-      if (totalDays > 366){
+      if (totalDays > 366) {
         LOG_FREE(Error, "openstudio.EpwFile", "Cannot accept weather file with more than 366 days of data");
         throw openstudio::Exception("Cannot accept weather file with more than 366 days of data");
       }
@@ -607,9 +584,9 @@ void LocationView::onWeatherFileBtnClicked()
 
       m_model.workflowJSON().setWeatherFile(newPath.filename());
 
-      if (!previousEPWPath.empty()){
-        if (previousEPWPath.filename() != newPath.filename()){
-          if (openstudio::filesystem::exists(previousEPWPath)){
+      if (!previousEPWPath.empty()) {
+        if (previousEPWPath.filename() != newPath.filename()) {
+          if (openstudio::filesystem::exists(previousEPWPath)) {
             openstudio::filesystem::remove_all(previousEPWPath);
           }
         }
@@ -625,10 +602,10 @@ void LocationView::onWeatherFileBtnClicked()
       // set the calendar year or start day of week
       openstudio::model::YearDescription yearDescription = m_model.getUniqueModelObject<openstudio::model::YearDescription>();
       boost::optional<int> startDateActualYear = epwFile.startDateActualYear();
-      if (startDateActualYear){
+      if (startDateActualYear) {
         yearDescription.resetDayofWeekforStartDay();
         yearDescription.setCalendarYear(*startDateActualYear);
-      } else{
+      } else {
         yearDescription.resetCalendarYear();
         yearDescription.setDayofWeekforStartDay(epwFile.startDayOfWeek().valueName());
       }
@@ -644,7 +621,7 @@ void LocationView::onWeatherFileBtnClicked()
 
       update();
 
-    }catch(...){
+    } catch (...) {
 
       openstudio::filesystem::remove_all(newPath);
 
@@ -653,13 +630,13 @@ void LocationView::onWeatherFileBtnClicked()
       box.exec();
 
       boost::optional<model::WeatherFile> weatherFile = m_model.weatherFile();
-      if (weatherFile){
+      if (weatherFile) {
         boost::optional<openstudio::path> weatherFilePath = weatherFile->path();
-        if (weatherFilePath){
-          if (!previousEPWPath.empty()){
-            if (previousEPWPath.filename() != weatherFilePath->filename()){
+        if (weatherFilePath) {
+          if (!previousEPWPath.empty()) {
+            if (previousEPWPath.filename() != weatherFilePath->filename()) {
               weatherFile->remove();
-            }else if (!openstudio::filesystem::exists(previousEPWPath)){
+            } else if (!openstudio::filesystem::exists(previousEPWPath)) {
               weatherFile->remove();
             }
           }
@@ -671,12 +648,11 @@ void LocationView::onWeatherFileBtnClicked()
   }
 }
 
-void LocationView::onDesignDayBtnClicked()
-{
+void LocationView::onDesignDayBtnClicked() {
   QString fileTypes("Files (*.ddy)");
 
   QString lastPath = m_lastDdyPathOpened;
-  if (lastPath.isEmpty() && m_lastEpwPathOpened.isEmpty()){
+  if (lastPath.isEmpty() && m_lastEpwPathOpened.isEmpty()) {
     //openstudio::runmanager::ConfigOptions co(true);
     //lastPath = toQString(co.getDefaultEPWLocation().native());
   } else if (lastPath.isEmpty()) {
@@ -684,18 +660,17 @@ void LocationView::onDesignDayBtnClicked()
     lastPath = path.replace(".epw", ".ddy");
   }
 
-  QString fileName = QFileDialog::getOpenFileName(this,"Open DDY File",lastPath,fileTypes);
-  if(!fileName.isEmpty()){
+  QString fileName = QFileDialog::getOpenFileName(this, "Open DDY File", lastPath, fileTypes);
+  if (!fileName.isEmpty()) {
 
     boost::optional<IdfFile> ddyIdfFile = openstudio::IdfFile::load(toPath(fileName));
-    if(ddyIdfFile){
+    if (ddyIdfFile) {
 
       openstudio::Workspace ddyWorkspace(StrictnessLevel::None, IddFileType::EnergyPlus);
-      for (IdfObject idfObject : ddyIdfFile->objects()){
+      for (IdfObject idfObject : ddyIdfFile->objects()) {
         IddObjectType iddObjectType = idfObject.iddObject().type();
-        if((iddObjectType == IddObjectType::SizingPeriod_DesignDay) ||
-           (iddObjectType == IddObjectType::SizingPeriod_WeatherFileDays) ||
-           (iddObjectType == IddObjectType::SizingPeriod_WeatherFileConditionType)){
+        if ((iddObjectType == IddObjectType::SizingPeriod_DesignDay) || (iddObjectType == IddObjectType::SizingPeriod_WeatherFileDays) ||
+            (iddObjectType == IddObjectType::SizingPeriod_WeatherFileConditionType)) {
 
           ddyWorkspace.addObject(idfObject);
         }
@@ -706,7 +681,7 @@ void LocationView::onDesignDayBtnClicked()
 
       // Use a heuristic based on the ddy files provided by EnergyPlus
       // Filter out the days that are not helpful.
-      if (!ddyModel.objects().empty()){
+      if (!ddyModel.objects().empty()) {
         // Containers to hold 99%, 99.6%, 2%, 1%, and 0.4% design points
         std::vector<model::DesignDay> days99;
         std::vector<model::DesignDay> days99_6;
@@ -720,59 +695,41 @@ void LocationView::onDesignDayBtnClicked()
           boost::optional<std::string> name;
           name = designDay.name();
 
-          if( name )
-          {
+          if (name) {
             QString qname = QString::fromStdString(name.get());
 
-            if( qname.contains("99%") )
-            {
+            if (qname.contains("99%")) {
               days99.push_back(designDay);
-            }
-            else if( qname.contains("99.6%") )
-            {
+            } else if (qname.contains("99.6%")) {
               days99_6.push_back(designDay);
-            }
-            else if( qname.contains("2%") )
-            {
+            } else if (qname.contains("2%")) {
               days2.push_back(designDay);
-            }
-            else if( qname.contains("1%") )
-            {
+            } else if (qname.contains("1%")) {
               days1.push_back(designDay);
-            }
-            else if( qname.contains(".4%") )
-            {
+            } else if (qname.contains(".4%")) {
               days0_4.push_back(designDay);
-            }
-            else
-            {
+            } else {
               unknownDay = true;
             }
           }
-
         }
 
         // Pick only the most stringent design points
-        if( ! unknownDay )
-        {
-          if( days99_6.size() > 0 )
-          {
+        if (!unknownDay) {
+          if (days99_6.size() > 0) {
             for (model::DesignDay designDay : days99) {
               designDay.remove();
             }
           }
 
-          if( days0_4.size() > 0 )
-          {
+          if (days0_4.size() > 0) {
             for (model::DesignDay designDay : days1) {
               designDay.remove();
             }
             for (model::DesignDay designDay : days2) {
               designDay.remove();
             }
-          }
-          else if( days1.size() > 0 )
-          {
+          } else if (days1.size() > 0) {
             for (model::DesignDay designDay : days2) {
               designDay.remove();
             }
@@ -787,52 +744,44 @@ void LocationView::onDesignDayBtnClicked()
         m_model.insertObjects(ddyModel.objects());
 
         m_lastDdyPathOpened = QFileInfo(fileName).absoluteFilePath();
-
       }
     }
 
     QTimer::singleShot(0, this, SLOT(checkNumDesignDays()));
-
   }
 }
 
-void LocationView::checkNumDesignDays()
-{
+void LocationView::checkNumDesignDays() {
   unsigned empty = m_model.getModelObjects<model::SizingPeriod>().empty();
 
   if (empty) {
-    QMessageBox box(QMessageBox::Warning,
-      "No Design Days in DDY File",
-      "This DDY file does not contain any valid design days.  Check the DDY file itself for errors or omissions.",
-      QMessageBox::Ok);
+    QMessageBox box(QMessageBox::Warning, "No Design Days in DDY File",
+                    "This DDY file does not contain any valid design days.  Check the DDY file itself for errors or omissions.", QMessageBox::Ok);
     box.exec();
   }
 }
 
-void LocationView::onASHRAEClimateZoneChanged(const QString& climateZone)
-{
+void LocationView::onASHRAEClimateZoneChanged(const QString& climateZone) {
   model::ClimateZones climateZones = m_model.getUniqueModelObject<model::ClimateZones>();
 
-  model::ClimateZone ashraeClimateZone = climateZones.getClimateZone(model::ClimateZones::ashraeInstitutionName(), model::ClimateZones::ashraeDefaultYear());
+  model::ClimateZone ashraeClimateZone =
+    climateZones.getClimateZone(model::ClimateZones::ashraeInstitutionName(), model::ClimateZones::ashraeDefaultYear());
   ashraeClimateZone.setValue(toString(climateZone));
 }
 
-void LocationView::onCECClimateZoneChanged(const QString& climateZone)
-{
+void LocationView::onCECClimateZoneChanged(const QString& climateZone) {
   model::ClimateZones climateZones = m_model.getUniqueModelObject<model::ClimateZones>();
   model::ClimateZone cecClimateZone = climateZones.getClimateZone(model::ClimateZones::cecInstitutionName(), model::ClimateZones::cecDefaultYear());
   cecClimateZone.setValue(toString(climateZone));
 }
 
-void LocationView::setCalendarYear(int year)
-{
+void LocationView::setCalendarYear(int year) {
   m_yearDescription->setCalendarYear(year);
 
   emit calendarYearSelectionChanged();
 }
 
-void LocationView::setFirstDayofYear(const QString & firstDayofYear)
-{
+void LocationView::setFirstDayofYear(const QString& firstDayofYear) {
   m_yearDescription->resetCalendarYear();
 
   m_yearDescription->setDayofWeekforStartDay(firstDayofYear.toStdString());
@@ -840,66 +789,51 @@ void LocationView::setFirstDayofYear(const QString & firstDayofYear)
   emit calendarYearSelectionChanged();
 }
 
-void LocationView::setDaylightSavingsTime(bool enabled)
-{
-  if( enabled )
-  {
+void LocationView::setDaylightSavingsTime(bool enabled) {
+  if (enabled) {
     m_model.getUniqueModelObject<model::RunPeriodControlDaylightSavingTime>();
-  }
-  else
-  {
-    if( boost::optional<model::RunPeriodControlDaylightSavingTime> dst =
-          m_model.getOptionalUniqueModelObject<model::RunPeriodControlDaylightSavingTime>() )
-    {
+  } else {
+    if (boost::optional<model::RunPeriodControlDaylightSavingTime> dst =
+          m_model.getOptionalUniqueModelObject<model::RunPeriodControlDaylightSavingTime>()) {
       dst->remove();
     }
   }
 }
 
-void LocationView::setDstStartDayOfWeekAndMonth(int newWeek, int newDay, int newMonth)
-{
-  model::RunPeriodControlDaylightSavingTime dst =
-    m_model.getUniqueModelObject<model::RunPeriodControlDaylightSavingTime>();
+void LocationView::setDstStartDayOfWeekAndMonth(int newWeek, int newDay, int newMonth) {
+  model::RunPeriodControlDaylightSavingTime dst = m_model.getUniqueModelObject<model::RunPeriodControlDaylightSavingTime>();
 
   dst.setStartDate(NthDayOfWeekInMonth(newWeek), DayOfWeek(newDay), MonthOfYear(newMonth));
 }
 
-void LocationView::setDstStartDate(const QDate & newdate)
-{
-  model::RunPeriodControlDaylightSavingTime dst =
-    m_model.getUniqueModelObject<model::RunPeriodControlDaylightSavingTime>();
+void LocationView::setDstStartDate(const QDate& newdate) {
+  model::RunPeriodControlDaylightSavingTime dst = m_model.getUniqueModelObject<model::RunPeriodControlDaylightSavingTime>();
 
-  dst.setStartDate(monthOfYear(newdate.month()),newdate.day());
+  dst.setStartDate(monthOfYear(newdate.month()), newdate.day());
 }
 
-void LocationView::setDstEndDayOfWeekAndMonth(int newWeek, int newDay, int newMonth)
-{
-  model::RunPeriodControlDaylightSavingTime dst =
-    m_model.getUniqueModelObject<model::RunPeriodControlDaylightSavingTime>();
+void LocationView::setDstEndDayOfWeekAndMonth(int newWeek, int newDay, int newMonth) {
+  model::RunPeriodControlDaylightSavingTime dst = m_model.getUniqueModelObject<model::RunPeriodControlDaylightSavingTime>();
 
   dst.setEndDate(NthDayOfWeekInMonth(newWeek), DayOfWeek(newDay), MonthOfYear(newMonth));
 }
 
-void LocationView::setDstEndDate(const QDate & newdate)
-{
-  model::RunPeriodControlDaylightSavingTime dst =
-    m_model.getUniqueModelObject<model::RunPeriodControlDaylightSavingTime>();
+void LocationView::setDstEndDate(const QDate& newdate) {
+  model::RunPeriodControlDaylightSavingTime dst = m_model.getUniqueModelObject<model::RunPeriodControlDaylightSavingTime>();
 
-  dst.setEndDate(monthOfYear(newdate.month()),newdate.day());
+  dst.setEndDate(monthOfYear(newdate.month()), newdate.day());
 }
 
-void LocationView::onSelectItem()
-{
+void LocationView::onSelectItem() {
   m_itemSelectorButtons->enableCopyButton();
   m_itemSelectorButtons->enableRemoveButton();
   m_itemSelectorButtons->enablePurgeButton();
 }
 
-void LocationView::onClearSelection()
-{
+void LocationView::onClearSelection() {
   m_itemSelectorButtons->disableCopyButton();
   m_itemSelectorButtons->disableRemoveButton();
   m_itemSelectorButtons->disablePurgeButton();
 }
 
-} // openstudio
+}  // namespace openstudio

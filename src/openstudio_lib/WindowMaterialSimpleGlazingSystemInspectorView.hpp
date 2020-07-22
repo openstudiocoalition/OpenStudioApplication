@@ -46,45 +46,41 @@ class WindowMaterialSimpleGlazingSystemInspectorView : public ModelObjectInspect
   Q_OBJECT
 
   public:
+  WindowMaterialSimpleGlazingSystemInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
-    WindowMaterialSimpleGlazingSystemInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent = nullptr);
-
-    virtual ~WindowMaterialSimpleGlazingSystemInspectorView() {}
+  virtual ~WindowMaterialSimpleGlazingSystemInspectorView() {}
 
   protected:
+  virtual void onClearSelection() override;
 
-    virtual void onClearSelection() override;
+  virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
-    virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
-
-    virtual void onUpdate() override;
+  virtual void onUpdate() override;
 
   private:
+  void createLayout();
 
-    void createLayout();
+  void attach(openstudio::model::SimpleGlazing& SimpleGlazing);
 
-    void attach(openstudio::model::SimpleGlazing & SimpleGlazing);
+  void detach();
 
-    void detach();
+  void refresh();
 
-    void refresh();
+  bool m_isIP;
 
-    bool m_isIP;
+  boost::optional<model::SimpleGlazing> m_simpleGlazing;
 
-    boost::optional<model::SimpleGlazing> m_simpleGlazing;
+  OSLineEdit2* m_nameEdit = nullptr;
 
-    OSLineEdit2 * m_nameEdit = nullptr;
+  OSQuantityEdit2* m_uFactor = nullptr;
 
-    OSQuantityEdit2 * m_uFactor = nullptr;
+  OSQuantityEdit2* m_solarHeatGainCoefficient = nullptr;
 
-    OSQuantityEdit2 * m_solarHeatGainCoefficient = nullptr;
+  OSQuantityEdit2* m_visibleTransmittance = nullptr;
 
-    OSQuantityEdit2 * m_visibleTransmittance = nullptr;
-
-    StandardsInformationMaterialWidget * m_standardsInformationWidget = nullptr;
-
+  StandardsInformationMaterialWidget* m_standardsInformationWidget = nullptr;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_WINDOWMATERIALSIMPLEGLAZINGSYSTEMINSPECTORVIEW_HPP
+#endif  // OPENSTUDIO_WINDOWMATERIALSIMPLEGLAZINGSYSTEMINSPECTORVIEW_HPP

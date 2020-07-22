@@ -62,16 +62,15 @@ class RefrigerationView : public QWidget
   Q_OBJECT;
 
   public:
-
   RefrigerationView();
 
-  QWidget * header;
+  QWidget* header;
 
-  QGraphicsView * graphicsView;
+  QGraphicsView* graphicsView;
 
-  QPushButton * zoomOutButton;
+  QPushButton* zoomOutButton;
 
-  QLabel * nameLabel;
+  QLabel* nameLabel;
 };
 
 class CaseViewExpandButton : public AbstractButtonItem
@@ -79,7 +78,6 @@ class CaseViewExpandButton : public AbstractButtonItem
   Q_OBJECT;
 
   public:
-
   CaseViewExpandButton();
 
   virtual ~CaseViewExpandButton() {}
@@ -89,13 +87,9 @@ class CaseViewExpandButton : public AbstractButtonItem
   static QSize size();
 
   protected:
-
-  void paint(QPainter *painter,
-             const QStyleOptionGraphicsItem *option,
-             QWidget *widget = nullptr) override;
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 
   private:
-
   QPixmap m_openImage;
 
   QPixmap m_closeImage;
@@ -108,16 +102,15 @@ class RefrigerationSystemMiniView : public QGraphicsObject
   Q_OBJECT;
 
   public:
-
   RefrigerationSystemMiniView();
 
   virtual ~RefrigerationSystemMiniView() {}
 
-  RefrigerationSystemView * refrigerationSystemView;
+  RefrigerationSystemView* refrigerationSystemView;
 
-  RemoveButtonItem * removeButtonItem;
+  RemoveButtonItem* removeButtonItem;
 
-  ZoomInButtonItem * zoomInButtonItem;
+  ZoomInButtonItem* zoomInButtonItem;
 
   QRectF boundingRect() const override;
 
@@ -127,16 +120,12 @@ class RefrigerationSystemMiniView : public QGraphicsObject
 
   public slots:
 
-  void setName( const QString & name);
+  void setName(const QString& name);
 
   protected:
-
-  void paint( QPainter *painter,
-              const QStyleOptionGraphicsItem *option,
-              QWidget *widget ) override;
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
 
   private:
-
   QRectF contentRect() const;
 
   QRectF headerRect() const;
@@ -153,25 +142,20 @@ class RefrigerationSystemDetailView : public QGraphicsObject
   Q_OBJECT;
 
   public:
-
   RefrigerationSystemDetailView();
 
   virtual ~RefrigerationSystemDetailView() {}
 
-  RefrigerationSystemView * refrigerationSystemView;
+  RefrigerationSystemView* refrigerationSystemView;
 
-  ZoomOutButtonItem * zoomOutButton;
+  ZoomOutButtonItem* zoomOutButton;
 
   QRectF boundingRect() const override;
 
   protected:
-
-  void paint( QPainter *painter,
-              const QStyleOptionGraphicsItem *option,
-              QWidget *widget ) override;
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
 
   private:
-
   // QRectF contentRect() const;
 
   // QRectF headerRect() const;
@@ -188,14 +172,10 @@ class RefrigerationSystemDropZoneView : public OSDropZoneItem
   Q_OBJECT;
 
   public:
-
   QRectF boundingRect() const override;
 
   protected:
-
-  void paint( QPainter *painter,
-              const QStyleOptionGraphicsItem *option,
-              QWidget *widget ) override;
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
 };
 
 class RefrigerationSystemView : public QGraphicsObject
@@ -203,7 +183,6 @@ class RefrigerationSystemView : public QGraphicsObject
   Q_OBJECT;
 
   public:
-
   RefrigerationSystemView();
 
   virtual ~RefrigerationSystemView() {}
@@ -214,19 +193,19 @@ class RefrigerationSystemView : public QGraphicsObject
 
   static const double componentHeight;
 
-  RefrigerationCondenserView * refrigerationCondenserView;
+  RefrigerationCondenserView* refrigerationCondenserView;
 
-  RefrigerationSubCoolerView * refrigerationSubCoolerView;
+  RefrigerationSubCoolerView* refrigerationSubCoolerView;
 
-  RefrigerationHeatReclaimView * refrigerationHeatReclaimView;
+  RefrigerationHeatReclaimView* refrigerationHeatReclaimView;
 
-  RefrigerationCompressorView * refrigerationCompressorView;
+  RefrigerationCompressorView* refrigerationCompressorView;
 
-  RefrigerationSHXView * refrigerationSHXView;
+  RefrigerationSHXView* refrigerationSHXView;
 
-  RefrigerationCasesView * refrigerationCasesView;
+  RefrigerationCasesView* refrigerationCasesView;
 
-  RefrigerationSecondaryView * refrigerationSecondaryView;
+  RefrigerationSecondaryView* refrigerationSecondaryView;
 
   void adjustLayout();
 
@@ -241,7 +220,7 @@ class RefrigerationSystemView : public QGraphicsObject
 
   QRectF boundingRect() const override;
 
-  void setId(const OSItemId & id);
+  void setId(const OSItemId& id);
 
   signals:
 
@@ -252,19 +231,15 @@ class RefrigerationSystemView : public QGraphicsObject
   void setCasesExpanded(bool expanded);
 
   protected:
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 
-  void paint( QPainter *painter,
-              const QStyleOptionGraphicsItem *option,
-              QWidget *widget = nullptr ) override;
+  void mousePressEvent(QGraphicsSceneMouseEvent* event) override;
 
-  void mousePressEvent(QGraphicsSceneMouseEvent * event) override;
-
-  void mouseReleaseEvent(QGraphicsSceneMouseEvent * event) override;
+  void mouseReleaseEvent(QGraphicsSceneMouseEvent* event) override;
 
   bool m_mouseDown;
 
   private:
-
   OSItemId m_id;
 };
 
@@ -273,20 +248,19 @@ class RefrigerationCondenserView : public RefrigerationSystemDropZoneView
   Q_OBJECT;
 
   public:
-
   RefrigerationCondenserView();
 
   virtual ~RefrigerationCondenserView() {}
 
-  RemoveButtonItem * removeButtonItem;
+  RemoveButtonItem* removeButtonItem;
 
   QRectF boundingRect() const override;
 
-  void setCondenserId(const OSItemId & condenserId);
+  void setCondenserId(const OSItemId& condenserId);
 
-  void setCondenserName(const QString & name);
+  void setCondenserName(const QString& name);
 
-  void setIcon(const QPixmap & pixmap);
+  void setIcon(const QPixmap& pixmap);
 
   static QSizeF size();
 
@@ -297,14 +271,11 @@ class RefrigerationCondenserView : public RefrigerationSystemDropZoneView
   void inspectClicked(OSItemId id);
 
   protected:
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 
-  void paint( QPainter *painter,
-              const QStyleOptionGraphicsItem *option,
-              QWidget *widget = nullptr ) override;
+  void mousePressEvent(QGraphicsSceneMouseEvent* event) override;
 
-  void mousePressEvent(QGraphicsSceneMouseEvent * event) override;
-
-  void mouseReleaseEvent(QGraphicsSceneMouseEvent * event) override;
+  void mouseReleaseEvent(QGraphicsSceneMouseEvent* event) override;
 
   bool m_mouseDown;
 
@@ -313,7 +284,6 @@ class RefrigerationCondenserView : public RefrigerationSystemDropZoneView
   void onRemoveButtonClicked();
 
   private:
-
   OSItemId m_id;
 
   QString m_name;
@@ -326,20 +296,19 @@ class RefrigerationCompressorDetailView : public QGraphicsObject
   Q_OBJECT;
 
   public:
-
   RefrigerationCompressorDetailView();
 
   virtual ~RefrigerationCompressorDetailView() {}
 
-  RemoveButtonItem * removeButtonItem;
+  RemoveButtonItem* removeButtonItem;
 
   static QSizeF size();
 
   QRectF boundingRect() const override;
 
-  void setLabel(const QString & label);
+  void setLabel(const QString& label);
 
-  void setId(const OSItemId & id);
+  void setId(const OSItemId& id);
 
   signals:
 
@@ -348,14 +317,11 @@ class RefrigerationCompressorDetailView : public QGraphicsObject
   void inspectClicked(OSItemId id);
 
   protected:
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 
-  void paint( QPainter *painter,
-              const QStyleOptionGraphicsItem *option,
-              QWidget *widget = nullptr ) override;
+  void mousePressEvent(QGraphicsSceneMouseEvent* event) override;
 
-  void mousePressEvent(QGraphicsSceneMouseEvent * event) override;
-
-  void mouseReleaseEvent(QGraphicsSceneMouseEvent * event) override;
+  void mouseReleaseEvent(QGraphicsSceneMouseEvent* event) override;
 
   bool m_mouseDown;
 
@@ -364,7 +330,6 @@ class RefrigerationCompressorDetailView : public QGraphicsObject
   void onRemoveButtonClicked();
 
   private:
-
   QString m_label;
 
   OSItemId m_id;
@@ -377,7 +342,6 @@ class RefrigerationCompressorDropZoneView : public RefrigerationSystemDropZoneVi
   Q_OBJECT;
 
   public:
-
   RefrigerationCompressorDropZoneView();
 
   virtual ~RefrigerationCompressorDropZoneView() {}
@@ -385,10 +349,7 @@ class RefrigerationCompressorDropZoneView : public RefrigerationSystemDropZoneVi
   QRectF boundingRect() const override;
 
   protected:
-
-  void paint( QPainter *painter,
-              const QStyleOptionGraphicsItem *option,
-              QWidget *widget = nullptr ) override;
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 };
 
 class RefrigerationCompressorView : public QGraphicsObject
@@ -396,16 +357,15 @@ class RefrigerationCompressorView : public QGraphicsObject
   Q_OBJECT;
 
   public:
-
   RefrigerationCompressorView();
 
   virtual ~RefrigerationCompressorView() {}
 
   QRectF boundingRect() const override;
 
-  RefrigerationCompressorDropZoneView * refrigerationCompressorDropZoneView;
+  RefrigerationCompressorDropZoneView* refrigerationCompressorDropZoneView;
 
-  void insertCompressorDetailView(int index, QGraphicsObject * object);
+  void insertCompressorDetailView(int index, QGraphicsObject* object);
 
   void removeAllCompressorDetailViews();
 
@@ -414,14 +374,10 @@ class RefrigerationCompressorView : public QGraphicsObject
   static double height();
 
   protected:
-
-  void paint( QPainter *painter,
-              const QStyleOptionGraphicsItem *option,
-              QWidget *widget = nullptr ) override;
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 
   private:
-
-  std::vector<QGraphicsObject *> m_compressorDetailViews;
+  std::vector<QGraphicsObject*> m_compressorDetailViews;
 };
 
 class RefrigerationCasesDropZoneView : public RefrigerationSystemDropZoneView
@@ -429,7 +385,6 @@ class RefrigerationCasesDropZoneView : public RefrigerationSystemDropZoneView
   Q_OBJECT;
 
   public:
-
   RefrigerationCasesDropZoneView();
 
   virtual ~RefrigerationCasesDropZoneView() {}
@@ -439,10 +394,7 @@ class RefrigerationCasesDropZoneView : public RefrigerationSystemDropZoneView
   QRectF boundingRect() const override;
 
   protected:
-
-  void paint( QPainter *painter,
-              const QStyleOptionGraphicsItem *option,
-              QWidget *widget = nullptr ) override;
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 };
 
 class RefrigerationCaseDetailView : public QGraphicsObject
@@ -450,12 +402,11 @@ class RefrigerationCaseDetailView : public QGraphicsObject
   Q_OBJECT;
 
   public:
-
   RefrigerationCaseDetailView();
 
   virtual ~RefrigerationCaseDetailView() {}
 
-  RemoveButtonItem * removeButtonItem;
+  RemoveButtonItem* removeButtonItem;
 
   static QSizeF size();
 
@@ -465,9 +416,9 @@ class RefrigerationCaseDetailView : public QGraphicsObject
 
   QRectF boundingRect() const override;
 
-  void setName(const QString & name);
+  void setName(const QString& name);
 
-  void setId(const OSItemId & id);
+  void setId(const OSItemId& id);
 
   signals:
 
@@ -476,14 +427,11 @@ class RefrigerationCaseDetailView : public QGraphicsObject
   void inspectClicked(OSItemId id);
 
   protected:
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 
-  void paint( QPainter *painter,
-              const QStyleOptionGraphicsItem *option,
-              QWidget *widget = nullptr ) override;
+  void mousePressEvent(QGraphicsSceneMouseEvent* event) override;
 
-  void mousePressEvent(QGraphicsSceneMouseEvent * event) override;
-
-  void mouseReleaseEvent(QGraphicsSceneMouseEvent * event) override;
+  void mouseReleaseEvent(QGraphicsSceneMouseEvent* event) override;
 
   bool m_mouseDown;
 
@@ -492,7 +440,6 @@ class RefrigerationCaseDetailView : public QGraphicsObject
   void onRemoveButtonClicked();
 
   private:
-
   QString m_name;
 
   OSItemId m_id;
@@ -507,22 +454,21 @@ class RefrigerationCasesView : public QGraphicsObject
   Q_OBJECT;
 
   public:
-
   RefrigerationCasesView();
 
   virtual ~RefrigerationCasesView() {}
 
   QRectF boundingRect() const override;
 
-  RefrigerationCasesDropZoneView * refrigerationCasesDropZoneView;
+  RefrigerationCasesDropZoneView* refrigerationCasesDropZoneView;
 
-  CaseViewExpandButton * expandButton;
+  CaseViewExpandButton* expandButton;
 
   void setNumberOfDisplayCases(int number);
 
   void setNumberOfWalkinCases(int number);
 
-  void insertCaseDetailView(int index, QGraphicsObject * object);
+  void insertCaseDetailView(int index, QGraphicsObject* object);
 
   void removeAllCaseDetailViews();
 
@@ -539,13 +485,9 @@ class RefrigerationCasesView : public QGraphicsObject
   void setExpanded(bool exapanded);
 
   protected:
-
-  void paint( QPainter *painter,
-              const QStyleOptionGraphicsItem *option,
-              QWidget *widget = nullptr ) override;
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 
   private:
-
   QPointF casePos(int index) const;
 
   int m_numberOfDisplayCases;
@@ -556,7 +498,7 @@ class RefrigerationCasesView : public QGraphicsObject
 
   bool m_expanded;
 
-  std::vector<QGraphicsObject *> m_caseDetailViews;
+  std::vector<QGraphicsObject*> m_caseDetailViews;
 
   QPixmap m_displayCasesPixmap;
 
@@ -568,18 +510,17 @@ class RefrigerationSubCoolerView : public RefrigerationSystemDropZoneView
   Q_OBJECT;
 
   public:
-
   RefrigerationSubCoolerView();
 
   virtual ~RefrigerationSubCoolerView() {}
 
-  RemoveButtonItem * removeButtonItem;
+  RemoveButtonItem* removeButtonItem;
 
   QRectF boundingRect() const override;
 
-  void setId(const OSItemId & id);
+  void setId(const OSItemId& id);
 
-  void setName(const QString & name);
+  void setName(const QString& name);
 
   static QSizeF size();
 
@@ -590,14 +531,11 @@ class RefrigerationSubCoolerView : public RefrigerationSystemDropZoneView
   void inspectClicked(OSItemId id);
 
   protected:
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 
-  void paint( QPainter *painter,
-              const QStyleOptionGraphicsItem *option,
-              QWidget *widget = nullptr ) override;
+  void mousePressEvent(QGraphicsSceneMouseEvent* event) override;
 
-  void mousePressEvent(QGraphicsSceneMouseEvent * event) override;
-
-  void mouseReleaseEvent(QGraphicsSceneMouseEvent * event) override;
+  void mouseReleaseEvent(QGraphicsSceneMouseEvent* event) override;
 
   bool m_mouseDown;
 
@@ -606,7 +544,6 @@ class RefrigerationSubCoolerView : public RefrigerationSystemDropZoneView
   void onRemoveButtonClicked();
 
   private:
-
   OSItemId m_id;
 
   QString m_name;
@@ -619,14 +556,10 @@ class RefrigerationHeatReclaimView : public RefrigerationSystemDropZoneView
   Q_OBJECT;
 
   public:
-
   QRectF boundingRect() const override;
 
   protected:
-
-  void paint( QPainter *painter,
-              const QStyleOptionGraphicsItem *option,
-              QWidget *widget = nullptr ) override;
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 };
 
 class RefrigerationSHXView : public RefrigerationSystemDropZoneView
@@ -634,18 +567,17 @@ class RefrigerationSHXView : public RefrigerationSystemDropZoneView
   Q_OBJECT;
 
   public:
-
   RefrigerationSHXView();
 
   virtual ~RefrigerationSHXView() {}
 
-  RemoveButtonItem * removeButtonItem;
+  RemoveButtonItem* removeButtonItem;
 
   QRectF boundingRect() const override;
 
-  void setId(const OSItemId & id);
+  void setId(const OSItemId& id);
 
-  void setName(const QString & name);
+  void setName(const QString& name);
 
   static QSizeF size();
 
@@ -656,14 +588,11 @@ class RefrigerationSHXView : public RefrigerationSystemDropZoneView
   void inspectClicked(OSItemId id);
 
   protected:
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 
-  void paint( QPainter *painter,
-              const QStyleOptionGraphicsItem *option,
-              QWidget *widget = nullptr ) override;
+  void mousePressEvent(QGraphicsSceneMouseEvent* event) override;
 
-  void mousePressEvent(QGraphicsSceneMouseEvent * event) override;
-
-  void mouseReleaseEvent(QGraphicsSceneMouseEvent * event) override;
+  void mouseReleaseEvent(QGraphicsSceneMouseEvent* event) override;
 
   bool m_mouseDown;
 
@@ -672,7 +601,6 @@ class RefrigerationSHXView : public RefrigerationSystemDropZoneView
   void onRemoveButtonClicked();
 
   private:
-
   OSItemId m_id;
 
   QString m_name;
@@ -685,14 +613,10 @@ class SecondaryDropZoneView : public RefrigerationSystemDropZoneView
   Q_OBJECT;
 
   public:
-
   QRectF boundingRect() const override;
 
   protected:
-
-  void paint( QPainter *painter,
-              const QStyleOptionGraphicsItem *option,
-              QWidget *widget ) override;
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
 };
 
 class SecondaryDetailView : public QGraphicsObject
@@ -700,33 +624,29 @@ class SecondaryDetailView : public QGraphicsObject
   Q_OBJECT;
 
   public:
-
   SecondaryDetailView();
 
   virtual ~SecondaryDetailView() {}
 
-  ZoomInButtonItem * zoomInButtonItem;
-  RemoveButtonItem * removeButtonItem;
+  ZoomInButtonItem* zoomInButtonItem;
+  RemoveButtonItem* removeButtonItem;
 
   QRectF boundingRect() const override;
   QRectF nameRect();
 
-  void setName(const QString & name);
-  void setHandle(const Handle & handle);
+  void setName(const QString& name);
+  void setHandle(const Handle& handle);
 
   static double width();
   static double height();
 
   signals:
 
-  void zoomInOnSystemClicked(const Handle & handle);
-  void removeClicked(const Handle & handle);
+  void zoomInOnSystemClicked(const Handle& handle);
+  void removeClicked(const Handle& handle);
 
   protected:
-
-  void paint( QPainter *painter,
-              const QStyleOptionGraphicsItem *option,
-              QWidget *widget ) override;
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
 
   private slots:
 
@@ -734,7 +654,6 @@ class SecondaryDetailView : public QGraphicsObject
   void onRemoveButtonClicked();
 
   private:
-
   QString m_name;
   Handle m_handle;
 };
@@ -744,30 +663,25 @@ class RefrigerationSecondaryView : public QGraphicsObject
   Q_OBJECT;
 
   public:
-
   RefrigerationSecondaryView();
 
   virtual ~RefrigerationSecondaryView() {}
 
   QRectF boundingRect() const override;
 
-  SecondaryDropZoneView * secondaryDropZoneView;
+  SecondaryDropZoneView* secondaryDropZoneView;
 
-  void insertSecondaryDetailView(int index, QGraphicsObject * object);
+  void insertSecondaryDetailView(int index, QGraphicsObject* object);
 
   void removeAllSecondaryDetailViews();
 
   void adjustLayout();
 
   protected:
-
-  void paint( QPainter *painter,
-              const QStyleOptionGraphicsItem *option,
-              QWidget *widget = nullptr ) override;
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 
   private:
-
-  std::vector<QGraphicsObject *> m_secondaryDetailViews;
+  std::vector<QGraphicsObject*> m_secondaryDetailViews;
   int m_height;
 };
 
@@ -775,12 +689,11 @@ class RefrigerationSecondaryView : public QGraphicsObject
 class NoRefrigerationView : public QWidget
 {
   public:
-
   NoRefrigerationView();
 
   virtual ~NoRefrigerationView();
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_REFRIGERATIONGRAPHICSITEMS_HPP
+#endif  // OPENSTUDIO_REFRIGERATIONGRAPHICSITEMS_HPP

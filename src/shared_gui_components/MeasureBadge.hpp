@@ -41,11 +41,9 @@ class MeasureBadge : public QLabel
   Q_OBJECT
 
   public:
-
-    void setMeasureBadgeType(MeasureBadgeType type);
-
+  void setMeasureBadgeType(MeasureBadgeType type);
 };
 
-} // namespace openstudio
+}  // namespace openstudio
 
-#endif // SHAREDGUICOMPONENTS_MEASUREBADGE_HPP
+#endif  // SHAREDGUICOMPONENTS_MEASUREBADGE_HPP

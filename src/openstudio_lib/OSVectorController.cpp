@@ -32,51 +32,34 @@
 
 namespace openstudio {
 
-OSVectorController::OSVectorController()
-  : QObject()
-{
-}
+OSVectorController::OSVectorController() : QObject() {}
 
-void OSVectorController::reportItems()
-{
+void OSVectorController::reportItems() {
   emit itemIds(this->makeVector());
 }
 
-void OSVectorController::removeItem(OSItem* item)
-{
+void OSVectorController::removeItem(OSItem* item) {
   this->onRemoveItem(item);
 }
 
-void OSVectorController::replaceItem(OSItem * currentItem, const OSItemId& replacementItemId)
-{
+void OSVectorController::replaceItem(OSItem* currentItem, const OSItemId& replacementItemId) {
   this->onReplaceItem(currentItem, replacementItemId);
 }
 
-void OSVectorController::drop(const OSItemId& itemId)
-{
+void OSVectorController::drop(const OSItemId& itemId) {
   this->onDrop(itemId);
 }
 
-void OSVectorController::makeNewItem()
-{
+void OSVectorController::makeNewItem() {
   this->onMakeNewItem();
 }
 
-void OSVectorController::onRemoveItem(OSItem* item)
-{
-}
+void OSVectorController::onRemoveItem(OSItem* item) {}
 
-void OSVectorController::onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId)
-{
-}
+void OSVectorController::onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) {}
 
-void OSVectorController::onDrop(const OSItemId& itemId)
-{
-}
+void OSVectorController::onDrop(const OSItemId& itemId) {}
 
-void OSVectorController::onMakeNewItem()
-{
-}
+void OSVectorController::onMakeNewItem() {}
 
-} // openstudio
-
+}  // namespace openstudio

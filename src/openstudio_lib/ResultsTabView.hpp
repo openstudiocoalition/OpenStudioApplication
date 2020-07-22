@@ -49,84 +49,81 @@ class QPushButton;
 
 namespace openstudio {
 
-  // main widget
+// main widget
 
-  class ResultsView : public QWidget
-  {
-    Q_OBJECT;
+class ResultsView : public QWidget
+{
+  Q_OBJECT;
 
-    public:
-      ResultsView(QWidget *t_parent = nullptr);
-      virtual ~ResultsView();
-      void searchForExistingResults(const openstudio::path &t_runDir, const openstudio::path &t_reportsDir);
+  public:
+  ResultsView(QWidget* t_parent = nullptr);
+  virtual ~ResultsView();
+  void searchForExistingResults(const openstudio::path& t_runDir, const openstudio::path& t_reportsDir);
 
-    public slots:
-      void resultsGenerated(const openstudio::path &t_sqlFile, const openstudio::path &t_radianceResultsPath);
-      void onUnitSystemChange(bool t_isIP);
-      void treeChanged(const openstudio::UUID &t_uuid);
+  public slots:
+  void resultsGenerated(const openstudio::path& t_sqlFile, const openstudio::path& t_radianceResultsPath);
+  void onUnitSystemChange(bool t_isIP);
+  void treeChanged(const openstudio::UUID& t_uuid);
 
-    private slots:
-      void refreshClicked();
-      void openDViewClicked();
-      void comboBoxChanged(int index);
+  private slots:
+  void refreshClicked();
+  void openDViewClicked();
+  void comboBoxChanged(int index);
 
-      // DLM: for debugging
-      void 	onLoadFinished(bool ok);
-      void 	onLoadProgress(int progress);
-      void 	onLoadStarted();
-      void 	onRenderProcessTerminated(QWebEnginePage::RenderProcessTerminationStatus terminationStatus, int exitCode);
+  // DLM: for debugging
+  void onLoadFinished(bool ok);
+  void onLoadProgress(int progress);
+  void onLoadStarted();
+  void onRenderProcessTerminated(QWebEnginePage::RenderProcessTerminationStatus terminationStatus, int exitCode);
 
-    private:
-      REGISTER_LOGGER("openstudio::ResultsView");
-      //openstudio::runmanager::RunManager runManager();
-      void populateComboBox(std::vector<openstudio::path> reports);
+  private:
+  REGISTER_LOGGER("openstudio::ResultsView");
+  //openstudio::runmanager::RunManager runManager();
+  void populateComboBox(std::vector<openstudio::path> reports);
 
-      bool m_isIP;
+  bool m_isIP;
 
-      // utility bill results
-      QLabel * m_reportLabel;
+  // utility bill results
+  QLabel* m_reportLabel;
 
-      QProgressBar * m_progressBar;
-      QPushButton * m_refreshBtn;
-      QPushButton * m_openDViewBtn;
+  QProgressBar* m_progressBar;
+  QPushButton* m_refreshBtn;
+  QPushButton* m_openDViewBtn;
 
-      openstudio::path m_dviewPath;
-      openstudio::path m_sqlFilePath;
-      openstudio::path m_radianceResultsPath;
+  openstudio::path m_dviewPath;
+  openstudio::path m_sqlFilePath;
+  openstudio::path m_radianceResultsPath;
 
-      QWebEngineView * m_view;
-      OSWebEnginePage * m_page;
-      QComboBox * m_comboBox;
-  };
+  QWebEngineView* m_view;
+  OSWebEnginePage* m_page;
+  QComboBox* m_comboBox;
+};
 
-  class ResultsTabView : public MainTabView
-  {
-    Q_OBJECT;
+class ResultsTabView : public MainTabView
+{
+  Q_OBJECT;
 
-    public:
+  public:
+  ResultsTabView(const QString& tabLabel, TabType tabType, QWidget* parent = nullptr);
+  virtual ~ResultsTabView() {}
 
-      ResultsTabView(const QString & tabLabel,
-        TabType tabType,
-        QWidget * parent = nullptr);
-      virtual ~ResultsTabView() {}
+  public slots:
 
-    public slots:
+  void onUnitSystemChange(bool t_isIP);
 
-      void onUnitSystemChange(bool t_isIP);
+  signals:
 
-    signals:
+  void removeResultClicked();
 
-      void removeResultClicked();
+  void importResultClicked();
 
-      void importResultClicked();
+  void treeChanged(const openstudio::UUID& t_uuid);
 
-      void treeChanged(const openstudio::UUID &t_uuid);
+  private:
+  ResultsView* m_resultsView;
+  REGISTER_LOGGER("openstudio::ResultsTabView");
+};
 
-    private:
-      ResultsView * m_resultsView;
-      REGISTER_LOGGER("openstudio::ResultsTabView");
-  };
+}  // namespace openstudio
 
-} // openstudio
-
-#endif // OPENSTUDIO_RESULTSTABVIEW_HPP
+#endif  // OPENSTUDIO_RESULTSTABVIEW_HPP

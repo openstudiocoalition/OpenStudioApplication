@@ -35,23 +35,21 @@
 
 class QLabel;
 
-namespace openstudio{
+namespace openstudio {
 
 class MeasureType;
 
 class LightHeaderToggleButton : public QPushButton
 {
   public:
-
-  LightHeaderToggleButton(QWidget * parent = nullptr);
+  LightHeaderToggleButton(QWidget* parent = nullptr);
   virtual ~LightHeaderToggleButton() {}
 };
 
 class HeaderToggleButton : public QPushButton
 {
   public:
-
-  HeaderToggleButton(QWidget * parent = nullptr);
+  HeaderToggleButton(QWidget* parent = nullptr);
   virtual ~HeaderToggleButton() {}
 };
 
@@ -60,10 +58,9 @@ class DarkGradientHeader : public OSHeader
   Q_OBJECT
 
   public:
+  QLabel* label;
 
-  QLabel * label;
-
-  DarkGradientHeader(QWidget * parent = nullptr);
+  DarkGradientHeader(QWidget* parent = nullptr);
   virtual ~DarkGradientHeader() {}
 };
 
@@ -72,16 +69,14 @@ class LightGradientHeader : public OSHeader
   Q_OBJECT
 
   public:
+  QLabel* label;
 
-  QLabel * label;
-
-  LightGradientHeader(QWidget * parent = nullptr);
+  LightGradientHeader(QWidget* parent = nullptr);
   void setMeasureType(MeasureType measureType);
   virtual ~LightGradientHeader() {}
 
   private:
-
-  QLabel * m_measureTypeBadge;
+  QLabel* m_measureTypeBadge;
 };
 
 class LightHeader : public OSHeader
@@ -89,14 +84,12 @@ class LightHeader : public OSHeader
   Q_OBJECT
 
   public:
+  QLabel* label;
 
-  QLabel * label;
-
-  LightHeader(QWidget * parent = nullptr);
+  LightHeader(QWidget* parent = nullptr);
   virtual ~LightHeader() {}
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // SHAREDGUICOMPONENTS_HEADERVIEWS_HPP
-
+#endif  // SHAREDGUICOMPONENTS_HEADERVIEWS_HPP

@@ -37,61 +37,52 @@
 
 #include <openstudio/model/Model.hpp>
 
-namespace openstudio{
+namespace openstudio {
 
-  class SpacesDaylightingGridController;
+class SpacesDaylightingGridController;
 
-  class SpacesDaylightingGridView : public SpacesSubtabGridView
-  {
-    Q_OBJECT
+class SpacesDaylightingGridView : public SpacesSubtabGridView
+{
+  Q_OBJECT
 
   public:
+  SpacesDaylightingGridView(bool isIP, const model::Model& model, QWidget* parent = nullptr);
 
-    SpacesDaylightingGridView(bool isIP, const model::Model & model, QWidget * parent = nullptr);
-
-    virtual ~SpacesDaylightingGridView() {}
+  virtual ~SpacesDaylightingGridView() {}
 
   private:
+  REGISTER_LOGGER("openstudio.SpacesDaylightingGridView");
+};
 
-    REGISTER_LOGGER("openstudio.SpacesDaylightingGridView");
+class SpacesDaylightingGridController : public OSGridController
+{
 
-  };
-
-  class SpacesDaylightingGridController : public OSGridController
-  {
-
-    Q_OBJECT
+  Q_OBJECT
 
   public:
+  SpacesDaylightingGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model model,
+                                  std::vector<model::ModelObject> modelObjects);
 
-    SpacesDaylightingGridController(bool isIP,
-      const QString & headerText,
-      IddObjectType iddObjectType,
-      model::Model model,
-      std::vector<model::ModelObject> modelObjects);
+  virtual ~SpacesDaylightingGridController() {}
 
-    virtual ~SpacesDaylightingGridController() {}
+  virtual void refreshModelObjects();
 
-    virtual void refreshModelObjects();
-
-    virtual void categorySelected(int index);
+  virtual void categorySelected(int index);
 
   protected:
+  virtual void setCategoriesAndFields();
 
-    virtual void setCategoriesAndFields();
+  virtual void addColumns(const QString& category, std::vector<QString>& fields);
 
-    virtual void addColumns(const QString &category, std::vector<QString> & fields);
+  virtual void checkSelectedFields();
 
-    virtual void checkSelectedFields();
+  virtual QString getColor(const model::ModelObject& modelObject);
 
-    virtual QString getColor(const model::ModelObject & modelObject);
+  public slots:
 
-    public slots:
+  virtual void onItemDropped(const OSItemId& itemId);
+};
 
-    virtual void onItemDropped(const OSItemId& itemId);
+}  // namespace openstudio
 
-  };
-
-} // openstudio
-
-#endif // OPENSTUDIO_SPACESDAYLIGHTINGGRIDVIEW_HPP
+#endif  // OPENSTUDIO_SPACESDAYLIGHTINGGRIDVIEW_HPP

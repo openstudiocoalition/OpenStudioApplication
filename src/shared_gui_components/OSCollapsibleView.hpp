@@ -46,16 +46,14 @@ class OSHeader : public QPushButton
   Q_OBJECT
 
   public:
-
-  OSHeader(QPushButton * button);
+  OSHeader(QPushButton* button);
 
   virtual ~OSHeader() {}
 
-  QPushButton * toggleButton;
+  QPushButton* toggleButton;
 
   protected:
-
-  void paintEvent(QPaintEvent *) override;
+  void paintEvent(QPaintEvent*) override;
 };
 
 class OSCollapsibleView : public QWidget
@@ -63,14 +61,13 @@ class OSCollapsibleView : public QWidget
   Q_OBJECT
 
   public:
-
-  OSCollapsibleView(bool alwaysExpanded = false, QWidget * parent=nullptr);
+  OSCollapsibleView(bool alwaysExpanded = false, QWidget* parent = nullptr);
 
   virtual ~OSCollapsibleView() {}
 
-  void setHeader(QWidget * header);
+  void setHeader(QWidget* header);
 
-  void setContent(QWidget * content);
+  void setContent(QWidget* content);
 
   public slots:
 
@@ -83,17 +80,15 @@ class OSCollapsibleView : public QWidget
   bool isExpanded();
 
   private:
-
   QPointer<OSHeader> m_osHeader;
 
-  OSViewSwitcher * m_headerContainer;
+  OSViewSwitcher* m_headerContainer;
 
-  OSViewSwitcher * m_contentContainer;
+  OSViewSwitcher* m_contentContainer;
 
   bool m_alwaysExpanded;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // SHAREDGUICOMPONENTS_OSCOLLAPSIBLEVIEW_HPP
-
+#endif  // SHAREDGUICOMPONENTS_OSCOLLAPSIBLEVIEW_HPP

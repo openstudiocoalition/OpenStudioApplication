@@ -47,8 +47,7 @@ class StartupView : public QWidget
   Q_OBJECT
 
   public:
-
-  StartupView(QWidget * parent = nullptr);
+  StartupView(QWidget* parent = nullptr);
 
   virtual ~StartupView() {}
 
@@ -56,7 +55,7 @@ class StartupView : public QWidget
 
   signals:
 
-  void newFromTemplate( NewFromTemplateEnum );
+  void newFromTemplate(NewFromTemplateEnum);
 
   void openClicked();
 
@@ -65,52 +64,46 @@ class StartupView : public QWidget
   void importSDDClicked();
 
   protected:
+  void mouseMoveEvent(QMouseEvent* event) override;
 
-  void mouseMoveEvent(QMouseEvent *event) override;
+  void mousePressEvent(QMouseEvent* event) override;
 
-  void mousePressEvent(QMouseEvent *event) override;
+  void resizeEvent(QResizeEvent* event) override;
 
-  void resizeEvent(QResizeEvent * event) override;
-
-  void paintEvent(QPaintEvent *event) override;
+  void paintEvent(QPaintEvent* event) override;
 
   private slots:
 
   void newFromTemplateSlot();
 
-  void showDetailsForItem( const QModelIndex & index );
+  void showDetailsForItem(const QModelIndex& index);
 
   private:
-
   QPoint dragPosition;
 
   bool _move;
 
   std::shared_ptr<TemplateListModel> m_templateListModel;
 
-  QWidget * m_projectDetailView;
+  QWidget* m_projectDetailView;
 
-  QListView * m_listView;
-
+  QListView* m_listView;
 };
 
 class TemplateListModel : public QAbstractListModel
 {
   public:
+  TemplateListModel(QObject* parent = nullptr);
 
-  TemplateListModel(QObject * parent = nullptr);
+  int rowCount(const QModelIndex& parent = QModelIndex()) const override;
 
-  int rowCount( const QModelIndex & parent = QModelIndex() ) const override;
+  QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const override;
 
-  QVariant data( const QModelIndex & index, int role = Qt::DisplayRole ) const override;
-
-  Qt::ItemFlags flags(const QModelIndex &index) const override;
+  Qt::ItemFlags flags(const QModelIndex& index) const override;
 
   private:
-
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_STARTUPVIEW_HPP
-
+#endif  // OPENSTUDIO_STARTUPVIEW_HPP

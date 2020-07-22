@@ -56,48 +56,45 @@ class ConstructionInternalSourceInspectorView : public ModelObjectInspectorView
   Q_OBJECT
 
   public:
+  ConstructionInternalSourceInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
-    ConstructionInternalSourceInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent = nullptr);
-
-    virtual ~ConstructionInternalSourceInspectorView() {}
+  virtual ~ConstructionInternalSourceInspectorView() {}
 
   protected:
+  virtual void onClearSelection() override;
 
-    virtual void onClearSelection() override;
+  virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
-    virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
-
-    virtual void onUpdate() override;
+  virtual void onUpdate() override;
 
   private:
+  void createLayout();
 
-    void createLayout();
+  void attach(openstudio::model::ConstructionWithInternalSource& constructionWithInternalSource);
 
-    void attach(openstudio::model::ConstructionWithInternalSource & constructionWithInternalSource);
+  void detach();
 
-    void detach();
+  bool m_isIP;
 
-    bool m_isIP;
+  OSLineEdit2* m_nameEdit;
 
-    OSLineEdit2 * m_nameEdit;
+  StandardsInformationConstructionWidget* m_standardsInformationWidget;
 
-    StandardsInformationConstructionWidget * m_standardsInformationWidget;
+  OSDropZone* m_constructionDZ;
 
-    OSDropZone * m_constructionDZ;
+  ConstructionObjectVectorController* m_constructionVC;
 
-    ConstructionObjectVectorController * m_constructionVC;
+  OSIntegerEdit2* m_sourcePresentAfterLayerNumberEdit;
 
-    OSIntegerEdit2 * m_sourcePresentAfterLayerNumberEdit;
+  OSIntegerEdit2* m_temperatureCalculationRequestedAfterLayerNumberEdit;
 
-    OSIntegerEdit2 * m_temperatureCalculationRequestedAfterLayerNumberEdit;
+  OSIntegerEdit2* m_dimensionsForTheCTFCalculationEdit;
 
-    OSIntegerEdit2 * m_dimensionsForTheCTFCalculationEdit;
+  OSQuantityEdit2* m_tubeSpacingEdit;
 
-    OSQuantityEdit2 * m_tubeSpacingEdit;
-
-    boost::optional<model::ConstructionWithInternalSource> m_constructionWithInternalSource;
+  boost::optional<model::ConstructionWithInternalSource> m_constructionWithInternalSource;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_CONSTRUCTIONINTERNALSOURCEINSPECTORVIEW_H
+#endif  // OPENSTUDIO_CONSTRUCTIONINTERNALSOURCEINSPECTORVIEW_H

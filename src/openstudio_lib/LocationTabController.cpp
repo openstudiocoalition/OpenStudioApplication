@@ -48,14 +48,8 @@
 
 namespace openstudio {
 
-LocationTabController::LocationTabController(bool isIP,
-  const model::Model & model,
-  const QString& modelTempDir)
-  : MainTabController(new LocationTabView(model, modelTempDir)),
-  m_modelTempDir(modelTempDir),
-  m_model(model),
-  m_isIP(isIP)
-{
+LocationTabController::LocationTabController(bool isIP, const model::Model& model, const QString& modelTempDir)
+  : MainTabController(new LocationTabView(model, modelTempDir)), m_modelTempDir(modelTempDir), m_model(model), m_isIP(isIP) {
   mainContentWidget()->addSubTab("Weather File && Design Days", WEATHER_FILE);
   mainContentWidget()->addSubTab("Life Cycle Costs", LIFE_CYCLE_COSTS);
   mainContentWidget()->addSubTab("Utility Bills", UTILITY_BILLS);
@@ -64,25 +58,22 @@ LocationTabController::LocationTabController(bool isIP,
   connect(this->mainContentWidget(), &MainTabView::tabSelected, this, &LocationTabController::setSubTab);
 }
 
-LocationTabController::~LocationTabController()
-{
+LocationTabController::~LocationTabController() {
   disconnect(this->mainContentWidget(), &MainTabView::tabSelected, this, &LocationTabController::setSubTab);
 }
 
-bool LocationTabController::showUtilityBills()
-{
+bool LocationTabController::showUtilityBills() {
   // Determine if the utility bill sub-tab is shown
   boost::optional<model::YearDescription> yearDescription = m_model.yearDescription();
-  if (yearDescription){
+  if (yearDescription) {
     boost::optional<int> calendarYear = yearDescription.get().calendarYear();
-    if (calendarYear){
+    if (calendarYear) {
       boost::optional<model::WeatherFile> weatherFile = m_model.weatherFile();
-      if (weatherFile){
+      if (weatherFile) {
         boost::optional<model::RunPeriod> runPeriod = m_model.getOptionalUniqueModelObject<model::RunPeriod>();
-        if (runPeriod.is_initialized()){
+        if (runPeriod.is_initialized()) {
           return true;
-        }
-        else {
+        } else {
           return false;
         }
       }
@@ -92,12 +83,10 @@ bool LocationTabController::showUtilityBills()
   return false;
 }
 
-void LocationTabController::setSubTab(int index)
-{
+void LocationTabController::setSubTab(int index) {
   if (m_currentIndex == index) {
     return;
-  }
-  else {
+  } else {
     m_currentIndex = index;
   }
 
@@ -106,42 +95,38 @@ void LocationTabController::setSubTab(int index)
     delete m_currentView;
   }
 
-  switch (index){
-  case 0:
-  {
-    auto locationView = new LocationView(m_isIP, m_model, m_modelTempDir);
-    connect(this, &LocationTabController::toggleUnitsClicked, locationView, &LocationView::toggleUnitsClicked);
-    this->mainContentWidget()->setSubTab(locationView);
-    m_currentView = locationView;
-    break;
-  }
-  case 1:
-  {
-    auto lifeCycleCostsView = new LifeCycleCostsView(m_model);
-    this->mainContentWidget()->setSubTab(lifeCycleCostsView);
-    m_currentView = lifeCycleCostsView;
-    break;
-  }
-  case 2:
-  {
-    if (showUtilityBills()) {
-      auto utilityBillsController = new UtilityBillsController(m_model);
-      this->mainContentWidget()->setSubTab(utilityBillsController->subTabView());
-      m_currentView = utilityBillsController->subTabView()->inspectorView();
+  switch (index) {
+    case 0: {
+      auto locationView = new LocationView(m_isIP, m_model, m_modelTempDir);
+      connect(this, &LocationTabController::toggleUnitsClicked, locationView, &LocationView::toggleUnitsClicked);
+      this->mainContentWidget()->setSubTab(locationView);
+      m_currentView = locationView;
+      break;
     }
-    else {
-      auto label = new QLabel();
-      label->setPixmap(QPixmap(":/images/utility_calibration_warning.png"));
-      label->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
-      this->mainContentWidget()->setSubTab(label);
-      m_currentView = label;
+    case 1: {
+      auto lifeCycleCostsView = new LifeCycleCostsView(m_model);
+      this->mainContentWidget()->setSubTab(lifeCycleCostsView);
+      m_currentView = lifeCycleCostsView;
+      break;
     }
-    break;
-  }
-  default:
-    OS_ASSERT(false);
-    break;
+    case 2: {
+      if (showUtilityBills()) {
+        auto utilityBillsController = new UtilityBillsController(m_model);
+        this->mainContentWidget()->setSubTab(utilityBillsController->subTabView());
+        m_currentView = utilityBillsController->subTabView()->inspectorView();
+      } else {
+        auto label = new QLabel();
+        label->setPixmap(QPixmap(":/images/utility_calibration_warning.png"));
+        label->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
+        this->mainContentWidget()->setSubTab(label);
+        m_currentView = label;
+      }
+      break;
+    }
+    default:
+      OS_ASSERT(false);
+      break;
   }
 }
 
-} // openstudio
+}  // namespace openstudio

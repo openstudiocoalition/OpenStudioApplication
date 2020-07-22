@@ -47,139 +47,110 @@
 using namespace openstudio::model;
 using namespace openstudio;
 
-namespace modeleditor
-{
+namespace modeleditor {
 
 //! [0]
-TableModel::TableModel(openstudio::WorkspaceObjectVector& objects, ClassViewWidget * parent)
-  : QAbstractTableModel(parent),
-  mSortColumn(2),
-  mSortOrder(Qt::AscendingOrder),
-  mObjects(objects),
-  mClassViewWidget(parent),
-  mMaskGUIDs(false)
-{
-
-}
+TableModel::TableModel(openstudio::WorkspaceObjectVector& objects, ClassViewWidget* parent)
+  : QAbstractTableModel(parent), mSortColumn(2), mSortOrder(Qt::AscendingOrder), mObjects(objects), mClassViewWidget(parent), mMaskGUIDs(false) {}
 //! [0]
 
-TableModel::TableModel(ClassViewWidget * parent)
-  : QAbstractTableModel(parent),
-    mClassViewWidget(parent),
-    mMaskGUIDs(false)
-{
+TableModel::TableModel(ClassViewWidget* parent) : QAbstractTableModel(parent), mClassViewWidget(parent), mMaskGUIDs(false) {}
 
-}
+TableModel::~TableModel() {}
 
-TableModel::~TableModel()
-{
-}
-
-void TableModel::loadObjects(openstudio::WorkspaceObjectVector& objects)
-{
+void TableModel::loadObjects(openstudio::WorkspaceObjectVector& objects) {
   beginResetModel();
   mObjects = objects;
   sort(mObjects, mSortColumn, mSortOrder);
   endResetModel();
 }
 
-void TableModel::setModel( openstudio::model::Model& model )
-{
+void TableModel::setModel(openstudio::model::Model& model) {
   mModel = model;
 }
 
-void TableModel::sort(int column, Qt::SortOrder sortOrder)
-{
+void TableModel::sort(int column, Qt::SortOrder sortOrder) {
   mSortColumn = column;
   mSortOrder = sortOrder;
 
   emit layoutAboutToBeChanged();
-  sort(mObjects,column,sortOrder);
+  sort(mObjects, column, sortOrder);
   emit layoutChanged();
 }
 
-void TableModel::sort(openstudio::WorkspaceObjectVector& objects, int column, Qt::SortOrder sortOrder){
+void TableModel::sort(openstudio::WorkspaceObjectVector& objects, int column, Qt::SortOrder sortOrder) {
 
-  switch(column)
-  {
+  switch (column) {
     case 0:
-      if(sortOrder == Qt::AscendingOrder){
-        std::sort(objects.begin(), objects.end(), std::bind(&modeleditor::TableModel::cmpAscendIddName,this,std::placeholders::_1,std::placeholders::_2));
-      }
-      else if(sortOrder == Qt::DescendingOrder){
-        std::sort(objects.begin(), objects.end(), std::bind(&modeleditor::TableModel::cmpDescendIddName,this,std::placeholders::_1,std::placeholders::_2));
+      if (sortOrder == Qt::AscendingOrder) {
+        std::sort(objects.begin(), objects.end(),
+                  std::bind(&modeleditor::TableModel::cmpAscendIddName, this, std::placeholders::_1, std::placeholders::_2));
+      } else if (sortOrder == Qt::DescendingOrder) {
+        std::sort(objects.begin(), objects.end(),
+                  std::bind(&modeleditor::TableModel::cmpDescendIddName, this, std::placeholders::_1, std::placeholders::_2));
       }
       break;
     case 1:
-      if(sortOrder == Qt::AscendingOrder){
-        std::sort(objects.begin(), objects.end(), std::bind(&modeleditor::TableModel::cmpAscendIdfName,this,std::placeholders::_1,std::placeholders::_2));
-      }
-      else if(sortOrder == Qt::DescendingOrder){
-        std::sort(objects.begin(), objects.end(), std::bind(&modeleditor::TableModel::cmpDescendIdfName,this,std::placeholders::_1,std::placeholders::_2));
+      if (sortOrder == Qt::AscendingOrder) {
+        std::sort(objects.begin(), objects.end(),
+                  std::bind(&modeleditor::TableModel::cmpAscendIdfName, this, std::placeholders::_1, std::placeholders::_2));
+      } else if (sortOrder == Qt::DescendingOrder) {
+        std::sort(objects.begin(), objects.end(),
+                  std::bind(&modeleditor::TableModel::cmpDescendIdfName, this, std::placeholders::_1, std::placeholders::_2));
       }
       break;
     case 2:
       mModel = mClassViewWidget->getModel();
-      if(sortOrder == Qt::AscendingOrder){
-        std::sort(objects.begin(), objects.end(), std::bind(&modeleditor::TableModel::cmpAscendIndex,this,std::placeholders::_1,std::placeholders::_2));
-      }
-      else if(sortOrder == Qt::DescendingOrder){
-        std::sort(objects.begin(), objects.end(), std::bind(&modeleditor::TableModel::cmpDescendIndex,this,std::placeholders::_1,std::placeholders::_2));
+      if (sortOrder == Qt::AscendingOrder) {
+        std::sort(objects.begin(), objects.end(),
+                  std::bind(&modeleditor::TableModel::cmpAscendIndex, this, std::placeholders::_1, std::placeholders::_2));
+      } else if (sortOrder == Qt::DescendingOrder) {
+        std::sort(objects.begin(), objects.end(),
+                  std::bind(&modeleditor::TableModel::cmpDescendIndex, this, std::placeholders::_1, std::placeholders::_2));
       }
       break;
   }
 }
 
-bool TableModel::cmpAscendIddName(const openstudio::WorkspaceObject& object1, const openstudio::WorkspaceObject& object2)
-{
+bool TableModel::cmpAscendIddName(const openstudio::WorkspaceObject& object1, const openstudio::WorkspaceObject& object2) {
   return (object1.iddObject().name() > object2.iddObject().name());
 }
 
-bool TableModel::cmpDescendIddName(const openstudio::WorkspaceObject& object1, const openstudio::WorkspaceObject& object2)
-{
+bool TableModel::cmpDescendIddName(const openstudio::WorkspaceObject& object1, const openstudio::WorkspaceObject& object2) {
   return (object1.iddObject().name() < object2.iddObject().name());
 }
 
-bool TableModel::cmpAscendIdfName(const openstudio::WorkspaceObject& object1, const openstudio::WorkspaceObject& object2)
-{
+bool TableModel::cmpAscendIdfName(const openstudio::WorkspaceObject& object1, const openstudio::WorkspaceObject& object2) {
   OptionalString idfName1 = object1.idfObject().name();
   OptionalString idfName2 = object2.idfObject().name();
 
-  if(!idfName1 && !idfName2){
+  if (!idfName1 && !idfName2) {
     return false;
-  }
-  else if(!idfName1 && idfName2){
+  } else if (!idfName1 && idfName2) {
     return false;
-  }
-  else if(idfName1 && !idfName2){
+  } else if (idfName1 && !idfName2) {
     return true;
-  }
-  else{
+  } else {
     return (idfName1.get() > idfName2.get());
   }
 }
 
-bool TableModel::cmpDescendIdfName(const openstudio::WorkspaceObject& object1, const openstudio::WorkspaceObject& object2)
-{
+bool TableModel::cmpDescendIdfName(const openstudio::WorkspaceObject& object1, const openstudio::WorkspaceObject& object2) {
   OptionalString idfName1 = object1.idfObject().name();
   OptionalString idfName2 = object2.idfObject().name();
 
-  if(!idfName1 && !idfName2){
+  if (!idfName1 && !idfName2) {
     return false;
-  }
-  else if(!idfName1 && idfName2){
+  } else if (!idfName1 && idfName2) {
     return false;
-  }
-  else if(idfName1 && !idfName2){
+  } else if (idfName1 && !idfName2) {
     return true;
-  }
-  else{
+  } else {
     return (idfName1.get() < idfName2.get());
   }
 }
 
-bool TableModel::cmpAscendIndex(const openstudio::WorkspaceObject& object1, const openstudio::WorkspaceObject& object2)
-{
+bool TableModel::cmpAscendIndex(const openstudio::WorkspaceObject& object1, const openstudio::WorkspaceObject& object2) {
   openstudio::WorkspaceObjectOrder order = mModel.order();
   openstudio::Handle handle1 = object1.handle();
   openstudio::Handle handle2 = object2.handle();
@@ -193,8 +164,7 @@ bool TableModel::cmpAscendIndex(const openstudio::WorkspaceObject& object1, cons
   return (indexInOrder1.get() > indexInOrder2.get());
 }
 
-bool TableModel::cmpDescendIndex(const openstudio::WorkspaceObject& object1, const openstudio::WorkspaceObject& object2)
-{
+bool TableModel::cmpDescendIndex(const openstudio::WorkspaceObject& object1, const openstudio::WorkspaceObject& object2) {
   openstudio::WorkspaceObjectOrder order = mModel.order();
   openstudio::Handle handle1 = object1.handle();
   openstudio::Handle handle2 = object2.handle();
@@ -209,64 +179,56 @@ bool TableModel::cmpDescendIndex(const openstudio::WorkspaceObject& object1, con
 }
 
 //! [1]
-int TableModel::rowCount(const QModelIndex &parent) const
-{
+int TableModel::rowCount(const QModelIndex& parent) const {
   Q_UNUSED(parent);
   return mObjects.size();
 }
 
-int TableModel::columnCount(const QModelIndex &parent) const
-{
+int TableModel::columnCount(const QModelIndex& parent) const {
   Q_UNUSED(parent);
   return 3;
 }
 //! [1]
 
 //! [2]
-QVariant TableModel::data(const QModelIndex &index, int role) const
-{
-  if (!index.isValid())
-    return QVariant();
+QVariant TableModel::data(const QModelIndex& index, int role) const {
+  if (!index.isValid()) return QVariant();
 
-  if (index.row() >= static_cast<int>(mObjects.size()) || index.row() < 0)
-    return QVariant();
+  if (index.row() >= static_cast<int>(mObjects.size()) || index.row() < 0) return QVariant();
 
   if (role == Qt::DisplayRole) {
     openstudio::WorkspaceObject object = mObjects.at(index.row());
-    if (index.column() == 0){
+    if (index.column() == 0) {
       IddObject iddObject = object.iddObject();
       QString iddName(iddObject.name().c_str());
       return iddName;
-    }
-    else if (index.column() == 1){
+    } else if (index.column() == 1) {
       // object might have a name
       OptionalString optionalString = object.name();
       QString idfName;
-      if(optionalString){
+      if (optionalString) {
         idfName = optionalString.get().c_str();
         int firstIdx = idfName.indexOf(guidOpenCurlyBrace);
         int secondIdx = idfName.indexOf(guidCloseCurlyBrace);
-        if(mMaskGUIDs &&(firstIdx != -1) && (secondIdx != -1)){
+        if (mMaskGUIDs && (firstIdx != -1) && (secondIdx != -1)) {
           ///! QString::trimmed() won't work due to characters after the last curly brace
           unsigned offset = 0;
-          if(firstIdx>0 && firstIdx<idfName.size() && idfName.at(firstIdx-1).isSpace()){
+          if (firstIdx > 0 && firstIdx < idfName.size() && idfName.at(firstIdx - 1).isSpace()) {
             offset++;
           }
-          idfName.remove(firstIdx-offset,secondIdx-firstIdx+1+offset);
+          idfName.remove(firstIdx - offset, secondIdx - firstIdx + 1 + offset);
         }
       }
       return idfName;
-    }
-    else if (index.column() == 2){
+    } else if (index.column() == 2) {
       openstudio::Handle handle = object.handle();
       openstudio::WorkspaceObjectOrder order = mClassViewWidget->getModel().order();
       OS_ASSERT(order.inOrder(handle));
       openstudio::OptionalUnsigned indexInOrder = order.indexInOrder(handle);
       OS_ASSERT(indexInOrder);
-      if(indexInOrder){
+      if (indexInOrder) {
         return indexInOrder.get();
-      }
-      else{
+      } else {
         return -1;
       }
     }
@@ -276,8 +238,7 @@ QVariant TableModel::data(const QModelIndex &index, int role) const
 }
 //! [2]
 
-openstudio::OptionalWorkspaceObject TableModel::objectAtIndex(const QModelIndex &index) const
-{
+openstudio::OptionalWorkspaceObject TableModel::objectAtIndex(const QModelIndex& index) const {
   OS_ASSERT(index.isValid());
   OS_ASSERT(index.row() >= 0 && index.row() < static_cast<int>(mObjects.size()));
 
@@ -285,10 +246,8 @@ openstudio::OptionalWorkspaceObject TableModel::objectAtIndex(const QModelIndex 
 }
 
 //! [3]
-QVariant TableModel::headerData(int section, Qt::Orientation orientation, int role) const
-{
-  if (role != Qt::DisplayRole)
-    return QVariant();
+QVariant TableModel::headerData(int section, Qt::Orientation orientation, int role) const {
+  if (role != Qt::DisplayRole) return QVariant();
 
   if (orientation == Qt::Horizontal) {
     switch (section) {
@@ -309,16 +268,14 @@ QVariant TableModel::headerData(int section, Qt::Orientation orientation, int ro
 }
 //! [3]
 
-bool TableModel::insertRows(std::vector<openstudio::WorkspaceObject> wsObjects, const QModelIndexList& rowList)
-{
+bool TableModel::insertRows(std::vector<openstudio::WorkspaceObject> wsObjects, const QModelIndexList& rowList) {
   int position = rowList.at(0).row();
   int rows = rowList.size();
 
   return insertRows(wsObjects, position, rows);
 }
 
-bool TableModel::insertRows(std::vector<openstudio::WorkspaceObject> wsObjects, const QModelIndex& row, const QModelIndexList& rowList)
-{
+bool TableModel::insertRows(std::vector<openstudio::WorkspaceObject> wsObjects, const QModelIndex& row, const QModelIndexList& rowList) {
   int position = rowList.at(0).row();
   int rows = rowList.size();
 
@@ -326,58 +283,54 @@ bool TableModel::insertRows(std::vector<openstudio::WorkspaceObject> wsObjects, 
 }
 
 //! [4]
-bool TableModel::insertRows(std::vector<openstudio::WorkspaceObject> wsObjects, int position, int rows, const QModelIndex &index)
-{
-  beginInsertRows(QModelIndex(), position+1, position+rows);
+bool TableModel::insertRows(std::vector<openstudio::WorkspaceObject> wsObjects, int position, int rows, const QModelIndex& index) {
+  beginInsertRows(QModelIndex(), position + 1, position + rows);
 
-  auto it = mObjects.begin()+position+1;
-  mObjects.insert(it,wsObjects.begin(),wsObjects.end());
+  auto it = mObjects.begin() + position + 1;
+  mObjects.insert(it, wsObjects.begin(), wsObjects.end());
 
   endInsertRows();
   return true;
 }
 //! [4]
 
-bool TableModel::moveRows(const QModelIndex& row, const QModelIndexList& rowList)
-{
+bool TableModel::moveRows(const QModelIndex& row, const QModelIndexList& rowList) {
   bool success = false;
 
   int rows = rowList.size();
   int position = rowList.at(0).row();
 
   ///! Ensure that drag != drop
-  for(int i=0; i<rows; i++){
-    if(rowList.at(i).row() == row.row()){
+  for (int i = 0; i < rows; i++) {
+    if (rowList.at(i).row() == row.row()) {
       return success;
     }
   }
 
   openstudio::WorkspaceObjectVector temp;
-  for(int i=0; i<rows; i++){
+  for (int i = 0; i < rows; i++) {
     temp.push_back(mObjects.at(rowList.at(i).row()));
   }
 
-  beginMoveRows(QModelIndex(), position, position+rows-1, QModelIndex(), row.row());
+  beginMoveRows(QModelIndex(), position, position + rows - 1, QModelIndex(), row.row());
 
   ///! std::list could use splice, but we are working with a vector
-  auto it = mObjects.begin()+row.row();
-  mObjects.insert(it,temp.begin(),temp.end());
+  auto it = mObjects.begin() + row.row();
+  mObjects.insert(it, temp.begin(), temp.end());
 
-  if(position > row.row()){
-    it = mObjects.begin()+position+rows;
+  if (position > row.row()) {
+    it = mObjects.begin() + position + rows;
+  } else {
+    it = mObjects.begin() + position;
   }
-  else{
-    it = mObjects.begin()+position;
-  }
-  mObjects.erase(it,it+rows);
+  mObjects.erase(it, it + rows);
 
   endMoveRows();
 
   return true;
 }
 
-bool TableModel::removeRows(const QModelIndexList& rowList)
-{
+bool TableModel::removeRows(const QModelIndexList& rowList) {
   int position = rowList.at(0).row();
   int rows = rowList.size();
 
@@ -385,13 +338,12 @@ bool TableModel::removeRows(const QModelIndexList& rowList)
 }
 
 //! [5]
-bool TableModel::removeRows(int position, int rows, const QModelIndex &index)
-{
+bool TableModel::removeRows(int position, int rows, const QModelIndex& index) {
   Q_UNUSED(index);
-  beginRemoveRows(QModelIndex(), position, position+rows-1);
+  beginRemoveRows(QModelIndex(), position, position + rows - 1);
 
-  auto it = mObjects.begin()+position;
-  mObjects.erase(it,it+rows);
+  auto it = mObjects.begin() + position;
+  mObjects.erase(it, it + rows);
 
   endRemoveRows();
   return true;
@@ -399,12 +351,11 @@ bool TableModel::removeRows(int position, int rows, const QModelIndex &index)
 //! [5]
 
 //! [6]
-bool TableModel::setData(const QModelIndex &index, const QVariant &value, int role)
-{
-  if(index.isValid() && role == Qt::EditRole){
+bool TableModel::setData(const QModelIndex& index, const QVariant& value, int role) {
+  if (index.isValid() && role == Qt::EditRole) {
     //int row = index.row();
 
-    QPair<QString, QString> p; // = mObjects.value(row);
+    QPair<QString, QString> p;  // = mObjects.value(row);
     if (index.column() == 0)
       p.first = value.toString();
     else if (index.column() == 1)
@@ -422,8 +373,7 @@ bool TableModel::setData(const QModelIndex &index, const QVariant &value, int ro
 //! [6]
 
 //! [7]
-Qt::ItemFlags TableModel::flags(const QModelIndex &index) const
-{
+Qt::ItemFlags TableModel::flags(const QModelIndex& index) const {
   if (index.isValid())
     return Qt::ItemIsDragEnabled | Qt::ItemIsDropEnabled | Qt::ItemIsEditable | Qt::ItemIsEnabled | Qt::ItemIsSelectable;
   else
@@ -431,17 +381,16 @@ Qt::ItemFlags TableModel::flags(const QModelIndex &index) const
 }
 //! [7]
 
-void TableModel::setupModelData(openstudio::WorkspaceObjectVector& objects)
-{
+void TableModel::setupModelData(openstudio::WorkspaceObjectVector& objects) {
   // loop through each object
-  for (const openstudio::WorkspaceObject& object : objects){
+  for (const openstudio::WorkspaceObject& object : objects) {
     // get the idd object type
     openstudio::IddObject iddObject = object.iddObject();
     QString iddName(iddObject.name().c_str());
     // object might have a name
     OptionalString temp = object.name();
     QString idfName;
-    if(temp){
+    if (temp) {
       idfName = (*temp).c_str();
     }
     QModelIndex idx = this->index(0, 0, QModelIndex());
@@ -451,38 +400,35 @@ void TableModel::setupModelData(openstudio::WorkspaceObjectVector& objects)
   }
 }
 
-Qt::DropActions TableModel::supportedDropActions() const
-{
+Qt::DropActions TableModel::supportedDropActions() const {
   return Qt::CopyAction | Qt::MoveAction;
 }
 
-bool TableModel::dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent)
-{
+bool TableModel::dropMimeData(const QMimeData* data, Qt::DropAction action, int row, int column, const QModelIndex& parent) {
   bool success = false;
 
-  if(action != Qt::CopyAction) return success;
+  if (action != Qt::CopyAction) return success;
 
-  if(data->hasText()){
-    if(!data->hasFormat("ListWidget data")) return success;
+  if (data->hasText()) {
+    if (!data->hasFormat("ListWidget data")) return success;
     QString string = data->text();
     QStringList strings = string.split(",");
-    for(int i=0; i<strings.size(); i++){
+    for (int i = 0; i < strings.size(); i++) {
       openstudio::IddFile iddFile = mClassViewWidget->getIddFile();
       boost::optional<openstudio::IddObject> optionalIddObject = iddFile.getObject(strings.at(i).toStdString());
-      if(optionalIddObject){
+      if (optionalIddObject) {
         openstudio::IdfObject idfObject = openstudio::IdfObject(optionalIddObject->type());
         openstudio::OptionalWorkspaceObject optionalWorkspaceObject = mClassViewWidget->getModel().addObject(idfObject);
-        if(optionalWorkspaceObject){
+        if (optionalWorkspaceObject) {
           success = mClassViewWidget->getModel().order().insert(optionalWorkspaceObject->handle(), this->objectAtIndex(parent)->handle());
         }
       }
     }
     mClassViewWidget->loadModel();
-  }
-  else{
+  } else {
     OS_ASSERT(mClassViewWidget && mClassViewWidget->getTableView());
     QModelIndexList rowList;
-    if(!mClassViewWidget->getTableView()->getSelectedRows(rowList)){
+    if (!mClassViewWidget->getTableView()->getSelectedRows(rowList)) {
       return success;
     }
 
@@ -491,10 +437,10 @@ bool TableModel::dropMimeData(const QMimeData *data, Qt::DropAction action, int 
     openstudio::WorkspaceObjectOrder order = mClassViewWidget->getModel().order();
 
     ///! OpenStudio model update...
-    for(int i=0; i<rows; i++){
-      if(!parent.isValid()) continue;
-      success = order.move(mObjects.at(rowList.at(i).row()).handle(),this->objectAtIndex(parent)->handle());
-      if(!success) return success;
+    for (int i = 0; i < rows; i++) {
+      if (!parent.isValid()) continue;
+      success = order.move(mObjects.at(rowList.at(i).row()).handle(), this->objectAtIndex(parent)->handle());
+      if (!success) return success;
     }
   }
 
@@ -509,9 +455,8 @@ bool TableModel::dropMimeData(const QMimeData *data, Qt::DropAction action, int 
   return success;
 }
 
-void TableModel::toggleGUIDs()
-{
+void TableModel::toggleGUIDs() {
   mMaskGUIDs = !mMaskGUIDs;
 }
 
-} // namespace modeleditor
+}  // namespace modeleditor

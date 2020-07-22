@@ -53,47 +53,42 @@ namespace openstudio {
 
 // HoursOfOperationVC
 
-void HoursOfOperationVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle)
-{
-  if (index == OS_DefaultScheduleSetFields::HoursofOperationScheduleName){
+void HoursOfOperationVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) {
+  if (index == OS_DefaultScheduleSetFields::HoursofOperationScheduleName) {
     emit itemIds(makeVector());
   }
 }
 
-std::vector<OSItemId> HoursOfOperationVC::makeVector()
-{
+std::vector<OSItemId> HoursOfOperationVC::makeVector() {
   std::vector<OSItemId> result;
-  if (m_modelObject){
+  if (m_modelObject) {
     model::DefaultScheduleSet defaultScheduleSet = m_modelObject->cast<model::DefaultScheduleSet>();
     boost::optional<model::Schedule> schedule = defaultScheduleSet.hoursofOperationSchedule();
-    if (schedule){
+    if (schedule) {
       result.push_back(modelObjectToItemId(*schedule, false));
     }
   }
   return result;
 }
 
-void HoursOfOperationVC::onRemoveItem(OSItem* item)
-{
-  if (m_modelObject){
+void HoursOfOperationVC::onRemoveItem(OSItem* item) {
+  if (m_modelObject) {
     model::DefaultScheduleSet defaultScheduleSet = m_modelObject->cast<model::DefaultScheduleSet>();
     defaultScheduleSet.resetHoursofOperationSchedule();
   }
 }
 
-void HoursOfOperationVC::onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId)
-{
+void HoursOfOperationVC::onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) {
   onDrop(replacementItemId);
 }
 
-void HoursOfOperationVC::onDrop(const OSItemId& itemId)
-{
-  if (m_modelObject){
+void HoursOfOperationVC::onDrop(const OSItemId& itemId) {
+  if (m_modelObject) {
     model::DefaultScheduleSet defaultScheduleSet = m_modelObject->cast<model::DefaultScheduleSet>();
     boost::optional<model::ModelObject> modelObject = this->getModelObject(itemId);
-    if (modelObject){
-      if (modelObject->optionalCast<model::Schedule>()){
-        if (this->fromComponentLibrary(itemId)){
+    if (modelObject) {
+      if (modelObject->optionalCast<model::Schedule>()) {
+        if (this->fromComponentLibrary(itemId)) {
           modelObject = modelObject->clone(m_modelObject->model());
         }
         model::Schedule schedule = modelObject->cast<model::Schedule>();
@@ -105,47 +100,42 @@ void HoursOfOperationVC::onDrop(const OSItemId& itemId)
 
 // NumberOfPeopleVC
 
-void NumberOfPeopleVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle)
-{
-  if (index == OS_DefaultScheduleSetFields::NumberofPeopleScheduleName){
+void NumberOfPeopleVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) {
+  if (index == OS_DefaultScheduleSetFields::NumberofPeopleScheduleName) {
     emit itemIds(makeVector());
   }
 }
 
-std::vector<OSItemId> NumberOfPeopleVC::makeVector()
-{
+std::vector<OSItemId> NumberOfPeopleVC::makeVector() {
   std::vector<OSItemId> result;
-  if (m_modelObject){
+  if (m_modelObject) {
     model::DefaultScheduleSet defaultScheduleSet = m_modelObject->cast<model::DefaultScheduleSet>();
     boost::optional<model::Schedule> schedule = defaultScheduleSet.numberofPeopleSchedule();
-    if (schedule){
+    if (schedule) {
       result.push_back(modelObjectToItemId(*schedule, false));
     }
   }
   return result;
 }
 
-void NumberOfPeopleVC::onRemoveItem(OSItem* item)
-{
-  if (m_modelObject){
+void NumberOfPeopleVC::onRemoveItem(OSItem* item) {
+  if (m_modelObject) {
     model::DefaultScheduleSet defaultScheduleSet = m_modelObject->cast<model::DefaultScheduleSet>();
     defaultScheduleSet.resetNumberofPeopleSchedule();
   }
 }
 
-void NumberOfPeopleVC::onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId)
-{
+void NumberOfPeopleVC::onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) {
   onDrop(replacementItemId);
 }
 
-void NumberOfPeopleVC::onDrop(const OSItemId& itemId)
-{
-  if (m_modelObject){
+void NumberOfPeopleVC::onDrop(const OSItemId& itemId) {
+  if (m_modelObject) {
     model::DefaultScheduleSet defaultScheduleSet = m_modelObject->cast<model::DefaultScheduleSet>();
     boost::optional<model::ModelObject> modelObject = this->getModelObject(itemId);
-    if (modelObject){
-      if (modelObject->optionalCast<model::Schedule>()){
-        if (this->fromComponentLibrary(itemId)){
+    if (modelObject) {
+      if (modelObject->optionalCast<model::Schedule>()) {
+        if (this->fromComponentLibrary(itemId)) {
           modelObject = modelObject->clone(m_modelObject->model());
         }
         model::Schedule schedule = modelObject->cast<model::Schedule>();
@@ -157,47 +147,42 @@ void NumberOfPeopleVC::onDrop(const OSItemId& itemId)
 
 // PeopleActivityScheduleVC
 
-void PeopleActivityScheduleVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle)
-{
-  if (index == OS_DefaultScheduleSetFields::PeopleActivityLevelScheduleName){
+void PeopleActivityScheduleVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) {
+  if (index == OS_DefaultScheduleSetFields::PeopleActivityLevelScheduleName) {
     emit itemIds(makeVector());
   }
 }
 
-std::vector<OSItemId> PeopleActivityScheduleVC::makeVector()
-{
+std::vector<OSItemId> PeopleActivityScheduleVC::makeVector() {
   std::vector<OSItemId> result;
-  if (m_modelObject){
+  if (m_modelObject) {
     model::DefaultScheduleSet defaultScheduleSet = m_modelObject->cast<model::DefaultScheduleSet>();
     boost::optional<model::Schedule> schedule = defaultScheduleSet.peopleActivityLevelSchedule();
-    if (schedule){
+    if (schedule) {
       result.push_back(modelObjectToItemId(*schedule, false));
     }
   }
   return result;
 }
 
-void PeopleActivityScheduleVC::onRemoveItem(OSItem* item)
-{
-  if (m_modelObject){
+void PeopleActivityScheduleVC::onRemoveItem(OSItem* item) {
+  if (m_modelObject) {
     model::DefaultScheduleSet defaultScheduleSet = m_modelObject->cast<model::DefaultScheduleSet>();
     defaultScheduleSet.resetPeopleActivityLevelSchedule();
   }
 }
 
-void PeopleActivityScheduleVC::onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId)
-{
+void PeopleActivityScheduleVC::onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) {
   onDrop(replacementItemId);
 }
 
-void PeopleActivityScheduleVC::onDrop(const OSItemId& itemId)
-{
-  if (m_modelObject){
+void PeopleActivityScheduleVC::onDrop(const OSItemId& itemId) {
+  if (m_modelObject) {
     model::DefaultScheduleSet defaultScheduleSet = m_modelObject->cast<model::DefaultScheduleSet>();
     boost::optional<model::ModelObject> modelObject = this->getModelObject(itemId);
-    if (modelObject){
-      if (modelObject->optionalCast<model::Schedule>()){
-        if (this->fromComponentLibrary(itemId)){
+    if (modelObject) {
+      if (modelObject->optionalCast<model::Schedule>()) {
+        if (this->fromComponentLibrary(itemId)) {
           modelObject = modelObject->clone(m_modelObject->model());
         }
         model::Schedule schedule = modelObject->cast<model::Schedule>();
@@ -209,47 +194,42 @@ void PeopleActivityScheduleVC::onDrop(const OSItemId& itemId)
 
 // LightingScheduleVC
 
-void LightingScheduleVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle)
-{
-  if (index == OS_DefaultScheduleSetFields::LightingScheduleName){
+void LightingScheduleVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) {
+  if (index == OS_DefaultScheduleSetFields::LightingScheduleName) {
     emit itemIds(makeVector());
   }
 }
 
-std::vector<OSItemId> LightingScheduleVC::makeVector()
-{
+std::vector<OSItemId> LightingScheduleVC::makeVector() {
   std::vector<OSItemId> result;
-  if (m_modelObject){
+  if (m_modelObject) {
     model::DefaultScheduleSet defaultScheduleSet = m_modelObject->cast<model::DefaultScheduleSet>();
     boost::optional<model::Schedule> schedule = defaultScheduleSet.lightingSchedule();
-    if (schedule){
+    if (schedule) {
       result.push_back(modelObjectToItemId(*schedule, false));
     }
   }
   return result;
 }
 
-void LightingScheduleVC::onRemoveItem(OSItem* item)
-{
-  if (m_modelObject){
+void LightingScheduleVC::onRemoveItem(OSItem* item) {
+  if (m_modelObject) {
     model::DefaultScheduleSet defaultScheduleSet = m_modelObject->cast<model::DefaultScheduleSet>();
     defaultScheduleSet.resetLightingSchedule();
   }
 }
 
-void LightingScheduleVC::onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId)
-{
+void LightingScheduleVC::onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) {
   onDrop(replacementItemId);
 }
 
-void LightingScheduleVC::onDrop(const OSItemId& itemId)
-{
-  if (m_modelObject){
+void LightingScheduleVC::onDrop(const OSItemId& itemId) {
+  if (m_modelObject) {
     model::DefaultScheduleSet defaultScheduleSet = m_modelObject->cast<model::DefaultScheduleSet>();
     boost::optional<model::ModelObject> modelObject = this->getModelObject(itemId);
-    if (modelObject){
-      if (modelObject->optionalCast<model::Schedule>()){
-        if (this->fromComponentLibrary(itemId)){
+    if (modelObject) {
+      if (modelObject->optionalCast<model::Schedule>()) {
+        if (this->fromComponentLibrary(itemId)) {
           modelObject = modelObject->clone(m_modelObject->model());
         }
         model::Schedule schedule = modelObject->cast<model::Schedule>();
@@ -261,47 +241,42 @@ void LightingScheduleVC::onDrop(const OSItemId& itemId)
 
 // ElectricEquipmentScheduleVC
 
-void ElectricEquipmentScheduleVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle)
-{
-  if (index == OS_DefaultScheduleSetFields::ElectricEquipmentScheduleName){
+void ElectricEquipmentScheduleVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) {
+  if (index == OS_DefaultScheduleSetFields::ElectricEquipmentScheduleName) {
     emit itemIds(makeVector());
   }
 }
 
-std::vector<OSItemId> ElectricEquipmentScheduleVC::makeVector()
-{
+std::vector<OSItemId> ElectricEquipmentScheduleVC::makeVector() {
   std::vector<OSItemId> result;
-  if (m_modelObject){
+  if (m_modelObject) {
     model::DefaultScheduleSet defaultScheduleSet = m_modelObject->cast<model::DefaultScheduleSet>();
     boost::optional<model::Schedule> schedule = defaultScheduleSet.electricEquipmentSchedule();
-    if (schedule){
+    if (schedule) {
       result.push_back(modelObjectToItemId(*schedule, false));
     }
   }
   return result;
 }
 
-void ElectricEquipmentScheduleVC::onRemoveItem(OSItem* item)
-{
-  if (m_modelObject){
+void ElectricEquipmentScheduleVC::onRemoveItem(OSItem* item) {
+  if (m_modelObject) {
     model::DefaultScheduleSet defaultScheduleSet = m_modelObject->cast<model::DefaultScheduleSet>();
     defaultScheduleSet.resetElectricEquipmentSchedule();
   }
 }
 
-void ElectricEquipmentScheduleVC::onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId)
-{
+void ElectricEquipmentScheduleVC::onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) {
   onDrop(replacementItemId);
 }
 
-void ElectricEquipmentScheduleVC::onDrop(const OSItemId& itemId)
-{
-  if (m_modelObject){
+void ElectricEquipmentScheduleVC::onDrop(const OSItemId& itemId) {
+  if (m_modelObject) {
     model::DefaultScheduleSet defaultScheduleSet = m_modelObject->cast<model::DefaultScheduleSet>();
     boost::optional<model::ModelObject> modelObject = this->getModelObject(itemId);
-    if (modelObject){
-      if (modelObject->optionalCast<model::Schedule>()){
-        if (this->fromComponentLibrary(itemId)){
+    if (modelObject) {
+      if (modelObject->optionalCast<model::Schedule>()) {
+        if (this->fromComponentLibrary(itemId)) {
           modelObject = modelObject->clone(m_modelObject->model());
         }
         model::Schedule schedule = modelObject->cast<model::Schedule>();
@@ -313,47 +288,42 @@ void ElectricEquipmentScheduleVC::onDrop(const OSItemId& itemId)
 
 // GasEquipmentScheduleVC
 
-void GasEquipmentScheduleVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle)
-{
-  if (index == OS_DefaultScheduleSetFields::GasEquipmentScheduleName){
+void GasEquipmentScheduleVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) {
+  if (index == OS_DefaultScheduleSetFields::GasEquipmentScheduleName) {
     emit itemIds(makeVector());
   }
 }
 
-std::vector<OSItemId> GasEquipmentScheduleVC::makeVector()
-{
+std::vector<OSItemId> GasEquipmentScheduleVC::makeVector() {
   std::vector<OSItemId> result;
-  if (m_modelObject){
+  if (m_modelObject) {
     model::DefaultScheduleSet defaultScheduleSet = m_modelObject->cast<model::DefaultScheduleSet>();
     boost::optional<model::Schedule> schedule = defaultScheduleSet.gasEquipmentSchedule();
-    if (schedule){
+    if (schedule) {
       result.push_back(modelObjectToItemId(*schedule, false));
     }
   }
   return result;
 }
 
-void GasEquipmentScheduleVC::onRemoveItem(OSItem* item)
-{
-  if (m_modelObject){
+void GasEquipmentScheduleVC::onRemoveItem(OSItem* item) {
+  if (m_modelObject) {
     model::DefaultScheduleSet defaultScheduleSet = m_modelObject->cast<model::DefaultScheduleSet>();
     defaultScheduleSet.resetGasEquipmentSchedule();
   }
 }
 
-void GasEquipmentScheduleVC::onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId)
-{
+void GasEquipmentScheduleVC::onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) {
   onDrop(replacementItemId);
 }
 
-void GasEquipmentScheduleVC::onDrop(const OSItemId& itemId)
-{
-  if (m_modelObject){
+void GasEquipmentScheduleVC::onDrop(const OSItemId& itemId) {
+  if (m_modelObject) {
     model::DefaultScheduleSet defaultScheduleSet = m_modelObject->cast<model::DefaultScheduleSet>();
     boost::optional<model::ModelObject> modelObject = this->getModelObject(itemId);
-    if (modelObject){
-      if (modelObject->optionalCast<model::Schedule>()){
-        if (this->fromComponentLibrary(itemId)){
+    if (modelObject) {
+      if (modelObject->optionalCast<model::Schedule>()) {
+        if (this->fromComponentLibrary(itemId)) {
           modelObject = modelObject->clone(m_modelObject->model());
         }
         model::Schedule schedule = modelObject->cast<model::Schedule>();
@@ -365,47 +335,42 @@ void GasEquipmentScheduleVC::onDrop(const OSItemId& itemId)
 
 // HotWaterEquipmentScheduleVC
 
-void HotWaterEquipmentScheduleVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle)
-{
-  if (index == OS_DefaultScheduleSetFields::HotWaterEquipmentScheduleName){
+void HotWaterEquipmentScheduleVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) {
+  if (index == OS_DefaultScheduleSetFields::HotWaterEquipmentScheduleName) {
     emit itemIds(makeVector());
   }
 }
 
-std::vector<OSItemId> HotWaterEquipmentScheduleVC::makeVector()
-{
+std::vector<OSItemId> HotWaterEquipmentScheduleVC::makeVector() {
   std::vector<OSItemId> result;
-  if (m_modelObject){
+  if (m_modelObject) {
     model::DefaultScheduleSet defaultScheduleSet = m_modelObject->cast<model::DefaultScheduleSet>();
     boost::optional<model::Schedule> schedule = defaultScheduleSet.hotWaterEquipmentSchedule();
-    if (schedule){
+    if (schedule) {
       result.push_back(modelObjectToItemId(*schedule, false));
     }
   }
   return result;
 }
 
-void HotWaterEquipmentScheduleVC::onRemoveItem(OSItem* item)
-{
-  if (m_modelObject){
+void HotWaterEquipmentScheduleVC::onRemoveItem(OSItem* item) {
+  if (m_modelObject) {
     model::DefaultScheduleSet defaultScheduleSet = m_modelObject->cast<model::DefaultScheduleSet>();
     defaultScheduleSet.resetHotWaterEquipmentSchedule();
   }
 }
 
-void HotWaterEquipmentScheduleVC::onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId)
-{
+void HotWaterEquipmentScheduleVC::onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) {
   onDrop(replacementItemId);
 }
 
-void HotWaterEquipmentScheduleVC::onDrop(const OSItemId& itemId)
-{
-  if (m_modelObject){
+void HotWaterEquipmentScheduleVC::onDrop(const OSItemId& itemId) {
+  if (m_modelObject) {
     model::DefaultScheduleSet defaultScheduleSet = m_modelObject->cast<model::DefaultScheduleSet>();
     boost::optional<model::ModelObject> modelObject = this->getModelObject(itemId);
-    if (modelObject){
-      if (modelObject->optionalCast<model::Schedule>()){
-        if (this->fromComponentLibrary(itemId)){
+    if (modelObject) {
+      if (modelObject->optionalCast<model::Schedule>()) {
+        if (this->fromComponentLibrary(itemId)) {
           modelObject = modelObject->clone(m_modelObject->model());
         }
         model::Schedule schedule = modelObject->cast<model::Schedule>();
@@ -417,47 +382,42 @@ void HotWaterEquipmentScheduleVC::onDrop(const OSItemId& itemId)
 
 // InfiltrationScheduleVC
 
-void InfiltrationScheduleVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle)
-{
-  if (index == OS_DefaultScheduleSetFields::InfiltrationScheduleName){
+void InfiltrationScheduleVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) {
+  if (index == OS_DefaultScheduleSetFields::InfiltrationScheduleName) {
     emit itemIds(makeVector());
   }
 }
 
-std::vector<OSItemId> InfiltrationScheduleVC::makeVector()
-{
+std::vector<OSItemId> InfiltrationScheduleVC::makeVector() {
   std::vector<OSItemId> result;
-  if (m_modelObject){
+  if (m_modelObject) {
     model::DefaultScheduleSet defaultScheduleSet = m_modelObject->cast<model::DefaultScheduleSet>();
     boost::optional<model::Schedule> schedule = defaultScheduleSet.infiltrationSchedule();
-    if (schedule){
+    if (schedule) {
       result.push_back(modelObjectToItemId(*schedule, false));
     }
   }
   return result;
 }
 
-void InfiltrationScheduleVC::onRemoveItem(OSItem* item)
-{
-  if (m_modelObject){
+void InfiltrationScheduleVC::onRemoveItem(OSItem* item) {
+  if (m_modelObject) {
     model::DefaultScheduleSet defaultScheduleSet = m_modelObject->cast<model::DefaultScheduleSet>();
     defaultScheduleSet.resetInfiltrationSchedule();
   }
 }
 
-void InfiltrationScheduleVC::onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId)
-{
+void InfiltrationScheduleVC::onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) {
   onDrop(replacementItemId);
 }
 
-void InfiltrationScheduleVC::onDrop(const OSItemId& itemId)
-{
-  if (m_modelObject){
+void InfiltrationScheduleVC::onDrop(const OSItemId& itemId) {
+  if (m_modelObject) {
     model::DefaultScheduleSet defaultScheduleSet = m_modelObject->cast<model::DefaultScheduleSet>();
     boost::optional<model::ModelObject> modelObject = this->getModelObject(itemId);
-    if (modelObject){
-      if (modelObject->optionalCast<model::Schedule>()){
-        if (this->fromComponentLibrary(itemId)){
+    if (modelObject) {
+      if (modelObject->optionalCast<model::Schedule>()) {
+        if (this->fromComponentLibrary(itemId)) {
           modelObject = modelObject->clone(m_modelObject->model());
         }
         model::Schedule schedule = modelObject->cast<model::Schedule>();
@@ -469,47 +429,42 @@ void InfiltrationScheduleVC::onDrop(const OSItemId& itemId)
 
 // SteamEquipmentScheduleVC
 
-void SteamEquipmentScheduleVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle)
-{
-  if (index == OS_DefaultScheduleSetFields::SteamEquipmentScheduleName){
+void SteamEquipmentScheduleVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) {
+  if (index == OS_DefaultScheduleSetFields::SteamEquipmentScheduleName) {
     emit itemIds(makeVector());
   }
 }
 
-std::vector<OSItemId> SteamEquipmentScheduleVC::makeVector()
-{
+std::vector<OSItemId> SteamEquipmentScheduleVC::makeVector() {
   std::vector<OSItemId> result;
-  if (m_modelObject){
+  if (m_modelObject) {
     model::DefaultScheduleSet defaultScheduleSet = m_modelObject->cast<model::DefaultScheduleSet>();
     boost::optional<model::Schedule> schedule = defaultScheduleSet.steamEquipmentSchedule();
-    if (schedule){
+    if (schedule) {
       result.push_back(modelObjectToItemId(*schedule, false));
     }
   }
   return result;
 }
 
-void SteamEquipmentScheduleVC::onRemoveItem(OSItem* item)
-{
-  if (m_modelObject){
+void SteamEquipmentScheduleVC::onRemoveItem(OSItem* item) {
+  if (m_modelObject) {
     model::DefaultScheduleSet defaultScheduleSet = m_modelObject->cast<model::DefaultScheduleSet>();
     defaultScheduleSet.resetSteamEquipmentSchedule();
   }
 }
 
-void SteamEquipmentScheduleVC::onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId)
-{
+void SteamEquipmentScheduleVC::onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) {
   onDrop(replacementItemId);
 }
 
-void SteamEquipmentScheduleVC::onDrop(const OSItemId& itemId)
-{
-  if (m_modelObject){
+void SteamEquipmentScheduleVC::onDrop(const OSItemId& itemId) {
+  if (m_modelObject) {
     model::DefaultScheduleSet defaultScheduleSet = m_modelObject->cast<model::DefaultScheduleSet>();
     boost::optional<model::ModelObject> modelObject = this->getModelObject(itemId);
-    if (modelObject){
-      if (modelObject->optionalCast<model::Schedule>()){
-        if (this->fromComponentLibrary(itemId)){
+    if (modelObject) {
+      if (modelObject->optionalCast<model::Schedule>()) {
+        if (this->fromComponentLibrary(itemId)) {
           modelObject = modelObject->clone(m_modelObject->model());
         }
         model::Schedule schedule = modelObject->cast<model::Schedule>();
@@ -521,47 +476,42 @@ void SteamEquipmentScheduleVC::onDrop(const OSItemId& itemId)
 
 // OtherEquipmentScheduleVC
 
-void OtherEquipmentScheduleVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle)
-{
-  if (index == OS_DefaultScheduleSetFields::OtherEquipmentScheduleName){
+void OtherEquipmentScheduleVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) {
+  if (index == OS_DefaultScheduleSetFields::OtherEquipmentScheduleName) {
     emit itemIds(makeVector());
   }
 }
 
-std::vector<OSItemId> OtherEquipmentScheduleVC::makeVector()
-{
+std::vector<OSItemId> OtherEquipmentScheduleVC::makeVector() {
   std::vector<OSItemId> result;
-  if (m_modelObject){
+  if (m_modelObject) {
     model::DefaultScheduleSet defaultScheduleSet = m_modelObject->cast<model::DefaultScheduleSet>();
     boost::optional<model::Schedule> schedule = defaultScheduleSet.otherEquipmentSchedule();
-    if (schedule){
+    if (schedule) {
       result.push_back(modelObjectToItemId(*schedule, false));
     }
   }
   return result;
 }
 
-void OtherEquipmentScheduleVC::onRemoveItem(OSItem* item)
-{
-  if (m_modelObject){
+void OtherEquipmentScheduleVC::onRemoveItem(OSItem* item) {
+  if (m_modelObject) {
     model::DefaultScheduleSet defaultScheduleSet = m_modelObject->cast<model::DefaultScheduleSet>();
     defaultScheduleSet.resetOtherEquipmentSchedule();
   }
 }
 
-void OtherEquipmentScheduleVC::onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId)
-{
+void OtherEquipmentScheduleVC::onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) {
   onDrop(replacementItemId);
 }
 
-void OtherEquipmentScheduleVC::onDrop(const OSItemId& itemId)
-{
-  if (m_modelObject){
+void OtherEquipmentScheduleVC::onDrop(const OSItemId& itemId) {
+  if (m_modelObject) {
     model::DefaultScheduleSet defaultScheduleSet = m_modelObject->cast<model::DefaultScheduleSet>();
     boost::optional<model::ModelObject> modelObject = this->getModelObject(itemId);
-    if (modelObject){
-      if (modelObject->optionalCast<model::Schedule>()){
-        if (this->fromComponentLibrary(itemId)){
+    if (modelObject) {
+      if (modelObject->optionalCast<model::Schedule>()) {
+        if (this->fromComponentLibrary(itemId)) {
           modelObject = modelObject->clone(m_modelObject->model());
         }
         model::Schedule schedule = modelObject->cast<model::Schedule>();
@@ -573,37 +523,35 @@ void OtherEquipmentScheduleVC::onDrop(const OSItemId& itemId)
 
 /////////////////////////////////////////////////////////////////////////////
 
-ScheduleSetInspectorView::ScheduleSetInspectorView(const model::Model& model,
-  QWidget * parent)
+ScheduleSetInspectorView::ScheduleSetInspectorView(const model::Model& model, QWidget* parent)
   : ModelObjectInspectorView(model, true, parent),
-  m_nameEdit(nullptr),
+    m_nameEdit(nullptr),
 
-  m_hoursOfOperationDZ(nullptr),
-  m_numberOfPeopleDZ(nullptr),
-  m_peopleActivityScheduleDZ(nullptr),
-  m_lightingScheduleDZ(nullptr),
-  m_electricEquipmentScheduleDZ(nullptr),
-  m_gasEquipmentScheduleDZ(nullptr),
-  m_hotWaterEquipmentScheduleDZ(nullptr),
-  m_infiltrationScheduleDZ(nullptr),
-  m_ventilationPerPersonScheduleDZ(nullptr),
-  m_ventilationPerFloorAreaScheduleDZ(nullptr),
+    m_hoursOfOperationDZ(nullptr),
+    m_numberOfPeopleDZ(nullptr),
+    m_peopleActivityScheduleDZ(nullptr),
+    m_lightingScheduleDZ(nullptr),
+    m_electricEquipmentScheduleDZ(nullptr),
+    m_gasEquipmentScheduleDZ(nullptr),
+    m_hotWaterEquipmentScheduleDZ(nullptr),
+    m_infiltrationScheduleDZ(nullptr),
+    m_ventilationPerPersonScheduleDZ(nullptr),
+    m_ventilationPerFloorAreaScheduleDZ(nullptr),
 
-  m_hoursOfOperationVC(nullptr),
-  m_numberOfPeopleVC(nullptr),
-  m_peopleActivityScheduleVC(nullptr),
-  m_lightingScheduleVC(nullptr),
-  m_electricEquipmentScheduleVC(nullptr),
-  m_gasEquipmentScheduleVC(nullptr),
-  m_hotWaterEquipmentScheduleVC(nullptr),
-  m_infiltrationScheduleVC(nullptr),
-  m_steamEquipmentScheduleVC(nullptr),
-  m_otherEquipmentScheduleVC(nullptr),
+    m_hoursOfOperationVC(nullptr),
+    m_numberOfPeopleVC(nullptr),
+    m_peopleActivityScheduleVC(nullptr),
+    m_lightingScheduleVC(nullptr),
+    m_electricEquipmentScheduleVC(nullptr),
+    m_gasEquipmentScheduleVC(nullptr),
+    m_hotWaterEquipmentScheduleVC(nullptr),
+    m_infiltrationScheduleVC(nullptr),
+    m_steamEquipmentScheduleVC(nullptr),
+    m_otherEquipmentScheduleVC(nullptr),
 
-  m_vectorControllers(std::vector<ModelObjectVectorController *>()),
-  m_dropZones(std::vector<OSDropZone *>())
-{
-  QLabel * label = nullptr;
+    m_vectorControllers(std::vector<ModelObjectVectorController*>()),
+    m_dropZones(std::vector<OSDropZone*>()) {
+  QLabel* label = nullptr;
 
   label = new QLabel();
   label->setObjectName("H2");
@@ -613,34 +561,34 @@ ScheduleSetInspectorView::ScheduleSetInspectorView(const model::Model& model,
   m_nameEdit = new OSLineEdit2();
 
   auto gridLayout = new QGridLayout();
-  gridLayout->setContentsMargins(10,10,10,10);
+  gridLayout->setContentsMargins(10, 10, 10, 10);
   gridLayout->setSpacing(10);
 
   int leftCol = 0;
   int rightCol = 1;
   int row = 0;
 
-  gridLayout->addWidget(label,row,0);
+  gridLayout->addWidget(label, row, 0);
 
   row++;
 
-  gridLayout->addWidget(m_nameEdit,row,0,1,2);
+  gridLayout->addWidget(m_nameEdit, row, 0, 1, 2);
 
   row++;
 
-  QFrame * line;
+  QFrame* line;
 
   line = new QFrame();
   line->setFrameShape(QFrame::HLine);
   line->setFrameShadow(QFrame::Sunken);
-  gridLayout->addWidget(line,row,0,1,-1);
+  gridLayout->addWidget(line, row, 0, 1, -1);
   row++;
 
   label = new QLabel();
   label->setText("Default Schedules");
   label->setObjectName("H2");
   //label->setContentsMargins(padding,0,padding,0);
-  gridLayout->addWidget(label,row,0,1,2);
+  gridLayout->addWidget(label, row, 0, 1, 2);
   row++;
 
   label = new QLabel();
@@ -650,8 +598,8 @@ ScheduleSetInspectorView::ScheduleSetInspectorView(const model::Model& model,
   m_vectorControllers.push_back(m_hoursOfOperationVC);
   m_hoursOfOperationDZ = new OSDropZone(m_hoursOfOperationVC);
   m_dropZones.push_back(m_hoursOfOperationDZ);
-  gridLayout->addWidget(label,row,leftCol);
-  gridLayout->addWidget(m_hoursOfOperationDZ,row+1,leftCol);
+  gridLayout->addWidget(label, row, leftCol);
+  gridLayout->addWidget(m_hoursOfOperationDZ, row + 1, leftCol);
 
   label = new QLabel();
   label->setObjectName("H2");
@@ -660,8 +608,8 @@ ScheduleSetInspectorView::ScheduleSetInspectorView(const model::Model& model,
   m_vectorControllers.push_back(m_numberOfPeopleVC);
   m_numberOfPeopleDZ = new OSDropZone(m_numberOfPeopleVC);
   m_dropZones.push_back(m_numberOfPeopleDZ);
-  gridLayout->addWidget(label,row,rightCol);
-  gridLayout->addWidget(m_numberOfPeopleDZ,row+1,rightCol);
+  gridLayout->addWidget(label, row, rightCol);
+  gridLayout->addWidget(m_numberOfPeopleDZ, row + 1, rightCol);
 
   row += 2;
 
@@ -672,8 +620,8 @@ ScheduleSetInspectorView::ScheduleSetInspectorView(const model::Model& model,
   m_vectorControllers.push_back(m_peopleActivityScheduleVC);
   m_peopleActivityScheduleDZ = new OSDropZone(m_peopleActivityScheduleVC);
   m_dropZones.push_back(m_peopleActivityScheduleDZ);
-  gridLayout->addWidget(label,row,leftCol);
-  gridLayout->addWidget(m_peopleActivityScheduleDZ,row+1,leftCol);
+  gridLayout->addWidget(label, row, leftCol);
+  gridLayout->addWidget(m_peopleActivityScheduleDZ, row + 1, leftCol);
 
   label = new QLabel();
   label->setObjectName("H2");
@@ -682,8 +630,8 @@ ScheduleSetInspectorView::ScheduleSetInspectorView(const model::Model& model,
   m_vectorControllers.push_back(m_lightingScheduleVC);
   m_lightingScheduleDZ = new OSDropZone(m_lightingScheduleVC);
   m_dropZones.push_back(m_lightingScheduleDZ);
-  gridLayout->addWidget(label,row,rightCol);
-  gridLayout->addWidget(m_lightingScheduleDZ,row+1,rightCol);
+  gridLayout->addWidget(label, row, rightCol);
+  gridLayout->addWidget(m_lightingScheduleDZ, row + 1, rightCol);
 
   row += 2;
 
@@ -694,8 +642,8 @@ ScheduleSetInspectorView::ScheduleSetInspectorView(const model::Model& model,
   m_vectorControllers.push_back(m_electricEquipmentScheduleVC);
   m_electricEquipmentScheduleDZ = new OSDropZone(m_electricEquipmentScheduleVC);
   m_dropZones.push_back(m_electricEquipmentScheduleDZ);
-  gridLayout->addWidget(label,row,leftCol);
-  gridLayout->addWidget(m_electricEquipmentScheduleDZ,row+1,leftCol);
+  gridLayout->addWidget(label, row, leftCol);
+  gridLayout->addWidget(m_electricEquipmentScheduleDZ, row + 1, leftCol);
 
   label = new QLabel();
   label->setObjectName("H2");
@@ -704,8 +652,8 @@ ScheduleSetInspectorView::ScheduleSetInspectorView(const model::Model& model,
   m_vectorControllers.push_back(m_gasEquipmentScheduleVC);
   m_gasEquipmentScheduleDZ = new OSDropZone(m_gasEquipmentScheduleVC);
   m_dropZones.push_back(m_gasEquipmentScheduleDZ);
-  gridLayout->addWidget(label,row,rightCol);
-  gridLayout->addWidget(m_gasEquipmentScheduleDZ,row+1,rightCol);
+  gridLayout->addWidget(label, row, rightCol);
+  gridLayout->addWidget(m_gasEquipmentScheduleDZ, row + 1, rightCol);
 
   row += 2;
 
@@ -716,8 +664,8 @@ ScheduleSetInspectorView::ScheduleSetInspectorView(const model::Model& model,
   m_vectorControllers.push_back(m_hotWaterEquipmentScheduleVC);
   m_hotWaterEquipmentScheduleDZ = new OSDropZone(m_hotWaterEquipmentScheduleVC);
   m_dropZones.push_back(m_hotWaterEquipmentScheduleDZ);
-  gridLayout->addWidget(label,row,leftCol);
-  gridLayout->addWidget(m_hotWaterEquipmentScheduleDZ,row+1,leftCol);
+  gridLayout->addWidget(label, row, leftCol);
+  gridLayout->addWidget(m_hotWaterEquipmentScheduleDZ, row + 1, leftCol);
 
   label = new QLabel();
   label->setObjectName("H2");
@@ -726,8 +674,8 @@ ScheduleSetInspectorView::ScheduleSetInspectorView(const model::Model& model,
   m_vectorControllers.push_back(m_steamEquipmentScheduleVC);
   m_ventilationPerPersonScheduleDZ = new OSDropZone(m_steamEquipmentScheduleVC);
   m_dropZones.push_back(m_ventilationPerPersonScheduleDZ);
-  gridLayout->addWidget(label,row,rightCol);
-  gridLayout->addWidget(m_ventilationPerPersonScheduleDZ,row+1,rightCol);
+  gridLayout->addWidget(label, row, rightCol);
+  gridLayout->addWidget(m_ventilationPerPersonScheduleDZ, row + 1, rightCol);
 
   row += 2;
 
@@ -738,8 +686,8 @@ ScheduleSetInspectorView::ScheduleSetInspectorView(const model::Model& model,
   m_vectorControllers.push_back(m_otherEquipmentScheduleVC);
   m_ventilationPerFloorAreaScheduleDZ = new OSDropZone(m_otherEquipmentScheduleVC);
   m_dropZones.push_back(m_ventilationPerFloorAreaScheduleDZ);
-  gridLayout->addWidget(label,row,leftCol);
-  gridLayout->addWidget(m_ventilationPerFloorAreaScheduleDZ,row+1,leftCol);
+  gridLayout->addWidget(label, row, leftCol);
+  gridLayout->addWidget(m_ventilationPerFloorAreaScheduleDZ, row + 1, leftCol);
 
   label = new QLabel();
   label->setObjectName("H2");
@@ -748,8 +696,8 @@ ScheduleSetInspectorView::ScheduleSetInspectorView(const model::Model& model,
   m_vectorControllers.push_back(m_infiltrationScheduleVC);
   m_infiltrationScheduleDZ = new OSDropZone(m_infiltrationScheduleVC);
   m_dropZones.push_back(m_infiltrationScheduleDZ);
-  gridLayout->addWidget(label,row,rightCol);
-  gridLayout->addWidget(m_infiltrationScheduleDZ,row+1,rightCol);
+  gridLayout->addWidget(label, row, rightCol);
+  gridLayout->addWidget(m_infiltrationScheduleDZ, row + 1, rightCol);
 
   row += 2;
 
@@ -761,8 +709,8 @@ ScheduleSetInspectorView::ScheduleSetInspectorView(const model::Model& model,
   //mainVLayout->setContentsMargins(padding,padding,padding,padding);
   //mainVLayout->setSpacing(0);
 
-  gridLayout->setColumnStretch(2,100);
-  gridLayout->setRowStretch(row,100);
+  gridLayout->setColumnStretch(2, 100);
+  gridLayout->setRowStretch(row, 100);
 
   //mainVLayout->addLayout(hLayout);
   //mainVLayout->addLayout(gridLayout);
@@ -781,56 +729,47 @@ ScheduleSetInspectorView::ScheduleSetInspectorView(const model::Model& model,
   this->stackedWidget()->addWidget(widget);
 }
 
-void ScheduleSetInspectorView::configDropZones()
-{
-  for (openstudio::OSDropZone * dropZone : m_dropZones){
+void ScheduleSetInspectorView::configDropZones() {
+  for (openstudio::OSDropZone* dropZone : m_dropZones) {
     dropZone->setMinItems(0);
     dropZone->setMaxItems(1);
     dropZone->setItemsAcceptDrops(true);
   }
 }
 
-void ScheduleSetInspectorView::onClearSelection()
-{
+void ScheduleSetInspectorView::onClearSelection() {
   detach();
 }
 
-void ScheduleSetInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject)
-{
+void ScheduleSetInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject) {
   detach();
   model::DefaultScheduleSet defaultScheduleSet = modelObject.cast<model::DefaultScheduleSet>();
   attach(defaultScheduleSet);
 }
 
-void ScheduleSetInspectorView::onUpdate()
-{
-}
+void ScheduleSetInspectorView::onUpdate() {}
 
-void ScheduleSetInspectorView::attach(openstudio::model::DefaultScheduleSet& defaultScheduleSet)
-{
-  for (ModelObjectVectorController * vc : m_vectorControllers){
+void ScheduleSetInspectorView::attach(openstudio::model::DefaultScheduleSet& defaultScheduleSet) {
+  for (ModelObjectVectorController* vc : m_vectorControllers) {
     vc->attach(defaultScheduleSet);
     vc->reportItems();
   }
 
   m_defaultScheduleSet = defaultScheduleSet;
   // m_nameEdit->bind(defaultScheduleSet, "name");
-  m_nameEdit->bind(
-    *m_defaultScheduleSet,
-    OptionalStringGetter(std::bind(&model::DefaultScheduleSet::name, m_defaultScheduleSet.get_ptr(),true)),
-    boost::optional<StringSetterOptionalStringReturn>(std::bind(&model::DefaultScheduleSet::setName, m_defaultScheduleSet.get_ptr(),std::placeholders::_1))
-  );
+  m_nameEdit->bind(*m_defaultScheduleSet, OptionalStringGetter(std::bind(&model::DefaultScheduleSet::name, m_defaultScheduleSet.get_ptr(), true)),
+                   boost::optional<StringSetterOptionalStringReturn>(
+                     std::bind(&model::DefaultScheduleSet::setName, m_defaultScheduleSet.get_ptr(), std::placeholders::_1)));
 
   this->stackedWidget()->setCurrentIndex(1);
 }
 
-void ScheduleSetInspectorView::detach()
-{
+void ScheduleSetInspectorView::detach() {
   this->stackedWidget()->setCurrentIndex(0);
 
   m_nameEdit->unbind();
 
-  for (ModelObjectVectorController * vc : m_vectorControllers){
+  for (ModelObjectVectorController* vc : m_vectorControllers) {
     vc->detach();
     vc->reportItems();
   }
@@ -838,4 +777,4 @@ void ScheduleSetInspectorView::detach()
   m_defaultScheduleSet = boost::none;
 }
 
-} // openstudio
+}  // namespace openstudio

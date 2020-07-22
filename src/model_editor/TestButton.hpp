@@ -39,15 +39,16 @@ class MODELEDITOR_API TestButton : public QObject
   Q_OBJECT
 
   public:
-    TestButton(bool clickValue = true);
-    void doClick();
-    void doClick(double msecDelay);
+  TestButton(bool clickValue = true);
+  void doClick();
+  void doClick(double msecDelay);
   public slots:
-    void onTimeout();
+  void onTimeout();
   signals:
-    void clicked(bool);
+  void clicked(bool);
+
   private:
-    bool m_clickValue;
+  bool m_clickValue;
 };
 
-#endif // MODELEDITOR_TESTBUTTON_HPP
+#endif  // MODELEDITOR_TESTBUTTON_HPP

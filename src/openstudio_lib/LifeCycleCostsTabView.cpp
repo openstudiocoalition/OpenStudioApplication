@@ -49,41 +49,29 @@
 
 namespace openstudio {
 
-LifeCycleCostsTabView::LifeCycleCostsTabView(const model::Model & model,
-                                 const QString& modelTempDir,
-                                 QWidget * parent)
-                                 : MainTabView("Life Cycle Costs", MainTabView::SUB_TAB, parent)
-{
-}
+LifeCycleCostsTabView::LifeCycleCostsTabView(const model::Model& model, const QString& modelTempDir, QWidget* parent)
+  : MainTabView("Life Cycle Costs", MainTabView::SUB_TAB, parent) {}
 
-LifeCycleCostsTabView::~LifeCycleCostsTabView()
-{
-}
+LifeCycleCostsTabView::~LifeCycleCostsTabView() {}
 
-LifeCycleCostsView::LifeCycleCostsView(const model::Model & model)
-  : QWidget(),
-    m_model(model)
-{
+LifeCycleCostsView::LifeCycleCostsView(const model::Model& model) : QWidget(), m_model(model) {
   m_lifeCycleCostParameters = m_model.getUniqueModelObject<model::LifeCycleCostParameters>();
   createWidgets();
   attach(m_lifeCycleCostParameters.get());
 }
 
-LifeCycleCostsView::~LifeCycleCostsView()
-{
-}
+LifeCycleCostsView::~LifeCycleCostsView() {}
 
-void LifeCycleCostsView::createWidgets()
-{
+void LifeCycleCostsView::createWidgets() {
 
-  QRadioButton * radioButton = nullptr;
+  QRadioButton* radioButton = nullptr;
 
-  QLabel * label = nullptr;
+  QLabel* label = nullptr;
 
-  QVBoxLayout * vLayout = nullptr;
+  QVBoxLayout* vLayout = nullptr;
 
   auto mainLayout = new QVBoxLayout();
-  mainLayout->setContentsMargins(10,10,10,10);
+  mainLayout->setContentsMargins(10, 10, 10, 10);
   mainLayout->setSpacing(20);
   setLayout(mainLayout);
 
@@ -122,11 +110,11 @@ void LifeCycleCostsView::createWidgets()
   connect(m_fempGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::buttonClicked), this, &LifeCycleCostsView::fempGroupClicked);
 
   radioButton = new QRadioButton("Federal Energy Management Program (FEMP)");
-  m_fempGroup->addButton(radioButton,0);
+  m_fempGroup->addButton(radioButton, 0);
   vLayout->addWidget(radioButton);
 
   radioButton = new QRadioButton("Custom");
-  m_fempGroup->addButton(radioButton,1);
+  m_fempGroup->addButton(radioButton, 1);
   vLayout->addWidget(radioButton);
 
   mainLayout->addLayout(vLayout);
@@ -134,7 +122,7 @@ void LifeCycleCostsView::createWidgets()
   // Analysis Length and Real Discount Rate
 
   auto gridLayout = new QGridLayout();
-  gridLayout->setContentsMargins(0,0,0,0);
+  gridLayout->setContentsMargins(0, 0, 0, 0);
   gridLayout->setSpacing(10);
 
   vLayout = new QVBoxLayout();
@@ -149,7 +137,7 @@ void LifeCycleCostsView::createWidgets()
   m_analysisLengthIntegerEdit->setFixedWidth(OS_EDIT_WIDTH);
   vLayout->addWidget(m_analysisLengthIntegerEdit);
 
-  gridLayout->addLayout(vLayout,0,0,Qt::AlignLeft);
+  gridLayout->addLayout(vLayout, 0, 0, Qt::AlignLeft);
 
   vLayout = new QVBoxLayout();
   vLayout->setSpacing(5);
@@ -163,9 +151,9 @@ void LifeCycleCostsView::createWidgets()
   m_realDiscountRateDoubleEdit->setFixedWidth(OS_EDIT_WIDTH);
   vLayout->addWidget(m_realDiscountRateDoubleEdit);
 
-  gridLayout->addLayout(vLayout,0,1,Qt::AlignLeft);
+  gridLayout->addLayout(vLayout, 0, 1, Qt::AlignLeft);
 
-  gridLayout->setColumnStretch(100,100);
+  gridLayout->setColumnStretch(100, 100);
 
   mainLayout->addLayout(gridLayout);
 
@@ -184,11 +172,11 @@ void LifeCycleCostsView::createWidgets()
   connect(m_nistGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::buttonClicked), this, &LifeCycleCostsView::nistGroupClicked);
 
   radioButton = new QRadioButton("Yes");
-  m_nistGroup->addButton(radioButton,0);
+  m_nistGroup->addButton(radioButton, 0);
   vLayout->addWidget(radioButton);
 
   radioButton = new QRadioButton("No");
-  m_nistGroup->addButton(radioButton,1);
+  m_nistGroup->addButton(radioButton, 1);
   vLayout->addWidget(radioButton);
 
   mainLayout->addLayout(vLayout);
@@ -201,20 +189,18 @@ void LifeCycleCostsView::createWidgets()
   mainLayout->addWidget(m_stackedWidget);
 
   mainLayout->addStretch();
-
 }
 
-QWidget * LifeCycleCostsView::createInflationRatesWidget()
-{
+QWidget* LifeCycleCostsView::createInflationRatesWidget() {
   int rowCount = 0;
   int columnCount = 0;
 
-  QLabel * label = nullptr;
+  QLabel* label = nullptr;
 
-  QVBoxLayout * vLayout = nullptr;
+  QVBoxLayout* vLayout = nullptr;
 
   auto widgetLayout = new QVBoxLayout();
-  widgetLayout->setContentsMargins(0,0,0,0);
+  widgetLayout->setContentsMargins(0, 0, 0, 0);
 
   auto widget = new QWidget();
   widget->setLayout(widgetLayout);
@@ -229,7 +215,7 @@ QWidget * LifeCycleCostsView::createInflationRatesWidget()
   widgetLayout->addLayout(vLayout);
 
   auto gridLayout = new QGridLayout();
-  gridLayout->setContentsMargins(0,0,0,0);
+  gridLayout->setContentsMargins(0, 0, 0, 0);
   gridLayout->setSpacing(10);
 
   widgetLayout->addLayout(gridLayout);
@@ -245,9 +231,9 @@ QWidget * LifeCycleCostsView::createInflationRatesWidget()
   vLayout->addWidget(m_electricityDoubleEdit);
 
   vLayout->addStretch();
-  gridLayout->addLayout(vLayout,rowCount,columnCount++,Qt::AlignLeft);
+  gridLayout->addLayout(vLayout, rowCount, columnCount++, Qt::AlignLeft);
 
-  gridLayout->setColumnStretch(100,100);
+  gridLayout->setColumnStretch(100, 100);
 
   vLayout = new QVBoxLayout();
 
@@ -260,8 +246,7 @@ QWidget * LifeCycleCostsView::createInflationRatesWidget()
   vLayout->addWidget(m_naturalGasDoubleEdit);
 
   vLayout->addStretch();
-  gridLayout->addLayout(vLayout,rowCount,columnCount++,Qt::AlignLeft);
-
+  gridLayout->addLayout(vLayout, rowCount, columnCount++, Qt::AlignLeft);
 
   vLayout = new QVBoxLayout();
 
@@ -274,7 +259,7 @@ QWidget * LifeCycleCostsView::createInflationRatesWidget()
   vLayout->addWidget(m_steamDoubleEdit);
 
   vLayout->addStretch();
-  gridLayout->addLayout(vLayout,rowCount,columnCount++,Qt::AlignLeft);
+  gridLayout->addLayout(vLayout, rowCount, columnCount++, Qt::AlignLeft);
 
   vLayout = new QVBoxLayout();
 
@@ -287,8 +272,7 @@ QWidget * LifeCycleCostsView::createInflationRatesWidget()
   vLayout->addWidget(m_gasolineDoubleEdit);
 
   vLayout->addStretch();
-  gridLayout->addLayout(vLayout,rowCount,columnCount,Qt::AlignLeft);
-
+  gridLayout->addLayout(vLayout, rowCount, columnCount, Qt::AlignLeft);
 
   rowCount++;
   columnCount = 0;
@@ -304,8 +288,7 @@ QWidget * LifeCycleCostsView::createInflationRatesWidget()
   vLayout->addWidget(m_dieselDoubleEdit);
 
   vLayout->addStretch();
-  gridLayout->addLayout(vLayout,rowCount,columnCount++,Qt::AlignLeft);
-
+  gridLayout->addLayout(vLayout, rowCount, columnCount++, Qt::AlignLeft);
 
   vLayout = new QVBoxLayout();
 
@@ -318,8 +301,7 @@ QWidget * LifeCycleCostsView::createInflationRatesWidget()
   vLayout->addWidget(m_propaneDoubleEdit);
 
   vLayout->addStretch();
-  gridLayout->addLayout(vLayout,rowCount,columnCount++,Qt::AlignLeft);
-
+  gridLayout->addLayout(vLayout, rowCount, columnCount++, Qt::AlignLeft);
 
   vLayout = new QVBoxLayout();
 
@@ -332,8 +314,7 @@ QWidget * LifeCycleCostsView::createInflationRatesWidget()
   vLayout->addWidget(m_coalDoubleEdit);
 
   vLayout->addStretch();
-  gridLayout->addLayout(vLayout,rowCount,columnCount++,Qt::AlignLeft);
-
+  gridLayout->addLayout(vLayout, rowCount, columnCount++, Qt::AlignLeft);
 
   vLayout = new QVBoxLayout();
 
@@ -346,8 +327,7 @@ QWidget * LifeCycleCostsView::createInflationRatesWidget()
   vLayout->addWidget(m_fuelOil_1DoubleEdit);
 
   vLayout->addStretch();
-  gridLayout->addLayout(vLayout,rowCount,columnCount,Qt::AlignLeft);
-
+  gridLayout->addLayout(vLayout, rowCount, columnCount, Qt::AlignLeft);
 
   rowCount++;
   columnCount = 0;
@@ -363,8 +343,7 @@ QWidget * LifeCycleCostsView::createInflationRatesWidget()
   vLayout->addWidget(m_fuelOil_2DoubleEdit);
 
   vLayout->addStretch();
-  gridLayout->addLayout(vLayout,rowCount,columnCount++,Qt::AlignLeft);
-
+  gridLayout->addLayout(vLayout, rowCount, columnCount++, Qt::AlignLeft);
 
   vLayout = new QVBoxLayout();
 
@@ -377,22 +356,20 @@ QWidget * LifeCycleCostsView::createInflationRatesWidget()
   vLayout->addWidget(m_waterDoubleEdit);
 
   vLayout->addStretch();
-  gridLayout->addLayout(vLayout,rowCount++,columnCount,Qt::AlignLeft);
+  gridLayout->addLayout(vLayout, rowCount++, columnCount, Qt::AlignLeft);
 
-  gridLayout->setColumnStretch(100,100);
+  gridLayout->setColumnStretch(100, 100);
 
   return widget;
-
 }
 
-QWidget * LifeCycleCostsView::createNistWidget()
-{
-  QLabel * label = nullptr;
+QWidget* LifeCycleCostsView::createNistWidget() {
+  QLabel* label = nullptr;
 
-  QVBoxLayout * vLayout = nullptr;
+  QVBoxLayout* vLayout = nullptr;
 
   auto gridLayout = new QGridLayout();
-  gridLayout->setContentsMargins(0,0,0,0);
+  gridLayout->setContentsMargins(0, 0, 0, 0);
   gridLayout->setSpacing(10);
 
   auto widget = new QWidget();
@@ -409,8 +386,7 @@ QWidget * LifeCycleCostsView::createNistWidget()
   vLayout->addWidget(m_nistRegionComboBox);
 
   vLayout->addStretch();
-  gridLayout->addLayout(vLayout,0,0,Qt::AlignLeft);
-
+  gridLayout->addLayout(vLayout, 0, 0, Qt::AlignLeft);
 
   vLayout = new QVBoxLayout();
 
@@ -424,135 +400,144 @@ QWidget * LifeCycleCostsView::createNistWidget()
   vLayout->addWidget(m_nistSectorComboBox);
 
   vLayout->addStretch();
-  gridLayout->addLayout(vLayout,0,1,Qt::AlignLeft);
+  gridLayout->addLayout(vLayout, 0, 1, Qt::AlignLeft);
 
-  gridLayout->setColumnStretch(100,100);
+  gridLayout->setColumnStretch(100, 100);
 
   return widget;
-
 }
 
-void LifeCycleCostsView::attach(openstudio::model::LifeCycleCostParameters & lifeCycleCostParameters)
-{
-  if(m_nistRegionComboBox){
+void LifeCycleCostsView::attach(openstudio::model::LifeCycleCostParameters& lifeCycleCostParameters) {
+  if (m_nistRegionComboBox) {
     m_nistRegionComboBox->bind<std::string>(
-      *m_lifeCycleCostParameters,
-      static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
-      std::bind(&model::LifeCycleCostParameters::validNistRegionValues,m_lifeCycleCostParameters.get_ptr()),
-      OptionalStringGetter(std::bind(&model::LifeCycleCostParameters::nistRegion,m_lifeCycleCostParameters.get_ptr())),
-      std::bind(&model::LifeCycleCostParameters::setNISTRegion,m_lifeCycleCostParameters.get_ptr(),std::placeholders::_1));
+      *m_lifeCycleCostParameters, static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
+      std::bind(&model::LifeCycleCostParameters::validNistRegionValues, m_lifeCycleCostParameters.get_ptr()),
+      OptionalStringGetter(std::bind(&model::LifeCycleCostParameters::nistRegion, m_lifeCycleCostParameters.get_ptr())),
+      std::bind(&model::LifeCycleCostParameters::setNISTRegion, m_lifeCycleCostParameters.get_ptr(), std::placeholders::_1));
   }
 
-  if(m_nistSectorComboBox){
+  if (m_nistSectorComboBox) {
     m_nistSectorComboBox->bind<std::string>(
-      *m_lifeCycleCostParameters,
-      static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
-      std::bind(&model::LifeCycleCostParameters::validNistSectorValues,m_lifeCycleCostParameters.get_ptr()),
-      OptionalStringGetter(std::bind(&model::LifeCycleCostParameters::nistSector,m_lifeCycleCostParameters.get_ptr())),
-      std::bind(&model::LifeCycleCostParameters::setNISTSector,m_lifeCycleCostParameters.get_ptr(),std::placeholders::_1));
+      *m_lifeCycleCostParameters, static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
+      std::bind(&model::LifeCycleCostParameters::validNistSectorValues, m_lifeCycleCostParameters.get_ptr()),
+      OptionalStringGetter(std::bind(&model::LifeCycleCostParameters::nistSector, m_lifeCycleCostParameters.get_ptr())),
+      std::bind(&model::LifeCycleCostParameters::setNISTSector, m_lifeCycleCostParameters.get_ptr(), std::placeholders::_1));
   }
 
-  if(m_analysisLengthIntegerEdit){
+  if (m_analysisLengthIntegerEdit) {
     m_analysisLengthIntegerEdit->bind(
       *m_lifeCycleCostParameters,
-      OptionalIntGetter(std::bind(&model::LifeCycleCostParameters::lengthOfStudyPeriodInYears,m_lifeCycleCostParameters.get_ptr())),
-      boost::optional<IntSetter>(std::bind(&model::LifeCycleCostParameters::setLengthOfStudyPeriodInYears,m_lifeCycleCostParameters.get_ptr(),std::placeholders::_1)),
-      boost::optional<NoFailAction>(std::bind(&model::LifeCycleCostParameters::resetLengthOfStudyPeriodInYears,m_lifeCycleCostParameters.get_ptr())));
+      OptionalIntGetter(std::bind(&model::LifeCycleCostParameters::lengthOfStudyPeriodInYears, m_lifeCycleCostParameters.get_ptr())),
+      boost::optional<IntSetter>(
+        std::bind(&model::LifeCycleCostParameters::setLengthOfStudyPeriodInYears, m_lifeCycleCostParameters.get_ptr(), std::placeholders::_1)),
+      boost::optional<NoFailAction>(
+        std::bind(&model::LifeCycleCostParameters::resetLengthOfStudyPeriodInYears, m_lifeCycleCostParameters.get_ptr())));
   }
 
-  if(m_realDiscountRateDoubleEdit){
+  if (m_realDiscountRateDoubleEdit) {
     m_realDiscountRateDoubleEdit->bind(
       *m_lifeCycleCostParameters,
-      OptionalDoubleGetter(std::bind(&model::LifeCycleCostParameters::realDiscountRate,m_lifeCycleCostParameters.get_ptr())),
-      boost::optional<DoubleSetter>(std::bind(&model::LifeCycleCostParameters::setRealDiscountRate,m_lifeCycleCostParameters.get_ptr(),std::placeholders::_1)));
+      OptionalDoubleGetter(std::bind(&model::LifeCycleCostParameters::realDiscountRate, m_lifeCycleCostParameters.get_ptr())),
+      boost::optional<DoubleSetter>(
+        std::bind(&model::LifeCycleCostParameters::setRealDiscountRate, m_lifeCycleCostParameters.get_ptr(), std::placeholders::_1)));
   }
 
-  if(m_electricityDoubleEdit){
+  if (m_electricityDoubleEdit) {
     m_electricityDoubleEdit->bind(
       *m_lifeCycleCostParameters,
-      OptionalDoubleGetter(std::bind(&model::LifeCycleCostParameters::electricityInflation,m_lifeCycleCostParameters.get_ptr())),
-      boost::optional<DoubleSetter>(std::bind(&model::LifeCycleCostParameters::setElectricityInflation,m_lifeCycleCostParameters.get_ptr(),std::placeholders::_1)),
-      boost::optional<NoFailAction>(std::bind(&model::LifeCycleCostParameters::resetElectricityInflation,m_lifeCycleCostParameters.get_ptr())));
+      OptionalDoubleGetter(std::bind(&model::LifeCycleCostParameters::electricityInflation, m_lifeCycleCostParameters.get_ptr())),
+      boost::optional<DoubleSetter>(
+        std::bind(&model::LifeCycleCostParameters::setElectricityInflation, m_lifeCycleCostParameters.get_ptr(), std::placeholders::_1)),
+      boost::optional<NoFailAction>(std::bind(&model::LifeCycleCostParameters::resetElectricityInflation, m_lifeCycleCostParameters.get_ptr())));
   }
 
-  if(m_naturalGasDoubleEdit){
+  if (m_naturalGasDoubleEdit) {
     m_naturalGasDoubleEdit->bind(
       *m_lifeCycleCostParameters,
-      OptionalDoubleGetter(std::bind(&model::LifeCycleCostParameters::naturalGasInflation,m_lifeCycleCostParameters.get_ptr())),
-      boost::optional<DoubleSetter>(std::bind(&model::LifeCycleCostParameters::setNaturalGasInflation,m_lifeCycleCostParameters.get_ptr(),std::placeholders::_1)),
-      boost::optional<NoFailAction>(std::bind(&model::LifeCycleCostParameters::resetNaturalGasInflation,m_lifeCycleCostParameters.get_ptr())));
+      OptionalDoubleGetter(std::bind(&model::LifeCycleCostParameters::naturalGasInflation, m_lifeCycleCostParameters.get_ptr())),
+      boost::optional<DoubleSetter>(
+        std::bind(&model::LifeCycleCostParameters::setNaturalGasInflation, m_lifeCycleCostParameters.get_ptr(), std::placeholders::_1)),
+      boost::optional<NoFailAction>(std::bind(&model::LifeCycleCostParameters::resetNaturalGasInflation, m_lifeCycleCostParameters.get_ptr())));
   }
 
-  if(m_steamDoubleEdit){
+  if (m_steamDoubleEdit) {
     m_steamDoubleEdit->bind(
       *m_lifeCycleCostParameters,
-      OptionalDoubleGetter(std::bind(&model::LifeCycleCostParameters::steamInflation,m_lifeCycleCostParameters.get_ptr())),
-      boost::optional<DoubleSetter>(std::bind(&model::LifeCycleCostParameters::setSteamInflation,m_lifeCycleCostParameters.get_ptr(),std::placeholders::_1)),
-      boost::optional<NoFailAction>(std::bind(&model::LifeCycleCostParameters::resetSteamInflation,m_lifeCycleCostParameters.get_ptr())));
+      OptionalDoubleGetter(std::bind(&model::LifeCycleCostParameters::steamInflation, m_lifeCycleCostParameters.get_ptr())),
+      boost::optional<DoubleSetter>(
+        std::bind(&model::LifeCycleCostParameters::setSteamInflation, m_lifeCycleCostParameters.get_ptr(), std::placeholders::_1)),
+      boost::optional<NoFailAction>(std::bind(&model::LifeCycleCostParameters::resetSteamInflation, m_lifeCycleCostParameters.get_ptr())));
   }
 
-  if(m_gasolineDoubleEdit){
+  if (m_gasolineDoubleEdit) {
     m_gasolineDoubleEdit->bind(
       *m_lifeCycleCostParameters,
-      OptionalDoubleGetter(std::bind(&model::LifeCycleCostParameters::gasolineInflation,m_lifeCycleCostParameters.get_ptr())),
-      boost::optional<DoubleSetter>(std::bind(&model::LifeCycleCostParameters::setGasolineInflation,m_lifeCycleCostParameters.get_ptr(),std::placeholders::_1)),
-      boost::optional<NoFailAction>(std::bind(&model::LifeCycleCostParameters::resetGasolineInflation,m_lifeCycleCostParameters.get_ptr())));
+      OptionalDoubleGetter(std::bind(&model::LifeCycleCostParameters::gasolineInflation, m_lifeCycleCostParameters.get_ptr())),
+      boost::optional<DoubleSetter>(
+        std::bind(&model::LifeCycleCostParameters::setGasolineInflation, m_lifeCycleCostParameters.get_ptr(), std::placeholders::_1)),
+      boost::optional<NoFailAction>(std::bind(&model::LifeCycleCostParameters::resetGasolineInflation, m_lifeCycleCostParameters.get_ptr())));
   }
 
-  if(m_dieselDoubleEdit){
+  if (m_dieselDoubleEdit) {
     m_dieselDoubleEdit->bind(
       *m_lifeCycleCostParameters,
-      OptionalDoubleGetter(std::bind(&model::LifeCycleCostParameters::dieselInflation,m_lifeCycleCostParameters.get_ptr())),
-      boost::optional<DoubleSetter>(std::bind(&model::LifeCycleCostParameters::setDieselInflation,m_lifeCycleCostParameters.get_ptr(),std::placeholders::_1)),
-      boost::optional<NoFailAction>(std::bind(&model::LifeCycleCostParameters::resetDieselInflation,m_lifeCycleCostParameters.get_ptr())));
+      OptionalDoubleGetter(std::bind(&model::LifeCycleCostParameters::dieselInflation, m_lifeCycleCostParameters.get_ptr())),
+      boost::optional<DoubleSetter>(
+        std::bind(&model::LifeCycleCostParameters::setDieselInflation, m_lifeCycleCostParameters.get_ptr(), std::placeholders::_1)),
+      boost::optional<NoFailAction>(std::bind(&model::LifeCycleCostParameters::resetDieselInflation, m_lifeCycleCostParameters.get_ptr())));
   }
 
-  if(m_propaneDoubleEdit){
+  if (m_propaneDoubleEdit) {
     m_propaneDoubleEdit->bind(
       *m_lifeCycleCostParameters,
-      OptionalDoubleGetter(std::bind(&model::LifeCycleCostParameters::propaneInflation,m_lifeCycleCostParameters.get_ptr())),
-      boost::optional<DoubleSetter>(std::bind(&model::LifeCycleCostParameters::setPropaneInflation,m_lifeCycleCostParameters.get_ptr(),std::placeholders::_1)),
-      boost::optional<NoFailAction>(std::bind(&model::LifeCycleCostParameters::resetPropaneInflation,m_lifeCycleCostParameters.get_ptr())));
+      OptionalDoubleGetter(std::bind(&model::LifeCycleCostParameters::propaneInflation, m_lifeCycleCostParameters.get_ptr())),
+      boost::optional<DoubleSetter>(
+        std::bind(&model::LifeCycleCostParameters::setPropaneInflation, m_lifeCycleCostParameters.get_ptr(), std::placeholders::_1)),
+      boost::optional<NoFailAction>(std::bind(&model::LifeCycleCostParameters::resetPropaneInflation, m_lifeCycleCostParameters.get_ptr())));
   }
 
-  if(m_coalDoubleEdit){
+  if (m_coalDoubleEdit) {
     m_coalDoubleEdit->bind(
       *m_lifeCycleCostParameters,
-      OptionalDoubleGetter(std::bind(&model::LifeCycleCostParameters::coalInflation,m_lifeCycleCostParameters.get_ptr())),
-      boost::optional<DoubleSetter>(std::bind(&model::LifeCycleCostParameters::setCoalInflation,m_lifeCycleCostParameters.get_ptr(),std::placeholders::_1)),
-      boost::optional<NoFailAction>(std::bind(&model::LifeCycleCostParameters::resetCoalInflation,m_lifeCycleCostParameters.get_ptr())));
+      OptionalDoubleGetter(std::bind(&model::LifeCycleCostParameters::coalInflation, m_lifeCycleCostParameters.get_ptr())),
+      boost::optional<DoubleSetter>(
+        std::bind(&model::LifeCycleCostParameters::setCoalInflation, m_lifeCycleCostParameters.get_ptr(), std::placeholders::_1)),
+      boost::optional<NoFailAction>(std::bind(&model::LifeCycleCostParameters::resetCoalInflation, m_lifeCycleCostParameters.get_ptr())));
   }
 
-  if(m_fuelOil_1DoubleEdit){
+  if (m_fuelOil_1DoubleEdit) {
     m_fuelOil_1DoubleEdit->bind(
       *m_lifeCycleCostParameters,
-      OptionalDoubleGetter(std::bind(&model::LifeCycleCostParameters::fuelOil1Inflation,m_lifeCycleCostParameters.get_ptr())),
-      boost::optional<DoubleSetter>(std::bind(&model::LifeCycleCostParameters::setFuelOil1Inflation,m_lifeCycleCostParameters.get_ptr(),std::placeholders::_1)),
-      boost::optional<NoFailAction>(std::bind(&model::LifeCycleCostParameters::resetFuelOil1Inflation,m_lifeCycleCostParameters.get_ptr())));
+      OptionalDoubleGetter(std::bind(&model::LifeCycleCostParameters::fuelOil1Inflation, m_lifeCycleCostParameters.get_ptr())),
+      boost::optional<DoubleSetter>(
+        std::bind(&model::LifeCycleCostParameters::setFuelOil1Inflation, m_lifeCycleCostParameters.get_ptr(), std::placeholders::_1)),
+      boost::optional<NoFailAction>(std::bind(&model::LifeCycleCostParameters::resetFuelOil1Inflation, m_lifeCycleCostParameters.get_ptr())));
   }
 
-  if(m_fuelOil_2DoubleEdit){
+  if (m_fuelOil_2DoubleEdit) {
     m_fuelOil_2DoubleEdit->bind(
       *m_lifeCycleCostParameters,
-      OptionalDoubleGetter(std::bind(&model::LifeCycleCostParameters::fuelOil2Inflation,m_lifeCycleCostParameters.get_ptr())),
-      boost::optional<DoubleSetter>(std::bind(&model::LifeCycleCostParameters::setFuelOil2Inflation,m_lifeCycleCostParameters.get_ptr(),std::placeholders::_1)),
-      boost::optional<NoFailAction>(std::bind(&model::LifeCycleCostParameters::resetFuelOil2Inflation,m_lifeCycleCostParameters.get_ptr())));
+      OptionalDoubleGetter(std::bind(&model::LifeCycleCostParameters::fuelOil2Inflation, m_lifeCycleCostParameters.get_ptr())),
+      boost::optional<DoubleSetter>(
+        std::bind(&model::LifeCycleCostParameters::setFuelOil2Inflation, m_lifeCycleCostParameters.get_ptr(), std::placeholders::_1)),
+      boost::optional<NoFailAction>(std::bind(&model::LifeCycleCostParameters::resetFuelOil2Inflation, m_lifeCycleCostParameters.get_ptr())));
   }
 
-  if(m_waterDoubleEdit){
+  if (m_waterDoubleEdit) {
     m_waterDoubleEdit->bind(
       *m_lifeCycleCostParameters,
-      OptionalDoubleGetter(std::bind(&model::LifeCycleCostParameters::waterInflation,m_lifeCycleCostParameters.get_ptr())),
-      boost::optional<DoubleSetter>(std::bind(&model::LifeCycleCostParameters::setWaterInflation,m_lifeCycleCostParameters.get_ptr(),std::placeholders::_1)),
-      boost::optional<NoFailAction>(std::bind(&model::LifeCycleCostParameters::resetWaterInflation,m_lifeCycleCostParameters.get_ptr())));
+      OptionalDoubleGetter(std::bind(&model::LifeCycleCostParameters::waterInflation, m_lifeCycleCostParameters.get_ptr())),
+      boost::optional<DoubleSetter>(
+        std::bind(&model::LifeCycleCostParameters::setWaterInflation, m_lifeCycleCostParameters.get_ptr(), std::placeholders::_1)),
+      boost::optional<NoFailAction>(std::bind(&model::LifeCycleCostParameters::resetWaterInflation, m_lifeCycleCostParameters.get_ptr())));
   }
 
   OS_ASSERT(m_fempGroup->button(0));
   QString type = m_lifeCycleCostParameters->analysisType().c_str();
-  if(type == "FEMP"){
+  if (type == "FEMP") {
     m_fempGroup->button(0)->setChecked(true);
     fempGroupClicked(0);
-  } else if(type == "Custom") {
+  } else if (type == "Custom") {
     m_fempGroup->button(1)->setChecked(true);
     fempGroupClicked(1);
   } else {
@@ -562,7 +547,7 @@ void LifeCycleCostsView::attach(openstudio::model::LifeCycleCostParameters & lif
 
   OS_ASSERT(m_nistGroup->button(0));
   bool useNist = m_lifeCycleCostParameters->useNISTFuelEscalationRates();
-  if(useNist){
+  if (useNist) {
     m_nistGroup->button(0)->setChecked(true);
     nistGroupClicked(0);
   } else {
@@ -571,8 +556,7 @@ void LifeCycleCostsView::attach(openstudio::model::LifeCycleCostParameters & lif
   }
 }
 
-void LifeCycleCostsView::detach()
-{
+void LifeCycleCostsView::detach() {
   m_nistRegionComboBox->unbind();
   m_nistSectorComboBox->unbind();
   m_analysisLengthIntegerEdit->unbind();
@@ -591,8 +575,7 @@ void LifeCycleCostsView::detach()
 
 ////// SLOTS ///////
 
-void LifeCycleCostsView::fempGroupClicked(int index)
-{
+void LifeCycleCostsView::fempGroupClicked(int index) {
   // 0 = FEMP, 1 = Custom
   // DLM: model object actually lets analysis length change under FEMP, it just can't be > 25
   // DLM: analysis length can't be > 30 when using NIST fuel escalation
@@ -603,9 +586,9 @@ void LifeCycleCostsView::fempGroupClicked(int index)
   m_realDiscountRateLabel->setEnabled(index);
   m_realDiscountRateDoubleEdit->setEnabled(index);
 
-  if(index == 0){
+  if (index == 0) {
     m_lifeCycleCostParameters->setAnalysisType("FEMP");
-  } else if(index == 1) {
+  } else if (index == 1) {
     m_lifeCycleCostParameters->setAnalysisType("Custom");
   } else {
     // should never get here
@@ -613,21 +596,19 @@ void LifeCycleCostsView::fempGroupClicked(int index)
   }
 }
 
-void LifeCycleCostsView::nistGroupClicked(int index)
-{
+void LifeCycleCostsView::nistGroupClicked(int index) {
 
   // 0 = Use NIST rates, 1 = don't
   m_stackedWidget->setCurrentIndex(index);
 
-  if(index == 0){
+  if (index == 0) {
     m_lifeCycleCostParameters->setUseNISTFuelEscalationRates(true);
-  } else if(index == 1) {
+  } else if (index == 1) {
     m_lifeCycleCostParameters->setUseNISTFuelEscalationRates(false);
   } else {
     // should never get here
     OS_ASSERT(false);
   }
-
 }
 
-} // openstudio
+}  // namespace openstudio

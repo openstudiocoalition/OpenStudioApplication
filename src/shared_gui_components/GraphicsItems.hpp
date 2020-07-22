@@ -30,7 +30,7 @@
 #ifndef SHAREDGUICOMPONENTS_GRAPHICSITEMS_HPP
 #define SHAREDGUICOMPONENTS_GRAPHICSITEMS_HPP
 
-#include <openstudio/nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/nano/nano_signal_slot.hpp>  // Signal-Slot replacement
 #include <QGraphicsObject>
 #include <QSizeF>
 
@@ -48,8 +48,7 @@ class AbstractButtonItem : public QGraphicsObject
   Q_OBJECT;
 
   public:
-
-  AbstractButtonItem(QGraphicsItem * parent = nullptr);
+  AbstractButtonItem(QGraphicsItem* parent = nullptr);
 
   virtual ~AbstractButtonItem() {}
 
@@ -62,15 +61,13 @@ class AbstractButtonItem : public QGraphicsObject
   void toggled(bool checked);
 
   protected:
+  void mousePressEvent(QGraphicsSceneMouseEvent* event) override;
 
-  void mousePressEvent(QGraphicsSceneMouseEvent * event) override;
-
-  void mouseReleaseEvent(QGraphicsSceneMouseEvent * event) override;
+  void mouseReleaseEvent(QGraphicsSceneMouseEvent* event) override;
 
   bool m_checked;
 
   private:
-
   bool m_mouseDown;
 };
 
@@ -79,9 +76,7 @@ class ButtonItem : public QGraphicsObject, public Nano::Observer
   Q_OBJECT;
 
   public:
-
-  ButtonItem(const QPixmap & image, const QPixmap & downImage,
-             const QPixmap & hoverImage, QGraphicsItem * parent = nullptr);
+  ButtonItem(const QPixmap& image, const QPixmap& downImage, const QPixmap& hoverImage, QGraphicsItem* parent = nullptr);
 
   virtual ~ButtonItem() {}
 
@@ -92,21 +87,17 @@ class ButtonItem : public QGraphicsObject, public Nano::Observer
   void mouseClicked();
 
   protected:
+  void mousePressEvent(QGraphicsSceneMouseEvent* event) override;
 
-  void mousePressEvent(QGraphicsSceneMouseEvent * event) override;
+  void mouseReleaseEvent(QGraphicsSceneMouseEvent* event) override;
 
-  void mouseReleaseEvent(QGraphicsSceneMouseEvent * event) override;
+  void hoverEnterEvent(QGraphicsSceneHoverEvent* event) override;
 
-  void hoverEnterEvent(QGraphicsSceneHoverEvent * event) override;
+  void hoverLeaveEvent(QGraphicsSceneHoverEvent* event) override;
 
-  void hoverLeaveEvent(QGraphicsSceneHoverEvent * event) override;
-
-  void paint(QPainter *painter,
-             const QStyleOptionGraphicsItem *option,
-             QWidget *widget = nullptr) override;
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 
   private:
-
   bool m_mouseDown;
 
   bool m_isHovering;
@@ -121,22 +112,19 @@ class ButtonItem : public QGraphicsObject, public Nano::Observer
 class RemoveButtonItem : public ButtonItem
 {
   public:
-
-  RemoveButtonItem(QGraphicsItem * parent = nullptr);
+  RemoveButtonItem(QGraphicsItem* parent = nullptr);
 };
 
 class ZoomInButtonItem : public ButtonItem
 {
   public:
-
-  ZoomInButtonItem(QGraphicsItem * parent = nullptr);
+  ZoomInButtonItem(QGraphicsItem* parent = nullptr);
 };
 
 class ZoomOutButtonItem : public ButtonItem
 {
   public:
-
-  ZoomOutButtonItem(QGraphicsItem * parent = nullptr);
+  ZoomOutButtonItem(QGraphicsItem* parent = nullptr);
 };
 
 class GridLayoutItem : public QGraphicsObject
@@ -144,7 +132,6 @@ class GridLayoutItem : public QGraphicsObject
   Q_OBJECT;
 
   public:
-
   GridLayoutItem();
 
   virtual ~GridLayoutItem();
@@ -159,7 +146,7 @@ class GridLayoutItem : public QGraphicsObject
 
   QSizeF cellSize() const;
 
-  void setCellSize(const QSizeF & size);
+  void setCellSize(const QSizeF& size);
 
   int margin() const;
 
@@ -170,10 +157,7 @@ class GridLayoutItem : public QGraphicsObject
   void refreshAllItemViews();
 
   protected:
-
-  void paint( QPainter *painter,
-              const QStyleOptionGraphicsItem *option,
-              QWidget *widget = nullptr ) override {}
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override {}
 
   private slots:
 
@@ -181,43 +165,41 @@ class GridLayoutItem : public QGraphicsObject
 
   void removeItemView(int i);
 
-  void removePair(QObject * object);
+  void removePair(QObject* object);
 
   void refreshItemView(int i);
 
   private:
-
   int spacing() const;
 
   int rows() const;
 
   int columns() const;
 
-  std::pair<int,int> gridPos(int i);
+  std::pair<int, int> gridPos(int i);
 
-  QGraphicsObject * createNewItemView(int i);
+  QGraphicsObject* createNewItemView(int i);
 
-  void setItemViewGridPos(QGraphicsObject * item,std::pair<int,int> gridPos);
+  void setItemViewGridPos(QGraphicsObject* item, std::pair<int, int> gridPos);
 
-  QGraphicsObject * viewFromGridPos(std::pair<int,int> gridPos);
+  QGraphicsObject* viewFromGridPos(std::pair<int, int> gridPos);
 
   QSharedPointer<OSGraphicsItemDelegate> m_delegate;
 
   QSharedPointer<OSListController> m_listController;
 
   // Use this to keep the OSListItem classes around for the life of the widget
-  std::map<QObject *,QSharedPointer<OSListItem> > m_widgetItemPairs;
+  std::map<QObject*, QSharedPointer<OSListItem>> m_widgetItemPairs;
 
-  std::map<std::pair<int,int>,QObject *> m_gridPosItemViewPairs;
+  std::map<std::pair<int, int>, QObject*> m_gridPosItemViewPairs;
 
-  std::map<QObject *,std::pair<int,int> > m_itemViewGridPosPairs;
+  std::map<QObject*, std::pair<int, int>> m_itemViewGridPosPairs;
 
   QSizeF m_cellSize;
 
   int m_margin;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // SHAREDGUICOMPONENTS_GRAPHICSITEMS_HPP
-
+#endif  // SHAREDGUICOMPONENTS_GRAPHICSITEMS_HPP

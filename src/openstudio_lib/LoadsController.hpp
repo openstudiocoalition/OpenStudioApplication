@@ -39,32 +39,30 @@ class LoadsController : public ModelSubTabController
   Q_OBJECT
 
   public:
+  LoadsController(bool isiP, const model::Model& model);
 
-    LoadsController(bool isiP, const model::Model & model);
-
-    virtual ~LoadsController();
+  virtual ~LoadsController();
 
   protected:
+  virtual void onAddObject(const openstudio::IddObjectType& iddObjectType) override;
 
-    virtual void onAddObject(const openstudio::IddObjectType& iddObjectType) override;
+  virtual void onCopyObject(const openstudio::model::ModelObject& modelObject) override;
 
-    virtual void onCopyObject(const openstudio::model::ModelObject& modelObject) override;
+  virtual void onRemoveObject(openstudio::model::ModelObject) override;
 
-    virtual void onRemoveObject(openstudio::model::ModelObject) override;
+  virtual void onReplaceObject(openstudio::model::ModelObject modelObject, const OSItemId& replacementItemId) override;
 
-    virtual void onReplaceObject(openstudio::model::ModelObject modelObject, const OSItemId& replacementItemId) override;
+  virtual void onPurgeObjects(const openstudio::IddObjectType& iddObjectType) override;
 
-    virtual void onPurgeObjects(const openstudio::IddObjectType& iddObjectType) override;
+  virtual void onDrop(const OSItemId& itemId) override;
 
-    virtual void onDrop(const OSItemId& itemId) override;
-
-    virtual void onInspectItem(OSItem* item) override;
+  virtual void onInspectItem(OSItem* item) override;
 
   public slots:
 
-    void toggleUnits(bool displayIP);
+  void toggleUnits(bool displayIP);
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_LOADSCONTROLLER_HPP
+#endif  // OPENSTUDIO_LOADSCONTROLLER_HPP

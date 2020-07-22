@@ -39,8 +39,7 @@
 
 using namespace openstudio;
 
-TEST_F(OpenStudioLibFixture, IconLibrary_Icon)
-{
+TEST_F(OpenStudioLibFixture, IconLibrary_Icon) {
   std::vector<IddObjectType> iddObjectTypes;
   iddObjectTypes.push_back(IddObjectType::OS_AirLoopHVAC_OutdoorAirSystem);
   iddObjectTypes.push_back(IddObjectType::OS_AirLoopHVAC_UnitaryHeatPump_AirToAir);
@@ -124,14 +123,13 @@ TEST_F(OpenStudioLibFixture, IconLibrary_Icon)
   iddObjectTypes.push_back(IddObjectType::OS_ZoneHVAC_PackagedTerminalAirConditioner);
   iddObjectTypes.push_back(IddObjectType::OS_ZoneHVAC_PackagedTerminalHeatPump);
 
-  for (IddObjectType iddObjectType : iddObjectTypes){
+  for (IddObjectType iddObjectType : iddObjectTypes) {
     const QPixmap* pixmap = IconLibrary::Instance().findIcon(iddObjectType.value());
     EXPECT_TRUE(pixmap) << "Could not find icon for IddObjectType = '" << iddObjectType.valueName() << "'";
   }
 }
 
-TEST_F(OpenStudioLibFixture, IconLibrary_MiniIcon)
-{
+TEST_F(OpenStudioLibFixture, IconLibrary_MiniIcon) {
   std::vector<IddObjectType> iddObjectTypes;
   iddObjectTypes.push_back(IddObjectType::OS_AirLoopHVAC_OutdoorAirSystem);
   iddObjectTypes.push_back(IddObjectType::OS_AirLoopHVAC_UnitaryHeatPump_AirToAir);
@@ -216,9 +214,8 @@ TEST_F(OpenStudioLibFixture, IconLibrary_MiniIcon)
   iddObjectTypes.push_back(IddObjectType::OS_ZoneHVAC_PackagedTerminalAirConditioner);
   iddObjectTypes.push_back(IddObjectType::OS_ZoneHVAC_PackagedTerminalHeatPump);
 
-  for (IddObjectType iddObjectType : iddObjectTypes){
+  for (IddObjectType iddObjectType : iddObjectTypes) {
     const QPixmap* pixmap = IconLibrary::Instance().findMiniIcon(iddObjectType.value());
     EXPECT_TRUE(pixmap) << "Could not find mini-icon for IddObjectType = '" << iddObjectType.valueName() << "'";
   }
-
 }

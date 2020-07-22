@@ -50,33 +50,27 @@ namespace openstudio {
 
 // ConstructionObjectVectorController
 
-ConstructionObjectVectorController::ConstructionObjectVectorController(QWidget * parentWidget)
-  : ModelObjectVectorController(),
-  m_parentWidget(parentWidget)
-{
+ConstructionObjectVectorController::ConstructionObjectVectorController(QWidget* parentWidget)
+  : ModelObjectVectorController(), m_parentWidget(parentWidget) {
   m_reportItemsMutex = new QMutex();
 }
 
-ConstructionObjectVectorController::~ConstructionObjectVectorController()
-{
+ConstructionObjectVectorController::~ConstructionObjectVectorController() {
   delete m_reportItemsMutex;
 }
 
-void ConstructionObjectVectorController::reportItemsLater()
-{
+void ConstructionObjectVectorController::reportItemsLater() {
   m_reportScheduled = true;
 
-  QTimer::singleShot(0,this,SLOT(reportItems()));
+  QTimer::singleShot(0, this, SLOT(reportItems()));
 }
 
-void ConstructionObjectVectorController::reportItems()
-{
-  if( ! m_reportItemsMutex->tryLock() ) {
+void ConstructionObjectVectorController::reportItems() {
+  if (!m_reportItemsMutex->tryLock()) {
     return;
   }
 
-  if( m_reportScheduled )
-  {
+  if (m_reportScheduled) {
     m_reportScheduled = false;
 
     ModelObjectVectorController::reportItems();
@@ -85,46 +79,40 @@ void ConstructionObjectVectorController::reportItems()
   m_reportItemsMutex->unlock();
 }
 
-void ConstructionObjectVectorController::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle)
-{
+void ConstructionObjectVectorController::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) {
   reportItemsLater();
 }
 
-
-void ConstructionObjectVectorController::onDataChange(const model::ModelObject& modelObject)
-{
+void ConstructionObjectVectorController::onDataChange(const model::ModelObject& modelObject) {
   reportItemsLater();
 }
 
-void ConstructionObjectVectorController::onChange(const model::ModelObject& modelObject)
-{
+void ConstructionObjectVectorController::onChange(const model::ModelObject& modelObject) {
   reportItemsLater();
 }
 
-std::vector<OSItemId> ConstructionObjectVectorController::makeVector()
-{
+std::vector<OSItemId> ConstructionObjectVectorController::makeVector() {
   std::vector<OSItemId> result;
-  if(m_modelObject){
+  if (m_modelObject) {
     model::LayeredConstruction construction = m_modelObject->cast<model::LayeredConstruction>();
     std::vector<model::Material> layers = construction.layers();
-    for (model::Material layer : layers){
+    for (model::Material layer : layers) {
       result.push_back(modelObjectToItemId(layer, false));
     }
   }
   return result;
 }
 
-void ConstructionObjectVectorController::onRemoveItem(OSItem * item)
-{
-  if(m_modelObject){
+void ConstructionObjectVectorController::onRemoveItem(OSItem* item) {
+  if (m_modelObject) {
     model::LayeredConstruction construction = m_modelObject->cast<model::LayeredConstruction>();
     std::vector<model::Material> layers = construction.layers();
-    OSAppBase * app = OSAppBase::instance();
+    OSAppBase* app = OSAppBase::instance();
     unsigned idx = 0;
-    for (model::Material layer : layers){
+    for (model::Material layer : layers) {
       boost::optional<model::ModelObject> modelObject = app->currentDocument()->getModelObject(item->itemId());
-      if(modelObject){
-        if(modelObject->handle() == layer.handle()){
+      if (modelObject) {
+        if (modelObject->handle() == layer.handle()) {
           construction.eraseLayer(idx);
           break;
         }
@@ -135,13 +123,13 @@ void ConstructionObjectVectorController::onRemoveItem(OSItem * item)
 }
 
 void ConstructionObjectVectorController::insert(const OSItemId& itemId, int position, bool deleteExisting) {
-  if(m_modelObject){
+  if (m_modelObject) {
     boost::optional<model::Material> material = this->addToModel<model::Material>(itemId);
-    if(!material) return;
+    if (!material) return;
 
     model::LayeredConstruction construction = m_modelObject->cast<model::LayeredConstruction>();
-    std::vector<model::Material> layers =  construction.layers();
-    if(layers.size()){
+    std::vector<model::Material> layers = construction.layers();
+    if (layers.size()) {
 
       IddObjectType existingIddObjectType = layers.at(0).iddObjectType();
       IddObjectType newIddObjectType = material.get().iddObjectType();
@@ -152,20 +140,13 @@ void ConstructionObjectVectorController::insert(const OSItemId& itemId, int posi
       // Need a valid widget to hang the msgbox on
       OS_ASSERT(this->parentWidget());
 
-      if(existingLayerType == ConstructionObjectVectorController::AIRWALL){
+      if (existingLayerType == ConstructionObjectVectorController::AIRWALL) {
         // Only 1 layer allowed for AirWall
-        QMessageBox::warning(this->parentWidget(),
-          "Error Adding Layer",
-          "Only 1 layer allowed for an AirWall.",
-          QMessageBox::Ok);
+        QMessageBox::warning(this->parentWidget(), "Error Adding Layer", "Only 1 layer allowed for an AirWall.", QMessageBox::Ok);
         return;
-      }
-      else if(newLayerType != existingLayerType){
+      } else if (newLayerType != existingLayerType) {
         // New layer type must match existing layer type
-        QMessageBox::warning(this->parentWidget(),
-          "Error Adding Layer",
-          "New layer type must match existing layer type.",
-          QMessageBox::Ok);
+        QMessageBox::warning(this->parentWidget(), "Error Adding Layer", "New layer type must match existing layer type.", QMessageBox::Ok);
         return;
       }
     }
@@ -177,7 +158,7 @@ void ConstructionObjectVectorController::insert(const OSItemId& itemId, int posi
     if (deleteExisting) {
       //  Checking if from library or from model isn't sufficient, if from model it also HAS to be already in the layer list
       std::vector<unsigned> existingIndices = construction.getLayerIndices(*material);
-      if (!existingIndices.empty()){
+      if (!existingIndices.empty()) {
         int existingPos = existingIndices[0];
         LOG(Debug, "Erasing layer at position = " << existingPos);
         construction.eraseLayer(existingPos);
@@ -190,16 +171,14 @@ void ConstructionObjectVectorController::insert(const OSItemId& itemId, int posi
   }
 }
 
-void ConstructionObjectVectorController::onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId)
-{
-  if(m_modelObject){
+void ConstructionObjectVectorController::onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) {
+  if (m_modelObject) {
 
     // If we drag from the library onto an existing, we want clone, then add at the position of the one existing
     // It will shift all other layers forward, and the user will be able to delete the one he dragged onto if he wants
     // If not from library, we want to **update** the position instead.
     bool deleteExisting = true;
-    if (this->fromComponentLibrary(replacementItemId))
-    {
+    if (this->fromComponentLibrary(replacementItemId)) {
       deleteExisting = false;
     } else {
 
@@ -211,7 +190,7 @@ void ConstructionObjectVectorController::onReplaceItem(OSItem * currentItem, con
 
       // Ensure layers are unique
       model::LayeredConstruction construction = m_modelObject->cast<model::LayeredConstruction>();
-      std::vector<model::Material> layers =  construction.layers();
+      std::vector<model::Material> layers = construction.layers();
       auto it = std::unique(layers.begin(), layers.end());
       deleteExisting = (it == layers.end());
       if (!deleteExisting) {
@@ -219,7 +198,6 @@ void ConstructionObjectVectorController::onReplaceItem(OSItem * currentItem, con
       } else {
         LOG(Debug, "Layers are unique, occured for " << m_modelObject->nameString());
       }
-
     }
 
     // Here's the difference with onDrop: we want to INSERT at the position of the currentItem
@@ -234,57 +212,43 @@ void ConstructionObjectVectorController::onReplaceItem(OSItem * currentItem, con
       if (modelObject.optionalCast<model::Material>()) {
         int position = currentItem->position();
         LOG(Debug, m_modelObject->nameString() << ", position = " << position);
-        insert(replacementItemId,  position, deleteExisting);
+        insert(replacementItemId, position, deleteExisting);
       }
     }
   }
 }
 
-void ConstructionObjectVectorController::onDrop(const OSItemId& itemId)
-{
+void ConstructionObjectVectorController::onDrop(const OSItemId& itemId) {
   insert(itemId);
 }
 
-QWidget * ConstructionObjectVectorController::parentWidget()
-{
+QWidget* ConstructionObjectVectorController::parentWidget() {
   return m_parentWidget;
 }
 
-void ConstructionObjectVectorController::setParentWidget(QWidget * parentWidget)
-{
+void ConstructionObjectVectorController::setParentWidget(QWidget* parentWidget) {
   m_parentWidget = parentWidget;
 }
 
-ConstructionObjectVectorController::LayerType ConstructionObjectVectorController::getLayerType(IddObjectType iddObjectType)
-{
-  if(iddObjectType == IddObjectType::OS_WindowMaterial_Blind ||
-     iddObjectType == IddObjectType::OS_WindowMaterial_DaylightRedirectionDevice ||
-     iddObjectType == IddObjectType::OS_WindowMaterial_Gas ||
-     iddObjectType == IddObjectType::OS_WindowMaterial_GasMixture ||
-     iddObjectType == IddObjectType::OS_WindowMaterial_Glazing ||
-     iddObjectType == IddObjectType::OS_WindowMaterial_Glazing_RefractionExtinctionMethod ||
-     iddObjectType == IddObjectType::OS_WindowMaterial_GlazingGroup_Thermochromic ||
-     iddObjectType == IddObjectType::OS_WindowMaterial_Screen ||
-     iddObjectType == IddObjectType::OS_WindowMaterial_Shade ||
-     iddObjectType == IddObjectType::OS_WindowMaterial_SimpleGlazingSystem)
-  {
+ConstructionObjectVectorController::LayerType ConstructionObjectVectorController::getLayerType(IddObjectType iddObjectType) {
+  if (iddObjectType == IddObjectType::OS_WindowMaterial_Blind || iddObjectType == IddObjectType::OS_WindowMaterial_DaylightRedirectionDevice ||
+      iddObjectType == IddObjectType::OS_WindowMaterial_Gas || iddObjectType == IddObjectType::OS_WindowMaterial_GasMixture ||
+      iddObjectType == IddObjectType::OS_WindowMaterial_Glazing ||
+      iddObjectType == IddObjectType::OS_WindowMaterial_Glazing_RefractionExtinctionMethod ||
+      iddObjectType == IddObjectType::OS_WindowMaterial_GlazingGroup_Thermochromic || iddObjectType == IddObjectType::OS_WindowMaterial_Screen ||
+      iddObjectType == IddObjectType::OS_WindowMaterial_Shade || iddObjectType == IddObjectType::OS_WindowMaterial_SimpleGlazingSystem) {
     return ConstructionObjectVectorController::FENESTRATION;
-  }
-  else if(iddObjectType == IddObjectType::OS_Material ||
-          iddObjectType == IddObjectType::OS_Material_AirGap ||
-          iddObjectType == IddObjectType::OS_Material_InfraredTransparent ||
-          iddObjectType == IddObjectType::OS_Material_NoMass ||
-          iddObjectType == IddObjectType::OS_Material_RoofVegetation){
+  } else if (iddObjectType == IddObjectType::OS_Material || iddObjectType == IddObjectType::OS_Material_AirGap ||
+             iddObjectType == IddObjectType::OS_Material_InfraredTransparent || iddObjectType == IddObjectType::OS_Material_NoMass ||
+             iddObjectType == IddObjectType::OS_Material_RoofVegetation) {
     return ConstructionObjectVectorController::OPAQUE;
-  }
-  else if(iddObjectType == IddObjectType::OS_Material_AirWall){
+  } else if (iddObjectType == IddObjectType::OS_Material_AirWall) {
     return ConstructionObjectVectorController::AIRWALL;
-  }
-  else{
+  } else {
     // Should never get here
     OS_ASSERT(false);
     return ConstructionObjectVectorController::UNKNOWN;
   }
 }
 
-} // openstudio
+}  // namespace openstudio

@@ -33,7 +33,6 @@
 
 #include "../model_editor/Application.hpp"
 
-
 #include <openstudio/model/Model_Impl.hpp>
 #include <openstudio/model/ThreeJSForwardTranslator.hpp>
 
@@ -53,15 +52,11 @@ using namespace std::placeholders;
 
 namespace openstudio {
 
-GeometryPreviewView::GeometryPreviewView(bool isIP,
-                                         const openstudio::model::Model& model,
-                                         QWidget * parent)
-: QWidget(parent)
-{
+GeometryPreviewView::GeometryPreviewView(bool isIP, const openstudio::model::Model& model, QWidget* parent) : QWidget(parent) {
   // TODO: DLM implement units switching
   //connect(this, &GeometryPreviewView::toggleUnitsClicked, modelObjectInspectorView(), &ModelObjectInspectorView::toggleUnitsClicked);
 
-  QVBoxLayout *layout = new QVBoxLayout;
+  QVBoxLayout* layout = new QVBoxLayout;
 
   PreviewWebView* webView = new PreviewWebView(isIP, model, this);
   layout->addWidget(webView);
@@ -69,20 +64,12 @@ GeometryPreviewView::GeometryPreviewView(bool isIP,
   setLayout(layout);
 }
 
-GeometryPreviewView::~GeometryPreviewView()
-{
+GeometryPreviewView::~GeometryPreviewView() {}
 
-}
+PreviewWebView::PreviewWebView(bool isIP, const model::Model& model, QWidget* t_parent)
+  : QWidget(t_parent), m_isIP(isIP), m_model(model), m_progressBar(new QProgressBar()), m_refreshBtn(new QPushButton("Refresh")) {
 
-PreviewWebView::PreviewWebView(bool isIP, const model::Model& model, QWidget *t_parent)
-  : QWidget(t_parent),
-    m_isIP(isIP),
-    m_model(model),
-    m_progressBar(new QProgressBar()),
-    m_refreshBtn(new QPushButton("Refresh"))
-{
-
-  openstudio::OSAppBase * app = OSAppBase::instance();
+  openstudio::OSAppBase* app = OSAppBase::instance();
   OS_ASSERT(app);
   m_document = app->currentDocument();
   OS_ASSERT(m_document);
@@ -117,9 +104,9 @@ PreviewWebView::PreviewWebView(bool isIP, const model::Model& model, QWidget *t_
   m_view = new QWebEngineView(this);
   m_view->settings()->setAttribute(QWebEngineSettings::WebAttribute::LocalContentCanAccessRemoteUrls, true);
   m_view->settings()->setAttribute(QWebEngineSettings::WebAttribute::SpatialNavigationEnabled, true);
-  
+
   m_page = new OSWebEnginePage(this);
-  m_view->setPage(m_page); // note, view does not take ownership of page
+  m_view->setPage(m_page);  // note, view does not take ownership of page
 
   connect(m_view, &QWebEngineView::loadFinished, this, &PreviewWebView::onLoadFinished);
   //connect(m_view, &QWebEngineView::loadProgress, this, &PreviewWebView::onLoadProgress);
@@ -138,14 +125,12 @@ PreviewWebView::PreviewWebView(bool isIP, const model::Model& model, QWidget *t_
   m_view->load(QUrl("qrc:///library/geometry_preview.html"));
 }
 
-PreviewWebView::~PreviewWebView()
-{
+PreviewWebView::~PreviewWebView() {
   delete m_view;
-  delete m_page; 
+  delete m_page;
 }
 
-void PreviewWebView::refreshClicked()
-{
+void PreviewWebView::refreshClicked() {
   m_progressBar->setStyleSheet("");
   m_progressBar->setFormat("");
   m_progressBar->setTextVisible(false);
@@ -153,23 +138,20 @@ void PreviewWebView::refreshClicked()
   m_view->triggerPageAction(QWebEnginePage::ReloadAndBypassCache);
 }
 
-void PreviewWebView::onUnitSystemChange(bool t_isIP)
-{
+void PreviewWebView::onUnitSystemChange(bool t_isIP) {
   LOG(Debug, "onUnitSystemChange " << t_isIP << " reloading results");
   m_isIP = t_isIP;
 }
 
-void callWithResult(const QString& result)
-{
+void callWithResult(const QString& result) {
   QString x = result;
 }
 
-void PreviewWebView::onLoadFinished(bool ok)
-{
+void PreviewWebView::onLoadFinished(bool ok) {
   QString title = m_view->title();
-  if (ok){
+  if (ok) {
     m_progressBar->setValue(10);
-  } else{
+  } else {
     m_progressBar->setValue(100);
     m_progressBar->setStyleSheet("QProgressBar::chunk {background-color: #FF0000;}");
     m_progressBar->setFormat("Error");
@@ -177,13 +159,13 @@ void PreviewWebView::onLoadFinished(bool ok)
     return;
   }
 
-  if (m_json.isEmpty()){
+  if (m_json.isEmpty()) {
     std::function<void(double)> updatePercentage = std::bind(&PreviewWebView::onTranslateProgress, this, _1);
     //ThreeScene scene = modelToThreeJS(m_model.clone(true).cast<model::Model>(), true, updatePercentage); // triangulated
 
     model::ThreeJSForwardTranslator ft;
-    ThreeScene scene = ft.modelToThreeJS(m_model, true, updatePercentage); // triangulated
-    std::string json = scene.toJSON(false); // no pretty print
+    ThreeScene scene = ft.modelToThreeJS(m_model, true, updatePercentage);  // triangulated
+    std::string json = scene.toJSON(false);                                 // no pretty print
     m_json = QString::fromStdString(json);
   } else {
     m_progressBar->setValue(90);
@@ -194,11 +176,10 @@ void PreviewWebView::onLoadFinished(bool ok)
 
   // call init and animate
   QString javascript = QString("init(") + m_json + QString(");\n animate();\n initDatGui();");
-  m_view->page()->runJavaScript(javascript, [this](const QVariant &v) { onJavaScriptFinished(v); });
+  m_view->page()->runJavaScript(javascript, [this](const QVariant& v) { onJavaScriptFinished(v); });
 
   //javascript = QString("os_data.metadata.version");
   //m_view->page()->runJavaScript(javascript, [](const QVariant &v) { callWithResult(v.toString()); });
-
 }
 
 //void PreviewWebView::onLoadProgress(int progress)
@@ -209,26 +190,22 @@ void PreviewWebView::onLoadFinished(bool ok)
 //{
 //}
 
-void PreviewWebView::onTranslateProgress(double percentage)
-{
-  m_progressBar->setValue(10 + 0.8*percentage);
+void PreviewWebView::onTranslateProgress(double percentage) {
+  m_progressBar->setValue(10 + 0.8 * percentage);
   OSAppBase::instance()->processEvents(QEventLoop::ExcludeUserInputEvents, 200);
 }
 
-void PreviewWebView::onJavaScriptFinished(const QVariant &v)
-{
+void PreviewWebView::onJavaScriptFinished(const QVariant& v) {
   m_document->enable();
   m_progressBar->setValue(100);
   m_progressBar->setVisible(false);
 }
 
-void PreviewWebView::onRenderProcessTerminated(QWebEnginePage::RenderProcessTerminationStatus terminationStatus, int exitCode)
-{
+void PreviewWebView::onRenderProcessTerminated(QWebEnginePage::RenderProcessTerminationStatus terminationStatus, int exitCode) {
   m_progressBar->setValue(100);
   m_progressBar->setStyleSheet("QProgressBar::chunk {background-color: #FF0000;}");
   m_progressBar->setFormat("Error");
   m_progressBar->setTextVisible(true);
 }
 
-
-} // openstudio
+}  // namespace openstudio

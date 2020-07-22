@@ -41,92 +41,82 @@
 class QComboBox;
 class QLabel;
 
-namespace openstudio{
+namespace openstudio {
 
-  class ModelSubTabView;
-  class SpaceTypesGridController;
+class ModelSubTabView;
+class SpaceTypesGridController;
 
-  class SpaceTypesGridView : public QWidget
-  {
-    Q_OBJECT
+class SpaceTypesGridView : public QWidget
+{
+  Q_OBJECT
 
   public:
+  SpaceTypesGridView(bool isIP, const model::Model& model, QWidget* parent = nullptr);
 
-  SpaceTypesGridView(bool isIP, const model::Model & model, QWidget * parent = nullptr);
+  virtual ~SpaceTypesGridView() {}
 
-    virtual ~SpaceTypesGridView() {}
+  std::vector<model::ModelObject> selectedObjects() const;
 
-    std::vector<model::ModelObject> selectedObjects() const;
+  void enableFilter();
 
-    void enableFilter();
+  void disableFilter();
 
-    void disableFilter();
-
-    QComboBox * m_filters = nullptr;
+  QComboBox* m_filters = nullptr;
 
   private:
+  REGISTER_LOGGER("openstudio.SpaceTypesGridView");
 
-    REGISTER_LOGGER("openstudio.SpaceTypesGridView");
+  bool m_isIP;
 
-    bool m_isIP;
+  SpaceTypesGridController* m_gridController = nullptr;
 
-    SpaceTypesGridController * m_gridController = nullptr;
-
-    QLabel * m_filterLabel = nullptr;
+  QLabel* m_filterLabel = nullptr;
 
   signals:
 
-    void toggleUnitsClicked(bool displayIP);
+  void toggleUnitsClicked(bool displayIP);
 
-    void dropZoneItemClicked(OSItem* item);
+  void dropZoneItemClicked(OSItem* item);
 
-    void selectionCleared();
+  void selectionCleared();
+};
 
-  };
+class SpaceTypesGridController : public OSGridController
+{
 
-  class SpaceTypesGridController : public OSGridController
-  {
-
-    Q_OBJECT
+  Q_OBJECT
 
   public:
+  SpaceTypesGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model model,
+                           std::vector<model::ModelObject> modelObjects);
 
-    SpaceTypesGridController(bool isIP,
-      const QString & headerText,
-      IddObjectType iddObjectType,
-      model::Model model,
-      std::vector<model::ModelObject> modelObjects);
+  virtual ~SpaceTypesGridController() {}
 
-    virtual ~SpaceTypesGridController() {}
+  virtual void refreshModelObjects() override;
 
-    virtual void refreshModelObjects() override;
-
-    virtual void categorySelected(int index) override;
+  virtual void categorySelected(int index) override;
 
   protected:
+  virtual void setCategoriesAndFields() override;
 
-    virtual void setCategoriesAndFields() override;
+  virtual void addColumns(const QString& category, std::vector<QString>& fields) override;
 
-    virtual void addColumns(const QString &category, std::vector<QString> & fields) override;
+  virtual void checkSelectedFields() override;
 
-    virtual void checkSelectedFields() override;
-
-    virtual QString getColor(const model::ModelObject & modelObject) override;
+  virtual QString getColor(const model::ModelObject& modelObject) override;
 
   private:
-
-    SpaceTypesGridView * spaceTypesGridView();
+  SpaceTypesGridView* spaceTypesGridView();
 
   public slots:
 
-    virtual void onItemDropped(const OSItemId& itemId) override;
+  virtual void onItemDropped(const OSItemId& itemId) override;
 
-    virtual void onComboBoxIndexChanged(int index) override;
+  virtual void onComboBoxIndexChanged(int index) override;
 
-    void filterChanged(const QString & text);
+  void filterChanged(const QString& text);
+};
 
-  };
+}  // namespace openstudio
 
-} // openstudio
-
-#endif // OPENSTUDIO_SPACETYPESGRIDVIEW_HPP
+#endif  // OPENSTUDIO_SPACETYPESGRIDVIEW_HPP

@@ -45,28 +45,23 @@ class LoopLibraryDialog : public QDialog
   Q_OBJECT
 
   public:
-
-  LoopLibraryDialog(QWidget * parent = nullptr);
+  LoopLibraryDialog(QWidget* parent = nullptr);
 
   virtual ~LoopLibraryDialog() {}
 
-  void newItem( const AddToModelEnum & addToModelEnum,
-                const QString & detailedText,
-                const QPixmap & pixmap );
+  void newItem(const AddToModelEnum& addToModelEnum, const QString& detailedText, const QPixmap& pixmap);
 
   boost::optional<AddToModelEnum> addToModelEnum() const;
 
   protected:
-
-  void paintEvent ( QPaintEvent * event ) override;
+  void paintEvent(QPaintEvent* event) override;
 
   private slots:
 
-  void onAddToModelClicked( AddToModelEnum addToModelEnum );
+  void onAddToModelClicked(AddToModelEnum addToModelEnum);
 
   private:
-
-  QScrollArea * m_scrollArea;
+  QScrollArea* m_scrollArea;
 
   boost::optional<AddToModelEnum> m_addToModelEnum;
 };
@@ -76,11 +71,7 @@ class LoopItemView : public QWidget
   Q_OBJECT
 
   public:
-
-  LoopItemView( const AddToModelEnum & addToModelEnum,
-                const QString & detailedText,
-                const QPixmap & pixmap,
-                QWidget * parent = nullptr );
+  LoopItemView(const AddToModelEnum& addToModelEnum, const QString& detailedText, const QPixmap& pixmap, QWidget* parent = nullptr);
 
   virtual ~LoopItemView() {}
 
@@ -88,14 +79,13 @@ class LoopItemView : public QWidget
 
   signals:
 
-  void addToModelClicked( AddToModelEnum );
+  void addToModelClicked(AddToModelEnum);
 
   private slots:
 
   void emitAddToModelClicked();
 
   private:
-
   AddToModelEnum m_addToModelEnum;
 
   QString m_detailedText;
@@ -103,7 +93,6 @@ class LoopItemView : public QWidget
   QPixmap m_pixmap;
 };
 
-} // namespace openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_LOOPLIBRARYDIALOG_HPP
-
+#endif  // OPENSTUDIO_LOOPLIBRARYDIALOG_HPP

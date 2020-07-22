@@ -32,51 +32,40 @@
 
 #include "TableView.hpp"
 
-namespace modeleditor
-{
+namespace modeleditor {
 
-TableView::TableView(QWidget *parent)
-  : QTableView(parent)
-{
-}
+TableView::TableView(QWidget* parent) : QTableView(parent) {}
 
-TableView::~TableView()
-{
-}
+TableView::~TableView() {}
 
-void TableView::enterEvent(QEvent * event)
-{
+void TableView::enterEvent(QEvent* event) {
   emit eventEnter();
 }
 
-void TableView::leaveEvent(QEvent * event)
-{
+void TableView::leaveEvent(QEvent* event) {
   emit eventLeave();
 }
 
-void TableView::keyReleaseEvent(QKeyEvent * event)
-{
-  if(event->key() == Qt::Key_Up || event->key() == Qt::Key_Down){
+void TableView::keyReleaseEvent(QKeyEvent* event) {
+  if (event->key() == Qt::Key_Up || event->key() == Qt::Key_Down) {
     emit eventUpDnKeyRelease();
   }
 }
 
-bool TableView::getSelectedRows(QModelIndexList& rowList)
-{
- // bool success = false;
-  QItemSelectionModel * selectionMod = nullptr;
+bool TableView::getSelectedRows(QModelIndexList& rowList) {
+  // bool success = false;
+  QItemSelectionModel* selectionMod = nullptr;
   selectionMod = selectionModel();
-  if(selectionMod){
+  if (selectionMod) {
     //success = true;
     rowList = selectionMod->selectedRows();
   }
   return !rowList.empty();
 }
 
-bool TableView::hasSelectedRows()
-{
+bool TableView::hasSelectedRows() {
   QModelIndexList rowList;
   return getSelectedRows(rowList);
 }
 
-} // namespace modeleditor
+}  // namespace modeleditor

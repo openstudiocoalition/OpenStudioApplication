@@ -35,21 +35,17 @@
 
 namespace openstudio {
 
-GeometryPreviewController::GeometryPreviewController(bool isIP, const model::Model& model)
-  : OSQObjectController()
-{
+GeometryPreviewController::GeometryPreviewController(bool isIP, const model::Model& model) : OSQObjectController() {
   m_view = new GeometryPreviewView(isIP, model);
   addQObject(m_view);
 }
 
-GeometryPreviewController::~GeometryPreviewController()
-{
+GeometryPreviewController::~GeometryPreviewController() {
   // will delete m_view
 }
 
-QWidget* GeometryPreviewController::view() const
-{
+QWidget* GeometryPreviewController::view() const {
   return m_view;
 }
 
-} // openstudio
+}  // namespace openstudio

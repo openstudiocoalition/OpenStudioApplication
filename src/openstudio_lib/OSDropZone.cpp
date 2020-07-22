@@ -67,11 +67,7 @@ using namespace openstudio::model;
 
 namespace openstudio {
 
-OSDropZone::OSDropZone(OSVectorController* vectorController,
-                       const QString & text,
-                       const QSize & size,
-                       bool growsHorizontally,
-                       QWidget * parent )
+OSDropZone::OSDropZone(OSVectorController* vectorController, const QString& text, const QSize& size, bool growsHorizontally, QWidget* parent)
   : QWidget(parent),
     m_vectorController(vectorController),
     m_minItems(0),
@@ -82,8 +78,7 @@ OSDropZone::OSDropZone(OSVectorController* vectorController,
     m_growsHorizontally(growsHorizontally),
     m_useLargeIcon(false),
     m_text(text),
-    m_size(size)
-{
+    m_size(size) {
   auto mainBox = new QWidget();
   mainBox->setObjectName("mainBox");
   mainBox->setStyleSheet("QWidget#mainBox { background: #CECECE; }");
@@ -96,42 +91,41 @@ OSDropZone::OSDropZone(OSVectorController* vectorController,
   m_scrollArea->setWidget(mainBox);
   m_scrollArea->setMinimumWidth(OSItem::ITEM_WIDTH);
 
-  QBoxLayout * mainLayout = nullptr;
+  QBoxLayout* mainLayout = nullptr;
 
-  if(m_growsHorizontally){
-    m_scrollArea->setSizePolicy(QSizePolicy::Preferred,QSizePolicy::Fixed);
-    setSizePolicy(QSizePolicy::Preferred,QSizePolicy::Fixed);
+  if (m_growsHorizontally) {
+    m_scrollArea->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
+    setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
     mainLayout = new QHBoxLayout();
     m_mainBoxLayout = new QHBoxLayout();
-  }
-  else{
-    m_scrollArea->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Preferred);
-    setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Preferred);
+  } else {
+    m_scrollArea->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
+    setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
     mainLayout = new QVBoxLayout();
     m_mainBoxLayout = new QVBoxLayout();
   }
 
-  mainLayout->setContentsMargins(10,10,10,10);
+  mainLayout->setContentsMargins(10, 10, 10, 10);
   setLayout(mainLayout);
 
   mainLayout->addWidget(m_scrollArea);
 
- // for now we will allow this drop zone to manage memory of the vectorController
+  // for now we will allow this drop zone to manage memory of the vectorController
   OS_ASSERT(!m_vectorController->parent());
   m_vectorController->setParent(this);
 
   m_addButton = new QPushButton(this);
   m_addButton->setFlat(true);
   m_addButton->setObjectName("AddButton");
-  m_addButton->setFixedSize(24,24);
-  mainLayout->addWidget(m_addButton,0,Qt::AlignBottom);
+  m_addButton->setFixedSize(24, 24);
+  mainLayout->addWidget(m_addButton, 0, Qt::AlignBottom);
 
   setObjectName("OSDropZone");
   QString mainBoxStyle;
   mainBoxStyle.append("QWidget#OSDropZone {");
   mainBoxStyle.append(" background: #CECECE;");
-  if(m_size.height() && m_size.width()){
-    mainLayout->setContentsMargins(0,0,0,0);
+  if (m_size.height() && m_size.width()) {
+    mainLayout->setContentsMargins(0, 0, 0, 0);
     mainBoxStyle.append(" border: none;");
   } else {
     mainBoxStyle.append(" border: 2px dashed #808080;");
@@ -140,7 +134,7 @@ OSDropZone::OSDropZone(OSVectorController* vectorController,
   mainBoxStyle.append("}");
   setStyleSheet(mainBoxStyle);
 
-  m_mainBoxLayout->setContentsMargins(0,0,0,0);
+  m_mainBoxLayout->setContentsMargins(0, 0, 0, 0);
   m_mainBoxLayout->setSpacing(10);
   mainBox->setLayout(m_mainBoxLayout);
 
@@ -165,78 +159,63 @@ OSDropZone::OSDropZone(OSVectorController* vectorController,
   hideAddButton();
 }
 
-void OSDropZone::paintEvent( QPaintEvent * event )
-{
+void OSDropZone::paintEvent(QPaintEvent* event) {
   QStyleOption opt;
   opt.init(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
 
-int OSDropZone::maxItems() const
-{
+int OSDropZone::maxItems() const {
   return m_maxItems;
 }
 
-bool OSDropZone::setMaxItems(int max)
-{
-  if (max >= m_minItems && max >= 0){
+bool OSDropZone::setMaxItems(int max) {
+  if (max >= m_minItems && max >= 0) {
     m_maxItems = max;
     emit itemsRequested();
-    if( max == 1 )
-    {
-      if(m_size.height() && m_size.width())
-      {
+    if (max == 1) {
+      if (m_size.height() && m_size.width()) {
         m_scrollArea->setFixedHeight(m_size.height());
         m_scrollArea->setMaximumWidth(m_size.width());
         setMaximumHeight(m_size.height());
         setMaximumWidth(m_size.width());
-      }
-      else if(m_growsHorizontally){
+      } else if (m_growsHorizontally) {
         m_scrollArea->setFixedHeight(OSItem::ITEM_HEIGHT);
         m_scrollArea->setMaximumWidth(OSItem::ITEM_WIDTH);
         setMaximumWidth(OSItem::ITEM_WIDTH + 20);
-      }
-      else{
+      } else {
         m_scrollArea->setMaximumHeight(OSItem::ITEM_HEIGHT);
         m_scrollArea->setFixedWidth(OSItem::ITEM_WIDTH);
         setMaximumHeight(OSItem::ITEM_HEIGHT + 20);
       }
-    }
-    else
-    {
-      if(m_size.height() && m_size.width())
-      {
+    } else {
+      if (m_size.height() && m_size.width()) {
         m_scrollArea->setFixedHeight(m_size.height());
         m_scrollArea->setMaximumWidth(m_size.width());
         setMaximumHeight(m_size.height());
         setMaximumWidth(m_size.width());
-      }
-      else if(m_growsHorizontally){
+      } else if (m_growsHorizontally) {
         m_scrollArea->setFixedHeight(OSItem::ITEM_SIDE);
         m_scrollArea->setMaximumWidth(QWIDGETSIZE_MAX);
         setMaximumWidth(QWIDGETSIZE_MAX);
-      }
-      else{
+      } else {
         m_scrollArea->setFixedWidth(OSItem::ITEM_WIDTH);
         m_scrollArea->setMaximumHeight(QWIDGETSIZE_MAX);
         setMaximumHeight(QWIDGETSIZE_MAX);
       }
-
     }
     return true;
   }
   return false;
 }
 
-int OSDropZone::minItems() const
-{
+int OSDropZone::minItems() const {
   return m_minItems;
 }
 
-bool OSDropZone::setMinItems(int min)
-{
-  if (min <= m_maxItems && min >= 0){
+bool OSDropZone::setMinItems(int min) {
+  if (min <= m_maxItems && min >= 0) {
     m_minItems = min;
     emit itemsRequested();
     return true;
@@ -244,47 +223,39 @@ bool OSDropZone::setMinItems(int min)
   return false;
 }
 
-bool OSDropZone::itemsDraggable() const
-{
+bool OSDropZone::itemsDraggable() const {
   return m_itemsDraggable;
 }
 
-void OSDropZone::setItemsDraggable(bool itemsDraggable)
-{
+void OSDropZone::setItemsDraggable(bool itemsDraggable) {
   m_itemsDraggable = itemsDraggable;
 }
 
-bool OSDropZone::itemsAcceptDrops() const
-{
+bool OSDropZone::itemsAcceptDrops() const {
   return m_itemsAcceptDrops;
 }
 
-void OSDropZone::setItemsAcceptDrops(bool itemsAcceptDrops)
-{
+void OSDropZone::setItemsAcceptDrops(bool itemsAcceptDrops) {
   m_itemsAcceptDrops = itemsAcceptDrops;
 }
 
-bool OSDropZone::itemsRemoveable() const
-{
+bool OSDropZone::itemsRemoveable() const {
   return m_itemsRemoveable;
 }
 
-void OSDropZone::setItemsRemoveable(bool itemsRemoveable)
-{
+void OSDropZone::setItemsRemoveable(bool itemsRemoveable) {
   m_itemsRemoveable = itemsRemoveable;
 }
 
-void OSDropZone::onDrop(const OSItemId& itemId)
-{
+void OSDropZone::onDrop(const OSItemId& itemId) {
   emit itemDropped(itemId);
 }
 
-void OSDropZone::setItemIds(const std::vector<OSItemId>& itemIds)
-{
+void OSDropZone::setItemIds(const std::vector<OSItemId>& itemIds) {
   QLayoutItem* child;
-  while( (child = m_mainBoxLayout->takeAt(0)) != nullptr ){
+  while ((child = m_mainBoxLayout->takeAt(0)) != nullptr) {
     QWidget* widget = child->widget();
-    if (widget){
+    if (widget) {
       delete widget;
     }
     delete child;
@@ -292,18 +263,17 @@ void OSDropZone::setItemIds(const std::vector<OSItemId>& itemIds)
 
   int numItems = 0;
   OSItemType type;
-  if((this->m_maxItems > 1) && (m_growsHorizontally)){
+  if ((this->m_maxItems > 1) && (m_growsHorizontally)) {
     type = OSItemType::DropzoneSquare;
     // somewhere set show / hide scroll bar TODO
-  }
-  else{
+  } else {
     type = OSItemType::DropzoneRectangle;
   }
 
-  for (const OSItemId& itemId : itemIds){
+  for (const OSItemId& itemId : itemIds) {
 
     OSItem* item = OSItem::makeItem(itemId, type);
-    if (!item){
+    if (!item) {
       continue;
     }
 
@@ -324,93 +294,80 @@ void OSDropZone::setItemIds(const std::vector<OSItemId>& itemIds)
 
     item->setUseLargeIcon(m_useLargeIcon);
 
-    if (item->removeable()){
-      if (numItems > m_minItems){
+    if (item->removeable()) {
+      if (numItems > m_minItems) {
         item->setRemoveable(true);
-      }else{
+      } else {
         item->setRemoveable(false);
       }
     }
 
-    if (!m_itemsRemoveable){
+    if (!m_itemsRemoveable) {
       item->setRemoveable(false);
     }
 
-    m_mainBoxLayout->addWidget(item,0,Qt::AlignLeft);
+    m_mainBoxLayout->addWidget(item, 0, Qt::AlignLeft);
   }
 
-  if (numItems < m_maxItems){
+  if (numItems < m_maxItems) {
     auto dropZone = new OSItemDropZone(this->m_growsHorizontally, m_text, m_size);
-    m_mainBoxLayout->addWidget(dropZone,0,Qt::AlignLeft);
+    m_mainBoxLayout->addWidget(dropZone, 0, Qt::AlignLeft);
 
     connect(dropZone, &OSItemDropZone::dropped, this, &OSDropZone::handleDrop);
 
-    if( m_maxItems == 1 )
-    {
+    if (m_maxItems == 1) {
       dropZone->setExtensible(false);
-    }else{
+    } else {
       dropZone->setExtensible(true);
     }
 
-    if (m_allowAdd){
+    if (m_allowAdd) {
       this->showAddButton();
     }
 
-  }else{
+  } else {
     this->hideAddButton();
   }
 
   m_mainBoxLayout->addStretch();
 }
 
-void OSDropZone::handleDrop(QDropEvent* event)
-{
+void OSDropZone::handleDrop(QDropEvent* event) {
   OSItemId itemId(event->mimeData());
   this->onDrop(itemId);
 }
 
-void OSDropZone::showAddButton()
-{
+void OSDropZone::showAddButton() {
   m_allowAdd = true;
   m_addButton->show();
 }
 
-void OSDropZone::hideAddButton()
-{
+void OSDropZone::hideAddButton() {
   m_addButton->hide();
 }
 
-bool OSDropZone::useLargeIcon()
-{
+bool OSDropZone::useLargeIcon() {
   return m_useLargeIcon;
 }
 
-void OSDropZone::setUseLargeIcon(bool useLargeIcon)
-{
+void OSDropZone::setUseLargeIcon(bool useLargeIcon) {
   m_useLargeIcon = useLargeIcon;
 }
 
-OSItemDropZone::OSItemDropZone(bool growsHorizontally,
-                               const QString & text,
-                               const QSize & size,
-                               QWidget * parent)
-  : QWidget(parent),
-  m_size(size),
-  m_growsHorizontally(growsHorizontally)
-{
+OSItemDropZone::OSItemDropZone(bool growsHorizontally, const QString& text, const QSize& size, QWidget* parent)
+  : QWidget(parent), m_size(size), m_growsHorizontally(growsHorizontally) {
   setAcceptDrops(true);
 
   setObjectName("DropBox");
 
-  QBoxLayout * mainLayout = nullptr;
+  QBoxLayout* mainLayout = nullptr;
 
-  if(m_growsHorizontally){
+  if (m_growsHorizontally) {
     mainLayout = new QHBoxLayout();
-  }
-  else{
+  } else {
     mainLayout = new QVBoxLayout();
   }
-  mainLayout->setContentsMargins(10,10,10,10);
+  mainLayout->setContentsMargins(10, 10, 10, 10);
   setLayout(mainLayout);
 
   auto label = new QLabel();
@@ -420,17 +377,15 @@ OSItemDropZone::OSItemDropZone(bool growsHorizontally,
 
   label->setStyleSheet("QLabel { font: bold; color: #808080}");
 
-  mainLayout->addWidget(label,0,Qt::AlignCenter);
+  mainLayout->addWidget(label, 0, Qt::AlignCenter);
 
   setExtensible(false);
 }
 
-void OSItemDropZone::setExtensible(bool extensible)
-{
+void OSItemDropZone::setExtensible(bool extensible) {
   QString style;
 
-  if(m_size.height() && m_size.width())
-  {
+  if (m_size.height() && m_size.width()) {
     style.append("QWidget#DropBox {");
     style.append(" background: #CECECE;");
     style.append(" border: 2px dashed #808080;");
@@ -439,26 +394,21 @@ void OSItemDropZone::setExtensible(bool extensible)
 
     setFixedWidth(m_size.width());
     setFixedHeight(m_size.height());
-  }
-  else if( extensible )
-  {
+  } else if (extensible) {
     style.append("QWidget#DropBox {");
     style.append(" background: #CECECE;");
     style.append(" border: 2px dashed #808080;");
     style.append(" border-radius: 10px;");
     style.append("}");
 
-    if(m_growsHorizontally){
+    if (m_growsHorizontally) {
       setFixedWidth(OSItem::ITEM_SIDE);
       setFixedHeight(OSItem::ITEM_SIDE);
-    }
-    else{
+    } else {
       setFixedWidth(OSItem::ITEM_WIDTH);
       setFixedHeight(OSItem::ITEM_HEIGHT);
     }
-  }
-  else
-  {
+  } else {
     style.append("QWidget#DropBox {");
     style.append(" background: #CECECE;");
     style.append(" border: none;");
@@ -471,88 +421,73 @@ void OSItemDropZone::setExtensible(bool extensible)
   setStyleSheet(style);
 }
 
-void OSItemDropZone::paintEvent ( QPaintEvent * event )
-{
+void OSItemDropZone::paintEvent(QPaintEvent* event) {
   QStyleOption opt;
   opt.init(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
 
-void OSItemDropZone::dragEnterEvent(QDragEnterEvent *event)
-{
-  if(event->proposedAction() == Qt::CopyAction){
+void OSItemDropZone::dragEnterEvent(QDragEnterEvent* event) {
+  if (event->proposedAction() == Qt::CopyAction) {
     event->accept();
   }
 }
 
-void OSItemDropZone::dropEvent(QDropEvent *event)
-{
+void OSItemDropZone::dropEvent(QDropEvent* event) {
   event->accept();
-  if(event->proposedAction() == Qt::CopyAction){
+  if (event->proposedAction() == Qt::CopyAction) {
     emit dropped(event);
   }
 }
 
-OSDropZoneItem::OSDropZoneItem()
-  : QGraphicsObject(),
-    m_mouseDown(false)
-{
+OSDropZoneItem::OSDropZoneItem() : QGraphicsObject(), m_mouseDown(false) {
   setAcceptHoverEvents(true);
   setAcceptDrops(true);
 
-  setSize(100,50);
+  setSize(100, 50);
 }
 
-void OSDropZoneItem::dropEvent(QGraphicsSceneDragDropEvent *event)
-{
+void OSDropZoneItem::dropEvent(QGraphicsSceneDragDropEvent* event) {
   event->accept();
 
-  if(event->proposedAction() == Qt::CopyAction)
-  {
+  if (event->proposedAction() == Qt::CopyAction) {
     OSItemId id = OSItemId(event->mimeData());
 
     emit componentDropped(id);
   }
 }
 
-QRectF OSDropZoneItem::boundingRect() const
-{
-  return QRectF(0,0,m_width,m_height);
+QRectF OSDropZoneItem::boundingRect() const {
+  return QRectF(0, 0, m_width, m_height);
 }
 
-void OSDropZoneItem::setSize(double width, double height)
-{
+void OSDropZoneItem::setSize(double width, double height) {
   prepareGeometryChange();
   m_width = width;
   m_height = height;
 }
 
-void OSDropZoneItem::setText(const QString & text)
-{
+void OSDropZoneItem::setText(const QString& text) {
   m_text = text;
   update();
 }
 
-void OSDropZoneItem::paint( QPainter *painter,
-                                                 const QStyleOptionGraphicsItem *option,
-                                                 QWidget *widget )
-{
+void OSDropZoneItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
   painter->setRenderHint(QPainter::Antialiasing, true);
   painter->setBrush(Qt::NoBrush);
-  painter->setPen(QPen(QColor(109,109,109),2,Qt::DashLine, Qt::RoundCap));
+  painter->setPen(QPen(QColor(109, 109, 109), 2, Qt::DashLine, Qt::RoundCap));
 
   painter->drawRect(boundingRect());
 
   QFont font = painter->font();
   font.setPointSize(25);
   painter->setFont(font);
-  painter->setPen(QPen(QColor(109,109,109),2,Qt::DashLine, Qt::RoundCap));
-  painter->drawText(boundingRect(),Qt::AlignCenter | Qt::TextWordWrap,m_text);
+  painter->setPen(QPen(QColor(109, 109, 109), 2, Qt::DashLine, Qt::RoundCap));
+  painter->drawText(boundingRect(), Qt::AlignCenter | Qt::TextWordWrap, m_text);
 }
 
-void OSDropZoneItem::mousePressEvent(QGraphicsSceneMouseEvent * event)
-{
+void OSDropZoneItem::mousePressEvent(QGraphicsSceneMouseEvent* event) {
   m_mouseDown = true;
 
   this->update();
@@ -560,18 +495,15 @@ void OSDropZoneItem::mousePressEvent(QGraphicsSceneMouseEvent * event)
   event->accept();
 }
 
-void OSDropZoneItem::mouseReleaseEvent(QGraphicsSceneMouseEvent * event)
-{
-  if( m_mouseDown )
-  {
+void OSDropZoneItem::mouseReleaseEvent(QGraphicsSceneMouseEvent* event) {
+  if (m_mouseDown) {
     m_mouseDown = false;
 
     this->update();
 
     QApplication::processEvents();
 
-    if( shape().contains(event->pos()) )
-    {
+    if (shape().contains(event->pos())) {
       event->accept();
 
       emit mouseClicked();
@@ -579,9 +511,7 @@ void OSDropZoneItem::mouseReleaseEvent(QGraphicsSceneMouseEvent * event)
   }
 }
 
-OSDropZone2::OSDropZone2()
-  : QWidget()
-{
+OSDropZone2::OSDropZone2() : QWidget() {
   setObjectName("OSDropZone");
 
   QString style("QWidget#OSDropZone {\
@@ -591,7 +521,7 @@ OSDropZone2::OSDropZone2()
   setStyleSheet(style);
 
   auto layout = new QVBoxLayout();
-  layout->setContentsMargins(5,5,5,5);
+  layout->setContentsMargins(5, 5, 5, 5);
   setLayout(layout);
 
   m_label = new QLabel();
@@ -602,16 +532,12 @@ OSDropZone2::OSDropZone2()
   setMaximumWidth(150);
 }
 
-OSDropZone2::~OSDropZone2()
-{
-}
+OSDropZone2::~OSDropZone2() {}
 
-void OSDropZone2::refresh()
-{
+void OSDropZone2::refresh() {
   boost::optional<model::ModelObject> modelObject;
 
-  if (m_item)
-  {
+  if (m_item) {
     modelObject = OSAppBase::instance()->currentDocument()->getModelObject(m_item->itemId());
   } else if (m_get && *m_get) {
     modelObject = (*m_get)();
@@ -619,10 +545,9 @@ void OSDropZone2::refresh()
 
   if (modelObject) {
     QString temp = QString::fromStdString(modelObject->name().get());
-    if (m_label->text() == temp){
+    if (m_label->text() == temp) {
       return;
-    }
-    else {
+    } else {
       m_label->setText(temp);
     }
 
@@ -638,12 +563,7 @@ void OSDropZone2::refresh()
   update();
 }
 
-void OSDropZone2::bind(
-  model::ModelObject & modelObject,
-  OptionalModelObjectGetter get,
-  ModelObjectSetter set,
-  boost::optional<NoFailAction> reset)
-{
+void OSDropZone2::bind(model::ModelObject& modelObject, OptionalModelObjectGetter get, ModelObjectSetter set, boost::optional<NoFailAction> reset) {
   m_get = get;
   m_set = set;
   m_reset = reset;
@@ -653,8 +573,7 @@ void OSDropZone2::bind(
   refresh();
 }
 
-void OSDropZone2::unbind()
-{
+void OSDropZone2::unbind() {
   m_modelObject.reset();
   m_get.reset();
   m_set.reset();
@@ -664,8 +583,7 @@ void OSDropZone2::unbind()
   refresh();
 }
 
-void OSDropZone2::paintEvent( QPaintEvent * event )
-{
+void OSDropZone2::paintEvent(QPaintEvent* event) {
   QStyleOption opt;
   opt.init(this);
   QPainter p(this);
@@ -674,20 +592,18 @@ void OSDropZone2::paintEvent( QPaintEvent * event )
   //p.drawText(rect(),Qt::AlignCenter,m_text);
 }
 
-void OSDropZone2::dragEnterEvent(QDragEnterEvent *event)
-{
-  if(event->proposedAction() == Qt::CopyAction){
+void OSDropZone2::dragEnterEvent(QDragEnterEvent* event) {
+  if (event->proposedAction() == Qt::CopyAction) {
     event->accept();
   }
 }
 
-void OSDropZone2::dropEvent(QDropEvent *event)
-{
+void OSDropZone2::dropEvent(QDropEvent* event) {
   event->accept();
 
   std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
 
-  if((event->proposedAction() == Qt::CopyAction) && m_modelObject && m_set){
+  if ((event->proposedAction() == Qt::CopyAction) && m_modelObject && m_set) {
 
     OSItemId itemId(event->mimeData());
 
@@ -700,11 +616,10 @@ void OSDropZone2::dropEvent(QDropEvent *event)
     // If what you dragged is from the BCL, then VT it and insert it in model
     // TODO: should we modify OSDocument::getModelObject instead?
     // DLM: initially thought so but we also want to keep track of the component data as well
-    if (doc->fromBCL(itemId))
-    {
+    if (doc->fromBCL(itemId)) {
       component = doc->getComponent(itemId);
-      if( component ) {
-        if( component->primaryObject().optionalCast<model::ModelObject>() ){
+      if (component) {
+        if (component->primaryObject().optionalCast<model::ModelObject>()) {
           componentData = doc->model().insertComponent(*component);
           if (componentData) {
             modelObject = componentData->primaryComponentObject();
@@ -722,9 +637,11 @@ void OSDropZone2::dropEvent(QDropEvent *event)
 
     connect(m_item, &OSItem::itemRemoveClicked, this, &OSDropZone2::onItemRemoveClicked);
 
-    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->openstudio::model::detail::ModelObject_Impl::onChange.connect<OSDropZone2, &OSDropZone2::refresh>(this);
+    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
+      .get()
+      ->openstudio::model::detail::ModelObject_Impl::onChange.connect<OSDropZone2, &OSDropZone2::refresh>(this);
 
-    if(modelObject){
+    if (modelObject) {
       if (doc->fromBCL(itemId)) {
         // model object already cloned above
         OS_ASSERT(componentData);
@@ -732,7 +649,7 @@ void OSDropZone2::dropEvent(QDropEvent *event)
           bool success = (*m_set)(modelObject.get());
           if (!success) {
             std::vector<Handle> handlesToRemove;
-            for (const auto& object: componentData->componentObjects()) {
+            for (const auto& object : componentData->componentObjects()) {
               handlesToRemove.push_back(object.handle());
             }
             doc->model().removeObjects(handlesToRemove);
@@ -742,23 +659,17 @@ void OSDropZone2::dropEvent(QDropEvent *event)
           }
         }
         refresh();
-      }
-      else if (doc->fromComponentLibrary(itemId))
-      {
+      } else if (doc->fromComponentLibrary(itemId)) {
         modelObject = modelObject->clone(m_modelObject->model());
-        if (m_set)
-        {
+        if (m_set) {
           bool success = (*m_set)(modelObject.get());
           if (!success) {
             modelObject->remove();
           }
         }
         refresh();
-      }
-      else
-      {
-        if (m_set)
-        {
+      } else {
+        if (m_set) {
           (*m_set)(modelObject.get());
         }
         refresh();
@@ -769,9 +680,8 @@ void OSDropZone2::dropEvent(QDropEvent *event)
   }
 }
 
-void OSDropZone2::mouseReleaseEvent(QMouseEvent * event)
-{
-  if (event->button() == Qt::LeftButton){
+void OSDropZone2::mouseReleaseEvent(QMouseEvent* event) {
+  if (event->button() == Qt::LeftButton) {
     event->accept();
 
     if (!m_item) {
@@ -784,10 +694,8 @@ void OSDropZone2::mouseReleaseEvent(QMouseEvent * event)
   }
 }
 
-void OSDropZone2::focusInEvent(QFocusEvent * e)
-{
-  if (e->reason() == Qt::MouseFocusReason)
-  {
+void OSDropZone2::focusInEvent(QFocusEvent* e) {
+  if (e->reason() == Qt::MouseFocusReason) {
     if (hasData()) {
       QString style("QWidget#OSDropZone {\
                      background: #ffc627;\
@@ -802,10 +710,8 @@ void OSDropZone2::focusInEvent(QFocusEvent * e)
   QWidget::focusInEvent(e);
 }
 
-void OSDropZone2::focusOutEvent(QFocusEvent * e)
-{
-  if (e->reason() == Qt::MouseFocusReason)
-  {
+void OSDropZone2::focusOutEvent(QFocusEvent* e) {
+  if (e->reason() == Qt::MouseFocusReason) {
     QString style("QWidget#OSDropZone {\
                    background: #CECECE;\
                    border: 2px dashed #808080;\
@@ -814,7 +720,8 @@ void OSDropZone2::focusOutEvent(QFocusEvent * e)
 
     emit inFocus(false, false);
 
-    auto mouseOverInspectorView = OSAppBase::instance()->currentDocument()->mainRightColumnController()->inspectorController()->inspectorView()->mouseOverInspectorView();
+    auto mouseOverInspectorView =
+      OSAppBase::instance()->currentDocument()->mainRightColumnController()->inspectorController()->inspectorView()->mouseOverInspectorView();
     if (!mouseOverInspectorView) {
       emit itemClicked(nullptr);
     }
@@ -823,49 +730,45 @@ void OSDropZone2::focusOutEvent(QFocusEvent * e)
   QWidget::focusOutEvent(e);
 }
 
-void OSDropZone2::onItemRemoveClicked()
-{
-  if (m_reset)
-  {
+void OSDropZone2::onItemRemoveClicked() {
+  if (m_reset) {
     boost::optional<model::ModelObject> modelObject = (*m_get)();
     boost::optional<model::ParentObject> parent = boost::none;
     if (modelObject) {
-     parent = modelObject->parent();
+      parent = modelObject->parent();
     }
     (*m_reset)();
     if (m_deleteObject) {
       m_modelObject->remove();
     }
     emit objectRemoved(parent);
- }
+  }
 }
-void OSDropZone2::makeItem()
-{
+void OSDropZone2::makeItem() {
   if (!m_item && m_get && *m_get) {
     boost::optional<model::ModelObject> modelObject = (*m_get)();
 
-    if (modelObject)
-    {
+    if (modelObject) {
       m_item = OSItem::makeItem(modelObjectToItemId(*modelObject, false));
       m_item->setParent(this);
       connect(m_item, &OSItem::itemRemoveClicked, this, &OSDropZone2::onItemRemoveClicked);
 
-      modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->openstudio::model::detail::ModelObject_Impl::onChange.connect<OSDropZone2, &OSDropZone2::refresh>(this);
+      modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
+        .get()
+        ->openstudio::model::detail::ModelObject_Impl::onChange.connect<OSDropZone2, &OSDropZone2::refresh>(this);
     }
   }
 }
 
-void OSDropZone2::setIsDefaulted(bool defaulted)
-{
+void OSDropZone2::setIsDefaulted(bool defaulted) {
   if (defaulted) {
-    m_label->setStyleSheet("QLabel { color:green }"); // color: #006837
+    m_label->setStyleSheet("QLabel { color:green }");  // color: #006837
   } else {
     m_label->setStyleSheet("QLabel { color:black }");
   }
 }
 
-bool OSDropZone2::isDefaulted()
-{
+bool OSDropZone2::isDefaulted() {
   bool isDefaluted = false;
   if (m_item) {
     isDefaluted = m_item->isDefaulted();
@@ -873,4 +776,4 @@ bool OSDropZone2::isDefaulted()
   return isDefaluted;
 }
 
-} // openstudio
+}  // namespace openstudio

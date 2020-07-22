@@ -55,69 +55,76 @@ class QTcpSocket;
 
 namespace openstudio {
 
-  class RunView;
+class RunView;
 
-  class RunView : public QWidget
+class RunView : public QWidget
+{
+  Q_OBJECT;
+
+  public:
+  RunView();
+
+  private:
+  REGISTER_LOGGER("openstudio::RunView");
+
+  void playButtonClicked(bool t_checked);
+
+  void onRunProcessFinished(int exitCode, QProcess::ExitStatus status);
+
+  //void onSimDirChanged(const QString &path);
+
+  //void onFileChanged(const QString &path);
+
+  void onOpenSimDirClicked();
+
+  void onNewConnection();
+
+  void onRunDataReady();
+
+  QToolButton* m_playButton;
+  QProgressBar* m_progressBar;
+  QLabel* m_statusLabel;
+  QTextEdit* m_textInfo;
+  QProcess* m_runProcess;
+  QPushButton* m_openSimDirButton;
+  QTcpServer* m_runTcpServer;
+  QTcpSocket* m_runSocket;
+  //QFileSystemWatcher * m_simDirWatcher;
+  //QFileSystemWatcher * m_eperrWatcher;
+
+  enum State
   {
-    Q_OBJECT;
-
-    public:
-
-    RunView();
-
-    private:
-
-    REGISTER_LOGGER("openstudio::RunView");
-
-    void playButtonClicked(bool t_checked);
-
-    void onRunProcessFinished(int exitCode, QProcess::ExitStatus status);
-
-    //void onSimDirChanged(const QString &path);
-
-    //void onFileChanged(const QString &path);
-
-    void onOpenSimDirClicked();
-
-    void onNewConnection();
-
-    void onRunDataReady();
-
-    QToolButton * m_playButton;
-    QProgressBar * m_progressBar;
-    QLabel * m_statusLabel;
-    QTextEdit * m_textInfo;
-    QProcess * m_runProcess;
-    QPushButton * m_openSimDirButton;
-    QTcpServer * m_runTcpServer;
-    QTcpSocket * m_runSocket;
-    //QFileSystemWatcher * m_simDirWatcher;
-    //QFileSystemWatcher * m_eperrWatcher;
-
-    enum State { stopped = 0, initialization = 1, os_measures = 2, translator = 3, ep_measures = 4, preprocess = 5, simulation = 6, reporting_measures = 7, postprocess = 8, complete = 9 };
-    State m_state = State::stopped;
+    stopped = 0,
+    initialization = 1,
+    os_measures = 2,
+    translator = 3,
+    ep_measures = 4,
+    preprocess = 5,
+    simulation = 6,
+    reporting_measures = 7,
+    postprocess = 8,
+    complete = 9
   };
+  State m_state = State::stopped;
+};
 
-  class RunTabView : public MainTabView
-  {
-    Q_OBJECT;
+class RunTabView : public MainTabView
+{
+  Q_OBJECT;
 
-    public:
+  public:
+  RunTabView(const model::Model& model, QWidget* parent = nullptr);
 
-      RunTabView(const model::Model & model,
-                  QWidget * parent = nullptr);
+  virtual ~RunTabView() {}
 
-      virtual ~RunTabView() {}
+  //signals:
+  //  void resultsGenerated(const openstudio::path &t_sqlFile);
 
-    //signals:
-    //  void resultsGenerated(const openstudio::path &t_sqlFile);
+  private:
+  RunView* m_runView;
+  //openstudio::runmanager::JobStatusWidget * m_status;
+};
 
-    private:
+}  // namespace openstudio
 
-      RunView * m_runView;
-      //openstudio::runmanager::JobStatusWidget * m_status;
-  };
-
-} // openstudio
-
-#endif // OPENSTUDIO_RUNTABVIEW_HPP
+#endif  // OPENSTUDIO_RUNTABVIEW_HPP

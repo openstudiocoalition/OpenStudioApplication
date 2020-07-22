@@ -33,8 +33,8 @@
 #include "../shared_gui_components/OSQObjectController.hpp"
 
 namespace openstudio {
-namespace model{
-  class Model;
+namespace model {
+class Model;
 }
 
 class GeometryPreviewController : public OSQObjectController
@@ -42,19 +42,16 @@ class GeometryPreviewController : public OSQObjectController
   Q_OBJECT
 
   public:
+  GeometryPreviewController(bool isIP, const model::Model& model);
 
-    GeometryPreviewController(bool isIP, const model::Model & model);
+  virtual ~GeometryPreviewController();
 
-    virtual ~GeometryPreviewController();
-
-    QWidget* view() const;
+  QWidget* view() const;
 
   protected:
-
-    QWidget* m_view;
-
+  QWidget* m_view;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_GEOMETRYPREVIEWCONTROLLER_HPP
+#endif  // OPENSTUDIO_GEOMETRYPREVIEWCONTROLLER_HPP

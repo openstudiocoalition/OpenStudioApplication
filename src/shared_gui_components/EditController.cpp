@@ -43,13 +43,11 @@
 #include <QCheckBox>
 #include <QMessageBox>
 
-namespace openstudio{
+namespace openstudio {
 
-EditController::EditController(bool applyMeasureNow)
-  : QObject()
-{
+EditController::EditController(bool applyMeasureNow) : QObject() {
   editView = new OSViewSwitcher();
-  if(applyMeasureNow){
+  if (applyMeasureNow) {
     m_editNullView = new EditNullView("Select a Measure to Apply");
   } else {
     m_editNullView = new EditNullView();
@@ -59,15 +57,19 @@ EditController::EditController(bool applyMeasureNow)
   reset();
 }
 
-EditController::~EditController()
-{
-  if( editView ) { delete editView; }
-  if( m_editNullView ) { delete m_editNullView; }
-  if( editRubyMeasureView ) { delete editRubyMeasureView; }
+EditController::~EditController() {
+  if (editView) {
+    delete editView;
+  }
+  if (m_editNullView) {
+    delete m_editNullView;
+  }
+  if (editRubyMeasureView) {
+    delete editRubyMeasureView;
+  }
 }
 
-void EditController::setMeasureStepItem(measuretab::MeasureStepItem * measureStepItem, BaseApp *t_app)
-{
+void EditController::setMeasureStepItem(measuretab::MeasureStepItem* measureStepItem, BaseApp* t_app) {
   m_measureStepItem = measureStepItem;
 
   editRubyMeasureView->clear();
@@ -94,9 +96,8 @@ void EditController::setMeasureStepItem(measuretab::MeasureStepItem * measureSte
 
   std::vector<measure::OSArgument> arguments = m_measureStepItem->arguments();
 
-  for( const auto & arg : arguments )
-  {
-    QSharedPointer<InputController> inputController = QSharedPointer<InputController>(new InputController(this,arg,t_app));
+  for (const auto& arg : arguments) {
+    QSharedPointer<InputController> inputController = QSharedPointer<InputController>(new InputController(this, arg, t_app));
 
     m_inputControllers.push_back(inputController);
 
@@ -104,18 +105,15 @@ void EditController::setMeasureStepItem(measuretab::MeasureStepItem * measureSte
   }
 }
 
-measuretab::MeasureStepItem * EditController::measureStepItem() const
-{
+measuretab::MeasureStepItem* EditController::measureStepItem() const {
   return m_measureStepItem;
 }
 
-void EditController::updateDescription()
-{
+void EditController::updateDescription() {
   m_measureStepItem->setDescription(editRubyMeasureView->descriptionTextEdit->toPlainText());
 }
 
-void EditController::reset()
-{
+void EditController::reset() {
   // Evan note: It's bad to play with null pointers
   if (!m_editNullView || !editView || !m_measureStepItem || !editRubyMeasureView) {
     //return;
@@ -137,147 +135,113 @@ class EditMeasureMessageBox : public QMessageBox
   Q_OBJECT
 
   public:
-
   // Warning used when a message is about to be edited and design points will be removed;
   // Returns true if the user chooses to edit anyway.
-  static bool warning(BaseApp *t_app)
-  {
-    int result = QMessageBox::warning(t_app->mainWidget(),
-                 "Clear Results?",
-                 "Editing this measure will clear all results and save your project. Do you want to proceed?",
-                 QMessageBox::Ok,
-                 QMessageBox::Cancel);
+  static bool warning(BaseApp* t_app) {
+    int result = QMessageBox::warning(t_app->mainWidget(), "Clear Results?",
+                                      "Editing this measure will clear all results and save your project. Do you want to proceed?", QMessageBox::Ok,
+                                      QMessageBox::Cancel);
 
     return (result == QMessageBox::Ok);
   }
 };
 
-InputController::InputController(EditController * editController,const measure::OSArgument & argument, BaseApp *t_app)
-  : QObject(),
-    m_app(t_app),
-    m_editController(editController),
-    m_argument(argument)
-{
-  if( m_argument.type() == measure::OSArgumentType::Double )
-  {
+InputController::InputController(EditController* editController, const measure::OSArgument& argument, BaseApp* t_app)
+  : QObject(), m_app(t_app), m_editController(editController), m_argument(argument) {
+  if (m_argument.type() == measure::OSArgumentType::Double) {
     auto doubleInputView = new DoubleInputView();
 
     doubleInputView->setName(m_argument.displayName(), m_argument.units(), m_argument.description());
 
-    if( m_argument.hasValue() )
-    {
+    if (m_argument.hasValue()) {
       doubleInputView->lineEdit->setText(QString::fromStdString(m_argument.valueAsString()));
-    }
-    else if( m_argument.hasDefaultValue() )
-    {
+    } else if (m_argument.hasDefaultValue()) {
       doubleInputView->lineEdit->setText(QString::fromStdString(m_argument.defaultValueAsString()));
     }
 
-    connect(doubleInputView->lineEdit, &QLineEdit::textEdited, this, static_cast<void (InputController::*)(const QString &)>(&InputController::setValue));
+    connect(doubleInputView->lineEdit, &QLineEdit::textEdited, this,
+            static_cast<void (InputController::*)(const QString&)>(&InputController::setValue));
 
     inputView = doubleInputView;
-  }
-  else if( m_argument.type() == measure::OSArgumentType::Choice )
-  {
+  } else if (m_argument.type() == measure::OSArgumentType::Choice) {
     auto choiceInputView = new ChoiceInputView();
 
     choiceInputView->setName(m_argument.displayName(), m_argument.units(), m_argument.description());
 
     // Add all of the choices from the argument
 
-    const std::vector<std::string> & choices = m_argument.choiceValueDisplayNames();
-    const std::vector<std::string> & values = m_argument.choiceValues();
+    const std::vector<std::string>& choices = m_argument.choiceValueDisplayNames();
+    const std::vector<std::string>& values = m_argument.choiceValues();
 
     int i = 0;
-    for( const auto & choice : choices )
-    {
-      choiceInputView->comboBox->addItem(QString::fromStdString(choice),QString::fromStdString(values[i]));
+    for (const auto& choice : choices) {
+      choiceInputView->comboBox->addItem(QString::fromStdString(choice), QString::fromStdString(values[i]));
 
       i++;
     }
 
     // Add an empty choice if there is no default or if the default is not one of the choices from the argument.
 
-    if( ! m_argument.hasDefaultValue() )
-    {
-      choiceInputView->comboBox->insertItem(0,"");
-    }
-    else
-    {
+    if (!m_argument.hasDefaultValue()) {
+      choiceInputView->comboBox->insertItem(0, "");
+    } else {
       int index = choiceInputView->comboBox->findData(QString::fromStdString(m_argument.defaultValueAsString()));
 
-      if (index == -1){
+      if (index == -1) {
         index = choiceInputView->comboBox->findText(QString::fromStdString(m_argument.defaultValueAsString()));
       }
 
-      if (index == -1)
-      {
+      if (index == -1) {
         // DLM: this is an error
         choiceInputView->comboBox->insertItem(0, "");
       }
     }
 
     // Set the initial value
-    if( m_argument.hasValue() )
-    {
+    if (m_argument.hasValue()) {
       int index = choiceInputView->comboBox->findData(QString::fromStdString(m_argument.valueAsString()));
 
-      if (index == -1){
+      if (index == -1) {
         index = choiceInputView->comboBox->findText(QString::fromStdString(m_argument.valueAsString()));
       }
 
-      if( index != -1 )
-      {
+      if (index != -1) {
         choiceInputView->comboBox->setCurrentIndex(index);
-      }
-      else
-      {
+      } else {
         // DLM: this is an error
         choiceInputView->comboBox->setCurrentIndex(0);
       }
-    }
-    else if( m_argument.hasDefaultValue() )
-    {
+    } else if (m_argument.hasDefaultValue()) {
       int index = choiceInputView->comboBox->findData(QString::fromStdString(m_argument.defaultValueAsString()));
 
-      if (index == -1){
+      if (index == -1) {
         index = choiceInputView->comboBox->findText(QString::fromStdString(m_argument.defaultValueAsString()));
       }
 
-      if( index != -1 )
-      {
+      if (index != -1) {
         choiceInputView->comboBox->setCurrentIndex(index);
-      }
-      else
-      {
+      } else {
         // DLM: this is an error
         choiceInputView->comboBox->setCurrentIndex(0);
       }
-    }
-    else
-    {
+    } else {
       choiceInputView->comboBox->setCurrentIndex(0);
     }
 
-    connect(choiceInputView->comboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &InputController::setValueForIndex);
+    connect(choiceInputView->comboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this,
+            &InputController::setValueForIndex);
 
     inputView = choiceInputView;
-  }
-  else if( m_argument.type() == measure::OSArgumentType::Boolean )
-  {
+  } else if (m_argument.type() == measure::OSArgumentType::Boolean) {
     auto boolInputView = new BoolInputView();
 
     boolInputView->setName(m_argument.displayName(), m_argument.units(), m_argument.description());
 
-    if( m_argument.hasValue() )
-    {
+    if (m_argument.hasValue()) {
       boolInputView->checkBox->setChecked(m_argument.valueAsBool());
-    }
-    else if( m_argument.hasDefaultValue() )
-    {
+    } else if (m_argument.hasDefaultValue()) {
       boolInputView->checkBox->setChecked(m_argument.defaultValueAsBool());
-    }
-    else {
+    } else {
       boolInputView->checkBox->setChecked(false);
       m_argument.setValue(false);
     }
@@ -285,71 +249,56 @@ InputController::InputController(EditController * editController,const measure::
     connect(boolInputView->checkBox, &InputCheckBox::clicked, this, static_cast<void (InputController::*)(bool)>(&InputController::setValue));
 
     inputView = boolInputView;
-  }
-  else if( m_argument.type() == measure::OSArgumentType::Integer )
-  {
+  } else if (m_argument.type() == measure::OSArgumentType::Integer) {
     auto integerInputView = new IntegerInputView();
 
     integerInputView->setName(m_argument.displayName(), m_argument.units(), m_argument.description());
 
-    if( m_argument.hasValue() )
-    {
+    if (m_argument.hasValue()) {
       integerInputView->lineEdit->setText(QString::fromStdString(m_argument.valueAsString()));
-    }
-    else if( m_argument.hasDefaultValue() )
-    {
+    } else if (m_argument.hasDefaultValue()) {
       integerInputView->lineEdit->setText(QString::fromStdString(m_argument.defaultValueAsString()));
     }
 
-    connect(integerInputView->lineEdit, &QLineEdit::textEdited, this, static_cast<void (InputController::*)(const QString &)>(&InputController::setValue));
+    connect(integerInputView->lineEdit, &QLineEdit::textEdited, this,
+            static_cast<void (InputController::*)(const QString&)>(&InputController::setValue));
 
     inputView = integerInputView;
-  }
-  else if( m_argument.type() == measure::OSArgumentType::String )
-  {
+  } else if (m_argument.type() == measure::OSArgumentType::String) {
     auto stringInputView = new StringInputView();
 
     stringInputView->setName(m_argument.displayName(), m_argument.units(), m_argument.description());
 
-    if( m_argument.hasValue() )
-    {
+    if (m_argument.hasValue()) {
       stringInputView->lineEdit->setText(QString::fromStdString(m_argument.valueAsString()));
-    }
-    else if( m_argument.hasDefaultValue() )
-    {
+    } else if (m_argument.hasDefaultValue()) {
       stringInputView->lineEdit->setText(QString::fromStdString(m_argument.defaultValueAsString()));
     }
 
-    connect(stringInputView->lineEdit, &QLineEdit::textEdited, this, static_cast<void (InputController::*)(const QString &)>(&InputController::setValue));
+    connect(stringInputView->lineEdit, &QLineEdit::textEdited, this,
+            static_cast<void (InputController::*)(const QString&)>(&InputController::setValue));
 
     inputView = stringInputView;
-  }
-  else
-  {
+  } else {
     inputView = new InputView();
   }
 
   inputView->setIncomplete(isArgumentIncomplete());
 }
 
-InputController::~InputController()
-{
-  if( inputView ) { delete inputView; }
+InputController::~InputController() {
+  if (inputView) {
+    delete inputView;
+  }
 }
 
-void InputController::setValue(const QString & text)
-{
-  if( isItOKToClearResults() )
-  {
-    if( text.isEmpty() )
-    {
+void InputController::setValue(const QString& text) {
+  if (isItOKToClearResults()) {
+    if (text.isEmpty()) {
       m_argument.clearValue();
-    }
-    else
-    {
+    } else {
       m_argument.setValue(text.toStdString());
     }
-
 
     m_editController->measureStepItem()->setArgument(m_argument);
 
@@ -357,10 +306,8 @@ void InputController::setValue(const QString & text)
   }
 }
 
-void InputController::setValue(bool value)
-{
-  if( isItOKToClearResults() )
-  {
+void InputController::setValue(bool value) {
+  if (isItOKToClearResults()) {
     m_argument.setValue(value);
 
     m_editController->measureStepItem()->setArgument(m_argument);
@@ -369,18 +316,13 @@ void InputController::setValue(bool value)
   }
 }
 
-void InputController::setValueForIndex(int index)
-{
-  if( isItOKToClearResults() )
-  {
-    QString value = qobject_cast<ChoiceInputView *>(inputView)->comboBox->itemData(index).toString();
+void InputController::setValueForIndex(int index) {
+  if (isItOKToClearResults()) {
+    QString value = qobject_cast<ChoiceInputView*>(inputView)->comboBox->itemData(index).toString();
 
-    if( value.isEmpty() )
-    {
+    if (value.isEmpty()) {
       m_argument.clearValue();
-    }
-    else
-    {
+    } else {
       m_argument.setValue(value.toStdString());
     }
 
@@ -390,22 +332,20 @@ void InputController::setValueForIndex(int index)
   }
 }
 
-bool InputController::isArgumentIncomplete() const
-{
+bool InputController::isArgumentIncomplete() const {
   bool result = false;
   std::vector<measure::OSArgument> incompleteArguments = m_editController->measureStepItem()->incompleteArguments();
-  for (const auto& incompleteArgument : incompleteArguments){
-    if (incompleteArgument.name() == m_argument.name()){
+  for (const auto& incompleteArgument : incompleteArguments) {
+    if (incompleteArgument.name() == m_argument.name()) {
       result = true;
     }
   }
   return result;
 }
 
-bool InputController::isItOKToClearResults()
-{
+bool InputController::isItOKToClearResults() {
   // DLM: todo warn user when results are out of date
   return true;
 }
 
-} // openstudio
+}  // namespace openstudio

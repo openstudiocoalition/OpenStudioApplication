@@ -39,7 +39,6 @@ class RefrigerationScene : public QGraphicsScene
   Q_OBJECT
 
   public:
-
   RefrigerationScene();
 
   virtual ~RefrigerationScene() {}
@@ -49,7 +48,6 @@ class RefrigerationScene : public QGraphicsScene
   void layout();
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_REFRIGERATIONSCENE_HPP
-
+#endif  // OPENSTUDIO_REFRIGERATIONSCENE_HPP

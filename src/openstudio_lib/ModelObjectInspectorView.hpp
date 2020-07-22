@@ -52,56 +52,53 @@ class ModelObjectInspectorView : public OSInspectorView
   Q_OBJECT
 
   public:
+  ModelObjectInspectorView(const openstudio::model::Model& model, bool addScrollArea, QWidget* parent = nullptr);
 
-    ModelObjectInspectorView(const openstudio::model::Model& model,
-                             bool addScrollArea,
-                             QWidget * parent = nullptr);
+  virtual ~ModelObjectInspectorView() {}
 
-    virtual ~ModelObjectInspectorView() {}
-
-    // override if your implementation supports multiple object selection
-    // (eg, via GridView)
-    virtual bool supportsMultipleObjectSelection() const { return false; }
-    virtual std::vector<model::ModelObject> selectedObjects() const;
-    void update();
+  // override if your implementation supports multiple object selection
+  // (eg, via GridView)
+  virtual bool supportsMultipleObjectSelection() const {
+    return false;
+  }
+  virtual std::vector<model::ModelObject> selectedObjects() const;
+  void update();
 
   signals:
 
-    void toggleUnitsClicked(bool displayIP);
+  void toggleUnitsClicked(bool displayIP);
 
-    void itemSelected(OSItem * item);
+  void itemSelected(OSItem* item);
 
-    void selectionCleared();
+  void selectionCleared();
 
-    void itemsRequested();
+  void itemsRequested();
 
-    void dropZoneItemClicked(OSItem* item);
+  void dropZoneItemClicked(OSItem* item);
 
-    void onChange();
+  void onChange();
 
   public slots:
 
-    void selectModelObject(const openstudio::model::ModelObject& modelObject);
+  void selectModelObject(const openstudio::model::ModelObject& modelObject);
 
   protected:
+  virtual void onSelectItem(OSItem* item) override;
 
-    virtual void onSelectItem(OSItem *item) override;
+  virtual void onClearSelection() override;
 
-    virtual void onClearSelection() override;
+  virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) = 0;
 
-    virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) = 0;
+  boost::optional<openstudio::model::ModelObject> modelObject() const;
 
-    boost::optional<openstudio::model::ModelObject> modelObject() const;
-
-    model::Model m_model;
+  model::Model m_model;
 
   protected slots:
 
-    virtual void toggleUnits(bool displayIP);
+  virtual void toggleUnits(bool displayIP);
 
   private:
-
-    boost::optional<openstudio::model::ModelObject> m_modelObject;
+  boost::optional<openstudio::model::ModelObject> m_modelObject;
 };
 
 class DefaultInspectorView : public ModelObjectInspectorView
@@ -109,25 +106,21 @@ class DefaultInspectorView : public ModelObjectInspectorView
   Q_OBJECT
 
   public:
+  DefaultInspectorView(const model::Model& model, QWidget* parent = nullptr);
 
-    DefaultInspectorView(const model::Model& model,
-                         QWidget * parent = nullptr);
-
-    virtual ~DefaultInspectorView() {}
+  virtual ~DefaultInspectorView() {}
 
   protected:
+  virtual void onClearSelection() override;
 
-    virtual void onClearSelection() override;
+  virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
-    virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
-
-    virtual void onUpdate() override;
+  virtual void onUpdate() override;
 
   private:
-
-    QLabel * m_mainLabel;
+  QLabel* m_mainLabel;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_MODELOBJECTINSPECTORVIEW_HPP
+#endif  // OPENSTUDIO_MODELOBJECTINSPECTORVIEW_HPP

@@ -34,35 +34,33 @@
 
 class QModelIndex;
 
-namespace modeleditor
-{
+namespace modeleditor {
 
 class TreeView : public QTreeView
 {
   Q_OBJECT
 
-public:
-  TreeView(QWidget *parent = nullptr);
+  public:
+  TreeView(QWidget* parent = nullptr);
   virtual ~TreeView();
   bool getSelectedRows(QModelIndexList& rowList);
   bool hasSelectedRows();
 
-public slots:
+  public slots:
 
-signals:
+  signals:
   void eventEnter();
   void eventLeave();
   void eventUpDnKeyRelease();
 
-protected:
-  virtual void enterEvent(QEvent * event) override;
-  virtual void leaveEvent(QEvent * event) override;
-  virtual void keyReleaseEvent(QKeyEvent * event) override;
+  protected:
+  virtual void enterEvent(QEvent* event) override;
+  virtual void leaveEvent(QEvent* event) override;
+  virtual void keyReleaseEvent(QKeyEvent* event) override;
 
-private:
-
+  private:
 };
 
-} // namespace modeleditor
+}  // namespace modeleditor
 
-#endif // MODELEDITOR_TREEVIEW_HPP
+#endif  // MODELEDITOR_TREEVIEW_HPP

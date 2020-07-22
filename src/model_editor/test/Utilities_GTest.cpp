@@ -36,13 +36,11 @@
 
 #include <clocale>
 
-using openstudio::toString;
-using openstudio::toQString;
 using openstudio::toPath;
+using openstudio::toQString;
+using openstudio::toString;
 
-
-TEST_F(ModelEditorFixture, SimpleConversions)
-{
+TEST_F(ModelEditorFixture, SimpleConversions) {
   std::string s("Hello world");
   const char* const cStr = "Hello world";
   const wchar_t* const wStr = L"Hello world";
@@ -65,9 +63,7 @@ TEST_F(ModelEditorFixture, SimpleConversions)
   EXPECT_TRUE(p == toPath(q));
 }
 
-
-TEST_F(ModelEditorFixture, Path_Conversions)
-{
+TEST_F(ModelEditorFixture, Path_Conversions) {
   std::string s;
   std::wstring w;
   openstudio::path p;
@@ -99,17 +95,16 @@ TEST_F(ModelEditorFixture, Path_Conversions)
 
   // http://utf8everywhere.org/
 
-
   // from http://www.nubaria.com/en/blog/?p=289
 
   // Chinese characters for "zhongwen" ("Chinese language").
-  const char kChineseSampleText[] = { -28, -72, -83, -26, -106, -121, 0 };
+  const char kChineseSampleText[] = {-28, -72, -83, -26, -106, -121, 0};
 
   // Arabic "al-arabiyya" ("Arabic").
-  const char kArabicSampleText[] = { -40, -89, -39, -124, -40, -71, -40, -79, -40, -88, -39, -118, -40, -87, 0 };
+  const char kArabicSampleText[] = {-40, -89, -39, -124, -40, -71, -40, -79, -40, -88, -39, -118, -40, -87, 0};
 
   // Spanish word "canon" with an "n" with "~" on top and an "o" with an acute accent.
-  const char kSpanishSampleText[] = { 99, 97, -61, -79, -61, -77, 110, 0 };
+  const char kSpanishSampleText[] = {99, 97, -61, -79, -61, -77, 110, 0};
 
   std::string t;
   QString q;
@@ -138,6 +133,4 @@ TEST_F(ModelEditorFixture, Path_Conversions)
   EXPECT_EQ(t, toString(toQString(toString(p))));
   EXPECT_EQ(t, std::string(toQString(toString(p)).toUtf8()));
   EXPECT_EQ(t, toString(toPath(toQString(toString(p)))));
-
 }
-

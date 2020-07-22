@@ -43,22 +43,20 @@ class HVACTemplateHelperDialog : public QDialog
   Q_OBJECT;
 
   public:
-
-  HVACTemplateHelperDialog(const model::Model & model, QWidget * parent = nullptr);
+  HVACTemplateHelperDialog(const model::Model& model, QWidget* parent = nullptr);
 
   virtual ~HVACTemplateHelperDialog() {}
 
   std::vector<model::ThermalZone> selectedZones();
 
   private:
-
   model::Model m_model;
 
   std::vector<model::ThermalZone> m_zones;
 
-  QButtonGroup * m_buttonGroup;
+  QButtonGroup* m_buttonGroup;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_HVACTEMPLATEHELPERDIALOG_HPP
+#endif  // OPENSTUDIO_HVACTEMPLATEHELPERDIALOG_HPP

@@ -43,7 +43,6 @@
 
 #include "../model_editor/Utilities.hpp"
 
-
 #include <openstudio/utilities/core/Assert.hpp>
 #include <openstudio/utilities/bcl/LocalBCL.hpp>
 
@@ -54,33 +53,28 @@
 
 namespace openstudio {
 
-ModelObjectListController::ModelObjectListController(const openstudio::IddObjectType& iddObjectType,
-                                                     const model::Model& model,
-                                                     bool showLocalBCL)
-  : m_iddObjectType(iddObjectType), m_model(model), m_showLocalBCL(showLocalBCL)
-{
+ModelObjectListController::ModelObjectListController(const openstudio::IddObjectType& iddObjectType, const model::Model& model, bool showLocalBCL)
+  : m_iddObjectType(iddObjectType), m_model(model), m_showLocalBCL(showLocalBCL) {
 
   // model.getImpl<model::detail::Model_Impl>().get()->addWorkspaceObjectPtr.connect<ModelObjectListController, &ModelObjectListController::objectAdded>(this);
   connect(OSAppBase::instance(), &OSAppBase::workspaceObjectAddedPtr, this, &ModelObjectListController::objectAdded, Qt::QueuedConnection);
 
   //model.getImpl<model::detail::Model_Impl>().get()->removeWorkspaceObjectPtr.connect<ModelObjectListController, &ModelObjectListController::objectRemoved>(this);
   connect(OSAppBase::instance(), &OSAppBase::workspaceObjectRemovedPtr, this, &ModelObjectListController::objectRemoved, Qt::QueuedConnection);
-
 }
 
-IddObjectType ModelObjectListController::iddObjectType() const
-{
+IddObjectType ModelObjectListController::iddObjectType() const {
   return m_iddObjectType;
 }
 
-void ModelObjectListController::objectAdded(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl, const openstudio::IddObjectType& iddObjectType, const openstudio::UUID& handle)
-{
-  if (iddObjectType == m_iddObjectType){
+void ModelObjectListController::objectAdded(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl,
+                                            const openstudio::IddObjectType& iddObjectType, const openstudio::UUID& handle) {
+  if (iddObjectType == m_iddObjectType) {
     std::vector<OSItemId> ids = this->makeVector();
     emit itemIds(ids);
 
-    for (const OSItemId& id : ids){
-      if (id.itemId() == toQString(impl->handle())){
+    for (const OSItemId& id : ids) {
+      if (id.itemId() == toQString(impl->handle())) {
         emit selectedItemId(id);
         break;
       }
@@ -88,21 +82,19 @@ void ModelObjectListController::objectAdded(std::shared_ptr<openstudio::detail::
   }
 }
 
-void ModelObjectListController::objectRemoved(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl, const openstudio::IddObjectType& iddObjectType, const openstudio::UUID& handle)
-{
-  if (iddObjectType == m_iddObjectType){
+void ModelObjectListController::objectRemoved(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl,
+                                              const openstudio::IddObjectType& iddObjectType, const openstudio::UUID& handle) {
+  if (iddObjectType == m_iddObjectType) {
     emit itemIds(makeVector());
   }
 }
 
-std::vector<OSItemId> ModelObjectListController::makeVector()
-{
+std::vector<OSItemId> ModelObjectListController::makeVector() {
   std::vector<OSItemId> result;
 
-  if( m_showLocalBCL )
-  {
-    std::vector<std::pair<std::string, std::string> > pairs;
-    pairs.push_back(std::make_pair<std::string,std::string>("OpenStudio Type",m_iddObjectType.valueDescription()));
+  if (m_showLocalBCL) {
+    std::vector<std::pair<std::string, std::string>> pairs;
+    pairs.push_back(std::make_pair<std::string, std::string>("OpenStudio Type", m_iddObjectType.valueDescription()));
 
     // get BCL results
     std::vector<BCLComponent> bclresults = LocalBCL::instance().componentAttributeSearch(pairs);
@@ -110,10 +102,7 @@ std::vector<OSItemId> ModelObjectListController::makeVector()
     // sort by name
     std::sort(bclresults.begin(), bclresults.end(), BCLComponentNameGreater());
 
-    for( auto it = bclresults.begin();
-         it != bclresults.end();
-         ++it )
-    {
+    for (auto it = bclresults.begin(); it != bclresults.end(); ++it) {
       result.push_back(bclComponentToItemId(*it));
     }
   }
@@ -124,35 +113,31 @@ std::vector<OSItemId> ModelObjectListController::makeVector()
   // sort by name
   std::sort(workspaceObjects.begin(), workspaceObjects.end(), WorkspaceObjectNameGreater());
 
-  for (WorkspaceObject workspaceObject : workspaceObjects){
-    if (!workspaceObject.handle().isNull()){
+  for (WorkspaceObject workspaceObject : workspaceObjects) {
+    if (!workspaceObject.handle().isNull()) {
       openstudio::model::ModelObject modelObject = workspaceObject.cast<openstudio::model::ModelObject>();
-      if(boost::optional<model::HVACComponent> hvacComponent = modelObject.optionalCast<model::HVACComponent>()) {
-        if( (! hvacComponent->containingHVACComponent()) && (! hvacComponent->containingZoneHVACComponent()) ) {
+      if (boost::optional<model::HVACComponent> hvacComponent = modelObject.optionalCast<model::HVACComponent>()) {
+        if ((!hvacComponent->containingHVACComponent()) && (!hvacComponent->containingZoneHVACComponent())) {
           result.push_back(modelObjectToItemId(hvacComponent.get(), false));
         }
         // Special case when there is a containingZoneHVACComponent, it might be a tank for a HPWH that we DO want to be able
         // to drag and drop...
-        else if ( boost::optional<openstudio::model::ZoneHVACComponent> zComp = hvacComponent->containingZoneHVACComponent() ) {
+        else if (boost::optional<openstudio::model::ZoneHVACComponent> zComp = hvacComponent->containingZoneHVACComponent()) {
 
           openstudio::IddObjectType zCompType = zComp->iddObjectType();
 
           // Special case for a WaterHeaterMixed, can be part of a HeatPump(PumpedCondenser) or HeatPump:WrappedCondenser
-          if ( (m_iddObjectType == openstudio::IddObjectType::OS_WaterHeater_Stratified) &&
-               ( ( zCompType == openstudio::IddObjectType::OS_WaterHeater_HeatPump ) ||
-                 ( zCompType == openstudio::IddObjectType::OS_WaterHeater_HeatPump_WrappedCondenser ) )
-             )
-          {
+          if ((m_iddObjectType == openstudio::IddObjectType::OS_WaterHeater_Stratified) &&
+              ((zCompType == openstudio::IddObjectType::OS_WaterHeater_HeatPump) ||
+               (zCompType == openstudio::IddObjectType::OS_WaterHeater_HeatPump_WrappedCondenser))) {
             result.push_back(modelObjectToItemId(hvacComponent.get(), false));
           }
           // Special case for a WaterHeaterMixed, can be part of a HeatPump(PumpedCondenser) only
-          else if ( (m_iddObjectType == openstudio::IddObjectType::OS_WaterHeater_Mixed) &&
-                    (zCompType == openstudio::IddObjectType::OS_WaterHeater_HeatPump) )
-          {
+          else if ((m_iddObjectType == openstudio::IddObjectType::OS_WaterHeater_Mixed) &&
+                   (zCompType == openstudio::IddObjectType::OS_WaterHeater_HeatPump)) {
             result.push_back(modelObjectToItemId(hvacComponent.get(), false));
           }
         }
-
 
       } else {
         result.push_back(modelObjectToItemId(modelObject, false));
@@ -163,31 +148,24 @@ std::vector<OSItemId> ModelObjectListController::makeVector()
   return result;
 }
 
-ModelObjectListView::ModelObjectListView(const openstudio::IddObjectType& iddObjectType,
-                                         const model::Model& model,
-                                         bool addScrollArea,
-                                         bool showLocalBCL,
-                                         QWidget * parent )
-  : OSItemList(new ModelObjectListController(iddObjectType, model,showLocalBCL), addScrollArea, parent)
-{
-}
+ModelObjectListView::ModelObjectListView(const openstudio::IddObjectType& iddObjectType, const model::Model& model, bool addScrollArea,
+                                         bool showLocalBCL, QWidget* parent)
+  : OSItemList(new ModelObjectListController(iddObjectType, model, showLocalBCL), addScrollArea, parent) {}
 
-boost::optional<openstudio::model::ModelObject> ModelObjectListView::selectedModelObject() const
-{
+boost::optional<openstudio::model::ModelObject> ModelObjectListView::selectedModelObject() const {
   OSItem* selectedItem = this->selectedItem();
   ModelObjectItem* modelObjectItem = qobject_cast<ModelObjectItem*>(selectedItem);
-  if (modelObjectItem){
+  if (modelObjectItem) {
     return modelObjectItem->modelObject();
   }
   return boost::none;
 }
 
-IddObjectType ModelObjectListView::iddObjectType() const
-{
+IddObjectType ModelObjectListView::iddObjectType() const {
   OSVectorController* vectorController = this->vectorController();
   ModelObjectListController* modelObjectListController = qobject_cast<ModelObjectListController*>(vectorController);
   OS_ASSERT(modelObjectListController);
   return modelObjectListController->iddObjectType();
 }
 
-} // openstudio
+}  // namespace openstudio

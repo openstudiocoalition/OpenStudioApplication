@@ -51,11 +51,8 @@ class LocationTabController : public MainTabController
 {
   Q_OBJECT
 
-public:
-
-  LocationTabController(bool isIP,
-    const model::Model& model,
-    const QString& modelTempDir);
+  public:
+  LocationTabController(bool isIP, const model::Model& model, const QString& modelTempDir);
 
   virtual ~LocationTabController();
 
@@ -66,8 +63,7 @@ public:
     UTILITY_BILLS
   };
 
-private:
-
+  private:
   bool showUtilityBills();
 
   QString m_modelTempDir;
@@ -76,16 +72,15 @@ private:
 
   bool m_isIP;
 
-  QWidget * m_currentView = nullptr;
+  QWidget* m_currentView = nullptr;
 
   int m_currentIndex = -1;
 
-private slots:
+  private slots:
 
   virtual void setSubTab(int index) override;
-
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_LOCATIONTABCONTROLLER_HPP
+#endif  // OPENSTUDIO_LOCATIONTABCONTROLLER_HPP

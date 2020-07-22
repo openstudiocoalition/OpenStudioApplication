@@ -47,15 +47,12 @@ namespace openstudio {
 
 // MaterialInfraredTransparentInspectorView
 
-MaterialInfraredTransparentInspectorView::MaterialInfraredTransparentInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent)
-  : ModelObjectInspectorView(model, true, parent),
-  m_isIP(isIP)
-{
+MaterialInfraredTransparentInspectorView::MaterialInfraredTransparentInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent)
+  : ModelObjectInspectorView(model, true, parent), m_isIP(isIP) {
   createLayout();
 }
 
-void MaterialInfraredTransparentInspectorView::createLayout()
-{
+void MaterialInfraredTransparentInspectorView::createLayout() {
   auto hiddenWidget = new QWidget();
   this->stackedWidget()->addWidget(hiddenWidget);
 
@@ -69,7 +66,7 @@ void MaterialInfraredTransparentInspectorView::createLayout()
 
   int row = mainGridLayout->rowCount();
 
-  QLabel * label = nullptr;
+  QLabel* label = nullptr;
 
   // Name
 
@@ -92,48 +89,42 @@ void MaterialInfraredTransparentInspectorView::createLayout()
 
   // Stretch
 
-  mainGridLayout->setRowStretch(100,100);
+  mainGridLayout->setRowStretch(100, 100);
 
-  mainGridLayout->setColumnStretch(100,100);
+  mainGridLayout->setColumnStretch(100, 100);
 }
 
-void MaterialInfraredTransparentInspectorView::onClearSelection()
-{
-  ModelObjectInspectorView::onClearSelection(); // call parent implementation
+void MaterialInfraredTransparentInspectorView::onClearSelection() {
+  ModelObjectInspectorView::onClearSelection();  // call parent implementation
   detach();
 }
 
-void MaterialInfraredTransparentInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject)
-{
+void MaterialInfraredTransparentInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject) {
   detach();
   model::InfraredTransparentMaterial infraredTransparentMaterial = modelObject.cast<model::InfraredTransparentMaterial>();
   attach(infraredTransparentMaterial);
   refresh();
 }
 
-void MaterialInfraredTransparentInspectorView::onUpdate()
-{
+void MaterialInfraredTransparentInspectorView::onUpdate() {
   refresh();
 }
 
-void MaterialInfraredTransparentInspectorView::attach(openstudio::model::InfraredTransparentMaterial & infraredTransparentMaterial)
-{
+void MaterialInfraredTransparentInspectorView::attach(openstudio::model::InfraredTransparentMaterial& infraredTransparentMaterial) {
   m_infraredTransparentMaterial = infraredTransparentMaterial;
 
   // m_nameEdit->bind(infraredTransparentMaterial,"name");
-  m_nameEdit->bind(
-    *m_infraredTransparentMaterial,
-    OptionalStringGetter(std::bind(&model::InfraredTransparentMaterial::name, m_infraredTransparentMaterial.get_ptr(),true)),
-    boost::optional<StringSetterOptionalStringReturn>(std::bind(&model::InfraredTransparentMaterial::setName, m_infraredTransparentMaterial.get_ptr(),std::placeholders::_1))
-  );
+  m_nameEdit->bind(*m_infraredTransparentMaterial,
+                   OptionalStringGetter(std::bind(&model::InfraredTransparentMaterial::name, m_infraredTransparentMaterial.get_ptr(), true)),
+                   boost::optional<StringSetterOptionalStringReturn>(
+                     std::bind(&model::InfraredTransparentMaterial::setName, m_infraredTransparentMaterial.get_ptr(), std::placeholders::_1)));
 
   m_standardsInformationWidget->attach(infraredTransparentMaterial);
 
   this->stackedWidget()->setCurrentIndex(1);
 }
 
-void MaterialInfraredTransparentInspectorView::detach()
-{
+void MaterialInfraredTransparentInspectorView::detach() {
   this->stackedWidget()->setCurrentIndex(0);
 
   m_nameEdit->unbind();
@@ -143,8 +134,6 @@ void MaterialInfraredTransparentInspectorView::detach()
   m_standardsInformationWidget->detach();
 }
 
-void MaterialInfraredTransparentInspectorView::refresh()
-{
-}
+void MaterialInfraredTransparentInspectorView::refresh() {}
 
-} // openstudio
+}  // namespace openstudio

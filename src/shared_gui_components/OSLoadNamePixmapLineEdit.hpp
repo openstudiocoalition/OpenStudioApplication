@@ -43,12 +43,12 @@ namespace openstudio {
 class OSItem;
 class OSLineEdit2;
 
-class OSLoadNamePixmapLineEdit : public QWidget {
+class OSLoadNamePixmapLineEdit : public QWidget
+{
   Q_OBJECT
 
- public:
-
-  OSLoadNamePixmapLineEdit(QWidget * parent = nullptr);
+  public:
+  OSLoadNamePixmapLineEdit(QWidget* parent = nullptr);
 
   virtual ~OSLoadNamePixmapLineEdit();
 
@@ -58,47 +58,36 @@ class OSLoadNamePixmapLineEdit : public QWidget {
 
   void setIcon();
 
-  void bind(model::ModelObject& modelObject,
-            StringGetter get,
-            boost::optional<StringSetter> set=boost::none,
-            boost::optional<NoFailAction> reset=boost::none,
-            boost::optional<BasicQuery> isDefaulted=boost::none);
+  void bind(model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetter> set = boost::none,
+            boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none);
 
-  void bind(model::ModelObject& modelObject,
-            OptionalStringGetter get,
-            boost::optional<StringSetter> set=boost::none,
-            boost::optional<NoFailAction> reset=boost::none,
-            boost::optional<BasicQuery> isDefaulted=boost::none);
+  void bind(model::ModelObject& modelObject, OptionalStringGetter get, boost::optional<StringSetter> set = boost::none,
+            boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none);
 
-  void bind(model::ModelObject& modelObject,
-            OptionalStringGetterBoolArg get,
-            boost::optional<StringSetterOptionalStringReturn> set,
-            boost::optional<NoFailAction> reset=boost::none,
-            boost::optional<BasicQuery> isDefaulted=boost::none);
+  void bind(model::ModelObject& modelObject, OptionalStringGetterBoolArg get, boost::optional<StringSetterOptionalStringReturn> set,
+            boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none);
 
   void unbind();
 
-signals:
+  signals:
 
   void itemClicked(OSItem* item);
 
   void objectRemoved(boost::optional<model::ParentObject> parent);
 
- private slots:
+  private slots:
 
   void onModelObjectChange();
 
- private:
-
+  private:
   boost::optional<model::ModelObject> m_modelObject;
 
   void completeBind();
 
-  OSLineEdit2 * m_lineEdit = nullptr;
-  QLabel * m_label = nullptr;
-
+  OSLineEdit2* m_lineEdit = nullptr;
+  QLabel* m_label = nullptr;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // SHAREDGUICOMPONENTS_OSLOADNAMEPIXMAPLINEEDIT_HPP
+#endif  // SHAREDGUICOMPONENTS_OSLOADNAMEPIXMAPLINEEDIT_HPP

@@ -82,24 +82,19 @@
 
 namespace openstudio {
 
-MeasureManager::MeasureManager(BaseApp *t_app)
-  : m_app(t_app), m_started(false), m_mutex(QMutex::NonRecursive)
-{
+MeasureManager::MeasureManager(BaseApp* t_app) : m_app(t_app), m_started(false), m_mutex(QMutex::NonRecursive) {
   m_networkAccessManager = new QNetworkAccessManager(this);
 }
 
-QUrl MeasureManager::url() const
-{
+QUrl MeasureManager::url() const {
   return m_url;
 }
 
-void MeasureManager::setUrl(const QUrl& url)
-{
+void MeasureManager::setUrl(const QUrl& url) {
   m_url = url;
 }
 
-bool MeasureManager::waitForStarted(int msec)
-{
+bool MeasureManager::waitForStarted(int msec) {
   if (m_started) {
     return true;
   }
@@ -113,8 +108,7 @@ bool MeasureManager::waitForStarted(int msec)
   int msecPerLoop = 20;
   int numTries = msec / msecPerLoop;
   int current = 0;
-  while (!success && current < numTries)
-  {
+  while (!success && current < numTries) {
     QNetworkRequest request(url);
     request.setHeader(QNetworkRequest::ContentTypeHeader, "json");
 
@@ -154,7 +148,7 @@ bool MeasureManager::waitForStarted(int msec)
   if (success) {
     m_started = true;
   } else {
-    LOG(Error, "Measure manager server failed to start. Was looking at URL="  << toString(url.toString()));
+    LOG(Error, "Measure manager server failed to start. Was looking at URL=" << toString(url.toString()));
   }
 
   return m_started;
@@ -175,13 +169,11 @@ bool MeasureManager::isStarted() const {
  *}
  */
 
-openstudio::path MeasureManager::tempModelPath() const
-{
+openstudio::path MeasureManager::tempModelPath() const {
   return m_tempModelPath;
 }
 
-void MeasureManager::saveTempModel(const path& tempDir)
-{
+void MeasureManager::saveTempModel(const path& tempDir) {
   waitForStarted();
 
   boost::optional<model::Model> model = m_app->currentModel();
@@ -189,10 +181,10 @@ void MeasureManager::saveTempModel(const path& tempDir)
   // DLM: don't get tempDir from app because this requires OSDocument and we may call saveTempModel from OSDocument ctor
   //boost::optional<path> tempDir2 = m_app->tempDir();
 
-  if (!model){
+  if (!model) {
     return;
   }
-  if (!exists(tempDir)){
+  if (!exists(tempDir)) {
     return;
   }
 
@@ -201,54 +193,48 @@ void MeasureManager::saveTempModel(const path& tempDir)
   model->save(m_tempModelPath, true);
 
   m_measureArguments.clear();
-
 }
 
-std::vector<BCLMeasure> MeasureManager::bclMeasures() const
-{
+std::vector<BCLMeasure> MeasureManager::bclMeasures() const {
   std::vector<BCLMeasure> result;
 
-  for(const auto & bclMeasure : m_bclMeasures)
-  {
+  for (const auto& bclMeasure : m_bclMeasures) {
     result.push_back(bclMeasure.second);
   }
 
   return result;
 }
 
-std::vector<BCLMeasure> MeasureManager::myMeasures() const
-{
+std::vector<BCLMeasure> MeasureManager::myMeasures() const {
   std::vector<BCLMeasure> result;
 
-  for(const auto & measure : m_myMeasures )
-  {
+  for (const auto& measure : m_myMeasures) {
     result.push_back(measure.second);
   }
 
   return result;
 }
 
-std::vector<BCLMeasure> MeasureManager::combinedMeasures() const
-{
+std::vector<BCLMeasure> MeasureManager::combinedMeasures() const {
   std::vector<BCLMeasure> result;
   std::set<UUID> resultUUIDs;
 
   // insert my measures
-  for (auto it = m_myMeasures.begin(), itend = m_myMeasures.end(); it != itend; ++it){
-    if (resultUUIDs.find(it->first) == resultUUIDs.end()){
+  for (auto it = m_myMeasures.begin(), itend = m_myMeasures.end(); it != itend; ++it) {
+    if (resultUUIDs.find(it->first) == resultUUIDs.end()) {
       resultUUIDs.insert(it->first);
       result.push_back(it->second);
-    }else{
+    } else {
       LOG(Error, "UUID of user measure at '" << it->second.directory() << "' conflicts with other measure, other measure will be used instead");
     }
   }
 
-   // insert bcl measures
-  for (auto it = m_bclMeasures.begin(), itend = m_bclMeasures.end(); it != itend; ++it){
-    if (resultUUIDs.find(it->first) == resultUUIDs.end()){
+  // insert bcl measures
+  for (auto it = m_bclMeasures.begin(), itend = m_bclMeasures.end(); it != itend; ++it) {
+    if (resultUUIDs.find(it->first) == resultUUIDs.end()) {
       resultUUIDs.insert(it->first);
       result.push_back(it->second);
-    }else{
+    } else {
       LOG(Error, "UUID of user measure at '" << it->second.directory() << "' conflicts with other measure, other measure will be used instead");
     }
   }
@@ -256,28 +242,29 @@ std::vector<BCLMeasure> MeasureManager::combinedMeasures() const
   return result;
 }
 
-boost::optional<BCLMeasure> MeasureManager::getMeasure(const UUID & id)
-{
+boost::optional<BCLMeasure> MeasureManager::getMeasure(const UUID& id) {
   boost::optional<BCLMeasure> result;
 
-  std::map<UUID,BCLMeasure>::iterator it;
+  std::map<UUID, BCLMeasure>::iterator it;
 
   // search my measures
   it = m_myMeasures.find(id);
-  if( it != m_myMeasures.end() ) {
-    if (result){
-      LOG(Error, "UUID of user measure at '" << it->second.directory() << "' conflicts with other measure, measure at '" << result->directory() << "' will be used instead");
-    }else{
+  if (it != m_myMeasures.end()) {
+    if (result) {
+      LOG(Error, "UUID of user measure at '" << it->second.directory() << "' conflicts with other measure, measure at '" << result->directory()
+                                             << "' will be used instead");
+    } else {
       result = it->second;
     }
   }
 
   // search bcl measures
   it = m_bclMeasures.find(id);
-  if( it != m_bclMeasures.end() ) {
-    if (result){
-      LOG(Error, "UUID of bcl measure at '" << it->second.directory() << "' conflicts with other measure, measure at '" << result->directory() << "' will be used instead");
-    }else{
+  if (it != m_bclMeasures.end()) {
+    if (result) {
+      LOG(Error, "UUID of bcl measure at '" << it->second.directory() << "' conflicts with other measure, measure at '" << result->directory()
+                                            << "' will be used instead");
+    } else {
       result = it->second;
     }
   }
@@ -285,37 +272,35 @@ boost::optional<BCLMeasure> MeasureManager::getMeasure(const UUID & id)
   return result;
 }
 
-BCLMeasure MeasureManager::insertReplaceMeasure(const UUID &t_id)
-{
+BCLMeasure MeasureManager::insertReplaceMeasure(const UUID& t_id) {
   // DLM: TODO, emit signal to rebuild WorkflowController
 
   boost::optional<BCLMeasure> measure = getMeasure(t_id);
-  if (!measure){
+  if (!measure) {
     LOG_AND_THROW("Cannot find measure '" << toString(t_id) << "'");
   }
 
   WorkflowJSON workflowJSON = m_app->currentModel()->workflowJSON();
   boost::optional<BCLMeasure> existingMeasure = workflowJSON.getBCLMeasureByUUID(t_id);
 
-  if (existingMeasure && (existingMeasure->versionUUID() != measure->versionUUID()))
-  {
+  if (existingMeasure && (existingMeasure->versionUUID() != measure->versionUUID())) {
     QDialog dialog(m_app->mainWidget(), Qt::WindowFlags(Qt::Dialog | Qt::WindowTitleHint));
     auto mainContentVLayout = new QVBoxLayout();
     dialog.setWindowTitle(QCoreApplication::applicationName());
 
     dialog.setLayout(mainContentVLayout);
-    QLabel *label = new QLabel("A modified copy of this measure is already being used in this project.");
-    QRadioButton *replace = new QRadioButton("Replace all instances of this measure in this project with this one.");
+    QLabel* label = new QLabel("A modified copy of this measure is already being used in this project.");
+    QRadioButton* replace = new QRadioButton("Replace all instances of this measure in this project with this one.");
     replace->setChecked(true);
-    QRadioButton *copy = new QRadioButton("Create a new instance using this project's copy of this measure.");
+    QRadioButton* copy = new QRadioButton("Create a new instance using this project's copy of this measure.");
     mainContentVLayout->addWidget(label);
     mainContentVLayout->addWidget(replace);
     mainContentVLayout->addWidget(copy);
 
     auto buttons = new QHBoxLayout();
 
-    QPushButton *cancel = new QPushButton("Cancel");
-    QPushButton *apply = new QPushButton("Apply");
+    QPushButton* cancel = new QPushButton("Cancel");
+    QPushButton* apply = new QPushButton("Apply");
 
     buttons->addStretch();
     buttons->addWidget(cancel);
@@ -327,14 +312,11 @@ BCLMeasure MeasureManager::insertReplaceMeasure(const UUID &t_id)
 
     mainContentVLayout->addLayout(buttons);
 
-    if (dialog.exec() == QDialog::Accepted)
-    {
-      if (replace->isChecked())
-      {
+    if (dialog.exec() == QDialog::Accepted) {
+      if (replace->isChecked()) {
         LOG(Info, "User chose to replace existing instances with new version of measure");
-        std::pair<bool,std::string> updateResult = updateMeasure(*measure);
-        if (updateResult.first)
-        {
+        std::pair<bool, std::string> updateResult = updateMeasure(*measure);
+        if (updateResult.first) {
           // reloading measure from project
           boost::optional<BCLMeasure> updatedMeasure = workflowJSON.getBCLMeasureByUUID(t_id);
           OS_ASSERT(updatedMeasure);
@@ -356,18 +338,17 @@ BCLMeasure MeasureManager::insertReplaceMeasure(const UUID &t_id)
   }
 
   boost::optional<BCLMeasure> projectmeasure = workflowJSON.addMeasure(*measure);
-  if (!projectmeasure){
+  if (!projectmeasure) {
     LOG(Info, "WorkflowJSON::addMeasure failed");
     throw std::runtime_error("Failed to add measure to the project");
   }
   return *projectmeasure;
 }
 
-std::pair<bool,std::string> MeasureManager::updateMeasure(const BCLMeasure &t_measure)
-{
+std::pair<bool, std::string> MeasureManager::updateMeasure(const BCLMeasure& t_measure) {
   // check that measure is from outside of project?
 
-  std::pair<bool,std::string> result(true,"");
+  std::pair<bool, std::string> result(true, "");
   try {
     // this check is just to make sure the script does not have errors
     measure::OSArgumentVector args = getArguments(t_measure);
@@ -375,35 +356,34 @@ std::pair<bool,std::string> MeasureManager::updateMeasure(const BCLMeasure &t_me
     WorkflowJSON workflowJSON = m_app->currentModel()->workflowJSON();
     boost::optional<BCLMeasure> measure = workflowJSON.addMeasure(t_measure);
 
-    if (measure){
+    if (measure) {
       // Since we set the measure_paths, we only neeed to reference the name of the directory (=last level directory name)
       // eg: /path/to/measure_folder => measure_folder
-      result = std::pair<bool, std::string>(true, toString( getLastLevelDirectoryName( measure->directory() ) ));
-    } else{
+      result = std::pair<bool, std::string>(true, toString(getLastLevelDirectoryName(measure->directory())));
+    } else {
       std::stringstream ss;
       ss << "An error occurred while adding measure '" << t_measure.displayName() << "' to the project.";
       LOG(Error, ss.str());
       result = std::pair<bool, std::string>(false, ss.str());
     }
 
-  } catch ( const RubyException &e ) {
+  } catch (const RubyException& e) {
     std::stringstream ss;
     ss << "An error occurred while updating measure '" << t_measure.displayName() << "':" << std::endl;
     ss << "  " << e.what();
     LOG(Error, ss.str());
-    result = std::pair<bool,std::string>(false,ss.str());
+    result = std::pair<bool, std::string>(false, ss.str());
   }
 
   return result;
 }
 
-void MeasureManager::updateMeasures(const std::vector<BCLMeasure>& newMeasures, bool t_showMessage)
-{
+void MeasureManager::updateMeasures(const std::vector<BCLMeasure>& newMeasures, bool t_showMessage) {
   std::vector<BCLMeasure> measures;
 
   WorkflowJSON workflowJSON = m_app->currentModel()->workflowJSON();
-  for (const auto& newMeasure : newMeasures){
-    if (workflowJSON.getBCLMeasureByUUID(newMeasure.uuid())){
+  for (const auto& newMeasure : newMeasures) {
+    if (workflowJSON.getBCLMeasureByUUID(newMeasure.uuid())) {
       measures.push_back(newMeasure);
     }
   }
@@ -413,10 +393,9 @@ void MeasureManager::updateMeasures(const std::vector<BCLMeasure>& newMeasures, 
 
   size_t loc = 0;
   std::vector<std::string> failMessages;
-  for (const auto & measure : measures)
-  {
+  for (const auto& measure : measures) {
     progress->setValue(loc);
-    std::pair<bool,std::string> updateResult = updateMeasure(measure);
+    std::pair<bool, std::string> updateResult = updateMeasure(measure);
     if (!updateResult.first) {
       failMessages.push_back(updateResult.second);
     }
@@ -426,8 +405,7 @@ void MeasureManager::updateMeasures(const std::vector<BCLMeasure>& newMeasures, 
 
   delete progress;
 
-  if (t_showMessage)
-  {
+  if (t_showMessage) {
     size_t numUpdated = loc - failMessages.size();
     size_t numFailed = failMessages.size();
 
@@ -466,18 +444,16 @@ void MeasureManager::updateMeasures(const std::vector<BCLMeasure>& newMeasures, 
 
       messageBox->exec();
       delete messageBox;
-    }
-    else {
+    } else {
       QMessageBox::information(m_app->mainWidget(), QString("Measures Updated"), toQString(ss.str()));
     }
   }
 }
 
-std::vector<measure::OSArgument> MeasureManager::getArguments(const BCLMeasure &t_measure)
-{
+std::vector<measure::OSArgument> MeasureManager::getArguments(const BCLMeasure& t_measure) {
 
   auto it = m_measureArguments.find(t_measure.directory());
-  if (it != m_measureArguments.end()){
+  if (it != m_measureArguments.end()) {
     return it->second;
   }
 
@@ -486,7 +462,8 @@ std::vector<measure::OSArgument> MeasureManager::getArguments(const BCLMeasure &
 
   std::string url_s = m_url.toString().toStdString();
 
-  QString data = QString("{\"measure_dir\": \"") + toQString(t_measure.directory()) + QString("\", \"osm_path\": \"") + toQString(m_tempModelPath) + QString("\"}");
+  QString data = QString("{\"measure_dir\": \"") + toQString(t_measure.directory()) + QString("\", \"osm_path\": \"") + toQString(m_tempModelPath) +
+                 QString("\"}");
 
   QNetworkRequest request(url);
   request.setHeader(QNetworkRequest::ContentTypeHeader, "json");
@@ -495,7 +472,7 @@ std::vector<measure::OSArgument> MeasureManager::getArguments(const BCLMeasure &
 
   QNetworkReply* reply = manager.post(request, data.toUtf8());
 
-  while (reply->isRunning()){
+  while (reply->isRunning()) {
     Application::instance().processEvents();
   }
 
@@ -504,10 +481,9 @@ std::vector<measure::OSArgument> MeasureManager::getArguments(const BCLMeasure &
   auto error = reply->error();
   delete reply;
 
-  if (error != QNetworkReply::NoError){
+  if (error != QNetworkReply::NoError) {
     LOG_AND_THROW("Error computing arguments: " << s)
   }
-
 
   std::vector<measure::OSArgument> result;
 
@@ -517,35 +493,35 @@ std::vector<measure::OSArgument> MeasureManager::getArguments(const BCLMeasure &
   Json::Value json;
   bool parsingSuccessful = Json::parseFromStream(rbuilder, ss, &json, &errorString);
 
-  if (parsingSuccessful){
+  if (parsingSuccessful) {
 
-    Json::Value arguments = json.get("arguments",  Json::Value(Json::arrayValue));
+    Json::Value arguments = json.get("arguments", Json::Value(Json::arrayValue));
 
     Json::ArrayIndex n = arguments.size();
-    for (Json::ArrayIndex i = 0; i < n; ++i){
+    for (Json::ArrayIndex i = 0; i < n; ++i) {
 
       Json::Value argument = arguments[i];
 
-      try{
+      try {
         std::string typeString = argument.get("type", Json::Value("")).asString();
         measure::OSArgumentType type(typeString);
         boost::optional<measure::OSArgument> osArgument = getArgument(type, argument);
-        if (osArgument){
+        if (osArgument) {
           result.push_back(*osArgument);
-        } else{
+        } else {
           errorString += "Could not convert argument.";
         }
-      } catch (const std::exception& e){
+      } catch (const std::exception& e) {
         errorString += std::string("Error occurred: ") + e.what();
         continue;
       }
     }
 
-  } else{
+  } else {
     LOG_AND_THROW("Error computing arguments: " << s)
   }
 
-  if (!errorString.empty()){
+  if (!errorString.empty()) {
     LOG_AND_THROW(errorString);
   }
 
@@ -554,108 +530,106 @@ std::vector<measure::OSArgument> MeasureManager::getArguments(const BCLMeasure &
   return result;
 }
 
-boost::optional<measure::OSArgument> MeasureManager::getArgument(const measure::OSArgumentType& type, const Json::Value& argument)
-{
+boost::optional<measure::OSArgument> MeasureManager::getArgument(const measure::OSArgumentType& type, const Json::Value& argument) {
   std::string name = argument.get("name", Json::Value("")).asString();
   bool required = argument.get("required", Json::Value(false)).asBool();
   bool modelDependent = argument.get("model_dependent", Json::Value(false)).asBool();
 
   boost::optional<measure::OSArgument> result;
-  if (type.value() == measure::OSArgumentType::Boolean){
+  if (type.value() == measure::OSArgumentType::Boolean) {
     result = measure::OSArgument::makeBoolArgument(name, required, modelDependent);
 
-    if (argument.isMember("default_value")){
+    if (argument.isMember("default_value")) {
       bool defaultValue = argument.get("default_value", Json::Value(false)).asBool();
       result->setDefaultValue(defaultValue);
     }
 
-  } else if (type.value() == measure::OSArgumentType::Double){
+  } else if (type.value() == measure::OSArgumentType::Double) {
     result = measure::OSArgument::makeDoubleArgument(name, required, modelDependent);
 
-    if (argument.isMember("default_value")){
+    if (argument.isMember("default_value")) {
       double defaultValue = argument.get("default_value", Json::Value(0.0)).asDouble();
       result->setDefaultValue(defaultValue);
     }
 
-  } else if (type.value() == measure::OSArgumentType::Quantity){
+  } else if (type.value() == measure::OSArgumentType::Quantity) {
     LOG(Warn, "Mapping deprecated OSArgumentType::Quantity to Double");
     result = measure::OSArgument::makeDoubleArgument(name, required, modelDependent);
 
-    if (argument.isMember("default_value")){
+    if (argument.isMember("default_value")) {
       double defaultValue = argument.get("default_value", Json::Value(0.0)).asDouble();
       result->setDefaultValue(defaultValue);
     }
 
-  } else if (type.value() == measure::OSArgumentType::Integer){
+  } else if (type.value() == measure::OSArgumentType::Integer) {
     result = measure::OSArgument::makeIntegerArgument(name, required, modelDependent);
 
-    if (argument.isMember("default_value")){
+    if (argument.isMember("default_value")) {
       int defaultValue = argument.get("default_value", Json::Value(0.0)).asInt();
       result->setDefaultValue(defaultValue);
     }
 
-  } else if (type.value() == measure::OSArgumentType::String){
+  } else if (type.value() == measure::OSArgumentType::String) {
     result = measure::OSArgument::makeStringArgument(name, required, modelDependent);
 
-    if (argument.isMember("default_value")){
+    if (argument.isMember("default_value")) {
       std::string defaultValue = argument.get("default_value", Json::Value("")).asString();
       result->setDefaultValue(defaultValue);
     }
 
-  } else if (type.value() == measure::OSArgumentType::Choice){
+  } else if (type.value() == measure::OSArgumentType::Choice) {
 
-    Json::Value choiceValues = argument.get("choice_values",  Json::Value(Json::arrayValue));
-    Json::Value choiceDisplayNames = argument.get("choice_display_names",  Json::Value(Json::arrayValue));
+    Json::Value choiceValues = argument.get("choice_values", Json::Value(Json::arrayValue));
+    Json::Value choiceDisplayNames = argument.get("choice_display_names", Json::Value(Json::arrayValue));
 
     Json::ArrayIndex n = choiceValues.size();
-    if (n != choiceDisplayNames.size()){
+    if (n != choiceDisplayNames.size()) {
       choiceDisplayNames = choiceValues;
     }
 
     std::vector<std::string> choices;
     std::vector<std::string> displayNames;
-    for (Json::ArrayIndex i = 0; i < n; ++i){
+    for (Json::ArrayIndex i = 0; i < n; ++i) {
       choices.push_back(choiceValues[i].asString());
       displayNames.push_back(choiceDisplayNames[i].asString());
     }
 
     result = measure::OSArgument::makeChoiceArgument(name, choices, displayNames, required, modelDependent);
 
-    if (argument.isMember("default_value")){
+    if (argument.isMember("default_value")) {
       std::string defaultValue = argument.get("default_value", Json::Value("")).asString();
       result->setDefaultValue(defaultValue);
     }
 
-  } else if (type.value() == measure::OSArgumentType::Path){
+  } else if (type.value() == measure::OSArgumentType::Path) {
 
-    bool isRead = argument.get("is_read",  Json::Value(false)).asBool();
-    std::string extension = argument.get("extension",  Json::Value("*")).asString();
+    bool isRead = argument.get("is_read", Json::Value(false)).asBool();
+    std::string extension = argument.get("extension", Json::Value("*")).asString();
 
     result = measure::OSArgument::makePathArgument(name, isRead, extension, required, modelDependent);
 
-    if (argument.isMember("default_value")){
+    if (argument.isMember("default_value")) {
       std::string defaultValue = argument.get("default_value", Json::Value("")).asString();
       result->setDefaultValue(defaultValue);
     }
 
-  } else if (type.value() == measure::OSArgumentType::Separator){
+  } else if (type.value() == measure::OSArgumentType::Separator) {
 
     result = measure::OSArgument::makeSeparatorArgument(name, modelDependent);
-
   }
   OS_ASSERT(result);
 
-  if (argument.isMember("display_name")){
+  if (argument.isMember("display_name")) {
     std::string displayName = argument.get("display_name", Json::Value("")).asString();
     result->setDisplayName(displayName);
   }
 
-  if (argument.isMember("description")){
+  if (argument.isMember("description")) {
     std::string description = argument.get("description", Json::Value("")).asString();
     result->setDescription(description);
   }
 
-  if (argument.isMember("units")){
+  if (argument.isMember("units")) {
     std::string units = argument.get("units", Json::Value("")).asString();
     result->setUnits(units);
   }
@@ -723,16 +697,15 @@ boost::optional<measure::OSArgument> MeasureManager::getArgument(const measure::
 //  updateMeasures(t_project, toUpdate);
 //}
 
-std::string MeasureManager::suggestMeasureName(const BCLMeasure &t_measure)
-{
+std::string MeasureManager::suggestMeasureName(const BCLMeasure& t_measure) {
   std::string baseName = t_measure.displayName();
 
   std::set<std::string> allNames;
   WorkflowJSON workflowJSON = m_app->currentModel()->workflowJSON();
-  for (const auto& step : workflowJSON.workflowSteps()){
-    if (step.optionalCast<MeasureStep>()){
+  for (const auto& step : workflowJSON.workflowSteps()) {
+    if (step.optionalCast<MeasureStep>()) {
       boost::optional<std::string> name = step.cast<MeasureStep>().name();
-      if (name){
+      if (name) {
         allNames.insert(*name);
       }
     }
@@ -740,7 +713,7 @@ std::string MeasureManager::suggestMeasureName(const BCLMeasure &t_measure)
 
   std::string result = baseName;
   int i = 1;
-  while (allNames.find(result) != allNames.end()){
+  while (allNames.find(result) != allNames.end()) {
     result = baseName + " " + QString::number(i).toStdString();
     i++;
   }
@@ -748,17 +721,15 @@ std::string MeasureManager::suggestMeasureName(const BCLMeasure &t_measure)
   return result;
 }
 
-bool MeasureManager::isMeasureSelected()
-{
-  if (m_libraryController){
+bool MeasureManager::isMeasureSelected() {
+  if (m_libraryController) {
     QPointer<LibraryItem> item = m_libraryController->selectedItem();
     return !item.isNull();
   }
   return false;
 }
 
-void MeasureManager::updateMeasuresLists()
-{
+void MeasureManager::updateMeasuresLists() {
   openstudio::path umd = userMeasuresDir();
 
   auto updateUserMeasures = true;
@@ -769,8 +740,7 @@ void MeasureManager::updateMeasuresLists()
   updateMeasuresLists(updateUserMeasures);
 }
 
-void MeasureManager::updateMeasuresLists(bool updateUserMeasures)
-{
+void MeasureManager::updateMeasuresLists(bool updateUserMeasures) {
   checkForLocalBCLUpdates();
 
   if (updateUserMeasures) {
@@ -786,15 +756,14 @@ void MeasureManager::updateMeasuresLists(bool updateUserMeasures)
   m_measureArguments.clear();
 
   if (updateUserMeasures) {
-   std::vector<BCLMeasure> uMeasures = userMeasures();
-    for( auto & measure : uMeasures)
-    {
+    std::vector<BCLMeasure> uMeasures = userMeasures();
+    for (auto& measure : uMeasures) {
       bool updateUUID = false;
-      if (m_myMeasures.find(measure.uuid()) != m_myMeasures.end()){
+      if (m_myMeasures.find(measure.uuid()) != m_myMeasures.end()) {
         updateUUID = true;
       }
 
-      if (updateUUID){
+      if (updateUUID) {
         // duplicate measure detected, manual copy and paste likely cause
         // assign measure a new UUID here and save
         measure.changeUID();
@@ -802,26 +771,25 @@ void MeasureManager::updateMeasuresLists(bool updateUserMeasures)
         measure.save();
       }
 
-      m_myMeasures.insert(std::pair<UUID,BCLMeasure>(measure.uuid(),measure));
+      m_myMeasures.insert(std::pair<UUID, BCLMeasure>(measure.uuid(), measure));
     }
   }
 
   std::vector<BCLMeasure> lbm = localBCLMeasures();
-  for( auto & measure : lbm)
-  {
+  for (auto& measure : lbm) {
     auto it = m_bclMeasures.find(measure.uuid());
-    if (it != m_bclMeasures.end()){
+    if (it != m_bclMeasures.end()) {
       // duplicate measure detected
-      LOG(Error, "UUID of bcl measure at '" << measure.directory() << "' conflicts with other bcl measure, measure at '" << it->second.directory() << "' will be used instead");
-    }else{
-      m_bclMeasures.insert(std::pair<UUID,BCLMeasure>(measure.uuid(),measure));
+      LOG(Error, "UUID of bcl measure at '" << measure.directory() << "' conflicts with other bcl measure, measure at '" << it->second.directory()
+                                            << "' will be used instead");
+    } else {
+      m_bclMeasures.insert(std::pair<UUID, BCLMeasure>(measure.uuid(), measure));
     }
   }
 
   m_mutex.unlock();
 
-  if (m_libraryController)
-  {
+  if (m_libraryController) {
     m_libraryController->reset();
   }
 }
@@ -856,11 +824,10 @@ void MeasureManager::updateMeasuresLists(bool updateUserMeasures)
 //  updateMeasures(t_project, toUpdate);
 //}
 
-bool MeasureManager::reset()
-{
+bool MeasureManager::reset() {
   waitForStarted();
 
-  if (!m_mutex.tryLock()){
+  if (!m_mutex.tryLock()) {
     return false;
   }
 
@@ -878,7 +845,7 @@ bool MeasureManager::reset()
 
   QNetworkReply* reply = manager.post(request, data.toUtf8());
 
-  while (reply->isRunning()){
+  while (reply->isRunning()) {
     Application::instance().processEvents();
   }
 
@@ -886,7 +853,7 @@ bool MeasureManager::reset()
   std::string s = replyString.toStdString();
 
   bool result = true;
-  if (reply->error() != QNetworkReply::NoError){
+  if (reply->error() != QNetworkReply::NoError) {
     result = false;
   }
 
@@ -897,11 +864,10 @@ bool MeasureManager::reset()
   return result;
 }
 
-bool MeasureManager::checkForLocalBCLUpdates()
-{
+bool MeasureManager::checkForLocalBCLUpdates() {
   waitForStarted();
 
-  if (!m_mutex.tryLock()){
+  if (!m_mutex.tryLock()) {
     return false;
   }
 
@@ -919,7 +885,7 @@ bool MeasureManager::checkForLocalBCLUpdates()
 
   QNetworkReply* reply = manager.post(request, data.toUtf8());
 
-  while (reply->isRunning()){
+  while (reply->isRunning()) {
     Application::instance().processEvents();
   }
 
@@ -927,7 +893,7 @@ bool MeasureManager::checkForLocalBCLUpdates()
   std::string s = replyString.toStdString();
 
   bool result = true;
-  if (reply->error() != QNetworkReply::NoError){
+  if (reply->error() != QNetworkReply::NoError) {
     result = false;
   }
 
@@ -938,11 +904,10 @@ bool MeasureManager::checkForLocalBCLUpdates()
   return result;
 }
 
-bool MeasureManager::checkForUpdates(const openstudio::path& measureDir, bool force)
-{
+bool MeasureManager::checkForUpdates(const openstudio::path& measureDir, bool force) {
   waitForStarted();
 
-  if (!m_mutex.tryLock()){
+  if (!m_mutex.tryLock()) {
     return false;
   }
 
@@ -951,7 +916,8 @@ bool MeasureManager::checkForUpdates(const openstudio::path& measureDir, bool fo
 
   std::string url_s = m_url.toString().toStdString();
 
-  QString data = QString("{\"measures_dir\": \"") + toQString(measureDir) + QString("\", \"force_reload\": ") + (force ? QString("true") : QString("false")) + QString("}");
+  QString data = QString("{\"measures_dir\": \"") + toQString(measureDir) + QString("\", \"force_reload\": ") +
+                 (force ? QString("true") : QString("false")) + QString("}");
 
   QNetworkRequest request(url);
   request.setHeader(QNetworkRequest::ContentTypeHeader, "json");
@@ -960,7 +926,7 @@ bool MeasureManager::checkForUpdates(const openstudio::path& measureDir, bool fo
 
   QNetworkReply* reply = manager.post(request, data.toUtf8());
 
-  while (reply->isRunning()){
+  while (reply->isRunning()) {
     Application::instance().processEvents();
   }
 
@@ -968,7 +934,7 @@ bool MeasureManager::checkForUpdates(const openstudio::path& measureDir, bool fo
   std::string s = replyString.toStdString();
 
   bool result = true;
-  if (reply->error() != QNetworkReply::NoError){
+  if (reply->error() != QNetworkReply::NoError) {
     result = false;
   }
 
@@ -979,13 +945,12 @@ bool MeasureManager::checkForUpdates(const openstudio::path& measureDir, bool fo
   return result;
 }
 
-void MeasureManager::downloadBCLMeasures()
-{
+void MeasureManager::downloadBCLMeasures() {
   auto remoteBCL = new RemoteBCL();
   int numUpdates = remoteBCL->checkForMeasureUpdates();
-  if (numUpdates == 0){
+  if (numUpdates == 0) {
     QMessageBox::information(m_app->mainWidget(), "Measures Updated", "All measures are up-to-date.");
-  }else{
+  } else {
     std::vector<BCLSearchResult> updates = remoteBCL->measuresWithUpdates();
     QStringList measureNames;
     for (const BCLSearchResult& update : updates) {
@@ -995,9 +960,9 @@ void MeasureManager::downloadBCLMeasures()
     QMessageBox msg(m_app->mainWidget());
     msg.setIcon(QMessageBox::Information);
     msg.setWindowTitle("Measures Updated");
-    if (numUpdates == 1){
+    if (numUpdates == 1) {
       msg.setText("1 measure has been updated.                   ");
-    }else{
+    } else {
       msg.setText(QString::number(numUpdates) + " measures have been updated.                   ");
     }
     msg.setDetailedText(measureNames.join("\n"));
@@ -1007,17 +972,16 @@ void MeasureManager::downloadBCLMeasures()
   delete remoteBCL;
 }
 
-void MeasureManager::addMeasure()
-{
+void MeasureManager::addMeasure() {
   // open modal dialog
   //QSharedPointer<BCLMeasureDialog> dialog(new BCLMeasureDialog(this->mainWindow));
   QSharedPointer<BCLMeasureDialog> dialog(new BCLMeasureDialog());
 
-  if (dialog->exec()){
+  if (dialog->exec()) {
 
     // not canceled, create measure
     boost::optional<BCLMeasure> measure = dialog->createMeasure();
-    if (measure){
+    if (measure) {
 
       // open directory for editing
       QString path = QDir::toNativeSeparators(toQString(measure->directory()));
@@ -1031,24 +995,22 @@ void MeasureManager::addMeasure()
 
       // emit signal
       emit newMeasure(*measure);
-    }else{
+    } else {
       // error, this should not happen
     }
 
-  }else{
+  } else {
     // user canceled, do nothing
   }
 }
 
-void MeasureManager::duplicateSelectedMeasure()
-{
+void MeasureManager::duplicateSelectedMeasure() {
   OS_ASSERT(m_libraryController);
   QPointer<LibraryItem> item = m_libraryController->selectedItem();
 
-  if( !item.isNull() )
-  {
+  if (!item.isNull()) {
     boost::optional<BCLMeasure> bclMeasure = this->getMeasure(item->uuid());
-    if (bclMeasure){
+    if (bclMeasure) {
 
       // check for updates in case measure being copied has changed
       checkForUpdates(bclMeasure->directory(), true);
@@ -1057,11 +1019,11 @@ void MeasureManager::duplicateSelectedMeasure()
       //QSharedPointer<BCLMeasureDialog> dialog(new BCLMeasureDialog(*bclMeasure, this->mainWindow));
       QSharedPointer<BCLMeasureDialog> dialog(new BCLMeasureDialog(*bclMeasure));
 
-      if (dialog->exec()){
+      if (dialog->exec()) {
 
         // not canceled, create measure
         boost::optional<BCLMeasure> measure = dialog->createMeasure();
-        if (measure){
+        if (measure) {
 
           // open directory for editing
           QString path = QDir::toNativeSeparators(toQString(measure->directory()));
@@ -1071,27 +1033,24 @@ void MeasureManager::duplicateSelectedMeasure()
 
           // emit signal
           emit newMeasure(*measure);
-        }else{
+        } else {
           // error, this should not happen
         }
 
-      }else{
+      } else {
         // user canceled, do nothing
       }
     }
   }
 }
 
-
 //QSharedPointer<measure::OSMeasureInfoGetter> MeasureManager::infoGetter() const
 //{
 //  return m_infoGetter;
 //}
 
-void MeasureManager::setLibraryController(const QSharedPointer<LocalLibraryController> &t_controller)
-{
+void MeasureManager::setLibraryController(const QSharedPointer<LocalLibraryController>& t_controller) {
   m_libraryController = t_controller;
 }
 
-} // openstudio
-
+}  // namespace openstudio

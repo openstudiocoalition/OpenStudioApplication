@@ -47,9 +47,8 @@ class OSCollapsibleItemList : public OSItemSelector
 {
   Q_OBJECT
 
-public:
-
-  OSCollapsibleItemList(bool addScrollArea, QWidget * parent = nullptr);
+  public:
+  OSCollapsibleItemList(bool addScrollArea, QWidget* parent = nullptr);
 
   virtual ~OSCollapsibleItemList() {}
 
@@ -71,33 +70,30 @@ public:
   bool showFilterLayout() const;
   void setShowFilterLayout(const bool showFilterLayout);
 
-signals:
+  signals:
 
-    void openLibDlgClicked();
+  void openLibDlgClicked();
 
-private slots:
+  private slots:
 
   void onCollapsableItemSelected(OSCollapsibleItem* selectedItem);
 
   void onItemSelected(OSItem* item);
 
-protected:
+  protected:
+  void paintEvent(QPaintEvent* event) override;
 
-  void paintEvent( QPaintEvent * event ) override;
-
-private:
-
-  QVBoxLayout * m_vLayout;
-  QHBoxLayout * m_contentLayout;
-  OSCollapsibleItem * m_selectedCollapsibleItem;
-  std::vector<OSCollapsibleItem *> m_collapsibleItems;
+  private:
+  QVBoxLayout* m_vLayout;
+  QHBoxLayout* m_contentLayout;
+  OSCollapsibleItem* m_selectedCollapsibleItem;
+  std::vector<OSCollapsibleItem*> m_collapsibleItems;
   bool m_itemsDraggable;
   bool m_itemsRemoveable;
   bool m_showFilterLayout;
   OSItemType m_itemsType;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_OSCOLLAPSIBLEITEMLIST_HPP
-
+#endif  // OPENSTUDIO_OSCOLLAPSIBLEITEMLIST_HPP

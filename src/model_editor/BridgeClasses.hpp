@@ -37,26 +37,22 @@
 class MODELEDITOR_API ComboHighlightBridge : public QObject
 {
 
-  Q_OBJECT ;
+  Q_OBJECT;
 
- public:
-
+  public:
   ComboHighlightBridge(QObject* parent);
 
   QObject* bridgeSender();
 
- public slots:
+  public slots:
   void highlighted(const QString& val);
   void activated(const QString& val);
- signals:
-  void highlightEmitted( const QString& val);
+  signals:
+  void highlightEmitted(const QString& val);
   void activatedEmitted(const QString& val);
 
- private:
-  QObject* m_source;//original source object
-
+  private:
+  QObject* m_source;  //original source object
 };
 
-
-
-#endif // MODELEDITOR_BRIDGECLASSES_HPP
+#endif  // MODELEDITOR_BRIDGECLASSES_HPP

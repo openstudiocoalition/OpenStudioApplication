@@ -31,11 +31,7 @@
 
 namespace openstudio {
 
-GeometryTabView::GeometryTabView(const model::Model & model,
-  const QString & tabLabel,
-  QWidget * parent)
-  : MainTabView(tabLabel, MainTabView::SUB_TAB, parent)
-{
-}
+GeometryTabView::GeometryTabView(const model::Model& model, const QString& tabLabel, QWidget* parent)
+  : MainTabView(tabLabel, MainTabView::SUB_TAB, parent) {}
 
-} // openstudio
+}  // namespace openstudio

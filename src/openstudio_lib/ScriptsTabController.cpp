@@ -42,8 +42,7 @@
 namespace openstudio {
 
 ScriptsTabController::ScriptsTabController()
-  : MainTabController(new ScriptsTabView(nullptr)), scriptsTabView(dynamic_cast<ScriptsTabView *>(mainContentWidget()))
-{
+  : MainTabController(new ScriptsTabView(nullptr)), scriptsTabView(dynamic_cast<ScriptsTabView*>(mainContentWidget())) {
   auto app = OSAppBase::instance();
   boost::optional<path> tempDir = app->tempDir();
   OS_ASSERT(tempDir);
@@ -56,16 +55,19 @@ ScriptsTabController::ScriptsTabController()
   app->measureManager().updateMeasuresLists();
   app->currentDocument()->enable();
 
-  m_workflowController = QSharedPointer<openstudio::measuretab::WorkflowController>(new openstudio::measuretab::WorkflowController(OSAppBase::instance()));
-  m_workflowSectionItemDelegate = QSharedPointer<openstudio::measuretab::WorkflowSectionItemDelegate>(new openstudio::measuretab::WorkflowSectionItemDelegate());
+  m_workflowController =
+    QSharedPointer<openstudio::measuretab::WorkflowController>(new openstudio::measuretab::WorkflowController(OSAppBase::instance()));
+  m_workflowSectionItemDelegate =
+    QSharedPointer<openstudio::measuretab::WorkflowSectionItemDelegate>(new openstudio::measuretab::WorkflowSectionItemDelegate());
 
   scriptsTabView->workflowView->setListController(m_workflowController);
   scriptsTabView->workflowView->setDelegate(m_workflowSectionItemDelegate);
 }
 
-ScriptsTabController::~ScriptsTabController()
-{
-  if( scriptsTabView ) { delete scriptsTabView; }
+ScriptsTabController::~ScriptsTabController() {
+  if (scriptsTabView) {
+    delete scriptsTabView;
+  }
 }
 
-} // openstudio
+}  // namespace openstudio

@@ -47,24 +47,19 @@ class VerticalTabWidget : public QWidget
   Q_OBJECT
 
   public:
-
-  VerticalTabWidget(QWidget * parent = nullptr);
+  VerticalTabWidget(QWidget* parent = nullptr);
 
   virtual ~VerticalTabWidget() {}
 
-  void addTabButton(int id,
-                    QString toolTip,
-                    const QString & selectedImagePath,
-                    const QString & unSelectedImagePath,
-                    const QString & disabledImagePath);
+  void addTabButton(int id, QString toolTip, const QString& selectedImagePath, const QString& unSelectedImagePath, const QString& disabledImagePath);
 
   void enableTabButton(int id, bool enable);
 
   void refreshTabButtons();
 
-  void setView(MainTabView * view, int id);
+  void setView(MainTabView* view, int id);
 
-  MainTabView * view() const;
+  MainTabView* view() const;
 
   int verticalTabIndex();
 
@@ -81,12 +76,11 @@ class VerticalTabWidget : public QWidget
   void select();
 
   private:
-
   int getIndex(int id);
 
-  OSViewSwitcher * m_viewSwitcher = nullptr;
+  OSViewSwitcher* m_viewSwitcher = nullptr;
 
-  QWidget * m_tabBar;
+  QWidget* m_tabBar;
 
   std::vector<QString> m_selectedPixmaps;
 
@@ -94,13 +88,13 @@ class VerticalTabWidget : public QWidget
 
   std::vector<QString> m_disabledPixmaps;
 
-  std::vector<QPushButton *> m_tabButtons;
+  std::vector<QPushButton*> m_tabButtons;
 
   std::vector<int> m_ids;
 
   int currentIndex = -1;
 };
 
-} // namespace openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_VERTICALTABWIDGET_HPP
+#endif  // OPENSTUDIO_VERTICALTABWIDGET_HPP

@@ -41,11 +41,8 @@
 
 namespace openstudio {
 
-HVACTemplateHelperDialog::HVACTemplateHelperDialog(const model::Model & model, QWidget * parent)
-  : QDialog(parent),
-    m_model(model)
-{
-  setMinimumSize(200,200);
+HVACTemplateHelperDialog::HVACTemplateHelperDialog(const model::Model& model, QWidget* parent) : QDialog(parent), m_model(model) {
+  setMinimumSize(200, 200);
 
   setSizeGripEnabled(false);
 
@@ -53,7 +50,7 @@ HVACTemplateHelperDialog::HVACTemplateHelperDialog(const model::Model & model, Q
   mainVLayout->setSpacing(20);
   setLayout(mainVLayout);
 
-  QLabel * message = new QLabel("Select zones to apply system to.");
+  QLabel* message = new QLabel("Select zones to apply system to.");
   mainVLayout->addWidget(message);
 
   auto divider1 = new QFrame();
@@ -79,15 +76,12 @@ HVACTemplateHelperDialog::HVACTemplateHelperDialog(const model::Model & model, Q
 
   int i = 1;
 
-  for( auto it = m_zones.begin();
-       it < m_zones.end();
-       ++it )
-  {
+  for (auto it = m_zones.begin(); it < m_zones.end(); ++it) {
     auto checkBox = new QCheckBox();
 
     checkBox->setText(QString::fromStdString(it->name().get()));
 
-    m_buttonGroup->addButton(checkBox,i);
+    m_buttonGroup->addButton(checkBox, i);
 
     scrollLayout->addWidget(checkBox);
 
@@ -117,21 +111,16 @@ HVACTemplateHelperDialog::HVACTemplateHelperDialog(const model::Model & model, Q
   connect(okButton, &QPushButton::clicked, this, &HVACTemplateHelperDialog::accept);
 }
 
-std::vector<model::ThermalZone> HVACTemplateHelperDialog::selectedZones()
-{
+std::vector<model::ThermalZone> HVACTemplateHelperDialog::selectedZones() {
   std::vector<model::ThermalZone> result;
 
   int i = 1;
 
-  for( auto it = m_zones.begin();
-       it < m_zones.end();
-       ++it )
-  {
-    QCheckBox * checkBox = qobject_cast<QCheckBox *>(m_buttonGroup->button(i));
+  for (auto it = m_zones.begin(); it < m_zones.end(); ++it) {
+    QCheckBox* checkBox = qobject_cast<QCheckBox*>(m_buttonGroup->button(i));
 
-    if( checkBox->isChecked() )
-    {
-      result.push_back( *it );
+    if (checkBox->isChecked()) {
+      result.push_back(*it);
     }
 
     i++;
@@ -140,4 +129,4 @@ std::vector<model::ThermalZone> HVACTemplateHelperDialog::selectedZones()
   return result;
 }
 
-} // openstudio
+}  // namespace openstudio

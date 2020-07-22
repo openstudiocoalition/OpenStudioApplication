@@ -54,20 +54,23 @@ class MainRightColumnController : public OSQObjectController
   Q_OBJECT
 
   public:
+  MainRightColumnController(const model::Model& model, const openstudio::path& resourcesPath);
 
-  MainRightColumnController(const model::Model & model, const openstudio::path &resourcesPath);
+  virtual ~MainRightColumnController(){};
 
-  virtual ~MainRightColumnController() {};
-
-  HorizontalTabWidget * mainRightColumnView() const;
+  HorizontalTabWidget* mainRightColumnView() const;
 
   QSharedPointer<LocalLibraryController> measureLibraryController();
 
   void hideMyModelTab(bool hide);
 
-  bool isMyModelTabHidden(){return m_myModelTabIsHidden;}
+  bool isMyModelTabHidden() {
+    return m_myModelTabIsHidden;
+  }
 
-  std::shared_ptr<InspectorController> inspectorController() { return m_inspectorController; };
+  std::shared_ptr<InspectorController> inspectorController() {
+    return m_inspectorController;
+  };
 
   enum RightColumnTabID
   {
@@ -78,15 +81,15 @@ class MainRightColumnController : public OSQObjectController
 
   // Methods to store and retrieve SystemItem objects.
   // These are used to get plenum colors and potentially other tasks.
-  void registerSystemItem(const Handle & systemHandle, SystemItem * systemItem);
-  void unregisterSystemItem(const Handle & systemHandle);
-  SystemItem * systemItem(const Handle & systemHandle) const;
+  void registerSystemItem(const Handle& systemHandle, SystemItem* systemItem);
+  void unregisterSystemItem(const Handle& systemHandle);
+  SystemItem* systemItem(const Handle& systemHandle) const;
 
   signals:
 
   void toggleUnitsClicked(bool displayIP);
 
-  void itemRemoveClicked(OSItem *);
+  void itemRemoveClicked(OSItem*);
 
   public slots:
 
@@ -122,9 +125,9 @@ class MainRightColumnController : public OSQObjectController
 
   void configureForResultsSummarySubTab(int subTabID);
 
-  void inspectModelObject(model::OptionalModelObject & modelObject, bool readOnly);
+  void inspectModelObject(model::OptionalModelObject& modelObject, bool readOnly);
 
-  void inspectModelObjectByItem(OSItem * item, bool readOnly);
+  void inspectModelObjectByItem(OSItem* item, bool readOnly);
 
   void toggleUnits(bool displayIP);
 
@@ -135,26 +138,25 @@ class MainRightColumnController : public OSQObjectController
   QSharedPointer<EditController> measuresEditController();
 
   private:
-
   REGISTER_LOGGER("openstudio.openstudio_lib.MainRightColumnController");
 
-  void setMyModelView(QWidget * widget);
+  void setMyModelView(QWidget* widget);
 
-  void setLibraryView(QWidget * widget);
+  void setLibraryView(QWidget* widget);
 
-  void setEditView(QWidget * widget);
+  void setEditView(QWidget* widget);
 
-  HorizontalTabWidget * m_horizontalTabWidget;
+  HorizontalTabWidget* m_horizontalTabWidget;
 
   std::shared_ptr<InspectorController> m_inspectorController;
 
-  QStackedWidget * m_myModelView;
+  QStackedWidget* m_myModelView;
 
-  QStackedWidget * m_libraryView;
+  QStackedWidget* m_libraryView;
 
-  QStackedWidget * m_editView;
+  QStackedWidget* m_editView;
 
-  std::map<Handle,SystemItem *> m_systemItemMap;
+  std::map<Handle, SystemItem*> m_systemItemMap;
 
   model::Model m_model;
 
@@ -166,19 +168,19 @@ class MainRightColumnController : public OSQObjectController
 
   bool m_myModelTabIsHidden;
 
-  OSItem * m_item = nullptr;
+  OSItem* m_item = nullptr;
 
   private slots:
 
-  void onItemRemoveClicked(OSItem *);
+  void onItemRemoveClicked(OSItem*);
 
-  void emitItemRemoveClicked(OSItem *);
+  void emitItemRemoveClicked(OSItem*);
 
   void onRemoveButtonClicked(bool checked);
 
   void onWorkspaceObjectRemoved();
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_MAINRIGHTCOLUMNCONTROLLER_HPP
+#endif  // OPENSTUDIO_MAINRIGHTCOLUMNCONTROLLER_HPP

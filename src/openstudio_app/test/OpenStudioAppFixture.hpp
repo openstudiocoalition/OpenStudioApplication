@@ -35,8 +35,9 @@
 #include <openstudio/utilities/core/Logger.hpp>
 #include <openstudio/utilities/core/FileLogSink.hpp>
 
-class OpenStudioAppFixture : public ::testing::Test {
- protected:
+class OpenStudioAppFixture : public ::testing::Test
+{
+  protected:
   // initialize for each test
   virtual void SetUp() override;
 
@@ -53,4 +54,4 @@ class OpenStudioAppFixture : public ::testing::Test {
   static boost::optional<openstudio::FileLogSink> logFile;
 };
 
-#endif // OPENSTUDIO_TEST_OPENSTUDIOAPPFIXTURE_HPP
+#endif  // OPENSTUDIO_TEST_OPENSTUDIOAPPFIXTURE_HPP

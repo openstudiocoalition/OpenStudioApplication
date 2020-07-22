@@ -40,30 +40,22 @@
 
 namespace openstudio {
 
-OSItemId bclComponentToItemId(const openstudio::BCLComponent & component)
-{
-  OSItemId itemId(QString::fromStdString(component.uid()),OSItemId::BCL_SOURCE_ID,false);
+OSItemId bclComponentToItemId(const openstudio::BCLComponent& component) {
+  OSItemId itemId(QString::fromStdString(component.uid()), OSItemId::BCL_SOURCE_ID, false);
 
   return itemId;
 }
 
-BCLComponentItem::BCLComponentItem( const BCLComponent & component,
-                                    OSItemType type,
-                                    QWidget * parent )
-  : OSItem(bclComponentToItemId(component),type,parent),
-    m_bclComponent(component)
-{
+BCLComponentItem::BCLComponentItem(const BCLComponent& component, OSItemType type, QWidget* parent)
+  : OSItem(bclComponentToItemId(component), type, parent), m_bclComponent(component) {
   setText(QString::fromStdString(m_bclComponent.name()));
 
   m_measureBadge->setMeasureBadgeType(MeasureBadgeType::BCLMeasure);
 }
 
-bool BCLComponentItem::equal(const openstudio::OSItem * item) const
-{
-  if( item->itemId().sourceId() == OSItemId::BCL_SOURCE_ID )
-  {
-    if( item->itemId().itemId() == itemId().itemId() )
-    {
+bool BCLComponentItem::equal(const openstudio::OSItem* item) const {
+  if (item->itemId().sourceId() == OSItemId::BCL_SOURCE_ID) {
+    if (item->itemId().itemId() == itemId().itemId()) {
       return true;
     }
   }
@@ -71,4 +63,4 @@ bool BCLComponentItem::equal(const openstudio::OSItem * item) const
   return false;
 }
 
-} // openstudio
+}  // namespace openstudio

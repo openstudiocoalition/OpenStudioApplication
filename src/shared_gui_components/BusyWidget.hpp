@@ -44,8 +44,7 @@ class BusyWidget : public QWidget
   Q_OBJECT
 
   public:
-
-  BusyWidget(QWidget * parent = nullptr);
+  BusyWidget(QWidget* parent = nullptr);
 
   virtual ~BusyWidget() {}
 
@@ -56,17 +55,14 @@ class BusyWidget : public QWidget
   void rotate();
 
   protected:
-
-  void paintEvent ( QPaintEvent * event ) override;
+  void paintEvent(QPaintEvent* event) override;
 
   private:
-
   std::shared_ptr<QPixmap> m_pixmap;
 
   float m_rotation;
-
 };
 
-} // namespace openstudio
+}  // namespace openstudio
 
-#endif // SHAREDGUICOMPONENTS_BUSYWIDGET_HPP
+#endif  // SHAREDGUICOMPONENTS_BUSYWIDGET_HPP

@@ -37,34 +37,25 @@
 
 namespace openstudio {
 
-TextEditDialog::TextEditDialog(const QString & windowTitle,
-  const QString & windowMessage,
-  QWidget* parent)
-  : OSDialog(false, parent),
-  m_windowMessage(windowMessage)
-{
+TextEditDialog::TextEditDialog(const QString& windowTitle, const QString& windowMessage, QWidget* parent)
+  : OSDialog(false, parent), m_windowMessage(windowMessage) {
   setWindowTitle(windowTitle);
   setWindowModality(Qt::ApplicationModal);
   setSizeGripEnabled(true);
   createWidgets();
 }
 
-TextEditDialog::~TextEditDialog()
-{
-}
+TextEditDialog::~TextEditDialog() {}
 
-QString TextEditDialog::text()
-{
+QString TextEditDialog::text() {
   return m_textEdit->toPlainText();
 }
 
-void TextEditDialog::setText(const QString & text)
-{
+void TextEditDialog::setText(const QString& text) {
   m_textEdit->setText(text);
 }
 
-void TextEditDialog::createWidgets()
-{
+void TextEditDialog::createWidgets() {
   m_textEdit = new QTextEdit(m_windowMessage);
   m_textEdit->setReadOnly(true);
   setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -77,12 +68,11 @@ void TextEditDialog::createWidgets()
 
   // OS SETTINGS
 
-  #ifdef Q_OS_DARWIN
-    setWindowFlags(Qt::FramelessWindowHint);
-  #elif defined(Q_OS_WIN)
-    setWindowFlags(Qt::WindowCloseButtonHint);
-  #endif
-
+#ifdef Q_OS_DARWIN
+  setWindowFlags(Qt::FramelessWindowHint);
+#elif defined(Q_OS_WIN)
+  setWindowFlags(Qt::WindowCloseButtonHint);
+#endif
 }
 
-} // openstudio
+}  // namespace openstudio

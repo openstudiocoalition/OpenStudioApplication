@@ -53,8 +53,7 @@
 using namespace openstudio::model;
 using namespace openstudio;
 
-TEST_F(ModelEditorFixture, ModalDialogs_EmptyModel_Cancel)
-{
+TEST_F(ModelEditorFixture, ModalDialogs_EmptyModel_Cancel) {
   Model model;
 
   std::vector<IddObjectType> typesToDisplay;
@@ -74,9 +73,7 @@ TEST_F(ModelEditorFixture, ModalDialogs_EmptyModel_Cancel)
   EXPECT_FALSE(watcher.selectedModelObject());
 }
 
-
-TEST_F(ModelEditorFixture, ModalDialogs_EmptyModel_Ok)
-{
+TEST_F(ModelEditorFixture, ModalDialogs_EmptyModel_Ok) {
   Model model;
 
   std::vector<IddObjectType> typesToDisplay;
@@ -96,9 +93,7 @@ TEST_F(ModelEditorFixture, ModalDialogs_EmptyModel_Ok)
   EXPECT_FALSE(watcher.selectedModelObject());
 }
 
-
-TEST_F(ModelEditorFixture, ModalDialogs_Cancel)
-{
+TEST_F(ModelEditorFixture, ModalDialogs_Cancel) {
   Model model;
   Space space1(model);
   Space space2(model);
@@ -121,9 +116,7 @@ TEST_F(ModelEditorFixture, ModalDialogs_Cancel)
   EXPECT_FALSE(watcher.selectedModelObject());
 }
 
-
-TEST_F(ModelEditorFixture, ModalDialogs_Ok)
-{
+TEST_F(ModelEditorFixture, ModalDialogs_Ok) {
   Model model;
   Space space1(model);
   Space space2(model);
@@ -147,9 +140,7 @@ TEST_F(ModelEditorFixture, ModalDialogs_Ok)
   EXPECT_EQ(space1.handle(), watcher.selectedModelObject()->handle());
 }
 
-
-TEST_F(ModelEditorFixture, ModalDialogs_EnsureSpaceLoadDefinition_EmptyModel)
-{
+TEST_F(ModelEditorFixture, ModalDialogs_EnsureSpaceLoadDefinition_EmptyModel) {
   Model model;
   EXPECT_TRUE(model.addObject(IdfObject(IddObjectType::OS_Lights)));
 
@@ -190,8 +181,7 @@ TEST_F(ModelEditorFixture, ModalDialogs_EnsureSpaceLoadDefinition)
 }
 */
 
-TEST_F(ModelEditorFixture, ModalDialogs_EnsureSpaceLoadDefinition_WithDefinition)
-{
+TEST_F(ModelEditorFixture, ModalDialogs_EnsureSpaceLoadDefinition_WithDefinition) {
   Model model;
   LightsDefinition definition1(model);
   LightsDefinition definition2(model);

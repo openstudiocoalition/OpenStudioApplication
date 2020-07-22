@@ -35,28 +35,24 @@
 
 namespace openstudio {
 
-OSItemId bclComponentToItemId(const BCLComponent & component);
+OSItemId bclComponentToItemId(const BCLComponent& component);
 
 class BCLComponentItem : public OSItem
 {
   Q_OBJECT
 
-public:
-
-  BCLComponentItem( const BCLComponent & component,
-                    OSItemType type,
-                    QWidget * parent = nullptr );
+  public:
+  BCLComponentItem(const BCLComponent& component, OSItemType type, QWidget* parent = nullptr);
   virtual ~BCLComponentItem() {}
 
-  virtual bool equal(const openstudio::OSItem *) const override;
+  virtual bool equal(const openstudio::OSItem*) const override;
 
-private:
-
+  private:
   BCLComponent m_bclComponent;
 
   //openstudio::Handle m_handle;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_BCLCOMPONENTITEM_HPP
+#endif  // OPENSTUDIO_BCLCOMPONENTITEM_HPP

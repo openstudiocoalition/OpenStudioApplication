@@ -39,83 +39,74 @@
 
 class QLineEdit;
 
-namespace openstudio{
+namespace openstudio {
 
-  class FacilityStoriesGridController;
+class FacilityStoriesGridController;
 
-  class FacilityStoriesGridView : public GridViewSubTab
-  {
-    Q_OBJECT
+class FacilityStoriesGridView : public GridViewSubTab
+{
+  Q_OBJECT
 
   public:
+  FacilityStoriesGridView(bool isIP, const model::Model& model, QWidget* parent = 0);
 
-    FacilityStoriesGridView(bool isIP, const model::Model & model, QWidget * parent = 0);
-
-    virtual ~FacilityStoriesGridView() {}
+  virtual ~FacilityStoriesGridView() {}
 
   private:
+  REGISTER_LOGGER("openstudio.FacilityStoriesGridView");
 
-    REGISTER_LOGGER("openstudio.FacilityStoriesGridView");
+  virtual void addObject(const IddObjectType& iddObjectType) override;
 
-    virtual void addObject(const IddObjectType& iddObjectType) override;
+  virtual void purgeObjects(const IddObjectType& iddObjectType) override;
 
-    virtual void purgeObjects(const IddObjectType& iddObjectType) override;
+  void filterChanged();
 
-    void filterChanged();
+  QLineEdit* m_lessThanFilter = nullptr;
 
-    QLineEdit *  m_lessThanFilter = nullptr;
+  QLineEdit* m_greaterThanFilter = nullptr;
 
-    QLineEdit *  m_greaterThanFilter = nullptr;
+  protected slots:
 
-  protected slots :
+  virtual void onSelectItem() override;
 
-    virtual void onSelectItem() override;
+  virtual void onClearSelection() override;
 
-    virtual void onClearSelection() override;
+  private slots:
 
-  private slots :
+  void greaterThanFilterChanged();
 
-    void greaterThanFilterChanged();
+  void lessThanFilterChanged();
+};
 
-    void lessThanFilterChanged();
+class FacilityStoriesGridController : public OSGridController
+{
 
-  };
-
-  class FacilityStoriesGridController : public OSGridController
-  {
-
-    Q_OBJECT
+  Q_OBJECT
 
   public:
+  FacilityStoriesGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model model,
+                                std::vector<model::ModelObject> modelObjects);
 
-    FacilityStoriesGridController(bool isIP,
-      const QString & headerText,
-      IddObjectType iddObjectType,
-      model::Model model,
-      std::vector<model::ModelObject> modelObjects);
+  virtual ~FacilityStoriesGridController() {}
 
-    virtual ~FacilityStoriesGridController() {}
+  virtual void refreshModelObjects();
 
-    virtual void refreshModelObjects();
-
-    virtual void categorySelected(int index);
+  virtual void categorySelected(int index);
 
   protected:
+  virtual void setCategoriesAndFields();
 
-    virtual void setCategoriesAndFields();
+  virtual void addColumns(const QString& category, std::vector<QString>& fields);
 
-    virtual void addColumns(const QString &category, std::vector<QString> & fields);
+  virtual void checkSelectedFields();
 
-    virtual void checkSelectedFields();
-
-    virtual QString getColor(const model::ModelObject & modelObject);
+  virtual QString getColor(const model::ModelObject& modelObject);
 
   public slots:
 
-    virtual void onItemDropped(const OSItemId& itemId);
+  virtual void onItemDropped(const OSItemId& itemId);
+};
 
-  };
+}  // namespace openstudio
 
-} // openstudio
-
-#endif // OPENSTUDIO_FACILITYSTORIESGRIDVIEW_HPP
+#endif  // OPENSTUDIO_FACILITYSTORIESGRIDVIEW_HPP

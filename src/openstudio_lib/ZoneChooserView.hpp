@@ -50,39 +50,35 @@ class ZoneChooserView : public QWidget
   Q_OBJECT;
 
   public:
-
   ZoneChooserView(QWidget* parent = nullptr);
 
   virtual ~ZoneChooserView() {}
 
-  ZoneChooserItem * zoneChooserItemForZone(std::string zoneName);
+  ZoneChooserItem* zoneChooserItemForZone(std::string zoneName);
 
   void layoutView();
 
   public slots:
 
-  void layoutModelObject(model::ModelObject & modelObject);
+  void layoutModelObject(model::ModelObject& modelObject);
 
   signals:
 
-  void addZoneClicked(model::ThermalZone &);
+  void addZoneClicked(model::ThermalZone&);
 
-  void removeZoneClicked(model::ThermalZone &);
+  void removeZoneClicked(model::ThermalZone&);
 
   protected:
-
-  void paintEvent ( QPaintEvent * event ) override;
+  void paintEvent(QPaintEvent* event) override;
 
   private:
-
   model::OptionalAirLoopHVACZoneSplitter m_splitter;
 
   model::OptionalAirLoopHVACZoneMixer m_mixer;
 
-  QVBoxLayout * m_vLayout;
+  QVBoxLayout* m_vLayout;
 
-  std::vector<ZoneChooserItem *> m_zoneChooserItems;
-
+  std::vector<ZoneChooserItem*> m_zoneChooserItems;
 };
 
 class ZoneChooserItem : public QWidget
@@ -90,8 +86,7 @@ class ZoneChooserItem : public QWidget
   Q_OBJECT;
 
   public:
-
-  ZoneChooserItem(model::ThermalZone &, ZoneChooserView * parent = nullptr);
+  ZoneChooserItem(model::ThermalZone&, ZoneChooserView* parent = nullptr);
 
   virtual ~ZoneChooserItem() {}
 
@@ -99,27 +94,26 @@ class ZoneChooserItem : public QWidget
 
   signals:
 
-  void addZoneClicked(model::ThermalZone &);
+  void addZoneClicked(model::ThermalZone&);
 
-  void removeZoneClicked(model::ThermalZone &);
+  void removeZoneClicked(model::ThermalZone&);
 
   public slots:
 
-  void setChecked( bool checked );
+  void setChecked(bool checked);
 
   private slots:
 
-  void sendClickedSignal( bool checked );
+  void sendClickedSignal(bool checked);
 
   private:
+  QCheckBox* m_checkBox;
 
-  QCheckBox * m_checkBox;
-
-  ZoneChooserView * m_zoneChooserView;
+  ZoneChooserView* m_zoneChooserView;
 
   model::ThermalZone m_thermalZone;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_ZONECHOOSERVIEW_HPP
+#endif  // OPENSTUDIO_ZONECHOOSERVIEW_HPP

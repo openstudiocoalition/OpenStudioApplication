@@ -42,18 +42,11 @@
 
 #include <openstudio/utilities/core/Assert.hpp>
 
-namespace modeleditor
-{
+namespace modeleditor {
 
-ViewWidget::ViewWidget(QWidget *parent)
-  : QWidget(parent),
-  mSplitter(nullptr),
-  mIG(nullptr),
-  mIGPrecisionDlg(nullptr),
-  mModelExplorer(nullptr),
-  mModelDirty(false)
-{
-  mModelExplorer = qobject_cast<ModelExplorer *>(this->parent());
+ViewWidget::ViewWidget(QWidget* parent)
+  : QWidget(parent), mSplitter(nullptr), mIG(nullptr), mIGPrecisionDlg(nullptr), mModelExplorer(nullptr), mModelDirty(false) {
+  mModelExplorer = qobject_cast<ModelExplorer*>(this->parent());
   OS_ASSERT(mModelExplorer);
 
   createWidgets();
@@ -61,16 +54,9 @@ ViewWidget::ViewWidget(QWidget *parent)
   connectSignalsAndSlots();
 }
 
-ViewWidget::ViewWidget(openstudio::model::Model model, QWidget *parent)
-  : QWidget(parent),
-  mSplitter(nullptr),
-  mIG(nullptr),
-  mIGPrecisionDlg(nullptr),
-  mModelExplorer(nullptr),
-  mModel(model),
-  mModelDirty(false)
-{
-  mModelExplorer = qobject_cast<ModelExplorer *>(this->parent());
+ViewWidget::ViewWidget(openstudio::model::Model model, QWidget* parent)
+  : QWidget(parent), mSplitter(nullptr), mIG(nullptr), mIGPrecisionDlg(nullptr), mModelExplorer(nullptr), mModel(model), mModelDirty(false) {
+  mModelExplorer = qobject_cast<ModelExplorer*>(this->parent());
   OS_ASSERT(mModelExplorer);
 
   createWidgets();
@@ -78,53 +64,46 @@ ViewWidget::ViewWidget(openstudio::model::Model model, QWidget *parent)
   connectSignalsAndSlots();
 }
 
-ViewWidget::~ViewWidget()
-{
+ViewWidget::~ViewWidget() {
   saveState();
 }
 
-void ViewWidget::saveState()
-{
-  if(mSplitterSetting.length() == 0) return;
+void ViewWidget::saveState() {
+  if (mSplitterSetting.length() == 0) return;
   QString organizationName = QCoreApplication::organizationName();
   QString applicationName = QCoreApplication::applicationName();
   QSettings settings(organizationName, applicationName);
   settings.setValue(mSplitterSetting, mSplitter->saveState());
 }
 
-void ViewWidget::restoreState()
-{
-  if(mSplitterSetting.length() == 0) return;
+void ViewWidget::restoreState() {
+  if (mSplitterSetting.length() == 0) return;
   QString organizationName = QCoreApplication::organizationName();
   QString applicationName = QCoreApplication::applicationName();
   QSettings settings(organizationName, applicationName);
   mSplitter->restoreState(settings.value(mSplitterSetting).toByteArray());
 }
 
-openstudio::model::Model& ViewWidget::getModel()
-{
+openstudio::model::Model& ViewWidget::getModel() {
   return mModel;
 }
 
-const openstudio::IddFile& ViewWidget::getIddFile()
-{
+const openstudio::IddFile& ViewWidget::getIddFile() {
   return mModelExplorer->getIddFile();
 }
 
-void ViewWidget::createWidgets()
-{
+void ViewWidget::createWidgets() {
   mSplitter = new QSplitter(this);
   QSplitter splitter;
-  mSplitter->setHandleWidth(2*splitter.handleWidth());
+  mSplitter->setHandleWidth(2 * splitter.handleWidth());
 
   mIG = new InspectorGadget(this);
-  mIG->setMinimumSize(300,400);
+  mIG->setMinimumSize(300, 400);
 
   mIGPrecisionDlg = new IGPrecisionDialog(this);
 }
 
-void ViewWidget::connectSignalsAndSlots()
-{
+void ViewWidget::connectSignalsAndSlots() {
   connect(mIG, &InspectorGadget::nameChanged, this, &ViewWidget::on_nameChanged);
 
   connect(this, &ViewWidget::commentsShow, mIG, &InspectorGadget::commentConfig);
@@ -142,73 +121,57 @@ void ViewWidget::connectSignalsAndSlots()
   connect(mIGPrecisionDlg, &IGPrecisionDialog::finished, this, &ViewWidget::precisionDlgFinished);
 
   connect(mIG, &InspectorGadget::dirty, this, &ViewWidget::modelDirty);
-
-
 }
 
-void ViewWidget::createLayout()
-{
+void ViewWidget::createLayout() {
   auto hLayout = new QHBoxLayout();
   hLayout->addWidget(mSplitter);
 
   setLayout(hLayout);
 }
 
-bool ViewWidget::getModelDirty()const
-{
+bool ViewWidget::getModelDirty() const {
   return mModelDirty;
 }
 
-void ViewWidget::setModelDirty(const bool modelDirty)
-{
+void ViewWidget::setModelDirty(const bool modelDirty) {
   mModelDirty = modelDirty;
 }
 
-void ViewWidget::emitModelDirty()
-{
+void ViewWidget::emitModelDirty() {
   emit modelDirty();
 }
 
-void ViewWidget::showComments(const bool showComments)
-{
+void ViewWidget::showComments(const bool showComments) {
   emit commentsShow(showComments);
 }
 
-
-void ViewWidget::showPrecisionDlg(const bool showPrecisionDlg)
-{
-  if(showPrecisionDlg){
+void ViewWidget::showPrecisionDlg(const bool showPrecisionDlg) {
+  if (showPrecisionDlg) {
     emit precisionDlgShow();
-  }
-  else{
+  } else {
     emit precisionDlgHide();
   }
 }
 
-  void ViewWidget::showAllFields(bool state)
-  {
-    mIG->showAllFields(state);
-  }
+void ViewWidget::showAllFields(bool state) {
+  mIG->showAllFields(state);
+}
 
-  void ViewWidget::createAllFields()
-  {
-    mIG->createAllFields();
-  }
+void ViewWidget::createAllFields() {
+  mIG->createAllFields();
+}
 
-  void ViewWidget::setRecursive(bool state)
-  {
-    mIG->setRecursive(state);
-  }
+void ViewWidget::setRecursive(bool state) {
+  mIG->setRecursive(state);
+}
 
 ///! Slots
 
-void ViewWidget::on_modelDirty()
-{
+void ViewWidget::on_modelDirty() {
   setModelDirty(true);
 }
 
-void ViewWidget::on_nameChanged(QString)
-{
-}
+void ViewWidget::on_nameChanged(QString) {}
 
-} // namespace modeleditor
+}  // namespace modeleditor

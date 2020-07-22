@@ -35,7 +35,7 @@
 #include <set>
 #include <vector>
 
-#include <openstudio/nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/nano/nano_signal_slot.hpp>  // Signal-Slot replacement
 #include <boost/optional.hpp>
 
 class QProgressBar;
@@ -52,60 +52,54 @@ class BuildingComponentDialogCentralWidget : public QWidget, public Nano::Observ
 {
   Q_OBJECT
 
-public:
-  BuildingComponentDialogCentralWidget(QWidget * parent = nullptr);
-  BuildingComponentDialogCentralWidget(int tid, QWidget * parent = nullptr);
+  public:
+  BuildingComponentDialogCentralWidget(QWidget* parent = nullptr);
+  BuildingComponentDialogCentralWidget(int tid, QWidget* parent = nullptr);
   virtual ~BuildingComponentDialogCentralWidget() {}
   int tid();
-  void setTid(const std::string& filterType,
-    int tids,
-    int pageIdx,
-    const QString & title,
-    const QString & string = "");
-  Component * checkedComponent() const;
+  void setTid(const std::string& filterType, int tids, int pageIdx, const QString& title, const QString& string = "");
+  Component* checkedComponent() const;
   int pageIdx();
   bool showNewComponents();
   void setShowNewComponents(bool showNewComponents);
 
-protected:
-
-private:
+  protected:
+  private:
   void createLayout();
   void init();
   void setTid();
 
   int m_tid;
-  CollapsibleComponentList * m_collapsibleComponentList;
-  ComponentList * m_componentList; // TODO cruft to be removed
-  QProgressBar * m_progressBar;
+  CollapsibleComponentList* m_collapsibleComponentList;
+  ComponentList* m_componentList;  // TODO cruft to be removed
+  QProgressBar* m_progressBar;
   std::set<std::string> m_pendingDownloads;
   std::string m_filterType;
   int m_pageIdx;
   QString m_searchString;
   bool m_showNewComponents;
 
-signals:
+  signals:
   void headerClicked(bool checked);
   void componentClicked(bool checked);
   void collapsibleComponentClicked(bool checked);
   void getComponentsByPage(int pageNum);
   void componentsReady();
   void noComponents();
-  void requestComponents(const std::string& filterType, int tids, int pageIdx, const QString & searchString);
+  void requestComponents(const std::string& filterType, int tids, int pageIdx, const QString& searchString);
 
-private slots:
+  private slots:
   void upperPushButtonClicked();
   void lowerPushButtonClicked();
-  void comboBoxIndexChanged(const QString & text);
+  void comboBoxIndexChanged(const QString& text);
   void on_headerClicked(bool checked);
   void componentDownloadComplete(const std::string& uid, const boost::optional<BCLComponent>& component);
   void measureDownloadComplete(const std::string& uid, const boost::optional<BCLMeasure>& measure);
   void on_componentClicked(bool checked);
   void on_collapsibleComponentClicked(bool checked);
   void on_getComponentsByPage(int pageIdx);
-
 };
 
-} // namespace openstudio
+}  // namespace openstudio
 
-#endif // SHAREDGUICOMPONENTS_BUILDINGCOMPONENTDIALOGCENTRALWIDGET_HPP
+#endif  // SHAREDGUICOMPONENTS_BUILDINGCOMPONENTDIALOGCENTRALWIDGET_HPP

@@ -46,41 +46,37 @@ class MaterialAirGapInspectorView : public ModelObjectInspectorView
   Q_OBJECT
 
   public:
+  MaterialAirGapInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
-    MaterialAirGapInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent = nullptr);
-
-    virtual ~MaterialAirGapInspectorView() {}
+  virtual ~MaterialAirGapInspectorView() {}
 
   protected:
+  virtual void onClearSelection() override;
 
-    virtual void onClearSelection() override;
+  virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
-    virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
-
-    virtual void onUpdate() override;
+  virtual void onUpdate() override;
 
   private:
+  void createLayout();
 
-    void createLayout();
+  void attach(openstudio::model::AirGap& airGap);
 
-    void attach(openstudio::model::AirGap & airGap);
+  void detach();
 
-    void detach();
+  void refresh();
 
-    void refresh();
+  bool m_isIP;
 
-    bool m_isIP;
+  boost::optional<model::AirGap> m_airGap;
 
-    boost::optional<model::AirGap> m_airGap;
+  OSLineEdit2* m_nameEdit = nullptr;
 
-    OSLineEdit2 * m_nameEdit = nullptr;
+  OSQuantityEdit2* m_thermalResistance = nullptr;
 
-    OSQuantityEdit2 * m_thermalResistance = nullptr;
-
-    StandardsInformationMaterialWidget * m_standardsInformationWidget = nullptr;
-
+  StandardsInformationMaterialWidget* m_standardsInformationWidget = nullptr;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_MATERIALAIRGAPINSPECTORVIEW_HPP
+#endif  // OPENSTUDIO_MATERIALAIRGAPINSPECTORVIEW_HPP

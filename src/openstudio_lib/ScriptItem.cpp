@@ -41,21 +41,16 @@
 #include <QDir>
 #include <QMessageBox>
 
-
-
 namespace openstudio {
 
-OSItemId scriptToItemId(const openstudio::path &t_path)
-{
+OSItemId scriptToItemId(const openstudio::path& t_path) {
   return OSItemId(openstudio::toQString(t_path), openstudio::toQString(t_path.parent_path().filename()), false, "");
 }
 
-ScriptItem::ScriptItem(const openstudio::path& path,
-                       OSItemType type,
-                       QWidget * parent)
+ScriptItem::ScriptItem(const openstudio::path& path, OSItemType type, QWidget* parent)
   : OSItem(scriptToItemId(path), type, parent),
     m_removed(false)
-    //m_scriptInfo(path, true, false)
+//m_scriptInfo(path, true, false)
 {
   setText(openstudio::toQString(path.filename()));
   setLeftPixmap(QPixmap(":/images/icon_scripts.png"));
@@ -70,7 +65,6 @@ ScriptItem::ScriptItem(const openstudio::path& path,
   //    m_scriptInfo = e.scriptInfo;
   //  }
   //}
-
 
   //std::shared_ptr<OSDocument> osDoc = OSAppBase::instance()->currentDocument();
   //connect(this, &ScriptItem::argChanged, osDoc.get(), &OSDocument::markAsModified);
@@ -117,7 +111,6 @@ void ScriptItem::setIsUserScript(bool isUserScript) {
 //  }
 //}
 
-
 std::vector<measure::OSArgument> ScriptItem::osArguments() const {
   measure::OSArgumentVector result;
   //for (const auto & elem : m_scriptInfo.arguments)
@@ -139,8 +132,7 @@ openstudio::path ScriptItem::resourcesPath() const {
   return openstudio::path();
 }
 
-void ScriptItem::setOSArgument(const measure::OSArgument& arg)
-{
+void ScriptItem::setOSArgument(const measure::OSArgument& arg) {
   //m_scriptInfo.arguments[arg.name()] = arg;
   //m_scriptInfo.argsChanged = true;
   //emit argChanged();
@@ -158,7 +150,6 @@ void ScriptItem::saveArgumentsToDb() {
   //}
 }
 
-
 void ScriptItem::deleteDb() {
   m_removed = true;
   if (openstudio::filesystem::exists(argsDbPath())) {
@@ -171,23 +162,18 @@ bool ScriptItem::removed() const {
   return m_removed;
 }
 
-bool ScriptItem::equal(const openstudio::OSItem* otherItem) const
-{
+bool ScriptItem::equal(const openstudio::OSItem* otherItem) const {
   if (otherItem) {
     return otherItem->itemId() == itemId();
   }
   return false;
-
 }
 
-void ScriptItem::onObjectChanged()
-{
+void ScriptItem::onObjectChanged() {
   //this->setText(openstudio::toQString(m_scriptInfo.scriptPath.filename()));
 }
 
-
-bool ScriptItem::updateArgumentsFromDb()
-{
+bool ScriptItem::updateArgumentsFromDb() {
   //try {
   //  m_scriptInfo = runmanager::RubyJobBuilder::updateArgumentsFromDb(m_scriptInfo);
   //} catch (const runmanager::ScriptDetectionError &e) {
@@ -202,8 +188,4 @@ bool ScriptItem::updateArgumentsFromDb()
   return false;
 }
 
-
-
-
-
-} // openstudio
+}  // namespace openstudio

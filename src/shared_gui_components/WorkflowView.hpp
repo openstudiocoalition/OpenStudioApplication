@@ -46,10 +46,10 @@ class MeasureType;
 
 namespace measuretab {
 
-  class WorkflowSectionContentView;
-  class WorkflowStepButton;
+class WorkflowSectionContentView;
+class WorkflowStepButton;
 
-} // measuretab
+}  // namespace measuretab
 
 namespace measuretab {
 
@@ -59,29 +59,26 @@ class RectangularDropZone : public QWidget
   Q_OBJECT
 
   public:
-
   RectangularDropZone();
 
   virtual ~RectangularDropZone() {}
 
-  void setAcceptedMimeType(const QString & type);
+  void setAcceptedMimeType(const QString& type);
 
-  QLabel * nameLabel;
+  QLabel* nameLabel;
 
   signals:
 
-  void dataDropped(QDropEvent * event);
+  void dataDropped(QDropEvent* event);
 
   protected:
+  void paintEvent(QPaintEvent*) override;
 
-  void paintEvent(QPaintEvent *) override;
+  void dropEvent(QDropEvent* event) override;
 
-  void dropEvent(QDropEvent * event) override;
-
-  void dragEnterEvent(QDragEnterEvent * event) override;
+  void dragEnterEvent(QDragEnterEvent* event) override;
 
   private:
-
   QString m_acceptedMimeType;
 };
 
@@ -91,7 +88,6 @@ class NewMeasureDropZone : public RectangularDropZone
   Q_OBJECT
 
   public:
-
   NewMeasureDropZone();
 
   virtual ~NewMeasureDropZone() {}
@@ -103,14 +99,13 @@ class WorkflowSectionView : public OSCollapsibleView
   Q_OBJECT
 
   public:
-
   WorkflowSectionView(MeasureType measureType);
 
   virtual ~WorkflowSectionView() {}
 
-  LightGradientHeader * header;
+  LightGradientHeader* header;
 
-  WorkflowSectionContentView * content;
+  WorkflowSectionContentView* content;
 };
 
 class WorkflowSectionContentView : public QWidget
@@ -118,15 +113,13 @@ class WorkflowSectionContentView : public QWidget
   Q_OBJECT
 
   public:
-
   WorkflowSectionContentView();
 
   virtual ~WorkflowSectionContentView() {}
 
-  OSListView * workflowStepsView;
+  OSListView* workflowStepsView;
 
-  NewMeasureDropZone * newMeasureDropZone;
-
+  NewMeasureDropZone* newMeasureDropZone;
 };
 
 // WorkflowStepView displays a WorkflowStepItem
@@ -134,26 +127,23 @@ class WorkflowStepView : public QWidget
 {
   Q_OBJECT
 
-public:
-
+  public:
   WorkflowStepView();
 
   virtual ~WorkflowStepView() {}
 
-  WorkflowStepButton * workflowStepButton;
+  WorkflowStepButton* workflowStepButton;
 
-  QPushButton * duplicateButton;
+  QPushButton* duplicateButton;
 
-  QPushButton * removeButton;
+  QPushButton* removeButton;
 
-  QPushButton * upButton;
+  QPushButton* upButton;
 
-  QPushButton * downButton;
+  QPushButton* downButton;
 
-protected:
-
-  void paintEvent(QPaintEvent *) override;
-
+  protected:
+  void paintEvent(QPaintEvent*) override;
 };
 
 class WorkflowStepButton : public QAbstractButton
@@ -161,27 +151,24 @@ class WorkflowStepButton : public QAbstractButton
   Q_OBJECT
 
   public:
-
   WorkflowStepButton();
 
   virtual ~WorkflowStepButton() {}
 
-  QLabel * nameLabel;
+  QLabel* nameLabel;
 
-  QLabel * cautionLabel;
+  QLabel* cautionLabel;
 
   public slots:
 
   void setHasEmphasis(bool hasEmphasis);
 
   protected:
-
-  void paintEvent(QPaintEvent * e) override;
+  void paintEvent(QPaintEvent* e) override;
 };
 
+}  // namespace measuretab
 
-} // measuretab
+}  // namespace openstudio
 
-} // openstudio
-
-#endif // SHAREDGUICOMPONENTS_WORKFLOWVIEW_HPP
+#endif  // SHAREDGUICOMPONENTS_WORKFLOWVIEW_HPP

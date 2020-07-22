@@ -38,12 +38,11 @@ class SpaceTypesTabView : public MainTabView
 {
   Q_OBJECT
 
-public:
-  SpaceTypesTabView(QWidget * parent = nullptr);
+  public:
+  SpaceTypesTabView(QWidget* parent = nullptr);
   virtual ~SpaceTypesTabView() {}
-
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_SPACETYPESTABVIEW_HPP
+#endif  // OPENSTUDIO_SPACETYPESTABVIEW_HPP

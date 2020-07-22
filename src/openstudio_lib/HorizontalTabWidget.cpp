@@ -44,16 +44,14 @@
 
 namespace openstudio {
 
-HorizontalTabWidget::HorizontalTabWidget(QWidget * parent)
-  : QWidget(parent)
-{
+HorizontalTabWidget::HorizontalTabWidget(QWidget* parent) : QWidget(parent) {
   //setObjectName("GrayWidget");
 
   auto mainLayout = new QVBoxLayout();
 
   mainLayout->setSpacing(0);
 
-  mainLayout->setContentsMargins(0,0,0,0);
+  mainLayout->setContentsMargins(0, 0, 0, 0);
 
   setLayout(mainLayout);
 
@@ -63,7 +61,7 @@ HorizontalTabWidget::HorizontalTabWidget(QWidget * parent)
 
   m_tabBar->setFixedHeight(31);
 
-  m_tabBar->setContentsMargins(0,0,0,0);
+  m_tabBar->setContentsMargins(0, 0, 0, 0);
 
   layout()->addWidget(m_tabBar);
 
@@ -73,7 +71,7 @@ HorizontalTabWidget::HorizontalTabWidget(QWidget * parent)
 
   m_tabBarLine->setFixedHeight(5);
 
-  m_tabBarLine->move(0,m_tabBar->height() - 5);
+  m_tabBarLine->move(0, m_tabBar->height() - 5);
 
   m_tabBarLine->setStyleSheet("QWidget { border-top: 1px solid black; background-color: #95B3DE; }");
 
@@ -83,16 +81,12 @@ HorizontalTabWidget::HorizontalTabWidget(QWidget * parent)
 
   m_pageStack->setObjectName("GrayWidget");
 
-  m_pageStack->setContentsMargins(0,0,0,0);
+  m_pageStack->setContentsMargins(0, 0, 0, 0);
 
   layout()->addWidget(m_pageStack);
 }
 
-
-void HorizontalTabWidget::addTab( QWidget * widget,
-                                  int id,
-                                  const QString & label )
-{
+void HorizontalTabWidget::addTab(QWidget* widget, int id, const QString& label) {
   auto button = new QPushButton(m_tabBar);
 
   button->setText(label);
@@ -110,22 +104,15 @@ void HorizontalTabWidget::addTab( QWidget * widget,
   setCurrentIndex(0);
 }
 
-void HorizontalTabWidget::select()
-{
-  QPushButton * button = qobject_cast<QPushButton *>(sender());
+void HorizontalTabWidget::select() {
+  QPushButton* button = qobject_cast<QPushButton*>(sender());
 
   int index = 0;
 
-  for( auto it = m_tabButtons.begin();
-       it < m_tabButtons.end();
-       ++it )
-  {
-    if( *it == button )
-    {
+  for (auto it = m_tabButtons.begin(); it < m_tabButtons.end(); ++it) {
+    if (*it == button) {
       break;
-    }
-    else
-    {
+    } else {
       index++;
     }
   }
@@ -133,28 +120,24 @@ void HorizontalTabWidget::select()
   setCurrentIndex(index);
 }
 
-void HorizontalTabWidget::setCurrentId(int id)
-{
+void HorizontalTabWidget::setCurrentId(int id) {
   std::vector<int>::iterator it;
 
-  it = std::find(m_ids.begin(),m_ids.end(),id);
+  it = std::find(m_ids.begin(), m_ids.end(), id);
 
-  if( it != m_ids.end() )
-  {
+  if (it != m_ids.end()) {
     setCurrentIndex(*it);
   }
 }
 
-void HorizontalTabWidget::setCurrentIndex(int index)
-{
+void HorizontalTabWidget::setCurrentIndex(int index) {
   int xPos = 0;
 
-  for(unsigned i = 0; i < m_tabButtons.size(); i++)
-  {
-    QPushButton * button = m_tabButtons[i];
+  for (unsigned i = 0; i < m_tabButtons.size(); i++) {
+    QPushButton* button = m_tabButtons[i];
 
-    if(button->isHidden()){
-      button->move(0,0);
+    if (button->isHidden()) {
+      button->move(0, 0);
       continue;
     }
 
@@ -167,8 +150,7 @@ void HorizontalTabWidget::setCurrentIndex(int index)
     style.append("              padding-right: 10px;");
     style.append("              padding-top: 5px;");
     style.append("              color: white;");
-    if( i == m_tabButtons.size() - 1 )
-    {
+    if (i == m_tabButtons.size() - 1) {
       style.append("            border-right: none;");
     }
     style.append("}");
@@ -177,7 +159,7 @@ void HorizontalTabWidget::setCurrentIndex(int index)
 
     button->adjustSize();
 
-    button->move(xPos,0);
+    button->move(xPos, 0);
 
     xPos = xPos + button->width();
   }
@@ -185,7 +167,7 @@ void HorizontalTabWidget::setCurrentIndex(int index)
   m_tabBarLine->setFixedWidth(xPos);
   m_tabBarLine->raise();
 
-  QPushButton * button = m_tabButtons[index];
+  QPushButton* button = m_tabButtons[index];
 
   QString style;
 
@@ -195,8 +177,7 @@ void HorizontalTabWidget::setCurrentIndex(int index)
   style.append("              padding-right: 10px;");
   style.append("              padding-top: 5px;");
   style.append("              color: white;");
-  if( index == int(m_tabButtons.size() - 1) )
-  {
+  if (index == int(m_tabButtons.size() - 1)) {
     style.append("            border-right: none;");
   }
   style.append("}");
@@ -207,29 +188,26 @@ void HorizontalTabWidget::setCurrentIndex(int index)
   m_pageStack->setCurrentIndex(index);
 }
 
-void HorizontalTabWidget::setCurrentWidget(QWidget * widget)
-{
+void HorizontalTabWidget::setCurrentWidget(QWidget* widget) {
   int i = m_pageStack->indexOf(widget);
 
   setCurrentIndex(i);
 }
 
-void HorizontalTabWidget::paintEvent ( QPaintEvent * event )
-{
+void HorizontalTabWidget::paintEvent(QPaintEvent* event) {
   QStyleOption opt;
   opt.init(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
 
-void HorizontalTabWidget::hideTab(QWidget * widget, bool hide)
-{
+void HorizontalTabWidget::hideTab(QWidget* widget, bool hide) {
   int index = m_pageStack->indexOf(widget);
   OS_ASSERT(index >= 0);
 
   int currentIndex = m_pageStack->currentIndex();
-  if(currentIndex == index){
-    if(currentIndex + 1 < m_pageStack->count()){
+  if (currentIndex == index) {
+    if (currentIndex + 1 < m_pageStack->count()) {
       currentIndex++;
     } else if (currentIndex != 0) {
       currentIndex = 0;
@@ -240,10 +218,10 @@ void HorizontalTabWidget::hideTab(QWidget * widget, bool hide)
     }
   }
 
-  QPushButton * button = nullptr;
+  QPushButton* button = nullptr;
   button = m_tabButtons.at(index);
   OS_ASSERT(button);
-  if(hide){
+  if (hide) {
     button->hide();
   } else {
     button->show();
@@ -252,4 +230,4 @@ void HorizontalTabWidget::hideTab(QWidget * widget, bool hide)
   setCurrentIndex(currentIndex);
 }
 
-} // namespace openstudio
+}  // namespace openstudio

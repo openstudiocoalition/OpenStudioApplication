@@ -50,8 +50,7 @@
 
 using namespace openstudio;
 
-TEST_F(OpenStudioAppFixture, Resources_Templates)
-{
+TEST_F(OpenStudioAppFixture, Resources_Templates) {
   openstudio::path resourcesPath = getOpenStudioApplicationSourceDirectory() / openstudio::toPath("src/openstudio_app/Resources");
 
   ASSERT_TRUE(openstudio::filesystem::exists(resourcesPath));
@@ -72,7 +71,7 @@ TEST_F(OpenStudioAppFixture, Resources_Templates)
 
     // check that each space load has a parent space type
     std::vector<model::SpaceLoad> spaceLoads;
-    for (const model::SpaceLoad& spaceLoad : spaceLoads){
+    for (const model::SpaceLoad& spaceLoad : spaceLoads) {
       EXPECT_TRUE(spaceLoad.spaceType());
     }
 
@@ -82,8 +81,7 @@ TEST_F(OpenStudioAppFixture, Resources_Templates)
   }
 }
 
-TEST_F(OpenStudioAppFixture, Resources_HVACLibrary)
-{
+TEST_F(OpenStudioAppFixture, Resources_HVACLibrary) {
   openstudio::path hvacPath = getOpenStudioApplicationSourceDirectory() / openstudio::toPath("src/openstudio_app/Resources/default/hvac_library.osm");
 
   ASSERT_TRUE(openstudio::filesystem::exists(hvacPath));

@@ -33,9 +33,9 @@
 #include "FieldMethodTypedefs.hpp"
 #include "OSConcepts.hpp"
 
-#include "OSGridController.hpp" // Needed for DataSource
+#include "OSGridController.hpp"  // Needed for DataSource
 
-#include <openstudio/nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/nano/nano_signal_slot.hpp>  // Signal-Slot replacement
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/ModelObject.hpp>
 
@@ -53,7 +53,6 @@ class OSComboBoxDataSource : public QObject, public Nano::Observer
   Q_OBJECT
 
   public:
-
   virtual ~OSComboBoxDataSource() {}
 
   virtual int numberOfItems() = 0;
@@ -74,10 +73,9 @@ class OSObjectListCBDS : public OSComboBoxDataSource
   Q_OBJECT
 
   public:
+  OSObjectListCBDS(const IddObjectType& type, const model::Model& model);
 
-  OSObjectListCBDS(const IddObjectType & type, const model::Model & model);
-
-  OSObjectListCBDS(const std::vector<IddObjectType> & types, const model::Model & model);
+  OSObjectListCBDS(const std::vector<IddObjectType>& types, const model::Model& model);
 
   virtual ~OSObjectListCBDS() {}
 
@@ -86,7 +84,6 @@ class OSObjectListCBDS : public OSComboBoxDataSource
   QString valueAt(int i) override;
 
   protected:
-
   bool m_allowEmptySelection;
 
   private slots:
@@ -98,7 +95,6 @@ class OSObjectListCBDS : public OSComboBoxDataSource
   void onObjectChanged();
 
   private:
-
   void initialize();
 
   std::vector<IddObjectType> m_types;
@@ -108,56 +104,41 @@ class OSObjectListCBDS : public OSComboBoxDataSource
   QList<WorkspaceObject> m_workspaceObjects;
 };
 
-class OSComboBox2 : public QComboBox, public Nano::Observer {
+class OSComboBox2 : public QComboBox, public Nano::Observer
+{
   Q_OBJECT
- public:
-
-  OSComboBox2( QWidget * parent = nullptr, bool editable = false );
+  public:
+  OSComboBox2(QWidget* parent = nullptr, bool editable = false);
 
   virtual ~OSComboBox2();
 
-  void enableClickFocus() { this->setFocusPolicy(Qt::ClickFocus); }
+  void enableClickFocus() {
+    this->setFocusPolicy(Qt::ClickFocus);
+  }
 
-  bool hasData() { return !this->currentText().isEmpty(); }
+  bool hasData() {
+    return !this->currentText().isEmpty();
+  }
 
   // interface for direct bind
-  template<typename ChoiceType>
-  void bind(model::ModelObject& modelObject,
-            std::function<std::string (ChoiceType)> toString,
-            std::function<std::vector<ChoiceType> ()> choices,
-            std::function<ChoiceType ()> getter,
-            std::function<bool (ChoiceType)> setter,
-            boost::optional<NoFailAction> reset=boost::none,
-            boost::optional<BasicQuery> isDefaulted=boost::none)
-  {
+  template <typename ChoiceType>
+  void bind(model::ModelObject& modelObject, std::function<std::string(ChoiceType)> toString, std::function<std::vector<ChoiceType>()> choices,
+            std::function<ChoiceType()> getter, std::function<bool(ChoiceType)> setter, boost::optional<NoFailAction> reset = boost::none,
+            boost::optional<BasicQuery> isDefaulted = boost::none) {
     m_modelObject = modelObject;
-    m_choiceConcept = std::shared_ptr<ChoiceConcept>(
-          new RequiredChoiceConceptImpl<ChoiceType>(toString,
-                                                    choices,
-                                                    getter,
-                                                    setter,
-                                                    reset,
-                                                    isDefaulted));
+    m_choiceConcept =
+      std::shared_ptr<ChoiceConcept>(new RequiredChoiceConceptImpl<ChoiceType>(toString, choices, getter, setter, reset, isDefaulted));
     clear();
     completeBind();
   }
 
   // interface for direct bind
-  template<typename ChoiceType>
-  void bind(model::ModelObject& modelObject,
-            std::function<std::string (ChoiceType)> toString,
-            std::function<std::vector<ChoiceType> ()> choices,
-            std::function<boost::optional<ChoiceType> ()> getter,
-            std::function<bool (ChoiceType)> setter,
-            boost::optional<NoFailAction> reset=boost::none)
-  {
+  template <typename ChoiceType>
+  void bind(model::ModelObject& modelObject, std::function<std::string(ChoiceType)> toString, std::function<std::vector<ChoiceType>()> choices,
+            std::function<boost::optional<ChoiceType>()> getter, std::function<bool(ChoiceType)> setter,
+            boost::optional<NoFailAction> reset = boost::none) {
     m_modelObject = modelObject;
-    m_choiceConcept = std::shared_ptr<ChoiceConcept>(
-          new OptionalChoiceConceptImpl<ChoiceType>(toString,
-                                                    choices,
-                                                    getter,
-                                                    setter,
-                                                    reset));
+    m_choiceConcept = std::shared_ptr<ChoiceConcept>(new OptionalChoiceConceptImpl<ChoiceType>(toString, choices, getter, setter, reset));
     clear();
     completeBind();
   }
@@ -165,43 +146,30 @@ class OSComboBox2 : public QComboBox, public Nano::Observer {
   // Interface for direct bind with two model objects, for eg to set the Schedule of a modelObject (`bind<model::Schedule, model::Class>`)
   // This is similar to the way OSGridController uses a template to create a ComboBoxOptionalChoiceImpl (same signature for the getter/setter etc)
   // For an example of usage refer to ../openstudio_lib/SimSettingsView.hpp.
-  template<typename ChoiceType, typename DataSourceType>
-  void bind(model::ModelObject& modelObject,
-            std::function<std::string (const ChoiceType &)> toString,
-            std::function<std::vector<ChoiceType> (DataSourceType *)> choices,
-            std::function<boost::optional<ChoiceType> (DataSourceType*)> getter,
-            std::function<bool (DataSourceType*, ChoiceType)> setter,
-            boost::optional<std::function<void (DataSourceType*)> > reset = boost::none,
-            const boost::optional<DataSource> &t_source = boost::none,
-            bool editable = false)
-  {
+  template <typename ChoiceType, typename DataSourceType>
+  void bind(model::ModelObject& modelObject, std::function<std::string(const ChoiceType&)> toString,
+            std::function<std::vector<ChoiceType>(DataSourceType*)> choices, std::function<boost::optional<ChoiceType>(DataSourceType*)> getter,
+            std::function<bool(DataSourceType*, ChoiceType)> setter, boost::optional<std::function<void(DataSourceType*)>> reset = boost::none,
+            const boost::optional<DataSource>& t_source = boost::none, bool editable = false) {
     m_modelObject = modelObject;
 
-    std::shared_ptr<DataSourceType> dataSource = std::shared_ptr<DataSourceType>(
-        new DataSourceType(modelObject.cast<DataSourceType>()));
+    std::shared_ptr<DataSourceType> dataSource = std::shared_ptr<DataSourceType>(new DataSourceType(modelObject.cast<DataSourceType>()));
 
     boost::optional<NoFailAction> resetAction;
     if (reset) {
       resetAction = std::bind(reset.get(), dataSource.get());
     }
 
-    m_choiceConcept = std::make_shared<OptionalChoiceSaveDataSourceConceptImpl<ChoiceType,DataSourceType>>(
-              dataSource,
-              toString,
-              std::bind(choices, dataSource.get()),
-              std::bind(getter, dataSource.get()),
-              std::bind(setter, dataSource.get(),std::placeholders::_1),
-              resetAction,
-              editable);
+    m_choiceConcept = std::make_shared<OptionalChoiceSaveDataSourceConceptImpl<ChoiceType, DataSourceType>>(
+      dataSource, toString, std::bind(choices, dataSource.get()), std::bind(getter, dataSource.get()),
+      std::bind(setter, dataSource.get(), std::placeholders::_1), resetAction, editable);
 
     clear();
     completeBind();
   }
 
   // interface for OSGridController bind
-  void bind(model::ModelObject& modelObject,
-            std::shared_ptr<ChoiceConcept> choiceConcept)
-  {
+  void bind(model::ModelObject& modelObject, std::shared_ptr<ChoiceConcept> choiceConcept) {
     m_modelObject = modelObject;
     m_choiceConcept = choiceConcept;
     clear();
@@ -213,27 +181,26 @@ class OSComboBox2 : public QComboBox, public Nano::Observer {
 
   void unbind();
 
- protected:
+  protected:
+  bool event(QEvent* e) override;
 
-  bool event( QEvent * e ) override;
-
- signals:
+  signals:
 
   void inFocus(bool inFocus, bool hasData);
 
- public slots:
+  public slots:
   // Need to make that public for dependent dropdowns...
   void onChoicesRefreshTrigger();
 
- private slots:
+  private slots:
 
   void onModelObjectChanged();
 
   void onModelObjectRemoved(const Handle& handle);
 
-  void onCurrentIndexChanged(const QString & text);
+  void onCurrentIndexChanged(const QString& text);
 
-  void onEditTextChanged(const QString & text);
+  void onEditTextChanged(const QString& text);
 
   void onDataSourceChange(int);
 
@@ -241,7 +208,7 @@ class OSComboBox2 : public QComboBox, public Nano::Observer {
 
   void onDataSourceRemove(int);
 
- private:
+  private:
   std::shared_ptr<OSComboBoxDataSource> m_dataSource;
 
   boost::optional<model::ModelObject> m_modelObject;
@@ -301,6 +268,6 @@ class OSComboBox2 : public QComboBox, public Nano::Observer {
 //   std::vector<std::string> m_values;
 // };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // SHAREDGUICOMPONENTS_OSCOMBOBOX_HPP
+#endif  // SHAREDGUICOMPONENTS_OSCOMBOBOX_HPP

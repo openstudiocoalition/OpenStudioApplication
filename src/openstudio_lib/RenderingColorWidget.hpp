@@ -30,7 +30,7 @@
 #ifndef OPENSTUDIO_RENDERINGCOLORWIDGET_HPP
 #define OPENSTUDIO_RENDERINGCOLORWIDGET_HPP
 
-#include <openstudio/nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/nano/nano_signal_slot.hpp>  // Signal-Slot replacement
 #include "../shared_gui_components/FieldMethodTypedefs.hpp"
 
 #include <openstudio/model/RenderingColor.hpp>
@@ -41,49 +41,44 @@ class QPushButton;
 
 namespace openstudio {
 
-  class RenderingColorWidget2 : public QWidget, public Nano::Observer
-  {
-    Q_OBJECT
+class RenderingColorWidget2 : public QWidget, public Nano::Observer
+{
+  Q_OBJECT
 
   public:
+  RenderingColorWidget2(QWidget* parent = nullptr);
 
-    RenderingColorWidget2(QWidget* parent = nullptr);
+  virtual ~RenderingColorWidget2() {}
 
-    virtual ~RenderingColorWidget2() {}
+  virtual void bind(model::ModelObject& modelObject, OptionalModelObjectGetter get, ModelObjectSetter set);
 
-    virtual void bind(model::ModelObject & modelObject,
-      OptionalModelObjectGetter get,
-      ModelObjectSetter set);
-
-    virtual void unbind();
+  virtual void unbind();
 
   private slots:
 
-    void clear();
+  void clear();
 
-    void refresh();
+  void refresh();
 
-    void renderColorButtonClicked();
+  void renderColorButtonClicked();
 
-    void getRenderingColor();
+  void getRenderingColor();
 
   private:
+  void setRenderingColor();
 
-    void setRenderingColor();
-
-    boost::optional<OptionalModelObjectGetter> m_get;
-    boost::optional<ModelObjectSetter> m_set;
-    boost::optional<model::ModelObject> m_modelObject;
-    QPushButton * m_renderColorButton;
-    boost::optional<model::RenderingColor> m_renderingColor;
-  };
+  boost::optional<OptionalModelObjectGetter> m_get;
+  boost::optional<ModelObjectSetter> m_set;
+  boost::optional<model::ModelObject> m_modelObject;
+  QPushButton* m_renderColorButton;
+  boost::optional<model::RenderingColor> m_renderingColor;
+};
 
 class RenderingColorWidget : public QWidget, public Nano::Observer
 {
   Q_OBJECT
 
-public:
-
+  public:
   RenderingColorWidget(QWidget* parent = nullptr);
 
   virtual ~RenderingColorWidget() {}
@@ -92,7 +87,7 @@ public:
 
   virtual void detach();
 
-private slots:
+  private slots:
 
   void clear();
 
@@ -100,13 +95,12 @@ private slots:
 
   void renderColorButtonClicked();
 
-private:
-
+  private:
   QWidget* m_renderColorWidget;
   QPushButton* m_renderColorButton;
   boost::optional<openstudio::model::RenderingColor> m_renderingColor;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_RENDERINGCOLORWIDGET_HPP
+#endif  // OPENSTUDIO_RENDERINGCOLORWIDGET_HPP

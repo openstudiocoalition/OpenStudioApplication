@@ -45,7 +45,7 @@ class QShowEvent;
 class QString;
 class QLayoutItem;
 
-namespace openstudio{
+namespace openstudio {
 
 class ModelSubTabView;
 class OSCollapsibleView;
@@ -57,42 +57,36 @@ class OSGridView : public QWidget
 {
   Q_OBJECT
 
-public:
+  public:
+  OSGridView(OSGridController* gridController, const QString& headerText, const QString& dropZoneText, bool useHeader, QWidget* parent = nullptr);
 
-  OSGridView(OSGridController * gridController,
-    const QString & headerText,
-    const QString & dropZoneText,
-    bool useHeader,
-    QWidget * parent = nullptr);
-
-  virtual ~OSGridView() {};
+  virtual ~OSGridView(){};
 
   // return the QLayoutItem at a particular partition, accounting for multiple grid layouts
-  QLayoutItem * itemAtPosition(int row, int column);
+  QLayoutItem* itemAtPosition(int row, int column);
 
-  OSDropZone * m_dropZone;
+  OSDropZone* m_dropZone;
 
-  virtual ModelSubTabView * modelSubTabView();
+  virtual ModelSubTabView* modelSubTabView();
 
   void requestRemoveRow(int row);
 
   void requestAddRow(int row);
 
-  QVBoxLayout * m_contentLayout;
+  QVBoxLayout* m_contentLayout;
 
-protected:
+  protected:
+  virtual void hideEvent(QHideEvent* event) override;
 
-  virtual void hideEvent(QHideEvent * event) override;
+  virtual void showEvent(QShowEvent* event) override;
 
-  virtual void showEvent(QShowEvent * event) override;
-
-signals:
+  signals:
 
   void dropZoneItemClicked(OSItem* item);
 
   void gridRowSelectionChanged(int checkState);
 
-public slots:
+  public slots:
 
   void onSelectionCleared();
 
@@ -102,7 +96,7 @@ public slots:
 
   void requestRefreshGrid();
 
-private slots:
+  private slots:
 
   void deleteAll();
 
@@ -116,8 +110,7 @@ private slots:
 
   void selectRowDeterminedByModelSubTabView();
 
-private:
-
+  private:
   enum QueueType
   {
     AddRow,
@@ -128,20 +121,20 @@ private:
   };
 
   // construct a grid layout to our specs
-  QGridLayout * makeGridLayout();
+  QGridLayout* makeGridLayout();
 
   // Add a widget, adding a new layout if necessary
-  void addWidget(QWidget *w, int row, int column);
+  void addWidget(QWidget* w, int row, int column);
 
-  void setGridController(OSGridController * gridController);
+  void setGridController(OSGridController* gridController);
 
   static const int ROWS_PER_LAYOUT = 100;
 
-  std::vector<QGridLayout *> m_gridLayouts;
+  std::vector<QGridLayout*> m_gridLayouts;
 
-  OSCollapsibleView * m_CollapsibleView;
+  OSCollapsibleView* m_CollapsibleView;
 
-  OSGridController * m_gridController;
+  OSGridController* m_gridController;
 
   std::vector<QueueType> m_queueRequests;
 
@@ -152,6 +145,6 @@ private:
   int m_rowToRemove = -1;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // SHAREDGUICOMPONENTS_OSGRIDVIEW_HPP
+#endif  // SHAREDGUICOMPONENTS_OSGRIDVIEW_HPP

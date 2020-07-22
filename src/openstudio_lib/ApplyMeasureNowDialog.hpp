@@ -44,7 +44,7 @@ class QTextEdit;
 class QTimer;
 class QProcess;
 
-namespace openstudio{
+namespace openstudio {
 
 class DateTime;
 class EditController;
@@ -53,8 +53,8 @@ class WorkflowStepResult;
 class WorkflowJSON;
 class TextEditDialog;
 
-namespace measuretab{
-  class MeasureStepItem;
+namespace measuretab {
+class MeasureStepItem;
 }
 
 // Local Forward Decs
@@ -64,9 +64,8 @@ class ApplyMeasureNowDialog : public OSDialog
 {
   Q_OBJECT
 
-public:
-
-  ApplyMeasureNowDialog(QWidget * parent = nullptr);
+  public:
+  ApplyMeasureNowDialog(QWidget* parent = nullptr);
 
   virtual ~ApplyMeasureNowDialog();
 
@@ -78,7 +77,7 @@ public:
 
   QSharedPointer<LocalLibraryController> m_localLibraryController;
 
-protected slots:
+  protected slots:
 
   virtual void on_cancelButton(bool checked) override;
 
@@ -86,11 +85,10 @@ protected slots:
 
   virtual void on_okButton(bool checked) override;
 
-protected:
+  protected:
+  void closeEvent(QCloseEvent* event) override;
 
-  void closeEvent(QCloseEvent * event) override;
-
-private slots:
+  private slots:
 
   void disableOkButton(bool disable);
 
@@ -100,21 +98,20 @@ private slots:
 
   void displayResults();
 
-signals:
+  signals:
 
   void reloadFile(const QString& fileToLoad, bool modified, bool saveCurrentTabs);
 
   void toolsUpdated();
 
-private:
-
+  private:
   REGISTER_LOGGER("openstudio::ApplyMeasureNowDialog");
 
   void createWidgets();
 
   void runMeasure();
 
-  void searchForExistingResults(const openstudio::path &t_runDir);
+  void searchForExistingResults(const openstudio::path& t_runDir);
 
   void removeWorkingDir();
 
@@ -128,15 +125,15 @@ private:
 
   boost::optional<openstudio::path> m_reloadPath;
 
-  QStackedWidget * m_mainPaneStackedWidget;
+  QStackedWidget* m_mainPaneStackedWidget;
 
-  QStackedWidget * m_rightPaneStackedWidget;
+  QStackedWidget* m_rightPaneStackedWidget;
 
-  QTextEdit * m_argumentsFailedTextEdit;
+  QTextEdit* m_argumentsFailedTextEdit;
 
-  DataPointJobItemView * m_jobItemView;
+  DataPointJobItemView* m_jobItemView;
 
-  QTimer * m_timer;
+  QTimer* m_timer;
 
   int m_inputPageIdx;
 
@@ -148,11 +145,11 @@ private:
 
   int m_argumentsOkPageIdx;
 
-  QProcess * m_runProcess;
+  QProcess* m_runProcess;
 
-  QLabel * m_jobPath;
+  QLabel* m_jobPath;
 
-  QPushButton * m_showAdvancedOutput;
+  QPushButton* m_showAdvancedOutput;
 
   QString m_advancedOutput;
 
@@ -160,7 +157,7 @@ private:
 
   openstudio::path m_workingFilesDir;
 
-  TextEditDialog * m_advancedOutputDialog;
+  TextEditDialog* m_advancedOutputDialog;
 
   WorkflowJSON m_modelWorkflowJSON;
 
@@ -171,8 +168,7 @@ class DataPointJobHeaderView : public OSHeader
 {
   Q_OBJECT
 
- public:
-
+  public:
   DataPointJobHeaderView();
 
   virtual ~DataPointJobHeaderView() {}
@@ -201,8 +197,7 @@ class DataPointJobContentView : public QWidget
 {
   Q_OBJECT
 
- public:
-
+  public:
   DataPointJobContentView();
 
   virtual ~DataPointJobContentView() {}
@@ -221,38 +216,33 @@ class DataPointJobContentView : public QWidget
 
   void addStdErrorMessage(const std::string& message);
 
- private:
+  private:
+  static QString formatMessageForHTML(const std::string& t_message);
 
-  static QString formatMessageForHTML(const std::string &t_message);
-
-  QLabel * m_textEdit;
-
+  QLabel* m_textEdit;
 };
 
 class DataPointJobItemView : public OSCollapsibleView
 {
   Q_OBJECT
 
-public:
-
+  public:
   DataPointJobItemView();
 
   virtual ~DataPointJobItemView() {}
 
-  DataPointJobHeaderView * m_dataPointJobHeaderView;
+  DataPointJobHeaderView* m_dataPointJobHeaderView;
 
-  DataPointJobContentView * m_dataPointJobContentView;
+  DataPointJobContentView* m_dataPointJobContentView;
 
-protected:
+  protected:
+  void paintEvent(QPaintEvent* e) override;
 
-  void paintEvent(QPaintEvent * e) override;
+  public slots:
 
-public slots:
-
-  void update(const BCLMeasure & bclMeasure, const boost::optional<WorkflowJSON>& outWorkflowJSON, bool canceled);
-
+  void update(const BCLMeasure& bclMeasure, const boost::optional<WorkflowJSON>& outWorkflowJSON, bool canceled);
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_APPLYMEASURENOWDIALOG_HPP
+#endif  // OPENSTUDIO_APPLYMEASURENOWDIALOG_HPP

@@ -40,7 +40,7 @@
 class QPushButton;
 class QLabel;
 
-namespace openstudio{
+namespace openstudio {
 
 class MeasureBadge;
 class OSViewSwitcher;
@@ -50,20 +50,19 @@ class LocalLibraryView : public QWidget
   Q_OBJECT
 
   public:
-
-  LocalLibraryView(QWidget * parent = nullptr);
+  LocalLibraryView(QWidget* parent = nullptr);
 
   virtual ~LocalLibraryView() {}
 
-  OSViewSwitcher * mainViewSwitcher;
+  OSViewSwitcher* mainViewSwitcher;
 
-  QPushButton * duplicateMeasureButton;
+  QPushButton* duplicateMeasureButton;
 
-  QPushButton * addMeasureButton;
+  QPushButton* addMeasureButton;
 
-  QPushButton * myMeasuresFolderButton;
+  QPushButton* myMeasuresFolderButton;
 
-  QPushButton * addBCLMeasureButton;
+  QPushButton* addBCLMeasureButton;
 };
 
 class LibraryGroupItemHeader : public LightGradientHeader
@@ -71,7 +70,6 @@ class LibraryGroupItemHeader : public LightGradientHeader
   Q_OBJECT
 
   public:
-
   LibraryGroupItemHeader();
 
   virtual ~LibraryGroupItemHeader() {}
@@ -81,8 +79,7 @@ class LibraryGroupItemHeader : public LightGradientHeader
   void setCount(int count);
 
   private:
-
-  QLabel * countLabel;
+  QLabel* countLabel;
 };
 
 class LibrarySubGroupItemHeader : public LightHeader
@@ -90,7 +87,6 @@ class LibrarySubGroupItemHeader : public LightHeader
   Q_OBJECT
 
   public:
-
   LibrarySubGroupItemHeader();
 
   virtual ~LibrarySubGroupItemHeader() {}
@@ -100,8 +96,7 @@ class LibrarySubGroupItemHeader : public LightHeader
   void setCount(int count);
 
   private:
-
-  QLabel * countLabel;
+  QLabel* countLabel;
 };
 
 class LibraryItemView : public OSDragableView
@@ -109,26 +104,23 @@ class LibraryItemView : public OSDragableView
   Q_OBJECT
 
   public:
-
-  LibraryItemView(QWidget * parent = nullptr);
+  LibraryItemView(QWidget* parent = nullptr);
 
   virtual ~LibraryItemView() {}
 
-  QLabel * label;
-  QLabel * m_measureTypeBadge;
-  MeasureBadge * m_measureBadge;
-  QLabel * errorLabel;
+  QLabel* label;
+  QLabel* m_measureTypeBadge;
+  MeasureBadge* m_measureBadge;
+  QLabel* errorLabel;
 
   public slots:
 
   void setHasEmphasis(bool hasEmphasis);
 
   protected:
-
-  void paintEvent(QPaintEvent *) override;
+  void paintEvent(QPaintEvent*) override;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // SHAREDGUICOMPONENTS_LOCALLIBRARYVIEW_HPP
-
+#endif  // SHAREDGUICOMPONENTS_LOCALLIBRARYVIEW_HPP

@@ -48,28 +48,26 @@ class OSDoubleEdit2;
 class OSIntegerEdit2;
 
 namespace model {
-  class Model;
+class Model;
 }
 
 class LifeCycleCostsView : public QWidget
 {
   Q_OBJECT
 
-public:
-
-  LifeCycleCostsView(const model::Model & model);
+  public:
+  LifeCycleCostsView(const model::Model& model);
 
   virtual ~LifeCycleCostsView();
 
-private:
-
+  private:
   void createWidgets();
 
-  QWidget * createInflationRatesWidget();
+  QWidget* createInflationRatesWidget();
 
-  QWidget * createNistWidget();
+  QWidget* createNistWidget();
 
-  void attach(openstudio::model::LifeCycleCostParameters & lifeCycleCostParameters);
+  void attach(openstudio::model::LifeCycleCostParameters& lifeCycleCostParameters);
 
   void detach();
 
@@ -77,40 +75,39 @@ private:
 
   boost::optional<model::LifeCycleCostParameters> m_lifeCycleCostParameters;
 
-  OSIntegerEdit2 * m_analysisLengthIntegerEdit;
+  OSIntegerEdit2* m_analysisLengthIntegerEdit;
 
-  OSDoubleEdit2 * m_realDiscountRateDoubleEdit;
+  OSDoubleEdit2* m_realDiscountRateDoubleEdit;
 
-  OSDoubleEdit2 * m_electricityDoubleEdit;
-  OSDoubleEdit2 * m_naturalGasDoubleEdit;
-  OSDoubleEdit2 * m_steamDoubleEdit;
-  OSDoubleEdit2 * m_gasolineDoubleEdit;
+  OSDoubleEdit2* m_electricityDoubleEdit;
+  OSDoubleEdit2* m_naturalGasDoubleEdit;
+  OSDoubleEdit2* m_steamDoubleEdit;
+  OSDoubleEdit2* m_gasolineDoubleEdit;
 
-  OSDoubleEdit2 * m_dieselDoubleEdit;
-  OSDoubleEdit2 * m_propaneDoubleEdit;
-  OSDoubleEdit2 * m_coalDoubleEdit;
-  OSDoubleEdit2 * m_fuelOil_1DoubleEdit;
+  OSDoubleEdit2* m_dieselDoubleEdit;
+  OSDoubleEdit2* m_propaneDoubleEdit;
+  OSDoubleEdit2* m_coalDoubleEdit;
+  OSDoubleEdit2* m_fuelOil_1DoubleEdit;
 
-  OSDoubleEdit2 * m_fuelOil_2DoubleEdit;
-  OSDoubleEdit2 * m_waterDoubleEdit;
+  OSDoubleEdit2* m_fuelOil_2DoubleEdit;
+  OSDoubleEdit2* m_waterDoubleEdit;
 
-  QButtonGroup * m_fempGroup;
-  QButtonGroup * m_nistGroup;
+  QButtonGroup* m_fempGroup;
+  QButtonGroup* m_nistGroup;
 
-  OSComboBox2 * m_nistRegionComboBox;
-  OSComboBox2 * m_nistSectorComboBox;
+  OSComboBox2* m_nistRegionComboBox;
+  OSComboBox2* m_nistSectorComboBox;
 
-  QStackedWidget * m_stackedWidget;
+  QStackedWidget* m_stackedWidget;
 
-  QLabel * m_analysisLengthLabel;
-  QLabel * m_realDiscountRateLabel;
+  QLabel* m_analysisLengthLabel;
+  QLabel* m_realDiscountRateLabel;
 
-private slots:
+  private slots:
 
   void fempGroupClicked(int index);
 
   void nistGroupClicked(int index);
-
 };
 
 class LifeCycleCostsTabView : public MainTabView
@@ -118,20 +115,15 @@ class LifeCycleCostsTabView : public MainTabView
 
   Q_OBJECT
 
-public:
-
-  LifeCycleCostsTabView(const model::Model & model,
-                        const QString& modelTempDir,
-                        QWidget * parent = nullptr);
+  public:
+  LifeCycleCostsTabView(const model::Model& model, const QString& modelTempDir, QWidget* parent = nullptr);
 
   virtual ~LifeCycleCostsTabView();
 
-private:
-
-  LifeCycleCostsView * m_lifeCycleCostsView;
-
+  private:
+  LifeCycleCostsView* m_lifeCycleCostsView;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_LIFECYCLECOSTSTABVIEW_HPP
+#endif  // OPENSTUDIO_LIFECYCLECOSTSTABVIEW_HPP

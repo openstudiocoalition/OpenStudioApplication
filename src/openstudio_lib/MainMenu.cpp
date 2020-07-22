@@ -41,15 +41,13 @@
 
 namespace openstudio {
 
-MainMenu::MainMenu(bool isIP, bool isPlugin, QWidget *parent) :
-  QMenuBar(parent), m_isPlugin(isPlugin)
-{
+MainMenu::MainMenu(bool isIP, bool isPlugin, QWidget* parent) : QMenuBar(parent), m_isPlugin(isPlugin) {
   m_isIP = isIP;
 
-  QAction * action = nullptr;
+  QAction* action = nullptr;
 
   // File menu
-  m_fileMenu = new QMenu(tr("&File"),this);
+  m_fileMenu = new QMenu(tr("&File"), this);
   addMenu(m_fileMenu);
 
   // DLM: actions which result in this menu being deleted should be queued
@@ -67,7 +65,7 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, QWidget *parent) :
   m_fileMenu->addSeparator();
 
   m_revertToSavedAction = new QAction(tr("&Revert to Saved"), this);
-  m_revertToSavedAction->setShortcut(QKeySequence(QKeySequence(tr("Ctrl+R")))); // QKeySequence(Qt::CTRL + Qt::Key_R)
+  m_revertToSavedAction->setShortcut(QKeySequence(QKeySequence(tr("Ctrl+R"))));  // QKeySequence(Qt::CTRL + Qt::Key_R)
   // m_revertToSavedAction->setDisabled(true);
   m_revertToSavedAction->setDisabled(false);
   m_fileMenu->addAction(m_revertToSavedAction);
@@ -85,8 +83,8 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, QWidget *parent) :
 
   m_fileMenu->addSeparator();
 
-   //formatMenu = editMenu->addMenu(tr("&Format"))
-  QMenu * importMenu = m_fileMenu->addMenu(tr("&Import"));
+  //formatMenu = editMenu->addMenu(tr("&Format"))
+  QMenu* importMenu = m_fileMenu->addMenu(tr("&Import"));
 
   action = new QAction(tr("&IDF"), this);
   m_fileImportActions.push_back(action);
@@ -108,7 +106,7 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, QWidget *parent) :
   importMenu->addAction(action);
   connect(action, &QAction::triggered, this, &MainMenu::importIFCClicked, Qt::QueuedConnection);
 
-  QMenu * exportMenu = m_fileMenu->addMenu(tr("&Export"));
+  QMenu* exportMenu = m_fileMenu->addMenu(tr("&Export"));
 
   action = new QAction(tr("&IDF"), this);
   exportMenu->addAction(action);
@@ -128,7 +126,7 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, QWidget *parent) :
   m_fileImportActions.push_back(action);
   //m_preferencesActions.push_back(action); // DLM: I'm unclear if this should be enabled/disabled with preferences or file imports, right now does not matter
 
-  if (!m_isPlugin){
+  if (!m_isPlugin) {
 
     m_fileMenu->addSeparator();
 
@@ -141,28 +139,27 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, QWidget *parent) :
     action->setShortcuts(QKeySequence::Quit);
     m_fileMenu->addAction(action);
     connect(action, &QAction::triggered, this, &MainMenu::exitClicked, Qt::QueuedConnection);
-
   }
 
   // Preferences menu
-  m_preferencesMenu = new QMenu(tr("&Preferences"),this);
+  m_preferencesMenu = new QMenu(tr("&Preferences"), this);
   addMenu(m_preferencesMenu);
 
-  QMenu * unitsMenu = m_preferencesMenu->addMenu(tr("&Units"));
+  QMenu* unitsMenu = m_preferencesMenu->addMenu(tr("&Units"));
 
-  m_displaySIUnitsAction = new QAction(tr("Metric (&SI)"),this);
+  m_displaySIUnitsAction = new QAction(tr("Metric (&SI)"), this);
   m_preferencesActions.push_back(m_displaySIUnitsAction);
   m_displaySIUnitsAction->setCheckable(true);
   unitsMenu->addAction(m_displaySIUnitsAction);
   connect(m_displaySIUnitsAction, &QAction::triggered, this, &MainMenu::displaySIUnitsClicked);
 
-  m_displayIPUnitsAction = new QAction(tr("English (&I-P)"),this);
+  m_displayIPUnitsAction = new QAction(tr("English (&I-P)"), this);
   m_preferencesActions.push_back(m_displayIPUnitsAction);
   m_displayIPUnitsAction->setCheckable(true);
   unitsMenu->addAction(m_displayIPUnitsAction);
   connect(m_displayIPUnitsAction, &QAction::triggered, this, &MainMenu::displayIPUnitsClicked);
 
-  action = new QAction(tr("&Change My Measures Directory"),this);
+  action = new QAction(tr("&Change My Measures Directory"), this);
   m_preferencesActions.push_back(action);
   m_preferencesMenu->addAction(action);
   connect(action, &QAction::triggered, this, &MainMenu::changeMyMeasuresDir);
@@ -189,78 +186,71 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, QWidget *parent) :
   //m_preferencesMenu->addAction(action);
   //connect(action, &QAction::triggered, this, &MainMenu::changeBclLogin);
 
-  action = new QAction(tr("&Configure Internet Proxy"),this);
+  action = new QAction(tr("&Configure Internet Proxy"), this);
   m_preferencesActions.push_back(action);
   m_preferencesMenu->addAction(action);
   connect(action, &QAction::triggered, this, &MainMenu::configureProxyClicked);
 
-  if(m_isIP){
+  if (m_isIP) {
     m_displayIPUnitsAction->trigger();
-  }
-  else{
+  } else {
     m_displaySIUnitsAction->trigger();
   }
 
   // Measure menu
-  m_measureMenu = new QMenu(tr("&Components && Measures"),this);
+  m_measureMenu = new QMenu(tr("&Components && Measures"), this);
   addMenu(m_measureMenu);
 
-  action = new QAction(tr("&Apply Measure Now"),this);
+  action = new QAction(tr("&Apply Measure Now"), this);
   m_componentsMeasuresActions.push_back(action);
   action->setShortcut(QKeySequence(QKeySequence(tr("Ctrl+M"))));
   m_measureMenu->addAction(action);
   connect(action, &QAction::triggered, this, &MainMenu::applyMeasureClicked);
 
-  action = new QAction(tr("Find &Measures"),this);
+  action = new QAction(tr("Find &Measures"), this);
   m_componentsMeasuresActions.push_back(action);
   m_measureMenu->addAction(action);
   connect(action, &QAction::triggered, this, &MainMenu::downloadMeasuresClicked);
 
-  action = new QAction(tr("Find &Components"),this);
+  action = new QAction(tr("Find &Components"), this);
   m_componentsMeasuresActions.push_back(action);
   m_measureMenu->addAction(action);
   connect(action, &QAction::triggered, this, &MainMenu::downloadComponentsClicked);
 
   // Help menu
-  m_helpMenu = new QMenu(tr("&Help"),this);
+  m_helpMenu = new QMenu(tr("&Help"), this);
   addMenu(m_helpMenu);
 
-  action = new QAction(tr("OpenStudio &Help"),this);
+  action = new QAction(tr("OpenStudio &Help"), this);
   m_helpMenu->addAction(action);
   connect(action, &QAction::triggered, this, &MainMenu::helpClicked);
 
-  action = new QAction(tr("&About"),this);
+  action = new QAction(tr("&About"), this);
   m_helpMenu->addAction(action);
   connect(action, &QAction::triggered, this, &MainMenu::aboutClicked);
-
 }
 
-MainMenu::~MainMenu()
-{
-}
+MainMenu::~MainMenu() {}
 
-void MainMenu::displaySIUnitsClicked()
-{
+void MainMenu::displaySIUnitsClicked() {
   m_displaySIUnitsAction->setChecked(true);
   m_displayIPUnitsAction->setChecked(false);
   emit toggleUnitsClicked(false);
 }
 
-void MainMenu::displayIPUnitsClicked()
-{
+void MainMenu::displayIPUnitsClicked() {
   m_displayIPUnitsAction->setChecked(true);
   m_displaySIUnitsAction->setChecked(false);
   emit toggleUnitsClicked(true);
 }
 
-void MainMenu::enableRevertToSavedAction(bool enable)
-{
+void MainMenu::enableRevertToSavedAction(bool enable) {
   // We no longer switch the action ON/OFF
   // m_revertToSavedAction->setEnabled(enable);
 
   // Instead, we display an asterisk to indicate whether we think the model is dirty or not
   // Note: (The MainWindow also displays an asterisk, so perhaps it's not needed)
-  if( enable ) {
+  if (enable) {
     //m_revertToSavedAction->setText(tr("&Revert to Saved *"));
     m_revertToSavedAction->setText(tr("&Revert to Saved"));
   } else {
@@ -268,25 +258,22 @@ void MainMenu::enableRevertToSavedAction(bool enable)
   }
 }
 
-void MainMenu::enableFileImportActions(bool enable)
-{
-  for (const auto& action : m_fileImportActions){
+void MainMenu::enableFileImportActions(bool enable) {
+  for (const auto& action : m_fileImportActions) {
     action->setEnabled(enable);
   }
 }
 
-void MainMenu::enablePreferencesActions(bool enable)
-{
-  for (const auto& action : m_preferencesActions){
+void MainMenu::enablePreferencesActions(bool enable) {
+  for (const auto& action : m_preferencesActions) {
     action->setEnabled(enable);
   }
 }
 
-void MainMenu::enableComponentsMeasuresActions(bool enable)
-{
-  for (const auto& action : m_componentsMeasuresActions){
+void MainMenu::enableComponentsMeasuresActions(bool enable) {
+  for (const auto& action : m_componentsMeasuresActions) {
     action->setEnabled(enable);
   }
 }
 
-} // openstudio
+}  // namespace openstudio

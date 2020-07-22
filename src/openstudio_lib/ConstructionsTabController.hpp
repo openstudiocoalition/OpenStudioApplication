@@ -43,36 +43,33 @@ class ConstructionsTabController : public MainTabController
   Q_OBJECT
 
   public:
+  ConstructionsTabController(bool isIP, const openstudio::model::Model& model);
 
-    ConstructionsTabController(bool isIP, const openstudio::model::Model& model);
+  virtual ~ConstructionsTabController();
 
-    virtual ~ConstructionsTabController();
-
-    enum TabID
-    {
-      DEFAULT_CONSTRUCTIONS,
-      CONSTRUCTIONS,
-      MATERIALS
-    };
+  enum TabID
+  {
+    DEFAULT_CONSTRUCTIONS,
+    CONSTRUCTIONS,
+    MATERIALS
+  };
 
   private:
+  model::Model m_model;
 
-    model::Model m_model;
+  bool m_isIP;
 
-    bool m_isIP;
+  QObject* m_currentController = nullptr;
 
-    QObject * m_currentController = nullptr;
-
-    int m_currentIndex = -1;
+  int m_currentIndex = -1;
 
   public slots:
 
-    virtual void setSubTab(int index) override;
+  virtual void setSubTab(int index) override;
 
-    void toggleUnits(bool displayIP);
-
+  void toggleUnits(bool displayIP);
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_CONSTRUCTIONSTABCONTROLLER_HPP
+#endif  // OPENSTUDIO_CONSTRUCTIONSTABCONTROLLER_HPP

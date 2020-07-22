@@ -45,26 +45,21 @@
 #include <QStyleOption>
 #include <QProgressBar>
 
-
 namespace openstudio {
 
-SyncMeasuresDialog::SyncMeasuresDialog(const WorkflowJSON& workflow,
-  MeasureManager * measureManager,
-  QWidget * parent)
-: QDialog(parent, Qt::WindowMinMaxButtonsHint | Qt::WindowCloseButtonHint),
-  m_centralWidget(nullptr),
-  m_rightScrollArea(nullptr),
-  m_expandedComponent(nullptr),
-  m_measuresNeedingUpdates(std::vector<BCLMeasure>()),
-  m_workflow(workflow),
-  m_measureManager(measureManager)
-{
+SyncMeasuresDialog::SyncMeasuresDialog(const WorkflowJSON& workflow, MeasureManager* measureManager, QWidget* parent)
+  : QDialog(parent, Qt::WindowMinMaxButtonsHint | Qt::WindowCloseButtonHint),
+    m_centralWidget(nullptr),
+    m_rightScrollArea(nullptr),
+    m_expandedComponent(nullptr),
+    m_measuresNeedingUpdates(std::vector<BCLMeasure>()),
+    m_workflow(workflow),
+    m_measureManager(measureManager) {
   createLayout();
   findUpdates();
 }
 
-void SyncMeasuresDialog::createLayout()
-{
+void SyncMeasuresDialog::createLayout() {
   setWindowTitle("Updates Available in Library");
 
   setModal(true);
@@ -106,11 +101,9 @@ void SyncMeasuresDialog::createLayout()
   setLayout(mainLayout);
 
   m_centralWidget->lowerPushButton->setFocus();
-
 }
 
-void SyncMeasuresDialog::findUpdates()
-{
+void SyncMeasuresDialog::findUpdates() {
   // this will update the xmls
   m_measureManager->updateMeasuresLists();
 
@@ -127,19 +120,14 @@ void SyncMeasuresDialog::findUpdates()
   m_centralWidget->progressBar->setMaximum(measures.size());
 
   int progressValue = 0;
-  for (auto itr = measures.begin();
-      itr != measures.end();
-      ++itr)
-  {
+  for (auto itr = measures.begin(); itr != measures.end(); ++itr) {
     m_centralWidget->progressBar->setValue(progressValue);
 
     boost::optional<BCLMeasure> workflowMeasure = m_workflow.getBCLMeasureByUUID(itr->uuid());
-    if (workflowMeasure)
-    {
+    if (workflowMeasure) {
       std::string version1 = toString(workflowMeasure->versionUUID());
       std::string version2 = toString(itr->versionUUID());
-      if (workflowMeasure->versionUUID() != itr->versionUUID())
-      {
+      if (workflowMeasure->versionUUID() != itr->versionUUID()) {
         m_measuresNeedingUpdates.push_back(*itr);
       }
     }
@@ -155,11 +143,9 @@ void SyncMeasuresDialog::findUpdates()
   // just say "No updates available" and quit?
 
   m_centralWidget->setMeasures(m_measuresNeedingUpdates);
-
 }
 
-void SyncMeasuresDialog::paintEvent ( QPaintEvent * event )
-{
+void SyncMeasuresDialog::paintEvent(QPaintEvent* event) {
   QStyleOption opt;
   opt.init(this);
   QPainter p(this);
@@ -168,9 +154,8 @@ void SyncMeasuresDialog::paintEvent ( QPaintEvent * event )
 
 ///! Slots
 
-void SyncMeasuresDialog::on_componentClicked(bool checked)
-{
-  if(m_expandedComponent){
+void SyncMeasuresDialog::on_componentClicked(bool checked) {
+  if (m_expandedComponent) {
     delete m_expandedComponent;
     m_expandedComponent = nullptr;
   }
@@ -179,16 +164,14 @@ void SyncMeasuresDialog::on_componentClicked(bool checked)
   m_rightScrollArea->setWidget(m_expandedComponent);
 }
 
-void SyncMeasuresDialog::on_noComponents()
-{
+void SyncMeasuresDialog::on_noComponents() {
   m_expandedComponent = new Component();
   m_expandedComponent->setCheckable(false);
   m_rightScrollArea->setWidget(m_expandedComponent);
 }
 
-void SyncMeasuresDialog::closeDlg()
-{
+void SyncMeasuresDialog::closeDlg() {
   QDialog::close();
 }
 
-} // namespace openstudio
+}  // namespace openstudio

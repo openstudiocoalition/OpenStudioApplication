@@ -39,29 +39,27 @@ class QListWidget;
 
 class ListWidget;
 
-namespace modeleditor
-{
+namespace modeleditor {
 
 class ObjectExplorer : public QWidget
 {
   Q_OBJECT
 
-public:
-  ObjectExplorer(openstudio::IddFile& iddFile, QWidget * parent = nullptr);
+  public:
+  ObjectExplorer(openstudio::IddFile& iddFile, QWidget* parent = nullptr);
   virtual ~ObjectExplorer();
   void updateIddFile();
 
-public slots:
+  public slots:
   void on_groupTextEdited(const QString&);
   void on_objectTextEdited(const QString&);
   void on_groupItemSelectionChanged();
   void on_objectItemSelectionChanged();
 
-signals:
+  signals:
 
-protected:
-
-private:
+  protected:
+  private:
   void createWidgets();
   void connectSignalsAndSlots();
   void createLayout();
@@ -70,13 +68,13 @@ private:
   void groupItemSelectionChanged();
   void objectItemSelectionChanged();
 
-  QLineEdit * mGroupEdit;
-  QLineEdit * mObjectEdit;
-  QListWidget * mGroupList;
-  ListWidget * mObjectList;
+  QLineEdit* mGroupEdit;
+  QLineEdit* mObjectEdit;
+  QListWidget* mGroupList;
+  ListWidget* mObjectList;
   openstudio::IddFile mIddFile;
 };
 
-} // namespace modeleditor
+}  // namespace modeleditor
 
-#endif // MODELEDITOR_OBJECTEXPLORER_HPP
+#endif  // MODELEDITOR_OBJECTEXPLORER_HPP

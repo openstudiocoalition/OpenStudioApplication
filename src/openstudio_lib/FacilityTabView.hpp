@@ -38,26 +38,24 @@ class QWidget;
 
 namespace openstudio {
 
-  namespace model {
-    class Model;
-  }
+namespace model {
+class Model;
+}
 
 class FacilityTabView : public MainTabView
 {
   Q_OBJECT
 
-public:
-
-  FacilityTabView(QWidget * parent = nullptr);
+  public:
+  FacilityTabView(QWidget* parent = nullptr);
 
   virtual ~FacilityTabView() {}
 
-public slots:
+  public slots:
 
   void toggleUnits(bool displayIP);
-
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_FACILITYTABVIEW_HPP
+#endif  // OPENSTUDIO_FACILITYTABVIEW_HPP

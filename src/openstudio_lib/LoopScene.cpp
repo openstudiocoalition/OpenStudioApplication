@@ -59,12 +59,7 @@ using namespace openstudio::model;
 
 namespace openstudio {
 
-LoopScene::LoopScene( model::Loop loop,
-                      QObject * parent )
-  : GridScene(parent),
-    m_loop(loop),
-    m_dirty(true)
-{
+LoopScene::LoopScene(model::Loop loop, QObject* parent) : GridScene(parent), m_loop(loop), m_dirty(true) {
   // loop.model().getImpl<model::detail::Model_Impl>().get()->addWorkspaceObjectPtr.connect<LoopScene, &LoopScene::addedWorkspaceObject>(this);
   connect(OSAppBase::instance(), &OSAppBase::workspaceObjectAddedPtr, this, &LoopScene::addedWorkspaceObject, Qt::QueuedConnection);
 
@@ -73,29 +68,21 @@ LoopScene::LoopScene( model::Loop loop,
   layout();
 }
 
-void LoopScene::initDefault()
-{
+void LoopScene::initDefault() {}
 
-}
-
-void LoopScene::layout()
-{
-  if( m_dirty && !m_loop.handle().isNull() )
-  {
-    QList<QGraphicsItem *> itemList = items();
-    for( QList<QGraphicsItem *>::iterator it = itemList.begin();
-         it < itemList.end();
-         ++it )
-    {
+void LoopScene::layout() {
+  if (m_dirty && !m_loop.handle().isNull()) {
+    QList<QGraphicsItem*> itemList = items();
+    for (QList<QGraphicsItem*>::iterator it = itemList.begin(); it < itemList.end(); ++it) {
       removeItem(*it);
       delete *it;
     }
 
-    SystemItem * systemItem = new SystemItem(m_loop,this);
+    SystemItem* systemItem = new SystemItem(m_loop, this);
 
-    systemItem->setPos(50,50);
+    systemItem->setPos(50, 50);
 
-    this->setSceneRect(0,0,(systemItem->getHGridLength() * 100) + 100, ((systemItem->getVGridLength()) * 100) + 100);
+    this->setSceneRect(0, 0, (systemItem->getHGridLength() * 100) + 100, ((systemItem->getVGridLength()) * 100) + 100);
 
     update();
 
@@ -103,51 +90,43 @@ void LoopScene::layout()
   }
 }
 
-DemandSideItem * LoopScene::createDemandSide()
-{
+DemandSideItem* LoopScene::createDemandSide() {
   auto demandInletNodes = m_loop.demandInletNodes();
   auto demandOutletNode = m_loop.demandOutletNode();
 
-  DemandSideItem * demandSideItem = new DemandSideItem( nullptr,
-                                                        demandInletNodes,
-                                                        demandOutletNode );
+  DemandSideItem* demandSideItem = new DemandSideItem(nullptr, demandInletNodes, demandOutletNode);
 
   return demandSideItem;
 }
 
-SupplySideItem * LoopScene::createSupplySide()
-{
+SupplySideItem* LoopScene::createSupplySide() {
   auto supplyInletNode = m_loop.supplyInletNode();
   auto supplyOutletNodes = m_loop.supplyOutletNodes();
 
-  SupplySideItem * supplySideItem = new SupplySideItem( nullptr,
-                                                        supplyInletNode,
-                                                        supplyOutletNodes);
+  SupplySideItem* supplySideItem = new SupplySideItem(nullptr, supplyInletNode, supplyOutletNodes);
 
   return supplySideItem;
 }
 
-model::Loop LoopScene::loop()
-{
+model::Loop LoopScene::loop() {
   return m_loop;
 }
 
-void LoopScene::addedWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> wPtr, const openstudio::IddObjectType& type, const openstudio::UUID& uuid )
-{
+void LoopScene::addedWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> wPtr, const openstudio::IddObjectType& type,
+                                     const openstudio::UUID& uuid) {
   model::detail::HVACComponent_Impl* hvac_impl = dynamic_cast<model::detail::HVACComponent_Impl*>(wPtr.get());
-  if(hvac_impl)
-  {
+  if (hvac_impl) {
     m_dirty = true;
 
-    QTimer::singleShot(0,this,SLOT(layout()));
+    QTimer::singleShot(0, this, SLOT(layout()));
   }
 }
 
-void LoopScene::removedWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> wPtr, const openstudio::IddObjectType& type, const openstudio::UUID& uuid )
-{
+void LoopScene::removedWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> wPtr, const openstudio::IddObjectType& type,
+                                       const openstudio::UUID& uuid) {
   m_dirty = true;
 
-  QTimer::singleShot(0,this,SLOT(layout()));
+  QTimer::singleShot(0, this, SLOT(layout()));
 }
 
-} // openstudio
+}  // namespace openstudio

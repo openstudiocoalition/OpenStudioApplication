@@ -36,12 +36,10 @@
 
 namespace openstudio {
 
-ZoomOutButton::ZoomOutButton(QWidget * parent)
-  : QPushButton()
-{
+ZoomOutButton::ZoomOutButton(QWidget* parent) : QPushButton() {
   setFlat(true);
 
-  setFixedSize(20,20);
+  setFixedSize(20, 20);
 
   QString style;
   style.append("QPushButton {"
@@ -58,9 +56,7 @@ ZoomOutButton::ZoomOutButton(QWidget * parent)
   setStyleSheet(style);
 }
 
-OrangeButton::OrangeButton(QWidget * parent)
-  : QPushButton()
-{
+OrangeButton::OrangeButton(QWidget* parent) : QPushButton() {
   setFlat(true);
 
   QString style;
@@ -80,9 +76,7 @@ OrangeButton::OrangeButton(QWidget * parent)
   setStyleSheet(style);
 }
 
-GrayButton::GrayButton(QWidget * parent)
-  : QPushButton()
-{
+GrayButton::GrayButton(QWidget* parent) : QPushButton() {
   setFlat(true);
 
   QString style;
@@ -116,9 +110,7 @@ GrayButton::GrayButton(QWidget * parent)
   setStyleSheet(style);
 }
 
-BlueButton::BlueButton(QWidget * parent)
-  : QPushButton()
-{
+BlueButton::BlueButton(QWidget* parent) : QPushButton() {
   setFlat(true);
 
   QString style;
@@ -152,9 +144,7 @@ BlueButton::BlueButton(QWidget * parent)
   setStyleSheet(style);
 }
 
-AddButton::AddButton(QWidget * parent)
-  : QPushButton()
-{
+AddButton::AddButton(QWidget* parent) : QPushButton() {
   setFlat(true);
 
   setFixedSize(24, 24);
@@ -174,9 +164,7 @@ AddButton::AddButton(QWidget * parent)
   setStyleSheet(style);
 }
 
-SofterAddButton::SofterAddButton(QWidget * parent)
-  : QPushButton()
-{
+SofterAddButton::SofterAddButton(QWidget* parent) : QPushButton() {
   setFlat(true);
 
   setFixedSize(16, 16);
@@ -196,9 +184,7 @@ SofterAddButton::SofterAddButton(QWidget * parent)
   setStyleSheet(style);
 }
 
-RemoveButton::RemoveButton(QWidget * parent)
-  : QPushButton()
-{
+RemoveButton::RemoveButton(QWidget* parent) : QPushButton() {
   setFlat(true);
 
   setFixedSize(24, 24);
@@ -218,12 +204,10 @@ RemoveButton::RemoveButton(QWidget * parent)
   setStyleSheet(style);
 }
 
-SofterRemoveButton::SofterRemoveButton(QWidget * parent)
-  : QPushButton()
-{
+SofterRemoveButton::SofterRemoveButton(QWidget* parent) : QPushButton() {
   setFlat(true);
 
-  setFixedSize(16,16);
+  setFixedSize(16, 16);
 
   QString style;
   style.append("QPushButton {"
@@ -240,12 +224,10 @@ SofterRemoveButton::SofterRemoveButton(QWidget * parent)
   setStyleSheet(style);
 }
 
-AddScriptButton::AddScriptButton(QWidget * parent)
-  : QPushButton()
-{
+AddScriptButton::AddScriptButton(QWidget* parent) : QPushButton() {
   setFlat(true);
 
-  setFixedSize(24,24);
+  setFixedSize(24, 24);
 
   QString style;
   style.append("QPushButton {"
@@ -262,12 +244,10 @@ AddScriptButton::AddScriptButton(QWidget * parent)
   setStyleSheet(style);
 }
 
-DuplicateButton::DuplicateButton(QWidget * parent)
-  : QPushButton()
-{
+DuplicateButton::DuplicateButton(QWidget* parent) : QPushButton() {
   setFlat(true);
 
-  setFixedSize(24,24);
+  setFixedSize(24, 24);
 
   QString style;
   style.append("QPushButton {"
@@ -287,12 +267,10 @@ DuplicateButton::DuplicateButton(QWidget * parent)
   setStyleSheet(style);
 }
 
-SofterDuplicateButton::SofterDuplicateButton(QWidget * parent)
-  : QPushButton()
-{
+SofterDuplicateButton::SofterDuplicateButton(QWidget* parent) : QPushButton() {
   setFlat(true);
 
-  setFixedSize(16,16);
+  setFixedSize(16, 16);
 
   QString style;
   style.append("QPushButton {"
@@ -312,13 +290,10 @@ SofterDuplicateButton::SofterDuplicateButton(QWidget * parent)
   setStyleSheet(style);
 }
 
-
-UpButton::UpButton(QWidget * parent)
-  : QPushButton(parent)
-{
+UpButton::UpButton(QWidget* parent) : QPushButton(parent) {
   setFlat(true);
 
-  setFixedSize(22,24);
+  setFixedSize(22, 24);
 
   QString style;
 
@@ -336,12 +311,10 @@ UpButton::UpButton(QWidget * parent)
   setStyleSheet(style);
 }
 
-DownButton::DownButton(QWidget * parent)
-  : QPushButton(parent)
-{
+DownButton::DownButton(QWidget* parent) : QPushButton(parent) {
   setFlat(true);
 
-  setFixedSize(22,24);
+  setFixedSize(22, 24);
 
   QString style;
 
@@ -359,12 +332,10 @@ DownButton::DownButton(QWidget * parent)
   setStyleSheet(style);
 }
 
-MyMeasuresFolderButton::MyMeasuresFolderButton(QWidget * parent)
-  : QPushButton(parent)
-{
+MyMeasuresFolderButton::MyMeasuresFolderButton(QWidget* parent) : QPushButton(parent) {
   setFlat(true);
 
-  setFixedSize(31,24);
+  setFixedSize(31, 24);
 
   QString style;
 
@@ -379,12 +350,10 @@ MyMeasuresFolderButton::MyMeasuresFolderButton(QWidget * parent)
   setStyleSheet(style);
 }
 
-OpenDirectoryButton::OpenDirectoryButton(QWidget * parent)
-  : QPushButton(parent)
-{
+OpenDirectoryButton::OpenDirectoryButton(QWidget* parent) : QPushButton(parent) {
   setFlat(true);
 
-  setFixedSize(31,24);
+  setFixedSize(31, 24);
 
   QString style;
 
@@ -402,30 +371,22 @@ OpenDirectoryButton::OpenDirectoryButton(QWidget * parent)
   setStyleSheet(style);
 }
 
-CreateOneWithSelectedMeasuresButton::CreateOneWithSelectedMeasuresButton()
-  : GrayButton()
-{
+CreateOneWithSelectedMeasuresButton::CreateOneWithSelectedMeasuresButton() : GrayButton() {
   setText("Create One With Selected Measures");
 }
 
-CreateOneForEachSelectedMeasureButton::CreateOneForEachSelectedMeasureButton()
-  : GrayButton()
-{
+CreateOneForEachSelectedMeasureButton::CreateOneForEachSelectedMeasureButton() : GrayButton() {
   setText("Create One For Each Selected Measure");
 }
 
-CreateFromFileButton::CreateFromFileButton()
-  : GrayButton()
-{
+CreateFromFileButton::CreateFromFileButton() : GrayButton() {
   setText("Create From External File");
 }
 
-CloudLostConnectionButton::CloudLostConnectionButton(QWidget * parent)
-  : QPushButton(parent)
-{
+CloudLostConnectionButton::CloudLostConnectionButton(QWidget* parent) : QPushButton(parent) {
   setFlat(true);
 
-  setFixedSize(130,24);
+  setFixedSize(130, 24);
 
   QString style;
 
@@ -435,14 +396,11 @@ CloudLostConnectionButton::CloudLostConnectionButton(QWidget * parent)
                "}");
 
   setStyleSheet(style);
-
 }
-CloudOffButton::CloudOffButton(QWidget * parent)
-  : QPushButton(parent)
-{
+CloudOffButton::CloudOffButton(QWidget* parent) : QPushButton(parent) {
   setFlat(true);
 
-  setFixedSize(130,24);
+  setFixedSize(130, 24);
 
   QString style;
 
@@ -457,12 +415,10 @@ CloudOffButton::CloudOffButton(QWidget * parent)
   setStyleSheet(style);
 }
 
-CloudOnButton::CloudOnButton(QWidget * parent)
-  : QPushButton(parent)
-{
+CloudOnButton::CloudOnButton(QWidget* parent) : QPushButton(parent) {
   setFlat(true);
 
-  setFixedSize(130,24);
+  setFixedSize(130, 24);
 
   QString style;
 
@@ -477,12 +433,10 @@ CloudOnButton::CloudOnButton(QWidget * parent)
   setStyleSheet(style);
 }
 
-CloudStartingButton::CloudStartingButton(QWidget * parent)
-  : QPushButton(parent)
-{
+CloudStartingButton::CloudStartingButton(QWidget* parent) : QPushButton(parent) {
   setFlat(true);
 
-  setFixedSize(130,24);
+  setFixedSize(130, 24);
 
   QString style;
 
@@ -502,19 +456,17 @@ CloudStartingButton::CloudStartingButton(QWidget * parent)
   m_timer->start(50);
 }
 
-void CloudStartingButton::rotate()
-{
+void CloudStartingButton::rotate() {
   m_rotation += 10.0;
 
   update();
 }
 
-void CloudStartingButton::paintEvent ( QPaintEvent * event )
-{
+void CloudStartingButton::paintEvent(QPaintEvent* event) {
   QPainter painter(this);
 
-  double transX = m_arrow->width()/2.0;
-  double transY = m_arrow->height()/2.0;
+  double transX = m_arrow->width() / 2.0;
+  double transY = m_arrow->height() / 2.0;
 
   QTransform t;
   t.translate(transX, transY);
@@ -523,19 +475,17 @@ void CloudStartingButton::paintEvent ( QPaintEvent * event )
 
   QPixmap rotatedArrow = QPixmap(m_arrow->transformed(t, Qt::SmoothTransformation));
 
-  double transX2 = rotatedArrow.width()/2.0;
-  double transY2 = rotatedArrow.height()/2.0;
+  double transX2 = rotatedArrow.width() / 2.0;
+  double transY2 = rotatedArrow.height() / 2.0;
 
   painter.drawPixmap(0, 0, *m_background);
-  painter.drawPixmap(12+transX-transX2, 5+transY-transY2, rotatedArrow);
+  painter.drawPixmap(12 + transX - transX2, 5 + transY - transY2, rotatedArrow);
 }
 
-CloudStoppingButton::CloudStoppingButton(QWidget * parent)
-  : QPushButton(parent)
-{
+CloudStoppingButton::CloudStoppingButton(QWidget* parent) : QPushButton(parent) {
   setFlat(true);
 
-  setFixedSize(130,24);
+  setFixedSize(130, 24);
 
   QString style;
 
@@ -555,19 +505,17 @@ CloudStoppingButton::CloudStoppingButton(QWidget * parent)
   m_timer->start(50);
 }
 
-void CloudStoppingButton::rotate()
-{
+void CloudStoppingButton::rotate() {
   m_rotation += 10.0;
 
   update();
 }
 
-void CloudStoppingButton::paintEvent ( QPaintEvent * event )
-{
+void CloudStoppingButton::paintEvent(QPaintEvent* event) {
   QPainter painter(this);
 
-  double transX = m_arrow->width()/2.0;
-  double transY = m_arrow->height()/2.0;
+  double transX = m_arrow->width() / 2.0;
+  double transY = m_arrow->height() / 2.0;
 
   QTransform t;
   t.translate(transX, transY);
@@ -576,33 +524,28 @@ void CloudStoppingButton::paintEvent ( QPaintEvent * event )
 
   QPixmap rotatedArrow = QPixmap(m_arrow->transformed(t, Qt::SmoothTransformation));
 
-  double transX2 = rotatedArrow.width()/2.0;
-  double transY2 = rotatedArrow.height()/2.0;
+  double transX2 = rotatedArrow.width() / 2.0;
+  double transY2 = rotatedArrow.height() / 2.0;
 
   painter.drawPixmap(0, 0, *m_background);
-  painter.drawPixmap(12+transX-transX2, 5+transY-transY2, rotatedArrow);
+  painter.drawPixmap(12 + transX - transX2, 5 + transY - transY2, rotatedArrow);
 }
 
-PlayButton::PlayButton(QWidget * parent)
-  : QPushButton(parent)
-{
+PlayButton::PlayButton(QWidget* parent) : QPushButton(parent) {
   setFlat(true);
-  setFixedSize(35,35);
+  setFixedSize(35, 35);
 
   setStatus(IDLE);
 }
 
-PlayButton::Status PlayButton::status() const
-{
+PlayButton::Status PlayButton::status() const {
   return m_status;
 }
 
-void PlayButton::setStatus(const Status & status)
-{
+void PlayButton::setStatus(const Status& status) {
   QString style;
 
-  switch (status)
-  {
+  switch (status) {
     case IDLE:
       style.append("QPushButton {"
                    "  background-image:url(':/shared_gui_components/images/run_simulation_button.png');"
@@ -681,6 +624,4 @@ void PlayButton::setStatus(const Status & status)
   m_status = status;
 }
 
-
-} // openstudio
-
+}  // namespace openstudio

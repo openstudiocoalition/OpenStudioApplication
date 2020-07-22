@@ -45,26 +45,20 @@
 
 namespace openstudio {
 
-ServiceWaterScene::ServiceWaterScene(const model::Model & model)
-  : GridScene(),
-    m_dirty(true),
-    m_model(model)
-{
+ServiceWaterScene::ServiceWaterScene(const model::Model& model) : GridScene(), m_dirty(true), m_model(model) {
   //m_model.getImpl<model::detail::Model_Impl>().get()->addWorkspaceObjectPtr.connect<ServiceWaterScene, &ServiceWaterScene::onAddedWorkspaceObject>(this);
   connect(OSAppBase::instance(), &OSAppBase::workspaceObjectAddedPtr, this, &ServiceWaterScene::onAddedWorkspaceObject, Qt::QueuedConnection);
 
-  m_model.getImpl<model::detail::Model_Impl>().get()->removeWorkspaceObjectPtr.connect<ServiceWaterScene, &ServiceWaterScene::onRemovedWorkspaceObject>(this);
+  m_model.getImpl<model::detail::Model_Impl>()
+    .get()
+    ->removeWorkspaceObjectPtr.connect<ServiceWaterScene, &ServiceWaterScene::onRemovedWorkspaceObject>(this);
 
   layout();
 }
 
-void ServiceWaterScene::layout()
-{
-  QList<QGraphicsItem *> itemList = items();
-  for( QList<QGraphicsItem *>::iterator it = itemList.begin();
-       it < itemList.end();
-       ++it )
-  {
+void ServiceWaterScene::layout() {
+  QList<QGraphicsItem*> itemList = items();
+  for (QList<QGraphicsItem*>::iterator it = itemList.begin(); it < itemList.end(); ++it) {
     removeItem(*it);
     delete *it;
   }
@@ -74,61 +68,52 @@ void ServiceWaterScene::layout()
   Q_UNUSED(backgroundItem);
 }
 
-model::Model ServiceWaterScene::model() const
-{
+model::Model ServiceWaterScene::model() const {
   return m_model;
 }
 
-void ServiceWaterScene::onAddedWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> wPtr, const openstudio::IddObjectType& type, const openstudio::UUID& uuid)
-{
+void ServiceWaterScene::onAddedWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> wPtr, const openstudio::IddObjectType& type,
+                                               const openstudio::UUID& uuid) {
   model::detail::WaterUseConnections_Impl* hvac_impl = dynamic_cast<model::detail::WaterUseConnections_Impl*>(wPtr.get());
-  if(hvac_impl)
-  {
+  if (hvac_impl) {
     m_dirty = true;
 
-    QTimer::singleShot(0,this,SLOT(layout()));
+    QTimer::singleShot(0, this, SLOT(layout()));
   }
 }
 
-void ServiceWaterScene::onRemovedWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> wPtr, const openstudio::IddObjectType& type, const openstudio::UUID& uuid)
-{
+void ServiceWaterScene::onRemovedWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> wPtr,
+                                                 const openstudio::IddObjectType& type, const openstudio::UUID& uuid) {
   model::detail::WaterUseConnections_Impl* hvac_impl = dynamic_cast<model::detail::WaterUseConnections_Impl*>(wPtr.get());
-  if(hvac_impl)
-  {
+  if (hvac_impl) {
     m_dirty = true;
 
-    QTimer::singleShot(0,this,SLOT(layout()));
+    QTimer::singleShot(0, this, SLOT(layout()));
   }
 }
 
-WaterUseConnectionsDetailScene::WaterUseConnectionsDetailScene(const model::WaterUseConnections & waterUseConnections)
-  : GridScene(),
-    m_dirty(true),
-    m_waterUseConnections(waterUseConnections)
-{
+WaterUseConnectionsDetailScene::WaterUseConnectionsDetailScene(const model::WaterUseConnections& waterUseConnections)
+  : GridScene(), m_dirty(true), m_waterUseConnections(waterUseConnections) {
   model::Model model = m_waterUseConnections.model();
 
   //model.getImpl<model::detail::Model_Impl>().get()->addWorkspaceObjectPtr.connect<WaterUseConnectionsDetailScene, &WaterUseConnectionsDetailScene::onAddedWorkspaceObject>(this);
-  connect(OSAppBase::instance(), &OSAppBase::workspaceObjectAddedPtr, this, &WaterUseConnectionsDetailScene::onAddedWorkspaceObject, Qt::QueuedConnection);
+  connect(OSAppBase::instance(), &OSAppBase::workspaceObjectAddedPtr, this, &WaterUseConnectionsDetailScene::onAddedWorkspaceObject,
+          Qt::QueuedConnection);
 
-
-  model.getImpl<model::detail::Model_Impl>().get()->removeWorkspaceObjectPtr.connect<WaterUseConnectionsDetailScene, &WaterUseConnectionsDetailScene::onRemovedWorkspaceObject>(this);
+  model.getImpl<model::detail::Model_Impl>()
+    .get()
+    ->removeWorkspaceObjectPtr.connect<WaterUseConnectionsDetailScene, &WaterUseConnectionsDetailScene::onRemovedWorkspaceObject>(this);
 
   layout();
 }
 
-model::WaterUseConnections WaterUseConnectionsDetailScene::waterUseConnections() const
-{
+model::WaterUseConnections WaterUseConnectionsDetailScene::waterUseConnections() const {
   return m_waterUseConnections;
 }
 
-void WaterUseConnectionsDetailScene::layout()
-{
-  QList<QGraphicsItem *> itemList = items();
-  for( QList<QGraphicsItem *>::iterator it = itemList.begin();
-       it < itemList.end();
-       ++it )
-  {
+void WaterUseConnectionsDetailScene::layout() {
+  QList<QGraphicsItem*> itemList = items();
+  for (QList<QGraphicsItem*>::iterator it = itemList.begin(); it < itemList.end(); ++it) {
     removeItem(*it);
     delete *it;
   }
@@ -138,26 +123,24 @@ void WaterUseConnectionsDetailScene::layout()
   Q_UNUSED(backgroundItem);
 }
 
-void WaterUseConnectionsDetailScene::onAddedWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> wPtr, const openstudio::IddObjectType& type, const openstudio::UUID& uuid)
-{
-  model::detail::WaterUseEquipment_Impl * hvac_impl = dynamic_cast<model::detail::WaterUseEquipment_Impl*>(wPtr.get());
-  if(hvac_impl)
-  {
+void WaterUseConnectionsDetailScene::onAddedWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> wPtr,
+                                                            const openstudio::IddObjectType& type, const openstudio::UUID& uuid) {
+  model::detail::WaterUseEquipment_Impl* hvac_impl = dynamic_cast<model::detail::WaterUseEquipment_Impl*>(wPtr.get());
+  if (hvac_impl) {
     m_dirty = true;
 
-    QTimer::singleShot(0,this,SLOT(layout()));
+    QTimer::singleShot(0, this, SLOT(layout()));
   }
 }
 
-void WaterUseConnectionsDetailScene::onRemovedWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> wPtr, const openstudio::IddObjectType& type, const openstudio::UUID& uuid)
-{
-  model::detail::WaterUseEquipment_Impl * hvac_impl = dynamic_cast<model::detail::WaterUseEquipment_Impl*>(wPtr.get());
-  if(hvac_impl)
-  {
+void WaterUseConnectionsDetailScene::onRemovedWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> wPtr,
+                                                              const openstudio::IddObjectType& type, const openstudio::UUID& uuid) {
+  model::detail::WaterUseEquipment_Impl* hvac_impl = dynamic_cast<model::detail::WaterUseEquipment_Impl*>(wPtr.get());
+  if (hvac_impl) {
     m_dirty = true;
 
-    QTimer::singleShot(0,this,SLOT(layout()));
+    QTimer::singleShot(0, this, SLOT(layout()));
   }
 }
 
-} // openstudio
+}  // namespace openstudio

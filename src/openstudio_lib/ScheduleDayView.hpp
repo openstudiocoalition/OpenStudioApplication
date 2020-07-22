@@ -30,7 +30,7 @@
 #ifndef OPENSTUDIO_SCHEDULEDAYVIEW_HPP
 #define OPENSTUDIO_SCHEDULEDAYVIEW_HPP
 
-#include <openstudio/nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/nano/nano_signal_slot.hpp>  // Signal-Slot replacement
 #include <openstudio/model/ScheduleDay.hpp>
 #include <openstudio/model/ScheduleTypeLimits.hpp>
 #include <openstudio/model/YearDescription.hpp>
@@ -87,17 +87,14 @@ class ScheduleDayView : public QWidget
 {
   Q_OBJECT
 
- public:
-
-  ScheduleDayView(bool isIP,
-                  const model::ScheduleDay & scheduleDay,
-                  SchedulesView * schedulesView);
+  public:
+  ScheduleDayView(bool isIP, const model::ScheduleDay& scheduleDay, SchedulesView* schedulesView);
 
   virtual ~ScheduleDayView() {}
 
-  SchedulesView * schedulesView() const;
+  SchedulesView* schedulesView() const;
 
-  DayScheduleScene * scene() const;
+  DayScheduleScene* scene() const;
 
   double zoom() const;
 
@@ -137,7 +134,7 @@ class ScheduleDayView : public QWidget
   // gets the current units for the schedule
   boost::optional<Unit> units(bool displayIP) const;
 
- signals:
+  signals:
 
   void zoomChanged(double zoom);
 
@@ -147,7 +144,7 @@ class ScheduleDayView : public QWidget
 
   //void endDateTimeChanged(model::ScheduleRule & scheduleRule, const QDateTime & newDate);
 
- public slots:
+  public slots:
 
   void onToggleUnitsClicked(bool displayIP);
 
@@ -157,7 +154,7 @@ class ScheduleDayView : public QWidget
   // called when value in the spin box changes
   void onUpperViewLimitChanged(double d);
 
- private slots:
+  private slots:
 
   //void refresh();
 
@@ -173,8 +170,7 @@ class ScheduleDayView : public QWidget
 
   void setOneMinuteZoom();
 
- private:
-
+  private:
   boost::optional<model::YearDescription> m_yearDescription;
 
   double m_focusStartTime;
@@ -185,18 +181,17 @@ class ScheduleDayView : public QWidget
 
   model::ScheduleDay m_scheduleDay;
 
-  SchedulesView * m_schedulesView;
+  SchedulesView* m_schedulesView;
 
-  DayScheduleScene * m_dayScheduleScene;
+  DayScheduleScene* m_dayScheduleScene;
 
-  ScheduleDayEditor * m_scheduleDayEditor;
+  ScheduleDayEditor* m_scheduleDayEditor;
 
-  DayScheduleOverview * m_scheduleOverview;
+  DayScheduleOverview* m_scheduleOverview;
 
-  ScheduleLimitsView * m_scheduleLimitsView;
+  ScheduleLimitsView* m_scheduleLimitsView;
 
   bool m_dirty;
-
 };
 
 // Allows user to change limits of the view, provides starting view based on schedule type limits
@@ -204,10 +199,8 @@ class ScheduleLimitsView : public QWidget
 {
   Q_OBJECT
 
-public:
-  ScheduleLimitsView(bool isIP,
-                     const boost::optional<model::ScheduleTypeLimits>& scheduleTypeLimits,
-                     ScheduleDayView* scheduleDayView);
+  public:
+  ScheduleLimitsView(bool isIP, const boost::optional<model::ScheduleTypeLimits>& scheduleTypeLimits, ScheduleDayView* scheduleDayView);
 
   virtual ~ScheduleLimitsView() {}
 
@@ -233,17 +226,16 @@ public:
 
   boost::optional<Unit> units(bool displayIP) const;
 
-private:
-
+  private:
   bool m_isIP;
 
   boost::optional<model::ScheduleTypeLimits> m_scheduleTypeLimits;
 
-  QDoubleSpinBox * m_upperViewLimitSpinBox;
+  QDoubleSpinBox* m_upperViewLimitSpinBox;
 
   boost::optional<double> m_upperTypeLimit;
 
-  QDoubleSpinBox * m_lowerViewLimitSpinBox;
+  QDoubleSpinBox* m_lowerViewLimitSpinBox;
 
   boost::optional<double> m_lowerTypeLimit;
 };
@@ -253,12 +245,11 @@ class ScheduleDayEditor : public QWidget
   Q_OBJECT
 
   public:
-
-  ScheduleDayEditor(bool isIP, ScheduleDayView * scheduleView, const model::ScheduleDay & scheduleDay);
+  ScheduleDayEditor(bool isIP, ScheduleDayView* scheduleView, const model::ScheduleDay& scheduleDay);
 
   virtual ~ScheduleDayEditor() {}
 
-  ScheduleDayView * scheduleDayView() const;
+  ScheduleDayView* scheduleDayView() const;
 
   signals:
 
@@ -273,33 +264,30 @@ class ScheduleDayEditor : public QWidget
   void updateKeyboardPrompt(const QString& keyboardPrompt);
 
   protected:
+  void mouseDoubleClickEvent(QMouseEvent* event) override;
 
-  void mouseDoubleClickEvent(QMouseEvent * event) override;
+  void paintEvent(QPaintEvent* event) override;
 
-  void paintEvent(QPaintEvent * event) override;
-
-  void resizeEvent(QResizeEvent * event) override;
+  void resizeEvent(QResizeEvent* event) override;
 
   //void refresh();
 
   //void scheduleRefresh();
 
   private:
-
   void setLabelText(bool isIP);
 
-  DaySchedulePlotArea * m_graphicsView;
+  DaySchedulePlotArea* m_graphicsView;
 
-  ScheduleDayView * m_scheduleDayView;
+  ScheduleDayView* m_scheduleDayView;
 
   model::ScheduleDay m_scheduleDay;
 
   bool m_dirty;
 
-  QLabel * m_yLabel;
+  QLabel* m_yLabel;
 
-  QLabel * m_keyboardPrompt;
-
+  QLabel* m_keyboardPrompt;
 };
 
 class DayScheduleScene : public QGraphicsScene, public Nano::Observer
@@ -307,24 +295,23 @@ class DayScheduleScene : public QGraphicsScene, public Nano::Observer
   Q_OBJECT
 
   public:
-
-  DayScheduleScene(ScheduleDayView * scheduleRuleView, const model::ScheduleDay & scheduleDay);
+  DayScheduleScene(ScheduleDayView* scheduleRuleView, const model::ScheduleDay& scheduleDay);
 
   virtual ~DayScheduleScene() {}
 
-  ScheduleDayView * scheduleDayView() const;
+  ScheduleDayView* scheduleDayView() const;
 
   model::ScheduleDay scheduleDay() const;
 
-  void addSegment(double untilTime,double value);
+  void addSegment(double untilTime, double value);
 
-  CalendarSegmentItem * addSegment(double untilTime);
+  CalendarSegmentItem* addSegment(double untilTime);
 
   void clearSegments();
 
-  std::vector<CalendarSegmentItem *> segments() const;
+  std::vector<CalendarSegmentItem*> segments() const;
 
-  CalendarSegmentItem * segmentAt(double time) const;
+  CalendarSegmentItem* segmentAt(double time) const;
 
   boost::optional<double> valueAt(double time) const;
 
@@ -332,7 +319,7 @@ class DayScheduleScene : public QGraphicsScene, public Nano::Observer
 
   double xAt(double time) const;
 
-  QGraphicsItem * segmentAt(double x, double y, double zoom) const;
+  QGraphicsItem* segmentAt(double x, double y, double zoom) const;
 
   public slots:
 
@@ -343,14 +330,13 @@ class DayScheduleScene : public QGraphicsScene, public Nano::Observer
   void refresh();
 
   private:
+  CalendarSegmentItem* m_firstSegment;
 
-  CalendarSegmentItem * m_firstSegment;
+  ScheduleTypeLimitItem* m_upperScheduleTypeLimitItem;
 
-  ScheduleTypeLimitItem * m_upperScheduleTypeLimitItem;
+  ScheduleTypeLimitItem* m_lowerScheduleTypeLimitItem;
 
-  ScheduleTypeLimitItem * m_lowerScheduleTypeLimitItem;
-
-  ScheduleDayView * m_scheduleDayView;
+  ScheduleDayView* m_scheduleDayView;
 
   model::ScheduleDay m_scheduleDay;
 
@@ -362,48 +348,45 @@ class DaySchedulePlotArea : public QGraphicsView
   Q_OBJECT
 
   public:
-
-  DaySchedulePlotArea(ScheduleDayEditor * mainScheduleView);
+  DaySchedulePlotArea(ScheduleDayEditor* mainScheduleView);
 
   virtual ~DaySchedulePlotArea() {}
 
   QTransform vItemTransform();
 
-  QGraphicsItem * segmentAt(QPoint point) const;
+  QGraphicsItem* segmentAt(QPoint point) const;
 
   int timeAt(double x) const;
 
   boost::optional<double> valueAt(double x) const;
 
-  DayScheduleScene * scene() const;
+  DayScheduleScene* scene() const;
 
   signals:
 
-  void dayScheduleSceneChanged( DayScheduleScene * scene, double lowerValue, double upperValue );
+  void dayScheduleSceneChanged(DayScheduleScene* scene, double lowerValue, double upperValue);
 
   void keyboardPromptChanged(QString keyboardPrompt);
 
   protected:
+  void mouseDoubleClickEvent(QMouseEvent* event) override;
 
-  void mouseDoubleClickEvent(QMouseEvent * event) override;
+  void mouseMoveEvent(QMouseEvent* event) override;
 
-  void mouseMoveEvent(QMouseEvent * event) override;
+  void mousePressEvent(QMouseEvent* event) override;
 
-  void mousePressEvent(QMouseEvent * event) override;
+  void mouseReleaseEvent(QMouseEvent* event) override;
 
-  void mouseReleaseEvent(QMouseEvent * event) override;
-
-  void keyPressEvent (QKeyEvent * event) override;
+  void keyPressEvent(QKeyEvent* event) override;
 
   private:
-
   void updateKeyboardPrompt();
 
-  ScheduleDayEditor * m_scheduleDayEditor;
+  ScheduleDayEditor* m_scheduleDayEditor;
 
-  QGraphicsItem * m_currentItem;
+  QGraphicsItem* m_currentItem;
 
-  QGraphicsItem * m_currentHoverItem;
+  QGraphicsItem* m_currentHoverItem;
 
   QString m_keyboardInputValue;
 
@@ -415,22 +398,20 @@ class DayScheduleOverview : public QWidget
   Q_OBJECT
 
   public:
-
-  DayScheduleOverview(ScheduleDayView * scheduleRuleView);
+  DayScheduleOverview(ScheduleDayView* scheduleRuleView);
 
   virtual ~DayScheduleOverview() {}
 
   void updateFocusRectangleGeometry();
 
   protected:
+  void resizeEvent(QResizeEvent* event) override;
 
-  void resizeEvent (QResizeEvent * event) override;
+  void mouseMoveEvent(QMouseEvent* event) override;
 
-  void mouseMoveEvent(QMouseEvent * event) override;
+  void mousePressEvent(QMouseEvent* event) override;
 
-  void mousePressEvent(QMouseEvent * event) override;
-
-  void mouseReleaseEvent(QMouseEvent * event) override;
+  void mouseReleaseEvent(QMouseEvent* event) override;
 
   private slots:
 
@@ -439,16 +420,15 @@ class DayScheduleOverview : public QWidget
   void onZoomChange(double newZoom);
 
   private:
-
   double timeAt(int x) const;
 
   int xAt(double time) const;
 
-  ScheduleDayView * m_scheduleRuleView;
+  ScheduleDayView* m_scheduleRuleView;
 
-  QGraphicsView * m_graphicsView;
+  QGraphicsView* m_graphicsView;
 
-  QWidget * m_focusRectangle;
+  QWidget* m_focusRectangle;
 
   bool m_isMouseDown;
 
@@ -458,12 +438,11 @@ class DayScheduleOverview : public QWidget
 class VCalendarSegmentItem : public QGraphicsItem
 {
   public:
-
-  VCalendarSegmentItem( QGraphicsItem * parent = nullptr );
+  VCalendarSegmentItem(QGraphicsItem* parent = nullptr);
 
   virtual ~VCalendarSegmentItem() {}
 
-  DayScheduleScene * scene() const;
+  DayScheduleScene* scene() const;
 
   void setTime(double time);
 
@@ -477,13 +456,13 @@ class VCalendarSegmentItem : public QGraphicsItem
 
   double length() const;
 
-  CalendarSegmentItem * nextCalendarItem() const;
+  CalendarSegmentItem* nextCalendarItem() const;
 
-  void setNextCalendarItem(CalendarSegmentItem * item);
+  void setNextCalendarItem(CalendarSegmentItem* item);
 
-  CalendarSegmentItem * previousCalendarItem() const;
+  CalendarSegmentItem* previousCalendarItem() const;
 
-  void setPreviousCalendarItem(CalendarSegmentItem * item);
+  void setPreviousCalendarItem(CalendarSegmentItem* item);
 
   void updateLength();
 
@@ -492,17 +471,13 @@ class VCalendarSegmentItem : public QGraphicsItem
   double hCenterPos() const;
 
   protected:
-
   void setMouseDown(bool mouseDown);
 
   void setHovering(bool hovering);
 
-  void paint( QPainter *painter,
-              const QStyleOptionGraphicsItem *option,
-              QWidget *widget ) override;
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
 
   private:
-
   void remove();
 
   bool m_mouseDown;
@@ -511,9 +486,9 @@ class VCalendarSegmentItem : public QGraphicsItem
 
   double m_length;
 
-  CalendarSegmentItem * m_nextCalendarItem;
+  CalendarSegmentItem* m_nextCalendarItem;
 
-  CalendarSegmentItem * m_previousCalendarItem;
+  CalendarSegmentItem* m_previousCalendarItem;
 
   friend class DaySchedulePlotArea;
 };
@@ -521,12 +496,11 @@ class VCalendarSegmentItem : public QGraphicsItem
 class CalendarSegmentItem : public QGraphicsItem
 {
   public:
-
-  CalendarSegmentItem( QGraphicsItem * parent = nullptr );
+  CalendarSegmentItem(QGraphicsItem* parent = nullptr);
 
   virtual ~CalendarSegmentItem() {}
 
-  DayScheduleScene * scene() const;
+  DayScheduleScene* scene() const;
 
   double startTime() const;
 
@@ -552,35 +526,31 @@ class CalendarSegmentItem : public QGraphicsItem
 
   QRectF boundingRect() const override;
 
-  VCalendarSegmentItem * nextVCalendarItem() const;
+  VCalendarSegmentItem* nextVCalendarItem() const;
 
-  void setNextVCalendarItem(VCalendarSegmentItem * item);
+  void setNextVCalendarItem(VCalendarSegmentItem* item);
 
-  VCalendarSegmentItem * previousVCalendarItem() const;
+  VCalendarSegmentItem* previousVCalendarItem() const;
 
-  void setPreviousVCalendarItem(VCalendarSegmentItem * item);
+  void setPreviousVCalendarItem(VCalendarSegmentItem* item);
 
-  CalendarSegmentItem * nextCalendarItem() const;
+  CalendarSegmentItem* nextCalendarItem() const;
 
-  CalendarSegmentItem * previousCalendarItem() const;
+  CalendarSegmentItem* previousCalendarItem() const;
 
   void splitSegment(double time);
 
   protected:
-
   void setMouseDown(bool mouseDown);
 
   void setHovering(bool hovering);
 
-  void paint( QPainter *painter,
-              const QStyleOptionGraphicsItem *option,
-              QWidget *widget ) override;
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
 
   private:
+  VCalendarSegmentItem* m_previousVCalendarItem;
 
-  VCalendarSegmentItem * m_previousVCalendarItem;
-
-  VCalendarSegmentItem * m_nextVCalendarItem;
+  VCalendarSegmentItem* m_nextVCalendarItem;
 
   bool m_isHovering;
 
@@ -595,13 +565,12 @@ class CalendarSegmentItem : public QGraphicsItem
 
 class ScheduleTypeLimitItem : public QGraphicsItem
 {
-public:
-
-  ScheduleTypeLimitItem(bool isUpperLimit, QGraphicsItem * parent = nullptr);
+  public:
+  ScheduleTypeLimitItem(bool isUpperLimit, QGraphicsItem* parent = nullptr);
 
   virtual ~ScheduleTypeLimitItem() {}
 
-  DayScheduleScene * scene() const;
+  DayScheduleScene* scene() const;
 
   //double startTime() const;
 
@@ -619,19 +588,15 @@ public:
 
   QRectF boundingRect() const override;
 
-protected:
+  protected:
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
 
-  void paint(QPainter *painter,
-             const QStyleOptionGraphicsItem *option,
-             QWidget *widget) override;
-
-private:
-
+  private:
   bool m_isUpperLimit;
 
   friend class DaySchedulePlotArea;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_SCHEDULEDAYVIEW_HPP
+#endif  // OPENSTUDIO_SCHEDULEDAYVIEW_HPP

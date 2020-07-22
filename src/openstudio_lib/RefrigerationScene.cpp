@@ -32,14 +32,8 @@
 
 namespace openstudio {
 
-RefrigerationScene::RefrigerationScene()
-  : QGraphicsScene()
-{
-}
+RefrigerationScene::RefrigerationScene() : QGraphicsScene() {}
 
-void RefrigerationScene::layout()
-{
-}
+void RefrigerationScene::layout() {}
 
-} // openstudio
-
+}  // namespace openstudio

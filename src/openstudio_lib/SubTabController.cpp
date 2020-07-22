@@ -46,10 +46,7 @@
 
 namespace openstudio {
 
-SubTabController::SubTabController(SubTabView* subTabView)
-  : OSQObjectController(),
-    m_subTabView(subTabView)
-{
+SubTabController::SubTabController(SubTabView* subTabView) : OSQObjectController(), m_subTabView(subTabView) {
   addQObject(subTabView);
 
   connect(subTabView, &SubTabView::itemSelected, this, &SubTabController::selectItem);
@@ -77,80 +74,66 @@ SubTabController::SubTabController(SubTabView* subTabView)
   connect(subTabView, &SubTabView::dropZoneItemClicked, this, &SubTabController::inspectItem);
 }
 
-SubTabView * SubTabController::subTabView()
-{
+SubTabView* SubTabController::subTabView() {
   return m_subTabView;
 }
 
-const SubTabView * SubTabController::subTabView() const
-{
+const SubTabView* SubTabController::subTabView() const {
   return m_subTabView;
 }
 
-void SubTabController::onSelectItem(OSItem* item)
-{
+void SubTabController::onSelectItem(OSItem* item) {
   m_subTabView->inspectorView()->selectItem(item);
   m_subTabView->itemSelectorButtons()->enableCopyButton();
   m_subTabView->itemSelectorButtons()->enableRemoveButton();
   m_subTabView->itemSelectorButtons()->enablePurgeButton();
 }
 
-void SubTabController::onClearSelection()
-{
+void SubTabController::onClearSelection() {
   m_subTabView->inspectorView()->clearSelection();
   m_subTabView->itemSelectorButtons()->disableCopyButton();
   m_subTabView->itemSelectorButtons()->disableRemoveButton();
   m_subTabView->itemSelectorButtons()->disablePurgeButton();
 }
 
-void SubTabController::selectItem(OSItem* item)
-{
+void SubTabController::selectItem(OSItem* item) {
   onSelectItem(item);
 }
 
-void SubTabController::removeItem(OSItem* item)
-{
+void SubTabController::removeItem(OSItem* item) {
   onRemoveItem(item);
 }
 
-void SubTabController::replaceItem(OSItem* item, const OSItemId& replacementItemId)
-{
+void SubTabController::replaceItem(OSItem* item, const OSItemId& replacementItemId) {
   onReplaceItem(item, replacementItemId);
 }
 
-void SubTabController::clearSelection()
-{
+void SubTabController::clearSelection() {
   onClearSelection();
 }
 
-void SubTabController::handleDrop(const OSItemId& itemId)
-{
+void SubTabController::handleDrop(const OSItemId& itemId) {
   onDrop(itemId);
 }
 
-void SubTabController::doAdd()
-{
+void SubTabController::doAdd() {
   onAddItem();
 }
 
-void SubTabController::doCopy()
-{
+void SubTabController::doCopy() {
   onCopyItem();
 }
 
-void SubTabController::doRemove()
-{
+void SubTabController::doRemove() {
   onRemoveItem(m_subTabView->itemSelector()->selectedItem());
 }
 
-void SubTabController::doPurge()
-{
+void SubTabController::doPurge() {
   onPurgeItems();
 }
 
-void SubTabController::inspectItem(OSItem* item)
-{
+void SubTabController::inspectItem(OSItem* item) {
   onInspectItem(item);
 }
 
-} // openstudio
+}  // namespace openstudio

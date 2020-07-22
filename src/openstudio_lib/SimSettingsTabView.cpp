@@ -37,14 +37,8 @@
 
 namespace openstudio {
 
-SimSettingsTabView::SimSettingsTabView(bool isIP,
-  const model::Model & model,
-  const QString & tabLabel,
-  TabType tabType,
-  QWidget * parent)
-  : MainTabView(tabLabel,tabType,parent),
-  m_simSettingsView(new SimSettingsView(isIP,model,parent))
-{
+SimSettingsTabView::SimSettingsTabView(bool isIP, const model::Model& model, const QString& tabLabel, TabType tabType, QWidget* parent)
+  : MainTabView(tabLabel, tabType, parent), m_simSettingsView(new SimSettingsView(isIP, model, parent)) {
   auto scrollarea = new QScrollArea();
   scrollarea->setWidget(m_simSettingsView);
   scrollarea->setWidgetResizable(true);
@@ -54,8 +48,6 @@ SimSettingsTabView::SimSettingsTabView(bool isIP,
   connect(this, &SimSettingsTabView::toggleUnitsClicked, m_simSettingsView, &SimSettingsView::toggleUnitsClicked);
 }
 
-void SimSettingsTabView::toggleUnits(bool displayIP)
-{
-}
+void SimSettingsTabView::toggleUnits(bool displayIP) {}
 
-} // openstudio
+}  // namespace openstudio

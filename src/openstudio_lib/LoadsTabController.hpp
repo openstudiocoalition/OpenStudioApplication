@@ -41,20 +41,18 @@ class LoadsTabController : public MainTabController
   Q_OBJECT
 
   public:
+  LoadsTabController(bool isIP, const openstudio::model::Model& model);
 
-    LoadsTabController(bool isIP, const openstudio::model::Model& model);
-
-    virtual ~LoadsTabController();
+  virtual ~LoadsTabController();
 
   private:
-
-    std::shared_ptr<LoadsController> m_LoadsController;
+  std::shared_ptr<LoadsController> m_LoadsController;
 
   public slots:
 
-    void toggleUnits(bool displayIP);
+  void toggleUnits(bool displayIP);
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_LOADSTABCONTROLLER_HPP
+#endif  // OPENSTUDIO_LOADSTABCONTROLLER_HPP

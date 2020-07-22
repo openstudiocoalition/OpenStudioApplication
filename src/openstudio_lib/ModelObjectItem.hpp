@@ -51,33 +51,26 @@ class ModelObjectItem : public OSItem
   Q_OBJECT
 
   public:
+  ModelObjectItem(const openstudio::model::ModelObject& modelObject, bool isDefaulted, OSItemType type, QWidget* parent = nullptr);
 
-    ModelObjectItem(const openstudio::model::ModelObject& modelObject,
-                    bool isDefaulted,
-                    OSItemType type,
-                    QWidget * parent = nullptr );
+  virtual ~ModelObjectItem() {}
 
-    virtual ~ModelObjectItem() {}
+  openstudio::Handle handle() const;
 
-    openstudio::Handle handle() const;
+  openstudio::model::ModelObject modelObject() const;
 
-    openstudio::model::ModelObject modelObject() const;
-
-    virtual bool equal(const openstudio::OSItem *) const override;
+  virtual bool equal(const openstudio::OSItem*) const override;
 
   private slots:
 
-    void onObjectChanged();
+  void onObjectChanged();
 
   private:
+  openstudio::Handle m_handle;
 
-    openstudio::Handle m_handle;
-
-    openstudio::model::ModelObject m_modelObject;
+  openstudio::model::ModelObject m_modelObject;
 };
 
+}  // namespace openstudio
 
-
-} // openstudio
-
-#endif // OPENSTUDIO_MODELOBJECTITEM_HPP
+#endif  // OPENSTUDIO_MODELOBJECTITEM_HPP

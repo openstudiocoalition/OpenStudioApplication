@@ -54,19 +54,17 @@ class BuildingSpaceTypeVectorController : public ModelObjectVectorController
 {
   Q_OBJECT
 
-public:
-
+  public:
   virtual ~BuildingSpaceTypeVectorController() {}
 
-protected:
-
+  protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
 
   virtual std::vector<OSItemId> makeVector() override;
 
   virtual void onRemoveItem(OSItem* item) override;
 
-  virtual void onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId) override;
+  virtual void onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) override;
 
   virtual void onDrop(const OSItemId& itemId) override;
 };
@@ -75,19 +73,17 @@ class BuildingDefaultConstructionSetVectorController : public ModelObjectVectorC
 {
   Q_OBJECT
 
-public:
-
+  public:
   virtual ~BuildingDefaultConstructionSetVectorController() {}
 
-protected:
-
+  protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
 
   virtual std::vector<OSItemId> makeVector() override;
 
   virtual void onRemoveItem(OSItem* item) override;
 
-  virtual void onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId) override;
+  virtual void onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) override;
 
   virtual void onDrop(const OSItemId& itemId) override;
 };
@@ -96,19 +92,17 @@ class BuildingDefaultScheduleSetVectorController : public ModelObjectVectorContr
 {
   Q_OBJECT
 
-public:
-
+  public:
   virtual ~BuildingDefaultScheduleSetVectorController() {}
 
-protected:
-
+  protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
 
   virtual std::vector<OSItemId> makeVector() override;
 
   virtual void onRemoveItem(OSItem* item) override;
 
-  virtual void onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId) override;
+  virtual void onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) override;
 
   virtual void onDrop(const OSItemId& itemId) override;
 };
@@ -118,63 +112,59 @@ class BuildingInspectorView : public ModelObjectInspectorView
   Q_OBJECT
 
   public:
+  BuildingInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
-    BuildingInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent = nullptr );
-
-    virtual ~BuildingInspectorView() {}
+  virtual ~BuildingInspectorView() {}
 
   signals:
 
   protected:
+  virtual void onClearSelection() override;
 
-    virtual void onClearSelection() override;
+  virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
-    virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
-
-    virtual void onUpdate() override;
+  virtual void onUpdate() override;
 
   protected slots:
 
-    void editStandardsTemplate(const QString & text);
-    void standardsTemplateChanged(const QString & text);
+  void editStandardsTemplate(const QString& text);
+  void standardsTemplateChanged(const QString& text);
 
-    void editStandardsBuildingType(const QString & text);
-    void standardsBuildingTypeChanged(const QString & text);
+  void editStandardsBuildingType(const QString& text);
+  void standardsBuildingTypeChanged(const QString& text);
 
   private:
+  void attach(openstudio::model::Building& building);
 
-    void attach(openstudio::model::Building& building);
+  void detach();
 
-    void detach();
+  void populateStandardsTemplates();
+  void populateStandardsBuildingTypes();
 
-    void populateStandardsTemplates();
-    void populateStandardsBuildingTypes();
-
-    boost::optional<openstudio::model::Building> m_building;
-    BuildingDefaultConstructionSetVectorController* m_defaultConstructionSetVectorController = nullptr;
-    BuildingDefaultScheduleSetVectorController* m_defaultScheduleSetVectorController = nullptr;
-    BuildingSpaceTypeVectorController* m_spaceTypeVectorController = nullptr;
-    OSDropZone* m_defaultConstructionSetDropZone = nullptr;
-    OSDropZone* m_defaultScheduleSetDropZone = nullptr;
-    OSDropZone* m_spaceTypeDropZone = nullptr;
-    OSIntegerEdit2* m_numberAboveGroundStories = nullptr;
-    OSIntegerEdit2* m_numberLivingUnits = nullptr;
-    OSIntegerEdit2* m_numberStories = nullptr;
-    OSLineEdit2* m_nameEdit = nullptr;
-    OSQuantityEdit2* m_northAxisEdit = nullptr;
-    OSQuantityEdit2 * m_floorToCeilingHeight = nullptr;
-    OSQuantityEdit2 * m_floorToFloorHeight = nullptr;
-    OSSwitch2* m_relocatable = nullptr;
-    QComboBox* m_standardsTemplateComboBox = nullptr;
-    QComboBox* m_standardsBuildingTypeComboBox = nullptr;
-    bool m_isIP;
+  boost::optional<openstudio::model::Building> m_building;
+  BuildingDefaultConstructionSetVectorController* m_defaultConstructionSetVectorController = nullptr;
+  BuildingDefaultScheduleSetVectorController* m_defaultScheduleSetVectorController = nullptr;
+  BuildingSpaceTypeVectorController* m_spaceTypeVectorController = nullptr;
+  OSDropZone* m_defaultConstructionSetDropZone = nullptr;
+  OSDropZone* m_defaultScheduleSetDropZone = nullptr;
+  OSDropZone* m_spaceTypeDropZone = nullptr;
+  OSIntegerEdit2* m_numberAboveGroundStories = nullptr;
+  OSIntegerEdit2* m_numberLivingUnits = nullptr;
+  OSIntegerEdit2* m_numberStories = nullptr;
+  OSLineEdit2* m_nameEdit = nullptr;
+  OSQuantityEdit2* m_northAxisEdit = nullptr;
+  OSQuantityEdit2* m_floorToCeilingHeight = nullptr;
+  OSQuantityEdit2* m_floorToFloorHeight = nullptr;
+  OSSwitch2* m_relocatable = nullptr;
+  QComboBox* m_standardsTemplateComboBox = nullptr;
+  QComboBox* m_standardsBuildingTypeComboBox = nullptr;
+  bool m_isIP;
 
   public slots:
 
-    void toggleUnits(bool displayIP) override;
+  void toggleUnits(bool displayIP) override;
 };
 
+}  // namespace openstudio
 
-} // openstudio
-
-#endif // OPENSTUDIO_BUILDINGSTORYINSPECTORVIEW_HPP
+#endif  // OPENSTUDIO_BUILDINGSTORYINSPECTORVIEW_HPP

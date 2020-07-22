@@ -35,14 +35,12 @@
 
 #include <QLineEdit>
 
-
-
-class  MODELEDITOR_API IGLineEdit : public QLineEdit
+class MODELEDITOR_API IGLineEdit : public QLineEdit
 {
   Q_OBJECT;
-  Q_PROPERTY( bool precision READ getPrec WRITE setPrec );
+  Q_PROPERTY(bool precision READ getPrec WRITE setPrec);
 
- public:
+  public:
   IGLineEdit(const QString& val, InspectorGadget* ig, QWidget* parent);
   virtual ~IGLineEdit();
 
@@ -52,35 +50,33 @@ class  MODELEDITOR_API IGLineEdit : public QLineEdit
   void setMax(double max);
 
   bool getPrec() const;
-  void setPrec( bool );
-  void setStyle( InspectorGadget::FLOAT_DISPLAY style );
+  void setPrec(bool);
+  void setStyle(InspectorGadget::FLOAT_DISPLAY style);
   InspectorGadget::FLOAT_DISPLAY getStyle() const;
 
   bool checkValue(QString& value);
 
-  QString doubleToQString( double v );
+  QString doubleToQString(double v);
   //QString intToQString( int v );
 
- public slots:
+  public slots:
   void togglePrec();
 
   void editDone();
 
   void hardsizeClicked(bool checked);
 
- signals:
+  signals:
 
   void newValue(const QString& text);
 
- private:
+  private:
   InspectorGadget* m_ig;
   bool m_precision;
   InspectorGadget::FLOAT_DISPLAY m_floatType;
 
   double m_min;
   double m_max;
-
 };
 
-
-#endif // MODELEDITOR_IGLINEEDIT_HPP
+#endif  // MODELEDITOR_IGLINEEDIT_HPP

@@ -35,8 +35,9 @@
 #include <openstudio/utilities/core/Logger.hpp>
 #include <openstudio/utilities/core/FileLogSink.hpp>
 
-class ModelEditorFixture : public ::testing::Test {
- protected:
+class ModelEditorFixture : public ::testing::Test
+{
+  protected:
   // initialize for each test
   virtual void SetUp() override;
 
@@ -53,4 +54,4 @@ class ModelEditorFixture : public ::testing::Test {
   static boost::optional<openstudio::FileLogSink> logFile;
 };
 
-#endif // MODELEDITOR_TEST_MODELEDITORFIXTURE_HPP
+#endif  // MODELEDITOR_TEST_MODELEDITORFIXTURE_HPP
