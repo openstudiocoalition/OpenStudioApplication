@@ -1,3 +1,8 @@
+
+# Important!
+After the v1.0.0 final NREL software distribution (04/27/2020), the OpenStudio Application is now independently supported and maintained with open source contributions by The OpenStudio Coalition and members of the software community at the GitHub repository https://github.com/openstudiocoalition/OpenStudioApplication. The NREL OpenStudio Application repository no longer accepts new issues or pull requests. Please submit new issues or enhancement requests in the new OpenStudio Coalition repository at https://github.com/openstudiocoalition/OpenStudioApplication/issues.
+
+
 # OpenStudio Application
 
 **This repository hosts the graphical interfaces that have historically used the OpenStudio SDK**[<sup>[1]</sup>](#1). These include the **OpenStudio Application** and the **OpenStudio Sketchup Plug-in**:

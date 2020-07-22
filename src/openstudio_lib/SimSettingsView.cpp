@@ -140,6 +140,9 @@ SimSettingsView::SimSettingsView(bool isIP,
   m_loadsConvergenceToleranceValue(nullptr),
   m_temperatureConvergenceToleranceValue(nullptr),
   m_solarDistribution(nullptr),
+  m_doHVACSizingSimulationforSizingPeriods(nullptr),
+  m_maximumNumberofHVACSizingSimulationPasses(nullptr),
+
   // Radiance
   m_accumulatedRaysperRecord(nullptr),
   m_directThreshold(nullptr),
@@ -562,6 +565,15 @@ QWidget * SimSettingsView::createSimulationControlWidget()
   addField(gridLayout,row,col,"Temperature Convergence Tolerance Value","K","K","R",m_temperatureConvergenceToleranceValue);
   col = col + 2;
   addField(gridLayout,row,col,"Solar Distribution",m_solarDistribution);
+
+  row = row + 2;
+  spacerItem = new QSpacerItem(1,SPACERITEM_HEIGHT,QSizePolicy::Fixed,QSizePolicy::Fixed);
+  gridLayout->addItem(spacerItem,row++,0);
+  col = 0;
+
+  addField(gridLayout,row,col,"Do HVAC Sizing Simulation for Sizing Periods",m_doHVACSizingSimulationforSizingPeriods);
+  col = col + 2;
+  addField(gridLayout,row,col,"Maximum Number of HVAC Sizing Simulation Passes",m_maximumNumberofHVACSizingSimulationPasses);
 
   std::vector<std::string>  validSolarDistributionValues = model::SimulationControl::validSolarDistributionValues();
   for (std::string validSolarDistributionValue : validSolarDistributionValues){
@@ -1374,6 +1386,22 @@ void SimSettingsView::attachSimulationControl()
     boost::optional<BasicQuery>(std::bind(&model::SimulationControl::isSolarDistributionDefaulted, m_simulationControl.get_ptr()))
   );
 
+  m_doHVACSizingSimulationforSizingPeriods->bind(
+      *m_simulationControl,
+      std::bind(&model::SimulationControl::doHVACSizingSimulationforSizingPeriods,m_simulationControl.get_ptr()),
+      boost::optional<BoolSetter>(std::bind(&model::SimulationControl::setDoHVACSizingSimulationforSizingPeriodsNoFail,m_simulationControl.get_ptr(),std::placeholders::_1)),
+      boost::optional<NoFailAction>(std::bind(&model::SimulationControl::resetDoHVACSizingSimulationforSizingPeriods,m_simulationControl.get_ptr())),
+      boost::optional<BasicQuery>(std::bind(&model::SimulationControl::isDoHVACSizingSimulationforSizingPeriodsDefaulted,m_simulationControl.get_ptr())));
+
+  m_maximumNumberofHVACSizingSimulationPasses->bind(
+      *m_simulationControl,
+      IntGetter(std::bind(&model::SimulationControl::maximumNumberofHVACSizingSimulationPasses,m_simulationControl.get_ptr())),
+      boost::optional<IntSetter>(std::bind(&model::SimulationControl::setMaximumNumberofHVACSizingSimulationPasses,m_simulationControl.get_ptr(),std::placeholders::_1)),
+      boost::optional<NoFailAction>(std::bind(&model::SimulationControl::resetMaximumNumberofHVACSizingSimulationPasses,m_simulationControl.get_ptr())),
+      boost::none,
+      boost::none,
+      boost::optional<BasicQuery>(std::bind(&model::SimulationControl::isMaximumNumberofHVACSizingSimulationPassesDefaulted,m_simulationControl.get_ptr())));
+
 }
 
 void SimSettingsView::attachSizingParameters()
@@ -1950,6 +1978,8 @@ void SimSettingsView::detachSimulationControl()
   m_loadsConvergenceToleranceValue->unbind();
   m_temperatureConvergenceToleranceValue->unbind();
   m_solarDistribution->unbind();
+  m_doHVACSizingSimulationforSizingPeriods->unbind();
+  m_maximumNumberofHVACSizingSimulationPasses->unbind();
 }
 
 void SimSettingsView::detachSizingParameters()
