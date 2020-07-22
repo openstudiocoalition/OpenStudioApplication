@@ -225,6 +225,8 @@ private:
   OSQuantityEdit2 * m_loadsConvergenceToleranceValue;
   OSQuantityEdit2 * m_temperatureConvergenceToleranceValue;
   OSComboBox2 * m_solarDistribution;
+  OSSwitch2 * m_doHVACSizingSimulationforSizingPeriods;
+  OSIntegerEdit2 * m_maximumNumberofHVACSizingSimulationPasses;
 
   // Radiance
   OSIntegerEdit2 *  m_accumulatedRaysperRecord;
