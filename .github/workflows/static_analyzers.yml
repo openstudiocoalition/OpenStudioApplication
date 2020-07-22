@@ -1,8 +1,6 @@
 name: Static Analyzers
 
 on:
-  push:
-    branches: [ master ]
   pull_request:
     branches: [ master, develop ]
 

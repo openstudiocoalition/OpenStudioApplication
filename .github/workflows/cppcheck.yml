@@ -1,4 +1,4 @@
-name: Static Analyzers
+name: cppcheck
 
 on:
   push:
