@@ -33,7 +33,7 @@ jobs:
 
     - name: Run clang-format against C++ files touched by the PR
       shell: bash
-      run: ./ci/clang-format.sh remotes/origin/$GITHUB_REF remotes/origin/$GITHUB_BASE_REF
+      run: ./ci/clang-format.sh remotes/origin/$GITHUB_HEAD_REF remotes/origin/$GITHUB_BASE_REF
 
     - name: Upload clang-format patch as artifact
       uses: actions/upload-artifact@v2
