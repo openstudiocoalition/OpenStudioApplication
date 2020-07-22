@@ -1,0 +1,39 @@
+name: Static Analyzers
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master, develop ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: manual cppcheck
+      shell: bash
+      run: |
+          sudo snap install cppcheck
+          cppcheck --suppress=missingInclude --enable=all --inline-suppr --inconclusive --template='[{file}:{line}]:({severity}),[{id}],{message}' --force -q -j $(nproc) ./src  2>&1 | tee cppcheck.txt
+
+    - name: Parse and colorize cppcheck
+      shell: bash
+      run: python ./ci/colorize_cppcheck_results.py
+
+    - name: Upload cppcheck results as artifact
+      uses: actions/upload-artifact@v2
+      with:
+          name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-cppcheck_results.txt
+          path: cppcheck.txt
+
+    - name: clang-format
+      uses: DoozyX/clang-format-lint-action@v0.8
+      with:
+          source: './src'
+          exclude: '.git'
+          extensions: 'cpp,hpp,cxx,hxx,cxx.in'
+          clangFormatVersion: 10
+          style: file
+
