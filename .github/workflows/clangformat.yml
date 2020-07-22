@@ -22,4 +22,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
           name: OpenStudioApplication-${{ github.sha }}-clang_format.patch
-          path: CCCCLANG_clang_format.patch
+          path: clang_format.patch
