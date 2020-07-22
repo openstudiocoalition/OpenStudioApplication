@@ -18,6 +18,7 @@ jobs:
           ./ci/clang-format.sh remotes/origin/$GITHUB_HEAD_REF remotes/origin/$GITHUB_BASE_REF
 
     - name: Upload clang-format patch as artifact
+      if: ${{ failure() }}
       uses: actions/upload-artifact@v2
       with:
           name: OpenStudioApplication-${{ github.sha }}-clang_format.patch

@@ -86,7 +86,7 @@ def colorize(lines):
 
     summary_line += "\n==========================================\n\n"
 
-    # n_errors = counter['error']
+    n_errors = counter['error']
     # if n_errors:
         # summary_line += red("{} Errors".format(n_errors))
     # else:
@@ -123,7 +123,7 @@ def colorize(lines):
                     i=bold(iid),
                     message=message))
 
-    return colored_lines, summary_line
+    return colored_lines, summary_line, n_errors
 
 
 if __name__ == '__main__':
@@ -131,7 +131,9 @@ if __name__ == '__main__':
         content = f.read()
 
     lines = content.splitlines()
-    colored_lines, summary_line = colorize(lines)
+    colored_lines, summary_line, n_errors = colorize(lines)
     print(summary_line)
     # sys.stdout.writelines(colored_lines)
     print("\n".join(colored_lines))
+    if n_errors:
+        exit(1)

@@ -23,7 +23,8 @@ jobs:
       run: python ./ci/colorize_cppcheck_results.py
 
     - name: Upload cppcheck results as artifact
+      if: ${{ always() }}
       uses: actions/upload-artifact@v2
       with:
-          name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-cppcheck_results.txt
+          name: OpenStudioApplication-${{ github.sha }}-cppcheck_results.txt
           path: cppcheck.txt
