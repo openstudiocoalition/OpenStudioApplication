@@ -4,10 +4,9 @@ on:
   push:
     branches: [ master ]
   pull_request:
-    branches: [ master ]
+    branches: [ master, develop ]
 
 env:
-  OS_SDK_VERSION: 3.0.1
   BUILD_TYPE: Release
   BUILD_DOCUMENTATION: OFF
   BUILD_TESTING: ON
