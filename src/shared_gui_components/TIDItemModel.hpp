@@ -42,7 +42,7 @@ class TIDItemModel : public QAbstractItemModel
 {
   Q_OBJECT
 
-  public:
+ public:
   TIDItemModel(const QDomDocument& document, QObject* parent = nullptr);
 
   virtual ~TIDItemModel();
@@ -63,7 +63,7 @@ class TIDItemModel : public QAbstractItemModel
 
   static const std::map<int, std::vector<IddObjectType>> tidToOSTypeMap;
 
-  private:
+ private:
   QDomDocument m_document;
 
   TIDItem* m_rootItem;

@@ -38,12 +38,12 @@ class LoadsController : public ModelSubTabController
 {
   Q_OBJECT
 
-  public:
+ public:
   LoadsController(bool isiP, const model::Model& model);
 
   virtual ~LoadsController();
 
-  protected:
+ protected:
   virtual void onAddObject(const openstudio::IddObjectType& iddObjectType) override;
 
   virtual void onCopyObject(const openstudio::model::ModelObject& modelObject) override;
@@ -58,7 +58,7 @@ class LoadsController : public ModelSubTabController
 
   virtual void onInspectItem(OSItem* item) override;
 
-  public slots:
+ public slots:
 
   void toggleUnits(bool displayIP);
 };

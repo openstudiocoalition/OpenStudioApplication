@@ -41,16 +41,16 @@ class ThermalZonesTabController : public MainTabController
 {
   Q_OBJECT
 
-  public:
+ public:
   ThermalZonesTabController(bool isIP, const model::Model& model);
 
   virtual ~ThermalZonesTabController() {}
 
-  signals:
+ signals:
 
   void toggleUnitsClicked(bool);
 
-  private:
+ private:
   std::shared_ptr<ThermalZonesController> m_thermalZonesController;
 };
 

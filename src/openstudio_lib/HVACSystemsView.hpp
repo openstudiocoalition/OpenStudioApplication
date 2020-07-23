@@ -55,7 +55,7 @@ class HVACSystemsView : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   HVACSystemsView();
 
   virtual ~HVACSystemsView() {}
@@ -66,7 +66,7 @@ class HVACSystemsView : public QWidget
 
   QSize sizeHint() const override;
 
-  protected:
+ protected:
   void paintEvent(QPaintEvent* event) override;
 };
 
@@ -74,7 +74,7 @@ class HVACToolbarView : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   HVACToolbarView();
 
   virtual ~HVACToolbarView();
@@ -103,10 +103,10 @@ class HVACToolbarView : public QWidget
   // If control buttons are hidden only the systemComboBox and label are shown.
   void showControls(bool show);
 
-  protected:
+ protected:
   void paintEvent(QPaintEvent* event) override;
 
-  private:
+ private:
   QStackedWidget* m_viewStack;
 };
 
@@ -114,12 +114,12 @@ class HVACGraphicsView : public QGraphicsView
 {
   Q_OBJECT
 
-  public:
+ public:
   HVACGraphicsView(QWidget* parent = nullptr);
 
   virtual ~HVACGraphicsView() {}
 
-  public slots:
+ public slots:
 
   void zoomIn();
 
@@ -127,7 +127,7 @@ class HVACGraphicsView : public QGraphicsView
 
   void resetZoom();
 
-  private:
+ private:
   float m_zoomX;
 
   float m_zoomY;
@@ -138,7 +138,7 @@ class HVACAirLoopControlsView : public QScrollArea
 {
   Q_OBJECT
 
-  public:
+ public:
   HVACAirLoopControlsView();
 
   virtual ~HVACAirLoopControlsView() {}
@@ -164,7 +164,7 @@ class HVACPlantLoopControlsView : public QScrollArea
 {
   Q_OBJECT
 
-  public:
+ public:
   HVACPlantLoopControlsView();
 
   virtual ~HVACPlantLoopControlsView() {}
@@ -183,7 +183,7 @@ class MechanicalVentilationView : public QWidget
 {
   Q_OBJECT;
 
-  public:
+ public:
   MechanicalVentilationView();
 
   virtual ~MechanicalVentilationView();
@@ -199,7 +199,7 @@ class NoMechanicalVentilationView : public QWidget
 {
   Q_OBJECT;
 
-  public:
+ public:
   NoMechanicalVentilationView();
 
   virtual ~NoMechanicalVentilationView();
@@ -207,7 +207,7 @@ class NoMechanicalVentilationView : public QWidget
 
 class SingleZoneReheatSPMView : public QWidget
 {
-  public:
+ public:
   SingleZoneReheatSPMView();
 
   virtual ~SingleZoneReheatSPMView();
@@ -217,7 +217,7 @@ class SingleZoneReheatSPMView : public QWidget
 
 class ScheduledSPMView : public QWidget
 {
-  public:
+ public:
   ScheduledSPMView();
 
   virtual ~ScheduledSPMView();
@@ -227,7 +227,7 @@ class ScheduledSPMView : public QWidget
 
 class FollowOATempSPMView : public QWidget
 {
-  public:
+ public:
   FollowOATempSPMView();
 
   virtual ~FollowOATempSPMView();
@@ -235,7 +235,7 @@ class FollowOATempSPMView : public QWidget
 
 class OAResetSPMView : public QWidget
 {
-  public:
+ public:
   OAResetSPMView();
 
   virtual ~OAResetSPMView();
@@ -243,7 +243,7 @@ class OAResetSPMView : public QWidget
 
 class AirLoopHVACUnitaryHeatPumpAirToAirControlView : public QWidget
 {
-  public:
+ public:
   AirLoopHVACUnitaryHeatPumpAirToAirControlView();
 
   virtual ~AirLoopHVACUnitaryHeatPumpAirToAirControlView();
@@ -253,7 +253,7 @@ class AirLoopHVACUnitaryHeatPumpAirToAirControlView : public QWidget
 
 class NoSupplyAirTempControlView : public QWidget
 {
-  public:
+ public:
   NoSupplyAirTempControlView();
 
   virtual ~NoSupplyAirTempControlView();
@@ -261,7 +261,7 @@ class NoSupplyAirTempControlView : public QWidget
 
 class NoControlsView : public QWidget
 {
-  public:
+ public:
   NoControlsView();
 
   virtual ~NoControlsView();

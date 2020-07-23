@@ -46,12 +46,12 @@ class FacilityTabView : public MainTabView
 {
   Q_OBJECT
 
-  public:
+ public:
   FacilityTabView(QWidget* parent = nullptr);
 
   virtual ~FacilityTabView() {}
 
-  public slots:
+ public slots:
 
   void toggleUnits(bool displayIP);
 };

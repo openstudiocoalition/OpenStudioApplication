@@ -43,12 +43,12 @@ class MaterialsView : public ModelSubTabView
 {
   Q_OBJECT
 
-  public:
+ public:
   MaterialsView(bool isIP, const openstudio::model::Model& model, const QString& tabLabel, bool hasSubTabs, QWidget* parent = nullptr);
 
   virtual ~MaterialsView() {}
 
-  private:
+ private:
   static std::vector<std::pair<IddObjectType, std::string>> modelObjectTypesAndNames();
 };
 
@@ -56,19 +56,19 @@ class MaterialsInspectorView : public ModelObjectInspectorView
 {
   Q_OBJECT
 
-  public:
+ public:
   MaterialsInspectorView(bool isIP, const model::Model& model, QWidget* parent = nullptr);
 
   virtual ~MaterialsInspectorView() {}
 
-  protected:
+ protected:
   virtual void onClearSelection() override;
 
   virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
   virtual void onUpdate() override;
 
-  private:
+ private:
   void showMaterialAirGapInspectorView(const openstudio::model::ModelObject& modelObject);
   void showMaterialAirWallInspectorView(const openstudio::model::ModelObject& modelObject);
   void showMaterialInfraredTransparentInspectorView(const openstudio::model::ModelObject& modelObject);
@@ -94,7 +94,7 @@ class MaterialsInspectorView : public ModelObjectInspectorView
 
   bool m_isIP;
 
-  public slots:
+ public slots:
 
   void toggleUnits(bool displayIP) override;
 };

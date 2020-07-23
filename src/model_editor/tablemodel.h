@@ -57,7 +57,7 @@ class MODELEDITOR_API TableModel : public QAbstractTableModel
 {
   Q_OBJECT
 
-  public:
+ public:
   TableModel(openstudio::WorkspaceObjectVector& objects, ClassViewWidget* parent);
   TableModel(ClassViewWidget* parent);
   ~TableModel();
@@ -80,12 +80,12 @@ class MODELEDITOR_API TableModel : public QAbstractTableModel
   virtual void sort(int column, Qt::SortOrder order = Qt::AscendingOrder) override;
   void toggleGUIDs();
 
-  public slots:
+ public slots:
 
-  signals:
+ signals:
 
-  protected:
-  private:
+ protected:
+ private:
   void setupModelData(openstudio::WorkspaceObjectVector& objects);
   bool dropMimeData(const QMimeData* data, Qt::DropAction action, int row, int column, const QModelIndex& parent) override;
   void sort(openstudio::WorkspaceObjectVector& objects, int column = 0, Qt::SortOrder order = Qt::AscendingOrder);

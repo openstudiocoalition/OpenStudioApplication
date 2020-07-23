@@ -52,7 +52,7 @@ class Unit;
 class QuantityLineEdit : public QLineEdit
 {
   Q_OBJECT
-  public:
+ public:
   QuantityLineEdit(QWidget* parent = nullptr);
 
   virtual ~QuantityLineEdit() {}
@@ -61,15 +61,15 @@ class QuantityLineEdit : public QLineEdit
     this->m_hasClickFocus = true;
   }
 
-  protected:
+ protected:
   virtual void focusInEvent(QFocusEvent* e) override;
 
   virtual void focusOutEvent(QFocusEvent* e) override;
 
-  private:
+ private:
   bool m_hasClickFocus = false;
 
-  signals:
+ signals:
 
   void inFocus(bool inFocus);
 };
@@ -77,7 +77,7 @@ class QuantityLineEdit : public QLineEdit
 class OSQuantityEdit2 : public QWidget, public Nano::Observer
 {
   Q_OBJECT
-  public:
+ public:
   OSQuantityEdit2(const std::string& modelUnits, const std::string& siUnits, const std::string& ipUnits, bool isIP, QWidget* parent = nullptr);
 
   virtual ~OSQuantityEdit2();
@@ -114,15 +114,15 @@ class OSQuantityEdit2 : public QWidget, public Nano::Observer
 
   void unbind();
 
-  signals:
+ signals:
 
   void inFocus(bool inFocus, bool hasData);
 
-  public slots:
+ public slots:
 
   void onUnitSystemChange(bool isIP);
 
-  private slots:
+ private slots:
 
   void onEditingFinished();
 
@@ -132,7 +132,7 @@ class OSQuantityEdit2 : public QWidget, public Nano::Observer
 
   void onInFocus(bool inFocus);
 
-  private:
+ private:
   QuantityLineEdit* m_lineEdit;
   QLabel* m_units;
   QString m_text = "UNINITIALIZED";

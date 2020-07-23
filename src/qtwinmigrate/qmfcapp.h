@@ -71,7 +71,7 @@ class CWinApp;
 
 class QT_QTWINMIGRATE_EXPORT QMfcAppEventFilter : public QAbstractNativeEventFilter
 {
-  public:
+ public:
   QMfcAppEventFilter();
   bool nativeEventFilter(const QByteArray& eventType, void* message, long* result);
 };
@@ -79,7 +79,7 @@ class QT_QTWINMIGRATE_EXPORT QMfcAppEventFilter : public QAbstractNativeEventFil
 
 class QT_QTWINMIGRATE_EXPORT QMfcApp : public QApplication
 {
-  public:
+ public:
   static bool pluginInstance(Qt::HANDLE plugin = 0);
 
 #ifdef QTWINMIGRATE_WITHMFC
@@ -95,7 +95,7 @@ class QT_QTWINMIGRATE_EXPORT QMfcApp : public QApplication
   static void enterModalLoop();
   static void exitModalLoop();
 
-  private:
+ private:
 #ifdef QTWINMIGRATE_WITHMFC
   static char** mfc_argv;
   static int mfc_argc;

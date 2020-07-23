@@ -46,7 +46,7 @@ class ModelObjectTreeWidget : public OSItemSelector, public Nano::Observer
 {
   Q_OBJECT
 
-  public:
+ public:
   ModelObjectTreeWidget(const model::Model& model, QWidget* parent = nullptr);
 
   virtual ~ModelObjectTreeWidget() {}
@@ -59,7 +59,7 @@ class ModelObjectTreeWidget : public OSItemSelector, public Nano::Observer
 
   openstudio::model::Model model() const;
 
-  protected:
+ protected:
   virtual void onObjectAdded(const openstudio::model::ModelObject& modelObject, const openstudio::IddObjectType& iddObjectType,
                              const openstudio::UUID& handle) = 0;
 
@@ -68,7 +68,7 @@ class ModelObjectTreeWidget : public OSItemSelector, public Nano::Observer
 
   void refresh();
 
-  private slots:
+ private slots:
 
   void objectAdded(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl, const openstudio::IddObjectType& iddObjectType,
                    const openstudio::UUID& handle);
@@ -76,7 +76,7 @@ class ModelObjectTreeWidget : public OSItemSelector, public Nano::Observer
   void objectRemoved(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl, const openstudio::IddObjectType& iddObjectType,
                      const openstudio::UUID& handle);
 
-  private:
+ private:
   QTreeWidget* m_treeWidget;
 
   QVBoxLayout* m_vLayout;

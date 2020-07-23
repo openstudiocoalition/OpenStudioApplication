@@ -45,21 +45,21 @@ class ObjectExplorer : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   ObjectExplorer(openstudio::IddFile& iddFile, QWidget* parent = nullptr);
   virtual ~ObjectExplorer();
   void updateIddFile();
 
-  public slots:
+ public slots:
   void on_groupTextEdited(const QString&);
   void on_objectTextEdited(const QString&);
   void on_groupItemSelectionChanged();
   void on_objectItemSelectionChanged();
 
-  signals:
+ signals:
 
-  protected:
-  private:
+ protected:
+ private:
   void createWidgets();
   void connectSignalsAndSlots();
   void createLayout();

@@ -44,7 +44,7 @@ class UtilityBillFuelTypeItem : public OSCollapsibleItem
 {
   Q_OBJECT
 
-  public:
+ public:
   UtilityBillFuelTypeItem(OSCollapsibleItemHeader* collapsibleItemHeader, UtilityBillFuelTypeListView* utilityBillFuelTypeListView,
                           QWidget* parent = nullptr);
 

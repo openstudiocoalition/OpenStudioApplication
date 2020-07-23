@@ -47,7 +47,7 @@ class EMSInspectorView : public QWidget
 {
   Q_OBJECT;
 
-  public:
+ public:
   enum class Type
   {
     SENSOR,
@@ -59,7 +59,7 @@ class EMSInspectorView : public QWidget
 
   void layoutModelObject(const model::ModelObject& modelObject);
 
-  private:
+ private:
   QVBoxLayout* m_layout;
   Type m_type;
   QScrollArea* m_scrollArea;

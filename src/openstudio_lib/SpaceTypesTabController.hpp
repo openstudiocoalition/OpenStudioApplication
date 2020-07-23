@@ -40,12 +40,12 @@ class SpaceTypesTabController : public MainTabController
 {
   Q_OBJECT
 
-  public:
+ public:
   SpaceTypesTabController(bool isIP, const openstudio::model::Model& model);
 
   virtual ~SpaceTypesTabController() {}
 
-  private:
+ private:
   std::shared_ptr<SpaceTypesController> m_spaceTypesController;
 };
 

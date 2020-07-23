@@ -47,12 +47,12 @@ class FacilityStoriesGridView : public GridViewSubTab
 {
   Q_OBJECT
 
-  public:
+ public:
   FacilityStoriesGridView(bool isIP, const model::Model& model, QWidget* parent = 0);
 
   virtual ~FacilityStoriesGridView() {}
 
-  private:
+ private:
   REGISTER_LOGGER("openstudio.FacilityStoriesGridView");
 
   virtual void addObject(const IddObjectType& iddObjectType) override;
@@ -65,13 +65,13 @@ class FacilityStoriesGridView : public GridViewSubTab
 
   QLineEdit* m_greaterThanFilter = nullptr;
 
-  protected slots:
+ protected slots:
 
   virtual void onSelectItem() override;
 
   virtual void onClearSelection() override;
 
-  private slots:
+ private slots:
 
   void greaterThanFilterChanged();
 
@@ -83,7 +83,7 @@ class FacilityStoriesGridController : public OSGridController
 
   Q_OBJECT
 
-  public:
+ public:
   FacilityStoriesGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model model,
                                 std::vector<model::ModelObject> modelObjects);
 
@@ -93,7 +93,7 @@ class FacilityStoriesGridController : public OSGridController
 
   virtual void categorySelected(int index);
 
-  protected:
+ protected:
   virtual void setCategoriesAndFields();
 
   virtual void addColumns(const QString& category, std::vector<QString>& fields);
@@ -102,7 +102,7 @@ class FacilityStoriesGridController : public OSGridController
 
   virtual QString getColor(const model::ModelObject& modelObject);
 
-  public slots:
+ public slots:
 
   virtual void onItemDropped(const OSItemId& itemId);
 };

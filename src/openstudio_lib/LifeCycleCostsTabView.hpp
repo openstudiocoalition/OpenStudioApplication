@@ -55,12 +55,12 @@ class LifeCycleCostsView : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   LifeCycleCostsView(const model::Model& model);
 
   virtual ~LifeCycleCostsView();
 
-  private:
+ private:
   void createWidgets();
 
   QWidget* createInflationRatesWidget();
@@ -103,7 +103,7 @@ class LifeCycleCostsView : public QWidget
   QLabel* m_analysisLengthLabel;
   QLabel* m_realDiscountRateLabel;
 
-  private slots:
+ private slots:
 
   void fempGroupClicked(int index);
 
@@ -115,12 +115,12 @@ class LifeCycleCostsTabView : public MainTabView
 
   Q_OBJECT
 
-  public:
+ public:
   LifeCycleCostsTabView(const model::Model& model, const QString& modelTempDir, QWidget* parent = nullptr);
 
   virtual ~LifeCycleCostsTabView();
 
-  private:
+ private:
   LifeCycleCostsView* m_lifeCycleCostsView;
 };
 

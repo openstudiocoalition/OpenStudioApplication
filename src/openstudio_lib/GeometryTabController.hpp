@@ -41,7 +41,7 @@ class GeometryTabController : public MainTabController
 {
   Q_OBJECT
 
-  public:
+ public:
   GeometryTabController(bool isIP, const openstudio::model::Model& model);
 
   virtual ~GeometryTabController();
@@ -52,7 +52,7 @@ class GeometryTabController : public MainTabController
     EDITOR
   };
 
-  private:
+ private:
   model::Model m_model;
 
   bool m_isIP;
@@ -61,7 +61,7 @@ class GeometryTabController : public MainTabController
 
   int m_currentIndex = -1;
 
-  public slots:
+ public slots:
 
   virtual void setSubTab(int index) override;
 };

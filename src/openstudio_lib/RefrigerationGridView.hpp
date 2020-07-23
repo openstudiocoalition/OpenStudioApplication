@@ -43,15 +43,15 @@ class RefrigerationGridView : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   RefrigerationGridView(bool isIP, const model::Model& model, QWidget* parent = nullptr);
 
   virtual ~RefrigerationGridView() {}
 
-  private:
+ private:
   bool m_isIP;
 
-  signals:
+ signals:
 
   void toggleUnitsClicked(bool displayIP);
 
@@ -63,7 +63,7 @@ class RefrigerationCaseGridController : public OSGridController
 
   Q_OBJECT
 
-  public:
+ public:
   RefrigerationCaseGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model model,
                                   std::vector<model::ModelObject> modelObjects);
 
@@ -71,7 +71,7 @@ class RefrigerationCaseGridController : public OSGridController
 
   virtual void refreshModelObjects() override;
 
-  protected:
+ protected:
   virtual void setCategoriesAndFields() override;
 
   virtual void addColumns(const QString& t_category, std::vector<QString>& fields) override;
@@ -80,7 +80,7 @@ class RefrigerationCaseGridController : public OSGridController
 
   virtual QString getColor(const model::ModelObject& modelObject) override;
 
-  public slots:
+ public slots:
 
   virtual void onItemDropped(const OSItemId& itemId) override;
 
@@ -92,7 +92,7 @@ class RefrigerationWalkInGridController : public OSGridController
 
   Q_OBJECT
 
-  public:
+ public:
   RefrigerationWalkInGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model model,
                                     std::vector<model::ModelObject> modelObjects);
 
@@ -100,7 +100,7 @@ class RefrigerationWalkInGridController : public OSGridController
 
   virtual void refreshModelObjects() override;
 
-  protected:
+ protected:
   virtual void setCategoriesAndFields() override;
 
   virtual void addColumns(const QString& t_category, std::vector<QString>& fields) override;
@@ -109,7 +109,7 @@ class RefrigerationWalkInGridController : public OSGridController
 
   virtual QString getColor(const model::ModelObject& modelObject) override;
 
-  public slots:
+ public slots:
 
   virtual void onItemDropped(const OSItemId& itemId) override;
 

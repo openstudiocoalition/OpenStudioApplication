@@ -59,14 +59,14 @@ class InspectorController : public QObject
 {
   Q_OBJECT
 
-  public:
+ public:
   InspectorController();
 
   virtual ~InspectorController();
 
   InspectorView* inspectorView();
 
-  signals:
+ signals:
 
   void toggleUnitsClicked(bool displayIP);
 
@@ -76,7 +76,7 @@ class InspectorController : public QObject
 
   void workspaceObjectRemoved();
 
-  public slots:
+ public slots:
 
   void layoutModelObject(model::OptionalModelObject&, bool readOnly);
 
@@ -90,11 +90,11 @@ class InspectorController : public QObject
 
   void toggleUnits(bool displayIP);
 
-  private slots:
+ private slots:
 
   void onViewDestroyed(QObject* object = nullptr);
 
-  private:
+ private:
   InspectorView* m_inspectorView;
 
   boost::optional<model::ModelObject> m_modelObject;

@@ -51,7 +51,7 @@ class LocationTabController : public MainTabController
 {
   Q_OBJECT
 
-  public:
+ public:
   LocationTabController(bool isIP, const model::Model& model, const QString& modelTempDir);
 
   virtual ~LocationTabController();
@@ -63,7 +63,7 @@ class LocationTabController : public MainTabController
     UTILITY_BILLS
   };
 
-  private:
+ private:
   bool showUtilityBills();
 
   QString m_modelTempDir;
@@ -76,7 +76,7 @@ class LocationTabController : public MainTabController
 
   int m_currentIndex = -1;
 
-  private slots:
+ private slots:
 
   virtual void setSubTab(int index) override;
 };

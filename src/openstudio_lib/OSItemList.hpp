@@ -43,7 +43,7 @@ class OSVectorController;
 class OSItemList : public OSItemSelector
 {
   Q_OBJECT
-  public:
+ public:
   OSItemList(OSVectorController* vectorController, bool addScrollArea, QWidget* parent = nullptr);
 
   virtual ~OSItemList() {}
@@ -71,7 +71,7 @@ class OSItemList : public OSItemSelector
   OSItemType itemsType() const;
   void setItemsType(OSItemType type);
 
-  public slots:
+ public slots:
 
   // adds an item, optionally selects it
   void addItem(OSItem* item, bool selectItem = true);
@@ -85,20 +85,20 @@ class OSItemList : public OSItemSelector
   // clears the selection, does not emit selectionCleared
   void clearSelection();
 
-  private slots:
+ private slots:
 
   void setItemIds(const std::vector<OSItemId>& itemIds);
 
   void refresh();
 
-  signals:
+ signals:
 
   void itemsRequested();
 
-  protected:
+ protected:
   void paintEvent(QPaintEvent* event) override;
 
-  private:
+ private:
   OSVectorController* m_vectorController;
   QVBoxLayout* m_vLayout;
   OSItem* m_selectedItem;

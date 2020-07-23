@@ -47,7 +47,7 @@ class BCLMeasureDialog : public OSDialog
 {
   Q_OBJECT
 
-  public:
+ public:
   /// Constructor of the dialog to create a new BCL Measure
   BCLMeasureDialog(QWidget* parent = nullptr);
 
@@ -62,7 +62,7 @@ class BCLMeasureDialog : public OSDialog
   /// Call createMeasure to create the new measure
   boost::optional<openstudio::BCLMeasure> createMeasure();
 
-  private slots:
+ private slots:
 
   void nameChanged(const QString& newName);
 
@@ -70,7 +70,7 @@ class BCLMeasureDialog : public OSDialog
 
   void firstLevelTaxonomyChanged(const QString& newName);
 
-  private:
+ private:
   void init();
 
   QLineEdit* m_nameLineEdit;

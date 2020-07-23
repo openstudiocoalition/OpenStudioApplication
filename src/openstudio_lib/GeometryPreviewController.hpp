@@ -41,14 +41,14 @@ class GeometryPreviewController : public OSQObjectController
 {
   Q_OBJECT
 
-  public:
+ public:
   GeometryPreviewController(bool isIP, const model::Model& model);
 
   virtual ~GeometryPreviewController();
 
   QWidget* view() const;
 
-  protected:
+ protected:
   QWidget* m_view;
 };
 

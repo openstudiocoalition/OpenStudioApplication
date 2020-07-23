@@ -42,7 +42,7 @@ class ExternalToolsDialog : public QDialog
 {
   Q_OBJECT
 
-  public:
+ public:
   ExternalToolsDialog(openstudio::path dviewPath);
 
   virtual ~ExternalToolsDialog(){};
@@ -52,7 +52,7 @@ class ExternalToolsDialog : public QDialog
 
   // openstudio::path otherToolPath() const;
 
-  private:
+ private:
   // Tool name should match the executable name
   void onChangeClicked(QLineEdit* t_lineEdit, QString toolName);
 

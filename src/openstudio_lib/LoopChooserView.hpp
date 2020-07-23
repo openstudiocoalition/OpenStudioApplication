@@ -49,7 +49,7 @@ class LoopChooserView : public QWidget
 {
   Q_OBJECT;
 
-  public:
+ public:
   LoopChooserView(QWidget* parent = nullptr);
 
   virtual ~LoopChooserView() {}
@@ -58,7 +58,7 @@ class LoopChooserView : public QWidget
 
   void layoutView();
 
-  public slots:
+ public slots:
 
   void layoutModelObject(boost::optional<model::ModelObject>& modelObject);
 
@@ -66,16 +66,16 @@ class LoopChooserView : public QWidget
 
   void onRemoveFromLoopClicked(model::Loop&);
 
-  signals:
+ signals:
 
   void addToLoopClicked(model::Loop&, boost::optional<model::HVACComponent>&);
 
   void removeFromLoopClicked(model::Loop&, boost::optional<model::HVACComponent>&);
 
-  protected:
+ protected:
   void paintEvent(QPaintEvent* event) override;
 
-  private:
+ private:
   boost::optional<model::HVACComponent> m_component;
 
   QVBoxLayout* m_vLayout;
@@ -87,28 +87,28 @@ class LoopChooserItem : public QWidget
 {
   Q_OBJECT;
 
-  public:
+ public:
   LoopChooserItem(model::Loop&, LoopChooserView* parent = nullptr);
 
   virtual ~LoopChooserItem() {}
 
   std::string loopName();
 
-  signals:
+ signals:
 
   void addToLoopClicked(model::Loop&);
 
   void removeFromLoopClicked(model::Loop&);
 
-  public slots:
+ public slots:
 
   void setChecked(bool checked);
 
-  private slots:
+ private slots:
 
   void sendClickedSignal(bool checked);
 
-  private:
+ private:
   QCheckBox* m_checkBox;
 
   LoopChooserView* m_loopChooserView;

@@ -50,7 +50,7 @@ class SpaceTypesGridView : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   SpaceTypesGridView(bool isIP, const model::Model& model, QWidget* parent = nullptr);
 
   virtual ~SpaceTypesGridView() {}
@@ -63,7 +63,7 @@ class SpaceTypesGridView : public QWidget
 
   QComboBox* m_filters = nullptr;
 
-  private:
+ private:
   REGISTER_LOGGER("openstudio.SpaceTypesGridView");
 
   bool m_isIP;
@@ -72,7 +72,7 @@ class SpaceTypesGridView : public QWidget
 
   QLabel* m_filterLabel = nullptr;
 
-  signals:
+ signals:
 
   void toggleUnitsClicked(bool displayIP);
 
@@ -86,7 +86,7 @@ class SpaceTypesGridController : public OSGridController
 
   Q_OBJECT
 
-  public:
+ public:
   SpaceTypesGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model model,
                            std::vector<model::ModelObject> modelObjects);
 
@@ -96,7 +96,7 @@ class SpaceTypesGridController : public OSGridController
 
   virtual void categorySelected(int index) override;
 
-  protected:
+ protected:
   virtual void setCategoriesAndFields() override;
 
   virtual void addColumns(const QString& category, std::vector<QString>& fields) override;
@@ -105,10 +105,10 @@ class SpaceTypesGridController : public OSGridController
 
   virtual QString getColor(const model::ModelObject& modelObject) override;
 
-  private:
+ private:
   SpaceTypesGridView* spaceTypesGridView();
 
-  public slots:
+ public slots:
 
   virtual void onItemDropped(const OSItemId& itemId) override;
 

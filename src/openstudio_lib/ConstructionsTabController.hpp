@@ -42,7 +42,7 @@ class ConstructionsTabController : public MainTabController
 {
   Q_OBJECT
 
-  public:
+ public:
   ConstructionsTabController(bool isIP, const openstudio::model::Model& model);
 
   virtual ~ConstructionsTabController();
@@ -54,7 +54,7 @@ class ConstructionsTabController : public MainTabController
     MATERIALS
   };
 
-  private:
+ private:
   model::Model m_model;
 
   bool m_isIP;
@@ -63,7 +63,7 @@ class ConstructionsTabController : public MainTabController
 
   int m_currentIndex = -1;
 
-  public slots:
+ public slots:
 
   virtual void setSubTab(int index) override;
 

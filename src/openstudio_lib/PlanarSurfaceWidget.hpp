@@ -41,7 +41,7 @@ class PlanarSurfaceWidget : public QWidget, public Nano::Observer
 {
   Q_OBJECT
 
-  public:
+ public:
   PlanarSurfaceWidget(bool isIP, QWidget* parent = nullptr);
 
   virtual ~PlanarSurfaceWidget() {}
@@ -50,20 +50,20 @@ class PlanarSurfaceWidget : public QWidget, public Nano::Observer
 
   virtual void detach();
 
-  private slots:
+ private slots:
 
   void clear();
 
   void refresh();
 
-  private:
+ private:
   void setUnits(bool displayIP);
 
   boost::optional<openstudio::model::PlanarSurface> m_planarSurface;
 
   QString m_units;
 
-  public slots:
+ public slots:
 
   void toggleUnits(bool displayIP);
 };

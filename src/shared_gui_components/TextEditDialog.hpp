@@ -40,7 +40,7 @@ class TextEditDialog : public OSDialog
 {
   Q_OBJECT
 
-  public:
+ public:
   TextEditDialog(const QString& windowTitle, const QString& windowMessage = QString(), QWidget* parent = nullptr);
 
   virtual ~TextEditDialog();
@@ -49,7 +49,7 @@ class TextEditDialog : public OSDialog
 
   void setText(const QString& text);
 
-  private:
+ private:
   virtual void createWidgets();
 
   QTextEdit* m_textEdit;

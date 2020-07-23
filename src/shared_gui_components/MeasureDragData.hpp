@@ -42,7 +42,7 @@ class MeasureDragData : QObject
 {
   Q_OBJECT
 
-  public:
+ public:
   static QString mimeType();
 
   static QString mimeType(openstudio::MeasureType type);
@@ -61,7 +61,7 @@ class MeasureDragData : QObject
 
   QByteArray data();
 
-  private:
+ private:
   UUID m_id;
 
   LocalLibrary::LibrarySource m_sourceEnum;

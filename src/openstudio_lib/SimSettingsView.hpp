@@ -60,12 +60,12 @@ class SimSettingsView : public QWidget, public Nano::Observer
 {
   Q_OBJECT
 
-  public:
+ public:
   SimSettingsView(bool isIP, const model::Model& model, QWidget* parent = nullptr);
 
   virtual ~SimSettingsView() {}
 
-  private:
+ private:
   void createWidgets();
   void setCoarseRadianceSettings();
   void setFineRadianceSettings();
@@ -270,11 +270,11 @@ class SimSettingsView : public QWidget, public Nano::Observer
   OSQuantityEdit2* m_humidityCapacityMultiplier;
   OSQuantityEdit2* m_carbonDioxideCapacityMultiplier;
 
-  signals:
+ signals:
 
   void toggleUnitsClicked(bool displayIP);
 
-  private slots:
+ private slots:
 
   void on_startDateChanged(const QDate& date);
 

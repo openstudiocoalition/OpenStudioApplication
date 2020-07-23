@@ -57,7 +57,7 @@ class RefrigerationController : public QObject
 {
   Q_OBJECT
 
-  public:
+ public:
   RefrigerationController();
 
   virtual ~RefrigerationController();
@@ -75,7 +75,7 @@ class RefrigerationController : public QObject
 
   void refreshRefrigerationSystemView(RefrigerationSystemView* systemView, boost::optional<model::RefrigerationSystem>& system);
 
-  public slots:
+ public slots:
 
   void zoomInOnSystem(const Handle& handle);
 
@@ -83,7 +83,7 @@ class RefrigerationController : public QObject
 
   void zoomOutToSystemGridView();
 
-  private slots:
+ private slots:
 
   void refresh();
 
@@ -115,7 +115,7 @@ class RefrigerationController : public QObject
 
   void inspectOSItem(const OSItemId& itemid);
 
-  private:
+ private:
   QPointer<RefrigerationView> m_refrigerationView;
 
   QPointer<GridLayoutItem> m_refrigerationSystemGridView;
@@ -139,7 +139,7 @@ class RefrigerationSystemListController : public OSListController
 {
   Q_OBJECT
 
-  public:
+ public:
   RefrigerationSystemListController(RefrigerationController* refrigerationController);
   RefrigerationController* refrigerationController() const;
 
@@ -148,21 +148,21 @@ class RefrigerationSystemListController : public OSListController
 
   void reset();
 
-  signals:
+ signals:
 
   void itemInsertedPrivate(int i);
 
-  public slots:
+ public slots:
 
   void addSystem(const OSItemId& itemid);
   void createNewSystem();
   void removeSystem(model::RefrigerationSystem& refrigerationSystem);
 
-  private slots:
+ private slots:
 
   void onModelObjectAdd(const WorkspaceObject& object, const openstudio::IddObjectType& iddObjectType, const openstudio::UUID& handle);
 
-  private:
+ private:
   std::vector<model::RefrigerationSystem> systems() const;
   int systemIndex(const model::RefrigerationSystem& system) const;
   QPointer<RefrigerationController> m_refrigerationController;
@@ -173,7 +173,7 @@ class RefrigerationSystemItemDelegate : public OSGraphicsItemDelegate
 {
   Q_OBJECT;
 
-  public:
+ public:
   virtual ~RefrigerationSystemItemDelegate() {}
 
   virtual QGraphicsObject* view(QSharedPointer<OSListItem> dataSource) override;
@@ -183,7 +183,7 @@ class RefrigerationSystemListDropZoneItem : public OSListItem
 {
   Q_OBJECT
 
-  public:
+ public:
   RefrigerationSystemListDropZoneItem(OSListController* listController = nullptr);
 
   ~RefrigerationSystemListDropZoneItem() {}
@@ -193,19 +193,19 @@ class RefrigerationSystemListItem : public OSListItem
 {
   Q_OBJECT
 
-  public:
+ public:
   RefrigerationSystemListItem(const model::RefrigerationSystem& refrigerationSystem, OSListController* listController = nullptr);
   virtual ~RefrigerationSystemListItem() {}
 
   QString systemName() const;
   model::RefrigerationSystem system() const;
 
-  public slots:
+ public slots:
 
   void remove();
   void zoomInOnSystem();
 
-  private:
+ private:
   model::RefrigerationSystem m_refrigerationSystem;
 };
 

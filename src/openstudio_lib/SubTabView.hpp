@@ -52,7 +52,7 @@ class SubTabView : public QSplitter
 {
   Q_OBJECT
 
-  public:
+ public:
   SubTabView(OSItemSelector* itemSelector, OSInspectorView* inspectorView, bool showGridViewLayout = false, QWidget* parent = nullptr);
 
   virtual ~SubTabView() {}
@@ -69,7 +69,7 @@ class SubTabView : public QSplitter
 
   const OSInspectorView* inspectorView() const;
 
-  signals:
+ signals:
 
   void itemSelected(OSItem* item);
 
@@ -95,14 +95,14 @@ class SubTabView : public QSplitter
 
   void openLibDlgClicked();
 
-  protected slots:
+ protected slots:
 
   virtual void onDropZoneItemClicked(OSItem* item);
 
-  protected:
+ protected:
   void paintEvent(QPaintEvent* event) override;
 
-  private:
+ private:
   void connectItemSelector();
 
   void connectInspectorView();

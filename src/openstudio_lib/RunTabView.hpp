@@ -61,10 +61,10 @@ class RunView : public QWidget
 {
   Q_OBJECT;
 
-  public:
+ public:
   RunView();
 
-  private:
+ private:
   REGISTER_LOGGER("openstudio::RunView");
 
   void playButtonClicked(bool t_checked);
@@ -112,7 +112,7 @@ class RunTabView : public MainTabView
 {
   Q_OBJECT;
 
-  public:
+ public:
   RunTabView(const model::Model& model, QWidget* parent = nullptr);
 
   virtual ~RunTabView() {}
@@ -120,7 +120,7 @@ class RunTabView : public MainTabView
   //signals:
   //  void resultsGenerated(const openstudio::path &t_sqlFile);
 
-  private:
+ private:
   RunView* m_runView;
   //openstudio::runmanager::JobStatusWidget * m_status;
 };

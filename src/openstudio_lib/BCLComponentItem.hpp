@@ -41,13 +41,13 @@ class BCLComponentItem : public OSItem
 {
   Q_OBJECT
 
-  public:
+ public:
   BCLComponentItem(const BCLComponent& component, OSItemType type, QWidget* parent = nullptr);
   virtual ~BCLComponentItem() {}
 
   virtual bool equal(const openstudio::OSItem*) const override;
 
-  private:
+ private:
   BCLComponent m_bclComponent;
 
   //openstudio::Handle m_handle;

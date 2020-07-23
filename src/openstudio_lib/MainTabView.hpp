@@ -49,7 +49,7 @@ class MainTabView : public QWidget, public Nano::Observer
 {
   Q_OBJECT
 
-  public:
+ public:
   enum TabType
   {
     MAIN_TAB,
@@ -84,13 +84,13 @@ class MainTabView : public QWidget, public Nano::Observer
 
   QPointer<OSViewSwitcher> m_editView;
 
-  protected:
+ protected:
   void setCurrentIndex(int index);
   void setCurrentWidget(QWidget* widget);
   void paintEvent(QPaintEvent* event) override;
   void resizeEvent(QResizeEvent* event) override;
 
-  private:
+ private:
   QLabel* m_tabLabel = nullptr;
   QWidget* m_mainWidget = nullptr;
   QWidget* m_currentInnerWidget = nullptr;
@@ -104,12 +104,12 @@ class MainTabView : public QWidget, public Nano::Observer
 
   TabType m_tabType;
 
-  signals:
+ signals:
 
   void tabSelected(int id);
   void toggleUnitsClicked(bool displayIP);
 
-  private slots:
+ private slots:
 
   void select();
 };

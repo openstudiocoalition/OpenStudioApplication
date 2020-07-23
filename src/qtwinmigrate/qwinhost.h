@@ -64,14 +64,14 @@
 class QT_QTWINMIGRATE_EXPORT QWinHost : public QWidget
 {
   Q_OBJECT
-  public:
+ public:
   QWinHost(QWidget* parent = 0, Qt::WindowFlags f = 0);
   ~QWinHost();
 
   void setWindow(HWND);
   HWND window() const;
 
-  protected:
+ protected:
   virtual HWND createWindow(HWND parent, HINSTANCE instance);
 
   bool event(QEvent* e);
@@ -85,7 +85,7 @@ class QT_QTWINMIGRATE_EXPORT QWinHost : public QWidget
   bool winEvent(MSG* msg, long* result);
 #endif
 
-  private:
+ private:
   void fixParent();
   friend void* getWindowProc(QWinHost*);
 

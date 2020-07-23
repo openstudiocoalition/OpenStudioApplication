@@ -40,25 +40,25 @@ class TreeView : public QTreeView
 {
   Q_OBJECT
 
-  public:
+ public:
   TreeView(QWidget* parent = nullptr);
   virtual ~TreeView();
   bool getSelectedRows(QModelIndexList& rowList);
   bool hasSelectedRows();
 
-  public slots:
+ public slots:
 
-  signals:
+ signals:
   void eventEnter();
   void eventLeave();
   void eventUpDnKeyRelease();
 
-  protected:
+ protected:
   virtual void enterEvent(QEvent* event) override;
   virtual void leaveEvent(QEvent* event) override;
   virtual void keyReleaseEvent(QKeyEvent* event) override;
 
-  private:
+ private:
 };
 
 }  // namespace modeleditor

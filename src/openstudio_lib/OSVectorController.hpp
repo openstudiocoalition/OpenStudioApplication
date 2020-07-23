@@ -46,14 +46,14 @@ class OSVectorController : public QObject, public Nano::Observer
 {
   Q_OBJECT
 
-  public:
+ public:
   // in the future, OSVectorController's will be managed by shared_ptr's on parent controller
   // for now, each controller must be parented by a widget
   OSVectorController();
 
   virtual ~OSVectorController() {}
 
-  public slots:
+ public slots:
 
   void reportItems();
 
@@ -65,13 +65,13 @@ class OSVectorController : public QObject, public Nano::Observer
 
   void makeNewItem();
 
-  signals:
+ signals:
 
   void itemIds(const std::vector<OSItemId>& itemIds);
 
   void selectedItemId(const OSItemId& itemId);
 
-  protected:
+ protected:
   virtual std::vector<OSItemId> makeVector() = 0;
 
   virtual void onRemoveItem(OSItem* item);

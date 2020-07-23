@@ -55,7 +55,7 @@ class OSListView : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   OSListView(bool scrollable = false, QWidget* parent = nullptr);
 
   virtual ~OSListView() {}
@@ -74,14 +74,14 @@ class OSListView : public QWidget
 
   void setVerticalScrollBarAlwaysOn(bool alwaysOn);
 
-  public slots:
+ public slots:
 
   void refreshAllViews();
 
-  protected:
+ protected:
   void paintEvent(QPaintEvent*) override;
 
-  private slots:
+ private slots:
 
   void insertItemView(int i);
 
@@ -91,7 +91,7 @@ class OSListView : public QWidget
 
   void refreshItemView(int i);
 
-  private:
+ private:
   QSharedPointer<OSItemDelegate> m_delegate;
 
   QSharedPointer<OSListController> m_listController;

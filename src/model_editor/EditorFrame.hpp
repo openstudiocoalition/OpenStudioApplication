@@ -53,15 +53,15 @@ class MODELEDITOR_API EditorFrame : public QMainWindow
 {
   Q_OBJECT
 
-  public:
+ public:
   EditorFrame(QWidget* parent = nullptr);
   virtual ~EditorFrame();
   void loadStyleSheet(QString& style);
 
-  protected:
+ protected:
   void closeEvent(QCloseEvent* event) override;
 
-  private:
+ private:
   void connectSignalsAndSlots();
   void contextMenuEvent(QContextMenuEvent* event) override;
   void createActions();
@@ -132,7 +132,7 @@ class MODELEDITOR_API EditorFrame : public QMainWindow
   bool mShowComments;
   bool mShowPrecision;
 
-  private slots:
+ private slots:
   void about();
 
   void newIdk();
@@ -163,7 +163,7 @@ class MODELEDITOR_API EditorFrame : public QMainWindow
   void on_precisionDlgHidden();
   void on_precisionDlgFinished();
 
-  signals:
+ signals:
 };
 
 }  // namespace modeleditor

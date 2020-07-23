@@ -54,7 +54,7 @@ class ScriptItem : public OSItem
 {
   Q_OBJECT
 
-  public:
+ public:
   ScriptItem(const openstudio::path& t_path, OSItemType type, QWidget* parent = nullptr);
 
   virtual ~ScriptItem() {}
@@ -87,19 +87,19 @@ class ScriptItem : public OSItem
 
   virtual bool equal(const openstudio::OSItem*) const override;
 
-  signals:
+ signals:
 
   void argChanged();
 
-  public slots:
+ public slots:
 
   void setOSArgument(const measure::OSArgument& arg);
 
-  private slots:
+ private slots:
 
   void onObjectChanged();
 
-  private:
+ private:
   bool m_removed;
   //runmanager::ScriptInfo m_scriptInfo;
 

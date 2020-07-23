@@ -49,11 +49,11 @@ class EditNullView : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   EditNullView(const QString& text = "Select a Measure to Edit");
   virtual ~EditNullView() {}
 
-  protected:
+ protected:
   void paintEvent(QPaintEvent*) override;
 };
 
@@ -61,7 +61,7 @@ class EditRubyMeasureView : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   EditRubyMeasureView(bool applyMeasureNow);
   virtual ~EditRubyMeasureView() {}
 
@@ -76,10 +76,10 @@ class EditRubyMeasureView : public QWidget
   // Clear all of the information specific to a particular ruby perturbation
   void clear();
 
-  protected:
+ protected:
   void paintEvent(QPaintEvent*) override;
 
-  private:
+ private:
   std::vector<QWidget*> m_inputViews;
 
   QVBoxLayout* m_mainVLayout;
@@ -89,7 +89,7 @@ class EditRubyMeasureView : public QWidget
 
 class InputView : public QWidget
 {
-  public:
+ public:
   virtual void setIncomplete(bool incomplete) {}
 
   virtual void setDisplayValue(const QVariant& value) {}
@@ -99,7 +99,7 @@ class DoubleInputView : public InputView
 {
   Q_OBJECT
 
-  public:
+ public:
   DoubleInputView();
   virtual ~DoubleInputView() {}
 
@@ -111,7 +111,7 @@ class DoubleInputView : public InputView
 
   void setDisplayValue(const QVariant& value) override;
 
-  private:
+ private:
   QLabel* nameLabel;
 };
 
@@ -119,7 +119,7 @@ class ChoiceInputView : public InputView
 {
   Q_OBJECT
 
-  public:
+ public:
   ChoiceInputView();
   virtual ~ChoiceInputView() {}
 
@@ -131,7 +131,7 @@ class ChoiceInputView : public InputView
 
   void setDisplayValue(const QVariant& value) override;
 
-  private:
+ private:
   QLabel* nameLabel;
 };
 
@@ -139,7 +139,7 @@ class BoolInputView : public InputView
 {
   Q_OBJECT
 
-  public:
+ public:
   BoolInputView();
   virtual ~BoolInputView() {}
 
@@ -156,7 +156,7 @@ class IntegerInputView : public InputView
 {
   Q_OBJECT
 
-  public:
+ public:
   IntegerInputView();
   virtual ~IntegerInputView() {}
 
@@ -168,7 +168,7 @@ class IntegerInputView : public InputView
 
   void setDisplayValue(const QVariant& value) override;
 
-  private:
+ private:
   QLabel* nameLabel;
 };
 
@@ -176,7 +176,7 @@ class StringInputView : public InputView
 {
   Q_OBJECT
 
-  public:
+ public:
   StringInputView();
   virtual ~StringInputView() {}
 
@@ -188,7 +188,7 @@ class StringInputView : public InputView
 
   void setDisplayValue(const QVariant& value) override;
 
-  private:
+ private:
   QLabel* nameLabel;
 };
 
@@ -196,7 +196,7 @@ class InputComboBox : public QComboBox
 {
   Q_OBJECT
 
-  protected:
+ protected:
   void wheelEvent(QWheelEvent* e) override;
 };
 
@@ -204,7 +204,7 @@ class InputCheckBox : public QAbstractButton
 {
   Q_OBJECT
 
-  public:
+ public:
   InputCheckBox();
 
   virtual ~InputCheckBox();
@@ -213,10 +213,10 @@ class InputCheckBox : public QAbstractButton
 
   void setIncomplete(bool incomplete);
 
-  protected:
+ protected:
   void paintEvent(QPaintEvent* event) override;
 
-  private:
+ private:
   QLabel* m_label;
 };
 

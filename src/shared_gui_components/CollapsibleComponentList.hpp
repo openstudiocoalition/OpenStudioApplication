@@ -46,7 +46,7 @@ class CollapsibleComponentList : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   CollapsibleComponentList(QWidget* parent = nullptr);
   CollapsibleComponentList(const std::vector<CollapsibleComponent*>& collapsibleComponents, QWidget* parent = nullptr);
   virtual ~CollapsibleComponentList() {}
@@ -73,10 +73,10 @@ class CollapsibleComponentList : public QWidget
   ///! set the page nav to display first page (pageIdx = 0)
   void firstPage();
 
-  protected:
+ protected:
   void paintEvent(QPaintEvent* event) override;
 
-  private:
+ private:
   void createLayout();
   // set the CollapsibleComponents
   void setCollapsibleComponents(const std::vector<CollapsibleComponent*>& collapsibleComponents);
@@ -85,13 +85,13 @@ class CollapsibleComponentList : public QWidget
   QHBoxLayout* m_contentLayout;
   QButtonGroup* m_collapsibleComponentGroup;
 
-  signals:
+ signals:
   void headerClicked(bool checked);
   void componentClicked(bool checked);
   void collapsibleComponentClicked(bool checked);
   void getComponentsByPage(int pageNum);
 
-  private slots:
+ private slots:
   void on_headerClicked(bool checked);
   void on_componentClicked(bool checked);
   void on_collapsibleComponentClicked(bool checked);

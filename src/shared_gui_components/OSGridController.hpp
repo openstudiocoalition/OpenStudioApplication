@@ -93,7 +93,7 @@ class Holder;
 /// \endcode
 class DataSource
 {
-  public:
+ public:
   /// Create a new DataSource object, which is optionally passed into the various
   /// add.*Column functions.
   ///
@@ -134,7 +134,7 @@ class DataSource
     return m_wantsPlaceholder;
   }
 
-  private:
+ private:
   std::function<std::vector<boost::optional<ConceptProxy>>(const ConceptProxy&)> m_sourceFunc;
   bool m_wantsPlaceholder;
   QSharedPointer<BaseConcept> m_dropZoneConcept;
@@ -142,7 +142,7 @@ class DataSource
 
 class DataSourceAdapter : public BaseConcept
 {
-  public:
+ public:
   DataSourceAdapter(DataSource t_source, QSharedPointer<BaseConcept> t_inner)
     : BaseConcept(t_inner->heading()), m_source(t_source), m_inner(t_inner) {}
 
@@ -154,7 +154,7 @@ class DataSourceAdapter : public BaseConcept
     return m_inner;
   }
 
-  private:
+ private:
   DataSource m_source;
   QSharedPointer<BaseConcept> m_inner;
 };
@@ -165,7 +165,7 @@ class WidgetLocation : public QObject, public Nano::Observer
 {
   Q_OBJECT;
 
-  public:
+ public:
   WidgetLocation(QWidget* t_widget, int t_row, int t_column, boost::optional<int> t_subrow);
 
   virtual ~WidgetLocation();
@@ -175,11 +175,11 @@ class WidgetLocation : public QObject, public Nano::Observer
   int column;
   boost::optional<int> subrow;
 
-  signals:
+ signals:
 
   void inFocus(bool inFocus, bool hasData, int row, int column, boost::optional<int> subrow);
 
-  public slots:
+ public slots:
 
   void onInFocus(bool hasFocus, bool hasData);
 };
@@ -188,7 +188,7 @@ class ObjectSelector : public QObject, public Nano::Observer
 {
   Q_OBJECT;
 
-  public:
+ public:
   ObjectSelector(OSGridController* t_grid);
 
   void addWidget(const boost::optional<model::ModelObject>& t_obj, Holder* t_holder, int row, int column, const boost::optional<int>& subrow,
@@ -212,16 +212,16 @@ class ObjectSelector : public QObject, public Nano::Observer
   std::set<model::ModelObject> m_selectorObjects;
   std::set<model::ModelObject> m_filteredObjects;
 
-  signals:
+ signals:
   void inFocus(bool inFocus, bool hasData, int row, int column, boost::optional<int> subrow);
 
-  private slots:
+ private slots:
   void widgetDestroyed(QObject* t_obj);
 
-  protected:
+ protected:
   REGISTER_LOGGER("openstudio.ObjectSelector");
 
-  private:
+ private:
   void updateWidgets(const model::ModelObject& t_obj);
   void updateWidgets(const model::ModelObject& t_obj, const bool t_objectVisible);
   void updateWidgets(const int t_row, const boost::optional<int>& t_subrow, bool t_selected, bool t_visible);
@@ -236,7 +236,7 @@ class OSGridController : public QObject, public Nano::Observer
 {
   Q_OBJECT
 
-  public:
+ public:
   // This form requires clients to subclass OSGridController and
   // reimplement rowCount(), and itemAt()
   OSGridController();
@@ -521,7 +521,7 @@ class OSGridController : public QObject, public Nano::Observer
   // should set this value, if appropriate.
   int m_constructionColumn = -1;
 
-  protected:
+ protected:
   // This function determines the category for
   // each button, and the fields associated with
   // each category
@@ -576,7 +576,7 @@ class OSGridController : public QObject, public Nano::Observer
 
   REGISTER_LOGGER("openstudio.OSGridController");
 
-  private:
+ private:
   friend class OSGridView;
   friend class ObjectSelector;
 
@@ -615,14 +615,14 @@ class OSGridController : public QObject, public Nano::Observer
 
   std::vector<std::pair<int, bool>> m_applyToButtonStates = std::vector<std::pair<int, bool>>();
 
-  signals:
+ signals:
 
   // Nuclear reset of everything
   void modelReset();
 
   void toggleUnitsClicked(bool displayIP);
 
-  public slots:
+ public slots:
 
   virtual void onItemDropped(const OSItemId& itemId) = 0;
 
@@ -640,11 +640,11 @@ class OSGridController : public QObject, public Nano::Observer
 
   void onInFocus(bool inFocus, bool hasData, int row, int column, boost::optional<int> subrow);
 
-  protected slots:
+ protected slots:
 
   void selectAllStateChanged(const int newState) const;
 
-  private slots:
+ private slots:
 
   void horizontalHeaderChecked(int index);
 
@@ -670,17 +670,17 @@ class Holder : public QWidget, public Nano::Observer
 {
   Q_OBJECT
 
-  public:
+ public:
   Holder(QWidget* parent = nullptr);
 
   virtual ~Holder();
 
   QWidget* widget = nullptr;
 
-  protected:
+ protected:
   void paintEvent(QPaintEvent* event) override;
 
-  signals:
+ signals:
 
   void inFocus(bool inFocus, bool hasData);
 };
@@ -689,17 +689,17 @@ class HorizontalHeaderPushButton : public QPushButton
 {
   Q_OBJECT
 
-  public:
+ public:
   HorizontalHeaderPushButton(QWidget* parent = nullptr);
 
   virtual ~HorizontalHeaderPushButton();
 
-  protected:
+ protected:
   virtual void focusInEvent(QFocusEvent* e) override;
 
   virtual void focusOutEvent(QFocusEvent* e) override;
 
-  signals:
+ signals:
 
   void inFocus(bool inFocus, bool hasData);
 };
@@ -708,7 +708,7 @@ class HorizontalHeaderWidget : public QWidget, public Nano::Observer
 {
   Q_OBJECT
 
-  public:
+ public:
   HorizontalHeaderWidget(const QString& fieldName, QWidget* parent = nullptr);
 
   virtual ~HorizontalHeaderWidget();
@@ -722,17 +722,17 @@ class HorizontalHeaderWidget : public QWidget, public Nano::Observer
 
   std::vector<QSharedPointer<QWidget>> m_addedWidgets;
 
-  signals:
+ signals:
 
   void inFocus(bool inFocus, bool hasData);
 
-  private:
+ private:
   QVBoxLayout* m_innerLayout;
 };
 
 class GridViewDropZoneVectorController : public OSVectorController
 {
-  protected:
+ protected:
   virtual std::vector<OSItemId> makeVector() override {
     return std::vector<OSItemId>();
   }

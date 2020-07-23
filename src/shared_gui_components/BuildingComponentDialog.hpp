@@ -54,7 +54,7 @@ class BuildingComponentDialog : public QDialog
 {
   Q_OBJECT
 
-  public:
+ public:
   BuildingComponentDialog(std::string& filterType, bool isBclDlg = true, QWidget* parent = nullptr);
   virtual ~BuildingComponentDialog() {}
 
@@ -64,10 +64,10 @@ class BuildingComponentDialog : public QDialog
   bool showNewComponents();
   void setShowNewComponents(bool showNewComponents);
 
-  protected:
+ protected:
   void paintEvent(QPaintEvent* event) override;
 
-  private:
+ private:
   void requestComponents(const std::string& filterType, int tids, int pageIdx, const QString& searchString);
   void createLayout(bool isBclDlg);
 
@@ -81,13 +81,13 @@ class BuildingComponentDialog : public QDialog
   QStackedWidget* m_stackedWidget;
   QTimer* m_timer;
 
-  signals:
+ signals:
   void headerClicked(bool checked);
   void componentClicked(bool checked);
   void collapsibleComponentClicked(bool checked);
   void getComponentsByPage(int pageNum);
 
-  private slots:
+ private slots:
   void on_tidClicked(const QModelIndex& index);
   void on_headerClicked(bool checked);
   void on_componentClicked(bool checked);

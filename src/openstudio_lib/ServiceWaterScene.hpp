@@ -48,18 +48,18 @@ class ServiceWaterScene : public GridScene
 {
   Q_OBJECT
 
-  public:
+ public:
   ServiceWaterScene(const model::Model& model);
 
   virtual ~ServiceWaterScene() {}
 
   model::Model model() const;
 
-  public slots:
+ public slots:
 
   void layout();
 
-  private slots:
+ private slots:
 
   void onAddedWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> wPtr, const openstudio::IddObjectType& type,
                               const openstudio::UUID& uuid);
@@ -67,7 +67,7 @@ class ServiceWaterScene : public GridScene
   void onRemovedWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> wPtr, const openstudio::IddObjectType& type,
                                 const openstudio::UUID& uuid);
 
-  private:
+ private:
   bool m_dirty;
 
   model::Model m_model;
@@ -77,22 +77,22 @@ class WaterUseConnectionsDetailScene : public GridScene
 {
   Q_OBJECT
 
-  public:
+ public:
   WaterUseConnectionsDetailScene(const model::WaterUseConnections& waterUseConnections);
 
   virtual ~WaterUseConnectionsDetailScene() {}
 
   model::WaterUseConnections waterUseConnections() const;
 
-  public slots:
+ public slots:
 
   void layout();
 
-  signals:
+ signals:
 
   void goToServiceWaterSceneClicked();
 
-  private slots:
+ private slots:
 
   void onAddedWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> wPtr, const openstudio::IddObjectType& type,
                               const openstudio::UUID& uuid);
@@ -100,7 +100,7 @@ class WaterUseConnectionsDetailScene : public GridScene
   void onRemovedWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> wPtr, const openstudio::IddObjectType& type,
                                 const openstudio::UUID& uuid);
 
-  private:
+ private:
   bool m_dirty;
 
   model::WaterUseConnections m_waterUseConnections;

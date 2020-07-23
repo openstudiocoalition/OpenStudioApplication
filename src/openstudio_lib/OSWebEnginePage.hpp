@@ -40,14 +40,14 @@ class OSWebEnginePage : public QWebEnginePage
 {
   Q_OBJECT
 
-  public:
+ public:
   OSWebEnginePage(QObject* parent = 0) : QWebEnginePage(parent) {}
 
-  protected:
+ protected:
   virtual bool certificateError(const QWebEngineCertificateError& certificateError) override;
   virtual bool acceptNavigationRequest(const QUrl& url, QWebEnginePage::NavigationType type, bool isMainFrame) override;
 
-  private:
+ private:
   REGISTER_LOGGER("openstudio::OSWebEnginePage");
 };
 

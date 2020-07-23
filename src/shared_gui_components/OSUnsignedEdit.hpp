@@ -49,7 +49,7 @@ class OSUnsignedEdit2 : public QLineEdit
 {
   Q_OBJECT
 
-  public:
+ public:
   OSUnsignedEdit2(QWidget* parent = nullptr);
 
   virtual ~OSUnsignedEdit2();
@@ -88,16 +88,16 @@ class OSUnsignedEdit2 : public QLineEdit
 
   void unbind();
 
-  protected:
+ protected:
   virtual void focusInEvent(QFocusEvent* e) override;
 
   virtual void focusOutEvent(QFocusEvent* e) override;
 
-  signals:
+ signals:
 
   void inFocus(bool inFocus, bool hasData);
 
-  private slots:
+ private slots:
 
   void onEditingFinished();
 
@@ -105,7 +105,7 @@ class OSUnsignedEdit2 : public QLineEdit
 
   void onModelObjectRemove(const Handle& handle);
 
-  private:
+ private:
   boost::optional<model::ModelObject> m_modelObject;                    // will be set if attached to ModelObject or ModelExtensibleGroup
   boost::optional<model::ModelExtensibleGroup> m_modelExtensibleGroup;  // will only be set if attached to ModelExtensibleGroup
   boost::optional<UnsignedGetter> m_get;

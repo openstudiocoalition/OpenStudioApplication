@@ -41,17 +41,17 @@ class MODELEDITOR_API TableWidget : public QTableWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   TableWidget(QWidget* parent = nullptr);
   virtual ~TableWidget();
   void populateTable(const openstudio::WorkspaceObject& obj);
 
-  public slots:
+ public slots:
 
-  signals:
+ signals:
 
-  protected:
-  private:
+ protected:
+ private:
 };
 
 }  // namespace modeleditor

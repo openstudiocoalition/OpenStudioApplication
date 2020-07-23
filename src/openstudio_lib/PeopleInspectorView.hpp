@@ -50,19 +50,19 @@ class PeopleDefinitionInspectorView : public ModelObjectInspectorView
 {
   Q_OBJECT
 
-  public:
+ public:
   PeopleDefinitionInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
   virtual ~PeopleDefinitionInspectorView() {}
 
-  public slots:
+ public slots:
   void addExtensible();
 
   void removeExtensible();
 
   void toggleUnits(bool displayIP) override;
 
-  protected:
+ protected:
   virtual void onClearSelection() override;
 
   virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
@@ -73,7 +73,7 @@ class PeopleDefinitionInspectorView : public ModelObjectInspectorView
   // Disable add extensible group button if can't add more (maxFields)
   void checkButtons();
 
-  private:
+ private:
   REGISTER_LOGGER("openstudio.PeopleDefinitionInspectorView");
 
   void attach(openstudio::model::PeopleDefinition& peopleDefinition);

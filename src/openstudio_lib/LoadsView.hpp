@@ -45,15 +45,15 @@ class LoadsView : public ModelSubTabView
 {
   Q_OBJECT
 
-  public:
+ public:
   LoadsView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
   virtual ~LoadsView() {}
 
-  private:
+ private:
   static std::vector<std::pair<IddObjectType, std::string>> modelObjectTypesAndNames();
 
-  public slots:
+ public slots:
 
   void toggleUnits(bool displayIP);
 };
@@ -62,12 +62,12 @@ class LoadsInspectorView : public ModelObjectInspectorView
 {
   Q_OBJECT
 
-  public:
+ public:
   LoadsInspectorView(bool isIP, const model::Model& model, QWidget* parent = nullptr);
 
   virtual ~LoadsInspectorView() {}
 
-  protected:
+ protected:
   virtual void onClearSelection() override;
 
   virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
@@ -96,10 +96,10 @@ class LoadsInspectorView : public ModelObjectInspectorView
 
   void showDefaultView();
 
-  private:
+ private:
   bool m_isIP;
 
-  public slots:
+ public slots:
 
   void toggleUnits(bool displayIP) override;
 };

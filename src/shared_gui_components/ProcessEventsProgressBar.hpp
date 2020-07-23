@@ -38,7 +38,7 @@ namespace openstudio {
 // to call process events
 class ProcessEventsProgressBar : public OSProgressBar
 {
-  public:
+ public:
   ProcessEventsProgressBar();
   virtual void onPercentageUpdated(double percentage) override;
 };

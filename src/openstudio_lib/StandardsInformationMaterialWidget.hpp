@@ -58,7 +58,7 @@ class StandardsInformationMaterialWidget : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   StandardsInformationMaterialWidget(bool isIP, QGridLayout* mainGridLayout, int& row);
 
   virtual ~StandardsInformationMaterialWidget();
@@ -75,7 +75,7 @@ class StandardsInformationMaterialWidget : public QWidget
 
   void disableComposite();
 
-  private:
+ private:
   QComboBox* m_standard = nullptr;
 
   QComboBox* m_standardSource = nullptr;
@@ -109,13 +109,13 @@ class StandardsInformationMaterialWidget : public QWidget
 
   void requestPopulateFields();
 
-  public slots:
+ public slots:
 
   void toggleUnits(bool displayIP);
 
   void populateFields();
 
-  private slots:
+ private slots:
 
   void standardChanged(const QString& text);
   void populateStandards();

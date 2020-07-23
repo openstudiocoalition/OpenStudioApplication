@@ -43,21 +43,21 @@ class BusyWidget : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   BusyWidget(QWidget* parent = nullptr);
 
   virtual ~BusyWidget() {}
 
   const QSize sizeHint();
 
-  public slots:
+ public slots:
 
   void rotate();
 
-  protected:
+ protected:
   void paintEvent(QPaintEvent* event) override;
 
-  private:
+ private:
   std::shared_ptr<QPixmap> m_pixmap;
 
   float m_rotation;

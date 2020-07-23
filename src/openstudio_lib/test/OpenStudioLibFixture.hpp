@@ -37,7 +37,7 @@
 
 class OpenStudioLibFixture : public ::testing::Test
 {
-  protected:
+ protected:
   // initialize for each test
   virtual void SetUp() override;
 

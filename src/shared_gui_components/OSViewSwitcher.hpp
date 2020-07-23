@@ -41,7 +41,7 @@ class OSViewSwitcher : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   OSViewSwitcher(QWidget* parent = nullptr);
 
   virtual ~OSViewSwitcher();
@@ -52,10 +52,10 @@ class OSViewSwitcher : public QWidget
 
   void clear();
 
-  protected:
+ protected:
   void paintEvent(QPaintEvent*) override;
 
-  private:
+ private:
   QWidget* m_view;
 
   QStackedWidget* m_stack;

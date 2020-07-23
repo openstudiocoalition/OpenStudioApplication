@@ -40,7 +40,7 @@ class MeasureBadge : public QLabel
 {
   Q_OBJECT
 
-  public:
+ public:
   void setMeasureBadgeType(MeasureBadgeType type);
 };
 

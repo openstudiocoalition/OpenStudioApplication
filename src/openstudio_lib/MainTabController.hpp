@@ -44,17 +44,17 @@ class MainTabController : public OSQObjectController
 {
   Q_OBJECT
 
-  public:
+ public:
   MainTabController(MainTabView* mainContentWidget);
 
   virtual ~MainTabController();
 
   MainTabView* mainContentWidget() const;
 
-  private:
+ private:
   MainTabView* m_mainContentWidget;
 
-  signals:
+ signals:
 
   void modelObjectSelected(model::OptionalModelObject& modelObject, bool readOnly);
 
@@ -70,7 +70,7 @@ class MainTabController : public OSQObjectController
 
   void openLibDlgClicked();
 
-  public slots:
+ public slots:
 
   virtual void setSubTab(int index){};
 };

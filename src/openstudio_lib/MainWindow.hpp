@@ -50,7 +50,7 @@ class MainWindow : public QMainWindow
 {
   Q_OBJECT
 
-  public:
+ public:
   MainWindow(bool isPlugin, QWidget* parent = nullptr);
   virtual ~MainWindow() {}
 
@@ -89,7 +89,7 @@ class MainWindow : public QMainWindow
     return m_verticalTabWidget;
   }
 
-  signals:
+ signals:
 
   void closeClicked();
 
@@ -161,7 +161,7 @@ class MainWindow : public QMainWindow
 
   void enableComponentsMeasures(bool enable);
 
-  protected:
+ protected:
   void closeEvent(QCloseEvent* event) override;
 
   void dragEnterEvent(QDragEnterEvent* event) override;
@@ -170,7 +170,7 @@ class MainWindow : public QMainWindow
 
   QSize sizeHint() const override;
 
-  private:
+ private:
   void readSettings();
 
   void writeSettings();
@@ -189,7 +189,7 @@ class MainWindow : public QMainWindow
 
   QString m_lastPath;
 
-  private slots:
+ private slots:
 
   void toggleUnits(bool displayIP);
 

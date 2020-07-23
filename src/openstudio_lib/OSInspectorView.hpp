@@ -48,22 +48,22 @@ class OSInspectorView : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   OSInspectorView(bool addScrollArea, QWidget* parent = nullptr);
 
   virtual ~OSInspectorView() {}
 
-  signals:
+ signals:
 
   void dropZoneItemClicked(OSItem* item);
 
-  public slots:
+ public slots:
 
   void clearSelection();
 
   void selectItem(OSItem* item);
 
-  protected:
+ protected:
   virtual void onSelectItem(OSItem* item) = 0;
 
   virtual void onClearSelection() = 0;
@@ -72,11 +72,11 @@ class OSInspectorView : public QWidget
 
   QStackedWidget* stackedWidget() const;
 
-  protected slots:
+ protected slots:
 
   void update();
 
-  private:
+ private:
   QStackedWidget* m_stackedWidget;
 };
 

@@ -50,7 +50,7 @@ class FacilityShadingGridView : public GridViewSubTab
 {
   Q_OBJECT
 
-  public:
+ public:
   FacilityShadingGridView(bool isIP, const model::Model& model, QWidget* parent = 0);
 
   virtual ~FacilityShadingGridView() {}
@@ -67,7 +67,7 @@ class FacilityShadingGridView : public GridViewSubTab
 
   QLineEdit* m_orientationLessThanFilter = nullptr;
 
-  private:
+ private:
   REGISTER_LOGGER("openstudio.FacilityShadingGridView");
 
   virtual void addObject(const openstudio::IddObjectType& iddObjectType) override;
@@ -86,13 +86,13 @@ class FacilityShadingGridView : public GridViewSubTab
 
   std::set<openstudio::model::ModelObject> m_objectsFilteredByOrientation;
 
-  protected slots:
+ protected slots:
 
   virtual void onSelectItem() override;
 
   virtual void onClearSelection() override;
 
-  private slots:
+ private slots:
 
   void tiltFilterChanged();
 
@@ -108,7 +108,7 @@ class FacilityShadingGridController : public OSGridController
 
   Q_OBJECT
 
-  public:
+ public:
   FacilityShadingGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model model,
                                 std::vector<model::ModelObject> modelObjects);
 
@@ -118,7 +118,7 @@ class FacilityShadingGridController : public OSGridController
 
   virtual void categorySelected(int index);
 
-  protected:
+ protected:
   virtual void setCategoriesAndFields();
 
   virtual void addColumns(const QString& category, std::vector<QString>& fields);
@@ -127,7 +127,7 @@ class FacilityShadingGridController : public OSGridController
 
   virtual QString getColor(const model::ModelObject& modelObject);
 
-  public slots:
+ public slots:
 
   virtual void onItemDropped(const OSItemId& itemId);
 };

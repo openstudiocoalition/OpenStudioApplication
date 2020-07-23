@@ -47,7 +47,7 @@ class ModelObjectTypeListView : public OSCollapsibleItemList
 {
   Q_OBJECT
 
-  public:
+ public:
   ModelObjectTypeListView(const model::Model& model, bool addScrollArea, OSItemType headerType, bool showLocalBCL = false, QWidget* parent = nullptr);
 
   ModelObjectTypeListView(const std::vector<std::pair<IddObjectType, std::string>>& modelObjectTypesAndNames, const model::Model& model,
@@ -61,7 +61,7 @@ class ModelObjectTypeListView : public OSCollapsibleItemList
 
   virtual boost::optional<openstudio::model::ModelObject> selectedModelObject() const;
 
-  private:
+ private:
   std::vector<std::pair<IddObjectType, std::string>> m_modelObjectTypesAndNames;
 
   model::Model m_model;

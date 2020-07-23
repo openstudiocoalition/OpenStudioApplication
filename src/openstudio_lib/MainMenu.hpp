@@ -40,12 +40,12 @@ class MainMenu : public QMenuBar
 {
   Q_OBJECT
 
-  public:
+ public:
   MainMenu(bool isIP, bool isPlugin, QWidget* parent = nullptr);
 
   virtual ~MainMenu();
 
-  signals:
+ signals:
 
   void exportClicked();
 
@@ -105,7 +105,7 @@ class MainMenu : public QMenuBar
 
   void changeBclLogin();
 
-  private:
+ private:
   bool m_isPlugin;
 
   QMenu* m_fileMenu;
@@ -134,7 +134,7 @@ class MainMenu : public QMenuBar
 
   bool m_isIP;
 
-  public slots:
+ public slots:
 
   void enableRevertToSavedAction(bool enable);
 
@@ -144,7 +144,7 @@ class MainMenu : public QMenuBar
 
   void enableComponentsMeasuresActions(bool enable);
 
-  private slots:
+ private slots:
 
   void displaySIUnitsClicked();
 

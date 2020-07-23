@@ -52,7 +52,7 @@ class OSItemSelectorButtons : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   OSItemSelectorButtons(QWidget* parent = nullptr);
 
   virtual ~OSItemSelectorButtons() {}
@@ -87,7 +87,7 @@ class OSItemSelectorButtons : public QWidget
   void enableBclDlgButton();
   void disableBclDlgButton();
 
-  signals:
+ signals:
 
   void itemDropped(const OSItemId& itemId);
 
@@ -101,10 +101,10 @@ class OSItemSelectorButtons : public QWidget
 
   void downloadComponentsClicked();
 
-  protected:
+ protected:
   void paintEvent(QPaintEvent* event) override;
 
-  private:
+ private:
   QVBoxLayout* m_vLayout;
 
   OSVectorController* m_dropZoneController;

@@ -60,7 +60,7 @@ class ComboHighlightBridge;
 
 class MODELEDITOR_API IGWidget : public QWidget, public Nano::Observer
 {
-  public:
+ public:
   IGWidget(QWidget* parent = nullptr);
 
   QSize sizeHint() const override;
@@ -68,10 +68,10 @@ class MODELEDITOR_API IGWidget : public QWidget, public Nano::Observer
 
 class IGComboBox : public QComboBox
 {
-  public:
+ public:
   IGComboBox(QWidget* parent = nullptr) : QComboBox(parent) {}
 
-  protected:
+ protected:
   bool event(QEvent* e) override {
     if (e->type() == QEvent::Wheel) {
       return false;
@@ -97,7 +97,7 @@ class MODELEDITOR_API InspectorGadget : public QWidget, public Nano::Observer
 
   Q_OBJECT
 
-  public:
+ public:
   friend class IGLineEdit;
   friend class IGDSpinBox;
 
@@ -174,7 +174,7 @@ class MODELEDITOR_API InspectorGadget : public QWidget, public Nano::Observer
 
   void removeWorkspaceObject(const openstudio::Handle&);  // Middleman nano slot to emit QT signal to simulate signal chaining
 
-  public slots:
+ public slots:
 
   void toggleUnits(bool displayIP);
 
@@ -239,7 +239,7 @@ class MODELEDITOR_API InspectorGadget : public QWidget, public Nano::Observer
 
   void setRecursive(bool recursive);
 
-  signals:
+ signals:
 
   void nameChanged(QString);
 
@@ -254,7 +254,7 @@ class MODELEDITOR_API InspectorGadget : public QWidget, public Nano::Observer
 
   void workspaceObjectRemoved(const openstudio::Handle&);
 
-  protected slots:
+ protected slots:
 
   void onWorkspaceObjectChanged();
 
@@ -262,7 +262,7 @@ class MODELEDITOR_API InspectorGadget : public QWidget, public Nano::Observer
 
   void onWorkspaceObjectRemoved(const openstudio::Handle&);
 
-  protected:
+ protected:
   /*! \brief constructor
     \param workspaceObj the current workspace
     \param indent indentation for the child frame
@@ -348,7 +348,7 @@ class MODELEDITOR_API InspectorGadget : public QWidget, public Nano::Observer
 
   void disconnectWorkspaceObjectSignals() const;
 
-  private:
+ private:
   void connectSignalsAndSlots();
 };
 

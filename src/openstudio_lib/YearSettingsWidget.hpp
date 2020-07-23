@@ -54,7 +54,7 @@ class YearSettingsWidget : public QWidget, public Nano::Observer
 {
   Q_OBJECT
 
-  public:
+ public:
   static const int FIRSTYEAR;
 
   static const int LASTYEAR;
@@ -74,7 +74,7 @@ class YearSettingsWidget : public QWidget, public Nano::Observer
 
   virtual ~YearSettingsWidget() {}
 
-  signals:
+ signals:
 
   void calendarYearSelected(int year);
 
@@ -90,11 +90,11 @@ class YearSettingsWidget : public QWidget, public Nano::Observer
 
   void dstEndDateChanged(const QDate& newdate);
 
-  public slots:
+ public slots:
 
   void scheduleRefresh();
 
-  private slots:
+ private slots:
 
   void refresh();
 
@@ -130,7 +130,7 @@ class YearSettingsWidget : public QWidget, public Nano::Observer
 
   //void emitNewDSTEndDate();
 
-  private:
+ private:
   // year selection section
   QRadioButton* m_calendarYearButton = nullptr;
 

@@ -48,15 +48,15 @@ class ScriptsTabController : public MainTabController
 {
   Q_OBJECT
 
-  public:
+ public:
   ScriptsTabController();
 
   virtual ~ScriptsTabController();
 
-  private:
+ private:
   QPointer<ScriptsTabView> scriptsTabView;
 
-  private:
+ private:
   REGISTER_LOGGER("openstudio.measuretab.MeasuresTabController");
 
   QSharedPointer<measuretab::WorkflowController> m_workflowController;

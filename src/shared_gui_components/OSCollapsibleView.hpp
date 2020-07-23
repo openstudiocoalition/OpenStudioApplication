@@ -45,14 +45,14 @@ class OSHeader : public QPushButton
 {
   Q_OBJECT
 
-  public:
+ public:
   OSHeader(QPushButton* button);
 
   virtual ~OSHeader() {}
 
   QPushButton* toggleButton;
 
-  protected:
+ protected:
   void paintEvent(QPaintEvent*) override;
 };
 
@@ -60,7 +60,7 @@ class OSCollapsibleView : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   OSCollapsibleView(bool alwaysExpanded = false, QWidget* parent = nullptr);
 
   virtual ~OSCollapsibleView() {}
@@ -69,7 +69,7 @@ class OSCollapsibleView : public QWidget
 
   void setContent(QWidget* content);
 
-  public slots:
+ public slots:
 
   void expand();
 
@@ -79,7 +79,7 @@ class OSCollapsibleView : public QWidget
 
   bool isExpanded();
 
-  private:
+ private:
   QPointer<OSHeader> m_osHeader;
 
   OSViewSwitcher* m_headerContainer;

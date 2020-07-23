@@ -40,17 +40,17 @@ class RadianceDialog : public OSDialog
 {
   Q_OBJECT
 
-  public:
+ public:
   RadianceDialog(bool isIP, QWidget* radianceInspector, QWidget* parent = nullptr);
 
   virtual ~RadianceDialog() {}
 
-  private:
+ private:
   virtual void createLayout() override;
 
   QWidget* m_radianceInspector;
 
-  protected slots:
+ protected slots:
 
   void toggleUnits(bool displayIP) override;
 };

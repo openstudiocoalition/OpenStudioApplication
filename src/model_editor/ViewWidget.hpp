@@ -55,7 +55,7 @@ class ViewWidget : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   ViewWidget(QWidget* parent = nullptr);
   ViewWidget(openstudio::model::Model model, QWidget* parent = nullptr);
   virtual ~ViewWidget();
@@ -79,12 +79,12 @@ class ViewWidget : public QWidget
   virtual void createAllFields();
   virtual void setRecursive(bool state);
 
-  public slots:
+ public slots:
   virtual void viewSelection(const QModelIndex& modelIndex) = 0;
   void on_modelDirty();
   virtual void on_nameChanged(QString);
 
-  signals:
+ signals:
   void eventEnter();
   void eventLeave();
   void modelDirty();
@@ -94,7 +94,7 @@ class ViewWidget : public QWidget
   void precisionDlgHide();
   void precisionDlgFinished();
 
-  protected:
+ protected:
   QSplitter* mSplitter;
   InspectorGadget* mIG;
   IGPrecisionDialog* mIGPrecisionDlg;
@@ -103,7 +103,7 @@ class ViewWidget : public QWidget
   bool mModelDirty;
   QString mSplitterSetting;
 
-  private:
+ private:
   virtual void connectSignalsAndSlots();
   virtual void createLayout();
   virtual void createWidgets();

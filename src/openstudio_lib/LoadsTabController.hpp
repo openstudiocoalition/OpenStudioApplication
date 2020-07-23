@@ -40,15 +40,15 @@ class LoadsTabController : public MainTabController
 {
   Q_OBJECT
 
-  public:
+ public:
   LoadsTabController(bool isIP, const openstudio::model::Model& model);
 
   virtual ~LoadsTabController();
 
-  private:
+ private:
   std::shared_ptr<LoadsController> m_LoadsController;
 
-  public slots:
+ public slots:
 
   void toggleUnits(bool displayIP);
 };

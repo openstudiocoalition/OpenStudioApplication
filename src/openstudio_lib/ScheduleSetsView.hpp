@@ -43,12 +43,12 @@ class ScheduleSetsView : public ModelSubTabView
 {
   Q_OBJECT
 
-  public:
+ public:
   ScheduleSetsView(const openstudio::model::Model& model, QWidget* parent = nullptr);
 
   virtual ~ScheduleSetsView() {}
 
-  private:
+ private:
   static std::vector<std::pair<IddObjectType, std::string>> modelObjectTypesAndNames();
 };
 
@@ -56,19 +56,19 @@ class ScheduleSetsInspectorView : public ModelObjectInspectorView
 {
   Q_OBJECT
 
-  public:
+ public:
   ScheduleSetsInspectorView(const model::Model& model, QWidget* parent = nullptr);
 
   virtual ~ScheduleSetsInspectorView() {}
 
-  protected:
+ protected:
   virtual void onClearSelection() override;
 
   virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
   virtual void onUpdate() override;
 
-  private:
+ private:
   std::map<openstudio::IddObjectType, int> m_inspectorIndexMap;
 };
 

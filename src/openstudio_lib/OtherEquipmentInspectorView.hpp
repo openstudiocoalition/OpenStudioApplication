@@ -45,19 +45,19 @@ class OtherEquipmentDefinitionInspectorView : public ModelObjectInspectorView
 {
   Q_OBJECT
 
-  public:
+ public:
   OtherEquipmentDefinitionInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
   virtual ~OtherEquipmentDefinitionInspectorView() {}
 
-  protected:
+ protected:
   virtual void onClearSelection() override;
 
   virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
   virtual void onUpdate() override;
 
-  private:
+ private:
   void attach(openstudio::model::OtherEquipmentDefinition& otherEquipmentDefinition);
 
   void detach();
@@ -82,7 +82,7 @@ class OtherEquipmentDefinitionInspectorView : public ModelObjectInspectorView
 
   boost::optional<model::OtherEquipmentDefinition> m_otherEquipmentDefinition;
 
-  public slots:
+ public slots:
 
   void toggleUnits(bool displayIP) override;
 };

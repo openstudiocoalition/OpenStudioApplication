@@ -46,14 +46,14 @@ class SubTabController : public OSQObjectController
 {
   Q_OBJECT
 
-  public:
+ public:
   SubTabController(SubTabView* subTabView);
   virtual ~SubTabController() {}
 
   SubTabView* subTabView();
   const SubTabView* subTabView() const;
 
-  protected:
+ protected:
   virtual void onSelectItem(OSItem* item);
 
   virtual void onClearSelection();
@@ -74,21 +74,21 @@ class SubTabController : public OSQObjectController
 
   SubTabView* m_subTabView;
 
-  signals:
+ signals:
 
   void downloadComponentsClicked();
 
   void openLibDlgClicked();
 
-  public slots:
+ public slots:
 
   void removeItem(OSItem* item);
 
-  protected slots:
+ protected slots:
 
   void selectItem(OSItem* item);
 
-  private slots:
+ private slots:
 
   void replaceItem(OSItem* item, const OSItemId& replacementItemId);
 
@@ -106,7 +106,7 @@ class SubTabController : public OSQObjectController
 
   void inspectItem(OSItem* item);
 
-  private:
+ private:
   boost::optional<openstudio::model::ModelObject> selectedModelObject() const;
 
   openstudio::IddObjectType currentIddObjectType() const;

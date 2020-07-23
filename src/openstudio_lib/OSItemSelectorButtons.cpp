@@ -56,7 +56,7 @@ namespace openstudio {
 
 class AlwaysEmptyDropZoneVectorController : public OSVectorController
 {
-  protected:
+ protected:
   virtual std::vector<OSItemId> makeVector() override {
     return std::vector<OSItemId>();
   }

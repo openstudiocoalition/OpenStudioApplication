@@ -38,7 +38,7 @@ class SpacesTabController : public MainTabController
 {
   Q_OBJECT
 
-  public:
+ public:
   SpacesTabController(bool isIP, const model::Model& model);
 
   virtual ~SpacesTabController();
@@ -54,7 +54,7 @@ class SpacesTabController : public MainTabController
     DAYLIGHTING
   };
 
-  private:
+ private:
   model::Model m_model;
 
   bool m_isIP;
@@ -63,11 +63,11 @@ class SpacesTabController : public MainTabController
 
   int m_currentIndex = -1;
 
-  public slots:
+ public slots:
 
   virtual void setSubTab(int index) override;
 
-  private slots:
+ private slots:
 
   void toggleUnits(bool displayIP);
 };

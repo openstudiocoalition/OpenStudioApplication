@@ -55,17 +55,17 @@ class ResultsView : public QWidget
 {
   Q_OBJECT;
 
-  public:
+ public:
   ResultsView(QWidget* t_parent = nullptr);
   virtual ~ResultsView();
   void searchForExistingResults(const openstudio::path& t_runDir, const openstudio::path& t_reportsDir);
 
-  public slots:
+ public slots:
   void resultsGenerated(const openstudio::path& t_sqlFile, const openstudio::path& t_radianceResultsPath);
   void onUnitSystemChange(bool t_isIP);
   void treeChanged(const openstudio::UUID& t_uuid);
 
-  private slots:
+ private slots:
   void refreshClicked();
   void openDViewClicked();
   void comboBoxChanged(int index);
@@ -76,7 +76,7 @@ class ResultsView : public QWidget
   void onLoadStarted();
   void onRenderProcessTerminated(QWebEnginePage::RenderProcessTerminationStatus terminationStatus, int exitCode);
 
-  private:
+ private:
   REGISTER_LOGGER("openstudio::ResultsView");
   //openstudio::runmanager::RunManager runManager();
   void populateComboBox(std::vector<openstudio::path> reports);
@@ -103,15 +103,15 @@ class ResultsTabView : public MainTabView
 {
   Q_OBJECT;
 
-  public:
+ public:
   ResultsTabView(const QString& tabLabel, TabType tabType, QWidget* parent = nullptr);
   virtual ~ResultsTabView() {}
 
-  public slots:
+ public slots:
 
   void onUnitSystemChange(bool t_isIP);
 
-  signals:
+ signals:
 
   void removeResultClicked();
 
@@ -119,7 +119,7 @@ class ResultsTabView : public MainTabView
 
   void treeChanged(const openstudio::UUID& t_uuid);
 
-  private:
+ private:
   ResultsView* m_resultsView;
   REGISTER_LOGGER("openstudio::ResultsTabView");
 };

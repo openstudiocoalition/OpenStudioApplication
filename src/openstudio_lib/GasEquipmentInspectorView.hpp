@@ -45,20 +45,20 @@ class GasEquipmentDefinitionInspectorView : public ModelObjectInspectorView
 {
   Q_OBJECT
 
-  public:
+ public:
   GasEquipmentDefinitionInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
   virtual ~GasEquipmentDefinitionInspectorView() {}
 
-  signals:
+ signals:
 
-  protected:
+ protected:
   virtual void onClearSelection() override;
 
   virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
   virtual void onUpdate() override;
 
-  private:
+ private:
   void attach(openstudio::model::GasEquipmentDefinition& gasEquipmentDefinition);
 
   void detach();
@@ -85,7 +85,7 @@ class GasEquipmentDefinitionInspectorView : public ModelObjectInspectorView
 
   boost::optional<model::GasEquipmentDefinition> m_gasEquipmentDefinition;
 
-  public slots:
+ public slots:
 
   void toggleUnits(bool displayIP) override;
 };

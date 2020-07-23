@@ -50,7 +50,7 @@ class OSLineEdit2 : public QLineEdit, public Nano::Observer
 {
   Q_OBJECT
 
-  public:
+ public:
   OSLineEdit2(QWidget* parent = nullptr);
 
   virtual ~OSLineEdit2();
@@ -85,14 +85,14 @@ class OSLineEdit2 : public QLineEdit, public Nano::Observer
 
   void unbind();
 
-  protected:
+ protected:
   void mouseReleaseEvent(QMouseEvent* event) override;
 
   virtual void focusInEvent(QFocusEvent* e) override;
 
   virtual void focusOutEvent(QFocusEvent* e) override;
 
-  signals:
+ signals:
 
   void itemClicked(OSItem* item);
 
@@ -100,11 +100,11 @@ class OSLineEdit2 : public QLineEdit, public Nano::Observer
 
   void inFocus(bool inFocus, bool hasData);
 
-  public slots:
+ public slots:
 
   void onItemRemoveClicked();
 
-  private slots:
+ private slots:
 
   void onEditingFinished();
 
@@ -114,7 +114,7 @@ class OSLineEdit2 : public QLineEdit, public Nano::Observer
 
   void emitItemClicked();
 
-  private:
+ private:
   void onModelObjectChangeInternal(bool startingup);
   void completeBind();
   void adjustWidth();

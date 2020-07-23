@@ -46,7 +46,7 @@ class DesignDayGridView : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   DesignDayGridView(bool isIP, const model::Model& model, QWidget* parent = 0);
 
   virtual ~DesignDayGridView() {}
@@ -55,7 +55,7 @@ class DesignDayGridView : public QWidget
 
   std::vector<model::ModelObject> selectedObjects() const;
 
-  private:
+ private:
   void addObject(const model::ModelObject& modelObject);
 
   void copyObject(const openstudio::model::ModelObject& modelObject);
@@ -66,13 +66,13 @@ class DesignDayGridView : public QWidget
 
   bool m_isIP;
 
-  signals:
+ signals:
 
   void toggleUnitsClicked(bool displayIP);
 
   void dropZoneItemClicked(OSItem* item);
 
-  public slots:
+ public slots:
 
   void onAddClicked();
 
@@ -88,7 +88,7 @@ class DesignDayGridController : public OSGridController
 
   Q_OBJECT
 
-  public:
+ public:
   DesignDayGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model model,
                           std::vector<model::ModelObject> modelObjects);
 
@@ -96,7 +96,7 @@ class DesignDayGridController : public OSGridController
 
   virtual void refreshModelObjects();
 
-  protected:
+ protected:
   virtual void setCategoriesAndFields();
 
   virtual void addColumns(const QString& t_category, std::vector<QString>& fields);
@@ -105,7 +105,7 @@ class DesignDayGridController : public OSGridController
 
   virtual QString getColor(const model::ModelObject& modelObject);
 
-  public slots:
+ public slots:
 
   virtual void onItemDropped(const OSItemId& itemId);
 

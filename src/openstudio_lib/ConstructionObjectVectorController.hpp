@@ -41,7 +41,7 @@ class ConstructionObjectVectorController : public ModelObjectVectorController
 {
   Q_OBJECT
 
-  public:
+ public:
   ConstructionObjectVectorController(QWidget* parentWidget);
 
   // Need to delete the QMutex
@@ -49,14 +49,14 @@ class ConstructionObjectVectorController : public ModelObjectVectorController
 
   void setParentWidget(QWidget* parentWidget);
 
-  public slots:
+ public slots:
 
   // reportItemsLater should be used as it wraps the call to reportItems in a QTimer::singleShot
   // which eventually calls ModelObjectVector::reportItems
   void reportItemsLater();
   void reportItems();
 
-  protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
 
   virtual void onDataChange(const model::ModelObject& modelObject) override;
@@ -71,7 +71,7 @@ class ConstructionObjectVectorController : public ModelObjectVectorController
 
   virtual void onDrop(const OSItemId& itemId) override;
 
-  private:
+ private:
   REGISTER_LOGGER("openstudio::ConstructionObjectVectorController");
 
   void insert(const OSItemId& itemId, int position = -1, bool deleteExisting = false);

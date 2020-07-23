@@ -57,7 +57,7 @@ class OSGridView : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   OSGridView(OSGridController* gridController, const QString& headerText, const QString& dropZoneText, bool useHeader, QWidget* parent = nullptr);
 
   virtual ~OSGridView(){};
@@ -75,18 +75,18 @@ class OSGridView : public QWidget
 
   QVBoxLayout* m_contentLayout;
 
-  protected:
+ protected:
   virtual void hideEvent(QHideEvent* event) override;
 
   virtual void showEvent(QShowEvent* event) override;
 
-  signals:
+ signals:
 
   void dropZoneItemClicked(OSItem* item);
 
   void gridRowSelectionChanged(int checkState);
 
-  public slots:
+ public slots:
 
   void onSelectionCleared();
 
@@ -96,7 +96,7 @@ class OSGridView : public QWidget
 
   void requestRefreshGrid();
 
-  private slots:
+ private slots:
 
   void deleteAll();
 
@@ -110,7 +110,7 @@ class OSGridView : public QWidget
 
   void selectRowDeterminedByModelSubTabView();
 
-  private:
+ private:
   enum QueueType
   {
     AddRow,

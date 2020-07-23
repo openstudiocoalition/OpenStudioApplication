@@ -43,21 +43,21 @@ class ModelObjectListController : public OSVectorController
 {
   Q_OBJECT
 
-  public:
+ public:
   ModelObjectListController(const openstudio::IddObjectType& iddObjectType, const model::Model& model, bool showLocalBCL = false);
 
   virtual ~ModelObjectListController() {}
 
   IddObjectType iddObjectType() const;
 
-  private slots:
+ private slots:
   void objectAdded(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl>, const openstudio::IddObjectType&, const openstudio::UUID&);
   void objectRemoved(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl>, const openstudio::IddObjectType&, const openstudio::UUID&);
 
-  protected:
+ protected:
   virtual std::vector<OSItemId> makeVector() override;
 
-  private:
+ private:
   openstudio::IddObjectType m_iddObjectType;
   model::Model m_model;
   bool m_showLocalBCL;
@@ -67,7 +67,7 @@ class ModelObjectListView : public OSItemList
 {
   Q_OBJECT
 
-  public:
+ public:
   ModelObjectListView(const openstudio::IddObjectType& iddObjectType, const model::Model& model, bool addScrollArea, bool showLocalBCL = false,
                       QWidget* parent = nullptr);
 

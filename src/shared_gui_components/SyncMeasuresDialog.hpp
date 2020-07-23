@@ -50,14 +50,14 @@ class SyncMeasuresDialog : public QDialog
 {
   Q_OBJECT
 
-  public:
+ public:
   SyncMeasuresDialog(const WorkflowJSON& workflow, MeasureManager* measureManager, QWidget* parent = nullptr);
   virtual ~SyncMeasuresDialog() {}
 
-  protected:
+ protected:
   void paintEvent(QPaintEvent* event) override;
 
-  private:
+ private:
   void createLayout();
   void findUpdates();
 
@@ -68,7 +68,7 @@ class SyncMeasuresDialog : public QDialog
   WorkflowJSON m_workflow;
   MeasureManager* m_measureManager;  // DLM: why is this a raw pointer?
 
-  private slots:
+ private slots:
   void on_componentClicked(bool checked);
   void on_noComponents();
   void closeDlg();

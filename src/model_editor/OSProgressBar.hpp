@@ -49,7 +49,7 @@ class QWidget;
 class OSProgressBar : public openstudio::ProgressBar
 {
 
-  public:
+ public:
   /// constructor
   OSProgressBar(QWidget* parent = nullptr);
 
@@ -103,11 +103,11 @@ class OSProgressBar : public openstudio::ProgressBar
   /// set window title
   void setWindowTitle(const QString& windowTitle);
 
-  protected:
+ protected:
   /// return the impl
   //std::shared_ptr<QProgressBar> impl() const;
 
-  private:
+ private:
   /// impl
   std::shared_ptr<QProgressBar> m_impl;
 };

@@ -68,7 +68,7 @@ class LocalLibraryController : public QObject
 
   friend class LibraryListController;
 
-  public:
+ public:
   QPointer<LocalLibraryView> localLibraryView;
 
   LocalLibraryController(openstudio::BaseApp* t_app, bool onlyShowModelMeasures = false);
@@ -80,19 +80,19 @@ class LocalLibraryController : public QObject
 
   void reset();
 
-  public slots:
+ public slots:
 
   void showMeasures();
 
   void showMyMeasuresFolder();
 
-  private slots:
+ private slots:
   void addMeasure();
   void duplicateSelectedMeasure();
   void downloadUpdatedBCLMeasures();
   void openBclDlg();
 
-  private:
+ private:
   REGISTER_LOGGER("openstudio.LocalLibraryController");
 
   BaseApp* m_app;
@@ -110,7 +110,7 @@ class LibraryTypeItem : public OSListItem
 {
   Q_OBJECT
 
-  public:
+ public:
   LibraryTypeItem(const QString& name);
   virtual ~LibraryTypeItem() {}
 
@@ -122,7 +122,7 @@ class LibraryTypeItem : public OSListItem
     return m_libraryGroupListController;
   }
 
-  private:
+ private:
   QString m_name;
 
   QSharedPointer<LibraryGroupListController> m_libraryGroupListController;
@@ -132,11 +132,11 @@ class LibraryTypeItemDelegate : public OSItemDelegate
 {
   QWidget* view(QSharedPointer<OSListItem> dataSource) override;
 
-  public:
+ public:
   LibraryTypeItemDelegate(BaseApp* t_app);
   virtual ~LibraryTypeItemDelegate() {}
 
-  private:
+ private:
   BaseApp* m_app;
 };
 
@@ -144,7 +144,7 @@ class LibraryTypeListController : public OSListController
 {
   Q_OBJECT;
 
-  public:
+ public:
   virtual ~LibraryTypeListController() {}
 
   QSharedPointer<OSListItem> itemAt(int i) override;
@@ -155,7 +155,7 @@ class LibraryTypeListController : public OSListController
 
   void reset();
 
-  private:
+ private:
   QList<QSharedPointer<LibraryTypeItem>> m_items;
 };
 
@@ -163,7 +163,7 @@ class LibraryGroupItem : public OSListItem
 {
   Q_OBJECT
 
-  public:
+ public:
   LibraryGroupItem(const QString& name, BaseApp* t_app);
   virtual ~LibraryGroupItem() {}
 
@@ -175,7 +175,7 @@ class LibraryGroupItem : public OSListItem
     return m_librarySubGroupListController;
   }
 
-  private:
+ private:
   QString m_name;
 
   QSharedPointer<LibrarySubGroupListController> m_librarySubGroupListController;
@@ -185,11 +185,11 @@ class LibraryGroupItemDelegate : public OSItemDelegate
 {
   QWidget* view(QSharedPointer<OSListItem> dataSource) override;
 
-  public:
+ public:
   LibraryGroupItemDelegate(BaseApp* t_app);
   virtual ~LibraryGroupItemDelegate() {}
 
-  private:
+ private:
   BaseApp* m_app;
 };
 
@@ -197,7 +197,7 @@ class LibraryGroupListController : public OSListController
 {
   Q_OBJECT;
 
-  public:
+ public:
   virtual ~LibraryGroupListController() {}
 
   QSharedPointer<OSListItem> itemAt(int i) override;
@@ -208,7 +208,7 @@ class LibraryGroupListController : public OSListController
 
   void reset();
 
-  private:
+ private:
   QList<QSharedPointer<LibraryGroupItem>> m_items;
 };
 
@@ -216,7 +216,7 @@ class LibrarySubGroupItem : public OSListItem
 {
   Q_OBJECT
 
-  public:
+ public:
   LibrarySubGroupItem(const QString& name, const QString& taxonomyTag, LocalLibrary::LibrarySource source, BaseApp* t_app,
                       bool onlyShowModelMeasures);
 
@@ -230,11 +230,11 @@ class LibrarySubGroupItem : public OSListItem
     return m_libraryListController;
   }
 
-  signals:
+ signals:
 
   void libraryItemCountChanged(int count);
 
-  private:
+ private:
   BaseApp* m_app;
   QString m_name;
 
@@ -245,11 +245,11 @@ class LibrarySubGroupItemDelegate : public OSItemDelegate
 {
   QWidget* view(QSharedPointer<OSListItem> dataSource) override;
 
-  public:
+ public:
   LibrarySubGroupItemDelegate(BaseApp* t_app);
   virtual ~LibrarySubGroupItemDelegate() {}
 
-  private:
+ private:
   BaseApp* m_app;
 };
 
@@ -257,7 +257,7 @@ class LibrarySubGroupListController : public OSListController
 {
   Q_OBJECT;
 
-  public:
+ public:
   LibrarySubGroupListController(BaseApp* t_app);
   virtual ~LibrarySubGroupListController() {}
 
@@ -271,11 +271,11 @@ class LibrarySubGroupListController : public OSListController
 
   int libraryItemCount();
 
-  signals:
+ signals:
 
   void libraryItemCountChanged(int libraryItemCount);
 
-  private:
+ private:
   BaseApp* m_app;
   QList<QSharedPointer<LibrarySubGroupItem>> m_items;
 };
@@ -284,7 +284,7 @@ class LibraryItem : public OSListItem
 {
   Q_OBJECT
 
-  public:
+ public:
   LibraryItem(const BCLMeasure& bclMeasure, LocalLibrary::LibrarySource source, BaseApp* t_app);
 
   virtual ~LibraryItem();
@@ -313,11 +313,11 @@ class LibraryItem : public OSListItem
 
   bool isAvailable() const;
 
-  public slots:
+ public slots:
 
   void dragItem(const OSDragPixmapData& data);
 
-  private:
+ private:
   bool m_available;
   BaseApp* m_app;
 };
@@ -326,16 +326,16 @@ class LibraryItemDelegate : public OSItemDelegate
 {
   Q_OBJECT;
 
-  public:
+ public:
   LibraryItemDelegate(BaseApp* t_app);
   virtual ~LibraryItemDelegate() {}
   QWidget* view(QSharedPointer<OSListItem> dataSource) override;
 
-  private slots:
+ private slots:
 
   void selectedChanged();
 
-  private:
+ private:
   BaseApp* m_app;
 };
 
@@ -343,7 +343,7 @@ class LibraryListController : public OSListController
 {
   Q_OBJECT;
 
-  public:
+ public:
   LibraryListController(const QString& taxonomyTag, LocalLibrary::LibrarySource source, BaseApp* t_app, bool onlyShowModelMeasures);
 
   virtual ~LibraryListController() {}
@@ -354,11 +354,11 @@ class LibraryListController : public OSListController
 
   void reset();
 
-  signals:
+ signals:
 
   void countChanged(int count);
 
-  private:
+ private:
   void createItems();
 
   BaseApp* m_app;

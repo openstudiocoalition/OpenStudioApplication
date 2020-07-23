@@ -52,14 +52,14 @@ class OSComboBoxDataSource : public QObject, public Nano::Observer
 {
   Q_OBJECT
 
-  public:
+ public:
   virtual ~OSComboBoxDataSource() {}
 
   virtual int numberOfItems() = 0;
 
   virtual QString valueAt(int i) = 0;
 
-  signals:
+ signals:
 
   void itemChanged(int);
 
@@ -72,7 +72,7 @@ class OSObjectListCBDS : public OSComboBoxDataSource
 {
   Q_OBJECT
 
-  public:
+ public:
   OSObjectListCBDS(const IddObjectType& type, const model::Model& model);
 
   OSObjectListCBDS(const std::vector<IddObjectType>& types, const model::Model& model);
@@ -83,10 +83,10 @@ class OSObjectListCBDS : public OSComboBoxDataSource
 
   QString valueAt(int i) override;
 
-  protected:
+ protected:
   bool m_allowEmptySelection;
 
-  private slots:
+ private slots:
 
   void onObjectAdded(const WorkspaceObject&, const openstudio::IddObjectType& type, const openstudio::UUID& uuid);
 
@@ -94,7 +94,7 @@ class OSObjectListCBDS : public OSComboBoxDataSource
 
   void onObjectChanged();
 
-  private:
+ private:
   void initialize();
 
   std::vector<IddObjectType> m_types;
@@ -107,7 +107,7 @@ class OSObjectListCBDS : public OSComboBoxDataSource
 class OSComboBox2 : public QComboBox, public Nano::Observer
 {
   Q_OBJECT
-  public:
+ public:
   OSComboBox2(QWidget* parent = nullptr, bool editable = false);
 
   virtual ~OSComboBox2();
@@ -181,18 +181,18 @@ class OSComboBox2 : public QComboBox, public Nano::Observer
 
   void unbind();
 
-  protected:
+ protected:
   bool event(QEvent* e) override;
 
-  signals:
+ signals:
 
   void inFocus(bool inFocus, bool hasData);
 
-  public slots:
+ public slots:
   // Need to make that public for dependent dropdowns...
   void onChoicesRefreshTrigger();
 
-  private slots:
+ private slots:
 
   void onModelObjectChanged();
 
@@ -208,7 +208,7 @@ class OSComboBox2 : public QComboBox, public Nano::Observer
 
   void onDataSourceRemove(int);
 
-  private:
+ private:
   std::shared_ptr<OSComboBoxDataSource> m_dataSource;
 
   boost::optional<model::ModelObject> m_modelObject;

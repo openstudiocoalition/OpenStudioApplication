@@ -55,7 +55,7 @@ class ScriptsListView;
 class ScriptFolderListView : public OSCollapsibleItemList
 {
   Q_OBJECT
-  public:
+ public:
   ScriptFolderListView(const openstudio::path& t_rootPath, bool addScrollArea, bool draggable, bool removeable, OSItemType headerType,
                        QWidget* parent = nullptr);
 
@@ -83,10 +83,10 @@ class ScriptFolderListView : public OSCollapsibleItemList
 
   std::shared_ptr<QFileSystemWatcher> fsWatcher() const;
 
-  signals:
+ signals:
   void scriptListChanged();
 
-  private:
+ private:
   REGISTER_LOGGER("openstudio.ScriptFolderListView");
 
   openstudio::path iterateFileName(const openstudio::path& t_path);

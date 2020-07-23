@@ -134,7 +134,7 @@ class EditMeasureMessageBox : public QMessageBox
 {
   Q_OBJECT
 
-  public:
+ public:
   // Warning used when a message is about to be edited and design points will be removed;
   // Returns true if the user chooses to edit anyway.
   static bool warning(BaseApp* t_app) {

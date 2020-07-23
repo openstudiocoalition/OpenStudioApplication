@@ -46,7 +46,7 @@ class VerticalTabWidget : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   VerticalTabWidget(QWidget* parent = nullptr);
 
   virtual ~VerticalTabWidget() {}
@@ -63,19 +63,19 @@ class VerticalTabWidget : public QWidget
 
   int verticalTabIndex();
 
-  signals:
+ signals:
 
   void tabSelected(int id);
 
-  public slots:
+ public slots:
 
   void setCurrentIndex(int index);
 
-  private slots:
+ private slots:
 
   void select();
 
-  private:
+ private:
   int getIndex(int id);
 
   OSViewSwitcher* m_viewSwitcher = nullptr;

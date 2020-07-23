@@ -46,7 +46,7 @@ class ClassViewWidget : public ViewWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   ClassViewWidget(openstudio::model::Model& model, QWidget* parent = nullptr);
   ClassViewWidget(QWidget* parent = nullptr);
   virtual ~ClassViewWidget();
@@ -62,18 +62,18 @@ class ClassViewWidget : public ViewWidget
   TableModel* getTableModel();
   virtual void toggleGUIDs() override;
 
-  public slots:
+ public slots:
   virtual void viewSelection(const QModelIndex& modelIndex) override;
   virtual void on_nameChanged(QString) override;
   virtual void viewSelection();
 
-  signals:
+ signals:
 
-  protected:
+ protected:
   TableView* mTableView;
   TableModel* mTableModel;
 
-  private:
+ private:
   virtual void createWidgets() override;
   virtual void connectSignalsAndSlots() override;
   virtual void createLayout() override;

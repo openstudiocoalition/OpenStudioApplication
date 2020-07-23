@@ -45,12 +45,12 @@ class GridScene : public QGraphicsScene, public Nano::Observer
 {
   Q_OBJECT
 
-  public:
+ public:
   GridScene(QObject* parent = nullptr);
 
   virtual ~GridScene() {}
 
-  signals:
+ signals:
 
   void modelObjectSelected(model::OptionalModelObject&, bool readOnly);
 
@@ -62,7 +62,7 @@ class GridScene : public QGraphicsScene, public Nano::Observer
 
   void innerNodeClicked(model::ModelObject&);
 
-  protected:
+ protected:
   QRectF getCell(int x, int y);
 
   QRectF getCell(QPointF point);

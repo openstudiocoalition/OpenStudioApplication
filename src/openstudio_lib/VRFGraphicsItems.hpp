@@ -51,7 +51,7 @@ class VRFView : public QWidget
 {
   Q_OBJECT;
 
-  public:
+ public:
   VRFView();
 
   virtual ~VRFView() {}
@@ -69,7 +69,7 @@ class VRFSystemMiniView : public QGraphicsObject
 {
   Q_OBJECT;
 
-  public:
+ public:
   VRFSystemMiniView();
 
   virtual ~VRFSystemMiniView() {}
@@ -83,14 +83,14 @@ class VRFSystemMiniView : public QGraphicsObject
   void setNumberOfZones(int zones);
   void setNumberOfTerminals(int terminals);
 
-  public slots:
+ public slots:
 
   void setName(const QString& name);
 
-  protected:
+ protected:
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
 
-  private:
+ private:
   QRectF contentRect() const;
 
   QRectF headerRect() const;
@@ -118,7 +118,7 @@ class VRFSystemView : public QGraphicsObject
 {
   Q_OBJECT;
 
-  public:
+ public:
   VRFSystemView();
 
   virtual ~VRFSystemView() {}
@@ -144,22 +144,22 @@ class VRFSystemView : public QGraphicsObject
   void addVRFTerminalView(VRFTerminalView* view);
   void removeAllVRFTerminalViews();
 
-  signals:
+ signals:
 
   void inspectClicked(const OSItemId& id);
 
-  protected:
+ protected:
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 
   void mousePressEvent(QGraphicsSceneMouseEvent* event) override;
   void mouseReleaseEvent(QGraphicsSceneMouseEvent* event) override;
   bool m_mouseDown;
 
-  private slots:
+ private slots:
 
   void onVRFIconClicked();
 
-  private:
+ private:
   double m_width;
   double m_height;
 
@@ -173,7 +173,7 @@ class VRFTerminalView : public QGraphicsObject
 {
   Q_OBJECT;
 
-  public:
+ public:
   VRFTerminalView();
 
   virtual ~VRFTerminalView() {}
@@ -192,7 +192,7 @@ class VRFTerminalView : public QGraphicsObject
 
   void setId(const OSItemId& id);
 
-  signals:
+ signals:
 
   void componentDroppedOnZone(const OSItemId& zoneHVACTerminalID, const OSItemId& dropComponentID);
 
@@ -202,10 +202,10 @@ class VRFTerminalView : public QGraphicsObject
 
   void removeTerminalClicked(const OSItemId& zoneHVACTerminalID);
 
-  protected:
+ protected:
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
 
-  private slots:
+ private slots:
 
   void onComponenDroppedOnZone(const OSItemId& dropComponentID);
 
@@ -215,7 +215,7 @@ class VRFTerminalView : public QGraphicsObject
 
   void onTerminalIconClicked();
 
-  private:
+ private:
   QRectF terminalPixmapRect() const;
 
   QPixmap m_terminalPixmap;
@@ -227,17 +227,17 @@ class VRFThermalZoneDropZoneView : public OSDropZoneItem
 {
   Q_OBJECT;
 
-  public:
+ public:
   VRFThermalZoneDropZoneView();
 
   ~VRFThermalZoneDropZoneView() {}
 
   void setHasZone(bool hasZone);
 
-  protected:
+ protected:
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
 
-  private:
+ private:
   bool m_hasZone;
 };
 
@@ -245,10 +245,10 @@ class VRFSystemDropZoneView : public OSDropZoneItem
 {
   Q_OBJECT;
 
-  public:
+ public:
   QRectF boundingRect() const override;
 
-  protected:
+ protected:
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
 };
 

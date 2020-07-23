@@ -51,12 +51,12 @@ class GeometryPreviewView : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   GeometryPreviewView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
   virtual ~GeometryPreviewView();
 
-  private:
+ private:
 };
 
 // main widget
@@ -65,14 +65,14 @@ class PreviewWebView : public QWidget
 {
   Q_OBJECT;
 
-  public:
+ public:
   PreviewWebView(bool isIP, const openstudio::model::Model& model, QWidget* t_parent = nullptr);
   virtual ~PreviewWebView();
 
-  public slots:
+ public slots:
   void onUnitSystemChange(bool t_isIP);
 
-  private slots:
+ private slots:
   void refreshClicked();
 
   // DLM: for debugging
@@ -83,7 +83,7 @@ class PreviewWebView : public QWidget
   void onJavaScriptFinished(const QVariant& v);
   void onRenderProcessTerminated(QWebEnginePage::RenderProcessTerminationStatus terminationStatus, int exitCode);
 
-  private:
+ private:
   REGISTER_LOGGER("openstudio::PreviewWebView");
 
   bool m_isIP;

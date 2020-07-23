@@ -61,7 +61,7 @@ class MODELEDITOR_API ModelObjectSelectorDialog : public QDialog, public Nano::O
 {
   Q_OBJECT
 
-  public:
+ public:
   ModelObjectSelectorDialog(const openstudio::IddObjectType& typeToDisplay, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
   ModelObjectSelectorDialog(const std::vector<openstudio::IddObjectType>& typesToDisplay, const openstudio::model::Model& model,
@@ -83,19 +83,19 @@ class MODELEDITOR_API ModelObjectSelectorDialog : public QDialog, public Nano::O
 
   void onPushButtonCancel(bool);
 
-  signals:
+ signals:
 
   // emitted when the dialog is closed
   void closed(const boost::optional<openstudio::model::ModelObject>&);
 
-  private slots:
+ private slots:
 
   void onAddWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl, const openstudio::IddObjectType& type,
                             const openstudio::UUID& uuid);
   void onRemoveWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl, const openstudio::IddObjectType& type,
                                const openstudio::UUID& uuid);
 
-  private:
+ private:
   // for testing
   friend class ModelEditorFixture;
 
@@ -118,7 +118,7 @@ class MODELEDITOR_API ModelObjectSelectorDialogWatcher : public QObject, public 
 {
   Q_OBJECT
 
-  public:
+ public:
   ModelObjectSelectorDialogWatcher(std::shared_ptr<ModelObjectSelectorDialog> modelObjectSelectorDialog);
 
   /// get the selected object
@@ -127,11 +127,11 @@ class MODELEDITOR_API ModelObjectSelectorDialogWatcher : public QObject, public 
   /// true if has the model object selector dialog closed
   bool isSelectionFinal() const;
 
-  private slots:
+ private slots:
 
   virtual void onClose(const boost::optional<openstudio::model::ModelObject>&);
 
-  private:
+ private:
   std::shared_ptr<ModelObjectSelectorDialog> m_modelObjectSelectorDialog;
   mutable boost::optional<openstudio::model::ModelObject> m_selectedModelObject;
 };

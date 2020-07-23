@@ -42,14 +42,14 @@ class HVACTemplateHelperDialog : public QDialog
 {
   Q_OBJECT;
 
-  public:
+ public:
   HVACTemplateHelperDialog(const model::Model& model, QWidget* parent = nullptr);
 
   virtual ~HVACTemplateHelperDialog() {}
 
   std::vector<model::ThermalZone> selectedZones();
 
-  private:
+ private:
   model::Model m_model;
 
   std::vector<model::ThermalZone> m_zones;

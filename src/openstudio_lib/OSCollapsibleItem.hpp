@@ -50,7 +50,7 @@ class OSCollapsibleItem : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   OSCollapsibleItem(OSCollapsibleItemHeader* collapsibleItemHeader, OSItemList* itemList, QWidget* parent = nullptr);
 
   virtual ~OSCollapsibleItem() {}
@@ -77,7 +77,7 @@ class OSCollapsibleItem : public QWidget
   bool showFilterLayout();
   void setShowFilterLayout(const bool showFilterLayout);
 
-  signals:
+ signals:
 
   void collapsableItemSelected(OSCollapsibleItem*);
 
@@ -91,10 +91,10 @@ class OSCollapsibleItem : public QWidget
 
   void openLibDlgClicked();
 
-  protected:
+ protected:
   void paintEvent(QPaintEvent* event) override;
 
-  private slots:
+ private slots:
 
   void onHeaderClicked(OSCollapsibleItemHeader* header);
 
@@ -104,7 +104,7 @@ class OSCollapsibleItem : public QWidget
 
   void comboBoxClicked(const QString& string);
 
-  private:
+ private:
   void createLayout();
 
   void setShowFilterWidgets(const bool showFilterWidgets);

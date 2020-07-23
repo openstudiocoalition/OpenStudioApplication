@@ -41,7 +41,7 @@ namespace openstudio {
 class OSSwitch2 : public QPushButton, public Nano::Observer
 {
   Q_OBJECT
-  public:
+ public:
   OSSwitch2(QWidget* parent = nullptr);
 
   virtual ~OSSwitch2();
@@ -56,7 +56,7 @@ class OSSwitch2 : public QPushButton, public Nano::Observer
 
   void unbind();
 
-  private slots:
+ private slots:
 
   void onClicked(bool checked);
 
@@ -64,7 +64,7 @@ class OSSwitch2 : public QPushButton, public Nano::Observer
 
   void onModelObjectRemove(const Handle& handle);
 
-  private:
+ private:
   boost::optional<model::ModelObject> m_modelObject;
   boost::optional<BoolGetter> m_get;
   boost::optional<BoolSetter> m_set;

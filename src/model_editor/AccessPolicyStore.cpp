@@ -52,10 +52,10 @@ AccessPolicyStore* AccessPolicyStore::s_instance = nullptr;
 //XML Parser
 class AccessParser : public QXmlDefaultHandler
 {
-  public:
+ public:
   AccessParser();
 
-  protected:
+ protected:
   bool startElement(const QString& namespaceURI, const QString& localName, const QString& qName, const QXmlAttributes& atts) override;
 
   bool endElement(const QString& namespaceURI, const QString& localName, const QString& qName) override;
@@ -63,7 +63,7 @@ class AccessParser : public QXmlDefaultHandler
   bool error(QXmlParseException&);
   bool fatalError(QXmlParseException&);
 
-  private:
+ private:
   AccessPolicy* m_curPolicy;
   IddObjectType m_curType;
   IddFileAndFactoryWrapper m_factory;

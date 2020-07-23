@@ -48,16 +48,16 @@ class ResultsTabController : public MainTabController
 {
   Q_OBJECT
 
-  public:
+ public:
   ResultsTabController();
 
   virtual ~ResultsTabController() {}
 
-  public slots:
+ public slots:
 
   void onUnitSystemChange(bool t_isIP);
 
-  private:
+ private:
   ResultsTabView* m_resultsTabView;
 
   REGISTER_LOGGER("openstudio::ResultsTabController");
