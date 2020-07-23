@@ -127,7 +127,7 @@ class SchedulesView : public QWidget, public Nano::Observer
 {
   Q_OBJECT
 
-  public:
+ public:
   static const std::vector<QColor> colors;
 
   static std::vector<QColor> initializeColors();
@@ -142,7 +142,7 @@ class SchedulesView : public QWidget, public Nano::Observer
 
   void closeAllTabs() const;
 
-  public slots:
+ public slots:
 
   void setCurrentSchedule(const model::ScheduleRuleset& schedule);
 
@@ -167,7 +167,7 @@ class SchedulesView : public QWidget, public Nano::Observer
 
   bool isIP() const;
 
-  signals:
+ signals:
 
   void itemDropped(const OSItemId& itemId);
 
@@ -205,10 +205,10 @@ class SchedulesView : public QWidget, public Nano::Observer
 
   void modelObjectSelected(model::OptionalModelObject& modelObject, bool readOnly);
 
-  protected:
+ protected:
   void paintEvent(QPaintEvent* event) override;
 
-  private slots:
+ private slots:
 
   void addSchedule(model::ScheduleRuleset& schedule);
 
@@ -220,7 +220,7 @@ class SchedulesView : public QWidget, public Nano::Observer
 
   void onScheduleRuleRemoved(const Handle& handle);
 
-  private:
+ private:
   void updateRowColors();
 
   model::Model m_model;
@@ -241,7 +241,7 @@ class ScheduleTab : public QWidget, public Nano::Observer
 {
   Q_OBJECT
 
-  public:
+ public:
   ScheduleTab(const model::ScheduleRuleset& schedule, SchedulesView* schedulesView, QWidget* parent = nullptr);
 
   virtual ~ScheduleTab() {}
@@ -264,14 +264,14 @@ class ScheduleTab : public QWidget, public Nano::Observer
 
   void toggle();
 
-  signals:
+ signals:
 
   void scheduleClicked(const model::ScheduleRuleset& schedule);
 
   // DLM: not sure if this is wired to anything?
   void removeScheduleClicked(const model::ScheduleRuleset& schedule);
 
-  protected:
+ protected:
   //void paintEvent(QPaintEvent * event);
 
   //void mouseReleaseEvent( QMouseEvent * event );
@@ -282,7 +282,7 @@ class ScheduleTab : public QWidget, public Nano::Observer
 
   //void resizeEvent(QResizeEvent * event);
 
-  private slots:
+ private slots:
 
   //void onClicked();
 
@@ -290,7 +290,7 @@ class ScheduleTab : public QWidget, public Nano::Observer
 
   //void onObjectChanged();
 
-  private:
+ private:
   //void refresh();
 
   //bool m_mouseDown;
@@ -311,7 +311,7 @@ class ScheduleTabHeader : public QWidget, public Nano::Observer
 {
   Q_OBJECT
 
-  public:
+ public:
   ScheduleTabHeader(ScheduleTab* scheduleTab, QWidget* parent = nullptr);
 
   virtual ~ScheduleTabHeader() {}
@@ -328,13 +328,13 @@ class ScheduleTabHeader : public QWidget, public Nano::Observer
 
   void toggle();
 
-  signals:
+ signals:
 
   void scheduleClicked(const model::ScheduleRuleset& schedule);
 
   void toggleHeaderClicked(bool close);
 
-  protected:
+ protected:
   void paintEvent(QPaintEvent* event) override;
 
   void resizeEvent(QResizeEvent* event) override;
@@ -343,13 +343,13 @@ class ScheduleTabHeader : public QWidget, public Nano::Observer
 
   void mousePressEvent(QMouseEvent* event) override;
 
-  private slots:
+ private slots:
 
   void refresh();
 
   void refreshNow();
 
-  private:
+ private:
   QWidget* m_selectionWidget;
 
   QLabel* m_mainLabel;
@@ -368,7 +368,7 @@ class ScheduleTabContent : public QWidget, public Nano::Observer
 {
   Q_OBJECT
 
-  public:
+ public:
   ScheduleTabContent(ScheduleTab* scheduleTab, QWidget* parent = nullptr);
 
   virtual ~ScheduleTabContent() {}
@@ -377,17 +377,17 @@ class ScheduleTabContent : public QWidget, public Nano::Observer
 
   void addScheduleRule(const model::ScheduleRule& scheduleRule);
 
-  signals:
+ signals:
 
   void scheduleRuleClicked(const model::ScheduleRuleset& schedule);
 
   void defaultScheduleClicked(const model::ScheduleRuleset& schedule);
 
-  public slots:
+ public slots:
 
   void scheduleRefresh(const Handle& handle);
 
-  private slots:
+ private slots:
 
   void refresh();
 
@@ -395,7 +395,7 @@ class ScheduleTabContent : public QWidget, public Nano::Observer
 
   void onDefaultScheduleClicked();
 
-  private:
+ private:
   ScheduleTab* m_scheduleTab;
 
   QVBoxLayout* m_ruleLayout;
@@ -412,16 +412,16 @@ class ScheduleTabRule : public QWidget, public Nano::Observer
 {
   Q_OBJECT
 
-  public:
+ public:
   ScheduleTabRule(ScheduleTab* scheduleTab, const model::ScheduleRule& scheduleRule, QWidget* parent = nullptr);
 
   virtual ~ScheduleTabRule() {}
 
-  signals:
+ signals:
 
   void clicked(model::ScheduleRule scheduleRule);
 
-  protected:
+ protected:
   void mouseReleaseEvent(QMouseEvent* event) override;
 
   void mousePressEvent(QMouseEvent* event) override;
@@ -432,13 +432,13 @@ class ScheduleTabRule : public QWidget, public Nano::Observer
 
   void paintEvent(QPaintEvent* event) override;
 
-  private slots:
+ private slots:
 
   void refresh();
 
   void scheduleRefresh();
 
-  private:
+ private:
   ScheduleTab* m_scheduleTab;
 
   model::ScheduleRule m_scheduleRule;
@@ -457,7 +457,7 @@ class ScheduleTabDefault : public QWidget, public Nano::Observer
 {
   Q_OBJECT
 
-  public:
+ public:
   enum ScheduleTabDefaultType
   {
     DEFAULT,
@@ -470,7 +470,7 @@ class ScheduleTabDefault : public QWidget, public Nano::Observer
 
   virtual ~ScheduleTabDefault() {}
 
-  signals:
+ signals:
 
   void defaultClicked(model::ScheduleRuleset scheduleRuleset);
 
@@ -480,7 +480,7 @@ class ScheduleTabDefault : public QWidget, public Nano::Observer
 
   void holidayClicked(model::ScheduleRuleset scheduleRuleset);
 
-  protected:
+ protected:
   void mouseReleaseEvent(QMouseEvent* event) override;
 
   void mousePressEvent(QMouseEvent* event) override;
@@ -491,7 +491,7 @@ class ScheduleTabDefault : public QWidget, public Nano::Observer
 
   void paintEvent(QPaintEvent* event) override;
 
-  private:
+ private:
   bool m_mouseDown;
 
   QLabel* m_label;
@@ -512,7 +512,7 @@ class NewProfileView : public QWidget, public Nano::Observer
 {
   Q_OBJECT
 
-  public:
+ public:
   enum NewProfileViewType
   {
     SCHEDULERULE,
@@ -525,7 +525,7 @@ class NewProfileView : public QWidget, public Nano::Observer
 
   virtual ~NewProfileView() {}
 
-  signals:
+ signals:
 
   void addRuleClicked(model::ScheduleRuleset& scheduleRuleset, UUID dayScheduleHandle);
 
@@ -535,11 +535,11 @@ class NewProfileView : public QWidget, public Nano::Observer
 
   void addHolidayProfileClicked(model::ScheduleRuleset& scheduleRuleset, UUID dayScheduleHandle);
 
-  private slots:
+ private slots:
 
   void onAddClicked();
 
-  private:
+ private:
   void populateComboBox(const model::ScheduleRuleset& scheduleRuleset);
 
   SchedulesView* m_schedulesView;
@@ -556,12 +556,12 @@ class ScheduleRulesetNameView : public QWidget, public Nano::Observer
 {
   Q_OBJECT
 
-  public:
+ public:
   ScheduleRulesetNameView(const model::ScheduleRuleset& scheduleRuleset, SchedulesView* schedulesView);
 
   virtual ~ScheduleRulesetNameView() {}
 
-  private:
+ private:
   SchedulesView* m_schedulesView;
 
   model::ScheduleRuleset m_scheduleRuleset;
@@ -572,12 +572,12 @@ class DefaultScheduleDayView : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   DefaultScheduleDayView(bool isIP, const model::ScheduleRuleset& scheduleRuleset, SchedulesView* schedulesView);
 
   virtual ~DefaultScheduleDayView() {}
 
-  signals:
+ signals:
 
   void toggleUnitsClicked(bool displayIP);
 };
@@ -587,7 +587,7 @@ class SpecialScheduleDayView : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   enum SpecialScheduleDayType
   {
     SUMMER,
@@ -599,11 +599,11 @@ class SpecialScheduleDayView : public QWidget
 
   virtual ~SpecialScheduleDayView() {}
 
-  signals:
+ signals:
 
   void toggleUnitsClicked(bool displayIP);
 
-  private:
+ private:
   SpecialScheduleDayType m_type;
 };
 
@@ -612,14 +612,14 @@ class ScheduleRuleView : public QWidget, public Nano::Observer
 {
   Q_OBJECT
 
-  public:
+ public:
   ScheduleRuleView(bool isIP, const model::ScheduleRule& scheduleRule, SchedulesView* schedulesView);
 
   virtual ~ScheduleRuleView() {}
 
   model::ScheduleRule scheduleRule() const;
 
-  signals:
+ signals:
 
   void startDateTimeChanged(model::ScheduleRule& scheduleRule, const QDateTime& newDate);
 
@@ -627,7 +627,7 @@ class ScheduleRuleView : public QWidget, public Nano::Observer
 
   void removeScheduleRuleClicked(model::ScheduleRule& scheduleRule);
 
-  private slots:
+ private slots:
 
   void refresh();
 
@@ -639,11 +639,11 @@ class ScheduleRuleView : public QWidget, public Nano::Observer
 
   void onEndDateTimeChanged(const QDateTime& newDate);
 
-  signals:
+ signals:
 
   void toggleUnitsClicked(bool displayIP);
 
-  private:
+ private:
   SchedulesView* m_schedulesView;
 
   model::ScheduleRule m_scheduleRule;
@@ -680,12 +680,12 @@ class ScheduleRulesetNameWidget : public QWidget, public Nano::Observer
 {
   Q_OBJECT
 
-  public:
+ public:
   ScheduleRulesetNameWidget(const model::ScheduleRuleset& scheduleRuleset);
 
   virtual ~ScheduleRulesetNameWidget() {}
 
-  private:
+ private:
   model::ScheduleRuleset m_scheduleRuleset;
 
   boost::optional<model::ScheduleRuleset> opt_scheduleRuleset;
@@ -696,7 +696,7 @@ class YearOverview : public QWidget, public Nano::Observer
 {
   Q_OBJECT
 
-  public:
+ public:
   YearOverview(const model::ScheduleRuleset& scheduleRuleset, QWidget* parent = nullptr);
 
   virtual ~YearOverview() {}
@@ -705,7 +705,7 @@ class YearOverview : public QWidget, public Nano::Observer
 
   std::vector<int> activeRuleIndices() const;
 
-  private slots:
+ private slots:
 
   void refresh();
 
@@ -713,7 +713,7 @@ class YearOverview : public QWidget, public Nano::Observer
 
   void onModelAdd(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl>, const openstudio::IddObjectType&, const openstudio::UUID&);
 
-  private:
+ private:
   void refreshActiveRuleIndices();
 
   MonthView* m_januaryView;
@@ -752,7 +752,7 @@ class MonthView : public QWidget, public Nano::Observer
 {
   Q_OBJECT
 
-  public:
+ public:
   MonthView(YearOverview* yearOverview);
 
   virtual ~MonthView() {}
@@ -765,7 +765,7 @@ class MonthView : public QWidget, public Nano::Observer
 
   void update();
 
-  private:
+ private:
   ScheduleCalendarWidget* m_calendarWidget;
 
   YearOverview* m_yearOverview;
@@ -780,15 +780,15 @@ class ScheduleCalendarWidget : public QCalendarWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   ScheduleCalendarWidget(MonthView* monthView = nullptr);
 
   virtual ~ScheduleCalendarWidget() {}
 
-  protected:
+ protected:
   void paintCell(QPainter* painter, const QRect& rect, const QDate& date) const override;
 
-  private:
+ private:
   MonthView* m_monthView;
 };
 

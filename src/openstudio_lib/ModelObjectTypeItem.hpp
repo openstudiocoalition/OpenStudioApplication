@@ -43,7 +43,7 @@ class ModelObjectTypeItem : public OSCollapsibleItem
 {
   Q_OBJECT
 
-  public:
+ public:
   ModelObjectTypeItem(OSCollapsibleItemHeader* collapsibleItemHeader, ModelObjectListView* modelObjectListView, QWidget* parent = nullptr);
 
   virtual ~ModelObjectTypeItem() {}

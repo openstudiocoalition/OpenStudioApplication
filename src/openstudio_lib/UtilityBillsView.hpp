@@ -76,17 +76,17 @@ class UtilityBillsView : public ModelSubTabView
 {
   Q_OBJECT
 
-  public:
+ public:
   UtilityBillsView(const model::Model& model, QWidget* parent = nullptr);
 
   virtual ~UtilityBillsView();
 
-  private:
+ private:
   void resetUtilityBills();
 
   static std::vector<std::pair<FuelType, std::string>> utilityBillFuelTypesAndNames();
 
-  signals:
+ signals:
 
   void enableAddNewObjectButton(bool enable);
 };
@@ -95,24 +95,24 @@ class UtilityBillsInspectorView : public ModelObjectInspectorView
 {
   Q_OBJECT
 
-  public:
+ public:
   UtilityBillsInspectorView(const openstudio::model::Model& model, bool addScrollArea, QWidget* parent = nullptr);
 
   virtual ~UtilityBillsInspectorView();
 
   boost::optional<QString> runPeriodDates();
 
-  protected:
+ protected:
   virtual void onSelectItem(OSItem* item) override;
   virtual void onClearSelection() override;
   virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
   virtual void onUpdate() override;
 
-  protected slots:
+ protected slots:
 
   //virtual void toggleUnits(bool displayIP);
 
-  private:
+ private:
   void createWidgets();
   void getSortedBills();
   void showAddButton();
@@ -173,11 +173,11 @@ class UtilityBillsInspectorView : public ModelObjectInspectorView
   int m_hiddenWidgetIndex;
   int m_visibleWidgetIndex;
 
-  signals:
+ signals:
   void showSubTabView(bool showSubTabView);
   void enableAddNewObjectButton(bool enable);
 
-  private slots:
+ private slots:
   void addBillingPeriod(bool checked);
   void deleteBillingPeriod(int index);
   void setBillFormat(int index);
@@ -193,7 +193,7 @@ class BillingPeriodWidget : public QWidget, public Nano::Observer
 
   Q_OBJECT
 
-  public:
+ public:
   BillingPeriodWidget(model::BillingPeriod billingPeriod, FuelType fuelType, BillFormat billFormat, QWidget* parent = nullptr);
 
   virtual ~BillingPeriodWidget() {}
@@ -211,12 +211,12 @@ class BillingPeriodWidget : public QWidget, public Nano::Observer
 
   QPushButton* m_deleteBillWidget;
 
-  private:
+ private:
   void createWidgets(FuelType fuelType, BillFormat billFormat);
 
   boost::optional<model::BillingPeriod> m_billingPeriod;
 
-  private slots:
+ private slots:
 
   void modelObjectChanged();
   void startDateChanged(const QDate& newdate);

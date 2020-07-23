@@ -49,7 +49,7 @@ namespace openstudio {
 class OPENSTUDIO_API IconLibrary
 {
 
-  public:
+ public:
   //! If the class in not instantiated, this call will instantiate it. (So don't ever worry about it, just call Instance when you want to use the class)
   static IconLibrary& Instance();
   /*! gets an Icon
@@ -63,8 +63,8 @@ class OPENSTUDIO_API IconLibrary
   */
   const QPixmap* findMiniIcon(unsigned int val) const;
 
-  protected:
-  private:
+ protected:
+ private:
   REGISTER_LOGGER("openstudio.openstudio_lib.IconLibrary");
 
   IconLibrary();

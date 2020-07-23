@@ -64,7 +64,7 @@ class ModelExplorer : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   ModelExplorer(QWidget* parent = nullptr);
   virtual ~ModelExplorer();
   void loadFile(const QString& fileName);
@@ -92,7 +92,7 @@ class ModelExplorer : public QWidget
   void showComments(const bool showComments);
   void showPrecision(const bool showPrecision);
 
-  public slots:
+ public slots:
   void classAction();
   void systemOutlinerAction();
   void treeAction();
@@ -106,14 +106,14 @@ class ModelExplorer : public QWidget
   void createAllFields();
   void setRecursive(bool);
 
-  signals:
+ signals:
   void modelDirty();
   void showStatusBarMsg(const QString& msg, const int millisecondDuration);
   void precisionDlgHidden();
   void precisionDlgFinished();
 
-  protected:
-  private:
+ protected:
+ private:
   void createProgressDlg();
   void createWidgets();
   void createActions();

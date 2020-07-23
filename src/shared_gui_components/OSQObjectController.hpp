@@ -41,7 +41,7 @@ class OSQObjectController : public QObject, public Nano::Observer
 {
   Q_OBJECT
 
-  public:
+ public:
   /** OSQObjectController manages the life cycle of dynamically allocated QObjects when they
    *  are not part of a parent child hierarchy.  This is the case for top level QWidgets
    *  owned by a controller.
@@ -50,17 +50,17 @@ class OSQObjectController : public QObject, public Nano::Observer
 
   virtual ~OSQObjectController();
 
-  protected:
+ protected:
   /** Registers the QObject so that its lifecycle is managed.
    *  When OSQObjectController is deleted the managed QObjects will safely be removed.
    **/
   void addQObject(QObject* object);
 
-  private slots:
+ private slots:
 
   void onObjectDestroyed(QObject* object = nullptr);
 
-  private:
+ private:
   std::vector<QObject*> m_objects;
 };
 

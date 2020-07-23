@@ -41,10 +41,10 @@ class ModelTest : public QObject
 {
   Q_OBJECT
 
-  public:
+ public:
   ModelTest(QAbstractItemModel* model, QObject* parent = nullptr);
 
-  private Q_SLOTS:
+ private Q_SLOTS:
   void nonDestructiveBasicTest();
   void rowCount();
   void columnCount();
@@ -53,7 +53,7 @@ class ModelTest : public QObject
   void parent();
   void data();
 
-  protected Q_SLOTS:
+ protected Q_SLOTS:
   void runAllTests();
   void layoutAboutToBeChanged();
   void layoutChanged();
@@ -62,7 +62,7 @@ class ModelTest : public QObject
   void rowsAboutToBeRemoved(const QModelIndex& parent, int start, int end);
   void rowsRemoved(const QModelIndex& parent, int start, int end);
 
-  private:
+ private:
   void checkChildren(const QModelIndex& parent, int currentDepth = 0);
 
   QAbstractItemModel* model;

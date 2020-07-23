@@ -46,12 +46,12 @@ class SpacesTabView : public MainTabView
 {
   Q_OBJECT
 
-  public:
+ public:
   SpacesTabView(QWidget* parent = nullptr);
 
   virtual ~SpacesTabView() {}
 
-  public slots:
+ public slots:
 
   void toggleUnits(bool displayIP);
 };

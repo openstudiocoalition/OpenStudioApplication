@@ -38,16 +38,16 @@ class UtilityBillsController : public ModelSubTabController
 {
   Q_OBJECT
 
-  public:
+ public:
   UtilityBillsController(const model::Model& model);
 
   virtual ~UtilityBillsController() {}
 
-  public slots:
+ public slots:
 
   void enableAddNewObjectButton(bool enable);
 
-  protected:
+ protected:
   virtual void onAddObject(const openstudio::IddObjectType& iddObjectType) override;
 
   virtual void onCopyObject(const openstudio::model::ModelObject& modelObject) override;

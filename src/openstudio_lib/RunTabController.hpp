@@ -50,7 +50,7 @@ class RunTabController : public MainTabController
 {
   Q_OBJECT
 
-  public:
+ public:
   RunTabController(const model::Model& model, const openstudio::path& t_modelPath,
                    const openstudio::path& t_tempFolder);  //, openstudio::runmanager::RunManager t_runManager);
 
@@ -66,15 +66,15 @@ class RunTabController : public MainTabController
     TREE
   };
 
-  signals:
+ signals:
   void resultsGenerated(const openstudio::path& t_sqlFile, const openstudio::path& t_radianceOutputFile);
   void toolsUpdated();
   //void useRadianceStateChanged(bool);
 
-  public slots:
+ public slots:
   void updateToolsWarnings();
 
-  private:
+ private:
   //RunView * m_runView;
 
   //openstudio::runmanager::JobStatusWidget * m_status;

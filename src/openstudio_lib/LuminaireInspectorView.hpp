@@ -45,19 +45,19 @@ class LuminaireDefinitionInspectorView : public ModelObjectInspectorView
 {
   Q_OBJECT
 
-  public:
+ public:
   LuminaireDefinitionInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
   virtual ~LuminaireDefinitionInspectorView() {}
 
-  protected:
+ protected:
   virtual void onClearSelection() override;
 
   virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
   virtual void onUpdate() override;
 
-  private:
+ private:
   void attach(openstudio::model::LuminaireDefinition& luminaireDefinition);
 
   void detach();
@@ -78,7 +78,7 @@ class LuminaireDefinitionInspectorView : public ModelObjectInspectorView
 
   boost::optional<model::LuminaireDefinition> m_luminaireDefinition;
 
-  public slots:
+ public slots:
 
   void toggleUnits(bool displayIP) override;
 };

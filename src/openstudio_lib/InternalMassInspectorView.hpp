@@ -48,19 +48,19 @@ class InternalMassDefinitionInspectorView : public ModelObjectInspectorView
 {
   Q_OBJECT
 
-  public:
+ public:
   InternalMassDefinitionInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
   virtual ~InternalMassDefinitionInspectorView() {}
 
-  protected:
+ protected:
   virtual void onClearSelection() override;
 
   virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
   virtual void onUpdate() override;
 
-  private:
+ private:
   void attach(openstudio::model::InternalMassDefinition& internalMassDefinition);
 
   void detach();
@@ -85,10 +85,10 @@ class InternalMassDefinitionInspectorView : public ModelObjectInspectorView
 
   class ConstructionVectorController : public ModelObjectVectorController
   {
-public:
+   public:
     boost::optional<model::InternalMassDefinition> internalMassDefinition();
 
-protected:
+   protected:
     std::vector<OSItemId> makeVector() override;
 
     void onChangeRelationship(const openstudio::model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
@@ -100,7 +100,7 @@ protected:
     void onDrop(const OSItemId& itemId) override;
   };
 
-  public slots:
+ public slots:
 
   void toggleUnits(bool displayIP) override;
 };

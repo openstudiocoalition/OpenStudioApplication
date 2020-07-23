@@ -48,7 +48,7 @@ class OSDialog : public QDialog
 {
   Q_OBJECT
 
-  public:
+ public:
   OSDialog(bool isIP = false, QWidget* parent = nullptr);
 
   virtual ~OSDialog() {}
@@ -69,7 +69,7 @@ class OSDialog : public QDialog
 
   QPushButton* okButton();
 
-  protected:
+ protected:
   void setOkButtonAsDefault(bool isDefault);
 
   void mouseMoveEvent(QMouseEvent* event) override;
@@ -90,7 +90,7 @@ class OSDialog : public QDialog
 
   QPushButton* m_okButton;
 
-  private:
+ private:
   virtual void createLayout();
 
   QVBoxLayout* m_upperLayout;
@@ -103,7 +103,7 @@ class OSDialog : public QDialog
 
   bool _move;
 
-  signals:
+ signals:
 
   void backButtonClicked(bool checked);
 
@@ -113,7 +113,7 @@ class OSDialog : public QDialog
 
   void toggleUnitsClicked(bool displayIP);
 
-  protected slots:
+ protected slots:
 
   virtual void on_backButton(bool checked);
 

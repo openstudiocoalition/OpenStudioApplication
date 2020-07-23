@@ -36,7 +36,7 @@ namespace openstudio {
 
 class OSDragPixmapData
 {
-  public:
+ public:
   OSDragPixmapData(const QPixmap& pixmap, const QPoint& hotSpot);
 
   virtual ~OSDragPixmapData() {}
@@ -50,18 +50,18 @@ class OSDragableView : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   OSDragableView(QWidget* parent = nullptr);
 
   virtual ~OSDragableView() {}
 
-  signals:
+ signals:
 
   void dragRequested(const OSDragPixmapData& dragPixmapData);
 
   void clicked();
 
-  protected:
+ protected:
   void mouseReleaseEvent(QMouseEvent* event) override;
 
   void mousePressEvent(QMouseEvent* event) override;
@@ -70,7 +70,7 @@ class OSDragableView : public QWidget
 
   void leaveEvent(QEvent* event) override;
 
-  private:
+ private:
   bool m_mouseDown;
 
   QPoint m_dragStartPosition;

@@ -47,7 +47,7 @@ class OSCollapsibleItemList : public OSItemSelector
 {
   Q_OBJECT
 
-  public:
+ public:
   OSCollapsibleItemList(bool addScrollArea, QWidget* parent = nullptr);
 
   virtual ~OSCollapsibleItemList() {}
@@ -70,20 +70,20 @@ class OSCollapsibleItemList : public OSItemSelector
   bool showFilterLayout() const;
   void setShowFilterLayout(const bool showFilterLayout);
 
-  signals:
+ signals:
 
   void openLibDlgClicked();
 
-  private slots:
+ private slots:
 
   void onCollapsableItemSelected(OSCollapsibleItem* selectedItem);
 
   void onItemSelected(OSItem* item);
 
-  protected:
+ protected:
   void paintEvent(QPaintEvent* event) override;
 
-  private:
+ private:
   QVBoxLayout* m_vLayout;
   QHBoxLayout* m_contentLayout;
   OSCollapsibleItem* m_selectedCollapsibleItem;

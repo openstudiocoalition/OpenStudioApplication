@@ -38,7 +38,7 @@ class ListWidget : public QListWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   ListWidget(QWidget* parent = nullptr);
   virtual ~ListWidget();
 
@@ -46,14 +46,14 @@ class ListWidget : public QListWidget
     return mMimeType;
   }
 
-  public slots:
+ public slots:
 
-  signals:
+ signals:
 
-  protected:
+ protected:
   virtual QMimeData* mimeData(const QList<QListWidgetItem*> items) const override;
 
-  private:
+ private:
   static QString mMimeType;
 };
 

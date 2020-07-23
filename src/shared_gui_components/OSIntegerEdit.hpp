@@ -51,7 +51,7 @@ class OSIntegerEdit2 : public QLineEdit, public Nano::Observer
 {
   Q_OBJECT
 
-  public:
+ public:
   OSIntegerEdit2(QWidget* parent = nullptr);
 
   virtual ~OSIntegerEdit2();
@@ -90,16 +90,16 @@ class OSIntegerEdit2 : public QLineEdit, public Nano::Observer
 
   void unbind();
 
-  protected:
+ protected:
   virtual void focusInEvent(QFocusEvent* e) override;
 
   virtual void focusOutEvent(QFocusEvent* e) override;
 
-  signals:
+ signals:
 
   void inFocus(bool inFocus, bool hasData);
 
-  private slots:
+ private slots:
 
   void onEditingFinished();
 
@@ -107,7 +107,7 @@ class OSIntegerEdit2 : public QLineEdit, public Nano::Observer
 
   void onModelObjectRemove(const Handle& handle);
 
-  private:
+ private:
   boost::optional<model::ModelObject> m_modelObject;                    // will be set if attached to ModelObject or ModelExtensibleGroup
   boost::optional<model::ModelExtensibleGroup> m_modelExtensibleGroup;  // will only be set if attached to ModelExtensibleGroup
   boost::optional<IntGetter> m_get;

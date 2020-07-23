@@ -38,7 +38,7 @@ class GeometryTabView : public MainTabView
 {
   Q_OBJECT
 
-  public:
+ public:
   GeometryTabView(const model::Model& model, const QString& tabLabel, QWidget* parent = nullptr);
   virtual ~GeometryTabView() {}
 };

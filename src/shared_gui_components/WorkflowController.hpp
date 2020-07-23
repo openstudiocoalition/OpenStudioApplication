@@ -68,14 +68,14 @@ class WorkflowController : public OSListController
 {
   Q_OBJECT
 
-  public:
+ public:
   WorkflowController(BaseApp* t_baseApp);
 
   QSharedPointer<OSListItem> itemAt(int i) override;
 
   int count() override;
 
-  private:
+ private:
   void addItem(QSharedPointer<OSListItem> item);
 
   std::vector<QSharedPointer<WorkflowSectionItem>> m_workflowSectionItems;
@@ -86,12 +86,12 @@ class WorkflowSectionItemDelegate : public OSItemDelegate
 {
   Q_OBJECT
 
-  public:
+ public:
   explicit WorkflowSectionItemDelegate();
 
   QWidget* view(QSharedPointer<OSListItem> dataSource) override;
 
-  private:
+ private:
 };
 
 // Each WorkflowSectionItem represents a set of measures grouped by type, e.g. all the model measures
@@ -100,7 +100,7 @@ class WorkflowSectionItem : public OSListItem
 {
   Q_OBJECT
 
-  public:
+ public:
   WorkflowSectionItem(MeasureType measureType, const QString& label, BaseApp* t_baseApp);
 
   QString label() const;
@@ -109,7 +109,7 @@ class WorkflowSectionItem : public OSListItem
 
   QSharedPointer<WorkflowStepController> workflowStepController() const;
 
-  private:
+ private:
   QString m_label;
   boost::optional<MeasureType> m_measureType;
 
@@ -121,7 +121,7 @@ class WorkflowStepController : public OSListController
 {
   Q_OBJECT
 
-  public:
+ public:
   WorkflowStepController(BaseApp* t_baseApp);
 };
 
@@ -130,7 +130,7 @@ class MeasureStepController : public WorkflowStepController
 {
   Q_OBJECT
 
-  public:
+ public:
   MeasureStepController(MeasureType measureType, BaseApp* t_baseApp);
 
   QSharedPointer<OSListItem> itemAt(int i) override;
@@ -147,11 +147,11 @@ class MeasureStepController : public WorkflowStepController
 
   void moveDown(MeasureStep step);
 
-  public slots:
+ public slots:
 
   void addItemForDroppedMeasure(QDropEvent* event);
 
-  private:
+ private:
   void addItem(QSharedPointer<OSListItem> item);
 
   MeasureType m_measureType;
@@ -165,12 +165,12 @@ class MeasureStepItemDelegate : public OSItemDelegate
 {
   Q_OBJECT
 
-  public:
+ public:
   explicit MeasureStepItemDelegate();
 
   QWidget* view(QSharedPointer<OSListItem> dataSource) override;
 
-  private:
+ private:
 };
 
 // Each MeasureStepItem represents a MeasureStep
@@ -178,7 +178,7 @@ class MeasureStepItem : public OSListItem
 {
   Q_OBJECT
 
-  public:
+ public:
   MeasureStepItem(MeasureType measureType, MeasureStep step, BaseApp* t_baseApp);
 
   QString name() const;
@@ -204,7 +204,7 @@ class MeasureStepItem : public OSListItem
 
   std::vector<measure::OSArgument> incompleteArguments() const;
 
-  public slots:
+ public slots:
 
   void remove();
 
@@ -222,7 +222,7 @@ class MeasureStepItem : public OSListItem
 
   void setSelected(bool isSelected) override;
 
-  signals:
+ signals:
 
   void nameChanged(const QString& name);
 
@@ -232,7 +232,7 @@ class MeasureStepItem : public OSListItem
 
   void argumentsChanged(bool isIncomplete);
 
-  private:
+ private:
   MeasureType m_measureType;
   MeasureStep m_step;
   BaseApp* m_app;

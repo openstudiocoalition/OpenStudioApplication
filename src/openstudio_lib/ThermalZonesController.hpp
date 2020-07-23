@@ -53,16 +53,16 @@ class ThermalZonesController : public ModelSubTabController
 {
   Q_OBJECT
 
-  public:
+ public:
   ThermalZonesController(bool isIP, const model::Model& model);
 
   virtual ~ThermalZonesController() {}
 
-  signals:
+ signals:
 
   void toggleUnitsClicked(bool);
 
-  protected:
+ protected:
   virtual void onSelectItem(OSItem* item) override;
 
   virtual void onAddObject(const openstudio::IddObjectType& iddObjectType) override;
@@ -81,7 +81,7 @@ class ThermalZonesController : public ModelSubTabController
 
   virtual void onInspectItem(OSItem* item) override;
 
-  public slots:
+ public slots:
 
   void setHeatingSchedule(model::ThermalZone&, model::OptionalSchedule&);
 
@@ -95,7 +95,7 @@ class ThermalZonesController : public ModelSubTabController
 
   void removeZoneHVACComponent(model::ZoneHVACComponent&);
 
-  private slots:
+ private slots:
 
   void onZoneHVACComponentClicked(model::ZoneHVACComponent&);
 };

@@ -46,14 +46,14 @@ class StartupView : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   StartupView(QWidget* parent = nullptr);
 
   virtual ~StartupView() {}
 
   QSize sizeHint() const override;
 
-  signals:
+ signals:
 
   void newFromTemplate(NewFromTemplateEnum);
 
@@ -63,7 +63,7 @@ class StartupView : public QWidget
 
   void importSDDClicked();
 
-  protected:
+ protected:
   void mouseMoveEvent(QMouseEvent* event) override;
 
   void mousePressEvent(QMouseEvent* event) override;
@@ -72,13 +72,13 @@ class StartupView : public QWidget
 
   void paintEvent(QPaintEvent* event) override;
 
-  private slots:
+ private slots:
 
   void newFromTemplateSlot();
 
   void showDetailsForItem(const QModelIndex& index);
 
-  private:
+ private:
   QPoint dragPosition;
 
   bool _move;
@@ -92,7 +92,7 @@ class StartupView : public QWidget
 
 class TemplateListModel : public QAbstractListModel
 {
-  public:
+ public:
   TemplateListModel(QObject* parent = nullptr);
 
   int rowCount(const QModelIndex& parent = QModelIndex()) const override;
@@ -101,7 +101,7 @@ class TemplateListModel : public QAbstractListModel
 
   Qt::ItemFlags flags(const QModelIndex& index) const override;
 
-  private:
+ private:
 };
 
 }  // namespace openstudio

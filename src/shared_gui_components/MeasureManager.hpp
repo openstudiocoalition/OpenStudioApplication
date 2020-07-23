@@ -96,7 +96,7 @@ class MeasureManager : public QObject
 {
   Q_OBJECT;
 
-  public:
+ public:
   MeasureManager(BaseApp* t_app);
 
   virtual ~MeasureManager() {}
@@ -153,7 +153,7 @@ class MeasureManager : public QObject
 
   bool isStarted() const;
 
-  public slots:
+ public slots:
 
   /// Update the UI display for all measures. Does recompute the measure's XML.
   /// Does not update the measures in the project at all
@@ -187,11 +187,11 @@ class MeasureManager : public QObject
   // Custom slot to debug potential SSL errors
   // void sslErrors(const QList<QSslError>& errors);
 
-  signals:
+ signals:
 
   void newMeasure(BCLMeasure newMeasure);
 
-  private:
+ private:
   REGISTER_LOGGER("openstudio.MeasureManager");
 
   void updateMeasuresLists(bool updateUserMeasures);

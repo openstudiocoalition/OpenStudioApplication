@@ -49,7 +49,7 @@ class LocalLibraryView : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   LocalLibraryView(QWidget* parent = nullptr);
 
   virtual ~LocalLibraryView() {}
@@ -69,16 +69,16 @@ class LibraryGroupItemHeader : public LightGradientHeader
 {
   Q_OBJECT
 
-  public:
+ public:
   LibraryGroupItemHeader();
 
   virtual ~LibraryGroupItemHeader() {}
 
-  public slots:
+ public slots:
 
   void setCount(int count);
 
-  private:
+ private:
   QLabel* countLabel;
 };
 
@@ -86,16 +86,16 @@ class LibrarySubGroupItemHeader : public LightHeader
 {
   Q_OBJECT
 
-  public:
+ public:
   LibrarySubGroupItemHeader();
 
   virtual ~LibrarySubGroupItemHeader() {}
 
-  public slots:
+ public slots:
 
   void setCount(int count);
 
-  private:
+ private:
   QLabel* countLabel;
 };
 
@@ -103,7 +103,7 @@ class LibraryItemView : public OSDragableView
 {
   Q_OBJECT
 
-  public:
+ public:
   LibraryItemView(QWidget* parent = nullptr);
 
   virtual ~LibraryItemView() {}
@@ -113,11 +113,11 @@ class LibraryItemView : public OSDragableView
   MeasureBadge* m_measureBadge;
   QLabel* errorLabel;
 
-  public slots:
+ public slots:
 
   void setHasEmphasis(bool hasEmphasis);
 
-  protected:
+ protected:
   void paintEvent(QPaintEvent*) override;
 };
 

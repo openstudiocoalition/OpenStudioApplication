@@ -49,7 +49,7 @@ class ZoneChooserView : public QWidget
 {
   Q_OBJECT;
 
-  public:
+ public:
   ZoneChooserView(QWidget* parent = nullptr);
 
   virtual ~ZoneChooserView() {}
@@ -58,20 +58,20 @@ class ZoneChooserView : public QWidget
 
   void layoutView();
 
-  public slots:
+ public slots:
 
   void layoutModelObject(model::ModelObject& modelObject);
 
-  signals:
+ signals:
 
   void addZoneClicked(model::ThermalZone&);
 
   void removeZoneClicked(model::ThermalZone&);
 
-  protected:
+ protected:
   void paintEvent(QPaintEvent* event) override;
 
-  private:
+ private:
   model::OptionalAirLoopHVACZoneSplitter m_splitter;
 
   model::OptionalAirLoopHVACZoneMixer m_mixer;
@@ -85,28 +85,28 @@ class ZoneChooserItem : public QWidget
 {
   Q_OBJECT;
 
-  public:
+ public:
   ZoneChooserItem(model::ThermalZone&, ZoneChooserView* parent = nullptr);
 
   virtual ~ZoneChooserItem() {}
 
   std::string zoneName();
 
-  signals:
+ signals:
 
   void addZoneClicked(model::ThermalZone&);
 
   void removeZoneClicked(model::ThermalZone&);
 
-  public slots:
+ public slots:
 
   void setChecked(bool checked);
 
-  private slots:
+ private slots:
 
   void sendClickedSignal(bool checked);
 
-  private:
+ private:
   QCheckBox* m_checkBox;
 
   ZoneChooserView* m_zoneChooserView;

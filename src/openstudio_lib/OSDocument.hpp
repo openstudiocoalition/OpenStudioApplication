@@ -72,7 +72,7 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
 {
   Q_OBJECT
 
-  public:
+ public:
   OSDocument(openstudio::model::Model library, const openstudio::path& resourcesPath, openstudio::model::OptionalModel model = boost::none,
              QString filePath = QString(), bool isPlugin = false, int startTabIndex = 0, int startSubTabIndex = 0);
 
@@ -171,7 +171,7 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
   // DLM: would like for this to not be a member variable since it is only used as a modal dialog with a well defined lifetime
   boost::shared_ptr<ApplyMeasureNowDialog> m_applyMeasureNowDialog;
 
-  signals:
+ signals:
 
   void closeClicked();
 
@@ -216,7 +216,7 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
 
   void enableRevertToSaved(bool enable);
 
-  public slots:
+ public slots:
 
   void markAsModified();
 
@@ -250,7 +250,7 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
 
   void openChangeMeasuresDirDlg();
 
-  private slots:
+ private slots:
 
   void onVerticalTabSelected(int id);
 
@@ -276,7 +276,7 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
 
   void addStandardMeasures();
 
-  public slots:
+ public slots:
 
   void enable();
 
@@ -288,7 +288,7 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
 
   void weatherFileReset();
 
-  private:
+ private:
   enum fileType
   {
     SDD,

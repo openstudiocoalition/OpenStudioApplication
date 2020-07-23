@@ -42,7 +42,7 @@ class LibraryDialog : public QDialog
 {
   Q_OBJECT
 
-  public:
+ public:
   LibraryDialog(std::vector<openstudio::path> paths, std::vector<openstudio::path> defaultPaths, const openstudio::path& resourcesPath);
 
   virtual ~LibraryDialog(){};
@@ -50,7 +50,7 @@ class LibraryDialog : public QDialog
   /** The current list of library paths */
   std::vector<openstudio::path> paths() const;
 
-  private:
+ private:
   void onAdd();
   void onRemove();
   void onRestore();

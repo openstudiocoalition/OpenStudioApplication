@@ -43,7 +43,7 @@ class ThermalZonesView : public ModelSubTabView
 {
   Q_OBJECT
 
-  public:
+ public:
   ThermalZonesView(bool isIP, const model::Model& model, QWidget* parent = nullptr);
 
   virtual ~ThermalZonesView() {}
@@ -54,7 +54,7 @@ class ThermalZoneView : public ModelObjectInspectorView
 
   Q_OBJECT
 
-  public:
+ public:
   ThermalZoneView(bool isIP, const model::Model& model, QWidget* parent = nullptr);
 
   virtual ~ThermalZoneView() {}
@@ -64,28 +64,28 @@ class ThermalZoneView : public ModelObjectInspectorView
   }
   virtual std::vector<model::ModelObject> selectedObjects() const override;
 
-  public slots:
+ public slots:
 
   void refresh();
 
-  signals:
+ signals:
 
   void modelObjectSelected(model::OptionalModelObject& modelObject, bool readOnly);
 
   void dropZoneItemSelected(OSItem* item, bool readOnly);
 
-  protected:
+ protected:
   void onClearSelection() override;
 
   void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
   void onUpdate() override;
 
-  private slots:
+ private slots:
 
   void toggleUnits(bool) override;
 
-  private:
+ private:
   ThermalZonesGridView* m_thermalZonesGridView = nullptr;
 
   bool m_isIP;

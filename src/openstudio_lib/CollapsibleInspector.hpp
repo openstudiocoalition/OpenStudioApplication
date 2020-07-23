@@ -44,19 +44,19 @@ class CollapsibleInspector : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   CollapsibleInspector(QString text, QWidget* inspector, QWidget* parent = nullptr);
 
   virtual ~CollapsibleInspector() {}
 
-  private:
+ private:
   void createLayout();
 
   CollapsibleInspectorHeader* m_header;
 
   QWidget* m_inspector;
 
-  public slots:
+ public slots:
 
   void on_headerToggled(bool checked);
 };
@@ -65,17 +65,17 @@ class CollapsibleInspectorHeader : public QAbstractButton
 {
   Q_OBJECT
 
-  public:
+ public:
   CollapsibleInspectorHeader(QString text, QWidget* parent = nullptr);
 
   void setChecked(bool isChecked);
 
-  protected:
+ protected:
   void paintEvent(QPaintEvent* event) override;
 
   QSize sizeHint() const override;
 
-  private:
+ private:
   void createLayout();
 
   void setImage(bool isChecked);
@@ -84,7 +84,7 @@ class CollapsibleInspectorHeader : public QAbstractButton
 
   QLabel* m_arrowLabel;
 
-  private slots:
+ private slots:
 
   void on_toggled(bool checked);
 };

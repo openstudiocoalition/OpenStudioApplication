@@ -38,12 +38,12 @@ class RefrigerationScene : public QGraphicsScene
 {
   Q_OBJECT
 
-  public:
+ public:
   RefrigerationScene();
 
   virtual ~RefrigerationScene() {}
 
-  public slots:
+ public slots:
 
   void layout();
 };

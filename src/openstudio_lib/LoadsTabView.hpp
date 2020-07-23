@@ -38,11 +38,11 @@ class LoadsTabView : public MainTabView
 {
   Q_OBJECT
 
-  public:
+ public:
   LoadsTabView(const model::Model& model, const QString& tabLabel, QWidget* parent = nullptr);
   virtual ~LoadsTabView() {}
 
-  public slots:
+ public slots:
   void toggleUnits(bool displayIP);
 };
 

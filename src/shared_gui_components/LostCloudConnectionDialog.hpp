@@ -40,7 +40,7 @@ class LostCloudConnectionDialog : public OSDialog
 {
   Q_OBJECT
 
-  public:
+ public:
   LostCloudConnectionDialog(bool internetAvailable, bool authenticated, bool cloudRunning, QWidget* parent = nullptr);
 
   virtual ~LostCloudConnectionDialog();
@@ -49,18 +49,18 @@ class LostCloudConnectionDialog : public OSDialog
     return m_clearCloudSession;
   }
 
-  protected slots:
+ protected slots:
 
   //virtual void on_okButton(bool checked);
 
-  private:
+ private:
   void createWidgets(bool internetAvailable, bool authenticated, bool cloudRunning);
 
   void createCloudConnectionWidgets(QVBoxLayout* vLayout);
 
   bool m_clearCloudSession;
 
-  private slots:
+ private slots:
 
   void on_launchAWSConsole(bool checked);
 

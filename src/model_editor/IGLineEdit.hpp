@@ -40,7 +40,7 @@ class MODELEDITOR_API IGLineEdit : public QLineEdit
   Q_OBJECT;
   Q_PROPERTY(bool precision READ getPrec WRITE setPrec);
 
-  public:
+ public:
   IGLineEdit(const QString& val, InspectorGadget* ig, QWidget* parent);
   virtual ~IGLineEdit();
 
@@ -59,18 +59,18 @@ class MODELEDITOR_API IGLineEdit : public QLineEdit
   QString doubleToQString(double v);
   //QString intToQString( int v );
 
-  public slots:
+ public slots:
   void togglePrec();
 
   void editDone();
 
   void hardsizeClicked(bool checked);
 
-  signals:
+ signals:
 
   void newValue(const QString& text);
 
-  private:
+ private:
   InspectorGadget* m_ig;
   bool m_precision;
   InspectorGadget::FLOAT_DISPLAY m_floatType;

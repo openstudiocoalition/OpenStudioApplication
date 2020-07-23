@@ -45,12 +45,12 @@ class SpacesSpacesGridView : public SpacesSubtabGridView
 {
   Q_OBJECT
 
-  public:
+ public:
   SpacesSpacesGridView(bool isIP, const model::Model& model, QWidget* parent = 0);
 
   virtual ~SpacesSpacesGridView() {}
 
-  private:
+ private:
   REGISTER_LOGGER("openstudio.SpacesSpacesGridView");
 
   // Overrides SpacesSubtabGrid view to trigger appropriate filtering
@@ -58,7 +58,7 @@ class SpacesSpacesGridView : public SpacesSubtabGridView
     return false;
   };
 
-  protected slots:
+ protected slots:
 
   virtual void onSelectItem() override;
 
@@ -70,7 +70,7 @@ class SpacesSpacesGridController : public OSGridController
 
   Q_OBJECT
 
-  public:
+ public:
   SpacesSpacesGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model model,
                              std::vector<model::ModelObject> modelObjects);
 
@@ -80,7 +80,7 @@ class SpacesSpacesGridController : public OSGridController
 
   virtual void categorySelected(int index);
 
-  protected:
+ protected:
   virtual void setCategoriesAndFields();
 
   virtual void addColumns(const QString& category, std::vector<QString>& fields);
@@ -89,7 +89,7 @@ class SpacesSpacesGridController : public OSGridController
 
   virtual QString getColor(const model::ModelObject& modelObject);
 
-  public slots:
+ public slots:
 
   virtual void onItemDropped(const OSItemId& itemId);
 };

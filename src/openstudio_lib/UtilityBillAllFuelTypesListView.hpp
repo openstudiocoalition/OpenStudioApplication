@@ -47,7 +47,7 @@ class UtilityBillAllFuelTypesListView : public OSCollapsibleItemList
 {
   Q_OBJECT
 
-  public:
+ public:
   UtilityBillAllFuelTypesListView(const model::Model& model, bool addScrollArea, OSItemType headerType, QWidget* parent = nullptr);
 
   UtilityBillAllFuelTypesListView(const std::vector<std::pair<FuelType, std::string>>& utilityBillFuelTypesAndNames, const model::Model& model,
@@ -65,7 +65,7 @@ class UtilityBillAllFuelTypesListView : public OSCollapsibleItemList
 
   virtual boost::optional<openstudio::model::ModelObject> selectedModelObject() const;
 
-  private:
+ private:
   std::vector<std::pair<FuelType, std::string>> m_utilityBillFuelTypesAndNames;
 
   model::Model m_model;

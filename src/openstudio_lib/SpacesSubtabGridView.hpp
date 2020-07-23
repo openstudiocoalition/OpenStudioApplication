@@ -48,7 +48,7 @@ class SpacesSubtabGridView : public GridViewSubTab
 {
   Q_OBJECT
 
-  public:
+ public:
   SpacesSubtabGridView(bool isIP, const model::Model& model, QWidget* parent = nullptr);
 
   virtual ~SpacesSubtabGridView() {}
@@ -77,7 +77,7 @@ class SpacesSubtabGridView : public GridViewSubTab
 
   QComboBox* m_interiorPartitionGroupFilter = nullptr;
 
-  protected:
+ protected:
   REGISTER_LOGGER("openstudio.SpacesSubtabGridView");
 
   virtual void addObject(const openstudio::IddObjectType& iddObjectType);
@@ -154,7 +154,7 @@ class SpacesSubtabGridView : public GridViewSubTab
 
   std::vector<model::ModelObject> m_spacesModelObjects = std::vector<model::ModelObject>();
 
-  protected slots:
+ protected slots:
 
   virtual void spaceNameFilterChanged();
 
@@ -178,7 +178,7 @@ class SpacesSubtabGridView : public GridViewSubTab
 
   virtual void interiorPartitionGroupFilterChanged(const QString& text);
 
-  private:
+ private:
   // All of the subtabs except the main SpacesSpace subtab will return true
   // We use this in filterChanged
   virtual bool hasSubRows() {

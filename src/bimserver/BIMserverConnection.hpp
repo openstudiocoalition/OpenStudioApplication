@@ -58,7 +58,7 @@ class BIMSERVER_API BIMserverConnection : public QObject
 {
   Q_OBJECT
 
-  public:
+ public:
   /// Default constructor
   BIMserverConnection(QObject* parent, QString bimserverAddr, QString bimserverPort);
   /// destructor
@@ -102,7 +102,7 @@ class BIMSERVER_API BIMserverConnection : public QObject
   /// get all revisions of IFC files of a project, Blocked
   boost::optional<QStringList> getIFCRevisionListBlocked(QString projectID, int timeout);
 
-  signals:
+ signals:
   /// send the retrieved osmString to GUI
   void osmStringRetrieved(QString osmString);
 
@@ -121,7 +121,7 @@ class BIMSERVER_API BIMserverConnection : public QObject
   ///emit error if BIMserver is not setup correctly.
   void bimserverError();
 
-  private slots:
+ private slots:
   //slots used by this class only
   /// log in to BIMserver
   void processLoginRequest(QNetworkReply* rep);
@@ -146,7 +146,7 @@ class BIMSERVER_API BIMserverConnection : public QObject
   /// get download progress
   void processGetProgressRequest();
 
-  private:
+ private:
   REGISTER_LOGGER("openstudio.BIMserverConnection");
 
   void sendLoginRequest();

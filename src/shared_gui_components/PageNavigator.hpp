@@ -43,7 +43,7 @@ class PageNavigator : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   PageNavigator(int numPages, int numPagesListed = 5, QWidget* parent = nullptr);
   virtual ~PageNavigator();
   void setNumPages(int numPages);
@@ -51,8 +51,8 @@ class PageNavigator : public QWidget
   ///! Sets widget to display first page (pageIdx = 0)
   void firstPage();
 
-  protected:
-  private:
+ protected:
+ private:
   void createLayout();
   ///! sets all the page numbers displayed by the buttons
   void setButtonPageNumbers(int lowestPageNum);
@@ -65,14 +65,14 @@ class PageNavigator : public QWidget
   QButtonGroup* m_buttonGroup;
   QHBoxLayout* m_buttonLayout;
 
-  private slots:
+ private slots:
   void on_buttonClicked(QAbstractButton* button);
   void on_firstPage(bool checked);
   void on_previousPage(bool checked);
   void on_nextPage(bool checked);
   void on_lastPage(bool checked);
 
-  signals:
+ signals:
   void getComponentsByPage(int pageNum);
 };
 

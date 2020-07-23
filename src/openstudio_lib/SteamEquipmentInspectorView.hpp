@@ -45,19 +45,19 @@ class SteamEquipmentDefinitionInspectorView : public ModelObjectInspectorView
 {
   Q_OBJECT
 
-  public:
+ public:
   SteamEquipmentDefinitionInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
   virtual ~SteamEquipmentDefinitionInspectorView() {}
 
-  protected:
+ protected:
   virtual void onClearSelection() override;
 
   virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
   virtual void onUpdate() override;
 
-  private:
+ private:
   void attach(openstudio::model::SteamEquipmentDefinition& steamEquipmentDefinition);
 
   void detach();
@@ -82,7 +82,7 @@ class SteamEquipmentDefinitionInspectorView : public ModelObjectInspectorView
 
   boost::optional<model::SteamEquipmentDefinition> m_steamEquipmentDefinition;
 
-  public slots:
+ public slots:
 
   void toggleUnits(bool displayIP) override;
 };

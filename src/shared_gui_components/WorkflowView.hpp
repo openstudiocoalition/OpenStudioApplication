@@ -58,7 +58,7 @@ class RectangularDropZone : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   RectangularDropZone();
 
   virtual ~RectangularDropZone() {}
@@ -67,18 +67,18 @@ class RectangularDropZone : public QWidget
 
   QLabel* nameLabel;
 
-  signals:
+ signals:
 
   void dataDropped(QDropEvent* event);
 
-  protected:
+ protected:
   void paintEvent(QPaintEvent*) override;
 
   void dropEvent(QDropEvent* event) override;
 
   void dragEnterEvent(QDragEnterEvent* event) override;
 
-  private:
+ private:
   QString m_acceptedMimeType;
 };
 
@@ -87,7 +87,7 @@ class NewMeasureDropZone : public RectangularDropZone
 {
   Q_OBJECT
 
-  public:
+ public:
   NewMeasureDropZone();
 
   virtual ~NewMeasureDropZone() {}
@@ -98,7 +98,7 @@ class WorkflowSectionView : public OSCollapsibleView
 {
   Q_OBJECT
 
-  public:
+ public:
   WorkflowSectionView(MeasureType measureType);
 
   virtual ~WorkflowSectionView() {}
@@ -112,7 +112,7 @@ class WorkflowSectionContentView : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   WorkflowSectionContentView();
 
   virtual ~WorkflowSectionContentView() {}
@@ -127,7 +127,7 @@ class WorkflowStepView : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   WorkflowStepView();
 
   virtual ~WorkflowStepView() {}
@@ -142,7 +142,7 @@ class WorkflowStepView : public QWidget
 
   QPushButton* downButton;
 
-  protected:
+ protected:
   void paintEvent(QPaintEvent*) override;
 };
 
@@ -150,7 +150,7 @@ class WorkflowStepButton : public QAbstractButton
 {
   Q_OBJECT
 
-  public:
+ public:
   WorkflowStepButton();
 
   virtual ~WorkflowStepButton() {}
@@ -159,11 +159,11 @@ class WorkflowStepButton : public QAbstractButton
 
   QLabel* cautionLabel;
 
-  public slots:
+ public slots:
 
   void setHasEmphasis(bool hasEmphasis);
 
-  protected:
+ protected:
   void paintEvent(QPaintEvent* e) override;
 };
 

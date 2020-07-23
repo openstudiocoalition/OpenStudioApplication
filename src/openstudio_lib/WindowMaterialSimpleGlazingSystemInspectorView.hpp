@@ -45,19 +45,19 @@ class WindowMaterialSimpleGlazingSystemInspectorView : public ModelObjectInspect
 {
   Q_OBJECT
 
-  public:
+ public:
   WindowMaterialSimpleGlazingSystemInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
   virtual ~WindowMaterialSimpleGlazingSystemInspectorView() {}
 
-  protected:
+ protected:
   virtual void onClearSelection() override;
 
   virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
   virtual void onUpdate() override;
 
-  private:
+ private:
   void createLayout();
 
   void attach(openstudio::model::SimpleGlazing& SimpleGlazing);

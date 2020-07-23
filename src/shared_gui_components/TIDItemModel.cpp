@@ -36,7 +36,7 @@ namespace openstudio {
 
 class TIDItem
 {
-  public:
+ public:
   TIDItem(const QDomElement& element, TIDItem* parent = nullptr) {
     m_parentItem = parent;
 
@@ -105,7 +105,7 @@ class TIDItem
     return m_parentItem;
   }
 
-  private:
+ private:
   QList<TIDItem*> m_childItems;
 
   QList<QVariant> m_itemData;

@@ -51,7 +51,7 @@ class BIMSERVER_API ProjectImporter : public QDialog
 {
   Q_OBJECT
 
-  public:
+ public:
   /// Default constructor
   ProjectImporter(QWidget* parent);
 
@@ -67,11 +67,11 @@ class BIMSERVER_API ProjectImporter : public QDialog
   /// Reimplemented the key press event of ESC and guide it to the run() function
   void keyPressEvent(QKeyEvent* event) override;
 
-  signals:
+ signals:
   /// OSM String is retrieved.
   void finished();
 
-  public slots:
+ public slots:
 
   /// Takes projectList from BIMserverConnection and prints out projects
   void processProjectList(QStringList projectList);
@@ -86,7 +86,7 @@ class BIMSERVER_API ProjectImporter : public QDialog
   /// process if BIMserver is not connected.
   void processBIMserverErrors();
 
-  private:
+ private:
   BIMserverConnection* m_bimserverConnection;
   QSettings* m_settings;
 
@@ -102,7 +102,7 @@ class BIMSERVER_API ProjectImporter : public QDialog
   QPushButton* m_loadButton;
   QPushButton* m_selectButton;
 
-  private slots:
+ private slots:
 
   void okButton_clicked();
   void newButton_clicked();

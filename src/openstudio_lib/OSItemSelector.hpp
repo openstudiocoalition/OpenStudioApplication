@@ -45,14 +45,14 @@ class OSItemSelector : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   OSItemSelector(QWidget* parent = nullptr);
 
   virtual ~OSItemSelector() {}
 
   virtual OSItem* selectedItem() const = 0;
 
-  signals:
+ signals:
 
   void itemSelected(OSItem* item);
 

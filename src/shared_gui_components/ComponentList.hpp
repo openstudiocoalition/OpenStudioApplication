@@ -44,7 +44,7 @@ class ComponentList : public QWidget
 
   Q_OBJECT
 
-  public:
+ public:
   ComponentList(QWidget* parent = nullptr);
   ComponentList(const std::vector<Component*>& components, QWidget* parent = nullptr);
   virtual ~ComponentList() {}
@@ -59,10 +59,10 @@ class ComponentList : public QWidget
   // add a component
   void addComponent(Component* component);
 
-  protected:
+ protected:
   void paintEvent(QPaintEvent* event) override;
 
-  private:
+ private:
   void createLayout();
   // set the components
   void setComponents(const std::vector<Component*>& components);
@@ -70,10 +70,10 @@ class ComponentList : public QWidget
   QVBoxLayout* m_mainLayout;
   QButtonGroup* m_componentGroup;
 
-  signals:
+ signals:
   void componentClicked(bool checked);
 
-  private slots:
+ private slots:
   void on_componentClicked(bool);
 };
 

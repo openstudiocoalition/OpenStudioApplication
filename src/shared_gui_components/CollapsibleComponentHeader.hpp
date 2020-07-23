@@ -47,7 +47,7 @@ class CollapsibleComponentHeader : public QAbstractButton
 {
   Q_OBJECT
 
-  public:
+ public:
   CollapsibleComponentHeader(const std::string& text, int numResults, int numPages, QWidget* parent = nullptr);
   virtual ~CollapsibleComponentHeader() {}
   void setChecked(bool isChecked);
@@ -56,11 +56,11 @@ class CollapsibleComponentHeader : public QAbstractButton
   void setNumPages(int numPages);
   void firstPage();
 
-  protected:
+ protected:
   void paintEvent(QPaintEvent* event) override;
   QSize sizeHint() const override;
 
-  private:
+ private:
   void createLayout(const std::string& text, int numResults, int numPages);
   void setImage(bool isChecked);
 
@@ -69,10 +69,10 @@ class CollapsibleComponentHeader : public QAbstractButton
   PageNavigator* m_pageNavigator;
   QLabel* m_numLabel;
 
-  signals:
+ signals:
   void getComponentsByPage(int pageNum);
 
-  private slots:
+ private slots:
   void on_getComponentsByPage(int pageIdx);
 };
 

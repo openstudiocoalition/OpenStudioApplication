@@ -50,7 +50,7 @@ class MeasureBadge;
 
 class OSItemId
 {
-  public:
+ public:
   static const QString BCL_SOURCE_ID;
   OSItemId();
   OSItemId(const QString& itemId, const QString& sourceId, bool isDefaulted, const QString& otherData = "");
@@ -63,7 +63,7 @@ class OSItemId
   void setIsDefaulted(bool isDefaulted);
   bool operator==(const OSItemId& other) const;
 
-  private:
+ private:
   QString m_itemId;
   QString m_sourceId;
   QString m_otherData;
@@ -74,7 +74,7 @@ class OSItem : public QWidget, public Nano::Observer
 {
   Q_OBJECT
 
-  public:
+ public:
   // creates a new OSItem if possible
   static OSItem* makeItem(const OSItemId& itemId, OSItemType osItemType = OSItemType::ListItem);
 
@@ -139,15 +139,15 @@ class OSItem : public QWidget, public Nano::Observer
   int position() const;
   void setPosition(int position);
 
-  signals:
+ signals:
   void itemClicked(OSItem*);
   void itemRemoveClicked(OSItem*);
   void itemReplacementDropped(OSItem* currentItem, const OSItemId& replacementItemId);
 
-  public slots:
+ public slots:
   void onRemoveClicked();
 
-  protected:
+ protected:
   void paintEvent(QPaintEvent* event) override;
 
   void mouseReleaseEvent(QMouseEvent* event) override;
@@ -165,7 +165,7 @@ class OSItem : public QWidget, public Nano::Observer
   void setTextColor(QColor color = Qt::black);
   MeasureBadge* m_measureBadge;
 
-  private:
+ private:
   void setFixedSize(const QSize& size);
   void setFixedWidth(int width);
   void setFixedHeight(int height);

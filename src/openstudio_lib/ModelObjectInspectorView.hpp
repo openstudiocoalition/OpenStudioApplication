@@ -51,7 +51,7 @@ class ModelObjectInspectorView : public OSInspectorView
 {
   Q_OBJECT
 
-  public:
+ public:
   ModelObjectInspectorView(const openstudio::model::Model& model, bool addScrollArea, QWidget* parent = nullptr);
 
   virtual ~ModelObjectInspectorView() {}
@@ -64,7 +64,7 @@ class ModelObjectInspectorView : public OSInspectorView
   virtual std::vector<model::ModelObject> selectedObjects() const;
   void update();
 
-  signals:
+ signals:
 
   void toggleUnitsClicked(bool displayIP);
 
@@ -78,11 +78,11 @@ class ModelObjectInspectorView : public OSInspectorView
 
   void onChange();
 
-  public slots:
+ public slots:
 
   void selectModelObject(const openstudio::model::ModelObject& modelObject);
 
-  protected:
+ protected:
   virtual void onSelectItem(OSItem* item) override;
 
   virtual void onClearSelection() override;
@@ -93,11 +93,11 @@ class ModelObjectInspectorView : public OSInspectorView
 
   model::Model m_model;
 
-  protected slots:
+ protected slots:
 
   virtual void toggleUnits(bool displayIP);
 
-  private:
+ private:
   boost::optional<openstudio::model::ModelObject> m_modelObject;
 };
 
@@ -105,19 +105,19 @@ class DefaultInspectorView : public ModelObjectInspectorView
 {
   Q_OBJECT
 
-  public:
+ public:
   DefaultInspectorView(const model::Model& model, QWidget* parent = nullptr);
 
   virtual ~DefaultInspectorView() {}
 
-  protected:
+ protected:
   virtual void onClearSelection() override;
 
   virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
   virtual void onUpdate() override;
 
-  private:
+ private:
   QLabel* m_mainLabel;
 };
 

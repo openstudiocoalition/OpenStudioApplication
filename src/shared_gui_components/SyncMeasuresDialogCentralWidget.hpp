@@ -51,7 +51,7 @@ class SyncMeasuresDialogCentralWidget : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   SyncMeasuresDialogCentralWidget(const WorkflowJSON& workflow, MeasureManager* measureManager, QWidget* parent = nullptr);
   virtual ~SyncMeasuresDialogCentralWidget() {}
 
@@ -60,8 +60,8 @@ class SyncMeasuresDialogCentralWidget : public QWidget
   QProgressBar* progressBar;
   QPushButton* lowerPushButton;
 
-  protected:
-  private:
+ protected:
+ private:
   void createLayout();
   void init();
   void displayMeasures(int pageIdx);
@@ -73,13 +73,13 @@ class SyncMeasuresDialogCentralWidget : public QWidget
   WorkflowJSON m_workflow;
   MeasureManager* m_measureManager;
 
-  signals:
+ signals:
   void componentClicked(bool checked);
   void getComponentsByPage(int pageNum);
   void noComponents();
   void closeDlg();
 
-  private slots:
+ private slots:
   void upperPushButtonClicked();
   void lowerPushButtonClicked();
   void on_getComponentsByPage(int pageIdx);

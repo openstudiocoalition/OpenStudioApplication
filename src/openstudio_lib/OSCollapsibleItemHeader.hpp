@@ -43,7 +43,7 @@ class OSCollapsibleItemHeader : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   OSCollapsibleItemHeader(const std::string& text, const OSItemId& itemId, OSItemType type = OSItemType::CollapsibleListHeader,
                           QWidget* parent = nullptr);
 
@@ -55,18 +55,18 @@ class OSCollapsibleItemHeader : public QWidget
   bool selected() const;
   void setSelected(bool isSelected);
 
-  signals:
+ signals:
 
   void clicked(OSCollapsibleItemHeader* header);
 
-  protected:
+ protected:
   void paintEvent(QPaintEvent* event) override;
   void mouseReleaseEvent(QMouseEvent* event) override;
   void mousePressEvent(QMouseEvent* event) override;
   void leaveEvent(QEvent* event) override;
   QSize sizeHint() const override;
 
-  private:
+ private:
   void setImage(bool expanded);
 
   QLabel* m_arrowLabel;

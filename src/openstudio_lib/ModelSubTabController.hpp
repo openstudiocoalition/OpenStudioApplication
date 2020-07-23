@@ -51,12 +51,12 @@ class ModelSubTabController : public SubTabController
 {
   Q_OBJECT
 
-  public:
+ public:
   ModelSubTabController(ModelSubTabView* subTabView, const model::Model& model);
 
   virtual ~ModelSubTabController() {}
 
-  signals:
+ signals:
 
   void modelObjectSelected(model::OptionalModelObject& modelObject, bool readOnly);
 
@@ -66,7 +66,7 @@ class ModelSubTabController : public SubTabController
 
   void toggleUnitsClicked(bool displayIP);
 
-  protected:
+ protected:
   openstudio::model::Model model() const;
 
   bool fromModel(const OSItemId& itemId) const;
@@ -101,9 +101,9 @@ class ModelSubTabController : public SubTabController
 
   virtual void onPurgeItems() override;
 
-  private slots:
+ private slots:
 
-  private:
+ private:
   boost::optional<openstudio::model::ModelObject> selectedModelObject() const;
 
   openstudio::IddObjectType currentIddObjectType() const;

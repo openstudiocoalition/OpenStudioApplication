@@ -45,7 +45,7 @@ class RenderingColorWidget2 : public QWidget, public Nano::Observer
 {
   Q_OBJECT
 
-  public:
+ public:
   RenderingColorWidget2(QWidget* parent = nullptr);
 
   virtual ~RenderingColorWidget2() {}
@@ -54,7 +54,7 @@ class RenderingColorWidget2 : public QWidget, public Nano::Observer
 
   virtual void unbind();
 
-  private slots:
+ private slots:
 
   void clear();
 
@@ -64,7 +64,7 @@ class RenderingColorWidget2 : public QWidget, public Nano::Observer
 
   void getRenderingColor();
 
-  private:
+ private:
   void setRenderingColor();
 
   boost::optional<OptionalModelObjectGetter> m_get;
@@ -78,7 +78,7 @@ class RenderingColorWidget : public QWidget, public Nano::Observer
 {
   Q_OBJECT
 
-  public:
+ public:
   RenderingColorWidget(QWidget* parent = nullptr);
 
   virtual ~RenderingColorWidget() {}
@@ -87,7 +87,7 @@ class RenderingColorWidget : public QWidget, public Nano::Observer
 
   virtual void detach();
 
-  private slots:
+ private slots:
 
   void clear();
 
@@ -95,7 +95,7 @@ class RenderingColorWidget : public QWidget, public Nano::Observer
 
   void renderColorButtonClicked();
 
-  private:
+ private:
   QWidget* m_renderColorWidget;
   QPushButton* m_renderColorButton;
   boost::optional<openstudio::model::RenderingColor> m_renderingColor;

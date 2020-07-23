@@ -50,7 +50,7 @@ class ModelObjectItem : public OSItem
 {
   Q_OBJECT
 
-  public:
+ public:
   ModelObjectItem(const openstudio::model::ModelObject& modelObject, bool isDefaulted, OSItemType type, QWidget* parent = nullptr);
 
   virtual ~ModelObjectItem() {}
@@ -61,11 +61,11 @@ class ModelObjectItem : public OSItem
 
   virtual bool equal(const openstudio::OSItem*) const override;
 
-  private slots:
+ private slots:
 
   void onObjectChanged();
 
-  private:
+ private:
   openstudio::Handle m_handle;
 
   openstudio::model::ModelObject m_modelObject;

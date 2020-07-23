@@ -53,14 +53,14 @@ class GridViewSubTab : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   GridViewSubTab(bool isIP, const model::Model& model, QWidget* parent = nullptr);
 
   virtual ~GridViewSubTab() {}
 
   openstudio::IddObjectType m_iddObjectType;
 
-  protected:
+ protected:
   void setGridView(OSGridView* gridView);
 
   void setGridController(OSGridController* gridController);
@@ -91,7 +91,7 @@ class GridViewSubTab : public QWidget
 
   OSItemSelectorButtons* m_itemSelectorButtons = nullptr;
 
-  signals:
+ signals:
 
   void toggleUnitsClicked(bool displayIP);
 
@@ -99,13 +99,13 @@ class GridViewSubTab : public QWidget
 
   void selectionCleared();
 
-  public slots:
+ public slots:
 
   void onDropZoneItemClicked(OSItem* item);
 
   void gridRowSelectionChanged(int checkState);
 
-  protected slots:
+ protected slots:
 
   void onAddClicked();
 

@@ -47,27 +47,27 @@ class AbstractButtonItem : public QGraphicsObject
 {
   Q_OBJECT;
 
-  public:
+ public:
   AbstractButtonItem(QGraphicsItem* parent = nullptr);
 
   virtual ~AbstractButtonItem() {}
 
   void setChecked(bool checked);
 
-  signals:
+ signals:
 
   void mouseClicked(bool checked = false);
 
   void toggled(bool checked);
 
-  protected:
+ protected:
   void mousePressEvent(QGraphicsSceneMouseEvent* event) override;
 
   void mouseReleaseEvent(QGraphicsSceneMouseEvent* event) override;
 
   bool m_checked;
 
-  private:
+ private:
   bool m_mouseDown;
 };
 
@@ -75,18 +75,18 @@ class ButtonItem : public QGraphicsObject, public Nano::Observer
 {
   Q_OBJECT;
 
-  public:
+ public:
   ButtonItem(const QPixmap& image, const QPixmap& downImage, const QPixmap& hoverImage, QGraphicsItem* parent = nullptr);
 
   virtual ~ButtonItem() {}
 
   QRectF boundingRect() const override;
 
-  signals:
+ signals:
 
   void mouseClicked();
 
-  protected:
+ protected:
   void mousePressEvent(QGraphicsSceneMouseEvent* event) override;
 
   void mouseReleaseEvent(QGraphicsSceneMouseEvent* event) override;
@@ -97,7 +97,7 @@ class ButtonItem : public QGraphicsObject, public Nano::Observer
 
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 
-  private:
+ private:
   bool m_mouseDown;
 
   bool m_isHovering;
@@ -111,19 +111,19 @@ class ButtonItem : public QGraphicsObject, public Nano::Observer
 
 class RemoveButtonItem : public ButtonItem
 {
-  public:
+ public:
   RemoveButtonItem(QGraphicsItem* parent = nullptr);
 };
 
 class ZoomInButtonItem : public ButtonItem
 {
-  public:
+ public:
   ZoomInButtonItem(QGraphicsItem* parent = nullptr);
 };
 
 class ZoomOutButtonItem : public ButtonItem
 {
-  public:
+ public:
   ZoomOutButtonItem(QGraphicsItem* parent = nullptr);
 };
 
@@ -131,7 +131,7 @@ class GridLayoutItem : public QGraphicsObject
 {
   Q_OBJECT;
 
-  public:
+ public:
   GridLayoutItem();
 
   virtual ~GridLayoutItem();
@@ -152,14 +152,14 @@ class GridLayoutItem : public QGraphicsObject
 
   void setMargin(int margin);
 
-  public slots:
+ public slots:
 
   void refreshAllItemViews();
 
-  protected:
+ protected:
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override {}
 
-  private slots:
+ private slots:
 
   void insertItemView(int i);
 
@@ -169,7 +169,7 @@ class GridLayoutItem : public QGraphicsObject
 
   void refreshItemView(int i);
 
-  private:
+ private:
   int spacing() const;
 
   int rows() const;

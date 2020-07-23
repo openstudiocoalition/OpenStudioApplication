@@ -52,7 +52,7 @@ class BuildingComponentDialogCentralWidget : public QWidget, public Nano::Observ
 {
   Q_OBJECT
 
-  public:
+ public:
   BuildingComponentDialogCentralWidget(QWidget* parent = nullptr);
   BuildingComponentDialogCentralWidget(int tid, QWidget* parent = nullptr);
   virtual ~BuildingComponentDialogCentralWidget() {}
@@ -63,8 +63,8 @@ class BuildingComponentDialogCentralWidget : public QWidget, public Nano::Observ
   bool showNewComponents();
   void setShowNewComponents(bool showNewComponents);
 
-  protected:
-  private:
+ protected:
+ private:
   void createLayout();
   void init();
   void setTid();
@@ -79,7 +79,7 @@ class BuildingComponentDialogCentralWidget : public QWidget, public Nano::Observ
   QString m_searchString;
   bool m_showNewComponents;
 
-  signals:
+ signals:
   void headerClicked(bool checked);
   void componentClicked(bool checked);
   void collapsibleComponentClicked(bool checked);
@@ -88,7 +88,7 @@ class BuildingComponentDialogCentralWidget : public QWidget, public Nano::Observ
   void noComponents();
   void requestComponents(const std::string& filterType, int tids, int pageIdx, const QString& searchString);
 
-  private slots:
+ private slots:
   void upperPushButtonClicked();
   void lowerPushButtonClicked();
   void comboBoxIndexChanged(const QString& text);

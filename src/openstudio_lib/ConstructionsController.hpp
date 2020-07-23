@@ -38,12 +38,12 @@ class ConstructionsController : public ModelSubTabController
 {
   Q_OBJECT
 
-  public:
+ public:
   ConstructionsController(bool isIP, const model::Model& model);
 
   virtual ~ConstructionsController();
 
-  protected:
+ protected:
   virtual void onAddObject(const openstudio::IddObjectType& iddObjectType) override;
 
   virtual void onCopyObject(const openstudio::model::ModelObject& modelObject) override;

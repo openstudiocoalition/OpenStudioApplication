@@ -49,20 +49,20 @@ class VariableListItem : public QWidget, public Nano::Observer
 {
   Q_OBJECT;
 
-  public:
+ public:
   VariableListItem(const std::string& t_name, const std::string& t_keyValue, const boost::optional<openstudio::model::OutputVariable>& t_variable,
                    const openstudio::model::Model& t_model);
 
   virtual ~VariableListItem() {}
 
-  public slots:
+ public slots:
   void setVariableEnabled(bool);
 
-  private slots:
+ private slots:
   void onOffClicked(bool);
   void indexChanged(const QString& t_frequency);
 
-  private:
+ private:
   REGISTER_LOGGER("openstudio.VariableListItem");
 
   std::string m_name;
@@ -78,11 +78,11 @@ class VariablesList : public QWidget, public Nano::Observer
 {
   Q_OBJECT;
 
-  public:
+ public:
   VariablesList(openstudio::model::Model t_model);
   virtual ~VariablesList();
 
-  private slots:
+ private slots:
   void onAdded(const WorkspaceObject&, const openstudio::IddObjectType&, const openstudio::UUID&);
   void onRemoved(const WorkspaceObject&, const openstudio::IddObjectType&, const openstudio::UUID&);
 
@@ -92,7 +92,7 @@ class VariablesList : public QWidget, public Nano::Observer
   void enableAll(bool);
   void updateVariableList();
 
-  private:
+ private:
   REGISTER_LOGGER("openstudio.VariablesList");
   openstudio::model::Model m_model;
   QPushButton* m_allOnBtn;
@@ -106,12 +106,12 @@ class VariablesTabView : public MainTabView
 {
   Q_OBJECT;
 
-  public:
+ public:
   VariablesTabView(openstudio::model::Model t_model, QWidget* parent = nullptr);
 
   virtual ~VariablesTabView() {}
 
-  private:
+ private:
   REGISTER_LOGGER("openstudio.VariablesTabView");
 };
 

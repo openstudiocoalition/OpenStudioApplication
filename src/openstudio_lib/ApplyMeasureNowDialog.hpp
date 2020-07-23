@@ -64,7 +64,7 @@ class ApplyMeasureNowDialog : public OSDialog
 {
   Q_OBJECT
 
-  public:
+ public:
   ApplyMeasureNowDialog(QWidget* parent = nullptr);
 
   virtual ~ApplyMeasureNowDialog();
@@ -77,7 +77,7 @@ class ApplyMeasureNowDialog : public OSDialog
 
   QSharedPointer<LocalLibraryController> m_localLibraryController;
 
-  protected slots:
+ protected slots:
 
   virtual void on_cancelButton(bool checked) override;
 
@@ -85,10 +85,10 @@ class ApplyMeasureNowDialog : public OSDialog
 
   virtual void on_okButton(bool checked) override;
 
-  protected:
+ protected:
   void closeEvent(QCloseEvent* event) override;
 
-  private slots:
+ private slots:
 
   void disableOkButton(bool disable);
 
@@ -98,13 +98,13 @@ class ApplyMeasureNowDialog : public OSDialog
 
   void displayResults();
 
-  signals:
+ signals:
 
   void reloadFile(const QString& fileToLoad, bool modified, bool saveCurrentTabs);
 
   void toolsUpdated();
 
-  private:
+ private:
   REGISTER_LOGGER("openstudio::ApplyMeasureNowDialog");
 
   void createWidgets();
@@ -168,7 +168,7 @@ class DataPointJobHeaderView : public OSHeader
 {
   Q_OBJECT
 
-  public:
+ public:
   DataPointJobHeaderView();
 
   virtual ~DataPointJobHeaderView() {}
@@ -197,7 +197,7 @@ class DataPointJobContentView : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   DataPointJobContentView();
 
   virtual ~DataPointJobContentView() {}
@@ -216,7 +216,7 @@ class DataPointJobContentView : public QWidget
 
   void addStdErrorMessage(const std::string& message);
 
-  private:
+ private:
   static QString formatMessageForHTML(const std::string& t_message);
 
   QLabel* m_textEdit;
@@ -226,7 +226,7 @@ class DataPointJobItemView : public OSCollapsibleView
 {
   Q_OBJECT
 
-  public:
+ public:
   DataPointJobItemView();
 
   virtual ~DataPointJobItemView() {}
@@ -235,10 +235,10 @@ class DataPointJobItemView : public OSCollapsibleView
 
   DataPointJobContentView* m_dataPointJobContentView;
 
-  protected:
+ protected:
   void paintEvent(QPaintEvent* e) override;
 
-  public slots:
+ public slots:
 
   void update(const BCLMeasure& bclMeasure, const boost::optional<WorkflowJSON>& outWorkflowJSON, bool canceled);
 };

@@ -59,7 +59,7 @@ class StandardsInformationConstructionWidget : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   StandardsInformationConstructionWidget(bool isIP, QGridLayout* mainGridLayout, int& row);
 
   virtual ~StandardsInformationConstructionWidget();
@@ -76,11 +76,11 @@ class StandardsInformationConstructionWidget : public QWidget
 
   void disableFenestration();
 
-  public slots:
+ public slots:
 
   void toggleUnits(bool displayIP);
 
-  private slots:
+ private slots:
 
   void standardChanged(const QString& text);
   void populateStandards();
@@ -93,7 +93,7 @@ class StandardsInformationConstructionWidget : public QWidget
   void standardsConstructionTypeChanged(const QString& text);
   void populateStandardsConstructionType();
 
-  private:
+ private:
   QComboBox* m_standard = nullptr;
 
   QComboBox* m_standardSource = nullptr;

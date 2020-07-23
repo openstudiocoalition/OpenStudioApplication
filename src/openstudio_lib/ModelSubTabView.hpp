@@ -52,7 +52,7 @@ class ModelSubTabView : public SubTabView
 {
   Q_OBJECT
 
-  public:
+ public:
   ModelSubTabView(OSItemSelector* itemSelector, ModelObjectInspectorView* modelObjectInspectorView, bool showGridViewLayout = false,
                   QWidget* parent = nullptr);
 
@@ -60,7 +60,7 @@ class ModelSubTabView : public SubTabView
 
   ModelObjectInspectorView* modelObjectInspectorView();
 
-  signals:
+ signals:
 
   void modelObjectSelected(model::OptionalModelObject& modelObject, bool readOnly);
 
@@ -70,16 +70,16 @@ class ModelSubTabView : public SubTabView
 
   void toggleUnitsClicked(bool displayIP);
 
-  protected:
+ protected:
   bool m_isIP;
 
-  protected slots:
+ protected slots:
 
   virtual void onDropZoneItemClicked(OSItem* item) override;
 
   //void onItemSelected(); Evan: Dead slot
 
-  private:
+ private:
   ModelObjectInspectorView* m_modelObjectInspectorView;
 };
 

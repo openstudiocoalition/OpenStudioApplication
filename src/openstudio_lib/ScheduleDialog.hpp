@@ -48,18 +48,18 @@ class ScheduleDialog : public OSDialog
 {
   Q_OBJECT
 
-  public:
+ public:
   ScheduleDialog(bool isIP, const model::Model& model, QWidget* parent = nullptr);
 
   virtual ~ScheduleDialog() {}
 
   void setIsIP(bool isIP);
 
-  private slots:
+ private slots:
 
   void onCurrentIndexChanged(int index);
 
-  private:
+ private:
   virtual void createLayout() override;
 
   bool m_isIP;
@@ -76,7 +76,7 @@ class ScheduleDialog : public OSDialog
 
   QLabel* m_upperLimitLabel;
 
-  protected slots:
+ protected slots:
 
   virtual void on_okButton(bool checked) override;
 };

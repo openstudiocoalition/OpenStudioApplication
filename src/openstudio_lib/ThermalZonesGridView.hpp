@@ -47,19 +47,19 @@ class ThermalZonesGridView : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   ThermalZonesGridView(bool isIP, const model::Model& model, QWidget* parent = nullptr);
 
   virtual ~ThermalZonesGridView() {}
 
   std::vector<model::ModelObject> selectedObjects() const;
 
-  private:
+ private:
   ThermalZonesGridController* m_gridController = nullptr;
 
   bool m_isIP;
 
-  signals:
+ signals:
 
   void toggleUnitsClicked(bool displayIP);
 
@@ -73,7 +73,7 @@ class ThermalZonesGridController : public OSGridController
 
   Q_OBJECT
 
-  public:
+ public:
   ThermalZonesGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model model,
                              std::vector<model::ModelObject> modelObjects);
 
@@ -81,7 +81,7 @@ class ThermalZonesGridController : public OSGridController
 
   virtual void refreshModelObjects() override;
 
-  protected:
+ protected:
   virtual void setCategoriesAndFields() override;
 
   virtual void addColumns(const QString& t_category, std::vector<QString>& fields) override;
@@ -90,10 +90,10 @@ class ThermalZonesGridController : public OSGridController
 
   virtual QString getColor(const model::ModelObject& modelObject) override;
 
-  private:
+ private:
   REGISTER_LOGGER("openstudio.ThermalZonesGridController");
 
-  public slots:
+ public slots:
 
   virtual void onItemDropped(const OSItemId& itemId) override;
 

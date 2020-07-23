@@ -40,12 +40,12 @@ class StartupMenu : public QMenuBar
 {
   Q_OBJECT
 
-  public:
+ public:
   StartupMenu(QWidget* parent = nullptr);
 
   virtual ~StartupMenu() {}
 
-  signals:
+ signals:
 
   void exportClicked();
 
@@ -71,7 +71,7 @@ class StartupMenu : public QMenuBar
 
   void aboutClicked();
 
-  private:
+ private:
   QMenu* m_fileMenu;
 
   QMenu* m_viewMenu;

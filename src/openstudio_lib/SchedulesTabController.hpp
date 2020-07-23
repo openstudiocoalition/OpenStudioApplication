@@ -66,7 +66,7 @@ class SchedulesTabController : public MainTabController
 {
   Q_OBJECT
 
-  public:
+ public:
   SchedulesTabController(bool isIP, const model::Model& model);
 
   virtual ~SchedulesTabController();
@@ -80,7 +80,7 @@ class SchedulesTabController : public MainTabController
 
   static double defaultStartingValue(const model::ScheduleDay& scheduleDay);
 
-  private:
+ private:
   void showScheduleDialog();
 
   ScheduleDialog* m_scheduleDialog = nullptr;
@@ -95,13 +95,13 @@ class SchedulesTabController : public MainTabController
 
   int m_currentIndex = -1;
 
-  public slots:
+ public slots:
 
   virtual void setSubTab(int index) override;
 
   void toggleUnits(bool displayIP);
 
-  private slots:
+ private slots:
 
   void addScheduleRuleset();
 

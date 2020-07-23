@@ -41,10 +41,10 @@ class ResultQuery;
 class RequestedResult;
 class AnalysisProjectRelation
 {
-  public:
+ public:
   class Row
   {
-public:
+   public:
     litesql::Field<int> project;
     litesql::Field<int> analysis;
     Row(const litesql::Database& db, const litesql::Record& rec = litesql::Record());
@@ -64,10 +64,10 @@ public:
 };
 class AnalysisModelRelation
 {
-  public:
+ public:
   class Row
   {
-public:
+   public:
     litesql::Field<int> model;
     litesql::Field<int> analysis;
     Row(const litesql::Database& db, const litesql::Record& rec = litesql::Record());
@@ -87,10 +87,10 @@ public:
 };
 class ModelResultRelation
 {
-  public:
+ public:
   class Row
   {
-public:
+   public:
     litesql::Field<int> result;
     litesql::Field<int> model;
     Row(const litesql::Database& db, const litesql::Record& rec = litesql::Record());
@@ -110,10 +110,10 @@ public:
 };
 class ResultResultQueryRelation
 {
-  public:
+ public:
   class Row
   {
-public:
+   public:
     litesql::Field<int> resultQuery;
     litesql::Field<int> result;
     Row(const litesql::Database& db, const litesql::Record& rec = litesql::Record());
@@ -133,10 +133,10 @@ public:
 };
 class RequestedResultResultQueryRelation
 {
-  public:
+ public:
   class Row
   {
-public:
+   public:
     litesql::Field<int> resultQuery;
     litesql::Field<int> requestedResult;
     Row(const litesql::Database& db, const litesql::Record& rec = litesql::Record());
@@ -157,15 +157,15 @@ public:
 };
 class Project : public litesql::Persistent
 {
-  public:
+ public:
   class Own
   {
-public:
+   public:
     static const litesql::FieldType Id;
   };
   class AnalysesHandle : public litesql::RelationHandle<Project>
   {
-public:
+   public:
     AnalysesHandle(const Project& owner);
     void link(const Analysis& o0);
     void unlink(const Analysis& o0);
@@ -185,30 +185,30 @@ public:
   static const litesql::FieldType Projecttype;
   litesql::Field<std::string> projecttype;
 
-  protected:
+ protected:
   void defaults();
 
-  public:
+ public:
   Project(const litesql::Database& db);
   Project(const litesql::Database& db, const litesql::Record& rec);
   Project(const Project& obj);
   const Project& operator=(const Project& obj);
   Project::AnalysesHandle analyses();
 
-  protected:
+ protected:
   std::string insert(litesql::Record& tables, litesql::Records& fieldRecs, litesql::Records& valueRecs);
   void create();
   virtual void addUpdates(Updates& updates);
   virtual void addIDUpdates(Updates& updates);
 
-  public:
+ public:
   static void getFieldTypes(std::vector<litesql::FieldType>& ftypes);
 
-  protected:
+ protected:
   virtual void delRecord();
   virtual void delRelations();
 
-  public:
+ public:
   virtual void update();
   virtual void del();
   virtual bool typeIsCorrect();
@@ -218,15 +218,15 @@ public:
 std::ostream& operator<<(std::ostream& os, Project o);
 class Analysis : public litesql::Persistent
 {
-  public:
+ public:
   class Own
   {
-public:
+   public:
     static const litesql::FieldType Id;
   };
   class ProjectHandle : public litesql::RelationHandle<Analysis>
   {
-public:
+   public:
     ProjectHandle(const Analysis& owner);
     void link(const Project& o0);
     void unlink(const Project& o0);
@@ -236,7 +236,7 @@ public:
   };
   class ModelsHandle : public litesql::RelationHandle<Analysis>
   {
-public:
+   public:
     ModelsHandle(const Analysis& owner);
     void link(const Model& o0);
     void unlink(const Model& o0);
@@ -256,10 +256,10 @@ public:
   static const litesql::FieldType Analysistype;
   litesql::Field<std::string> analysistype;
 
-  protected:
+ protected:
   void defaults();
 
-  public:
+ public:
   Analysis(const litesql::Database& db);
   Analysis(const litesql::Database& db, const litesql::Record& rec);
   Analysis(const Analysis& obj);
@@ -267,20 +267,20 @@ public:
   Analysis::ProjectHandle project();
   Analysis::ModelsHandle models();
 
-  protected:
+ protected:
   std::string insert(litesql::Record& tables, litesql::Records& fieldRecs, litesql::Records& valueRecs);
   void create();
   virtual void addUpdates(Updates& updates);
   virtual void addIDUpdates(Updates& updates);
 
-  public:
+ public:
   static void getFieldTypes(std::vector<litesql::FieldType>& ftypes);
 
-  protected:
+ protected:
   virtual void delRecord();
   virtual void delRelations();
 
-  public:
+ public:
   virtual void update();
   virtual void del();
   virtual bool typeIsCorrect();
@@ -290,15 +290,15 @@ public:
 std::ostream& operator<<(std::ostream& os, Analysis o);
 class Model : public litesql::Persistent
 {
-  public:
+ public:
   class Own
   {
-public:
+   public:
     static const litesql::FieldType Id;
   };
   class AnalysesHandle : public litesql::RelationHandle<Model>
   {
-public:
+   public:
     AnalysesHandle(const Model& owner);
     void link(const Analysis& o0);
     void unlink(const Analysis& o0);
@@ -308,7 +308,7 @@ public:
   };
   class ResultsHandle : public litesql::RelationHandle<Model>
   {
-public:
+   public:
     ResultsHandle(const Model& owner);
     void link(const Result& o0);
     void unlink(const Result& o0);
@@ -330,10 +330,10 @@ public:
   static const litesql::FieldType Guid;
   litesql::Field<std::string> guid;
 
-  protected:
+ protected:
   void defaults();
 
-  public:
+ public:
   Model(const litesql::Database& db);
   Model(const litesql::Database& db, const litesql::Record& rec);
   Model(const Model& obj);
@@ -341,20 +341,20 @@ public:
   Model::AnalysesHandle analyses();
   Model::ResultsHandle results();
 
-  protected:
+ protected:
   std::string insert(litesql::Record& tables, litesql::Records& fieldRecs, litesql::Records& valueRecs);
   void create();
   virtual void addUpdates(Updates& updates);
   virtual void addIDUpdates(Updates& updates);
 
-  public:
+ public:
   static void getFieldTypes(std::vector<litesql::FieldType>& ftypes);
 
-  protected:
+ protected:
   virtual void delRecord();
   virtual void delRelations();
 
-  public:
+ public:
   virtual void update();
   virtual void del();
   virtual bool typeIsCorrect();
@@ -364,15 +364,15 @@ public:
 std::ostream& operator<<(std::ostream& os, Model o);
 class Result : public litesql::Persistent
 {
-  public:
+ public:
   class Own
   {
-public:
+   public:
     static const litesql::FieldType Id;
   };
   class ModelHandle : public litesql::RelationHandle<Result>
   {
-public:
+   public:
     ModelHandle(const Result& owner);
     void link(const Model& o0);
     void unlink(const Model& o0);
@@ -382,7 +382,7 @@ public:
   };
   class ResultqueriesHandle : public litesql::RelationHandle<Result>
   {
-public:
+   public:
     ResultqueriesHandle(const Result& owner);
     void link(const ResultQuery& o0);
     void unlink(const ResultQuery& o0);
@@ -400,10 +400,10 @@ public:
   static const litesql::FieldType Value;
   litesql::Field<int> value;
 
-  protected:
+ protected:
   void defaults();
 
-  public:
+ public:
   Result(const litesql::Database& db);
   Result(const litesql::Database& db, const litesql::Record& rec);
   Result(const Result& obj);
@@ -411,20 +411,20 @@ public:
   Result::ModelHandle model();
   Result::ResultqueriesHandle resultqueries();
 
-  protected:
+ protected:
   std::string insert(litesql::Record& tables, litesql::Records& fieldRecs, litesql::Records& valueRecs);
   void create();
   virtual void addUpdates(Updates& updates);
   virtual void addIDUpdates(Updates& updates);
 
-  public:
+ public:
   static void getFieldTypes(std::vector<litesql::FieldType>& ftypes);
 
-  protected:
+ protected:
   virtual void delRecord();
   virtual void delRelations();
 
-  public:
+ public:
   virtual void update();
   virtual void del();
   virtual bool typeIsCorrect();
@@ -434,15 +434,15 @@ public:
 std::ostream& operator<<(std::ostream& os, Result o);
 class ResultQuery : public litesql::Persistent
 {
-  public:
+ public:
   class Own
   {
-public:
+   public:
     static const litesql::FieldType Id;
   };
   class ResultHandle : public litesql::RelationHandle<ResultQuery>
   {
-public:
+   public:
     ResultHandle(const ResultQuery& owner);
     void link(const Result& o0);
     void unlink(const Result& o0);
@@ -452,7 +452,7 @@ public:
   };
   class RequestedresultsHandle : public litesql::RelationHandle<ResultQuery>
   {
-public:
+   public:
     RequestedresultsHandle(const ResultQuery& owner);
     void link(const RequestedResult& o0);
     void unlink(const RequestedResult& o0);
@@ -470,10 +470,10 @@ public:
   static const litesql::FieldType Query;
   litesql::Field<std::string> query;
 
-  protected:
+ protected:
   void defaults();
 
-  public:
+ public:
   ResultQuery(const litesql::Database& db);
   ResultQuery(const litesql::Database& db, const litesql::Record& rec);
   ResultQuery(const ResultQuery& obj);
@@ -481,20 +481,20 @@ public:
   ResultQuery::ResultHandle result();
   ResultQuery::RequestedresultsHandle requestedresults();
 
-  protected:
+ protected:
   std::string insert(litesql::Record& tables, litesql::Records& fieldRecs, litesql::Records& valueRecs);
   void create();
   virtual void addUpdates(Updates& updates);
   virtual void addIDUpdates(Updates& updates);
 
-  public:
+ public:
   static void getFieldTypes(std::vector<litesql::FieldType>& ftypes);
 
-  protected:
+ protected:
   virtual void delRecord();
   virtual void delRelations();
 
-  public:
+ public:
   virtual void update();
   virtual void del();
   virtual bool typeIsCorrect();
@@ -504,15 +504,15 @@ public:
 std::ostream& operator<<(std::ostream& os, ResultQuery o);
 class RequestedResult : public litesql::Persistent
 {
-  public:
+ public:
   class Own
   {
-public:
+   public:
     static const litesql::FieldType Id;
   };
   class ResultqueryHandle : public litesql::RelationHandle<RequestedResult>
   {
-public:
+   public:
     ResultqueryHandle(const RequestedResult& owner);
     void link(const ResultQuery& o0);
     void unlink(const ResultQuery& o0);
@@ -530,30 +530,30 @@ public:
   static const litesql::FieldType Result;
   litesql::Field<std::string> result;
 
-  protected:
+ protected:
   void defaults();
 
-  public:
+ public:
   RequestedResult(const litesql::Database& db);
   RequestedResult(const litesql::Database& db, const litesql::Record& rec);
   RequestedResult(const RequestedResult& obj);
   const RequestedResult& operator=(const RequestedResult& obj);
   RequestedResult::ResultqueryHandle resultquery();
 
-  protected:
+ protected:
   std::string insert(litesql::Record& tables, litesql::Records& fieldRecs, litesql::Records& valueRecs);
   void create();
   virtual void addUpdates(Updates& updates);
   virtual void addIDUpdates(Updates& updates);
 
-  public:
+ public:
   static void getFieldTypes(std::vector<litesql::FieldType>& ftypes);
 
-  protected:
+ protected:
   virtual void delRecord();
   virtual void delRelations();
 
-  public:
+ public:
   virtual void update();
   virtual void del();
   virtual bool typeIsCorrect();
@@ -563,10 +563,10 @@ public:
 std::ostream& operator<<(std::ostream& os, RequestedResult o);
 class ProjectModelDatabase : public litesql::Database
 {
-  public:
+ public:
   ProjectModelDatabase(std::string backendType, std::string connInfo);
 
-  protected:
+ protected:
   virtual std::vector<litesql::Database::SchemaItem> getSchema() const;
   static void initialize();
 };

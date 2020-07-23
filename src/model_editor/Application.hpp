@@ -49,7 +49,7 @@ class ApplicationSingleton
 
   friend class Singleton<ApplicationSingleton>;
 
-  public:
+ public:
   /// get the QApplication, if no QApplication has been set this will create a default one
   QCoreApplication* application(bool gui = true);
 
@@ -96,7 +96,7 @@ class ApplicationSingleton
 
   ~ApplicationSingleton();
 
-  private:
+ private:
   /// private constructor
   ApplicationSingleton();
 

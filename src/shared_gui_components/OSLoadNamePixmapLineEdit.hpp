@@ -47,7 +47,7 @@ class OSLoadNamePixmapLineEdit : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   OSLoadNamePixmapLineEdit(QWidget* parent = nullptr);
 
   virtual ~OSLoadNamePixmapLineEdit();
@@ -69,17 +69,17 @@ class OSLoadNamePixmapLineEdit : public QWidget
 
   void unbind();
 
-  signals:
+ signals:
 
   void itemClicked(OSItem* item);
 
   void objectRemoved(boost::optional<model::ParentObject> parent);
 
-  private slots:
+ private slots:
 
   void onModelObjectChange();
 
-  private:
+ private:
   boost::optional<model::ModelObject> m_modelObject;
 
   void completeBind();

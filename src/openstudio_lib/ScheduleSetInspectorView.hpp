@@ -45,10 +45,10 @@ class HoursOfOperationVC : public ModelObjectVectorController
 {
   Q_OBJECT
 
-  public:
+ public:
   virtual ~HoursOfOperationVC() {}
 
-  protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onRemoveItem(OSItem* item) override;
@@ -60,10 +60,10 @@ class NumberOfPeopleVC : public ModelObjectVectorController
 {
   Q_OBJECT
 
-  public:
+ public:
   virtual ~NumberOfPeopleVC() {}
 
-  protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onRemoveItem(OSItem* item) override;
@@ -75,10 +75,10 @@ class PeopleActivityScheduleVC : public ModelObjectVectorController
 {
   Q_OBJECT
 
-  public:
+ public:
   virtual ~PeopleActivityScheduleVC() {}
 
-  protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onRemoveItem(OSItem* item) override;
@@ -90,10 +90,10 @@ class LightingScheduleVC : public ModelObjectVectorController
 {
   Q_OBJECT
 
-  public:
+ public:
   virtual ~LightingScheduleVC() {}
 
-  protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onRemoveItem(OSItem* item) override;
@@ -105,10 +105,10 @@ class ElectricEquipmentScheduleVC : public ModelObjectVectorController
 {
   Q_OBJECT
 
-  public:
+ public:
   virtual ~ElectricEquipmentScheduleVC() {}
 
-  protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onRemoveItem(OSItem* item) override;
@@ -120,10 +120,10 @@ class GasEquipmentScheduleVC : public ModelObjectVectorController
 {
   Q_OBJECT
 
-  public:
+ public:
   virtual ~GasEquipmentScheduleVC() {}
 
-  protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onRemoveItem(OSItem* item) override;
@@ -135,10 +135,10 @@ class HotWaterEquipmentScheduleVC : public ModelObjectVectorController
 {
   Q_OBJECT
 
-  public:
+ public:
   virtual ~HotWaterEquipmentScheduleVC() {}
 
-  protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onRemoveItem(OSItem* item) override;
@@ -150,10 +150,10 @@ class InfiltrationScheduleVC : public ModelObjectVectorController
 {
   Q_OBJECT
 
-  public:
+ public:
   virtual ~InfiltrationScheduleVC() {}
 
-  protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onRemoveItem(OSItem* item) override;
@@ -165,10 +165,10 @@ class SteamEquipmentScheduleVC : public ModelObjectVectorController
 {
   Q_OBJECT
 
-  public:
+ public:
   virtual ~SteamEquipmentScheduleVC() {}
 
-  protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onRemoveItem(OSItem* item) override;
@@ -180,10 +180,10 @@ class OtherEquipmentScheduleVC : public ModelObjectVectorController
 {
   Q_OBJECT
 
-  public:
+ public:
   virtual ~OtherEquipmentScheduleVC() {}
 
-  protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onRemoveItem(OSItem* item) override;
@@ -195,16 +195,16 @@ class ScheduleSetInspectorView : public ModelObjectInspectorView
 {
   Q_OBJECT
 
-  public:
+ public:
   ScheduleSetInspectorView(const model::Model& model, QWidget* parent = nullptr);
   virtual ~ScheduleSetInspectorView() {}
 
-  protected:
+ protected:
   virtual void onClearSelection() override;
   virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
   virtual void onUpdate() override;
 
-  private:
+ private:
   void attach(openstudio::model::DefaultScheduleSet& scheduleSet);
   void detach();
   void configDropZones();

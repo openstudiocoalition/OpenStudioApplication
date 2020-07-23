@@ -40,7 +40,7 @@ class SpaceTypeInspectorView : public ModelObjectInspectorView
 {
   Q_OBJECT
 
-  public:
+ public:
   SpaceTypeInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
   virtual ~SpaceTypeInspectorView() {}
@@ -50,20 +50,20 @@ class SpaceTypeInspectorView : public ModelObjectInspectorView
   }
   virtual std::vector<model::ModelObject> selectedObjects() const override;
 
-  protected:
+ protected:
   virtual void onClearSelection() override;
 
   virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
   virtual void onUpdate() override;
 
-  private:
+ private:
   void refresh();
 
   bool m_isIP;
   SpaceTypesGridView* m_gridView;
 
-  public slots:
+ public slots:
 
   void toggleUnits(bool displayIP) override;
 };

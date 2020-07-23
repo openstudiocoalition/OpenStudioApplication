@@ -48,16 +48,16 @@ class SimSettingsTabView : public MainTabView
 {
   Q_OBJECT
 
-  public:
+ public:
   SimSettingsTabView(bool isIP, const model::Model& model, const QString& tabLabel, TabType tabType, QWidget* parent = nullptr);
 
   virtual ~SimSettingsTabView() {}
 
-  public slots:
+ public slots:
 
   void toggleUnits(bool displayIP);
 
-  private:
+ private:
   SimSettingsView* m_simSettingsView;
 };
 

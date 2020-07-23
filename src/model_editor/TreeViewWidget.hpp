@@ -45,7 +45,7 @@ class TreeViewWidget : public ViewWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   TreeViewWidget(openstudio::model::Model& model, QWidget* parent = nullptr);
   TreeViewWidget(QWidget* parent = nullptr);
   virtual ~TreeViewWidget();
@@ -63,20 +63,20 @@ class TreeViewWidget : public ViewWidget
   TreeModel* getTreeModel();
   virtual void toggleGUIDs() override;
 
-  public slots:
+ public slots:
   virtual void viewSelection();
   virtual void viewSelection(const QModelIndex& modelIndex) override;
   virtual void on_nameChanged(QString) override;
 
-  signals:
+ signals:
   void expandAll();
   void collapseAll();
 
-  protected:
+ protected:
   TreeView* mTreeView;
   TreeModel* mTreeModel;
 
-  private:
+ private:
   virtual void connectSignalsAndSlots() override;
   virtual void createLayout() override;
   virtual void createWidgets() override;

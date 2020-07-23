@@ -45,12 +45,12 @@ class SpacesDaylightingGridView : public SpacesSubtabGridView
 {
   Q_OBJECT
 
-  public:
+ public:
   SpacesDaylightingGridView(bool isIP, const model::Model& model, QWidget* parent = nullptr);
 
   virtual ~SpacesDaylightingGridView() {}
 
-  private:
+ private:
   REGISTER_LOGGER("openstudio.SpacesDaylightingGridView");
 };
 
@@ -59,7 +59,7 @@ class SpacesDaylightingGridController : public OSGridController
 
   Q_OBJECT
 
-  public:
+ public:
   SpacesDaylightingGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model model,
                                   std::vector<model::ModelObject> modelObjects);
 
@@ -69,7 +69,7 @@ class SpacesDaylightingGridController : public OSGridController
 
   virtual void categorySelected(int index);
 
-  protected:
+ protected:
   virtual void setCategoriesAndFields();
 
   virtual void addColumns(const QString& category, std::vector<QString>& fields);
@@ -78,7 +78,7 @@ class SpacesDaylightingGridController : public OSGridController
 
   virtual QString getColor(const model::ModelObject& modelObject);
 
-  public slots:
+ public slots:
 
   virtual void onItemDropped(const OSItemId& itemId);
 };

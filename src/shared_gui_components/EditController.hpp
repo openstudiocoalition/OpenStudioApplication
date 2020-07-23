@@ -58,7 +58,7 @@ class EditController : public QObject
 {
   Q_OBJECT
 
-  public:
+ public:
   QPointer<OSViewSwitcher> editView;
 
   QPointer<EditRubyMeasureView> editRubyMeasureView;
@@ -74,11 +74,11 @@ class EditController : public QObject
   // Show something when no RubyMeasure is selected
   void reset();
 
-  private slots:
+ private slots:
 
   void updateDescription();
 
-  private:
+ private:
   REGISTER_LOGGER("openstudio.pat.EditController");
 
   QPointer<EditNullView> m_editNullView;
@@ -92,14 +92,14 @@ class InputController : public QObject
 {
   Q_OBJECT
 
-  public:
+ public:
   InputController(EditController* editController, const measure::OSArgument& argument, BaseApp* t_app);
 
   virtual ~InputController();
 
   QPointer<InputView> inputView;
 
-  private slots:
+ private slots:
 
   void setValue(const QString& value);
 
@@ -107,7 +107,7 @@ class InputController : public QObject
 
   void setValueForIndex(int index);
 
-  private:
+ private:
   bool isItOKToClearResults();
 
   bool isArgumentIncomplete() const;

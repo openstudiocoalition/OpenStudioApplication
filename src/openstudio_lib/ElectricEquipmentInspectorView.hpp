@@ -45,19 +45,19 @@ class ElectricEquipmentDefinitionInspectorView : public ModelObjectInspectorView
 {
   Q_OBJECT
 
-  public:
+ public:
   ElectricEquipmentDefinitionInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
   virtual ~ElectricEquipmentDefinitionInspectorView() {}
 
-  protected:
+ protected:
   virtual void onClearSelection() override;
 
   virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
   virtual void onUpdate() override;
 
-  private:
+ private:
   void attach(openstudio::model::ElectricEquipmentDefinition& electricEquipmentDefinition);
 
   void detach();
@@ -82,7 +82,7 @@ class ElectricEquipmentDefinitionInspectorView : public ModelObjectInspectorView
 
   boost::optional<model::ElectricEquipmentDefinition> m_electricEquipmentDefinition;
 
-  public slots:
+ public slots:
 
   void toggleUnits(bool displayIP) override;
 };

@@ -52,7 +52,7 @@ namespace modeleditor {
 
 class TreeItem
 {
-  public:
+ public:
   TreeItem(const openstudio::model::ModelObject& object, const QList<QVariant>& data, TreeItem* parent = nullptr);
   ~TreeItem();
 
@@ -70,7 +70,7 @@ class TreeItem
   bool setData(openstudio::model::ModelObject& data);
   TreeItem* parent();
 
-  private:
+ private:
   QList<TreeItem*> mChildItems;
   QList<QVariant> mItemData;
   TreeItem* mParentItem;

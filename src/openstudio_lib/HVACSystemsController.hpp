@@ -89,7 +89,7 @@ class HVACSystemsController : public QObject, public Nano::Observer
 {
   Q_OBJECT
 
-  public:
+ public:
   enum SceneType
   {
     TOPOLOGY,
@@ -119,13 +119,13 @@ class HVACSystemsController : public QObject, public Nano::Observer
 
   void clearSceneSelection();
 
-  public slots:
+ public slots:
 
   void updateLater();
 
   // void dropZoneItemSelected(OSItem* item);
 
-  private slots:
+ private slots:
 
   void update();
 
@@ -157,7 +157,7 @@ class HVACSystemsController : public QObject, public Nano::Observer
 
   void toggleUnits(bool displayIP);
 
-  private:
+ private:
   REGISTER_LOGGER("openstudio.openstudio_lib.HVACSystemsController");
 
   std::vector<IddObjectType> systemComboBoxTypes() const;
@@ -184,7 +184,7 @@ class HVACSystemsController : public QObject, public Nano::Observer
 
   bool m_isIP;
 
-  signals:
+ signals:
 
   void toggleUnitsClicked(bool displayIP);
 };
@@ -193,7 +193,7 @@ class HVACControlsController : public QObject, public Nano::Observer
 {
   Q_OBJECT;
 
-  public:
+ public:
   HVACControlsController(HVACSystemsController* hvacSystemsController);
 
   virtual ~HVACControlsController();
@@ -208,11 +208,11 @@ class HVACControlsController : public QObject, public Nano::Observer
 
   boost::optional<model::PlantLoop> plantLoop() const;
 
-  public slots:
+ public slots:
 
   void updateLater();
 
-  private slots:
+ private slots:
 
   void update();
 
@@ -228,7 +228,7 @@ class HVACControlsController : public QObject, public Nano::Observer
 
   // void onDropZoneItemClicked(OSItem* item);
 
-  private:
+ private:
   QPointer<HVACAirLoopControlsView> m_hvacAirLoopControlsView;
 
   QPointer<HVACPlantLoopControlsView> m_hvacPlantLoopControlsView;
@@ -266,7 +266,7 @@ class HVACLayoutController : public QObject, public Nano::Observer
 {
   Q_OBJECT;
 
-  public:
+ public:
   HVACLayoutController(HVACSystemsController* hvacSystemsController);
 
   virtual ~HVACLayoutController();
@@ -277,11 +277,11 @@ class HVACLayoutController : public QObject, public Nano::Observer
 
   void clearSceneSelection();
 
-  public slots:
+ public slots:
 
   void updateLater();
 
-  private slots:
+ private slots:
 
   void update();
 
@@ -297,7 +297,7 @@ class HVACLayoutController : public QObject, public Nano::Observer
 
   void goToServiceWaterScene();
 
-  private:
+ private:
   QPointer<HVACGraphicsView> m_hvacGraphicsView;
 
   QPointer<HVACSystemsController> m_hvacSystemsController;
@@ -311,7 +311,7 @@ class SystemAvailabilityVectorController : public ModelObjectVectorController
 {
   Q_OBJECT;
 
-  public:
+ public:
   SystemAvailabilityVectorController();
 
   virtual ~SystemAvailabilityVectorController();
@@ -322,7 +322,7 @@ class SystemAvailabilityVectorController : public ModelObjectVectorController
 
   void detach();
 
-  public slots:
+ public slots:
 
   void reportItemsLater();
 
@@ -330,14 +330,14 @@ class SystemAvailabilityVectorController : public ModelObjectVectorController
 
   void onDropZoneItemClicked(OSItem* item);
 
-  protected:
+ protected:
   std::vector<OSItemId> makeVector() override;
 
   void onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) override;
 
   void onDrop(const OSItemId& itemId) override;
 
-  private:
+ private:
   bool m_reportScheduled;
 
   QMutex* m_reportItemsMutex;
@@ -347,7 +347,7 @@ class SupplyAirTempScheduleVectorController : public ModelObjectVectorController
 {
   Q_OBJECT;
 
-  public:
+ public:
   SupplyAirTempScheduleVectorController();
 
   virtual ~SupplyAirTempScheduleVectorController();
@@ -358,7 +358,7 @@ class SupplyAirTempScheduleVectorController : public ModelObjectVectorController
 
   void detach();
 
-  public slots:
+ public slots:
 
   void reportItemsLater();
 
@@ -366,14 +366,14 @@ class SupplyAirTempScheduleVectorController : public ModelObjectVectorController
 
   void onDropZoneItemClicked(OSItem* item);
 
-  protected:
+ protected:
   std::vector<OSItemId> makeVector() override;
 
   void onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) override;
 
   void onDrop(const OSItemId& itemId) override;
 
-  private:
+ private:
   bool m_reportScheduled;
 
   QMutex* m_reportItemsMutex;
@@ -383,7 +383,7 @@ class AvailabilityManagerObjectVectorController : public ModelObjectVectorContro
 {
   Q_OBJECT;
 
-  public:
+ public:
   AvailabilityManagerObjectVectorController();
 
   virtual ~AvailabilityManagerObjectVectorController();
@@ -396,7 +396,7 @@ class AvailabilityManagerObjectVectorController : public ModelObjectVectorContro
 
   boost::optional<model::AvailabilityManagerAssignmentList> avmList();
 
-  public slots:
+ public slots:
 
   void reportItemsLater();
 
@@ -404,7 +404,7 @@ class AvailabilityManagerObjectVectorController : public ModelObjectVectorContro
 
   void onDropZoneItemClicked(OSItem* item);
 
-  protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
 
   virtual void onDataChange(const model::ModelObject& modelObject) override;
@@ -417,7 +417,7 @@ class AvailabilityManagerObjectVectorController : public ModelObjectVectorContro
 
   virtual void onDrop(const OSItemId& itemId) override;
 
-  private:
+ private:
   bool m_reportScheduled;
 
   QMutex* m_reportItemsMutex;

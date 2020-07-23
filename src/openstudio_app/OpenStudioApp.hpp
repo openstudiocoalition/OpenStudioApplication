@@ -88,7 +88,7 @@ class TouchEater : public QObject
 {
   Q_OBJECT
 
-  protected:
+ protected:
   bool eventFilter(QObject* obj, QEvent* event);
 };
 
@@ -97,7 +97,7 @@ class OpenStudioApp : public OSAppBase
 
   Q_OBJECT
 
-  public:
+ public:
   OpenStudioApp(int& argc, char** argv);
 
   virtual ~OpenStudioApp();
@@ -121,14 +121,14 @@ class OpenStudioApp : public OSAppBase
 
   virtual bool notify(QObject* receiver, QEvent* event) override;
 
-  protected:
+ protected:
   virtual bool event(QEvent* e) override;
 
   virtual void childEvent(QChildEvent* e) override;
 
-  signals:
+ signals:
 
-  public slots:
+ public slots:
 
   void quit();
 
@@ -161,7 +161,7 @@ class OpenStudioApp : public OSAppBase
   // Checks what happened in the ExternalToolsDialog preference pane
   void configureExternalTools();
 
-  private slots:
+ private slots:
 
   // Returns default/hvac_library.osm and default/hvac_library.osm
   std::vector<openstudio::path> defaultLibraryPaths() const;
@@ -202,7 +202,7 @@ class OpenStudioApp : public OSAppBase
 
   void onChangeDefaultLibrariesDone();
 
-  private:
+ private:
   enum fileType
   {
     SDD,

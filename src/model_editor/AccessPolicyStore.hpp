@@ -62,7 +62,7 @@ class MODELEDITOR_API AccessPolicy
   friend class AccessParser;
   friend class openstudio::InspectorView;  // For overriding via setAccess
 
-  public:
+ public:
   /*! tells the ModelObect how to sort its fields for display in a GUI*/
   enum ACCESS_LEVEL
   {
@@ -84,11 +84,11 @@ class MODELEDITOR_API AccessPolicy
         */
   ACCESS_LEVEL getAccess(unsigned int index) const;
 
-  protected:
+ protected:
   // For specific overriding of access policies, such as hiding Fan Schedule only on AirLoopHVAC for eg
   bool setAccess(unsigned int index, ACCESS_LEVEL);
 
-  private:
+ private:
   std::map<unsigned int, ACCESS_LEVEL> m_accessMap;
   unsigned int m_numNormalFields;
   unsigned int m_extensibleSize;
@@ -103,7 +103,7 @@ class MODELEDITOR_API AccessPolicyStore
 {
   friend class AccessParser;
 
-  public:
+ public:
   static AccessPolicyStore& Instance();
 
   /*! loads an xml with the policy rules
@@ -118,7 +118,7 @@ class MODELEDITOR_API AccessPolicyStore
   /* clear the map*/
   void clear();
 
-  private:
+ private:
   AccessPolicyStore();
   ~AccessPolicyStore();
   AccessPolicyStore(const AccessPolicyStore&);

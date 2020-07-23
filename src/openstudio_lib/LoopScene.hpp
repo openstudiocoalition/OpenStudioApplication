@@ -69,14 +69,14 @@ class LoopScene : public GridScene
 
   Q_OBJECT
 
-  public:
+ public:
   LoopScene(model::Loop loop, QObject* parent = nullptr);
 
   virtual ~LoopScene() {}
 
   model::Loop loop();
 
-  public slots:
+ public slots:
 
   void addedWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> wPtr, const openstudio::IddObjectType& type,
                             const openstudio::UUID& uuid);
@@ -96,7 +96,7 @@ class LoopScene : public GridScene
 
   //void innerNodeClicked( model::ModelObject & );
 
-  private:
+ private:
   DemandSideItem* createDemandSide();
 
   SupplySideItem* createSupplySide();

@@ -47,7 +47,7 @@ class PathWatcher : public QObject
 
   Q_OBJECT;
 
-  public:
+ public:
   /// constructor with path
 
   /// if path is a directory it must exist at time of construction, no periodic checks are performed for directory
@@ -88,7 +88,7 @@ class PathWatcher : public QObject
   /// for directories, called when the watched directory is removed if watcher enabled
   virtual void onPathRemoved();
 
-  public slots:
+ public slots:
 
   /// called when file/directory is added or removed or when directory is removed
   void directoryChanged(const QString& path);
@@ -99,7 +99,7 @@ class PathWatcher : public QObject
   /// periodically check for changes
   void checkFile();
 
-  private:
+ private:
   /// impl
   std::shared_ptr<QFileSystemWatcher> m_impl;
   std::shared_ptr<QTimer> m_timer;

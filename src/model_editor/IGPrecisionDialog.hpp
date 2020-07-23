@@ -39,10 +39,10 @@ class MODELEDITOR_API IGPrecisionDialog : public QDialog, public Ui::PrecisionDi
 {
   Q_OBJECT
 
-  public:
+ public:
   IGPrecisionDialog(QWidget* parent = nullptr);
 
-  public slots:
+ public slots:
   void on_buttonBox_accepted();
   void on_buttonBox_rejected();
 };

@@ -52,7 +52,7 @@ class Model;
 
 class BaseApp
 {
-  public:
+ public:
   virtual ~BaseApp() {}
 
   //virtual boost::optional<analysisdriver::SimpleProject> project() = 0;

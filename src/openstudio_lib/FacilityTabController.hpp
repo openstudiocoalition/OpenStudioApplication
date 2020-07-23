@@ -38,12 +38,12 @@ class FacilityTabController : public MainTabController
 {
   Q_OBJECT
 
-  public:
+ public:
   FacilityTabController(bool isIP, const model::Model& model);
 
   virtual ~FacilityTabController();
 
-  private:
+ private:
   enum TabID
   {
     BUILDING,
@@ -60,7 +60,7 @@ class FacilityTabController : public MainTabController
 
   int m_currentIndex = -1;
 
-  public slots:
+ public slots:
 
   void toggleUnits(bool displayIP);
 

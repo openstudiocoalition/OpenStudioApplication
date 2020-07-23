@@ -44,12 +44,12 @@ class SimSettingsTabController : public MainTabController
 {
   Q_OBJECT
 
-  public:
+ public:
   SimSettingsTabController(bool isIP, const model::Model& model);
 
   virtual ~SimSettingsTabController() {}
 
-  public slots:
+ public slots:
 
   void toggleUnits(bool displayIP);
 };

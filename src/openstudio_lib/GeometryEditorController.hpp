@@ -41,14 +41,14 @@ class GeometryEditorController : public OSQObjectController
 {
   Q_OBJECT
 
-  public:
+ public:
   GeometryEditorController(bool isIP, const model::Model& model);
 
   virtual ~GeometryEditorController();
 
   QWidget* view() const;
 
-  protected:
+ protected:
   QWidget* m_view;
 };
 

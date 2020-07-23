@@ -45,10 +45,10 @@ class WallConstructionVC : public ModelObjectVectorController
 {
   Q_OBJECT
 
-  public:
+ public:
   virtual ~WallConstructionVC() {}
 
-  protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onRemoveItem(OSItem* item) override;
@@ -60,10 +60,10 @@ class FloorConstructionVC : public ModelObjectVectorController
 {
   Q_OBJECT
 
-  public:
+ public:
   virtual ~FloorConstructionVC() {}
 
-  protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onRemoveItem(OSItem* item) override;
@@ -75,10 +75,10 @@ class RoofConstructionVC : public ModelObjectVectorController
 {
   Q_OBJECT
 
-  public:
+ public:
   virtual ~RoofConstructionVC() {}
 
-  protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onRemoveItem(OSItem* item) override;
@@ -90,10 +90,10 @@ class FixedWindowVC : public ModelObjectVectorController
 {
   Q_OBJECT
 
-  public:
+ public:
   virtual ~FixedWindowVC() {}
 
-  protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onRemoveItem(OSItem* item) override;
@@ -105,10 +105,10 @@ class OperableWindowVC : public ModelObjectVectorController
 {
   Q_OBJECT
 
-  public:
+ public:
   virtual ~OperableWindowVC() {}
 
-  protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onRemoveItem(OSItem* item) override;
@@ -120,10 +120,10 @@ class DoorVC : public ModelObjectVectorController
 {
   Q_OBJECT
 
-  public:
+ public:
   virtual ~DoorVC() {}
 
-  protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onRemoveItem(OSItem* item) override;
@@ -135,10 +135,10 @@ class GlassDoorConstructionVC : public ModelObjectVectorController
 {
   Q_OBJECT
 
-  public:
+ public:
   virtual ~GlassDoorConstructionVC() {}
 
-  protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onRemoveItem(OSItem* item) override;
@@ -150,10 +150,10 @@ class OverheadDoorConstructionVC : public ModelObjectVectorController
 {
   Q_OBJECT
 
-  public:
+ public:
   virtual ~OverheadDoorConstructionVC() {}
 
-  protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onRemoveItem(OSItem* item) override;
@@ -165,10 +165,10 @@ class SkylightConstructionVC : public ModelObjectVectorController
 {
   Q_OBJECT
 
-  public:
+ public:
   virtual ~SkylightConstructionVC() {}
 
-  protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onRemoveItem(OSItem* item) override;
@@ -180,10 +180,10 @@ class TubularDaylightDomeConstructionVC : public ModelObjectVectorController
 {
   Q_OBJECT
 
-  public:
+ public:
   virtual ~TubularDaylightDomeConstructionVC() {}
 
-  protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onRemoveItem(OSItem* item) override;
@@ -195,10 +195,10 @@ class TubularDaylightDiffuserConstructionVC : public ModelObjectVectorController
 {
   Q_OBJECT
 
-  public:
+ public:
   virtual ~TubularDaylightDiffuserConstructionVC() {}
 
-  protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onRemoveItem(OSItem* item) override;
@@ -210,10 +210,10 @@ class InteriorPartitionsVC : public ModelObjectVectorController
 {
   Q_OBJECT
 
-  public:
+ public:
   virtual ~InteriorPartitionsVC() {}
 
-  protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onRemoveItem(OSItem* item) override;
@@ -225,10 +225,10 @@ class SpaceShadingVC : public ModelObjectVectorController
 {
   Q_OBJECT
 
-  public:
+ public:
   virtual ~SpaceShadingVC() {}
 
-  protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onRemoveItem(OSItem* item) override;
@@ -240,10 +240,10 @@ class BuildingShadingVC : public ModelObjectVectorController
 {
   Q_OBJECT
 
-  public:
+ public:
   virtual ~BuildingShadingVC() {}
 
-  protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onRemoveItem(OSItem* item) override;
@@ -255,10 +255,10 @@ class SiteShadingVC : public ModelObjectVectorController
 {
   Q_OBJECT
 
-  public:
+ public:
   virtual ~SiteShadingVC() {}
 
-  protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onRemoveItem(OSItem* item) override;
@@ -270,10 +270,10 @@ class AdiabaticSurfaceVC : public ModelObjectVectorController
 {
   Q_OBJECT
 
-  public:
+ public:
   virtual ~AdiabaticSurfaceVC() {}
 
-  protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onRemoveItem(OSItem* item) override;
@@ -285,16 +285,16 @@ class DefaultConstructionSetInspectorView : public ModelObjectInspectorView
 {
   Q_OBJECT
 
-  public:
+ public:
   DefaultConstructionSetInspectorView(const model::Model& model, QWidget* parent = nullptr);
   virtual ~DefaultConstructionSetInspectorView() {}
 
-  protected:
+ protected:
   virtual void onClearSelection() override;
   virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
   virtual void onUpdate() override;
 
-  private:
+ private:
   void attach(openstudio::model::DefaultConstructionSet& defaultConstructionSet);
   void detach();
   void configDropZones();

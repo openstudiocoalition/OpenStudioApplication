@@ -51,7 +51,7 @@ class VRFController : public QObject
 {
   Q_OBJECT
 
-  public:
+ public:
   VRFController();
 
   virtual ~VRFController();
@@ -60,13 +60,13 @@ class VRFController : public QObject
 
   QSharedPointer<VRFSystemListController> vrfSystemListController() const;
 
-  public slots:
+ public slots:
 
   void zoomInOnSystem(model::AirConditionerVariableRefrigerantFlow& system);
 
   void zoomOutToSystemGridView();
 
-  private slots:
+ private slots:
 
   void refresh();
 
@@ -84,7 +84,7 @@ class VRFController : public QObject
 
   void onRemoveTerminalClicked(const OSItemId& terminalId);
 
-  private:
+ private:
   QPointer<VRFView> m_vrfView;
 
   QPointer<GridLayoutItem> m_vrfSystemGridView;
@@ -106,7 +106,7 @@ class VRFSystemListController : public OSListController
 {
   Q_OBJECT
 
-  public:
+ public:
   VRFSystemListController(VRFController* vrfController);
 
   VRFController* vrfController() const;
@@ -117,7 +117,7 @@ class VRFSystemListController : public OSListController
 
   void reset();
 
-  public slots:
+ public slots:
 
   void addSystem(const OSItemId& itemid);
 
@@ -125,7 +125,7 @@ class VRFSystemListController : public OSListController
 
   void removeSystem(model::AirConditionerVariableRefrigerantFlow& system);
 
-  private:
+ private:
   std::vector<model::AirConditionerVariableRefrigerantFlow> systems() const;
 
   int systemIndex(const model::AirConditionerVariableRefrigerantFlow& system) const;
@@ -138,7 +138,7 @@ class VRFSystemItemDelegate : public OSGraphicsItemDelegate
 {
   Q_OBJECT;
 
-  public:
+ public:
   virtual ~VRFSystemItemDelegate() {}
 
   virtual QGraphicsObject* view(QSharedPointer<OSListItem> dataSource) override;
@@ -148,7 +148,7 @@ class VRFSystemListDropZoneItem : public OSListItem
 {
   Q_OBJECT
 
-  public:
+ public:
   VRFSystemListDropZoneItem(OSListController* listController = nullptr);
 
   ~VRFSystemListDropZoneItem() {}
@@ -158,7 +158,7 @@ class VRFSystemListItem : public OSListItem
 {
   Q_OBJECT
 
-  public:
+ public:
   VRFSystemListItem(const model::AirConditionerVariableRefrigerantFlow& vrfSystem, OSListController* listController = nullptr);
 
   virtual ~VRFSystemListItem() {}
@@ -169,13 +169,13 @@ class VRFSystemListItem : public OSListItem
 
   int numberOfConnectedTerminals() const;
 
-  public slots:
+ public slots:
 
   void remove();
 
   void zoomInOnSystem();
 
-  private:
+ private:
   model::AirConditionerVariableRefrigerantFlow m_vrfSystem;
 };
 

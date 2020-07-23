@@ -53,12 +53,12 @@ class GeometryEditorView : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   GeometryEditorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
   virtual ~GeometryEditorView();
 
-  private:
+ private:
 };
 
 // debug widget
@@ -66,11 +66,11 @@ class DebugWebView : public QDialog
 {
   Q_OBJECT;
 
-  public:
+ public:
   DebugWebView(const QString& debugPort, QWidget* parent = nullptr);
   virtual ~DebugWebView();
 
-  private:
+ private:
   QWebEngineView* m_view;
 };
 
@@ -80,7 +80,7 @@ class BaseEditor : public QObject
 {
   Q_OBJECT;
 
-  public:
+ public:
   BaseEditor(bool isIP, const openstudio::model::Model& model, QWebEngineView* m_view, QWidget* t_parent = nullptr);
   virtual ~BaseEditor();
 
@@ -91,7 +91,7 @@ class BaseEditor : public QObject
   model::Model exportModel() const;
   std::map<UUID, UUID> exportModelHandleMapping() const;
 
-  public slots:
+ public slots:
   virtual void loadEditor() = 0;
   virtual void doExport() = 0;
   virtual void saveExport() = 0;
@@ -101,11 +101,11 @@ class BaseEditor : public QObject
 
   virtual void onChanged();
 
-  signals:
+ signals:
 
   bool changed();
 
-  protected:
+ protected:
   bool m_editorLoaded;
   bool m_javascriptRunning;
   unsigned m_versionNumber;
@@ -126,12 +126,12 @@ class FloorspaceEditor : public BaseEditor
 {
   Q_OBJECT;
 
-  public:
+ public:
   FloorspaceEditor(const openstudio::path& floorplanPath, bool isIP, const openstudio::model::Model& model, QWebEngineView* m_view,
                    QWidget* t_parent = nullptr);
   virtual ~FloorspaceEditor();
 
-  public slots:
+ public slots:
   virtual void loadEditor();
   virtual void doExport();
   virtual void saveExport();
@@ -139,7 +139,7 @@ class FloorspaceEditor : public BaseEditor
   virtual void updateModel(const openstudio::model::Model& model);
   virtual void checkForUpdate();
 
-  private:
+ private:
   openstudio::path m_floorplanPath;
   boost::optional<FloorplanJS> m_floorplan;
 };
@@ -148,12 +148,12 @@ class GbXmlEditor : public BaseEditor
 {
   Q_OBJECT;
 
-  public:
+ public:
   GbXmlEditor(const openstudio::path& gbXmlPath, bool isIP, const openstudio::model::Model& model, QWebEngineView* m_view,
               QWidget* t_parent = nullptr);
   virtual ~GbXmlEditor();
 
-  public slots:
+ public slots:
   virtual void loadEditor();
   virtual void doExport();
   virtual void saveExport();
@@ -161,7 +161,7 @@ class GbXmlEditor : public BaseEditor
   virtual void updateModel(const openstudio::model::Model& model);
   virtual void checkForUpdate();
 
-  private:
+ private:
   openstudio::path m_gbXmlPath;
   QString m_gbXML;
 };
@@ -170,12 +170,12 @@ class IdfEditor : public BaseEditor
 {
   Q_OBJECT;
 
-  public:
+ public:
   IdfEditor(const openstudio::path& idfPath, bool forceConvert, bool isIP, const openstudio::model::Model& model, QWebEngineView* m_view,
             QWidget* t_parent = nullptr);
   virtual ~IdfEditor();
 
-  public slots:
+ public slots:
   virtual void loadEditor();
   virtual void doExport();
   virtual void saveExport();
@@ -183,7 +183,7 @@ class IdfEditor : public BaseEditor
   virtual void updateModel(const openstudio::model::Model& model);
   virtual void checkForUpdate();
 
-  private:
+ private:
   openstudio::path m_idfPath;
   QString m_jdf;
 };
@@ -192,11 +192,11 @@ class OsmEditor : public BaseEditor
 {
   Q_OBJECT;
 
-  public:
+ public:
   OsmEditor(const openstudio::path& osmPath, bool isIP, const openstudio::model::Model& model, QWebEngineView* m_view, QWidget* t_parent = nullptr);
   virtual ~OsmEditor();
 
-  public slots:
+ public slots:
   virtual void loadEditor();
   virtual void doExport();
   virtual void saveExport();
@@ -204,7 +204,7 @@ class OsmEditor : public BaseEditor
   virtual void updateModel(const openstudio::model::Model& model);
   virtual void checkForUpdate();
 
-  private:
+ private:
   openstudio::path m_osmPath;
 };
 
@@ -213,14 +213,14 @@ class EditorWebView : public QWidget
 {
   Q_OBJECT;
 
-  public:
+ public:
   EditorWebView(bool isIP, const openstudio::model::Model& model, QWidget* t_parent = nullptr);
   virtual ~EditorWebView();
 
-  public slots:
+ public slots:
   void onUnitSystemChange(bool t_isIP);
 
-  private slots:
+ private slots:
   void geometrySourceChanged(const QString& text);
   void newImportClicked();
   void refreshClicked();
@@ -237,7 +237,7 @@ class EditorWebView : public QWidget
   void onLoadStarted();
   void onRenderProcessTerminated(QWebEnginePage::RenderProcessTerminationStatus terminationStatus, int exitCode);
 
-  private:
+ private:
   REGISTER_LOGGER("openstudio::EditorWebView");
 
   openstudio::path floorplanPath() const;

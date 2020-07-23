@@ -69,7 +69,7 @@ class MODELEDITOR_API InspectorDialog : public QMainWindow, public Nano::Observe
 {
   Q_OBJECT;
 
-  public:
+ public:
   /// create a new dialog with empty model
   InspectorDialog(InspectorDialogClient client = InspectorDialogClient::AllOpenStudio, QWidget* parent = nullptr);
 
@@ -108,7 +108,7 @@ class MODELEDITOR_API InspectorDialog : public QMainWindow, public Nano::Observe
 
   void displayIP(const bool displayIP);
 
-  public slots:
+ public slots:
 
   virtual void onIddObjectTypeChanged(const openstudio::IddObjectType&);
 
@@ -124,7 +124,7 @@ class MODELEDITOR_API InspectorDialog : public QMainWindow, public Nano::Observe
 
   virtual void onPushButtonPurge(bool);
 
-  signals:
+ signals:
 
   // emitted when user selects a new idd object type, will be an allowable type
   void iddObjectTypeChanged(const openstudio::IddObjectType&);
@@ -137,14 +137,14 @@ class MODELEDITOR_API InspectorDialog : public QMainWindow, public Nano::Observe
 
   void toggleUnitsClicked(bool);
 
-  protected:
+ protected:
   // handle show event
   virtual void showEvent(QShowEvent* t_event) override;
 
   // handle close event
   virtual void closeEvent(QCloseEvent* t_event) override;
 
-  private slots:
+ private slots:
 
   // for testing
   friend class ModelEditorFixture;
@@ -159,7 +159,7 @@ class MODELEDITOR_API InspectorDialog : public QMainWindow, public Nano::Observe
   void onRemoveWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl, const openstudio::IddObjectType& type,
                                const openstudio::UUID& uuid);
 
-  private:
+ private:
   QListWidget* m_listWidget;
   QStackedWidget* m_stackedWidget;
   QLabel* m_selectionLabel;

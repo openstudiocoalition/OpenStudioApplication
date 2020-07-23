@@ -38,12 +38,12 @@ class SpaceTypesController : public ModelSubTabController
 {
   Q_OBJECT
 
-  public:
+ public:
   SpaceTypesController(bool isIP, const model::Model& model);
 
   virtual ~SpaceTypesController() {}
 
-  protected:
+ protected:
   virtual void onAddObject(const openstudio::IddObjectType& iddObjectType) override;
 
   virtual void onAddObject(const openstudio::model::ModelObject& modelObject) override;

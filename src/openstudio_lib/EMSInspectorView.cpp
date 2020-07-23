@@ -49,7 +49,7 @@ namespace openstudio {
 class EMSInspectorHeader : public QWidget
 {
 
-  public:
+ public:
   EMSInspectorHeader(const QString& text) : QWidget() {
     setContentsMargins(0, 0, 0, 0);
     setObjectName("IGHeader");
@@ -68,7 +68,7 @@ class EMSInspectorHeader : public QWidget
 class EMSInspectorActuator : public QWidget
 {
 
-  public:
+ public:
   EMSInspectorActuator(const model::EMSActuatorNames& names, const model::ModelObject& modelObject)
     : QWidget(), m_names(names), m_modelObject(modelObject) {
     setContentsMargins(0, 0, 0, 0);
@@ -101,7 +101,7 @@ class EMSInspectorActuator : public QWidget
     }
   }
 
-  private slots:
+ private slots:
 
   void onToggled(bool checked) {
     auto actuators = m_modelObject.model().getModelObjects<model::EnergyManagementSystemActuator>();
@@ -124,7 +124,7 @@ class EMSInspectorActuator : public QWidget
     }
   }
 
-  private:
+ private:
   std::function<bool(const model::EnergyManagementSystemActuator&)> m_isMatchingActuator;
   model::EMSActuatorNames m_names;
   model::ModelObject m_modelObject;
@@ -133,7 +133,7 @@ class EMSInspectorActuator : public QWidget
 class EMSInspectorSensor : public QWidget
 {
 
-  public:
+ public:
   EMSInspectorSensor(const std::string& name, const model::ModelObject& modelObject) : QWidget(), m_name(name), m_modelObject(modelObject) {
     setContentsMargins(0, 0, 0, 0);
 
@@ -165,7 +165,7 @@ class EMSInspectorSensor : public QWidget
     }
   }
 
-  private slots:
+ private slots:
 
   void onToggled(bool checked) {
     auto sensors = m_modelObject.model().getModelObjects<model::EnergyManagementSystemSensor>();
@@ -184,7 +184,7 @@ class EMSInspectorSensor : public QWidget
     }
   }
 
-  private:
+ private:
   std::function<bool(const model::EnergyManagementSystemSensor&)> m_isMatchingSensor;
   std::string m_name;
   model::ModelObject m_modelObject;

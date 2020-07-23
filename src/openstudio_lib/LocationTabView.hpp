@@ -60,7 +60,7 @@ class LocationView : public QWidget
 
   Q_OBJECT
 
-  public:
+ public:
   LocationView(bool isIP, const model::Model& model, const QString& modelTempDir);
 
   virtual ~LocationView();
@@ -73,12 +73,12 @@ class LocationView : public QWidget
 
   bool calendarYearChecked();
 
-  protected:
+ protected:
   void onSelectModelObject(const openstudio::model::ModelObject& modelObject);
 
   void onUpdate();
 
-  private:
+ private:
   void update();
 
   void loadQSettings();
@@ -108,7 +108,7 @@ class LocationView : public QWidget
   QPushButton* m_weatherFileBtn = nullptr;
   bool m_isIP;
 
-  signals:
+ signals:
 
   void calendarYearSelectionChanged();
 
@@ -116,11 +116,11 @@ class LocationView : public QWidget
 
   void toggleUnitsClicked(bool displayIP);
 
-  public slots:
+ public slots:
 
   void refresh();
 
-  private slots:
+ private slots:
 
   void onSelectItem();
 
@@ -159,12 +159,12 @@ class LocationTabView : public MainTabView
 {
   Q_OBJECT
 
-  public:
+ public:
   LocationTabView(const model::Model& model, const QString& modelTempDir, QWidget* parent = nullptr);
 
   virtual ~LocationTabView();
 
-  private:
+ private:
   LocationView* m_locationView;
 };
 

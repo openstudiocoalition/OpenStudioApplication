@@ -47,7 +47,7 @@ class Component : public QAbstractButton
 {
   Q_OBJECT
 
-  public:
+ public:
   Component(const BCLMeasure& bclMeasure, bool showAbridgedView = true, bool showCheckBox = true, QWidget* parent = nullptr);
   Component(const BCLSearchResult& bclSearchResult, bool showAbridgedView = true, bool showCheckBox = true, QWidget* parent = nullptr);
   Component(bool showAbridgedView = false, bool showCheckBox = false, QWidget* parent = nullptr);
@@ -60,10 +60,10 @@ class Component : public QAbstractButton
   std::string versionId() const;
   void setChecked(bool checked);
 
-  protected:
+ protected:
   void paintEvent(QPaintEvent* event) override;
 
-  private:
+ private:
   void createAbridgedLayout();
   void createCompleteLayout();
   void parseBCLMeasure(const BCLMeasure& bclMeasure);
@@ -89,9 +89,9 @@ class Component : public QAbstractButton
   QCheckBox* m_checkBox;
   QLabel* m_msg;
 
-  signals:
+ signals:
 
-  private slots:
+ private slots:
 };
 
 }  // namespace openstudio

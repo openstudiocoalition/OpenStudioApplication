@@ -46,7 +46,7 @@ class ZoomOutButton : public QPushButton
 {
   Q_OBJECT
 
-  public:
+ public:
   ZoomOutButton(QWidget* parent = nullptr);
   virtual ~ZoomOutButton() {}
 };
@@ -55,7 +55,7 @@ class OrangeButton : public QPushButton
 {
   Q_OBJECT
 
-  public:
+ public:
   OrangeButton(QWidget* parent = nullptr);
   virtual ~OrangeButton() {}
 };
@@ -64,7 +64,7 @@ class GrayButton : public QPushButton
 {
   Q_OBJECT
 
-  public:
+ public:
   GrayButton(QWidget* parent = nullptr);
   virtual ~GrayButton() {}
 };
@@ -73,7 +73,7 @@ class BlueButton : public QPushButton
 {
   Q_OBJECT
 
-  public:
+ public:
   BlueButton(QWidget* parent = nullptr);
   virtual ~BlueButton() {}
 };
@@ -82,7 +82,7 @@ class AddButton : public QPushButton
 {
   Q_OBJECT
 
-  public:
+ public:
   AddButton(QWidget* parent = nullptr);
   virtual ~AddButton() {}
 };
@@ -91,7 +91,7 @@ class SofterAddButton : public QPushButton
 {
   Q_OBJECT
 
-  public:
+ public:
   SofterAddButton(QWidget* parent = nullptr);
   virtual ~SofterAddButton() {}
 };
@@ -100,7 +100,7 @@ class RemoveButton : public QPushButton
 {
   Q_OBJECT
 
-  public:
+ public:
   RemoveButton(QWidget* parent = nullptr);
   virtual ~RemoveButton() {}
 };
@@ -109,7 +109,7 @@ class SofterRemoveButton : public QPushButton
 {
   Q_OBJECT
 
-  public:
+ public:
   SofterRemoveButton(QWidget* parent = nullptr);
   virtual ~SofterRemoveButton() {}
 };
@@ -118,7 +118,7 @@ class AddScriptButton : public QPushButton
 {
   Q_OBJECT
 
-  public:
+ public:
   AddScriptButton(QWidget* parent = nullptr);
   virtual ~AddScriptButton() {}
 };
@@ -127,7 +127,7 @@ class DuplicateButton : public QPushButton
 {
   Q_OBJECT
 
-  public:
+ public:
   DuplicateButton(QWidget* parent = nullptr);
   virtual ~DuplicateButton() {}
 };
@@ -136,7 +136,7 @@ class SofterDuplicateButton : public QPushButton
 {
   Q_OBJECT
 
-  public:
+ public:
   SofterDuplicateButton(QWidget* parent = nullptr);
   virtual ~SofterDuplicateButton() {}
 };
@@ -145,7 +145,7 @@ class UpButton : public QPushButton
 {
   Q_OBJECT
 
-  public:
+ public:
   UpButton(QWidget* parent = nullptr);
   virtual ~UpButton() {}
 };
@@ -154,7 +154,7 @@ class DownButton : public QPushButton
 {
   Q_OBJECT
 
-  public:
+ public:
   DownButton(QWidget* parent = nullptr);
   virtual ~DownButton() {}
 };
@@ -163,7 +163,7 @@ class MyMeasuresFolderButton : public QPushButton
 {
   Q_OBJECT
 
-  public:
+ public:
   MyMeasuresFolderButton(QWidget* parent = nullptr);
   virtual ~MyMeasuresFolderButton() {}
 };
@@ -172,7 +172,7 @@ class OpenDirectoryButton : public QPushButton
 {
   Q_OBJECT
 
-  public:
+ public:
   OpenDirectoryButton(QWidget* parent = nullptr);
   virtual ~OpenDirectoryButton() {}
 };
@@ -181,7 +181,7 @@ class CreateOneWithSelectedMeasuresButton : public GrayButton
 {
   Q_OBJECT
 
-  public:
+ public:
   CreateOneWithSelectedMeasuresButton();
   virtual ~CreateOneWithSelectedMeasuresButton() {}
 };
@@ -190,7 +190,7 @@ class CreateOneForEachSelectedMeasureButton : public GrayButton
 {
   Q_OBJECT
 
-  public:
+ public:
   CreateOneForEachSelectedMeasureButton();
   virtual ~CreateOneForEachSelectedMeasureButton() {}
 };
@@ -199,7 +199,7 @@ class CreateFromFileButton : public GrayButton
 {
   Q_OBJECT
 
-  public:
+ public:
   CreateFromFileButton();
   virtual ~CreateFromFileButton() {}
 };
@@ -208,7 +208,7 @@ class CloudLostConnectionButton : public QPushButton
 {
   Q_OBJECT
 
-  public:
+ public:
   CloudLostConnectionButton(QWidget* parent = nullptr);
   virtual ~CloudLostConnectionButton() {}
 };
@@ -217,7 +217,7 @@ class CloudOffButton : public QPushButton
 {
   Q_OBJECT
 
-  public:
+ public:
   CloudOffButton(QWidget* parent = nullptr);
   virtual ~CloudOffButton() {}
 };
@@ -226,7 +226,7 @@ class CloudOnButton : public QPushButton
 {
   Q_OBJECT
 
-  public:
+ public:
   CloudOnButton(QWidget* parent = nullptr);
   virtual ~CloudOnButton() {}
 };
@@ -235,18 +235,18 @@ class CloudStartingButton : public QPushButton
 {
   Q_OBJECT
 
-  public:
+ public:
   CloudStartingButton(QWidget* parent = nullptr);
   virtual ~CloudStartingButton() {}
 
-  public slots:
+ public slots:
 
   void rotate();
 
-  protected:
+ protected:
   void paintEvent(QPaintEvent* event) override;
 
-  private:
+ private:
   QPixmap* m_background;
 
   QPixmap* m_arrow;
@@ -260,18 +260,18 @@ class CloudStoppingButton : public QPushButton
 {
   Q_OBJECT
 
-  public:
+ public:
   CloudStoppingButton(QWidget* parent = nullptr);
   virtual ~CloudStoppingButton() {}
 
-  public slots:
+ public slots:
 
   void rotate();
 
-  protected:
+ protected:
   void paintEvent(QPaintEvent* event) override;
 
-  private:
+ private:
   QPixmap* m_background;
 
   QPixmap* m_arrow;
@@ -285,7 +285,7 @@ class PlayButton : public QPushButton
 {
   Q_OBJECT
 
-  public:
+ public:
   enum Status
   {
     IDLE,
@@ -302,7 +302,7 @@ class PlayButton : public QPushButton
   Status status() const;
   void setStatus(const Status& status);
 
-  private:
+ private:
   Status m_status;
 };
 

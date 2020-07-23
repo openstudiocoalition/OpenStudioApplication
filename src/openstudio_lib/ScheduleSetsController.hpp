@@ -38,12 +38,12 @@ class ScheduleSetsController : public ModelSubTabController
 {
   Q_OBJECT
 
-  public:
+ public:
   ScheduleSetsController(const model::Model& model);
 
   virtual ~ScheduleSetsController() {}
 
-  protected:
+ protected:
   virtual void onAddObject(const openstudio::IddObjectType& iddObjectType) override;
 
   virtual void onCopyObject(const openstudio::model::ModelObject& modelObject) override;

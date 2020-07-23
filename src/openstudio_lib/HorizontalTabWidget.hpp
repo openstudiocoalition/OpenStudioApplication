@@ -45,7 +45,7 @@ class HorizontalTabWidget : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   HorizontalTabWidget(QWidget* parent = nullptr);
 
   virtual ~HorizontalTabWidget() {}
@@ -54,22 +54,22 @@ class HorizontalTabWidget : public QWidget
 
   void hideTab(QWidget* widget, bool hide);
 
-  public slots:
+ public slots:
 
   void setCurrentId(int id);
 
   void setCurrentWidget(QWidget* widget);
 
-  protected:
+ protected:
   void paintEvent(QPaintEvent* event) override;
 
-  private slots:
+ private slots:
 
   void select();
 
   void setCurrentIndex(int index);
 
-  private:
+ private:
   QStackedWidget* m_pageStack;
 
   QWidget* m_tabBar;

@@ -44,14 +44,14 @@ class RefrigerationGridController : public QObject
 {
   Q_OBJECT
 
-  public:
+ public:
   RefrigerationGridController(bool isIP, const model::Model& model);
 
   virtual ~RefrigerationGridController();
 
   RefrigerationGridView* refrigerationGridView() const;
 
-  private:
+ private:
   QPointer<RefrigerationGridView> m_refrigerationGridView;
 };
 

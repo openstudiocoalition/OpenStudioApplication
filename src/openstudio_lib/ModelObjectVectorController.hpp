@@ -42,7 +42,7 @@ class ModelObjectVectorController : public OSVectorController
 {
   Q_OBJECT
 
-  public:
+ public:
   virtual ~ModelObjectVectorController() {}
 
   virtual void attach(const model::ModelObject& modelObject);
@@ -51,7 +51,7 @@ class ModelObjectVectorController : public OSVectorController
 
   void detach();
 
-  protected slots:
+ protected slots:
 
   void objectAdded(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl, const openstudio::IddObjectType& iddObjectType,
                    const openstudio::UUID& handle);
@@ -65,7 +65,7 @@ class ModelObjectVectorController : public OSVectorController
 
   void change();
 
-  protected:
+ protected:
   void attachOtherModelObject(const model::ModelObject& modelObject);
 
   void detachOtherModelObject(const model::ModelObject& modelObject);

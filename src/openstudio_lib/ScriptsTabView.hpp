@@ -44,7 +44,7 @@ class ScriptsTabView : public MainTabView
 {
   Q_OBJECT
 
-  public:
+ public:
   ScriptsTabView(QWidget* t_parent);
 
   virtual ~ScriptsTabView() {}
@@ -53,15 +53,15 @@ class ScriptsTabView : public MainTabView
 
   OSListView* workflowView;
 
-  protected:
+ protected:
   virtual void showEvent(QShowEvent* e) override;
 
-  private:
+ private:
   QPushButton* m_updateMeasuresButton;
 
   boost::shared_ptr<SyncMeasuresDialog> m_syncMeasuresDialog;
 
-  private slots:
+ private slots:
 
   void openUpdateMeasuresDlg();
 };

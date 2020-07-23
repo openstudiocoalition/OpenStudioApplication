@@ -61,7 +61,7 @@ class TreeModel : public QAbstractItemModel
 {
   Q_OBJECT
 
-  public:
+ public:
   TreeModel(openstudio::model::Model& model, TreeViewWidget* parent);
   TreeModel(TreeViewWidget* parent);
   ~TreeModel();
@@ -84,12 +84,12 @@ class TreeModel : public QAbstractItemModel
   QModelIndexList getPersistentIndexList() const;
   void toggleGUIDs();
 
-  public slots:
+ public slots:
 
-  signals:
+ signals:
 
-  protected:
-  private:
+ protected:
+ private:
   void setupModelData(const openstudio::model::ModelObject& object, TreeItem* parent);
   TreeItem* getItem(const QModelIndex& index) const;
   bool dropMimeData(const QMimeData* data, Qt::DropAction action, int row, int column, const QModelIndex& parent) override;

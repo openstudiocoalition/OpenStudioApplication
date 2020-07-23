@@ -54,10 +54,10 @@ class BuildingSpaceTypeVectorController : public ModelObjectVectorController
 {
   Q_OBJECT
 
-  public:
+ public:
   virtual ~BuildingSpaceTypeVectorController() {}
 
-  protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
 
   virtual std::vector<OSItemId> makeVector() override;
@@ -73,10 +73,10 @@ class BuildingDefaultConstructionSetVectorController : public ModelObjectVectorC
 {
   Q_OBJECT
 
-  public:
+ public:
   virtual ~BuildingDefaultConstructionSetVectorController() {}
 
-  protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
 
   virtual std::vector<OSItemId> makeVector() override;
@@ -92,10 +92,10 @@ class BuildingDefaultScheduleSetVectorController : public ModelObjectVectorContr
 {
   Q_OBJECT
 
-  public:
+ public:
   virtual ~BuildingDefaultScheduleSetVectorController() {}
 
-  protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
 
   virtual std::vector<OSItemId> makeVector() override;
@@ -111,21 +111,21 @@ class BuildingInspectorView : public ModelObjectInspectorView
 {
   Q_OBJECT
 
-  public:
+ public:
   BuildingInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
   virtual ~BuildingInspectorView() {}
 
-  signals:
+ signals:
 
-  protected:
+ protected:
   virtual void onClearSelection() override;
 
   virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
   virtual void onUpdate() override;
 
-  protected slots:
+ protected slots:
 
   void editStandardsTemplate(const QString& text);
   void standardsTemplateChanged(const QString& text);
@@ -133,7 +133,7 @@ class BuildingInspectorView : public ModelObjectInspectorView
   void editStandardsBuildingType(const QString& text);
   void standardsBuildingTypeChanged(const QString& text);
 
-  private:
+ private:
   void attach(openstudio::model::Building& building);
 
   void detach();
@@ -160,7 +160,7 @@ class BuildingInspectorView : public ModelObjectInspectorView
   QComboBox* m_standardsBuildingTypeComboBox = nullptr;
   bool m_isIP;
 
-  public slots:
+ public slots:
 
   void toggleUnits(bool displayIP) override;
 };

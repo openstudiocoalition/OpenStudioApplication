@@ -46,10 +46,10 @@ class TargetTemperatureScheduleVC : public ModelObjectVectorController
 {
   Q_OBJECT
 
-  public:
+ public:
   virtual ~TargetTemperatureScheduleVC() {}
 
-  protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onRemoveItem(OSItem* item) override;
@@ -63,10 +63,10 @@ class SensibleFractionScheduleVC : public ModelObjectVectorController
 {
   Q_OBJECT
 
-  public:
+ public:
   virtual ~SensibleFractionScheduleVC() {}
 
-  protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onRemoveItem(OSItem* item) override;
@@ -80,10 +80,10 @@ class LatentFractionScheduleVC : public ModelObjectVectorController
 {
   Q_OBJECT
 
-  public:
+ public:
   virtual ~LatentFractionScheduleVC() {}
 
-  protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onRemoveItem(OSItem* item) override;
@@ -97,19 +97,19 @@ class WaterUseEquipmentDefinitionInspectorView : public ModelObjectInspectorView
 {
   Q_OBJECT
 
-  public:
+ public:
   WaterUseEquipmentDefinitionInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
   virtual ~WaterUseEquipmentDefinitionInspectorView() {}
 
-  protected:
+ protected:
   virtual void onClearSelection() override;
 
   virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
   virtual void onUpdate() override;
 
-  private:
+ private:
   void attach(openstudio::model::WaterUseEquipmentDefinition& waterUseEquipmentDefinition);
 
   void detach();
@@ -134,7 +134,7 @@ class WaterUseEquipmentDefinitionInspectorView : public ModelObjectInspectorView
 
   boost::optional<model::WaterUseEquipmentDefinition> m_waterUseEquipmentDefinition;
 
-  public slots:
+ public slots:
 
   void toggleUnits(bool displayIP) override;
 };

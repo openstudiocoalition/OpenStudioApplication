@@ -40,7 +40,7 @@ class WaitDialog : public OSDialog
 {
   Q_OBJECT
 
-  public:
+ public:
   WaitDialog(const QString& windowTitle, const QString& windowMessage, QWidget* parent = nullptr);
 
   virtual ~WaitDialog();
@@ -57,14 +57,14 @@ class WaitDialog : public OSDialog
   QLabel* m_thirdLine;
   QLabel* m_fourthLine;
 
-  protected slots:
+ protected slots:
 
   virtual void on_cancelButton(bool checked) override;
 
-  protected:
+ protected:
   void closeEvent(QCloseEvent* event) override;
 
-  private:
+ private:
   virtual void createWidgets();
 
   QString m_windowMessage;

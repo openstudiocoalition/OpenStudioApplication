@@ -53,7 +53,7 @@ class MainRightColumnController : public OSQObjectController
 {
   Q_OBJECT
 
-  public:
+ public:
   MainRightColumnController(const model::Model& model, const openstudio::path& resourcesPath);
 
   virtual ~MainRightColumnController(){};
@@ -85,13 +85,13 @@ class MainRightColumnController : public OSQObjectController
   void unregisterSystemItem(const Handle& systemHandle);
   SystemItem* systemItem(const Handle& systemHandle) const;
 
-  signals:
+ signals:
 
   void toggleUnitsClicked(bool displayIP);
 
   void itemRemoveClicked(OSItem*);
 
-  public slots:
+ public slots:
 
   void configureForSiteSubTab(int subTabID);
 
@@ -137,7 +137,7 @@ class MainRightColumnController : public OSQObjectController
 
   QSharedPointer<EditController> measuresEditController();
 
-  private:
+ private:
   REGISTER_LOGGER("openstudio.openstudio_lib.MainRightColumnController");
 
   void setMyModelView(QWidget* widget);
@@ -170,7 +170,7 @@ class MainRightColumnController : public OSQObjectController
 
   OSItem* m_item = nullptr;
 
-  private slots:
+ private slots:
 
   void onItemRemoveClicked(OSItem*);
 

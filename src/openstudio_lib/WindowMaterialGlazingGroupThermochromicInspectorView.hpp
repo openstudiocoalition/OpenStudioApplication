@@ -47,19 +47,19 @@ class WindowMaterialGlazingGroupThermochromicInspectorView : public ModelObjectI
 {
   Q_OBJECT
 
-  public:
+ public:
   WindowMaterialGlazingGroupThermochromicInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
   virtual ~WindowMaterialGlazingGroupThermochromicInspectorView() {}
 
-  protected:
+ protected:
   virtual void onClearSelection() override;
 
   virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
   virtual void onUpdate() override;
 
-  private:
+ private:
   void createLayout();
 
   void attach(openstudio::model::ThermochromicGlazing& ThermochromicGlazing);

@@ -51,7 +51,7 @@ namespace openstudio {
 class OSDoubleEdit2 : public QLineEdit, public Nano::Observer
 {
   Q_OBJECT
-  public:
+ public:
   OSDoubleEdit2(QWidget* parent = nullptr);
 
   virtual ~OSDoubleEdit2();
@@ -100,16 +100,16 @@ class OSDoubleEdit2 : public QLineEdit, public Nano::Observer
 
   void unbind();
 
-  signals:
+ signals:
 
   void inFocus(bool inFocus, bool hasData);
 
-  protected:
+ protected:
   virtual void focusInEvent(QFocusEvent* e) override;
 
   virtual void focusOutEvent(QFocusEvent* e) override;
 
-  private slots:
+ private slots:
 
   void onEditingFinished();
 
@@ -117,7 +117,7 @@ class OSDoubleEdit2 : public QLineEdit, public Nano::Observer
 
   void onModelObjectRemove(const Handle& handle);
 
-  private:
+ private:
   boost::optional<model::ModelObject> m_modelObject;                    // will be set if attached to ModelObject or ModelExtensibleGroup
   boost::optional<model::ModelExtensibleGroup> m_modelExtensibleGroup;  // will only be set if attached to ModelExtensibleGroup
   boost::optional<DoubleGetter> m_get;

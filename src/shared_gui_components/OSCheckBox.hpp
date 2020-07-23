@@ -47,7 +47,7 @@ class OSCheckBox3 : public QCheckBox, public Nano::Observer
 {
   Q_OBJECT
 
-  public:
+ public:
   OSCheckBox3(QWidget* parent = nullptr);
 
   virtual ~OSCheckBox3();
@@ -66,16 +66,16 @@ class OSCheckBox3 : public QCheckBox, public Nano::Observer
 
   void unbind();
 
-  signals:
+ signals:
 
   void inFocus(bool inFocus, bool hasData);
 
-  protected:
+ protected:
   // We override these methods to emit inFocus as appropriate to enable/disable the header button
   virtual void focusInEvent(QFocusEvent* e) override;
   virtual void focusOutEvent(QFocusEvent* e) override;
 
-  private slots:
+ private slots:
 
   void onToggled(bool checked);
 
@@ -83,7 +83,7 @@ class OSCheckBox3 : public QCheckBox, public Nano::Observer
 
   void onModelObjectRemove(const Handle& handle);
 
-  private:
+ private:
   boost::optional<model::ModelObject> m_modelObject;
   boost::optional<BoolGetter> m_get;
   boost::optional<BoolSetter> m_set;
@@ -96,7 +96,7 @@ class OSCheckBox2 : public QPushButton, public Nano::Observer
 {
   Q_OBJECT
 
-  public:
+ public:
   OSCheckBox2(QWidget* parent = nullptr);
 
   virtual ~OSCheckBox2() {}
@@ -106,7 +106,7 @@ class OSCheckBox2 : public QPushButton, public Nano::Observer
 
   void unbind();
 
-  private slots:
+ private slots:
 
   void onToggled(bool checked);
 
@@ -114,7 +114,7 @@ class OSCheckBox2 : public QPushButton, public Nano::Observer
 
   void onModelObjectRemove(const Handle& handle);
 
-  private:
+ private:
   boost::optional<model::ModelObject> m_modelObject;
   boost::optional<BoolGetter> m_get;
   boost::optional<BoolSetter> m_set;

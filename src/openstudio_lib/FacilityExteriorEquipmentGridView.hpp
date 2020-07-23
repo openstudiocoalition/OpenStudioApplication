@@ -45,19 +45,19 @@ class FacilityExteriorEquipmentGridView : public GridViewSubTab
 {
   Q_OBJECT
 
-  public:
+ public:
   FacilityExteriorEquipmentGridView(bool isIP, const model::Model& model, QWidget* parent = 0);
 
   virtual ~FacilityExteriorEquipmentGridView() {}
 
-  private:
+ private:
   REGISTER_LOGGER("openstudio.FacilityExteriorEquipmentGridView");
 
   virtual void addObject(const openstudio::IddObjectType& iddObjectType) override;
 
   virtual void purgeObjects(const openstudio::IddObjectType& iddObjectType) override;
 
-  protected slots:
+ protected slots:
 
   virtual void onSelectItem() override;
 
@@ -69,7 +69,7 @@ class FacilityExteriorEquipmentGridController : public OSGridController
 
   Q_OBJECT
 
-  public:
+ public:
   FacilityExteriorEquipmentGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model model,
                                           std::vector<model::ModelObject> modelObjects);
 
@@ -79,7 +79,7 @@ class FacilityExteriorEquipmentGridController : public OSGridController
 
   virtual void categorySelected(int index);
 
-  protected:
+ protected:
   virtual void setCategoriesAndFields();
 
   virtual void addColumns(const QString& category, std::vector<QString>& fields);
@@ -88,7 +88,7 @@ class FacilityExteriorEquipmentGridController : public OSGridController
 
   virtual QString getColor(const model::ModelObject& modelObject);
 
-  public slots:
+ public slots:
 
   virtual void onItemDropped(const OSItemId& itemId);
 

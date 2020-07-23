@@ -42,12 +42,12 @@ class MODELEDITOR_API IGSpinBox : public QSpinBox
 {
   Q_OBJECT;
 
-  public:
+ public:
   IGSpinBox(QWidget* parent);
 
   virtual void wheelEvent(QWheelEvent* event) override;
 
-  public slots:
+ public slots:
   void triggered(bool);  //the radio button got triggered and calls this slot
 };
 
@@ -55,7 +55,7 @@ class MODELEDITOR_API IGDSpinBox : public QDoubleSpinBox
 {
   Q_OBJECT;
 
-  public:
+ public:
   IGDSpinBox(InspectorGadget* ig, QWidget* parent);
 
   virtual void wheelEvent(QWheelEvent* event) override;
@@ -66,11 +66,11 @@ class MODELEDITOR_API IGDSpinBox : public QDoubleSpinBox
   void setPrec(bool);
   void setFloatStyle(InspectorGadget::FLOAT_DISPLAY style);
   InspectorGadget::FLOAT_DISPLAY getFloatStyle() const;
-  public slots:
+ public slots:
   void triggered(bool);  //the radio button got triggered and calls this slot
   void togglePrec();
 
-  private:
+ private:
   InspectorGadget* m_ig;
   bool m_precision;
   InspectorGadget::FLOAT_DISPLAY m_floatType;

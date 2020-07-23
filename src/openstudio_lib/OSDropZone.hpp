@@ -65,7 +65,7 @@ class OSDropZone2 : public QWidget, public Nano::Observer
 {
   Q_OBJECT
 
-  public:
+ public:
   OSDropZone2();
 
   ~OSDropZone2();
@@ -88,29 +88,29 @@ class OSDropZone2 : public QWidget, public Nano::Observer
 
   void unbind();
 
-  signals:
+ signals:
 
   void itemClicked(OSItem* item);
   void objectRemoved(boost::optional<model::ParentObject> parent);
   void inFocus(bool inFocus, bool hasData);
 
-  protected:
+ protected:
   void paintEvent(QPaintEvent* event) override;
   void mouseReleaseEvent(QMouseEvent* event) override;
   virtual void focusInEvent(QFocusEvent* e) override;
   virtual void focusOutEvent(QFocusEvent* e) override;
 
-  public slots:
+ public slots:
 
   void onItemRemoveClicked();
 
-  private slots:
+ private slots:
 
   void refresh();
   void dragEnterEvent(QDragEnterEvent* event) override;
   void dropEvent(QDropEvent* event) override;
 
-  private:
+ private:
   void makeItem();
 
   boost::optional<OptionalModelObjectGetter> m_get;
@@ -127,7 +127,7 @@ class OSDropZone : public QWidget, public Nano::Observer
 {
   Q_OBJECT
 
-  public:
+ public:
   OSDropZone(OSVectorController* vectorController, const QString& text = "Drag From Library", const QSize& size = QSize(0, 0),
              bool m_growsHorizontally = true, QWidget* parent = nullptr);
 
@@ -154,7 +154,7 @@ class OSDropZone : public QWidget, public Nano::Observer
   bool useLargeIcon();
   void setUseLargeIcon(bool userLargeIcon);
 
-  signals:
+ signals:
 
   // request items from vector controller
   void itemsRequested();
@@ -173,7 +173,7 @@ class OSDropZone : public QWidget, public Nano::Observer
 
   void addButtonClicked();
 
-  protected:
+ protected:
   // called when drop occurs, emit onDrop here if needed
   virtual void onDrop(const OSItemId& itemId);
 
@@ -181,7 +181,7 @@ class OSDropZone : public QWidget, public Nano::Observer
 
   //void resizeEvent(QResizeEvent * event);
 
-  private slots:
+ private slots:
 
   // set this objects item ids
   void setItemIds(const std::vector<OSItemId>& itemIds);
@@ -189,7 +189,7 @@ class OSDropZone : public QWidget, public Nano::Observer
   // called on drop
   void handleDrop(QDropEvent* event);
 
-  private:
+ private:
   OSVectorController* m_vectorController;
   int m_minItems;
   int m_maxItems;
@@ -210,22 +210,22 @@ class OSItemDropZone : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
   OSItemDropZone(bool growsHorizontally, const QString& text, const QSize& size, QWidget* parent = nullptr);
 
   virtual ~OSItemDropZone() {}
 
   void setExtensible(bool extensible);
 
-  signals:
+ signals:
   void dropped(QDropEvent* event);
 
-  protected:
+ protected:
   void paintEvent(QPaintEvent* event) override;
   void dragEnterEvent(QDragEnterEvent* event) override;
   void dropEvent(QDropEvent* event) override;
 
-  private:
+ private:
   QSize m_size;
   bool m_growsHorizontally;
 };
@@ -237,7 +237,7 @@ class OSDropZoneItem : public QGraphicsObject, public Nano::Observer
 {
   Q_OBJECT;
 
-  public:
+ public:
   OSDropZoneItem();
 
   virtual ~OSDropZoneItem() {}
@@ -248,13 +248,13 @@ class OSDropZoneItem : public QGraphicsObject, public Nano::Observer
 
   void setText(const QString& text);
 
-  signals:
+ signals:
 
   void mouseClicked();
 
   void componentDropped(const OSItemId& itemid);
 
-  protected:
+ protected:
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
 
   void mousePressEvent(QGraphicsSceneMouseEvent* event) override;
@@ -263,7 +263,7 @@ class OSDropZoneItem : public QGraphicsObject, public Nano::Observer
 
   QString m_text;
 
-  private:
+ private:
   bool m_mouseDown;
 
   double m_width;
