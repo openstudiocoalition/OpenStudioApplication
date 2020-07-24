@@ -52,8 +52,7 @@
 
 class QModelIndex;
 
-namespace modeleditor
-{
+namespace modeleditor {
 
 class TreeViewWidget;
 class TreeItem;
@@ -62,49 +61,48 @@ class TreeModel : public QAbstractItemModel
 {
   Q_OBJECT
 
-public:
-  TreeModel(openstudio::model::Model& model, TreeViewWidget * parent);
-  TreeModel(TreeViewWidget * parent);
+ public:
+  TreeModel(openstudio::model::Model& model, TreeViewWidget* parent);
+  TreeModel(TreeViewWidget* parent);
   ~TreeModel();
 
   void loadModel(openstudio::model::Model& model);
-  QVariant data(const QModelIndex &index, int role) const override;
-  openstudio::model::OptionalModelObject modelAtIndex(const QModelIndex &index) const;
-  Qt::ItemFlags flags(const QModelIndex &index) const override;
+  QVariant data(const QModelIndex& index, int role) const override;
+  openstudio::model::OptionalModelObject modelAtIndex(const QModelIndex& index) const;
+  Qt::ItemFlags flags(const QModelIndex& index) const override;
   QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
-  QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const override;
-  QModelIndex parent(const QModelIndex &index) const override;
-  int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-  int columnCount(const QModelIndex &parent = QModelIndex()) const override;
-  bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) override;
-  bool setHeaderData(int section, Qt::Orientation orientation, const QVariant &value, int role = Qt::EditRole) override;
+  QModelIndex index(int row, int column, const QModelIndex& parent = QModelIndex()) const override;
+  QModelIndex parent(const QModelIndex& index) const override;
+  int rowCount(const QModelIndex& parent = QModelIndex()) const override;
+  int columnCount(const QModelIndex& parent = QModelIndex()) const override;
+  bool setData(const QModelIndex& index, const QVariant& value, int role = Qt::EditRole) override;
+  bool setHeaderData(int section, Qt::Orientation orientation, const QVariant& value, int role = Qt::EditRole) override;
   bool addRows(const QModelIndexList rowList, openstudio::IddObjectType type = openstudio::IddObjectType("UserCustom"));
   bool removeRows(const QModelIndexList rowList, std::vector<openstudio::Handle>& handles);
-  bool pasteRows(const QModelIndex& parentRow,   std::vector<openstudio::model::ModelObject>& modelObjectsToPaste);
+  bool pasteRows(const QModelIndex& parentRow, std::vector<openstudio::model::ModelObject>& modelObjectsToPaste);
   Qt::DropActions supportedDropActions() const override;
   QModelIndexList getPersistentIndexList() const;
   void toggleGUIDs();
 
-public slots:
+ public slots:
 
-signals:
+ signals:
 
-protected:
-
-private:
-  void setupModelData(const openstudio::model::ModelObject& object, TreeItem *parent);
-  TreeItem *getItem(const QModelIndex &index) const;
-  bool dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent) override;
+ protected:
+ private:
+  void setupModelData(const openstudio::model::ModelObject& object, TreeItem* parent);
+  TreeItem* getItem(const QModelIndex& index) const;
+  bool dropMimeData(const QMimeData* data, Qt::DropAction action, int row, int column, const QModelIndex& parent) override;
   bool insertRows(const QModelIndex row, const QModelIndexList rowList, openstudio::IddObjectType type);
   void getObjectNames(const openstudio::model::ModelObject& object, QList<QVariant>& objectNames);
 
   ///! QAbstractTableModel::parent() returns a QModelItemIndex, not the parent widget* as QObject::parent() does,
   ///! hence the parent* data member below
-  TreeViewWidget * mTreeViewWidget;
-  TreeItem *rootItem;
+  TreeViewWidget* mTreeViewWidget;
+  TreeItem* rootItem;
   bool mMaskGUIDs;
 };
 
-} // namespace modeleditor
+}  // namespace modeleditor
 
 #endif

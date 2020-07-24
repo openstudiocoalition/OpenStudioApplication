@@ -40,14 +40,12 @@
 
 namespace openstudio {
 
-LibraryTabWidget::LibraryTabWidget(QWidget * parent)
-  : QWidget(parent)
-{
+LibraryTabWidget::LibraryTabWidget(QWidget* parent) : QWidget(parent) {
   auto mainLayout = new QVBoxLayout();
 
   mainLayout->setSpacing(0);
 
-  mainLayout->setContentsMargins(0,0,0,0);
+  mainLayout->setContentsMargins(0, 0, 0, 0);
 
   setLayout(mainLayout);
 
@@ -57,7 +55,7 @@ LibraryTabWidget::LibraryTabWidget(QWidget * parent)
 
   m_tabBar->setObjectName("VBlueGradientWidget");
 
-  m_tabBar->setContentsMargins(0,0,5,0);
+  m_tabBar->setContentsMargins(0, 0, 5, 0);
 
   m_removeButton = new QPushButton(this);
 
@@ -91,28 +89,23 @@ LibraryTabWidget::LibraryTabWidget(QWidget * parent)
 
   m_pageStack->setStyleSheet("QStackedWidget { border: none;}");
 
-  m_pageStack->setContentsMargins(0,0,0,0);
+  m_pageStack->setContentsMargins(0, 0, 0, 0);
 
   layout()->addWidget(m_pageStack);
 }
 
-void LibraryTabWidget::showRemoveButton()
-{
+void LibraryTabWidget::showRemoveButton() {
   m_removeButton->show();
 }
 
-void LibraryTabWidget::hideRemoveButton()
-{
+void LibraryTabWidget::hideRemoveButton() {
   m_removeButton->hide();
 }
 
-void LibraryTabWidget::addTab( QWidget * widget,
-                        const QString & selectedImagePath,
-                        const QString & unSelectedImagePath )
-{
+void LibraryTabWidget::addTab(QWidget* widget, const QString& selectedImagePath, const QString& unSelectedImagePath) {
   auto button = new QPushButton(m_tabBar);
 
-  button->setFixedSize(QSize(29,29));
+  button->setFixedSize(QSize(29, 29));
 
   m_tabButtons.push_back(button);
 
@@ -127,14 +120,13 @@ void LibraryTabWidget::addTab( QWidget * widget,
   setCurrentIndex(0);
 }
 
-void LibraryTabWidget::hideTab(QWidget * widget, bool hide)
-{
+void LibraryTabWidget::hideTab(QWidget* widget, bool hide) {
   int index = m_pageStack->indexOf(widget);
   OS_ASSERT(index >= 0);
 
   int currentIndex = m_pageStack->currentIndex();
-  if(currentIndex == index){
-    if(currentIndex + 1 < m_pageStack->count()){
+  if (currentIndex == index) {
+    if (currentIndex + 1 < m_pageStack->count()) {
       currentIndex++;
     } else if (currentIndex != 0) {
       currentIndex = 0;
@@ -145,10 +137,10 @@ void LibraryTabWidget::hideTab(QWidget * widget, bool hide)
     }
   }
 
-  QPushButton * button = nullptr;
+  QPushButton* button = nullptr;
   button = m_tabButtons.at(index);
   OS_ASSERT(button);
-  if(hide){
+  if (hide) {
     button->hide();
   } else {
     button->show();
@@ -157,22 +149,15 @@ void LibraryTabWidget::hideTab(QWidget * widget, bool hide)
   setCurrentIndex(currentIndex);
 }
 
-void LibraryTabWidget::select()
-{
-  QPushButton * button = qobject_cast<QPushButton *>(sender());
+void LibraryTabWidget::select() {
+  QPushButton* button = qobject_cast<QPushButton*>(sender());
 
   int index = 0;
 
-  for( auto it = m_tabButtons.begin();
-       it < m_tabButtons.end();
-       ++it )
-  {
-    if( *it == button )
-    {
+  for (auto it = m_tabButtons.begin(); it < m_tabButtons.end(); ++it) {
+    if (*it == button) {
       break;
-    }
-    else
-    {
+    } else {
       index++;
     }
   }
@@ -180,15 +165,13 @@ void LibraryTabWidget::select()
   setCurrentIndex(index);
 }
 
-void LibraryTabWidget::setCurrentIndex(int index)
-{
+void LibraryTabWidget::setCurrentIndex(int index) {
   int xPos = 0;
 
-  for(unsigned i = 0; i < m_tabButtons.size(); i++)
-  {
-    QPushButton * button = m_tabButtons[i];
+  for (unsigned i = 0; i < m_tabButtons.size(); i++) {
+    QPushButton* button = m_tabButtons[i];
 
-    button->move(xPos,0);
+    button->move(xPos, 0);
 
     xPos = xPos + button->width();
 
@@ -203,7 +186,7 @@ void LibraryTabWidget::setCurrentIndex(int index)
     button->setStyleSheet(style);
   }
 
-  QPushButton * button = m_tabButtons[index];
+  QPushButton* button = m_tabButtons[index];
 
   QString imagePath = m_selectedPixmaps[index];
 
@@ -218,11 +201,10 @@ void LibraryTabWidget::setCurrentIndex(int index)
   m_pageStack->setCurrentIndex(index);
 }
 
-void LibraryTabWidget::setCurrentWidget(QWidget * widget)
-{
+void LibraryTabWidget::setCurrentWidget(QWidget* widget) {
   int i = m_pageStack->indexOf(widget);
 
   setCurrentIndex(i);
 }
 
-} // namespace openstudio
+}  // namespace openstudio

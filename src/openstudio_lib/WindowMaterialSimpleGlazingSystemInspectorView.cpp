@@ -47,15 +47,13 @@ namespace openstudio {
 
 // WindowMaterialSimpleGlazingSystemInspectorView
 
-WindowMaterialSimpleGlazingSystemInspectorView::WindowMaterialSimpleGlazingSystemInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent)
-  : ModelObjectInspectorView(model, true, parent),
-    m_isIP(isIP)
-{
+WindowMaterialSimpleGlazingSystemInspectorView::WindowMaterialSimpleGlazingSystemInspectorView(bool isIP, const openstudio::model::Model& model,
+                                                                                               QWidget* parent)
+  : ModelObjectInspectorView(model, true, parent), m_isIP(isIP) {
   createLayout();
 }
 
-void WindowMaterialSimpleGlazingSystemInspectorView::createLayout()
-{
+void WindowMaterialSimpleGlazingSystemInspectorView::createLayout() {
   auto hiddenWidget = new QWidget();
   this->stackedWidget()->addWidget(hiddenWidget);
 
@@ -69,7 +67,7 @@ void WindowMaterialSimpleGlazingSystemInspectorView::createLayout()
 
   int row = mainGridLayout->rowCount();
 
-  QLabel * label = nullptr;
+  QLabel* label = nullptr;
 
   // Name
 
@@ -94,100 +92,87 @@ void WindowMaterialSimpleGlazingSystemInspectorView::createLayout()
 
   label = new QLabel("U-Factor: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,row++,0);
+  mainGridLayout->addWidget(label, row++, 0);
 
-  m_uFactor = new OSQuantityEdit2("W/m^2*K","W/m^2*K","Btu/ft^2*hr*R", m_isIP);
+  m_uFactor = new OSQuantityEdit2("W/m^2*K", "W/m^2*K", "Btu/ft^2*hr*R", m_isIP);
   connect(this, &WindowMaterialSimpleGlazingSystemInspectorView::toggleUnitsClicked, m_uFactor, &OSQuantityEdit2::onUnitSystemChange);
-  mainGridLayout->addWidget(m_uFactor,row++,0,1,3);
+  mainGridLayout->addWidget(m_uFactor, row++, 0, 1, 3);
 
   // Solar Heat Gain Coefficient
 
   label = new QLabel("Solar Heat Gain Coefficient: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,row++,0);
+  mainGridLayout->addWidget(label, row++, 0);
 
-  m_solarHeatGainCoefficient = new OSQuantityEdit2("","","", m_isIP);
-  connect(this, &WindowMaterialSimpleGlazingSystemInspectorView::toggleUnitsClicked, m_solarHeatGainCoefficient, &OSQuantityEdit2::onUnitSystemChange);
-  mainGridLayout->addWidget(m_solarHeatGainCoefficient,row++,0,1,3);
+  m_solarHeatGainCoefficient = new OSQuantityEdit2("", "", "", m_isIP);
+  connect(this, &WindowMaterialSimpleGlazingSystemInspectorView::toggleUnitsClicked, m_solarHeatGainCoefficient,
+          &OSQuantityEdit2::onUnitSystemChange);
+  mainGridLayout->addWidget(m_solarHeatGainCoefficient, row++, 0, 1, 3);
 
   // Visible Transmittance
 
   label = new QLabel("Visible Transmittance: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,row++,0);
+  mainGridLayout->addWidget(label, row++, 0);
 
-  m_visibleTransmittance = new OSQuantityEdit2("","","", m_isIP);
+  m_visibleTransmittance = new OSQuantityEdit2("", "", "", m_isIP);
   connect(this, &WindowMaterialSimpleGlazingSystemInspectorView::toggleUnitsClicked, m_visibleTransmittance, &OSQuantityEdit2::onUnitSystemChange);
-  mainGridLayout->addWidget(m_visibleTransmittance,row++,0,1,3);
+  mainGridLayout->addWidget(m_visibleTransmittance, row++, 0, 1, 3);
 
   // Stretch
 
-  mainGridLayout->setRowStretch(100,100);
+  mainGridLayout->setRowStretch(100, 100);
 
-  mainGridLayout->setColumnStretch(100,100);
+  mainGridLayout->setColumnStretch(100, 100);
 }
 
-void WindowMaterialSimpleGlazingSystemInspectorView::onClearSelection()
-{
-  ModelObjectInspectorView::onClearSelection(); // call parent implementation
+void WindowMaterialSimpleGlazingSystemInspectorView::onClearSelection() {
+  ModelObjectInspectorView::onClearSelection();  // call parent implementation
   detach();
 }
 
-void WindowMaterialSimpleGlazingSystemInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject)
-{
+void WindowMaterialSimpleGlazingSystemInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject) {
   detach();
   model::SimpleGlazing simpleGlazing = modelObject.cast<model::SimpleGlazing>();
   attach(simpleGlazing);
   refresh();
 }
 
-void WindowMaterialSimpleGlazingSystemInspectorView::onUpdate()
-{
+void WindowMaterialSimpleGlazingSystemInspectorView::onUpdate() {
   refresh();
 }
 
-void WindowMaterialSimpleGlazingSystemInspectorView::attach(openstudio::model::SimpleGlazing & simpleGlazing)
-{
+void WindowMaterialSimpleGlazingSystemInspectorView::attach(openstudio::model::SimpleGlazing& simpleGlazing) {
   // m_nameEdit->bind(simpleGlazing,"name");
   m_simpleGlazing = simpleGlazing;
   m_nameEdit->bind(
-    *m_simpleGlazing,
-    OptionalStringGetter(std::bind(&model::SimpleGlazing::name, m_simpleGlazing.get_ptr(),true)),
-    boost::optional<StringSetterOptionalStringReturn>(std::bind(&model::SimpleGlazing::setName, m_simpleGlazing.get_ptr(),std::placeholders::_1))
-  );
+    *m_simpleGlazing, OptionalStringGetter(std::bind(&model::SimpleGlazing::name, m_simpleGlazing.get_ptr(), true)),
+    boost::optional<StringSetterOptionalStringReturn>(std::bind(&model::SimpleGlazing::setName, m_simpleGlazing.get_ptr(), std::placeholders::_1)));
 
   // m_uFactor->bind(simpleGlazing,"uFactor",m_isIP);
-  m_uFactor->bind(
-    m_isIP,
-    *m_simpleGlazing,
-    DoubleGetter(std::bind(&model::SimpleGlazing::uFactor, m_simpleGlazing.get_ptr())),
-    boost::optional<DoubleSetter>(std::bind(static_cast<bool(model::SimpleGlazing::*)(double)>(&model::SimpleGlazing::setUFactor), m_simpleGlazing.get_ptr(), std::placeholders::_1))
-  );
+  m_uFactor->bind(m_isIP, *m_simpleGlazing, DoubleGetter(std::bind(&model::SimpleGlazing::uFactor, m_simpleGlazing.get_ptr())),
+                  boost::optional<DoubleSetter>(std::bind(static_cast<bool (model::SimpleGlazing::*)(double)>(&model::SimpleGlazing::setUFactor),
+                                                          m_simpleGlazing.get_ptr(), std::placeholders::_1)));
 
   // m_solarHeatGainCoefficient->bind(simpleGlazing,"solarHeatGainCoefficient",m_isIP);
   m_solarHeatGainCoefficient->bind(
-    m_isIP,
-    *m_simpleGlazing,
-    DoubleGetter(std::bind(&model::SimpleGlazing::solarHeatGainCoefficient, m_simpleGlazing.get_ptr())),
-    boost::optional<DoubleSetter>(std::bind(static_cast<bool(model::SimpleGlazing::*)(double)>(&model::SimpleGlazing::setSolarHeatGainCoefficient), m_simpleGlazing.get_ptr(), std::placeholders::_1))
-  );
+    m_isIP, *m_simpleGlazing, DoubleGetter(std::bind(&model::SimpleGlazing::solarHeatGainCoefficient, m_simpleGlazing.get_ptr())),
+    boost::optional<DoubleSetter>(std::bind(static_cast<bool (model::SimpleGlazing::*)(double)>(&model::SimpleGlazing::setSolarHeatGainCoefficient),
+                                            m_simpleGlazing.get_ptr(), std::placeholders::_1)));
 
   // m_visibleTransmittance->bind(simpleGlazing,"visibleTransmittance",m_isIP);
   m_visibleTransmittance->bind(
-    m_isIP,
-    *m_simpleGlazing,
-    OptionalDoubleGetter(std::bind(&model::SimpleGlazing::visibleTransmittance, m_simpleGlazing.get_ptr())),
-    boost::optional<DoubleSetter>(std::bind(static_cast<bool(model::SimpleGlazing::*)(double)>(&model::SimpleGlazing::setVisibleTransmittance), m_simpleGlazing.get_ptr(), std::placeholders::_1)),
-    boost::optional<NoFailAction>(std::bind(&model::SimpleGlazing::resetVisibleTransmittance, m_simpleGlazing.get_ptr()))
-  );
+    m_isIP, *m_simpleGlazing, OptionalDoubleGetter(std::bind(&model::SimpleGlazing::visibleTransmittance, m_simpleGlazing.get_ptr())),
+    boost::optional<DoubleSetter>(std::bind(static_cast<bool (model::SimpleGlazing::*)(double)>(&model::SimpleGlazing::setVisibleTransmittance),
+                                            m_simpleGlazing.get_ptr(), std::placeholders::_1)),
+    boost::optional<NoFailAction>(std::bind(&model::SimpleGlazing::resetVisibleTransmittance, m_simpleGlazing.get_ptr())));
 
   m_standardsInformationWidget->attach(simpleGlazing);
 
   this->stackedWidget()->setCurrentIndex(1);
 }
 
-void WindowMaterialSimpleGlazingSystemInspectorView::detach()
-{
+void WindowMaterialSimpleGlazingSystemInspectorView::detach() {
   this->stackedWidget()->setCurrentIndex(0);
 
   m_nameEdit->unbind();
@@ -200,8 +185,6 @@ void WindowMaterialSimpleGlazingSystemInspectorView::detach()
   m_standardsInformationWidget->detach();
 }
 
-void WindowMaterialSimpleGlazingSystemInspectorView::refresh()
-{
-}
+void WindowMaterialSimpleGlazingSystemInspectorView::refresh() {}
 
-} // openstudio
+}  // namespace openstudio

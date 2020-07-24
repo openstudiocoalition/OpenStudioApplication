@@ -45,42 +45,39 @@ class CollapsibleComponent : public QAbstractButton
 {
   Q_OBJECT
 
-public:
-  CollapsibleComponent(CollapsibleComponentHeader * collapsibleComponentHeader,
-    ComponentList * componentList,
-    QWidget * parent = nullptr);
+ public:
+  CollapsibleComponent(CollapsibleComponentHeader* collapsibleComponentHeader, ComponentList* componentList, QWidget* parent = nullptr);
   virtual ~CollapsibleComponent() {}
   bool expanded() const;
   void setExpanded(bool expanded);
-  CollapsibleComponentHeader * collapsibleComponentHeader() const;
-  ComponentList * componentList() const;
+  CollapsibleComponentHeader* collapsibleComponentHeader() const;
+  ComponentList* componentList() const;
   void setText(const QString& text);
   void setNumResults(int numResults);
   void setNumPages(int numPages);
   void firstPage();
 
-protected:
-  void paintEvent(QPaintEvent * event) override;
+ protected:
+  void paintEvent(QPaintEvent* event) override;
 
-private:
+ private:
   void createLayout();
 
-  CollapsibleComponentHeader * m_collapsibleComponentHeader;
-  ComponentList * m_componentList;
-  QVBoxLayout * m_mainLayout;
+  CollapsibleComponentHeader* m_collapsibleComponentHeader;
+  ComponentList* m_componentList;
+  QVBoxLayout* m_mainLayout;
 
-signals:
+ signals:
   void headerClicked(bool);
   void componentClicked(bool);
   void getComponentsByPage(int pageNum);
 
-private slots:
+ private slots:
   void on_headerClicked(bool checked);
   void on_componentClicked(bool checked);
   void on_getComponentsByPage(int pageIdx);
-
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // SHAREDGUICOMPONENTS_COLLAPSIBLECOMPONENT_HPP
+#endif  // SHAREDGUICOMPONENTS_COLLAPSIBLECOMPONENT_HPP

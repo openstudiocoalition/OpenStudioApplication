@@ -35,41 +35,30 @@
 
 namespace openstudio {
 
+OSQObjectController::OSQObjectController() : QObject() {}
 
-OSQObjectController::OSQObjectController()
-  : QObject()
-{
-}
-
-OSQObjectController::~OSQObjectController()
-{
+OSQObjectController::~OSQObjectController() {
   auto it = m_objects.begin();
   auto itend = m_objects.end();
-  for( ; it != itend; ++it)
-  {
-    if( *it )
-    {
+  for (; it != itend; ++it) {
+    if (*it) {
       delete *it;
     }
   }
 }
 
-void OSQObjectController::addQObject(QObject * object)
-{
+void OSQObjectController::addQObject(QObject* object) {
   m_objects.push_back(object);
 
   connect(object, &QObject::destroyed, this, &OSQObjectController::onObjectDestroyed);
 }
 
-void OSQObjectController::onObjectDestroyed(QObject * object)
-{
-  auto it = find(m_objects.begin(),m_objects.end(),object);
+void OSQObjectController::onObjectDestroyed(QObject* object) {
+  auto it = find(m_objects.begin(), m_objects.end(), object);
 
-  if( it != m_objects.end() )
-  {
+  if (it != m_objects.end()) {
     *it = nullptr;
   }
 }
 
-
-} // openstudio
+}  // namespace openstudio

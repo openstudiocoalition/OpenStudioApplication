@@ -45,14 +45,14 @@ class HoursOfOperationVC : public ModelObjectVectorController
 {
   Q_OBJECT
 
-public:
+ public:
   virtual ~HoursOfOperationVC() {}
 
-protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onRemoveItem(OSItem* item) override;
-  virtual void onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId) override;
+  virtual void onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) override;
   virtual void onDrop(const OSItemId& itemId) override;
 };
 
@@ -60,14 +60,14 @@ class NumberOfPeopleVC : public ModelObjectVectorController
 {
   Q_OBJECT
 
-public:
+ public:
   virtual ~NumberOfPeopleVC() {}
 
-protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onRemoveItem(OSItem* item) override;
-  virtual void onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId) override;
+  virtual void onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) override;
   virtual void onDrop(const OSItemId& itemId) override;
 };
 
@@ -75,14 +75,14 @@ class PeopleActivityScheduleVC : public ModelObjectVectorController
 {
   Q_OBJECT
 
-public:
+ public:
   virtual ~PeopleActivityScheduleVC() {}
 
-protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onRemoveItem(OSItem* item) override;
-  virtual void onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId) override;
+  virtual void onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) override;
   virtual void onDrop(const OSItemId& itemId) override;
 };
 
@@ -90,14 +90,14 @@ class LightingScheduleVC : public ModelObjectVectorController
 {
   Q_OBJECT
 
-public:
+ public:
   virtual ~LightingScheduleVC() {}
 
-protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onRemoveItem(OSItem* item) override;
-  virtual void onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId) override;
+  virtual void onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) override;
   virtual void onDrop(const OSItemId& itemId) override;
 };
 
@@ -105,14 +105,14 @@ class ElectricEquipmentScheduleVC : public ModelObjectVectorController
 {
   Q_OBJECT
 
-public:
+ public:
   virtual ~ElectricEquipmentScheduleVC() {}
 
-protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onRemoveItem(OSItem* item) override;
-  virtual void onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId) override;
+  virtual void onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) override;
   virtual void onDrop(const OSItemId& itemId) override;
 };
 
@@ -120,14 +120,14 @@ class GasEquipmentScheduleVC : public ModelObjectVectorController
 {
   Q_OBJECT
 
-public:
+ public:
   virtual ~GasEquipmentScheduleVC() {}
 
-protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onRemoveItem(OSItem* item) override;
-  virtual void onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId) override;
+  virtual void onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) override;
   virtual void onDrop(const OSItemId& itemId) override;
 };
 
@@ -135,14 +135,14 @@ class HotWaterEquipmentScheduleVC : public ModelObjectVectorController
 {
   Q_OBJECT
 
-public:
+ public:
   virtual ~HotWaterEquipmentScheduleVC() {}
 
-protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onRemoveItem(OSItem* item) override;
-  virtual void onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId) override;
+  virtual void onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) override;
   virtual void onDrop(const OSItemId& itemId) override;
 };
 
@@ -150,14 +150,14 @@ class InfiltrationScheduleVC : public ModelObjectVectorController
 {
   Q_OBJECT
 
-public:
+ public:
   virtual ~InfiltrationScheduleVC() {}
 
-protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onRemoveItem(OSItem* item) override;
-  virtual void onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId) override;
+  virtual void onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) override;
   virtual void onDrop(const OSItemId& itemId) override;
 };
 
@@ -165,14 +165,14 @@ class SteamEquipmentScheduleVC : public ModelObjectVectorController
 {
   Q_OBJECT
 
-public:
+ public:
   virtual ~SteamEquipmentScheduleVC() {}
 
-protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onRemoveItem(OSItem* item) override;
-  virtual void onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId) override;
+  virtual void onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) override;
   virtual void onDrop(const OSItemId& itemId) override;
 };
 
@@ -180,14 +180,14 @@ class OtherEquipmentScheduleVC : public ModelObjectVectorController
 {
   Q_OBJECT
 
-public:
+ public:
   virtual ~OtherEquipmentScheduleVC() {}
 
-protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onRemoveItem(OSItem* item) override;
-  virtual void onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId) override;
+  virtual void onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) override;
   virtual void onDrop(const OSItemId& itemId) override;
 };
 
@@ -195,51 +195,50 @@ class ScheduleSetInspectorView : public ModelObjectInspectorView
 {
   Q_OBJECT
 
-  public:
-    ScheduleSetInspectorView(const model::Model& model,
-      QWidget * parent = nullptr);
-    virtual ~ScheduleSetInspectorView() {}
+ public:
+  ScheduleSetInspectorView(const model::Model& model, QWidget* parent = nullptr);
+  virtual ~ScheduleSetInspectorView() {}
 
-  protected:
-    virtual void onClearSelection() override;
-    virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
-    virtual void onUpdate() override;
+ protected:
+  virtual void onClearSelection() override;
+  virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
+  virtual void onUpdate() override;
 
-  private:
-    void attach(openstudio::model::DefaultScheduleSet& scheduleSet);
-    void detach();
-    void configDropZones();
+ private:
+  void attach(openstudio::model::DefaultScheduleSet& scheduleSet);
+  void detach();
+  void configDropZones();
 
-    OSLineEdit2 * m_nameEdit;
+  OSLineEdit2* m_nameEdit;
 
-    OSDropZone * m_hoursOfOperationDZ;
-    OSDropZone * m_numberOfPeopleDZ;
-    OSDropZone * m_peopleActivityScheduleDZ;
-    OSDropZone * m_lightingScheduleDZ;
-    OSDropZone * m_electricEquipmentScheduleDZ;
-    OSDropZone * m_gasEquipmentScheduleDZ;
-    OSDropZone * m_hotWaterEquipmentScheduleDZ;
-    OSDropZone * m_infiltrationScheduleDZ;
-    OSDropZone * m_ventilationPerPersonScheduleDZ;
-    OSDropZone * m_ventilationPerFloorAreaScheduleDZ;
+  OSDropZone* m_hoursOfOperationDZ;
+  OSDropZone* m_numberOfPeopleDZ;
+  OSDropZone* m_peopleActivityScheduleDZ;
+  OSDropZone* m_lightingScheduleDZ;
+  OSDropZone* m_electricEquipmentScheduleDZ;
+  OSDropZone* m_gasEquipmentScheduleDZ;
+  OSDropZone* m_hotWaterEquipmentScheduleDZ;
+  OSDropZone* m_infiltrationScheduleDZ;
+  OSDropZone* m_ventilationPerPersonScheduleDZ;
+  OSDropZone* m_ventilationPerFloorAreaScheduleDZ;
 
-    HoursOfOperationVC * m_hoursOfOperationVC;
-    NumberOfPeopleVC * m_numberOfPeopleVC;
-    PeopleActivityScheduleVC * m_peopleActivityScheduleVC;
-    LightingScheduleVC * m_lightingScheduleVC;
-    ElectricEquipmentScheduleVC * m_electricEquipmentScheduleVC;
-    GasEquipmentScheduleVC * m_gasEquipmentScheduleVC;
-    HotWaterEquipmentScheduleVC * m_hotWaterEquipmentScheduleVC;
-    InfiltrationScheduleVC * m_infiltrationScheduleVC;
-    SteamEquipmentScheduleVC * m_steamEquipmentScheduleVC;
-    OtherEquipmentScheduleVC * m_otherEquipmentScheduleVC;
+  HoursOfOperationVC* m_hoursOfOperationVC;
+  NumberOfPeopleVC* m_numberOfPeopleVC;
+  PeopleActivityScheduleVC* m_peopleActivityScheduleVC;
+  LightingScheduleVC* m_lightingScheduleVC;
+  ElectricEquipmentScheduleVC* m_electricEquipmentScheduleVC;
+  GasEquipmentScheduleVC* m_gasEquipmentScheduleVC;
+  HotWaterEquipmentScheduleVC* m_hotWaterEquipmentScheduleVC;
+  InfiltrationScheduleVC* m_infiltrationScheduleVC;
+  SteamEquipmentScheduleVC* m_steamEquipmentScheduleVC;
+  OtherEquipmentScheduleVC* m_otherEquipmentScheduleVC;
 
-    std::vector<ModelObjectVectorController *> m_vectorControllers;
-    std::vector<OSDropZone *> m_dropZones;
+  std::vector<ModelObjectVectorController*> m_vectorControllers;
+  std::vector<OSDropZone*> m_dropZones;
 
-    boost::optional<model::DefaultScheduleSet> m_defaultScheduleSet;
+  boost::optional<model::DefaultScheduleSet> m_defaultScheduleSet;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_SCHEDULESETINSPECTORVIEW_HPP
+#endif  // OPENSTUDIO_SCHEDULESETINSPECTORVIEW_HPP

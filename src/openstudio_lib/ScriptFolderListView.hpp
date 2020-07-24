@@ -52,25 +52,22 @@ namespace openstudio {
 
 class ScriptsListView;
 
-class ScriptFolderListView : public OSCollapsibleItemList {
+class ScriptFolderListView : public OSCollapsibleItemList
+{
   Q_OBJECT
  public:
-  ScriptFolderListView(const openstudio::path &t_rootPath,
-                       bool addScrollArea,
-                       bool draggable,
-                       bool removeable,
-                       OSItemType headerType,
-                       QWidget * parent = nullptr);
+  ScriptFolderListView(const openstudio::path& t_rootPath, bool addScrollArea, bool draggable, bool removeable, OSItemType headerType,
+                       QWidget* parent = nullptr);
 
   virtual ~ScriptFolderListView();
 
-  void addScriptFolder(const openstudio::path &t_path, const std::string& name);
+  void addScriptFolder(const openstudio::path& t_path, const std::string& name);
 
-  void addScriptToFolder(const openstudio::path &t_path, const openstudio::path& folder_name);
-  void removeScript(const openstudio::path &t_path);
+  void addScriptToFolder(const openstudio::path& t_path, const openstudio::path& folder_name);
+  void removeScript(const openstudio::path& t_path);
 
-  void duplicateScript(const openstudio::path &t_path);
-  void createEmptyScript(const openstudio::path &t_folder_name);
+  void duplicateScript(const openstudio::path& t_path);
+  void createEmptyScript(const openstudio::path& t_folder_name);
 
   openstudio::path rootPath() const;
 
@@ -92,12 +89,12 @@ class ScriptFolderListView : public OSCollapsibleItemList {
  private:
   REGISTER_LOGGER("openstudio.ScriptFolderListView");
 
-  openstudio::path iterateFileName(const openstudio::path &t_path);
+  openstudio::path iterateFileName(const openstudio::path& t_path);
 
   openstudio::path m_rootPath;
   OSItemType m_headerType;
   std::map<openstudio::path, std::string> m_displayNames;
-  std::map<openstudio::path, ScriptsListView *> m_scriptsListViews;
+  std::map<openstudio::path, ScriptsListView*> m_scriptsListViews;
 
   bool m_draggable;
   bool m_removeable;
@@ -105,8 +102,6 @@ class ScriptFolderListView : public OSCollapsibleItemList {
   std::shared_ptr<QFileSystemWatcher> m_fswatcher;
 };
 
+}  // namespace openstudio
 
-
-} // openstudio
-
-#endif // OPENSTUDIO_SCRIPTFOLDERLISTVIEW_HPP
+#endif  // OPENSTUDIO_SCRIPTFOLDERLISTVIEW_HPP

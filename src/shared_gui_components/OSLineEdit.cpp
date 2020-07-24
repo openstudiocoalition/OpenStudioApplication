@@ -51,30 +51,22 @@
 #include <QString>
 
 #if !(_DEBUG || (__GNUC__ && !NDEBUG))
-#define TIMEOUT_INTERVAL 500
+#  define TIMEOUT_INTERVAL 500
 #else
-#define TIMEOUT_INTERVAL 2000
+#  define TIMEOUT_INTERVAL 2000
 #endif
 
 namespace openstudio {
 
-OSLineEdit2::OSLineEdit2( QWidget * parent )
-  : QLineEdit(parent)
-{
+OSLineEdit2::OSLineEdit2(QWidget* parent) : QLineEdit(parent) {
   this->setAcceptDrops(false);
   setEnabled(false);
 }
 
-OSLineEdit2::~OSLineEdit2()
-{
-}
+OSLineEdit2::~OSLineEdit2() {}
 
-void OSLineEdit2::bind(model::ModelObject& modelObject,
-                       StringGetter get,
-                       boost::optional<StringSetter> set,
-                       boost::optional<NoFailAction> reset,
-                       boost::optional<BasicQuery> isDefaulted)
-{
+void OSLineEdit2::bind(model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetter> set, boost::optional<NoFailAction> reset,
+                       boost::optional<BasicQuery> isDefaulted) {
   m_modelObject = modelObject;
   m_get = get;
   m_set = set;
@@ -84,12 +76,8 @@ void OSLineEdit2::bind(model::ModelObject& modelObject,
   completeBind();
 }
 
-void OSLineEdit2::bind(model::ModelObject& modelObject,
-                       OptionalStringGetter get,
-                       boost::optional<StringSetter> set,
-                       boost::optional<NoFailAction> reset,
-                       boost::optional<BasicQuery> isDefaulted)
-{
+void OSLineEdit2::bind(model::ModelObject& modelObject, OptionalStringGetter get, boost::optional<StringSetter> set,
+                       boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted) {
   m_modelObject = modelObject;
   m_getOptional = get;
   m_set = set;
@@ -99,12 +87,8 @@ void OSLineEdit2::bind(model::ModelObject& modelObject,
   completeBind();
 }
 
-void OSLineEdit2::bind(model::ModelObject& modelObject,
-  OptionalStringGetter get,
-  boost::optional<StringSetterOptionalStringReturn> set,
-  boost::optional<NoFailAction> reset,
-  boost::optional<BasicQuery> isDefaulted)
-{
+void OSLineEdit2::bind(model::ModelObject& modelObject, OptionalStringGetter get, boost::optional<StringSetterOptionalStringReturn> set,
+                       boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted) {
   m_modelObject = modelObject;
   m_getOptional = get;
   m_setOptionalStringReturn = set;
@@ -114,12 +98,8 @@ void OSLineEdit2::bind(model::ModelObject& modelObject,
   completeBind();
 }
 
-void OSLineEdit2::bind(model::ModelObject& modelObject,
-                       OptionalStringGetterBoolArg get,
-                       boost::optional<StringSetterOptionalStringReturn> set,
-                       boost::optional<NoFailAction> reset,
-                       boost::optional<BasicQuery> isDefaulted)
-{
+void OSLineEdit2::bind(model::ModelObject& modelObject, OptionalStringGetterBoolArg get, boost::optional<StringSetterOptionalStringReturn> set,
+                       boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted) {
   m_modelObject = modelObject;
   m_getOptionalBoolArg = get;
   m_setOptionalStringReturn = set;
@@ -129,12 +109,8 @@ void OSLineEdit2::bind(model::ModelObject& modelObject,
   completeBind();
 }
 
-void OSLineEdit2::bind(model::ModelObject& modelObject,
-  StringGetter get,
-  boost::optional<StringSetterVoidReturn> set,
-  boost::optional<NoFailAction> reset,
-  boost::optional<BasicQuery> isDefaulted)
-{
+void OSLineEdit2::bind(model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetterVoidReturn> set,
+                       boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted) {
   m_modelObject = modelObject;
   m_get = get;
   m_setVoidReturn = set;
@@ -147,14 +123,15 @@ void OSLineEdit2::bind(model::ModelObject& modelObject,
 void OSLineEdit2::completeBind() {
   setEnabled(true);
 
-  if (!m_set && !m_setOptionalStringReturn && !m_setVoidReturn)
-  {
+  if (!m_set && !m_setOptionalStringReturn && !m_setVoidReturn) {
     setReadOnly(true);
   }
 
   m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.connect<OSLineEdit2, &OSLineEdit2::onModelObjectChange>(this);
 
-  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onRemoveFromWorkspace.connect<OSLineEdit2, &OSLineEdit2::onModelObjectRemove>(this);
+  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
+    .get()
+    ->onRemoveFromWorkspace.connect<OSLineEdit2, &OSLineEdit2::onModelObjectRemove>(this);
 
   connect(this, &OSLineEdit2::editingFinished, this, &OSLineEdit2::onEditingFinished);
 
@@ -162,14 +139,15 @@ void OSLineEdit2::completeBind() {
   connect(&m_timer, &QTimer::timeout, this, &OSLineEdit2::emitItemClicked);
 
   onModelObjectChangeInternal(true);
-
 }
 
-void OSLineEdit2::unbind()
-{
-  if (m_modelObject){
-    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.disconnect<OSLineEdit2, &OSLineEdit2::onModelObjectChange>(this);
-    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onRemoveFromWorkspace.disconnect<OSLineEdit2, &OSLineEdit2::onModelObjectRemove>(this);
+void OSLineEdit2::unbind() {
+  if (m_modelObject) {
+    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.disconnect<OSLineEdit2, &OSLineEdit2::onModelObjectChange>(
+      this);
+    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
+      .get()
+      ->onRemoveFromWorkspace.disconnect<OSLineEdit2, &OSLineEdit2::onModelObjectRemove>(this);
 
     m_modelObject.reset();
     m_get.reset();
@@ -191,23 +169,20 @@ void OSLineEdit2::onEditingFinished() {
       auto result = false;
       if (m_set) {
         result = (*m_set)(m_text);
-      }
-      else if (m_setOptionalStringReturn) {
+      } else if (m_setOptionalStringReturn) {
         auto optionalStringReturn = (*m_setOptionalStringReturn)(m_text);
         if (optionalStringReturn) {
-          result = true; // TODO
+          result = true;  // TODO
         }
         result = true;
-      }
-      else if (m_setVoidReturn) {
+      } else if (m_setVoidReturn) {
         (*m_setVoidReturn)(m_text);
         result = true;
       }
-      if (!result){
+      if (!result) {
         //restore
         onModelObjectChange();
-      }
-      else {
+      } else {
         emit inFocus(true, hasData());
         adjustWidth();
       }
@@ -215,8 +190,7 @@ void OSLineEdit2::onEditingFinished() {
   }
 }
 
-void OSLineEdit2::adjustWidth()
-{
+void OSLineEdit2::adjustWidth() {
   if (m_modelObject) {
     // Adjust the width to accommodate the text
     QFont myFont;
@@ -227,24 +201,20 @@ void OSLineEdit2::adjustWidth()
   }
 }
 
-void OSLineEdit2::onModelObjectChange()
-{
+void OSLineEdit2::onModelObjectChange() {
   onModelObjectChangeInternal(false);
 }
 
 void OSLineEdit2::onModelObjectChangeInternal(bool startingup) {
-  if( m_modelObject ) {
+  if (m_modelObject) {
     OptionalString value;
     if (m_get) {
       value = (*m_get)();
-    }
-    else if (m_getOptional){
+    } else if (m_getOptional) {
       value = (*m_getOptional)();
-    }
-    else if (m_getOptionalBoolArg) {
-      value = (*m_getOptionalBoolArg)(true); // TODO may want to pass a variable
-    }
-    else{
+    } else if (m_getOptionalBoolArg) {
+      value = (*m_getOptionalBoolArg)(true);  // TODO may want to pass a variable
+    } else {
       // unhandled
       OS_ASSERT(false);
     }
@@ -262,8 +232,7 @@ void OSLineEdit2::onModelObjectChangeInternal(bool startingup) {
   }
 }
 
-void OSLineEdit2::emitItemClicked()
-{
+void OSLineEdit2::emitItemClicked() {
   if (!m_item && m_modelObject) {
     m_item = OSItem::makeItem(modelObjectToItemId(*m_modelObject, false));
     OS_ASSERT(m_item);
@@ -271,30 +240,26 @@ void OSLineEdit2::emitItemClicked()
     connect(m_item, &OSItem::itemRemoveClicked, this, &OSLineEdit2::onItemRemoveClicked);
   }
 
-  if (m_item){
+  if (m_item) {
     // Tell EditView to display this object
     emit itemClicked(m_item);
   }
 }
 
-void OSLineEdit2::onModelObjectRemove(const Handle& handle)
-{
+void OSLineEdit2::onModelObjectRemove(const Handle& handle) {
   unbind();
 }
 
-void OSLineEdit2::mouseReleaseEvent(QMouseEvent * event)
-{
-  if (event->button() == Qt::LeftButton){
+void OSLineEdit2::mouseReleaseEvent(QMouseEvent* event) {
+  if (event->button() == Qt::LeftButton) {
     event->accept();
 
     m_timer.start(TIMEOUT_INTERVAL);
   }
 }
 
-void OSLineEdit2::onItemRemoveClicked()
-{
-  if (m_reset)
-  {
+void OSLineEdit2::onItemRemoveClicked() {
+  if (m_reset) {
     boost::optional<model::ParentObject> parent = boost::none;
     if (m_modelObject) {
       parent = m_modelObject->parent();
@@ -307,10 +272,8 @@ void OSLineEdit2::onItemRemoveClicked()
   }
 }
 
-void OSLineEdit2::focusInEvent(QFocusEvent * e)
-{
-  if (e->reason() == Qt::MouseFocusReason && m_hasClickFocus)
-  {
+void OSLineEdit2::focusInEvent(QFocusEvent* e) {
+  if (e->reason() == Qt::MouseFocusReason && m_hasClickFocus) {
     QString style("QLineEdit { background: #ffc627; }");
     setStyleSheet(style);
 
@@ -320,20 +283,18 @@ void OSLineEdit2::focusInEvent(QFocusEvent * e)
   QLineEdit::focusInEvent(e);
 }
 
-void OSLineEdit2::focusOutEvent(QFocusEvent * e)
-{
-  if (e->reason() == Qt::MouseFocusReason && m_hasClickFocus)
-  {
+void OSLineEdit2::focusOutEvent(QFocusEvent* e) {
+  if (e->reason() == Qt::MouseFocusReason && m_hasClickFocus) {
     QString style("QLineEdit { background: white; }");
     setStyleSheet(style);
 
     emit inFocus(false, false);
 
-    auto mouseOverInspectorView = OSAppBase::instance()->currentDocument()->mainRightColumnController()->inspectorController()->inspectorView()->mouseOverInspectorView();
+    auto mouseOverInspectorView =
+      OSAppBase::instance()->currentDocument()->mainRightColumnController()->inspectorController()->inspectorView()->mouseOverInspectorView();
     if (!mouseOverInspectorView) {
       emit itemClicked(nullptr);
     }
-
   }
 
   QLineEdit::focusOutEvent(e);
@@ -432,4 +393,4 @@ void OSLineEdit2::focusOutEvent(QFocusEvent * e)
 //   setEnabled(false);
 // }
 
-} // openstudio
+}  // namespace openstudio

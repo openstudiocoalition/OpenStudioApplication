@@ -44,20 +44,13 @@
 #include <QResizeEvent>
 #include <QStyleOption>
 
-#define FILTERS_ON  "Filters On "
+#define FILTERS_ON "Filters On "
 #define FILTERS_OFF "Filters Off "
 
 namespace openstudio {
 
-OSCollapsibleItem::OSCollapsibleItem(OSCollapsibleItemHeader * collapsibleItemHeader,
-                                     OSItemList * itemList,
-                                     QWidget * parent)
-  : QWidget(parent),
-    m_collapsibleItemHeader(collapsibleItemHeader),
-    m_itemList(itemList),
-    m_mainLayout(nullptr),
-    m_showFilterLayout(false)
-{
+OSCollapsibleItem::OSCollapsibleItem(OSCollapsibleItemHeader* collapsibleItemHeader, OSItemList* itemList, QWidget* parent)
+  : QWidget(parent), m_collapsibleItemHeader(collapsibleItemHeader), m_itemList(itemList), m_mainLayout(nullptr), m_showFilterLayout(false) {
   OS_ASSERT(m_collapsibleItemHeader);
   OS_ASSERT(m_itemList);
 
@@ -68,7 +61,7 @@ OSCollapsibleItem::OSCollapsibleItem(OSCollapsibleItemHeader * collapsibleItemHe
 
   m_mainLayout = new QVBoxLayout();
   m_mainLayout->setSpacing(0);
-  m_mainLayout->setContentsMargins(0,0,0,0);
+  m_mainLayout->setContentsMargins(0, 0, 0, 0);
   setLayout(m_mainLayout);
 
   // collapsible header
@@ -125,7 +118,8 @@ OSCollapsibleItem::OSCollapsibleItem(OSCollapsibleItemHeader * collapsibleItemHe
   m_sortComboBox->addItem("Relevance");
   m_sortComboBox->addItem("Recently Downloaded from BCL");
   m_sortComboBox->addItem("BCL Components");
-  connect(m_sortComboBox, static_cast<void (QComboBox::*)(const QString &)>(&QComboBox::currentIndexChanged), this, &OSCollapsibleItem::comboBoxClicked);
+  connect(m_sortComboBox, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentIndexChanged), this,
+          &OSCollapsibleItem::comboBoxClicked);
 
   auto vLayout = new QVBoxLayout();
   vLayout->addLayout(btnHLayout);
@@ -136,8 +130,7 @@ OSCollapsibleItem::OSCollapsibleItem(OSCollapsibleItemHeader * collapsibleItemHe
 
   m_mainLayout->addWidget(m_filterWidget);
 
-  connect(collapsibleItemHeader, &OSCollapsibleItemHeader::clicked,
-          this, &OSCollapsibleItem::onHeaderClicked);
+  connect(collapsibleItemHeader, &OSCollapsibleItemHeader::clicked, this, &OSCollapsibleItem::onHeaderClicked);
 
   // item list
   m_mainLayout->addWidget(m_itemList);
@@ -157,88 +150,73 @@ OSCollapsibleItem::OSCollapsibleItem(OSCollapsibleItemHeader * collapsibleItemHe
   setExpanded(false);
 }
 
-OSCollapsibleItemHeader * OSCollapsibleItem::collapsibleItemHeader() const
-{
+OSCollapsibleItemHeader* OSCollapsibleItem::collapsibleItemHeader() const {
   return m_collapsibleItemHeader;
 }
 
-OSItemList * OSCollapsibleItem::itemList() const
-{
+OSItemList* OSCollapsibleItem::itemList() const {
   return m_itemList;
 }
 
-bool OSCollapsibleItem::itemsDraggable() const
-{
+bool OSCollapsibleItem::itemsDraggable() const {
   return m_itemList->itemsDraggable();
 }
 
-void OSCollapsibleItem::setItemsDraggable(bool itemsDraggable)
-{
+void OSCollapsibleItem::setItemsDraggable(bool itemsDraggable) {
   m_itemList->setItemsDraggable(itemsDraggable);
 }
 
-bool OSCollapsibleItem::itemsRemoveable() const
-{
+bool OSCollapsibleItem::itemsRemoveable() const {
   return m_itemList->itemsRemoveable();
 }
 
-void OSCollapsibleItem::setItemsRemoveable(bool itemsRemoveable)
-{
+void OSCollapsibleItem::setItemsRemoveable(bool itemsRemoveable) {
   m_itemList->setItemsRemoveable(itemsRemoveable);
 }
 
-OSItemType OSCollapsibleItem::itemsType() const
-{
+OSItemType OSCollapsibleItem::itemsType() const {
   return m_itemList->itemsType();
 }
 
-void OSCollapsibleItem::setItemsType(OSItemType type)
-{
+void OSCollapsibleItem::setItemsType(OSItemType type) {
   m_itemList->setItemsType(type);
 }
 
-bool OSCollapsibleItem::isSelected() const
-{
+bool OSCollapsibleItem::isSelected() const {
   return this->m_collapsibleItemHeader->selected();
 }
 
-void OSCollapsibleItem::setSelected(bool selected)
-{
+void OSCollapsibleItem::setSelected(bool selected) {
   this->m_collapsibleItemHeader->setSelected(selected);
-  if (selected){
+  if (selected) {
     emit collapsableItemSelected(this);
   }
 }
 
-bool OSCollapsibleItem::expanded() const
-{
+bool OSCollapsibleItem::expanded() const {
   return this->m_collapsibleItemHeader->expanded();
 }
 
-void OSCollapsibleItem::setExpanded(bool expanded)
-{
+void OSCollapsibleItem::setExpanded(bool expanded) {
   this->m_collapsibleItemHeader->setExpanded(expanded);
   this->m_itemList->setVisible(expanded);
-  if(m_showFilterLayout){
+  if (m_showFilterLayout) {
     setShowFilterWidgets(expanded);
   }
 }
 
-void OSCollapsibleItem::paintEvent(QPaintEvent * event)
-{
+void OSCollapsibleItem::paintEvent(QPaintEvent* event) {
   QStyleOption opt;
   opt.init(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
 
-bool OSCollapsibleItem::showFilterLayout()
-{
+bool OSCollapsibleItem::showFilterLayout() {
   return m_showFilterLayout;
 }
 
-void OSCollapsibleItem::setShowFilterLayout(const bool showFilterLayout)
-{
+void OSCollapsibleItem::setShowFilterLayout(const bool showFilterLayout) {
   // TODO Hack to remove once we do stuff with the filters
   return;
 
@@ -247,8 +225,7 @@ void OSCollapsibleItem::setShowFilterLayout(const bool showFilterLayout)
   setShowFilterWidgets(showFilterLayout);
 }
 
-void OSCollapsibleItem::setShowFilterWidgets(const bool showFilterWidgets)
-{
+void OSCollapsibleItem::setShowFilterWidgets(const bool showFilterWidgets) {
   //this->m_filtersOnBtn->setVisible(showFilterWidgets);
   //this->m_filtersOffBtn->setVisible(showFilterWidgets);
   //this->m_openLibDlgButton->setVisible(showFilterWidgets);
@@ -257,25 +234,21 @@ void OSCollapsibleItem::setShowFilterWidgets(const bool showFilterWidgets)
   m_filterWidget->setVisible(showFilterWidgets);
 }
 
-void OSCollapsibleItem::onHeaderClicked(OSCollapsibleItemHeader * header)
-{
+void OSCollapsibleItem::onHeaderClicked(OSCollapsibleItemHeader* header) {
   setExpanded(!expanded());
   setSelected(true);
 }
 
-void OSCollapsibleItem::filtersOnClicked()
-{
+void OSCollapsibleItem::filtersOnClicked() {
   // TODO
 }
 
-void OSCollapsibleItem::filtersOffClicked()
-{
+void OSCollapsibleItem::filtersOffClicked() {
   // TODO
 }
 
-void OSCollapsibleItem::comboBoxClicked(const QString & string)
-{
+void OSCollapsibleItem::comboBoxClicked(const QString& string) {
   // TODO
 }
 
-} // openstudio
+}  // namespace openstudio

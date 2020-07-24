@@ -48,27 +48,17 @@
 #include <openstudio/utilities/idd/IddEnums.hxx>
 namespace openstudio {
 
+ScheduleSetsView::ScheduleSetsView(const openstudio::model::Model& model, QWidget* parent)
+  : ModelSubTabView(new ModelObjectListView(IddObjectType::OS_DefaultScheduleSet, model, true, parent), new ScheduleSetInspectorView(model, parent),
+                    false, parent) {}
 
-ScheduleSetsView::ScheduleSetsView(const openstudio::model::Model& model,
-                                   QWidget * parent)
-                                   : ModelSubTabView(new ModelObjectListView(IddObjectType::OS_DefaultScheduleSet, model, true, parent),
-                                   new ScheduleSetInspectorView(model, parent),
-                                   false,
-                                   parent)
-{
-}
-
-std::vector<std::pair<IddObjectType, std::string> > ScheduleSetsView::modelObjectTypesAndNames()
-{
-  std::vector<std::pair<IddObjectType, std::string> > result;
+std::vector<std::pair<IddObjectType, std::string>> ScheduleSetsView::modelObjectTypesAndNames() {
+  std::vector<std::pair<IddObjectType, std::string>> result;
   result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_DefaultScheduleSet, "ScheduleSets"));
   return result;
 }
 
-ScheduleSetsInspectorView::ScheduleSetsInspectorView(const model::Model& model,
-                                                       QWidget * parent )
-  : ModelObjectInspectorView(model, false, parent)
-{
+ScheduleSetsInspectorView::ScheduleSetsInspectorView(const model::Model& model, QWidget* parent) : ModelObjectInspectorView(model, false, parent) {
   // index of hidden widget is 0
   auto hiddenWidget = new QWidget();
   int index = this->stackedWidget()->addWidget(hiddenWidget);
@@ -84,9 +74,8 @@ ScheduleSetsInspectorView::ScheduleSetsInspectorView(const model::Model& model,
   //m_inspectorIndexMap[IddObjectType::OS_ScheduleSets] = index;
 }
 
-void ScheduleSetsInspectorView::onClearSelection()
-{
-  ModelObjectInspectorView::onClearSelection(); // call parent implementation
+void ScheduleSetsInspectorView::onClearSelection() {
+  ModelObjectInspectorView::onClearSelection();  // call parent implementation
   QWidget* widget = this->stackedWidget()->currentWidget();
   ModelObjectInspectorView* modelObjectInspectorView = qobject_cast<ModelObjectInspectorView*>(widget);
   OS_ASSERT(modelObjectInspectorView);
@@ -95,11 +84,10 @@ void ScheduleSetsInspectorView::onClearSelection()
   this->stackedWidget()->setCurrentIndex(0);
 }
 
-void ScheduleSetsInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject)
-{
+void ScheduleSetsInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject) {
   int index = 1;
   std::map<openstudio::IddObjectType, int>::const_iterator it = m_inspectorIndexMap.find(modelObject.iddObjectType());
-  if (it != m_inspectorIndexMap.end()){
+  if (it != m_inspectorIndexMap.end()) {
     index = it->second;
   }
 
@@ -110,8 +98,6 @@ void ScheduleSetsInspectorView::onSelectModelObject(const openstudio::model::Mod
   this->stackedWidget()->setCurrentIndex(index);
 }
 
-void ScheduleSetsInspectorView::onUpdate()
-{
-}
+void ScheduleSetsInspectorView::onUpdate() {}
 
-} // openstudio
+}  // namespace openstudio

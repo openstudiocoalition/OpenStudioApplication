@@ -40,19 +40,14 @@
 
 namespace openstudio {
 
-ModelObjectTypeItem::ModelObjectTypeItem(OSCollapsibleItemHeader* collapsibleItemHeader,
-                                         ModelObjectListView* modelObjectListView,
-                                         QWidget * parent )
-  : OSCollapsibleItem(collapsibleItemHeader, modelObjectListView, parent)
-{
-}
+ModelObjectTypeItem::ModelObjectTypeItem(OSCollapsibleItemHeader* collapsibleItemHeader, ModelObjectListView* modelObjectListView, QWidget* parent)
+  : OSCollapsibleItem(collapsibleItemHeader, modelObjectListView, parent) {}
 
-IddObjectType ModelObjectTypeItem::iddObjectType() const
-{
+IddObjectType ModelObjectTypeItem::iddObjectType() const {
   OSItemList* itemList = this->itemList();
   ModelObjectListView* modelObjectListView = qobject_cast<ModelObjectListView*>(itemList);
   OS_ASSERT(modelObjectListView);
   return modelObjectListView->iddObjectType();
 }
 
-} // openstudio
+}  // namespace openstudio

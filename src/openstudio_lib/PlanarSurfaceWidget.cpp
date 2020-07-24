@@ -42,21 +42,18 @@
 
 namespace openstudio {
 
-PlanarSurfaceWidget::PlanarSurfaceWidget(bool isIP, QWidget * parent )
-  : QWidget(parent)
-{
+PlanarSurfaceWidget::PlanarSurfaceWidget(bool isIP, QWidget* parent) : QWidget(parent) {
   this->setObjectName("GrayWidget");
 
   setUnits(isIP);
 
   auto layout = new QGridLayout();
-  layout->setContentsMargins(7,7,7,7);
+  layout->setContentsMargins(7, 7, 7, 7);
   layout->setSpacing(7);
   this->setLayout(layout);
 }
 
-void PlanarSurfaceWidget::attach(const openstudio::model::PlanarSurface& planarSurface)
-{
+void PlanarSurfaceWidget::attach(const openstudio::model::PlanarSurface& planarSurface) {
   detach();
 
   m_planarSurface = planarSurface;
@@ -66,41 +63,37 @@ void PlanarSurfaceWidget::attach(const openstudio::model::PlanarSurface& planarS
   refresh();
 }
 
-void PlanarSurfaceWidget::detach()
-{
+void PlanarSurfaceWidget::detach() {
   clear();
 
-  if (m_planarSurface){
+  if (m_planarSurface) {
     // disconnect(m_planarSurface->getImpl<model::detail::ModelObject_Impl>().get());
     m_planarSurface->getImpl<model::detail::ModelObject_Impl>().get()->onChange.disconnect<PlanarSurfaceWidget, &PlanarSurfaceWidget::refresh>(this);
     m_planarSurface.reset();
   }
 }
 
-void PlanarSurfaceWidget::clear()
-{
-  QLayoutItem *child;
+void PlanarSurfaceWidget::clear() {
+  QLayoutItem* child;
   while ((child = this->layout()->takeAt(0)) != nullptr) {
     QWidget* widget = child->widget();
-    if (widget){
+    if (widget) {
       delete widget;
     }
     delete child;
   }
 }
 
-void PlanarSurfaceWidget::refresh()
-{
+void PlanarSurfaceWidget::refresh() {
   clear();
 
-  if (m_planarSurface){
+  if (m_planarSurface) {
 
     double multiplicationFactor = 1;
     QString units;
-    if(m_units == "SI"){
+    if (m_units == "SI") {
       units = "m";
-    }
-    else if(m_units == "IP"){
+    } else if (m_units == "IP") {
       units = "ft";
       multiplicationFactor = FEET_PER_METER;
     }
@@ -110,7 +103,7 @@ void PlanarSurfaceWidget::refresh()
     auto label = new QLabel();
     label->setText("Number");
     label->setStyleSheet("QLabel { font: bold; }");
-    layout->addWidget(label,0,0);
+    layout->addWidget(label, 0, 0);
 
     QString string;
 
@@ -121,7 +114,7 @@ void PlanarSurfaceWidget::refresh()
     label = new QLabel();
     label->setText(string);
     label->setStyleSheet("QLabel { font: bold; }");
-    layout->addWidget(label,0,1);
+    layout->addWidget(label, 0, 1);
 
     string = "y (";
     string += units;
@@ -130,7 +123,7 @@ void PlanarSurfaceWidget::refresh()
     label = new QLabel();
     label->setText(string);
     label->setStyleSheet("QLabel { font: bold; }");
-    layout->addWidget(label,0,2);
+    layout->addWidget(label, 0, 2);
 
     string = "z (";
     string += units;
@@ -139,48 +132,44 @@ void PlanarSurfaceWidget::refresh()
     label = new QLabel();
     label->setText(string);
     label->setStyleSheet("QLabel { font: bold; }");
-    layout->addWidget(label,0,3);
+    layout->addWidget(label, 0, 3);
 
     std::vector<openstudio::Point3d> vertices = m_planarSurface->vertices();
-    for (unsigned i = 0; i < vertices.size(); ++i){
+    for (unsigned i = 0; i < vertices.size(); ++i) {
 
-      int n = i+1;
+      int n = i + 1;
 
       label = new QLabel();
       label->setText(QString::number(n));
-      layout->addWidget(label,n,0);
+      layout->addWidget(label, n, 0);
 
       label = new QLabel();
-      label->setText(QString::number(vertices[i].x()*multiplicationFactor));
-      layout->addWidget(label,n,1);
+      label->setText(QString::number(vertices[i].x() * multiplicationFactor));
+      layout->addWidget(label, n, 1);
 
       label = new QLabel();
-      label->setText(QString::number(vertices[i].y()*multiplicationFactor));
-      layout->addWidget(label,n,2);
+      label->setText(QString::number(vertices[i].y() * multiplicationFactor));
+      layout->addWidget(label, n, 2);
 
       label = new QLabel();
-      label->setText(QString::number(vertices[i].z()*multiplicationFactor));
-      layout->addWidget(label,n,3);
-
+      label->setText(QString::number(vertices[i].z() * multiplicationFactor));
+      layout->addWidget(label, n, 3);
     }
   }
 }
 
-void PlanarSurfaceWidget::setUnits(bool displayIP)
-{
-  if(displayIP){
+void PlanarSurfaceWidget::setUnits(bool displayIP) {
+  if (displayIP) {
     m_units = "IP";
-  }
-  else{
+  } else {
     m_units = "SI";
   }
 }
 
-void PlanarSurfaceWidget::toggleUnits(bool displayIP)
-{
+void PlanarSurfaceWidget::toggleUnits(bool displayIP) {
   setUnits(displayIP);
 
   refresh();
 }
 
-} // openstudio
+}  // namespace openstudio

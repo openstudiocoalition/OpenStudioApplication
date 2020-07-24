@@ -31,23 +31,19 @@
 
 #include <QTimer>
 
-TestButton::TestButton(bool clickValue)
-  : m_clickValue(clickValue)
-{}
+TestButton::TestButton(bool clickValue) : m_clickValue(clickValue) {}
 
-void TestButton::doClick(){
+void TestButton::doClick() {
   emit clicked(m_clickValue);
 }
 
-void TestButton::doClick(double msecDelay)
-{
+void TestButton::doClick(double msecDelay) {
   auto timer = new QTimer(this);
   timer->setSingleShot(true);
   connect(timer, &QTimer::timeout, this, &TestButton::onTimeout);
   timer->start(msecDelay);
 }
 
-void TestButton::onTimeout()
-{
+void TestButton::onTimeout() {
   emit clicked(m_clickValue);
 }

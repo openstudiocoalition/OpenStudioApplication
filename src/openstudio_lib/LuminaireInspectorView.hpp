@@ -45,47 +45,44 @@ class LuminaireDefinitionInspectorView : public ModelObjectInspectorView
 {
   Q_OBJECT
 
-  public:
+ public:
+  LuminaireDefinitionInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
-    LuminaireDefinitionInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent = nullptr );
+  virtual ~LuminaireDefinitionInspectorView() {}
 
-    virtual ~LuminaireDefinitionInspectorView() {}
+ protected:
+  virtual void onClearSelection() override;
 
-  protected:
+  virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
-    virtual void onClearSelection() override;
+  virtual void onUpdate() override;
 
-    virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
+ private:
+  void attach(openstudio::model::LuminaireDefinition& luminaireDefinition);
 
-    virtual void onUpdate() override;
+  void detach();
 
-  private:
+  void refresh();
 
-    void attach(openstudio::model::LuminaireDefinition & luminaireDefinition);
+  OSLineEdit2* m_nameEdit;
 
-    void detach();
+  OSQuantityEdit2* m_lightingPowerEdit;
 
-    void refresh();
+  OSQuantityEdit2* m_fractionRadiantEdit;
 
-    OSLineEdit2* m_nameEdit;
+  OSQuantityEdit2* m_fractionVisibleEdit;
 
-    OSQuantityEdit2 * m_lightingPowerEdit;
+  OSQuantityEdit2* m_returnAirFractionEdit;
 
-    OSQuantityEdit2 * m_fractionRadiantEdit;
+  bool m_isIP;
 
-    OSQuantityEdit2 * m_fractionVisibleEdit;
+  boost::optional<model::LuminaireDefinition> m_luminaireDefinition;
 
-    OSQuantityEdit2 * m_returnAirFractionEdit;
+ public slots:
 
-    bool m_isIP;
-
-    boost::optional<model::LuminaireDefinition> m_luminaireDefinition;
-
-  public slots:
-
-    void toggleUnits(bool displayIP) override;
+  void toggleUnits(bool displayIP) override;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_LUMINAIREINSPECTORVIEW_HPP
+#endif  // OPENSTUDIO_LUMINAIREINSPECTORVIEW_HPP

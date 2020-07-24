@@ -63,34 +63,27 @@
 
 namespace openstudio {
 
-ModelSubTabView::ModelSubTabView(OSItemSelector* itemSelector,
-  ModelObjectInspectorView* modelObjectInspectorView,
-  bool showGridViewLayout,
-  QWidget * parent)
-  : SubTabView(itemSelector, modelObjectInspectorView, showGridViewLayout, parent),
-    m_modelObjectInspectorView(modelObjectInspectorView)
-{
+ModelSubTabView::ModelSubTabView(OSItemSelector* itemSelector, ModelObjectInspectorView* modelObjectInspectorView, bool showGridViewLayout,
+                                 QWidget* parent)
+  : SubTabView(itemSelector, modelObjectInspectorView, showGridViewLayout, parent), m_modelObjectInspectorView(modelObjectInspectorView) {
   connect(this, &ModelSubTabView::dropZoneItemClicked, this, &ModelSubTabView::onDropZoneItemClicked);
   connect(modelObjectInspectorView, &ModelObjectInspectorView::dropZoneItemClicked, this, &ModelSubTabView::dropZoneItemClicked);
 }
 
-ModelObjectInspectorView* ModelSubTabView::modelObjectInspectorView()
-{
+ModelObjectInspectorView* ModelSubTabView::modelObjectInspectorView() {
   return m_modelObjectInspectorView;
 }
 
-void ModelSubTabView::onDropZoneItemClicked(OSItem* item)
-{
+void ModelSubTabView::onDropZoneItemClicked(OSItem* item) {
   std::shared_ptr<OSDocument> currentDocument = OSAppBase::instance()->currentDocument();
-  if (currentDocument){
+  if (currentDocument) {
     if (!item) {
       emit dropZoneItemSelected(item, false);
-    }
-    else {
+    } else {
       // Note: perhaps passing this here offers more flexibility in the future when determining readOnly
       emit dropZoneItemSelected(item, item->itemId().isDefaulted());
     }
   }
 }
 
-} // openstudio
+}  // namespace openstudio

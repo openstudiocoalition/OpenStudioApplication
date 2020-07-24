@@ -39,14 +39,12 @@ class SummaryTabView : public MainTabView
 {
   Q_OBJECT
 
-  public:
-
-  SummaryTabView(const model::Model & model,
-                 QWidget * parent = nullptr);
+ public:
+  SummaryTabView(const model::Model& model, QWidget* parent = nullptr);
 
   virtual ~SummaryTabView() {}
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_SUMMARYTABVIEW_HPP
+#endif  // OPENSTUDIO_SUMMARYTABVIEW_HPP

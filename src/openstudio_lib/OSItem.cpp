@@ -60,98 +60,86 @@ namespace openstudio {
 
 const QString OSItemId::BCL_SOURCE_ID = QString("BCL");
 
-OSItemId::OSItemId()
-{}
+OSItemId::OSItemId() {}
 
 OSItemId::OSItemId(const QString& itemId, const QString& sourceId, bool isDefaulted, const QString& otherData)
-  : m_itemId(itemId), m_sourceId(sourceId), m_otherData(otherData), m_isDefaulted(isDefaulted)
-{}
+  : m_itemId(itemId), m_sourceId(sourceId), m_otherData(otherData), m_isDefaulted(isDefaulted) {}
 
-OSItemId::OSItemId(const QMimeData* mimeData)
-  : m_isDefaulted(false)
-{
+OSItemId::OSItemId(const QMimeData* mimeData) : m_isDefaulted(false) {
   QStringList strings = mimeData->text().split(",");
-  if (strings.size() > 0){
+  if (strings.size() > 0) {
     m_itemId = strings[0];
   }
-  if (strings.size() > 1){
+  if (strings.size() > 1) {
     m_sourceId = strings[1];
   }
-  if (strings.size() > 2){
-    if (strings[2] == "True"){
+  if (strings.size() > 2) {
+    if (strings[2] == "True") {
       m_isDefaulted = true;
-    }else{
+    } else {
       m_isDefaulted = false;
     }
   }
-  for (int i = 3; i < strings.size(); ++i){
+  for (int i = 3; i < strings.size(); ++i) {
     m_otherData += strings[i];
-    if (i < strings.size() - 1){
+    if (i < strings.size() - 1) {
       m_otherData += ",";
     }
   }
 }
 
-QString OSItemId::itemId() const
-{
+QString OSItemId::itemId() const {
   return m_itemId;
 }
 
-QString OSItemId::sourceId() const
-{
+QString OSItemId::sourceId() const {
   return m_sourceId;
 }
 
-QString OSItemId::otherData() const
-{
+QString OSItemId::otherData() const {
   return m_otherData;
 }
 
-QString OSItemId::mimeDataText() const
-{
-  QString isDefaultedString((m_isDefaulted?"True":"False"));
+QString OSItemId::mimeDataText() const {
+  QString isDefaultedString((m_isDefaulted ? "True" : "False"));
   QString result = m_itemId + "," + m_sourceId + "," + isDefaultedString + "," + m_otherData;
   return result;
 }
 
-bool OSItemId::isDefaulted() const
-{
+bool OSItemId::isDefaulted() const {
   return m_isDefaulted;
 }
 
-void OSItemId::setIsDefaulted(bool isDefaulted)
-{
+void OSItemId::setIsDefaulted(bool isDefaulted) {
   m_isDefaulted = isDefaulted;
 }
 
-bool OSItemId::operator==(const OSItemId& other) const
-{
+bool OSItemId::operator==(const OSItemId& other) const {
   bool result = false;
-  if (!this->mimeDataText().isEmpty()){
+  if (!this->mimeDataText().isEmpty()) {
     result = (this->mimeDataText() == other.mimeDataText());
   }
   return result;
 }
 
-OSItem::OSItem(const OSItemId& itemId, OSItemType osItemType, QWidget * parent)
-               : QWidget(parent),
-               m_itemId(itemId),
-               m_selectionWidget(nullptr),
-               m_borderWidget(nullptr),
-               m_removeButton(nullptr),
-               m_textLbl(nullptr),
-               m_imageLeftLbl(nullptr),
-               m_imageRightLbl(nullptr),
-               m_mouseDown(false),
-               m_selected(false),
-               m_draggable(true),
-               m_inspectable(false),
-               m_acceptsDrops(false),
-               m_size(QSize()),
-               m_osItemType(osItemType),
-               m_borderColor(QColor(Qt::black)),
-               m_useLargeIcon(false)
-{
+OSItem::OSItem(const OSItemId& itemId, OSItemType osItemType, QWidget* parent)
+  : QWidget(parent),
+    m_itemId(itemId),
+    m_selectionWidget(nullptr),
+    m_borderWidget(nullptr),
+    m_removeButton(nullptr),
+    m_textLbl(nullptr),
+    m_imageLeftLbl(nullptr),
+    m_imageRightLbl(nullptr),
+    m_mouseDown(false),
+    m_selected(false),
+    m_draggable(true),
+    m_inspectable(false),
+    m_acceptsDrops(false),
+    m_size(QSize()),
+    m_osItemType(osItemType),
+    m_borderColor(QColor(Qt::black)),
+    m_useLargeIcon(false) {
   this->setObjectName("OSItem");
 
   createLayout();
@@ -159,29 +147,23 @@ OSItem::OSItem(const OSItemId& itemId, OSItemType osItemType, QWidget * parent)
   setAttributes(osItemType);
 }
 
-OSItem* OSItem::makeItem(const OSItemId& itemId, OSItemType osItemType)
-{
+OSItem* OSItem::makeItem(const OSItemId& itemId, OSItemType osItemType) {
   OSItem* result = nullptr;
 
   OSAppBase* app = OSAppBase::instance();
 
-  if(itemId.sourceId() == OSItemId::BCL_SOURCE_ID)
-  {
+  if (itemId.sourceId() == OSItemId::BCL_SOURCE_ID) {
     boost::optional<BCLComponent> comp = LocalBCL::instance().getComponent(itemId.itemId().toStdString());
-    if( comp )
-    {
-      result = new BCLComponentItem(comp.get(),osItemType);
+    if (comp) {
+      result = new BCLComponentItem(comp.get(), osItemType);
     }
-  }
-  else
-  {
+  } else {
     boost::optional<model::ModelObject> modelObject = app->currentDocument()->getModelObject(itemId);
-    if (modelObject){
-      result = new ModelObjectItem(*modelObject,itemId.isDefaulted(),osItemType);
+    if (modelObject) {
+      result = new ModelObjectItem(*modelObject, itemId.isDefaulted(), osItemType);
     } else {
       openstudio::path p = openstudio::toPath(itemId.itemId());
-      if (openstudio::filesystem::exists(p))
-      {
+      if (openstudio::filesystem::exists(p)) {
         result = new ScriptItem(p, osItemType);
       }
     }
@@ -189,10 +171,9 @@ OSItem* OSItem::makeItem(const OSItemId& itemId, OSItemType osItemType)
   return result;
 }
 
-void OSItem::createLayout()
-{
+void OSItem::createLayout() {
   auto mainHLayout = new QHBoxLayout();
-  mainHLayout->setContentsMargins(10,5,10,5);
+  mainHLayout->setContentsMargins(10, 5, 10, 5);
   mainHLayout->setAlignment(Qt::AlignVCenter);
   setLayout(mainHLayout);
 
@@ -209,16 +190,16 @@ void OSItem::createLayout()
   mainHLayout->addLayout(leftVBoxLayout);
 
   std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
-  if(doc){
+  if (doc) {
     boost::optional<IddObjectType> iddObjectType = doc->getIddObjectType(m_itemId);
-    if(iddObjectType){
-      const QPixmap * pixmap = IconLibrary::Instance().findMiniIcon(iddObjectType->value());
-      if(pixmap){
+    if (iddObjectType) {
+      const QPixmap* pixmap = IconLibrary::Instance().findMiniIcon(iddObjectType->value());
+      if (pixmap) {
         setLeftPixmap(*pixmap);
       }
 
       pixmap = IconLibrary::Instance().findIcon(iddObjectType->value());
-      if(pixmap){
+      if (pixmap) {
         m_largePixmap = *pixmap;
       }
     }
@@ -226,10 +207,9 @@ void OSItem::createLayout()
   {
     int w = leftPixmap().size().width();
     int h = leftPixmap().size().height();
-    if(w==-1 || h==-1){
+    if (w == -1 || h == -1) {
       setLeftPixmap(QPixmap(":/images/lilBug.png"));
-    }
-    else{
+    } else {
       setLeftPixmap(leftPixmap());
     }
   }
@@ -251,9 +231,9 @@ void OSItem::createLayout()
 
   m_removeButton->setFlat(true);
   m_removeButton->setStyleSheet(style);
-  m_removeButton->setFixedSize(20,20);
+  m_removeButton->setFixedSize(20, 20);
 
-  if (m_itemId.isDefaulted()){
+  if (m_itemId.isDefaulted()) {
     m_textLbl->setStyleSheet("QLabel { color: #006837 }");
     this->setRemoveable(false);
   }
@@ -261,37 +241,30 @@ void OSItem::createLayout()
   connect(m_removeButton, &QPushButton::clicked, this, &OSItem::onRemoveClicked);
 }
 
-void OSItem::setAttributes(OSItemType osItemType)
-{
-  if(osItemType == OSItemType::ListItem){
-    setMinimumSize(QSize(ITEM_WIDTH,ITEM_HEIGHT));
-  }
-  else if(osItemType == OSItemType::DropzoneSquare){
-    setFixedSize(QSize(ITEM_SIDE,ITEM_SIDE));
+void OSItem::setAttributes(OSItemType osItemType) {
+  if (osItemType == OSItemType::ListItem) {
+    setMinimumSize(QSize(ITEM_WIDTH, ITEM_HEIGHT));
+  } else if (osItemType == OSItemType::DropzoneSquare) {
+    setFixedSize(QSize(ITEM_SIDE, ITEM_SIDE));
     m_textLbl->hide();
-  }
-  else if(osItemType == OSItemType::DropzoneRectangle){
-    setMinimumSize(QSize(ITEM_WIDTH,ITEM_HEIGHT));
-    setSizePolicy(QSizePolicy::Ignored,QSizePolicy::Ignored);
-  }
-  else{
+  } else if (osItemType == OSItemType::DropzoneRectangle) {
+    setMinimumSize(QSize(ITEM_WIDTH, ITEM_HEIGHT));
+    setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
+  } else {
     ///! should never get here
     OS_ASSERT(false);
   }
 }
 
-OSItemId OSItem::itemId() const
-{
+OSItemId OSItem::itemId() const {
   return m_itemId;
 }
 
-bool OSItem::isDefaulted() const
-{
+bool OSItem::isDefaulted() const {
   return m_itemId.isDefaulted();
 }
 
-void OSItem::setIsDefaulted(bool isDefaulted)
-{
+void OSItem::setIsDefaulted(bool isDefaulted) {
   m_itemId.setIsDefaulted(isDefaulted);
   if (isDefaulted) {
     m_textLbl->setStyleSheet("QLabel { color: #006837 }");
@@ -302,184 +275,155 @@ void OSItem::setIsDefaulted(bool isDefaulted)
   }
 }
 
-QString OSItem::text() const
-{
+QString OSItem::text() const {
   return m_textLbl->text();
 }
 
-void OSItem::setText(const QString & text)
-{
+void OSItem::setText(const QString& text) {
   m_textLbl->setText(text);
 
   setToolTip(text);
 }
 
-bool OSItem::draggable() const
-{
+bool OSItem::draggable() const {
   return m_draggable;
 }
 
-void OSItem::setDraggable(bool draggable)
-{
+void OSItem::setDraggable(bool draggable) {
   m_draggable = draggable;
 }
 
-bool OSItem::inspectable() const
-{
+bool OSItem::inspectable() const {
   return m_inspectable;
 }
 
-void OSItem::setInspectable(bool inspectable)
-{
+void OSItem::setInspectable(bool inspectable) {
   m_inspectable = inspectable;
 }
 
-bool OSItem::useLargeIcon()
-{
+bool OSItem::useLargeIcon() {
   return m_useLargeIcon;
 }
 
-void OSItem::setUseLargeIcon(bool useLargeIcon)
-{
+void OSItem::setUseLargeIcon(bool useLargeIcon) {
   m_useLargeIcon = useLargeIcon;
 
-  m_imageLeftLbl->setVisible(! useLargeIcon);
+  m_imageLeftLbl->setVisible(!useLargeIcon);
 }
 
-QPixmap OSItem::leftPixmap() const
-{
-  const QPixmap * pixmap = m_imageLeftLbl->pixmap();
-  if(pixmap){
+QPixmap OSItem::leftPixmap() const {
+  const QPixmap* pixmap = m_imageLeftLbl->pixmap();
+  if (pixmap) {
     return *m_imageLeftLbl->pixmap();
-  }
-  else{
+  } else {
     return QPixmap();
   }
 }
 
-void OSItem::setLeftPixmap(const QPixmap & pixmap)
-{
+void OSItem::setLeftPixmap(const QPixmap& pixmap) {
   setLabelPixmap(m_imageLeftLbl, pixmap);
 }
 
-QPixmap OSItem::rightPixmap() const
-{
-  if(!m_imageRightLbl) return QPixmap();
+QPixmap OSItem::rightPixmap() const {
+  if (!m_imageRightLbl) return QPixmap();
 
-  const QPixmap * pixmap = m_imageRightLbl->pixmap();
-  if(pixmap){
+  const QPixmap* pixmap = m_imageRightLbl->pixmap();
+  if (pixmap) {
     return *m_imageRightLbl->pixmap();
-  }
-  else{
+  } else {
     return QPixmap();
   }
 }
 
-void OSItem::setRightPixmap(const QPixmap & pixmap)
-{
+void OSItem::setRightPixmap(const QPixmap& pixmap) {
   setLabelPixmap(m_imageRightLbl, pixmap);
 }
 
-void OSItem::setLabelPixmap(QLabel * label, const QPixmap & pixmap)
-{
-  if(!label) return;
+void OSItem::setLabelPixmap(QLabel* label, const QPixmap& pixmap) {
+  if (!label) return;
 
   int w = pixmap.size().width();
   int h = pixmap.size().height();
-  if(w==-1 || h==-1){
+  if (w == -1 || h == -1) {
     return;
   }
 
   label->setPixmap(pixmap);
   w = label->pixmap()->size().width();
   h = label->pixmap()->size().height();
-  OS_ASSERT(w!=-1 && h!=-1);
-  label->setFixedSize(w,h);
+  OS_ASSERT(w != -1 && h != -1);
+  label->setFixedSize(w, h);
 }
 
-bool OSItem::isBold()
-{
+bool OSItem::isBold() {
   return m_textLbl->font().bold();
 }
 
-void OSItem::setBold(bool isBold)
-{
+void OSItem::setBold(bool isBold) {
   QFont font = m_textLbl->font();
   font.setBold(isBold);
   m_textLbl->setFont(font);
 }
 
-QColor OSItem::textColor()
-{
+QColor OSItem::textColor() {
   return m_textLbl->palette().color(m_textLbl->backgroundRole());
 }
 
-void OSItem::setTextColor(QColor color)
-{
+void OSItem::setTextColor(QColor color) {
   QPalette palette = m_textLbl->palette();
   palette.setColor(m_textLbl->backgroundRole(), color);
   palette.setColor(m_textLbl->foregroundRole(), color);
   m_textLbl->setPalette(palette);
 }
 
-void OSItem::setFixedWidth(int width)
-{
-  if(width<0) return;
+void OSItem::setFixedWidth(int width) {
+  if (width < 0) return;
   QWidget::setFixedWidth(width);
 }
 
-void OSItem::setFixedHeight(int height)
-{
-  if(height<0) return;
+void OSItem::setFixedHeight(int height) {
+  if (height < 0) return;
   QWidget::setFixedHeight(height);
 }
 
-void OSItem::setFixedSize(const QSize & size)
-{
+void OSItem::setFixedSize(const QSize& size) {
   m_size = size;
   QWidget::setFixedSize(m_size);
 }
 
-void OSItem::setAspectRatio(AspectRatio aspectRatio)
-{
-  if(aspectRatio == AspectRatio::Rectangle){
-    m_size = QSize(ITEM_WIDTH,ITEM_HEIGHT);
-  }else if(aspectRatio == AspectRatio::Square){
-    m_size = QSize(ITEM_SIDE,ITEM_SIDE);
+void OSItem::setAspectRatio(AspectRatio aspectRatio) {
+  if (aspectRatio == AspectRatio::Rectangle) {
+    m_size = QSize(ITEM_WIDTH, ITEM_HEIGHT);
+  } else if (aspectRatio == AspectRatio::Square) {
+    m_size = QSize(ITEM_SIDE, ITEM_SIDE);
   }
   QWidget::setFixedSize(m_size);
 }
 
-bool OSItem::selected() const
-{
+bool OSItem::selected() const {
   return m_selected;
 }
 
-void OSItem::setSelected(bool selected)
-{
+void OSItem::setSelected(bool selected) {
   m_selected = selected;
 
   update();
 }
 
-bool OSItem::removeable() const
-{
+bool OSItem::removeable() const {
   return m_removeButton->isVisible();
 }
 
-void OSItem::setRemoveable(bool removeable)
-{
+void OSItem::setRemoveable(bool removeable) {
   //return m_removeButton->hide();
   m_removeButton->setVisible(removeable);
 }
 
-OSItemType OSItem::osItemType() const
-{
+OSItemType OSItem::osItemType() const {
   return m_osItemType;
 }
 
-void OSItem::setOSItemType(OSItemType osItemType)
-{
+void OSItem::setOSItemType(OSItemType osItemType) {
   m_osItemType = osItemType;
 
   update();
@@ -493,62 +437,53 @@ void OSItem::setPosition(int position) {
   m_position = position;
 }
 
-void OSItem::paintEvent(QPaintEvent * event)
-{
+void OSItem::paintEvent(QPaintEvent* event) {
   QPainter p(this);
 
-  if( m_osItemType == OSItemType::ListItem )
-  {
-    if( m_selected )
-    {
-      QLinearGradient linearGrad(QPointF(0,0), QPointF(0,rect().height()));
-      linearGrad.setColorAt(0, QColor(113,153,200,255));
-      linearGrad.setColorAt(0.10, QColor(113,153,200,150));
-      linearGrad.setColorAt(0.15, QColor(210,222,236,150));
-      linearGrad.setColorAt(1.00, QColor(210,222,236,150));
+  if (m_osItemType == OSItemType::ListItem) {
+    if (m_selected) {
+      QLinearGradient linearGrad(QPointF(0, 0), QPointF(0, rect().height()));
+      linearGrad.setColorAt(0, QColor(113, 153, 200, 255));
+      linearGrad.setColorAt(0.10, QColor(113, 153, 200, 150));
+      linearGrad.setColorAt(0.15, QColor(210, 222, 236, 150));
+      linearGrad.setColorAt(1.00, QColor(210, 222, 236, 150));
 
       QBrush brush(linearGrad);
       p.setBrush(brush);
       p.setPen(Qt::NoPen);
 
-      p.drawRect(0,0,rect().width(),rect().height() - 1);
+      p.drawRect(0, 0, rect().width(), rect().height() - 1);
     }
 
     p.setPen(QPen(Qt::black));
-    p.drawLine(0,rect().height() - 1,rect().width(),rect().height() - 1);
-  }
-  else if( m_osItemType == OSItemType::LibraryItem )
-  {
-    QPen pen(QColor(128,128,128));
+    p.drawLine(0, rect().height() - 1, rect().width(), rect().height() - 1);
+  } else if (m_osItemType == OSItemType::LibraryItem) {
+    QPen pen(QColor(128, 128, 128));
     pen.setStyle(Qt::SolidLine);
     pen.setWidth(1);
     p.setPen(pen);
-    p.setBrush(QColor(206,206,206));
-    p.drawRoundedRect(5,4,rect().width() - 10,rect().height() - 10,10,10);
-  }
-  else if( m_osItemType == OSItemType::DropzoneSquare || m_osItemType == OSItemType::DropzoneRectangle )
-  {
-    QPen pen(QColor(128,128,128));
+    p.setBrush(QColor(206, 206, 206));
+    p.drawRoundedRect(5, 4, rect().width() - 10, rect().height() - 10, 10, 10);
+  } else if (m_osItemType == OSItemType::DropzoneSquare || m_osItemType == OSItemType::DropzoneRectangle) {
+    QPen pen(QColor(128, 128, 128));
     pen.setStyle(Qt::SolidLine);
     pen.setWidth(1);
     p.setPen(pen);
-    p.setBrush(QColor(206,206,206));
-    p.drawRoundedRect(0,0,rect().width() - 1,rect().height() - 1,10,10);
+    p.setBrush(QColor(206, 206, 206));
+    p.drawRoundedRect(0, 0, rect().width() - 1, rect().height() - 1, 10, 10);
   }
 
-  if( m_useLargeIcon )
-  {
+  if (m_useLargeIcon) {
     QRect _rect = rect();
-    QRect newRect(_rect.x() + 7,_rect.y() + 7,_rect.width() - 14,_rect.height() - 14);
+    QRect newRect(_rect.x() + 7, _rect.y() + 7, _rect.width() - 14, _rect.height() - 14);
 
-    p.drawPixmap(newRect,m_largePixmap);
+    p.drawPixmap(newRect, m_largePixmap);
   }
 }
 
-void OSItem::mouseReleaseEvent(QMouseEvent * event)
-{
-  if (event->button() == Qt::LeftButton){
-    if( m_mouseDown ){
+void OSItem::mouseReleaseEvent(QMouseEvent* event) {
+  if (event->button() == Qt::LeftButton) {
+    if (m_mouseDown) {
       event->accept();
       emit itemClicked(this);
       m_mouseDown = false;
@@ -556,31 +491,29 @@ void OSItem::mouseReleaseEvent(QMouseEvent * event)
   }
 }
 
-void OSItem::mousePressEvent(QMouseEvent * event)
-{
+void OSItem::mousePressEvent(QMouseEvent* event) {
   event->accept();
 
-  if (event->button() == Qt::LeftButton){
+  if (event->button() == Qt::LeftButton) {
     m_mouseDown = true;
     m_dragStartPosition = event->pos();
   }
 }
 
-void OSItem::mouseMoveEvent(QMouseEvent *event)
-{
-  if (!m_draggable){
+void OSItem::mouseMoveEvent(QMouseEvent* event) {
+  if (!m_draggable) {
     return;
   }
 
-  if (!m_mouseDown){
+  if (!m_mouseDown) {
     return;
   }
 
-  if (!(event->buttons() && Qt::LeftButton)){
+  if (!(event->buttons() && Qt::LeftButton)) {
     return;
   }
 
-  if ((event->pos() - m_dragStartPosition).manhattanLength() < QApplication::startDragDistance()){
+  if ((event->pos() - m_dragStartPosition).manhattanLength() < QApplication::startDragDistance()) {
     return;
   }
 
@@ -602,7 +535,7 @@ void OSItem::mouseMoveEvent(QMouseEvent *event)
   QPixmap _pixmap(size());
   _pixmap.fill(Qt::transparent);
 
-  render(&_pixmap,QPoint(),QRegion(),RenderFlags(DrawChildren));
+  render(&_pixmap, QPoint(), QRegion(), RenderFlags(DrawChildren));
 
   drag->setPixmap(_pixmap);
   drag->setHotSpot(event->pos());
@@ -610,24 +543,21 @@ void OSItem::mouseMoveEvent(QMouseEvent *event)
   drag->exec(Qt::CopyAction);
 }
 
-void OSItem::leaveEvent(QEvent * event)
-{
+void OSItem::leaveEvent(QEvent* event) {
   m_mouseDown = false;
   event->accept();
 }
 
-void OSItem::dragEnterEvent(QDragEnterEvent *event)
-{
-  if(event->proposedAction() == Qt::CopyAction){
+void OSItem::dragEnterEvent(QDragEnterEvent* event) {
+  if (event->proposedAction() == Qt::CopyAction) {
     event->accept();
   }
 }
 
-void OSItem::dropEvent(QDropEvent *event)
-{
+void OSItem::dropEvent(QDropEvent* event) {
   event->accept();
-  if(event->proposedAction() == Qt::CopyAction){
-    const QMimeData* mimeData =event->mimeData();
+  if (event->proposedAction() == Qt::CopyAction) {
+    const QMimeData* mimeData = event->mimeData();
     OS_ASSERT(mimeData);
     OSItemId replacementItemId(mimeData);
     emit itemReplacementDropped(this, replacementItemId);
@@ -636,8 +566,7 @@ void OSItem::dropEvent(QDropEvent *event)
 
 /****************** SLOTS ******************/
 
-void OSItem::onRemoveClicked()
-{
+void OSItem::onRemoveClicked() {
   // Note: an OSDropZone2 owns this OSItem;
   // there should be a parent...
   //OS_ASSERT(this->parent());
@@ -651,4 +580,4 @@ void OSItem::onRemoveClicked()
   emit itemRemoveClicked(this);
 }
 
-} // openstudio
+}  // namespace openstudio

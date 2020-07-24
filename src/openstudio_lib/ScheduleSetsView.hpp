@@ -43,43 +43,35 @@ class ScheduleSetsView : public ModelSubTabView
 {
   Q_OBJECT
 
-  public:
+ public:
+  ScheduleSetsView(const openstudio::model::Model& model, QWidget* parent = nullptr);
 
-    ScheduleSetsView(const openstudio::model::Model& model,
-                      QWidget * parent = nullptr);
+  virtual ~ScheduleSetsView() {}
 
-    virtual ~ScheduleSetsView() {}
-
-  private:
-
-    static std::vector<std::pair<IddObjectType, std::string> > modelObjectTypesAndNames();
-
+ private:
+  static std::vector<std::pair<IddObjectType, std::string>> modelObjectTypesAndNames();
 };
 
 class ScheduleSetsInspectorView : public ModelObjectInspectorView
 {
   Q_OBJECT
 
-  public:
+ public:
+  ScheduleSetsInspectorView(const model::Model& model, QWidget* parent = nullptr);
 
-    ScheduleSetsInspectorView(const model::Model& model,
-                               QWidget * parent = nullptr);
+  virtual ~ScheduleSetsInspectorView() {}
 
-    virtual ~ScheduleSetsInspectorView() {}
+ protected:
+  virtual void onClearSelection() override;
 
-  protected:
+  virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
-    virtual void onClearSelection() override;
+  virtual void onUpdate() override;
 
-    virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
-
-    virtual void onUpdate() override;
-
-  private:
-
-    std::map<openstudio::IddObjectType, int> m_inspectorIndexMap;
+ private:
+  std::map<openstudio::IddObjectType, int> m_inspectorIndexMap;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_SCHEDULESETSVIEW_HPP
+#endif  // OPENSTUDIO_SCHEDULESETSVIEW_HPP

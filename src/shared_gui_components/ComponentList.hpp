@@ -39,47 +39,44 @@ namespace openstudio {
 
 class Component;
 
-class ComponentList : public QWidget {
+class ComponentList : public QWidget
+{
 
   Q_OBJECT
 
-public:
-  ComponentList(QWidget * parent = nullptr);
-  ComponentList(const std::vector<Component *> & components,
-    QWidget * parent = nullptr);
+ public:
+  ComponentList(QWidget* parent = nullptr);
+  ComponentList(const std::vector<Component*>& components, QWidget* parent = nullptr);
   virtual ~ComponentList() {}
   // return the checked component in the list, NULL if list is empty
-  Component * checkedComponent() const;
+  Component* checkedComponent() const;
   // return the first component in the list, NULL if list is empty
-  Component * firstComponent();
+  Component* firstComponent();
   // return the last component in the list, NULL if list is empty
-  Component * lastComponent();
+  Component* lastComponent();
   // return all components in the list
-  std::vector<Component *> components();
+  std::vector<Component*> components();
   // add a component
-  void addComponent(Component * component);
+  void addComponent(Component* component);
 
+ protected:
+  void paintEvent(QPaintEvent* event) override;
 
-protected:
-  void paintEvent(QPaintEvent * event) override;
-
-private:
+ private:
   void createLayout();
   // set the components
-  void setComponents(const std::vector<Component *> & components);
+  void setComponents(const std::vector<Component*>& components);
 
-  QVBoxLayout * m_mainLayout;
-  QButtonGroup * m_componentGroup;
+  QVBoxLayout* m_mainLayout;
+  QButtonGroup* m_componentGroup;
 
-signals:
+ signals:
   void componentClicked(bool checked);
 
-private slots:
+ private slots:
   void on_componentClicked(bool);
-
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // SHAREDGUICOMPONENTS_COMPONENTLIST_HPP
-
+#endif  // SHAREDGUICOMPONENTS_COMPONENTLIST_HPP

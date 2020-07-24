@@ -38,13 +38,11 @@ class ConstructionsTabView : public MainTabView
 {
   Q_OBJECT
 
-public:
-  ConstructionsTabView(const model::Model & model,
-                       const QString & tabLabel,
-                       QWidget * parent = nullptr);
+ public:
+  ConstructionsTabView(const model::Model& model, const QString& tabLabel, QWidget* parent = nullptr);
   virtual ~ConstructionsTabView() {}
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_CONSTRUCTIONSTABVIEW_HPP
+#endif  // OPENSTUDIO_CONSTRUCTIONSTABVIEW_HPP

@@ -42,37 +42,35 @@ class TIDItemModel : public QAbstractItemModel
 {
   Q_OBJECT
 
-  public:
-
-  TIDItemModel(const QDomDocument & document, QObject * parent = nullptr);
+ public:
+  TIDItemModel(const QDomDocument& document, QObject* parent = nullptr);
 
   virtual ~TIDItemModel();
 
-  QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const override;
+  QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const override;
 
-  Qt::ItemFlags flags(const QModelIndex & index) const override;
+  Qt::ItemFlags flags(const QModelIndex& index) const override;
 
-  QModelIndex index(int row, int column, const QModelIndex & parent = QModelIndex()) const override;
+  QModelIndex index(int row, int column, const QModelIndex& parent = QModelIndex()) const override;
 
-  QModelIndex parent(const QModelIndex & index) const override;
+  QModelIndex parent(const QModelIndex& index) const override;
 
-  int rowCount(const QModelIndex & parent = QModelIndex()) const override;
+  int rowCount(const QModelIndex& parent = QModelIndex()) const override;
 
-  int columnCount(const QModelIndex & parent = QModelIndex()) const override;
+  int columnCount(const QModelIndex& parent = QModelIndex()) const override;
 
   QModelIndex indexForTID(int tid) const;
 
-  static const std::map<int,std::vector<IddObjectType> > tidToOSTypeMap;
+  static const std::map<int, std::vector<IddObjectType>> tidToOSTypeMap;
 
-  private:
-
+ private:
   QDomDocument m_document;
 
-  TIDItem * m_rootItem;
+  TIDItem* m_rootItem;
 
-  static const std::map<int,std::vector<IddObjectType> > createTidToOSTypeMap();
+  static const std::map<int, std::vector<IddObjectType>> createTidToOSTypeMap();
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // SHAREDGUICOMPONENTS_TIDITEMMODEL_HPP
+#endif  // SHAREDGUICOMPONENTS_TIDITEMMODEL_HPP

@@ -52,84 +52,80 @@ class OSItemSelectorButtons : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
+  OSItemSelectorButtons(QWidget* parent = nullptr);
 
-    OSItemSelectorButtons(QWidget* parent = nullptr);
+  virtual ~OSItemSelectorButtons() {}
 
-    virtual ~OSItemSelectorButtons() {}
+  void showDropZone();
+  void hideDropZone();
+  void enableDropZone();
+  void disableDropZone();
 
-    void showDropZone();
-    void hideDropZone();
-    void enableDropZone();
-    void disableDropZone();
+  void showAddButton();
+  void hideAddButton();
+  void enableAddButton();
+  void disableAddButton();
 
-    void showAddButton();
-    void hideAddButton();
-    void enableAddButton();
-    void disableAddButton();
+  void showCopyButton();
+  void hideCopyButton();
+  void enableCopyButton();
+  void disableCopyButton();
 
-    void showCopyButton();
-    void hideCopyButton();
-    void enableCopyButton();
-    void disableCopyButton();
+  void showRemoveButton();
+  void hideRemoveButton();
+  void enableRemoveButton();
+  void disableRemoveButton();
 
-    void showRemoveButton();
-    void hideRemoveButton();
-    void enableRemoveButton();
-    void disableRemoveButton();
+  void showPurgeButton();
+  void hidePurgeButton();
+  void enablePurgeButton();
+  void disablePurgeButton();
 
-    void showPurgeButton();
-    void hidePurgeButton();
-    void enablePurgeButton();
-    void disablePurgeButton();
+  void showBclDlgButton();
+  void hideBclDlgButton();
+  void enableBclDlgButton();
+  void disableBclDlgButton();
 
-    void showBclDlgButton();
-    void hideBclDlgButton();
-    void enableBclDlgButton();
-    void disableBclDlgButton();
+ signals:
 
-  signals:
+  void itemDropped(const OSItemId& itemId);
 
-    void itemDropped(const OSItemId& itemId);
+  void addClicked();
 
-    void addClicked();
+  void copyClicked();
 
-    void copyClicked();
+  void removeClicked();
 
-    void removeClicked();
+  void purgeClicked();
 
-    void purgeClicked();
+  void downloadComponentsClicked();
 
-    void downloadComponentsClicked();
+ protected:
+  void paintEvent(QPaintEvent* event) override;
 
-  protected:
+ private:
+  QVBoxLayout* m_vLayout;
 
-    void paintEvent ( QPaintEvent * event ) override;
+  OSVectorController* m_dropZoneController;
 
-  private:
+  OSDropZone* m_dropZone;
 
-    QVBoxLayout* m_vLayout;
+  QPushButton* m_addButton;
 
-    OSVectorController* m_dropZoneController;
+  QPushButton* m_copyButton;
 
-    OSDropZone* m_dropZone;
+  QPushButton* m_removeButton;
 
-    QPushButton* m_addButton;
+  QPushButton* m_purgeButton;
 
-    QPushButton* m_copyButton;
+  QPushButton* m_openBclDlgButton;
 
-    QPushButton* m_removeButton;
+  QPushButton* m_openLibDlgButton;
 
-    QPushButton* m_purgeButton;
-
-    QPushButton* m_openBclDlgButton;
-
-    QPushButton* m_openLibDlgButton;
-
-    QHBoxLayout * m_dropZoneLayout;
+  QHBoxLayout* m_dropZoneLayout;
 };
 
+}  // namespace openstudio
 
-} // openstudio
-
-#endif // OPENSTUDIO_OSITEMSELECTORBUTTONS_HPP
+#endif  // OPENSTUDIO_OSITEMSELECTORBUTTONS_HPP

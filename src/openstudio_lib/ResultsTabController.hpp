@@ -48,22 +48,21 @@ class ResultsTabController : public MainTabController
 {
   Q_OBJECT
 
-  public:
-    ResultsTabController();
+ public:
+  ResultsTabController();
 
-    virtual ~ResultsTabController() {}
+  virtual ~ResultsTabController() {}
 
-  public slots:
+ public slots:
 
-    void onUnitSystemChange(bool t_isIP);
+  void onUnitSystemChange(bool t_isIP);
 
-  private:
-
-  ResultsTabView * m_resultsTabView;
+ private:
+  ResultsTabView* m_resultsTabView;
 
   REGISTER_LOGGER("openstudio::ResultsTabController");
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_RESULTSTABCONTROLLER_HPP
+#endif  // OPENSTUDIO_RESULTSTABCONTROLLER_HPP

@@ -31,13 +31,8 @@
 
 namespace openstudio {
 
-SpacesTabView::SpacesTabView(QWidget * parent)
-  : MainTabView("Spaces", MainTabView::GRIDVIEW_SUB_TAB, parent)
-{
-}
+SpacesTabView::SpacesTabView(QWidget* parent) : MainTabView("Spaces", MainTabView::GRIDVIEW_SUB_TAB, parent) {}
 
-void SpacesTabView::toggleUnits(bool displayIP)
-{
-}
+void SpacesTabView::toggleUnits(bool displayIP) {}
 
-} // openstudio
+}  // namespace openstudio

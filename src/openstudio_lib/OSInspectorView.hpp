@@ -48,43 +48,38 @@ class OSInspectorView : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
+  OSInspectorView(bool addScrollArea, QWidget* parent = nullptr);
 
-    OSInspectorView( bool addScrollArea,
-                     QWidget * parent = nullptr);
+  virtual ~OSInspectorView() {}
 
-    virtual ~OSInspectorView() {}
+ signals:
 
-  signals:
+  void dropZoneItemClicked(OSItem* item);
 
-    void dropZoneItemClicked(OSItem* item);
+ public slots:
 
-  public slots:
+  void clearSelection();
 
-    void clearSelection();
+  void selectItem(OSItem* item);
 
-    void selectItem(OSItem* item);
+ protected:
+  virtual void onSelectItem(OSItem* item) = 0;
 
-  protected:
+  virtual void onClearSelection() = 0;
 
-    virtual void onSelectItem(OSItem *item) = 0;
+  virtual void onUpdate() = 0;
 
-    virtual void onClearSelection() = 0;
+  QStackedWidget* stackedWidget() const;
 
-    virtual void onUpdate() = 0;
+ protected slots:
 
-    QStackedWidget* stackedWidget() const;
+  void update();
 
-  protected slots:
-
-    void update();
-
-  private:
-
-    QStackedWidget* m_stackedWidget;
+ private:
+  QStackedWidget* m_stackedWidget;
 };
 
+}  // namespace openstudio
 
-} // openstudio
-
-#endif // OPENSTUDIO_OSINSPECTORVIEW_HPP
+#endif  // OPENSTUDIO_OSINSPECTORVIEW_HPP

@@ -35,7 +35,7 @@
 #include <openstudio/model/Model_Impl.hpp>
 #include <openstudio/model/YearDescription.hpp>
 #include <openstudio/model/YearDescription_Impl.hpp>
-#include <openstudio/nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/nano/nano_signal_slot.hpp>  // Signal-Slot replacement
 
 #include <QRadioButton>
 #include <QWidget>
@@ -54,8 +54,7 @@ class YearSettingsWidget : public QWidget, public Nano::Observer
 {
   Q_OBJECT
 
-  public:
-
+ public:
   static const int FIRSTYEAR;
 
   static const int LASTYEAR;
@@ -69,33 +68,33 @@ class YearSettingsWidget : public QWidget, public Nano::Observer
   // A list of the months.
   static std::vector<std::string> months();
 
-  YearSettingsWidget(const model::Model & model, QWidget * parent = nullptr);
+  YearSettingsWidget(const model::Model& model, QWidget* parent = nullptr);
 
   bool calendarYearChecked();
 
   virtual ~YearSettingsWidget() {}
 
-  signals:
+ signals:
 
   void calendarYearSelected(int year);
 
-  void firstDayofYearSelected(const QString & firstDayofYear);
+  void firstDayofYearSelected(const QString& firstDayofYear);
 
   void daylightSavingTimeClicked(bool enabled);
 
   void dstStartDayOfWeekAndMonthChanged(int newWeek, int intDay, int newMonth);
 
-  void dstStartDateChanged(const QDate & newdate);
+  void dstStartDateChanged(const QDate& newdate);
 
   void dstEndDayOfWeekAndMonthChanged(int newWeek, int newDay, int newMonth);
 
-  void dstEndDateChanged(const QDate & newdate);
+  void dstEndDateChanged(const QDate& newdate);
 
-  public slots:
+ public slots:
 
   void scheduleRefresh();
 
-  private slots:
+ private slots:
 
   void refresh();
 
@@ -105,9 +104,11 @@ class YearSettingsWidget : public QWidget, public Nano::Observer
 
   void onFirstDayofYearClicked();
 
-  void onWorkspaceObjectAdd(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> wo, const openstudio::IddObjectType& type, const openstudio::UUID& uuid);
+  void onWorkspaceObjectAdd(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> wo, const openstudio::IddObjectType& type,
+                            const openstudio::UUID& uuid);
 
-  void onWorkspaceObjectRemove(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> wo, const openstudio::IddObjectType& type, const openstudio::UUID& uuid);
+  void onWorkspaceObjectRemove(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> wo, const openstudio::IddObjectType& type,
+                               const openstudio::UUID& uuid);
 
   void onDstStartDayWeekMonthChanged();
 
@@ -129,44 +130,43 @@ class YearSettingsWidget : public QWidget, public Nano::Observer
 
   //void emitNewDSTEndDate();
 
-  private:
-
+ private:
   // year selection section
-  QRadioButton * m_calendarYearButton = nullptr;
+  QRadioButton* m_calendarYearButton = nullptr;
 
-  OSComboBox2 * m_calendarYearEdit = nullptr;
+  OSComboBox2* m_calendarYearEdit = nullptr;
 
-  QRadioButton * m_firstDayOfYearButton = nullptr;
+  QRadioButton* m_firstDayOfYearButton = nullptr;
 
-  OSComboBox2 * m_firstDayOfYearEdit = nullptr;
+  OSComboBox2* m_firstDayOfYearEdit = nullptr;
 
   // daylight savings section
 
-  OSSwitch2 * m_dstOnOffButton = nullptr;
+  OSSwitch2* m_dstOnOffButton = nullptr;
 
-  QRadioButton * m_dayOfWeekAndMonthStartButton = nullptr;
+  QRadioButton* m_dayOfWeekAndMonthStartButton = nullptr;
 
-  OSComboBox2 * m_startWeekBox = nullptr;
+  OSComboBox2* m_startWeekBox = nullptr;
 
-  OSComboBox2 * m_startDayBox = nullptr;
+  OSComboBox2* m_startDayBox = nullptr;
 
-  OSComboBox2 * m_startMonthBox = nullptr;
+  OSComboBox2* m_startMonthBox = nullptr;
 
-  QRadioButton * m_dateStartButton = nullptr;
+  QRadioButton* m_dateStartButton = nullptr;
 
-  QDateEdit * m_startDateEdit = nullptr;
+  QDateEdit* m_startDateEdit = nullptr;
 
-  QRadioButton * m_dayOfWeekAndMonthEndButton = nullptr;
+  QRadioButton* m_dayOfWeekAndMonthEndButton = nullptr;
 
-  OSComboBox2 * m_endWeekBox = nullptr;
+  OSComboBox2* m_endWeekBox = nullptr;
 
-  OSComboBox2 * m_endDayBox = nullptr;
+  OSComboBox2* m_endDayBox = nullptr;
 
-  OSComboBox2 * m_endMonthBox = nullptr;
+  OSComboBox2* m_endMonthBox = nullptr;
 
-  QRadioButton * m_dateEndButton = nullptr;
+  QRadioButton* m_dateEndButton = nullptr;
 
-  QDateEdit * m_endDateEdit = nullptr;
+  QDateEdit* m_endDateEdit = nullptr;
 
   // other
 
@@ -175,9 +175,8 @@ class YearSettingsWidget : public QWidget, public Nano::Observer
   model::Model m_model;
 
   bool m_dirty;
-
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_YEARSETTINGSWIDGET_HPP
+#endif  // OPENSTUDIO_YEARSETTINGSWIDGET_HPP

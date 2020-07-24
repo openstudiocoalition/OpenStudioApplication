@@ -47,35 +47,27 @@ class Component : public QAbstractButton
 {
   Q_OBJECT
 
-public:
-  Component(const BCLMeasure & bclMeasure,
-    bool showAbridgedView = true,
-    bool showCheckBox = true,
-    QWidget * parent = nullptr);
-  Component(const BCLSearchResult & bclSearchResult,
-    bool showAbridgedView = true,
-    bool showCheckBox = true,
-    QWidget * parent = nullptr);
-  Component(bool showAbridgedView = false,
-    bool showCheckBox = false,
-    QWidget * parent = nullptr);
-  Component(const Component & other);
+ public:
+  Component(const BCLMeasure& bclMeasure, bool showAbridgedView = true, bool showCheckBox = true, QWidget* parent = nullptr);
+  Component(const BCLSearchResult& bclSearchResult, bool showAbridgedView = true, bool showCheckBox = true, QWidget* parent = nullptr);
+  Component(bool showAbridgedView = false, bool showCheckBox = false, QWidget* parent = nullptr);
+  Component(const Component& other);
   virtual ~Component();
-  Component & operator=(const Component & other);
-  QCheckBox * checkBox();
-  QLabel * msg();
+  Component& operator=(const Component& other);
+  QCheckBox* checkBox();
+  QLabel* msg();
   std::string uid() const;
   std::string versionId() const;
   void setChecked(bool checked);
 
-protected:
-  void paintEvent(QPaintEvent * event) override;
+ protected:
+  void paintEvent(QPaintEvent* event) override;
 
-private:
+ private:
   void createAbridgedLayout();
   void createCompleteLayout();
-  void parseBCLMeasure(const BCLMeasure & bclMeasure);
-  void parseBCLSearchResult(const BCLSearchResult & bclSearchResult);
+  void parseBCLMeasure(const BCLMeasure& bclMeasure);
+  void parseBCLSearchResult(const BCLSearchResult& bclSearchResult);
 
   QString m_componentType;
   QString m_name;
@@ -97,12 +89,11 @@ private:
   QCheckBox* m_checkBox;
   QLabel* m_msg;
 
-signals:
+ signals:
 
-private slots:
-
+ private slots:
 };
 
-} // namespace openstudio
+}  // namespace openstudio
 
-#endif // SHAREDGUICOMPONENTS_COMPONENT_HPP
+#endif  // SHAREDGUICOMPONENTS_COMPONENT_HPP

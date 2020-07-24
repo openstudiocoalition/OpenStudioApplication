@@ -31,22 +31,18 @@
 
 #include <QtGui>
 
-IGPrecisionDialog::IGPrecisionDialog(QWidget* parent):
-  QDialog(parent)
-{
+IGPrecisionDialog::IGPrecisionDialog(QWidget* parent) : QDialog(parent) {
   setupUi(this);
   QRegExp regExp("[1-9][0-9]{0,1}");
-  lineEdit->setValidator( new QRegExpValidator(regExp, this) );
+  lineEdit->setValidator(new QRegExpValidator(regExp, this));
 }
 
-void IGPrecisionDialog::on_buttonBox_accepted()
-{
+void IGPrecisionDialog::on_buttonBox_accepted() {
   emit accepted();
   this->hide();
 }
 
-void IGPrecisionDialog::on_buttonBox_rejected()
-{
+void IGPrecisionDialog::on_buttonBox_rejected() {
   emit rejected();
   this->hide();
 }

@@ -52,32 +52,33 @@
 
 namespace openstudio {
 
-struct ScheduleTypeCompare {
-  bool operator() (const model::ScheduleType& lhs, const model::ScheduleType& rhs) const{
+struct ScheduleTypeCompare
+{
+  bool operator()(const model::ScheduleType& lhs, const model::ScheduleType& rhs) const {
     // only compare the fields that matter
-    if (lhs.unitType != rhs.unitType){
+    if (lhs.unitType != rhs.unitType) {
       return lhs.unitType < rhs.unitType;
     }
 
-    if (lhs.lowerLimitValue && rhs.lowerLimitValue){
+    if (lhs.lowerLimitValue && rhs.lowerLimitValue) {
       return lhs.lowerLimitValue.get() < rhs.lowerLimitValue.get();
-    } else if (lhs.lowerLimitValue){
+    } else if (lhs.lowerLimitValue) {
       return false;
-    } else if (rhs.lowerLimitValue){
+    } else if (rhs.lowerLimitValue) {
       return true;
     }
 
-    if (lhs.upperLimitValue && rhs.upperLimitValue){
+    if (lhs.upperLimitValue && rhs.upperLimitValue) {
       return lhs.upperLimitValue.get() < rhs.upperLimitValue.get();
-    } else if (lhs.upperLimitValue){
+    } else if (lhs.upperLimitValue) {
       return false;
-    } else if (rhs.upperLimitValue){
+    } else if (rhs.upperLimitValue) {
       return true;
     }
 
-    if (lhs.isContinuous && !rhs.isContinuous){
+    if (lhs.isContinuous && !rhs.isContinuous) {
       return false;
-    } else if (!lhs.isContinuous && rhs.isContinuous){
+    } else if (!lhs.isContinuous && rhs.isContinuous) {
       return true;
     }
 
@@ -85,40 +86,32 @@ struct ScheduleTypeCompare {
   }
 };
 
-
-struct ScheduleTypeLimitsCompare {
-  bool operator() (const model::ScheduleTypeLimits& lhs, const model::ScheduleTypeLimits& rhs) const{
+struct ScheduleTypeLimitsCompare
+{
+  bool operator()(const model::ScheduleTypeLimits& lhs, const model::ScheduleTypeLimits& rhs) const {
     return lhs.name().get() < rhs.name().get();
   }
 };
 
-ScheduleDialog::ScheduleDialog(bool isIP,
-                               const model::Model & model,
-                               QWidget * parent)
-  : OSDialog(parent),
-  m_isIP(isIP),
-  m_model(model),
-  m_scheduleTypeComboBox(nullptr)
-{
+ScheduleDialog::ScheduleDialog(bool isIP, const model::Model& model, QWidget* parent)
+  : OSDialog(parent), m_isIP(isIP), m_model(model), m_scheduleTypeComboBox(nullptr) {
   setWindowModality(Qt::ApplicationModal);
   createLayout();
 }
 
-void ScheduleDialog::setIsIP(bool isIP)
-{
+void ScheduleDialog::setIsIP(bool isIP) {
   m_isIP = isIP;
 
   onCurrentIndexChanged(m_scheduleTypeComboBox->currentIndex());
 }
 
-void ScheduleDialog::createLayout()
-{
+void ScheduleDialog::createLayout() {
   okButton()->setText("Apply");
 
   // make all possible schedule type limits
   std::set<model::ScheduleType, ScheduleTypeCompare> scheduleTypes;
-  for (const std::string& className : model::ScheduleTypeRegistry::instance().classNames()){
-    for (const model::ScheduleType& scheduleType : model::ScheduleTypeRegistry::instance().getScheduleTypesByClassName(className)){
+  for (const std::string& className : model::ScheduleTypeRegistry::instance().classNames()) {
+    for (const model::ScheduleType& scheduleType : model::ScheduleTypeRegistry::instance().getScheduleTypesByClassName(className)) {
       scheduleTypes.insert(scheduleType);
     }
   }
@@ -138,20 +131,20 @@ void ScheduleDialog::createLayout()
   //std::sort(scheduleTypeLimits.begin(), scheduleTypeLimits.end(), WorkspaceObjectNameLess());
   //OS_ASSERT(!scheduleTypeLimits.empty());
 
-  QLabel * label = nullptr;
+  QLabel* label = nullptr;
 
-  label = new QLabel("Define New Schedule",this);
+  label = new QLabel("Define New Schedule", this);
   label->setObjectName("H1");
   upperLayout()->addWidget(label);
 
   auto vertLayout = new QVBoxLayout();
-  vertLayout->setContentsMargins(20,10,10,10);
+  vertLayout->setContentsMargins(20, 10, 10, 10);
   vertLayout->setSpacing(20);
   upperLayout()->addLayout(vertLayout);
 
-  QHBoxLayout * hLayout = nullptr;
+  QHBoxLayout* hLayout = nullptr;
 
-  QVBoxLayout * vLayout = nullptr;
+  QVBoxLayout* vLayout = nullptr;
 
   // SCHEDULE TYPE
   {
@@ -170,7 +163,7 @@ void ScheduleDialog::createLayout()
     m_scheduleTypeComboBox->setObjectName("ScheduleDialog");
 
     //for (const model::ScheduleTypeLimits& scheduleTypeLimit : scheduleTypeLimits){
-    for (const model::ScheduleType& scheduleType : scheduleTypes){
+    for (const model::ScheduleType& scheduleType : scheduleTypes) {
       QString name = toQString(model::ScheduleTypeRegistry::instance().getDefaultName(scheduleType));
       model::ScheduleTypeLimits tmp = model::ScheduleTypeRegistry::instance().getOrCreateScheduleTypeLimits(scheduleType, m_model);
       m_scheduleTypeComboBox->addItem(name, toQString(tmp.handle()));
@@ -243,12 +236,11 @@ void ScheduleDialog::createLayout()
   m_scheduleTypeComboBox->setCurrentIndex(0);
   onCurrentIndexChanged(0);
 
-  connect(m_scheduleTypeComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &ScheduleDialog::onCurrentIndexChanged);
-
+  connect(m_scheduleTypeComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this,
+          &ScheduleDialog::onCurrentIndexChanged);
 }
 
-void ScheduleDialog::onCurrentIndexChanged(int index)
-{
+void ScheduleDialog::onCurrentIndexChanged(int index) {
   OS_ASSERT(index >= 0);
 
   UUID handle = toUUID(m_scheduleTypeComboBox->itemData(index).toString());
@@ -261,19 +253,19 @@ void ScheduleDialog::onCurrentIndexChanged(int index)
   boost::optional<Unit> _toUnits = m_scheduleTypeLimits->units(m_isIP);
 
   QString unitsLabel;
-  if (_toUnits){
+  if (_toUnits) {
     QString temp;
-    if (!_toUnits->prettyString().empty()){
+    if (!_toUnits->prettyString().empty()) {
       temp = toQString(_toUnits->prettyString());
-    } else if (!_toUnits->standardString().empty()){
+    } else if (!_toUnits->standardString().empty()) {
       temp = toQString(_toUnits->standardString());
     }
 
-    if (temp.isEmpty()){
+    if (temp.isEmpty()) {
       unitsLabel.append(" (");
       unitsLabel.append("unitless");
       unitsLabel.append(")");
-    } else{
+    } else {
       unitsLabel.append(" (");
       unitsLabel.append(temp);
       unitsLabel.append(")");
@@ -282,18 +274,18 @@ void ScheduleDialog::onCurrentIndexChanged(int index)
 
   boost::optional<std::string> numericType = m_scheduleTypeLimits->numericType();
 
-  QString numericTypeLabel;;
-  if (numericType){
+  QString numericTypeLabel;
+  ;
+  if (numericType) {
     numericTypeLabel.append(toQString(*numericType));
-  } else{
+  } else {
     numericTypeLabel.append("None");
   }
   numericTypeLabel.append(unitsLabel);
   m_numericTypeLabel->setText(numericTypeLabel);
 
-
   // Lower Limit
-  boost::optional<double>  _value = m_scheduleTypeLimits->lowerLimitValue();
+  boost::optional<double> _value = m_scheduleTypeLimits->lowerLimitValue();
 
   QString lowerLimitLabel;
   if (_value.is_initialized()) {
@@ -314,7 +306,6 @@ void ScheduleDialog::onCurrentIndexChanged(int index)
     lowerLimitLabel.append("None");
   }
   m_lowerLimitLabel->setText(lowerLimitLabel);
-
 
   // Upper Limit
   _value = m_scheduleTypeLimits->upperLimitValue();
@@ -337,12 +328,9 @@ void ScheduleDialog::onCurrentIndexChanged(int index)
     upperLimitLabel.append("None");
   }
   m_upperLimitLabel->setText(upperLimitLabel);
-
-
 }
 
-void ScheduleDialog::on_okButton(bool checked)
-{
+void ScheduleDialog::on_okButton(bool checked) {
   OS_ASSERT(m_scheduleTypeLimits);
 
   model::ScheduleRuleset schedule(m_model);
@@ -350,10 +338,9 @@ void ScheduleDialog::on_okButton(bool checked)
   OS_ASSERT(ok);
 
   model::ScheduleDay daySchedule = schedule.defaultDaySchedule();
-  daySchedule.addValue(Time(1,0),SchedulesTabController::defaultStartingValue(daySchedule));
+  daySchedule.addValue(Time(1, 0), SchedulesTabController::defaultStartingValue(daySchedule));
 
   OSDialog::on_okButton(checked);
 }
 
-
-} // openstudio
+}  // namespace openstudio

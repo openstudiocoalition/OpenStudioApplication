@@ -35,28 +35,22 @@
 
 namespace openstudio {
 
-RadianceDialog::RadianceDialog(bool isIP,
-                               QWidget * radianceInspector,
-                               QWidget * parent)
-  : OSDialog(parent),
-  m_radianceInspector(radianceInspector)
-{
+RadianceDialog::RadianceDialog(bool isIP, QWidget* radianceInspector, QWidget* parent) : OSDialog(parent), m_radianceInspector(radianceInspector) {
   setWindowModality(Qt::ApplicationModal);
   createLayout();
 }
 
-void RadianceDialog::createLayout()
-{
+void RadianceDialog::createLayout() {
   okButton()->setText("Apply");
 
-  QLabel * label = nullptr;
+  QLabel* label = nullptr;
 
-  label = new QLabel("Custom Radiance Parameter Settings",this);
+  label = new QLabel("Custom Radiance Parameter Settings", this);
   label->setObjectName("H1");
   upperLayout()->addWidget(label);
 
   auto vertLayout = new QVBoxLayout();
-  vertLayout->setContentsMargins(20,10,10,10);
+  vertLayout->setContentsMargins(20, 10, 10, 10);
   vertLayout->setSpacing(20);
   upperLayout()->addLayout(vertLayout);
 
@@ -67,10 +61,8 @@ void RadianceDialog::createLayout()
 
 // ***** SLOTS *****
 
-void RadianceDialog::toggleUnits(bool displayIP)
-{
+void RadianceDialog::toggleUnits(bool displayIP) {
   m_isIP = displayIP;
 }
 
-} // openstudio
-
+}  // namespace openstudio

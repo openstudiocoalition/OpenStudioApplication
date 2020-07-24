@@ -36,11 +36,11 @@
 
 namespace openstudio {
 
-  class SimSettingsView;
+class SimSettingsView;
 
 namespace model {
 
-  class Model;
+class Model;
 
 }
 
@@ -48,26 +48,19 @@ class SimSettingsTabView : public MainTabView
 {
   Q_OBJECT
 
-public:
-
-  SimSettingsTabView(bool isIP,
-    const model::Model & model,
-    const QString & tabLabel,
-    TabType tabType,
-    QWidget * parent = nullptr);
+ public:
+  SimSettingsTabView(bool isIP, const model::Model& model, const QString& tabLabel, TabType tabType, QWidget* parent = nullptr);
 
   virtual ~SimSettingsTabView() {}
 
-public slots:
+ public slots:
 
   void toggleUnits(bool displayIP);
 
-private:
-
-  SimSettingsView * m_simSettingsView;
-
+ private:
+  SimSettingsView* m_simSettingsView;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_SIMSETTINGSTABVIEW_HPP
+#endif  // OPENSTUDIO_SIMSETTINGSTABVIEW_HPP

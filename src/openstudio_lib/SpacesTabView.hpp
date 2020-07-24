@@ -39,25 +39,23 @@ class QWidget;
 namespace openstudio {
 
 namespace model {
-  class Model;
+class Model;
 }
 
 class SpacesTabView : public MainTabView
 {
   Q_OBJECT
 
-public:
-
-  SpacesTabView(QWidget * parent = nullptr);
+ public:
+  SpacesTabView(QWidget* parent = nullptr);
 
   virtual ~SpacesTabView() {}
 
-public slots:
+ public slots:
 
   void toggleUnits(bool displayIP);
-
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_SPACESTABVIEW_HPP
+#endif  // OPENSTUDIO_SPACESTABVIEW_HPP

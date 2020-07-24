@@ -42,14 +42,9 @@
 
 namespace openstudio {
 
-ThermalZonesView::ThermalZonesView(bool isIP,
-  const model::Model & model,
-  QWidget * parent)
-  : ModelSubTabView(new ModelObjectListView(IddObjectType::OS_ThermalZone,model,true,parent),
-                    new ThermalZoneView(isIP,model,parent),
-                    true,
-                    parent)
-{
+ThermalZonesView::ThermalZonesView(bool isIP, const model::Model& model, QWidget* parent)
+  : ModelSubTabView(new ModelObjectListView(IddObjectType::OS_ThermalZone, model, true, parent), new ThermalZoneView(isIP, model, parent), true,
+                    parent) {
   bool isConnected = false;
 
   isConnected = connect(itemSelector(), SIGNAL(selectionCleared()), inspectorView(), SIGNAL(selectionCleared()));
@@ -59,15 +54,11 @@ ThermalZonesView::ThermalZonesView(bool isIP,
   OS_ASSERT(isConnected);
 }
 
-ThermalZoneView::ThermalZoneView(bool isIP,
-  const model::Model & model,
-  QWidget * parent )
-  : ModelObjectInspectorView(model,true,parent),
-    m_isIP(isIP)
-{
+ThermalZoneView::ThermalZoneView(bool isIP, const model::Model& model, QWidget* parent)
+  : ModelObjectInspectorView(model, true, parent), m_isIP(isIP) {
   bool isConnected = false;
 
-  m_thermalZonesGridView = new ThermalZonesGridView(this->m_isIP,this->m_model,this);
+  m_thermalZonesGridView = new ThermalZonesGridView(this->m_isIP, this->m_model, this);
   this->stackedWidget()->addWidget(m_thermalZonesGridView);
 
   isConnected = connect(m_thermalZonesGridView, SIGNAL(dropZoneItemClicked(OSItem*)), this, SIGNAL(dropZoneItemClicked(OSItem*)));
@@ -85,26 +76,20 @@ ThermalZoneView::ThermalZoneView(bool isIP,
   refresh();
 }
 
-std::vector<model::ModelObject> ThermalZoneView::selectedObjects() const
-{
+std::vector<model::ModelObject> ThermalZoneView::selectedObjects() const {
   return m_thermalZonesGridView->selectedObjects();
 }
 
-void ThermalZoneView::onClearSelection()
-{}
+void ThermalZoneView::onClearSelection() {}
 
-void ThermalZoneView::onSelectModelObject(const openstudio::model::ModelObject& modelObject)
-{}
+void ThermalZoneView::onSelectModelObject(const openstudio::model::ModelObject& modelObject) {}
 
-void ThermalZoneView::onUpdate()
-{}
+void ThermalZoneView::onUpdate() {}
 
-void ThermalZoneView::refresh()
-{}
+void ThermalZoneView::refresh() {}
 
-void ThermalZoneView::toggleUnits(bool isIP)
-{
+void ThermalZoneView::toggleUnits(bool isIP) {
   m_isIP = isIP;
 }
 
-} // openstudio
+}  // namespace openstudio

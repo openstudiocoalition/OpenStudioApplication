@@ -50,7 +50,7 @@ class BaseApp;
 
 namespace measuretab {
 
-  class MeasureStepItem;
+class MeasureStepItem;
 
 }
 
@@ -58,8 +58,7 @@ class EditController : public QObject
 {
   Q_OBJECT
 
-  public:
-
+ public:
   QPointer<OSViewSwitcher> editView;
 
   QPointer<EditRubyMeasureView> editRubyMeasureView;
@@ -68,24 +67,23 @@ class EditController : public QObject
 
   virtual ~EditController();
 
-  void setMeasureStepItem(measuretab::MeasureStepItem * measureItem, BaseApp *t_app);
+  void setMeasureStepItem(measuretab::MeasureStepItem* measureItem, BaseApp* t_app);
 
-  measuretab::MeasureStepItem * measureStepItem() const;
+  measuretab::MeasureStepItem* measureStepItem() const;
 
   // Show something when no RubyMeasure is selected
   void reset();
 
-  private slots:
+ private slots:
 
   void updateDescription();
 
-  private:
-
+ private:
   REGISTER_LOGGER("openstudio.pat.EditController");
 
   QPointer<EditNullView> m_editNullView;
 
-  std::vector<QSharedPointer<InputController> > m_inputControllers;
+  std::vector<QSharedPointer<InputController>> m_inputControllers;
 
   QPointer<measuretab::MeasureStepItem> m_measureStepItem;
 };
@@ -94,35 +92,33 @@ class InputController : public QObject
 {
   Q_OBJECT
 
-  public:
-
-  InputController(EditController * editController,const measure::OSArgument & argument, BaseApp *t_app);
+ public:
+  InputController(EditController* editController, const measure::OSArgument& argument, BaseApp* t_app);
 
   virtual ~InputController();
 
   QPointer<InputView> inputView;
 
-  private slots:
+ private slots:
 
-  void setValue(const QString & value);
+  void setValue(const QString& value);
 
   void setValue(bool value);
 
   void setValueForIndex(int index);
 
-  private:
-
+ private:
   bool isItOKToClearResults();
 
   bool isArgumentIncomplete() const;
 
-  BaseApp *m_app;
+  BaseApp* m_app;
 
   QPointer<EditController> m_editController;
 
   measure::OSArgument m_argument;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // SHAREDGUICOMPONENTS_EDITCONTROLLER_HPP
+#endif  // SHAREDGUICOMPONENTS_EDITCONTROLLER_HPP

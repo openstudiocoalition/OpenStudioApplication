@@ -44,39 +44,37 @@ class MainTabController : public OSQObjectController
 {
   Q_OBJECT
 
-  public:
+ public:
+  MainTabController(MainTabView* mainContentWidget);
 
-    MainTabController(MainTabView* mainContentWidget);
+  virtual ~MainTabController();
 
-    virtual ~MainTabController();
+  MainTabView* mainContentWidget() const;
 
-    MainTabView* mainContentWidget() const;
+ private:
+  MainTabView* m_mainContentWidget;
 
-  private:
+ signals:
 
-    MainTabView* m_mainContentWidget;
+  void modelObjectSelected(model::OptionalModelObject& modelObject, bool readOnly);
 
-  signals:
+  void dropZoneItemSelected(OSItem* item, bool readOnly);
 
-    void modelObjectSelected(model::OptionalModelObject & modelObject, bool readOnly);
+  void dropZoneItemClicked(OSItem* item);
 
-    void dropZoneItemSelected(OSItem* item, bool readOnly);
+  void toggleUnitsClicked(bool displayIP);
 
-    void dropZoneItemClicked(OSItem* item);
+  void itemRemoveClicked(OSItem*);
 
-    void toggleUnitsClicked(bool displayIP);
+  void downloadComponentsClicked();
 
-    void itemRemoveClicked(OSItem *);
+  void openLibDlgClicked();
 
-    void downloadComponentsClicked();
+ public slots:
 
-    void openLibDlgClicked();
-
-  public slots:
-
-    virtual void setSubTab(int index) {};
+  virtual void setSubTab(int index){};
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_MAINTABCONTROLLER_HPP
+#endif  // OPENSTUDIO_MAINTABCONTROLLER_HPP

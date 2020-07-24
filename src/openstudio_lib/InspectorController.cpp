@@ -67,9 +67,7 @@
 
 namespace openstudio {
 
-InspectorController::InspectorController()
-  : QObject()
-{
+InspectorController::InspectorController() : QObject() {
   m_inspectorView = new InspectorView();
 
   //auto isConnected = connect(m_inspectorView, SIGNAL(itemRemoveClicked(OSItem *)), this, SIGNAL(itemRemoveClicked(OSItem *))); TODO these should all be deleted from this area of the code: cruft
@@ -97,76 +95,60 @@ InspectorController::InspectorController()
   connect(m_inspectorView, &InspectorView::moveBranchForZoneReturnSelected, this, &InspectorController::moveBranchForZoneReturn);
 }
 
-InspectorController::~InspectorController()
-{
-  if( m_inspectorView != nullptr )
-  {
+InspectorController::~InspectorController() {
+  if (m_inspectorView != nullptr) {
     delete m_inspectorView;
 
     m_inspectorView = nullptr;
   }
 }
 
-InspectorView * InspectorController::inspectorView()
-{
+InspectorView* InspectorController::inspectorView() {
   return m_inspectorView;
 }
 
-void InspectorController::layoutModelObject( model::OptionalModelObject & modelObject, bool readOnly )
-{
+void InspectorController::layoutModelObject(model::OptionalModelObject& modelObject, bool readOnly) {
   bool displayIP = OSAppBase::instance()->currentDocument()->mainWindow()->displayIP();
 
-  m_inspectorView->layoutModelObject( modelObject, readOnly, displayIP );
+  m_inspectorView->layoutModelObject(modelObject, readOnly, displayIP);
 
   m_modelObject = modelObject;
 }
 
-void InspectorController::addBranchForZone(model::ThermalZone & zone)
-{
+void InspectorController::addBranchForZone(model::ThermalZone& zone) {
   model::OptionalHVACComponent hvacComponent = m_modelObject->optionalCast<model::HVACComponent>();
 
   model::OptionalAirLoopHVAC airLoop;
 
-  if( hvacComponent )
-  {
+  if (hvacComponent) {
     airLoop = hvacComponent->airLoopHVAC();
   }
 
-  if( airLoop )
-  {
+  if (airLoop) {
     model::Model model = zone.model();
 
     airLoop->multiAddBranchForZone(zone);
   }
 }
 
-void InspectorController::removeBranchForZone(model::ThermalZone & zone)
-{
+void InspectorController::removeBranchForZone(model::ThermalZone& zone) {
   model::OptionalAirLoopHVAC airLoop = zone.airLoopHVAC();
 
-  if( airLoop )
-  {
+  if (airLoop) {
     airLoop->removeBranchForZone(zone);
   }
 }
 
-void InspectorController::moveBranchForZoneSupply(model::ThermalZone & zone, const Handle & newPlenumHandle)
-{
+void InspectorController::moveBranchForZoneSupply(model::ThermalZone& zone, const Handle& newPlenumHandle) {
   model::Model model = zone.model();
 
-  if(boost::optional<model::AirLoopHVACSupplyPlenum> supplyPlenum = model.getModelObject<model::AirLoopHVACSupplyPlenum>(newPlenumHandle))
-  {
-    if( boost::optional<model::ThermalZone> plenumZone = supplyPlenum->thermalZone() )
-    {
+  if (boost::optional<model::AirLoopHVACSupplyPlenum> supplyPlenum = model.getModelObject<model::AirLoopHVACSupplyPlenum>(newPlenumHandle)) {
+    if (boost::optional<model::ThermalZone> plenumZone = supplyPlenum->thermalZone()) {
       zone.setSupplyPlenum(plenumZone.get());
     }
-  }
-  else if(boost::optional<model::ThermalZone> plenumZone = model.getModelObject<model::ThermalZone>(newPlenumHandle))
-  {
+  } else if (boost::optional<model::ThermalZone> plenumZone = model.getModelObject<model::ThermalZone>(newPlenumHandle)) {
     zone.setSupplyPlenum(plenumZone.get());
-  }
-  else
-  {
+  } else {
     zone.removeSupplyPlenum();
   }
 
@@ -177,23 +159,16 @@ void InspectorController::moveBranchForZoneSupply(model::ThermalZone & zone, con
   m_inspectorView->update();
 }
 
-void InspectorController::moveBranchForZoneReturn(model::ThermalZone & zone, const Handle & newPlenumHandle)
-{
+void InspectorController::moveBranchForZoneReturn(model::ThermalZone& zone, const Handle& newPlenumHandle) {
   model::Model model = zone.model();
 
-  if(boost::optional<model::AirLoopHVACReturnPlenum> returnPlenum = model.getModelObject<model::AirLoopHVACReturnPlenum>(newPlenumHandle))
-  {
-    if( boost::optional<model::ThermalZone> plenumZone = returnPlenum->thermalZone() )
-    {
+  if (boost::optional<model::AirLoopHVACReturnPlenum> returnPlenum = model.getModelObject<model::AirLoopHVACReturnPlenum>(newPlenumHandle)) {
+    if (boost::optional<model::ThermalZone> plenumZone = returnPlenum->thermalZone()) {
       zone.setReturnPlenum(plenumZone.get());
     }
-  }
-  else if(boost::optional<model::ThermalZone> plenumZone = model.getModelObject<model::ThermalZone>(newPlenumHandle))
-  {
+  } else if (boost::optional<model::ThermalZone> plenumZone = model.getModelObject<model::ThermalZone>(newPlenumHandle)) {
     zone.setReturnPlenum(plenumZone.get());
-  }
-  else
-  {
+  } else {
     zone.removeReturnPlenum();
   }
 
@@ -204,18 +179,14 @@ void InspectorController::moveBranchForZoneReturn(model::ThermalZone & zone, con
   m_inspectorView->update();
 }
 
-void InspectorController::onViewDestroyed(QObject * object)
-{
+void InspectorController::onViewDestroyed(QObject* object) {
   m_inspectorView = nullptr;
 }
 
-void InspectorController::addToLoop(model::Loop & loop, boost::optional<model::HVACComponent> & hvacComponent)
-{
-  if( hvacComponent )
-  {
-    if( boost::optional<model::PlantLoop> plantLoop = loop.optionalCast<model::PlantLoop>() )
-    {
-      if( hvacComponent->optionalCast<model::WaterHeaterMixed>() ) {
+void InspectorController::addToLoop(model::Loop& loop, boost::optional<model::HVACComponent>& hvacComponent) {
+  if (hvacComponent) {
+    if (boost::optional<model::PlantLoop> plantLoop = loop.optionalCast<model::PlantLoop>()) {
+      if (hvacComponent->optionalCast<model::WaterHeaterMixed>()) {
         plantLoop->addSupplyBranchForComponent(hvacComponent.get());
       } else {
         plantLoop->addDemandBranchForComponent(hvacComponent.get());
@@ -278,13 +249,10 @@ void InspectorController::addToLoop(model::Loop & loop, boost::optional<model::H
   //}
 }
 
-void InspectorController::removeFromLoop(model::Loop & loop, boost::optional<model::HVACComponent> & hvacComponent)
-{
-  if( hvacComponent )
-  {
-    if( boost::optional<model::PlantLoop> plantLoop = loop.optionalCast<model::PlantLoop>() )
-    {
-      if( hvacComponent->optionalCast<model::WaterHeaterMixed>() ) {
+void InspectorController::removeFromLoop(model::Loop& loop, boost::optional<model::HVACComponent>& hvacComponent) {
+  if (hvacComponent) {
+    if (boost::optional<model::PlantLoop> plantLoop = loop.optionalCast<model::PlantLoop>()) {
+      if (hvacComponent->optionalCast<model::WaterHeaterMixed>()) {
         plantLoop->removeSupplyBranchWithComponent(hvacComponent.get());
       } else {
         plantLoop->removeDemandBranchWithComponent(hvacComponent.get());
@@ -293,8 +261,6 @@ void InspectorController::removeFromLoop(model::Loop & loop, boost::optional<mod
   }
 }
 
-void InspectorController::toggleUnits(bool displayIP)
-{
-}
+void InspectorController::toggleUnits(bool displayIP) {}
 
-} // openstudio
+}  // namespace openstudio

@@ -46,18 +46,16 @@ class QLabel;
 
 namespace openstudio {
 
-OSItemId scriptToItemId(const openstudio::path &t_path);
+OSItemId scriptToItemId(const openstudio::path& t_path);
 
 //QString modelToSourceId(const openstudio::model::Model& model);
 
-class ScriptItem : public OSItem {
+class ScriptItem : public OSItem
+{
   Q_OBJECT
 
  public:
-
-  ScriptItem(const openstudio::path &t_path,
-             OSItemType type,
-             QWidget * parent = nullptr);
+  ScriptItem(const openstudio::path& t_path, OSItemType type, QWidget* parent = nullptr);
 
   virtual ~ScriptItem() {}
 
@@ -87,7 +85,7 @@ class ScriptItem : public OSItem {
 
   bool removed() const;
 
-  virtual bool equal(const openstudio::OSItem *) const override;
+  virtual bool equal(const openstudio::OSItem*) const override;
 
  signals:
 
@@ -106,11 +104,8 @@ class ScriptItem : public OSItem {
   //runmanager::ScriptInfo m_scriptInfo;
 
   REGISTER_LOGGER("openstudio.ScriptItem");
-
 };
 
+}  // namespace openstudio
 
-
-} // openstudio
-
-#endif // OPENSTUDIO_SCRIPTITEM_HPP
+#endif  // OPENSTUDIO_SCRIPTITEM_HPP

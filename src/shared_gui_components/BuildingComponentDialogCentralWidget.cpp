@@ -58,50 +58,47 @@
 
 namespace openstudio {
 
-BuildingComponentDialogCentralWidget::BuildingComponentDialogCentralWidget(QWidget * parent)
+BuildingComponentDialogCentralWidget::BuildingComponentDialogCentralWidget(QWidget* parent)
   : QWidget(parent),
-  m_tid(0),
-  m_collapsibleComponentList(nullptr),
-  m_componentList(nullptr), // TODO cruft to be removed
-  m_progressBar(nullptr),
-  m_pendingDownloads(std::set<std::string>()),
-  m_pageIdx(0),
-  m_searchString(QString()),
-  m_showNewComponents(false)
-{
+    m_tid(0),
+    m_collapsibleComponentList(nullptr),
+    m_componentList(nullptr),  // TODO cruft to be removed
+    m_progressBar(nullptr),
+    m_pendingDownloads(std::set<std::string>()),
+    m_pageIdx(0),
+    m_searchString(QString()),
+    m_showNewComponents(false) {
   init();
 }
 
-BuildingComponentDialogCentralWidget::BuildingComponentDialogCentralWidget(int tid, QWidget * parent)
+BuildingComponentDialogCentralWidget::BuildingComponentDialogCentralWidget(int tid, QWidget* parent)
   : QWidget(parent),
-  m_tid(0),
-  m_collapsibleComponentList(nullptr),
-  m_componentList(nullptr), // TODO cruft to be removed
-  m_progressBar(nullptr),
-  m_pendingDownloads(std::set<std::string>()),
-  m_pageIdx(0),
-  m_searchString(QString())
-{
+    m_tid(0),
+    m_collapsibleComponentList(nullptr),
+    m_componentList(nullptr),  // TODO cruft to be removed
+    m_progressBar(nullptr),
+    m_pendingDownloads(std::set<std::string>()),
+    m_pageIdx(0),
+    m_searchString(QString()) {
   init();
 }
 
-void BuildingComponentDialogCentralWidget::init()
-{
+void BuildingComponentDialogCentralWidget::init() {
   createLayout();
 }
 
-void BuildingComponentDialogCentralWidget::createLayout()
-{
+void BuildingComponentDialogCentralWidget::createLayout() {
 
-  QLabel * label = new QLabel("Sort by:");
-  label->hide(); // TODO remove this hack when we have sorts to do
+  QLabel* label = new QLabel("Sort by:");
+  label->hide();  // TODO remove this hack when we have sorts to do
 
   auto comboBox = new QComboBox(this);
-  comboBox->hide(); // TODO remove this hack when we have sorts to do
+  comboBox->hide();  // TODO remove this hack when we have sorts to do
 
-  connect(comboBox, static_cast<void (QComboBox::*)(const QString &)>(&QComboBox::currentIndexChanged), this, &BuildingComponentDialogCentralWidget::comboBoxIndexChanged);
+  connect(comboBox, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentIndexChanged), this,
+          &BuildingComponentDialogCentralWidget::comboBoxIndexChanged);
 
-  QPushButton * upperPushButton = new QPushButton("Check All");
+  QPushButton* upperPushButton = new QPushButton("Check All");
   connect(upperPushButton, &QPushButton::clicked, this, &BuildingComponentDialogCentralWidget::upperPushButtonClicked);
 
   auto upperLayout = new QHBoxLayout();
@@ -120,23 +117,27 @@ void BuildingComponentDialogCentralWidget::createLayout()
 
   connect(m_collapsibleComponentList, &CollapsibleComponentList::componentClicked, this, &BuildingComponentDialogCentralWidget::on_componentClicked);
 
-  connect(m_collapsibleComponentList, &CollapsibleComponentList::collapsibleComponentClicked, this, &BuildingComponentDialogCentralWidget::collapsibleComponentClicked);
+  connect(m_collapsibleComponentList, &CollapsibleComponentList::collapsibleComponentClicked, this,
+          &BuildingComponentDialogCentralWidget::collapsibleComponentClicked);
 
-  connect(m_collapsibleComponentList, &CollapsibleComponentList::collapsibleComponentClicked, this, &BuildingComponentDialogCentralWidget::on_collapsibleComponentClicked);
+  connect(m_collapsibleComponentList, &CollapsibleComponentList::collapsibleComponentClicked, this,
+          &BuildingComponentDialogCentralWidget::on_collapsibleComponentClicked);
 
-  connect(m_collapsibleComponentList, &CollapsibleComponentList::getComponentsByPage, this, &BuildingComponentDialogCentralWidget::getComponentsByPage);
+  connect(m_collapsibleComponentList, &CollapsibleComponentList::getComponentsByPage, this,
+          &BuildingComponentDialogCentralWidget::getComponentsByPage);
 
-  connect(m_collapsibleComponentList, &CollapsibleComponentList::getComponentsByPage, this, &BuildingComponentDialogCentralWidget::on_getComponentsByPage);
+  connect(m_collapsibleComponentList, &CollapsibleComponentList::getComponentsByPage, this,
+          &BuildingComponentDialogCentralWidget::on_getComponentsByPage);
 
   //*******************************************************************
   // Hack code to be removed (TODO)
   m_componentList = new ComponentList();  // TODO refactor and remove
 
-  CollapsibleComponentHeader * collapsibleComponentHeader = nullptr;
-  collapsibleComponentHeader = new CollapsibleComponentHeader("Constructions",100,5);
+  CollapsibleComponentHeader* collapsibleComponentHeader = nullptr;
+  collapsibleComponentHeader = new CollapsibleComponentHeader("Constructions", 100, 5);
 
-  CollapsibleComponent * collapsibleComponent = nullptr;
-  collapsibleComponent = new CollapsibleComponent(collapsibleComponentHeader,m_componentList);
+  CollapsibleComponent* collapsibleComponent = nullptr;
+  collapsibleComponent = new CollapsibleComponent(collapsibleComponentHeader, m_componentList);
 
   m_collapsibleComponentList->addCollapsibleComponent(collapsibleComponent);
   //*******************************************************************
@@ -144,7 +145,7 @@ void BuildingComponentDialogCentralWidget::createLayout()
   m_progressBar = new QProgressBar(this);
   m_progressBar->setVisible(false);
 
-  QPushButton * lowerPushButton = new QPushButton("Download");
+  QPushButton* lowerPushButton = new QPushButton("Download");
   connect(lowerPushButton, &QPushButton::clicked, this, &BuildingComponentDialogCentralWidget::lowerPushButtonClicked);
 
   auto lowerLayout = new QHBoxLayout();
@@ -155,35 +156,28 @@ void BuildingComponentDialogCentralWidget::createLayout()
   auto mainLayout = new QVBoxLayout();
   mainLayout->addLayout(upperLayout);
 
-  mainLayout->addWidget(m_collapsibleComponentList,0,Qt::AlignTop);
+  mainLayout->addWidget(m_collapsibleComponentList, 0, Qt::AlignTop);
   mainLayout->addLayout(lowerLayout);
   setLayout(mainLayout);
 }
 
-int BuildingComponentDialogCentralWidget::tid()
-{
+int BuildingComponentDialogCentralWidget::tid() {
   return m_tid;
 }
 
-int BuildingComponentDialogCentralWidget::pageIdx()
-{
+int BuildingComponentDialogCentralWidget::pageIdx() {
   return m_pageIdx;
 }
 
-void BuildingComponentDialogCentralWidget::setTid()
-{
+void BuildingComponentDialogCentralWidget::setTid() {
   requestComponents(m_filterType, m_tid, m_pageIdx, m_searchString);
 }
 
 // Note: don't call this directly if the "wait" screen is desired
-void BuildingComponentDialogCentralWidget::setTid(const std::string& filterType,
-                                                  int tid,
-                                                  int pageIdx,
-                                                  const QString & title,
-                                                  const QString & searchString)
-{
+void BuildingComponentDialogCentralWidget::setTid(const std::string& filterType, int tid, int pageIdx, const QString& title,
+                                                  const QString& searchString) {
 
-  if(m_tid != tid || m_searchString != searchString){
+  if (m_tid != tid || m_searchString != searchString) {
     m_collapsibleComponentList->firstPage();
   }
 
@@ -194,26 +188,21 @@ void BuildingComponentDialogCentralWidget::setTid(const std::string& filterType,
   m_searchString = searchString;
 
   //std::vector<Component *> components = m_collapsibleComponentList->components();
-  std::vector<Component *> components = m_componentList->components();  // TODO replace with code above
+  std::vector<Component*> components = m_componentList->components();  // TODO replace with code above
 
-  for( auto & comp : components)
-  {
+  for (auto& comp : components) {
     delete comp;
   }
 
   RemoteBCL remoteBCL;
   std::vector<BCLSearchResult> responses;
-  if (filterType == "components")
-  {
-    responses = remoteBCL.searchComponentLibrary(searchString.toStdString(),tid,pageIdx);
-  }
-  else if (filterType == "measures")
-  {
-    responses = remoteBCL.searchMeasureLibrary(searchString.toStdString(),tid,pageIdx);
+  if (filterType == "components") {
+    responses = remoteBCL.searchComponentLibrary(searchString.toStdString(), tid, pageIdx);
+  } else if (filterType == "measures") {
+    responses = remoteBCL.searchMeasureLibrary(searchString.toStdString(), tid, pageIdx);
   }
 
-  for( const auto & response : responses)
-  {
+  for (const auto& response : responses) {
     auto component = new Component(response);
 
     // TODO replace with a componentList owned by m_collapsibleComponentList
@@ -232,47 +221,44 @@ void BuildingComponentDialogCentralWidget::setTid(const std::string& filterType,
   m_collapsibleComponentList->setNumPages(numResultPages);
 
   // make sure the header is expanded
-  if(m_collapsibleComponentList->checkedCollapsibleComponent()){
+  if (m_collapsibleComponentList->checkedCollapsibleComponent()) {
     m_collapsibleComponentList->checkedCollapsibleComponent()->setExpanded(true);
   }
 
   // select the first component
-  if(m_componentList->firstComponent()){
+  if (m_componentList->firstComponent()) {
     m_componentList->firstComponent()->setChecked(true);
-  }
-  else{
+  } else {
     emit noComponents();
   }
 
   emit componentsReady();
-
 }
 
 ///! Slots
 
-void BuildingComponentDialogCentralWidget::upperPushButtonClicked()
-{
+void BuildingComponentDialogCentralWidget::upperPushButtonClicked() {
   for (Component* component : m_collapsibleComponentList->components()) {
-    if (component->checkBox()->isEnabled()){
+    if (component->checkBox()->isEnabled()) {
       component->checkBox()->setChecked(true);
     }
   }
 }
 
-void BuildingComponentDialogCentralWidget::lowerPushButtonClicked()
-{
+void BuildingComponentDialogCentralWidget::lowerPushButtonClicked() {
   for (Component* component : m_collapsibleComponentList->components()) {
-    if (component->checkBox()->isChecked() && component->checkBox()->isEnabled()){
+    if (component->checkBox()->isChecked() && component->checkBox()->isEnabled()) {
 
       auto remoteBCL = new RemoteBCL();
 
-      if (m_filterType == "components")
-      {
+      if (m_filterType == "components") {
         // Connect to Nano Signal
-        remoteBCL->componentDownloaded.connect<BuildingComponentDialogCentralWidget, &BuildingComponentDialogCentralWidget::componentDownloadComplete>(const_cast<BuildingComponentDialogCentralWidget *>(this));
+        remoteBCL->componentDownloaded
+          .connect<BuildingComponentDialogCentralWidget, &BuildingComponentDialogCentralWidget::componentDownloadComplete>(
+            const_cast<BuildingComponentDialogCentralWidget*>(this));
 
         bool downloadStarted = remoteBCL->downloadComponent(component->uid());
-        if (downloadStarted){
+        if (downloadStarted) {
 
           component->checkBox()->setEnabled(false);
           component->msg()->setHidden(true);
@@ -284,21 +270,19 @@ void BuildingComponentDialogCentralWidget::lowerPushButtonClicked()
           m_progressBar->setMaximum(0);
           m_progressBar->setVisible(true);
 
-        }else{
+        } else {
 
           delete remoteBCL;
 
           // todo: show error
-
         }
-      }
-      else if (m_filterType == "measures")
-      {
+      } else if (m_filterType == "measures") {
         // Connect to Nano Signal
-        remoteBCL->measureDownloaded.connect<BuildingComponentDialogCentralWidget, &BuildingComponentDialogCentralWidget::measureDownloadComplete>(const_cast<BuildingComponentDialogCentralWidget *>(this));
+        remoteBCL->measureDownloaded.connect<BuildingComponentDialogCentralWidget, &BuildingComponentDialogCentralWidget::measureDownloadComplete>(
+          const_cast<BuildingComponentDialogCentralWidget*>(this));
 
         bool downloadStarted = remoteBCL->downloadMeasure(component->uid());
-        if (downloadStarted){
+        if (downloadStarted) {
 
           component->checkBox()->setEnabled(false);
           component->msg()->setHidden(true);
@@ -310,41 +294,37 @@ void BuildingComponentDialogCentralWidget::lowerPushButtonClicked()
           m_progressBar->setMaximum(0);
           m_progressBar->setVisible(true);
 
-        }else{
+        } else {
 
           delete remoteBCL;
 
           // todo: show error
-
         }
       }
     }
   }
 }
 
-void BuildingComponentDialogCentralWidget::comboBoxIndexChanged(const QString & text)
-{
-}
+void BuildingComponentDialogCentralWidget::comboBoxIndexChanged(const QString& text) {}
 
-void BuildingComponentDialogCentralWidget::componentDownloadComplete(const std::string& uid, const boost::optional<BCLComponent>& component)
-{
+void BuildingComponentDialogCentralWidget::componentDownloadComplete(const std::string& uid, const boost::optional<BCLComponent>& component) {
   QObject* sender = this->sender();
-  if (sender){
+  if (sender) {
     sender->deleteLater();
   }
 
-  if (component){
+  if (component) {
     // good
     // remove old component
     boost::optional<BCLComponent> oldComponent = LocalBCL::instance().getComponent(component->uid());
-    if (oldComponent && oldComponent->versionId() != component->versionId()){
+    if (oldComponent && oldComponent->versionId() != component->versionId()) {
       LocalBCL::instance().removeComponent(*oldComponent);
     }
-  }else{
+  } else {
     // error downloading component
     // find component in list by uid and re-enable
     for (Component* component : m_collapsibleComponentList->components()) {
-      if (component->uid() == uid){
+      if (component->uid() == uid) {
         component->checkBox()->setEnabled(true);
         break;
       }
@@ -352,7 +332,7 @@ void BuildingComponentDialogCentralWidget::componentDownloadComplete(const std::
   }
 
   m_pendingDownloads.erase(uid);
-  if (m_pendingDownloads.empty()){
+  if (m_pendingDownloads.empty()) {
     // show not busy
     m_progressBar->setValue(0);
     m_progressBar->setMinimum(0);
@@ -362,26 +342,25 @@ void BuildingComponentDialogCentralWidget::componentDownloadComplete(const std::
   }
 }
 
-void BuildingComponentDialogCentralWidget::measureDownloadComplete(const std::string& uid, const boost::optional<BCLMeasure>& measure)
-{
+void BuildingComponentDialogCentralWidget::measureDownloadComplete(const std::string& uid, const boost::optional<BCLMeasure>& measure) {
   QObject* sender = this->sender();
-  if (sender){
+  if (sender) {
     sender->deleteLater();
   }
 
-  if (measure){
+  if (measure) {
     // good
 
     // remove old measure
     boost::optional<BCLMeasure> oldMeasure = LocalBCL::instance().getMeasure(measure->uid());
-    if (oldMeasure && oldMeasure->versionId() != measure->versionId()){
+    if (oldMeasure && oldMeasure->versionId() != measure->versionId()) {
       LocalBCL::instance().removeMeasure(*oldMeasure);
     }
-  }else{
+  } else {
     // error downloading measure
     // find measure in list by uid and re-enable
     for (Component* component : m_collapsibleComponentList->components()) {
-      if (component->uid() == uid){
+      if (component->uid() == uid) {
         component->checkBox()->setEnabled(true);
         break;
       }
@@ -389,12 +368,11 @@ void BuildingComponentDialogCentralWidget::measureDownloadComplete(const std::st
   }
 
   BaseApp* app = dynamic_cast<BaseApp*>(Application::instance().application());
-  if (app){
-    if (measure){
-      try{
+  if (app) {
+    if (measure) {
+      try {
         app->measureManager().getArguments(*measure);
-      } catch (const std::exception&){
-
+      } catch (const std::exception&) {
       }
     }
     // DLM: handled in OSDocument::on_closeMeasuresBclDlg
@@ -402,7 +380,7 @@ void BuildingComponentDialogCentralWidget::measureDownloadComplete(const std::st
   }
 
   m_pendingDownloads.erase(uid);
-  if (m_pendingDownloads.empty()){
+  if (m_pendingDownloads.empty()) {
     // show not busy
     m_progressBar->setValue(0);
     m_progressBar->setMinimum(0);
@@ -412,39 +390,29 @@ void BuildingComponentDialogCentralWidget::measureDownloadComplete(const std::st
   }
 }
 
-Component * BuildingComponentDialogCentralWidget::checkedComponent() const
-{
+Component* BuildingComponentDialogCentralWidget::checkedComponent() const {
   return m_collapsibleComponentList->checkedComponent();
 }
 
-bool BuildingComponentDialogCentralWidget::showNewComponents()
-{
+bool BuildingComponentDialogCentralWidget::showNewComponents() {
   return m_showNewComponents;
 }
 
-void BuildingComponentDialogCentralWidget::setShowNewComponents(bool showNewComponents)
-{
+void BuildingComponentDialogCentralWidget::setShowNewComponents(bool showNewComponents) {
   m_showNewComponents = showNewComponents;
 }
 
 ///! SLOTS
 
-void BuildingComponentDialogCentralWidget::on_headerClicked(bool checked)
-{
-}
+void BuildingComponentDialogCentralWidget::on_headerClicked(bool checked) {}
 
-void BuildingComponentDialogCentralWidget::on_componentClicked(bool checked)
-{
-}
+void BuildingComponentDialogCentralWidget::on_componentClicked(bool checked) {}
 
-void BuildingComponentDialogCentralWidget::on_collapsibleComponentClicked(bool checked)
-{
-}
+void BuildingComponentDialogCentralWidget::on_collapsibleComponentClicked(bool checked) {}
 
-void BuildingComponentDialogCentralWidget::on_getComponentsByPage(int pageIdx)
-{
+void BuildingComponentDialogCentralWidget::on_getComponentsByPage(int pageIdx) {
   m_pageIdx = pageIdx;
   setTid();
 }
 
-} // namespace openstudio
+}  // namespace openstudio

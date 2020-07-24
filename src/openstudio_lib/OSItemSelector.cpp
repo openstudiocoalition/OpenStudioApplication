@@ -32,11 +32,6 @@
 
 namespace openstudio {
 
-OSItemSelector::OSItemSelector(QWidget * parent )
-  : QWidget(parent)
-{
-}
+OSItemSelector::OSItemSelector(QWidget* parent) : QWidget(parent) {}
 
-
-} // openstudio
-
+}  // namespace openstudio

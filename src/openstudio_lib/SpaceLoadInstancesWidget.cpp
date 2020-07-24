@@ -104,7 +104,6 @@
 #include <openstudio/utilities/idd/IddEnums.hpp>
 #include <openstudio/utilities/idd/IddEnums.hxx>
 
-
 #include <QFrame>
 #include <QGridLayout>
 #include <QHBoxLayout>
@@ -120,16 +119,15 @@ namespace openstudio {
 
 // SpaceLoadInstanceDefinitionVectorController
 
-void SpaceLoadInstanceDefinitionVectorController::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle)
-{
+void SpaceLoadInstanceDefinitionVectorController::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle,
+                                                                       Handle oldHandle) {
   emit itemIds(makeVector());
 }
 
-std::vector<OSItemId> SpaceLoadInstanceDefinitionVectorController::makeVector()
-{
+std::vector<OSItemId> SpaceLoadInstanceDefinitionVectorController::makeVector() {
   std::vector<OSItemId> result;
-  if (m_modelObject){
-    if (!m_modelObject->handle().isNull()){
+  if (m_modelObject) {
+    if (!m_modelObject->handle().isNull()) {
       model::SpaceLoadInstance spaceLoadInstance = m_modelObject->cast<model::SpaceLoadInstance>();
       result.push_back(modelObjectToItemId(spaceLoadInstance.definition(), false));
     }
@@ -137,14 +135,13 @@ std::vector<OSItemId> SpaceLoadInstanceDefinitionVectorController::makeVector()
   return result;
 }
 
-void SpaceLoadInstanceDefinitionVectorController::onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId)
-{
-  if (m_modelObject){
+void SpaceLoadInstanceDefinitionVectorController::onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) {
+  if (m_modelObject) {
     model::SpaceLoadInstance spaceLoadInstance = m_modelObject->cast<model::SpaceLoadInstance>();
     boost::optional<model::ModelObject> modelObject = this->getModelObject(replacementItemId);
-    if (modelObject){
-      if (modelObject->optionalCast<model::SpaceLoadDefinition>()){
-        if (this->fromComponentLibrary(replacementItemId)){
+    if (modelObject) {
+      if (modelObject->optionalCast<model::SpaceLoadDefinition>()) {
+        if (this->fromComponentLibrary(replacementItemId)) {
           modelObject = modelObject->clone(m_modelObject->model());
         }
         spaceLoadInstance.setDefinition(modelObject->cast<model::SpaceLoadDefinition>());
@@ -157,23 +154,21 @@ void SpaceLoadInstanceDefinitionVectorController::onReplaceItem(OSItem * current
 *                                        SpaceLoadInstanceScheduleVectorController                                          *
 ****************************************************************************************************************************/
 
-void SpaceLoadInstanceScheduleVectorController::attach(const model::ModelObject& modelObject)
-{
+void SpaceLoadInstanceScheduleVectorController::attach(const model::ModelObject& modelObject) {
   ModelObjectVectorController::attach(modelObject);
 
   model::SpaceLoadInstance spaceLoadInstance = m_modelObject->cast<model::SpaceLoadInstance>();
   attachOtherModelObjects(spaceLoadInstance);
 }
 
-void SpaceLoadInstanceScheduleVectorController::attachOtherModelObjects(const model::SpaceLoadInstance& spaceLoadInstance)
-{
+void SpaceLoadInstanceScheduleVectorController::attachOtherModelObjects(const model::SpaceLoadInstance& spaceLoadInstance) {
   boost::optional<model::Space> space = spaceLoadInstance.space();
-  if (space){
+  if (space) {
     attachOtherModelObjects(*space);
   }
 
   boost::optional<model::SpaceType> spaceType = spaceLoadInstance.spaceType();
-  if (spaceType){
+  if (spaceType) {
     attachOtherModelObjects(*spaceType);
   }
 
@@ -181,147 +176,140 @@ void SpaceLoadInstanceScheduleVectorController::attachOtherModelObjects(const mo
   attachOtherModelObjects(building);
 }
 
-void SpaceLoadInstanceScheduleVectorController::attachOtherModelObjects(const model::Space& space)
-{
+void SpaceLoadInstanceScheduleVectorController::attachOtherModelObjects(const model::Space& space) {
   attachOtherModelObject(space);
 
   boost::optional<model::SpaceType> spaceType = space.spaceType();
-  if (spaceType){
+  if (spaceType) {
     attachOtherModelObjects(*spaceType);
   }
 
   boost::optional<model::BuildingStory> buildingStory = space.buildingStory();
-  if (buildingStory){
+  if (buildingStory) {
     attachOtherModelObjects(*buildingStory);
   }
 }
 
-void SpaceLoadInstanceScheduleVectorController::attachOtherModelObjects(const model::SpaceType& spaceType)
-{
+void SpaceLoadInstanceScheduleVectorController::attachOtherModelObjects(const model::SpaceType& spaceType) {
   attachOtherModelObject(spaceType);
 
   boost::optional<model::DefaultScheduleSet> defaultScheduleSet = spaceType.defaultScheduleSet();
-  if (defaultScheduleSet){
+  if (defaultScheduleSet) {
     attachOtherModelObjects(*defaultScheduleSet);
   }
 }
 
-void SpaceLoadInstanceScheduleVectorController::attachOtherModelObjects(const model::BuildingStory& buildingStory)
-{
+void SpaceLoadInstanceScheduleVectorController::attachOtherModelObjects(const model::BuildingStory& buildingStory) {
   attachOtherModelObject(buildingStory);
 
   boost::optional<model::DefaultScheduleSet> defaultScheduleSet = buildingStory.defaultScheduleSet();
-  if (defaultScheduleSet){
+  if (defaultScheduleSet) {
     attachOtherModelObjects(*defaultScheduleSet);
   }
 }
 
-void SpaceLoadInstanceScheduleVectorController::attachOtherModelObjects(const model::Building& building)
-{
+void SpaceLoadInstanceScheduleVectorController::attachOtherModelObjects(const model::Building& building) {
   attachOtherModelObject(building);
 
   boost::optional<model::SpaceType> spaceType = building.spaceType();
-  if (spaceType){
+  if (spaceType) {
     attachOtherModelObjects(*spaceType);
   }
 
   boost::optional<model::DefaultScheduleSet> defaultScheduleSet = building.defaultScheduleSet();
-  if (defaultScheduleSet){
+  if (defaultScheduleSet) {
     attachOtherModelObjects(*defaultScheduleSet);
   }
 }
 
-void SpaceLoadInstanceScheduleVectorController::attachOtherModelObjects(const model::DefaultScheduleSet& defaultScheduleSet)
-{
+void SpaceLoadInstanceScheduleVectorController::attachOtherModelObjects(const model::DefaultScheduleSet& defaultScheduleSet) {
   attachOtherModelObject(defaultScheduleSet);
 }
 
-void SpaceLoadInstanceScheduleVectorController::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle)
-{
+void SpaceLoadInstanceScheduleVectorController::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle,
+                                                                     Handle oldHandle) {
   model::SpaceLoadInstance spaceLoadInstance = m_modelObject->cast<model::SpaceLoadInstance>();
 
-  if (modelObject.optionalCast<model::SpaceLoadInstance>()){
+  if (modelObject.optionalCast<model::SpaceLoadInstance>()) {
     detachOtherModelObjects();
     attachOtherModelObjects(spaceLoadInstance);
     emit itemIds(makeVector());
-  }else if (modelObject.optionalCast<model::Space>()){
-    if (index == OS_SpaceFields::SpaceTypeName){
+  } else if (modelObject.optionalCast<model::Space>()) {
+    if (index == OS_SpaceFields::SpaceTypeName) {
       detachOtherModelObjects();
       attachOtherModelObjects(spaceLoadInstance);
       emit itemIds(makeVector());
-    }else if (index == OS_SpaceFields::BuildingStoryName){
+    } else if (index == OS_SpaceFields::BuildingStoryName) {
       detachOtherModelObjects();
       attachOtherModelObjects(spaceLoadInstance);
       emit itemIds(makeVector());
-    }else if (index == OS_SpaceFields::DefaultScheduleSetName){
-      detachOtherModelObjects();
-      attachOtherModelObjects(spaceLoadInstance);
-      emit itemIds(makeVector());
-    }
-  }else if (modelObject.optionalCast<model::SpaceType>()){
-    if (index == OS_SpaceTypeFields::DefaultScheduleSetName){
+    } else if (index == OS_SpaceFields::DefaultScheduleSetName) {
       detachOtherModelObjects();
       attachOtherModelObjects(spaceLoadInstance);
       emit itemIds(makeVector());
     }
-  }else if (modelObject.optionalCast<model::BuildingStory>()){
-    if (index == OS_SpaceTypeFields::DefaultScheduleSetName){
+  } else if (modelObject.optionalCast<model::SpaceType>()) {
+    if (index == OS_SpaceTypeFields::DefaultScheduleSetName) {
       detachOtherModelObjects();
       attachOtherModelObjects(spaceLoadInstance);
       emit itemIds(makeVector());
     }
-  }else if (modelObject.optionalCast<model::Building>()){
-    if (index == OS_BuildingFields::SpaceTypeName){
-      detachOtherModelObjects();
-      attachOtherModelObjects(spaceLoadInstance);
-      emit itemIds(makeVector());
-    }else if (index == OS_BuildingFields::DefaultScheduleSetName){
+  } else if (modelObject.optionalCast<model::BuildingStory>()) {
+    if (index == OS_SpaceTypeFields::DefaultScheduleSetName) {
       detachOtherModelObjects();
       attachOtherModelObjects(spaceLoadInstance);
       emit itemIds(makeVector());
     }
-  }else if (modelObject.optionalCast<model::DefaultScheduleSet>()){
+  } else if (modelObject.optionalCast<model::Building>()) {
+    if (index == OS_BuildingFields::SpaceTypeName) {
+      detachOtherModelObjects();
+      attachOtherModelObjects(spaceLoadInstance);
+      emit itemIds(makeVector());
+    } else if (index == OS_BuildingFields::DefaultScheduleSetName) {
+      detachOtherModelObjects();
+      attachOtherModelObjects(spaceLoadInstance);
+      emit itemIds(makeVector());
+    }
+  } else if (modelObject.optionalCast<model::DefaultScheduleSet>()) {
     emit itemIds(makeVector());
   }
 }
 
-std::vector<OSItemId> SpaceLoadInstanceScheduleVectorController::makeVector()
-{
+std::vector<OSItemId> SpaceLoadInstanceScheduleVectorController::makeVector() {
   std::vector<OSItemId> result;
-  if (m_modelObject){
-    if (!m_modelObject->handle().isNull()){
+  if (m_modelObject) {
+    if (!m_modelObject->handle().isNull()) {
 
       boost::optional<model::Schedule> schedule;
       bool isDefaulted = false;
-      if (m_modelObject->optionalCast<model::People>()){
+      if (m_modelObject->optionalCast<model::People>()) {
         schedule = m_modelObject->cast<model::People>().numberofPeopleSchedule();
         isDefaulted = m_modelObject->cast<model::People>().isNumberofPeopleScheduleDefaulted();
-      }else if (m_modelObject->optionalCast<model::Lights>()){
+      } else if (m_modelObject->optionalCast<model::Lights>()) {
         schedule = m_modelObject->cast<model::Lights>().schedule();
         isDefaulted = m_modelObject->cast<model::Lights>().isScheduleDefaulted();
-      }else if (m_modelObject->optionalCast<model::Luminaire>()){
+      } else if (m_modelObject->optionalCast<model::Luminaire>()) {
         schedule = m_modelObject->cast<model::Luminaire>().schedule();
         isDefaulted = m_modelObject->cast<model::Luminaire>().isScheduleDefaulted();
-      }else if (m_modelObject->optionalCast<model::ElectricEquipment>()){
+      } else if (m_modelObject->optionalCast<model::ElectricEquipment>()) {
         schedule = m_modelObject->cast<model::ElectricEquipment>().schedule();
         isDefaulted = m_modelObject->cast<model::ElectricEquipment>().isScheduleDefaulted();
-      }else if (m_modelObject->optionalCast<model::GasEquipment>()){
+      } else if (m_modelObject->optionalCast<model::GasEquipment>()) {
         schedule = m_modelObject->cast<model::GasEquipment>().schedule();
         isDefaulted = m_modelObject->cast<model::GasEquipment>().isScheduleDefaulted();
-      }else if (m_modelObject->optionalCast<model::HotWaterEquipment>()){
+      } else if (m_modelObject->optionalCast<model::HotWaterEquipment>()) {
         schedule = m_modelObject->cast<model::HotWaterEquipment>().schedule();
         isDefaulted = m_modelObject->cast<model::HotWaterEquipment>().isScheduleDefaulted();
-      }else if (m_modelObject->optionalCast<model::SteamEquipment>()){
+      } else if (m_modelObject->optionalCast<model::SteamEquipment>()) {
         schedule = m_modelObject->cast<model::SteamEquipment>().schedule();
         isDefaulted = m_modelObject->cast<model::SteamEquipment>().isScheduleDefaulted();
-      }else if (m_modelObject->optionalCast<model::OtherEquipment>()){
+      } else if (m_modelObject->optionalCast<model::OtherEquipment>()) {
         schedule = m_modelObject->cast<model::OtherEquipment>().schedule();
         isDefaulted = m_modelObject->cast<model::OtherEquipment>().isScheduleDefaulted();
-      }else if (m_modelObject->optionalCast<model::InternalMass>()){
-
+      } else if (m_modelObject->optionalCast<model::InternalMass>()) {
       }
 
-      if (schedule){
+      if (schedule) {
         OSItemId itemId = modelObjectToItemId(*schedule, isDefaulted);
         result.push_back(itemId);
       }
@@ -330,65 +318,62 @@ std::vector<OSItemId> SpaceLoadInstanceScheduleVectorController::makeVector()
   return result;
 }
 
-void SpaceLoadInstanceScheduleVectorController::onRemoveItem(OSItem* item)
-{
-  if (m_modelObject){
-    if (m_modelObject->optionalCast<model::People>()){
+void SpaceLoadInstanceScheduleVectorController::onRemoveItem(OSItem* item) {
+  if (m_modelObject) {
+    if (m_modelObject->optionalCast<model::People>()) {
       m_modelObject->cast<model::People>().resetNumberofPeopleSchedule();
-    }else if (m_modelObject->optionalCast<model::Lights>()){
+    } else if (m_modelObject->optionalCast<model::Lights>()) {
       m_modelObject->cast<model::Lights>().resetSchedule();
-    }else if (m_modelObject->optionalCast<model::Luminaire>()){
+    } else if (m_modelObject->optionalCast<model::Luminaire>()) {
       m_modelObject->cast<model::Luminaire>().resetSchedule();
-    }else if (m_modelObject->optionalCast<model::ElectricEquipment>()){
+    } else if (m_modelObject->optionalCast<model::ElectricEquipment>()) {
       m_modelObject->cast<model::ElectricEquipment>().resetSchedule();
-    }else if (m_modelObject->optionalCast<model::GasEquipment>()){
+    } else if (m_modelObject->optionalCast<model::GasEquipment>()) {
       m_modelObject->cast<model::GasEquipment>().resetSchedule();
-    }else if (m_modelObject->optionalCast<model::HotWaterEquipment>()){
+    } else if (m_modelObject->optionalCast<model::HotWaterEquipment>()) {
       m_modelObject->cast<model::HotWaterEquipment>().resetSchedule();
-    }else if (m_modelObject->optionalCast<model::SteamEquipment>()){
+    } else if (m_modelObject->optionalCast<model::SteamEquipment>()) {
       m_modelObject->cast<model::SteamEquipment>().resetSchedule();
-    }else if (m_modelObject->optionalCast<model::OtherEquipment>()){
+    } else if (m_modelObject->optionalCast<model::OtherEquipment>()) {
       m_modelObject->cast<model::OtherEquipment>().resetSchedule();
-    }else if (m_modelObject->optionalCast<model::InternalMass>()){
+    } else if (m_modelObject->optionalCast<model::InternalMass>()) {
     }
   }
 }
 
-void SpaceLoadInstanceScheduleVectorController::onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId)
-{
+void SpaceLoadInstanceScheduleVectorController::onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) {
   onDrop(replacementItemId);
 }
 
-void SpaceLoadInstanceScheduleVectorController::onDrop(const OSItemId& itemId)
-{
-  if (m_modelObject){
+void SpaceLoadInstanceScheduleVectorController::onDrop(const OSItemId& itemId) {
+  if (m_modelObject) {
     model::SpaceLoadInstance spaceLoadInstance = m_modelObject->cast<model::SpaceLoadInstance>();
     boost::optional<model::ModelObject> modelObject = this->getModelObject(itemId);
-    if (modelObject){
-      if (modelObject->optionalCast<model::Schedule>()){
-        if (this->fromComponentLibrary(itemId)){
+    if (modelObject) {
+      if (modelObject->optionalCast<model::Schedule>()) {
+        if (this->fromComponentLibrary(itemId)) {
           modelObject = modelObject->clone(m_modelObject->model());
         }
 
         model::Schedule schedule = modelObject->cast<model::Schedule>();
 
-        if (m_modelObject->optionalCast<model::People>()){
+        if (m_modelObject->optionalCast<model::People>()) {
           m_modelObject->cast<model::People>().setNumberofPeopleSchedule(schedule);
-        }else if (m_modelObject->optionalCast<model::Lights>()){
+        } else if (m_modelObject->optionalCast<model::Lights>()) {
           m_modelObject->cast<model::Lights>().setSchedule(schedule);
-        }else if (m_modelObject->optionalCast<model::Luminaire>()){
+        } else if (m_modelObject->optionalCast<model::Luminaire>()) {
           m_modelObject->cast<model::Luminaire>().setSchedule(schedule);
-        }else if (m_modelObject->optionalCast<model::ElectricEquipment>()){
+        } else if (m_modelObject->optionalCast<model::ElectricEquipment>()) {
           m_modelObject->cast<model::ElectricEquipment>().setSchedule(schedule);
-        }else if (m_modelObject->optionalCast<model::GasEquipment>()){
+        } else if (m_modelObject->optionalCast<model::GasEquipment>()) {
           m_modelObject->cast<model::GasEquipment>().setSchedule(schedule);
-        }else if (m_modelObject->optionalCast<model::HotWaterEquipment>()){
+        } else if (m_modelObject->optionalCast<model::HotWaterEquipment>()) {
           m_modelObject->cast<model::HotWaterEquipment>().setSchedule(schedule);
-        }else if (m_modelObject->optionalCast<model::SteamEquipment>()){
+        } else if (m_modelObject->optionalCast<model::SteamEquipment>()) {
           m_modelObject->cast<model::SteamEquipment>().setSchedule(schedule);
-        }else if (m_modelObject->optionalCast<model::OtherEquipment>()){
+        } else if (m_modelObject->optionalCast<model::OtherEquipment>()) {
           m_modelObject->cast<model::OtherEquipment>().setSchedule(schedule);
-        }else if (m_modelObject->optionalCast<model::InternalMass>()){
+        } else if (m_modelObject->optionalCast<model::InternalMass>()) {
         }
       }
     }
@@ -401,21 +386,20 @@ void SpaceLoadInstanceScheduleVectorController::onDrop(const OSItemId& itemId)
 
 // openstudio::IddObjectType::OS_People
 
-void SpaceLoadInstanceActivityScheduleVectorController::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle)
-{
-  if(index == OS_PeopleFields::ActivityLevelScheduleName){
-      emit itemIds(makeVector());
+void SpaceLoadInstanceActivityScheduleVectorController::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle,
+                                                                             Handle oldHandle) {
+  if (index == OS_PeopleFields::ActivityLevelScheduleName) {
+    emit itemIds(makeVector());
   }
 }
 
-std::vector<OSItemId> SpaceLoadInstanceActivityScheduleVectorController::makeVector()
-{
+std::vector<OSItemId> SpaceLoadInstanceActivityScheduleVectorController::makeVector() {
   std::vector<OSItemId> result;
-  if(m_modelObject){
-    if(m_modelObject->optionalCast<model::People>()){
+  if (m_modelObject) {
+    if (m_modelObject->optionalCast<model::People>()) {
       model::People people = m_modelObject->cast<model::People>();
       boost::optional<model::Schedule> schedule = people.activityLevelSchedule();
-      if (schedule){
+      if (schedule) {
         result.push_back(modelObjectToItemId(*schedule, false));
       }
     }
@@ -423,29 +407,26 @@ std::vector<OSItemId> SpaceLoadInstanceActivityScheduleVectorController::makeVec
   return result;
 }
 
-void SpaceLoadInstanceActivityScheduleVectorController::onRemoveItem(OSItem* item)
-{
-  if (m_modelObject){
-    if (m_modelObject->optionalCast<model::People>()){
+void SpaceLoadInstanceActivityScheduleVectorController::onRemoveItem(OSItem* item) {
+  if (m_modelObject) {
+    if (m_modelObject->optionalCast<model::People>()) {
       m_modelObject->cast<model::People>().resetActivityLevelSchedule();
     }
   }
 }
 
-void SpaceLoadInstanceActivityScheduleVectorController::onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId)
-{
+void SpaceLoadInstanceActivityScheduleVectorController::onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) {
   onDrop(replacementItemId);
 }
 
-void SpaceLoadInstanceActivityScheduleVectorController::onDrop(const OSItemId& itemId)
-{
-  if (m_modelObject){
-    if(m_modelObject->optionalCast<model::People>()){
+void SpaceLoadInstanceActivityScheduleVectorController::onDrop(const OSItemId& itemId) {
+  if (m_modelObject) {
+    if (m_modelObject->optionalCast<model::People>()) {
       model::People people = m_modelObject->cast<model::People>();
       boost::optional<model::ModelObject> modelObject = this->getModelObject(itemId);
-      if (modelObject){
-        if (modelObject->optionalCast<model::Schedule>()){
-          if (this->fromComponentLibrary(itemId)){
+      if (modelObject) {
+        if (modelObject->optionalCast<model::Schedule>()) {
+          if (this->fromComponentLibrary(itemId)) {
             modelObject = modelObject->clone(m_modelObject->model());
           }
           model::Schedule schedule = modelObject->cast<model::Schedule>();
@@ -461,8 +442,7 @@ void SpaceLoadInstanceActivityScheduleVectorController::onDrop(const OSItemId& i
 ****************************************************************************************************************************/
 
 SpaceLoadInstanceMiniView::SpaceLoadInstanceMiniView(const model::SpaceLoadInstance& spaceLoadInstance, bool isDefault)
-  : m_definitionVectorController(nullptr), m_scheduleVectorController(nullptr), m_spaceLoadInstance(spaceLoadInstance)
-{
+  : m_definitionVectorController(nullptr), m_scheduleVectorController(nullptr), m_spaceLoadInstance(spaceLoadInstance) {
   this->setObjectName("SpaceLoadInstanceMiniView");
 
   auto mainGridLayout = new QGridLayout();
@@ -475,12 +455,12 @@ SpaceLoadInstanceMiniView::SpaceLoadInstanceMiniView(const model::SpaceLoadInsta
   static QIcon defaultIcon(":images/bug.png");
   QIcon icon(defaultIcon);
   const QPixmap* pixMap = IconLibrary::Instance().findMiniIcon(m_spaceLoadInstance.iddObjectType().value());
-  if (pixMap){
+  if (pixMap) {
     icon = QIcon(*pixMap);
   }
 
   auto label = new QLabel();
-  label->setPixmap(icon.pixmap(QSize(24,24)));
+  label->setPixmap(icon.pixmap(QSize(24, 24)));
   hLayout->addWidget(label);
 
   // name
@@ -492,13 +472,11 @@ SpaceLoadInstanceMiniView::SpaceLoadInstanceMiniView(const model::SpaceLoadInsta
   m_nameEdit = new OSLineEdit2();
   // m_nameEdit->bind(m_spaceLoadInstance, "name");
   opt_spaceLoadInstance = m_spaceLoadInstance;
-  m_nameEdit->bind(
-    *opt_spaceLoadInstance,
-    OptionalStringGetter(std::bind(&model::SpaceLoadInstance::name, opt_spaceLoadInstance.get_ptr(),true)),
-    boost::optional<StringSetterOptionalStringReturn>(std::bind(&model::SpaceLoadInstance::setName, opt_spaceLoadInstance.get_ptr(),std::placeholders::_1))
-  );
+  m_nameEdit->bind(*opt_spaceLoadInstance, OptionalStringGetter(std::bind(&model::SpaceLoadInstance::name, opt_spaceLoadInstance.get_ptr(), true)),
+                   boost::optional<StringSetterOptionalStringReturn>(
+                     std::bind(&model::SpaceLoadInstance::setName, opt_spaceLoadInstance.get_ptr(), std::placeholders::_1)));
 
-  if (isDefault){
+  if (isDefault) {
     m_nameEdit->setEnabled(false);
   }
   hLayout->addWidget(m_nameEdit, 1);
@@ -507,8 +485,8 @@ SpaceLoadInstanceMiniView::SpaceLoadInstanceMiniView(const model::SpaceLoadInsta
   m_removeButton = new QPushButton(this);
   m_removeButton->setFlat(true);
   m_removeButton->setObjectName("DeleteButton");
-  m_removeButton->setFixedSize(24,24);
-  if (isDefault){
+  m_removeButton->setFixedSize(24, 24);
+  if (isDefault) {
     m_removeButton->setVisible(false);
   }
   hLayout->addWidget(m_removeButton);
@@ -520,11 +498,11 @@ SpaceLoadInstanceMiniView::SpaceLoadInstanceMiniView(const model::SpaceLoadInsta
   label->setText("(Inherited)");
   label->setObjectName("H2");
   hLayout->addWidget(label);
-  if (!isDefault){
+  if (!isDefault) {
     label->setVisible(false);
   }
 
-  mainGridLayout->addLayout(hLayout,0,0,1,3);
+  mainGridLayout->addLayout(hLayout, 0, 0, 1, 3);
 
   // bottom row
 
@@ -540,26 +518,19 @@ SpaceLoadInstanceMiniView::SpaceLoadInstanceMiniView(const model::SpaceLoadInsta
   m_multiplierEdit->setFixedWidth(60);
 
   // m_multiplierEdit->bind(m_spaceLoadInstance, "multiplier", std::string("isMultiplierDefaulted"));
-  m_multiplierEdit->bind(
-    *opt_spaceLoadInstance,
-    DoubleGetter(std::bind(&model::SpaceLoadInstance::multiplier, opt_spaceLoadInstance.get_ptr())),
-	boost::optional<DoubleSetter>(),
-    boost::none,
-    boost::none,
-    boost::none,
-    boost::optional<BasicQuery>(std::bind(&model::SpaceLoadInstance::isMultiplierDefaulted, opt_spaceLoadInstance.get_ptr())),
-	boost::none,
-	boost::none
-  );
+  m_multiplierEdit->bind(*opt_spaceLoadInstance, DoubleGetter(std::bind(&model::SpaceLoadInstance::multiplier, opt_spaceLoadInstance.get_ptr())),
+                         boost::optional<DoubleSetter>(), boost::none, boost::none, boost::none,
+                         boost::optional<BasicQuery>(std::bind(&model::SpaceLoadInstance::isMultiplierDefaulted, opt_spaceLoadInstance.get_ptr())),
+                         boost::none, boost::none);
 
-  if (isDefault){
+  if (isDefault) {
     m_multiplierEdit->setEnabled(false);
   }
   vLayout->addWidget(m_multiplierEdit);
 
   vLayout->addStretch();
 
-  mainGridLayout->addLayout(vLayout,1,0);
+  mainGridLayout->addLayout(vLayout, 1, 0);
 
   // definition
   vLayout = new QVBoxLayout();
@@ -574,10 +545,10 @@ SpaceLoadInstanceMiniView::SpaceLoadInstanceMiniView(const model::SpaceLoadInsta
   m_definitionDropZone = new OSDropZone(m_definitionVectorController);
   m_definitionDropZone->setMinItems(1);
   m_definitionDropZone->setMaxItems(1);
-  if (isDefault){
+  if (isDefault) {
     m_definitionDropZone->setItemsRemoveable(false);
     m_definitionDropZone->setItemsAcceptDrops(false);
-  }else{
+  } else {
     m_definitionDropZone->setItemsRemoveable(false);
     m_definitionDropZone->setItemsAcceptDrops(true);
   }
@@ -585,21 +556,21 @@ SpaceLoadInstanceMiniView::SpaceLoadInstanceMiniView(const model::SpaceLoadInsta
 
   vLayout->addStretch();
 
-  mainGridLayout->addLayout(vLayout,1,1);
+  mainGridLayout->addLayout(vLayout, 1, 1);
 
   // schedule
   auto scheduleStack = new QStackedWidget();
-  scheduleStack->setContentsMargins(0,0,0,0);
+  scheduleStack->setContentsMargins(0, 0, 0, 0);
 
   auto noScheduleWidget = new QWidget();
-  noScheduleWidget->setContentsMargins(0,0,0,0);
+  noScheduleWidget->setContentsMargins(0, 0, 0, 0);
   int noScheduleIndex = scheduleStack->addWidget(noScheduleWidget);
 
   auto scheduleWidget = new QWidget();
   vLayout = new QVBoxLayout();
-  vLayout->setContentsMargins(0,0,0,0);
+  vLayout->setContentsMargins(0, 0, 0, 0);
   scheduleWidget->setLayout(vLayout);
-  scheduleWidget->setContentsMargins(0,0,0,0);
+  scheduleWidget->setContentsMargins(0, 0, 0, 0);
   int scheduleIndex = scheduleStack->addWidget(scheduleWidget);
 
   label = new QLabel();
@@ -612,10 +583,10 @@ SpaceLoadInstanceMiniView::SpaceLoadInstanceMiniView(const model::SpaceLoadInsta
   m_scheduleDropZone = new OSDropZone(m_scheduleVectorController);
   m_scheduleDropZone->setMinItems(0);
   m_scheduleDropZone->setMaxItems(1);
-  if (isDefault){
+  if (isDefault) {
     m_scheduleDropZone->setItemsRemoveable(false);
     m_scheduleDropZone->setItemsAcceptDrops(false);
-  }else{
+  } else {
     m_scheduleDropZone->setItemsRemoveable(true);
     m_scheduleDropZone->setItemsAcceptDrops(true);
   }
@@ -623,11 +594,11 @@ SpaceLoadInstanceMiniView::SpaceLoadInstanceMiniView(const model::SpaceLoadInsta
 
   vLayout->addStretch();
 
-  mainGridLayout->addWidget(scheduleStack,1,2);
+  mainGridLayout->addWidget(scheduleStack, 1, 2);
 
-  if (spaceLoadInstance.optionalCast<model::InternalMass>()){
+  if (spaceLoadInstance.optionalCast<model::InternalMass>()) {
     scheduleStack->setCurrentIndex(noScheduleIndex);
-  }else{
+  } else {
     scheduleStack->setCurrentIndex(scheduleIndex);
   }
 
@@ -644,10 +615,10 @@ SpaceLoadInstanceMiniView::SpaceLoadInstanceMiniView(const model::SpaceLoadInsta
   m_activityScheduleDropZone = new OSDropZone(m_activityScheduleVectorController);
   m_activityScheduleDropZone->setMinItems(1);
   m_activityScheduleDropZone->setMaxItems(1);
-  if(isDefault){
+  if (isDefault) {
     m_activityScheduleDropZone->setItemsRemoveable(false);
     m_activityScheduleDropZone->setItemsAcceptDrops(false);
-  }else{
+  } else {
     m_activityScheduleDropZone->setItemsRemoveable(false);
     m_activityScheduleDropZone->setItemsAcceptDrops(true);
   }
@@ -655,7 +626,7 @@ SpaceLoadInstanceMiniView::SpaceLoadInstanceMiniView(const model::SpaceLoadInsta
 
   vLayout->addStretch();
 
-  mainGridLayout->addLayout(vLayout,1,3);
+  mainGridLayout->addLayout(vLayout, 1, 3);
 
   mainGridLayout->setRowMinimumHeight(0, 30);
   mainGridLayout->setRowMinimumHeight(1, 30);
@@ -663,74 +634,67 @@ SpaceLoadInstanceMiniView::SpaceLoadInstanceMiniView(const model::SpaceLoadInsta
   QTimer::singleShot(0, m_definitionVectorController, SLOT(reportItems()));
   QTimer::singleShot(0, m_scheduleVectorController, SLOT(reportItems()));
 
-  if (spaceLoadInstance.optionalCast<model::People>()){
+  if (spaceLoadInstance.optionalCast<model::People>()) {
     QTimer::singleShot(0, m_activityScheduleVectorController, SLOT(reportItems()));
-  }
-  else{
+  } else {
     m_activityScheduleDropZone->hide();
     m_activityScheduleLabel->hide();
   }
-
 }
 
-model::SpaceLoadInstance SpaceLoadInstanceMiniView::spaceLoadInstance() const
-{
+model::SpaceLoadInstance SpaceLoadInstanceMiniView::spaceLoadInstance() const {
   return m_spaceLoadInstance;
 }
 
-bool SpaceLoadInstanceMiniView::isDefault() const
-{
+bool SpaceLoadInstanceMiniView::isDefault() const {
   return m_isDefault;
 }
 
-void SpaceLoadInstanceMiniView::onRemoveClicked()
-{
+void SpaceLoadInstanceMiniView::onRemoveClicked() {
   emit removeClicked(this);
 }
 
 // NewSpaceLoadVectorController
 
-std::vector<OSItemId> NewSpaceLoadVectorController::makeVector()
-{
+std::vector<OSItemId> NewSpaceLoadVectorController::makeVector() {
   // always empty
   return std::vector<OSItemId>();
 }
 
-void NewSpaceLoadVectorController::onDrop(const OSItemId& itemId)
-{
-  if (m_modelObject){
+void NewSpaceLoadVectorController::onDrop(const OSItemId& itemId) {
+  if (m_modelObject) {
     boost::optional<model::ModelObject> modelObject = this->getModelObject(itemId);
-    if (modelObject){
-      if (modelObject->optionalCast<model::SpaceLoadDefinition>()){
-        if (this->fromComponentLibrary(itemId)){
+    if (modelObject) {
+      if (modelObject->optionalCast<model::SpaceLoadDefinition>()) {
+        if (this->fromComponentLibrary(itemId)) {
           modelObject = modelObject->clone(m_modelObject->model());
         }
 
         boost::optional<model::SpaceLoadInstance> newInstance;
-        if (modelObject->optionalCast<model::PeopleDefinition>()){
+        if (modelObject->optionalCast<model::PeopleDefinition>()) {
           newInstance = model::People(modelObject->cast<model::PeopleDefinition>());
-        }else if (modelObject->optionalCast<model::LightsDefinition>()){
+        } else if (modelObject->optionalCast<model::LightsDefinition>()) {
           newInstance = model::Lights(modelObject->cast<model::LightsDefinition>());
-        }else if (modelObject->optionalCast<model::LuminaireDefinition>()){
+        } else if (modelObject->optionalCast<model::LuminaireDefinition>()) {
           newInstance = model::Luminaire(modelObject->cast<model::LuminaireDefinition>());
-        }else if (modelObject->optionalCast<model::ElectricEquipmentDefinition>()){
+        } else if (modelObject->optionalCast<model::ElectricEquipmentDefinition>()) {
           newInstance = model::ElectricEquipment(modelObject->cast<model::ElectricEquipmentDefinition>());
-        }else if (modelObject->optionalCast<model::GasEquipmentDefinition>()){
+        } else if (modelObject->optionalCast<model::GasEquipmentDefinition>()) {
           newInstance = model::GasEquipment(modelObject->cast<model::GasEquipmentDefinition>());
-        }else if (modelObject->optionalCast<model::HotWaterEquipmentDefinition>()){
+        } else if (modelObject->optionalCast<model::HotWaterEquipmentDefinition>()) {
           newInstance = model::HotWaterEquipment(modelObject->cast<model::HotWaterEquipmentDefinition>());
-        }else if (modelObject->optionalCast<model::SteamEquipmentDefinition>()){
+        } else if (modelObject->optionalCast<model::SteamEquipmentDefinition>()) {
           newInstance = model::SteamEquipment(modelObject->cast<model::SteamEquipmentDefinition>());
-        }else if (modelObject->optionalCast<model::OtherEquipmentDefinition>()){
+        } else if (modelObject->optionalCast<model::OtherEquipmentDefinition>()) {
           newInstance = model::OtherEquipment(modelObject->cast<model::OtherEquipmentDefinition>());
-        }else if (modelObject->optionalCast<model::InternalMassDefinition>()){
+        } else if (modelObject->optionalCast<model::InternalMassDefinition>()) {
           newInstance = model::InternalMass(modelObject->cast<model::InternalMassDefinition>());
         }
 
-        if (newInstance){
-          if (m_modelObject->optionalCast<model::SpaceType>()){
+        if (newInstance) {
+          if (m_modelObject->optionalCast<model::SpaceType>()) {
             newInstance->setSpaceType(m_modelObject->cast<model::SpaceType>());
-          }else if (m_modelObject->optionalCast<model::Space>()){
+          } else if (m_modelObject->optionalCast<model::Space>()) {
             newInstance->setSpace(m_modelObject->cast<model::Space>());
           }
         }
@@ -742,34 +706,40 @@ void NewSpaceLoadVectorController::onDrop(const OSItemId& itemId)
 // SpaceLoadInstancesWidget
 
 SpaceLoadInstancesWidget::SpaceLoadInstancesWidget(QWidget* parent)
-  : QWidget(parent), m_newSpaceLoadVectorController(nullptr), m_newSpaceLoadDropZone(nullptr), m_dirty(false)
-{
+  : QWidget(parent), m_newSpaceLoadVectorController(nullptr), m_newSpaceLoadDropZone(nullptr), m_dirty(false) {
   this->setObjectName("GrayWidget");
 
   m_mainVLayout = new QVBoxLayout();
-  m_mainVLayout->setContentsMargins(0,0,0,0);
+  m_mainVLayout->setContentsMargins(0, 0, 0, 0);
   m_mainVLayout->setSpacing(10);
   setLayout(m_mainVLayout);
 }
 
-void SpaceLoadInstancesWidget::detach()
-{
-  if (m_space){
-      m_space->getImpl<model::detail::ModelObject_Impl>().get()->onRelationshipChange.disconnect<SpaceLoadInstancesWidget, &SpaceLoadInstancesWidget::onSpaceRelationshipChange>(this);
+void SpaceLoadInstancesWidget::detach() {
+  if (m_space) {
+    m_space->getImpl<model::detail::ModelObject_Impl>()
+      .get()
+      ->onRelationshipChange.disconnect<SpaceLoadInstancesWidget, &SpaceLoadInstancesWidget::onSpaceRelationshipChange>(this);
     m_space.reset();
   }
 
-  if (m_spaceType){
-    m_spaceType->getImpl<model::detail::ModelObject_Impl>().get()->onRelationshipChange.disconnect<SpaceLoadInstancesWidget, &SpaceLoadInstancesWidget::onSpaceRelationshipChange>(this);
+  if (m_spaceType) {
+    m_spaceType->getImpl<model::detail::ModelObject_Impl>()
+      .get()
+      ->onRelationshipChange.disconnect<SpaceLoadInstancesWidget, &SpaceLoadInstancesWidget::onSpaceRelationshipChange>(this);
     m_spaceType.reset();
   }
 
-  if (m_model){
+  if (m_model) {
     model::Building building = m_model->getUniqueModelObject<model::Building>();
-      building.getImpl<model::detail::ModelObject_Impl>().get()->onRelationshipChange.disconnect<SpaceLoadInstancesWidget, &SpaceLoadInstancesWidget::onBuildingRelationshipChange>(this);
+    building.getImpl<model::detail::ModelObject_Impl>()
+      .get()
+      ->onRelationshipChange.disconnect<SpaceLoadInstancesWidget, &SpaceLoadInstancesWidget::onBuildingRelationshipChange>(this);
 
-    for (model::SpaceType spaceType : m_model->getConcreteModelObjects<model::SpaceType>()){
-      spaceType.getImpl<model::detail::ModelObject_Impl>().get()->onRelationshipChange.disconnect<SpaceLoadInstancesWidget, &SpaceLoadInstancesWidget::onSpaceTypeRelationshipChange>(this);
+    for (model::SpaceType spaceType : m_model->getConcreteModelObjects<model::SpaceType>()) {
+      spaceType.getImpl<model::detail::ModelObject_Impl>()
+        .get()
+        ->onRelationshipChange.disconnect<SpaceLoadInstancesWidget, &SpaceLoadInstancesWidget::onSpaceTypeRelationshipChange>(this);
     }
 
     // m_model->getImpl<model::detail::Model_Impl>().get()->addWorkspaceObjectPtr.disconnect<SpaceLoadInstancesWidget, &SpaceLoadInstancesWidget::objectAdded>(this);
@@ -785,8 +755,7 @@ void SpaceLoadInstancesWidget::detach()
   QTimer::singleShot(0, this, SLOT(refresh()));
 }
 
-void SpaceLoadInstancesWidget::attach(const model::Space& space)
-{
+void SpaceLoadInstancesWidget::attach(const model::Space& space) {
   detach();
 
   m_space = space;
@@ -799,20 +768,25 @@ void SpaceLoadInstancesWidget::attach(const model::Space& space)
   connect(OSAppBase::instance(), &OSAppBase::workspaceObjectRemovedPtr, this, &SpaceLoadInstancesWidget::objectRemoved, Qt::QueuedConnection);
 
   model::Building building = m_model->getUniqueModelObject<model::Building>();
-  building.getImpl<model::detail::ModelObject_Impl>().get()->onRelationshipChange.connect<SpaceLoadInstancesWidget, &SpaceLoadInstancesWidget::onBuildingRelationshipChange>(this);
+  building.getImpl<model::detail::ModelObject_Impl>()
+    .get()
+    ->onRelationshipChange.connect<SpaceLoadInstancesWidget, &SpaceLoadInstancesWidget::onBuildingRelationshipChange>(this);
 
-  for (model::SpaceType spaceType : m_model->getConcreteModelObjects<model::SpaceType>()){
-    spaceType.getImpl<model::detail::ModelObject_Impl>().get()->onRelationshipChange.connect<SpaceLoadInstancesWidget, &SpaceLoadInstancesWidget::onSpaceTypeRelationshipChange>(this);
+  for (model::SpaceType spaceType : m_model->getConcreteModelObjects<model::SpaceType>()) {
+    spaceType.getImpl<model::detail::ModelObject_Impl>()
+      .get()
+      ->onRelationshipChange.connect<SpaceLoadInstancesWidget, &SpaceLoadInstancesWidget::onSpaceTypeRelationshipChange>(this);
   }
 
-  m_space->getImpl<model::detail::ModelObject_Impl>().get()->onRelationshipChange.connect<SpaceLoadInstancesWidget, &SpaceLoadInstancesWidget::onSpaceRelationshipChange>(this);
+  m_space->getImpl<model::detail::ModelObject_Impl>()
+    .get()
+    ->onRelationshipChange.connect<SpaceLoadInstancesWidget, &SpaceLoadInstancesWidget::onSpaceRelationshipChange>(this);
 
   m_dirty = true;
   QTimer::singleShot(0, this, SLOT(refresh()));
 }
 
-void SpaceLoadInstancesWidget::attach(const model::SpaceType& spaceType)
-{
+void SpaceLoadInstancesWidget::attach(const model::SpaceType& spaceType) {
   detach();
 
   m_spaceType = spaceType;
@@ -825,68 +799,71 @@ void SpaceLoadInstancesWidget::attach(const model::SpaceType& spaceType)
   connect(OSAppBase::instance(), &OSAppBase::workspaceObjectRemovedPtr, this, &SpaceLoadInstancesWidget::objectRemoved, Qt::QueuedConnection);
 
   model::Building building = m_model->getUniqueModelObject<model::Building>();
-  building.getImpl<model::detail::ModelObject_Impl>().get()->onRelationshipChange.connect<SpaceLoadInstancesWidget, &SpaceLoadInstancesWidget::onBuildingRelationshipChange>(this);
+  building.getImpl<model::detail::ModelObject_Impl>()
+    .get()
+    ->onRelationshipChange.connect<SpaceLoadInstancesWidget, &SpaceLoadInstancesWidget::onBuildingRelationshipChange>(this);
 
-  for (model::SpaceType spaceType : m_model->getConcreteModelObjects<model::SpaceType>()){
-    spaceType.getImpl<model::detail::ModelObject_Impl>().get()->onRelationshipChange.connect<SpaceLoadInstancesWidget, &SpaceLoadInstancesWidget::onSpaceTypeRelationshipChange>(this);
+  for (model::SpaceType spaceType : m_model->getConcreteModelObjects<model::SpaceType>()) {
+    spaceType.getImpl<model::detail::ModelObject_Impl>()
+      .get()
+      ->onRelationshipChange.connect<SpaceLoadInstancesWidget, &SpaceLoadInstancesWidget::onSpaceTypeRelationshipChange>(this);
   }
 
   m_dirty = true;
   QTimer::singleShot(0, this, SLOT(refresh()));
 }
 
-void SpaceLoadInstancesWidget::remove(SpaceLoadInstanceMiniView* spaceLoadInstanceMiniView)
-{
+void SpaceLoadInstancesWidget::remove(SpaceLoadInstanceMiniView* spaceLoadInstanceMiniView) {
   spaceLoadInstanceMiniView->spaceLoadInstance().remove();
 }
 
-void SpaceLoadInstancesWidget::onBuildingRelationshipChange(int index, Handle newHandle, Handle oldHandle)
-{
-  if (newHandle == oldHandle){
+void SpaceLoadInstancesWidget::onBuildingRelationshipChange(int index, Handle newHandle, Handle oldHandle) {
+  if (newHandle == oldHandle) {
     return;
   }
 
-  if (index == OS_BuildingFields::SpaceTypeName){
+  if (index == OS_BuildingFields::SpaceTypeName) {
     m_dirty = true;
     QTimer::singleShot(0, this, SLOT(refresh()));
   }
 }
 
-void SpaceLoadInstancesWidget::onSpaceTypeRelationshipChange(int index, Handle newHandle, Handle oldHandle)
-{
-  if (newHandle == oldHandle){
+void SpaceLoadInstancesWidget::onSpaceTypeRelationshipChange(int index, Handle newHandle, Handle oldHandle) {
+  if (newHandle == oldHandle) {
     return;
   }
 }
 
-void SpaceLoadInstancesWidget::onSpaceRelationshipChange(int index, Handle newHandle, Handle oldHandle)
-{
-  if (newHandle == oldHandle){
+void SpaceLoadInstancesWidget::onSpaceRelationshipChange(int index, Handle newHandle, Handle oldHandle) {
+  if (newHandle == oldHandle) {
     return;
   }
 
-  if (index == OS_SpaceFields::SpaceTypeName){
+  if (index == OS_SpaceFields::SpaceTypeName) {
     m_dirty = true;
     QTimer::singleShot(0, this, SLOT(refresh()));
   }
 }
 
-void SpaceLoadInstancesWidget::objectAdded(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl, const openstudio::IddObjectType& iddObjectType, const openstudio::UUID& handle)
-{
-  if (iddObjectType == IddObjectType::OS_SpaceType){
-    impl.get()->detail::WorkspaceObject_Impl::onRelationshipChange.connect<SpaceLoadInstancesWidget, &SpaceLoadInstancesWidget::onSpaceTypeRelationshipChange>(this);
+void SpaceLoadInstancesWidget::objectAdded(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl,
+                                           const openstudio::IddObjectType& iddObjectType, const openstudio::UUID& handle) {
+  if (iddObjectType == IddObjectType::OS_SpaceType) {
+    impl.get()
+      ->detail::WorkspaceObject_Impl::onRelationshipChange
+      .connect<SpaceLoadInstancesWidget, &SpaceLoadInstancesWidget::onSpaceTypeRelationshipChange>(this);
     return;
   }
 
-  std::shared_ptr<model::detail::SpaceLoadInstance_Impl> spaceLoadInstanceImpl = std::dynamic_pointer_cast<model::detail::SpaceLoadInstance_Impl>(impl);
-  if (spaceLoadInstanceImpl){
+  std::shared_ptr<model::detail::SpaceLoadInstance_Impl> spaceLoadInstanceImpl =
+    std::dynamic_pointer_cast<model::detail::SpaceLoadInstance_Impl>(impl);
+  if (spaceLoadInstanceImpl) {
 
     boost::optional<model::SpaceType> spaceType = m_spaceType;
-    if (m_space){
+    if (m_space) {
       spaceType = m_space->spaceType();
 
-      if (spaceLoadInstanceImpl->space()){
-        if (m_space->handle() == spaceLoadInstanceImpl->space()->handle()){
+      if (spaceLoadInstanceImpl->space()) {
+        if (m_space->handle() == spaceLoadInstanceImpl->space()->handle()) {
           m_dirty = true;
           QTimer::singleShot(0, this, SLOT(refresh()));
           return;
@@ -894,9 +871,9 @@ void SpaceLoadInstancesWidget::objectAdded(std::shared_ptr<openstudio::detail::W
       }
     }
 
-    if (spaceType){
-      if (spaceLoadInstanceImpl->spaceType()){
-        if (spaceType->handle() == spaceLoadInstanceImpl->spaceType()->handle()){
+    if (spaceType) {
+      if (spaceLoadInstanceImpl->spaceType()) {
+        if (spaceType->handle() == spaceLoadInstanceImpl->spaceType()->handle()) {
           m_dirty = true;
           QTimer::singleShot(0, this, SLOT(refresh()));
           return;
@@ -906,26 +883,26 @@ void SpaceLoadInstancesWidget::objectAdded(std::shared_ptr<openstudio::detail::W
   }
 }
 
-void SpaceLoadInstancesWidget::objectRemoved(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl, const openstudio::IddObjectType& iddObjectType, const openstudio::UUID& handle)
-{
-  std::shared_ptr<model::detail::SpaceLoadInstance_Impl> spaceLoadInstanceImpl = std::dynamic_pointer_cast<model::detail::SpaceLoadInstance_Impl>(impl);
-  if (spaceLoadInstanceImpl){
+void SpaceLoadInstancesWidget::objectRemoved(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl,
+                                             const openstudio::IddObjectType& iddObjectType, const openstudio::UUID& handle) {
+  std::shared_ptr<model::detail::SpaceLoadInstance_Impl> spaceLoadInstanceImpl =
+    std::dynamic_pointer_cast<model::detail::SpaceLoadInstance_Impl>(impl);
+  if (spaceLoadInstanceImpl) {
     m_dirty = true;
     QTimer::singleShot(0, this, SLOT(refresh()));
   }
 }
 
-void SpaceLoadInstancesWidget::refresh()
-{
-  if (!m_dirty){
+void SpaceLoadInstancesWidget::refresh() {
+  if (!m_dirty) {
     return;
   }
   m_dirty = false;
 
-  QLayoutItem *child;
+  QLayoutItem* child;
   while ((child = m_mainVLayout->takeAt(0)) != nullptr) {
     QWidget* widget = child->widget();
-    if (widget){
+    if (widget) {
       delete widget;
     }
     delete child;
@@ -937,23 +914,23 @@ void SpaceLoadInstancesWidget::refresh()
 
   m_newSpaceLoadVectorController = new NewSpaceLoadVectorController();
 
-  if (m_space){
+  if (m_space) {
     m_newSpaceLoadVectorController->attach(*m_space);
 
     boost::optional<model::SpaceType> spaceType = m_space->spaceType();
-    if (spaceType){
+    if (spaceType) {
       addSpaceTypeLoads(*spaceType, true);
     }
     addSpaceLoads(*m_space);
 
-  }else if (m_spaceType){
+  } else if (m_spaceType) {
     m_newSpaceLoadVectorController->attach(*m_spaceType);
 
     addSpaceTypeLoads(*m_spaceType, false);
   }
 
   // separator
-  QFrame * line;
+  QFrame* line;
   line = new QFrame();
   line->setFrameShape(QFrame::HLine);
   line->setFrameShadow(QFrame::Sunken);
@@ -961,10 +938,10 @@ void SpaceLoadInstancesWidget::refresh()
 
   // new load drop zone
   auto hLayout = new QHBoxLayout();
-  hLayout->setContentsMargins(0,0,0,0);
+  hLayout->setContentsMargins(0, 0, 0, 0);
   hLayout->setSpacing(10);
   auto vLayout = new QVBoxLayout();
-  vLayout->setContentsMargins(0,0,0,0);
+  vLayout->setContentsMargins(0, 0, 0, 0);
   vLayout->setSpacing(10);
 
   auto label = new QLabel();
@@ -982,8 +959,7 @@ void SpaceLoadInstancesWidget::refresh()
   m_mainVLayout->addWidget(widget);
 }
 
-void SpaceLoadInstancesWidget::addSpaceLoads(const model::Space& space)
-{
+void SpaceLoadInstancesWidget::addSpaceLoads(const model::Space& space) {
   // follow same order in LoadsController and LoadsTreeItem
   std::vector<model::ModelObject> spaceLoads;
 
@@ -1019,12 +995,12 @@ void SpaceLoadInstancesWidget::addSpaceLoads(const model::Space& space)
   std::sort(internalMass.begin(), internalMass.end(), WorkspaceObjectNameLess());
   spaceLoads.insert(spaceLoads.end(), internalMass.begin(), internalMass.end());
 
-  for (const model::ModelObject& modelObject : spaceLoads){
-    if (!modelObject.handle().isNull()){
-      if (modelObject.optionalCast<model::SpaceLoadInstance>()){
+  for (const model::ModelObject& modelObject : spaceLoads) {
+    if (!modelObject.handle().isNull()) {
+      if (modelObject.optionalCast<model::SpaceLoadInstance>()) {
 
         // separator
-        QFrame * line;
+        QFrame* line;
         line = new QFrame();
         line->setFrameShape(QFrame::HLine);
         line->setFrameShadow(QFrame::Sunken);
@@ -1036,9 +1012,8 @@ void SpaceLoadInstancesWidget::addSpaceLoads(const model::Space& space)
   }
 }
 
-void SpaceLoadInstancesWidget::addSpaceTypeLoads(const model::SpaceType& spaceType, bool addAsDefaultLoads)
-{
-// follow same order in LoadsController and LoadsTreeItem
+void SpaceLoadInstancesWidget::addSpaceTypeLoads(const model::SpaceType& spaceType, bool addAsDefaultLoads) {
+  // follow same order in LoadsController and LoadsTreeItem
   std::vector<model::ModelObject> spaceLoads;
 
   std::vector<model::People> people = spaceType.people();
@@ -1073,12 +1048,12 @@ void SpaceLoadInstancesWidget::addSpaceTypeLoads(const model::SpaceType& spaceTy
   std::sort(internalMass.begin(), internalMass.end(), WorkspaceObjectNameLess());
   spaceLoads.insert(spaceLoads.end(), internalMass.begin(), internalMass.end());
 
-  for (const model::ModelObject& modelObject : spaceLoads){
-    if (!modelObject.handle().isNull()){
-      if (modelObject.optionalCast<model::SpaceLoadInstance>()){
+  for (const model::ModelObject& modelObject : spaceLoads) {
+    if (!modelObject.handle().isNull()) {
+      if (modelObject.optionalCast<model::SpaceLoadInstance>()) {
 
         // separator
-        QFrame * line;
+        QFrame* line;
         line = new QFrame();
         line->setFrameShape(QFrame::HLine);
         line->setFrameShadow(QFrame::Sunken);
@@ -1090,8 +1065,7 @@ void SpaceLoadInstancesWidget::addSpaceTypeLoads(const model::SpaceType& spaceTy
   }
 }
 
-void SpaceLoadInstancesWidget::addSpaceLoadInstance(const model::SpaceLoadInstance& spaceLoadInstance, bool isDefault)
-{
+void SpaceLoadInstancesWidget::addSpaceLoadInstance(const model::SpaceLoadInstance& spaceLoadInstance, bool isDefault) {
   auto spaceLoadInstanceMiniView = new SpaceLoadInstanceMiniView(spaceLoadInstance, isDefault);
 
   connect(spaceLoadInstanceMiniView, &SpaceLoadInstanceMiniView::removeClicked, this, &SpaceLoadInstancesWidget::remove);
@@ -1099,4 +1073,4 @@ void SpaceLoadInstancesWidget::addSpaceLoadInstance(const model::SpaceLoadInstan
   m_mainVLayout->addWidget(spaceLoadInstanceMiniView);
 }
 
-} // openstudio
+}  // namespace openstudio

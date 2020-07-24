@@ -30,7 +30,7 @@
 #ifndef SHAREDGUICOMPONENTS_OSQUANTITYEDIT_HPP
 #define SHAREDGUICOMPONENTS_OSQUANTITYEDIT_HPP
 
-#include <openstudio/nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/nano/nano_signal_slot.hpp>  // Signal-Slot replacement
 #include "FieldMethodTypedefs.hpp"
 
 #include <openstudio/model/ModelObject.hpp>
@@ -49,90 +49,68 @@ namespace openstudio {
 
 class Unit;
 
-class QuantityLineEdit : public QLineEdit {
+class QuantityLineEdit : public QLineEdit
+{
   Q_OBJECT
-public:
-
-  QuantityLineEdit(QWidget * parent = nullptr);
+ public:
+  QuantityLineEdit(QWidget* parent = nullptr);
 
   virtual ~QuantityLineEdit() {}
 
-  void enableClickFocus() { this->m_hasClickFocus = true; }
+  void enableClickFocus() {
+    this->m_hasClickFocus = true;
+  }
 
-protected:
+ protected:
+  virtual void focusInEvent(QFocusEvent* e) override;
 
-  virtual void focusInEvent(QFocusEvent * e) override;
+  virtual void focusOutEvent(QFocusEvent* e) override;
 
-  virtual void focusOutEvent(QFocusEvent * e) override;
-
-private:
-
+ private:
   bool m_hasClickFocus = false;
 
-signals:
+ signals:
 
   void inFocus(bool inFocus);
-
 };
 
-class OSQuantityEdit2: public QWidget, public Nano::Observer {
+class OSQuantityEdit2 : public QWidget, public Nano::Observer
+{
   Q_OBJECT
  public:
-
-  OSQuantityEdit2(const std::string& modelUnits, const std::string& siUnits,
-                  const std::string& ipUnits, bool isIP, QWidget * parent = nullptr);
+  OSQuantityEdit2(const std::string& modelUnits, const std::string& siUnits, const std::string& ipUnits, bool isIP, QWidget* parent = nullptr);
 
   virtual ~OSQuantityEdit2();
 
   void enableClickFocus();
 
-  QDoubleValidator * doubleValidator() { return m_doubleValidator; }
+  QDoubleValidator* doubleValidator() {
+    return m_doubleValidator;
+  }
 
-  bool hasData() { return !this->m_lineEdit->text().isEmpty(); }
+  bool hasData() {
+    return !this->m_lineEdit->text().isEmpty();
+  }
 
-  void bind(bool isIP,
-            model::ModelObject& modelObject,
-            DoubleGetter get,
-            boost::optional<DoubleSetter> set=boost::none,
-            boost::optional<NoFailAction> reset=boost::none,
-            boost::optional<NoFailAction> autosize=boost::none,
-            boost::optional<NoFailAction> autocalculate=boost::none,
-            boost::optional<BasicQuery> isDefaulted=boost::none,
-            boost::optional<BasicQuery> isAutosized=boost::none,
-            boost::optional<BasicQuery> isAutocalculated=boost::none);
+  void bind(bool isIP, model::ModelObject& modelObject, DoubleGetter get, boost::optional<DoubleSetter> set = boost::none,
+            boost::optional<NoFailAction> reset = boost::none, boost::optional<NoFailAction> autosize = boost::none,
+            boost::optional<NoFailAction> autocalculate = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none,
+            boost::optional<BasicQuery> isAutosized = boost::none, boost::optional<BasicQuery> isAutocalculated = boost::none);
 
-  void bind(bool isIP,
-            model::ModelObject& modelObject,
-            OptionalDoubleGetter optionalGet,
-            boost::optional<DoubleSetter> set=boost::none,
-            boost::optional<NoFailAction> reset=boost::none,
-            boost::optional<NoFailAction> autosize=boost::none,
-            boost::optional<NoFailAction> autocalculate=boost::none,
-            boost::optional<BasicQuery> isDefaulted=boost::none,
-            boost::optional<BasicQuery> isAutosized=boost::none,
-            boost::optional<BasicQuery> isAutocalculated=boost::none);
+  void bind(bool isIP, model::ModelObject& modelObject, OptionalDoubleGetter optionalGet, boost::optional<DoubleSetter> set = boost::none,
+            boost::optional<NoFailAction> reset = boost::none, boost::optional<NoFailAction> autosize = boost::none,
+            boost::optional<NoFailAction> autocalculate = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none,
+            boost::optional<BasicQuery> isAutosized = boost::none, boost::optional<BasicQuery> isAutocalculated = boost::none);
 
-  void bind(bool isIP,
-            model::ModelObject& modelObject,
-            DoubleGetter get,
-            DoubleSetterVoidReturn set,
-            boost::optional<NoFailAction> reset=boost::none,
-            boost::optional<NoFailAction> autosize=boost::none,
-            boost::optional<NoFailAction> autocalculate=boost::none,
-            boost::optional<BasicQuery> isDefaulted=boost::none,
-            boost::optional<BasicQuery> isAutosized=boost::none,
-            boost::optional<BasicQuery> isAutocalculated=boost::none);
+  void bind(bool isIP, model::ModelObject& modelObject, DoubleGetter get, DoubleSetterVoidReturn set,
+            boost::optional<NoFailAction> reset = boost::none, boost::optional<NoFailAction> autosize = boost::none,
+            boost::optional<NoFailAction> autocalculate = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none,
+            boost::optional<BasicQuery> isAutosized = boost::none, boost::optional<BasicQuery> isAutocalculated = boost::none);
 
-  void bind(bool isIP,
-            model::ModelObject& modelObject,
-            OptionalDoubleGetter optionalGet,
-            DoubleSetterVoidReturn set,
-            boost::optional<NoFailAction> reset=boost::none,
-            boost::optional<NoFailAction> autosize=boost::none,
-            boost::optional<NoFailAction> autocalculate=boost::none,
-            boost::optional<BasicQuery> isDefaulted=boost::none,
-            boost::optional<BasicQuery> isAutosized=boost::none,
-            boost::optional<BasicQuery> isAutocalculated=boost::none);
+  void bind(bool isIP, model::ModelObject& modelObject, OptionalDoubleGetter optionalGet, DoubleSetterVoidReturn set,
+            boost::optional<NoFailAction> reset = boost::none, boost::optional<NoFailAction> autosize = boost::none,
+            boost::optional<NoFailAction> autocalculate = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none,
+            boost::optional<BasicQuery> isAutosized = boost::none, boost::optional<BasicQuery> isAutocalculated = boost::none);
 
   void unbind();
 
@@ -155,12 +133,11 @@ class OSQuantityEdit2: public QWidget, public Nano::Observer {
   void onInFocus(bool inFocus);
 
  private:
-
   QuantityLineEdit* m_lineEdit;
   QLabel* m_units;
   QString m_text = "UNINITIALIZED";
   std::string m_unitsStr = "";
-  QDoubleValidator * m_doubleValidator;
+  QDoubleValidator* m_doubleValidator;
 
   bool m_isIP;
   std::string m_modelUnits;
@@ -185,13 +162,8 @@ class OSQuantityEdit2: public QWidget, public Nano::Observer {
 
   void setPrecision(const std::string& str);
 
-  void completeBind(bool isIP,
-                    model::ModelObject& modelObject,
-                    boost::optional<NoFailAction> reset,
-                    boost::optional<NoFailAction> autosize,
-                    boost::optional<NoFailAction> autocalculate,
-                    boost::optional<BasicQuery> isDefaulted,
-                    boost::optional<BasicQuery> isAutosized,
+  void completeBind(bool isIP, model::ModelObject& modelObject, boost::optional<NoFailAction> reset, boost::optional<NoFailAction> autosize,
+                    boost::optional<NoFailAction> autocalculate, boost::optional<BasicQuery> isDefaulted, boost::optional<BasicQuery> isAutosized,
                     boost::optional<BasicQuery> isAutocalculated);
 
   REGISTER_LOGGER("openstudio.OSQuantityEdit");
@@ -255,6 +227,6 @@ class OSQuantityEdit2: public QWidget, public Nano::Observer {
 //   REGISTER_LOGGER("openstudio.OSQuantityEdit");
 // };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // SHAREDGUICOMPONENTS_OSQUANTITYEDIT_HPP
+#endif  // SHAREDGUICOMPONENTS_OSQUANTITYEDIT_HPP

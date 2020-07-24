@@ -58,19 +58,17 @@ namespace openstudio {
 
 // ConstructionInspectorView
 
-ConstructionInspectorView::ConstructionInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent)
+ConstructionInspectorView::ConstructionInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent)
   : ModelObjectInspectorView(model, true, parent),
     m_isIP(isIP),
     m_nameEdit(nullptr),
     m_standardsInformationWidget(nullptr),
     m_constructionDZ(nullptr),
-    m_constructionVC(nullptr)
-{
+    m_constructionVC(nullptr) {
   createLayout();
 }
 
-void ConstructionInspectorView::createLayout()
-{
+void ConstructionInspectorView::createLayout() {
   auto hiddenWidget = new QWidget();
   this->stackedWidget()->addWidget(hiddenWidget);
 
@@ -84,7 +82,7 @@ void ConstructionInspectorView::createLayout()
 
   int row = mainGridLayout->rowCount();
 
-  QLabel * label = nullptr;
+  QLabel* label = nullptr;
 
   // Name
 
@@ -122,7 +120,7 @@ void ConstructionInspectorView::createLayout()
   ++row;
 
   m_constructionVC = new ConstructionObjectVectorController(this);
-  m_constructionDZ = new OSDropZone(m_constructionVC,"Drag From Library",QSize(0,0),false);
+  m_constructionDZ = new OSDropZone(m_constructionVC, "Drag From Library", QSize(0, 0), false);
   m_constructionDZ->setMinItems(0);
   m_constructionDZ->setMaxItems(12);
   m_constructionDZ->setItemsRemoveable(true);
@@ -130,7 +128,7 @@ void ConstructionInspectorView::createLayout()
   m_constructionDZ->setItemsAcceptDrops(true);
   m_constructionDZ->setEnabled(true);
   m_constructionDZ->setItemsDraggable(true);
-  m_constructionDZ->setFixedSize(QSize(OSItem::ITEM_WIDTH + 20,600));
+  m_constructionDZ->setFixedSize(QSize(OSItem::ITEM_WIDTH + 20, 600));
   mainGridLayout->addWidget(m_constructionDZ, row, 0);
 
   ++row;
@@ -148,15 +146,13 @@ void ConstructionInspectorView::createLayout()
   mainGridLayout->setColumnStretch(100, 100);
 }
 
-void ConstructionInspectorView::onClearSelection()
-{
+void ConstructionInspectorView::onClearSelection() {
   detach();
 
   this->stackedWidget()->setCurrentIndex(0);
 }
 
-void ConstructionInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject)
-{
+void ConstructionInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject) {
   detach();
   model::Construction construction = modelObject.cast<model::Construction>();
   attach(construction);
@@ -164,13 +160,12 @@ void ConstructionInspectorView::onSelectModelObject(const openstudio::model::Mod
   this->stackedWidget()->setCurrentIndex(1);
 }
 
-void ConstructionInspectorView::onUpdate()
-{
+void ConstructionInspectorView::onUpdate() {
   m_constructionVC->reportItems();
 
   boost::optional<model::ModelObject> modelObject = this->modelObject();
-  if (modelObject){
-    if (modelObject->cast<model::ConstructionBase>().isFenestration()){
+  if (modelObject) {
+    if (modelObject->cast<model::ConstructionBase>().isFenestration()) {
       m_standardsInformationWidget->enableFenestration();
     } else {
       m_standardsInformationWidget->disableFenestration();
@@ -180,15 +175,12 @@ void ConstructionInspectorView::onUpdate()
   }
 }
 
-void ConstructionInspectorView::attach(openstudio::model::Construction & construction)
-{
+void ConstructionInspectorView::attach(openstudio::model::Construction& construction) {
   m_construction = construction;
 
   m_nameEdit->bind(
-    *m_construction,
-    OptionalStringGetter(std::bind(&model::Construction::name, m_construction.get_ptr(),true)),
-    boost::optional<StringSetterOptionalStringReturn>(std::bind(&model::Construction::setName, m_construction.get_ptr(),std::placeholders::_1))
-  );
+    *m_construction, OptionalStringGetter(std::bind(&model::Construction::name, m_construction.get_ptr(), true)),
+    boost::optional<StringSetterOptionalStringReturn>(std::bind(&model::Construction::setName, m_construction.get_ptr(), std::placeholders::_1)));
 
   m_constructionVC->attach(construction);
   m_constructionVC->reportItems();
@@ -196,12 +188,11 @@ void ConstructionInspectorView::attach(openstudio::model::Construction & constru
   m_standardsInformationWidget->attach(construction);
 }
 
-void ConstructionInspectorView::detach()
-{
+void ConstructionInspectorView::detach() {
   m_standardsInformationWidget->detach();
   m_constructionVC->detach();
   m_constructionVC->reportItems();
   m_construction = boost::none;
 }
 
-} // openstudio
+}  // namespace openstudio

@@ -46,7 +46,7 @@ void ModelEditorFixture::SetUpTestCase() {
   openstudio::Logger::instance().standardOutLogger().disable();
 }
 
-void ModelEditorFixture::TearDownTestCase(){}
+void ModelEditorFixture::TearDownTestCase() {}
 
 // static variables
 boost::optional<openstudio::FileLogSink> ModelEditorFixture::logFile;

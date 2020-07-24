@@ -40,29 +40,21 @@
 
 namespace openstudio {
 
-WaitDialog::WaitDialog(const QString & windowTitle,
-  const QString & windowMessage,
-  QWidget* parent)
-  : OSDialog(false, parent),
-  m_windowMessage(windowMessage)
-{
+WaitDialog::WaitDialog(const QString& windowTitle, const QString& windowMessage, QWidget* parent)
+  : OSDialog(false, parent), m_windowMessage(windowMessage) {
   setWindowTitle(windowTitle);
   setWindowModality(Qt::ApplicationModal);
   setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
   createWidgets();
 }
 
-WaitDialog::~WaitDialog()
-{
+WaitDialog::~WaitDialog() {}
+
+QSize WaitDialog::sizeHint() const {
+  return QSize(770, 540);
 }
 
-QSize WaitDialog::sizeHint() const
-{
-  return QSize(770,540);
-}
-
-void WaitDialog::createWidgets()
-{
+void WaitDialog::createWidgets() {
 
   upperLayout()->addStretch();
 
@@ -101,12 +93,11 @@ void WaitDialog::createWidgets()
 
   // OS SETTINGS
 
-  #ifdef Q_OS_DARWIN
-    setWindowFlags(Qt::FramelessWindowHint);
-  #elif defined(Q_OS_WIN)
-    setWindowFlags(Qt::WindowCloseButtonHint | Qt::MSWindowsFixedSizeDialogHint);
-  #endif
-
+#ifdef Q_OS_DARWIN
+  setWindowFlags(Qt::FramelessWindowHint);
+#elif defined(Q_OS_WIN)
+  setWindowFlags(Qt::WindowCloseButtonHint | Qt::MSWindowsFixedSizeDialogHint);
+#endif
 }
 
 void WaitDialog::resetLabels() {
@@ -126,21 +117,18 @@ void WaitDialog::resetLabels() {
   m_fourthLine->setText("");
   m_fourthLine->setObjectName("H3");
   m_fourthLine->setVisible(true);
-
 }
 
 //***** SLOTS *****
 
-void WaitDialog::on_cancelButton(bool checked)
-{
+void WaitDialog::on_cancelButton(bool checked) {
   OSDialog::on_cancelButton(checked);
 }
 
-void WaitDialog::closeEvent(QCloseEvent *e)
-{
+void WaitDialog::closeEvent(QCloseEvent* e) {
   // DLM: do not accept the event, we don't allow this dialog to close
   // would be better to set window flags to not have the close button
   e->ignore();
 }
 
-} // openstudio
+}  // namespace openstudio

@@ -37,140 +37,127 @@
 
 namespace openstudio {
 
-  OSCheckBox3::OSCheckBox3(QWidget * parent)
-    : QCheckBox(parent)
-  {
-    this->setCheckable(true);
+OSCheckBox3::OSCheckBox3(QWidget* parent) : QCheckBox(parent) {
+  this->setCheckable(true);
 
+  setEnabled(false);
+}
+
+OSCheckBox3::~OSCheckBox3() {}
+
+void OSCheckBox3::bind(model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetter> set, boost::optional<NoFailAction> reset,
+                       boost::optional<BasicQuery> isDefaulted) {
+  m_modelObject = modelObject;
+  m_get = get;
+  m_set = set;
+  m_reset = reset;
+  m_isDefaulted = isDefaulted;
+
+  setEnabled(true);
+
+  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
+    .get()
+    ->openstudio::model::detail::ModelObject_Impl::onChange.connect<OSCheckBox3, &OSCheckBox3::onModelObjectChange>(this);
+  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
+    .get()
+    ->openstudio::model::detail::ModelObject_Impl::onRemoveFromWorkspace.connect<OSCheckBox3, &OSCheckBox3::onModelObjectRemove>(this);
+
+  connect(this, &OSCheckBox3::toggled, this, &OSCheckBox3::onToggled);
+  bool checked = (*m_get)();
+
+  this->setChecked(checked);
+}
+
+void OSCheckBox3::bind(model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetterBoolReturn> set,
+                       boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted) {
+  m_modelObject = modelObject;
+  m_get = get;
+  m_setBoolReturn = set;
+  m_reset = reset;
+  m_isDefaulted = isDefaulted;
+
+  setEnabled(true);
+
+  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.connect<OSCheckBox3, &OSCheckBox3::onModelObjectChange>(this);
+
+  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
+    .get()
+    ->onRemoveFromWorkspace.connect<OSCheckBox3, &OSCheckBox3::onModelObjectRemove>(this);
+
+  connect(this, &OSCheckBox3::toggled, this, &OSCheckBox3::onToggled);
+  bool checked = (*m_get)();
+
+  this->setChecked(checked);
+}
+
+void OSCheckBox3::unbind() {
+  if (m_modelObject) {
+    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.disconnect<OSCheckBox3, &OSCheckBox3::onModelObjectChange>(
+      this);
+    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
+      .get()
+      ->onRemoveFromWorkspace.disconnect<OSCheckBox3, &OSCheckBox3::onModelObjectRemove>(this);
+
+    m_get.reset();
+    m_set.reset();
+    m_setBoolReturn.reset();
+    m_reset.reset();
+    m_isDefaulted.reset();
     setEnabled(false);
   }
+}
 
-  OSCheckBox3::~OSCheckBox3()
-  {
-  }
-
-  void OSCheckBox3::bind(model::ModelObject & modelObject,
-    BoolGetter get,
-    boost::optional<BoolSetter> set,
-    boost::optional<NoFailAction> reset,
-    boost::optional<BasicQuery> isDefaulted)
-  {
-    m_modelObject = modelObject;
-    m_get = get;
-    m_set = set;
-    m_reset = reset;
-    m_isDefaulted = isDefaulted;
-
-    setEnabled(true);
-
-    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->openstudio::model::detail::ModelObject_Impl::onChange.connect<OSCheckBox3, &OSCheckBox3::onModelObjectChange>(this);
-    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->openstudio::model::detail::ModelObject_Impl::onRemoveFromWorkspace.connect<OSCheckBox3, &OSCheckBox3::onModelObjectRemove>(this);
-
-    connect(this, &OSCheckBox3::toggled, this, &OSCheckBox3::onToggled);
-    bool checked = (*m_get)();
-
-    this->setChecked(checked);
-  }
-
-  void OSCheckBox3::bind(model::ModelObject & modelObject,
-    BoolGetter get,
-    boost::optional<BoolSetterBoolReturn> set,
-    boost::optional<NoFailAction> reset,
-    boost::optional<BasicQuery> isDefaulted)
-  {
-    m_modelObject = modelObject;
-    m_get = get;
-    m_setBoolReturn = set;
-    m_reset = reset;
-    m_isDefaulted = isDefaulted;
-
-    setEnabled(true);
-
-    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.connect<OSCheckBox3, &OSCheckBox3::onModelObjectChange>(this);
-
-    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onRemoveFromWorkspace.connect<OSCheckBox3, &OSCheckBox3::onModelObjectRemove>(this);
-
-    connect(this, &OSCheckBox3::toggled, this, &OSCheckBox3::onToggled);
-    bool checked = (*m_get)();
-
-    this->setChecked(checked);
-  }
-
-  void OSCheckBox3::unbind()
-  {
-    if (m_modelObject){
-      m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.disconnect<OSCheckBox3, &OSCheckBox3::onModelObjectChange>(this);
-      m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onRemoveFromWorkspace.disconnect<OSCheckBox3, &OSCheckBox3::onModelObjectRemove>(this);
-
-      m_get.reset();
-      m_set.reset();
-      m_setBoolReturn.reset();
-      m_reset.reset();
-      m_isDefaulted.reset();
-      setEnabled(false);
+void OSCheckBox3::onToggled(bool checked) {
+  emit inFocus(true, true);  // fake that is has data
+  if (m_modelObject && m_set) {
+    if ((*m_get)() != checked) {
+      (*m_set)(checked);
+    }
+  } else if (m_modelObject && m_setBoolReturn) {
+    if ((*m_get)() != checked) {
+      (*m_setBoolReturn)(checked);
     }
   }
+}
 
-  void OSCheckBox3::onToggled(bool checked)
-  {
-    emit inFocus(true, true); // fake that is has data
-    if (m_modelObject && m_set) {
-      if ((*m_get)() != checked) {
-        (*m_set)(checked);
-      }
-    }
-    else if (m_modelObject && m_setBoolReturn) {
-      if ((*m_get)() != checked) {
-        (*m_setBoolReturn)(checked);
-      }
+void OSCheckBox3::onModelObjectChange() {
+  if (m_modelObject) {
+    if ((*m_get)() != this->isChecked()) {
+      this->blockSignals(true);
+      this->setChecked((*m_get)());
+      this->blockSignals(false);
     }
   }
+}
 
-  void OSCheckBox3::onModelObjectChange()
-  {
-    if (m_modelObject) {
-      if ((*m_get)() != this->isChecked()) {
-        this->blockSignals(true);
-        this->setChecked((*m_get)());
-        this->blockSignals(false);
-      }
-    }
+void OSCheckBox3::onModelObjectRemove(const Handle& handle) {
+  unbind();
+}
+
+void OSCheckBox3::focusInEvent(QFocusEvent* e) {
+  if ((e->reason() == Qt::MouseFocusReason) && (this->focusPolicy() == Qt::ClickFocus)) {
+    // Switch to yellow background
+    QPalette p = this->palette();
+    QColor yellow("#ffc627");
+    p.setColor(QPalette::Base, yellow);
+    this->setPalette(p);
+
+    emit inFocus(true, true);
   }
+  QWidget::focusInEvent(e);
+}
 
-  void OSCheckBox3::onModelObjectRemove(const Handle& handle)
-  {
-    unbind();
+void OSCheckBox3::focusOutEvent(QFocusEvent* e) {
+  if ((e->reason() == Qt::MouseFocusReason) && (this->focusPolicy() == Qt::ClickFocus)) {
+    // Reset the style sheet
+    setStyleSheet("");
+    emit inFocus(false, false);
   }
+  // Pass it on for further processing
+  QWidget::focusOutEvent(e);
+}
 
-  void OSCheckBox3::focusInEvent(QFocusEvent * e)
-  {
-    if( (e->reason() == Qt::MouseFocusReason) && (this->focusPolicy() == Qt::ClickFocus) ) {
-      // Switch to yellow background
-      QPalette p = this->palette();
-      QColor yellow("#ffc627");
-      p.setColor(QPalette::Base, yellow);
-      this->setPalette(p);
-
-      emit inFocus(true, true);
-    }
-    QWidget::focusInEvent(e);
-  }
-
-  void OSCheckBox3::focusOutEvent(QFocusEvent * e)
-  {
-    if( (e->reason() == Qt::MouseFocusReason) && (this->focusPolicy() == Qt::ClickFocus) ) {
-      // Reset the style sheet
-      setStyleSheet("");
-      emit inFocus(false, false);
-    }
-    // Pass it on for further processing
-    QWidget::focusOutEvent(e);
-  }
-
-
-OSCheckBox2::OSCheckBox2( QWidget * parent )
-  : QPushButton(parent)
-{
+OSCheckBox2::OSCheckBox2(QWidget* parent) : QPushButton(parent) {
   setObjectName("StandardGrayButton");
   this->setAcceptDrops(false);
 
@@ -179,12 +166,8 @@ OSCheckBox2::OSCheckBox2( QWidget * parent )
   setEnabled(false);
 }
 
-void OSCheckBox2::bind(model::ModelObject & modelObject,
-                       BoolGetter get,
-                       boost::optional<BoolSetter> set,
-                       boost::optional<NoFailAction> reset,
-                       boost::optional<BasicQuery> isDefaulted)
-{
+void OSCheckBox2::bind(model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetter> set, boost::optional<NoFailAction> reset,
+                       boost::optional<BasicQuery> isDefaulted) {
   m_modelObject = modelObject;
   m_get = get;
   m_set = set;
@@ -195,7 +178,9 @@ void OSCheckBox2::bind(model::ModelObject & modelObject,
 
   m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.connect<OSCheckBox2, &OSCheckBox2::onModelObjectChange>(this);
 
-  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onRemoveFromWorkspace.connect<OSCheckBox2, &OSCheckBox2::onModelObjectRemove>(this);
+  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
+    .get()
+    ->onRemoveFromWorkspace.connect<OSCheckBox2, &OSCheckBox2::onModelObjectRemove>(this);
 
   connect(this, &OSCheckBox2::toggled, this, &OSCheckBox2::onToggled);
   bool checked = (*m_get)();
@@ -203,11 +188,13 @@ void OSCheckBox2::bind(model::ModelObject & modelObject,
   this->setChecked(checked);
 }
 
-void OSCheckBox2::unbind()
-{
-  if (m_modelObject){
-    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.disconnect<OSCheckBox2, &OSCheckBox2::onModelObjectChange>(this);
-    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onRemoveFromWorkspace.disconnect<OSCheckBox2, &OSCheckBox2::onModelObjectRemove>(this);
+void OSCheckBox2::unbind() {
+  if (m_modelObject) {
+    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.disconnect<OSCheckBox2, &OSCheckBox2::onModelObjectChange>(
+      this);
+    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
+      .get()
+      ->onRemoveFromWorkspace.disconnect<OSCheckBox2, &OSCheckBox2::onModelObjectRemove>(this);
 
     m_get.reset();
     m_set.reset();
@@ -217,24 +204,21 @@ void OSCheckBox2::unbind()
   }
 }
 
-void OSCheckBox2::onToggled(bool checked)
-{
-  if(m_modelObject && m_set) {
+void OSCheckBox2::onToggled(bool checked) {
+  if (m_modelObject && m_set) {
     if ((*m_get)() != checked) {
       (*m_set)(checked);
     }
   }
 }
 
-void OSCheckBox2::onModelObjectChange()
-{
-  if( m_modelObject ) {
+void OSCheckBox2::onModelObjectChange() {
+  if (m_modelObject) {
     this->setChecked((*m_get)());
   }
 }
 
-void OSCheckBox2::onModelObjectRemove(const Handle& handle)
-{
+void OSCheckBox2::onModelObjectRemove(const Handle& handle) {
   unbind();
 }
 
@@ -302,4 +286,4 @@ void OSCheckBox2::onModelObjectRemove(const Handle& handle)
 //   setEnabled(false);
 // }
 
-} // openstudio
+}  // namespace openstudio

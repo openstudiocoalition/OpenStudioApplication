@@ -43,8 +43,7 @@ class QLineEdit;
 class QMenu;
 class QStatusBar;
 
-namespace modeleditor
-{
+namespace modeleditor {
 
 class ModelExplorer;
 class TableModel;
@@ -54,76 +53,76 @@ class MODELEDITOR_API EditorFrame : public QMainWindow
 {
   Q_OBJECT
 
-public:
-  EditorFrame(QWidget * parent = nullptr);
+ public:
+  EditorFrame(QWidget* parent = nullptr);
   virtual ~EditorFrame();
   void loadStyleSheet(QString& style);
 
-protected:
-  void closeEvent(QCloseEvent *event) override;
+ protected:
+  void closeEvent(QCloseEvent* event) override;
 
-private:
+ private:
   void connectSignalsAndSlots();
-  void contextMenuEvent(QContextMenuEvent *event) override;
+  void contextMenuEvent(QContextMenuEvent* event) override;
   void createActions();
   void createLayout();
   void createMenus();
   void createStatusBar();
   void createToolBars();
   void createWidgets();
-  QString getFileNameFromPath(const QString &fullFileName);
+  QString getFileNameFromPath(const QString& fullFileName);
   bool maybeSave();
   void newFile();
   void openFile(const QString& action, const QString& extension);
   void readSettings();
-  bool saveFile(const QString &fileName, const QString& extension);
-  bool saveFileAs(const QString& action, const QString &extension);
-  void setCurrentFile(const QString &fileName);
+  bool saveFile(const QString& fileName, const QString& extension);
+  bool saveFileAs(const QString& action, const QString& extension);
+  void setCurrentFile(const QString& fileName);
   bool updateContextMenu(bool showAllowableChildTypes);
   void writeSettings();
   bool addTreeViewContextMenuAddActions(bool clearMenu = false);
   bool addClassViewContextMenuAddActions(bool clearMenu = false);
   void setModels();
 
-  ModelExplorer * mModelExplorer;
-  TableModel * mTableModel;
-  TreeModel * mTreeModel;
+  ModelExplorer* mModelExplorer;
+  TableModel* mTableModel;
+  TreeModel* mTreeModel;
 
-  QStatusBar * mStatusBar;
-  QLineEdit * mSearchViews;
-  QCompleter * mCompleter;
+  QStatusBar* mStatusBar;
+  QLineEdit* mSearchViews;
+  QCompleter* mCompleter;
 
-  QAction * mAboutAction;
-  QAction * mAddAction;
-  QAction * mCopyAction;
-  QAction * mExitAction;
-  QAction * mExportIdfAction;
-  QAction * mImportIdfAction;
-  QAction * mNewIdkAction;
-  QAction * mOpenIdkAction;
-  QAction * mPasteAction;
-  QAction * mRemoveAction;
-  QAction * mSaveIdkAction;
-  QAction * mSaveIdkAsAction;
-  QAction * mExpandAllNodesAction;
-  QAction * mToggleGUIDsAction;
-  QAction * mSearchViewsAction;
-  QAction * mToggleCommentsAction;
-  QAction * mShowAllFields;
-  QAction * mCreateAllFields;
-  QAction * mIGRecursive;
-  QAction * mTogglePrecisionAction;
-  QAction * mToggleUnitsAction;
+  QAction* mAboutAction;
+  QAction* mAddAction;
+  QAction* mCopyAction;
+  QAction* mExitAction;
+  QAction* mExportIdfAction;
+  QAction* mImportIdfAction;
+  QAction* mNewIdkAction;
+  QAction* mOpenIdkAction;
+  QAction* mPasteAction;
+  QAction* mRemoveAction;
+  QAction* mSaveIdkAction;
+  QAction* mSaveIdkAsAction;
+  QAction* mExpandAllNodesAction;
+  QAction* mToggleGUIDsAction;
+  QAction* mSearchViewsAction;
+  QAction* mToggleCommentsAction;
+  QAction* mShowAllFields;
+  QAction* mCreateAllFields;
+  QAction* mIGRecursive;
+  QAction* mTogglePrecisionAction;
+  QAction* mToggleUnitsAction;
 
-  QMenu * mFileMenu;
-  QMenu * mPrefMenu;
-  QMenu * mHelpMenu;
-  QMenu * mContextMenu;
+  QMenu* mFileMenu;
+  QMenu* mPrefMenu;
+  QMenu* mHelpMenu;
+  QMenu* mContextMenu;
 
-  QToolBar * mFileToolBar;
-  QToolBar * mEditToolBar;
-  QToolBar * mPrefToolBar;
-  QToolBar * mSearchToolBar;
+  QToolBar* mFileToolBar;
+  QToolBar* mEditToolBar;
+  QToolBar* mPrefToolBar;
+  QToolBar* mSearchToolBar;
 
   QString mActionDescriptionPrefix;
   QString mCurrentFile;
@@ -133,7 +132,7 @@ private:
   bool mShowComments;
   bool mShowPrecision;
 
-private slots:
+ private slots:
   void about();
 
   void newIdk();
@@ -146,7 +145,7 @@ private slots:
   bool exportIdf();
   bool exportIdfAs();
 
-  void addObject(QAction * action);
+  void addObject(QAction* action);
   void addObjects();
   void removeObjects();
   void copyObjects();
@@ -160,14 +159,13 @@ private slots:
   void on_togglePrecision();
   void on_toggleUnits();
 
-  void on_modelUpdated(QAbstractItemModel * model);
+  void on_modelUpdated(QAbstractItemModel* model);
   void on_precisionDlgHidden();
   void on_precisionDlgFinished();
 
-signals:
-
+ signals:
 };
 
-} // namespace modeleditor
+}  // namespace modeleditor
 
-#endif // MODELEDITOR_EDITORFRAME_HPP
+#endif  // MODELEDITOR_EDITORFRAME_HPP

@@ -46,77 +46,73 @@
 namespace openstudio {
 namespace bimserver {
 
-    /// This shows a input dialog to gather project id for import
-  class BIMSERVER_API ProjectImporter: public QDialog
-  {
-    Q_OBJECT
+/// This shows a input dialog to gather project id for import
+class BIMSERVER_API ProjectImporter : public QDialog
+{
+  Q_OBJECT
 
-    public:
+ public:
+  /// Default constructor
+  ProjectImporter(QWidget* parent);
 
-      /// Default constructor
-      ProjectImporter(QWidget *parent);
+  /// Start importing IFC workflow
+  boost::optional<model::Model> run();
 
-      /// Start importing IFC workflow
-      boost::optional<model::Model> run();
+  /// Virtual destructor
+  ~ProjectImporter();
 
-      /// Virtual destructor
-      ~ProjectImporter();
+  /// Reimplemented the close event and guide it to the run() function
+  void closeEvent(QCloseEvent* event) override;
 
-      /// Reimplemented the close event and guide it to the run() function
-      void closeEvent(QCloseEvent *event) override;
+  /// Reimplemented the key press event of ESC and guide it to the run() function
+  void keyPressEvent(QKeyEvent* event) override;
 
-      /// Reimplemented the key press event of ESC and guide it to the run() function
-      void keyPressEvent(QKeyEvent *event) override;
+ signals:
+  /// OSM String is retrieved.
+  void finished();
 
-    signals:
-      /// OSM String is retrieved.
-      void finished();
+ public slots:
 
-    public slots:
+  /// Takes projectList from BIMserverConnection and prints out projects
+  void processProjectList(QStringList projectList);
+  /// Takes ifc list from BIMserverConnection and prints out ifc list
+  void processIFCList(QStringList ifcList);
+  /// process success cases for createProject, checkInIFC, and login
+  void processSucessCases(QString sucessCase);
+  /// process all failure cases if BIMserver outputs an exception. Print it
+  void processFailureCases(QString failureCase);
+  /// OSM string is retrieved
+  void processOSMRetrieved(QString osmString);
+  /// process if BIMserver is not connected.
+  void processBIMserverErrors();
 
-      /// Takes projectList from BIMserverConnection and prints out projects
-      void processProjectList(QStringList projectList);
-      /// Takes ifc list from BIMserverConnection and prints out ifc list
-      void processIFCList(QStringList ifcList);
-      /// process success cases for createProject, checkInIFC, and login
-      void processSucessCases(QString sucessCase);
-      /// process all failure cases if BIMserver outputs an exception. Print it
-      void processFailureCases(QString failureCase);
-      /// OSM string is retrieved
-      void processOSMRetrieved(QString osmString);
-      /// process if BIMserver is not connected.
-      void processBIMserverErrors();
+ private:
+  BIMserverConnection* m_bimserverConnection;
+  QSettings* m_settings;
 
-    private:
+  QString m_proID;
+  QString m_ifcID;
+  QListWidget* m_proList;
+  QListWidget* m_ifcList;
+  QStatusBar* m_statusBar;
+  QEventLoop* m_waitForOSM;
+  QString m_OSM;
 
-      BIMserverConnection *m_bimserverConnection;
-      QSettings *m_settings;
+  QPushButton* m_okButton;
+  QPushButton* m_loadButton;
+  QPushButton* m_selectButton;
 
+ private slots:
 
-      QString     m_proID;
-      QString     m_ifcID;
-      QListWidget *m_proList;
-      QListWidget *m_ifcList;
-      QStatusBar  *m_statusBar;
-      QEventLoop  *m_waitForOSM;
-      QString     m_OSM;
+  void okButton_clicked();
+  void newButton_clicked();
+  void loadButton_clicked();
+  void selectButton_clicked();
+  void settingButton_clicked();
+  void app_ended();
+};
 
-      QPushButton *m_okButton;
-      QPushButton *m_loadButton;
-      QPushButton *m_selectButton;
+}  // namespace bimserver
+}  // namespace openstudio
 
-    private slots:
-
-      void okButton_clicked();
-      void newButton_clicked();
-      void loadButton_clicked();
-      void selectButton_clicked();
-      void settingButton_clicked();
-      void app_ended();
-
-    };
-
-} // bimserver
-} // openstudio
-
-#endif // BIMSERVER_PROJECTIMPORTER_HPP
+#endif  // BIMSERVER_PROJECTIMPORTER_HPP

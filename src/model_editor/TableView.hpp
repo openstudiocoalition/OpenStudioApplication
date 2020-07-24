@@ -32,35 +32,33 @@
 
 #include <QTableView>
 
-namespace modeleditor
-{
+namespace modeleditor {
 
 class TableView : public QTableView
 {
   Q_OBJECT
 
-public:
-  TableView(QWidget *parent = nullptr);
+ public:
+  TableView(QWidget* parent = nullptr);
   virtual ~TableView();
   bool getSelectedRows(QModelIndexList& rowList);
   bool hasSelectedRows();
 
-public slots:
+ public slots:
 
-signals:
+ signals:
   void eventEnter();
   void eventLeave();
   void eventUpDnKeyRelease();
 
-protected:
-  virtual void enterEvent(QEvent * event) override;
-  virtual void leaveEvent(QEvent * event) override;
-  virtual void keyReleaseEvent(QKeyEvent * event) override;
+ protected:
+  virtual void enterEvent(QEvent* event) override;
+  virtual void leaveEvent(QEvent* event) override;
+  virtual void keyReleaseEvent(QKeyEvent* event) override;
 
-private:
-
+ private:
 };
 
-} // namespace modeleditor
+}  // namespace modeleditor
 
-#endif // MODELEDITOR_TABLEVIEW_HPP
+#endif  // MODELEDITOR_TABLEVIEW_HPP

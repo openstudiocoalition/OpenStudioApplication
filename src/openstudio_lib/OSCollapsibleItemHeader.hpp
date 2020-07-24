@@ -43,45 +43,39 @@ class OSCollapsibleItemHeader : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
+  OSCollapsibleItemHeader(const std::string& text, const OSItemId& itemId, OSItemType type = OSItemType::CollapsibleListHeader,
+                          QWidget* parent = nullptr);
 
-    OSCollapsibleItemHeader(const std::string& text,
-                            const OSItemId& itemId,
-                            OSItemType type = OSItemType::CollapsibleListHeader,
-                            QWidget * parent = nullptr);
+  virtual ~OSCollapsibleItemHeader() {}
 
-    virtual ~OSCollapsibleItemHeader() {}
+  bool expanded() const;
+  void setExpanded(bool isExpanded);
 
-    bool expanded() const;
-    void setExpanded(bool isExpanded);
+  bool selected() const;
+  void setSelected(bool isSelected);
 
-    bool selected() const;
-    void setSelected(bool isSelected);
+ signals:
 
-  signals:
+  void clicked(OSCollapsibleItemHeader* header);
 
-    void clicked(OSCollapsibleItemHeader * header);
+ protected:
+  void paintEvent(QPaintEvent* event) override;
+  void mouseReleaseEvent(QMouseEvent* event) override;
+  void mousePressEvent(QMouseEvent* event) override;
+  void leaveEvent(QEvent* event) override;
+  QSize sizeHint() const override;
 
-  protected:
+ private:
+  void setImage(bool expanded);
 
-    void paintEvent(QPaintEvent * event) override;
-    void mouseReleaseEvent(QMouseEvent * event) override;
-    void mousePressEvent(QMouseEvent * event) override;
-    void leaveEvent(QEvent * event) override;
-    QSize sizeHint() const override;
+  QLabel* m_arrowLabel;
 
-  private:
-    void setImage(bool expanded);
-
-    QLabel * m_arrowLabel;
-
-    bool m_expanded;
-    bool m_selected;
-    bool m_mouseDown;
-
+  bool m_expanded;
+  bool m_selected;
+  bool m_mouseDown;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_OSCOLLAPSIBLEITEMHEADER_HPP
-
+#endif  // OPENSTUDIO_OSCOLLAPSIBLEITEMHEADER_HPP

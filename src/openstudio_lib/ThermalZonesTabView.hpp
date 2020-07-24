@@ -38,13 +38,12 @@ class ThermalZonesTabView : public MainTabView
 {
   Q_OBJECT
 
-  public:
+ public:
+  ThermalZonesTabView(QWidget* parent = nullptr);
 
-  ThermalZonesTabView(QWidget * parent = nullptr);
-
-  virtual ~ThermalZonesTabView() {};
+  virtual ~ThermalZonesTabView(){};
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_THERMALZONESTABVIEW_HPP
+#endif  // OPENSTUDIO_THERMALZONESTABVIEW_HPP

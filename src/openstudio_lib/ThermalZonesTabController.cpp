@@ -36,16 +36,14 @@
 
 namespace openstudio {
 
-ThermalZonesTabController::ThermalZonesTabController(bool isIP, const model::Model& model)
-  : MainTabController(new ThermalZonesTabView())
-{
-  m_thermalZonesController = std::shared_ptr<ThermalZonesController>(new ThermalZonesController(isIP,model));
+ThermalZonesTabController::ThermalZonesTabController(bool isIP, const model::Model& model) : MainTabController(new ThermalZonesTabView()) {
+  m_thermalZonesController = std::shared_ptr<ThermalZonesController>(new ThermalZonesController(isIP, model));
 
   this->mainContentWidget()->addTabWidget(m_thermalZonesController->subTabView());
 
   bool isConnected = false;
 
-  isConnected = connect(this, SIGNAL(itemRemoveClicked(OSItem *)), m_thermalZonesController.get(), SLOT(removeItem(OSItem *)));
+  isConnected = connect(this, SIGNAL(itemRemoveClicked(OSItem*)), m_thermalZonesController.get(), SLOT(removeItem(OSItem*)));
   OS_ASSERT(isConnected);
 
   connect(m_thermalZonesController.get(), &ThermalZonesController::modelObjectSelected, this, &ThermalZonesTabController::modelObjectSelected);
@@ -55,5 +53,4 @@ ThermalZonesTabController::ThermalZonesTabController(bool isIP, const model::Mod
   connect(this, &ThermalZonesTabController::toggleUnitsClicked, m_thermalZonesController.get(), &ThermalZonesController::toggleUnitsClicked);
 }
 
-} // openstudio
-
+}  // namespace openstudio

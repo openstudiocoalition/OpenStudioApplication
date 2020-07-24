@@ -44,14 +44,12 @@
 
 namespace openstudio {
 
-VerticalTabWidget::VerticalTabWidget(QWidget * parent)
-  : QWidget(parent)
-{
+VerticalTabWidget::VerticalTabWidget(QWidget* parent) : QWidget(parent) {
   auto mainLayout = new QHBoxLayout();
 
   mainLayout->setSpacing(0);
 
-  mainLayout->setContentsMargins(5,0,0,0);
+  mainLayout->setContentsMargins(5, 0, 0, 0);
 
   setLayout(mainLayout);
 
@@ -61,23 +59,19 @@ VerticalTabWidget::VerticalTabWidget(QWidget * parent)
 
   m_tabBar->setMaximumWidth(39);
 
-  m_tabBar->setContentsMargins(0,0,0,0);
+  m_tabBar->setContentsMargins(0, 0, 0, 0);
 
   layout()->addWidget(m_tabBar);
 
   m_viewSwitcher = new OSViewSwitcher();
 
-  m_viewSwitcher->setContentsMargins(0,0,0,0);
+  m_viewSwitcher->setContentsMargins(0, 0, 0, 0);
 
   layout()->addWidget(m_viewSwitcher);
 }
 
-void VerticalTabWidget::addTabButton(int id,
-  QString toolTip,
-  const QString & selectedImagePath,
-  const QString & unSelectedImagePath,
-  const QString & disabledImagePath)
-{
+void VerticalTabWidget::addTabButton(int id, QString toolTip, const QString& selectedImagePath, const QString& unSelectedImagePath,
+                                     const QString& disabledImagePath) {
   auto button = new QPushButton(m_tabBar);
 
   button->setFixedSize(QSize(39, 42));
@@ -97,31 +91,26 @@ void VerticalTabWidget::addTabButton(int id,
   m_ids.push_back(id);
 }
 
-void VerticalTabWidget::setView(MainTabView * view, int id)
-{
+void VerticalTabWidget::setView(MainTabView* view, int id) {
   m_viewSwitcher->setView(view);
 
   setCurrentIndex(getIndex(id));
 }
 
-MainTabView * VerticalTabWidget::view() const
-{
-  MainTabView * view = qobject_cast<MainTabView *>(m_viewSwitcher->view());
+MainTabView* VerticalTabWidget::view() const {
+  MainTabView* view = qobject_cast<MainTabView*>(m_viewSwitcher->view());
   OS_ASSERT(view);
 
   return view;
 }
 
-void VerticalTabWidget::select()
-{
-  QPushButton * button = qobject_cast<QPushButton *>(sender());
+void VerticalTabWidget::select() {
+  QPushButton* button = qobject_cast<QPushButton*>(sender());
 
   int index = 0;
 
-  for( auto it = m_tabButtons.begin();
-       it < m_tabButtons.end();
-       ++it ) {
-    if( *it == button ){
+  for (auto it = m_tabButtons.begin(); it < m_tabButtons.end(); ++it) {
+    if (*it == button) {
       break;
     } else {
       index++;
@@ -131,34 +120,30 @@ void VerticalTabWidget::select()
   setCurrentIndex(index);
 }
 
-int VerticalTabWidget::getIndex(int id)
-{
+int VerticalTabWidget::getIndex(int id) {
   int index = -1;
   std::vector<int>::iterator it;
 
-  it = std::find(m_ids.begin(),m_ids.end(),id);
+  it = std::find(m_ids.begin(), m_ids.end(), id);
 
-  if( it != m_ids.end() ){
+  if (it != m_ids.end()) {
     index = it - m_ids.begin();
   }
   OS_ASSERT(index >= 0);
   return index;
 }
 
-void VerticalTabWidget::refreshTabButtons()
-{
+void VerticalTabWidget::refreshTabButtons() {
   setCurrentIndex(currentIndex);
 }
 
-void VerticalTabWidget::setCurrentIndex(int index)
-{
+void VerticalTabWidget::setCurrentIndex(int index) {
   int yPos = 25;
 
-  for(unsigned i = 0; i < m_tabButtons.size(); i++)
-  {
-    QPushButton * button = m_tabButtons[i];
+  for (unsigned i = 0; i < m_tabButtons.size(); i++) {
+    QPushButton* button = m_tabButtons[i];
 
-    button->move(0,yPos);
+    button->move(0, yPos);
 
     yPos = yPos + button->height();
 
@@ -166,12 +151,11 @@ void VerticalTabWidget::setCurrentIndex(int index)
 
     QString style;
 
-    if (i == static_cast<unsigned>(index))
-    {
+    if (i == static_cast<unsigned>(index)) {
       imagePath = m_selectedPixmaps[i];
 
       // Ignore clicks to the already active tab
-      if(currentIndex != index){
+      if (currentIndex != index) {
         currentIndex = index;
 
         style.append("QPushButton { background-color: blue; background-image: url(\"");
@@ -184,16 +168,13 @@ void VerticalTabWidget::setCurrentIndex(int index)
 
         emit tabSelected(m_ids[index]);
       }
-    }
-    else
-    {
-      if (button->isEnabled()){
+    } else {
+      if (button->isEnabled()) {
         imagePath = m_unSelectedPixmaps[i];
         style.append("QPushButton { background-image: url(\"");
         style.append(imagePath);
         style.append("\"); border: none; background-color: red; background-repeat: 0; }");
-      }
-      else {
+      } else {
         imagePath = m_disabledPixmaps[i];
         style.append("QPushButton { background-image: url(\"");
         style.append(imagePath);
@@ -205,14 +186,12 @@ void VerticalTabWidget::setCurrentIndex(int index)
   }
 }
 
-void VerticalTabWidget::enableTabButton(int id, bool enable)
-{
+void VerticalTabWidget::enableTabButton(int id, bool enable) {
   m_tabButtons.at(getIndex(id))->setEnabled(enable);
 }
 
-int VerticalTabWidget::verticalTabIndex()
-{
+int VerticalTabWidget::verticalTabIndex() {
   return currentIndex;
 }
 
-} // namespace openstudio
+}  // namespace openstudio

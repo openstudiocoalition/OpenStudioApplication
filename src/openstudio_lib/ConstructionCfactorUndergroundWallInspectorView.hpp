@@ -50,41 +50,38 @@ class ConstructionCfactorUndergroundWallInspectorView : public ModelObjectInspec
 {
   Q_OBJECT
 
-  public:
+ public:
+  ConstructionCfactorUndergroundWallInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
-    ConstructionCfactorUndergroundWallInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent = nullptr);
+  virtual ~ConstructionCfactorUndergroundWallInspectorView() {}
 
-    virtual ~ConstructionCfactorUndergroundWallInspectorView() {}
+ protected:
+  virtual void onClearSelection() override;
 
-  protected:
+  virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
-    virtual void onClearSelection() override;
+  virtual void onUpdate() override;
 
-    virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
+ private:
+  void createLayout();
 
-    virtual void onUpdate() override;
+  void attach(openstudio::model::CFactorUndergroundWallConstruction& cFactorUndergroundWallConstruction);
 
-  private:
+  void detach();
 
-    void createLayout();
+  bool m_isIP;
 
-    void attach(openstudio::model::CFactorUndergroundWallConstruction & cFactorUndergroundWallConstruction);
+  OSLineEdit2* m_nameEdit;
 
-    void detach();
+  StandardsInformationConstructionWidget* m_standardsInformationWidget;
 
-    bool m_isIP;
+  OSQuantityEdit2* m_cfactorEdit;
 
-    OSLineEdit2 * m_nameEdit;
+  OSQuantityEdit2* m_heightEdit;
 
-    StandardsInformationConstructionWidget * m_standardsInformationWidget;
-
-    OSQuantityEdit2 * m_cfactorEdit;
-
-    OSQuantityEdit2 * m_heightEdit;
-
-    boost::optional<model::CFactorUndergroundWallConstruction> m_cFactorUndergroundWallConstruction;
+  boost::optional<model::CFactorUndergroundWallConstruction> m_cFactorUndergroundWallConstruction;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_CONSTRUCTIONCFACTORUNDERGROUNDWALLINSPECTORVIEW_HPP
+#endif  // OPENSTUDIO_CONSTRUCTIONCFACTORUNDERGROUNDWALLINSPECTORVIEW_HPP

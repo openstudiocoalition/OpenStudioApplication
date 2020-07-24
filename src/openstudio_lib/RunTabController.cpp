@@ -37,11 +37,11 @@
 
 namespace openstudio {
 
-RunTabController::RunTabController(const model::Model & model, const openstudio::path &t_modelPath,
-    const openstudio::path &t_tempFolder)//, openstudio::runmanager::RunManager t_runManager)
-  : MainTabController(new RunTabView(model))//,
-    //m_runView(new RunView(model, t_modelPath, t_tempFolder, t_runManager)),
-    //m_status(new openstudio::runmanager::JobStatusWidget(t_runManager))
+RunTabController::RunTabController(const model::Model& model, const openstudio::path& t_modelPath,
+                                   const openstudio::path& t_tempFolder)  //, openstudio::runmanager::RunManager t_runManager)
+  : MainTabController(new RunTabView(model))                              //,
+                                                                          //m_runView(new RunView(model, t_modelPath, t_tempFolder, t_runManager)),
+                                                                          //m_status(new openstudio::runmanager::JobStatusWidget(t_runManager))
 {
   //mainContentWidget()->addSubTab("Output", m_runView,OUTPUT);
   //mainContentWidget()->addSubTab("Tree", m_status,TREE);
@@ -65,9 +65,8 @@ RunTabController::RunTabController(const model::Model & model, const openstudio:
 //  return m_runView->runManager();
 //}
 
-void RunTabController::updateToolsWarnings()
-{
+void RunTabController::updateToolsWarnings() {
   //m_runView->updateToolsWarnings();
 }
 
-} // openstudio
+}  // namespace openstudio

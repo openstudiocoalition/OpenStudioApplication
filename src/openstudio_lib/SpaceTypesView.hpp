@@ -47,16 +47,12 @@ class SpaceTypesView : public ModelSubTabView
 {
   Q_OBJECT
 
-  public:
+ public:
+  SpaceTypesView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
-    SpaceTypesView(bool isIP,
-      const openstudio::model::Model& model,
-      QWidget * parent = nullptr);
-
-    virtual ~SpaceTypesView() {}
-
+  virtual ~SpaceTypesView() {}
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_SPACETYPESVIEW_HPP
+#endif  // OPENSTUDIO_SPACETYPESVIEW_HPP

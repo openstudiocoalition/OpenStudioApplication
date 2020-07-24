@@ -40,13 +40,12 @@ class StartupMenu : public QMenuBar
 {
   Q_OBJECT
 
-  public:
-
-  StartupMenu(QWidget *parent = nullptr);
+ public:
+  StartupMenu(QWidget* parent = nullptr);
 
   virtual ~StartupMenu() {}
 
-  signals:
+ signals:
 
   void exportClicked();
 
@@ -72,17 +71,14 @@ class StartupMenu : public QMenuBar
 
   void aboutClicked();
 
-  private:
+ private:
+  QMenu* m_fileMenu;
 
-  QMenu * m_fileMenu;
+  QMenu* m_viewMenu;
 
-  QMenu * m_viewMenu;
-
-  QMenu * m_helpMenu;
-
+  QMenu* m_helpMenu;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_STARTUPMENU_HPP
-
+#endif  // OPENSTUDIO_STARTUPMENU_HPP

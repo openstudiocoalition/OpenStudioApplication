@@ -46,38 +46,34 @@ class Component;
 class MeasureManager;
 class SyncMeasuresDialogCentralWidget;
 
-
 class SyncMeasuresDialog : public QDialog
 {
   Q_OBJECT
 
-public:
-  SyncMeasuresDialog(const WorkflowJSON& workflow,
-    MeasureManager * measureManager,
-    QWidget * parent = nullptr);
+ public:
+  SyncMeasuresDialog(const WorkflowJSON& workflow, MeasureManager* measureManager, QWidget* parent = nullptr);
   virtual ~SyncMeasuresDialog() {}
 
-protected:
-  void paintEvent(QPaintEvent * event) override;
+ protected:
+  void paintEvent(QPaintEvent* event) override;
 
-private:
+ private:
   void createLayout();
   void findUpdates();
 
-  SyncMeasuresDialogCentralWidget * m_centralWidget;
-  QScrollArea * m_rightScrollArea;
-  Component * m_expandedComponent;
+  SyncMeasuresDialogCentralWidget* m_centralWidget;
+  QScrollArea* m_rightScrollArea;
+  Component* m_expandedComponent;
   std::vector<BCLMeasure> m_measuresNeedingUpdates;
   WorkflowJSON m_workflow;
-  MeasureManager * m_measureManager; // DLM: why is this a raw pointer?
+  MeasureManager* m_measureManager;  // DLM: why is this a raw pointer?
 
-private slots:
+ private slots:
   void on_componentClicked(bool checked);
   void on_noComponents();
   void closeDlg();
-
 };
 
-} // namespace openstudio
+}  // namespace openstudio
 
-#endif // SHAREDGUICOMPONENTS_SYNCMEASURESDIALOG_HPP
+#endif  // SHAREDGUICOMPONENTS_SYNCMEASURESDIALOG_HPP

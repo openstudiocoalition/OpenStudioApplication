@@ -59,28 +59,20 @@
 
 namespace openstudio {
 
-  SubTabView::SubTabView(OSItemSelector* itemSelector,
-    OSInspectorView *inspectorView,
-    bool showGridViewLayout,
-    QWidget * parent)
-  : QSplitter(parent),
-  m_itemSelector(itemSelector),
-  m_inspectorView(inspectorView)
-{
+SubTabView::SubTabView(OSItemSelector* itemSelector, OSInspectorView* inspectorView, bool showGridViewLayout, QWidget* parent)
+  : QSplitter(parent), m_itemSelector(itemSelector), m_inspectorView(inspectorView) {
   this->setObjectName("GrayWidgetWithLeftTopBorders");
   connectItemSelector();
   connectInspectorView();
   connectItemSelectorButtons();
-  if (showGridViewLayout){
+  if (showGridViewLayout) {
     createGridViewLayout();
-  }
-  else {
+  } else {
     createLayout();
   }
 }
 
-void SubTabView::connectItemSelector()
-{
+void SubTabView::connectItemSelector() {
   // Item Selector
   connect(m_itemSelector, &OSItemSelector::itemSelected, this, &SubTabView::itemSelected);
 
@@ -91,8 +83,7 @@ void SubTabView::connectItemSelector()
   connect(m_itemSelector, &OSItemSelector::selectionCleared, this, &SubTabView::selectionCleared);
 }
 
-void SubTabView::connectInspectorView()
-{
+void SubTabView::connectInspectorView() {
   // Inspector View
   connect(m_inspectorView, &OSInspectorView::dropZoneItemClicked, this, &SubTabView::dropZoneItemClicked);
 
@@ -100,8 +91,7 @@ void SubTabView::connectInspectorView()
   OS_ASSERT(isConnected);
 }
 
-void SubTabView::connectItemSelectorButtons()
-{
+void SubTabView::connectItemSelectorButtons() {
   // Item Selector Buttons
   m_itemSelectorButtons = new OSItemSelectorButtons();
 
@@ -118,8 +108,7 @@ void SubTabView::connectItemSelectorButtons()
   connect(m_itemSelectorButtons, &OSItemSelectorButtons::downloadComponentsClicked, this, &SubTabView::downloadComponentsClicked);
 }
 
-void SubTabView::createLayout()
-{
+void SubTabView::createLayout() {
   auto leftWidget = new QWidget();
   addWidget(leftWidget);
 
@@ -136,8 +125,7 @@ void SubTabView::createLayout()
   setStretchFactor(1, 100000);
 }
 
-void SubTabView::createGridViewLayout()
-{
+void SubTabView::createGridViewLayout() {
   auto widget = new QWidget();
   addWidget(widget);
 
@@ -154,46 +142,37 @@ void SubTabView::createGridViewLayout()
   //setStretchFactor(1, 100000);
 }
 
-OSItemSelector* SubTabView::itemSelector()
-{
+OSItemSelector* SubTabView::itemSelector() {
   return m_itemSelector;
 }
 
-OSItemSelectorButtons* SubTabView::itemSelectorButtons()
-{
+OSItemSelectorButtons* SubTabView::itemSelectorButtons() {
   return m_itemSelectorButtons;
 }
 
-OSInspectorView* SubTabView::inspectorView()
-{
+OSInspectorView* SubTabView::inspectorView() {
   return m_inspectorView;
 }
 
-const OSItemSelector* SubTabView::itemSelector() const
-{
+const OSItemSelector* SubTabView::itemSelector() const {
   return m_itemSelector;
 }
 
-const OSItemSelectorButtons* SubTabView::itemSelectorButtons() const
-{
+const OSItemSelectorButtons* SubTabView::itemSelectorButtons() const {
   return m_itemSelectorButtons;
 }
 
-const OSInspectorView* SubTabView::inspectorView() const
-{
+const OSInspectorView* SubTabView::inspectorView() const {
   return m_inspectorView;
 }
 
-void SubTabView::paintEvent ( QPaintEvent * event )
-{
+void SubTabView::paintEvent(QPaintEvent* event) {
   QStyleOption opt;
   opt.init(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
 
-void SubTabView::onDropZoneItemClicked(OSItem* item)
-{
-}
+void SubTabView::onDropZoneItemClicked(OSItem* item) {}
 
-} // openstudio
+}  // namespace openstudio

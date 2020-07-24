@@ -44,20 +44,17 @@ class UtilityBillFuelTypeItem : public OSCollapsibleItem
 {
   Q_OBJECT
 
-  public:
+ public:
+  UtilityBillFuelTypeItem(OSCollapsibleItemHeader* collapsibleItemHeader, UtilityBillFuelTypeListView* utilityBillFuelTypeListView,
+                          QWidget* parent = nullptr);
 
-    UtilityBillFuelTypeItem(OSCollapsibleItemHeader* collapsibleItemHeader,
-                        UtilityBillFuelTypeListView* utilityBillFuelTypeListView,
-                        QWidget * parent = nullptr );
+  virtual ~UtilityBillFuelTypeItem() {}
 
-    virtual ~UtilityBillFuelTypeItem() {}
+  IddObjectType iddObjectType() const;
 
-    IddObjectType iddObjectType() const;
-
-    FuelType fuelType() const;
-
+  FuelType fuelType() const;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_UTILITYBILLFUELTYPEITEM_HPP
+#endif  // OPENSTUDIO_UTILITYBILLFUELTYPEITEM_HPP

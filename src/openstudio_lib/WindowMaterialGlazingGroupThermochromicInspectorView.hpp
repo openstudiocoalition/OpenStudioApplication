@@ -47,44 +47,40 @@ class WindowMaterialGlazingGroupThermochromicInspectorView : public ModelObjectI
 {
   Q_OBJECT
 
-  public:
+ public:
+  WindowMaterialGlazingGroupThermochromicInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
-    WindowMaterialGlazingGroupThermochromicInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent = nullptr);
+  virtual ~WindowMaterialGlazingGroupThermochromicInspectorView() {}
 
-    virtual ~WindowMaterialGlazingGroupThermochromicInspectorView() {}
+ protected:
+  virtual void onClearSelection() override;
 
-  protected:
+  virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
-    virtual void onClearSelection() override;
+  virtual void onUpdate() override;
 
-    virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
+ private:
+  void createLayout();
 
-    virtual void onUpdate() override;
+  void attach(openstudio::model::ThermochromicGlazing& ThermochromicGlazing);
 
-  private:
+  void detach();
 
-    void createLayout();
+  void refresh();
 
-    void attach(openstudio::model::ThermochromicGlazing & ThermochromicGlazing);
+  bool m_isIP;
 
-    void detach();
+  boost::optional<model::ThermochromicGlazing> m_thermochromicGlazing;
 
-    void refresh();
+  OSLineEdit2* m_nameEdit = nullptr;
 
-    bool m_isIP;
+  OSQuantityEdit2* m_opticalDataTemperature = nullptr;
 
-    boost::optional<model::ThermochromicGlazing> m_thermochromicGlazing;
+  OSLineEdit2* m_windowMaterialGlazingName = nullptr;
 
-    OSLineEdit2 * m_nameEdit = nullptr;
-
-    OSQuantityEdit2 * m_opticalDataTemperature = nullptr;
-
-    OSLineEdit2 * m_windowMaterialGlazingName = nullptr;
-
-    StandardsInformationMaterialWidget * m_standardsInformationWidget = nullptr;
-
+  StandardsInformationMaterialWidget* m_standardsInformationWidget = nullptr;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_WINDOWMATERIALGLAZINGGROUPTHERMOCHROMICINSPECTORVIEW_HPP
+#endif  // OPENSTUDIO_WINDOWMATERIALGLAZINGGROUPTHERMOCHROMICINSPECTORVIEW_HPP

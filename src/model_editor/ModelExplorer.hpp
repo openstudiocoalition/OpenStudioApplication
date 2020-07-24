@@ -47,106 +47,104 @@ class QToolBar;
 
 class InspectorGadget;
 
-namespace openstudio{
-  class ProgressBar;
+namespace openstudio {
+class ProgressBar;
 }
 
-namespace modeleditor
+namespace modeleditor {
+
+class ClassViewWidget;
+class ObjectExplorer;
+class TableModel;
+class TreeModel;
+class TreeViewWidget;
+class ViewWidget;
+
+class ModelExplorer : public QWidget
 {
+  Q_OBJECT
 
-  class ClassViewWidget;
-  class ObjectExplorer;
-  class TableModel;
-  class TreeModel;
-  class TreeViewWidget;
-  class ViewWidget;
+ public:
+  ModelExplorer(QWidget* parent = nullptr);
+  virtual ~ModelExplorer();
+  void loadFile(const QString& fileName);
+  void addObjects(openstudio::IddObjectType type = openstudio::IddObjectType("UserCustom"));
+  void removeObjects();
+  void copyObjects();
+  void pasteObjects();
+  bool classViewUnderMouse();
+  bool treeViewUnderMouse();
+  bool classViewCurrentWidget();
+  bool treeViewCurrentWidget();
+  bool hasSelectedRows();
+  bool treeViewHasRowsToPaste();
+  bool classViewHasRowsToPaste();
+  std::vector<openstudio::IddObjectType> getAllowableChildTypes();
+  openstudio::model::Model& getModel();
+  const openstudio::IddFile& getIddFile();
+  void setModel(openstudio::model::Model& model);
+  void setIddFile(openstudio::model::Model& model);
+  void loadModel();
+  int currentIndex() const;
+  void expandAllNodes();
+  TableModel* getTableModel();
+  TreeModel* getTreeModel();
+  void showComments(const bool showComments);
+  void showPrecision(const bool showPrecision);
 
-  class ModelExplorer : public QWidget
-  {
-    Q_OBJECT
+ public slots:
+  void classAction();
+  void systemOutlinerAction();
+  void treeAction();
+  void setCurrentIndex(int index);
+  void on_ClassViewEventEnter();
+  void on_ClassViewEventLeave();
+  void on_TreeViewEventEnter();
+  void on_TreeViewEventLeave();
+  void toggleGUIDs();
+  void showAllFields(bool);
+  void createAllFields();
+  void setRecursive(bool);
 
-    public:
-    ModelExplorer(QWidget * parent = nullptr);
-    virtual ~ModelExplorer();
-    void loadFile(const QString &fileName);
-    void addObjects(openstudio::IddObjectType type = openstudio::IddObjectType("UserCustom"));
-    void removeObjects();
-    void copyObjects();
-    void pasteObjects();
-    bool classViewUnderMouse();
-    bool treeViewUnderMouse();
-    bool classViewCurrentWidget();
-    bool treeViewCurrentWidget();
-    bool hasSelectedRows();
-    bool treeViewHasRowsToPaste();
-    bool classViewHasRowsToPaste();
-    std::vector<openstudio::IddObjectType> getAllowableChildTypes();
-    openstudio::model::Model& getModel();
-    const openstudio::IddFile& getIddFile();
-    void setModel(openstudio::model::Model& model);
-    void setIddFile(openstudio::model::Model& model);
-    void loadModel();
-    int currentIndex() const;
-    void expandAllNodes();
-    TableModel* getTableModel();
-    TreeModel* getTreeModel();
-    void showComments(const bool showComments);
-    void showPrecision(const bool showPrecision);
+ signals:
+  void modelDirty();
+  void showStatusBarMsg(const QString& msg, const int millisecondDuration);
+  void precisionDlgHidden();
+  void precisionDlgFinished();
 
-  public slots:
-    void classAction();
-    void systemOutlinerAction();
-    void treeAction();
-    void setCurrentIndex(int index);
-    void on_ClassViewEventEnter();
-    void on_ClassViewEventLeave();
-    void on_TreeViewEventEnter();
-    void on_TreeViewEventLeave();
-    void toggleGUIDs();
-    void showAllFields(bool);
-    void createAllFields();
-    void setRecursive(bool);
+ protected:
+ private:
+  void createProgressDlg();
+  void createWidgets();
+  void createActions();
+  void createToolBars();
+  void createLayout();
+  void connectSignalsAndSlots();
+  void viewWidgetAction(modeleditor::ViewWidget* viewWidget);
+  void saveState();
+  void restoreState();
 
-  signals:
-    void modelDirty();
-    void showStatusBarMsg(const QString& msg, const int millisecondDuration);
-    void precisionDlgHidden();
-    void precisionDlgFinished();
+  ClassViewWidget* mClassViewWidget;
+  TreeViewWidget* mTreeViewWidget;
+  ObjectExplorer* mObjectExplorer;
 
-  protected:
+  bool mClassViewUnderMouse;
+  bool mTreeViewUnderMouse;
 
-  private:
-    void createProgressDlg();
-    void createWidgets();
-    void createActions();
-    void createToolBars();
-    void createLayout();
-    void connectSignalsAndSlots();
-    void viewWidgetAction(modeleditor::ViewWidget * viewWidget);
-    void saveState();
-    void restoreState();
+  QLabel* mProgressBarLbl;
+  QSplitter* mSplitter;
+  QDialog* mDlg;
+  openstudio::ProgressBar* mProgressBar;
+  QProgressBar* mQProgressBar;
+  QAction* mClassAction;
+  QAction* mSystemOutlinerAction;
+  QAction* mTreeAction;
+  QStackedWidget* mStackedWidget;
+  QToolBar* mToolBar;
+  openstudio::model::Model mModel;
+  openstudio::IddFile mIddFile;
+};
 
-    ClassViewWidget * mClassViewWidget;
-    TreeViewWidget * mTreeViewWidget;
-    ObjectExplorer * mObjectExplorer;
+}  // namespace modeleditor
 
-    bool mClassViewUnderMouse;
-    bool mTreeViewUnderMouse;
-
-    QLabel * mProgressBarLbl;
-    QSplitter * mSplitter;
-    QDialog * mDlg;
-    openstudio::ProgressBar * mProgressBar;
-    QProgressBar * mQProgressBar;
-    QAction * mClassAction;
-    QAction * mSystemOutlinerAction;
-    QAction * mTreeAction;
-    QStackedWidget * mStackedWidget;
-    QToolBar * mToolBar;
-    openstudio::model::Model mModel;
-    openstudio::IddFile mIddFile;
-  };
-
-} // namespace modeleditor
-
-#endif // MODELEDITOR_MODELEXPLORER_HPP
+#endif  // MODELEDITOR_MODELEXPLORER_HPP

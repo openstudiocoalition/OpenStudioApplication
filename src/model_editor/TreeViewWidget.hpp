@@ -36,8 +36,7 @@
 #include "ModelEditorAPI.hpp"
 #include "ViewWidget.hpp"
 
-namespace modeleditor
-{
+namespace modeleditor {
 
 class TreeModel;
 class TreeView;
@@ -46,9 +45,9 @@ class TreeViewWidget : public ViewWidget
 {
   Q_OBJECT
 
-public:
-  TreeViewWidget(openstudio::model::Model& model, QWidget *parent = nullptr);
-  TreeViewWidget(QWidget *parent = nullptr);
+ public:
+  TreeViewWidget(openstudio::model::Model& model, QWidget* parent = nullptr);
+  TreeViewWidget(QWidget* parent = nullptr);
   virtual ~TreeViewWidget();
   virtual void addObjects(openstudio::IddObjectType type = openstudio::IddObjectType("UserCustom")) override;
   virtual void loadModel() override;
@@ -64,20 +63,20 @@ public:
   TreeModel* getTreeModel();
   virtual void toggleGUIDs() override;
 
-public slots:
+ public slots:
   virtual void viewSelection();
   virtual void viewSelection(const QModelIndex& modelIndex) override;
   virtual void on_nameChanged(QString) override;
 
-signals:
+ signals:
   void expandAll();
   void collapseAll();
 
-protected:
-  TreeView * mTreeView;
-  TreeModel * mTreeModel;
+ protected:
+  TreeView* mTreeView;
+  TreeModel* mTreeModel;
 
-private:
+ private:
   virtual void connectSignalsAndSlots() override;
   virtual void createLayout() override;
   virtual void createWidgets() override;
@@ -87,11 +86,11 @@ private:
   void setExpandedIndexHandles();
 
   ///! only expanded nodes are here
-  std::vector< std::pair<QModelIndex, openstudio::Handle> > mExpandedIndexHandles;
+  std::vector<std::pair<QModelIndex, openstudio::Handle>> mExpandedIndexHandles;
 
   std::vector<openstudio::model::ModelObject> mModelObjectsToPaste;
 };
 
-} // namespace modeleditor
+}  // namespace modeleditor
 
-#endif // MODELEDITOR_TREEVIEWWIDGET_HPP
+#endif  // MODELEDITOR_TREEVIEWWIDGET_HPP

@@ -32,7 +32,7 @@
 
 #include "FieldMethodTypedefs.hpp"
 
-#include <openstudio/nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/nano/nano_signal_slot.hpp>  // Signal-Slot replacement
 #include <openstudio/model/Model.hpp>
 
 #include <QLineEdit>
@@ -46,61 +46,53 @@ namespace openstudio {
 
 class OSItem;
 
-class OSLineEdit2 : public QLineEdit, public Nano::Observer {
+class OSLineEdit2 : public QLineEdit, public Nano::Observer
+{
   Q_OBJECT
 
-public:
-
-  OSLineEdit2(QWidget * parent = nullptr);
+ public:
+  OSLineEdit2(QWidget* parent = nullptr);
 
   virtual ~OSLineEdit2();
 
-  void enableClickFocus() { this->m_hasClickFocus = true; }
-  void setDeleteObject(bool deleteObject) { m_deleteObject = deleteObject; }
-  bool hasData() { return !this->text().isEmpty(); }
-  bool deleteObject() { return m_deleteObject; }
+  void enableClickFocus() {
+    this->m_hasClickFocus = true;
+  }
+  void setDeleteObject(bool deleteObject) {
+    m_deleteObject = deleteObject;
+  }
+  bool hasData() {
+    return !this->text().isEmpty();
+  }
+  bool deleteObject() {
+    return m_deleteObject;
+  }
 
-  void bind(model::ModelObject& modelObject,
-            StringGetter get,
-            boost::optional<StringSetter> set=boost::none,
-            boost::optional<NoFailAction> reset=boost::none,
-            boost::optional<BasicQuery> isDefaulted=boost::none);
+  void bind(model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetter> set = boost::none,
+            boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none);
 
-  void bind(model::ModelObject& modelObject,
-            OptionalStringGetter get,
-            boost::optional<StringSetter> set=boost::none,
-            boost::optional<NoFailAction> reset=boost::none,
-            boost::optional<BasicQuery> isDefaulted=boost::none);
+  void bind(model::ModelObject& modelObject, OptionalStringGetter get, boost::optional<StringSetter> set = boost::none,
+            boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none);
 
-  void bind(model::ModelObject& modelObject,
-            OptionalStringGetter get,
-            boost::optional<StringSetterOptionalStringReturn> set = boost::none,
-            boost::optional<NoFailAction> reset = boost::none,
-            boost::optional<BasicQuery> isDefaulted = boost::none);
+  void bind(model::ModelObject& modelObject, OptionalStringGetter get, boost::optional<StringSetterOptionalStringReturn> set = boost::none,
+            boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none);
 
-  void bind(model::ModelObject& modelObject,
-            OptionalStringGetterBoolArg get,
-            boost::optional<StringSetterOptionalStringReturn> set,
-            boost::optional<NoFailAction> reset=boost::none,
-            boost::optional<BasicQuery> isDefaulted=boost::none);
+  void bind(model::ModelObject& modelObject, OptionalStringGetterBoolArg get, boost::optional<StringSetterOptionalStringReturn> set,
+            boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none);
 
-  void bind(model::ModelObject& modelObject,
-    StringGetter get,
-    boost::optional<StringSetterVoidReturn> set = boost::none,
-    boost::optional<NoFailAction> reset = boost::none,
-    boost::optional<BasicQuery> isDefaulted = boost::none);
+  void bind(model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetterVoidReturn> set = boost::none,
+            boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none);
 
   void unbind();
 
-protected:
-
+ protected:
   void mouseReleaseEvent(QMouseEvent* event) override;
 
-  virtual void focusInEvent(QFocusEvent * e) override;
+  virtual void focusInEvent(QFocusEvent* e) override;
 
-  virtual void focusOutEvent(QFocusEvent * e) override;
+  virtual void focusOutEvent(QFocusEvent* e) override;
 
-signals:
+ signals:
 
   void itemClicked(OSItem* item);
 
@@ -108,11 +100,11 @@ signals:
 
   void inFocus(bool inFocus, bool hasData);
 
-  public slots:
+ public slots:
 
   void onItemRemoveClicked();
 
-  private slots :
+ private slots:
 
   void onEditingFinished();
 
@@ -123,7 +115,6 @@ signals:
   void emitItemClicked();
 
  private:
-
   void onModelObjectChangeInternal(bool startingup);
   void completeBind();
   void adjustWidth();
@@ -138,7 +129,7 @@ signals:
   boost::optional<NoFailAction> m_reset;
   boost::optional<BasicQuery> m_isDefaulted;
 
-  OSItem * m_item = nullptr;
+  OSItem* m_item = nullptr;
 
   std::string m_text = "";
 
@@ -178,6 +169,6 @@ signals:
 //   std::string m_property;
 // };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // SHAREDGUICOMPONENTS_OSLINEEDIT_HPP
+#endif  // SHAREDGUICOMPONENTS_OSLINEEDIT_HPP

@@ -43,16 +43,15 @@
 
 namespace openstudio {
 
-ElectricEquipmentDefinitionInspectorView::ElectricEquipmentDefinitionInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent)
-  : ModelObjectInspectorView(model, true, parent)
-{
+ElectricEquipmentDefinitionInspectorView::ElectricEquipmentDefinitionInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent)
+  : ModelObjectInspectorView(model, true, parent) {
   m_isIP = isIP;
 
   auto visibleWidget = new QWidget();
   this->stackedWidget()->addWidget(visibleWidget);
 
   auto mainGridLayout = new QGridLayout();
-  mainGridLayout->setContentsMargins(7,7,7,7);
+  mainGridLayout->setContentsMargins(7, 7, 7, 7);
   mainGridLayout->setSpacing(14);
   visibleWidget->setLayout(mainGridLayout);
 
@@ -60,173 +59,163 @@ ElectricEquipmentDefinitionInspectorView::ElectricEquipmentDefinitionInspectorVi
 
   QLabel* label = new QLabel("Name: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,0,0);
+  mainGridLayout->addWidget(label, 0, 0);
 
   m_nameEdit = new OSLineEdit2();
-  mainGridLayout->addWidget(m_nameEdit,1,0,1,3);
+  mainGridLayout->addWidget(m_nameEdit, 1, 0, 1, 3);
 
   // Design Level
 
   label = new QLabel("Design Level: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,2,0);
+  mainGridLayout->addWidget(label, 2, 0);
 
-  m_designLevelEdit = new OSQuantityEdit2("W","W","W", m_isIP);
+  m_designLevelEdit = new OSQuantityEdit2("W", "W", "W", m_isIP);
   connect(this, &ElectricEquipmentDefinitionInspectorView::toggleUnitsClicked, m_designLevelEdit, &OSQuantityEdit2::onUnitSystemChange);
-  mainGridLayout->addWidget(m_designLevelEdit,3,0);
+  mainGridLayout->addWidget(m_designLevelEdit, 3, 0);
 
   // Watts Per Space Floor Area
 
   label = new QLabel("Watts Per Space Floor Area: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,2,1);
+  mainGridLayout->addWidget(label, 2, 1);
 
-  m_wattsPerSpaceFloorAreaEdit = new OSQuantityEdit2("W/m^2","W/m^2","W/ft^2", m_isIP);
+  m_wattsPerSpaceFloorAreaEdit = new OSQuantityEdit2("W/m^2", "W/m^2", "W/ft^2", m_isIP);
   connect(this, &ElectricEquipmentDefinitionInspectorView::toggleUnitsClicked, m_wattsPerSpaceFloorAreaEdit, &OSQuantityEdit2::onUnitSystemChange);
-  mainGridLayout->addWidget(m_wattsPerSpaceFloorAreaEdit,3,1);
+  mainGridLayout->addWidget(m_wattsPerSpaceFloorAreaEdit, 3, 1);
 
   // Watts Per Person
 
   label = new QLabel("Watts Per Person: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,2,2);
+  mainGridLayout->addWidget(label, 2, 2);
 
-  m_wattsPerPersonEdit = new OSQuantityEdit2("W/person","W/person","W/person", m_isIP);
+  m_wattsPerPersonEdit = new OSQuantityEdit2("W/person", "W/person", "W/person", m_isIP);
   connect(this, &ElectricEquipmentDefinitionInspectorView::toggleUnitsClicked, m_wattsPerPersonEdit, &OSQuantityEdit2::onUnitSystemChange);
-  mainGridLayout->addWidget(m_wattsPerPersonEdit,3,2);
+  mainGridLayout->addWidget(m_wattsPerPersonEdit, 3, 2);
 
   // Fraction Latent
 
   label = new QLabel("Fraction Latent: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,4,0);
+  mainGridLayout->addWidget(label, 4, 0);
 
-  m_fractionLatentEdit = new OSQuantityEdit2("","","", m_isIP);
+  m_fractionLatentEdit = new OSQuantityEdit2("", "", "", m_isIP);
   connect(this, &ElectricEquipmentDefinitionInspectorView::toggleUnitsClicked, m_fractionLatentEdit, &OSQuantityEdit2::onUnitSystemChange);
-  mainGridLayout->addWidget(m_fractionLatentEdit,5,0);
+  mainGridLayout->addWidget(m_fractionLatentEdit, 5, 0);
 
   // Fraction Radiant
 
   label = new QLabel("Fraction Radiant: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,4,1);
+  mainGridLayout->addWidget(label, 4, 1);
 
-  m_fractionRadiantEdit = new OSQuantityEdit2("","","", m_isIP);
+  m_fractionRadiantEdit = new OSQuantityEdit2("", "", "", m_isIP);
   connect(this, &ElectricEquipmentDefinitionInspectorView::toggleUnitsClicked, m_fractionRadiantEdit, &OSQuantityEdit2::onUnitSystemChange);
-  mainGridLayout->addWidget(m_fractionRadiantEdit,5,1);
+  mainGridLayout->addWidget(m_fractionRadiantEdit, 5, 1);
 
   // Fraction Lost
 
   label = new QLabel("Fraction Lost: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,6,0);
+  mainGridLayout->addWidget(label, 6, 0);
 
-  m_fractionLostEdit = new OSQuantityEdit2("","","", m_isIP);
+  m_fractionLostEdit = new OSQuantityEdit2("", "", "", m_isIP);
   connect(this, &ElectricEquipmentDefinitionInspectorView::toggleUnitsClicked, m_fractionLostEdit, &OSQuantityEdit2::onUnitSystemChange);
-  mainGridLayout->addWidget(m_fractionLostEdit,7,0);
+  mainGridLayout->addWidget(m_fractionLostEdit, 7, 0);
 
   // Stretch
 
-  mainGridLayout->setRowStretch(8,100);
+  mainGridLayout->setRowStretch(8, 100);
 
-  mainGridLayout->setColumnStretch(3,100);
+  mainGridLayout->setColumnStretch(3, 100);
 }
 
-void ElectricEquipmentDefinitionInspectorView::onClearSelection()
-{
-  ModelObjectInspectorView::onClearSelection(); // call parent implementation
+void ElectricEquipmentDefinitionInspectorView::onClearSelection() {
+  ModelObjectInspectorView::onClearSelection();  // call parent implementation
   detach();
 }
 
-void ElectricEquipmentDefinitionInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject)
-{
+void ElectricEquipmentDefinitionInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject) {
   detach();
   model::ElectricEquipmentDefinition electricEquipmentDefinition = modelObject.cast<model::ElectricEquipmentDefinition>();
   attach(electricEquipmentDefinition);
   refresh();
 }
 
-void ElectricEquipmentDefinitionInspectorView::onUpdate()
-{
+void ElectricEquipmentDefinitionInspectorView::onUpdate() {
   refresh();
 }
 
-void ElectricEquipmentDefinitionInspectorView::attach(openstudio::model::ElectricEquipmentDefinition & electricEquipmentDefinition)
-{
+void ElectricEquipmentDefinitionInspectorView::attach(openstudio::model::ElectricEquipmentDefinition& electricEquipmentDefinition) {
   m_electricEquipmentDefinition = electricEquipmentDefinition;
 
   // m_nameEdit->bind(electricEquipmentDefinition,"name");
-  m_nameEdit->bind(
-    *m_electricEquipmentDefinition,
-    OptionalStringGetter(std::bind(&model::ElectricEquipmentDefinition::name, m_electricEquipmentDefinition.get_ptr(),true)),
-    boost::optional<StringSetterOptionalStringReturn>(std::bind(&model::ElectricEquipmentDefinition::setName, m_electricEquipmentDefinition.get_ptr(),std::placeholders::_1))
-  );
+  m_nameEdit->bind(*m_electricEquipmentDefinition,
+                   OptionalStringGetter(std::bind(&model::ElectricEquipmentDefinition::name, m_electricEquipmentDefinition.get_ptr(), true)),
+                   boost::optional<StringSetterOptionalStringReturn>(
+                     std::bind(&model::ElectricEquipmentDefinition::setName, m_electricEquipmentDefinition.get_ptr(), std::placeholders::_1)));
 
   // m_designLevelEdit->bind(electricEquipmentDefinition,"designLevel",m_isIP);
-  m_designLevelEdit->bind(
-    m_isIP,
-    *m_electricEquipmentDefinition,
-    OptionalDoubleGetter(std::bind(&model::ElectricEquipmentDefinition::designLevel, m_electricEquipmentDefinition.get_ptr())),
-    boost::optional<DoubleSetter>(std::bind(static_cast<bool(model::ElectricEquipmentDefinition::*)(double)>(&model::ElectricEquipmentDefinition::setDesignLevel), m_electricEquipmentDefinition.get_ptr(), std::placeholders::_1))
-  );
+  m_designLevelEdit->bind(m_isIP, *m_electricEquipmentDefinition,
+                          OptionalDoubleGetter(std::bind(&model::ElectricEquipmentDefinition::designLevel, m_electricEquipmentDefinition.get_ptr())),
+                          boost::optional<DoubleSetter>(std::bind(
+                            static_cast<bool (model::ElectricEquipmentDefinition::*)(double)>(&model::ElectricEquipmentDefinition::setDesignLevel),
+                            m_electricEquipmentDefinition.get_ptr(), std::placeholders::_1)));
 
   // m_wattsPerSpaceFloorAreaEdit->bind(electricEquipmentDefinition,"wattsperSpaceFloorArea",m_isIP);
   m_wattsPerSpaceFloorAreaEdit->bind(
-    m_isIP,
-    *m_electricEquipmentDefinition,
+    m_isIP, *m_electricEquipmentDefinition,
     OptionalDoubleGetter(std::bind(&model::ElectricEquipmentDefinition::wattsperSpaceFloorArea, m_electricEquipmentDefinition.get_ptr())),
-    boost::optional<DoubleSetter>(std::bind(static_cast<bool(model::ElectricEquipmentDefinition::*)(double)>(&model::ElectricEquipmentDefinition::setWattsperSpaceFloorArea), m_electricEquipmentDefinition.get_ptr(), std::placeholders::_1))
-  );
+    boost::optional<DoubleSetter>(
+      std::bind(static_cast<bool (model::ElectricEquipmentDefinition::*)(double)>(&model::ElectricEquipmentDefinition::setWattsperSpaceFloorArea),
+                m_electricEquipmentDefinition.get_ptr(), std::placeholders::_1)));
 
   // m_wattsPerPersonEdit->bind(electricEquipmentDefinition,"wattsperPerson",m_isIP);
   m_wattsPerPersonEdit->bind(
-    m_isIP,
-    *m_electricEquipmentDefinition,
+    m_isIP, *m_electricEquipmentDefinition,
     OptionalDoubleGetter(std::bind(&model::ElectricEquipmentDefinition::wattsperPerson, m_electricEquipmentDefinition.get_ptr())),
-    boost::optional<DoubleSetter>(std::bind(static_cast<bool(model::ElectricEquipmentDefinition::*)(double)>(&model::ElectricEquipmentDefinition::setWattsperPerson), m_electricEquipmentDefinition.get_ptr(), std::placeholders::_1))
-  );
+    boost::optional<DoubleSetter>(
+      std::bind(static_cast<bool (model::ElectricEquipmentDefinition::*)(double)>(&model::ElectricEquipmentDefinition::setWattsperPerson),
+                m_electricEquipmentDefinition.get_ptr(), std::placeholders::_1)));
 
   // m_fractionLatentEdit->bind(electricEquipmentDefinition,"fractionLatent",m_isIP);
   m_fractionLatentEdit->bind(
-    m_isIP,
-    *m_electricEquipmentDefinition,
+    m_isIP, *m_electricEquipmentDefinition,
     OptionalDoubleGetter(std::bind(&model::ElectricEquipmentDefinition::fractionLatent, m_electricEquipmentDefinition.get_ptr())),
-    boost::optional<DoubleSetter>(std::bind(static_cast<bool(model::ElectricEquipmentDefinition::*)(double)>(&model::ElectricEquipmentDefinition::setFractionLatent), m_electricEquipmentDefinition.get_ptr(), std::placeholders::_1)),
+    boost::optional<DoubleSetter>(
+      std::bind(static_cast<bool (model::ElectricEquipmentDefinition::*)(double)>(&model::ElectricEquipmentDefinition::setFractionLatent),
+                m_electricEquipmentDefinition.get_ptr(), std::placeholders::_1)),
     boost::optional<NoFailAction>(std::bind(&model::ElectricEquipmentDefinition::resetFractionLatent, m_electricEquipmentDefinition.get_ptr())),
-    boost::none,
-    boost::none,
-    boost::optional<BasicQuery>(std::bind(&model::ElectricEquipmentDefinition::isFractionLatentDefaulted, m_electricEquipmentDefinition.get_ptr()))
-  );
+    boost::none, boost::none,
+    boost::optional<BasicQuery>(std::bind(&model::ElectricEquipmentDefinition::isFractionLatentDefaulted, m_electricEquipmentDefinition.get_ptr())));
 
   // m_fractionRadiantEdit->bind(electricEquipmentDefinition,"fractionRadiant",m_isIP);
   m_fractionRadiantEdit->bind(
-    m_isIP,
-    *m_electricEquipmentDefinition,
+    m_isIP, *m_electricEquipmentDefinition,
     OptionalDoubleGetter(std::bind(&model::ElectricEquipmentDefinition::fractionRadiant, m_electricEquipmentDefinition.get_ptr())),
-    boost::optional<DoubleSetter>(std::bind(static_cast<bool(model::ElectricEquipmentDefinition::*)(double)>(&model::ElectricEquipmentDefinition::setFractionRadiant), m_electricEquipmentDefinition.get_ptr(), std::placeholders::_1)),
+    boost::optional<DoubleSetter>(
+      std::bind(static_cast<bool (model::ElectricEquipmentDefinition::*)(double)>(&model::ElectricEquipmentDefinition::setFractionRadiant),
+                m_electricEquipmentDefinition.get_ptr(), std::placeholders::_1)),
     boost::optional<NoFailAction>(std::bind(&model::ElectricEquipmentDefinition::resetFractionRadiant, m_electricEquipmentDefinition.get_ptr())),
-    boost::none,
-    boost::none,
-    boost::optional<BasicQuery>(std::bind(&model::ElectricEquipmentDefinition::isFractionRadiantDefaulted, m_electricEquipmentDefinition.get_ptr()))
-  );
+    boost::none, boost::none,
+    boost::optional<BasicQuery>(std::bind(&model::ElectricEquipmentDefinition::isFractionRadiantDefaulted, m_electricEquipmentDefinition.get_ptr())));
 
   // m_fractionLostEdit->bind(electricEquipmentDefinition,"fractionLost",m_isIP);
   m_fractionLostEdit->bind(
-    m_isIP,
-    *m_electricEquipmentDefinition,
+    m_isIP, *m_electricEquipmentDefinition,
     OptionalDoubleGetter(std::bind(&model::ElectricEquipmentDefinition::fractionLost, m_electricEquipmentDefinition.get_ptr())),
-    boost::optional<DoubleSetter>(std::bind(static_cast<bool(model::ElectricEquipmentDefinition::*)(double)>(&model::ElectricEquipmentDefinition::setFractionLost), m_electricEquipmentDefinition.get_ptr(), std::placeholders::_1)),
+    boost::optional<DoubleSetter>(
+      std::bind(static_cast<bool (model::ElectricEquipmentDefinition::*)(double)>(&model::ElectricEquipmentDefinition::setFractionLost),
+                m_electricEquipmentDefinition.get_ptr(), std::placeholders::_1)),
     boost::optional<NoFailAction>(std::bind(&model::ElectricEquipmentDefinition::resetFractionLost, m_electricEquipmentDefinition.get_ptr())),
-    boost::none,
-    boost::none,
-    boost::optional<BasicQuery>(std::bind(&model::ElectricEquipmentDefinition::isFractionLostDefaulted, m_electricEquipmentDefinition.get_ptr()))
-  );
+    boost::none, boost::none,
+    boost::optional<BasicQuery>(std::bind(&model::ElectricEquipmentDefinition::isFractionLostDefaulted, m_electricEquipmentDefinition.get_ptr())));
 
   this->stackedWidget()->setCurrentIndex(1);
 }
 
-void ElectricEquipmentDefinitionInspectorView::detach()
-{
+void ElectricEquipmentDefinitionInspectorView::detach() {
   this->stackedWidget()->setCurrentIndex(0);
 
   m_nameEdit->unbind();
@@ -240,13 +229,10 @@ void ElectricEquipmentDefinitionInspectorView::detach()
   m_electricEquipmentDefinition = boost::none;
 }
 
-void ElectricEquipmentDefinitionInspectorView::refresh()
-{
-}
+void ElectricEquipmentDefinitionInspectorView::refresh() {}
 
-void ElectricEquipmentDefinitionInspectorView::toggleUnits(bool displayIP)
-{
+void ElectricEquipmentDefinitionInspectorView::toggleUnits(bool displayIP) {
   m_isIP = displayIP;
 }
 
-} // openstudio
+}  // namespace openstudio

@@ -36,14 +36,12 @@
 
 #include <openstudio/utilities/bcl/BCLMeasure.hpp>
 
-namespace openstudio{
+namespace openstudio {
 
-LightHeaderToggleButton::LightHeaderToggleButton(QWidget * parent)
-  : QPushButton(parent)
-{
+LightHeaderToggleButton::LightHeaderToggleButton(QWidget* parent) : QPushButton(parent) {
   setCheckable(true);
 
-  setFixedSize(11,11);
+  setFixedSize(11, 11);
 
   QString style;
   style.append("QPushButton { border: none; ");
@@ -56,12 +54,10 @@ LightHeaderToggleButton::LightHeaderToggleButton(QWidget * parent)
   setStyleSheet(style);
 }
 
-HeaderToggleButton::HeaderToggleButton(QWidget * parent)
-  : QPushButton(parent)
-{
+HeaderToggleButton::HeaderToggleButton(QWidget* parent) : QPushButton(parent) {
   setCheckable(true);
 
-  setFixedSize(11,11);
+  setFixedSize(11, 11);
 
   QString style;
   style.append("QPushButton { border: none; ");
@@ -74,10 +70,8 @@ HeaderToggleButton::HeaderToggleButton(QWidget * parent)
   setStyleSheet(style);
 }
 
-DarkGradientHeader::DarkGradientHeader(QWidget * parent)
-  : OSHeader(new LightHeaderToggleButton())
-{
-  setSizePolicy(QSizePolicy::Ignored,QSizePolicy::Fixed);
+DarkGradientHeader::DarkGradientHeader(QWidget* parent) : OSHeader(new LightHeaderToggleButton()) {
+  setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Fixed);
   setFixedHeight(30);
 
   QString style;
@@ -88,7 +82,7 @@ DarkGradientHeader::DarkGradientHeader(QWidget * parent)
   setStyleSheet(style);
 
   auto mainHLayout = new QHBoxLayout();
-  mainHLayout->setContentsMargins(5,0,5,0);
+  mainHLayout->setContentsMargins(5, 0, 5, 0);
   mainHLayout->setSpacing(5);
   setLayout(mainHLayout);
 
@@ -104,10 +98,8 @@ DarkGradientHeader::DarkGradientHeader(QWidget * parent)
   mainHLayout->addWidget(label);
 }
 
-LightGradientHeader::LightGradientHeader(QWidget * parent)
-  : OSHeader(new HeaderToggleButton())
-{
-  setSizePolicy(QSizePolicy::Ignored,QSizePolicy::Fixed);
+LightGradientHeader::LightGradientHeader(QWidget* parent) : OSHeader(new HeaderToggleButton()) {
+  setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Fixed);
   setFixedHeight(30);
 
   QString style;
@@ -118,14 +110,14 @@ LightGradientHeader::LightGradientHeader(QWidget * parent)
   setStyleSheet(style);
 
   auto mainHLayout = new QHBoxLayout();
-  mainHLayout->setContentsMargins(5,0,5,0);
+  mainHLayout->setContentsMargins(5, 0, 5, 0);
   mainHLayout->setSpacing(5);
   setLayout(mainHLayout);
 
   mainHLayout->addWidget(toggleButton);
 
   m_measureTypeBadge = new QLabel();
-  m_measureTypeBadge->setFixedSize(25,25);
+  m_measureTypeBadge->setFixedSize(25, 25);
   m_measureTypeBadge->setVisible(false);
   mainHLayout->addWidget(m_measureTypeBadge);
 
@@ -138,28 +130,28 @@ LightGradientHeader::LightGradientHeader(QWidget * parent)
   mainHLayout->addWidget(label);
 }
 
-void LightGradientHeader::setMeasureType(MeasureType measureType)
-{
+void LightGradientHeader::setMeasureType(MeasureType measureType) {
   bool found = false;
 
-  if (measureType == MeasureType::ModelMeasure){
-    m_measureTypeBadge->setPixmap(QPixmap(":/shared_gui_components/images/openstudio_measure_icon.png").scaled(25,25,Qt::IgnoreAspectRatio,Qt::SmoothTransformation));
+  if (measureType == MeasureType::ModelMeasure) {
+    m_measureTypeBadge->setPixmap(
+      QPixmap(":/shared_gui_components/images/openstudio_measure_icon.png").scaled(25, 25, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
     found = true;
-  }else if (measureType == MeasureType::EnergyPlusMeasure){
-    m_measureTypeBadge->setPixmap(QPixmap(":/shared_gui_components/images/energyplus_measure_icon.png").scaled(25,25,Qt::IgnoreAspectRatio,Qt::SmoothTransformation));
+  } else if (measureType == MeasureType::EnergyPlusMeasure) {
+    m_measureTypeBadge->setPixmap(
+      QPixmap(":/shared_gui_components/images/energyplus_measure_icon.png").scaled(25, 25, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
     found = true;
-  }else if (measureType == MeasureType::ReportingMeasure){
-    m_measureTypeBadge->setPixmap(QPixmap(":/shared_gui_components/images/report_measure_icon.png").scaled(25,25,Qt::IgnoreAspectRatio,Qt::SmoothTransformation));
+  } else if (measureType == MeasureType::ReportingMeasure) {
+    m_measureTypeBadge->setPixmap(
+      QPixmap(":/shared_gui_components/images/report_measure_icon.png").scaled(25, 25, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
     found = true;
   }
 
   m_measureTypeBadge->setVisible(found);
 }
 
-LightHeader::LightHeader(QWidget * parent)
-  : OSHeader(new HeaderToggleButton())
-{
-  setSizePolicy(QSizePolicy::Ignored,QSizePolicy::Fixed);
+LightHeader::LightHeader(QWidget* parent) : OSHeader(new HeaderToggleButton()) {
+  setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Fixed);
   setFixedHeight(30);
 
   QString style;
@@ -169,7 +161,7 @@ LightHeader::LightHeader(QWidget * parent)
   setStyleSheet(style);
 
   auto mainHLayout = new QHBoxLayout();
-  mainHLayout->setContentsMargins(5,0,5,0);
+  mainHLayout->setContentsMargins(5, 0, 5, 0);
   setLayout(mainHLayout);
 
   mainHLayout->addSpacing(15);
@@ -185,4 +177,4 @@ LightHeader::LightHeader(QWidget * parent)
   mainHLayout->addWidget(label);
 }
 
-} // openstudio
+}  // namespace openstudio

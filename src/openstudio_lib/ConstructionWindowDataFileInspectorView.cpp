@@ -44,17 +44,12 @@ namespace openstudio {
 
 // ConstructionVC
 
-ConstructionWindowDataFileInspectorView::ConstructionWindowDataFileInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent)
-  : ModelObjectInspectorView(model, parent),
-    m_isIP(isIP),
-    m_nameEdit(nullptr),
-    m_urlEdit(nullptr)
-{
+ConstructionWindowDataFileInspectorView::ConstructionWindowDataFileInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent)
+  : ModelObjectInspectorView(model, parent), m_isIP(isIP), m_nameEdit(nullptr), m_urlEdit(nullptr) {
   createLayout();
 }
 
-void ConstructionWindowDataFileInspectorView::createLayout()
-{
+void ConstructionWindowDataFileInspectorView::createLayout() {
   auto visibleWidget = new QWidget();
   this->stackedWidget()->addWidget(visibleWidget);
 
@@ -65,7 +60,7 @@ void ConstructionWindowDataFileInspectorView::createLayout()
 
   // URL
 
-  QLabel * label = new QLabel("URL: ");
+  QLabel* label = new QLabel("URL: ");
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 2, 0);
 
@@ -79,15 +74,13 @@ void ConstructionWindowDataFileInspectorView::createLayout()
   mainGridLayout->setColumnStretch(100, 100);
 }
 
-void ConstructionWindowDataFileInspectorView::onClearSelection()
-{
+void ConstructionWindowDataFileInspectorView::onClearSelection() {
   detach();
 
   this->stackedWidget()->setCurrentIndex(0);
 }
 
-void ConstructionWindowDataFileInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject)
-{
+void ConstructionWindowDataFileInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject) {
   detach();
   model::WindowDataFile windowDataFile = modelObject.cast<model::WindowDataFile>();
   attach(windowDataFile);
@@ -95,19 +88,14 @@ void ConstructionWindowDataFileInspectorView::onSelectModelObject(const openstud
   this->stackedWidget()->setCurrentIndex(1);
 }
 
-void ConstructionWindowDataFileInspectorView::onUpdate()
-{
-}
+void ConstructionWindowDataFileInspectorView::onUpdate() {}
 
-void ConstructionWindowDataFileInspectorView::attach(openstudio::model::WindowDataFile & windowDataFile)
-{
+void ConstructionWindowDataFileInspectorView::attach(openstudio::model::WindowDataFile& windowDataFile) {
   m_windowDataFile = windowDataFile;
   // m_nameEdit->bind(windowDataFile,"name");
   m_nameEdit->bind(
-    *m_windowDataFile,
-    OptionalStringGetter(std::bind(&model::WindowDataFile::name, m_windowDataFile.get_ptr(),true)),
-    boost::optional<StringSetterOptionalStringReturn>(std::bind(&model::WindowDataFile::setName, m_windowDataFile.get_ptr(),std::placeholders::_1))
-  );
+    *m_windowDataFile, OptionalStringGetter(std::bind(&model::WindowDataFile::name, m_windowDataFile.get_ptr(), true)),
+    boost::optional<StringSetterOptionalStringReturn>(std::bind(&model::WindowDataFile::setName, m_windowDataFile.get_ptr(), std::placeholders::_1)));
 
   // m_urlEdit->bind(windowDataFile,"url");
   // Replaced to upgrade to OSLineEdit2, but fully removed at the suggestion of @danmacumber
@@ -117,13 +105,11 @@ void ConstructionWindowDataFileInspectorView::attach(openstudio::model::WindowDa
   //   OptionalStringGetter(std::bind(&model::WindowDataFile::getURL, m_windowDataFile.get_ptr(),true)),
   //   boost::optional<StringSetter>(std::bind(&model::WindowDataFile::setURL, m_windowDataFile.get_ptr(),std::placeholders::_1))
   // );
-
 }
 
-void ConstructionWindowDataFileInspectorView::detach()
-{
+void ConstructionWindowDataFileInspectorView::detach() {
   m_urlEdit->unbind();
   m_windowDataFile = boost::none;
 }
 
-} // openstudio
+}  // namespace openstudio

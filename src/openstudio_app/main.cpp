@@ -56,7 +56,7 @@
 #include <QtGlobal>
 
 #ifdef _WIN32
-#include <Windows.h>
+#  include <Windows.h>
 #endif
 
 #define WSAAPI
@@ -74,52 +74,49 @@
 //  Q_IMPORT_PLUGIN(QXcbIntegrationPlugin);
 //#endif
 
-void qDebugMessageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
-{
-    QByteArray localMsg = msg.toLocal8Bit();
-    switch (type) {
+void qDebugMessageHandler(QtMsgType type, const QMessageLogContext& context, const QString& msg) {
+  QByteArray localMsg = msg.toLocal8Bit();
+  switch (type) {
     case QtDebugMsg:
-        fprintf(stderr, "Debug: %s (%s:%u, %s)\n", localMsg.constData(), context.file, context.line, context.function);
-        break;
+      fprintf(stderr, "Debug: %s (%s:%u, %s)\n", localMsg.constData(), context.file, context.line, context.function);
+      break;
     case QtInfoMsg:
-        fprintf(stderr, "Info: %s (%s:%u, %s)\n", localMsg.constData(), context.file, context.line, context.function);
-        break;
+      fprintf(stderr, "Info: %s (%s:%u, %s)\n", localMsg.constData(), context.file, context.line, context.function);
+      break;
     case QtWarningMsg:
-        fprintf(stderr, "Warning: %s (%s:%u, %s)\n", localMsg.constData(), context.file, context.line, context.function);
-        break;
+      fprintf(stderr, "Warning: %s (%s:%u, %s)\n", localMsg.constData(), context.file, context.line, context.function);
+      break;
     case QtCriticalMsg:
-        fprintf(stderr, "Critical: %s (%s:%u, %s)\n", localMsg.constData(), context.file, context.line, context.function);
-        break;
+      fprintf(stderr, "Critical: %s (%s:%u, %s)\n", localMsg.constData(), context.file, context.line, context.function);
+      break;
     case QtFatalMsg:
-        fprintf(stderr, "Fatal: %s (%s:%u, %s)\n", localMsg.constData(), context.file, context.line, context.function);
-        abort();
-    }
+      fprintf(stderr, "Fatal: %s (%s:%u, %s)\n", localMsg.constData(), context.file, context.line, context.function);
+      abort();
+  }
 }
 
-void qMessageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
-{
-    QByteArray localMsg = msg.toLocal8Bit();
-    switch (type) {
+void qMessageHandler(QtMsgType type, const QMessageLogContext& context, const QString& msg) {
+  QByteArray localMsg = msg.toLocal8Bit();
+  switch (type) {
     case QtDebugMsg:
-        //fprintf(stderr, "Debug: %s (%s:%u, %s)\n", localMsg.constData(), context.file, context.line, context.function);
-        break;
+      //fprintf(stderr, "Debug: %s (%s:%u, %s)\n", localMsg.constData(), context.file, context.line, context.function);
+      break;
     case QtInfoMsg:
-        //fprintf(stderr, "Info: %s (%s:%u, %s)\n", localMsg.constData(), context.file, context.line, context.function);
-        break;
+      //fprintf(stderr, "Info: %s (%s:%u, %s)\n", localMsg.constData(), context.file, context.line, context.function);
+      break;
     case QtWarningMsg:
-        //fprintf(stderr, "Warning: %s (%s:%u, %s)\n", localMsg.constData(), context.file, context.line, context.function);
-        break;
+      //fprintf(stderr, "Warning: %s (%s:%u, %s)\n", localMsg.constData(), context.file, context.line, context.function);
+      break;
     case QtCriticalMsg:
-        fprintf(stderr, "Critical: %s\n", localMsg.constData());
-        break;
+      fprintf(stderr, "Critical: %s\n", localMsg.constData());
+      break;
     case QtFatalMsg:
-        fprintf(stderr, "Fatal: %s\n", localMsg.constData());
-        abort();
-    }
+      fprintf(stderr, "Fatal: %s\n", localMsg.constData());
+      abort();
+  }
 }
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char* argv[]) {
   Q_INIT_RESOURCE(openstudio);
 
 // DLM: on Windows run with 'OpenStudioApp.exe  > out.log 2>&1' to capture all debug output
@@ -143,10 +140,10 @@ int main(int argc, char *argv[])
   bool debugging = (qEnvironmentVariableIsSet("OPENSTUDIO_APPLICATION_DEBUG") && !qEnvironmentVariableIsEmpty("OPENSTUDIO_APPLICATION_DEBUG"));
 #endif
 
-  if (debugging){
+  if (debugging) {
     qInstallMessageHandler(qDebugMessageHandler);
     openstudio::Logger::instance().standardOutLogger().setLogLevel(Debug);
-  }else{
+  } else {
     qInstallMessageHandler(qMessageHandler);
     openstudio::Logger::instance().standardOutLogger().setLogLevel(Warn);
   }
@@ -155,10 +152,10 @@ int main(int argc, char *argv[])
   // Note to *Nix users: don't do it in bash_profile
   // macOS: see https://stackoverflow.com/questions/25385934/setting-environment-variables-via-launchd-conf-no-longer-works-in-os-x-yosemite
   // ubuntu: /etc/environment
-  if( qEnvironmentVariableIsSet("OPENSTUDIO_APPLICATION_LOGFILE_PATH") ) {
+  if (qEnvironmentVariableIsSet("OPENSTUDIO_APPLICATION_LOGFILE_PATH")) {
     QString logFileQString(qgetenv("OPENSTUDIO_APPLICATION_LOGFILE_PATH"));
     openstudio::FileLogSink logFile = openstudio::FileLogSink(openstudio::toPath(logFileQString));
-    if( debugging ) {
+    if (debugging) {
       logFile.setLogLevel(Debug);
     } else {
       logFile.setLogLevel(Warn);
@@ -167,13 +164,12 @@ int main(int argc, char *argv[])
 
   // Output content of argc/argv
   LOG_FREE(Debug, "OpenStudioApp.main", "main received argc=" << argc << " arguments")
-  for (int i=0; i < argc; ++i) {
+  for (int i = 0; i < argc; ++i) {
     LOG_FREE(Debug, "OpenStudioApp.main", "Argument " << i << "=" << argv[i]);
   }
 
-
   bool cont = true;
-  while(cont) {
+  while (cont) {
     cont = false;
     /*
     std::vector<std::string> modules;
@@ -195,7 +191,7 @@ int main(int argc, char *argv[])
 
     // find available port for debugging, have to do this before creating app
     QString debugPort(qgetenv("QTWEBENGINE_REMOTE_DEBUGGING"));
-    if (debugPort.isEmpty()){
+    if (debugPort.isEmpty()) {
       QTcpServer tcpServer;
       tcpServer.listen(QHostAddress::LocalHost);
       quint16 port = tcpServer.serverPort();
@@ -205,13 +201,12 @@ int main(int argc, char *argv[])
     }
 
     // QCoreApplication::setAttribute should really be put here because it's set before we create the App
-    if (!qEnvironmentVariableIsSet("QT_DEVICE_PIXEL_RATIO") &&
-        !qEnvironmentVariableIsSet("QT_AUTO_SCREEN_SCALE_FACTOR") &&
-        !qEnvironmentVariableIsSet("QT_SCALE_FACTOR") &&
-        !qEnvironmentVariableIsSet("QT_SCREEN_SCALE_FACTORS")) {
-        LOG_FREE(Info, "OpenStudioApp.main", "Setting Qt::AA_EnableHighDpiScaling. "
-                    << "Instead, you can also manually set the environment variable 'QT_SCALE_FACTOR'.");
-        QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    if (!qEnvironmentVariableIsSet("QT_DEVICE_PIXEL_RATIO") && !qEnvironmentVariableIsSet("QT_AUTO_SCREEN_SCALE_FACTOR") &&
+        !qEnvironmentVariableIsSet("QT_SCALE_FACTOR") && !qEnvironmentVariableIsSet("QT_SCREEN_SCALE_FACTORS")) {
+      LOG_FREE(Info, "OpenStudioApp.main",
+               "Setting Qt::AA_EnableHighDpiScaling. "
+                 << "Instead, you can also manually set the environment variable 'QT_SCALE_FACTOR'.");
+      QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     }
 
     // Don't use native menu bar, necessary on Ubuntu 16.04
@@ -225,12 +220,12 @@ int main(int argc, char *argv[])
     QCoreApplication::addLibraryPath(QCoreApplication::applicationDirPath());
 
 #ifdef Q_OS_DARWIN
-  // Gross but perhaps the simplest way to find the webengine process
-  // Improvements are welcome.
-  auto qtwebengineprocess_path = QCoreApplication::applicationDirPath() + "/QtWebEngineProcess";
-  if( QFile::exists(qtwebengineprocess_path) ) {
-    setenv("QTWEBENGINEPROCESS_PATH", qtwebengineprocess_path.toStdString().c_str(),0);
-  }
+    // Gross but perhaps the simplest way to find the webengine process
+    // Improvements are welcome.
+    auto qtwebengineprocess_path = QCoreApplication::applicationDirPath() + "/QtWebEngineProcess";
+    if (QFile::exists(qtwebengineprocess_path)) {
+      setenv("QTWEBENGINEPROCESS_PATH", qtwebengineprocess_path.toStdString().c_str(), 0);
+    }
 #endif
 
 #if !(_DEBUG || (__GNUC__ && !NDEBUG))
@@ -243,7 +238,7 @@ int main(int argc, char *argv[])
 
       return result;
 #if !(_DEBUG || (__GNUC__ && !NDEBUG))
-    } catch (const std::exception &e) {
+    } catch (const std::exception& e) {
       LOG_FREE(Fatal, "OpenStudio", "An unhandled exception has occurred: " << e.what());
       cont = true;
       QMessageBox msgBox;

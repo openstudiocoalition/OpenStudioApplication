@@ -38,14 +38,11 @@
 
 namespace openstudio {
 
-SimSettingsTabController::SimSettingsTabController(bool isIP, const model::Model & model)
-  : MainTabController(new SimSettingsTabView(isIP, model, "Simulation Settings", MainTabView::MAIN_TAB))
-{
+SimSettingsTabController::SimSettingsTabController(bool isIP, const model::Model& model)
+  : MainTabController(new SimSettingsTabView(isIP, model, "Simulation Settings", MainTabView::MAIN_TAB)) {
   connect(this, &SimSettingsTabController::toggleUnitsClicked, mainContentWidget(), &MainTabView::toggleUnitsClicked);
 }
 
-void SimSettingsTabController::toggleUnits(bool displayIP)
-{
-}
+void SimSettingsTabController::toggleUnits(bool displayIP) {}
 
-} // openstudio
+}  // namespace openstudio

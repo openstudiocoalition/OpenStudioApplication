@@ -46,10 +46,8 @@
 
 namespace openstudio {
 
-StandardOpaqueMaterialInspectorView::StandardOpaqueMaterialInspectorView(const model::Model& model,
-                                                                         QWidget * parent )
-  : ModelObjectInspectorView(model, true, parent)
-{
+StandardOpaqueMaterialInspectorView::StandardOpaqueMaterialInspectorView(const model::Model& model, QWidget* parent)
+  : ModelObjectInspectorView(model, true, parent) {
   auto hiddenWidget = new QWidget();
   this->stackedWidget()->insertWidget(0, hiddenWidget);
 
@@ -59,7 +57,7 @@ StandardOpaqueMaterialInspectorView::StandardOpaqueMaterialInspectorView(const m
   this->stackedWidget()->setCurrentIndex(0);
 
   auto mainVLayout = new QVBoxLayout();
-  mainVLayout->setContentsMargins(0,0,0,1);
+  mainVLayout->setContentsMargins(0, 0, 0, 1);
   mainVLayout->setSpacing(0);
   visibleWidget->setLayout(mainVLayout);
 
@@ -71,14 +69,12 @@ StandardOpaqueMaterialInspectorView::StandardOpaqueMaterialInspectorView(const m
   mainVLayout->addWidget(m_mainLabel);
 }
 
-void StandardOpaqueMaterialInspectorView::onClearSelection()
-{
-  ModelObjectInspectorView::onClearSelection(); // call parent implementation
+void StandardOpaqueMaterialInspectorView::onClearSelection() {
+  ModelObjectInspectorView::onClearSelection();  // call parent implementation
   this->stackedWidget()->setCurrentIndex(0);
 }
 
-void StandardOpaqueMaterialInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject)
-{
+void StandardOpaqueMaterialInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject) {
   std::stringstream ss;
   ss << "StandardOpaqueMaterialInspectorView:" << std::endl;
   ss << modelObject;
@@ -87,8 +83,7 @@ void StandardOpaqueMaterialInspectorView::onSelectModelObject(const openstudio::
   this->stackedWidget()->setCurrentIndex(1);
 }
 
-void StandardOpaqueMaterialInspectorView::onUpdate()
-{
+void StandardOpaqueMaterialInspectorView::onUpdate() {
   boost::optional<openstudio::model::ModelObject> modelObject = this->modelObject();
   OS_ASSERT(modelObject);
 
@@ -98,6 +93,4 @@ void StandardOpaqueMaterialInspectorView::onUpdate()
   m_mainLabel->setText(toQString(ss.str()));
 }
 
-
-
-} // openstudio
+}  // namespace openstudio

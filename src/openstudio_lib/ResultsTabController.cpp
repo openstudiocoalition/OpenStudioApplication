@@ -34,16 +34,13 @@
 
 namespace openstudio {
 
-ResultsTabController::ResultsTabController()
-  : MainTabController(new ResultsTabView("Results Summary", MainTabView::MAIN_TAB))
-{
-  m_resultsTabView = static_cast<ResultsTabView *>(mainContentWidget());
+ResultsTabController::ResultsTabController() : MainTabController(new ResultsTabView("Results Summary", MainTabView::MAIN_TAB)) {
+  m_resultsTabView = static_cast<ResultsTabView*>(mainContentWidget());
 }
 
-void ResultsTabController::onUnitSystemChange(bool t_isIP)
-{
+void ResultsTabController::onUnitSystemChange(bool t_isIP) {
   LOG(Debug, "onUnitSystemChange isIP " << t_isIP);
   m_resultsTabView->onUnitSystemChange(t_isIP);
 }
 
-} // openstudio
+}  // namespace openstudio

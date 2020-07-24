@@ -45,51 +45,48 @@ class ElectricEquipmentDefinitionInspectorView : public ModelObjectInspectorView
 {
   Q_OBJECT
 
-  public:
+ public:
+  ElectricEquipmentDefinitionInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
-    ElectricEquipmentDefinitionInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent = nullptr );
+  virtual ~ElectricEquipmentDefinitionInspectorView() {}
 
-    virtual ~ElectricEquipmentDefinitionInspectorView() {}
+ protected:
+  virtual void onClearSelection() override;
 
-  protected:
+  virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
-    virtual void onClearSelection() override;
+  virtual void onUpdate() override;
 
-    virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
+ private:
+  void attach(openstudio::model::ElectricEquipmentDefinition& electricEquipmentDefinition);
 
-    virtual void onUpdate() override;
+  void detach();
 
-  private:
+  void refresh();
 
-    void attach(openstudio::model::ElectricEquipmentDefinition & electricEquipmentDefinition);
+  OSLineEdit2* m_nameEdit;
 
-    void detach();
+  OSQuantityEdit2* m_designLevelEdit;
 
-    void refresh();
+  OSQuantityEdit2* m_wattsPerSpaceFloorAreaEdit;
 
-    OSLineEdit2 * m_nameEdit;
+  OSQuantityEdit2* m_wattsPerPersonEdit;
 
-    OSQuantityEdit2 * m_designLevelEdit;
+  OSQuantityEdit2* m_fractionLatentEdit;
 
-    OSQuantityEdit2 * m_wattsPerSpaceFloorAreaEdit;
+  OSQuantityEdit2* m_fractionRadiantEdit;
 
-    OSQuantityEdit2 * m_wattsPerPersonEdit;
+  OSQuantityEdit2* m_fractionLostEdit;
 
-    OSQuantityEdit2 * m_fractionLatentEdit;
+  bool m_isIP;
 
-    OSQuantityEdit2 * m_fractionRadiantEdit;
+  boost::optional<model::ElectricEquipmentDefinition> m_electricEquipmentDefinition;
 
-    OSQuantityEdit2 * m_fractionLostEdit;
+ public slots:
 
-    bool m_isIP;
-
-    boost::optional<model::ElectricEquipmentDefinition> m_electricEquipmentDefinition;
-
-  public slots:
-
-    void toggleUnits(bool displayIP) override;
+  void toggleUnits(bool displayIP) override;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_ELECTRICEQUIPMENTINSPECTORVIEW_HPP
+#endif  // OPENSTUDIO_ELECTRICEQUIPMENTINSPECTORVIEW_HPP

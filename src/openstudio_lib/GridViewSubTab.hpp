@@ -43,88 +43,85 @@ class QVBoxLayout;
 
 namespace openstudio {
 
-  class OSGridController;
+class OSGridController;
 
-  class OSGridView;
+class OSGridView;
 
-  class OSItemSelectorButtons;
+class OSItemSelectorButtons;
 
 class GridViewSubTab : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
+  GridViewSubTab(bool isIP, const model::Model& model, QWidget* parent = nullptr);
 
-    GridViewSubTab(bool isIP, const model::Model & model, QWidget * parent = nullptr);
+  virtual ~GridViewSubTab() {}
 
-    virtual ~GridViewSubTab() {}
+  openstudio::IddObjectType m_iddObjectType;
 
-    openstudio::IddObjectType m_iddObjectType;
+ protected:
+  void setGridView(OSGridView* gridView);
 
-  protected:
+  void setGridController(OSGridController* gridController);
 
-    void setGridView(OSGridView * gridView);
+  virtual void addObject(const openstudio::IddObjectType& iddObjectType) = 0;
 
-    void setGridController(OSGridController * gridController);
+  virtual void addObject(const openstudio::model::ModelObject& modelObject);
 
-    virtual void addObject(const openstudio::IddObjectType& iddObjectType) = 0;
+  virtual void copyObject(const openstudio::model::ModelObject& modelObject);
 
-    virtual void addObject(const openstudio::model::ModelObject& modelObject);
+  virtual void removeObject(openstudio::model::ModelObject modelObject);
 
-    virtual void copyObject(const openstudio::model::ModelObject& modelObject);
+  virtual void purgeObjects(const openstudio::IddObjectType& iddObjectType) = 0;
 
-    virtual void removeObject(openstudio::model::ModelObject modelObject);
+  virtual std::vector<model::ModelObject> selectedObjects() const;
 
-    virtual void purgeObjects(const openstudio::IddObjectType& iddObjectType) = 0;
+  model::Model m_model;
 
-    virtual std::vector<model::ModelObject> selectedObjects() const;
+  OSGridView* m_gridView = nullptr;
 
-    model::Model m_model;
+  OSGridController* m_gridController = nullptr;
 
-    OSGridView * m_gridView = nullptr;
+  bool m_supportsMultipleObjectSelection = true;
 
-    OSGridController * m_gridController = nullptr;
+  bool m_isIP;
 
-    bool m_supportsMultipleObjectSelection = true;
+  QVBoxLayout* m_scrollLayout = nullptr;
 
-    bool m_isIP;
+  OSItemSelectorButtons* m_itemSelectorButtons = nullptr;
 
-    QVBoxLayout * m_scrollLayout = nullptr;
+ signals:
 
-    OSItemSelectorButtons * m_itemSelectorButtons = nullptr;
+  void toggleUnitsClicked(bool displayIP);
 
-  signals :
+  void dropZoneItemSelected(OSItem* item, bool readOnly);
 
-    void toggleUnitsClicked(bool displayIP);
+  void selectionCleared();
 
-    void dropZoneItemSelected(OSItem* item, bool readOnly);
+ public slots:
 
-    void selectionCleared();
+  void onDropZoneItemClicked(OSItem* item);
 
-  public slots:
+  void gridRowSelectionChanged(int checkState);
 
-    void onDropZoneItemClicked(OSItem* item);
+ protected slots:
 
-    void gridRowSelectionChanged(int checkState);
+  void onAddClicked();
 
-  protected slots :
+  void onCopyClicked();
 
-    void onAddClicked();
+  void onRemoveClicked();
 
-    void onCopyClicked();
+  void onPurgeClicked();
 
-    void onRemoveClicked();
+  void toggleUnits(bool isIP);
 
-    void onPurgeClicked();
+  virtual void onSelectItem() = 0;
 
-    void toggleUnits(bool isIP);
-
-    virtual void onSelectItem() = 0;
-
-    virtual void onClearSelection() = 0;
-
+  virtual void onClearSelection() = 0;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_GRIDVIEWSUBTAB_HPP
+#endif  // OPENSTUDIO_GRIDVIEWSUBTAB_HPP

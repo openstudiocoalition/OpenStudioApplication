@@ -37,68 +37,58 @@
 
 #include <openstudio/model/Model.hpp>
 
-namespace openstudio{
+namespace openstudio {
 
-  class SpacesLoadsGridController;
+class SpacesLoadsGridController;
 
-  class SpacesLoadsGridView : public SpacesSubtabGridView
-  {
-    Q_OBJECT
+class SpacesLoadsGridView : public SpacesSubtabGridView
+{
+  Q_OBJECT
 
-  public:
+ public:
+  SpacesLoadsGridView(bool isIP, const model::Model& model, QWidget* parent = nullptr);
 
-    SpacesLoadsGridView(bool isIP, const model::Model & model, QWidget * parent = nullptr);
+  virtual ~SpacesLoadsGridView() {}
 
-    virtual ~SpacesLoadsGridView() {}
+ private:
+  REGISTER_LOGGER("openstudio.SpacesLoadsGridView");
 
-  private:
-
-    REGISTER_LOGGER("openstudio.SpacesLoadsGridView");
-
-  protected slots:
+ protected slots:
 
   virtual void onSelectItem() override;
 
   virtual void onClearSelection() override;
+};
 
+class SpacesLoadsGridController : public OSGridController
+{
 
-  };
+  Q_OBJECT
 
-  class SpacesLoadsGridController : public OSGridController
-  {
+ public:
+  SpacesLoadsGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model model,
+                            std::vector<model::ModelObject> modelObjects);
 
-    Q_OBJECT
+  virtual ~SpacesLoadsGridController() {}
 
-  public:
+  virtual void refreshModelObjects();
 
-    SpacesLoadsGridController(bool isIP,
-      const QString & headerText,
-      IddObjectType iddObjectType,
-      model::Model model,
-      std::vector<model::ModelObject> modelObjects);
+  virtual void categorySelected(int index);
 
-    virtual ~SpacesLoadsGridController() {}
+ protected:
+  virtual void setCategoriesAndFields();
 
-    virtual void refreshModelObjects();
+  virtual void addColumns(const QString& category, std::vector<QString>& fields);
 
-    virtual void categorySelected(int index);
+  virtual void checkSelectedFields();
 
-  protected:
+  virtual QString getColor(const model::ModelObject& modelObject);
 
-    virtual void setCategoriesAndFields();
+ public slots:
 
-    virtual void addColumns(const QString &category, std::vector<QString> & fields);
+  virtual void onItemDropped(const OSItemId& itemId);
+};
 
-    virtual void checkSelectedFields();
+}  // namespace openstudio
 
-    virtual QString getColor(const model::ModelObject & modelObject);
-
-    public slots:
-
-    virtual void onItemDropped(const OSItemId& itemId);
-
-  };
-
-} // openstudio
-
-#endif // OPENSTUDIO_SPACESLOADSGRIDVIEW_HPP
+#endif  // OPENSTUDIO_SPACESLOADSGRIDVIEW_HPP

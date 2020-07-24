@@ -50,9 +50,7 @@ using namespace openstudio::model;
 
 namespace openstudio {
 
-WaterUseConnectionsDetailItem::WaterUseConnectionsDetailItem(WaterUseConnectionsDetailScene * waterUseConnectionsDetailScene)
-  : GridItem()
-{
+WaterUseConnectionsDetailItem::WaterUseConnectionsDetailItem(WaterUseConnectionsDetailScene* waterUseConnectionsDetailScene) : GridItem() {
   waterUseConnectionsDetailScene->addItem(this);
 
   model::WaterUseConnections waterUseConnections = waterUseConnectionsDetailScene->waterUseConnections();
@@ -74,10 +72,10 @@ WaterUseConnectionsDetailItem::WaterUseConnectionsDetailItem(WaterUseConnections
 
   sewerItem->sewerButton()->setToolTip("Go back to water mains editor");
 
-  connect(sewerItem->sewerButton(), &ButtonItem::mouseClicked,
-    waterUseConnectionsDetailScene, &WaterUseConnectionsDetailScene::goToServiceWaterSceneClicked);
+  connect(sewerItem->sewerButton(), &ButtonItem::mouseClicked, waterUseConnectionsDetailScene,
+          &WaterUseConnectionsDetailScene::goToServiceWaterSceneClicked);
 
-  sewerItem->setGridPos(i,j + 3);
+  sewerItem->setGridPos(i, j + 3);
 
   i = i + sewerItem->getHGridLength();
 
@@ -87,40 +85,34 @@ WaterUseConnectionsDetailItem::WaterUseConnectionsDetailItem(WaterUseConnections
 
   leftVItem1->setEnableHighlight(false);
 
-  leftVItem1->setGridPos(i,j + 1);
+  leftVItem1->setGridPos(i, j + 1);
 
-  if( branchCount > 0 )
-  {
+  if (branchCount > 0) {
     auto leftVItem2 = new OneTwoFourStraightItem(this);
 
     leftVItem2->setEnableHighlight(false);
 
-    leftVItem2->setGridPos(i,j + 2);
-  }
-  else
-  {
+    leftVItem2->setGridPos(i, j + 2);
+  } else {
     auto leftVItem2 = new TwoFourStraightItem(this);
 
     leftVItem2->setEnableHighlight(false);
 
-    leftVItem2->setGridPos(i,j + 2);
+    leftVItem2->setGridPos(i, j + 2);
   }
 
-  if( branchCount > 1 )
-  {
+  if (branchCount > 1) {
     auto leftVItem3 = new TwoThreeFourStraightItem(this);
 
     leftVItem3->setEnableHighlight(false);
 
-    leftVItem3->setGridPos(i,j + 3);
-  }
-  else
-  {
+    leftVItem3->setGridPos(i, j + 3);
+  } else {
     auto leftVItem3 = new TwoThreeStraightItem(this);
 
     leftVItem3->setEnableHighlight(false);
 
-    leftVItem3->setGridPos(i,j + 3);
+    leftVItem3->setGridPos(i, j + 3);
   }
 
   // Left top elbow
@@ -129,7 +121,7 @@ WaterUseConnectionsDetailItem::WaterUseConnectionsDetailItem(WaterUseConnections
 
   leftTopElbow->setEnableHighlight(false);
 
-  leftTopElbow->setGridPos(i,j);
+  leftTopElbow->setGridPos(i, j);
 
   i = i + leftTopElbow->getHGridLength();
 
@@ -139,7 +131,7 @@ WaterUseConnectionsDetailItem::WaterUseConnectionsDetailItem(WaterUseConnections
 
   straightItem->setEnableHighlight(false);
 
-  straightItem->setGridPos(i,j);
+  straightItem->setGridPos(i, j);
 
   i = i + straightItem->getHGridLength();
 
@@ -149,7 +141,7 @@ WaterUseConnectionsDetailItem::WaterUseConnectionsDetailItem(WaterUseConnections
 
   dropBranchItem->setModelObject(waterUseConnections);
 
-  dropBranchItem->setGridPos(i,j);
+  dropBranchItem->setGridPos(i, j);
 
   i = i + dropBranchItem->getHGridLength();
 
@@ -159,7 +151,7 @@ WaterUseConnectionsDetailItem::WaterUseConnectionsDetailItem(WaterUseConnections
 
   straightItem2->setEnableHighlight(false);
 
-  straightItem2->setGridPos(i,j);
+  straightItem2->setGridPos(i, j);
 
   i = i + straightItem2->getHGridLength();
 
@@ -169,13 +161,13 @@ WaterUseConnectionsDetailItem::WaterUseConnectionsDetailItem(WaterUseConnections
 
   rightTopElbow->setEnableHighlight(false);
 
-  rightTopElbow->setGridPos(i,j);
+  rightTopElbow->setGridPos(i, j);
 
   // Hot water supply
 
   auto hotWaterSupplyItem = new HotWaterSupplyItem(this);
 
-  hotWaterSupplyItem->setGridPos(i + 1,j + 1);
+  hotWaterSupplyItem->setGridPos(i + 1, j + 1);
 
   // Right Vertical
 
@@ -183,38 +175,32 @@ WaterUseConnectionsDetailItem::WaterUseConnectionsDetailItem(WaterUseConnections
 
   rightVItem1->setEnableHighlight(false);
 
-  rightVItem1->setGridPos(i,j + 1);
+  rightVItem1->setGridPos(i, j + 1);
 
-  if( branchCount > 0 )
-  {
+  if (branchCount > 0) {
     auto rightVItem2 = new DoubleTwoThreeFourStraightItem(this);
 
     rightVItem2->setEnableHighlight(false);
 
-    rightVItem2->setGridPos(i,j + 2);
-  }
-  else
-  {
+    rightVItem2->setGridPos(i, j + 2);
+  } else {
     auto rightVItem2 = new DoubleTwoFourStraightItem(this);
 
     rightVItem2->setEnableHighlight(false);
 
-    rightVItem2->setGridPos(i,j + 2);
+    rightVItem2->setGridPos(i, j + 2);
   }
 
-  if( branchCount > 1)
-  {
-    auto rightVItem3 = new ColdWaterJunctionItem(false,this);
+  if (branchCount > 1) {
+    auto rightVItem3 = new ColdWaterJunctionItem(false, this);
 
-    rightVItem3->setGridPos(i,j + 3);
+    rightVItem3->setGridPos(i, j + 3);
 
     i = i + rightVItem1->getHGridLength();
-  }
-  else
-  {
-    auto rightVItem3 = new ColdWaterJunctionItem(true,this);
+  } else {
+    auto rightVItem3 = new ColdWaterJunctionItem(true, this);
 
-    rightVItem3->setGridPos(i,j + 3);
+    rightVItem3->setGridPos(i, j + 3);
 
     i = i + rightVItem1->getHGridLength();
   }
@@ -225,10 +211,10 @@ WaterUseConnectionsDetailItem::WaterUseConnectionsDetailItem(WaterUseConnections
 
   mainsSupplyItem->mainsSupplyButton()->setToolTip("Go back to water mains editor");
 
-  connect(mainsSupplyItem->mainsSupplyButton(), &ButtonItem::mouseClicked,
-    waterUseConnectionsDetailScene, &WaterUseConnectionsDetailScene::goToServiceWaterSceneClicked);
+  connect(mainsSupplyItem->mainsSupplyButton(), &ButtonItem::mouseClicked, waterUseConnectionsDetailScene,
+          &WaterUseConnectionsDetailScene::goToServiceWaterSceneClicked);
 
-  mainsSupplyItem->setGridPos(i,j + 3);
+  mainsSupplyItem->setGridPos(i, j + 3);
 
   i = i + mainsSupplyItem->getHGridLength();
 
@@ -236,15 +222,14 @@ WaterUseConnectionsDetailItem::WaterUseConnectionsDetailItem(WaterUseConnections
 
   j = 3;
 
-  for( int b = 0; b < branchCount; b++ )
-  {
+  for (int b = 0; b < branchCount; b++) {
     i = 4;
 
     auto outletItem = new OneThreeStraightItem(this);
 
     outletItem->setEnableHighlight(false);
 
-    outletItem->setGridPos(i,j);
+    outletItem->setGridPos(i, j);
 
     i = i + outletItem->getHGridLength();
 
@@ -254,7 +239,7 @@ WaterUseConnectionsDetailItem::WaterUseConnectionsDetailItem(WaterUseConnections
 
     waterUseEquipmentItem->setModelObject(waterUseEquipment);
 
-    waterUseEquipmentItem->setGridPos(i,j);
+    waterUseEquipmentItem->setGridPos(i, j);
 
     i = i + waterUseEquipmentItem->getHGridLength();
 
@@ -262,85 +247,75 @@ WaterUseConnectionsDetailItem::WaterUseConnectionsDetailItem(WaterUseConnections
 
     inletItem->setEnableHighlight(false);
 
-    inletItem->setGridPos(i,j);
+    inletItem->setGridPos(i, j);
 
-    if( b != 0 && b < branchCount - 1 )
-    {
+    if (b != 0 && b < branchCount - 1) {
       auto inletJunctionItem = new DoubleTwoThreeFourStraightItem(this);
 
       inletJunctionItem->setEnableHighlight(false);
 
-      inletJunctionItem->setGridPos(8,j);
+      inletJunctionItem->setGridPos(8, j);
 
       auto outletJunctionItem = new OneTwoFourStraightItem(this);
 
       outletJunctionItem->setEnableHighlight(false);
 
-      outletJunctionItem->setGridPos(3,j);
+      outletJunctionItem->setGridPos(3, j);
     }
 
-    if( b > 1 )
-    {
+    if (b > 1) {
       auto leftStraight = new TwoFourStraightItem(this);
 
       leftStraight->setEnableHighlight(false);
 
-      leftStraight->setGridPos(3,j - 1);
+      leftStraight->setGridPos(3, j - 1);
 
       auto rightStraight = new DoubleTwoFourStraightItem(this);
 
       rightStraight->setEnableHighlight(false);
 
-      rightStraight->setGridPos(8,j - 1);
+      rightStraight->setGridPos(8, j - 1);
     }
 
-    if( b == branchCount - 1 && branchCount > 1 )
-    {
+    if (b == branchCount - 1 && branchCount > 1) {
       auto bottomLeftCorner = new OneTwoStraightItem(this);
 
       bottomLeftCorner->setEnableHighlight(false);
 
-      bottomLeftCorner->setGridPos(3,j);
+      bottomLeftCorner->setGridPos(3, j);
 
       auto bottomRightCorner = new DoubleTwoThreeStraightItem(this);
 
       bottomRightCorner->setEnableHighlight(false);
 
-      bottomRightCorner->setGridPos(8,j);
+      bottomRightCorner->setGridPos(8, j);
     }
 
     j = j + 2;
   }
 
-  if( j > 6 )
-  {
+  if (j > 6) {
     setVGridLength(j);
   }
 
   // Makeup Water
 
   auto makeupWaterItem = new MakeupWaterItem(this);
-  makeupWaterItem->setGridPos(1,1);
+  makeupWaterItem->setGridPos(1, 1);
 
-  connect(makeupWaterItem->mainsSupplyButton(), &ButtonItem::mouseClicked,
-    waterUseConnectionsDetailScene, &WaterUseConnectionsDetailScene::goToServiceWaterSceneClicked);
-
+  connect(makeupWaterItem->mainsSupplyButton(), &ButtonItem::mouseClicked, waterUseConnectionsDetailScene,
+          &WaterUseConnectionsDetailScene::goToServiceWaterSceneClicked);
 }
 
-void WaterUseConnectionsDetailItem::paint( QPainter *painter,
-                           const QStyleOptionGraphicsItem *option,
-                           QWidget *widget )
-{
+void WaterUseConnectionsDetailItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
   painter->setRenderHint(QPainter::Antialiasing, true);
-  painter->setBrush(QBrush(QColor(206,206,206),Qt::SolidPattern));
+  painter->setBrush(QBrush(QColor(206, 206, 206), Qt::SolidPattern));
   painter->setPen(Qt::NoPen);
 
-  painter->drawRoundedRect(10,10,boundingRect().width() - 20, boundingRect().height() - 20,8,8);
+  painter->drawRoundedRect(10, 10, boundingRect().width() - 20, boundingRect().height() - 20, 8, 8);
 }
 
-ServiceWaterItem::ServiceWaterItem(ServiceWaterScene * serviceWaterScene)
-  : GridItem()
-{
+ServiceWaterItem::ServiceWaterItem(ServiceWaterScene* serviceWaterScene) : GridItem() {
   serviceWaterScene->addItem(this);
 
   std::vector<model::WaterUseConnections> waterConnectionsObjects = serviceWaterScene->model().getConcreteModelObjects<model::WaterUseConnections>();
@@ -358,27 +333,24 @@ ServiceWaterItem::ServiceWaterItem(ServiceWaterScene * serviceWaterScene)
 
   auto sewerItem = new SewerItem(this);
 
-  sewerItem->setGridPos(i,j + 1);
+  sewerItem->setGridPos(i, j + 1);
 
   i = i + sewerItem->getHGridLength();
 
   // Left Vertical
 
-  if( branchCount > 0 )
-  {
+  if (branchCount > 0) {
     auto leftVItem1 = new TwoThreeFourStraightItem(this);
 
     leftVItem1->setEnableHighlight(false);
 
-    leftVItem1->setGridPos(i,j + 1);
-  }
-  else
-  {
+    leftVItem1->setGridPos(i, j + 1);
+  } else {
     auto leftVItem1 = new TwoThreeStraightItem(this);
 
     leftVItem1->setEnableHighlight(false);
 
-    leftVItem1->setGridPos(i,j + 1);
+    leftVItem1->setGridPos(i, j + 1);
   }
 
   // Left top elbow
@@ -387,7 +359,7 @@ ServiceWaterItem::ServiceWaterItem(ServiceWaterScene * serviceWaterScene)
 
   leftTopElbow->setEnableHighlight(false);
 
-  leftTopElbow->setGridPos(i,j);
+  leftTopElbow->setGridPos(i, j);
 
   i = i + leftTopElbow->getHGridLength();
 
@@ -397,7 +369,7 @@ ServiceWaterItem::ServiceWaterItem(ServiceWaterScene * serviceWaterScene)
 
   straightItem->setEnableHighlight(false);
 
-  straightItem->setGridPos(i,j);
+  straightItem->setGridPos(i, j);
 
   i = i + straightItem->getHGridLength();
 
@@ -405,7 +377,7 @@ ServiceWaterItem::ServiceWaterItem(ServiceWaterScene * serviceWaterScene)
 
   auto dropBranchItem = new WaterUseConnectionsDropZoneItem(this);
 
-  dropBranchItem->setGridPos(i,j);
+  dropBranchItem->setGridPos(i, j);
 
   i = i + dropBranchItem->getHGridLength();
 
@@ -415,7 +387,7 @@ ServiceWaterItem::ServiceWaterItem(ServiceWaterScene * serviceWaterScene)
 
   straightItem2->setEnableHighlight(false);
 
-  straightItem2->setGridPos(i,j);
+  straightItem2->setGridPos(i, j);
 
   i = i + straightItem2->getHGridLength();
 
@@ -425,27 +397,24 @@ ServiceWaterItem::ServiceWaterItem(ServiceWaterScene * serviceWaterScene)
 
   rightTopElbow->setEnableHighlight(false);
 
-  rightTopElbow->setGridPos(i,j);
+  rightTopElbow->setGridPos(i, j);
 
   // Right Vertical
 
-  if( branchCount > 0 )
-  {
+  if (branchCount > 0) {
     auto rightVItem1 = new OneTwoFourStraightItem(this);
 
     rightVItem1->setEnableHighlight(false);
 
-    rightVItem1->setGridPos(i,j + 1);
+    rightVItem1->setGridPos(i, j + 1);
 
     i = i + rightVItem1->getHGridLength();
-  }
-  else
-  {
+  } else {
     auto rightVItem1 = new OneTwoStraightItem(this);
 
     rightVItem1->setEnableHighlight(false);
 
-    rightVItem1->setGridPos(i,j + 1);
+    rightVItem1->setGridPos(i, j + 1);
 
     i = i + rightVItem1->getHGridLength();
   }
@@ -454,7 +423,7 @@ ServiceWaterItem::ServiceWaterItem(ServiceWaterScene * serviceWaterScene)
 
   auto mainsSupplyItem = new MainsSupplyItem(this);
 
-  mainsSupplyItem->setGridPos(i,j + 1);
+  mainsSupplyItem->setGridPos(i, j + 1);
 
   i = i + mainsSupplyItem->getHGridLength();
 
@@ -462,15 +431,14 @@ ServiceWaterItem::ServiceWaterItem(ServiceWaterScene * serviceWaterScene)
 
   j = 3;
 
-  for( int b = 0; b < branchCount; b++ )
-  {
+  for (int b = 0; b < branchCount; b++) {
     i = 4;
 
     auto outletItem = new OneThreeStraightItem(this);
 
     outletItem->setEnableHighlight(false);
 
-    outletItem->setGridPos(i,j);
+    outletItem->setGridPos(i, j);
 
     i = i + outletItem->getHGridLength();
 
@@ -478,7 +446,7 @@ ServiceWaterItem::ServiceWaterItem(ServiceWaterScene * serviceWaterScene)
 
     waterUseConnectionsItem->setModelObject(waterConnectionsObjects[b]);
 
-    waterUseConnectionsItem->setGridPos(i,j);
+    waterUseConnectionsItem->setGridPos(i, j);
 
     i = i + waterUseConnectionsItem->getHGridLength();
 
@@ -486,77 +454,68 @@ ServiceWaterItem::ServiceWaterItem(ServiceWaterScene * serviceWaterScene)
 
     inletItem->setEnableHighlight(false);
 
-    inletItem->setGridPos(i,j);
+    inletItem->setGridPos(i, j);
 
-    if( b > 0 )
-    {
+    if (b > 0) {
       auto leftStraight = new TwoFourStraightItem(this);
 
       leftStraight->setEnableHighlight(false);
 
-      leftStraight->setGridPos(3,j - 1);
+      leftStraight->setGridPos(3, j - 1);
 
       auto rightStraight = new TwoFourStraightItem(this);
 
       rightStraight->setEnableHighlight(false);
 
-      rightStraight->setGridPos(8,j - 1);
+      rightStraight->setGridPos(8, j - 1);
     }
 
-    if( b == branchCount - 1 )
-    {
+    if (b == branchCount - 1) {
       auto bottomLeftCorner = new OneTwoStraightItem(this);
 
       bottomLeftCorner->setEnableHighlight(false);
 
-      bottomLeftCorner->setGridPos(3,j);
+      bottomLeftCorner->setGridPos(3, j);
 
       auto bottomRightCorner = new TwoThreeStraightItem(this);
 
       bottomRightCorner->setEnableHighlight(false);
 
-      bottomRightCorner->setGridPos(8,j);
-    }
-    else
-    {
+      bottomRightCorner->setGridPos(8, j);
+    } else {
       auto inletJunctionItem = new TwoThreeFourStraightItem(this);
 
       inletJunctionItem->setEnableHighlight(false);
 
-      inletJunctionItem->setGridPos(8,j);
+      inletJunctionItem->setGridPos(8, j);
 
       auto outletJunctionItem = new OneTwoFourStraightItem(this);
 
       outletJunctionItem->setEnableHighlight(false);
 
-      outletJunctionItem->setGridPos(3,j);
+      outletJunctionItem->setGridPos(3, j);
     }
 
     j = j + 2;
   }
 
-  if( j < 4 )
-  {
+  if (j < 4) {
     j = 4;
   }
 
   setVGridLength(j);
 }
 
-void ServiceWaterItem::paint( QPainter *painter,
-                           const QStyleOptionGraphicsItem *option,
-                           QWidget *widget )
-{
+void ServiceWaterItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
   painter->setRenderHint(QPainter::Antialiasing, true);
-  painter->setBrush(QBrush(QColor(206,206,206),Qt::SolidPattern));
+  painter->setBrush(QBrush(QColor(206, 206, 206), Qt::SolidPattern));
   painter->setPen(Qt::NoPen);
 
-  painter->drawRoundedRect(10,10,boundingRect().width() - 20, boundingRect().height() - 20,8,8);
+  painter->drawRoundedRect(10, 10, boundingRect().width() - 20, boundingRect().height() - 20, 8, 8);
 }
 
-WaterUseEquipmentDropZoneItem::WaterUseEquipmentDropZoneItem(QGraphicsItem * parent)
-  : HorizontalBranchItem(std::vector<model::ModelObject>(),parent)
-{
+WaterUseEquipmentDropZoneItem::WaterUseEquipmentDropZoneItem(QGraphicsItem* parent)
+  : HorizontalBranchItem(std::vector<model::ModelObject>(), parent) {
   setIsDropZone(true);
 
   setHasTwoRightSidePipes(true);
@@ -566,9 +525,8 @@ WaterUseEquipmentDropZoneItem::WaterUseEquipmentDropZoneItem(QGraphicsItem * par
   setText("Drag Water Use Equipment from Library");
 }
 
-WaterUseConnectionsDropZoneItem::WaterUseConnectionsDropZoneItem(QGraphicsItem * parent)
-  : HorizontalBranchItem(std::vector<model::ModelObject>(),parent)
-{
+WaterUseConnectionsDropZoneItem::WaterUseConnectionsDropZoneItem(QGraphicsItem* parent)
+  : HorizontalBranchItem(std::vector<model::ModelObject>(), parent) {
   setIsDropZone(true);
 
   setHGridLength(2);
@@ -576,9 +534,7 @@ WaterUseConnectionsDropZoneItem::WaterUseConnectionsDropZoneItem(QGraphicsItem *
   setText("Drag Water Use Connections from Library");
 }
 
-SewerItem::SewerItem(QGraphicsItem * parent)
-  : GridItem(parent)
-{
+SewerItem::SewerItem(QGraphicsItem* parent) : GridItem(parent) {
   setHGridLength(2);
 
   setEnableHighlight(false);
@@ -587,35 +543,29 @@ SewerItem::SewerItem(QGraphicsItem * parent)
   QPixmap sewerDownPixmap(":/images/sewer_press.png");
   QPixmap sewerHoverPixmap(":/images/sewer_over.png");
 
-  m_sewerButton = new ButtonItem(sewerPixmap,sewerDownPixmap,sewerHoverPixmap,this);
+  m_sewerButton = new ButtonItem(sewerPixmap, sewerDownPixmap, sewerHoverPixmap, this);
 }
 
-ButtonItem * SewerItem::sewerButton() const
-{
+ButtonItem* SewerItem::sewerButton() const {
   return m_sewerButton;
 }
 
-void SewerItem::paint( QPainter *painter,
-                       const QStyleOptionGraphicsItem *option,
-                       QWidget *widget )
-{
-  GridItem::paint(painter,option,widget);
+void SewerItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+  GridItem::paint(painter, option, widget);
 
   painter->setRenderHint(QPainter::Antialiasing, true);
-  painter->setBrush(QBrush(Qt::lightGray,Qt::SolidPattern));
-  painter->setPen(QPen(Qt::black,4,Qt::SolidLine, Qt::RoundCap));
+  painter->setBrush(QBrush(Qt::lightGray, Qt::SolidPattern));
+  painter->setPen(QPen(Qt::black, 4, Qt::SolidLine, Qt::RoundCap));
 
-  painter->drawLine( 50,50,200,50 );
+  painter->drawLine(50, 50, 200, 50);
 
   QTransform transform;
   transform = transform.rotate(90);
 
-  painter->drawPixmap(137,37,25,25,QPixmap(":/images/arrow.png").transformed(transform));
+  painter->drawPixmap(137, 37, 25, 25, QPixmap(":/images/arrow.png").transformed(transform));
 }
 
-HotWaterSupplyItem::HotWaterSupplyItem(QGraphicsItem * parent)
-  : GridItem(parent)
-{
+HotWaterSupplyItem::HotWaterSupplyItem(QGraphicsItem* parent) : GridItem(parent) {
   setHGridLength(2);
 
   setEnableHighlight(false);
@@ -624,47 +574,39 @@ HotWaterSupplyItem::HotWaterSupplyItem(QGraphicsItem * parent)
   QPixmap hotWaterSupplyOverPixmap(":/images/loop_button_over.png");
   QPixmap hotWaterSupplyPressPixmap(":/images/loop_button_press.png");
 
-  m_hotWaterSupplyButton = new ButtonItem(hotWaterSupplyPixmap,hotWaterSupplyPressPixmap,
-                                          hotWaterSupplyOverPixmap,this);
+  m_hotWaterSupplyButton = new ButtonItem(hotWaterSupplyPixmap, hotWaterSupplyPressPixmap, hotWaterSupplyOverPixmap, this);
 
   m_hotWaterSupplyButton->setToolTip("Go back to hot water supply system");
 
   connect(m_hotWaterSupplyButton, &ButtonItem::mouseClicked, this, &HotWaterSupplyItem::onHotWaterSupplyButtonClicked);
 
-  m_hotWaterSupplyButton->setPos(105.9,37);
+  m_hotWaterSupplyButton->setPos(105.9, 37);
 }
 
-void HotWaterSupplyItem::onHotWaterSupplyButtonClicked()
-{
-  if( WaterUseConnectionsDetailScene * detailScene = qobject_cast<WaterUseConnectionsDetailScene *>(scene()) )
-  {
+void HotWaterSupplyItem::onHotWaterSupplyButtonClicked() {
+  if (WaterUseConnectionsDetailScene* detailScene = qobject_cast<WaterUseConnectionsDetailScene*>(scene())) {
     model::WaterUseConnections waterUseConnections = detailScene->waterUseConnections();
 
-    emit innerNodeClicked( waterUseConnections );
+    emit innerNodeClicked(waterUseConnections);
   }
 }
 
-void HotWaterSupplyItem::paint( QPainter *painter,
-                           const QStyleOptionGraphicsItem *option,
-                           QWidget *widget )
-{
-  GridItem::paint(painter,option,widget);
+void HotWaterSupplyItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+  GridItem::paint(painter, option, widget);
 
   painter->setRenderHint(QPainter::Antialiasing, true);
-  painter->setBrush(QBrush(Qt::lightGray,Qt::SolidPattern));
-  painter->setPen(QPen(Qt::black,4,Qt::SolidLine, Qt::RoundCap));
+  painter->setBrush(QBrush(Qt::lightGray, Qt::SolidPattern));
+  painter->setPen(QPen(Qt::black, 4, Qt::SolidLine, Qt::RoundCap));
 
-  painter->drawLine( 0,50,150,50 );
+  painter->drawLine(0, 50, 150, 50);
 
   QTransform transform;
   transform = transform.rotate(90);
 
-  painter->drawPixmap(37,37,25,25,QPixmap(":/images/arrow.png").transformed(transform));
+  painter->drawPixmap(37, 37, 25, 25, QPixmap(":/images/arrow.png").transformed(transform));
 }
 
-MainsSupplyItem::MainsSupplyItem(QGraphicsItem * parent)
-  : GridItem(parent)
-{
+MainsSupplyItem::MainsSupplyItem(QGraphicsItem* parent) : GridItem(parent) {
   setHGridLength(2);
 
   setEnableHighlight(false);
@@ -673,240 +615,175 @@ MainsSupplyItem::MainsSupplyItem(QGraphicsItem * parent)
   QPixmap waterMainPressPixmap(":/images/water_main_alone_press.png");
   QPixmap waterMainOverPixmap(":/images/water_main_alone_over.png");
 
-  m_mainsSupplyButton = new ButtonItem(waterMainPixmap,waterMainPressPixmap,waterMainOverPixmap,this);
+  m_mainsSupplyButton = new ButtonItem(waterMainPixmap, waterMainPressPixmap, waterMainOverPixmap, this);
 
-  m_mainsSupplyButton->setPos(100,0);
+  m_mainsSupplyButton->setPos(100, 0);
 }
 
-ButtonItem * MainsSupplyItem::mainsSupplyButton() const
-{
+ButtonItem* MainsSupplyItem::mainsSupplyButton() const {
   return m_mainsSupplyButton;
 }
 
-void MainsSupplyItem::paint( QPainter *painter,
-                           const QStyleOptionGraphicsItem *option,
-                           QWidget *widget )
-{
-  GridItem::paint(painter,option,widget);
+void MainsSupplyItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+  GridItem::paint(painter, option, widget);
 
   painter->setRenderHint(QPainter::Antialiasing, true);
-  painter->setBrush(QBrush(Qt::lightGray,Qt::SolidPattern));
-  painter->setPen(QPen(Qt::black,4,Qt::SolidLine, Qt::RoundCap));
+  painter->setBrush(QBrush(Qt::lightGray, Qt::SolidPattern));
+  painter->setPen(QPen(Qt::black, 4, Qt::SolidLine, Qt::RoundCap));
 
-  painter->drawLine( 0,50,150,50 );
+  painter->drawLine(0, 50, 150, 50);
 
   QTransform transform;
   transform = transform.rotate(90);
 
-  painter->drawPixmap(37,37,25,25,QPixmap(":/images/arrow.png").transformed(transform));
+  painter->drawPixmap(37, 37, 25, 25, QPixmap(":/images/arrow.png").transformed(transform));
 }
 
-DoubleOneThreeStraightItem::DoubleOneThreeStraightItem( QGraphicsItem * parent )
-  : GridItem(parent)
-{
-}
+DoubleOneThreeStraightItem::DoubleOneThreeStraightItem(QGraphicsItem* parent) : GridItem(parent) {}
 
-void DoubleOneThreeStraightItem::paint(QPainter *painter,
-                                       const QStyleOptionGraphicsItem *option,
-                                       QWidget *widget)
-{
-  GridItem::paint(painter,option,widget);
+void DoubleOneThreeStraightItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+  GridItem::paint(painter, option, widget);
 
   painter->setRenderHint(QPainter::Antialiasing, true);
-  painter->setBrush(QBrush(Qt::lightGray,Qt::SolidPattern));
-  painter->setPen(QPen(Qt::black,4,Qt::SolidLine, Qt::RoundCap));
+  painter->setBrush(QBrush(Qt::lightGray, Qt::SolidPattern));
+  painter->setPen(QPen(Qt::black, 4, Qt::SolidLine, Qt::RoundCap));
 
-  painter->drawLine( 0,33,100,33 );
-  painter->drawLine( 0,66,100,66 );
+  painter->drawLine(0, 33, 100, 33);
+  painter->drawLine(0, 66, 100, 66);
 }
 
-DoubleThreeFourStraightItem::DoubleThreeFourStraightItem( QGraphicsItem * parent )
-  : GridItem(parent)
-{
-}
+DoubleThreeFourStraightItem::DoubleThreeFourStraightItem(QGraphicsItem* parent) : GridItem(parent) {}
 
-void DoubleThreeFourStraightItem::paint(QPainter *painter,
-                                       const QStyleOptionGraphicsItem *option,
-                                       QWidget *widget)
-{
-  GridItem::paint(painter,option,widget);
+void DoubleThreeFourStraightItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+  GridItem::paint(painter, option, widget);
 
   painter->setRenderHint(QPainter::Antialiasing, true);
-  painter->setBrush(QBrush(Qt::lightGray,Qt::SolidPattern));
-  painter->setPen(QPen(Qt::black,4,Qt::SolidLine, Qt::RoundCap));
+  painter->setBrush(QBrush(Qt::lightGray, Qt::SolidPattern));
+  painter->setPen(QPen(Qt::black, 4, Qt::SolidLine, Qt::RoundCap));
 
-  painter->drawLine( 0,33,66,33 );
-  painter->drawLine( 66,33,66,100 );
+  painter->drawLine(0, 33, 66, 33);
+  painter->drawLine(66, 33, 66, 100);
 
-  painter->drawLine( 0,66,33,66 );
-  painter->drawLine( 33,66,33,100 );
+  painter->drawLine(0, 66, 33, 66);
+  painter->drawLine(33, 66, 33, 100);
 }
 
-DoubleTwoFourStraightItem::DoubleTwoFourStraightItem( QGraphicsItem * parent )
-  : GridItem(parent)
-{
-}
+DoubleTwoFourStraightItem::DoubleTwoFourStraightItem(QGraphicsItem* parent) : GridItem(parent) {}
 
-void DoubleTwoFourStraightItem::paint(QPainter *painter,
-                                       const QStyleOptionGraphicsItem *option,
-                                       QWidget *widget)
-{
-  GridItem::paint(painter,option,widget);
+void DoubleTwoFourStraightItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+  GridItem::paint(painter, option, widget);
 
   painter->setRenderHint(QPainter::Antialiasing, true);
-  painter->setBrush(QBrush(Qt::lightGray,Qt::SolidPattern));
-  painter->setPen(QPen(Qt::black,4,Qt::SolidLine, Qt::RoundCap));
+  painter->setBrush(QBrush(Qt::lightGray, Qt::SolidPattern));
+  painter->setPen(QPen(Qt::black, 4, Qt::SolidLine, Qt::RoundCap));
 
-  painter->drawLine( 33,0,33,100 );
-  painter->drawLine( 66,0,66,100 );
+  painter->drawLine(33, 0, 33, 100);
+  painter->drawLine(66, 0, 66, 100);
 }
 
-DoubleTwoThreeStraightItem::DoubleTwoThreeStraightItem( QGraphicsItem * parent )
-  : GridItem(parent)
-{
-}
+DoubleTwoThreeStraightItem::DoubleTwoThreeStraightItem(QGraphicsItem* parent) : GridItem(parent) {}
 
-void DoubleTwoThreeStraightItem::paint(QPainter *painter,
-                                       const QStyleOptionGraphicsItem *option,
-                                       QWidget *widget)
-{
-  GridItem::paint(painter,option,widget);
+void DoubleTwoThreeStraightItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+  GridItem::paint(painter, option, widget);
 
   painter->setRenderHint(QPainter::Antialiasing, true);
-  painter->setBrush(QBrush(Qt::lightGray,Qt::SolidPattern));
-  painter->setPen(QPen(Qt::black,4,Qt::SolidLine, Qt::RoundCap));
+  painter->setBrush(QBrush(Qt::lightGray, Qt::SolidPattern));
+  painter->setPen(QPen(Qt::black, 4, Qt::SolidLine, Qt::RoundCap));
 
-  painter->drawLine( 66,0,66,33 );
-  painter->drawLine( 0,33,16,33 );
-  painter->drawArc( 16,16,33,33,2880,-2880 );
-  painter->drawLine( 50,33,66,33 );
+  painter->drawLine(66, 0, 66, 33);
+  painter->drawLine(0, 33, 16, 33);
+  painter->drawArc(16, 16, 33, 33, 2880, -2880);
+  painter->drawLine(50, 33, 66, 33);
 
-  painter->drawLine( 33,0,33,66 );
-  painter->drawLine( 0,66,33,66 );
+  painter->drawLine(33, 0, 33, 66);
+  painter->drawLine(0, 66, 33, 66);
 }
 
-HotWaterJunctionItem::HotWaterJunctionItem( QGraphicsItem * parent )
-  : DoubleTwoFourStraightItem(parent)
-{
+HotWaterJunctionItem::HotWaterJunctionItem(QGraphicsItem* parent) : DoubleTwoFourStraightItem(parent) {}
+
+void HotWaterJunctionItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+  DoubleTwoFourStraightItem::paint(painter, option, widget);
+
+  painter->drawLine(33, 50, 50, 50);
+  painter->drawArc(50, 33, 33, 33, 2880, -2880);
+  painter->drawLine(83, 50, 100, 50);
 }
 
-void HotWaterJunctionItem::paint(QPainter *painter,
-                                       const QStyleOptionGraphicsItem *option,
-                                       QWidget *widget)
-{
-  DoubleTwoFourStraightItem::paint(painter,option,widget);
-
-  painter->drawLine( 33,50,50,50 );
-  painter->drawArc( 50,33,33,33,2880,-2880 );
-  painter->drawLine( 83,50,100,50 );
-}
-
-ColdWaterJunctionItem::ColdWaterJunctionItem( int isElbow, QGraphicsItem * parent )
-  : GridItem(parent),
-    m_isElbow(isElbow)
-{
+ColdWaterJunctionItem::ColdWaterJunctionItem(int isElbow, QGraphicsItem* parent) : GridItem(parent), m_isElbow(isElbow) {
   setEnableHighlight(false);
 }
 
-void ColdWaterJunctionItem::paint(QPainter *painter,
-                                  const QStyleOptionGraphicsItem *option,
-                                  QWidget *widget)
-{
-  GridItem::paint(painter,option,widget);
+void ColdWaterJunctionItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+  GridItem::paint(painter, option, widget);
 
   painter->setRenderHint(QPainter::Antialiasing, true);
-  painter->setBrush(QBrush(Qt::black,Qt::SolidPattern));
-  painter->setPen(QPen(Qt::black,4,Qt::SolidLine, Qt::RoundCap));
+  painter->setBrush(QBrush(Qt::black, Qt::SolidPattern));
+  painter->setPen(QPen(Qt::black, 4, Qt::SolidLine, Qt::RoundCap));
 
-  if( m_isElbow )
-  {
-    painter->drawLine( 66,0,66,50 );
-    painter->drawLine( 66,50,100,50 );
-    painter->drawLine( 33,0,33,50 );
+  if (m_isElbow) {
+    painter->drawLine(66, 0, 66, 50);
+    painter->drawLine(66, 50, 100, 50);
+    painter->drawLine(33, 0, 33, 50);
 
-    painter->drawEllipse( 28,45,10,10 );
-  }
-  else
-  {
-    painter->drawLine( 66,0,66,100 );
-    painter->drawLine( 66,50,100,50 );
-    painter->drawLine( 33,0,33,100 );
+    painter->drawEllipse(28, 45, 10, 10);
+  } else {
+    painter->drawLine(66, 0, 66, 100);
+    painter->drawLine(66, 50, 100, 50);
+    painter->drawLine(33, 0, 33, 100);
   }
 }
 
-DoubleTwoThreeFourStraightItem::DoubleTwoThreeFourStraightItem(QGraphicsItem * parent)
-  : GridItem(parent)
-{
-}
+DoubleTwoThreeFourStraightItem::DoubleTwoThreeFourStraightItem(QGraphicsItem* parent) : GridItem(parent) {}
 
-void DoubleTwoThreeFourStraightItem::paint(QPainter *painter,
-                                   const QStyleOptionGraphicsItem *option,
-                                   QWidget *widget)
-{
-  GridItem::paint(painter,option,widget);
+void DoubleTwoThreeFourStraightItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+  GridItem::paint(painter, option, widget);
 
   painter->setRenderHint(QPainter::Antialiasing, true);
-  painter->setBrush(QBrush(Qt::lightGray,Qt::SolidPattern));
-  painter->setPen(QPen(Qt::black,4,Qt::SolidLine, Qt::RoundCap));
+  painter->setBrush(QBrush(Qt::lightGray, Qt::SolidPattern));
+  painter->setPen(QPen(Qt::black, 4, Qt::SolidLine, Qt::RoundCap));
 
-  painter->drawLine( 33,0,33,100 );
-  painter->drawLine( 66,0,66,100 );
+  painter->drawLine(33, 0, 33, 100);
+  painter->drawLine(66, 0, 66, 100);
 
-  painter->drawLine( 0,33,16,33 );
-  painter->drawArc( 16,16,33,33,2880,-2880 );
-  painter->drawLine( 50,33,66,33 );
-  painter->drawLine( 0,66,33,66 );
+  painter->drawLine(0, 33, 16, 33);
+  painter->drawArc(16, 16, 33, 33, 2880, -2880);
+  painter->drawLine(50, 33, 66, 33);
+  painter->drawLine(0, 66, 33, 66);
 }
 
-WaterUseConnectionsItem::WaterUseConnectionsItem(QGraphicsItem * parent)
-  : GridItem(parent)
-{
+WaterUseConnectionsItem::WaterUseConnectionsItem(QGraphicsItem* parent) : GridItem(parent) {
   setHGridLength(2);
 
   setDeletable(true);
 }
 
-void WaterUseConnectionsItem::paint(QPainter *painter,
-                                    const QStyleOptionGraphicsItem *option,
-                                    QWidget *widget)
-{
-  GridItem::paint(painter,option,widget);
+void WaterUseConnectionsItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+  GridItem::paint(painter, option, widget);
 
-  painter->drawPixmap(0,0,200,100,QPixmap(":/images/water_connection.png"));
+  painter->drawPixmap(0, 0, 200, 100, QPixmap(":/images/water_connection.png"));
 }
 
-WaterUseEquipmentItem::WaterUseEquipmentItem(QGraphicsItem * parent)
-  : GridItem(parent)
-{
+WaterUseEquipmentItem::WaterUseEquipmentItem(QGraphicsItem* parent) : GridItem(parent) {
   setHGridLength(2);
 }
 
-void WaterUseEquipmentItem::setModelObject( model::OptionalModelObject modelObject )
-{
-  if( modelObject )
-  {
+void WaterUseEquipmentItem::setModelObject(model::OptionalModelObject modelObject) {
+  if (modelObject) {
     setDeletable(true);
-  }
-  else
-  {
+  } else {
     setDeletable(false);
   }
 
   GridItem::setModelObject(modelObject);
 }
 
-void WaterUseEquipmentItem::paint(QPainter *painter,
-                                  const QStyleOptionGraphicsItem *option,
-                                  QWidget *widget)
-{
-  GridItem::paint(painter,option,widget);
+void WaterUseEquipmentItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+  GridItem::paint(painter, option, widget);
 
-  painter->drawPixmap(0,0,200,100,QPixmap(":/images/sink.png"));
+  painter->drawPixmap(0, 0, 200, 100, QPixmap(":/images/sink.png"));
 }
 
-MakeupWaterItem::MakeupWaterItem(QGraphicsItem * parent)
-  : GridItem(parent)
-{
+MakeupWaterItem::MakeupWaterItem(QGraphicsItem* parent) : GridItem(parent) {
   setHGridLength(2);
   setVGridLength(2);
 
@@ -914,57 +791,49 @@ MakeupWaterItem::MakeupWaterItem(QGraphicsItem * parent)
   QPixmap waterMainPressPixmap(":/images/water_main_alone_press.png");
   QPixmap waterMainOverPixmap(":/images/water_main_alone_over.png");
 
-  m_mainsSupplyButton = new ButtonItem(waterMainPixmap,waterMainPressPixmap,waterMainOverPixmap,this);
+  m_mainsSupplyButton = new ButtonItem(waterMainPixmap, waterMainPressPixmap, waterMainOverPixmap, this);
 
   m_mainsSupplyButton->setToolTip("Go back to water mains editor");
 
-  m_mainsSupplyButton->setPos(75,0);
+  m_mainsSupplyButton->setPos(75, 0);
 
   QPixmap hotWaterSupplyPixmap(":/images/loop_button.png");
   QPixmap hotWaterSupplyPressPixmap(":/images/loop_button_press.png");
   QPixmap hotWaterSupplyOverPixmap(":/images/loop_button_over.png");
 
-  m_hotWaterSupplyButton = new ButtonItem(hotWaterSupplyPixmap,hotWaterSupplyPressPixmap,
-                                                     hotWaterSupplyOverPixmap,this);
-
+  m_hotWaterSupplyButton = new ButtonItem(hotWaterSupplyPixmap, hotWaterSupplyPressPixmap, hotWaterSupplyOverPixmap, this);
 
   m_hotWaterSupplyButton->setToolTip("Go back to hot water supply system");
 
   connect(m_hotWaterSupplyButton, &ButtonItem::mouseClicked, this, &MakeupWaterItem::onHotWaterSupplyButtonClicked);
 
-  m_hotWaterSupplyButton->setPos(90,137);
+  m_hotWaterSupplyButton->setPos(90, 137);
 }
 
-void MakeupWaterItem::paint(QPainter *painter,
-                            const QStyleOptionGraphicsItem *option,
-                            QWidget *widget)
-{
+void MakeupWaterItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
   painter->setRenderHint(QPainter::Antialiasing, true);
-  painter->setBrush(QBrush(Qt::lightGray,Qt::SolidPattern));
-  painter->setPen(QPen(Qt::black,4,Qt::SolidLine, Qt::RoundCap));
+  painter->setBrush(QBrush(Qt::lightGray, Qt::SolidPattern));
+  painter->setPen(QPen(Qt::black, 4, Qt::SolidLine, Qt::RoundCap));
 
-  painter->drawLine( 125,50,125,140 );
-  painter->drawLine( 50,150,100,150 );
+  painter->drawLine(125, 50, 125, 140);
+  painter->drawLine(50, 150, 100, 150);
 
   QTransform transform;
   transform = transform.rotate(90);
 
-  painter->drawPixmap(37,137,25,25,QPixmap(":/images/arrow.png").transformed(transform));
+  painter->drawPixmap(37, 137, 25, 25, QPixmap(":/images/arrow.png").transformed(transform));
 }
 
-void MakeupWaterItem::onHotWaterSupplyButtonClicked()
-{
-  if( WaterUseConnectionsDetailScene * detailScene = qobject_cast<WaterUseConnectionsDetailScene *>(scene()) )
-  {
+void MakeupWaterItem::onHotWaterSupplyButtonClicked() {
+  if (WaterUseConnectionsDetailScene* detailScene = qobject_cast<WaterUseConnectionsDetailScene*>(scene())) {
     model::WaterUseConnections waterUseConnections = detailScene->waterUseConnections();
 
-    emit innerNodeClicked( waterUseConnections );
+    emit innerNodeClicked(waterUseConnections);
   }
 }
 
-ButtonItem * MakeupWaterItem::mainsSupplyButton() const
-{
+ButtonItem* MakeupWaterItem::mainsSupplyButton() const {
   return m_mainsSupplyButton;
 }
 
-} // openstudio
+}  // namespace openstudio
