@@ -49,15 +49,12 @@ namespace openstudio {
 
 // WindowMaterialGasMixtureInspectorView
 
-WindowMaterialGasMixtureInspectorView::WindowMaterialGasMixtureInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent)
-  : ModelObjectInspectorView(model, true, parent),
-    m_isIP(isIP)
-{
+WindowMaterialGasMixtureInspectorView::WindowMaterialGasMixtureInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent)
+  : ModelObjectInspectorView(model, true, parent), m_isIP(isIP) {
   createLayout();
 }
 
-void WindowMaterialGasMixtureInspectorView::createLayout()
-{
+void WindowMaterialGasMixtureInspectorView::createLayout() {
   auto hiddenWidget = new QWidget();
   this->stackedWidget()->addWidget(hiddenWidget);
 
@@ -71,7 +68,7 @@ void WindowMaterialGasMixtureInspectorView::createLayout()
 
   int row = mainGridLayout->rowCount();
 
-  QLabel * label = nullptr;
+  QLabel* label = nullptr;
 
   // Name
 
@@ -96,20 +93,20 @@ void WindowMaterialGasMixtureInspectorView::createLayout()
 
   label = new QLabel("Thickness: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,row++,0);
+  mainGridLayout->addWidget(label, row++, 0);
 
-  m_thickness = new OSQuantityEdit2("m","m","in", m_isIP);
+  m_thickness = new OSQuantityEdit2("m", "m", "in", m_isIP);
   connect(this, &WindowMaterialGasMixtureInspectorView::toggleUnitsClicked, m_thickness, &OSQuantityEdit2::onUnitSystemChange);
-  mainGridLayout->addWidget(m_thickness,row++,0,1,3);
+  mainGridLayout->addWidget(m_thickness, row++, 0, 1, 3);
 
   // Number Of Gases In Mixture
 
   label = new QLabel("Number Of Gases In Mixture: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,row++,0);
+  mainGridLayout->addWidget(label, row++, 0);
 
   m_numberOfGasesInMixture = new OSIntegerEdit2();
-  mainGridLayout->addWidget(m_numberOfGasesInMixture,row++,0,1,3);
+  mainGridLayout->addWidget(m_numberOfGasesInMixture, row++, 0, 1, 3);
 
   //************************* 1 *************************
 
@@ -117,25 +114,24 @@ void WindowMaterialGasMixtureInspectorView::createLayout()
 
   label = new QLabel("Gas 1 Fraction: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,row++,0);
+  mainGridLayout->addWidget(label, row++, 0);
 
-  m_gas1Fraction = new OSQuantityEdit2("","","", m_isIP);
+  m_gas1Fraction = new OSQuantityEdit2("", "", "", m_isIP);
   connect(this, &WindowMaterialGasMixtureInspectorView::toggleUnitsClicked, m_gas1Fraction, &OSQuantityEdit2::onUnitSystemChange);
-  mainGridLayout->addWidget(m_gas1Fraction,row++,0,1,3);
+  mainGridLayout->addWidget(m_gas1Fraction, row++, 0, 1, 3);
 
   // Gas Type
 
   label = new QLabel("Gas 1 Type: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,row++,0);
+  mainGridLayout->addWidget(label, row++, 0);
 
   m_gas1Type = new OSComboBox2();
   m_gas1Type->addItem("Air");
   m_gas1Type->addItem("Argon");
   m_gas1Type->addItem("Krypton");
   m_gas1Type->addItem("Xenon");
-  mainGridLayout->addWidget(m_gas1Type,row++,0,1,3);
-
+  mainGridLayout->addWidget(m_gas1Type, row++, 0, 1, 3);
 
   //************************* 2 *************************
 
@@ -143,24 +139,24 @@ void WindowMaterialGasMixtureInspectorView::createLayout()
 
   label = new QLabel("Gas 2 Fraction: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,row++,0);
+  mainGridLayout->addWidget(label, row++, 0);
 
-  m_gas2Fraction = new OSQuantityEdit2("","","", m_isIP);
+  m_gas2Fraction = new OSQuantityEdit2("", "", "", m_isIP);
   connect(this, &WindowMaterialGasMixtureInspectorView::toggleUnitsClicked, m_gas2Fraction, &OSQuantityEdit2::onUnitSystemChange);
-  mainGridLayout->addWidget(m_gas2Fraction,row++,0,1,3);
+  mainGridLayout->addWidget(m_gas2Fraction, row++, 0, 1, 3);
 
   // Gas Type
 
   label = new QLabel("Gas 2 Type: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,row++,0);
+  mainGridLayout->addWidget(label, row++, 0);
 
   m_gas2Type = new OSComboBox2();
   m_gas2Type->addItem("Air");
   m_gas2Type->addItem("Argon");
   m_gas2Type->addItem("Krypton");
   m_gas2Type->addItem("Xenon");
-  mainGridLayout->addWidget(m_gas2Type,row++,0,1,3);
+  mainGridLayout->addWidget(m_gas2Type, row++, 0, 1, 3);
 
   //************************* 3 *************************
 
@@ -168,24 +164,24 @@ void WindowMaterialGasMixtureInspectorView::createLayout()
 
   label = new QLabel("Gas 3 Fraction: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,row++,0);
+  mainGridLayout->addWidget(label, row++, 0);
 
-  m_gas3Fraction = new OSQuantityEdit2("","","", m_isIP);
+  m_gas3Fraction = new OSQuantityEdit2("", "", "", m_isIP);
   connect(this, &WindowMaterialGasMixtureInspectorView::toggleUnitsClicked, m_gas3Fraction, &OSQuantityEdit2::onUnitSystemChange);
-  mainGridLayout->addWidget(m_gas3Fraction,row++,0,1,3);
+  mainGridLayout->addWidget(m_gas3Fraction, row++, 0, 1, 3);
 
   // Gas Type
 
   label = new QLabel("Gas 3 Type: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,row++,0);
+  mainGridLayout->addWidget(label, row++, 0);
 
   m_gas3Type = new OSComboBox2();
   m_gas3Type->addItem("Air");
   m_gas3Type->addItem("Argon");
   m_gas3Type->addItem("Krypton");
   m_gas3Type->addItem("Xenon");
-  mainGridLayout->addWidget(m_gas3Type,row++,0,1,3);
+  mainGridLayout->addWidget(m_gas3Type, row++, 0, 1, 3);
 
   //************************* 4 *************************
 
@@ -193,161 +189,121 @@ void WindowMaterialGasMixtureInspectorView::createLayout()
 
   label = new QLabel("Gas 4 Fraction: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,row++,0);
+  mainGridLayout->addWidget(label, row++, 0);
 
-  m_gas4Fraction = new OSQuantityEdit2("","","", m_isIP);
+  m_gas4Fraction = new OSQuantityEdit2("", "", "", m_isIP);
   connect(this, &WindowMaterialGasMixtureInspectorView::toggleUnitsClicked, m_gas4Fraction, &OSQuantityEdit2::onUnitSystemChange);
-  mainGridLayout->addWidget(m_gas4Fraction,row++,0,1,3);
+  mainGridLayout->addWidget(m_gas4Fraction, row++, 0, 1, 3);
 
   // Gas Type
 
   label = new QLabel("Gas 4 Type: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,row++,0);
+  mainGridLayout->addWidget(label, row++, 0);
 
   m_gas4Type = new OSComboBox2();
   m_gas4Type->addItem("Air");
   m_gas4Type->addItem("Argon");
   m_gas4Type->addItem("Krypton");
   m_gas4Type->addItem("Xenon");
-  mainGridLayout->addWidget(m_gas4Type,row++,0,1,3);
+  mainGridLayout->addWidget(m_gas4Type, row++, 0, 1, 3);
 
   // Stretch
 
-  mainGridLayout->setRowStretch(100,100);
+  mainGridLayout->setRowStretch(100, 100);
 
-  mainGridLayout->setColumnStretch(100,100);
+  mainGridLayout->setColumnStretch(100, 100);
 }
 
-void WindowMaterialGasMixtureInspectorView::onClearSelection()
-{
-  ModelObjectInspectorView::onClearSelection(); // call parent implementation
+void WindowMaterialGasMixtureInspectorView::onClearSelection() {
+  ModelObjectInspectorView::onClearSelection();  // call parent implementation
   detach();
 }
 
-void WindowMaterialGasMixtureInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject)
-{
+void WindowMaterialGasMixtureInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject) {
   detach();
   model::GasMixture gasMixture = modelObject.cast<model::GasMixture>();
   attach(gasMixture);
   refresh();
 }
 
-void WindowMaterialGasMixtureInspectorView::onUpdate()
-{
+void WindowMaterialGasMixtureInspectorView::onUpdate() {
   refresh();
 }
 
-void WindowMaterialGasMixtureInspectorView::attach(openstudio::model::GasMixture & gasMixture)
-{
+void WindowMaterialGasMixtureInspectorView::attach(openstudio::model::GasMixture& gasMixture) {
   m_gasMixture = gasMixture;
 
   // m_gas1Type->bind(gasMixture,"gas1Type");
-  m_gas1Type->bind<std::string>(
-    *m_gasMixture,
-    static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
-    &model::GasMixture::gas1TypeValues,
-    std::bind(&model::GasMixture::gas1Type, m_gasMixture.get_ptr()),
-    std::bind(&model::GasMixture::setGas1Type, m_gasMixture.get_ptr(), std::placeholders::_1),
-    boost::optional<NoFailAction>(std::bind(&model::GasMixture::resetGas1Type, m_gasMixture.get_ptr())),
-    boost::none);
+  m_gas1Type->bind<std::string>(*m_gasMixture, static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
+                                &model::GasMixture::gas1TypeValues, std::bind(&model::GasMixture::gas1Type, m_gasMixture.get_ptr()),
+                                std::bind(&model::GasMixture::setGas1Type, m_gasMixture.get_ptr(), std::placeholders::_1),
+                                boost::optional<NoFailAction>(std::bind(&model::GasMixture::resetGas1Type, m_gasMixture.get_ptr())), boost::none);
 
   // m_gas2Type->bind(gasMixture,"gas2Type");
-  m_gas2Type->bind<std::string>(
-    *m_gasMixture,
-    static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
-    &model::GasMixture::gas2TypeValues,
-    std::bind(&model::GasMixture::gas2Type, m_gasMixture.get_ptr()),
-    std::bind(&model::GasMixture::setGas2Type, m_gasMixture.get_ptr(), std::placeholders::_1),
-    boost::optional<NoFailAction>(std::bind(&model::GasMixture::resetGas2Type, m_gasMixture.get_ptr())),
-    boost::none);
+  m_gas2Type->bind<std::string>(*m_gasMixture, static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
+                                &model::GasMixture::gas2TypeValues, std::bind(&model::GasMixture::gas2Type, m_gasMixture.get_ptr()),
+                                std::bind(&model::GasMixture::setGas2Type, m_gasMixture.get_ptr(), std::placeholders::_1),
+                                boost::optional<NoFailAction>(std::bind(&model::GasMixture::resetGas2Type, m_gasMixture.get_ptr())), boost::none);
 
   // m_gas3Type->bind(gasMixture,"gas3Type");
-  m_gas3Type->bind<std::string>(
-    *m_gasMixture,
-    static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
-    &model::GasMixture::gas3TypeValues,
-    std::bind(&model::GasMixture::gas3Type, m_gasMixture.get_ptr()),
-    std::bind(&model::GasMixture::setGas3Type, m_gasMixture.get_ptr(), std::placeholders::_1),
-    boost::optional<NoFailAction>(std::bind(&model::GasMixture::resetGas3Type, m_gasMixture.get_ptr())),
-    boost::none);
+  m_gas3Type->bind<std::string>(*m_gasMixture, static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
+                                &model::GasMixture::gas3TypeValues, std::bind(&model::GasMixture::gas3Type, m_gasMixture.get_ptr()),
+                                std::bind(&model::GasMixture::setGas3Type, m_gasMixture.get_ptr(), std::placeholders::_1),
+                                boost::optional<NoFailAction>(std::bind(&model::GasMixture::resetGas3Type, m_gasMixture.get_ptr())), boost::none);
 
   // m_gas4Type->bind(gasMixture,"gas4Type");
-  m_gas4Type->bind<std::string>(
-    *m_gasMixture,
-    static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
-    &model::GasMixture::gas4TypeValues,
-    std::bind(&model::GasMixture::gas4Type, m_gasMixture.get_ptr()),
-    std::bind(&model::GasMixture::setGas4Type, m_gasMixture.get_ptr(), std::placeholders::_1),
-    boost::optional<NoFailAction>(std::bind(&model::GasMixture::resetGas4Type, m_gasMixture.get_ptr())),
-    boost::none);
+  m_gas4Type->bind<std::string>(*m_gasMixture, static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
+                                &model::GasMixture::gas4TypeValues, std::bind(&model::GasMixture::gas4Type, m_gasMixture.get_ptr()),
+                                std::bind(&model::GasMixture::setGas4Type, m_gasMixture.get_ptr(), std::placeholders::_1),
+                                boost::optional<NoFailAction>(std::bind(&model::GasMixture::resetGas4Type, m_gasMixture.get_ptr())), boost::none);
 
   // m_numberOfGasesInMixture->bind(gasMixture,"numberofGasesinMixture");
   m_numberOfGasesInMixture->bind(
-    *m_gasMixture,
-    OptionalIntGetter(std::bind(&model::GasMixture::numberofGasesinMixture, m_gasMixture.get_ptr())),
-    boost::optional<IntSetter>(std::bind(&model::GasMixture::setNumberofGasesinMixture, m_gasMixture.get_ptr(), std::placeholders::_1))
-  );
+    *m_gasMixture, OptionalIntGetter(std::bind(&model::GasMixture::numberofGasesinMixture, m_gasMixture.get_ptr())),
+    boost::optional<IntSetter>(std::bind(&model::GasMixture::setNumberofGasesinMixture, m_gasMixture.get_ptr(), std::placeholders::_1)));
 
   // m_nameEdit->bind(gasMixture,"name");
   m_nameEdit->bind(
-    *m_gasMixture,
-    OptionalStringGetter(std::bind(&model::GasMixture::name, m_gasMixture.get_ptr(), true)),
-    boost::optional<StringSetterOptionalStringReturn>(std::bind(&model::GasMixture::setName, m_gasMixture.get_ptr(),std::placeholders::_1))
-  );
+    *m_gasMixture, OptionalStringGetter(std::bind(&model::GasMixture::name, m_gasMixture.get_ptr(), true)),
+    boost::optional<StringSetterOptionalStringReturn>(std::bind(&model::GasMixture::setName, m_gasMixture.get_ptr(), std::placeholders::_1)));
 
   // OSQuantityEdit2
   // m_thickness->bind(gasMixture,"thickness",m_isIP);
-  m_thickness->bind(
-    m_isIP,
-    *m_gasMixture,
-    DoubleGetter(std::bind(&model::GasMixture::thickness, m_gasMixture.get_ptr())),
-    boost::optional<DoubleSetter>(std::bind(static_cast<bool(model::GasMixture::*)(double)>(&model::GasMixture::setThickness), m_gasMixture.get_ptr(), std::placeholders::_1))
-  );
+  m_thickness->bind(m_isIP, *m_gasMixture, DoubleGetter(std::bind(&model::GasMixture::thickness, m_gasMixture.get_ptr())),
+                    boost::optional<DoubleSetter>(std::bind(static_cast<bool (model::GasMixture::*)(double)>(&model::GasMixture::setThickness),
+                                                            m_gasMixture.get_ptr(), std::placeholders::_1)));
 
   // m_gas1Fraction->bind(gasMixture,"gas1Fraction",m_isIP);
-  m_gas1Fraction->bind(
-    m_isIP,
-    *m_gasMixture,
-    DoubleGetter(std::bind(&model::GasMixture::gas1Fraction, m_gasMixture.get_ptr())),
-    boost::optional<DoubleSetter>(std::bind(static_cast<bool(model::GasMixture::*)(double)>(&model::GasMixture::setGas1Fraction), m_gasMixture.get_ptr(), std::placeholders::_1)),
-    boost::optional<NoFailAction>(std::bind(&model::GasMixture::resetGas1Fraction, m_gasMixture.get_ptr()))
-  );
+  m_gas1Fraction->bind(m_isIP, *m_gasMixture, DoubleGetter(std::bind(&model::GasMixture::gas1Fraction, m_gasMixture.get_ptr())),
+                       boost::optional<DoubleSetter>(std::bind(static_cast<bool (model::GasMixture::*)(double)>(&model::GasMixture::setGas1Fraction),
+                                                               m_gasMixture.get_ptr(), std::placeholders::_1)),
+                       boost::optional<NoFailAction>(std::bind(&model::GasMixture::resetGas1Fraction, m_gasMixture.get_ptr())));
 
   // m_gas2Fraction->bind(gasMixture,"gas2Fraction",m_isIP);
-  m_gas2Fraction->bind(
-    m_isIP,
-    *m_gasMixture,
-    DoubleGetter(std::bind(&model::GasMixture::gas2Fraction, m_gasMixture.get_ptr())),
-    boost::optional<DoubleSetter>(std::bind(static_cast<bool(model::GasMixture::*)(double)>(&model::GasMixture::setGas2Fraction), m_gasMixture.get_ptr(), std::placeholders::_1)),
-    boost::optional<NoFailAction>(std::bind(&model::GasMixture::resetGas2Fraction, m_gasMixture.get_ptr()))
-  );
+  m_gas2Fraction->bind(m_isIP, *m_gasMixture, DoubleGetter(std::bind(&model::GasMixture::gas2Fraction, m_gasMixture.get_ptr())),
+                       boost::optional<DoubleSetter>(std::bind(static_cast<bool (model::GasMixture::*)(double)>(&model::GasMixture::setGas2Fraction),
+                                                               m_gasMixture.get_ptr(), std::placeholders::_1)),
+                       boost::optional<NoFailAction>(std::bind(&model::GasMixture::resetGas2Fraction, m_gasMixture.get_ptr())));
 
   // m_gas3Fraction->bind(gasMixture,"gas3Fraction",m_isIP);
-  m_gas3Fraction->bind(
-    m_isIP,
-    *m_gasMixture,
-    OptionalDoubleGetter(std::bind(&model::GasMixture::gas3Fraction, m_gasMixture.get_ptr())),
-    boost::optional<DoubleSetter>(std::bind(static_cast<bool(model::GasMixture::*)(double)>(&model::GasMixture::setGas3Fraction), m_gasMixture.get_ptr(), std::placeholders::_1)),
-    boost::optional<NoFailAction>(std::bind(&model::GasMixture::resetGas3Fraction, m_gasMixture.get_ptr()))
-  );
+  m_gas3Fraction->bind(m_isIP, *m_gasMixture, OptionalDoubleGetter(std::bind(&model::GasMixture::gas3Fraction, m_gasMixture.get_ptr())),
+                       boost::optional<DoubleSetter>(std::bind(static_cast<bool (model::GasMixture::*)(double)>(&model::GasMixture::setGas3Fraction),
+                                                               m_gasMixture.get_ptr(), std::placeholders::_1)),
+                       boost::optional<NoFailAction>(std::bind(&model::GasMixture::resetGas3Fraction, m_gasMixture.get_ptr())));
 
   // m_gas4Fraction->bind(gasMixture,"gas4Fraction",m_isIP);
-  m_gas4Fraction->bind(
-    m_isIP,
-    *m_gasMixture,
-    OptionalDoubleGetter(std::bind(&model::GasMixture::gas4Fraction, m_gasMixture.get_ptr())),
-    boost::optional<DoubleSetter>(std::bind(static_cast<bool(model::GasMixture::*)(double)>(&model::GasMixture::setGas4Fraction), m_gasMixture.get_ptr(), std::placeholders::_1)),
-    boost::optional<NoFailAction>(std::bind(&model::GasMixture::resetGas4Fraction, m_gasMixture.get_ptr()))
-  );
+  m_gas4Fraction->bind(m_isIP, *m_gasMixture, OptionalDoubleGetter(std::bind(&model::GasMixture::gas4Fraction, m_gasMixture.get_ptr())),
+                       boost::optional<DoubleSetter>(std::bind(static_cast<bool (model::GasMixture::*)(double)>(&model::GasMixture::setGas4Fraction),
+                                                               m_gasMixture.get_ptr(), std::placeholders::_1)),
+                       boost::optional<NoFailAction>(std::bind(&model::GasMixture::resetGas4Fraction, m_gasMixture.get_ptr())));
 
   m_standardsInformationWidget->attach(gasMixture);
 
   this->stackedWidget()->setCurrentIndex(1);
 }
 
-void WindowMaterialGasMixtureInspectorView::detach()
-{
+void WindowMaterialGasMixtureInspectorView::detach() {
   this->stackedWidget()->setCurrentIndex(0);
 
   m_gas1Type->unbind();
@@ -369,8 +325,6 @@ void WindowMaterialGasMixtureInspectorView::detach()
   m_standardsInformationWidget->detach();
 }
 
-void WindowMaterialGasMixtureInspectorView::refresh()
-{
-}
+void WindowMaterialGasMixtureInspectorView::refresh() {}
 
-} // openstudio
+}  // namespace openstudio

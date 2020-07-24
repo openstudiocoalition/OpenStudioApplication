@@ -31,7 +31,7 @@
 #define OPENSTUDIO_PLANARSURFACEWIDGET_HPP
 
 #include <openstudio/model/PlanarSurface.hpp>
-#include <openstudio/nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/nano/nano_signal_slot.hpp>  // Signal-Slot replacement
 
 #include <QWidget>
 
@@ -41,36 +41,33 @@ class PlanarSurfaceWidget : public QWidget, public Nano::Observer
 {
   Q_OBJECT
 
-  public:
+ public:
+  PlanarSurfaceWidget(bool isIP, QWidget* parent = nullptr);
 
-    PlanarSurfaceWidget(bool isIP, QWidget * parent = nullptr );
+  virtual ~PlanarSurfaceWidget() {}
 
-    virtual ~PlanarSurfaceWidget() {}
+  virtual void attach(const openstudio::model::PlanarSurface& planarSurface);
 
-    virtual void attach(const openstudio::model::PlanarSurface& planarSurface);
+  virtual void detach();
 
-    virtual void detach();
+ private slots:
 
-  private slots:
+  void clear();
 
-    void clear();
+  void refresh();
 
-    void refresh();
+ private:
+  void setUnits(bool displayIP);
 
-  private:
+  boost::optional<openstudio::model::PlanarSurface> m_planarSurface;
 
-    void setUnits(bool displayIP);
+  QString m_units;
 
-    boost::optional<openstudio::model::PlanarSurface> m_planarSurface;
+ public slots:
 
-    QString m_units;
-
-  public slots:
-
-    void toggleUnits(bool displayIP);
+  void toggleUnits(bool displayIP);
 };
 
+}  // namespace openstudio
 
-} // openstudio
-
-#endif // OPENSTUDIO_PLANARSURFACEWIDGET_HPP
+#endif  // OPENSTUDIO_PLANARSURFACEWIDGET_HPP

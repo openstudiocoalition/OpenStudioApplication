@@ -45,68 +45,53 @@ class QFocusEvent;
 
 namespace openstudio {
 
-class OSUnsignedEdit2: public QLineEdit {
+class OSUnsignedEdit2 : public QLineEdit
+{
   Q_OBJECT
 
  public:
-
-  OSUnsignedEdit2(QWidget * parent = nullptr);
+  OSUnsignedEdit2(QWidget* parent = nullptr);
 
   virtual ~OSUnsignedEdit2();
 
-  void enableClickFocus() { this->m_hasClickFocus = true; }
+  void enableClickFocus() {
+    this->m_hasClickFocus = true;
+  }
 
-  bool hasData() { return !this->text().isEmpty(); }
+  bool hasData() {
+    return !this->text().isEmpty();
+  }
 
-  QIntValidator * intValidator() { return m_intValidator; }
+  QIntValidator* intValidator() {
+    return m_intValidator;
+  }
 
-  void bind(model::ModelObject& modelObject,
-            UnsignedGetter get,
-            boost::optional<UnsignedSetter> set=boost::none,
-            boost::optional<NoFailAction> reset=boost::none,
-            boost::optional<NoFailAction> autosize=boost::none,
-            boost::optional<NoFailAction> autocalculate=boost::none,
-            boost::optional<BasicQuery> isDefaulted=boost::none,
-            boost::optional<BasicQuery> isAutosized=boost::none,
-            boost::optional<BasicQuery> isAutocalculated=boost::none);
+  void bind(model::ModelObject& modelObject, UnsignedGetter get, boost::optional<UnsignedSetter> set = boost::none,
+            boost::optional<NoFailAction> reset = boost::none, boost::optional<NoFailAction> autosize = boost::none,
+            boost::optional<NoFailAction> autocalculate = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none,
+            boost::optional<BasicQuery> isAutosized = boost::none, boost::optional<BasicQuery> isAutocalculated = boost::none);
 
-  void bind(model::ModelObject& modelObject,
-            OptionalUnsignedGetter get,
-            boost::optional<UnsignedSetter> set=boost::none,
-            boost::optional<NoFailAction> reset=boost::none,
-            boost::optional<NoFailAction> autosize=boost::none,
-            boost::optional<NoFailAction> autocalculate=boost::none,
-            boost::optional<BasicQuery> isDefaulted=boost::none,
-            boost::optional<BasicQuery> isAutosized=boost::none,
-            boost::optional<BasicQuery> isAutocalculated=boost::none);
+  void bind(model::ModelObject& modelObject, OptionalUnsignedGetter get, boost::optional<UnsignedSetter> set = boost::none,
+            boost::optional<NoFailAction> reset = boost::none, boost::optional<NoFailAction> autosize = boost::none,
+            boost::optional<NoFailAction> autocalculate = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none,
+            boost::optional<BasicQuery> isAutosized = boost::none, boost::optional<BasicQuery> isAutocalculated = boost::none);
 
-  void bind(model::ModelExtensibleGroup& modelExtensibleGroup,
-            UnsignedGetter get,
-            boost::optional<UnsignedSetter> set=boost::none,
-            boost::optional<NoFailAction> reset=boost::none,
-            boost::optional<NoFailAction> autosize=boost::none,
-            boost::optional<NoFailAction> autocalculate=boost::none,
-            boost::optional<BasicQuery> isDefaulted=boost::none,
-            boost::optional<BasicQuery> isAutosized=boost::none,
-            boost::optional<BasicQuery> isAutocalculated=boost::none);
+  void bind(model::ModelExtensibleGroup& modelExtensibleGroup, UnsignedGetter get, boost::optional<UnsignedSetter> set = boost::none,
+            boost::optional<NoFailAction> reset = boost::none, boost::optional<NoFailAction> autosize = boost::none,
+            boost::optional<NoFailAction> autocalculate = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none,
+            boost::optional<BasicQuery> isAutosized = boost::none, boost::optional<BasicQuery> isAutocalculated = boost::none);
 
-  void bind(model::ModelExtensibleGroup& modelExtensibleGroup,
-            OptionalUnsignedGetter get,
-            boost::optional<UnsignedSetter> set=boost::none,
-            boost::optional<NoFailAction> reset=boost::none,
-            boost::optional<NoFailAction> autosize=boost::none,
-            boost::optional<NoFailAction> autocalculate=boost::none,
-            boost::optional<BasicQuery> isDefaulted=boost::none,
-            boost::optional<BasicQuery> isAutosized=boost::none,
-            boost::optional<BasicQuery> isAutocalculated=boost::none);
+  void bind(model::ModelExtensibleGroup& modelExtensibleGroup, OptionalUnsignedGetter get, boost::optional<UnsignedSetter> set = boost::none,
+            boost::optional<NoFailAction> reset = boost::none, boost::optional<NoFailAction> autosize = boost::none,
+            boost::optional<NoFailAction> autocalculate = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none,
+            boost::optional<BasicQuery> isAutosized = boost::none, boost::optional<BasicQuery> isAutocalculated = boost::none);
 
   void unbind();
 
-protected:
+ protected:
+  virtual void focusInEvent(QFocusEvent* e) override;
 
-  virtual void focusInEvent(QFocusEvent * e) override;
-
-  virtual void focusOutEvent(QFocusEvent * e) override;
+  virtual void focusOutEvent(QFocusEvent* e) override;
 
  signals:
 
@@ -121,8 +106,8 @@ protected:
   void onModelObjectRemove(const Handle& handle);
 
  private:
-  boost::optional<model::ModelObject> m_modelObject; // will be set if attached to ModelObject or ModelExtensibleGroup
-  boost::optional<model::ModelExtensibleGroup> m_modelExtensibleGroup; // will only be set if attached to ModelExtensibleGroup
+  boost::optional<model::ModelObject> m_modelObject;                    // will be set if attached to ModelObject or ModelExtensibleGroup
+  boost::optional<model::ModelExtensibleGroup> m_modelExtensibleGroup;  // will only be set if attached to ModelExtensibleGroup
   boost::optional<UnsignedGetter> m_get;
   boost::optional<OptionalUnsignedGetter> m_getOptional;
   boost::optional<UnsignedSetter> m_set;
@@ -137,7 +122,7 @@ protected:
   bool m_hasClickFocus = false;
   boost::optional<int> m_precision;
   QString m_text = "UNINITIALIZED";
-  QIntValidator * m_intValidator = nullptr;
+  QIntValidator* m_intValidator = nullptr;
 
   void refreshTextAndLabel();
 
@@ -193,6 +178,6 @@ protected:
 //   REGISTER_LOGGER("openstudio.OSUnsignedEdit");
 // };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // SHAREDGUICOMPONENTS_OSUNSIGNEDEDIT_HPP
+#endif  // SHAREDGUICOMPONENTS_OSUNSIGNEDEDIT_HPP

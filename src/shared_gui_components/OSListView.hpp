@@ -40,7 +40,7 @@ class QScrollArea;
 class QVBoxLayout;
 class QGraphicsObject;
 
-namespace openstudio{
+namespace openstudio {
 
 class OSListItem;
 class OSItemDelegate;
@@ -56,8 +56,7 @@ class OSListView : public QWidget
   Q_OBJECT
 
  public:
-
-  OSListView(bool scrollable = false, QWidget * parent = nullptr);
+  OSListView(bool scrollable = false, QWidget* parent = nullptr);
 
   virtual ~OSListView() {}
 
@@ -69,7 +68,7 @@ class OSListView : public QWidget
 
   void setSpacing(int spacing);
 
-  void setContentsMargins(int left,int top,int right,int bottom);
+  void setContentsMargins(int left, int top, int right, int bottom);
 
   void setHorizontalScrollBarAlwaysOn(bool alwaysOn);
 
@@ -80,8 +79,7 @@ class OSListView : public QWidget
   void refreshAllViews();
 
  protected:
-
-  void paintEvent(QPaintEvent *) override;
+  void paintEvent(QPaintEvent*) override;
 
  private slots:
 
@@ -89,28 +87,27 @@ class OSListView : public QWidget
 
   void removeItemView(int i);
 
-  void removePair(QObject * object);
+  void removePair(QObject* object);
 
   void refreshItemView(int i);
 
  private:
-
   QSharedPointer<OSItemDelegate> m_delegate;
 
   QSharedPointer<OSListController> m_listController;
 
-  QVBoxLayout * m_mainVLayout;
+  QVBoxLayout* m_mainVLayout;
 
   // Use this to keep the OSListItem classes around for the life of the widget
-  std::map<QObject *,QSharedPointer<OSListItem> > m_widgetItemPairs;
+  std::map<QObject*, QSharedPointer<OSListItem>> m_widgetItemPairs;
 
   bool m_scrollable;
 
-  QScrollArea * m_scrollArea;
+  QScrollArea* m_scrollArea;
 
   REGISTER_LOGGER("openstudio.shared_gui_components.OSListView");
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // SHAREDGUICOMPONENTS_OSLISTVIEW_HPP
+#endif  // SHAREDGUICOMPONENTS_OSLISTVIEW_HPP

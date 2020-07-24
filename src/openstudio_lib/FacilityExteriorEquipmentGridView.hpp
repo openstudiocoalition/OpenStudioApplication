@@ -37,73 +37,64 @@
 
 #include <openstudio/model/Model.hpp>
 
-namespace openstudio{
+namespace openstudio {
 
-  class FacilityExteriorEquipmentGridController;
+class FacilityExteriorEquipmentGridController;
 
-  class FacilityExteriorEquipmentGridView : public GridViewSubTab
-  {
-    Q_OBJECT
+class FacilityExteriorEquipmentGridView : public GridViewSubTab
+{
+  Q_OBJECT
 
-  public:
+ public:
+  FacilityExteriorEquipmentGridView(bool isIP, const model::Model& model, QWidget* parent = 0);
 
-    FacilityExteriorEquipmentGridView(bool isIP, const model::Model & model, QWidget * parent = 0);
+  virtual ~FacilityExteriorEquipmentGridView() {}
 
-    virtual ~FacilityExteriorEquipmentGridView() {}
+ private:
+  REGISTER_LOGGER("openstudio.FacilityExteriorEquipmentGridView");
 
-  private:
+  virtual void addObject(const openstudio::IddObjectType& iddObjectType) override;
 
-    REGISTER_LOGGER("openstudio.FacilityExteriorEquipmentGridView");
+  virtual void purgeObjects(const openstudio::IddObjectType& iddObjectType) override;
 
-    virtual void addObject(const openstudio::IddObjectType& iddObjectType) override;
+ protected slots:
 
-    virtual void purgeObjects(const openstudio::IddObjectType& iddObjectType) override;
+  virtual void onSelectItem() override;
 
-  protected slots :
+  virtual void onClearSelection() override;
+};
 
-    virtual void onSelectItem() override;
+class FacilityExteriorEquipmentGridController : public OSGridController
+{
 
-    virtual void onClearSelection() override;
+  Q_OBJECT
 
-  };
+ public:
+  FacilityExteriorEquipmentGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model model,
+                                          std::vector<model::ModelObject> modelObjects);
 
-  class FacilityExteriorEquipmentGridController : public OSGridController
-  {
+  virtual ~FacilityExteriorEquipmentGridController() {}
 
-    Q_OBJECT
+  virtual void refreshModelObjects();
 
-  public:
+  virtual void categorySelected(int index);
 
-    FacilityExteriorEquipmentGridController(bool isIP,
-      const QString & headerText,
-      IddObjectType iddObjectType,
-      model::Model model,
-      std::vector<model::ModelObject> modelObjects);
+ protected:
+  virtual void setCategoriesAndFields();
 
-    virtual ~FacilityExteriorEquipmentGridController() {}
+  virtual void addColumns(const QString& category, std::vector<QString>& fields);
 
-    virtual void refreshModelObjects();
+  virtual void checkSelectedFields();
 
-    virtual void categorySelected(int index);
+  virtual QString getColor(const model::ModelObject& modelObject);
 
-  protected:
+ public slots:
 
-    virtual void setCategoriesAndFields();
+  virtual void onItemDropped(const OSItemId& itemId);
 
-    virtual void addColumns(const QString &category, std::vector<QString> & fields);
+  virtual void onComboBoxIndexChanged(int index);
+};
 
-    virtual void checkSelectedFields();
+}  // namespace openstudio
 
-    virtual QString getColor(const model::ModelObject & modelObject);
-
-  public slots:
-
-    virtual void onItemDropped(const OSItemId& itemId);
-
-    virtual void onComboBoxIndexChanged(int index);
-
-  };
-
-} // openstudio
-
-#endif // OPENSTUDIO_FACILITYEXTERIOREQUIPMENTGRIDVIEW_HPP
+#endif  // OPENSTUDIO_FACILITYEXTERIOREQUIPMENTGRIDVIEW_HPP

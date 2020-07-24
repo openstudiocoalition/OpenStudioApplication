@@ -33,51 +33,40 @@
 
 #include "TreeView.hpp"
 
-namespace modeleditor
-{
+namespace modeleditor {
 
-TreeView::TreeView(QWidget *parent)
-  : QTreeView(parent)
-{
-}
+TreeView::TreeView(QWidget* parent) : QTreeView(parent) {}
 
-TreeView::~TreeView()
-{
-}
+TreeView::~TreeView() {}
 
-void TreeView::enterEvent(QEvent * event)
-{
+void TreeView::enterEvent(QEvent* event) {
   emit eventEnter();
 }
 
-void TreeView::leaveEvent(QEvent * event)
-{
+void TreeView::leaveEvent(QEvent* event) {
   emit eventLeave();
 }
 
-void TreeView::keyReleaseEvent(QKeyEvent * event)
-{
-  if(event->key() == Qt::Key_Up || event->key() == Qt::Key_Down){
+void TreeView::keyReleaseEvent(QKeyEvent* event) {
+  if (event->key() == Qt::Key_Up || event->key() == Qt::Key_Down) {
     emit eventUpDnKeyRelease();
   }
 }
 
-bool TreeView::getSelectedRows(QModelIndexList& rowList)
-{
+bool TreeView::getSelectedRows(QModelIndexList& rowList) {
   //bool success = false;
-  QItemSelectionModel * selectionMod = nullptr;
+  QItemSelectionModel* selectionMod = nullptr;
   selectionMod = selectionModel();
-  if(selectionMod){
+  if (selectionMod) {
     //success = true;
     rowList = selectionMod->selectedRows();
   }
   return !rowList.empty();
 }
 
-bool TreeView::hasSelectedRows()
-{
+bool TreeView::hasSelectedRows() {
   QModelIndexList rowList;
   return getSelectedRows(rowList);
 }
 
-} // namespace modeleditor
+}  // namespace modeleditor

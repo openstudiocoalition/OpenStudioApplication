@@ -90,33 +90,26 @@
 using namespace openstudio;
 using namespace openstudio::model;
 
-ModelObjectSelectorDialog::ModelObjectSelectorDialog(const openstudio::IddObjectType& typeToDisplay,
-                                                     const openstudio::model::Model& model,
-                                                     QWidget * parent)
-  : QDialog(parent), m_model(model)
-{
+ModelObjectSelectorDialog::ModelObjectSelectorDialog(const openstudio::IddObjectType& typeToDisplay, const openstudio::model::Model& model,
+                                                     QWidget* parent)
+  : QDialog(parent), m_model(model) {
   m_typesToDisplay.push_back(typeToDisplay);
 
   init();
 }
 
 ModelObjectSelectorDialog::ModelObjectSelectorDialog(const std::vector<openstudio::IddObjectType>& typesToDisplay,
-                                                     const openstudio::model::Model& model,
-                                                     QWidget * parent)
-  : QDialog(parent), m_typesToDisplay(typesToDisplay), m_model(model)
-{
+                                                     const openstudio::model::Model& model, QWidget* parent)
+  : QDialog(parent), m_typesToDisplay(typesToDisplay), m_model(model) {
   init();
 }
 
-ModelObjectSelectorDialog::~ModelObjectSelectorDialog()
-{
-}
+ModelObjectSelectorDialog::~ModelObjectSelectorDialog() {}
 
-boost::optional<openstudio::model::ModelObject> ModelObjectSelectorDialog::selectedModelObject() const
-{
+boost::optional<openstudio::model::ModelObject> ModelObjectSelectorDialog::selectedModelObject() const {
   boost::optional<openstudio::model::ModelObject> result;
   int currentIndex = m_comboBox->currentIndex();
-  if (currentIndex >= 0){
+  if (currentIndex >= 0) {
     QVariant itemData = m_comboBox->itemData(currentIndex);
     OS_ASSERT(itemData.isValid());
     Handle handle(toUUID(itemData.toString()));
@@ -125,59 +118,52 @@ boost::optional<openstudio::model::ModelObject> ModelObjectSelectorDialog::selec
   return result;
 }
 
-void ModelObjectSelectorDialog::setWindowTitle(const std::string& text)
-{
+void ModelObjectSelectorDialog::setWindowTitle(const std::string& text) {
   QDialog::setWindowTitle(toQString(text));
   QDialog::setWindowIconText(toQString(text));
 }
 
-void ModelObjectSelectorDialog::setUserText(const std::string& text)
-{
+void ModelObjectSelectorDialog::setUserText(const std::string& text) {
   m_userTextLabel->setText(toQString(text));
 }
 
-void ModelObjectSelectorDialog::setOKButtonText(const std::string& text)
-{
+void ModelObjectSelectorDialog::setOKButtonText(const std::string& text) {
   m_okButton->setText(toQString(text));
   m_okButton->setToolTip(toQString(text));
 }
 
-void ModelObjectSelectorDialog::setCancelButtonText(const std::string& text)
-{
+void ModelObjectSelectorDialog::setCancelButtonText(const std::string& text) {
   m_cancelButton->setText(toQString(text));
   m_cancelButton->setToolTip(toQString(text));
 }
 
-void ModelObjectSelectorDialog::onPushButtonOK(bool)
-{
+void ModelObjectSelectorDialog::onPushButtonOK(bool) {
   boost::optional<ModelObject> modelObject = selectedModelObject();
   emit closed(modelObject);
 }
 
-void ModelObjectSelectorDialog::onPushButtonCancel(bool)
-{
+void ModelObjectSelectorDialog::onPushButtonCancel(bool) {
   boost::optional<ModelObject> modelObject;
   emit closed(modelObject);
 }
 
-void ModelObjectSelectorDialog::onAddWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl, const openstudio::IddObjectType& type, const openstudio::UUID& uuid)
-{
+void ModelObjectSelectorDialog::onAddWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl,
+                                                     const openstudio::IddObjectType& type, const openstudio::UUID& uuid) {
   std::vector<openstudio::IddObjectType>::const_iterator it = std::find(m_typesToDisplay.begin(), m_typesToDisplay.end(), impl->iddObject().type());
-  if (it != m_typesToDisplay.end()){
+  if (it != m_typesToDisplay.end()) {
     loadComboBoxData();
   }
 }
 
-void ModelObjectSelectorDialog::onRemoveWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl, const openstudio::IddObjectType& type, const openstudio::UUID& uuid)
-{
+void ModelObjectSelectorDialog::onRemoveWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl,
+                                                        const openstudio::IddObjectType& type, const openstudio::UUID& uuid) {
   std::vector<openstudio::IddObjectType>::const_iterator it = std::find(m_typesToDisplay.begin(), m_typesToDisplay.end(), impl->iddObject().type());
-  if (it != m_typesToDisplay.end()){
+  if (it != m_typesToDisplay.end()) {
     loadComboBoxData();
   }
 }
 
-void ModelObjectSelectorDialog::init()
-{
+void ModelObjectSelectorDialog::init() {
   Qt::WindowFlags flags = Qt::Dialog | Qt::WindowStaysOnTopHint;
   this->setWindowFlags(flags);
 
@@ -190,8 +176,7 @@ void ModelObjectSelectorDialog::init()
   loadComboBoxData();
 }
 
-void ModelObjectSelectorDialog::createWidgets()
-{
+void ModelObjectSelectorDialog::createWidgets() {
   QFont labelFont;
   labelFont.setPointSize(12);
   //labelFont.setBold(true);
@@ -235,23 +220,24 @@ void ModelObjectSelectorDialog::createWidgets()
   this->setLayout(mainLayout);
 }
 
-void ModelObjectSelectorDialog::connectSignalsAndSlots()
-{
+void ModelObjectSelectorDialog::connectSignalsAndSlots() {
   connect(m_okButton, &QPushButton::clicked, this, &ModelObjectSelectorDialog::onPushButtonOK);
 
   connect(m_cancelButton, &QPushButton::clicked, this, &ModelObjectSelectorDialog::onPushButtonCancel);
 
-  m_model.getImpl<model::detail::Model_Impl>().get()->addWorkspaceObjectPtr.connect<ModelObjectSelectorDialog, &ModelObjectSelectorDialog::onAddWorkspaceObject>(this);
+  m_model.getImpl<model::detail::Model_Impl>()
+    .get()
+    ->addWorkspaceObjectPtr.connect<ModelObjectSelectorDialog, &ModelObjectSelectorDialog::onAddWorkspaceObject>(this);
 
-  m_model.getImpl<model::detail::Model_Impl>().get()->removeWorkspaceObjectPtr.connect<ModelObjectSelectorDialog, &ModelObjectSelectorDialog::onRemoveWorkspaceObject>(this);
+  m_model.getImpl<model::detail::Model_Impl>()
+    .get()
+    ->removeWorkspaceObjectPtr.connect<ModelObjectSelectorDialog, &ModelObjectSelectorDialog::onRemoveWorkspaceObject>(this);
 }
 
-void ModelObjectSelectorDialog::loadStyleSheet()
-{
+void ModelObjectSelectorDialog::loadStyleSheet() {
   QFile data(":/ModalDialogs.qss");
   QString style;
-  if(data.open(QFile::ReadOnly))
-  {
+  if (data.open(QFile::ReadOnly)) {
     QTextStream styleIn(&data);
     style = styleIn.readAll();
     data.close();
@@ -260,7 +246,8 @@ void ModelObjectSelectorDialog::loadStyleSheet()
 }
 
 // sort by name
-struct NameSorter {
+struct NameSorter
+{
   bool operator()(const WorkspaceObject& left, const WorkspaceObject& right) const {
     OS_ASSERT(left.name());
     OS_ASSERT(right.name());
@@ -268,14 +255,13 @@ struct NameSorter {
   }
 };
 
-void ModelObjectSelectorDialog::loadComboBoxData()
-{
+void ModelObjectSelectorDialog::loadComboBoxData() {
   m_comboBox->clear();
 
   std::vector<WorkspaceObject> workspaceObjects;
 
   // get all objects
-  for (IddObjectType iddObjectType : m_typesToDisplay){
+  for (IddObjectType iddObjectType : m_typesToDisplay) {
     std::vector<WorkspaceObject> temp = m_model.getObjectsByType(iddObjectType);
     workspaceObjects.insert(workspaceObjects.end(), temp.begin(), temp.end());
   }
@@ -284,58 +270,51 @@ void ModelObjectSelectorDialog::loadComboBoxData()
   std::sort(workspaceObjects.begin(), workspaceObjects.end(), nameSorter);
 
   // add to combo box
-  for (WorkspaceObject workspaceObject : workspaceObjects){
+  for (WorkspaceObject workspaceObject : workspaceObjects) {
     OS_ASSERT(workspaceObject.name());
     std::string objectName = workspaceObject.name().get();
     m_comboBox->addItem(toQString(objectName), toQString(workspaceObject.handle()));
   }
 
-  if (m_comboBox->count() > 0){
+  if (m_comboBox->count() > 0) {
     m_comboBox->setCurrentIndex(0);
   }
 }
 
-
 ModelObjectSelectorDialogWatcher::ModelObjectSelectorDialogWatcher(std::shared_ptr<ModelObjectSelectorDialog> modelObjectSelectorDialog)
-  : m_modelObjectSelectorDialog(modelObjectSelectorDialog)
-{
+  : m_modelObjectSelectorDialog(modelObjectSelectorDialog) {
   OS_ASSERT(modelObjectSelectorDialog);
 
   connect(modelObjectSelectorDialog.get(), &ModelObjectSelectorDialog::closed, this, &ModelObjectSelectorDialogWatcher::onClose);
 }
 
-boost::optional<openstudio::model::ModelObject> ModelObjectSelectorDialogWatcher::selectedModelObject() const
-{
-  if (m_modelObjectSelectorDialog){
+boost::optional<openstudio::model::ModelObject> ModelObjectSelectorDialogWatcher::selectedModelObject() const {
+  if (m_modelObjectSelectorDialog) {
     m_selectedModelObject = m_modelObjectSelectorDialog->selectedModelObject();
   }
   return m_selectedModelObject;
 }
 
-
-bool ModelObjectSelectorDialogWatcher::isSelectionFinal() const
-{
+bool ModelObjectSelectorDialogWatcher::isSelectionFinal() const {
   return (!m_modelObjectSelectorDialog);
 }
 
-void ModelObjectSelectorDialogWatcher::onClose(const boost::optional<openstudio::model::ModelObject>& selectedModelObject)
-{
+void ModelObjectSelectorDialogWatcher::onClose(const boost::optional<openstudio::model::ModelObject>& selectedModelObject) {
   m_modelObjectSelectorDialog.reset();
   m_selectedModelObject = selectedModelObject;
 }
 
-void ensureThermalZone(openstudio::model::Space& space)
-{
+void ensureThermalZone(openstudio::model::Space& space) {
   Model model = space.model();
 
   boost::optional<ThermalZone> thermalZone = space.thermalZone();
-  if (thermalZone){
+  if (thermalZone) {
     return;
   }
 
   IddObjectType thermalZoneType = IddObjectType::OS_ThermalZone;
   boost::optional<ModelObject> selectedModelObject;
-  if (!model.getObjectsByType(thermalZoneType).empty()){
+  if (!model.getObjectsByType(thermalZoneType).empty()) {
 
     // allow user to select a definition
     std::vector<IddObjectType> typesToDisplay;
@@ -350,14 +329,14 @@ void ensureThermalZone(openstudio::model::Space& space)
 
     ModelObjectSelectorDialogWatcher watcher(dialog);
 
-    while (!watcher.isSelectionFinal()){
+    while (!watcher.isSelectionFinal()) {
       Application::instance().processEvents(1);
     }
 
     selectedModelObject = watcher.selectedModelObject();
   }
 
-  if (selectedModelObject){
+  if (selectedModelObject) {
     // user chose an existing thermal zone
     thermalZone = selectedModelObject->optionalCast<ThermalZone>();
     OS_ASSERT(thermalZone);
@@ -371,17 +350,15 @@ void ensureThermalZone(openstudio::model::Space& space)
   OS_ASSERT(thermalZone);
   bool test = space.setThermalZone(*thermalZone);
   OS_ASSERT(test);
-
 }
 
-void ensureSpaceLoadDefinition(openstudio::model::SpaceLoadInstance& instance)
-{
+void ensureSpaceLoadDefinition(openstudio::model::SpaceLoadInstance& instance) {
   Model model = instance.model();
 
   IddObjectType definitionType;
   boost::optional<WorkspaceObject> currentDefinition;
 
-  switch(instance.iddObjectType().value()){
+  switch (instance.iddObjectType().value()) {
     case IddObjectType::OS_ElectricEquipment:
       currentDefinition = instance.getTarget(OS_ElectricEquipmentFields::ElectricEquipmentDefinitionName);
       definitionType = IddObjectType::OS_ElectricEquipment_Definition;
@@ -414,13 +391,13 @@ void ensureSpaceLoadDefinition(openstudio::model::SpaceLoadInstance& instance)
       LOG_FREE_AND_THROW("openstudio.ensureSpaceLoadDefinition", "Unknown IddObjectType " << instance.iddObjectType().valueName());
   }
 
-  if (currentDefinition){
+  if (currentDefinition) {
     return;
   }
 
   boost::optional<SpaceLoadDefinition> definition;
 
-  if (!model.getObjectsByType(definitionType).empty()){
+  if (!model.getObjectsByType(definitionType).empty()) {
 
     // allow user to select a definition
     std::vector<IddObjectType> typesToDisplay;
@@ -435,13 +412,13 @@ void ensureSpaceLoadDefinition(openstudio::model::SpaceLoadInstance& instance)
 
     ModelObjectSelectorDialogWatcher watcher(dialog);
 
-    while (!watcher.isSelectionFinal()){
+    while (!watcher.isSelectionFinal()) {
       Application::instance().processEvents(1);
     }
 
     boost::optional<ModelObject> selectedModelObject = watcher.selectedModelObject();
 
-    if (selectedModelObject){
+    if (selectedModelObject) {
       // user chose an existing definition
       definition = selectedModelObject->optionalCast<SpaceLoadDefinition>();
       OS_ASSERT(definition);
@@ -452,7 +429,7 @@ void ensureSpaceLoadDefinition(openstudio::model::SpaceLoadInstance& instance)
   }
 
   // make new definition
-  switch(instance.iddObjectType().value()){
+  switch (instance.iddObjectType().value()) {
     case IddObjectType::OS_ElectricEquipment:
       definition = ElectricEquipmentDefinition(model);
       break;
@@ -481,5 +458,4 @@ void ensureSpaceLoadDefinition(openstudio::model::SpaceLoadInstance& instance)
   OS_ASSERT(definition);
   bool test = instance.setDefinition(*definition);
   OS_ASSERT(test);
-
 }

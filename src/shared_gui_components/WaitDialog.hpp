@@ -34,17 +34,14 @@
 
 class QLabel;
 
-namespace openstudio{
+namespace openstudio {
 
 class WaitDialog : public OSDialog
 {
   Q_OBJECT
 
-public:
-
-  WaitDialog(const QString & windowTitle,
-    const QString & windowMessage,
-    QWidget * parent = nullptr);
+ public:
+  WaitDialog(const QString& windowTitle, const QString& windowMessage, QWidget* parent = nullptr);
 
   virtual ~WaitDialog();
 
@@ -55,28 +52,24 @@ public:
   void resetLabels();
 
   // Convenience to avoid having to do QLabel * descriptionLabel1 = qobject_cast<QLabel*>(waitDialog()->upperLayout()->itemAt(1)->widget());
-  QLabel * m_firstLine;
-  QLabel * m_secondLine;
-  QLabel * m_thirdLine;
-  QLabel * m_fourthLine;
+  QLabel* m_firstLine;
+  QLabel* m_secondLine;
+  QLabel* m_thirdLine;
+  QLabel* m_fourthLine;
 
-protected slots:
+ protected slots:
 
   virtual void on_cancelButton(bool checked) override;
 
-protected:
+ protected:
+  void closeEvent(QCloseEvent* event) override;
 
-  void closeEvent(QCloseEvent * event) override;
-
-private:
-
+ private:
   virtual void createWidgets();
 
   QString m_windowMessage;
-
-
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // SHAREDGUICOMPONENTS_WAITDIALOG_HPP
+#endif  // SHAREDGUICOMPONENTS_WAITDIALOG_HPP

@@ -45,7 +45,7 @@ namespace openstudio {
 
 namespace model {
 
- class ConstructionBase;
+class ConstructionBase;
 
 }
 
@@ -59,84 +59,81 @@ class StandardsInformationConstructionWidget : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
+  StandardsInformationConstructionWidget(bool isIP, QGridLayout* mainGridLayout, int& row);
 
-    StandardsInformationConstructionWidget(bool isIP, QGridLayout* mainGridLayout, int& row);
+  virtual ~StandardsInformationConstructionWidget();
 
-    virtual ~StandardsInformationConstructionWidget();
+  void attach(openstudio::model::ConstructionBase& construction);
 
-    void attach(openstudio::model::ConstructionBase & construction);
+  void detach();
 
-    void detach();
+  void showFenestration();
 
-    void showFenestration();
+  void hideFenestration();
 
-    void hideFenestration();
+  void enableFenestration();
 
-    void enableFenestration();
+  void disableFenestration();
 
-    void disableFenestration();
+ public slots:
 
-  public slots:
+  void toggleUnits(bool displayIP);
 
-    void toggleUnits(bool displayIP);
+ private slots:
 
-  private slots:
+  void standardChanged(const QString& text);
+  void populateStandards();
 
-    void standardChanged(const QString& text);
-    void populateStandards();
+  void standardSourceChanged(const QString& text);
+  void populateStandardSources();
 
-    void standardSourceChanged(const QString& text);
-    void populateStandardSources();
+  void intendedSurfaceTypeChanged(const QString& text);
 
-    void intendedSurfaceTypeChanged(const QString& text);
+  void standardsConstructionTypeChanged(const QString& text);
+  void populateStandardsConstructionType();
 
-    void standardsConstructionTypeChanged(const QString& text);
-    void populateStandardsConstructionType();
+ private:
+  QComboBox* m_standard = nullptr;
 
-  private:
+  QComboBox* m_standardSource = nullptr;
 
-    QComboBox * m_standard = nullptr;
+  OSComboBox2* m_intendedSurfaceType = nullptr;
 
-    QComboBox * m_standardSource = nullptr;
+  QComboBox* m_standardsConstructionType = nullptr;
 
-    OSComboBox2 * m_intendedSurfaceType = nullptr;
+  OSComboBox2* m_fenestrationType = nullptr;
+  QLabel* m_fenestrationTypeLabel = nullptr;
 
-    QComboBox * m_standardsConstructionType = nullptr;
+  OSComboBox2* m_fenestrationAssemblyContext = nullptr;
+  QLabel* m_fenestrationAssemblyContextLabel = nullptr;
 
-    OSComboBox2 * m_fenestrationType = nullptr;
-    QLabel * m_fenestrationTypeLabel = nullptr;
+  OSComboBox2* m_fenestrationNumberOfPanes = nullptr;
+  QLabel* m_fenestrationNumberOfPanesLabel = nullptr;
 
-    OSComboBox2 * m_fenestrationAssemblyContext = nullptr;
-    QLabel * m_fenestrationAssemblyContextLabel = nullptr;
+  OSComboBox2* m_fenestrationFrameType = nullptr;
+  QLabel* m_fenestrationFrameTypeLabel = nullptr;
 
-    OSComboBox2 * m_fenestrationNumberOfPanes = nullptr;
-    QLabel * m_fenestrationNumberOfPanesLabel = nullptr;
+  OSComboBox2* m_fenestrationDividerType = nullptr;
+  QLabel* m_fenestrationDividerTypeLabel = nullptr;
 
-    OSComboBox2 * m_fenestrationFrameType = nullptr;
-    QLabel * m_fenestrationFrameTypeLabel = nullptr;
+  OSComboBox2* m_fenestrationTint = nullptr;
+  QLabel* m_fenestrationTintLabel = nullptr;
 
-    OSComboBox2 * m_fenestrationDividerType = nullptr;
-    QLabel * m_fenestrationDividerTypeLabel = nullptr;
+  OSComboBox2* m_fenestrationGasFill = nullptr;
+  QLabel* m_fenestrationGasFillLabel = nullptr;
 
-    OSComboBox2 * m_fenestrationTint = nullptr;
-    QLabel * m_fenestrationTintLabel = nullptr;
+  OSSwitch2* m_fenestrationLowEmissivityCoating = nullptr;
+  QLabel* m_fenestrationLowEmissivityCoatingLabel = nullptr;
 
-    OSComboBox2 * m_fenestrationGasFill = nullptr;
-    QLabel * m_fenestrationGasFillLabel = nullptr;
+  bool m_isIP = false;
+  bool m_fenestrationEnabled = false;
 
-    OSSwitch2 * m_fenestrationLowEmissivityCoating = nullptr;
-    QLabel * m_fenestrationLowEmissivityCoatingLabel = nullptr;
+  boost::optional<openstudio::model::ConstructionBase> m_construction;
 
-    bool m_isIP = false;
-    bool m_fenestrationEnabled = false;
-
-    boost::optional<openstudio::model::ConstructionBase> m_construction;
-
-    boost::optional<openstudio::model::StandardsInformationConstruction> m_standardsInformation;
-
+  boost::optional<openstudio::model::StandardsInformationConstruction> m_standardsInformation;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_STANDARDSINFORMATIONCONSTRUCTIONWIDGET_HPP
+#endif  // OPENSTUDIO_STANDARDSINFORMATIONCONSTRUCTIONWIDGET_HPP

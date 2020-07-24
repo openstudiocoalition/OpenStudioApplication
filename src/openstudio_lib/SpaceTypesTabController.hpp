@@ -40,19 +40,15 @@ class SpaceTypesTabController : public MainTabController
 {
   Q_OBJECT
 
-  public:
+ public:
+  SpaceTypesTabController(bool isIP, const openstudio::model::Model& model);
 
-    SpaceTypesTabController(bool isIP,
-      const openstudio::model::Model& model);
+  virtual ~SpaceTypesTabController() {}
 
-    virtual ~SpaceTypesTabController() {}
-
-  private:
-
-    std::shared_ptr<SpaceTypesController> m_spaceTypesController;
-
+ private:
+  std::shared_ptr<SpaceTypesController> m_spaceTypesController;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_SPACETYPESTABCONTROLLER_HPP
+#endif  // OPENSTUDIO_SPACETYPESTABCONTROLLER_HPP

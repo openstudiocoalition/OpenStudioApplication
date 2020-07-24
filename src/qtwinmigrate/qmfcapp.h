@@ -38,7 +38,6 @@
 **
 ****************************************************************************/
 
-
 // Declaration of the QMfcApp classes
 
 #ifndef QMFCAPP_H
@@ -47,7 +46,7 @@
 #include <QApplication>
 
 #if defined(_AFXDLL) && defined(_MSC_VER)
-#define QTWINMIGRATE_WITHMFC
+#  define QTWINMIGRATE_WITHMFC
 class CWinApp;
 #endif
 
@@ -68,43 +67,43 @@ class CWinApp;
 #endif
 
 #if QT_VERSION >= 0x050000
-#include <QAbstractNativeEventFilter>
+#  include <QAbstractNativeEventFilter>
 
 class QT_QTWINMIGRATE_EXPORT QMfcAppEventFilter : public QAbstractNativeEventFilter
 {
-public:
-    QMfcAppEventFilter();
-    bool nativeEventFilter(const QByteArray &eventType, void *message, long *result);
+ public:
+  QMfcAppEventFilter();
+  bool nativeEventFilter(const QByteArray& eventType, void* message, long* result);
 };
 #endif
 
 class QT_QTWINMIGRATE_EXPORT QMfcApp : public QApplication
 {
-public:
-    static bool pluginInstance(Qt::HANDLE plugin = 0);
+ public:
+  static bool pluginInstance(Qt::HANDLE plugin = 0);
 
 #ifdef QTWINMIGRATE_WITHMFC
-    static int run(CWinApp *mfcApp);
-    static QApplication *instance(CWinApp *mfcApp);
-    QMfcApp(CWinApp *mfcApp, int &argc, char **argv);
+  static int run(CWinApp* mfcApp);
+  static QApplication* instance(CWinApp* mfcApp);
+  QMfcApp(CWinApp* mfcApp, int& argc, char** argv);
 #endif
-    QMfcApp(int &argc, char **argv);
-    ~QMfcApp();
+  QMfcApp(int& argc, char** argv);
+  ~QMfcApp();
 
-    bool winEventFilter(MSG *msg, long *result);
+  bool winEventFilter(MSG* msg, long* result);
 
-    static void enterModalLoop();
-    static void exitModalLoop();
+  static void enterModalLoop();
+  static void exitModalLoop();
 
-private:
+ private:
 #ifdef QTWINMIGRATE_WITHMFC
-    static char ** mfc_argv;
-    static int mfc_argc;
-    static CWinApp *mfc_app;
+  static char** mfc_argv;
+  static int mfc_argc;
+  static CWinApp* mfc_app;
 #endif
 
-    int idleCount;
-    bool doIdle;
+  int idleCount;
+  bool doIdle;
 };
 
-#endif // QMFCAPP_H
+#endif  // QMFCAPP_H

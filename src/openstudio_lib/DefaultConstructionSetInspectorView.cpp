@@ -63,63 +63,58 @@ namespace openstudio {
 
 // WallConstructionVC
 
-void WallConstructionVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle)
-{
-  if (index == OS_DefaultSurfaceConstructionsFields::WallConstructionName){
+void WallConstructionVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) {
+  if (index == OS_DefaultSurfaceConstructionsFields::WallConstructionName) {
     emit itemIds(makeVector());
   }
 }
 
-std::vector<OSItemId> WallConstructionVC::makeVector()
-{
+std::vector<OSItemId> WallConstructionVC::makeVector() {
   std::vector<OSItemId> result;
-  if (m_modelObject){
+  if (m_modelObject) {
     model::DefaultSurfaceConstructions defaultSurfaceConstructions = m_modelObject->cast<model::DefaultSurfaceConstructions>();
     boost::optional<model::ConstructionBase> constructionBase = defaultSurfaceConstructions.wallConstruction();
-    if (constructionBase){
+    if (constructionBase) {
       result.push_back(modelObjectToItemId(*constructionBase, false));
     }
   }
   return result;
 }
 
-void WallConstructionVC::onRemoveItem(OSItem* item)
-{
-  if (m_modelObject){
+void WallConstructionVC::onRemoveItem(OSItem* item) {
+  if (m_modelObject) {
     model::DefaultSurfaceConstructions defaultSurfaceConstructions = m_modelObject->cast<model::DefaultSurfaceConstructions>();
     defaultSurfaceConstructions.resetWallConstruction();
   }
 }
 
-void WallConstructionVC::onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId)
-{
+void WallConstructionVC::onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) {
   onDrop(replacementItemId);
 }
 
-void WallConstructionVC::onDrop(const OSItemId& itemId)
-{
-  if (m_modelObject){
+void WallConstructionVC::onDrop(const OSItemId& itemId) {
+  if (m_modelObject) {
     model::DefaultSurfaceConstructions defaultSurfaceConstructions = m_modelObject->cast<model::DefaultSurfaceConstructions>();
 
     unsigned numSources = defaultSurfaceConstructions.getModelObjectSources<model::DefaultConstructionSet>().size();
-    if (numSources > 1){
+    if (numSources > 1) {
       QWidget* parent = OSAppBase::instance()->currentDocument()->mainWindow();
-      QMessageBox::StandardButton button = QMessageBox::question(parent, "Shared Construction Set Resources",
-        "This construction is shared by " + QString::number(numSources-1) + " other construction sets.\n\n" +
-        "Click \"Yes\" to change the construction in all construction sets.\n" +
-        "Click \"No\" to change it in only this construction set.\n" +
-        "Click \"Cancel\" to do nothing.",
-        QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel, QMessageBox::No);
-      if (button == QMessageBox::Cancel){
+      QMessageBox::StandardButton button =
+        QMessageBox::question(parent, "Shared Construction Set Resources",
+                              "This construction is shared by " + QString::number(numSources - 1) + " other construction sets.\n\n" +
+                                "Click \"Yes\" to change the construction in all construction sets.\n" +
+                                "Click \"No\" to change it in only this construction set.\n" + "Click \"Cancel\" to do nothing.",
+                              QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel, QMessageBox::No);
+      if (button == QMessageBox::Cancel) {
         return;
-      }else if (button == QMessageBox::No){
+      } else if (button == QMessageBox::No) {
         model::ModelObject newObject = defaultSurfaceConstructions.clone(defaultSurfaceConstructions.model());
         defaultSurfaceConstructions = newObject.cast<model::DefaultSurfaceConstructions>();
       }
     }
 
     boost::optional<model::ConstructionBase> constructionBase = this->addToModel<model::ConstructionBase>(itemId);
-    if (constructionBase){
+    if (constructionBase) {
       defaultSurfaceConstructions.setWallConstruction(*constructionBase);
     }
   }
@@ -127,63 +122,58 @@ void WallConstructionVC::onDrop(const OSItemId& itemId)
 
 // FloorConstructionVC
 
-void FloorConstructionVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle)
-{
-  if (index == OS_DefaultSurfaceConstructionsFields::FloorConstructionName){
+void FloorConstructionVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) {
+  if (index == OS_DefaultSurfaceConstructionsFields::FloorConstructionName) {
     emit itemIds(makeVector());
   }
 }
 
-std::vector<OSItemId> FloorConstructionVC::makeVector()
-{
+std::vector<OSItemId> FloorConstructionVC::makeVector() {
   std::vector<OSItemId> result;
-  if (m_modelObject){
+  if (m_modelObject) {
     model::DefaultSurfaceConstructions defaultSurfaceConstructions = m_modelObject->cast<model::DefaultSurfaceConstructions>();
     boost::optional<model::ConstructionBase> constructionBase = defaultSurfaceConstructions.floorConstruction();
-    if (constructionBase){
+    if (constructionBase) {
       result.push_back(modelObjectToItemId(*constructionBase, false));
     }
   }
   return result;
 }
 
-void FloorConstructionVC::onRemoveItem(OSItem* item)
-{
-  if (m_modelObject){
+void FloorConstructionVC::onRemoveItem(OSItem* item) {
+  if (m_modelObject) {
     model::DefaultSurfaceConstructions defaultSurfaceConstructions = m_modelObject->cast<model::DefaultSurfaceConstructions>();
     defaultSurfaceConstructions.resetFloorConstruction();
   }
 }
 
-void FloorConstructionVC::onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId)
-{
+void FloorConstructionVC::onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) {
   onDrop(replacementItemId);
 }
 
-void FloorConstructionVC::onDrop(const OSItemId& itemId)
-{
-  if (m_modelObject){
+void FloorConstructionVC::onDrop(const OSItemId& itemId) {
+  if (m_modelObject) {
     model::DefaultSurfaceConstructions defaultSurfaceConstructions = m_modelObject->cast<model::DefaultSurfaceConstructions>();
 
     unsigned numSources = defaultSurfaceConstructions.getModelObjectSources<model::DefaultConstructionSet>().size();
-    if (numSources > 1){
+    if (numSources > 1) {
       QWidget* parent = OSAppBase::instance()->currentDocument()->mainWindow();
-      QMessageBox::StandardButton button = QMessageBox::question(parent, "Shared Construction Set Resources",
-        "This construction is shared by " + QString::number(numSources-1) + " other construction sets.\n\n" +
-        "Click \"Yes\" to change the construction in all construction sets.\n" +
-        "Click \"No\" to change it in only this construction set.\n" +
-        "Click \"Cancel\" to do nothing.",
-        QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel, QMessageBox::No);
-      if (button == QMessageBox::Cancel){
+      QMessageBox::StandardButton button =
+        QMessageBox::question(parent, "Shared Construction Set Resources",
+                              "This construction is shared by " + QString::number(numSources - 1) + " other construction sets.\n\n" +
+                                "Click \"Yes\" to change the construction in all construction sets.\n" +
+                                "Click \"No\" to change it in only this construction set.\n" + "Click \"Cancel\" to do nothing.",
+                              QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel, QMessageBox::No);
+      if (button == QMessageBox::Cancel) {
         return;
-      }else if (button == QMessageBox::No){
+      } else if (button == QMessageBox::No) {
         model::ModelObject newObject = defaultSurfaceConstructions.clone(defaultSurfaceConstructions.model());
         defaultSurfaceConstructions = newObject.cast<model::DefaultSurfaceConstructions>();
       }
     }
 
     boost::optional<model::ConstructionBase> constructionBase = this->addToModel<model::ConstructionBase>(itemId);
-    if (constructionBase){
+    if (constructionBase) {
       defaultSurfaceConstructions.setFloorConstruction(*constructionBase);
     }
   }
@@ -191,63 +181,58 @@ void FloorConstructionVC::onDrop(const OSItemId& itemId)
 
 // RoofConstructionVC
 
-void RoofConstructionVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle)
-{
-  if (index == OS_DefaultSurfaceConstructionsFields::RoofCeilingConstructionName){
+void RoofConstructionVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) {
+  if (index == OS_DefaultSurfaceConstructionsFields::RoofCeilingConstructionName) {
     emit itemIds(makeVector());
   }
 }
 
-std::vector<OSItemId> RoofConstructionVC::makeVector()
-{
+std::vector<OSItemId> RoofConstructionVC::makeVector() {
   std::vector<OSItemId> result;
-  if (m_modelObject){
+  if (m_modelObject) {
     model::DefaultSurfaceConstructions defaultSurfaceConstructions = m_modelObject->cast<model::DefaultSurfaceConstructions>();
     boost::optional<model::ConstructionBase> constructionBase = defaultSurfaceConstructions.roofCeilingConstruction();
-    if (constructionBase){
+    if (constructionBase) {
       result.push_back(modelObjectToItemId(*constructionBase, false));
     }
   }
   return result;
 }
 
-void RoofConstructionVC::onRemoveItem(OSItem* item)
-{
-  if (m_modelObject){
+void RoofConstructionVC::onRemoveItem(OSItem* item) {
+  if (m_modelObject) {
     model::DefaultSurfaceConstructions defaultSurfaceConstructions = m_modelObject->cast<model::DefaultSurfaceConstructions>();
     defaultSurfaceConstructions.resetRoofCeilingConstruction();
   }
 }
 
-void RoofConstructionVC::onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId)
-{
+void RoofConstructionVC::onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) {
   onDrop(replacementItemId);
 }
 
-void RoofConstructionVC::onDrop(const OSItemId& itemId)
-{
-  if (m_modelObject){
+void RoofConstructionVC::onDrop(const OSItemId& itemId) {
+  if (m_modelObject) {
     model::DefaultSurfaceConstructions defaultSurfaceConstructions = m_modelObject->cast<model::DefaultSurfaceConstructions>();
 
     unsigned numSources = defaultSurfaceConstructions.getModelObjectSources<model::DefaultConstructionSet>().size();
-    if (numSources > 1){
+    if (numSources > 1) {
       QWidget* parent = OSAppBase::instance()->currentDocument()->mainWindow();
-      QMessageBox::StandardButton button = QMessageBox::question(parent, "Shared Construction Set Resources",
-        "This construction is shared by " + QString::number(numSources-1) + " other construction sets.\n\n" +
-        "Click \"Yes\" to change the construction in all construction sets.\n" +
-        "Click \"No\" to change it in only this construction set.\n" +
-        "Click \"Cancel\" to do nothing.",
-        QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel, QMessageBox::No);
-      if (button == QMessageBox::Cancel){
+      QMessageBox::StandardButton button =
+        QMessageBox::question(parent, "Shared Construction Set Resources",
+                              "This construction is shared by " + QString::number(numSources - 1) + " other construction sets.\n\n" +
+                                "Click \"Yes\" to change the construction in all construction sets.\n" +
+                                "Click \"No\" to change it in only this construction set.\n" + "Click \"Cancel\" to do nothing.",
+                              QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel, QMessageBox::No);
+      if (button == QMessageBox::Cancel) {
         return;
-      }else if (button == QMessageBox::No){
+      } else if (button == QMessageBox::No) {
         model::ModelObject newObject = defaultSurfaceConstructions.clone(defaultSurfaceConstructions.model());
         defaultSurfaceConstructions = newObject.cast<model::DefaultSurfaceConstructions>();
       }
     }
 
     boost::optional<model::ConstructionBase> constructionBase = this->addToModel<model::ConstructionBase>(itemId);
-    if (constructionBase){
+    if (constructionBase) {
       defaultSurfaceConstructions.setRoofCeilingConstruction(*constructionBase);
     }
   }
@@ -255,63 +240,58 @@ void RoofConstructionVC::onDrop(const OSItemId& itemId)
 
 // GlassDoorConstructionVC
 
-void GlassDoorConstructionVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle)
-{
-  if (index == OS_DefaultSubSurfaceConstructionsFields::GlassDoorConstructionName){
+void GlassDoorConstructionVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) {
+  if (index == OS_DefaultSubSurfaceConstructionsFields::GlassDoorConstructionName) {
     emit itemIds(makeVector());
   }
 }
 
-std::vector<OSItemId> GlassDoorConstructionVC::makeVector()
-{
+std::vector<OSItemId> GlassDoorConstructionVC::makeVector() {
   std::vector<OSItemId> result;
-  if (m_modelObject){
+  if (m_modelObject) {
     model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
     boost::optional<model::ConstructionBase> constructionBase = defaultSubSurfaceConstructions.glassDoorConstruction();
-    if (constructionBase){
+    if (constructionBase) {
       result.push_back(modelObjectToItemId(*constructionBase, false));
     }
   }
   return result;
 }
 
-void GlassDoorConstructionVC::onRemoveItem(OSItem* item)
-{
-  if (m_modelObject){
+void GlassDoorConstructionVC::onRemoveItem(OSItem* item) {
+  if (m_modelObject) {
     model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
     defaultSubSurfaceConstructions.resetGlassDoorConstruction();
   }
 }
 
-void GlassDoorConstructionVC::onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId)
-{
+void GlassDoorConstructionVC::onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) {
   onDrop(replacementItemId);
 }
 
-void GlassDoorConstructionVC::onDrop(const OSItemId& itemId)
-{
-  if (m_modelObject){
+void GlassDoorConstructionVC::onDrop(const OSItemId& itemId) {
+  if (m_modelObject) {
     model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
 
     unsigned numSources = defaultSubSurfaceConstructions.getModelObjectSources<model::DefaultConstructionSet>().size();
-    if (numSources > 1){
+    if (numSources > 1) {
       QWidget* parent = OSAppBase::instance()->currentDocument()->mainWindow();
-      QMessageBox::StandardButton button = QMessageBox::question(parent, "Shared Construction Set Resources",
-        "This construction is shared by " + QString::number(numSources-1) + " other construction sets.\n\n" +
-        "Click \"Yes\" to change the construction in all construction sets.\n" +
-        "Click \"No\" to change it in only this construction set.\n" +
-        "Click \"Cancel\" to do nothing.",
-        QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel, QMessageBox::No);
-      if (button == QMessageBox::Cancel){
+      QMessageBox::StandardButton button =
+        QMessageBox::question(parent, "Shared Construction Set Resources",
+                              "This construction is shared by " + QString::number(numSources - 1) + " other construction sets.\n\n" +
+                                "Click \"Yes\" to change the construction in all construction sets.\n" +
+                                "Click \"No\" to change it in only this construction set.\n" + "Click \"Cancel\" to do nothing.",
+                              QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel, QMessageBox::No);
+      if (button == QMessageBox::Cancel) {
         return;
-      }else if (button == QMessageBox::No){
+      } else if (button == QMessageBox::No) {
         model::ModelObject newObject = defaultSubSurfaceConstructions.clone(defaultSubSurfaceConstructions.model());
         defaultSubSurfaceConstructions = newObject.cast<model::DefaultSubSurfaceConstructions>();
       }
     }
 
     boost::optional<model::ConstructionBase> constructionBase = this->addToModel<model::ConstructionBase>(itemId);
-    if (constructionBase){
+    if (constructionBase) {
       defaultSubSurfaceConstructions.setGlassDoorConstruction(*constructionBase);
     }
   }
@@ -319,63 +299,58 @@ void GlassDoorConstructionVC::onDrop(const OSItemId& itemId)
 
 // OverheadDoorConstructionVC
 
-void OverheadDoorConstructionVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle)
-{
-  if (index == OS_DefaultSubSurfaceConstructionsFields::OverheadDoorConstructionName){
+void OverheadDoorConstructionVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) {
+  if (index == OS_DefaultSubSurfaceConstructionsFields::OverheadDoorConstructionName) {
     emit itemIds(makeVector());
   }
 }
 
-std::vector<OSItemId> OverheadDoorConstructionVC::makeVector()
-{
+std::vector<OSItemId> OverheadDoorConstructionVC::makeVector() {
   std::vector<OSItemId> result;
-  if (m_modelObject){
+  if (m_modelObject) {
     model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
     boost::optional<model::ConstructionBase> constructionBase = defaultSubSurfaceConstructions.overheadDoorConstruction();
-    if (constructionBase){
+    if (constructionBase) {
       result.push_back(modelObjectToItemId(*constructionBase, false));
     }
   }
   return result;
 }
 
-void OverheadDoorConstructionVC::onRemoveItem(OSItem* item)
-{
-  if (m_modelObject){
+void OverheadDoorConstructionVC::onRemoveItem(OSItem* item) {
+  if (m_modelObject) {
     model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
     defaultSubSurfaceConstructions.resetOverheadDoorConstruction();
   }
 }
 
-void OverheadDoorConstructionVC::onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId)
-{
+void OverheadDoorConstructionVC::onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) {
   onDrop(replacementItemId);
 }
 
-void OverheadDoorConstructionVC::onDrop(const OSItemId& itemId)
-{
-  if (m_modelObject){
+void OverheadDoorConstructionVC::onDrop(const OSItemId& itemId) {
+  if (m_modelObject) {
     model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
 
     unsigned numSources = defaultSubSurfaceConstructions.getModelObjectSources<model::DefaultConstructionSet>().size();
-    if (numSources > 1){
+    if (numSources > 1) {
       QWidget* parent = OSAppBase::instance()->currentDocument()->mainWindow();
-      QMessageBox::StandardButton button = QMessageBox::question(parent, "Shared Construction Set Resources",
-        "This construction is shared by " + QString::number(numSources-1) + " other construction sets.\n\n" +
-        "Click \"Yes\" to change the construction in all construction sets.\n" +
-        "Click \"No\" to change it in only this construction set.\n" +
-        "Click \"Cancel\" to do nothing.",
-        QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel, QMessageBox::No);
-      if (button == QMessageBox::Cancel){
+      QMessageBox::StandardButton button =
+        QMessageBox::question(parent, "Shared Construction Set Resources",
+                              "This construction is shared by " + QString::number(numSources - 1) + " other construction sets.\n\n" +
+                                "Click \"Yes\" to change the construction in all construction sets.\n" +
+                                "Click \"No\" to change it in only this construction set.\n" + "Click \"Cancel\" to do nothing.",
+                              QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel, QMessageBox::No);
+      if (button == QMessageBox::Cancel) {
         return;
-      }else if (button == QMessageBox::No){
+      } else if (button == QMessageBox::No) {
         model::ModelObject newObject = defaultSubSurfaceConstructions.clone(defaultSubSurfaceConstructions.model());
         defaultSubSurfaceConstructions = newObject.cast<model::DefaultSubSurfaceConstructions>();
       }
     }
 
     boost::optional<model::ConstructionBase> constructionBase = this->addToModel<model::ConstructionBase>(itemId);
-    if (constructionBase){
+    if (constructionBase) {
       defaultSubSurfaceConstructions.setOverheadDoorConstruction(*constructionBase);
     }
   }
@@ -383,63 +358,58 @@ void OverheadDoorConstructionVC::onDrop(const OSItemId& itemId)
 
 // SkylightConstructionVC
 
-void SkylightConstructionVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle)
-{
-  if (index == OS_DefaultSubSurfaceConstructionsFields::SkylightConstructionName){
+void SkylightConstructionVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) {
+  if (index == OS_DefaultSubSurfaceConstructionsFields::SkylightConstructionName) {
     emit itemIds(makeVector());
   }
 }
 
-std::vector<OSItemId> SkylightConstructionVC::makeVector()
-{
+std::vector<OSItemId> SkylightConstructionVC::makeVector() {
   std::vector<OSItemId> result;
-  if (m_modelObject){
+  if (m_modelObject) {
     model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
     boost::optional<model::ConstructionBase> constructionBase = defaultSubSurfaceConstructions.skylightConstruction();
-    if (constructionBase){
+    if (constructionBase) {
       result.push_back(modelObjectToItemId(*constructionBase, false));
     }
   }
   return result;
 }
 
-void SkylightConstructionVC::onRemoveItem(OSItem* item)
-{
-  if (m_modelObject){
+void SkylightConstructionVC::onRemoveItem(OSItem* item) {
+  if (m_modelObject) {
     model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
     defaultSubSurfaceConstructions.resetSkylightConstruction();
   }
 }
 
-void SkylightConstructionVC::onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId)
-{
+void SkylightConstructionVC::onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) {
   onDrop(replacementItemId);
 }
 
-void SkylightConstructionVC::onDrop(const OSItemId& itemId)
-{
-  if (m_modelObject){
+void SkylightConstructionVC::onDrop(const OSItemId& itemId) {
+  if (m_modelObject) {
     model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
 
     unsigned numSources = defaultSubSurfaceConstructions.getModelObjectSources<model::DefaultConstructionSet>().size();
-    if (numSources > 1){
+    if (numSources > 1) {
       QWidget* parent = OSAppBase::instance()->currentDocument()->mainWindow();
-      QMessageBox::StandardButton button = QMessageBox::question(parent, "Shared Construction Set Resources",
-        "This construction is shared by " + QString::number(numSources-1) + " other construction sets.\n\n" +
-        "Click \"Yes\" to change the construction in all construction sets.\n" +
-        "Click \"No\" to change it in only this construction set.\n" +
-        "Click \"Cancel\" to do nothing.",
-        QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel, QMessageBox::No);
-      if (button == QMessageBox::Cancel){
+      QMessageBox::StandardButton button =
+        QMessageBox::question(parent, "Shared Construction Set Resources",
+                              "This construction is shared by " + QString::number(numSources - 1) + " other construction sets.\n\n" +
+                                "Click \"Yes\" to change the construction in all construction sets.\n" +
+                                "Click \"No\" to change it in only this construction set.\n" + "Click \"Cancel\" to do nothing.",
+                              QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel, QMessageBox::No);
+      if (button == QMessageBox::Cancel) {
         return;
-      }else if (button == QMessageBox::No){
+      } else if (button == QMessageBox::No) {
         model::ModelObject newObject = defaultSubSurfaceConstructions.clone(defaultSubSurfaceConstructions.model());
         defaultSubSurfaceConstructions = newObject.cast<model::DefaultSubSurfaceConstructions>();
       }
     }
 
     boost::optional<model::ConstructionBase> constructionBase = this->addToModel<model::ConstructionBase>(itemId);
-    if (constructionBase){
+    if (constructionBase) {
       defaultSubSurfaceConstructions.setSkylightConstruction(*constructionBase);
     }
   }
@@ -447,63 +417,58 @@ void SkylightConstructionVC::onDrop(const OSItemId& itemId)
 
 // TubularDaylightDomeConstructionVC
 
-void TubularDaylightDomeConstructionVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle)
-{
-  if (index == OS_DefaultSubSurfaceConstructionsFields::TubularDaylightDomeConstructionName){
+void TubularDaylightDomeConstructionVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) {
+  if (index == OS_DefaultSubSurfaceConstructionsFields::TubularDaylightDomeConstructionName) {
     emit itemIds(makeVector());
   }
 }
 
-std::vector<OSItemId> TubularDaylightDomeConstructionVC::makeVector()
-{
+std::vector<OSItemId> TubularDaylightDomeConstructionVC::makeVector() {
   std::vector<OSItemId> result;
-  if (m_modelObject){
+  if (m_modelObject) {
     model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
     boost::optional<model::ConstructionBase> constructionBase = defaultSubSurfaceConstructions.tubularDaylightDomeConstruction();
-    if (constructionBase){
+    if (constructionBase) {
       result.push_back(modelObjectToItemId(*constructionBase, false));
     }
   }
   return result;
 }
 
-void TubularDaylightDomeConstructionVC::onRemoveItem(OSItem* item)
-{
-  if (m_modelObject){
+void TubularDaylightDomeConstructionVC::onRemoveItem(OSItem* item) {
+  if (m_modelObject) {
     model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
     defaultSubSurfaceConstructions.resetTubularDaylightDomeConstruction();
   }
 }
 
-void TubularDaylightDomeConstructionVC::onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId)
-{
+void TubularDaylightDomeConstructionVC::onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) {
   onDrop(replacementItemId);
 }
 
-void TubularDaylightDomeConstructionVC::onDrop(const OSItemId& itemId)
-{
-  if (m_modelObject){
+void TubularDaylightDomeConstructionVC::onDrop(const OSItemId& itemId) {
+  if (m_modelObject) {
     model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
 
     unsigned numSources = defaultSubSurfaceConstructions.getModelObjectSources<model::DefaultConstructionSet>().size();
-    if (numSources > 1){
+    if (numSources > 1) {
       QWidget* parent = OSAppBase::instance()->currentDocument()->mainWindow();
-      QMessageBox::StandardButton button = QMessageBox::question(parent, "Shared Construction Set Resources",
-        "This construction is shared by " + QString::number(numSources-1) + " other construction sets.\n\n" +
-        "Click \"Yes\" to change the construction in all construction sets.\n" +
-        "Click \"No\" to change it in only this construction set.\n" +
-        "Click \"Cancel\" to do nothing.",
-        QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel, QMessageBox::No);
-      if (button == QMessageBox::Cancel){
+      QMessageBox::StandardButton button =
+        QMessageBox::question(parent, "Shared Construction Set Resources",
+                              "This construction is shared by " + QString::number(numSources - 1) + " other construction sets.\n\n" +
+                                "Click \"Yes\" to change the construction in all construction sets.\n" +
+                                "Click \"No\" to change it in only this construction set.\n" + "Click \"Cancel\" to do nothing.",
+                              QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel, QMessageBox::No);
+      if (button == QMessageBox::Cancel) {
         return;
-      }else if (button == QMessageBox::No){
+      } else if (button == QMessageBox::No) {
         model::ModelObject newObject = defaultSubSurfaceConstructions.clone(defaultSubSurfaceConstructions.model());
         defaultSubSurfaceConstructions = newObject.cast<model::DefaultSubSurfaceConstructions>();
       }
     }
 
     boost::optional<model::ConstructionBase> constructionBase = this->addToModel<model::ConstructionBase>(itemId);
-    if (constructionBase){
+    if (constructionBase) {
       defaultSubSurfaceConstructions.setTubularDaylightDomeConstruction(*constructionBase);
     }
   }
@@ -511,63 +476,59 @@ void TubularDaylightDomeConstructionVC::onDrop(const OSItemId& itemId)
 
 // TubularDaylightDiffuserConstructionVC
 
-void TubularDaylightDiffuserConstructionVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle)
-{
-  if (index == OS_DefaultSubSurfaceConstructionsFields::TubularDaylightDiffuserConstructionName){
+void TubularDaylightDiffuserConstructionVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle,
+                                                                 Handle oldHandle) {
+  if (index == OS_DefaultSubSurfaceConstructionsFields::TubularDaylightDiffuserConstructionName) {
     emit itemIds(makeVector());
   }
 }
 
-std::vector<OSItemId> TubularDaylightDiffuserConstructionVC::makeVector()
-{
+std::vector<OSItemId> TubularDaylightDiffuserConstructionVC::makeVector() {
   std::vector<OSItemId> result;
-  if (m_modelObject){
+  if (m_modelObject) {
     model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
     boost::optional<model::ConstructionBase> constructionBase = defaultSubSurfaceConstructions.tubularDaylightDiffuserConstruction();
-    if (constructionBase){
+    if (constructionBase) {
       result.push_back(modelObjectToItemId(*constructionBase, false));
     }
   }
   return result;
 }
 
-void TubularDaylightDiffuserConstructionVC::onRemoveItem(OSItem* item)
-{
-  if (m_modelObject){
+void TubularDaylightDiffuserConstructionVC::onRemoveItem(OSItem* item) {
+  if (m_modelObject) {
     model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
     defaultSubSurfaceConstructions.resetTubularDaylightDiffuserConstruction();
   }
 }
 
-void TubularDaylightDiffuserConstructionVC::onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId)
-{
+void TubularDaylightDiffuserConstructionVC::onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) {
   onDrop(replacementItemId);
 }
 
-void TubularDaylightDiffuserConstructionVC::onDrop(const OSItemId& itemId)
-{
-  if (m_modelObject){
+void TubularDaylightDiffuserConstructionVC::onDrop(const OSItemId& itemId) {
+  if (m_modelObject) {
     model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
 
     unsigned numSources = defaultSubSurfaceConstructions.getModelObjectSources<model::DefaultConstructionSet>().size();
-    if (numSources > 1){
+    if (numSources > 1) {
       QWidget* parent = OSAppBase::instance()->currentDocument()->mainWindow();
-      QMessageBox::StandardButton button = QMessageBox::question(parent, "Shared Construction Set Resources",
-        "This construction is shared by " + QString::number(numSources-1) + " other construction sets.\n\n" +
-        "Click \"Yes\" to change the construction in all construction sets.\n" +
-        "Click \"No\" to change it in only this construction set.\n" +
-        "Click \"Cancel\" to do nothing.",
-        QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel, QMessageBox::No);
-      if (button == QMessageBox::Cancel){
+      QMessageBox::StandardButton button =
+        QMessageBox::question(parent, "Shared Construction Set Resources",
+                              "This construction is shared by " + QString::number(numSources - 1) + " other construction sets.\n\n" +
+                                "Click \"Yes\" to change the construction in all construction sets.\n" +
+                                "Click \"No\" to change it in only this construction set.\n" + "Click \"Cancel\" to do nothing.",
+                              QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel, QMessageBox::No);
+      if (button == QMessageBox::Cancel) {
         return;
-      }else if (button == QMessageBox::No){
+      } else if (button == QMessageBox::No) {
         model::ModelObject newObject = defaultSubSurfaceConstructions.clone(defaultSubSurfaceConstructions.model());
         defaultSubSurfaceConstructions = newObject.cast<model::DefaultSubSurfaceConstructions>();
       }
     }
 
     boost::optional<model::ConstructionBase> constructionBase = this->addToModel<model::ConstructionBase>(itemId);
-    if (constructionBase){
+    if (constructionBase) {
       defaultSubSurfaceConstructions.setTubularDaylightDiffuserConstruction(*constructionBase);
     }
   }
@@ -575,63 +536,58 @@ void TubularDaylightDiffuserConstructionVC::onDrop(const OSItemId& itemId)
 
 // FixedWindowVC
 
-void FixedWindowVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle)
-{
-  if (index == OS_DefaultSubSurfaceConstructionsFields::FixedWindowConstructionName){
+void FixedWindowVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) {
+  if (index == OS_DefaultSubSurfaceConstructionsFields::FixedWindowConstructionName) {
     emit itemIds(makeVector());
   }
 }
 
-std::vector<OSItemId> FixedWindowVC::makeVector()
-{
+std::vector<OSItemId> FixedWindowVC::makeVector() {
   std::vector<OSItemId> result;
-  if (m_modelObject){
+  if (m_modelObject) {
     model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
     boost::optional<model::ConstructionBase> constructionBase = defaultSubSurfaceConstructions.fixedWindowConstruction();
-    if (constructionBase){
+    if (constructionBase) {
       result.push_back(modelObjectToItemId(*constructionBase, false));
     }
   }
   return result;
 }
 
-void FixedWindowVC::onRemoveItem(OSItem* item)
-{
-  if (m_modelObject){
+void FixedWindowVC::onRemoveItem(OSItem* item) {
+  if (m_modelObject) {
     model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
     defaultSubSurfaceConstructions.resetFixedWindowConstruction();
   }
 }
 
-void FixedWindowVC::onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId)
-{
+void FixedWindowVC::onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) {
   onDrop(replacementItemId);
 }
 
-void FixedWindowVC::onDrop(const OSItemId& itemId)
-{
-  if (m_modelObject){
+void FixedWindowVC::onDrop(const OSItemId& itemId) {
+  if (m_modelObject) {
     model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
 
     unsigned numSources = defaultSubSurfaceConstructions.getModelObjectSources<model::DefaultConstructionSet>().size();
-    if (numSources > 1){
+    if (numSources > 1) {
       QWidget* parent = OSAppBase::instance()->currentDocument()->mainWindow();
-      QMessageBox::StandardButton button = QMessageBox::question(parent, "Shared Construction Set Resources",
-        "This construction is shared by " + QString::number(numSources-1) + " other construction sets.\n\n" +
-        "Click \"Yes\" to change the construction in all construction sets.\n" +
-        "Click \"No\" to change it in only this construction set.\n" +
-        "Click \"Cancel\" to do nothing.",
-        QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel, QMessageBox::No);
-      if (button == QMessageBox::Cancel){
+      QMessageBox::StandardButton button =
+        QMessageBox::question(parent, "Shared Construction Set Resources",
+                              "This construction is shared by " + QString::number(numSources - 1) + " other construction sets.\n\n" +
+                                "Click \"Yes\" to change the construction in all construction sets.\n" +
+                                "Click \"No\" to change it in only this construction set.\n" + "Click \"Cancel\" to do nothing.",
+                              QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel, QMessageBox::No);
+      if (button == QMessageBox::Cancel) {
         return;
-      }else if (button == QMessageBox::No){
+      } else if (button == QMessageBox::No) {
         model::ModelObject newObject = defaultSubSurfaceConstructions.clone(defaultSubSurfaceConstructions.model());
         defaultSubSurfaceConstructions = newObject.cast<model::DefaultSubSurfaceConstructions>();
       }
     }
 
     boost::optional<model::ConstructionBase> constructionBase = this->addToModel<model::ConstructionBase>(itemId);
-    if (constructionBase){
+    if (constructionBase) {
       defaultSubSurfaceConstructions.setFixedWindowConstruction(*constructionBase);
     }
   }
@@ -639,63 +595,58 @@ void FixedWindowVC::onDrop(const OSItemId& itemId)
 
 // OperableWindowVC
 
-void OperableWindowVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle)
-{
-  if (index == OS_DefaultSubSurfaceConstructionsFields::OperableWindowConstructionName){
+void OperableWindowVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) {
+  if (index == OS_DefaultSubSurfaceConstructionsFields::OperableWindowConstructionName) {
     emit itemIds(makeVector());
   }
 }
 
-std::vector<OSItemId> OperableWindowVC::makeVector()
-{
+std::vector<OSItemId> OperableWindowVC::makeVector() {
   std::vector<OSItemId> result;
-  if (m_modelObject){
+  if (m_modelObject) {
     model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
     boost::optional<model::ConstructionBase> constructionBase = defaultSubSurfaceConstructions.operableWindowConstruction();
-    if (constructionBase){
+    if (constructionBase) {
       result.push_back(modelObjectToItemId(*constructionBase, false));
     }
   }
   return result;
 }
 
-void OperableWindowVC::onRemoveItem(OSItem* item)
-{
-  if (m_modelObject){
+void OperableWindowVC::onRemoveItem(OSItem* item) {
+  if (m_modelObject) {
     model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
     defaultSubSurfaceConstructions.resetOperableWindowConstruction();
   }
 }
 
-void OperableWindowVC::onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId)
-{
+void OperableWindowVC::onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) {
   onDrop(replacementItemId);
 }
 
-void OperableWindowVC::onDrop(const OSItemId& itemId)
-{
-  if (m_modelObject){
+void OperableWindowVC::onDrop(const OSItemId& itemId) {
+  if (m_modelObject) {
     model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
 
     unsigned numSources = defaultSubSurfaceConstructions.getModelObjectSources<model::DefaultConstructionSet>().size();
-    if (numSources > 1){
+    if (numSources > 1) {
       QWidget* parent = OSAppBase::instance()->currentDocument()->mainWindow();
-      QMessageBox::StandardButton button = QMessageBox::question(parent, "Shared Construction Set Resources",
-        "This construction is shared by " + QString::number(numSources-1) + " other construction sets.\n\n" +
-        "Click \"Yes\" to change the construction in all construction sets.\n" +
-        "Click \"No\" to change it in only this construction set.\n" +
-        "Click \"Cancel\" to do nothing.",
-        QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel, QMessageBox::No);
-      if (button == QMessageBox::Cancel){
+      QMessageBox::StandardButton button =
+        QMessageBox::question(parent, "Shared Construction Set Resources",
+                              "This construction is shared by " + QString::number(numSources - 1) + " other construction sets.\n\n" +
+                                "Click \"Yes\" to change the construction in all construction sets.\n" +
+                                "Click \"No\" to change it in only this construction set.\n" + "Click \"Cancel\" to do nothing.",
+                              QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel, QMessageBox::No);
+      if (button == QMessageBox::Cancel) {
         return;
-      }else if (button == QMessageBox::No){
+      } else if (button == QMessageBox::No) {
         model::ModelObject newObject = defaultSubSurfaceConstructions.clone(defaultSubSurfaceConstructions.model());
         defaultSubSurfaceConstructions = newObject.cast<model::DefaultSubSurfaceConstructions>();
       }
     }
 
     boost::optional<model::ConstructionBase> constructionBase = this->addToModel<model::ConstructionBase>(itemId);
-    if (constructionBase){
+    if (constructionBase) {
       defaultSubSurfaceConstructions.setOperableWindowConstruction(*constructionBase);
     }
   }
@@ -703,63 +654,58 @@ void OperableWindowVC::onDrop(const OSItemId& itemId)
 
 // DoorVC
 
-void DoorVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle)
-{
-  if (index == OS_DefaultSubSurfaceConstructionsFields::DoorConstructionName){
+void DoorVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) {
+  if (index == OS_DefaultSubSurfaceConstructionsFields::DoorConstructionName) {
     emit itemIds(makeVector());
   }
 }
 
-std::vector<OSItemId> DoorVC::makeVector()
-{
+std::vector<OSItemId> DoorVC::makeVector() {
   std::vector<OSItemId> result;
-  if (m_modelObject){
+  if (m_modelObject) {
     model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
     boost::optional<model::ConstructionBase> constructionBase = defaultSubSurfaceConstructions.doorConstruction();
-    if (constructionBase){
+    if (constructionBase) {
       result.push_back(modelObjectToItemId(*constructionBase, false));
     }
   }
   return result;
 }
 
-void DoorVC::onRemoveItem(OSItem* item)
-{
-  if (m_modelObject){
+void DoorVC::onRemoveItem(OSItem* item) {
+  if (m_modelObject) {
     model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
     defaultSubSurfaceConstructions.resetDoorConstruction();
   }
 }
 
-void DoorVC::onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId)
-{
+void DoorVC::onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) {
   onDrop(replacementItemId);
 }
 
-void DoorVC::onDrop(const OSItemId& itemId)
-{
-  if (m_modelObject){
+void DoorVC::onDrop(const OSItemId& itemId) {
+  if (m_modelObject) {
     model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
 
     unsigned numSources = defaultSubSurfaceConstructions.getModelObjectSources<model::DefaultConstructionSet>().size();
-    if (numSources > 1){
+    if (numSources > 1) {
       QWidget* parent = OSAppBase::instance()->currentDocument()->mainWindow();
-      QMessageBox::StandardButton button = QMessageBox::question(parent, "Shared Construction Set Resources",
-        "This construction is shared by " + QString::number(numSources-1) + " other construction sets.\n\n" +
-        "Click \"Yes\" to change the construction in all construction sets.\n" +
-        "Click \"No\" to change it in only this construction set.\n" +
-        "Click \"Cancel\" to do nothing.",
-        QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel, QMessageBox::No);
-      if (button == QMessageBox::Cancel){
+      QMessageBox::StandardButton button =
+        QMessageBox::question(parent, "Shared Construction Set Resources",
+                              "This construction is shared by " + QString::number(numSources - 1) + " other construction sets.\n\n" +
+                                "Click \"Yes\" to change the construction in all construction sets.\n" +
+                                "Click \"No\" to change it in only this construction set.\n" + "Click \"Cancel\" to do nothing.",
+                              QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel, QMessageBox::No);
+      if (button == QMessageBox::Cancel) {
         return;
-      }else if (button == QMessageBox::No){
+      } else if (button == QMessageBox::No) {
         model::ModelObject newObject = defaultSubSurfaceConstructions.clone(defaultSubSurfaceConstructions.model());
         defaultSubSurfaceConstructions = newObject.cast<model::DefaultSubSurfaceConstructions>();
       }
     }
 
     boost::optional<model::ConstructionBase> constructionBase = this->addToModel<model::ConstructionBase>(itemId);
-    if (constructionBase){
+    if (constructionBase) {
       defaultSubSurfaceConstructions.setDoorConstruction(*constructionBase);
     }
   }
@@ -767,45 +713,40 @@ void DoorVC::onDrop(const OSItemId& itemId)
 
 // InteriorPartitionsVC
 
-void InteriorPartitionsVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle)
-{
-  if (index == OS_DefaultConstructionSetFields::InteriorPartitionConstructionName){
+void InteriorPartitionsVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) {
+  if (index == OS_DefaultConstructionSetFields::InteriorPartitionConstructionName) {
     emit itemIds(makeVector());
   }
 }
 
-std::vector<OSItemId> InteriorPartitionsVC::makeVector()
-{
+std::vector<OSItemId> InteriorPartitionsVC::makeVector() {
   std::vector<OSItemId> result;
-  if (m_modelObject){
+  if (m_modelObject) {
     model::DefaultConstructionSet defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
     boost::optional<model::ConstructionBase> constructionBase = defaultConstructionSet.interiorPartitionConstruction();
-    if (constructionBase){
+    if (constructionBase) {
       result.push_back(modelObjectToItemId(*constructionBase, false));
     }
   }
   return result;
 }
 
-void InteriorPartitionsVC::onRemoveItem(OSItem* item)
-{
-  if (m_modelObject){
+void InteriorPartitionsVC::onRemoveItem(OSItem* item) {
+  if (m_modelObject) {
     model::DefaultConstructionSet defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
     defaultConstructionSet.resetInteriorPartitionConstruction();
   }
 }
 
-void InteriorPartitionsVC::onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId)
-{
+void InteriorPartitionsVC::onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) {
   onDrop(replacementItemId);
 }
 
-void InteriorPartitionsVC::onDrop(const OSItemId& itemId)
-{
-  if (m_modelObject){
+void InteriorPartitionsVC::onDrop(const OSItemId& itemId) {
+  if (m_modelObject) {
     model::DefaultConstructionSet defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
     boost::optional<model::ConstructionBase> constructionBase = this->addToModel<model::ConstructionBase>(itemId);
-    if (constructionBase){
+    if (constructionBase) {
       defaultConstructionSet.setInteriorPartitionConstruction(*constructionBase);
     }
   }
@@ -813,45 +754,40 @@ void InteriorPartitionsVC::onDrop(const OSItemId& itemId)
 
 // SpaceShadingVC
 
-void SpaceShadingVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle)
-{
-  if (index == OS_DefaultConstructionSetFields::SpaceShadingConstructionName){
+void SpaceShadingVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) {
+  if (index == OS_DefaultConstructionSetFields::SpaceShadingConstructionName) {
     emit itemIds(makeVector());
   }
 }
 
-std::vector<OSItemId> SpaceShadingVC::makeVector()
-{
+std::vector<OSItemId> SpaceShadingVC::makeVector() {
   std::vector<OSItemId> result;
-  if (m_modelObject){
+  if (m_modelObject) {
     model::DefaultConstructionSet defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
     boost::optional<model::ConstructionBase> constructionBase = defaultConstructionSet.spaceShadingConstruction();
-    if (constructionBase){
+    if (constructionBase) {
       result.push_back(modelObjectToItemId(*constructionBase, false));
     }
   }
   return result;
 }
 
-void SpaceShadingVC::onRemoveItem(OSItem* item)
-{
-  if (m_modelObject){
+void SpaceShadingVC::onRemoveItem(OSItem* item) {
+  if (m_modelObject) {
     model::DefaultConstructionSet defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
     defaultConstructionSet.resetSpaceShadingConstruction();
   }
 }
 
-void SpaceShadingVC::onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId)
-{
+void SpaceShadingVC::onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) {
   onDrop(replacementItemId);
 }
 
-void SpaceShadingVC::onDrop(const OSItemId& itemId)
-{
-  if (m_modelObject){
+void SpaceShadingVC::onDrop(const OSItemId& itemId) {
+  if (m_modelObject) {
     model::DefaultConstructionSet defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
     boost::optional<model::ConstructionBase> constructionBase = this->addToModel<model::ConstructionBase>(itemId);
-    if (constructionBase){
+    if (constructionBase) {
       defaultConstructionSet.setSpaceShadingConstruction(*constructionBase);
     }
   }
@@ -859,45 +795,40 @@ void SpaceShadingVC::onDrop(const OSItemId& itemId)
 
 // BuildingShadingVC
 
-void BuildingShadingVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle)
-{
-  if (index == OS_DefaultConstructionSetFields::BuildingShadingConstructionName){
+void BuildingShadingVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) {
+  if (index == OS_DefaultConstructionSetFields::BuildingShadingConstructionName) {
     emit itemIds(makeVector());
   }
 }
 
-std::vector<OSItemId> BuildingShadingVC::makeVector()
-{
+std::vector<OSItemId> BuildingShadingVC::makeVector() {
   std::vector<OSItemId> result;
-  if (m_modelObject){
+  if (m_modelObject) {
     model::DefaultConstructionSet defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
     boost::optional<model::ConstructionBase> constructionBase = defaultConstructionSet.buildingShadingConstruction();
-    if (constructionBase){
+    if (constructionBase) {
       result.push_back(modelObjectToItemId(*constructionBase, false));
     }
   }
   return result;
 }
 
-void BuildingShadingVC::onRemoveItem(OSItem* item)
-{
-  if (m_modelObject){
+void BuildingShadingVC::onRemoveItem(OSItem* item) {
+  if (m_modelObject) {
     model::DefaultConstructionSet defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
     defaultConstructionSet.resetBuildingShadingConstruction();
   }
 }
 
-void BuildingShadingVC::onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId)
-{
+void BuildingShadingVC::onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) {
   onDrop(replacementItemId);
 }
 
-void BuildingShadingVC::onDrop(const OSItemId& itemId)
-{
-  if (m_modelObject){
+void BuildingShadingVC::onDrop(const OSItemId& itemId) {
+  if (m_modelObject) {
     model::DefaultConstructionSet defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
     boost::optional<model::ConstructionBase> constructionBase = this->addToModel<model::ConstructionBase>(itemId);
-    if (constructionBase){
+    if (constructionBase) {
       defaultConstructionSet.setBuildingShadingConstruction(*constructionBase);
     }
   }
@@ -905,157 +836,144 @@ void BuildingShadingVC::onDrop(const OSItemId& itemId)
 
 // SiteShadingVC
 
-void SiteShadingVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle)
-{
-  if (index == OS_DefaultConstructionSetFields::SiteShadingConstructionName){
+void SiteShadingVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) {
+  if (index == OS_DefaultConstructionSetFields::SiteShadingConstructionName) {
     emit itemIds(makeVector());
   }
 }
 
-std::vector<OSItemId> SiteShadingVC::makeVector()
-{
+std::vector<OSItemId> SiteShadingVC::makeVector() {
   std::vector<OSItemId> result;
-  if (m_modelObject){
+  if (m_modelObject) {
     model::DefaultConstructionSet defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
     boost::optional<model::ConstructionBase> constructionBase = defaultConstructionSet.siteShadingConstruction();
-    if (constructionBase){
+    if (constructionBase) {
       result.push_back(modelObjectToItemId(*constructionBase, false));
     }
   }
   return result;
 }
 
-void SiteShadingVC::onRemoveItem(OSItem* item)
-{
-  if (m_modelObject){
+void SiteShadingVC::onRemoveItem(OSItem* item) {
+  if (m_modelObject) {
     model::DefaultConstructionSet defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
     defaultConstructionSet.resetSiteShadingConstruction();
   }
 }
 
-void SiteShadingVC::onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId)
-{
+void SiteShadingVC::onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) {
   onDrop(replacementItemId);
 }
 
-void SiteShadingVC::onDrop(const OSItemId& itemId)
-{
-  if (m_modelObject){
+void SiteShadingVC::onDrop(const OSItemId& itemId) {
+  if (m_modelObject) {
     model::DefaultConstructionSet defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
     boost::optional<model::ConstructionBase> constructionBase = this->addToModel<model::ConstructionBase>(itemId);
-    if (constructionBase){
+    if (constructionBase) {
       defaultConstructionSet.setSiteShadingConstruction(*constructionBase);
     }
   }
 }
 
-
 // AdiabaticSurfaceVC
 
-void AdiabaticSurfaceVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle)
-{
-  if (index == OS_DefaultConstructionSetFields::AdiabaticSurfaceConstructionName){
+void AdiabaticSurfaceVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) {
+  if (index == OS_DefaultConstructionSetFields::AdiabaticSurfaceConstructionName) {
     emit itemIds(makeVector());
   }
 }
 
-std::vector<OSItemId> AdiabaticSurfaceVC::makeVector()
-{
+std::vector<OSItemId> AdiabaticSurfaceVC::makeVector() {
   std::vector<OSItemId> result;
-  if (m_modelObject){
+  if (m_modelObject) {
     model::DefaultConstructionSet defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
     boost::optional<model::ConstructionBase> constructionBase = defaultConstructionSet.adiabaticSurfaceConstruction();
-    if (constructionBase){
+    if (constructionBase) {
       result.push_back(modelObjectToItemId(*constructionBase, false));
     }
   }
   return result;
 }
 
-void AdiabaticSurfaceVC::onRemoveItem(OSItem* item)
-{
-  if (m_modelObject){
+void AdiabaticSurfaceVC::onRemoveItem(OSItem* item) {
+  if (m_modelObject) {
     model::DefaultConstructionSet defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
     defaultConstructionSet.resetAdiabaticSurfaceConstruction();
   }
 }
 
-void AdiabaticSurfaceVC::onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId)
-{
+void AdiabaticSurfaceVC::onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) {
   onDrop(replacementItemId);
 }
 
-void AdiabaticSurfaceVC::onDrop(const OSItemId& itemId)
-{
-  if (m_modelObject){
+void AdiabaticSurfaceVC::onDrop(const OSItemId& itemId) {
+  if (m_modelObject) {
     model::DefaultConstructionSet defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
     boost::optional<model::ConstructionBase> constructionBase = this->addToModel<model::ConstructionBase>(itemId);
-    if (constructionBase){
+    if (constructionBase) {
       defaultConstructionSet.setAdiabaticSurfaceConstruction(*constructionBase);
     }
   }
 }
 
-DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const model::Model& model,
-                                                                         QWidget * parent)
+DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const model::Model& model, QWidget* parent)
   : ModelObjectInspectorView(model, true, parent),
-  m_nameEdit(nullptr),
+    m_nameEdit(nullptr),
 
-  m_exteriorWallConstructionDZ(nullptr),
-  m_exteriorFloorConstructionDZ(nullptr),
-  m_exteriorRoofConstructionDZ(nullptr),
-  m_interiorWallConstructionDZ(nullptr),
-  m_interiorFloorConstructionDZ(nullptr),
-  m_interiorRoofConstructionDZ(nullptr),
-  m_groundWallConstructionDZ(nullptr),
-  m_groundFloorConstructionDZ(nullptr),
-  m_groundRoofConstructionDZ(nullptr),
-  m_exteriorFixedWindowDZ(nullptr),
-  m_exteriorOperableWindowDZ(nullptr),
-  m_exteriorDoorDZ(nullptr),
-  m_glassDoorConstructionDZ(nullptr),
-  m_overheadDoorConstructionDZ(nullptr),
-  m_skylightConstructionDZ(nullptr),
-  m_tubularDaylightDomeConstructionDZ(nullptr),
-  m_tubularDaylightDiffuserConstructionDZ(nullptr),
-  m_interiorFixedWindowDZ(nullptr),
-  m_interiorOperableWindowDZ(nullptr),
-  m_interiorDoorDZ(nullptr),
-  m_interiorPartitionsDZ(nullptr),
-  m_spaceShadingDZ(nullptr),
-  m_buildingShadingDZ(nullptr),
-  m_siteShadingDZ(nullptr),
-  m_adiabaticSurfaceDZ(nullptr),
+    m_exteriorWallConstructionDZ(nullptr),
+    m_exteriorFloorConstructionDZ(nullptr),
+    m_exteriorRoofConstructionDZ(nullptr),
+    m_interiorWallConstructionDZ(nullptr),
+    m_interiorFloorConstructionDZ(nullptr),
+    m_interiorRoofConstructionDZ(nullptr),
+    m_groundWallConstructionDZ(nullptr),
+    m_groundFloorConstructionDZ(nullptr),
+    m_groundRoofConstructionDZ(nullptr),
+    m_exteriorFixedWindowDZ(nullptr),
+    m_exteriorOperableWindowDZ(nullptr),
+    m_exteriorDoorDZ(nullptr),
+    m_glassDoorConstructionDZ(nullptr),
+    m_overheadDoorConstructionDZ(nullptr),
+    m_skylightConstructionDZ(nullptr),
+    m_tubularDaylightDomeConstructionDZ(nullptr),
+    m_tubularDaylightDiffuserConstructionDZ(nullptr),
+    m_interiorFixedWindowDZ(nullptr),
+    m_interiorOperableWindowDZ(nullptr),
+    m_interiorDoorDZ(nullptr),
+    m_interiorPartitionsDZ(nullptr),
+    m_spaceShadingDZ(nullptr),
+    m_buildingShadingDZ(nullptr),
+    m_siteShadingDZ(nullptr),
+    m_adiabaticSurfaceDZ(nullptr),
 
-  m_exteriorWallConstructionVC(nullptr),
-  m_exteriorFloorConstructionVC(nullptr),
-  m_exteriorRoofConstructionVC(nullptr),
-  m_interiorWallConstructionVC(nullptr),
-  m_interiorFloorConstructionVC(nullptr),
-  m_interiorRoofConstructionVC(nullptr),
-  m_groundWallConstructionVC(nullptr),
-  m_groundFloorConstructionVC(nullptr),
-  m_groundRoofConstructionVC(nullptr),
-  m_exteriorFixedWindowVC(nullptr),
-  m_exteriorOperableWindowVC(nullptr),
-  m_exteriorDoorVC(nullptr),
-  m_glassDoorConstructionVC(nullptr),
-  m_overheadDoorConstructionVC(nullptr),
-  m_skylightConstructionVC(nullptr),
-  m_tubularDaylightDomeConstructionVC(nullptr),
-  m_tubularDaylightDiffuserConstructionVC(nullptr),
-  m_interiorFixedWindowVC(nullptr),
-  m_interiorOperableWindowVC(nullptr),
-  m_interiorDoorVC(nullptr),
-  m_interiorPartitionsVC(nullptr),
-  m_spaceShadingVC(nullptr),
-  m_buildingShadingVC(nullptr),
-  m_siteShadingVC(nullptr),
-  m_adiabaticSurfaceVC(nullptr),
+    m_exteriorWallConstructionVC(nullptr),
+    m_exteriorFloorConstructionVC(nullptr),
+    m_exteriorRoofConstructionVC(nullptr),
+    m_interiorWallConstructionVC(nullptr),
+    m_interiorFloorConstructionVC(nullptr),
+    m_interiorRoofConstructionVC(nullptr),
+    m_groundWallConstructionVC(nullptr),
+    m_groundFloorConstructionVC(nullptr),
+    m_groundRoofConstructionVC(nullptr),
+    m_exteriorFixedWindowVC(nullptr),
+    m_exteriorOperableWindowVC(nullptr),
+    m_exteriorDoorVC(nullptr),
+    m_glassDoorConstructionVC(nullptr),
+    m_overheadDoorConstructionVC(nullptr),
+    m_skylightConstructionVC(nullptr),
+    m_tubularDaylightDomeConstructionVC(nullptr),
+    m_tubularDaylightDiffuserConstructionVC(nullptr),
+    m_interiorFixedWindowVC(nullptr),
+    m_interiorOperableWindowVC(nullptr),
+    m_interiorDoorVC(nullptr),
+    m_interiorPartitionsVC(nullptr),
+    m_spaceShadingVC(nullptr),
+    m_buildingShadingVC(nullptr),
+    m_siteShadingVC(nullptr),
+    m_adiabaticSurfaceVC(nullptr),
 
-  m_vectorControllers(std::vector<ModelObjectVectorController *>()),
-  m_dropZones(std::vector<OSDropZone *>())
-{
+    m_vectorControllers(std::vector<ModelObjectVectorController*>()),
+    m_dropZones(std::vector<OSDropZone*>()) {
   //int padding = 7;
 
   //QHBoxLayout * hLayout = new QHBoxLayout();
@@ -1065,30 +983,30 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   //hLayout->addWidget(m_nameEdit);
 
   auto gridLayout = new QGridLayout();
-  gridLayout->setContentsMargins(10,10,10,10);
+  gridLayout->setContentsMargins(10, 10, 10, 10);
   gridLayout->setSpacing(10);
-  gridLayout->setColumnStretch(3,10);
+  gridLayout->setColumnStretch(3, 10);
 
-  gridLayout->setColumnMinimumWidth(0,160);
-  gridLayout->setColumnMinimumWidth(1,160);
-  gridLayout->setColumnMinimumWidth(2,160);
+  gridLayout->setColumnMinimumWidth(0, 160);
+  gridLayout->setColumnMinimumWidth(1, 160);
+  gridLayout->setColumnMinimumWidth(2, 160);
 
   int leftCol = 0;
   int middleCol = 1;
   int rightCol = 2;
   int row = 0;
 
-  QLabel * label = nullptr;
+  QLabel* label = nullptr;
 
   label = new QLabel();
   label->setText("Name");
   label->setObjectName("H2");
 
-  gridLayout->addWidget(label,row,leftCol);
+  gridLayout->addWidget(label, row, leftCol);
   row++;
 
   m_nameEdit = new OSLineEdit2();
-  gridLayout->addWidget(m_nameEdit,row,leftCol,1,3);
+  gridLayout->addWidget(m_nameEdit, row, leftCol, 1, 3);
   row++;
 
   //label = new QLabel();
@@ -1098,19 +1016,19 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   //gridLayout->addWidget(label,row,leftCol);
   //row++;
 
-  QFrame * line;
+  QFrame* line;
 
   line = new QFrame();
   line->setFrameShape(QFrame::HLine);
   line->setFrameShadow(QFrame::Sunken);
-  gridLayout->addWidget(line,row,leftCol,1,4);
+  gridLayout->addWidget(line, row, leftCol, 1, 4);
   row++;
 
   label = new QLabel();
   label->setText("Exterior Surface Constructions");
   label->setObjectName("H2");
   //label->setContentsMargins(padding,0,padding,0);
-  gridLayout->addWidget(label,row,leftCol,1,3);
+  gridLayout->addWidget(label, row, leftCol, 1, 3);
   row++;
 
   label = new QLabel();
@@ -1121,8 +1039,8 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   m_vectorControllers.push_back(m_exteriorWallConstructionVC);
   m_exteriorWallConstructionDZ = new OSDropZone(m_exteriorWallConstructionVC);
   m_dropZones.push_back(m_exteriorWallConstructionDZ);
-  gridLayout->addWidget(label,row,leftCol);
-  gridLayout->addWidget(m_exteriorWallConstructionDZ,row+1,leftCol);
+  gridLayout->addWidget(label, row, leftCol);
+  gridLayout->addWidget(m_exteriorWallConstructionDZ, row + 1, leftCol);
 
   label = new QLabel();
   label->setText("Floors");
@@ -1132,8 +1050,8 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   m_vectorControllers.push_back(m_exteriorFloorConstructionVC);
   m_exteriorFloorConstructionDZ = new OSDropZone(m_exteriorFloorConstructionVC);
   m_dropZones.push_back(m_exteriorFloorConstructionDZ);
-  gridLayout->addWidget(label,row,middleCol);
-  gridLayout->addWidget(m_exteriorFloorConstructionDZ,row+1,middleCol);
+  gridLayout->addWidget(label, row, middleCol);
+  gridLayout->addWidget(m_exteriorFloorConstructionDZ, row + 1, middleCol);
 
   label = new QLabel();
   label->setText("Roofs");
@@ -1143,15 +1061,15 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   m_vectorControllers.push_back(m_exteriorRoofConstructionVC);
   m_exteriorRoofConstructionDZ = new OSDropZone(m_exteriorRoofConstructionVC);
   m_dropZones.push_back(m_exteriorRoofConstructionDZ);
-  gridLayout->addWidget(label,row,rightCol);
-  gridLayout->addWidget(m_exteriorRoofConstructionDZ,row+1,rightCol);
+  gridLayout->addWidget(label, row, rightCol);
+  gridLayout->addWidget(m_exteriorRoofConstructionDZ, row + 1, rightCol);
 
   row += 2;
 
   line = new QFrame();
   line->setFrameShape(QFrame::HLine);
   line->setFrameShadow(QFrame::Sunken);
-  gridLayout->addWidget(line,row,leftCol,1,4);
+  gridLayout->addWidget(line, row, leftCol, 1, 4);
 
   row++;
 
@@ -1159,7 +1077,7 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   label->setText("Interior Surface Constructions");
   label->setObjectName("H2");
   //label->setContentsMargins(padding,0,padding,0);
-  gridLayout->addWidget(label,row,leftCol,1,3);
+  gridLayout->addWidget(label, row, leftCol, 1, 3);
   row++;
 
   label = new QLabel();
@@ -1170,8 +1088,8 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   m_vectorControllers.push_back(m_interiorWallConstructionVC);
   m_interiorWallConstructionDZ = new OSDropZone(m_interiorWallConstructionVC);
   m_dropZones.push_back(m_interiorWallConstructionDZ);
-  gridLayout->addWidget(label,row,leftCol);
-  gridLayout->addWidget(m_interiorWallConstructionDZ,row+1,leftCol);
+  gridLayout->addWidget(label, row, leftCol);
+  gridLayout->addWidget(m_interiorWallConstructionDZ, row + 1, leftCol);
 
   label = new QLabel();
   label->setText("Floors");
@@ -1181,8 +1099,8 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   m_vectorControllers.push_back(m_interiorFloorConstructionVC);
   m_interiorFloorConstructionDZ = new OSDropZone(m_interiorFloorConstructionVC);
   m_dropZones.push_back(m_interiorFloorConstructionDZ);
-  gridLayout->addWidget(label,row,middleCol);
-  gridLayout->addWidget(m_interiorFloorConstructionDZ,row+1,middleCol);
+  gridLayout->addWidget(label, row, middleCol);
+  gridLayout->addWidget(m_interiorFloorConstructionDZ, row + 1, middleCol);
 
   label = new QLabel();
   label->setText("Ceilings");
@@ -1192,15 +1110,15 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   m_vectorControllers.push_back(m_interiorRoofConstructionVC);
   m_interiorRoofConstructionDZ = new OSDropZone(m_interiorRoofConstructionVC);
   m_dropZones.push_back(m_interiorRoofConstructionDZ);
-  gridLayout->addWidget(label,row,rightCol);
-  gridLayout->addWidget(m_interiorRoofConstructionDZ,row+1,rightCol);
+  gridLayout->addWidget(label, row, rightCol);
+  gridLayout->addWidget(m_interiorRoofConstructionDZ, row + 1, rightCol);
 
   row += 2;
 
   line = new QFrame();
   line->setFrameShape(QFrame::HLine);
   line->setFrameShadow(QFrame::Sunken);
-  gridLayout->addWidget(line,row,leftCol,1,4);
+  gridLayout->addWidget(line, row, leftCol, 1, 4);
 
   row++;
 
@@ -1208,7 +1126,7 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   label->setText("Ground Contact Surface Constructions");
   label->setObjectName("H2");
   //label->setContentsMargins(padding,0,padding,0);
-  gridLayout->addWidget(label,row,leftCol,1,3);
+  gridLayout->addWidget(label, row, leftCol, 1, 3);
   row++;
 
   label = new QLabel();
@@ -1219,8 +1137,8 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   m_vectorControllers.push_back(m_groundWallConstructionVC);
   m_groundWallConstructionDZ = new OSDropZone(m_groundWallConstructionVC);
   m_dropZones.push_back(m_groundWallConstructionDZ);
-  gridLayout->addWidget(label,row,leftCol);
-  gridLayout->addWidget(m_groundWallConstructionDZ,row+1,leftCol);
+  gridLayout->addWidget(label, row, leftCol);
+  gridLayout->addWidget(m_groundWallConstructionDZ, row + 1, leftCol);
 
   label = new QLabel();
   label->setText("Floors");
@@ -1230,8 +1148,8 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   m_vectorControllers.push_back(m_groundFloorConstructionVC);
   m_groundFloorConstructionDZ = new OSDropZone(m_groundFloorConstructionVC);
   m_dropZones.push_back(m_groundFloorConstructionDZ);
-  gridLayout->addWidget(label,row,middleCol);
-  gridLayout->addWidget(m_groundFloorConstructionDZ,row+1,middleCol);
+  gridLayout->addWidget(label, row, middleCol);
+  gridLayout->addWidget(m_groundFloorConstructionDZ, row + 1, middleCol);
 
   label = new QLabel();
   label->setText("Ceilings");
@@ -1241,8 +1159,8 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   m_vectorControllers.push_back(m_groundRoofConstructionVC);
   m_groundRoofConstructionDZ = new OSDropZone(m_groundRoofConstructionVC);
   m_dropZones.push_back(m_groundRoofConstructionDZ);
-  gridLayout->addWidget(label,row,rightCol);
-  gridLayout->addWidget(m_groundRoofConstructionDZ,row+1,rightCol);
+  gridLayout->addWidget(label, row, rightCol);
+  gridLayout->addWidget(m_groundRoofConstructionDZ, row + 1, rightCol);
 
   row += 2;
 
@@ -1256,16 +1174,15 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   line = new QFrame();
   line->setFrameShape(QFrame::HLine);
   line->setFrameShadow(QFrame::Sunken);
-  gridLayout->addWidget(line,row,leftCol,1,4);
+  gridLayout->addWidget(line, row, leftCol, 1, 4);
   row++;
 
   label = new QLabel();
   label->setText("Exterior Sub Surface Constructions");
   label->setObjectName("H2");
   //label->setContentsMargins(padding,0,padding,0);
-  gridLayout->addWidget(label,row,leftCol,1,3);
+  gridLayout->addWidget(label, row, leftCol, 1, 3);
   row++;
-
 
   label = new QLabel();
   label->setText("Fixed Windows");
@@ -1275,8 +1192,8 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   m_vectorControllers.push_back(m_exteriorFixedWindowVC);
   m_exteriorFixedWindowDZ = new OSDropZone(m_exteriorFixedWindowVC);
   m_dropZones.push_back(m_exteriorFixedWindowDZ);
-  gridLayout->addWidget(label,row,leftCol);
-  gridLayout->addWidget(m_exteriorFixedWindowDZ,row+1,leftCol);
+  gridLayout->addWidget(label, row, leftCol);
+  gridLayout->addWidget(m_exteriorFixedWindowDZ, row + 1, leftCol);
 
   label = new QLabel();
   label->setText("Operable Windows");
@@ -1286,8 +1203,8 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   m_vectorControllers.push_back(m_exteriorOperableWindowVC);
   m_exteriorOperableWindowDZ = new OSDropZone(m_exteriorOperableWindowVC);
   m_dropZones.push_back(m_exteriorOperableWindowDZ);
-  gridLayout->addWidget(label,row,middleCol);
-  gridLayout->addWidget(m_exteriorOperableWindowDZ,row+1,middleCol);
+  gridLayout->addWidget(label, row, middleCol);
+  gridLayout->addWidget(m_exteriorOperableWindowDZ, row + 1, middleCol);
 
   label = new QLabel();
   label->setText("Doors");
@@ -1297,8 +1214,8 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   m_vectorControllers.push_back(m_exteriorDoorVC);
   m_exteriorDoorDZ = new OSDropZone(m_exteriorDoorVC);
   m_dropZones.push_back(m_exteriorDoorDZ);
-  gridLayout->addWidget(label,row,rightCol);
-  gridLayout->addWidget(m_exteriorDoorDZ,row+1,rightCol);
+  gridLayout->addWidget(label, row, rightCol);
+  gridLayout->addWidget(m_exteriorDoorDZ, row + 1, rightCol);
 
   row += 2;
 
@@ -1310,8 +1227,8 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   m_vectorControllers.push_back(m_glassDoorConstructionVC);
   m_glassDoorConstructionDZ = new OSDropZone(m_glassDoorConstructionVC);
   m_dropZones.push_back(m_glassDoorConstructionDZ);
-  gridLayout->addWidget(label,row,leftCol);
-  gridLayout->addWidget(m_glassDoorConstructionDZ,row+1,leftCol);
+  gridLayout->addWidget(label, row, leftCol);
+  gridLayout->addWidget(m_glassDoorConstructionDZ, row + 1, leftCol);
 
   label = new QLabel();
   label->setText("Overhead Doors");
@@ -1321,8 +1238,8 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   m_vectorControllers.push_back(m_overheadDoorConstructionVC);
   m_overheadDoorConstructionDZ = new OSDropZone(m_overheadDoorConstructionVC);
   m_dropZones.push_back(m_overheadDoorConstructionDZ);
-  gridLayout->addWidget(label,row,middleCol);
-  gridLayout->addWidget(m_overheadDoorConstructionDZ,row+1,middleCol);
+  gridLayout->addWidget(label, row, middleCol);
+  gridLayout->addWidget(m_overheadDoorConstructionDZ, row + 1, middleCol);
 
   label = new QLabel();
   label->setText("Skylights");
@@ -1332,8 +1249,8 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   m_vectorControllers.push_back(m_skylightConstructionVC);
   m_skylightConstructionDZ = new OSDropZone(m_skylightConstructionVC);
   m_dropZones.push_back(m_skylightConstructionDZ);
-  gridLayout->addWidget(label,row,rightCol);
-  gridLayout->addWidget(m_skylightConstructionDZ,row+1,rightCol);
+  gridLayout->addWidget(label, row, rightCol);
+  gridLayout->addWidget(m_skylightConstructionDZ, row + 1, rightCol);
 
   row += 2;
 
@@ -1345,8 +1262,8 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   m_vectorControllers.push_back(m_tubularDaylightDomeConstructionVC);
   m_tubularDaylightDomeConstructionDZ = new OSDropZone(m_tubularDaylightDomeConstructionVC);
   m_dropZones.push_back(m_tubularDaylightDomeConstructionDZ);
-  gridLayout->addWidget(label,row,leftCol);
-  gridLayout->addWidget(m_tubularDaylightDomeConstructionDZ,row+1,leftCol);
+  gridLayout->addWidget(label, row, leftCol);
+  gridLayout->addWidget(m_tubularDaylightDomeConstructionDZ, row + 1, leftCol);
 
   label = new QLabel();
   label->setText("Tubular Daylight Diffusers");
@@ -1356,22 +1273,22 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   m_vectorControllers.push_back(m_tubularDaylightDiffuserConstructionVC);
   m_tubularDaylightDiffuserConstructionDZ = new OSDropZone(m_tubularDaylightDiffuserConstructionVC);
   m_dropZones.push_back(m_tubularDaylightDiffuserConstructionDZ);
-  gridLayout->addWidget(label,row,middleCol);
-  gridLayout->addWidget(m_tubularDaylightDiffuserConstructionDZ,row+1,middleCol);
+  gridLayout->addWidget(label, row, middleCol);
+  gridLayout->addWidget(m_tubularDaylightDiffuserConstructionDZ, row + 1, middleCol);
 
   row += 2;
 
   line = new QFrame();
   line->setFrameShape(QFrame::HLine);
   line->setFrameShadow(QFrame::Sunken);
-  gridLayout->addWidget(line,row,leftCol,1,4);
+  gridLayout->addWidget(line, row, leftCol, 1, 4);
   row++;
 
   label = new QLabel();
   label->setText("Interior Sub Surface Constructions");
   label->setObjectName("H2");
   //label->setContentsMargins(padding,0,padding,0);
-  gridLayout->addWidget(label,row,leftCol,1,3);
+  gridLayout->addWidget(label, row, leftCol, 1, 3);
   row++;
 
   label = new QLabel();
@@ -1382,8 +1299,8 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   m_vectorControllers.push_back(m_interiorFixedWindowVC);
   m_interiorFixedWindowDZ = new OSDropZone(m_interiorFixedWindowVC);
   m_dropZones.push_back(m_interiorFixedWindowDZ);
-  gridLayout->addWidget(label,row,leftCol);
-  gridLayout->addWidget(m_interiorFixedWindowDZ,row+1,leftCol);
+  gridLayout->addWidget(label, row, leftCol);
+  gridLayout->addWidget(m_interiorFixedWindowDZ, row + 1, leftCol);
 
   label = new QLabel();
   label->setText("Operable Windows");
@@ -1393,8 +1310,8 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   m_vectorControllers.push_back(m_interiorOperableWindowVC);
   m_interiorOperableWindowDZ = new OSDropZone(m_interiorOperableWindowVC);
   m_dropZones.push_back(m_interiorOperableWindowDZ);
-  gridLayout->addWidget(label,row,middleCol);
-  gridLayout->addWidget(m_interiorOperableWindowDZ,row+1,middleCol);
+  gridLayout->addWidget(label, row, middleCol);
+  gridLayout->addWidget(m_interiorOperableWindowDZ, row + 1, middleCol);
 
   label = new QLabel();
   label->setText("Doors");
@@ -1404,22 +1321,22 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   m_vectorControllers.push_back(m_interiorDoorVC);
   m_interiorDoorDZ = new OSDropZone(m_interiorDoorVC);
   m_dropZones.push_back(m_interiorDoorDZ);
-  gridLayout->addWidget(label,row,rightCol);
-  gridLayout->addWidget(m_interiorDoorDZ,row+1,rightCol);
+  gridLayout->addWidget(label, row, rightCol);
+  gridLayout->addWidget(m_interiorDoorDZ, row + 1, rightCol);
 
   row += 2;
 
   line = new QFrame();
   line->setFrameShape(QFrame::HLine);
   line->setFrameShadow(QFrame::Sunken);
-  gridLayout->addWidget(line,row,leftCol,1,4);
+  gridLayout->addWidget(line, row, leftCol, 1, 4);
   row++;
 
   label = new QLabel();
   label->setText("Other Constructions");
   label->setObjectName("H2");
   //label->setContentsMargins(padding,0,padding,0);
-  gridLayout->addWidget(label,row,leftCol,1,3);
+  gridLayout->addWidget(label, row, leftCol, 1, 3);
   row++;
 
   label = new QLabel();
@@ -1430,8 +1347,8 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   m_vectorControllers.push_back(m_spaceShadingVC);
   m_spaceShadingDZ = new OSDropZone(m_spaceShadingVC);
   m_dropZones.push_back(m_spaceShadingDZ);
-  gridLayout->addWidget(label,row,leftCol);
-  gridLayout->addWidget(m_spaceShadingDZ,row+1,leftCol);
+  gridLayout->addWidget(label, row, leftCol);
+  gridLayout->addWidget(m_spaceShadingDZ, row + 1, leftCol);
 
   label = new QLabel();
   label->setText("Building Shading");
@@ -1441,8 +1358,8 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   m_vectorControllers.push_back(m_buildingShadingVC);
   m_buildingShadingDZ = new OSDropZone(m_buildingShadingVC);
   m_dropZones.push_back(m_buildingShadingDZ);
-  gridLayout->addWidget(label,row,middleCol);
-  gridLayout->addWidget(m_buildingShadingDZ,row+1,middleCol);
+  gridLayout->addWidget(label, row, middleCol);
+  gridLayout->addWidget(m_buildingShadingDZ, row + 1, middleCol);
 
   label = new QLabel();
   label->setText("Site Shading");
@@ -1452,8 +1369,8 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   m_vectorControllers.push_back(m_siteShadingVC);
   m_siteShadingDZ = new OSDropZone(m_siteShadingVC);
   m_dropZones.push_back(m_siteShadingDZ);
-  gridLayout->addWidget(label,row,rightCol);
-  gridLayout->addWidget(m_siteShadingDZ,row+1,rightCol);
+  gridLayout->addWidget(label, row, rightCol);
+  gridLayout->addWidget(m_siteShadingDZ, row + 1, rightCol);
 
   row += 2;
 
@@ -1465,8 +1382,8 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   m_vectorControllers.push_back(m_interiorPartitionsVC);
   m_interiorPartitionsDZ = new OSDropZone(m_interiorPartitionsVC);
   m_dropZones.push_back(m_interiorPartitionsDZ);
-  gridLayout->addWidget(label,row,leftCol);
-  gridLayout->addWidget(m_interiorPartitionsDZ,row+1,leftCol);
+  gridLayout->addWidget(label, row, leftCol);
+  gridLayout->addWidget(m_interiorPartitionsDZ, row + 1, leftCol);
 
   label = new QLabel();
   label->setText("Adiabatic Surfaces");
@@ -1477,7 +1394,7 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   m_adiabaticSurfaceDZ = new OSDropZone(m_adiabaticSurfaceVC);
   m_dropZones.push_back(m_adiabaticSurfaceDZ);
   gridLayout->addWidget(label, row, middleCol);
-  gridLayout->addWidget(m_adiabaticSurfaceDZ, row+1, middleCol);
+  gridLayout->addWidget(m_adiabaticSurfaceDZ, row + 1, middleCol);
 
   OS_ASSERT(m_vectorControllers.size() == 25);
 
@@ -1496,15 +1413,14 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
 
   //int index;
   auto hiddenWidget = new QWidget();
-  /*index =*/ this->stackedWidget()->addWidget(hiddenWidget);
-  /*index =*/ this->stackedWidget()->addWidget(widget);
+  /*index =*/this->stackedWidget()->addWidget(hiddenWidget);
+  /*index =*/this->stackedWidget()->addWidget(widget);
 }
 
-void DefaultConstructionSetInspectorView::configDropZones()
-{
+void DefaultConstructionSetInspectorView::configDropZones() {
   //int padding = 7;
 
-  for (openstudio::OSDropZone * dropZone : m_dropZones){
+  for (openstudio::OSDropZone* dropZone : m_dropZones) {
     //dropZone->setContentsMargins(padding,0,padding,padding);
     dropZone->setMinItems(0);
     dropZone->setMaxItems(1);
@@ -1512,33 +1428,29 @@ void DefaultConstructionSetInspectorView::configDropZones()
   }
 }
 
-void DefaultConstructionSetInspectorView::onClearSelection()
-{
+void DefaultConstructionSetInspectorView::onClearSelection() {
   detach();
 }
 
-void DefaultConstructionSetInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject)
-{
+void DefaultConstructionSetInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject) {
   detach();
   model::DefaultConstructionSet defaultConstructionSet = modelObject.cast<model::DefaultConstructionSet>();
   attach(defaultConstructionSet);
 }
 
-void DefaultConstructionSetInspectorView::onUpdate()
-{
-}
+void DefaultConstructionSetInspectorView::onUpdate() {}
 
-void DefaultConstructionSetInspectorView::attach(openstudio::model::DefaultConstructionSet & defaultConstructionSet)
-{
+void DefaultConstructionSetInspectorView::attach(openstudio::model::DefaultConstructionSet& defaultConstructionSet) {
 
   ///! Exterior Surface
   {
-    boost::optional<model::DefaultSurfaceConstructions> defaultExteriorSurfaceConstructions = defaultConstructionSet.defaultExteriorSurfaceConstructions();
-    if (!defaultExteriorSurfaceConstructions){
+    boost::optional<model::DefaultSurfaceConstructions> defaultExteriorSurfaceConstructions =
+      defaultConstructionSet.defaultExteriorSurfaceConstructions();
+    if (!defaultExteriorSurfaceConstructions) {
       defaultExteriorSurfaceConstructions = model::DefaultSurfaceConstructions(defaultConstructionSet.model());
       defaultConstructionSet.setDefaultExteriorSurfaceConstructions(*defaultExteriorSurfaceConstructions);
     }
-    if (defaultExteriorSurfaceConstructions->getModelObjectSources<model::DefaultConstructionSet>().size() > 1){
+    if (defaultExteriorSurfaceConstructions->getModelObjectSources<model::DefaultConstructionSet>().size() > 1) {
       model::ModelObject clone = defaultExteriorSurfaceConstructions->clone(defaultConstructionSet.model());
       defaultExteriorSurfaceConstructions = clone.cast<model::DefaultSurfaceConstructions>();
       defaultConstructionSet.setDefaultExteriorSurfaceConstructions(*defaultExteriorSurfaceConstructions);
@@ -1556,12 +1468,13 @@ void DefaultConstructionSetInspectorView::attach(openstudio::model::DefaultConst
 
   ///! Interior Surface
   {
-    boost::optional<model::DefaultSurfaceConstructions> defaultInteriorSurfaceConstructions = defaultConstructionSet.defaultInteriorSurfaceConstructions();
-    if (!defaultInteriorSurfaceConstructions){
+    boost::optional<model::DefaultSurfaceConstructions> defaultInteriorSurfaceConstructions =
+      defaultConstructionSet.defaultInteriorSurfaceConstructions();
+    if (!defaultInteriorSurfaceConstructions) {
       defaultInteriorSurfaceConstructions = model::DefaultSurfaceConstructions(defaultConstructionSet.model());
       defaultConstructionSet.setDefaultInteriorSurfaceConstructions(*defaultInteriorSurfaceConstructions);
     }
-    if (defaultInteriorSurfaceConstructions->getModelObjectSources<model::DefaultConstructionSet>().size() > 1){
+    if (defaultInteriorSurfaceConstructions->getModelObjectSources<model::DefaultConstructionSet>().size() > 1) {
       model::ModelObject clone = defaultInteriorSurfaceConstructions->clone(defaultConstructionSet.model());
       defaultInteriorSurfaceConstructions = clone.cast<model::DefaultSurfaceConstructions>();
       defaultConstructionSet.setDefaultInteriorSurfaceConstructions(*defaultInteriorSurfaceConstructions);
@@ -1579,12 +1492,13 @@ void DefaultConstructionSetInspectorView::attach(openstudio::model::DefaultConst
 
   ///! Ground Contact
   {
-    boost::optional<model::DefaultSurfaceConstructions> defaultGroundContactSurfaceConstructions = defaultConstructionSet.defaultGroundContactSurfaceConstructions();
-    if (!defaultGroundContactSurfaceConstructions){
+    boost::optional<model::DefaultSurfaceConstructions> defaultGroundContactSurfaceConstructions =
+      defaultConstructionSet.defaultGroundContactSurfaceConstructions();
+    if (!defaultGroundContactSurfaceConstructions) {
       defaultGroundContactSurfaceConstructions = model::DefaultSurfaceConstructions(defaultConstructionSet.model());
       defaultConstructionSet.setDefaultGroundContactSurfaceConstructions(*defaultGroundContactSurfaceConstructions);
     }
-    if (defaultGroundContactSurfaceConstructions->getModelObjectSources<model::DefaultConstructionSet>().size() > 1){
+    if (defaultGroundContactSurfaceConstructions->getModelObjectSources<model::DefaultConstructionSet>().size() > 1) {
       model::ModelObject clone = defaultGroundContactSurfaceConstructions->clone(defaultConstructionSet.model());
       defaultGroundContactSurfaceConstructions = clone.cast<model::DefaultSurfaceConstructions>();
       defaultConstructionSet.setDefaultGroundContactSurfaceConstructions(*defaultGroundContactSurfaceConstructions);
@@ -1602,12 +1516,13 @@ void DefaultConstructionSetInspectorView::attach(openstudio::model::DefaultConst
 
   ///! Exterior Sub Surface
   {
-    boost::optional<model::DefaultSubSurfaceConstructions> defaultExteriorSubSurfaceConstructions = defaultConstructionSet.defaultExteriorSubSurfaceConstructions();
-    if (!defaultExteriorSubSurfaceConstructions){
+    boost::optional<model::DefaultSubSurfaceConstructions> defaultExteriorSubSurfaceConstructions =
+      defaultConstructionSet.defaultExteriorSubSurfaceConstructions();
+    if (!defaultExteriorSubSurfaceConstructions) {
       defaultExteriorSubSurfaceConstructions = model::DefaultSubSurfaceConstructions(defaultConstructionSet.model());
       defaultConstructionSet.setDefaultExteriorSubSurfaceConstructions(*defaultExteriorSubSurfaceConstructions);
     }
-    if (defaultExteriorSubSurfaceConstructions->getModelObjectSources<model::DefaultConstructionSet>().size() > 1){
+    if (defaultExteriorSubSurfaceConstructions->getModelObjectSources<model::DefaultConstructionSet>().size() > 1) {
       model::ModelObject clone = defaultExteriorSubSurfaceConstructions->clone(defaultConstructionSet.model());
       defaultExteriorSubSurfaceConstructions = clone.cast<model::DefaultSubSurfaceConstructions>();
       defaultConstructionSet.setDefaultExteriorSubSurfaceConstructions(*defaultExteriorSubSurfaceConstructions);
@@ -1640,12 +1555,13 @@ void DefaultConstructionSetInspectorView::attach(openstudio::model::DefaultConst
 
   ///! Interior Sub Surface
   {
-    boost::optional<model::DefaultSubSurfaceConstructions> defaultInteriorSubSurfaceConstructions = defaultConstructionSet.defaultInteriorSubSurfaceConstructions();
-    if (!defaultInteriorSubSurfaceConstructions){
+    boost::optional<model::DefaultSubSurfaceConstructions> defaultInteriorSubSurfaceConstructions =
+      defaultConstructionSet.defaultInteriorSubSurfaceConstructions();
+    if (!defaultInteriorSubSurfaceConstructions) {
       defaultInteriorSubSurfaceConstructions = model::DefaultSubSurfaceConstructions(defaultConstructionSet.model());
       defaultConstructionSet.setDefaultInteriorSubSurfaceConstructions(*defaultInteriorSubSurfaceConstructions);
     }
-    if (defaultInteriorSubSurfaceConstructions->getModelObjectSources<model::DefaultConstructionSet>().size() > 1){
+    if (defaultInteriorSubSurfaceConstructions->getModelObjectSources<model::DefaultConstructionSet>().size() > 1) {
       model::ModelObject clone = defaultInteriorSubSurfaceConstructions->clone(defaultConstructionSet.model());
       defaultInteriorSubSurfaceConstructions = clone.cast<model::DefaultSubSurfaceConstructions>();
       defaultConstructionSet.setDefaultInteriorSubSurfaceConstructions(*defaultInteriorSubSurfaceConstructions);
@@ -1681,22 +1597,20 @@ void DefaultConstructionSetInspectorView::attach(openstudio::model::DefaultConst
   m_defaultConstructionSet = defaultConstructionSet;
 
   // m_nameEdit->bind(defaultConstructionSet, "name");
-  m_nameEdit->bind(
-    *m_defaultConstructionSet,
-    OptionalStringGetter(std::bind(&model::DefaultConstructionSet::name, m_defaultConstructionSet.get_ptr(),true)),
-    boost::optional<StringSetterOptionalStringReturn>(std::bind(&model::DefaultConstructionSet::setName, m_defaultConstructionSet.get_ptr(),std::placeholders::_1))
-  );
+  m_nameEdit->bind(*m_defaultConstructionSet,
+                   OptionalStringGetter(std::bind(&model::DefaultConstructionSet::name, m_defaultConstructionSet.get_ptr(), true)),
+                   boost::optional<StringSetterOptionalStringReturn>(
+                     std::bind(&model::DefaultConstructionSet::setName, m_defaultConstructionSet.get_ptr(), std::placeholders::_1)));
 
   this->stackedWidget()->setCurrentIndex(1);
 }
 
-void DefaultConstructionSetInspectorView::detach()
-{
+void DefaultConstructionSetInspectorView::detach() {
   this->stackedWidget()->setCurrentIndex(0);
 
   m_nameEdit->unbind();
 
-  for (ModelObjectVectorController * vc : m_vectorControllers){
+  for (ModelObjectVectorController* vc : m_vectorControllers) {
     vc->detach();
     vc->reportItems();
   }
@@ -1704,4 +1618,4 @@ void DefaultConstructionSetInspectorView::detach()
   m_defaultConstructionSet = boost::none;
 }
 
-} // openstudio
+}  // namespace openstudio

@@ -43,23 +43,14 @@
 
 namespace openstudio {
 
-CollapsibleComponentHeader::CollapsibleComponentHeader(const std::string& text,
-                                                       int numResults,
-                                                       int numPages,
-                                                       QWidget * parent)
-  : QAbstractButton(parent),
-  m_text(nullptr),
-  m_arrowLabel(nullptr),
-  m_pageNavigator(nullptr),
-  m_numLabel(nullptr)
-{
-  createLayout(text, numResults,numPages);
+CollapsibleComponentHeader::CollapsibleComponentHeader(const std::string& text, int numResults, int numPages, QWidget* parent)
+  : QAbstractButton(parent), m_text(nullptr), m_arrowLabel(nullptr), m_pageNavigator(nullptr), m_numLabel(nullptr) {
+  createLayout(text, numResults, numPages);
 }
 
-void CollapsibleComponentHeader::createLayout(const std::string& text, int numResults, int numPages)
-{
+void CollapsibleComponentHeader::createLayout(const std::string& text, int numResults, int numPages) {
   setFixedHeight(50);
-  setSizePolicy(QSizePolicy::Preferred,QSizePolicy::Fixed);
+  setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
   setObjectName("CollapsibleComponentHeader");
   setCheckable(true);
 
@@ -80,7 +71,7 @@ void CollapsibleComponentHeader::createLayout(const std::string& text, int numRe
   mainHLayout->addStretch();
 
   // Page Navigator
-  m_pageNavigator = new PageNavigator(numPages,NUM_PAGES_LISTED,this);
+  m_pageNavigator = new PageNavigator(numPages, NUM_PAGES_LISTED, this);
   mainHLayout->addWidget(m_pageNavigator);
 
   connect(m_pageNavigator, &PageNavigator::getComponentsByPage, this, &CollapsibleComponentHeader::getComponentsByPage);
@@ -98,29 +89,24 @@ void CollapsibleComponentHeader::createLayout(const std::string& text, int numRe
   mainHLayout->addWidget(m_numLabel);
 
   setChecked(false);
-
 }
 
-QSize CollapsibleComponentHeader::sizeHint() const
-{
-  return QSize(150,50);
+QSize CollapsibleComponentHeader::sizeHint() const {
+  return QSize(150, 50);
 }
 
-void CollapsibleComponentHeader::setImage(bool isChecked)
-{
-  if(isChecked){
+void CollapsibleComponentHeader::setImage(bool isChecked) {
+  if (isChecked) {
     m_arrowLabel->setPixmap(QPixmap(":../shared_gui_components/images/toggle_arrow.png"));
-  }else{
+  } else {
     m_arrowLabel->setPixmap(QPixmap(":../shared_gui_components/images/toggle_arrow_closed.png"));
   }
 }
 
-void CollapsibleComponentHeader::setChecked(bool isChecked)
-{
+void CollapsibleComponentHeader::setChecked(bool isChecked) {
   QAbstractButton::setChecked(isChecked);
   setImage(isChecked);
-  if(isChecked)
-  {
+  if (isChecked) {
     QString style;
     style.append("QWidget#CollapsibleComponentHeader {");
     style.append(" background: qlineargradient(x1:0,y1:0,x2:0,y2:1,");
@@ -131,45 +117,36 @@ void CollapsibleComponentHeader::setChecked(bool isChecked)
     style.append(" border-bottom: 1px solid black;");
     style.append(" }");
     setStyleSheet(style);
-  }
-  else
-  {
+  } else {
     setStyleSheet("QWidget#CollapsibleComponentHeader { background: #CECECE; border-bottom: 1px solid black;}");
   }
 }
 
-void CollapsibleComponentHeader::paintEvent(QPaintEvent * event)
-{
+void CollapsibleComponentHeader::paintEvent(QPaintEvent* event) {
   QStyleOption opt;
   opt.init(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
 
-void CollapsibleComponentHeader::setText(const QString& text)
-{
+void CollapsibleComponentHeader::setText(const QString& text) {
   m_text->setText(text);
 }
 
-void CollapsibleComponentHeader::setNumResults(int numResults)
-{
+void CollapsibleComponentHeader::setNumResults(int numResults) {
   m_numLabel->setNum(numResults);
 }
 
-void CollapsibleComponentHeader::setNumPages(int numPages)
-{
+void CollapsibleComponentHeader::setNumPages(int numPages) {
   m_pageNavigator->setNumPages(numPages);
 }
 
-void CollapsibleComponentHeader::firstPage()
-{
+void CollapsibleComponentHeader::firstPage() {
   m_pageNavigator->firstPage();
 }
 
 ///! SLOTS
 
-void CollapsibleComponentHeader::on_getComponentsByPage(int pageIdx)
-{
-}
+void CollapsibleComponentHeader::on_getComponentsByPage(int pageIdx) {}
 
-} // openstudio
+}  // namespace openstudio

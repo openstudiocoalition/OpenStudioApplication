@@ -49,24 +49,22 @@ namespace openstudio {
 class OPENSTUDIO_API IconLibrary
 {
 
-public:
+ public:
   //! If the class in not instantiated, this call will instantiate it. (So don't ever worry about it, just call Instance when you want to use the class)
   static IconLibrary& Instance();
   /*! gets an Icon
    \param val should be an IddObjectType.value()
    \return either a pointer to the Icon, or NULL if it isn't found
   */
-  const QPixmap* findIcon( unsigned int val ) const;
+  const QPixmap* findIcon(unsigned int val) const;
   /*! gets a  MiniIcon
    \param val should be an IddObjectType.value()
    \return either a pointer to the MiniIcon, or NULL if it isn't found
   */
-  const QPixmap* findMiniIcon( unsigned int val ) const;
+  const QPixmap* findMiniIcon(unsigned int val) const;
 
-protected:
-
-private:
-
+ protected:
+ private:
   REGISTER_LOGGER("openstudio.openstudio_lib.IconLibrary");
 
   IconLibrary();
@@ -79,6 +77,6 @@ private:
   std::map<unsigned int, QPixmap*> m_miniIcons;
 };
 
-}
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_ICONLIBRARY_HPP
+#endif  // OPENSTUDIO_ICONLIBRARY_HPP

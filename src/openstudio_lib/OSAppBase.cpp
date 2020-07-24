@@ -53,17 +53,15 @@
 
 namespace openstudio {
 
-OSAppBase::OSAppBase( int & argc, char ** argv, const QSharedPointer<MeasureManager> &t_measureManager )
-  : QApplication(argc, argv), m_measureManager(t_measureManager)
-{
+OSAppBase::OSAppBase(int& argc, char** argv, const QSharedPointer<MeasureManager>& t_measureManager)
+  : QApplication(argc, argv), m_measureManager(t_measureManager) {
   openstudio::path umd = userMeasuresDir();
 
   if (isNetworkPath(umd) && !isNetworkPathAvailable(umd)) {
     QTimer::singleShot(0, this, SLOT(showMeasureUpdateDlg()));
-  }
-  else {
+  } else {
     LOG(Debug, "Measures dir: " << openstudio::toString(umd));
-    if (!QDir().exists(toQString(umd))){
+    if (!QDir().exists(toQString(umd))) {
       setUserMeasuresDir(umd);
     }
   }
@@ -71,36 +69,32 @@ OSAppBase::OSAppBase( int & argc, char ** argv, const QSharedPointer<MeasureMana
   // DLM: todo rethink this
   //m_measureManager->updateMeasuresLists();
 
-  m_waitDialog = boost::shared_ptr<WaitDialog>(new WaitDialog("Loading Model","Loading Model"));
+  m_waitDialog = boost::shared_ptr<WaitDialog>(new WaitDialog("Loading Model", "Loading Model"));
 }
 
-OSAppBase::~OSAppBase()
-{
-}
+OSAppBase::~OSAppBase() {}
 
-bool OSAppBase::notify(QObject * receiver, QEvent * e)
-{
+bool OSAppBase::notify(QObject* receiver, QEvent* e) {
   return QApplication::notify(receiver, e);
 }
 
-bool OSAppBase::event(QEvent * e)
-{
+bool OSAppBase::event(QEvent* e) {
   return QApplication::event(e);
 }
 
-void OSAppBase::childEvent(QChildEvent * e)
-{
+void OSAppBase::childEvent(QChildEvent* e) {
   QApplication::childEvent(e);
 }
 
-OSAppBase * OSAppBase::instance()
-{
-  return qobject_cast<OSAppBase *>(QApplication::instance());
+OSAppBase* OSAppBase::instance() {
+  return qobject_cast<OSAppBase*>(QApplication::instance());
 }
 
-void OSAppBase::showMeasureUpdateDlg()
-{
-  QMessageBox::information(this->mainWidget(), "Cannot Update User Measures", "Your My Measures Directory appears to be on a network drive that is not currently available.\nYou can change your specified My Measures Directory using 'Preferences->Change My Measures Directory'.", QMessageBox::Ok);
+void OSAppBase::showMeasureUpdateDlg() {
+  QMessageBox::information(this->mainWidget(), "Cannot Update User Measures",
+                           "Your My Measures Directory appears to be on a network drive that is not currently available.\nYou can change your "
+                           "specified My Measures Directory using 'Preferences->Change My Measures Directory'.",
+                           QMessageBox::Ok);
 }
 
 //boost::optional<openstudio::analysisdriver::SimpleProject> OSAppBase::project()
@@ -120,7 +114,8 @@ void OSAppBase::addWorkspaceObject(const WorkspaceObject& workspaceObject, const
   emit workspaceObjectAdded(workspaceObject, type, uuid);
 }
 
-void OSAppBase::addWorkspaceObjectPtr(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> wPtr, const openstudio::IddObjectType& type, const openstudio::UUID& uuid) {
+void OSAppBase::addWorkspaceObjectPtr(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> wPtr, const openstudio::IddObjectType& type,
+                                      const openstudio::UUID& uuid) {
   // Emit QT Signal
   emit workspaceObjectAddedPtr(wPtr, type, uuid);
 }
@@ -129,38 +124,32 @@ void OSAppBase::removeWorkspaceObject(const WorkspaceObject& workspaceObject, co
   emit workspaceObjectRemoved(workspaceObject, type, uuid);
 }
 
-void OSAppBase::removeWorkspaceObjectPtr(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> wPtr, const openstudio::IddObjectType& type, const openstudio::UUID& uuid ) {
+void OSAppBase::removeWorkspaceObjectPtr(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> wPtr, const openstudio::IddObjectType& type,
+                                         const openstudio::UUID& uuid) {
   emit workspaceObjectRemovedPtr(wPtr, type, uuid);
 }
 
-QWidget *OSAppBase::mainWidget()
-{
+QWidget* OSAppBase::mainWidget() {
   std::shared_ptr<OSDocument> document = currentDocument();
 
-  if (document)
-  {
+  if (document) {
     return document->mainWindow();
   } else {
     return nullptr;
   }
 }
 
-boost::optional<openstudio::path> OSAppBase::tempDir()
-{
+boost::optional<openstudio::path> OSAppBase::tempDir() {
   std::shared_ptr<OSDocument> document = currentDocument();
-  if (document)
-  {
+  if (document) {
     return toPath(document->modelTempDir());
   }
   return boost::none;
 }
 
-
-boost::optional<openstudio::model::Model> OSAppBase::currentModel()
-{
+boost::optional<openstudio::model::Model> OSAppBase::currentModel() {
   std::shared_ptr<OSDocument> document = currentDocument();
-  if (document)
-  {
+  if (document) {
     return document->model();
   } else {
     return boost::optional<openstudio::model::Model>();
@@ -178,33 +167,29 @@ boost::optional<openstudio::model::Model> OSAppBase::currentModel()
 //  }
 //}
 
-MeasureManager &OSAppBase::measureManager()
-{
+MeasureManager& OSAppBase::measureManager() {
   return *m_measureManager;
 }
 
-void OSAppBase::updateSelectedMeasureState()
-{
+void OSAppBase::updateSelectedMeasureState() {
   // DLM: this slot seems out of place here, seems like the connection from the measure list to enabling duplicate buttons, etc
   // should be tighter
   std::shared_ptr<OSDocument> document = currentDocument();
 
-  if (document)
-  {
+  if (document) {
     std::shared_ptr<MainRightColumnController> mainRightColumnController = document->mainRightColumnController();
 
-    if (mainRightColumnController)
-    {
-      if (measureManager().isMeasureSelected()){
+    if (mainRightColumnController) {
+      if (measureManager().isMeasureSelected()) {
         // DLM: this logic is why we cannot remove m_applyMeasureNowDialog as member of OSDocument
-        if( document->m_applyMeasureNowDialog && document->m_applyMeasureNowDialog->isVisible()) {
+        if (document->m_applyMeasureNowDialog && document->m_applyMeasureNowDialog->isVisible()) {
           document->m_applyMeasureNowDialog->displayMeasure();
           document->m_applyMeasureNowDialog->m_localLibraryController->localLibraryView->duplicateMeasureButton->setEnabled(true);
         } else {
           mainRightColumnController->measuresLibraryController()->localLibraryView->duplicateMeasureButton->setEnabled(true);
         }
-      }else{
-        if( document->m_applyMeasureNowDialog && document->m_applyMeasureNowDialog->isVisible()) {
+      } else {
+        if (document->m_applyMeasureNowDialog && document->m_applyMeasureNowDialog->isVisible()) {
           document->m_applyMeasureNowDialog->m_localLibraryController->localLibraryView->duplicateMeasureButton->setEnabled(false);
         } else {
           mainRightColumnController->measuresLibraryController()->localLibraryView->duplicateMeasureButton->setEnabled(false);
@@ -214,22 +199,18 @@ void OSAppBase::updateSelectedMeasureState()
   }
 }
 
-void OSAppBase::addMeasure()
-{
+void OSAppBase::addMeasure() {
   measureManager().addMeasure();
 }
 
-void OSAppBase::duplicateSelectedMeasure()
-{
+void OSAppBase::duplicateSelectedMeasure() {
   measureManager().duplicateSelectedMeasure();
 }
 
-void OSAppBase::updateMyMeasures()
-{
+void OSAppBase::updateMyMeasures() {
   std::shared_ptr<OSDocument> document = currentDocument();
 
-  if (document)
-  {
+  if (document) {
     //boost::optional<analysisdriver::SimpleProject> project = document->project();
     //if (project)
     //{
@@ -237,17 +218,15 @@ void OSAppBase::updateMyMeasures()
     //  measureManager().updateMyMeasures(*project);
     //  mainWidget()->setEnabled(true);
     //} else {
-      LOG(Error, "Unable to update measures, there is no project set...");
+    LOG(Error, "Unable to update measures, there is no project set...");
     //}
   }
 }
 
-void OSAppBase::updateBCLMeasures()
-{
+void OSAppBase::updateBCLMeasures() {
   std::shared_ptr<OSDocument> document = currentDocument();
 
-  if (document)
-  {
+  if (document) {
     //boost::optional<analysisdriver::SimpleProject> project = document->project();
     //if (project)
     //{
@@ -255,47 +234,39 @@ void OSAppBase::updateBCLMeasures()
     //  measureManager().updateBCLMeasures(*project);
     //  mainWidget()->setEnabled(true);
     //} else {
-      LOG(Error, "Unable to update measures, there is no project set...");
+    LOG(Error, "Unable to update measures, there is no project set...");
     //}
   }
-
 }
 
-void OSAppBase::downloadUpdatedBCLMeasures()
-{
+void OSAppBase::downloadUpdatedBCLMeasures() {
   measureManager().downloadBCLMeasures();
 }
 
-void OSAppBase::openBclDlg()
-{
+void OSAppBase::openBclDlg() {
   std::shared_ptr<OSDocument> document = currentDocument();
 
-  if (document)
-  {
+  if (document) {
     document->openMeasuresBclDlg();
   }
 }
 
-void OSAppBase::chooseHorizontalEditTab()
-{
+void OSAppBase::chooseHorizontalEditTab() {
   std::shared_ptr<OSDocument> document = currentDocument();
 
-  if (document)
-  {
+  if (document) {
     document->mainRightColumnController()->chooseEditTab();
   }
 }
 
-QSharedPointer<EditController> OSAppBase::editController()
-{
+QSharedPointer<EditController> OSAppBase::editController() {
   std::shared_ptr<OSDocument> document = currentDocument();
 
-  if (document)
-  {
+  if (document) {
     return document->mainRightColumnController()->measuresEditController();
   } else {
     return QSharedPointer<EditController>();
   }
 }
 
-} // openstudio
+}  // namespace openstudio

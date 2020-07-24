@@ -38,26 +38,23 @@
 
 namespace openstudio {
 
-  class RefrigerationGridView;
+class RefrigerationGridView;
 
 class RefrigerationGridController : public QObject
 {
   Q_OBJECT
 
-  public:
-
-  RefrigerationGridController(bool isIP, const model::Model & model);
+ public:
+  RefrigerationGridController(bool isIP, const model::Model& model);
 
   virtual ~RefrigerationGridController();
 
-  RefrigerationGridView * refrigerationGridView() const;
+  RefrigerationGridView* refrigerationGridView() const;
 
-  private:
-
+ private:
   QPointer<RefrigerationGridView> m_refrigerationGridView;
-
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_REFRIGERATIONGRIDCONTROLLER_HPP
+#endif  // OPENSTUDIO_REFRIGERATIONGRIDCONTROLLER_HPP

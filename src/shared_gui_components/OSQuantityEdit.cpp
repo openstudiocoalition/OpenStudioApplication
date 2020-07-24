@@ -50,16 +50,14 @@ using openstudio::model::ModelObject;
 
 namespace openstudio {
 
-OSQuantityEdit2::OSQuantityEdit2(const std::string& modelUnits, const std::string& siUnits,
-                                 const std::string& ipUnits, bool isIP, QWidget * parent)
+OSQuantityEdit2::OSQuantityEdit2(const std::string& modelUnits, const std::string& siUnits, const std::string& ipUnits, bool isIP, QWidget* parent)
   : m_lineEdit(new QuantityLineEdit()),
     m_units(new QLabel()),
     m_isIP(isIP),
     m_modelUnits(modelUnits),
     m_siUnits(siUnits),
     m_ipUnits(ipUnits),
-    m_isScientific(false)
-{
+    m_isScientific(false) {
   connect(m_lineEdit, &QuantityLineEdit::inFocus, this, &OSQuantityEdit2::onInFocus);
 
   // do a test conversion to make sure units are ok
@@ -74,7 +72,7 @@ OSQuantityEdit2::OSQuantityEdit2(const std::string& modelUnits, const std::strin
 
   auto hLayout = new QHBoxLayout();
   setLayout(hLayout);
-  hLayout->setContentsMargins(0,0,0,0);
+  hLayout->setContentsMargins(0, 0, 0, 0);
   hLayout->addWidget(m_lineEdit);
   hLayout->addWidget(m_units);
 
@@ -86,109 +84,67 @@ OSQuantityEdit2::OSQuantityEdit2(const std::string& modelUnits, const std::strin
 
   m_lineEdit->setMinimumWidth(60);
 
-  setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
-  m_units->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
-  m_lineEdit->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Fixed);
+  setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+  m_units->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+  m_lineEdit->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Fixed);
 }
 
-OSQuantityEdit2::~OSQuantityEdit2()
-{
-}
+OSQuantityEdit2::~OSQuantityEdit2() {}
 
-void OSQuantityEdit2::bind(bool isIP,
-                           model::ModelObject& modelObject,
-                           DoubleGetter get,
-                           boost::optional<DoubleSetter> set,
-                           boost::optional<NoFailAction> reset,
-                           boost::optional<NoFailAction> autosize,
-                           boost::optional<NoFailAction> autocalculate,
-                           boost::optional<BasicQuery> isDefaulted,
-                           boost::optional<BasicQuery> isAutosized,
-                           boost::optional<BasicQuery> isAutocalculated)
-{
+void OSQuantityEdit2::bind(bool isIP, model::ModelObject& modelObject, DoubleGetter get, boost::optional<DoubleSetter> set,
+                           boost::optional<NoFailAction> reset, boost::optional<NoFailAction> autosize, boost::optional<NoFailAction> autocalculate,
+                           boost::optional<BasicQuery> isDefaulted, boost::optional<BasicQuery> isAutosized,
+                           boost::optional<BasicQuery> isAutocalculated) {
   m_get = get;
   m_optionalGet.reset();
   m_set = set;
   m_setVoidReturn.reset();
 
-  completeBind(isIP, modelObject, reset, autosize, autocalculate,
-               isDefaulted, isAutosized, isAutocalculated);
+  completeBind(isIP, modelObject, reset, autosize, autocalculate, isDefaulted, isAutosized, isAutocalculated);
 }
 
-void OSQuantityEdit2::bind(bool isIP,
-                           model::ModelObject& modelObject,
-                           OptionalDoubleGetter optionalGet,
-                           boost::optional<DoubleSetter> set,
-                           boost::optional<NoFailAction> reset,
-                           boost::optional<NoFailAction> autosize,
-                           boost::optional<NoFailAction> autocalculate,
-                           boost::optional<BasicQuery> isDefaulted,
-                           boost::optional<BasicQuery> isAutosized,
-                           boost::optional<BasicQuery> isAutocalculated)
-{
+void OSQuantityEdit2::bind(bool isIP, model::ModelObject& modelObject, OptionalDoubleGetter optionalGet, boost::optional<DoubleSetter> set,
+                           boost::optional<NoFailAction> reset, boost::optional<NoFailAction> autosize, boost::optional<NoFailAction> autocalculate,
+                           boost::optional<BasicQuery> isDefaulted, boost::optional<BasicQuery> isAutosized,
+                           boost::optional<BasicQuery> isAutocalculated) {
   m_get.reset();
   m_optionalGet = optionalGet;
   m_set = set;
   m_setVoidReturn.reset();
 
-  completeBind(isIP, modelObject, reset, autosize, autocalculate,
-               isDefaulted, isAutosized, isAutocalculated);
+  completeBind(isIP, modelObject, reset, autosize, autocalculate, isDefaulted, isAutosized, isAutocalculated);
 }
 
-void OSQuantityEdit2::bind(bool isIP,
-                           model::ModelObject& modelObject,
-                           DoubleGetter get,
-                           DoubleSetterVoidReturn set,
-                           boost::optional<NoFailAction> reset,
-                           boost::optional<NoFailAction> autosize,
-                           boost::optional<NoFailAction> autocalculate,
-                           boost::optional<BasicQuery> isDefaulted,
-                           boost::optional<BasicQuery> isAutosized,
-                           boost::optional<BasicQuery> isAutocalculated)
-{
+void OSQuantityEdit2::bind(bool isIP, model::ModelObject& modelObject, DoubleGetter get, DoubleSetterVoidReturn set,
+                           boost::optional<NoFailAction> reset, boost::optional<NoFailAction> autosize, boost::optional<NoFailAction> autocalculate,
+                           boost::optional<BasicQuery> isDefaulted, boost::optional<BasicQuery> isAutosized,
+                           boost::optional<BasicQuery> isAutocalculated) {
   m_get = get;
   m_optionalGet.reset();
   m_set.reset();
   m_setVoidReturn = set;
 
-  completeBind(isIP, modelObject, reset, autosize, autocalculate,
-               isDefaulted, isAutosized, isAutocalculated);
+  completeBind(isIP, modelObject, reset, autosize, autocalculate, isDefaulted, isAutosized, isAutocalculated);
 }
 
-void OSQuantityEdit2::bind(bool isIP,
-                           model::ModelObject& modelObject,
-                           OptionalDoubleGetter optionalGet,
-                           DoubleSetterVoidReturn set,
-                           boost::optional<NoFailAction> reset,
-                           boost::optional<NoFailAction> autosize,
-                           boost::optional<NoFailAction> autocalculate,
-                           boost::optional<BasicQuery> isDefaulted,
-                           boost::optional<BasicQuery> isAutosized,
-                           boost::optional<BasicQuery> isAutocalculated)
-{
+void OSQuantityEdit2::bind(bool isIP, model::ModelObject& modelObject, OptionalDoubleGetter optionalGet, DoubleSetterVoidReturn set,
+                           boost::optional<NoFailAction> reset, boost::optional<NoFailAction> autosize, boost::optional<NoFailAction> autocalculate,
+                           boost::optional<BasicQuery> isDefaulted, boost::optional<BasicQuery> isAutosized,
+                           boost::optional<BasicQuery> isAutocalculated) {
   m_get.reset();
   m_optionalGet = optionalGet;
   m_set.reset();
   m_setVoidReturn = set;
 
-  completeBind(isIP, modelObject, reset, autosize, autocalculate,
-               isDefaulted, isAutosized, isAutocalculated);
+  completeBind(isIP, modelObject, reset, autosize, autocalculate, isDefaulted, isAutosized, isAutocalculated);
 }
 
-void OSQuantityEdit2::completeBind(bool isIP,
-                                   model::ModelObject& modelObject,
-                                   boost::optional<NoFailAction> reset,
-                                   boost::optional<NoFailAction> autosize,
-                                   boost::optional<NoFailAction> autocalculate,
-                                   boost::optional<BasicQuery> isDefaulted,
-                                   boost::optional<BasicQuery> isAutosized,
-                                   boost::optional<BasicQuery> isAutocalculated)
-{
+void OSQuantityEdit2::completeBind(bool isIP, model::ModelObject& modelObject, boost::optional<NoFailAction> reset,
+                                   boost::optional<NoFailAction> autosize, boost::optional<NoFailAction> autocalculate,
+                                   boost::optional<BasicQuery> isDefaulted, boost::optional<BasicQuery> isAutosized,
+                                   boost::optional<BasicQuery> isAutocalculated) {
   // only let one of autosize/autocalculate
-  if ((isAutosized && isAutocalculated) ||
-      (isAutosized && autocalculate) ||
-      (isAutocalculated && autosize))
-  {
+  if ((isAutosized && isAutocalculated) || (isAutosized && autocalculate) || (isAutocalculated && autosize)) {
     LOG_AND_THROW("A field can only be autosized or autocalculated, it cannot be both.");
   }
 
@@ -203,19 +159,27 @@ void OSQuantityEdit2::completeBind(bool isIP,
 
   setEnabled(true);
 
-  connect(m_lineEdit, &QLineEdit::editingFinished, this, &OSQuantityEdit2::onEditingFinished); // Evan note: would behaviors improve with "textChanged"?
+  connect(m_lineEdit, &QLineEdit::editingFinished, this,
+          &OSQuantityEdit2::onEditingFinished);  // Evan note: would behaviors improve with "textChanged"?
 
-  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.connect<OSQuantityEdit2, &OSQuantityEdit2::onModelObjectChange>(this);
-  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onRemoveFromWorkspace.connect<OSQuantityEdit2, &OSQuantityEdit2::onModelObjectRemove>(this);
+  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
+    .get()
+    ->onChange.connect<OSQuantityEdit2, &OSQuantityEdit2::onModelObjectChange>(this);
+  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
+    .get()
+    ->onRemoveFromWorkspace.connect<OSQuantityEdit2, &OSQuantityEdit2::onModelObjectRemove>(this);
 
   refreshTextAndLabel();
 }
 
-
 void OSQuantityEdit2::unbind() {
-  if (m_modelObject){
-    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.disconnect<OSQuantityEdit2, &OSQuantityEdit2::onModelObjectChange>(this);
-    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onRemoveFromWorkspace.disconnect<OSQuantityEdit2, &OSQuantityEdit2::onModelObjectRemove>(this);
+  if (m_modelObject) {
+    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
+      .get()
+      ->onChange.disconnect<OSQuantityEdit2, &OSQuantityEdit2::onModelObjectChange>(this);
+    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
+      .get()
+      ->onRemoveFromWorkspace.disconnect<OSQuantityEdit2, &OSQuantityEdit2::onModelObjectRemove>(this);
     m_modelObject.reset();
     m_get.reset();
     m_optionalGet.reset();
@@ -241,15 +205,15 @@ void OSQuantityEdit2::onEditingFinished() {
   int pos = 0;
   QValidator::State state = m_doubleValidator->validate(text, pos);
   bool isAuto = false;
-  if (state != QValidator::Acceptable){
-    if (text.isEmpty()){
+  if (state != QValidator::Acceptable) {
+    if (text.isEmpty()) {
       // ok
-    } else{
+    } else {
       boost::regex autore("[aA][uU][tT][oO]");
       isAuto = boost::regex_search(text.toStdString(), autore);
-      if (isAuto){
+      if (isAuto) {
         // ok
-      } else{
+      } else {
         // not ok
         refreshTextAndLabel();
         return;
@@ -263,11 +227,10 @@ void OSQuantityEdit2::onEditingFinished() {
     if (str.empty()) {
       if (m_reset) {
         (*m_reset)();
-      } else{
+      } else {
         refreshTextAndLabel();
       }
-    }
-    else if (isAuto) {
+    } else if (isAuto) {
       if (m_isAutosized) {
         if (m_autosize) {
           (*m_autosize)();
@@ -276,11 +239,10 @@ void OSQuantityEdit2::onEditingFinished() {
         } else {
           refreshTextAndLabel();
         }
-      }else if (m_isAutocalculated) {
+      } else if (m_isAutocalculated) {
         if (m_autocalculate) {
           (*m_autocalculate)();
-        }
-        else if (m_reset) {
+        } else if (m_reset) {
           (*m_reset)();
         } else {
           refreshTextAndLabel();
@@ -288,16 +250,15 @@ void OSQuantityEdit2::onEditingFinished() {
       } else {
         refreshTextAndLabel();
       }
-    }
-    else {
+    } else {
       try {
         double value = boost::lexical_cast<double>(str);
         setPrecision(str);
 
         std::string units;
-        if (m_isIP){
+        if (m_isIP) {
           units = m_ipUnits;
-        }else{
+        } else {
           units = m_siUnits;
         }
         m_unitsStr = units;
@@ -307,16 +268,14 @@ void OSQuantityEdit2::onEditingFinished() {
 
         if (m_set) {
           bool result = (*m_set)(*modelValue);
-          if (!result){
+          if (!result) {
             // restore
             refreshTextAndLabel();
           }
-        } else if (m_setVoidReturn){
+        } else if (m_setVoidReturn) {
           (*m_setVoidReturn)(*modelValue);
         }
-      }
-      catch (...)
-      {
+      } catch (...) {
         // restore
         refreshTextAndLabel();
       }
@@ -349,9 +308,9 @@ void OSQuantityEdit2::refreshTextAndLabel() {
   QString text = m_lineEdit->text();
 
   std::string units;
-  if (m_isIP){
+  if (m_isIP) {
     units = m_ipUnits;
-  }else{
+  } else {
     units = m_siUnits;
   }
 
@@ -373,9 +332,9 @@ void OSQuantityEdit2::refreshTextAndLabel() {
 
     boost::optional<double> value;
 
-    if (m_get){
+    if (m_get) {
       value = (*m_get)();
-    }else if (m_optionalGet){
+    } else if (m_optionalGet) {
       value = (*m_optionalGet)();
     }
 
@@ -385,8 +344,7 @@ void OSQuantityEdit2::refreshTextAndLabel() {
 
       if (m_isScientific) {
         ss << std::scientific;
-      }
-      else {
+      } else {
         ss << std::fixed;
       }
       if (m_precision) {
@@ -394,11 +352,11 @@ void OSQuantityEdit2::refreshTextAndLabel() {
         // check if precision is too small to display value
         int precision = *m_precision;
         double minValue = std::pow(10.0, -precision);
-        if (*displayValue < minValue){
+        if (*displayValue < minValue) {
           m_precision.reset();
         }
 
-        if (m_precision){
+        if (m_precision) {
           ss << std::setprecision(*m_precision);
         }
       }
@@ -407,12 +365,11 @@ void OSQuantityEdit2::refreshTextAndLabel() {
       ss.str("");
 
       m_units->setStyleSheet("color:black");
-    }
-    else {
+    } else {
       m_units->setStyleSheet("color:grey");
     }
 
-    if (m_text != textValue || text != textValue || m_unitsStr != units){
+    if (m_text != textValue || text != textValue || m_unitsStr != units) {
       m_text = textValue;
       m_unitsStr = units;
       m_lineEdit->blockSignals(true);
@@ -423,14 +380,13 @@ void OSQuantityEdit2::refreshTextAndLabel() {
     ss << units;
     m_units->blockSignals(true);
     m_units->setTextFormat(Qt::RichText);
-    m_units->setText(toQString(formatUnitString(ss.str(),DocumentFormat::XHTML)));
+    m_units->setText(toQString(formatUnitString(ss.str(), DocumentFormat::XHTML)));
     m_units->blockSignals(false);
 
     if (m_isDefaulted) {
       if ((*m_isDefaulted)()) {
         m_lineEdit->setStyleSheet("color:green");
-      }
-      else {
+      } else {
         m_lineEdit->setStyleSheet("color:black");
       }
     }
@@ -440,63 +396,52 @@ void OSQuantityEdit2::refreshTextAndLabel() {
 void OSQuantityEdit2::setPrecision(const std::string& str) {
   boost::regex rgx("-?([[:digit:]]*)(\\.)?([[:digit:]]+)([EDed][-\\+]?[[:digit:]]+)?");
   boost::smatch m;
-  if (boost::regex_match(str,m,rgx)) {
+  if (boost::regex_match(str, m, rgx)) {
     std::string sci, prefix, postfix;
     if (m[1].matched) {
-      prefix = std::string(m[1].first,m[1].second);
+      prefix = std::string(m[1].first, m[1].second);
     }
     if (m[3].matched) {
-      postfix = std::string(m[3].first,m[3].second);
+      postfix = std::string(m[3].first, m[3].second);
     }
     if (m[4].matched) {
-      sci = std::string(m[4].first,m[4].second);
+      sci = std::string(m[4].first, m[4].second);
     }
     m_isScientific = !sci.empty();
 
     if (m_isScientific) {
       m_precision = prefix.size() + postfix.size() - 1;
-    }
-    else {
+    } else {
       if (m[2].matched) {
         m_precision = postfix.size();
-      }
-      else {
+      } else {
         m_precision = 0;
       }
     }
-  }
-  else {
+  } else {
     m_isScientific = false;
     m_precision.reset();
   }
 }
 
-void OSQuantityEdit2::enableClickFocus()
-{
+void OSQuantityEdit2::enableClickFocus() {
   m_lineEdit->enableClickFocus();
 }
 
-void OSQuantityEdit2::onInFocus(bool hasFocus)
-{
+void OSQuantityEdit2::onInFocus(bool hasFocus) {
   if (hasFocus) {
     emit inFocus(true, hasData());
-  }
-  else {
+  } else {
     emit inFocus(false, false);
   }
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-QuantityLineEdit::QuantityLineEdit(QWidget * parent)
-  : QLineEdit(parent)
-{
-}
+QuantityLineEdit::QuantityLineEdit(QWidget* parent) : QLineEdit(parent) {}
 
-void QuantityLineEdit::focusInEvent(QFocusEvent * e)
-{
-  if (e->reason() == Qt::MouseFocusReason && m_hasClickFocus)
-  {
+void QuantityLineEdit::focusInEvent(QFocusEvent* e) {
+  if (e->reason() == Qt::MouseFocusReason && m_hasClickFocus) {
     QString style("QLineEdit { background: #ffc627; }");
     setStyleSheet(style);
 
@@ -506,10 +451,8 @@ void QuantityLineEdit::focusInEvent(QFocusEvent * e)
   QLineEdit::focusInEvent(e);
 }
 
-void QuantityLineEdit::focusOutEvent(QFocusEvent * e)
-{
-  if (e->reason() == Qt::MouseFocusReason && m_hasClickFocus)
-  {
+void QuantityLineEdit::focusOutEvent(QFocusEvent* e) {
+  if (e->reason() == Qt::MouseFocusReason && m_hasClickFocus) {
     QString style("QLineEdit { background: white; }");
     setStyleSheet(style);
 
@@ -519,4 +462,4 @@ void QuantityLineEdit::focusOutEvent(QFocusEvent * e)
   QLineEdit::focusOutEvent(e);
 }
 
-} // openstudio
+}  // namespace openstudio

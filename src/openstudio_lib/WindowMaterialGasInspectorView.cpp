@@ -48,15 +48,12 @@ namespace openstudio {
 
 // WindowMaterialGasInspectorView
 
-WindowMaterialGasInspectorView::WindowMaterialGasInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent)
-  : ModelObjectInspectorView(model, true, parent),
-    m_isIP(isIP)
-{
+WindowMaterialGasInspectorView::WindowMaterialGasInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent)
+  : ModelObjectInspectorView(model, true, parent), m_isIP(isIP) {
   createLayout();
 }
 
-void WindowMaterialGasInspectorView::createLayout()
-{
+void WindowMaterialGasInspectorView::createLayout() {
   auto hiddenWidget = new QWidget();
   this->stackedWidget()->addWidget(hiddenWidget);
 
@@ -70,7 +67,7 @@ void WindowMaterialGasInspectorView::createLayout()
 
   int row = mainGridLayout->rowCount();
 
-  QLabel * label = nullptr;
+  QLabel* label = nullptr;
 
   // Name
 
@@ -95,7 +92,7 @@ void WindowMaterialGasInspectorView::createLayout()
 
   label = new QLabel("Gas Type: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,row++,0);
+  mainGridLayout->addWidget(label, row++, 0);
 
   m_gasType = new OSComboBox2();
   m_gasType->addItem("Air");
@@ -103,213 +100,181 @@ void WindowMaterialGasInspectorView::createLayout()
   m_gasType->addItem("Krypton");
   m_gasType->addItem("Xenon");
   m_gasType->addItem("Custom");
-  mainGridLayout->addWidget(m_gasType,row++,0,1,3);
+  mainGridLayout->addWidget(m_gasType, row++, 0, 1, 3);
 
   // Thickness
 
   label = new QLabel("Thickness: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,row++,0);
+  mainGridLayout->addWidget(label, row++, 0);
 
-  m_thickness = new OSQuantityEdit2("m","m","in", m_isIP);
+  m_thickness = new OSQuantityEdit2("m", "m", "in", m_isIP);
   connect(this, &WindowMaterialGasInspectorView::toggleUnitsClicked, m_thickness, &OSQuantityEdit2::onUnitSystemChange);
-  mainGridLayout->addWidget(m_thickness,row++,0,1,3);
+  mainGridLayout->addWidget(m_thickness, row++, 0, 1, 3);
 
   // Conductivity Coefficient A
 
   label = new QLabel("Conductivity Coefficient A: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,row++,0);
+  mainGridLayout->addWidget(label, row++, 0);
 
   m_conductivityCoefficientA = new OSQuantityEdit2("W/m*K", "W/m*K", "Btu*in/hr*ft^2*R", m_isIP);
   connect(this, &WindowMaterialGasInspectorView::toggleUnitsClicked, m_conductivityCoefficientA, &OSQuantityEdit2::onUnitSystemChange);
-  mainGridLayout->addWidget(m_conductivityCoefficientA,row++,0,1,3);
+  mainGridLayout->addWidget(m_conductivityCoefficientA, row++, 0, 1, 3);
 
   // Conductivity Coefficient B
 
   label = new QLabel("Conductivity Coefficient B: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,row++,0);
+  mainGridLayout->addWidget(label, row++, 0);
 
   m_conductivityCoefficientB = new OSQuantityEdit2("W/m*K^2", "W/m*K^2", "Btu*in/hr*ft^2*R^2", m_isIP);
   connect(this, &WindowMaterialGasInspectorView::toggleUnitsClicked, m_conductivityCoefficientB, &OSQuantityEdit2::onUnitSystemChange);
-  mainGridLayout->addWidget(m_conductivityCoefficientB,row++,0,1,3);
+  mainGridLayout->addWidget(m_conductivityCoefficientB, row++, 0, 1, 3);
 
   // Viscosity Coefficient A
 
   label = new QLabel("Viscosity Coefficient A: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,row++,0);
+  mainGridLayout->addWidget(label, row++, 0);
 
-  m_viscosityCoefficientA = new OSQuantityEdit2("mkg/m*s","mkg/m*s","m(min^2*ton/ft^3)", m_isIP);
+  m_viscosityCoefficientA = new OSQuantityEdit2("mkg/m*s", "mkg/m*s", "m(min^2*ton/ft^3)", m_isIP);
   connect(this, &WindowMaterialGasInspectorView::toggleUnitsClicked, m_viscosityCoefficientA, &OSQuantityEdit2::onUnitSystemChange);
-  mainGridLayout->addWidget(m_viscosityCoefficientA,row++,0,1,3);
+  mainGridLayout->addWidget(m_viscosityCoefficientA, row++, 0, 1, 3);
 
   // Viscosity Coefficient B
 
   label = new QLabel("Viscosity Coefficient B: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,row++,0);
+  mainGridLayout->addWidget(label, row++, 0);
 
-  m_viscosityCoefficientB = new OSQuantityEdit2("mkg/m*s*K","mkg/m*s*K","m(min^2*ton/ft^3*R)", m_isIP);
+  m_viscosityCoefficientB = new OSQuantityEdit2("mkg/m*s*K", "mkg/m*s*K", "m(min^2*ton/ft^3*R)", m_isIP);
   connect(this, &WindowMaterialGasInspectorView::toggleUnitsClicked, m_viscosityCoefficientB, &OSQuantityEdit2::onUnitSystemChange);
-  mainGridLayout->addWidget(m_viscosityCoefficientB,row++,0,1,3);
+  mainGridLayout->addWidget(m_viscosityCoefficientB, row++, 0, 1, 3);
 
   // Specific Heat Coefficient A
 
   label = new QLabel("Specific Heat Coefficient A: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,row++,0);
+  mainGridLayout->addWidget(label, row++, 0);
 
-  m_specificHeatCoefficientA = new OSQuantityEdit2("J/kg*K","J/kg*K","Btu/lb*R", m_isIP);
+  m_specificHeatCoefficientA = new OSQuantityEdit2("J/kg*K", "J/kg*K", "Btu/lb*R", m_isIP);
   connect(this, &WindowMaterialGasInspectorView::toggleUnitsClicked, m_specificHeatCoefficientA, &OSQuantityEdit2::onUnitSystemChange);
-  mainGridLayout->addWidget(m_specificHeatCoefficientA,row++,0,1,3);
+  mainGridLayout->addWidget(m_specificHeatCoefficientA, row++, 0, 1, 3);
 
   // Specific Heat Coefficient B
 
   label = new QLabel("Specific Heat Coefficient B: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,row++,0);
-  m_specificHeatCoefficientB = new OSQuantityEdit2("J/kg*K^2","J/kg*K^2","Btu/lb*R^2", m_isIP);
+  mainGridLayout->addWidget(label, row++, 0);
+  m_specificHeatCoefficientB = new OSQuantityEdit2("J/kg*K^2", "J/kg*K^2", "Btu/lb*R^2", m_isIP);
   connect(this, &WindowMaterialGasInspectorView::toggleUnitsClicked, m_specificHeatCoefficientB, &OSQuantityEdit2::onUnitSystemChange);
-  mainGridLayout->addWidget(m_specificHeatCoefficientB,row++,0,1,3);
+  mainGridLayout->addWidget(m_specificHeatCoefficientB, row++, 0, 1, 3);
 
   // Molecular Weight
 
   label = new QLabel("Molecular Weight: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,row++,0);
+  mainGridLayout->addWidget(label, row++, 0);
 
-  m_molecularWeight = new OSQuantityEdit2("","","", m_isIP);
+  m_molecularWeight = new OSQuantityEdit2("", "", "", m_isIP);
   connect(this, &WindowMaterialGasInspectorView::toggleUnitsClicked, m_molecularWeight, &OSQuantityEdit2::onUnitSystemChange);
-  mainGridLayout->addWidget(m_molecularWeight,row++,0,1,3);
+  mainGridLayout->addWidget(m_molecularWeight, row++, 0, 1, 3);
 
   // Stretch
 
-  mainGridLayout->setRowStretch(100,100);
+  mainGridLayout->setRowStretch(100, 100);
 
-  mainGridLayout->setColumnStretch(100,100);
+  mainGridLayout->setColumnStretch(100, 100);
 }
 
-void WindowMaterialGasInspectorView::onClearSelection()
-{
-  ModelObjectInspectorView::onClearSelection(); // call parent implementation
+void WindowMaterialGasInspectorView::onClearSelection() {
+  ModelObjectInspectorView::onClearSelection();  // call parent implementation
   detach();
 }
 
-void WindowMaterialGasInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject)
-{
+void WindowMaterialGasInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject) {
   detach();
   model::Gas gas = modelObject.cast<model::Gas>();
   attach(gas);
   refresh();
 }
 
-void WindowMaterialGasInspectorView::onUpdate()
-{
+void WindowMaterialGasInspectorView::onUpdate() {
   refresh();
 }
 
-void WindowMaterialGasInspectorView::attach(openstudio::model::Gas & gas)
-{
+void WindowMaterialGasInspectorView::attach(openstudio::model::Gas& gas) {
   m_gas = gas;
 
   // m_gasType->bind(gas,"gasType");
-  m_gasType->bind<std::string>(
-      *m_gas,
-      static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
-      &model::Gas::validGasTypes,
-      std::bind(&model::Gas::gasType, m_gas.get_ptr()),
-      std::bind(&model::Gas::setGasType, m_gas.get_ptr(), std::placeholders::_1),
-      boost::none,
-      boost::none);
+  m_gasType->bind<std::string>(*m_gas, static_cast<std::string (*)(const std::string&)>(&openstudio::toString), &model::Gas::validGasTypes,
+                               std::bind(&model::Gas::gasType, m_gas.get_ptr()),
+                               std::bind(&model::Gas::setGasType, m_gas.get_ptr(), std::placeholders::_1), boost::none, boost::none);
 
   // m_nameEdit->bind(gas,"name");
-  m_nameEdit->bind(
-    *m_gas,
-    OptionalStringGetter(std::bind(&model::Gas::name, m_gas.get_ptr(),true)),
-    boost::optional<StringSetterOptionalStringReturn>(std::bind(&model::Gas::setName, m_gas.get_ptr(),std::placeholders::_1))
-  );
-
+  m_nameEdit->bind(*m_gas, OptionalStringGetter(std::bind(&model::Gas::name, m_gas.get_ptr(), true)),
+                   boost::optional<StringSetterOptionalStringReturn>(std::bind(&model::Gas::setName, m_gas.get_ptr(), std::placeholders::_1)));
 
   // m_thickness->bind(gas,"thickness",m_isIP);
-  m_thickness->bind(
-    m_isIP,
-    *m_gas,
-    DoubleGetter(std::bind(&model::Gas::thickness, m_gas.get_ptr())),
-    boost::optional<DoubleSetter>(std::bind(static_cast<bool(model::Gas::*)(double)>(&model::Gas::setThickness), m_gas.get_ptr(), std::placeholders::_1))
-  );
+  m_thickness->bind(m_isIP, *m_gas, DoubleGetter(std::bind(&model::Gas::thickness, m_gas.get_ptr())),
+                    boost::optional<DoubleSetter>(
+                      std::bind(static_cast<bool (model::Gas::*)(double)>(&model::Gas::setThickness), m_gas.get_ptr(), std::placeholders::_1)));
 
   // m_conductivityCoefficientA->bind(gas,"conductivityCoefficientA",m_isIP);
   m_conductivityCoefficientA->bind(
-    m_isIP,
-    *m_gas,
-    OptionalDoubleGetter(std::bind(&model::Gas::conductivityCoefficientA, m_gas.get_ptr())),
-    boost::optional<DoubleSetter>(std::bind(static_cast<bool(model::Gas::*)(double)>(&model::Gas::setConductivityCoefficientA), m_gas.get_ptr(), std::placeholders::_1)),
-    boost::optional<NoFailAction>(std::bind(&model::Gas::resetConductivityCoefficientA, m_gas.get_ptr()))
-  );
+    m_isIP, *m_gas, OptionalDoubleGetter(std::bind(&model::Gas::conductivityCoefficientA, m_gas.get_ptr())),
+    boost::optional<DoubleSetter>(
+      std::bind(static_cast<bool (model::Gas::*)(double)>(&model::Gas::setConductivityCoefficientA), m_gas.get_ptr(), std::placeholders::_1)),
+    boost::optional<NoFailAction>(std::bind(&model::Gas::resetConductivityCoefficientA, m_gas.get_ptr())));
 
   // m_conductivityCoefficientB->bind(gas,"conductivityCoefficientB",m_isIP);
   m_conductivityCoefficientB->bind(
-    m_isIP,
-    *m_gas,
-    OptionalDoubleGetter(std::bind(&model::Gas::conductivityCoefficientB, m_gas.get_ptr())),
-    boost::optional<DoubleSetter>(std::bind(static_cast<bool(model::Gas::*)(double)>(&model::Gas::setConductivityCoefficientB), m_gas.get_ptr(), std::placeholders::_1)),
-    boost::optional<NoFailAction>(std::bind(&model::Gas::resetConductivityCoefficientB, m_gas.get_ptr()))
-  );
+    m_isIP, *m_gas, OptionalDoubleGetter(std::bind(&model::Gas::conductivityCoefficientB, m_gas.get_ptr())),
+    boost::optional<DoubleSetter>(
+      std::bind(static_cast<bool (model::Gas::*)(double)>(&model::Gas::setConductivityCoefficientB), m_gas.get_ptr(), std::placeholders::_1)),
+    boost::optional<NoFailAction>(std::bind(&model::Gas::resetConductivityCoefficientB, m_gas.get_ptr())));
 
   // m_viscosityCoefficientA->bind(gas,"viscosityCoefficientA",m_isIP);
   m_viscosityCoefficientA->bind(
-    m_isIP,
-    *m_gas,
-    OptionalDoubleGetter(std::bind(&model::Gas::viscosityCoefficientA, m_gas.get_ptr())),
-    boost::optional<DoubleSetter>(std::bind(static_cast<bool(model::Gas::*)(double)>(&model::Gas::setViscosityCoefficientA), m_gas.get_ptr(), std::placeholders::_1)),
-    boost::optional<NoFailAction>(std::bind(&model::Gas::resetViscosityCoefficientA, m_gas.get_ptr()))
-  );
+    m_isIP, *m_gas, OptionalDoubleGetter(std::bind(&model::Gas::viscosityCoefficientA, m_gas.get_ptr())),
+    boost::optional<DoubleSetter>(
+      std::bind(static_cast<bool (model::Gas::*)(double)>(&model::Gas::setViscosityCoefficientA), m_gas.get_ptr(), std::placeholders::_1)),
+    boost::optional<NoFailAction>(std::bind(&model::Gas::resetViscosityCoefficientA, m_gas.get_ptr())));
 
   // m_viscosityCoefficientB->bind(gas,"viscosityCoefficientB",m_isIP);
   m_viscosityCoefficientB->bind(
-    m_isIP,
-    *m_gas,
-    OptionalDoubleGetter(std::bind(&model::Gas::viscosityCoefficientB, m_gas.get_ptr())),
-    boost::optional<DoubleSetter>(std::bind(static_cast<bool(model::Gas::*)(double)>(&model::Gas::setViscosityCoefficientB), m_gas.get_ptr(), std::placeholders::_1)),
-    boost::optional<NoFailAction>(std::bind(&model::Gas::resetViscosityCoefficientB, m_gas.get_ptr()))
-  );
+    m_isIP, *m_gas, OptionalDoubleGetter(std::bind(&model::Gas::viscosityCoefficientB, m_gas.get_ptr())),
+    boost::optional<DoubleSetter>(
+      std::bind(static_cast<bool (model::Gas::*)(double)>(&model::Gas::setViscosityCoefficientB), m_gas.get_ptr(), std::placeholders::_1)),
+    boost::optional<NoFailAction>(std::bind(&model::Gas::resetViscosityCoefficientB, m_gas.get_ptr())));
 
   // m_specificHeatCoefficientA->bind(gas,"specificHeatCoefficientA",m_isIP);
   m_specificHeatCoefficientA->bind(
-    m_isIP,
-    *m_gas,
-    OptionalDoubleGetter(std::bind(&model::Gas::specificHeatCoefficientA, m_gas.get_ptr())),
-    boost::optional<DoubleSetter>(std::bind(static_cast<bool(model::Gas::*)(double)>(&model::Gas::setSpecificHeatCoefficientA), m_gas.get_ptr(), std::placeholders::_1)),
-    boost::optional<NoFailAction>(std::bind(&model::Gas::resetSpecificHeatCoefficientA, m_gas.get_ptr()))
-  );
+    m_isIP, *m_gas, OptionalDoubleGetter(std::bind(&model::Gas::specificHeatCoefficientA, m_gas.get_ptr())),
+    boost::optional<DoubleSetter>(
+      std::bind(static_cast<bool (model::Gas::*)(double)>(&model::Gas::setSpecificHeatCoefficientA), m_gas.get_ptr(), std::placeholders::_1)),
+    boost::optional<NoFailAction>(std::bind(&model::Gas::resetSpecificHeatCoefficientA, m_gas.get_ptr())));
 
   // m_specificHeatCoefficientB->bind(gas,"specificHeatCoefficientB",m_isIP);
   m_specificHeatCoefficientB->bind(
-    m_isIP,
-    *m_gas,
-    OptionalDoubleGetter(std::bind(&model::Gas::specificHeatCoefficientB, m_gas.get_ptr())),
-    boost::optional<DoubleSetter>(std::bind(static_cast<bool(model::Gas::*)(double)>(&model::Gas::setSpecificHeatCoefficientB), m_gas.get_ptr(), std::placeholders::_1)),
-    boost::optional<NoFailAction>(std::bind(&model::Gas::resetSpecificHeatCoefficientB, m_gas.get_ptr()))
-  );
+    m_isIP, *m_gas, OptionalDoubleGetter(std::bind(&model::Gas::specificHeatCoefficientB, m_gas.get_ptr())),
+    boost::optional<DoubleSetter>(
+      std::bind(static_cast<bool (model::Gas::*)(double)>(&model::Gas::setSpecificHeatCoefficientB), m_gas.get_ptr(), std::placeholders::_1)),
+    boost::optional<NoFailAction>(std::bind(&model::Gas::resetSpecificHeatCoefficientB, m_gas.get_ptr())));
 
   // m_molecularWeight->bind(gas,"molecularWeight",m_isIP);
-  m_molecularWeight->bind(
-    m_isIP,
-    *m_gas,
-    OptionalDoubleGetter(std::bind(&model::Gas::molecularWeight, m_gas.get_ptr())),
-    boost::optional<DoubleSetter>(std::bind(static_cast<bool(model::Gas::*)(double)>(&model::Gas::setMolecularWeight), m_gas.get_ptr(), std::placeholders::_1)),
-    boost::optional<NoFailAction>(std::bind(&model::Gas::resetMolecularWeight, m_gas.get_ptr()))
-  );
+  m_molecularWeight->bind(m_isIP, *m_gas, OptionalDoubleGetter(std::bind(&model::Gas::molecularWeight, m_gas.get_ptr())),
+                          boost::optional<DoubleSetter>(std::bind(static_cast<bool (model::Gas::*)(double)>(&model::Gas::setMolecularWeight),
+                                                                  m_gas.get_ptr(), std::placeholders::_1)),
+                          boost::optional<NoFailAction>(std::bind(&model::Gas::resetMolecularWeight, m_gas.get_ptr())));
 
   m_standardsInformationWidget->attach(gas);
 
   this->stackedWidget()->setCurrentIndex(1);
 }
 
-void WindowMaterialGasInspectorView::detach()
-{
+void WindowMaterialGasInspectorView::detach() {
   this->stackedWidget()->setCurrentIndex(0);
 
   m_gasType->unbind();
@@ -329,8 +294,6 @@ void WindowMaterialGasInspectorView::detach()
   m_standardsInformationWidget->detach();
 }
 
-void WindowMaterialGasInspectorView::refresh()
-{
-}
+void WindowMaterialGasInspectorView::refresh() {}
 
-} // openstudio
+}  // namespace openstudio

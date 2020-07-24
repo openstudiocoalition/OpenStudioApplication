@@ -45,29 +45,27 @@
 
 #include <openstudio/utilities/core/Assert.hpp>
 
-namespace openstudio{
+namespace openstudio {
 
-EditRubyMeasureView::EditRubyMeasureView(bool applyMeasureNow)
-  : QWidget()
-{
+EditRubyMeasureView::EditRubyMeasureView(bool applyMeasureNow) : QWidget() {
   auto layout = new QVBoxLayout();
-  layout->setContentsMargins(0,0,0,0);
+  layout->setContentsMargins(0, 0, 0, 0);
   setLayout(layout);
   auto scrollArea = new QScrollArea();
   layout->addWidget(scrollArea);
   scrollArea->setWidgetResizable(true);
 
   auto scrollWidget = new QWidget();
-  scrollWidget->setSizePolicy(QSizePolicy::Ignored,QSizePolicy::Preferred);
+  scrollWidget->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Preferred);
   scrollArea->setWidget(scrollWidget);
 
   m_mainVLayout = new QVBoxLayout();
-  m_mainVLayout->setContentsMargins(5,5,5,5);
+  m_mainVLayout->setContentsMargins(5, 5, 5, 5);
   m_mainVLayout->setSpacing(5);
   m_mainVLayout->setAlignment(Qt::AlignTop);
   scrollWidget->setLayout(m_mainVLayout);
 
-  QLabel * measureOptionTitleLabel = new QLabel("Name");
+  QLabel* measureOptionTitleLabel = new QLabel("Name");
   measureOptionTitleLabel->setObjectName("H2");
   m_mainVLayout->addWidget(measureOptionTitleLabel);
 
@@ -78,7 +76,7 @@ EditRubyMeasureView::EditRubyMeasureView(bool applyMeasureNow)
   nameLineEdit->setValidator(validator);
   m_mainVLayout->addWidget(nameLineEdit);
 
-  QLabel * descriptionTitleLabel = new QLabel("Description");
+  QLabel* descriptionTitleLabel = new QLabel("Description");
   descriptionTitleLabel->setObjectName("H2");
   m_mainVLayout->addWidget(descriptionTitleLabel);
 
@@ -89,7 +87,7 @@ EditRubyMeasureView::EditRubyMeasureView(bool applyMeasureNow)
   descriptionTextEdit->setTabChangesFocus(true);
   m_mainVLayout->addWidget(descriptionTextEdit);
 
-  QLabel * modelerDescriptionTitleLabel = new QLabel("Modeler Description");
+  QLabel* modelerDescriptionTitleLabel = new QLabel("Modeler Description");
   modelerDescriptionTitleLabel->setObjectName("H2");
   m_mainVLayout->addWidget(modelerDescriptionTitleLabel);
 
@@ -107,19 +105,19 @@ EditRubyMeasureView::EditRubyMeasureView(bool applyMeasureNow)
   line2->setFrameShadow(QFrame::Sunken);
   m_mainVLayout->addWidget(line2);
 
-  QLabel * inputsTitleLabel = new QLabel("Inputs");
+  QLabel* inputsTitleLabel = new QLabel("Inputs");
   inputsTitleLabel->setObjectName("H2");
   m_mainVLayout->addWidget(inputsTitleLabel);
 
   m_inputsVLayout = new QVBoxLayout();
-  m_inputsVLayout->setContentsMargins(0,0,0,0);
+  m_inputsVLayout->setContentsMargins(0, 0, 0, 0);
   m_inputsVLayout->setSpacing(10);
 
   m_mainVLayout->addLayout(m_inputsVLayout);
 
   m_mainVLayout->addStretch();
 
-  if(applyMeasureNow){
+  if (applyMeasureNow) {
     nameLineEdit->setReadOnly(true);
     descriptionTextEdit->setReadOnly(true);
     nameLineEdit->setDisabled(true);
@@ -127,40 +125,34 @@ EditRubyMeasureView::EditRubyMeasureView(bool applyMeasureNow)
   }
 }
 
-void EditRubyMeasureView::paintEvent(QPaintEvent *)
-{
+void EditRubyMeasureView::paintEvent(QPaintEvent*) {
   QStyleOption opt;
   opt.init(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
 
-void EditRubyMeasureView::addInputView(QWidget * widget)
-{
+void EditRubyMeasureView::addInputView(QWidget* widget) {
   m_inputsVLayout->addWidget(widget);
 }
 
-void EditRubyMeasureView::clear()
-{
- QLayoutItem * child;
+void EditRubyMeasureView::clear() {
+  QLayoutItem* child;
 
- while((child = m_inputsVLayout->takeAt(0)) != nullptr)
- {
-   QWidget * widget = child->widget();
+  while ((child = m_inputsVLayout->takeAt(0)) != nullptr) {
+    QWidget* widget = child->widget();
 
-   OS_ASSERT(widget);
+    OS_ASSERT(widget);
 
-   delete widget;
+    delete widget;
 
-   delete child;
- }
+    delete child;
+  }
 }
 
-EditNullView::EditNullView(const QString & text)
-  : QWidget()
-{
+EditNullView::EditNullView(const QString& text) : QWidget() {
   auto mainVLayout = new QVBoxLayout();
-  mainVLayout->setContentsMargins(5,5,5,5);
+  mainVLayout->setContentsMargins(5, 5, 5, 5);
   mainVLayout->setSpacing(5);
   setLayout(mainVLayout);
 
@@ -173,19 +165,16 @@ EditNullView::EditNullView(const QString & text)
   label->setStyleSheet("QLabel { font-size: 24px; font: bold; color: #6D6D6D }");
 }
 
-void EditNullView::paintEvent(QPaintEvent * event)
-{
+void EditNullView::paintEvent(QPaintEvent* event) {
   QStyleOption opt;
   opt.init(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
 
-DoubleInputView::DoubleInputView()
-  : InputView()
-{
+DoubleInputView::DoubleInputView() : InputView() {
   auto vLayout = new QVBoxLayout();
-  vLayout->setContentsMargins(0,0,0,0);
+  vLayout->setContentsMargins(0, 0, 0, 0);
   vLayout->setSpacing(5);
   setLayout(vLayout);
 
@@ -199,42 +188,34 @@ DoubleInputView::DoubleInputView()
   vLayout->addWidget(lineEdit);
 }
 
-void DoubleInputView::setName(const std::string& name, const boost::optional<std::string>& units, const boost::optional<std::string>& description)
-{
+void DoubleInputView::setName(const std::string& name, const boost::optional<std::string>& units, const boost::optional<std::string>& description) {
   QString text;
   text += QString::fromStdString(name);
-  if (units){
+  if (units) {
     text += QString::fromStdString(" (" + units.get() + ")");
   }
-  if (description){
+  if (description) {
     text += QString::fromStdString("<div style=\"font-size:small;margin-top:2px;\">" + description.get() + "</div>");
   }
 
   nameLabel->setText(text);
 }
 
-void DoubleInputView::setIncomplete(bool incomplete)
-{
-  if( incomplete )
-  {
+void DoubleInputView::setIncomplete(bool incomplete) {
+  if (incomplete) {
     nameLabel->setStyleSheet("QLabel { color: #DD0A05;}");
-  }
-  else
-  {
+  } else {
     nameLabel->setStyleSheet("QLabel { color: black;}");
   }
 }
 
-void DoubleInputView::setDisplayValue(const QVariant & value)
-{
+void DoubleInputView::setDisplayValue(const QVariant& value) {
   lineEdit->setText(value.toString());
 }
 
-ChoiceInputView::ChoiceInputView()
-  : InputView()
-{
+ChoiceInputView::ChoiceInputView() : InputView() {
   auto vLayout = new QVBoxLayout();
-  vLayout->setContentsMargins(0,0,0,0);
+  vLayout->setContentsMargins(0, 0, 0, 0);
   vLayout->setSpacing(5);
   setLayout(vLayout);
 
@@ -246,34 +227,28 @@ ChoiceInputView::ChoiceInputView()
   vLayout->addWidget(comboBox);
 }
 
-void ChoiceInputView::setName(const std::string& name, const boost::optional<std::string>& units, const boost::optional<std::string>& description)
-{
+void ChoiceInputView::setName(const std::string& name, const boost::optional<std::string>& units, const boost::optional<std::string>& description) {
   QString text;
   text += QString::fromStdString(name);
-  if (units){
+  if (units) {
     text += QString::fromStdString(" (" + units.get() + ")");
   }
-  if (description){
+  if (description) {
     text += QString::fromStdString("<div style=\"font-size:small;margin-top:2px;\">" + description.get() + "</div>");
   }
 
   nameLabel->setText(text);
 }
 
-void ChoiceInputView::setIncomplete(bool incomplete)
-{
-  if( incomplete )
-  {
+void ChoiceInputView::setIncomplete(bool incomplete) {
+  if (incomplete) {
     nameLabel->setStyleSheet("QLabel { color: #DD0A05;}");
-  }
-  else
-  {
+  } else {
     nameLabel->setStyleSheet("QLabel { color: black;}");
   }
 }
 
-void ChoiceInputView::setDisplayValue(const QVariant & value)
-{
+void ChoiceInputView::setDisplayValue(const QVariant& value) {
   comboBox->blockSignals(true);
 
   comboBox->setCurrentIndex(comboBox->findText(value.toString()));
@@ -281,11 +256,9 @@ void ChoiceInputView::setDisplayValue(const QVariant & value)
   comboBox->blockSignals(false);
 }
 
-BoolInputView::BoolInputView()
-  : InputView()
-{
+BoolInputView::BoolInputView() : InputView() {
   auto vLayout = new QVBoxLayout();
-  vLayout->setContentsMargins(0,0,0,0);
+  vLayout->setContentsMargins(0, 0, 0, 0);
   vLayout->setSpacing(5);
   setLayout(vLayout);
 
@@ -293,35 +266,30 @@ BoolInputView::BoolInputView()
   vLayout->addWidget(checkBox);
 }
 
-void BoolInputView::setName(const std::string& name, const boost::optional<std::string>& units, const boost::optional<std::string>& description)
-{
+void BoolInputView::setName(const std::string& name, const boost::optional<std::string>& units, const boost::optional<std::string>& description) {
   QString text;
   text += QString::fromStdString(name);
-  if (units){
+  if (units) {
     text += QString::fromStdString(" (" + units.get() + ")");
   }
-  if (description){
+  if (description) {
     text += QString::fromStdString("<div style=\"font-size:small;margin-top:2px;\">" + description.get() + "</div>");
   }
 
   checkBox->setText(text);
 }
 
-void BoolInputView::setIncomplete(bool incomplete)
-{
+void BoolInputView::setIncomplete(bool incomplete) {
   checkBox->setIncomplete(incomplete);
 }
 
-void BoolInputView::setDisplayValue(const QVariant & value)
-{
+void BoolInputView::setDisplayValue(const QVariant& value) {
   checkBox->setChecked(value.toBool());
 }
 
-IntegerInputView::IntegerInputView()
-  : InputView()
-{
+IntegerInputView::IntegerInputView() : InputView() {
   auto vLayout = new QVBoxLayout();
-  vLayout->setContentsMargins(0,0,0,0);
+  vLayout->setContentsMargins(0, 0, 0, 0);
   vLayout->setSpacing(5);
   setLayout(vLayout);
 
@@ -334,42 +302,34 @@ IntegerInputView::IntegerInputView()
   vLayout->addWidget(lineEdit);
 }
 
-void IntegerInputView::setName(const std::string& name, const boost::optional<std::string>& units, const boost::optional<std::string>& description)
-{
+void IntegerInputView::setName(const std::string& name, const boost::optional<std::string>& units, const boost::optional<std::string>& description) {
   QString text;
   text += QString::fromStdString(name);
-  if (units){
+  if (units) {
     text += QString::fromStdString(" (" + units.get() + ")");
   }
-  if (description){
+  if (description) {
     text += QString::fromStdString("<div style=\"font-size:small;margin-top:2px;\">" + description.get() + "</div>");
   }
 
   nameLabel->setText(text);
 }
 
-void IntegerInputView::setIncomplete(bool incomplete)
-{
-  if( incomplete )
-  {
+void IntegerInputView::setIncomplete(bool incomplete) {
+  if (incomplete) {
     nameLabel->setStyleSheet("QLabel { color: #DD0A05;}");
-  }
-  else
-  {
+  } else {
     nameLabel->setStyleSheet("QLabel { color: black;}");
   }
 }
 
-void IntegerInputView::setDisplayValue(const QVariant & value)
-{
+void IntegerInputView::setDisplayValue(const QVariant& value) {
   lineEdit->setText(value.toString());
 }
 
-StringInputView::StringInputView()
-  : InputView()
-{
+StringInputView::StringInputView() : InputView() {
   auto vLayout = new QVBoxLayout();
-  vLayout->setContentsMargins(0,0,0,0);
+  vLayout->setContentsMargins(0, 0, 0, 0);
   vLayout->setSpacing(5);
   setLayout(vLayout);
 
@@ -381,52 +341,43 @@ StringInputView::StringInputView()
   vLayout->addWidget(lineEdit);
 }
 
-void StringInputView::setName(const std::string& name, const boost::optional<std::string>& units, const boost::optional<std::string>& description)
-{
+void StringInputView::setName(const std::string& name, const boost::optional<std::string>& units, const boost::optional<std::string>& description) {
   QString text;
   text += QString::fromStdString(name);
-  if (units){
+  if (units) {
     text += QString::fromStdString(" (" + units.get() + ")");
   }
-  if (description){
+  if (description) {
     text += QString::fromStdString("<div style=\"font-size:small;margin-top:2px;\">" + description.get() + "</div>");
   }
 
   nameLabel->setText(text);
 }
 
-void StringInputView::setIncomplete(bool incomplete)
-{
-  if( incomplete )
-  {
+void StringInputView::setIncomplete(bool incomplete) {
+  if (incomplete) {
     nameLabel->setStyleSheet("QLabel { color: #DD0A05;}");
-  }
-  else
-  {
+  } else {
     nameLabel->setStyleSheet("QLabel { color: black;}");
   }
 }
 
-void StringInputView::setDisplayValue(const QVariant & value)
-{
+void StringInputView::setDisplayValue(const QVariant& value) {
   lineEdit->setText(value.toString());
 }
 
-void InputComboBox::wheelEvent(QWheelEvent * e)
-{
+void InputComboBox::wheelEvent(QWheelEvent* e) {
   e->ignore();
 }
 
-InputCheckBox::InputCheckBox()
-  : QAbstractButton()
-{
+InputCheckBox::InputCheckBox() : QAbstractButton() {
   setCheckable(true);
 
   auto mainHLayout = new QHBoxLayout();
   QStyleOptionButton opt;
-  QRect checkRect = style()->subElementRect(QStyle::SE_CheckBoxIndicator,&opt);
+  QRect checkRect = style()->subElementRect(QStyle::SE_CheckBoxIndicator, &opt);
   int spacing = 5;
-  mainHLayout->setContentsMargins(checkRect.width() + spacing,0,0,0);
+  mainHLayout->setContentsMargins(checkRect.width() + spacing, 0, 0, 0);
   mainHLayout->setSpacing(spacing);
   setLayout(mainHLayout);
 
@@ -434,46 +385,36 @@ InputCheckBox::InputCheckBox()
   m_label->setWordWrap(true);
   mainHLayout->addWidget(m_label);
 
-  setSizePolicy(QSizePolicy::Preferred,QSizePolicy::Fixed);
+  setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
 }
 
-InputCheckBox::~InputCheckBox()
-{
-}
+InputCheckBox::~InputCheckBox() {}
 
-void InputCheckBox::setText(const QString & text)
-{
+void InputCheckBox::setText(const QString& text) {
   m_label->setText(text);
 
   QAbstractButton::setText(text);
 }
 
-void InputCheckBox::paintEvent(QPaintEvent * event)
-{
+void InputCheckBox::paintEvent(QPaintEvent* event) {
   QStyleOptionButton opt;
   opt.init(this);
   QPainter p(this);
   QPalette palette;
 
-  if( isChecked() )
-  {
+  if (isChecked()) {
     opt.state |= QStyle::State_On;
   }
 
-  style()->drawControl(QStyle::CE_CheckBox,&opt,&p,this);
+  style()->drawControl(QStyle::CE_CheckBox, &opt, &p, this);
 }
 
-void InputCheckBox::setIncomplete(bool incomplete)
-{
-  if( incomplete )
-  {
+void InputCheckBox::setIncomplete(bool incomplete) {
+  if (incomplete) {
     m_label->setStyleSheet("QLabel { color: #DD0A05;}");
-  }
-  else
-  {
+  } else {
     m_label->setStyleSheet("QLabel { color: black;}");
   }
 }
 
-
-} // openstudio
+}  // namespace openstudio

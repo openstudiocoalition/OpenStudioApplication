@@ -32,31 +32,31 @@
 
 #include <QListWidget>
 
-namespace modeleditor
-{
+namespace modeleditor {
 
 class ListWidget : public QListWidget
 {
   Q_OBJECT
 
-public:
-  ListWidget(QWidget * parent = nullptr);
+ public:
+  ListWidget(QWidget* parent = nullptr);
   virtual ~ListWidget();
 
-  static const QString& getMimeType(){return mMimeType;}
+  static const QString& getMimeType() {
+    return mMimeType;
+  }
 
-public slots:
+ public slots:
 
-signals:
+ signals:
 
-protected:
-  virtual QMimeData * mimeData(const QList<QListWidgetItem *> items) const override;
+ protected:
+  virtual QMimeData* mimeData(const QList<QListWidgetItem*> items) const override;
 
-private:
+ private:
   static QString mMimeType;
-
 };
 
-} // namespace modeleditor
+}  // namespace modeleditor
 
-#endif // MODELEDITOR_LISTWIDGET_HPP
+#endif  // MODELEDITOR_LISTWIDGET_HPP

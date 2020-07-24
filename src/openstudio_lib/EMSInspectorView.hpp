@@ -41,29 +41,30 @@ namespace model {
 
 class ModelObject;
 
-} // model
+}  // namespace model
 
 class EMSInspectorView : public QWidget
 {
   Q_OBJECT;
 
-  public:
-
-  enum class Type { SENSOR, ACTUATOR };
+ public:
+  enum class Type
+  {
+    SENSOR,
+    ACTUATOR
+  };
 
   EMSInspectorView(QWidget* parent = nullptr, EMSInspectorView::Type type = Type::ACTUATOR);
   virtual ~EMSInspectorView() {}
 
-  void layoutModelObject( const model::ModelObject & modelObject );
+  void layoutModelObject(const model::ModelObject& modelObject);
 
-  private:
-
-  QVBoxLayout * m_layout;
+ private:
+  QVBoxLayout* m_layout;
   Type m_type;
-  QScrollArea * m_scrollArea;
+  QScrollArea* m_scrollArea;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_EMSINSPECTORVIEW_HPP
-
+#endif  // OPENSTUDIO_EMSINSPECTORVIEW_HPP

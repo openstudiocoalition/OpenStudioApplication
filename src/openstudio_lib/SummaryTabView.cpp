@@ -35,10 +35,7 @@
 
 namespace openstudio {
 
-SummaryTabView::SummaryTabView(const model::Model & model,
-                               QWidget * parent)
-                               : MainTabView("Building Summary", MainTabView::MAIN_TAB, parent)
-{
+SummaryTabView::SummaryTabView(const model::Model& model, QWidget* parent) : MainTabView("Building Summary", MainTabView::MAIN_TAB, parent) {
   // Hack code to remove when tab active
   auto underConstructionLabel = new QLabel();
   underConstructionLabel->setPixmap(QPixmap(":/images/coming_soon_building_summary.png"));
@@ -47,4 +44,4 @@ SummaryTabView::SummaryTabView(const model::Model & model,
   OS_ASSERT(success);
 }
 
-} // openstudio
+}  // namespace openstudio

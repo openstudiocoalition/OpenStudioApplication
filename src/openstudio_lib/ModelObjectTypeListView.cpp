@@ -42,32 +42,25 @@
 
 namespace openstudio {
 
-ModelObjectTypeListView::ModelObjectTypeListView(const model::Model& model,
-                                                 bool addScrollArea,
-                                                 OSItemType headerType,
-                                                 bool showLocalBCL,
-                                                 QWidget * parent )
-  : OSCollapsibleItemList(addScrollArea, parent), m_model(model), m_headerType(headerType), m_showLocalBCL(showLocalBCL)
-{
-}
+ModelObjectTypeListView::ModelObjectTypeListView(const model::Model& model, bool addScrollArea, OSItemType headerType, bool showLocalBCL,
+                                                 QWidget* parent)
+  : OSCollapsibleItemList(addScrollArea, parent), m_model(model), m_headerType(headerType), m_showLocalBCL(showLocalBCL) {}
 
-ModelObjectTypeListView::ModelObjectTypeListView(const std::vector<std::pair<IddObjectType, std::string> >& modelObjectTypesAndNames,
-                                                 const model::Model& model, bool addScrollArea,
-                                                 OSItemType headerType, bool showLocalBCL, QWidget * parent )
+ModelObjectTypeListView::ModelObjectTypeListView(const std::vector<std::pair<IddObjectType, std::string>>& modelObjectTypesAndNames,
+                                                 const model::Model& model, bool addScrollArea, OSItemType headerType, bool showLocalBCL,
+                                                 QWidget* parent)
   : OSCollapsibleItemList(addScrollArea, parent),
     m_modelObjectTypesAndNames(modelObjectTypesAndNames),
-    m_model(model), m_headerType(headerType), m_showLocalBCL(showLocalBCL)
-{
-  for(auto modelObjectTypeAndName = m_modelObjectTypesAndNames.rbegin();
-      modelObjectTypeAndName != m_modelObjectTypesAndNames.rend();
-      ++modelObjectTypeAndName)
-  {
+    m_model(model),
+    m_headerType(headerType),
+    m_showLocalBCL(showLocalBCL) {
+  for (auto modelObjectTypeAndName = m_modelObjectTypesAndNames.rbegin(); modelObjectTypeAndName != m_modelObjectTypesAndNames.rend();
+       ++modelObjectTypeAndName) {
     addModelObjectType(modelObjectTypeAndName->first, modelObjectTypeAndName->second);
   }
 }
 
-void ModelObjectTypeListView::addModelObjectType(const IddObjectType& iddObjectType, const std::string& name)
-{
+void ModelObjectTypeListView::addModelObjectType(const IddObjectType& iddObjectType, const std::string& name) {
   OSCollapsibleItemHeader* collapsibleItemHeader = new OSCollapsibleItemHeader(name, OSItemId("", "", false), m_headerType);
   auto modelObjectListView = new ModelObjectListView(iddObjectType, m_model, false, m_showLocalBCL);
   auto modelObjectTypeItem = new ModelObjectTypeItem(collapsibleItemHeader, modelObjectListView);
@@ -75,22 +68,20 @@ void ModelObjectTypeListView::addModelObjectType(const IddObjectType& iddObjectT
   addCollapsibleItem(modelObjectTypeItem);
 }
 
-IddObjectType ModelObjectTypeListView::currentIddObjectType() const
-{
+IddObjectType ModelObjectTypeListView::currentIddObjectType() const {
   OSCollapsibleItem* selectedCollapsibleItem = this->selectedCollapsibleItem();
   ModelObjectTypeItem* modelObjectTypeItem = qobject_cast<ModelObjectTypeItem*>(selectedCollapsibleItem);
   OS_ASSERT(modelObjectTypeItem);
   return modelObjectTypeItem->iddObjectType();
 }
 
-boost::optional<openstudio::model::ModelObject> ModelObjectTypeListView::selectedModelObject() const
-{
+boost::optional<openstudio::model::ModelObject> ModelObjectTypeListView::selectedModelObject() const {
   OSItem* selectedItem = this->selectedItem();
   ModelObjectItem* modelObjectItem = qobject_cast<ModelObjectItem*>(selectedItem);
-  if (modelObjectItem){
+  if (modelObjectItem) {
     return modelObjectItem->modelObject();
   }
   return boost::none;
 }
 
-} // openstudio
+}  // namespace openstudio

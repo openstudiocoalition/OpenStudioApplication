@@ -32,53 +32,45 @@
 using namespace openstudio::model;
 using namespace openstudio;
 
-namespace modeleditor
-{
+namespace modeleditor {
 
-TableWidget::TableWidget(QWidget *parent)
-  : QTableWidget(parent)
-{
-}
+TableWidget::TableWidget(QWidget* parent) : QTableWidget(parent) {}
 
-TableWidget::~TableWidget()
-{
-}
+TableWidget::~TableWidget() {}
 
-void TableWidget::populateTable(const openstudio::WorkspaceObject& obj)
-{
+void TableWidget::populateTable(const openstudio::WorkspaceObject& obj) {
   clear();
-  setCurrentCell(0,0);
+  setCurrentCell(0, 0);
   setRowCount(1);
 
   openstudio::IddObject iddObj = obj.iddObject();
-  for(unsigned i=0; i<obj.numFields(); ++i){
+  for (unsigned i = 0; i < obj.numFields(); ++i) {
     bool defaultText = false;
     OptionalString val = obj.getString(i);
-    if(!val){
+    if (!val) {
       defaultText = true;
       val = obj.getString(i, true);
       // if still no value it is just blank
-      if (!val){
+      if (!val) {
         val = "";
       }
     }
     // setItem causes QTableWIdget to take ownership of newItem
-    QTableWidgetItem * newItem = new QTableWidgetItem((*val).c_str());
-    if(defaultText){
+    QTableWidgetItem* newItem = new QTableWidgetItem((*val).c_str());
+    if (defaultText) {
       newItem->setTextColor(Qt::gray);
     }
-    setItem(rowCount()-1, 1, newItem);
+    setItem(rowCount() - 1, 1, newItem);
 
     openstudio::OptionalIddField iddField = iddObj.getField(i);
-    if(!iddField){
+    if (!iddField) {
       // log error
-    }
-    else{
+    } else {
       *val = iddField->name();
     }
     // setItem causes QTableWIdget to take ownership of newItem
     newItem = new QTableWidgetItem((*val).c_str());
-    setItem(rowCount()-1, 0, newItem);
+    setItem(rowCount() - 1, 0, newItem);
 
     setRowCount(rowCount() + 1);
   }
@@ -87,4 +79,4 @@ void TableWidget::populateTable(const openstudio::WorkspaceObject& obj)
   resizeRowsToContents();
 }
 
-} // namespace modeleditor
+}  // namespace modeleditor

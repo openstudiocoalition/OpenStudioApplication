@@ -42,21 +42,26 @@
 #include <iostream>
 #include <thread>
 
-using std::ios_base;
-using openstudio::toPath;
 using openstudio::Application;
 using openstudio::System;
+using openstudio::toPath;
+using std::ios_base;
 
-struct TestPathWatcher : public PathWatcher{
+struct TestPathWatcher : public PathWatcher
+{
 
   // set periodic timer to 1 ms
-  TestPathWatcher(const openstudio::path& path)
-    : PathWatcher(path, 1), added(false), changed(false), removed(false)
-  {}
+  TestPathWatcher(const openstudio::path& path) : PathWatcher(path, 1), added(false), changed(false), removed(false) {}
 
-  virtual void onPathAdded() override { added = true; }
-  virtual void onPathChanged() override { changed = true; }
-  virtual void onPathRemoved() override { removed = true; }
+  virtual void onPathAdded() override {
+    added = true;
+  }
+  virtual void onPathChanged() override {
+    changed = true;
+  }
+  virtual void onPathRemoved() override {
+    removed = true;
+  }
 
   bool added;
   bool changed;
@@ -64,23 +69,19 @@ struct TestPathWatcher : public PathWatcher{
 };
 
 // writes seem to have to occur in another thread for watcher to detect them
-void write_file(const openstudio::path& path, const std::string& contents)
-{
+void write_file(const openstudio::path& path, const std::string& contents) {
   openstudio::filesystem::ofstream outFile(path, ios_base::out | ios_base::trunc);
-  ASSERT_TRUE(outFile?true:false);
+  ASSERT_TRUE(outFile ? true : false);
   outFile << contents;
   outFile.close();
 };
 
 // removes seem to have to occur in another thread for watcher to detect them
-void remove_file(const openstudio::path& path)
-{
+void remove_file(const openstudio::path& path) {
   openstudio::filesystem::remove(path);
 }
 
-
-TEST_F(ModelEditorFixture, PathWatcher_File)
-{
+TEST_F(ModelEditorFixture, PathWatcher_File) {
   Application::instance().application(false);
 
   openstudio::path path = toPath("./PathWatcher_File");
@@ -121,15 +122,14 @@ TEST_F(ModelEditorFixture, PathWatcher_File)
   EXPECT_TRUE(watcher.removed);
 }
 
-TEST_F(ModelEditorFixture, PathWatcher_Dir)
-{
+TEST_F(ModelEditorFixture, PathWatcher_Dir) {
   Application::instance().application(false);
 
   openstudio::path path = toPath("./");
   ASSERT_TRUE(openstudio::filesystem::exists(path));
 
   openstudio::path filePath = toPath("./PathWatcher_Dir");
-  if (openstudio::filesystem::exists(filePath)){
+  if (openstudio::filesystem::exists(filePath)) {
     openstudio::filesystem::remove(filePath);
   }
   ASSERT_FALSE(openstudio::filesystem::exists(filePath));

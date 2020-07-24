@@ -48,48 +48,41 @@ class OSItem;
 class OSItemId;
 class ModelObjectInspectorView;
 
-
 class ModelSubTabView : public SubTabView
 {
   Q_OBJECT
 
-  public:
+ public:
+  ModelSubTabView(OSItemSelector* itemSelector, ModelObjectInspectorView* modelObjectInspectorView, bool showGridViewLayout = false,
+                  QWidget* parent = nullptr);
 
-    ModelSubTabView(OSItemSelector* itemSelector,
-               ModelObjectInspectorView* modelObjectInspectorView,
-               bool showGridViewLayout = false,
-               QWidget* parent = nullptr);
+  virtual ~ModelSubTabView() {}
 
-    virtual ~ModelSubTabView() {}
+  ModelObjectInspectorView* modelObjectInspectorView();
 
-    ModelObjectInspectorView* modelObjectInspectorView();
+ signals:
 
-  signals:
+  void modelObjectSelected(model::OptionalModelObject& modelObject, bool readOnly);
 
-    void modelObjectSelected(model::OptionalModelObject & modelObject, bool readOnly);
+  void dropZoneItemSelected(OSItem* item, bool readOnly);
 
-    void dropZoneItemSelected(OSItem* item, bool readOnly);
+  void dropZoneItemClicked(OSItem* item);
 
-    void dropZoneItemClicked(OSItem* item);
+  void toggleUnitsClicked(bool displayIP);
 
-    void toggleUnitsClicked(bool displayIP);
+ protected:
+  bool m_isIP;
 
-  protected:
+ protected slots:
 
-    bool m_isIP;
+  virtual void onDropZoneItemClicked(OSItem* item) override;
 
-  protected slots:
+  //void onItemSelected(); Evan: Dead slot
 
-    virtual void onDropZoneItemClicked(OSItem* item) override;
-
-    //void onItemSelected(); Evan: Dead slot
-
-  private:
-
-    ModelObjectInspectorView* m_modelObjectInspectorView;
+ private:
+  ModelObjectInspectorView* m_modelObjectInspectorView;
 };
 
+}  // namespace openstudio
 
-} // openstudio
-
-#endif // OPENSTUDIO_MODELSUBTABVIEW_HPP
+#endif  // OPENSTUDIO_MODELSUBTABVIEW_HPP

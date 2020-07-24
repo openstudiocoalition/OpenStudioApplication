@@ -40,7 +40,7 @@
 class QPushButton;
 class QLabel;
 
-namespace openstudio{
+namespace openstudio {
 
 class MeasureBadge;
 class OSViewSwitcher;
@@ -49,86 +49,78 @@ class LocalLibraryView : public QWidget
 {
   Q_OBJECT
 
-  public:
-
-  LocalLibraryView(QWidget * parent = nullptr);
+ public:
+  LocalLibraryView(QWidget* parent = nullptr);
 
   virtual ~LocalLibraryView() {}
 
-  OSViewSwitcher * mainViewSwitcher;
+  OSViewSwitcher* mainViewSwitcher;
 
-  QPushButton * duplicateMeasureButton;
+  QPushButton* duplicateMeasureButton;
 
-  QPushButton * addMeasureButton;
+  QPushButton* addMeasureButton;
 
-  QPushButton * myMeasuresFolderButton;
+  QPushButton* myMeasuresFolderButton;
 
-  QPushButton * addBCLMeasureButton;
+  QPushButton* addBCLMeasureButton;
 };
 
 class LibraryGroupItemHeader : public LightGradientHeader
 {
   Q_OBJECT
 
-  public:
-
+ public:
   LibraryGroupItemHeader();
 
   virtual ~LibraryGroupItemHeader() {}
 
-  public slots:
+ public slots:
 
   void setCount(int count);
 
-  private:
-
-  QLabel * countLabel;
+ private:
+  QLabel* countLabel;
 };
 
 class LibrarySubGroupItemHeader : public LightHeader
 {
   Q_OBJECT
 
-  public:
-
+ public:
   LibrarySubGroupItemHeader();
 
   virtual ~LibrarySubGroupItemHeader() {}
 
-  public slots:
+ public slots:
 
   void setCount(int count);
 
-  private:
-
-  QLabel * countLabel;
+ private:
+  QLabel* countLabel;
 };
 
 class LibraryItemView : public OSDragableView
 {
   Q_OBJECT
 
-  public:
-
-  LibraryItemView(QWidget * parent = nullptr);
+ public:
+  LibraryItemView(QWidget* parent = nullptr);
 
   virtual ~LibraryItemView() {}
 
-  QLabel * label;
-  QLabel * m_measureTypeBadge;
-  MeasureBadge * m_measureBadge;
-  QLabel * errorLabel;
+  QLabel* label;
+  QLabel* m_measureTypeBadge;
+  MeasureBadge* m_measureBadge;
+  QLabel* errorLabel;
 
-  public slots:
+ public slots:
 
   void setHasEmphasis(bool hasEmphasis);
 
-  protected:
-
-  void paintEvent(QPaintEvent *) override;
+ protected:
+  void paintEvent(QPaintEvent*) override;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // SHAREDGUICOMPONENTS_LOCALLIBRARYVIEW_HPP
-
+#endif  // SHAREDGUICOMPONENTS_LOCALLIBRARYVIEW_HPP

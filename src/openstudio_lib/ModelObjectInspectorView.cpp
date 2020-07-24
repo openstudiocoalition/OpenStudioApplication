@@ -59,15 +59,12 @@
 
 namespace openstudio {
 
-ModelObjectInspectorView::ModelObjectInspectorView(const openstudio::model::Model& model, bool addScrollArea, QWidget * parent)
-  : OSInspectorView(addScrollArea, parent),
-    m_model(model)
-{
+ModelObjectInspectorView::ModelObjectInspectorView(const openstudio::model::Model& model, bool addScrollArea, QWidget* parent)
+  : OSInspectorView(addScrollArea, parent), m_model(model) {
   connect(this, &ModelObjectInspectorView::toggleUnitsClicked, this, &ModelObjectInspectorView::toggleUnits);
 }
 
-void ModelObjectInspectorView::update()
-{
+void ModelObjectInspectorView::update() {
   /** Nano Signal onChange originally modified a slot directly inside
    *  QWidget called update(). This is fine, except for when we need
    *  to automatically disconnect. Now this nano signal calls this slot,
@@ -78,54 +75,48 @@ void ModelObjectInspectorView::update()
   //emit onChange();
 }
 
-void ModelObjectInspectorView::selectModelObject(const openstudio::model::ModelObject& modelObject)
-{
-  if (m_modelObject){
-    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.disconnect<ModelObjectInspectorView, &ModelObjectInspectorView::update>(this);
+void ModelObjectInspectorView::selectModelObject(const openstudio::model::ModelObject& modelObject) {
+  if (m_modelObject) {
+    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
+      .get()
+      ->onChange.disconnect<ModelObjectInspectorView, &ModelObjectInspectorView::update>(this);
   }
 
   m_modelObject = modelObject;
 
-  m_modelObject->getImpl<model::detail::ModelObject_Impl>().get()->onChange.connect<ModelObjectInspectorView, &ModelObjectInspectorView::update>(this);
+  m_modelObject->getImpl<model::detail::ModelObject_Impl>().get()->onChange.connect<ModelObjectInspectorView, &ModelObjectInspectorView::update>(
+    this);
 
   onSelectModelObject(*m_modelObject);
 }
 
-void ModelObjectInspectorView::onClearSelection()
-{
-  if (m_modelObject){
-    m_modelObject->getImpl<model::detail::ModelObject_Impl>().get()->onChange.disconnect<ModelObjectInspectorView, &ModelObjectInspectorView::update>(this);
+void ModelObjectInspectorView::onClearSelection() {
+  if (m_modelObject) {
+    m_modelObject->getImpl<model::detail::ModelObject_Impl>().get()->onChange.disconnect<ModelObjectInspectorView, &ModelObjectInspectorView::update>(
+      this);
   }
 
   m_modelObject.reset();
 }
 
-void ModelObjectInspectorView::onSelectItem(OSItem *item)
-{
+void ModelObjectInspectorView::onSelectItem(OSItem* item) {
   ModelObjectItem* modelObjectItem = qobject_cast<ModelObjectItem*>(item);
   OS_ASSERT(modelObjectItem);
   selectModelObject(modelObjectItem->modelObject());
 }
 
-std::vector<model::ModelObject> ModelObjectInspectorView::selectedObjects() const
-{
+std::vector<model::ModelObject> ModelObjectInspectorView::selectedObjects() const {
   // Default implementation. The tabs with grid views need to do their own thing here
   return std::vector<model::ModelObject>();
 }
 
-boost::optional<openstudio::model::ModelObject> ModelObjectInspectorView::modelObject() const
-{
+boost::optional<openstudio::model::ModelObject> ModelObjectInspectorView::modelObject() const {
   return m_modelObject;
 }
 
-void ModelObjectInspectorView::toggleUnits(bool displayIP)
-{
-}
+void ModelObjectInspectorView::toggleUnits(bool displayIP) {}
 
-DefaultInspectorView::DefaultInspectorView(const model::Model& model,
-                                           QWidget * parent )
-  : ModelObjectInspectorView(model, true, parent)
-{
+DefaultInspectorView::DefaultInspectorView(const model::Model& model, QWidget* parent) : ModelObjectInspectorView(model, true, parent) {
   auto hiddenWidget = new QWidget();
   this->stackedWidget()->insertWidget(0, hiddenWidget);
 
@@ -135,7 +126,7 @@ DefaultInspectorView::DefaultInspectorView(const model::Model& model,
   this->stackedWidget()->setCurrentIndex(0);
 
   auto mainVLayout = new QVBoxLayout();
-  mainVLayout->setContentsMargins(7,7,7,7);
+  mainVLayout->setContentsMargins(7, 7, 7, 7);
   mainVLayout->setSpacing(7);
 
   auto underConstructionLabel = new QLabel();
@@ -160,14 +151,12 @@ DefaultInspectorView::DefaultInspectorView(const model::Model& model,
   mainVLayout->addWidget(m_mainLabel);
 }
 
-void DefaultInspectorView::onClearSelection()
-{
-  ModelObjectInspectorView::onClearSelection(); // call parent implementation
+void DefaultInspectorView::onClearSelection() {
+  ModelObjectInspectorView::onClearSelection();  // call parent implementation
   this->stackedWidget()->setCurrentIndex(0);
 }
 
-void DefaultInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject)
-{
+void DefaultInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject) {
   std::stringstream ss;
   ss << modelObject;
   m_mainLabel->setText(toQString(ss.str()));
@@ -175,8 +164,7 @@ void DefaultInspectorView::onSelectModelObject(const openstudio::model::ModelObj
   this->stackedWidget()->setCurrentIndex(1);
 }
 
-void DefaultInspectorView::onUpdate()
-{
+void DefaultInspectorView::onUpdate() {
   boost::optional<openstudio::model::ModelObject> modelObject = this->modelObject();
   OS_ASSERT(modelObject);
 
@@ -185,4 +173,4 @@ void DefaultInspectorView::onUpdate()
   m_mainLabel->setText(toQString(ss.str()));
 }
 
-} // openstudio
+}  // namespace openstudio

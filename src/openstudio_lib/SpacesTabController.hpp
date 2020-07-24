@@ -34,19 +34,18 @@
 
 namespace openstudio {
 
-  class SpacesTabController : public MainTabController
+class SpacesTabController : public MainTabController
 {
   Q_OBJECT
 
-  public:
+ public:
+  SpacesTabController(bool isIP, const model::Model& model);
 
-    SpacesTabController(bool isIP, const model::Model & model);
-
-    virtual ~SpacesTabController();
+  virtual ~SpacesTabController();
 
   enum TabID
   {
-    SPACES, // "Properties"
+    SPACES,  // "Properties"
     LOADS,
     SURFACES,
     SUBSURFACES,
@@ -55,26 +54,24 @@ namespace openstudio {
     DAYLIGHTING
   };
 
-private:
-
+ private:
   model::Model m_model;
 
   bool m_isIP;
 
-  QWidget * m_currentView = nullptr;
+  QWidget* m_currentView = nullptr;
 
   int m_currentIndex = -1;
 
-public slots:
+ public slots:
 
   virtual void setSubTab(int index) override;
 
-private slots:
+ private slots:
 
   void toggleUnits(bool displayIP);
-
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_SPACESTABCONTROLLER_HPP
+#endif  // OPENSTUDIO_SPACESTABCONTROLLER_HPP

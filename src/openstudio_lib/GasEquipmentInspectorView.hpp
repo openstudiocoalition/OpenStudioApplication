@@ -45,54 +45,51 @@ class GasEquipmentDefinitionInspectorView : public ModelObjectInspectorView
 {
   Q_OBJECT
 
-  public:
+ public:
+  GasEquipmentDefinitionInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
+  virtual ~GasEquipmentDefinitionInspectorView() {}
 
-    GasEquipmentDefinitionInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent = nullptr );
-    virtual ~GasEquipmentDefinitionInspectorView() {}
+ signals:
 
-  signals:
+ protected:
+  virtual void onClearSelection() override;
 
-  protected:
+  virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
-    virtual void onClearSelection() override;
+  virtual void onUpdate() override;
 
-    virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
+ private:
+  void attach(openstudio::model::GasEquipmentDefinition& gasEquipmentDefinition);
 
-    virtual void onUpdate() override;
+  void detach();
 
-  private:
+  void refresh();
 
-    void attach(openstudio::model::GasEquipmentDefinition & gasEquipmentDefinition);
+  OSLineEdit2* m_nameEdit;
 
-    void detach();
+  OSQuantityEdit2* m_designLevelEdit;
 
-    void refresh();
+  OSQuantityEdit2* m_wattsPerSpaceFloorAreaEdit;
 
-    OSLineEdit2 * m_nameEdit;
+  OSQuantityEdit2* m_wattsPerPersonEdit;
 
-    OSQuantityEdit2 * m_designLevelEdit;
+  OSQuantityEdit2* m_fractionLatentEdit;
 
-    OSQuantityEdit2 * m_wattsPerSpaceFloorAreaEdit;
+  OSQuantityEdit2* m_fractionRadiantEdit;
 
-    OSQuantityEdit2 * m_wattsPerPersonEdit;
+  OSQuantityEdit2* m_fractionLostEdit;
 
-    OSQuantityEdit2 * m_fractionLatentEdit;
+  OSQuantityEdit2* m_carbonDioxideGenerationRateEdit;
 
-    OSQuantityEdit2 * m_fractionRadiantEdit;
+  bool m_isIP;
 
-    OSQuantityEdit2 * m_fractionLostEdit;
+  boost::optional<model::GasEquipmentDefinition> m_gasEquipmentDefinition;
 
-    OSQuantityEdit2 * m_carbonDioxideGenerationRateEdit;
+ public slots:
 
-    bool m_isIP;
-
-    boost::optional<model::GasEquipmentDefinition> m_gasEquipmentDefinition;
-
-  public slots:
-
-    void toggleUnits(bool displayIP) override;
+  void toggleUnits(bool displayIP) override;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_GASEQUIPMENTINSPECTORVIEW_HPP
+#endif  // OPENSTUDIO_GASEQUIPMENTINSPECTORVIEW_HPP

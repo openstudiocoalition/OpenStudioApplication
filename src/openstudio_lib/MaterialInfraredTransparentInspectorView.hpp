@@ -45,40 +45,36 @@ class MaterialInfraredTransparentInspectorView : public ModelObjectInspectorView
 {
   Q_OBJECT
 
-  public:
+ public:
+  MaterialInfraredTransparentInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
-    MaterialInfraredTransparentInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent = nullptr);
+  virtual ~MaterialInfraredTransparentInspectorView() {}
 
-    virtual ~MaterialInfraredTransparentInspectorView() {}
+ protected:
+  virtual void onClearSelection() override;
 
-  protected:
+  virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
-    virtual void onClearSelection() override;
+  virtual void onUpdate() override;
 
-    virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
+ private:
+  void createLayout();
 
-    virtual void onUpdate() override;
+  void attach(openstudio::model::InfraredTransparentMaterial& InfraredTransparentMaterial);
 
-  private:
+  void detach();
 
-    void createLayout();
+  void refresh();
 
-    void attach(openstudio::model::InfraredTransparentMaterial & InfraredTransparentMaterial);
+  bool m_isIP;
 
-    void detach();
+  boost::optional<model::InfraredTransparentMaterial> m_infraredTransparentMaterial;
 
-    void refresh();
+  OSLineEdit2* m_nameEdit = nullptr;
 
-    bool m_isIP;
-
-    boost::optional<model::InfraredTransparentMaterial> m_infraredTransparentMaterial;
-
-    OSLineEdit2 * m_nameEdit = nullptr;
-
-    StandardsInformationMaterialWidget * m_standardsInformationWidget = nullptr;
-
+  StandardsInformationMaterialWidget* m_standardsInformationWidget = nullptr;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_MATERIALINFRAREDTRANSPARENTINSPECTORVIEW_HPP
+#endif  // OPENSTUDIO_MATERIALINFRAREDTRANSPARENTINSPECTORVIEW_HPP

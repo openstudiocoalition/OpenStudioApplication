@@ -41,34 +41,31 @@ class GeometryTabController : public MainTabController
 {
   Q_OBJECT
 
-  public:
+ public:
+  GeometryTabController(bool isIP, const openstudio::model::Model& model);
 
-    GeometryTabController(bool isIP, const openstudio::model::Model& model);
+  virtual ~GeometryTabController();
 
-    virtual ~GeometryTabController();
+  enum TabID
+  {
+    VIEW,
+    EDITOR
+  };
 
-    enum TabID
-    {
-      VIEW,
-      EDITOR
-    };
+ private:
+  model::Model m_model;
 
-  private:
+  bool m_isIP;
 
-    model::Model m_model;
+  QObject* m_currentController = nullptr;
 
-    bool m_isIP;
+  int m_currentIndex = -1;
 
-    QObject * m_currentController = nullptr;
+ public slots:
 
-    int m_currentIndex = -1;
-
-  public slots:
-
-    virtual void setSubTab(int index) override;
-
+  virtual void setSubTab(int index) override;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_GEOMETRYTABCONTROLLER_HPP
+#endif  // OPENSTUDIO_GEOMETRYTABCONTROLLER_HPP

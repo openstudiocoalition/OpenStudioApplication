@@ -40,26 +40,21 @@ class RadianceDialog : public OSDialog
 {
   Q_OBJECT
 
-public:
-
-  RadianceDialog(bool isIP,
-                 QWidget * radianceInspector,
-                 QWidget * parent = nullptr);
+ public:
+  RadianceDialog(bool isIP, QWidget* radianceInspector, QWidget* parent = nullptr);
 
   virtual ~RadianceDialog() {}
 
-private:
-
+ private:
   virtual void createLayout() override;
 
-  QWidget * m_radianceInspector;
+  QWidget* m_radianceInspector;
 
-protected slots:
+ protected slots:
 
   void toggleUnits(bool displayIP) override;
-
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_RADIANCEDIALOG_HPP
+#endif  // OPENSTUDIO_RADIANCEDIALOG_HPP

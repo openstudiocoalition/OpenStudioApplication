@@ -47,15 +47,12 @@ namespace openstudio {
 
 // MaterialAirWallInspectorView
 
-MaterialAirWallInspectorView::MaterialAirWallInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent)
-  : ModelObjectInspectorView(model, true, parent),
-  m_isIP(isIP)
-{
+MaterialAirWallInspectorView::MaterialAirWallInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent)
+  : ModelObjectInspectorView(model, true, parent), m_isIP(isIP) {
   createLayout();
 }
 
-void MaterialAirWallInspectorView::createLayout()
-{
+void MaterialAirWallInspectorView::createLayout() {
   auto hiddenWidget = new QWidget();
   this->stackedWidget()->addWidget(hiddenWidget);
 
@@ -69,7 +66,7 @@ void MaterialAirWallInspectorView::createLayout()
 
   int row = mainGridLayout->rowCount();
 
-  QLabel * label = nullptr;
+  QLabel* label = nullptr;
 
   // Name
 
@@ -92,48 +89,41 @@ void MaterialAirWallInspectorView::createLayout()
 
   // Stretch
 
-  mainGridLayout->setRowStretch(100,100);
+  mainGridLayout->setRowStretch(100, 100);
 
-  mainGridLayout->setColumnStretch(100,100);
+  mainGridLayout->setColumnStretch(100, 100);
 }
 
-void MaterialAirWallInspectorView::onClearSelection()
-{
-  ModelObjectInspectorView::onClearSelection(); // call parent implementation
+void MaterialAirWallInspectorView::onClearSelection() {
+  ModelObjectInspectorView::onClearSelection();  // call parent implementation
   detach();
 }
 
-void MaterialAirWallInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject)
-{
+void MaterialAirWallInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject) {
   detach();
   model::AirWallMaterial airWallMaterial = modelObject.cast<model::AirWallMaterial>();
   attach(airWallMaterial);
   refresh();
 }
 
-void MaterialAirWallInspectorView::onUpdate()
-{
+void MaterialAirWallInspectorView::onUpdate() {
   refresh();
 }
 
-void MaterialAirWallInspectorView::attach(openstudio::model::AirWallMaterial & airWallMaterial)
-{
+void MaterialAirWallInspectorView::attach(openstudio::model::AirWallMaterial& airWallMaterial) {
   m_airWallMaterial = airWallMaterial;
 
   // m_nameEdit->bind(airWallMaterial,"name");
-  m_nameEdit->bind(
-    *m_airWallMaterial,
-    OptionalStringGetter(std::bind(&model::AirWallMaterial::name, m_airWallMaterial.get_ptr(),true)),
-    boost::optional<StringSetterOptionalStringReturn>(std::bind(&model::AirWallMaterial::setName, m_airWallMaterial.get_ptr(),std::placeholders::_1))
-  );
+  m_nameEdit->bind(*m_airWallMaterial, OptionalStringGetter(std::bind(&model::AirWallMaterial::name, m_airWallMaterial.get_ptr(), true)),
+                   boost::optional<StringSetterOptionalStringReturn>(
+                     std::bind(&model::AirWallMaterial::setName, m_airWallMaterial.get_ptr(), std::placeholders::_1)));
 
   m_standardsInformationWidget->attach(airWallMaterial);
 
   this->stackedWidget()->setCurrentIndex(1);
 }
 
-void MaterialAirWallInspectorView::detach()
-{
+void MaterialAirWallInspectorView::detach() {
   this->stackedWidget()->setCurrentIndex(0);
 
   m_nameEdit->unbind();
@@ -143,8 +133,6 @@ void MaterialAirWallInspectorView::detach()
   m_standardsInformationWidget->detach();
 }
 
-void MaterialAirWallInspectorView::refresh()
-{
-}
+void MaterialAirWallInspectorView::refresh() {}
 
-} // openstudio
+}  // namespace openstudio

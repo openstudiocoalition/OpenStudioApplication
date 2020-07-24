@@ -32,7 +32,7 @@
 
 #include "FieldMethodTypedefs.hpp"
 
-#include <openstudio/nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/nano/nano_signal_slot.hpp>  // Signal-Slot replacement
 #include <openstudio/model/ModelObject.hpp>
 #include <openstudio/model/ModelExtensibleGroup.hpp>
 
@@ -48,79 +48,55 @@ namespace openstudio {
 
 /** Should only be used for dimensionless real fields. Real fields with units should use
  *  OSQuantityEdit. */
-class OSDoubleEdit2: public QLineEdit, public Nano::Observer {
+class OSDoubleEdit2 : public QLineEdit, public Nano::Observer
+{
   Q_OBJECT
  public:
-
-  OSDoubleEdit2(QWidget * parent = nullptr);
+  OSDoubleEdit2(QWidget* parent = nullptr);
 
   virtual ~OSDoubleEdit2();
 
-  void enableClickFocus() { this->m_hasClickFocus = true; }
+  void enableClickFocus() {
+    this->m_hasClickFocus = true;
+  }
 
-  bool hasData() { return !this->text().isEmpty(); }
+  bool hasData() {
+    return !this->text().isEmpty();
+  }
 
-  QDoubleValidator * doubleValidator() { return m_doubleValidator; }
+  QDoubleValidator* doubleValidator() {
+    return m_doubleValidator;
+  }
 
-  void bind(model::ModelObject& modelObject,
-            DoubleGetter get,
-            boost::optional<DoubleSetter> set=boost::none,
-            boost::optional<NoFailAction> reset=boost::none,
-            boost::optional<NoFailAction> autosize=boost::none,
-            boost::optional<NoFailAction> autocalculate=boost::none,
-            boost::optional<BasicQuery> isDefaulted=boost::none,
-            boost::optional<BasicQuery> isAutosized=boost::none,
-            boost::optional<BasicQuery> isAutocalculated=boost::none);
+  void bind(model::ModelObject& modelObject, DoubleGetter get, boost::optional<DoubleSetter> set = boost::none,
+            boost::optional<NoFailAction> reset = boost::none, boost::optional<NoFailAction> autosize = boost::none,
+            boost::optional<NoFailAction> autocalculate = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none,
+            boost::optional<BasicQuery> isAutosized = boost::none, boost::optional<BasicQuery> isAutocalculated = boost::none);
 
-  void bind(model::ModelObject& modelObject,
-            OptionalDoubleGetter get,
-            boost::optional<DoubleSetter> set=boost::none,
-            boost::optional<NoFailAction> reset=boost::none,
-            boost::optional<NoFailAction> autosize=boost::none,
-            boost::optional<NoFailAction> autocalculate=boost::none,
-            boost::optional<BasicQuery> isDefaulted=boost::none,
-            boost::optional<BasicQuery> isAutosized=boost::none,
-            boost::optional<BasicQuery> isAutocalculated=boost::none);
+  void bind(model::ModelObject& modelObject, OptionalDoubleGetter get, boost::optional<DoubleSetter> set = boost::none,
+            boost::optional<NoFailAction> reset = boost::none, boost::optional<NoFailAction> autosize = boost::none,
+            boost::optional<NoFailAction> autocalculate = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none,
+            boost::optional<BasicQuery> isAutosized = boost::none, boost::optional<BasicQuery> isAutocalculated = boost::none);
 
-  void bind(model::ModelObject& modelObject,
-            DoubleGetter get,
-            DoubleSetterVoidReturn set,
-            boost::optional<NoFailAction> reset=boost::none,
-            boost::optional<NoFailAction> autosize=boost::none,
-            boost::optional<NoFailAction> autocalculate=boost::none,
-            boost::optional<BasicQuery> isDefaulted=boost::none,
-            boost::optional<BasicQuery> isAutosized=boost::none,
-            boost::optional<BasicQuery> isAutocalculated=boost::none);
+  void bind(model::ModelObject& modelObject, DoubleGetter get, DoubleSetterVoidReturn set, boost::optional<NoFailAction> reset = boost::none,
+            boost::optional<NoFailAction> autosize = boost::none, boost::optional<NoFailAction> autocalculate = boost::none,
+            boost::optional<BasicQuery> isDefaulted = boost::none, boost::optional<BasicQuery> isAutosized = boost::none,
+            boost::optional<BasicQuery> isAutocalculated = boost::none);
 
-  void bind(model::ModelObject& modelObject,
-            OptionalDoubleGetter get,
-            DoubleSetterVoidReturn set,
-            boost::optional<NoFailAction> reset=boost::none,
-            boost::optional<NoFailAction> autosize=boost::none,
-            boost::optional<NoFailAction> autocalculate=boost::none,
-            boost::optional<BasicQuery> isDefaulted=boost::none,
-            boost::optional<BasicQuery> isAutosized=boost::none,
-            boost::optional<BasicQuery> isAutocalculated=boost::none);
+  void bind(model::ModelObject& modelObject, OptionalDoubleGetter get, DoubleSetterVoidReturn set, boost::optional<NoFailAction> reset = boost::none,
+            boost::optional<NoFailAction> autosize = boost::none, boost::optional<NoFailAction> autocalculate = boost::none,
+            boost::optional<BasicQuery> isDefaulted = boost::none, boost::optional<BasicQuery> isAutosized = boost::none,
+            boost::optional<BasicQuery> isAutocalculated = boost::none);
 
-  void bind(model::ModelExtensibleGroup& modelExtensibleGroup,
-            DoubleGetter get,
-            boost::optional<DoubleSetter> set=boost::none,
-            boost::optional<NoFailAction> reset=boost::none,
-            boost::optional<NoFailAction> autosize=boost::none,
-            boost::optional<NoFailAction> autocalculate=boost::none,
-            boost::optional<BasicQuery> isDefaulted=boost::none,
-            boost::optional<BasicQuery> isAutosized=boost::none,
-            boost::optional<BasicQuery> isAutocalculated=boost::none);
+  void bind(model::ModelExtensibleGroup& modelExtensibleGroup, DoubleGetter get, boost::optional<DoubleSetter> set = boost::none,
+            boost::optional<NoFailAction> reset = boost::none, boost::optional<NoFailAction> autosize = boost::none,
+            boost::optional<NoFailAction> autocalculate = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none,
+            boost::optional<BasicQuery> isAutosized = boost::none, boost::optional<BasicQuery> isAutocalculated = boost::none);
 
-  void bind(model::ModelExtensibleGroup& modelExtensibleGroup,
-            OptionalDoubleGetter get,
-            boost::optional<DoubleSetter> set=boost::none,
-            boost::optional<NoFailAction> reset=boost::none,
-            boost::optional<NoFailAction> autosize=boost::none,
-            boost::optional<NoFailAction> autocalculate=boost::none,
-            boost::optional<BasicQuery> isDefaulted=boost::none,
-            boost::optional<BasicQuery> isAutosized=boost::none,
-            boost::optional<BasicQuery> isAutocalculated=boost::none);
+  void bind(model::ModelExtensibleGroup& modelExtensibleGroup, OptionalDoubleGetter get, boost::optional<DoubleSetter> set = boost::none,
+            boost::optional<NoFailAction> reset = boost::none, boost::optional<NoFailAction> autosize = boost::none,
+            boost::optional<NoFailAction> autocalculate = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none,
+            boost::optional<BasicQuery> isAutosized = boost::none, boost::optional<BasicQuery> isAutocalculated = boost::none);
 
   void unbind();
 
@@ -129,10 +105,9 @@ class OSDoubleEdit2: public QLineEdit, public Nano::Observer {
   void inFocus(bool inFocus, bool hasData);
 
  protected:
+  virtual void focusInEvent(QFocusEvent* e) override;
 
-  virtual void focusInEvent(QFocusEvent * e) override;
-
-  virtual void focusOutEvent(QFocusEvent * e) override;
+  virtual void focusOutEvent(QFocusEvent* e) override;
 
  private slots:
 
@@ -143,8 +118,8 @@ class OSDoubleEdit2: public QLineEdit, public Nano::Observer {
   void onModelObjectRemove(const Handle& handle);
 
  private:
-  boost::optional<model::ModelObject> m_modelObject; // will be set if attached to ModelObject or ModelExtensibleGroup
-  boost::optional<model::ModelExtensibleGroup> m_modelExtensibleGroup; // will only be set if attached to ModelExtensibleGroup
+  boost::optional<model::ModelObject> m_modelObject;                    // will be set if attached to ModelObject or ModelExtensibleGroup
+  boost::optional<model::ModelExtensibleGroup> m_modelExtensibleGroup;  // will only be set if attached to ModelExtensibleGroup
   boost::optional<DoubleGetter> m_get;
   boost::optional<OptionalDoubleGetter> m_getOptional;
   boost::optional<DoubleSetter> m_set;
@@ -160,7 +135,7 @@ class OSDoubleEdit2: public QLineEdit, public Nano::Observer {
   bool m_hasClickFocus = false;
   boost::optional<int> m_precision;
   QString m_text = "UNINITIALIZED";
-  QDoubleValidator * m_doubleValidator;
+  QDoubleValidator* m_doubleValidator;
 
   void refreshTextAndLabel();
 
@@ -218,6 +193,6 @@ class OSDoubleEdit2: public QLineEdit, public Nano::Observer {
 //   REGISTER_LOGGER("openstudio.OSDoubleEdit");
 // };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // SHAREDGUICOMPONENTS_OSDOUBLEEDIT_HPP
+#endif  // SHAREDGUICOMPONENTS_OSDOUBLEEDIT_HPP

@@ -45,17 +45,14 @@
 
 namespace openstudio {
 
-ScriptFolderListView::ScriptFolderListView(const openstudio::path &folder,
-                                           bool addScrollArea,
-                                           bool draggable,
-                                           bool removeable,
-                                           OSItemType headerType,
-                                           QWidget * parent)
-  : OSCollapsibleItemList(addScrollArea, parent), m_rootPath(folder), m_headerType(headerType),
+ScriptFolderListView::ScriptFolderListView(const openstudio::path& folder, bool addScrollArea, bool draggable, bool removeable, OSItemType headerType,
+                                           QWidget* parent)
+  : OSCollapsibleItemList(addScrollArea, parent),
+    m_rootPath(folder),
+    m_headerType(headerType),
     m_draggable(draggable),
     m_removeable(removeable),
-    m_fswatcher(std::make_shared<QFileSystemWatcher>())
-{
+    m_fswatcher(std::make_shared<QFileSystemWatcher>()) {
   setItemsDraggable(draggable);
   setItemsRemoveable(removeable);
   addScriptFolder(openstudio::toPath("post_energyplus"), "Post EnergyPlus Scripts");
@@ -68,55 +65,47 @@ ScriptFolderListView::ScriptFolderListView(const openstudio::path &folder,
   connect(m_fswatcher.get(), &QFileSystemWatcher::fileChanged, this, &ScriptFolderListView::scriptListChanged);
 }
 
-ScriptFolderListView::~ScriptFolderListView()
-{
-  if (m_fswatcher){
+ScriptFolderListView::~ScriptFolderListView() {
+  if (m_fswatcher) {
     m_fswatcher->removePaths(m_fswatcher->files());
   }
 }
 
-
-void ScriptFolderListView::addScriptFolder(const openstudio::path &folder, const std::string& name) {
-  OSCollapsibleItemHeader* collapsibleItemHeader = new OSCollapsibleItemHeader(name, OSItemId("", "", false,""), m_headerType);
+void ScriptFolderListView::addScriptFolder(const openstudio::path& folder, const std::string& name) {
+  OSCollapsibleItemHeader* collapsibleItemHeader = new OSCollapsibleItemHeader(name, OSItemId("", "", false, ""), m_headerType);
   ScriptsListView* scriptsListView = new ScriptsListView(m_rootPath / folder, false, m_draggable, m_removeable, m_fswatcher);
   auto folderTypeItem = new OSCollapsibleItem(collapsibleItemHeader, scriptsListView);
 
-  LOG(Debug, "Adding scriptslistview: " << openstudio::toString(m_rootPath/folder));
+  LOG(Debug, "Adding scriptslistview: " << openstudio::toString(m_rootPath / folder));
   m_displayNames[m_rootPath / folder] = name;
   m_scriptsListViews[m_rootPath / folder] = scriptsListView;
 
   addCollapsibleItem(folderTypeItem);
 }
 
-void ScriptFolderListView::addScriptToFolder(const openstudio::path &t_path, const openstudio::path& folder_name)
-{
+void ScriptFolderListView::addScriptToFolder(const openstudio::path& t_path, const openstudio::path& folder_name) {
   openstudio::path folder = m_rootPath / folder_name;
   openstudio::filesystem::create_directories(folder);
   openstudio::path filename = folder / t_path.filename();
   filename = iterateFileName(filename);
   openstudio::filesystem::copy_file(t_path, filename, openstudio::filesystem::copy_option::overwrite_if_exists);
 
-
-  ScriptsListView *lv = m_scriptsListViews[folder];
-  if (lv)
-  {
+  ScriptsListView* lv = m_scriptsListViews[folder];
+  if (lv) {
     lv->updateData();
   }
 }
 
-void ScriptFolderListView::removeScript(const openstudio::path &t_path)
-{
+void ScriptFolderListView::removeScript(const openstudio::path& t_path) {
   openstudio::filesystem::remove(t_path);
 }
 
-void ScriptFolderListView::duplicateScript(const openstudio::path &t_path)
-{
+void ScriptFolderListView::duplicateScript(const openstudio::path& t_path) {
   openstudio::path filename = iterateFileName(t_path);
   openstudio::filesystem::copy_file(t_path, filename, openstudio::filesystem::copy_option::overwrite_if_exists);
 }
 
-void ScriptFolderListView::createEmptyScript(const openstudio::path &t_folder_name)
-{
+void ScriptFolderListView::createEmptyScript(const openstudio::path& t_folder_name) {
   openstudio::path filename = iterateFileName(m_rootPath / t_folder_name / openstudio::toPath("99_UserScript.rb"));
 
   // Scope for creating and closing file.
@@ -126,9 +115,8 @@ void ScriptFolderListView::createEmptyScript(const openstudio::path &t_folder_na
     ofs << "# Empty Script" << std::endl;
   }
 
-  ScriptsListView *lv = m_scriptsListViews[m_rootPath / t_folder_name];
-  if (lv)
-  {
+  ScriptsListView* lv = m_scriptsListViews[m_rootPath / t_folder_name];
+  if (lv) {
     lv->updateData();
   }
 }
@@ -150,16 +138,10 @@ std::vector<openstudio::path> ScriptFolderListView::folders() const {
 openstudio::path ScriptFolderListView::selectedFolder() const {
   OSCollapsibleItem* selectedCollapsibleItem = this->selectedCollapsibleItem();
 
-  if (selectedCollapsibleItem)
-  {
-    for (auto itr = m_scriptsListViews.begin();
-      itr != m_scriptsListViews.end();
-      ++itr)
-    {
-      if (itr->second)
-      {
-        if (itr->second == selectedCollapsibleItem->itemList())
-        {
+  if (selectedCollapsibleItem) {
+    for (auto itr = m_scriptsListViews.begin(); itr != m_scriptsListViews.end(); ++itr) {
+      if (itr->second) {
+        if (itr->second == selectedCollapsibleItem->itemList()) {
           return itr->first.filename();
         }
       }
@@ -178,12 +160,10 @@ std::string ScriptFolderListView::folderName(const openstudio::path& folder) con
 }
 
 void ScriptFolderListView::saveOSArguments() {
-  for (std::map<openstudio::path, ScriptsListView *>::const_iterator lit = m_scriptsListViews.begin(),
-       litEnd = m_scriptsListViews.end(); lit != litEnd; ++lit)
-  {
-    std::vector<OSItem *> listItems = lit->second->items();
-    for (auto & listItem : listItems)
-    {
+  for (std::map<openstudio::path, ScriptsListView*>::const_iterator lit = m_scriptsListViews.begin(), litEnd = m_scriptsListViews.end();
+       lit != litEnd; ++lit) {
+    std::vector<OSItem*> listItems = lit->second->items();
+    for (auto& listItem : listItems) {
       ScriptItem* scriptItem = qobject_cast<ScriptItem*>(listItem);
       if (scriptItem) {
         scriptItem->saveArgumentsToDb();
@@ -192,9 +172,7 @@ void ScriptFolderListView::saveOSArguments() {
   }
 }
 
-std::vector<measure::OSMeasureInfo> ScriptFolderListView::folderUserScripts(
-    const openstudio::path& folder) const
-{
+std::vector<measure::OSMeasureInfo> ScriptFolderListView::folderUserScripts(const openstudio::path& folder) const {
   auto it = m_scriptsListViews.find(folder);
   if (it == m_scriptsListViews.end()) {
     it = m_scriptsListViews.find(m_rootPath / folder);
@@ -203,26 +181,18 @@ std::vector<measure::OSMeasureInfo> ScriptFolderListView::folderUserScripts(
   return it->second->userScripts();
 }
 
-std::shared_ptr<QFileSystemWatcher> ScriptFolderListView::fsWatcher() const
-{
+std::shared_ptr<QFileSystemWatcher> ScriptFolderListView::fsWatcher() const {
   return m_fswatcher;
 }
 
-openstudio::path ScriptFolderListView::iterateFileName(const openstudio::path &t_path)
-{
+openstudio::path ScriptFolderListView::iterateFileName(const openstudio::path& t_path) {
   struct BuildFileName
   {
-    static openstudio::path doit(const openstudio::path &t_root,
-        const std::string &t_stem,
-        const std::string &t_extension,
-        int iteration)
-    {
+    static openstudio::path doit(const openstudio::path& t_root, const std::string& t_stem, const std::string& t_extension, int iteration) {
       std::stringstream numportion;
-      if (iteration > 0)
-      {
+      if (iteration > 0) {
         numportion << "-";
-        if (iteration < 10)
-        {
+        if (iteration < 10) {
           numportion << "0";
         }
         numportion << iteration;
@@ -233,31 +203,24 @@ openstudio::path ScriptFolderListView::iterateFileName(const openstudio::path &t
 
   std::string stem = openstudio::toString(t_path.stem());
 
-  if (boost::regex_match(openstudio::toString(stem), boost::regex(".*-[0-9][0-9]")))
-  {
+  if (boost::regex_match(openstudio::toString(stem), boost::regex(".*-[0-9][0-9]"))) {
     stem = stem.substr(0, stem.size() - 3);
   }
 
   int num = 99;
   openstudio::path p;
   openstudio::path last;
-  do
-  {
+  do {
     last = p;
     p = BuildFileName::doit(t_path.parent_path(), openstudio::toString(stem), openstudio::toString(t_path.extension()), num);
     --num;
   } while (!openstudio::filesystem::exists(p) && num > -1);
 
-  if (!openstudio::filesystem::exists(p))
-  {
+  if (!openstudio::filesystem::exists(p)) {
     return p;
   } else {
     return last;
   }
-
-
 }
 
-
-
-} // openstudio
+}  // namespace openstudio

@@ -38,7 +38,7 @@
 
 #include <QWidget>
 
-namespace openstudio{
+namespace openstudio {
 
 class DesignDayGridController;
 
@@ -46,18 +46,16 @@ class DesignDayGridView : public QWidget
 {
   Q_OBJECT
 
-public:
-
-  DesignDayGridView(bool isIP, const model::Model & model, QWidget * parent = 0);
+ public:
+  DesignDayGridView(bool isIP, const model::Model& model, QWidget* parent = 0);
 
   virtual ~DesignDayGridView() {}
 
-  DesignDayGridController * m_gridController = nullptr;
+  DesignDayGridController* m_gridController = nullptr;
 
   std::vector<model::ModelObject> selectedObjects() const;
 
-private:
-
+ private:
   void addObject(const model::ModelObject& modelObject);
 
   void copyObject(const openstudio::model::ModelObject& modelObject);
@@ -68,13 +66,13 @@ private:
 
   bool m_isIP;
 
-signals:
+ signals:
 
   void toggleUnitsClicked(bool displayIP);
 
   void dropZoneItemClicked(OSItem* item);
 
-public slots:
+ public slots:
 
   void onAddClicked();
 
@@ -83,7 +81,6 @@ public slots:
   void onRemoveClicked();
 
   void onPurgeClicked();
-
 };
 
 class DesignDayGridController : public OSGridController
@@ -91,36 +88,30 @@ class DesignDayGridController : public OSGridController
 
   Q_OBJECT
 
-public:
-
-  DesignDayGridController(bool isIP,
-    const QString & headerText,
-    IddObjectType iddObjectType,
-    model::Model model,
-    std::vector<model::ModelObject> modelObjects);
+ public:
+  DesignDayGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model model,
+                          std::vector<model::ModelObject> modelObjects);
 
   virtual ~DesignDayGridController() {}
 
   virtual void refreshModelObjects();
 
-protected:
-
+ protected:
   virtual void setCategoriesAndFields();
 
-  virtual void addColumns(const QString &t_category, std::vector<QString> & fields);
+  virtual void addColumns(const QString& t_category, std::vector<QString>& fields);
 
   virtual void checkSelectedFields();
 
-  virtual QString getColor(const model::ModelObject & modelObject);
+  virtual QString getColor(const model::ModelObject& modelObject);
 
-public slots:
+ public slots:
 
   virtual void onItemDropped(const OSItemId& itemId);
 
   virtual void onComboBoxIndexChanged(int index);
-
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_DESIGNDAYGRIDVIEW_HPP
+#endif  // OPENSTUDIO_DESIGNDAYGRIDVIEW_HPP

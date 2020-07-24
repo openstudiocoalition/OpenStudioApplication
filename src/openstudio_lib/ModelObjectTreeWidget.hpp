@@ -31,7 +31,7 @@
 #define OPENSTUDIO_MODELOBJECTTREEWIDGET_HPP
 
 #include "OSItemSelector.hpp"
-#include <openstudio/nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/nano/nano_signal_slot.hpp>  // Signal-Slot replacement
 
 #include <openstudio/model/Model.hpp>
 #include "../model_editor/QMetaTypes.hpp"
@@ -46,43 +46,44 @@ class ModelObjectTreeWidget : public OSItemSelector, public Nano::Observer
 {
   Q_OBJECT
 
-  public:
+ public:
+  ModelObjectTreeWidget(const model::Model& model, QWidget* parent = nullptr);
 
-    ModelObjectTreeWidget(const model::Model& model, QWidget * parent = nullptr);
+  virtual ~ModelObjectTreeWidget() {}
 
-    virtual ~ModelObjectTreeWidget() {}
+  virtual OSItem* selectedItem() const override;
 
-    virtual OSItem* selectedItem() const override;
+  QTreeWidget* treeWidget() const;
 
-    QTreeWidget* treeWidget() const;
+  QVBoxLayout* vLayout() const;
 
-    QVBoxLayout* vLayout() const;
+  openstudio::model::Model model() const;
 
-    openstudio::model::Model model() const;
+ protected:
+  virtual void onObjectAdded(const openstudio::model::ModelObject& modelObject, const openstudio::IddObjectType& iddObjectType,
+                             const openstudio::UUID& handle) = 0;
 
-  protected:
+  virtual void onObjectRemoved(const openstudio::model::ModelObject& modelObject, const openstudio::IddObjectType& iddObjectType,
+                               const openstudio::UUID& handle) = 0;
 
-    virtual void onObjectAdded(const openstudio::model::ModelObject& modelObject, const openstudio::IddObjectType& iddObjectType, const openstudio::UUID& handle) = 0;
+  void refresh();
 
-    virtual void onObjectRemoved(const openstudio::model::ModelObject& modelObject, const openstudio::IddObjectType& iddObjectType, const openstudio::UUID& handle) = 0;
+ private slots:
 
-    void refresh();
+  void objectAdded(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl, const openstudio::IddObjectType& iddObjectType,
+                   const openstudio::UUID& handle);
 
-  private slots:
+  void objectRemoved(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl, const openstudio::IddObjectType& iddObjectType,
+                     const openstudio::UUID& handle);
 
-    void objectAdded(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl, const openstudio::IddObjectType& iddObjectType, const openstudio::UUID& handle);
+ private:
+  QTreeWidget* m_treeWidget;
 
-    void objectRemoved(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl, const openstudio::IddObjectType& iddObjectType, const openstudio::UUID& handle);
+  QVBoxLayout* m_vLayout;
 
-  private:
-
-    QTreeWidget* m_treeWidget;
-
-    QVBoxLayout* m_vLayout;
-
-    openstudio::model::Model m_model;
+  openstudio::model::Model m_model;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_MODELOBJECTTREEWIDGET_HPP
+#endif  // OPENSTUDIO_MODELOBJECTTREEWIDGET_HPP

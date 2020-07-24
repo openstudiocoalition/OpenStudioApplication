@@ -54,7 +54,7 @@
 //#include "../analysisdriver/SimpleProject.hpp"
 
 namespace openstudio {
-  /*
+/*
 void getRadiancePreRunWarningsAndErrors(std::vector<std::string> &t_warnings,
     std::vector<std::string> &t_errors,
     openstudio::runmanager::RunManager &t_runManager,
@@ -245,4 +245,4 @@ void addRadianceToProject(openstudio::analysisdriver::SimpleProject &t_project)
 
 }
 */
-}
+}  // namespace openstudio

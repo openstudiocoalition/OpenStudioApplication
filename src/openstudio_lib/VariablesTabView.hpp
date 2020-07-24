@@ -34,7 +34,7 @@
 #include "../model_editor/QMetaTypes.hpp"
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/OutputVariable.hpp>
-#include <openstudio/nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/nano/nano_signal_slot.hpp>  // Signal-Slot replacement
 #include <boost/optional.hpp>
 
 class QComboBox;
@@ -42,83 +42,79 @@ class QPushButton;
 class QVBoxLayout;
 
 namespace openstudio {
-  class OSSwitch2;
-  class OSComboBox2;
+class OSSwitch2;
+class OSComboBox2;
 
-  class VariableListItem : public QWidget, public Nano::Observer
-  {
-    Q_OBJECT;
+class VariableListItem : public QWidget, public Nano::Observer
+{
+  Q_OBJECT;
 
-    public:
-      VariableListItem(const std::string &t_name,
-          const std::string& t_keyValue,
-          const boost::optional<openstudio::model::OutputVariable> &t_variable,
-          const openstudio::model::Model &t_model);
+ public:
+  VariableListItem(const std::string& t_name, const std::string& t_keyValue, const boost::optional<openstudio::model::OutputVariable>& t_variable,
+                   const openstudio::model::Model& t_model);
 
-      virtual ~VariableListItem() { }
+  virtual ~VariableListItem() {}
 
-    public slots:
-      void setVariableEnabled(bool);
+ public slots:
+  void setVariableEnabled(bool);
 
-    private slots:
-      void onOffClicked(bool);
-      void indexChanged(const QString &t_frequency);
+ private slots:
+  void onOffClicked(bool);
+  void indexChanged(const QString& t_frequency);
 
-    private:
-      REGISTER_LOGGER("openstudio.VariableListItem");
+ private:
+  REGISTER_LOGGER("openstudio.VariableListItem");
 
-      std::string m_name;
-      std::string m_keyValue;
-      boost::optional<openstudio::model::OutputVariable> m_variable;
-      openstudio::model::Model m_model;
+  std::string m_name;
+  std::string m_keyValue;
+  boost::optional<openstudio::model::OutputVariable> m_variable;
+  openstudio::model::Model m_model;
 
-      OSComboBox2 *m_combobox;
-      OSSwitch2 *m_onOffButton;
-  };
+  OSComboBox2* m_combobox;
+  OSSwitch2* m_onOffButton;
+};
 
-  class VariablesList : public QWidget, public Nano::Observer
-  {
-    Q_OBJECT;
+class VariablesList : public QWidget, public Nano::Observer
+{
+  Q_OBJECT;
 
-    public:
-      VariablesList(openstudio::model::Model t_model);
-      virtual ~VariablesList();
+ public:
+  VariablesList(openstudio::model::Model t_model);
+  virtual ~VariablesList();
 
-    private slots:
-      void onAdded(const WorkspaceObject&, const openstudio::IddObjectType&, const openstudio::UUID&);
-      void onRemoved(const WorkspaceObject&, const openstudio::IddObjectType&, const openstudio::UUID&);
+ private slots:
+  void onAdded(const WorkspaceObject&, const openstudio::IddObjectType&, const openstudio::UUID&);
+  void onRemoved(const WorkspaceObject&, const openstudio::IddObjectType&, const openstudio::UUID&);
 
-      void allOnClicked();
-      void allOffClicked();
+  void allOnClicked();
+  void allOffClicked();
 
-      void enableAll(bool);
-      void updateVariableList();
+  void enableAll(bool);
+  void updateVariableList();
 
-    private:
-      REGISTER_LOGGER("openstudio.VariablesList");
-      openstudio::model::Model m_model;
-      QPushButton *m_allOnBtn;
-      QPushButton *m_allOffBtn;
-      QVBoxLayout *m_listLayout;
-      bool m_dirty;
-      std::vector<VariableListItem *> m_variables;
-  };
+ private:
+  REGISTER_LOGGER("openstudio.VariablesList");
+  openstudio::model::Model m_model;
+  QPushButton* m_allOnBtn;
+  QPushButton* m_allOffBtn;
+  QVBoxLayout* m_listLayout;
+  bool m_dirty;
+  std::vector<VariableListItem*> m_variables;
+};
 
+class VariablesTabView : public MainTabView
+{
+  Q_OBJECT;
 
-  class VariablesTabView : public MainTabView
-  {
-    Q_OBJECT;
+ public:
+  VariablesTabView(openstudio::model::Model t_model, QWidget* parent = nullptr);
 
-    public:
+  virtual ~VariablesTabView() {}
 
-      VariablesTabView(openstudio::model::Model t_model, QWidget * parent = nullptr);
+ private:
+  REGISTER_LOGGER("openstudio.VariablesTabView");
+};
 
-      virtual ~VariablesTabView() {}
+}  // namespace openstudio
 
-    private:
-      REGISTER_LOGGER("openstudio.VariablesTabView");
-  };
-
-} // openstudio
-
-#endif // OPENSTUDIO_VARIABLESTABVIEW_HPP
+#endif  // OPENSTUDIO_VARIABLESTABVIEW_HPP

@@ -46,42 +46,38 @@ class WindowMaterialDaylightRedirectionDeviceInspectorView : public ModelObjectI
 {
   Q_OBJECT
 
-  public:
+ public:
+  WindowMaterialDaylightRedirectionDeviceInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
-    WindowMaterialDaylightRedirectionDeviceInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent = nullptr);
+  virtual ~WindowMaterialDaylightRedirectionDeviceInspectorView() {}
 
-    virtual ~WindowMaterialDaylightRedirectionDeviceInspectorView() {}
+ protected:
+  virtual void onClearSelection() override;
 
-  protected:
+  virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
-    virtual void onClearSelection() override;
+  virtual void onUpdate() override;
 
-    virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
+ private:
+  void createLayout();
 
-    virtual void onUpdate() override;
+  void attach(openstudio::model::DaylightRedirectionDevice& daylightRedirectionDevice);
 
-  private:
+  void detach();
 
-    void createLayout();
+  void refresh();
 
-    void attach(openstudio::model::DaylightRedirectionDevice& daylightRedirectionDevice);
+  bool m_isIP;
 
-    void detach();
+  OSLineEdit2* m_nameEdit = nullptr;
 
-    void refresh();
+  OSComboBox2* m_daylightRedirectionDeviceType = nullptr;
 
-    bool m_isIP;
+  StandardsInformationMaterialWidget* m_standardsInformationWidget = nullptr;
 
-    OSLineEdit2 * m_nameEdit = nullptr;
-
-    OSComboBox2 * m_daylightRedirectionDeviceType = nullptr;
-
-    StandardsInformationMaterialWidget * m_standardsInformationWidget = nullptr;
-
-    boost::optional<model::DaylightRedirectionDevice> m_material;
-
+  boost::optional<model::DaylightRedirectionDevice> m_material;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_WINDOWMATERIALDAYLIGHTREDIRECTIONDEVICEINSPECTORVIEW_HPP
+#endif  // OPENSTUDIO_WINDOWMATERIALDAYLIGHTREDIRECTIONDEVICEINSPECTORVIEW_HPP

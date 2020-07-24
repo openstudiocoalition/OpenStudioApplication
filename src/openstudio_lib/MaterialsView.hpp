@@ -43,75 +43,62 @@ class MaterialsView : public ModelSubTabView
 {
   Q_OBJECT
 
-  public:
+ public:
+  MaterialsView(bool isIP, const openstudio::model::Model& model, const QString& tabLabel, bool hasSubTabs, QWidget* parent = nullptr);
 
-    MaterialsView(bool isIP,
-                  const openstudio::model::Model& model,
-                  const QString& tabLabel,
-                  bool hasSubTabs,
-                  QWidget * parent = nullptr);
+  virtual ~MaterialsView() {}
 
-    virtual ~MaterialsView() {}
-
-  private:
-
-    static std::vector<std::pair<IddObjectType, std::string> > modelObjectTypesAndNames();
-
+ private:
+  static std::vector<std::pair<IddObjectType, std::string>> modelObjectTypesAndNames();
 };
 
 class MaterialsInspectorView : public ModelObjectInspectorView
 {
   Q_OBJECT
 
-  public:
+ public:
+  MaterialsInspectorView(bool isIP, const model::Model& model, QWidget* parent = nullptr);
 
-    MaterialsInspectorView(bool isIP,
-                           const model::Model& model,
-                           QWidget * parent = nullptr);
+  virtual ~MaterialsInspectorView() {}
 
-    virtual ~MaterialsInspectorView() {}
+ protected:
+  virtual void onClearSelection() override;
 
-  protected:
+  virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
-    virtual void onClearSelection() override;
+  virtual void onUpdate() override;
 
-    virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
+ private:
+  void showMaterialAirGapInspectorView(const openstudio::model::ModelObject& modelObject);
+  void showMaterialAirWallInspectorView(const openstudio::model::ModelObject& modelObject);
+  void showMaterialInfraredTransparentInspectorView(const openstudio::model::ModelObject& modelObject);
+  void showMaterialInspectorView(const openstudio::model::ModelObject& modelObject);
+  void showMaterialNoMassInspectorView(const openstudio::model::ModelObject& modelObject);
+  void showMaterialRoofVegetationInspectorView(const openstudio::model::ModelObject& modelObject);
+  void showWindowMaterialBlindInspectorView(const openstudio::model::ModelObject& modelObject);
+  void showWindowMaterialDaylightRedirectionDeviceInspectorView(const openstudio::model::ModelObject& modelObject);
+  void showWindowMaterialGasInspectorView(const openstudio::model::ModelObject& modelObject);
+  void showWindowMaterialGasMixtureInspectorView(const openstudio::model::ModelObject& modelObject);
+  void showWindowMaterialGlazingGroupThermochromicInspectorView(const openstudio::model::ModelObject& modelObject);
+  void showWindowMaterialGlazingInspectorView(const openstudio::model::ModelObject& modelObject);
+  void showWindowMaterialGlazingRefractionExtinctionMethodInspectorView(const openstudio::model::ModelObject& modelObject);
+  void showWindowMaterialScreenInspectorView(const openstudio::model::ModelObject& modelObject);
+  void showWindowMaterialShadeInspectorView(const openstudio::model::ModelObject& modelObject);
+  void showWindowMaterialSimpleGlazingSystemInspectorView(const openstudio::model::ModelObject& modelObject);
 
-    virtual void onUpdate() override;
+  void showInspector(QWidget* widget);
 
-  private:
+  void showDefaultView();
 
-    void showMaterialAirGapInspectorView(const openstudio::model::ModelObject & modelObject);
-    void showMaterialAirWallInspectorView(const openstudio::model::ModelObject & modelObject);
-    void showMaterialInfraredTransparentInspectorView(const openstudio::model::ModelObject & modelObject);
-    void showMaterialInspectorView(const openstudio::model::ModelObject & modelObject);
-    void showMaterialNoMassInspectorView(const openstudio::model::ModelObject & modelObject);
-    void showMaterialRoofVegetationInspectorView(const openstudio::model::ModelObject & modelObject);
-    void showWindowMaterialBlindInspectorView(const openstudio::model::ModelObject & modelObject);
-    void showWindowMaterialDaylightRedirectionDeviceInspectorView(const openstudio::model::ModelObject & modelObject);
-    void showWindowMaterialGasInspectorView(const openstudio::model::ModelObject & modelObject);
-    void showWindowMaterialGasMixtureInspectorView(const openstudio::model::ModelObject & modelObject);
-    void showWindowMaterialGlazingGroupThermochromicInspectorView(const openstudio::model::ModelObject & modelObject);
-    void showWindowMaterialGlazingInspectorView(const openstudio::model::ModelObject & modelObject);
-    void showWindowMaterialGlazingRefractionExtinctionMethodInspectorView(const openstudio::model::ModelObject & modelObject);
-    void showWindowMaterialScreenInspectorView(const openstudio::model::ModelObject & modelObject);
-    void showWindowMaterialShadeInspectorView(const openstudio::model::ModelObject & modelObject);
-    void showWindowMaterialSimpleGlazingSystemInspectorView(const openstudio::model::ModelObject & modelObject);
+  std::map<openstudio::IddObjectType, int> m_inspectorIndexMap;
 
-    void showInspector(QWidget * widget);
+  bool m_isIP;
 
-    void showDefaultView();
+ public slots:
 
-    std::map<openstudio::IddObjectType, int> m_inspectorIndexMap;
-
-    bool m_isIP;
-
-  public slots:
-
-    void toggleUnits(bool displayIP) override;
-
+  void toggleUnits(bool displayIP) override;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_MATERIALSVIEW_HPP
+#endif  // OPENSTUDIO_MATERIALSVIEW_HPP

@@ -40,19 +40,14 @@
 
 namespace openstudio {
 
-OSListView::OSListView(bool scrollable, QWidget * parent)
-  : QWidget(parent),
-  m_widgetItemPairs(std::map<QObject *,QSharedPointer<OSListItem> >()),
-  m_scrollable(scrollable),
-  m_scrollArea(nullptr)
-{
+OSListView::OSListView(bool scrollable, QWidget* parent)
+  : QWidget(parent), m_widgetItemPairs(std::map<QObject*, QSharedPointer<OSListItem>>()), m_scrollable(scrollable), m_scrollArea(nullptr) {
   m_delegate = QSharedPointer<OSItemDelegate>(new OSItemDelegate());
   m_mainVLayout = new QVBoxLayout();
   m_mainVLayout->setSizeConstraint(QLayout::SetMinimumSize);
   m_mainVLayout->setAlignment(Qt::AlignTop);
 
-  if( scrollable )
-  {
+  if (scrollable) {
     auto scrollWidget = new QWidget();
     scrollWidget->setObjectName("ScrollWidget");
     scrollWidget->setStyleSheet("QWidget#ScrollWidget { background: transparent; }");
@@ -65,66 +60,55 @@ OSListView::OSListView(bool scrollable, QWidget * parent)
     m_scrollArea->setBackgroundRole(QPalette::NoRole);
 
     auto scrollLayout = new QVBoxLayout();
-    scrollLayout->setContentsMargins(0,0,0,0);
+    scrollLayout->setContentsMargins(0, 0, 0, 0);
     scrollLayout->addWidget(m_scrollArea);
 
     setLayout(scrollLayout);
-  }
-  else
-  {
+  } else {
     setLayout(m_mainVLayout);
   }
 
-  setContentsMargins(5,5,5,5);
+  setContentsMargins(5, 5, 5, 5);
   setSpacing(5);
 }
 
-void OSListView::setHorizontalScrollBarAlwaysOn(bool alwaysOn)
-{
-  if(!m_scrollable && !m_scrollArea) return;
+void OSListView::setHorizontalScrollBarAlwaysOn(bool alwaysOn) {
+  if (!m_scrollable && !m_scrollArea) return;
 
-  if(alwaysOn){
+  if (alwaysOn) {
     m_scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
-  }
-  else{
+  } else {
     m_scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
   }
 }
 
-void OSListView::setVerticalScrollBarAlwaysOn(bool alwaysOn)
-{
-  if(!m_scrollable && !m_scrollArea) return;
+void OSListView::setVerticalScrollBarAlwaysOn(bool alwaysOn) {
+  if (!m_scrollable && !m_scrollArea) return;
 
-  if(alwaysOn){
+  if (alwaysOn) {
     m_scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
-  }
-  else{
+  } else {
     m_scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
   }
 }
 
-void OSListView::paintEvent(QPaintEvent *)
-{
+void OSListView::paintEvent(QPaintEvent*) {
   QStyleOption opt;
   opt.init(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
 
-void OSListView::setDelegate(QSharedPointer<OSItemDelegate> delegate)
-{
-  if( delegate )
-  {
+void OSListView::setDelegate(QSharedPointer<OSItemDelegate> delegate) {
+  if (delegate) {
     m_delegate = delegate;
 
     refreshAllViews();
   }
 }
 
-void OSListView::setListController(QSharedPointer<OSListController> listController)
-{
-  if( m_listController )
-  {
+void OSListView::setListController(QSharedPointer<OSListController> listController) {
+  if (m_listController) {
     m_listController->disconnect(this);
   }
 
@@ -137,27 +121,22 @@ void OSListView::setListController(QSharedPointer<OSListController> listControll
   refreshAllViews();
 }
 
-QSharedPointer<OSListController> OSListView::listController() const
-{
+QSharedPointer<OSListController> OSListView::listController() const {
   return m_listController;
 }
 
-void OSListView::setSpacing(int spacing)
-{
+void OSListView::setSpacing(int spacing) {
   m_mainVLayout->setSpacing(spacing);
 }
 
-void OSListView::setContentsMargins(int left,int top,int right,int bottom)
-{
-  m_mainVLayout->setContentsMargins(left,top,right,bottom);
+void OSListView::setContentsMargins(int left, int top, int right, int bottom) {
+  m_mainVLayout->setContentsMargins(left, top, right, bottom);
 }
 
-void OSListView::refreshAllViews()
-{
-  QLayoutItem *child;
-  while((child = m_mainVLayout->takeAt(0)) != nullptr)
-  {
-    QWidget * widget = child->widget();
+void OSListView::refreshAllViews() {
+  QLayoutItem* child;
+  while ((child = m_mainVLayout->takeAt(0)) != nullptr) {
+    QWidget* widget = child->widget();
 
     OS_ASSERT(widget);
 
@@ -166,43 +145,39 @@ void OSListView::refreshAllViews()
     delete child;
   }
 
-  if( m_listController )
-  {
-    for( int i = 0, n = m_listController->count(); i < n; i++ )
-    {
+  if (m_listController) {
+    for (int i = 0, n = m_listController->count(); i < n; i++) {
       insertItemView(i);
     }
   }
 }
 
-void OSListView::insertItemView(int i)
-{
+void OSListView::insertItemView(int i) {
   OS_ASSERT(m_listController);
 
   QSharedPointer<OSListItem> itemData = m_listController->itemAt(i);
 
   OS_ASSERT(itemData);
 
-  QWidget * itemView = m_delegate->view(itemData);
+  QWidget* itemView = m_delegate->view(itemData);
 
-  itemView->setSizePolicy(QSizePolicy::Ignored,QSizePolicy::Fixed);
+  itemView->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Fixed);
 
-  m_mainVLayout->insertWidget(i,itemView);
+  m_mainVLayout->insertWidget(i, itemView);
 
-  m_widgetItemPairs.insert( std::make_pair(itemView,itemData) );
+  m_widgetItemPairs.insert(std::make_pair(itemView, itemData));
 
   // For some reason, this needs to use the old-style connect on mac (exiting OS app crash)
-  bool isConnected = connect(itemView, SIGNAL(destroyed(QObject *)), this, SLOT(removePair(QObject *)));
+  bool isConnected = connect(itemView, SIGNAL(destroyed(QObject*)), this, SLOT(removePair(QObject*)));
   OS_ASSERT(isConnected);
 }
 
-void OSListView::removeItemView(int i)
-{
-  QLayoutItem * item = m_mainVLayout->takeAt(i);
+void OSListView::removeItemView(int i) {
+  QLayoutItem* item = m_mainVLayout->takeAt(i);
 
   OS_ASSERT(item);
 
-  QWidget * widget = item->widget();
+  QWidget* widget = item->widget();
 
   OS_ASSERT(widget);
 
@@ -211,20 +186,18 @@ void OSListView::removeItemView(int i)
   delete item;
 }
 
-void OSListView::removePair(QObject * object) {
+void OSListView::removePair(QObject* object) {
   m_widgetItemPairs.erase(m_widgetItemPairs.find(object));
 }
 
-void OSListView::refreshItemView(int i)
-{
+void OSListView::refreshItemView(int i) {
   if (i < int(m_widgetItemPairs.size())) {
     removeItemView(i);
-  }
-  else {
-    LOG(Trace,"Not calling removeItemView(" << i << "), because the list is not that long.");
+  } else {
+    LOG(Trace, "Not calling removeItemView(" << i << "), because the list is not that long.");
   }
 
   insertItemView(i);
 }
 
-} // openstudio
+}  // namespace openstudio

@@ -47,15 +47,14 @@ namespace openstudio {
 
 // WindowMaterialGlazingGroupThermochromicInspectorView
 
-WindowMaterialGlazingGroupThermochromicInspectorView::WindowMaterialGlazingGroupThermochromicInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent)
-  : ModelObjectInspectorView(model, true, parent),
-    m_isIP(isIP)
-{
+WindowMaterialGlazingGroupThermochromicInspectorView::WindowMaterialGlazingGroupThermochromicInspectorView(bool isIP,
+                                                                                                           const openstudio::model::Model& model,
+                                                                                                           QWidget* parent)
+  : ModelObjectInspectorView(model, true, parent), m_isIP(isIP) {
   createLayout();
 }
 
-void WindowMaterialGlazingGroupThermochromicInspectorView::createLayout()
-{
+void WindowMaterialGlazingGroupThermochromicInspectorView::createLayout() {
   auto hiddenWidget = new QWidget();
   this->stackedWidget()->addWidget(hiddenWidget);
 
@@ -69,7 +68,7 @@ void WindowMaterialGlazingGroupThermochromicInspectorView::createLayout()
 
   int row = mainGridLayout->rowCount();
 
-  QLabel * label = nullptr;
+  QLabel* label = nullptr;
 
   // Name
 
@@ -94,58 +93,54 @@ void WindowMaterialGlazingGroupThermochromicInspectorView::createLayout()
 
   label = new QLabel("Optical Data Temperature: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,row++,0);
+  mainGridLayout->addWidget(label, row++, 0);
   label->hide();
 
   m_opticalDataTemperature = new OSQuantityEdit2("C", "C", "F", m_isIP);
-  connect(this, &WindowMaterialGlazingGroupThermochromicInspectorView::toggleUnitsClicked, m_opticalDataTemperature, &OSQuantityEdit2::onUnitSystemChange);
-  mainGridLayout->addWidget(m_opticalDataTemperature,row++,0,1,3);
+  connect(this, &WindowMaterialGlazingGroupThermochromicInspectorView::toggleUnitsClicked, m_opticalDataTemperature,
+          &OSQuantityEdit2::onUnitSystemChange);
+  mainGridLayout->addWidget(m_opticalDataTemperature, row++, 0, 1, 3);
   m_opticalDataTemperature->hide();
 
   // Window ThermochromicGlazing Glazing Name
 
   label = new QLabel("Window ThermochromicGlazing Glazing Name: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,row++,0);
+  mainGridLayout->addWidget(label, row++, 0);
 
   m_windowMaterialGlazingName = new OSLineEdit2();
-  mainGridLayout->addWidget(m_windowMaterialGlazingName,row++,0,1,3);
+  mainGridLayout->addWidget(m_windowMaterialGlazingName, row++, 0, 1, 3);
 
   // Stretch
 
-  mainGridLayout->setRowStretch(100,100);
+  mainGridLayout->setRowStretch(100, 100);
 
-  mainGridLayout->setColumnStretch(100,100);
+  mainGridLayout->setColumnStretch(100, 100);
 }
 
-void WindowMaterialGlazingGroupThermochromicInspectorView::onClearSelection()
-{
-  ModelObjectInspectorView::onClearSelection(); // call parent implementation
+void WindowMaterialGlazingGroupThermochromicInspectorView::onClearSelection() {
+  ModelObjectInspectorView::onClearSelection();  // call parent implementation
   detach();
 }
 
-void WindowMaterialGlazingGroupThermochromicInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject)
-{
+void WindowMaterialGlazingGroupThermochromicInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject) {
   detach();
   model::ThermochromicGlazing thermochromicGlazing = modelObject.cast<model::ThermochromicGlazing>();
   attach(thermochromicGlazing);
   refresh();
 }
 
-void WindowMaterialGlazingGroupThermochromicInspectorView::onUpdate()
-{
+void WindowMaterialGlazingGroupThermochromicInspectorView::onUpdate() {
   refresh();
 }
 
-void WindowMaterialGlazingGroupThermochromicInspectorView::attach(openstudio::model::ThermochromicGlazing & thermochromicGlazing)
-{
+void WindowMaterialGlazingGroupThermochromicInspectorView::attach(openstudio::model::ThermochromicGlazing& thermochromicGlazing) {
   // m_nameEdit->bind(thermochromicGlazing,"name");
   m_thermochromicGlazing = thermochromicGlazing;
-  m_nameEdit->bind(
-    *m_thermochromicGlazing,
-    OptionalStringGetter(std::bind(&model::ThermochromicGlazing::name, m_thermochromicGlazing.get_ptr(),true)),
-    boost::optional<StringSetterOptionalStringReturn>(std::bind(&model::ThermochromicGlazing::setName, m_thermochromicGlazing.get_ptr(),std::placeholders::_1))
-  );
+  m_nameEdit->bind(*m_thermochromicGlazing,
+                   OptionalStringGetter(std::bind(&model::ThermochromicGlazing::name, m_thermochromicGlazing.get_ptr(), true)),
+                   boost::optional<StringSetterOptionalStringReturn>(
+                     std::bind(&model::ThermochromicGlazing::setName, m_thermochromicGlazing.get_ptr(), std::placeholders::_1)));
 
   //m_opticalDataTemperature->bind( // TODO
   //  m_isIP,
@@ -169,8 +164,7 @@ void WindowMaterialGlazingGroupThermochromicInspectorView::attach(openstudio::mo
   this->stackedWidget()->setCurrentIndex(1);
 }
 
-void WindowMaterialGlazingGroupThermochromicInspectorView::detach()
-{
+void WindowMaterialGlazingGroupThermochromicInspectorView::detach() {
   this->stackedWidget()->setCurrentIndex(0);
 
   m_nameEdit->unbind();
@@ -182,8 +176,6 @@ void WindowMaterialGlazingGroupThermochromicInspectorView::detach()
   m_standardsInformationWidget->detach();
 }
 
-void WindowMaterialGlazingGroupThermochromicInspectorView::refresh()
-{
-}
+void WindowMaterialGlazingGroupThermochromicInspectorView::refresh() {}
 
-} // openstudio
+}  // namespace openstudio

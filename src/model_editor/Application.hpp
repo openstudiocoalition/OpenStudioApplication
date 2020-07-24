@@ -40,85 +40,82 @@
 
 #include <boost/optional.hpp>
 
-namespace openstudio{
+namespace openstudio {
 
-  /** Singleton application wide configuration management.
+/** Singleton application wide configuration management.
   */
-  class ApplicationSingleton
-  {
+class ApplicationSingleton
+{
 
-    friend class Singleton<ApplicationSingleton>;
+  friend class Singleton<ApplicationSingleton>;
 
-    public:
+ public:
+  /// get the QApplication, if no QApplication has been set this will create a default one
+  QCoreApplication* application(bool gui = true);
 
-    /// get the QApplication, if no QApplication has been set this will create a default one
-    QCoreApplication* application(bool gui=true);
+  /// check if the application has been initialized
+  bool hasApplication() const;
 
-    /// check if the application has been initialized
-    bool hasApplication() const;
+  /// check if the application has GUI enabled
+  bool hasGUI() const;
 
-    /// check if the application has GUI enabled
-    bool hasGUI() const;
+  /// set the QApplication, this should be done before calling application(),
+  /// no op if it has already been set.  Returns true if set succeeded.
+  bool setApplication(QCoreApplication* qApplication);
 
-    /// set the QApplication, this should be done before calling application(),
-    /// no op if it has already been set.  Returns true if set succeeded.
-    bool setApplication(QCoreApplication *qApplication);
+  /// get the QWidget wrapper around SketchUp window
+  /// initialized by call to application, only implemented for windows
+  QWidget* sketchUpWidget();
 
-    /// get the QWidget wrapper around SketchUp window
-    /// initialized by call to application, only implemented for windows
-    QWidget* sketchUpWidget();
+  /// Process pending Qt events
+  /// returns true if some work was done
+  bool processEvents();
+  bool processEvents(int maxTime);
 
-    /// Process pending Qt events
-    /// returns true if some work was done
-    bool processEvents();
-    bool processEvents(int maxTime);
+  /// Check if application has given setting
+  bool hasSetting(const std::string& key);
 
-    /// Check if application has given setting
-    bool hasSetting(const std::string& key);
+  /// Remove setting
+  void removeSetting(const std::string& key);
 
-    /// Remove setting
-    void removeSetting(const std::string& key);
+  /// Check if the application is headless
+  bool isDefaultInstance();
 
-    /// Check if the application is headless
-    bool isDefaultInstance();
+  /// Get the value of setting as given type, be careful when using getSettingValueAsBool
+  /// you must first check if the optional is set and then check its value
+  boost::optional<bool> getSettingValueAsBool(const std::string& key);
+  boost::optional<int> getSettingValueAsInt(const std::string& key);
+  boost::optional<double> getSettingValueAsDouble(const std::string& key);
+  boost::optional<std::string> getSettingValueAsString(const std::string& key);
 
-    /// Get the value of setting as given type, be careful when using getSettingValueAsBool
-    /// you must first check if the optional is set and then check its value
-    boost::optional<bool> getSettingValueAsBool(const std::string& key);
-    boost::optional<int> getSettingValueAsInt(const std::string& key);
-    boost::optional<double> getSettingValueAsDouble(const std::string& key);
-    boost::optional<std::string> getSettingValueAsString(const std::string& key);
+  /// Set application value to given value
+  void setSettingValue(const std::string& key, bool value);
+  void setSettingValue(const std::string& key, int value);
+  void setSettingValue(const std::string& key, double value);
+  void setSettingValue(const std::string& key, const std::string& value);
 
-    /// Set application value to given value
-    void setSettingValue(const std::string& key, bool value);
-    void setSettingValue(const std::string& key, int value);
-    void setSettingValue(const std::string& key, double value);
-    void setSettingValue(const std::string& key, const std::string& value);
+  ~ApplicationSingleton();
 
-    ~ApplicationSingleton();
+ private:
+  /// private constructor
+  ApplicationSingleton();
 
-    private:
+  /// QApplication handle
+  QCoreApplication* m_qApplication;
 
-    /// private constructor
-    ApplicationSingleton();
+  /// QWidget wrapper around SketchUp window
+  QWidget* m_sketchUpWidget;
 
-    /// QApplication handle
-    QCoreApplication* m_qApplication;
+  bool m_defaultInstance;
+};
 
-    /// QWidget wrapper around SketchUp window
-    QWidget* m_sketchUpWidget;
-
-    bool m_defaultInstance;
-
-  };
-
-  typedef openstudio::Singleton<ApplicationSingleton> Application;
+typedef openstudio::Singleton<ApplicationSingleton> Application;
 
 #if _WIN32 || _MSC_VER
-  /// Explicitly instantiate and export ApplicationSingleton Singleton template instance
-  /// so that the same instance is shared between the DLL's that link to this dll
-  MODELEDITOR_TEMPLATE_EXT template class openstudio::Singleton<ApplicationSingleton>;
+/// Explicitly instantiate and export ApplicationSingleton Singleton template instance
+/// so that the same instance is shared between the DLL's that link to this dll
+MODELEDITOR_TEMPLATE_EXT template class openstudio::Singleton<ApplicationSingleton>;
 #endif
-} // openstudio
+}  // namespace openstudio
 
-#endif // MODELEDITOR_APPLICATION_HPP
+#endif  // MODELEDITOR_APPLICATION_HPP

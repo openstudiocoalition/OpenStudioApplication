@@ -32,10 +32,6 @@
 
 namespace openstudio {
 
-VariablesTabController::VariablesTabController(const model::Model & model)
-  : MainTabController(new VariablesTabView(model))
-{
-}
+VariablesTabController::VariablesTabController(const model::Model& model) : MainTabController(new VariablesTabView(model)) {}
 
-} // openstudio
-
+}  // namespace openstudio

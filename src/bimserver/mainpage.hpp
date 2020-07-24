@@ -4,5 +4,5 @@ namespace bimserver {
 *
 *
 */
-} // bimserver
-} // openstudio
+}  // namespace bimserver
+}  // namespace openstudio

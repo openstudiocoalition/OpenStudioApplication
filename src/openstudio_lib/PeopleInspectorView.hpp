@@ -50,79 +50,75 @@ class PeopleDefinitionInspectorView : public ModelObjectInspectorView
 {
   Q_OBJECT
 
-  public:
+ public:
+  PeopleDefinitionInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
-    PeopleDefinitionInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent = nullptr );
+  virtual ~PeopleDefinitionInspectorView() {}
 
-    virtual ~PeopleDefinitionInspectorView() {}
+ public slots:
+  void addExtensible();
 
-  public slots:
-    void addExtensible();
+  void removeExtensible();
 
-    void removeExtensible();
+  void toggleUnits(bool displayIP) override;
 
-    void toggleUnits(bool displayIP) override;
+ protected:
+  virtual void onClearSelection() override;
 
-  protected:
+  virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
-    virtual void onClearSelection() override;
+  virtual void onUpdate() override;
 
-    virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
+  // Disable remove extensible group button if no groups left to remove
+  // Disable add extensible group button if can't add more (maxFields)
+  void checkButtons();
 
-    virtual void onUpdate() override;
+ private:
+  REGISTER_LOGGER("openstudio.PeopleDefinitionInspectorView");
 
-    // Disable remove extensible group button if no groups left to remove
-    // Disable add extensible group button if can't add more (maxFields)
-    void checkButtons();
+  void attach(openstudio::model::PeopleDefinition& peopleDefinition);
 
-  private:
+  void detach();
 
-    REGISTER_LOGGER("openstudio.PeopleDefinitionInspectorView");
+  void refresh();
 
-    void attach(openstudio::model::PeopleDefinition& peopleDefinition);
+  // Adjusts the stretch of rows after adding/removing extensible groups, so that all rows have a stretch factor or 0 (default)
+  // except the row following the last row with data that has a strech of 1 => pushes everything up
+  void adjustRowStretch();
 
-    void detach();
+  OSComboBox2* addThermalComfortModelTypeComboBox(int groupIndex);
 
-    void refresh();
+  QGridLayout* m_mainGridLayout;
+  int lastRowNonExtensible;
+  int lastRow;
 
-    // Adjusts the stretch of rows after adding/removing extensible groups, so that all rows have a stretch factor or 0 (default)
-    // except the row following the last row with data that has a strech of 1 => pushes everything up
-    void adjustRowStretch();
+  OSLineEdit2* m_nameEdit;
 
-    OSComboBox2 * addThermalComfortModelTypeComboBox(int groupIndex);
+  OSDoubleEdit2* m_numberofPeopleEdit;
+  OSQuantityEdit2* m_peopleperSpaceFloorAreaEdit;
+  OSQuantityEdit2* m_spaceFloorAreaperPersonEdit;
+  OSDoubleEdit2* m_fractionRadiantEdit;
+  OSDoubleEdit2* m_sensibleHeatFractionEdit;
+  OSQuantityEdit2* m_carbonDioxideGenerationRateEdit;
 
-    QGridLayout* m_mainGridLayout;
-    int lastRowNonExtensible;
-    int lastRow;
+  OSSwitch2* m_enableASHRAE55ComfortWarningsSwitch;
+  OSComboBox2* m_meanRadiantTemperatureCalculationTypeComboBox;
 
-    OSLineEdit2* m_nameEdit;
+  // how to handle the extensible groups
+  std::vector<OSComboBox2*> m_thermalComfortModelTypeComboBoxes;
+  QPushButton* addBtn;
+  QPushButton* removeBtn;
 
-    OSDoubleEdit2* m_numberofPeopleEdit;
-    OSQuantityEdit2* m_peopleperSpaceFloorAreaEdit;
-    OSQuantityEdit2* m_spaceFloorAreaperPersonEdit;
-    OSDoubleEdit2* m_fractionRadiantEdit;
-    OSDoubleEdit2* m_sensibleHeatFractionEdit;
-    OSQuantityEdit2* m_carbonDioxideGenerationRateEdit;
+  // For deletion / indexing (really only the vectors could be used)
+  QHBoxLayout* lastHBoxLayout;
+  QWidget* lastRowWidget;
+  std::vector<QHBoxLayout*> m_HBoxLayouts;
+  std::vector<QWidget*> m_rowWidgets;
 
-    OSSwitch2* m_enableASHRAE55ComfortWarningsSwitch;
-    OSComboBox2* m_meanRadiantTemperatureCalculationTypeComboBox;
-
-    // how to handle the extensible groups
-    std::vector<OSComboBox2*> m_thermalComfortModelTypeComboBoxes;
-    QPushButton * addBtn;
-    QPushButton * removeBtn;
-
-    // For deletion / indexing (really only the vectors could be used)
-    QHBoxLayout * lastHBoxLayout;
-    QWidget* lastRowWidget;
-    std::vector<QHBoxLayout*> m_HBoxLayouts;
-    std::vector<QWidget*> m_rowWidgets;
-
-    bool m_isIP;
-    boost::optional<model::PeopleDefinition> m_peopleDefinition;
-
+  bool m_isIP;
+  boost::optional<model::PeopleDefinition> m_peopleDefinition;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_PEOPLEINSPECTORVIEW_HPP
+#endif  // OPENSTUDIO_PEOPLEINSPECTORVIEW_HPP

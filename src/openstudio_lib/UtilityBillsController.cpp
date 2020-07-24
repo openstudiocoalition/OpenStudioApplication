@@ -45,74 +45,63 @@
 
 namespace openstudio {
 
-UtilityBillsController::UtilityBillsController(const model::Model& model)
-  : ModelSubTabController(new UtilityBillsView(model), model)
-{
+UtilityBillsController::UtilityBillsController(const model::Model& model) : ModelSubTabController(new UtilityBillsView(model), model) {
   subTabView()->itemSelectorButtons()->disableCopyButton();
   subTabView()->itemSelectorButtons()->disablePurgeButton();
   subTabView()->itemSelectorButtons()->hideDropZone();
 
-  UtilityBillsInspectorView * utilityBillsInspectorView = static_cast<UtilityBillsInspectorView *>(subTabView()->inspectorView());
+  UtilityBillsInspectorView* utilityBillsInspectorView = static_cast<UtilityBillsInspectorView*>(subTabView()->inspectorView());
 
   connect(this, &UtilityBillsController::toggleUnitsClicked, utilityBillsInspectorView, &UtilityBillsInspectorView::toggleUnitsClicked);
 
   connect(utilityBillsInspectorView, &UtilityBillsInspectorView::enableAddNewObjectButton, this, &UtilityBillsController::enableAddNewObjectButton);
 }
 
-void UtilityBillsController::onAddObject(const openstudio::IddObjectType& iddObjectType)
-{
+void UtilityBillsController::onAddObject(const openstudio::IddObjectType& iddObjectType) {
   OSItemSelector* itemSelector = this->subTabView()->itemSelector();
-  UtilityBillAllFuelTypesListView * utilityBillAllFuelTypesListView = qobject_cast<UtilityBillAllFuelTypesListView *>(itemSelector);
+  UtilityBillAllFuelTypesListView* utilityBillAllFuelTypesListView = qobject_cast<UtilityBillAllFuelTypesListView*>(itemSelector);
   OS_ASSERT(utilityBillAllFuelTypesListView);
   FuelType fuelType = utilityBillAllFuelTypesListView->currentFuelType();
   model::Model model = this->model();
-  openstudio::model::UtilityBill(fuelType,model);
+  openstudio::model::UtilityBill(fuelType, model);
 }
 
-void UtilityBillsController::onCopyObject(const openstudio::model::ModelObject& modelObject)
-{
+void UtilityBillsController::onCopyObject(const openstudio::model::ModelObject& modelObject) {
   // not desired
 }
 
-void UtilityBillsController::onRemoveObject(openstudio::model::ModelObject modelObject)
-{
+void UtilityBillsController::onRemoveObject(openstudio::model::ModelObject modelObject) {
   modelObject.remove();
 }
 
-void UtilityBillsController::onReplaceObject(openstudio::model::ModelObject modelObject, const OSItemId& replacementItemId)
-{
+void UtilityBillsController::onReplaceObject(openstudio::model::ModelObject modelObject, const OSItemId& replacementItemId) {
   // not yet implemented
 }
 
-void UtilityBillsController::onPurgeObjects(const openstudio::IddObjectType& iddObjectType)
-{
+void UtilityBillsController::onPurgeObjects(const openstudio::IddObjectType& iddObjectType) {
   // DLM: we don't want the purge button enabled
 }
 
-void UtilityBillsController::onDrop(const OSItemId& itemId)
-{
+void UtilityBillsController::onDrop(const OSItemId& itemId) {
   // DLM: we don't want the drop zone enabled
 }
 
-void UtilityBillsController::onInspectItem(OSItem* item)
-{
+void UtilityBillsController::onInspectItem(OSItem* item) {
   subTabView()->inspectorView()->selectItem(item);
 }
 
-void UtilityBillsController::onSelectItem(OSItem* item)
-{
+void UtilityBillsController::onSelectItem(OSItem* item) {
   m_subTabView->inspectorView()->selectItem(item);
   m_subTabView->itemSelectorButtons()->disableAddButton();
   m_subTabView->itemSelectorButtons()->enableRemoveButton();
 }
 
-void UtilityBillsController::onClearSelection()
-{
+void UtilityBillsController::onClearSelection() {
   m_subTabView->inspectorView()->clearSelection();
   m_subTabView->itemSelectorButtons()->disableRemoveButton();
 
-  openstudio::OSInspectorView * inspectorView = subTabView()->inspectorView();
-  UtilityBillsInspectorView * utilityBillsInspectorView = qobject_cast<UtilityBillsInspectorView *>(inspectorView);
+  openstudio::OSInspectorView* inspectorView = subTabView()->inspectorView();
+  UtilityBillsInspectorView* utilityBillsInspectorView = qobject_cast<UtilityBillsInspectorView*>(inspectorView);
   OS_ASSERT(utilityBillsInspectorView);
 
   enableAddNewObjectButton(utilityBillsInspectorView->runPeriodDates().has_value());
@@ -120,13 +109,12 @@ void UtilityBillsController::onClearSelection()
 
 ///// SLOTS
 
-void UtilityBillsController::enableAddNewObjectButton(bool enable)
-{
-  if(enable){
+void UtilityBillsController::enableAddNewObjectButton(bool enable) {
+  if (enable) {
     m_subTabView->itemSelectorButtons()->enableAddButton();
   } else {
     m_subTabView->itemSelectorButtons()->disableAddButton();
   };
 }
 
-} // openstudio
+}  // namespace openstudio

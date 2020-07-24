@@ -44,62 +44,51 @@ class CollapsibleInspector : public QWidget
 {
   Q_OBJECT
 
-public:
-
-  CollapsibleInspector(QString text,
-    QWidget * inspector,
-    QWidget * parent = nullptr);
+ public:
+  CollapsibleInspector(QString text, QWidget* inspector, QWidget* parent = nullptr);
 
   virtual ~CollapsibleInspector() {}
 
-private:
-
+ private:
   void createLayout();
 
-  CollapsibleInspectorHeader * m_header;
+  CollapsibleInspectorHeader* m_header;
 
-  QWidget * m_inspector;
+  QWidget* m_inspector;
 
-public slots:
+ public slots:
 
   void on_headerToggled(bool checked);
-
 };
 
 class CollapsibleInspectorHeader : public QAbstractButton
 {
   Q_OBJECT
 
-public:
-
-  CollapsibleInspectorHeader(QString text,
-    QWidget * parent = nullptr);
+ public:
+  CollapsibleInspectorHeader(QString text, QWidget* parent = nullptr);
 
   void setChecked(bool isChecked);
 
-protected:
-
-  void paintEvent(QPaintEvent * event) override;
+ protected:
+  void paintEvent(QPaintEvent* event) override;
 
   QSize sizeHint() const override;
 
-private:
-
+ private:
   void createLayout();
 
   void setImage(bool isChecked);
 
   QString m_text;
 
-  QLabel * m_arrowLabel;
+  QLabel* m_arrowLabel;
 
-private slots:
+ private slots:
 
   void on_toggled(bool checked);
-
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_COLLAPSIBLEINSPECTOR_HPP
-
+#endif  // OPENSTUDIO_COLLAPSIBLEINSPECTOR_HPP

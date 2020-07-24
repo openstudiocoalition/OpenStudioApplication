@@ -56,18 +56,16 @@
 
 namespace openstudio {
 
-OSInspectorView::OSInspectorView(bool addScrollArea, QWidget * parent)
-  : QWidget(parent)
-{
+OSInspectorView::OSInspectorView(bool addScrollArea, QWidget* parent) : QWidget(parent) {
   this->setObjectName("GrayWidget");
 
   auto outerVLayout = new QVBoxLayout();
-  outerVLayout->setContentsMargins(0,0,0,0);
+  outerVLayout->setContentsMargins(0, 0, 0, 0);
   this->setLayout(outerVLayout);
 
   m_stackedWidget = new QStackedWidget();
 
-  if (addScrollArea){
+  if (addScrollArea) {
     auto scrollArea = new QScrollArea();
     scrollArea->setFrameStyle(QFrame::NoFrame);
     scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
@@ -75,32 +73,25 @@ OSInspectorView::OSInspectorView(bool addScrollArea, QWidget * parent)
     outerVLayout->addWidget(scrollArea);
     scrollArea->setWidget(m_stackedWidget);
     scrollArea->setWidgetResizable(true);
-  }else{
+  } else {
     outerVLayout->addWidget(m_stackedWidget);
   }
-
 }
 
-void OSInspectorView::clearSelection()
-{
+void OSInspectorView::clearSelection() {
   onClearSelection();
 }
 
-void OSInspectorView::selectItem(OSItem* item)
-{
+void OSInspectorView::selectItem(OSItem* item) {
   onSelectItem(item);
 }
 
-
-QStackedWidget* OSInspectorView::stackedWidget() const
-{
+QStackedWidget* OSInspectorView::stackedWidget() const {
   return m_stackedWidget;
 }
 
-void OSInspectorView::update()
-{
+void OSInspectorView::update() {
   onUpdate();
 }
 
-
-} // openstudio
+}  // namespace openstudio

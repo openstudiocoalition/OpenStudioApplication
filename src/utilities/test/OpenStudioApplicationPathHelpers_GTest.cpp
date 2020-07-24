@@ -33,8 +33,7 @@
 
 using namespace openstudio;
 
-TEST(OpenStudioApplicationPathHelpers, Strings)
-{
+TEST(OpenStudioApplicationPathHelpers, Strings) {
   path applicationPath = getOpenStudioApplicationPath();
   path applicationDir = getOpenStudioApplicationDirectory();
   path openstudioModule = getOpenStudioApplicationModule();

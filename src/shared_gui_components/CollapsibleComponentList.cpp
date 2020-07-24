@@ -43,33 +43,27 @@
 
 namespace openstudio {
 
-CollapsibleComponentList::CollapsibleComponentList(QWidget * parent)
-  : QWidget(parent),
-  m_mainLayout(nullptr),
-  m_contentLayout(nullptr),
-  m_collapsibleComponentGroup(nullptr)
-{
+CollapsibleComponentList::CollapsibleComponentList(QWidget* parent)
+  : QWidget(parent), m_mainLayout(nullptr), m_contentLayout(nullptr), m_collapsibleComponentGroup(nullptr) {
   createLayout();
 }
 
-CollapsibleComponentList::CollapsibleComponentList(const std::vector<CollapsibleComponent *> & collapsibleComponents,
-                                                   QWidget * parent)
+CollapsibleComponentList::CollapsibleComponentList(const std::vector<CollapsibleComponent*>& collapsibleComponents, QWidget* parent)
   : QWidget(parent),
-  m_mainLayout(nullptr),
-  m_contentLayout(nullptr),
-  m_collapsibleComponentGroup(nullptr)
+    m_mainLayout(nullptr),
+    m_contentLayout(nullptr),
+    m_collapsibleComponentGroup(nullptr)
 
 {
   createLayout();
   setCollapsibleComponents(collapsibleComponents);
 }
 
-void CollapsibleComponentList::createLayout()
-{
+void CollapsibleComponentList::createLayout() {
   this->setObjectName("GrayWidget");
 
   auto outerVLayout = new QVBoxLayout();
-  outerVLayout->setContentsMargins(0,0,0,0);
+  outerVLayout->setContentsMargins(0, 0, 0, 0);
   this->setLayout(outerVLayout);
 
   auto outerWidget = new QWidget();
@@ -78,7 +72,7 @@ void CollapsibleComponentList::createLayout()
 
   m_mainLayout = new QVBoxLayout();
   outerWidget->setLayout(m_mainLayout);
-  m_mainLayout->setContentsMargins(0,0,0,0);
+  m_mainLayout->setContentsMargins(0, 0, 0, 0);
   m_mainLayout->setSpacing(0);
   m_mainLayout->addStretch(10);
 
@@ -86,49 +80,43 @@ void CollapsibleComponentList::createLayout()
   m_collapsibleComponentGroup = new QButtonGroup(this);
 }
 
-Component * CollapsibleComponentList::checkedComponent() const
-{
-  Component * result = nullptr;
-  if (checkedCollapsibleComponent()){
+Component* CollapsibleComponentList::checkedComponent() const {
+  Component* result = nullptr;
+  if (checkedCollapsibleComponent()) {
     result = checkedCollapsibleComponent()->componentList()->checkedComponent();
   }
   return result;
 }
 
-CollapsibleComponent * CollapsibleComponentList::checkedCollapsibleComponent() const
-{
-  return qobject_cast<CollapsibleComponent *>(m_collapsibleComponentGroup->button(0)); // TODO fix this hack
+CollapsibleComponent* CollapsibleComponentList::checkedCollapsibleComponent() const {
+  return qobject_cast<CollapsibleComponent*>(m_collapsibleComponentGroup->button(0));  // TODO fix this hack
 }
 
-CollapsibleComponent * CollapsibleComponentList::firstCollapsibleComponent()
-{
-  return qobject_cast<CollapsibleComponent *>(m_collapsibleComponentGroup->button(0));
+CollapsibleComponent* CollapsibleComponentList::firstCollapsibleComponent() {
+  return qobject_cast<CollapsibleComponent*>(m_collapsibleComponentGroup->button(0));
 }
 
-CollapsibleComponent * CollapsibleComponentList::lastCollapsibleComponent()
-{
-  return qobject_cast<CollapsibleComponent *>(m_collapsibleComponentGroup->button(m_collapsibleComponentGroup->buttons().size() - 1));
+CollapsibleComponent* CollapsibleComponentList::lastCollapsibleComponent() {
+  return qobject_cast<CollapsibleComponent*>(m_collapsibleComponentGroup->button(m_collapsibleComponentGroup->buttons().size() - 1));
 }
 
-std::vector<CollapsibleComponent *> CollapsibleComponentList::collapsibleComponents()
-{
-  std::vector<CollapsibleComponent *> result;
+std::vector<CollapsibleComponent*> CollapsibleComponentList::collapsibleComponents() {
+  std::vector<CollapsibleComponent*> result;
 
-  for (QAbstractButton * button : m_collapsibleComponentGroup->buttons().toVector().toStdVector()) {
-    result.push_back(qobject_cast<CollapsibleComponent *>(button));
+  for (QAbstractButton* button : m_collapsibleComponentGroup->buttons().toVector().toStdVector()) {
+    result.push_back(qobject_cast<CollapsibleComponent*>(button));
   }
 
   return result;
 }
 
-std::vector<Component *> CollapsibleComponentList::components()
-{
-  std::vector<Component *> result;
-  std::vector<Component *> components;
+std::vector<Component*> CollapsibleComponentList::components() {
+  std::vector<Component*> result;
+  std::vector<Component*> components;
 
-  for (QAbstractButton * button : m_collapsibleComponentGroup->buttons().toVector().toStdVector()) {
-    components = qobject_cast<CollapsibleComponent *>(button)->componentList()->components();
-    for (Component * component : components) {
+  for (QAbstractButton* button : m_collapsibleComponentGroup->buttons().toVector().toStdVector()) {
+    components = qobject_cast<CollapsibleComponent*>(button)->componentList()->components();
+    for (Component* component : components) {
       result.push_back(component);
     }
     components.clear();
@@ -137,12 +125,11 @@ std::vector<Component *> CollapsibleComponentList::components()
   return result;
 }
 
-void CollapsibleComponentList::addCollapsibleComponent(CollapsibleComponent * collapsibleComponent)
-{
+void CollapsibleComponentList::addCollapsibleComponent(CollapsibleComponent* collapsibleComponent) {
   OS_ASSERT(collapsibleComponent);
 
   m_mainLayout->addWidget(collapsibleComponent);
-  m_collapsibleComponentGroup->addButton(collapsibleComponent,m_collapsibleComponentGroup->buttons().size());
+  m_collapsibleComponentGroup->addButton(collapsibleComponent, m_collapsibleComponentGroup->buttons().size());
 
   connect(collapsibleComponent, &CollapsibleComponent::headerClicked, this, &CollapsibleComponentList::headerClicked);
 
@@ -163,67 +150,52 @@ void CollapsibleComponentList::addCollapsibleComponent(CollapsibleComponent * co
   collapsibleComponent->setChecked(true);
 
   QString style;
-  style.append( "QWidget#CollapsibleComponentList {" );
-  style.append( "background: #F2F2F2; ");
-  style.append( "border-bottom: 1px solid black; " );
-  style.append( "}" );
-  style.append( "QWidget#SideBar {background: #EEDEDE;}" );
+  style.append("QWidget#CollapsibleComponentList {");
+  style.append("background: #F2F2F2; ");
+  style.append("border-bottom: 1px solid black; ");
+  style.append("}");
+  style.append("QWidget#SideBar {background: #EEDEDE;}");
 
   collapsibleComponent->setStyleSheet(style);
 }
 
-void CollapsibleComponentList::paintEvent(QPaintEvent * event)
-{
+void CollapsibleComponentList::paintEvent(QPaintEvent* event) {
   QStyleOption opt;
   opt.init(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
 
-void CollapsibleComponentList::setCollapsibleComponents(const std::vector<CollapsibleComponent *> & collapsibleComponents)
-{
-  for (CollapsibleComponent * collapsibleComponent : collapsibleComponents)
-  {
+void CollapsibleComponentList::setCollapsibleComponents(const std::vector<CollapsibleComponent*>& collapsibleComponents) {
+  for (CollapsibleComponent* collapsibleComponent : collapsibleComponents) {
     addCollapsibleComponent(collapsibleComponent);
   }
 }
 
-void CollapsibleComponentList::setText(const QString& text)
-{
+void CollapsibleComponentList::setText(const QString& text) {
   checkedCollapsibleComponent()->setText(text);
 }
 
-void CollapsibleComponentList::setNumResults(int numResults)
-{
+void CollapsibleComponentList::setNumResults(int numResults) {
   checkedCollapsibleComponent()->setNumResults(numResults);
 }
 
-void CollapsibleComponentList::setNumPages(int numPages)
-{
+void CollapsibleComponentList::setNumPages(int numPages) {
   checkedCollapsibleComponent()->setNumPages(numPages);
 }
 
-void CollapsibleComponentList::firstPage()
-{
+void CollapsibleComponentList::firstPage() {
   checkedCollapsibleComponent()->firstPage();
 }
 
 ///! SLOTS
 
-void CollapsibleComponentList::on_headerClicked(bool checked)
-{
-}
+void CollapsibleComponentList::on_headerClicked(bool checked) {}
 
-void CollapsibleComponentList::on_componentClicked(bool checked)
-{
-}
+void CollapsibleComponentList::on_componentClicked(bool checked) {}
 
-void CollapsibleComponentList::on_collapsibleComponentClicked(bool checked)
-{
-}
+void CollapsibleComponentList::on_collapsibleComponentClicked(bool checked) {}
 
-void CollapsibleComponentList::on_getComponentsByPage(int pageIdx)
-{
-}
+void CollapsibleComponentList::on_getComponentsByPage(int pageIdx) {}
 
-} // openstudio
+}  // namespace openstudio

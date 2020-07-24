@@ -40,13 +40,11 @@ namespace openstudio {
 class OSItem;
 class OSVectorController;
 
-class OSItemList : public OSItemSelector {
+class OSItemList : public OSItemSelector
+{
   Q_OBJECT
  public:
-
-  OSItemList(OSVectorController* vectorController,
-             bool addScrollArea,
-             QWidget* parent = nullptr);
+  OSItemList(OSVectorController* vectorController, bool addScrollArea, QWidget* parent = nullptr);
 
   virtual ~OSItemList() {}
 
@@ -60,7 +58,7 @@ class OSItemList : public OSItemSelector {
   OSItem* lastItem();
 
   // return all items in the list
-  std::vector<OSItem *> items();
+  std::vector<OSItem*> items();
 
   OSVectorController* vectorController() const;
 
@@ -73,7 +71,7 @@ class OSItemList : public OSItemSelector {
   OSItemType itemsType() const;
   void setItemsType(OSItemType type);
 
-public slots:
+ public slots:
 
   // adds an item, optionally selects it
   void addItem(OSItem* item, bool selectItem = true);
@@ -87,33 +85,29 @@ public slots:
   // clears the selection, does not emit selectionCleared
   void clearSelection();
 
-private slots:
+ private slots:
 
   void setItemIds(const std::vector<OSItemId>& itemIds);
 
   void refresh();
 
-signals:
+ signals:
 
   void itemsRequested();
 
-protected:
+ protected:
+  void paintEvent(QPaintEvent* event) override;
 
-  void paintEvent( QPaintEvent * event ) override;
-
-private:
-
+ private:
   OSVectorController* m_vectorController;
-  QVBoxLayout * m_vLayout;
-  OSItem * m_selectedItem;
+  QVBoxLayout* m_vLayout;
+  OSItem* m_selectedItem;
   bool m_itemsDraggable;
   bool m_itemsRemoveable;
   OSItemType m_type;
   bool m_dirty;
-
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_OSITEMLIST_HPP
-
+#endif  // OPENSTUDIO_OSITEMLIST_HPP

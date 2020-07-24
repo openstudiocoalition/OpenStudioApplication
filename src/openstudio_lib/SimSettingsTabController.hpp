@@ -44,18 +44,16 @@ class SimSettingsTabController : public MainTabController
 {
   Q_OBJECT
 
-public:
-
-  SimSettingsTabController(bool isIP, const model::Model & model);
+ public:
+  SimSettingsTabController(bool isIP, const model::Model& model);
 
   virtual ~SimSettingsTabController() {}
 
-public slots:
+ public slots:
 
   void toggleUnits(bool displayIP);
-
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_SIMSETTINGSTABCONTROLLER_HPP
+#endif  // OPENSTUDIO_SIMSETTINGSTABCONTROLLER_HPP

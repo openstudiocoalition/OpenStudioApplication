@@ -43,157 +43,153 @@
 
 namespace openstudio {
 
-  class ProgressBar;
+class ProgressBar;
 
 namespace model {
-  class Model;
-  class ModelObject;
-  class Surface;
-}
+class Model;
+class ModelObject;
+class Surface;
+}  // namespace model
 
 namespace bimserver {
 
-  /// This provides utilities to connect to BIMserver
-  class BIMSERVER_API BIMserverConnection : public QObject
-  {
-    Q_OBJECT
+/// This provides utilities to connect to BIMserver
+class BIMSERVER_API BIMserverConnection : public QObject
+{
+  Q_OBJECT
 
-  public:
-    /// Default constructor
-    BIMserverConnection(QObject * parent, QString bimserverAddr, QString bimserverPort);
-    /// destructor
-    ~BIMserverConnection();
+ public:
+  /// Default constructor
+  BIMserverConnection(QObject* parent, QString bimserverAddr, QString bimserverPort);
+  /// destructor
+  ~BIMserverConnection();
 
-    //@}
-    /** @name Unblocking class members */
-    //@{
+  //@}
+  /** @name Unblocking class members */
+  //@{
 
-    /// login with username and password
-    void login(QString username, QString password);
-    /// download the osm model
-    void download(QString projectID);
-    /// get all projects
-    void getAllProjects();
-    /// create new project
-    void createProject(QString projectName);
-    /// delete a project
-    void deleteProject(QString projectID);
-    /// check in new ifc file
-    void checkInIFCFile(QString projectID, QString IFCFilePath);
-    /// get all revisions of IFC files of a project
-    void getIFCRevisionList(QString projectID);
+  /// login with username and password
+  void login(QString username, QString password);
+  /// download the osm model
+  void download(QString projectID);
+  /// get all projects
+  void getAllProjects();
+  /// create new project
+  void createProject(QString projectName);
+  /// delete a project
+  void deleteProject(QString projectID);
+  /// check in new ifc file
+  void checkInIFCFile(QString projectID, QString IFCFilePath);
+  /// get all revisions of IFC files of a project
+  void getIFCRevisionList(QString projectID);
 
-    //@}
-    /** @name Blocking class members */
-    //@{
+  //@}
+  /** @name Blocking class members */
+  //@{
 
-    /// Login, Blocked
-    bool loginBlocked(QString username, QString password, int timeout);
-    /// download the osm model, Blocked
-    boost::optional<QString> downloadBlocked(QString projectID, int timeout);
-    /// get all projects, Blocked
-    boost::optional<QStringList> getAllProjectsBlocked(int timeout);
-    /// create new project, Blocked
-    bool createProjectBlocked(QString projectName, int timeout);
-    /// delete a project, Blocked
-    bool deleteProjectBlocked(QString projectID, int timeout);
-    /// check in new ifc file, Blocked
-    bool checkInIFCFileBlocked(QString projectID, QString IFCFilePath, int timeout);
-    /// get all revisions of IFC files of a project, Blocked
-    boost::optional<QStringList> getIFCRevisionListBlocked(QString projectID, int timeout);
+  /// Login, Blocked
+  bool loginBlocked(QString username, QString password, int timeout);
+  /// download the osm model, Blocked
+  boost::optional<QString> downloadBlocked(QString projectID, int timeout);
+  /// get all projects, Blocked
+  boost::optional<QStringList> getAllProjectsBlocked(int timeout);
+  /// create new project, Blocked
+  bool createProjectBlocked(QString projectName, int timeout);
+  /// delete a project, Blocked
+  bool deleteProjectBlocked(QString projectID, int timeout);
+  /// check in new ifc file, Blocked
+  bool checkInIFCFileBlocked(QString projectID, QString IFCFilePath, int timeout);
+  /// get all revisions of IFC files of a project, Blocked
+  boost::optional<QStringList> getIFCRevisionListBlocked(QString projectID, int timeout);
 
+ signals:
+  /// send the retrieved osmString to GUI
+  void osmStringRetrieved(QString osmString);
 
+  ///send the list of all projects to GUI
+  void listAllProjects(QStringList projectList);
 
-  signals:
-    /// send the retrieved osmString to GUI
-    void osmStringRetrieved(QString osmString);
+  ///send the list of all ifc revisions
+  void listAllIFCRevisions(QStringList ifcRevisionList);
 
-    ///send the list of all projects to GUI
-    void listAllProjects(QStringList projectList);
+  ///emit error occurs signal
+  void errorOccured(QString errorMessage);
 
-    ///send the list of all ifc revisions
-    void listAllIFCRevisions(QStringList ifcRevisionList);
+  ///operationSucceeded() will send one of the following QString:
+  void operationSucceeded(QString successMessage);
 
-    ///emit error occurs signal
-    void errorOccured(QString errorMessage);
+  ///emit error if BIMserver is not setup correctly.
+  void bimserverError();
 
-    ///operationSucceeded() will send one of the following QString:
-    void operationSucceeded(QString successMessage);
+ private slots:
+  //slots used by this class only
+  /// log in to BIMserver
+  void processLoginRequest(QNetworkReply* rep);
+  /// get all projects
+  void processGetAllProjectsRequest(QNetworkReply* rep);
+  /// get serializer id
+  void processGetSerializerRequest(QNetworkReply* rep);
+  /// get download action id
+  void processDownloadRequest(QNetworkReply* rep);
+  /// get download data
+  void processGetDownloadDataRequest(QNetworkReply* rep);
+  /// create new project
+  void processCreateProjectRequest(QNetworkReply* rep);
+  /// Delete a project
+  void processDeleteProjectRequest(QNetworkReply* rep);
+  /// get ifc deserializer
+  void processGetDeserializerRequest(QNetworkReply* rep);
+  /// checkIn new IFC
+  void processCheckInIFCRequest(QNetworkReply* rep);
+  /// get ifc revision list
+  void processGetProjectByIDRequest(QNetworkReply* rep);
+  /// get download progress
+  void processGetProgressRequest();
 
-    ///emit error if BIMserver is not setup correctly.
-    void bimserverError();
+ private:
+  REGISTER_LOGGER("openstudio.BIMserverConnection");
 
-  private slots:
-    //slots used by this class only
-    /// log in to BIMserver
-    void processLoginRequest(QNetworkReply *rep);
-    /// get all projects
-    void processGetAllProjectsRequest(QNetworkReply *rep);
-    /// get serializer id
-    void processGetSerializerRequest(QNetworkReply *rep);
-    /// get download action id
-    void processDownloadRequest(QNetworkReply *rep);
-    /// get download data
-    void processGetDownloadDataRequest(QNetworkReply *rep);
-    /// create new project
-    void processCreateProjectRequest(QNetworkReply *rep);
-    /// Delete a project
-    void processDeleteProjectRequest(QNetworkReply *rep);
-    /// get ifc deserializer
-    void processGetDeserializerRequest(QNetworkReply *rep);
-    /// checkIn new IFC
-    void processCheckInIFCRequest(QNetworkReply *rep);
-    /// get ifc revision list
-    void processGetProjectByIDRequest(QNetworkReply *rep);
-    /// get download progress
-    void processGetProgressRequest();
+  void sendLoginRequest();
+  void sendGetAllProjectsRequest();
+  void sendGetSerializerRequest();
+  void sendDownloadRequest();
+  void sendGetDownloadDataRequest();
+  void sendCreateProjectRequest(QString projectName);
+  void sendDeleteProjectRequest(QString projectID);
+  void sendGetDeserializerRequest();
+  void sendCheckInIFCRequest(QString IFCFilePath);
+  void sendGetProjectByIDRequest(QString projectID);
+  void sendGetProgressRequest(QString topicId, QString action);
 
-  private:
+  bool containsError(QJsonObject responseMessage);
+  void emitErrorMessage(QJsonObject responseMessage);
 
-    REGISTER_LOGGER("openstudio.BIMserverConnection");
+  bool waitForLock(int msec) const;
 
-    void sendLoginRequest();
-    void sendGetAllProjectsRequest();
-    void sendGetSerializerRequest();
-    void sendDownloadRequest();
-    void sendGetDownloadDataRequest();
-    void sendCreateProjectRequest(QString projectName);
-    void sendDeleteProjectRequest(QString projectID);
-    void sendGetDeserializerRequest();
-    void sendCheckInIFCRequest(QString IFCFilePath);
-    void sendGetProjectByIDRequest(QString projectID);
-    void sendGetProgressRequest(QString topicId, QString action);
+  QNetworkAccessManager* m_networkManager;
+  QUrl m_bimserverURL;
+  QString m_username;
+  QString m_password;
+  QString m_token;
+  QString m_serializerOid;
+  QString m_deserializerOid;
+  QString m_roid;
+  QString m_actionId;
+  QString m_poid;
+  QString m_filePath;
+  bool m_operationDone;
 
-    bool containsError(QJsonObject responseMessage);
-    void emitErrorMessage(QJsonObject responseMessage);
+  /// Variables for the blocking calls
+  bool m_loginSuccess;
+  boost::optional<QString> m_osmModel;
+  boost::optional<QStringList> m_projectList;
+  bool m_createProjectSuccess;
+  bool m_deleteProjectSuccess;
+  bool m_checkInIFCSuccess;
+  boost::optional<QStringList> m_ifcList;
+};
 
-    bool waitForLock(int msec) const;
+}  // namespace bimserver
+}  // namespace openstudio
 
-    QNetworkAccessManager* m_networkManager;
-    QUrl m_bimserverURL;
-    QString m_username;
-    QString m_password;
-    QString m_token;
-    QString m_serializerOid;
-    QString m_deserializerOid;
-    QString m_roid;
-    QString m_actionId;
-    QString m_poid;
-    QString m_filePath;
-    bool m_operationDone;
-
-
-    /// Variables for the blocking calls
-    bool m_loginSuccess;
-    boost::optional<QString> m_osmModel;
-    boost::optional<QStringList> m_projectList;
-    bool m_createProjectSuccess;
-    bool m_deleteProjectSuccess;
-    bool m_checkInIFCSuccess;
-    boost::optional<QStringList> m_ifcList;
-  };
-
-} // bimserver
-} // openstudio
-
-#endif // BIMSERVER_BIMSERVERCONNECTION_HPP
+#endif  // BIMSERVER_BIMSERVERCONNECTION_HPP

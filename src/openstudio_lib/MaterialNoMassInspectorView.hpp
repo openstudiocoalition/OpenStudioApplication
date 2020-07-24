@@ -47,50 +47,46 @@ class MaterialNoMassInspectorView : public ModelObjectInspectorView
 {
   Q_OBJECT
 
-  public:
+ public:
+  MaterialNoMassInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
-    MaterialNoMassInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent = nullptr);
+  virtual ~MaterialNoMassInspectorView() {}
 
-    virtual ~MaterialNoMassInspectorView() {}
+ protected:
+  virtual void onClearSelection() override;
 
-  protected:
+  virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
-    virtual void onClearSelection() override;
+  virtual void onUpdate() override;
 
-    virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
+ private:
+  void createLayout();
 
-    virtual void onUpdate() override;
+  void attach(openstudio::model::MasslessOpaqueMaterial& masslessOpaqueMaterial);
 
-  private:
+  void detach();
 
-    void createLayout();
+  void refresh();
 
-    void attach(openstudio::model::MasslessOpaqueMaterial & masslessOpaqueMaterial);
+  bool m_isIP;
 
-    void detach();
+  boost::optional<model::MasslessOpaqueMaterial> m_masslessOpaqueMaterial;
 
-    void refresh();
+  OSLineEdit2* m_nameEdit = nullptr;
 
-    bool m_isIP;
+  OSComboBox2* m_roughness = nullptr;
 
-    boost::optional<model::MasslessOpaqueMaterial> m_masslessOpaqueMaterial;
+  OSQuantityEdit2* m_thermalResistance = nullptr;
 
-    OSLineEdit2 * m_nameEdit = nullptr;
+  OSQuantityEdit2* m_thermalAbsorptance = nullptr;
 
-    OSComboBox2 * m_roughness = nullptr;
+  OSQuantityEdit2* m_solarAbsorptance = nullptr;
 
-    OSQuantityEdit2 * m_thermalResistance = nullptr;
+  OSQuantityEdit2* m_visibleAbsorptance = nullptr;
 
-    OSQuantityEdit2 * m_thermalAbsorptance = nullptr;
-
-    OSQuantityEdit2 * m_solarAbsorptance = nullptr;
-
-    OSQuantityEdit2 * m_visibleAbsorptance = nullptr;
-
-    StandardsInformationMaterialWidget * m_standardsInformationWidget = nullptr;
-
+  StandardsInformationMaterialWidget* m_standardsInformationWidget = nullptr;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_MATERIALNOMASSINSPECTORVIEW_HPP
+#endif  // OPENSTUDIO_MATERIALNOMASSINSPECTORVIEW_HPP

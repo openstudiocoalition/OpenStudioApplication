@@ -33,7 +33,7 @@
 #include "ModelEditorAPI.hpp"
 
 #include <openstudio/model/Model.hpp>
-#include <openstudio/nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/nano/nano_signal_slot.hpp>  // Signal-Slot replacement
 
 #include <openstudio/utilities/idd/IddEnums.hpp>
 #include <openstudio/utilities/core/UUID.hpp>
@@ -44,32 +44,28 @@ class QLabel;
 class QComboBox;
 class QPushButton;
 
-namespace openstudio{
+namespace openstudio {
 
-  class WorkspaceObject;
+class WorkspaceObject;
 
-  namespace model{
+namespace model {
 
-    class ModelObject;
-    class Space;
-    class SpaceLoadInstance;
+class ModelObject;
+class Space;
+class SpaceLoadInstance;
 
-  }
-}
+}  // namespace model
+}  // namespace openstudio
 
 class MODELEDITOR_API ModelObjectSelectorDialog : public QDialog, public Nano::Observer
 {
   Q_OBJECT
 
-public:
+ public:
+  ModelObjectSelectorDialog(const openstudio::IddObjectType& typeToDisplay, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
-  ModelObjectSelectorDialog(const openstudio::IddObjectType& typeToDisplay,
-                            const openstudio::model::Model& model,
-                            QWidget * parent = nullptr);
-
-  ModelObjectSelectorDialog(const std::vector<openstudio::IddObjectType>& typesToDisplay,
-                            const openstudio::model::Model& model,
-                            QWidget * parent = nullptr);
+  ModelObjectSelectorDialog(const std::vector<openstudio::IddObjectType>& typesToDisplay, const openstudio::model::Model& model,
+                            QWidget* parent = nullptr);
 
   virtual ~ModelObjectSelectorDialog();
 
@@ -87,18 +83,19 @@ public:
 
   void onPushButtonCancel(bool);
 
-signals:
+ signals:
 
   // emitted when the dialog is closed
   void closed(const boost::optional<openstudio::model::ModelObject>&);
 
-private slots:
+ private slots:
 
-  void onAddWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl, const openstudio::IddObjectType& type, const openstudio::UUID& uuid);
-  void onRemoveWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl, const openstudio::IddObjectType& type, const openstudio::UUID& uuid);
+  void onAddWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl, const openstudio::IddObjectType& type,
+                            const openstudio::UUID& uuid);
+  void onRemoveWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl, const openstudio::IddObjectType& type,
+                               const openstudio::UUID& uuid);
 
-private:
-
+ private:
   // for testing
   friend class ModelEditorFixture;
 
@@ -121,8 +118,7 @@ class MODELEDITOR_API ModelObjectSelectorDialogWatcher : public QObject, public 
 {
   Q_OBJECT
 
-public:
-
+ public:
   ModelObjectSelectorDialogWatcher(std::shared_ptr<ModelObjectSelectorDialog> modelObjectSelectorDialog);
 
   /// get the selected object
@@ -131,12 +127,11 @@ public:
   /// true if has the model object selector dialog closed
   bool isSelectionFinal() const;
 
-private slots:
+ private slots:
 
   virtual void onClose(const boost::optional<openstudio::model::ModelObject>&);
 
-private:
-
+ private:
   std::shared_ptr<ModelObjectSelectorDialog> m_modelObjectSelectorDialog;
   mutable boost::optional<openstudio::model::ModelObject> m_selectedModelObject;
 };
@@ -145,4 +140,4 @@ MODELEDITOR_API void ensureThermalZone(openstudio::model::Space& space);
 
 MODELEDITOR_API void ensureSpaceLoadDefinition(openstudio::model::SpaceLoadInstance& instance);
 
-#endif //MODELEDITOR_MODALDIALOGS_HPP
+#endif  //MODELEDITOR_MODALDIALOGS_HPP

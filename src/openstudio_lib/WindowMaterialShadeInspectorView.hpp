@@ -45,68 +45,64 @@ class WindowMaterialShadeInspectorView : public ModelObjectInspectorView
 {
   Q_OBJECT
 
-  public:
+ public:
+  WindowMaterialShadeInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
-    WindowMaterialShadeInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent = nullptr);
+  virtual ~WindowMaterialShadeInspectorView() {}
 
-    virtual ~WindowMaterialShadeInspectorView() {}
+ protected:
+  virtual void onClearSelection() override;
 
-  protected:
+  virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
-    virtual void onClearSelection() override;
+  virtual void onUpdate() override;
 
-    virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
+ private:
+  void createLayout();
 
-    virtual void onUpdate() override;
+  void attach(openstudio::model::Shade& Shade);
 
-  private:
+  void detach();
 
-    void createLayout();
+  void refresh();
 
-    void attach(openstudio::model::Shade & Shade);
+  bool m_isIP;
 
-    void detach();
+  boost::optional<model::Shade> m_shade;
 
-    void refresh();
+  OSLineEdit2* m_nameEdit = nullptr;
 
-    bool m_isIP;
+  OSQuantityEdit2* m_solarTransmittance = nullptr;
 
-    boost::optional<model::Shade> m_shade;
+  OSQuantityEdit2* m_solarReflectance = nullptr;
 
-    OSLineEdit2 * m_nameEdit = nullptr;
+  OSQuantityEdit2* m_visibleTransmittance = nullptr;
 
-    OSQuantityEdit2 * m_solarTransmittance = nullptr;
+  OSQuantityEdit2* m_visibleReflectance = nullptr;
 
-    OSQuantityEdit2 * m_solarReflectance = nullptr;
+  OSQuantityEdit2* m_thermalHemisphericalEmissivity = nullptr;
 
-    OSQuantityEdit2 * m_visibleTransmittance = nullptr;
+  OSQuantityEdit2* m_thermalTransmittance = nullptr;
 
-    OSQuantityEdit2 * m_visibleReflectance = nullptr;
+  OSQuantityEdit2* m_thickness = nullptr;
 
-    OSQuantityEdit2 * m_thermalHemisphericalEmissivity = nullptr;
+  OSQuantityEdit2* m_conductivity = nullptr;
 
-    OSQuantityEdit2 * m_thermalTransmittance = nullptr;
+  OSQuantityEdit2* m_shadeToGlassDistance = nullptr;
 
-    OSQuantityEdit2 * m_thickness = nullptr;
+  OSQuantityEdit2* m_topOpeningMultiplier = nullptr;
 
-    OSQuantityEdit2 * m_conductivity = nullptr;
+  OSQuantityEdit2* m_bottomOpeningMultiplier = nullptr;
 
-    OSQuantityEdit2 * m_shadeToGlassDistance = nullptr;
+  OSQuantityEdit2* m_leftSideOpeningMultiplier = nullptr;
 
-    OSQuantityEdit2 * m_topOpeningMultiplier = nullptr;
+  OSQuantityEdit2* m_rightSideOpeningMultiplier = nullptr;
 
-    OSQuantityEdit2 * m_bottomOpeningMultiplier = nullptr;
+  OSQuantityEdit2* m_airflowPermeability = nullptr;
 
-    OSQuantityEdit2 * m_leftSideOpeningMultiplier = nullptr;
-
-    OSQuantityEdit2 * m_rightSideOpeningMultiplier = nullptr;
-
-    OSQuantityEdit2 * m_airflowPermeability = nullptr;
-
-    StandardsInformationMaterialWidget * m_standardsInformationWidget = nullptr;
-
+  StandardsInformationMaterialWidget* m_standardsInformationWidget = nullptr;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_WINDOWMATERIALSHADEINSPECTORVIEW_HPP
+#endif  // OPENSTUDIO_WINDOWMATERIALSHADEINSPECTORVIEW_HPP

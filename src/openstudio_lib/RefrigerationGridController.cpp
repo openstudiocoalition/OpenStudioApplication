@@ -33,20 +33,13 @@
 
 namespace openstudio {
 
-RefrigerationGridController::RefrigerationGridController(bool isIP, const model::Model & model)
-  : QObject(),
-  m_refrigerationGridView(new RefrigerationGridView(isIP, model))
-{
-}
+RefrigerationGridController::RefrigerationGridController(bool isIP, const model::Model& model)
+  : QObject(), m_refrigerationGridView(new RefrigerationGridView(isIP, model)) {}
 
-RefrigerationGridController::~RefrigerationGridController()
-{
-}
+RefrigerationGridController::~RefrigerationGridController() {}
 
-RefrigerationGridView * RefrigerationGridController::refrigerationGridView() const
-{
+RefrigerationGridView* RefrigerationGridController::refrigerationGridView() const {
   return m_refrigerationGridView;
 }
 
-} // openstudio
-
+}  // namespace openstudio

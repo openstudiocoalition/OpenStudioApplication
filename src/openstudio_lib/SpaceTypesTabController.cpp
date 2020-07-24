@@ -40,10 +40,7 @@
 
 namespace openstudio {
 
-SpaceTypesTabController::SpaceTypesTabController(bool isIP,
-  const model::Model& model)
-  : MainTabController(new SpaceTypesTabView())
-{
+SpaceTypesTabController::SpaceTypesTabController(bool isIP, const model::Model& model) : MainTabController(new SpaceTypesTabView()) {
   m_spaceTypesController = std::shared_ptr<SpaceTypesController>(new SpaceTypesController(isIP, model));
 
   connect(m_spaceTypesController.get(), &SpaceTypesController::modelObjectSelected, this, &SpaceTypesTabController::modelObjectSelected);
@@ -54,15 +51,15 @@ SpaceTypesTabController::SpaceTypesTabController(bool isIP,
 
   connect(m_spaceTypesController.get(), &SpaceTypesController::openLibDlgClicked, this, &SpaceTypesTabController::openLibDlgClicked);
 
-  SpaceTypeInspectorView * spaceTypeInspectorView = qobject_cast<SpaceTypeInspectorView *>(m_spaceTypesController->subTabView()->inspectorView());
+  SpaceTypeInspectorView* spaceTypeInspectorView = qobject_cast<SpaceTypeInspectorView*>(m_spaceTypesController->subTabView()->inspectorView());
   OS_ASSERT(spaceTypeInspectorView);
 
   bool isConnected = false;
 
-  isConnected = connect(this, SIGNAL(itemRemoveClicked(OSItem *)), m_spaceTypesController.get(), SLOT(removeItem(OSItem *)));
+  isConnected = connect(this, SIGNAL(itemRemoveClicked(OSItem*)), m_spaceTypesController.get(), SLOT(removeItem(OSItem*)));
   OS_ASSERT(isConnected);
 
   mainContentWidget()->addTabWidget(m_spaceTypesController->subTabView());
 }
 
-} // openstudio
+}  // namespace openstudio

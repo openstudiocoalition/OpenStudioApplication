@@ -49,70 +49,66 @@ class WindowMaterialGlazingInspectorView : public ModelObjectInspectorView
 {
   Q_OBJECT
 
-  public:
+ public:
+  WindowMaterialGlazingInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
-    WindowMaterialGlazingInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent = nullptr);
+  virtual ~WindowMaterialGlazingInspectorView() {}
 
-    virtual ~WindowMaterialGlazingInspectorView() {}
+ protected:
+  virtual void onClearSelection() override;
 
-  protected:
+  virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
-    virtual void onClearSelection() override;
+  virtual void onUpdate() override;
 
-    virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
+ private:
+  void createLayout();
 
-    virtual void onUpdate() override;
+  void attach(openstudio::model::StandardGlazing& Glazing);
 
-  private:
+  void detach();
 
-    void createLayout();
+  void refresh();
 
-    void attach(openstudio::model::StandardGlazing & Glazing);
+  bool m_isIP;
 
-    void detach();
+  boost::optional<model::StandardGlazing> m_glazing;
 
-    void refresh();
+  OSLineEdit2* m_nameEdit = nullptr;
 
-    bool m_isIP;
+  OSComboBox2* m_opticalDataType = nullptr;
 
-    boost::optional<model::StandardGlazing> m_glazing;
+  OSSwitch2* m_solarDiffusing = nullptr;
 
-    OSLineEdit2 * m_nameEdit = nullptr;
+  // OSLineEdit2 * m_windowGlassSpectralDataSetName = nullptr;
 
-    OSComboBox2 * m_opticalDataType = nullptr;
+  OSQuantityEdit2* m_thickness = nullptr;
 
-    OSSwitch2 * m_solarDiffusing = nullptr;
+  OSQuantityEdit2* m_solarTransmittanceAtNormalIncidence = nullptr;
 
-    // OSLineEdit2 * m_windowGlassSpectralDataSetName = nullptr;
+  OSQuantityEdit2* m_frontSideSolarReflectanceAtNormalIncidence = nullptr;
 
-    OSQuantityEdit2 * m_thickness = nullptr;
+  OSQuantityEdit2* m_backSideSolarReflectanceAtNormalIncidence = nullptr;
 
-    OSQuantityEdit2 * m_solarTransmittanceAtNormalIncidence = nullptr;
+  OSQuantityEdit2* m_visibleTransmittanceAtNormalIncidence = nullptr;
 
-    OSQuantityEdit2 * m_frontSideSolarReflectanceAtNormalIncidence = nullptr;
+  OSQuantityEdit2* m_frontSideVisibleReflectanceAtNormalIncidence = nullptr;
 
-    OSQuantityEdit2 * m_backSideSolarReflectanceAtNormalIncidence = nullptr;
+  OSQuantityEdit2* m_backSideVisibleReflectanceAtNormalIncidence = nullptr;
 
-    OSQuantityEdit2 * m_visibleTransmittanceAtNormalIncidence = nullptr;
+  OSQuantityEdit2* m_infraredTransmittanceAtNormalIncidence = nullptr;
 
-    OSQuantityEdit2 * m_frontSideVisibleReflectanceAtNormalIncidence = nullptr;
+  OSQuantityEdit2* m_frontSideInfraredHemisphericalEmissivity = nullptr;
 
-    OSQuantityEdit2 * m_backSideVisibleReflectanceAtNormalIncidence = nullptr;
+  OSQuantityEdit2* m_backSideInfraredHemisphericalEmissivity = nullptr;
 
-    OSQuantityEdit2 * m_infraredTransmittanceAtNormalIncidence = nullptr;
+  OSQuantityEdit2* m_conductivity = nullptr;
 
-    OSQuantityEdit2 * m_frontSideInfraredHemisphericalEmissivity = nullptr;
+  OSQuantityEdit2* m_dirtCorrectionFactorForSolarAndVisibleTransmittance = nullptr;
 
-    OSQuantityEdit2 * m_backSideInfraredHemisphericalEmissivity = nullptr;
-
-    OSQuantityEdit2 * m_conductivity = nullptr;
-
-    OSQuantityEdit2 * m_dirtCorrectionFactorForSolarAndVisibleTransmittance = nullptr;
-
-    StandardsInformationMaterialWidget * m_standardsInformationWidget = nullptr;
-
+  StandardsInformationMaterialWidget* m_standardsInformationWidget = nullptr;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_WINDOWMATERIALGLAZINGINSPECTORVIEW_HPP
+#endif  // OPENSTUDIO_WINDOWMATERIALGLAZINGINSPECTORVIEW_HPP

@@ -39,11 +39,7 @@
 #include <openstudio/model/ConstructionAirBoundary.hpp>
 #include <openstudio/model/ConstructionAirBoundary_Impl.hpp>
 
-
 #include <openstudio/utilities/core/Assert.hpp>
-
-
-
 
 #include <QGridLayout>
 #include <QLabel>
@@ -52,7 +48,7 @@
 
 namespace openstudio {
 
-ConstructionAirBoundaryInspectorView::ConstructionAirBoundaryInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent)
+ConstructionAirBoundaryInspectorView::ConstructionAirBoundaryInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent)
   : ModelObjectInspectorView(model, true, parent),
     m_isIP(isIP),
     m_nameEdit(nullptr),
@@ -61,13 +57,11 @@ ConstructionAirBoundaryInspectorView::ConstructionAirBoundaryInspectorView(bool 
     m_radiantExchangeMethod(nullptr),
     m_airExchangeMethod(nullptr),
     m_simpleMixingAirChangesPerHour(nullptr),
-    m_scheduleDropZone(nullptr)
-{
+    m_scheduleDropZone(nullptr) {
   createLayout();
 }
 
-void ConstructionAirBoundaryInspectorView::createLayout()
-{
+void ConstructionAirBoundaryInspectorView::createLayout() {
   auto hiddenWidget = new QWidget();
   this->stackedWidget()->addWidget(hiddenWidget);
 
@@ -81,7 +75,7 @@ void ConstructionAirBoundaryInspectorView::createLayout()
 
   int row = mainGridLayout->rowCount();
 
-  QLabel * label = nullptr;
+  QLabel* label = nullptr;
 
   // Name
 
@@ -176,49 +170,41 @@ void ConstructionAirBoundaryInspectorView::createLayout()
   mainGridLayout->setColumnStretch(100, 100);
 }
 
-void ConstructionAirBoundaryInspectorView::onClearSelection()
-{
+void ConstructionAirBoundaryInspectorView::onClearSelection() {
   detach();
 
   this->stackedWidget()->setCurrentIndex(0);
 }
 
-void ConstructionAirBoundaryInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject)
-{
+void ConstructionAirBoundaryInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject) {
   detach();
   model::ConstructionAirBoundary construction = modelObject.cast<model::ConstructionAirBoundary>();
   attach(construction);
 
-
   this->stackedWidget()->setCurrentIndex(1);
 }
 
-void ConstructionAirBoundaryInspectorView::onUpdate()
-{
-}
+void ConstructionAirBoundaryInspectorView::onUpdate() {}
 
-void ConstructionAirBoundaryInspectorView::attach(openstudio::model::ConstructionAirBoundary & constructionAirBoundary)
-{
+void ConstructionAirBoundaryInspectorView::attach(openstudio::model::ConstructionAirBoundary& constructionAirBoundary) {
   m_constructionAirBoundary = constructionAirBoundary;
 
-  m_nameEdit->bind(
-    *m_constructionAirBoundary,
-    OptionalStringGetter(std::bind(&model::ConstructionAirBoundary::name, m_constructionAirBoundary.get_ptr(), true)),
-    boost::optional<StringSetterOptionalStringReturn>(std::bind(&model::ConstructionAirBoundary::setName, m_constructionAirBoundary.get_ptr(), std::placeholders::_1))
-  );
+  m_nameEdit->bind(*m_constructionAirBoundary,
+                   OptionalStringGetter(std::bind(&model::ConstructionAirBoundary::name, m_constructionAirBoundary.get_ptr(), true)),
+                   boost::optional<StringSetterOptionalStringReturn>(
+                     std::bind(&model::ConstructionAirBoundary::setName, m_constructionAirBoundary.get_ptr(), std::placeholders::_1)));
 
   m_solarAndDaylightingMethod->bind<std::string>(
-    *m_constructionAirBoundary,
-    static_cast<std::string(*)(const std::string&)>(&openstudio::toString),
+    *m_constructionAirBoundary, static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
     &model::ConstructionAirBoundary::solarAndDaylightingMethodValues,
     std::bind(&model::ConstructionAirBoundary::solarAndDaylightingMethod, m_constructionAirBoundary.get_ptr()),
     std::bind(&model::ConstructionAirBoundary::setSolarAndDaylightingMethod, m_constructionAirBoundary.get_ptr(), std::placeholders::_1),
     boost::optional<NoFailAction>(std::bind(&model::ConstructionAirBoundary::resetSolarAndDaylightingMethod, m_constructionAirBoundary.get_ptr())),
-    boost::optional<BasicQuery>(std::bind(&model::ConstructionAirBoundary::isSolarAndDaylightingMethodDefaulted, m_constructionAirBoundary.get_ptr())));
+    boost::optional<BasicQuery>(
+      std::bind(&model::ConstructionAirBoundary::isSolarAndDaylightingMethodDefaulted, m_constructionAirBoundary.get_ptr())));
 
   m_radiantExchangeMethod->bind<std::string>(
-    *m_constructionAirBoundary,
-    static_cast<std::string(*)(const std::string&)>(&openstudio::toString),
+    *m_constructionAirBoundary, static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
     &model::ConstructionAirBoundary::radiantExchangeMethodValues,
     std::bind(&model::ConstructionAirBoundary::radiantExchangeMethod, m_constructionAirBoundary.get_ptr()),
     std::bind(&model::ConstructionAirBoundary::setRadiantExchangeMethod, m_constructionAirBoundary.get_ptr(), std::placeholders::_1),
@@ -226,8 +212,7 @@ void ConstructionAirBoundaryInspectorView::attach(openstudio::model::Constructio
     boost::optional<BasicQuery>(std::bind(&model::ConstructionAirBoundary::isRadiantExchangeMethodDefaulted, m_constructionAirBoundary.get_ptr())));
 
   m_airExchangeMethod->bind<std::string>(
-    *m_constructionAirBoundary,
-    static_cast<std::string(*)(const std::string&)>(&openstudio::toString),
+    *m_constructionAirBoundary, static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
     &model::ConstructionAirBoundary::airExchangeMethodValues,
     std::bind(&model::ConstructionAirBoundary::airExchangeMethod, m_constructionAirBoundary.get_ptr()),
     std::bind(&model::ConstructionAirBoundary::setAirExchangeMethod, m_constructionAirBoundary.get_ptr(), std::placeholders::_1),
@@ -235,17 +220,16 @@ void ConstructionAirBoundaryInspectorView::attach(openstudio::model::Constructio
     boost::optional<BasicQuery>(std::bind(&model::ConstructionAirBoundary::isAirExchangeMethodDefaulted, m_constructionAirBoundary.get_ptr())));
 
   m_simpleMixingAirChangesPerHour->bind(
-    m_isIP,
-    *m_constructionAirBoundary,
+    m_isIP, *m_constructionAirBoundary,
     DoubleGetter(std::bind(&model::ConstructionAirBoundary::simpleMixingAirChangesPerHour, m_constructionAirBoundary.get_ptr())),
-    boost::optional<DoubleSetter>(std::bind(static_cast<bool(model::ConstructionAirBoundary::*)(double)>(&model::ConstructionAirBoundary::setSimpleMixingAirChangesPerHour), m_constructionAirBoundary.get_ptr(), std::placeholders::_1))
-  );
+    boost::optional<DoubleSetter>(
+      std::bind(static_cast<bool (model::ConstructionAirBoundary::*)(double)>(&model::ConstructionAirBoundary::setSimpleMixingAirChangesPerHour),
+                m_constructionAirBoundary.get_ptr(), std::placeholders::_1)));
 
   m_standardsInformationWidget->attach(m_constructionAirBoundary.get());
 }
 
-void ConstructionAirBoundaryInspectorView::detach()
-{
+void ConstructionAirBoundaryInspectorView::detach() {
   m_nameEdit->unbind();
   m_solarAndDaylightingMethod->unbind();
   m_radiantExchangeMethod->unbind();
@@ -257,5 +241,4 @@ void ConstructionAirBoundaryInspectorView::detach()
   m_constructionAirBoundary = boost::none;
 }
 
-} // openstudio
-
+}  // namespace openstudio

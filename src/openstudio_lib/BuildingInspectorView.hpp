@@ -54,19 +54,17 @@ class BuildingSpaceTypeVectorController : public ModelObjectVectorController
 {
   Q_OBJECT
 
-public:
-
+ public:
   virtual ~BuildingSpaceTypeVectorController() {}
 
-protected:
-
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
 
   virtual std::vector<OSItemId> makeVector() override;
 
   virtual void onRemoveItem(OSItem* item) override;
 
-  virtual void onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId) override;
+  virtual void onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) override;
 
   virtual void onDrop(const OSItemId& itemId) override;
 };
@@ -75,19 +73,17 @@ class BuildingDefaultConstructionSetVectorController : public ModelObjectVectorC
 {
   Q_OBJECT
 
-public:
-
+ public:
   virtual ~BuildingDefaultConstructionSetVectorController() {}
 
-protected:
-
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
 
   virtual std::vector<OSItemId> makeVector() override;
 
   virtual void onRemoveItem(OSItem* item) override;
 
-  virtual void onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId) override;
+  virtual void onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) override;
 
   virtual void onDrop(const OSItemId& itemId) override;
 };
@@ -96,19 +92,17 @@ class BuildingDefaultScheduleSetVectorController : public ModelObjectVectorContr
 {
   Q_OBJECT
 
-public:
-
+ public:
   virtual ~BuildingDefaultScheduleSetVectorController() {}
 
-protected:
-
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
 
   virtual std::vector<OSItemId> makeVector() override;
 
   virtual void onRemoveItem(OSItem* item) override;
 
-  virtual void onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId) override;
+  virtual void onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) override;
 
   virtual void onDrop(const OSItemId& itemId) override;
 };
@@ -117,64 +111,60 @@ class BuildingInspectorView : public ModelObjectInspectorView
 {
   Q_OBJECT
 
-  public:
+ public:
+  BuildingInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
-    BuildingInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent = nullptr );
+  virtual ~BuildingInspectorView() {}
 
-    virtual ~BuildingInspectorView() {}
+ signals:
 
-  signals:
+ protected:
+  virtual void onClearSelection() override;
 
-  protected:
+  virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
-    virtual void onClearSelection() override;
+  virtual void onUpdate() override;
 
-    virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
+ protected slots:
 
-    virtual void onUpdate() override;
+  void editStandardsTemplate(const QString& text);
+  void standardsTemplateChanged(const QString& text);
 
-  protected slots:
+  void editStandardsBuildingType(const QString& text);
+  void standardsBuildingTypeChanged(const QString& text);
 
-    void editStandardsTemplate(const QString & text);
-    void standardsTemplateChanged(const QString & text);
+ private:
+  void attach(openstudio::model::Building& building);
 
-    void editStandardsBuildingType(const QString & text);
-    void standardsBuildingTypeChanged(const QString & text);
+  void detach();
 
-  private:
+  void populateStandardsTemplates();
+  void populateStandardsBuildingTypes();
 
-    void attach(openstudio::model::Building& building);
+  boost::optional<openstudio::model::Building> m_building;
+  BuildingDefaultConstructionSetVectorController* m_defaultConstructionSetVectorController = nullptr;
+  BuildingDefaultScheduleSetVectorController* m_defaultScheduleSetVectorController = nullptr;
+  BuildingSpaceTypeVectorController* m_spaceTypeVectorController = nullptr;
+  OSDropZone* m_defaultConstructionSetDropZone = nullptr;
+  OSDropZone* m_defaultScheduleSetDropZone = nullptr;
+  OSDropZone* m_spaceTypeDropZone = nullptr;
+  OSIntegerEdit2* m_numberAboveGroundStories = nullptr;
+  OSIntegerEdit2* m_numberLivingUnits = nullptr;
+  OSIntegerEdit2* m_numberStories = nullptr;
+  OSLineEdit2* m_nameEdit = nullptr;
+  OSQuantityEdit2* m_northAxisEdit = nullptr;
+  OSQuantityEdit2* m_floorToCeilingHeight = nullptr;
+  OSQuantityEdit2* m_floorToFloorHeight = nullptr;
+  OSSwitch2* m_relocatable = nullptr;
+  QComboBox* m_standardsTemplateComboBox = nullptr;
+  QComboBox* m_standardsBuildingTypeComboBox = nullptr;
+  bool m_isIP;
 
-    void detach();
+ public slots:
 
-    void populateStandardsTemplates();
-    void populateStandardsBuildingTypes();
-
-    boost::optional<openstudio::model::Building> m_building;
-    BuildingDefaultConstructionSetVectorController* m_defaultConstructionSetVectorController = nullptr;
-    BuildingDefaultScheduleSetVectorController* m_defaultScheduleSetVectorController = nullptr;
-    BuildingSpaceTypeVectorController* m_spaceTypeVectorController = nullptr;
-    OSDropZone* m_defaultConstructionSetDropZone = nullptr;
-    OSDropZone* m_defaultScheduleSetDropZone = nullptr;
-    OSDropZone* m_spaceTypeDropZone = nullptr;
-    OSIntegerEdit2* m_numberAboveGroundStories = nullptr;
-    OSIntegerEdit2* m_numberLivingUnits = nullptr;
-    OSIntegerEdit2* m_numberStories = nullptr;
-    OSLineEdit2* m_nameEdit = nullptr;
-    OSQuantityEdit2* m_northAxisEdit = nullptr;
-    OSQuantityEdit2 * m_floorToCeilingHeight = nullptr;
-    OSQuantityEdit2 * m_floorToFloorHeight = nullptr;
-    OSSwitch2* m_relocatable = nullptr;
-    QComboBox* m_standardsTemplateComboBox = nullptr;
-    QComboBox* m_standardsBuildingTypeComboBox = nullptr;
-    bool m_isIP;
-
-  public slots:
-
-    void toggleUnits(bool displayIP) override;
+  void toggleUnits(bool displayIP) override;
 };
 
+}  // namespace openstudio
 
-} // openstudio
-
-#endif // OPENSTUDIO_BUILDINGSTORYINSPECTORVIEW_HPP
+#endif  // OPENSTUDIO_BUILDINGSTORYINSPECTORVIEW_HPP

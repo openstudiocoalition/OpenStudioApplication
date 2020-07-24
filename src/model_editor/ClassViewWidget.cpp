@@ -43,14 +43,9 @@
 #include <openstudio/utilities/core/Assert.hpp>
 #include <openstudio/utilities/idd/IddEnums.hxx>
 
-namespace modeleditor
-{
+namespace modeleditor {
 
-ClassViewWidget::ClassViewWidget(openstudio::model::Model& model, QWidget *parent)
-  : ViewWidget(parent),
-  mTableView(nullptr),
-  mTableModel(nullptr)
-{
+ClassViewWidget::ClassViewWidget(openstudio::model::Model& model, QWidget* parent) : ViewWidget(parent), mTableView(nullptr), mTableModel(nullptr) {
   mSplitterSetting = "ClassViewWidgetSplitterSizes";
   createWidgets();
 
@@ -64,11 +59,7 @@ ClassViewWidget::ClassViewWidget(openstudio::model::Model& model, QWidget *paren
   loadData();
 }
 
-ClassViewWidget::ClassViewWidget(QWidget *parent)
-  : ViewWidget(parent),
-  mTableView(nullptr),
-  mTableModel(nullptr)
-{
+ClassViewWidget::ClassViewWidget(QWidget* parent) : ViewWidget(parent), mTableView(nullptr), mTableModel(nullptr) {
   mSplitterSetting = "ClassViewWidgetSplitterSizes";
   createWidgets();
 
@@ -80,51 +71,43 @@ ClassViewWidget::ClassViewWidget(QWidget *parent)
   loadData();
 }
 
-ClassViewWidget::~ClassViewWidget()
-{
-}
+ClassViewWidget::~ClassViewWidget() {}
 
-TableView* ClassViewWidget::getTableView()
-{
+TableView* ClassViewWidget::getTableView() {
   return mTableView;
 }
 
-TableModel* ClassViewWidget::getTableModel()
-{
+TableModel* ClassViewWidget::getTableModel() {
   return mTableModel;
 }
 
-void ClassViewWidget::loadData()
-{
+void ClassViewWidget::loadData() {
   loadModel();
   mTableView->selectRow(0);
   QModelIndexList rowList;
-  if(mTableView->getSelectedRows(rowList)){
+  if (mTableView->getSelectedRows(rowList)) {
     viewSelection(rowList.at(0));
   }
 }
 
-void ClassViewWidget::loadModel(openstudio::model::Model& model)
-{
+void ClassViewWidget::loadModel(openstudio::model::Model& model) {
   loadWorkspace(model);
 }
 
-void ClassViewWidget::loadModel()
-{
-  if(mModelExplorer){
+void ClassViewWidget::loadModel() {
+  if (mModelExplorer) {
     mModel = mModelExplorer->getModel();
     loadModel(mModel);
     //mTableView->resizeColumnsToContents();
     //mTableView->resizeRowsToContents();
     setModelDirty(false);
-    if(isVisible()){
-      emit modelUpdated(static_cast<QAbstractItemModel *>(mTableModel));
+    if (isVisible()) {
+      emit modelUpdated(static_cast<QAbstractItemModel*>(mTableModel));
     }
   }
 }
 
-void ClassViewWidget::loadWorkspace(const openstudio::Workspace& workspace)
-{
+void ClassViewWidget::loadWorkspace(const openstudio::Workspace& workspace) {
   openstudio::WorkspaceObjectVector v = mModel.objects();
   mTableModel->loadObjects(v);
 
@@ -132,8 +115,7 @@ void ClassViewWidget::loadWorkspace(const openstudio::Workspace& workspace)
   mTableView->setSortingEnabled(true);
 }
 
-void ClassViewWidget::createWidgets()
-{
+void ClassViewWidget::createWidgets() {
   mTableView = new TableView(this);
   mTableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
   mTableView->setSelectionBehavior(QAbstractItemView::SelectRows);
@@ -143,8 +125,7 @@ void ClassViewWidget::createWidgets()
   mTableView->setDropIndicatorShown(true);
 }
 
-void ClassViewWidget::connectSignalsAndSlots()
-{
+void ClassViewWidget::connectSignalsAndSlots() {
   connect(mTableView, &TableView::eventUpDnKeyRelease, this, static_cast<void (ClassViewWidget::*)()>(&ClassViewWidget::viewSelection));
 
   connect(mTableView, &TableView::clicked, this, static_cast<void (ClassViewWidget::*)()>(&ClassViewWidget::viewSelection));
@@ -154,8 +135,7 @@ void ClassViewWidget::connectSignalsAndSlots()
   connect(mTableView, &TableView::eventLeave, this, &ClassViewWidget::eventLeave);
 }
 
-void ClassViewWidget::createLayout()
-{
+void ClassViewWidget::createLayout() {
   mSplitter->addWidget(mTableView);
   mSplitter->addWidget(mIG);
 
@@ -163,50 +143,47 @@ void ClassViewWidget::createLayout()
   mTableView->resizeRowsToContents();
 }
 
-void ClassViewWidget::insertObjects(const QModelIndexList& rowList,
-                                    const std::vector<openstudio::IdfObject>& idfObjects,
-                                    std::vector<openstudio::WorkspaceObject>& wsObjects)
-{
-  if(!rowList.size()){
+void ClassViewWidget::insertObjects(const QModelIndexList& rowList, const std::vector<openstudio::IdfObject>& idfObjects,
+                                    std::vector<openstudio::WorkspaceObject>& wsObjects) {
+  if (!rowList.size()) {
     return;
   }
 
   QModelIndex selectedRow = rowList.at(0);
-  TableModel * model = static_cast<TableModel *>(mTableView->model());
+  TableModel* model = static_cast<TableModel*>(mTableView->model());
   openstudio::OptionalWorkspaceObject selectedObj = model->objectAtIndex(selectedRow);
 
   openstudio::OptionalWorkspaceObject optWsObj;
 
   ///! OpenStudio model update...
-  for(unsigned i=0; i<idfObjects.size(); i++){
+  for (unsigned i = 0; i < idfObjects.size(); i++) {
     optWsObj = mModel.addObject(idfObjects.at(i));
-    if(optWsObj){
+    if (optWsObj) {
       wsObjects.push_back(*optWsObj);
-      mModel.order().insert(optWsObj->handle(),selectedObj->handle());
+      mModel.order().insert(optWsObj->handle(), selectedObj->handle());
     }
   }
 }
 
-void ClassViewWidget::addObjects(openstudio::IddObjectType type)
-{
-  if(type == openstudio::IddObjectType::UserCustom){
+void ClassViewWidget::addObjects(openstudio::IddObjectType type) {
+  if (type == openstudio::IddObjectType::UserCustom) {
     return;
   }
 
   QModelIndexList rowList;
-  if(!mTableView->getSelectedRows(rowList)){
+  if (!mTableView->getSelectedRows(rowList)) {
     mTableView->selectRow(0);
     mTableView->getSelectedRows(rowList);
   }
 
   std::vector<openstudio::IdfObject> idfObjects;
-  for(int i=0; i<rowList.size(); i++){
+  for (int i = 0; i < rowList.size(); i++) {
     idfObjects.push_back(openstudio::IdfObject(type));
   }
 
   ///! OpenStudio model update...
   std::vector<openstudio::WorkspaceObject> wsObjects;
-  insertObjects(rowList,idfObjects,wsObjects);
+  insertObjects(rowList, idfObjects, wsObjects);
 
   ///! Qt model update...
   //mTableModel->insertRows(wsObjects,rowList);
@@ -215,95 +192,85 @@ void ClassViewWidget::addObjects(openstudio::IddObjectType type)
   emit modelDirty();
 }
 
-void ClassViewWidget::pasteObjects()
-{
+void ClassViewWidget::pasteObjects() {
   QModelIndexList rowList;
-  if(mTableView->getSelectedRows(rowList)){
+  if (mTableView->getSelectedRows(rowList)) {
 
     QModelIndex selectedRow = rowList.at(0);
 
     ///! OpenStudio model update...
     std::vector<openstudio::WorkspaceObject> wsObjects;
-    insertObjects(rowList,mIdfObjectsToPaste,wsObjects);
+    insertObjects(rowList, mIdfObjectsToPaste, wsObjects);
 
     ///! Qt model update...
     //mTableModel->insertRows(wsObjects,selectedRow,mPastedRows);
 
     loadModel();
     ///! select the first new row
-    mTableView->selectRow(selectedRow.row()+1);
+    mTableView->selectRow(selectedRow.row() + 1);
 
     emit modelDirty();
   }
 }
 
-void ClassViewWidget::removeObjects()
-{
+void ClassViewWidget::removeObjects() {
   QModelIndexList rowList;
-  if(mTableView->getSelectedRows(rowList)){
+  if (mTableView->getSelectedRows(rowList)) {
     openstudio::Handle handle;
     std::vector<openstudio::Handle> handles;
     ///! OpenStudio model update...
-    for(int i=0; i<rowList.size(); i++){
+    for (int i = 0; i < rowList.size(); i++) {
       handle = mTableModel->objectAtIndex(rowList.at(i))->handle();
       handles.push_back(handle);
       mModel.removeObject(mTableModel->objectAtIndex(rowList.at(i))->handle());
     }
 
-    if(!handles.empty()){
+    if (!handles.empty()) {
       ///! Qt model update...
       //mTableModel->removeRows(rowList);
       loadModel();
       emit modelDirty();
     }
-
   }
 }
 
-void ClassViewWidget::copyObjects()
-{
+void ClassViewWidget::copyObjects() {
   mIdfObjectsToPaste.clear();
   QModelIndexList rowList;
-  if(mTableView->getSelectedRows(rowList)){
-    for (const QModelIndex& row : rowList){
+  if (mTableView->getSelectedRows(rowList)) {
+    for (const QModelIndex& row : rowList) {
       mIdfObjectsToPaste.push_back(*(mTableModel->objectAtIndex(row)));
     }
   }
 }
 
-bool ClassViewWidget::hasSelectedRows()
-{
+bool ClassViewWidget::hasSelectedRows() {
   return mTableView->hasSelectedRows();
 }
 
-bool ClassViewWidget::hasRowsToPaste()
-{
+bool ClassViewWidget::hasRowsToPaste() {
   return mIdfObjectsToPaste.size();
 }
 
-void ClassViewWidget::toggleGUIDs()
-{
+void ClassViewWidget::toggleGUIDs() {
   mTableModel->toggleGUIDs();
 }
 
 ///! Slots
-void ClassViewWidget::viewSelection()
-{
-  QItemSelectionModel * itemSelectionModel = mTableView->selectionModel();
+void ClassViewWidget::viewSelection() {
+  QItemSelectionModel* itemSelectionModel = mTableView->selectionModel();
   viewSelection(itemSelectionModel->currentIndex());
 }
 
-void ClassViewWidget::viewSelection(const QModelIndex& modelIndex)
-{
+void ClassViewWidget::viewSelection(const QModelIndex& modelIndex) {
   // get the available object
   openstudio::OptionalWorkspaceObject obj = mTableModel->objectAtIndex(modelIndex);
   mIG->layoutModelObj(*obj);
 }
 
-void ClassViewWidget::on_nameChanged(QString)
-{
-  if(isVisible()){
-    loadModel(); // TODO costly and clunky
+void ClassViewWidget::on_nameChanged(QString) {
+  if (isVisible()) {
+    loadModel();  // TODO costly and clunky
     update();
     return;
     /*QModelIndexList rowList;
@@ -312,10 +279,9 @@ void ClassViewWidget::on_nameChanged(QString)
       OS_ASSERT(rowList.size() == 1);
       //rowList.at(0).
     }*/
-  }
-  else{
+  } else {
     mModelDirty = true;
   }
 }
 
-} // namespace modeleditor
+}  // namespace modeleditor

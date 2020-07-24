@@ -38,38 +38,28 @@
 
 namespace openstudio {
 
-OSSwitch2::OSSwitch2( QWidget * parent )
-  : QPushButton(parent)
-{
+OSSwitch2::OSSwitch2(QWidget* parent) : QPushButton(parent) {
   this->setAcceptDrops(false);
   setFlat(true);
-  setFixedSize(63,21);
+  setFixedSize(63, 21);
 
   makeOnOff();
 
   this->setCheckable(true);
 }
 
-OSSwitch2::~OSSwitch2()
-{
-}
+OSSwitch2::~OSSwitch2() {}
 
-void OSSwitch2::makeOnOff()
-{
+void OSSwitch2::makeOnOff() {
   setObjectName("OnOffSliderButton");
 }
 
-void OSSwitch2::makeTrueFalse()
-{
+void OSSwitch2::makeTrueFalse() {
   setObjectName("TrueFalseSliderButton");
 }
 
-void OSSwitch2::bind(model::ModelObject & modelObject,
-                     BoolGetter get,
-                     boost::optional<BoolSetter> set,
-                     boost::optional<NoFailAction> reset,
-                     boost::optional<BasicQuery> isDefaulted)
-{
+void OSSwitch2::bind(model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetter> set, boost::optional<NoFailAction> reset,
+                     boost::optional<BasicQuery> isDefaulted) {
   m_modelObject = modelObject;
   m_get = get;
   m_set = set;
@@ -77,18 +67,22 @@ void OSSwitch2::bind(model::ModelObject & modelObject,
   m_isDefaulted = isDefaulted;
 
   m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.connect<OSSwitch2, &OSSwitch2::onModelObjectChange>(this);
-  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onRemoveFromWorkspace.connect<OSSwitch2, &OSSwitch2::onModelObjectRemove>(this);
+  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
+    .get()
+    ->onRemoveFromWorkspace.connect<OSSwitch2, &OSSwitch2::onModelObjectRemove>(this);
 
   connect(this, &OSSwitch2::clicked, this, &OSSwitch2::onClicked);
 
   onModelObjectChange();
 }
 
-void OSSwitch2::unbind()
-{
-  if (m_modelObject){
-    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.disconnect<OSSwitch2, &OSSwitch2::onModelObjectChange>(this);
-    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onRemoveFromWorkspace.disconnect<OSSwitch2, &OSSwitch2::onModelObjectRemove>(this);
+void OSSwitch2::unbind() {
+  if (m_modelObject) {
+    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.disconnect<OSSwitch2, &OSSwitch2::onModelObjectChange>(
+      this);
+    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
+      .get()
+      ->onRemoveFromWorkspace.disconnect<OSSwitch2, &OSSwitch2::onModelObjectRemove>(this);
     m_modelObject.reset();
     m_get.reset();
     m_set.reset();
@@ -97,18 +91,16 @@ void OSSwitch2::unbind()
   }
 }
 
-void OSSwitch2::onClicked(bool checked)
-{
-  if(m_modelObject && m_set) {
+void OSSwitch2::onClicked(bool checked) {
+  if (m_modelObject && m_set) {
     if ((*m_get)() != checked) {
       (*m_set)(checked);
     }
   }
 }
 
-void OSSwitch2::onModelObjectChange()
-{
-  if( m_modelObject ) {
+void OSSwitch2::onModelObjectChange() {
+  if (m_modelObject) {
     if ((*m_get)() != this->isChecked()) {
       this->blockSignals(true);
       this->setChecked((*m_get)());
@@ -185,4 +177,4 @@ void OSSwitch2::onModelObjectRemove(const Handle& handle) {
 //   m_property = "";
 // }
 
-} // openstudio
+}  // namespace openstudio

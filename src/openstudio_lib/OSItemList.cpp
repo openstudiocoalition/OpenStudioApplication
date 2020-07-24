@@ -41,10 +41,7 @@
 
 namespace openstudio {
 
-
-OSItemList::OSItemList(OSVectorController* vectorController,
-                       bool addScrollArea,
-                       QWidget * parent)
+OSItemList::OSItemList(OSVectorController* vectorController, bool addScrollArea, QWidget* parent)
   : OSItemSelector(parent),
     m_vectorController(vectorController),
     m_vLayout(nullptr),
@@ -52,8 +49,7 @@ OSItemList::OSItemList(OSVectorController* vectorController,
     m_itemsDraggable(false),
     m_itemsRemoveable(false),
     m_type(OSItemType::ListItem),
-    m_dirty(false)
-{
+    m_dirty(false) {
   // for now we will allow this item list to manage memory of
   OS_ASSERT(!m_vectorController->parent());
   m_vectorController->setParent(this);
@@ -70,12 +66,12 @@ OSItemList::OSItemList(OSVectorController* vectorController,
   setStyleSheet(style);
 
   auto outerVLayout = new QVBoxLayout();
-  outerVLayout->setContentsMargins(0,0,0,0);
+  outerVLayout->setContentsMargins(0, 0, 0, 0);
   this->setLayout(outerVLayout);
 
   auto outerWidget = new QWidget();
 
-  if (addScrollArea){
+  if (addScrollArea) {
     auto scrollArea = new QScrollArea();
     scrollArea->setFrameStyle(QFrame::NoFrame);
     scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
@@ -83,13 +79,13 @@ OSItemList::OSItemList(OSVectorController* vectorController,
     outerVLayout->addWidget(scrollArea);
     scrollArea->setWidget(outerWidget);
     scrollArea->setWidgetResizable(true);
-  }else{
+  } else {
     outerVLayout->addWidget(outerWidget);
   }
 
   m_vLayout = new QVBoxLayout();
   outerWidget->setLayout(m_vLayout);
-  m_vLayout->setContentsMargins(0,0,0,0);
+  m_vLayout->setContentsMargins(0, 0, 0, 0);
   m_vLayout->setSpacing(0);
   m_vLayout->addStretch();
 
@@ -108,39 +104,35 @@ OSItemList::OSItemList(OSVectorController* vectorController,
   QTimer::singleShot(0, vectorController, SLOT(reportItems()));
 }
 
-OSItem* OSItemList::selectedItem() const
-{
+OSItem* OSItemList::selectedItem() const {
   return m_selectedItem;
 }
 
-OSItem* OSItemList::firstItem()
-{
+OSItem* OSItemList::firstItem() {
   std::vector<OSItem*> items = this->items();
-  if (!items.empty()){
+  if (!items.empty()) {
     return items.front();
   }
   return nullptr;
 }
 
-OSItem* OSItemList::lastItem()
-{
+OSItem* OSItemList::lastItem() {
   std::vector<OSItem*> items = this->items();
-  if (!items.empty()){
+  if (!items.empty()) {
     return items.back();
   }
   return nullptr;
 }
 
-std::vector<OSItem *> OSItemList::items()
-{
-  std::vector<OSItem *> result;
+std::vector<OSItem*> OSItemList::items() {
+  std::vector<OSItem*> result;
 
-  for (int i = 0; i < m_vLayout->count(); ++i){
-    QLayoutItem * layoutItem = m_vLayout->itemAt(i);
-    QWidget * widget = layoutItem->widget();
-    OSItem * item = qobject_cast<OSItem*>(widget);
+  for (int i = 0; i < m_vLayout->count(); ++i) {
+    QLayoutItem* layoutItem = m_vLayout->itemAt(i);
+    QWidget* widget = layoutItem->widget();
+    OSItem* item = qobject_cast<OSItem*>(widget);
 
-    if (item){
+    if (item) {
       result.push_back(item);
     }
   }
@@ -148,39 +140,33 @@ std::vector<OSItem *> OSItemList::items()
   return result;
 }
 
-OSVectorController* OSItemList::vectorController() const
-{
+OSVectorController* OSItemList::vectorController() const {
   return m_vectorController;
 }
 
-bool OSItemList::itemsDraggable() const
-{
+bool OSItemList::itemsDraggable() const {
   return m_itemsDraggable;
 }
 
-void OSItemList::setItemsDraggable(bool itemsDraggable)
-{
+void OSItemList::setItemsDraggable(bool itemsDraggable) {
   m_itemsDraggable = itemsDraggable;
-  for (OSItem* item : this->items()){
+  for (OSItem* item : this->items()) {
     item->setDraggable(itemsDraggable);
   }
 }
 
-bool OSItemList::itemsRemoveable() const
-{
+bool OSItemList::itemsRemoveable() const {
   return m_itemsRemoveable;
 }
 
-void OSItemList::setItemsRemoveable(bool itemsRemoveable)
-{
+void OSItemList::setItemsRemoveable(bool itemsRemoveable) {
   m_itemsRemoveable = itemsRemoveable;
-  for (OSItem* item : this->items()){
+  for (OSItem* item : this->items()) {
     item->setRemoveable(itemsRemoveable);
   }
 }
 
-void OSItemList::setItemIds(const std::vector<OSItemId>& itemIds)
-{
+void OSItemList::setItemIds(const std::vector<OSItemId>& itemIds) {
   /* DLM: ScriptsListView was removed
   if (qobject_cast<ScriptsListView*>(this)) {
     std::vector<OSItem*> myItems = items();
@@ -201,9 +187,9 @@ void OSItemList::setItemIds(const std::vector<OSItemId>& itemIds)
   */
 
   QLayoutItem* child;
-  while( (child = m_vLayout->takeAt(0)) != nullptr ){
+  while ((child = m_vLayout->takeAt(0)) != nullptr) {
     QWidget* widget = child->widget();
-    if (widget){
+    if (widget) {
       delete widget;
     }
     delete child;
@@ -212,9 +198,9 @@ void OSItemList::setItemIds(const std::vector<OSItemId>& itemIds)
 
   m_selectedItem = nullptr;
 
-  for (const OSItemId& itemId : itemIds){
+  for (const OSItemId& itemId : itemIds) {
     OSItem* item = OSItem::makeItem(itemId, OSItemType::ListItem);
-    if (item){
+    if (item) {
       addItem(item, false);
     }
   }
@@ -224,15 +210,13 @@ void OSItemList::setItemIds(const std::vector<OSItemId>& itemIds)
   QTimer::singleShot(0, this, SLOT(refresh()));
 }
 
-void OSItemList::refresh()
-{
-  if (m_dirty){
+void OSItemList::refresh() {
+  if (m_dirty) {
     m_dirty = false;
   }
 }
 
-void OSItemList::addItem(OSItem* item, bool selectItem)
-{
+void OSItemList::addItem(OSItem* item, bool selectItem) {
   OS_ASSERT(item);
 
   item->setDraggable(m_itemsDraggable);
@@ -249,7 +233,7 @@ void OSItemList::addItem(OSItem* item, bool selectItem)
 
   m_vLayout->insertWidget(0, item);
 
-  if (selectItem){
+  if (selectItem) {
     this->selectItem(item);
   }
 
@@ -257,10 +241,9 @@ void OSItemList::addItem(OSItem* item, bool selectItem)
   QTimer::singleShot(0, this, SLOT(refresh()));
 }
 
-void OSItemList::selectItem(OSItem* selectItem)
-{
-  if(!selectItem){
-    if(m_selectedItem){
+void OSItemList::selectItem(OSItem* selectItem) {
+  if (!selectItem) {
+    if (m_selectedItem) {
       // deselect
       m_selectedItem->setSelected(false);
     }
@@ -269,19 +252,19 @@ void OSItemList::selectItem(OSItem* selectItem)
     return;
   }
 
-  for (int i = 0; i < m_vLayout->count(); ++i){
-    QLayoutItem * layoutItem = m_vLayout->itemAt(i);
-    QWidget * widget = layoutItem->widget();
-    OSItem * item = qobject_cast<OSItem*>(widget);
+  for (int i = 0; i < m_vLayout->count(); ++i) {
+    QLayoutItem* layoutItem = m_vLayout->itemAt(i);
+    QWidget* widget = layoutItem->widget();
+    OSItem* item = qobject_cast<OSItem*>(widget);
 
-    if (item){
-      if (selectItem->equal(item)){
+    if (item) {
+      if (selectItem->equal(item)) {
 
-        if(m_selectedItem){
-          if (m_selectedItem->equal(item)){
+        if (m_selectedItem) {
+          if (m_selectedItem->equal(item)) {
             // already selected
             return;
-          }else{
+          } else {
             // deselect
             m_selectedItem->setSelected(false);
           }
@@ -296,7 +279,7 @@ void OSItemList::selectItem(OSItem* selectItem)
   }
 
   // selected object was not found
-  if(m_selectedItem){
+  if (m_selectedItem) {
     // deselect
     m_selectedItem->setSelected(false);
   }
@@ -304,15 +287,14 @@ void OSItemList::selectItem(OSItem* selectItem)
   emit selectionCleared();
 }
 
-void OSItemList::selectItemId(const OSItemId& itemId)
-{
-  for (int i = 0; i < m_vLayout->count(); ++i){
+void OSItemList::selectItemId(const OSItemId& itemId) {
+  for (int i = 0; i < m_vLayout->count(); ++i) {
     QLayoutItem* layoutItem = m_vLayout->itemAt(i);
     QWidget* widget = layoutItem->widget();
     OSItem* item = qobject_cast<OSItem*>(widget);
 
-    if (item){
-      if (item->itemId() == itemId){
+    if (item) {
+      if (item->itemId() == itemId) {
         selectItem(item);
         break;
       }
@@ -320,39 +302,35 @@ void OSItemList::selectItemId(const OSItemId& itemId)
   }
 }
 
-void OSItemList::clearSelection()
-{
+void OSItemList::clearSelection() {
   m_selectedItem = nullptr;
 
-  for (int i = 0; i < m_vLayout->count(); ++i){
-    QLayoutItem * layoutItem = m_vLayout->itemAt(i);
-    QWidget * widget = layoutItem->widget();
-    OSItem * item = qobject_cast<OSItem*>(widget);
-    if (item){
+  for (int i = 0; i < m_vLayout->count(); ++i) {
+    QLayoutItem* layoutItem = m_vLayout->itemAt(i);
+    QWidget* widget = layoutItem->widget();
+    OSItem* item = qobject_cast<OSItem*>(widget);
+    if (item) {
       item->setSelected(false);
     }
   }
 }
 
-void OSItemList::paintEvent( QPaintEvent * event )
-{
+void OSItemList::paintEvent(QPaintEvent* event) {
   QStyleOption opt;
   opt.init(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
 
-OSItemType OSItemList::itemsType() const
-{
+OSItemType OSItemList::itemsType() const {
   return m_type;
 }
 
-void OSItemList::setItemsType(OSItemType type)
-{
+void OSItemList::setItemsType(OSItemType type) {
   m_type = type;
-  for (OSItem* item : this->items()){
+  for (OSItem* item : this->items()) {
     item->setOSItemType(type);
   }
 }
 
-} // openstudio
+}  // namespace openstudio

@@ -49,63 +49,59 @@ class WindowMaterialGasMixtureInspectorView : public ModelObjectInspectorView
 {
   Q_OBJECT
 
-  public:
+ public:
+  WindowMaterialGasMixtureInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
-    WindowMaterialGasMixtureInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent = nullptr);
+  virtual ~WindowMaterialGasMixtureInspectorView() {}
 
-    virtual ~WindowMaterialGasMixtureInspectorView() {}
+ protected:
+  virtual void onClearSelection() override;
 
-  protected:
+  virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
-    virtual void onClearSelection() override;
+  virtual void onUpdate() override;
 
-    virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
+ private:
+  void createLayout();
 
-    virtual void onUpdate() override;
+  void attach(openstudio::model::GasMixture& GasMixture);
 
-  private:
+  void detach();
 
-    void createLayout();
+  void refresh();
 
-    void attach(openstudio::model::GasMixture & GasMixture);
+  bool m_isIP;
 
-    void detach();
+  boost::optional<model::GasMixture> m_gasMixture;
 
-    void refresh();
+  OSLineEdit2* m_nameEdit = nullptr;
 
-    bool m_isIP;
+  OSComboBox2* m_gas1Type = nullptr;
+  OSComboBox2* m_gas2Type = nullptr;
+  OSComboBox2* m_gas3Type = nullptr;
+  OSComboBox2* m_gas4Type = nullptr;
 
-    boost::optional<model::GasMixture> m_gasMixture;
+  OSLineEdit2* m_2AEdit = nullptr;
 
-    OSLineEdit2 * m_nameEdit = nullptr;
+  OSLineEdit2* m_3AEdit = nullptr;
 
-    OSComboBox2 * m_gas1Type = nullptr;
-    OSComboBox2 * m_gas2Type = nullptr;
-    OSComboBox2 * m_gas3Type = nullptr;
-    OSComboBox2 * m_gas4Type = nullptr;
+  OSLineEdit2* m_4AEdit = nullptr;
 
-    OSLineEdit2 * m_2AEdit = nullptr;
+  OSQuantityEdit2* m_thickness = nullptr;
 
-    OSLineEdit2 * m_3AEdit = nullptr;
+  OSIntegerEdit2* m_numberOfGasesInMixture = nullptr;
 
-    OSLineEdit2 * m_4AEdit = nullptr;
+  OSQuantityEdit2* m_gas1Fraction = nullptr;
 
-    OSQuantityEdit2 * m_thickness = nullptr;
+  OSQuantityEdit2* m_gas2Fraction = nullptr;
 
-    OSIntegerEdit2 * m_numberOfGasesInMixture = nullptr;
+  OSQuantityEdit2* m_gas3Fraction = nullptr;
 
-    OSQuantityEdit2 * m_gas1Fraction = nullptr;
+  OSQuantityEdit2* m_gas4Fraction = nullptr;
 
-    OSQuantityEdit2 * m_gas2Fraction = nullptr;
-
-    OSQuantityEdit2 * m_gas3Fraction = nullptr;
-
-    OSQuantityEdit2 * m_gas4Fraction = nullptr;
-
-    StandardsInformationMaterialWidget * m_standardsInformationWidget = nullptr;
-
+  StandardsInformationMaterialWidget* m_standardsInformationWidget = nullptr;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_WINDOWMATERIALGASMIXTUREINSPECTORVIEW_HPP
+#endif  // OPENSTUDIO_WINDOWMATERIALGASMIXTUREINSPECTORVIEW_HPP

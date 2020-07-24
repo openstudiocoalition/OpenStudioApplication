@@ -142,21 +142,16 @@ namespace openstudio {
 
 const OSItemType ModelObjectTreeItem::m_type = ModelObjectTreeItem::initializeOSItemType();
 
-OSItemType ModelObjectTreeItem::initializeOSItemType()
-{
+OSItemType ModelObjectTreeItem::initializeOSItemType() {
   return OSItemType::ListItem;
 }
 
 OSItemType initializeOSItemType();
 
-ModelObjectTreeItem::ModelObjectTreeItem(const openstudio::model::ModelObject& modelObject, bool isDefaulted, OSItemType type, QTreeWidgetItem* parent)
-  : QTreeWidgetItem(parent),
-  m_handle(modelObject.handle()),
-  m_modelObject(modelObject),
-  m_model(modelObject.model()),
-  m_dirty(false)
-{
-  m_item = new ModelObjectItem(modelObject,isDefaulted,type);
+ModelObjectTreeItem::ModelObjectTreeItem(const openstudio::model::ModelObject& modelObject, bool isDefaulted, OSItemType type,
+                                         QTreeWidgetItem* parent)
+  : QTreeWidgetItem(parent), m_handle(modelObject.handle()), m_modelObject(modelObject), m_model(modelObject.model()), m_dirty(false) {
+  m_item = new ModelObjectItem(modelObject, isDefaulted, type);
   m_item->setVisible(false);
 
   this->setText(0, toQString(modelObject.name().get()));
@@ -166,59 +161,53 @@ ModelObjectTreeItem::ModelObjectTreeItem(const openstudio::model::ModelObject& m
 
   m_modelObject->getImpl<model::detail::ModelObject_Impl>().get()->onChange.connect<ModelObjectTreeItem, &ModelObjectTreeItem::change>(this);
 
-  m_modelObject->getImpl<model::detail::ModelObject_Impl>().get()->onRelationshipChange.connect<ModelObjectTreeItem, &ModelObjectTreeItem::changeRelationship>(this);
+  m_modelObject->getImpl<model::detail::ModelObject_Impl>()
+    .get()
+    ->onRelationshipChange.connect<ModelObjectTreeItem, &ModelObjectTreeItem::changeRelationship>(this);
 }
 
 ModelObjectTreeItem::ModelObjectTreeItem(const std::string& name, const openstudio::model::Model& model, QTreeWidgetItem* parent)
-  : QTreeWidgetItem(parent), m_model(model), m_name(name), m_dirty(false)
-{
+  : QTreeWidgetItem(parent), m_model(model), m_name(name), m_dirty(false) {
   m_item = nullptr;
 
   this->setText(0, toQString(name));
   this->setStyle(0, "");
 }
 
-ModelObjectTreeItem::~ModelObjectTreeItem()
-{
-  if (m_item){
+ModelObjectTreeItem::~ModelObjectTreeItem() {
+  if (m_item) {
     delete m_item;
   }
 }
 
-boost::optional<openstudio::Handle> ModelObjectTreeItem::handle() const
-{
+boost::optional<openstudio::Handle> ModelObjectTreeItem::handle() const {
   return m_handle;
 }
 
-boost::optional<openstudio::model::ModelObject> ModelObjectTreeItem::modelObject() const
-{
+boost::optional<openstudio::model::ModelObject> ModelObjectTreeItem::modelObject() const {
   return m_modelObject;
 }
 
-openstudio::model::Model ModelObjectTreeItem::model() const
-{
+openstudio::model::Model ModelObjectTreeItem::model() const {
   return m_model;
 }
 
-std::string ModelObjectTreeItem::name() const
-{
-  if (m_modelObject){
+std::string ModelObjectTreeItem::name() const {
+  if (m_modelObject) {
     return m_modelObject->name().get();
   }
   return m_name;
 }
 
-OSItem* ModelObjectTreeItem::item() const
-{
+OSItem* ModelObjectTreeItem::item() const {
   return m_item;
 }
 
-std::vector<ModelObjectTreeItem*> ModelObjectTreeItem::children() const
-{
+std::vector<ModelObjectTreeItem*> ModelObjectTreeItem::children() const {
   std::vector<ModelObjectTreeItem*> result;
 
   int n = this->childCount();
-  for (int i = 0; i < n; ++i){
+  for (int i = 0; i < n; ++i) {
     QTreeWidgetItem* child = this->child(i);
     ModelObjectTreeItem* modelObjectTreeItem = dynamic_cast<ModelObjectTreeItem*>(child);
     OS_ASSERT(modelObjectTreeItem);
@@ -228,12 +217,11 @@ std::vector<ModelObjectTreeItem*> ModelObjectTreeItem::children() const
   return result;
 }
 
-std::vector<ModelObjectTreeItem*> ModelObjectTreeItem::recursiveChildren() const
-{
+std::vector<ModelObjectTreeItem*> ModelObjectTreeItem::recursiveChildren() const {
   std::vector<ModelObjectTreeItem*> result;
 
   int n = this->childCount();
-  for (int i = 0; i < n; ++i){
+  for (int i = 0; i < n; ++i) {
     QTreeWidgetItem* child = this->child(i);
     ModelObjectTreeItem* modelObjectTreeItem = dynamic_cast<ModelObjectTreeItem*>(child);
     OS_ASSERT(modelObjectTreeItem);
@@ -246,9 +234,8 @@ std::vector<ModelObjectTreeItem*> ModelObjectTreeItem::recursiveChildren() const
   return result;
 }
 
-void ModelObjectTreeItem::setStyle(int headerLevel, const QString& color)
-{
-  if (this->modelObject()){
+void ModelObjectTreeItem::setStyle(int headerLevel, const QString& color) {
+  if (this->modelObject()) {
     //this->setChildIndicatorPolicy(QTreeWidgetItem::ShowIndicator);
     this->setFlags(Qt::NoItemFlags | Qt::ItemIsSelectable | Qt::ItemIsEnabled);
 
@@ -256,12 +243,12 @@ void ModelObjectTreeItem::setStyle(int headerLevel, const QString& color)
 
     QIcon icon(defaultIcon);
     const QPixmap* pixMap = IconLibrary::Instance().findMiniIcon(this->modelObject()->iddObjectType().value());
-    if (pixMap){
+    if (pixMap) {
       icon = QIcon(*pixMap);
     }
     this->setIcon(0, icon);
 
-  }else{
+  } else {
     this->setChildIndicatorPolicy(QTreeWidgetItem::ShowIndicator);
     this->setFlags(Qt::NoItemFlags | Qt::ItemIsEnabled);
 
@@ -270,36 +257,33 @@ void ModelObjectTreeItem::setStyle(int headerLevel, const QString& color)
   }
 
   QFont font;
-  if (headerLevel == 1){
+  if (headerLevel == 1) {
     font.setBold(true);
     font.setPixelSize(14);
-  }else if(headerLevel == 2){
+  } else if (headerLevel == 2) {
     font.setBold(true);
     font.setPixelSize(12);
-  }else{
+  } else {
     font.setPixelSize(12);
   }
   this->setFont(0, font);
 
   QBrush brush(Qt::black, Qt::SolidPattern);
-  if (!color.isEmpty()){
+  if (!color.isEmpty()) {
     brush = QBrush(color, Qt::SolidPattern);
   }
   this->setForeground(0, brush);
 }
 
-bool ModelObjectTreeItem::isDirty()
-{
+bool ModelObjectTreeItem::isDirty() {
   return m_dirty;
 }
 
-void ModelObjectTreeItem::makeDirty()
-{
+void ModelObjectTreeItem::makeDirty() {
   m_dirty = true;
 }
 
-void ModelObjectTreeItem::refresh()
-{
+void ModelObjectTreeItem::refresh() {
   m_dirty = false;
 
   std::vector<std::string> nonModelObjectChildren = this->nonModelObjectChildren();
@@ -308,46 +292,46 @@ void ModelObjectTreeItem::refresh()
   std::vector<QTreeWidgetItem*> childrenToRemove;
 
   std::set<std::string> nonModelObjectChildrenSet;
-  for (const std::string& child : nonModelObjectChildren){
+  for (const std::string& child : nonModelObjectChildren) {
     nonModelObjectChildrenSet.insert(child);
   }
 
   std::set<openstudio::Handle> allModelObjectChildrenHandleSet;
-  for (const model::ModelObject& child : defaultedModelObjectChildren){
+  for (const model::ModelObject& child : defaultedModelObjectChildren) {
     allModelObjectChildrenHandleSet.insert(child.handle());
   }
-  for (const model::ModelObject& child : modelObjectChildren){
+  for (const model::ModelObject& child : modelObjectChildren) {
     allModelObjectChildrenHandleSet.insert(child.handle());
   }
 
   int n = this->childCount();
-  for (int i = 0; i < n; ++i){
+  for (int i = 0; i < n; ++i) {
     QTreeWidgetItem* child = this->child(i);
     ModelObjectTreeItem* modelObjectTreeItem = dynamic_cast<ModelObjectTreeItem*>(child);
     OS_ASSERT(modelObjectTreeItem);
 
     boost::optional<openstudio::model::ModelObject> modelObject = modelObjectTreeItem->modelObject();
-    if (modelObject){
-      if (allModelObjectChildrenHandleSet.find(modelObject->handle()) != allModelObjectChildrenHandleSet.end()){
+    if (modelObject) {
+      if (allModelObjectChildrenHandleSet.find(modelObject->handle()) != allModelObjectChildrenHandleSet.end()) {
         // this item's model object is for a model object we should have
         modelObjectTreeItem->refresh();
 
         // erase from set so we don't add later
         allModelObjectChildrenHandleSet.erase(modelObject->handle());
-      }else{
+      } else {
         // this item's model object is for a model object we should not have
 
         // add it to list to remove
         childrenToRemove.push_back(child);
       }
-    }else{
-      if (nonModelObjectChildrenSet.find(modelObjectTreeItem->name()) != nonModelObjectChildrenSet.end()){
+    } else {
+      if (nonModelObjectChildrenSet.find(modelObjectTreeItem->name()) != nonModelObjectChildrenSet.end()) {
         // this item's name is a name we should have
         modelObjectTreeItem->refresh();
 
         // erase from set so we don't add later
         nonModelObjectChildrenSet.erase(modelObjectTreeItem->name());
-      }else{
+      } else {
         // this item's name is not a name we should not have
 
         // add it to list to remove
@@ -356,30 +340,30 @@ void ModelObjectTreeItem::refresh()
     }
   }
 
-  for (QTreeWidgetItem* child : childrenToRemove){
+  for (QTreeWidgetItem* child : childrenToRemove) {
     this->removeChild(child);
     delete child;
   }
 
   // todo: insert in correct order
 
-  for (const std::string& child : nonModelObjectChildren){
+  for (const std::string& child : nonModelObjectChildren) {
     // still need this object
-    if (nonModelObjectChildrenSet.find(child) != nonModelObjectChildrenSet.end()){
+    if (nonModelObjectChildrenSet.find(child) != nonModelObjectChildrenSet.end()) {
       nonModelObjectChildrenSet.erase(child);
       this->addNonModelObjectChild(child);
     }
   }
-  for (const model::ModelObject& child : defaultedModelObjectChildren){
+  for (const model::ModelObject& child : defaultedModelObjectChildren) {
     // still need this object
-    if (allModelObjectChildrenHandleSet.find(child.handle()) != allModelObjectChildrenHandleSet.end()){
+    if (allModelObjectChildrenHandleSet.find(child.handle()) != allModelObjectChildrenHandleSet.end()) {
       allModelObjectChildrenHandleSet.erase(child.handle());
       this->addModelObjectChild(child, true);
     }
   }
-  for (const model::ModelObject& child : modelObjectChildren){
+  for (const model::ModelObject& child : modelObjectChildren) {
     // still need this object
-    if (allModelObjectChildrenHandleSet.find(child.handle()) != allModelObjectChildrenHandleSet.end()){
+    if (allModelObjectChildrenHandleSet.find(child.handle()) != allModelObjectChildrenHandleSet.end()) {
       allModelObjectChildrenHandleSet.erase(child.handle());
       this->addModelObjectChild(child, false);
     }
@@ -388,32 +372,29 @@ void ModelObjectTreeItem::refresh()
   finalize();
 }
 
-void ModelObjectTreeItem::refreshTree()
-{
+void ModelObjectTreeItem::refreshTree() {
   // refresh each top level object
   QTreeWidget* treeWidget = this->treeWidget();
 
   int N = treeWidget->topLevelItemCount();
-  for (int i = 0; i < N; ++i){
+  for (int i = 0; i < N; ++i) {
     QTreeWidgetItem* treeItem = treeWidget->topLevelItem(i);
     ModelObjectTreeItem* modelObjectTreeItem = dynamic_cast<ModelObjectTreeItem*>(treeItem);
     OS_ASSERT(modelObjectTreeItem);
 
-    if (!modelObjectTreeItem->isDirty()){
+    if (!modelObjectTreeItem->isDirty()) {
       modelObjectTreeItem->makeDirty();
       QTimer::singleShot(0, modelObjectTreeItem, SLOT(refresh()));
     }
   }
-
 }
 
-void ModelObjectTreeItem::change()
-{
+void ModelObjectTreeItem::change() {
   boost::optional<model::ModelObject> modelObject = this->modelObject();
   OS_ASSERT(modelObject);
 
   // these objects have 'type' fields that are not relationships but change tree structure
-  switch (modelObject->iddObjectType().value()){
+  switch (modelObject->iddObjectType().value()) {
     case IddObjectType::OS_ShadingSurfaceGroup:
       refreshTree();
       break;
@@ -426,23 +407,21 @@ void ModelObjectTreeItem::change()
     case IddObjectType::OS_SubSurface:
       refreshTree();
       break;
-    default:
-      ;
+    default:;
   }
 }
 
-void ModelObjectTreeItem::changeRelationship(int index, Handle newHandle, Handle oldHandle)
-{
-  if (newHandle == oldHandle){
+void ModelObjectTreeItem::changeRelationship(int index, Handle newHandle, Handle oldHandle) {
+  if (newHandle == oldHandle) {
     return;
   }
 
   boost::optional<model::ModelObject> modelObject = this->modelObject();
   OS_ASSERT(modelObject);
 
-  switch (modelObject->iddObjectType().value()){
+  switch (modelObject->iddObjectType().value()) {
     case IddObjectType::OS_Building:
-      if (index == OS_BuildingFields::SpaceTypeName){
+      if (index == OS_BuildingFields::SpaceTypeName) {
         refreshTree();
       }
       break;
@@ -451,15 +430,13 @@ void ModelObjectTreeItem::changeRelationship(int index, Handle newHandle, Handle
     case IddObjectType::OS_ThermalZone:
       break;
     case IddObjectType::OS_SpaceType:
-      if (index == OS_SpaceTypeFields::DesignSpecificationOutdoorAirObjectName){
+      if (index == OS_SpaceTypeFields::DesignSpecificationOutdoorAirObjectName) {
         refreshTree();
       }
       break;
     case IddObjectType::OS_Space:
-      if (index == OS_SpaceFields::BuildingStoryName ||
-          index == OS_SpaceFields::SpaceTypeName ||
-          index == OS_SpaceFields::ThermalZoneName ||
-          index == OS_SpaceFields::DesignSpecificationOutdoorAirObjectName){
+      if (index == OS_SpaceFields::BuildingStoryName || index == OS_SpaceFields::SpaceTypeName || index == OS_SpaceFields::ThermalZoneName ||
+          index == OS_SpaceFields::DesignSpecificationOutdoorAirObjectName) {
         refreshTree();
       }
       break;
@@ -467,7 +444,7 @@ void ModelObjectTreeItem::changeRelationship(int index, Handle newHandle, Handle
       // handle in onChange
       break;
     case IddObjectType::OS_ShadingSurface:
-      if (index == OS_ShadingSurfaceFields::ShadingSurfaceGroupName){
+      if (index == OS_ShadingSurfaceFields::ShadingSurfaceGroupName) {
         refreshTree();
       }
       break;
@@ -475,13 +452,13 @@ void ModelObjectTreeItem::changeRelationship(int index, Handle newHandle, Handle
       // handle in onChange
       break;
     case IddObjectType::OS_InteriorPartitionSurface:
-      if (index == OS_InteriorPartitionSurfaceFields::InteriorPartitionSurfaceGroupName){
+      if (index == OS_InteriorPartitionSurfaceFields::InteriorPartitionSurfaceGroupName) {
         refreshTree();
       }
       break;
     case IddObjectType::OS_Surface:
       // handle in onChange
-      if (index == OS_SurfaceFields::SpaceName){
+      if (index == OS_SurfaceFields::SpaceName) {
         refreshTree();
       }
       break;
@@ -489,67 +466,67 @@ void ModelObjectTreeItem::changeRelationship(int index, Handle newHandle, Handle
       // handle in onChange
       break;
     case IddObjectType::OS_Daylighting_Control:
-      if (index == OS_Daylighting_ControlFields::SpaceName){
+      if (index == OS_Daylighting_ControlFields::SpaceName) {
         refreshTree();
       }
       break;
     case IddObjectType::OS_IlluminanceMap:
-      if (index == OS_IlluminanceMapFields::SpaceName){
+      if (index == OS_IlluminanceMapFields::SpaceName) {
         refreshTree();
       }
       break;
     case IddObjectType::OS_InternalMass:
-      if (index == OS_InternalMassFields::SpaceorSpaceTypeName){
+      if (index == OS_InternalMassFields::SpaceorSpaceTypeName) {
         refreshTree();
       }
       break;
     case IddObjectType::OS_People:
-      if (index == OS_PeopleFields::SpaceorSpaceTypeName){
+      if (index == OS_PeopleFields::SpaceorSpaceTypeName) {
         refreshTree();
       }
       break;
     case IddObjectType::OS_Lights:
-      if (index == OS_LightsFields::SpaceorSpaceTypeName){
+      if (index == OS_LightsFields::SpaceorSpaceTypeName) {
         refreshTree();
       }
       break;
     case IddObjectType::OS_Luminaire:
-      if (index == OS_LuminaireFields::SpaceorSpaceTypeName){
+      if (index == OS_LuminaireFields::SpaceorSpaceTypeName) {
         refreshTree();
       }
       break;
     case IddObjectType::OS_ElectricEquipment:
-      if (index == OS_ElectricEquipmentFields::SpaceorSpaceTypeName){
+      if (index == OS_ElectricEquipmentFields::SpaceorSpaceTypeName) {
         refreshTree();
       }
       break;
     case IddObjectType::OS_GasEquipment:
-      if (index == OS_GasEquipmentFields::SpaceorSpaceTypeName){
+      if (index == OS_GasEquipmentFields::SpaceorSpaceTypeName) {
         refreshTree();
       }
       break;
     case IddObjectType::OS_HotWaterEquipment:
-      if (index == OS_HotWaterEquipmentFields::SpaceorSpaceTypeName){
+      if (index == OS_HotWaterEquipmentFields::SpaceorSpaceTypeName) {
         refreshTree();
       }
       break;
     case IddObjectType::OS_SteamEquipment:
-      if (index == OS_SteamEquipmentFields::SpaceorSpaceTypeName){
+      if (index == OS_SteamEquipmentFields::SpaceorSpaceTypeName) {
         refreshTree();
       }
       break;
     case IddObjectType::OS_OtherEquipment:
-      if (index == OS_OtherEquipmentFields::SpaceorSpaceTypeName){
+      if (index == OS_OtherEquipmentFields::SpaceorSpaceTypeName) {
         refreshTree();
       }
       break;
     case IddObjectType::OS_SpaceInfiltration_DesignFlowRate:
-      if (index == OS_SpaceInfiltration_DesignFlowRateFields::SpaceorSpaceTypeName){
+      if (index == OS_SpaceInfiltration_DesignFlowRateFields::SpaceorSpaceTypeName) {
         refreshTree();
       }
       break;
     case IddObjectType::OS_SpaceInfiltration_EffectiveLeakageArea:
-      if (index == OS_SpaceInfiltration_EffectiveLeakageAreaFields::SpaceorSpaceTypeName){
+      if (index == OS_SpaceInfiltration_EffectiveLeakageAreaFields::SpaceorSpaceTypeName) {
         refreshTree();
       }
       break;
@@ -560,83 +537,70 @@ void ModelObjectTreeItem::changeRelationship(int index, Handle newHandle, Handle
   }
 }
 
-void ModelObjectTreeItem::makeChildren()
-{
-  for (const std::string& child : this->nonModelObjectChildren()){
+void ModelObjectTreeItem::makeChildren() {
+  for (const std::string& child : this->nonModelObjectChildren()) {
     this->addNonModelObjectChild(child);
   }
-  for (const model::ModelObject& child : this->defaultedModelObjectChildren()){
+  for (const model::ModelObject& child : this->defaultedModelObjectChildren()) {
     this->addModelObjectChild(child, true);
   }
-  for (const model::ModelObject& child : this->modelObjectChildren()){
+  for (const model::ModelObject& child : this->modelObjectChildren()) {
     this->addModelObjectChild(child, false);
   }
 
   finalize();
 }
 
-std::vector<std::string> ModelObjectTreeItem::nonModelObjectChildren() const
-{
+std::vector<std::string> ModelObjectTreeItem::nonModelObjectChildren() const {
   return std::vector<std::string>();
 }
 
-std::vector<model::ModelObject> ModelObjectTreeItem::modelObjectChildren() const
-{
+std::vector<model::ModelObject> ModelObjectTreeItem::modelObjectChildren() const {
   return std::vector<model::ModelObject>();
 }
 
-std::vector<model::ModelObject> ModelObjectTreeItem::defaultedModelObjectChildren() const
-{
+std::vector<model::ModelObject> ModelObjectTreeItem::defaultedModelObjectChildren() const {
   return std::vector<model::ModelObject>();
 }
 
-void ModelObjectTreeItem::addNonModelObjectChild(const std::string& child)
-{
+void ModelObjectTreeItem::addNonModelObjectChild(const std::string& child) {
   ModelObjectTreeItem* treeItem = new ModelObjectTreeItem(child, this->model(), this);
   this->addChild(treeItem);
 }
 
-void ModelObjectTreeItem::addModelObjectChild(const model::ModelObject& child, bool isDefaulted)
-{
+void ModelObjectTreeItem::addModelObjectChild(const model::ModelObject& child, bool isDefaulted) {
   auto treeItem = new ModelObjectTreeItem(child, isDefaulted, m_type, this);
   this->addChild(treeItem);
-  if (isDefaulted){
+  if (isDefaulted) {
     treeItem->setStyle(0, "#006837");
   }
 }
 
-void ModelObjectTreeItem::finalize()
-{
-}
+void ModelObjectTreeItem::finalize() {}
 
-void ModelObjectTreeItem::changeName()
-{
+void ModelObjectTreeItem::changeName() {
   boost::optional<model::ModelObject> modelObject = this->modelObject();
-  if (modelObject){
+  if (modelObject) {
     this->setText(0, toQString(modelObject->name().get()));
   }
 }
 
 ///////////////////// SiteShading ////////////////////////////////////////////////
 
-SiteShadingTreeItem::SiteShadingTreeItem(const openstudio::model::Model& model,
-                                         QTreeWidgetItem* parent )
-                                         : ModelObjectTreeItem(SiteShadingTreeItem::itemName(), model, parent)
-{
+SiteShadingTreeItem::SiteShadingTreeItem(const openstudio::model::Model& model, QTreeWidgetItem* parent)
+  : ModelObjectTreeItem(SiteShadingTreeItem::itemName(), model, parent) {
   this->setStyle(1, "");
   this->makeChildren();
 }
 
-std::string SiteShadingTreeItem::itemName()
-{
+std::string SiteShadingTreeItem::itemName() {
   return "Site Shading";
 }
 
-std::vector<model::ModelObject> SiteShadingTreeItem::modelObjectChildren() const
-{
+std::vector<model::ModelObject> SiteShadingTreeItem::modelObjectChildren() const {
   std::vector<model::ModelObject> result;
-  for (const model::ShadingSurfaceGroup& shadingSurfaceGroup : this->model().getConcreteModelObjects<model::ShadingSurfaceGroup>()){
-    if (openstudio::istringEqual("Site", shadingSurfaceGroup.shadingSurfaceType())){
+  for (const model::ShadingSurfaceGroup& shadingSurfaceGroup : this->model().getConcreteModelObjects<model::ShadingSurfaceGroup>()) {
+    if (openstudio::istringEqual("Site", shadingSurfaceGroup.shadingSurfaceType())) {
       result.push_back(shadingSurfaceGroup);
     }
   }
@@ -644,29 +608,24 @@ std::vector<model::ModelObject> SiteShadingTreeItem::modelObjectChildren() const
   return result;
 }
 
-void SiteShadingTreeItem::addModelObjectChild(const model::ModelObject& child, bool isDefaulted)
-{
-  if (child.optionalCast<model::ShadingSurfaceGroup>()){
+void SiteShadingTreeItem::addModelObjectChild(const model::ModelObject& child, bool isDefaulted) {
+  if (child.optionalCast<model::ShadingSurfaceGroup>()) {
     ShadingSurfaceGroupTreeItem* treeItem = new ShadingSurfaceGroupTreeItem(child.cast<model::ShadingSurfaceGroup>(), this);
     this->addChild(treeItem);
     treeItem->setStyle(2, "");
-  }else{
+  } else {
     OS_ASSERT(false);
   }
 }
 
-
 ///////////////////// ShadingSurfaceGroup ////////////////////////////////////////////////
 
-ShadingSurfaceGroupTreeItem::ShadingSurfaceGroupTreeItem(const openstudio::model::ShadingSurfaceGroup& shadingSurfaceGroup,
-                                                         QTreeWidgetItem* parent )
-  : ModelObjectTreeItem(shadingSurfaceGroup, false, m_type, parent)
-{
+ShadingSurfaceGroupTreeItem::ShadingSurfaceGroupTreeItem(const openstudio::model::ShadingSurfaceGroup& shadingSurfaceGroup, QTreeWidgetItem* parent)
+  : ModelObjectTreeItem(shadingSurfaceGroup, false, m_type, parent) {
   this->makeChildren();
 }
 
-std::vector<model::ModelObject> ShadingSurfaceGroupTreeItem::modelObjectChildren() const
-{
+std::vector<model::ModelObject> ShadingSurfaceGroupTreeItem::modelObjectChildren() const {
   model::ShadingSurfaceGroup shadingSurfaceGroup = this->modelObject()->cast<model::ShadingSurfaceGroup>();
   std::vector<model::ShadingSurface> shadingSurfaces = shadingSurfaceGroup.shadingSurfaces();
 
@@ -676,39 +635,34 @@ std::vector<model::ModelObject> ShadingSurfaceGroupTreeItem::modelObjectChildren
   return result;
 }
 
-void ShadingSurfaceGroupTreeItem::addModelObjectChild(const model::ModelObject& child, bool isDefaulted)
-{
-  if (child.optionalCast<model::ShadingSurface>()){
+void ShadingSurfaceGroupTreeItem::addModelObjectChild(const model::ModelObject& child, bool isDefaulted) {
+  if (child.optionalCast<model::ShadingSurface>()) {
     auto treeItem = new ModelObjectTreeItem(child, false, m_type, this);
     this->addChild(treeItem);
-  }else{
+  } else {
     OS_ASSERT(false);
   }
 }
 
 ///////////////////// Building ////////////////////////////////////////////////
 
-BuildingTreeItem::BuildingTreeItem(const openstudio::model::Building& building,
-                                   const openstudio::IddObjectType& sortByType,
-                                   QTreeWidgetItem* parent)
-  : ModelObjectTreeItem(building, false, m_type, parent), m_sortByType(sortByType)
-{
+BuildingTreeItem::BuildingTreeItem(const openstudio::model::Building& building, const openstudio::IddObjectType& sortByType, QTreeWidgetItem* parent)
+  : ModelObjectTreeItem(building, false, m_type, parent), m_sortByType(sortByType) {
   this->setStyle(1, "");
   this->makeChildren();
 }
 
-std::vector<model::ModelObject> BuildingTreeItem::modelObjectChildren() const
-{
+std::vector<model::ModelObject> BuildingTreeItem::modelObjectChildren() const {
   openstudio::model::Model model = this->model();
   std::vector<model::ModelObject> result;
 
-  if (m_sortByType == IddObjectType::OS_BuildingStory){
+  if (m_sortByType == IddObjectType::OS_BuildingStory) {
     std::vector<model::BuildingStory> buildingStories = model.getConcreteModelObjects<model::BuildingStory>();
     result.insert(result.end(), buildingStories.begin(), buildingStories.end());
-  }else if (m_sortByType == IddObjectType::OS_ThermalZone){
+  } else if (m_sortByType == IddObjectType::OS_ThermalZone) {
     std::vector<model::ThermalZone> thermalZones = model.getConcreteModelObjects<model::ThermalZone>();
     result.insert(result.end(), thermalZones.begin(), thermalZones.end());
-  }else if (m_sortByType == IddObjectType::OS_SpaceType){
+  } else if (m_sortByType == IddObjectType::OS_SpaceType) {
     std::vector<model::SpaceType> spaceTypes = model.getConcreteModelObjects<model::SpaceType>();
     result.insert(result.end(), spaceTypes.begin(), spaceTypes.end());
   }
@@ -718,78 +672,70 @@ std::vector<model::ModelObject> BuildingTreeItem::modelObjectChildren() const
   return result;
 }
 
-void BuildingTreeItem::addModelObjectChild(const model::ModelObject& child, bool isDefaulted)
-{
-  if (child.optionalCast<model::BuildingStory>()){
+void BuildingTreeItem::addModelObjectChild(const model::ModelObject& child, bool isDefaulted) {
+  if (child.optionalCast<model::BuildingStory>()) {
     BuildingStoryTreeItem* treeItem = new BuildingStoryTreeItem(child.cast<model::BuildingStory>(), this);
     this->addChild(treeItem);
-  }else if (child.optionalCast<model::ThermalZone>()){
+  } else if (child.optionalCast<model::ThermalZone>()) {
     ThermalZoneTreeItem* treeItem = new ThermalZoneTreeItem(child.cast<model::ThermalZone>(), this);
     this->addChild(treeItem);
-  }else if (child.optionalCast<model::SpaceType>()){
+  } else if (child.optionalCast<model::SpaceType>()) {
     SpaceTypeTreeItem* treeItem = new SpaceTypeTreeItem(child.cast<model::SpaceType>(), this);
     this->addChild(treeItem);
-  }else{
+  } else {
     OS_ASSERT(false);
   }
 }
 
-std::vector<std::string> BuildingTreeItem::nonModelObjectChildren() const
-{
+std::vector<std::string> BuildingTreeItem::nonModelObjectChildren() const {
   std::vector<std::string> result;
   result.push_back(BuildingShadingTreeItem::itemName());
 
-  if (m_sortByType == IddObjectType::OS_BuildingStory){
+  if (m_sortByType == IddObjectType::OS_BuildingStory) {
     result.push_back(NoBuildingStoryTreeItem::itemName());
-  }else if (m_sortByType == IddObjectType::OS_ThermalZone){
+  } else if (m_sortByType == IddObjectType::OS_ThermalZone) {
     result.push_back(NoThermalZoneTreeItem::itemName());
-  }else if (m_sortByType == IddObjectType::OS_SpaceType){
+  } else if (m_sortByType == IddObjectType::OS_SpaceType) {
     result.push_back(NoSpaceTypeTreeItem::itemName());
   }
 
   return result;
 }
 
-void BuildingTreeItem::addNonModelObjectChild(const std::string& child)
-{
-  if (child == BuildingShadingTreeItem::itemName()){
+void BuildingTreeItem::addNonModelObjectChild(const std::string& child) {
+  if (child == BuildingShadingTreeItem::itemName()) {
     BuildingShadingTreeItem* treeItem = new BuildingShadingTreeItem(this->model(), this);
     this->addChild(treeItem);
-  }else if (child == NoBuildingStoryTreeItem::itemName()){
+  } else if (child == NoBuildingStoryTreeItem::itemName()) {
     NoBuildingStoryTreeItem* treeItem = new NoBuildingStoryTreeItem(this->model(), this);
     this->addChild(treeItem);
-  }else if (child == NoThermalZoneTreeItem::itemName()){
+  } else if (child == NoThermalZoneTreeItem::itemName()) {
     NoThermalZoneTreeItem* treeItem = new NoThermalZoneTreeItem(this->model(), this);
     this->addChild(treeItem);
-  }else if (child == NoSpaceTypeTreeItem::itemName()){
+  } else if (child == NoSpaceTypeTreeItem::itemName()) {
     NoSpaceTypeTreeItem* treeItem = new NoSpaceTypeTreeItem(this->model(), this);
     this->addChild(treeItem);
-  }else{
+  } else {
     OS_ASSERT(false);
   }
 }
 
-
 ///////////////////// BuildingShading ////////////////////////////////////////////////
 
-BuildingShadingTreeItem::BuildingShadingTreeItem(const openstudio::model::Model& model,
-                                         QTreeWidgetItem* parent )
-                                         : ModelObjectTreeItem(BuildingShadingTreeItem::itemName(), model, parent)
-{
+BuildingShadingTreeItem::BuildingShadingTreeItem(const openstudio::model::Model& model, QTreeWidgetItem* parent)
+  : ModelObjectTreeItem(BuildingShadingTreeItem::itemName(), model, parent) {
   this->setStyle(2, "");
   this->makeChildren();
 }
 
-std::string BuildingShadingTreeItem::itemName()
-{
+std::string BuildingShadingTreeItem::itemName() {
   return "Building Shading";
 }
 
-std::vector<model::ModelObject> BuildingShadingTreeItem::modelObjectChildren() const
-{
+std::vector<model::ModelObject> BuildingShadingTreeItem::modelObjectChildren() const {
   std::vector<model::ModelObject> result;
-  for (const model::ShadingSurfaceGroup& shadingSurfaceGroup : this->model().getConcreteModelObjects<model::ShadingSurfaceGroup>()){
-    if (openstudio::istringEqual("Building", shadingSurfaceGroup.shadingSurfaceType())){
+  for (const model::ShadingSurfaceGroup& shadingSurfaceGroup : this->model().getConcreteModelObjects<model::ShadingSurfaceGroup>()) {
+    if (openstudio::istringEqual("Building", shadingSurfaceGroup.shadingSurfaceType())) {
       result.push_back(shadingSurfaceGroup);
     }
   }
@@ -797,12 +743,11 @@ std::vector<model::ModelObject> BuildingShadingTreeItem::modelObjectChildren() c
   return result;
 }
 
-void BuildingShadingTreeItem::addModelObjectChild(const model::ModelObject& child, bool isDefaulted)
-{
-  if (child.optionalCast<model::ShadingSurfaceGroup>()){
+void BuildingShadingTreeItem::addModelObjectChild(const model::ModelObject& child, bool isDefaulted) {
+  if (child.optionalCast<model::ShadingSurfaceGroup>()) {
     ShadingSurfaceGroupTreeItem* treeItem = new ShadingSurfaceGroupTreeItem(child.cast<model::ShadingSurfaceGroup>(), this);
     this->addChild(treeItem);
-  }else{
+  } else {
     OS_ASSERT(false);
   }
 }
@@ -810,14 +755,12 @@ void BuildingShadingTreeItem::addModelObjectChild(const model::ModelObject& chil
 ///////////////////// BuildingStory ////////////////////////////////////////////////
 
 BuildingStoryTreeItem::BuildingStoryTreeItem(const openstudio::model::BuildingStory& buildingStory, QTreeWidgetItem* parent)
-  : ModelObjectTreeItem(buildingStory, false, m_type, parent)
-{
+  : ModelObjectTreeItem(buildingStory, false, m_type, parent) {
   this->setStyle(2, "");
   this->makeChildren();
 }
 
-std::vector<model::ModelObject> BuildingStoryTreeItem::modelObjectChildren() const
-{
+std::vector<model::ModelObject> BuildingStoryTreeItem::modelObjectChildren() const {
   boost::optional<model::ModelObject> modelObject = this->modelObject();
   OS_ASSERT(modelObject);
   std::vector<model::Space> spaces = modelObject->getModelObjectSources<model::Space>();
@@ -826,36 +769,32 @@ std::vector<model::ModelObject> BuildingStoryTreeItem::modelObjectChildren() con
   return result;
 }
 
-void BuildingStoryTreeItem::addModelObjectChild(const model::ModelObject& child, bool isDefaulted)
-{
-  if (child.optionalCast<model::Space>()){
+void BuildingStoryTreeItem::addModelObjectChild(const model::ModelObject& child, bool isDefaulted) {
+  if (child.optionalCast<model::Space>()) {
     SpaceTreeItem* treeItem = new SpaceTreeItem(child.cast<model::Space>(), this);
     this->addChild(treeItem);
-    if (isDefaulted){
+    if (isDefaulted) {
       treeItem->setStyle(0, "#006837");
     }
-  }else{
+  } else {
     OS_ASSERT(false);
   }
 }
 
 NoBuildingStoryTreeItem::NoBuildingStoryTreeItem(const openstudio::model::Model& model, QTreeWidgetItem* parent)
-  : ModelObjectTreeItem(NoBuildingStoryTreeItem::itemName(), model, parent)
-{
+  : ModelObjectTreeItem(NoBuildingStoryTreeItem::itemName(), model, parent) {
   this->makeChildren();
 }
 
-std::string NoBuildingStoryTreeItem::itemName()
-{
+std::string NoBuildingStoryTreeItem::itemName() {
   return "Unassigned Building Story";
 }
 
-std::vector<model::ModelObject> NoBuildingStoryTreeItem::modelObjectChildren() const
-{
+std::vector<model::ModelObject> NoBuildingStoryTreeItem::modelObjectChildren() const {
   model::Model model = this->model();
   std::vector<model::ModelObject> result;
-  for (const model::Space& space : model.getConcreteModelObjects<model::Space>()){
-    if (!space.buildingStory()){
+  for (const model::Space& space : model.getConcreteModelObjects<model::Space>()) {
+    if (!space.buildingStory()) {
       result.push_back(space);
     }
   }
@@ -863,25 +802,23 @@ std::vector<model::ModelObject> NoBuildingStoryTreeItem::modelObjectChildren() c
   return result;
 }
 
-void NoBuildingStoryTreeItem::addModelObjectChild(const model::ModelObject& child, bool isDefaulted)
-{
-  if (child.optionalCast<model::Space>()){
+void NoBuildingStoryTreeItem::addModelObjectChild(const model::ModelObject& child, bool isDefaulted) {
+  if (child.optionalCast<model::Space>()) {
     SpaceTreeItem* treeItem = new SpaceTreeItem(child.cast<model::Space>(), this);
     this->addChild(treeItem);
-    if (isDefaulted){
+    if (isDefaulted) {
       treeItem->setStyle(0, "#006837");
     }
-  }else{
+  } else {
     OS_ASSERT(false);
   }
 }
 
-void NoBuildingStoryTreeItem::finalize()
-{
-  if (this->childCount() == 0){
+void NoBuildingStoryTreeItem::finalize() {
+  if (this->childCount() == 0) {
     this->setDisabled(true);
     this->setStyle(2, "");
-  }else{
+  } else {
     this->setDisabled(false);
     this->setStyle(2, "#F15A24");
   }
@@ -890,14 +827,12 @@ void NoBuildingStoryTreeItem::finalize()
 ///////////////////// ThermalZone ////////////////////////////////////////////////
 
 ThermalZoneTreeItem::ThermalZoneTreeItem(const openstudio::model::ThermalZone& thermalZone, QTreeWidgetItem* parent)
-  : ModelObjectTreeItem(thermalZone, false, m_type, parent)
-{
+  : ModelObjectTreeItem(thermalZone, false, m_type, parent) {
   this->setStyle(2, "");
   this->makeChildren();
 }
 
-std::vector<model::ModelObject> ThermalZoneTreeItem::modelObjectChildren() const
-{
+std::vector<model::ModelObject> ThermalZoneTreeItem::modelObjectChildren() const {
   boost::optional<model::ModelObject> modelObject = this->modelObject();
   OS_ASSERT(modelObject);
   std::vector<model::Space> spaces = modelObject->getModelObjectSources<model::Space>();
@@ -906,37 +841,33 @@ std::vector<model::ModelObject> ThermalZoneTreeItem::modelObjectChildren() const
   return result;
 }
 
-void ThermalZoneTreeItem::addModelObjectChild(const model::ModelObject& child, bool isDefaulted)
-{
-  if (child.optionalCast<model::Space>()){
+void ThermalZoneTreeItem::addModelObjectChild(const model::ModelObject& child, bool isDefaulted) {
+  if (child.optionalCast<model::Space>()) {
     SpaceTreeItem* treeItem = new SpaceTreeItem(child.cast<model::Space>(), this);
     this->addChild(treeItem);
-    if (isDefaulted){
+    if (isDefaulted) {
       treeItem->setStyle(0, "#006837");
     }
-  }else{
+  } else {
     OS_ASSERT(false);
   }
 }
 
 NoThermalZoneTreeItem::NoThermalZoneTreeItem(const openstudio::model::Model& model, QTreeWidgetItem* parent)
-  : ModelObjectTreeItem(NoThermalZoneTreeItem::itemName(), model, parent)
-{
+  : ModelObjectTreeItem(NoThermalZoneTreeItem::itemName(), model, parent) {
   this->setStyle(2, "#F15A24");
   this->makeChildren();
 }
 
-std::string NoThermalZoneTreeItem::itemName()
-{
+std::string NoThermalZoneTreeItem::itemName() {
   return "Unassigned Thermal Zone";
 }
 
-std::vector<model::ModelObject> NoThermalZoneTreeItem::modelObjectChildren() const
-{
+std::vector<model::ModelObject> NoThermalZoneTreeItem::modelObjectChildren() const {
   model::Model model = this->model();
   std::vector<model::ModelObject> result;
-  for (const model::Space& space : model.getConcreteModelObjects<model::Space>()){
-    if (!space.thermalZone()){
+  for (const model::Space& space : model.getConcreteModelObjects<model::Space>()) {
+    if (!space.thermalZone()) {
       result.push_back(space);
     }
   }
@@ -944,25 +875,23 @@ std::vector<model::ModelObject> NoThermalZoneTreeItem::modelObjectChildren() con
   return result;
 }
 
-void NoThermalZoneTreeItem::addModelObjectChild(const model::ModelObject& child, bool isDefaulted)
-{
-  if (child.optionalCast<model::Space>()){
+void NoThermalZoneTreeItem::addModelObjectChild(const model::ModelObject& child, bool isDefaulted) {
+  if (child.optionalCast<model::Space>()) {
     SpaceTreeItem* treeItem = new SpaceTreeItem(child.cast<model::Space>(), this);
     this->addChild(treeItem);
-    if (isDefaulted){
+    if (isDefaulted) {
       treeItem->setStyle(0, "#006837");
     }
-  }else{
+  } else {
     OS_ASSERT(false);
   }
 }
 
-void NoThermalZoneTreeItem::finalize()
-{
-  if (this->childCount() == 0){
+void NoThermalZoneTreeItem::finalize() {
+  if (this->childCount() == 0) {
     this->setDisabled(true);
     this->setStyle(2, "");
-  }else{
+  } else {
     this->setDisabled(false);
     this->setStyle(2, "#F15A24");
   }
@@ -971,14 +900,12 @@ void NoThermalZoneTreeItem::finalize()
 ///////////////////// SpaceType ////////////////////////////////////////////////
 
 SpaceTypeTreeItem::SpaceTypeTreeItem(const openstudio::model::SpaceType& spaceType, QTreeWidgetItem* parent)
-  : ModelObjectTreeItem(spaceType, false, m_type, parent)
-{
+  : ModelObjectTreeItem(spaceType, false, m_type, parent) {
   this->setStyle(2, "");
   this->makeChildren();
 }
 
-std::vector<model::ModelObject> SpaceTypeTreeItem::modelObjectChildren() const
-{
+std::vector<model::ModelObject> SpaceTypeTreeItem::modelObjectChildren() const {
   boost::optional<model::ModelObject> modelObject = this->modelObject();
   OS_ASSERT(modelObject);
   std::vector<model::Space> spaces = modelObject->getModelObjectSources<model::Space>();
@@ -987,8 +914,7 @@ std::vector<model::ModelObject> SpaceTypeTreeItem::modelObjectChildren() const
   return result;
 }
 
-std::vector<model::ModelObject> SpaceTypeTreeItem::defaultedModelObjectChildren() const
-{
+std::vector<model::ModelObject> SpaceTypeTreeItem::defaultedModelObjectChildren() const {
   std::vector<model::ModelObject> result;
 
   boost::optional<model::ModelObject> modelObject = this->modelObject();
@@ -996,8 +922,8 @@ std::vector<model::ModelObject> SpaceTypeTreeItem::defaultedModelObjectChildren(
   model::SpaceType spaceType = modelObject->cast<model::SpaceType>();
 
   // get spaces that inherit this space type as default
-  for (const model::Space& space : spaceType.spaces()){
-    if (space.isSpaceTypeDefaulted()){
+  for (const model::Space& space : spaceType.spaces()) {
+    if (space.isSpaceTypeDefaulted()) {
       result.push_back(space);
     }
   }
@@ -1006,36 +932,32 @@ std::vector<model::ModelObject> SpaceTypeTreeItem::defaultedModelObjectChildren(
   return result;
 }
 
-void SpaceTypeTreeItem::addModelObjectChild(const model::ModelObject& child, bool isDefaulted)
-{
-  if (child.optionalCast<model::Space>()){
+void SpaceTypeTreeItem::addModelObjectChild(const model::ModelObject& child, bool isDefaulted) {
+  if (child.optionalCast<model::Space>()) {
     SpaceTreeItem* treeItem = new SpaceTreeItem(child.cast<model::Space>(), this);
     this->addChild(treeItem);
-    if (isDefaulted){
+    if (isDefaulted) {
       treeItem->setStyle(0, "#006837");
     }
-  }else{
+  } else {
     OS_ASSERT(false);
   }
 }
 
 NoSpaceTypeTreeItem::NoSpaceTypeTreeItem(const openstudio::model::Model& model, QTreeWidgetItem* parent)
-  : ModelObjectTreeItem(NoSpaceTypeTreeItem::itemName(), model, parent)
-{
+  : ModelObjectTreeItem(NoSpaceTypeTreeItem::itemName(), model, parent) {
   this->makeChildren();
 }
 
-std::string NoSpaceTypeTreeItem::itemName()
-{
+std::string NoSpaceTypeTreeItem::itemName() {
   return "Unassigned Space Type";
 }
 
-std::vector<model::ModelObject> NoSpaceTypeTreeItem::modelObjectChildren() const
-{
+std::vector<model::ModelObject> NoSpaceTypeTreeItem::modelObjectChildren() const {
   model::Model model = this->model();
   std::vector<model::ModelObject> result;
-  for (const model::Space& space : model.getConcreteModelObjects<model::Space>()){
-    if (!space.spaceType()){
+  for (const model::Space& space : model.getConcreteModelObjects<model::Space>()) {
+    if (!space.spaceType()) {
       result.push_back(space);
     }
   }
@@ -1043,25 +965,23 @@ std::vector<model::ModelObject> NoSpaceTypeTreeItem::modelObjectChildren() const
   return result;
 }
 
-void NoSpaceTypeTreeItem::addModelObjectChild(const model::ModelObject& child, bool isDefaulted)
-{
-  if (child.optionalCast<model::Space>()){
+void NoSpaceTypeTreeItem::addModelObjectChild(const model::ModelObject& child, bool isDefaulted) {
+  if (child.optionalCast<model::Space>()) {
     SpaceTreeItem* treeItem = new SpaceTreeItem(child.cast<model::Space>(), this);
     this->addChild(treeItem);
-    if (isDefaulted){
+    if (isDefaulted) {
       treeItem->setStyle(0, "#006837");
     }
-  }else{
+  } else {
     OS_ASSERT(false);
   }
 }
 
-void NoSpaceTypeTreeItem::finalize()
-{
-  if (this->childCount() == 0){
+void NoSpaceTypeTreeItem::finalize() {
+  if (this->childCount() == 0) {
     this->setDisabled(true);
     this->setStyle(2, "");
-  }else{
+  } else {
     this->setDisabled(false);
     this->setStyle(2, "#F15A24");
   }
@@ -1069,14 +989,11 @@ void NoSpaceTypeTreeItem::finalize()
 
 ///////////////////// Space ////////////////////////////////////////////////
 
-SpaceTreeItem::SpaceTreeItem(const openstudio::model::Space& space, QTreeWidgetItem* parent)
-  : ModelObjectTreeItem(space, false, m_type, parent)
-{
+SpaceTreeItem::SpaceTreeItem(const openstudio::model::Space& space, QTreeWidgetItem* parent) : ModelObjectTreeItem(space, false, m_type, parent) {
   this->makeChildren();
 }
 
-std::vector<std::string> SpaceTreeItem::nonModelObjectChildren() const
-{
+std::vector<std::string> SpaceTreeItem::nonModelObjectChildren() const {
   std::vector<std::string> result;
   result.push_back(RoofsTreeItem::itemName());
   result.push_back(WallsTreeItem::itemName());
@@ -1088,34 +1005,33 @@ std::vector<std::string> SpaceTreeItem::nonModelObjectChildren() const
   return result;
 }
 
-void SpaceTreeItem::addNonModelObjectChild(const std::string& child)
-{
+void SpaceTreeItem::addNonModelObjectChild(const std::string& child) {
   boost::optional<model::ModelObject> modelObject = this->modelObject();
   OS_ASSERT(modelObject);
   model::Space space = modelObject->cast<model::Space>();
 
-  if (child == RoofsTreeItem::itemName()){
+  if (child == RoofsTreeItem::itemName()) {
     auto treeItem = new RoofsTreeItem(space, this);
     this->addChild(treeItem);
-  }else if (child == WallsTreeItem::itemName()){
+  } else if (child == WallsTreeItem::itemName()) {
     auto treeItem = new WallsTreeItem(space, this);
     this->addChild(treeItem);
-  }else if (child == FloorsTreeItem::itemName()){
+  } else if (child == FloorsTreeItem::itemName()) {
     auto treeItem = new FloorsTreeItem(space, this);
     this->addChild(treeItem);
-  }else if (child == SpaceShadingTreeItem::itemName()){
+  } else if (child == SpaceShadingTreeItem::itemName()) {
     auto treeItem = new SpaceShadingTreeItem(space, this);
     this->addChild(treeItem);
-  }else if (child == InteriorPartitionsTreeItem::itemName()){
+  } else if (child == InteriorPartitionsTreeItem::itemName()) {
     auto treeItem = new InteriorPartitionsTreeItem(space, this);
     this->addChild(treeItem);
-  }else if (child == DaylightingObjectsTreeItem::itemName()){
+  } else if (child == DaylightingObjectsTreeItem::itemName()) {
     auto treeItem = new DaylightingObjectsTreeItem(space, this);
     this->addChild(treeItem);
-  }else if (child == LoadsTreeItem::itemName()){
+  } else if (child == LoadsTreeItem::itemName()) {
     auto treeItem = new LoadsTreeItem(space, this);
     this->addChild(treeItem);
-  }else{
+  } else {
     OS_ASSERT(false);
   }
 }
@@ -1123,21 +1039,18 @@ void SpaceTreeItem::addNonModelObjectChild(const std::string& child)
 ///////////////////// Roofs ////////////////////////////////////////////////
 
 RoofsTreeItem::RoofsTreeItem(const openstudio::model::Space& space, QTreeWidgetItem* parent)
-  : ModelObjectTreeItem(RoofsTreeItem::itemName(), space.model(), parent), m_space(space)
-{
+  : ModelObjectTreeItem(RoofsTreeItem::itemName(), space.model(), parent), m_space(space) {
   this->makeChildren();
 }
 
-std::string RoofsTreeItem::itemName()
-{
+std::string RoofsTreeItem::itemName() {
   return "Roof/Ceilings";
 }
 
-std::vector<model::ModelObject> RoofsTreeItem::modelObjectChildren() const
-{
+std::vector<model::ModelObject> RoofsTreeItem::modelObjectChildren() const {
   std::vector<model::ModelObject> result;
-  for (const model::Surface& surface : m_space.surfaces()){
-    if (istringEqual("RoofCeiling", surface.surfaceType())){
+  for (const model::Surface& surface : m_space.surfaces()) {
+    if (istringEqual("RoofCeiling", surface.surfaceType())) {
       result.push_back(surface);
     }
   }
@@ -1145,12 +1058,11 @@ std::vector<model::ModelObject> RoofsTreeItem::modelObjectChildren() const
   return result;
 }
 
-void RoofsTreeItem::addModelObjectChild(const model::ModelObject& child, bool isDefaulted)
-{
-  if (child.optionalCast<model::Surface>()){
+void RoofsTreeItem::addModelObjectChild(const model::ModelObject& child, bool isDefaulted) {
+  if (child.optionalCast<model::Surface>()) {
     SurfaceTreeItem* treeItem = new SurfaceTreeItem(child.cast<model::Surface>(), this);
     this->addChild(treeItem);
-  }else{
+  } else {
     OS_ASSERT(false);
   }
 }
@@ -1158,21 +1070,18 @@ void RoofsTreeItem::addModelObjectChild(const model::ModelObject& child, bool is
 ///////////////////// Walls ////////////////////////////////////////////////
 
 WallsTreeItem::WallsTreeItem(const openstudio::model::Space& space, QTreeWidgetItem* parent)
-  : ModelObjectTreeItem(WallsTreeItem::itemName(), space.model(), parent), m_space(space)
-{
+  : ModelObjectTreeItem(WallsTreeItem::itemName(), space.model(), parent), m_space(space) {
   this->makeChildren();
 }
 
-std::string WallsTreeItem::itemName()
-{
+std::string WallsTreeItem::itemName() {
   return "Walls";
 }
 
-std::vector<model::ModelObject> WallsTreeItem::modelObjectChildren() const
-{
+std::vector<model::ModelObject> WallsTreeItem::modelObjectChildren() const {
   std::vector<model::ModelObject> result;
-  for (const model::Surface& surface : m_space.surfaces()){
-    if (istringEqual("Wall", surface.surfaceType())){
+  for (const model::Surface& surface : m_space.surfaces()) {
+    if (istringEqual("Wall", surface.surfaceType())) {
       result.push_back(surface);
     }
   }
@@ -1180,12 +1089,11 @@ std::vector<model::ModelObject> WallsTreeItem::modelObjectChildren() const
   return result;
 }
 
-void WallsTreeItem::addModelObjectChild(const model::ModelObject& child, bool isDefaulted)
-{
-  if (child.optionalCast<model::Surface>()){
+void WallsTreeItem::addModelObjectChild(const model::ModelObject& child, bool isDefaulted) {
+  if (child.optionalCast<model::Surface>()) {
     SurfaceTreeItem* treeItem = new SurfaceTreeItem(child.cast<model::Surface>(), this);
     this->addChild(treeItem);
-  }else{
+  } else {
     OS_ASSERT(false);
   }
 }
@@ -1193,21 +1101,18 @@ void WallsTreeItem::addModelObjectChild(const model::ModelObject& child, bool is
 ///////////////////// Floors ////////////////////////////////////////////////
 
 FloorsTreeItem::FloorsTreeItem(const openstudio::model::Space& space, QTreeWidgetItem* parent)
-  : ModelObjectTreeItem(FloorsTreeItem::itemName(), space.model(), parent), m_space(space)
-{
+  : ModelObjectTreeItem(FloorsTreeItem::itemName(), space.model(), parent), m_space(space) {
   this->makeChildren();
 }
 
-std::string FloorsTreeItem::itemName()
-{
+std::string FloorsTreeItem::itemName() {
   return "Floors";
 }
 
-std::vector<model::ModelObject> FloorsTreeItem::modelObjectChildren() const
-{
+std::vector<model::ModelObject> FloorsTreeItem::modelObjectChildren() const {
   std::vector<model::ModelObject> result;
-  for (const model::Surface& surface : m_space.surfaces()){
-    if (istringEqual("Floor", surface.surfaceType())){
+  for (const model::Surface& surface : m_space.surfaces()) {
+    if (istringEqual("Floor", surface.surfaceType())) {
       result.push_back(surface);
     }
   }
@@ -1215,12 +1120,11 @@ std::vector<model::ModelObject> FloorsTreeItem::modelObjectChildren() const
   return result;
 }
 
-void FloorsTreeItem::addModelObjectChild(const model::ModelObject& child, bool isDefaulted)
-{
-  if (child.optionalCast<model::Surface>()){
+void FloorsTreeItem::addModelObjectChild(const model::ModelObject& child, bool isDefaulted) {
+  if (child.optionalCast<model::Surface>()) {
     SurfaceTreeItem* treeItem = new SurfaceTreeItem(child.cast<model::Surface>(), this);
     this->addChild(treeItem);
-  }else{
+  } else {
     OS_ASSERT(false);
   }
 }
@@ -1228,13 +1132,11 @@ void FloorsTreeItem::addModelObjectChild(const model::ModelObject& child, bool i
 ///////////////////// Surface ////////////////////////////////////////////////
 
 SurfaceTreeItem::SurfaceTreeItem(const openstudio::model::Surface& surface, QTreeWidgetItem* parent)
-  : ModelObjectTreeItem(surface, false, m_type, parent)
-{
+  : ModelObjectTreeItem(surface, false, m_type, parent) {
   this->makeChildren();
 }
 
-std::vector<model::ModelObject> SurfaceTreeItem::modelObjectChildren() const
-{
+std::vector<model::ModelObject> SurfaceTreeItem::modelObjectChildren() const {
   boost::optional<model::ModelObject> modelObject = this->modelObject();
   OS_ASSERT(modelObject);
   model::Surface surface = modelObject->cast<model::Surface>();
@@ -1245,34 +1147,29 @@ std::vector<model::ModelObject> SurfaceTreeItem::modelObjectChildren() const
   return result;
 }
 
-
 ///////////////////// SpaceShading ////////////////////////////////////////////////
 
 SpaceShadingTreeItem::SpaceShadingTreeItem(const openstudio::model::Space& space, QTreeWidgetItem* parent)
-  : ModelObjectTreeItem(SpaceShadingTreeItem::itemName(), space.model(), parent), m_space(space)
-{
+  : ModelObjectTreeItem(SpaceShadingTreeItem::itemName(), space.model(), parent), m_space(space) {
   this->makeChildren();
 }
 
-std::string SpaceShadingTreeItem::itemName()
-{
+std::string SpaceShadingTreeItem::itemName() {
   return "Space Shading";
 }
 
-std::vector<model::ModelObject> SpaceShadingTreeItem::modelObjectChildren() const
-{
+std::vector<model::ModelObject> SpaceShadingTreeItem::modelObjectChildren() const {
   std::vector<model::ShadingSurfaceGroup> shadingSurfaceGroups = m_space.shadingSurfaceGroups();
   std::vector<model::ModelObject> result(shadingSurfaceGroups.begin(), shadingSurfaceGroups.end());
   std::sort(result.begin(), result.end(), WorkspaceObjectNameLess());
   return result;
 }
 
-void SpaceShadingTreeItem::addModelObjectChild(const model::ModelObject& child, bool isDefaulted)
-{
-  if (child.optionalCast<model::ShadingSurfaceGroup>()){
+void SpaceShadingTreeItem::addModelObjectChild(const model::ModelObject& child, bool isDefaulted) {
+  if (child.optionalCast<model::ShadingSurfaceGroup>()) {
     ShadingSurfaceGroupTreeItem* treeItem = new ShadingSurfaceGroupTreeItem(child.cast<model::ShadingSurfaceGroup>(), this);
     this->addChild(treeItem);
-  }else{
+  } else {
     OS_ASSERT(false);
   }
 }
@@ -1280,45 +1177,40 @@ void SpaceShadingTreeItem::addModelObjectChild(const model::ModelObject& child, 
 ///////////////////// InteriorPartitions ////////////////////////////////////////////////
 
 InteriorPartitionsTreeItem::InteriorPartitionsTreeItem(const openstudio::model::Space& space, QTreeWidgetItem* parent)
-  : ModelObjectTreeItem(InteriorPartitionsTreeItem::itemName(), space.model(), parent), m_space(space)
-{
+  : ModelObjectTreeItem(InteriorPartitionsTreeItem::itemName(), space.model(), parent), m_space(space) {
   this->makeChildren();
 }
 
-std::string InteriorPartitionsTreeItem::itemName()
-{
+std::string InteriorPartitionsTreeItem::itemName() {
   return "Interior Partitions";
 }
 
-std::vector<model::ModelObject> InteriorPartitionsTreeItem::modelObjectChildren() const
-{
+std::vector<model::ModelObject> InteriorPartitionsTreeItem::modelObjectChildren() const {
   std::vector<model::InteriorPartitionSurfaceGroup> interiorPartitionSurfaceGroups = m_space.interiorPartitionSurfaceGroups();
   std::vector<model::ModelObject> result(interiorPartitionSurfaceGroups.begin(), interiorPartitionSurfaceGroups.end());
   std::sort(result.begin(), result.end(), WorkspaceObjectNameLess());
   return result;
 }
 
-void InteriorPartitionsTreeItem::addModelObjectChild(const model::ModelObject& child, bool isDefaulted)
-{
-  if (child.optionalCast<model::InteriorPartitionSurfaceGroup>()){
-    InteriorPartitionSurfaceGroupTreeItem* treeItem = new InteriorPartitionSurfaceGroupTreeItem(child.cast<model::InteriorPartitionSurfaceGroup>(), this);
+void InteriorPartitionsTreeItem::addModelObjectChild(const model::ModelObject& child, bool isDefaulted) {
+  if (child.optionalCast<model::InteriorPartitionSurfaceGroup>()) {
+    InteriorPartitionSurfaceGroupTreeItem* treeItem =
+      new InteriorPartitionSurfaceGroupTreeItem(child.cast<model::InteriorPartitionSurfaceGroup>(), this);
     this->addChild(treeItem);
-  }else{
+  } else {
     OS_ASSERT(false);
   }
 }
 
 ///////////////////// InteriorPartitionSurfaceGroup ////////////////////////////////////////////////
 
-InteriorPartitionSurfaceGroupTreeItem::InteriorPartitionSurfaceGroupTreeItem(const openstudio::model::InteriorPartitionSurfaceGroup& interiorPartitionSurfaceGroup,
-                                                                             QTreeWidgetItem* parent)
-  : ModelObjectTreeItem(interiorPartitionSurfaceGroup, false, m_type, parent)
-{
+InteriorPartitionSurfaceGroupTreeItem::InteriorPartitionSurfaceGroupTreeItem(
+  const openstudio::model::InteriorPartitionSurfaceGroup& interiorPartitionSurfaceGroup, QTreeWidgetItem* parent)
+  : ModelObjectTreeItem(interiorPartitionSurfaceGroup, false, m_type, parent) {
   this->makeChildren();
 }
 
-std::vector<model::ModelObject> InteriorPartitionSurfaceGroupTreeItem::modelObjectChildren() const
-{
+std::vector<model::ModelObject> InteriorPartitionSurfaceGroupTreeItem::modelObjectChildren() const {
   boost::optional<model::ModelObject> modelObject = this->modelObject();
   OS_ASSERT(modelObject);
   model::InteriorPartitionSurfaceGroup interiorPartitionSurfaceGroup = modelObject->cast<model::InteriorPartitionSurfaceGroup>();
@@ -1332,18 +1224,15 @@ std::vector<model::ModelObject> InteriorPartitionSurfaceGroupTreeItem::modelObje
 ///////////////////// DaylightingControls ////////////////////////////////////////////////
 
 DaylightingObjectsTreeItem::DaylightingObjectsTreeItem(const openstudio::model::Space& space, QTreeWidgetItem* parent)
-  : ModelObjectTreeItem(DaylightingObjectsTreeItem::itemName(), space.model(), parent), m_space(space)
-{
+  : ModelObjectTreeItem(DaylightingObjectsTreeItem::itemName(), space.model(), parent), m_space(space) {
   this->makeChildren();
 }
 
-std::string DaylightingObjectsTreeItem::itemName()
-{
+std::string DaylightingObjectsTreeItem::itemName() {
   return "Daylighting Objects";
 }
 
-std::vector<model::ModelObject> DaylightingObjectsTreeItem::modelObjectChildren() const
-{
+std::vector<model::ModelObject> DaylightingObjectsTreeItem::modelObjectChildren() const {
   std::vector<model::DaylightingControl> daylightingControls = m_space.daylightingControls();
   std::sort(daylightingControls.begin(), daylightingControls.end(), WorkspaceObjectNameLess());
   std::vector<model::ModelObject> result(daylightingControls.begin(), daylightingControls.end());
@@ -1361,23 +1250,20 @@ std::vector<model::ModelObject> DaylightingObjectsTreeItem::modelObjectChildren(
 ///////////////////// Loads ////////////////////////////////////////////////
 
 LoadsTreeItem::LoadsTreeItem(const openstudio::model::Space& space, QTreeWidgetItem* parent)
-  : ModelObjectTreeItem(LoadsTreeItem::itemName(), space.model(), parent), m_space(space)
-{
+  : ModelObjectTreeItem(LoadsTreeItem::itemName(), space.model(), parent), m_space(space) {
   this->makeChildren();
 }
 
-std::string LoadsTreeItem::itemName()
-{
+std::string LoadsTreeItem::itemName() {
   return "Loads";
 }
 
-std::vector<model::ModelObject> LoadsTreeItem::modelObjectChildren() const
-{
+std::vector<model::ModelObject> LoadsTreeItem::modelObjectChildren() const {
   std::vector<model::ModelObject> result;
 
   boost::optional<model::DesignSpecificationOutdoorAir> designSpecificationOutdoorAir = m_space.designSpecificationOutdoorAir();
-  if (designSpecificationOutdoorAir){
-    if (!m_space.isDesignSpecificationOutdoorAirDefaulted()){
+  if (designSpecificationOutdoorAir) {
+    if (!m_space.isDesignSpecificationOutdoorAirDefaulted()) {
       result.push_back(*designSpecificationOutdoorAir);
     }
   }
@@ -1425,16 +1311,15 @@ std::vector<model::ModelObject> LoadsTreeItem::modelObjectChildren() const
   return result;
 }
 
-std::vector<model::ModelObject> LoadsTreeItem::defaultedModelObjectChildren() const
-{
+std::vector<model::ModelObject> LoadsTreeItem::defaultedModelObjectChildren() const {
   std::vector<model::ModelObject> result;
 
   boost::optional<model::SpaceType> spaceType = m_space.spaceType();
-  if (spaceType){
+  if (spaceType) {
 
     boost::optional<model::DesignSpecificationOutdoorAir> designSpecificationOutdoorAir = m_space.designSpecificationOutdoorAir();
-    if (designSpecificationOutdoorAir){
-      if (m_space.isDesignSpecificationOutdoorAirDefaulted()){
+    if (designSpecificationOutdoorAir) {
+      if (m_space.isDesignSpecificationOutdoorAirDefaulted()) {
         result.push_back(*designSpecificationOutdoorAir);
       }
     }
@@ -1443,7 +1328,8 @@ std::vector<model::ModelObject> LoadsTreeItem::defaultedModelObjectChildren() co
     std::sort(spaceInfiltrationDesignFlowRates.begin(), spaceInfiltrationDesignFlowRates.end(), WorkspaceObjectNameLess());
     result.insert(result.end(), spaceInfiltrationDesignFlowRates.begin(), spaceInfiltrationDesignFlowRates.end());
 
-    std::vector<model::SpaceInfiltrationEffectiveLeakageArea> spaceInfiltrationEffectiveLeakageAreas = spaceType->spaceInfiltrationEffectiveLeakageAreas();
+    std::vector<model::SpaceInfiltrationEffectiveLeakageArea> spaceInfiltrationEffectiveLeakageAreas =
+      spaceType->spaceInfiltrationEffectiveLeakageAreas();
     std::sort(spaceInfiltrationEffectiveLeakageAreas.begin(), spaceInfiltrationEffectiveLeakageAreas.end(), WorkspaceObjectNameLess());
     result.insert(result.end(), spaceInfiltrationEffectiveLeakageAreas.begin(), spaceInfiltrationEffectiveLeakageAreas.end());
 
@@ -1478,9 +1364,8 @@ std::vector<model::ModelObject> LoadsTreeItem::defaultedModelObjectChildren() co
     std::vector<model::InternalMass> internalMass = spaceType->internalMass();
     std::sort(internalMass.begin(), internalMass.end(), WorkspaceObjectNameLess());
     result.insert(result.end(), internalMass.begin(), internalMass.end());
-
   }
   return result;
 }
 
-} // openstudio
+}  // namespace openstudio

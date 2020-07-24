@@ -47,66 +47,62 @@ class WindowMaterialScreenInspectorView : public ModelObjectInspectorView
 {
   Q_OBJECT
 
-  public:
+ public:
+  WindowMaterialScreenInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
-    WindowMaterialScreenInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent = nullptr);
+  virtual ~WindowMaterialScreenInspectorView() {}
 
-    virtual ~WindowMaterialScreenInspectorView() {}
+ protected:
+  virtual void onClearSelection() override;
 
-  protected:
+  virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
-    virtual void onClearSelection() override;
+  virtual void onUpdate() override;
 
-    virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
+ private:
+  void createLayout();
 
-    virtual void onUpdate() override;
+  void attach(openstudio::model::Screen& Screen);
 
-  private:
+  void detach();
 
-    void createLayout();
+  void refresh();
 
-    void attach(openstudio::model::Screen & Screen);
+  bool m_isIP;
 
-    void detach();
+  boost::optional<model::Screen> m_screen;
 
-    void refresh();
+  OSLineEdit2* m_nameEdit = nullptr;
 
-    bool m_isIP;
+  OSComboBox2* m_reflectedBeamTransmittanceAccountingMethod = nullptr;
 
-    boost::optional<model::Screen> m_screen;
+  OSComboBox2* m_angleOfResolutionForScreenTransmittanceOutputMap = nullptr;
 
-    OSLineEdit2 * m_nameEdit = nullptr;
+  OSQuantityEdit2* m_diffuseSolarReflectance = nullptr;
 
-    OSComboBox2 * m_reflectedBeamTransmittanceAccountingMethod = nullptr;
+  OSQuantityEdit2* m_diffuseVisibleReflectance = nullptr;
 
-    OSComboBox2 * m_angleOfResolutionForScreenTransmittanceOutputMap = nullptr;
+  OSQuantityEdit2* m_thermalHemisphericalEmissivity = nullptr;
 
-    OSQuantityEdit2 * m_diffuseSolarReflectance = nullptr;
+  OSQuantityEdit2* m_conductivity = nullptr;
 
-    OSQuantityEdit2 * m_diffuseVisibleReflectance = nullptr;
+  OSQuantityEdit2* m_screenMaterialSpacing = nullptr;
 
-    OSQuantityEdit2 * m_thermalHemisphericalEmissivity = nullptr;
+  OSQuantityEdit2* m_screenMaterialDiameter = nullptr;
 
-    OSQuantityEdit2 * m_conductivity = nullptr;
+  OSQuantityEdit2* m_screenToGlassDistance = nullptr;
 
-    OSQuantityEdit2 * m_screenMaterialSpacing = nullptr;
+  OSQuantityEdit2* m_topOpeningMultiplier = nullptr;
 
-    OSQuantityEdit2 * m_screenMaterialDiameter = nullptr;
+  OSQuantityEdit2* m_bottomOpeningMultiplier = nullptr;
 
-    OSQuantityEdit2 * m_screenToGlassDistance = nullptr;
+  OSQuantityEdit2* m_leftSideOpeningMultiplier = nullptr;
 
-    OSQuantityEdit2 * m_topOpeningMultiplier = nullptr;
+  OSQuantityEdit2* m_rightSideOpeningMultiplier = nullptr;
 
-    OSQuantityEdit2 * m_bottomOpeningMultiplier = nullptr;
-
-    OSQuantityEdit2 * m_leftSideOpeningMultiplier = nullptr;
-
-    OSQuantityEdit2 * m_rightSideOpeningMultiplier = nullptr;
-
-    StandardsInformationMaterialWidget * m_standardsInformationWidget = nullptr;
-
+  StandardsInformationMaterialWidget* m_standardsInformationWidget = nullptr;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_WINDOWMATERIALSCREENINSPECTORVIEW_HPP
+#endif  // OPENSTUDIO_WINDOWMATERIALSCREENINSPECTORVIEW_HPP

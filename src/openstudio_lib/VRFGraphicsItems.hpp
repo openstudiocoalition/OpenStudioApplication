@@ -51,33 +51,31 @@ class VRFView : public QWidget
 {
   Q_OBJECT;
 
-  public:
-
+ public:
   VRFView();
 
   virtual ~VRFView() {}
 
-  QWidget * header;
+  QWidget* header;
 
-  QGraphicsView * graphicsView;
+  QGraphicsView* graphicsView;
 
-  QPushButton * zoomOutButton;
+  QPushButton* zoomOutButton;
 
-  QLabel * nameLabel;
+  QLabel* nameLabel;
 };
 
 class VRFSystemMiniView : public QGraphicsObject
 {
   Q_OBJECT;
 
-  public:
-
+ public:
   VRFSystemMiniView();
 
   virtual ~VRFSystemMiniView() {}
 
-  RemoveButtonItem * removeButtonItem;
-  ZoomInButtonItem * zoomInButtonItem;
+  RemoveButtonItem* removeButtonItem;
+  ZoomInButtonItem* zoomInButtonItem;
 
   QRectF boundingRect() const override;
   static QSize cellSize();
@@ -85,18 +83,14 @@ class VRFSystemMiniView : public QGraphicsObject
   void setNumberOfZones(int zones);
   void setNumberOfTerminals(int terminals);
 
-  public slots:
+ public slots:
 
-  void setName( const QString & name);
+  void setName(const QString& name);
 
-  protected:
+ protected:
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
 
-  void paint( QPainter *painter,
-              const QStyleOptionGraphicsItem *option,
-              QWidget *widget ) override;
-
-  private:
-
+ private:
   QRectF contentRect() const;
 
   QRectF headerRect() const;
@@ -124,21 +118,20 @@ class VRFSystemView : public QGraphicsObject
 {
   Q_OBJECT;
 
-  public:
-
+ public:
   VRFSystemView();
 
   virtual ~VRFSystemView() {}
 
   QRectF boundingRect() const override;
 
-  void setId(const OSItemId & id);
+  void setId(const OSItemId& id);
 
-  OSDropZoneItem * terminalDropZone;
+  OSDropZoneItem* terminalDropZone;
 
-  OSDropZoneItem * zoneDropZone;
+  OSDropZoneItem* zoneDropZone;
 
-  ButtonItem * vrfIconButton;
+  ButtonItem* vrfIconButton;
 
   void adjustLayout();
 
@@ -148,33 +141,29 @@ class VRFSystemView : public QGraphicsObject
   static const int dropZoneHeight;
   static const int terminalViewHeight;
 
-  void addVRFTerminalView(VRFTerminalView * view);
+  void addVRFTerminalView(VRFTerminalView* view);
   void removeAllVRFTerminalViews();
 
-  signals:
+ signals:
 
-  void inspectClicked(const OSItemId & id);
+  void inspectClicked(const OSItemId& id);
 
-  protected:
+ protected:
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 
-  void paint( QPainter *painter,
-              const QStyleOptionGraphicsItem *option,
-              QWidget *widget = nullptr ) override;
-
-  void mousePressEvent(QGraphicsSceneMouseEvent * event) override;
-  void mouseReleaseEvent(QGraphicsSceneMouseEvent * event) override;
+  void mousePressEvent(QGraphicsSceneMouseEvent* event) override;
+  void mouseReleaseEvent(QGraphicsSceneMouseEvent* event) override;
   bool m_mouseDown;
 
-  private slots:
+ private slots:
 
   void onVRFIconClicked();
 
-  private:
-
+ private:
   double m_width;
   double m_height;
 
-  std::vector<QGraphicsObject *> m_terminalViews;
+  std::vector<QGraphicsObject*> m_terminalViews;
 
   OSItemId m_id;
   QPixmap m_vrfPixmap;
@@ -184,45 +173,41 @@ class VRFTerminalView : public QGraphicsObject
 {
   Q_OBJECT;
 
-  public:
-
+ public:
   VRFTerminalView();
 
   virtual ~VRFTerminalView() {}
 
   QRectF boundingRect() const override;
 
-  VRFThermalZoneDropZoneView * zoneDropZone;
+  VRFThermalZoneDropZoneView* zoneDropZone;
 
-  ButtonItem * terminalIconButton;
+  ButtonItem* terminalIconButton;
 
-  RemoveButtonItem * removeButtonItem;
+  RemoveButtonItem* removeButtonItem;
 
-  RemoveButtonItem * removeZoneButtonItem;
+  RemoveButtonItem* removeZoneButtonItem;
 
-  VRFThermalZoneDropZoneView * vrfThermalZoneDropZoneView;
+  VRFThermalZoneDropZoneView* vrfThermalZoneDropZoneView;
 
-  void setId(const OSItemId & id);
+  void setId(const OSItemId& id);
 
-  signals:
+ signals:
 
-  void componentDroppedOnZone(const OSItemId & zoneHVACTerminalID, const OSItemId & dropComponentID);
+  void componentDroppedOnZone(const OSItemId& zoneHVACTerminalID, const OSItemId& dropComponentID);
 
-  void removeZoneClicked(const OSItemId & zoneHVACTerminalID);
+  void removeZoneClicked(const OSItemId& zoneHVACTerminalID);
 
-  void terminalIconClicked(const OSItemId & zoneHVACTerminalID);
+  void terminalIconClicked(const OSItemId& zoneHVACTerminalID);
 
-  void removeTerminalClicked(const OSItemId & zoneHVACTerminalID);
+  void removeTerminalClicked(const OSItemId& zoneHVACTerminalID);
 
-  protected:
+ protected:
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
 
-  void paint( QPainter *painter,
-              const QStyleOptionGraphicsItem *option,
-              QWidget *widget ) override;
+ private slots:
 
-  private slots:
-
-  void onComponenDroppedOnZone(const OSItemId & dropComponentID);
+  void onComponenDroppedOnZone(const OSItemId& dropComponentID);
 
   void onRemoveZoneClicked();
 
@@ -230,8 +215,7 @@ class VRFTerminalView : public QGraphicsObject
 
   void onTerminalIconClicked();
 
-  private:
-
+ private:
   QRectF terminalPixmapRect() const;
 
   QPixmap m_terminalPixmap;
@@ -243,22 +227,17 @@ class VRFThermalZoneDropZoneView : public OSDropZoneItem
 {
   Q_OBJECT;
 
-  public:
-
+ public:
   VRFThermalZoneDropZoneView();
 
   ~VRFThermalZoneDropZoneView() {}
 
   void setHasZone(bool hasZone);
 
-  protected:
+ protected:
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
 
-  void paint( QPainter *painter,
-              const QStyleOptionGraphicsItem *option,
-              QWidget *widget ) override;
-
-  private:
-
+ private:
   bool m_hasZone;
 };
 
@@ -266,18 +245,13 @@ class VRFSystemDropZoneView : public OSDropZoneItem
 {
   Q_OBJECT;
 
-  public:
-
+ public:
   QRectF boundingRect() const override;
 
-  protected:
-
-  void paint( QPainter *painter,
-              const QStyleOptionGraphicsItem *option,
-              QWidget *widget ) override;
+ protected:
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_VRFGRAPHICSITEMS_HPP
-
+#endif  // OPENSTUDIO_VRFGRAPHICSITEMS_HPP

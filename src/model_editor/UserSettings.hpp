@@ -48,4 +48,4 @@ bool setUserMeasuresDir(const openstudio::path& userMeasuresDir);
 /// Clears the path to the user measures directory stored in settings.
 void clearUserMeasuresDir();
 
-#endif // MODELEDITOR_USERSETTINGS_HPP
+#endif  // MODELEDITOR_USERSETTINGS_HPP
