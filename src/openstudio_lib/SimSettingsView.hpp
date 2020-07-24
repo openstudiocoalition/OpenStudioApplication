@@ -71,24 +71,24 @@ class SimSettingsView : public QWidget, public Nano::Observer
   void setFineRadianceSettings();
   void enableRadianceParametersWidget(bool isEnabled);
 
-  QWidget * createRunPeriodWidget();
-  QWidget * createRunPeriodAdvancedWidget();
-  QWidget * createRunControlWidget();
-  QWidget * createSimulationControlWidget();
-  QWidget * createSizingParametersWidget();
-  QWidget * createProgramControlWidget();
-  QWidget * createTimestepWidget();
-  QWidget * createOutputControlReportingTolerancesWidget();
-  QWidget * createConvergenceLimitsWidget();
-  QWidget * createShadowCalculationWidget();
-  QWidget * createSurfaceConvectionAlgorithmInsideWidget();
-  QWidget * createSurfaceConvectionAlgorithmOutsideWidget();
-  QWidget * createHeatBalanceAlgorithmWidget();
-  QWidget * createZoneAirHeatBalanceAlgorithmWidget();
-  QWidget * createZoneAirContaminantBalanceWidget();
-  QWidget * createZoneCapacitanceMultipleResearchSpecialWidget();
-  QWidget * createRadianceParametersWidget();
-  QWidget * createOutputJSONWidget();
+  QWidget* createRunPeriodWidget();
+  QWidget* createRunPeriodAdvancedWidget();
+  QWidget* createRunControlWidget();
+  QWidget* createSimulationControlWidget();
+  QWidget* createSizingParametersWidget();
+  QWidget* createProgramControlWidget();
+  QWidget* createTimestepWidget();
+  QWidget* createOutputControlReportingTolerancesWidget();
+  QWidget* createConvergenceLimitsWidget();
+  QWidget* createShadowCalculationWidget();
+  QWidget* createSurfaceConvectionAlgorithmInsideWidget();
+  QWidget* createSurfaceConvectionAlgorithmOutsideWidget();
+  QWidget* createHeatBalanceAlgorithmWidget();
+  QWidget* createZoneAirHeatBalanceAlgorithmWidget();
+  QWidget* createZoneAirContaminantBalanceWidget();
+  QWidget* createZoneCapacitanceMultipleResearchSpecialWidget();
+  QWidget* createRadianceParametersWidget();
+  QWidget* createOutputJSONWidget();
 
   void addField(QGridLayout* gridLayout, int row, int column, QString text, OSComboBox2*& comboBox);
 
@@ -274,12 +274,12 @@ class SimSettingsView : public QWidget, public Nano::Observer
   OSQuantityEdit2* m_carbonDioxideCapacityMultiplier;
 
   // OutputJSON
-  OSComboBox2 * m_json_optionType;
-  OSSwitch2 * m_json_outputJSON;
-  OSSwitch2 * m_json_outputCBOR;
-  OSSwitch2 * m_json_outputMessagePack;
+  OSComboBox2* m_json_optionType;
+  OSSwitch2* m_json_outputJSON;
+  OSSwitch2* m_json_outputCBOR;
+  OSSwitch2* m_json_outputMessagePack;
 
-signals:
+ signals:
 
   void toggleUnitsClicked(bool displayIP);
 

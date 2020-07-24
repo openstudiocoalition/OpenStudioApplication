@@ -143,80 +143,79 @@ SimSettingsView::SimSettingsView(bool isIP, const model::Model& model, QWidget* 
     m_doHVACSizingSimulationforSizingPeriods(nullptr),
     m_maximumNumberofHVACSizingSimulationPasses(nullptr),
 
-  // Radiance
-  m_accumulatedRaysperRecord(nullptr),
-  m_directThreshold(nullptr),
-  m_directCertainty(nullptr),
-  m_directJitter(nullptr),
-  m_directPretest(nullptr),
-  m_ambientBouncesVMX(nullptr),
-  m_ambientBouncesDMX(nullptr),
-  m_ambientDivisionsVMX(nullptr),
-  m_ambientDivisionsDMX(nullptr),
-  m_ambientSupersamples(nullptr),
-  m_limitWeightVMX(nullptr),
-  m_limitWeightDMX(nullptr),
-  m_klemsSamplingDensity(nullptr),
-  m_skyDiscretizationResolution(nullptr),
-  m_accumulatedRaysperRecordLbl(nullptr),
-  m_directThresholdLbl(nullptr),
-  m_directCertaintyLbl(nullptr),
-  m_directJitterLbl(nullptr),
-  m_directPretestLbl(nullptr),
-  m_ambientBouncesVMXLbl(nullptr),
-  m_ambientBouncesDMXLbl(nullptr),
-  m_ambientDivisionsVMXLbl(nullptr),
-  m_ambientDivisionsDMXLbl(nullptr),
-  m_ambientSupersamplesLbl(nullptr),
-  m_limitWeightVMXLbl(nullptr),
-  m_limitWeightDMXLbl(nullptr),
-  m_klemsSamplingDensityLbl(nullptr),
-  m_skyDiscretizationResolutionLbl(nullptr),
-  // SizingParameters
-  m_heatingSizingFactor(nullptr),
-  m_coolingSizingFactor(nullptr),
-  m_timestepsinAveragingWindow(nullptr),
-  // ProgramControl
-  m_numberOfThreadsAllowed(nullptr),
-  // Timestep
-  m_numberOfTimestepsPerHour(nullptr),
-  // OutputControlReportingTolerances
-  m_toleranceForTimeHeatingSetpointNotMet(nullptr),
-  m_toleranceForTimeCoolingSetpointNotMet(nullptr),
-  // ConvergenceLimits
-  m_maximumHVACIterations(nullptr),
-  m_minimumPlantIterations(nullptr),
-  m_maximumPlantIterations(nullptr),
-  m_minimumSystemTimestep(nullptr),
-  // ShadowCalculation
-  m_shadingCalculationUpdateFrequency(nullptr),
-  m_maximumFiguresInShadowOverlapCalculations(nullptr),
-  m_polygonClippingAlgorithm(nullptr),
-  m_skyDiffuseModelingAlgorithm(nullptr),
-  // SurfaceConvectionAlgorithmInside
-  m_algorithmSurfaceConvectionInside(nullptr),
-  // SurfaceConvectionAlgorithmOutside
-  m_algorithmSurfaceConvectionOutside(nullptr),
-  // HeatBalance
-  m_algorithmHeatBalance(nullptr),
-  m_surfaceTemperatureUpperLimit(nullptr),
-  m_minimumSurfaceConvectionHeatTransferCoefficientValue(nullptr),
-  m_maximumSurfaceConvectionHeatTransferCoefficientValue(nullptr),
-  // ZoneAirHeatBalanceAlgorithm
-  m_algorithmZoneAirHeatBalance(nullptr),
-  // ZoneAirContaminantBalance
-  m_carbonDioxideConcentration(nullptr),
-  m_outdoorCarbonDioxideScheduleName(nullptr),
-  // ZoneCapacitanceMultiplierResearchSpecial
-  m_temperatureCapacityMultiplier(nullptr),
-  m_humidityCapacityMultiplier(nullptr),
-  m_carbonDioxideCapacityMultiplier(nullptr),
-  // OutputJSON
-  m_json_optionType(nullptr),
-  m_json_outputJSON(nullptr),
-  m_json_outputCBOR(nullptr),
-  m_json_outputMessagePack(nullptr)
-{
+    // Radiance
+    m_accumulatedRaysperRecord(nullptr),
+    m_directThreshold(nullptr),
+    m_directCertainty(nullptr),
+    m_directJitter(nullptr),
+    m_directPretest(nullptr),
+    m_ambientBouncesVMX(nullptr),
+    m_ambientBouncesDMX(nullptr),
+    m_ambientDivisionsVMX(nullptr),
+    m_ambientDivisionsDMX(nullptr),
+    m_ambientSupersamples(nullptr),
+    m_limitWeightVMX(nullptr),
+    m_limitWeightDMX(nullptr),
+    m_klemsSamplingDensity(nullptr),
+    m_skyDiscretizationResolution(nullptr),
+    m_accumulatedRaysperRecordLbl(nullptr),
+    m_directThresholdLbl(nullptr),
+    m_directCertaintyLbl(nullptr),
+    m_directJitterLbl(nullptr),
+    m_directPretestLbl(nullptr),
+    m_ambientBouncesVMXLbl(nullptr),
+    m_ambientBouncesDMXLbl(nullptr),
+    m_ambientDivisionsVMXLbl(nullptr),
+    m_ambientDivisionsDMXLbl(nullptr),
+    m_ambientSupersamplesLbl(nullptr),
+    m_limitWeightVMXLbl(nullptr),
+    m_limitWeightDMXLbl(nullptr),
+    m_klemsSamplingDensityLbl(nullptr),
+    m_skyDiscretizationResolutionLbl(nullptr),
+    // SizingParameters
+    m_heatingSizingFactor(nullptr),
+    m_coolingSizingFactor(nullptr),
+    m_timestepsinAveragingWindow(nullptr),
+    // ProgramControl
+    m_numberOfThreadsAllowed(nullptr),
+    // Timestep
+    m_numberOfTimestepsPerHour(nullptr),
+    // OutputControlReportingTolerances
+    m_toleranceForTimeHeatingSetpointNotMet(nullptr),
+    m_toleranceForTimeCoolingSetpointNotMet(nullptr),
+    // ConvergenceLimits
+    m_maximumHVACIterations(nullptr),
+    m_minimumPlantIterations(nullptr),
+    m_maximumPlantIterations(nullptr),
+    m_minimumSystemTimestep(nullptr),
+    // ShadowCalculation
+    m_shadingCalculationUpdateFrequency(nullptr),
+    m_maximumFiguresInShadowOverlapCalculations(nullptr),
+    m_polygonClippingAlgorithm(nullptr),
+    m_skyDiffuseModelingAlgorithm(nullptr),
+    // SurfaceConvectionAlgorithmInside
+    m_algorithmSurfaceConvectionInside(nullptr),
+    // SurfaceConvectionAlgorithmOutside
+    m_algorithmSurfaceConvectionOutside(nullptr),
+    // HeatBalance
+    m_algorithmHeatBalance(nullptr),
+    m_surfaceTemperatureUpperLimit(nullptr),
+    m_minimumSurfaceConvectionHeatTransferCoefficientValue(nullptr),
+    m_maximumSurfaceConvectionHeatTransferCoefficientValue(nullptr),
+    // ZoneAirHeatBalanceAlgorithm
+    m_algorithmZoneAirHeatBalance(nullptr),
+    // ZoneAirContaminantBalance
+    m_carbonDioxideConcentration(nullptr),
+    m_outdoorCarbonDioxideScheduleName(nullptr),
+    // ZoneCapacitanceMultiplierResearchSpecial
+    m_temperatureCapacityMultiplier(nullptr),
+    m_humidityCapacityMultiplier(nullptr),
+    m_carbonDioxideCapacityMultiplier(nullptr),
+    // OutputJSON
+    m_json_optionType(nullptr),
+    m_json_outputJSON(nullptr),
+    m_json_outputCBOR(nullptr),
+    m_json_outputMessagePack(nullptr) {
   connect(this, &SimSettingsView::toggleUnitsClicked, this, &SimSettingsView::toggleUnits);
 
   // when the year settings object changes need to update the year in all child widgets
@@ -303,7 +302,7 @@ void SimSettingsView::createWidgets() {
   mainLayout->addWidget(collapsibleInspector);
 
   //******************* OS:Output:JSON *******************
-  collapsibleInspector = new CollapsibleInspector("Output JSON",createOutputJSONWidget());
+  collapsibleInspector = new CollapsibleInspector("Output JSON", createOutputJSONWidget());
   mainLayout->addWidget(collapsibleInspector);
 
   mainLayout->addStretch();
@@ -1063,39 +1062,38 @@ void SimSettingsView::enableRadianceParametersWidget(bool isEnabled) {
   m_skyDiscretizationResolutionLbl->setEnabled(isEnabled);
 }
 
-QWidget * SimSettingsView::createOutputJSONWidget()
-{
+QWidget* SimSettingsView::createOutputJSONWidget() {
   auto gridLayout = new QGridLayout();
-  gridLayout->setContentsMargins(7,7,7,7);
+  gridLayout->setContentsMargins(7, 7, 7, 7);
   gridLayout->setSpacing(GRID_LAYOUT_SPACING);
   gridLayout->setAlignment(Qt::AlignLeft);
 
   int row = 0;
   int col = 0;
-  QSpacerItem * spacerItem = nullptr;
+  QSpacerItem* spacerItem = nullptr;
 
-  addField(gridLayout,row,col,"Option Type",m_json_optionType);
+  addField(gridLayout, row, col, "Option Type", m_json_optionType);
   col++;
-  std::vector<std::string>  optionValues = model::OutputJSON::optionTypeValues();
-  for (const auto& optionValue : optionValues){
+  std::vector<std::string> optionValues = model::OutputJSON::optionTypeValues();
+  for (const auto& optionValue : optionValues) {
     m_json_optionType->addItem(optionValue.c_str());
   }
 
-  spacerItem = new QSpacerItem(SPACERITEM_WIDTH,1,QSizePolicy::Fixed,QSizePolicy::Fixed);
-  gridLayout->addItem(spacerItem,row,col++);
-  addField(gridLayout,row,col,"Output JSON",m_json_outputJSON);
+  spacerItem = new QSpacerItem(SPACERITEM_WIDTH, 1, QSizePolicy::Fixed, QSizePolicy::Fixed);
+  gridLayout->addItem(spacerItem, row, col++);
+  addField(gridLayout, row, col, "Output JSON", m_json_outputJSON);
 
   row = row + 2;
-  spacerItem = new QSpacerItem(1,SPACERITEM_HEIGHT,QSizePolicy::Fixed,QSizePolicy::Fixed);
-  gridLayout->addItem(spacerItem,row++,0);
+  spacerItem = new QSpacerItem(1, SPACERITEM_HEIGHT, QSizePolicy::Fixed, QSizePolicy::Fixed);
+  gridLayout->addItem(spacerItem, row++, 0);
   col = 0;
 
-  addField(gridLayout,row,col,"Output CBOR",m_json_outputCBOR);
+  addField(gridLayout, row, col, "Output CBOR", m_json_outputCBOR);
   col = col + 2;
-  addField(gridLayout,row,col,"Output MessagePack",m_json_outputMessagePack);
+  addField(gridLayout, row, col, "Output MessagePack", m_json_outputMessagePack);
 
-  gridLayout->setRowStretch(100,100);
-  gridLayout->setColumnStretch(100,100);
+  gridLayout->setRowStretch(100, 100);
+  gridLayout->setColumnStretch(100, 100);
 
   auto widget = new QWidget();
   widget->setLayout(gridLayout);
@@ -1104,14 +1102,8 @@ QWidget * SimSettingsView::createOutputJSONWidget()
   return widget;
 }
 
-
-void SimSettingsView::addField(QGridLayout * gridLayout,
-                               int row,
-                               int column,
-                               QString text,
-                               OSComboBox2 * & comboBox)
-{
-  auto label = new QLabel(text,this);
+void SimSettingsView::addField(QGridLayout* gridLayout, int row, int column, QString text, OSComboBox2*& comboBox) {
+  auto label = new QLabel(text, this);
   label->setFixedWidth(TEXT_FIELD_WIDTH);
   label->setObjectName("H2");
   gridLayout->addWidget(label, row++, column);
@@ -1777,8 +1769,7 @@ void SimSettingsView::attachRadianceParameters() {
     boost::optional<NoFailAction>(std::bind(&model::RadianceParameters::resetSkyDiscretizationResolution, mo)));
 }
 
-void SimSettingsView::attachOutputJSON()
-{
+void SimSettingsView::attachOutputJSON() {
   bool forceOutputJSON = false;
   // If it wasn't already in the model, it'll be initialized, and the Ctor defaults Output JSON field to "Yes"
   // We do NOT want to enable Output:JSON for all models now, so force it to False
@@ -1791,43 +1782,33 @@ void SimSettingsView::attachOutputJSON()
     mo.setOutputJSON(false);
   }
 
-  m_json_optionType->bind<std::string>(
-    mo,
-    static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
-    &model::OutputJSON::optionTypeValues,
-    StringGetter(std::bind(&model::OutputJSON::optionType, mo)),
-    std::bind(&model::OutputJSON::setOptionType, mo, std::placeholders::_1),
-    boost::none,  // No reset
-    boost::none   // No isDefaulted
+  m_json_optionType->bind<std::string>(mo, static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
+                                       &model::OutputJSON::optionTypeValues, StringGetter(std::bind(&model::OutputJSON::optionType, mo)),
+                                       std::bind(&model::OutputJSON::setOptionType, mo, std::placeholders::_1),
+                                       boost::none,  // No reset
+                                       boost::none   // No isDefaulted
   );
 
-  m_json_outputJSON->bind(
-    mo,
-    std::bind(&model::OutputJSON::outputJSON, mo),
-    boost::optional<BoolSetter>(std::bind(&model::OutputJSON::setOutputJSON, mo, std::placeholders::_1)),
-    boost::none, // reset
-    boost::none // isDefaulted;
+  m_json_outputJSON->bind(mo, std::bind(&model::OutputJSON::outputJSON, mo),
+                          boost::optional<BoolSetter>(std::bind(&model::OutputJSON::setOutputJSON, mo, std::placeholders::_1)),
+                          boost::none,  // reset
+                          boost::none   // isDefaulted;
   );
 
-  m_json_outputCBOR->bind(
-    mo,
-    std::bind(&model::OutputJSON::outputCBOR, mo),
-    boost::optional<BoolSetter>(std::bind(&model::OutputJSON::setOutputCBOR, mo, std::placeholders::_1)),
-    boost::none, // reset
-    boost::none // isDefaulted;
+  m_json_outputCBOR->bind(mo, std::bind(&model::OutputJSON::outputCBOR, mo),
+                          boost::optional<BoolSetter>(std::bind(&model::OutputJSON::setOutputCBOR, mo, std::placeholders::_1)),
+                          boost::none,  // reset
+                          boost::none   // isDefaulted;
   );
 
-  m_json_outputMessagePack->bind(
-    mo,
-    std::bind(&model::OutputJSON::outputMessagePack, mo),
-    boost::optional<BoolSetter>(std::bind(&model::OutputJSON::setOutputMessagePack, mo, std::placeholders::_1)),
-    boost::none, // reset
-    boost::none // isDefaulted;
+  m_json_outputMessagePack->bind(mo, std::bind(&model::OutputJSON::outputMessagePack, mo),
+                                 boost::optional<BoolSetter>(std::bind(&model::OutputJSON::setOutputMessagePack, mo, std::placeholders::_1)),
+                                 boost::none,  // reset
+                                 boost::none   // isDefaulted;
   );
 }
 
-void SimSettingsView::detachRunPeriod()
-{
+void SimSettingsView::detachRunPeriod() {
   m_useWeatherFileHolidaysandSpecialDays->unbind();
   m_useWeatherFileDaylightSavingsPeriod->unbind();
   m_applyWeekendHolidayRule->unbind();
@@ -1943,8 +1924,7 @@ void SimSettingsView::setFineRadianceSettings() {
   radianceParameters.applyFineSettings();
 }
 
-void SimSettingsView::detachOutputJSON()
-{
+void SimSettingsView::detachOutputJSON() {
   m_json_optionType->unbind();
   m_json_outputJSON->unbind();
   m_json_outputCBOR->unbind();
