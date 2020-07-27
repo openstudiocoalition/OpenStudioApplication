@@ -1380,7 +1380,8 @@ bool OSDocument::save() {
     // also copies the temp files to user location
     bool saved = saveModel(this->model(), modelPath, toPath(m_modelTempDir));
     if (!saved) {
-      QMessageBox::warning(this->mainWindow(), tr("Failed to save model"), tr("Failed to save model, make sure that you do not have the location open and that you have correct write access."));
+      QMessageBox::warning(this->mainWindow(), tr("Failed to save model"),
+                           tr("Failed to save model, make sure that you do not have the location open and that you have correct write access."));
     }
 
     this->setSavePath(toQString(modelPath));
