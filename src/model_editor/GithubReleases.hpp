@@ -44,53 +44,52 @@ class QDomElement;
 
 namespace modeleditor {
 
-  /** Class for checking whether a new version of OpenStudio is available
-      for download.
+  /** Class for checking releases on Github.
   **/
-class MODELEDITOR_API UpdateManager : public QObject
+class MODELEDITOR_API GithubReleases : public QObject
 {
 
     Q_OBJECT;
 
   public:
 
-    /// Constructor with application name
-    UpdateManager(const std::string& appName);
-
-    /// Constructor with application name and alternate test Url
-    UpdateManager(const std::string& appName, const std::string& url);
+    /// Constructor with organization and repo name
+   GithubReleases(const std::string& orgName, const std::string& repoName);
 
     // virtual destructor
-    virtual ~UpdateManager() {}
+   virtual ~GithubReleases() {}
 
-    /// returns the application name
-    std::string appName() const;
+    /// returns the org name
+   std::string orgName() const;
 
-    /// returns true when the manager is finished checking for updates
+   /// returns the repo name
+   std::string repoName() const;
+
+    /// returns true when finished checking for updates
     bool finished() const;
 
-    /// returns true if an error occurred while checking for updates,
+    /// returns true if an error occurred while checking for releases,
     /// must call after update manager is finished
     bool error() const;
 
-    /// returns true if a new major release is available, manager must have
-    /// finished checking for updates with no errors
+    /// returns true if a new major release is available, must have
+    /// finished checking for releases with no errors
     bool newMajorRelease() const;
 
-    /// returns true if a new minor release is available, manager must have
-    /// finished checking for updates with no errors
+    /// returns true if a new minor release is available, must have
+    /// finished checking for releases with no errors
     bool newMinorRelease() const;
 
-    /// returns true if a new patch release is available, manager must have
-    /// finished checking for updates with no errors
+    /// returns true if a new patch release is available, must have
+    /// finished checking for releases with no errors
     bool newPatchRelease() const;
 
-    /// returns most recent version, manager must have
-    /// finished checking for updates with no errors
+    /// returns most recent version, must have
+    /// finished checking for releases with no errors
     std::string mostRecentVersion() const;
 
-    /// returns url for the most recent download, manager must have
-    /// finished checking for updates with no errors
+    /// returns url for the most recent download, must have
+    /// finished checking for releases with no errors
     std::string mostRecentDownloadUrl() const;
 
     /// returns the description of each update since the current release with the most recent first,
@@ -110,9 +109,10 @@ class MODELEDITOR_API UpdateManager : public QObject
 
   private:
 
-    REGISTER_LOGGER("UpdateManager");
+    REGISTER_LOGGER("GithubReleases");
 
-    std::string m_appName;
+    std::string m_orgName;
+    std::string m_repoName;
     bool m_finished;
     bool m_error;
     bool m_newMajorRelease;
@@ -125,8 +125,8 @@ class MODELEDITOR_API UpdateManager : public QObject
     // returns true if release being checked is newer than current release
     bool checkRelease(const QDomElement& release);
 
-    // url used for checking updates
-    std::string updateUrl() const;
+    // url used for checking releases
+    std::string releasesUrl() const;
 
     QNetworkAccessManager* m_manager;
     QNetworkRequest* m_request;
@@ -134,6 +134,9 @@ class MODELEDITOR_API UpdateManager : public QObject
 
   };
 
-} // modeleditor
+  // prints releases and number of downloads
+  std::ostream& operator<<(std::ostream& os, const GithubReleases& releases);
+
+  } // modeleditor
 
 #endif // MODELEDITOR_GITHUB_RELEASES_HPP

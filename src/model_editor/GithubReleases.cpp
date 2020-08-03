@@ -41,95 +41,90 @@
 
 namespace modeleditor{
 
-  UpdateManager::UpdateManager(const std::string& appName)
-    : m_appName(appName), m_finished(false), m_error(false),
+  GithubReleases::GithubReleases(const std::string& orgName, const std::string& repoName)
+    : m_orgName(orgName), m_repoName(repoName), m_finished(false), m_error(false),
       m_newMajorRelease(false), m_newMinorRelease(false), m_newPatchRelease(false),
       m_mostRecentVersion(openStudioVersion()), m_manager(new QNetworkAccessManager(this))
   {
-    openstudio::Application::instance().processEvents();  // a kludge to make sure that updatemanager works correctly in a non-application environment on unix
+    std::cout << "A" << std::endl;
+    openstudio::Application::instance().processEvents();  // a kludge to make sure that GithubReleases works correctly in a non-application environment on unix
 
-    connect(m_manager, &QNetworkAccessManager::finished, this, &UpdateManager::replyFinished);
+    connect(m_manager, &QNetworkAccessManager::finished, this, &GithubReleases::replyFinished);
 
-    connect(this, &UpdateManager::processed, this, &UpdateManager::replyProcessed);
-
-    QUrl url(QString::fromStdString(updateUrl()));
+    connect(this, &GithubReleases::processed, this, &GithubReleases::replyProcessed);
+    std::cout << releasesUrl() << std::endl;
+    QUrl url(QString::fromStdString(releasesUrl()));
 
     m_request = new QNetworkRequest(url);
     OS_ASSERT(m_request);
 
     m_reply = m_manager->get(*m_request);
     OS_ASSERT(m_reply);
+
+    while (!finished()) {
+      openstudio::Application::instance().processEvents();
+    }
   }
 
-  UpdateManager::UpdateManager(const std::string& appName, const std::string& url)
-    : m_appName(appName), m_finished(false), m_error(false),
-      m_newMajorRelease(false), m_newMinorRelease(false), m_newPatchRelease(false),
-      m_mostRecentVersion(openStudioVersion()), m_manager(new QNetworkAccessManager(this))
+  std::string GithubReleases::orgName() const
   {
-    openstudio::Application::instance().processEvents(); // a kludge to make sure that updatemanager works correctly in a non-application environment on unix
-
-    connect(m_manager, &QNetworkAccessManager::finished, this, &UpdateManager::replyFinished);
-
-    connect(this, &UpdateManager::processed, this, &UpdateManager::replyProcessed);
-
-    m_request = new QNetworkRequest(QUrl(QString::fromStdString(url)));
-
-    m_reply = m_manager->get(*m_request);
+    return m_orgName;
   }
 
-  std::string UpdateManager::appName() const
-  {
-    return m_appName;
+  std::string GithubReleases::repoName() const {
+    return m_repoName;
   }
-
-  bool UpdateManager::finished() const
+  
+  bool GithubReleases::finished() const
   {
     return m_finished;
   }
 
-  bool UpdateManager::error() const
+  bool GithubReleases::error() const
   {
     return m_error;
   }
 
-  bool UpdateManager::newMajorRelease() const
+  bool GithubReleases::newMajorRelease() const
   {
     return m_newMajorRelease;
   }
 
-  bool UpdateManager::newMinorRelease() const
+  bool GithubReleases::newMinorRelease() const
   {
     return m_newMinorRelease;
   }
 
-  bool UpdateManager::newPatchRelease() const
+  bool GithubReleases::newPatchRelease() const
   {
     return m_newPatchRelease;
   }
 
-  std::string UpdateManager::mostRecentVersion() const
+  std::string GithubReleases::mostRecentVersion() const
   {
     return m_mostRecentVersion;
   }
 
-  std::string UpdateManager::mostRecentDownloadUrl() const
+  std::string GithubReleases::mostRecentDownloadUrl() const
   {
     return m_mostRecentDownloadUrl;
   }
 
-  std::vector<std::string> UpdateManager::updateMessages() const
+  std::vector<std::string> GithubReleases::updateMessages() const
   {
     return m_updateMessages;
   }
 
 
-  std::string UpdateManager::updateUrl() const
+  std::string GithubReleases::releasesUrl() const
   {
-    return std::string("https://www.openstudio.net/update.html?app=") + appName() + std::string("&version=") + openStudioVersion();
+    return std::string("https://api.github.com/repos/") + orgName() + std::string("/") + repoName() + std::string("/releases");
   }
 
-  void UpdateManager::replyFinished(QNetworkReply* reply)
+  void GithubReleases::replyFinished(QNetworkReply* reply)
   {
+    std::cout << "replyFinished" << std::endl;
+
     // finished after this
     m_finished = true;
 
@@ -141,26 +136,8 @@ namespace modeleditor{
       if (!m_error){
 
         // create xml document to read the response
-        QDomDocument document;
-        document.setContent(reply->readAll());
-        QDomNodeList openstudioelements = document.elementsByTagName("openstudio");
+        std::cout << reply->readAll().toStdString() << std::endl;
 
-        if (openstudioelements.size() > 0)
-        {
-          // Only process the first one for now
-          QDomNodeList nodes = openstudioelements.at(0).childNodes();
-
-          // all child nodes will be releases
-          for(int i = 0; i < nodes.size(); ++i){
-            QDomElement release = nodes.at(i).toElement();
-            if (!release.isNull()){
-              if (!checkRelease(release)){
-                // break if not newer than current
-                break;
-              }
-            }
-          }
-        }
       }else{
         LOG(Error, "QNetworkReply " << reply->error());
       }
@@ -169,11 +146,11 @@ namespace modeleditor{
     emit processed();
   }
 
-  void UpdateManager::replyProcessed()
+  void GithubReleases::replyProcessed()
   {
   }
 
-  bool UpdateManager::checkRelease(const QDomElement& release)
+  bool GithubReleases::checkRelease(const QDomElement& release)
   {
     bool updateAvailable = false;
 
@@ -235,5 +212,9 @@ namespace modeleditor{
     return updateAvailable;
   }
 
+  // prints releases and number of downloads
+  std::ostream& operator<<(std::ostream& os, const GithubReleases& releases) {
+    return os;
+  }
 
 } // modeleditor

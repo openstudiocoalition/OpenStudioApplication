@@ -22,6 +22,7 @@
 
 %{
   #include <model_editor/Application.hpp>
+  #include <model_editor/GithubReleases.hpp>
   #include <model_editor/InspectorGadget.hpp>
   #include <model_editor/InspectorDialog.hpp>
   #include <model_editor/ModalDialogs.hpp>
@@ -71,6 +72,9 @@
 
 %feature("director") PathWatcher;
 %include <model_editor/PathWatcher.hpp>
+
+%feature("director") GithubReleases;
+%include <model_editor/GithubReleases.hpp>
 
 %include <model_editor/AccessPolicyStore.hpp>
 
