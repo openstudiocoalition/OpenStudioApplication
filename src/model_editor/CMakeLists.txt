@@ -19,6 +19,8 @@ set(${target_name}_src
   ClassViewWidget.cpp
   EditorFrame.hpp
   EditorFrame.cpp
+  GithubReleases.hpp
+  GithubReleases.cpp
   InspectorDialog.hpp
   InspectorDialog.cpp
   InspectorGadget.hpp
@@ -73,6 +75,7 @@ set(${target_name}_src
 set(${target_name}_moc
   ClassViewWidget.hpp
   EditorFrame.hpp
+  GithubReleases.hpp  
   InspectorDialog.hpp
   InspectorGadget.hpp
   ListWidget.hpp
