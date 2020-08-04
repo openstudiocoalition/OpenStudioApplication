@@ -225,6 +225,10 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, QWidget* parent) : QMenuBar(parent)
   m_helpMenu->addAction(action);
   connect(action, &QAction::triggered, this, &MainMenu::helpClicked);
 
+  action = new QAction(tr("Check For &Update"), this);
+  m_helpMenu->addAction(action);
+  connect(action, &QAction::triggered, this, &MainMenu::checkForUpdateClicked);
+
   action = new QAction(tr("&About"), this);
   m_helpMenu->addAction(action);
   connect(action, &QAction::triggered, this, &MainMenu::aboutClicked);

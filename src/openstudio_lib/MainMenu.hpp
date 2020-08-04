@@ -81,6 +81,8 @@ class MainMenu : public QMenuBar
 
   void helpClicked();
 
+  void checkForUpdateClicked();
+
   void aboutClicked();
 
   void showRubyConsoleClicked();

@@ -74,8 +74,7 @@ set(${target_name}_src
 # lib moc files
 set(${target_name}_moc
   ClassViewWidget.hpp
-  EditorFrame.hpp
-  GithubReleases.hpp  
+  EditorFrame.hpp  
   InspectorDialog.hpp
   InspectorGadget.hpp
   ListWidget.hpp
