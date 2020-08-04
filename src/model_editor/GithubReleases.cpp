@@ -29,192 +29,195 @@
 
 #include "GithubReleases.hpp"
 #include "Application.hpp"
-#include <OpenStudio.hxx>
+#include "../utilities/OpenStudioApplicationPathHelpers.hpp"
 
 #include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Compare.hpp>
+#include <openstudio/utilities/core/System.hpp>
 
-#include <QNetworkReply>
-#include <QDomDocument>
+#include <json/json.h>
 
-#include <boost/lexical_cast.hpp>
+using namespace utility::conversions;
 
+namespace modeleditor {
 
-namespace modeleditor{
+GithubRelease::GithubRelease(const std::string& tagName, bool preRelease, unsigned numDownloads, const std::string& downloadUrl)
+  : m_tagName(tagName), m_preRelease(preRelease), m_numDownloads(numDownloads), m_downloadUrl(downloadUrl) {}
 
-  GithubReleases::GithubReleases(const std::string& orgName, const std::string& repoName)
-    : m_orgName(orgName), m_repoName(repoName), m_finished(false), m_error(false),
-      m_newMajorRelease(false), m_newMinorRelease(false), m_newPatchRelease(false),
-      m_mostRecentVersion(openStudioVersion()), m_manager(new QNetworkAccessManager(this))
-  {
-    std::cout << "A" << std::endl;
-    openstudio::Application::instance().processEvents();  // a kludge to make sure that GithubReleases works correctly in a non-application environment on unix
+std::string GithubRelease::tagName() const {
+  return m_tagName;
+}
 
-    connect(m_manager, &QNetworkAccessManager::finished, this, &GithubReleases::replyFinished);
-
-    connect(this, &GithubReleases::processed, this, &GithubReleases::replyProcessed);
-    std::cout << releasesUrl() << std::endl;
-    QUrl url(QString::fromStdString(releasesUrl()));
-
-    m_request = new QNetworkRequest(url);
-    OS_ASSERT(m_request);
-
-    m_reply = m_manager->get(*m_request);
-    OS_ASSERT(m_reply);
-
-    while (!finished()) {
-      openstudio::Application::instance().processEvents();
+boost::optional<openstudio::VersionString> GithubRelease::version() const {
+  try {
+    if ((m_tagName.size() > 0) && (m_tagName[0] == 'v')) {
+      return openstudio::VersionString(m_tagName.substr(1));
+    } else {
+      return openstudio::VersionString(m_tagName);
     }
+  } catch (const std::exception&) {
+  }
+  return boost::none;
+}
+
+bool GithubRelease::preRelease() const {
+  return m_preRelease;
+}
+
+unsigned GithubRelease::numDownloads() const {
+  return m_numDownloads;
+}
+
+std::string GithubRelease::downloadUrl() const {
+  return m_downloadUrl;
+}
+
+GithubReleases::GithubReleases(const std::string& orgName, const std::string& repoName)
+  : m_orgName(orgName), m_repoName(repoName), m_finished(false), m_error(false) {
+
+  web::http::client::http_client_config config;
+  config.set_validate_certificates(false);
+
+  web::http::client::http_client client(to_string_t(apiUrl()), config);
+  m_httpResponse = client.request(web::http::methods::GET)
+                     .then([](web::http::http_response resp) { return resp.extract_utf8string(); })
+                     .then([this](const std::string& xml) { processReply(xml); });
+}
+
+std::string GithubReleases::orgName() const {
+  return m_orgName;
+}
+
+std::string GithubReleases::repoName() const {
+  return m_repoName;
+}
+
+bool GithubReleases::waitForFinished(int msec) const {
+  int msecPerLoop = 20;
+  int numTries = msec / msecPerLoop;
+  int current = 0;
+  while (true) {
+    // if no request was made and the optional is empty return
+    if (!m_httpResponse) {
+      return false;
+    }
+
+    if (m_httpResponse->is_done()) {
+      return true;
+    }
+
+    openstudio::System::msleep(msecPerLoop);
+
+    if (current > numTries) {
+      LOG(Warn, "waitForFinished timeout");
+      break;
+    }
+
+    ++current;
   }
 
-  std::string GithubReleases::orgName() const
-  {
-    return m_orgName;
-  }
+  return false;
+}
 
-  std::string GithubReleases::repoName() const {
-    return m_repoName;
+bool GithubReleases::finished() const {
+  return m_finished;
+}
+
+bool GithubReleases::error() const {
+  return m_error;
+}
+
+bool GithubReleases::newReleaseAvailable() const {
+  try {
+    openstudio::VersionString currentVersion(openstudio::getOpenStudioApplicationVersion());
+    for (const auto& release : m_releases) {
+      boost::optional<openstudio::VersionString> version = release.version();
+      if (version) {
+        if (version.get() > currentVersion) {
+          return true;
+        }
+      }
+    }
+  } catch (const std::exception&) {
   }
   
-  bool GithubReleases::finished() const
-  {
-    return m_finished;
+  return false;
+}
+
+std::vector<GithubRelease> GithubReleases::releases() const {
+  return m_releases;
+}
+
+std::string GithubReleases::releasesUrl() const {
+  return std::string("https://github.com/") + orgName() + std::string("/") + repoName() + std::string("/releases");
+}
+
+std::string GithubReleases::apiUrl() const {
+  return std::string("https://api.github.com/repos/") + orgName() + std::string("/") + repoName() + std::string("/releases");
+}
+
+void GithubReleases::processReply(const std::string& reply) {
+
+  // finished after this
+  m_finished = true;
+  m_error = false;
+
+  Json::CharReaderBuilder rbuilder;
+  std::istringstream ss(reply);
+  Json::Value root;
+  std::string formattedErrors;
+  bool parsingSuccessful = Json::parseFromStream(rbuilder, ss, &root, &formattedErrors);
+  if (!parsingSuccessful) {
+    LOG(Error, "GithubReleases reply: '" << reply << "' cannot be processed, " << formattedErrors);
+    m_error = true;
+    return;
   }
 
-  bool GithubReleases::error() const
-  {
-    return m_error;
-  }
+  // Iterate over the release elements
+  for (Json::ArrayIndex i = 0; i < root.size(); ++i) {
+    std::string tagName;
+    bool preRelease(true);
+    std::string url;
+    unsigned downloadCount = 0;
 
-  bool GithubReleases::newMajorRelease() const
-  {
-    return m_newMajorRelease;
-  }
+    Json::Value tagNameValue = root[i].get("tag_name", Json::Value(""));
+    if (tagNameValue.isString()) {
+      tagName = tagNameValue.asString();
+    }
 
-  bool GithubReleases::newMinorRelease() const
-  {
-    return m_newMinorRelease;
-  }
+    Json::Value preReleaseValue = root[i].get("prerelease", Json::Value(true));
+    if (preReleaseValue.isBool()) {
+      preRelease = preReleaseValue.asBool();
+    }
 
-  bool GithubReleases::newPatchRelease() const
-  {
-    return m_newPatchRelease;
-  }
+    Json::Value urlValue = root[i].get("url", Json::Value(""));
+    if (urlValue.isString()) {
+      url = urlValue.asString();
+    }
 
-  std::string GithubReleases::mostRecentVersion() const
-  {
-    return m_mostRecentVersion;
-  }
-
-  std::string GithubReleases::mostRecentDownloadUrl() const
-  {
-    return m_mostRecentDownloadUrl;
-  }
-
-  std::vector<std::string> GithubReleases::updateMessages() const
-  {
-    return m_updateMessages;
-  }
-
-
-  std::string GithubReleases::releasesUrl() const
-  {
-    return std::string("https://api.github.com/repos/") + orgName() + std::string("/") + repoName() + std::string("/releases");
-  }
-
-  void GithubReleases::replyFinished(QNetworkReply* reply)
-  {
-    std::cout << "replyFinished" << std::endl;
-
-    // finished after this
-    m_finished = true;
-
-    if (reply){
-      // don't delete here
-      reply->deleteLater();
-
-      m_error = (reply->error() != QNetworkReply::NoError);
-      if (!m_error){
-
-        // create xml document to read the response
-        std::cout << reply->readAll().toStdString() << std::endl;
-
-      }else{
-        LOG(Error, "QNetworkReply " << reply->error());
+    Json::Value assetsValue = root[i].get("assets", Json::arrayValue);
+    for (Json::ArrayIndex j = 0; j < assetsValue.size(); ++j) {
+      Json::Value downloadCountValue = assetsValue[j].get("download_count", Json::Value(0u));
+      if (downloadCountValue.isNumeric()) {
+        downloadCount += downloadCountValue.asUInt();
       }
     }
 
-    emit processed();
+    m_releases.push_back(GithubRelease(tagName, preRelease, downloadCount, url));
   }
+}
 
-  void GithubReleases::replyProcessed()
-  {
+// prints releases and number of downloads
+std::ostream& operator<<(std::ostream& os, const GithubRelease& release) {
+  os << release.tagName() << ", " << release.numDownloads() << std::endl;
+  return os;
+}
+
+std::ostream& operator<<(std::ostream& os, const GithubReleases& releases) {
+  for (const auto& release : releases.releases()) {
+    os << release;
   }
+  return os;
+}
 
-  bool GithubReleases::checkRelease(const QDomElement& release)
-  {
-    bool updateAvailable = false;
-
-    try{
-
-      std::string version = release.attribute("version").toStdString();
-      std::string currentVersion = openStudioVersion();
-      boost::regex versionRegex("^([0-9]+)\\.([0-9]+)\\.([0-9]+).*?");
-
-      boost::smatch versionMatch;
-      boost::smatch currentVersionMatch;
-      if( boost::regex_search(version, versionMatch, versionRegex) &&
-          boost::regex_search(currentVersion, currentVersionMatch, versionRegex)){
-        std::string versionMajorString = std::string(versionMatch[1].first,versionMatch[1].second); boost::trim(versionMajorString);
-        std::string versionMinorString = std::string(versionMatch[2].first,versionMatch[2].second); boost::trim(versionMinorString);
-        std::string versionPatchString = std::string(versionMatch[3].first,versionMatch[3].second); boost::trim(versionPatchString);
-
-        unsigned versionMajor = boost::lexical_cast<unsigned>(versionMajorString);
-        unsigned versionMinor = boost::lexical_cast<unsigned>(versionMinorString);
-        unsigned versionPatch = boost::lexical_cast<unsigned>(versionPatchString);
-
-        std::string currentVersionMajorString = std::string(currentVersionMatch[1].first,currentVersionMatch[1].second); boost::trim(currentVersionMajorString);
-        std::string currentVersionMinorString = std::string(currentVersionMatch[2].first,currentVersionMatch[2].second); boost::trim(currentVersionMinorString);
-        std::string currentVersionPatchString = std::string(currentVersionMatch[3].first,currentVersionMatch[3].second); boost::trim(currentVersionPatchString);
-
-        unsigned currentVersionMajor = boost::lexical_cast<unsigned>(currentVersionMajorString);
-        unsigned currentVersionMinor = boost::lexical_cast<unsigned>(currentVersionMinorString);
-        unsigned currentVersionPatch = boost::lexical_cast<unsigned>(currentVersionPatchString);
-
-        if (versionMajor > currentVersionMajor){
-          m_newMajorRelease = true;
-          updateAvailable = true;
-        }else if(versionMajor == currentVersionMajor){
-          if (versionMinor > currentVersionMinor){
-            m_newMinorRelease = true;
-            updateAvailable = true;
-          }else if(versionMinor == currentVersionMinor){
-            if (versionPatch > currentVersionPatch){
-              m_newPatchRelease = true;
-              updateAvailable = true;
-            }
-          }
-        }
-
-        if (updateAvailable){
-          // only set download url to most recent (e.g. first) release
-          if (m_updateMessages.empty()){
-            m_mostRecentVersion = version;
-            m_mostRecentDownloadUrl = release.attribute("download").toStdString();
-          }
-          // add messages from all releases newer than current
-          m_updateMessages.push_back(release.firstChild().toCDATASection().data().toStdString());
-        }
-      }
-    }catch(const std::exception& e){
-      LOG(Error, e.what());
-    }
-
-    return updateAvailable;
-  }
-
-  // prints releases and number of downloads
-  std::ostream& operator<<(std::ostream& os, const GithubReleases& releases) {
-    return os;
-  }
-
-} // modeleditor
+}  // namespace modeleditor

@@ -35,108 +35,96 @@
 
 #include <string>
 #include <vector>
-#include <QObject>
 
-class QNetworkRequest;
-class QNetworkReply;
-class QNetworkAccessManager;
-class QDomElement;
+#if (defined(__GNUC__))
+#  pragma GCC diagnostic push
+#  pragma GCC diagnostic ignored "-Wnon-virtual-dtor"
+#endif
+#include <cpprest/http_client.h>
+#if (defined(__GNUC__))
+#  pragma GCC diagnostic pop
+#endif
 
 namespace modeleditor {
 
-  /** Class for checking releases on Github.
+/** Class to represent a single release on Github.
+**/
+class MODELEDITOR_API GithubRelease
+{
+ public:
+  GithubRelease(const std::string& tagName, bool preRelease, unsigned numDownloads, const std::string& downloadUrl);
+
+  std::string tagName() const;
+  boost::optional<openstudio::VersionString> version() const;
+  bool preRelease() const;
+  unsigned numDownloads() const;
+  std::string downloadUrl() const;
+
+ private:
+  std::string m_tagName;
+  bool m_preRelease;
+  unsigned m_numDownloads;
+  std::string m_downloadUrl;
+};
+
+/** Class for checking releases on Github.
   **/
-class MODELEDITOR_API GithubReleases : public QObject
+class MODELEDITOR_API GithubReleases
 {
 
-    Q_OBJECT;
+ public:
+  /// Constructor with organization and repo name
+  GithubReleases(const std::string& orgName, const std::string& repoName);
 
-  public:
+  // virtual destructor
+  virtual ~GithubReleases() {}
 
-    /// Constructor with organization and repo name
-   GithubReleases(const std::string& orgName, const std::string& repoName);
+  /// returns the org name
+  std::string orgName() const;
 
-    // virtual destructor
-   virtual ~GithubReleases() {}
+  /// returns the repo name
+  std::string repoName() const;
 
-    /// returns the org name
-   std::string orgName() const;
+  /// waits up to msec milliseconds and returns true if finished checking for updates
+  bool waitForFinished(int msec = 120000) const;
 
-   /// returns the repo name
-   std::string repoName() const;
+  /// returns true when finished checking for updates
+  bool finished() const;
 
-    /// returns true when finished checking for updates
-    bool finished() const;
+  /// returns true if an error occurred while checking for releases,
+  /// must call after update manager is finished
+  bool error() const;
 
-    /// returns true if an error occurred while checking for releases,
-    /// must call after update manager is finished
-    bool error() const;
+  /// returns true if a new release is available
+  bool newReleaseAvailable() const;
 
-    /// returns true if a new major release is available, must have
-    /// finished checking for releases with no errors
-    bool newMajorRelease() const;
+  /// returns all releases
+  std::vector<GithubRelease> releases() const;
 
-    /// returns true if a new minor release is available, must have
-    /// finished checking for releases with no errors
-    bool newMinorRelease() const;
+  // url for user to check releases
+  std::string releasesUrl() const;
 
-    /// returns true if a new patch release is available, must have
-    /// finished checking for releases with no errors
-    bool newPatchRelease() const;
+ private:
+  REGISTER_LOGGER("GithubReleases");
 
-    /// returns most recent version, must have
-    /// finished checking for releases with no errors
-    std::string mostRecentVersion() const;
+  std::string m_orgName;
+  std::string m_repoName;
+  bool m_finished;
+  bool m_error;
+  std::vector<GithubRelease> m_releases;
 
-    /// returns url for the most recent download, must have
-    /// finished checking for releases with no errors
-    std::string mostRecentDownloadUrl() const;
+  boost::optional<pplx::task<void>> m_httpResponse;
 
-    /// returns the description of each update since the current release with the most recent first,
-    /// manager must have finished checking for updates with no errors
-    std::vector<std::string> updateMessages() const;
+  void processReply(const std::string& reply);
 
-  public slots:
+  // api url used for checking releases
+  std::string apiUrl() const;
+};
 
-    void replyFinished(QNetworkReply* reply);
+// prints releases and number of downloads
+MODELEDITOR_API std::ostream& operator<<(std::ostream& os, const GithubRelease& release);
+MODELEDITOR_API std::ostream& operator<<(std::ostream& os, const GithubReleases& releases);
 
-    // override in ruby classes
-    virtual void replyProcessed();
+}  // namespace modeleditor
 
-  signals:
-
-    void processed();
-
-  private:
-
-    REGISTER_LOGGER("GithubReleases");
-
-    std::string m_orgName;
-    std::string m_repoName;
-    bool m_finished;
-    bool m_error;
-    bool m_newMajorRelease;
-    bool m_newMinorRelease;
-    bool m_newPatchRelease;
-    std::string m_mostRecentVersion;
-    std::string m_mostRecentDownloadUrl;
-    std::vector<std::string> m_updateMessages;
-
-    // returns true if release being checked is newer than current release
-    bool checkRelease(const QDomElement& release);
-
-    // url used for checking releases
-    std::string releasesUrl() const;
-
-    QNetworkAccessManager* m_manager;
-    QNetworkRequest* m_request;
-    QNetworkReply* m_reply;
-
-  };
-
-  // prints releases and number of downloads
-  std::ostream& operator<<(std::ostream& os, const GithubReleases& releases);
-
-  } // modeleditor
-
-#endif // MODELEDITOR_GITHUB_RELEASES_HPP
+#endif  // MODELEDITOR_GITHUB_RELEASES_HPP

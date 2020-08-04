@@ -136,6 +136,7 @@ add_library(${target_name}
 # lib dependencies
 set(${target_name}_depends
   openstudio::openstudiolib
+  openstudioapp_utilities
   ${QT_LIBS}
   #CONAN_PKG::openstudio_ruby
 )

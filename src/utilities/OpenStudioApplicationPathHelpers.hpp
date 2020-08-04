@@ -36,6 +36,9 @@
 
 namespace openstudio {
 
+/// \returns The version of the OpenStudio Application
+OSAPP_UTILITIES_API std::string getOpenStudioApplicationVersion();
+
 /// \returns The source directory the application was built from
 OSAPP_UTILITIES_API openstudio::path getOpenStudioApplicationSourceDirectory();
 

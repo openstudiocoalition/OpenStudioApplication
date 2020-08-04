@@ -73,8 +73,27 @@
 %feature("director") PathWatcher;
 %include <model_editor/PathWatcher.hpp>
 
+%ignore std::vector<modeleditor::GithubRelease>::vector(size_type);
+%ignore std::vector<modeleditor::GithubRelease>::resize(size_type);
+%template(GithubReleaseVector) std::vector<modeleditor::GithubRelease>;
+
 %feature("director") GithubReleases;
 %include <model_editor/GithubReleases.hpp>
+
+%extend modeleditor::GithubReleases{
+  std::string __str__() const {
+    std::ostringstream os;
+    os << *self;
+    return os.str();
+  }
+}
+%extend modeleditor::GithubRelease{
+  std::string __str__() const {
+    std::ostringstream os;
+    os << *self;
+    return os.str();
+  }
+}
 
 %include <model_editor/AccessPolicyStore.hpp>
 
