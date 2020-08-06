@@ -74,6 +74,7 @@ class MODELEDITOR_API GithubReleases
 {
 
  public:
+
   /// Constructor with organization and repo name
   GithubReleases(const std::string& orgName, const std::string& repoName);
 
@@ -98,6 +99,9 @@ class MODELEDITOR_API GithubReleases
 
   /// returns true if a new release is available
   bool newReleaseAvailable() const;
+
+  /// returns true if a new release or pre-release is available
+  bool newPreReleaseAvailable() const;
 
   /// returns all releases
   std::vector<GithubRelease> releases() const;

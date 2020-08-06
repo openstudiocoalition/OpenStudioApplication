@@ -131,6 +131,9 @@ bool GithubReleases::newReleaseAvailable() const {
   try {
     openstudio::VersionString currentVersion(openstudio::getOpenStudioApplicationVersion());
     for (const auto& release : m_releases) {
+      if (release.preRelease()) {
+        continue;
+      }
       boost::optional<openstudio::VersionString> version = release.version();
       if (version) {
         if (version.get() > currentVersion) {
@@ -140,7 +143,24 @@ bool GithubReleases::newReleaseAvailable() const {
     }
   } catch (const std::exception&) {
   }
-  
+
+  return true;
+}
+
+bool GithubReleases::newPreReleaseAvailable() const {
+  try {
+    openstudio::VersionString currentVersion(openstudio::getOpenStudioApplicationVersion());
+    for (const auto& release : m_releases) {
+      boost::optional<openstudio::VersionString> version = release.version();
+      if (version) {
+        if (version.get() > currentVersion) {
+          return true;
+        }
+      }
+    }
+  } catch (const std::exception&) {
+  }
+
   return false;
 }
 
@@ -209,14 +229,32 @@ void GithubReleases::processReply(const std::string& reply) {
 
 // prints releases and number of downloads
 std::ostream& operator<<(std::ostream& os, const GithubRelease& release) {
-  os << release.tagName() << ", " << release.numDownloads() << std::endl;
+  Json::Value value = Json::objectValue;
+  value["tag_name"] = release.tagName();
+  value["prerelease"] = release.preRelease();
+  value["url"] = release.downloadUrl();
+  value["num_downloads"] = release.numDownloads();
+
+  Json::StreamWriterBuilder wbuilder;
+  os << Json::writeString(wbuilder, value);
+
   return os;
 }
 
 std::ostream& operator<<(std::ostream& os, const GithubReleases& releases) {
-  for (const auto& release : releases.releases()) {
-    os << release;
-  }
+  Json::Value value = Json::objectValue;
+  value["org_name"] = releases.orgName();
+  value["repo_name"] = releases.repoName();
+  value["finished"] = releases.finished();
+  value["error"] = releases.error();
+  value["num_releases"] = releases.releases().size();
+  value["releases_url"] = releases.releasesUrl();
+  value["new_release_available"] = releases.newReleaseAvailable();
+  value["new_prerelease_available"] = releases.newPreReleaseAvailable();
+
+  Json::StreamWriterBuilder wbuilder;
+  os << Json::writeString(wbuilder, value);
+
   return os;
 }
 

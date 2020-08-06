@@ -951,10 +951,9 @@ void OpenStudioApp::showHelp() {
   QDesktopServices::openUrl(QUrl("http:/openstudiocoalition.org/reference/openstudio_application_interface/"));
 }
 
-
 void OpenStudioApp::checkForUpdate() {
   QWidget* parent = nullptr;
-  
+
   if (currentDocument()) {
     parent = currentDocument()->mainWindow();
   }
@@ -969,7 +968,6 @@ void OpenStudioApp::checkForUpdate() {
   } else {
     QMessageBox::information(parent, "Most Recent Version", "Currently using the most recent version", QMessageBox::Ok, QMessageBox::NoButton);
   }
-
 }
 
 void OpenStudioApp::showAbout() {

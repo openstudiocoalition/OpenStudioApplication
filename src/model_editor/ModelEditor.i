@@ -77,7 +77,8 @@
 %ignore std::vector<modeleditor::GithubRelease>::resize(size_type);
 %template(GithubReleaseVector) std::vector<modeleditor::GithubRelease>;
 
-%feature("director") GithubReleases;
+// DLM: I could not get director class working here, crashed when calling onFinished
+//%feature("director") GithubReleases;
 %include <model_editor/GithubReleases.hpp>
 
 %extend modeleditor::GithubReleases{
