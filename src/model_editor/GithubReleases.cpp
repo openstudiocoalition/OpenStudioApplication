@@ -236,6 +236,7 @@ std::ostream& operator<<(std::ostream& os, const GithubRelease& release) {
   value["num_downloads"] = release.numDownloads();
 
   Json::StreamWriterBuilder wbuilder;
+  wbuilder["indentation"] = "   ";
   os << Json::writeString(wbuilder, value);
 
   return os;
@@ -253,6 +254,7 @@ std::ostream& operator<<(std::ostream& os, const GithubReleases& releases) {
   value["new_prerelease_available"] = releases.newPreReleaseAvailable();
 
   Json::StreamWriterBuilder wbuilder;
+  wbuilder["indentation"] = "   ";
   os << Json::writeString(wbuilder, value);
 
   return os;
