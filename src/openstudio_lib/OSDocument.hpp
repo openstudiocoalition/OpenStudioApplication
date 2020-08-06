@@ -199,6 +199,8 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
 
   void helpClicked();
 
+  void checkForUpdateClicked();
+
   void aboutClicked();
 
   // called before actual save (copy from temp to user location) occurs

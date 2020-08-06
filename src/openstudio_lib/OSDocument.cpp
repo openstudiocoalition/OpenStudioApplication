@@ -203,6 +203,7 @@ OSDocument::OSDocument(openstudio::model::Model library, const openstudio::path&
   connect(m_mainWindow, &MainWindow::newClicked, this, &OSDocument::newClicked);
   connect(m_mainWindow, &MainWindow::exitClicked, this, &OSDocument::exitClicked);
   connect(m_mainWindow, &MainWindow::helpClicked, this, &OSDocument::helpClicked);
+  connect(m_mainWindow, &MainWindow::checkForUpdateClicked, this, &OSDocument::checkForUpdateClicked);
   connect(m_mainWindow, &MainWindow::aboutClicked, this, &OSDocument::aboutClicked);
   connect(m_mainWindow, &MainWindow::osmDropped, this, &OSDocument::osmDropped);
   connect(m_mainWindow, &MainWindow::exportClicked, this, &OSDocument::exportIdf);
@@ -1699,7 +1700,7 @@ void OSDocument::openBclDlg() {
       QMessageBox dlg(m_mainWindow);
       dlg.setWindowTitle(tr("Online BCL"));
       dlg.setText("The BCL auth key is invalid, and Online BCL data will not be available.  To learn how to obtain a valid BCL auth key, click <a "
-                  "href='http://nrel.github.io/OpenStudio-user-documentation/getting_started/getting_started/'>here</a>.");
+                  "href='https://openstudiocoalition.org/getting_started/getting_started/'>here</a>.");
       dlg.setTextFormat(Qt::RichText);
       dlg.addButton(QMessageBox::Cancel);
       dlg.addButton(QMessageBox::Retry);
@@ -1765,7 +1766,7 @@ void OSDocument::openMeasuresBclDlg() {
       QMessageBox dlg(m_mainWindow);
       dlg.setWindowTitle(tr("Online BCL"));
       dlg.setText("The BCL auth key is invalid, and Online BCL data will not be available.  To learn how to obtain a valid BCL auth key, click <a "
-                  "href='http://nrel.github.io/OpenStudio-user-documentation/getting_started/getting_started/'>here</a>.");
+                  "href='https://openstudiocoalition.org/getting_started/getting_started/'>here</a>.");
       dlg.setTextFormat(Qt::RichText);
       dlg.addButton(QMessageBox::Cancel);
       dlg.addButton(QMessageBox::Retry);

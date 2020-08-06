@@ -146,6 +146,8 @@ class OpenStudioApp : public OSAppBase
 
   void showHelp();
 
+  void checkForUpdate();
+
   void showAbout();
 
   virtual void reloadFile(const QString& osmPath, bool modified, bool saveCurrentTabs) override;

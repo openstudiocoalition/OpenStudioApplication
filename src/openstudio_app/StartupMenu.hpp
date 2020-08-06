@@ -69,6 +69,8 @@ class StartupMenu : public QMenuBar
 
   void helpClicked();
 
+  void checkForUpdateClicked();
+
   void aboutClicked();
 
  private:

@@ -49,6 +49,10 @@
 
 namespace openstudio {
 
+std::string getOpenStudioApplicationVersion() {
+  return "${OPENSTUDIOAPPLICATION_VERSION}";
+}
+
 openstudio::path getOpenStudioApplicationSourceDirectory() {
   return openstudio::toPath("${CMAKE_SOURCE_DIR}");
 }

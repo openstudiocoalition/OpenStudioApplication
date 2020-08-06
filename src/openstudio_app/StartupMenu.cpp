@@ -80,6 +80,10 @@ StartupMenu::StartupMenu(QWidget* parent) : QMenuBar(parent) {
   connect(helpAction, &QAction::triggered, this, &StartupMenu::helpClicked);
   m_helpMenu->addAction(helpAction);
 
+  action = new QAction(tr("Check For &Update"), this);
+  m_helpMenu->addAction(action);
+  connect(action, &QAction::triggered, this, &StartupMenu::checkForUpdateClicked);
+
   action = new QAction(tr("&About"), this);
   m_helpMenu->addAction(action);
   connect(action, &QAction::triggered, this, &StartupMenu::aboutClicked);

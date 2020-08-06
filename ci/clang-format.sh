@@ -3,7 +3,7 @@
 # This script compares two branches (eg. pr-bugfix - <> develop )
 # and finds files of types cpp, hpp, c, h
 # that have changed between branches and processes each of these files using clang-format.
-# The default behavior of clang-format is to auto change the file and format according to the style guide (.clang-format).  If these files change the CI will alert fail and alert the user to correct the changes. The user should run this script locally and accept the auto changes proposed by clang-format.
+# The default behavior of clang-format is to auto change the file and format according to the style guide (.clang-format).  If these files change the CI will alert fail and alert the user to correct the changes. The user should run this script locally and accept the auto changes proposed by clang-format. To run locally: `ci/clang-format.sh HEAD develop`
 
 display_usage() {
   echo -e "\nUsage:\ PR_BRANCH_NAME TARGET_BRANCH_NAME \n"

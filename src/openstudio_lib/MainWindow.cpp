@@ -123,6 +123,7 @@ MainWindow::MainWindow(bool isPlugin, QWidget* parent) : QMainWindow(parent), m_
   connect(mainMenu, &MainMenu::newClicked, this, &MainWindow::newClicked);
   connect(mainMenu, &MainMenu::exitClicked, this, &MainWindow::exitClicked);
   connect(mainMenu, &MainMenu::helpClicked, this, &MainWindow::helpClicked);
+  connect(mainMenu, &MainMenu::checkForUpdateClicked, this, &MainWindow::checkForUpdateClicked);
   connect(mainMenu, &MainMenu::aboutClicked, this, &MainWindow::aboutClicked);
   connect(mainMenu, &MainMenu::scanForToolsClicked, this, &MainWindow::scanForToolsClicked);
   connect(mainMenu, &MainMenu::showRunManagerPreferencesClicked, this, &MainWindow::showRunManagerPreferencesClicked);

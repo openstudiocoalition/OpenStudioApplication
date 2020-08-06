@@ -135,6 +135,8 @@ class MainWindow : public QMainWindow
 
   void helpClicked();
 
+  void checkForUpdateClicked();
+
   void aboutClicked();
 
   void showRubyConsoleClicked();

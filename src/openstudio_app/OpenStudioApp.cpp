@@ -37,6 +37,7 @@
 #include "../openstudio_lib/OSDocument.hpp"
 
 #include "../model_editor/AccessPolicyStore.hpp"
+#include "../model_editor/GithubReleases.hpp"
 #include "../model_editor/Utilities.hpp"
 
 #include "../shared_gui_components/WaitDialog.hpp"
@@ -199,6 +200,7 @@ OpenStudioApp::OpenStudioApp(int& argc, char** argv)
   connect(m_startupMenu.get(), &StartupMenu::loadFileClicked, this, &OpenStudioApp::open);
   connect(m_startupMenu.get(), &StartupMenu::newClicked, this, &OpenStudioApp::newModel);
   connect(m_startupMenu.get(), &StartupMenu::helpClicked, this, &OpenStudioApp::showHelp);
+  connect(m_startupMenu.get(), &StartupMenu::checkForUpdateClicked, this, &OpenStudioApp::checkForUpdate);
   connect(m_startupMenu.get(), &StartupMenu::aboutClicked, this, &OpenStudioApp::showAbout);
 #endif
 
@@ -946,7 +948,42 @@ void OpenStudioApp::newModel() {
 }
 
 void OpenStudioApp::showHelp() {
-  QDesktopServices::openUrl(QUrl("http://nrel.github.io/OpenStudio-user-documentation/reference/openstudio_application_interface/"));
+  QDesktopServices::openUrl(QUrl("http:/openstudiocoalition.org/reference/openstudio_application_interface/"));
+}
+
+void OpenStudioApp::checkForUpdate() {
+  QWidget* parent = nullptr;
+
+  if (currentDocument()) {
+    parent = currentDocument()->mainWindow();
+  }
+
+  modeleditor::GithubReleases releases("openstudiocoalition", "OpenStudioApplication");
+  releases.waitForFinished();
+
+  QString text;
+  QMessageBox::StandardButtons buttons;
+  bool openURL = false;
+  if (releases.newReleaseAvailable()) {
+    text = QString(tr("A new version is available at <a href=\"")) + toQString(releases.releasesUrl()) + QString("\">") +
+           toQString(releases.releasesUrl()) + QString("</a>");
+    openURL = true;
+    buttons = QMessageBox::Open | QMessageBox::Ignore;
+  } else {
+    text = "Currently using the most recent version";
+    buttons = QMessageBox::Ok;
+  }
+
+  QMessageBox about(parent);
+  about.setStandardButtons(buttons);
+  about.setTextFormat(Qt::RichText);
+  about.setText(text);
+  about.setWindowTitle("Check for Updates");
+  about.exec();
+
+  if (openURL && (about.result() == QMessageBox::Open)) {
+    QDesktopServices::openUrl(QUrl(toQString(releases.releasesUrl())));
+  }
 }
 
 void OpenStudioApp::showAbout() {
@@ -1192,6 +1229,7 @@ void OpenStudioApp::connectOSDocumentSignals() {
   connect(m_osDocument.get(), &OSDocument::loadLibraryClicked, this, &OpenStudioApp::loadLibrary);
   connect(m_osDocument.get(), &OSDocument::newClicked, this, &OpenStudioApp::newModel);
   connect(m_osDocument.get(), &OSDocument::helpClicked, this, &OpenStudioApp::showHelp);
+  connect(m_osDocument.get(), &OSDocument::checkForUpdateClicked, this, &OpenStudioApp::checkForUpdate);
   connect(m_osDocument.get(), &OSDocument::aboutClicked, this, &OpenStudioApp::showAbout);
 }
 
