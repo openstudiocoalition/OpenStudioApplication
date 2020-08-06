@@ -968,7 +968,7 @@ void OpenStudioApp::checkForUpdate() {
     text = QString(tr("A new version is available at <a href=\"")) + toQString(releases.releasesUrl()) + QString("\">") +
            toQString(releases.releasesUrl()) + QString("</a>");
     openURL = true;
-    buttons = QMessageBox::Open | QMessageBox::Close;
+    buttons = QMessageBox::Open | QMessageBox::Ignore;
   } else {
     text = "Currently using the most recent version";
     buttons = QMessageBox::Ok;
