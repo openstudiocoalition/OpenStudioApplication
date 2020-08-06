@@ -231,7 +231,7 @@ std::ostream& operator<<(std::ostream& os, const GithubReleases& releases) {
   value["repo_name"] = releases.repoName();
   value["finished"] = releases.finished();
   value["error"] = releases.error();
-  value["num_releases"] = releases.releases().size();
+  value["num_releases"] = static_cast<uint>(releases.releases().size());
   value["releases_url"] = releases.releasesUrl();
   value["new_release_available"] = releases.newReleaseAvailable(false);
   value["new_prerelease_available"] = releases.newReleaseAvailable(true);
