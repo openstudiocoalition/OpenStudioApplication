@@ -74,7 +74,6 @@ class MODELEDITOR_API GithubReleases
 {
 
  public:
-
   /// Constructor with organization and repo name
   GithubReleases(const std::string& orgName, const std::string& repoName);
 

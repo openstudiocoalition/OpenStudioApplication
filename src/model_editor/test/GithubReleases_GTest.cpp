@@ -66,7 +66,7 @@ TEST_F(ModelEditorFixture, GithubRelease_Prerelease) {
   Application::instance().application(false);
 
   modeleditor::GithubRelease release("v1.0.1-pre1", true, 100,
-      "https://github.com/openstudiocoalition/OpenStudioApplication/releases/tag/v1.0.1-pre1");
+                                     "https://github.com/openstudiocoalition/OpenStudioApplication/releases/tag/v1.0.1-pre1");
   ASSERT_TRUE(release.version());
   EXPECT_EQ(openstudio::VersionString("1.0.1-pre1"), release.version().get());
   EXPECT_TRUE(release.preRelease());
