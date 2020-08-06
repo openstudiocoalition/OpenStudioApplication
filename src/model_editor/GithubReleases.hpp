@@ -96,11 +96,8 @@ class MODELEDITOR_API GithubReleases
   /// must call after update manager is finished
   bool error() const;
 
-  /// returns true if a new release is available
-  bool newReleaseAvailable() const;
-
-  /// returns true if a new release or pre-release is available
-  bool newPreReleaseAvailable() const;
+  /// returns true if a new release - or new prerelease if includePreReleases - is available
+  bool newReleaseAvailable(bool includePreReleases=false) const;
 
   /// returns all releases
   std::vector<GithubRelease> releases() const;
