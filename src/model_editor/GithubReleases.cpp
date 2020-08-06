@@ -127,30 +127,13 @@ bool GithubReleases::error() const {
   return m_error;
 }
 
-bool GithubReleases::newReleaseAvailable() const {
+bool GithubReleases::newReleaseAvailable(bool includePreReleases) const {
   try {
     openstudio::VersionString currentVersion(openstudio::getOpenStudioApplicationVersion());
     for (const auto& release : m_releases) {
-      if (release.preRelease()) {
+      if (!includePreReleases && release.preRelease()) {
         continue;
       }
-      boost::optional<openstudio::VersionString> version = release.version();
-      if (version) {
-        if (version.get() > currentVersion) {
-          return true;
-        }
-      }
-    }
-  } catch (const std::exception&) {
-  }
-
-  return false;
-}
-
-bool GithubReleases::newPreReleaseAvailable() const {
-  try {
-    openstudio::VersionString currentVersion(openstudio::getOpenStudioApplicationVersion());
-    for (const auto& release : m_releases) {
       boost::optional<openstudio::VersionString> version = release.version();
       if (version) {
         if (version.get() > currentVersion) {
@@ -250,8 +233,8 @@ std::ostream& operator<<(std::ostream& os, const GithubReleases& releases) {
   value["error"] = releases.error();
   value["num_releases"] = releases.releases().size();
   value["releases_url"] = releases.releasesUrl();
-  value["new_release_available"] = releases.newReleaseAvailable();
-  value["new_prerelease_available"] = releases.newPreReleaseAvailable();
+  value["new_release_available"] = releases.newReleaseAvailable(false);
+  value["new_prerelease_available"] = releases.newReleaseAvailable(true);
 
   Json::StreamWriterBuilder wbuilder;
   wbuilder["indentation"] = "   ";
