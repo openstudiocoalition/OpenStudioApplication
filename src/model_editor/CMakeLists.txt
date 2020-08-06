@@ -160,6 +160,7 @@ set(${target_name}_test_src
   test/PathWatcher_GTest.cpp
   test/QMetaTypes_GTest.cpp
   test/Utilities_GTest.cpp
+  test/GithubReleases_GTest.cpp
 )
 
 set(${target_name}_test_depends
