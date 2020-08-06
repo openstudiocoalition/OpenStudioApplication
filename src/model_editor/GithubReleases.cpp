@@ -144,7 +144,7 @@ bool GithubReleases::newReleaseAvailable() const {
   } catch (const std::exception&) {
   }
 
-  return true;
+  return false;
 }
 
 bool GithubReleases::newPreReleaseAvailable() const {

@@ -960,13 +960,29 @@ void OpenStudioApp::checkForUpdate() {
 
   modeleditor::GithubReleases releases("openstudiocoalition", "OpenStudioApplication");
   releases.waitForFinished();
+
+  QString text;
+  QMessageBox::StandardButtons buttons;
+  bool openURL = false;
   if (releases.newReleaseAvailable()) {
-    QString text = QString(tr("A new version is available at <a href=\"")) + toQString(releases.releasesUrl()) + QString(">") +
-                   toQString(releases.releasesUrl()) + QString("</a>");
-    QMessageBox::information(parent, "Updates Available", text, QMessageBox::Ok, QMessageBox::NoButton);
-    QDesktopServices::openUrl(QUrl(toQString(releases.releasesUrl())));
+    text = QString(tr("A new version is available at <a href=\"")) + toQString(releases.releasesUrl()) + QString("\">") +
+           toQString(releases.releasesUrl()) + QString("</a>");
+    openURL = true;
+    buttons = QMessageBox::Open | QMessageBox::Close;
   } else {
-    QMessageBox::information(parent, "Most Recent Version", "Currently using the most recent version", QMessageBox::Ok, QMessageBox::NoButton);
+    text = "Currently using the most recent version";
+    buttons = QMessageBox::Ok;
+  }
+
+  QMessageBox about(parent);
+  about.setStandardButtons(buttons);
+  about.setTextFormat(Qt::RichText);
+  about.setText(text);
+  about.setWindowTitle("Check for Updates");
+  about.exec();
+
+  if (openURL && (about.result() == QMessageBox::Open)) {
+    QDesktopServices::openUrl(QUrl(toQString(releases.releasesUrl())));
   }
 }
 
