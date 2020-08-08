@@ -12,23 +12,30 @@ else()
   # This will make it throw, which an informative message
 #  find_package(openstudio "${OPENSTUDIO_VERSION}" CONFIG REQUIRED)
 
-
-  set(OPENSTUDIO_BASELINK "https://openstudio-builds.s3.amazonaws.com/${OPENSTUDIO_VERSION}"
+  # base link for release builds
+  #set(OPENSTUDIO_BASELINK "https://openstudio-builds.s3.amazonaws.com/${OPENSTUDIO_VERSION}"
+  #  CACHE STRING "Base link to where the openstudio archives are hosted" FORCE)
+    
+  # base link for develop builds
+  set(OPENSTUDIO_BASELINK "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/develop"
     CACHE STRING "Base link to where the openstudio archives are hosted" FORCE)
-
-  #If this is a pre-release enter the SHA as "-rc1+79857912c4"
-  set(OPENSTUDIO_VERSION_SHA "+09b7c8a554")
+    
+  #If this is arelease enter the SHA as "+79857912c4"
+  #set(OPENSTUDIO_VERSION_SHA "+09b7c8a554")
+  
+  #If this is a pre-release enter the pre-release and SHA as "-rc1+79857912c4"
+  set(OPENSTUDIO_VERSION_SHA "-beta+ff0e898ff9")
 
   if(APPLE)
-    set(OPENSTUDIO_EXPECTED_HASH f0c8df7811812fd1601db2842d2eea0b)
+    set(OPENSTUDIO_EXPECTED_HASH 2d7e85a727c8085e06b16c6592597141)
     set(OPENSTUDIO_PLATFORM "Darwin")
     set(OPENSTUDIO_EXT "tar.gz")
   elseif(UNIX)
-    set(OPENSTUDIO_EXPECTED_HASH deeafa60b1f87f98527b85b3f0652ea4)
+    set(OPENSTUDIO_EXPECTED_HASH 2df3cba5728a53479ff6d4cca3959b52)
     set(OPENSTUDIO_PLATFORM "Linux")
     set(OPENSTUDIO_EXT "tar.gz")
   elseif(WIN32)
-    set(OPENSTUDIO_EXPECTED_HASH f4329ab725fe3e68203a112f8b9655e5)
+    set(OPENSTUDIO_EXPECTED_HASH 848729834f5879747c1abff8ec872b57)
     set(OPENSTUDIO_PLATFORM "Windows")
     set(OPENSTUDIO_EXT "tar.gz")
   endif()
