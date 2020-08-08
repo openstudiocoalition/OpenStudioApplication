@@ -20,7 +20,7 @@ else()
   set(OPENSTUDIO_BASELINK "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/develop"
     CACHE STRING "Base link to where the openstudio archives are hosted" FORCE)
     
-  #If this is arelease enter the SHA as "+79857912c4"
+  #If this is a release enter the SHA as "+79857912c4"
   #set(OPENSTUDIO_VERSION_SHA "+09b7c8a554")
   
   #If this is a pre-release enter the pre-release and SHA as "-rc1+79857912c4"
