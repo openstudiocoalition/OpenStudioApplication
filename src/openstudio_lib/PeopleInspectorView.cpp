@@ -29,7 +29,6 @@
 
 #include "PeopleInspectorView.hpp"
 
-
 #include "../shared_gui_components/OSSwitch.hpp"
 #include "../shared_gui_components/OSComboBox.hpp"
 #include "../shared_gui_components/OSDoubleEdit.hpp"
@@ -55,11 +54,8 @@
 
 namespace openstudio {
 
-PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP,
-                                                             const openstudio::model::Model& model,
-                                                             QWidget * parent)
-  : ModelObjectInspectorView(model, true, parent)
-{
+PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent)
+  : ModelObjectInspectorView(model, true, parent) {
   m_isIP = isIP;
 
   //QWidget* hiddenWidget = new QWidget();
@@ -71,7 +67,7 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP,
   //this->stackedWidget()->setCurrentIndex(0);
 
   m_mainGridLayout = new QGridLayout();
-  m_mainGridLayout->setContentsMargins(7,7,7,7);
+  m_mainGridLayout->setContentsMargins(7, 7, 7, 7);
   m_mainGridLayout->setSpacing(14);
   visibleWidget->setLayout(m_mainGridLayout);
 
@@ -89,7 +85,7 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP,
   vLayout->addWidget(m_nameEdit);
 
   // Spans 1 row and 3 columns
-  m_mainGridLayout->addLayout(vLayout,row,0,1,3, Qt::AlignTop);
+  m_mainGridLayout->addLayout(vLayout, row, 0, 1, 3, Qt::AlignTop);
   ++row;
 
   // number of people, people per area, and area per person
@@ -102,7 +98,7 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP,
   m_numberofPeopleEdit = new OSDoubleEdit2();
   vLayout->addWidget(m_numberofPeopleEdit);
 
-  m_mainGridLayout->addLayout(vLayout,row,0, Qt::AlignTop|Qt::AlignLeft);
+  m_mainGridLayout->addLayout(vLayout, row, 0, Qt::AlignTop | Qt::AlignLeft);
 
   vLayout = new QVBoxLayout();
 
@@ -114,7 +110,7 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP,
   connect(this, &PeopleDefinitionInspectorView::toggleUnitsClicked, m_peopleperSpaceFloorAreaEdit, &OSQuantityEdit2::onUnitSystemChange);
   vLayout->addWidget(m_peopleperSpaceFloorAreaEdit);
 
-  m_mainGridLayout->addLayout(vLayout,row,1, Qt::AlignTop|Qt::AlignLeft);
+  m_mainGridLayout->addLayout(vLayout, row, 1, Qt::AlignTop | Qt::AlignLeft);
 
   vLayout = new QVBoxLayout();
 
@@ -126,7 +122,7 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP,
   connect(this, &PeopleDefinitionInspectorView::toggleUnitsClicked, m_spaceFloorAreaperPersonEdit, &OSQuantityEdit2::onUnitSystemChange);
   vLayout->addWidget(m_spaceFloorAreaperPersonEdit);
 
-  m_mainGridLayout->addLayout(vLayout,row,2, Qt::AlignTop|Qt::AlignLeft);
+  m_mainGridLayout->addLayout(vLayout, row, 2, Qt::AlignTop | Qt::AlignLeft);
 
   // New Row: fraction radiance, sensible heat fraction, carbon dioxide rate
   ++row;
@@ -139,7 +135,7 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP,
   m_fractionRadiantEdit = new OSDoubleEdit2();
   vLayout->addWidget(m_fractionRadiantEdit);
 
-  m_mainGridLayout->addLayout(vLayout,row,0, Qt::AlignTop|Qt::AlignLeft);
+  m_mainGridLayout->addLayout(vLayout, row, 0, Qt::AlignTop | Qt::AlignLeft);
 
   vLayout = new QVBoxLayout();
 
@@ -150,7 +146,7 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP,
   m_sensibleHeatFractionEdit = new OSDoubleEdit2();
   vLayout->addWidget(m_sensibleHeatFractionEdit);
 
-  m_mainGridLayout->addLayout(vLayout,row,1, Qt::AlignTop|Qt::AlignLeft);
+  m_mainGridLayout->addLayout(vLayout, row, 1, Qt::AlignTop | Qt::AlignLeft);
 
   vLayout = new QVBoxLayout();
 
@@ -162,16 +158,16 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP,
   connect(this, &PeopleDefinitionInspectorView::toggleUnitsClicked, m_carbonDioxideGenerationRateEdit, &OSQuantityEdit2::onUnitSystemChange);
   vLayout->addWidget(m_carbonDioxideGenerationRateEdit);
 
-  m_mainGridLayout->addLayout(vLayout,row,2, Qt::AlignTop|Qt::AlignLeft);
+  m_mainGridLayout->addLayout(vLayout, row, 2, Qt::AlignTop | Qt::AlignLeft);
 
   // Separator
   ++row;
   // LOG(Debug, "Adding first separator at row=" << row);
-  QFrame * line = new QFrame();
+  QFrame* line = new QFrame();
   line->setFrameShape(QFrame::HLine);
   line->setFrameShadow(QFrame::Sunken);
   // Important not to specific AlignTop & AlignLeft  or it's not displayed
-  m_mainGridLayout->addWidget(line, row, 0, 1, 3); // , Qt::AlignTop|Qt::AlignLeft);
+  m_mainGridLayout->addWidget(line, row, 0, 1, 3);  // , Qt::AlignTop|Qt::AlignLeft);
 
   // Confort stuff
   ++row;
@@ -182,7 +178,7 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP,
   vLayout->addWidget(label);
   m_enableASHRAE55ComfortWarningsSwitch = new OSSwitch2();
   vLayout->addWidget(m_enableASHRAE55ComfortWarningsSwitch);
-  m_mainGridLayout->addLayout(vLayout,row, 0, Qt::AlignTop|Qt::AlignLeft);
+  m_mainGridLayout->addLayout(vLayout, row, 0, Qt::AlignTop | Qt::AlignLeft);
 
   vLayout = new QVBoxLayout();
   label = new QLabel("Mean Radiant Temperature Calculation Type:");
@@ -190,12 +186,11 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP,
   vLayout->addWidget(label);
   m_meanRadiantTemperatureCalculationTypeComboBox = new OSComboBox2();
   // Populate combobox choices
-  for (const std::string& mrtType: openstudio::model::PeopleDefinition::meanRadiantTemperatureCalculationTypeValues()) {
+  for (const std::string& mrtType : openstudio::model::PeopleDefinition::meanRadiantTemperatureCalculationTypeValues()) {
     m_meanRadiantTemperatureCalculationTypeComboBox->addItem(QString::fromStdString(mrtType));
   }
   vLayout->addWidget(m_meanRadiantTemperatureCalculationTypeComboBox);
-  m_mainGridLayout->addLayout(vLayout,row, 1, Qt::AlignTop|Qt::AlignLeft);
-
+  m_mainGridLayout->addLayout(vLayout, row, 1, Qt::AlignTop | Qt::AlignLeft);
 
   // Extensible Toolbar
   ++row;
@@ -208,13 +203,13 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP,
 
   addBtn = new QPushButton();
   QIcon ico(":images/edit_add.png");
-  addBtn->setIcon( ico );
-  addBtn->setStyleSheet(" margin: 0px; border: 0px;" );
+  addBtn->setIcon(ico);
+  addBtn->setStyleSheet(" margin: 0px; border: 0px;");
 
   removeBtn = new QPushButton();
   QIcon ico2(":images/edit_remove.png");
-  removeBtn->setIcon( ico2 );
-  removeBtn->setStyleSheet(" margin: 0px; border: 0px;" );
+  removeBtn->setIcon(ico2);
+  removeBtn->setStyleSheet(" margin: 0px; border: 0px;");
 
   connect(addBtn, &QPushButton::clicked, this, &PeopleDefinitionInspectorView::addExtensible);
   connect(removeBtn, &QPushButton::clicked, this, &PeopleDefinitionInspectorView::removeExtensible);
@@ -226,7 +221,7 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP,
   hbox->addWidget(label);
   hbox->addWidget(addBtn);
   hbox->addWidget(removeBtn);
-  m_mainGridLayout->addLayout(hbox,row,0,1,3, Qt::AlignTop|Qt::AlignLeft);
+  m_mainGridLayout->addLayout(hbox, row, 0, 1, 3, Qt::AlignTop | Qt::AlignLeft);
 
   // Separator
   ++row;
@@ -234,7 +229,7 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP,
   line = new QFrame();
   line->setFrameShape(QFrame::HLine);
   line->setFrameShadow(QFrame::Sunken);
-  m_mainGridLayout->addWidget(line, row, 0, 1, 3); // , Qt::AlignTop|Qt::AlignLeft);
+  m_mainGridLayout->addWidget(line, row, 0, 1, 3);  // , Qt::AlignTop|Qt::AlignLeft);
 
   // Save position
   lastRow = row;
@@ -254,7 +249,6 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP,
   // Remember that row/cols are 0-indexed. We use 3 columns, so we set the column strech factor of the 4th column below
   m_mainGridLayout->setColumnStretch(3, 1);
   m_mainGridLayout->setRowStretch(lastRow + 1, 1);
-
 }
 
 void PeopleDefinitionInspectorView::adjustRowStretch() {
@@ -266,99 +260,83 @@ void PeopleDefinitionInspectorView::adjustRowStretch() {
     m_mainGridLayout->setRowMinimumHeight(i, 30);
   }
   // row after the last used: set a strech of 1 to push everything up
-  m_mainGridLayout->setRowStretch(lastRow+1, 1);
+  m_mainGridLayout->setRowStretch(lastRow + 1, 1);
 }
 
-void PeopleDefinitionInspectorView::onClearSelection()
-{
-  ModelObjectInspectorView::onClearSelection(); // call parent implementation
+void PeopleDefinitionInspectorView::onClearSelection() {
+  ModelObjectInspectorView::onClearSelection();  // call parent implementation
   detach();
 }
 
-void PeopleDefinitionInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject)
-{
+void PeopleDefinitionInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject) {
   detach();
   model::PeopleDefinition peopleDefinition = modelObject.cast<model::PeopleDefinition>();
   attach(peopleDefinition);
   refresh();
 }
 
-void PeopleDefinitionInspectorView::onUpdate()
-{
+void PeopleDefinitionInspectorView::onUpdate() {
   refresh();
 }
 
-void PeopleDefinitionInspectorView::attach(openstudio::model::PeopleDefinition& peopleDefinition)
-{
+void PeopleDefinitionInspectorView::attach(openstudio::model::PeopleDefinition& peopleDefinition) {
   m_peopleDefinition = peopleDefinition;
-  m_nameEdit->bind(*m_peopleDefinition,
-                   OptionalStringGetter(std::bind(&model::PeopleDefinition::name,m_peopleDefinition.get_ptr(),true)),
-                   boost::optional<StringSetterOptionalStringReturn>(std::bind(&model::PeopleDefinition::setName,m_peopleDefinition.get_ptr(),std::placeholders::_1)));
+  m_nameEdit->bind(*m_peopleDefinition, OptionalStringGetter(std::bind(&model::PeopleDefinition::name, m_peopleDefinition.get_ptr(), true)),
+                   boost::optional<StringSetterOptionalStringReturn>(
+                     std::bind(&model::PeopleDefinition::setName, m_peopleDefinition.get_ptr(), std::placeholders::_1)));
 
   // bind to PeopleDefinition methods
   m_numberofPeopleEdit->bind(
-      *m_peopleDefinition,
-      OptionalDoubleGetter(std::bind(&model::PeopleDefinition::numberofPeople,m_peopleDefinition.get_ptr())),
-      boost::optional<DoubleSetter>(std::bind(&model::PeopleDefinition::setNumberofPeople,m_peopleDefinition.get_ptr(),std::placeholders::_1)));
+    *m_peopleDefinition, OptionalDoubleGetter(std::bind(&model::PeopleDefinition::numberofPeople, m_peopleDefinition.get_ptr())),
+    boost::optional<DoubleSetter>(std::bind(&model::PeopleDefinition::setNumberofPeople, m_peopleDefinition.get_ptr(), std::placeholders::_1)));
 
   m_peopleperSpaceFloorAreaEdit->bind(
-      m_isIP,
-      *m_peopleDefinition,
-      OptionalDoubleGetter(std::bind(&model::PeopleDefinition::peopleperSpaceFloorArea,m_peopleDefinition.get_ptr())),
-      boost::optional<DoubleSetter>(std::bind(&model::PeopleDefinition::setPeopleperSpaceFloorArea,m_peopleDefinition.get_ptr(),std::placeholders::_1)));
+    m_isIP, *m_peopleDefinition, OptionalDoubleGetter(std::bind(&model::PeopleDefinition::peopleperSpaceFloorArea, m_peopleDefinition.get_ptr())),
+    boost::optional<DoubleSetter>(
+      std::bind(&model::PeopleDefinition::setPeopleperSpaceFloorArea, m_peopleDefinition.get_ptr(), std::placeholders::_1)));
 
   m_spaceFloorAreaperPersonEdit->bind(
-      m_isIP,
-      *m_peopleDefinition,
-      OptionalDoubleGetter(std::bind(&model::PeopleDefinition::spaceFloorAreaperPerson,m_peopleDefinition.get_ptr())),
-      boost::optional<DoubleSetter>(std::bind(&model::PeopleDefinition::setSpaceFloorAreaperPerson,m_peopleDefinition.get_ptr(),std::placeholders::_1)));
+    m_isIP, *m_peopleDefinition, OptionalDoubleGetter(std::bind(&model::PeopleDefinition::spaceFloorAreaperPerson, m_peopleDefinition.get_ptr())),
+    boost::optional<DoubleSetter>(
+      std::bind(&model::PeopleDefinition::setSpaceFloorAreaperPerson, m_peopleDefinition.get_ptr(), std::placeholders::_1)));
 
   // ETH: Note that this is overkill for this dimensionless value. Should switch to OSDoubleEdit(2).
   m_fractionRadiantEdit->bind(
-      *m_peopleDefinition,
-      DoubleGetter(std::bind(&model::PeopleDefinition::fractionRadiant,m_peopleDefinition.get_ptr())),
-      boost::optional<DoubleSetter>(std::bind(&model::PeopleDefinition::setFractionRadiant,m_peopleDefinition.get_ptr(),std::placeholders::_1)));
+    *m_peopleDefinition, DoubleGetter(std::bind(&model::PeopleDefinition::fractionRadiant, m_peopleDefinition.get_ptr())),
+    boost::optional<DoubleSetter>(std::bind(&model::PeopleDefinition::setFractionRadiant, m_peopleDefinition.get_ptr(), std::placeholders::_1)));
 
   m_sensibleHeatFractionEdit->bind(
-      *m_peopleDefinition,
-      OptionalDoubleGetter(std::bind(&model::PeopleDefinition::sensibleHeatFraction,m_peopleDefinition.get_ptr())),
-      boost::optional<DoubleSetter>(std::bind(&model::PeopleDefinition::setSensibleHeatFraction,m_peopleDefinition.get_ptr(),std::placeholders::_1)),
-      boost::optional<NoFailAction>(std::bind(&model::PeopleDefinition::resetSensibleHeatFraction,m_peopleDefinition.get_ptr())),
-      boost::none,
-      boost::optional<NoFailAction>(std::bind(&model::PeopleDefinition::autocalculateSensibleHeatFraction,m_peopleDefinition.get_ptr())),
-      boost::optional<BasicQuery>(std::bind(&model::PeopleDefinition::isSensibleHeatFractionDefaulted,m_peopleDefinition.get_ptr())),
-      boost::none,
-      boost::optional<BasicQuery>(std::bind(&model::PeopleDefinition::isSensibleHeatFractionAutocalculated,m_peopleDefinition.get_ptr())));
+    *m_peopleDefinition, OptionalDoubleGetter(std::bind(&model::PeopleDefinition::sensibleHeatFraction, m_peopleDefinition.get_ptr())),
+    boost::optional<DoubleSetter>(std::bind(&model::PeopleDefinition::setSensibleHeatFraction, m_peopleDefinition.get_ptr(), std::placeholders::_1)),
+    boost::optional<NoFailAction>(std::bind(&model::PeopleDefinition::resetSensibleHeatFraction, m_peopleDefinition.get_ptr())), boost::none,
+    boost::optional<NoFailAction>(std::bind(&model::PeopleDefinition::autocalculateSensibleHeatFraction, m_peopleDefinition.get_ptr())),
+    boost::optional<BasicQuery>(std::bind(&model::PeopleDefinition::isSensibleHeatFractionDefaulted, m_peopleDefinition.get_ptr())), boost::none,
+    boost::optional<BasicQuery>(std::bind(&model::PeopleDefinition::isSensibleHeatFractionAutocalculated, m_peopleDefinition.get_ptr())));
 
   m_carbonDioxideGenerationRateEdit->bind(
-      m_isIP,
-      *m_peopleDefinition,
-      DoubleGetter(std::bind(&model::PeopleDefinition::carbonDioxideGenerationRate,m_peopleDefinition.get_ptr())),
-      boost::optional<DoubleSetter>(std::bind(&model::PeopleDefinition::setCarbonDioxideGenerationRate,m_peopleDefinition.get_ptr(),std::placeholders::_1)),
-      boost::optional<NoFailAction>(std::bind(&model::PeopleDefinition::resetCarbonDioxideGenerationRate,m_peopleDefinition.get_ptr())),
-      boost::none,
-      boost::none,
-      boost::optional<BasicQuery>(std::bind(&model::PeopleDefinition::isCarbonDioxideGenerationRateDefaulted,m_peopleDefinition.get_ptr())));
+    m_isIP, *m_peopleDefinition, DoubleGetter(std::bind(&model::PeopleDefinition::carbonDioxideGenerationRate, m_peopleDefinition.get_ptr())),
+    boost::optional<DoubleSetter>(
+      std::bind(&model::PeopleDefinition::setCarbonDioxideGenerationRate, m_peopleDefinition.get_ptr(), std::placeholders::_1)),
+    boost::optional<NoFailAction>(std::bind(&model::PeopleDefinition::resetCarbonDioxideGenerationRate, m_peopleDefinition.get_ptr())), boost::none,
+    boost::none,
+    boost::optional<BasicQuery>(std::bind(&model::PeopleDefinition::isCarbonDioxideGenerationRateDefaulted, m_peopleDefinition.get_ptr())));
 
   m_enableASHRAE55ComfortWarningsSwitch->bind(
-      *m_peopleDefinition,
-      std::bind(&model::PeopleDefinition::enableASHRAE55ComfortWarnings,m_peopleDefinition.get_ptr()),
-      BoolSetter(std::bind(&model::PeopleDefinition::setEnableASHRAE55ComfortWarnings,m_peopleDefinition.get_ptr(),std::placeholders::_1)),
-      boost::optional<NoFailAction>(std::bind(&model::PeopleDefinition::resetEnableASHRAE55ComfortWarnings,m_peopleDefinition.get_ptr())),
-      boost::optional<BasicQuery>(std::bind(&model::PeopleDefinition::isEnableASHRAE55ComfortWarningsDefaulted,m_peopleDefinition.get_ptr())));
+    *m_peopleDefinition, std::bind(&model::PeopleDefinition::enableASHRAE55ComfortWarnings, m_peopleDefinition.get_ptr()),
+    BoolSetter(std::bind(&model::PeopleDefinition::setEnableASHRAE55ComfortWarnings, m_peopleDefinition.get_ptr(), std::placeholders::_1)),
+    boost::optional<NoFailAction>(std::bind(&model::PeopleDefinition::resetEnableASHRAE55ComfortWarnings, m_peopleDefinition.get_ptr())),
+    boost::optional<BasicQuery>(std::bind(&model::PeopleDefinition::isEnableASHRAE55ComfortWarningsDefaulted, m_peopleDefinition.get_ptr())));
 
   m_meanRadiantTemperatureCalculationTypeComboBox->bind<std::string>(
-    *m_peopleDefinition,
-    static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
+    *m_peopleDefinition, static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
     &model::PeopleDefinition::meanRadiantTemperatureCalculationTypeValues,
     StringGetter(std::bind(&model::PeopleDefinition::meanRadiantTemperatureCalculationType, m_peopleDefinition.get_ptr())),
-    std::bind(&model::PeopleDefinition::setMeanRadiantTemperatureCalculationType, m_peopleDefinition.get_ptr(),std::placeholders::_1),
+    std::bind(&model::PeopleDefinition::setMeanRadiantTemperatureCalculationType, m_peopleDefinition.get_ptr(), std::placeholders::_1),
     boost::optional<NoFailAction>(std::bind(&model::PeopleDefinition::resetMeanRadiantTemperatureCalculationType, m_peopleDefinition.get_ptr())),
-    boost::optional<BasicQuery>(std::bind(&model::PeopleDefinition::isMeanRadiantTemperatureCalculationTypeDefaulted, m_peopleDefinition.get_ptr()))
-  );
+    boost::optional<BasicQuery>(std::bind(&model::PeopleDefinition::isMeanRadiantTemperatureCalculationTypeDefaulted, m_peopleDefinition.get_ptr())));
 
   // Extensible groups
-  for (const IdfExtensibleGroup& i_eg: m_peopleDefinition->extensibleGroups()) {
+  for (const IdfExtensibleGroup& i_eg : m_peopleDefinition->extensibleGroups()) {
     addThermalComfortModelTypeComboBox(i_eg.groupIndex());
   }
 
@@ -367,7 +345,7 @@ void PeopleDefinitionInspectorView::attach(openstudio::model::PeopleDefinition& 
   this->stackedWidget()->setCurrentIndex(1);
 }
 
-OSComboBox2 * PeopleDefinitionInspectorView::addThermalComfortModelTypeComboBox(int groupIndex) {
+OSComboBox2* PeopleDefinitionInspectorView::addThermalComfortModelTypeComboBox(int groupIndex) {
 
   // Increment last row
   ++lastRow;
@@ -378,13 +356,13 @@ OSComboBox2 * PeopleDefinitionInspectorView::addThermalComfortModelTypeComboBox(
   lastHBoxLayout = new QHBoxLayout(lastRowWidget);
   m_HBoxLayouts.push_back(lastHBoxLayout);
   // groupIndex is 0-indexed
-  QLabel * label = new QLabel("Thermal Comfort Model Type " + QString::number(groupIndex + 1));
+  QLabel* label = new QLabel("Thermal Comfort Model Type " + QString::number(groupIndex + 1));
   label->setObjectName("H2");
   lastHBoxLayout->addWidget(label);
 
-  OSComboBox2 * thermalComfortModelTypeComboBox = new OSComboBox2();
+  OSComboBox2* thermalComfortModelTypeComboBox = new OSComboBox2();
 
-  for (const std::string& val: model::PeopleDefinition::thermalComfortModelTypeValues()) {
+  for (const std::string& val : model::PeopleDefinition::thermalComfortModelTypeValues()) {
     thermalComfortModelTypeComboBox->addItem(QString::fromStdString(val));
   }
   //thermalComfortModelTypeComboBox->addItem("Fanger");
@@ -395,17 +373,17 @@ OSComboBox2 * PeopleDefinitionInspectorView::addThermalComfortModelTypeComboBox(
 
   lastHBoxLayout->addWidget(thermalComfortModelTypeComboBox);
   // Spans 1 row and 3 columns
-  m_mainGridLayout->addWidget(lastRowWidget,lastRow, 0, 1, 3, Qt::AlignTop|Qt::AlignLeft);
+  m_mainGridLayout->addWidget(lastRowWidget, lastRow, 0, 1, 3, Qt::AlignTop | Qt::AlignLeft);
 
   thermalComfortModelTypeComboBox->bind<std::string>(
     *m_peopleDefinition,
-    static_cast<std::string (*)(const std::string&)>(&openstudio::toString),   // toString
-    &model::PeopleDefinition::thermalComfortModelTypeValues, // choices: This returns an empty array...
+    static_cast<std::string (*)(const std::string&)>(&openstudio::toString),  // toString
+    &model::PeopleDefinition::thermalComfortModelTypeValues,                  // choices: This returns an empty array...
     // getter, passing groupIndex as 1st and only parameter
     OptionalStringGetter(std::bind(&model::PeopleDefinition::getThermalComfortModelType, m_peopleDefinition.get_ptr(), groupIndex)),
     // setter, passing groupIndex as first param, then the placeholder (string)
-    std::bind(&model::PeopleDefinition::setThermalComfortModelType, m_peopleDefinition.get_ptr(), groupIndex, std::placeholders::_1)
-    ); // No reset nor isDefaulted
+    std::bind(&model::PeopleDefinition::setThermalComfortModelType, m_peopleDefinition.get_ptr(), groupIndex,
+              std::placeholders::_1));  // No reset nor isDefaulted
 
   // Store a ref for unbind in detach
   m_thermalComfortModelTypeComboBoxes.push_back(thermalComfortModelTypeComboBox);
@@ -416,8 +394,7 @@ OSComboBox2 * PeopleDefinitionInspectorView::addThermalComfortModelTypeComboBox(
   return thermalComfortModelTypeComboBox;
 }
 
-void PeopleDefinitionInspectorView::detach()
-{
+void PeopleDefinitionInspectorView::detach() {
   this->stackedWidget()->setCurrentIndex(0);
 
   m_nameEdit->unbind();
@@ -430,46 +407,38 @@ void PeopleDefinitionInspectorView::detach()
   m_enableASHRAE55ComfortWarningsSwitch->unbind();
   m_meanRadiantTemperatureCalculationTypeComboBox->unbind();
 
-  for (OSComboBox2 * thermalComfortModelTypeComboBox: m_thermalComfortModelTypeComboBoxes) {
+  for (OSComboBox2* thermalComfortModelTypeComboBox : m_thermalComfortModelTypeComboBoxes) {
     thermalComfortModelTypeComboBox->unbind();
   }
 
   m_peopleDefinition.reset();
 }
 
-void PeopleDefinitionInspectorView::refresh()
-{
-}
+void PeopleDefinitionInspectorView::refresh() {}
 
-void PeopleDefinitionInspectorView::toggleUnits(bool displayIP)
-{
-}
+void PeopleDefinitionInspectorView::toggleUnits(bool displayIP) {}
 
-void PeopleDefinitionInspectorView::checkButtons()
-{
+void PeopleDefinitionInspectorView::checkButtons() {
   if (m_peopleDefinition) {
     unsigned int numFields = m_peopleDefinition->numFields();
 
     unsigned int numNonEx = m_peopleDefinition->numNonextensibleFields();
-    if((numFields - numNonEx) <=0 ){
-      removeBtn->setEnabled( false );
-    }
-    else{
-      removeBtn->setEnabled( true );
+    if ((numFields - numNonEx) <= 0) {
+      removeBtn->setEnabled(false);
+    } else {
+      removeBtn->setEnabled(true);
     }
 
     unsigned int numMax = m_peopleDefinition->maxFields().get();
     if (numFields == numMax) {
-      addBtn->setEnabled( false );
-    }
-    else{
-      addBtn->setEnabled( true );
+      addBtn->setEnabled(false);
+    } else {
+      addBtn->setEnabled(true);
     }
   }
 }
 
-void PeopleDefinitionInspectorView::addExtensible()
-{
+void PeopleDefinitionInspectorView::addExtensible() {
   IdfExtensibleGroup eg = m_peopleDefinition->pushExtensibleGroup();
   // Default to Fanger so we have a value...
   // eg.setString(0, "Fanger");
@@ -478,12 +447,11 @@ void PeopleDefinitionInspectorView::addExtensible()
   checkButtons();
 }
 
-void PeopleDefinitionInspectorView::removeExtensible()
-{
+void PeopleDefinitionInspectorView::removeExtensible() {
   //LOG(Debug, "Start of removeExtensible, size of m_thermalComfortModelTypeComboBoxes=" << m_thermalComfortModelTypeComboBoxes.size()
   //    << ", m_HBoxLayouts=" << m_HBoxLayouts.size());
 
-  OSComboBox2 * thermalComfortModelTypeComboBox = m_thermalComfortModelTypeComboBoxes.back();
+  OSComboBox2* thermalComfortModelTypeComboBox = m_thermalComfortModelTypeComboBoxes.back();
   thermalComfortModelTypeComboBox->unbind();
   m_thermalComfortModelTypeComboBoxes.pop_back();
 
@@ -502,14 +470,12 @@ void PeopleDefinitionInspectorView::removeExtensible()
   // m_mainGridLayout->itemAtPosition(lastRow, 0)->widget() == lastRowWidget: true
   // m_rowWidgets.back() == lastRowWidget : true
 
-
   m_mainGridLayout->removeWidget(m_mainGridLayout->itemAtPosition(lastRow, 0)->widget());
 
   lastRowWidget->setVisible(false);
 
-
   // Then delete
-  QLayoutItem *child;
+  QLayoutItem* child;
   while ((child = lastHBoxLayout->takeAt(0)) != 0) {
     delete child;
   }
@@ -537,4 +503,4 @@ void PeopleDefinitionInspectorView::removeExtensible()
   checkButtons();
 }
 
-} // openstudio
+}  // namespace openstudio

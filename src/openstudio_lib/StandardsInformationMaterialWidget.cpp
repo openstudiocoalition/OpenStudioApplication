@@ -50,17 +50,16 @@ namespace openstudio {
 
 // StandardsInformationMaterialWidget
 
-StandardsInformationMaterialWidget::StandardsInformationMaterialWidget(bool isIP, QGridLayout * mainGridLayout, int & row)
-  : QWidget(mainGridLayout->parentWidget())
-{
-  QVBoxLayout * vLayout = nullptr;
+StandardsInformationMaterialWidget::StandardsInformationMaterialWidget(bool isIP, QGridLayout* mainGridLayout, int& row)
+  : QWidget(mainGridLayout->parentWidget()) {
+  QVBoxLayout* vLayout = nullptr;
 
-  QLabel * label = nullptr;
+  QLabel* label = nullptr;
 
   bool isConnected = false;
 
   // Measure Tags
-  QFrame * line;
+  QFrame* line;
   line = new QFrame();
   line->setFrameShape(QFrame::HLine);
   line->setFrameShadow(QFrame::Sunken);
@@ -106,7 +105,8 @@ StandardsInformationMaterialWidget::StandardsInformationMaterialWidget(bool isIP
 
   mainGridLayout->addLayout(vLayout, row++, 1);
 
-  isConnected = connect(m_standardSource, &QComboBox::currentTextChanged, this, &openstudio::StandardsInformationMaterialWidget::standardSourceChanged);
+  isConnected =
+    connect(m_standardSource, &QComboBox::currentTextChanged, this, &openstudio::StandardsInformationMaterialWidget::standardSourceChanged);
   OS_ASSERT(isConnected);
 
   // Standards Category
@@ -125,7 +125,8 @@ StandardsInformationMaterialWidget::StandardsInformationMaterialWidget(bool isIP
 
   mainGridLayout->addLayout(vLayout, row, 0);
 
-  isConnected = connect(m_standardsCategory, &QComboBox::currentTextChanged, this, &openstudio::StandardsInformationMaterialWidget::standardsCategoryChanged);
+  isConnected =
+    connect(m_standardsCategory, &QComboBox::currentTextChanged, this, &openstudio::StandardsInformationMaterialWidget::standardsCategoryChanged);
   OS_ASSERT(isConnected);
 
   // Standards Identifier
@@ -144,7 +145,8 @@ StandardsInformationMaterialWidget::StandardsInformationMaterialWidget(bool isIP
 
   mainGridLayout->addLayout(vLayout, row++, 1);
 
-  isConnected = connect(m_standardsIdentifier, &QComboBox::currentTextChanged, this, &openstudio::StandardsInformationMaterialWidget::standardsIdentifierChanged);
+  isConnected =
+    connect(m_standardsIdentifier, &QComboBox::currentTextChanged, this, &openstudio::StandardsInformationMaterialWidget::standardsIdentifierChanged);
   OS_ASSERT(isConnected);
 
   // Composite Framing Material
@@ -163,7 +165,8 @@ StandardsInformationMaterialWidget::StandardsInformationMaterialWidget(bool isIP
 
   mainGridLayout->addLayout(vLayout, row, 0);
 
-  isConnected = connect(m_compositeFramingMaterial, &QComboBox::currentTextChanged, this, &openstudio::StandardsInformationMaterialWidget::compositeFramingMaterialChanged);
+  isConnected = connect(m_compositeFramingMaterial, &QComboBox::currentTextChanged, this,
+                        &openstudio::StandardsInformationMaterialWidget::compositeFramingMaterialChanged);
   OS_ASSERT(isConnected);
 
   // Composite Framing Configuration
@@ -182,7 +185,8 @@ StandardsInformationMaterialWidget::StandardsInformationMaterialWidget(bool isIP
 
   mainGridLayout->addLayout(vLayout, row++, 1);
 
-  isConnected = connect(m_compositeFramingConfiguration, &QComboBox::currentTextChanged, this, &openstudio::StandardsInformationMaterialWidget::compositeFramingConfigurationChanged);
+  isConnected = connect(m_compositeFramingConfiguration, &QComboBox::currentTextChanged, this,
+                        &openstudio::StandardsInformationMaterialWidget::compositeFramingConfigurationChanged);
   OS_ASSERT(isConnected);
 
   // Composite Framing Depth
@@ -201,7 +205,8 @@ StandardsInformationMaterialWidget::StandardsInformationMaterialWidget(bool isIP
 
   mainGridLayout->addLayout(vLayout, row, 0);
 
-  isConnected = connect(m_compositeFramingDepth, &QComboBox::currentTextChanged, this, &openstudio::StandardsInformationMaterialWidget::compositeFramingDepthChanged);
+  isConnected = connect(m_compositeFramingDepth, &QComboBox::currentTextChanged, this,
+                        &openstudio::StandardsInformationMaterialWidget::compositeFramingDepthChanged);
   OS_ASSERT(isConnected);
 
   // Composite Framing Size
@@ -220,7 +225,8 @@ StandardsInformationMaterialWidget::StandardsInformationMaterialWidget(bool isIP
 
   mainGridLayout->addLayout(vLayout, row++, 1);
 
-  isConnected = connect(m_compositeFramingSize, &QComboBox::currentTextChanged, this, &openstudio::StandardsInformationMaterialWidget::compositeFramingSizeChanged);
+  isConnected = connect(m_compositeFramingSize, &QComboBox::currentTextChanged, this,
+                        &openstudio::StandardsInformationMaterialWidget::compositeFramingSizeChanged);
   OS_ASSERT(isConnected);
 
   // Composite Cavity Insulation
@@ -239,7 +245,8 @@ StandardsInformationMaterialWidget::StandardsInformationMaterialWidget(bool isIP
 
   mainGridLayout->addLayout(vLayout, row++, 0);
 
-  isConnected = connect(m_compositeCavityInsulation, &QComboBox::currentTextChanged, this, &openstudio::StandardsInformationMaterialWidget::compositeCavityInsulationChanged);
+  isConnected = connect(m_compositeCavityInsulation, &QComboBox::currentTextChanged, this,
+                        &openstudio::StandardsInformationMaterialWidget::compositeCavityInsulationChanged);
   OS_ASSERT(isConnected);
 
   line = new QFrame();
@@ -250,12 +257,9 @@ StandardsInformationMaterialWidget::StandardsInformationMaterialWidget(bool isIP
   hideComposite();
 }
 
-StandardsInformationMaterialWidget::~StandardsInformationMaterialWidget()
-{
-}
+StandardsInformationMaterialWidget::~StandardsInformationMaterialWidget() {}
 
-void StandardsInformationMaterialWidget::attach(openstudio::model::Material & material)
-{
+void StandardsInformationMaterialWidget::attach(openstudio::model::Material& material) {
   detach();
 
   m_material = material;
@@ -269,7 +273,7 @@ void StandardsInformationMaterialWidget::attach(openstudio::model::Material & ma
 
   m_standardsIdentifier->setEnabled(true);
 
-  if (m_standardsInformation->isCompositeMaterial()){
+  if (m_standardsInformation->isCompositeMaterial()) {
     enableComposite();
   } else {
     disableComposite();
@@ -278,11 +282,10 @@ void StandardsInformationMaterialWidget::attach(openstudio::model::Material & ma
   requestPopulateFields();
 }
 
-void StandardsInformationMaterialWidget::detach()
-{
+void StandardsInformationMaterialWidget::detach() {
   m_material.reset();
 
-  if (m_standardsInformation){
+  if (m_standardsInformation) {
     // DLM: this was never attached to anything
     // disconnect(m_standardsInformation->getImpl<openstudio::model::detail::ModelObject_Impl>().get(), nullptr, this, nullptr);
     m_standardsInformation.reset();
@@ -299,8 +302,7 @@ void StandardsInformationMaterialWidget::detach()
   disableComposite();
 }
 
-void StandardsInformationMaterialWidget::showComposite()
-{
+void StandardsInformationMaterialWidget::showComposite() {
   m_compositeFramingMaterial->show();
   m_compositeFramingConfiguration->show();
   m_compositeFramingDepth->show();
@@ -314,8 +316,7 @@ void StandardsInformationMaterialWidget::showComposite()
   m_compositeCavityInsulationLabel->show();
 }
 
-void StandardsInformationMaterialWidget::hideComposite()
-{
+void StandardsInformationMaterialWidget::hideComposite() {
   m_compositeFramingMaterial->hide();
   m_compositeFramingConfiguration->hide();
   m_compositeFramingDepth->hide();
@@ -329,8 +330,7 @@ void StandardsInformationMaterialWidget::hideComposite()
   m_compositeCavityInsulationLabel->hide();
 }
 
-void StandardsInformationMaterialWidget::enableComposite()
-{
+void StandardsInformationMaterialWidget::enableComposite() {
   m_compositeFramingMaterial->setEnabled(true);
   m_compositeFramingConfiguration->setEnabled(true);
   m_compositeFramingDepth->setEnabled(true);
@@ -338,8 +338,7 @@ void StandardsInformationMaterialWidget::enableComposite()
   m_compositeCavityInsulation->setEnabled(true);
 }
 
-void StandardsInformationMaterialWidget::disableComposite()
-{
+void StandardsInformationMaterialWidget::disableComposite() {
   m_compositeFramingMaterial->setEnabled(false);
   m_compositeFramingConfiguration->setEnabled(false);
   m_compositeFramingDepth->setEnabled(false);
@@ -347,9 +346,8 @@ void StandardsInformationMaterialWidget::disableComposite()
   m_compositeCavityInsulation->setEnabled(false);
 }
 
-void StandardsInformationMaterialWidget::requestPopulateFields()
-{
-  if (!m_populateFieldsRequested){
+void StandardsInformationMaterialWidget::requestPopulateFields() {
+  if (!m_populateFieldsRequested) {
     m_populateFieldsRequested = true;
 
     //populateFields();
@@ -358,8 +356,7 @@ void StandardsInformationMaterialWidget::requestPopulateFields()
   }
 }
 
-void StandardsInformationMaterialWidget::populateFields()
-{
+void StandardsInformationMaterialWidget::populateFields() {
   m_populateFieldsRequested = false;
 
   populateStandards();
@@ -371,30 +368,26 @@ void StandardsInformationMaterialWidget::populateFields()
   populateCompositeFramingDepth();
   populateCompositeFramingSize();
   populateCompositeCavityInsulation();
-
 }
 
-void StandardsInformationMaterialWidget::standardChanged(const QString& text)
-{
-  if (m_standardsInformation){
+void StandardsInformationMaterialWidget::standardChanged(const QString& text) {
+  if (m_standardsInformation) {
     std::string str = toString(text);
-    if (str.empty()){
+    if (str.empty()) {
       m_standardsInformation->resetMaterialStandard();
-    }
-    else{
+    } else {
       m_standardsInformation->setMaterialStandard(str);
     }
     requestPopulateFields();
   }
 }
 
-void StandardsInformationMaterialWidget::populateStandards()
-{
+void StandardsInformationMaterialWidget::populateStandards() {
   m_standard->blockSignals(true);
 
   m_standard->clear();
 
-  if (m_standardsInformation){
+  if (m_standardsInformation) {
     unsigned i = 0;
     m_standard->addItem("");
 
@@ -405,11 +398,10 @@ void StandardsInformationMaterialWidget::populateStandards()
       m_standard->setItemData(++i, value, Qt::ToolTipRole);
     }
     boost::optional<std::string> materialStandard = m_standardsInformation->materialStandard();
-    if (materialStandard){
+    if (materialStandard) {
       OS_ASSERT(!suggestedMaterialStandards.empty());
       m_standard->setCurrentIndex(1);
-    }
-    else{
+    } else {
       m_standard->setCurrentIndex(0);
     }
   }
@@ -417,26 +409,23 @@ void StandardsInformationMaterialWidget::populateStandards()
   m_standard->blockSignals(false);
 }
 
-void StandardsInformationMaterialWidget::standardSourceChanged(const QString& text)
-{
-  if (m_standardsInformation){
+void StandardsInformationMaterialWidget::standardSourceChanged(const QString& text) {
+  if (m_standardsInformation) {
     std::string str = toString(text);
-    if (str.empty()){
+    if (str.empty()) {
       m_standardsInformation->resetMaterialStandardSource();
-    }
-    else{
+    } else {
       m_standardsInformation->setMaterialStandardSource(str);
     }
     //requestPopulateFields();
   }
 }
 
-void StandardsInformationMaterialWidget::populateStandardSources()
-{
+void StandardsInformationMaterialWidget::populateStandardSources() {
   m_standardSource->blockSignals(true);
 
   m_standardSource->clear();
-  if (m_standardsInformation){
+  if (m_standardsInformation) {
     unsigned i = 0;
     m_standardSource->addItem("");
 
@@ -447,11 +436,10 @@ void StandardsInformationMaterialWidget::populateStandardSources()
       m_standardSource->setItemData(++i, value, Qt::ToolTipRole);
     }
     boost::optional<std::string> materialStandardSource = m_standardsInformation->materialStandardSource();
-    if (materialStandardSource){
+    if (materialStandardSource) {
       OS_ASSERT(!suggestedMaterialStandardSources.empty());
       m_standardSource->setCurrentIndex(1);
-    }
-    else{
+    } else {
       m_standardSource->setCurrentIndex(0);
     }
   }
@@ -459,18 +447,16 @@ void StandardsInformationMaterialWidget::populateStandardSources()
   m_standardSource->blockSignals(false);
 }
 
-void StandardsInformationMaterialWidget::standardsCategoryChanged(const QString& text)
-{
-  if (m_standardsInformation){
+void StandardsInformationMaterialWidget::standardsCategoryChanged(const QString& text) {
+  if (m_standardsInformation) {
     std::string str = toString(text);
-    if (str.empty()){
+    if (str.empty()) {
       m_standardsInformation->resetStandardsCategory();
-    }
-    else{
+    } else {
       m_standardsInformation->setStandardsCategory(str);
     }
 
-    if (m_standardsInformation->isCompositeMaterial()){
+    if (m_standardsInformation->isCompositeMaterial()) {
       enableComposite();
     } else {
       disableComposite();
@@ -480,12 +466,11 @@ void StandardsInformationMaterialWidget::standardsCategoryChanged(const QString&
   }
 }
 
-void StandardsInformationMaterialWidget::populateStandardsCategories()
-{
+void StandardsInformationMaterialWidget::populateStandardsCategories() {
   m_standardsCategory->blockSignals(true);
 
   m_standardsCategory->clear();
-  if (m_standardsInformation){
+  if (m_standardsInformation) {
     unsigned i = 0;
     m_standardsCategory->addItem("");
 
@@ -496,11 +481,10 @@ void StandardsInformationMaterialWidget::populateStandardsCategories()
       m_standardsCategory->setItemData(++i, value, Qt::ToolTipRole);
     }
     boost::optional<std::string> standardsCategory = m_standardsInformation->standardsCategory();
-    if (standardsCategory){
+    if (standardsCategory) {
       OS_ASSERT(!suggestedStandardsCategories.empty());
       m_standardsCategory->setCurrentIndex(1);
-    }
-    else{
+    } else {
       m_standardsCategory->setCurrentIndex(0);
     }
   }
@@ -508,26 +492,23 @@ void StandardsInformationMaterialWidget::populateStandardsCategories()
   m_standardsCategory->blockSignals(false);
 }
 
-void StandardsInformationMaterialWidget::standardsIdentifierChanged(const QString& text)
-{
-  if (m_standardsInformation){
+void StandardsInformationMaterialWidget::standardsIdentifierChanged(const QString& text) {
+  if (m_standardsInformation) {
     std::string str = toString(text);
-    if (str.empty()){
+    if (str.empty()) {
       m_standardsInformation->resetStandardsIdentifier();
-    }
-    else{
+    } else {
       m_standardsInformation->setStandardsIdentifier(str);
     }
     //requestPopulateFields();
   }
 }
 
-void StandardsInformationMaterialWidget::populateStandardsIdentifier()
-{
+void StandardsInformationMaterialWidget::populateStandardsIdentifier() {
   m_standardsIdentifier->blockSignals(true);
 
   m_standardsIdentifier->clear();
-  if (m_standardsInformation){
+  if (m_standardsInformation) {
     unsigned i = 0;
     m_standardsIdentifier->addItem("");
 
@@ -538,11 +519,10 @@ void StandardsInformationMaterialWidget::populateStandardsIdentifier()
       m_standardsIdentifier->setItemData(++i, value, Qt::ToolTipRole);
     }
     boost::optional<std::string> standardsIdentifier = m_standardsInformation->standardsIdentifier();
-    if (standardsIdentifier){
+    if (standardsIdentifier) {
       OS_ASSERT(!suggestedStandardsIdentifiers.empty());
       m_standardsIdentifier->setCurrentIndex(1);
-    }
-    else{
+    } else {
       m_standardsIdentifier->setCurrentIndex(0);
     }
   }
@@ -550,26 +530,23 @@ void StandardsInformationMaterialWidget::populateStandardsIdentifier()
   m_standardsIdentifier->blockSignals(false);
 }
 
-void StandardsInformationMaterialWidget::compositeFramingMaterialChanged(const QString& text)
-{
-  if (m_standardsInformation){
+void StandardsInformationMaterialWidget::compositeFramingMaterialChanged(const QString& text) {
+  if (m_standardsInformation) {
     std::string str = toString(text);
-    if (str.empty()){
+    if (str.empty()) {
       m_standardsInformation->resetCompositeFramingMaterial();
-    }
-    else{
+    } else {
       m_standardsInformation->setCompositeFramingMaterial(str);
     }
     //requestPopulateFields();
   }
 }
 
-void StandardsInformationMaterialWidget::populateCompositeFramingMaterial()
-{
+void StandardsInformationMaterialWidget::populateCompositeFramingMaterial() {
   m_compositeFramingMaterial->blockSignals(true);
 
   m_compositeFramingMaterial->clear();
-  if (m_standardsInformation){
+  if (m_standardsInformation) {
     unsigned i = 0;
     m_compositeFramingMaterial->addItem("");
 
@@ -580,11 +557,10 @@ void StandardsInformationMaterialWidget::populateCompositeFramingMaterial()
       m_compositeFramingMaterial->setItemData(++i, value, Qt::ToolTipRole);
     }
     boost::optional<std::string> compositeFramingMaterial = m_standardsInformation->compositeFramingMaterial();
-    if (compositeFramingMaterial){
+    if (compositeFramingMaterial) {
       OS_ASSERT(!suggestedCompositeFramingMaterials.empty());
       m_compositeFramingMaterial->setCurrentIndex(1);
-    }
-    else{
+    } else {
       m_compositeFramingMaterial->setCurrentIndex(0);
     }
   }
@@ -592,26 +568,23 @@ void StandardsInformationMaterialWidget::populateCompositeFramingMaterial()
   m_compositeFramingMaterial->blockSignals(false);
 }
 
-void StandardsInformationMaterialWidget::compositeFramingConfigurationChanged(const QString& text)
-{
-  if (m_standardsInformation){
+void StandardsInformationMaterialWidget::compositeFramingConfigurationChanged(const QString& text) {
+  if (m_standardsInformation) {
     std::string str = toString(text);
-    if (str.empty()){
+    if (str.empty()) {
       m_standardsInformation->resetCompositeFramingConfiguration();
-    }
-    else{
+    } else {
       m_standardsInformation->setCompositeFramingConfiguration(str);
     }
     //requestPopulateFields();
   }
 }
 
-void StandardsInformationMaterialWidget::populateCompositeFramingConfiguration()
-{
+void StandardsInformationMaterialWidget::populateCompositeFramingConfiguration() {
   m_compositeFramingConfiguration->blockSignals(true);
 
   m_compositeFramingConfiguration->clear();
-  if (m_standardsInformation){
+  if (m_standardsInformation) {
     unsigned i = 0;
     m_compositeFramingConfiguration->addItem("");
 
@@ -622,11 +595,10 @@ void StandardsInformationMaterialWidget::populateCompositeFramingConfiguration()
       m_compositeFramingConfiguration->setItemData(++i, value, Qt::ToolTipRole);
     }
     boost::optional<std::string> compositeFramingConfiguration = m_standardsInformation->compositeFramingConfiguration();
-    if (compositeFramingConfiguration){
+    if (compositeFramingConfiguration) {
       OS_ASSERT(!suggestedCompositeFramingConfigurations.empty());
       m_compositeFramingConfiguration->setCurrentIndex(1);
-    }
-    else{
+    } else {
       m_compositeFramingConfiguration->setCurrentIndex(0);
     }
   }
@@ -634,26 +606,23 @@ void StandardsInformationMaterialWidget::populateCompositeFramingConfiguration()
   m_compositeFramingConfiguration->blockSignals(false);
 }
 
-void StandardsInformationMaterialWidget::compositeFramingDepthChanged(const QString& text)
-{
-  if (m_standardsInformation){
+void StandardsInformationMaterialWidget::compositeFramingDepthChanged(const QString& text) {
+  if (m_standardsInformation) {
     std::string str = toString(text);
-    if (str.empty()){
+    if (str.empty()) {
       m_standardsInformation->resetCompositeFramingDepth();
-    }
-    else{
+    } else {
       m_standardsInformation->setCompositeFramingDepth(str);
     }
     //requestPopulateFields();
   }
 }
 
-void StandardsInformationMaterialWidget::populateCompositeFramingDepth()
-{
+void StandardsInformationMaterialWidget::populateCompositeFramingDepth() {
   m_compositeFramingDepth->blockSignals(true);
 
   m_compositeFramingDepth->clear();
-  if (m_standardsInformation){
+  if (m_standardsInformation) {
     unsigned i = 0;
     m_compositeFramingDepth->addItem("");
 
@@ -664,11 +633,10 @@ void StandardsInformationMaterialWidget::populateCompositeFramingDepth()
       m_compositeFramingDepth->setItemData(++i, value, Qt::ToolTipRole);
     }
     boost::optional<std::string> compositeFramingDepth = m_standardsInformation->compositeFramingDepth();
-    if (compositeFramingDepth){
+    if (compositeFramingDepth) {
       OS_ASSERT(!suggestedCompositeFramingDepths.empty());
       m_compositeFramingDepth->setCurrentIndex(1);
-    }
-    else{
+    } else {
       m_compositeFramingDepth->setCurrentIndex(0);
     }
   }
@@ -676,26 +644,23 @@ void StandardsInformationMaterialWidget::populateCompositeFramingDepth()
   m_compositeFramingDepth->blockSignals(false);
 }
 
-void StandardsInformationMaterialWidget::compositeFramingSizeChanged(const QString& text)
-{
-  if (m_standardsInformation){
+void StandardsInformationMaterialWidget::compositeFramingSizeChanged(const QString& text) {
+  if (m_standardsInformation) {
     std::string str = toString(text);
-    if (str.empty()){
+    if (str.empty()) {
       m_standardsInformation->resetCompositeFramingSize();
-    }
-    else{
+    } else {
       m_standardsInformation->setCompositeFramingSize(str);
     }
     //requestPopulateFields();
   }
 }
 
-void StandardsInformationMaterialWidget::populateCompositeFramingSize()
-{
+void StandardsInformationMaterialWidget::populateCompositeFramingSize() {
   m_compositeFramingSize->blockSignals(true);
 
   m_compositeFramingSize->clear();
-  if (m_standardsInformation){
+  if (m_standardsInformation) {
     unsigned i = 0;
     m_compositeFramingSize->addItem("");
 
@@ -706,11 +671,10 @@ void StandardsInformationMaterialWidget::populateCompositeFramingSize()
       m_compositeFramingSize->setItemData(++i, value, Qt::ToolTipRole);
     }
     boost::optional<std::string> compositeFramingSize = m_standardsInformation->compositeFramingSize();
-    if (compositeFramingSize){
+    if (compositeFramingSize) {
       OS_ASSERT(!suggestedCompositeFramingSizes.empty());
       m_compositeFramingSize->setCurrentIndex(1);
-    }
-    else{
+    } else {
       m_compositeFramingSize->setCurrentIndex(0);
     }
   }
@@ -718,26 +682,23 @@ void StandardsInformationMaterialWidget::populateCompositeFramingSize()
   m_compositeFramingSize->blockSignals(false);
 }
 
-void StandardsInformationMaterialWidget::compositeCavityInsulationChanged(const QString& text)
-{
-  if (m_standardsInformation){
+void StandardsInformationMaterialWidget::compositeCavityInsulationChanged(const QString& text) {
+  if (m_standardsInformation) {
     std::string str = toString(text);
-    if (str.empty()){
+    if (str.empty()) {
       m_standardsInformation->resetCompositeCavityInsulation();
-    }
-    else{
+    } else {
       m_standardsInformation->setCompositeCavityInsulation(str);
     }
     //requestPopulateFields();
   }
 }
 
-void StandardsInformationMaterialWidget::populateCompositeCavityInsulation()
-{
+void StandardsInformationMaterialWidget::populateCompositeCavityInsulation() {
   m_compositeCavityInsulation->blockSignals(true);
 
   m_compositeCavityInsulation->clear();
-  if (m_standardsInformation){
+  if (m_standardsInformation) {
     unsigned i = 0;
     m_compositeCavityInsulation->addItem("");
 
@@ -748,11 +709,10 @@ void StandardsInformationMaterialWidget::populateCompositeCavityInsulation()
       m_compositeCavityInsulation->setItemData(++i, value, Qt::ToolTipRole);
     }
     boost::optional<std::string> compositeCavityInsulation = m_standardsInformation->compositeCavityInsulation();
-    if (compositeCavityInsulation){
+    if (compositeCavityInsulation) {
       OS_ASSERT(!suggestedCompositeCavityInsulations.empty());
       m_compositeCavityInsulation->setCurrentIndex(1);
-    }
-    else{
+    } else {
       m_compositeCavityInsulation->setCurrentIndex(0);
     }
   }
@@ -760,9 +720,8 @@ void StandardsInformationMaterialWidget::populateCompositeCavityInsulation()
   m_compositeCavityInsulation->blockSignals(false);
 }
 
-void StandardsInformationMaterialWidget::toggleUnits(bool displayIP)
-{
+void StandardsInformationMaterialWidget::toggleUnits(bool displayIP) {
   m_isIP = displayIP;
 }
 
-} // openstudio
+}  // namespace openstudio

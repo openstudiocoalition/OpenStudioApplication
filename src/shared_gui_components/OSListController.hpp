@@ -33,7 +33,7 @@
 #include <QObject>
 #include <QSharedPointer>
 #include <QPointer>
-#include <openstudio/nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/nano/nano_signal_slot.hpp>  // Signal-Slot replacement
 #include <vector>
 
 class QWidget;
@@ -52,8 +52,7 @@ class OSListController : public QObject, public Nano::Observer
 {
   Q_OBJECT
 
-  public:
-
+ public:
   OSListController();
 
   virtual ~OSListController();
@@ -69,7 +68,7 @@ class OSListController : public QObject, public Nano::Observer
 
   void setSelectionController(QSharedPointer<OSItemSelectionController> controller);
 
-  signals:
+ signals:
 
   // Emit this signal when an item has been added to the underlying model or data structure.
   void itemInserted(int index);
@@ -85,8 +84,7 @@ class OSListController : public QObject, public Nano::Observer
   // emit this signal to trigger a complete update of the attached views.
   void modelReset();
 
-  private:
-
+ private:
   friend class OSListItem;
   friend class OSItemSelectionController;
 
@@ -101,7 +99,7 @@ class OSListController : public QObject, public Nano::Observer
 
   QSharedPointer<OSItemSelectionController> m_selectionController;
 
-  std::vector<QPointer<OSListItem> > m_registeredItems;
+  std::vector<QPointer<OSListItem>> m_registeredItems;
 };
 
 /** The purpose of OSListItem is to encapsulate data and if necessary notify when the data changes.
@@ -112,30 +110,30 @@ class OSListItem : public QObject
 {
   Q_OBJECT
 
-  public:
-
-  OSListItem(OSListController * listController = nullptr);
+ public:
+  OSListItem(OSListController* listController = nullptr);
 
   virtual ~OSListItem();
 
-  void setController(OSListController * controller);
+  void setController(OSListController* controller);
 
-  OSListController * controller() const { return m_listController; }
+  OSListController* controller() const {
+    return m_listController;
+  }
 
   bool isSelected() const;
 
-  public slots:
+ public slots:
 
   virtual void setSelected(bool isSelected);
 
   void toggleSelected();
 
-  signals:
+ signals:
 
   void selectedChanged(bool isSelected);
 
-  protected:
-
+ protected:
   QPointer<OSListController> m_listController;
 };
 
@@ -145,8 +143,7 @@ class OSItemSelectionController : public QObject, public Nano::Observer
 {
   Q_OBJECT
 
-  public:
-
+ public:
   OSItemSelectionController();
 
   virtual ~OSItemSelectionController() {}
@@ -155,9 +152,9 @@ class OSItemSelectionController : public QObject, public Nano::Observer
 
   bool allowMultipleSelections() const;
 
-  std::vector<QPointer<OSListItem> > selectedItems() const;
+  std::vector<QPointer<OSListItem>> selectedItems() const;
 
-  public slots:
+ public slots:
 
   void unselectAllItems();
 
@@ -165,34 +162,33 @@ class OSItemSelectionController : public QObject, public Nano::Observer
 
   void emitSelectionChanged();
 
-  signals:
+ signals:
 
-  void selectionChanged(std::vector<QPointer<OSListItem> > selectedItems);
+  void selectionChanged(std::vector<QPointer<OSListItem>> selectedItems);
 
-  private:
-
+ private:
   friend class OSListItem;
   friend class OSListController;
 
   // Accessor methods for m_listControllers. This class keeps a record of the list controllers it is associated with.
-  void registerListController(OSListController * listController);
+  void registerListController(OSListController* listController);
 
-  void unregisterListController(OSListController * listController);
+  void unregisterListController(OSListController* listController);
 
   // Accessor methods for m_selectedItems.  These are used by OSListItem to select and deselect items.
   // These methods will assert if item is NULL.
   //
   // This method is unintelligent so it will add items multiple times.  Thus avoiding the need to search.  Use carefully.
-  void addSelectedItem(OSListItem * item);
+  void addSelectedItem(OSListItem* item);
 
   // This method will do nothing if the item is not selected.
-  void removeSelectedItem(OSListItem * item);
+  void removeSelectedItem(OSListItem* item);
 
-  std::vector<QPointer<OSListItem> > m_selectedItems;
+  std::vector<QPointer<OSListItem>> m_selectedItems;
 
   // The list controllers that this selection controller is associated with
   // This member supports select all.
-  std::vector<QPointer<OSListController> > m_listControllers;
+  std::vector<QPointer<OSListController>> m_listControllers;
 
   bool m_allowMultipleSelections;
 };
@@ -209,11 +205,10 @@ class OSItemDelegate : public QObject, public Nano::Observer
 {
   Q_OBJECT
 
-  public:
-
+ public:
   virtual ~OSItemDelegate() {}
 
-  virtual QWidget * view(QSharedPointer<OSListItem> dataSource);
+  virtual QWidget* view(QSharedPointer<OSListItem> dataSource);
 };
 
 /**  The purpose of OSGraphicsItemDelegate is the same as OSItemDelegate except it is used with QGraphicsObject instances instead of QWidget instances.
@@ -222,14 +217,12 @@ class OSGraphicsItemDelegate : public QObject, public Nano::Observer
 {
   Q_OBJECT;
 
-  public:
-
+ public:
   virtual ~OSGraphicsItemDelegate() {}
 
-  virtual QGraphicsObject * view(QSharedPointer<OSListItem> dataSource);
+  virtual QGraphicsObject* view(QSharedPointer<OSListItem> dataSource);
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // SHAREDGUICOMPONENTS_OSLISTCONTROLLER_HPP
-
+#endif  // SHAREDGUICOMPONENTS_OSLISTCONTROLLER_HPP

@@ -1,0 +1,231 @@
+# This file includes the list of commits to exclude from `git blame`.
+# These are chores, like upgrading copyrights, or running any kind of automated tools like clang-format.
+#
+# How-to:
+# * Use only full 40-character hashes
+# * Here's an example of a way to grep the commit history to find commits to exclude:
+# ```
+# git log --all --reverse --grep='copyright' --grep='\[chore\]' --pretty='format:# %C(auto)%s [%an, %as]%n%H%n' >> .git-blame-ignore-revs
+#
+# ```
+# Note: On older git (like 2.17 which is default in 18.04, without `sudo add-apt-repository ppa:git-core/ppa`),
+# '%as' (date in YYYY-MM-DD)  doesn't work, use '%ai' instead
+
+# * Locally, you can do `$ git config blame.ignoreRevsFile .git-blame-ignore-revs`
+# * Add to the bottom of the list, so we keep everything in chronological order (oldest to newest)
+
+# Updating all copyrights to 2014 [Alex Swindler, 2013-12-30]
+afbce7e56bdd5b7dbcd65999eedcf54c91c4999b
+
+# Updating all copyrights to 2014 [Alex Swindler, 2013-12-30]
+6cd6594ad74ef6fd40622fad5666b6596e34724c
+
+# Updating all copyrights to 2014 [Alex Swindler, 2013-12-30]
+7bfb35a2a52a96f4fa361143a02ea259efa54e53
+
+# Updating all copyrights to 2014 [Alex Swindler, 2013-12-30]
+dad991332b963f0d042082193771f718c5159971
+
+# Adding missing copyrights, fixed incorrect copyrights Added missing include guards, fixed duplicate include guards Standardized and fixed all existing include guards Fixed all applicable relative includes Replaced BOOST_STATIC_ASSERT with static_assert Replaced boost::tuple with std::tuple Fixed typos [Alex Swindler, 2014-05-28]
+0f1e5f89a58b815efee8d7bf9f5ad1c6e1924daa
+
+# Adding missing copyrights, fixed incorrect copyrights Added missing include guards, fixed duplicate include guards Standardized and fixed all existing include guards Fixed all applicable relative includes Replaced BOOST_STATIC_ASSERT with static_assert Replaced boost::tuple with std::tuple Fixed typos [Alex Swindler, 2014-05-28]
+45871ae5688224bed7c757daeddddc05288520a7
+
+# Adding missing copyrights, fixed incorrect copyrights Added missing include guards, fixed duplicate include guards Standardized and fixed all existing include guards Fixed all applicable relative includes Replaced BOOST_STATIC_ASSERT with static_assert Replaced boost::tuple with std::tuple Fixed typos [Alex Swindler, 2014-05-28]
+519dba7401e1aeb08d95d0961a99e7b3ccd1eaf6
+
+# Adding missing copyrights, fixed incorrect copyrights Added missing include guards, fixed duplicate include guards Standardized and fixed all existing include guards Fixed all applicable relative includes Replaced BOOST_STATIC_ASSERT with static_assert Replaced boost::tuple with std::tuple Fixed typos [Alex Swindler, 2014-05-28]
+eac93fe3a6eca623d79f3b078f660564bfce20d8
+
+# Fixing include guards / copyrights [Alex Swindler, 2014-07-23]
+e206a9bb285f3da650469272cb489d9f44b84c18
+
+# Fixing include guards / copyrights [Alex Swindler, 2014-07-23]
+5b141f1e73b0aa3e9fea5d96b0a8e1707a7f16bd
+
+# Fixing include guards/copyrights [Alex Swindler, 2014-10-16]
+fac8c6ed649525407d147b5500ba437f5c955954
+
+# Fixing include guards/copyrights [Alex Swindler, 2014-10-16]
+7dcea3ab001e1ab6ddfea08a378e153601d10e00
+
+# Fixing include guards/copyrights [Alex Swindler, 2014-10-16]
+84f2baa87855435a1ab3a878792275d941cd8732
+
+# Cleaning up copyrights/includes [Alex Swindler, 2015-02-26]
+61571c2fe3f1b577b30f26077812a3d9ea0b07c0
+
+# Updating copyrights [Alex Swindler, 2016-01-11]
+fc16922ea596e796b471b420313278a907223024
+
+# Updating copyrights [Alex Swindler, 2016-01-11]
+9970a5c6b4a57003543b1b050d7427d0e3a8a0fc
+
+# Updating copyrights [Alex Swindler, 2016-01-11]
+d72129b5170ac53fca6a7099770886691efa5458
+
+# Updating copyrights [Alex Swindler, 2016-01-11]
+2c675817334e4942dfc5a8b1a2f6c4b4565d1acd
+
+# Updating copyrights [Alex Swindler, 2016-01-11]
+015d46789fb0d2adc6d8d21b3c4e7e41d791b200
+
+# Updated copyrights [Alex Swindler, 2017-01-03]
+8a9166e4122f777a5a3e9101d5eeed396eb51b01
+
+# Updated copyrights [Alex Swindler, 2017-01-03]
+a8c997fb0db6efe900122d9623fbc7fc77d4a8dc
+
+# Updated copyrights [Alex Swindler, 2017-01-03]
+51ac237e4948f96de90d2e73b401ade6995e76c1
+
+# Updated copyrights [Alex Swindler, 2017-01-03]
+00ba8507306f76e0c08dff6ec36f761900b6ecb4
+
+# Updated copyrights [Alex Swindler, 2017-01-03]
+b3fbb86255b9e611e30b72d53abb963a551a1707
+
+# Updated copyrights [Alex Swindler, 2018-01-05]
+c635e22228503bd118125ac8f6a317089dca2069
+
+# Updated copyrights [Alex Swindler, 2018-01-05]
+f3626161e0fcf3e8836f1ce5690a1fc805cf44e3
+
+# Updated copyrights [Alex Swindler, 2018-01-05]
+bc3cd4980761c5145e6513a0eceabe3c113fe8d9
+
+# Updated copyrights [Alex Swindler, 2018-01-05]
+6a08b1a862dab9fc519f726e80304f0fa0b8a9a2
+
+# Updated copyrights [Alex Swindler, 2018-01-05]
+175cc1ff779f3419266d5e297f7779c002c49161
+
+# Update copyright and license on all source files [Dan Macumber, 2018-03-15]
+1ec076d0d60670bcbea856f604851b894b242841
+
+# Update copyright and license on all source files [Dan Macumber, 2018-03-15]
+00bd6b22d506b81f9530d7bf6725dbbec953d477
+
+# Update copyright and license on all source files [Dan Macumber, 2018-03-15]
+867d15e50e3f8a20f463da154bcc15bd4713fe36
+
+# Update copyright and license on all source files [Dan Macumber, 2018-03-15]
+45d899a04f7fa880a9d4157e5abe9b32a3d4ac09
+
+# Update copyright and license on all source files [Dan Macumber, 2018-03-15]
+8349adbcec617c6a21ffbbea43e3ac7fa282ed61
+
+# Update copyright and license on all source files [Dan Macumber, 2018-03-15]
+61402274c32359bbb2617f08120320fdfa6a77be
+
+# Revert "Update copyright and license on all source files" [Dan Macumber, 2018-03-15]
+bb5934058e982b8c345b3b258dd31aee0700c3ac
+
+# Revert "Update copyright and license on all source files" [Dan Macumber, 2018-03-15]
+569cdb729aa68afe0055f345812abdc60b962c53
+
+# Revert "Update copyright and license on all source files" [Dan Macumber, 2018-03-15]
+9ecdce2d22fde7faed516c10baec95dbf484ac50
+
+# Revert "Update copyright and license on all source files" [Dan Macumber, 2018-03-15]
+428542f15fd5e59aeefd62f39a11c9a0f5e3f44d
+
+# Revert "Update copyright and license on all source files" [Dan Macumber, 2018-03-15]
+f83a76519ca3d1d74f325cee895dbebfb5c04cde
+
+# Revert "Update copyright and license on all source files" [Dan Macumber, 2018-03-15]
+2b03ab8366f063088bfb0baf4ce986ee642bc5da
+
+# Only apply copyright to our files [Dan Macumber, 2018-03-16]
+d76861f1f29975409871525d15cf217f47a6a4b7
+
+# Only apply copyright to our files [Dan Macumber, 2018-03-16]
+4267ff56f3c0d29073bb8696d7c090ea9253d90c
+
+# Only apply copyright to our files [Dan Macumber, 2018-03-16]
+1058269434b8c5a4823697c5f8c89e53eab66745
+
+# Only apply copyright to our files [Dan Macumber, 2018-03-16]
+70724a463bb13fe3ba999a2e4eed3a2a73996431
+
+# Only apply copyright to our files [Dan Macumber, 2018-03-16]
+d0e6473f4c9de82de7abafde66b63d046bd5f43b
+
+# Automatically fixed relative includes, include guards, and copyrights [Alex Swindler, 2018-10-26]
+ef5e128f81fbadc3cf85d5b23917a5bd6532bfb6
+
+# Automatically fixed relative includes, include guards, and copyrights [Alex Swindler, 2018-10-26]
+4b6612bd044f716f8d953f7272bfed5c8a7dc641
+
+# Updated copyright language in dialogs and properties [Alex Swindler, 2018-11-01]
+1eaab459e4aa30ce65bf58d882dabc85fa4d7a4d
+
+# Updated copyright language in dialogs and properties [Alex Swindler, 2018-11-01]
+ccf2eee6d6c1962b63735ba8c22da4f3b235e3ee
+
+# Updated copyrights [Alex Swindler, 2018-12-31]
+2a7e43cec80ca3c50ab12737f5f43012ecb064af
+
+# Updated copyrights [Alex Swindler, 2018-12-31]
+c1ae6cc86cbdbfd6bf32e2b88626dce90f18c904
+
+# Updated copyrights [Alex Swindler, 2018-12-31]
+00e006420be977a9c0b1b4a7f3eb75ece93f98b8
+
+# Updated copyrights [Alex Swindler, 2018-12-31]
+8c776d6db6b9ec9bb4faf02988f84b05ff0a561c
+
+# Updated copyrights [Alex Swindler, 2018-12-31]
+905d36e9c3f2c35527794a0f71621790ad610d1d
+
+# Consistent copyrights [Alex Swindler, 2018-12-31]
+f24e67cfec1df287ca642a8f4ef1e678a4a5f24b
+
+# Consistent copyrights [Alex Swindler, 2018-12-31]
+459840992f26f04210bee3bb8289f9df5adaa583
+
+# Consistent copyrights [Alex Swindler, 2018-12-31]
+3f4f633bdd935742eee3ef910b06912dee1bea0d
+
+# Consistent copyrights [Alex Swindler, 2018-12-31]
+7823bf3aba81cd35623987b5b3b12d67fe1da1bb
+
+# Consistent copyrights [Alex Swindler, 2018-12-31]
+29e4cfb795ccff349d9c955cd54800a167519a1a
+
+# Updated copyrights [Alex Swindler, 2019-01-02]
+a45032750ae92113678118b3de94af20edd875c8
+
+# Updated copyrights [Alex Swindler, 2019-01-02]
+f4555772a3127ab5ebdd7b5dd489affe5c1183d0
+
+# Updated copyrights [Alex Swindler, 2019-01-02]
+e6708cf1e20ec400a5c4150f65982a389b3e9cb9
+
+# Updated copyrights [Alex Swindler, 2019-01-02]
+fbd685e36c9ff85d02cff1cf0c7ce4b7fd537d20
+
+# Updated copyrights [Alex Swindler, 2019-01-02]
+ceebb910721d60bb104d172a33382e17d64bcf09
+
+# Merge remote-tracking branch 'remotes/origin/develop3-copyright' into develop3 [Dan Macumber, 2019-01-03]
+f9019d563e3b90364045457b4210f7b3ab53e8b4
+
+# Merge remote-tracking branch 'remotes/origin/develop3-copyright' into develop3 [Dan Macumber, 2019-01-03]
+d11ff3b18a3ef8dd412856481556805f225a7fb7
+
+# Merge remote-tracking branch 'remotes/origin/develop3-copyright' into develop3 [Dan Macumber, 2019-01-03]
+0dcbf996a3fed71b58c48cf8fc131f0a7557b0fa
+
+# Merge remote-tracking branch 'remotes/origin/develop3-copyright' into develop3 [Dan Macumber, 2019-01-03]
+8fff70432cf742b761fa524868a256dd293743b7
+
+# Merge remote-tracking branch 'remotes/origin/develop3-copyright' into develop3 [Dan Macumber, 2019-01-03]
+405b5a8362270524db89048d952a45a0cb3503fa
+
+# [chore] Run clang-format against the entire src/ directory [Julien Marrec, 2020-07-22]
+d2b2f4313ecd90adf7fc954bcb6e17d276d46ac9
+
+# [chore] Modify clang-format file for AccessModifierOffset (public/private) and rerun clang-format [Julien Marrec, 2020-07-23]
+a15f18dcc9f047c6b44fe13fa57a2fa8be4f4cd9

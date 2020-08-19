@@ -38,29 +38,27 @@ class DefaultConstructionSetsController : public ModelSubTabController
 {
   Q_OBJECT
 
-  public:
+ public:
+  DefaultConstructionSetsController(const model::Model& model);
 
-    DefaultConstructionSetsController(const model::Model & model);
+  virtual ~DefaultConstructionSetsController();
 
-    virtual ~DefaultConstructionSetsController();
+ protected:
+  virtual void onAddObject(const openstudio::IddObjectType& iddObjectType) override;
 
-  protected:
+  virtual void onCopyObject(const openstudio::model::ModelObject& modelObject) override;
 
-    virtual void onAddObject(const openstudio::IddObjectType& iddObjectType) override;
+  virtual void onRemoveObject(openstudio::model::ModelObject) override;
 
-    virtual void onCopyObject(const openstudio::model::ModelObject& modelObject) override;
+  virtual void onReplaceObject(openstudio::model::ModelObject modelObject, const OSItemId& replacementItemId) override;
 
-    virtual void onRemoveObject(openstudio::model::ModelObject) override;
+  virtual void onPurgeObjects(const openstudio::IddObjectType& iddObjectType) override;
 
-    virtual void onReplaceObject(openstudio::model::ModelObject modelObject, const OSItemId& replacementItemId) override;
+  virtual void onDrop(const OSItemId& itemId) override;
 
-    virtual void onPurgeObjects(const openstudio::IddObjectType& iddObjectType) override;
-
-    virtual void onDrop(const OSItemId& itemId) override;
-
-    virtual void onInspectItem(OSItem* item) override;
+  virtual void onInspectItem(OSItem* item) override;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_DEFAULTCONSTRUCTIONSETSCONTROLLER_HPP
+#endif  // OPENSTUDIO_DEFAULTCONSTRUCTIONSETSCONTROLLER_HPP

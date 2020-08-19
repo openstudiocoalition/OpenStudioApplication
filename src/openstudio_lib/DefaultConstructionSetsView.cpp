@@ -44,16 +44,9 @@
 
 namespace openstudio {
 
-
-DefaultConstructionSetsView::DefaultConstructionSetsView(const openstudio::model::Model& model,
-                                     const QString& tabLabel,
-                                     bool hasSubTabs,
-                                     QWidget * parent)
+DefaultConstructionSetsView::DefaultConstructionSetsView(const openstudio::model::Model& model, const QString& tabLabel, bool hasSubTabs,
+                                                         QWidget* parent)
   : ModelSubTabView(new ModelObjectListView(IddObjectType::OS_DefaultConstructionSet, model, true, parent),
-                    new DefaultConstructionSetInspectorView(model, parent),
-                    false,
-                    parent)
-{
-}
+                    new DefaultConstructionSetInspectorView(model, parent), false, parent) {}
 
-} // openstudio
+}  // namespace openstudio

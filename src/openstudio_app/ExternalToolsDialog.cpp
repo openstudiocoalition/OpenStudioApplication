@@ -43,12 +43,9 @@
 
 #include <iostream>
 
-
 namespace openstudio {
 
-ExternalToolsDialog::ExternalToolsDialog(openstudio::path t_dviewPath)
-  : QDialog()
-{
+ExternalToolsDialog::ExternalToolsDialog(openstudio::path t_dviewPath) : QDialog() {
 
   auto mainLayout = new QGridLayout();
   setLayout(mainLayout);
@@ -67,8 +64,8 @@ ExternalToolsDialog::ExternalToolsDialog(openstudio::path t_dviewPath)
   m_dviewPathLineEdit->setText(QString::fromStdString(toString(t_dviewPath)));
   mainLayout->addWidget(m_dviewPathLineEdit, row, 1);
 
-  QPushButton * changeDviewButton = new QPushButton("Change");
-  connect(changeDviewButton, &QPushButton::clicked, this, [this]{ ExternalToolsDialog::onChangeClicked(m_dviewPathLineEdit, "DView"); });
+  QPushButton* changeDviewButton = new QPushButton("Change");
+  connect(changeDviewButton, &QPushButton::clicked, this, [this] { ExternalToolsDialog::onChangeClicked(m_dviewPathLineEdit, "DView"); });
   mainLayout->addWidget(changeDviewButton, row, 2);
 
   // Note JM 2019-07-11: Other Tool: example
@@ -83,16 +80,14 @@ ExternalToolsDialog::ExternalToolsDialog(openstudio::path t_dviewPath)
 
   // Buttons Ok/Cancel
   ++row;
-  auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok
-                                   | QDialogButtonBox::Cancel);
+  auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
   mainLayout->addWidget(buttonBox, row, 0, 1, 3);
 
   connect(buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
   connect(buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
-
 }
 
-void ExternalToolsDialog::onChangeClicked(QLineEdit * t_lineEdit, QString toolName) {
+void ExternalToolsDialog::onChangeClicked(QLineEdit* t_lineEdit, QString toolName) {
 
 #if defined _WIN32
   QString filter = toolName + QString(" (") + toolName + QString("*.exe)");
@@ -105,10 +100,9 @@ void ExternalToolsDialog::onChangeClicked(QLineEdit * t_lineEdit, QString toolNa
 
   LOG_FREE(Debug, "OpenStudioApp", "ExternalToolsDialog::onChangeClicked: file filter = " << openstudio::toString(filter));
 
-  auto fileName = QFileDialog::getOpenFileName(nullptr,
-      tr("Select Path to ") + toolName, QDir().homePath(), filter);
+  auto fileName = QFileDialog::getOpenFileName(nullptr, tr("Select Path to ") + toolName, QDir().homePath(), filter);
 
-  if( ! fileName.isNull() ) {
+  if (!fileName.isNull()) {
     t_lineEdit->setText(fileName);
   }
 }
@@ -118,7 +112,7 @@ openstudio::path ExternalToolsDialog::dviewPath() const {
 }
 
 //openstudio::path ExternalToolsDialog::otherToolPath() const {
-  //return openstudio::toPath(m_otherToolPathLineEdit->text());
+//return openstudio::toPath(m_otherToolPathLineEdit->text());
 //}
 
-} // openstudio
+}  // namespace openstudio

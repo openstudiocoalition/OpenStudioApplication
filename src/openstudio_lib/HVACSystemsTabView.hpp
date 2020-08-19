@@ -38,13 +38,12 @@ class HVACSystemsTabView : public MainTabView
 {
   Q_OBJECT
 
-  public:
+ public:
+  HVACSystemsTabView(QWidget* parent = nullptr);
 
-  HVACSystemsTabView(QWidget * parent = nullptr);
-
-  virtual ~HVACSystemsTabView() {};
+  virtual ~HVACSystemsTabView(){};
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_HVACSYSTEMSTABVIEW_HPP
+#endif  // OPENSTUDIO_HVACSYSTEMSTABVIEW_HPP

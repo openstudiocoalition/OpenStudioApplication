@@ -52,83 +52,76 @@ class SubTabView : public QSplitter
 {
   Q_OBJECT
 
-  public:
+ public:
+  SubTabView(OSItemSelector* itemSelector, OSInspectorView* inspectorView, bool showGridViewLayout = false, QWidget* parent = nullptr);
 
-    SubTabView(OSItemSelector* itemSelector,
-      OSInspectorView* inspectorView,
-      bool showGridViewLayout = false,
-      QWidget * parent = nullptr);
+  virtual ~SubTabView() {}
 
-    virtual ~SubTabView() {}
+  OSItemSelector* itemSelector();
 
-    OSItemSelector* itemSelector();
+  OSItemSelectorButtons* itemSelectorButtons();
 
-    OSItemSelectorButtons* itemSelectorButtons();
+  OSInspectorView* inspectorView();
 
-    OSInspectorView* inspectorView();
+  const OSItemSelector* itemSelector() const;
 
-    const OSItemSelector* itemSelector() const;
+  const OSItemSelectorButtons* itemSelectorButtons() const;
 
-    const OSItemSelectorButtons* itemSelectorButtons() const;
+  const OSInspectorView* inspectorView() const;
 
-    const OSInspectorView* inspectorView() const;
+ signals:
 
-  signals:
+  void itemSelected(OSItem* item);
 
-    void itemSelected(OSItem* item);
+  void itemRemoveClicked(OSItem* item);
 
-    void itemRemoveClicked(OSItem* item);
+  void itemReplacementDropped(OSItem* currentItem, const OSItemId& replacementItemId);
 
-    void itemReplacementDropped(OSItem * currentItem, const OSItemId& replacementItemId);
+  void selectionCleared();
 
-    void selectionCleared();
+  void itemDropped(const OSItemId& itemId);
 
-    void itemDropped(const OSItemId& itemId);
+  void addClicked();
 
-    void addClicked();
+  void copyClicked();
 
-    void copyClicked();
+  void removeClicked();
 
-    void removeClicked();
+  void purgeClicked();
 
-    void purgeClicked();
+  void dropZoneItemClicked(OSItem* item);
 
-    void dropZoneItemClicked(OSItem* item);
+  void downloadComponentsClicked();
 
-    void downloadComponentsClicked();
+  void openLibDlgClicked();
 
-    void openLibDlgClicked();
+ protected slots:
 
-  protected slots:
+  virtual void onDropZoneItemClicked(OSItem* item);
 
-    virtual void onDropZoneItemClicked(OSItem* item);
+ protected:
+  void paintEvent(QPaintEvent* event) override;
 
-  protected:
+ private:
+  void connectItemSelector();
 
-    void paintEvent ( QPaintEvent * event ) override;
+  void connectInspectorView();
 
-  private:
+  void connectItemSelectorButtons();
 
-    void connectItemSelector();
+  void createLayout();
 
-    void connectInspectorView();
+  void createGridViewLayout();
 
-    void connectItemSelectorButtons();
+  QScrollArea* m_selectorScrollArea;
 
-    void createLayout();
+  OSItemSelector* m_itemSelector;
 
-    void createGridViewLayout();
+  OSItemSelectorButtons* m_itemSelectorButtons;
 
-    QScrollArea* m_selectorScrollArea;
-
-    OSItemSelector* m_itemSelector;
-
-    OSItemSelectorButtons* m_itemSelectorButtons;
-
-    OSInspectorView* m_inspectorView;
-
+  OSInspectorView* m_inspectorView;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_SUBTABVIEW_HPP
+#endif  // OPENSTUDIO_SUBTABVIEW_HPP

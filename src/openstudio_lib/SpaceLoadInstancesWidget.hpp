@@ -32,7 +32,7 @@
 
 #include "ModelObjectVectorController.hpp"
 
-#include <openstudio/nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/nano/nano_signal_slot.hpp>  // Signal-Slot replacement
 #include <openstudio/model/Building.hpp>
 #include <openstudio/model/DefaultScheduleSet.hpp>
 #include <openstudio/model/Model.hpp>
@@ -41,7 +41,6 @@
 #include <openstudio/model/SpaceType.hpp>
 
 #include <openstudio/utilities/idf/WorkspaceObject_Impl.hpp>
-
 
 #include <QWidget>
 
@@ -61,36 +60,31 @@ class SpaceLoadInstanceDefinitionVectorController : public ModelObjectVectorCont
 {
   Q_OBJECT
 
-public:
-
+ public:
   virtual ~SpaceLoadInstanceDefinitionVectorController() {}
 
-protected:
-
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
-  virtual void onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId) override;
+  virtual void onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) override;
 };
 
 class SpaceLoadInstanceScheduleVectorController : public ModelObjectVectorController
 {
   Q_OBJECT
 
-public:
-
+ public:
   virtual ~SpaceLoadInstanceScheduleVectorController() {}
   virtual void attach(const model::ModelObject& modelObject) override;
 
-protected:
-
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onRemoveItem(OSItem* item) override;
-  virtual void onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId) override;
+  virtual void onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) override;
   virtual void onDrop(const OSItemId& itemId) override;
 
-private:
-
+ private:
   void attachOtherModelObjects(const model::SpaceLoadInstance& spaceLoadInstance);
   void attachOtherModelObjects(const model::Space& space);
   void attachOtherModelObjects(const model::SpaceType& spaceType);
@@ -103,14 +97,14 @@ class SpaceLoadInstanceActivityScheduleVectorController : public ModelObjectVect
 {
   Q_OBJECT
 
-public:
+ public:
   virtual ~SpaceLoadInstanceActivityScheduleVectorController() {}
 
-protected:
+ protected:
   virtual void onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) override;
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onRemoveItem(OSItem* item) override;
-  virtual void onReplaceItem(OSItem * currentItem, const OSItemId& replacementItemId) override;
+  virtual void onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) override;
   virtual void onDrop(const OSItemId& itemId) override;
 };
 
@@ -118,19 +112,19 @@ class SpaceLoadInstanceMiniView : public QWidget
 {
   Q_OBJECT
 
-public:
+ public:
   SpaceLoadInstanceMiniView(const model::SpaceLoadInstance& spaceLoadInstance, bool isDefault);
   virtual ~SpaceLoadInstanceMiniView() {}
   model::SpaceLoadInstance spaceLoadInstance() const;
   bool isDefault() const;
 
-signals:
+ signals:
   void removeClicked(SpaceLoadInstanceMiniView* spaceLoadInstanceMiniView);
 
-private slots:
+ private slots:
   void onRemoveClicked();
 
-private:
+ private:
   OSDoubleEdit2* m_multiplierEdit;
   OSLineEdit2* m_nameEdit;
   QLabel* m_activityScheduleLabel;
@@ -150,7 +144,7 @@ private:
 
   boost::optional<model::SpaceLoadInstance> opt_spaceLoadInstance;
 
-private:
+ private:
   void createLayout(bool isDefault);
 };
 
@@ -158,10 +152,10 @@ class NewSpaceLoadVectorController : public ModelObjectVectorController
 {
   Q_OBJECT
 
-public:
+ public:
   virtual ~NewSpaceLoadVectorController() {}
 
-protected:
+ protected:
   virtual std::vector<OSItemId> makeVector() override;
   virtual void onDrop(const OSItemId& itemId) override;
 };
@@ -170,15 +164,14 @@ class SpaceLoadInstancesWidget : public QWidget, public Nano::Observer
 {
   Q_OBJECT
 
-public:
-
+ public:
   SpaceLoadInstancesWidget(QWidget* parent = nullptr);
   virtual ~SpaceLoadInstancesWidget() {}
   void attach(const model::Space& space);
   void attach(const model::SpaceType& spaceType);
   void detach();
 
-private slots:
+ private slots:
 
   void remove(SpaceLoadInstanceMiniView* spaceLoadInstanceMiniView);
 
@@ -194,8 +187,7 @@ private slots:
 
   void refresh();
 
-private:
-
+ private:
   void addSpaceLoads(const model::Space& space);
 
   void addSpaceTypeLoads(const model::SpaceType& spaceType, bool addAsDefaultLoads);
@@ -214,6 +206,6 @@ private:
   bool m_dirty;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_SPACELOADINSTANCESWIDGET_HPP
+#endif  // OPENSTUDIO_SPACELOADINSTANCESWIDGET_HPP

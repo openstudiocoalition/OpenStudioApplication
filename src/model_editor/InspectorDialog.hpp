@@ -39,7 +39,7 @@
 #include <openstudio/utilities/core/UUID.hpp>
 #include <openstudio/utilities/core/Enum.hpp>
 
-#include <openstudio/nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/nano/nano_signal_slot.hpp>  // Signal-Slot replacement
 
 #include <QWidget>
 #include <QMainWindow>
@@ -53,35 +53,28 @@ class QShowEvent;
 class QCloseEvent;
 class InspectorGadget;
 
-namespace openstudio{
-  class WorkspaceObject;
+namespace openstudio {
+class WorkspaceObject;
 
-  namespace model{
-    class ModelObject;
-  }
+namespace model {
+class ModelObject;
 }
+}  // namespace openstudio
 
 #ifndef Q_MOC_RUN
-OPENSTUDIO_ENUM( InspectorDialogClient,
-  ((AllOpenStudio))
-  ((SketchUpPlugin))
-);
+OPENSTUDIO_ENUM(InspectorDialogClient, ((AllOpenStudio))((SketchUpPlugin)));
 #endif
-
 
 class MODELEDITOR_API InspectorDialog : public QMainWindow, public Nano::Observer
 {
   Q_OBJECT;
 
-public:
-
+ public:
   /// create a new dialog with empty model
-  InspectorDialog(InspectorDialogClient client = InspectorDialogClient::AllOpenStudio, QWidget * parent = nullptr);
+  InspectorDialog(InspectorDialogClient client = InspectorDialogClient::AllOpenStudio, QWidget* parent = nullptr);
 
   /// create a new dialog for existing model
-  InspectorDialog(openstudio::model::Model& model,
-                  InspectorDialogClient client = InspectorDialogClient::AllOpenStudio,
-                  QWidget * parent = nullptr);
+  InspectorDialog(openstudio::model::Model& model, InspectorDialogClient client = InspectorDialogClient::AllOpenStudio, QWidget* parent = nullptr);
 
   virtual ~InspectorDialog();
 
@@ -89,20 +82,20 @@ public:
   openstudio::IddObjectType iddObjectType() const;
 
   // set the idd object type, must be an allowable type
-  bool setIddObjectType(const openstudio::IddObjectType&, bool force=false);
+  bool setIddObjectType(const openstudio::IddObjectType&, bool force = false);
 
   // get handles of the selected objects
   std::vector<openstudio::Handle> selectedObjectHandles() const;
 
   // set the selected object handles, all handles must be found in current model and be of the
   // same allowable idd object type
-  bool setSelectedObjectHandles(const std::vector<openstudio::Handle>&, bool force=false);
+  bool setSelectedObjectHandles(const std::vector<openstudio::Handle>&, bool force = false);
 
   // get the current model
   openstudio::model::Model model() const;
 
   // point the dialog at a new model
-  void setModel(openstudio::model::Model& model, bool force=false);
+  void setModel(openstudio::model::Model& model, bool force = false);
 
   // void rebuild inspector gadget
   void rebuildInspectorGadget(bool recursive);
@@ -115,7 +108,7 @@ public:
 
   void displayIP(const bool displayIP);
 
-public slots:
+ public slots:
 
   virtual void onIddObjectTypeChanged(const openstudio::IddObjectType&);
 
@@ -131,7 +124,7 @@ public slots:
 
   virtual void onPushButtonPurge(bool);
 
-signals:
+ signals:
 
   // emitted when user selects a new idd object type, will be an allowable type
   void iddObjectTypeChanged(const openstudio::IddObjectType&);
@@ -144,15 +137,14 @@ signals:
 
   void toggleUnitsClicked(bool);
 
-protected:
-
+ protected:
   // handle show event
-  virtual void showEvent(QShowEvent *t_event) override;
+  virtual void showEvent(QShowEvent* t_event) override;
 
   // handle close event
-  virtual void closeEvent(QCloseEvent *t_event) override;
+  virtual void closeEvent(QCloseEvent* t_event) override;
 
-private slots:
+ private slots:
 
   // for testing
   friend class ModelEditorFixture;
@@ -160,13 +152,14 @@ private slots:
   //void onCheckBox(bool checked);
   void onListWidgetSelectionChanged();
   void onTableWidgetSelectionChanged();
-  void onAddWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl, const openstudio::IddObjectType& type, const openstudio::UUID& uuid);
+  void onAddWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl, const openstudio::IddObjectType& type,
+                            const openstudio::UUID& uuid);
   void onWorkspaceChange();
   void onTimeout();
-  void onRemoveWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl, const openstudio::IddObjectType& type, const openstudio::UUID& uuid);
+  void onRemoveWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl, const openstudio::IddObjectType& type,
+                               const openstudio::UUID& uuid);
 
-private:
-
+ private:
   QListWidget* m_listWidget;
   QStackedWidget* m_stackedWidget;
   QLabel* m_selectionLabel;
@@ -175,7 +168,7 @@ private:
   QPushButton* m_pushButtonCopy;
   QPushButton* m_pushButtonDelete;
   QPushButton* m_pushButtonPurge;
-  InspectorGadget * m_inspectorGadget;
+  InspectorGadget* m_inspectorGadget;
 
   openstudio::IddFile m_iddFile;
   std::set<openstudio::IddObjectType> m_typesToDisplay;
@@ -207,4 +200,4 @@ private:
   void loadModel();
 };
 
-#endif // MODELEDITOR_INSPECTORDIALOG_HPP
+#endif  // MODELEDITOR_INSPECTORDIALOG_HPP

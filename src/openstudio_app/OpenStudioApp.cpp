@@ -37,6 +37,7 @@
 #include "../openstudio_lib/OSDocument.hpp"
 
 #include "../model_editor/AccessPolicyStore.hpp"
+#include "../model_editor/GithubReleases.hpp"
 #include "../model_editor/Utilities.hpp"
 
 #include "../shared_gui_components/WaitDialog.hpp"
@@ -141,20 +142,17 @@ using namespace openstudio::model;
 
 namespace openstudio {
 
-bool TouchEater::eventFilter(QObject *obj, QEvent *event)
-{
-    if (event->type() == QEvent::TouchBegin) {
-        return true;
-    } else {
-        // standard event processing
-        return QObject::eventFilter(obj, event);
-    }
+bool TouchEater::eventFilter(QObject* obj, QEvent* event) {
+  if (event->type() == QEvent::TouchBegin) {
+    return true;
+  } else {
+    // standard event processing
+    return QObject::eventFilter(obj, event);
+  }
 }
 
-OpenStudioApp::OpenStudioApp( int & argc, char ** argv)
-  : OSAppBase(argc, argv, QSharedPointer<MeasureManager>(new MeasureManager(this))),
-    m_measureManagerProcess(nullptr)
-{
+OpenStudioApp::OpenStudioApp(int& argc, char** argv)
+  : OSAppBase(argc, argv, QSharedPointer<MeasureManager>(new MeasureManager(this))), m_measureManagerProcess(nullptr) {
   setOrganizationName("NREL");
   QCoreApplication::setOrganizationDomain("nrel.gov");
   setApplicationName("OpenStudioApp");
@@ -169,42 +167,42 @@ OpenStudioApp::OpenStudioApp( int & argc, char ** argv)
   readSettings();
 
   QFile f(":/library/OpenStudioPolicy.xml");
-  if(f.open(QFile::ReadOnly)) {
+  if (f.open(QFile::ReadOnly)) {
     const auto data = f.readAll();
     openstudio::model::AccessPolicyStore::Instance().loadFile(std::vector<char>{data.begin(), data.end()});
   }
 
   QFile data(":/openstudiolib.qss");
   QString style;
-  if(data.open(QFile::ReadOnly))
-  {
+  if (data.open(QFile::ReadOnly)) {
     QTextStream styleIn(&data);
     style = styleIn.readAll();
     data.close();
     setStyleSheet(style);
   }
 
-  #ifdef Q_OS_DARWIN
-    std::stringstream webenginePath;
-    webenginePath << QCoreApplication::applicationDirPath().toStdString();
-    webenginePath << "/../Frameworks/QtWebEngineCore.framework/Versions/5/Helpers/QtWebEngineProcess.app/Contents/MacOS/QtWebEngineProcess";
-    if( filesystem::exists(filesystem::path(webenginePath.str())) ) {
-      setenv("QTWEBENGINEPROCESS_PATH",webenginePath.str().c_str(),true);
-    }
+#ifdef Q_OS_DARWIN
+  std::stringstream webenginePath;
+  webenginePath << QCoreApplication::applicationDirPath().toStdString();
+  webenginePath << "/../Frameworks/QtWebEngineCore.framework/Versions/5/Helpers/QtWebEngineProcess.app/Contents/MacOS/QtWebEngineProcess";
+  if (filesystem::exists(filesystem::path(webenginePath.str()))) {
+    setenv("QTWEBENGINEPROCESS_PATH", webenginePath.str().c_str(), true);
+  }
 
-    setQuitOnLastWindowClosed( false );
+  setQuitOnLastWindowClosed(false);
 
-    m_startupMenu = std::shared_ptr<StartupMenu>(new StartupMenu());
-    connect(m_startupMenu.get(), &StartupMenu::exitClicked, this, &OpenStudioApp::quit);
-    connect(m_startupMenu.get(), &StartupMenu::importClicked, this, &OpenStudioApp::importIdf);
-    connect(m_startupMenu.get(), &StartupMenu::importgbXMLClicked, this, &OpenStudioApp::importgbXML);
-    connect(m_startupMenu.get(), &StartupMenu::importSDDClicked, this, &OpenStudioApp::importSDD);
-    connect(m_startupMenu.get(), &StartupMenu::importIFCClicked, this, &OpenStudioApp::importIFC);
-    connect(m_startupMenu.get(), &StartupMenu::loadFileClicked, this, &OpenStudioApp::open);
-    connect(m_startupMenu.get(), &StartupMenu::newClicked, this, &OpenStudioApp::newModel);
-    connect(m_startupMenu.get(), &StartupMenu::helpClicked, this, &OpenStudioApp::showHelp);
-    connect(m_startupMenu.get(), &StartupMenu::aboutClicked, this, &OpenStudioApp::showAbout);
-  #endif
+  m_startupMenu = std::shared_ptr<StartupMenu>(new StartupMenu());
+  connect(m_startupMenu.get(), &StartupMenu::exitClicked, this, &OpenStudioApp::quit);
+  connect(m_startupMenu.get(), &StartupMenu::importClicked, this, &OpenStudioApp::importIdf);
+  connect(m_startupMenu.get(), &StartupMenu::importgbXMLClicked, this, &OpenStudioApp::importgbXML);
+  connect(m_startupMenu.get(), &StartupMenu::importSDDClicked, this, &OpenStudioApp::importSDD);
+  connect(m_startupMenu.get(), &StartupMenu::importIFCClicked, this, &OpenStudioApp::importIFC);
+  connect(m_startupMenu.get(), &StartupMenu::loadFileClicked, this, &OpenStudioApp::open);
+  connect(m_startupMenu.get(), &StartupMenu::newClicked, this, &OpenStudioApp::newModel);
+  connect(m_startupMenu.get(), &StartupMenu::helpClicked, this, &OpenStudioApp::showHelp);
+  connect(m_startupMenu.get(), &StartupMenu::checkForUpdateClicked, this, &OpenStudioApp::checkForUpdate);
+  connect(m_startupMenu.get(), &StartupMenu::aboutClicked, this, &OpenStudioApp::showAbout);
+#endif
 
   waitDialog()->show();
 
@@ -216,18 +214,17 @@ OpenStudioApp::OpenStudioApp( int & argc, char ** argv)
   // Non blocking
   startMeasureManagerProcess();
 
-  auto waitForMeasureManagerFuture = QtConcurrent::run(&measureManager(),&MeasureManager::waitForStarted,10000);
+  auto waitForMeasureManagerFuture = QtConcurrent::run(&measureManager(), &MeasureManager::waitForStarted, 10000);
   m_waitForMeasureManagerWatcher.setFuture(waitForMeasureManagerFuture);
   connect(&m_waitForMeasureManagerWatcher, &QFutureWatcher<void>::finished, this, &OpenStudioApp::onMeasureManagerAndLibraryReady);
 
-  auto buildCompLibrariesFuture = QtConcurrent::run(this,&OpenStudioApp::buildCompLibraries);
+  auto buildCompLibrariesFuture = QtConcurrent::run(this, &OpenStudioApp::buildCompLibraries);
   m_buildCompLibWatcher.setFuture(buildCompLibrariesFuture);
-  connect(&m_buildCompLibWatcher, &QFutureWatcher<std::vector<std::string> >::finished, this, &OpenStudioApp::onMeasureManagerAndLibraryReady);
+  connect(&m_buildCompLibWatcher, &QFutureWatcher<std::vector<std::string>>::finished, this, &OpenStudioApp::onMeasureManagerAndLibraryReady);
 }
 
-OpenStudioApp::~OpenStudioApp()
-{
-  if (m_measureManagerProcess){
+OpenStudioApp::~OpenStudioApp() {
+  if (m_measureManagerProcess) {
     m_measureManagerProcess->disconnect();
     delete m_measureManagerProcess;
     m_measureManagerProcess = nullptr;
@@ -235,7 +232,7 @@ OpenStudioApp::~OpenStudioApp()
 }
 
 void OpenStudioApp::onMeasureManagerAndLibraryReady() {
-  if( m_buildCompLibWatcher.isFinished() && m_waitForMeasureManagerWatcher.isFinished() ) {
+  if (m_buildCompLibWatcher.isFinished() && m_waitForMeasureManagerWatcher.isFinished()) {
     // m_waitForMeasureManagerWatcher might be finished, but that might be because it timeout'ed
     // So you do want to check the result of the future now that it catches the return type
     // (or call measureManager().isStarted() equivalently)
@@ -249,14 +246,15 @@ void OpenStudioApp::onMeasureManagerAndLibraryReady() {
         msgBox.setText("Failed to start the Measure Manager. Would you like to retry?");
         msgBox.setStandardButtons(QMessageBox::Retry | QMessageBox::Close);
         if (msgBox.exec() == QMessageBox::Close) {
-          LOG_AND_THROW("Exit after measure manager failed to start in given time.");;
+          LOG_AND_THROW("Exit after measure manager failed to start in given time.");
+          ;
         } else {
           measureManager().waitForStarted(10000);
           ++currentTry;
         }
       }
       LOG(Info, "Recovered from Measure Manager problem, managed to start it on try " << currentTry
-             << " at: " << toString(measureManager().url().toString()));
+                                                                                      << " at: " << toString(measureManager().url().toString()));
     }
 
     auto failed = m_buildCompLibWatcher.result();
@@ -265,33 +263,30 @@ void OpenStudioApp::onMeasureManagerAndLibraryReady() {
     bool openedCommandLine = false;
 
     QStringList args = QApplication::arguments();
-    args.removeFirst(); // application name
+    args.removeFirst();  // application name
 
-    if (args.size() == 1 || args.size() == 2){
+    if (args.size() == 1 || args.size() == 2) {
 
       // look for file path in args 0
-      QFileInfo info(args.at(0)); // handles windows links and "\"
+      QFileInfo info(args.at(0));  // handles windows links and "\"
       QString fileName = info.absoluteFilePath();
 
       osversion::VersionTranslator versionTranslator;
       versionTranslator.setAllowNewerVersions(false);
 
       boost::optional<openstudio::model::Model> model = versionTranslator.loadModel(toPath(fileName));
-      if( model ){
+      if (model) {
 
-        m_osDocument = std::shared_ptr<OSDocument>( new OSDocument(componentLibrary(),
-                                                                   resourcesPath(),
-                                                                   model,
-                                                                   fileName) );
+        m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), model, fileName));
 
         connectOSDocumentSignals();
 
-        if(args.size() == 2){
+        if (args.size() == 2) {
           // check for 'noSavePath'
-          if (args.at(1) == QString("noSavePath")){
+          if (args.at(1) == QString("noSavePath")) {
             m_osDocument->setSavePath("");
             QTimer::singleShot(0, m_osDocument.get(), SLOT(markAsModified()));
-          }else{
+          } else {
             LOG_FREE(Warn, "OpenStudio", "Incorrect second argument '" << toString(args.at(1)) << "'");
           }
         }
@@ -300,27 +295,25 @@ void OpenStudioApp::onMeasureManagerAndLibraryReady() {
 
         versionUpdateMessageBox(versionTranslator, true, fileName, openstudio::toPath(m_osDocument->modelTempDir()));
 
-      }else{
+      } else {
         LOG_FREE(Warn, "OpenStudio", "Could not open file at " << toString(fileName));
 
         versionUpdateMessageBox(versionTranslator, false, fileName, openstudio::path());
       }
 
-    }else if(args.size() > 2){
+    } else if (args.size() > 2) {
       LOG_FREE(Warn, "OpenStudio", "Incorrect number of arguments " << args.size());
     }
 
-    if (!openedCommandLine){
+    if (!openedCommandLine) {
       newFromEmptyTemplateSlot();
     }
   }
 }
 
-bool OpenStudioApp::openFile(const QString& fileName, bool restoreTabs)
-{
+bool OpenStudioApp::openFile(const QString& fileName, bool restoreTabs) {
   // Note: already checked for in open() before calling this
-  if(fileName.length() > 0)
-  {
+  if (fileName.length() > 0) {
     osversion::VersionTranslator versionTranslator;
     versionTranslator.setAllowNewerVersions(false);
 
@@ -334,14 +327,14 @@ bool OpenStudioApp::openFile(const QString& fileName, bool restoreTabs)
 
       int startTabIndex = 0;
       int startSubTabIndex = 0;
-      if( m_osDocument ){
+      if (m_osDocument) {
 
-        if (restoreTabs){
+        if (restoreTabs) {
           startTabIndex = m_osDocument->verticalTabIndex();
           startSubTabIndex = m_osDocument->subTabIndex();
         }
 
-        if( !closeDocument() ) {
+        if (!closeDocument()) {
           this->setQuitOnLastWindowClosed(wasQuitOnLastWindowClosed);
           return false;
         }
@@ -354,13 +347,8 @@ bool OpenStudioApp::openFile(const QString& fileName, bool restoreTabs)
       waitDialog()->setVisible(true);
       processEvents();
 
-      m_osDocument = std::shared_ptr<OSDocument>( new OSDocument(componentLibrary(),
-                                                                 resourcesPath(),
-                                                                 model,
-                                                                 fileName,
-                                                                 false,
-                                                                 startTabIndex,
-                                                                 startSubTabIndex) );
+      m_osDocument =
+        std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), model, fileName, false, startTabIndex, startSubTabIndex));
 
       connectOSDocumentSignals();
 
@@ -371,7 +359,7 @@ bool OpenStudioApp::openFile(const QString& fileName, bool restoreTabs)
       this->setQuitOnLastWindowClosed(wasQuitOnLastWindowClosed);
 
       return true;
-    }else{
+    } else {
       LOG_FREE(Warn, "OpenStudio", "Could not open file at " << toString(fileName));
 
       versionUpdateMessageBox(versionTranslator, false, fileName, openstudio::path());
@@ -380,14 +368,13 @@ bool OpenStudioApp::openFile(const QString& fileName, bool restoreTabs)
   return false;
 }
 
-std::vector<std::string> OpenStudioApp::buildCompLibraries()
-{
+std::vector<std::string> OpenStudioApp::buildCompLibraries() {
   std::vector<std::string> failed;
 
   // This is unused
   //QWidget * parent = nullptr;
   //if( this->currentDocument() ){
-    //parent = this->currentDocument()->mainWindow();
+  //parent = this->currentDocument()->mainWindow();
   //}
 
   // Get the first Qlabel waitDialog (0 = stretch, 1 = "Loading model", 2 = "This may take a minute...", 3=hidden lable,   = stretch)
@@ -404,13 +391,12 @@ std::vector<std::string> OpenStudioApp::buildCompLibraries()
 
   std::string thisVersion = openStudioVersion();
 
-  for( auto path : libraryPaths() ) {
+  for (auto path : libraryPaths()) {
     try {
-      if ( exists(path) ) {
+      if (exists(path)) {
         boost::optional<VersionString> version = openstudio::IdfFile::loadVersionOnly(path);
         if (version) {
-          waitDialog()->m_thirdLine->setText(QString::fromStdString("Translation From version " + version->str()
-                                          + " to " + thisVersion + ": "));
+          waitDialog()->m_thirdLine->setText(QString::fromStdString("Translation From version " + version->str() + " to " + thisVersion + ": "));
         } else {
           waitDialog()->m_thirdLine->setText("Unknown starting version");
         }
@@ -429,7 +415,7 @@ std::vector<std::string> OpenStudioApp::buildCompLibraries()
       } else {
         failed.push_back(path.string());
       }
-    } catch(...) {
+    } catch (...) {
       failed.push_back(path.string());
     }
   }
@@ -440,80 +426,62 @@ std::vector<std::string> OpenStudioApp::buildCompLibraries()
   return failed;
 }
 
-OpenStudioApp * OpenStudioApp::instance()
-{
-  return qobject_cast<OpenStudioApp *>(QApplication::instance());
+OpenStudioApp* OpenStudioApp::instance() {
+  return qobject_cast<OpenStudioApp*>(QApplication::instance());
 }
 
-openstudio::model::Model OpenStudioApp::componentLibrary() const
-{
+openstudio::model::Model OpenStudioApp::componentLibrary() const {
   return m_compLibrary;
 }
 
-openstudio::model::Model OpenStudioApp::hvacComponentLibrary() const
-{
+openstudio::model::Model OpenStudioApp::hvacComponentLibrary() const {
   return m_hvacCompLibrary;
 }
 
-void OpenStudioApp::quit()
-{
-  if( m_osDocument )
-  {
-    if( closeDocument() )
-    {
+void OpenStudioApp::quit() {
+  if (m_osDocument) {
+    if (closeDocument()) {
       QApplication::quit();
     }
-  }
-  else
-  {
+  } else {
     QApplication::quit();
   }
 }
 
-void OpenStudioApp::newFromEmptyTemplateSlot()
-{
+void OpenStudioApp::newFromEmptyTemplateSlot() {
   newFromTemplateSlot(NEWFROMTEMPLATE_EMPTY);
 }
 
-void OpenStudioApp::newFromTemplateSlot( NewFromTemplateEnum newFromTemplateEnum )
-{
-  m_osDocument = std::shared_ptr<OSDocument>( new OSDocument( componentLibrary(), resourcesPath() ) );
+void OpenStudioApp::newFromTemplateSlot(NewFromTemplateEnum newFromTemplateEnum) {
+  m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath()));
 
   connectOSDocumentSignals();
 
   waitDialog()->hide();
 }
 
-std::shared_ptr<OSDocument> OpenStudioApp::currentDocument() const
-{
+std::shared_ptr<OSDocument> OpenStudioApp::currentDocument() const {
   return m_osDocument;
 }
 
-void OpenStudioApp::importIdf()
-{
-  QWidget * parent = nullptr;
+void OpenStudioApp::importIdf() {
+  QWidget* parent = nullptr;
 
-  if( this->currentDocument() )
-  {
+  if (this->currentDocument()) {
     parent = this->currentDocument()->mainWindow();
   }
 
-  QString fileName = QFileDialog::getOpenFileName( parent,
-                                                   tr("Import Idf"),
-                                                   lastPath(),
-                                                   tr("(*.idf)") );
+  QString fileName = QFileDialog::getOpenFileName(parent, tr("Import Idf"), lastPath(), tr("(*.idf)"));
 
-  if( ! (fileName == "") )
-  {
+  if (!(fileName == "")) {
     setLastPath(QFileInfo(fileName).path());
 
     boost::optional<IdfFile> idfFile;
 
     openstudio::path path = toPath(fileName);
-    idfFile = openstudio::IdfFile::load(path,IddFileType::EnergyPlus);
+    idfFile = openstudio::IdfFile::load(path, IddFileType::EnergyPlus);
 
-    if( idfFile )
-    {
+    if (idfFile) {
 
       IdfFile _idfFile = idfFile.get();
 
@@ -534,18 +502,18 @@ void OpenStudioApp::importIdf()
           informativeText = QString("The IDF is at version '") + toQString(idfFileVersion->str());
 
           if (idfFileVersion.get() < currentVersion) {
-            informativeText.append(QString("' while OpenStudio uses a <strong>newer</strong> EnergyPlus '")  + toQString(currentVersion.str())
-                                 + QString("'. Consider using the EnergyPlus Auxiliary program IDFVersionUpdater to update your IDF file."));
+            informativeText.append(QString("' while OpenStudio uses a <strong>newer</strong> EnergyPlus '") + toQString(currentVersion.str()) +
+                                   QString("'. Consider using the EnergyPlus Auxiliary program IDFVersionUpdater to update your IDF file."));
           } else if (idfFileVersion.get() > currentVersion) {
-            informativeText.append(QString("' while OpenStudio uses an <strong>older</strong> EnergyPlus '")  + toQString(currentVersion.str()) + QString("'."));
+            informativeText.append(QString("' while OpenStudio uses an <strong>older</strong> EnergyPlus '") + toQString(currentVersion.str()) +
+                                   QString("'."));
           } else {
-            informativeText.append(QString("' which is the <strong>same</strong> version of EnergyPlus that OpenStudio uses (")
-                                 + toQString(currentVersion.str()) + QString(")."));
+            informativeText.append(QString("' which is the <strong>same</strong> version of EnergyPlus that OpenStudio uses (") +
+                                   toQString(currentVersion.str()) + QString(")."));
           }
         } else {
-          informativeText = QString("<strong>The IDF does not have a VersionObject</strong>. Check that it is of correct version (")
-                          + toQString(currentVersion.str())
-                          + QString(") and that all fields are valid against Energy+.idd. ");
+          informativeText = QString("<strong>The IDF does not have a VersionObject</strong>. Check that it is of correct version (") +
+                            toQString(currentVersion.str()) + QString(") and that all fields are valid against Energy+.idd. ");
         }
 
         informativeText.append("<br/><br/>The ValidityReport follows.");
@@ -556,7 +524,8 @@ void OpenStudioApp::importIdf()
         //messageBox.setText(text);
 
         // Customize with title and critical icon
-        QMessageBox messageBox(QMessageBox::Critical, " IDF Import Failed", text, QMessageBox::NoButton, parent, Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
+        QMessageBox messageBox(QMessageBox::Critical, " IDF Import Failed", text, QMessageBox::NoButton, parent,
+                               Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
 
         messageBox.setInformativeText(informativeText);
 
@@ -575,18 +544,15 @@ void OpenStudioApp::importIdf()
         bool wasQuitOnLastWindowClosed = this->quitOnLastWindowClosed();
         this->setQuitOnLastWindowClosed(false);
 
-        if( m_osDocument )
-        {
-          if( !closeDocument() ) {
+        if (m_osDocument) {
+          if (!closeDocument()) {
             this->setQuitOnLastWindowClosed(wasQuitOnLastWindowClosed);
             return;
           }
           processEvents();
         }
 
-        m_osDocument = std::shared_ptr<OSDocument>( new OSDocument(componentLibrary(),
-                                                                   resourcesPath(),
-                                                                   model) );
+        m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), model));
         m_osDocument->markAsModified();
         // ETH: parent should change now ...
         //parent = m_osDocument->mainWindow();
@@ -596,7 +562,7 @@ void OpenStudioApp::importIdf()
         QString log;
 
         // DetailedText of QMessageBox is always interpreted a raw text, so not HTML formatting.
-/*
+        /*
  *        if (!trans.errors().empty()) {
  *          log.append("<h3>Errors:</h3>");
  *          log.append("<ul>");
@@ -634,7 +600,7 @@ void OpenStudioApp::importIdf()
 
         if (!trans.errors().empty()) {
           log.append("=============== Errors ===============\n\n");
-          for( const auto & message : trans.errors() ) {
+          for (const auto& message : trans.errors()) {
             log.append(" * " + QString::fromStdString(message.logMessage()) + "\n");
           }
           log.append("\n\n");
@@ -642,7 +608,7 @@ void OpenStudioApp::importIdf()
 
         if (!trans.warnings().empty()) {
           log.append("============== Warnings ==============\n\n");
-          for( const auto & message : trans.warnings() ) {
+          for (const auto& message : trans.warnings()) {
             log.append(" * " + QString::fromStdString(message.logMessage()) + "\n");
           }
           log.append("\n\n");
@@ -651,9 +617,9 @@ void OpenStudioApp::importIdf()
         if (!trans.untranslatedIdfObjects().empty()) {
           log.append("==== The following idf objects were not imported ====\n\n");
 
-          for( const auto & idfObject : trans.untranslatedIdfObjects() ) {
+          for (const auto& idfObject : trans.untranslatedIdfObjects()) {
             std::string message;
-            if( auto name = idfObject.name() ) {
+            if (auto name = idfObject.name()) {
               message = idfObject.iddObject().name() + " named " + name.get();
             } else {
               message = "Unnamed " + idfObject.iddObject().name();
@@ -668,8 +634,10 @@ void OpenStudioApp::importIdf()
         // messageBox.setText(text);
 
         // Passing parent = nullptr on purpose here
-        QMessageBox messageBox(QMessageBox::Warning, "IDF Import", text, QMessageBox::NoButton, nullptr, Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
-        messageBox.setInformativeText("Only geometry, constructions, loads, thermal zones, and schedules are supported by the OpenStudio IDF import feature.");
+        QMessageBox messageBox(QMessageBox::Warning, "IDF Import", text, QMessageBox::NoButton, nullptr,
+                               Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
+        messageBox.setInformativeText(
+          "Only geometry, constructions, loads, thermal zones, and schedules are supported by the OpenStudio IDF import feature.");
         messageBox.setDetailedText(log);
 
         messageBox.exec();
@@ -680,21 +648,17 @@ void OpenStudioApp::importIdf()
   }
 }
 
-void OpenStudioApp::importgbXML()
-{
+void OpenStudioApp::importgbXML() {
   import(GBXML);
 }
 
-void OpenStudioApp::importSDD()
-{
+void OpenStudioApp::importSDD() {
   import(SDD);
 }
 
-void OpenStudioApp::importIFC()
-{
-  QWidget * parent = nullptr;
-  if( this->currentDocument() )
-  {
+void OpenStudioApp::importIFC() {
+  QWidget* parent = nullptr;
+  if (this->currentDocument()) {
     parent = this->currentDocument()->mainWindow();
   }
 
@@ -714,30 +678,25 @@ void OpenStudioApp::importIFC()
       processEvents();
     }
 
-    m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(),
-      resourcesPath(),
-      *model));
+    m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), *model));
 
     m_osDocument->markAsModified();
 
     connectOSDocumentSignals();
 
     this->setQuitOnLastWindowClosed(wasQuitOnLastWindowClosed);
-
   }
-
 }
 
-void OpenStudioApp::import(OpenStudioApp::fileType type)
-{
-  QWidget * parent = nullptr;
+void OpenStudioApp::import(OpenStudioApp::fileType type) {
+  QWidget* parent = nullptr;
 
   std::vector<LogMessage> translatorErrors, translatorWarnings;
 
   QString fileExtension;
-  if(type == SDD){
+  if (type == SDD) {
     fileExtension = "SDD";
-  } else if(type == GBXML) {
+  } else if (type == GBXML) {
     fileExtension = "gbXML";
   } else {
     // should never get here
@@ -746,51 +705,42 @@ void OpenStudioApp::import(OpenStudioApp::fileType type)
   QString text("Import ");
   text.append(fileExtension);
 
-  if( this->currentDocument() )
-  {
+  if (this->currentDocument()) {
     parent = this->currentDocument()->mainWindow();
   }
 
-  QString fileName = QFileDialog::getOpenFileName( parent,
-                                                   tr(text.toStdString().c_str()),
-                                                   lastPath(),
-                                                   tr("(*.xml)") );
+  QString fileName = QFileDialog::getOpenFileName(parent, tr(text.toStdString().c_str()), lastPath(), tr("(*.xml)"));
 
-  if( ! (fileName == "") )
-  {
+  if (!(fileName == "")) {
     setLastPath(QFileInfo(fileName).path());
 
     boost::optional<model::Model> model;
 
-    if(type == SDD){
+    if (type == SDD) {
       sdd::ReverseTranslator trans;
       model = trans.loadModel(toPath(fileName));
       translatorErrors = trans.errors();
       translatorWarnings = trans.warnings();
-    } else if(type == GBXML) {
+    } else if (type == GBXML) {
       gbxml::ReverseTranslator trans;
       model = trans.loadModel(toPath(fileName));
       translatorErrors = trans.errors();
       translatorWarnings = trans.warnings();
     }
 
-    if( model )
-    {
+    if (model) {
       bool wasQuitOnLastWindowClosed = this->quitOnLastWindowClosed();
       this->setQuitOnLastWindowClosed(false);
 
-      if( m_osDocument )
-      {
-        if( !closeDocument() ) {
+      if (m_osDocument) {
+        if (!closeDocument()) {
           this->setQuitOnLastWindowClosed(wasQuitOnLastWindowClosed);
           return;
         }
         processEvents();
       }
 
-      m_osDocument = std::shared_ptr<OSDocument>( new OSDocument(componentLibrary(),
-                                                                 resourcesPath(),
-                                                                 *model) );
+      m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), *model));
       m_osDocument->markAsModified();
       // ETH: parent should change now ...
       //parent = m_osDocument->mainWindow();
@@ -801,8 +751,7 @@ void OpenStudioApp::import(OpenStudioApp::fileType type)
 
       QString log;
 
-      for( const auto & error : translatorErrors )
-      {
+      for (const auto& error : translatorErrors) {
         errorsOrWarnings = true;
 
         log.append(QString::fromStdString(error.logMessage()));
@@ -810,8 +759,7 @@ void OpenStudioApp::import(OpenStudioApp::fileType type)
         log.append("\n");
       }
 
-      for( const auto & warning : translatorWarnings )
-      {
+      for (const auto& warning : translatorWarnings) {
         errorsOrWarnings = true;
 
         log.append(QString::fromStdString(warning.logMessage()));
@@ -819,8 +767,8 @@ void OpenStudioApp::import(OpenStudioApp::fileType type)
         log.append("\n");
       }
 
-      if (errorsOrWarnings){
-        QMessageBox messageBox; // (parent); ETH: ... but is hidden, so don't actually use
+      if (errorsOrWarnings) {
+        QMessageBox messageBox;  // (parent); ETH: ... but is hidden, so don't actually use
         messageBox.setText("Errors or warnings occurred on " + fileExtension + " import.");
         messageBox.setDetailedText(log);
         messageBox.exec();
@@ -828,22 +776,20 @@ void OpenStudioApp::import(OpenStudioApp::fileType type)
 
       this->setQuitOnLastWindowClosed(wasQuitOnLastWindowClosed);
 
-    }else{
+    } else {
 
-      QMessageBox messageBox; // (parent); ETH: ... but is hidden, so don't actually use
+      QMessageBox messageBox;  // (parent); ETH: ... but is hidden, so don't actually use
       messageBox.setText("Could not import SDD file.");
 
       QString log("Could not import " + fileExtension + " file at " + fileName + ".\n\n");
 
-      for( const auto & error : translatorErrors )
-      {
+      for (const auto& error : translatorErrors) {
         log.append(QString::fromStdString(error.logMessage()));
         log.append("\n");
         log.append("\n");
       }
 
-      for( const auto & warning : translatorWarnings )
-      {
+      for (const auto& warning : translatorWarnings) {
         log.append(QString::fromStdString(warning.logMessage()));
         log.append("\n");
         log.append("\n");
@@ -855,16 +801,13 @@ void OpenStudioApp::import(OpenStudioApp::fileType type)
   }
 }
 
-bool OpenStudioApp::openFromDrag(QString path)
-{
+bool OpenStudioApp::openFromDrag(QString path) {
   return openFile(path);
 }
 
-bool OpenStudioApp::closeDocument()
-{
-  if(m_osDocument->modified())
-  {
-    QWidget * parent = m_osDocument->mainWindow();
+bool OpenStudioApp::closeDocument() {
+  if (m_osDocument->modified()) {
+    QWidget* parent = m_osDocument->mainWindow();
 
     auto messageBox = new QMessageBox(parent);
 
@@ -884,8 +827,7 @@ bool OpenStudioApp::closeDocument()
 
     delete messageBox;
 
-    switch (ret)
-    {
+    switch (ret) {
       case QMessageBox::Save:
 
         // Save was clicked
@@ -913,41 +855,31 @@ bool OpenStudioApp::closeDocument()
         return false;
     }
 
-  }
-  else
-  {
+  } else {
     m_osDocument->mainWindow()->hide();
     m_osDocument = std::shared_ptr<OSDocument>();
 
     return true;
   }
-
 }
 
-void OpenStudioApp::onCloseClicked()
-{
-  if( closeDocument() )
-  {
-    #ifndef Q_OS_DARWIN
-      QApplication::quit();
-    #endif
+void OpenStudioApp::onCloseClicked() {
+  if (closeDocument()) {
+#ifndef Q_OS_DARWIN
+    QApplication::quit();
+#endif
   }
 }
 
-void OpenStudioApp::open()
-{
+void OpenStudioApp::open() {
 
-  QWidget * parent = nullptr;
+  QWidget* parent = nullptr;
 
-  if( this->currentDocument() )
-  {
+  if (this->currentDocument()) {
     parent = this->currentDocument()->mainWindow();
   }
 
-  QString fileName = QFileDialog::getOpenFileName( parent,
-                                                   tr("Open"),
-                                                   lastPath(),
-                                                   tr("(*.osm)") );
+  QString fileName = QFileDialog::getOpenFileName(parent, tr("Open"), lastPath(), tr("(*.osm)"));
 
   if (!fileName.length()) return;
 
@@ -988,14 +920,12 @@ void OpenStudioApp::open()
 //  }
 //}
 
-void OpenStudioApp::newModel()
-{
+void OpenStudioApp::newModel() {
   bool wasQuitOnLastWindowClosed = this->quitOnLastWindowClosed();
   this->setQuitOnLastWindowClosed(false);
 
-  if( m_osDocument )
-  {
-    if( !closeDocument() ) {
+  if (m_osDocument) {
+    if (!closeDocument()) {
       this->setQuitOnLastWindowClosed(wasQuitOnLastWindowClosed);
       return;
     }
@@ -1010,21 +940,54 @@ void OpenStudioApp::newModel()
   //  m_startupView->show();
   //}
   //
-  newFromTemplateSlot( NEWFROMTEMPLATE_EMPTY ); // remove when above code uncommented
+  newFromTemplateSlot(NEWFROMTEMPLATE_EMPTY);  // remove when above code uncommented
   //
   //*************************************************************************************
 
   this->setQuitOnLastWindowClosed(wasQuitOnLastWindowClosed);
 }
 
-void  OpenStudioApp::showHelp()
-{
-  QDesktopServices::openUrl(QUrl("http://nrel.github.io/OpenStudio-user-documentation/reference/openstudio_application_interface/"));
+void OpenStudioApp::showHelp() {
+  QDesktopServices::openUrl(QUrl("http:/openstudiocoalition.org/reference/openstudio_application_interface/"));
 }
 
-void  OpenStudioApp::showAbout()
-{
-  QWidget * parent = nullptr;
+void OpenStudioApp::checkForUpdate() {
+  QWidget* parent = nullptr;
+
+  if (currentDocument()) {
+    parent = currentDocument()->mainWindow();
+  }
+
+  modeleditor::GithubReleases releases("openstudiocoalition", "OpenStudioApplication");
+  releases.waitForFinished();
+
+  QString text;
+  QMessageBox::StandardButtons buttons;
+  bool openURL = false;
+  if (releases.newReleaseAvailable()) {
+    text = QString(tr("A new version is available at <a href=\"")) + toQString(releases.releasesUrl()) + QString("\">") +
+           toQString(releases.releasesUrl()) + QString("</a>");
+    openURL = true;
+    buttons = QMessageBox::Open | QMessageBox::Ignore;
+  } else {
+    text = "Currently using the most recent version";
+    buttons = QMessageBox::Ok;
+  }
+
+  QMessageBox about(parent);
+  about.setStandardButtons(buttons);
+  about.setTextFormat(Qt::RichText);
+  about.setText(text);
+  about.setWindowTitle("Check for Updates");
+  about.exec();
+
+  if (openURL && (about.result() == QMessageBox::Open)) {
+    QDesktopServices::openUrl(QUrl(toQString(releases.releasesUrl())));
+  }
+}
+
+void OpenStudioApp::showAbout() {
+  QWidget* parent = nullptr;
 
   if (currentDocument()) {
     parent = currentDocument()->mainWindow();
@@ -1040,16 +1003,15 @@ void  OpenStudioApp::showAbout()
   about.exec();
 }
 
-void OpenStudioApp::reloadFile(const QString& osmPath, bool modified, bool saveCurrentTabs)
-{
+void OpenStudioApp::reloadFile(const QString& osmPath, bool modified, bool saveCurrentTabs) {
   OS_ASSERT(m_osDocument);
 
-  QFileInfo info(osmPath); // handles windows links and "\"
+  QFileInfo info(osmPath);  // handles windows links and "\"
   QString fileName = info.absoluteFilePath();
   osversion::VersionTranslator versionTranslator;
   openstudio::path path = toPath(fileName);
   boost::optional<openstudio::model::Model> model = versionTranslator.loadModel(path);
-  if (model){
+  if (model) {
 
     bool wasQuitOnLastWindowClosed = this->quitOnLastWindowClosed();
     this->setQuitOnLastWindowClosed(false);
@@ -1057,7 +1019,7 @@ void OpenStudioApp::reloadFile(const QString& osmPath, bool modified, bool saveC
     // DLM: load OSW from the existing temp dir
     openstudio::path workflowPath = openstudio::toPath(m_osDocument->modelTempDir()) / toPath("resources") / toPath("workflow.osw");
     boost::optional<WorkflowJSON> workflowJSON = WorkflowJSON::load(workflowPath);
-    if (workflowJSON){
+    if (workflowJSON) {
       model->setWorkflowJSON(*workflowJSON);
     }
 
@@ -1067,30 +1029,25 @@ void OpenStudioApp::reloadFile(const QString& osmPath, bool modified, bool saveC
 
     this->setQuitOnLastWindowClosed(wasQuitOnLastWindowClosed);
 
-  }else{
-    QMessageBox::warning (m_osDocument->mainWindow(), QString("Failed to load model"), QString("Failed to load model"));
+  } else {
+    QMessageBox::warning(m_osDocument->mainWindow(), QString("Failed to load model"), QString("Failed to load model"));
   }
 
   processEvents();
 }
 
-openstudio::path OpenStudioApp::resourcesPath() const
-{
+openstudio::path OpenStudioApp::resourcesPath() const {
   openstudio::path p;
-  if (isOpenStudioApplicationRunningFromBuildDirectory())
-  {
+  if (isOpenStudioApplicationRunningFromBuildDirectory()) {
     p = boost::filesystem::canonical(openstudio::toPath("src/openstudio_app/Resources"), getOpenStudioApplicationSourceDirectory());
-  }
-  else
-  {
+  } else {
     p = boost::filesystem::canonical(openstudio::toPath("../Resources"), getOpenStudioApplicationDirectory());
   }
 
   return p;
 }
 
-openstudio::path OpenStudioApp::openstudioCLIPath() const
-{
+openstudio::path OpenStudioApp::openstudioCLIPath() const {
   /*
    *auto dir = applicationDirPath();
    *QString ext;
@@ -1107,39 +1064,32 @@ openstudio::path OpenStudioApp::openstudioCLIPath() const
   return openstudio::getOpenStudioCoreCLI();
 }
 
-bool OpenStudioApp::notify(QObject* receiver, QEvent* event)
-{
+bool OpenStudioApp::notify(QObject* receiver, QEvent* event) {
   if (event->type() == QEvent::FileOpen) {
-    return openFile(static_cast<QFileOpenEvent *>(event)->file());
+    return openFile(static_cast<QFileOpenEvent*>(event)->file());
   }
   // Note: the original call below bypasses OSAppBase, OpenStudioApp's base class
   //return QApplication::notify(receiver, event);
   return OSAppBase::notify(receiver, event);
 }
 
-bool OpenStudioApp::event(QEvent * e)
-{
+bool OpenStudioApp::event(QEvent* e) {
   return OSAppBase::event(e);
 }
 
-void OpenStudioApp::childEvent(QChildEvent * e)
-{
+void OpenStudioApp::childEvent(QChildEvent* e) {
   OSAppBase::childEvent(e);
 }
 
-void OpenStudioApp::versionUpdateMessageBox(const osversion::VersionTranslator& translator,
-                                            bool successful,
-                                            const QString& fileName,
-                                            const openstudio::path &tempModelDir)
-{
+void OpenStudioApp::versionUpdateMessageBox(const osversion::VersionTranslator& translator, bool successful, const QString& fileName,
+                                            const openstudio::path& tempModelDir) {
   QMessageBox messageBox;
 
   QString log;
 
   std::vector<LogMessage> messages = translator.errors();
 
-  for( const auto & message : messages )
-  {
+  for (const auto& message : messages) {
     log.append(QString::fromStdString(message.logMessage()));
     log.append("\n");
     log.append("\n");
@@ -1147,8 +1097,7 @@ void OpenStudioApp::versionUpdateMessageBox(const osversion::VersionTranslator& 
 
   messages = translator.warnings();
 
-  for( const auto & message : messages )
-  {
+  for (const auto& message : messages) {
     log.append(QString::fromStdString(message.logMessage()));
     log.append("\n");
     log.append("\n");
@@ -1158,11 +1107,10 @@ void OpenStudioApp::versionUpdateMessageBox(const osversion::VersionTranslator& 
     messageBox.setDetailedText(log);
   }
 
-  if (successful){
+  if (successful) {
 
     bool removedScriptDirs = false;
-    if (!tempModelDir.empty())
-    {
+    if (!tempModelDir.empty()) {
       std::vector<openstudio::path> scriptfolders;
 
       scriptfolders.push_back(tempModelDir / openstudio::toPath("resources/scripts/post_energyplus"));
@@ -1171,12 +1119,8 @@ void OpenStudioApp::versionUpdateMessageBox(const osversion::VersionTranslator& 
       scriptfolders.push_back(tempModelDir / openstudio::toPath("resources/scripts/model_resources"));
       scriptfolders.push_back(tempModelDir / openstudio::toPath("resources/scripts/model_scripts"));
 
-      for (std::vector<openstudio::path>::const_iterator itr = scriptfolders.begin();
-          itr != scriptfolders.end();
-          ++itr)
-      {
-        if (openstudio::filesystem::exists(*itr))
-        {
+      for (std::vector<openstudio::path>::const_iterator itr = scriptfolders.begin(); itr != scriptfolders.end(); ++itr) {
+        if (openstudio::filesystem::exists(*itr)) {
           removedScriptDirs = true;
           openstudio::filesystem::remove_all(*itr);
         }
@@ -1186,26 +1130,20 @@ void OpenStudioApp::versionUpdateMessageBox(const osversion::VersionTranslator& 
     VersionString originalVersion(translator.originalVersion()), currentVersion(openStudioVersion());
     bool versionChanged = originalVersion != currentVersion;
 
-    if (versionChanged || removedScriptDirs)
-    {
+    if (versionChanged || removedScriptDirs) {
       QTimer::singleShot(0, m_osDocument.get(), SLOT(markAsModified()));
 
       QString message;
-      if (versionChanged)
-      {
+      if (versionChanged) {
         if (originalVersion > currentVersion) {
-          message = toQString("Opening future version " + originalVersion.str() + " using " +
-                           currentVersion.str() + ".");
+          message = toQString("Opening future version " + originalVersion.str() + " using " + currentVersion.str() + ".");
         } else {
-          message = toQString("Model updated from " + originalVersion.str() + " to " +
-                           currentVersion.str() + ".");
+          message = toQString("Model updated from " + originalVersion.str() + " to " + currentVersion.str() + ".");
         }
       }
 
-      if (removedScriptDirs)
-      {
-        if (!message.isEmpty())
-        {
+      if (removedScriptDirs) {
+        if (!message.isEmpty()) {
           message += "\n\n";
         }
 
@@ -1215,52 +1153,47 @@ void OpenStudioApp::versionUpdateMessageBox(const osversion::VersionTranslator& 
       messageBox.setText(message);
       messageBox.exec();
     }
-  }else{
+  } else {
     messageBox.setText(QString("Failed to open file at ") + fileName + QString("."));
     messageBox.exec();
   }
 }
 
-void OpenStudioApp::readSettings()
-{
+void OpenStudioApp::readSettings() {
   QString organizationName = QCoreApplication::organizationName();
   QString applicationName = QCoreApplication::applicationName();
   QSettings settings(organizationName, applicationName);
   setLastPath(settings.value("lastPath", QDir::homePath()).toString());
   setDviewPath(openstudio::toPath(settings.value("dviewPath", "").toString()));
-
 }
 
-void OpenStudioApp::writeSettings()
-{
+void OpenStudioApp::writeSettings() {
   QString organizationName = QCoreApplication::organizationName();
   QString applicationName = QCoreApplication::applicationName();
   QSettings settings(organizationName, applicationName);
   settings.setValue("lastPath", lastPath());
 }
 
-QString OpenStudioApp::lastPath() const
-{
+QString OpenStudioApp::lastPath() const {
   return QDir().exists(m_lastPath) ? m_lastPath : QDir::homePath();
 }
 
-void OpenStudioApp::setLastPath(const QString& t_lastPath)
-{
+void OpenStudioApp::setLastPath(const QString& t_lastPath) {
   m_lastPath = t_lastPath;
   writeSettings();
 }
 
-void OpenStudioApp::revertToSaved()
-{
+void OpenStudioApp::revertToSaved() {
   QString fileName = this->currentDocument()->mainWindow()->windowFilePath();
 
   QFile testFile(fileName);
-  if( !testFile.exists() ) {
+  if (!testFile.exists()) {
     // Tell the user the file has never been saved, and ask them if they want to create a new file
     QMessageBox::StandardButton reply;
-    reply = QMessageBox::question(mainWidget(), QString("Revert to Saved"), QString("This model has never been saved.\nDo you want to create a new model?"), QMessageBox::Yes|QMessageBox::No, QMessageBox::No);
-    if (reply == QMessageBox::Yes)
-    {
+    reply =
+      QMessageBox::question(mainWidget(), QString("Revert to Saved"), QString("This model has never been saved.\nDo you want to create a new model?"),
+                            QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
+    if (reply == QMessageBox::Yes) {
       // JM: copied DLM's hack below so we do not trigger prompt to save in call to closeDocument during newModel()
       // this->currentDocument()->markAsUnmodified();
 
@@ -1270,20 +1203,18 @@ void OpenStudioApp::revertToSaved()
   } else {
     // Ask for confirmation
     QMessageBox::StandardButton reply;
-    reply = QMessageBox::question(mainWidget(), QString("Revert to Saved"), QString("Are you sure you want to revert to the last saved version?"), QMessageBox::Yes|QMessageBox::No, QMessageBox::No);
-    if (reply == QMessageBox::Yes)
-    {
+    reply = QMessageBox::question(mainWidget(), QString("Revert to Saved"), QString("Are you sure you want to revert to the last saved version?"),
+                                  QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
+    if (reply == QMessageBox::Yes) {
       // DLM: quick hack so we do not trigger prompt to save in call to closeDocument during openFile
       this->currentDocument()->markAsUnmodified();
 
       openFile(fileName, true);
     }
   }
-
 }
 
-void OpenStudioApp::connectOSDocumentSignals()
-{
+void OpenStudioApp::connectOSDocumentSignals() {
   OS_ASSERT(m_osDocument);
   connect(m_osDocument.get(), &OSDocument::closeClicked, this, &OpenStudioApp::onCloseClicked);
   connect(m_osDocument.get(), &OSDocument::exitClicked, this, &OpenStudioApp::quit);
@@ -1298,15 +1229,13 @@ void OpenStudioApp::connectOSDocumentSignals()
   connect(m_osDocument.get(), &OSDocument::loadLibraryClicked, this, &OpenStudioApp::loadLibrary);
   connect(m_osDocument.get(), &OSDocument::newClicked, this, &OpenStudioApp::newModel);
   connect(m_osDocument.get(), &OSDocument::helpClicked, this, &OpenStudioApp::showHelp);
+  connect(m_osDocument.get(), &OSDocument::checkForUpdateClicked, this, &OpenStudioApp::checkForUpdate);
   connect(m_osDocument.get(), &OSDocument::aboutClicked, this, &OpenStudioApp::showAbout);
 }
 
-void OpenStudioApp::measureManagerProcessStateChanged(QProcess::ProcessState newState)
-{
-}
+void OpenStudioApp::measureManagerProcessStateChanged(QProcess::ProcessState newState) {}
 
-void OpenStudioApp::measureManagerProcessFinished()
-{
+void OpenStudioApp::measureManagerProcessFinished() {
   // any exit of the cli is an error
   // DLM: I can't get this to fire when I terminate the process in taskmanager
   OS_ASSERT(m_measureManagerProcess);
@@ -1324,8 +1253,8 @@ void OpenStudioApp::measureManagerProcessFinished()
   startMeasureManagerProcess();
 }
 
-void OpenStudioApp::startMeasureManagerProcess(){
-  if (m_measureManagerProcess){
+void OpenStudioApp::startMeasureManagerProcess() {
+  if (m_measureManagerProcess) {
     // will terminate the existing process, blocking call
     delete m_measureManagerProcess;
   }
@@ -1341,12 +1270,12 @@ void OpenStudioApp::startMeasureManagerProcess(){
   QUrl url(urlString);
   measureManager().setUrl(url);
 
-
   m_measureManagerProcess = new QProcess(this);
 
   bool test;
   // finished is an overloaded signal so have to be clear about which version to use
-  test = connect(m_measureManagerProcess, static_cast<void(QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), this, &OpenStudioApp::measureManagerProcessFinished);
+  test = connect(m_measureManagerProcess, static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), this,
+                 &OpenStudioApp::measureManagerProcessFinished);
   OS_ASSERT(test);
   test = connect(m_measureManagerProcess, &QProcess::errorOccurred, this, &OpenStudioApp::measureManagerProcessFinished);
   OS_ASSERT(test);
@@ -1365,98 +1294,89 @@ void OpenStudioApp::startMeasureManagerProcess(){
   m_measureManagerProcess->start(program, arguments);
 }
 
-
-
 void OpenStudioApp::writeLibraryPaths(std::vector<openstudio::path> paths) {
 
-    auto defaultPaths = defaultLibraryPaths();
+  auto defaultPaths = defaultLibraryPaths();
 
-    QSettings settings(QCoreApplication::organizationName(), QCoreApplication::applicationName());
+  QSettings settings(QCoreApplication::organizationName(), QCoreApplication::applicationName());
 
-    if ( paths == defaultPaths ) {
-      settings.remove("library");
-    } else {
-      // Write the paths
-      settings.remove("library");
-      settings.beginWriteArray("library");
-      int i = 0;
-      auto resPath = resourcesPath();
-      std::string s_resPath = toString(resPath);
+  if (paths == defaultPaths) {
+    settings.remove("library");
+  } else {
+    // Write the paths
+    settings.remove("library");
+    settings.beginWriteArray("library");
+    int i = 0;
+    auto resPath = resourcesPath();
+    std::string s_resPath = toString(resPath);
 
-      for( const auto path : paths ) {
-        settings.setArrayIndex(i);
+    for (const auto path : paths) {
+      settings.setArrayIndex(i);
 
-        // If this is one of the defaultPaths
-        // if (std::find(defaultPaths.begin(),defaultPaths.end(),path) == defaultPaths.end())
-        // If path is located in the 'Resources' folder
+      // If this is one of the defaultPaths
+      // if (std::find(defaultPaths.begin(),defaultPaths.end(),path) == defaultPaths.end())
+      // If path is located in the 'Resources' folder
 
-        openstudio::path::const_iterator begin1 = resPath.begin();
-        openstudio::path::const_iterator end1 = resPath.end();
+      openstudio::path::const_iterator begin1 = resPath.begin();
+      openstudio::path::const_iterator end1 = resPath.end();
 
-        openstudio::path::const_iterator begin2 = path.begin();
-        openstudio::path::const_iterator end2 = path.end();
+      openstudio::path::const_iterator begin2 = path.begin();
+      openstudio::path::const_iterator end2 = path.end();
 
-        bool is_resource = false;
+      bool is_resource = false;
 
-        if (std::distance(begin1, end1) > std::distance(begin2, end2))
-        {
-          is_resource = false; // the run dir has fewer elements than the build dir - cannot be running from builddir
-        } else {
-          // if the rundir begins with the builddir, we know it's running from the builddir
-          is_resource = std::equal(begin1, end1, begin2);
-        }
-
-        if (is_resource) {
-          // Only in boost < 1.6... : boost::filesystem::relative
-          std::string s_path = toString(path);
-
-          // Every path here is an absolute canonical path, so we can just slice the path up to the
-          // 'Resources' part, +1 to strip also the delimiter
-          // TODO: there is probably a more reliable way to do this, it works on linux but unsure on Windows
-          s_path = s_path.substr(s_resPath.length() + 1);
-          openstudio::path rel_path = openstudio::path(s_path);
-          // std::cout << "For '" << path << "', computed relative: " << rel_path << "\n";
-          settings.setValue("path",QString::fromStdString(rel_path.string()));
-
-        } else {
-          settings.setValue("path",QString::fromStdString(path.string()));
-
-        }
-
-        settings.setValue("is_resource", is_resource);
-
-
-        ++i;
+      if (std::distance(begin1, end1) > std::distance(begin2, end2)) {
+        is_resource = false;  // the run dir has fewer elements than the build dir - cannot be running from builddir
+      } else {
+        // if the rundir begins with the builddir, we know it's running from the builddir
+        is_resource = std::equal(begin1, end1, begin2);
       }
-      settings.endArray();
-    }
 
+      if (is_resource) {
+        // Only in boost < 1.6... : boost::filesystem::relative
+        std::string s_path = toString(path);
+
+        // Every path here is an absolute canonical path, so we can just slice the path up to the
+        // 'Resources' part, +1 to strip also the delimiter
+        // TODO: there is probably a more reliable way to do this, it works on linux but unsure on Windows
+        s_path = s_path.substr(s_resPath.length() + 1);
+        openstudio::path rel_path = openstudio::path(s_path);
+        // std::cout << "For '" << path << "', computed relative: " << rel_path << "\n";
+        settings.setValue("path", QString::fromStdString(rel_path.string()));
+
+      } else {
+        settings.setValue("path", QString::fromStdString(path.string()));
+      }
+
+      settings.setValue("is_resource", is_resource);
+
+      ++i;
+    }
+    settings.endArray();
+  }
 }
 
 void OpenStudioApp::loadLibrary() {
-  if ( this->currentDocument() ) {
-    QWidget * parent = this->currentDocument()->mainWindow();
+  if (this->currentDocument()) {
+    QWidget* parent = this->currentDocument()->mainWindow();
 
-    QString fileName = QFileDialog::getOpenFileName( parent,
-                                                    tr("Select Library"),
-                                                    toQString(resourcesPath()),
-                                                    tr("(*.osm)") );
+    QString fileName = QFileDialog::getOpenFileName(parent, tr("Select Library"), toQString(resourcesPath()), tr("(*.osm)"));
 
-    if( ! (fileName == "") ) {
+    if (!(fileName == "")) {
       QSettings settings(QCoreApplication::organizationName(), QCoreApplication::applicationName());
 
       auto paths = libraryPaths();
 
       auto path = toPath(fileName.toStdString());
 
-      if( std::find(paths.begin(),paths.end(),path) == paths.end() ) {
+      if (std::find(paths.begin(), paths.end(), path) == paths.end()) {
         // If the loaded library isn't already in the list of paths, we add it and rewrite all
         paths.push_back(path);
         writeLibraryPaths(paths);
 
-        auto future = QtConcurrent::run(this,&OpenStudioApp::buildCompLibraries);
+        auto future = QtConcurrent::run(this, &OpenStudioApp::buildCompLibraries);
         m_changeLibrariesWatcher.setFuture(future);
-        connect(&m_changeLibrariesWatcher, &QFutureWatcher<std::vector<std::string> >::finished, this, &OpenStudioApp::onChangeDefaultLibrariesDone);
+        connect(&m_changeLibrariesWatcher, &QFutureWatcher<std::vector<std::string>>::finished, this, &OpenStudioApp::onChangeDefaultLibrariesDone);
       }
     }
   }
@@ -1472,19 +1392,19 @@ void OpenStudioApp::changeDefaultLibraries() {
   auto newPaths = dialog.paths();
 
   // If user accepts its changes, and there are actually changes to the list of paths
-  if ( (code == QDialog::Accepted) && (paths != newPaths) ) {
+  if ((code == QDialog::Accepted) && (paths != newPaths)) {
 
     // Write the library settings
     writeLibraryPaths(newPaths);
 
     // Trigger actual loading of the libraries
-    auto future = QtConcurrent::run(this,&OpenStudioApp::buildCompLibraries);
+    auto future = QtConcurrent::run(this, &OpenStudioApp::buildCompLibraries);
     m_changeLibrariesWatcher.setFuture(future);
-    connect(&m_changeLibrariesWatcher, &QFutureWatcher<std::vector<std::string> >::finished, this, &OpenStudioApp::onChangeDefaultLibrariesDone);
+    connect(&m_changeLibrariesWatcher, &QFutureWatcher<std::vector<std::string>>::finished, this, &OpenStudioApp::onChangeDefaultLibrariesDone);
   }
 }
 
-void OpenStudioApp::removeLibraryFromsSettings( const openstudio::path & path ) {
+void OpenStudioApp::removeLibraryFromsSettings(const openstudio::path& path) {
   // erase the given path from the current list of paths
   auto paths = libraryPaths();
   paths.erase(std::remove(paths.begin(), paths.end(), path), paths.end());
@@ -1492,10 +1412,10 @@ void OpenStudioApp::removeLibraryFromsSettings( const openstudio::path & path ) 
   writeLibraryPaths(paths);
 }
 
-void OpenStudioApp::showFailedLibraryDialog(const std::vector<std::string> & failed) {
-  if( ! failed.empty() ) {
+void OpenStudioApp::showFailedLibraryDialog(const std::vector<std::string>& failed) {
+  if (!failed.empty()) {
     QString text("Failed to load the following libraries...\n\n");
-    for( const auto & path : failed ) {
+    for (const auto& path : failed) {
       text.append(QString::fromStdString(path));
       text.append("\n");
     }
@@ -1505,8 +1425,8 @@ void OpenStudioApp::showFailedLibraryDialog(const std::vector<std::string> & fai
     text.append("\n\nWould you like to Restore library paths to default values or Open the library settings to change them manually?");
 
     QMessageBox::StandardButton reply;
-    reply = QMessageBox::question(mainWidget(), QString("Failed to load library"), text,
-                                  QMessageBox::RestoreDefaults|QMessageBox::Open, QMessageBox::Open);
+    reply = QMessageBox::question(mainWidget(), QString("Failed to load library"), text, QMessageBox::RestoreDefaults | QMessageBox::Open,
+                                  QMessageBox::Open);
     if (reply == QMessageBox::RestoreDefaults) {
       QSettings settings(QCoreApplication::organizationName(), QCoreApplication::applicationName());
       settings.remove("library");
@@ -1523,7 +1443,7 @@ void OpenStudioApp::onChangeDefaultLibrariesDone() {
   showFailedLibraryDialog(failed);
 
   auto doc = currentDocument();
-  if( doc ) {
+  if (doc) {
     doc->setComponentLibrary(m_compLibrary);
   }
 }
@@ -1565,7 +1485,7 @@ std::vector<openstudio::path> OpenStudioApp::libraryPaths() const {
   }
   settings.endArray();
 
-  if( paths.empty() ) {
+  if (paths.empty()) {
     return defaultLibraryPaths();
   } else {
     return paths;
@@ -1583,21 +1503,18 @@ openstudio::path OpenStudioApp::inferredDViewPath() const {
   openstudio::path dview_executable("DView");
 #endif
 
-
   openstudio::path dviewPath = openstudio::findInSystemPath(dview_executable);
   LOG_FREE(Debug, "OpenStudioApp", "inferredDViewPath, findInSystemPath returned dviewPath = '" << dviewPath << "'.");
 
   // findInSystemPath returns whatever was passed if not found...
-  if ( !dviewPath.empty() && (dviewPath != dview_executable)) {
+  if (!dviewPath.empty() && (dviewPath != dview_executable)) {
     result = openstudio::completeAndNormalize(dviewPath);
   }
 
   LOG_FREE(Debug, "OpenStudioApp", "inferredDViewPath = '" << result << "'.");
 
   return result;
-
 }
-
 
 void OpenStudioApp::setDviewPath(const openstudio::path& t_dviewPath) {
 
@@ -1609,7 +1526,7 @@ void OpenStudioApp::setDviewPath(const openstudio::path& t_dviewPath) {
     LOG_FREE(Debug, "OpenStudioApp", "setDViewPath t_dviewPath is not empty.");
 
     // check if exists?
-    if( openstudio::filesystem::exists( t_dviewPath ) && !openstudio::filesystem::is_directory( t_dviewPath ) ) {
+    if (openstudio::filesystem::exists(t_dviewPath) && !openstudio::filesystem::is_directory(t_dviewPath)) {
       m_dviewPath = t_dviewPath;
     } else {
       LOG_FREE(Error, "OpenStudioApp", "setDViewPath: t_dviewPath doesn't not appear to be valid: '" << t_dviewPath << "'.");
@@ -1617,7 +1534,6 @@ void OpenStudioApp::setDviewPath(const openstudio::path& t_dviewPath) {
   }
 
   LOG_FREE(Debug, "OpenStudioApp", "setDViewPath: m_dviewPath = '" << m_dviewPath << "'.");
-
 }
 
 openstudio::path OpenStudioApp::dviewPath() const {
@@ -1635,21 +1551,21 @@ void OpenStudioApp::configureExternalTools() {
   LOG_FREE(Debug, "OpenStudioApp", "configureExternalTools: dviewPath() = '" << t_dviewPath << "'.");
 
   // Starts the External Tools dialog
-  ExternalToolsDialog dialog(t_dviewPath); // TODO: currently only sets DView
+  ExternalToolsDialog dialog(t_dviewPath);  // TODO: currently only sets DView
 
   auto code = dialog.exec();
 
   // If user accepts its changes, and there are actually changes to the list of paths
-  if ( code == QDialog::Accepted ) {
+  if (code == QDialog::Accepted) {
 
     auto newDviewPath = dialog.dviewPath();
     if (newDviewPath != m_dviewPath) {
 
       // Write the library settings
-      setDviewPath(newDviewPath); // This will call inferredDviewPath again if the field was cleared.
+      setDviewPath(newDviewPath);  // This will call inferredDviewPath again if the field was cleared.
       QSettings settings(QCoreApplication::organizationName(), QCoreApplication::applicationName());
 
-      if ( m_dviewPath.empty() ) {
+      if (m_dviewPath.empty()) {
         settings.remove("dviewPath");
         // TODO: log that stuff didn't pan out
       } else {
@@ -1660,19 +1576,17 @@ void OpenStudioApp::configureExternalTools() {
     // example if adding another one
     //auto newOtherToolPath = dialog.otherToolPath();
     //if (newOtherToolPath != m_otherToolPath) {
-       //// Write the library settings
-      //QSettings settings(QCoreApplication::organizationName(), QCoreApplication::applicationName());
-      //// Set OtherToolPath here
-      //if ( m_otherToolPath.empty() ) {
-        //settings.remove("otherToolPath");
-        //// TODO: log that stuff didn't pan out
-      //} else {
-        //settings.setValue("otherToolPath", toQString(m_otherToolPath));
-      //}
+    //// Write the library settings
+    //QSettings settings(QCoreApplication::organizationName(), QCoreApplication::applicationName());
+    //// Set OtherToolPath here
+    //if ( m_otherToolPath.empty() ) {
+    //settings.remove("otherToolPath");
+    //// TODO: log that stuff didn't pan out
+    //} else {
+    //settings.setValue("otherToolPath", toQString(m_otherToolPath));
     //}
-
+    //}
   }
 }
 
-} // openstudio
-
+}  // namespace openstudio

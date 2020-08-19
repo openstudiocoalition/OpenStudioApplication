@@ -36,10 +36,8 @@
 
 namespace openstudio {
 
-bool OSWebEnginePage::acceptNavigationRequest(const QUrl & url, QWebEnginePage::NavigationType type, bool isMainFrame)
-{
-  if (type == QWebEnginePage::NavigationTypeLinkClicked)
-  {
+bool OSWebEnginePage::acceptNavigationRequest(const QUrl& url, QWebEnginePage::NavigationType type, bool isMainFrame) {
+  if (type == QWebEnginePage::NavigationTypeLinkClicked) {
     QString s = url.toString();
     // open links in system browser rather than embedded view
     QDesktopServices::openUrl(url);
@@ -48,11 +46,10 @@ bool OSWebEnginePage::acceptNavigationRequest(const QUrl & url, QWebEnginePage::
   return true;
 }
 
-bool OSWebEnginePage::certificateError(const QWebEngineCertificateError &certificateError) {
+bool OSWebEnginePage::certificateError(const QWebEngineCertificateError& certificateError) {
   // Ignore error
   LOG(Warn, "SSL error: " << certificateError.errorDescription().toStdString());
   return true;
 }
 
-} // openstudio
-
+}  // namespace openstudio

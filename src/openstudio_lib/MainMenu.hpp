@@ -40,13 +40,12 @@ class MainMenu : public QMenuBar
 {
   Q_OBJECT
 
-  public:
-
-  MainMenu(bool isIP, bool isPlugin, QWidget *parent = nullptr);
+ public:
+  MainMenu(bool isIP, bool isPlugin, QWidget* parent = nullptr);
 
   virtual ~MainMenu();
 
-  signals:
+ signals:
 
   void exportClicked();
 
@@ -82,6 +81,8 @@ class MainMenu : public QMenuBar
 
   void helpClicked();
 
+  void checkForUpdateClicked();
+
   void aboutClicked();
 
   void showRubyConsoleClicked();
@@ -106,37 +107,36 @@ class MainMenu : public QMenuBar
 
   void changeBclLogin();
 
-  private:
-
+ private:
   bool m_isPlugin;
 
-  QMenu * m_fileMenu;
+  QMenu* m_fileMenu;
 
-  QMenu * m_measureMenu;
+  QMenu* m_measureMenu;
 
-  QMenu * m_helpMenu;
+  QMenu* m_helpMenu;
 
-  QMenu * m_preferencesMenu;
+  QMenu* m_preferencesMenu;
 
-  QAction * m_displayIPUnitsAction;
+  QAction* m_displayIPUnitsAction;
 
-  QAction * m_displaySIUnitsAction;
+  QAction* m_displaySIUnitsAction;
 
-  QAction * m_openLibDlgAction;
+  QAction* m_openLibDlgAction;
 
-  QAction * m_configureProxy;
+  QAction* m_configureProxy;
 
-  QAction * m_revertToSavedAction;
+  QAction* m_revertToSavedAction;
 
-  std::vector<QAction *> m_fileImportActions;
+  std::vector<QAction*> m_fileImportActions;
 
-  std::vector<QAction *> m_preferencesActions;
+  std::vector<QAction*> m_preferencesActions;
 
-  std::vector<QAction *> m_componentsMeasuresActions;
+  std::vector<QAction*> m_componentsMeasuresActions;
 
   bool m_isIP;
 
-  public slots:
+ public slots:
 
   void enableRevertToSavedAction(bool enable);
 
@@ -146,15 +146,13 @@ class MainMenu : public QMenuBar
 
   void enableComponentsMeasuresActions(bool enable);
 
-  private slots:
+ private slots:
 
   void displaySIUnitsClicked();
 
   void displayIPUnitsClicked();
-
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_MAINMENU_HPP
-
+#endif  // OPENSTUDIO_MAINMENU_HPP

@@ -50,82 +50,78 @@ class OSCollapsibleItem : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
+  OSCollapsibleItem(OSCollapsibleItemHeader* collapsibleItemHeader, OSItemList* itemList, QWidget* parent = nullptr);
 
-    OSCollapsibleItem(OSCollapsibleItemHeader * collapsibleItemHeader,
-                      OSItemList * itemList,
-                      QWidget * parent = nullptr);
+  virtual ~OSCollapsibleItem() {}
 
-    virtual ~OSCollapsibleItem() {}
+  bool isSelected() const;
+  void setSelected(bool selected);
 
-    bool isSelected() const;
-    void setSelected(bool selected);
+  bool expanded() const;
+  void setExpanded(bool expanded);
 
-    bool expanded() const;
-    void setExpanded(bool expanded);
+  OSCollapsibleItemHeader* collapsibleItemHeader() const;
 
-    OSCollapsibleItemHeader* collapsibleItemHeader() const;
+  OSItemList* itemList() const;
 
-    OSItemList* itemList() const;
+  bool itemsDraggable() const;
+  void setItemsDraggable(bool itemsDraggable);
 
-    bool itemsDraggable() const;
-    void setItemsDraggable(bool itemsDraggable);
+  bool itemsRemoveable() const;
+  void setItemsRemoveable(bool itemsRemoveable);
 
-    bool itemsRemoveable() const;
-    void setItemsRemoveable(bool itemsRemoveable);
+  OSItemType itemsType() const;
+  void setItemsType(OSItemType type);
 
-    OSItemType itemsType() const;
-    void setItemsType(OSItemType type);
+  bool showFilterLayout();
+  void setShowFilterLayout(const bool showFilterLayout);
 
-    bool showFilterLayout();
-    void setShowFilterLayout(const bool showFilterLayout);
+ signals:
 
-  signals:
+  void collapsableItemSelected(OSCollapsibleItem*);
 
-    void collapsableItemSelected(OSCollapsibleItem *);
+  void itemSelected(OSItem* item);
 
-    void itemSelected(OSItem* item);
+  void itemRemoveClicked(OSItem* item);
 
-    void itemRemoveClicked(OSItem* item);
+  void itemReplacementDropped(OSItem* currentItem, const OSItemId& replacementItemId);
 
-    void itemReplacementDropped(OSItem * currentItem, const OSItemId& replacementItemId);
+  void selectionCleared();
 
-    void selectionCleared();
+  void openLibDlgClicked();
 
-    void openLibDlgClicked();
+ protected:
+  void paintEvent(QPaintEvent* event) override;
 
-  protected:
+ private slots:
 
-    void paintEvent(QPaintEvent * event) override;
+  void onHeaderClicked(OSCollapsibleItemHeader* header);
 
-  private slots:
+  void filtersOnClicked();
 
-    void onHeaderClicked(OSCollapsibleItemHeader * header);
+  void filtersOffClicked();
 
-    void filtersOnClicked();
+  void comboBoxClicked(const QString& string);
 
-    void filtersOffClicked();
+ private:
+  void createLayout();
 
-    void comboBoxClicked(const QString & string);
+  void setShowFilterWidgets(const bool showFilterWidgets);
 
-  private:
-    void createLayout();
-
-    void setShowFilterWidgets(const bool showFilterWidgets);
-
-    OSCollapsibleItemHeader * m_collapsibleItemHeader;
-    OSItemList * m_itemList;
-    QVBoxLayout * m_mainLayout;
-    QPushButton * m_openLibDlgButton;
-    QRadioButton * m_filtersOnBtn;
-    QRadioButton * m_filtersOffBtn;
-    QButtonGroup * m_filterBtnGroup;
-    QLabel * m_sortLabel;
-    QComboBox * m_sortComboBox;
-    bool m_showFilterLayout;
-    QWidget * m_filterWidget;
+  OSCollapsibleItemHeader* m_collapsibleItemHeader;
+  OSItemList* m_itemList;
+  QVBoxLayout* m_mainLayout;
+  QPushButton* m_openLibDlgButton;
+  QRadioButton* m_filtersOnBtn;
+  QRadioButton* m_filtersOffBtn;
+  QButtonGroup* m_filterBtnGroup;
+  QLabel* m_sortLabel;
+  QComboBox* m_sortComboBox;
+  bool m_showFilterLayout;
+  QWidget* m_filterWidget;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_OSCOLLAPSIBLEITEM_HPP
+#endif  // OPENSTUDIO_OSCOLLAPSIBLEITEM_HPP

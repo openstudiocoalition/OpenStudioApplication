@@ -36,33 +36,36 @@
 
 namespace openstudio {
 
-  /// \returns The source directory the application was built from
-  OSAPP_UTILITIES_API openstudio::path getOpenStudioApplicationSourceDirectory();
+/// \returns The version of the OpenStudio Application
+OSAPP_UTILITIES_API std::string getOpenStudioApplicationVersion();
 
-  /// \returns The directory the application was built in
-  OSAPP_UTILITIES_API openstudio::path getOpenStudioApplicationBuildDirectory();
+/// \returns The source directory the application was built from
+OSAPP_UTILITIES_API openstudio::path getOpenStudioApplicationSourceDirectory();
 
-  /// \returns The path to the current executable application
-  OSAPP_UTILITIES_API openstudio::path getOpenStudioApplicationPath();
+/// \returns The directory the application was built in
+OSAPP_UTILITIES_API openstudio::path getOpenStudioApplicationBuildDirectory();
 
-  /// \returns The directory of the current executable application
-  OSAPP_UTILITIES_API openstudio::path getOpenStudioApplicationDirectory();
+/// \returns The path to the current executable application
+OSAPP_UTILITIES_API openstudio::path getOpenStudioApplicationPath();
 
-  /// \returns True if the application is running from the build directory
-  OSAPP_UTILITIES_API bool isOpenStudioApplicationRunningFromBuildDirectory();
+/// \returns The directory of the current executable application
+OSAPP_UTILITIES_API openstudio::path getOpenStudioApplicationDirectory();
 
-  /// \returns Will return path to the binary containing OpenStudio Utilities, could be openstudio.exe, openstudio.so, etc.
-  OSAPP_UTILITIES_API openstudio::path getOpenStudioApplicationModule();
+/// \returns True if the application is running from the build directory
+OSAPP_UTILITIES_API bool isOpenStudioApplicationRunningFromBuildDirectory();
 
-  /// \returns Will return dir containing the binary containing OpenStudio Utilities, could be openstudio.exe, openstudio.so, etc.
-  OSAPP_UTILITIES_API openstudio::path getOpenStudioApplicationModuleDirectory();
+/// \returns Will return path to the binary containing OpenStudio Utilities, could be openstudio.exe, openstudio.so, etc.
+OSAPP_UTILITIES_API openstudio::path getOpenStudioApplicationModule();
 
-  /// \returns True if the OpenStudio Module is running from the build directory
-  OSAPP_UTILITIES_API bool isOpenStudioApplicationModuleRunningFromBuildDirectory();
+/// \returns Will return dir containing the binary containing OpenStudio Utilities, could be openstudio.exe, openstudio.so, etc.
+OSAPP_UTILITIES_API openstudio::path getOpenStudioApplicationModuleDirectory();
 
-  /// \returns The path to the OpenStudio Command Line Interface  if it exists.
-  OSAPP_UTILITIES_API openstudio::path getOpenStudioCoreCLI();
+/// \returns True if the OpenStudio Module is running from the build directory
+OSAPP_UTILITIES_API bool isOpenStudioApplicationModuleRunningFromBuildDirectory();
 
-} // openstudio
+/// \returns The path to the OpenStudio Command Line Interface  if it exists.
+OSAPP_UTILITIES_API openstudio::path getOpenStudioCoreCLI();
 
-#endif //OSAPP_UTILITIES_APPLICATIONPATHHELPERS_HPP
+}  // namespace openstudio
+
+#endif  //OSAPP_UTILITIES_APPLICATIONPATHHELPERS_HPP

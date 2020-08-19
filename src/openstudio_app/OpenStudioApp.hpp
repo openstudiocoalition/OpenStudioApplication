@@ -69,7 +69,7 @@ class QEvent;
 namespace openstudio {
 
 namespace osversion {
-  class VersionTranslator;
+class VersionTranslator;
 }
 
 class SystemComponent;
@@ -86,10 +86,10 @@ class StartupMenu;
 
 class TouchEater : public QObject
 {
-    Q_OBJECT
+  Q_OBJECT
 
-protected:
-    bool eventFilter(QObject *obj, QEvent *event);
+ protected:
+  bool eventFilter(QObject* obj, QEvent* event);
 };
 
 class OpenStudioApp : public OSAppBase
@@ -98,14 +98,13 @@ class OpenStudioApp : public OSAppBase
   Q_OBJECT
 
  public:
-
-  OpenStudioApp( int & argc, char ** argv);
+  OpenStudioApp(int& argc, char** argv);
 
   virtual ~OpenStudioApp();
 
   virtual std::shared_ptr<OSDocument> currentDocument() const override;
 
-  static OpenStudioApp * instance();
+  static OpenStudioApp* instance();
 
   openstudio::model::Model componentLibrary() const;
 
@@ -116,18 +115,16 @@ class OpenStudioApp : public OSAppBase
 
   openstudio::path openstudioCLIPath() const;
 
-   // Returns the hard set path (in settings), and or if not set will try to infer it by looking into the current PATH
+  // Returns the hard set path (in settings), and or if not set will try to infer it by looking into the current PATH
   // If all fails, ends up returning an empty path (no need to wrap into a boost::optional (with overhead) for this)
   openstudio::path dviewPath() const;
 
   virtual bool notify(QObject* receiver, QEvent* event) override;
 
  protected:
+  virtual bool event(QEvent* e) override;
 
-  virtual bool event(QEvent * e) override;
-
-  virtual void childEvent(QChildEvent * e) override;
-
+  virtual void childEvent(QChildEvent* e) override;
 
  signals:
 
@@ -148,6 +145,8 @@ class OpenStudioApp : public OSAppBase
   void newModel();
 
   void showHelp();
+
+  void checkForUpdate();
 
   void showAbout();
 
@@ -179,9 +178,9 @@ class OpenStudioApp : public OSAppBase
   // Build the component libraries and return a vector of paths that failed to load
   std::vector<std::string> buildCompLibraries();
 
-  void newFromEmptyTemplateSlot( );
+  void newFromEmptyTemplateSlot();
 
-  void newFromTemplateSlot( NewFromTemplateEnum newFromTemplateEnum );
+  void newFromTemplateSlot(NewFromTemplateEnum newFromTemplateEnum);
 
   bool openFromDrag(QString path);
 
@@ -206,20 +205,20 @@ class OpenStudioApp : public OSAppBase
   void onChangeDefaultLibrariesDone();
 
  private:
-
-  enum fileType{
+  enum fileType
+  {
     SDD,
     GBXML
   };
 
-  void showFailedLibraryDialog(const std::vector<std::string> & failedPaths);
+  void showFailedLibraryDialog(const std::vector<std::string>& failedPaths);
 
   void import(fileType type);
 
   bool openFile(const QString& fileName, bool restoreTabs = false);
 
   void versionUpdateMessageBox(const osversion::VersionTranslator& translator, bool successful, const QString& fileName,
-      const openstudio::path &tempModelDir);
+                               const openstudio::path& tempModelDir);
 
   void readSettings();
 
@@ -232,14 +231,13 @@ class OpenStudioApp : public OSAppBase
   void connectOSDocumentSignals();
 
   // Removes the given path from the list of library settings (and calls writeLibraryPaths)
-  void removeLibraryFromsSettings( const openstudio::path & path );
+  void removeLibraryFromsSettings(const openstudio::path& path);
 
   /** Helper function that will write the library paths to the Settings indicating if it's a file within the resources/ folder or not
    * This will ensure that even if the user has selected 'resources/90_1_2013.osm' as a library, it'll keep on working with different versions
    * of OpenStudio (it wouldn't if we stored that as an absolute path)
    */
   void writeLibraryPaths(std::vector<openstudio::path> paths);
-
 
   QProcess* m_measureManagerProcess;
 
@@ -260,11 +258,11 @@ class OpenStudioApp : public OSAppBase
 
   std::shared_ptr<StartupMenu> m_startupMenu;
 
-  QFutureWatcher<std::vector<std::string> > m_buildCompLibWatcher;
+  QFutureWatcher<std::vector<std::string>> m_buildCompLibWatcher;
   QFutureWatcher<bool> m_waitForMeasureManagerWatcher;
-  QFutureWatcher<std::vector<std::string> > m_changeLibrariesWatcher;
+  QFutureWatcher<std::vector<std::string>> m_changeLibrariesWatcher;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_OPENSTUDIOAPP_HPP
+#endif  // OPENSTUDIO_OPENSTUDIOAPP_HPP

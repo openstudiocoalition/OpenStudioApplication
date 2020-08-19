@@ -39,22 +39,16 @@
 
 namespace openstudio {
 
-CollapsibleInspector::CollapsibleInspector(QString text,
-  QWidget * inspector,
-  QWidget * parent)
-  : QWidget(parent),
-  m_header(new CollapsibleInspectorHeader(text)),
-  m_inspector(inspector)
-{
+CollapsibleInspector::CollapsibleInspector(QString text, QWidget* inspector, QWidget* parent)
+  : QWidget(parent), m_header(new CollapsibleInspectorHeader(text)), m_inspector(inspector) {
   createLayout();
 }
 
-void CollapsibleInspector::createLayout()
-{
-  setContentsMargins(0,0,0,0);
+void CollapsibleInspector::createLayout() {
+  setContentsMargins(0, 0, 0, 0);
 
   auto mainLayout = new QVBoxLayout();
-  mainLayout->setContentsMargins(0,0,0,0);
+  mainLayout->setContentsMargins(0, 0, 0, 0);
   mainLayout->setSpacing(0);
   setLayout(mainLayout);
 
@@ -66,36 +60,29 @@ void CollapsibleInspector::createLayout()
 
 ///! SLOTS
 
-void CollapsibleInspector::on_headerToggled(bool checked)
-{
-  if(checked){
+void CollapsibleInspector::on_headerToggled(bool checked) {
+  if (checked) {
     m_inspector->show();
-  }
-  else{
+  } else {
     m_inspector->hide();
   }
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 
-CollapsibleInspectorHeader::CollapsibleInspectorHeader(QString text,
-  QWidget * parent)
-  : QAbstractButton(parent),
-  m_text(text)
-{
+CollapsibleInspectorHeader::CollapsibleInspectorHeader(QString text, QWidget* parent) : QAbstractButton(parent), m_text(text) {
   createLayout();
 }
 
-void CollapsibleInspectorHeader::createLayout()
-{
-  setContentsMargins(0,0,0,0);
+void CollapsibleInspectorHeader::createLayout() {
+  setContentsMargins(0, 0, 0, 0);
   setFixedHeight(50);
-  setSizePolicy(QSizePolicy::Preferred,QSizePolicy::Fixed);
+  setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
   setObjectName("CollapsibleInspectorHeader");
   setCheckable(true);
 
   auto mainHLayout = new QHBoxLayout();
-  mainHLayout->setContentsMargins(10,0,10,0);
+  mainHLayout->setContentsMargins(10, 0, 10, 0);
   mainHLayout->setSpacing(7);
   setLayout(mainHLayout);
 
@@ -117,26 +104,22 @@ void CollapsibleInspectorHeader::createLayout()
   setChecked(false);
 }
 
-QSize CollapsibleInspectorHeader::sizeHint() const
-{
-  return QSize(150,50);
+QSize CollapsibleInspectorHeader::sizeHint() const {
+  return QSize(150, 50);
 }
 
-void CollapsibleInspectorHeader::setImage(bool isChecked)
-{
-  if(isChecked){
+void CollapsibleInspectorHeader::setImage(bool isChecked) {
+  if (isChecked) {
     m_arrowLabel->setPixmap(QPixmap(":/images/toggle_arrow.png"));
-  }else{
+  } else {
     m_arrowLabel->setPixmap(QPixmap(":/images/toggle_arrow_closed2.png"));
   }
 }
 
-void CollapsibleInspectorHeader::setChecked(bool isChecked)
-{
+void CollapsibleInspectorHeader::setChecked(bool isChecked) {
   QAbstractButton::setChecked(isChecked);
   setImage(isChecked);
-  if(isChecked)
-  {
+  if (isChecked) {
     QString style;
     style.append("QWidget#CollapsibleInspectorHeader {");
     style.append(" background: qlineargradient(x1:0,y1:0,x2:0,y2:1,");
@@ -147,15 +130,12 @@ void CollapsibleInspectorHeader::setChecked(bool isChecked)
     style.append(" border-bottom: 1px solid black;");
     style.append(" }");
     setStyleSheet(style);
-  }
-  else
-  {
+  } else {
     setStyleSheet("QWidget#CollapsibleInspectorHeader { background: #CECECE; border-bottom: 1px solid black;}");
   }
 }
 
-void CollapsibleInspectorHeader::paintEvent(QPaintEvent * event)
-{
+void CollapsibleInspectorHeader::paintEvent(QPaintEvent* event) {
   QStyleOption opt;
   opt.init(this);
   QPainter p(this);
@@ -164,9 +144,8 @@ void CollapsibleInspectorHeader::paintEvent(QPaintEvent * event)
 
 ///! SLOTS
 
-void CollapsibleInspectorHeader::on_toggled(bool checked)
-{
+void CollapsibleInspectorHeader::on_toggled(bool checked) {
   setChecked(checked);
 }
 
-} // openstudio
+}  // namespace openstudio

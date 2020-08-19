@@ -45,253 +45,189 @@ class WaterUseConnectionsDetailScene;
 
 class ServiceWaterItem : public GridItem
 {
-  public:
+ public:
+  ServiceWaterItem(ServiceWaterScene* serviceWaterScene);
 
-  ServiceWaterItem(ServiceWaterScene * serviceWaterScene);
-
-  protected:
-
-  void paint(QPainter *painter,
-             const QStyleOptionGraphicsItem *option,
-             QWidget *widget = nullptr) override;
+ protected:
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 };
 
 class WaterUseConnectionsDetailItem : public GridItem
 {
-  public:
+ public:
+  WaterUseConnectionsDetailItem(WaterUseConnectionsDetailScene* waterUseConnectionsDetailScene);
 
-  WaterUseConnectionsDetailItem(WaterUseConnectionsDetailScene * waterUseConnectionsDetailScene);
-
-  protected:
-
-  void paint(QPainter *painter,
-             const QStyleOptionGraphicsItem *option,
-             QWidget *widget = nullptr) override;
+ protected:
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 };
 
 class WaterUseConnectionsDropZoneItem : public HorizontalBranchItem
 {
-  public:
-
-  WaterUseConnectionsDropZoneItem(QGraphicsItem * parent = nullptr);
+ public:
+  WaterUseConnectionsDropZoneItem(QGraphicsItem* parent = nullptr);
 };
 
 class WaterUseEquipmentDropZoneItem : public HorizontalBranchItem
 {
-  public:
-
-  WaterUseEquipmentDropZoneItem(QGraphicsItem * parent = nullptr);
+ public:
+  WaterUseEquipmentDropZoneItem(QGraphicsItem* parent = nullptr);
 };
 
 class SewerItem : public GridItem
 {
-  public:
+ public:
+  SewerItem(QGraphicsItem* parent = nullptr);
 
-  SewerItem(QGraphicsItem * parent = nullptr);
+  ButtonItem* sewerButton() const;
 
-  ButtonItem * sewerButton() const;
+ protected:
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 
-  protected:
-
-  void paint(QPainter *painter,
-             const QStyleOptionGraphicsItem *option,
-             QWidget *widget = nullptr) override;
-
-  ButtonItem * m_sewerButton;
+  ButtonItem* m_sewerButton;
 };
 
 class MainsSupplyItem : public GridItem
 {
-  public:
+ public:
+  MainsSupplyItem(QGraphicsItem* parent = nullptr);
 
-  MainsSupplyItem(QGraphicsItem * parent = nullptr);
+  ButtonItem* mainsSupplyButton() const;
 
-  ButtonItem * mainsSupplyButton() const;
+ protected:
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 
-  protected:
-
-  void paint(QPainter *painter,
-             const QStyleOptionGraphicsItem *option,
-             QWidget *widget = nullptr) override;
-
-  ButtonItem * m_mainsSupplyButton;
+  ButtonItem* m_mainsSupplyButton;
 };
 
 class HotWaterSupplyItem : public GridItem
 {
   Q_OBJECT;
 
-  public:
-
-  HotWaterSupplyItem(QGraphicsItem * parent = nullptr);
+ public:
+  HotWaterSupplyItem(QGraphicsItem* parent = nullptr);
 
   virtual ~HotWaterSupplyItem() {}
 
-  protected:
+ protected:
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 
-  void paint(QPainter *painter,
-             const QStyleOptionGraphicsItem *option,
-             QWidget *widget = nullptr) override;
+  ButtonItem* m_hotWaterSupplyButton;
 
-  ButtonItem * m_hotWaterSupplyButton;
-
-  private slots:
+ private slots:
 
   void onHotWaterSupplyButtonClicked();
 };
 
 class DoubleOneThreeStraightItem : public GridItem
 {
-  public:
+ public:
+  DoubleOneThreeStraightItem(QGraphicsItem* parent = nullptr);
 
-  DoubleOneThreeStraightItem(QGraphicsItem * parent = nullptr);
-
-  protected:
-
-  void paint(QPainter *painter,
-             const QStyleOptionGraphicsItem *option,
-             QWidget *widget = nullptr) override;
+ protected:
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 };
 
 class DoubleThreeFourStraightItem : public GridItem
 {
-  public:
+ public:
+  DoubleThreeFourStraightItem(QGraphicsItem* parent = nullptr);
 
-  DoubleThreeFourStraightItem(QGraphicsItem * parent = nullptr);
-
-  protected:
-
-  void paint(QPainter *painter,
-             const QStyleOptionGraphicsItem *option,
-             QWidget *widget = nullptr) override;
+ protected:
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 };
 
 class DoubleTwoFourStraightItem : public GridItem
 {
-  public:
+ public:
+  DoubleTwoFourStraightItem(QGraphicsItem* parent = nullptr);
 
-  DoubleTwoFourStraightItem(QGraphicsItem * parent = nullptr);
-
-  protected:
-
-  void paint(QPainter *painter,
-             const QStyleOptionGraphicsItem *option,
-             QWidget *widget = nullptr) override;
+ protected:
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 };
 
 class DoubleTwoThreeStraightItem : public GridItem
 {
-  public:
+ public:
+  DoubleTwoThreeStraightItem(QGraphicsItem* parent = nullptr);
 
-  DoubleTwoThreeStraightItem(QGraphicsItem * parent = nullptr);
-
-  protected:
-
-  void paint(QPainter *painter,
-             const QStyleOptionGraphicsItem *option,
-             QWidget *widget = nullptr) override;
+ protected:
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 };
 
 class DoubleTwoThreeFourStraightItem : public GridItem
 {
-  public:
+ public:
+  DoubleTwoThreeFourStraightItem(QGraphicsItem* parent = nullptr);
 
-  DoubleTwoThreeFourStraightItem(QGraphicsItem * parent = nullptr);
-
-  protected:
-
-  void paint(QPainter *painter,
-             const QStyleOptionGraphicsItem *option,
-             QWidget *widget = nullptr) override;
+ protected:
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 };
 
 class HotWaterJunctionItem : public DoubleTwoFourStraightItem
 {
-  public:
+ public:
+  HotWaterJunctionItem(QGraphicsItem* parent = nullptr);
 
-  HotWaterJunctionItem(QGraphicsItem * parent = nullptr);
-
-  protected:
-
-  void paint(QPainter *painter,
-             const QStyleOptionGraphicsItem *option,
-             QWidget *widget = nullptr) override;
+ protected:
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 };
 
 class ColdWaterJunctionItem : public GridItem
 {
-  public:
+ public:
+  ColdWaterJunctionItem(int isElbow, QGraphicsItem* parent = nullptr);
 
-  ColdWaterJunctionItem(int isElbow,QGraphicsItem * parent = nullptr);
+ protected:
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 
-  protected:
-
-  void paint(QPainter *painter,
-             const QStyleOptionGraphicsItem *option,
-             QWidget *widget = nullptr) override;
-
-  private:
-
+ private:
   bool m_isElbow;
 };
 
 class WaterUseConnectionsItem : public GridItem
 {
-  public:
+ public:
+  WaterUseConnectionsItem(QGraphicsItem* parent = nullptr);
 
-  WaterUseConnectionsItem(QGraphicsItem * parent = nullptr);
-
-  protected:
-
-  void paint(QPainter *painter,
-             const QStyleOptionGraphicsItem *option,
-             QWidget *widget = nullptr) override;
+ protected:
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 };
 
 class WaterUseEquipmentItem : public GridItem
 {
-  public:
+ public:
+  WaterUseEquipmentItem(QGraphicsItem* parent = nullptr);
 
-  WaterUseEquipmentItem(QGraphicsItem * parent = nullptr);
+  void setModelObject(model::OptionalModelObject modelObject) override;
 
-  void setModelObject( model::OptionalModelObject modelObject ) override;
-
-  protected:
-
-  void paint(QPainter *painter,
-             const QStyleOptionGraphicsItem *option,
-             QWidget *widget = nullptr) override;
+ protected:
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 };
 
 class MakeupWaterItem : public GridItem
 {
   Q_OBJECT;
 
-  public:
-
-  MakeupWaterItem(QGraphicsItem * parent = nullptr);
+ public:
+  MakeupWaterItem(QGraphicsItem* parent = nullptr);
 
   virtual ~MakeupWaterItem() {}
 
-  ButtonItem * mainsSupplyButton() const;
+  ButtonItem* mainsSupplyButton() const;
 
-  protected:
+ protected:
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 
-  void paint(QPainter *painter,
-             const QStyleOptionGraphicsItem *option,
-             QWidget *widget = nullptr) override;
-
-  private slots:
+ private slots:
 
   void onHotWaterSupplyButtonClicked();
 
-  private:
+ private:
+  ButtonItem* m_mainsSupplyButton;
 
-  ButtonItem * m_mainsSupplyButton;
-
-  ButtonItem * m_hotWaterSupplyButton;
+  ButtonItem* m_hotWaterSupplyButton;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_SERVICEWATERGRIDITEMS_HPP
+#endif  // OPENSTUDIO_SERVICEWATERGRIDITEMS_HPP

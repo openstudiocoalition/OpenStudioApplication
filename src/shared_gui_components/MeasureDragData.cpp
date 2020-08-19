@@ -34,19 +34,17 @@
 
 #include "../model_editor/Utilities.hpp"
 
-
 namespace openstudio {
 
-QString MeasureDragData::mimeType() { return "MeasureDragData"; }
+QString MeasureDragData::mimeType() {
+  return "MeasureDragData";
+}
 
-QString MeasureDragData::mimeType(openstudio::MeasureType type)
-{
+QString MeasureDragData::mimeType(openstudio::MeasureType type) {
   return mimeType() + openstudio::toQString(":" + type.valueName());
 }
 
-MeasureDragData::MeasureDragData(const QByteArray & data)
-  : QObject()
-{
+MeasureDragData::MeasureDragData(const QByteArray& data) : QObject() {
   QString stringData(data);
   QDomDocument doc;
   doc.setContent(stringData);
@@ -58,12 +56,9 @@ MeasureDragData::MeasureDragData(const QByteArray & data)
   QDomElement sourceEnumElement = measureDragDataElement.firstChildElement("Source");
   QString sourceEnumString = sourceEnumElement.text();
 
-  if( sourceEnumString == "BCL" )
-  {
+  if (sourceEnumString == "BCL") {
     m_sourceEnum = LocalLibrary::BCL;
-  }
-  else if( sourceEnumString == "USER" )
-  {
+  } else if (sourceEnumString == "USER") {
     m_sourceEnum = LocalLibrary::USER;
   }
 
@@ -75,24 +70,17 @@ MeasureDragData::MeasureDragData(const QByteArray & data)
   m_id = toUUID(idString);
 }
 
-MeasureDragData::MeasureDragData(const UUID & id)
-  : QObject(),
-    m_id(id)
-{
-}
+MeasureDragData::MeasureDragData(const UUID& id) : QObject(), m_id(id) {}
 
-LocalLibrary::LibrarySource MeasureDragData::source()
-{
+LocalLibrary::LibrarySource MeasureDragData::source() {
   return m_sourceEnum;
 }
 
-UUID MeasureDragData::id()
-{
+UUID MeasureDragData::id() {
   return m_id;
 }
 
-QString MeasureDragData::toXml()
-{
+QString MeasureDragData::toXml() {
   QDomDocument doc;
   QDomElement measureDragDataElement = doc.createElement("MeasureDragData");
   doc.appendChild(measureDragDataElement);
@@ -124,10 +112,8 @@ QString MeasureDragData::toXml()
   return doc.toString();
 }
 
-QByteArray MeasureDragData::data()
-{
+QByteArray MeasureDragData::data() {
   return toXml().toUtf8();
 }
 
-} // openstudio
-
+}  // namespace openstudio

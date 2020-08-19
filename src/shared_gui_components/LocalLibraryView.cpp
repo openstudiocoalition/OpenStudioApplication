@@ -46,14 +46,12 @@
 #include <QStyleOption>
 #include <QVBoxLayout>
 
-namespace openstudio{
+namespace openstudio {
 
-LocalLibraryView::LocalLibraryView(QWidget * parent)
-  : QWidget(parent)
-{
+LocalLibraryView::LocalLibraryView(QWidget* parent) : QWidget(parent) {
   auto mainVLayout = new QVBoxLayout();
   mainVLayout->setSpacing(0);
-  mainVLayout->setContentsMargins(0,0,0,0);
+  mainVLayout->setContentsMargins(0, 0, 0, 0);
   setLayout(mainVLayout);
 
   auto buttonGroup = new QButtonGroup();
@@ -75,12 +73,12 @@ LocalLibraryView::LocalLibraryView(QWidget * parent)
   mainVLayout->addWidget(footer);
 
   auto footerVLayout = new QVBoxLayout();
-  footerVLayout->setContentsMargins(5,5,5,5);
+  footerVLayout->setContentsMargins(5, 5, 5, 5);
   footerVLayout->setSpacing(5);
   footer->setLayout(footerVLayout);
 
   auto footerHLayout = new QHBoxLayout();
-  footerHLayout->setContentsMargins(0,0,0,0);
+  footerHLayout->setContentsMargins(0, 0, 0, 0);
   footerHLayout->setSpacing(5);
   footerVLayout->addLayout(footerHLayout);
 
@@ -100,7 +98,7 @@ LocalLibraryView::LocalLibraryView(QWidget * parent)
   footerHLayout->addWidget(myMeasuresFolderButton);
 
   auto footerHLayout2 = new QHBoxLayout();
-  footerHLayout2->setContentsMargins(10,0,10,0);
+  footerHLayout2->setContentsMargins(10, 0, 10, 0);
   footerHLayout2->setSpacing(5);
   footerVLayout->addLayout(footerHLayout2);
 
@@ -108,97 +106,82 @@ LocalLibraryView::LocalLibraryView(QWidget * parent)
   addBCLMeasureButton->setText("Find Measures on BCL");
   addBCLMeasureButton->setToolTip("Connect to Online BCL to Download New Measures and Update Existing Measures to Library");
   footerHLayout2->addWidget(addBCLMeasureButton);
-
 }
 
-LibraryGroupItemHeader::LibraryGroupItemHeader()
-  : LightGradientHeader()
-{
+LibraryGroupItemHeader::LibraryGroupItemHeader() : LightGradientHeader() {
   countLabel = new QLabel();
 
-  qobject_cast<QHBoxLayout *>(layout())->addStretch();
+  qobject_cast<QHBoxLayout*>(layout())->addStretch();
 
   layout()->addWidget(countLabel);
 }
 
-void LibraryGroupItemHeader::setCount(int count)
-{
+void LibraryGroupItemHeader::setCount(int count) {
   QString text = count > 0 ? QString::number(count) : QString();
   countLabel->setText(text);
 }
 
-LibrarySubGroupItemHeader::LibrarySubGroupItemHeader()
-  : LightHeader()
-{
+LibrarySubGroupItemHeader::LibrarySubGroupItemHeader() : LightHeader() {
   countLabel = new QLabel();
 
-  qobject_cast<QHBoxLayout *>(layout())->addStretch();
+  qobject_cast<QHBoxLayout*>(layout())->addStretch();
 
   layout()->addWidget(countLabel);
 }
 
-void LibrarySubGroupItemHeader::setCount(int count)
-{
+void LibrarySubGroupItemHeader::setCount(int count) {
   QString text = count > 0 ? QString::number(count) : QString();
   countLabel->setText(text);
 }
 
-LibraryItemView::LibraryItemView(QWidget * parent)
-  : OSDragableView(parent)
-{
+LibraryItemView::LibraryItemView(QWidget* parent) : OSDragableView(parent) {
   setFixedHeight(35);
 
   setObjectName("Container");
   setHasEmphasis(false);
 
   auto mainHBoxLayout = new QHBoxLayout();
-  mainHBoxLayout->setContentsMargins(5,0,5,0);
+  mainHBoxLayout->setContentsMargins(5, 0, 5, 0);
 
   setLayout(mainHBoxLayout);
 
   m_measureTypeBadge = new QLabel(this);
-  m_measureTypeBadge->setFixedSize(25,25);
+  m_measureTypeBadge->setFixedSize(25, 25);
   m_measureTypeBadge->setVisible(false);
-  mainHBoxLayout->addWidget(m_measureTypeBadge,Qt::AlignLeft);
+  mainHBoxLayout->addWidget(m_measureTypeBadge, Qt::AlignLeft);
 
   m_measureBadge = new MeasureBadge();
   m_measureBadge->setFixedWidth(25);
   m_measureBadge->setMeasureBadgeType(MeasureBadgeType::MyMeasure);
 
-  mainHBoxLayout->addWidget(m_measureBadge,Qt::AlignLeft);
+  mainHBoxLayout->addWidget(m_measureBadge, Qt::AlignLeft);
 
   label = new QLabel("Measure");
-  mainHBoxLayout->addWidget(label,Qt::AlignLeft);
+  mainHBoxLayout->addWidget(label, Qt::AlignLeft);
 
   mainHBoxLayout->addStretch();
 
   errorLabel = new QLabel();
   //errorLabel->setPixmap(QPixmap(":/shared_gui_components/images/error-alert.png"));
-  errorLabel->setPixmap(QPixmap(":/shared_gui_components/images/broken_script.png").scaled(24,24));
+  errorLabel->setPixmap(QPixmap(":/shared_gui_components/images/broken_script.png").scaled(24, 24));
   errorLabel->setFixedSize(24, 24);
   errorLabel->setVisible(false);
   mainHBoxLayout->addWidget(errorLabel, Qt::AlignRight);
 }
 
-void LibraryItemView::setHasEmphasis(bool hasEmphasis)
-{
-  if( hasEmphasis )
-  {
+void LibraryItemView::setHasEmphasis(bool hasEmphasis) {
+  if (hasEmphasis) {
     setStyleSheet("QWidget#Container { background: #FECD60; border: 2px solid #EE641A; }");
-  }
-  else
-  {
+  } else {
     setStyleSheet("QWidget#Container { background: #D5D5D5; border: 2px solid #A9A9A9; }");
   }
 }
 
-void LibraryItemView::paintEvent(QPaintEvent *)
-{
+void LibraryItemView::paintEvent(QPaintEvent*) {
   QStyleOption opt;
   opt.init(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
 
-} // openstudio
-
+}  // namespace openstudio

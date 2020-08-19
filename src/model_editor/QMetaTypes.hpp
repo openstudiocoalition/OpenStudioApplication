@@ -49,14 +49,12 @@ Q_DECLARE_METATYPE(std::vector<openstudio::OSItemId>)
 // Q_DECLARE_METATYPE(boost::optional<openstudio::model::ModelObject>);
 // Q_DECLARE_METATYPE(std::vector<openstudio::model::ModelObject>);
 
-
 #include <openstudio/utilities/core/UUID.hpp>
 Q_DECLARE_METATYPE(openstudio::UUID);
 
 #include <string>
 Q_DECLARE_METATYPE(std::string);
 Q_DECLARE_METATYPE(std::vector<std::string>);
-
 
 #include <boost/optional.hpp>
 Q_DECLARE_METATYPE(boost::optional<double>);
@@ -78,4 +76,4 @@ Q_DECLARE_METATYPE(openstudio::OSOptionalQuantity);
 #include <openstudio/utilities/idf/Workspace_Impl.hpp>
 Q_DECLARE_METATYPE(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl>)
 
-#endif // MODELEDITOR_QMETATYPES
+#endif  // MODELEDITOR_QMETATYPES

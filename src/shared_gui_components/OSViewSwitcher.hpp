@@ -41,29 +41,26 @@ class OSViewSwitcher : public QWidget
 {
   Q_OBJECT
 
-  public:
-
-  OSViewSwitcher(QWidget * parent = nullptr);
+ public:
+  OSViewSwitcher(QWidget* parent = nullptr);
 
   virtual ~OSViewSwitcher();
 
-  void setView(QWidget * view);
+  void setView(QWidget* view);
 
-  QWidget * view() const;
+  QWidget* view() const;
 
   void clear();
 
-  protected:
+ protected:
+  void paintEvent(QPaintEvent*) override;
 
-  void paintEvent(QPaintEvent *) override;
+ private:
+  QWidget* m_view;
 
-  private:
-
-  QWidget * m_view;
-
-  QStackedWidget * m_stack;
+  QStackedWidget* m_stack;
 };
 
-}
+}  // namespace openstudio
 
-#endif // SHAREDGUICOMPONENTS_OSVIEWSWITCHER_HPP
+#endif  // SHAREDGUICOMPONENTS_OSVIEWSWITCHER_HPP

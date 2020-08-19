@@ -45,9 +45,7 @@ using openstudio::model::ModelObject;
 
 namespace openstudio {
 
-OSUnsignedEdit2::OSUnsignedEdit2( QWidget * parent )
-  : m_isScientific(false)
-{
+OSUnsignedEdit2::OSUnsignedEdit2(QWidget* parent) : m_isScientific(false) {
   this->setFixedWidth(90);
   this->setAcceptDrops(false);
   setEnabled(false);
@@ -57,20 +55,12 @@ OSUnsignedEdit2::OSUnsignedEdit2( QWidget * parent )
   //this->setValidator(m_intValidator);
 }
 
-OSUnsignedEdit2::~OSUnsignedEdit2()
-{
-}
+OSUnsignedEdit2::~OSUnsignedEdit2() {}
 
-void OSUnsignedEdit2::bind(model::ModelObject& modelObject,
-                          UnsignedGetter get,
-                          boost::optional<UnsignedSetter> set,
-                          boost::optional<NoFailAction> reset,
-                          boost::optional<NoFailAction> autosize,
-                          boost::optional<NoFailAction> autocalculate,
-                          boost::optional<BasicQuery> isDefaulted,
-                          boost::optional<BasicQuery> isAutosized,
-                          boost::optional<BasicQuery> isAutocalculated)
-{
+void OSUnsignedEdit2::bind(model::ModelObject& modelObject, UnsignedGetter get, boost::optional<UnsignedSetter> set,
+                           boost::optional<NoFailAction> reset, boost::optional<NoFailAction> autosize, boost::optional<NoFailAction> autocalculate,
+                           boost::optional<BasicQuery> isDefaulted, boost::optional<BasicQuery> isAutosized,
+                           boost::optional<BasicQuery> isAutocalculated) {
   m_modelObject = modelObject;
   m_get = get;
   m_set = set;
@@ -84,16 +74,10 @@ void OSUnsignedEdit2::bind(model::ModelObject& modelObject,
   completeBind();
 }
 
-void OSUnsignedEdit2::bind(model::ModelObject& modelObject,
-                          OptionalUnsignedGetter get,
-                          boost::optional<UnsignedSetter> set,
-                          boost::optional<NoFailAction> reset,
-                          boost::optional<NoFailAction> autosize,
-                          boost::optional<NoFailAction> autocalculate,
-                          boost::optional<BasicQuery> isDefaulted,
-                          boost::optional<BasicQuery> isAutosized,
-                          boost::optional<BasicQuery> isAutocalculated)
-{
+void OSUnsignedEdit2::bind(model::ModelObject& modelObject, OptionalUnsignedGetter get, boost::optional<UnsignedSetter> set,
+                           boost::optional<NoFailAction> reset, boost::optional<NoFailAction> autosize, boost::optional<NoFailAction> autocalculate,
+                           boost::optional<BasicQuery> isDefaulted, boost::optional<BasicQuery> isAutosized,
+                           boost::optional<BasicQuery> isAutocalculated) {
   m_modelObject = modelObject;
   m_getOptional = get;
   m_set = set;
@@ -107,16 +91,10 @@ void OSUnsignedEdit2::bind(model::ModelObject& modelObject,
   completeBind();
 }
 
-void OSUnsignedEdit2::bind(model::ModelExtensibleGroup& modelExtensibleGroup,
-                           UnsignedGetter get,
-                           boost::optional<UnsignedSetter> set,
-                           boost::optional<NoFailAction> reset,
-                           boost::optional<NoFailAction> autosize,
-                           boost::optional<NoFailAction> autocalculate,
-                           boost::optional<BasicQuery> isDefaulted,
-                           boost::optional<BasicQuery> isAutosized,
-                           boost::optional<BasicQuery> isAutocalculated)
-{
+void OSUnsignedEdit2::bind(model::ModelExtensibleGroup& modelExtensibleGroup, UnsignedGetter get, boost::optional<UnsignedSetter> set,
+                           boost::optional<NoFailAction> reset, boost::optional<NoFailAction> autosize, boost::optional<NoFailAction> autocalculate,
+                           boost::optional<BasicQuery> isDefaulted, boost::optional<BasicQuery> isAutosized,
+                           boost::optional<BasicQuery> isAutocalculated) {
   m_modelExtensibleGroup = modelExtensibleGroup;
   m_modelObject = modelExtensibleGroup.getOptionalObject<model::ModelObject>();
   m_get = get;
@@ -131,16 +109,10 @@ void OSUnsignedEdit2::bind(model::ModelExtensibleGroup& modelExtensibleGroup,
   completeBind();
 }
 
-void OSUnsignedEdit2::bind(model::ModelExtensibleGroup& modelExtensibleGroup,
-                           OptionalUnsignedGetter get,
-                           boost::optional<UnsignedSetter> set,
-                           boost::optional<NoFailAction> reset,
-                           boost::optional<NoFailAction> autosize,
-                           boost::optional<NoFailAction> autocalculate,
-                           boost::optional<BasicQuery> isDefaulted,
-                           boost::optional<BasicQuery> isAutosized,
-                           boost::optional<BasicQuery> isAutocalculated)
-{
+void OSUnsignedEdit2::bind(model::ModelExtensibleGroup& modelExtensibleGroup, OptionalUnsignedGetter get, boost::optional<UnsignedSetter> set,
+                           boost::optional<NoFailAction> reset, boost::optional<NoFailAction> autosize, boost::optional<NoFailAction> autocalculate,
+                           boost::optional<BasicQuery> isDefaulted, boost::optional<BasicQuery> isAutosized,
+                           boost::optional<BasicQuery> isAutocalculated) {
   m_modelExtensibleGroup = modelExtensibleGroup;
   m_modelObject = modelExtensibleGroup.getOptionalObject<model::ModelObject>();
   m_getOptional = get;
@@ -158,10 +130,7 @@ void OSUnsignedEdit2::bind(model::ModelExtensibleGroup& modelExtensibleGroup,
 void OSUnsignedEdit2::completeBind() {
 
   // only let one of autosize/autocalculate
-  if ((m_isAutosized && m_isAutocalculated) ||
-      (m_isAutosized && m_autocalculate) ||
-      (m_isAutocalculated && m_autosize))
-  {
+  if ((m_isAutosized && m_isAutocalculated) || (m_isAutosized && m_autocalculate) || (m_isAutocalculated && m_autosize)) {
     LOG_AND_THROW("A field can only be autosized or autocalculated, it cannot be both.");
   }
 
@@ -169,16 +138,24 @@ void OSUnsignedEdit2::completeBind() {
 
   connect(this, &OSUnsignedEdit2::editingFinished, this, &OSUnsignedEdit2::onEditingFinished);
 
-  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.connect<OSUnsignedEdit2, &OSUnsignedEdit2::onModelObjectChange>(this);
-  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onRemoveFromWorkspace.connect<OSUnsignedEdit2, &OSUnsignedEdit2::onModelObjectRemove>(this);
+  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
+    .get()
+    ->onChange.connect<OSUnsignedEdit2, &OSUnsignedEdit2::onModelObjectChange>(this);
+  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
+    .get()
+    ->onRemoveFromWorkspace.connect<OSUnsignedEdit2, &OSUnsignedEdit2::onModelObjectRemove>(this);
 
   refreshTextAndLabel();
 }
 
 void OSUnsignedEdit2::unbind() {
-  if (m_modelObject){
-    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.disconnect<OSUnsignedEdit2, &OSUnsignedEdit2::onModelObjectChange>(this);
-    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onRemoveFromWorkspace.disconnect<OSUnsignedEdit2, &OSUnsignedEdit2::onModelObjectRemove>(this);
+  if (m_modelObject) {
+    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
+      .get()
+      ->onChange.disconnect<OSUnsignedEdit2, &OSUnsignedEdit2::onModelObjectChange>(this);
+    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
+      .get()
+      ->onRemoveFromWorkspace.disconnect<OSUnsignedEdit2, &OSUnsignedEdit2::onModelObjectRemove>(this);
     m_modelObject.reset();
     m_modelExtensibleGroup.reset();
     m_get.reset();
@@ -204,15 +181,15 @@ void OSUnsignedEdit2::onEditingFinished() {
   int pos = 0;
   QValidator::State state = m_intValidator->validate(text, pos);
   bool isAuto = false;
-  if (state != QValidator::Acceptable){
-    if (text.isEmpty()){
+  if (state != QValidator::Acceptable) {
+    if (text.isEmpty()) {
       // ok
-    } else{
+    } else {
       boost::regex autore("[aA][uU][tT][oO]");
       isAuto = boost::regex_search(text.toStdString(), autore);
-      if (isAuto){
+      if (isAuto) {
         // ok
-      } else{
+      } else {
         // not ok
         refreshTextAndLabel();
         return;
@@ -226,11 +203,10 @@ void OSUnsignedEdit2::onEditingFinished() {
     if (str.empty()) {
       if (m_reset) {
         (*m_reset)();
-      } else{
+      } else {
         refreshTextAndLabel();
       }
-    }
-    else if (isAuto) {
+    } else if (isAuto) {
       if (m_isAutosized) {
         if (m_autosize) {
           (*m_autosize)();
@@ -239,11 +215,10 @@ void OSUnsignedEdit2::onEditingFinished() {
         } else {
           refreshTextAndLabel();
         }
-      }else if (m_isAutocalculated) {
+      } else if (m_isAutocalculated) {
         if (m_autocalculate) {
           (*m_autocalculate)();
-        }
-        else if (m_reset) {
+        } else if (m_reset) {
           (*m_reset)();
         } else {
           refreshTextAndLabel();
@@ -251,21 +226,18 @@ void OSUnsignedEdit2::onEditingFinished() {
       } else {
         refreshTextAndLabel();
       }
-    }
-    else {
+    } else {
       try {
         int value = boost::lexical_cast<int>(str);
         setPrecision(str);
         if (m_set) {
           bool result = (*m_set)(value);
-          if (!result){
+          if (!result) {
             // restore
             refreshTextAndLabel();
           }
         }
-      }
-      catch (...)
-      {
+      } catch (...) {
         // restore
         refreshTextAndLabel();
       }
@@ -274,8 +246,8 @@ void OSUnsignedEdit2::onEditingFinished() {
 }
 
 void OSUnsignedEdit2::onModelObjectChange() {
-  if (m_modelExtensibleGroup){
-    if (m_modelExtensibleGroup->empty()){
+  if (m_modelExtensibleGroup) {
+    if (m_modelExtensibleGroup->empty()) {
       // this is equivalent to onModelObjectRemove for the extensible group
       unbind();
       return;
@@ -318,8 +290,7 @@ void OSUnsignedEdit2::refreshTextAndLabel() {
       int value = *oi;
       if (m_isScientific) {
         ss << std::scientific;
-      }
-      else {
+      } else {
         ss << std::fixed;
       }
       if (m_precision) {
@@ -330,7 +301,7 @@ void OSUnsignedEdit2::refreshTextAndLabel() {
       ss.str("");
     }
 
-    if (m_text != textValue || text != textValue){
+    if (m_text != textValue || text != textValue) {
       m_text = textValue;
       this->blockSignals(true);
       this->setText(m_text);
@@ -340,8 +311,7 @@ void OSUnsignedEdit2::refreshTextAndLabel() {
     if (m_isDefaulted) {
       if ((*m_isDefaulted)()) {
         this->setStyleSheet("color:green");
-      }
-      else {
+      } else {
         this->setStyleSheet("color:black");
       }
     }
@@ -351,36 +321,32 @@ void OSUnsignedEdit2::refreshTextAndLabel() {
 void OSUnsignedEdit2::setPrecision(const std::string& str) {
   boost::regex rgx("-?([[:digit:]]*)(\\.)?([[:digit:]]+)([EDed][-\\+]?[[:digit:]]+)?");
   boost::smatch m;
-  if (boost::regex_match(str,m,rgx)) {
+  if (boost::regex_match(str, m, rgx)) {
     std::string sci, prefix, postfix;
     if (m[1].matched) {
-      prefix = std::string(m[1].first,m[1].second);
+      prefix = std::string(m[1].first, m[1].second);
     }
     if (m[3].matched) {
-      postfix = std::string(m[3].first,m[3].second);
+      postfix = std::string(m[3].first, m[3].second);
     }
     if (m[4].matched) {
-      sci = std::string(m[4].first,m[4].second);
+      sci = std::string(m[4].first, m[4].second);
     }
     m_isScientific = !sci.empty();
 
     if (m_isScientific) {
       m_precision = prefix.size() + postfix.size() - 1;
-    }
-    else {
+    } else {
       m_precision = 0;
     }
-  }
-  else {
+  } else {
     m_isScientific = false;
     m_precision.reset();
   }
 }
 
-void OSUnsignedEdit2::focusInEvent(QFocusEvent * e)
-{
-  if (e->reason() == Qt::MouseFocusReason && m_hasClickFocus)
-  {
+void OSUnsignedEdit2::focusInEvent(QFocusEvent* e) {
+  if (e->reason() == Qt::MouseFocusReason && m_hasClickFocus) {
     QString style("QLineEdit { background: #ffc627; }");
     setStyleSheet(style);
 
@@ -390,10 +356,8 @@ void OSUnsignedEdit2::focusInEvent(QFocusEvent * e)
   QLineEdit::focusInEvent(e);
 }
 
-void OSUnsignedEdit2::focusOutEvent(QFocusEvent * e)
-{
-  if (e->reason() == Qt::MouseFocusReason && m_hasClickFocus)
-  {
+void OSUnsignedEdit2::focusOutEvent(QFocusEvent* e) {
+  if (e->reason() == Qt::MouseFocusReason && m_hasClickFocus) {
     QString style("QLineEdit { background: white; }");
     setStyleSheet(style);
 
@@ -403,4 +367,4 @@ void OSUnsignedEdit2::focusOutEvent(QFocusEvent * e)
   QLineEdit::focusOutEvent(e);
 }
 
-} // openstudio
+}  // namespace openstudio

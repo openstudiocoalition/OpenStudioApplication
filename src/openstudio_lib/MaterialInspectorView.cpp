@@ -51,15 +51,12 @@ namespace openstudio {
 
 // MaterialInspectorView
 
-  MaterialInspectorView::MaterialInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent)
-  : ModelObjectInspectorView(model, true, parent),
-  m_isIP(isIP)
-{
+MaterialInspectorView::MaterialInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent)
+  : ModelObjectInspectorView(model, true, parent), m_isIP(isIP) {
   createLayout();
 }
 
-void MaterialInspectorView::createLayout()
-{
+void MaterialInspectorView::createLayout() {
   auto hiddenWidget = new QWidget();
   this->stackedWidget()->addWidget(hiddenWidget);
 
@@ -73,7 +70,7 @@ void MaterialInspectorView::createLayout()
 
   int row = mainGridLayout->rowCount();
 
-  QLabel * label = nullptr;
+  QLabel* label = nullptr;
 
   // Name
 
@@ -95,7 +92,7 @@ void MaterialInspectorView::createLayout()
 
   ++row;
 
-  QVBoxLayout * vLayout = nullptr;
+  QVBoxLayout* vLayout = nullptr;
 
   // Roughness
   vLayout = new QVBoxLayout();
@@ -122,7 +119,7 @@ void MaterialInspectorView::createLayout()
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
-  m_thickness = new OSQuantityEdit2("m","m","in", m_isIP);
+  m_thickness = new OSQuantityEdit2("m", "m", "in", m_isIP);
   connect(this, &MaterialInspectorView::toggleUnitsClicked, m_thickness, &OSQuantityEdit2::onUnitSystemChange);
   vLayout->addWidget(m_thickness);
 
@@ -135,7 +132,7 @@ void MaterialInspectorView::createLayout()
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
-  m_conductivity = new OSQuantityEdit2("W/m*K","W/m*K","Btu*in/hr*ft^2*R", m_isIP);
+  m_conductivity = new OSQuantityEdit2("W/m*K", "W/m*K", "Btu*in/hr*ft^2*R", m_isIP);
   connect(this, &MaterialInspectorView::toggleUnitsClicked, m_conductivity, &OSQuantityEdit2::onUnitSystemChange);
   vLayout->addWidget(m_conductivity);
 
@@ -148,7 +145,7 @@ void MaterialInspectorView::createLayout()
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
-  m_density = new OSQuantityEdit2("kg/m^3","kg/m^3","lb/ft^3", m_isIP);
+  m_density = new OSQuantityEdit2("kg/m^3", "kg/m^3", "lb/ft^3", m_isIP);
   connect(this, &MaterialInspectorView::toggleUnitsClicked, m_density, &OSQuantityEdit2::onUnitSystemChange);
   vLayout->addWidget(m_density);
 
@@ -161,7 +158,7 @@ void MaterialInspectorView::createLayout()
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
-  m_specificHeat = new OSQuantityEdit2("J/kg*K","J/kg*K","Btu/lb*R", m_isIP);
+  m_specificHeat = new OSQuantityEdit2("J/kg*K", "J/kg*K", "Btu/lb*R", m_isIP);
   connect(this, &MaterialInspectorView::toggleUnitsClicked, m_specificHeat, &OSQuantityEdit2::onUnitSystemChange);
   vLayout->addWidget(m_specificHeat);
 
@@ -174,7 +171,7 @@ void MaterialInspectorView::createLayout()
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
-  m_thermalAbsorptance = new OSQuantityEdit2("","","", m_isIP);
+  m_thermalAbsorptance = new OSQuantityEdit2("", "", "", m_isIP);
   connect(this, &MaterialInspectorView::toggleUnitsClicked, m_thermalAbsorptance, &OSQuantityEdit2::onUnitSystemChange);
   vLayout->addWidget(m_thermalAbsorptance);
 
@@ -187,7 +184,7 @@ void MaterialInspectorView::createLayout()
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
-  m_solarAbsorptance = new OSQuantityEdit2("","","", m_isIP);
+  m_solarAbsorptance = new OSQuantityEdit2("", "", "", m_isIP);
   connect(this, &MaterialInspectorView::toggleUnitsClicked, m_solarAbsorptance, &OSQuantityEdit2::onUnitSystemChange);
   vLayout->addWidget(m_solarAbsorptance);
 
@@ -200,7 +197,7 @@ void MaterialInspectorView::createLayout()
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
-  m_visibleAbsorptance = new OSQuantityEdit2("","","", m_isIP);
+  m_visibleAbsorptance = new OSQuantityEdit2("", "", "", m_isIP);
   connect(this, &MaterialInspectorView::toggleUnitsClicked, m_visibleAbsorptance, &OSQuantityEdit2::onUnitSystemChange);
   vLayout->addWidget(m_visibleAbsorptance);
 
@@ -208,128 +205,108 @@ void MaterialInspectorView::createLayout()
 
   // Stretch
 
-  mainGridLayout->setRowStretch(100,100);
+  mainGridLayout->setRowStretch(100, 100);
 
-  mainGridLayout->setColumnStretch(100,100);
+  mainGridLayout->setColumnStretch(100, 100);
 }
 
-void MaterialInspectorView::onClearSelection()
-{
-  ModelObjectInspectorView::onClearSelection(); // call parent implementation
+void MaterialInspectorView::onClearSelection() {
+  ModelObjectInspectorView::onClearSelection();  // call parent implementation
   detach();
 }
 
-void MaterialInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject)
-{
+void MaterialInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject) {
   detach();
   model::StandardOpaqueMaterial standardOpaqueMaterial = modelObject.cast<model::StandardOpaqueMaterial>();
   attach(standardOpaqueMaterial);
   refresh();
 }
 
-void MaterialInspectorView::onUpdate()
-{
+void MaterialInspectorView::onUpdate() {
   refresh();
 }
 
-void MaterialInspectorView::attach(openstudio::model::StandardOpaqueMaterial & standardOpaqueMaterial)
-{
+void MaterialInspectorView::attach(openstudio::model::StandardOpaqueMaterial& standardOpaqueMaterial) {
   m_standardOpaqueMaterial = standardOpaqueMaterial;
   // m_nameEdit->bind(standardOpaqueMaterial, "name");
-  m_nameEdit->bind(
-    *m_standardOpaqueMaterial,
-    OptionalStringGetter(std::bind(&model::StandardOpaqueMaterial::name, m_standardOpaqueMaterial.get_ptr(),true)),
-    boost::optional<StringSetterOptionalStringReturn>(std::bind(&model::StandardOpaqueMaterial::setName, m_standardOpaqueMaterial.get_ptr(),std::placeholders::_1))
-  );
+  m_nameEdit->bind(*m_standardOpaqueMaterial,
+                   OptionalStringGetter(std::bind(&model::StandardOpaqueMaterial::name, m_standardOpaqueMaterial.get_ptr(), true)),
+                   boost::optional<StringSetterOptionalStringReturn>(
+                     std::bind(&model::StandardOpaqueMaterial::setName, m_standardOpaqueMaterial.get_ptr(), std::placeholders::_1)));
 
   // m_roughness->bind(standardOpaqueMaterial,"roughness");
-  if(m_roughness){
+  if (m_roughness) {
     m_roughness->bind<std::string>(
-      *m_standardOpaqueMaterial,
-      static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
-      &model::StandardOpaqueMaterial::roughnessValues,
-      std::bind(&model::StandardOpaqueMaterial::roughness, m_standardOpaqueMaterial.get_ptr()),
-      std::bind(&model::StandardOpaqueMaterial::setRoughness, m_standardOpaqueMaterial.get_ptr(), std::placeholders::_1),
-      boost::none,
-      boost::none);
+      *m_standardOpaqueMaterial, static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
+      &model::StandardOpaqueMaterial::roughnessValues, std::bind(&model::StandardOpaqueMaterial::roughness, m_standardOpaqueMaterial.get_ptr()),
+      std::bind(&model::StandardOpaqueMaterial::setRoughness, m_standardOpaqueMaterial.get_ptr(), std::placeholders::_1), boost::none, boost::none);
   }
 
   // m_thickness->bind(standardOpaqueMaterial,"thickness",m_isIP);
-  m_thickness->bind(
-    m_isIP,
-    *m_standardOpaqueMaterial,
-    DoubleGetter(std::bind(&model::StandardOpaqueMaterial::thickness, m_standardOpaqueMaterial.get_ptr())),
-    boost::optional<DoubleSetter>(std::bind(static_cast<bool(model::StandardOpaqueMaterial::*)(double)>(&model::StandardOpaqueMaterial::setThickness), m_standardOpaqueMaterial.get_ptr(), std::placeholders::_1))
-  );
+  m_thickness->bind(m_isIP, *m_standardOpaqueMaterial,
+                    DoubleGetter(std::bind(&model::StandardOpaqueMaterial::thickness, m_standardOpaqueMaterial.get_ptr())),
+                    boost::optional<DoubleSetter>(
+                      std::bind(static_cast<bool (model::StandardOpaqueMaterial::*)(double)>(&model::StandardOpaqueMaterial::setThickness),
+                                m_standardOpaqueMaterial.get_ptr(), std::placeholders::_1)));
 
   // m_conductivity->bind(standardOpaqueMaterial,"conductivity",m_isIP);
-  m_conductivity->bind(
-    m_isIP,
-    *m_standardOpaqueMaterial,
-    DoubleGetter(std::bind(&model::StandardOpaqueMaterial::conductivity, m_standardOpaqueMaterial.get_ptr())),
-    boost::optional<DoubleSetter>(std::bind(static_cast<bool(model::StandardOpaqueMaterial::*)(double)>(&model::StandardOpaqueMaterial::setConductivity), m_standardOpaqueMaterial.get_ptr(), std::placeholders::_1))
-  );
+  m_conductivity->bind(m_isIP, *m_standardOpaqueMaterial,
+                       DoubleGetter(std::bind(&model::StandardOpaqueMaterial::conductivity, m_standardOpaqueMaterial.get_ptr())),
+                       boost::optional<DoubleSetter>(
+                         std::bind(static_cast<bool (model::StandardOpaqueMaterial::*)(double)>(&model::StandardOpaqueMaterial::setConductivity),
+                                   m_standardOpaqueMaterial.get_ptr(), std::placeholders::_1)));
 
   // m_density->bind(standardOpaqueMaterial,"density",m_isIP);
   m_density->bind(
-    m_isIP,
-    *m_standardOpaqueMaterial,
-    DoubleGetter(std::bind(&model::StandardOpaqueMaterial::density, m_standardOpaqueMaterial.get_ptr())),
-    boost::optional<DoubleSetter>(std::bind(static_cast<bool(model::StandardOpaqueMaterial::*)(double)>(&model::StandardOpaqueMaterial::setDensity), m_standardOpaqueMaterial.get_ptr(), std::placeholders::_1))
-  );
+    m_isIP, *m_standardOpaqueMaterial, DoubleGetter(std::bind(&model::StandardOpaqueMaterial::density, m_standardOpaqueMaterial.get_ptr())),
+    boost::optional<DoubleSetter>(std::bind(static_cast<bool (model::StandardOpaqueMaterial::*)(double)>(&model::StandardOpaqueMaterial::setDensity),
+                                            m_standardOpaqueMaterial.get_ptr(), std::placeholders::_1)));
 
   // m_specificHeat->bind(standardOpaqueMaterial,"specificHeat",m_isIP);
-  m_specificHeat->bind(
-    m_isIP,
-    *m_standardOpaqueMaterial,
-    DoubleGetter(std::bind(&model::StandardOpaqueMaterial::specificHeat, m_standardOpaqueMaterial.get_ptr())),
-    boost::optional<DoubleSetter>(std::bind(static_cast<bool(model::StandardOpaqueMaterial::*)(double)>(&model::StandardOpaqueMaterial::setSpecificHeat), m_standardOpaqueMaterial.get_ptr(), std::placeholders::_1))
-  );
+  m_specificHeat->bind(m_isIP, *m_standardOpaqueMaterial,
+                       DoubleGetter(std::bind(&model::StandardOpaqueMaterial::specificHeat, m_standardOpaqueMaterial.get_ptr())),
+                       boost::optional<DoubleSetter>(
+                         std::bind(static_cast<bool (model::StandardOpaqueMaterial::*)(double)>(&model::StandardOpaqueMaterial::setSpecificHeat),
+                                   m_standardOpaqueMaterial.get_ptr(), std::placeholders::_1)));
 
   // m_thermalAbsorptance->bind(standardOpaqueMaterial,"thermalAbsorptance",m_isIP); // Fractional, no units
   m_thermalAbsorptance->bind(
-    m_isIP,
-    *m_standardOpaqueMaterial,
+    m_isIP, *m_standardOpaqueMaterial,
     DoubleGetter(std::bind(&model::StandardOpaqueMaterial::thermalAbsorptance, m_standardOpaqueMaterial.get_ptr())),
-    boost::optional<DoubleSetter>(std::bind(static_cast<bool(model::StandardOpaqueMaterial::*)(double)>(&model::StandardOpaqueMaterial::setThermalAbsorptance), m_standardOpaqueMaterial.get_ptr(), std::placeholders::_1)),
+    boost::optional<DoubleSetter>(
+      std::bind(static_cast<bool (model::StandardOpaqueMaterial::*)(double)>(&model::StandardOpaqueMaterial::setThermalAbsorptance),
+                m_standardOpaqueMaterial.get_ptr(), std::placeholders::_1)),
     boost::optional<NoFailAction>(std::bind(&model::StandardOpaqueMaterial::resetThermalAbsorptance, m_standardOpaqueMaterial.get_ptr())),
-    boost::none,
-    boost::none,
-    boost::optional<BasicQuery>(std::bind(&model::StandardOpaqueMaterial::isThermalAbsorptanceDefaulted, m_standardOpaqueMaterial.get_ptr()))
-  );
+    boost::none, boost::none,
+    boost::optional<BasicQuery>(std::bind(&model::StandardOpaqueMaterial::isThermalAbsorptanceDefaulted, m_standardOpaqueMaterial.get_ptr())));
 
   // m_solarAbsorptance->bind(standardOpaqueMaterial,"solarAbsorptance",m_isIP); // Fractional, no units
   m_solarAbsorptance->bind(
-    m_isIP,
-    *m_standardOpaqueMaterial,
-    DoubleGetter(std::bind(&model::StandardOpaqueMaterial::solarAbsorptance, m_standardOpaqueMaterial.get_ptr())),
-    boost::optional<DoubleSetter>(std::bind(static_cast<bool(model::StandardOpaqueMaterial::*)(double)>(&model::StandardOpaqueMaterial::setSolarAbsorptance), m_standardOpaqueMaterial.get_ptr(), std::placeholders::_1)),
-    boost::optional<NoFailAction>(std::bind(&model::StandardOpaqueMaterial::resetSolarAbsorptance, m_standardOpaqueMaterial.get_ptr())),
+    m_isIP, *m_standardOpaqueMaterial, DoubleGetter(std::bind(&model::StandardOpaqueMaterial::solarAbsorptance, m_standardOpaqueMaterial.get_ptr())),
+    boost::optional<DoubleSetter>(
+      std::bind(static_cast<bool (model::StandardOpaqueMaterial::*)(double)>(&model::StandardOpaqueMaterial::setSolarAbsorptance),
+                m_standardOpaqueMaterial.get_ptr(), std::placeholders::_1)),
+    boost::optional<NoFailAction>(std::bind(&model::StandardOpaqueMaterial::resetSolarAbsorptance, m_standardOpaqueMaterial.get_ptr())), boost::none,
     boost::none,
-    boost::none,
-    boost::optional<BasicQuery>(std::bind(&model::StandardOpaqueMaterial::isSolarAbsorptanceDefaulted, m_standardOpaqueMaterial.get_ptr()))
-  );
+    boost::optional<BasicQuery>(std::bind(&model::StandardOpaqueMaterial::isSolarAbsorptanceDefaulted, m_standardOpaqueMaterial.get_ptr())));
 
   // m_visibleAbsorptance->bind(standardOpaqueMaterial,"visibleAbsorptance",m_isIP); // Fractional, no units
   m_visibleAbsorptance->bind(
-    m_isIP,
-    *m_standardOpaqueMaterial,
+    m_isIP, *m_standardOpaqueMaterial,
     DoubleGetter(std::bind(&model::StandardOpaqueMaterial::visibleAbsorptance, m_standardOpaqueMaterial.get_ptr())),
-    boost::optional<DoubleSetter>(std::bind(static_cast<bool(model::StandardOpaqueMaterial::*)(double)>(&model::StandardOpaqueMaterial::setVisibleAbsorptance), m_standardOpaqueMaterial.get_ptr(), std::placeholders::_1)),
+    boost::optional<DoubleSetter>(
+      std::bind(static_cast<bool (model::StandardOpaqueMaterial::*)(double)>(&model::StandardOpaqueMaterial::setVisibleAbsorptance),
+                m_standardOpaqueMaterial.get_ptr(), std::placeholders::_1)),
     boost::optional<NoFailAction>(std::bind(&model::StandardOpaqueMaterial::resetVisibleAbsorptance, m_standardOpaqueMaterial.get_ptr())),
-    boost::none,
-    boost::none,
-    boost::optional<BasicQuery>(std::bind(&model::StandardOpaqueMaterial::isVisibleAbsorptanceDefaulted, m_standardOpaqueMaterial.get_ptr()))
-  );
-
+    boost::none, boost::none,
+    boost::optional<BasicQuery>(std::bind(&model::StandardOpaqueMaterial::isVisibleAbsorptanceDefaulted, m_standardOpaqueMaterial.get_ptr())));
 
   m_standardsInformationWidget->attach(standardOpaqueMaterial);
 
   this->stackedWidget()->setCurrentIndex(1);
 }
 
-void MaterialInspectorView::detach()
-{
+void MaterialInspectorView::detach() {
   this->stackedWidget()->setCurrentIndex(0);
 
   m_nameEdit->unbind();
@@ -349,8 +326,6 @@ void MaterialInspectorView::detach()
   m_standardsInformationWidget->detach();
 }
 
-void MaterialInspectorView::refresh()
-{
-}
+void MaterialInspectorView::refresh() {}
 
-} // openstudio
+}  // namespace openstudio

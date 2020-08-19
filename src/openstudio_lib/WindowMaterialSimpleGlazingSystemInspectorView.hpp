@@ -45,46 +45,42 @@ class WindowMaterialSimpleGlazingSystemInspectorView : public ModelObjectInspect
 {
   Q_OBJECT
 
-  public:
+ public:
+  WindowMaterialSimpleGlazingSystemInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
-    WindowMaterialSimpleGlazingSystemInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent = nullptr);
+  virtual ~WindowMaterialSimpleGlazingSystemInspectorView() {}
 
-    virtual ~WindowMaterialSimpleGlazingSystemInspectorView() {}
+ protected:
+  virtual void onClearSelection() override;
 
-  protected:
+  virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
-    virtual void onClearSelection() override;
+  virtual void onUpdate() override;
 
-    virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
+ private:
+  void createLayout();
 
-    virtual void onUpdate() override;
+  void attach(openstudio::model::SimpleGlazing& SimpleGlazing);
 
-  private:
+  void detach();
 
-    void createLayout();
+  void refresh();
 
-    void attach(openstudio::model::SimpleGlazing & SimpleGlazing);
+  bool m_isIP;
 
-    void detach();
+  boost::optional<model::SimpleGlazing> m_simpleGlazing;
 
-    void refresh();
+  OSLineEdit2* m_nameEdit = nullptr;
 
-    bool m_isIP;
+  OSQuantityEdit2* m_uFactor = nullptr;
 
-    boost::optional<model::SimpleGlazing> m_simpleGlazing;
+  OSQuantityEdit2* m_solarHeatGainCoefficient = nullptr;
 
-    OSLineEdit2 * m_nameEdit = nullptr;
+  OSQuantityEdit2* m_visibleTransmittance = nullptr;
 
-    OSQuantityEdit2 * m_uFactor = nullptr;
-
-    OSQuantityEdit2 * m_solarHeatGainCoefficient = nullptr;
-
-    OSQuantityEdit2 * m_visibleTransmittance = nullptr;
-
-    StandardsInformationMaterialWidget * m_standardsInformationWidget = nullptr;
-
+  StandardsInformationMaterialWidget* m_standardsInformationWidget = nullptr;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_WINDOWMATERIALSIMPLEGLAZINGSYSTEMINSPECTORVIEW_HPP
+#endif  // OPENSTUDIO_WINDOWMATERIALSIMPLEGLAZINGSYSTEMINSPECTORVIEW_HPP

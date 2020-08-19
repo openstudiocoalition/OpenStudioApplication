@@ -41,12 +41,10 @@
 
 #include <iostream>
 
-
 namespace openstudio {
 
-LibraryDialog::LibraryDialog(std::vector<openstudio::path> paths, std::vector<openstudio::path> defaultPaths, const openstudio::path & resourcesPath)
-  : QDialog(), m_defaultPaths(defaultPaths), m_resourcesPath(resourcesPath)
-{
+LibraryDialog::LibraryDialog(std::vector<openstudio::path> paths, std::vector<openstudio::path> defaultPaths, const openstudio::path& resourcesPath)
+  : QDialog(), m_defaultPaths(defaultPaths), m_resourcesPath(resourcesPath) {
   auto mainLayout = new QVBoxLayout();
   setLayout(mainLayout);
 
@@ -65,42 +63,40 @@ LibraryDialog::LibraryDialog(std::vector<openstudio::path> paths, std::vector<op
   mainLayout->addLayout(addRemoveLayout);
 
   auto add = new QPushButton("Add");
-  addRemoveLayout->addWidget(add,0);
-  connect(add,&QPushButton::clicked,this,&LibraryDialog::onAdd);
+  addRemoveLayout->addWidget(add, 0);
+  connect(add, &QPushButton::clicked, this, &LibraryDialog::onAdd);
 
   auto remove = new QPushButton("Remove");
-  addRemoveLayout->addWidget(remove,0);
-  connect(remove,&QPushButton::clicked,this,&LibraryDialog::onRemove);
+  addRemoveLayout->addWidget(remove, 0);
+  connect(remove, &QPushButton::clicked, this, &LibraryDialog::onRemove);
 
   addRemoveLayout->addStretch(1);
 
   auto restore = new QPushButton("Restore Defaults");
-  addRemoveLayout->addWidget(restore,0,Qt::AlignRight);
-  connect(restore,&QPushButton::clicked,this,&LibraryDialog::onRestore);
+  addRemoveLayout->addWidget(restore, 0, Qt::AlignRight);
+  connect(restore, &QPushButton::clicked, this, &LibraryDialog::onRestore);
 
-  auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok
-                                   | QDialogButtonBox::Cancel);
+  auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
   mainLayout->addWidget(buttonBox);
 
   connect(buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
   connect(buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
 
-  for( auto path : paths ) {
+  for (auto path : paths) {
     m_list->addItem(QString::fromStdString(toString(path)));
   }
 }
 
 void LibraryDialog::onAdd() {
-  auto fileName = QFileDialog::getOpenFileName(nullptr,
-      tr("Select OpenStudio Library"), toQString(m_resourcesPath), tr("OpenStudio Files (*.osm)"));
+  auto fileName = QFileDialog::getOpenFileName(nullptr, tr("Select OpenStudio Library"), toQString(m_resourcesPath), tr("OpenStudio Files (*.osm)"));
 
-  if( ! fileName.isNull() ) {
+  if (!fileName.isNull()) {
     m_list->addItem(fileName);
   }
 }
 
 void LibraryDialog::onRemove() {
-  for( auto item : m_list->selectedItems() ) {
+  for (auto item : m_list->selectedItems()) {
     delete item;
   }
 }
@@ -108,7 +104,7 @@ void LibraryDialog::onRemove() {
 void LibraryDialog::onRestore() {
   m_list->clear();
 
-  for( const auto path : m_defaultPaths ) {
+  for (const auto path : m_defaultPaths) {
     m_list->addItem(QString::fromStdString(toString(path)));
   }
 }
@@ -116,7 +112,7 @@ void LibraryDialog::onRestore() {
 std::vector<openstudio::path> LibraryDialog::paths() const {
   std::vector<openstudio::path> result;
 
-  for ( int i = 0; i != m_list->count(); ++i ) {
+  for (int i = 0; i != m_list->count(); ++i) {
     auto stringValue = m_list->item(i)->text();
     result.push_back(toPath(stringValue));
   }
@@ -124,4 +120,4 @@ std::vector<openstudio::path> LibraryDialog::paths() const {
   return result;
 }
 
-} // openstudio
+}  // namespace openstudio

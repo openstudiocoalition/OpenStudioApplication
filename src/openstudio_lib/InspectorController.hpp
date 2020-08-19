@@ -51,7 +51,7 @@ class WaterToAirComponent;
 
 class HVACComponent;
 
-}
+}  // namespace model
 
 class InspectorView;
 
@@ -59,49 +59,47 @@ class InspectorController : public QObject
 {
   Q_OBJECT
 
-  public:
-
+ public:
   InspectorController();
 
   virtual ~InspectorController();
 
-  InspectorView * inspectorView();
+  InspectorView* inspectorView();
 
-  signals:
+ signals:
 
   void toggleUnitsClicked(bool displayIP);
 
-  void itemRemoveClicked(OSItem *);
+  void itemRemoveClicked(OSItem*);
 
   void removeButtonClicked(bool);
 
   void workspaceObjectRemoved();
 
-  public slots:
+ public slots:
 
-  void layoutModelObject( model::OptionalModelObject &, bool readOnly );
+  void layoutModelObject(model::OptionalModelObject&, bool readOnly);
 
-  void addBranchForZone(model::ThermalZone &);
-  void removeBranchForZone(model::ThermalZone &);
-  void moveBranchForZoneSupply(model::ThermalZone & zone, const Handle & newPlenumHandle);
-  void moveBranchForZoneReturn(model::ThermalZone & zone, const Handle & newPlenumHandle);
+  void addBranchForZone(model::ThermalZone&);
+  void removeBranchForZone(model::ThermalZone&);
+  void moveBranchForZoneSupply(model::ThermalZone& zone, const Handle& newPlenumHandle);
+  void moveBranchForZoneReturn(model::ThermalZone& zone, const Handle& newPlenumHandle);
 
-  void addToLoop(model::Loop &, boost::optional<model::HVACComponent> &);
-  void removeFromLoop(model::Loop &, boost::optional<model::HVACComponent> &);
+  void addToLoop(model::Loop&, boost::optional<model::HVACComponent>&);
+  void removeFromLoop(model::Loop&, boost::optional<model::HVACComponent>&);
 
   void toggleUnits(bool displayIP);
 
-  private slots:
+ private slots:
 
-  void onViewDestroyed(QObject * object = nullptr);
+  void onViewDestroyed(QObject* object = nullptr);
 
-  private:
-
-  InspectorView * m_inspectorView;
+ private:
+  InspectorView* m_inspectorView;
 
   boost::optional<model::ModelObject> m_modelObject;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_INSPECTORCONTROLLER_HPP
+#endif  // OPENSTUDIO_INSPECTORCONTROLLER_HPP

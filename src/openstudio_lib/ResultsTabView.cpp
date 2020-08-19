@@ -50,51 +50,43 @@
 
 namespace openstudio {
 
-ResultsTabView::ResultsTabView(const QString & tabLabel,
-  TabType tabType,
-  QWidget * parent)
-  : MainTabView(tabLabel, tabType, parent),
-  m_resultsView(new ResultsView(parent))
-{
+ResultsTabView::ResultsTabView(const QString& tabLabel, TabType tabType, QWidget* parent)
+  : MainTabView(tabLabel, tabType, parent), m_resultsView(new ResultsView(parent)) {
   addTabWidget(m_resultsView);
   m_resultsView->setAutoFillBackground(false);
 
   auto savePath = OSAppBase::instance()->currentDocument()->savePath();
-  if( ! savePath.isEmpty() ) {
-    openstudio::path companionFolder = getCompanionFolder( toPath(savePath) );
+  if (!savePath.isEmpty()) {
+    openstudio::path companionFolder = getCompanionFolder(toPath(savePath));
     openstudio::path runPath = companionFolder / toPath("run");
     openstudio::path reportsPath = companionFolder / toPath("reports");
     m_resultsView->searchForExistingResults(runPath, reportsPath);
   }
 }
 
-void ResultsTabView::onUnitSystemChange(bool t_isIP)
-{
+void ResultsTabView::onUnitSystemChange(bool t_isIP) {
   LOG(Debug, "onUnitSystemChange " << t_isIP << " reloading results");
   m_resultsView->onUnitSystemChange(t_isIP);
 }
 
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-ResultsView::ResultsView(QWidget *t_parent)
+ResultsView::ResultsView(QWidget* t_parent)
   : QWidget(t_parent),
     m_isIP(true),
     m_progressBar(new QProgressBar()),
     m_refreshBtn(new QPushButton("Refresh")),
-    m_openDViewBtn(new QPushButton("Open DView for\nDetailed Reports"))
-{
+    m_openDViewBtn(new QPushButton("Open DView for\nDetailed Reports")) {
 
   auto mainLayout = new QVBoxLayout;
   setLayout(mainLayout);
 
   connect(m_refreshBtn, &QPushButton::clicked, this, &ResultsView::refreshClicked);
 
-
-
   // Prepare the top portion inside a QHBoxLayout
   auto hLayout = new QHBoxLayout(this);
 
-  m_reportLabel = new QLabel("Reports: ",this);
+  m_reportLabel = new QLabel("Reports: ", this);
   m_reportLabel->setObjectName("H2");
   m_reportLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
   hLayout->addWidget(m_reportLabel, 0, Qt::AlignLeft | Qt::AlignVCenter);
@@ -109,16 +101,14 @@ ResultsView::ResultsView(QWidget *t_parent)
   m_progressBar->setMinimum(0);
   m_progressBar->setMaximum(100);
   m_progressBar->setValue(0);
-  m_progressBar->setVisible(false); // make visible when load first page
+  m_progressBar->setVisible(false);  // make visible when load first page
 
   hLayout->addWidget(m_refreshBtn, 0, Qt::AlignVCenter);
   m_refreshBtn->setVisible(true);
 
-
-
   // This seems fishy, nowhere is OpenStudioApp::instance used (OSAppBase::instance is used instead), and only one time there's a
   // static_cast<OpenStudioApp>(app)
-  openstudio::OpenStudioApp * app = OpenStudioApp::instance();
+  openstudio::OpenStudioApp* app = OpenStudioApp::instance();
   m_dviewPath = app->dviewPath();
   if (m_dviewPath.empty()) {
     m_openDViewBtn->setText("Set Path to DView\nin Preferences");
@@ -139,7 +129,7 @@ ResultsView::ResultsView(QWidget *t_parent)
   m_view->settings()->setAttribute(QWebEngineSettings::WebAttribute::SpatialNavigationEnabled, true);
 
   m_page = new OSWebEnginePage(this);
-  m_view->setPage(m_page); // note, view does not take ownership of page
+  m_view->setPage(m_page);  // note, view does not take ownership of page
 
   connect(m_view, &QWebEngineView::loadFinished, this, &ResultsView::onLoadFinished);
   connect(m_view, &QWebEngineView::loadProgress, this, &ResultsView::onLoadProgress);
@@ -155,52 +145,44 @@ ResultsView::ResultsView(QWidget *t_parent)
 
   //mainLayout->addWidget(m_view, 10, Qt::AlignTop);
   mainLayout->addWidget(m_view);
-
 }
 
-ResultsView::~ResultsView()
-{
+ResultsView::~ResultsView() {
   delete m_view;
   delete m_page;
 }
 
-void ResultsView::refreshClicked()
-{
+void ResultsView::refreshClicked() {
   m_view->triggerPageAction(QWebEnginePage::ReloadAndBypassCache);
 }
 
-void ResultsView::openDViewClicked()
-{
+void ResultsView::openDViewClicked() {
   LOG(Debug, "openDViewClicked");
 
-//#ifdef Q_OS_DARWIN
+  //#ifdef Q_OS_DARWIN
   //openstudio::path dview
-    //= openstudio::toPath(QCoreApplication::applicationDirPath()) / openstudio::toPath("../../../DView.app/Contents/MacOS/DView");
-//#else
+  //= openstudio::toPath(QCoreApplication::applicationDirPath()) / openstudio::toPath("../../../DView.app/Contents/MacOS/DView");
+  //#else
   //openstudio::path dview
-    //= openstudio::toPath(QCoreApplication::applicationDirPath()) / openstudio::toPath("DView");
-//#endif
+  //= openstudio::toPath(QCoreApplication::applicationDirPath()) / openstudio::toPath("DView");
+  //#endif
 
   QStringList args;
 
-  if (!m_sqlFilePath.empty())
-  {
+  if (!m_sqlFilePath.empty()) {
     args.push_back(openstudio::toQString(m_sqlFilePath));
   }
 
-  if (!m_radianceResultsPath.empty())
-  {
+  if (!m_radianceResultsPath.empty()) {
     args.push_back(openstudio::toQString(m_radianceResultsPath));
   }
 
-  if (!QProcess::startDetached(openstudio::toQString(m_dviewPath), args))
-  {
+  if (!QProcess::startDetached(openstudio::toQString(m_dviewPath), args)) {
     QMessageBox::critical(this, "Unable to launch DView", "DView was not found in the expected location:\n" + openstudio::toQString(m_dviewPath));
   }
 }
 
-void ResultsView::onUnitSystemChange(bool t_isIP)
-{
+void ResultsView::onUnitSystemChange(bool t_isIP) {
   LOG(Debug, "onUnitSystemChange " << t_isIP << " reloading results");
   m_isIP = t_isIP;
   resultsGenerated(m_sqlFilePath, m_radianceResultsPath);
@@ -209,31 +191,31 @@ void ResultsView::onUnitSystemChange(bool t_isIP)
 // need to sort paths by number so 8-UserScript-0, shows up before 11-UserScript-0
 struct ResultsPathSorter
 {
-  bool operator()(const openstudio::path& left, const openstudio::path& right){
+  bool operator()(const openstudio::path& left, const openstudio::path& right) {
     openstudio::path leftParent = left.parent_path().stem();
     openstudio::path rightParent = right.parent_path().stem();
 
     QRegExp regexp("^(\\d)+.*");
 
     boost::optional<int> leftInt;
-    if (regexp.exactMatch(toQString(leftParent))){
+    if (regexp.exactMatch(toQString(leftParent))) {
       QStringList leftParts = regexp.capturedTexts();
       OS_ASSERT(leftParts.size() == 2);
       leftInt = leftParts[1].toInt();
     }
 
     boost::optional<int> rightInt;
-    if (regexp.exactMatch(toQString(rightParent))){
+    if (regexp.exactMatch(toQString(rightParent))) {
       QStringList rightParts = regexp.capturedTexts();
       OS_ASSERT(rightParts.size() == 2);
       rightInt = rightParts[1].toInt();
     }
 
-    if (leftInt && rightInt){
+    if (leftInt && rightInt) {
       return leftInt.get() < rightInt.get();
-    }else if (leftInt){
+    } else if (leftInt) {
       return true;
-    }else if (rightInt){
+    } else if (rightInt) {
       return false;
     }
 
@@ -241,8 +223,7 @@ struct ResultsPathSorter
   }
 };
 
-void ResultsView::searchForExistingResults(const openstudio::path &t_runDir, const openstudio::path &t_reportsDir)
-{
+void ResultsView::searchForExistingResults(const openstudio::path& t_runDir, const openstudio::path& t_reportsDir) {
   LOG(Debug, "Looking for existing results in: " << openstudio::toString(t_runDir));
 
   std::vector<openstudio::path> eplusout;
@@ -250,14 +231,10 @@ void ResultsView::searchForExistingResults(const openstudio::path &t_runDir, con
   std::vector<openstudio::path> reports;
 
   // Check that the directory does exists first
-  if (openstudio::filesystem::is_directory(t_runDir)
-    && openstudio::filesystem::exists(t_runDir)) {
-    for ( openstudio::filesystem::recursive_directory_iterator end, dir(t_runDir);
-          dir != end;
-          ++dir )
-    {
+  if (openstudio::filesystem::is_directory(t_runDir) && openstudio::filesystem::exists(t_runDir)) {
+    for (openstudio::filesystem::recursive_directory_iterator end, dir(t_runDir); dir != end; ++dir) {
       openstudio::path p = *dir;
-      if        (openstudio::toString(p.filename()) == "eplusout.sql") {
+      if (openstudio::toString(p.filename()) == "eplusout.sql") {
         eplusout.push_back(p);
       } else if (openstudio::toString(p.filename()) == "radout.sql") {
         radout.push_back(p);
@@ -272,12 +249,8 @@ void ResultsView::searchForExistingResults(const openstudio::path &t_runDir, con
   LOG(Debug, "Looking for existing results in: " << openstudio::toString(t_reportsDir));
 
   // Check that the directory does exists first
-  if (openstudio::filesystem::is_directory(t_reportsDir)
-    && openstudio::filesystem::exists(t_reportsDir)) {
-    for ( openstudio::filesystem::directory_iterator end, dir(t_reportsDir);
-          dir != end;
-          ++dir )
-    {
+  if (openstudio::filesystem::is_directory(t_reportsDir) && openstudio::filesystem::exists(t_reportsDir)) {
+    for (openstudio::filesystem::directory_iterator end, dir(t_reportsDir); dir != end; ++dir) {
       openstudio::path p = *dir;
       if (openstudio::toString(p.extension()) == ".html" || openstudio::toString(p.extension()) == ".htm") {
         reports.push_back(p);
@@ -290,16 +263,15 @@ void ResultsView::searchForExistingResults(const openstudio::path &t_runDir, con
   std::sort(radout.begin(), radout.end(), ResultsPathSorter());
   std::sort(reports.begin(), reports.end(), ResultsPathSorter());
 
-  openstudio::path eplus = eplusout.empty()?openstudio::path():eplusout.back();
-  openstudio::path rad = radout.empty()?openstudio::path():radout.back();
+  openstudio::path eplus = eplusout.empty() ? openstudio::path() : eplusout.back();
+  openstudio::path rad = radout.empty() ? openstudio::path() : radout.back();
 
   resultsGenerated(eplus, rad);
 
   populateComboBox(reports);
 }
 
-void ResultsView::resultsGenerated(const openstudio::path &t_path, const openstudio::path &t_radianceResultsPath)
-{
+void ResultsView::resultsGenerated(const openstudio::path& t_path, const openstudio::path& t_radianceResultsPath) {
   LOG(Debug, "resultsGenerated " << openstudio::toString(t_path) << " " << openstudio::toString(t_radianceResultsPath));
 
   m_sqlFilePath = t_path;
@@ -311,8 +283,7 @@ void ResultsView::resultsGenerated(const openstudio::path &t_path, const openstu
 //  return OSAppBase::instance()->project()->runManager();
 //}
 
-void ResultsView::treeChanged(const openstudio::UUID &t_uuid)
-{
+void ResultsView::treeChanged(const openstudio::UUID& t_uuid) {
   //try {
   //  openstudio::runmanager::Job j = runManager().getJob(t_uuid);
   //  while (j.parent())
@@ -355,8 +326,7 @@ void ResultsView::treeChanged(const openstudio::UUID &t_uuid)
   //}
 }
 
-void ResultsView::populateComboBox(std::vector<openstudio::path> reports)
-{
+void ResultsView::populateComboBox(std::vector<openstudio::path> reports) {
   unsigned num = 0;
   QString fullPathString;
   openstudio::path path;
@@ -364,45 +334,44 @@ void ResultsView::populateComboBox(std::vector<openstudio::path> reports)
   m_comboBox->clear();
   for (const openstudio::path& report : reports) {
 
-	// Here we DO want to call MODELEDITOR_API QString toQString(const path&) overload, which should automatically
-	// convert that to a unix-style path (with forward slashes) which is what we do want here.
+    // Here we DO want to call MODELEDITOR_API QString toQString(const path&) overload, which should automatically
+    // convert that to a unix-style path (with forward slashes) which is what we do want here.
     // fullPathString = toQString(report.string()); // This will mix slashes and backslashes (without escaping...) => C:/companion_folder\reports\eplustbl.html
-	// (Alternatively, we could just use QUrl::fromLocalFile in comboBoxChanged instead of manually preprending "file:///" here)
-	fullPathString = toQString(report);
-
+    // (Alternatively, we could just use QUrl::fromLocalFile in comboBoxChanged instead of manually preprending "file:///" here)
+    fullPathString = toQString(report);
 
     QFile file(fullPathString);
     fullPathString.prepend("file:///");
 
-    if (openstudio::toString(report.filename()) == "eplustbl.html" || openstudio::toString(report.filename()) == "eplustbl.htm"){
+    if (openstudio::toString(report.filename()) == "eplustbl.html" || openstudio::toString(report.filename()) == "eplustbl.htm") {
 
-      m_comboBox->addItem("EnergyPlus Results",fullPathString);
+      m_comboBox->addItem("EnergyPlus Results", fullPathString);
 
-    }else{
+    } else {
 
       ++num;
 
-      if (file.open(QFile::ReadOnly)){
+      if (file.open(QFile::ReadOnly)) {
         QDomDocument doc;
         doc.setContent(&file);
         file.close();
         QString string = doc.toString();
         int startingIndex = string.indexOf("<title>");
         int endingIndex = string.indexOf("</title>");
-        if((startingIndex == -1) || (endingIndex == -1) || (startingIndex >= endingIndex)){
+        if ((startingIndex == -1) || (endingIndex == -1) || (startingIndex >= endingIndex)) {
           m_comboBox->addItem(QString("Custom Report ") + QString::number(num), fullPathString);
         } else {
           // length of "<title>" = 7
-          QString title = string.mid(startingIndex+7, endingIndex-startingIndex-7);
-          m_comboBox->addItem(title,fullPathString);
+          QString title = string.mid(startingIndex + 7, endingIndex - startingIndex - 7);
+          m_comboBox->addItem(title, fullPathString);
         }
       }
     }
   }
-  if(m_comboBox->count()){
+  if (m_comboBox->count()) {
     m_comboBox->setCurrentIndex(0);
-    for (int i = 0; i < m_comboBox->count(); ++i){
-      if (m_comboBox->itemText(i) == QString("OpenStudio Results")){
+    for (int i = 0; i < m_comboBox->count(); ++i) {
+      if (m_comboBox->itemText(i) == QString("OpenStudio Results")) {
         m_comboBox->setCurrentIndex(i);
         break;
       }
@@ -412,8 +381,7 @@ void ResultsView::populateComboBox(std::vector<openstudio::path> reports)
   }
 }
 
-void ResultsView::comboBoxChanged(int index)
-{
+void ResultsView::comboBoxChanged(int index) {
   QString filename = m_comboBox->itemData(index).toString();
 
   // DLM: setting html here causes a flicker, wish there was a better way to clear the current page
@@ -439,41 +407,36 @@ void ResultsView::comboBoxChanged(int index)
   m_view->load(url);
 }
 
-void 	ResultsView::onLoadFinished(bool ok)
-{
+void ResultsView::onLoadFinished(bool ok) {
   QString title = m_view->title();
-  if (ok){
+  if (ok) {
     m_progressBar->setStyleSheet("");
     m_progressBar->setFormat("");
     m_progressBar->setTextVisible(false);
-  } else{
+  } else {
     m_progressBar->setStyleSheet("QProgressBar::chunk {background-color: #FF0000;}");
     m_progressBar->setFormat("Error");
     m_progressBar->setTextVisible(true);
   }
 }
 
-void 	ResultsView::onLoadProgress(int progress)
-{
+void ResultsView::onLoadProgress(int progress) {
   m_progressBar->setStyleSheet("");
   m_progressBar->setFormat("");
   m_progressBar->setTextVisible(false);
   m_progressBar->setValue(progress);
 }
 
-void 	ResultsView::onLoadStarted()
-{
+void ResultsView::onLoadStarted() {
   m_progressBar->setStyleSheet("");
   m_progressBar->setFormat("");
   m_progressBar->setTextVisible(false);
 }
 
-void 	ResultsView::onRenderProcessTerminated(QWebEnginePage::RenderProcessTerminationStatus terminationStatus, int exitCode)
-{
+void ResultsView::onRenderProcessTerminated(QWebEnginePage::RenderProcessTerminationStatus terminationStatus, int exitCode) {
   m_progressBar->setStyleSheet("QProgressBar::chunk {background-color: #FF0000;}");
   m_progressBar->setFormat("Error");
   m_progressBar->setTextVisible(true);
 }
 
-
-} // openstudio
+}  // namespace openstudio

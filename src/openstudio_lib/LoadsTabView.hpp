@@ -38,16 +38,14 @@ class LoadsTabView : public MainTabView
 {
   Q_OBJECT
 
-public:
-  LoadsTabView(const model::Model & model,
-               const QString & tabLabel,
-               QWidget * parent = nullptr);
+ public:
+  LoadsTabView(const model::Model& model, const QString& tabLabel, QWidget* parent = nullptr);
   virtual ~LoadsTabView() {}
 
-public slots:
+ public slots:
   void toggleUnits(bool displayIP);
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_LOADSTABVIEW_HPP
+#endif  // OPENSTUDIO_LOADSTABVIEW_HPP

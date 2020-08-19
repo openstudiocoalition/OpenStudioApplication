@@ -38,7 +38,7 @@ class QComboBox;
 namespace openstudio {
 
 namespace model {
- class ConstructionBase;
+class ConstructionBase;
 }
 
 class ConstructionObjectVectorController;
@@ -55,41 +55,38 @@ class ConstructionInspectorView : public ModelObjectInspectorView
 {
   Q_OBJECT
 
-  public:
+ public:
+  ConstructionInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
-    ConstructionInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent = nullptr);
+  virtual ~ConstructionInspectorView() {}
 
-    virtual ~ConstructionInspectorView() {}
+ protected:
+  virtual void onClearSelection() override;
 
-  protected:
+  virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
 
-    virtual void onClearSelection() override;
+  virtual void onUpdate() override;
 
-    virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
+ private:
+  void createLayout();
 
-    virtual void onUpdate() override;
+  void attach(openstudio::model::Construction& construction);
 
-  private:
+  void detach();
 
-    void createLayout();
+  bool m_isIP;
 
-    void attach(openstudio::model::Construction & construction);
+  OSLineEdit2* m_nameEdit;
 
-    void detach();
+  StandardsInformationConstructionWidget* m_standardsInformationWidget;
 
-    bool m_isIP;
+  OSDropZone* m_constructionDZ;
 
-    OSLineEdit2 * m_nameEdit;
+  ConstructionObjectVectorController* m_constructionVC;
 
-    StandardsInformationConstructionWidget * m_standardsInformationWidget;
-
-    OSDropZone * m_constructionDZ;
-
-    ConstructionObjectVectorController * m_constructionVC;
-
-    boost::optional<model::Construction> m_construction;
+  boost::optional<model::Construction> m_construction;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_CONSTRUCTIONINSPECTORVIEW_HPP
+#endif  // OPENSTUDIO_CONSTRUCTIONINSPECTORVIEW_HPP

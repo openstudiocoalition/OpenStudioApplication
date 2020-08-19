@@ -61,10 +61,9 @@
 #include <openstudio/utilities/idf/WorkspaceObjectOrder.hpp>
 #include <openstudio/utilities/core/Assert.hpp>
 
-namespace modeleditor
-{
+namespace modeleditor {
 
-EditorFrame::EditorFrame(QWidget * parent)
+EditorFrame::EditorFrame(QWidget* parent)
   : QMainWindow(parent),
     mModelExplorer(nullptr),
     mTableModel(nullptr),
@@ -101,8 +100,7 @@ EditorFrame::EditorFrame(QWidget * parent)
     mLastPathOpened(QApplication::applicationDirPath()),
     mShowGUIDs(true),
     mShowComments(true),
-    mShowPrecision(true)
-{
+    mShowPrecision(true) {
   createWidgets();
   createActions();
   createMenus();
@@ -117,32 +115,27 @@ EditorFrame::EditorFrame(QWidget * parent)
   openstudio::model::Model model = mModelExplorer->getModel();
   openstudio::WorkspaceObjectVector objects = model.objects();
   QStringList strings;
-  for (const openstudio::WorkspaceObject& object : objects){
+  for (const openstudio::WorkspaceObject& object : objects) {
     strings << object.iddObject().name().c_str();
   }
-  mCompleter = new QCompleter(strings,this);
+  mCompleter = new QCompleter(strings, this);
   mCompleter->setCaseSensitivity(Qt::CaseInsensitive);
-  if(mSearchViews) mSearchViews->setCompleter(mCompleter);
+  if (mSearchViews) mSearchViews->setCompleter(mCompleter);
 }
 
-EditorFrame::~EditorFrame()
-{
-}
+EditorFrame::~EditorFrame() {}
 
-void EditorFrame::createWidgets()
-{
+void EditorFrame::createWidgets() {
   mModelExplorer = new ModelExplorer(this);
   //mStatusBar = new QStatusBar(this);
 }
 
-void EditorFrame::setModels()
-{
+void EditorFrame::setModels() {
   mTableModel = mModelExplorer->getTableModel();
   mTreeModel = mModelExplorer->getTreeModel();
 }
 
-void EditorFrame::createActions()
-{
+void EditorFrame::createActions() {
 
   mNewIdkAction = new QAction(QIcon(":/images/new.png"), tr("New OSM"), this);
   //mNewIdkAction->setShortcuts(QKeySequence::New);
@@ -207,12 +200,12 @@ void EditorFrame::createActions()
   mToggleCommentsAction->setStatusTip(tr("Toggle to show or hide model object comments"));
   connect(mToggleCommentsAction, &QAction::triggered, this, &EditorFrame::on_toggleComments);
 
-  mShowAllFields = new QAction(tr("Show all Fields"),this);
+  mShowAllFields = new QAction(tr("Show all Fields"), this);
   mShowAllFields->setCheckable(true);
   mShowAllFields->setChecked(true);
   connect(mShowAllFields, &QAction::triggered, mModelExplorer, &ModelExplorer::showAllFields);
 
-  mCreateAllFields = new QAction(tr("Create all Fields"),this);
+  mCreateAllFields = new QAction(tr("Create all Fields"), this);
   connect(mCreateAllFields, &QAction::triggered, mModelExplorer, &ModelExplorer::createAllFields);
 
   mIGRecursive = new QAction(tr("Apply preferences to children objects"), this);
@@ -237,8 +230,7 @@ void EditorFrame::createActions()
   connect(mRemoveAction, &QAction::triggered, this, &EditorFrame::removeObjects);
 }
 
-void EditorFrame::createMenus()
-{
+void EditorFrame::createMenus() {
   mFileMenu = menuBar()->addMenu(tr("&File"));
   mFileMenu->addAction(mNewIdkAction);
   mFileMenu->addAction(mOpenIdkAction);
@@ -267,8 +259,7 @@ void EditorFrame::createMenus()
   connect(mContextMenu, &QMenu::triggered, this, &EditorFrame::addObject);
 }
 
-void EditorFrame::createToolBars()
-{
+void EditorFrame::createToolBars() {
   mFileToolBar = addToolBar(tr("File"));
   mFileToolBar->addAction(mNewIdkAction);
   mFileToolBar->addAction(mOpenIdkAction);
@@ -299,13 +290,11 @@ void EditorFrame::createToolBars()
   //mSearchViewsAction->setVisible(true);
 }
 
-void EditorFrame::createStatusBar()
-{
+void EditorFrame::createStatusBar() {
   statusBar()->showMessage(tr("Ready"));
 }
 
-void EditorFrame::connectSignalsAndSlots()
-{
+void EditorFrame::connectSignalsAndSlots() {
 
   connect(mModelExplorer, &ModelExplorer::modelDirty, this, &EditorFrame::on_modelDirty);
 
@@ -316,8 +305,7 @@ void EditorFrame::connectSignalsAndSlots()
   connect(mModelExplorer, &ModelExplorer::precisionDlgFinished, this, &EditorFrame::on_precisionDlgFinished);
 }
 
-void EditorFrame::createLayout()
-{
+void EditorFrame::createLayout() {
   setCentralWidget(mModelExplorer);
   ///! currently there are two toolbars being employed
   ///! and Qt does not display them correctly on Mac
@@ -325,26 +313,23 @@ void EditorFrame::createLayout()
   //setUnifiedTitleAndToolBarOnMac(true);
 }
 
-void EditorFrame::loadStyleSheet(QString& style)
-{
+void EditorFrame::loadStyleSheet(QString& style) {
   QFile data(":/openstudio.qss");
-  if(data.open(QFile::ReadOnly))
-  {
-      QTextStream styleIn(&data);
-      style = styleIn.readAll();
-      data.close();
+  if (data.open(QFile::ReadOnly)) {
+    QTextStream styleIn(&data);
+    style = styleIn.readAll();
+    data.close();
   }
 }
 
-bool EditorFrame::addClassViewContextMenuAddActions(bool clearMenu)
-{
+bool EditorFrame::addClassViewContextMenuAddActions(bool clearMenu) {
   bool success = false;
 
-  if(!mContextMenu){
+  if (!mContextMenu) {
     return success;
   }
 
-  if(clearMenu){
+  if (clearMenu) {
     mContextMenu->clear();
   }
 
@@ -354,17 +339,17 @@ bool EditorFrame::addClassViewContextMenuAddActions(bool clearMenu)
   openstudio::IddObject object;
   std::vector<openstudio::IddObject> objects;
 
-  QAction * newAddAction = nullptr;
+  QAction* newAddAction = nullptr;
   QString name;
   QString string;
-  QMenu * addSubMenu = nullptr;
+  QMenu* addSubMenu = nullptr;
 
-  for(unsigned i=0 ; i<groups.size(); i++){
+  for (unsigned i = 0; i < groups.size(); i++) {
     group = groups.at(i);
     objects = iddFile.getObjectsInGroup(group);
-    QMenu * subMenu = new QMenu(group.c_str());
+    QMenu* subMenu = new QMenu(group.c_str());
     subMenu->setIcon(QIcon(":/images/edit_add.png"));
-    for(unsigned j=0 ; j<objects.size(); j++){
+    for (unsigned j = 0; j < objects.size(); j++) {
       object = objects.at(j);
       name = object.name().c_str();
       string = mActionDescriptionPrefix + name;
@@ -373,8 +358,8 @@ bool EditorFrame::addClassViewContextMenuAddActions(bool clearMenu)
       ///! Context menu signal has QAction->text() to pass to addObject()
       subMenu->addAction(newAddAction);
     }
-    if(objects.size() && subMenu){
-      if(!success){
+    if (objects.size() && subMenu) {
+      if (!success) {
         addSubMenu = new QMenu(tr("Add"));
         addSubMenu->setIcon(QIcon(":/images/edit_add.png"));
         OS_ASSERT(addSubMenu);
@@ -385,8 +370,8 @@ bool EditorFrame::addClassViewContextMenuAddActions(bool clearMenu)
     }
   }
 
-  if(!success){
-    QAction * inactiveAddAction = new QAction(QIcon(":/images/edit_add_off.png"), tr("Nothing available to add to this object"), this);
+  if (!success) {
+    QAction* inactiveAddAction = new QAction(QIcon(":/images/edit_add_off.png"), tr("Nothing available to add to this object"), this);
     mContextMenu->addAction(inactiveAddAction);
     success = true;
   }
@@ -394,26 +379,25 @@ bool EditorFrame::addClassViewContextMenuAddActions(bool clearMenu)
   return success;
 }
 
-bool EditorFrame::addTreeViewContextMenuAddActions(bool clearMenu)
-{
+bool EditorFrame::addTreeViewContextMenuAddActions(bool clearMenu) {
   bool success = false;
 
-  if(!mContextMenu){
+  if (!mContextMenu) {
     return success;
   }
 
-  if(clearMenu){
+  if (clearMenu) {
     mContextMenu->clear();
   }
 
   mAllowableChildTypes.clear();
   mAllowableChildTypes = mModelExplorer->getAllowableChildTypes();
-  QMenu * addSubMenu = nullptr;
+  QMenu* addSubMenu = nullptr;
   //bool connected = false;
   QString name;
   QString string;
-  for(unsigned i=0 ; i<mAllowableChildTypes.size(); i++){
-    if(addSubMenu == nullptr){
+  for (unsigned i = 0; i < mAllowableChildTypes.size(); i++) {
+    if (addSubMenu == nullptr) {
       addSubMenu = new QMenu(tr("Add"));
       addSubMenu->setIcon(QIcon(":/images/edit_add.png"));
       OS_ASSERT(addSubMenu);
@@ -421,17 +405,17 @@ bool EditorFrame::addTreeViewContextMenuAddActions(bool clearMenu)
     }
     name = mAllowableChildTypes.at(i).valueName().c_str();
     string = mActionDescriptionPrefix + name;
-    QAction * newAddAction = new QAction(QIcon(":/images/edit_add.png"), tr(string.toStdString().c_str()), this);
+    QAction* newAddAction = new QAction(QIcon(":/images/edit_add.png"), tr(string.toStdString().c_str()), this);
     ///! No connection required as the context menu will always call addObject()
     ///! Context menu signal has QAction->text() to pass to addObject()
     addSubMenu->addAction(newAddAction);
   }
-  if(mAllowableChildTypes.size()){
+  if (mAllowableChildTypes.size()) {
     success = true;
   }
 
-  if(!success){
-    QAction * inactiveAddAction = new QAction(QIcon(":/images/edit_add_off.png"), tr("Nothing available to add to this object"), this);
+  if (!success) {
+    QAction* inactiveAddAction = new QAction(QIcon(":/images/edit_add_off.png"), tr("Nothing available to add to this object"), this);
     mContextMenu->addAction(inactiveAddAction);
     success = true;
   }
@@ -439,31 +423,28 @@ bool EditorFrame::addTreeViewContextMenuAddActions(bool clearMenu)
   return success;
 }
 
-bool EditorFrame::updateContextMenu(bool showAllowableChildTypes)
-{
+bool EditorFrame::updateContextMenu(bool showAllowableChildTypes) {
   bool success = false;
 
-  if(!mContextMenu){
+  if (!mContextMenu) {
     return success;
-  }
-  else{
+  } else {
     success = true;
   }
 
   mContextMenu->clear();
 
-  if(showAllowableChildTypes){
+  if (showAllowableChildTypes) {
     mContextMenu->addAction(mExpandAllNodesAction);
   }
 
   mContextMenu->addAction(mCopyAction);
   mContextMenu->addAction(mPasteAction);
 
-  if(showAllowableChildTypes){
+  if (showAllowableChildTypes) {
     mPasteAction->setDisabled(!mModelExplorer->treeViewHasRowsToPaste());
     addTreeViewContextMenuAddActions();
-  }
-  else{
+  } else {
     mPasteAction->setDisabled(!mModelExplorer->classViewHasRowsToPaste());
     addClassViewContextMenuAddActions();
   }
@@ -472,37 +453,32 @@ bool EditorFrame::updateContextMenu(bool showAllowableChildTypes)
   return success;
 }
 
-void EditorFrame::contextMenuEvent(QContextMenuEvent *event)
-{
-  if(!mModelExplorer->hasSelectedRows()){
+void EditorFrame::contextMenuEvent(QContextMenuEvent* event) {
+  if (!mModelExplorer->hasSelectedRows()) {
     return;
   }
 
-  if(mModelExplorer->classViewUnderMouse()){
-    if(updateContextMenu(false)){
+  if (mModelExplorer->classViewUnderMouse()) {
+    if (updateContextMenu(false)) {
       mContextMenu->exec(event->globalPos());
     }
-  }
-  else if(mModelExplorer->treeViewUnderMouse()){
-    if(updateContextMenu(true)){
+  } else if (mModelExplorer->treeViewUnderMouse()) {
+    if (updateContextMenu(true)) {
       mContextMenu->exec(event->globalPos());
     }
   }
 }
 
-void EditorFrame::closeEvent(QCloseEvent *event)
-{
-  if(this->maybeSave()){
+void EditorFrame::closeEvent(QCloseEvent* event) {
+  if (this->maybeSave()) {
     writeSettings();
     event->accept();
-  }
-  else{
+  } else {
     event->ignore();
   }
 }
 
-void EditorFrame::readSettings()
-{
+void EditorFrame::readSettings() {
   QString organizationName = QCoreApplication::organizationName();
   QString applicationName = QCoreApplication::applicationName();
   QSettings settings(organizationName, applicationName);
@@ -515,8 +491,7 @@ void EditorFrame::readSettings()
   mLastPathOpened = settings.value("lastPathOpened").toString();
 }
 
-void EditorFrame::writeSettings()
-{
+void EditorFrame::writeSettings() {
   QString organizationName = QCoreApplication::organizationName();
   QString applicationName = QCoreApplication::applicationName();
   QSettings settings(organizationName, applicationName);
@@ -527,55 +502,47 @@ void EditorFrame::writeSettings()
   settings.setValue("lastPathOpened", mLastPathOpened);
 }
 
-bool EditorFrame::maybeSave()
-{
-  if(isWindowModified()){
+bool EditorFrame::maybeSave() {
+  if (isWindowModified()) {
     QString applicationName = QCoreApplication::applicationName();
     QMessageBox::StandardButton ret;
-    ret = QMessageBox::warning(this, applicationName,
-      tr("Do you want to save your changes?"),
-      QMessageBox::Save | QMessageBox::No | QMessageBox::Cancel);
-    if (ret == QMessageBox::Save){
-      return saveIdk(); // TODO might need to call exportIdf
-    }
-    else if (ret == QMessageBox::No){
+    ret =
+      QMessageBox::warning(this, applicationName, tr("Do you want to save your changes?"), QMessageBox::Save | QMessageBox::No | QMessageBox::Cancel);
+    if (ret == QMessageBox::Save) {
+      return saveIdk();  // TODO might need to call exportIdf
+    } else if (ret == QMessageBox::No) {
       return true;
-    }
-    else if (ret == QMessageBox::Cancel){
+    } else if (ret == QMessageBox::Cancel) {
       return false;
     }
   }
   return true;
 }
 
-void EditorFrame::setCurrentFile(const QString &fileName)
-{
+void EditorFrame::setCurrentFile(const QString& fileName) {
   mCurrentFile = fileName;
   setWindowModified(false);
 
   QString shownName = mCurrentFile;
-  if (mCurrentFile.isEmpty()){
+  if (mCurrentFile.isEmpty()) {
     shownName = "untitled";
   }
   setWindowFilePath(shownName);
 }
 
-QString EditorFrame::getFileNameFromPath(const QString &path)
-{
+QString EditorFrame::getFileNameFromPath(const QString& path) {
   return QFileInfo(path).fileName();
 }
 
-void EditorFrame::newFile()
-{
+void EditorFrame::newFile() {
   openstudio::model::Model m = openstudio::model::Model();
   m.order().setDirectOrder(openstudio::HandleVector());
   mModelExplorer->setModel(m);
   mModelExplorer->loadModel();
 }
 
-void EditorFrame::openFile(const QString& action, const QString& extension)
-{
-  if(maybeSave()){
+void EditorFrame::openFile(const QString& action, const QString& extension) {
+  if (maybeSave()) {
     QString msg(" ");
     msg.prepend(action);
     msg += extension.toUpper();
@@ -584,8 +551,8 @@ void EditorFrame::openFile(const QString& action, const QString& extension)
     fileTypes += extension.toLower();
     fileTypes += ")";
 
-    QString fileName = QFileDialog::getOpenFileName(this,msg,mLastPathOpened,fileTypes);
-    if(!fileName.isEmpty()){
+    QString fileName = QFileDialog::getOpenFileName(this, msg, mLastPathOpened, fileTypes);
+    if (!fileName.isEmpty()) {
       mModelExplorer->loadFile(fileName);
       setCurrentFile(fileName);
       mLastPathOpened = QFileInfo(fileName).absoluteFilePath();
@@ -594,8 +561,7 @@ void EditorFrame::openFile(const QString& action, const QString& extension)
   }
 }
 
-bool EditorFrame::saveFileAs(const QString& action, const QString& extension)
-{
+bool EditorFrame::saveFileAs(const QString& action, const QString& extension) {
   bool success = false;
 
   QString msg(" ");
@@ -606,28 +572,25 @@ bool EditorFrame::saveFileAs(const QString& action, const QString& extension)
   fileTypes += extension.toLower();
   fileTypes += ")";
 
-  QString fileName = QFileDialog::getSaveFileName(nullptr,msg,"",fileTypes);
-  if(!fileName.isEmpty()){
+  QString fileName = QFileDialog::getSaveFileName(nullptr, msg, "", fileTypes);
+  if (!fileName.isEmpty()) {
     success = saveFile(fileName, extension);
   }
 
   return success;
 }
 
-bool EditorFrame::saveFile(const QString& fileName, const QString& extension)
-{
+bool EditorFrame::saveFile(const QString& fileName, const QString& extension) {
   openstudio::model::Model model = mModelExplorer->getModel();
 
   openstudio::filesystem::ofstream stream(openstudio::toPath(fileName));
-  if(extension.toLower().toStdString() == "idf"){
+  if (extension.toLower().toStdString() == "idf") {
     openstudio::energyplus::ForwardTranslator forwardTranslator;
     openstudio::Workspace workspace = forwardTranslator.translateModel(model);
     workspace.toIdfFile().print(stream);
-  }
-  else if(extension.toLower().toStdString() == "osm"){
+  } else if (extension.toLower().toStdString() == "osm") {
     model.toIdfFile().print(stream);
-  }
-  else{
+  } else {
     return false;
   }
 
@@ -639,8 +602,7 @@ bool EditorFrame::saveFile(const QString& fileName, const QString& extension)
 }
 
 ///! Slots
-void EditorFrame::about()
-{
+void EditorFrame::about() {
   QString applicationName = QCoreApplication::applicationName();
   QString msg(tr("About "));
   msg += applicationName;
@@ -652,79 +614,67 @@ void EditorFrame::about()
   about.exec();
 }
 
-void EditorFrame::newIdk()
-{
+void EditorFrame::newIdk() {
   newFile();
 }
 
-void EditorFrame::newIdf()
-{
+void EditorFrame::newIdf() {
   newFile();
 }
 
-void EditorFrame::openIdk()
-{
+void EditorFrame::openIdk() {
   openFile("Open", "osm");
 }
 
-void EditorFrame::importIdf()
-{
+void EditorFrame::importIdf() {
   openFile("Import", "idf");
 }
 
-bool EditorFrame::saveIdk()
-{
+bool EditorFrame::saveIdk() {
   ///! check for correct file extension
-  if(mCurrentFile.isEmpty() || (mCurrentFile.right(4).toLower() != ".osm")){
+  if (mCurrentFile.isEmpty() || (mCurrentFile.right(4).toLower() != ".osm")) {
     return saveIdkAs();
-  }
-  else{
+  } else {
     return saveFile(mCurrentFile, "osm");
   }
 }
 
-bool EditorFrame::exportIdf()
-{
+bool EditorFrame::exportIdf() {
   ///! check for correct file extension
-  if(mCurrentFile.isEmpty() || (mCurrentFile.right(4).toLower() != ".idf")){
+  if (mCurrentFile.isEmpty() || (mCurrentFile.right(4).toLower() != ".idf")) {
     return exportIdfAs();
-  }
-  else{
+  } else {
     return saveFile(mCurrentFile, "idf");
   }
 }
 
-bool EditorFrame::saveIdkAs()
-{
+bool EditorFrame::saveIdkAs() {
   return saveFileAs("Save", "osm");
 }
 
-bool EditorFrame::exportIdfAs()
-{
+bool EditorFrame::exportIdfAs() {
   return saveFileAs("Export", "idf");
 }
 
-void EditorFrame::addObject(QAction * action)
-{
+void EditorFrame::addObject(QAction* action) {
   QString text(action->text());
 
   ///! Only continue if correct QAction selected
-  if(!text.startsWith(mActionDescriptionPrefix)){
+  if (!text.startsWith(mActionDescriptionPrefix)) {
     return;
   }
 
-  text.remove(0,mActionDescriptionPrefix.size());
+  text.remove(0, mActionDescriptionPrefix.size());
 
-  if(mModelExplorer->classViewCurrentWidget()){
+  if (mModelExplorer->classViewCurrentWidget()) {
     openstudio::IddFile iddFile = mModelExplorer->getIddFile();
     boost::optional<openstudio::IddObject> object = iddFile.getObject(text.toStdString());
-    if(object){
+    if (object) {
       mModelExplorer->addObjects(object.get().type());
     }
-  }
-  else if(mModelExplorer->treeViewCurrentWidget()){
-    for(unsigned i=0; i<mAllowableChildTypes.size(); i++){
-      if(text.toStdString() == mAllowableChildTypes.at(i).valueName()){
+  } else if (mModelExplorer->treeViewCurrentWidget()) {
+    for (unsigned i = 0; i < mAllowableChildTypes.size(); i++) {
+      if (text.toStdString() == mAllowableChildTypes.at(i).valueName()) {
         mModelExplorer->addObjects(mAllowableChildTypes.at(i));
         break;
       }
@@ -732,121 +682,102 @@ void EditorFrame::addObject(QAction * action)
   }
 }
 
-void EditorFrame::addObjects()
-{
+void EditorFrame::addObjects() {
   bool success = false;
 
-  if(mModelExplorer->classViewCurrentWidget()){
+  if (mModelExplorer->classViewCurrentWidget()) {
     success = addClassViewContextMenuAddActions(true);
-  }
-  else if(mModelExplorer->treeViewCurrentWidget()){
+  } else if (mModelExplorer->treeViewCurrentWidget()) {
     success = addTreeViewContextMenuAddActions(true);
   }
 
-  if(success){
+  if (success) {
     mContextMenu->exec(mEditToolBar->mapToGlobal(mEditToolBar->pos()));
   }
 }
 
-void EditorFrame::removeObjects()
-{
-  if(mModelExplorer->hasSelectedRows()){
+void EditorFrame::removeObjects() {
+  if (mModelExplorer->hasSelectedRows()) {
     mModelExplorer->removeObjects();
   }
 }
 
-void EditorFrame::copyObjects()
-{
-  if(mModelExplorer->hasSelectedRows()){
+void EditorFrame::copyObjects() {
+  if (mModelExplorer->hasSelectedRows()) {
     mModelExplorer->copyObjects();
   }
 }
 
-void EditorFrame::pasteObjects()
-{
-  if(mModelExplorer->hasSelectedRows()){
+void EditorFrame::pasteObjects() {
+  if (mModelExplorer->hasSelectedRows()) {
     mModelExplorer->pasteObjects();
   }
 }
 
-void EditorFrame::on_modelDirty()
-{
+void EditorFrame::on_modelDirty() {
   setWindowModified(true);
 }
 
-void EditorFrame::on_showStatusBarMsg(const QString& msg, const int millisecondDuration)
-{
+void EditorFrame::on_showStatusBarMsg(const QString& msg, const int millisecondDuration) {
   statusBar()->showMessage(msg, millisecondDuration);
 }
 
-void EditorFrame::expandAllNodes()
-{
+void EditorFrame::expandAllNodes() {
   mModelExplorer->expandAllNodes();
 }
 
-void EditorFrame::on_toggleGUIDs()
-{
-  if(mShowGUIDs){
+void EditorFrame::on_toggleGUIDs() {
+  if (mShowGUIDs) {
     mToggleGUIDsAction->setIcon(QIcon(":/images/number_on.png"));
-  }
-  else{
+  } else {
     mToggleGUIDsAction->setIcon(QIcon(":/images/number_off.png"));
   }
   mShowGUIDs = !mShowGUIDs;
 }
 
-void EditorFrame::on_toggleComments()
-{
-  if(mShowComments){
+void EditorFrame::on_toggleComments() {
+  if (mShowComments) {
     mToggleCommentsAction->setIcon(QIcon(":/images/comment.png"));
-  }
-  else{
+  } else {
     mToggleCommentsAction->setIcon(QIcon(":/images/comment_off.png"));
   }
   mModelExplorer->showComments(mShowComments);
   mShowComments = !mShowComments;
 }
 
-void EditorFrame::on_togglePrecision()
-{
-  if(mShowPrecision){
+void EditorFrame::on_togglePrecision() {
+  if (mShowPrecision) {
     mTogglePrecisionAction->setIcon(QIcon(":/images/precision.png"));
-  }
-  else{
+  } else {
     mTogglePrecisionAction->setIcon(QIcon(":/images/precision_off.png"));
   }
   mModelExplorer->showPrecision(mShowPrecision);
   mShowPrecision = !mShowPrecision;
 }
 
-void EditorFrame::on_toggleUnits()
-{
-  if(mShowPrecision){
+void EditorFrame::on_toggleUnits() {
+  if (mShowPrecision) {
     mToggleUnitsAction->setIcon(QIcon(":/images/precision.png"));
-  }
-  else{
+  } else {
     mToggleUnitsAction->setIcon(QIcon(":/images/precision_off.png"));
   }
   mShowPrecision = !mShowPrecision;
 }
 
-void EditorFrame::on_modelUpdated(QAbstractItemModel * model)
-{
-  if(mCompleter){
+void EditorFrame::on_modelUpdated(QAbstractItemModel* model) {
+  if (mCompleter) {
     mCompleter->setModel(model);
   }
 }
 
-void EditorFrame::on_precisionDlgHidden()
-{
+void EditorFrame::on_precisionDlgHidden() {
   mShowPrecision = true;
   mTogglePrecisionAction->setIcon(QIcon(":/images/precision_off.png"));
 }
 
-void EditorFrame::on_precisionDlgFinished()
-{
+void EditorFrame::on_precisionDlgFinished() {
   mShowPrecision = true;
   mTogglePrecisionAction->setIcon(QIcon(":/images/precision_off.png"));
 }
 
-} // namespace modeleditor
+}  // namespace modeleditor

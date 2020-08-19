@@ -44,77 +44,73 @@ class OSItemId;
 class SubTabView;
 
 namespace model {
-  class Component;
+class Component;
 }
 
 class ModelSubTabController : public SubTabController
 {
   Q_OBJECT
 
-  public:
+ public:
+  ModelSubTabController(ModelSubTabView* subTabView, const model::Model& model);
 
-    ModelSubTabController(ModelSubTabView* subTabView,
-                     const model::Model & model);
+  virtual ~ModelSubTabController() {}
 
-    virtual ~ModelSubTabController() {}
+ signals:
 
-  signals:
+  void modelObjectSelected(model::OptionalModelObject& modelObject, bool readOnly);
 
-    void modelObjectSelected(model::OptionalModelObject & modelObject, bool readOnly);
+  void dropZoneItemSelected(OSItem* item, bool readOnly);
 
-    void dropZoneItemSelected(OSItem* item, bool readOnly);
+  void dropZoneItemClicked(OSItem* item);
 
-    void dropZoneItemClicked(OSItem* item);
+  void toggleUnitsClicked(bool displayIP);
 
-    void toggleUnitsClicked(bool displayIP);
+ protected:
+  openstudio::model::Model model() const;
 
-  protected:
+  bool fromModel(const OSItemId& itemId) const;
 
-    openstudio::model::Model model() const;
+  bool fromComponentLibrary(const OSItemId& itemId) const;
 
-    bool fromModel(const OSItemId& itemId) const;
+  boost::optional<model::ModelObject> getModelObject(const OSItemId& itemId) const;
 
-    bool fromComponentLibrary(const OSItemId& itemId) const;
+  boost::optional<model::Component> getComponent(const OSItemId& itemId) const;
 
-    boost::optional<model::ModelObject> getModelObject(const OSItemId& itemId) const;
+  virtual void onAddObject(const openstudio::IddObjectType& iddObjectType) = 0;
 
-    boost::optional<model::Component> getComponent(const OSItemId& itemId) const;
+  virtual void onAddObject(const openstudio::model::ModelObject& modelObject) {}
 
-    virtual void onAddObject(const openstudio::IddObjectType& iddObjectType) = 0;
+  virtual void onCopyObject(const openstudio::model::ModelObject& modelObject) = 0;
 
-    virtual void onAddObject(const openstudio::model::ModelObject& modelObject) {}
+  virtual void onRemoveObject(openstudio::model::ModelObject modelObject) = 0;
 
-    virtual void onCopyObject(const openstudio::model::ModelObject& modelObject) = 0;
+  virtual void onReplaceObject(openstudio::model::ModelObject modelObject, const OSItemId& replacementItemId) = 0;
 
-    virtual void onRemoveObject(openstudio::model::ModelObject modelObject) = 0;
+  virtual void onPurgeObjects(const openstudio::IddObjectType& iddObjectType) = 0;
 
-    virtual void onReplaceObject(openstudio::model::ModelObject modelObject, const OSItemId& replacementItemId) = 0;
+  virtual void onDrop(const OSItemId& itemId) override = 0;
 
-    virtual void onPurgeObjects(const openstudio::IddObjectType& iddObjectType) = 0;
+  virtual void onAddItem() override;
 
-    virtual void onDrop(const OSItemId& itemId) override = 0;
+  virtual void onCopyItem() override;
 
-    virtual void onAddItem() override;
+  virtual void onRemoveItem(OSItem* item) override;
 
-    virtual void onCopyItem() override;
+  virtual void onReplaceItem(OSItem* item, const OSItemId& replacementItemId) override;
 
-    virtual void onRemoveItem(OSItem *item) override;
+  virtual void onPurgeItems() override;
 
-    virtual void onReplaceItem(OSItem *item, const OSItemId& replacementItemId) override;
+ private slots:
 
-    virtual void onPurgeItems() override;
+ private:
+  boost::optional<openstudio::model::ModelObject> selectedModelObject() const;
 
-  private slots:
+  openstudio::IddObjectType currentIddObjectType() const;
 
-  private:
-
-    boost::optional<openstudio::model::ModelObject> selectedModelObject() const;
-
-    openstudio::IddObjectType currentIddObjectType() const;
-
-    openstudio::model::Model m_model;
+  openstudio::model::Model m_model;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_MODELSUBTABCONTROLLER_HPP
+#endif  // OPENSTUDIO_MODELSUBTABCONTROLLER_HPP

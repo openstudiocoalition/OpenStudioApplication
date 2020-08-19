@@ -46,13 +46,11 @@
 #include <QPixmap>
 #include <QDragEnterEvent>
 
-namespace openstudio{
+namespace openstudio {
 
 namespace measuretab {
 
-RectangularDropZone::RectangularDropZone()
-  : QWidget()
-{
+RectangularDropZone::RectangularDropZone() : QWidget() {
   setAcceptDrops(true);
 
   setFixedHeight(30);
@@ -60,7 +58,7 @@ RectangularDropZone::RectangularDropZone()
   setStyleSheet("openstudio--measuretab--RectangularDropZone {background: #F4F4F4; border: 2px dashed #A5A5A5;}");
 
   auto mainHLayout = new QHBoxLayout();
-  mainHLayout->setContentsMargins(5,5,5,5);
+  mainHLayout->setContentsMargins(5, 5, 5, 5);
   mainHLayout->setSpacing(5);
   setLayout(mainHLayout);
 
@@ -68,42 +66,33 @@ RectangularDropZone::RectangularDropZone()
   mainHLayout->addWidget(nameLabel);
 }
 
-void RectangularDropZone::setAcceptedMimeType(const QString & type)
-{
+void RectangularDropZone::setAcceptedMimeType(const QString& type) {
   m_acceptedMimeType = type;
 }
 
-void RectangularDropZone::paintEvent(QPaintEvent *)
-{
+void RectangularDropZone::paintEvent(QPaintEvent*) {
   QStyleOption opt;
   opt.init(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
 
-void RectangularDropZone::dropEvent(QDropEvent * event)
-{
+void RectangularDropZone::dropEvent(QDropEvent* event) {
   emit dataDropped(event);
 }
 
-void RectangularDropZone::dragEnterEvent(QDragEnterEvent * event)
-{
-  if(event->mimeData()->hasFormat(m_acceptedMimeType))
-  {
+void RectangularDropZone::dragEnterEvent(QDragEnterEvent* event) {
+  if (event->mimeData()->hasFormat(m_acceptedMimeType)) {
     event->accept();
   }
 }
 
-NewMeasureDropZone::NewMeasureDropZone()
-  : RectangularDropZone()
-{
+NewMeasureDropZone::NewMeasureDropZone() : RectangularDropZone() {
   nameLabel->setText("<i>Drop Measure From Library to Create a New Always Run Measure</i>");
   nameLabel->setStyleSheet("QLabel {color: #7D7D7D; }");
 }
 
-WorkflowSectionView::WorkflowSectionView(MeasureType measureType)
-  : OSCollapsibleView()
-{
+WorkflowSectionView::WorkflowSectionView(MeasureType measureType) : OSCollapsibleView() {
   header = new LightGradientHeader();
   header->setMeasureType(measureType);
   setHeader(header);
@@ -114,13 +103,9 @@ WorkflowSectionView::WorkflowSectionView(MeasureType measureType)
   setExpanded(true);
 }
 
-WorkflowSectionContentView::WorkflowSectionContentView()
-  : QWidget(),
-    workflowStepsView(nullptr),
-    newMeasureDropZone(nullptr)
-{
+WorkflowSectionContentView::WorkflowSectionContentView() : QWidget(), workflowStepsView(nullptr), newMeasureDropZone(nullptr) {
   auto mainVLayout = new QVBoxLayout();
-  mainVLayout->setContentsMargins(0,10,0,10);
+  mainVLayout->setContentsMargins(0, 10, 0, 10);
   mainVLayout->setSpacing(0);
   setLayout(mainVLayout);
 
@@ -133,11 +118,9 @@ WorkflowSectionContentView::WorkflowSectionContentView()
   mainVLayout->addWidget(newMeasureDropZone);
 }
 
-WorkflowStepView::WorkflowStepView()
-  : QWidget()
-{
+WorkflowStepView::WorkflowStepView() : QWidget() {
   auto mainHLayout = new QHBoxLayout();
-  mainHLayout->setContentsMargins(0,0,0,0);
+  mainHLayout->setContentsMargins(0, 0, 0, 0);
   mainHLayout->setSpacing(5);
   setLayout(mainHLayout);
 
@@ -162,23 +145,20 @@ WorkflowStepView::WorkflowStepView()
   removeButton->setVisible(true);
 }
 
-void WorkflowStepView::paintEvent(QPaintEvent *)
-{
+void WorkflowStepView::paintEvent(QPaintEvent*) {
   QStyleOption opt;
   opt.init(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
 
-WorkflowStepButton::WorkflowStepButton()
-  : QAbstractButton()
-{
+WorkflowStepButton::WorkflowStepButton() : QAbstractButton() {
   setFixedHeight(25);
 
   setHasEmphasis(false);
 
   auto mainHLayout = new QHBoxLayout();
-  mainHLayout->setContentsMargins(5,5,5,5);
+  mainHLayout->setContentsMargins(5, 5, 5, 5);
   mainHLayout->setSpacing(5);
   setLayout(mainHLayout);
 
@@ -195,28 +175,21 @@ WorkflowStepButton::WorkflowStepButton()
   cautionLabel->setVisible(false);
 }
 
-void WorkflowStepButton::setHasEmphasis(bool hasEmphasis)
-{
-  if( hasEmphasis )
-  {
+void WorkflowStepButton::setHasEmphasis(bool hasEmphasis) {
+  if (hasEmphasis) {
     setStyleSheet("openstudio--measuretab--WorkflowStepButton { background: #FECD60; border: 2px solid #EE641A; }");
-  }
-  else
-  {
+  } else {
     setStyleSheet("openstudio--measuretab--WorkflowStepButton {background: #E0E0E0; }");
   }
 }
 
-void WorkflowStepButton::paintEvent(QPaintEvent * e)
-{
+void WorkflowStepButton::paintEvent(QPaintEvent* e) {
   QStyleOption opt;
   opt.init(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
 
+}  // namespace measuretab
 
-} // measuretab
-
-} // openstudio
-
+}  // namespace openstudio

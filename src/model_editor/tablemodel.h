@@ -49,8 +49,7 @@
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/Building.hpp>
 
-namespace modeleditor
-{
+namespace modeleditor {
 class ClassViewWidget;
 
 //! [0]
@@ -58,38 +57,37 @@ class MODELEDITOR_API TableModel : public QAbstractTableModel
 {
   Q_OBJECT
 
-public:
-  TableModel(openstudio::WorkspaceObjectVector& objects, ClassViewWidget * parent);
-  TableModel(ClassViewWidget * parent);
+ public:
+  TableModel(openstudio::WorkspaceObjectVector& objects, ClassViewWidget* parent);
+  TableModel(ClassViewWidget* parent);
   ~TableModel();
   void loadObjects(openstudio::WorkspaceObjectVector& objects);
-  void setModel( openstudio::model::Model& model );
-  int rowCount(const QModelIndex &parent) const override;
-  int columnCount(const QModelIndex &parent) const override;
-  QVariant data(const QModelIndex &index, int role) const override;
-  openstudio::OptionalWorkspaceObject objectAtIndex(const QModelIndex &index) const;
+  void setModel(openstudio::model::Model& model);
+  int rowCount(const QModelIndex& parent) const override;
+  int columnCount(const QModelIndex& parent) const override;
+  QVariant data(const QModelIndex& index, int role) const override;
+  openstudio::OptionalWorkspaceObject objectAtIndex(const QModelIndex& index) const;
   QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
-  Qt::ItemFlags flags(const QModelIndex &index) const override;
-  bool setData(const QModelIndex &index, const QVariant &value, int role=Qt::EditRole) override;
+  Qt::ItemFlags flags(const QModelIndex& index) const override;
+  bool setData(const QModelIndex& index, const QVariant& value, int role = Qt::EditRole) override;
   bool insertRows(std::vector<openstudio::WorkspaceObject> wsObjects, const QModelIndexList& rowList);
   bool insertRows(std::vector<openstudio::WorkspaceObject> wsObjects, const QModelIndex& row, const QModelIndexList& rowList);
-  bool insertRows(std::vector<openstudio::WorkspaceObject> wsObjects, int position, int rows, const QModelIndex &index=QModelIndex());
-  bool removeRows(int position, int rows, const QModelIndex &index=QModelIndex()) override;
+  bool insertRows(std::vector<openstudio::WorkspaceObject> wsObjects, int position, int rows, const QModelIndex& index = QModelIndex());
+  bool removeRows(int position, int rows, const QModelIndex& index = QModelIndex()) override;
   bool removeRows(const QModelIndexList& rowList);
   bool moveRows(const QModelIndex& row, const QModelIndexList& rowList);
   Qt::DropActions supportedDropActions() const override;
   virtual void sort(int column, Qt::SortOrder order = Qt::AscendingOrder) override;
   void toggleGUIDs();
 
-public slots:
+ public slots:
 
-signals:
+ signals:
 
-protected:
-
-private:
+ protected:
+ private:
   void setupModelData(openstudio::WorkspaceObjectVector& objects);
-  bool dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent) override;
+  bool dropMimeData(const QMimeData* data, Qt::DropAction action, int row, int column, const QModelIndex& parent) override;
   void sort(openstudio::WorkspaceObjectVector& objects, int column = 0, Qt::SortOrder order = Qt::AscendingOrder);
   ///! std::sort comparison functions
   bool cmpAscendIddName(const openstudio::WorkspaceObject& object1, const openstudio::WorkspaceObject& object2);
@@ -104,12 +102,12 @@ private:
   openstudio::WorkspaceObjectVector mObjects;
   ///! QAbstractTableModel::parent() returns a QModelItemIndex, not the parent widget* as QObject::parent() does,
   ///! hence the parent* data member below
-  ClassViewWidget * mClassViewWidget;
+  ClassViewWidget* mClassViewWidget;
   openstudio::model::Model mModel;
   bool mMaskGUIDs;
 };
 //! [0]
 
-} // namespace modeleditor
+}  // namespace modeleditor
 
 #endif

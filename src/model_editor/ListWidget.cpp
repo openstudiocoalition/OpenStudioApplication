@@ -31,29 +31,22 @@
 
 #include "ListWidget.hpp"
 
-namespace modeleditor
-{
-  QString modeleditor::ListWidget::mMimeType = "ListWidget data";
+namespace modeleditor {
+QString modeleditor::ListWidget::mMimeType = "ListWidget data";
 
-ListWidget::ListWidget(QWidget * parent)
-  : QListWidget(parent)
-{
-}
+ListWidget::ListWidget(QWidget* parent) : QListWidget(parent) {}
 
-ListWidget::~ListWidget()
-{
-}
+ListWidget::~ListWidget() {}
 
-QMimeData * ListWidget::mimeData(const QList<QListWidgetItem *> items) const
-{
-  QMimeData * mimeData = QListWidget::mimeData(items);
-  mimeData->setData(getMimeType(),QByteArray());
+QMimeData* ListWidget::mimeData(const QList<QListWidgetItem*> items) const {
+  QMimeData* mimeData = QListWidget::mimeData(items);
+  mimeData->setData(getMimeType(), QByteArray());
 
   QString string;
-  for(int i=0; i<items.size(); i++){
-    QListWidgetItem * item = items.at(i);
+  for (int i = 0; i < items.size(); i++) {
+    QListWidgetItem* item = items.at(i);
     string += item->text();
-    if(i < items.size() -1){
+    if (i < items.size() - 1) {
       string += ",";
     }
   }
@@ -64,4 +57,4 @@ QMimeData * ListWidget::mimeData(const QList<QListWidgetItem *> items) const
 
 ///! Slots
 
-} // namespace modeleditor
+}  // namespace modeleditor

@@ -48,28 +48,23 @@
 
 namespace openstudio {
 
-SyncMeasuresDialogCentralWidget::SyncMeasuresDialogCentralWidget(const WorkflowJSON& workflow,
-  MeasureManager * measureManager,
-  QWidget * parent)
+SyncMeasuresDialogCentralWidget::SyncMeasuresDialogCentralWidget(const WorkflowJSON& workflow, MeasureManager* measureManager, QWidget* parent)
   : QWidget(parent),
-  m_collapsibleComponentList(nullptr),
-  m_componentList(nullptr),
-  m_pageIdx(0),
-  m_workflow(workflow),
-  m_measureManager(measureManager)
-{
+    m_collapsibleComponentList(nullptr),
+    m_componentList(nullptr),
+    m_pageIdx(0),
+    m_workflow(workflow),
+    m_measureManager(measureManager) {
   init();
 }
 
-void SyncMeasuresDialogCentralWidget::init()
-{
+void SyncMeasuresDialogCentralWidget::init() {
   createLayout();
 }
 
-void SyncMeasuresDialogCentralWidget::createLayout()
-{
+void SyncMeasuresDialogCentralWidget::createLayout() {
 
-  QPushButton * upperPushButton = new QPushButton("Check All");
+  QPushButton* upperPushButton = new QPushButton("Check All");
   connect(upperPushButton, &QPushButton::clicked, this, &SyncMeasuresDialogCentralWidget::upperPushButtonClicked);
 
   auto upperLayout = new QHBoxLayout();
@@ -88,11 +83,11 @@ void SyncMeasuresDialogCentralWidget::createLayout()
 
   m_componentList = new ComponentList();
 
-  CollapsibleComponentHeader * collapsibleComponentHeader = nullptr;
-  collapsibleComponentHeader = new CollapsibleComponentHeader("Updates",100,5);
+  CollapsibleComponentHeader* collapsibleComponentHeader = nullptr;
+  collapsibleComponentHeader = new CollapsibleComponentHeader("Updates", 100, 5);
 
-  CollapsibleComponent * collapsibleComponent = nullptr;
-  collapsibleComponent = new CollapsibleComponent(collapsibleComponentHeader,m_componentList);
+  CollapsibleComponent* collapsibleComponent = nullptr;
+  collapsibleComponent = new CollapsibleComponent(collapsibleComponentHeader, m_componentList);
 
   m_collapsibleComponentList->addCollapsibleComponent(collapsibleComponent);
 
@@ -114,13 +109,12 @@ void SyncMeasuresDialogCentralWidget::createLayout()
   auto mainLayout = new QVBoxLayout();
   mainLayout->addLayout(upperLayout);
 
-  mainLayout->addWidget(m_collapsibleComponentList,0,Qt::AlignTop);
+  mainLayout->addWidget(m_collapsibleComponentList, 0, Qt::AlignTop);
   mainLayout->addLayout(lowerLayout);
   setLayout(mainLayout);
 }
 
-void SyncMeasuresDialogCentralWidget::setMeasures(const std::vector<BCLMeasure> & measures)
-{
+void SyncMeasuresDialogCentralWidget::setMeasures(const std::vector<BCLMeasure>& measures) {
   m_measures = measures;
 
   // the total number of results
@@ -128,7 +122,7 @@ void SyncMeasuresDialogCentralWidget::setMeasures(const std::vector<BCLMeasure> 
 
   // the number of pages of results
   int numResultPages = m_measures.size() / NUM_COMPONENTS_DISPLAYED;
-  if (m_measures.size() % NUM_COMPONENTS_DISPLAYED != 0 ){
+  if (m_measures.size() % NUM_COMPONENTS_DISPLAYED != 0) {
     numResultPages++;
   }
   m_collapsibleComponentList->setNumPages(numResultPages);
@@ -138,46 +132,37 @@ void SyncMeasuresDialogCentralWidget::setMeasures(const std::vector<BCLMeasure> 
   m_pageIdx = 0;
 
   displayMeasures(m_pageIdx);
-
 }
 
-void SyncMeasuresDialogCentralWidget::displayMeasures(int pageIdx)
-{
-  std::vector<Component *> components = m_componentList->components();
+void SyncMeasuresDialogCentralWidget::displayMeasures(int pageIdx) {
+  std::vector<Component*> components = m_componentList->components();
 
-  for( auto it = components.begin();
-       it != components.end();
-       ++it )
-  {
+  for (auto it = components.begin(); it != components.end(); ++it) {
     delete *it;
   }
 
   int startPoint = pageIdx * NUM_COMPONENTS_DISPLAYED;
   int endPoint = (pageIdx + 1) * NUM_COMPONENTS_DISPLAYED - 1;
 
-  if(endPoint >= static_cast<int>(m_measures.size())){
+  if (endPoint >= static_cast<int>(m_measures.size())) {
     endPoint = m_measures.size() - 1;
   }
 
-  for( int i = startPoint;
-       i <= endPoint;
-       ++i )
-  {
+  for (int i = startPoint; i <= endPoint; ++i) {
     auto component = new Component(m_measures.at(i));
 
     m_componentList->addComponent(component);
   }
 
   // make sure the header is expanded
-  if(m_collapsibleComponentList->checkedCollapsibleComponent()){
+  if (m_collapsibleComponentList->checkedCollapsibleComponent()) {
     m_collapsibleComponentList->checkedCollapsibleComponent()->setExpanded(true);
   }
 
   // select the first component
-  if(m_componentList->firstComponent()){
+  if (m_componentList->firstComponent()) {
     m_componentList->firstComponent()->setChecked(true);
-  }
-  else{
+  } else {
     emit noComponents();
   }
 
@@ -185,38 +170,35 @@ void SyncMeasuresDialogCentralWidget::displayMeasures(int pageIdx)
   upperPushButtonClicked();
 }
 
-Component * SyncMeasuresDialogCentralWidget::checkedComponent() const
-{
+Component* SyncMeasuresDialogCentralWidget::checkedComponent() const {
   return m_collapsibleComponentList->checkedComponent();
 }
 
 ///! SLOTS
 
-void SyncMeasuresDialogCentralWidget::upperPushButtonClicked()
-{
-  for (Component* component : m_collapsibleComponentList->components()){
-    if (component->checkBox()->isEnabled()){
+void SyncMeasuresDialogCentralWidget::upperPushButtonClicked() {
+  for (Component* component : m_collapsibleComponentList->components()) {
+    if (component->checkBox()->isEnabled()) {
       component->checkBox()->setChecked(true);
     }
   }
 }
 
-void SyncMeasuresDialogCentralWidget::lowerPushButtonClicked()
-{
+void SyncMeasuresDialogCentralWidget::lowerPushButtonClicked() {
   std::vector<BCLMeasure> newMeasures;
 
   // Must convert from the checked component to the appropriate measure for updating
   unsigned index = 0;
-  for (Component* component : m_collapsibleComponentList->components()){
-    if (component->checkBox()->isChecked() && component->checkBox()->isEnabled()){
+  for (Component* component : m_collapsibleComponentList->components()) {
+    if (component->checkBox()->isChecked() && component->checkBox()->isEnabled()) {
       newMeasures.push_back(m_measures.at(m_pageIdx * NUM_COMPONENTS_DISPLAYED + index));
     }
     ++index;
   }
 
-  if(!newMeasures.empty()){
+  if (!newMeasures.empty()) {
     bool showMessage = true;
-    m_measureManager->updateMeasures(newMeasures,showMessage);
+    m_measureManager->updateMeasures(newMeasures, showMessage);
 
     // clear the internal state of measure manager
     // DLM: this could be more selective in the future
@@ -224,14 +206,12 @@ void SyncMeasuresDialogCentralWidget::lowerPushButtonClicked()
   }
 
   emit closeDlg();
-
 }
 
-void SyncMeasuresDialogCentralWidget::on_getComponentsByPage(int pageIdx)
-{
+void SyncMeasuresDialogCentralWidget::on_getComponentsByPage(int pageIdx) {
   m_pageIdx = pageIdx;
 
   displayMeasures(m_pageIdx);
 }
 
-} // namespace openstudio
+}  // namespace openstudio

@@ -41,26 +41,17 @@
 
 namespace openstudio {
 
-ComponentList::ComponentList(QWidget * parent)
-  : QWidget(parent),
-    m_mainLayout(nullptr),
-    m_componentGroup(nullptr)
-{
+ComponentList::ComponentList(QWidget* parent) : QWidget(parent), m_mainLayout(nullptr), m_componentGroup(nullptr) {
   createLayout();
 }
 
-ComponentList::ComponentList(const std::vector<Component *> & components,
-                             QWidget * parent)
-  : QWidget(parent),
-    m_mainLayout(nullptr),
-    m_componentGroup(nullptr)
-{
+ComponentList::ComponentList(const std::vector<Component*>& components, QWidget* parent)
+  : QWidget(parent), m_mainLayout(nullptr), m_componentGroup(nullptr) {
   createLayout();
   setComponents(components);
 }
 
-void ComponentList::createLayout()
-{
+void ComponentList::createLayout() {
   this->setObjectName("GrayWidget");
 
   QString style;
@@ -73,7 +64,7 @@ void ComponentList::createLayout()
   setStyleSheet(style);
 
   auto outerVLayout = new QVBoxLayout();
-  outerVLayout->setContentsMargins(0,0,0,0);
+  outerVLayout->setContentsMargins(0, 0, 0, 0);
   this->setLayout(outerVLayout);
 
   auto outerWidget = new QWidget();
@@ -82,7 +73,7 @@ void ComponentList::createLayout()
 
   m_mainLayout = new QVBoxLayout();
   outerWidget->setLayout(m_mainLayout);
-  m_mainLayout->setContentsMargins(0,0,0,0);
+  m_mainLayout->setContentsMargins(0, 0, 0, 0);
   m_mainLayout->setSpacing(0);
   m_mainLayout->addStretch();
 
@@ -90,65 +81,54 @@ void ComponentList::createLayout()
   m_componentGroup = new QButtonGroup(this);
 }
 
-Component * ComponentList::checkedComponent() const
-{
-  return qobject_cast<Component *>(m_componentGroup->checkedButton());
+Component* ComponentList::checkedComponent() const {
+  return qobject_cast<Component*>(m_componentGroup->checkedButton());
 }
 
-Component * ComponentList::firstComponent()
-{
-  return qobject_cast<Component *>(m_componentGroup->button(0));
+Component* ComponentList::firstComponent() {
+  return qobject_cast<Component*>(m_componentGroup->button(0));
 }
 
-Component * ComponentList::lastComponent()
-{
-  return qobject_cast<Component *>(m_componentGroup->button(m_componentGroup->buttons().size() - 1));
+Component* ComponentList::lastComponent() {
+  return qobject_cast<Component*>(m_componentGroup->button(m_componentGroup->buttons().size() - 1));
 }
 
-std::vector<Component *> ComponentList::components()
-{
-  std::vector<Component *> result;
+std::vector<Component*> ComponentList::components() {
+  std::vector<Component*> result;
 
-  for (QAbstractButton * button : m_componentGroup->buttons().toVector().toStdVector()) {
-    result.push_back(qobject_cast<Component *>(button));
+  for (QAbstractButton* button : m_componentGroup->buttons().toVector().toStdVector()) {
+    result.push_back(qobject_cast<Component*>(button));
   }
 
   return result;
 }
 
-void ComponentList::addComponent(Component * component)
-{
+void ComponentList::addComponent(Component* component) {
   OS_ASSERT(component);
 
   m_mainLayout->addWidget(component);
-  m_componentGroup->addButton(component,m_componentGroup->buttons().size());
+  m_componentGroup->addButton(component, m_componentGroup->buttons().size());
 
   connect(component, &Component::clicked, this, &ComponentList::componentClicked);
 
   connect(component, &Component::clicked, this, &ComponentList::on_componentClicked);
 }
 
-void ComponentList::paintEvent( QPaintEvent * event )
-{
+void ComponentList::paintEvent(QPaintEvent* event) {
   QStyleOption opt;
   opt.init(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
 
-void ComponentList::setComponents(const std::vector<Component *> & components)
-{
-  for (Component * component : components)
-  {
+void ComponentList::setComponents(const std::vector<Component*>& components) {
+  for (Component* component : components) {
     addComponent(component);
   }
 }
 
 ///! SLOTS
 
-void ComponentList::on_componentClicked(bool)
-{
-}
+void ComponentList::on_componentClicked(bool) {}
 
-
-} // openstudio
+}  // namespace openstudio

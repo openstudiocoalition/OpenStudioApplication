@@ -19,6 +19,8 @@ set(${target_name}_src
   ClassViewWidget.cpp
   EditorFrame.hpp
   EditorFrame.cpp
+  GithubReleases.hpp
+  GithubReleases.cpp
   InspectorDialog.hpp
   InspectorDialog.cpp
   InspectorGadget.hpp
@@ -72,7 +74,7 @@ set(${target_name}_src
 # lib moc files
 set(${target_name}_moc
   ClassViewWidget.hpp
-  EditorFrame.hpp
+  EditorFrame.hpp  
   InspectorDialog.hpp
   InspectorGadget.hpp
   ListWidget.hpp
@@ -133,6 +135,7 @@ add_library(${target_name}
 # lib dependencies
 set(${target_name}_depends
   openstudio::openstudiolib
+  openstudioapp_utilities
   ${QT_LIBS}
   #CONAN_PKG::openstudio_ruby
 )
@@ -157,6 +160,7 @@ set(${target_name}_test_src
   test/PathWatcher_GTest.cpp
   test/QMetaTypes_GTest.cpp
   test/Utilities_GTest.cpp
+  test/GithubReleases_GTest.cpp
 )
 
 set(${target_name}_test_depends

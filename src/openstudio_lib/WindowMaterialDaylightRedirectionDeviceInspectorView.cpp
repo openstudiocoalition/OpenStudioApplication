@@ -48,15 +48,14 @@ namespace openstudio {
 
 // WindowMaterialDaylightRedirectionDeviceInspectorView
 
-WindowMaterialDaylightRedirectionDeviceInspectorView::WindowMaterialDaylightRedirectionDeviceInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent)
-  : ModelObjectInspectorView(model, true, parent),
-    m_isIP(isIP)
-{
+WindowMaterialDaylightRedirectionDeviceInspectorView::WindowMaterialDaylightRedirectionDeviceInspectorView(bool isIP,
+                                                                                                           const openstudio::model::Model& model,
+                                                                                                           QWidget* parent)
+  : ModelObjectInspectorView(model, true, parent), m_isIP(isIP) {
   createLayout();
 }
 
-void WindowMaterialDaylightRedirectionDeviceInspectorView::createLayout()
-{
+void WindowMaterialDaylightRedirectionDeviceInspectorView::createLayout() {
   auto hiddenWidget = new QWidget();
   this->stackedWidget()->addWidget(hiddenWidget);
 
@@ -70,7 +69,7 @@ void WindowMaterialDaylightRedirectionDeviceInspectorView::createLayout()
 
   int row = mainGridLayout->rowCount();
 
-  QLabel * label = nullptr;
+  QLabel* label = nullptr;
 
   // Name
 
@@ -106,57 +105,48 @@ void WindowMaterialDaylightRedirectionDeviceInspectorView::createLayout()
 
   // Stretch
 
-  mainGridLayout->setRowStretch(100,100);
+  mainGridLayout->setRowStretch(100, 100);
 
-  mainGridLayout->setColumnStretch(100,100);
+  mainGridLayout->setColumnStretch(100, 100);
 }
 
-void WindowMaterialDaylightRedirectionDeviceInspectorView::onClearSelection()
-{
-  ModelObjectInspectorView::onClearSelection(); // call parent implementation
+void WindowMaterialDaylightRedirectionDeviceInspectorView::onClearSelection() {
+  ModelObjectInspectorView::onClearSelection();  // call parent implementation
   detach();
 }
 
-void WindowMaterialDaylightRedirectionDeviceInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject)
-{
+void WindowMaterialDaylightRedirectionDeviceInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject) {
   detach();
   model::DaylightRedirectionDevice material = modelObject.cast<model::DaylightRedirectionDevice>();
   attach(material);
   refresh();
 }
 
-void WindowMaterialDaylightRedirectionDeviceInspectorView::onUpdate()
-{
+void WindowMaterialDaylightRedirectionDeviceInspectorView::onUpdate() {
   refresh();
 }
 
-void WindowMaterialDaylightRedirectionDeviceInspectorView::attach(openstudio::model::DaylightRedirectionDevice & material)
-{
+void WindowMaterialDaylightRedirectionDeviceInspectorView::attach(openstudio::model::DaylightRedirectionDevice& material) {
   m_material = material;
 
-  m_nameEdit->bind(
-    *m_material,
-    OptionalStringGetter(std::bind(&model::DaylightRedirectionDevice::name, m_material.get_ptr(), true)),
-    boost::optional<StringSetterOptionalStringReturn>(std::bind(&model::DaylightRedirectionDevice::setName, m_material.get_ptr(), std::placeholders::_1))
-  );
+  m_nameEdit->bind(*m_material, OptionalStringGetter(std::bind(&model::DaylightRedirectionDevice::name, m_material.get_ptr(), true)),
+                   boost::optional<StringSetterOptionalStringReturn>(
+                     std::bind(&model::DaylightRedirectionDevice::setName, m_material.get_ptr(), std::placeholders::_1)));
 
   m_daylightRedirectionDeviceType->bind<std::string>(
-    *m_material,
-    static_cast<std::string(*)(const std::string&)>(&openstudio::toString),
+    *m_material, static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
     std::bind(&openstudio::model::DaylightRedirectionDevice::daylightRedirectionDeviceTypeValues),
     StringGetter(std::bind(&openstudio::model::DaylightRedirectionDevice::daylightRedirectionDeviceType, m_material.get_ptr())),
-    StringSetter(std::bind(&openstudio::model::DaylightRedirectionDevice::setDaylightRedirectionDeviceType, m_material.get_ptr(), std::placeholders::_1)),
-    NoFailAction(std::bind(&model::DaylightRedirectionDevice::resetDaylightRedirectionDeviceType, m_material.get_ptr()))
-  );
-
+    StringSetter(
+      std::bind(&openstudio::model::DaylightRedirectionDevice::setDaylightRedirectionDeviceType, m_material.get_ptr(), std::placeholders::_1)),
+    NoFailAction(std::bind(&model::DaylightRedirectionDevice::resetDaylightRedirectionDeviceType, m_material.get_ptr())));
 
   m_standardsInformationWidget->attach(material);
 
   this->stackedWidget()->setCurrentIndex(1);
 }
 
-void WindowMaterialDaylightRedirectionDeviceInspectorView::detach()
-{
+void WindowMaterialDaylightRedirectionDeviceInspectorView::detach() {
   m_nameEdit->unbind();
   m_daylightRedirectionDeviceType->unbind();
 
@@ -167,8 +157,6 @@ void WindowMaterialDaylightRedirectionDeviceInspectorView::detach()
   m_material.reset();
 }
 
-void WindowMaterialDaylightRedirectionDeviceInspectorView::refresh()
-{
-}
+void WindowMaterialDaylightRedirectionDeviceInspectorView::refresh() {}
 
-} // openstudio
+}  // namespace openstudio

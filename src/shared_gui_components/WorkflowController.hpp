@@ -41,20 +41,20 @@
 #include <QSharedPointer>
 #include <map>
 
-namespace openstudio{
+namespace openstudio {
 
 namespace measuretab {
 
-  class WorkflowSectionItem;
-  class WorkflowStepController;
-  class MeasureStepItem;
-  class MeasureStepController;
+class WorkflowSectionItem;
+class WorkflowStepController;
+class MeasureStepItem;
+class MeasureStepController;
 
-} // measuretab
+}  // namespace measuretab
 
 namespace measure {
 
-  class OSArgument;
+class OSArgument;
 
 }
 
@@ -68,19 +68,17 @@ class WorkflowController : public OSListController
 {
   Q_OBJECT
 
-  public:
-
-  WorkflowController(BaseApp *t_baseApp);
+ public:
+  WorkflowController(BaseApp* t_baseApp);
 
   QSharedPointer<OSListItem> itemAt(int i) override;
 
   int count() override;
 
-  private:
-
+ private:
   void addItem(QSharedPointer<OSListItem> item);
 
-  std::vector<QSharedPointer<WorkflowSectionItem> > m_workflowSectionItems;
+  std::vector<QSharedPointer<WorkflowSectionItem>> m_workflowSectionItems;
 };
 
 // WorkflowSectionItemDelegate views a WorkflowSectionItem and returns a WorkflowSectionView
@@ -88,14 +86,12 @@ class WorkflowSectionItemDelegate : public OSItemDelegate
 {
   Q_OBJECT
 
-  public:
-
+ public:
   explicit WorkflowSectionItemDelegate();
 
-  QWidget * view(QSharedPointer<OSListItem> dataSource) override;
+  QWidget* view(QSharedPointer<OSListItem> dataSource) override;
 
-  private:
-
+ private:
 };
 
 // Each WorkflowSectionItem represents a set of measures grouped by type, e.g. all the model measures
@@ -104,9 +100,8 @@ class WorkflowSectionItem : public OSListItem
 {
   Q_OBJECT
 
-  public:
-
-  WorkflowSectionItem(MeasureType measureType, const QString& label, BaseApp *t_baseApp);
+ public:
+  WorkflowSectionItem(MeasureType measureType, const QString& label, BaseApp* t_baseApp);
 
   QString label() const;
 
@@ -114,13 +109,11 @@ class WorkflowSectionItem : public OSListItem
 
   QSharedPointer<WorkflowStepController> workflowStepController() const;
 
-  private:
-
+ private:
   QString m_label;
   boost::optional<MeasureType> m_measureType;
 
   QSharedPointer<WorkflowStepController> m_workflowStepController;
-
 };
 
 // WorkflowStepController controls a list of WorkflowStepItems
@@ -128,9 +121,8 @@ class WorkflowStepController : public OSListController
 {
   Q_OBJECT
 
-  public:
-
-  WorkflowStepController(BaseApp *t_baseApp);
+ public:
+  WorkflowStepController(BaseApp* t_baseApp);
 };
 
 // MeasureStepController controls a list of MeasureStepItems
@@ -138,9 +130,8 @@ class MeasureStepController : public WorkflowStepController
 {
   Q_OBJECT
 
-  public:
-
-  MeasureStepController(MeasureType measureType, BaseApp *t_baseApp);
+ public:
+  MeasureStepController(MeasureType measureType, BaseApp* t_baseApp);
 
   QSharedPointer<OSListItem> itemAt(int i) override;
 
@@ -156,18 +147,17 @@ class MeasureStepController : public WorkflowStepController
 
   void moveDown(MeasureStep step);
 
-  public slots:
+ public slots:
 
-  void addItemForDroppedMeasure(QDropEvent * event);
+  void addItemForDroppedMeasure(QDropEvent* event);
 
-  private:
-
+ private:
   void addItem(QSharedPointer<OSListItem> item);
 
   MeasureType m_measureType;
-  BaseApp * m_app;
+  BaseApp* m_app;
 
-  std::vector<QSharedPointer<MeasureStepItem> > m_measureStepItems;
+  std::vector<QSharedPointer<MeasureStepItem>> m_measureStepItems;
 };
 
 // MeasureStepItemDelegate views a MeasureStepItem and returns a MeasureStepView
@@ -175,14 +165,12 @@ class MeasureStepItemDelegate : public OSItemDelegate
 {
   Q_OBJECT
 
-  public:
-
+ public:
   explicit MeasureStepItemDelegate();
 
-  QWidget * view(QSharedPointer<OSListItem> dataSource) override;
+  QWidget* view(QSharedPointer<OSListItem> dataSource) override;
 
-  private:
-
+ private:
 };
 
 // Each MeasureStepItem represents a MeasureStep
@@ -190,9 +178,8 @@ class MeasureStepItem : public OSListItem
 {
   Q_OBJECT
 
-  public:
-
-  MeasureStepItem(MeasureType measureType, MeasureStep step, BaseApp *t_baseApp);
+ public:
+  MeasureStepItem(MeasureType measureType, MeasureStep step, BaseApp* t_baseApp);
 
   QString name() const;
 
@@ -217,7 +204,7 @@ class MeasureStepItem : public OSListItem
 
   std::vector<measure::OSArgument> incompleteArguments() const;
 
-  public slots:
+ public slots:
 
   void remove();
 
@@ -225,19 +212,19 @@ class MeasureStepItem : public OSListItem
 
   void moveDown();
 
-  void setName(const QString & name);
+  void setName(const QString& name);
 
   //void setDisplayName(const QString & displayName);
 
-  void setDescription(const QString & description);
+  void setDescription(const QString& description);
 
   void setArgument(const measure::OSArgument& argument);
 
   void setSelected(bool isSelected) override;
 
-  signals:
+ signals:
 
-  void nameChanged(const QString & name);
+  void nameChanged(const QString& name);
 
   //void displayNameChanged(const QString & displayName);
 
@@ -245,16 +232,14 @@ class MeasureStepItem : public OSListItem
 
   void argumentsChanged(bool isIncomplete);
 
-  private:
-
+ private:
   MeasureType m_measureType;
   MeasureStep m_step;
-  BaseApp * m_app;
-
+  BaseApp* m_app;
 };
 
-} // measuretab
+}  // namespace measuretab
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // SHAREDGUICOMPONENTS_WORKFLOWCONTROLLER_HPP
+#endif  // SHAREDGUICOMPONENTS_WORKFLOWCONTROLLER_HPP

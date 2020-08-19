@@ -46,7 +46,7 @@ namespace openstudio {
 
 namespace model {
 
-  class Material;
+class Material;
 
 }
 
@@ -58,95 +58,93 @@ class StandardsInformationMaterialWidget : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
+  StandardsInformationMaterialWidget(bool isIP, QGridLayout* mainGridLayout, int& row);
 
-    StandardsInformationMaterialWidget(bool isIP, QGridLayout * mainGridLayout, int & row);
+  virtual ~StandardsInformationMaterialWidget();
 
-    virtual ~StandardsInformationMaterialWidget();
+  void attach(openstudio::model::Material& material);
 
-    void attach(openstudio::model::Material & material);
+  void detach();
 
-    void detach();
+  void showComposite();
 
-    void showComposite();
+  void hideComposite();
 
-    void hideComposite();
+  void enableComposite();
 
-    void enableComposite();
+  void disableComposite();
 
-    void disableComposite();
+ private:
+  QComboBox* m_standard = nullptr;
 
-  private:
+  QComboBox* m_standardSource = nullptr;
 
-    QComboBox * m_standard = nullptr;
+  QComboBox* m_standardsCategory = nullptr;
 
-    QComboBox * m_standardSource = nullptr;
+  QComboBox* m_standardsIdentifier = nullptr;
 
-    QComboBox * m_standardsCategory = nullptr;
+  QComboBox* m_compositeFramingMaterial = nullptr;
+  QLabel* m_compositeFramingMaterialLabel = nullptr;
 
-    QComboBox * m_standardsIdentifier = nullptr;
+  QComboBox* m_compositeFramingConfiguration = nullptr;
+  QLabel* m_compositeFramingConfigurationLabel = nullptr;
 
-    QComboBox * m_compositeFramingMaterial = nullptr;
-    QLabel * m_compositeFramingMaterialLabel = nullptr;
+  QComboBox* m_compositeFramingDepth = nullptr;
+  QLabel* m_compositeFramingDepthLabel = nullptr;
 
-    QComboBox * m_compositeFramingConfiguration = nullptr;
-    QLabel * m_compositeFramingConfigurationLabel = nullptr;
+  QComboBox* m_compositeFramingSize = nullptr;
+  QLabel* m_compositeFramingSizeLabel = nullptr;
 
-    QComboBox * m_compositeFramingDepth = nullptr;
-    QLabel * m_compositeFramingDepthLabel = nullptr;
+  QComboBox* m_compositeCavityInsulation = nullptr;
+  QLabel* m_compositeCavityInsulationLabel = nullptr;
 
-    QComboBox * m_compositeFramingSize = nullptr;
-    QLabel * m_compositeFramingSizeLabel = nullptr;
+  bool m_isIP = false;
 
-    QComboBox * m_compositeCavityInsulation = nullptr;
-    QLabel * m_compositeCavityInsulationLabel = nullptr;
+  boost::optional<openstudio::model::Material> m_material;
 
-    bool m_isIP = false;
+  boost::optional<openstudio::model::StandardsInformationMaterial> m_standardsInformation;
 
-    boost::optional<openstudio::model::Material> m_material;
+  bool m_populateFieldsRequested = false;
 
-    boost::optional<openstudio::model::StandardsInformationMaterial> m_standardsInformation;
+  void requestPopulateFields();
 
-    bool m_populateFieldsRequested = false;
+ public slots:
 
-    void requestPopulateFields();
+  void toggleUnits(bool displayIP);
 
-  public slots:
+  void populateFields();
 
-    void toggleUnits(bool displayIP);
+ private slots:
 
-    void populateFields();
+  void standardChanged(const QString& text);
+  void populateStandards();
 
-  private slots:
+  void standardSourceChanged(const QString& text);
+  void populateStandardSources();
 
-    void standardChanged(const QString& text);
-    void populateStandards();
+  void standardsCategoryChanged(const QString& text);
+  void populateStandardsCategories();
 
-    void standardSourceChanged(const QString& text);
-    void populateStandardSources();
+  void standardsIdentifierChanged(const QString& text);
+  void populateStandardsIdentifier();
 
-    void standardsCategoryChanged(const QString& text);
-    void populateStandardsCategories();
+  void compositeFramingMaterialChanged(const QString& text);
+  void populateCompositeFramingMaterial();
 
-    void standardsIdentifierChanged(const QString& text);
-    void populateStandardsIdentifier();
+  void compositeFramingConfigurationChanged(const QString& text);
+  void populateCompositeFramingConfiguration();
 
-    void compositeFramingMaterialChanged(const QString& text);
-    void populateCompositeFramingMaterial();
+  void compositeFramingDepthChanged(const QString& text);
+  void populateCompositeFramingDepth();
 
-    void compositeFramingConfigurationChanged(const QString& text);
-    void populateCompositeFramingConfiguration();
+  void compositeFramingSizeChanged(const QString& text);
+  void populateCompositeFramingSize();
 
-    void compositeFramingDepthChanged(const QString& text);
-    void populateCompositeFramingDepth();
-
-    void compositeFramingSizeChanged(const QString& text);
-    void populateCompositeFramingSize();
-
-    void compositeCavityInsulationChanged(const QString& text);
-    void populateCompositeCavityInsulation();
+  void compositeCavityInsulationChanged(const QString& text);
+  void populateCompositeCavityInsulation();
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_STANDARDSINFORMATIONMATERIALWIDGET_HPP
+#endif  // OPENSTUDIO_STANDARDSINFORMATIONMATERIALWIDGET_HPP

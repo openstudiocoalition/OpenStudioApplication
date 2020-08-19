@@ -33,21 +33,19 @@
 
 namespace openstudio {
 
-StartupMenu::StartupMenu(QWidget *parent) :
-  QMenuBar(parent)
-{
+StartupMenu::StartupMenu(QWidget* parent) : QMenuBar(parent) {
 
   // File menu
-  m_fileMenu = new QMenu(tr("&File"),this);
-  QAction * newAction = new QAction(tr("&New"), this);
+  m_fileMenu = new QMenu(tr("&File"), this);
+  QAction* newAction = new QAction(tr("&New"), this);
   newAction->setShortcut(QKeySequence(QKeySequence::New));
-  QAction * loadFileAction = new QAction(tr("&Open"), this);
+  QAction* loadFileAction = new QAction(tr("&Open"), this);
   loadFileAction->setShortcut(QKeySequence(QKeySequence::Open));
-  QAction * exitAction = new QAction(tr("E&xit"), this);
+  QAction* exitAction = new QAction(tr("E&xit"), this);
   exitAction->setShortcut(QKeySequence(QKeySequence::Quit));
 
-  QMenu * importMenu = new QMenu(tr("Import"), this);
-  QAction * action = new QAction(tr("IDF"), this);
+  QMenu* importMenu = new QMenu(tr("Import"), this);
+  QAction* action = new QAction(tr("IDF"), this);
   importMenu->addAction(action);
   connect(action, &QAction::triggered, this, &StartupMenu::importClicked);
   action = new QAction(tr("gbXML"), this);
@@ -73,19 +71,22 @@ StartupMenu::StartupMenu(QWidget *parent) :
   addMenu(m_fileMenu);
 
   // Help menu
-  m_helpMenu = new QMenu(tr("&Help"),this);
+  m_helpMenu = new QMenu(tr("&Help"), this);
 
   addMenu(m_helpMenu);
 
-  QAction * helpAction = new QAction(tr("OpenStudio &Help"),this);
+  QAction* helpAction = new QAction(tr("OpenStudio &Help"), this);
 
   connect(helpAction, &QAction::triggered, this, &StartupMenu::helpClicked);
   m_helpMenu->addAction(helpAction);
 
-  action = new QAction(tr("&About"),this);
+  action = new QAction(tr("Check For &Update"), this);
+  m_helpMenu->addAction(action);
+  connect(action, &QAction::triggered, this, &StartupMenu::checkForUpdateClicked);
+
+  action = new QAction(tr("&About"), this);
   m_helpMenu->addAction(action);
   connect(action, &QAction::triggered, this, &StartupMenu::aboutClicked);
 }
 
-} // openstudio
-
+}  // namespace openstudio

@@ -50,16 +50,15 @@ namespace openstudio {
 // ConstructionBaseInspectorView
 
 StandardsInformationConstructionWidget::StandardsInformationConstructionWidget(bool isIP, QGridLayout* mainGridLayout, int& row)
-  : QWidget(mainGridLayout->parentWidget())
-{
+  : QWidget(mainGridLayout->parentWidget()) {
   bool test;
 
-  QVBoxLayout * vLayout = nullptr;
+  QVBoxLayout* vLayout = nullptr;
 
-  QLabel * label = nullptr;
+  QLabel* label = nullptr;
 
   // Measure Tags
-  QFrame * line;
+  QFrame* line;
   line = new QFrame();
   line->setFrameShape(QFrame::HLine);
   line->setFrameShadow(QFrame::Sunken);
@@ -132,7 +131,8 @@ StandardsInformationConstructionWidget::StandardsInformationConstructionWidget(b
 
   mainGridLayout->addLayout(vLayout, row, 0);
 
-  test = connect(m_intendedSurfaceType, &QComboBox::currentTextChanged, this, &openstudio::StandardsInformationConstructionWidget::intendedSurfaceTypeChanged);
+  test = connect(m_intendedSurfaceType, &QComboBox::currentTextChanged, this,
+                 &openstudio::StandardsInformationConstructionWidget::intendedSurfaceTypeChanged);
   OS_ASSERT(test);
 
   // Standards Construction Type
@@ -153,7 +153,8 @@ StandardsInformationConstructionWidget::StandardsInformationConstructionWidget(b
 
   //test = connect(m_standardsConstructionType, &QComboBox::editTextChanged, this, &openstudio::StandardsInformationConstructionWidget::standardsConstructionTypeChanged);
   //OS_ASSERT(test);
-  test = connect(m_standardsConstructionType, &QComboBox::currentTextChanged, this, &openstudio::StandardsInformationConstructionWidget::standardsConstructionTypeChanged);
+  test = connect(m_standardsConstructionType, &QComboBox::currentTextChanged, this,
+                 &openstudio::StandardsInformationConstructionWidget::standardsConstructionTypeChanged);
   OS_ASSERT(test);
 
   ++row;
@@ -251,8 +252,8 @@ StandardsInformationConstructionWidget::StandardsInformationConstructionWidget(b
   // Fenestration Gas Fill
   vLayout = new QVBoxLayout();
 
-    m_fenestrationGasFillLabel = new QLabel();
-    m_fenestrationGasFillLabel->setText("Fenestration Gas Fill: ");
+  m_fenestrationGasFillLabel = new QLabel();
+  m_fenestrationGasFillLabel->setText("Fenestration Gas Fill: ");
   m_fenestrationGasFillLabel->setObjectName("StandardsInfo");
   vLayout->addWidget(m_fenestrationGasFillLabel);
 
@@ -286,11 +287,9 @@ StandardsInformationConstructionWidget::StandardsInformationConstructionWidget(b
   ++row;
 }
 
-StandardsInformationConstructionWidget::~StandardsInformationConstructionWidget()
-{}
+StandardsInformationConstructionWidget::~StandardsInformationConstructionWidget() {}
 
-void StandardsInformationConstructionWidget::showFenestration()
-{
+void StandardsInformationConstructionWidget::showFenestration() {
   m_fenestrationType->show();
   m_fenestrationAssemblyContext->show();
   m_fenestrationNumberOfPanes->show();
@@ -310,8 +309,7 @@ void StandardsInformationConstructionWidget::showFenestration()
   m_fenestrationLowEmissivityCoatingLabel->show();
 }
 
-void StandardsInformationConstructionWidget::hideFenestration()
-{
+void StandardsInformationConstructionWidget::hideFenestration() {
   m_fenestrationType->hide();
   m_fenestrationAssemblyContext->hide();
   m_fenestrationNumberOfPanes->hide();
@@ -331,9 +329,8 @@ void StandardsInformationConstructionWidget::hideFenestration()
   m_fenestrationLowEmissivityCoatingLabel->hide();
 }
 
-void StandardsInformationConstructionWidget::enableFenestration()
-{
-  if (!m_fenestrationEnabled){
+void StandardsInformationConstructionWidget::enableFenestration() {
+  if (!m_fenestrationEnabled) {
     m_fenestrationEnabled = true;
 
     m_fenestrationType->setEnabled(true);
@@ -346,72 +343,77 @@ void StandardsInformationConstructionWidget::enableFenestration()
     m_fenestrationLowEmissivityCoating->setEnabled(true);
 
     m_fenestrationType->bind<std::string>(
-      *m_standardsInformation,
-      static_cast<std::string(*)(const std::string&)>(&openstudio::toString),
+      *m_standardsInformation, static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
       std::bind(&openstudio::model::StandardsInformationConstruction::fenestrationTypeValues),
-      std::function<boost::optional<std::string>()>(std::bind(&openstudio::model::StandardsInformationConstruction::fenestrationType, m_standardsInformation.get_ptr())),
+      std::function<boost::optional<std::string>()>(
+        std::bind(&openstudio::model::StandardsInformationConstruction::fenestrationType, m_standardsInformation.get_ptr())),
       std::bind(&openstudio::model::StandardsInformationConstruction::setFenestrationType, m_standardsInformation.get_ptr(), std::placeholders::_1),
       NoFailAction(std::bind(&model::StandardsInformationConstruction::resetFenestrationType, m_standardsInformation.get_ptr())));
 
     m_fenestrationAssemblyContext->bind<std::string>(
-      *m_standardsInformation,
-      static_cast<std::string(*)(const std::string&)>(&openstudio::toString),
+      *m_standardsInformation, static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
       std::bind(&openstudio::model::StandardsInformationConstruction::fenestrationAssemblyContextValues),
-      std::function<boost::optional<std::string>()>(std::bind(&openstudio::model::StandardsInformationConstruction::fenestrationAssemblyContext, m_standardsInformation.get_ptr())),
-      std::bind(&openstudio::model::StandardsInformationConstruction::setFenestrationAssemblyContext, m_standardsInformation.get_ptr(), std::placeholders::_1),
+      std::function<boost::optional<std::string>()>(
+        std::bind(&openstudio::model::StandardsInformationConstruction::fenestrationAssemblyContext, m_standardsInformation.get_ptr())),
+      std::bind(&openstudio::model::StandardsInformationConstruction::setFenestrationAssemblyContext, m_standardsInformation.get_ptr(),
+                std::placeholders::_1),
       NoFailAction(std::bind(&model::StandardsInformationConstruction::resetFenestrationAssemblyContext, m_standardsInformation.get_ptr())));
 
     m_fenestrationNumberOfPanes->bind<std::string>(
-      *m_standardsInformation,
-      static_cast<std::string(*)(const std::string&)>(&openstudio::toString),
+      *m_standardsInformation, static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
       std::bind(&openstudio::model::StandardsInformationConstruction::fenestrationNumberOfPanesValues),
-      std::function<boost::optional<std::string>()>(std::bind(&openstudio::model::StandardsInformationConstruction::fenestrationNumberOfPanes, m_standardsInformation.get_ptr())),
-      std::bind(&openstudio::model::StandardsInformationConstruction::setFenestrationNumberOfPanes, m_standardsInformation.get_ptr(), std::placeholders::_1),
+      std::function<boost::optional<std::string>()>(
+        std::bind(&openstudio::model::StandardsInformationConstruction::fenestrationNumberOfPanes, m_standardsInformation.get_ptr())),
+      std::bind(&openstudio::model::StandardsInformationConstruction::setFenestrationNumberOfPanes, m_standardsInformation.get_ptr(),
+                std::placeholders::_1),
       NoFailAction(std::bind(&model::StandardsInformationConstruction::resetFenestrationNumberOfPanes, m_standardsInformation.get_ptr())));
 
     m_fenestrationFrameType->bind<std::string>(
-      *m_standardsInformation,
-      static_cast<std::string(*)(const std::string&)>(&openstudio::toString),
+      *m_standardsInformation, static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
       std::bind(&openstudio::model::StandardsInformationConstruction::fenestrationFrameTypeValues),
-      std::function<boost::optional<std::string>()>(std::bind(&openstudio::model::StandardsInformationConstruction::fenestrationFrameType, m_standardsInformation.get_ptr())),
-      std::bind(&openstudio::model::StandardsInformationConstruction::setFenestrationFrameType, m_standardsInformation.get_ptr(), std::placeholders::_1),
+      std::function<boost::optional<std::string>()>(
+        std::bind(&openstudio::model::StandardsInformationConstruction::fenestrationFrameType, m_standardsInformation.get_ptr())),
+      std::bind(&openstudio::model::StandardsInformationConstruction::setFenestrationFrameType, m_standardsInformation.get_ptr(),
+                std::placeholders::_1),
       NoFailAction(std::bind(&model::StandardsInformationConstruction::resetFenestrationFrameType, m_standardsInformation.get_ptr())));
 
     m_fenestrationDividerType->bind<std::string>(
-      *m_standardsInformation,
-      static_cast<std::string(*)(const std::string&)>(&openstudio::toString),
+      *m_standardsInformation, static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
       std::bind(&openstudio::model::StandardsInformationConstruction::fenestrationDividerTypeValues),
-      std::function<boost::optional<std::string>()>(std::bind(&openstudio::model::StandardsInformationConstruction::fenestrationDividerType, m_standardsInformation.get_ptr())),
-      std::bind(&openstudio::model::StandardsInformationConstruction::setFenestrationDividerType, m_standardsInformation.get_ptr(), std::placeholders::_1),
+      std::function<boost::optional<std::string>()>(
+        std::bind(&openstudio::model::StandardsInformationConstruction::fenestrationDividerType, m_standardsInformation.get_ptr())),
+      std::bind(&openstudio::model::StandardsInformationConstruction::setFenestrationDividerType, m_standardsInformation.get_ptr(),
+                std::placeholders::_1),
       NoFailAction(std::bind(&model::StandardsInformationConstruction::resetFenestrationDividerType, m_standardsInformation.get_ptr())));
 
     m_fenestrationTint->bind<std::string>(
-      *m_standardsInformation,
-      static_cast<std::string(*)(const std::string&)>(&openstudio::toString),
+      *m_standardsInformation, static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
       std::bind(&openstudio::model::StandardsInformationConstruction::fenestrationTintValues),
-      std::function<boost::optional<std::string>()>(std::bind(&openstudio::model::StandardsInformationConstruction::fenestrationTint, m_standardsInformation.get_ptr())),
+      std::function<boost::optional<std::string>()>(
+        std::bind(&openstudio::model::StandardsInformationConstruction::fenestrationTint, m_standardsInformation.get_ptr())),
       std::bind(&openstudio::model::StandardsInformationConstruction::setFenestrationTint, m_standardsInformation.get_ptr(), std::placeholders::_1),
       NoFailAction(std::bind(&model::StandardsInformationConstruction::resetFenestrationTint, m_standardsInformation.get_ptr())));
 
     m_fenestrationGasFill->bind<std::string>(
-      *m_standardsInformation,
-      static_cast<std::string(*)(const std::string&)>(&openstudio::toString),
+      *m_standardsInformation, static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
       std::bind(&openstudio::model::StandardsInformationConstruction::fenestrationGasFillValues),
-      std::function<boost::optional<std::string>()>(std::bind(&openstudio::model::StandardsInformationConstruction::fenestrationGasFill, m_standardsInformation.get_ptr())),
-      std::bind(&openstudio::model::StandardsInformationConstruction::setFenestrationGasFill, m_standardsInformation.get_ptr(), std::placeholders::_1),
+      std::function<boost::optional<std::string>()>(
+        std::bind(&openstudio::model::StandardsInformationConstruction::fenestrationGasFill, m_standardsInformation.get_ptr())),
+      std::bind(&openstudio::model::StandardsInformationConstruction::setFenestrationGasFill, m_standardsInformation.get_ptr(),
+                std::placeholders::_1),
       NoFailAction(std::bind(&model::StandardsInformationConstruction::resetFenestrationGasFill, m_standardsInformation.get_ptr())));
 
     m_fenestrationLowEmissivityCoating->bind(
       *m_standardsInformation,
       std::bind(&openstudio::model::StandardsInformationConstruction::fenestrationLowEmissivityCoating, m_standardsInformation.get_ptr()),
-      BoolSetter(std::bind(&openstudio::model::StandardsInformationConstruction::setFenestrationLowEmissivityCoatingNoFail, m_standardsInformation.get_ptr(), std::placeholders::_1)),
+      BoolSetter(std::bind(&openstudio::model::StandardsInformationConstruction::setFenestrationLowEmissivityCoatingNoFail,
+                           m_standardsInformation.get_ptr(), std::placeholders::_1)),
       NoFailAction(std::bind(&model::StandardsInformationConstruction::resetFenestrationLowEmissivityCoating, m_standardsInformation.get_ptr())));
   }
 }
 
-void StandardsInformationConstructionWidget::disableFenestration()
-{
-  if (m_fenestrationEnabled){
+void StandardsInformationConstructionWidget::disableFenestration() {
+  if (m_fenestrationEnabled) {
     m_fenestrationEnabled = false;
 
     m_fenestrationType->setEnabled(false);
@@ -434,13 +436,11 @@ void StandardsInformationConstructionWidget::disableFenestration()
   }
 }
 
-void StandardsInformationConstructionWidget::toggleUnits(bool displayIP)
-{
+void StandardsInformationConstructionWidget::toggleUnits(bool displayIP) {
   m_isIP = displayIP;
 }
 
-void StandardsInformationConstructionWidget::attach(openstudio::model::ConstructionBase & construction)
-{
+void StandardsInformationConstructionWidget::attach(openstudio::model::ConstructionBase& construction) {
   detach();
 
   m_construction = construction;
@@ -451,17 +451,17 @@ void StandardsInformationConstructionWidget::attach(openstudio::model::Construct
   m_standardSource->setEnabled(true);
 
   m_intendedSurfaceType->bind<std::string>(
-    *m_standardsInformation,
-    static_cast<std::string(*)(const std::string&)>(&openstudio::toString),
+    *m_standardsInformation, static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
     std::bind(&openstudio::model::StandardsInformationConstruction::intendedSurfaceTypeValues),
-    std::function<boost::optional<std::string>()>(std::bind(&openstudio::model::StandardsInformationConstruction::intendedSurfaceType, m_standardsInformation.get_ptr())),
+    std::function<boost::optional<std::string>()>(
+      std::bind(&openstudio::model::StandardsInformationConstruction::intendedSurfaceType, m_standardsInformation.get_ptr())),
     std::bind(&openstudio::model::StandardsInformationConstruction::setIntendedSurfaceType, m_standardsInformation.get_ptr(), std::placeholders::_1),
     NoFailAction(std::bind(&model::StandardsInformationConstruction::resetIntendedSurfaceType, m_standardsInformation.get_ptr())));
 
   m_standardsConstructionType->setEnabled(true);
 
   // do not bind fenestration fields here, that is done in enableFenestration
-  if (construction.isFenestration()){
+  if (construction.isFenestration()) {
     enableFenestration();
   } else {
     disableFenestration();
@@ -472,11 +472,10 @@ void StandardsInformationConstructionWidget::attach(openstudio::model::Construct
   populateStandardsConstructionType();
 }
 
-void StandardsInformationConstructionWidget::detach()
-{
+void StandardsInformationConstructionWidget::detach() {
   m_construction.reset();
 
-  if (m_standardsInformation){
+  if (m_standardsInformation) {
     // disconnect(m_standardsInformation->getImpl<openstudio::model::detail::ModelObject_Impl>().get(), nullptr, this, nullptr);
     m_standardsInformation.reset();
   }
@@ -492,13 +491,12 @@ void StandardsInformationConstructionWidget::detach()
   disableFenestration();
 }
 
-void StandardsInformationConstructionWidget::standardChanged(const QString& text)
-{
-  if (m_standardsInformation){
+void StandardsInformationConstructionWidget::standardChanged(const QString& text) {
+  if (m_standardsInformation) {
     std::string standard = toString(text);
-    if (standard.empty()){
+    if (standard.empty()) {
       m_standardsInformation->resetConstructionStandard();
-    } else{
+    } else {
       m_standardsInformation->setConstructionStandard(standard);
     }
     populateStandards();
@@ -506,22 +504,21 @@ void StandardsInformationConstructionWidget::standardChanged(const QString& text
   }
 }
 
-void StandardsInformationConstructionWidget::populateStandards()
-{
+void StandardsInformationConstructionWidget::populateStandards() {
   m_standard->blockSignals(true);
 
   m_standard->clear();
-  if (m_standardsInformation){
+  if (m_standardsInformation) {
     m_standard->addItem("");
     std::vector<std::string> suggestedConstructionStandards = m_standardsInformation->suggestedConstructionStandards();
     for (const std::string& suggestedConstructionStandard : suggestedConstructionStandards) {
       m_standard->addItem(toQString(suggestedConstructionStandard));
     }
     boost::optional<std::string> constructionStandard = m_standardsInformation->constructionStandard();
-    if (constructionStandard){
+    if (constructionStandard) {
       OS_ASSERT(!suggestedConstructionStandards.empty());
       m_standard->setCurrentIndex(1);
-    } else{
+    } else {
       m_standard->setCurrentIndex(0);
     }
   }
@@ -529,35 +526,33 @@ void StandardsInformationConstructionWidget::populateStandards()
   m_standard->blockSignals(false);
 }
 
-void StandardsInformationConstructionWidget::standardSourceChanged(const QString& text)
-{
-  if (m_standardsInformation){
+void StandardsInformationConstructionWidget::standardSourceChanged(const QString& text) {
+  if (m_standardsInformation) {
     std::string standardSource = toString(text);
-    if (standardSource.empty()){
+    if (standardSource.empty()) {
       m_standardsInformation->resetConstructionStandardSource();
-    } else{
+    } else {
       m_standardsInformation->setConstructionStandardSource(standardSource);
     }
     populateStandardSources();
   }
 }
 
-void StandardsInformationConstructionWidget::populateStandardSources()
-{
+void StandardsInformationConstructionWidget::populateStandardSources() {
   m_standardSource->blockSignals(true);
 
   m_standardSource->clear();
-  if (m_standardsInformation){
+  if (m_standardsInformation) {
     m_standardSource->addItem("");
     std::vector<std::string> suggestedConstructionStandardSources = m_standardsInformation->suggestedConstructionStandardSources();
     for (const std::string& suggestedConstructionStandardSource : suggestedConstructionStandardSources) {
       m_standardSource->addItem(toQString(suggestedConstructionStandardSource));
     }
     boost::optional<std::string> constructionStandardSource = m_standardsInformation->constructionStandardSource();
-    if (constructionStandardSource){
+    if (constructionStandardSource) {
       OS_ASSERT(!suggestedConstructionStandardSources.empty());
       m_standardSource->setCurrentIndex(1);
-    } else{
+    } else {
       m_standardSource->setCurrentIndex(0);
     }
   }
@@ -565,40 +560,36 @@ void StandardsInformationConstructionWidget::populateStandardSources()
   m_standardSource->blockSignals(false);
 }
 
-void StandardsInformationConstructionWidget::intendedSurfaceTypeChanged(const QString& text)
-{
+void StandardsInformationConstructionWidget::intendedSurfaceTypeChanged(const QString& text) {
   populateStandardsConstructionType();
 }
 
-void StandardsInformationConstructionWidget::standardsConstructionTypeChanged(const QString & text)
-{
-  if (m_standardsInformation){
+void StandardsInformationConstructionWidget::standardsConstructionTypeChanged(const QString& text) {
+  if (m_standardsInformation) {
     std::string standardsConstructionType = toString(text);
-    if (standardsConstructionType.empty()){
+    if (standardsConstructionType.empty()) {
       m_standardsInformation->resetStandardsConstructionType();
-    }else{
+    } else {
       m_standardsInformation->setStandardsConstructionType(standardsConstructionType);
     }
-
   }
 }
 
-void StandardsInformationConstructionWidget::populateStandardsConstructionType()
-{
+void StandardsInformationConstructionWidget::populateStandardsConstructionType() {
   m_standardsConstructionType->blockSignals(true);
 
   m_standardsConstructionType->clear();
-  if (m_standardsInformation){
+  if (m_standardsInformation) {
     m_standardsConstructionType->addItem("");
     std::vector<std::string> suggestedStandardsConstructionTypes = m_standardsInformation->suggestedStandardsConstructionTypes();
     for (const std::string& standardsConstructionType : suggestedStandardsConstructionTypes) {
       m_standardsConstructionType->addItem(toQString(standardsConstructionType));
     }
     boost::optional<std::string> standardsConstructionType = m_standardsInformation->standardsConstructionType();
-    if (standardsConstructionType){
+    if (standardsConstructionType) {
       OS_ASSERT(!suggestedStandardsConstructionTypes.empty());
       m_standardsConstructionType->setCurrentIndex(1);
-    }else{
+    } else {
       m_standardsConstructionType->setCurrentIndex(0);
     }
   }
@@ -606,8 +597,4 @@ void StandardsInformationConstructionWidget::populateStandardsConstructionType()
   m_standardsConstructionType->blockSignals(false);
 }
 
-
-
-
-
-} // openstudio
+}  // namespace openstudio

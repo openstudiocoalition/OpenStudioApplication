@@ -62,19 +62,14 @@
 
 namespace openstudio {
 
-LoadsController::LoadsController(bool isIP, const model::Model& model)
-  : ModelSubTabController(new LoadsView(isIP, model), model)
-{
+LoadsController::LoadsController(bool isIP, const model::Model& model) : ModelSubTabController(new LoadsView(isIP, model), model) {
   connect(this, &LoadsController::toggleUnitsClicked, static_cast<ModelSubTabView*>(subTabView()), &ModelSubTabView::toggleUnitsClicked);
 }
 
-LoadsController::~LoadsController()
-{
-}
+LoadsController::~LoadsController() {}
 
-void LoadsController::onAddObject(const openstudio::IddObjectType& iddObjectType)
-{
-  switch(iddObjectType.value()){
+void LoadsController::onAddObject(const openstudio::IddObjectType& iddObjectType) {
+  switch (iddObjectType.value()) {
     case IddObjectType::OS_People_Definition:
       openstudio::model::PeopleDefinition(this->model());
       break;
@@ -107,25 +102,23 @@ void LoadsController::onAddObject(const openstudio::IddObjectType& iddObjectType
   }
 }
 
-void LoadsController::onCopyObject(const openstudio::model::ModelObject& modelObject)
-{
+void LoadsController::onCopyObject(const openstudio::model::ModelObject& modelObject) {
   modelObject.clone(this->model());
 }
 
-void LoadsController::onRemoveObject(openstudio::model::ModelObject modelObject)
-{
+void LoadsController::onRemoveObject(openstudio::model::ModelObject modelObject) {
   boost::optional<model::SpaceLoadDefinition> spaceLoadDefinition = modelObject.optionalCast<model::SpaceLoadDefinition>();
-  if (spaceLoadDefinition){
+  if (spaceLoadDefinition) {
 
     unsigned numInstances = spaceLoadDefinition->instances().size();
-    if (numInstances > 0){
+    if (numInstances > 0) {
       QMessageBox msgBox(subTabView());
       msgBox.setText("There are " + QString::number(numInstances) + " instances that reference this definition.");
       msgBox.setInformativeText("Do you want to remove this definition and all of its instances?");
       msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
       msgBox.setDefaultButton(QMessageBox::Yes);
       int ret = msgBox.exec();
-      if (ret == QMessageBox::No){
+      if (ret == QMessageBox::No) {
         return;
       }
     }
@@ -133,34 +126,27 @@ void LoadsController::onRemoveObject(openstudio::model::ModelObject modelObject)
   }
 }
 
-void LoadsController::onReplaceObject(openstudio::model::ModelObject modelObject, const OSItemId& replacementItemId)
-{
+void LoadsController::onReplaceObject(openstudio::model::ModelObject modelObject, const OSItemId& replacementItemId) {
   // not yet implemented
 }
 
-void LoadsController::onPurgeObjects(const openstudio::IddObjectType& iddObjectType)
-{
+void LoadsController::onPurgeObjects(const openstudio::IddObjectType& iddObjectType) {
   this->model().purgeUnusedResourceObjects(iddObjectType);
 }
 
-void LoadsController::onDrop(const OSItemId& itemId)
-{
+void LoadsController::onDrop(const OSItemId& itemId) {
   boost::optional<model::ModelObject> modelObject = this->getModelObject(itemId);
-  if(modelObject){
-    if(modelObject->optionalCast<model::SpaceLoadDefinition>()){
-      if (this->fromComponentLibrary(itemId)){
+  if (modelObject) {
+    if (modelObject->optionalCast<model::SpaceLoadDefinition>()) {
+      if (this->fromComponentLibrary(itemId)) {
         modelObject = modelObject->clone(this->model());
       }
     }
   }
 }
 
-void LoadsController::onInspectItem(OSItem* item)
-{
-}
+void LoadsController::onInspectItem(OSItem* item) {}
 
-void LoadsController::toggleUnits(bool displayIP)
-{
-}
+void LoadsController::toggleUnits(bool displayIP) {}
 
-} // openstudio
+}  // namespace openstudio

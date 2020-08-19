@@ -48,12 +48,10 @@
 
 namespace openstudio {
 
-ZoneChooserView::ZoneChooserView(QWidget* parent)
-  : QWidget(parent)
-{
+ZoneChooserView::ZoneChooserView(QWidget* parent) : QWidget(parent) {
   auto mainLayout = new QVBoxLayout();
 
-  mainLayout->setContentsMargins(0,0,0,0);
+  mainLayout->setContentsMargins(0, 0, 0, 0);
 
   this->setLayout(mainLayout);
 
@@ -71,23 +69,17 @@ ZoneChooserView::ZoneChooserView(QWidget* parent)
 
   m_vLayout = new QVBoxLayout();
 
-  m_vLayout->setContentsMargins(0,0,0,0);
+  m_vLayout->setContentsMargins(0, 0, 0, 0);
 
   scrollWidget->setLayout(m_vLayout);
 }
 
-void ZoneChooserView::layoutModelObject(openstudio::model::ModelObject & modelObject)
-{
-  if( model::OptionalAirLoopHVACZoneSplitter splitter = modelObject.optionalCast<model::AirLoopHVACZoneSplitter>() )
-  {
+void ZoneChooserView::layoutModelObject(openstudio::model::ModelObject& modelObject) {
+  if (model::OptionalAirLoopHVACZoneSplitter splitter = modelObject.optionalCast<model::AirLoopHVACZoneSplitter>()) {
     m_splitter = splitter;
-  }
-  else if( model::OptionalAirLoopHVACZoneMixer mixer = modelObject.optionalCast<model::AirLoopHVACZoneMixer>() )
-  {
+  } else if (model::OptionalAirLoopHVACZoneMixer mixer = modelObject.optionalCast<model::AirLoopHVACZoneMixer>()) {
     m_mixer = mixer;
-  }
-  else
-  {
+  } else {
     m_splitter = model::OptionalAirLoopHVACZoneSplitter();
     m_mixer = model::OptionalAirLoopHVACZoneMixer();
   }
@@ -95,60 +87,45 @@ void ZoneChooserView::layoutModelObject(openstudio::model::ModelObject & modelOb
   layoutView();
 }
 
-void ZoneChooserView::layoutView()
-{
+void ZoneChooserView::layoutView() {
   this->setUpdatesEnabled(false);
 
-  QLayoutItem * child;
-  while((child = m_vLayout->takeAt(0)) != nullptr)
-  {
-      delete child->widget();
-      delete child;
+  QLayoutItem* child;
+  while ((child = m_vLayout->takeAt(0)) != nullptr) {
+    delete child->widget();
+    delete child;
   }
   m_zoneChooserItems.clear();
 
-  if( m_mixer )
-  {
+  if (m_mixer) {
     auto label = new QLabel();
     label->setObjectName("IGHeader");
     label->setText(toQString(m_mixer->iddObject().name()));
     m_vLayout->addWidget(label);
-  }
-  else if( m_splitter )
-  {
+  } else if (m_splitter) {
     auto label = new QLabel();
     label->setObjectName("IGHeader");
     label->setText(toQString(m_splitter->iddObject().name()));
     m_vLayout->addWidget(label);
   }
 
-  if( m_mixer )
-  {
-    if( model::OptionalAirLoopHVAC airLoop = m_mixer->airLoopHVAC() )
-    {
+  if (m_mixer) {
+    if (model::OptionalAirLoopHVAC airLoop = m_mixer->airLoopHVAC()) {
       m_splitter = airLoop->zoneSplitter();
-    }
-    else
-    {
+    } else {
       return;
     }
-  }
-  else if( ! m_splitter )
-  {
+  } else if (!m_splitter) {
     return;
   }
 
   std::vector<model::ThermalZone> zones;
   zones = m_splitter->model().getConcreteModelObjects<model::ThermalZone>();
-  std::sort(zones.begin(),zones.end(),WorkspaceObjectNameLess());
+  std::sort(zones.begin(), zones.end(), WorkspaceObjectNameLess());
 
-  for( auto it = zones.begin();
-        it < zones.end();
-        ++it )
-  {
-    if( ! it->isPlenum() )
-    {
-      auto zoneChooserItem = new ZoneChooserItem(*it,this);
+  for (auto it = zones.begin(); it < zones.end(); ++it) {
+    if (!it->isPlenum()) {
+      auto zoneChooserItem = new ZoneChooserItem(*it, this);
       m_zoneChooserItems.push_back(zoneChooserItem);
       m_vLayout->addWidget(zoneChooserItem);
       zoneChooserItem->setChecked(false);
@@ -158,52 +135,37 @@ void ZoneChooserView::layoutView()
 
   std::vector<model::ThermalZone> thermalZones;
   thermalZones = m_splitter->thermalZones();
-  for( auto it = thermalZones.begin();
-        it < thermalZones.end();
-        ++it )
-  {
+  for (auto it = thermalZones.begin(); it < thermalZones.end(); ++it) {
     zoneChooserItemForZone(it->name().get())->setChecked(true);
   }
 
-  for(int i = 0; i < m_vLayout->count(); i++)
-  {
-    if( QWidget * widget = m_vLayout->itemAt(i)->widget() )
-    {
+  for (int i = 0; i < m_vLayout->count(); i++) {
+    if (QWidget* widget = m_vLayout->itemAt(i)->widget()) {
       widget->show();
     }
   }
 
   this->setUpdatesEnabled(true);
-
 }
 
-void ZoneChooserView::paintEvent ( QPaintEvent * event )
-{
+void ZoneChooserView::paintEvent(QPaintEvent* event) {
   QStyleOption opt;
   opt.init(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
 
-ZoneChooserItem * ZoneChooserView::zoneChooserItemForZone(std::string zoneName)
-{
-  for( auto it = m_zoneChooserItems.begin();
-       it < m_zoneChooserItems.end();
-       ++it )
-  {
-    if( (*it)->zoneName() == zoneName )
-    {
+ZoneChooserItem* ZoneChooserView::zoneChooserItemForZone(std::string zoneName) {
+  for (auto it = m_zoneChooserItems.begin(); it < m_zoneChooserItems.end(); ++it) {
+    if ((*it)->zoneName() == zoneName) {
       return *it;
     }
   }
   return nullptr;
 }
 
-ZoneChooserItem::ZoneChooserItem(model::ThermalZone & zone, ZoneChooserView * parent)
-  : QWidget(parent),
-    m_zoneChooserView(parent),
-    m_thermalZone(zone)
-{
+ZoneChooserItem::ZoneChooserItem(model::ThermalZone& zone, ZoneChooserView* parent)
+  : QWidget(parent), m_zoneChooserView(parent), m_thermalZone(zone) {
   auto hLayout = new QHBoxLayout();
 
   m_checkBox = new QCheckBox();
@@ -216,31 +178,24 @@ ZoneChooserItem::ZoneChooserItem(model::ThermalZone & zone, ZoneChooserView * pa
   hLayout->addWidget(m_checkBox);
 
   setLayout(hLayout);
-
 }
 
-void ZoneChooserItem::sendClickedSignal( bool checked )
-{
-  if( checked )
-  {
+void ZoneChooserItem::sendClickedSignal(bool checked) {
+  if (checked) {
     emit addZoneClicked(m_thermalZone);
     m_zoneChooserView->layoutView();
-  }
-  else
-  {
+  } else {
     emit removeZoneClicked(m_thermalZone);
     m_zoneChooserView->layoutView();
   }
 }
 
-std::string ZoneChooserItem::zoneName()
-{
+std::string ZoneChooserItem::zoneName() {
   return toString(m_checkBox->text());
 }
 
-void ZoneChooserItem::setChecked( bool checked )
-{
-  m_checkBox->setChecked( checked );
+void ZoneChooserItem::setChecked(bool checked) {
+  m_checkBox->setChecked(checked);
 }
 
-} // openstudio
+}  // namespace openstudio

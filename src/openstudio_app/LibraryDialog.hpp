@@ -38,30 +38,28 @@ class QListWidget;
 
 namespace openstudio {
 
-class LibraryDialog: public QDialog
+class LibraryDialog : public QDialog
 {
   Q_OBJECT
 
  public:
+  LibraryDialog(std::vector<openstudio::path> paths, std::vector<openstudio::path> defaultPaths, const openstudio::path& resourcesPath);
 
-  LibraryDialog(std::vector<openstudio::path> paths,std::vector<openstudio::path> defaultPaths, const openstudio::path & resourcesPath);
-
-  virtual ~LibraryDialog() {};
+  virtual ~LibraryDialog(){};
 
   /** The current list of library paths */
   std::vector<openstudio::path> paths() const;
 
  private:
-
   void onAdd();
   void onRemove();
   void onRestore();
 
-  QListWidget * m_list;
+  QListWidget* m_list;
   std::vector<openstudio::path> m_defaultPaths;
   openstudio::path m_resourcesPath;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_LIBRARYDIALOG_HPP
+#endif  // OPENSTUDIO_LIBRARYDIALOG_HPP

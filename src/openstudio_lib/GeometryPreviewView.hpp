@@ -51,16 +51,12 @@ class GeometryPreviewView : public QWidget
 {
   Q_OBJECT
 
-  public:
+ public:
+  GeometryPreviewView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
-    GeometryPreviewView(bool isIP,
-                        const openstudio::model::Model& model,
-                        QWidget * parent = nullptr);
+  virtual ~GeometryPreviewView();
 
-    virtual ~GeometryPreviewView();
-
-  private:
-
+ private:
 };
 
 // main widget
@@ -69,39 +65,40 @@ class PreviewWebView : public QWidget
 {
   Q_OBJECT;
 
-  public:
-    PreviewWebView(bool isIP, const openstudio::model::Model& model, QWidget *t_parent = nullptr);
-    virtual ~PreviewWebView();
+ public:
+  PreviewWebView(bool isIP, const openstudio::model::Model& model, QWidget* t_parent = nullptr);
+  virtual ~PreviewWebView();
 
-  public slots:
-    void onUnitSystemChange(bool t_isIP);
+ public slots:
+  void onUnitSystemChange(bool t_isIP);
 
-  private slots:
-    void refreshClicked();
+ private slots:
+  void refreshClicked();
 
-    // DLM: for debugging
-    void 	onLoadFinished(bool ok);
-    //void 	onLoadProgress(int progress);
-    //void 	onLoadStarted();
-    void 	onTranslateProgress(double percentage);
-    void 	onJavaScriptFinished(const QVariant &v);
-    void 	onRenderProcessTerminated(QWebEnginePage::RenderProcessTerminationStatus terminationStatus, int exitCode);
-  private:
-    REGISTER_LOGGER("openstudio::PreviewWebView");
+  // DLM: for debugging
+  void onLoadFinished(bool ok);
+  //void 	onLoadProgress(int progress);
+  //void 	onLoadStarted();
+  void onTranslateProgress(double percentage);
+  void onJavaScriptFinished(const QVariant& v);
+  void onRenderProcessTerminated(QWebEnginePage::RenderProcessTerminationStatus terminationStatus, int exitCode);
 
-    bool m_isIP;
-    model::Model m_model;
+ private:
+  REGISTER_LOGGER("openstudio::PreviewWebView");
 
-    QProgressBar * m_progressBar;
-    QPushButton * m_refreshBtn;
+  bool m_isIP;
+  model::Model m_model;
 
-    QWebEngineView * m_view;
-    OSWebEnginePage * m_page;
-    std::shared_ptr<OSDocument> m_document;
+  QProgressBar* m_progressBar;
+  QPushButton* m_refreshBtn;
 
-    QString m_json;
+  QWebEngineView* m_view;
+  OSWebEnginePage* m_page;
+  std::shared_ptr<OSDocument> m_document;
+
+  QString m_json;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_GEOMETRYPREVIEWVIEW_HPP
+#endif  // OPENSTUDIO_GEOMETRYPREVIEWVIEW_HPP

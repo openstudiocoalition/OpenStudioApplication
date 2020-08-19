@@ -40,13 +40,12 @@ class SummaryTabController : public MainTabController
 {
   Q_OBJECT
 
-  public:
-
-  SummaryTabController(const model::Model & model);
+ public:
+  SummaryTabController(const model::Model& model);
 
   virtual ~SummaryTabController() {}
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_SUMMARYTABCONTROLLER_HPP
+#endif  // OPENSTUDIO_SUMMARYTABCONTROLLER_HPP

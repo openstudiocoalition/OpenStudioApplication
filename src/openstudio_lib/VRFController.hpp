@@ -51,42 +51,40 @@ class VRFController : public QObject
 {
   Q_OBJECT
 
-  public:
-
+ public:
   VRFController();
 
   virtual ~VRFController();
 
-  VRFView * vrfView() const;
+  VRFView* vrfView() const;
 
   QSharedPointer<VRFSystemListController> vrfSystemListController() const;
 
-  public slots:
+ public slots:
 
-  void zoomInOnSystem(model::AirConditionerVariableRefrigerantFlow & system);
+  void zoomInOnSystem(model::AirConditionerVariableRefrigerantFlow& system);
 
   void zoomOutToSystemGridView();
 
-  private slots:
+ private slots:
 
   void refresh();
 
   void refreshNow();
 
-  void inspectOSItem(const OSItemId & itemid);
+  void inspectOSItem(const OSItemId& itemid);
 
-  void onVRFSystemViewDrop(const OSItemId & itemid);
+  void onVRFSystemViewDrop(const OSItemId& itemid);
 
-  void onVRFSystemViewZoneDrop(const OSItemId & itemid);
+  void onVRFSystemViewZoneDrop(const OSItemId& itemid);
 
-  void onVRFTerminalViewDrop(const OSItemId & terminalId, const OSItemId & thermalZoneId);
+  void onVRFTerminalViewDrop(const OSItemId& terminalId, const OSItemId& thermalZoneId);
 
-  void onRemoveZoneClicked(const OSItemId & terminalId);
+  void onRemoveZoneClicked(const OSItemId& terminalId);
 
-  void onRemoveTerminalClicked(const OSItemId & terminalId);
+  void onRemoveTerminalClicked(const OSItemId& terminalId);
 
-  private:
-
+ private:
   QPointer<VRFView> m_vrfView;
 
   QPointer<GridLayoutItem> m_vrfSystemGridView;
@@ -108,11 +106,10 @@ class VRFSystemListController : public OSListController
 {
   Q_OBJECT
 
-  public:
+ public:
+  VRFSystemListController(VRFController* vrfController);
 
-  VRFSystemListController(VRFController * vrfController);
-
-  VRFController * vrfController() const;
+  VRFController* vrfController() const;
 
   QSharedPointer<OSListItem> itemAt(int i) override;
 
@@ -120,19 +117,18 @@ class VRFSystemListController : public OSListController
 
   void reset();
 
-  public slots:
+ public slots:
 
-  void addSystem(const OSItemId & itemid);
+  void addSystem(const OSItemId& itemid);
 
   void createNewSystem();
 
-  void removeSystem(model::AirConditionerVariableRefrigerantFlow & system);
+  void removeSystem(model::AirConditionerVariableRefrigerantFlow& system);
 
-  private:
-
+ private:
   std::vector<model::AirConditionerVariableRefrigerantFlow> systems() const;
 
-  int systemIndex(const model::AirConditionerVariableRefrigerantFlow & system) const;
+  int systemIndex(const model::AirConditionerVariableRefrigerantFlow& system) const;
 
   QPointer<VRFController> m_vrfController;
 };
@@ -142,20 +138,18 @@ class VRFSystemItemDelegate : public OSGraphicsItemDelegate
 {
   Q_OBJECT;
 
-  public:
-
+ public:
   virtual ~VRFSystemItemDelegate() {}
 
-  virtual QGraphicsObject * view(QSharedPointer<OSListItem> dataSource) override;
+  virtual QGraphicsObject* view(QSharedPointer<OSListItem> dataSource) override;
 };
 
 class VRFSystemListDropZoneItem : public OSListItem
 {
   Q_OBJECT
 
-  public:
-
-  VRFSystemListDropZoneItem(OSListController * listController = nullptr);
+ public:
+  VRFSystemListDropZoneItem(OSListController* listController = nullptr);
 
   ~VRFSystemListDropZoneItem() {}
 };
@@ -164,9 +158,8 @@ class VRFSystemListItem : public OSListItem
 {
   Q_OBJECT
 
-  public:
-
-  VRFSystemListItem(const model::AirConditionerVariableRefrigerantFlow & vrfSystem, OSListController * listController = nullptr);
+ public:
+  VRFSystemListItem(const model::AirConditionerVariableRefrigerantFlow& vrfSystem, OSListController* listController = nullptr);
 
   virtual ~VRFSystemListItem() {}
 
@@ -176,17 +169,16 @@ class VRFSystemListItem : public OSListItem
 
   int numberOfConnectedTerminals() const;
 
-  public slots:
+ public slots:
 
   void remove();
 
   void zoomInOnSystem();
 
-  private:
-
+ private:
   model::AirConditionerVariableRefrigerantFlow m_vrfSystem;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_VRFCONTROLLER_HPP
+#endif  // OPENSTUDIO_VRFCONTROLLER_HPP

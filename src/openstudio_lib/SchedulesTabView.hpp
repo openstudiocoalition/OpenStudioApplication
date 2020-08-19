@@ -38,14 +38,12 @@ class SchedulesTabView : public MainTabView
 {
   Q_OBJECT
 
-public:
-  SchedulesTabView( const model::Model & model,
-                    QWidget * parent = nullptr);
+ public:
+  SchedulesTabView(const model::Model& model, QWidget* parent = nullptr);
 
   virtual ~SchedulesTabView() {}
-
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_SCHEDULESTABVIEW_HPP
+#endif  // OPENSTUDIO_SCHEDULESTABVIEW_HPP

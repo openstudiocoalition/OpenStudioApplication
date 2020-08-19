@@ -45,14 +45,10 @@
 namespace openstudio {
 
 UtilityBillFuelTypeItem::UtilityBillFuelTypeItem(OSCollapsibleItemHeader* collapsibleItemHeader,
-                                         UtilityBillFuelTypeListView* utilityBillFuelTypeListView,
-                                         QWidget * parent )
-  : OSCollapsibleItem(collapsibleItemHeader, utilityBillFuelTypeListView, parent)
-{
-}
+                                                 UtilityBillFuelTypeListView* utilityBillFuelTypeListView, QWidget* parent)
+  : OSCollapsibleItem(collapsibleItemHeader, utilityBillFuelTypeListView, parent) {}
 
-IddObjectType UtilityBillFuelTypeItem::iddObjectType() const
-{
+IddObjectType UtilityBillFuelTypeItem::iddObjectType() const {
   OSItemList* itemList = this->itemList();
   UtilityBillFuelTypeListView* utilityBillFuelTypeListView = qobject_cast<UtilityBillFuelTypeListView*>(itemList);
   OS_ASSERT(utilityBillFuelTypeListView);
@@ -60,8 +56,7 @@ IddObjectType UtilityBillFuelTypeItem::iddObjectType() const
   return utilityBillFuelTypeListView->iddObjectType();
 }
 
-FuelType UtilityBillFuelTypeItem::fuelType() const
-{
+FuelType UtilityBillFuelTypeItem::fuelType() const {
   OSItemList* itemList = this->itemList();
   UtilityBillFuelTypeListView* utilityBillFuelTypeListView = qobject_cast<UtilityBillFuelTypeListView*>(itemList);
   OS_ASSERT(utilityBillFuelTypeListView);
@@ -69,4 +64,4 @@ FuelType UtilityBillFuelTypeItem::fuelType() const
   return fuelType;
 }
 
-} // openstudio
+}  // namespace openstudio

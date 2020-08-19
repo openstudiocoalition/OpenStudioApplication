@@ -45,25 +45,24 @@
 
 namespace openstudio {
 
-OSCollapsibleItemList::OSCollapsibleItemList(bool addScrollArea, QWidget * parent)
+OSCollapsibleItemList::OSCollapsibleItemList(bool addScrollArea, QWidget* parent)
   : OSItemSelector(parent),
-  m_vLayout(nullptr),
-  m_contentLayout(nullptr),
-  m_selectedCollapsibleItem(nullptr),
-  m_itemsDraggable(false),
-  m_itemsRemoveable(false),
-  m_showFilterLayout(false),
-  m_itemsType(OSItemType::ListItem)
-{
+    m_vLayout(nullptr),
+    m_contentLayout(nullptr),
+    m_selectedCollapsibleItem(nullptr),
+    m_itemsDraggable(false),
+    m_itemsRemoveable(false),
+    m_showFilterLayout(false),
+    m_itemsType(OSItemType::ListItem) {
   this->setObjectName("GrayWidget");
 
   auto outerVLayout = new QVBoxLayout();
-  outerVLayout->setContentsMargins(0,0,0,0);
+  outerVLayout->setContentsMargins(0, 0, 0, 0);
   this->setLayout(outerVLayout);
 
   auto outerWidget = new QWidget();
 
-  if (addScrollArea){
+  if (addScrollArea) {
     auto scrollArea = new QScrollArea();
     scrollArea->setFrameStyle(QFrame::NoFrame);
     scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
@@ -71,85 +70,74 @@ OSCollapsibleItemList::OSCollapsibleItemList(bool addScrollArea, QWidget * paren
     outerVLayout->addWidget(scrollArea);
     scrollArea->setWidget(outerWidget);
     scrollArea->setWidgetResizable(true);
-  }else{
+  } else {
     outerVLayout->addWidget(outerWidget);
   }
 
   m_vLayout = new QVBoxLayout();
   outerWidget->setLayout(m_vLayout);
-  m_vLayout->setContentsMargins(0,0,0,0);
+  m_vLayout->setContentsMargins(0, 0, 0, 0);
   m_vLayout->setSpacing(0);
   m_vLayout->addStretch(10);
 }
 
-OSCollapsibleItem* OSCollapsibleItemList::selectedCollapsibleItem() const
-{
+OSCollapsibleItem* OSCollapsibleItemList::selectedCollapsibleItem() const {
   return m_selectedCollapsibleItem;
 }
 
-OSItem* OSCollapsibleItemList::selectedItem() const
-{
+OSItem* OSCollapsibleItemList::selectedItem() const {
   OSItem* result = nullptr;
-  if (m_selectedCollapsibleItem){
+  if (m_selectedCollapsibleItem) {
     result = m_selectedCollapsibleItem->itemList()->selectedItem();
   }
   return result;
 }
 
-bool OSCollapsibleItemList::itemsDraggable() const
-{
+bool OSCollapsibleItemList::itemsDraggable() const {
   return m_itemsDraggable;
 }
 
-void OSCollapsibleItemList::setItemsDraggable(bool itemsDraggable)
-{
+void OSCollapsibleItemList::setItemsDraggable(bool itemsDraggable) {
   m_itemsDraggable = itemsDraggable;
-  for (OSCollapsibleItem* collapsibleItem : m_collapsibleItems){
+  for (OSCollapsibleItem* collapsibleItem : m_collapsibleItems) {
     collapsibleItem->setItemsDraggable(itemsDraggable);
   }
 }
 
-bool OSCollapsibleItemList::itemsRemoveable() const
-{
+bool OSCollapsibleItemList::itemsRemoveable() const {
   return m_itemsRemoveable;
 }
 
-void OSCollapsibleItemList::setItemsRemoveable(bool itemsRemoveable)
-{
+void OSCollapsibleItemList::setItemsRemoveable(bool itemsRemoveable) {
   m_itemsRemoveable = itemsRemoveable;
-  for (OSCollapsibleItem* collapsibleItem : m_collapsibleItems){
+  for (OSCollapsibleItem* collapsibleItem : m_collapsibleItems) {
     collapsibleItem->setItemsRemoveable(itemsRemoveable);
   }
 }
 
-OSItemType OSCollapsibleItemList::itemsType() const
-{
+OSItemType OSCollapsibleItemList::itemsType() const {
   return m_itemsType;
 }
 
-void OSCollapsibleItemList::setItemsType(OSItemType type)
-{
+void OSCollapsibleItemList::setItemsType(OSItemType type) {
   m_itemsType = type;
-  for (OSCollapsibleItem* collapsibleItem : m_collapsibleItems){
+  for (OSCollapsibleItem* collapsibleItem : m_collapsibleItems) {
     collapsibleItem->setItemsType(type);
   }
 }
 
-bool OSCollapsibleItemList::showFilterLayout() const
-{
+bool OSCollapsibleItemList::showFilterLayout() const {
   return m_showFilterLayout;
 }
 
-void OSCollapsibleItemList::setShowFilterLayout(const bool showFilterLayout)
-{
+void OSCollapsibleItemList::setShowFilterLayout(const bool showFilterLayout) {
   m_showFilterLayout = showFilterLayout;
-  for (OSCollapsibleItem* collapsibleItem : m_collapsibleItems){
+  for (OSCollapsibleItem* collapsibleItem : m_collapsibleItems) {
     collapsibleItem->setShowFilterLayout(showFilterLayout);
   }
 }
 
-void OSCollapsibleItemList::addCollapsibleItem(OSCollapsibleItem * collapsibleItem)
-{
+void OSCollapsibleItemList::addCollapsibleItem(OSCollapsibleItem* collapsibleItem) {
   OS_ASSERT(collapsibleItem);
 
   collapsibleItem->setItemsDraggable(m_itemsDraggable);
@@ -163,11 +151,11 @@ void OSCollapsibleItemList::addCollapsibleItem(OSCollapsibleItem * collapsibleIt
   m_vLayout->insertWidget(0, collapsibleItem);
 
   QString style;
-  style.append( "QWidget#OSCollapsibleItemList {" );
-  style.append( "background: #F2F2F2; ");
-  style.append( "border-bottom: 1px solid black; " );
-  style.append( "}" );
-  style.append( "QWidget#SideBar {background: #EEDEDE;}" );
+  style.append("QWidget#OSCollapsibleItemList {");
+  style.append("background: #F2F2F2; ");
+  style.append("border-bottom: 1px solid black; ");
+  style.append("}");
+  style.append("QWidget#SideBar {background: #EEDEDE;}");
 
   collapsibleItem->setStyleSheet(style);
 
@@ -185,29 +173,28 @@ void OSCollapsibleItemList::addCollapsibleItem(OSCollapsibleItem * collapsibleIt
 
   connect(collapsibleItem, &OSCollapsibleItem::openLibDlgClicked, this, &OSCollapsibleItemList::openLibDlgClicked);
 
-  if (!selectedItem()){
+  if (!selectedItem()) {
     collapsibleItem->itemList()->selectItem(collapsibleItem->itemList()->firstItem());
   }
 
   collapsibleItem->setSelected(true);
 }
 
-void OSCollapsibleItemList::onCollapsableItemSelected(OSCollapsibleItem* selectedItem)
-{
-  QLayoutItem * layoutItem = nullptr;
+void OSCollapsibleItemList::onCollapsableItemSelected(OSCollapsibleItem* selectedItem) {
+  QLayoutItem* layoutItem = nullptr;
   OSCollapsibleItem* collapsibleItem = nullptr;
   OSItem* newSelectedItem = nullptr;
 
-  for (int i = 0; i < m_vLayout->count(); ++i){
+  for (int i = 0; i < m_vLayout->count(); ++i) {
 
     layoutItem = m_vLayout->itemAt(i);
-    QWidget * widget = layoutItem->widget();
+    QWidget* widget = layoutItem->widget();
 
     collapsibleItem = qobject_cast<OSCollapsibleItem*>(widget);
-    if (collapsibleItem){
-      if (collapsibleItem == selectedItem){
+    if (collapsibleItem) {
+      if (collapsibleItem == selectedItem) {
 
-        if (m_selectedCollapsibleItem != collapsibleItem){
+        if (m_selectedCollapsibleItem != collapsibleItem) {
           // select new item
           m_selectedCollapsibleItem = collapsibleItem;
           m_selectedCollapsibleItem->setExpanded(true);
@@ -215,7 +202,7 @@ void OSCollapsibleItemList::onCollapsableItemSelected(OSCollapsibleItem* selecte
           m_selectedCollapsibleItem->itemList()->selectItem(newSelectedItem);
         }
 
-      }else{
+      } else {
         // deselect
         collapsibleItem->setSelected(false);
         collapsibleItem->setExpanded(false);
@@ -225,26 +212,25 @@ void OSCollapsibleItemList::onCollapsableItemSelected(OSCollapsibleItem* selecte
   }
 }
 
-void OSCollapsibleItemList::onItemSelected(OSItem* item)
-{
-  QLayoutItem * layoutItem = nullptr;
+void OSCollapsibleItemList::onItemSelected(OSItem* item) {
+  QLayoutItem* layoutItem = nullptr;
   OSCollapsibleItem* collapsibleItem = nullptr;
 
-  for (int i = 0; i < m_vLayout->count(); ++i){
+  for (int i = 0; i < m_vLayout->count(); ++i) {
 
     layoutItem = m_vLayout->itemAt(i);
-    QWidget * widget = layoutItem->widget();
+    QWidget* widget = layoutItem->widget();
 
     collapsibleItem = qobject_cast<OSCollapsibleItem*>(widget);
-    if (collapsibleItem){
+    if (collapsibleItem) {
       std::vector<OSItem*> items = collapsibleItem->itemList()->items();
-      if (std::find(items.begin(), items.end(), item) != items.end()){
+      if (std::find(items.begin(), items.end(), item) != items.end()) {
 
         // select item
         m_selectedCollapsibleItem = collapsibleItem;
         m_selectedCollapsibleItem->setSelected(true);
 
-      }else{
+      } else {
         // deselect
         collapsibleItem->setSelected(false);
         collapsibleItem->itemList()->clearSelection();
@@ -253,13 +239,11 @@ void OSCollapsibleItemList::onItemSelected(OSItem* item)
   }
 }
 
-void OSCollapsibleItemList::paintEvent(QPaintEvent * event)
-{
+void OSCollapsibleItemList::paintEvent(QPaintEvent* event) {
   QStyleOption opt;
   opt.init(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
 
-
-} // openstudio
+}  // namespace openstudio

@@ -38,13 +38,12 @@ class VariablesTabController : public MainTabController
 {
   Q_OBJECT
 
-  public:
-
-  VariablesTabController(const model::Model & model);
+ public:
+  VariablesTabController(const model::Model& model);
 
   virtual ~VariablesTabController() {}
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_VARIABLESTABCONTROLLER_HPP
+#endif  // OPENSTUDIO_VARIABLESTABCONTROLLER_HPP

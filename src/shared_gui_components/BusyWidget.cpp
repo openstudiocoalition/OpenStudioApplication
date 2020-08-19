@@ -45,9 +45,7 @@
 
 namespace openstudio {
 
-BusyWidget::BusyWidget(QWidget * parent)
-  : QWidget(parent)
-{
+BusyWidget::BusyWidget(QWidget* parent) : QWidget(parent) {
   //QPixmap pixmap = QPixmap(":/shared_gui_components/images/rotating_arrow.png").scaled(25,25);
   QPixmap pixmap = QPixmap(":/shared_gui_components/images/rotating_arrow.png");
 
@@ -55,35 +53,32 @@ BusyWidget::BusyWidget(QWidget * parent)
 
   m_rotation = 0.0;
 
-  setMinimumSize(m_pixmap->width(),m_pixmap->height());
+  setMinimumSize(m_pixmap->width(), m_pixmap->height());
 }
 
-void BusyWidget::rotate()
-{
+void BusyWidget::rotate() {
   m_rotation = m_rotation + 5.0;
 
   update();
 }
 
-void BusyWidget::paintEvent ( QPaintEvent * event )
-{
+void BusyWidget::paintEvent(QPaintEvent* event) {
   QPainter painter(this);
-  painter.setRenderHint(QPainter::SmoothPixmapTransform,true);
-  painter.setRenderHint(QPainter::Antialiasing,true);
+  painter.setRenderHint(QPainter::SmoothPixmapTransform, true);
+  painter.setRenderHint(QPainter::Antialiasing, true);
 
   int transX = m_pixmap->width() / 2;
   int transY = m_pixmap->height() / 2;
 
-  painter.translate(transX,transY);
+  painter.translate(transX, transY);
 
   painter.rotate(m_rotation);
 
-  painter.drawPixmap(-transX,-transY,*m_pixmap);
+  painter.drawPixmap(-transX, -transY, *m_pixmap);
 }
 
-const QSize BusyWidget::sizeHint()
-{
-  return QSize(m_pixmap->width(),m_pixmap->height());
+const QSize BusyWidget::sizeHint() {
+  return QSize(m_pixmap->width(), m_pixmap->height());
 }
 
-} // namespace openstudio
+}  // namespace openstudio

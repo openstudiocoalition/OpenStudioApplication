@@ -59,20 +59,15 @@
 namespace openstudio {
 
 MaterialsController::MaterialsController(bool isIP, const model::Model& model)
-  : ModelSubTabController(new MaterialsView(isIP, model, "Materials", false), model)
-{
-}
+  : ModelSubTabController(new MaterialsView(isIP, model, "Materials", false), model) {}
 
-MaterialsController::~MaterialsController()
-{
-}
+MaterialsController::~MaterialsController() {}
 
-void MaterialsController::onAddObject(const openstudio::IddObjectType& iddObjectType)
-{
+void MaterialsController::onAddObject(const openstudio::IddObjectType& iddObjectType) {
   model::Model model = this->model();
   boost::optional<model::Material> mat;
 
-  switch(iddObjectType.value()){
+  switch (iddObjectType.value()) {
     case IddObjectType::OS_Material:
       mat = openstudio::model::StandardOpaqueMaterial(model);
       break;
@@ -126,48 +121,40 @@ void MaterialsController::onAddObject(const openstudio::IddObjectType& iddObject
   }
 }
 
-void MaterialsController::onCopyObject(const openstudio::model::ModelObject& modelObject)
-{
+void MaterialsController::onCopyObject(const openstudio::model::ModelObject& modelObject) {
   modelObject.clone(this->model());
 }
 
-void MaterialsController::onRemoveObject(openstudio::model::ModelObject modelObject)
-{
+void MaterialsController::onRemoveObject(openstudio::model::ModelObject modelObject) {
   modelObject.remove();
 }
 
-void MaterialsController::onReplaceObject(openstudio::model::ModelObject modelObject, const OSItemId& replacementItemId)
-{
+void MaterialsController::onReplaceObject(openstudio::model::ModelObject modelObject, const OSItemId& replacementItemId) {
   // not yet implemented
 }
 
-void MaterialsController::onPurgeObjects(const openstudio::IddObjectType& iddObjectType)
-{
+void MaterialsController::onPurgeObjects(const openstudio::IddObjectType& iddObjectType) {
   this->model().purgeUnusedResourceObjects(iddObjectType);
 }
 
-void MaterialsController::onDrop(const OSItemId& itemId)
-{
+void MaterialsController::onDrop(const OSItemId& itemId) {
   boost::optional<model::ModelObject> modelObject = this->getModelObject(itemId);
-  if(modelObject){
-    if(modelObject->optionalCast<model::Material>()){
-      if (this->fromComponentLibrary(itemId)){
+  if (modelObject) {
+    if (modelObject->optionalCast<model::Material>()) {
+      if (this->fromComponentLibrary(itemId)) {
         modelObject = modelObject->clone(this->model());
       }
     }
-  }
-  else{
+  } else {
     boost::optional<model::Component> component = this->getComponent(itemId);
-    if (component){
-      if (component->primaryObject().optionalCast<model::ModelObject>()){
+    if (component) {
+      if (component->primaryObject().optionalCast<model::ModelObject>()) {
         this->model().insertComponent(*component);
       }
     }
   }
 }
 
-void MaterialsController::onInspectItem(OSItem* item)
-{
-}
+void MaterialsController::onInspectItem(OSItem* item) {}
 
-} // openstudio
+}  // namespace openstudio

@@ -58,27 +58,24 @@
 
 namespace openstudio {
 
-BuildingComponentDialog::BuildingComponentDialog(std::string& filterType, bool isBclDlg, QWidget * parent)
-: QDialog(parent, Qt::WindowMinMaxButtonsHint | Qt::WindowCloseButtonHint),
-  m_filterType(filterType),
-  m_dlgTitle(QString()),
-  m_tidTreeView(nullptr),
-  m_centralWidget(nullptr),
-  m_rightScrollArea(nullptr),
-  m_expandedComponent(nullptr),
-  m_lineEdit(nullptr),
-  m_stackedWidget(nullptr),
-  m_timer(nullptr)
-{
+BuildingComponentDialog::BuildingComponentDialog(std::string& filterType, bool isBclDlg, QWidget* parent)
+  : QDialog(parent, Qt::WindowMinMaxButtonsHint | Qt::WindowCloseButtonHint),
+    m_filterType(filterType),
+    m_dlgTitle(QString()),
+    m_tidTreeView(nullptr),
+    m_centralWidget(nullptr),
+    m_rightScrollArea(nullptr),
+    m_expandedComponent(nullptr),
+    m_lineEdit(nullptr),
+    m_stackedWidget(nullptr),
+    m_timer(nullptr) {
   createLayout(isBclDlg);
 }
 
-void BuildingComponentDialog::createLayout(bool isBclDlg)
-{
-  if(isBclDlg){
+void BuildingComponentDialog::createLayout(bool isBclDlg) {
+  if (isBclDlg) {
     m_dlgTitle = "Online BCL";
-  }
-  else{
+  } else {
     m_dlgTitle = "Local Library";
   }
   setWindowTitle(m_dlgTitle);
@@ -101,8 +98,9 @@ void BuildingComponentDialog::createLayout(bool isBclDlg)
 
   auto searchButton = new QPushButton();
   searchButton->setToolTip("Click to add a search term to the selected category");
-  searchButton->setStyleSheet("QPushButton { border: none; background-image: url(\":/shared_gui_components/images/searchbox_magnifyingglass.png\"); }");
-  searchButton->setFixedSize(24,24);
+  searchButton->setStyleSheet(
+    "QPushButton { border: none; background-image: url(\":/shared_gui_components/images/searchbox_magnifyingglass.png\"); }");
+  searchButton->setFixedSize(24, 24);
 
   connect(searchButton, &QPushButton::clicked, this, &BuildingComponentDialog::on_searchButton);
 
@@ -111,7 +109,7 @@ void BuildingComponentDialog::createLayout(bool isBclDlg)
   searchlayout->addWidget(m_lineEdit);
   leftPanelayout->addLayout(searchlayout);
 
-  QLabel * categoryLabel = new QLabel("Categories");
+  QLabel* categoryLabel = new QLabel("Categories");
   categoryLabel->setObjectName("H1");
   leftPanelayout->addWidget(categoryLabel);
 
@@ -119,17 +117,13 @@ void BuildingComponentDialog::createLayout(bool isBclDlg)
 
   QString docString;
   QFile file;
-  if (m_filterType == "components")
-  {
+  if (m_filterType == "components") {
     file.setFileName(":/library/tid_api.xml");
-  }
-  else if (m_filterType == "measures")
-  {
+  } else if (m_filterType == "measures") {
     file.setFileName(":/shared_gui_components/taxonomy.xml");
   }
 
-  if(file.open(QFile::ReadOnly))
-  {
+  if (file.open(QFile::ReadOnly)) {
     QTextStream docIn(&file);
     docString = docIn.readAll();
     file.close();
@@ -137,7 +131,7 @@ void BuildingComponentDialog::createLayout(bool isBclDlg)
 
   doc.setContent(docString);
 
-  auto model = new TIDItemModel(doc,this);
+  auto model = new TIDItemModel(doc, this);
 
   m_tidTreeView = new QTreeView();
 
@@ -145,13 +139,13 @@ void BuildingComponentDialog::createLayout(bool isBclDlg)
 
   m_tidTreeView->setModel(model);
 
-  m_tidTreeView->setColumnHidden(1,true);
+  m_tidTreeView->setColumnHidden(1, true);
 
   m_tidTreeView->setRootIsDecorated(true);
 
   connect(m_tidTreeView, &QTreeView::clicked, this, &BuildingComponentDialog::on_tidClicked);
 
-  leftPanelayout->addWidget(m_tidTreeView,10);
+  leftPanelayout->addWidget(m_tidTreeView, 10);
 
   leftPanelayout->addStretch();
 
@@ -167,9 +161,11 @@ void BuildingComponentDialog::createLayout(bool isBclDlg)
 
   connect(m_centralWidget, &BuildingComponentDialogCentralWidget::componentClicked, this, &BuildingComponentDialog::on_componentClicked);
 
-  connect(m_centralWidget, &BuildingComponentDialogCentralWidget::collapsibleComponentClicked, this, &BuildingComponentDialog::collapsibleComponentClicked);
+  connect(m_centralWidget, &BuildingComponentDialogCentralWidget::collapsibleComponentClicked, this,
+          &BuildingComponentDialog::collapsibleComponentClicked);
 
-  connect(m_centralWidget, &BuildingComponentDialogCentralWidget::collapsibleComponentClicked, this, &BuildingComponentDialog::on_collapsibleComponentClicked);
+  connect(m_centralWidget, &BuildingComponentDialogCentralWidget::collapsibleComponentClicked, this,
+          &BuildingComponentDialog::on_collapsibleComponentClicked);
 
   connect(m_centralWidget, &BuildingComponentDialogCentralWidget::getComponentsByPage, this, &BuildingComponentDialog::getComponentsByPage);
 
@@ -200,15 +196,15 @@ void BuildingComponentDialog::createLayout(bool isBclDlg)
   splitter->addWidget(centralScrollArea);
   splitter->addWidget(m_rightScrollArea);
 
-  QLabel * busyLabel = new QLabel("Searching BCL...");
+  QLabel* busyLabel = new QLabel("Searching BCL...");
   busyLabel->setObjectName("H1");
 
   auto busyIcon = new BusyWidget();
 
   auto busyLayout = new QVBoxLayout();
   busyLayout->addStretch();
-  busyLayout->addWidget(busyLabel,0,Qt::AlignCenter);
-  busyLayout->addWidget(busyIcon,0,Qt::AlignCenter);
+  busyLayout->addWidget(busyLabel, 0, Qt::AlignCenter);
+  busyLayout->addWidget(busyIcon, 0, Qt::AlignCenter);
   busyLayout->addStretch();
 
   m_timer = new QTimer(this);
@@ -217,8 +213,8 @@ void BuildingComponentDialog::createLayout(bool isBclDlg)
   busy->setLayout(busyLayout);
 
   m_stackedWidget = new QStackedWidget();
-  m_stackedWidget->insertWidget(0,busy);
-  m_stackedWidget->insertWidget(1,splitter);
+  m_stackedWidget->insertWidget(0, busy);
+  m_stackedWidget->insertWidget(1, splitter);
 
   auto mainLayout = new QHBoxLayout();
   mainLayout->addWidget(m_stackedWidget);
@@ -231,23 +227,20 @@ void BuildingComponentDialog::createLayout(bool isBclDlg)
   on_tidClicked(index);
 }
 
-void BuildingComponentDialog::paintEvent ( QPaintEvent * event )
-{
+void BuildingComponentDialog::paintEvent(QPaintEvent* event) {
   QStyleOption opt;
   opt.init(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
 
-int BuildingComponentDialog::currentTIDSelection()
-{
+int BuildingComponentDialog::currentTIDSelection() {
   QModelIndex index = m_tidTreeView->currentIndex();
 
-  if( index.isValid() )
-  {
-    QAbstractItemModel * model = m_tidTreeView->model();
+  if (index.isValid()) {
+    QAbstractItemModel* model = m_tidTreeView->model();
 
-    QVariant variant = model->data(index.sibling(index.row(),1));
+    QVariant variant = model->data(index.sibling(index.row(), 1));
 
     return variant.toInt();
   }
@@ -255,13 +248,11 @@ int BuildingComponentDialog::currentTIDSelection()
   return 0;
 }
 
-int BuildingComponentDialog::rootTID()
-{
+int BuildingComponentDialog::rootTID() {
   QModelIndex rootIndex = m_tidTreeView->rootIndex();
 
-  if( rootIndex.isValid() )
-  {
-    QVariant variant = m_tidTreeView->model()->data(rootIndex.sibling(rootIndex.row(),1));
+  if (rootIndex.isValid()) {
+    QVariant variant = m_tidTreeView->model()->data(rootIndex.sibling(rootIndex.row(), 1));
 
     return variant.toInt();
   }
@@ -269,20 +260,17 @@ int BuildingComponentDialog::rootTID()
   return 0;
 }
 
-void BuildingComponentDialog::setRootTID(int tid)
-{
-  QModelIndex index = static_cast<TIDItemModel *>(m_tidTreeView->model())->indexForTID(tid);
+void BuildingComponentDialog::setRootTID(int tid) {
+  QModelIndex index = static_cast<TIDItemModel*>(m_tidTreeView->model())->indexForTID(tid);
 
   m_tidTreeView->setRootIndex(index);
 }
 
-void BuildingComponentDialog::requestComponents(const std::string& filterType, int tids, int pageIdx, const QString & searchString)
-{
+void BuildingComponentDialog::requestComponents(const std::string& filterType, int tids, int pageIdx, const QString& searchString) {
   m_timer->start(50);
   m_stackedWidget->setCurrentIndex(0);
   QModelIndex index = m_tidTreeView->currentIndex();
-  while (index.parent().isValid())
-  {
+  while (index.parent().isValid()) {
     index = index.parent();
   }
   QString parentTaxonomy = m_tidTreeView->model()->data(index).toString();
@@ -290,45 +278,38 @@ void BuildingComponentDialog::requestComponents(const std::string& filterType, i
   m_centralWidget->setTid(filterType, tids, pageIdx, parentTaxonomy, searchString);
 }
 
-bool BuildingComponentDialog::showNewComponents()
-{
+bool BuildingComponentDialog::showNewComponents() {
   return m_centralWidget->showNewComponents();
 }
 
-void BuildingComponentDialog::setShowNewComponents(bool showNewComponents)
-{
+void BuildingComponentDialog::setShowNewComponents(bool showNewComponents) {
   m_centralWidget->setShowNewComponents(showNewComponents);
 }
 
 ///! Slots
 
-void BuildingComponentDialog::on_searchButton()
-{
+void BuildingComponentDialog::on_searchButton() {
   QModelIndex index = m_tidTreeView->currentIndex();
-  if(!index.isValid()) return;
+  if (!index.isValid()) return;
 
-  QVariant variant = m_tidTreeView->model()->data(index.sibling(index.row(),1));
+  QVariant variant = m_tidTreeView->model()->data(index.sibling(index.row(), 1));
 
   requestComponents(m_filterType, variant.toInt(), m_centralWidget->pageIdx(), m_lineEdit->text());
 }
 
-void BuildingComponentDialog::on_tidClicked(const QModelIndex & index)
-{
+void BuildingComponentDialog::on_tidClicked(const QModelIndex& index) {
   // clear the line edit when initiating search from the tree
   m_lineEdit->setText("");
 
-  QVariant variant = m_tidTreeView->model()->data(index.sibling(index.row(),1));
+  QVariant variant = m_tidTreeView->model()->data(index.sibling(index.row(), 1));
 
   requestComponents(m_filterType, variant.toInt(), m_centralWidget->pageIdx(), QString());
 }
 
-void BuildingComponentDialog::on_headerClicked(bool checked)
-{
-}
+void BuildingComponentDialog::on_headerClicked(bool checked) {}
 
-void BuildingComponentDialog::on_componentClicked(bool checked)
-{
-  if(m_expandedComponent){
+void BuildingComponentDialog::on_componentClicked(bool checked) {
+  if (m_expandedComponent) {
     delete m_expandedComponent;
     m_expandedComponent = nullptr;
   }
@@ -337,33 +318,26 @@ void BuildingComponentDialog::on_componentClicked(bool checked)
   m_rightScrollArea->setWidget(m_expandedComponent);
 }
 
-void BuildingComponentDialog::on_collapsibleComponentClicked(bool checked)
-{
-}
+void BuildingComponentDialog::on_collapsibleComponentClicked(bool checked) {}
 
-void BuildingComponentDialog::on_getComponentsByPage(int pageIdx)
-{
-}
+void BuildingComponentDialog::on_getComponentsByPage(int pageIdx) {}
 
-void BuildingComponentDialog::on_componentsReady()
-{
+void BuildingComponentDialog::on_componentsReady() {
   m_stackedWidget->setCurrentIndex(1);
   m_timer->stop();
 }
 
-void BuildingComponentDialog::on_requestComponents(const std::string& filterType, int tids, int pageIdx, const QString & searchString)
-{
-  if(m_lineEdit->text() != searchString){
+void BuildingComponentDialog::on_requestComponents(const std::string& filterType, int tids, int pageIdx, const QString& searchString) {
+  if (m_lineEdit->text() != searchString) {
     m_lineEdit->setText(searchString);
   }
   requestComponents(filterType, tids, pageIdx, searchString);
 }
 
-void BuildingComponentDialog::on_noComponents()
-{
+void BuildingComponentDialog::on_noComponents() {
   m_expandedComponent = new Component();
   m_expandedComponent->setCheckable(false);
   m_rightScrollArea->setWidget(m_expandedComponent);
 }
 
-} // namespace openstudio
+}  // namespace openstudio

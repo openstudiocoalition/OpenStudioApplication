@@ -42,10 +42,10 @@
 namespace openstudio {
 
 namespace model {
-  class ThermalZone;
+class ThermalZone;
 
-  class ZoneHVACComponent;
-}
+class ZoneHVACComponent;
+}  // namespace model
 
 class ThermalZonesView;
 
@@ -53,19 +53,17 @@ class ThermalZonesController : public ModelSubTabController
 {
   Q_OBJECT
 
-public:
-
-  ThermalZonesController(bool isIP, const model::Model & model);
+ public:
+  ThermalZonesController(bool isIP, const model::Model& model);
 
   virtual ~ThermalZonesController() {}
 
-signals:
+ signals:
 
   void toggleUnitsClicked(bool);
 
-protected:
-
-  virtual void onSelectItem(OSItem *item) override;
+ protected:
+  virtual void onSelectItem(OSItem* item) override;
 
   virtual void onAddObject(const openstudio::IddObjectType& iddObjectType) override;
 
@@ -83,26 +81,25 @@ protected:
 
   virtual void onInspectItem(OSItem* item) override;
 
-public slots:
+ public slots:
 
-  void setHeatingSchedule(model::ThermalZone &, model::OptionalSchedule &);
+  void setHeatingSchedule(model::ThermalZone&, model::OptionalSchedule&);
 
-  void setCoolingSchedule(model::ThermalZone &, model::OptionalSchedule &);
+  void setCoolingSchedule(model::ThermalZone&, model::OptionalSchedule&);
 
-  void setHumidifyingSchedule(model::ThermalZone &, model::OptionalSchedule &);
+  void setHumidifyingSchedule(model::ThermalZone&, model::OptionalSchedule&);
 
-  void setDehumidifyingSchedule(model::ThermalZone &, model::OptionalSchedule &);
+  void setDehumidifyingSchedule(model::ThermalZone&, model::OptionalSchedule&);
 
-  void addComponentToZone(model::ThermalZone &, Handle &);
+  void addComponentToZone(model::ThermalZone&, Handle&);
 
-  void removeZoneHVACComponent( model::ZoneHVACComponent & );
+  void removeZoneHVACComponent(model::ZoneHVACComponent&);
 
-private slots:
+ private slots:
 
-  void onZoneHVACComponentClicked( model::ZoneHVACComponent & );
-
+  void onZoneHVACComponentClicked(model::ZoneHVACComponent&);
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_THERMALZONESCONTROLLER_HPP
+#endif  // OPENSTUDIO_THERMALZONESCONTROLLER_HPP

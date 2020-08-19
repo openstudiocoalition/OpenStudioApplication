@@ -46,9 +46,7 @@
 
 namespace openstudio {
 
-ScriptsTabView::ScriptsTabView(QWidget * parent)
-  : MainTabView("Measures", MainTabView::MAIN_TAB, parent)
-{
+ScriptsTabView::ScriptsTabView(QWidget* parent) : MainTabView("Measures", MainTabView::MAIN_TAB, parent) {
   //setTitle("Organize and Edit Measures for Project");
 
   // Main Content
@@ -56,7 +54,7 @@ ScriptsTabView::ScriptsTabView(QWidget * parent)
   mainContent = new QWidget();
 
   auto mainContentVLayout = new QVBoxLayout();
-  mainContentVLayout->setContentsMargins(0,0,0,0);
+  mainContentVLayout->setContentsMargins(0, 0, 0, 0);
   mainContentVLayout->setSpacing(0);
   mainContentVLayout->setAlignment(Qt::AlignTop);
   mainContent->setLayout(mainContentVLayout);
@@ -64,7 +62,7 @@ ScriptsTabView::ScriptsTabView(QWidget * parent)
   addTabWidget(mainContent);
 
   workflowView = new OSListView(true);
-  workflowView->setContentsMargins(0,0,0,0);
+  workflowView->setContentsMargins(0, 0, 0, 0);
   workflowView->setSpacing(0);
   mainContentVLayout->addWidget(workflowView);
 
@@ -92,8 +90,7 @@ ScriptsTabView::ScriptsTabView(QWidget * parent)
   connect(m_updateMeasuresButton, &QPushButton::clicked, this, &ScriptsTabView::openUpdateMeasuresDlg);
 }
 
-void ScriptsTabView::showEvent(QShowEvent *e)
-{
+void ScriptsTabView::showEvent(QShowEvent* e) {
   MainTabView::showEvent(e);
 
   workflowView->refreshAllViews();
@@ -101,18 +98,17 @@ void ScriptsTabView::showEvent(QShowEvent *e)
 
 //*****SLOTS*****
 
-void ScriptsTabView::openUpdateMeasuresDlg()
-{
+void ScriptsTabView::openUpdateMeasuresDlg() {
   m_updateMeasuresButton->setEnabled(false);
 
-  openstudio::OSAppBase * app = OSAppBase::instance();
+  openstudio::OSAppBase* app = OSAppBase::instance();
 
   // Disable all Vertical Tab Buttons (so you can't click on another tab while it's doing its thing)
   app->currentDocument()->disable();
 
   WorkflowJSON workflow = app->currentDocument()->model().workflowJSON();
 
-  m_syncMeasuresDialog = boost::shared_ptr<SyncMeasuresDialog>(new SyncMeasuresDialog(workflow,&(app->measureManager())));
+  m_syncMeasuresDialog = boost::shared_ptr<SyncMeasuresDialog>(new SyncMeasuresDialog(workflow, &(app->measureManager())));
   m_syncMeasuresDialog->setGeometry(app->currentDocument()->mainWindow()->geometry());
   m_syncMeasuresDialog->exec();
 
@@ -123,7 +119,6 @@ void ScriptsTabView::openUpdateMeasuresDlg()
 
   // Re-enable the ability to switch tabs
   app->currentDocument()->enable();
-
 }
 
-} // openstudio
+}  // namespace openstudio

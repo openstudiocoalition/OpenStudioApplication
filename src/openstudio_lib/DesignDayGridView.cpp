@@ -92,20 +92,18 @@
 
 namespace openstudio {
 
-struct ModelObjectNameSorter{
+struct ModelObjectNameSorter
+{
   // sort by name
-  bool operator()(const model::ModelObject & lhs, const model::ModelObject & rhs){
+  bool operator()(const model::ModelObject& lhs, const model::ModelObject& rhs) {
     return (lhs.name() < rhs.name());
   }
 };
 
-DesignDayGridView::DesignDayGridView(bool isIP, const model::Model & model, QWidget * parent)
-  : QWidget(parent),
-  m_isIP(isIP)
-{
+DesignDayGridView::DesignDayGridView(bool isIP, const model::Model& model, QWidget* parent) : QWidget(parent), m_isIP(isIP) {
   auto layout = new QVBoxLayout();
   layout->setSpacing(0);
-  layout->setContentsMargins(0,0,0,0);
+  layout->setContentsMargins(0, 0, 0, 0);
   setLayout(layout);
 
   auto designDays = model.getConcreteModelObjects<model::DesignDay>();
@@ -138,94 +136,74 @@ DesignDayGridView::DesignDayGridView(bool isIP, const model::Model & model, QWid
   isConnected = connect(this, SIGNAL(toggleUnitsClicked(bool)), m_gridController, SLOT(toggleUnits(bool)));
   OS_ASSERT(isConnected);
 
-  auto designDayVector = model.getConcreteModelObjects<model::DesignDay>(); // NOTE for horizontal system lists
-
+  auto designDayVector = model.getConcreteModelObjects<model::DesignDay>();  // NOTE for horizontal system lists
 }
 
-void DesignDayGridView::onAddClicked()
-{
+void DesignDayGridView::onAddClicked() {
   // Always make at least one
   if (!m_gridController->selectedObjects().size()) {
     model::DesignDay(m_gridController->model());
-  }
-  else {
-    for (auto &obj : m_gridController->selectedObjects())
-    {
+  } else {
+    for (auto& obj : m_gridController->selectedObjects()) {
       addObject(obj);
     }
   }
-
 }
 
-void DesignDayGridView::onCopyClicked()
-{
-  for (auto &obj : m_gridController->selectedObjects())
-  {
-    if (!obj.handle().isNull()){
+void DesignDayGridView::onCopyClicked() {
+  for (auto& obj : m_gridController->selectedObjects()) {
+    if (!obj.handle().isNull()) {
       copyObject(obj);
     }
   }
 }
 
-void DesignDayGridView::onRemoveClicked()
-{
-  for (auto &obj : m_gridController->selectedObjects())
-  {
+void DesignDayGridView::onRemoveClicked() {
+  for (auto& obj : m_gridController->selectedObjects()) {
     removeObject(obj);
   }
 }
 
-void DesignDayGridView::onPurgeClicked()
-{
+void DesignDayGridView::onPurgeClicked() {
   purgeObjects(IddObjectType::OS_SizingPeriod_DesignDay);
 }
 
-void DesignDayGridView::addObject(const model::ModelObject& modelObject)
-{
+void DesignDayGridView::addObject(const model::ModelObject& modelObject) {
   model::DesignDay(m_gridController->model());
 }
 
-void DesignDayGridView::copyObject(const openstudio::model::ModelObject& modelObject)
-{
+void DesignDayGridView::copyObject(const openstudio::model::ModelObject& modelObject) {
   modelObject.clone(m_gridController->model());
 }
 
-void DesignDayGridView::removeObject(openstudio::model::ModelObject modelObject)
-{
+void DesignDayGridView::removeObject(openstudio::model::ModelObject modelObject) {
   modelObject.remove();
 }
 
-void DesignDayGridView::purgeObjects(const IddObjectType& iddObjectType)
-{
-  for (auto mo : m_gridController->model().getConcreteModelObjects<model::DesignDay>()){
+void DesignDayGridView::purgeObjects(const IddObjectType& iddObjectType) {
+  for (auto mo : m_gridController->model().getConcreteModelObjects<model::DesignDay>()) {
     mo.remove();
   }
 }
 
-std::vector<model::ModelObject> DesignDayGridView::selectedObjects() const
-{
+std::vector<model::ModelObject> DesignDayGridView::selectedObjects() const {
   return m_gridController->selectedObjects();
 }
 
-DesignDayGridController::DesignDayGridController(bool isIP,
-  const QString & headerText,
-  IddObjectType iddObjectType,
-  model::Model model,
-  std::vector<model::ModelObject> modelObjects) :
-  OSGridController(isIP, headerText, iddObjectType, model, modelObjects)
-{
+DesignDayGridController::DesignDayGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model model,
+                                                 std::vector<model::ModelObject> modelObjects)
+  : OSGridController(isIP, headerText, iddObjectType, model, modelObjects) {
   setCategoriesAndFields();
 }
 
-void DesignDayGridController::setCategoriesAndFields()
-{
+void DesignDayGridController::setCategoriesAndFields() {
   {
     std::vector<QString> fields;
     fields.push_back(DAYOFMONTH);
     fields.push_back(MONTH);
     fields.push_back(DAYTYPE);
     fields.push_back(DAYLIGHTSAVINGTIMEINDICATOR);
-    std::pair<QString,std::vector<QString> > categoryAndFields = std::make_pair(QString("Date"),fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Date"), fields);
     m_categoriesAndFields.push_back(categoryAndFields);
   }
 
@@ -236,7 +214,7 @@ void DesignDayGridController::setCategoriesAndFields()
     fields.push_back(DAILYWETBULBTEMPERATURERANGE);
     fields.push_back(DRYBULBTEMPERATURERANGEMODIFIERTYPE);
     fields.push_back(DRYBULBTEMPERATURERANGEMODIFIERSCHEDULE);
-    std::pair<QString, std::vector<QString> > categoryAndFields = std::make_pair(QString("Temperature"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Temperature"), fields);
     m_categoriesAndFields.push_back(categoryAndFields);
   }
 
@@ -245,7 +223,7 @@ void DesignDayGridController::setCategoriesAndFields()
     fields.push_back(HUMIDITYINDICATINGCONDITIONSATMAXIMUMDRYBULB);
     fields.push_back(HUMIDITYINDICATINGTYPE);
     fields.push_back(HUMIDITYINDICATINGDAYSCHEDULE);
-    std::pair<QString, std::vector<QString> > categoryAndFields = std::make_pair(QString("Humidity"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Humidity"), fields);
     m_categoriesAndFields.push_back(categoryAndFields);
   }
 
@@ -256,7 +234,7 @@ void DesignDayGridController::setCategoriesAndFields()
     fields.push_back(WINDDIRECTION);
     fields.push_back(RAININDICATOR);
     fields.push_back(SNOWINDICATOR);
-    std::pair<QString, std::vector<QString> > categoryAndFields = std::make_pair(QString("Pressure\nWind\nPrecipitation"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Pressure\nWind\nPrecipitation"), fields);
     m_categoriesAndFields.push_back(categoryAndFields);
   }
 
@@ -268,18 +246,16 @@ void DesignDayGridController::setCategoriesAndFields()
     fields.push_back(ASHRAETAUB);
     fields.push_back(ASHRAETAUD);
     fields.push_back(SKYCLEARNESS);
-    std::pair<QString, std::vector<QString> > categoryAndFields = std::make_pair(QString("Solar"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Solar"), fields);
     m_categoriesAndFields.push_back(categoryAndFields);
   }
 
   OSGridController::setCategoriesAndFields();
-
 }
 
-void DesignDayGridController::addColumns(const QString &/*category*/, std::vector<QString> & fields)
-{
+void DesignDayGridController::addColumns(const QString& /*category*/, std::vector<QString>& fields) {
   // always show name column
-  fields.insert(fields.begin(), { NAME, SELECTED });
+  fields.insert(fields.begin(), {NAME, SELECTED});
 
   m_baseConcepts.clear();
 
@@ -287,306 +263,219 @@ void DesignDayGridController::addColumns(const QString &/*category*/, std::vecto
     // Evan note: addCheckBoxColumn does not yet handle reset and default
     if (field == DAYLIGHTSAVINGTIMEINDICATOR) {
       // We add the "Apply Selected" button to this column by passing 3rd arg, t_showColumnButton=true
-      addCheckBoxColumn(Heading(QString(DAYLIGHTSAVINGTIMEINDICATOR), true, true),
-        std::string("Check to enable daylight saving time indicator."),
-        NullAdapter(&model::DesignDay::daylightSavingTimeIndicator),
-        NullAdapter(&model::DesignDay::setDaylightSavingTimeIndicator)
-        );
-    }
-    else if (field == RAININDICATOR) {
+      addCheckBoxColumn(Heading(QString(DAYLIGHTSAVINGTIMEINDICATOR), true, true), std::string("Check to enable daylight saving time indicator."),
+                        NullAdapter(&model::DesignDay::daylightSavingTimeIndicator), NullAdapter(&model::DesignDay::setDaylightSavingTimeIndicator));
+    } else if (field == RAININDICATOR) {
       // We add the "Apply Selected" button to this column by passing 3rd arg, t_showColumnButton=true
-      addCheckBoxColumn(Heading(QString(RAININDICATOR), true, true),
-        std::string("Check to enable rain indicator."),
-        NullAdapter(&model::DesignDay::rainIndicator),
-        NullAdapter(&model::DesignDay::setRainIndicator)
-        );
-    }
-    else if (field == SNOWINDICATOR) {
+      addCheckBoxColumn(Heading(QString(RAININDICATOR), true, true), std::string("Check to enable rain indicator."),
+                        NullAdapter(&model::DesignDay::rainIndicator), NullAdapter(&model::DesignDay::setRainIndicator));
+    } else if (field == SNOWINDICATOR) {
       // We add the "Apply Selected" button to this column by passing 3rd arg, t_showColumnButton=true
-      addCheckBoxColumn(Heading(QString(SNOWINDICATOR), true, true),
-        std::string("Check to enable snow indicator."),
-        NullAdapter(&model::DesignDay::snowIndicator),
-        NullAdapter(&model::DesignDay::setSnowIndicator)
-        );
-    }
-    else if (field == SELECTED){
+      addCheckBoxColumn(Heading(QString(SNOWINDICATOR), true, true), std::string("Check to enable snow indicator."),
+                        NullAdapter(&model::DesignDay::snowIndicator), NullAdapter(&model::DesignDay::setSnowIndicator));
+    } else if (field == SELECTED) {
       auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
       checkbox->setToolTip("Check to select all rows");
       connect(checkbox.data(), &QCheckBox::stateChanged, this, &DesignDayGridController::selectAllStateChanged);
       connect(checkbox.data(), &QCheckBox::stateChanged, this->gridView(), &OSGridView::gridRowSelectionChanged);
 
-      addSelectColumn(Heading(QString(SELECTED), false, false, checkbox),
-        "Check to select this row"
-        );
+      addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row");
     }
     // INTEGER
     else if (field == DAYOFMONTH) {
-      addValueEditColumn(Heading(QString(DAYOFMONTH)),
-        NullAdapter(&model::DesignDay::dayOfMonth),
-        NullAdapter(&model::DesignDay::setDayOfMonth),
+      addValueEditColumn(
+        Heading(QString(DAYOFMONTH)), NullAdapter(&model::DesignDay::dayOfMonth), NullAdapter(&model::DesignDay::setDayOfMonth),
         boost::optional<std::function<void(model::DesignDay*)>>(CastNullAdapter<model::DesignDay>(&model::DesignDay::resetDayOfMonth)),
         boost::optional<std::function<bool(model::DesignDay*)>>(CastNullAdapter<model::DesignDay>(&model::DesignDay::isDayOfMonthDefaulted)),
-        boost::optional<DataSource>()
-        );
-    }
-    else if (field == MONTH) {
-      addValueEditColumn(Heading(QString(MONTH)),
-        NullAdapter(&model::DesignDay::month),
-        NullAdapter(&model::DesignDay::setMonth),
+        boost::optional<DataSource>());
+    } else if (field == MONTH) {
+      addValueEditColumn(
+        Heading(QString(MONTH)), NullAdapter(&model::DesignDay::month), NullAdapter(&model::DesignDay::setMonth),
         boost::optional<std::function<void(model::DesignDay*)>>(CastNullAdapter<model::DesignDay>(&model::DesignDay::resetMonth)),
         boost::optional<std::function<bool(model::DesignDay*)>>(CastNullAdapter<model::DesignDay>(&model::DesignDay::isMonthDefaulted)),
-        boost::optional<DataSource>()
-        );
+        boost::optional<DataSource>());
     }
     // DOUBLE
     else if (field == SKYCLEARNESS) {
-      addValueEditColumn(Heading(QString(SKYCLEARNESS)),
-        NullAdapter(&model::DesignDay::skyClearness),
-        NullAdapter(&model::DesignDay::setSkyClearness),
+      addValueEditColumn(
+        Heading(QString(SKYCLEARNESS)), NullAdapter(&model::DesignDay::skyClearness), NullAdapter(&model::DesignDay::setSkyClearness),
         boost::optional<std::function<void(model::DesignDay*)>>(CastNullAdapter<model::DesignDay>(&model::DesignDay::resetSkyClearness)),
         boost::optional<std::function<bool(model::DesignDay*)>>(CastNullAdapter<model::DesignDay>(&model::DesignDay::isSkyClearnessDefaulted)),
-        boost::optional<DataSource>()
-        );
-    }
-    else if (field == ASHRAETAUB) {
-      addValueEditColumn(Heading(QString(ASHRAETAUB)),
-        NullAdapter(&model::DesignDay::ashraeTaub),
-        NullAdapter(&model::DesignDay::setAshraeTaub),
+        boost::optional<DataSource>());
+    } else if (field == ASHRAETAUB) {
+      addValueEditColumn(
+        Heading(QString(ASHRAETAUB)), NullAdapter(&model::DesignDay::ashraeTaub), NullAdapter(&model::DesignDay::setAshraeTaub),
         boost::optional<std::function<void(model::DesignDay*)>>(CastNullAdapter<model::DesignDay>(&model::DesignDay::resetAshraeTaub)),
         boost::optional<std::function<bool(model::DesignDay*)>>(CastNullAdapter<model::DesignDay>(&model::DesignDay::isAshraeTaubDefaulted)),
-        boost::optional<DataSource>()
-        );
-    }
-    else if (field == ASHRAETAUD) {
-      addValueEditColumn(Heading(QString(ASHRAETAUD)),
-        NullAdapter(&model::DesignDay::ashraeTaud),
-        NullAdapter(&model::DesignDay::setAshraeTaud),
+        boost::optional<DataSource>());
+    } else if (field == ASHRAETAUD) {
+      addValueEditColumn(
+        Heading(QString(ASHRAETAUD)), NullAdapter(&model::DesignDay::ashraeTaud), NullAdapter(&model::DesignDay::setAshraeTaud),
         boost::optional<std::function<void(model::DesignDay*)>>(CastNullAdapter<model::DesignDay>(&model::DesignDay::resetAshraeTaud)),
         boost::optional<std::function<bool(model::DesignDay*)>>(CastNullAdapter<model::DesignDay>(&model::DesignDay::isAshraeTaudDefaulted)),
-        boost::optional<DataSource>()
-        );
-    }
-    else if (field == WINDDIRECTION) {
-      addValueEditColumn(Heading(QString(WINDDIRECTION)),
-        NullAdapter(&model::DesignDay::windDirection),
-        NullAdapter(&model::DesignDay::setWindDirection),
+        boost::optional<DataSource>());
+    } else if (field == WINDDIRECTION) {
+      addValueEditColumn(
+        Heading(QString(WINDDIRECTION)), NullAdapter(&model::DesignDay::windDirection), NullAdapter(&model::DesignDay::setWindDirection),
         boost::optional<std::function<void(model::DesignDay*)>>(CastNullAdapter<model::DesignDay>(&model::DesignDay::resetWindDirection)),
         boost::optional<std::function<bool(model::DesignDay*)>>(CastNullAdapter<model::DesignDay>(&model::DesignDay::isWindDirectionDefaulted)),
-        boost::optional<DataSource>()
-        );
+        boost::optional<DataSource>());
     }
-        // STRING
+    // STRING
     else if (field == NAME) {
-      addNameLineEditColumn(Heading(QString(NAME), false, false),
-        false,
-        false,
-        CastNullAdapter<model::DesignDay>(&model::DesignDay::name),
-        CastNullAdapter<model::DesignDay>(&model::DesignDay::setName)
-        );
-    }
-    else if (field == MAXIMUMDRYBULBTEMPERATURE){
-      addQuantityEditColumn(Heading(QString(MAXIMUMDRYBULBTEMPERATURE)),
-        QString("C"),
-        QString("C"),
-        QString("F"),
-        m_isIP,
-        NullAdapter(&model::DesignDay::maximumDryBulbTemperature),
-        NullAdapter(&model::DesignDay::setMaximumDryBulbTemperature),
+      addNameLineEditColumn(Heading(QString(NAME), false, false), false, false, CastNullAdapter<model::DesignDay>(&model::DesignDay::name),
+                            CastNullAdapter<model::DesignDay>(&model::DesignDay::setName));
+    } else if (field == MAXIMUMDRYBULBTEMPERATURE) {
+      addQuantityEditColumn(
+        Heading(QString(MAXIMUMDRYBULBTEMPERATURE)), QString("C"), QString("C"), QString("F"), m_isIP,
+        NullAdapter(&model::DesignDay::maximumDryBulbTemperature), NullAdapter(&model::DesignDay::setMaximumDryBulbTemperature),
         boost::optional<std::function<void(model::DesignDay*)>>(CastNullAdapter<model::DesignDay>(&model::DesignDay::resetMaximumDryBulbTemperature)),
-        boost::optional<std::function<bool(model::DesignDay*)>>(CastNullAdapter<model::DesignDay>(&model::DesignDay::isMaximumDryBulbTemperatureDefaulted)),
-        boost::optional<DataSource>()
-        );
-    }
-    else if (field == DAILYDRYBULBTEMPERATURERANGE){
-      addQuantityEditColumn(Heading(QString(DAILYDRYBULBTEMPERATURERANGE)),
-        QString("K"),
-        QString("K"),
-        QString("R"),
-        m_isIP,
-        NullAdapter(&model::DesignDay::dailyDryBulbTemperatureRange),
-        NullAdapter(&model::DesignDay::setDailyDryBulbTemperatureRange),
-        boost::optional<std::function<void(model::DesignDay*)>>(CastNullAdapter<model::DesignDay>(&model::DesignDay::resetDailyDryBulbTemperatureRange)),
-        boost::optional<std::function<bool(model::DesignDay*)>>(CastNullAdapter<model::DesignDay>(&model::DesignDay::isDailyDryBulbTemperatureRangeDefaulted)),
-        boost::optional<DataSource>()
-        );
+        boost::optional<std::function<bool(model::DesignDay*)>>(
+          CastNullAdapter<model::DesignDay>(&model::DesignDay::isMaximumDryBulbTemperatureDefaulted)),
+        boost::optional<DataSource>());
+    } else if (field == DAILYDRYBULBTEMPERATURERANGE) {
+      addQuantityEditColumn(Heading(QString(DAILYDRYBULBTEMPERATURERANGE)), QString("K"), QString("K"), QString("R"), m_isIP,
+                            NullAdapter(&model::DesignDay::dailyDryBulbTemperatureRange),
+                            NullAdapter(&model::DesignDay::setDailyDryBulbTemperatureRange),
+                            boost::optional<std::function<void(model::DesignDay*)>>(
+                              CastNullAdapter<model::DesignDay>(&model::DesignDay::resetDailyDryBulbTemperatureRange)),
+                            boost::optional<std::function<bool(model::DesignDay*)>>(
+                              CastNullAdapter<model::DesignDay>(&model::DesignDay::isDailyDryBulbTemperatureRangeDefaulted)),
+                            boost::optional<DataSource>());
     }
 
     // This should be reset when the humidity indication condition type is changed to something incompatible
-    else if (field == HUMIDITYINDICATINGCONDITIONSATMAXIMUMDRYBULB){
-      addQuantityEditColumn(Heading(QString(HUMIDITYINDICATINGCONDITIONSATMAXIMUMDRYBULB)),
-        QString("C"),
-        QString("C"),
-        QString("F"),
-        m_isIP,
-        NullAdapter(&model::DesignDay::humidityIndicatingConditionsAtMaximumDryBulb),
-        NullAdapter(&model::DesignDay::setHumidityIndicatingConditionsAtMaximumDryBulb),
-        boost::optional<std::function<void(model::DesignDay*)>>(CastNullAdapter<model::DesignDay>(&model::DesignDay::resetHumidityIndicatingConditionsAtMaximumDryBulb)),
-        boost::optional<std::function<bool(model::DesignDay*)>>(CastNullAdapter<model::DesignDay>(&model::DesignDay::isHumidityIndicatingConditionsAtMaximumDryBulbDefaulted)),
-        boost::optional<DataSource>()
-        );
+    else if (field == HUMIDITYINDICATINGCONDITIONSATMAXIMUMDRYBULB) {
+      addQuantityEditColumn(Heading(QString(HUMIDITYINDICATINGCONDITIONSATMAXIMUMDRYBULB)), QString("C"), QString("C"), QString("F"), m_isIP,
+                            NullAdapter(&model::DesignDay::humidityIndicatingConditionsAtMaximumDryBulb),
+                            NullAdapter(&model::DesignDay::setHumidityIndicatingConditionsAtMaximumDryBulb),
+                            boost::optional<std::function<void(model::DesignDay*)>>(
+                              CastNullAdapter<model::DesignDay>(&model::DesignDay::resetHumidityIndicatingConditionsAtMaximumDryBulb)),
+                            boost::optional<std::function<bool(model::DesignDay*)>>(
+                              CastNullAdapter<model::DesignDay>(&model::DesignDay::isHumidityIndicatingConditionsAtMaximumDryBulbDefaulted)),
+                            boost::optional<DataSource>());
     }
 
-    else if (field == BAROMETRICPRESSURE){
-      addQuantityEditColumn(Heading(QString(BAROMETRICPRESSURE)),
-        QString("Pa"),
-        QString("Pa"),
-        QString("inHg"),
-        m_isIP,
-        NullAdapter(&model::DesignDay::barometricPressure),
-        NullAdapter(&model::DesignDay::setBarometricPressure),
+    else if (field == BAROMETRICPRESSURE) {
+      addQuantityEditColumn(
+        Heading(QString(BAROMETRICPRESSURE)), QString("Pa"), QString("Pa"), QString("inHg"), m_isIP,
+        NullAdapter(&model::DesignDay::barometricPressure), NullAdapter(&model::DesignDay::setBarometricPressure),
         boost::optional<std::function<void(model::DesignDay*)>>(CastNullAdapter<model::DesignDay>(&model::DesignDay::resetBarometricPressure)),
         boost::optional<std::function<bool(model::DesignDay*)>>(CastNullAdapter<model::DesignDay>(&model::DesignDay::isBarometricPressureDefaulted)),
-        boost::optional<DataSource>()
-        );
-    }
-    else if (field == WINDSPEED){
-      addQuantityEditColumn(Heading(QString(WINDSPEED)),
-        QString("m/s"),
-        QString("m/s"),
-        QString("miles/hr"),
-        m_isIP,
-        NullAdapter(&model::DesignDay::windSpeed),
+        boost::optional<DataSource>());
+    } else if (field == WINDSPEED) {
+      addQuantityEditColumn(
+        Heading(QString(WINDSPEED)), QString("m/s"), QString("m/s"), QString("miles/hr"), m_isIP, NullAdapter(&model::DesignDay::windSpeed),
         NullAdapter(&model::DesignDay::setWindSpeed),
         boost::optional<std::function<void(model::DesignDay*)>>(CastNullAdapter<model::DesignDay>(&model::DesignDay::resetWindSpeed)),
         boost::optional<std::function<bool(model::DesignDay*)>>(CastNullAdapter<model::DesignDay>(&model::DesignDay::isWindSpeedDefaulted)),
-        boost::optional<DataSource>()
-        );
-    }
-    else if (field == DAILYWETBULBTEMPERATURERANGE){
-      addQuantityEditColumn(Heading(QString(DAILYWETBULBTEMPERATURERANGE)),
-        QString("K"),
-        QString("K"),
-        QString("R"),
-        m_isIP,
-        NullAdapter(&model::DesignDay::dailyWetBulbTemperatureRange),
-        NullAdapter(&model::DesignDay::setDailyWetBulbTemperatureRange)
-        );
-    }
-    else if (field == DAYTYPE) {
-      addComboBoxColumn<std::string, model::DesignDay>(Heading(QString(DAYTYPE)),
-        static_cast<std::string(*)(const std::string&)>(&openstudio::toString),
+        boost::optional<DataSource>());
+    } else if (field == DAILYWETBULBTEMPERATURERANGE) {
+      addQuantityEditColumn(Heading(QString(DAILYWETBULBTEMPERATURERANGE)), QString("K"), QString("K"), QString("R"), m_isIP,
+                            NullAdapter(&model::DesignDay::dailyWetBulbTemperatureRange),
+                            NullAdapter(&model::DesignDay::setDailyWetBulbTemperatureRange));
+    } else if (field == DAYTYPE) {
+      addComboBoxColumn<std::string, model::DesignDay>(
+        Heading(QString(DAYTYPE)), static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
         std::function<std::vector<std::string>()>(&model::DesignDay::validDayTypeValues),
-        CastNullAdapter<model::DesignDay>(&model::DesignDay::dayType),
-        CastNullAdapter<model::DesignDay>(&model::DesignDay::setDayType),
-        CastNullAdapter<model::DesignDay>(&model::DesignDay::resetDayType),
-        CastNullAdapter<model::DesignDay>(&model::DesignDay::isDayTypeDefaulted),
-        boost::optional<DataSource>()
-        );
-    }
-    else if (field == DRYBULBTEMPERATURERANGEMODIFIERTYPE) {
-      addComboBoxColumn<std::string, model::DesignDay>(Heading(QString(DRYBULBTEMPERATURERANGEMODIFIERTYPE)),
-        static_cast<std::string(*)(const std::string&)>(&openstudio::toString),
+        CastNullAdapter<model::DesignDay>(&model::DesignDay::dayType), CastNullAdapter<model::DesignDay>(&model::DesignDay::setDayType),
+        CastNullAdapter<model::DesignDay>(&model::DesignDay::resetDayType), CastNullAdapter<model::DesignDay>(&model::DesignDay::isDayTypeDefaulted),
+        boost::optional<DataSource>());
+    } else if (field == DRYBULBTEMPERATURERANGEMODIFIERTYPE) {
+      addComboBoxColumn<std::string, model::DesignDay>(
+        Heading(QString(DRYBULBTEMPERATURERANGEMODIFIERTYPE)), static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
         std::function<std::vector<std::string>()>(&model::DesignDay::validDryBulbTemperatureRangeModifierTypeValues),
         CastNullAdapter<model::DesignDay>(&model::DesignDay::dryBulbTemperatureRangeModifierType),
         CastNullAdapter<model::DesignDay>(&model::DesignDay::setDryBulbTemperatureRangeModifierType),
         CastNullAdapter<model::DesignDay>(&model::DesignDay::resetDryBulbTemperatureRangeModifierType),
-        CastNullAdapter<model::DesignDay>(&model::DesignDay::isDryBulbTemperatureRangeModifierTypeDefaulted),
-        boost::optional<DataSource>()
-        );
-    }
-    else if (field == HUMIDITYINDICATINGTYPE) {
+        CastNullAdapter<model::DesignDay>(&model::DesignDay::isDryBulbTemperatureRangeModifierTypeDefaulted), boost::optional<DataSource>());
+    } else if (field == HUMIDITYINDICATINGTYPE) {
       // I don't see any problem here, yet the box stays empty. Checked the ReverseTranslator, it does its job too
-      addComboBoxColumn<std::string, model::DesignDay>(Heading(QString(HUMIDITYINDICATINGTYPE)),
-        static_cast<std::string(*)(const std::string&)>(&openstudio::toString),
+      addComboBoxColumn<std::string, model::DesignDay>(
+        Heading(QString(HUMIDITYINDICATINGTYPE)), static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
         std::function<std::vector<std::string>()>(&model::DesignDay::validHumidityIndicatingTypeValues),
         CastNullAdapter<model::DesignDay>(&model::DesignDay::humidityIndicatingType),
         CastNullAdapter<model::DesignDay>(&model::DesignDay::setHumidityIndicatingType),
         CastNullAdapter<model::DesignDay>(&model::DesignDay::resetHumidityIndicatingType),
-        CastNullAdapter<model::DesignDay>(&model::DesignDay::isHumidityIndicatingTypeDefaulted),
-        boost::optional<DataSource>()
-        );
-    }
-    else if (field == SOLARMODELINDICATOR) {
-      addComboBoxColumn<std::string, model::DesignDay>(Heading(QString(SOLARMODELINDICATOR)),
-        static_cast<std::string(*)(const std::string&)>(&openstudio::toString),
+        CastNullAdapter<model::DesignDay>(&model::DesignDay::isHumidityIndicatingTypeDefaulted), boost::optional<DataSource>());
+    } else if (field == SOLARMODELINDICATOR) {
+      addComboBoxColumn<std::string, model::DesignDay>(
+        Heading(QString(SOLARMODELINDICATOR)), static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
         std::function<std::vector<std::string>()>(&model::DesignDay::validSolarModelIndicatorValues),
         CastNullAdapter<model::DesignDay>(&model::DesignDay::solarModelIndicator),
         CastNullAdapter<model::DesignDay>(&model::DesignDay::setSolarModelIndicator),
         CastNullAdapter<model::DesignDay>(&model::DesignDay::resetSolarModelIndicator),
-        CastNullAdapter<model::DesignDay>(&model::DesignDay::isSolarModelIndicatorDefaulted),
-        boost::optional<DataSource>()
-        );
-    }
-    else if (field == DRYBULBTEMPERATURERANGEMODIFIERSCHEDULE) {
+        CastNullAdapter<model::DesignDay>(&model::DesignDay::isSolarModelIndicatorDefaulted), boost::optional<DataSource>());
+    } else if (field == DRYBULBTEMPERATURERANGEMODIFIERSCHEDULE) {
       addDropZoneColumn(Heading(QString(DRYBULBTEMPERATURERANGEMODIFIERSCHEDULE)),
-        CastNullAdapter<model::DesignDay>(&model::DesignDay::dryBulbTemperatureRangeModifierSchedule),
-        CastNullAdapter<model::DesignDay>(&model::DesignDay::setDryBulbTemperatureRangeModifierSchedule),
-        boost::optional<std::function<void(model::DesignDay*)>>(CastNullAdapter<model::DesignDay>(&model::DesignDay::resetDryBulbTemperatureRangeModifierSchedule))
-        );
+                        CastNullAdapter<model::DesignDay>(&model::DesignDay::dryBulbTemperatureRangeModifierSchedule),
+                        CastNullAdapter<model::DesignDay>(&model::DesignDay::setDryBulbTemperatureRangeModifierSchedule),
+                        boost::optional<std::function<void(model::DesignDay*)>>(
+                          CastNullAdapter<model::DesignDay>(&model::DesignDay::resetDryBulbTemperatureRangeModifierSchedule)));
     }
 
     else if (field == BEAMSOLARDAYSCHEDULE) {
-      addDropZoneColumn(Heading(QString(BEAMSOLARDAYSCHEDULE)),
-        CastNullAdapter<model::DesignDay>(&model::DesignDay::beamSolarDaySchedule),
+      addDropZoneColumn(
+        Heading(QString(BEAMSOLARDAYSCHEDULE)), CastNullAdapter<model::DesignDay>(&model::DesignDay::beamSolarDaySchedule),
         CastNullAdapter<model::DesignDay>(&model::DesignDay::setBeamSolarDaySchedule),
-        boost::optional<std::function<void(model::DesignDay*)>>(CastNullAdapter<model::DesignDay>(&model::DesignDay::resetBeamSolarDaySchedule))
-        );
+        boost::optional<std::function<void(model::DesignDay*)>>(CastNullAdapter<model::DesignDay>(&model::DesignDay::resetBeamSolarDaySchedule)));
     }
 
     else if (field == HUMIDITYINDICATINGDAYSCHEDULE) {
       addDropZoneColumn(Heading(QString(HUMIDITYINDICATINGDAYSCHEDULE)),
-        CastNullAdapter<model::DesignDay>(&model::DesignDay::humidityIndicatingDaySchedule),
-        CastNullAdapter<model::DesignDay>(&model::DesignDay::setHumidityIndicatingDaySchedule),
-        boost::optional<std::function<void(model::DesignDay*)>>(CastNullAdapter<model::DesignDay>(&model::DesignDay::resetHumidityIndicatingDaySchedule))
-        );
+                        CastNullAdapter<model::DesignDay>(&model::DesignDay::humidityIndicatingDaySchedule),
+                        CastNullAdapter<model::DesignDay>(&model::DesignDay::setHumidityIndicatingDaySchedule),
+                        boost::optional<std::function<void(model::DesignDay*)>>(
+                          CastNullAdapter<model::DesignDay>(&model::DesignDay::resetHumidityIndicatingDaySchedule)));
     }
 
     else if (field == DIFFUSESOLARDAYSCHEDULE) {
-      addDropZoneColumn(Heading(QString(DIFFUSESOLARDAYSCHEDULE)),
-        CastNullAdapter<model::DesignDay>(&model::DesignDay::diffuseSolarDaySchedule),
+      addDropZoneColumn(
+        Heading(QString(DIFFUSESOLARDAYSCHEDULE)), CastNullAdapter<model::DesignDay>(&model::DesignDay::diffuseSolarDaySchedule),
         CastNullAdapter<model::DesignDay>(&model::DesignDay::setDiffuseSolarDaySchedule),
-        boost::optional<std::function<void(model::DesignDay*)>>(CastNullAdapter<model::DesignDay>(&model::DesignDay::resetDiffuseSolarDaySchedule))
-        );
-    }
-    else{
+        boost::optional<std::function<void(model::DesignDay*)>>(CastNullAdapter<model::DesignDay>(&model::DesignDay::resetDiffuseSolarDaySchedule)));
+    } else {
       // unhandled
       OS_ASSERT(false);
     }
-
   }
-
 }
 
-QString DesignDayGridController::getColor(const model:: ModelObject & modelObject)
-{
+QString DesignDayGridController::getColor(const model::ModelObject& modelObject) {
   QColor defaultColor(Qt::lightGray);
   QString color(defaultColor.name());
 
   return color;
 }
 
-void DesignDayGridController::checkSelectedFields()
-{
-  if(!this->m_hasHorizontalHeader) return;
+void DesignDayGridController::checkSelectedFields() {
+  if (!this->m_hasHorizontalHeader) return;
 
   OSGridController::checkSelectedFields();
 }
 
-void DesignDayGridController::onItemDropped(const OSItemId& itemId)
-{
+void DesignDayGridController::onItemDropped(const OSItemId& itemId) {
   boost::optional<model::ModelObject> modelObject = OSAppBase::instance()->currentDocument()->getModelObject(itemId);
-  if (modelObject){
-    if (modelObject->optionalCast<model::DesignDay>()){
+  if (modelObject) {
+    if (modelObject->optionalCast<model::DesignDay>()) {
       modelObject->clone(m_model);
       emit modelReset();
     }
   }
 }
 
-void DesignDayGridController::refreshModelObjects()
-{
+void DesignDayGridController::refreshModelObjects() {
   auto designDays = m_model.getConcreteModelObjects<model::DesignDay>();
   m_modelObjects = subsetCastVector<model::ModelObject>(designDays);
   std::sort(m_modelObjects.begin(), m_modelObjects.end(), ModelObjectNameSorter());
 }
 
-void DesignDayGridController::onComboBoxIndexChanged(int index)
-{
+void DesignDayGridController::onComboBoxIndexChanged(int index) {
   // Note: find the correct system color on RACK change,
   // but currently unable to know which row changed.
-  for(unsigned index = 0; index < m_horizontalHeader.size(); index++){
-  HorizontalHeaderWidget * horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget *>(m_horizontalHeader.at(index));
-    if(horizontalHeaderWidget->m_label->text() == "RACK"){
+  for (unsigned index = 0; index < m_horizontalHeader.size(); index++) {
+    HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeader.at(index));
+    if (horizontalHeaderWidget->m_label->text() == "RACK") {
       // NOTE required due to a race condition
       // Code below commented out due to a very infrequent crash in the bowels of Qt appears to be exasperated by this refresh.
       // A new refresh scheme with finer granularity may eliminate the problem, and restore rack colors.
@@ -596,4 +485,4 @@ void DesignDayGridController::onComboBoxIndexChanged(int index)
   }
 }
 
-} // openstudio
+}  // namespace openstudio

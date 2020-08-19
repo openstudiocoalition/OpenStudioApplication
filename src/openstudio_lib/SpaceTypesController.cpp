@@ -88,20 +88,14 @@
 
 namespace openstudio {
 
-  SpaceTypesController::SpaceTypesController(bool isIP,
-    const model::Model& model)
-    : ModelSubTabController(new SpaceTypesView(isIP, model), model)
-{
-}
+SpaceTypesController::SpaceTypesController(bool isIP, const model::Model& model) : ModelSubTabController(new SpaceTypesView(isIP, model), model) {}
 
-void SpaceTypesController::onAddObject(const openstudio::IddObjectType& iddObjectType)
-{
+void SpaceTypesController::onAddObject(const openstudio::IddObjectType& iddObjectType) {
   OS_ASSERT(IddObjectType::OS_SpaceType == iddObjectType.value());
   openstudio::model::SpaceType(this->model());
 }
 
-void SpaceTypesController::onAddObject(const openstudio::model::ModelObject& modelObject)
-{
+void SpaceTypesController::onAddObject(const openstudio::model::ModelObject& modelObject) {
   if (IddObjectType::OS_SpaceType == modelObject.iddObjectType().value()) {
     openstudio::model::SpaceType(this->model());
     return;
@@ -111,7 +105,7 @@ void SpaceTypesController::onAddObject(const openstudio::model::ModelObject& mod
   OS_ASSERT(parent);
 
   // Expect a load from the gridview loads tab
-  switch (modelObject.iddObjectType().value()){
+  switch (modelObject.iddObjectType().value()) {
     case IddObjectType::OS_People:
       openstudio::model::People(openstudio::model::PeopleDefinition(this->model())).setParent(*parent);
       break;
@@ -144,54 +138,46 @@ void SpaceTypesController::onAddObject(const openstudio::model::ModelObject& mod
       OS_ASSERT(false);
       LOG_FREE(Error, "LoadsController", "Unknown IddObjectType '" << modelObject.iddObjectType().valueName() << "'");
   }
-
 }
 
-void SpaceTypesController::onCopyObject(const openstudio::model::ModelObject& modelObject)
-{
+void SpaceTypesController::onCopyObject(const openstudio::model::ModelObject& modelObject) {
   modelObject.clone(this->model());
 }
 
-void SpaceTypesController::onRemoveObject(openstudio::model::ModelObject modelObject)
-{
+void SpaceTypesController::onRemoveObject(openstudio::model::ModelObject modelObject) {
   modelObject.remove();
 }
 
-void SpaceTypesController::onReplaceObject(openstudio::model::ModelObject modelObject, const OSItemId& replacementItemId)
-{
+void SpaceTypesController::onReplaceObject(openstudio::model::ModelObject modelObject, const OSItemId& replacementItemId) {
   // not yet implemented
 }
 
-void SpaceTypesController::onPurgeObjects(const openstudio::IddObjectType& iddObjectType)
-{
-  for (model::SpaceType spaceType : this->model().getConcreteModelObjects<model::SpaceType>()){
-    if (spaceType.spaces().empty()){
+void SpaceTypesController::onPurgeObjects(const openstudio::IddObjectType& iddObjectType) {
+  for (model::SpaceType spaceType : this->model().getConcreteModelObjects<model::SpaceType>()) {
+    if (spaceType.spaces().empty()) {
       spaceType.remove();
     }
   }
 }
 
-void SpaceTypesController::onDrop(const OSItemId& itemId)
-{
+void SpaceTypesController::onDrop(const OSItemId& itemId) {
   boost::optional<model::ModelObject> modelObject = this->getModelObject(itemId);
-  if (modelObject){
-    if (modelObject->optionalCast<model::SpaceType>()){
-      if (this->fromComponentLibrary(itemId)){
+  if (modelObject) {
+    if (modelObject->optionalCast<model::SpaceType>()) {
+      if (this->fromComponentLibrary(itemId)) {
         modelObject = modelObject->clone(this->model());
       }
     }
-  }else{
+  } else {
     boost::optional<model::Component> component = this->getComponent(itemId);
-    if (component){
-      if (component->primaryObject().optionalCast<model::SpaceType>()){
+    if (component) {
+      if (component->primaryObject().optionalCast<model::SpaceType>()) {
         boost::optional<model::ComponentData> componentData = this->model().insertComponent(*component);
       }
     }
   }
 }
 
-void SpaceTypesController::onInspectItem(OSItem* item)
-{
-}
+void SpaceTypesController::onInspectItem(OSItem* item) {}
 
-} // openstudio
+}  // namespace openstudio

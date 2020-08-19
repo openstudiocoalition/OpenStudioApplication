@@ -47,10 +47,8 @@ class UtilityBillFuelTypeListController : public OSVectorController
 {
   Q_OBJECT
 
-public:
-
-  UtilityBillFuelTypeListController(const model::Model& model,
-    openstudio::FuelType fuelType);
+ public:
+  UtilityBillFuelTypeListController(const model::Model& model, openstudio::FuelType fuelType);
 
   virtual ~UtilityBillFuelTypeListController() {}
 
@@ -58,14 +56,14 @@ public:
 
   FuelType fuelType() const;
 
-private slots:
+ private slots:
   void objectAdded(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl>, const openstudio::IddObjectType&, const openstudio::UUID&);
   void objectRemoved(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl>, const openstudio::IddObjectType&, const openstudio::UUID&);
 
-protected:
+ protected:
   virtual std::vector<OSItemId> makeVector() override;
 
-private:
+ private:
   openstudio::IddObjectType m_iddObjectType;
   openstudio::FuelType m_fuelType;
   model::Model m_model;
@@ -75,12 +73,8 @@ class UtilityBillFuelTypeListView : public OSItemList
 {
   Q_OBJECT
 
-public:
-
-  UtilityBillFuelTypeListView(const model::Model& model,
-    openstudio::FuelType fuelType,
-    bool addScrollArea,
-    QWidget * parent = nullptr);
+ public:
+  UtilityBillFuelTypeListView(const model::Model& model, openstudio::FuelType fuelType, bool addScrollArea, QWidget* parent = nullptr);
 
   virtual ~UtilityBillFuelTypeListView() {}
 
@@ -90,12 +84,10 @@ public:
 
   FuelType fuelType() const;
 
-private:
-
+ private:
   openstudio::FuelType m_fuelType;
-
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_UTILITYBILLFUELTYPELISTVIEW_HPP
+#endif  // OPENSTUDIO_UTILITYBILLFUELTYPELISTVIEW_HPP

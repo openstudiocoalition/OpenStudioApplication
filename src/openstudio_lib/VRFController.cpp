@@ -60,11 +60,7 @@
 
 namespace openstudio {
 
-VRFController::VRFController()
-  : QObject(),
-    m_detailView(nullptr),
-    m_dirty(false)
-{
+VRFController::VRFController() : QObject(), m_detailView(nullptr), m_dirty(false) {
   m_currentSystem = boost::none;
 
   m_vrfView = new VRFView();
@@ -82,57 +78,46 @@ VRFController::VRFController()
   zoomOutToSystemGridView();
 }
 
-VRFController::~VRFController()
-{
+VRFController::~VRFController() {
   delete m_vrfView;
 }
 
-VRFView * VRFController::vrfView() const
-{
+VRFView* VRFController::vrfView() const {
   return m_vrfView;
 }
 
-QSharedPointer<VRFSystemListController> VRFController::vrfSystemListController() const
-{
+QSharedPointer<VRFSystemListController> VRFController::vrfSystemListController() const {
   return m_vrfSystemListController;
 }
 
-void VRFController::refresh()
-{
+void VRFController::refresh() {
   m_dirty = true;
 
-  QTimer::singleShot(0,this,SLOT(refreshNow()));
+  QTimer::singleShot(0, this, SLOT(refreshNow()));
 }
 
-void VRFController::refreshNow()
-{
-  if( ! m_dirty ) return;
+void VRFController::refreshNow() {
+  if (!m_dirty) return;
 
-  if( m_detailView )
-  {
+  if (m_detailView) {
     m_detailView->setId(OSItemId());
     m_detailView->removeAllVRFTerminalViews();
 
-    if( m_currentSystem )
-    {
-      m_detailView->setId(OSItemId(toQString(m_currentSystem->handle()), modelToSourceId(m_currentSystem->model()),false));
+    if (m_currentSystem) {
+      m_detailView->setId(OSItemId(toQString(m_currentSystem->handle()), modelToSourceId(m_currentSystem->model()), false));
 
       connect(m_detailView.data(), &VRFSystemView::inspectClicked, this, &VRFController::inspectOSItem);
 
       std::vector<model::ZoneHVACTerminalUnitVariableRefrigerantFlow> terminals = m_currentSystem->terminals();
-      for(auto it = terminals.begin();
-          it != terminals.end();
-          ++it)
-      {
+      for (auto it = terminals.begin(); it != terminals.end(); ++it) {
         auto vrfTerminalView = new VRFTerminalView();
-        vrfTerminalView->setId(OSItemId(toQString(it->handle()), modelToSourceId(it->model()),false));
+        vrfTerminalView->setId(OSItemId(toQString(it->handle()), modelToSourceId(it->model()), false));
         m_detailView->addVRFTerminalView(vrfTerminalView);
         connect(vrfTerminalView, &VRFTerminalView::componentDroppedOnZone, this, &VRFController::onVRFTerminalViewDrop);
         connect(vrfTerminalView, &VRFTerminalView::removeZoneClicked, this, &VRFController::onRemoveZoneClicked);
         connect(vrfTerminalView, &VRFTerminalView::removeTerminalClicked, this, &VRFController::onRemoveTerminalClicked);
         connect(vrfTerminalView, &VRFTerminalView::terminalIconClicked, this, &VRFController::inspectOSItem);
-        if( boost::optional<model::ThermalZone> zone = it->thermalZone() )
-        {
+        if (boost::optional<model::ThermalZone> zone = it->thermalZone()) {
           vrfTerminalView->zoneDropZone->setHasZone(true);
           vrfTerminalView->removeZoneButtonItem->setVisible(true);
           QString zoneName = QString::fromStdString(zone->name().get());
@@ -146,19 +131,16 @@ void VRFController::refreshNow()
   m_dirty = false;
 }
 
-void VRFController::onVRFSystemViewDrop(const OSItemId & itemid)
-{
+void VRFController::onVRFSystemViewDrop(const OSItemId& itemid) {
   OS_ASSERT(m_currentSystem);
   std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
 
-  if( doc->fromComponentLibrary(itemid) )
-  {
+  if (doc->fromComponentLibrary(itemid)) {
     boost::optional<model::ModelObject> mo = doc->getModelObject(itemid);
     OS_ASSERT(mo);
 
-    if( boost::optional<model::ZoneHVACTerminalUnitVariableRefrigerantFlow> terminal
-          = mo->optionalCast<model::ZoneHVACTerminalUnitVariableRefrigerantFlow>() )
-    {
+    if (boost::optional<model::ZoneHVACTerminalUnitVariableRefrigerantFlow> terminal =
+          mo->optionalCast<model::ZoneHVACTerminalUnitVariableRefrigerantFlow>()) {
       model::ZoneHVACTerminalUnitVariableRefrigerantFlow terminalClone =
         terminal->clone(m_currentSystem->model()).cast<model::ZoneHVACTerminalUnitVariableRefrigerantFlow>();
       m_currentSystem->addTerminal(terminalClone);
@@ -166,12 +148,12 @@ void VRFController::onVRFSystemViewDrop(const OSItemId & itemid)
       refresh();
     }
   } else {
-    if( auto component = doc->getComponent(itemid) ) {
-      if( auto terminal = component->primaryObject().optionalCast<model::ZoneHVACTerminalUnitVariableRefrigerantFlow>() ) {
+    if (auto component = doc->getComponent(itemid)) {
+      if (auto terminal = component->primaryObject().optionalCast<model::ZoneHVACTerminalUnitVariableRefrigerantFlow>()) {
         // Ugly hack to avoid the component being treated as a resource.
         component->componentData().setString(OS_ComponentDataFields::UUID, toString(createUUID()));
         // std::cout << component->componentData().getString(OS_ComponentDataFields::UUID) << std::endl;;
-        if( auto componentData = m_currentSystem->model().insertComponent(component.get()) ) {
+        if (auto componentData = m_currentSystem->model().insertComponent(component.get())) {
           terminal = componentData->primaryComponentObject().optionalCast<model::ZoneHVACTerminalUnitVariableRefrigerantFlow>();
           OS_ASSERT(terminal);
           m_currentSystem->addTerminal(terminal.get());
@@ -183,29 +165,24 @@ void VRFController::onVRFSystemViewDrop(const OSItemId & itemid)
   }
 }
 
-void VRFController::onVRFSystemViewZoneDrop(const OSItemId & itemid)
-{
+void VRFController::onVRFSystemViewZoneDrop(const OSItemId& itemid) {
   OS_ASSERT(m_currentSystem);
   std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
 
-  if( doc->fromModel(itemid) )
-  {
+  if (doc->fromModel(itemid)) {
     boost::optional<model::ModelObject> mo = doc->getModelObject(itemid);
     OS_ASSERT(mo);
-    if( boost::optional<model::ThermalZone> thermalZone = mo->optionalCast<model::ThermalZone>() )
-    {
+    if (boost::optional<model::ThermalZone> thermalZone = mo->optionalCast<model::ThermalZone>()) {
       std::vector<model::ZoneHVACTerminalUnitVariableRefrigerantFlow> terminals = m_currentSystem->terminals();
-      if(terminals.empty())
-      {
+      if (terminals.empty()) {
         QMessageBox message(m_vrfView);
         message.setText("You must add a VRF terminal before assigning zones.");
         message.exec();
-      }
-      else
-      {
+      } else {
         model::ZoneHVACTerminalUnitVariableRefrigerantFlow terminal = terminals.back();
         model::Model t_model = m_currentSystem->model();
-        model::ZoneHVACTerminalUnitVariableRefrigerantFlow terminalClone = terminal.clone(t_model).cast<model::ZoneHVACTerminalUnitVariableRefrigerantFlow>();
+        model::ZoneHVACTerminalUnitVariableRefrigerantFlow terminalClone =
+          terminal.clone(t_model).cast<model::ZoneHVACTerminalUnitVariableRefrigerantFlow>();
         m_currentSystem->addTerminal(terminalClone);
         terminalClone.addToThermalZone(thermalZone.get());
 
@@ -215,29 +192,26 @@ void VRFController::onVRFSystemViewZoneDrop(const OSItemId & itemid)
   }
 }
 
-void VRFController::onVRFTerminalViewDrop(const OSItemId & terminalId, const OSItemId & thermalZoneId)
-{
+void VRFController::onVRFTerminalViewDrop(const OSItemId& terminalId, const OSItemId& thermalZoneId) {
   OS_ASSERT(m_currentSystem);
   auto doc = OSAppBase::instance()->currentDocument();
 
-  if( doc->fromModel(thermalZoneId) )
-  {
+  if (doc->fromModel(thermalZoneId)) {
     auto mo = doc->getModelObject(thermalZoneId);
     OS_ASSERT(mo);
-    if( auto thermalZone = mo->optionalCast<model::ThermalZone>() )
-    {
-      if( (mo = doc->getModelObject(terminalId)) ) {
-        if( auto terminal = mo->optionalCast<model::ZoneHVACTerminalUnitVariableRefrigerantFlow>() ) {
+    if (auto thermalZone = mo->optionalCast<model::ThermalZone>()) {
+      if ((mo = doc->getModelObject(terminalId))) {
+        if (auto terminal = mo->optionalCast<model::ZoneHVACTerminalUnitVariableRefrigerantFlow>()) {
           terminal->addToThermalZone(thermalZone.get());
 
           refresh();
         }
       } else {
-        if( auto component = doc->getComponent(terminalId) ) {
-          if( auto terminal = component->primaryObject().optionalCast<model::ZoneHVACTerminalUnitVariableRefrigerantFlow>() ) {
+        if (auto component = doc->getComponent(terminalId)) {
+          if (auto terminal = component->primaryObject().optionalCast<model::ZoneHVACTerminalUnitVariableRefrigerantFlow>()) {
             // Ugly hack to avoid the component being treated as a resource.
             component->componentData().setString(OS_ComponentDataFields::UUID, toString(createUUID()));
-            if( auto componentData = m_currentSystem->model().insertComponent(component.get()) ) {
+            if (auto componentData = m_currentSystem->model().insertComponent(component.get())) {
               terminal = componentData->primaryComponentObject().optionalCast<model::ZoneHVACTerminalUnitVariableRefrigerantFlow>();
               OS_ASSERT(terminal);
               terminal->addToThermalZone(thermalZone.get());
@@ -251,41 +225,40 @@ void VRFController::onVRFTerminalViewDrop(const OSItemId & terminalId, const OSI
   }
 }
 
-void VRFController::onRemoveZoneClicked(const OSItemId & terminalId)
-{
+void VRFController::onRemoveZoneClicked(const OSItemId& terminalId) {
   OS_ASSERT(m_currentSystem);
   std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
 
   boost::optional<model::ModelObject> mo = doc->getModelObject(terminalId);
   OS_ASSERT(mo);
-  boost::optional<model::ZoneHVACTerminalUnitVariableRefrigerantFlow> terminal = mo->optionalCast<model::ZoneHVACTerminalUnitVariableRefrigerantFlow>();
+  boost::optional<model::ZoneHVACTerminalUnitVariableRefrigerantFlow> terminal =
+    mo->optionalCast<model::ZoneHVACTerminalUnitVariableRefrigerantFlow>();
   OS_ASSERT(terminal);
   terminal->removeFromThermalZone();
 
   refresh();
 }
 
-void VRFController::onRemoveTerminalClicked(const OSItemId & terminalId)
-{
+void VRFController::onRemoveTerminalClicked(const OSItemId& terminalId) {
   OS_ASSERT(m_currentSystem);
   std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
 
   boost::optional<model::ModelObject> mo = doc->getModelObject(terminalId);
   OS_ASSERT(mo);
-  boost::optional<model::ZoneHVACTerminalUnitVariableRefrigerantFlow> terminal = mo->optionalCast<model::ZoneHVACTerminalUnitVariableRefrigerantFlow>();
+  boost::optional<model::ZoneHVACTerminalUnitVariableRefrigerantFlow> terminal =
+    mo->optionalCast<model::ZoneHVACTerminalUnitVariableRefrigerantFlow>();
   OS_ASSERT(terminal);
   terminal->remove();
 
   refresh();
 }
 
-void VRFController::zoomInOnSystem(model::AirConditionerVariableRefrigerantFlow & system)
-{
+void VRFController::zoomInOnSystem(model::AirConditionerVariableRefrigerantFlow& system) {
   m_currentSystem = system;
 
   std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
   model::OptionalModelObject mo;
-  doc->mainRightColumnController()->inspectModelObject(mo,false);
+  doc->mainRightColumnController()->inspectModelObject(mo, false);
 
   m_detailScene = QSharedPointer<QGraphicsScene>(new QGraphicsScene());
   m_detailView = new VRFSystemView();
@@ -299,13 +272,12 @@ void VRFController::zoomInOnSystem(model::AirConditionerVariableRefrigerantFlow 
   refresh();
 }
 
-void VRFController::zoomOutToSystemGridView()
-{
+void VRFController::zoomOutToSystemGridView() {
   m_currentSystem = boost::none;
 
   model::OptionalModelObject mo;
   std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
-  doc->mainRightColumnController()->inspectModelObject(mo,false);
+  doc->mainRightColumnController()->inspectModelObject(mo, false);
 
   m_vrfSystemListController->reset();
 
@@ -316,64 +288,48 @@ void VRFController::zoomOutToSystemGridView()
   refresh();
 }
 
-void VRFController::inspectOSItem(const OSItemId & itemid)
-{
+void VRFController::inspectOSItem(const OSItemId& itemid) {
   OS_ASSERT(m_currentSystem);
   boost::optional<model::ModelObject> mo = m_currentSystem->model().getModelObject<model::ModelObject>(toUUID(itemid.itemId()));
 
   std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
   OS_ASSERT(doc);
-  doc->mainRightColumnController()->inspectModelObject(mo,false);
+  doc->mainRightColumnController()->inspectModelObject(mo, false);
 }
 
-VRFSystemListController::VRFSystemListController(VRFController * vrfController)
-  : m_vrfController(vrfController)
-{
-}
+VRFSystemListController::VRFSystemListController(VRFController* vrfController) : m_vrfController(vrfController) {}
 
-void VRFSystemListController::reset()
-{
+void VRFSystemListController::reset() {
   emit modelReset();
 }
 
-VRFController * VRFSystemListController::vrfController() const
-{
+VRFController* VRFSystemListController::vrfController() const {
   return m_vrfController;
 }
 
-QSharedPointer<OSListItem> VRFSystemListController::itemAt(int i)
-{
+QSharedPointer<OSListItem> VRFSystemListController::itemAt(int i) {
   QSharedPointer<OSListItem> item;
 
-  if( i == 0 )
-  {
+  if (i == 0) {
     item = QSharedPointer<VRFSystemListDropZoneItem>(new VRFSystemListDropZoneItem(this));
-  }
-  else if( i > 0 && i < count() )
-  {
-    item = QSharedPointer<VRFSystemListItem>(new VRFSystemListItem(systems()[i - 1],this));
+  } else if (i > 0 && i < count()) {
+    item = QSharedPointer<VRFSystemListItem>(new VRFSystemListItem(systems()[i - 1], this));
   }
 
   return item;
 }
 
-int VRFSystemListController::count()
-{
+int VRFSystemListController::count() {
   return (int)(systems().size() + 1);
 }
 
-int VRFSystemListController::systemIndex(const model::AirConditionerVariableRefrigerantFlow & system) const
-{
+int VRFSystemListController::systemIndex(const model::AirConditionerVariableRefrigerantFlow& system) const {
   std::vector<model::AirConditionerVariableRefrigerantFlow> _systems = systems();
 
   int i = 1;
 
-  for( std::vector<model::AirConditionerVariableRefrigerantFlow>::const_iterator it = _systems.begin();
-       it != _systems.end();
-       ++it )
-  {
-    if( *it == system )
-    {
+  for (std::vector<model::AirConditionerVariableRefrigerantFlow>::const_iterator it = _systems.begin(); it != _systems.end(); ++it) {
+    if (*it == system) {
       break;
     }
 
@@ -383,38 +339,35 @@ int VRFSystemListController::systemIndex(const model::AirConditionerVariableRefr
   return i;
 }
 
-void VRFSystemListController::createNewSystem()
-{
-  if( boost::optional<model::Model> model = OSAppBase::instance()->currentModel() )
-  {
+void VRFSystemListController::createNewSystem() {
+  if (boost::optional<model::Model> model = OSAppBase::instance()->currentModel()) {
     model::AirConditionerVariableRefrigerantFlow system(model.get());
 
     emit itemInserted(systemIndex(system));
   }
 }
 
-void VRFSystemListController::addSystem(const OSItemId & itemid)
-{
+void VRFSystemListController::addSystem(const OSItemId& itemid) {
   auto doc = OSAppBase::instance()->currentDocument();
   auto model = OSAppBase::instance()->currentModel();
 
-  if( ! model ) return;
+  if (!model) return;
 
-  if( doc->fromComponentLibrary(itemid) ) {
+  if (doc->fromComponentLibrary(itemid)) {
     auto mo = doc->getModelObject(itemid);
 
-    if( mo ) {
-      if( auto system = mo->optionalCast<model::AirConditionerVariableRefrigerantFlow>() ) {
+    if (mo) {
+      if (auto system = mo->optionalCast<model::AirConditionerVariableRefrigerantFlow>()) {
         auto systemClone = system->clone(model.get()).cast<model::AirConditionerVariableRefrigerantFlow>();
         emit itemInserted(systemIndex(systemClone));
       }
     }
   } else {
-    if( auto component = doc->getComponent(itemid) ) {
-      if( auto system = component->primaryObject().optionalCast<model::AirConditionerVariableRefrigerantFlow>() ) {
+    if (auto component = doc->getComponent(itemid)) {
+      if (auto system = component->primaryObject().optionalCast<model::AirConditionerVariableRefrigerantFlow>()) {
         // Ugly hack to avoid the component being treated as a resource.
         component->componentData().setString(OS_ComponentDataFields::UUID, toString(createUUID()));
-        if( auto componentData = model->insertComponent(component.get()) ) {
+        if (auto componentData = model->insertComponent(component.get())) {
           system = componentData->primaryComponentObject().optionalCast<model::AirConditionerVariableRefrigerantFlow>();
           OS_ASSERT(system);
           emit itemInserted(systemIndex(system.get()));
@@ -424,26 +377,21 @@ void VRFSystemListController::addSystem(const OSItemId & itemid)
   }
 }
 
-void VRFSystemListController::removeSystem(model::AirConditionerVariableRefrigerantFlow & vrfSystem)
-{
+void VRFSystemListController::removeSystem(model::AirConditionerVariableRefrigerantFlow& vrfSystem) {
   std::vector<model::ZoneHVACTerminalUnitVariableRefrigerantFlow> terminals = vrfSystem.terminals();
-  if( ! terminals.empty() )
-  {
+  if (!terminals.empty()) {
     QMessageBox message(m_vrfController->vrfView());
 
     QString text;
     int size = (int)terminals.size();
-    if( size == 1 )
-    {
+    if (size == 1) {
       text.append("There is ");
       text.append(QString::number(size));
-      text.append( " terminal ");
-    }
-    else
-    {
+      text.append(" terminal ");
+    } else {
       text.append("There are ");
       text.append(QString::number(size));
-      text.append( " terminals ");
+      text.append(" terminals ");
     }
     text.append("attached to this system which will be removed if you continue.");
     message.setText(text);
@@ -451,18 +399,14 @@ void VRFSystemListController::removeSystem(model::AirConditionerVariableRefriger
     message.addButton(QMessageBox::Ok);
     int response = message.exec();
 
-    if( response != QMessageBox::Ok )
-    {
+    if (response != QMessageBox::Ok) {
       return;
     }
   }
 
   int i = systemIndex(vrfSystem);
 
-  for(auto it = terminals.begin();
-      it != terminals.end();
-      ++it)
-  {
+  for (auto it = terminals.begin(); it != terminals.end(); ++it) {
     it->remove();
   }
   vrfSystem.remove();
@@ -470,17 +414,14 @@ void VRFSystemListController::removeSystem(model::AirConditionerVariableRefriger
   emit itemRemoved(i);
 }
 
-void VRFSystemListItem::zoomInOnSystem()
-{
-  qobject_cast<VRFSystemListController *>(controller())->vrfController()->zoomInOnSystem(m_vrfSystem);
+void VRFSystemListItem::zoomInOnSystem() {
+  qobject_cast<VRFSystemListController*>(controller())->vrfController()->zoomInOnSystem(m_vrfSystem);
 }
 
-std::vector<model::AirConditionerVariableRefrigerantFlow> VRFSystemListController::systems() const
-{
+std::vector<model::AirConditionerVariableRefrigerantFlow> VRFSystemListController::systems() const {
   std::vector<model::AirConditionerVariableRefrigerantFlow> result;
 
-  if( boost::optional<model::Model> model = OSAppBase::instance()->currentModel() )
-  {
+  if (boost::optional<model::Model> model = OSAppBase::instance()->currentModel()) {
     result = model->getModelObjects<model::AirConditionerVariableRefrigerantFlow>();
   }
 
@@ -489,55 +430,39 @@ std::vector<model::AirConditionerVariableRefrigerantFlow> VRFSystemListControlle
   return result;
 }
 
-VRFSystemListItem::VRFSystemListItem(const model::AirConditionerVariableRefrigerantFlow & vrfSystem,OSListController * listController)
-  : OSListItem(listController),
-    m_vrfSystem(vrfSystem)
-{
-}
+VRFSystemListItem::VRFSystemListItem(const model::AirConditionerVariableRefrigerantFlow& vrfSystem, OSListController* listController)
+  : OSListItem(listController), m_vrfSystem(vrfSystem) {}
 
-QString VRFSystemListItem::systemName() const
-{
+QString VRFSystemListItem::systemName() const {
   return QString::fromStdString(m_vrfSystem.name().get());
 }
 
-int VRFSystemListItem::numberOfConnectedZones() const
-{
+int VRFSystemListItem::numberOfConnectedZones() const {
   int result = 0;
   std::vector<model::ZoneHVACTerminalUnitVariableRefrigerantFlow> terminals;
   terminals = m_vrfSystem.terminals();
-  for(auto it = terminals.begin();
-      it != terminals.end();
-      ++it)
-  {
-    if( it->thermalZone() )
-    {
+  for (auto it = terminals.begin(); it != terminals.end(); ++it) {
+    if (it->thermalZone()) {
       result++;
     }
   }
   return result;
 }
 
-int VRFSystemListItem::numberOfConnectedTerminals() const
-{
+int VRFSystemListItem::numberOfConnectedTerminals() const {
   return (int)m_vrfSystem.terminals().size();
 }
 
-void VRFSystemListItem::remove()
-{
-  qobject_cast<VRFSystemListController *>(controller())->removeSystem(m_vrfSystem);
+void VRFSystemListItem::remove() {
+  qobject_cast<VRFSystemListController*>(controller())->removeSystem(m_vrfSystem);
 }
 
-VRFSystemListDropZoneItem::VRFSystemListDropZoneItem(OSListController * listController)
-  : OSListItem(listController)
-{
-}
+VRFSystemListDropZoneItem::VRFSystemListDropZoneItem(OSListController* listController) : OSListItem(listController) {}
 
-QGraphicsObject * VRFSystemItemDelegate::view(QSharedPointer<OSListItem> dataSource)
-{
-  QGraphicsObject * itemView = nullptr;
+QGraphicsObject* VRFSystemItemDelegate::view(QSharedPointer<OSListItem> dataSource) {
+  QGraphicsObject* itemView = nullptr;
 
-  if( QSharedPointer<VRFSystemListItem> listItem = dataSource.dynamicCast<VRFSystemListItem>() )
-  {
+  if (QSharedPointer<VRFSystemListItem> listItem = dataSource.dynamicCast<VRFSystemListItem>()) {
     auto vrfSystemMiniView = new VRFSystemMiniView();
 
     connect(vrfSystemMiniView->removeButtonItem, &RemoveButtonItem::mouseClicked, listItem.data(), &VRFSystemListItem::remove);
@@ -549,13 +474,11 @@ QGraphicsObject * VRFSystemItemDelegate::view(QSharedPointer<OSListItem> dataSou
     vrfSystemMiniView->setNumberOfTerminals(listItem->numberOfConnectedTerminals());
 
     itemView = vrfSystemMiniView;
-  }
-  else if( dataSource.dynamicCast<VRFSystemListDropZoneItem>() )
-  {
+  } else if (dataSource.dynamicCast<VRFSystemListDropZoneItem>()) {
     auto vrfSystemDropZoneView = new VRFSystemDropZoneView();
 
-    connect(vrfSystemDropZoneView, &VRFSystemDropZoneView::componentDropped,
-      qobject_cast<VRFSystemListController *>(dataSource->controller()), &VRFSystemListController::addSystem);
+    connect(vrfSystemDropZoneView, &VRFSystemDropZoneView::componentDropped, qobject_cast<VRFSystemListController*>(dataSource->controller()),
+            &VRFSystemListController::addSystem);
 
     itemView = vrfSystemDropZoneView;
   }
@@ -563,4 +486,4 @@ QGraphicsObject * VRFSystemItemDelegate::view(QSharedPointer<OSListItem> dataSou
   return itemView;
 }
 
-} // openstudio
+}  // namespace openstudio

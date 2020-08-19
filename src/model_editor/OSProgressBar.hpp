@@ -46,10 +46,10 @@ class QWidget;
   *  would be preferred to connect your own heap allocated QObject to the signals directly rather
   *  than using this convenience class.
   **/
-class OSProgressBar : public openstudio::ProgressBar {
+class OSProgressBar : public openstudio::ProgressBar
+{
 
-public:
-
+ public:
   /// constructor
   OSProgressBar(QWidget* parent = nullptr);
 
@@ -92,7 +92,7 @@ public:
   /// virtual method called every time percentageUpdated fires
   virtual void onPercentageUpdated(double percentage);
 
-// public slots:
+  // public slots:
 
   /// set range
   void setRange(int min, int max);
@@ -103,16 +103,13 @@ public:
   /// set window title
   void setWindowTitle(const QString& windowTitle);
 
-protected:
-
+ protected:
   /// return the impl
   //std::shared_ptr<QProgressBar> impl() const;
 
-private:
+ private:
   /// impl
   std::shared_ptr<QProgressBar> m_impl;
-
 };
 
-
-#endif //MODELEDITOR_OSProgressBar_HPP
+#endif  //MODELEDITOR_OSProgressBar_HPP

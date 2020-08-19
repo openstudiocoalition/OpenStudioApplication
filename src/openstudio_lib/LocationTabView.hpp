@@ -50,38 +50,35 @@ class DesignDayGridView;
 class OSItemSelectorButtons;
 
 namespace model {
-  class Model;
-  class Site;
-  class YearDescription;
-}
+class Model;
+class Site;
+class YearDescription;
+}  // namespace model
 
 class LocationView : public QWidget
 {
 
   Q_OBJECT
 
-public:
-
-  LocationView(bool isIP,
-    const model::Model & model,
-    const QString& modelTempDir);
+ public:
+  LocationView(bool isIP, const model::Model& model, const QString& modelTempDir);
 
   virtual ~LocationView();
 
-  virtual bool supportsMultipleObjectSelection() const { return true; }
+  virtual bool supportsMultipleObjectSelection() const {
+    return true;
+  }
 
   virtual std::vector<model::ModelObject> selectedObjects() const;
 
   bool calendarYearChecked();
 
-protected:
-
+ protected:
   void onSelectModelObject(const openstudio::model::ModelObject& modelObject);
 
   void onUpdate();
 
-private:
-
+ private:
   void update();
 
   void loadQSettings();
@@ -95,35 +92,35 @@ private:
   model::Model m_model;
   boost::optional<model::Site> m_site;
   boost::optional<model::YearDescription> m_yearDescription;
-  YearSettingsWidget * m_yearSettingsWidget = nullptr;
-  DesignDayGridView * m_designDaysGridView = nullptr;
-  OSItemSelectorButtons * m_itemSelectorButtons = nullptr;
+  YearSettingsWidget* m_yearSettingsWidget = nullptr;
+  DesignDayGridView* m_designDaysGridView = nullptr;
+  OSItemSelectorButtons* m_itemSelectorButtons = nullptr;
   QString m_modelTempDir = QString();
   QString m_lastEpwPathOpened = QString();
   QString m_lastDdyPathOpened = QString();
-  QComboBox * m_ashraeClimateZone = nullptr;
-  QComboBox * m_cecClimateZone = nullptr;
-  QLineEdit * m_siteName = nullptr;
-  QLabel * m_latitudeLbl = nullptr;
-  QLabel * m_longitudeLbl = nullptr;
-  QLabel * m_elevationLbl = nullptr;
-  QLabel * m_timeZoneLbl = nullptr;
-  QPushButton * m_weatherFileBtn = nullptr;
+  QComboBox* m_ashraeClimateZone = nullptr;
+  QComboBox* m_cecClimateZone = nullptr;
+  QLineEdit* m_siteName = nullptr;
+  QLabel* m_latitudeLbl = nullptr;
+  QLabel* m_longitudeLbl = nullptr;
+  QLabel* m_elevationLbl = nullptr;
+  QLabel* m_timeZoneLbl = nullptr;
+  QPushButton* m_weatherFileBtn = nullptr;
   bool m_isIP;
 
-signals:
+ signals:
 
   void calendarYearSelectionChanged();
 
-  void modelObjectSelected(model::OptionalModelObject & modelObject, bool readOnly);
+  void modelObjectSelected(model::OptionalModelObject& modelObject, bool readOnly);
 
   void toggleUnitsClicked(bool displayIP);
 
-public slots:
+ public slots:
 
   void refresh();
 
-private slots:
+ private slots:
 
   void onSelectItem();
 
@@ -131,23 +128,23 @@ private slots:
 
   void toggleUnits(bool);
 
-  void onSiteNameChanged(const QString & text);
+  void onSiteNameChanged(const QString& text);
 
   void checkNumDesignDays();
 
   void setCalendarYear(int year);
 
-  void setFirstDayofYear(const QString & firstDayofYear);
+  void setFirstDayofYear(const QString& firstDayofYear);
 
   void setDaylightSavingsTime(bool enabled);
 
   void setDstStartDayOfWeekAndMonth(int newWeek, int newDay, int newMonth);
 
-  void setDstStartDate(const QDate & newdate);
+  void setDstStartDate(const QDate& newdate);
 
   void setDstEndDayOfWeekAndMonth(int newWeek, int newDay, int newMonth);
 
-  void setDstEndDate(const QDate & newdate);
+  void setDstEndDate(const QDate& newdate);
 
   void onWeatherFileBtnClicked();
 
@@ -156,27 +153,21 @@ private slots:
   void onASHRAEClimateZoneChanged(const QString& climateZone);
 
   void onCECClimateZoneChanged(const QString& climateZone);
-
 };
 
 class LocationTabView : public MainTabView
 {
   Q_OBJECT
 
-public:
-
-  LocationTabView(const model::Model & model,
-                  const QString& modelTempDir,
-                  QWidget * parent = nullptr);
+ public:
+  LocationTabView(const model::Model& model, const QString& modelTempDir, QWidget* parent = nullptr);
 
   virtual ~LocationTabView();
 
-private:
-
-  LocationView * m_locationView;
-
+ private:
+  LocationView* m_locationView;
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_LOCATIONTABVIEW_HPP
+#endif  // OPENSTUDIO_LOCATIONTABVIEW_HPP

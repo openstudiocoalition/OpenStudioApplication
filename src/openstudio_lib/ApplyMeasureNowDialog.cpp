@@ -83,25 +83,24 @@ namespace openstudio {
 
 ApplyMeasureNowDialog::ApplyMeasureNowDialog(QWidget* parent)
   : OSDialog(false, parent),
-  m_editController(nullptr),
-  m_mainPaneStackedWidget(nullptr),
-  m_rightPaneStackedWidget(nullptr),
-  m_argumentsFailedTextEdit(nullptr),
-  m_jobItemView(nullptr),
-  m_timer(nullptr),
-  m_showAdvancedOutput(nullptr),
-  m_advancedOutput(QString()),
-  m_workingDir(openstudio::path()),
-  m_workingFilesDir(openstudio::path()),
-  m_advancedOutputDialog(nullptr)
-{
+    m_editController(nullptr),
+    m_mainPaneStackedWidget(nullptr),
+    m_rightPaneStackedWidget(nullptr),
+    m_argumentsFailedTextEdit(nullptr),
+    m_jobItemView(nullptr),
+    m_timer(nullptr),
+    m_showAdvancedOutput(nullptr),
+    m_advancedOutput(QString()),
+    m_workingDir(openstudio::path()),
+    m_workingFilesDir(openstudio::path()),
+    m_advancedOutputDialog(nullptr) {
   setWindowTitle("Apply Measure Now");
   setWindowModality(Qt::ApplicationModal);
   setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
   createWidgets();
 
-  OSAppBase * app = OSAppBase::instance();
-  connect(this, &ApplyMeasureNowDialog::reloadFile, static_cast<OpenStudioApp *>(app), &OpenStudioApp::reloadFile, Qt::QueuedConnection);
+  OSAppBase* app = OSAppBase::instance();
+  connect(this, &ApplyMeasureNowDialog::reloadFile, static_cast<OpenStudioApp*>(app), &OpenStudioApp::reloadFile, Qt::QueuedConnection);
 
   m_advancedOutputDialog = new TextEditDialog("Advanced Output");
 
@@ -121,7 +120,7 @@ ApplyMeasureNowDialog::ApplyMeasureNowDialog(QWidget* parent)
 
   // copy the weather file reference
   boost::optional<openstudio::path> weatherFile = m_modelWorkflowJSON.weatherFile();
-  if (weatherFile){
+  if (weatherFile) {
     m_tempWorkflowJSON.setWeatherFile(*weatherFile);
   }
 
@@ -129,7 +128,7 @@ ApplyMeasureNowDialog::ApplyMeasureNowDialog(QWidget* parent)
   m_tempWorkflowJSON.addFilePath(m_workingFilesDir);
 
   // add file paths from current workflow so we can find weather file
-  for (const auto& absoluteFilePath : m_modelWorkflowJSON.absoluteFilePaths()){
+  for (const auto& absoluteFilePath : m_modelWorkflowJSON.absoluteFilePaths()) {
     m_tempWorkflowJSON.addFilePath(absoluteFilePath);
   }
 
@@ -139,12 +138,11 @@ ApplyMeasureNowDialog::ApplyMeasureNowDialog(QWidget* parent)
   app->currentModel()->setWorkflowJSON(m_tempWorkflowJSON);
 }
 
-ApplyMeasureNowDialog::~ApplyMeasureNowDialog()
-{
+ApplyMeasureNowDialog::~ApplyMeasureNowDialog() {
   // DLM: would be nice if this was not needed..
   // restore app state, the app's library controller was swapped out in createWidgets
-  openstudio::OSAppBase * app = OSAppBase::instance();
-  if (app){
+  openstudio::OSAppBase* app = OSAppBase::instance();
+  if (app) {
     app->measureManager().setLibraryController(app->currentDocument()->mainRightColumnController()->measureLibraryController());
 
     // restore the model's workflow JSON
@@ -152,27 +150,25 @@ ApplyMeasureNowDialog::~ApplyMeasureNowDialog()
     app->currentModel()->setWorkflowJSON(m_modelWorkflowJSON);
   }
 
-  if(m_advancedOutputDialog){
+  if (m_advancedOutputDialog) {
     delete m_advancedOutputDialog;
   }
 }
 
-QSize ApplyMeasureNowDialog::sizeHint() const
-{
-  return QSize(770,560);
+QSize ApplyMeasureNowDialog::sizeHint() const {
+  return QSize(770, 560);
 }
 
-void ApplyMeasureNowDialog::createWidgets()
-{
-  QWidget * widget = nullptr;
-  QBoxLayout * layout = nullptr;
-  QLabel * label = nullptr;
+void ApplyMeasureNowDialog::createWidgets() {
+  QWidget* widget = nullptr;
+  QBoxLayout* layout = nullptr;
+  QLabel* label = nullptr;
 
-  openstudio::OSAppBase * app = OSAppBase::instance();
+  openstudio::OSAppBase* app = OSAppBase::instance();
 
   // PAGE STACKED WIDGET
 
-  m_mainPaneStackedWidget = new  QStackedWidget();
+  m_mainPaneStackedWidget = new QStackedWidget();
   upperLayout()->addWidget(m_mainPaneStackedWidget);
 
   // INPUT
@@ -180,9 +176,9 @@ void ApplyMeasureNowDialog::createWidgets()
   m_argumentsFailedTextEdit = new QTextEdit(FAILED_ARG_TEXT);
   m_argumentsFailedTextEdit->setReadOnly(true);
 
-  m_editController = QSharedPointer<EditController>( new EditController(true) );
+  m_editController = QSharedPointer<EditController>(new EditController(true));
   bool onlyShowModelMeasures = true;
-  m_localLibraryController = QSharedPointer<LocalLibraryController>( new LocalLibraryController(app,onlyShowModelMeasures) );
+  m_localLibraryController = QSharedPointer<LocalLibraryController>(new LocalLibraryController(app, onlyShowModelMeasures));
   m_localLibraryController->localLibraryView->setStyleSheet("QStackedWidget { border-top: 0px; }");
   m_localLibraryController->localLibraryView->addBCLMeasureButton->setVisible(false);
 
@@ -192,7 +188,7 @@ void ApplyMeasureNowDialog::createWidgets()
   app->measureManager().updateMeasuresLists();
   app->currentDocument()->enable();
 
-  m_rightPaneStackedWidget = new  QStackedWidget();
+  m_rightPaneStackedWidget = new QStackedWidget();
   m_argumentsFailedPageIdx = m_rightPaneStackedWidget->addWidget(m_argumentsFailedTextEdit);
 
   auto viewSwitcher = new OSViewSwitcher();
@@ -219,8 +215,8 @@ void ApplyMeasureNowDialog::createWidgets()
 
   layout = new QVBoxLayout();
   layout->addStretch();
-  layout->addWidget(label,0,Qt::AlignCenter);
-  layout->addWidget(busyWidget,0,Qt::AlignCenter);
+  layout->addWidget(label, 0, Qt::AlignCenter);
+  layout->addWidget(busyWidget, 0, Qt::AlignCenter);
   layout->addStretch();
 
   widget = new QWidget();
@@ -236,14 +232,14 @@ void ApplyMeasureNowDialog::createWidgets()
 
   m_jobPath = new QLabel();
   m_jobPath->setTextInteractionFlags(Qt::TextSelectableByMouse);
-  #if !(_DEBUG || (__GNUC__ && !NDEBUG))
-    m_jobPath->hide();
-  #endif
+#if !(_DEBUG || (__GNUC__ && !NDEBUG))
+  m_jobPath->hide();
+#endif
 
   layout = new QVBoxLayout();
   layout->addWidget(label);
   layout->addWidget(m_jobPath);
-  layout->addWidget(m_jobItemView,0,Qt::AlignTop);
+  layout->addWidget(m_jobItemView, 0, Qt::AlignTop);
 
   layout->addStretch();
 
@@ -282,15 +278,14 @@ void ApplyMeasureNowDialog::createWidgets()
 
   // OS SETTINGS
 
-  #ifdef Q_OS_DARWIN
-    setWindowFlags(Qt::FramelessWindowHint);
-  #elif defined(Q_OS_WIN)
-    setWindowFlags(Qt::WindowCloseButtonHint | Qt::MSWindowsFixedSizeDialogHint);
-  #endif
+#ifdef Q_OS_DARWIN
+  setWindowFlags(Qt::FramelessWindowHint);
+#elif defined(Q_OS_WIN)
+  setWindowFlags(Qt::WindowCloseButtonHint | Qt::MSWindowsFixedSizeDialogHint);
+#endif
 }
 
-void ApplyMeasureNowDialog::displayMeasure()
-{
+void ApplyMeasureNowDialog::displayMeasure() {
   this->okButton()->setText(APPLY_MEASURE);
   this->okButton()->show();
   this->okButton()->setEnabled(false);
@@ -302,11 +297,11 @@ void ApplyMeasureNowDialog::displayMeasure()
   m_model.reset();
   m_reloadPath.reset();
 
-  openstudio::OSAppBase * app = OSAppBase::instance();
+  openstudio::OSAppBase* app = OSAppBase::instance();
 
   QPointer<LibraryItem> selectedItem = m_localLibraryController->selectedItem();
 
-  if (!selectedItem){
+  if (!selectedItem) {
     return;
   }
 
@@ -324,7 +319,7 @@ void ApplyMeasureNowDialog::displayMeasure()
 
     // Since we set the measure_paths, we only neeed to reference the name of the directory (=last level directory name)
     // eg: /path/to/measure_folder => measure_folder
-    MeasureStep step(toString( getLastLevelDirectoryName( m_bclMeasure->directory() ) ));
+    MeasureStep step(toString(getLastLevelDirectoryName(m_bclMeasure->directory())));
     std::vector<WorkflowStep> steps;
     steps.push_back(step);
     m_tempWorkflowJSON.setWorkflowSteps(steps);
@@ -346,7 +341,7 @@ void ApplyMeasureNowDialog::displayMeasure()
 
     m_editController->setMeasureStepItem(m_currentMeasureStepItem.data(), app);
 
-  } catch (const std::exception & e) {
+  } catch (const std::exception& e) {
     QString errorMessage("Failed to display measure: \n\n");
     errorMessage += QString::fromStdString(e.what());
     errorMessage.prepend(FAILED_ARG_TEXT);
@@ -356,8 +351,7 @@ void ApplyMeasureNowDialog::displayMeasure()
   }
 }
 
-void ApplyMeasureNowDialog::runMeasure()
-{
+void ApplyMeasureNowDialog::runMeasure() {
   m_mainPaneStackedWidget->setCurrentIndex(m_runningPageIdx);
   m_timer->start(50);
   this->okButton()->hide();
@@ -377,7 +371,8 @@ void ApplyMeasureNowDialog::runMeasure()
   OS_ASSERT(!hasIncompleteArguments);
 
   m_runProcess = new QProcess(this);
-  connect(m_runProcess, static_cast<void(QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), this, &ApplyMeasureNowDialog::displayResults);
+  connect(m_runProcess, static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), this,
+          &ApplyMeasureNowDialog::displayResults);
 
   // Use OpenStudioApplicationPathHelpers to find the CLI
   QString openstudioExePath = toQString(openstudio::getOpenStudioCoreCLI());
@@ -386,19 +381,19 @@ void ApplyMeasureNowDialog::runMeasure()
   OS_ASSERT(tempWorkflowJSONPath);
 
   QStringList arguments;
-  arguments << "run" << "-m" << "-w" << toQString(*tempWorkflowJSONPath);
+  arguments << "run"
+            << "-m"
+            << "-w" << toQString(*tempWorkflowJSONPath);
   LOG(Debug, "openstudioExePath='" << toString(openstudioExePath) << "'");
   LOG(Debug, "run arguments" << arguments.join(";").toStdString());
 
   m_runProcess->start(openstudioExePath, arguments);
-
 }
 
-void ApplyMeasureNowDialog::displayResults()
-{
+void ApplyMeasureNowDialog::displayResults() {
   QString qstdout;
   QString qstderr;
-  if (m_runProcess){
+  if (m_runProcess) {
     qstdout.append(m_runProcess->readAllStandardOutput());
     qstderr.append(m_runProcess->readAllStandardError());
   }
@@ -414,9 +409,9 @@ void ApplyMeasureNowDialog::displayResults()
 
   this->okButton()->setText(ACCEPT_CHANGES);
   this->okButton()->show();
-  if (boost::filesystem::exists(*m_reloadPath)){
+  if (boost::filesystem::exists(*m_reloadPath)) {
     this->okButton()->setEnabled(true);
-  } else{
+  } else {
     this->okButton()->setEnabled(false);
   }
   this->backButton()->show();
@@ -428,13 +423,13 @@ void ApplyMeasureNowDialog::displayResults()
   m_jobItemView->update(*m_bclMeasure, outWorkflowJSON, false);
   m_jobItemView->setExpanded(true);
 
-  if(!outWorkflowJSON || !outWorkflowJSON->completedStatus() || outWorkflowJSON->completedStatus().get() != "Success"){
+  if (!outWorkflowJSON || !outWorkflowJSON->completedStatus() || outWorkflowJSON->completedStatus().get() != "Success") {
     this->okButton()->setDisabled(true);
   }
 
   m_advancedOutput.clear();
 
-  try{
+  try {
 
     m_advancedOutput = "";
 
@@ -446,11 +441,10 @@ void ApplyMeasureNowDialog::displayResults()
     m_advancedOutput += qstderr;
     m_advancedOutput += QString("\n");
 
-    openstudio::path logPath =  m_workingDir / toPath("run/run.log");
+    openstudio::path logPath = m_workingDir / toPath("run/run.log");
     m_advancedOutput += "<b>run.log:</b>\n";
     QFile file(toQString(logPath));
-    if (file.open(QFile::ReadOnly))
-    {
+    if (file.open(QFile::ReadOnly)) {
       QTextStream docIn(&file);
       m_advancedOutput += docIn.readAll();
       file.close();
@@ -460,13 +454,11 @@ void ApplyMeasureNowDialog::displayResults()
 
     m_advancedOutput.replace("\n", "<br>");
 
-  }catch(std::exception&){
+  } catch (std::exception&) {
   }
-
 }
 
-void ApplyMeasureNowDialog::removeWorkingDir()
-{
+void ApplyMeasureNowDialog::removeWorkingDir() {
   bool test = removeDirectory(m_workingDir);
   OS_ASSERT(test);
 }
@@ -481,15 +473,14 @@ void ApplyMeasureNowDialog::createWorkingDir() {
 
 DataPointJobHeaderView::DataPointJobHeaderView()
   : OSHeader(new HeaderToggleButton()),
-  m_name(nullptr),
-  m_lastRunTime(nullptr),
-  m_status(nullptr),
-  m_na(nullptr),
-  m_warnings(nullptr),
-  m_errors(nullptr)
-{
+    m_name(nullptr),
+    m_lastRunTime(nullptr),
+    m_status(nullptr),
+    m_na(nullptr),
+    m_warnings(nullptr),
+    m_errors(nullptr) {
   auto mainHLayout = new QHBoxLayout();
-  mainHLayout->setContentsMargins(15,5,5,5);
+  mainHLayout->setContentsMargins(15, 5, 5, 5);
   mainHLayout->setSpacing(5);
   mainHLayout->setAlignment(Qt::AlignLeft);
   setLayout(mainHLayout);
@@ -522,36 +513,31 @@ DataPointJobHeaderView::DataPointJobHeaderView()
   mainHLayout->addWidget(m_errors);
 }
 
-void DataPointJobHeaderView::setName(const std::string& name)
-{
+void DataPointJobHeaderView::setName(const std::string& name) {
   m_name->setText(toQString(name));
 }
 
-void DataPointJobHeaderView::setLastRunTime(const boost::optional<openstudio::DateTime>& lastRunTime)
-{
-  if (lastRunTime){
+void DataPointJobHeaderView::setLastRunTime(const boost::optional<openstudio::DateTime>& lastRunTime) {
+  if (lastRunTime) {
     std::string s = lastRunTime->toString();
     m_lastRunTime->setText(toQString(s));
-  }else{
+  } else {
     m_lastRunTime->setText("Not Started");
   }
 }
 
-void DataPointJobHeaderView::setStatus(const std::string& status, bool isCanceled)
-{
-  if (!isCanceled)
-  {
+void DataPointJobHeaderView::setStatus(const std::string& status, bool isCanceled) {
+  if (!isCanceled) {
     m_status->setText(toQString(status));
   } else {
-   m_status->setText("Canceled");
+    m_status->setText("Canceled");
   }
 }
 
-void DataPointJobHeaderView::setNA(bool na)
-{
+void DataPointJobHeaderView::setNA(bool na) {
   QString text;
   QString naStyle;
-  if (na){
+  if (na) {
     text = "   NA";
     naStyle = "QLabel { color : #C47B06; }";
   }
@@ -559,103 +545,86 @@ void DataPointJobHeaderView::setNA(bool na)
   m_na->setStyleSheet(naStyle);
 }
 
-void DataPointJobHeaderView::setNumWarnings(unsigned numWarnings)
-{
+void DataPointJobHeaderView::setNumWarnings(unsigned numWarnings) {
   QString warningsStyle;
-  if (numWarnings > 0){
+  if (numWarnings > 0) {
     warningsStyle = "QLabel { color : #C47B06; }";
   }
   m_warnings->setText(QString::number(numWarnings) + QString(numWarnings == 1 ? " Warning" : " Warnings"));
   m_warnings->setStyleSheet(warningsStyle);
 }
 
-void DataPointJobHeaderView::setNumErrors(unsigned numErrors)
-{
+void DataPointJobHeaderView::setNumErrors(unsigned numErrors) {
   QString errorsStyle;
-  if (numErrors > 0){
+  if (numErrors > 0) {
     errorsStyle = "QLabel { color : red; }";
   }
   m_errors->setText(QString::number(numErrors) + QString(numErrors == 1 ? " Error" : " Errors"));
   m_errors->setStyleSheet(errorsStyle);
 }
 
-DataPointJobContentView::DataPointJobContentView()
-  : QWidget(),
-  m_textEdit(nullptr)
-{
+DataPointJobContentView::DataPointJobContentView() : QWidget(), m_textEdit(nullptr) {
   auto mainHLayout = new QHBoxLayout();
-  mainHLayout->setContentsMargins(15,5,5,5);
+  mainHLayout->setContentsMargins(15, 5, 5, 5);
   mainHLayout->setSpacing(0);
   mainHLayout->setAlignment(Qt::AlignLeft);
   setLayout(mainHLayout);
 
   m_textEdit = new QLabel();
-  m_textEdit->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
+  m_textEdit->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
   m_textEdit->setWordWrap(true);
   m_textEdit->setOpenExternalLinks(true);
 
   mainHLayout->addWidget(m_textEdit);
 }
 
-void DataPointJobContentView::clear()
-{
+void DataPointJobContentView::clear() {
   m_textEdit->setText("");
 }
 
-QString DataPointJobContentView::formatMessageForHTML(const std::string &t_message)
-{
+QString DataPointJobContentView::formatMessageForHTML(const std::string& t_message) {
   QString str = QString::fromStdString(t_message);
   str.replace("\n", "<br>");
   return str;
 }
 
-void DataPointJobContentView::addInitialConditionMessage(const std::string& message)
-{
+void DataPointJobContentView::addInitialConditionMessage(const std::string& message) {
   QString html = m_textEdit->text();
   html += QString("<b style=\"color:blue\">Initial Condition</b>: ") + formatMessageForHTML(message) + QString("<br></br>");
   m_textEdit->setText(html);
 }
 
-void DataPointJobContentView::addFinalConditionMessage(const std::string& message)
-{
+void DataPointJobContentView::addFinalConditionMessage(const std::string& message) {
   QString html = m_textEdit->text();
   html += QString("<b style=\"color:blue\">Final Condition</b>: ") + formatMessageForHTML(message) + QString("<br></br>");
   m_textEdit->setText(html);
 }
 
-void DataPointJobContentView::addInfoMessage(const std::string& message)
-{
+void DataPointJobContentView::addInfoMessage(const std::string& message) {
   QString html = m_textEdit->text();
   html += QString("<b style=\"color:green\">Info</b>: ") + formatMessageForHTML(message) + QString("<br></br>");
   m_textEdit->setText(html);
 }
 
-void DataPointJobContentView::addWarningMessage(const std::string& message)
-{
+void DataPointJobContentView::addWarningMessage(const std::string& message) {
   QString html = m_textEdit->text();
   html += QString("<b style=\"color:#C47B06\">Warning</b>: ") + formatMessageForHTML(message) + QString("<br></br>");
   m_textEdit->setText(html);
 }
 
-void DataPointJobContentView::addErrorMessage(const std::string& message)
-{
+void DataPointJobContentView::addErrorMessage(const std::string& message) {
   QString html = m_textEdit->text();
   html += QString("<b style=\"color:red\">Error</b>: ") + formatMessageForHTML(message) + QString("<br></br>");
   m_textEdit->setText(html);
 }
 
-void DataPointJobContentView::addStdErrorMessage(const std::string& message)
-{
+void DataPointJobContentView::addStdErrorMessage(const std::string& message) {
   QString html = m_textEdit->text();
   html += formatMessageForHTML(message) + QString("<br></br>");
   m_textEdit->setText(html);
 }
 
-DataPointJobItemView::DataPointJobItemView()
-  : OSCollapsibleView(true),
-  m_dataPointJobHeaderView(nullptr),
-  m_dataPointJobContentView(nullptr)
-{
+DataPointJobItemView::DataPointJobItemView() : OSCollapsibleView(true), m_dataPointJobHeaderView(nullptr), m_dataPointJobContentView(nullptr) {
   setStyleSheet("openstudio--pat--DataPointJobItemView { background: #C3C3C3; margin-left:10px; }");
 
   m_dataPointJobHeaderView = new DataPointJobHeaderView();
@@ -665,16 +634,14 @@ DataPointJobItemView::DataPointJobItemView()
   setContent(m_dataPointJobContentView);
 }
 
-void DataPointJobItemView::paintEvent(QPaintEvent * e)
-{
+void DataPointJobItemView::paintEvent(QPaintEvent* e) {
   QStyleOption opt;
   opt.init(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
 
-void DataPointJobItemView::update(const BCLMeasure & bclMeasure, const boost::optional<WorkflowJSON>& workflowJSON, bool canceled)
-{
+void DataPointJobItemView::update(const BCLMeasure& bclMeasure, const boost::optional<WorkflowJSON>& workflowJSON, bool canceled) {
   OS_ASSERT(m_dataPointJobHeaderView);
 
   m_dataPointJobHeaderView->setName(bclMeasure.className());
@@ -686,94 +653,91 @@ void DataPointJobItemView::update(const BCLMeasure & bclMeasure, const boost::op
   OS_ASSERT(m_dataPointJobContentView);
   m_dataPointJobContentView->clear();
 
-  if (!workflowJSON){
+  if (!workflowJSON) {
     // unknown error
     return;
   }
 
-  if(!workflowJSON->completedStatus() || workflowJSON->completedStatus().get() != "Success"){
+  if (!workflowJSON->completedStatus() || workflowJSON->completedStatus().get() != "Success") {
     // error
   }
 
   boost::optional<DateTime> completedAt = workflowJSON->completedAt();
-  if (completedAt){
+  if (completedAt) {
     m_dataPointJobHeaderView->setLastRunTime(*completedAt);
   }
 
   boost::optional<std::string> completedStatus = workflowJSON->completedStatus();
-  if (completedStatus){
+  if (completedStatus) {
     m_dataPointJobHeaderView->setStatus(*completedStatus, canceled);
-  }else{
+  } else {
     m_dataPointJobHeaderView->setStatus("Unknown", canceled);
   }
 
-  for (const auto& step : workflowJSON->workflowSteps()){
+  for (const auto& step : workflowJSON->workflowSteps()) {
 
     boost::optional<WorkflowStepResult> result = step.result();
-    if (!result){
+    if (!result) {
       continue;
     }
 
     boost::optional<std::string> initialCondition = result->stepInitialCondition();
-    if (initialCondition){
+    if (initialCondition) {
       m_dataPointJobContentView->addInitialConditionMessage(*initialCondition);
     }
 
     boost::optional<std::string> finalCondition = result->stepFinalCondition();
-    if (finalCondition){
+    if (finalCondition) {
       m_dataPointJobContentView->addFinalConditionMessage(*finalCondition);
     }
 
     std::vector<std::string> errors = result->stepErrors();
     m_dataPointJobHeaderView->setNumErrors(errors.size());
-    for (const std::string& errorMessage : errors){
+    for (const std::string& errorMessage : errors) {
       m_dataPointJobContentView->addErrorMessage(errorMessage);
     }
 
     std::vector<std::string> warnings = result->stepWarnings();
     m_dataPointJobHeaderView->setNumWarnings(warnings.size());
-    for (const std::string& warningMessage : warnings){
+    for (const std::string& warningMessage : warnings) {
       m_dataPointJobContentView->addWarningMessage(warningMessage);
     }
 
     std::vector<std::string> infos = result->stepInfo();
     // m_dataPointJobHeaderView->setNumInfos(infos.size());
-    for (const std::string& info : infos){
+    for (const std::string& info : infos) {
       m_dataPointJobContentView->addInfoMessage(info);
     }
 
     // there should only be on step so this is ok
     boost::optional<StepResult> stepResult = result->stepResult();
-    if (stepResult && stepResult->value() == StepResult::NA){
+    if (stepResult && stepResult->value() == StepResult::NA) {
       m_dataPointJobHeaderView->setNA(true);
-    }else{
+    } else {
       m_dataPointJobHeaderView->setNA(false);
     }
-
   }
-
 }
 
 /***** SLOTS *****/
 
-void ApplyMeasureNowDialog::on_cancelButton(bool checked)
-{
-  if(m_mainPaneStackedWidget->currentIndex() == m_inputPageIdx){
+void ApplyMeasureNowDialog::on_cancelButton(bool checked) {
+  if (m_mainPaneStackedWidget->currentIndex() == m_inputPageIdx) {
     // Nothing specific here
-  } else if(m_mainPaneStackedWidget->currentIndex() == m_runningPageIdx) {
-// TODO: fix
-//    if(m_job){
-//      m_job->requestStop();
-//      this->cancelButton()->setDisabled(true);
-//      this->okButton()->setDisabled(true);
-//      return;
-//    }
+  } else if (m_mainPaneStackedWidget->currentIndex() == m_runningPageIdx) {
+    // TODO: fix
+    //    if(m_job){
+    //      m_job->requestStop();
+    //      this->cancelButton()->setDisabled(true);
+    //      this->okButton()->setDisabled(true);
+    //      return;
+    //    }
     m_mainPaneStackedWidget->setCurrentIndex(m_inputPageIdx);
     m_timer->stop();
     this->okButton()->show();
     this->backButton()->show();
     return;
-  } else if(m_mainPaneStackedWidget->currentIndex() == m_outputPageIdx) {
+  } else if (m_mainPaneStackedWidget->currentIndex() == m_outputPageIdx) {
     m_mainPaneStackedWidget->setCurrentIndex(m_inputPageIdx);
   }
 
@@ -783,13 +747,12 @@ void ApplyMeasureNowDialog::on_cancelButton(bool checked)
   OSDialog::on_cancelButton(checked);
 }
 
-void ApplyMeasureNowDialog::on_backButton(bool checked)
-{
-  if(m_mainPaneStackedWidget->currentIndex() == m_inputPageIdx){
+void ApplyMeasureNowDialog::on_backButton(bool checked) {
+  if (m_mainPaneStackedWidget->currentIndex() == m_inputPageIdx) {
     // Nothing specific here
-  } else if(m_mainPaneStackedWidget->currentIndex() == m_runningPageIdx) {
+  } else if (m_mainPaneStackedWidget->currentIndex() == m_runningPageIdx) {
     // Nothing specific here
-  } else if(m_mainPaneStackedWidget->currentIndex() == m_outputPageIdx) {
+  } else if (m_mainPaneStackedWidget->currentIndex() == m_outputPageIdx) {
     this->okButton()->setEnabled(true);
     this->okButton()->setText(APPLY_MEASURE);
     this->backButton()->setEnabled(false);
@@ -797,21 +760,19 @@ void ApplyMeasureNowDialog::on_backButton(bool checked)
   }
 }
 
-void ApplyMeasureNowDialog::on_okButton(bool checked)
-{
-  if(m_mainPaneStackedWidget->currentIndex() == m_inputPageIdx){
+void ApplyMeasureNowDialog::on_okButton(bool checked) {
+  if (m_mainPaneStackedWidget->currentIndex() == m_inputPageIdx) {
     runMeasure();
-  } else if(m_mainPaneStackedWidget->currentIndex() == m_runningPageIdx) {
+  } else if (m_mainPaneStackedWidget->currentIndex() == m_runningPageIdx) {
     // N/A
     OS_ASSERT(false);
-  } else if(m_mainPaneStackedWidget->currentIndex() == m_outputPageIdx) {
+  } else if (m_mainPaneStackedWidget->currentIndex() == m_outputPageIdx) {
     // reload the model
     requestReload();
   }
 }
 
-void ApplyMeasureNowDialog::requestReload()
-{
+void ApplyMeasureNowDialog::requestReload() {
   // copy any files created in m_workingFilesDir
   std::vector<path> filePaths = m_modelWorkflowJSON.absoluteFilePaths();
   if (!filePaths.empty()) {
@@ -827,13 +788,12 @@ void ApplyMeasureNowDialog::requestReload()
   close();
 }
 
-void ApplyMeasureNowDialog::closeEvent(QCloseEvent *e)
-{
+void ApplyMeasureNowDialog::closeEvent(QCloseEvent* e) {
   //DLM: don't do this here in case we are going to load the model
   //removeWorkingDir();
 
   // DLM: do not allow closing window while running
-  if(m_mainPaneStackedWidget->currentIndex() == m_runningPageIdx){
+  if (m_mainPaneStackedWidget->currentIndex() == m_runningPageIdx) {
     e->ignore();
     return;
   }
@@ -841,16 +801,14 @@ void ApplyMeasureNowDialog::closeEvent(QCloseEvent *e)
   e->accept();
 }
 
-void ApplyMeasureNowDialog::disableOkButton(bool disable)
-{
+void ApplyMeasureNowDialog::disableOkButton(bool disable) {
   this->okButton()->setDisabled(disable);
 }
 
-void ApplyMeasureNowDialog::showAdvancedOutput()
-{
-  if(m_advancedOutput.isEmpty()){
+void ApplyMeasureNowDialog::showAdvancedOutput() {
+  if (m_advancedOutput.isEmpty()) {
     QMessageBox::information(this, QString("Advanced Output"), QString("No advanced output."));
-  }else{
+  } else {
     m_advancedOutputDialog->setText(m_advancedOutput);
     m_advancedOutputDialog->setSizeHint(QSize(this->geometry().width(), this->geometry().height()));
     m_advancedOutputDialog->exec();
@@ -858,4 +816,4 @@ void ApplyMeasureNowDialog::showAdvancedOutput()
   }
 }
 
-} // openstudio
+}  // namespace openstudio

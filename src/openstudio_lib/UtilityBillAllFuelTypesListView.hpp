@@ -47,41 +47,32 @@ class UtilityBillAllFuelTypesListView : public OSCollapsibleItemList
 {
   Q_OBJECT
 
-  public:
-    UtilityBillAllFuelTypesListView(const model::Model& model,
-                            bool addScrollArea,
-                            OSItemType headerType,
-                            QWidget * parent = nullptr);
+ public:
+  UtilityBillAllFuelTypesListView(const model::Model& model, bool addScrollArea, OSItemType headerType, QWidget* parent = nullptr);
 
-    UtilityBillAllFuelTypesListView(const std::vector<std::pair<FuelType, std::string> >& utilityBillFuelTypesAndNames,
-                            const model::Model& model,
-                            bool addScrollArea,
-                            OSItemType headerType,
-                            QWidget * parent = nullptr);
+  UtilityBillAllFuelTypesListView(const std::vector<std::pair<FuelType, std::string>>& utilityBillFuelTypesAndNames, const model::Model& model,
+                                  bool addScrollArea, OSItemType headerType, QWidget* parent = nullptr);
 
-    virtual ~UtilityBillAllFuelTypesListView() {}
+  virtual ~UtilityBillAllFuelTypesListView() {}
 
-    void addUtilityBillFuelType(const FuelType & fuelType, const std::string& name);
+  void addUtilityBillFuelType(const FuelType& fuelType, const std::string& name);
 
-    void addModelObjectType(const IddObjectType& iddObjectType, const std::string& name);
+  void addModelObjectType(const IddObjectType& iddObjectType, const std::string& name);
 
-    FuelType currentFuelType() const;
+  FuelType currentFuelType() const;
 
-    boost::optional<openstudio::FuelType> selectedFuelType() const;
+  boost::optional<openstudio::FuelType> selectedFuelType() const;
 
-    virtual boost::optional<openstudio::model::ModelObject> selectedModelObject() const;
+  virtual boost::optional<openstudio::model::ModelObject> selectedModelObject() const;
 
-  private:
+ private:
+  std::vector<std::pair<FuelType, std::string>> m_utilityBillFuelTypesAndNames;
 
-    std::vector<std::pair<FuelType, std::string> > m_utilityBillFuelTypesAndNames;
-
-    model::Model m_model;
-    OSItemType m_headerType;
-    bool m_showLocalBCL;
+  model::Model m_model;
+  OSItemType m_headerType;
+  bool m_showLocalBCL;
 };
 
+}  // namespace openstudio
 
-
-} // openstudio
-
-#endif // OPENSTUDIO_UTILITYBILLALLFUELTYPESLISTVIEW_HPP
+#endif  // OPENSTUDIO_UTILITYBILLALLFUELTYPESLISTVIEW_HPP

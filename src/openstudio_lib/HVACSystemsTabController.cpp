@@ -34,10 +34,7 @@
 
 namespace openstudio {
 
-HVACSystemsTabController::HVACSystemsTabController(bool isIP, const model::Model& model)
-  : MainTabController(new HVACSystemsTabView()),
-  m_isIP(isIP)
-{
+HVACSystemsTabController::HVACSystemsTabController(bool isIP, const model::Model& model) : MainTabController(new HVACSystemsTabView()), m_isIP(isIP) {
   m_hvacSystemsController = std::shared_ptr<HVACSystemsController>(new HVACSystemsController(isIP, model));
 
   connect(this, &HVACSystemsTabController::toggleUnitsClicked, m_hvacSystemsController.get(), &HVACSystemsController::toggleUnitsClicked);
@@ -47,15 +44,12 @@ HVACSystemsTabController::HVACSystemsTabController(bool isIP, const model::Model
   this->mainContentWidget()->addTabWidget(m_hvacSystemsController->hvacSystemsView());
 }
 
-void HVACSystemsTabController::clearSceneSelection()
-{
+void HVACSystemsTabController::clearSceneSelection() {
   m_hvacSystemsController->clearSceneSelection();
 }
 
-void HVACSystemsTabController::toggleUnits(bool displayIP)
-{
+void HVACSystemsTabController::toggleUnits(bool displayIP) {
   m_isIP = displayIP;
 }
 
-} // openstudio
-
+}  // namespace openstudio

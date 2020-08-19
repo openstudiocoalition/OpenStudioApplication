@@ -41,30 +41,27 @@ class HVACSystemsTabController : public MainTabController
 {
   Q_OBJECT
 
-  public:
-
+ public:
   HVACSystemsTabController(bool isIP, const model::Model& model);
 
   virtual ~HVACSystemsTabController() {}
 
   void clearSceneSelection();
 
-  private:
-
+ private:
   std::shared_ptr<HVACSystemsController> m_hvacSystemsController;
 
   bool m_isIP;
 
-  signals:
+ signals:
 
   void toggleUnitsClicked(bool displayIP);
 
-private slots:
+ private slots:
 
   void toggleUnits(bool displayIP);
-
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_HVACSYSTEMSTABCONTROLLER_HPP
+#endif  // OPENSTUDIO_HVACSYSTEMSTABCONTROLLER_HPP

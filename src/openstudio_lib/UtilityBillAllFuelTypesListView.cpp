@@ -48,43 +48,32 @@
 
 namespace openstudio {
 
-UtilityBillAllFuelTypesListView::UtilityBillAllFuelTypesListView(const model::Model& model,
-                                                 bool addScrollArea,
-                                                 OSItemType headerType,
-                                                 QWidget * parent )
-  : OSCollapsibleItemList(addScrollArea, parent), m_model(model), m_headerType(headerType)
-{
-}
+UtilityBillAllFuelTypesListView::UtilityBillAllFuelTypesListView(const model::Model& model, bool addScrollArea, OSItemType headerType,
+                                                                 QWidget* parent)
+  : OSCollapsibleItemList(addScrollArea, parent), m_model(model), m_headerType(headerType) {}
 
-UtilityBillAllFuelTypesListView::UtilityBillAllFuelTypesListView(const std::vector<std::pair<FuelType, std::string> >& utilityBillFuelTypesAndNames,
-                                                 const model::Model& model,
-                                                 bool addScrollArea,
-                                                 OSItemType headerType,
-                                                 QWidget * parent )
+UtilityBillAllFuelTypesListView::UtilityBillAllFuelTypesListView(const std::vector<std::pair<FuelType, std::string>>& utilityBillFuelTypesAndNames,
+                                                                 const model::Model& model, bool addScrollArea, OSItemType headerType,
+                                                                 QWidget* parent)
   : OSCollapsibleItemList(addScrollArea, parent),
     m_utilityBillFuelTypesAndNames(utilityBillFuelTypesAndNames),
     m_model(model),
-    m_headerType(headerType)
-{
-  for(auto utilityBillFuelTypesAndName = m_utilityBillFuelTypesAndNames.rbegin();
-      utilityBillFuelTypesAndName != m_utilityBillFuelTypesAndNames.rend();
-      ++utilityBillFuelTypesAndName)
-  {
+    m_headerType(headerType) {
+  for (auto utilityBillFuelTypesAndName = m_utilityBillFuelTypesAndNames.rbegin();
+       utilityBillFuelTypesAndName != m_utilityBillFuelTypesAndNames.rend(); ++utilityBillFuelTypesAndName) {
     addUtilityBillFuelType(utilityBillFuelTypesAndName->first, utilityBillFuelTypesAndName->second);
   }
 }
 
-void UtilityBillAllFuelTypesListView::addModelObjectType(const IddObjectType& iddObjectType, const std::string& name)
-{
+void UtilityBillAllFuelTypesListView::addModelObjectType(const IddObjectType& iddObjectType, const std::string& name) {
   OSCollapsibleItemHeader* collapsibleItemHeader = new OSCollapsibleItemHeader(name, OSItemId("", "", false), m_headerType);
-  auto modelObjectListView = new ModelObjectListView(iddObjectType, m_model, false,false);
+  auto modelObjectListView = new ModelObjectListView(iddObjectType, m_model, false, false);
   auto modelObjectTypeItem = new ModelObjectTypeItem(collapsibleItemHeader, modelObjectListView);
 
   addCollapsibleItem(modelObjectTypeItem);
 }
 
-void UtilityBillAllFuelTypesListView::addUtilityBillFuelType(const FuelType & fuelType, const std::string& name)
-{
+void UtilityBillAllFuelTypesListView::addUtilityBillFuelType(const FuelType& fuelType, const std::string& name) {
   OSCollapsibleItemHeader* collapsibleItemHeader = new OSCollapsibleItemHeader(name, OSItemId("", "", false), m_headerType);
   auto utilityBillFuelTypeListView = new UtilityBillFuelTypeListView(m_model, fuelType, false);
   auto utilityBillFuelTypeItem = new UtilityBillFuelTypeItem(collapsibleItemHeader, utilityBillFuelTypeListView);
@@ -92,29 +81,26 @@ void UtilityBillAllFuelTypesListView::addUtilityBillFuelType(const FuelType & fu
   addCollapsibleItem(utilityBillFuelTypeItem);
 }
 
-FuelType UtilityBillAllFuelTypesListView::currentFuelType() const
-{
+FuelType UtilityBillAllFuelTypesListView::currentFuelType() const {
   OSCollapsibleItem* selectedCollapsibleItem = this->selectedCollapsibleItem();
   UtilityBillFuelTypeItem* utilityBillFuelTypeItem = qobject_cast<UtilityBillFuelTypeItem*>(selectedCollapsibleItem);
   OS_ASSERT(utilityBillFuelTypeItem);
   return utilityBillFuelTypeItem->fuelType();
 }
 
-boost::optional<openstudio::model::ModelObject> UtilityBillAllFuelTypesListView::selectedModelObject() const
-{
+boost::optional<openstudio::model::ModelObject> UtilityBillAllFuelTypesListView::selectedModelObject() const {
   OSItem* selectedItem = this->selectedItem();
   ModelObjectItem* modelObjectItem = qobject_cast<ModelObjectItem*>(selectedItem);
-  if (modelObjectItem){
+  if (modelObjectItem) {
     return modelObjectItem->modelObject();
   }
   return boost::none;
 }
 
-boost::optional<openstudio::FuelType> UtilityBillAllFuelTypesListView::selectedFuelType() const
-{
+boost::optional<openstudio::FuelType> UtilityBillAllFuelTypesListView::selectedFuelType() const {
   boost::optional<openstudio::model::ModelObject> modelObject = selectedModelObject();
-  if(modelObject){
-    if(boost::optional<model::UtilityBill> utilityBill = modelObject.get().optionalCast<model::UtilityBill>()){
+  if (modelObject) {
+    if (boost::optional<model::UtilityBill> utilityBill = modelObject.get().optionalCast<model::UtilityBill>()) {
       return utilityBill.get().fuelType();
     }
     // Opps, its not a UtilityBill!
@@ -123,4 +109,4 @@ boost::optional<openstudio::FuelType> UtilityBillAllFuelTypesListView::selectedF
   return boost::none;
 }
 
-} // openstudio
+}  // namespace openstudio

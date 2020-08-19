@@ -57,7 +57,6 @@ enum NewFromTemplateEnum
   NEWFROMTEMPLATE_WIZARD
 };
 
-} //openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_SOCONSTANTS_HPP
-
+#endif  // OPENSTUDIO_SOCONSTANTS_HPP

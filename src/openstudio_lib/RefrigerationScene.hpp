@@ -38,18 +38,16 @@ class RefrigerationScene : public QGraphicsScene
 {
   Q_OBJECT
 
-  public:
-
+ public:
   RefrigerationScene();
 
   virtual ~RefrigerationScene() {}
 
-  public slots:
+ public slots:
 
   void layout();
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_REFRIGERATIONSCENE_HPP
-
+#endif  // OPENSTUDIO_REFRIGERATIONSCENE_HPP

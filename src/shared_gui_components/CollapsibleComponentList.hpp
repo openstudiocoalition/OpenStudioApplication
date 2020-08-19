@@ -46,25 +46,24 @@ class CollapsibleComponentList : public QWidget
 {
   Q_OBJECT
 
-public:
-  CollapsibleComponentList(QWidget * parent = nullptr);
-  CollapsibleComponentList(const std::vector<CollapsibleComponent *> & collapsibleComponents,
-    QWidget * parent = nullptr);
+ public:
+  CollapsibleComponentList(QWidget* parent = nullptr);
+  CollapsibleComponentList(const std::vector<CollapsibleComponent*>& collapsibleComponents, QWidget* parent = nullptr);
   virtual ~CollapsibleComponentList() {}
   // return the checked component in the list, NULL if list is empty
-  Component * checkedComponent() const;
+  Component* checkedComponent() const;
   // return the checked CollapsibleComponent in the list, NULL if list is empty
-  CollapsibleComponent * checkedCollapsibleComponent() const;
+  CollapsibleComponent* checkedCollapsibleComponent() const;
   // return the first CollapsibleComponent in the list, NULL if list is empty
-  CollapsibleComponent * firstCollapsibleComponent();
+  CollapsibleComponent* firstCollapsibleComponent();
   // return the last CollapsibleComponent in the list, NULL if list is empty
-  CollapsibleComponent * lastCollapsibleComponent();
+  CollapsibleComponent* lastCollapsibleComponent();
   // return all collapsibleComponents in the list
-  std::vector<CollapsibleComponent *> collapsibleComponents();
+  std::vector<CollapsibleComponent*> collapsibleComponents();
   // return all components in the list
-  std::vector<Component *> components();
+  std::vector<Component*> components();
   // add a collapsibleComponent
-  void addCollapsibleComponent(CollapsibleComponent * collapsibleComponent);
+  void addCollapsibleComponent(CollapsibleComponent* collapsibleComponent);
   // set the title text
   void setText(const QString& text);
   // set the page nav's numeric value displayed of BCL results
@@ -74,32 +73,31 @@ public:
   ///! set the page nav to display first page (pageIdx = 0)
   void firstPage();
 
-protected:
-  void paintEvent( QPaintEvent * event ) override;
+ protected:
+  void paintEvent(QPaintEvent* event) override;
 
-private:
+ private:
   void createLayout();
   // set the CollapsibleComponents
-  void setCollapsibleComponents(const std::vector<CollapsibleComponent *> & collapsibleComponents);
+  void setCollapsibleComponents(const std::vector<CollapsibleComponent*>& collapsibleComponents);
 
-  QVBoxLayout * m_mainLayout;
-  QHBoxLayout * m_contentLayout;
-  QButtonGroup * m_collapsibleComponentGroup;
+  QVBoxLayout* m_mainLayout;
+  QHBoxLayout* m_contentLayout;
+  QButtonGroup* m_collapsibleComponentGroup;
 
-signals:
+ signals:
   void headerClicked(bool checked);
   void componentClicked(bool checked);
   void collapsibleComponentClicked(bool checked);
   void getComponentsByPage(int pageNum);
 
-private slots:
+ private slots:
   void on_headerClicked(bool checked);
   void on_componentClicked(bool checked);
   void on_collapsibleComponentClicked(bool checked);
   void on_getComponentsByPage(int pageIdx);
-
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // SHAREDGUICOMPONENTS_COLLAPSIBLECOMPONENTLIST_HPP
+#endif  // SHAREDGUICOMPONENTS_COLLAPSIBLECOMPONENTLIST_HPP

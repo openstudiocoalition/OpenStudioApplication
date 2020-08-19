@@ -48,7 +48,7 @@ class QDir;
 namespace openstudio {
 
 namespace runmanager {
-  class RunManager;
+class RunManager;
 }
 class MainTabController;
 
@@ -68,23 +68,18 @@ class ApplyMeasureNowDialog;
 
 class Workspace;
 
-class OPENSTUDIO_API OSDocument : public OSQObjectController {
+class OPENSTUDIO_API OSDocument : public OSQObjectController
+{
   Q_OBJECT
 
-  public:
-
-  OSDocument( openstudio::model::Model library,
-              const openstudio::path &resourcesPath,
-              openstudio::model::OptionalModel model = boost::none,
-              QString filePath = QString(),
-              bool isPlugin = false,
-              int startTabIndex = 0,
-              int startSubTabIndex = 0);
+ public:
+  OSDocument(openstudio::model::Model library, const openstudio::path& resourcesPath, openstudio::model::OptionalModel model = boost::none,
+             QString filePath = QString(), bool isPlugin = false, int startTabIndex = 0, int startSubTabIndex = 0);
 
   virtual ~OSDocument();
 
   // Returns the main window associated with this document.
-  MainWindow * mainWindow();
+  MainWindow* mainWindow();
 
   // Returns the model associated with this document.
   model::Model model();
@@ -204,10 +199,12 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController {
 
   void helpClicked();
 
+  void checkForUpdateClicked();
+
   void aboutClicked();
 
   // called before actual save (copy from temp to user location) occurs
-  void modelSaving(const openstudio::path &t_path);
+  void modelSaving(const openstudio::path& t_path);
 
   void downloadComponentsClicked();
 
@@ -217,7 +214,7 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController {
 
   void toggleUnitsClicked(bool displayIP);
 
-  void treeChanged(const openstudio::UUID &t_uuid);
+  void treeChanged(const openstudio::UUID& t_uuid);
 
   void enableRevertToSaved(bool enable);
 
@@ -259,7 +256,7 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController {
 
   void onVerticalTabSelected(int id);
 
-  void inspectModelObject(model::OptionalModelObject &, bool readOnly);
+  void inspectModelObject(model::OptionalModelObject&, bool readOnly);
 
   void showStartTabAndStartSubTab();
 
@@ -281,7 +278,7 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController {
 
   void addStandardMeasures();
 
-  public slots:
+ public slots:
 
   void enable();
 
@@ -294,8 +291,8 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController {
   void weatherFileReset();
 
  private:
-
-  enum fileType{
+  enum fileType
+  {
     SDD,
     GBXML
   };
@@ -310,7 +307,7 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController {
 
   // Sets the file path and updates the window title to match.
   // Used by save and saveAs.
-  void setSavePath(const QString & savePath);
+  void setSavePath(const QString& savePath);
 
   // When opening an OSM, check the model for a weather file, if a weather file is listed
   // copy it into the temp directory.  If the listed weather file cannot be found, remove the
@@ -331,15 +328,15 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController {
 
   openstudio::path m_resourcesPath;
 
-  LibraryTabWidget * m_libraryTabWidget;
+  LibraryTabWidget* m_libraryTabWidget;
 
-  MainWindow * m_mainWindow;
+  MainWindow* m_mainWindow;
 
-  BuildingComponentDialog * m_onlineMeasuresBclDialog;
+  BuildingComponentDialog* m_onlineMeasuresBclDialog;
 
-  BuildingComponentDialog * m_onlineBclDialog;
+  BuildingComponentDialog* m_onlineBclDialog;
 
-  BuildingComponentDialog * m_localLibraryDialog;
+  BuildingComponentDialog* m_localLibraryDialog;
 
   //std::shared_ptr<OSConsoleWidget> m_consoleWidget;
 
@@ -365,9 +362,8 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController {
   bool m_enableTabsAfterRun = true;
 
   bool m_tabButtonsCreated = false;
-
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_OSDOCUMENT_HPP
+#endif  // OPENSTUDIO_OSDOCUMENT_HPP

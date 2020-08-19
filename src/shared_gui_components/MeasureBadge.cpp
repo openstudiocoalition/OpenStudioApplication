@@ -33,12 +33,11 @@
 
 namespace openstudio {
 
-void MeasureBadge::setMeasureBadgeType(MeasureBadgeType type)
-{
-  if(type == MeasureBadgeType::BCLMeasure) {
+void MeasureBadge::setMeasureBadgeType(MeasureBadgeType type) {
+  if (type == MeasureBadgeType::BCLMeasure) {
     setText("BCL");
     setStyleSheet("QLabel { color: #4B7DB0; font-size: 10pt; }");
-  } else if(type == MeasureBadgeType::MyMeasure) {
+  } else if (type == MeasureBadgeType::MyMeasure) {
     setText("My");
     setStyleSheet("QLabel { color: #882255; font-size: 10pt; }");
   } else if (type == MeasureBadgeType::OSMeasure) {
@@ -49,4 +48,4 @@ void MeasureBadge::setMeasureBadgeType(MeasureBadgeType type)
   }
 }
 
-} // namespace openstudio
+}  // namespace openstudio

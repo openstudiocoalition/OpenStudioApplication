@@ -37,67 +37,58 @@
 
 #include <openstudio/model/Model.hpp>
 
-namespace openstudio{
+namespace openstudio {
 
-  class SpacesSubsurfacesGridController;
+class SpacesSubsurfacesGridController;
 
-  class SpacesSubsurfacesGridView : public SpacesSubtabGridView
-  {
-    Q_OBJECT
+class SpacesSubsurfacesGridView : public SpacesSubtabGridView
+{
+  Q_OBJECT
 
-  public:
+ public:
+  SpacesSubsurfacesGridView(bool isIP, const model::Model& model, QWidget* parent = nullptr);
 
-    SpacesSubsurfacesGridView(bool isIP, const model::Model & model, QWidget * parent = nullptr);
+  virtual ~SpacesSubsurfacesGridView() {}
 
-    virtual ~SpacesSubsurfacesGridView() {}
+ private:
+  REGISTER_LOGGER("openstudio.SpacesSubsurfacesGridView");
 
-  private:
+ protected slots:
 
-    REGISTER_LOGGER("openstudio.SpacesSubsurfacesGridView");
+  virtual void onSelectItem() override;
 
-  protected slots:
+  virtual void onClearSelection() override;
+};
 
-   virtual void onSelectItem() override;
+class SpacesSubsurfacesGridController : public OSGridController
+{
 
-   virtual void onClearSelection() override;
+  Q_OBJECT
 
-  };
+ public:
+  SpacesSubsurfacesGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model model,
+                                  std::vector<model::ModelObject> modelObjects);
 
-  class SpacesSubsurfacesGridController : public OSGridController
-  {
+  virtual ~SpacesSubsurfacesGridController() {}
 
-    Q_OBJECT
+  virtual void refreshModelObjects();
 
-  public:
+  virtual void categorySelected(int index);
 
-    SpacesSubsurfacesGridController(bool isIP,
-      const QString & headerText,
-      IddObjectType iddObjectType,
-      model::Model model,
-      std::vector<model::ModelObject> modelObjects);
+ protected:
+  virtual void setCategoriesAndFields();
 
-    virtual ~SpacesSubsurfacesGridController() {}
+  virtual void addColumns(const QString& category, std::vector<QString>& fields);
 
-    virtual void refreshModelObjects();
+  virtual void checkSelectedFields();
 
-    virtual void categorySelected(int index);
+  virtual QString getColor(const model::ModelObject& modelObject);
 
-  protected:
+ public slots:
 
-    virtual void setCategoriesAndFields();
+  virtual void onItemDropped(const OSItemId& itemId);
+};
 
-    virtual void addColumns(const QString &category, std::vector<QString> & fields);
+}  // namespace openstudio
 
-    virtual void checkSelectedFields();
-
-    virtual QString getColor(const model::ModelObject & modelObject);
-
-  public slots:
-
-    virtual void onItemDropped(const OSItemId& itemId);
-
-  };
-
-} // openstudio
-
-#endif // OPENSTUDIO_SPACESSUBSURFACESGRIDVIEW_HPP
+#endif  // OPENSTUDIO_SPACESSUBSURFACESGRIDVIEW_HPP

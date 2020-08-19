@@ -47,15 +47,12 @@ namespace openstudio {
 
 // WindowMaterialShadeInspectorView
 
-WindowMaterialShadeInspectorView::WindowMaterialShadeInspectorView(bool isIP, const openstudio::model::Model& model, QWidget * parent)
-  : ModelObjectInspectorView(model, true, parent),
-    m_isIP(isIP)
-{
+WindowMaterialShadeInspectorView::WindowMaterialShadeInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent)
+  : ModelObjectInspectorView(model, true, parent), m_isIP(isIP) {
   createLayout();
 }
 
-void WindowMaterialShadeInspectorView::createLayout()
-{
+void WindowMaterialShadeInspectorView::createLayout() {
   auto hiddenWidget = new QWidget();
   this->stackedWidget()->addWidget(hiddenWidget);
 
@@ -69,7 +66,7 @@ void WindowMaterialShadeInspectorView::createLayout()
 
   int row = mainGridLayout->rowCount();
 
-  QLabel * label = nullptr;
+  QLabel* label = nullptr;
 
   // Name
 
@@ -94,321 +91,270 @@ void WindowMaterialShadeInspectorView::createLayout()
 
   label = new QLabel("Solar Transmittance: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,row++,0);
+  mainGridLayout->addWidget(label, row++, 0);
 
-  m_solarTransmittance = new OSQuantityEdit2("","","", m_isIP);
+  m_solarTransmittance = new OSQuantityEdit2("", "", "", m_isIP);
   connect(this, &WindowMaterialShadeInspectorView::toggleUnitsClicked, m_solarTransmittance, &OSQuantityEdit2::onUnitSystemChange);
-  mainGridLayout->addWidget(m_solarTransmittance,row++,0,1,3);
+  mainGridLayout->addWidget(m_solarTransmittance, row++, 0, 1, 3);
 
   // Solar Reflectance
 
   label = new QLabel("Solar Reflectance: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,row++,0);
+  mainGridLayout->addWidget(label, row++, 0);
 
-  m_solarReflectance = new OSQuantityEdit2("","","", m_isIP);
+  m_solarReflectance = new OSQuantityEdit2("", "", "", m_isIP);
   connect(this, &WindowMaterialShadeInspectorView::toggleUnitsClicked, m_solarReflectance, &OSQuantityEdit2::onUnitSystemChange);
-  mainGridLayout->addWidget(m_solarReflectance,row++,0,1,3);
+  mainGridLayout->addWidget(m_solarReflectance, row++, 0, 1, 3);
 
   // Visible Transmittance
 
   label = new QLabel("Visible Transmittance: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,row++,0);
+  mainGridLayout->addWidget(label, row++, 0);
 
-  m_visibleTransmittance = new OSQuantityEdit2("","","", m_isIP);
+  m_visibleTransmittance = new OSQuantityEdit2("", "", "", m_isIP);
   connect(this, &WindowMaterialShadeInspectorView::toggleUnitsClicked, m_visibleTransmittance, &OSQuantityEdit2::onUnitSystemChange);
-  mainGridLayout->addWidget(m_visibleTransmittance,row++,0,1,3);
+  mainGridLayout->addWidget(m_visibleTransmittance, row++, 0, 1, 3);
 
   // Visible Reflectance
 
   label = new QLabel("Visible Reflectance: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,row++,0);
+  mainGridLayout->addWidget(label, row++, 0);
 
-  m_visibleReflectance = new OSQuantityEdit2("","","", m_isIP);
+  m_visibleReflectance = new OSQuantityEdit2("", "", "", m_isIP);
   connect(this, &WindowMaterialShadeInspectorView::toggleUnitsClicked, m_visibleReflectance, &OSQuantityEdit2::onUnitSystemChange);
-  mainGridLayout->addWidget(m_visibleReflectance,row++,0,1,3);
+  mainGridLayout->addWidget(m_visibleReflectance, row++, 0, 1, 3);
 
   // Thermal Hemispherical Emissivity
 
   label = new QLabel("Thermal Hemispherical Emissivity: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,row++,0);
+  mainGridLayout->addWidget(label, row++, 0);
 
-  m_thermalHemisphericalEmissivity = new OSQuantityEdit2("","","", m_isIP);
+  m_thermalHemisphericalEmissivity = new OSQuantityEdit2("", "", "", m_isIP);
   connect(this, &WindowMaterialShadeInspectorView::toggleUnitsClicked, m_thermalHemisphericalEmissivity, &OSQuantityEdit2::onUnitSystemChange);
-  mainGridLayout->addWidget(m_thermalHemisphericalEmissivity,row++,0,1,3);
+  mainGridLayout->addWidget(m_thermalHemisphericalEmissivity, row++, 0, 1, 3);
 
   // Thermal Transmittance
 
   label = new QLabel("Thermal Transmittance: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,row++,0);
+  mainGridLayout->addWidget(label, row++, 0);
 
-  m_thermalTransmittance = new OSQuantityEdit2("","","", m_isIP);
+  m_thermalTransmittance = new OSQuantityEdit2("", "", "", m_isIP);
   connect(this, &WindowMaterialShadeInspectorView::toggleUnitsClicked, m_thermalTransmittance, &OSQuantityEdit2::onUnitSystemChange);
-  mainGridLayout->addWidget(m_thermalTransmittance,row++,0,1,3);
+  mainGridLayout->addWidget(m_thermalTransmittance, row++, 0, 1, 3);
 
   // Thickness
 
   label = new QLabel("Thickness: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,row++,0);
+  mainGridLayout->addWidget(label, row++, 0);
 
-  m_thickness = new OSQuantityEdit2("m","m","in", m_isIP);
+  m_thickness = new OSQuantityEdit2("m", "m", "in", m_isIP);
   connect(this, &WindowMaterialShadeInspectorView::toggleUnitsClicked, m_thickness, &OSQuantityEdit2::onUnitSystemChange);
-  mainGridLayout->addWidget(m_thickness,row++,0,1,3);
+  mainGridLayout->addWidget(m_thickness, row++, 0, 1, 3);
 
   // Conductivity
 
   label = new QLabel("Conductivity: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,row++,0);
+  mainGridLayout->addWidget(label, row++, 0);
 
   m_conductivity = new OSQuantityEdit2("W/m*K", "W/m*K", "Btu*in/hr*ft^2*R", m_isIP);
   connect(this, &WindowMaterialShadeInspectorView::toggleUnitsClicked, m_conductivity, &OSQuantityEdit2::onUnitSystemChange);
-  mainGridLayout->addWidget(m_conductivity,row++,0,1,3);
+  mainGridLayout->addWidget(m_conductivity, row++, 0, 1, 3);
 
   // Shade To Glass Distance
 
   label = new QLabel("Shade To Glass Distance: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,row++,0);
+  mainGridLayout->addWidget(label, row++, 0);
 
-  m_shadeToGlassDistance = new OSQuantityEdit2("m","m","in", m_isIP);
+  m_shadeToGlassDistance = new OSQuantityEdit2("m", "m", "in", m_isIP);
   connect(this, &WindowMaterialShadeInspectorView::toggleUnitsClicked, m_shadeToGlassDistance, &OSQuantityEdit2::onUnitSystemChange);
-  mainGridLayout->addWidget(m_shadeToGlassDistance,row++,0,1,3);
+  mainGridLayout->addWidget(m_shadeToGlassDistance, row++, 0, 1, 3);
 
   // Top Opening Multiplier
 
   label = new QLabel("Top Opening Multiplier: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,row++,0);
+  mainGridLayout->addWidget(label, row++, 0);
 
-  m_topOpeningMultiplier = new OSQuantityEdit2("","","", m_isIP);
+  m_topOpeningMultiplier = new OSQuantityEdit2("", "", "", m_isIP);
   connect(this, &WindowMaterialShadeInspectorView::toggleUnitsClicked, m_topOpeningMultiplier, &OSQuantityEdit2::onUnitSystemChange);
-  mainGridLayout->addWidget(m_topOpeningMultiplier,row++,0,1,3);
+  mainGridLayout->addWidget(m_topOpeningMultiplier, row++, 0, 1, 3);
 
   // Bottom Opening Multiplier
 
   label = new QLabel("Bottom Opening Multiplier: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,row++,0);
+  mainGridLayout->addWidget(label, row++, 0);
 
-  m_bottomOpeningMultiplier = new OSQuantityEdit2("","","", m_isIP);
+  m_bottomOpeningMultiplier = new OSQuantityEdit2("", "", "", m_isIP);
   connect(this, &WindowMaterialShadeInspectorView::toggleUnitsClicked, m_bottomOpeningMultiplier, &OSQuantityEdit2::onUnitSystemChange);
-  mainGridLayout->addWidget(m_bottomOpeningMultiplier,row++,0,1,3);
+  mainGridLayout->addWidget(m_bottomOpeningMultiplier, row++, 0, 1, 3);
 
   // Left-Side Opening Multiplier
 
   label = new QLabel("Left-Side Opening Multiplier: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,row++,0);
+  mainGridLayout->addWidget(label, row++, 0);
 
-  m_leftSideOpeningMultiplier = new OSQuantityEdit2("","","", m_isIP);
+  m_leftSideOpeningMultiplier = new OSQuantityEdit2("", "", "", m_isIP);
   connect(this, &WindowMaterialShadeInspectorView::toggleUnitsClicked, m_leftSideOpeningMultiplier, &OSQuantityEdit2::onUnitSystemChange);
-  mainGridLayout->addWidget(m_leftSideOpeningMultiplier,row++,0,1,3);
+  mainGridLayout->addWidget(m_leftSideOpeningMultiplier, row++, 0, 1, 3);
 
   // Right-Side Opening Multiplier
 
   label = new QLabel("Right-Side Opening Multiplier: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,row++,0);
+  mainGridLayout->addWidget(label, row++, 0);
 
-  m_rightSideOpeningMultiplier = new OSQuantityEdit2("","","", m_isIP);
+  m_rightSideOpeningMultiplier = new OSQuantityEdit2("", "", "", m_isIP);
   connect(this, &WindowMaterialShadeInspectorView::toggleUnitsClicked, m_rightSideOpeningMultiplier, &OSQuantityEdit2::onUnitSystemChange);
-  mainGridLayout->addWidget(m_rightSideOpeningMultiplier,row++,0,1,3);
+  mainGridLayout->addWidget(m_rightSideOpeningMultiplier, row++, 0, 1, 3);
 
   // Airflow Permeability
 
   label = new QLabel("Airflow Permeability: ");
   label->setObjectName("H2");
-  mainGridLayout->addWidget(label,row++,0);
+  mainGridLayout->addWidget(label, row++, 0);
 
-  m_airflowPermeability = new OSQuantityEdit2("","","", m_isIP);
+  m_airflowPermeability = new OSQuantityEdit2("", "", "", m_isIP);
   connect(this, &WindowMaterialShadeInspectorView::toggleUnitsClicked, m_airflowPermeability, &OSQuantityEdit2::onUnitSystemChange);
-  mainGridLayout->addWidget(m_airflowPermeability,row++,0,1,3);
+  mainGridLayout->addWidget(m_airflowPermeability, row++, 0, 1, 3);
 
   // Stretch
 
-  mainGridLayout->setRowStretch(100,100);
+  mainGridLayout->setRowStretch(100, 100);
 
-  mainGridLayout->setColumnStretch(100,100);
+  mainGridLayout->setColumnStretch(100, 100);
 }
 
-void WindowMaterialShadeInspectorView::onClearSelection()
-{
-  ModelObjectInspectorView::onClearSelection(); // call parent implementation
+void WindowMaterialShadeInspectorView::onClearSelection() {
+  ModelObjectInspectorView::onClearSelection();  // call parent implementation
   detach();
 }
 
-void WindowMaterialShadeInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject)
-{
+void WindowMaterialShadeInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject) {
   detach();
   model::Shade shade = modelObject.cast<model::Shade>();
   attach(shade);
   refresh();
 }
 
-void WindowMaterialShadeInspectorView::onUpdate()
-{
+void WindowMaterialShadeInspectorView::onUpdate() {
   refresh();
 }
 
-void WindowMaterialShadeInspectorView::attach(openstudio::model::Shade & shade)
-{
+void WindowMaterialShadeInspectorView::attach(openstudio::model::Shade& shade) {
   // m_nameEdit->bind(shade,"name");
   m_shade = shade;
-  m_nameEdit->bind(
-    *m_shade,
-    OptionalStringGetter(std::bind(&model::Shade::name, m_shade.get_ptr(),true)),
-    boost::optional<StringSetterOptionalStringReturn>(std::bind(&model::Shade::setName, m_shade.get_ptr(),std::placeholders::_1))
-  );
+  m_nameEdit->bind(*m_shade, OptionalStringGetter(std::bind(&model::Shade::name, m_shade.get_ptr(), true)),
+                   boost::optional<StringSetterOptionalStringReturn>(std::bind(&model::Shade::setName, m_shade.get_ptr(), std::placeholders::_1)));
 
   // m_solarTransmittance->bind(shade,"solarTransmittance",m_isIP);
   m_solarTransmittance->bind(
-    m_isIP,
-    *m_shade,
-    DoubleGetter(std::bind(&model::Shade::solarTransmittance, m_shade.get_ptr())),
-    boost::optional<DoubleSetter>(std::bind(static_cast<bool(model::Shade::*)(double)>(&model::Shade::setSolarTransmittance), m_shade.get_ptr(), std::placeholders::_1))
-  );
+    m_isIP, *m_shade, DoubleGetter(std::bind(&model::Shade::solarTransmittance, m_shade.get_ptr())),
+    boost::optional<DoubleSetter>(
+      std::bind(static_cast<bool (model::Shade::*)(double)>(&model::Shade::setSolarTransmittance), m_shade.get_ptr(), std::placeholders::_1)));
 
   // m_solarReflectance->bind(shade,"solarReflectance",m_isIP);
-  m_solarReflectance->bind(
-    m_isIP,
-    *m_shade,
-    DoubleGetter(std::bind(&model::Shade::solarReflectance, m_shade.get_ptr())),
-    boost::optional<DoubleSetter>(std::bind(static_cast<bool(model::Shade::*)(double)>(&model::Shade::setSolarReflectance), m_shade.get_ptr(), std::placeholders::_1))
-  );
+  m_solarReflectance->bind(m_isIP, *m_shade, DoubleGetter(std::bind(&model::Shade::solarReflectance, m_shade.get_ptr())),
+                           boost::optional<DoubleSetter>(std::bind(static_cast<bool (model::Shade::*)(double)>(&model::Shade::setSolarReflectance),
+                                                                   m_shade.get_ptr(), std::placeholders::_1)));
 
   // m_visibleTransmittance->bind(shade,"visibleTransmittance",m_isIP);
   m_visibleTransmittance->bind(
-    m_isIP,
-    *m_shade,
-    DoubleGetter(std::bind(&model::Shade::visibleTransmittance, m_shade.get_ptr())),
-    boost::optional<DoubleSetter>(std::bind(static_cast<bool(model::Shade::*)(double)>(&model::Shade::setVisibleTransmittance), m_shade.get_ptr(), std::placeholders::_1))
-  );
+    m_isIP, *m_shade, DoubleGetter(std::bind(&model::Shade::visibleTransmittance, m_shade.get_ptr())),
+    boost::optional<DoubleSetter>(
+      std::bind(static_cast<bool (model::Shade::*)(double)>(&model::Shade::setVisibleTransmittance), m_shade.get_ptr(), std::placeholders::_1)));
 
   // m_visibleReflectance->bind(shade,"visibleReflectance",m_isIP);
   m_visibleReflectance->bind(
-    m_isIP,
-    *m_shade,
-    DoubleGetter(std::bind(&model::Shade::visibleReflectance, m_shade.get_ptr())),
-    boost::optional<DoubleSetter>(std::bind(static_cast<bool(model::Shade::*)(double)>(&model::Shade::setVisibleReflectance), m_shade.get_ptr(), std::placeholders::_1))
-  );
+    m_isIP, *m_shade, DoubleGetter(std::bind(&model::Shade::visibleReflectance, m_shade.get_ptr())),
+    boost::optional<DoubleSetter>(
+      std::bind(static_cast<bool (model::Shade::*)(double)>(&model::Shade::setVisibleReflectance), m_shade.get_ptr(), std::placeholders::_1)));
 
   // m_thermalHemisphericalEmissivity->bind(shade,"thermalHemisphericalEmissivity",m_isIP);
   m_thermalHemisphericalEmissivity->bind(
-    m_isIP,
-    *m_shade,
-    DoubleGetter(std::bind(&model::Shade::thermalHemisphericalEmissivity, m_shade.get_ptr())),
-    boost::optional<DoubleSetter>(std::bind(static_cast<bool(model::Shade::*)(double)>(&model::Shade::setThermalHemisphericalEmissivity), m_shade.get_ptr(), std::placeholders::_1))
-  );
+    m_isIP, *m_shade, DoubleGetter(std::bind(&model::Shade::thermalHemisphericalEmissivity, m_shade.get_ptr())),
+    boost::optional<DoubleSetter>(std::bind(static_cast<bool (model::Shade::*)(double)>(&model::Shade::setThermalHemisphericalEmissivity),
+                                            m_shade.get_ptr(), std::placeholders::_1)));
 
   // m_thermalTransmittance->bind(shade,"thermalTransmittance",m_isIP);
   m_thermalTransmittance->bind(
-    m_isIP,
-    *m_shade,
-    DoubleGetter(std::bind(&model::Shade::thermalTransmittance, m_shade.get_ptr())),
-    boost::optional<DoubleSetter>(std::bind(static_cast<bool(model::Shade::*)(double)>(&model::Shade::setThermalTransmittance), m_shade.get_ptr(), std::placeholders::_1))
-  );
+    m_isIP, *m_shade, DoubleGetter(std::bind(&model::Shade::thermalTransmittance, m_shade.get_ptr())),
+    boost::optional<DoubleSetter>(
+      std::bind(static_cast<bool (model::Shade::*)(double)>(&model::Shade::setThermalTransmittance), m_shade.get_ptr(), std::placeholders::_1)));
 
   // m_thickness->bind(shade,"thickness",m_isIP);
-  m_thickness->bind(
-    m_isIP,
-    *m_shade,
-    DoubleGetter(std::bind(&model::Shade::thickness, m_shade.get_ptr())),
-    boost::optional<DoubleSetter>(std::bind(static_cast<bool(model::Shade::*)(double)>(&model::Shade::setThickness), m_shade.get_ptr(), std::placeholders::_1))
-  );
+  m_thickness->bind(m_isIP, *m_shade, DoubleGetter(std::bind(&model::Shade::thickness, m_shade.get_ptr())),
+                    boost::optional<DoubleSetter>(
+                      std::bind(static_cast<bool (model::Shade::*)(double)>(&model::Shade::setThickness), m_shade.get_ptr(), std::placeholders::_1)));
 
   // m_conductivity->bind(shade,"conductivity",m_isIP);
-  m_conductivity->bind(
-    m_isIP,
-    *m_shade,
-    DoubleGetter(std::bind(&model::Shade::conductivity, m_shade.get_ptr())),
-    boost::optional<DoubleSetter>(std::bind(static_cast<bool(model::Shade::*)(double)>(&model::Shade::setConductivity), m_shade.get_ptr(), std::placeholders::_1))
-  );
+  m_conductivity->bind(m_isIP, *m_shade, DoubleGetter(std::bind(&model::Shade::conductivity, m_shade.get_ptr())),
+                       boost::optional<DoubleSetter>(std::bind(static_cast<bool (model::Shade::*)(double)>(&model::Shade::setConductivity),
+                                                               m_shade.get_ptr(), std::placeholders::_1)));
 
   // m_shadeToGlassDistance->bind(shade,"shadetoGlassDistance",m_isIP);
   m_shadeToGlassDistance->bind(
-    m_isIP,
-    *m_shade,
-    DoubleGetter(std::bind(&model::Shade::shadetoGlassDistance, m_shade.get_ptr())),
-    boost::optional<DoubleSetter>(std::bind(static_cast<bool(model::Shade::*)(double)>(&model::Shade::setShadetoGlassDistance), m_shade.get_ptr(), std::placeholders::_1)),
-    boost::optional<NoFailAction>(std::bind(&model::Shade::resetShadetoGlassDistance, m_shade.get_ptr())),
-    boost::none,
-    boost::none,
-    boost::optional<BasicQuery>(std::bind(&model::Shade::isShadetoGlassDistanceDefaulted, m_shade.get_ptr()))
-  );
+    m_isIP, *m_shade, DoubleGetter(std::bind(&model::Shade::shadetoGlassDistance, m_shade.get_ptr())),
+    boost::optional<DoubleSetter>(
+      std::bind(static_cast<bool (model::Shade::*)(double)>(&model::Shade::setShadetoGlassDistance), m_shade.get_ptr(), std::placeholders::_1)),
+    boost::optional<NoFailAction>(std::bind(&model::Shade::resetShadetoGlassDistance, m_shade.get_ptr())), boost::none, boost::none,
+    boost::optional<BasicQuery>(std::bind(&model::Shade::isShadetoGlassDistanceDefaulted, m_shade.get_ptr())));
 
   // m_topOpeningMultiplier->bind(shade,"topOpeningMultiplier",m_isIP);
   m_topOpeningMultiplier->bind(
-    m_isIP,
-    *m_shade,
-    DoubleGetter(std::bind(&model::Shade::topOpeningMultiplier, m_shade.get_ptr())),
-    boost::optional<DoubleSetter>(std::bind(static_cast<bool(model::Shade::*)(double)>(&model::Shade::setTopOpeningMultiplier), m_shade.get_ptr(), std::placeholders::_1)),
-    boost::optional<NoFailAction>(std::bind(&model::Shade::resetTopOpeningMultiplier, m_shade.get_ptr())),
-    boost::none,
-    boost::none,
-    boost::optional<BasicQuery>(std::bind(&model::Shade::isTopOpeningMultiplierDefaulted, m_shade.get_ptr()))
-  );
+    m_isIP, *m_shade, DoubleGetter(std::bind(&model::Shade::topOpeningMultiplier, m_shade.get_ptr())),
+    boost::optional<DoubleSetter>(
+      std::bind(static_cast<bool (model::Shade::*)(double)>(&model::Shade::setTopOpeningMultiplier), m_shade.get_ptr(), std::placeholders::_1)),
+    boost::optional<NoFailAction>(std::bind(&model::Shade::resetTopOpeningMultiplier, m_shade.get_ptr())), boost::none, boost::none,
+    boost::optional<BasicQuery>(std::bind(&model::Shade::isTopOpeningMultiplierDefaulted, m_shade.get_ptr())));
 
   // m_bottomOpeningMultiplier->bind(shade,"bottomOpeningMultiplier",m_isIP);
   m_bottomOpeningMultiplier->bind(
-    m_isIP,
-    *m_shade,
-    DoubleGetter(std::bind(&model::Shade::bottomOpeningMultiplier, m_shade.get_ptr())),
-    boost::optional<DoubleSetter>(std::bind(static_cast<bool(model::Shade::*)(double)>(&model::Shade::setBottomOpeningMultiplier), m_shade.get_ptr(), std::placeholders::_1)),
-    boost::optional<NoFailAction>(std::bind(&model::Shade::resetBottomOpeningMultiplier, m_shade.get_ptr())),
-    boost::none,
-    boost::none,
-    boost::optional<BasicQuery>(std::bind(&model::Shade::isBottomOpeningMultiplierDefaulted, m_shade.get_ptr()))
-  );
+    m_isIP, *m_shade, DoubleGetter(std::bind(&model::Shade::bottomOpeningMultiplier, m_shade.get_ptr())),
+    boost::optional<DoubleSetter>(
+      std::bind(static_cast<bool (model::Shade::*)(double)>(&model::Shade::setBottomOpeningMultiplier), m_shade.get_ptr(), std::placeholders::_1)),
+    boost::optional<NoFailAction>(std::bind(&model::Shade::resetBottomOpeningMultiplier, m_shade.get_ptr())), boost::none, boost::none,
+    boost::optional<BasicQuery>(std::bind(&model::Shade::isBottomOpeningMultiplierDefaulted, m_shade.get_ptr())));
 
   // m_leftSideOpeningMultiplier->bind(shade,"leftSideOpeningMultiplier",m_isIP);
   m_leftSideOpeningMultiplier->bind(
-    m_isIP,
-    *m_shade,
-    DoubleGetter(std::bind(&model::Shade::leftSideOpeningMultiplier, m_shade.get_ptr())),
-    boost::optional<DoubleSetter>(std::bind(static_cast<bool(model::Shade::*)(double)>(&model::Shade::setLeftSideOpeningMultiplier), m_shade.get_ptr(), std::placeholders::_1)),
-    boost::optional<NoFailAction>(std::bind(&model::Shade::resetLeftSideOpeningMultiplier, m_shade.get_ptr())),
-    boost::none,
-    boost::none,
-    boost::optional<BasicQuery>(std::bind(&model::Shade::isLeftSideOpeningMultiplierDefaulted, m_shade.get_ptr()))
-  );
+    m_isIP, *m_shade, DoubleGetter(std::bind(&model::Shade::leftSideOpeningMultiplier, m_shade.get_ptr())),
+    boost::optional<DoubleSetter>(
+      std::bind(static_cast<bool (model::Shade::*)(double)>(&model::Shade::setLeftSideOpeningMultiplier), m_shade.get_ptr(), std::placeholders::_1)),
+    boost::optional<NoFailAction>(std::bind(&model::Shade::resetLeftSideOpeningMultiplier, m_shade.get_ptr())), boost::none, boost::none,
+    boost::optional<BasicQuery>(std::bind(&model::Shade::isLeftSideOpeningMultiplierDefaulted, m_shade.get_ptr())));
 
   // m_rightSideOpeningMultiplier->bind(shade,"rightSideOpeningMultiplier",m_isIP);
   m_rightSideOpeningMultiplier->bind(
-    m_isIP,
-    *m_shade,
-    DoubleGetter(std::bind(&model::Shade::rightSideOpeningMultiplier, m_shade.get_ptr())),
-    boost::optional<DoubleSetter>(std::bind(static_cast<bool(model::Shade::*)(double)>(&model::Shade::setRightSideOpeningMultiplier), m_shade.get_ptr(), std::placeholders::_1)),
-    boost::optional<NoFailAction>(std::bind(&model::Shade::resetRightSideOpeningMultiplier, m_shade.get_ptr())),
-    boost::none,
-    boost::none,
-    boost::optional<BasicQuery>(std::bind(&model::Shade::isRightSideOpeningMultiplierDefaulted, m_shade.get_ptr()))
-  );
+    m_isIP, *m_shade, DoubleGetter(std::bind(&model::Shade::rightSideOpeningMultiplier, m_shade.get_ptr())),
+    boost::optional<DoubleSetter>(
+      std::bind(static_cast<bool (model::Shade::*)(double)>(&model::Shade::setRightSideOpeningMultiplier), m_shade.get_ptr(), std::placeholders::_1)),
+    boost::optional<NoFailAction>(std::bind(&model::Shade::resetRightSideOpeningMultiplier, m_shade.get_ptr())), boost::none, boost::none,
+    boost::optional<BasicQuery>(std::bind(&model::Shade::isRightSideOpeningMultiplierDefaulted, m_shade.get_ptr())));
 
   // m_airflowPermeability->bind(shade,"airflowPermeability",m_isIP);
   m_airflowPermeability->bind(
-    m_isIP,
-    *m_shade,
-    DoubleGetter(std::bind(&model::Shade::airflowPermeability, m_shade.get_ptr())),
-    boost::optional<DoubleSetter>(std::bind(static_cast<bool(model::Shade::*)(double)>(&model::Shade::setAirflowPermeability), m_shade.get_ptr(), std::placeholders::_1)),
-    boost::optional<NoFailAction>(std::bind(&model::Shade::resetAirflowPermeability, m_shade.get_ptr())),
-    boost::none,
-    boost::none,
-    boost::optional<BasicQuery>(std::bind(&model::Shade::isAirflowPermeabilityDefaulted, m_shade.get_ptr()))
-  );
+    m_isIP, *m_shade, DoubleGetter(std::bind(&model::Shade::airflowPermeability, m_shade.get_ptr())),
+    boost::optional<DoubleSetter>(
+      std::bind(static_cast<bool (model::Shade::*)(double)>(&model::Shade::setAirflowPermeability), m_shade.get_ptr(), std::placeholders::_1)),
+    boost::optional<NoFailAction>(std::bind(&model::Shade::resetAirflowPermeability, m_shade.get_ptr())), boost::none, boost::none,
+    boost::optional<BasicQuery>(std::bind(&model::Shade::isAirflowPermeabilityDefaulted, m_shade.get_ptr())));
 
   m_standardsInformationWidget->attach(shade);
 
   this->stackedWidget()->setCurrentIndex(1);
 }
 
-void WindowMaterialShadeInspectorView::detach()
-{
+void WindowMaterialShadeInspectorView::detach() {
   this->stackedWidget()->setCurrentIndex(0);
 
   m_nameEdit->unbind();
@@ -432,8 +378,6 @@ void WindowMaterialShadeInspectorView::detach()
   m_standardsInformationWidget->detach();
 }
 
-void WindowMaterialShadeInspectorView::refresh()
-{
-}
+void WindowMaterialShadeInspectorView::refresh() {}
 
-} // openstudio
+}  // namespace openstudio

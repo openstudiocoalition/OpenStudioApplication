@@ -38,13 +38,11 @@ class GeometryTabView : public MainTabView
 {
   Q_OBJECT
 
-public:
-  GeometryTabView(const model::Model & model,
-                       const QString & tabLabel,
-                       QWidget * parent = nullptr);
+ public:
+  GeometryTabView(const model::Model& model, const QString& tabLabel, QWidget* parent = nullptr);
   virtual ~GeometryTabView() {}
 };
 
-} // openstudio
+}  // namespace openstudio
 
-#endif // OPENSTUDIO_GEOMETRYTABVIEW_HPP
+#endif  // OPENSTUDIO_GEOMETRYTABVIEW_HPP

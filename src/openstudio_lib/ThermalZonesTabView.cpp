@@ -31,9 +31,6 @@
 
 namespace openstudio {
 
-ThermalZonesTabView::ThermalZonesTabView(QWidget * parent)
-  : MainTabView("Thermal Zones", MainTabView::MAIN_TAB, parent)
-{
-}
+ThermalZonesTabView::ThermalZonesTabView(QWidget* parent) : MainTabView("Thermal Zones", MainTabView::MAIN_TAB, parent) {}
 
-} // openstudio
+}  // namespace openstudio

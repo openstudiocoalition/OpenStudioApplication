@@ -41,34 +41,34 @@
 
 namespace openstudio {
 
-typedef std::function<bool ()> BoolGetter;
-typedef std::function<double ()> DoubleGetter;
-typedef std::function<int ()> IntGetter;
-typedef std::function<std::string ()> StringGetter;
-typedef std::function<unsigned ()> UnsignedGetter;
-typedef std::function<model::ModelObject ()> ModelObjectGetter;
+typedef std::function<bool()> BoolGetter;
+typedef std::function<double()> DoubleGetter;
+typedef std::function<int()> IntGetter;
+typedef std::function<std::string()> StringGetter;
+typedef std::function<unsigned()> UnsignedGetter;
+typedef std::function<model::ModelObject()> ModelObjectGetter;
 
-typedef std::function<boost::optional<double> ()> OptionalDoubleGetter;
-typedef std::function<boost::optional<int> ()> OptionalIntGetter;
-typedef std::function<boost::optional<std::string> ()> OptionalStringGetter;
-typedef std::function<boost::optional<std::string> (bool)> OptionalStringGetterBoolArg;
-typedef std::function<boost::optional<unsigned> ()> OptionalUnsignedGetter;
-typedef std::function<boost::optional<model::ModelObject> ()> OptionalModelObjectGetter;
+typedef std::function<boost::optional<double>()> OptionalDoubleGetter;
+typedef std::function<boost::optional<int>()> OptionalIntGetter;
+typedef std::function<boost::optional<std::string>()> OptionalStringGetter;
+typedef std::function<boost::optional<std::string>(bool)> OptionalStringGetterBoolArg;
+typedef std::function<boost::optional<unsigned>()> OptionalUnsignedGetter;
+typedef std::function<boost::optional<model::ModelObject>()> OptionalModelObjectGetter;
 
 typedef std::function<void(bool)> BoolSetter;
 typedef std::function<bool(bool)> BoolSetterBoolReturn;
 typedef std::function<bool(double)> DoubleSetter;
-typedef std::function<void (double)> DoubleSetterVoidReturn;
-typedef std::function<bool (int)> IntSetter;
+typedef std::function<void(double)> DoubleSetterVoidReturn;
+typedef std::function<bool(int)> IntSetter;
 typedef std::function<bool(std::string)> StringSetter;
 typedef std::function<void(std::string)> StringSetterVoidReturn;
-typedef std::function<boost::optional<std::string>(const std::string &)> StringSetterOptionalStringReturn;
-typedef std::function<bool (unsigned)> UnsignedSetter;
-typedef std::function<bool (const model::ModelObject &)> ModelObjectSetter;
+typedef std::function<boost::optional<std::string>(const std::string&)> StringSetterOptionalStringReturn;
+typedef std::function<bool(unsigned)> UnsignedSetter;
+typedef std::function<bool(const model::ModelObject&)> ModelObjectSetter;
 
-typedef std::function<void ()> NoFailAction;
-typedef std::function<bool ()> BasicQuery;
+typedef std::function<void()> NoFailAction;
+typedef std::function<bool()> BasicQuery;
 
-}
+}  // namespace openstudio
 
-#endif // SHAREDGUICOMPONENTS_FIELDMETHODTYPEDEFS_HPP
+#endif  // SHAREDGUICOMPONENTS_FIELDMETHODTYPEDEFS_HPP

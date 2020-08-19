@@ -33,14 +33,10 @@
 
 namespace openstudio {
 
-  ProcessEventsProgressBar::ProcessEventsProgressBar()
-    : OSProgressBar(false, nullptr)
-  {
-  }
+ProcessEventsProgressBar::ProcessEventsProgressBar() : OSProgressBar(false, nullptr) {}
 
-  void ProcessEventsProgressBar::onPercentageUpdated(double percentage)
-  {
-    openstudio::Application::instance().processEvents();
-  }
-
+void ProcessEventsProgressBar::onPercentageUpdated(double percentage) {
+  openstudio::Application::instance().processEvents();
 }
+
+}  // namespace openstudio

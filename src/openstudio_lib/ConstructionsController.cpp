@@ -51,17 +51,12 @@
 namespace openstudio {
 
 ConstructionsController::ConstructionsController(bool isIP, const model::Model& model)
-  : ModelSubTabController(new ConstructionsView(isIP,model), model)
-{
-}
+  : ModelSubTabController(new ConstructionsView(isIP, model), model) {}
 
-ConstructionsController::~ConstructionsController()
-{
-}
+ConstructionsController::~ConstructionsController() {}
 
-void ConstructionsController::onAddObject(const openstudio::IddObjectType& iddObjectType)
-{
-  switch(iddObjectType.value()){
+void ConstructionsController::onAddObject(const openstudio::IddObjectType& iddObjectType) {
+  switch (iddObjectType.value()) {
     case IddObjectType::OS_Construction:
       openstudio::model::Construction(this->model());
       break;
@@ -85,47 +80,40 @@ void ConstructionsController::onAddObject(const openstudio::IddObjectType& iddOb
   }
 }
 
-void ConstructionsController::onCopyObject(const openstudio::model::ModelObject& modelObject)
-{
+void ConstructionsController::onCopyObject(const openstudio::model::ModelObject& modelObject) {
   modelObject.clone(this->model());
 }
 
-void ConstructionsController::onRemoveObject(openstudio::model::ModelObject modelObject)
-{
+void ConstructionsController::onRemoveObject(openstudio::model::ModelObject modelObject) {
   modelObject.remove();
 }
 
-void ConstructionsController::onReplaceObject(openstudio::model::ModelObject modelObject, const OSItemId& replacementItemId)
-{
+void ConstructionsController::onReplaceObject(openstudio::model::ModelObject modelObject, const OSItemId& replacementItemId) {
   // not yet implemented
 }
 
-void ConstructionsController::onPurgeObjects(const openstudio::IddObjectType& iddObjectType)
-{
+void ConstructionsController::onPurgeObjects(const openstudio::IddObjectType& iddObjectType) {
   this->model().purgeUnusedResourceObjects(iddObjectType);
 }
 
-void ConstructionsController::onDrop(const OSItemId& itemId)
-{
+void ConstructionsController::onDrop(const OSItemId& itemId) {
   boost::optional<model::ModelObject> modelObject = this->getModelObject(itemId);
-  if (modelObject){
-    if(modelObject->optionalCast<model::ConstructionBase>()){
-      if (this->fromComponentLibrary(itemId)){
+  if (modelObject) {
+    if (modelObject->optionalCast<model::ConstructionBase>()) {
+      if (this->fromComponentLibrary(itemId)) {
         modelObject = modelObject->clone(this->model());
       }
     }
-  }else{
+  } else {
     boost::optional<model::Component> component = this->getComponent(itemId);
-    if (component){
-      if (component->primaryObject().optionalCast<model::ModelObject>()){
+    if (component) {
+      if (component->primaryObject().optionalCast<model::ModelObject>()) {
         this->model().insertComponent(*component);
       }
     }
   }
 }
 
-void ConstructionsController::onInspectItem(OSItem* item)
-{
-}
+void ConstructionsController::onInspectItem(OSItem* item) {}
 
-} // openstudio
+}  // namespace openstudio

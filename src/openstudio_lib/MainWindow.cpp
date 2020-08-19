@@ -64,12 +64,8 @@
 
 namespace openstudio {
 
-MainWindow::MainWindow(bool isPlugin, QWidget *parent) :
-  QMainWindow(parent),
-  m_isPlugin(isPlugin),
-  m_displayIP(true)
-{
-  setMinimumSize(900,658);
+MainWindow::MainWindow(bool isPlugin, QWidget* parent) : QMainWindow(parent), m_isPlugin(isPlugin), m_displayIP(true) {
+  setMinimumSize(900, 658);
   setAcceptDrops(true);
 
   readSettings();
@@ -99,7 +95,7 @@ MainWindow::MainWindow(bool isPlugin, QWidget *parent) :
   m_mainRightColumnContainer->setMinimumWidth(235);
   m_mainSplitter->addWidget(m_mainRightColumnContainer);
 
-  m_mainSplitter->setStretchFactor(0,10000);
+  m_mainSplitter->setStretchFactor(0, 10000);
 
   setCentralWidget(m_mainSplitter);
 
@@ -127,6 +123,7 @@ MainWindow::MainWindow(bool isPlugin, QWidget *parent) :
   connect(mainMenu, &MainMenu::newClicked, this, &MainWindow::newClicked);
   connect(mainMenu, &MainMenu::exitClicked, this, &MainWindow::exitClicked);
   connect(mainMenu, &MainMenu::helpClicked, this, &MainWindow::helpClicked);
+  connect(mainMenu, &MainMenu::checkForUpdateClicked, this, &MainWindow::checkForUpdateClicked);
   connect(mainMenu, &MainMenu::aboutClicked, this, &MainWindow::aboutClicked);
   connect(mainMenu, &MainMenu::scanForToolsClicked, this, &MainWindow::scanForToolsClicked);
   connect(mainMenu, &MainMenu::showRunManagerPreferencesClicked, this, &MainWindow::showRunManagerPreferencesClicked);
@@ -143,23 +140,19 @@ MainWindow::MainWindow(bool isPlugin, QWidget *parent) :
   connect(this, &MainWindow::enableComponentsMeasures, mainMenu, &MainMenu::enableComponentsMeasuresActions);
 }
 
-QSize MainWindow::sizeHint() const
-{
-  return QSize(1024,700);
+QSize MainWindow::sizeHint() const {
+  return QSize(1024, 700);
 }
 
-void MainWindow::setMainRightColumnView(QWidget * widget)
-{
-  if( QWidget * oldwidget = m_mainRightColumnContainer->currentWidget() )
-  {
+void MainWindow::setMainRightColumnView(QWidget* widget) {
+  if (QWidget* oldwidget = m_mainRightColumnContainer->currentWidget()) {
     m_mainRightColumnContainer->removeWidget(oldwidget);
   }
 
   m_mainRightColumnContainer->addWidget(widget);
 }
 
-void MainWindow::closeEvent(QCloseEvent *event)
-{
+void MainWindow::closeEvent(QCloseEvent* event) {
   event->ignore();
 
   writeSettings();
@@ -167,10 +160,8 @@ void MainWindow::closeEvent(QCloseEvent *event)
   emit closeClicked();
 }
 
-void MainWindow::dragEnterEvent(QDragEnterEvent * event)
-{
-  if(event->mimeData()->hasUrls())
-  {
+void MainWindow::dragEnterEvent(QDragEnterEvent* event) {
+  if (event->mimeData()->hasUrls()) {
     event->ignore();
     /*QUrl url = event->mimeData()->urls().first();
     if (url.scheme().compare("file", Qt::CaseInsensitive) == 0 && url.toString().toLower().endsWith(".osm"))
@@ -185,51 +176,39 @@ void MainWindow::dragEnterEvent(QDragEnterEvent * event)
   }
 }
 
-void MainWindow::dropEvent(QDropEvent * event)
-{
-  if(event->mimeData()->hasUrls())
-  {
+void MainWindow::dropEvent(QDropEvent* event) {
+  if (event->mimeData()->hasUrls()) {
     emit osmDropped(event->mimeData()->urls().first().toLocalFile());
   }
 }
 
-void MainWindow::addVerticalTabButton(int id,
-  QString toolTip,
-  const QString & selectedImagePath,
-  const QString & unSelectedImagePath,
-  const QString & disabledImagePath)
-{
+void MainWindow::addVerticalTabButton(int id, QString toolTip, const QString& selectedImagePath, const QString& unSelectedImagePath,
+                                      const QString& disabledImagePath) {
   m_verticalTabWidget->addTabButton(id, toolTip, selectedImagePath, unSelectedImagePath, disabledImagePath);
 }
 
-void MainWindow::setView(MainTabView * view, int id)
-{
+void MainWindow::setView(MainTabView* view, int id) {
   m_verticalTabWidget->setView(view, id);
 }
 
-MainTabView * MainWindow::view() const
-{
+MainTabView* MainWindow::view() const {
   return m_verticalTabWidget->view();
 }
 
-void MainWindow::selectVerticalTab(int id)
-{
+void MainWindow::selectVerticalTab(int id) {
   // TODO new call
   //m_verticalTabWidget->setCurrentId(id);
 }
 
-void MainWindow::selectVerticalTabByIndex(int index)
-{
+void MainWindow::selectVerticalTabByIndex(int index) {
   m_verticalTabWidget->setCurrentIndex(index);
 }
 
-int MainWindow::verticalTabIndex()
-{
+int MainWindow::verticalTabIndex() {
   return m_verticalTabWidget->verticalTabIndex();
 }
 
-void MainWindow::closeSidebar()
-{
+void MainWindow::closeSidebar() {
   QList<int> sizeList;
 
   sizeList.push_back(1);
@@ -239,8 +218,7 @@ void MainWindow::closeSidebar()
   m_mainSplitter->setSizes(sizeList);
 }
 
-void MainWindow::openSidebar()
-{
+void MainWindow::openSidebar() {
   QList<int> sizeList;
 
   sizeList.push_back(2);
@@ -250,33 +228,27 @@ void MainWindow::openSidebar()
   m_mainSplitter->setSizes(sizeList);
 }
 
-bool MainWindow::displayIP()
-{
+bool MainWindow::displayIP() {
   return m_displayIP;
 }
 
-void MainWindow::enableRevertToSavedAction(bool enable)
-{
+void MainWindow::enableRevertToSavedAction(bool enable) {
   emit enableRevertToSaved(enable);
 }
 
-void MainWindow::enableFileImportActions(bool enable)
-{
+void MainWindow::enableFileImportActions(bool enable) {
   emit enableFileImports(enable);
 }
 
-void MainWindow::enablePreferencesActions(bool enable)
-{
+void MainWindow::enablePreferencesActions(bool enable) {
   emit enablePreferences(enable);
 }
 
-void MainWindow::enableComponentsMeasuresActions(bool enable)
-{
+void MainWindow::enableComponentsMeasuresActions(bool enable) {
   emit enableComponentsMeasures(enable);
 }
 
-void MainWindow::readSettings()
-{
+void MainWindow::readSettings() {
   QString organizationName = QCoreApplication::organizationName();
   QString applicationName = QCoreApplication::applicationName();
   QSettings settings(organizationName, applicationName);
@@ -290,8 +262,7 @@ void MainWindow::readSettings()
   m_displayIP = settings.value("displayIP").toBool();
 }
 
-void MainWindow::writeSettings()
-{
+void MainWindow::writeSettings() {
   QString organizationName = QCoreApplication::organizationName();
   QString applicationName = QCoreApplication::applicationName();
   QSettings settings(organizationName, applicationName);
@@ -302,31 +273,25 @@ void MainWindow::writeSettings()
   settings.setValue("displayIP", m_displayIP);
 }
 
-QString MainWindow::lastPath() const
-{
+QString MainWindow::lastPath() const {
   return QDir().exists(m_lastPath) ? m_lastPath : QDir::homePath();
 }
 
-void MainWindow::toggleUnits(bool displayIP)
-{
+void MainWindow::toggleUnits(bool displayIP) {
   m_displayIP = displayIP;
 }
 
-void MainWindow::configureProxyClicked()
-{
+void MainWindow::configureProxyClicked() {
   QString organizationName = QCoreApplication::organizationName();
   QString applicationName = QCoreApplication::applicationName();
   QSettings settings(organizationName, applicationName);
   NetworkProxyDialog dialog(settings, this);
   QDialog::DialogCode result = static_cast<QDialog::DialogCode>(dialog.exec());
 
-  if (result == QDialog::Accepted)
-  {
+  if (result == QDialog::Accepted) {
     QNetworkProxy proxy = dialog.createProxy();
-    if (proxy.type() != QNetworkProxy::NoProxy)
-    {
-      if (dialog.testProxy(proxy))
-      {
+    if (proxy.type() != QNetworkProxy::NoProxy) {
+      if (dialog.testProxy(proxy)) {
         QNetworkProxy::setApplicationProxy(proxy);
         //setRubyProxyEnvironment(proxy);
       } else {
@@ -336,16 +301,13 @@ void MainWindow::configureProxyClicked()
   }
 }
 
-void MainWindow::loadProxySettings()
-{
+void MainWindow::loadProxySettings() {
   QString organizationName = QCoreApplication::organizationName();
   QString applicationName = QCoreApplication::applicationName();
   QSettings settings(organizationName, applicationName);
   QNetworkProxy proxy = NetworkProxyDialog::createProxy(settings);
-  if (proxy.type() != QNetworkProxy::NoProxy)
-  {
-    if (NetworkProxyDialog::testProxy(proxy, this))
-    {
+  if (proxy.type() != QNetworkProxy::NoProxy) {
+    if (NetworkProxyDialog::testProxy(proxy, this)) {
       QNetworkProxy::setApplicationProxy(proxy);
       //setRubyProxyEnvironment(proxy);
     } else {
@@ -355,4 +317,4 @@ void MainWindow::loadProxySettings()
   }
 }
 
-} // openstudio
+}  // namespace openstudio

@@ -46,7 +46,7 @@ void OpenStudioLibFixture::SetUpTestCase() {
   openstudio::Logger::instance().standardOutLogger().disable();
 }
 
-void OpenStudioLibFixture::TearDownTestCase(){}
+void OpenStudioLibFixture::TearDownTestCase() {}
 
 // static variables
 boost::optional<openstudio::FileLogSink> OpenStudioLibFixture::logFile;

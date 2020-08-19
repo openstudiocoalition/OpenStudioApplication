@@ -48,8 +48,8 @@ class QEvent;
 class QNetworkAccessManager;
 // class QSslError; // If trying to debug a potential SSL error
 
-namespace Json{
-  class Value;
+namespace Json {
+class Value;
 }
 
 namespace openstudio {
@@ -58,13 +58,13 @@ class BaseApp;
 class BCLMeasure;
 
 namespace osversion {
-  class VersionTranslator;
+class VersionTranslator;
 }
 
 namespace measure {
-  class OSArgument;
-  class OSArgumentType;
-}
+class OSArgument;
+class OSArgumentType;
+}  // namespace measure
 class LocalLibraryController;
 
 /***
@@ -88,7 +88,7 @@ class LocalLibraryController;
 *
 **/
 #if defined(openstudio_lib_EXPORTS) || defined(COMPILING_FROM_OSAPP)
-#include "../openstudio_lib/OpenStudioAPI.hpp"
+#  include "../openstudio_lib/OpenStudioAPI.hpp"
 class OPENSTUDIO_API MeasureManager : public QObject
 #else
 class MeasureManager : public QObject
@@ -96,125 +96,124 @@ class MeasureManager : public QObject
 {
   Q_OBJECT;
 
-  public:
-    MeasureManager(BaseApp *t_app);
+ public:
+  MeasureManager(BaseApp* t_app);
 
-    virtual ~MeasureManager() {}
+  virtual ~MeasureManager() {}
 
-    QUrl url() const;
+  QUrl url() const;
 
-    void setUrl(const QUrl& url);
+  void setUrl(const QUrl& url);
 
-    bool waitForStarted(int msec=10000);
+  bool waitForStarted(int msec = 10000);
 
-    void setLibraryController(const QSharedPointer<LocalLibraryController> &t_libraryController);
+  void setLibraryController(const QSharedPointer<LocalLibraryController>& t_libraryController);
 
-    //// Get the temp model path
-    openstudio::path tempModelPath() const;
+  //// Get the temp model path
+  openstudio::path tempModelPath() const;
 
-    //// Saves the current model to a temp location, used when computing arguments
-    void saveTempModel(const path& tempDir);
+  //// Saves the current model to a temp location, used when computing arguments
+  void saveTempModel(const path& tempDir);
 
-    //// Measures downloaded from the BCL.
-    std::vector<BCLMeasure> bclMeasures() const;
+  //// Measures downloaded from the BCL.
+  std::vector<BCLMeasure> bclMeasures() const;
 
-    //// Measures saved in the user's home directory.
-    std::vector<BCLMeasure> myMeasures() const;
+  //// Measures saved in the user's home directory.
+  std::vector<BCLMeasure> myMeasures() const;
 
-    //// Get combined list of measures without duplicates, uses same logic as getMeasure.
-    std::vector<BCLMeasure> combinedMeasures() const;
+  //// Get combined list of measures without duplicates, uses same logic as getMeasure.
+  std::vector<BCLMeasure> combinedMeasures() const;
 
-    //// Retrieve a measure from combinedMeasures by id.
-    boost::optional<BCLMeasure> getMeasure(const UUID & id);
+  //// Retrieve a measure from combinedMeasures by id.
+  boost::optional<BCLMeasure> getMeasure(const UUID& id);
 
-    //// Retrieve a measure from combinedMeasures by id then calls updateMeasure, returns measure in the project.
-    //// Throws if measure cannot be found by id or if updateMeasure fails.
-    //// If the measure already exists in the project the user is prompted if they want to replace it or not.
-    BCLMeasure insertReplaceMeasure(const UUID &t_id);
+  //// Retrieve a measure from combinedMeasures by id then calls updateMeasure, returns measure in the project.
+  //// Throws if measure cannot be found by id or if updateMeasure fails.
+  //// If the measure already exists in the project the user is prompted if they want to replace it or not.
+  BCLMeasure insertReplaceMeasure(const UUID& t_id);
 
-    //// Updates an individual measure in the project with a measure outside the project, computes arguments on the external measure before copying to project.
-    //// result.first is true if the update succeeded and arguments were computed for current model, result.second is the new measure dir name.
-    //// result.first is false if the update failed or arguments were not computed for current model, result.second is error message.
-    std::pair<bool,std::string> updateMeasure(const BCLMeasure &t_measure);
+  //// Updates an individual measure in the project with a measure outside the project, computes arguments on the external measure before copying to project.
+  //// result.first is true if the update succeeded and arguments were computed for current model, result.second is the new measure dir name.
+  //// result.first is false if the update failed or arguments were not computed for current model, result.second is error message.
+  std::pair<bool, std::string> updateMeasure(const BCLMeasure& t_measure);
 
-    //// Updates the given set of measures in the current project. Does not ask for user approval. Approval is assumed
-    //// when this method is called.
-    void updateMeasures(const std::vector<BCLMeasure>& newMeasures, bool t_showMessage=true);
+  //// Updates the given set of measures in the current project. Does not ask for user approval. Approval is assumed
+  //// when this method is called.
+  void updateMeasures(const std::vector<BCLMeasure>& newMeasures, bool t_showMessage = true);
 
-    //// Get arguments for given measure using current model
-    //// Will throw if arguments cannot be computed.
-    std::vector<measure::OSArgument> getArguments(const BCLMeasure &t_measure);
+  //// Get arguments for given measure using current model
+  //// Will throw if arguments cannot be computed.
+  std::vector<measure::OSArgument> getArguments(const BCLMeasure& t_measure);
 
-    std::string suggestMeasureName(const BCLMeasure &t_measure);
+  std::string suggestMeasureName(const BCLMeasure& t_measure);
 
-    bool isMeasureSelected();
+  bool isMeasureSelected();
 
-    bool reset();
+  bool reset();
 
-    bool isStarted() const;
+  bool isStarted() const;
 
-  public slots:
+ public slots:
 
-    /// Update the UI display for all measures. Does recompute the measure's XML.
-    /// Does not update the measures in the project at all
-    void updateMeasuresLists();
+  /// Update the UI display for all measures. Does recompute the measure's XML.
+  /// Does not update the measures in the project at all
+  void updateMeasuresLists();
 
-    ///// Updates the UI for all measures.
-    ///// For all measures in the "myMeasures" list which have changed relative to the version
-    ///// in the project, update the project to the new version
-    /////
-    ///// Does not ask for user approval
-    //void updateMyMeasures(analysisdriver::SimpleProject &t_project);
+  ///// Updates the UI for all measures.
+  ///// For all measures in the "myMeasures" list which have changed relative to the version
+  ///// in the project, update the project to the new version
+  /////
+  ///// Does not ask for user approval
+  //void updateMyMeasures(analysisdriver::SimpleProject &t_project);
 
-    ///// Updates the UI for all measures.
-    ///// For all measures in the "bclMeasures" list which have changed relative to the version
-    ///// in the project, update the project to the new version.
-    /////
-    ///// Also checks installed measures and updates the project's version of them if
-    ///// appropriate.
-    /////
-    ///// Does not ask for user approval
-    //void updateBCLMeasures(analysisdriver::SimpleProject &t_project);
+  ///// Updates the UI for all measures.
+  ///// For all measures in the "bclMeasures" list which have changed relative to the version
+  ///// in the project, update the project to the new version.
+  /////
+  ///// Also checks installed measures and updates the project's version of them if
+  ///// appropriate.
+  /////
+  ///// Does not ask for user approval
+  //void updateBCLMeasures(analysisdriver::SimpleProject &t_project);
 
-    /// Downloads updated versions of all BCL measures
-    void downloadBCLMeasures();
+  /// Downloads updated versions of all BCL measures
+  void downloadBCLMeasures();
 
-    void addMeasure();
+  void addMeasure();
 
-    void duplicateSelectedMeasure();
+  void duplicateSelectedMeasure();
 
-    // If trying to debug a potential SSL error
-    // Custom slot to debug potential SSL errors
-    // void sslErrors(const QList<QSslError>& errors);
+  // If trying to debug a potential SSL error
+  // Custom slot to debug potential SSL errors
+  // void sslErrors(const QList<QSslError>& errors);
 
-  signals:
+ signals:
 
-    void newMeasure(BCLMeasure newMeasure);
+  void newMeasure(BCLMeasure newMeasure);
 
-  private:
-    REGISTER_LOGGER("openstudio.MeasureManager");
+ private:
+  REGISTER_LOGGER("openstudio.MeasureManager");
 
-    void updateMeasuresLists(bool updateUserMeasures);
+  void updateMeasuresLists(bool updateUserMeasures);
 
-    bool checkForLocalBCLUpdates();
+  bool checkForLocalBCLUpdates();
 
-    bool checkForUpdates(const openstudio::path& measureDir, bool force=false);
+  bool checkForUpdates(const openstudio::path& measureDir, bool force = false);
 
-    boost::optional<measure::OSArgument> getArgument(const measure::OSArgumentType& type, const Json::Value& jsonArgument);
+  boost::optional<measure::OSArgument> getArgument(const measure::OSArgumentType& type, const Json::Value& jsonArgument);
 
-    BaseApp *m_app;
-    openstudio::path m_tempModelPath;
-    std::map<UUID,BCLMeasure> m_myMeasures;
-    std::map<UUID,BCLMeasure> m_bclMeasures;
-    std::map<openstudio::path, std::vector<measure::OSArgument> > m_measureArguments;
-    QUrl m_url;
-    QSharedPointer<LocalLibraryController> m_libraryController;
-    QNetworkAccessManager* m_networkAccessManager;
-    bool m_started;
-    QMutex m_mutex;
+  BaseApp* m_app;
+  openstudio::path m_tempModelPath;
+  std::map<UUID, BCLMeasure> m_myMeasures;
+  std::map<UUID, BCLMeasure> m_bclMeasures;
+  std::map<openstudio::path, std::vector<measure::OSArgument>> m_measureArguments;
+  QUrl m_url;
+  QSharedPointer<LocalLibraryController> m_libraryController;
+  QNetworkAccessManager* m_networkAccessManager;
+  bool m_started;
+  QMutex m_mutex;
 };
 
+}  // namespace openstudio
 
-} // openstudio
-
-#endif // SHAREDGUICOMPONENTS_MEASUREMANAGER_HPP
+#endif  // SHAREDGUICOMPONENTS_MEASUREMANAGER_HPP

@@ -37,7 +37,7 @@
 
 #include <QObject>
 #include <QTreeWidgetItem>
-#include <openstudio/nano/nano_signal_slot.hpp> // Signal-Slot replacement
+#include <openstudio/nano/nano_signal_slot.hpp>  // Signal-Slot replacement
 
 class QPushButton;
 class QLabel;
@@ -47,97 +47,94 @@ namespace openstudio {
 class OSItem;
 
 namespace model {
-  class ShadingSurfaceGroup;
-  class Building;
-  class BuildingStory;
-  class ThermalZone;
-  class SpaceType;
-  class Space;
-}
+class ShadingSurfaceGroup;
+class Building;
+class BuildingStory;
+class ThermalZone;
+class SpaceType;
+class Space;
+}  // namespace model
 
 class ModelObjectTreeItem : public QObject, public QTreeWidgetItem, public Nano::Observer
 {
   Q_OBJECT
 
-  public:
+ public:
+  /// Constructed with a modelObject this tree item represents that object
+  ModelObjectTreeItem(const openstudio::model::ModelObject& modelObject, bool isDefaulted, OSItemType type, QTreeWidgetItem* parent = nullptr);
 
-    /// Constructed with a modelObject this tree item represents that object
-    ModelObjectTreeItem(const openstudio::model::ModelObject& modelObject, bool isDefaulted, OSItemType type, QTreeWidgetItem* parent = nullptr );
+  /// Constructed with no modelObject this tree item represents a container
+  ModelObjectTreeItem(const std::string& name, const openstudio::model::Model& model, QTreeWidgetItem* parent = nullptr);
 
-    /// Constructed with no modelObject this tree item represents a container
-    ModelObjectTreeItem(const std::string& name, const openstudio::model::Model& model, QTreeWidgetItem* parent = nullptr );
+  virtual ~ModelObjectTreeItem();
 
-    virtual ~ModelObjectTreeItem();
+  boost::optional<openstudio::Handle> handle() const;
 
-    boost::optional<openstudio::Handle> handle() const;
+  boost::optional<openstudio::model::ModelObject> modelObject() const;
 
-    boost::optional<openstudio::model::ModelObject> modelObject() const;
+  openstudio::model::Model model() const;
 
-    openstudio::model::Model model() const;
+  std::string name() const;
 
-    std::string name() const;
+  OSItem* item() const;
 
-    OSItem* item() const;
+  std::vector<ModelObjectTreeItem*> children() const;
 
-    std::vector<ModelObjectTreeItem*> children() const;
+  std::vector<ModelObjectTreeItem*> recursiveChildren() const;
 
-    std::vector<ModelObjectTreeItem*> recursiveChildren() const;
+  void setStyle(int headerLevel, const QString& color);
 
-    void setStyle(int headerLevel, const QString& color);
+  bool isDirty();
 
-    bool isDirty();
+  void makeDirty();
 
-    void makeDirty();
+ public slots:
 
-  public slots:
+  void refresh();
 
-    void refresh();
+  void refreshTree();
 
-    void refreshTree();
+  void change();
 
-    void change();
+  void changeRelationship(int index, Handle newHandle, Handle oldHandle);
 
-    void changeRelationship(int index, Handle newHandle, Handle oldHandle);
+ protected:
+  // make all child items
+  void makeChildren();
 
-  protected:
+  // get any non-model object children that this item should have
+  virtual std::vector<std::string> nonModelObjectChildren() const;
 
-    // make all child items
-    void makeChildren();
+  // get any model object children that this item should have
+  virtual std::vector<model::ModelObject> modelObjectChildren() const;
 
-    // get any non-model object children that this item should have
-    virtual std::vector<std::string> nonModelObjectChildren() const;
+  // get any defaulted model object children that this item should have
+  virtual std::vector<model::ModelObject> defaultedModelObjectChildren() const;
 
-    // get any model object children that this item should have
-    virtual std::vector<model::ModelObject> modelObjectChildren() const;
+  // add a non-model object as a child
+  virtual void addNonModelObjectChild(const std::string& child);
 
-    // get any defaulted model object children that this item should have
-    virtual std::vector<model::ModelObject> defaultedModelObjectChildren() const;
+  // add a model object as a child
+  virtual void addModelObjectChild(const model::ModelObject& child, bool isDefaulted);
 
-    // add a non-model object as a child
-    virtual void addNonModelObjectChild(const std::string& child);
+  // called after makeChildren or refresh
+  virtual void finalize();
 
-    // add a model object as a child
-    virtual void addModelObjectChild(const model::ModelObject& child, bool isDefaulted);
+  static const OSItemType m_type;
 
-    // called after makeChildren or refresh
-    virtual void finalize();
+  static OSItemType initializeOSItemType();
 
-    static const OSItemType m_type;
+ private slots:
 
-    static OSItemType initializeOSItemType();
+  void changeName();
 
-  private slots:
-
-    void changeName();
-
-  private:
-
-    boost::optional<openstudio::Handle> m_handle;
-    boost::optional<openstudio::model::ModelObject> m_modelObject;
-    openstudio::model::Model m_model;
-    std::string m_name;
-    OSItem* m_item;
-    bool m_dirty;
+ private:
+  boost::optional<openstudio::Handle> m_handle;
+  boost::optional<openstudio::model::ModelObject> m_modelObject;
+  openstudio::model::Model m_model;
+  std::string m_name;
+  OSItem* m_item;
+  bool m_dirty;
 };
 
 ///////////////////// SiteShading ////////////////////////////////////////////////
@@ -146,14 +143,14 @@ class SiteShadingTreeItem : public ModelObjectTreeItem
 {
   Q_OBJECT
 
-  public:
-    SiteShadingTreeItem(const openstudio::model::Model& model,
-                        QTreeWidgetItem* parent = nullptr );
-    virtual ~SiteShadingTreeItem() {}
-    static std::string itemName();
-  protected:
-    virtual std::vector<model::ModelObject> modelObjectChildren() const override;
-    virtual void addModelObjectChild(const model::ModelObject& child, bool isDefaulted) override;
+ public:
+  SiteShadingTreeItem(const openstudio::model::Model& model, QTreeWidgetItem* parent = nullptr);
+  virtual ~SiteShadingTreeItem() {}
+  static std::string itemName();
+
+ protected:
+  virtual std::vector<model::ModelObject> modelObjectChildren() const override;
+  virtual void addModelObjectChild(const model::ModelObject& child, bool isDefaulted) override;
 };
 
 ///////////////////// ShadingSurfaceGroup ////////////////////////////////////////////////
@@ -162,13 +159,13 @@ class ShadingSurfaceGroupTreeItem : public ModelObjectTreeItem
 {
   Q_OBJECT
 
-  public:
-    ShadingSurfaceGroupTreeItem(const openstudio::model::ShadingSurfaceGroup& shadingSurfaceGroup,
-                                QTreeWidgetItem* parent = nullptr );
-    virtual ~ShadingSurfaceGroupTreeItem() {}
-  protected:
-    virtual std::vector<model::ModelObject> modelObjectChildren() const override;
-    virtual void addModelObjectChild(const model::ModelObject& child, bool isDefaulted) override;
+ public:
+  ShadingSurfaceGroupTreeItem(const openstudio::model::ShadingSurfaceGroup& shadingSurfaceGroup, QTreeWidgetItem* parent = nullptr);
+  virtual ~ShadingSurfaceGroupTreeItem() {}
+
+ protected:
+  virtual std::vector<model::ModelObject> modelObjectChildren() const override;
+  virtual void addModelObjectChild(const model::ModelObject& child, bool isDefaulted) override;
 };
 
 ///////////////////// Building ////////////////////////////////////////////////
@@ -177,18 +174,18 @@ class BuildingTreeItem : public ModelObjectTreeItem
 {
   Q_OBJECT
 
-  public:
-    BuildingTreeItem(const openstudio::model::Building& building,
-                     const openstudio::IddObjectType& sortByType,
-                     QTreeWidgetItem* parent = nullptr );
-    virtual ~BuildingTreeItem() {}
-  protected:
-    virtual std::vector<model::ModelObject> modelObjectChildren() const override;
-    virtual void addModelObjectChild(const model::ModelObject& child, bool isDefaulted) override;
-    virtual std::vector<std::string> nonModelObjectChildren() const override;
-    virtual void addNonModelObjectChild(const std::string& child) override;
-  private:
-    openstudio::IddObjectType m_sortByType;
+ public:
+  BuildingTreeItem(const openstudio::model::Building& building, const openstudio::IddObjectType& sortByType, QTreeWidgetItem* parent = nullptr);
+  virtual ~BuildingTreeItem() {}
+
+ protected:
+  virtual std::vector<model::ModelObject> modelObjectChildren() const override;
+  virtual void addModelObjectChild(const model::ModelObject& child, bool isDefaulted) override;
+  virtual std::vector<std::string> nonModelObjectChildren() const override;
+  virtual void addNonModelObjectChild(const std::string& child) override;
+
+ private:
+  openstudio::IddObjectType m_sortByType;
 };
 
 ///////////////////// BuildingShading ////////////////////////////////////////////////
@@ -197,14 +194,14 @@ class BuildingShadingTreeItem : public ModelObjectTreeItem
 {
   Q_OBJECT
 
-  public:
-    BuildingShadingTreeItem(const openstudio::model::Model& model,
-                            QTreeWidgetItem* parent = nullptr );
-    virtual ~BuildingShadingTreeItem() {}
-    static std::string itemName();
-  protected:
-    virtual std::vector<model::ModelObject> modelObjectChildren() const override;
-    virtual void addModelObjectChild(const model::ModelObject& child, bool isDefaulted) override;
+ public:
+  BuildingShadingTreeItem(const openstudio::model::Model& model, QTreeWidgetItem* parent = nullptr);
+  virtual ~BuildingShadingTreeItem() {}
+  static std::string itemName();
+
+ protected:
+  virtual std::vector<model::ModelObject> modelObjectChildren() const override;
+  virtual void addModelObjectChild(const model::ModelObject& child, bool isDefaulted) override;
 };
 
 ///////////////////// BuildingStory ////////////////////////////////////////////////
@@ -213,28 +210,28 @@ class BuildingStoryTreeItem : public ModelObjectTreeItem
 {
   Q_OBJECT
 
-  public:
-    BuildingStoryTreeItem(const openstudio::model::BuildingStory& buildingStory,
-                          QTreeWidgetItem* parent = nullptr );
-    virtual ~BuildingStoryTreeItem() {}
-  protected:
-    virtual std::vector<model::ModelObject> modelObjectChildren() const override;
-    virtual void addModelObjectChild(const model::ModelObject& child, bool isDefaulted) override;
+ public:
+  BuildingStoryTreeItem(const openstudio::model::BuildingStory& buildingStory, QTreeWidgetItem* parent = nullptr);
+  virtual ~BuildingStoryTreeItem() {}
+
+ protected:
+  virtual std::vector<model::ModelObject> modelObjectChildren() const override;
+  virtual void addModelObjectChild(const model::ModelObject& child, bool isDefaulted) override;
 };
 
 class NoBuildingStoryTreeItem : public ModelObjectTreeItem
 {
   Q_OBJECT
 
-  public:
-    NoBuildingStoryTreeItem(const openstudio::model::Model& model,
-                            QTreeWidgetItem* parent = nullptr );
-    virtual ~NoBuildingStoryTreeItem() {}
-    static std::string itemName();
-  protected:
-    virtual std::vector<model::ModelObject> modelObjectChildren() const override;
-    virtual void addModelObjectChild(const model::ModelObject& child, bool isDefaulted) override;
-    virtual void finalize() override;
+ public:
+  NoBuildingStoryTreeItem(const openstudio::model::Model& model, QTreeWidgetItem* parent = nullptr);
+  virtual ~NoBuildingStoryTreeItem() {}
+  static std::string itemName();
+
+ protected:
+  virtual std::vector<model::ModelObject> modelObjectChildren() const override;
+  virtual void addModelObjectChild(const model::ModelObject& child, bool isDefaulted) override;
+  virtual void finalize() override;
 };
 
 ///////////////////// ThermalZone ////////////////////////////////////////////////
@@ -243,28 +240,28 @@ class ThermalZoneTreeItem : public ModelObjectTreeItem
 {
   Q_OBJECT
 
-  public:
-    ThermalZoneTreeItem(const openstudio::model::ThermalZone& thermalZone,
-                        QTreeWidgetItem* parent = nullptr );
-    virtual ~ThermalZoneTreeItem() {}
-  protected:
-    virtual std::vector<model::ModelObject> modelObjectChildren() const override;
-    virtual void addModelObjectChild(const model::ModelObject& child, bool isDefaulted) override;
+ public:
+  ThermalZoneTreeItem(const openstudio::model::ThermalZone& thermalZone, QTreeWidgetItem* parent = nullptr);
+  virtual ~ThermalZoneTreeItem() {}
+
+ protected:
+  virtual std::vector<model::ModelObject> modelObjectChildren() const override;
+  virtual void addModelObjectChild(const model::ModelObject& child, bool isDefaulted) override;
 };
 
 class NoThermalZoneTreeItem : public ModelObjectTreeItem
 {
   Q_OBJECT
 
-  public:
-    NoThermalZoneTreeItem(const openstudio::model::Model& model,
-                          QTreeWidgetItem* parent = nullptr );
-    virtual ~NoThermalZoneTreeItem() {}
-    static std::string itemName();
-  protected:
-    virtual std::vector<model::ModelObject> modelObjectChildren() const override;
-    virtual void addModelObjectChild(const model::ModelObject& child, bool isDefaulted) override;
-    virtual void finalize() override;
+ public:
+  NoThermalZoneTreeItem(const openstudio::model::Model& model, QTreeWidgetItem* parent = nullptr);
+  virtual ~NoThermalZoneTreeItem() {}
+  static std::string itemName();
+
+ protected:
+  virtual std::vector<model::ModelObject> modelObjectChildren() const override;
+  virtual void addModelObjectChild(const model::ModelObject& child, bool isDefaulted) override;
+  virtual void finalize() override;
 };
 
 ///////////////////// SpaceType ////////////////////////////////////////////////
@@ -273,29 +270,29 @@ class SpaceTypeTreeItem : public ModelObjectTreeItem
 {
   Q_OBJECT
 
-  public:
-    SpaceTypeTreeItem(const openstudio::model::SpaceType& spaceType,
-                      QTreeWidgetItem* parent = nullptr );
-    virtual ~SpaceTypeTreeItem() {}
-  protected:
-    virtual std::vector<model::ModelObject> modelObjectChildren() const override;
-    virtual std::vector<model::ModelObject> defaultedModelObjectChildren() const override;
-    virtual void addModelObjectChild(const model::ModelObject& child, bool isDefaulted) override;
+ public:
+  SpaceTypeTreeItem(const openstudio::model::SpaceType& spaceType, QTreeWidgetItem* parent = nullptr);
+  virtual ~SpaceTypeTreeItem() {}
+
+ protected:
+  virtual std::vector<model::ModelObject> modelObjectChildren() const override;
+  virtual std::vector<model::ModelObject> defaultedModelObjectChildren() const override;
+  virtual void addModelObjectChild(const model::ModelObject& child, bool isDefaulted) override;
 };
 
 class NoSpaceTypeTreeItem : public ModelObjectTreeItem
 {
   Q_OBJECT
 
-  public:
-    NoSpaceTypeTreeItem(const openstudio::model::Model& model,
-                        QTreeWidgetItem* parent = nullptr );
-    virtual ~NoSpaceTypeTreeItem() {}
-    static std::string itemName();
-  protected:
-    virtual std::vector<model::ModelObject> modelObjectChildren() const override;
-    virtual void addModelObjectChild(const model::ModelObject& child, bool isDefaulted) override;
-    virtual void finalize() override;
+ public:
+  NoSpaceTypeTreeItem(const openstudio::model::Model& model, QTreeWidgetItem* parent = nullptr);
+  virtual ~NoSpaceTypeTreeItem() {}
+  static std::string itemName();
+
+ protected:
+  virtual std::vector<model::ModelObject> modelObjectChildren() const override;
+  virtual void addModelObjectChild(const model::ModelObject& child, bool isDefaulted) override;
+  virtual void finalize() override;
 };
 
 ///////////////////// Space ////////////////////////////////////////////////
@@ -304,12 +301,13 @@ class SpaceTreeItem : public ModelObjectTreeItem
 {
   Q_OBJECT
 
-  public:
-    SpaceTreeItem(const openstudio::model::Space& space, QTreeWidgetItem* parent = nullptr );
-    virtual ~SpaceTreeItem() {}
-  protected:
-    virtual std::vector<std::string> nonModelObjectChildren() const override;
-    virtual void addNonModelObjectChild(const std::string& child) override;
+ public:
+  SpaceTreeItem(const openstudio::model::Space& space, QTreeWidgetItem* parent = nullptr);
+  virtual ~SpaceTreeItem() {}
+
+ protected:
+  virtual std::vector<std::string> nonModelObjectChildren() const override;
+  virtual void addNonModelObjectChild(const std::string& child) override;
 };
 
 ///////////////////// Roofs ////////////////////////////////////////////////
@@ -318,15 +316,17 @@ class RoofsTreeItem : public ModelObjectTreeItem
 {
   Q_OBJECT
 
-  public:
-    RoofsTreeItem(const openstudio::model::Space& space, QTreeWidgetItem* parent = nullptr );
-    virtual ~RoofsTreeItem() {}
-    static std::string itemName();
-  protected:
-    virtual std::vector<model::ModelObject> modelObjectChildren() const override;
-    virtual void addModelObjectChild(const model::ModelObject& child, bool isDefaulted) override;
-  private:
-    openstudio::model::Space m_space;
+ public:
+  RoofsTreeItem(const openstudio::model::Space& space, QTreeWidgetItem* parent = nullptr);
+  virtual ~RoofsTreeItem() {}
+  static std::string itemName();
+
+ protected:
+  virtual std::vector<model::ModelObject> modelObjectChildren() const override;
+  virtual void addModelObjectChild(const model::ModelObject& child, bool isDefaulted) override;
+
+ private:
+  openstudio::model::Space m_space;
 };
 
 ///////////////////// Walls ////////////////////////////////////////////////
@@ -335,15 +335,17 @@ class WallsTreeItem : public ModelObjectTreeItem
 {
   Q_OBJECT
 
-  public:
-    WallsTreeItem(const openstudio::model::Space& space, QTreeWidgetItem* parent = nullptr );
-    virtual ~WallsTreeItem() {}
-    static std::string itemName();
-  protected:
-    virtual std::vector<model::ModelObject> modelObjectChildren() const override;
-    virtual void addModelObjectChild(const model::ModelObject& child, bool isDefaulted) override;
-  private:
-    openstudio::model::Space m_space;
+ public:
+  WallsTreeItem(const openstudio::model::Space& space, QTreeWidgetItem* parent = nullptr);
+  virtual ~WallsTreeItem() {}
+  static std::string itemName();
+
+ protected:
+  virtual std::vector<model::ModelObject> modelObjectChildren() const override;
+  virtual void addModelObjectChild(const model::ModelObject& child, bool isDefaulted) override;
+
+ private:
+  openstudio::model::Space m_space;
 };
 
 ///////////////////// Floors ////////////////////////////////////////////////
@@ -352,15 +354,17 @@ class FloorsTreeItem : public ModelObjectTreeItem
 {
   Q_OBJECT
 
-  public:
-    FloorsTreeItem(const openstudio::model::Space& space, QTreeWidgetItem* parent = nullptr );
-    virtual ~FloorsTreeItem() {}
-    static std::string itemName();
-  protected:
-    virtual std::vector<model::ModelObject> modelObjectChildren() const override;
-    virtual void addModelObjectChild(const model::ModelObject& child, bool isDefaulted) override;
-  private:
-    openstudio::model::Space m_space;
+ public:
+  FloorsTreeItem(const openstudio::model::Space& space, QTreeWidgetItem* parent = nullptr);
+  virtual ~FloorsTreeItem() {}
+  static std::string itemName();
+
+ protected:
+  virtual std::vector<model::ModelObject> modelObjectChildren() const override;
+  virtual void addModelObjectChild(const model::ModelObject& child, bool isDefaulted) override;
+
+ private:
+  openstudio::model::Space m_space;
 };
 
 ///////////////////// Surface ////////////////////////////////////////////////
@@ -369,11 +373,12 @@ class SurfaceTreeItem : public ModelObjectTreeItem
 {
   Q_OBJECT
 
-  public:
-    SurfaceTreeItem(const openstudio::model::Surface& surface, QTreeWidgetItem* parent = nullptr );
-    virtual ~SurfaceTreeItem() {}
-  protected:
-    virtual std::vector<model::ModelObject> modelObjectChildren() const override;
+ public:
+  SurfaceTreeItem(const openstudio::model::Surface& surface, QTreeWidgetItem* parent = nullptr);
+  virtual ~SurfaceTreeItem() {}
+
+ protected:
+  virtual std::vector<model::ModelObject> modelObjectChildren() const override;
 };
 
 ///////////////////// SpaceShading ////////////////////////////////////////////////
@@ -382,15 +387,17 @@ class SpaceShadingTreeItem : public ModelObjectTreeItem
 {
   Q_OBJECT
 
-  public:
-    SpaceShadingTreeItem(const openstudio::model::Space& space, QTreeWidgetItem* parent = nullptr );
-    virtual ~SpaceShadingTreeItem() {}
-    static std::string itemName();
-  protected:
-    virtual std::vector<model::ModelObject> modelObjectChildren() const override;
-    virtual void addModelObjectChild(const model::ModelObject& child, bool isDefaulted) override;
-  private:
-    openstudio::model::Space m_space;
+ public:
+  SpaceShadingTreeItem(const openstudio::model::Space& space, QTreeWidgetItem* parent = nullptr);
+  virtual ~SpaceShadingTreeItem() {}
+  static std::string itemName();
+
+ protected:
+  virtual std::vector<model::ModelObject> modelObjectChildren() const override;
+  virtual void addModelObjectChild(const model::ModelObject& child, bool isDefaulted) override;
+
+ private:
+  openstudio::model::Space m_space;
 };
 
 ///////////////////// InteriorPartitions ////////////////////////////////////////////////
@@ -399,15 +406,17 @@ class InteriorPartitionsTreeItem : public ModelObjectTreeItem
 {
   Q_OBJECT
 
-  public:
-    InteriorPartitionsTreeItem(const openstudio::model::Space& space, QTreeWidgetItem* parent = nullptr );
-    virtual ~InteriorPartitionsTreeItem() {}
-    static std::string itemName();
-  protected:
-    virtual std::vector<model::ModelObject> modelObjectChildren() const override;
-    virtual void addModelObjectChild(const model::ModelObject& child, bool isDefaulted) override;
-  private:
-    openstudio::model::Space m_space;
+ public:
+  InteriorPartitionsTreeItem(const openstudio::model::Space& space, QTreeWidgetItem* parent = nullptr);
+  virtual ~InteriorPartitionsTreeItem() {}
+  static std::string itemName();
+
+ protected:
+  virtual std::vector<model::ModelObject> modelObjectChildren() const override;
+  virtual void addModelObjectChild(const model::ModelObject& child, bool isDefaulted) override;
+
+ private:
+  openstudio::model::Space m_space;
 };
 
 ///////////////////// InteriorPartitionSurfaceGroup ////////////////////////////////////////////////
@@ -416,12 +425,13 @@ class InteriorPartitionSurfaceGroupTreeItem : public ModelObjectTreeItem
 {
   Q_OBJECT
 
-  public:
-    InteriorPartitionSurfaceGroupTreeItem(const openstudio::model::InteriorPartitionSurfaceGroup& interiorPartitionSurfaceGroup,
-                                          QTreeWidgetItem* parent = nullptr );
-    virtual ~InteriorPartitionSurfaceGroupTreeItem() {}
-  protected:
-    virtual std::vector<model::ModelObject> modelObjectChildren() const override;
+ public:
+  InteriorPartitionSurfaceGroupTreeItem(const openstudio::model::InteriorPartitionSurfaceGroup& interiorPartitionSurfaceGroup,
+                                        QTreeWidgetItem* parent = nullptr);
+  virtual ~InteriorPartitionSurfaceGroupTreeItem() {}
+
+ protected:
+  virtual std::vector<model::ModelObject> modelObjectChildren() const override;
 };
 
 ///////////////////// DaylightingObjects ////////////////////////////////////////////////
@@ -430,17 +440,17 @@ class DaylightingObjectsTreeItem : public ModelObjectTreeItem
 {
   Q_OBJECT
 
-  public:
-    DaylightingObjectsTreeItem(const openstudio::model::Space& space,
-                               QTreeWidgetItem* parent = nullptr );
-    virtual ~DaylightingObjectsTreeItem() {}
-    static std::string itemName();
-  protected:
-    virtual std::vector<model::ModelObject> modelObjectChildren() const override;
-  private:
-    openstudio::model::Space m_space;
-};
+ public:
+  DaylightingObjectsTreeItem(const openstudio::model::Space& space, QTreeWidgetItem* parent = nullptr);
+  virtual ~DaylightingObjectsTreeItem() {}
+  static std::string itemName();
 
+ protected:
+  virtual std::vector<model::ModelObject> modelObjectChildren() const override;
+
+ private:
+  openstudio::model::Space m_space;
+};
 
 ///////////////////// Loads ////////////////////////////////////////////////
 
@@ -448,18 +458,19 @@ class LoadsTreeItem : public ModelObjectTreeItem
 {
   Q_OBJECT
 
-  public:
-    LoadsTreeItem(const openstudio::model::Space& space, QTreeWidgetItem* parent = nullptr );
-    virtual ~LoadsTreeItem() {}
-    static std::string itemName();
-  protected:
-    virtual std::vector<model::ModelObject> modelObjectChildren() const override;
-    virtual std::vector<model::ModelObject> defaultedModelObjectChildren() const override;
-  private:
-    openstudio::model::Space m_space;
+ public:
+  LoadsTreeItem(const openstudio::model::Space& space, QTreeWidgetItem* parent = nullptr);
+  virtual ~LoadsTreeItem() {}
+  static std::string itemName();
+
+ protected:
+  virtual std::vector<model::ModelObject> modelObjectChildren() const override;
+  virtual std::vector<model::ModelObject> defaultedModelObjectChildren() const override;
+
+ private:
+  openstudio::model::Space m_space;
 };
 
+}  // namespace openstudio
 
-} // openstudio
-
-#endif // OPENSTUDIO_MODELOBJECTTREEITEMS_HPP
+#endif  // OPENSTUDIO_MODELOBJECTTREEITEMS_HPP

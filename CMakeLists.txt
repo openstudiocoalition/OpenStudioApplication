@@ -693,10 +693,10 @@ elseif(UNIX)
   set(CPACK_SET_DESTDIR ON)
   set(CPACK_INSTALL_PREFIX /usr/local/openstudioapplication-${OPENSTUDIOAPPLICATION_VERSION})
 
-  set(CPACK_DEBIAN_PACKAGE_MAINTAINER "openstudio@nrel.gov")
+  set(CPACK_DEBIAN_PACKAGE_MAINTAINER "osc@openstudiocoalition.org")
   # Default the debian package name to include version to allow several versions to be installed concurrently instead of overwriting any existing one
   set(CPACK_DEBIAN_PACKAGE_NAME "openstudioapplication-${OPENSTUDIOAPPLICATION_VERSION}")
-  set(CPACK_DEBIAN_PACKAGE_HOMEPAGE "https://www.openstudio.net")
+  set(CPACK_DEBIAN_PACKAGE_HOMEPAGE "https://openstudiocoalition.org/")
 
   set(POSTINST_FILE "${PROJECT_BINARY_DIR}/postinst")
   set(POSTRM_FILE "${PROJECT_BINARY_DIR}/postrm")
