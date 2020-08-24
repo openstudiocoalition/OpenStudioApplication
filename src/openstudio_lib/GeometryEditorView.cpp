@@ -191,7 +191,7 @@ FloorspaceEditor::FloorspaceEditor(const openstudio::path& floorplanPath, bool i
   if (site) {
     m_originalSiteName = site->nameString();
   }
-  
+
   if (exists(m_floorplanPath)) {
 
     openstudio::filesystem::ifstream ifs(m_floorplanPath);
@@ -212,7 +212,7 @@ FloorspaceEditor::FloorspaceEditor(const openstudio::path& floorplanPath, bool i
       if (building) {
         m_floorplan->setNorthAxis(-building->northAxis());
       }
-  
+
       // do not update floorspace lat/lon from model, location in model probably comes from an epw file
 
       QString errorsAndWarnings;
@@ -521,8 +521,7 @@ void FloorspaceEditor::translateExport() {
     m_exportModelHandleMapping = rt.handleMapping();
 
     // manually add mappings between current model and new model for Site, Facility, and Building objects
-    m_exportModelHandleMapping[m_model.getUniqueModelObject<model::Site>().handle()] = 
-      m_exportModel.getUniqueModelObject<model::Site>().handle();
+    m_exportModelHandleMapping[m_model.getUniqueModelObject<model::Site>().handle()] = m_exportModel.getUniqueModelObject<model::Site>().handle();
     m_exportModelHandleMapping[m_model.getUniqueModelObject<model::Facility>().handle()] =
       m_exportModel.getUniqueModelObject<model::Facility>().handle();
     m_exportModelHandleMapping[m_model.getUniqueModelObject<model::Building>().handle()] =
