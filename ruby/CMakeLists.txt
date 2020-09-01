@@ -164,7 +164,9 @@ else()
         # TODO: might need -I openstudio_modeleditor_rb instead/as well.
         add_test(NAME "OSApp-RubyTest-${FILE_NAME}-${TEST_NAME}"
           COMMAND "${CMAKE_COMMAND}" -E chdir "${CMAKE_CURRENT_BINARY_DIR}"
-          "${SYSTEM_RUBY_EXECUTABLE}" "-I" "$<TARGET_FILE_DIR:openstudio_rb>" "-I" "$<TARGET_FILE_DIR:openstudio_modeleditor_rb>" "${f}" "--name=test_${TEST_NAME}"
+          "${SYSTEM_RUBY_EXECUTABLE}" "-I" "$<TARGET_FILE_DIR:openstudio::openstudio_rb>" # Or just ${openstudio_ROOT_DIR}/Ruby
+                                      "-I" "$<TARGET_FILE_DIR:openstudio_modeleditor_rb>"
+                                      "${f}" "--name=test_${TEST_NAME}"
         )
 
         set_tests_properties("OSApp-RubyTest-${FILE_NAME}-${TEST_NAME}" PROPERTIES TIMEOUT 660 )
