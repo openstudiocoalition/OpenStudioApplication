@@ -83,9 +83,12 @@ jobs:
         m_major = re.search('set\(OPENSTUDIO_VERSION_MAJOR (\d+)\)', content)
         m_minor = re.search('set\(OPENSTUDIO_VERSION_MINOR (\d+)\)', content)
         m_patch = re.search('set\(OPENSTUDIO_VERSION_PATCH (\d+)\)', content)
+        m_sha = re.search('set\(OPENSTUDIO_VERSION_SHA (\d+)\)', content)
+
         sdk_version = ''
         if m_major:
             sdk_version += m_major.groups()[0]
+            print("::set-env name=OS_SDK_VERSION_MAJOR::{}".format(m_major.groups()[0]))
         else:
             print("Unable to find OPENSTUDIO_VERSION_MAJOR")
             sdk_version += 'X'
@@ -93,6 +96,7 @@ jobs:
         sdk_version += '.'
         if m_minor:
             sdk_version += m_minor.groups()[0]
+            print("::set-env name=OS_SDK_VERSION_INOR::{}".format(m_minor.groups()[0]))
         else:
             print("Unable to find OPENSTUDIO_VERSION_MINOR")
             sdk_version += 'Y'
@@ -100,9 +104,17 @@ jobs:
         sdk_version += '.'
         if m_patch:
             sdk_version += m_patch.groups()[0]
+            print("::set-env name=OS_SDK_VERSION_PATCH::{}".format(m_patch.groups()[0]))
         else:
             print("Unable to find OPENSTUDIO_VERSION_PATCH")
             sdk_version += 'Z'
+
+        if m_sha:
+            sdk_version += m_sha.groups()[0]
+            print("::set-env name=OS_SDK_VERSION_SHA::{}".format(m_sha.groups()[0]))
+        else:
+            print("Unable to find OPENSTUDIO_VERSION_SHA")
+            # NOT ADDING IT to sdk_version
 
         with open('sdk_version.txt', 'w') as f:
             f.write(sdk_version)
