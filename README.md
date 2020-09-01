@@ -1,3 +1,8 @@
+|                         | Build Status |
+|-------------------------|--------------|
+| master                  | [![C++ CI for OpenStudioApplication - master](https://github.com/openstudiocoalition/OpenStudioApplication/workflows/C++%20CI%20for%20OpenStudioApplication/badge.svg?branch=master)](https://github.com/openstudiocoalition/OpenStudioApplication/actions?query=branch%3Amaster)|
+| develop                 | [![C++ CI for OpenStudioApplication - develop](https://github.com/openstudiocoalition/OpenStudioApplication/workflows/C++%20CI%20for%20OpenStudioApplication/badge.svg?branch=develop)](https://github.com/openstudiocoalition/OpenStudioApplication/actions?query=branch%3Adevelop)      |
+
 
 # Important!
 After the v1.0.0 final NREL software distribution (04/27/2020), the OpenStudio Application is now independently supported and maintained with open source contributions by The OpenStudio Coalition and members of the software community at the GitHub repository https://github.com/openstudiocoalition/OpenStudioApplication. The NREL OpenStudio Application repository no longer accepts new issues or pull requests. Please submit new issues or enhancement requests in the new OpenStudio Coalition repository at https://github.com/openstudiocoalition/OpenStudioApplication/issues.
