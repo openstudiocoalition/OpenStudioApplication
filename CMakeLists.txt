@@ -10,7 +10,7 @@ if(CCACHE_PROGRAM)
   set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "${CCACHE_PROGRAM}")
 endif()
 
-project(OpenStudioApplication VERSION 1.0.1)
+project(OpenStudioApplication VERSION 1.1.0)
 
 # set openstudio_DIR to the directory that contains the openstudioConfig.cmake
 # eg C:\src\OpenStudio\build-vs\_CPack_Packages\win64\ZIP\OpenStudio-3.0.0-rc2+ce27ae6b85-Windows\lib\cmake\openstudio
@@ -144,6 +144,7 @@ if(NOT GIT_FOUND)
 endif()
 
 if(GIT_FOUND)
+  # Git SHA (length 10)
   execute_process(COMMAND "${GIT_EXECUTABLE}" "rev-parse" "--short=10" "HEAD"
                   WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
                   TIMEOUT 10
@@ -153,6 +154,18 @@ if(GIT_FOUND)
                   OUTPUT_STRIP_TRAILING_WHITESPACE)
   if(${RESULT} EQUAL 0 AND NOT "${GIT_VERSION}" EQUAL "${PROJECT_VERSION_BUILD}")
     set(PROJECT_VERSION_BUILD ${GIT_VERSION} CACHE STRING "Build number" FORCE) # git sha
+  endif()
+
+  # Git branch name
+  execute_process(COMMAND "${GIT_EXECUTABLE}" "rev-parse" "--abbrev-ref" "HEAD"
+                  WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
+                  TIMEOUT 10
+                  RESULT_VARIABLE RESULT
+                  OUTPUT_VARIABLE GIT_BRANCH
+                  ERROR_QUIET
+                  OUTPUT_STRIP_TRAILING_WHITESPACE)
+  if(${RESULT} EQUAL 0 AND NOT "${GIT_BRANCH}" EQUAL "${PROJECT_GIT_BRANCH}")
+    set(PROJECT_GIT_BRANCH ${GIT_BRANCH} CACHE STRING "Git Branch Name" FORCE)
   endif()
 
   get_filename_component(GIT_DIR "${GIT_EXECUTABLE}" DIRECTORY)
@@ -166,21 +179,40 @@ endif()
   #message(SEND_ERROR "Required program patch not found")
 #endif()
 
-# OpenStudioApplication version: Allows to add a pre1 tag as needed.
-# Note JM 2019-07-12: DO NOT use OpenStudioApplication_VERSION (and use OpenStudioApplication_VERSION_MINOR carefully etc), use the all-upper-case variables
+# README: what's the difference between all these versions?
+
+# The "OpenStudioApplicaton_VERSION" ones should be used in CMakeLists.txt
+# * OpenStudioApplicaton_VERSION: includes the prerelease tag if any: '1.1.0-rc1'
+# * OpenStudioApplicaton_VERSION_PATCH: Patch + prelrease tag if any: '0-rc1'
+
+# The "OPENSTUDIOAPPLICATION_VERSION" ones should only be used in manifests files (aside from using the the long version for naming the installer)
+# * OPENSTUDIOAPPLICATION_VERSION: just major.minor.patch: '1.1.0'
+# * OPENSTUDIO_LONG_VERSION: includes prelrease and build sha: "1.1.0-rc1+ejfbxhza'
+
+# TODO: Modify the more specific variables as needed to indicate prerelease, etc
+# Keep in beta in-between release cycles. Set to empty string (or comment out) for official)
+set(PROJECT_VERSION_PRERELEASE "alpha")
+
+# OpenStudio version: Only include Major.Minor.Patch, eg "3.0.0", even if you have a prerelease tag
 set(OPENSTUDIOAPPLICATION_VERSION "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}")
-# TODO JM 2019-07-12: Comment out (or delete) if prerelease tag not needed
-set(OPENSTUDIOAPPLICATION_PRERELEASE_TAG "")
-if (NOT "${OPENSTUDIOAPPLICATION_PRERELEASE_TAG}" STREQUAL "")
-  message(STATUS "We have a prerelease tag set to '${OPENSTUDIOAPPLICATION_PRERELEASE_TAG}'")
-  set(OPENSTUDIOAPPLICATION_VERSION "${OPENSTUDIOAPPLICATION_VERSION}-${OPENSTUDIOAPPLICATION_PRERELEASE_TAG}")
+
+if (NOT "${PROJECT_VERSION_PRERELEASE}" STREQUAL "")
+  message(STATUS "We have a prerelease tag set to '${PROJECT_VERSION_PRERELEASE}'")
+  if("${PROJECT_GIT_BRANCH}" STREQUAL "master")
+    message(AUTHOR_WARNING "You are building branch 'master', perhaps you shouldn't have included a pre-release tag")
+  endif()
+  string(APPEND OpenStudioApplication_VERSION "-${PROJECT_VERSION_PRERELEASE}")
+  string(APPEND OpenStudioApplication_VERSION_PATCH "-${PROJECT_VERSION_PRERELEASE}")
+  # Long version, include prerelease and build metadata. eg '1.1.0-rc1+6383a191dc'
+  set(OPENSTUDIOAPPLICATION_LONG_VERSION "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}-${PROJECT_VERSION_PRERELEASE}+${PROJECT_VERSION_BUILD}")
 else()
   message(STATUS "We do not have a prerelease tag")
+  if(NOT "${PROJECT_GIT_BRANCH}" STREQUAL "master")
+    message(AUTHOR_WARNING "You are building another branch than master but you do not have a prerelease tag, consider adding one such as 'beta'")
+  endif()
+  # Long version, include build metadata. eg '3.0.0+6383a191dc' for an official release
+  set(OPENSTUDIOAPPLICATION_LONG_VERSION "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}+${PROJECT_VERSION_BUILD}")
 endif()
-set(OPENSTUDIOAPPLICATION_LONG_VERSION "${OPENSTUDIOAPPLICATION_VERSION}.${PROJECT_VERSION_BUILD}")
-message(STATUS "OPENSTUDIOAPPLICATION_VERSION=${OPENSTUDIOAPPLICATION_VERSION}")
-message(STATUS "OPENSTUDIOAPPLICATION_LONG_VERSION=${OPENSTUDIOAPPLICATION_LONG_VERSION}")
-
 
 ###############################################################################
 #                         B U I L D    O P T I O N S                          #
@@ -624,7 +656,7 @@ if(UNIX AND NOT APPLE)
       #ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_ARCHIVE_OUTPUT_DIRECTORY}"
       #LIBRARY_OUTPUT_DIRECTORY "${PROJECT_LIBRARY_OUTPUT_DIRECTORY}"
       #RUNTIME_OUTPUT_DIRECTORY "${PROJECT_RUNTIME_OUTPUT_DIRECTORY}"
-      VERSION ${OPENSTUDIOAPPLICATION_VERSION}
+      VERSION ${OpenStudioApplication_VERSION}
     )
   #target_include_directories(${targ} PUBLIC openstudio)
   endforeach()
@@ -645,19 +677,19 @@ endif()
 
 ######### Install SDK dependencies here ################
 
-#install(DIRECTORY "${OPENSTUDIO_SDK_PATH}/EnergyPlus" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
-install(DIRECTORY "${OPENSTUDIO_SDK_PATH}/Radiance" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
-install(DIRECTORY "${OPENSTUDIO_SDK_PATH}/Ruby" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
-install(DIRECTORY "${OPENSTUDIO_SDK_PATH}/EnergyPlus" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
-install(DIRECTORY "${OPENSTUDIO_SDK_PATH}/Examples" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
-install(DIRECTORY "${OPENSTUDIO_SDK_PATH}/lib" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
+#install(DIRECTORY "${openstudio_ROOT_DIR}/EnergyPlus" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
+install(DIRECTORY "${openstudio_ROOT_DIR}/Radiance" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
+install(DIRECTORY "${openstudio_ROOT_DIR}/Ruby" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
+install(DIRECTORY "${openstudio_ROOT_DIR}/EnergyPlus" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
+install(DIRECTORY "${openstudio_ROOT_DIR}/Examples" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
+install(DIRECTORY "${openstudio_ROOT_DIR}/lib" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
 
 install(PROGRAMS ${os_cli_location} DESTINATION bin COMPONENT "CLI" RENAME "${os_cli_install_name}")
 
 if(WIN32)
-  install(PROGRAMS "${OPENSTUDIO_SDK_PATH}/bin/install_utility.exe" DESTINATION bin COMPONENT "CLI")
+  install(PROGRAMS "${openstudio_ROOT_DIR}/bin/install_utility.exe" DESTINATION bin COMPONENT "CLI")
 else()
-  install(PROGRAMS "${OPENSTUDIO_SDK_PATH}/bin/install_utility" DESTINATION bin COMPONENT "CLI")
+  install(PROGRAMS "${openstudio_ROOT_DIR}/bin/install_utility" DESTINATION bin COMPONENT "CLI")
 endif()
 
 
@@ -668,7 +700,7 @@ set(CPACK_PACKAGE_VERSION_MINOR ${OpenStudioApplication_VERSION_MINOR})
 set(CPACK_PACKAGE_VERSION_PATCH ${OpenStudioApplication_VERSION_PATCH})
 
 # CPACK_DEBIAN_PACKAGE_DESCRIPTION defaults to this one too. dpkg-deb -I xxx.deb will show this description
-set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "OpenStudioApplication ${OPENSTUDIOAPPLICATION_VERSION}, based on openstudio (core) ${OPENSTUDIO_VERSION}. OpenStudio is a cross-platform collection of software tools to support whole building energy modeling using EnergyPlus and advanced daylight analysis using Radiance")
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "OpenStudioApplication ${OpenStudioApplication_VERSION}, based on openstudio (core) ${OPENSTUDIO_VERSION}. OpenStudio is a cross-platform collection of software tools to support whole building energy modeling using EnergyPlus and advanced daylight analysis using Radiance")
 
 # The actual package file name on disk
 set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${OPENSTUDIOAPPLICATION_LONG_VERSION}-${CMAKE_SYSTEM_NAME}")
@@ -680,7 +712,7 @@ set(CPACK_PACKAGE_CONTACT "openstudio@nrel.gov")
   install(FILES "${PROJECT_SOURCE_DIR}/LICENSE.md" DESTINATION .)
 
 if (APPLE)
-  set(CPACK_IFW_TARGET_DIRECTORY /Applications/OpenStudioApplication-${OPENSTUDIOAPPLICATION_VERSION}/)
+  set(CPACK_IFW_TARGET_DIRECTORY /Applications/OpenStudioApplication-${OpenStudioApplication_VERSION}/)
 elseif(UNIX)
 
   # For debug
@@ -691,11 +723,11 @@ elseif(UNIX)
 
   # These two will set the .deb install path correctly
   set(CPACK_SET_DESTDIR ON)
-  set(CPACK_INSTALL_PREFIX /usr/local/openstudioapplication-${OPENSTUDIOAPPLICATION_VERSION})
+  set(CPACK_INSTALL_PREFIX /usr/local/openstudioapplication-${OpenStudioApplication_VERSION})
 
   set(CPACK_DEBIAN_PACKAGE_MAINTAINER "osc@openstudiocoalition.org")
   # Default the debian package name to include version to allow several versions to be installed concurrently instead of overwriting any existing one
-  set(CPACK_DEBIAN_PACKAGE_NAME "openstudioapplication-${OPENSTUDIOAPPLICATION_VERSION}")
+  set(CPACK_DEBIAN_PACKAGE_NAME "openstudioapplication-${OpenStudioApplication_VERSION}") # Includes the prerelease tag if any
   set(CPACK_DEBIAN_PACKAGE_HOMEPAGE "https://openstudiocoalition.org/")
 
   set(POSTINST_FILE "${PROJECT_BINARY_DIR}/postinst")
@@ -766,7 +798,7 @@ elseif(UNIX)
 
 
 elseif(WIN32)
-  set(CPACK_PACKAGE_INSTALL_DIRECTORY "openstudioapplication-${OPENSTUDIOAPPLICATION_VERSION}")
+  set(CPACK_PACKAGE_INSTALL_DIRECTORY "openstudioapplication-${OpenStudioApplication_VERSION}")
   set(CPACK_IFW_TARGET_DIRECTORY "C:/${CPACK_PACKAGE_INSTALL_DIRECTORY}")
   set(CPACK_BINARY_IFW ON CACHE BOOL "Enable to build IFW packages")
   set(CPACK_BINARY_NSIS OFF CACHE BOOL "Enable to build NSIS packages")

@@ -1,70 +1,140 @@
 set(OPENSTUDIO_VERSION_MAJOR 3)
-set(OPENSTUDIO_VERSION_MINOR 0)
-set(OPENSTUDIO_VERSION_PATCH 1)
+set(OPENSTUDIO_VERSION_MINOR 1)
+set(OPENSTUDIO_VERSION_PATCH 0)
 set(OPENSTUDIO_VERSION "${OPENSTUDIO_VERSION_MAJOR}.${OPENSTUDIO_VERSION_MINOR}.${OPENSTUDIO_VERSION_PATCH}")
 
-find_package(openstudio "${OPENSTUDIO_VERSION}" CONFIG)
+#If this is a release enter the SHA as "+79857912c4"
+#set(OPENSTUDIO_VERSION_SHA "+09b7c8a554")
+#If this is a pre-release enter the pre-release and SHA as "-rc1+79857912c4"
+set(OPENSTUDIO_VERSION_SHA "-alpha+fa9a77bf17")
+
+# Paths where the cmake-downloaded archives will be put
+set(OPENSTUDIO_ARCHIVE_DIR "${PROJECT_BINARY_DIR}/OpenStudio-${OPENSTUDIO_VERSION}")
+
+# If downloaded, we need the SHA to match. This block is here since we need "OPENSTUDIO_PLATFORM" anyways
+if(APPLE)
+  set(OPENSTUDIO_EXPECTED_HASH 4f9d9fcf1f384bfc7e32557fe0c9913f)
+  set(OPENSTUDIO_PLATFORM "Darwin")
+  set(OPENSTUDIO_EXT "tar.gz")
+elseif(UNIX)
+  set(OPENSTUDIO_EXPECTED_HASH a978690432bca4c4eac5b780c89ca461)
+  set(OPENSTUDIO_PLATFORM "Linux")
+  set(OPENSTUDIO_EXT "tar.gz")
+elseif(WIN32)
+  set(OPENSTUDIO_EXPECTED_HASH c5c3bf8922ac695d22f0c94f957f535c)
+  set(OPENSTUDIO_PLATFORM "Windows")
+  set(OPENSTUDIO_EXT "tar.gz")
+endif()
+
+
+set(OPENSTUDIO_ARCHIVE_BASENAME "OpenStudio-${OPENSTUDIO_VERSION}${OPENSTUDIO_VERSION_SHA}-${OPENSTUDIO_PLATFORM}")
+set(OPENSTUDIO_ARCHIVE_NAME "${OPENSTUDIO_ARCHIVE_BASENAME}.${OPENSTUDIO_EXT}"
+  CACHE STRING "Archive Name, with extension" FORCE)
+
+# See if we can find the openstudio package with the right short version (eg 3.1.0) directly
+# (either installed and in PATH, or if user supplied openstudio_DIR in the cmake command)
+find_package(openstudio "${OPENSTUDIO_VERSION}" CONFIG
+  PATHS
+    "${OPENSTUDIO_ARCHIVE_DIR}/${OPENSTUDIO_ARCHIVE_BASENAME}"
+  HINTS
+    "${OPENSTUDIO_ARCHIVE_DIR}"
+)
 if(openstudio_FOUND)
-  message("Found specified openstudio at ${openstudio_DIR}")
+  message("Found specified openstudio at openstudio_DIR=${openstudio_DIR}")
 else()
 
-  # TODO: currently unsupported, we do not host zip/tar.gz anywhere
-  # This will make it throw, which an informative message
-#  find_package(openstudio "${OPENSTUDIO_VERSION}" CONFIG REQUIRED)
+  # Not found: no problem, we download it
 
-
-  set(OPENSTUDIO_BASELINK "https://openstudio-builds.s3.amazonaws.com/${OPENSTUDIO_VERSION}"
+  # base link for release builds
+  set(OPENSTUDIO_BASELINK_RELEASE "https://openstudio-builds.s3.amazonaws.com/${OPENSTUDIO_VERSION}"
     CACHE STRING "Base link to where the openstudio archives are hosted" FORCE)
 
-  #If this is a pre-release enter the SHA as "-rc1+79857912c4"
-  set(OPENSTUDIO_VERSION_SHA "+09b7c8a554")
+  # base link for develop builds. (Using https will fail)
+  set(OPENSTUDIO_BASELINK_CI "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/develop"
+    CACHE STRING "Base link to where the openstudio develop archives are hosted" FORCE)
 
-  if(APPLE)
-    set(OPENSTUDIO_EXPECTED_HASH f0c8df7811812fd1601db2842d2eea0b)
-    set(OPENSTUDIO_PLATFORM "Darwin")
-    set(OPENSTUDIO_EXT "tar.gz")
-  elseif(UNIX)
-    set(OPENSTUDIO_EXPECTED_HASH deeafa60b1f87f98527b85b3f0652ea4)
-    set(OPENSTUDIO_PLATFORM "Linux")
-    set(OPENSTUDIO_EXT "tar.gz")
-  elseif(WIN32)
-    set(OPENSTUDIO_EXPECTED_HASH f4329ab725fe3e68203a112f8b9655e5)
-    set(OPENSTUDIO_PLATFORM "Windows")
-    set(OPENSTUDIO_EXT "tar.gz")
+  # Make subdir if it doesn't exist
+   execute_process(COMMAND ${CMAKE_COMMAND} -E make_directory "${OPENSTUDIO_ARCHIVE_DIR}/")
+
+  # First pass: if the archive exists, compute the MD5
+  if(EXISTS "${OPENSTUDIO_ARCHIVE_DIR}/${OPENSTUDIO_ARCHIVE_NAME}")
+    file(MD5 "${OPENSTUDIO_ARCHIVE_DIR}/${OPENSTUDIO_ARCHIVE_NAME}" OPENSTUDIO_HASH)
   endif()
 
-  set(OPENSTUDIO_ARCHIVE_BASENAME "OpenStudio-${OPENSTUDIO_VERSION}${OPENSTUDIO_VERSION_SHA}-${OPENSTUDIO_PLATFORM}")
-  set(OPENSTUDIO_ARCHIVE_NAME "${OPENSTUDIO_ARCHIVE_BASENAME}.${OPENSTUDIO_EXT}"
-      CACHE STRING "Archive Name, with extension" FORCE)
+  # If the archive doesn't exist, or the archive has the wrong MD5, then resort to download
+  if(NOT EXISTS "${OPENSTUDIO_ARCHIVE_DIR}/${OPENSTUDIO_ARCHIVE_NAME}" OR NOT "${OPENSTUDIO_HASH}" MATCHES "${OPENSTUDIO_EXPECTED_HASH}")
 
-  if(EXISTS "${PROJECT_BINARY_DIR}/${OPENSTUDIO_ARCHIVE_NAME}")
-    file(MD5 "${PROJECT_BINARY_DIR}/${OPENSTUDIO_ARCHIVE_NAME}" OPENSTUDIO_HASH)
-  endif()
-  if(NOT EXISTS "${PROJECT_BINARY_DIR}/${OPENSTUDIO_ARCHIVE_NAME}" OR NOT "${OPENSTUDIO_HASH}" MATCHES "${OPENSTUDIO_EXPECTED_HASH}")
-    set(OPENSTUDIO_URL "${OPENSTUDIO_BASELINK}/${OPENSTUDIO_ARCHIVE_NAME}")
-    string(REPLACE "+" "%2B" OPENSTUDIO_URL ${OPENSTUDIO_URL})
-    message(STATUS "Downloading OpenStudio SDK: ${OPENSTUDIO_URL}")
-
-    file(DOWNLOAD "${OPENSTUDIO_URL}" "${PROJECT_BINARY_DIR}/${OPENSTUDIO_ARCHIVE_NAME}"
-       INACTIVITY_TIMEOUT 300 # 5-min timeout
-       SHOW_PROGRESS
-       EXPECTED_MD5 ${OPENSTUDIO_EXPECTED_HASH})
+    if(NOT EXISTS "${OPENSTUDIO_ARCHIVE_DIR}/${OPENSTUDIO_ARCHIVE_NAME}")
+      message(STATUS "Archive doesn't exist at \"${OPENSTUDIO_ARCHIVE_DIR}/${OPENSTUDIO_ARCHIVE_NAME}\"")
+    else()
+      message(STATUS
+        "Existing archive md5sum HASH mismatch\n"
+        "     for file: ${OPENSTUDIO_ARCHIVE_DIR}/${OPENSTUDIO_ARCHIVE_NAME}\n"
+        "       expected hash: [${OPENSTUDIO_EXPECTED_HASH}]\n"
+        "         actual hash: [${OPENSTUDIO_HASH}]\n"
+      )
+    endif()
 
     # Remove the old extracted dir if exists
-    execute_process(COMMAND ${CMAKE_COMMAND} -E remove_directory "${PROJECT_BINARY_DIR}/${OPENSTUDIO_ARCHIVE_BASENAME}")
+    execute_process(COMMAND ${CMAKE_COMMAND} -E remove_directory "${OPENSTUDIO_ARCHIVE_DIR}/${OPENSTUDIO_ARCHIVE_BASENAME}")
+
+    # Try with the official releases first, then fall back to the CI (develop) nightly builds
+    foreach(BASELINK IN LISTS OPENSTUDIO_BASELINK_RELEASE OPENSTUDIO_BASELINK_CI)
+      set(OPENSTUDIO_URL "${BASELINK}/${OPENSTUDIO_ARCHIVE_NAME}")
+      string(REPLACE "+" "%2B" OPENSTUDIO_URL ${OPENSTUDIO_URL})
+      message(STATUS "Try Downloading OpenStudio SDK: ${OPENSTUDIO_URL}")
+
+      # Cannot use EXPECTED_MD5 here, or it'll throw an error, which we do not want.
+      file(DOWNLOAD "${OPENSTUDIO_URL}" "${OPENSTUDIO_ARCHIVE_DIR}/${OPENSTUDIO_ARCHIVE_NAME}"
+        SHOW_PROGRESS
+        INACTIVITY_TIMEOUT 900 # 15-min timeout
+        STATUS DOWNLOAD_STATUS
+      )
+    list(GET DOWNLOAD_STATUS 0 DOWNLOAD_STATUS_CODE)
+    list(GET DOWNLOAD_STATUS 1 DOWNLOAD_ERROR_MSG)
+
+      # If download didn't work
+      if (DOWNLOAD_STATUS_CODE)
+        message(STATUS "Download failed status code = ${DOWNLOAD_STATUS_CODE}, message = ${DOWNLOAD_ERROR_MSG}")
+        if(DOWNLOAD_STATUS_CODE EQUAL 28)
+          message(FATAL_ERROR
+            "Download from ${OPENSTUDIO_URL} has failed apparently due to timeout. Increase timeout or manually download the archive in ${OPENSTUDIO_ARCHIVE_DIR}"
+          )
+        endif()
+      else()
+        # If download at least appears to have worked
+        if(EXISTS "${OPENSTUDIO_ARCHIVE_DIR}/${OPENSTUDIO_ARCHIVE_NAME}")
+          file(MD5 "${OPENSTUDIO_ARCHIVE_DIR}/${OPENSTUDIO_ARCHIVE_NAME}" OPENSTUDIO_HASH)
+          if ( "${OPENSTUDIO_HASH}" MATCHES "${OPENSTUDIO_EXPECTED_HASH}")
+            # If it worked, break!
+            message(STATUS "Download OpenStudio SDK is a success, from: ${OPENSTUDIO_URL}")
+            break()
+          else()
+            message(FATAL_ERROR
+              "Download seemed to have worked, but archive md5sum HASH mismatch\n"
+              "     for file: ${OPENSTUDIO_ARCHIVE_DIR}/${OPENSTUDIO_ARCHIVE_NAME}\n"
+              "     from URL: ${OPENSTUDIO_URL}\n"
+              "       expected hash: [${OPENSTUDIO_EXPECTED_HASH}]\n"
+              "         actual hash: [${OPENSTUDIO_HASH}]\n"
+            )
+          endif()
+        endif()
+      endif()
+    endforeach()
 
   endif()
 
   # Allows placing the archive manually in the build dir too
+  # If the Extracted directory doesn't exist yet, unset the cache and extract the archive
   if (NOT EXISTS "${OPENSTUDIO_ARCHIVE_BASENAME}")
     unset(OPENSTUDIO_FOUND CACHE)
-    unset(OPENSTUDIO_WEATHER_DIR CACHE)
-    execute_process(COMMAND ${CMAKE_COMMAND} -E tar xfz "${PROJECT_BINARY_DIR}/${OPENSTUDIO_ARCHIVE_NAME}" WORKING_DIRECTORY "${PROJECT_BINARY_DIR}")
+    execute_process(COMMAND ${CMAKE_COMMAND} -E tar xfz "${OPENSTUDIO_ARCHIVE_DIR}/${OPENSTUDIO_ARCHIVE_NAME}" WORKING_DIRECTORY "${OPENSTUDIO_ARCHIVE_DIR}")
   endif()
 
+  # Now we do a REQUIRED check, which will throw if not found
   if(UNIX AND NOT APPLE)
     find_package(openstudio "${OPENSTUDIO_VERSION}" CONFIG REQUIRED
-      PATHS "${PROJECT_BINARY_DIR}/${OPENSTUDIO_ARCHIVE_BASENAME}/usr/local/"
+      PATHS "${OPENSTUDIO_ARCHIVE_DIR}/${OPENSTUDIO_ARCHIVE_BASENAME}/usr/local/"
       NO_CMAKE_PATH
       NO_CMAKE_ENVIRONMENT_PATH
       NO_SYSTEM_ENVIRONMENT_PATH
@@ -72,7 +142,7 @@ else()
     )
   else()
     find_package(openstudio "${OPENSTUDIO_VERSION}" CONFIG REQUIRED
-      PATHS "${PROJECT_BINARY_DIR}/${OPENSTUDIO_ARCHIVE_BASENAME}"
+      PATHS "${OPENSTUDIO_ARCHIVE_DIR}/${OPENSTUDIO_ARCHIVE_BASENAME}"
       NO_CMAKE_PATH
       NO_CMAKE_ENVIRONMENT_PATH
       NO_SYSTEM_ENVIRONMENT_PATH
@@ -82,5 +152,53 @@ else()
 
 endif()
 
-get_filename_component(OPENSTUDIO_SDK_PATH "${openstudio_DIR}/../../../" ABSOLUTE)
-set(OPENSTUDIO_SDK_PATH "${OPENSTUDIO_SDK_PATH}" CACHE STRING "This is the path to the root of SDK, under which you'll find bin/, lib/, etc" FORCE)
+get_filename_component(openstudio_ROOT_DIR "${openstudio_DIR}/../../../" ABSOLUTE)
+set(openstudio_ROOT_DIR "${openstudio_ROOT_DIR}" CACHE STRING "This is the path to the root of SDK, under which you'll find bin/, lib/, etc" FORCE)
+
+# Do an extra check?
+find_program(openstudio_EXECUTABLE
+  NAMES openstudio
+  PATHS "${openstudio_ROOT_DIR}/bin/"
+  NO_CMAKE_PATH
+  NO_CMAKE_ENVIRONMENT_PATH
+  NO_SYSTEM_ENVIRONMENT_PATH
+  NO_CMAKE_SYSTEM_PATH
+)
+
+if (NOT EXISTS "${openstudio_EXECUTABLE}")
+  message(AUTHOR_WARNING "Could not find the CLI at ${openstudio_EXECUTABLE}")
+  set_property (CACHE openstudio_EXECUTABLE PROPERTY VALUE "openstudio_EXECUTABLE-NOTFOUND")
+else()
+  # Check the version it returns
+  # executable found must have a specific version
+  execute_process (COMMAND "${openstudio_EXECUTABLE}" "openstudio_version"
+    RESULT_VARIABLE CLI_RESULT
+    OUTPUT_VARIABLE CLI_VERSION
+    ERROR_QUIET
+    OUTPUT_STRIP_TRAILING_WHITESPACE)
+  if (CLI_RESULT)
+    message(AUTHOR_WARNING "Cannot use the openstudio CLI at \"${openstudio_EXECUTABLE}\"")
+  elseif(NOT CLI_VERSION STREQUAL "${OPENSTUDIO_VERSION}${OPENSTUDIO_VERSION_SHA}")
+    execute_process (COMMAND "${openstudio_EXECUTABLE}" -e "puts OpenStudio::openStudioVersion"
+      RESULT_VARIABLE CLI_RESULT
+      OUTPUT_VARIABLE CLI_SHORT_VERSION
+      ERROR_QUIET
+      OUTPUT_STRIP_TRAILING_WHITESPACE)
+    if (CLI_SHORT_VERSION VERSION_EQUAL OPENSTUDIO_VERSION)
+      message(AUTHOR_WARNING
+        "CLI has the same short version (${OPENSTUDIO_VERSION}) but not the same long version."
+        "It has \"${CLI_VERSION}\" versus expected \"${OPENSTUDIO_VERSION}${OPENSTUDIO_VERSION_SHA}\""
+      )
+    else()
+      message(WARNING
+        "CLI has a wrong version: \"${CLI_VERSION}\" versus expected \"${OPENSTUDIO_VERSION}${OPENSTUDIO_VERSION_SHA}\""
+      )
+    endif()
+  else()
+    message(STATUS
+      "Found openstudio CLI with the exact expected long version:\n"
+      "  version: ${CLI_VERSION}\n"
+      "  openstudio_EXECUTABLE: \"${openstudio_EXECUTABLE}\"\n"
+    )
+  endif()
+endif()
