@@ -68,7 +68,7 @@ else()
       message(STATUS "Archive doesn't exist at \"${OPENSTUDIO_ARCHIVE_DIR}/${OPENSTUDIO_ARCHIVE_NAME}\"")
     else()
       message(STATUS
-        "Archive md5sum HASH mismatch\n"
+        "Existing archive md5sum HASH mismatch\n"
         "     for file: ${OPENSTUDIO_ARCHIVE_DIR}/${OPENSTUDIO_ARCHIVE_NAME}\n"
         "       expected hash: [${OPENSTUDIO_EXPECTED_HASH}]\n"
         "         actual hash: [${OPENSTUDIO_HASH}]\n"
@@ -105,11 +105,19 @@ else()
         # If download at least appears to have worked
         if(EXISTS "${OPENSTUDIO_ARCHIVE_DIR}/${OPENSTUDIO_ARCHIVE_NAME}")
           file(MD5 "${OPENSTUDIO_ARCHIVE_DIR}/${OPENSTUDIO_ARCHIVE_NAME}" OPENSTUDIO_HASH)
-        endif()
-        if ( "${OPENSTUDIO_HASH}" MATCHES "${OPENSTUDIO_EXPECTED_HASH}")
-          # If it worked, break!
-          message(STATUS "Download OpenStudio SDK is a success, from: ${OPENSTUDIO_URL}")
-          break()
+          if ( "${OPENSTUDIO_HASH}" MATCHES "${OPENSTUDIO_EXPECTED_HASH}")
+            # If it worked, break!
+            message(STATUS "Download OpenStudio SDK is a success, from: ${OPENSTUDIO_URL}")
+            break()
+          else()
+            message(FATAL_ERROR
+              "Download seemed to have worked, but archive md5sum HASH mismatch\n"
+              "     for file: ${OPENSTUDIO_ARCHIVE_DIR}/${OPENSTUDIO_ARCHIVE_NAME}\n"
+              "     from URL: ${OPENSTUDIO_URL}\n"
+              "       expected hash: [${OPENSTUDIO_EXPECTED_HASH}]\n"
+              "         actual hash: [${OPENSTUDIO_HASH}]\n"
+            )
+          endif()
         endif()
       endif()
     endforeach()
