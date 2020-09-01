@@ -28,6 +28,7 @@
 ########################################################################################################################
 
 require 'openstudio'
+require 'openstudio_modeleditor'
 
 require 'minitest/autorun'
 
@@ -108,7 +109,7 @@ class WorkspaceWatcher_Test < MiniTest::Unit::TestCase
     assert(watcher.dirty)
     assert(watcher.objectAdded)
     assert(watcher.enabled)
-    OpenStudio::Application::instance.processEvents
+    OpenStudio::Modeleditor::Application::instance.processEvents
     assert(watcher.addedObjectHandle)
     assert((not watcher.removedObjectHandle))
     assert_equal(addedObjectHandle.to_s, watcher.addedObjectHandle.to_s)

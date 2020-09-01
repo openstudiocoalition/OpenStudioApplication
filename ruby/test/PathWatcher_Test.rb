@@ -28,10 +28,11 @@
 ########################################################################################################################
 
 require 'openstudio'
+require 'openstudio_modeleditor'
 
 require 'minitest/autorun'
 
-class TestPathWatcher < OpenStudio::PathWatcher
+class TestPathWatcher < OpenStudio::Modeleditor::PathWatcher
 
   attr_accessor :changed
 
@@ -57,7 +58,7 @@ end
 class PathWatcher_Test < MiniTest::Unit::TestCase
 
   def setup
-    OpenStudio::Application::instance().application(false)
+    OpenStudio::Modeleditor::Application::instance().application(false)
   end
 
   # def teardown
@@ -95,7 +96,7 @@ class PathWatcher_Test < MiniTest::Unit::TestCase
 
     # calls processEvents
     OpenStudio::System::msleep(10000)
-    OpenStudio::Application::instance().processEvents(10000)
+    OpenStudio::Modeleditor::Application::instance().processEvents(10000)
 
     assert(watcher.changed)
     watcher.changed = false
@@ -106,7 +107,7 @@ class PathWatcher_Test < MiniTest::Unit::TestCase
 
     # calls processEvents
     OpenStudio::System::msleep(10000)
-    OpenStudio::Application::instance().processEvents(10000)
+    OpenStudio::Modeleditor::Application::instance().processEvents(10000)
 
     assert(watcher.changed)
   end
@@ -137,7 +138,7 @@ class PathWatcher_Test < MiniTest::Unit::TestCase
 
     # calls processEvents
     OpenStudio::System::msleep(10000)
-    OpenStudio::Application::instance().processEvents(10000)
+    OpenStudio::Modeleditor::Application::instance().processEvents(10000)
 
     assert(watcher.changed)
     watcher.changed = false
@@ -148,7 +149,7 @@ class PathWatcher_Test < MiniTest::Unit::TestCase
 
     # calls processEvents
     OpenStudio::System::msleep(10000)
-    OpenStudio::Application::instance().processEvents(10000)
+    OpenStudio::Modeleditor::Application::instance().processEvents(10000)
 
     assert(watcher.changed)
 
