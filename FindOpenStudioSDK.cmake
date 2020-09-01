@@ -13,7 +13,7 @@ set(OPENSTUDIO_ARCHIVE_DIR "${PROJECT_BINARY_DIR}/OpenStudio-${OPENSTUDIO_VERSIO
 
 # If downloaded, we need the SHA to match. This block is here since we need "OPENSTUDIO_PLATFORM" anyways
 if(APPLE)
-  set(OPENSTUDIO_EXPECTED_HASH 2d7e85a727c8085e06b16c6592597141)
+  set(OPENSTUDIO_EXPECTED_HASH 4f9d9fcf1f384bfc7e32557fe0c9913f)
   set(OPENSTUDIO_PLATFORM "Darwin")
   set(OPENSTUDIO_EXT "tar.gz")
 elseif(UNIX)
@@ -21,7 +21,7 @@ elseif(UNIX)
   set(OPENSTUDIO_PLATFORM "Linux")
   set(OPENSTUDIO_EXT "tar.gz")
 elseif(WIN32)
-  set(OPENSTUDIO_EXPECTED_HASH 848729834f5879747c1abff8ec872b57)
+  set(OPENSTUDIO_EXPECTED_HASH c5c3bf8922ac695d22f0c94f957f535c)
   set(OPENSTUDIO_PLATFORM "Windows")
   set(OPENSTUDIO_EXT "tar.gz")
 endif()
