@@ -33,7 +33,7 @@ original_dll_directory = nil
 platform_specific_path = nil
 
 if /mswin/.match(RUBY_PLATFORM) or /mingw/.match(RUBY_PLATFORM)
-  
+
   require 'fiddle/import'
   require 'fiddle/types'
   module WinAPI
@@ -45,9 +45,9 @@ if /mswin/.match(RUBY_PLATFORM) or /mingw/.match(RUBY_PLATFORM)
   end
 
   buffer = 1024
-  original_dll_directory = Fiddle::Pointer.malloc(buffer) 
+  original_dll_directory = Fiddle::Pointer.malloc(buffer)
   WinAPI.GetDllDirectory(buffer, original_dll_directory)
-  
+
   qt_dll_path = File.expand_path(File.join(File.dirname(__FILE__), '../bin/'))
   WinAPI.SetDllDirectory(qt_dll_path)
 
@@ -57,28 +57,36 @@ else
   # Do something here for Mac OSX environments
   qt_so_path = File.expand_path(File.join(File.dirname(__FILE__), '../bin/'))
   ENV['PATH'] = "#{qt_so_path}:#{original_path}"
-  
+
   $OPENSTUDIO_APPLICATION_DIR = File.join(File.dirname(__FILE__), '../bin/')
 end
 
 begin
 
   # require openstudio
-  require_relative 'openstudio'
+  begin
+    require_relative 'openstudio'
+  rescue LoadError
+    begin
+      require 'openstudio'
+    rescue LoadError
+      puts 'Unable to require openstudio'
+    end
+  end
 
   # require openstudio_modeleditor.so
   require_relative 'openstudio_modeleditor.so'
-  
+
   # add this directory to Ruby load path
   $:.unshift(File.expand_path(File.dirname(__FILE__)))
-  
+
 ensure
 
   # restore original path
   ENV['PATH'] = original_path
-  
+
   if original_dll_directory
     WinAPI.SetDllDirectory(original_dll_directory)
   end
-  
+
 end
