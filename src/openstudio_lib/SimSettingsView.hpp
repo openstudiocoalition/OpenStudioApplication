@@ -88,6 +88,7 @@ class SimSettingsView : public QWidget, public Nano::Observer
   QWidget* createZoneAirContaminantBalanceWidget();
   QWidget* createZoneCapacitanceMultipleResearchSpecialWidget();
   QWidget* createRadianceParametersWidget();
+  QWidget* createOutputJSONWidget();
 
   void addField(QGridLayout* gridLayout, int row, int column, QString text, OSComboBox2*& comboBox);
 
@@ -124,6 +125,7 @@ class SimSettingsView : public QWidget, public Nano::Observer
   void attachZoneAirContaminantBalance();
   void attachZoneCapacitanceMultipleResearchSpecial();
   void attachRadianceParameters();
+  void attachOutputJSON();
 
   void detachAll();
   void detachRunPeriod();
@@ -142,6 +144,7 @@ class SimSettingsView : public QWidget, public Nano::Observer
   void detachZoneAirContaminantBalance();
   void detachZoneCapacitanceMultipleResearchSpecial();
   void detachRadianceParameters();
+  void detachOutputJSON();
 
   model::Model m_model;
   boost::optional<model::ShadowCalculation> m_shadowCalculation;
@@ -269,6 +272,12 @@ class SimSettingsView : public QWidget, public Nano::Observer
   OSQuantityEdit2* m_temperatureCapacityMultiplier;
   OSQuantityEdit2* m_humidityCapacityMultiplier;
   OSQuantityEdit2* m_carbonDioxideCapacityMultiplier;
+
+  // OutputJSON
+  OSComboBox2* m_json_optionType;
+  OSSwitch2* m_json_outputJSON;
+  OSSwitch2* m_json_outputCBOR;
+  OSSwitch2* m_json_outputMessagePack;
 
  signals:
 

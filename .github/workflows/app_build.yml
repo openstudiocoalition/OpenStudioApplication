@@ -83,9 +83,12 @@ jobs:
         m_major = re.search('set\(OPENSTUDIO_VERSION_MAJOR (\d+)\)', content)
         m_minor = re.search('set\(OPENSTUDIO_VERSION_MINOR (\d+)\)', content)
         m_patch = re.search('set\(OPENSTUDIO_VERSION_PATCH (\d+)\)', content)
+        m_sha = re.search('set\(OPENSTUDIO_VERSION_SHA (\d+)\)', content)
+
         sdk_version = ''
         if m_major:
             sdk_version += m_major.groups()[0]
+            print("::set-env name=OS_SDK_VERSION_MAJOR::{}".format(m_major.groups()[0]))
         else:
             print("Unable to find OPENSTUDIO_VERSION_MAJOR")
             sdk_version += 'X'
@@ -93,6 +96,7 @@ jobs:
         sdk_version += '.'
         if m_minor:
             sdk_version += m_minor.groups()[0]
+            print("::set-env name=OS_SDK_VERSION_INOR::{}".format(m_minor.groups()[0]))
         else:
             print("Unable to find OPENSTUDIO_VERSION_MINOR")
             sdk_version += 'Y'
@@ -100,9 +104,17 @@ jobs:
         sdk_version += '.'
         if m_patch:
             sdk_version += m_patch.groups()[0]
+            print("::set-env name=OS_SDK_VERSION_PATCH::{}".format(m_patch.groups()[0]))
         else:
             print("Unable to find OPENSTUDIO_VERSION_PATCH")
             sdk_version += 'Z'
+
+        if m_sha:
+            sdk_version += m_sha.groups()[0]
+            print("::set-env name=OS_SDK_VERSION_SHA::{}".format(m_sha.groups()[0]))
+        else:
+            print("Unable to find OPENSTUDIO_VERSION_SHA")
+            # NOT ADDING IT to sdk_version
 
         with open('sdk_version.txt', 'w') as f:
             f.write(sdk_version)
@@ -150,52 +162,87 @@ jobs:
 
     # TODO: cache the QtIFW folder too
 
+    - name: Cache entire build directory
+      id: cachebuild
+      uses: actions/cache@v2
+      with:
+        path: build/
+        key: ${{ runner.os }}-build-cache
+
+    - name: Did restoring the build-cache work? No
+      # If the build cache wasn't found in the cache
+      if: steps.cachebuild.outputs.cache-hit != 'true'
+      run: |
+          echo "Build cache not found"
+
+    - name: Did restoring the build-cache work? Yes
+      # If it wasn't found in the cache
+      if: steps.cachebuild.outputs.cache-hit == 'true'
+      run: |
+          ls build/
+          cat build/CMakeCache.txt
+
     - name: Cache OpenStudio tar.gz
-      # To avoid downloading the SDK all the time, we try to cache it
+      # To avoid downloading the SDK all the time, we try to cache it.
+      # The path matches both what FindOpenStudioSDK.cmake does and what the 'Download the OpenStudio installer' used to do
+      # If the build cache wasn't found in the cache (otherwise it will have the SDK subfolder already so this is pointless)"
+      if: steps.cachebuild.outputs.cache-hit != 'true'
       id: cacheossdk
       uses: actions/cache@v2
       with:
         path: OpenStudio-${{ env.OS_SDK_VERSION }}
         key: OpenStudio-SDK-${{ runner.os }}-${{ env.OS_SDK_VERSION }}
 
-    - name: Download the OpenStudio installer
-      # If the SDK wasn't found in the cache
-      if: steps.cacheossdk.outputs.cache-hit != 'true'
-      # Use a bash shell so we can use the same syntax for environment variable
-      # access regardless of the host operating system
-      # Note: wget not available on windows, even in bash, so use curl
-      shell: bash
+    - name: Did restoring the build-cache or OpenStudioSDK cache work? Yes
+      # If it wasn't found in the cache
+      if: steps.cachebuild.outputs.cache-hit == 'true' || steps.cacheossdk.outputs.cache-hit == true
       run: |
-        curl --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' https://api.github.com/repos/NREL/OpenStudio/releases/tags/v$OS_SDK_VERSION > os_tag.json
-        echo "PLATFORM_NAME=${{ env.PLATFORM_NAME }}"
-        cat os_tag.json
-        tar_gz_link=$(cat os_tag.json | jq -r '.assets | .[] | select(.name | contains("${{ env.PLATFORM_NAME }}")) | select(.name | contains("tar.gz")) | .browser_download_url')
-        if [ -z "$tar_gz_link" ]; then
-          echo "Could not locate the OpenStudio tar.gz for OS_SDK_VERSION=$OS_SDK_VERSION and PLATFORM_NAME=$PLATFORM_NAME"
-          exit 1;
-        fi;
-        tar_gz_name=$(basename -- $tar_gz_link)
-        tar_gz_name=$(python -c "import sys, urllib.parse as ul; print(ul.unquote_plus(\"$tar_gz_name\"))")
-        echo "Downloading $tar_gz_link"
-        echo "Normally, tar_gz_name=$tar_gz_name"
-        curl -L --output "$tar_gz_name" "$tar_gz_link"
-        ls
-        ls -la $tar_gz_name
-        echo "Extract this into the OpenStudio-$OS_SDK_VERSION directory, omitting the first directory level in the tar.gz"
-        echo "This isn't working, so use cmake to tar, then rename"
-        echo "tar xfz $tar_gz_name --strip-components 1 -C OpenStudio-$OS_SDK_VERSION"
-        echo "cmake -E make_directory OpenStudio-$OS_SDK_VERSION"
-        folder_name=${tar_gz_name%.tar.gz}
-        echo "folder_name=$folder_name"
-        cmake -E tar xfz "$tar_gz_name"
-        cmake -E rename "$folder_name" "OpenStudio-$OS_SDK_VERSION"
+          ls build/
+          ls build/OpenStudio-${{ env.OS_SDK_VERSION }}
 
+     # NOTE JM 2020-09-01: we're going to rely on FindOpenStudioSDK.cmake for now, but it's not impossible we'll need this in the future
+     # This step in conjuction with the step 'Create Build Environment and locate openstudio', and a small modification in 'Configure CMake' step
+     #
+#    - name: Download the OpenStudio installer
+#      # If the SDK wasn't found in the cache
+#      if: steps.cacheossdk.outputs.cache-hit != 'true'
+#      # Use a bash shell so we can use the same syntax for environment variable
+#      # access regardless of the host operating system
+#      # Note: wget not available on windows, even in bash, so use curl
+#      shell: bash
+#      run: |
+#        curl --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' https://api.github.com/repos/NREL/OpenStudio/releases/tags/v$OS_SDK_VERSION > os_tag.json
+#        echo "PLATFORM_NAME=${{ env.PLATFORM_NAME }}"
+#        cat os_tag.json
+#        tar_gz_link=$(cat os_tag.json | jq -r '.assets | .[] | select(.name | contains("${{ env.PLATFORM_NAME }}")) | select(.name | contains("tar.gz")) | .browser_download_url')
+#        if [ -z "$tar_gz_link" ]; then
+#          echo "Could not locate the OpenStudio tar.gz for OS_SDK_VERSION=$OS_SDK_VERSION and PLATFORM_NAME=$PLATFORM_NAME"
+#          exit 1;
+#        fi;
+#        tar_gz_name=$(basename -- $tar_gz_link)
+#        tar_gz_name=$(python -c "import sys, urllib.parse as ul; print(ul.unquote_plus(\"$tar_gz_name\"))")
+#        echo "Downloading $tar_gz_link"
+#        echo "Normally, tar_gz_name=$tar_gz_name"
+#        curl -L --output "$tar_gz_name" "$tar_gz_link"
+#        ls
+#        ls -la $tar_gz_name
+#        echo "Extract this into the OpenStudio-$OS_SDK_VERSION directory, omitting the first directory level in the tar.gz"
+#        echo "This isn't working, so use cmake to tar, then rename"
+#        echo "tar xfz $tar_gz_name --strip-components 1 -C OpenStudio-$OS_SDK_VERSION"
+#        echo "cmake -E make_directory OpenStudio-$OS_SDK_VERSION"
+#        folder_name=${tar_gz_name%.tar.gz}
+#        echo "folder_name=$folder_name"
+#        cmake -E tar xfz "$tar_gz_name"
+#        cmake -E rename "$folder_name" "OpenStudio-$OS_SDK_VERSION"
 
     - name: Install conan
       run: |
           python --version
           pip install conan
           conan --version
+          echo "Enabling conan revisions and setting parallel_download"
+          conan config set general.revisions_enabled=True
+          conan config set general.parallel_download=8
 
     - name: Cache conan cache?
       # To avoid downloading the SDK all the time, we try to cache it
@@ -210,6 +257,8 @@ jobs:
       if: steps.cacheconan.outputs.cache-hit != 'true'
       run: |
           echo "Conan cache not found"
+          echo "Create the conan data directory"
+          conan user
 
     - name: Did restoring the conan-cache work? Yes
       # If the SDK wasn't found in the cache
@@ -218,37 +267,17 @@ jobs:
           ls ~/.conan/
           ls ~/.conan/data/
 
-    - name: Cache entire build directory
-      id: cachebuild
-      uses: actions/cache@v2
-      with:
-        path: build/
-        key: ${{ runner.os }}-build-cache
-
-    - name: Did restoring the build-cache work? No
-      # If the SDK wasn't found in the cache
-      if: steps.cachebuild.outputs.cache-hit != 'true'
-      run: |
-          echo "Build cache not found"
-
-    - name: Did restoring the build-cache work? Yes
-      # If the SDK wasn't found in the cache
-      if: steps.cachebuild.outputs.cache-hit == 'true'
-      run: |
-          ls build/
-          cat build/CMakeCache.txt
-
     - name: Create Build Environment and locate openstudio
       # Some projects don't allow in-source building, so create a separate build directory
       # We'll use this as our working directory for all subsequent commands
       shell: bash
       run: |
-        openstudio_DIR=$(find `pwd`/OpenStudio-$OS_SDK_VERSION/ -name "openstudioConfig.cmake")
-        openstudio_DIR=$(dirname "${openstudio_DIR}")
-        echo "openstudio_DIR=${openstudio_DIR}"
-        echo "::set-env name=openstudio_DIR::$openstudio_DIR"
         cmake -E make_directory ./build
-
+        # Below needed if you re-enable 'Download the OpenStudio installer' step
+        # openstudio_DIR=$(find `pwd`/OpenStudio-$OS_SDK_VERSION/ -name "openstudioConfig.cmake")
+        # openstudio_DIR=$(dirname "${openstudio_DIR}")
+        # echo "openstudio_DIR=${openstudio_DIR}"
+        # echo "::set-env name=openstudio_DIR::$openstudio_DIR"
 
     #- name: Cache Qt dep cache?
       ## To avoid downloading the Qt dependency all the time, we try to cache it
@@ -280,8 +309,9 @@ jobs:
       # Note the current convention is to use the -S and -B options here to specify source
       # and build directories, but this is only available with CMake 3.13 and higher.
       # The CMake binaries on the Github Actions machines are (as of this writing) 3.12
+      # NOTE: If you re-enable 'Download the OpenStudio installer' step, then pass `openstudio_DIR=$openstudio_DIR cmake [etc]`
       run: |
-        openstudio_DIR=$openstudio_DIR cmake $CMAKE_GENERATOR $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DBUILD_DOCUMENTATION=$DBUILD_DOCUMENTATION -DBUILD_TESTING=$BUILD_TESTING -DBUILD_PACKAGE=$BUILD_PACKAGE -DCPACK_BINARY_DEB=$CPACK_BINARY_DEB -DCPACK_BINARY_IFW=$CPACK_BINARY_IFW -DCPACK_BINARY_NSIS=$CPACK_BINARY_NSIS -DCPACK_BINARY_RPM=$CPACK_BINARY_RPM -DCPACK_BINARY_STGZ=$CPACK_BINARY_STGZ -DCPACK_BINARY_TBZ2=$CPACK_BINARY_TBZ2 -DCPACK_BINARY_TGZ=$CPACK_BINARY_TGZ -DCPACK_BINARY_TXZ=$CPACK_BINARY_TXZ -DCPACK_BINARY_TZ=$CPACK_BINARY_TZ -DCPACK_SOURCE_RPM=$CPACK_SOURCE_RPM -DCPACK_SOURCE_TBZ2=$CPACK_SOURCE_TBZ2 -DCPACK_SOURCE_TGZ=$CPACK_SOURCE_TGZ -DCPACK_SOURCE_TXZ=$CPACK_SOURCE_TXZ -DCPACK_SOURCE_TZ=$CPACK_SOURCE_TZ -DCPACK_SOURCE_ZIP=$CPACK_SOURCE_ZIP ../
+        cmake $CMAKE_GENERATOR $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DBUILD_DOCUMENTATION=$DBUILD_DOCUMENTATION -DBUILD_TESTING=$BUILD_TESTING -DBUILD_PACKAGE=$BUILD_PACKAGE -DCPACK_BINARY_DEB=$CPACK_BINARY_DEB -DCPACK_BINARY_IFW=$CPACK_BINARY_IFW -DCPACK_BINARY_NSIS=$CPACK_BINARY_NSIS -DCPACK_BINARY_RPM=$CPACK_BINARY_RPM -DCPACK_BINARY_STGZ=$CPACK_BINARY_STGZ -DCPACK_BINARY_TBZ2=$CPACK_BINARY_TBZ2 -DCPACK_BINARY_TGZ=$CPACK_BINARY_TGZ -DCPACK_BINARY_TXZ=$CPACK_BINARY_TXZ -DCPACK_BINARY_TZ=$CPACK_BINARY_TZ -DCPACK_SOURCE_RPM=$CPACK_SOURCE_RPM -DCPACK_SOURCE_TBZ2=$CPACK_SOURCE_TBZ2 -DCPACK_SOURCE_TGZ=$CPACK_SOURCE_TGZ -DCPACK_SOURCE_TXZ=$CPACK_SOURCE_TXZ -DCPACK_SOURCE_TZ=$CPACK_SOURCE_TZ -DCPACK_SOURCE_ZIP=$CPACK_SOURCE_ZIP ../
 
     # Note: JM 2020-07-22 This is an example of how to get a config log for a failed conan dependency build (no binary available)
     # This WILL be handy some day, so leave it here
