@@ -37,7 +37,22 @@
 namespace openstudio {
 
 /// \returns The version of the OpenStudio Application
-OSAPP_UTILITIES_API std::string getOpenStudioApplicationVersion();
+OSAPP_UTILITIES_API std::string openStudioApplicationVersion();
+
+// Return the version in MAJOR.MINOR.PATCH format (eg '3.0.0')
+OSAPP_UTILITIES_API std::string openStudioApplicationVersionWithPrerelease();
+
+// Includes the prerelease tag but not the build sha, eg: '1.1.0-alpha'. Should match to a github tag
+OSAPP_UTILITIES_API std::string OpenStudioApplicationVersionMajor();
+
+// Includes prerelease tag if any, and build sha, eg: '3.0.0-rc1+baflkdhsia'
+OSAPP_UTILITIES_API std::string OpenStudioApplicationVersionMinor();
+
+OSAPP_UTILITIES_API std::string OpenStudioApplicationVersionPatch();
+
+OSAPP_UTILITIES_API std::string OpenStudioApplicationVersionPrerelease();
+
+OSAPP_UTILITIES_API std::string OpenStudioApplicationVersionBuildSHA();
 
 /// \returns The source directory the application was built from
 OSAPP_UTILITIES_API openstudio::path getOpenStudioApplicationSourceDirectory();

@@ -129,7 +129,7 @@ bool GithubReleases::error() const {
 
 bool GithubReleases::newReleaseAvailable(bool includePreReleases) const {
   try {
-    openstudio::VersionString currentVersion(openstudio::getOpenStudioApplicationVersion());
+    openstudio::VersionString currentVersion(openstudio::openStudioApplicationVersionWithPrerelease());
     for (const auto& release : m_releases) {
       if (!includePreReleases && release.preRelease()) {
         continue;

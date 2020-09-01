@@ -49,8 +49,45 @@
 
 namespace openstudio {
 
-std::string getOpenStudioApplicationVersion() {
+// Return the version in MAJOR.MINOR.PATCH format (eg '3.0.0')
+std::string openStudioApplicationVersion()
+{
   return "${OPENSTUDIOAPPLICATION_VERSION}";
+}
+
+// Includes the prerelease tag but not the build sha, eg: '1.1.0-alpha'. Should match to a github tag
+std::string openStudioApplicationVersionWithPrerelease() {
+  return "${OpenStudioApplication_VERSION}";
+}
+
+// Includes prerelease tag if any, and build sha, eg: '3.0.0-rc1+baflkdhsia'
+std::string openStudioApplicationLongVersion() {
+  return "${OPENSTUDIOAPPLICATION_LONG_VERSION}";
+}
+
+std::string OpenStudioApplicationVersionMajor()
+{
+  return "${PROJECT_VERSION_MAJOR}";
+}
+
+std::string OpenStudioApplicationVersionMinor()
+{
+  return "${PROJECT_VERSION_MINOR}";
+}
+
+std::string OpenStudioApplicationVersionPatch()
+{
+  return "${PROJECT_VERSION_PATCH}";
+}
+
+std::string OpenStudioApplicationVersionPrerelease()
+{
+  return "${PROJECT_VERSION_PRERELEASE}";
+}
+
+std::string OpenStudioApplicationVersionBuildSHA()
+{
+  return "${PROJECT_VERSION_BUILD}";
 }
 
 openstudio::path getOpenStudioApplicationSourceDirectory() {

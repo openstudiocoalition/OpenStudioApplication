@@ -198,7 +198,7 @@ else()
     message(STATUS
       "Found openstudio CLI with the exact expected long version:\n"
       "  version: ${CLI_VERSION}\n"
-      "  openstudio_EXECUTABLE: \"${openstudio_EXECUTABLE} \"\n"
-      )
+      "  openstudio_EXECUTABLE: \"${openstudio_EXECUTABLE}\"\n"
+    )
   endif()
 endif()
