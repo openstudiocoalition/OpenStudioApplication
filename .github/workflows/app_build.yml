@@ -162,13 +162,43 @@ jobs:
 
     # TODO: cache the QtIFW folder too
 
+    - name: Cache entire build directory
+      id: cachebuild
+      uses: actions/cache@v2
+      with:
+        path: build/
+        key: ${{ runner.os }}-build-cache
+
+    - name: Did restoring the build-cache work? No
+      # If the build cache wasn't found in the cache
+      if: steps.cachebuild.outputs.cache-hit != 'true'
+      run: |
+          echo "Build cache not found"
+
+    - name: Did restoring the build-cache work? Yes
+      # If it wasn't found in the cache
+      if: steps.cachebuild.outputs.cache-hit == 'true'
+      run: |
+          ls build/
+          cat build/CMakeCache.txt
+
     - name: Cache OpenStudio tar.gz
-      # To avoid downloading the SDK all the time, we try to cache it. The path matches both what FindOpenStudioSDK.cmake does and what the 'Download the OpenStudio installer' used to do
+      # To avoid downloading the SDK all the time, we try to cache it.
+      # The path matches both what FindOpenStudioSDK.cmake does and what the 'Download the OpenStudio installer' used to do
+      # If the build cache wasn't found in the cache (otherwise it will have the SDK subfolder already so this is pointless)"
+      if: steps.cachebuild.outputs.cache-hit != 'true'
       id: cacheossdk
       uses: actions/cache@v2
       with:
         path: OpenStudio-${{ env.OS_SDK_VERSION }}
         key: OpenStudio-SDK-${{ runner.os }}-${{ env.OS_SDK_VERSION }}
+
+    - name: Did restoring the build-cache or OpenStudioSDK cache work? Yes
+      # If it wasn't found in the cache
+      if: steps.cachebuild.outputs.cache-hit == 'true' || steps.cacheossdk.outputs.cache-hit == true
+      run: |
+          ls build/
+          ls build/OpenStudio-${{ env.OS_SDK_VERSION }}
 
      # NOTE JM 2020-09-01: we're going to rely on FindOpenStudioSDK.cmake for now, but it's not impossible we'll need this in the future
      # This step in conjuction with the step 'Create Build Environment and locate openstudio', and a small modification in 'Configure CMake' step
@@ -236,26 +266,6 @@ jobs:
       run: |
           ls ~/.conan/
           ls ~/.conan/data/
-
-    - name: Cache entire build directory
-      id: cachebuild
-      uses: actions/cache@v2
-      with:
-        path: build/
-        key: ${{ runner.os }}-build-cache
-
-    - name: Did restoring the build-cache work? No
-      # If the SDK wasn't found in the cache
-      if: steps.cachebuild.outputs.cache-hit != 'true'
-      run: |
-          echo "Build cache not found"
-
-    - name: Did restoring the build-cache work? Yes
-      # If the SDK wasn't found in the cache
-      if: steps.cachebuild.outputs.cache-hit == 'true'
-      run: |
-          ls build/
-          cat build/CMakeCache.txt
 
     - name: Create Build Environment and locate openstudio
       # Some projects don't allow in-source building, so create a separate build directory
