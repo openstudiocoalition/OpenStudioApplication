@@ -82,7 +82,7 @@ target_link_libraries(openstudio_modeleditor_rb
 )
 
 if( WIN32 )
-  include("${OPENSTUDIO_SDK_PATH}/lib/cmake/openstudio/FetchRubyMinGW.cmake")
+  include("${openstudio_ROOT_DIR}/lib/cmake/openstudio/FetchRubyMinGW.cmake")
   FetchRubyMinGW()
   target_link_libraries(openstudio_modeleditor_rb ${RUBY_MINGW_STUB_LIB})
 endif()
