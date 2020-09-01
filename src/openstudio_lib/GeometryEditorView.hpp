@@ -140,6 +140,8 @@ class FloorspaceEditor : public BaseEditor
   virtual void checkForUpdate();
 
  private:
+  std::string m_originalBuildingName;
+  std::string m_originalSiteName;
   openstudio::path m_floorplanPath;
   boost::optional<FloorplanJS> m_floorplan;
 };

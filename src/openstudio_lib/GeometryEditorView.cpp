@@ -39,6 +39,8 @@
 #include <openstudio/model/ThreeJSReverseTranslator.hpp>
 #include <openstudio/model/ThreeJSForwardTranslator.hpp>
 #include <openstudio/model/FloorplanJSForwardTranslator.hpp>
+#include <openstudio/model/Facility.hpp>
+#include <openstudio/model/Facility_Impl.hpp>
 #include <openstudio/model/Building.hpp>
 #include <openstudio/model/Building_Impl.hpp>
 #include <openstudio/model/BuildingStory.hpp>
@@ -180,6 +182,16 @@ FloorspaceEditor::FloorspaceEditor(const openstudio::path& floorplanPath, bool i
   : BaseEditor(isIP, model, view, t_parent), m_floorplanPath(floorplanPath) {
   m_document->disable();
 
+  boost::optional<model::Building> building = model.getOptionalUniqueModelObject<model::Building>();
+  if (building) {
+    m_originalBuildingName = building->nameString();
+  }
+
+  boost::optional<model::Site> site = model.getOptionalUniqueModelObject<model::Site>();
+  if (site) {
+    m_originalSiteName = site->nameString();
+  }
+
   if (exists(m_floorplanPath)) {
 
     openstudio::filesystem::ifstream ifs(m_floorplanPath);
@@ -195,6 +207,13 @@ FloorspaceEditor::FloorspaceEditor(const openstudio::path& floorplanPath, bool i
       // at this point you may have removed objects in the app, so tell updateFloorplanJS to remove missing objects
       model::FloorplanJSForwardTranslator ft;
       m_floorplan = ft.updateFloorplanJS(*m_floorplan, m_model, true);
+
+      // update north axis from model, floorspace js northAxis is opposite of EnergyPlus's
+      if (building) {
+        m_floorplan->setNorthAxis(-building->northAxis());
+      }
+
+      // do not update floorspace lat/lon from model, location in model probably comes from an epw file
 
       QString errorsAndWarnings;
       for (const auto& error : ft.errors()) {
@@ -258,6 +277,7 @@ void FloorspaceEditor::loadEditor() {
       config["initialGridSize"] = 5;
     }
 
+    // set initial location for map placement
     boost::optional<model::Site> site = m_model.getOptionalUniqueModelObject<model::Site>();
     if (site) {
       double latitude = site->latitude();
@@ -270,7 +290,8 @@ void FloorspaceEditor::loadEditor() {
       }
     }
 
-    config["initialNorthAxis"] = m_model.getUniqueModelObject<model::Building>().northAxis();
+    // set initial building rotation, floorspace north axis is opposite of EnergyPlus
+    config["initialNorthAxis"] = -m_model.getUniqueModelObject<model::Building>().northAxis();
 
     Json::StreamWriterBuilder wbuilder;
 
@@ -341,6 +362,7 @@ document.head.appendChild(style);\n";
       // import the current floorplan
       m_javascriptRunning = true;
 
+      // floorplan was updated in ctor
       std::string json = m_floorplan->toJSON(false);
 
       QString javascript =
@@ -464,10 +486,20 @@ void FloorspaceEditor::translateExport() {
     model = rt.modelFromThreeJS(scene);
 
     if (model) {
-      // set north axis
-      model->getUniqueModelObject<model::Building>().setNorthAxis(m_floorplan->northAxis());
+      // set north axis, floorspace js northAxis is opposite of EnergyPlus's
+      model::Building building = model->getUniqueModelObject<model::Building>();
+      building.setName(m_originalBuildingName);
+      building.setNorthAxis(-m_floorplan->northAxis());
 
-      // TODO: synchronize latitude and longitude
+      // synchronize latitude and longitude, floorspace does not set elevation when locating on map
+      model::Site site = model->getUniqueModelObject<model::Site>();
+      site.setName(m_originalSiteName);
+      double latitude = m_floorplan->latitude();
+      double longitude = m_floorplan->longitude();
+      if ((latitude != 0) && (latitude != 0)) {
+        site.setLatitude(latitude);
+        site.setLongitude(latitude);
+      }
     }
   } else {
     // DLM: this is an error, the editor produced a JSON we can't read
@@ -487,6 +519,14 @@ void FloorspaceEditor::translateExport() {
   if (model) {
     m_exportModel = *model;
     m_exportModelHandleMapping = rt.handleMapping();
+
+    // manually add mappings between current model and new model for Site, Facility, and Building objects
+    m_exportModelHandleMapping[m_model.getUniqueModelObject<model::Site>().handle()] = m_exportModel.getUniqueModelObject<model::Site>().handle();
+    m_exportModelHandleMapping[m_model.getUniqueModelObject<model::Facility>().handle()] =
+      m_exportModel.getUniqueModelObject<model::Facility>().handle();
+    m_exportModelHandleMapping[m_model.getUniqueModelObject<model::Building>().handle()] =
+      m_exportModel.getUniqueModelObject<model::Building>().handle();
+
   } else {
     // DLM: this is an error, either floorplan was empty or could not be translated
     m_exportModel = model::Model();
