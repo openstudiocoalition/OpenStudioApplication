@@ -148,7 +148,6 @@ else()
       if(BUILD_TESTING)
 
         # Call with Ruby itself
-        # TODO: might need -I openstudio_modeleditor_rb instead/as well.
         add_test(NAME "OSApp-RubyTest-${FILE_NAME}-${TEST_NAME}"
           COMMAND "${CMAKE_COMMAND}" -E chdir "${CMAKE_CURRENT_BINARY_DIR}"
             "${Ruby_EXECUTABLE}" "-I" "$<TARGET_FILE_DIR:openstudio::openstudio_rb>" # Or just ${openstudio_ROOT_DIR}/Ruby
