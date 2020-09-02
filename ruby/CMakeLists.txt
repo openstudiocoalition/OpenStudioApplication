@@ -114,8 +114,12 @@ endif()
 # find all tests
 file(GLOB RUBY_TEST_SRC "test/*.rb")
 
-# TODO: It doesn't not work with this executable that's in build/Ruby-install/bin
+# TODO: It doesn't work with this executable that's in build/Ruby-install/bin
 # message("RUBY_EXECUTABLE=${RUBY_EXECUTABLE}")
+
+# I added FindRuby.cmake from cmake 3.18.2 (after patching cmake to support versiosn greater than 2 and adding RVM support) in the CMake folder which is part of the CMAKE_MODULE_PATH
+set (Ruby_FIND_VIRTUALENV FIRST)
+find_package(Ruby 2.5 REQUIRED)
 
 set(_RUBY_POSSIBLE_EXECUTABLE_NAMES
   ruby
@@ -124,28 +128,11 @@ set(_RUBY_POSSIBLE_EXECUTABLE_NAMES
   ruby25
   ruby251)
 
-# TODO: this isn't great but I haven't found a better way to locate the system ruby (and avoid the one in build/Ruby-install/)
-find_program(SYSTEM_RUBY_EXECUTABLE NAMES ${_RUBY_POSSIBLE_EXECUTABLE_NAMES}
-  HINTS
-    "/usr"
-    "/usr/local"
-    "/usr/share/rvm/rubies/ruby-2.5.1/bin/"
-    "/usr/share/rvm/rubies/ruby-2.5.2/bin/"
-    "/usr/share/rvm/rubies/ruby-2.5.3/bin/"
-    "/usr/share/rvm/rubies/ruby-2.5.4/bin/"
-    "/usr/share/rvm/rubies/ruby-2.5.5/bin/"
-    "$ENV{HOME}/.rvm/rubies/ruby-2.5.1/bin/"
-    "$ENV{HOME}/.rvm/rubies/ruby-2.5.2/bin/"
-    "$ENV{HOME}/.rvm/rubies/ruby-2.5.3/bin/"
-    "$ENV{HOME}/.rvm/rubies/ruby-2.5.4/bin/"
-    "$ENV{HOME}/.rvm/rubies/ruby-2.5.5/bin/"
-    "C:/Ruby25-x64/bin/"
-  NO_DEFAULT_PATH)
 
-if(NOT SYSTEM_RUBY_EXECUTABLE)
+if(NOT Ruby_FOUND)
   message(WARNING "Your system ruby wasn't found, you won't be able to run the `ctest -R RubyTest` command and the tests won't be created at all.")
 else()
-  message(STATUS "Found SYSTEM_RUBY_EXECUTABLE=${SYSTEM_RUBY_EXECUTABLE}")
+  message(STATUS "Found Ruby_EXECUTABLE=${Ruby_EXECUTABLE}")
 
   # add a test for each unit test
   set(RUBY_TEST_REQUIRES "#include test files")
@@ -164,9 +151,9 @@ else()
         # TODO: might need -I openstudio_modeleditor_rb instead/as well.
         add_test(NAME "OSApp-RubyTest-${FILE_NAME}-${TEST_NAME}"
           COMMAND "${CMAKE_COMMAND}" -E chdir "${CMAKE_CURRENT_BINARY_DIR}"
-          "${SYSTEM_RUBY_EXECUTABLE}" "-I" "$<TARGET_FILE_DIR:openstudio::openstudio_rb>" # Or just ${openstudio_ROOT_DIR}/Ruby
-                                      "-I" "$<TARGET_FILE_DIR:openstudio_modeleditor_rb>"
-                                      "${f}" "--name=test_${TEST_NAME}"
+            "${Ruby_EXECUTABLE}" "-I" "$<TARGET_FILE_DIR:openstudio::openstudio_rb>" # Or just ${openstudio_ROOT_DIR}/Ruby
+                                 "-I" "$<TARGET_FILE_DIR:openstudio_modeleditor_rb>"
+                                 "${f}" "--name=test_${TEST_NAME}"
         )
 
         set_tests_properties("OSApp-RubyTest-${FILE_NAME}-${TEST_NAME}" PROPERTIES TIMEOUT 660 )
