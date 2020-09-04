@@ -89,7 +89,7 @@ jobs:
         m_major = re.search('set\(OPENSTUDIO_VERSION_MAJOR (\d+)\)', content)
         m_minor = re.search('set\(OPENSTUDIO_VERSION_MINOR (\d+)\)', content)
         m_patch = re.search('set\(OPENSTUDIO_VERSION_PATCH (\d+)\)', content)
-        m_sha = re.search('set\(OPENSTUDIO_VERSION_SHA (\d+)\)', content)
+        m_sha = re.search('set\(OPENSTUDIO_VERSION_SHA "(.*)"\)', content)
 
         sdk_version = ''
         if m_major:
@@ -284,7 +284,7 @@ jobs:
         # openstudio_DIR=$(dirname "${openstudio_DIR}")
         # echo "openstudio_DIR=${openstudio_DIR}"
         # echo "::set-env name=openstudio_DIR::$openstudio_DIR"
-        echo "Install aqt, then install Qt 5.15.0 for ${{ matrix.QT_OS_NAME }} ${{ matrix.QT_ARCH }}"
+        echo "Install aqtinstall, then install Qt 5.15.0 for ${{ matrix.QT_OS_NAME }} ${{ matrix.QT_ARCH }}"
         pip3 install aqtinstall
         aqt install --outputdir ./build/Qt-install/ 5.15.0 ${{ matrix.QT_OS_NAME }} desktop ${{ matrix.QT_ARCH }} -m qtwebengine qtwebglplugin
         echo "::add-path::$(pwd)/build/Qt-install/5.15.0/${{ matrix.QT_ARCH }}"
