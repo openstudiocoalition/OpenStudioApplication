@@ -42,11 +42,15 @@ jobs:
           CPACK_BINARY_DEB: ON
           CPACK_BINARY_IFW: OFF
           BINARY_EXT: deb
+          QT_OS_NAME: linux
+          QT_ARCH: gcc_64
         - os: windows-2019
           PLATFORM_NAME: Windows
           CPACK_BINARY_DEB: OFF
           CPACK_BINARY_IFW: ON
           BINARY_EXT: exe
+          QT_OS_NAME: windows
+          QT_ARCH: win64_msvc2019_64
         - os: macos-10.15
           PLATFORM_NAME: Darwin
           CPACK_BINARY_DEB: OFF
@@ -54,6 +58,8 @@ jobs:
           BINARY_EXT: dmg
           MACOSX_DEPLOYMENT_TARGET: 10.14
           SDKROOT: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
+          QT_OS_NAME: mac
+          QT_ARCH: clang_64
 
     steps:
     - uses: actions/checkout@v2
@@ -157,7 +163,7 @@ jobs:
           echo "ls ./qtfiw_installer/QtInstallerFramework-mac-x64.app/Contents/Frameworks"
 
           sudo ./qtfiw_installer/QtInstallerFramework-mac-x64.app/Contents/MacOS/QtInstallerFramework-mac-x64 --verbose --script ./ci/install_script_qtifw.qs
-          echo "::add-path::~/Qt/QtIFW-3.2.2/bin/"
+          echo "::add-path::/Qt/QtIFW-3.2.2/bin/"
         fi;
 
     # TODO: cache the QtIFW folder too
@@ -278,6 +284,11 @@ jobs:
         # openstudio_DIR=$(dirname "${openstudio_DIR}")
         # echo "openstudio_DIR=${openstudio_DIR}"
         # echo "::set-env name=openstudio_DIR::$openstudio_DIR"
+        echo "Install aqt, then install Qt 5.15.0 for ${{ matrix.QT_OS_NAME }} ${{ matrix.QT_ARCH }}"
+        pip3 install aqt
+        aqt install --outputdir ./build/Qt-install/ 5.15.0 ${{ matrix.QT_OS_NAME }} desktop ${{ matrix.QT_ARCH }} -m qtwebengine qtwebglplugin
+        echo "::add-path::$(pwd)/build/Qt-install/5.15.0/${{ matrix.QT_ARCH }}"
+        echo "::set-env name=QT_INSTALL_DIR::$(pwd)/build/Qt-install/5.15.0/${{ matrix.QT_ARCH }}"
 
     #- name: Cache Qt dep cache?
       ## To avoid downloading the Qt dependency all the time, we try to cache it
@@ -311,7 +322,7 @@ jobs:
       # The CMake binaries on the Github Actions machines are (as of this writing) 3.12
       # NOTE: If you re-enable 'Download the OpenStudio installer' step, then pass `openstudio_DIR=$openstudio_DIR cmake [etc]`
       run: |
-        cmake $CMAKE_GENERATOR $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DBUILD_DOCUMENTATION=$DBUILD_DOCUMENTATION -DBUILD_TESTING=$BUILD_TESTING -DBUILD_PACKAGE=$BUILD_PACKAGE -DCPACK_BINARY_DEB=$CPACK_BINARY_DEB -DCPACK_BINARY_IFW=$CPACK_BINARY_IFW -DCPACK_BINARY_NSIS=$CPACK_BINARY_NSIS -DCPACK_BINARY_RPM=$CPACK_BINARY_RPM -DCPACK_BINARY_STGZ=$CPACK_BINARY_STGZ -DCPACK_BINARY_TBZ2=$CPACK_BINARY_TBZ2 -DCPACK_BINARY_TGZ=$CPACK_BINARY_TGZ -DCPACK_BINARY_TXZ=$CPACK_BINARY_TXZ -DCPACK_BINARY_TZ=$CPACK_BINARY_TZ -DCPACK_SOURCE_RPM=$CPACK_SOURCE_RPM -DCPACK_SOURCE_TBZ2=$CPACK_SOURCE_TBZ2 -DCPACK_SOURCE_TGZ=$CPACK_SOURCE_TGZ -DCPACK_SOURCE_TXZ=$CPACK_SOURCE_TXZ -DCPACK_SOURCE_TZ=$CPACK_SOURCE_TZ -DCPACK_SOURCE_ZIP=$CPACK_SOURCE_ZIP ../
+        cmake $CMAKE_GENERATOR $GITHUB_WORKSPACE -DQT_INSTALL_DIR=$QT_INSTALL_DIR -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DBUILD_DOCUMENTATION=$DBUILD_DOCUMENTATION -DBUILD_TESTING=$BUILD_TESTING -DBUILD_PACKAGE=$BUILD_PACKAGE -DCPACK_BINARY_DEB=$CPACK_BINARY_DEB -DCPACK_BINARY_IFW=$CPACK_BINARY_IFW -DCPACK_BINARY_NSIS=$CPACK_BINARY_NSIS -DCPACK_BINARY_RPM=$CPACK_BINARY_RPM -DCPACK_BINARY_STGZ=$CPACK_BINARY_STGZ -DCPACK_BINARY_TBZ2=$CPACK_BINARY_TBZ2 -DCPACK_BINARY_TGZ=$CPACK_BINARY_TGZ -DCPACK_BINARY_TXZ=$CPACK_BINARY_TXZ -DCPACK_BINARY_TZ=$CPACK_BINARY_TZ -DCPACK_SOURCE_RPM=$CPACK_SOURCE_RPM -DCPACK_SOURCE_TBZ2=$CPACK_SOURCE_TBZ2 -DCPACK_SOURCE_TGZ=$CPACK_SOURCE_TGZ -DCPACK_SOURCE_TXZ=$CPACK_SOURCE_TXZ -DCPACK_SOURCE_TZ=$CPACK_SOURCE_TZ -DCPACK_SOURCE_ZIP=$CPACK_SOURCE_ZIP ../
 
     # Note: JM 2020-07-22 This is an example of how to get a config log for a failed conan dependency build (no binary available)
     # This WILL be handy some day, so leave it here
