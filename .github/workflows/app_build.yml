@@ -285,7 +285,7 @@ jobs:
         # echo "openstudio_DIR=${openstudio_DIR}"
         # echo "::set-env name=openstudio_DIR::$openstudio_DIR"
         echo "Install aqt, then install Qt 5.15.0 for ${{ matrix.QT_OS_NAME }} ${{ matrix.QT_ARCH }}"
-        pip3 install aqt
+        pip3 install aqtinstall
         aqt install --outputdir ./build/Qt-install/ 5.15.0 ${{ matrix.QT_OS_NAME }} desktop ${{ matrix.QT_ARCH }} -m qtwebengine qtwebglplugin
         echo "::add-path::$(pwd)/build/Qt-install/5.15.0/${{ matrix.QT_ARCH }}"
         echo "::set-env name=QT_INSTALL_DIR::$(pwd)/build/Qt-install/5.15.0/${{ matrix.QT_ARCH }}"
