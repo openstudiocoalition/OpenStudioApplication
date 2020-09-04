@@ -278,6 +278,7 @@ jobs:
       # We'll use this as our working directory for all subsequent commands
       shell: bash
       run: |
+        set -ex
         cmake -E make_directory ./build
         # Below needed if you re-enable 'Download the OpenStudio installer' step
         # openstudio_DIR=$(find `pwd`/OpenStudio-$OS_SDK_VERSION/ -name "openstudioConfig.cmake")
@@ -289,6 +290,15 @@ jobs:
         aqt install --outputdir ./build/Qt-install/ 5.15.0 ${{ matrix.QT_OS_NAME }} desktop ${{ matrix.QT_ARCH }} -m qtwebengine qtwebglplugin
         echo "::add-path::$(pwd)/build/Qt-install/5.15.0/${{ matrix.QT_ARCH }}"
         echo "::set-env name=QT_INSTALL_DIR::$(pwd)/build/Qt-install/5.15.0/${{ matrix.QT_ARCH }}"
+        echo "QT_INSTALL_DIR=$QT_INSTALL_DIR"
+        ls build
+        ls build/Qt-install
+        ls build/Qt-install/5.15.0
+        ls $QT_INSTALL_DIR
+        ls $QT_INSTALL_DIR/lib/
+        ls $QT_INSTALL_DIR/lib/cmake
+        find $QT_INSTALL_DIR -name "*.cmake"
+
 
     #- name: Cache Qt dep cache?
       ## To avoid downloading the Qt dependency all the time, we try to cache it
