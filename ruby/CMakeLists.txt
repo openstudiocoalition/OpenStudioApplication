@@ -123,7 +123,7 @@ if(BUILD_TESTING)
   set(Ruby_FIND_VIRTUALENV FIRST)
   find_package(Ruby 2.5)
 
-  if(NOT Ruby_FOUND)
+  if(NOT Ruby_EXECUTABLE)
     message(WARNING "Your system ruby wasn't found, you won't be able to run the `ctest -R RubyTest` command and the tests won't be created at all.")
   else()
     message(STATUS "Found Ruby_EXECUTABLE=${Ruby_EXECUTABLE}")
@@ -151,7 +151,7 @@ if(BUILD_TESTING)
 
       set_tests_properties("OSApp-CLITest-${FILE_NAME}-${TEST_NAME}" PROPERTIES TIMEOUT 660 )
 
-      if (Ruby_FOUND)
+      if (Ruby_EXECUTABLE)
         # Call with Ruby itself
         add_test(NAME "OSApp-RubyTest-${FILE_NAME}-${TEST_NAME}"
           COMMAND "${CMAKE_COMMAND}" -E chdir "${CMAKE_CURRENT_BINARY_DIR}"
