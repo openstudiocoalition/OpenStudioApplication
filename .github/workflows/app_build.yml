@@ -288,8 +288,13 @@ jobs:
         echo "Install aqtinstall, then install Qt 5.15.0 for ${{ matrix.QT_OS_NAME }} ${{ matrix.QT_ARCH }}"
         pip3 install aqtinstall
         aqt install --outputdir ./build/Qt-install/ 5.15.0 ${{ matrix.QT_OS_NAME }} desktop ${{ matrix.QT_ARCH }} -m qtwebengine qtwebglplugin
-        echo "::add-path::$(pwd)/build/Qt-install/5.15.0/${{ matrix.QT_ARCH }}"
-        echo "::set-env name=QT_INSTALL_DIR::$(pwd)/build/Qt-install/5.15.0/${{ matrix.QT_ARCH }}"
+        if [ "$RUNNER_OS" == "Windows" ]; then
+          echo "::add-path::$(pwd)/build/Qt-install/5.15.0/msvc2019_64"
+          echo "::set-env name=QT_INSTALL_DIR::$(pwd)/build/Qt-install/5.15.0/msvc2019_64"
+        else
+          echo "::add-path::$(pwd)/build/Qt-install/5.15.0/${{ matrix.QT_ARCH }}"
+          echo "::set-env name=QT_INSTALL_DIR::$(pwd)/build/Qt-install/5.15.0/${{ matrix.QT_ARCH }}"
+        fi;
         echo "QT_INSTALL_DIR=$QT_INSTALL_DIR"
         ls build
         ls build/Qt-install
