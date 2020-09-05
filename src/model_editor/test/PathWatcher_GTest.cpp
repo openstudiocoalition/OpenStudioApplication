@@ -102,6 +102,7 @@ TEST_F(ModelEditorFixture, PathWatcher_File) {
 
   EXPECT_TRUE(openstudio::filesystem::exists(path));
 
+  openstudio::System::msleep(1000);
   Application::instance().processEvents(10);
 
   EXPECT_FALSE(watcher.added);
@@ -115,6 +116,7 @@ TEST_F(ModelEditorFixture, PathWatcher_File) {
 
   EXPECT_FALSE(openstudio::filesystem::exists(path));
 
+  openstudio::System::msleep(1000);
   Application::instance().processEvents(10);
 
   EXPECT_FALSE(watcher.added);
@@ -145,6 +147,7 @@ TEST_F(ModelEditorFixture, PathWatcher_Dir) {
 
   EXPECT_TRUE(openstudio::filesystem::exists(filePath));
 
+  openstudio::System::msleep(1000);
   Application::instance().processEvents(10);
 
   EXPECT_TRUE(watcher.changed);
@@ -157,6 +160,7 @@ TEST_F(ModelEditorFixture, PathWatcher_Dir) {
 
   EXPECT_TRUE(openstudio::filesystem::exists(filePath));
 
+  openstudio::System::msleep(1000);
   Application::instance().processEvents(10);
 
   EXPECT_FALSE(watcher.changed);
@@ -167,6 +171,7 @@ TEST_F(ModelEditorFixture, PathWatcher_Dir) {
 
   EXPECT_FALSE(openstudio::filesystem::exists(filePath));
 
+  openstudio::System::msleep(1000);
   Application::instance().processEvents(10);
 
   EXPECT_TRUE(watcher.changed);

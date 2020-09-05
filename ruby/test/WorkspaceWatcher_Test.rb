@@ -27,78 +27,110 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ########################################################################################################################
 
-# add binary dir to system path
-original_path = ENV['PATH']
-original_dll_directory = nil
-platform_specific_path = nil
+require 'openstudio'
+require 'openstudio_modeleditor'
 
-if /mswin/.match(RUBY_PLATFORM) or /mingw/.match(RUBY_PLATFORM)
+require 'minitest/autorun'
 
-  require 'fiddle/import'
-  require 'fiddle/types'
-  module WinAPI
-    extend Fiddle::Importer
-    dlload 'kernel32.dll'
-    include Fiddle::Win32Types
-    extern 'BOOL SetDllDirectory(LPCSTR)'
-    extern 'DWORD GetDllDirectory(DWORD, LPSTR)'
-  end
+module OpenStudio
 
-  buffer = 1024
-  original_dll_directory = Fiddle::Pointer.malloc(buffer)
-  WinAPI.GetDllDirectory(buffer, original_dll_directory)
+  class TestWorkspaceWatcher < WorkspaceWatcher
 
-  qt_dll_path = File.expand_path(File.join(File.dirname(__FILE__), '../bin/'))
+    attr_accessor :addedObjectHandle, :removedObjectHandle
 
-  # if install path fails, try developer paths
-  if !File.exists?(File.join(qt_dll_path, 'Qt5Core.dll'))
-    release_dll_path = File.expand_path(File.join(File.dirname(__FILE__), '../../Release/'))
-    debug_dll_path = File.expand_path(File.join(File.dirname(__FILE__), '../../Debug/'))
-    if File.exists?(File.join(release_dll_path, 'Qt5Core.dll'))
-      qt_dll_path = release_dll_path
-    elsif File.exists?(File.join(debug_dll_path, 'Qt5Core.dll'))
-      qt_dll_path = debug_dll_path
+    def initialize(workspace)
+      @addedObjectHandle = nil
+      @removedObjectHandle = nil
+      super
     end
-  end
 
-  WinAPI.SetDllDirectory(qt_dll_path)
-
-  $OPENSTUDIO_APPLICATION_DIR = qt_dll_path
-else
-
-  # Do something here for Mac OSX environments
-  qt_so_path = File.expand_path(File.join(File.dirname(__FILE__)))
-  ENV['PATH'] = "#{qt_so_path}:#{original_path}"
-
-  $OPENSTUDIO_APPLICATION_DIR = File.join(File.dirname(__FILE__), '../bin/')
-end
-
-begin
-
-  # require openstudio
-  begin
-    require_relative 'openstudio'
-  rescue LoadError
-    begin
-      require 'openstudio'
-    rescue LoadError
-      puts 'Unable to require openstudio'
+    def clearState
+      super
+      @addedObjectHandle = nil
+      @removedObjectHandle = nil
+      puts "clearState"
     end
-  end
 
-  # require openstudio_modeleditor.so
-  require_relative 'openstudio_modeleditor.so'
+    def onChangeWorkspace
+      super
+      puts "onChangeWorkspace"
+    end
 
-  # add this directory to Ruby load path
-  $:.unshift(File.expand_path(File.dirname(__FILE__)))
+    def onBecomeDirty
+      super
+      puts "onBecomeDirty"
+    end
 
-ensure
+    def onBecomeClean
+      super
+      puts "onBecomeClean"
+    end
 
-  # restore original path
-  ENV['PATH'] = original_path
+    def onObjectAdd(addedObject)
+      super
+      @addedObjectHandle = addedObject.handle
+      puts "onObjectAdd"
+    end
 
-  if original_dll_directory
-    WinAPI.SetDllDirectory(original_dll_directory)
+    def onObjectRemove(removedObject)
+      super
+      @removedObjectHandle = removedObject.handle
+      puts "removedObject"
+    end
+
   end
 
 end
+
+
+class WorkspaceWatcher_Test < MiniTest::Unit::TestCase
+
+  def setup
+    OpenStudio::Modeleditor::Application::instance().application(false)
+  end
+
+  # def teardown
+  # end
+
+  def test_WorkspaceWatcher
+
+    workspace = OpenStudio::Workspace.new
+    watcher = OpenStudio::TestWorkspaceWatcher.new(workspace)
+
+    assert((not watcher.dirty))
+    assert((not watcher.addedObjectHandle))
+    assert((not watcher.removedObjectHandle))
+
+    idfObject = OpenStudio::IdfObject.new("OS_Space".to_IddObjectType)
+    addedObject = workspace.addObject(idfObject)
+    assert((not addedObject.empty?))
+    addedObjectHandle = addedObject.get.handle
+
+    assert_equal(1, workspace.numObjects)
+    assert(watcher.dirty)
+    assert(watcher.objectAdded)
+    assert(watcher.enabled)
+    OpenStudio::Modeleditor::Application::instance.processEvents
+    assert(watcher.addedObjectHandle)
+    assert((not watcher.removedObjectHandle))
+    assert_equal(addedObjectHandle.to_s, watcher.addedObjectHandle.to_s)
+
+    watcher.clearState
+
+    assert((not watcher.dirty))
+    assert((not watcher.addedObjectHandle))
+    assert((not watcher.removedObjectHandle))
+
+    addedObject.get.remove
+
+    assert_equal(0, workspace.numObjects)
+    assert(watcher.dirty)
+    assert((not watcher.addedObjectHandle))
+    assert(watcher.removedObjectHandle)
+    assert_equal(addedObjectHandle.to_s, watcher.removedObjectHandle.to_s)
+
+  end
+
+end
+
+
