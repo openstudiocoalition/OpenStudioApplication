@@ -141,15 +141,15 @@ if(BUILD_TESTING)
       string(REGEX MATCH "/?([A-Za-z_0-9 ]+)\\.rb" FILE_NAME ${f})
       string(REGEX REPLACE "/?([A-Za-z_0-9 ]+)\\.rb" "\\1" FILE_NAME ${FILE_NAME})
 
-
+      # DLM: Cannot load openstudio_modeleditor.so into CLI because linked with different version of Ruby
       # CLI Test
-      add_test(NAME "OSApp-CLITest-${FILE_NAME}-${TEST_NAME}"
-        COMMAND "${CMAKE_COMMAND}" -E chdir "${CMAKE_CURRENT_BINARY_DIR}"
-          "${openstudio_EXECUTABLE}" "-I" "$<TARGET_FILE_DIR:openstudio_modeleditor_rb>"
-          "${f}" "--name=test_${TEST_NAME}"
-      )
+      #add_test(NAME "OSApp-CLITest-${FILE_NAME}-${TEST_NAME}"
+      #  COMMAND "${CMAKE_COMMAND}" -E chdir "${CMAKE_CURRENT_BINARY_DIR}"
+      #    "${openstudio_EXECUTABLE}" "-I" "$<TARGET_FILE_DIR:openstudio_modeleditor_rb>"
+      #    "${f}" "--name=test_${TEST_NAME}"
+      #)
 
-      set_tests_properties("OSApp-CLITest-${FILE_NAME}-${TEST_NAME}" PROPERTIES TIMEOUT 660 )
+      #set_tests_properties("OSApp-CLITest-${FILE_NAME}-${TEST_NAME}" PROPERTIES TIMEOUT 660 )
 
       if (Ruby_EXECUTABLE)
         # Call with Ruby itself
