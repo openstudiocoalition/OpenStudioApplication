@@ -24,7 +24,6 @@ target_include_directories(openstudio_modeleditor_rb PRIVATE ${RUBY_INCLUDE_DIRS
 set_target_properties(openstudio_modeleditor_rb PROPERTIES PREFIX "")
 set_target_properties(openstudio_modeleditor_rb PROPERTIES OUTPUT_NAME openstudio_modeleditor)
 
-# TODO: Output directly to Products/openstudio/ruby so it sits next to openstudio.so and others? `${PROJECT_BINARY_DIR}/openstudio/Products/ruby/`
 set_target_properties(openstudio_modeleditor_rb PROPERTIES ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_ARCHIVE_OUTPUT_DIRECTORY}/ruby/")
 set_target_properties(openstudio_modeleditor_rb PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/ruby/")
 set_target_properties(openstudio_modeleditor_rb PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/ruby/")
