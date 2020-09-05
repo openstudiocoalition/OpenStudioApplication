@@ -146,7 +146,7 @@ if(BUILD_TESTING)
       add_test(NAME "OSApp-CLITest-${FILE_NAME}-${TEST_NAME}"
         COMMAND "${CMAKE_COMMAND}" -E chdir "${CMAKE_CURRENT_BINARY_DIR}"
           "${openstudio_EXECUTABLE}" "-I" "$<TARGET_FILE_DIR:openstudio_modeleditor_rb>"
-                               "${f}" "--name=test_${TEST_NAME}"
+          "${f}" "--name=test_${TEST_NAME}"
       )
 
       set_tests_properties("OSApp-CLITest-${FILE_NAME}-${TEST_NAME}" PROPERTIES TIMEOUT 660 )
@@ -156,8 +156,8 @@ if(BUILD_TESTING)
         add_test(NAME "OSApp-RubyTest-${FILE_NAME}-${TEST_NAME}"
           COMMAND "${CMAKE_COMMAND}" -E chdir "${CMAKE_CURRENT_BINARY_DIR}"
             "${Ruby_EXECUTABLE}" "-I" "$<TARGET_FILE_DIR:openstudio::openstudio_rb>" # Or just ${openstudio_ROOT_DIR}/Ruby
-                                 "-I" "$<TARGET_FILE_DIR:openstudio_modeleditor_rb>"
-                                 "${f}" "--name=test_${TEST_NAME}"
+            "-I" "$<TARGET_FILE_DIR:openstudio_modeleditor_rb>"
+            "${f}" "--name=test_${TEST_NAME}"
         )
 
         set_tests_properties("OSApp-RubyTest-${FILE_NAME}-${TEST_NAME}" PROPERTIES TIMEOUT 660 )

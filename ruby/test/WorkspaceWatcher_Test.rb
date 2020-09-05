@@ -85,8 +85,9 @@ end
 
 class WorkspaceWatcher_Test < MiniTest::Unit::TestCase
 
-  # def setup
-  # end
+  def setup
+    OpenStudio::Modeleditor::Application::instance().application(false)
+  end
 
   # def teardown
   # end

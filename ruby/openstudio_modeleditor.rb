@@ -49,13 +49,25 @@ if /mswin/.match(RUBY_PLATFORM) or /mingw/.match(RUBY_PLATFORM)
   WinAPI.GetDllDirectory(buffer, original_dll_directory)
 
   qt_dll_path = File.expand_path(File.join(File.dirname(__FILE__), '../bin/'))
+
+  # if install path fails, try developer paths
+  if !File.exists?(File.join(qt_dll_path, 'Qt5Core.dll'))
+    release_dll_path = File.expand_path(File.join(File.dirname(__FILE__), '../../Release/'))
+    debug_dll_path = File.expand_path(File.join(File.dirname(__FILE__), '../../Debug/'))
+    if File.exists?(File.join(release_dll_path, 'Qt5Core.dll'))
+      qt_dll_path = release_dll_path
+    elsif File.exists?(File.join(debug_dll_path, 'Qt5Core.dll'))
+      qt_dll_path = debug_dll_path
+    end
+  end
+
   WinAPI.SetDllDirectory(qt_dll_path)
 
-  $OPENSTUDIO_APPLICATION_DIR = File.join(File.dirname(__FILE__), '../bin/')
+  $OPENSTUDIO_APPLICATION_DIR = qt_dll_path
 else
 
   # Do something here for Mac OSX environments
-  qt_so_path = File.expand_path(File.join(File.dirname(__FILE__), '../bin/'))
+  qt_so_path = File.expand_path(File.join(File.dirname(__FILE__)))
   ENV['PATH'] = "#{qt_so_path}:#{original_path}"
 
   $OPENSTUDIO_APPLICATION_DIR = File.join(File.dirname(__FILE__), '../bin/')
