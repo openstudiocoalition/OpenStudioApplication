@@ -136,6 +136,7 @@ jobs:
 
         if [ "$RUNNER_OS" == "Linux" ]; then
           echo "Install needed system dependencies for OPENGL (due to Qt) for Linux"
+          sudo apt update
           sudo apt install -y mesa-common-dev libglu1-mesa-dev patchelf
         elif [ "$RUNNER_OS" == "Windows" ]; then
           curl -L -O https://download.qt.io/official_releases/qt-installer-framework/3.2.2/QtInstallerFramework-win-x86.exe
