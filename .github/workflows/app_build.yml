@@ -290,14 +290,14 @@ jobs:
         pip3 install aqtinstall
         aqt install --outputdir ./build/Qt-install/ 5.15.0 ${{ matrix.QT_OS_NAME }} desktop ${{ matrix.QT_ARCH }} -m qtwebengine qtwebglplugin
         if [ "$RUNNER_OS" == "Windows" ]; then
-          echo "::add-path::$(pwd)/build/Qt-install/5.15.0/msvc2019_64"
+          echo "::add-path::$(pwd)/build/Qt-install/5.15.0/msvc2019_64/bin"
           echo "::set-env name=QT_INSTALL_DIR::$(pwd)/build/Qt-install/5.15.0/msvc2019_64"
           ls ./build/Qt-install/5.15.0/
           ls ./build/Qt-install/5.15.0/msvc2019_64 || true
           ls ./build/Qt-install/5.15.0/msvc2019_64/lib || true
           ls ./build/Qt-install/5.15.0/msvc2019_64/lib/cmake || true
         else
-          echo "::add-path::$(pwd)./build/Qt-install/5.15.0/${{ matrix.QT_ARCH }}"
+          echo "::add-path::$(pwd)./build/Qt-install/5.15.0/${{ matrix.QT_ARCH }}/bin"
           echo "::set-env name=QT_INSTALL_DIR::$(pwd)/build/Qt-install/5.15.0/${{ matrix.QT_ARCH }}"
           ls ./build/Qt-install/5.15.0/
           ls ./build/Qt-install/5.15.0/${{ matrix.QT_ARCH }} || true
@@ -393,4 +393,3 @@ jobs:
       with:
           name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ env.PLATFORM_NAME }}-Test.xml
           path: build/Testing/**/*.xml
-
