@@ -207,8 +207,7 @@ void UtilityBillsInspectorView::createWidgets() {
 
   m_buttonGroup = new QButtonGroup(this);
 
-  connect(m_buttonGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::idClicked), this,
-          &UtilityBillsInspectorView::deleteBillingPeriod);
+  connect(m_buttonGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::idClicked), this, &UtilityBillsInspectorView::deleteBillingPeriod);
 
   // Name
 
