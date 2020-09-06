@@ -913,7 +913,7 @@ QWidget* SimSettingsView::createRadianceParametersWidget() {
 
   m_radianceGroup = new QButtonGroup(this);
 
-  connect(m_radianceGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::buttonClicked), this, &SimSettingsView::on_radianceGroupClicked);
+  connect(m_radianceGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::idClicked), this, &SimSettingsView::on_radianceGroupClicked);
 
   int buttonCount = 0;
 

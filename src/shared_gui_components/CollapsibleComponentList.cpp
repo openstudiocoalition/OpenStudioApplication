@@ -103,7 +103,7 @@ CollapsibleComponent* CollapsibleComponentList::lastCollapsibleComponent() {
 std::vector<CollapsibleComponent*> CollapsibleComponentList::collapsibleComponents() {
   std::vector<CollapsibleComponent*> result;
 
-  for (QAbstractButton* button : m_collapsibleComponentGroup->buttons().toVector().toStdVector()) {
+  for (QAbstractButton* button : m_collapsibleComponentGroup->buttons().toVector()) {
     result.push_back(qobject_cast<CollapsibleComponent*>(button));
   }
 
@@ -114,7 +114,7 @@ std::vector<Component*> CollapsibleComponentList::components() {
   std::vector<Component*> result;
   std::vector<Component*> components;
 
-  for (QAbstractButton* button : m_collapsibleComponentGroup->buttons().toVector().toStdVector()) {
+  for (QAbstractButton* button : m_collapsibleComponentGroup->buttons().toVector()) {
     components = qobject_cast<CollapsibleComponent*>(button)->componentList()->components();
     for (Component* component : components) {
       result.push_back(component);

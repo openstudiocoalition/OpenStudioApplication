@@ -39,7 +39,7 @@
 #include <QSettings>
 #include <QSplitter>
 #include <QStackedWidget>
-#include <QTime>
+#include <QElapsedTimer>
 #include <QToolBar>
 
 #include <openstudio/resources.hxx>
@@ -379,11 +379,11 @@ bool ModelExplorer::classViewHasRowsToPaste() {
 
 void ModelExplorer::viewWidgetAction(modeleditor::ViewWidget* viewWidget) {
   if (viewWidget->getModelDirty()) {
-    QTime time;
-    time.start();
+    QElapsedTimer timer;
+    timer.start();
     viewWidget->loadModel();
     QString msg("Time to reload model already in memory: ");
-    int millisecondsElapsed = time.elapsed();
+    qint64 millisecondsElapsed = timer.elapsed();
     QString temp;
     temp.setNum(millisecondsElapsed);
     msg += temp;

@@ -96,7 +96,7 @@ Component* ComponentList::lastComponent() {
 std::vector<Component*> ComponentList::components() {
   std::vector<Component*> result;
 
-  for (QAbstractButton* button : m_componentGroup->buttons().toVector().toStdVector()) {
+  for (QAbstractButton* button : m_componentGroup->buttons().toVector()) {
     result.push_back(qobject_cast<Component*>(button));
   }
 

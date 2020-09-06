@@ -45,6 +45,9 @@
 using std::map;
 using std::stringstream;
 
+// We will have to replace QXmlDefaultHandler at some point, ignore for now
+#pragma warning(disable : 4996)
+
 namespace openstudio {
 namespace model {
 AccessPolicyStore* AccessPolicyStore::s_instance = nullptr;

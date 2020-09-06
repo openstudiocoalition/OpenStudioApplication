@@ -110,7 +110,7 @@ else()
             message(STATUS "Download OpenStudio SDK is a success, from: ${OPENSTUDIO_URL}")
             break()
           else()
-            message(FATAL_ERROR
+            message(STATUS
               "Download seemed to have worked, but archive md5sum HASH mismatch\n"
               "     for file: ${OPENSTUDIO_ARCHIVE_DIR}/${OPENSTUDIO_ARCHIVE_NAME}\n"
               "     from URL: ${OPENSTUDIO_URL}\n"

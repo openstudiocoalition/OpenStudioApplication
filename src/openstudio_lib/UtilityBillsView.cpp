@@ -207,7 +207,7 @@ void UtilityBillsInspectorView::createWidgets() {
 
   m_buttonGroup = new QButtonGroup(this);
 
-  connect(m_buttonGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::buttonClicked), this,
+  connect(m_buttonGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::idClicked), this,
           &UtilityBillsInspectorView::deleteBillingPeriod);
 
   // Name
@@ -246,7 +246,7 @@ void UtilityBillsInspectorView::createWidgets() {
   m_consumptionUnits = new OSComboBox2();
   vLayout->addWidget(m_consumptionUnits);
 
-  connect(m_consumptionUnits, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentIndexChanged), this,
+  connect(m_consumptionUnits, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentTextChanged), this,
           static_cast<void (UtilityBillsInspectorView::*)(const QString&)>(&UtilityBillsInspectorView::updateEnergyUseLabelText));
 
   gridLayout->addLayout(vLayout, 0, 0, Qt::AlignLeft | Qt::AlignTop);
@@ -263,7 +263,7 @@ void UtilityBillsInspectorView::createWidgets() {
   m_peakDemandUnits = new OSComboBox2();
   vLayout->addWidget(m_peakDemandUnits);
 
-  connect(m_peakDemandUnits, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentIndexChanged), this,
+  connect(m_peakDemandUnits, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentTextChanged), this,
           static_cast<void (UtilityBillsInspectorView::*)(const QString&)>(&UtilityBillsInspectorView::updatePeakLabelText));
 
   gridLayout->addLayout(vLayout, 0, 1, Qt::AlignLeft | Qt::AlignTop);
@@ -321,7 +321,7 @@ void UtilityBillsInspectorView::createWidgets() {
 
   auto buttonGroup = new QButtonGroup(this);
 
-  connect(buttonGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::buttonClicked), this,
+  connect(buttonGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::idClicked), this,
           static_cast<void (UtilityBillsInspectorView::*)(int)>(&UtilityBillsInspectorView::setBillFormat));
 
   QRadioButton* radioButton = nullptr;

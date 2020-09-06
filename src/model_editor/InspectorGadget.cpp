@@ -786,7 +786,7 @@ void InspectorGadget::layoutComboBox(QVBoxLayout* layout, QWidget* parent, opens
 
   if (-1 == idx) {
     idx = 0;
-    connect(combo, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentIndexChanged), this, &InspectorGadget::IGdefaultRemoved);
+    connect(combo, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentTextChanged), this, &InspectorGadget::IGdefaultRemoved);
     //QString errormsg("We have a value:");
     //errormsg += curVal.c_str();
     //errormsg += " that does not match the allowable values in the idd.Name:";
@@ -798,11 +798,11 @@ void InspectorGadget::layoutComboBox(QVBoxLayout* layout, QWidget* parent, opens
   combo->setProperty(s_indexSlotName, index);
 
   if (m_comboBridge) {
-    connect(combo, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::highlighted), m_comboBridge, &ComboHighlightBridge::highlighted);
-    connect(combo, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::activated), m_comboBridge, &ComboHighlightBridge::activated);
+    connect(combo, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::textHighlighted), m_comboBridge, &ComboHighlightBridge::highlighted);
+    connect(combo, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::textActivated), m_comboBridge, &ComboHighlightBridge::activated);
   }
   combo->setCurrentIndex(idx);
-  connect(combo, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentIndexChanged), this, &InspectorGadget::IGvalueChanged);
+  connect(combo, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentTextChanged), this, &InspectorGadget::IGvalueChanged);
   vbox->addWidget(label);
   vbox->addWidget(combo);
 

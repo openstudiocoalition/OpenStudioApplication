@@ -377,7 +377,7 @@ Qt::ItemFlags TableModel::flags(const QModelIndex& index) const {
   if (index.isValid())
     return Qt::ItemIsDragEnabled | Qt::ItemIsDropEnabled | Qt::ItemIsEditable | Qt::ItemIsEnabled | Qt::ItemIsSelectable;
   else
-    return nullptr;
+    return Qt::ItemFlags();
 }
 //! [7]
 

@@ -108,7 +108,7 @@ BCLMeasureDialog::BCLMeasureDialog(const BCLMeasure& bclMeasure, QWidget* parent
   }
 
   std::vector<std::string> intendedSoftwareTools = bclMeasure.intendedSoftwareTools();
-  QList<QListWidgetItem*> items = m_intendedSoftwareToolListWidget->findItems(".*", Qt::MatchRegExp);
+  QList<QListWidgetItem*> items = m_intendedSoftwareToolListWidget->findItems(".*", Qt::MatchRegularExpression);
   for (QListWidgetItem* item : items) {
     std::string intendedSoftwareTool = toString(item->text());
     if (std::find(intendedSoftwareTools.begin(), intendedSoftwareTools.end(), intendedSoftwareTool) == intendedSoftwareTools.end()) {
@@ -119,7 +119,7 @@ BCLMeasureDialog::BCLMeasureDialog(const BCLMeasure& bclMeasure, QWidget* parent
   }
 
   std::vector<std::string> intendedUseCases = bclMeasure.intendedUseCases();
-  items = m_intendedUseCaseListWidget->findItems(".*", Qt::MatchRegExp);
+  items = m_intendedUseCaseListWidget->findItems(".*", Qt::MatchRegularExpression);
   for (QListWidgetItem* item : items) {
     std::string intendedUseCase = toString(item->text());
     if (std::find(intendedUseCases.begin(), intendedUseCases.end(), intendedUseCase) == intendedUseCases.end()) {
@@ -192,7 +192,7 @@ boost::optional<openstudio::BCLMeasure> BCLMeasureDialog::createMeasure() {
 
   std::vector<Attribute> attributes;
 
-  QList<QListWidgetItem*> items = m_intendedSoftwareToolListWidget->findItems(".*", Qt::MatchRegExp);
+  QList<QListWidgetItem*> items = m_intendedSoftwareToolListWidget->findItems(".*", Qt::MatchRegularExpression);
   for (QListWidgetItem* item : items) {
     if (item->checkState() == Qt::Checked) {
       std::string intendedSoftwareTool = toString(item->text());
@@ -200,7 +200,7 @@ boost::optional<openstudio::BCLMeasure> BCLMeasureDialog::createMeasure() {
     }
   }
 
-  items = m_intendedUseCaseListWidget->findItems(".*", Qt::MatchRegExp);
+  items = m_intendedUseCaseListWidget->findItems(".*", Qt::MatchRegularExpression);
   for (QListWidgetItem* item : items) {
     if (item->checkState() == Qt::Checked) {
       std::string intendedUseCase = toString(item->text());
@@ -459,10 +459,10 @@ void BCLMeasureDialog::init() {
 
   connect(m_nameLineEdit, &QLineEdit::textChanged, this, &BCLMeasureDialog::nameChanged);
 
-  connect(m_measureTypeComboBox, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentIndexChanged), this,
+  connect(m_measureTypeComboBox, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentTextChanged), this,
           &BCLMeasureDialog::measureTypeChanged);
 
-  connect(m_taxonomyFirstLevelComboBox, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentIndexChanged), this,
+  connect(m_taxonomyFirstLevelComboBox, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentTextChanged), this,
           &BCLMeasureDialog::firstLevelTaxonomyChanged);
 
   this->setWindowModality(Qt::ApplicationModal);

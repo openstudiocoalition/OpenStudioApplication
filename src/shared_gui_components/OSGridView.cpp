@@ -88,7 +88,7 @@ OSGridView::OSGridView(OSGridController* gridController, const QString& headerTe
    * QButtonGroup manages the state of the buttons in the group. By default a QButtonGroup is exclusive (only one button can be checked at one time)
    */
   auto buttonGroup = new QButtonGroup();
-  connect(buttonGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::buttonClicked), this, &OSGridView::selectCategory);
+  connect(buttonGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::idClicked), this, &OSGridView::selectCategory);
 
   auto buttonLayout = new QHBoxLayout();
   buttonLayout->setSpacing(3);
@@ -155,7 +155,7 @@ OSGridView::OSGridView(OSGridController* gridController, const QString& headerTe
   setGridController(m_gridController);
 
   // Make the first button checked by default
-  std::vector<QAbstractButton*> buttons = buttonGroup->buttons().toVector().toStdVector();
+  QVector<QAbstractButton*> buttons = buttonGroup->buttons().toVector();
   if (buttons.size() > 0) {
     QPushButton* button = qobject_cast<QPushButton*>(buttons.at(0));
     OS_ASSERT(button);

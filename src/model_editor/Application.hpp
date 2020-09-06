@@ -68,9 +68,8 @@ class ApplicationSingleton
   QWidget* sketchUpWidget();
 
   /// Process pending Qt events
-  /// returns true if some work was done
-  bool processEvents();
-  bool processEvents(int maxTime);
+  void processEvents();
+  void processEvents(int maxTime);
 
   /// Check if application has given setting
   bool hasSetting(const std::string& key);

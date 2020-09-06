@@ -606,7 +606,8 @@ void OSGridController::refreshGrid() {
 
 void OSGridController::loadQSettings() {
   QSettings settings("OpenStudio", m_headerText);
-  m_customFields = settings.value("customFields").toStringList().toVector().toStdVector();
+  auto temp = settings.value("customFields").toStringList().toVector();
+  m_customFields = std::vector<QString>(temp.begin(), temp.end());
 }
 
 void OSGridController::saveQSettings() const {
@@ -661,7 +662,7 @@ void OSGridController::setHorizontalHeader() {
     m_horizontalHeaderBtnGrp = new QButtonGroup();
     m_horizontalHeaderBtnGrp->setExclusive(false);
 
-    connect(m_horizontalHeaderBtnGrp, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::buttonClicked), this,
+    connect(m_horizontalHeaderBtnGrp, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::idClicked), this,
             &OSGridController::horizontalHeaderChecked);
 
   } else {
@@ -1315,7 +1316,7 @@ QWidget* OSGridController::widgetAt(int row, int column) {
     holder->widget = t_widget;
     holder->setLayout(l);
     // layout is defined outside the lambda and brought in through capture!
-    layout->addWidget(holder, numWidgets, 0, 0);
+    layout->addWidget(holder, numWidgets, 0);
 
     //if (hasSubRows) {
     //  holder->setObjectName("InnerCell");

@@ -141,7 +141,7 @@ Qt::ItemFlags TreeModel::flags(const QModelIndex& index) const {
   if (index.isValid())
     return Qt::ItemIsDragEnabled | Qt::ItemIsDropEnabled | Qt::ItemIsEditable | Qt::ItemIsEnabled | Qt::ItemIsSelectable;
   else
-    return nullptr;
+    return Qt::ItemFlags();
 }
 
 TreeItem* TreeModel::getItem(const QModelIndex& index) const {

@@ -306,7 +306,7 @@ void OSComboBox2::completeBind() {
       .get()
       ->onRemoveFromWorkspace.connect<OSComboBox2, &OSComboBox2::onModelObjectRemoved>(this);
 
-    connect(this, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentIndexChanged), this, &OSComboBox2::onCurrentIndexChanged);
+    connect(this, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentTextChanged), this, &OSComboBox2::onCurrentIndexChanged);
 
     bool isConnected = false;
 

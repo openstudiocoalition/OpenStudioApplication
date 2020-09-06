@@ -275,7 +275,7 @@ LocationView::LocationView(bool isIP, const model::Model& model, const QString& 
   OS_ASSERT(idx != -1);
   m_ashraeClimateZone->setCurrentIndex(idx);
 
-  connect(m_ashraeClimateZone, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentIndexChanged), this,
+  connect(m_ashraeClimateZone, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentTextChanged), this,
           &LocationView::onASHRAEClimateZoneChanged);
 
   label = new QLabel("CEC Climate Zone");
@@ -305,7 +305,7 @@ LocationView::LocationView(bool isIP, const model::Model& model, const QString& 
   OS_ASSERT(idx != -1);
   m_cecClimateZone->setCurrentIndex(idx);
 
-  connect(m_cecClimateZone, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentIndexChanged), this,
+  connect(m_cecClimateZone, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentTextChanged), this,
           &LocationView::onCECClimateZoneChanged);
 
   // ***** Measure Tags GridLayout *****

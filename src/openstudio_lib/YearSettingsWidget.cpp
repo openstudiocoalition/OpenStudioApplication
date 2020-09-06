@@ -111,7 +111,7 @@ YearSettingsWidget::YearSettingsWidget(const model::Model& model, QWidget* paren
   for (const auto dayOfWeekValue : dayOfWeekValues) {
     m_firstDayOfYearEdit->addItem(QString::fromStdString(dayOfWeekValue));
   }
-  connect(m_firstDayOfYearEdit, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentIndexChanged), this,
+  connect(m_firstDayOfYearEdit, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentTextChanged), this,
           &YearSettingsWidget::firstDayofYearSelected);
   yearGridLayout->addWidget(m_firstDayOfYearEdit, 1, 1);
 
@@ -249,19 +249,19 @@ YearSettingsWidget::YearSettingsWidget(const model::Model& model, QWidget* paren
     .get()
     ->removeWorkspaceObjectPtr.connect<YearSettingsWidget, &YearSettingsWidget::onWorkspaceObjectRemove>(this);
 
-  connect(m_startWeekBox, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentIndexChanged), this,
+  connect(m_startWeekBox, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentTextChanged), this,
           &YearSettingsWidget::onDstStartDayWeekMonthChanged);
-  connect(m_startDayBox, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentIndexChanged), this,
+  connect(m_startDayBox, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentTextChanged), this,
           &YearSettingsWidget::onDstStartDayWeekMonthChanged);
-  connect(m_startMonthBox, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentIndexChanged), this,
+  connect(m_startMonthBox, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentTextChanged), this,
           &YearSettingsWidget::onDstStartDayWeekMonthChanged);
   connect(m_startDateEdit, &QDateEdit::dateChanged, this, &YearSettingsWidget::dstStartDateChanged);
 
-  connect(m_endWeekBox, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentIndexChanged), this,
+  connect(m_endWeekBox, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentTextChanged), this,
           &YearSettingsWidget::onDstEndDayWeekMonthChanged);
-  connect(m_endDayBox, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentIndexChanged), this,
+  connect(m_endDayBox, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentTextChanged), this,
           &YearSettingsWidget::onDstEndDayWeekMonthChanged);
-  connect(m_endMonthBox, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentIndexChanged), this,
+  connect(m_endMonthBox, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentTextChanged), this,
           &YearSettingsWidget::onDstEndDayWeekMonthChanged);
   connect(m_endDateEdit, &QDateEdit::dateChanged, this, &YearSettingsWidget::dstEndDateChanged);
 }

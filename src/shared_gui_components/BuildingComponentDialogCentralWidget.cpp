@@ -95,7 +95,7 @@ void BuildingComponentDialogCentralWidget::createLayout() {
   auto comboBox = new QComboBox(this);
   comboBox->hide();  // TODO remove this hack when we have sorts to do
 
-  connect(comboBox, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentIndexChanged), this,
+  connect(comboBox, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentTextChanged), this,
           &BuildingComponentDialogCentralWidget::comboBoxIndexChanged);
 
   QPushButton* upperPushButton = new QPushButton("Check All");
