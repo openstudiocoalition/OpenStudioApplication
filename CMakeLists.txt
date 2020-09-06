@@ -225,6 +225,8 @@ endif()
 
 option(BUILD_PACKAGE "Build package" OFF)
 
+option(BUILD_TESTING "Build testing" OFF)
+
 # DView
 # option(BUILD_DVIEW "Build DView" OFF)
 

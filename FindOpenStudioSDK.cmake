@@ -110,13 +110,20 @@ else()
             message(STATUS "Download OpenStudio SDK is a success, from: ${OPENSTUDIO_URL}")
             break()
           else()
-            message(STATUS
+            set(ERROR_MSG
               "Download seemed to have worked, but archive md5sum HASH mismatch\n"
               "     for file: ${OPENSTUDIO_ARCHIVE_DIR}/${OPENSTUDIO_ARCHIVE_NAME}\n"
               "     from URL: ${OPENSTUDIO_URL}\n"
               "       expected hash: [${OPENSTUDIO_EXPECTED_HASH}]\n"
               "         actual hash: [${OPENSTUDIO_HASH}]\n"
             )
+            # If official => FATAL_ERROR. If CI build, it's possibe the package is overriden by nightly build if the SHA of develop is the same as the
+            # day before, so only warn
+            if (BASELINK STREQUAL OPENSTUDIO_BASELINK_RELEASE)
+              message(FATAL_ERROR "${ERROR_MSG}")
+            else()
+              message(AUTHOR_WARNING "${ERROR_MSG}")
+            endif()
           endif()
         endif()
       endif()
