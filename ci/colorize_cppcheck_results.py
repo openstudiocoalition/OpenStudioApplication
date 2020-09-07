@@ -92,11 +92,11 @@ def colorize(lines):
     # else:
         # summary_line = green("No Errors")
 
-    # n_warnings = counter['warning']
-    # if n_errors:
-        # summary_line += red("{} Errors".format(n_errors))
+    n_warnings = counter['warning']
+    # if n_warnings:
+        # summary_line += yellow("{} Warnings".format(n_warnings))
     # else:
-        # summary_line = green("No Errors")
+        # summary_line = green("No Warnings")
 
     # n_styles = counter['style']
     # n_performances = counter['performance']
@@ -126,7 +126,7 @@ def colorize(lines):
                     i=bold(iid),
                     message=message))
 
-    return colored_lines, summary_line, n_errors
+    return colored_lines, summary_line, n_errors, n_warnings
 
 
 if __name__ == '__main__':
@@ -134,9 +134,9 @@ if __name__ == '__main__':
         content = f.read()
 
     lines = content.splitlines()
-    colored_lines, summary_line, n_errors = colorize(lines)
+    colored_lines, summary_line, n_errors, n_warnings = colorize(lines)
     print(summary_line)
     # sys.stdout.writelines(colored_lines)
     print("\n".join(colored_lines))
-    if n_errors:
+    if (n_errors + n_warnings) > 0:
         exit(1)
