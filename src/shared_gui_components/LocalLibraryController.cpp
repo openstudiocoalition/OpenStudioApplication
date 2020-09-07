@@ -213,8 +213,11 @@ QSharedPointer<LibraryTypeListController> LocalLibraryController::createLibraryL
   return libraryTypeListController;
 }
 
-LibraryTypeItem::LibraryTypeItem(const QString& name) : OSListItem(), m_name(name) {
-  m_libraryGroupListController = QSharedPointer<LibraryGroupListController>(new LibraryGroupListController());
+LibraryTypeItem::LibraryTypeItem(const QString& name)
+  : OSListItem(),
+    m_name(name),
+    m_libraryGroupListController(QSharedPointer<LibraryGroupListController>::create())
+{
 }
 
 LibraryTypeItemDelegate::LibraryTypeItemDelegate(BaseApp* t_app) : m_app(t_app) {}
@@ -268,8 +271,11 @@ void LibraryTypeListController::reset() {
   }
 }
 
-LibraryGroupItem::LibraryGroupItem(const QString& name, BaseApp* t_app) : OSListItem(), m_name(name) {
-  m_librarySubGroupListController = QSharedPointer<LibrarySubGroupListController>(new LibrarySubGroupListController(t_app));
+LibraryGroupItem::LibraryGroupItem(const QString& name, BaseApp* t_app)
+  : OSListItem(),
+    m_name(name),
+    m_librarySubGroupListController(QSharedPointer<LibrarySubGroupListController>::create(t_app))
+{
 }
 
 LibraryGroupItemDelegate::LibraryGroupItemDelegate(BaseApp* t_app) : m_app(t_app) {}

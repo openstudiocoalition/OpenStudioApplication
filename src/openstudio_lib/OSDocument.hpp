@@ -254,7 +254,7 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
 
  private slots:
 
-  void onVerticalTabSelected(int id);
+  void onVerticalTabSelected(int verticalId);
 
   void inspectModelObject(model::OptionalModelObject&, bool readOnly);
 

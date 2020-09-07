@@ -72,20 +72,20 @@ class ApplicationSingleton
   void processEvents(int maxTime);
 
   /// Check if application has given setting
-  bool hasSetting(const std::string& key);
+  bool hasSetting(const std::string& key) const;
 
   /// Remove setting
   void removeSetting(const std::string& key);
 
   /// Check if the application is headless
-  bool isDefaultInstance();
+  bool isDefaultInstance() const;
 
   /// Get the value of setting as given type, be careful when using getSettingValueAsBool
   /// you must first check if the optional is set and then check its value
-  boost::optional<bool> getSettingValueAsBool(const std::string& key);
-  boost::optional<int> getSettingValueAsInt(const std::string& key);
-  boost::optional<double> getSettingValueAsDouble(const std::string& key);
-  boost::optional<std::string> getSettingValueAsString(const std::string& key);
+  boost::optional<bool> getSettingValueAsBool(const std::string& key) const;
+  boost::optional<int> getSettingValueAsInt(const std::string& key) const;
+  boost::optional<double> getSettingValueAsDouble(const std::string& key) const;
+  boost::optional<std::string> getSettingValueAsString(const std::string& key) const;
 
   /// Set application value to given value
   void setSettingValue(const std::string& key, bool value);

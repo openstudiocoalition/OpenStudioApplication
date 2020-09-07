@@ -62,7 +62,7 @@ class WindowMaterialGlazingRefractionExtinctionMethodInspectorView : public Mode
  private:
   void createLayout();
 
-  void attach(openstudio::model::RefractionExtinctionGlazing& RefractionExtinctionGlazing);
+  void attach(openstudio::model::RefractionExtinctionGlazing& refractionExtinctionGlazing);
 
   void detach();
 

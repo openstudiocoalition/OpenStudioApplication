@@ -116,7 +116,7 @@ class OSItem : public QWidget, public Nano::Observer
   void setOSItemType(OSItemType osItemType);
 
   bool useLargeIcon();
-  void setUseLargeIcon(bool userLargeIcon);
+  void setUseLargeIcon(bool useLargeIcon);
 
   virtual bool equal(const OSItem* other) const = 0;
 

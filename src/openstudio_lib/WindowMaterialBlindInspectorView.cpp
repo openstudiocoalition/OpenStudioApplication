@@ -396,6 +396,7 @@ void WindowMaterialBlindInspectorView::onUpdate() {
   refresh();
 }
 
+// cppcheck-suppress constParameter
 void WindowMaterialBlindInspectorView::attach(openstudio::model::Blind& material) {
   m_material = material;
 

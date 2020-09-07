@@ -62,7 +62,8 @@ class WindowMaterialBlindInspectorView : public ModelObjectInspectorView
  private:
   void createLayout();
 
-  void attach(openstudio::model::Blind& Blind);
+  // cppcheck-suppress constParameter
+  void attach(openstudio::model::Blind& blind);
 
   void detach();
 

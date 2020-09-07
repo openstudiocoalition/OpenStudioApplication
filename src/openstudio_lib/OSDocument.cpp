@@ -898,8 +898,8 @@ QString OSDocument::modelTempDir() const {
   return m_modelTempDir;
 }
 
-void OSDocument::setSavePath(const QString& filePath) {
-  m_savePath = filePath;
+void OSDocument::setSavePath(const QString& savePath) {
+  m_savePath = savePath;
   updateWindowFilePath();
 }
 

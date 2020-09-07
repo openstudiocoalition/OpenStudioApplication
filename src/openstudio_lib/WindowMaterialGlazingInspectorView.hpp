@@ -64,7 +64,7 @@ class WindowMaterialGlazingInspectorView : public ModelObjectInspectorView
  private:
   void createLayout();
 
-  void attach(openstudio::model::StandardGlazing& Glazing);
+  void attach(openstudio::model::StandardGlazing& glazing);
 
   void detach();
 

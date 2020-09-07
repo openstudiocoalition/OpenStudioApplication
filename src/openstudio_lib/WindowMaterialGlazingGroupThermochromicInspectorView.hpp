@@ -62,7 +62,7 @@ class WindowMaterialGlazingGroupThermochromicInspectorView : public ModelObjectI
  private:
   void createLayout();
 
-  void attach(openstudio::model::ThermochromicGlazing& ThermochromicGlazing);
+  void attach(openstudio::model::ThermochromicGlazing& thermochromicGlazing);
 
   void detach();
 

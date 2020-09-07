@@ -181,7 +181,7 @@ void ApplicationSingleton::processEvents(int maxTime) {
   application()->processEvents(QEventLoop::AllEvents, maxTime);
 }
 
-bool ApplicationSingleton::hasSetting(const std::string& key) {
+bool ApplicationSingleton::hasSetting(const std::string& key) const {
   QString organizationName = QCoreApplication::organizationName();
   QString applicationName = QCoreApplication::applicationName();
   QSettings settings(organizationName, applicationName);
@@ -195,11 +195,11 @@ void ApplicationSingleton::removeSetting(const std::string& key) {
   settings.remove(toQString(key));
 }
 
-bool ApplicationSingleton::isDefaultInstance() {
+bool ApplicationSingleton::isDefaultInstance() const {
   return m_defaultInstance;
 }
 
-boost::optional<bool> ApplicationSingleton::getSettingValueAsBool(const std::string& key) {
+boost::optional<bool> ApplicationSingleton::getSettingValueAsBool(const std::string& key) const {
   boost::optional<bool> result;
 
   QString organizationName = QCoreApplication::organizationName();
@@ -220,7 +220,7 @@ boost::optional<bool> ApplicationSingleton::getSettingValueAsBool(const std::str
   return result;
 }
 
-boost::optional<int> ApplicationSingleton::getSettingValueAsInt(const std::string& key) {
+boost::optional<int> ApplicationSingleton::getSettingValueAsInt(const std::string& key) const {
   boost::optional<int> result;
 
   QString organizationName = QCoreApplication::organizationName();
@@ -241,7 +241,7 @@ boost::optional<int> ApplicationSingleton::getSettingValueAsInt(const std::strin
   return result;
 }
 
-boost::optional<double> ApplicationSingleton::getSettingValueAsDouble(const std::string& key) {
+boost::optional<double> ApplicationSingleton::getSettingValueAsDouble(const std::string& key) const {
   boost::optional<double> result;
 
   QString organizationName = QCoreApplication::organizationName();
@@ -262,7 +262,7 @@ boost::optional<double> ApplicationSingleton::getSettingValueAsDouble(const std:
   return result;
 }
 
-boost::optional<std::string> ApplicationSingleton::getSettingValueAsString(const std::string& key) {
+boost::optional<std::string> ApplicationSingleton::getSettingValueAsString(const std::string& key) const {
   boost::optional<std::string> result;
 
   QString organizationName = QCoreApplication::organizationName();

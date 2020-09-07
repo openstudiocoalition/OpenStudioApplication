@@ -65,16 +65,16 @@ namespace openstudio {
 
 namespace measuretab {
 
-WorkflowController::WorkflowController(BaseApp* t_app) : OSListController() {
+WorkflowController::WorkflowController(BaseApp* t_baseApp) : OSListController() {
   QSharedPointer<WorkflowSectionItem> workflowSectionItem;
 
-  workflowSectionItem = QSharedPointer<WorkflowSectionItem>(new WorkflowSectionItem(MeasureType::ModelMeasure, "OpenStudio Measures", t_app));
+  workflowSectionItem = QSharedPointer<WorkflowSectionItem>(new WorkflowSectionItem(MeasureType::ModelMeasure, "OpenStudio Measures", t_baseApp));
   addItem(workflowSectionItem);
 
-  workflowSectionItem = QSharedPointer<WorkflowSectionItem>(new WorkflowSectionItem(MeasureType::EnergyPlusMeasure, "EnergyPlus Measures", t_app));
+  workflowSectionItem = QSharedPointer<WorkflowSectionItem>(new WorkflowSectionItem(MeasureType::EnergyPlusMeasure, "EnergyPlus Measures", t_baseApp));
   addItem(workflowSectionItem);
 
-  workflowSectionItem = QSharedPointer<WorkflowSectionItem>(new WorkflowSectionItem(MeasureType::ReportingMeasure, "Reporting Measures", t_app));
+  workflowSectionItem = QSharedPointer<WorkflowSectionItem>(new WorkflowSectionItem(MeasureType::ReportingMeasure, "Reporting Measures", t_baseApp));
   addItem(workflowSectionItem);
 }
 
@@ -99,8 +99,11 @@ int WorkflowController::count() {
 }
 
 WorkflowSectionItem::WorkflowSectionItem(MeasureType measureType, const QString& label, BaseApp* t_baseApp)
-  : OSListItem(), m_label(label), m_measureType(measureType) {
-  m_workflowStepController = QSharedPointer<WorkflowStepController>(new MeasureStepController(measureType, t_baseApp));
+  : OSListItem(),
+    m_label(label),
+    m_measureType(measureType),
+    m_workflowStepController(QSharedPointer<MeasureStepController>::create(measureType, t_baseApp))
+{
 }
 
 QString WorkflowSectionItem::label() const {
