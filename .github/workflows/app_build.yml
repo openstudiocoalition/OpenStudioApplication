@@ -24,6 +24,7 @@ env:
   CPACK_SOURCE_TXZ:BOOL: OFF
   CPACK_SOURCE_TZ:BOOL: OFF
   CPACK_SOURCE_ZIP:BOOL: OFF
+  QT_VERSION: 5.15.0
   # CPACK_BINARY_DEB: OS-SPECIFIC
   # CPACK_BINARY_IFW: OS-SPECIFIC
 
@@ -102,7 +103,7 @@ jobs:
         sdk_version += '.'
         if m_minor:
             sdk_version += m_minor.groups()[0]
-            print("::set-env name=OS_SDK_VERSION_INOR::{}".format(m_minor.groups()[0]))
+            print("::set-env name=OS_SDK_VERSION_MINOR::{}".format(m_minor.groups()[0]))
         else:
             print("Unable to find OPENSTUDIO_VERSION_MINOR")
             sdk_version += 'Y'
@@ -116,11 +117,12 @@ jobs:
             sdk_version += 'Z'
 
         if m_sha:
-            sdk_version += m_sha.groups()[0]
+            # NOT ADDING IT to sdk_version
+            # sdk_version += m_sha.groups()[0]
             print("::set-env name=OS_SDK_VERSION_SHA::{}".format(m_sha.groups()[0]))
         else:
             print("Unable to find OPENSTUDIO_VERSION_SHA")
-            # NOT ADDING IT to sdk_version
+
 
         with open('sdk_version.txt', 'w') as f:
             f.write(sdk_version)
@@ -204,8 +206,9 @@ jobs:
       # If it wasn't found in the cache
       if: steps.cachebuild.outputs.cache-hit == 'true' || steps.cacheossdk.outputs.cache-hit == true
       run: |
-          ls build/
-          ls build/OpenStudio-${{ env.OS_SDK_VERSION }}
+          ls build/ || true
+          ls build/OpenStudio-${{ env.OS_SDK_VERSION }} || true
+          ls build/Qt-install/ || true
 
      # NOTE JM 2020-09-01: we're going to rely on FindOpenStudioSDK.cmake for now, but it's not impossible we'll need this in the future
      # This step in conjuction with the step 'Create Build Environment and locate openstudio', and a small modification in 'Configure CMake' step
@@ -286,26 +289,27 @@ jobs:
         # openstudio_DIR=$(dirname "${openstudio_DIR}")
         # echo "openstudio_DIR=${openstudio_DIR}"
         # echo "::set-env name=openstudio_DIR::$openstudio_DIR"
-        echo "Install aqtinstall, then install Qt 5.15.0 for ${{ matrix.QT_OS_NAME }} ${{ matrix.QT_ARCH }}"
-        pip3 install aqtinstall
-        aqt install --outputdir ./build/Qt-install/ 5.15.0 ${{ matrix.QT_OS_NAME }} desktop ${{ matrix.QT_ARCH }} -m qtwebengine qtwebglplugin
-        if [ "$RUNNER_OS" == "Windows" ]; then
-          echo "::add-path::$(pwd)/build/Qt-install/5.15.0/msvc2019_64/bin"
-          echo "::set-env name=QT_INSTALL_DIR::$(pwd)/build/Qt-install/5.15.0/msvc2019_64"
-          ls ./build/Qt-install/5.15.0/
-          ls ./build/Qt-install/5.15.0/msvc2019_64 || true
-          ls ./build/Qt-install/5.15.0/msvc2019_64/lib || true
-          ls ./build/Qt-install/5.15.0/msvc2019_64/lib/cmake || true
-        else
-          echo "::add-path::$(pwd)./build/Qt-install/5.15.0/${{ matrix.QT_ARCH }}/bin"
-          echo "::set-env name=QT_INSTALL_DIR::$(pwd)/build/Qt-install/5.15.0/${{ matrix.QT_ARCH }}"
-          ls ./build/Qt-install/5.15.0/
-          ls ./build/Qt-install/5.15.0/${{ matrix.QT_ARCH }} || true
-          ls ./build/Qt-install/5.15.0/${{ matrix.QT_ARCH }}/lib || true
-          ls ./build/Qt-install/5.15.0/${{ matrix.QT_ARCH }}/lib/cmake || true
-        fi;
-        find ./build/Qt-install -name "*.cmake"
 
+        if [ "$RUNNER_OS" == "Windows" ]; then
+          QT_INSTALL_DIR="$(pwd)/build/Qt-install/$QT_VERSION/msvc2019_64"
+        else
+          QT_INSTALL_DIR="$(pwd)/build/Qt-install/$QT_VERSION/${{ matrix.QT_ARCH }}"
+        fi
+        if [ -d "$QT_INSTALL_DIR" ]; then
+          echo "Qt $QT_VERSION already installed"
+        else
+          echo "Install aqtinstall, then install Qt $QT_VERSION for ${{ matrix.QT_OS_NAME }} ${{ matrix.QT_ARCH }}"
+          pip3 install aqtinstall
+          aqt install --outputdir ./build/Qt-install/ $QT_VERSION ${{ matrix.QT_OS_NAME }} desktop ${{ matrix.QT_ARCH }} -m qtwebengine qtwebglplugin
+        fi
+
+        echo "::add-path::$QT_INSTALL_DIR/bin"
+        echo "::set-env name=QT_INSTALL_DIR::$QT_INSTALL_DIR"
+        ls ./build/Qt-install/$QT_VERSION/
+        ls $QT_INSTALL_DIR || true
+        ls $QT_INSTALL_DIR/lib || true
+        ls $QT_INSTALL_DIR/lib/cmake || true
+        find ./build/Qt-install -name "*.cmake"
 
     #- name: Cache Qt dep cache?
       ## To avoid downloading the Qt dependency all the time, we try to cache it
