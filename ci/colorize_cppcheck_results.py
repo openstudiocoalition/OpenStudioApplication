@@ -66,8 +66,8 @@ def colorize(lines):
         else:
             colored_lines.append(red(line))
 
-    severity_order = ['error', 'warning', 'style', 'performance',
-                      'portability', 'information', 'debug', 'none']
+    severity_order = ['error', 'warning', 'performance', 'portability',
+                      'style', 'information', 'debug', 'none']
 
     counter = Counter(d['severity'] for d in matched_messages)
     summary_line = "\n\n==========================================\n"
@@ -99,8 +99,8 @@ def colorize(lines):
         # summary_line = green("No Warnings")
 
     # n_styles = counter['style']
-    # n_performances = counter['performance']
-    # n_portabilities = counter['portability']
+    n_performances = counter['performance']
+    n_portabilities = counter['portability']
     # n_informations = counter['information']
 
     # n_debugs = counter['debug']
@@ -126,7 +126,8 @@ def colorize(lines):
                     i=bold(iid),
                     message=message))
 
-    return colored_lines, summary_line, n_errors, n_warnings
+    return (colored_lines, summary_line, n_errors, n_warnings,
+            n_performances, n_portabilities)
 
 
 if __name__ == '__main__':
@@ -134,9 +135,10 @@ if __name__ == '__main__':
         content = f.read()
 
     lines = content.splitlines()
-    colored_lines, summary_line, n_errors, n_warnings = colorize(lines)
+    (colored_lines, summary_line, n_errors, n_warnings,
+     n_performances,  n_portabilities) = colorize(lines)
     print(summary_line)
     # sys.stdout.writelines(colored_lines)
     print("\n".join(colored_lines))
-    if (n_errors + n_warnings) > 0:
+    if (n_errors + n_warnings + n_performances + n_portabilities) > 0:
         exit(1)
