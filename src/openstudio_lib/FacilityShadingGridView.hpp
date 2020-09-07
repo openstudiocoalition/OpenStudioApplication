@@ -109,8 +109,8 @@ class FacilityShadingGridController : public OSGridController
   Q_OBJECT
 
  public:
-  FacilityShadingGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model model,
-                                std::vector<model::ModelObject> modelObjects);
+  FacilityShadingGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model& model,
+                                std::vector<model::ModelObject>& modelObjects);
 
   virtual ~FacilityShadingGridController() {}
 

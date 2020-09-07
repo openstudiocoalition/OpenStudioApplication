@@ -48,7 +48,7 @@ class UtilityBillFuelTypeListController : public OSVectorController
   Q_OBJECT
 
  public:
-  UtilityBillFuelTypeListController(const model::Model& model, openstudio::FuelType fuelType);
+  UtilityBillFuelTypeListController(const model::Model& model, const openstudio::FuelType& fuelType);
 
   virtual ~UtilityBillFuelTypeListController() {}
 

@@ -194,7 +194,7 @@ class BillingPeriodWidget : public QWidget, public Nano::Observer
   Q_OBJECT
 
  public:
-  BillingPeriodWidget(model::BillingPeriod billingPeriod, FuelType fuelType, BillFormat billFormat, QWidget* parent = nullptr);
+  BillingPeriodWidget(model::BillingPeriod billingPeriod, const openstudio::FuelType& fuelType, BillFormat billFormat, QWidget* parent = nullptr);
 
   virtual ~BillingPeriodWidget() {}
 

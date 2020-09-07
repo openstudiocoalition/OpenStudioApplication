@@ -73,7 +73,7 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
   Q_OBJECT
 
  public:
-  OSDocument(openstudio::model::Model library, const openstudio::path& resourcesPath, openstudio::model::OptionalModel model = boost::none,
+  OSDocument(openstudio::model::Model& library, const openstudio::path& resourcesPath, openstudio::model::OptionalModel model = boost::none,
              QString filePath = QString(), bool isPlugin = false, int startTabIndex = 0, int startSubTabIndex = 0);
 
   virtual ~OSDocument();

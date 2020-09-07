@@ -130,7 +130,7 @@ LightGradientHeader::LightGradientHeader(QWidget* parent) : OSHeader(new HeaderT
   mainHLayout->addWidget(label);
 }
 
-void LightGradientHeader::setMeasureType(MeasureType measureType) {
+void LightGradientHeader::setMeasureType(const MeasureType& measureType) {
   bool found = false;
 
   if (measureType == MeasureType::ModelMeasure) {

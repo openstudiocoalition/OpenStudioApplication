@@ -508,7 +508,7 @@ std::vector<GridItem*> HorizontalBranchItem::itemFactory(std::vector<model::Mode
 }
 
 HorizontalBranchItem::HorizontalBranchItem(std::pair<std::vector<model::ModelObject>, std::vector<model::ModelObject>> modelObjectsBeforeTerminal,
-                                           std::vector<model::ModelObject> modelObjectsAfterTerminal, QGraphicsItem* parent)
+                                           std::vector<model::ModelObject>& modelObjectsAfterTerminal, QGraphicsItem* parent)
   : GridItem(parent), m_isDropZone(false), m_text("Drag From Library"), m_hasDualTwoRightSidePipes(false), m_dualDuct(true) {
   std::vector<GridItem*> beforeTerminalItems;
 
@@ -565,7 +565,7 @@ HorizontalBranchItem::HorizontalBranchItem(std::pair<std::vector<model::ModelObj
   layout();
 }
 
-HorizontalBranchItem::HorizontalBranchItem(std::vector<model::ModelObject> modelObjects, QGraphicsItem* parent, bool dualDuct)
+HorizontalBranchItem::HorizontalBranchItem(std::vector<model::ModelObject>& modelObjects, QGraphicsItem* parent, bool dualDuct)
   : GridItem(parent), m_isDropZone(false), m_text("Drag From Library"), m_hasDualTwoRightSidePipes(false), m_dualDuct(dualDuct) {
   m_gridItems = itemFactory(modelObjects, this);
   layout();
@@ -2921,7 +2921,7 @@ unsigned DemandSideItem::padding() {
 
 void DemandSideItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {}
 
-SupplySideItem::SupplySideItem(QGraphicsItem* parent, model::Node supplyInletNode, std::vector<model::Node> supplyOutletNodes)
+SupplySideItem::SupplySideItem(QGraphicsItem* parent, model::Node& supplyInletNode, std::vector<model::Node>& supplyOutletNodes)
   : GridItem(parent),
     m_supplyInletNode(supplyInletNode),
     m_supplyOutletNodes(supplyOutletNodes),

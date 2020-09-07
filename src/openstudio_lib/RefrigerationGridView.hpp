@@ -64,8 +64,8 @@ class RefrigerationCaseGridController : public OSGridController
   Q_OBJECT
 
  public:
-  RefrigerationCaseGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model model,
-                                  std::vector<model::ModelObject> modelObjects);
+  RefrigerationCaseGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model& model,
+                                  std::vector<model::ModelObject>& modelObjects);
 
   virtual ~RefrigerationCaseGridController() {}
 

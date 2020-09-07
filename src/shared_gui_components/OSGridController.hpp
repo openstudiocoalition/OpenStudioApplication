@@ -244,8 +244,8 @@ class OSGridController : public QObject, public Nano::Observer
   // This form utilizes the default implementations of
   // rowCount() and itemAt(), showing one row for each object
   // in the model that is iddObjectType
-  OSGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model model,
-                   std::vector<model::ModelObject> modelObjects);
+  OSGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model& model,
+                   std::vector<model::ModelObject>& modelObjects);
 
   virtual ~OSGridController();
 

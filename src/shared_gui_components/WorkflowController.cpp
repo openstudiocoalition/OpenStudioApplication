@@ -99,7 +99,7 @@ int WorkflowController::count() {
   return m_workflowSectionItems.size();
 }
 
-WorkflowSectionItem::WorkflowSectionItem(MeasureType measureType, const QString& label, BaseApp* t_baseApp)
+WorkflowSectionItem::WorkflowSectionItem(const MeasureType& measureType, const QString& label, BaseApp* t_baseApp)
   : OSListItem(),
     m_label(label),
     m_measureType(measureType),

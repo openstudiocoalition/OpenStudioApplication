@@ -101,7 +101,7 @@ class WorkflowSectionItem : public OSListItem
   Q_OBJECT
 
  public:
-  WorkflowSectionItem(MeasureType measureType, const QString& label, BaseApp* t_baseApp);
+  WorkflowSectionItem(const MeasureType& measureType, const QString& label, BaseApp* t_baseApp);
 
   QString label() const;
 

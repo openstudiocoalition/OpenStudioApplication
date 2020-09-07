@@ -116,7 +116,7 @@ void FacilityExteriorEquipmentGridView::onClearSelection() {
 }
 
 FacilityExteriorEquipmentGridController::FacilityExteriorEquipmentGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType,
-                                                                                 model::Model model, std::vector<model::ModelObject> modelObjects)
+                                                                                 model::Model& model, std::vector<model::ModelObject>& modelObjects)
   : OSGridController(isIP, headerText, iddObjectType, model, modelObjects) {
   setCategoriesAndFields();
 }

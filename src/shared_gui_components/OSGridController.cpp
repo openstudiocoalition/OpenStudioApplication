@@ -574,8 +574,8 @@ OSGridController::OSGridController()
     m_horizontalHeaderBtnGrp(nullptr),
     m_objectSelector(std::make_shared<ObjectSelector>(this)) {}
 
-OSGridController::OSGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model model,
-                                   std::vector<model::ModelObject> modelObjects)
+OSGridController::OSGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model& model,
+                                   std::vector<model::ModelObject>& modelObjects)
   : QObject(),
     m_iddObjectType(iddObjectType),
     m_modelObjects(modelObjects),

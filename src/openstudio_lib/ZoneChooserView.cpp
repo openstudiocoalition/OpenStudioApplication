@@ -155,7 +155,7 @@ void ZoneChooserView::paintEvent(QPaintEvent* event) {
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
 
-ZoneChooserItem* ZoneChooserView::zoneChooserItemForZone(std::string zoneName) {
+ZoneChooserItem* ZoneChooserView::zoneChooserItemForZone(const std::string& zoneName) {
   for (auto it = m_zoneChooserItems.begin(); it < m_zoneChooserItems.end(); ++it) {
     if ((*it)->zoneName() == zoneName) {
       return *it;

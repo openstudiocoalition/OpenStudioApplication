@@ -115,8 +115,8 @@ void SpacesSurfacesGridView::onClearSelection() {
   m_itemSelectorButtons->disablePurgeButton();
 }
 
-SpacesSurfacesGridController::SpacesSurfacesGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model model,
-                                                           std::vector<model::ModelObject> modelObjects)
+SpacesSurfacesGridController::SpacesSurfacesGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model& model,
+                                                           std::vector<model::ModelObject>& modelObjects)
   : OSGridController(isIP, headerText, iddObjectType, model, modelObjects) {
   setCategoriesAndFields();
 }

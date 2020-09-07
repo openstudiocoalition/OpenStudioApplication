@@ -322,8 +322,8 @@ void SpaceTypesGridView::disableFilter() {
   m_filters->setEnabled(false);
 }
 
-SpaceTypesGridController::SpaceTypesGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model model,
-                                                   std::vector<model::ModelObject> modelObjects)
+SpaceTypesGridController::SpaceTypesGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model& model,
+                                                   std::vector<model::ModelObject>& modelObjects)
   : OSGridController(isIP, headerText, iddObjectType, model, modelObjects) {
   setCategoriesAndFields();
 }

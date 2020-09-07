@@ -190,8 +190,8 @@ std::vector<model::ModelObject> DesignDayGridView::selectedObjects() const {
   return m_gridController->selectedObjects();
 }
 
-DesignDayGridController::DesignDayGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model model,
-                                                 std::vector<model::ModelObject> modelObjects)
+DesignDayGridController::DesignDayGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model& model,
+                                                 std::vector<model::ModelObject>& modelObjects)
   : OSGridController(isIP, headerText, iddObjectType, model, modelObjects) {
   setCategoriesAndFields();
 }
