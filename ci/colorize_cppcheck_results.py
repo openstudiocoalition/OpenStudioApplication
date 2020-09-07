@@ -103,11 +103,14 @@ def colorize(lines):
     # n_portabilities = counter['portability']
     # n_informations = counter['information']
 
-
     # n_debugs = counter['debug']
 
-    for d in sorted(matched_messages,
-                    key=lambda d: severity_order.index(d['severity'])):
+    # Start by sorting by filename
+    matched_messages.sort(key=lambda d: d['file'])
+    matched_messages.sort(key=lambda d: severity_order.index(d['severity']))
+
+    # Now sort by the severity we cared about
+    for d in matched_messages:
 
         f = d['file']
         line = d['line']
