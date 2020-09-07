@@ -277,7 +277,7 @@ void InspectorGadget::setPrecision(unsigned int prec, FLOAT_DISPLAY dispType) {
 
 void InspectorGadget::layoutItems(QVBoxLayout* masterLayout, QWidget* parent, bool hideChildren) {
   IddObject iddObj = m_workspaceObj->iddObject();
-  string comment = m_workspaceObj->comment();
+  std::string comment = m_workspaceObj->comment();
 
   if (comment.size() >= 1) {
     string::size_type i = comment.find('!');
@@ -325,9 +325,9 @@ void InspectorGadget::layoutItems(QVBoxLayout* masterLayout, QWidget* parent, bo
 
     //Strip off prefix of "!"
     if (comment.size() >= 1) {
-      string::size_type i = comment.find('!');
-      if (i != string::npos) {
-        comment.erase(0, i + 1);
+      string::size_type j = comment.find('!');
+      if (j != string::npos) {
+        comment.erase(0, j + 1);
       }
     }
     parseItem(layout, parent, field, field.name(), *(m_workspaceObj->getString(i, true)), level, i, comment, true);
@@ -367,12 +367,13 @@ void InspectorGadget::layoutItems(QVBoxLayout* masterLayout, QWidget* parent, bo
         InspectorGadget* igchild = igChildItr->second;
         layout->addWidget(igchild);
       } else {
-        bool comment = false, fields = true;
+        bool showComment = false;
+        bool showFields = true;
         if (m_recursive) {
-          comment = m_showComments;
-          fields = m_showAllFields;
+          showComment = m_showComments;
+          showFields = m_showAllFields;
         }
-        auto igChild = new InspectorGadget(elem, m_indent, m_comboBridge, m_precision, m_floatDisplayType, comment, fields, m_recursive, m_locked);
+        auto igChild = new InspectorGadget(elem, m_indent, m_comboBridge, m_precision, m_floatDisplayType, showComment, showFields, m_recursive, m_locked);
 
         igChild->setUnitSystem(m_unitSystem);
         layout->addWidget(igChild);
@@ -868,7 +869,7 @@ void InspectorGadget::checkRemoveBtn(QPushButton* btn) {
   unsigned int numFields = m_workspaceObj->numFields();
   unsigned int numNonEx = m_workspaceObj->numNonextensibleFields();
 
-  if ((numFields - numNonEx) <= 0) {
+  if (numFields <= numNonEx) {
     btn->setEnabled(false);
   } else {
     btn->setEnabled(true);

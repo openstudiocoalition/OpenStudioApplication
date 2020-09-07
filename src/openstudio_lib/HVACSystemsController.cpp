@@ -143,12 +143,14 @@ const QString SHW = "SHW";
 const QString REFRIGERATION = "REFRIGERATION";
 const QString VRF = "VRF";
 
-HVACSystemsController::HVACSystemsController(bool isIP, const model::Model& model) : QObject(), m_model(model), m_isIP(isIP) {
-  m_hvacSystemsView = new HVACSystemsView();
+HVACSystemsController::HVACSystemsController(bool isIP, const model::Model& model)
+  : QObject(),
+    m_hvacSystemsView(new HVACSystemsView()),
+    m_model(model), m_isIP(isIP) {
 
-  m_hvacLayoutController = std::shared_ptr<HVACLayoutController>(new HVACLayoutController(this));
+  m_hvacLayoutController = std::make_shared<HVACLayoutController>(this);
 
-  m_hvacControlsController = std::shared_ptr<HVACControlsController>(new HVACControlsController(this));
+  m_hvacControlsController = std::make_shared<HVACControlsController>(this);
 
   m_model.getImpl<model::detail::Model_Impl>().get()->addWorkspaceObject.connect<HVACSystemsController, &HVACSystemsController::onObjectAdded>(this);
   //connect(OSAppBase::instance(), &OSAppBase::workspaceObjectAdded, this, &HVACSystemsController::onObjectAdded, Qt::QueuedConnection);
@@ -340,7 +342,7 @@ void HVACSystemsController::update() {
       m_hvacSystemsView->hvacToolbarView->zoomOutButton->setEnabled(false);
 
       if (m_hvacSystemsView->hvacToolbarView->topologyViewButton->isChecked()) {
-        m_refrigerationController = std::shared_ptr<RefrigerationController>(new RefrigerationController());
+        m_refrigerationController = std::make_shared<RefrigerationController>();
 
         m_hvacSystemsView->mainViewSwitcher->setView(m_refrigerationController->refrigerationView());
       } else if (m_hvacSystemsView->hvacToolbarView->gridViewButton->isChecked()) {
@@ -352,7 +354,7 @@ void HVACSystemsController::update() {
         m_hvacSystemsView->hvacToolbarView->addButton->hide();
         m_hvacSystemsView->hvacToolbarView->deleteButton->hide();
 
-        m_refrigerationGridController = std::shared_ptr<RefrigerationGridController>(new RefrigerationGridController(m_isIP, m_model));
+        m_refrigerationGridController = std::make_shared<RefrigerationGridController>(m_isIP, m_model);
 
         connect(this, &HVACSystemsController::toggleUnitsClicked, m_refrigerationGridController.get()->refrigerationGridView(),
                 &RefrigerationGridView::toggleUnitsClicked);
@@ -362,7 +364,7 @@ void HVACSystemsController::update() {
         m_hvacSystemsView->mainViewSwitcher->setView(m_refrigerationGridController->refrigerationGridView());
       } else {
         // Not allowed
-        m_hvacControlsController = std::shared_ptr<HVACControlsController>(new HVACControlsController(this));
+        m_hvacControlsController = std::make_shared<HVACControlsController>(this);
 
         m_hvacSystemsView->mainViewSwitcher->setView(m_hvacControlsController->noControlsView());
       }
@@ -371,23 +373,23 @@ void HVACSystemsController::update() {
       m_hvacSystemsView->hvacToolbarView->zoomOutButton->setEnabled(false);
 
       if (m_hvacSystemsView->hvacToolbarView->topologyViewButton->isChecked()) {
-        m_vrfController = std::shared_ptr<VRFController>(new VRFController());
+        m_vrfController = std::make_shared<VRFController>();
 
         m_hvacSystemsView->mainViewSwitcher->setView(m_vrfController->vrfView());
       } else if (m_hvacSystemsView->hvacToolbarView->gridViewButton->isChecked()) {
         // Not allowed: Refrigeration only on Refrigeration tab
-        m_refrigerationController = std::shared_ptr<RefrigerationController>(new RefrigerationController());
+        m_refrigerationController = std::make_shared<RefrigerationController>();
 
         m_hvacSystemsView->mainViewSwitcher->setView(m_refrigerationController->noRefrigerationView());
       } else {
-        m_hvacControlsController = std::shared_ptr<HVACControlsController>(new HVACControlsController(this));
+        m_hvacControlsController = std::make_shared<HVACControlsController>(this);
 
         m_hvacSystemsView->mainViewSwitcher->setView(m_hvacControlsController->noControlsView());
       }
     } else  // NOT VRF NOR REFRIGERATION
     {
       if (m_hvacSystemsView->hvacToolbarView->topologyViewButton->isChecked()) {
-        m_hvacLayoutController = std::shared_ptr<HVACLayoutController>(new HVACLayoutController(this));
+        m_hvacLayoutController = std::make_shared<HVACLayoutController>(this);
         m_hvacSystemsView->mainViewSwitcher->setView(m_hvacLayoutController->hvacGraphicsView());
 
         m_hvacSystemsView->hvacToolbarView->zoomInButton->setEnabled(true);
@@ -397,11 +399,11 @@ void HVACSystemsController::update() {
           MainRightColumnController::LIBRARY);
       } else if (m_hvacSystemsView->hvacToolbarView->gridViewButton->isChecked()) {
         // Not allowed: Refrigeration only on Refrigeration tab
-        m_refrigerationController = std::shared_ptr<RefrigerationController>(new RefrigerationController());
+        m_refrigerationController = std::make_shared<RefrigerationController>();
 
         m_hvacSystemsView->mainViewSwitcher->setView(m_refrigerationController->noRefrigerationView());
       } else {
-        m_hvacControlsController = std::shared_ptr<HVACControlsController>(new HVACControlsController(this));
+        m_hvacControlsController = std::make_shared<HVACControlsController>(this);
 
         if (currentLoop()) {
           // If an AirLoopHVAC, set the view to the HVACAirLoopControlsView
@@ -908,13 +910,12 @@ void HVACLayoutController::onModelObjectSelected(model::OptionalModelObject& mod
 }
 
 HVACControlsController::HVACControlsController(HVACSystemsController* hvacSystemsController)
-  : QObject(), m_hvacSystemsController(hvacSystemsController) {
-  m_hvacAirLoopControlsView = new HVACAirLoopControlsView();
-
-  m_hvacPlantLoopControlsView = new HVACPlantLoopControlsView();
-
-  m_noControlsView = new NoControlsView();
-
+  : QObject(),
+    m_hvacAirLoopControlsView(new HVACAirLoopControlsView()),
+    m_hvacPlantLoopControlsView(new HVACPlantLoopControlsView()),
+    m_noControlsView(new NoControlsView()),
+    m_hvacSystemsController(hvacSystemsController)
+{
   updateLater();
 }
 
@@ -1523,11 +1524,12 @@ void HVACControlsController::updateLater() {
   QTimer::singleShot(0, this, SLOT(update()));
 }
 
-HVACLayoutController::HVACLayoutController(HVACSystemsController* hvacSystemsController) : QObject(), m_hvacSystemsController(hvacSystemsController) {
-  m_hvacGraphicsView = new HVACGraphicsView();
-
-  //m_refrigerationController = std::shared_ptr<RefrigerationController>(new RefrigerationController());
-
+HVACLayoutController::HVACLayoutController(HVACSystemsController* hvacSystemsController)
+  : QObject(),
+    m_hvacGraphicsView(new HVACGraphicsView()),
+    m_hvacSystemsController(hvacSystemsController)
+    // m_refrigerationController(std::make_shared<RefrigerationController>())
+{
   connect(m_hvacSystemsController->hvacSystemsView()->hvacToolbarView->zoomOutButton, &QPushButton::clicked, m_hvacGraphicsView.data(),
           &HVACGraphicsView::zoomOut);
 

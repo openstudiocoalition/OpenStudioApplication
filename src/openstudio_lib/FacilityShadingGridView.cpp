@@ -286,9 +286,7 @@ void FacilityShadingGridView::typeFilterChanged(const QString& text) {
       auto parent = obj.parent();
       if (parent && parent->iddObjectType() == IddObjectType::OS_ShadingSurfaceGroup) {
         if (m_typeFilter->currentText() != parent->cast<model::ShadingSurfaceGroup>().shadingSurfaceType().c_str()) {
-          if (m_objectsFilteredByType.count(obj) == 0) {
-            m_objectsFilteredByType.insert(obj);
-          }
+          m_objectsFilteredByType.insert(obj);
         }
       }
     }
@@ -385,21 +383,15 @@ void FacilityShadingGridView::filterChanged() {
   std::set<openstudio::model::ModelObject> allFilteredObjects = m_objectsFilteredByName;
 
   for (auto obj : m_objectsFilteredByTilt) {
-    if (allFilteredObjects.count(obj) == 0) {
-      allFilteredObjects.insert(obj);
-    }
+    allFilteredObjects.insert(obj);
   }
 
   for (auto obj : m_objectsFilteredByType) {
-    if (allFilteredObjects.count(obj) == 0) {
-      allFilteredObjects.insert(obj);
-    }
+    allFilteredObjects.insert(obj);
   }
 
   for (auto obj : m_objectsFilteredByOrientation) {
-    if (allFilteredObjects.count(obj) == 0) {
-      allFilteredObjects.insert(obj);
-    }
+    allFilteredObjects.insert(obj);
   }
 
   this->m_gridController->getObjectSelector()->m_filteredObjects = allFilteredObjects;

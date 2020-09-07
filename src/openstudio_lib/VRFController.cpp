@@ -60,13 +60,16 @@
 
 namespace openstudio {
 
-VRFController::VRFController() : QObject(), m_detailView(nullptr), m_dirty(false) {
-  m_currentSystem = boost::none;
-
-  m_vrfView = new VRFView();
+VRFController::VRFController()
+  : QObject(),
+    m_vrfView(new VRFView()),
+    m_vrfSystemGridView(new GridLayoutItem()),
+    m_detailView(nullptr),
+    m_currentSystem(boost::none),
+    m_dirty(false)
+{
   connect(m_vrfView->zoomOutButton, &QPushButton::clicked, this, &VRFController::zoomOutToSystemGridView);
 
-  m_vrfSystemGridView = new GridLayoutItem();
   m_vrfSystemGridView->setCellSize(VRFSystemMiniView::cellSize());
   m_vrfGridScene = QSharedPointer<QGraphicsScene>(new QGraphicsScene());
   m_vrfGridScene->addItem(m_vrfSystemGridView);

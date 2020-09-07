@@ -189,15 +189,16 @@ void RefrigerationController::refreshRefrigerationSystemView(RefrigerationSystem
   }
 }
 
-RefrigerationController::RefrigerationController() : QObject() {
-  m_refrigerationGridScene = QSharedPointer<QGraphicsScene>(new QGraphicsScene());
-
-  m_refrigerationView = new RefrigerationView();
-
+RefrigerationController::RefrigerationController()
+  : QObject(),
+    m_refrigerationView(new RefrigerationView()),
+    m_refrigerationSystemGridView(new GridLayoutItem()),
+    m_refrigerationGridScene(new QGraphicsScene()),
+    m_noRefrigerationView(new NoRefrigerationView())
+{
   connect(m_refrigerationView->zoomOutButton, &QPushButton::clicked, this, &RefrigerationController::zoomOutToSystemGridView);
 
   // These get deleted with when the scene is deleted
-  m_refrigerationSystemGridView = new GridLayoutItem();
   m_refrigerationSystemGridView->setCellSize(RefrigerationSystemMiniView::cellSize());
   m_refrigerationSystemGridView->setMargin(RefrigerationSystemView::margin);
 
@@ -207,8 +208,6 @@ RefrigerationController::RefrigerationController() : QObject() {
   m_refrigerationSystemGridView->setDelegate(QSharedPointer<RefrigerationSystemItemDelegate>(new RefrigerationSystemItemDelegate()));
 
   m_refrigerationGridScene->addItem(m_refrigerationSystemGridView);
-
-  m_noRefrigerationView = new NoRefrigerationView();
 
   zoomOutToSystemGridView();
 }

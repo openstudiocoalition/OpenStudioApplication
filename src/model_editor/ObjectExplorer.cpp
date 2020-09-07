@@ -165,6 +165,8 @@ void ObjectExplorer::objectTextEdited(const QString& text) {
   if (items.size()) {
     for (int i = 0; i < items.size(); i++) {
       item = items.at(i);
+      // TODO! WHY IS THIS ABOVE UNUSED? Should we do this:
+      // items.push_back(item);
     }
   } else {
     for (int i = 0; i < mGroupList->count(); i++) {

@@ -93,7 +93,7 @@ class TreeModel : public QAbstractItemModel
   void setupModelData(const openstudio::model::ModelObject& object, TreeItem* parent);
   TreeItem* getItem(const QModelIndex& index) const;
   bool dropMimeData(const QMimeData* data, Qt::DropAction action, int row, int column, const QModelIndex& parent) override;
-  bool insertRows(const QModelIndex row, const QModelIndexList rowList, openstudio::IddObjectType type);
+  bool insertRows(const QModelIndex& row, const QModelIndexList rowList, openstudio::IddObjectType type);
   void getObjectNames(const openstudio::model::ModelObject& object, QList<QVariant>& objectNames);
 
   ///! QAbstractTableModel::parent() returns a QModelItemIndex, not the parent widget* as QObject::parent() does,

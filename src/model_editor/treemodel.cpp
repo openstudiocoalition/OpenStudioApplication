@@ -177,17 +177,17 @@ QModelIndex TreeModel::index(int row, int column, const QModelIndex& parent) con
     return QModelIndex();
 }
 
-bool TreeModel::insertRows(const QModelIndex row, const QModelIndexList rowList, openstudio::IddObjectType type) {
+bool TreeModel::insertRows(const QModelIndex& row, const QModelIndexList rowList, openstudio::IddObjectType type) {
   bool success = false;
 
   if (type == openstudio::IddObjectType::UserCustom) {
     return success;
   }
 
-  int position = rowList.at(0).row();
+  // int position = rowList.at(0).row();
   int rows = rowList.size();
 
-  QModelIndex parent = row;
+  // QModelIndex parent = row;
   TreeItem* parentItem = getItem(row);
   OS_ASSERT(parentItem);
   //OptionalWorkspaceObject workspaceObject = parentItem->data().workspaceObject();
@@ -227,22 +227,22 @@ bool TreeModel::insertRows(const QModelIndex row, const QModelIndexList rowList,
 
   return success;  // not updating Qt model
 
-  if (!success) return success;  // Nothing to add to the Qt model;
-
-  ///! Qt model update...
-  beginInsertRows(parent, position + 1, position + rows);
-  // get the idd object type
-  QList<QVariant> objectNames;
-  for (unsigned i = 0; i < parentObjects.size(); i++) {
-    getObjectNames(parentObjects.at(i), objectNames);
-    success = parentItem->insertChildren(parentObjects.at(i), objectNames, position + 1, rows, rootItem->columnCount());
-    if (!success) {
-      break;
-    }
-  }
-  endInsertRows();
-
-  return success;
+//  if (!success) return success;  // Nothing to add to the Qt model;
+//
+//  ///! Qt model update...
+//  beginInsertRows(parent, position + 1, position + rows);
+//  // get the idd object type
+//  QList<QVariant> objectNames;
+//  for (unsigned i = 0; i < parentObjects.size(); i++) {
+//    getObjectNames(parentObjects.at(i), objectNames);
+//    success = parentItem->insertChildren(parentObjects.at(i), objectNames, position + 1, rows, rootItem->columnCount());
+//    if (!success) {
+//      break;
+//    }
+//  }
+//  endInsertRows();
+//
+//  return success;
 }
 
 bool TreeModel::addRows(const QModelIndexList rowList, openstudio::IddObjectType type) {
@@ -304,10 +304,10 @@ QModelIndex TreeModel::parent(const QModelIndex& index) const {
 bool TreeModel::removeRows(const QModelIndexList rowList, std::vector<openstudio::Handle>& handles) {
   bool success = false;
 
-  int position = rowList.at(0).row();
+  // int position = rowList.at(0).row();
   int rows = rowList.size();
   QModelIndex parent = rowList.at(0).parent();
-  TreeItem* parentItem = getItem(parent);
+  // TreeItem* parentItem = getItem(parent);
   std::vector<openstudio::IdfObject> objects;
 
   ///! OpenStudio model update...
@@ -317,8 +317,8 @@ bool TreeModel::removeRows(const QModelIndexList rowList, std::vector<openstudio
     objects = object.remove();
     if (!objects.empty()) {
       success = true;
-      for (const openstudio::IdfObject& object : objects) {
-        handles.push_back(object.handle());
+      for (const openstudio::IdfObject& obj : objects) {
+        handles.push_back(obj.handle());
       }
     }
     // this list could mix parents and children, therefore
@@ -329,12 +329,12 @@ bool TreeModel::removeRows(const QModelIndexList rowList, std::vector<openstudio
 
   return success;  // not updating Qt model
 
-  ///! Qt model update...
-  beginRemoveRows(parent, position, position + rows - 1);
-  success = parentItem->removeChildren(position, rows);
-  endRemoveRows();
-
-  return success;
+//  ///! Qt model update...
+//  beginRemoveRows(parent, position, position + rows - 1);
+//  success = parentItem->removeChildren(position, rows);
+//  endRemoveRows();
+//
+//  return success;
 }
 
 int TreeModel::rowCount(const QModelIndex& parent) const {
@@ -352,26 +352,26 @@ int TreeModel::rowCount(const QModelIndex& parent) const {
 bool TreeModel::setData(const QModelIndex& index, const QVariant& value, int role) {
   return false;
 
-  if (role != Qt::EditRole) return false;
-
-  TreeItem* item = getItem(index);
-  bool result = item->setData(index.column(), value);
-
-  if (result) emit dataChanged(index, index);
-
-  return result;
+//  if (role != Qt::EditRole) return false;
+//
+//  TreeItem* item = getItem(index);
+//  bool result = item->setData(index.column(), value);
+//
+//  if (result) emit dataChanged(index, index);
+//
+//  return result;
 }
 
 bool TreeModel::setHeaderData(int section, Qt::Orientation orientation, const QVariant& value, int role) {
   return false;
 
-  if (role != Qt::EditRole || orientation != Qt::Horizontal) return false;
-
-  bool result = rootItem->setData(section, value);
-
-  if (result) emit headerDataChanged(orientation, section, section);
-
-  return result;
+//  if (role != Qt::EditRole || orientation != Qt::Horizontal) return false;
+//
+//  bool result = rootItem->setData(section, value);
+//
+//  if (result) emit headerDataChanged(orientation, section, section);
+//
+//  return result;
 }
 
 void TreeModel::getObjectNames(const openstudio::model::ModelObject& object, QList<QVariant>& objectNames) {
@@ -433,7 +433,9 @@ bool TreeModel::dropMimeData(const QMimeData* data, Qt::DropAction action, int r
   OS_ASSERT(parentItem);
 
   if (data->hasText()) {
-    if (!data->hasFormat("ListWidget data")) return success;
+    if (!data->hasFormat("ListWidget data")) {
+      return success;
+    }
     QString string = data->text();
     QStringList strings = string.split(",");
     openstudio::IddFile iddFile = mTreeViewWidget->getIddFile();
@@ -474,7 +476,8 @@ bool TreeModel::dropMimeData(const QMimeData* data, Qt::DropAction action, int r
     int rows = rowList.size();
     //QModelIndex sourceParent = rowList.at(0).parent();
 
-    TreeItem* parentItem = getItem(parent);
+    // TODO: unclear why we need to get it twice...
+    parentItem = getItem(parent);
 
     ///! OpenStudio model update...
     for (int i = 0; i < rows; i++) {

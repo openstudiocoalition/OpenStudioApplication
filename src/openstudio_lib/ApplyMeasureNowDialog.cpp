@@ -641,7 +641,7 @@ void DataPointJobItemView::paintEvent(QPaintEvent* e) {
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
 
-void DataPointJobItemView::update(const BCLMeasure& bclMeasure, const boost::optional<WorkflowJSON>& workflowJSON, bool canceled) {
+void DataPointJobItemView::update(const BCLMeasure& bclMeasure, const boost::optional<WorkflowJSON>& outWorkflowJSON, bool canceled) {
   OS_ASSERT(m_dataPointJobHeaderView);
 
   m_dataPointJobHeaderView->setName(bclMeasure.className());
@@ -653,28 +653,28 @@ void DataPointJobItemView::update(const BCLMeasure& bclMeasure, const boost::opt
   OS_ASSERT(m_dataPointJobContentView);
   m_dataPointJobContentView->clear();
 
-  if (!workflowJSON) {
+  if (!outWorkflowJSON) {
     // unknown error
     return;
   }
 
-  if (!workflowJSON->completedStatus() || workflowJSON->completedStatus().get() != "Success") {
+  if (!outWorkflowJSON->completedStatus() || outWorkflowJSON->completedStatus().get() != "Success") {
     // error
   }
 
-  boost::optional<DateTime> completedAt = workflowJSON->completedAt();
+  boost::optional<DateTime> completedAt = outWorkflowJSON->completedAt();
   if (completedAt) {
     m_dataPointJobHeaderView->setLastRunTime(*completedAt);
   }
 
-  boost::optional<std::string> completedStatus = workflowJSON->completedStatus();
+  boost::optional<std::string> completedStatus = outWorkflowJSON->completedStatus();
   if (completedStatus) {
     m_dataPointJobHeaderView->setStatus(*completedStatus, canceled);
   } else {
     m_dataPointJobHeaderView->setStatus("Unknown", canceled);
   }
 
-  for (const auto& step : workflowJSON->workflowSteps()) {
+  for (const auto& step : outWorkflowJSON->workflowSteps()) {
 
     boost::optional<WorkflowStepResult> result = step.result();
     if (!result) {

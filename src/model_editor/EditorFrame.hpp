@@ -70,7 +70,7 @@ class MODELEDITOR_API EditorFrame : public QMainWindow
   void createStatusBar();
   void createToolBars();
   void createWidgets();
-  QString getFileNameFromPath(const QString& fullFileName);
+  QString getFileNameFromPath(const QString& path);
   bool maybeSave();
   void newFile();
   void openFile(const QString& action, const QString& extension);

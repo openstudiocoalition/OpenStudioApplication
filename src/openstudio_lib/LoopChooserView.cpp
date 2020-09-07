@@ -139,7 +139,7 @@ void LoopChooserView::paintEvent(QPaintEvent* event) {
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
 
-LoopChooserItem* LoopChooserView::loopChooserItemForLoop(std::string loopName) {
+LoopChooserItem* LoopChooserView::loopChooserItemForLoop(const std::string& loopName) {
   for (auto it = m_loopChooserItems.begin(); it < m_loopChooserItems.end(); ++it) {
     if ((*it)->loopName() == loopName) {
       return *it;

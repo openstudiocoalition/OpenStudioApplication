@@ -33,12 +33,14 @@
 #include "ThermalZonesController.hpp"
 #include "ThermalZonesTabView.hpp"
 #include "ThermalZonesView.hpp"
+#include <memory>
 
 namespace openstudio {
 
-ThermalZonesTabController::ThermalZonesTabController(bool isIP, const model::Model& model) : MainTabController(new ThermalZonesTabView()) {
-  m_thermalZonesController = std::shared_ptr<ThermalZonesController>(new ThermalZonesController(isIP, model));
-
+ThermalZonesTabController::ThermalZonesTabController(bool isIP, const model::Model& model)
+  : MainTabController(new ThermalZonesTabView()),
+    m_thermalZonesController(std::make_shared<ThermalZonesController>(isIP, model))
+{
   this->mainContentWidget()->addTabWidget(m_thermalZonesController->subTabView());
 
   bool isConnected = false;

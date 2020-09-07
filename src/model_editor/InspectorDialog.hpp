@@ -139,10 +139,10 @@ class MODELEDITOR_API InspectorDialog : public QMainWindow, public Nano::Observe
 
  protected:
   // handle show event
-  virtual void showEvent(QShowEvent* t_event) override;
+  virtual void showEvent(QShowEvent* event) override;
 
   // handle close event
-  virtual void closeEvent(QCloseEvent* t_event) override;
+  virtual void closeEvent(QCloseEvent* event) override;
 
  private slots:
 
@@ -190,7 +190,7 @@ class MODELEDITOR_API InspectorDialog : public QMainWindow, public Nano::Observe
   void createWidgets();
   void connectSelfSignalsAndSlots();
   void connectModelSignalsAndSlots();
-  void hideSelectionWidget(bool hide);
+  void hideSelectionWidget(bool hideSelectionWidget);
   void loadStyleSheet();
   void loadListWidgetData();
   void updateListWidgetData();

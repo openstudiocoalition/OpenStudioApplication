@@ -54,7 +54,7 @@ class LoopChooserView : public QWidget
 
   virtual ~LoopChooserView() {}
 
-  LoopChooserItem* loopChooserItemForLoop(std::string loopName);
+  LoopChooserItem* loopChooserItemForLoop(const std::string& loopName);
 
   void layoutView();
 

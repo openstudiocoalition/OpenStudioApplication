@@ -80,10 +80,8 @@
 
 namespace modeleditor {
 
-TreeItem::TreeItem(const openstudio::model::ModelObject& object, const QList<QVariant>& data, TreeItem* parent) : mObject(object) {
-  mParentItem = parent;
-  mItemData = data;
-}
+TreeItem::TreeItem(const openstudio::model::ModelObject& object, const QList<QVariant>& data, TreeItem* parent)
+  : mItemData(data), mParentItem(parent), mObject(object) {}
 
 TreeItem::~TreeItem() {
   qDeleteAll(mChildItems);

@@ -379,16 +379,16 @@ bool ModelExplorer::classViewHasRowsToPaste() {
 
 void ModelExplorer::viewWidgetAction(modeleditor::ViewWidget* viewWidget) {
   if (viewWidget->getModelDirty()) {
-    QElapsedTimer timer;
-    timer.start();
+    // QElapsedTimer timer;
+    // timer.start();
     viewWidget->loadModel();
-    QString msg("Time to reload model already in memory: ");
-    qint64 millisecondsElapsed = timer.elapsed();
-    QString temp;
-    temp.setNum(millisecondsElapsed);
-    msg += temp;
     ///! uncomment to display model load time
-    //emit showStatusBarMsg(msg, 5000);
+    // QString msg("Time to reload model already in memory: ");
+    // qint64 millisecondsElapsed = timer.elapsed();
+    // QString temp;
+    // temp.setNum(millisecondsElapsed);
+    // msg += temp;
+    // emit showStatusBarMsg(msg, 5000);
   }
   mStackedWidget->setCurrentWidget(static_cast<QWidget*>(viewWidget));
 }

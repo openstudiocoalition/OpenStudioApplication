@@ -130,8 +130,10 @@ struct ModelObjectNameSorter
   }
 };
 
-SpacesSubtabGridView::SpacesSubtabGridView(bool isIP, const model::Model& model, QWidget* parent) : GridViewSubTab(isIP, model, parent) {
-  m_spacesModelObjects = subsetCastVector<model::ModelObject>(model.getConcreteModelObjects<model::Space>());
+SpacesSubtabGridView::SpacesSubtabGridView(bool isIP, const model::Model& model, QWidget* parent)
+  : GridViewSubTab(isIP, model, parent),
+    m_spacesModelObjects(subsetCastVector<model::ModelObject>(model.getConcreteModelObjects<model::Space>()))
+{
 
   // Filters
 
@@ -832,22 +834,17 @@ void SpacesSubtabGridView::filterChanged() {
      ***************************************************************************/
   std::set<openstudio::model::ModelObject> spaceFilteredObjects = m_objectsFilteredByStory;
 
+  // No need to do `if (spaceFilteredObjects.count(obj) == 0)` since we're dealing with a set
   for (auto obj : m_objectsFilteredByThermalZone) {
-    if (spaceFilteredObjects.count(obj) == 0) {
-      spaceFilteredObjects.insert(obj);
-    }
+    spaceFilteredObjects.insert(obj);
   }
 
   for (auto obj : m_objectsFilteredBySpaceType) {
-    if (spaceFilteredObjects.count(obj) == 0) {
-      spaceFilteredObjects.insert(obj);
-    }
+    spaceFilteredObjects.insert(obj);
   }
 
   for (auto obj : m_objectsFilteredBySpaceName) {
-    if (spaceFilteredObjects.count(obj) == 0) {
-      spaceFilteredObjects.insert(obj);
-    }
+    spaceFilteredObjects.insert(obj);
   }
 
   /***********************************************************************************
@@ -856,39 +853,27 @@ void SpacesSubtabGridView::filterChanged() {
   std::set<openstudio::model::ModelObject> allFilteredObjects;
 
   for (auto obj : m_objectsFilteredBySubSurfaceType) {
-    if (allFilteredObjects.count(obj) == 0) {
-      allFilteredObjects.insert(obj);
-    }
+    allFilteredObjects.insert(obj);
   }
 
   for (auto obj : m_objectsFilteredByWindExposure) {
-    if (allFilteredObjects.count(obj) == 0) {
-      allFilteredObjects.insert(obj);
-    }
+    allFilteredObjects.insert(obj);
   }
 
   for (auto obj : m_objectsFilteredBySunExposure) {
-    if (allFilteredObjects.count(obj) == 0) {
-      allFilteredObjects.insert(obj);
-    }
+    allFilteredObjects.insert(obj);
   }
 
   for (auto obj : m_objectsFilteredByOutsideBoundaryCondition) {
-    if (allFilteredObjects.count(obj) == 0) {
-      allFilteredObjects.insert(obj);
-    }
+    allFilteredObjects.insert(obj);
   }
 
   for (auto obj : m_objectsFilteredBySurfaceType) {
-    if (allFilteredObjects.count(obj) == 0) {
-      allFilteredObjects.insert(obj);
-    }
+    allFilteredObjects.insert(obj);
   }
 
   for (auto obj : m_objectsFilteredByInteriorPartitionGroup) {
-    if (allFilteredObjects.count(obj) == 0) {
-      allFilteredObjects.insert(obj);
-    }
+    allFilteredObjects.insert(obj);
   }
 
   if (this->hasSubRows()) {
