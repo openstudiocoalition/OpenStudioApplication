@@ -45,8 +45,14 @@
 using std::map;
 using std::stringstream;
 
-// We will have to replace QXmlDefaultHandler at some point, ignore for now
-#pragma warning(disable : 4996)
+// TODO: We will have to replace QXmlDefaultHandler at some point, ignore for now
+#if defined(_MSC_VER)
+  #pragma warning(push)
+  #pragma warning(disable : 4996)
+#elif (defined(__GNUC__))
+#  pragma GCC diagnostic push
+#  pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
 
 namespace openstudio {
 namespace model {
@@ -311,3 +317,9 @@ void AccessPolicyStore::clear() {
 
 }  // namespace model
 }  // namespace openstudio
+
+#if defined(_MSC_VER)
+  #pragma warning(pop)
+#elif (defined(__GNUC__))
+#  pragma GCC diagnostic pop
+#endif
