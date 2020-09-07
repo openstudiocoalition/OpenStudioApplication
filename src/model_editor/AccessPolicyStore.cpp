@@ -47,8 +47,8 @@ using std::stringstream;
 
 // TODO: We will have to replace QXmlDefaultHandler at some point, ignore for now
 #if defined(_MSC_VER)
-  #pragma warning(push)
-  #pragma warning(disable : 4996)
+#  pragma warning(push)
+#  pragma warning(disable : 4996)
 #elif (defined(__GNUC__))
 #  pragma GCC diagnostic push
 #  pragma GCC diagnostic ignored "-Wdeprecated-declarations"
@@ -319,7 +319,7 @@ void AccessPolicyStore::clear() {
 }  // namespace openstudio
 
 #if defined(_MSC_VER)
-  #pragma warning(pop)
+#  pragma warning(pop)
 #elif (defined(__GNUC__))
 #  pragma GCC diagnostic pop
 #endif
