@@ -43,7 +43,8 @@
 
 namespace openstudio {
 
-OSObjectListCBDS::OSObjectListCBDS(const IddObjectType& type, const model::Model& model) : OSComboBoxDataSource(), m_model(model) {
+OSObjectListCBDS::OSObjectListCBDS(const IddObjectType& type, const model::Model& model)
+  : OSComboBoxDataSource(), m_allowEmptySelection(false), m_model(model) {
   m_types.push_back(type);
 
   initialize();

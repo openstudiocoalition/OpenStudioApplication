@@ -54,7 +54,10 @@ TableModel::TableModel(openstudio::WorkspaceObjectVector& objects, ClassViewWidg
   : QAbstractTableModel(parent), mSortColumn(2), mSortOrder(Qt::AscendingOrder), mObjects(objects), mClassViewWidget(parent), mMaskGUIDs(false) {}
 //! [0]
 
-TableModel::TableModel(ClassViewWidget* parent) : QAbstractTableModel(parent), mClassViewWidget(parent), mMaskGUIDs(false) {}
+TableModel::TableModel(ClassViewWidget* parent)
+  : QAbstractTableModel(parent), mSortColumn(0), mSortOrder(Qt::AscendingOrder), mClassViewWidget(parent), mMaskGUIDs(false)
+{
+}
 
 TableModel::~TableModel() {}
 

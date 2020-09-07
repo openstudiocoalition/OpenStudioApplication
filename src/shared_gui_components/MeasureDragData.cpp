@@ -70,7 +70,7 @@ MeasureDragData::MeasureDragData(const QByteArray& data) : QObject() {
   m_id = toUUID(idString);
 }
 
-MeasureDragData::MeasureDragData(const UUID& id) : QObject(), m_id(id) {}
+MeasureDragData::MeasureDragData(const UUID& id) : QObject(), m_id(id), m_sourceEnum(LocalLibrary::USER) {}
 
 LocalLibrary::LibrarySource MeasureDragData::source() {
   return m_sourceEnum;

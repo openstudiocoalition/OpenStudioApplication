@@ -62,8 +62,6 @@ class ScheduleDialog : public OSDialog
  private:
   virtual void createLayout() override;
 
-  bool m_isIP;
-
   model::Model m_model;
 
   boost::optional<model::ScheduleTypeLimits> m_scheduleTypeLimits;

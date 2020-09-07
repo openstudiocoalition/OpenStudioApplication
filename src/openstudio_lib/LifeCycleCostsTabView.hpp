@@ -110,19 +110,19 @@ class LifeCycleCostsView : public QWidget
   void nistGroupClicked(int index);
 };
 
-class LifeCycleCostsTabView : public MainTabView
-{
+//class LifeCycleCostsTabView : public MainTabView
+//{
 
-  Q_OBJECT
+  //Q_OBJECT
 
- public:
-  LifeCycleCostsTabView(const model::Model& model, const QString& modelTempDir, QWidget* parent = nullptr);
+ //public:
+  //LifeCycleCostsTabView(const model::Model& model, const QString& modelTempDir, QWidget* parent = nullptr);
 
-  virtual ~LifeCycleCostsTabView();
+  //virtual ~LifeCycleCostsTabView();
 
- private:
-  LifeCycleCostsView* m_lifeCycleCostsView;
-};
+ //private:
+  //LifeCycleCostsView* m_lifeCycleCostsView;
+//};
 
 }  // namespace openstudio
 

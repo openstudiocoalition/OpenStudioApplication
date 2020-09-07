@@ -1648,8 +1648,9 @@ void HVACLayoutController::updateLater() {
   QTimer::singleShot(0, this, SLOT(update()));
 }
 
-SystemAvailabilityVectorController::SystemAvailabilityVectorController() : ModelObjectVectorController() {
-  m_reportItemsMutex = new QMutex();
+SystemAvailabilityVectorController::SystemAvailabilityVectorController()
+  : ModelObjectVectorController(), m_reportScheduled(false), m_reportItemsMutex(new QMutex())
+{
 }
 
 SystemAvailabilityVectorController::~SystemAvailabilityVectorController() {
@@ -1747,8 +1748,9 @@ void SystemAvailabilityVectorController::onReplaceItem(OSItem* currentItem, cons
   onDrop(replacementItemId);
 }
 
-SupplyAirTempScheduleVectorController::SupplyAirTempScheduleVectorController() : ModelObjectVectorController() {
-  m_reportItemsMutex = new QMutex();
+SupplyAirTempScheduleVectorController::SupplyAirTempScheduleVectorController()
+  : ModelObjectVectorController(), m_reportScheduled(false), m_reportItemsMutex(new QMutex())
+{
 }
 
 SupplyAirTempScheduleVectorController::~SupplyAirTempScheduleVectorController() {
@@ -1863,8 +1865,9 @@ void SupplyAirTempScheduleVectorController::onDropZoneItemClicked(OSItem* item) 
 // CLASSIC ONES
 
 // CTOR
-AvailabilityManagerObjectVectorController::AvailabilityManagerObjectVectorController() : ModelObjectVectorController() {
-  m_reportItemsMutex = new QMutex();
+AvailabilityManagerObjectVectorController::AvailabilityManagerObjectVectorController()
+  : ModelObjectVectorController(), m_reportScheduled(false), m_reportItemsMutex(new QMutex())
+{
 }
 
 AvailabilityManagerObjectVectorController::~AvailabilityManagerObjectVectorController() {

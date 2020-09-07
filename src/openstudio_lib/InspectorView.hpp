@@ -115,7 +115,6 @@ class InspectorView : public QWidget
  private:
   QVBoxLayout* m_vLayout;
   BaseInspectorView* m_currentView;
-  QStackedWidget* m_stackedWidget;
   boost::optional<model::ModelObject> m_modelObject;
   bool m_mouseOverInspectorView = false;
 };

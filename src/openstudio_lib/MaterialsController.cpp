@@ -65,7 +65,7 @@ MaterialsController::~MaterialsController() {}
 
 void MaterialsController::onAddObject(const openstudio::IddObjectType& iddObjectType) {
   model::Model model = this->model();
-  boost::optional<model::Material> mat;
+  [[maybe_unused]] boost::optional<model::Material> mat;
 
   switch (iddObjectType.value()) {
     case IddObjectType::OS_Material:

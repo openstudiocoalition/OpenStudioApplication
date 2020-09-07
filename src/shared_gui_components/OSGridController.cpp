@@ -566,7 +566,13 @@ void ObjectSelector::updateWidgets(const model::ModelObject& t_obj) {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-OSGridController::OSGridController() : QObject(), m_objectSelector(std::make_shared<ObjectSelector>(this)) {}
+OSGridController::OSGridController()
+  : QObject(),
+    m_hasHorizontalHeader(true),
+    m_currentCategoryIndex(0),
+    m_isIP(false),
+    m_horizontalHeaderBtnGrp(nullptr),
+    m_objectSelector(std::make_shared<ObjectSelector>(this)) {}
 
 OSGridController::OSGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model model,
                                    std::vector<model::ModelObject> modelObjects)

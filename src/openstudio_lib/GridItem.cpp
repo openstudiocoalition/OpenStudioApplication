@@ -1456,7 +1456,7 @@ void OneThreeStraightItem::mouseReleaseEvent(QGraphicsSceneMouseEvent* event) {
   //}
 }
 
-OneThreeWaterToAirItem::OneThreeWaterToAirItem(QGraphicsItem* parent) : GridItem(parent) {}
+OneThreeWaterToAirItem::OneThreeWaterToAirItem(QGraphicsItem* parent) : GridItem(parent), m_showLinks(false) {}
 
 void OneThreeWaterToAirItem::onLinkItemClicked() {
   if (m_modelObject) {
@@ -1527,7 +1527,7 @@ void OneThreeWaterToAirItem::mouseReleaseEvent(QGraphicsSceneMouseEvent* event) 
   //}
 }
 
-OneThreeWaterToWaterItem::OneThreeWaterToWaterItem(QGraphicsItem* parent) : GridItem(parent) {}
+OneThreeWaterToWaterItem::OneThreeWaterToWaterItem(QGraphicsItem* parent) : GridItem(parent), m_showLinks(false) {}
 
 void OneThreeWaterToWaterItem::onLinkItemClicked() {
   if (m_modelObject) {
