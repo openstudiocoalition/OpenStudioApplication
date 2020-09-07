@@ -112,6 +112,7 @@ TEST_F(ModelEditorFixture, Path_Conversions) {
   t = std::string(kChineseSampleText);
   q = QString::fromUtf8(t.c_str());
   p = toPath(t);
+  EXPECT_EQ(q, toQString(p));
   EXPECT_EQ(t, std::string(toQString(p).toUtf8()));
   EXPECT_EQ(t, toString(p));
   EXPECT_EQ(t, toString(toQString(toString(p))));
@@ -121,6 +122,7 @@ TEST_F(ModelEditorFixture, Path_Conversions) {
   t = std::string(kArabicSampleText);
   q = QString::fromUtf8(t.c_str());
   p = toPath(t);
+  EXPECT_EQ(q, toQString(p));
   EXPECT_EQ(t, std::string(toQString(p).toUtf8()));
   EXPECT_EQ(t, toString(toQString(toString(p))));
   EXPECT_EQ(t, std::string(toQString(toString(p)).toUtf8()));
@@ -129,6 +131,7 @@ TEST_F(ModelEditorFixture, Path_Conversions) {
   t = std::string(kSpanishSampleText);
   q = QString::fromUtf8(t.c_str());
   p = toPath(t);
+  EXPECT_EQ(q, toQString(p));
   EXPECT_EQ(t, std::string(toQString(p).toUtf8()));
   EXPECT_EQ(t, toString(toQString(toString(p))));
   EXPECT_EQ(t, std::string(toQString(toString(p)).toUtf8()));

@@ -87,8 +87,8 @@ TreeItem::~TreeItem() {
   qDeleteAll(mChildItems);
 }
 
-void TreeItem::appendChild(TreeItem* item) {
-  mChildItems.append(item);
+void TreeItem::appendChild(TreeItem* child) {
+  mChildItems.append(child);
 }
 
 TreeItem* TreeItem::child(int row) {

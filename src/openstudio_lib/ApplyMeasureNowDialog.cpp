@@ -788,17 +788,17 @@ void ApplyMeasureNowDialog::requestReload() {
   close();
 }
 
-void ApplyMeasureNowDialog::closeEvent(QCloseEvent* e) {
+void ApplyMeasureNowDialog::closeEvent(QCloseEvent* event) {
   //DLM: don't do this here in case we are going to load the model
   //removeWorkingDir();
 
   // DLM: do not allow closing window while running
   if (m_mainPaneStackedWidget->currentIndex() == m_runningPageIdx) {
-    e->ignore();
+    event->ignore();
     return;
   }
 
-  e->accept();
+  event->accept();
 }
 
 void ApplyMeasureNowDialog::disableOkButton(bool disable) {

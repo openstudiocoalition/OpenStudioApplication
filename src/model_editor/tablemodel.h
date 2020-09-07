@@ -88,7 +88,7 @@ class MODELEDITOR_API TableModel : public QAbstractTableModel
  private:
   void setupModelData(openstudio::WorkspaceObjectVector& objects);
   bool dropMimeData(const QMimeData* data, Qt::DropAction action, int row, int column, const QModelIndex& parent) override;
-  void sort(openstudio::WorkspaceObjectVector& objects, int column = 0, Qt::SortOrder order = Qt::AscendingOrder);
+  void sort(openstudio::WorkspaceObjectVector& objects, int column = 0, Qt::SortOrder sortOrder = Qt::AscendingOrder);
   ///! std::sort comparison functions
   bool cmpAscendIddName(const openstudio::WorkspaceObject& object1, const openstudio::WorkspaceObject& object2);
   bool cmpDescendIddName(const openstudio::WorkspaceObject& object1, const openstudio::WorkspaceObject& object2);

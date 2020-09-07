@@ -306,7 +306,7 @@ bool TreeModel::removeRows(const QModelIndexList rowList, std::vector<openstudio
 
   // int position = rowList.at(0).row();
   int rows = rowList.size();
-  QModelIndex parent = rowList.at(0).parent();
+  // QModelIndex parent = rowList.at(0).parent();
   // TreeItem* parentItem = getItem(parent);
   std::vector<openstudio::IdfObject> objects;
 
