@@ -113,8 +113,8 @@ void SpacesShadingGridView::onClearSelection() {
   m_itemSelectorButtons->disablePurgeButton();
 }
 
-SpacesShadingGridController::SpacesShadingGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model& model,
-                                                         std::vector<model::ModelObject>& modelObjects)
+SpacesShadingGridController::SpacesShadingGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, const model::Model& model,
+                                                         const std::vector<model::ModelObject>& modelObjects)
   : OSGridController(isIP, headerText, iddObjectType, model, modelObjects) {
   setCategoriesAndFields();
 }

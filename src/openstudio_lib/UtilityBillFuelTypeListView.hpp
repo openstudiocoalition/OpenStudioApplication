@@ -74,7 +74,7 @@ class UtilityBillFuelTypeListView : public OSItemList
   Q_OBJECT
 
  public:
-  UtilityBillFuelTypeListView(const model::Model& model, openstudio::FuelType fuelType, bool addScrollArea, QWidget* parent = nullptr);
+  UtilityBillFuelTypeListView(const model::Model& model, const openstudio::FuelType& fuelType, bool addScrollArea, QWidget* parent = nullptr);
 
   virtual ~UtilityBillFuelTypeListView() {}
 

@@ -128,7 +128,7 @@ SpacesDaylightingGridView::SpacesDaylightingGridView(bool isIP, const model::Mod
 }
 
 SpacesDaylightingGridController::SpacesDaylightingGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType,
-                                                                 model::Model& model, std::vector<model::ModelObject>& modelObjects)
+                                                                 const model::Model& model, const std::vector<model::ModelObject>& modelObjects)
   : OSGridController(isIP, headerText, iddObjectType, model, modelObjects) {
   setCategoriesAndFields();
 }

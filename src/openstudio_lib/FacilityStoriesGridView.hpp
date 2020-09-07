@@ -84,8 +84,8 @@ class FacilityStoriesGridController : public OSGridController
   Q_OBJECT
 
  public:
-  FacilityStoriesGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model& model,
-                                std::vector<model::ModelObject>& modelObjects);
+  FacilityStoriesGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, const model::Model& model,
+                                const std::vector<model::ModelObject>& modelObjects);
 
   virtual ~FacilityStoriesGridController() {}
 

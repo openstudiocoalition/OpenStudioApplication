@@ -217,7 +217,7 @@ RefrigerationGridView::RefrigerationGridView(bool isIP, const model::Model& mode
 }
 
 RefrigerationCaseGridController::RefrigerationCaseGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType,
-                                                                 model::Model& model, std::vector<model::ModelObject>& modelObjects)
+                                                                 const model::Model& model, const std::vector<model::ModelObject>& modelObjects)
   : OSGridController(isIP, headerText, iddObjectType, model, modelObjects) {
   setCategoriesAndFields();
 }
@@ -558,7 +558,7 @@ void RefrigerationCaseGridController::onComboBoxIndexChanged(int index) {
 }
 
 RefrigerationWalkInGridController::RefrigerationWalkInGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType,
-                                                                     model::Model& model, std::vector<model::ModelObject>& modelObjects)
+                                                                     const model::Model& model, const std::vector<model::ModelObject>& modelObjects)
   : OSGridController(isIP, headerText, iddObjectType, model, modelObjects) {
   setCategoriesAndFields();
 }
