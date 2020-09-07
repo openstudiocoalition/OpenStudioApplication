@@ -132,12 +132,12 @@ class FloorspaceEditor : public BaseEditor
   virtual ~FloorspaceEditor();
 
  public slots:
-  virtual void loadEditor();
-  virtual void doExport();
-  virtual void saveExport();
-  virtual void translateExport();
-  virtual void updateModel(const openstudio::model::Model& model);
-  virtual void checkForUpdate();
+  virtual void loadEditor() override;
+  virtual void doExport() override;
+  virtual void saveExport() override;
+  virtual void translateExport() override;
+  virtual void updateModel(const openstudio::model::Model& model) override;
+  virtual void checkForUpdate() override;
 
  private:
   std::string m_originalBuildingName;
@@ -156,12 +156,12 @@ class GbXmlEditor : public BaseEditor
   virtual ~GbXmlEditor();
 
  public slots:
-  virtual void loadEditor();
-  virtual void doExport();
-  virtual void saveExport();
-  virtual void translateExport();
-  virtual void updateModel(const openstudio::model::Model& model);
-  virtual void checkForUpdate();
+  virtual void loadEditor() override;
+  virtual void doExport() override;
+  virtual void saveExport() override;
+  virtual void translateExport() override;
+  virtual void updateModel(const openstudio::model::Model& model) override;
+  virtual void checkForUpdate() override;
 
  private:
   openstudio::path m_gbXmlPath;
@@ -178,12 +178,12 @@ class IdfEditor : public BaseEditor
   virtual ~IdfEditor();
 
  public slots:
-  virtual void loadEditor();
-  virtual void doExport();
-  virtual void saveExport();
-  virtual void translateExport();
-  virtual void updateModel(const openstudio::model::Model& model);
-  virtual void checkForUpdate();
+  virtual void loadEditor() override;
+  virtual void doExport() override;
+  virtual void saveExport() override;
+  virtual void translateExport() override;
+  virtual void updateModel(const openstudio::model::Model& model) override;
+  virtual void checkForUpdate() override;
 
  private:
   openstudio::path m_idfPath;
@@ -199,12 +199,12 @@ class OsmEditor : public BaseEditor
   virtual ~OsmEditor();
 
  public slots:
-  virtual void loadEditor();
-  virtual void doExport();
-  virtual void saveExport();
-  virtual void translateExport();
-  virtual void updateModel(const openstudio::model::Model& model);
-  virtual void checkForUpdate();
+  virtual void loadEditor() override;
+  virtual void doExport() override;
+  virtual void saveExport() override;
+  virtual void translateExport() override;
+  virtual void updateModel(const openstudio::model::Model& model) override;
+  virtual void checkForUpdate() override;
 
  private:
   openstudio::path m_osmPath;
