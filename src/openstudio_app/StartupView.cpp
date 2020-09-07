@@ -47,10 +47,7 @@
 
 namespace openstudio {
 
-StartupView::StartupView(QWidget* parent)
-  : QWidget(parent),
-    m_templateListModel(std::make_shared<TemplateListModel>())
-{
+StartupView::StartupView(QWidget* parent) : QWidget(parent), m_templateListModel(std::make_shared<TemplateListModel>()) {
 
   setStyleSheet("openstudio--StartupView { background: #E6E6E6; }");
 

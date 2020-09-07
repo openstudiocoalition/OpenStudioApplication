@@ -66,8 +66,7 @@ VRFController::VRFController()
     m_vrfSystemGridView(new GridLayoutItem()),
     m_detailView(nullptr),
     m_currentSystem(boost::none),
-    m_dirty(false)
-{
+    m_dirty(false) {
   connect(m_vrfView->zoomOutButton, &QPushButton::clicked, this, &VRFController::zoomOutToSystemGridView);
 
   m_vrfSystemGridView->setCellSize(VRFSystemMiniView::cellSize());

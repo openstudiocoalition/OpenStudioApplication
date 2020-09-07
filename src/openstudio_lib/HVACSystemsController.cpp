@@ -144,9 +144,7 @@ const QString REFRIGERATION = "REFRIGERATION";
 const QString VRF = "VRF";
 
 HVACSystemsController::HVACSystemsController(bool isIP, const model::Model& model)
-  : QObject(),
-    m_hvacSystemsView(new HVACSystemsView()),
-    m_model(model), m_isIP(isIP) {
+  : QObject(), m_hvacSystemsView(new HVACSystemsView()), m_model(model), m_isIP(isIP) {
 
   m_hvacLayoutController = std::make_shared<HVACLayoutController>(this);
 
@@ -914,8 +912,7 @@ HVACControlsController::HVACControlsController(HVACSystemsController* hvacSystem
     m_hvacAirLoopControlsView(new HVACAirLoopControlsView()),
     m_hvacPlantLoopControlsView(new HVACPlantLoopControlsView()),
     m_noControlsView(new NoControlsView()),
-    m_hvacSystemsController(hvacSystemsController)
-{
+    m_hvacSystemsController(hvacSystemsController) {
   updateLater();
 }
 
@@ -1528,7 +1525,7 @@ HVACLayoutController::HVACLayoutController(HVACSystemsController* hvacSystemsCon
   : QObject(),
     m_hvacGraphicsView(new HVACGraphicsView()),
     m_hvacSystemsController(hvacSystemsController)
-    // m_refrigerationController(std::make_shared<RefrigerationController>())
+// m_refrigerationController(std::make_shared<RefrigerationController>())
 {
   connect(m_hvacSystemsController->hvacSystemsView()->hvacToolbarView->zoomOutButton, &QPushButton::clicked, m_hvacGraphicsView.data(),
           &HVACGraphicsView::zoomOut);
@@ -1651,9 +1648,7 @@ void HVACLayoutController::updateLater() {
 }
 
 SystemAvailabilityVectorController::SystemAvailabilityVectorController()
-  : ModelObjectVectorController(), m_reportScheduled(false), m_reportItemsMutex(new QMutex())
-{
-}
+  : ModelObjectVectorController(), m_reportScheduled(false), m_reportItemsMutex(new QMutex()) {}
 
 SystemAvailabilityVectorController::~SystemAvailabilityVectorController() {
   delete m_reportItemsMutex;
@@ -1751,9 +1746,7 @@ void SystemAvailabilityVectorController::onReplaceItem(OSItem* currentItem, cons
 }
 
 SupplyAirTempScheduleVectorController::SupplyAirTempScheduleVectorController()
-  : ModelObjectVectorController(), m_reportScheduled(false), m_reportItemsMutex(new QMutex())
-{
-}
+  : ModelObjectVectorController(), m_reportScheduled(false), m_reportItemsMutex(new QMutex()) {}
 
 SupplyAirTempScheduleVectorController::~SupplyAirTempScheduleVectorController() {
   delete m_reportItemsMutex;
@@ -1868,9 +1861,7 @@ void SupplyAirTempScheduleVectorController::onDropZoneItemClicked(OSItem* item) 
 
 // CTOR
 AvailabilityManagerObjectVectorController::AvailabilityManagerObjectVectorController()
-  : ModelObjectVectorController(), m_reportScheduled(false), m_reportItemsMutex(new QMutex())
-{
-}
+  : ModelObjectVectorController(), m_reportScheduled(false), m_reportItemsMutex(new QMutex()) {}
 
 AvailabilityManagerObjectVectorController::~AvailabilityManagerObjectVectorController() {
   delete m_reportItemsMutex;

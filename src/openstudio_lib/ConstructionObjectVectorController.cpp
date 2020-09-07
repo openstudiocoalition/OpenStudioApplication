@@ -51,10 +51,7 @@ namespace openstudio {
 // ConstructionObjectVectorController
 
 ConstructionObjectVectorController::ConstructionObjectVectorController(QWidget* parentWidget)
-  : ModelObjectVectorController(),
-    m_reportScheduled(false), m_reportItemsMutex(new QMutex()), m_parentWidget(parentWidget)
-{
-}
+  : ModelObjectVectorController(), m_reportScheduled(false), m_reportItemsMutex(new QMutex()), m_parentWidget(parentWidget) {}
 
 ConstructionObjectVectorController::~ConstructionObjectVectorController() {
   delete m_reportItemsMutex;

@@ -37,10 +37,7 @@
 
 namespace openstudio {
 
-OSListController::OSListController()
-  : QObject(),
-    m_selectionController(QSharedPointer<OSItemSelectionController>::create())
-{
+OSListController::OSListController() : QObject(), m_selectionController(QSharedPointer<OSItemSelectionController>::create()) {
   m_selectionController->registerListController(this);
 }
 

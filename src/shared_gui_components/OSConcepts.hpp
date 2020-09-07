@@ -1083,7 +1083,8 @@ template <typename ValueType>
 class QuantityEditConcept : public BaseConcept
 {
  public:
-  QuantityEditConcept(const Heading& t_heading, const QString& t_modelUnits, const QString& t_siUnits, const QString& t_ipUnits, bool t_isIP, bool t_hasClickFocus = true)
+  QuantityEditConcept(const Heading& t_heading, const QString& t_modelUnits, const QString& t_siUnits, const QString& t_ipUnits, bool t_isIP,
+                      bool t_hasClickFocus = true)
     : BaseConcept(t_heading, t_hasClickFocus), m_modelUnits(t_modelUnits), m_siUnits(t_siUnits), m_ipUnits(t_ipUnits), m_isIP(t_isIP) {}
 
   virtual ~QuantityEditConcept() {}
@@ -1203,8 +1204,8 @@ template <typename ValueType, typename DataSourceType>
 class OptionalQuantityEditConceptImpl : public OptionalQuantityEditConcept<ValueType>
 {
  public:
-  OptionalQuantityEditConceptImpl(const Heading& t_heading, const QString& t_modelUnits, const QString& t_siUnits, const QString& t_ipUnits, bool t_isIP,
-                                  std::function<boost::optional<ValueType>(DataSourceType*)> t_getter,
+  OptionalQuantityEditConceptImpl(const Heading& t_heading, const QString& t_modelUnits, const QString& t_siUnits, const QString& t_ipUnits,
+                                  bool t_isIP, std::function<boost::optional<ValueType>(DataSourceType*)> t_getter,
                                   std::function<bool(DataSourceType*, ValueType)> t_setter)
     : OptionalQuantityEditConcept<ValueType>(t_heading, t_modelUnits, t_siUnits, t_ipUnits, t_isIP), m_getter(t_getter), m_setter(t_setter) {}
 
@@ -1231,8 +1232,8 @@ template <typename ValueType>
 class QuantityEditVoidReturnConcept : public BaseConcept
 {
  public:
-  QuantityEditVoidReturnConcept(const Heading& t_heading, const QString& t_modelUnits, const QString& t_siUnits, const QString& t_ipUnits, bool t_isIP,
-                                bool t_hasClickFocus = true)
+  QuantityEditVoidReturnConcept(const Heading& t_heading, const QString& t_modelUnits, const QString& t_siUnits, const QString& t_ipUnits,
+                                bool t_isIP, bool t_hasClickFocus = true)
     : BaseConcept(t_heading, t_hasClickFocus), m_modelUnits(t_modelUnits), m_siUnits(t_siUnits), m_ipUnits(t_ipUnits), m_isIP(t_isIP) {}
 
   virtual ~QuantityEditVoidReturnConcept() {}
@@ -1266,8 +1267,9 @@ template <typename ValueType, typename DataSourceType>
 class QuantityEditVoidReturnConceptImpl : public QuantityEditVoidReturnConcept<ValueType>
 {
  public:
-  QuantityEditVoidReturnConceptImpl(const Heading& t_heading, const QString& t_modelUnits, const QString& t_siUnits, const QString& t_ipUnits, bool t_isIP,
-                                    std::function<ValueType(DataSourceType*)> t_getter, std::function<void(DataSourceType*, ValueType)> t_setter,
+  QuantityEditVoidReturnConceptImpl(const Heading& t_heading, const QString& t_modelUnits, const QString& t_siUnits, const QString& t_ipUnits,
+                                    bool t_isIP, std::function<ValueType(DataSourceType*)> t_getter,
+                                    std::function<void(DataSourceType*, ValueType)> t_setter,
                                     boost::optional<std::function<void(DataSourceType*)>> t_reset,
                                     boost::optional<std::function<bool(DataSourceType*)>> t_isDefaulted)
     : QuantityEditVoidReturnConcept<ValueType>(t_heading, t_modelUnits, t_siUnits, t_ipUnits, t_isIP),
@@ -1317,8 +1319,8 @@ template <typename ValueType>
 class OptionalQuantityEditVoidReturnConcept : public BaseConcept
 {
  public:
-  OptionalQuantityEditVoidReturnConcept(const Heading& t_heading, const QString& t_modelUnits, const QString& t_siUnits, const QString& t_ipUnits, bool t_isIP,
-                                        bool t_hasClickFocus = true)
+  OptionalQuantityEditVoidReturnConcept(const Heading& t_heading, const QString& t_modelUnits, const QString& t_siUnits, const QString& t_ipUnits,
+                                        bool t_isIP, bool t_hasClickFocus = true)
     : BaseConcept(t_heading, t_hasClickFocus), m_modelUnits(t_modelUnits), m_siUnits(t_siUnits), m_ipUnits(t_ipUnits), m_isIP(t_isIP) {}
 
   virtual ~OptionalQuantityEditVoidReturnConcept() {}
@@ -1350,8 +1352,8 @@ template <typename ValueType, typename DataSourceType>
 class OptionalQuantityEditVoidReturnConceptImpl : public OptionalQuantityEditVoidReturnConcept<ValueType>
 {
  public:
-  OptionalQuantityEditVoidReturnConceptImpl(const Heading& t_heading, const QString& t_modelUnits, const QString& t_siUnits, const QString& t_ipUnits, bool t_isIP,
-                                            std::function<boost::optional<ValueType>(DataSourceType*)> t_getter,
+  OptionalQuantityEditVoidReturnConceptImpl(const Heading& t_heading, const QString& t_modelUnits, const QString& t_siUnits, const QString& t_ipUnits,
+                                            bool t_isIP, std::function<boost::optional<ValueType>(DataSourceType*)> t_getter,
                                             std::function<void(DataSourceType*, ValueType)> t_setter)
     : OptionalQuantityEditVoidReturnConcept<ValueType>(t_heading, t_modelUnits, t_siUnits, t_ipUnits, t_isIP),
       m_getter(t_getter),

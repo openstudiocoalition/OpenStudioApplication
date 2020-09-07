@@ -50,9 +50,9 @@
 namespace openstudio {
 
 //LifeCycleCostsTabView::LifeCycleCostsTabView(const model::Model& model, const QString& modelTempDir, QWidget* parent)
-  //: MainTabView("Life Cycle Costs", MainTabView::SUB_TAB, parent), m_lifeCycleCostsView(new LifeCycleCostsView(parent))
+//: MainTabView("Life Cycle Costs", MainTabView::SUB_TAB, parent), m_lifeCycleCostsView(new LifeCycleCostsView(parent))
 //{
-  //addTabWidget(m_lifeCycleCostsView);
+//addTabWidget(m_lifeCycleCostsView);
 //}
 
 //LifeCycleCostsTabView::~LifeCycleCostsTabView() {}

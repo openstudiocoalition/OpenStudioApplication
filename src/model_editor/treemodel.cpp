@@ -227,22 +227,22 @@ bool TreeModel::insertRows(const QModelIndex& row, const QModelIndexList rowList
 
   return success;  // not updating Qt model
 
-//  if (!success) return success;  // Nothing to add to the Qt model;
-//
-//  ///! Qt model update...
-//  beginInsertRows(parent, position + 1, position + rows);
-//  // get the idd object type
-//  QList<QVariant> objectNames;
-//  for (unsigned i = 0; i < parentObjects.size(); i++) {
-//    getObjectNames(parentObjects.at(i), objectNames);
-//    success = parentItem->insertChildren(parentObjects.at(i), objectNames, position + 1, rows, rootItem->columnCount());
-//    if (!success) {
-//      break;
-//    }
-//  }
-//  endInsertRows();
-//
-//  return success;
+  //  if (!success) return success;  // Nothing to add to the Qt model;
+  //
+  //  ///! Qt model update...
+  //  beginInsertRows(parent, position + 1, position + rows);
+  //  // get the idd object type
+  //  QList<QVariant> objectNames;
+  //  for (unsigned i = 0; i < parentObjects.size(); i++) {
+  //    getObjectNames(parentObjects.at(i), objectNames);
+  //    success = parentItem->insertChildren(parentObjects.at(i), objectNames, position + 1, rows, rootItem->columnCount());
+  //    if (!success) {
+  //      break;
+  //    }
+  //  }
+  //  endInsertRows();
+  //
+  //  return success;
 }
 
 bool TreeModel::addRows(const QModelIndexList rowList, openstudio::IddObjectType type) {
@@ -329,12 +329,12 @@ bool TreeModel::removeRows(const QModelIndexList rowList, std::vector<openstudio
 
   return success;  // not updating Qt model
 
-//  ///! Qt model update...
-//  beginRemoveRows(parent, position, position + rows - 1);
-//  success = parentItem->removeChildren(position, rows);
-//  endRemoveRows();
-//
-//  return success;
+  //  ///! Qt model update...
+  //  beginRemoveRows(parent, position, position + rows - 1);
+  //  success = parentItem->removeChildren(position, rows);
+  //  endRemoveRows();
+  //
+  //  return success;
 }
 
 int TreeModel::rowCount(const QModelIndex& parent) const {
@@ -352,26 +352,26 @@ int TreeModel::rowCount(const QModelIndex& parent) const {
 bool TreeModel::setData(const QModelIndex& index, const QVariant& value, int role) {
   return false;
 
-//  if (role != Qt::EditRole) return false;
-//
-//  TreeItem* item = getItem(index);
-//  bool result = item->setData(index.column(), value);
-//
-//  if (result) emit dataChanged(index, index);
-//
-//  return result;
+  //  if (role != Qt::EditRole) return false;
+  //
+  //  TreeItem* item = getItem(index);
+  //  bool result = item->setData(index.column(), value);
+  //
+  //  if (result) emit dataChanged(index, index);
+  //
+  //  return result;
 }
 
 bool TreeModel::setHeaderData(int section, Qt::Orientation orientation, const QVariant& value, int role) {
   return false;
 
-//  if (role != Qt::EditRole || orientation != Qt::Horizontal) return false;
-//
-//  bool result = rootItem->setData(section, value);
-//
-//  if (result) emit headerDataChanged(orientation, section, section);
-//
-//  return result;
+  //  if (role != Qt::EditRole || orientation != Qt::Horizontal) return false;
+  //
+  //  bool result = rootItem->setData(section, value);
+  //
+  //  if (result) emit headerDataChanged(orientation, section, section);
+  //
+  //  return result;
 }
 
 void TreeModel::getObjectNames(const openstudio::model::ModelObject& object, QList<QVariant>& objectNames) {

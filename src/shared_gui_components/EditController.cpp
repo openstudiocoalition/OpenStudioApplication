@@ -45,8 +45,7 @@
 
 namespace openstudio {
 
-EditController::EditController(bool applyMeasureNow)
-  : QObject(), editView(new OSViewSwitcher()) {
+EditController::EditController(bool applyMeasureNow) : QObject(), editView(new OSViewSwitcher()) {
   if (applyMeasureNow) {
     m_editNullView = new EditNullView("Select a Measure to Apply");
   } else {

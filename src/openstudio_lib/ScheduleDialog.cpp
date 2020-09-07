@@ -94,8 +94,7 @@ struct ScheduleTypeLimitsCompare
 };
 
 ScheduleDialog::ScheduleDialog(bool isIP, const model::Model& model, QWidget* parent)
-  : OSDialog(parent), m_model(model), m_scheduleTypeComboBox(nullptr)
-{
+  : OSDialog(parent), m_model(model), m_scheduleTypeComboBox(nullptr) {
   m_isIP = isIP;
   setWindowModality(Qt::ApplicationModal);
   createLayout();

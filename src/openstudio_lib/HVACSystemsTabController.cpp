@@ -35,10 +35,7 @@
 namespace openstudio {
 
 HVACSystemsTabController::HVACSystemsTabController(bool isIP, const model::Model& model)
-  : MainTabController(new HVACSystemsTabView()),
-    m_hvacSystemsController(std::make_shared<HVACSystemsController>(isIP, model)),
-    m_isIP(isIP)
-{
+  : MainTabController(new HVACSystemsTabView()), m_hvacSystemsController(std::make_shared<HVACSystemsController>(isIP, model)), m_isIP(isIP) {
 
   connect(this, &HVACSystemsTabController::toggleUnitsClicked, m_hvacSystemsController.get(), &HVACSystemsController::toggleUnitsClicked);
 

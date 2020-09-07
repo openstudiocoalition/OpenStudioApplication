@@ -54,11 +54,14 @@ namespace openstudio {
 namespace bimserver {
 
 BIMserverConnection::BIMserverConnection(QObject* parent, QString bimserverAddr, QString bimserverPort)
-  : QObject(parent), m_networkManager(new QNetworkAccessManager),
+  : QObject(parent),
+    m_networkManager(new QNetworkAccessManager),
     m_bimserverURL(QUrl(QString("http://" + bimserverAddr + ":" + bimserverPort + "/json"))),
-    m_operationDone(true), m_loginSuccess(true), m_createProjectSuccess(true), m_deleteProjectSuccess(true), m_checkInIFCSuccess(true)
-{
-}
+    m_operationDone(true),
+    m_loginSuccess(true),
+    m_createProjectSuccess(true),
+    m_deleteProjectSuccess(true),
+    m_checkInIFCSuccess(true) {}
 
 BIMserverConnection::~BIMserverConnection() {
   delete m_networkManager;
@@ -760,7 +763,6 @@ void BIMserverConnection::processGetProgressRequest() {
   } else {
     emit errorOccured(QString("No Response from BIMserver"));
   }
-
 }
 
 //BIMserver error reporting

@@ -71,7 +71,8 @@ WorkflowController::WorkflowController(BaseApp* t_baseApp) : OSListController() 
   workflowSectionItem = QSharedPointer<WorkflowSectionItem>(new WorkflowSectionItem(MeasureType::ModelMeasure, "OpenStudio Measures", t_baseApp));
   addItem(workflowSectionItem);
 
-  workflowSectionItem = QSharedPointer<WorkflowSectionItem>(new WorkflowSectionItem(MeasureType::EnergyPlusMeasure, "EnergyPlus Measures", t_baseApp));
+  workflowSectionItem =
+    QSharedPointer<WorkflowSectionItem>(new WorkflowSectionItem(MeasureType::EnergyPlusMeasure, "EnergyPlus Measures", t_baseApp));
   addItem(workflowSectionItem);
 
   workflowSectionItem = QSharedPointer<WorkflowSectionItem>(new WorkflowSectionItem(MeasureType::ReportingMeasure, "Reporting Measures", t_baseApp));
@@ -102,9 +103,7 @@ WorkflowSectionItem::WorkflowSectionItem(MeasureType measureType, const QString&
   : OSListItem(),
     m_label(label),
     m_measureType(measureType),
-    m_workflowStepController(QSharedPointer<MeasureStepController>::create(measureType, t_baseApp))
-{
-}
+    m_workflowStepController(QSharedPointer<MeasureStepController>::create(measureType, t_baseApp)) {}
 
 QString WorkflowSectionItem::label() const {
   return m_label;

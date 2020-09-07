@@ -38,9 +38,7 @@
 namespace openstudio {
 
 ThermalZonesTabController::ThermalZonesTabController(bool isIP, const model::Model& model)
-  : MainTabController(new ThermalZonesTabView()),
-    m_thermalZonesController(std::make_shared<ThermalZonesController>(isIP, model))
-{
+  : MainTabController(new ThermalZonesTabView()), m_thermalZonesController(std::make_shared<ThermalZonesController>(isIP, model)) {
   this->mainContentWidget()->addTabWidget(m_thermalZonesController->subTabView());
 
   bool isConnected = false;

@@ -164,7 +164,7 @@ class LocationTabView : public MainTabView
 
   virtual ~LocationTabView();
 
- //private:
+  //private:
   //LocationView* m_locationView;
 };
 

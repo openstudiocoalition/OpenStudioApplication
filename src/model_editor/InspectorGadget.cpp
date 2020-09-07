@@ -373,7 +373,8 @@ void InspectorGadget::layoutItems(QVBoxLayout* masterLayout, QWidget* parent, bo
           showComment = m_showComments;
           showFields = m_showAllFields;
         }
-        auto igChild = new InspectorGadget(elem, m_indent, m_comboBridge, m_precision, m_floatDisplayType, showComment, showFields, m_recursive, m_locked);
+        auto igChild =
+          new InspectorGadget(elem, m_indent, m_comboBridge, m_precision, m_floatDisplayType, showComment, showFields, m_recursive, m_locked);
 
         igChild->setUnitSystem(m_unitSystem);
         layout->addWidget(igChild);

@@ -1026,8 +1026,8 @@ EditorWebView::EditorWebView(bool isIP, const openstudio::model::Model& model, Q
   m_debugBtn->setVisible(false);
   m_debugBtn->setEnabled(false);
   //} else {
-    //m_debugBtn->setVisible(false);  // hide to simplify interface
-    //m_debugBtn->setEnabled(false);
+  //m_debugBtn->setVisible(false);  // hide to simplify interface
+  //m_debugBtn->setEnabled(false);
   //}
 
   m_view = new QWebEngineView(this);

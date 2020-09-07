@@ -131,9 +131,7 @@ struct ModelObjectNameSorter
 };
 
 SpacesSubtabGridView::SpacesSubtabGridView(bool isIP, const model::Model& model, QWidget* parent)
-  : GridViewSubTab(isIP, model, parent),
-    m_spacesModelObjects(subsetCastVector<model::ModelObject>(model.getConcreteModelObjects<model::Space>()))
-{
+  : GridViewSubTab(isIP, model, parent), m_spacesModelObjects(subsetCastVector<model::ModelObject>(model.getConcreteModelObjects<model::Space>())) {
 
   // Filters
 
