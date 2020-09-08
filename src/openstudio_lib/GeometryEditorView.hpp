@@ -81,7 +81,7 @@ class BaseEditor : public QObject
   Q_OBJECT;
 
  public:
-  BaseEditor(bool isIP, const openstudio::model::Model& model, QWebEngineView* m_view, QWidget* t_parent = nullptr);
+  BaseEditor(bool isIP, const openstudio::model::Model& model, QWebEngineView* view, QWidget* t_parent = nullptr);
   virtual ~BaseEditor();
 
   bool editorLoaded() const;
@@ -127,7 +127,7 @@ class FloorspaceEditor : public BaseEditor
   Q_OBJECT;
 
  public:
-  FloorspaceEditor(const openstudio::path& floorplanPath, bool isIP, const openstudio::model::Model& model, QWebEngineView* m_view,
+  FloorspaceEditor(const openstudio::path& floorplanPath, bool isIP, const openstudio::model::Model& model, QWebEngineView* view,
                    QWidget* t_parent = nullptr);
   virtual ~FloorspaceEditor();
 
@@ -151,7 +151,7 @@ class GbXmlEditor : public BaseEditor
   Q_OBJECT;
 
  public:
-  GbXmlEditor(const openstudio::path& gbXmlPath, bool isIP, const openstudio::model::Model& model, QWebEngineView* m_view,
+  GbXmlEditor(const openstudio::path& gbXmlPath, bool isIP, const openstudio::model::Model& model, QWebEngineView* view,
               QWidget* t_parent = nullptr);
   virtual ~GbXmlEditor();
 
@@ -173,7 +173,7 @@ class IdfEditor : public BaseEditor
   Q_OBJECT;
 
  public:
-  IdfEditor(const openstudio::path& idfPath, bool forceConvert, bool isIP, const openstudio::model::Model& model, QWebEngineView* m_view,
+  IdfEditor(const openstudio::path& idfPath, bool forceConvert, bool isIP, const openstudio::model::Model& model, QWebEngineView* view,
             QWidget* t_parent = nullptr);
   virtual ~IdfEditor();
 
@@ -195,7 +195,7 @@ class OsmEditor : public BaseEditor
   Q_OBJECT;
 
  public:
-  OsmEditor(const openstudio::path& osmPath, bool isIP, const openstudio::model::Model& model, QWebEngineView* m_view, QWidget* t_parent = nullptr);
+  OsmEditor(const openstudio::path& osmPath, bool isIP, const openstudio::model::Model& model, QWebEngineView* view, QWidget* t_parent = nullptr);
   virtual ~OsmEditor();
 
  public slots:

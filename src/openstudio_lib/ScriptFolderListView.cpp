@@ -45,10 +45,10 @@
 
 namespace openstudio {
 
-ScriptFolderListView::ScriptFolderListView(const openstudio::path& folder, bool addScrollArea, bool draggable, bool removeable, OSItemType headerType,
+ScriptFolderListView::ScriptFolderListView(const openstudio::path& t_rootPath, bool addScrollArea, bool draggable, bool removeable, OSItemType headerType,
                                            QWidget* parent)
   : OSCollapsibleItemList(addScrollArea, parent),
-    m_rootPath(folder),
+    m_rootPath(t_rootPath),
     m_headerType(headerType),
     m_draggable(draggable),
     m_removeable(removeable),
@@ -71,14 +71,14 @@ ScriptFolderListView::~ScriptFolderListView() {
   }
 }
 
-void ScriptFolderListView::addScriptFolder(const openstudio::path& folder, const std::string& name) {
+void ScriptFolderListView::addScriptFolder(const openstudio::path& t_path, const std::string& name) {
   OSCollapsibleItemHeader* collapsibleItemHeader = new OSCollapsibleItemHeader(name, OSItemId("", "", false, ""), m_headerType);
-  ScriptsListView* scriptsListView = new ScriptsListView(m_rootPath / folder, false, m_draggable, m_removeable, m_fswatcher);
+  ScriptsListView* scriptsListView = new ScriptsListView(m_rootPath / t_path, false, m_draggable, m_removeable, m_fswatcher);
   auto folderTypeItem = new OSCollapsibleItem(collapsibleItemHeader, scriptsListView);
 
-  LOG(Debug, "Adding scriptslistview: " << openstudio::toString(m_rootPath / folder));
-  m_displayNames[m_rootPath / folder] = name;
-  m_scriptsListViews[m_rootPath / folder] = scriptsListView;
+  LOG(Debug, "Adding scriptslistview: " << openstudio::toString(m_rootPath / t_path));
+  m_displayNames[m_rootPath / t_path] = name;
+  m_scriptsListViews[m_rootPath / t_path] = scriptsListView;
 
   addCollapsibleItem(folderTypeItem);
 }

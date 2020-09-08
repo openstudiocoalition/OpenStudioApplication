@@ -224,7 +224,7 @@ boost::optional<openstudio::BCLMeasure> BCLMeasureDialog::createMeasure() {
       result->checkForUpdatesFiles();
 
       // change the xml
-      std::string lowerClassName = toUnderscoreCase(className);
+      lowerClassName = toUnderscoreCase(className);
 
       result->setName(lowerClassName);
       result->setClassName(className);

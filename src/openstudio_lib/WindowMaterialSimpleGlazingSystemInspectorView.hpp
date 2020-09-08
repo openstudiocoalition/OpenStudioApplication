@@ -60,7 +60,7 @@ class WindowMaterialSimpleGlazingSystemInspectorView : public ModelObjectInspect
  private:
   void createLayout();
 
-  void attach(openstudio::model::SimpleGlazing& SimpleGlazing);
+  void attach(openstudio::model::SimpleGlazing& simpleGlazing);
 
   void detach();
 

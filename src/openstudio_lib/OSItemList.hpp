@@ -77,7 +77,7 @@ class OSItemList : public OSItemSelector
   void addItem(OSItem* item, bool selectItem = true);
 
   // selects an item, emits objectSelected if object is selected, emits selectionCleared if item is null or not found
-  void selectItem(OSItem* item);
+  void selectItem(OSItem* selectItem);
 
   // selects an item by id
   void selectItemId(const OSItemId& itemId);

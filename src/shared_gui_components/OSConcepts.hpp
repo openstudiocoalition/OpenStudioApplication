@@ -329,7 +329,7 @@ class CheckBoxConcept : public BaseConcept
   virtual bool get(const ConceptProxy& obj) = 0;
   virtual void set(const ConceptProxy& obj, bool) = 0;
 
-  const std::string& tooltip() {
+  const std::string& tooltip() const {
     return m_tooltip;
   }
 
@@ -376,7 +376,7 @@ class CheckBoxConceptBoolReturn : public BaseConcept
   virtual bool get(const ConceptProxy& obj) = 0;
   virtual bool set(const ConceptProxy& obj, bool) = 0;
 
-  const std::string& tooltip() {
+  const std::string& tooltip() const {
     return m_tooltip;
   }
 
@@ -956,10 +956,10 @@ class NameLineEditConcept : public BaseConcept
   virtual bool setReturnBool(const ConceptProxy& obj, const std::string&) = 0;
   virtual void reset(const ConceptProxy& obj) = 0;
   virtual bool readOnly() const = 0;
-  bool isInspectable() {
+  bool isInspectable() const {
     return m_isInspectable;
   }
-  bool deleteObject() {
+  bool deleteObject() const {
     return m_deleteObject;
   }
 

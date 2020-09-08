@@ -269,7 +269,6 @@ void OSIntegerEdit2::refreshTextAndLabel() {
 
   if (m_modelObject) {
     QString textValue;
-    ModelObject modelObject = m_modelObject.get();
     std::stringstream ss;
 
     if (m_isAutosized && (*m_isAutosized)()) {

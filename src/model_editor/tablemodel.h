@@ -77,7 +77,7 @@ class MODELEDITOR_API TableModel : public QAbstractTableModel
   bool removeRows(const QModelIndexList& rowList);
   bool moveRows(const QModelIndex& row, const QModelIndexList& rowList);
   Qt::DropActions supportedDropActions() const override;
-  virtual void sort(int column, Qt::SortOrder order = Qt::AscendingOrder) override;
+  virtual void sort(int column, Qt::SortOrder sortOrder = Qt::AscendingOrder) override;
   void toggleGUIDs();
 
  public slots:

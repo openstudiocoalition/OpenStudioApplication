@@ -200,7 +200,7 @@ class MeasureManager : public QObject
 
   bool checkForUpdates(const openstudio::path& measureDir, bool force = false);
 
-  boost::optional<measure::OSArgument> getArgument(const measure::OSArgumentType& type, const Json::Value& jsonArgument);
+  boost::optional<measure::OSArgument> getArgument(const measure::OSArgumentType& type, const Json::Value& argument);
 
   BaseApp* m_app;
   openstudio::path m_tempModelPath;

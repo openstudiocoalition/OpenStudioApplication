@@ -736,7 +736,7 @@ BillingPeriodWidget::BillingPeriodWidget(model::BillingPeriod billingPeriod, con
   attach(*m_billingPeriod);
 }
 
-void BillingPeriodWidget::createWidgets(FuelType fuelType, BillFormat billFormat) {
+void BillingPeriodWidget::createWidgets(const FuelType& fuelType, BillFormat billFormat) {
   QHBoxLayout* hLayout = nullptr;
   hLayout = new QHBoxLayout(this);
   hLayout->setContentsMargins(0, 0, 0, 0);

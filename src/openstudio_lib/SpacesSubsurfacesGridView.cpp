@@ -56,6 +56,7 @@
 #include <openstudio/model/WindowPropertyFrameAndDivider_Impl.hpp>
 
 #include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Compare.hpp>
 #include <openstudio/utilities/idd/IddEnums.hxx>
 #include <openstudio/utilities/idd/OS_Space_FieldEnums.hxx>
 
@@ -128,14 +129,6 @@
 #define VIEWFACTORTOOUTSIDESHELF "View Factor to Outside Shelf"
 
 namespace openstudio {
-
-struct ModelObjectNameSorter
-{
-  // sort by name
-  bool operator()(const model::ModelObject& lhs, const model::ModelObject& rhs) {
-    return (lhs.name() < rhs.name());
-  }
-};
 
 SpacesSubsurfacesGridView::SpacesSubsurfacesGridView(bool isIP, const model::Model& model, QWidget* parent)
   : SpacesSubtabGridView(isIP, model, parent) {
@@ -303,9 +296,10 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
           for (auto surface : allSurfaces(t_space)) {
             auto subSurfaces = surface.cast<model::Surface>().subSurfaces();
             for (auto subSurface : subSurfaces) {
-              auto surface = subSurface.surface();
-              if (surface) {
-                allModelObjects.push_back(*surface);
+              // TODO: What is this?! loop on surface.subsurfaces, then check subsurface.surface? Isn't that redundant?
+              auto surf = subSurface.surface();
+              if (surf) {
+                allModelObjects.push_back(*surf);
               } else {
                 allModelObjects.emplace_back();
               }
@@ -759,7 +753,7 @@ void SpacesSubsurfacesGridController::onItemDropped(const OSItemId& itemId) {}
 
 void SpacesSubsurfacesGridController::refreshModelObjects() {
   m_modelObjects = subsetCastVector<model::ModelObject>(m_model.getConcreteModelObjects<model::Space>());
-  std::sort(m_modelObjects.begin(), m_modelObjects.end(), ModelObjectNameSorter());
+  std::sort(m_modelObjects.begin(), m_modelObjects.end(), openstudio::WorkspaceObjectNameLess());
 }
 
 }  // namespace openstudio

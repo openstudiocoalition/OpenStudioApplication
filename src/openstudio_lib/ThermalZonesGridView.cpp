@@ -59,6 +59,7 @@
 #include <openstudio/model/ZoneHVACComponent.hpp>
 #include <openstudio/model/ZoneHVACComponent_Impl.hpp>
 
+#include <openstudio/utilities/core/Compare.hpp>
 #include <openstudio/utilities/idd/IddEnums.hxx>
 #include <openstudio/utilities/idd/OS_ThermalZone_FieldEnums.hxx>
 
@@ -111,14 +112,6 @@
 
 namespace openstudio {
 
-struct ModelObjectNameSorter
-{
-  // sort by name
-  bool operator()(const model::ModelObject& lhs, const model::ModelObject& rhs) {
-    return (lhs.name() < rhs.name());
-  }
-};
-
 ThermalZonesGridView::ThermalZonesGridView(bool isIP, const model::Model& model, QWidget* parent) : QWidget(parent), m_isIP(isIP) {
   QVBoxLayout* layout = 0;
 
@@ -153,7 +146,7 @@ ThermalZonesGridView::ThermalZonesGridView(bool isIP, const model::Model& model,
   isConnected = connect(this, SIGNAL(toggleUnitsClicked(bool)), m_gridController, SLOT(toggleUnits(bool)));
   OS_ASSERT(isConnected);
 
-  std::vector<model::ThermalZone> thermalZone = model.getConcreteModelObjects<model::ThermalZone>();  // NOTE for horizontal system lists
+  // std::vector<model::ThermalZone> thermalZone = model.getConcreteModelObjects<model::ThermalZone>();  // NOTE for horizontal system lists
 }
 
 std::vector<model::ModelObject> ThermalZonesGridView::selectedObjects() const {
@@ -613,7 +606,7 @@ void ThermalZonesGridController::onItemDropped(const OSItemId& itemId) {
 void ThermalZonesGridController::refreshModelObjects() {
   std::vector<model::ThermalZone> thermalZones = m_model.getConcreteModelObjects<model::ThermalZone>();
   m_modelObjects = subsetCastVector<model::ModelObject>(thermalZones);
-  std::sort(m_modelObjects.begin(), m_modelObjects.end(), ModelObjectNameSorter());
+  std::sort(m_modelObjects.begin(), m_modelObjects.end(), openstudio::WorkspaceObjectNameLess());
 }
 
 void ThermalZonesGridController::onComboBoxIndexChanged(int index) {}

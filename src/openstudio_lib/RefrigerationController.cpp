@@ -731,7 +731,8 @@ void RefrigerationSystemListController::addSystem(const OSItemId& itemid) {
 
     if (mo && model) {
       if (boost::optional<model::RefrigerationSystem> system = mo->optionalCast<model::RefrigerationSystem>()) {
-        model::RefrigerationSystem systemClone = system->clone(model.get()).cast<model::RefrigerationSystem>();
+        // model::RefrigerationSystem systemClone = system->clone(model.get()).cast<model::RefrigerationSystem>();
+        system->clone(model.get());
       }
     }
   }

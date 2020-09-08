@@ -41,6 +41,7 @@
 #include <openstudio/model/ScheduleDay.hpp>
 #include <openstudio/model/ScheduleDay_Impl.hpp>
 
+#include <openstudio/utilities/core/Compare.hpp>
 #include <openstudio/utilities/idd/IddEnums.hxx>
 #include <openstudio/utilities/idd/SizingPeriod_DesignDay_FieldEnums.hxx>
 
@@ -92,14 +93,6 @@
 
 namespace openstudio {
 
-struct ModelObjectNameSorter
-{
-  // sort by name
-  bool operator()(const model::ModelObject& lhs, const model::ModelObject& rhs) {
-    return (lhs.name() < rhs.name());
-  }
-};
-
 DesignDayGridView::DesignDayGridView(bool isIP, const model::Model& model, QWidget* parent) : QWidget(parent), m_isIP(isIP) {
   auto layout = new QVBoxLayout();
   layout->setSpacing(0);
@@ -136,7 +129,6 @@ DesignDayGridView::DesignDayGridView(bool isIP, const model::Model& model, QWidg
   isConnected = connect(this, SIGNAL(toggleUnitsClicked(bool)), m_gridController, SLOT(toggleUnits(bool)));
   OS_ASSERT(isConnected);
 
-  auto designDayVector = model.getConcreteModelObjects<model::DesignDay>();  // NOTE for horizontal system lists
 }
 
 void DesignDayGridView::onAddClicked() {
@@ -467,14 +459,14 @@ void DesignDayGridController::onItemDropped(const OSItemId& itemId) {
 void DesignDayGridController::refreshModelObjects() {
   auto designDays = m_model.getConcreteModelObjects<model::DesignDay>();
   m_modelObjects = subsetCastVector<model::ModelObject>(designDays);
-  std::sort(m_modelObjects.begin(), m_modelObjects.end(), ModelObjectNameSorter());
+  std::sort(m_modelObjects.begin(), m_modelObjects.end(), openstudio::WorkspaceObjectNameLess());
 }
 
 void DesignDayGridController::onComboBoxIndexChanged(int index) {
   // Note: find the correct system color on RACK change,
   // but currently unable to know which row changed.
-  for (unsigned index = 0; index < m_horizontalHeader.size(); index++) {
-    HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeader.at(index));
+  for (unsigned i = 0; i < m_horizontalHeader.size(); ++i) {
+    HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeader.at(i));
     if (horizontalHeaderWidget->m_label->text() == "RACK") {
       // NOTE required due to a race condition
       // Code below commented out due to a very infrequent crash in the bowels of Qt appears to be exasperated by this refresh.

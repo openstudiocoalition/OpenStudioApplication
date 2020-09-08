@@ -92,6 +92,7 @@
 #include <openstudio/model/SteamEquipmentDefinition_Impl.hpp>
 
 #include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Compare.hpp>
 #include <openstudio/utilities/idd/IddEnums.hxx>
 #include <openstudio/utilities/idd/OS_Space_FieldEnums.hxx>
 
@@ -111,14 +112,6 @@
 #define ACTIVITYSCHEDULE "Activity Schedule\n(People Only)"
 
 namespace openstudio {
-
-struct ModelObjectNameSorter
-{
-  // sort by name
-  bool operator()(const model::ModelObject& lhs, const model::ModelObject& rhs) {
-    return (lhs.name() < rhs.name());
-  }
-};
 
 SpacesLoadsGridView::SpacesLoadsGridView(bool isIP, const model::Model& model, QWidget* parent) : SpacesSubtabGridView(isIP, model, parent) {
   showStoryFilter();
@@ -223,17 +216,17 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
 
         boost::optional<model::SpaceType> spaceType = t_space.spaceType();  // this will provide inherited loads
         if (spaceType) {
-          auto InternalMass = spaceType->internalMass();
-          auto People = spaceType->people();
-          auto Lights = spaceType->lights();
-          auto Luminaire = spaceType->luminaires();
-          auto ElectricEquipment = spaceType->electricEquipment();
-          auto GasEquipment = spaceType->gasEquipment();
-          auto HotWaterEquipment = spaceType->hotWaterEquipment();
-          auto SteamEquipment = spaceType->steamEquipment();
-          auto OtherEquipment = spaceType->otherEquipment();
-          auto SpaceInfiltrationDesignFlowRate = spaceType->spaceInfiltrationDesignFlowRates();
-          auto SpaceInfiltrationEffectiveLeakageArea = spaceType->spaceInfiltrationEffectiveLeakageAreas();
+          InternalMass = spaceType->internalMass();
+          People = spaceType->people();
+          Lights = spaceType->lights();
+          Luminaire = spaceType->luminaires();
+          ElectricEquipment = spaceType->electricEquipment();
+          GasEquipment = spaceType->gasEquipment();
+          HotWaterEquipment = spaceType->hotWaterEquipment();
+          SteamEquipment = spaceType->steamEquipment();
+          OtherEquipment = spaceType->otherEquipment();
+          SpaceInfiltrationDesignFlowRate = spaceType->spaceInfiltrationDesignFlowRates();
+          SpaceInfiltrationEffectiveLeakageArea = spaceType->spaceInfiltrationEffectiveLeakageAreas();
 
           loads.insert(loads.end(), InternalMass.begin(), InternalMass.end());
           loads.insert(loads.end(), People.begin(), People.end());
@@ -334,17 +327,17 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
 
         boost::optional<model::SpaceType> spaceType = t_space.spaceType();  // this will provide inherited loads
         if (spaceType) {
-          auto InternalMass = spaceType->internalMass();
-          auto People = spaceType->people();
-          auto Lights = spaceType->lights();
-          auto Luminaire = spaceType->luminaires();
-          auto ElectricEquipment = spaceType->electricEquipment();
-          auto GasEquipment = spaceType->gasEquipment();
-          auto HotWaterEquipment = spaceType->hotWaterEquipment();
-          auto SteamEquipment = spaceType->steamEquipment();
-          auto OtherEquipment = spaceType->otherEquipment();
-          auto SpaceInfiltrationDesignFlowRate = spaceType->spaceInfiltrationDesignFlowRates();
-          auto SpaceInfiltrationEffectiveLeakageArea = spaceType->spaceInfiltrationEffectiveLeakageAreas();
+          InternalMass = spaceType->internalMass();
+          People = spaceType->people();
+          Lights = spaceType->lights();
+          Luminaire = spaceType->luminaires();
+          ElectricEquipment = spaceType->electricEquipment();
+          GasEquipment = spaceType->gasEquipment();
+          HotWaterEquipment = spaceType->hotWaterEquipment();
+          SteamEquipment = spaceType->steamEquipment();
+          OtherEquipment = spaceType->otherEquipment();
+          SpaceInfiltrationDesignFlowRate = spaceType->spaceInfiltrationDesignFlowRates();
+          SpaceInfiltrationEffectiveLeakageArea = spaceType->spaceInfiltrationEffectiveLeakageAreas();
 
           loads.insert(loads.end(), InternalMass.begin(), InternalMass.end());
           loads.insert(loads.end(), People.begin(), People.end());
@@ -943,7 +936,7 @@ void SpacesLoadsGridController::onItemDropped(const OSItemId& itemId) {}
 
 void SpacesLoadsGridController::refreshModelObjects() {
   m_modelObjects = subsetCastVector<model::ModelObject>(m_model.getConcreteModelObjects<model::Space>());
-  std::sort(m_modelObjects.begin(), m_modelObjects.end(), ModelObjectNameSorter());
+  std::sort(m_modelObjects.begin(), m_modelObjects.end(), openstudio::WorkspaceObjectNameLess());
 
   m_inheritedModelObjects.clear();
   for (auto modelObject : m_modelObjects) {

@@ -205,7 +205,7 @@ class ScheduleSetInspectorView : public ModelObjectInspectorView
   virtual void onUpdate() override;
 
  private:
-  void attach(openstudio::model::DefaultScheduleSet& scheduleSet);
+  void attach(openstudio::model::DefaultScheduleSet& defaultScheduleSet);
   void detach();
   void configDropZones();
 

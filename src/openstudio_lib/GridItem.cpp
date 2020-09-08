@@ -1201,7 +1201,7 @@ SystemItem::SystemItem(model::Loop loop, LoopScene* loopScene) : GridItem(), m_l
 
   if (diff >= 0) {
     m_demandSideItem->setPadding(diff + defaultDemandPadding);
-  } else if (diff < 0) {
+  } else {
     m_supplySideItem->setPadding((diff * -1) + defaultSupplyPadding);
   }
 
@@ -1318,11 +1318,11 @@ void SystemCenterItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* 
   painter->drawText(QRect(110, 52, 200, 25), Qt::AlignTop, "Demand Equipment");
 }
 
-SupplyPlenumItem::SupplyPlenumItem(const model::ModelObject& mo, QGraphicsItem* parent) : GridItem(parent) {
-  setModelObject(mo);
+SupplyPlenumItem::SupplyPlenumItem(const model::ModelObject& modelObject, QGraphicsItem* parent) : GridItem(parent) {
+  setModelObject(modelObject);
 
   // HorizontalBranchItem -> BranchGroupItem -> DemandSideItem -> SystemItem
-  m_color = static_cast<SystemItem*>(parentItem()->parentItem()->parentItem()->parentItem())->plenumColor(mo.handle());
+  m_color = static_cast<SystemItem*>(parentItem()->parentItem()->parentItem()->parentItem())->plenumColor(modelObject.handle());
 }
 
 void SupplyPlenumItem::setModelObject(model::OptionalModelObject modelObject) {
@@ -1357,11 +1357,11 @@ void SupplyPlenumItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* 
   painter->drawPolygon(points, 4);
 }
 
-ReturnPlenumItem::ReturnPlenumItem(const model::ModelObject& mo, QGraphicsItem* parent) : GridItem(parent) {
-  setModelObject(mo);
+ReturnPlenumItem::ReturnPlenumItem(const model::ModelObject& modelObject, QGraphicsItem* parent) : GridItem(parent) {
+  setModelObject(modelObject);
 
   // HorizontalBranchItem -> BranchGroupItem -> DemandSideItem -> SystemItem
-  m_color = static_cast<SystemItem*>(parentItem()->parentItem()->parentItem()->parentItem())->plenumColor(mo.handle());
+  m_color = static_cast<SystemItem*>(parentItem()->parentItem()->parentItem()->parentItem())->plenumColor(modelObject.handle());
 }
 
 void ReturnPlenumItem::setModelObject(model::OptionalModelObject modelObject) {
@@ -1777,7 +1777,7 @@ OASupplyBranchItem::OASupplyBranchItem(std::vector<model::ModelObject> supplyMod
 
   while (supplyIt < supplyModelObjects.end()) {
     // If this is an AirToAirComponent (an ERV basically...)
-    if (boost::optional<model::AirToAirComponent> comp = supplyIt->optionalCast<model::AirToAirComponent>()) {
+    if (supplyIt->optionalCast<model::AirToAirComponent>()) {
       // We fake draw the relief side until we get to the ERV so ERV is ligned up in both cases
       while ((reliefIt < reliefModelObjects.end()) && (!reliefIt->optionalCast<model::AirToAirComponent>())) {
         GridItem* gridItem = new OASupplyStraightItem(this);
@@ -1997,15 +1997,15 @@ void OneTwoStraightItem::paint(QPainter* painter, const QStyleOptionGraphicsItem
 
 OneThreeNodeItem::OneThreeNodeItem(QGraphicsItem* parent) : GridItem(parent) {}
 
-void OneThreeNodeItem::setModelObject(model::OptionalModelObject mo) {
-  GridItem::setModelObject(mo);
+void OneThreeNodeItem::setModelObject(model::OptionalModelObject modelObject) {
+  GridItem::setModelObject(modelObject);
 
   if (m_contextButton) {
     delete m_contextButton;
   }
 
-  if (mo) {
-    if (boost::optional<model::Node> node = mo->optionalCast<model::Node>()) {
+  if (modelObject) {
+    if (boost::optional<model::Node> node = modelObject->optionalCast<model::Node>()) {
       if (hasSPM(node.get())) {
         m_contextButton = new NodeContextButtonItem(this);
 
@@ -2156,15 +2156,15 @@ void TwoFiveNodeItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* o
 
 TwoFourNodeItem::TwoFourNodeItem(QGraphicsItem* parent) : GridItem(parent) {}
 
-void TwoFourNodeItem::setModelObject(model::OptionalModelObject mo) {
-  GridItem::setModelObject(mo);
+void TwoFourNodeItem::setModelObject(model::OptionalModelObject modelObject) {
+  GridItem::setModelObject(modelObject);
 
   if (m_contextButton) {
     delete m_contextButton;
   }
 
-  if (mo) {
-    if (boost::optional<model::Node> node = mo->optionalCast<model::Node>()) {
+  if (modelObject) {
+    if (boost::optional<model::Node> node = modelObject->optionalCast<model::Node>()) {
       if (hasSPM(node.get())) {
         m_contextButton = new NodeContextButtonItem(this);
 
@@ -2251,15 +2251,15 @@ void TwoFourNodeItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* o
 
 OAStraightNodeItem::OAStraightNodeItem(QGraphicsItem* parent) : GridItem(parent) {}
 
-void OAStraightNodeItem::setModelObject(model::OptionalModelObject mo) {
-  GridItem::setModelObject(mo);
+void OAStraightNodeItem::setModelObject(model::OptionalModelObject modelObject) {
+  GridItem::setModelObject(modelObject);
 
   if (m_contextButton) {
     delete m_contextButton;
   }
 
-  if (mo) {
-    if (boost::optional<model::Node> node = mo->optionalCast<model::Node>()) {
+  if (modelObject) {
+    if (boost::optional<model::Node> node = modelObject->optionalCast<model::Node>()) {
       if (hasSPM(node.get())) {
         m_contextButton = new NodeContextButtonItem(this);
 
@@ -2513,7 +2513,7 @@ void SplitterItem::setTerminalTypes(std::vector<SplitterItem::TerminalType> type
   {
     Predicate(TerminalType type) : m_type(type) {}
 
-    bool operator()(TerminalType t_type) {
+    bool operator()(TerminalType t_type) const {
       if ((t_type == m_type) || (t_type == TerminalType::DualDuct)) {
         return true;
       } else {
@@ -2730,7 +2730,7 @@ DemandSideItem::DemandSideItem(QGraphicsItem* parent, std::vector<model::Node> d
   model::Loop loop = m_demandInletNodes[0].loop().get();
   model::Mixer mixer = loop.demandMixer();
   model::Splitter splitter = loop.demandSplitter();
-  std::vector<model::Splitter> splitters;
+  std::vector<model::AirLoopHVACZoneSplitter> splitters;
 
   // Do we have a dual duct system
   auto dualDuct = false;
@@ -2738,7 +2738,7 @@ DemandSideItem::DemandSideItem(QGraphicsItem* parent, std::vector<model::Node> d
   if (m_demandInletNodes.size() == 2u) {
     dualDuct = true;
     if (auto airLoop = loop.optionalCast<model::AirLoopHVAC>()) {
-      auto splitters = airLoop->zoneSplitters();
+      splitters = airLoop->zoneSplitters();
       OS_ASSERT(splitters.size() == 2u);
 
       //auto zones = airLoop->thermalZones();
@@ -2949,12 +2949,12 @@ SupplySideItem::SupplySideItem(QGraphicsItem* parent, model::Node& supplyInletNo
   auto plantLoop = loop.optionalCast<model::PlantLoop>();
   auto airLoop = loop.optionalCast<model::AirLoopHVAC>();
 
-  boost::optional<model::AirLoopHVACOutdoorAirSystem> oaSystem;
+  // boost::optional<model::AirLoopHVACOutdoorAirSystem> oaSystem;
   boost::optional<model::Splitter> splitter;
   boost::optional<model::Mixer> mixer;
 
   if (airLoop) {
-    oaSystem = airLoop->airLoopHVACOutdoorAirSystem();
+    // oaSystem = airLoop->airLoopHVACOutdoorAirSystem();
     splitter = airLoop->supplySplitter();
   }
 
@@ -3258,20 +3258,20 @@ void NodeContextButtonItem::showContextMenu() {
 }
 
 void NodeContextButtonItem::onRemoveSPMActionTriggered() {
-  if (GridItem* gridItem = qobject_cast<GridItem*>(parentObject())) {
-    if (gridItem != nullptr && gridItem->modelObject() && gridItem->modelObject()->optionalCast<model::Node>()) {
-      model::Node node = gridItem->modelObject()->cast<model::Node>();
+  GridItem* gridItem = qobject_cast<GridItem*>(parentObject());
+  if (gridItem != nullptr && gridItem->modelObject() && gridItem->modelObject()->optionalCast<model::Node>()) {
+    model::Node node = gridItem->modelObject()->cast<model::Node>();
 
-      std::vector<model::SetpointManager> _setpointManagers = node.setpointManagers();
-      for (auto it = _setpointManagers.begin(); it != _setpointManagers.end(); ++it) {
-        if (istringEqual("Temperature", it->controlVariable())) {
-          emit removeModelObjectClicked(*it);
-          break;
-        } else {
-          emit removeModelObjectClicked(*it);
-          break;
-        }
-      }
+    std::vector<model::SetpointManager> _setpointManagers = node.setpointManagers();
+    for (auto it = _setpointManagers.begin(); it != _setpointManagers.end(); ++it) {
+      // TODO: this duplicateBranch condition is strange
+      // if (istringEqual("Temperature", it->controlVariable())) {
+      emit removeModelObjectClicked(*it);
+      break;
+      // } else {
+      //  emit removeModelObjectClicked(*it);
+      //  break;
+      // }
     }
   }
 }

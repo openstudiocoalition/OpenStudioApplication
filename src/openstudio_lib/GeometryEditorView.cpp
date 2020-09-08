@@ -1401,7 +1401,7 @@ void EditorWebView::onUnitSystemChange(bool t_isIP) {
 
 void EditorWebView::onLoadFinished(bool ok) {
 
-  QString title = m_view->title();
+  // QString title = m_view->title();
   if (ok) {
     if (m_baseEditor) {
 

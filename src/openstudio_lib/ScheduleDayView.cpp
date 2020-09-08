@@ -635,6 +635,7 @@ ScheduleDayView* ScheduleDayEditor::scheduleDayView() const {
 }
 
 void ScheduleDayEditor::fitInView() {
+  // TODO: SCENEWIDTH / SCENEWIDTH = 1...
   m_graphicsView->fitInView(
     QRectF(SCENEWIDTH / SCENEWIDTH * m_scheduleDayView->focusStartTime(), 0.0, SCENEWIDTH / m_scheduleDayView->zoom() - 2.0, SCENEHEIGHT - 2.0));
 }

@@ -151,12 +151,12 @@ void VRFController::onVRFSystemViewDrop(const OSItemId& itemid) {
     }
   } else {
     if (auto component = doc->getComponent(itemid)) {
-      if (auto terminal = component->primaryObject().optionalCast<model::ZoneHVACTerminalUnitVariableRefrigerantFlow>()) {
+      if (component->primaryObject().optionalCast<model::ZoneHVACTerminalUnitVariableRefrigerantFlow>()) {
         // Ugly hack to avoid the component being treated as a resource.
         component->componentData().setString(OS_ComponentDataFields::UUID, toString(createUUID()));
         // std::cout << component->componentData().getString(OS_ComponentDataFields::UUID) << std::endl;;
         if (auto componentData = m_currentSystem->model().insertComponent(component.get())) {
-          terminal = componentData->primaryComponentObject().optionalCast<model::ZoneHVACTerminalUnitVariableRefrigerantFlow>();
+          auto terminal = componentData->primaryComponentObject().optionalCast<model::ZoneHVACTerminalUnitVariableRefrigerantFlow>();
           OS_ASSERT(terminal);
           m_currentSystem->addTerminal(terminal.get());
 
@@ -210,11 +210,11 @@ void VRFController::onVRFTerminalViewDrop(const OSItemId& terminalId, const OSIt
         }
       } else {
         if (auto component = doc->getComponent(terminalId)) {
-          if (auto terminal = component->primaryObject().optionalCast<model::ZoneHVACTerminalUnitVariableRefrigerantFlow>()) {
+          if (component->primaryObject().optionalCast<model::ZoneHVACTerminalUnitVariableRefrigerantFlow>()) {
             // Ugly hack to avoid the component being treated as a resource.
             component->componentData().setString(OS_ComponentDataFields::UUID, toString(createUUID()));
             if (auto componentData = m_currentSystem->model().insertComponent(component.get())) {
-              terminal = componentData->primaryComponentObject().optionalCast<model::ZoneHVACTerminalUnitVariableRefrigerantFlow>();
+              auto terminal = componentData->primaryComponentObject().optionalCast<model::ZoneHVACTerminalUnitVariableRefrigerantFlow>();
               OS_ASSERT(terminal);
               terminal->addToThermalZone(thermalZone.get());
 
@@ -366,11 +366,11 @@ void VRFSystemListController::addSystem(const OSItemId& itemid) {
     }
   } else {
     if (auto component = doc->getComponent(itemid)) {
-      if (auto system = component->primaryObject().optionalCast<model::AirConditionerVariableRefrigerantFlow>()) {
+      if (component->primaryObject().optionalCast<model::AirConditionerVariableRefrigerantFlow>()) {
         // Ugly hack to avoid the component being treated as a resource.
         component->componentData().setString(OS_ComponentDataFields::UUID, toString(createUUID()));
         if (auto componentData = model->insertComponent(component.get())) {
-          system = componentData->primaryComponentObject().optionalCast<model::AirConditionerVariableRefrigerantFlow>();
+          auto system = componentData->primaryComponentObject().optionalCast<model::AirConditionerVariableRefrigerantFlow>();
           OS_ASSERT(system);
           emit itemInserted(systemIndex(system.get()));
         }

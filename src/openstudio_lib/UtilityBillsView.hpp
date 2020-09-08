@@ -179,7 +179,7 @@ class UtilityBillsInspectorView : public ModelObjectInspectorView
 
  private slots:
   void addBillingPeriod(bool checked);
-  void deleteBillingPeriod(int index);
+  void deleteBillingPeriod(int idx);
   void setBillFormat(int index);
   void setBillFormat(BillFormat billFormat);
   void updateEnergyUseLabelText(const QString& text);
@@ -212,7 +212,7 @@ class BillingPeriodWidget : public QWidget, public Nano::Observer
   QPushButton* m_deleteBillWidget;
 
  private:
-  void createWidgets(FuelType fuelType, BillFormat billFormat);
+  void createWidgets(const FuelType& fuelType, BillFormat billFormat);
 
   boost::optional<model::BillingPeriod> m_billingPeriod;
 

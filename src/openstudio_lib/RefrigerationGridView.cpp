@@ -51,6 +51,7 @@
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/Model_Impl.hpp>
 
+#include <openstudio/utilities/core/Compare.hpp>
 #include <openstudio/utilities/idd/IddEnums.hxx>
 #include <openstudio/utilities/idd/Refrigeration_Case_FieldEnums.hxx>
 #include <openstudio/utilities/idd/Refrigeration_WalkIn_FieldEnums.hxx>
@@ -142,14 +143,6 @@
 
 namespace openstudio {
 
-struct ModelObjectNameSorter
-{
-  // sort by name
-  bool operator()(const model::ModelObject& lhs, const model::ModelObject& rhs) {
-    return (lhs.name() < rhs.name());
-  }
-};
-
 RefrigerationGridView::RefrigerationGridView(bool isIP, const model::Model& model, QWidget* parent) : QWidget(parent), m_isIP(isIP) {
   QVBoxLayout* layout = nullptr;
 
@@ -212,8 +205,8 @@ RefrigerationGridView::RefrigerationGridView(bool isIP, const model::Model& mode
 
   connect(this, &RefrigerationGridView::toggleUnitsClicked, refrigerationWalkInGridController, &RefrigerationWalkInGridController::toggleUnits);
 
-  std::vector<model::RefrigerationSystem> refrigerationSystems =
-    model.getConcreteModelObjects<model::RefrigerationSystem>();  // NOTE for horizontal system list
+  // std::vector<model::RefrigerationSystem> refrigerationSystems =
+  //   model.getConcreteModelObjects<model::RefrigerationSystem>();  // NOTE for horizontal system list
 }
 
 RefrigerationCaseGridController::RefrigerationCaseGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType,
@@ -539,14 +532,14 @@ void RefrigerationCaseGridController::onItemDropped(const OSItemId& itemId) {
 void RefrigerationCaseGridController::refreshModelObjects() {
   std::vector<model::RefrigerationCase> refrigerationCases = m_model.getConcreteModelObjects<model::RefrigerationCase>();
   m_modelObjects = subsetCastVector<model::ModelObject>(refrigerationCases);
-  std::sort(m_modelObjects.begin(), m_modelObjects.end(), ModelObjectNameSorter());
+  std::sort(m_modelObjects.begin(), m_modelObjects.end(), openstudio::WorkspaceObjectNameLess());
 }
 
 void RefrigerationCaseGridController::onComboBoxIndexChanged(int index) {
   // Note: find the correct system color on RACK change,
   // but currently unable to know which row changed.
-  for (unsigned index = 0; index < m_horizontalHeader.size(); index++) {
-    HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeader.at(index));
+  for (unsigned i = 0; i < m_horizontalHeader.size(); ++i) {
+    HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeader.at(i));
     if (horizontalHeaderWidget->m_label->text() == RACK) {
       // NOTE required due to a race condition
       // Code below commented out due to a very infrequent crash in the bowels of Qt appears to be exasperated by this refresh.
@@ -900,14 +893,14 @@ void RefrigerationWalkInGridController::onItemDropped(const OSItemId& itemId) {
 void RefrigerationWalkInGridController::refreshModelObjects() {
   std::vector<model::RefrigerationWalkIn> refrigerationWalkIns = m_model.getConcreteModelObjects<model::RefrigerationWalkIn>();
   m_modelObjects = subsetCastVector<model::ModelObject>(refrigerationWalkIns);
-  std::sort(m_modelObjects.begin(), m_modelObjects.end(), ModelObjectNameSorter());
+  std::sort(m_modelObjects.begin(), m_modelObjects.end(), openstudio::WorkspaceObjectNameLess());
 }
 
 void RefrigerationWalkInGridController::onComboBoxIndexChanged(int index) {
   // Note: find the correct system color on RACK change,
   // but currently unable to know which row changed.
-  for (unsigned index = 0; index < m_horizontalHeader.size(); index++) {
-    HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeader.at(index));
+  for (unsigned i = 0; i < m_horizontalHeader.size(); ++i) {
+    HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeader.at(i));
     if (horizontalHeaderWidget->m_label->text() == RACK) {
       // NOTE required due to a race condition
       // Code below commented out due to a very infrequent crash in the bowels of Qt appears to be exasperated by this refresh.

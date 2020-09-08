@@ -130,7 +130,7 @@ class OSQuantityEdit2 : public QWidget, public Nano::Observer
 
   void onModelObjectRemove(const Handle& handle);
 
-  void onInFocus(bool inFocus);
+  void onInFocus(bool hasFocus);
 
  private:
   QuantityLineEdit* m_lineEdit;

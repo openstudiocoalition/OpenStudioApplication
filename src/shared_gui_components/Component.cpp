@@ -609,9 +609,9 @@ void Component::createCompleteLayout() {
     }
 
     // make the table show completely
-    int rowHeight = tableWidget->rowHeight(0);
-    int rowCount = tableWidget->rowCount();
-    int tableHeight = rowHeight * rowCount;
+    rowHeight = tableWidget->rowHeight(0);
+    rowCount = tableWidget->rowCount();
+    tableHeight = rowHeight * rowCount;
     tableWidget->setFixedHeight(tableHeight);
 
     label = new QLabel();

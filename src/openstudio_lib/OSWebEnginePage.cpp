@@ -38,7 +38,7 @@ namespace openstudio {
 
 bool OSWebEnginePage::acceptNavigationRequest(const QUrl& url, QWebEnginePage::NavigationType type, bool isMainFrame) {
   if (type == QWebEnginePage::NavigationTypeLinkClicked) {
-    QString s = url.toString();
+    // QString s = url.toString();
     // open links in system browser rather than embedded view
     QDesktopServices::openUrl(url);
     return false;

@@ -355,6 +355,7 @@ class AirTerminalInspectorView : public BaseInspectorView
 
  protected:
   template <class T>
+  // cppcheck-suppress missingOverride
   void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP);
 
   //private:

@@ -41,6 +41,7 @@
 #include <openstudio/model/Space_Impl.hpp>
 
 #include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Compare.hpp>
 #include <openstudio/utilities/idd/IddEnums.hxx>
 #include <openstudio/utilities/idd/OS_Space_FieldEnums.hxx>
 
@@ -97,14 +98,6 @@
 #define MAXIMUMALLOWABLEDAYLIGHTGLAREPROBABILITY "Maximum Allowable Daylight Glare Probability"
 
 namespace openstudio {
-
-struct ModelObjectNameSorter
-{
-  // sort by name
-  bool operator()(const model::ModelObject& lhs, const model::ModelObject& rhs) {
-    return (lhs.name() < rhs.name());
-  }
-};
 
 SpacesDaylightingGridView::SpacesDaylightingGridView(bool isIP, const model::Model& model, QWidget* parent)
   : SpacesSubtabGridView(isIP, model, parent) {
@@ -434,7 +427,7 @@ void SpacesDaylightingGridController::onItemDropped(const OSItemId& itemId) {}
 
 void SpacesDaylightingGridController::refreshModelObjects() {
   m_modelObjects = subsetCastVector<model::ModelObject>(m_model.getConcreteModelObjects<model::Space>());
-  std::sort(m_modelObjects.begin(), m_modelObjects.end(), ModelObjectNameSorter());
+  std::sort(m_modelObjects.begin(), m_modelObjects.end(), openstudio::WorkspaceObjectNameLess());
 }
 
 }  // namespace openstudio

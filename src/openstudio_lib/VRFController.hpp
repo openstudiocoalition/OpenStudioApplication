@@ -123,7 +123,7 @@ class VRFSystemListController : public OSListController
 
   void createNewSystem();
 
-  void removeSystem(model::AirConditionerVariableRefrigerantFlow& system);
+  void removeSystem(model::AirConditionerVariableRefrigerantFlow& vrfSystem);
 
  private:
   std::vector<model::AirConditionerVariableRefrigerantFlow> systems() const;

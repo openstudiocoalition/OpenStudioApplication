@@ -523,7 +523,6 @@ void HVACLayoutController::addLibraryObjectToTopLevel(OSItemId itemid) {
 void HVACLayoutController::addLibraryObjectToModelNode(OSItemId itemid, model::HVACComponent& comp) {
   model::OptionalModelObject object;
   bool remove = false;
-  bool added = false;
   auto doc = OSAppBase::instance()->currentDocument();
 
   object = doc->getModelObject(itemid);
@@ -544,6 +543,8 @@ void HVACLayoutController::addLibraryObjectToModelNode(OSItemId itemid, model::H
   }
 
   if (object) {
+
+    bool added = false;
 
     if (boost::optional<model::HVACComponent> hvacComponent = object->optionalCast<model::HVACComponent>()) {
       if (boost::optional<model::Node> node = comp.optionalCast<model::Node>()) {
@@ -689,13 +690,13 @@ void HVACLayoutController::goToOtherLoop(model::ModelObject& modelObject) {
 
   if (t_currentLoop) {
     if (boost::optional<model::WaterToAirComponent> comp = modelObject.optionalCast<model::WaterToAirComponent>()) {
-      if (boost::optional<model::AirLoopHVAC> airLoopHVAC = t_currentLoop->optionalCast<model::AirLoopHVAC>()) {
+      if (t_currentLoop->optionalCast<model::AirLoopHVAC>()) {
         if (boost::optional<model::PlantLoop> plantLoop = comp->plantLoop()) {
           m_hvacSystemsController->setCurrentHandle(toQString(plantLoop->handle()));
         }
 
         return;
-      } else if (boost::optional<model::PlantLoop> plantLoop = t_currentLoop->optionalCast<model::PlantLoop>()) {
+      } else { // always true if not an AirLoopHVAC:  if (t_currentLoop->optionalCast<model::PlantLoop>())
         if (boost::optional<model::AirLoopHVAC> airLoopHVAC = comp->airLoopHVAC()) {
           m_hvacSystemsController->setCurrentHandle(toQString(airLoopHVAC->handle()));
         }
@@ -886,7 +887,7 @@ void HVACSystemsController::onRemoveLoopClicked() {
     int i = chooser->findData(toQString(loop->handle()));
 
     if (i == 0) {
-      setCurrentHandle(chooser->itemData(i + 1).toString());
+      setCurrentHandle(chooser->itemData(1).toString());
     } else {
       setCurrentHandle(chooser->itemData(i - 1).toString());
     }
@@ -1235,11 +1236,11 @@ void HVACControlsController::update() {
         // Allow clicking on the Schedule to see it in the right column inspector
         connect(m_supplyAirTempScheduleDropZone.data(), &OSDropZone::itemClicked, supplyAirTempScheduleVectorController,
                 &SupplyAirTempScheduleVectorController::onDropZoneItemClicked);
-      } else if (_spm && (spmFOAT = _spm->optionalCast<model::SetpointManagerFollowOutdoorAirTemperature>())) {
+      } else if (_spm && (_spm->optionalCast<model::SetpointManagerFollowOutdoorAirTemperature>())) {
         m_followOATempSPMView = new FollowOATempSPMView();
 
         m_hvacAirLoopControlsView->supplyAirTemperatureViewSwitcher->setView(m_followOATempSPMView);
-      } else if (_spm && (spmOAR = _spm->optionalCast<model::SetpointManagerOutdoorAirReset>())) {
+      } else if (_spm && (_spm->optionalCast<model::SetpointManagerOutdoorAirReset>())) {
         m_oaResetSPMView = new OAResetSPMView();
 
         m_hvacAirLoopControlsView->supplyAirTemperatureViewSwitcher->setView(m_oaResetSPMView);
@@ -1932,7 +1933,7 @@ boost::optional<model::PlantLoop> AvailabilityManagerObjectVectorController::cur
 boost::optional<model::AvailabilityManagerAssignmentList> AvailabilityManagerObjectVectorController::avmList() {
   if (m_modelObject && !m_modelObject->handle().isNull()) {
     if (auto mo = m_modelObject->optionalCast<model::Loop>()) {
-      model::Loop loop = m_modelObject->cast<model::Loop>();
+      model::Loop loop = mo.get();
       return loop.getImpl<model::detail::Loop_Impl>()->availabilityManagerAssignmentList();
     }
     /*

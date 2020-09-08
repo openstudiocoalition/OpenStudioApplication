@@ -488,9 +488,10 @@ QWidget* LibraryItemDelegate::view(QSharedPointer<OSListItem> dataSource) {
     MeasureType measureType = libraryItem->m_bclMeasure.measureType();
 
     // NOTE: replaces needed to trim unwanted curly braces
-    QString measureUUID = toQString(libraryItem->m_bclMeasure.uuid()).replace("{", "").replace("}", "");
+    // TODO: Why was it there (and unused)?
+    // QString measureUUID = toQString(libraryItem->m_bclMeasure.uuid()).replace("{", "").replace("}", "");
 
-    std::vector<std::string> localUUIDs = (LocalBCL::instance().measureUids());
+    // std::vector<std::string> localUUIDs = (LocalBCL::instance().measureUids());
 
     auto widget = new LibraryItemView();
 
@@ -577,7 +578,7 @@ int LibraryListController::count() {
 struct MeasureSorter
 {
   // sort by type and then name
-  bool operator()(const BCLMeasure& lhs, const BCLMeasure& rhs) {
+  bool operator()(const BCLMeasure& lhs, const BCLMeasure& rhs) const {
     if (lhs.measureType() != rhs.measureType()) {
       return lhs.measureType() < rhs.measureType();
     }

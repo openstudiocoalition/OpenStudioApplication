@@ -62,7 +62,7 @@ class MaterialRoofVegetationInspectorView : public ModelObjectInspectorView
  private:
   void createLayout();
 
-  void attach(openstudio::model::RoofVegetation& RoofVegetation);
+  void attach(openstudio::model::RoofVegetation& roofVegetation);
 
   void detach();
 

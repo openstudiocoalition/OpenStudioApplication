@@ -423,7 +423,7 @@ void PeopleDefinitionInspectorView::checkButtons() {
     unsigned int numFields = m_peopleDefinition->numFields();
 
     unsigned int numNonEx = m_peopleDefinition->numNonextensibleFields();
-    if ((numFields - numNonEx) <= 0) {
+    if (numFields <= numNonEx) {
       removeBtn->setEnabled(false);
     } else {
       removeBtn->setEnabled(true);

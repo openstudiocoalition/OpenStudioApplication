@@ -77,8 +77,8 @@ bool OSCollapsibleItemHeader::expanded() const {
   return m_expanded;
 }
 
-void OSCollapsibleItemHeader::setExpanded(bool expanded) {
-  m_expanded = expanded;
+void OSCollapsibleItemHeader::setExpanded(bool isExpanded) {
+  m_expanded = isExpanded;
   setImage(m_expanded);
 }
 

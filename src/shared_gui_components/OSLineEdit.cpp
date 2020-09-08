@@ -170,10 +170,12 @@ void OSLineEdit2::onEditingFinished() {
       if (m_set) {
         result = (*m_set)(m_text);
       } else if (m_setOptionalStringReturn) {
-        auto optionalStringReturn = (*m_setOptionalStringReturn)(m_text);
-        if (optionalStringReturn) {
-          result = true;  // TODO
-        }
+        // TODO: should check the optionalStringReturn
+        (*m_setOptionalStringReturn)(m_text);
+        // auto optionalStringReturn = (*m_setOptionalStringReturn)(m_text);
+        //if (optionalStringReturn) {
+          //result = true;
+        //}
         result = true;
       } else if (m_setVoidReturn) {
         (*m_setVoidReturn)(m_text);

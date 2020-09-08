@@ -220,9 +220,9 @@ void OSCollapsibleItem::setShowFilterLayout(const bool showFilterLayout) {
   // TODO Hack to remove once we do stuff with the filters
   return;
 
-  m_showFilterLayout = showFilterLayout;
+  // m_showFilterLayout = showFilterLayout;
 
-  setShowFilterWidgets(showFilterLayout);
+  // setShowFilterWidgets(showFilterLayout);
 }
 
 void OSCollapsibleItem::setShowFilterWidgets(const bool showFilterWidgets) {
