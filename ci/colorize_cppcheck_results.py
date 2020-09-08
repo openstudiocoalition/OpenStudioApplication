@@ -1,6 +1,6 @@
 import re
-import sys
 from collections import Counter
+
 
 def colorize(lines):
     def bold(s):
@@ -50,7 +50,9 @@ def colorize(lines):
 
         return txt
 
-    re_message = re.compile(r'\[(?P<file>.*):(?P<line>.*?)\]:\((?P<severity>.*?)\),\[(?P<id>.*?)\],(?P<message>.*)')
+    re_message = re.compile(r'\[(?P<file>.*):(?P<line>.*?)\]:'
+                            r'\((?P<severity>.*?)\),\[(?P<id>.*?)\],'
+                            r'(?P<message>.*)')
 
     colored_lines = []
     matched_messages = []
@@ -88,17 +90,17 @@ def colorize(lines):
 
     n_errors = counter['error']
     # if n_errors:
-        # summary_line += red("{} Errors".format(n_errors))
+    #     summary_line += red("{} Errors".format(n_errors))
     # else:
-        # summary_line = green("No Errors")
+    #     summary_line = green("No Errors")
 
     n_warnings = counter['warning']
     # if n_warnings:
-        # summary_line += yellow("{} Warnings".format(n_warnings))
+    #     summary_line += yellow("{} Warnings".format(n_warnings))
     # else:
-        # summary_line = green("No Warnings")
+    #     summary_line = green("No Warnings")
 
-    # n_styles = counter['style']
+    n_styles = counter['style']
     n_performances = counter['performance']
     n_portabilities = counter['portability']
     # n_informations = counter['information']
@@ -127,7 +129,7 @@ def colorize(lines):
                     message=message))
 
     return (colored_lines, summary_line, n_errors, n_warnings,
-            n_performances, n_portabilities)
+            n_performances, n_portabilities, n_styles)
 
 
 if __name__ == '__main__':
@@ -136,9 +138,11 @@ if __name__ == '__main__':
 
     lines = content.splitlines()
     (colored_lines, summary_line, n_errors, n_warnings,
-     n_performances,  n_portabilities) = colorize(lines)
+     n_performances,  n_portabilities, n_styles) = colorize(lines)
     print(summary_line)
     # sys.stdout.writelines(colored_lines)
     print("\n".join(colored_lines))
-    if (n_errors + n_warnings + n_performances + n_portabilities) > 0:
+    n_tot = (n_errors + n_warnings + n_performances
+             + n_portabilities + n_styles)
+    if n_tot > 0:
         exit(1)
