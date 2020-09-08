@@ -147,7 +147,7 @@ void ElectricEquipmentDefinitionInspectorView::onUpdate() {
   refresh();
 }
 
-void ElectricEquipmentDefinitionInspectorView::attach(openstudio::model::ElectricEquipmentDefinition& electricEquipmentDefinition) {
+void ElectricEquipmentDefinitionInspectorView::attach(const openstudio::model::ElectricEquipmentDefinition& electricEquipmentDefinition) {
   m_electricEquipmentDefinition = electricEquipmentDefinition;
 
   // m_nameEdit->bind(electricEquipmentDefinition,"name");

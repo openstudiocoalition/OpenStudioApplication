@@ -157,7 +157,7 @@ void GasEquipmentDefinitionInspectorView::onUpdate() {
   refresh();
 }
 
-void GasEquipmentDefinitionInspectorView::attach(openstudio::model::GasEquipmentDefinition& gasEquipmentDefinition) {
+void GasEquipmentDefinitionInspectorView::attach(const openstudio::model::GasEquipmentDefinition& gasEquipmentDefinition) {
   m_gasEquipmentDefinition = gasEquipmentDefinition;
 
   // m_nameEdit->bind(gasEquipmentDefinition,"name");

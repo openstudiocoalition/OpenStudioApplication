@@ -61,7 +61,7 @@ class InternalMassDefinitionInspectorView : public ModelObjectInspectorView
   virtual void onUpdate() override;
 
  private:
-  void attach(openstudio::model::InternalMassDefinition& internalMassDefinition);
+  void attach(const openstudio::model::InternalMassDefinition& internalMassDefinition);
 
   void detach();
 

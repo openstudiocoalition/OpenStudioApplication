@@ -215,7 +215,7 @@ void ConstructionInternalSourceInspectorView::onUpdate() {
   m_constructionVC->reportItems();
 }
 
-void ConstructionInternalSourceInspectorView::attach(openstudio::model::ConstructionWithInternalSource& constructionWithInternalSource) {
+void ConstructionInternalSourceInspectorView::attach(const openstudio::model::ConstructionWithInternalSource& constructionWithInternalSource) {
   m_constructionWithInternalSource = constructionWithInternalSource;
 
   m_nameEdit->bind(*m_constructionWithInternalSource,

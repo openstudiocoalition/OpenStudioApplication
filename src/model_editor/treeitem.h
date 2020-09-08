@@ -57,7 +57,7 @@ class TreeItem
   ~TreeItem();
 
   void appendChild(TreeItem* child);
-  bool insertChildren(openstudio::model::ModelObject& object, const QList<QVariant>& data, int position, int count, int columns);
+  bool insertChildren(const openstudio::model::ModelObject& object, const QList<QVariant>& data, int position, int count, int columns);
   bool removeChildren(int position, int count);
   bool moveChildren(int position, int count);
   TreeItem* child(int row);
@@ -67,7 +67,7 @@ class TreeItem
   openstudio::model::ModelObject modelObject() const;
   int row() const;
   bool setData(int column, const QVariant& value);
-  bool setData(openstudio::model::ModelObject& data);
+  bool setData(const openstudio::model::ModelObject& data);
   TreeItem* parent();
 
  private:

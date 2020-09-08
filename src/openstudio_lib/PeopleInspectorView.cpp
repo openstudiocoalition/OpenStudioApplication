@@ -279,7 +279,7 @@ void PeopleDefinitionInspectorView::onUpdate() {
   refresh();
 }
 
-void PeopleDefinitionInspectorView::attach(openstudio::model::PeopleDefinition& peopleDefinition) {
+void PeopleDefinitionInspectorView::attach(const openstudio::model::PeopleDefinition& peopleDefinition) {
   m_peopleDefinition = peopleDefinition;
   m_nameEdit->bind(*m_peopleDefinition, OptionalStringGetter(std::bind(&model::PeopleDefinition::name, m_peopleDefinition.get_ptr(), true)),
                    boost::optional<StringSetterOptionalStringReturn>(

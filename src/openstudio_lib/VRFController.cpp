@@ -255,7 +255,7 @@ void VRFController::onRemoveTerminalClicked(const OSItemId& terminalId) {
   refresh();
 }
 
-void VRFController::zoomInOnSystem(model::AirConditionerVariableRefrigerantFlow& system) {
+void VRFController::zoomInOnSystem(const model::AirConditionerVariableRefrigerantFlow& system) {
   m_currentSystem = system;
 
   std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();

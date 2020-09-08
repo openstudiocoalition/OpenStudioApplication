@@ -378,7 +378,7 @@ void UtilityBillsInspectorView::createWidgets() {
   refresh();
 }
 
-void UtilityBillsInspectorView::attach(openstudio::model::UtilityBill& utilityBill) {
+void UtilityBillsInspectorView::attach(const openstudio::model::UtilityBill& utilityBill) {
   m_utilityBill = utilityBill;
 
   m_name->bind(
@@ -797,7 +797,7 @@ void BillingPeriodWidget::createWidgets(const FuelType& fuelType, BillFormat bil
   }
 }
 
-void BillingPeriodWidget::attach(openstudio::model::BillingPeriod& billingPeriod) {
+void BillingPeriodWidget::attach(const openstudio::model::BillingPeriod& billingPeriod) {
   m_billingPeriod = billingPeriod;
 
   if (m_billingPeriodIntEdit) {

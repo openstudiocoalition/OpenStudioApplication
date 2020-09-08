@@ -76,7 +76,7 @@ class PeopleDefinitionInspectorView : public ModelObjectInspectorView
  private:
   REGISTER_LOGGER("openstudio.PeopleDefinitionInspectorView");
 
-  void attach(openstudio::model::PeopleDefinition& peopleDefinition);
+  void attach(const openstudio::model::PeopleDefinition& peopleDefinition);
 
   void detach();
 

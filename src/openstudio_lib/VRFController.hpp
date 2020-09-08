@@ -62,7 +62,7 @@ class VRFController : public QObject
 
  public slots:
 
-  void zoomInOnSystem(model::AirConditionerVariableRefrigerantFlow& system);
+  void zoomInOnSystem(const model::AirConditionerVariableRefrigerantFlow& system);
 
   void zoomOutToSystemGridView();
 

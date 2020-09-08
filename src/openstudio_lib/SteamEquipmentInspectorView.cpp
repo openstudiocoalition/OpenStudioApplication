@@ -147,7 +147,7 @@ void SteamEquipmentDefinitionInspectorView::onUpdate() {
   refresh();
 }
 
-void SteamEquipmentDefinitionInspectorView::attach(openstudio::model::SteamEquipmentDefinition& steamEquipmentDefinition) {
+void SteamEquipmentDefinitionInspectorView::attach(const openstudio::model::SteamEquipmentDefinition& steamEquipmentDefinition) {
   // m_nameEdit->bind(steamEquipmentDefinition,"name");
   m_steamEquipmentDefinition = steamEquipmentDefinition;
   m_nameEdit->bind(*m_steamEquipmentDefinition,

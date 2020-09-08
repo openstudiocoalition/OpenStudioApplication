@@ -128,12 +128,12 @@ bool TreeItem::setData(int column, const QVariant& value) {
   return true;
 }
 
-bool TreeItem::setData(openstudio::model::ModelObject& data) {
+bool TreeItem::setData(const openstudio::model::ModelObject& data) {
   mObject = data;
   return true;
 }
 
-bool TreeItem::insertChildren(openstudio::model::ModelObject& object, const QList<QVariant>& data, int position, int count, int columns) {
+bool TreeItem::insertChildren(const openstudio::model::ModelObject& object, const QList<QVariant>& data, int position, int count, int columns) {
   if (position < 0 || position > mChildItems.size()) return false;
 
   for (int row = 0; row < count; ++row) {

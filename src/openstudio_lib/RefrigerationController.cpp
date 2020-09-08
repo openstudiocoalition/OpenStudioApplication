@@ -261,7 +261,7 @@ void RefrigerationController::zoomInOnSystem(const Handle& handle) {
   }
 }
 
-void RefrigerationController::zoomInOnSystem(model::RefrigerationSystem& refrigerationSystem) {
+void RefrigerationController::zoomInOnSystem(const model::RefrigerationSystem& refrigerationSystem) {
   model::OptionalModelObject mo;
 
   std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();

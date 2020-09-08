@@ -119,7 +119,7 @@ class UtilityBillsInspectorView : public ModelObjectInspectorView
   void hideAddButton();
   void enableAddButton();
   void disableAddButton();
-  void attach(openstudio::model::UtilityBill& utilityBill);
+  void attach(const openstudio::model::UtilityBill& utilityBill);
   void detach();
   void refresh();
 
@@ -198,7 +198,7 @@ class BillingPeriodWidget : public QWidget, public Nano::Observer
 
   virtual ~BillingPeriodWidget() {}
 
-  void attach(openstudio::model::BillingPeriod& billingPeriod);
+  void attach(const openstudio::model::BillingPeriod& billingPeriod);
   void detach();
 
   QDateEdit* m_startDateEdit;
