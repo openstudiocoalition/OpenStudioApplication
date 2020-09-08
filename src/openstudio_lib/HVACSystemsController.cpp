@@ -696,7 +696,7 @@ void HVACLayoutController::goToOtherLoop(model::ModelObject& modelObject) {
         }
 
         return;
-      } else { // always true if not an AirLoopHVAC:  if (t_currentLoop->optionalCast<model::PlantLoop>())
+      } else {  // always true if not an AirLoopHVAC:  if (t_currentLoop->optionalCast<model::PlantLoop>())
         if (boost::optional<model::AirLoopHVAC> airLoopHVAC = comp->airLoopHVAC()) {
           m_hvacSystemsController->setCurrentHandle(toQString(airLoopHVAC->handle()));
         }

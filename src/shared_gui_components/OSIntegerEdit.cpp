@@ -73,8 +73,8 @@ void OSIntegerEdit2::bind(const model::ModelObject& modelObject, IntGetter get, 
   completeBind();
 }
 
-void OSIntegerEdit2::bind(const model::ModelObject& modelObject, OptionalIntGetter get, boost::optional<IntSetter> set, boost::optional<NoFailAction> reset,
-                          boost::optional<NoFailAction> autosize, boost::optional<NoFailAction> autocalculate,
+void OSIntegerEdit2::bind(const model::ModelObject& modelObject, OptionalIntGetter get, boost::optional<IntSetter> set,
+                          boost::optional<NoFailAction> reset, boost::optional<NoFailAction> autosize, boost::optional<NoFailAction> autocalculate,
                           boost::optional<BasicQuery> isDefaulted, boost::optional<BasicQuery> isAutosized,
                           boost::optional<BasicQuery> isAutocalculated) {
   m_modelObject = modelObject;

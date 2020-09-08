@@ -334,10 +334,10 @@ void OSGridView::doRefresh() {
   //bool has_refresh_all = false;
 
   //for (const auto& r : m_queueRequests) {
-    //if (r == AddRow) has_add_row = true;
-    //if (r == RemoveRow) has_remove_row = true;
-    //if (r == RefreshGrid) has_refresh_grid = true;
-    //if (r == RefreshAll) has_refresh_all = true;
+  //if (r == AddRow) has_add_row = true;
+  //if (r == RemoveRow) has_remove_row = true;
+  //if (r == RefreshGrid) has_refresh_grid = true;
+  //if (r == RefreshAll) has_refresh_all = true;
   //}
 
   m_queueRequests.clear();

@@ -43,8 +43,7 @@
 
 namespace openstudio {
 
-LibraryDialog::LibraryDialog(const std::vector<openstudio::path>& paths,
-                             const std::vector<openstudio::path>& defaultPaths,
+LibraryDialog::LibraryDialog(const std::vector<openstudio::path>& paths, const std::vector<openstudio::path>& defaultPaths,
                              const openstudio::path& resourcesPath)
   : QDialog(), m_defaultPaths(defaultPaths), m_resourcesPath(resourcesPath) {
   auto mainLayout = new QVBoxLayout();

@@ -354,9 +354,9 @@ void YearSettingsWidget::refresh() {
     //boost::optional<EpwFile> epwFile;
     //boost::optional<model::WeatherFile> weatherFile = m_model.getOptionalUniqueModelObject<model::WeatherFile>();
     //if (weatherFile) {
-      //std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
-      //openstudio::path resourcesPath = openstudio::toPath(doc->modelTempDir()) / openstudio::toPath("resources");
-      //epwFile = weatherFile->file(resourcesPath);
+    //std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
+    //openstudio::path resourcesPath = openstudio::toPath(doc->modelTempDir()) / openstudio::toPath("resources");
+    //epwFile = weatherFile->file(resourcesPath);
     //}
 
     // Refresh Daylight Savings Time

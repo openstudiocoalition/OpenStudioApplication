@@ -65,8 +65,8 @@ OSLineEdit2::OSLineEdit2(QWidget* parent) : QLineEdit(parent) {
 
 OSLineEdit2::~OSLineEdit2() {}
 
-void OSLineEdit2::bind(const model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetter> set, boost::optional<NoFailAction> reset,
-                       boost::optional<BasicQuery> isDefaulted) {
+void OSLineEdit2::bind(const model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetter> set,
+                       boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted) {
   m_modelObject = modelObject;
   m_get = get;
   m_set = set;
@@ -174,7 +174,7 @@ void OSLineEdit2::onEditingFinished() {
         (*m_setOptionalStringReturn)(m_text);
         // auto optionalStringReturn = (*m_setOptionalStringReturn)(m_text);
         //if (optionalStringReturn) {
-          //result = true;
+        //result = true;
         //}
         result = true;
       } else if (m_setVoidReturn) {

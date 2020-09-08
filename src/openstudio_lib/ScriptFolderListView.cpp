@@ -45,8 +45,8 @@
 
 namespace openstudio {
 
-ScriptFolderListView::ScriptFolderListView(const openstudio::path& t_rootPath, bool addScrollArea, bool draggable, bool removeable, OSItemType headerType,
-                                           QWidget* parent)
+ScriptFolderListView::ScriptFolderListView(const openstudio::path& t_rootPath, bool addScrollArea, bool draggable, bool removeable,
+                                           OSItemType headerType, QWidget* parent)
   : OSCollapsibleItemList(addScrollArea, parent),
     m_rootPath(t_rootPath),
     m_headerType(headerType),

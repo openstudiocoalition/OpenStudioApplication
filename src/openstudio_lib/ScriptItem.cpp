@@ -50,7 +50,7 @@ OSItemId scriptToItemId(const openstudio::path& t_path) {
 ScriptItem::ScriptItem(const openstudio::path& t_path, OSItemType type, QWidget* parent)
   : OSItem(scriptToItemId(t_path), type, parent),
     m_removed(false)
-   // m_scriptInfo(t_path, true, false)
+// m_scriptInfo(t_path, true, false)
 {
   setText(openstudio::toQString(t_path.filename()));
   setLeftPixmap(QPixmap(":/images/icon_scripts.png"));

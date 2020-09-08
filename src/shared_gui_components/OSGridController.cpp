@@ -1737,14 +1737,14 @@ void OSGridController::onAddWorkspaceObject(const WorkspaceObject& object, const
 }
 
 void OSGridController::onObjectRemoved(boost::optional<model::ParentObject> parent) {
-//  if (parent) {
-//    // We have a parent we can search for in our current list of modelObjects and just delete that 1 row
-//    // TODO replace this with a by-row refresh only
-//    this->requestRefreshGrid();
-//  } else {
-//    // We don't know which row needs to be redrawn, so we have to do the whole grid
-//    this->requestRefreshGrid();
-//  }
+  //  if (parent) {
+  //    // We have a parent we can search for in our current list of modelObjects and just delete that 1 row
+  //    // TODO replace this with a by-row refresh only
+  //    this->requestRefreshGrid();
+  //  } else {
+  //    // We don't know which row needs to be redrawn, so we have to do the whole grid
+  //    this->requestRefreshGrid();
+  //  }
 
   this->requestRefreshGrid();
 }

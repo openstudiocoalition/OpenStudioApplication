@@ -128,7 +128,6 @@ DesignDayGridView::DesignDayGridView(bool isIP, const model::Model& model, QWidg
 
   isConnected = connect(this, SIGNAL(toggleUnitsClicked(bool)), m_gridController, SLOT(toggleUnits(bool)));
   OS_ASSERT(isConnected);
-
 }
 
 void DesignDayGridView::onAddClicked() {

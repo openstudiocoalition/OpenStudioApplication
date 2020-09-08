@@ -262,7 +262,8 @@ void SchedulesView::addScheduleRule(model::ScheduleRule& scheduleRule) {
   if (tab) {
     tab->scheduleTabContent()->scheduleRefresh(scheduleRuleset.handle());  // Handle as dummy
 
-    scheduleRule.getImpl<model::detail::ScheduleRule_Impl>().get()
+    scheduleRule.getImpl<model::detail::ScheduleRule_Impl>()
+      .get()
       ->onRemoveFromWorkspace.connect<ScheduleTabContent, &ScheduleTabContent::scheduleRefresh>(tab->scheduleTabContent());
   }
 }

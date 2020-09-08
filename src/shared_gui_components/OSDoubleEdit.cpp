@@ -61,9 +61,10 @@ OSDoubleEdit2::OSDoubleEdit2(QWidget* parent) : m_isScientific(false) {
 
 OSDoubleEdit2::~OSDoubleEdit2() {}
 
-void OSDoubleEdit2::bind(const model::ModelObject& modelObject, DoubleGetter get, boost::optional<DoubleSetter> set, boost::optional<NoFailAction> reset,
-                         boost::optional<NoFailAction> autosize, boost::optional<NoFailAction> autocalculate, boost::optional<BasicQuery> isDefaulted,
-                         boost::optional<BasicQuery> isAutosized, boost::optional<BasicQuery> isAutocalculated) {
+void OSDoubleEdit2::bind(const model::ModelObject& modelObject, DoubleGetter get, boost::optional<DoubleSetter> set,
+                         boost::optional<NoFailAction> reset, boost::optional<NoFailAction> autosize, boost::optional<NoFailAction> autocalculate,
+                         boost::optional<BasicQuery> isDefaulted, boost::optional<BasicQuery> isAutosized,
+                         boost::optional<BasicQuery> isAutocalculated) {
   m_modelObject = modelObject;
   m_get = get;
   m_set = set;
@@ -110,9 +111,10 @@ void OSDoubleEdit2::bind(const model::ModelObject& modelObject, DoubleGetter get
   completeBind();
 }
 
-void OSDoubleEdit2::bind(const model::ModelObject& modelObject, OptionalDoubleGetter get, DoubleSetterVoidReturn set, boost::optional<NoFailAction> reset,
-                         boost::optional<NoFailAction> autosize, boost::optional<NoFailAction> autocalculate, boost::optional<BasicQuery> isDefaulted,
-                         boost::optional<BasicQuery> isAutosized, boost::optional<BasicQuery> isAutocalculated) {
+void OSDoubleEdit2::bind(const model::ModelObject& modelObject, OptionalDoubleGetter get, DoubleSetterVoidReturn set,
+                         boost::optional<NoFailAction> reset, boost::optional<NoFailAction> autosize, boost::optional<NoFailAction> autocalculate,
+                         boost::optional<BasicQuery> isDefaulted, boost::optional<BasicQuery> isAutosized,
+                         boost::optional<BasicQuery> isAutocalculated) {
   m_modelObject = modelObject;
   m_getOptional = get;
   m_setVoidReturn = set;

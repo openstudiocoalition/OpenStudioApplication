@@ -83,10 +83,10 @@ class OSDoubleEdit2 : public QLineEdit, public Nano::Observer
             boost::optional<BasicQuery> isDefaulted = boost::none, boost::optional<BasicQuery> isAutosized = boost::none,
             boost::optional<BasicQuery> isAutocalculated = boost::none);
 
-  void bind(const model::ModelObject& modelObject, OptionalDoubleGetter get, DoubleSetterVoidReturn set, boost::optional<NoFailAction> reset = boost::none,
-            boost::optional<NoFailAction> autosize = boost::none, boost::optional<NoFailAction> autocalculate = boost::none,
-            boost::optional<BasicQuery> isDefaulted = boost::none, boost::optional<BasicQuery> isAutosized = boost::none,
-            boost::optional<BasicQuery> isAutocalculated = boost::none);
+  void bind(const model::ModelObject& modelObject, OptionalDoubleGetter get, DoubleSetterVoidReturn set,
+            boost::optional<NoFailAction> reset = boost::none, boost::optional<NoFailAction> autosize = boost::none,
+            boost::optional<NoFailAction> autocalculate = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none,
+            boost::optional<BasicQuery> isAutosized = boost::none, boost::optional<BasicQuery> isAutocalculated = boost::none);
 
   void bind(model::ModelExtensibleGroup& modelExtensibleGroup, DoubleGetter get, boost::optional<DoubleSetter> set = boost::none,
             boost::optional<NoFailAction> reset = boost::none, boost::optional<NoFailAction> autosize = boost::none,

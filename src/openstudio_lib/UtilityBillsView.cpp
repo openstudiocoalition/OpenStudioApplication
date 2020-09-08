@@ -719,8 +719,8 @@ void UtilityBillsInspectorView::updateRunPeriodDates() {
 
 //**********************************************************************************************************
 
-BillingPeriodWidget::BillingPeriodWidget(model::BillingPeriod billingPeriod, const openstudio::FuelType& fuelType,
-    BillFormat billFormat, QWidget* parent)
+BillingPeriodWidget::BillingPeriodWidget(model::BillingPeriod billingPeriod, const openstudio::FuelType& fuelType, BillFormat billFormat,
+                                         QWidget* parent)
   : QWidget(parent),
     m_startDateEdit(nullptr),
     m_endDateEdit(nullptr),

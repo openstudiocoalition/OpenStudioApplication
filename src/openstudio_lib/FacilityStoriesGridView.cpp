@@ -236,8 +236,8 @@ void FacilityStoriesGridView::onClearSelection() {
   //m_itemSelectorButtons->disablePurgeButton();
 }
 
-FacilityStoriesGridController::FacilityStoriesGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, const model::Model& model,
-                                                             const std::vector<model::ModelObject>& modelObjects)
+FacilityStoriesGridController::FacilityStoriesGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType,
+                                                             const model::Model& model, const std::vector<model::ModelObject>& modelObjects)
   : OSGridController(isIP, headerText, iddObjectType, model, modelObjects) {
   setCategoriesAndFields();
 }

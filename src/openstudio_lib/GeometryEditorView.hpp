@@ -151,8 +151,7 @@ class GbXmlEditor : public BaseEditor
   Q_OBJECT;
 
  public:
-  GbXmlEditor(const openstudio::path& gbXmlPath, bool isIP, const openstudio::model::Model& model, QWebEngineView* view,
-              QWidget* t_parent = nullptr);
+  GbXmlEditor(const openstudio::path& gbXmlPath, bool isIP, const openstudio::model::Model& model, QWebEngineView* view, QWidget* t_parent = nullptr);
   virtual ~GbXmlEditor();
 
  public slots:
