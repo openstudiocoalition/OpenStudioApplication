@@ -66,12 +66,12 @@ class OSUnsignedEdit2 : public QLineEdit
     return m_intValidator;
   }
 
-  void bind(model::ModelObject& modelObject, UnsignedGetter get, boost::optional<UnsignedSetter> set = boost::none,
+  void bind(const model::ModelObject& modelObject, UnsignedGetter get, boost::optional<UnsignedSetter> set = boost::none,
             boost::optional<NoFailAction> reset = boost::none, boost::optional<NoFailAction> autosize = boost::none,
             boost::optional<NoFailAction> autocalculate = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none,
             boost::optional<BasicQuery> isAutosized = boost::none, boost::optional<BasicQuery> isAutocalculated = boost::none);
 
-  void bind(model::ModelObject& modelObject, OptionalUnsignedGetter get, boost::optional<UnsignedSetter> set = boost::none,
+  void bind(const model::ModelObject& modelObject, OptionalUnsignedGetter get, boost::optional<UnsignedSetter> set = boost::none,
             boost::optional<NoFailAction> reset = boost::none, boost::optional<NoFailAction> autosize = boost::none,
             boost::optional<NoFailAction> autocalculate = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none,
             boost::optional<BasicQuery> isAutosized = boost::none, boost::optional<BasicQuery> isAutocalculated = boost::none);
@@ -144,7 +144,7 @@ class OSUnsignedEdit2 : public QLineEdit
 
 //   QIntValidator * intValidator() { return m_intValidator; }
 
-//   void bind(model::ModelObject& modelObject,
+//   void bind(const model::ModelObject& modelObject,
 //             const char* property,
 //             const boost::optional<std::string>& isDefaultedProperty = boost::none,
 //             const boost::optional<std::string>& isAutosizedProperty = boost::none,

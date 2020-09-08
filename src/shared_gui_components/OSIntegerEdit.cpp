@@ -56,7 +56,7 @@ OSIntegerEdit2::OSIntegerEdit2(QWidget* parent) : m_isScientific(false) {
 
 OSIntegerEdit2::~OSIntegerEdit2() {}
 
-void OSIntegerEdit2::bind(model::ModelObject& modelObject, IntGetter get, boost::optional<IntSetter> set, boost::optional<NoFailAction> reset,
+void OSIntegerEdit2::bind(const model::ModelObject& modelObject, IntGetter get, boost::optional<IntSetter> set, boost::optional<NoFailAction> reset,
                           boost::optional<NoFailAction> autosize, boost::optional<NoFailAction> autocalculate,
                           boost::optional<BasicQuery> isDefaulted, boost::optional<BasicQuery> isAutosized,
                           boost::optional<BasicQuery> isAutocalculated) {
@@ -73,7 +73,7 @@ void OSIntegerEdit2::bind(model::ModelObject& modelObject, IntGetter get, boost:
   completeBind();
 }
 
-void OSIntegerEdit2::bind(model::ModelObject& modelObject, OptionalIntGetter get, boost::optional<IntSetter> set, boost::optional<NoFailAction> reset,
+void OSIntegerEdit2::bind(const model::ModelObject& modelObject, OptionalIntGetter get, boost::optional<IntSetter> set, boost::optional<NoFailAction> reset,
                           boost::optional<NoFailAction> autosize, boost::optional<NoFailAction> autocalculate,
                           boost::optional<BasicQuery> isDefaulted, boost::optional<BasicQuery> isAutosized,
                           boost::optional<BasicQuery> isAutocalculated) {

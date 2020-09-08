@@ -57,7 +57,7 @@ OSUnsignedEdit2::OSUnsignedEdit2(QWidget* parent) : m_isScientific(false) {
 
 OSUnsignedEdit2::~OSUnsignedEdit2() {}
 
-void OSUnsignedEdit2::bind(model::ModelObject& modelObject, UnsignedGetter get, boost::optional<UnsignedSetter> set,
+void OSUnsignedEdit2::bind(const model::ModelObject& modelObject, UnsignedGetter get, boost::optional<UnsignedSetter> set,
                            boost::optional<NoFailAction> reset, boost::optional<NoFailAction> autosize, boost::optional<NoFailAction> autocalculate,
                            boost::optional<BasicQuery> isDefaulted, boost::optional<BasicQuery> isAutosized,
                            boost::optional<BasicQuery> isAutocalculated) {
@@ -74,7 +74,7 @@ void OSUnsignedEdit2::bind(model::ModelObject& modelObject, UnsignedGetter get, 
   completeBind();
 }
 
-void OSUnsignedEdit2::bind(model::ModelObject& modelObject, OptionalUnsignedGetter get, boost::optional<UnsignedSetter> set,
+void OSUnsignedEdit2::bind(const model::ModelObject& modelObject, OptionalUnsignedGetter get, boost::optional<UnsignedSetter> set,
                            boost::optional<NoFailAction> reset, boost::optional<NoFailAction> autosize, boost::optional<NoFailAction> autocalculate,
                            boost::optional<BasicQuery> isDefaulted, boost::optional<BasicQuery> isAutosized,
                            boost::optional<BasicQuery> isAutocalculated) {

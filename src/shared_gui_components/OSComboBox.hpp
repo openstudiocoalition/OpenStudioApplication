@@ -169,7 +169,7 @@ class OSComboBox2 : public QComboBox, public Nano::Observer
   }
 
   // interface for OSGridController bind
-  void bind(model::ModelObject& modelObject, std::shared_ptr<ChoiceConcept> choiceConcept) {
+  void bind(const model::ModelObject& modelObject, std::shared_ptr<ChoiceConcept> choiceConcept) {
     m_modelObject = modelObject;
     m_choiceConcept = choiceConcept;
     clear();
