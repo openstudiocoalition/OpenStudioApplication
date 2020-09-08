@@ -16,7 +16,17 @@ jobs:
       shell: bash
       run: |
           sudo snap install cppcheck
-          cppcheck --suppress=missingInclude --suppress=noExplicitConstructor --suppress=useStlAlgorithm --enable=all --inline-suppr --inconclusive --template='[{file}:{line}]:({severity}),[{id}],{message}' --force -q -j $(nproc) -i ./src/qtwinmigrate ./src  2>&1 | tee cppcheck.txt
+          cppcheck \
+            --suppress=missingInclude \
+            --suppress=noExplicitConstructor \
+            --suppress=useStlAlgorithm \
+            --inline-suppr \
+            --inconclusive \
+            --enable=all \
+            --template='[{file}:{line}]:({severity}),[{id}],{message}' \
+            --force -q -j $(nproc) \
+            -i ./src/qtwinmigrate \
+            ./src 2>&1 | tee cppcheck.txt
 
     - name: Parse and colorize cppcheck
       shell: bash
