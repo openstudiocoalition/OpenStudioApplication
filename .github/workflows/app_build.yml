@@ -183,7 +183,7 @@ jobs:
       uses: actions/cache@v2
       with:
         path: build/
-        key: ${{ runner.os }}-build-cache
+        key: ${{ matrix.os }}-build-cache
 
     - name: Did restoring the build-cache work? No
       # If the build cache wasn't found in the cache
@@ -207,7 +207,7 @@ jobs:
       uses: actions/cache@v2
       with:
         path: OpenStudio-${{ env.OS_SDK_VERSION }}
-        key: OpenStudio-SDK-${{ runner.os }}-${{ env.OS_SDK_VERSION }}
+        key: OpenStudio-SDK-${{ matrix.os }}-${{ env.OS_SDK_VERSION }}
 
     - name: Did restoring the build-cache or OpenStudioSDK cache work? Yes
       # If it wasn't found in the cache
@@ -267,7 +267,7 @@ jobs:
       uses: actions/cache@v2
       with:
         path: ~/.conan
-        key: ${{ runner.os }}-conan-cache
+        key: ${{ matrix.os }}-conan-cache
 
     - name: Did restoring the conan-cache work? No
       # If the SDK wasn't found in the cache
@@ -324,7 +324,7 @@ jobs:
       #uses: actions/cache@v2
       #with:
         #path: build/qt_5_11_*.tar.gz
-        #key: ${{ runner.os }}-qt-5-11-cache
+        #key: ${{ matrix.os }}-qt-5-11-cache
 
     #- name: Did restoring the qt cache work?
       ## If the SDK wasn't found in the cache
@@ -365,7 +365,7 @@ jobs:
       #if: ${{ failure() }}
       #uses: actions/upload-artifact@v2
       #with:
-          #name: ${{ runner.os }}-gdbm_config.log
+          #name: ${{ matrix.os }}-gdbm_config.log
           #path: ~/.conan/data/gdbm/1.18.1/_/_/build/**/source_subfolder/config.log
 
     - name: Build
