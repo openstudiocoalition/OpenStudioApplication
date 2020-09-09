@@ -1760,7 +1760,7 @@ void OSGridController::selectAllStateChanged(const int newState) const {
   }
 }
 
-void OSGridController::onInFocus(bool inFocus, bool hasData, int row, int column, boost::optional<int> subrow) {
+void OSGridController::onInFocus(bool inFocus, bool /*hasData*/, int row, int column, boost::optional<int> subrow) {
   // TODO: Why is hasData unused?
 
   // First thing to do is to check if row is 0, because that means that the apply button was clicked

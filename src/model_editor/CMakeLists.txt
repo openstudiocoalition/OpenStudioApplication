@@ -15,10 +15,6 @@ set(${target_name}_src
   AccessPolicyStore.cpp
   BridgeClasses.hpp
   BridgeClasses.cpp
-  ClassViewWidget.hpp
-  ClassViewWidget.cpp
-  EditorFrame.hpp
-  EditorFrame.cpp
   GithubReleases.hpp
   GithubReleases.cpp
   InspectorDialog.hpp
@@ -29,36 +25,18 @@ set(${target_name}_src
   ListWidget.cpp
   ModalDialogs.hpp
   ModalDialogs.cpp
-  ModelExplorer.hpp
-  ModelExplorer.cpp
-  modeltest.h
-  modeltest.cpp
-  ObjectExplorer.hpp
-  ObjectExplorer.cpp
   OSProgressBar.hpp
   OSProgressBar.cpp
   PathWatcher.hpp
   PathWatcher.cpp
   QMetaTypes.hpp
   QMetaTypes.cpp
-  tablemodel.h
-  tablemodel.cpp
   TableView.hpp
   TableView.cpp
   TableWidget.hpp
   TableWidget.cpp
   TestButton.hpp
   TestButton.cpp
-  treeitem.h
-  treeitem.cpp
-  treemodel.h
-  treemodel.cpp
-  TreeView.hpp
-  TreeView.cpp
-  TreeViewWidget.hpp
-  TreeViewWidget.cpp
-  ViewWidget.hpp
-  ViewWidget.cpp
   UserSettings.hpp
   UserSettings.cpp
   Utilities.hpp
@@ -73,25 +51,15 @@ set(${target_name}_src
 
 # lib moc files
 set(${target_name}_moc
-  ClassViewWidget.hpp
-  EditorFrame.hpp  
   InspectorDialog.hpp
   InspectorGadget.hpp
   ListWidget.hpp
-  modeltest.h
   ModalDialogs.hpp
-  ModelExplorer.hpp
-  ObjectExplorer.hpp
   PathWatcher.hpp
-  tablemodel.h
   TableView.hpp
   TableWidget.hpp
   TestButton.hpp
-  treemodel.h
-  TreeView.hpp
-  TreeViewWidget.hpp
   Utilities.hpp
-  ViewWidget.hpp
   IGPrecisionDialog.hpp
   IGLineEdit.hpp
   IGSpinBoxes.hpp
