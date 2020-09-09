@@ -45,6 +45,13 @@ jobs:
           BINARY_EXT: deb
           QT_OS_NAME: linux
           QT_ARCH: gcc_64
+        - os: ubuntu-20.04
+          PLATFORM_NAME: Linux
+          CPACK_BINARY_DEB: ON
+          CPACK_BINARY_IFW: OFF
+          BINARY_EXT: deb
+          QT_OS_NAME: linux
+          QT_ARCH: gcc_64
         - os: windows-2019
           PLATFORM_NAME: Windows
           CPACK_BINARY_DEB: OFF
