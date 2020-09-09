@@ -635,8 +635,7 @@ ScheduleDayView* ScheduleDayEditor::scheduleDayView() const {
 }
 
 void ScheduleDayEditor::fitInView() {
-  m_graphicsView->fitInView(
-    QRectF(m_scheduleDayView->focusStartTime(), 0.0, SCENEWIDTH / m_scheduleDayView->zoom() - 2.0, SCENEHEIGHT - 2.0));
+  m_graphicsView->fitInView(QRectF(m_scheduleDayView->focusStartTime(), 0.0, SCENEWIDTH / m_scheduleDayView->zoom() - 2.0, SCENEHEIGHT - 2.0));
 }
 
 void ScheduleDayEditor::resizeEvent(QResizeEvent* event) {
