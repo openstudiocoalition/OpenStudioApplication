@@ -458,10 +458,8 @@ void LocationView::update() {
 
             if (savePath.contains(".osm")) {
               savePath.chop(4);
-              if (epwPath) {
-                filePath = savePath + "/files/";
-                filePath += (epwPath.get().filename()).string().c_str();
-              }
+              filePath = savePath + "/files/";
+              filePath += (epwPath.get().filename()).string().c_str();
             }
 
             fileExists = QFile(filePath).exists();

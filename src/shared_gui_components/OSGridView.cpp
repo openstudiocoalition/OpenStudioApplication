@@ -328,17 +328,17 @@ void OSGridView::doRefresh() {
   }
 
   // TODO: JM 2019-01-03 : Unused!
-  [[maybe_unused]] bool has_add_row = false;
-  [[maybe_unused]] bool has_remove_row = false;
-  [[maybe_unused]] bool has_refresh_grid = false;
-  [[maybe_unused]] bool has_refresh_all = false;
+  //bool has_add_row = false;
+  //bool has_remove_row = false;
+  //bool has_refresh_grid = false;
+  //bool has_refresh_all = false;
 
-  for (const auto& r : m_queueRequests) {
-    if (r == AddRow) has_add_row = true;
-    if (r == RemoveRow) has_remove_row = true;
-    if (r == RefreshGrid) has_refresh_grid = true;
-    if (r == RefreshAll) has_refresh_all = true;
-  }
+  //for (const auto& r : m_queueRequests) {
+  //if (r == AddRow) has_add_row = true;
+  //if (r == RemoveRow) has_remove_row = true;
+  //if (r == RefreshGrid) has_refresh_grid = true;
+  //if (r == RefreshAll) has_refresh_all = true;
+  //}
 
   m_queueRequests.clear();
 

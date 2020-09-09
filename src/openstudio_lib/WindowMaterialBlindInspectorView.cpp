@@ -396,8 +396,8 @@ void WindowMaterialBlindInspectorView::onUpdate() {
   refresh();
 }
 
-void WindowMaterialBlindInspectorView::attach(openstudio::model::Blind& material) {
-  m_material = material;
+void WindowMaterialBlindInspectorView::attach(openstudio::model::Blind& blind) {
+  m_material = blind;
 
   // m_slatOrientation->bind(material,"slatOrientation");
   m_slatOrientation->bind<std::string>(*m_material, static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
@@ -603,7 +603,7 @@ void WindowMaterialBlindInspectorView::attach(openstudio::model::Blind& material
                            boost::optional<NoFailAction>(std::bind(&model::Blind::resetMaximumSlatAngle, m_material.get_ptr())), boost::none,
                            boost::none, boost::optional<BasicQuery>(std::bind(&model::Blind::isMaximumSlatAngleDefaulted, m_material.get_ptr())));
 
-  m_standardsInformationWidget->attach(material);
+  m_standardsInformationWidget->attach(blind);
 
   this->stackedWidget()->setCurrentIndex(1);
 }

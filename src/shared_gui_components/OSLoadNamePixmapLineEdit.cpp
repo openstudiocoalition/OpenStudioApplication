@@ -83,7 +83,7 @@ void OSLoadNamePixmapLineEdit::setIcon() {
   }
 }
 
-void OSLoadNamePixmapLineEdit::bind(model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetter> set,
+void OSLoadNamePixmapLineEdit::bind(const model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetter> set,
                                     boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted) {
   m_modelObject = modelObject;
 
@@ -92,7 +92,7 @@ void OSLoadNamePixmapLineEdit::bind(model::ModelObject& modelObject, StringGette
   completeBind();
 }
 
-void OSLoadNamePixmapLineEdit::bind(model::ModelObject& modelObject, OptionalStringGetter get, boost::optional<StringSetter> set,
+void OSLoadNamePixmapLineEdit::bind(const model::ModelObject& modelObject, OptionalStringGetter get, boost::optional<StringSetter> set,
                                     boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted) {
   m_modelObject = modelObject;
 
@@ -101,7 +101,7 @@ void OSLoadNamePixmapLineEdit::bind(model::ModelObject& modelObject, OptionalStr
   completeBind();
 }
 
-void OSLoadNamePixmapLineEdit::bind(model::ModelObject& modelObject, OptionalStringGetterBoolArg get,
+void OSLoadNamePixmapLineEdit::bind(const model::ModelObject& modelObject, OptionalStringGetterBoolArg get,
                                     boost::optional<StringSetterOptionalStringReturn> set, boost::optional<NoFailAction> reset,
                                     boost::optional<BasicQuery> isDefaulted) {
   m_modelObject = modelObject;

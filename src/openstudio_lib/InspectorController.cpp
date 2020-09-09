@@ -116,25 +116,15 @@ void InspectorController::layoutModelObject(model::OptionalModelObject& modelObj
 }
 
 void InspectorController::addBranchForZone(model::ThermalZone& zone) {
-  model::OptionalHVACComponent hvacComponent = m_modelObject->optionalCast<model::HVACComponent>();
-
-  model::OptionalAirLoopHVAC airLoop;
-
-  if (hvacComponent) {
-    airLoop = hvacComponent->airLoopHVAC();
-  }
-
-  if (airLoop) {
-    model::Model model = zone.model();
-
-    airLoop->multiAddBranchForZone(zone);
+  if (model::OptionalHVACComponent hvacComponent = m_modelObject->optionalCast<model::HVACComponent>()) {
+    if (model::OptionalAirLoopHVAC airLoop = hvacComponent->airLoopHVAC()) {
+      airLoop->multiAddBranchForZone(zone);
+    }
   }
 }
 
 void InspectorController::removeBranchForZone(model::ThermalZone& zone) {
-  model::OptionalAirLoopHVAC airLoop = zone.airLoopHVAC();
-
-  if (airLoop) {
+  if (model::OptionalAirLoopHVAC airLoop = zone.airLoopHVAC()) {
     airLoop->removeBranchForZone(zone);
   }
 }

@@ -834,7 +834,7 @@ bool MeasureManager::reset() {
   QUrl url(m_url);
   url.setPath("/reset");
 
-  std::string url_s = m_url.toString().toStdString();
+  // std::string url_s = m_url.toString().toStdString();
 
   QString data = QString("{}");
 
@@ -849,8 +849,8 @@ bool MeasureManager::reset() {
     Application::instance().processEvents();
   }
 
-  QString replyString = reply->readAll();
-  std::string s = replyString.toStdString();
+  // QString replyString = reply->readAll();
+  // std::string s = replyString.toStdString();
 
   bool result = true;
   if (reply->error() != QNetworkReply::NoError) {
@@ -874,7 +874,7 @@ bool MeasureManager::checkForLocalBCLUpdates() {
   QUrl url(m_url);
   url.setPath("/bcl_measures");
 
-  std::string url_s = m_url.toString().toStdString();
+  // std::string url_s = m_url.toString().toStdString();
 
   QString data = QString("{}");
 
@@ -889,8 +889,8 @@ bool MeasureManager::checkForLocalBCLUpdates() {
     Application::instance().processEvents();
   }
 
-  QString replyString = reply->readAll();
-  std::string s = replyString.toStdString();
+  // QString replyString = reply->readAll();
+  // std::string s = replyString.toStdString();
 
   bool result = true;
   if (reply->error() != QNetworkReply::NoError) {
@@ -914,7 +914,7 @@ bool MeasureManager::checkForUpdates(const openstudio::path& measureDir, bool fo
   QUrl url(m_url);
   url.setPath("/update_measures");
 
-  std::string url_s = m_url.toString().toStdString();
+  // std::string url_s = m_url.toString().toStdString();
 
   QString data = QString("{\"measures_dir\": \"") + toQString(measureDir) + QString("\", \"force_reload\": ") +
                  (force ? QString("true") : QString("false")) + QString("}");
@@ -930,8 +930,8 @@ bool MeasureManager::checkForUpdates(const openstudio::path& measureDir, bool fo
     Application::instance().processEvents();
   }
 
-  QString replyString = reply->readAll();
-  std::string s = replyString.toStdString();
+  // QString replyString = reply->readAll();
+  // std::string s = replyString.toStdString();
 
   bool result = true;
   if (reply->error() != QNetworkReply::NoError) {
@@ -1049,8 +1049,8 @@ void MeasureManager::duplicateSelectedMeasure() {
 //  return m_infoGetter;
 //}
 
-void MeasureManager::setLibraryController(const QSharedPointer<LocalLibraryController>& t_controller) {
-  m_libraryController = t_controller;
+void MeasureManager::setLibraryController(const QSharedPointer<LocalLibraryController>& t_libraryController) {
+  m_libraryController = t_libraryController;
 }
 
 }  // namespace openstudio

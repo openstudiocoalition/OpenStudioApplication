@@ -100,7 +100,7 @@ class ScheduleDayView : public QWidget
 
   double snap() const;
 
-  bool setFocusStartTime(double time);
+  bool setFocusStartTime(double proposedStartTime);
 
   double focusStartTime() const;
 
@@ -245,7 +245,7 @@ class ScheduleDayEditor : public QWidget
   Q_OBJECT
 
  public:
-  ScheduleDayEditor(bool isIP, ScheduleDayView* scheduleView, const model::ScheduleDay& scheduleDay);
+  ScheduleDayEditor(bool isIP, ScheduleDayView* scheduleDayView, const model::ScheduleDay& scheduleDay);
 
   virtual ~ScheduleDayEditor() {}
 
@@ -295,7 +295,7 @@ class DayScheduleScene : public QGraphicsScene, public Nano::Observer
   Q_OBJECT
 
  public:
-  DayScheduleScene(ScheduleDayView* scheduleRuleView, const model::ScheduleDay& scheduleDay);
+  DayScheduleScene(ScheduleDayView* scheduleDayView, const model::ScheduleDay& scheduleDay);
 
   virtual ~DayScheduleScene() {}
 
@@ -348,7 +348,7 @@ class DaySchedulePlotArea : public QGraphicsView
   Q_OBJECT
 
  public:
-  DaySchedulePlotArea(ScheduleDayEditor* mainScheduleView);
+  DaySchedulePlotArea(ScheduleDayEditor* scheduleDayEditor);
 
   virtual ~DaySchedulePlotArea() {}
 
@@ -538,7 +538,7 @@ class CalendarSegmentItem : public QGraphicsItem
 
   CalendarSegmentItem* previousCalendarItem() const;
 
-  void splitSegment(double time);
+  void splitSegment(double splitTime);
 
  protected:
   void setMouseDown(bool mouseDown);

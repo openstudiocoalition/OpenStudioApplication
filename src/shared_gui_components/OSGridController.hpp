@@ -191,7 +191,7 @@ class ObjectSelector : public QObject, public Nano::Observer
  public:
   ObjectSelector(OSGridController* t_grid);
 
-  void addWidget(const boost::optional<model::ModelObject>& t_obj, Holder* t_holder, int row, int column, const boost::optional<int>& subrow,
+  void addWidget(const boost::optional<model::ModelObject>& t_obj, Holder* t_holder, int t_row, int t_column, const boost::optional<int>& t_subrow,
                  bool t_selector);
   void setObjectSelection(const model::ModelObject& t_obj, bool t_selected);
   bool getObjectSelection(const model::ModelObject& t_obj) const;
@@ -224,7 +224,7 @@ class ObjectSelector : public QObject, public Nano::Observer
  private:
   void updateWidgets(const model::ModelObject& t_obj);
   void updateWidgets(const model::ModelObject& t_obj, const bool t_objectVisible);
-  void updateWidgets(const int t_row, const boost::optional<int>& t_subrow, bool t_selected, bool t_visible);
+  void updateWidgets(const int t_row, const boost::optional<int>& t_subrow, bool t_objectSelected, bool t_objectVisible);
   static std::function<bool(const model::ModelObject&)> getDefaultFilter();
 
   OSGridController* m_grid;
@@ -244,8 +244,8 @@ class OSGridController : public QObject, public Nano::Observer
   // This form utilizes the default implementations of
   // rowCount() and itemAt(), showing one row for each object
   // in the model that is iddObjectType
-  OSGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model model,
-                   std::vector<model::ModelObject> modelObjects);
+  OSGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, const model::Model& model,
+                   const std::vector<model::ModelObject>& modelObjects);
 
   virtual ~OSGridController();
 

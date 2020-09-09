@@ -58,7 +58,7 @@ class LightsDefinitionInspectorView : public ModelObjectInspectorView
   virtual void onUpdate() override;
 
  private:
-  void attach(openstudio::model::LightsDefinition& lightsDefinition);
+  void attach(const openstudio::model::LightsDefinition& lightsDefinition);
 
   void detach();
 

@@ -149,7 +149,6 @@
 #include <QPainter>
 #include <QPixmap>
 #include <QPushButton>
-#include <QStackedWidget>
 #include <QTimer>
 #include <QToolButton>
 #include <QVBoxLayout>

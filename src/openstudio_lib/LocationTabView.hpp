@@ -164,8 +164,8 @@ class LocationTabView : public MainTabView
 
   virtual ~LocationTabView();
 
- private:
-  LocationView* m_locationView;
+  //private:
+  //LocationView* m_locationView;
 };
 
 }  // namespace openstudio

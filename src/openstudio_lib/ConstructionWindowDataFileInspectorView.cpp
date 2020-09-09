@@ -90,7 +90,7 @@ void ConstructionWindowDataFileInspectorView::onSelectModelObject(const openstud
 
 void ConstructionWindowDataFileInspectorView::onUpdate() {}
 
-void ConstructionWindowDataFileInspectorView::attach(openstudio::model::WindowDataFile& windowDataFile) {
+void ConstructionWindowDataFileInspectorView::attach(const openstudio::model::WindowDataFile& windowDataFile) {
   m_windowDataFile = windowDataFile;
   // m_nameEdit->bind(windowDataFile,"name");
   m_nameEdit->bind(

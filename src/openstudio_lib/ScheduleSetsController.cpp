@@ -72,7 +72,7 @@ void ScheduleSetsController::onDrop(const OSItemId& itemId) {
   if (modelObject) {
     if (modelObject->optionalCast<model::DefaultScheduleSet>()) {
       if (this->fromComponentLibrary(itemId)) {
-        modelObject = modelObject->clone(this->model());
+        modelObject->clone(this->model());
       }
     }
   }

@@ -119,7 +119,7 @@ class UtilityBillsInspectorView : public ModelObjectInspectorView
   void hideAddButton();
   void enableAddButton();
   void disableAddButton();
-  void attach(openstudio::model::UtilityBill& utilityBill);
+  void attach(const openstudio::model::UtilityBill& utilityBill);
   void detach();
   void refresh();
 
@@ -179,7 +179,7 @@ class UtilityBillsInspectorView : public ModelObjectInspectorView
 
  private slots:
   void addBillingPeriod(bool checked);
-  void deleteBillingPeriod(int index);
+  void deleteBillingPeriod(int idx);
   void setBillFormat(int index);
   void setBillFormat(BillFormat billFormat);
   void updateEnergyUseLabelText(const QString& text);
@@ -194,11 +194,11 @@ class BillingPeriodWidget : public QWidget, public Nano::Observer
   Q_OBJECT
 
  public:
-  BillingPeriodWidget(model::BillingPeriod billingPeriod, FuelType fuelType, BillFormat billFormat, QWidget* parent = nullptr);
+  BillingPeriodWidget(model::BillingPeriod billingPeriod, const openstudio::FuelType& fuelType, BillFormat billFormat, QWidget* parent = nullptr);
 
   virtual ~BillingPeriodWidget() {}
 
-  void attach(openstudio::model::BillingPeriod& billingPeriod);
+  void attach(const openstudio::model::BillingPeriod& billingPeriod);
   void detach();
 
   QDateEdit* m_startDateEdit;
@@ -212,7 +212,7 @@ class BillingPeriodWidget : public QWidget, public Nano::Observer
   QPushButton* m_deleteBillWidget;
 
  private:
-  void createWidgets(FuelType fuelType, BillFormat billFormat);
+  void createWidgets(const FuelType& fuelType, BillFormat billFormat);
 
   boost::optional<model::BillingPeriod> m_billingPeriod;
 

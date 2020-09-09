@@ -65,7 +65,7 @@ MaterialsController::~MaterialsController() {}
 
 void MaterialsController::onAddObject(const openstudio::IddObjectType& iddObjectType) {
   model::Model model = this->model();
-  boost::optional<model::Material> mat;
+  [[maybe_unused]] boost::optional<model::Material> mat;
 
   switch (iddObjectType.value()) {
     case IddObjectType::OS_Material:
@@ -142,7 +142,7 @@ void MaterialsController::onDrop(const OSItemId& itemId) {
   if (modelObject) {
     if (modelObject->optionalCast<model::Material>()) {
       if (this->fromComponentLibrary(itemId)) {
-        modelObject = modelObject->clone(this->model());
+        modelObject->clone(this->model());
       }
     }
   } else {

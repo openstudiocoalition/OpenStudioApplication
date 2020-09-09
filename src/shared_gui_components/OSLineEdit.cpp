@@ -65,8 +65,8 @@ OSLineEdit2::OSLineEdit2(QWidget* parent) : QLineEdit(parent) {
 
 OSLineEdit2::~OSLineEdit2() {}
 
-void OSLineEdit2::bind(model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetter> set, boost::optional<NoFailAction> reset,
-                       boost::optional<BasicQuery> isDefaulted) {
+void OSLineEdit2::bind(const model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetter> set,
+                       boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted) {
   m_modelObject = modelObject;
   m_get = get;
   m_set = set;
@@ -76,7 +76,7 @@ void OSLineEdit2::bind(model::ModelObject& modelObject, StringGetter get, boost:
   completeBind();
 }
 
-void OSLineEdit2::bind(model::ModelObject& modelObject, OptionalStringGetter get, boost::optional<StringSetter> set,
+void OSLineEdit2::bind(const model::ModelObject& modelObject, OptionalStringGetter get, boost::optional<StringSetter> set,
                        boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted) {
   m_modelObject = modelObject;
   m_getOptional = get;
@@ -87,7 +87,7 @@ void OSLineEdit2::bind(model::ModelObject& modelObject, OptionalStringGetter get
   completeBind();
 }
 
-void OSLineEdit2::bind(model::ModelObject& modelObject, OptionalStringGetter get, boost::optional<StringSetterOptionalStringReturn> set,
+void OSLineEdit2::bind(const model::ModelObject& modelObject, OptionalStringGetter get, boost::optional<StringSetterOptionalStringReturn> set,
                        boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted) {
   m_modelObject = modelObject;
   m_getOptional = get;
@@ -98,7 +98,7 @@ void OSLineEdit2::bind(model::ModelObject& modelObject, OptionalStringGetter get
   completeBind();
 }
 
-void OSLineEdit2::bind(model::ModelObject& modelObject, OptionalStringGetterBoolArg get, boost::optional<StringSetterOptionalStringReturn> set,
+void OSLineEdit2::bind(const model::ModelObject& modelObject, OptionalStringGetterBoolArg get, boost::optional<StringSetterOptionalStringReturn> set,
                        boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted) {
   m_modelObject = modelObject;
   m_getOptionalBoolArg = get;
@@ -109,7 +109,7 @@ void OSLineEdit2::bind(model::ModelObject& modelObject, OptionalStringGetterBool
   completeBind();
 }
 
-void OSLineEdit2::bind(model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetterVoidReturn> set,
+void OSLineEdit2::bind(const model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetterVoidReturn> set,
                        boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted) {
   m_modelObject = modelObject;
   m_get = get;
@@ -170,10 +170,12 @@ void OSLineEdit2::onEditingFinished() {
       if (m_set) {
         result = (*m_set)(m_text);
       } else if (m_setOptionalStringReturn) {
-        auto optionalStringReturn = (*m_setOptionalStringReturn)(m_text);
-        if (optionalStringReturn) {
-          result = true;  // TODO
-        }
+        // TODO: should check the optionalStringReturn
+        (*m_setOptionalStringReturn)(m_text);
+        // auto optionalStringReturn = (*m_setOptionalStringReturn)(m_text);
+        //if (optionalStringReturn) {
+        //result = true;
+        //}
         result = true;
       } else if (m_setVoidReturn) {
         (*m_setVoidReturn)(m_text);

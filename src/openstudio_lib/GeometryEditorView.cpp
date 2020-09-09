@@ -496,7 +496,7 @@ void FloorspaceEditor::translateExport() {
       site.setName(m_originalSiteName);
       double latitude = m_floorplan->latitude();
       double longitude = m_floorplan->longitude();
-      if ((latitude != 0) && (latitude != 0)) {
+      if ((latitude != 0) && (longitude != 0)) {
         site.setLatitude(latitude);
         site.setLongitude(latitude);
       }
@@ -1022,13 +1022,13 @@ EditorWebView::EditorWebView(bool isIP, const openstudio::model::Model& model, Q
   m_mergeBtn->setEnabled(false);
 
   hLayout->addWidget(m_debugBtn, 0, Qt::AlignVCenter);
-  if (m_debugPort.isEmpty()) {
-    m_debugBtn->setVisible(false);
-    m_debugBtn->setEnabled(false);
-  } else {
-    m_debugBtn->setVisible(false);  // hide to simplify interface
-    m_debugBtn->setEnabled(false);
-  }
+  // if (m_debugPort.isEmpty()) {
+  m_debugBtn->setVisible(false);
+  m_debugBtn->setEnabled(false);
+  //} else {
+  //m_debugBtn->setVisible(false);  // hide to simplify interface
+  //m_debugBtn->setEnabled(false);
+  //}
 
   m_view = new QWebEngineView(this);
   m_view->settings()->setAttribute(QWebEngineSettings::WebAttribute::LocalContentCanAccessRemoteUrls, true);
@@ -1401,7 +1401,7 @@ void EditorWebView::onUnitSystemChange(bool t_isIP) {
 
 void EditorWebView::onLoadFinished(bool ok) {
 
-  QString title = m_view->title();
+  // QString title = m_view->title();
   if (ok) {
     if (m_baseEditor) {
 

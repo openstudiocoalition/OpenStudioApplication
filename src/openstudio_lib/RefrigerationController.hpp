@@ -79,7 +79,7 @@ class RefrigerationController : public QObject
 
   void zoomInOnSystem(const Handle& handle);
 
-  void zoomInOnSystem(model::RefrigerationSystem& refrigerationSystem);
+  void zoomInOnSystem(const model::RefrigerationSystem& refrigerationSystem);
 
   void zoomOutToSystemGridView();
 

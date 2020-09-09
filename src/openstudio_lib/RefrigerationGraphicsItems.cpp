@@ -701,8 +701,8 @@ void RefrigerationCondenserView::setCondenserName(const QString& name) {
   update();
 }
 
-void RefrigerationCondenserView::setCondenserId(const OSItemId& id) {
-  m_id = id;
+void RefrigerationCondenserView::setCondenserId(const OSItemId& condenserId) {
+  m_id = condenserId;
 
   removeButtonItem->setVisible(!m_id.itemId().isEmpty());
 

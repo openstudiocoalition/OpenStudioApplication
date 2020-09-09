@@ -133,7 +133,7 @@
 
 namespace openstudio {
 
-OSDocument::OSDocument(openstudio::model::Model library, const openstudio::path& resourcesPath, openstudio::model::OptionalModel model,
+OSDocument::OSDocument(const openstudio::model::Model& library, const openstudio::path& resourcesPath, openstudio::model::OptionalModel model,
                        QString filePath, bool isPlugin, int startTabIndex, int startSubTabIndex)
   : OSQObjectController(),
     m_compLibrary(library),
@@ -898,8 +898,8 @@ QString OSDocument::modelTempDir() const {
   return m_modelTempDir;
 }
 
-void OSDocument::setSavePath(const QString& filePath) {
-  m_savePath = filePath;
+void OSDocument::setSavePath(const QString& savePath) {
+  m_savePath = savePath;
   updateWindowFilePath();
 }
 

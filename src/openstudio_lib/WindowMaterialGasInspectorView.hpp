@@ -62,7 +62,7 @@ class WindowMaterialGasInspectorView : public ModelObjectInspectorView
  private:
   void createLayout();
 
-  void attach(openstudio::model::Gas& Gas);
+  void attach(openstudio::model::Gas& gas);
 
   void detach();
 

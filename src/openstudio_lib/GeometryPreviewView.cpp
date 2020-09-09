@@ -143,9 +143,9 @@ void PreviewWebView::onUnitSystemChange(bool t_isIP) {
   m_isIP = t_isIP;
 }
 
-void callWithResult(const QString& result) {
-  QString x = result;
-}
+// void callWithResult(const QString& result) {
+//   QString x = result;
+// }
 
 void PreviewWebView::onLoadFinished(bool ok) {
   QString title = m_view->title();

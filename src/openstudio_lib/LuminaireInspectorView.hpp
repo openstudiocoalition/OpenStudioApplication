@@ -58,7 +58,7 @@ class LuminaireDefinitionInspectorView : public ModelObjectInspectorView
   virtual void onUpdate() override;
 
  private:
-  void attach(openstudio::model::LuminaireDefinition& luminaireDefinition);
+  void attach(const openstudio::model::LuminaireDefinition& luminaireDefinition);
 
   void detach();
 

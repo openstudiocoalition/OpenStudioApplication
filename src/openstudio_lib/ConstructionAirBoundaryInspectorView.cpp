@@ -186,7 +186,7 @@ void ConstructionAirBoundaryInspectorView::onSelectModelObject(const openstudio:
 
 void ConstructionAirBoundaryInspectorView::onUpdate() {}
 
-void ConstructionAirBoundaryInspectorView::attach(openstudio::model::ConstructionAirBoundary& constructionAirBoundary) {
+void ConstructionAirBoundaryInspectorView::attach(const openstudio::model::ConstructionAirBoundary& constructionAirBoundary) {
   m_constructionAirBoundary = constructionAirBoundary;
 
   m_nameEdit->bind(*m_constructionAirBoundary,

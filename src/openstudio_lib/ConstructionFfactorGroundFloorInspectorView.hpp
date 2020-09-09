@@ -65,7 +65,7 @@ class ConstructionFfactorGroundFloorInspectorView : public ModelObjectInspectorV
  private:
   void createLayout();
 
-  void attach(openstudio::model::FFactorGroundFloorConstruction& fFactorGroundFloorConstruction);
+  void attach(const openstudio::model::FFactorGroundFloorConstruction& fFactorGroundFloorConstruction);
 
   void detach();
 

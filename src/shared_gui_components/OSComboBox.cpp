@@ -43,7 +43,8 @@
 
 namespace openstudio {
 
-OSObjectListCBDS::OSObjectListCBDS(const IddObjectType& type, const model::Model& model) : OSComboBoxDataSource(), m_model(model) {
+OSObjectListCBDS::OSObjectListCBDS(const IddObjectType& type, const model::Model& model)
+  : OSComboBoxDataSource(), m_allowEmptySelection(false), m_model(model) {
   m_types.push_back(type);
 
   initialize();
@@ -308,10 +309,8 @@ void OSComboBox2::completeBind() {
 
     connect(this, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentTextChanged), this, &OSComboBox2::onCurrentIndexChanged);
 
-    bool isConnected = false;
-
     if (isEditable()) {
-      isConnected = connect(this, SIGNAL(editTextChanged(const QString&)), this, SLOT(onEditTextChanged(const QString&)));
+      bool isConnected = connect(this, SIGNAL(editTextChanged(const QString&)), this, SLOT(onEditTextChanged(const QString&)));
       OS_ASSERT(isConnected);
     }
 

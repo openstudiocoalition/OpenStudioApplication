@@ -161,7 +161,7 @@ bool AccessParser::startElement(const QString& /*namespaceURI*/, const QString& 
       }
       IddObject obj = *opObj;
 
-      bool foundInFields = false;
+      [[maybe_unused]] bool foundInFields = false;
       for (unsigned int i = 0, iend = obj.numFields(); i < iend; ++i) {
         openstudio::OptionalIddField f = obj.getField(i);
         QString fieldName2(f->name().c_str());
@@ -183,6 +183,7 @@ bool AccessParser::startElement(const QString& /*namespaceURI*/, const QString& 
         }
       }
 
+      // TODO: should we return foundInFields here?
       return true;
     } else {
       LOG(Debug, "Parse error in <rule> need both IddField and Access attribute\n");

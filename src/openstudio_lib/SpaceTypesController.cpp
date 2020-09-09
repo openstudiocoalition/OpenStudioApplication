@@ -165,14 +165,15 @@ void SpaceTypesController::onDrop(const OSItemId& itemId) {
   if (modelObject) {
     if (modelObject->optionalCast<model::SpaceType>()) {
       if (this->fromComponentLibrary(itemId)) {
-        modelObject = modelObject->clone(this->model());
+        modelObject->clone(this->model());
       }
     }
   } else {
     boost::optional<model::Component> component = this->getComponent(itemId);
     if (component) {
       if (component->primaryObject().optionalCast<model::SpaceType>()) {
-        boost::optional<model::ComponentData> componentData = this->model().insertComponent(*component);
+        // boost::optional<model::ComponentData> componentData
+        this->model().insertComponent(*component);
       }
     }
   }

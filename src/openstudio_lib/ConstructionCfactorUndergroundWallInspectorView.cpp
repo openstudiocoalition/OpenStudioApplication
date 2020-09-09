@@ -148,7 +148,7 @@ void ConstructionCfactorUndergroundWallInspectorView::onSelectModelObject(const 
 void ConstructionCfactorUndergroundWallInspectorView::onUpdate() {}
 
 void ConstructionCfactorUndergroundWallInspectorView::attach(
-  openstudio::model::CFactorUndergroundWallConstruction& cFactorUndergroundWallConstruction) {
+  const openstudio::model::CFactorUndergroundWallConstruction& cFactorUndergroundWallConstruction) {
   m_cFactorUndergroundWallConstruction = cFactorUndergroundWallConstruction;
 
   // m_nameEdit->bind(cFactorUndergroundWallConstruction,"name");

@@ -279,7 +279,7 @@ void PeopleDefinitionInspectorView::onUpdate() {
   refresh();
 }
 
-void PeopleDefinitionInspectorView::attach(openstudio::model::PeopleDefinition& peopleDefinition) {
+void PeopleDefinitionInspectorView::attach(const openstudio::model::PeopleDefinition& peopleDefinition) {
   m_peopleDefinition = peopleDefinition;
   m_nameEdit->bind(*m_peopleDefinition, OptionalStringGetter(std::bind(&model::PeopleDefinition::name, m_peopleDefinition.get_ptr(), true)),
                    boost::optional<StringSetterOptionalStringReturn>(
@@ -423,7 +423,7 @@ void PeopleDefinitionInspectorView::checkButtons() {
     unsigned int numFields = m_peopleDefinition->numFields();
 
     unsigned int numNonEx = m_peopleDefinition->numNonextensibleFields();
-    if ((numFields - numNonEx) <= 0) {
+    if (numFields <= numNonEx) {
       removeBtn->setEnabled(false);
     } else {
       removeBtn->setEnabled(true);

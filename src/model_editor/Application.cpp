@@ -195,7 +195,7 @@ void ApplicationSingleton::removeSetting(const std::string& key) {
   settings.remove(toQString(key));
 }
 
-bool ApplicationSingleton::isDefaultInstance() {
+bool ApplicationSingleton::isDefaultInstance() const {
   return m_defaultInstance;
 }
 

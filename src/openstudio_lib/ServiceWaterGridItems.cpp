@@ -216,7 +216,7 @@ WaterUseConnectionsDetailItem::WaterUseConnectionsDetailItem(WaterUseConnections
 
   mainsSupplyItem->setGridPos(i, j + 3);
 
-  i = i + mainsSupplyItem->getHGridLength();
+  // i = i + mainsSupplyItem->getHGridLength();
 
   // Add branches
 
@@ -425,7 +425,7 @@ ServiceWaterItem::ServiceWaterItem(ServiceWaterScene* serviceWaterScene) : GridI
 
   mainsSupplyItem->setGridPos(i, j + 1);
 
-  i = i + mainsSupplyItem->getHGridLength();
+  // i = i + mainsSupplyItem->getHGridLength();
 
   // Add branches
 

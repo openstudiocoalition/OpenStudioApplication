@@ -60,13 +60,15 @@
 
 namespace openstudio {
 
-VRFController::VRFController() : QObject(), m_detailView(nullptr), m_dirty(false) {
-  m_currentSystem = boost::none;
-
-  m_vrfView = new VRFView();
+VRFController::VRFController()
+  : QObject(),
+    m_vrfView(new VRFView()),
+    m_vrfSystemGridView(new GridLayoutItem()),
+    m_detailView(nullptr),
+    m_currentSystem(boost::none),
+    m_dirty(false) {
   connect(m_vrfView->zoomOutButton, &QPushButton::clicked, this, &VRFController::zoomOutToSystemGridView);
 
-  m_vrfSystemGridView = new GridLayoutItem();
   m_vrfSystemGridView->setCellSize(VRFSystemMiniView::cellSize());
   m_vrfGridScene = QSharedPointer<QGraphicsScene>(new QGraphicsScene());
   m_vrfGridScene->addItem(m_vrfSystemGridView);
@@ -149,12 +151,12 @@ void VRFController::onVRFSystemViewDrop(const OSItemId& itemid) {
     }
   } else {
     if (auto component = doc->getComponent(itemid)) {
-      if (auto terminal = component->primaryObject().optionalCast<model::ZoneHVACTerminalUnitVariableRefrigerantFlow>()) {
+      if (component->primaryObject().optionalCast<model::ZoneHVACTerminalUnitVariableRefrigerantFlow>()) {
         // Ugly hack to avoid the component being treated as a resource.
         component->componentData().setString(OS_ComponentDataFields::UUID, toString(createUUID()));
         // std::cout << component->componentData().getString(OS_ComponentDataFields::UUID) << std::endl;;
         if (auto componentData = m_currentSystem->model().insertComponent(component.get())) {
-          terminal = componentData->primaryComponentObject().optionalCast<model::ZoneHVACTerminalUnitVariableRefrigerantFlow>();
+          auto terminal = componentData->primaryComponentObject().optionalCast<model::ZoneHVACTerminalUnitVariableRefrigerantFlow>();
           OS_ASSERT(terminal);
           m_currentSystem->addTerminal(terminal.get());
 
@@ -208,11 +210,11 @@ void VRFController::onVRFTerminalViewDrop(const OSItemId& terminalId, const OSIt
         }
       } else {
         if (auto component = doc->getComponent(terminalId)) {
-          if (auto terminal = component->primaryObject().optionalCast<model::ZoneHVACTerminalUnitVariableRefrigerantFlow>()) {
+          if (component->primaryObject().optionalCast<model::ZoneHVACTerminalUnitVariableRefrigerantFlow>()) {
             // Ugly hack to avoid the component being treated as a resource.
             component->componentData().setString(OS_ComponentDataFields::UUID, toString(createUUID()));
             if (auto componentData = m_currentSystem->model().insertComponent(component.get())) {
-              terminal = componentData->primaryComponentObject().optionalCast<model::ZoneHVACTerminalUnitVariableRefrigerantFlow>();
+              auto terminal = componentData->primaryComponentObject().optionalCast<model::ZoneHVACTerminalUnitVariableRefrigerantFlow>();
               OS_ASSERT(terminal);
               terminal->addToThermalZone(thermalZone.get());
 
@@ -253,7 +255,7 @@ void VRFController::onRemoveTerminalClicked(const OSItemId& terminalId) {
   refresh();
 }
 
-void VRFController::zoomInOnSystem(model::AirConditionerVariableRefrigerantFlow& system) {
+void VRFController::zoomInOnSystem(const model::AirConditionerVariableRefrigerantFlow& system) {
   m_currentSystem = system;
 
   std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
@@ -364,11 +366,11 @@ void VRFSystemListController::addSystem(const OSItemId& itemid) {
     }
   } else {
     if (auto component = doc->getComponent(itemid)) {
-      if (auto system = component->primaryObject().optionalCast<model::AirConditionerVariableRefrigerantFlow>()) {
+      if (component->primaryObject().optionalCast<model::AirConditionerVariableRefrigerantFlow>()) {
         // Ugly hack to avoid the component being treated as a resource.
         component->componentData().setString(OS_ComponentDataFields::UUID, toString(createUUID()));
         if (auto componentData = model->insertComponent(component.get())) {
-          system = componentData->primaryComponentObject().optionalCast<model::AirConditionerVariableRefrigerantFlow>();
+          auto system = componentData->primaryComponentObject().optionalCast<model::AirConditionerVariableRefrigerantFlow>();
           OS_ASSERT(system);
           emit itemInserted(systemIndex(system.get()));
         }

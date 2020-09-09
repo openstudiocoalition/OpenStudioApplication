@@ -60,7 +60,7 @@ class MaterialInfraredTransparentInspectorView : public ModelObjectInspectorView
  private:
   void createLayout();
 
-  void attach(openstudio::model::InfraredTransparentMaterial& InfraredTransparentMaterial);
+  void attach(openstudio::model::InfraredTransparentMaterial& infraredTransparentMaterial);
 
   void detach();
 

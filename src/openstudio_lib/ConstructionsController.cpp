@@ -101,7 +101,7 @@ void ConstructionsController::onDrop(const OSItemId& itemId) {
   if (modelObject) {
     if (modelObject->optionalCast<model::ConstructionBase>()) {
       if (this->fromComponentLibrary(itemId)) {
-        modelObject = modelObject->clone(this->model());
+        modelObject->clone(this->model());
       }
     }
   } else {

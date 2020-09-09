@@ -138,7 +138,7 @@ void InternalMassDefinitionInspectorView::onUpdate() {
   refresh();
 }
 
-void InternalMassDefinitionInspectorView::attach(openstudio::model::InternalMassDefinition& internalMassDefinition) {
+void InternalMassDefinitionInspectorView::attach(const openstudio::model::InternalMassDefinition& internalMassDefinition) {
   m_internalMassDefinition = internalMassDefinition;
 
   // m_nameEdit->bind(internalMassDefinition,"name");

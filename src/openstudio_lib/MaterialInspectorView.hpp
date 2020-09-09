@@ -64,7 +64,7 @@ class MaterialInspectorView : public ModelObjectInspectorView
  private:
   void createLayout();
 
-  void attach(openstudio::model::StandardOpaqueMaterial& material);
+  void attach(openstudio::model::StandardOpaqueMaterial& standardOpaqueMaterial);
 
   void detach();
 

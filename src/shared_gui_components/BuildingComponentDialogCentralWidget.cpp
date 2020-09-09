@@ -323,9 +323,9 @@ void BuildingComponentDialogCentralWidget::componentDownloadComplete(const std::
   } else {
     // error downloading component
     // find component in list by uid and re-enable
-    for (Component* component : m_collapsibleComponentList->components()) {
-      if (component->uid() == uid) {
-        component->checkBox()->setEnabled(true);
+    for (Component* comp : m_collapsibleComponentList->components()) {
+      if (comp->uid() == uid) {
+        comp->checkBox()->setEnabled(true);
         break;
       }
     }

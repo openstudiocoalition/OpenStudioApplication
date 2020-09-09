@@ -246,8 +246,10 @@ Component::Component(const Component& other) {
     m_fileReferences = other.m_fileReferences;
     m_provenances = other.m_provenances;
     m_tags = other.m_tags;
-    m_showAbridgedView = other.m_showAbridgedView;
-    m_showCheckBox = other.m_showCheckBox;
+
+    // TODO: why were we assigning to other.xxx then overriding with false?
+    // m_showAbridgedView = other.m_showAbridgedView;
+    // m_showCheckBox = other.m_showCheckBox;
 
     m_showAbridgedView = false;
     m_showCheckBox = false;
@@ -279,8 +281,10 @@ Component& Component::operator=(const Component& other) {
     m_fileReferences = other.m_fileReferences;
     m_provenances = other.m_provenances;
     m_tags = other.m_tags;
-    m_showAbridgedView = other.m_showAbridgedView;
-    m_showCheckBox = other.m_showCheckBox;
+
+    // TODO: why were we assigning to other.xxx then overriding with false?
+    // m_showAbridgedView = other.m_showAbridgedView;
+    // m_showCheckBox = other.m_showCheckBox;
 
     m_showAbridgedView = false;
     m_showCheckBox = false;
@@ -605,9 +609,9 @@ void Component::createCompleteLayout() {
     }
 
     // make the table show completely
-    int rowHeight = tableWidget->rowHeight(0);
-    int rowCount = tableWidget->rowCount();
-    int tableHeight = rowHeight * rowCount;
+    rowHeight = tableWidget->rowHeight(0);
+    rowCount = tableWidget->rowCount();
+    tableHeight = rowHeight * rowCount;
     tableWidget->setFixedHeight(tableHeight);
 
     label = new QLabel();

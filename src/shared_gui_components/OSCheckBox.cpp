@@ -45,7 +45,7 @@ OSCheckBox3::OSCheckBox3(QWidget* parent) : QCheckBox(parent) {
 
 OSCheckBox3::~OSCheckBox3() {}
 
-void OSCheckBox3::bind(model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetter> set, boost::optional<NoFailAction> reset,
+void OSCheckBox3::bind(const model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetter> set, boost::optional<NoFailAction> reset,
                        boost::optional<BasicQuery> isDefaulted) {
   m_modelObject = modelObject;
   m_get = get;
@@ -68,7 +68,7 @@ void OSCheckBox3::bind(model::ModelObject& modelObject, BoolGetter get, boost::o
   this->setChecked(checked);
 }
 
-void OSCheckBox3::bind(model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetterBoolReturn> set,
+void OSCheckBox3::bind(const model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetterBoolReturn> set,
                        boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted) {
   m_modelObject = modelObject;
   m_get = get;
@@ -166,7 +166,7 @@ OSCheckBox2::OSCheckBox2(QWidget* parent) : QPushButton(parent) {
   setEnabled(false);
 }
 
-void OSCheckBox2::bind(model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetter> set, boost::optional<NoFailAction> reset,
+void OSCheckBox2::bind(const model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetter> set, boost::optional<NoFailAction> reset,
                        boost::optional<BasicQuery> isDefaulted) {
   m_modelObject = modelObject;
   m_get = get;

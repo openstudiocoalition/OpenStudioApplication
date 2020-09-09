@@ -60,7 +60,7 @@ namespace openstudio {
 
 const QString OSItemId::BCL_SOURCE_ID = QString("BCL");
 
-OSItemId::OSItemId() {}
+OSItemId::OSItemId() : m_isDefaulted(false) {}
 
 OSItemId::OSItemId(const QString& itemId, const QString& sourceId, bool isDefaulted, const QString& otherData)
   : m_itemId(itemId), m_sourceId(sourceId), m_otherData(otherData), m_isDefaulted(isDefaulted) {}

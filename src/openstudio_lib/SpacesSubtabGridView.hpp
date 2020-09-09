@@ -80,9 +80,9 @@ class SpacesSubtabGridView : public GridViewSubTab
  protected:
   REGISTER_LOGGER("openstudio.SpacesSubtabGridView");
 
-  virtual void addObject(const openstudio::IddObjectType& iddObjectType);
+  virtual void addObject(const openstudio::IddObjectType& iddObjectType) override;
 
-  virtual void purgeObjects(const openstudio::IddObjectType& iddObjectType);
+  virtual void purgeObjects(const openstudio::IddObjectType& iddObjectType) override;
 
   void showStoryFilter();
 

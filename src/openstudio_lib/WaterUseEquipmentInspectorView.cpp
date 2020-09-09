@@ -305,7 +305,7 @@ void WaterUseEquipmentDefinitionInspectorView::onUpdate() {
   refresh();
 }
 
-void WaterUseEquipmentDefinitionInspectorView::attach(openstudio::model::WaterUseEquipmentDefinition& waterUseEquipmentDefinition) {
+void WaterUseEquipmentDefinitionInspectorView::attach(const openstudio::model::WaterUseEquipmentDefinition& waterUseEquipmentDefinition) {
   // m_nameEdit->bind(waterUseEquipmentDefinition,"name");
   m_waterUseEquipmentDefinition = waterUseEquipmentDefinition;
   m_nameEdit->bind(*m_waterUseEquipmentDefinition,

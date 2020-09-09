@@ -351,13 +351,13 @@ void YearSettingsWidget::refresh() {
     // DLM: this is not the right place for this code, however this is an example of how to get the start day
     // of week from the epw file.  The right approach would be to put all this in the model, however the model
     // would have to know the resource path.
-    boost::optional<EpwFile> epwFile;
-    boost::optional<model::WeatherFile> weatherFile = m_model.getOptionalUniqueModelObject<model::WeatherFile>();
-    if (weatherFile) {
-      std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
-      openstudio::path resourcesPath = openstudio::toPath(doc->modelTempDir()) / openstudio::toPath("resources");
-      epwFile = weatherFile->file(resourcesPath);
-    }
+    //boost::optional<EpwFile> epwFile;
+    //boost::optional<model::WeatherFile> weatherFile = m_model.getOptionalUniqueModelObject<model::WeatherFile>();
+    //if (weatherFile) {
+    //std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
+    //openstudio::path resourcesPath = openstudio::toPath(doc->modelTempDir()) / openstudio::toPath("resources");
+    //epwFile = weatherFile->file(resourcesPath);
+    //}
 
     // Refresh Daylight Savings Time
 

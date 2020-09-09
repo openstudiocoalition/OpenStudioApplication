@@ -49,10 +49,13 @@
 
 namespace openstudio {
 
-LifeCycleCostsTabView::LifeCycleCostsTabView(const model::Model& model, const QString& modelTempDir, QWidget* parent)
-  : MainTabView("Life Cycle Costs", MainTabView::SUB_TAB, parent) {}
+//LifeCycleCostsTabView::LifeCycleCostsTabView(const model::Model& model, const QString& modelTempDir, QWidget* parent)
+//: MainTabView("Life Cycle Costs", MainTabView::SUB_TAB, parent), m_lifeCycleCostsView(new LifeCycleCostsView(parent))
+//{
+//addTabWidget(m_lifeCycleCostsView);
+//}
 
-LifeCycleCostsTabView::~LifeCycleCostsTabView() {}
+//LifeCycleCostsTabView::~LifeCycleCostsTabView() {}
 
 LifeCycleCostsView::LifeCycleCostsView(const model::Model& model) : QWidget(), m_model(model) {
   m_lifeCycleCostParameters = m_model.getUniqueModelObject<model::LifeCycleCostParameters>();

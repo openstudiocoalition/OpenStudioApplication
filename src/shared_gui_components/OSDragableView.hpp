@@ -37,7 +37,7 @@ namespace openstudio {
 class OSDragPixmapData
 {
  public:
-  OSDragPixmapData(const QPixmap& pixmap, const QPoint& hotSpot);
+  OSDragPixmapData(const QPixmap& t_pixmap, const QPoint& t_hotSpot);
 
   virtual ~OSDragPixmapData() {}
 

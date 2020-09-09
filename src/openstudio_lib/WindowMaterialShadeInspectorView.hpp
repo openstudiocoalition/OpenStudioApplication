@@ -60,7 +60,7 @@ class WindowMaterialShadeInspectorView : public ModelObjectInspectorView
  private:
   void createLayout();
 
-  void attach(openstudio::model::Shade& Shade);
+  void attach(openstudio::model::Shade& shade);
 
   void detach();
 

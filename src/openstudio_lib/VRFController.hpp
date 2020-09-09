@@ -62,7 +62,7 @@ class VRFController : public QObject
 
  public slots:
 
-  void zoomInOnSystem(model::AirConditionerVariableRefrigerantFlow& system);
+  void zoomInOnSystem(const model::AirConditionerVariableRefrigerantFlow& system);
 
   void zoomOutToSystemGridView();
 
@@ -123,7 +123,7 @@ class VRFSystemListController : public OSListController
 
   void createNewSystem();
 
-  void removeSystem(model::AirConditionerVariableRefrigerantFlow& system);
+  void removeSystem(model::AirConditionerVariableRefrigerantFlow& vrfSystem);
 
  private:
   std::vector<model::AirConditionerVariableRefrigerantFlow> systems() const;

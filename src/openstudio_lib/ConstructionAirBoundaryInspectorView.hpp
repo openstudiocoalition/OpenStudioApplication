@@ -67,7 +67,7 @@ class ConstructionAirBoundaryInspectorView : public ModelObjectInspectorView
  private:
   void createLayout();
 
-  void attach(openstudio::model::ConstructionAirBoundary& constructionAirBoundary);
+  void attach(const openstudio::model::ConstructionAirBoundary& constructionAirBoundary);
 
   void detach();
 
