@@ -1,3 +1,5 @@
+name: Test release from existing Actions run
+
 on:
   workflow_dispatch:
     inputs:
