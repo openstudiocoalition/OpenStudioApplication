@@ -34,16 +34,14 @@ jobs:
 
     - name: Locate artifacts
       id: locate_artifacts
-      # curl --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' https://api.github.com/repos/openstudiocoalition/OpenStudioApplication/actions/artifacts > artifacts.json
       shell: bash
-      run:
+      run: |
         curl --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' https://api.github.com/repos/openstudiocoalition/OpenStudioApplication/actions/runs/247094624/artifacts > artifacts.json
         echo "PLATFORM_NAME=${{ env.PLATFORM_NAME }}"
         cat artifacts.json
         total_count=$(cat artifacts.json | jq -r '.total_count')
         echo "There are $total_count artifacts found"
         cat artifacts.json | jq -r '.artifacts | . [] | .name'
-
         urls=$(cat artifacts.json | jq -r '.artifacts | . [] | .archive_download_url')
         echo "::set-output name=URLS::${urls}"
 
