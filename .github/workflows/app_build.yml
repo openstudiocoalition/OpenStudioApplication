@@ -3,6 +3,9 @@ name: C++ CI for OpenStudioApplication
 on:
   push:
     branches: [ master ]
+    # Sequence of patterns matched against refs/tags
+    tags:
+      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
   pull_request:
     branches: [ master, develop ]
 
@@ -432,10 +435,33 @@ jobs:
           name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.os }}-Test.xml
           path: build/Testing/**/*.xml
 
+    - name: Create a release if triggered by a tag
+      id: create_release_tag
+      if: contains(github.ref, 'refs/tags')
+      uses: actions/create-release@v1.1.1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        body: |
+          Release Notes pending
+        draft: false
+        prerelease: true
+
+    - name: Release Asset Glob
+      if: contains(github.ref, 'refs/tags')
+      uses: shogo82148/actions-upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release_tag.outputs.upload_url }}
+        asset_path: ./OpenStudioApplication-*
+
     - name: Delete binary packages
       working-directory: ./build/
       shell: bash
       run: |
         ls OpenStudioApplication-*
         /bin/rm OpenStudioApplication-*${{ env.PLATFORM_NAME }}*
-        ls OpenStudioApplication-*
+        ls OpenStudioApplication-* || true
