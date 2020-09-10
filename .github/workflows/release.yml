@@ -1,0 +1,74 @@
+on:
+  workflow_dispatch:
+    inputs:
+      actions_run_id:
+        description: 'The Github Actions run ID in which we will find the artifacts'
+        required: true
+        default: '247094624'
+      commit_sha:
+        description: 'Commit SHA, for which you already have artifacts up and running'
+        required: true
+        default: '9e1e85bbf373159e051eaf6a752c61ca5de4e761'
+      tag_name:
+        description: 'tag name'
+        required: true
+        default: 'v1.1.0-alpha1'
+      release_name:
+        description: 'Release Name'
+        required: true
+        default: 'Test of XXXX feature / Release Candidate'
+
+
+jobs:
+  release_installers:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Print Input
+      shell: bash
+      run: |
+        echo "Actions run ID: ${{ github.event.inputs.actions_run_id }}"
+        echo "Commit SHA: ${{ github.event.inputs.commit_sha }}"
+        echo "Tag Name: ${{ github.event.inputs.tag_name }}"
+        echo "Release Name: ${{ github.event.inputs.release_name }}"
+
+    - name: Locate artifacts
+      id: locate_artifacts
+      # curl --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' https://api.github.com/repos/openstudiocoalition/OpenStudioApplication/actions/artifacts > artifacts.json
+      shell: bash
+      run:
+        curl --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' https://api.github.com/repos/openstudiocoalition/OpenStudioApplication/actions/runs/247094624/artifacts > artifacts.json
+        echo "PLATFORM_NAME=${{ env.PLATFORM_NAME }}"
+        cat artifacts.json
+        total_count=$(cat artifacts.json | jq -r '.total_count')
+        echo "There are $total_count artifacts found"
+        cat artifacts.json | jq -r '.artifacts | . [] | .name'
+
+        urls=$(cat artifacts.json | jq -r '.artifacts | . [] | .archive_download_url')
+        echo "::set-output name=URLS::${urls}"
+
+    - name: Print output of last?
+      shell: bash
+      run: |
+        echo "${{steps.locate_artifacts.outputs.URLS}}"
+        for url in "${{steps.locate_artifacts.outputs.URLS}}"; do
+          echo "$url"
+        done
+
+    #- name: Download installers
+      #uses: actions/download-artifact@v2
+      #with:
+        #name:
+
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1.1.1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.event.inputs.tag_name }}
+        release_name: ${{ github.event.inputs.release_name }}
+        body: |
+          Installer for ${{ github.event.inputs.commit_sha }}, see Github Actions run [${{ github.event.inputs.actions_run_id }}$](https://github.com/openstudiocoalition/OpenStudioApplication/actions/runs/${{ github.event.inputs.actions_run_id }}$)
+        draft: true
+        prerelease: true

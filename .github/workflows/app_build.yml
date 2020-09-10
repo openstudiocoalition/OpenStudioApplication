@@ -18,12 +18,12 @@ env:
   CPACK_BINARY_TGZ: ON
   CPACK_BINARY_TXZ: OFF
   CPACK_BINARY_TZ: OFF
-  CPACK_SOURCE_RPM:BOOL: OFF
-  CPACK_SOURCE_TBZ2:BOOL: OFF
-  CPACK_SOURCE_TGZ:BOOL: OFF
-  CPACK_SOURCE_TXZ:BOOL: OFF
-  CPACK_SOURCE_TZ:BOOL: OFF
-  CPACK_SOURCE_ZIP:BOOL: OFF
+  CPACK_SOURCE_RPM: OFF
+  CPACK_SOURCE_TBZ2: OFF
+  CPACK_SOURCE_TGZ: OFF
+  CPACK_SOURCE_TXZ: OFF
+  CPACK_SOURCE_TZ: OFF
+  CPACK_SOURCE_ZIP: OFF
   QT_VERSION: 5.15.0
   # CPACK_BINARY_DEB: OS-SPECIFIC
   # CPACK_BINARY_IFW: OS-SPECIFIC
@@ -42,32 +42,52 @@ jobs:
           PLATFORM_NAME: Linux
           CPACK_BINARY_DEB: ON
           CPACK_BINARY_IFW: OFF
+          CPACK_BINARY_TGZ: ON
+          CPACK_BINARY_ZIP: OFF
           BINARY_EXT: deb
+          COMPRESSED_EXT: tar.gz
+          BINARY_PKG_PATH: _CPack_Packages/Linux/DEB
+          COMPRESSED_PKG_PATH: _CPack_Packages/Linux/TGZ
           QT_OS_NAME: linux
           QT_ARCH: gcc_64
         - os: ubuntu-20.04
           PLATFORM_NAME: Linux
           CPACK_BINARY_DEB: ON
           CPACK_BINARY_IFW: OFF
+          CPACK_BINARY_TGZ: ON
+          CPACK_BINARY_ZIP: OFF
           BINARY_EXT: deb
+          COMPRESSED_EXT: tar.gz
+          BINARY_PKG_PATH: _CPack_Packages/Linux/DEB
+          COMPRESSED_PKG_PATH: _CPack_Packages/Linux/TGZ
           QT_OS_NAME: linux
           QT_ARCH: gcc_64
-        - os: windows-2019
-          PLATFORM_NAME: Windows
-          CPACK_BINARY_DEB: OFF
-          CPACK_BINARY_IFW: ON
-          BINARY_EXT: exe
-          QT_OS_NAME: windows
-          QT_ARCH: win64_msvc2019_64
         - os: macos-10.15
           PLATFORM_NAME: Darwin
           CPACK_BINARY_DEB: OFF
           CPACK_BINARY_IFW: ON
+          CPACK_BINARY_TGZ: ON
+          CPACK_BINARY_ZIP: OFF
           BINARY_EXT: dmg
+          COMPRESSED_EXT: tar.gz
+          BINARY_PKG_PATH: _CPack_Packages/Darwin/IFW
+          COMPRESSED_PKG_PATH: _CPack_Packages/Darwin/TGZ
           MACOSX_DEPLOYMENT_TARGET: 10.14
           SDKROOT: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
           QT_OS_NAME: mac
           QT_ARCH: clang_64
+        - os: windows-2019
+          PLATFORM_NAME: Windows
+          CPACK_BINARY_DEB: OFF
+          CPACK_BINARY_IFW: ON
+          CPACK_BINARY_TGZ: OFF
+          CPACK_BINARY_ZIP: ON
+          BINARY_EXT: exe
+          COMPRESSED_EXT: zip
+          BINARY_PKG_PATH: _CPack_Packages/win64/IFW
+          COMPRESSED_PKG_PATH: _CPack_Packages/win64/ZIP
+          QT_OS_NAME: windows
+          QT_ARCH: win64_msvc2019_64
 
     steps:
     - uses: actions/checkout@v2
@@ -147,7 +167,10 @@ jobs:
         echo "::set-env name=PLATFORM_NAME::${{ matrix.PLATFORM_NAME }}"
         echo "::set-env name=CPACK_BINARY_DEB::${{ matrix.CPACK_BINARY_DEB }}"
         echo "::set-env name=CPACK_BINARY_IFW::${{ matrix.CPACK_BINARY_IFW }}"
+        echo "::set-env name=CPACK_BINARY_ZIP::${{ matrix.CPACK_BINARY_ZIP }}"
+        echo "::set-env name=CPACK_BINARY_TGZ::${{ matrix.CPACK_BINARY_TGZ }}"
         echo "::set-env name=BINARY_EXT::${{ matrix.BINARY_EXT }}"
+        echo "::set-env name=COMPRESSED_EXT::${{ matrix.COMPRESSED_EXT }}"
 
         if [ "$RUNNER_OS" == "Linux" ]; then
           echo "Install needed system dependencies for OPENGL (due to Qt) for Linux"
@@ -192,11 +215,14 @@ jobs:
           echo "Build cache not found"
 
     - name: Did restoring the build-cache work? Yes
-      # If it wasn't found in the cache
+      # If it was found in the cache, list files, and Delete the packages already produced
       if: steps.cachebuild.outputs.cache-hit == 'true'
+      shell: bash
       run: |
           ls build/
           cat build/CMakeCache.txt
+          /bin/rm build/OpenStudioApplication-*${{ env.PLATFORM_NAME }}*
+          ls build/
 
     - name: Cache OpenStudio tar.gz
       # To avoid downloading the SDK all the time, we try to cache it.
@@ -350,7 +376,7 @@ jobs:
       # The CMake binaries on the Github Actions machines are (as of this writing) 3.12
       # NOTE: If you re-enable 'Download the OpenStudio installer' step, then pass `openstudio_DIR=$openstudio_DIR cmake [etc]`
       run: |
-        cmake $CMAKE_GENERATOR $GITHUB_WORKSPACE -DQT_INSTALL_DIR=$QT_INSTALL_DIR -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DBUILD_DOCUMENTATION=$DBUILD_DOCUMENTATION -DBUILD_TESTING=$BUILD_TESTING -DBUILD_PACKAGE=$BUILD_PACKAGE -DCPACK_BINARY_DEB=$CPACK_BINARY_DEB -DCPACK_BINARY_IFW=$CPACK_BINARY_IFW -DCPACK_BINARY_NSIS=$CPACK_BINARY_NSIS -DCPACK_BINARY_RPM=$CPACK_BINARY_RPM -DCPACK_BINARY_STGZ=$CPACK_BINARY_STGZ -DCPACK_BINARY_TBZ2=$CPACK_BINARY_TBZ2 -DCPACK_BINARY_TGZ=$CPACK_BINARY_TGZ -DCPACK_BINARY_TXZ=$CPACK_BINARY_TXZ -DCPACK_BINARY_TZ=$CPACK_BINARY_TZ -DCPACK_SOURCE_RPM=$CPACK_SOURCE_RPM -DCPACK_SOURCE_TBZ2=$CPACK_SOURCE_TBZ2 -DCPACK_SOURCE_TGZ=$CPACK_SOURCE_TGZ -DCPACK_SOURCE_TXZ=$CPACK_SOURCE_TXZ -DCPACK_SOURCE_TZ=$CPACK_SOURCE_TZ -DCPACK_SOURCE_ZIP=$CPACK_SOURCE_ZIP ../
+        cmake $CMAKE_GENERATOR $GITHUB_WORKSPACE -DQT_INSTALL_DIR=$QT_INSTALL_DIR -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DBUILD_DOCUMENTATION=$DBUILD_DOCUMENTATION -DBUILD_TESTING=$BUILD_TESTING -DBUILD_PACKAGE=$BUILD_PACKAGE -DCPACK_BINARY_DEB=$CPACK_BINARY_DEB -DCPACK_BINARY_IFW=$CPACK_BINARY_IFW -DCPACK_BINARY_NSIS=$CPACK_BINARY_NSIS -DCPACK_BINARY_RPM=$CPACK_BINARY_RPM -DCPACK_BINARY_STGZ=$CPACK_BINARY_STGZ -DCPACK_BINARY_TBZ2=$CPACK_BINARY_TBZ2 -DCPACK_BINARY_TGZ=$CPACK_BINARY_TGZ -DCPACK_BINARY_ZIP=$CPACK_BINARY_ZIP -DCPACK_BINARY_TXZ=$CPACK_BINARY_TXZ -DCPACK_BINARY_TZ=$CPACK_BINARY_TZ -DCPACK_SOURCE_RPM=$CPACK_SOURCE_RPM -DCPACK_SOURCE_TBZ2=$CPACK_SOURCE_TBZ2 -DCPACK_SOURCE_TGZ=$CPACK_SOURCE_TGZ -DCPACK_SOURCE_TXZ=$CPACK_SOURCE_TXZ -DCPACK_SOURCE_TZ=$CPACK_SOURCE_TZ -DCPACK_SOURCE_ZIP=$CPACK_SOURCE_ZIP ../
 
     # Note: JM 2020-07-22 This is an example of how to get a config log for a failed conan dependency build (no binary available)
     # This WILL be handy some day, so leave it here
@@ -380,14 +406,15 @@ jobs:
       # build/_CPack_Packages/Linux/DEB/*.deb
       # build/_CPack_Packages/Darwin/IFW/*.dmg
       with:
-          name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ env.PLATFORM_NAME }}.${{ env.BINARY_EXT }}
-          path: build/_CPack_Packages/*/*/*.${{ env.BINARY_EXT }}
+          name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.os }}.${{ env.BINARY_EXT }}
+          path: build/${{ matrix.BINARY_PKG_PATH }}/*.${{ env.BINARY_EXT }}
+          # path: build/_CPack_Packages/*/*/*.${{ env.BINARY_EXT }}
 
     - name: Archive TGZ artifacts
       uses: actions/upload-artifact@v2
       with:
-          name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ env.PLATFORM_NAME }}.tar.gz
-          path: build/_CPack_Packages/*/TGZ/*.tar.gz
+          name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.os }}.${{ env.COMPRESSED_EXT }}
+          path: build/${{ matrix.COMPRESSED_PKG_PATH }}/*.${{ env.COMPRESSED_EXT }}
 
     - name: Test
       working-directory: ./build
@@ -402,5 +429,13 @@ jobs:
     - name: Archive test results?
       uses: actions/upload-artifact@v2
       with:
-          name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ env.PLATFORM_NAME }}-Test.xml
+          name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.os }}-Test.xml
           path: build/Testing/**/*.xml
+
+    - name: Delete binary packages
+      working-directory: ./build/
+      shell: bash
+      run: |
+        ls OpenStudioApplication-*
+        /bin/rm OpenStudioApplication-*${{ env.PLATFORM_NAME }}*
+        ls OpenStudioApplication-*
