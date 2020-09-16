@@ -6,22 +6,22 @@ set(OPENSTUDIO_VERSION "${OPENSTUDIO_VERSION_MAJOR}.${OPENSTUDIO_VERSION_MINOR}.
 #If this is a release enter the SHA as "+79857912c4"
 #set(OPENSTUDIO_VERSION_SHA "+09b7c8a554")
 #If this is a pre-release enter the pre-release and SHA as "-rc1+79857912c4"
-set(OPENSTUDIO_VERSION_SHA "-alpha+fa9a77bf17")
+set(OPENSTUDIO_VERSION_SHA "-alpha+aefc63b9f9")
 
 # Paths where the cmake-downloaded archives will be put
 set(OPENSTUDIO_ARCHIVE_DIR "${PROJECT_BINARY_DIR}/OpenStudio-${OPENSTUDIO_VERSION}")
 
 # If downloaded, we need the SHA to match. This block is here since we need "OPENSTUDIO_PLATFORM" anyways
 if(APPLE)
-  set(OPENSTUDIO_EXPECTED_HASH 0cb1a5da9c07aa3710d81fc692e417d0)
+  set(OPENSTUDIO_EXPECTED_HASH c1def1c24d4f00cf86e8bd7788241306)
   set(OPENSTUDIO_PLATFORM "Darwin")
   set(OPENSTUDIO_EXT "tar.gz")
 elseif(UNIX)
-  set(OPENSTUDIO_EXPECTED_HASH d9d1d85b8fa22eaea1eed98b9b3f6919)
+  set(OPENSTUDIO_EXPECTED_HASH f03fe39bb55f025a31ee1f18ca453728)
   set(OPENSTUDIO_PLATFORM "Linux")
   set(OPENSTUDIO_EXT "tar.gz")
 elseif(WIN32)
-  set(OPENSTUDIO_EXPECTED_HASH 08a771da5c739e1da8a65bb5b252dffc)
+  set(OPENSTUDIO_EXPECTED_HASH TODO_08a771da5c739e1da8a65bb5b252dffc) # TODO
   set(OPENSTUDIO_PLATFORM "Windows")
   set(OPENSTUDIO_EXT "tar.gz")
 endif()
@@ -50,7 +50,11 @@ else()
     CACHE STRING "Base link to where the openstudio archives are hosted" FORCE)
 
   # base link for develop builds. (Using https will fail)
-  set(OPENSTUDIO_BASELINK_CI "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/develop"
+  # Note: this should be set to ""http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/develop" for nightly builds
+  # Occasionally we can point to a specific PR by using something like ""http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/incremental/develop/4080"
+  set(OPENSTUDIO_BASELINK_CI
+    # "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/develop"
+    "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/incremental/develop/4080"
     CACHE STRING "Base link to where the openstudio develop archives are hosted" FORCE)
 
   # Make subdir if it doesn't exist
