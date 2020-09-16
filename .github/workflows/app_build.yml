@@ -41,9 +41,9 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-18.04, ubuntu-20.04, windows-2019, macos-10.15]
-        allow_failure: [false]
         include:
         - os: ubuntu-18.04
+          allow_failure: false
           PLATFORM_NAME: Linux
           CPACK_BINARY_DEB: ON
           CPACK_BINARY_IFW: OFF
@@ -69,6 +69,7 @@ jobs:
           QT_OS_NAME: linux
           QT_ARCH: gcc_64
         - os: macos-10.15
+          allow_failure: false
           PLATFORM_NAME: Darwin
           CPACK_BINARY_DEB: OFF
           CPACK_BINARY_IFW: ON
@@ -83,6 +84,7 @@ jobs:
           QT_OS_NAME: mac
           QT_ARCH: clang_64
         - os: windows-2019
+          allow_failure: false
           PLATFORM_NAME: Windows
           CPACK_BINARY_DEB: OFF
           CPACK_BINARY_IFW: ON
