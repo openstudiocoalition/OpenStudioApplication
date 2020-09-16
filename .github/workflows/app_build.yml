@@ -225,10 +225,10 @@ jobs:
       if: steps.cachebuild.outputs.cache-hit == 'true'
       shell: bash
       run: |
-          ls build/
-          cat build/CMakeCache.txt
-          /bin/rm build/OpenStudioApplication-*${{ env.PLATFORM_NAME }}*
-          ls build/
+          ls build/ || true
+          cat build/CMakeCache.txt || true
+          /bin/rm build/OpenStudioApplication-*${{ env.PLATFORM_NAME }}* || true
+          ls build/ || true
 
     - name: Cache OpenStudio tar.gz
       # To avoid downloading the SDK all the time, we try to cache it.
