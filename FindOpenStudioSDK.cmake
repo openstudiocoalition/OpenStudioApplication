@@ -51,10 +51,10 @@ else()
 
   # base link for develop builds. (Using https will fail)
   # Note: this should be set to ""http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/develop" for nightly builds
-  # Occasionally we can point to a specific PR by using something like ""http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/incremental/develop/4080"
+  # Occasionally we can point to a specific PR by using something like ""http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/PR-4080"
   set(OPENSTUDIO_BASELINK_CI
     # "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/develop"
-    "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/incremental/develop/4080"
+    "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/PR-4080"
     CACHE STRING "Base link to where the openstudio develop archives are hosted" FORCE)
 
   # Make subdir if it doesn't exist
