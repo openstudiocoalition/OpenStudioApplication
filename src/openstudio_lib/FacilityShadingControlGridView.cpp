@@ -224,6 +224,13 @@ FacilityShadingControlGridView::FacilityShadingControlGridView(bool isIP, const 
   //layout->addWidget(m_subSurfaceTypeFilter, Qt::AlignTop | Qt::AlignLeft);
   //layout->addStretch();
   //filterGridLayout->addLayout(layout, filterGridLayout->rowCount() - 1, filterGridLayout->columnCount());
+
+  filterGridLayout->setRowStretch(filterGridLayout->rowCount(), 100);
+  filterGridLayout->setColumnStretch(filterGridLayout->columnCount(), 100);
+
+  m_gridView->m_contentLayout->addLayout(filterGridLayout);
+
+  m_gridView->m_contentLayout->addSpacing(7);
 }
 
 void FacilityShadingControlGridView::nameFilterChanged() {
@@ -328,17 +335,17 @@ void FacilityShadingControlGridView::purgeObjects(const IddObjectType& iddObject
 }
 
 void FacilityShadingControlGridView::onSelectItem() {
-  //m_itemSelectorButtons->enableAddButton();
-  //m_itemSelectorButtons->enableCopyButton();
-  //m_itemSelectorButtons->enableRemoveButton();
-  //m_itemSelectorButtons->enablePurgeButton();
+  m_itemSelectorButtons->enableAddButton();
+  m_itemSelectorButtons->enableCopyButton();
+  m_itemSelectorButtons->enableRemoveButton();
+  m_itemSelectorButtons->enablePurgeButton();
 }
 
 void FacilityShadingControlGridView::onClearSelection() {
-  m_itemSelectorButtons->disableAddButton();
-  //m_itemSelectorButtons->disableCopyButton();
-  //m_itemSelectorButtons->disableRemoveButton();
-  m_itemSelectorButtons->disablePurgeButton();
+  //m_itemSelectorButtons->disableAddButton();
+  m_itemSelectorButtons->disableCopyButton();
+  m_itemSelectorButtons->disableRemoveButton();
+  //m_itemSelectorButtons->disablePurgeButton();
 }
 
 FacilityShadingControlGridController::FacilityShadingControlGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType,
@@ -365,6 +372,7 @@ void FacilityShadingControlGridController::setCategoriesAndFields() {
     fields.push_back(SLATANGLESCHEDULENAME);
     fields.push_back(MULTIPLESURFACECONTROLTYPE);
     fields.push_back(SETPOINT2);
+    fields.push_back(SUBSURFACENAME);
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("General"), fields);
     m_categoriesAndFields.push_back(categoryAndFields);
   }
@@ -388,6 +396,13 @@ void FacilityShadingControlGridController::addColumns(const QString& category, s
       addNameLineEditColumn(Heading(QString(NAME), false, false), false, false,
                             CastNullAdapter<model::ShadingControl>(&model::ShadingControl::name),
                             CastNullAdapter<model::ShadingControl>(&model::ShadingControl::setName));
+    } else if (field == SELECTED) {
+      auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
+      checkbox->setToolTip("Check to select all rows");
+      connect(checkbox.data(), &QCheckBox::stateChanged, this, &FacilityShadingControlGridController::selectAllStateChanged);
+      connect(checkbox.data(), &QCheckBox::stateChanged, this->gridView(), &OSGridView::gridRowSelectionChanged);
+
+      addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row");
 
     } else if (field == SHADINGTYPE) {
       addComboBoxColumn<std::string, model::ShadingControl>(
@@ -475,82 +490,41 @@ void FacilityShadingControlGridController::addColumns(const QString& category, s
 
     } else {
 
-      std::function<std::vector<model::ModelObject>(const model::ShadingControl&)> allSubSurfacesForShadingControl(
-        [](const model::ShadingControl& t_shadingControl) {
-          auto subSurfaces = t_shadingControl.subSurfaces();
-          auto allModelObjects = subsetCastVector<model::ModelObject>(subSurfaces);
-          return allModelObjects;
-        });
-
-      if (field == SELECTED) {
-        auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
-        checkbox->setToolTip("Check to select all rows");
-        connect(checkbox.data(), &QCheckBox::stateChanged, this, &FacilityShadingControlGridController::selectAllStateChanged);
-        connect(checkbox.data(), &QCheckBox::stateChanged, this->gridView(), &OSGridView::gridRowSelectionChanged);
-
-        addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", DataSource(allSubSurfacesForShadingControl, true));
-
-
-      } else if (field == SUBSURFACENAME) {
+      if (field == SUBSURFACENAME) {
 
         // ValueType = model::SubSurface
         // DataSourceType = model::ShadingControl
 
+        std::function<boost::optional<model::ModelObject>(model::ShadingControl*)> getter;
 
-        // template <typename ValueType, typename DataSourceType>
-        // void addDropZoneColumn(const Heading& heading, std::function<boost::optional<ValueType>(DataSourceType*)> getter,
-        //                        std::function<bool(DataSourceType*, const ValueType&)> setter,
-        //                        boost::optional<std::function<void(DataSourceType*)>> reset = boost::none,
-        //                        boost::optional<std::function<bool(DataSourceType*)>> isDefaulted = boost::none,
-        //                        const boost::optional<DataSource>& t_source = boost::none) {
-        //   m_baseConcepts.push_back(makeDataSourceAdapter(
-        //     QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<ValueType, DataSourceType>(heading, getter, setter, reset)), t_source));
-        // }
-
-
-        // template <typename ValueType, typename DataSourceType>
-        // class DropZoneConceptImpl : public DropZoneConcept
-        // {
-        //  public:
-        //   DropZoneConceptImpl(const Heading& t_heading, std::function<boost::optional<ValueType>(DataSourceType*)> t_getter,
-        //                       std::function<bool(DataSourceType*, const ValueType&)> t_setter,
-        //                       boost::optional<std::function<void(DataSourceType*)>> t_reset = boost::none)
-        //     : DropZoneConcept(t_heading), m_getter(t_getter), m_setter(t_setter), m_reset(t_reset) {
-
-        std::function<boost::optional<model::SubSurface>(model::ShadingControl*)> getter;
-
-        std::function<bool(model::ShadingControl*, const model::SubSurface&)> setter([](model::ShadingControl* t_shadingControl, const model::SubSurface& t_arg) {
-          auto copy = t_arg;
-          return t_shadingControl->addSubSurface(copy);
+        std::function<bool(model::ShadingControl*, const model::ModelObject&)> setter([](model::ShadingControl* t_shadingControl, const model::ModelObject& t_mo) {
+          if (auto ss = t_mo.optionalCast<model::SubSurface>()) {
+            return t_shadingControl->addSubSurface(ss.get());
+          }
+          return false;
         });
 
+        std::function<void(model::ShadingControl*)> reset;
+        std::function<std::vector<model::ModelObject>(const model::ShadingControl&)> subSurfaces(
+          [](const model::ShadingControl& t_shadingControl) {
+            auto subSurfaces = t_shadingControl.subSurfaces();
+            auto allModelObjects = subsetCastVector<model::ModelObject>(subSurfaces);
+            return allModelObjects;
+          }
+        );
 
-        //  virtual void resetImpl(const ConceptProxy& t_obj) {
-        //    if (m_reset) {
-        //      DataSourceType obj = t_obj.cast<DataSourceType>();
-        //      (*m_reset)(&obj);
-        //    }
-        //  }
-        //  virtual bool setImpl(const ConceptProxy& t_obj, const ValueType& t_value) {
-        //    DataSourceType obj = t_obj.cast<DataSourceType>();
-        //    return m_setter(&obj, t_value);
-        //  }
-
-
-        //std::function<bool(model::ShadingControl*, const model::SubSurface&)> resetter([](model::ShadingControl* t_shadingControl, const model::SubSurface& t_arg) {
-          //auto copy = t_arg;
-          //return t_shadingControl->removeSubSurface(copy);
-        //});
-
-        boost::optional<std::function<void(model::ShadingControl*)>> resetter([](model::ShadingControl* t_sc) {
-            t_sc->removeSubSurface(t_sc->numberofSubSurfaces());
-        });
-
-        //addDropZoneColumn<model::SubSurface, model::ShadingControl>(Heading(QString(SUBSURFACENAME)),
-                          //CastNullAdapter<model::ShadingControl>(&model::ShadingControl::subSurfaces),
-                          //setter,
-                          //resetter,
-                          //boost::optional<std::function<bool(model::SubSurface*)>>(), DataSource(allSubSurfacesForShadingControl, true));
+        addNameLineEditColumn(Heading(QString(SUBSURFACENAME)), true, false, // Is Inspectable, but not Deletable
+                              CastNullAdapter<model::ModelObject>(&model::ModelObject::name),
+                              CastNullAdapter<model::ModelObject>(&model::ModelObject::setName),
+                              boost::optional<std::function<void(model::ModelObject*)>>(
+                                std::function<void(model::ModelObject*)>([](model::ModelObject* t_mo) {
+                                  if (auto ss = t_mo->optionalCast<model::SubSurface>()) {
+                                    ss->removeAllShadingControls();
+                                  }
+                                })),
+                              DataSource(subSurfaces, false,
+                                         QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<model::ModelObject, model::ShadingControl>(
+                                           Heading(SUBSURFACENAME), getter, setter, reset))));
 
       } else {
         // unhandled

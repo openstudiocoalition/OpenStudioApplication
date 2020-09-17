@@ -308,23 +308,6 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
           return allModelObjects;
         });
 
-      std::function<std::vector<boost::optional<model::ModelObject>>(const model::Space&)> allShadingControls(
-        [allSubSurfaces](const model::Space& t_space) {
-          std::vector<boost::optional<model::ModelObject>> allModelObjects;
-          std::vector<boost::optional<model::ShadingControl>> allShadingControls;
-          for (auto subSurface : allSubSurfaces(t_space)) {
-            auto shadingControl = subSurface.cast<model::SubSurface>().shadingControl();
-            if (shadingControl) {
-              allShadingControls.push_back(shadingControl);
-            } else {
-              allShadingControls.push_back(boost::optional<model::ShadingControl>());
-            }
-          }
-          allModelObjects.insert(allModelObjects.end(), allShadingControls.begin(), allShadingControls.end());
-
-          return allModelObjects;
-        });
-
       std::function<std::vector<boost::optional<model::ModelObject>>(const model::Space&)> allOutsideBoundaryConditionObjects(
         [allSubSurfaces](const model::Space& t_space) {
           std::vector<boost::optional<model::ModelObject>> allModelObjects;
