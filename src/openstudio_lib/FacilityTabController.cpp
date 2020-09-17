@@ -95,7 +95,8 @@ void FacilityTabController::setSubTab(int index) {
     case 3: {
       auto facilityShadingControlGridView = new FacilityShadingControlGridView(m_isIP, m_model);
       connect(this, &FacilityTabController::toggleUnitsClicked, facilityShadingControlGridView, &FacilityShadingControlGridView::toggleUnitsClicked);
-      connect(facilityShadingControlGridView, &FacilityShadingControlGridView::dropZoneItemSelected, this, &FacilityTabController::dropZoneItemSelected);
+      connect(facilityShadingControlGridView, &FacilityShadingControlGridView::dropZoneItemSelected, this,
+              &FacilityTabController::dropZoneItemSelected);
       this->mainContentWidget()->setSubTab(facilityShadingControlGridView);
       m_currentView = facilityShadingControlGridView;
       break;

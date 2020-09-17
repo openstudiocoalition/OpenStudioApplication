@@ -95,8 +95,7 @@
 namespace openstudio {
 
 FacilityShadingControlGridView::FacilityShadingControlGridView(bool isIP, const model::Model& model, QWidget* parent)
-  : GridViewSubTab(isIP, model, parent)
-{
+  : GridViewSubTab(isIP, model, parent) {
   std::vector<model::ShadingControl> shadingControls = model.getConcreteModelObjects<model::ShadingControl>();
   auto modelObjects = subsetCastVector<model::ModelObject>(shadingControls);
   std::sort(modelObjects.begin(), modelObjects.end(), openstudio::WorkspaceObjectNameLess());
@@ -155,7 +154,7 @@ FacilityShadingControlGridView::FacilityShadingControlGridView(bool isIP, const 
 
   m_shadingTypeFilter = new QComboBox();
   m_shadingTypeFilter->addItem("All");
-  for (const auto& t: model::ShadingControl::shadingTypeValues()) {
+  for (const auto& t : model::ShadingControl::shadingTypeValues()) {
     m_shadingTypeFilter->addItem(openstudio::toQString(t));
   }
   m_shadingTypeFilter->setFixedWidth(OSItem::ITEM_WIDTH);
@@ -175,11 +174,12 @@ FacilityShadingControlGridView::FacilityShadingControlGridView(bool isIP, const 
 
   m_shadingControlTypeFilter = new QComboBox();
   m_shadingControlTypeFilter->addItem("All");
-  for (const auto& t: model::ShadingControl::shadingControlTypeValues()) {
+  for (const auto& t : model::ShadingControl::shadingControlTypeValues()) {
     m_shadingControlTypeFilter->addItem(openstudio::toQString(t));
   }
   m_shadingControlTypeFilter->setFixedWidth(OSItem::ITEM_WIDTH);
-  connect(m_shadingControlTypeFilter, &QComboBox::currentTextChanged, this, &openstudio::FacilityShadingControlGridView::shadingControlTypeFilterChanged);
+  connect(m_shadingControlTypeFilter, &QComboBox::currentTextChanged, this,
+          &openstudio::FacilityShadingControlGridView::shadingControlTypeFilterChanged);
 
   layout->addWidget(m_shadingControlTypeFilter, Qt::AlignTop | Qt::AlignLeft);
   layout->addStretch();
@@ -204,7 +204,6 @@ FacilityShadingControlGridView::FacilityShadingControlGridView(bool isIP, const 
   layout->addStretch();
   filterGridLayout->addLayout(layout, filterGridLayout->rowCount() - 1, filterGridLayout->columnCount());
 
-
   // SUBSURFACETYPE
   //layout = new QVBoxLayout();
 
@@ -216,7 +215,7 @@ FacilityShadingControlGridView::FacilityShadingControlGridView(bool isIP, const 
   //m_subSurfaceTypeFilter = new QComboBox();
   //m_subSurfaceTypeFilter->addItem("All");
   //for (const auto& t: model::SubSurface::validSubSurfaceTypeValues()) {
-    //m_subSurfaceTypeFilter->addItem(openstudio::toQString(t));
+  //m_subSurfaceTypeFilter->addItem(openstudio::toQString(t));
   //}
   //m_subSurfaceTypeFilter->setFixedWidth(OSItem::ITEM_WIDTH);
   //connect(m_subSurfaceTypeFilter, &QComboBox::currentTextChanged, this, &openstudio::FacilityShadingControlGridView::subSurfaceTypeFilterChanged);
@@ -288,7 +287,7 @@ void FacilityShadingControlGridView::subSurfaceNameFilterChanged() {
   } else {
     for (auto obj : this->m_gridController->getObjectSelector()->m_selectorObjects) {
       bool found = false;
-      for (const auto subSurface: obj.cast<model::ShadingControl>().subSurfaces()) {
+      for (const auto subSurface : obj.cast<model::ShadingControl>().subSurfaces()) {
         QString objName(subSurface.name().get().c_str());
         if (objName.contains(m_subSurfaceNameFilter->text(), Qt::CaseInsensitive)) {
           found = true;
@@ -349,7 +348,8 @@ void FacilityShadingControlGridView::onClearSelection() {
 }
 
 FacilityShadingControlGridController::FacilityShadingControlGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType,
-                                                             const model::Model& model, const std::vector<model::ModelObject>& modelObjects)
+                                                                           const model::Model& model,
+                                                                           const std::vector<model::ModelObject>& modelObjects)
   : OSGridController(isIP, headerText, iddObjectType, model, modelObjects) {
   setCategoriesAndFields();
 }
@@ -393,8 +393,7 @@ void FacilityShadingControlGridController::addColumns(const QString& category, s
   for (const auto& field : fields) {
 
     if (field == NAME) {
-      addNameLineEditColumn(Heading(QString(NAME), false, false), false, false,
-                            CastNullAdapter<model::ShadingControl>(&model::ShadingControl::name),
+      addNameLineEditColumn(Heading(QString(NAME), false, false), false, false, CastNullAdapter<model::ShadingControl>(&model::ShadingControl::name),
                             CastNullAdapter<model::ShadingControl>(&model::ShadingControl::setName));
     } else if (field == SELECTED) {
       auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
@@ -405,30 +404,27 @@ void FacilityShadingControlGridController::addColumns(const QString& category, s
       addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row");
 
     } else if (field == SHADINGTYPE) {
-      addComboBoxColumn<std::string, model::ShadingControl>(
-        Heading(QString(SHADINGTYPE)), static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
-        std::function<std::vector<std::string>()>(&model::ShadingControl::shadingTypeValues),
-        CastNullAdapter<model::ShadingControl>(&model::ShadingControl::shadingType),
-        CastNullAdapter<model::ShadingControl>(&model::ShadingControl::setShadingType)
-      );
+      addComboBoxColumn<std::string, model::ShadingControl>(Heading(QString(SHADINGTYPE)),
+                                                            static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
+                                                            std::function<std::vector<std::string>()>(&model::ShadingControl::shadingTypeValues),
+                                                            CastNullAdapter<model::ShadingControl>(&model::ShadingControl::shadingType),
+                                                            CastNullAdapter<model::ShadingControl>(&model::ShadingControl::setShadingType));
 
     } else if (field == SHADINGCONTROLTYPE) {
       // TODO: this field will update depending fields, like clearing the Setpoint / Setpoint2 / ScheduleName
       // So when value changes, we should trigger a row refresh
-       addComboBoxColumn<std::string, model::ShadingControl>(
+      addComboBoxColumn<std::string, model::ShadingControl>(
         Heading(QString(SHADINGTYPE)), static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
         std::function<std::vector<std::string>()>(&model::ShadingControl::shadingControlTypeValues),
         CastNullAdapter<model::ShadingControl>(&model::ShadingControl::shadingControlType),
-        CastNullAdapter<model::ShadingControl>(&model::ShadingControl::setShadingControlType)
-      );
+        CastNullAdapter<model::ShadingControl>(&model::ShadingControl::setShadingControlType));
 
     } else if (field == MULTIPLESURFACECONTROLTYPE) {
       addComboBoxColumn<std::string, model::ShadingControl>(
         Heading(QString(SHADINGTYPE)), static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
         std::function<std::vector<std::string>()>(&model::ShadingControl::multipleSurfaceControlTypeValues),
         CastNullAdapter<model::ShadingControl>(&model::ShadingControl::multipleSurfaceControlType),
-        CastNullAdapter<model::ShadingControl>(&model::ShadingControl::setMultipleSurfaceControlType)
-      );
+        CastNullAdapter<model::ShadingControl>(&model::ShadingControl::setMultipleSurfaceControlType));
 
     } else if (field == TYPEOFSLATANGLECONTROLFORBLINDS) {
 
@@ -436,56 +432,41 @@ void FacilityShadingControlGridController::addColumns(const QString& category, s
         Heading(QString(SHADINGTYPE)), static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
         std::function<std::vector<std::string>()>(&model::ShadingControl::typeofSlatAngleControlforBlindsValues),
         CastNullAdapter<model::ShadingControl>(&model::ShadingControl::typeofSlatAngleControlforBlinds),
-        CastNullAdapter<model::ShadingControl>(&model::ShadingControl::setTypeofSlatAngleControlforBlinds)
-      );
+        CastNullAdapter<model::ShadingControl>(&model::ShadingControl::setTypeofSlatAngleControlforBlinds));
 
     } else if (field == SCHEDULENAME) {
-      std::function<bool(model::ShadingControl*, const model::Schedule&)> setter([](model::ShadingControl* sc, const model::Schedule& s) {
-        return sc->setSchedule(s);
-      });
+      std::function<bool(model::ShadingControl*, const model::Schedule&)> setter(
+        [](model::ShadingControl* sc, const model::Schedule& s) { return sc->setSchedule(s); });
 
       addDropZoneColumn(
-        Heading(QString(SCHEDULENAME)),
-        CastNullAdapter<model::ShadingControl>(&model::ShadingControl::schedule),
-        setter,
+        Heading(QString(SCHEDULENAME)), CastNullAdapter<model::ShadingControl>(&model::ShadingControl::schedule), setter,
         boost::optional<std::function<void(model::ShadingControl*)>>(CastNullAdapter<model::ShadingControl>(&model::ShadingControl::resetSchedule)));
 
-
     } else if (field == SLATANGLESCHEDULENAME) {
-      std::function<bool(model::ShadingControl*, const model::Schedule&)> setter([](model::ShadingControl* sc, const model::Schedule& s) {
-        return sc->setSlatAngleSchedule(s);
-      });
+      std::function<bool(model::ShadingControl*, const model::Schedule&)> setter(
+        [](model::ShadingControl* sc, const model::Schedule& s) { return sc->setSlatAngleSchedule(s); });
 
-      addDropZoneColumn(
-        Heading(QString(SLATANGLESCHEDULENAME)),
-        CastNullAdapter<model::ShadingControl>(&model::ShadingControl::slatAngleSchedule),
-        setter,
-        boost::optional<std::function<void(model::ShadingControl*)>>(CastNullAdapter<model::ShadingControl>(&model::ShadingControl::resetSlatAngleSchedule)));
-
+      addDropZoneColumn(Heading(QString(SLATANGLESCHEDULENAME)), CastNullAdapter<model::ShadingControl>(&model::ShadingControl::slatAngleSchedule),
+                        setter,
+                        boost::optional<std::function<void(model::ShadingControl*)>>(
+                          CastNullAdapter<model::ShadingControl>(&model::ShadingControl::resetSlatAngleSchedule)));
 
     } else if (field == CONSTRUCTIONWITHSHADINGNAME) {
     } else if (field == SHADINGDEVICEMATERIALNAME) {
 
     } else if (field == SHADINGCONTROLISSCHEDULED) {
 
-
     } else if (field == GLARECONTROLISACTIVE) {
 
     } else if (field == SETPOINT) {
       // This field is very poorly implemented in the SDK, since the getter returns an optional, BUT it has a isDefaulted method due to the fact that a default
       // is provided by only one of the Shading Control Types... So it doesn't match any addValueEditColumn prototypes that takes isDefaulted
-      addValueEditColumn(
-        Heading(QString(SETPOINT)),
-        NullAdapter(&model::ShadingControl::setpoint),
-        NullAdapter(&model::ShadingControl::setSetpoint),
-        boost::optional<DataSource>());
+      addValueEditColumn(Heading(QString(SETPOINT)), NullAdapter(&model::ShadingControl::setpoint), NullAdapter(&model::ShadingControl::setSetpoint),
+                         boost::optional<DataSource>());
 
     } else if (field == SETPOINT2) {
-      addValueEditColumn(
-        Heading(QString(SETPOINT2)),
-        NullAdapter(&model::ShadingControl::setpoint2),
-        NullAdapter(&model::ShadingControl::setSetpoint2),
-        boost::optional<DataSource>());
+      addValueEditColumn(Heading(QString(SETPOINT2)), NullAdapter(&model::ShadingControl::setpoint2),
+                         NullAdapter(&model::ShadingControl::setSetpoint2), boost::optional<DataSource>());
 
     } else {
 
@@ -496,35 +477,33 @@ void FacilityShadingControlGridController::addColumns(const QString& category, s
 
         std::function<boost::optional<model::ModelObject>(model::ShadingControl*)> getter;
 
-        std::function<bool(model::ShadingControl*, const model::ModelObject&)> setter([](model::ShadingControl* t_shadingControl, const model::ModelObject& t_mo) {
-          if (auto ss = t_mo.optionalCast<model::SubSurface>()) {
-            return t_shadingControl->addSubSurface(ss.get());
-          }
-          return false;
-        });
+        std::function<bool(model::ShadingControl*, const model::ModelObject&)> setter(
+          [](model::ShadingControl* t_shadingControl, const model::ModelObject& t_mo) {
+            if (auto ss = t_mo.optionalCast<model::SubSurface>()) {
+              return t_shadingControl->addSubSurface(ss.get());
+            }
+            return false;
+          });
 
         std::function<void(model::ShadingControl*)> reset;
-        std::function<std::vector<model::ModelObject>(const model::ShadingControl&)> subSurfaces(
-          [](const model::ShadingControl& t_shadingControl) {
-            auto subSurfaces = t_shadingControl.subSurfaces();
-            auto allModelObjects = subsetCastVector<model::ModelObject>(subSurfaces);
-            return allModelObjects;
-          }
-        );
+        std::function<std::vector<model::ModelObject>(const model::ShadingControl&)> subSurfaces([](const model::ShadingControl& t_shadingControl) {
+          auto subSurfaces = t_shadingControl.subSurfaces();
+          auto allModelObjects = subsetCastVector<model::ModelObject>(subSurfaces);
+          return allModelObjects;
+        });
 
-        addNameLineEditColumn(Heading(QString(SUBSURFACENAME)), true, false, // Is Inspectable, but not Deletable
-                              CastNullAdapter<model::ModelObject>(&model::ModelObject::name),
-                              CastNullAdapter<model::ModelObject>(&model::ModelObject::setName),
-                              boost::optional<std::function<void(model::ModelObject*)>>(
-                                std::function<void(model::ModelObject*)>([](model::ModelObject* t_mo) {
-                                  if (auto ss = t_mo->optionalCast<model::SubSurface>()) {
-                                    // TODO: Ideally we should remove the subSurface only from the current Shading Control, but I don't see how...
-                                    ss->removeAllShadingControls();
-                                  }
-                                })),
-                              DataSource(subSurfaces, false,
-                                         QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<model::ModelObject, model::ShadingControl>(
-                                           Heading(SUBSURFACENAME), getter, setter, reset))));
+        addNameLineEditColumn(
+          Heading(QString(SUBSURFACENAME)), true, false,  // Is Inspectable, but not Deletable
+          CastNullAdapter<model::ModelObject>(&model::ModelObject::name), CastNullAdapter<model::ModelObject>(&model::ModelObject::setName),
+          boost::optional<std::function<void(model::ModelObject*)>>(std::function<void(model::ModelObject*)>([](model::ModelObject* t_mo) {
+            if (auto ss = t_mo->optionalCast<model::SubSurface>()) {
+              // TODO: Ideally we should remove the subSurface only from the current Shading Control, but I don't see how...
+              ss->removeAllShadingControls();
+            }
+          })),
+          DataSource(subSurfaces, false,
+                     QSharedPointer<DropZoneConcept>(
+                       new DropZoneConceptImpl<model::ModelObject, model::ShadingControl>(Heading(SUBSURFACENAME), getter, setter, reset))));
 
       } else {
         // unhandled

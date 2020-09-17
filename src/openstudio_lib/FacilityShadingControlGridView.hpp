@@ -103,7 +103,6 @@ class FacilityShadingControlGridView : public GridViewSubTab
   void subSurfaceNameFilterChanged();
 
   // void subSurfaceTypeFilterChanged(const QString& text);
-
 };
 
 class FacilityShadingControlGridController : public OSGridController
@@ -113,7 +112,7 @@ class FacilityShadingControlGridController : public OSGridController
 
  public:
   FacilityShadingControlGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, const model::Model& model,
-                                const std::vector<model::ModelObject>& modelObjects);
+                                       const std::vector<model::ModelObject>& modelObjects);
 
   virtual ~FacilityShadingControlGridController() {}
 
