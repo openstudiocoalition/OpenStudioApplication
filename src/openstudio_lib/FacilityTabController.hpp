@@ -49,6 +49,7 @@ class FacilityTabController : public MainTabController
     BUILDING,
     STORIES,
     SHADING,
+    SHADINGCONTROL,
     EXTERIOR_EQUIPMENT
   };
 

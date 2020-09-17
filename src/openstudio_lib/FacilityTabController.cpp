@@ -32,6 +32,7 @@
 #include "BuildingInspectorView.hpp"
 #include "FacilityExteriorEquipmentGridView.hpp"
 #include "FacilityShadingGridView.hpp"
+#include "FacilityShadingControlGridView.hpp"
 #include "FacilityStoriesGridView.hpp"
 #include "FacilityTabView.hpp"
 
@@ -42,6 +43,7 @@ FacilityTabController::FacilityTabController(bool isIP, const model::Model& mode
   mainContentWidget()->addSubTab("Building", BUILDING);
   mainContentWidget()->addSubTab("Stories", STORIES);
   mainContentWidget()->addSubTab("Shading", SHADING);
+  mainContentWidget()->addSubTab("Shading Controls", SHADINGCONTROL);
   mainContentWidget()->addSubTab("Exterior Equipment", EXTERIOR_EQUIPMENT);
 
   connect(this->mainContentWidget(), &MainTabView::tabSelected, this, &FacilityTabController::setSubTab);
@@ -91,6 +93,14 @@ void FacilityTabController::setSubTab(int index) {
       break;
     }
     case 3: {
+      auto facilityShadingControlGridView = new FacilityShadingControlGridView(m_isIP, m_model);
+      connect(this, &FacilityTabController::toggleUnitsClicked, facilityShadingControlGridView, &FacilityShadingControlGridView::toggleUnitsClicked);
+      connect(facilityShadingControlGridView, &FacilityShadingControlGridView::dropZoneItemSelected, this, &FacilityTabController::dropZoneItemSelected);
+      this->mainContentWidget()->setSubTab(facilityShadingControlGridView);
+      m_currentView = facilityShadingControlGridView;
+      break;
+    }
+    case 4: {
       auto facilityExteriorEquipmentGridView = new FacilityExteriorEquipmentGridView(m_isIP, m_model);
       connect(this, &FacilityTabController::toggleUnitsClicked, facilityExteriorEquipmentGridView,
               &FacilityExteriorEquipmentGridView::toggleUnitsClicked);

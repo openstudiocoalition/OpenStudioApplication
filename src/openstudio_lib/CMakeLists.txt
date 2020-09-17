@@ -51,6 +51,8 @@ set(${target_name}_SRC
   FacilityExteriorEquipmentGridView.hpp
   FacilityShadingGridView.cpp
   FacilityShadingGridView.hpp
+  FacilityShadingControlGridView.cpp
+  FacilityShadingControlGridView.hpp
   FacilityStoriesGridView.cpp
   FacilityStoriesGridView.hpp
   FacilityTabController.cpp
@@ -493,6 +495,7 @@ set(${target_name}_moc
   EMSInspectorView.hpp
   FacilityExteriorEquipmentGridView.hpp
   FacilityShadingGridView.hpp
+  FacilityShadingControlGridView.hpp
   FacilityStoriesGridView.hpp
   FacilityTabController.hpp
   FacilityTabView.hpp
