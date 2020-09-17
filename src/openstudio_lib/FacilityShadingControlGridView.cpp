@@ -413,6 +413,8 @@ void FacilityShadingControlGridController::addColumns(const QString& category, s
       );
 
     } else if (field == SHADINGCONTROLTYPE) {
+      // TODO: this field will update depending fields, like clearing the Setpoint / Setpoint2 / ScheduleName
+      // So when value changes, we should trigger a row refresh
        addComboBoxColumn<std::string, model::ShadingControl>(
         Heading(QString(SHADINGTYPE)), static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
         std::function<std::vector<std::string>()>(&model::ShadingControl::shadingControlTypeValues),
@@ -519,6 +521,7 @@ void FacilityShadingControlGridController::addColumns(const QString& category, s
                               boost::optional<std::function<void(model::ModelObject*)>>(
                                 std::function<void(model::ModelObject*)>([](model::ModelObject* t_mo) {
                                   if (auto ss = t_mo->optionalCast<model::SubSurface>()) {
+                                    // TODO: Ideally we should remove the subSurface only from the current Shading Control, but I don't see how...
                                     ss->removeAllShadingControls();
                                   }
                                 })),
