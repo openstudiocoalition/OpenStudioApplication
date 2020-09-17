@@ -6,18 +6,18 @@ set(OPENSTUDIO_VERSION "${OPENSTUDIO_VERSION_MAJOR}.${OPENSTUDIO_VERSION_MINOR}.
 #If this is a release enter the SHA as "+79857912c4"
 #set(OPENSTUDIO_VERSION_SHA "+09b7c8a554")
 #If this is a pre-release enter the pre-release and SHA as "-rc1+79857912c4"
-set(OPENSTUDIO_VERSION_SHA "-alpha+aefc63b9f9")
+set(OPENSTUDIO_VERSION_SHA "-alpha+e454bfaffb")
 
 # Paths where the cmake-downloaded archives will be put
 set(OPENSTUDIO_ARCHIVE_DIR "${PROJECT_BINARY_DIR}/OpenStudio-${OPENSTUDIO_VERSION}")
 
 # If downloaded, we need the SHA to match. This block is here since we need "OPENSTUDIO_PLATFORM" anyways
 if(APPLE)
-  set(OPENSTUDIO_EXPECTED_HASH c1def1c24d4f00cf86e8bd7788241306)
+  set(OPENSTUDIO_EXPECTED_HASH 4eabc4a81dda2b34eb57a4e3414e2f84)
   set(OPENSTUDIO_PLATFORM "Darwin")
   set(OPENSTUDIO_EXT "tar.gz")
 elseif(UNIX)
-  set(OPENSTUDIO_EXPECTED_HASH f03fe39bb55f025a31ee1f18ca453728)
+  set(OPENSTUDIO_EXPECTED_HASH 15dca067b1fdf79a639e121a8e376534)
   set(OPENSTUDIO_PLATFORM "Linux")
   set(OPENSTUDIO_EXT "tar.gz")
 elseif(WIN32)
@@ -54,7 +54,7 @@ else()
   # Occasionally we can point to a specific PR by using something like ""http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/PR-4080"
   set(OPENSTUDIO_BASELINK_CI
     # "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/develop"
-    "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/PR-4080"
+    "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/PR-4066"
     CACHE STRING "Base link to where the openstudio develop archives are hosted" FORCE)
 
   # Make subdir if it doesn't exist
