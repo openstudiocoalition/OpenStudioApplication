@@ -432,12 +432,9 @@ void FacilityShadingControlGridController::addColumns(const QString& category, s
 
     } else if (field == TYPEOFSLATANGLECONTROLFORBLINDS) {
 
-      // TODO: pending model::ShadingControl::typeofSlatAngleControlforBlinds
-      std::function<std::vector<std::string>()> choices([]() { return std::vector<std::string>{"FixedSlatAngle", "ScheduledSlatAngle", "BlockBeamSolar"}; });
-
       addComboBoxColumn<std::string, model::ShadingControl>(
         Heading(QString(SHADINGTYPE)), static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
-        std::function<std::vector<std::string>()>(choices), // TODO: &model::ShadingControl::typeofSlatAngleControlforBlindsValues
+        std::function<std::vector<std::string>()>(&model::ShadingControl::typeofSlatAngleControlforBlindsValues),
         CastNullAdapter<model::ShadingControl>(&model::ShadingControl::typeofSlatAngleControlforBlinds),
         CastNullAdapter<model::ShadingControl>(&model::ShadingControl::setTypeofSlatAngleControlforBlinds)
       );
