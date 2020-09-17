@@ -97,7 +97,7 @@ class ThermalZonesController : public ModelSubTabController
 
  private slots:
 
-  void onZoneHVACComponentClicked(model::ZoneHVACComponent&);
+  void onZoneHVACComponentClicked(const model::ZoneHVACComponent&);
 };
 
 }  // namespace openstudio

@@ -54,7 +54,7 @@ class MODELEDITOR_API IGLineEdit : public QLineEdit
   void setStyle(InspectorGadget::FLOAT_DISPLAY style);
   InspectorGadget::FLOAT_DISPLAY getStyle() const;
 
-  bool checkValue(QString& value);
+  bool checkValue(QString& txt);
 
   QString doubleToQString(double v);
   //QString intToQString( int v );

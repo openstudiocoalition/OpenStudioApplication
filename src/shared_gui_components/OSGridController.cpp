@@ -566,10 +566,16 @@ void ObjectSelector::updateWidgets(const model::ModelObject& t_obj) {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-OSGridController::OSGridController() : QObject(), m_objectSelector(std::make_shared<ObjectSelector>(this)) {}
+OSGridController::OSGridController()
+  : QObject(),
+    m_hasHorizontalHeader(true),
+    m_currentCategoryIndex(0),
+    m_isIP(false),
+    m_horizontalHeaderBtnGrp(nullptr),
+    m_objectSelector(std::make_shared<ObjectSelector>(this)) {}
 
-OSGridController::OSGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model model,
-                                   std::vector<model::ModelObject> modelObjects)
+OSGridController::OSGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, const model::Model& model,
+                                   const std::vector<model::ModelObject>& modelObjects)
   : QObject(),
     m_iddObjectType(iddObjectType),
     m_modelObjects(modelObjects),
@@ -606,7 +612,8 @@ void OSGridController::refreshGrid() {
 
 void OSGridController::loadQSettings() {
   QSettings settings("OpenStudio", m_headerText);
-  m_customFields = settings.value("customFields").toStringList().toVector().toStdVector();
+  auto temp = settings.value("customFields").toStringList().toVector();
+  m_customFields = std::vector<QString>(temp.begin(), temp.end());
 }
 
 void OSGridController::saveQSettings() const {
@@ -661,7 +668,7 @@ void OSGridController::setHorizontalHeader() {
     m_horizontalHeaderBtnGrp = new QButtonGroup();
     m_horizontalHeaderBtnGrp->setExclusive(false);
 
-    connect(m_horizontalHeaderBtnGrp, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::buttonClicked), this,
+    connect(m_horizontalHeaderBtnGrp, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::idClicked), this,
             &OSGridController::horizontalHeaderChecked);
 
   } else {
@@ -687,6 +694,9 @@ void OSGridController::setHorizontalHeader() {
 
 QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPointer<BaseConcept>& t_baseConcept) {
   QWidget* widget = nullptr;
+
+  // False positive from cppcheck here due to OS_ASSERT
+  // cppcheck-suppress unreadVariable
   bool isConnected = false;
 
   if (QSharedPointer<CheckBoxConcept> checkBoxConcept = t_baseConcept.dynamicCast<CheckBoxConcept>()) {
@@ -1177,7 +1187,7 @@ void OSGridController::setConceptValue(model::ModelObject t_setterMO, model::Mod
 void OSGridController::setConceptValue(model::ModelObject t_setterMO, model::ModelObject t_getterMO,
                                        const QSharedPointer<BaseConcept>& t_setterBaseConcept,
                                        const QSharedPointer<BaseConcept>& t_getterBaseConcept) {
-  if (QSharedPointer<NameLineEditConcept> getterConcept = t_getterBaseConcept.dynamicCast<NameLineEditConcept>()) {
+  if (t_getterBaseConcept.dynamicCast<NameLineEditConcept>()) {
     if (QSharedPointer<DropZoneConcept> setterConcept = t_setterBaseConcept.dynamicCast<DropZoneConcept>()) {
       auto mo = m_model.getModelObject<model::ModelObject>(t_getterMO.handle());
       OS_ASSERT(mo);
@@ -1315,7 +1325,7 @@ QWidget* OSGridController::widgetAt(int row, int column) {
     holder->widget = t_widget;
     holder->setLayout(l);
     // layout is defined outside the lambda and brought in through capture!
-    layout->addWidget(holder, numWidgets, 0, 0);
+    layout->addWidget(holder, numWidgets, 0);
 
     //if (hasSubRows) {
     //  holder->setObjectName("InnerCell");
@@ -1624,7 +1634,7 @@ bool OSGridController::getRowIndexByItem(OSItem* item, int& rowIndex) {
     QStringList strings = item->itemId().otherData().split(",");
     if (strings.size() > 2) {
       QString temp = strings[2];
-      QStringList strings = temp.split(";");
+      strings = temp.split(";");
       if (strings.size() > 0) {
         handle = strings[0];
       }
@@ -1633,10 +1643,10 @@ bool OSGridController::getRowIndexByItem(OSItem* item, int& rowIndex) {
     for (auto modelObject : m_modelObjects) {
       rowIndex++;
       OSItemId itemId = modelObjectToItemId(modelObject, false);
-      QStringList strings = itemId.otherData().split(",");
+      strings = itemId.otherData().split(",");
       if (strings.size() > 2) {
         QString temp = strings[2];
-        QStringList strings = temp.split(";");
+        strings = temp.split(";");
         if (strings.size() > 0) {
           handle2 = strings[0];
         }
@@ -1727,13 +1737,16 @@ void OSGridController::onAddWorkspaceObject(const WorkspaceObject& object, const
 }
 
 void OSGridController::onObjectRemoved(boost::optional<model::ParentObject> parent) {
-  if (parent) {
-    // We have a parent we can search for in our current list of modelObjects and just delete that 1 row
-    this->requestRefreshGrid();  // TODO replace this with a by-row refresh only
-  } else {
-    // We don't know which row needs to be redrawn, so we have to do the whole grid
-    this->requestRefreshGrid();
-  }
+  //  if (parent) {
+  //    // We have a parent we can search for in our current list of modelObjects and just delete that 1 row
+  //    // TODO replace this with a by-row refresh only
+  //    this->requestRefreshGrid();
+  //  } else {
+  //    // We don't know which row needs to be redrawn, so we have to do the whole grid
+  //    this->requestRefreshGrid();
+  //  }
+
+  this->requestRefreshGrid();
 }
 
 void OSGridController::selectAllStateChanged(const int newState) const {
@@ -1747,7 +1760,9 @@ void OSGridController::selectAllStateChanged(const int newState) const {
   }
 }
 
-void OSGridController::onInFocus(bool inFocus, bool hasData, int row, int column, boost::optional<int> subrow) {
+void OSGridController::onInFocus(bool inFocus, bool /*hasData*/, int row, int column, boost::optional<int> subrow) {
+  // TODO: Why is hasData unused?
+
   // First thing to do is to check if row is 0, because that means that the apply button was clicked
   if (row == 0 && this->m_hasHorizontalHeader) {
     // Do great things
@@ -1811,12 +1826,12 @@ void OSGridController::onInFocus(bool inFocus, bool hasData, int row, int column
         hasData = qobject_cast<OSDropZone2*>(widget)->hasData();
       }
 
-      if (hasData) {
-        button->setText("Apply to Selected");
-      } else {
-        //button->setText("Clear Selected");
-        button->setText("Apply to Selected");
-      }
+      // if (hasData) {
+      button->setText("Apply to Selected");
+      // } else {
+      //   //button->setText("Clear Selected");
+      //   button->setText("Apply to Selected");
+      // }
     } else {
       button->setText("Apply to Selected");
     }

@@ -43,7 +43,7 @@ class LibraryDialog : public QDialog
   Q_OBJECT
 
  public:
-  LibraryDialog(std::vector<openstudio::path> paths, std::vector<openstudio::path> defaultPaths, const openstudio::path& resourcesPath);
+  LibraryDialog(const std::vector<openstudio::path>& paths, const std::vector<openstudio::path>& defaultPaths, const openstudio::path& resourcesPath);
 
   virtual ~LibraryDialog(){};
 

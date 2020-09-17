@@ -315,7 +315,7 @@ class LibraryItem : public OSListItem
 
  public slots:
 
-  void dragItem(const OSDragPixmapData& data);
+  void dragItem(const OSDragPixmapData& dragPixmapData);
 
  private:
   bool m_available;

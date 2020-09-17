@@ -210,7 +210,7 @@ void ThermalZonesController::removeZoneHVACComponent(model::ZoneHVACComponent& z
   zoneHVACComponent.remove();
 }
 
-void ThermalZonesController::onZoneHVACComponentClicked(model::ZoneHVACComponent& comp) {
+void ThermalZonesController::onZoneHVACComponentClicked(const model::ZoneHVACComponent& comp) {
   boost::optional<model::ModelObject> mo = comp;
 
   emit modelObjectSelected(mo, false);

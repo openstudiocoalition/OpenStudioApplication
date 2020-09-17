@@ -349,6 +349,7 @@ void ModelObjectTreeItem::refresh() {
 
   for (const std::string& child : nonModelObjectChildren) {
     // still need this object
+    // cppcheck-suppress redundantIfRemove
     if (nonModelObjectChildrenSet.find(child) != nonModelObjectChildrenSet.end()) {
       nonModelObjectChildrenSet.erase(child);
       this->addNonModelObjectChild(child);

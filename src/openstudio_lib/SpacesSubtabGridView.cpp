@@ -79,6 +79,7 @@
 #include "../model_editor/Utilities.hpp"
 
 #include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Compare.hpp>
 #include <openstudio/utilities/idd/IddEnums.hxx>
 #include <openstudio/utilities/idd/OS_Space_FieldEnums.hxx>
 
@@ -122,16 +123,8 @@
 
 namespace openstudio {
 
-struct ModelObjectNameSorter
-{
-  // sort by name
-  bool operator()(const model::ModelObject& lhs, const model::ModelObject& rhs) {
-    return (lhs.name() < rhs.name());
-  }
-};
-
-SpacesSubtabGridView::SpacesSubtabGridView(bool isIP, const model::Model& model, QWidget* parent) : GridViewSubTab(isIP, model, parent) {
-  m_spacesModelObjects = subsetCastVector<model::ModelObject>(model.getConcreteModelObjects<model::Space>());
+SpacesSubtabGridView::SpacesSubtabGridView(bool isIP, const model::Model& model, QWidget* parent)
+  : GridViewSubTab(isIP, model, parent), m_spacesModelObjects(subsetCastVector<model::ModelObject>(model.getConcreteModelObjects<model::Space>())) {
 
   // Filters
 
@@ -353,7 +346,7 @@ void SpacesSubtabGridView::initializeStoryFilter() {
   m_storyFilter->addItem(ALL);
   m_storyFilter->addItem(UNASSIGNED);
   auto buildingStories = this->m_model.getConcreteModelObjects<model::BuildingStory>();
-  std::sort(buildingStories.begin(), buildingStories.end(), ModelObjectNameSorter());
+  std::sort(buildingStories.begin(), buildingStories.end(), openstudio::WorkspaceObjectNameLess());
   for (auto bd : buildingStories) {
     QString temp("unnamed");
     if (bd.name()) {
@@ -368,7 +361,7 @@ void SpacesSubtabGridView::initializeThermalZoneFilter() {
   m_thermalZoneFilter->addItem(ALL);
   m_thermalZoneFilter->addItem(UNASSIGNED);
   auto thermalZones = this->m_model.getConcreteModelObjects<model::ThermalZone>();
-  std::sort(thermalZones.begin(), thermalZones.end(), ModelObjectNameSorter());
+  std::sort(thermalZones.begin(), thermalZones.end(), openstudio::WorkspaceObjectNameLess());
   for (auto tz : thermalZones) {
     QString temp("unnamed");
     if (tz.name()) {
@@ -383,7 +376,7 @@ void SpacesSubtabGridView::initializeSpaceTypeFilter() {
   m_spaceTypeFilter->addItem(ALL);
   m_spaceTypeFilter->addItem(UNASSIGNED);
   auto spacetypes = this->m_model.getConcreteModelObjects<model::SpaceType>();
-  std::sort(spacetypes.begin(), spacetypes.end(), ModelObjectNameSorter());
+  std::sort(spacetypes.begin(), spacetypes.end(), openstudio::WorkspaceObjectNameLess());
   for (auto st : spacetypes) {
     QString temp("unnamed");
     if (st.name()) {
@@ -509,7 +502,7 @@ void SpacesSubtabGridView::initializeInteriorPartitionGroupFilter() {
   m_interiorPartitionGroupFilter->clear();
   m_interiorPartitionGroupFilter->addItem(ALL);
   auto interiorPartitions = this->m_model.getConcreteModelObjects<model::InteriorPartitionSurface>();
-  std::sort(interiorPartitions.begin(), interiorPartitions.end(), ModelObjectNameSorter());
+  std::sort(interiorPartitions.begin(), interiorPartitions.end(), openstudio::WorkspaceObjectNameLess());
   for (auto ip : interiorPartitions) {
     QString temp("unnamed");
     if (ip.name()) {
@@ -832,22 +825,17 @@ void SpacesSubtabGridView::filterChanged() {
      ***************************************************************************/
   std::set<openstudio::model::ModelObject> spaceFilteredObjects = m_objectsFilteredByStory;
 
+  // No need to do `if (spaceFilteredObjects.count(obj) == 0)` since we're dealing with a set
   for (auto obj : m_objectsFilteredByThermalZone) {
-    if (spaceFilteredObjects.count(obj) == 0) {
-      spaceFilteredObjects.insert(obj);
-    }
+    spaceFilteredObjects.insert(obj);
   }
 
   for (auto obj : m_objectsFilteredBySpaceType) {
-    if (spaceFilteredObjects.count(obj) == 0) {
-      spaceFilteredObjects.insert(obj);
-    }
+    spaceFilteredObjects.insert(obj);
   }
 
   for (auto obj : m_objectsFilteredBySpaceName) {
-    if (spaceFilteredObjects.count(obj) == 0) {
-      spaceFilteredObjects.insert(obj);
-    }
+    spaceFilteredObjects.insert(obj);
   }
 
   /***********************************************************************************
@@ -856,39 +844,27 @@ void SpacesSubtabGridView::filterChanged() {
   std::set<openstudio::model::ModelObject> allFilteredObjects;
 
   for (auto obj : m_objectsFilteredBySubSurfaceType) {
-    if (allFilteredObjects.count(obj) == 0) {
-      allFilteredObjects.insert(obj);
-    }
+    allFilteredObjects.insert(obj);
   }
 
   for (auto obj : m_objectsFilteredByWindExposure) {
-    if (allFilteredObjects.count(obj) == 0) {
-      allFilteredObjects.insert(obj);
-    }
+    allFilteredObjects.insert(obj);
   }
 
   for (auto obj : m_objectsFilteredBySunExposure) {
-    if (allFilteredObjects.count(obj) == 0) {
-      allFilteredObjects.insert(obj);
-    }
+    allFilteredObjects.insert(obj);
   }
 
   for (auto obj : m_objectsFilteredByOutsideBoundaryCondition) {
-    if (allFilteredObjects.count(obj) == 0) {
-      allFilteredObjects.insert(obj);
-    }
+    allFilteredObjects.insert(obj);
   }
 
   for (auto obj : m_objectsFilteredBySurfaceType) {
-    if (allFilteredObjects.count(obj) == 0) {
-      allFilteredObjects.insert(obj);
-    }
+    allFilteredObjects.insert(obj);
   }
 
   for (auto obj : m_objectsFilteredByInteriorPartitionGroup) {
-    if (allFilteredObjects.count(obj) == 0) {
-      allFilteredObjects.insert(obj);
-    }
+    allFilteredObjects.insert(obj);
   }
 
   if (this->hasSubRows()) {

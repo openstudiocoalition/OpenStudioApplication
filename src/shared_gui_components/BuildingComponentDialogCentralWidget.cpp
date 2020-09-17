@@ -95,7 +95,7 @@ void BuildingComponentDialogCentralWidget::createLayout() {
   auto comboBox = new QComboBox(this);
   comboBox->hide();  // TODO remove this hack when we have sorts to do
 
-  connect(comboBox, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentIndexChanged), this,
+  connect(comboBox, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentTextChanged), this,
           &BuildingComponentDialogCentralWidget::comboBoxIndexChanged);
 
   QPushButton* upperPushButton = new QPushButton("Check All");
@@ -323,9 +323,9 @@ void BuildingComponentDialogCentralWidget::componentDownloadComplete(const std::
   } else {
     // error downloading component
     // find component in list by uid and re-enable
-    for (Component* component : m_collapsibleComponentList->components()) {
-      if (component->uid() == uid) {
-        component->checkBox()->setEnabled(true);
+    for (Component* comp : m_collapsibleComponentList->components()) {
+      if (comp->uid() == uid) {
+        comp->checkBox()->setEnabled(true);
         break;
       }
     }

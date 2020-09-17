@@ -62,7 +62,8 @@ class WindowMaterialScreenInspectorView : public ModelObjectInspectorView
  private:
   void createLayout();
 
-  void attach(openstudio::model::Screen& Screen);
+  // cppcheck-suppress constParameter
+  void attach(openstudio::model::Screen& screen);
 
   void detach();
 

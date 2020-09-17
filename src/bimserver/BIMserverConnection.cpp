@@ -54,11 +54,14 @@ namespace openstudio {
 namespace bimserver {
 
 BIMserverConnection::BIMserverConnection(QObject* parent, QString bimserverAddr, QString bimserverPort)
-  : QObject(parent), m_networkManager(new QNetworkAccessManager) {
-  QString bimserver = "http://" + bimserverAddr + ":" + bimserverPort + "/json";
-  m_bimserverURL = QUrl(bimserver);
-  m_operationDone = true;
-}
+  : QObject(parent),
+    m_networkManager(new QNetworkAccessManager),
+    m_bimserverURL(QUrl(QString("http://" + bimserverAddr + ":" + bimserverPort + "/json"))),
+    m_operationDone(true),
+    m_loginSuccess(true),
+    m_createProjectSuccess(true),
+    m_deleteProjectSuccess(true),
+    m_checkInIFCSuccess(true) {}
 
 BIMserverConnection::~BIMserverConnection() {
   delete m_networkManager;
@@ -682,7 +685,8 @@ void BIMserverConnection::processGetProjectByIDRequest(QNetworkReply* rep) {
         double time = ifcRevision["date"].toDouble();
         QDateTime timestamp;
         timestamp.setTime_t(static_cast<unsigned int>(time / 1000 + 0.5));
-        QString project = revision.append(":").append(timestamp.toString(Qt::SystemLocaleShortDate));
+        // TODO: Why is this unused?
+        // QString project = revision.append(":").append(timestamp.toString(QLocale::system().dateTimeFormat(QLocale::ShortFormat)));
 
         revisionList.append(revision);
       }
@@ -754,11 +758,12 @@ void BIMserverConnection::processGetProgressRequest() {
       foreach (const QJsonValue& value, error) { errorMessage = errorMessage + value.toString() + QString("\n"); }
       emit errorOccured(errorMessage);
     }
+
+    reply->deleteLater();
+
   } else {
     emit errorOccured(QString("No Response from BIMserver"));
   }
-
-  reply->deleteLater();
 }
 
 //BIMserver error reporting

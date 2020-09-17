@@ -43,9 +43,9 @@ void IGSpinBox::wheelEvent(QWheelEvent* event) {
 
 void IGSpinBox::triggered(bool trig) {
   if (trig) {
-    emit valueChanged(QString("%1").arg(value()));
+    emit textChanged(QString("%1").arg(value()));
   } else {
-    emit valueChanged("AutoSize");
+    emit textChanged("AutoSize");
   }
 }
 
@@ -78,9 +78,9 @@ InspectorGadget::FLOAT_DISPLAY IGDSpinBox::getFloatStyle() const {
 
 void IGDSpinBox::triggered(bool trig) {
   if (trig) {
-    emit valueChanged(QString("%1").arg(value()));
+    emit textChanged(QString("%1").arg(value()));
   } else {
-    emit valueChanged("AutoSize");
+    emit textChanged("AutoSize");
   }
 }
 

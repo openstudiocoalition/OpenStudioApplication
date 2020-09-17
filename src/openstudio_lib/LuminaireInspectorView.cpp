@@ -127,7 +127,7 @@ void LuminaireDefinitionInspectorView::onUpdate() {
   refresh();
 }
 
-void LuminaireDefinitionInspectorView::attach(openstudio::model::LuminaireDefinition& luminaireDefinition) {
+void LuminaireDefinitionInspectorView::attach(const openstudio::model::LuminaireDefinition& luminaireDefinition) {
   m_luminaireDefinition = luminaireDefinition;
 
   // m_nameEdit->bind(luminaireDefinition,"name");

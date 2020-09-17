@@ -161,7 +161,7 @@ void ConstructionFfactorGroundFloorInspectorView::onSelectModelObject(const open
 
 void ConstructionFfactorGroundFloorInspectorView::onUpdate() {}
 
-void ConstructionFfactorGroundFloorInspectorView::attach(openstudio::model::FFactorGroundFloorConstruction& fFactorGroundFloorConstruction) {
+void ConstructionFfactorGroundFloorInspectorView::attach(const openstudio::model::FFactorGroundFloorConstruction& fFactorGroundFloorConstruction) {
   m_fFactorGroundFloorConstruction = fFactorGroundFloorConstruction;
 
   m_nameEdit->bind(*m_fFactorGroundFloorConstruction,

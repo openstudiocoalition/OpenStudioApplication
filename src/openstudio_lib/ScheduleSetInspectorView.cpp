@@ -749,7 +749,7 @@ void ScheduleSetInspectorView::onSelectModelObject(const openstudio::model::Mode
 
 void ScheduleSetInspectorView::onUpdate() {}
 
-void ScheduleSetInspectorView::attach(openstudio::model::DefaultScheduleSet& defaultScheduleSet) {
+void ScheduleSetInspectorView::attach(const openstudio::model::DefaultScheduleSet& defaultScheduleSet) {
   for (ModelObjectVectorController* vc : m_vectorControllers) {
     vc->attach(defaultScheduleSet);
     vc->reportItems();

@@ -68,12 +68,12 @@ class OSIntegerEdit2 : public QLineEdit, public Nano::Observer
     return m_intValidator;
   }
 
-  void bind(model::ModelObject& modelObject, IntGetter get, boost::optional<IntSetter> set = boost::none,
+  void bind(const model::ModelObject& modelObject, IntGetter get, boost::optional<IntSetter> set = boost::none,
             boost::optional<NoFailAction> reset = boost::none, boost::optional<NoFailAction> autosize = boost::none,
             boost::optional<NoFailAction> autocalculate = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none,
             boost::optional<BasicQuery> isAutosized = boost::none, boost::optional<BasicQuery> isAutocalculated = boost::none);
 
-  void bind(model::ModelObject& modelObject, OptionalIntGetter get, boost::optional<IntSetter> set = boost::none,
+  void bind(const model::ModelObject& modelObject, OptionalIntGetter get, boost::optional<IntSetter> set = boost::none,
             boost::optional<NoFailAction> reset = boost::none, boost::optional<NoFailAction> autosize = boost::none,
             boost::optional<NoFailAction> autocalculate = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none,
             boost::optional<BasicQuery> isAutosized = boost::none, boost::optional<BasicQuery> isAutocalculated = boost::none);
@@ -146,7 +146,7 @@ class OSIntegerEdit2 : public QLineEdit, public Nano::Observer
 
 //   QIntValidator * intValidator() { return m_intValidator; }
 
-//   void bind(model::ModelObject& modelObject,
+//   void bind(const model::ModelObject& modelObject,
 //             const char* property,
 //             const boost::optional<std::string>& isDefaultedProperty = boost::none,
 //             const boost::optional<std::string>& isAutosizedProperty = boost::none,

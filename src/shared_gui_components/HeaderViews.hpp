@@ -72,7 +72,7 @@ class LightGradientHeader : public OSHeader
   QLabel* label;
 
   LightGradientHeader(QWidget* parent = nullptr);
-  void setMeasureType(MeasureType measureType);
+  void setMeasureType(const MeasureType& measureType);
   virtual ~LightGradientHeader() {}
 
  private:

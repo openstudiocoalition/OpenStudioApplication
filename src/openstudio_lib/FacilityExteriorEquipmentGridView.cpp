@@ -45,6 +45,7 @@
 #include <openstudio/model/Schedule_Impl.hpp>
 
 #include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Compare.hpp>
 #include <openstudio/utilities/idd/IddEnums.hxx>
 #include <openstudio/utilities/idd/OS_Exterior_Lights_FieldEnums.hxx>
 
@@ -69,18 +70,10 @@
 
 namespace openstudio {
 
-struct ModelObjectNameSorter
-{
-  // sort by name
-  bool operator()(const model::ModelObject& lhs, const model::ModelObject& rhs) {
-    return (lhs.name() < rhs.name());
-  }
-};
-
 FacilityExteriorEquipmentGridView::FacilityExteriorEquipmentGridView(bool isIP, const model::Model& model, QWidget* parent)
   : GridViewSubTab(isIP, model, parent) {
   auto modelObjects = subsetCastVector<model::ModelObject>(model.getConcreteModelObjects<model::ExteriorLights>());
-  std::sort(modelObjects.begin(), modelObjects.end(), ModelObjectNameSorter());
+  std::sort(modelObjects.begin(), modelObjects.end(), openstudio::WorkspaceObjectNameLess());
 
   m_gridController = new FacilityExteriorEquipmentGridController(isIP, "Exterior Lights", IddObjectType::OS_Exterior_Lights, model, modelObjects);
   auto gridView = new OSGridView(m_gridController, "Exterior Lights", "Drop\nExterior Lights", false, parent);
@@ -116,7 +109,8 @@ void FacilityExteriorEquipmentGridView::onClearSelection() {
 }
 
 FacilityExteriorEquipmentGridController::FacilityExteriorEquipmentGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType,
-                                                                                 model::Model model, std::vector<model::ModelObject> modelObjects)
+                                                                                 const model::Model& model,
+                                                                                 const std::vector<model::ModelObject>& modelObjects)
   : OSGridController(isIP, headerText, iddObjectType, model, modelObjects) {
   setCategoriesAndFields();
 }
@@ -225,7 +219,7 @@ void FacilityExteriorEquipmentGridController::onItemDropped(const OSItemId& item
 
 void FacilityExteriorEquipmentGridController::refreshModelObjects() {
   m_modelObjects = subsetCastVector<model::ModelObject>(m_model.getConcreteModelObjects<model::ExteriorLights>());
-  std::sort(m_modelObjects.begin(), m_modelObjects.end(), ModelObjectNameSorter());
+  std::sort(m_modelObjects.begin(), m_modelObjects.end(), openstudio::WorkspaceObjectNameLess());
 }
 
 void FacilityExteriorEquipmentGridController::onComboBoxIndexChanged(int index) {}

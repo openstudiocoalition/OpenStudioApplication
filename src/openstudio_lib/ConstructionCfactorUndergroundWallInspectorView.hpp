@@ -65,7 +65,7 @@ class ConstructionCfactorUndergroundWallInspectorView : public ModelObjectInspec
  private:
   void createLayout();
 
-  void attach(openstudio::model::CFactorUndergroundWallConstruction& cFactorUndergroundWallConstruction);
+  void attach(const openstudio::model::CFactorUndergroundWallConstruction& cFactorUndergroundWallConstruction);
 
   void detach();
 

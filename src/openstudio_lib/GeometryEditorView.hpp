@@ -81,7 +81,7 @@ class BaseEditor : public QObject
   Q_OBJECT;
 
  public:
-  BaseEditor(bool isIP, const openstudio::model::Model& model, QWebEngineView* m_view, QWidget* t_parent = nullptr);
+  BaseEditor(bool isIP, const openstudio::model::Model& model, QWebEngineView* view, QWidget* t_parent = nullptr);
   virtual ~BaseEditor();
 
   bool editorLoaded() const;
@@ -127,17 +127,17 @@ class FloorspaceEditor : public BaseEditor
   Q_OBJECT;
 
  public:
-  FloorspaceEditor(const openstudio::path& floorplanPath, bool isIP, const openstudio::model::Model& model, QWebEngineView* m_view,
+  FloorspaceEditor(const openstudio::path& floorplanPath, bool isIP, const openstudio::model::Model& model, QWebEngineView* view,
                    QWidget* t_parent = nullptr);
   virtual ~FloorspaceEditor();
 
  public slots:
-  virtual void loadEditor();
-  virtual void doExport();
-  virtual void saveExport();
-  virtual void translateExport();
-  virtual void updateModel(const openstudio::model::Model& model);
-  virtual void checkForUpdate();
+  virtual void loadEditor() override;
+  virtual void doExport() override;
+  virtual void saveExport() override;
+  virtual void translateExport() override;
+  virtual void updateModel(const openstudio::model::Model& model) override;
+  virtual void checkForUpdate() override;
 
  private:
   std::string m_originalBuildingName;
@@ -151,17 +151,16 @@ class GbXmlEditor : public BaseEditor
   Q_OBJECT;
 
  public:
-  GbXmlEditor(const openstudio::path& gbXmlPath, bool isIP, const openstudio::model::Model& model, QWebEngineView* m_view,
-              QWidget* t_parent = nullptr);
+  GbXmlEditor(const openstudio::path& gbXmlPath, bool isIP, const openstudio::model::Model& model, QWebEngineView* view, QWidget* t_parent = nullptr);
   virtual ~GbXmlEditor();
 
  public slots:
-  virtual void loadEditor();
-  virtual void doExport();
-  virtual void saveExport();
-  virtual void translateExport();
-  virtual void updateModel(const openstudio::model::Model& model);
-  virtual void checkForUpdate();
+  virtual void loadEditor() override;
+  virtual void doExport() override;
+  virtual void saveExport() override;
+  virtual void translateExport() override;
+  virtual void updateModel(const openstudio::model::Model& model) override;
+  virtual void checkForUpdate() override;
 
  private:
   openstudio::path m_gbXmlPath;
@@ -173,17 +172,17 @@ class IdfEditor : public BaseEditor
   Q_OBJECT;
 
  public:
-  IdfEditor(const openstudio::path& idfPath, bool forceConvert, bool isIP, const openstudio::model::Model& model, QWebEngineView* m_view,
+  IdfEditor(const openstudio::path& idfPath, bool forceConvert, bool isIP, const openstudio::model::Model& model, QWebEngineView* view,
             QWidget* t_parent = nullptr);
   virtual ~IdfEditor();
 
  public slots:
-  virtual void loadEditor();
-  virtual void doExport();
-  virtual void saveExport();
-  virtual void translateExport();
-  virtual void updateModel(const openstudio::model::Model& model);
-  virtual void checkForUpdate();
+  virtual void loadEditor() override;
+  virtual void doExport() override;
+  virtual void saveExport() override;
+  virtual void translateExport() override;
+  virtual void updateModel(const openstudio::model::Model& model) override;
+  virtual void checkForUpdate() override;
 
  private:
   openstudio::path m_idfPath;
@@ -195,16 +194,16 @@ class OsmEditor : public BaseEditor
   Q_OBJECT;
 
  public:
-  OsmEditor(const openstudio::path& osmPath, bool isIP, const openstudio::model::Model& model, QWebEngineView* m_view, QWidget* t_parent = nullptr);
+  OsmEditor(const openstudio::path& osmPath, bool isIP, const openstudio::model::Model& model, QWebEngineView* view, QWidget* t_parent = nullptr);
   virtual ~OsmEditor();
 
  public slots:
-  virtual void loadEditor();
-  virtual void doExport();
-  virtual void saveExport();
-  virtual void translateExport();
-  virtual void updateModel(const openstudio::model::Model& model);
-  virtual void checkForUpdate();
+  virtual void loadEditor() override;
+  virtual void doExport() override;
+  virtual void saveExport() override;
+  virtual void translateExport() override;
+  virtual void updateModel(const openstudio::model::Model& model) override;
+  virtual void checkForUpdate() override;
 
  private:
   openstudio::path m_osmPath;

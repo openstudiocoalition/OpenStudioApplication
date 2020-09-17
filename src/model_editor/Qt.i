@@ -159,7 +159,7 @@ class QComboBox : public QWidget
 
 //class QRgb{};
 
-//class QString{};
+class QString{};
 
 %extend QString{
   // to std::string

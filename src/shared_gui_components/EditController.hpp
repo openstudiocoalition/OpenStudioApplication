@@ -67,7 +67,7 @@ class EditController : public QObject
 
   virtual ~EditController();
 
-  void setMeasureStepItem(measuretab::MeasureStepItem* measureItem, BaseApp* t_app);
+  void setMeasureStepItem(measuretab::MeasureStepItem* measureStepItem, BaseApp* t_app);
 
   measuretab::MeasureStepItem* measureStepItem() const;
 
@@ -101,7 +101,7 @@ class InputController : public QObject
 
  private slots:
 
-  void setValue(const QString& value);
+  void setValue(const QString& text);
 
   void setValue(bool value);
 

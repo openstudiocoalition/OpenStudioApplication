@@ -71,7 +71,7 @@ class BIMSERVER_API BIMserverConnection : public QObject
   /// login with username and password
   void login(QString username, QString password);
   /// download the osm model
-  void download(QString projectID);
+  void download(QString revisionID);
   /// get all projects
   void getAllProjects();
   /// create new project

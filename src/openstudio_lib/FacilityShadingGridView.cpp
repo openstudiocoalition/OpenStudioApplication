@@ -50,6 +50,7 @@
 #include <openstudio/model/ShadingSurfaceGroup_Impl.hpp>
 
 #include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Compare.hpp>
 #include <openstudio/utilities/idd/IddEnums.hxx>
 #include <openstudio/utilities/idd/OS_ShadingSurface_FieldEnums.hxx>
 #include <openstudio/utilities/idd/OS_ShadingSurfaceGroup_FieldEnums.hxx>
@@ -85,14 +86,6 @@
 
 namespace openstudio {
 
-struct ModelObjectNameSorter
-{
-  // sort by name
-  bool operator()(const model::ModelObject& lhs, const model::ModelObject& rhs) {
-    return (lhs.name() < rhs.name());
-  }
-};
-
 FacilityShadingGridView::FacilityShadingGridView(bool isIP, const model::Model& model, QWidget* parent) : GridViewSubTab(isIP, model, parent) {
   std::vector<model::ShadingSurfaceGroup> shadingGroups = model.getConcreteModelObjects<model::ShadingSurfaceGroup>();
   // Filter out the 'Space' shadingSurfaceTypes
@@ -102,7 +95,7 @@ FacilityShadingGridView::FacilityShadingGridView(bool isIP, const model::Model& 
                       shadingGroups.end());
 
   auto modelObjects = subsetCastVector<model::ModelObject>(shadingGroups);
-  std::sort(modelObjects.begin(), modelObjects.end(), ModelObjectNameSorter());
+  std::sort(modelObjects.begin(), modelObjects.end(), openstudio::WorkspaceObjectNameLess());
 
   m_gridController = new FacilityShadingGridController(isIP, "Shading Surface Group", IddObjectType::OS_ShadingSurfaceGroup, model, modelObjects);
   m_gridView = new OSGridView(m_gridController, "Shading Surface Group", "Drop\nShading Surface Group", false, parent);
@@ -286,9 +279,7 @@ void FacilityShadingGridView::typeFilterChanged(const QString& text) {
       auto parent = obj.parent();
       if (parent && parent->iddObjectType() == IddObjectType::OS_ShadingSurfaceGroup) {
         if (m_typeFilter->currentText() != parent->cast<model::ShadingSurfaceGroup>().shadingSurfaceType().c_str()) {
-          if (m_objectsFilteredByType.count(obj) == 0) {
-            m_objectsFilteredByType.insert(obj);
-          }
+          m_objectsFilteredByType.insert(obj);
         }
       }
     }
@@ -385,21 +376,15 @@ void FacilityShadingGridView::filterChanged() {
   std::set<openstudio::model::ModelObject> allFilteredObjects = m_objectsFilteredByName;
 
   for (auto obj : m_objectsFilteredByTilt) {
-    if (allFilteredObjects.count(obj) == 0) {
-      allFilteredObjects.insert(obj);
-    }
+    allFilteredObjects.insert(obj);
   }
 
   for (auto obj : m_objectsFilteredByType) {
-    if (allFilteredObjects.count(obj) == 0) {
-      allFilteredObjects.insert(obj);
-    }
+    allFilteredObjects.insert(obj);
   }
 
   for (auto obj : m_objectsFilteredByOrientation) {
-    if (allFilteredObjects.count(obj) == 0) {
-      allFilteredObjects.insert(obj);
-    }
+    allFilteredObjects.insert(obj);
   }
 
   this->m_gridController->getObjectSelector()->m_filteredObjects = allFilteredObjects;
@@ -445,8 +430,8 @@ void FacilityShadingGridView::onClearSelection() {
   m_itemSelectorButtons->disablePurgeButton();
 }
 
-FacilityShadingGridController::FacilityShadingGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model model,
-                                                             std::vector<model::ModelObject> modelObjects)
+FacilityShadingGridController::FacilityShadingGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType,
+                                                             const model::Model& model, const std::vector<model::ModelObject>& modelObjects)
   : OSGridController(isIP, headerText, iddObjectType, model, modelObjects) {
   setCategoriesAndFields();
 }
@@ -576,7 +561,7 @@ void FacilityShadingGridController::refreshModelObjects() {
   m_modelObjects = subsetCastVector<model::ModelObject>(shadingGroups);
 
   // Sort them
-  std::sort(m_modelObjects.begin(), m_modelObjects.end(), ModelObjectNameSorter());
+  std::sort(m_modelObjects.begin(), m_modelObjects.end(), openstudio::WorkspaceObjectNameLess());
 }
 
 }  // namespace openstudio

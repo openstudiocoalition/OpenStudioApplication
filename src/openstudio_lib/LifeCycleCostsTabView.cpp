@@ -49,10 +49,13 @@
 
 namespace openstudio {
 
-LifeCycleCostsTabView::LifeCycleCostsTabView(const model::Model& model, const QString& modelTempDir, QWidget* parent)
-  : MainTabView("Life Cycle Costs", MainTabView::SUB_TAB, parent) {}
+//LifeCycleCostsTabView::LifeCycleCostsTabView(const model::Model& model, const QString& modelTempDir, QWidget* parent)
+//: MainTabView("Life Cycle Costs", MainTabView::SUB_TAB, parent), m_lifeCycleCostsView(new LifeCycleCostsView(parent))
+//{
+//addTabWidget(m_lifeCycleCostsView);
+//}
 
-LifeCycleCostsTabView::~LifeCycleCostsTabView() {}
+//LifeCycleCostsTabView::~LifeCycleCostsTabView() {}
 
 LifeCycleCostsView::LifeCycleCostsView(const model::Model& model) : QWidget(), m_model(model) {
   m_lifeCycleCostParameters = m_model.getUniqueModelObject<model::LifeCycleCostParameters>();
@@ -107,7 +110,7 @@ void LifeCycleCostsView::createWidgets() {
 
   m_fempGroup = new QButtonGroup(this);
 
-  connect(m_fempGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::buttonClicked), this, &LifeCycleCostsView::fempGroupClicked);
+  connect(m_fempGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::idClicked), this, &LifeCycleCostsView::fempGroupClicked);
 
   radioButton = new QRadioButton("Federal Energy Management Program (FEMP)");
   m_fempGroup->addButton(radioButton, 0);
@@ -169,7 +172,7 @@ void LifeCycleCostsView::createWidgets() {
 
   m_nistGroup = new QButtonGroup(this);
 
-  connect(m_nistGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::buttonClicked), this, &LifeCycleCostsView::nistGroupClicked);
+  connect(m_nistGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::idClicked), this, &LifeCycleCostsView::nistGroupClicked);
 
   radioButton = new QRadioButton("Yes");
   m_nistGroup->addButton(radioButton, 0);

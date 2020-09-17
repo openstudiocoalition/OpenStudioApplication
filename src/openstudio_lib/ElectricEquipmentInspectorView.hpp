@@ -58,7 +58,7 @@ class ElectricEquipmentDefinitionInspectorView : public ModelObjectInspectorView
   virtual void onUpdate() override;
 
  private:
-  void attach(openstudio::model::ElectricEquipmentDefinition& electricEquipmentDefinition);
+  void attach(const openstudio::model::ElectricEquipmentDefinition& electricEquipmentDefinition);
 
   void detach();
 

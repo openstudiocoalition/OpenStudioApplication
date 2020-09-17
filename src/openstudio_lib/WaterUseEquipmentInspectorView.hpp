@@ -110,7 +110,7 @@ class WaterUseEquipmentDefinitionInspectorView : public ModelObjectInspectorView
   virtual void onUpdate() override;
 
  private:
-  void attach(openstudio::model::WaterUseEquipmentDefinition& waterUseEquipmentDefinition);
+  void attach(const openstudio::model::WaterUseEquipmentDefinition& waterUseEquipmentDefinition);
 
   void detach();
 

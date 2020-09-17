@@ -57,7 +57,7 @@ class ConstructionWindowDataFileInspectorView : public ModelObjectInspectorView
  private:
   void createLayout();
 
-  void attach(openstudio::model::WindowDataFile& windowDataFile);
+  void attach(const openstudio::model::WindowDataFile& windowDataFile);
 
   void detach();
 

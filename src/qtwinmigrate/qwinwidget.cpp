@@ -175,7 +175,7 @@ void QWinWidget::saveFocus() {
 
 /*!
     Shows this widget. Overrides QWidget::show().
-
+    
     \sa showCentered()
 */
 void QWinWidget::show() {

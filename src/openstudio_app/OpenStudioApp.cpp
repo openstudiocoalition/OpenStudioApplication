@@ -1412,10 +1412,10 @@ void OpenStudioApp::removeLibraryFromsSettings(const openstudio::path& path) {
   writeLibraryPaths(paths);
 }
 
-void OpenStudioApp::showFailedLibraryDialog(const std::vector<std::string>& failed) {
-  if (!failed.empty()) {
+void OpenStudioApp::showFailedLibraryDialog(const std::vector<std::string>& failedPaths) {
+  if (!failedPaths.empty()) {
     QString text("Failed to load the following libraries...\n\n");
-    for (const auto& path : failed) {
+    for (const auto& path : failedPaths) {
       text.append(QString::fromStdString(path));
       text.append("\n");
     }

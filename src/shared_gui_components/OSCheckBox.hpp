@@ -58,10 +58,10 @@ class OSCheckBox3 : public QCheckBox, public Nano::Observer
     this->setFocusPolicy(Qt::ClickFocus);
   }
 
-  void bind(model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetter> set = boost::none,
+  void bind(const model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetter> set = boost::none,
             boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none);
 
-  void bind(model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetterBoolReturn> set = boost::none,
+  void bind(const model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetterBoolReturn> set = boost::none,
             boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none);
 
   void unbind();
@@ -101,7 +101,7 @@ class OSCheckBox2 : public QPushButton, public Nano::Observer
 
   virtual ~OSCheckBox2() {}
 
-  void bind(model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetter> set = boost::none,
+  void bind(const model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetter> set = boost::none,
             boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none);
 
   void unbind();

@@ -147,7 +147,7 @@ void OtherEquipmentDefinitionInspectorView::onUpdate() {
   refresh();
 }
 
-void OtherEquipmentDefinitionInspectorView::attach(openstudio::model::OtherEquipmentDefinition& otherEquipmentDefinition) {
+void OtherEquipmentDefinitionInspectorView::attach(const openstudio::model::OtherEquipmentDefinition& otherEquipmentDefinition) {
   m_otherEquipmentDefinition = otherEquipmentDefinition;
   // m_nameEdit->bind(otherEquipmentDefinition,"name");
   m_nameEdit->bind(*m_otherEquipmentDefinition,

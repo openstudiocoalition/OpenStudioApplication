@@ -58,13 +58,13 @@ class OSLoadNamePixmapLineEdit : public QWidget
 
   void setIcon();
 
-  void bind(model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetter> set = boost::none,
+  void bind(const model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetter> set = boost::none,
             boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none);
 
-  void bind(model::ModelObject& modelObject, OptionalStringGetter get, boost::optional<StringSetter> set = boost::none,
+  void bind(const model::ModelObject& modelObject, OptionalStringGetter get, boost::optional<StringSetter> set = boost::none,
             boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none);
 
-  void bind(model::ModelObject& modelObject, OptionalStringGetterBoolArg get, boost::optional<StringSetterOptionalStringReturn> set,
+  void bind(const model::ModelObject& modelObject, OptionalStringGetterBoolArg get, boost::optional<StringSetterOptionalStringReturn> set,
             boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none);
 
   void unbind();

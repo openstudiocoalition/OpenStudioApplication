@@ -66,27 +66,27 @@ class SpacesSurfacesGridController : public OSGridController
   Q_OBJECT
 
  public:
-  SpacesSurfacesGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model model,
-                               std::vector<model::ModelObject> modelObjects);
+  SpacesSurfacesGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, const model::Model& model,
+                               const std::vector<model::ModelObject>& modelObjects);
 
   virtual ~SpacesSurfacesGridController() {}
 
-  virtual void refreshModelObjects();
+  virtual void refreshModelObjects() override;
 
-  virtual void categorySelected(int index);
+  virtual void categorySelected(int index) override;
 
  protected:
-  virtual void setCategoriesAndFields();
+  virtual void setCategoriesAndFields() override;
 
-  virtual void addColumns(const QString& category, std::vector<QString>& fields);
+  virtual void addColumns(const QString& category, std::vector<QString>& fields) override;
 
-  virtual void checkSelectedFields();
+  virtual void checkSelectedFields() override;
 
-  virtual QString getColor(const model::ModelObject& modelObject);
+  virtual QString getColor(const model::ModelObject& modelObject) override;
 
  public slots:
 
-  virtual void onItemDropped(const OSItemId& itemId);
+  virtual void onItemDropped(const OSItemId& itemId) override;
 };
 
 }  // namespace openstudio

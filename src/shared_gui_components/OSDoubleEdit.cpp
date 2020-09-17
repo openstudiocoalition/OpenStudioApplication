@@ -61,9 +61,10 @@ OSDoubleEdit2::OSDoubleEdit2(QWidget* parent) : m_isScientific(false) {
 
 OSDoubleEdit2::~OSDoubleEdit2() {}
 
-void OSDoubleEdit2::bind(model::ModelObject& modelObject, DoubleGetter get, boost::optional<DoubleSetter> set, boost::optional<NoFailAction> reset,
-                         boost::optional<NoFailAction> autosize, boost::optional<NoFailAction> autocalculate, boost::optional<BasicQuery> isDefaulted,
-                         boost::optional<BasicQuery> isAutosized, boost::optional<BasicQuery> isAutocalculated) {
+void OSDoubleEdit2::bind(const model::ModelObject& modelObject, DoubleGetter get, boost::optional<DoubleSetter> set,
+                         boost::optional<NoFailAction> reset, boost::optional<NoFailAction> autosize, boost::optional<NoFailAction> autocalculate,
+                         boost::optional<BasicQuery> isDefaulted, boost::optional<BasicQuery> isAutosized,
+                         boost::optional<BasicQuery> isAutocalculated) {
   m_modelObject = modelObject;
   m_get = get;
   m_set = set;
@@ -77,7 +78,7 @@ void OSDoubleEdit2::bind(model::ModelObject& modelObject, DoubleGetter get, boos
   completeBind();
 }
 
-void OSDoubleEdit2::bind(model::ModelObject& modelObject, OptionalDoubleGetter get, boost::optional<DoubleSetter> set,
+void OSDoubleEdit2::bind(const model::ModelObject& modelObject, OptionalDoubleGetter get, boost::optional<DoubleSetter> set,
                          boost::optional<NoFailAction> reset, boost::optional<NoFailAction> autosize, boost::optional<NoFailAction> autocalculate,
                          boost::optional<BasicQuery> isDefaulted, boost::optional<BasicQuery> isAutosized,
                          boost::optional<BasicQuery> isAutocalculated) {
@@ -94,7 +95,7 @@ void OSDoubleEdit2::bind(model::ModelObject& modelObject, OptionalDoubleGetter g
   completeBind();
 }
 
-void OSDoubleEdit2::bind(model::ModelObject& modelObject, DoubleGetter get, DoubleSetterVoidReturn set, boost::optional<NoFailAction> reset,
+void OSDoubleEdit2::bind(const model::ModelObject& modelObject, DoubleGetter get, DoubleSetterVoidReturn set, boost::optional<NoFailAction> reset,
                          boost::optional<NoFailAction> autosize, boost::optional<NoFailAction> autocalculate, boost::optional<BasicQuery> isDefaulted,
                          boost::optional<BasicQuery> isAutosized, boost::optional<BasicQuery> isAutocalculated) {
   m_modelObject = modelObject;
@@ -110,9 +111,10 @@ void OSDoubleEdit2::bind(model::ModelObject& modelObject, DoubleGetter get, Doub
   completeBind();
 }
 
-void OSDoubleEdit2::bind(model::ModelObject& modelObject, OptionalDoubleGetter get, DoubleSetterVoidReturn set, boost::optional<NoFailAction> reset,
-                         boost::optional<NoFailAction> autosize, boost::optional<NoFailAction> autocalculate, boost::optional<BasicQuery> isDefaulted,
-                         boost::optional<BasicQuery> isAutosized, boost::optional<BasicQuery> isAutocalculated) {
+void OSDoubleEdit2::bind(const model::ModelObject& modelObject, OptionalDoubleGetter get, DoubleSetterVoidReturn set,
+                         boost::optional<NoFailAction> reset, boost::optional<NoFailAction> autosize, boost::optional<NoFailAction> autocalculate,
+                         boost::optional<BasicQuery> isDefaulted, boost::optional<BasicQuery> isAutosized,
+                         boost::optional<BasicQuery> isAutocalculated) {
   m_modelObject = modelObject;
   m_getOptional = get;
   m_setVoidReturn = set;
@@ -309,7 +311,6 @@ void OSDoubleEdit2::refreshTextAndLabel() {
 
   if (m_modelObject) {
     QString textValue;
-    ModelObject modelObject = m_modelObject.get();
     std::stringstream ss;
 
     if (m_isAutosized && (*m_isAutosized)()) {

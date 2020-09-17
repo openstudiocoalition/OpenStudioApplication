@@ -57,7 +57,7 @@ class BuildingComponentDialogCentralWidget : public QWidget, public Nano::Observ
   BuildingComponentDialogCentralWidget(int tid, QWidget* parent = nullptr);
   virtual ~BuildingComponentDialogCentralWidget() {}
   int tid();
-  void setTid(const std::string& filterType, int tids, int pageIdx, const QString& title, const QString& string = "");
+  void setTid(const std::string& filterType, int tid, int pageIdx, const QString& title, const QString& searchString = "");
   Component* checkedComponent() const;
   int pageIdx();
   bool showNewComponents();

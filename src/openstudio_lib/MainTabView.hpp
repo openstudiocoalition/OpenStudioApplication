@@ -61,7 +61,7 @@ class MainTabView : public QWidget, public Nano::Observer
 
   virtual ~MainTabView();
 
-  void setTabType(TabType tabTyp);
+  void setTabType(TabType tabType);
 
   ///! Use this method only if your tab will *NOT* have sub tabs
   bool addTabWidget(QWidget* widget);

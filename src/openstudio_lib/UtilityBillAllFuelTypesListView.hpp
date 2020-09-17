@@ -70,7 +70,6 @@ class UtilityBillAllFuelTypesListView : public OSCollapsibleItemList
 
   model::Model m_model;
   OSItemType m_headerType;
-  bool m_showLocalBCL;
 };
 
 }  // namespace openstudio

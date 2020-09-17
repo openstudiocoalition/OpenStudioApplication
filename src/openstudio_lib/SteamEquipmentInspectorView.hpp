@@ -58,7 +58,7 @@ class SteamEquipmentDefinitionInspectorView : public ModelObjectInspectorView
   virtual void onUpdate() override;
 
  private:
-  void attach(openstudio::model::SteamEquipmentDefinition& steamEquipmentDefinition);
+  void attach(const openstudio::model::SteamEquipmentDefinition& steamEquipmentDefinition);
 
   void detach();
 

@@ -3,6 +3,9 @@ name: C++ CI for OpenStudioApplication
 on:
   push:
     branches: [ master ]
+    # Sequence of patterns matched against refs/tags
+    tags:
+      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
   pull_request:
     branches: [ master, develop ]
 
@@ -18,12 +21,13 @@ env:
   CPACK_BINARY_TGZ: ON
   CPACK_BINARY_TXZ: OFF
   CPACK_BINARY_TZ: OFF
-  CPACK_SOURCE_RPM:BOOL: OFF
-  CPACK_SOURCE_TBZ2:BOOL: OFF
-  CPACK_SOURCE_TGZ:BOOL: OFF
-  CPACK_SOURCE_TXZ:BOOL: OFF
-  CPACK_SOURCE_TZ:BOOL: OFF
-  CPACK_SOURCE_ZIP:BOOL: OFF
+  CPACK_SOURCE_RPM: OFF
+  CPACK_SOURCE_TBZ2: OFF
+  CPACK_SOURCE_TGZ: OFF
+  CPACK_SOURCE_TXZ: OFF
+  CPACK_SOURCE_TZ: OFF
+  CPACK_SOURCE_ZIP: OFF
+  QT_VERSION: 5.15.0
   # CPACK_BINARY_DEB: OS-SPECIFIC
   # CPACK_BINARY_IFW: OS-SPECIFIC
 
@@ -31,29 +35,67 @@ jobs:
   build:
     # runs-on: ubuntu-18.04
     runs-on: ${{ matrix.os }}
+    continue-on-error: ${{ matrix.allow_failure }}
     strategy:
       # fail-fast: Default is true, switch to false to allow one platform to fail and still run others
       fail-fast: false
       matrix:
-        os: [ubuntu-18.04, windows-2019, macos-10.15]
+        os: [ubuntu-18.04, ubuntu-20.04, windows-2019, macos-10.15]
         include:
         - os: ubuntu-18.04
+          allow_failure: false
           PLATFORM_NAME: Linux
           CPACK_BINARY_DEB: ON
           CPACK_BINARY_IFW: OFF
+          CPACK_BINARY_TGZ: ON
+          CPACK_BINARY_ZIP: OFF
           BINARY_EXT: deb
-        - os: windows-2019
-          PLATFORM_NAME: Windows
-          CPACK_BINARY_DEB: OFF
-          CPACK_BINARY_IFW: ON
-          BINARY_EXT: exe
+          COMPRESSED_EXT: tar.gz
+          BINARY_PKG_PATH: _CPack_Packages/Linux/DEB
+          COMPRESSED_PKG_PATH: _CPack_Packages/Linux/TGZ
+          QT_OS_NAME: linux
+          QT_ARCH: gcc_64
+        - os: ubuntu-20.04
+          allow_failure: true
+          PLATFORM_NAME: Linux
+          CPACK_BINARY_DEB: ON
+          CPACK_BINARY_IFW: OFF
+          CPACK_BINARY_TGZ: ON
+          CPACK_BINARY_ZIP: OFF
+          BINARY_EXT: deb
+          COMPRESSED_EXT: tar.gz
+          BINARY_PKG_PATH: _CPack_Packages/Linux/DEB
+          COMPRESSED_PKG_PATH: _CPack_Packages/Linux/TGZ
+          QT_OS_NAME: linux
+          QT_ARCH: gcc_64
         - os: macos-10.15
+          allow_failure: false
           PLATFORM_NAME: Darwin
           CPACK_BINARY_DEB: OFF
           CPACK_BINARY_IFW: ON
+          CPACK_BINARY_TGZ: ON
+          CPACK_BINARY_ZIP: OFF
           BINARY_EXT: dmg
+          COMPRESSED_EXT: tar.gz
+          BINARY_PKG_PATH: _CPack_Packages/Darwin/IFW
+          COMPRESSED_PKG_PATH: _CPack_Packages/Darwin/TGZ
           MACOSX_DEPLOYMENT_TARGET: 10.14
           SDKROOT: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
+          QT_OS_NAME: mac
+          QT_ARCH: clang_64
+        - os: windows-2019
+          allow_failure: false
+          PLATFORM_NAME: Windows
+          CPACK_BINARY_DEB: OFF
+          CPACK_BINARY_IFW: ON
+          CPACK_BINARY_TGZ: OFF
+          CPACK_BINARY_ZIP: ON
+          BINARY_EXT: exe
+          COMPRESSED_EXT: zip
+          BINARY_PKG_PATH: _CPack_Packages/win64/IFW
+          COMPRESSED_PKG_PATH: _CPack_Packages/win64/ZIP
+          QT_OS_NAME: windows
+          QT_ARCH: win64_msvc2019_64
 
     steps:
     - uses: actions/checkout@v2
@@ -83,7 +125,7 @@ jobs:
         m_major = re.search('set\(OPENSTUDIO_VERSION_MAJOR (\d+)\)', content)
         m_minor = re.search('set\(OPENSTUDIO_VERSION_MINOR (\d+)\)', content)
         m_patch = re.search('set\(OPENSTUDIO_VERSION_PATCH (\d+)\)', content)
-        m_sha = re.search('set\(OPENSTUDIO_VERSION_SHA (\d+)\)', content)
+        m_sha = re.search('set\(OPENSTUDIO_VERSION_SHA "(.*)"\)', content)
 
         sdk_version = ''
         if m_major:
@@ -96,7 +138,7 @@ jobs:
         sdk_version += '.'
         if m_minor:
             sdk_version += m_minor.groups()[0]
-            print("::set-env name=OS_SDK_VERSION_INOR::{}".format(m_minor.groups()[0]))
+            print("::set-env name=OS_SDK_VERSION_MINOR::{}".format(m_minor.groups()[0]))
         else:
             print("Unable to find OPENSTUDIO_VERSION_MINOR")
             sdk_version += 'Y'
@@ -110,11 +152,12 @@ jobs:
             sdk_version += 'Z'
 
         if m_sha:
-            sdk_version += m_sha.groups()[0]
+            # NOT ADDING IT to sdk_version
+            # sdk_version += m_sha.groups()[0]
             print("::set-env name=OS_SDK_VERSION_SHA::{}".format(m_sha.groups()[0]))
         else:
             print("Unable to find OPENSTUDIO_VERSION_SHA")
-            # NOT ADDING IT to sdk_version
+
 
         with open('sdk_version.txt', 'w') as f:
             f.write(sdk_version)
@@ -132,7 +175,10 @@ jobs:
         echo "::set-env name=PLATFORM_NAME::${{ matrix.PLATFORM_NAME }}"
         echo "::set-env name=CPACK_BINARY_DEB::${{ matrix.CPACK_BINARY_DEB }}"
         echo "::set-env name=CPACK_BINARY_IFW::${{ matrix.CPACK_BINARY_IFW }}"
+        echo "::set-env name=CPACK_BINARY_ZIP::${{ matrix.CPACK_BINARY_ZIP }}"
+        echo "::set-env name=CPACK_BINARY_TGZ::${{ matrix.CPACK_BINARY_TGZ }}"
         echo "::set-env name=BINARY_EXT::${{ matrix.BINARY_EXT }}"
+        echo "::set-env name=COMPRESSED_EXT::${{ matrix.COMPRESSED_EXT }}"
 
         if [ "$RUNNER_OS" == "Linux" ]; then
           echo "Install needed system dependencies for OPENGL (due to Qt) for Linux"
@@ -168,7 +214,7 @@ jobs:
       uses: actions/cache@v2
       with:
         path: build/
-        key: ${{ runner.os }}-build-cache
+        key: ${{ matrix.os }}-build-cache
 
     - name: Did restoring the build-cache work? No
       # If the build cache wasn't found in the cache
@@ -177,11 +223,14 @@ jobs:
           echo "Build cache not found"
 
     - name: Did restoring the build-cache work? Yes
-      # If it wasn't found in the cache
+      # If it was found in the cache, list files, and Delete the packages already produced
       if: steps.cachebuild.outputs.cache-hit == 'true'
+      shell: bash
       run: |
-          ls build/
-          cat build/CMakeCache.txt
+          ls build/ || true
+          cat build/CMakeCache.txt || true
+          /bin/rm build/OpenStudioApplication-*${{ env.PLATFORM_NAME }}* || true
+          ls build/ || true
 
     - name: Cache OpenStudio tar.gz
       # To avoid downloading the SDK all the time, we try to cache it.
@@ -192,14 +241,15 @@ jobs:
       uses: actions/cache@v2
       with:
         path: OpenStudio-${{ env.OS_SDK_VERSION }}
-        key: OpenStudio-SDK-${{ runner.os }}-${{ env.OS_SDK_VERSION }}
+        key: OpenStudio-SDK-${{ matrix.os }}-${{ env.OS_SDK_VERSION }}
 
     - name: Did restoring the build-cache or OpenStudioSDK cache work? Yes
       # If it wasn't found in the cache
       if: steps.cachebuild.outputs.cache-hit == 'true' || steps.cacheossdk.outputs.cache-hit == true
       run: |
-          ls build/
-          ls build/OpenStudio-${{ env.OS_SDK_VERSION }}
+          ls build/ || true
+          ls build/OpenStudio-${{ env.OS_SDK_VERSION }} || true
+          ls build/Qt-install/ || true
 
      # NOTE JM 2020-09-01: we're going to rely on FindOpenStudioSDK.cmake for now, but it's not impossible we'll need this in the future
      # This step in conjuction with the step 'Create Build Environment and locate openstudio', and a small modification in 'Configure CMake' step
@@ -251,7 +301,7 @@ jobs:
       uses: actions/cache@v2
       with:
         path: ~/.conan
-        key: ${{ runner.os }}-conan-cache
+        key: ${{ matrix.os }}-conan-cache
 
     - name: Did restoring the conan-cache work? No
       # If the SDK wasn't found in the cache
@@ -273,6 +323,7 @@ jobs:
       # We'll use this as our working directory for all subsequent commands
       shell: bash
       run: |
+        set -x
         cmake -E make_directory ./build
         # Below needed if you re-enable 'Download the OpenStudio installer' step
         # openstudio_DIR=$(find `pwd`/OpenStudio-$OS_SDK_VERSION/ -name "openstudioConfig.cmake")
@@ -280,13 +331,34 @@ jobs:
         # echo "openstudio_DIR=${openstudio_DIR}"
         # echo "::set-env name=openstudio_DIR::$openstudio_DIR"
 
+        if [ "$RUNNER_OS" == "Windows" ]; then
+          QT_INSTALL_DIR="$(pwd)/build/Qt-install/$QT_VERSION/msvc2019_64"
+        else
+          QT_INSTALL_DIR="$(pwd)/build/Qt-install/$QT_VERSION/${{ matrix.QT_ARCH }}"
+        fi
+        if [ -d "$QT_INSTALL_DIR" ]; then
+          echo "Qt $QT_VERSION already installed"
+        else
+          echo "Install aqtinstall, then install Qt $QT_VERSION for ${{ matrix.QT_OS_NAME }} ${{ matrix.QT_ARCH }}"
+          pip3 install aqtinstall
+          aqt install --outputdir ./build/Qt-install/ $QT_VERSION ${{ matrix.QT_OS_NAME }} desktop ${{ matrix.QT_ARCH }} -m qtwebengine qtwebglplugin
+        fi
+
+        echo "::add-path::$QT_INSTALL_DIR/bin"
+        echo "::set-env name=QT_INSTALL_DIR::$QT_INSTALL_DIR"
+        ls ./build/Qt-install/$QT_VERSION/
+        ls $QT_INSTALL_DIR || true
+        ls $QT_INSTALL_DIR/lib || true
+        ls $QT_INSTALL_DIR/lib/cmake || true
+        find ./build/Qt-install -name "*.cmake"
+
     #- name: Cache Qt dep cache?
       ## To avoid downloading the Qt dependency all the time, we try to cache it
       #id: cacheqt
       #uses: actions/cache@v2
       #with:
         #path: build/qt_5_11_*.tar.gz
-        #key: ${{ runner.os }}-qt-5-11-cache
+        #key: ${{ matrix.os }}-qt-5-11-cache
 
     #- name: Did restoring the qt cache work?
       ## If the SDK wasn't found in the cache
@@ -312,7 +384,7 @@ jobs:
       # The CMake binaries on the Github Actions machines are (as of this writing) 3.12
       # NOTE: If you re-enable 'Download the OpenStudio installer' step, then pass `openstudio_DIR=$openstudio_DIR cmake [etc]`
       run: |
-        cmake $CMAKE_GENERATOR $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DBUILD_DOCUMENTATION=$DBUILD_DOCUMENTATION -DBUILD_TESTING=$BUILD_TESTING -DBUILD_PACKAGE=$BUILD_PACKAGE -DCPACK_BINARY_DEB=$CPACK_BINARY_DEB -DCPACK_BINARY_IFW=$CPACK_BINARY_IFW -DCPACK_BINARY_NSIS=$CPACK_BINARY_NSIS -DCPACK_BINARY_RPM=$CPACK_BINARY_RPM -DCPACK_BINARY_STGZ=$CPACK_BINARY_STGZ -DCPACK_BINARY_TBZ2=$CPACK_BINARY_TBZ2 -DCPACK_BINARY_TGZ=$CPACK_BINARY_TGZ -DCPACK_BINARY_TXZ=$CPACK_BINARY_TXZ -DCPACK_BINARY_TZ=$CPACK_BINARY_TZ -DCPACK_SOURCE_RPM=$CPACK_SOURCE_RPM -DCPACK_SOURCE_TBZ2=$CPACK_SOURCE_TBZ2 -DCPACK_SOURCE_TGZ=$CPACK_SOURCE_TGZ -DCPACK_SOURCE_TXZ=$CPACK_SOURCE_TXZ -DCPACK_SOURCE_TZ=$CPACK_SOURCE_TZ -DCPACK_SOURCE_ZIP=$CPACK_SOURCE_ZIP ../
+        cmake $CMAKE_GENERATOR $GITHUB_WORKSPACE -DQT_INSTALL_DIR=$QT_INSTALL_DIR -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DBUILD_DOCUMENTATION=$DBUILD_DOCUMENTATION -DBUILD_TESTING=$BUILD_TESTING -DBUILD_PACKAGE=$BUILD_PACKAGE -DCPACK_BINARY_DEB=$CPACK_BINARY_DEB -DCPACK_BINARY_IFW=$CPACK_BINARY_IFW -DCPACK_BINARY_NSIS=$CPACK_BINARY_NSIS -DCPACK_BINARY_RPM=$CPACK_BINARY_RPM -DCPACK_BINARY_STGZ=$CPACK_BINARY_STGZ -DCPACK_BINARY_TBZ2=$CPACK_BINARY_TBZ2 -DCPACK_BINARY_TGZ=$CPACK_BINARY_TGZ -DCPACK_BINARY_ZIP=$CPACK_BINARY_ZIP -DCPACK_BINARY_TXZ=$CPACK_BINARY_TXZ -DCPACK_BINARY_TZ=$CPACK_BINARY_TZ -DCPACK_SOURCE_RPM=$CPACK_SOURCE_RPM -DCPACK_SOURCE_TBZ2=$CPACK_SOURCE_TBZ2 -DCPACK_SOURCE_TGZ=$CPACK_SOURCE_TGZ -DCPACK_SOURCE_TXZ=$CPACK_SOURCE_TXZ -DCPACK_SOURCE_TZ=$CPACK_SOURCE_TZ -DCPACK_SOURCE_ZIP=$CPACK_SOURCE_ZIP ../
 
     # Note: JM 2020-07-22 This is an example of how to get a config log for a failed conan dependency build (no binary available)
     # This WILL be handy some day, so leave it here
@@ -327,7 +399,7 @@ jobs:
       #if: ${{ failure() }}
       #uses: actions/upload-artifact@v2
       #with:
-          #name: ${{ runner.os }}-gdbm_config.log
+          #name: ${{ matrix.os }}-gdbm_config.log
           #path: ~/.conan/data/gdbm/1.18.1/_/_/build/**/source_subfolder/config.log
 
     - name: Build
@@ -342,14 +414,15 @@ jobs:
       # build/_CPack_Packages/Linux/DEB/*.deb
       # build/_CPack_Packages/Darwin/IFW/*.dmg
       with:
-          name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ env.PLATFORM_NAME }}.${{ env.BINARY_EXT }}
-          path: build/_CPack_Packages/*/*/*.${{ env.BINARY_EXT }}
+          name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.os }}.${{ env.BINARY_EXT }}
+          path: build/${{ matrix.BINARY_PKG_PATH }}/*.${{ env.BINARY_EXT }}
+          # path: build/_CPack_Packages/*/*/*.${{ env.BINARY_EXT }}
 
     - name: Archive TGZ artifacts
       uses: actions/upload-artifact@v2
       with:
-          name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ env.PLATFORM_NAME }}.tar.gz
-          path: build/_CPack_Packages/*/TGZ/*.tar.gz
+          name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.os }}.${{ env.COMPRESSED_EXT }}
+          path: build/${{ matrix.COMPRESSED_PKG_PATH }}/*.${{ env.COMPRESSED_EXT }}
 
     - name: Test
       working-directory: ./build
@@ -364,6 +437,36 @@ jobs:
     - name: Archive test results?
       uses: actions/upload-artifact@v2
       with:
-          name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ env.PLATFORM_NAME }}-Test.xml
+          name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.os }}-Test.xml
           path: build/Testing/**/*.xml
 
+    - name: Create a release if triggered by a tag
+      id: create_release_tag
+      if: contains(github.ref, 'refs/tags')
+      uses: actions/create-release@v1.1.1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        body: |
+          Release Notes pending
+        draft: false
+        prerelease: true
+
+    - name: Release Asset Glob
+      if: contains(github.ref, 'refs/tags')
+      uses: shogo82148/actions-upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release_tag.outputs.upload_url }}
+        asset_path: ./OpenStudioApplication-*
+
+    - name: Delete binary packages
+      working-directory: ./build/
+      shell: bash
+      run: |
+        ls OpenStudioApplication-*
+        /bin/rm OpenStudioApplication-*${{ env.PLATFORM_NAME }}*
+        ls OpenStudioApplication-* || true

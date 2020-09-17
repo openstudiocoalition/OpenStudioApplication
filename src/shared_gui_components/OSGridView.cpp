@@ -88,7 +88,7 @@ OSGridView::OSGridView(OSGridController* gridController, const QString& headerTe
    * QButtonGroup manages the state of the buttons in the group. By default a QButtonGroup is exclusive (only one button can be checked at one time)
    */
   auto buttonGroup = new QButtonGroup();
-  connect(buttonGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::buttonClicked), this, &OSGridView::selectCategory);
+  connect(buttonGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::idClicked), this, &OSGridView::selectCategory);
 
   auto buttonLayout = new QHBoxLayout();
   buttonLayout->setSpacing(3);
@@ -155,7 +155,7 @@ OSGridView::OSGridView(OSGridController* gridController, const QString& headerTe
   setGridController(m_gridController);
 
   // Make the first button checked by default
-  std::vector<QAbstractButton*> buttons = buttonGroup->buttons().toVector().toStdVector();
+  QVector<QAbstractButton*> buttons = buttonGroup->buttons().toVector();
   if (buttons.size() > 0) {
     QPushButton* button = qobject_cast<QPushButton*>(buttons.at(0));
     OS_ASSERT(button);
@@ -328,17 +328,17 @@ void OSGridView::doRefresh() {
   }
 
   // TODO: JM 2019-01-03 : Unused!
-  [[maybe_unused]] bool has_add_row = false;
-  [[maybe_unused]] bool has_remove_row = false;
-  [[maybe_unused]] bool has_refresh_grid = false;
-  [[maybe_unused]] bool has_refresh_all = false;
+  //bool has_add_row = false;
+  //bool has_remove_row = false;
+  //bool has_refresh_grid = false;
+  //bool has_refresh_all = false;
 
-  for (const auto& r : m_queueRequests) {
-    if (r == AddRow) has_add_row = true;
-    if (r == RemoveRow) has_remove_row = true;
-    if (r == RefreshGrid) has_refresh_grid = true;
-    if (r == RefreshAll) has_refresh_all = true;
-  }
+  //for (const auto& r : m_queueRequests) {
+  //if (r == AddRow) has_add_row = true;
+  //if (r == RemoveRow) has_remove_row = true;
+  //if (r == RefreshGrid) has_refresh_grid = true;
+  //if (r == RefreshAll) has_refresh_all = true;
+  //}
 
   m_queueRequests.clear();
 

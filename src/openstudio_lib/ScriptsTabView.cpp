@@ -46,7 +46,7 @@
 
 namespace openstudio {
 
-ScriptsTabView::ScriptsTabView(QWidget* parent) : MainTabView("Measures", MainTabView::MAIN_TAB, parent) {
+ScriptsTabView::ScriptsTabView(QWidget* t_parent) : MainTabView("Measures", MainTabView::MAIN_TAB, t_parent) {
   //setTitle("Organize and Edit Measures for Project");
 
   // Main Content

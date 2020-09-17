@@ -58,7 +58,7 @@ class OtherEquipmentDefinitionInspectorView : public ModelObjectInspectorView
   virtual void onUpdate() override;
 
  private:
-  void attach(openstudio::model::OtherEquipmentDefinition& otherEquipmentDefinition);
+  void attach(const openstudio::model::OtherEquipmentDefinition& otherEquipmentDefinition);
 
   void detach();
 

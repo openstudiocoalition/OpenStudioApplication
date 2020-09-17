@@ -118,7 +118,7 @@ OSCollapsibleItem::OSCollapsibleItem(OSCollapsibleItemHeader* collapsibleItemHea
   m_sortComboBox->addItem("Relevance");
   m_sortComboBox->addItem("Recently Downloaded from BCL");
   m_sortComboBox->addItem("BCL Components");
-  connect(m_sortComboBox, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentIndexChanged), this,
+  connect(m_sortComboBox, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentTextChanged), this,
           &OSCollapsibleItem::comboBoxClicked);
 
   auto vLayout = new QVBoxLayout();
@@ -220,9 +220,9 @@ void OSCollapsibleItem::setShowFilterLayout(const bool showFilterLayout) {
   // TODO Hack to remove once we do stuff with the filters
   return;
 
-  m_showFilterLayout = showFilterLayout;
+  // m_showFilterLayout = showFilterLayout;
 
-  setShowFilterWidgets(showFilterLayout);
+  // setShowFilterWidgets(showFilterLayout);
 }
 
 void OSCollapsibleItem::setShowFilterWidgets(const bool showFilterWidgets) {

@@ -39,7 +39,7 @@ class LoadsController : public ModelSubTabController
   Q_OBJECT
 
  public:
-  LoadsController(bool isiP, const model::Model& model);
+  LoadsController(bool isIP, const model::Model& model);
 
   virtual ~LoadsController();
 

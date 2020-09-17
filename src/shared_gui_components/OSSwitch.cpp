@@ -58,7 +58,7 @@ void OSSwitch2::makeTrueFalse() {
   setObjectName("TrueFalseSliderButton");
 }
 
-void OSSwitch2::bind(model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetter> set, boost::optional<NoFailAction> reset,
+void OSSwitch2::bind(const model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetter> set, boost::optional<NoFailAction> reset,
                      boost::optional<BasicQuery> isDefaulted) {
   m_modelObject = modelObject;
   m_get = get;

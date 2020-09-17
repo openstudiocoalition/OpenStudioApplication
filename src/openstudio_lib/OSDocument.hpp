@@ -73,7 +73,7 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
   Q_OBJECT
 
  public:
-  OSDocument(openstudio::model::Model library, const openstudio::path& resourcesPath, openstudio::model::OptionalModel model = boost::none,
+  OSDocument(const openstudio::model::Model& library, const openstudio::path& resourcesPath, openstudio::model::OptionalModel model = boost::none,
              QString filePath = QString(), bool isPlugin = false, int startTabIndex = 0, int startSubTabIndex = 0);
 
   virtual ~OSDocument();
@@ -254,7 +254,7 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
 
  private slots:
 
-  void onVerticalTabSelected(int id);
+  void onVerticalTabSelected(int verticalId);
 
   void inspectModelObject(model::OptionalModelObject&, bool readOnly);
 

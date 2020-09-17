@@ -147,7 +147,7 @@ void LightsDefinitionInspectorView::onUpdate() {
   refresh();
 }
 
-void LightsDefinitionInspectorView::attach(openstudio::model::LightsDefinition& lightsDefinition) {
+void LightsDefinitionInspectorView::attach(const openstudio::model::LightsDefinition& lightsDefinition) {
   m_lightsDefinition = lightsDefinition;
   // m_nameEdit->bind(lightsDefinition,"name");
 

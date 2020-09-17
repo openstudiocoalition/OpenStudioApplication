@@ -146,7 +146,7 @@ class SchedulesView : public QWidget, public Nano::Observer
 
   void setCurrentSchedule(const model::ScheduleRuleset& schedule);
 
-  void showAddRulePage(const model::ScheduleRuleset& schedule);
+  void showAddRulePage(const model::ScheduleRuleset& scheduleRuleset);
 
   void showScheduleRule(model::ScheduleRule scheduleRule);
 

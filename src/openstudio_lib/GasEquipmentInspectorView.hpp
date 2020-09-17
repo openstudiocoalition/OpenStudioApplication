@@ -59,7 +59,7 @@ class GasEquipmentDefinitionInspectorView : public ModelObjectInspectorView
   virtual void onUpdate() override;
 
  private:
-  void attach(openstudio::model::GasEquipmentDefinition& gasEquipmentDefinition);
+  void attach(const openstudio::model::GasEquipmentDefinition& gasEquipmentDefinition);
 
   void detach();
 

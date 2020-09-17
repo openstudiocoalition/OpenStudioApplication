@@ -247,6 +247,7 @@ void WindowMaterialScreenInspectorView::onUpdate() {
   refresh();
 }
 
+// cppcheck-suppress constParameter
 void WindowMaterialScreenInspectorView::attach(openstudio::model::Screen& screen) {
   m_screen = screen;
   // m_reflectedBeamTransmittanceAccountingMethod->bind(screen,"reflectedBeamTransmittanceAccountingMethod");

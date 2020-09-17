@@ -45,6 +45,15 @@
 using std::map;
 using std::stringstream;
 
+// TODO: We will have to replace QXmlDefaultHandler at some point, ignore for now
+#if defined(_MSC_VER)
+#  pragma warning(push)
+#  pragma warning(disable : 4996)
+#elif (defined(__GNUC__))
+#  pragma GCC diagnostic push
+#  pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
 namespace openstudio {
 namespace model {
 AccessPolicyStore* AccessPolicyStore::s_instance = nullptr;
@@ -152,7 +161,7 @@ bool AccessParser::startElement(const QString& /*namespaceURI*/, const QString& 
       }
       IddObject obj = *opObj;
 
-      bool foundInFields = false;
+      [[maybe_unused]] bool foundInFields = false;
       for (unsigned int i = 0, iend = obj.numFields(); i < iend; ++i) {
         openstudio::OptionalIddField f = obj.getField(i);
         QString fieldName2(f->name().c_str());
@@ -174,6 +183,7 @@ bool AccessParser::startElement(const QString& /*namespaceURI*/, const QString& 
         }
       }
 
+      // TODO: should we return foundInFields here?
       return true;
     } else {
       LOG(Debug, "Parse error in <rule> need both IddField and Access attribute\n");
@@ -308,3 +318,9 @@ void AccessPolicyStore::clear() {
 
 }  // namespace model
 }  // namespace openstudio
+
+#if defined(_MSC_VER)
+#  pragma warning(pop)
+#elif (defined(__GNUC__))
+#  pragma GCC diagnostic pop
+#endif

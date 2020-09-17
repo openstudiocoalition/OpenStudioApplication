@@ -70,7 +70,7 @@ class ConstructionInternalSourceInspectorView : public ModelObjectInspectorView
  private:
   void createLayout();
 
-  void attach(openstudio::model::ConstructionWithInternalSource& constructionWithInternalSource);
+  void attach(const openstudio::model::ConstructionWithInternalSource& constructionWithInternalSource);
 
   void detach();
 

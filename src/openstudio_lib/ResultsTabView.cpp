@@ -191,7 +191,7 @@ void ResultsView::onUnitSystemChange(bool t_isIP) {
 // need to sort paths by number so 8-UserScript-0, shows up before 11-UserScript-0
 struct ResultsPathSorter
 {
-  bool operator()(const openstudio::path& left, const openstudio::path& right) {
+  bool operator()(const openstudio::path& left, const openstudio::path& right) const {
     openstudio::path leftParent = left.parent_path().stem();
     openstudio::path rightParent = right.parent_path().stem();
 
@@ -271,10 +271,10 @@ void ResultsView::searchForExistingResults(const openstudio::path& t_runDir, con
   populateComboBox(reports);
 }
 
-void ResultsView::resultsGenerated(const openstudio::path& t_path, const openstudio::path& t_radianceResultsPath) {
-  LOG(Debug, "resultsGenerated " << openstudio::toString(t_path) << " " << openstudio::toString(t_radianceResultsPath));
+void ResultsView::resultsGenerated(const openstudio::path& t_sqlFile, const openstudio::path& t_radianceResultsPath) {
+  LOG(Debug, "resultsGenerated " << openstudio::toString(t_sqlFile) << " " << openstudio::toString(t_radianceResultsPath));
 
-  m_sqlFilePath = t_path;
+  m_sqlFilePath = t_sqlFile;
   m_radianceResultsPath = t_radianceResultsPath;
 }
 
@@ -408,7 +408,7 @@ void ResultsView::comboBoxChanged(int index) {
 }
 
 void ResultsView::onLoadFinished(bool ok) {
-  QString title = m_view->title();
+  // QString title = m_view->title();
   if (ok) {
     m_progressBar->setStyleSheet("");
     m_progressBar->setFormat("");

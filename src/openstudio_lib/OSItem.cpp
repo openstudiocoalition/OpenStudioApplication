@@ -60,7 +60,7 @@ namespace openstudio {
 
 const QString OSItemId::BCL_SOURCE_ID = QString("BCL");
 
-OSItemId::OSItemId() {}
+OSItemId::OSItemId() : m_isDefaulted(false) {}
 
 OSItemId::OSItemId(const QString& itemId, const QString& sourceId, bool isDefaulted, const QString& otherData)
   : m_itemId(itemId), m_sourceId(sourceId), m_otherData(otherData), m_isDefaulted(isDefaulted) {}
@@ -312,12 +312,9 @@ void OSItem::setUseLargeIcon(bool useLargeIcon) {
 }
 
 QPixmap OSItem::leftPixmap() const {
-  const QPixmap* pixmap = m_imageLeftLbl->pixmap();
-  if (pixmap) {
-    return *m_imageLeftLbl->pixmap();
-  } else {
-    return QPixmap();
-  }
+  if (!m_imageLeftLbl) return QPixmap();
+
+  return m_imageLeftLbl->pixmap(Qt::ReturnByValue);
 }
 
 void OSItem::setLeftPixmap(const QPixmap& pixmap) {
@@ -327,12 +324,7 @@ void OSItem::setLeftPixmap(const QPixmap& pixmap) {
 QPixmap OSItem::rightPixmap() const {
   if (!m_imageRightLbl) return QPixmap();
 
-  const QPixmap* pixmap = m_imageRightLbl->pixmap();
-  if (pixmap) {
-    return *m_imageRightLbl->pixmap();
-  } else {
-    return QPixmap();
-  }
+  return m_imageRightLbl->pixmap(Qt::ReturnByValue);
 }
 
 void OSItem::setRightPixmap(const QPixmap& pixmap) {
@@ -349,8 +341,8 @@ void OSItem::setLabelPixmap(QLabel* label, const QPixmap& pixmap) {
   }
 
   label->setPixmap(pixmap);
-  w = label->pixmap()->size().width();
-  h = label->pixmap()->size().height();
+  w = label->pixmap(Qt::ReturnByValue).size().width();
+  h = label->pixmap(Qt::ReturnByValue).size().height();
   OS_ASSERT(w != -1 && h != -1);
   label->setFixedSize(w, h);
 }

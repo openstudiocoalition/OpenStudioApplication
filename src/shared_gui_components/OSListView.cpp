@@ -41,8 +41,11 @@
 namespace openstudio {
 
 OSListView::OSListView(bool scrollable, QWidget* parent)
-  : QWidget(parent), m_widgetItemPairs(std::map<QObject*, QSharedPointer<OSListItem>>()), m_scrollable(scrollable), m_scrollArea(nullptr) {
-  m_delegate = QSharedPointer<OSItemDelegate>(new OSItemDelegate());
+  : QWidget(parent),
+    m_delegate(QSharedPointer<OSItemDelegate>::create()),
+    m_widgetItemPairs(std::map<QObject*, QSharedPointer<OSListItem>>()),
+    m_scrollable(scrollable),
+    m_scrollArea(nullptr) {
   m_mainVLayout = new QVBoxLayout();
   m_mainVLayout->setSizeConstraint(QLayout::SetMinimumSize);
   m_mainVLayout->setAlignment(Qt::AlignTop);

@@ -68,25 +68,25 @@ class OSDoubleEdit2 : public QLineEdit, public Nano::Observer
     return m_doubleValidator;
   }
 
-  void bind(model::ModelObject& modelObject, DoubleGetter get, boost::optional<DoubleSetter> set = boost::none,
+  void bind(const model::ModelObject& modelObject, DoubleGetter get, boost::optional<DoubleSetter> set = boost::none,
             boost::optional<NoFailAction> reset = boost::none, boost::optional<NoFailAction> autosize = boost::none,
             boost::optional<NoFailAction> autocalculate = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none,
             boost::optional<BasicQuery> isAutosized = boost::none, boost::optional<BasicQuery> isAutocalculated = boost::none);
 
-  void bind(model::ModelObject& modelObject, OptionalDoubleGetter get, boost::optional<DoubleSetter> set = boost::none,
+  void bind(const model::ModelObject& modelObject, OptionalDoubleGetter get, boost::optional<DoubleSetter> set = boost::none,
             boost::optional<NoFailAction> reset = boost::none, boost::optional<NoFailAction> autosize = boost::none,
             boost::optional<NoFailAction> autocalculate = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none,
             boost::optional<BasicQuery> isAutosized = boost::none, boost::optional<BasicQuery> isAutocalculated = boost::none);
 
-  void bind(model::ModelObject& modelObject, DoubleGetter get, DoubleSetterVoidReturn set, boost::optional<NoFailAction> reset = boost::none,
+  void bind(const model::ModelObject& modelObject, DoubleGetter get, DoubleSetterVoidReturn set, boost::optional<NoFailAction> reset = boost::none,
             boost::optional<NoFailAction> autosize = boost::none, boost::optional<NoFailAction> autocalculate = boost::none,
             boost::optional<BasicQuery> isDefaulted = boost::none, boost::optional<BasicQuery> isAutosized = boost::none,
             boost::optional<BasicQuery> isAutocalculated = boost::none);
 
-  void bind(model::ModelObject& modelObject, OptionalDoubleGetter get, DoubleSetterVoidReturn set, boost::optional<NoFailAction> reset = boost::none,
-            boost::optional<NoFailAction> autosize = boost::none, boost::optional<NoFailAction> autocalculate = boost::none,
-            boost::optional<BasicQuery> isDefaulted = boost::none, boost::optional<BasicQuery> isAutosized = boost::none,
-            boost::optional<BasicQuery> isAutocalculated = boost::none);
+  void bind(const model::ModelObject& modelObject, OptionalDoubleGetter get, DoubleSetterVoidReturn set,
+            boost::optional<NoFailAction> reset = boost::none, boost::optional<NoFailAction> autosize = boost::none,
+            boost::optional<NoFailAction> autocalculate = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none,
+            boost::optional<BasicQuery> isAutosized = boost::none, boost::optional<BasicQuery> isAutocalculated = boost::none);
 
   void bind(model::ModelExtensibleGroup& modelExtensibleGroup, DoubleGetter get, boost::optional<DoubleSetter> set = boost::none,
             boost::optional<NoFailAction> reset = boost::none, boost::optional<NoFailAction> autosize = boost::none,
@@ -159,7 +159,7 @@ class OSDoubleEdit2 : public QLineEdit, public Nano::Observer
 
 //   QDoubleValidator * doubleValidator() { return m_doubleValidator; }
 
-//   void bind(model::ModelObject& modelObject,
+//   void bind(const model::ModelObject& modelObject,
 //             const char* property,
 //             const boost::optional<std::string>& isDefaultedProperty = boost::none,
 //             const boost::optional<std::string>& isAutosizedProperty = boost::none,

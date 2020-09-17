@@ -54,7 +54,7 @@ class ZoneChooserView : public QWidget
 
   virtual ~ZoneChooserView() {}
 
-  ZoneChooserItem* zoneChooserItemForZone(std::string zoneName);
+  ZoneChooserItem* zoneChooserItemForZone(const std::string& zoneName);
 
   void layoutView();
 

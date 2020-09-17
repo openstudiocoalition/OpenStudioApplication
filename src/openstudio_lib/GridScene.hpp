@@ -63,7 +63,7 @@ class GridScene : public QGraphicsScene, public Nano::Observer
   void innerNodeClicked(model::ModelObject&);
 
  protected:
-  QRectF getCell(int x, int y);
+  QRectF getCell(int xindex, int yindex);
 
   QRectF getCell(QPointF point);
 };

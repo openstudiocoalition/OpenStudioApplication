@@ -87,8 +87,8 @@ class SpaceTypesGridController : public OSGridController
   Q_OBJECT
 
  public:
-  SpaceTypesGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model model,
-                           std::vector<model::ModelObject> modelObjects);
+  SpaceTypesGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, const model::Model& model,
+                           const std::vector<model::ModelObject>& modelObjects);
 
   virtual ~SpaceTypesGridController() {}
 

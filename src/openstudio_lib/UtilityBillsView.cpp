@@ -207,8 +207,7 @@ void UtilityBillsInspectorView::createWidgets() {
 
   m_buttonGroup = new QButtonGroup(this);
 
-  connect(m_buttonGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::buttonClicked), this,
-          &UtilityBillsInspectorView::deleteBillingPeriod);
+  connect(m_buttonGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::idClicked), this, &UtilityBillsInspectorView::deleteBillingPeriod);
 
   // Name
 
@@ -246,7 +245,7 @@ void UtilityBillsInspectorView::createWidgets() {
   m_consumptionUnits = new OSComboBox2();
   vLayout->addWidget(m_consumptionUnits);
 
-  connect(m_consumptionUnits, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentIndexChanged), this,
+  connect(m_consumptionUnits, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentTextChanged), this,
           static_cast<void (UtilityBillsInspectorView::*)(const QString&)>(&UtilityBillsInspectorView::updateEnergyUseLabelText));
 
   gridLayout->addLayout(vLayout, 0, 0, Qt::AlignLeft | Qt::AlignTop);
@@ -263,7 +262,7 @@ void UtilityBillsInspectorView::createWidgets() {
   m_peakDemandUnits = new OSComboBox2();
   vLayout->addWidget(m_peakDemandUnits);
 
-  connect(m_peakDemandUnits, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentIndexChanged), this,
+  connect(m_peakDemandUnits, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentTextChanged), this,
           static_cast<void (UtilityBillsInspectorView::*)(const QString&)>(&UtilityBillsInspectorView::updatePeakLabelText));
 
   gridLayout->addLayout(vLayout, 0, 1, Qt::AlignLeft | Qt::AlignTop);
@@ -321,7 +320,7 @@ void UtilityBillsInspectorView::createWidgets() {
 
   auto buttonGroup = new QButtonGroup(this);
 
-  connect(buttonGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::buttonClicked), this,
+  connect(buttonGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::idClicked), this,
           static_cast<void (UtilityBillsInspectorView::*)(int)>(&UtilityBillsInspectorView::setBillFormat));
 
   QRadioButton* radioButton = nullptr;
@@ -379,7 +378,7 @@ void UtilityBillsInspectorView::createWidgets() {
   refresh();
 }
 
-void UtilityBillsInspectorView::attach(openstudio::model::UtilityBill& utilityBill) {
+void UtilityBillsInspectorView::attach(const openstudio::model::UtilityBill& utilityBill) {
   m_utilityBill = utilityBill;
 
   m_name->bind(
@@ -720,7 +719,8 @@ void UtilityBillsInspectorView::updateRunPeriodDates() {
 
 //**********************************************************************************************************
 
-BillingPeriodWidget::BillingPeriodWidget(model::BillingPeriod billingPeriod, FuelType fuelType, BillFormat billFormat, QWidget* parent)
+BillingPeriodWidget::BillingPeriodWidget(model::BillingPeriod billingPeriod, const openstudio::FuelType& fuelType, BillFormat billFormat,
+                                         QWidget* parent)
   : QWidget(parent),
     m_startDateEdit(nullptr),
     m_endDateEdit(nullptr),
@@ -736,7 +736,7 @@ BillingPeriodWidget::BillingPeriodWidget(model::BillingPeriod billingPeriod, Fue
   attach(*m_billingPeriod);
 }
 
-void BillingPeriodWidget::createWidgets(FuelType fuelType, BillFormat billFormat) {
+void BillingPeriodWidget::createWidgets(const FuelType& fuelType, BillFormat billFormat) {
   QHBoxLayout* hLayout = nullptr;
   hLayout = new QHBoxLayout(this);
   hLayout->setContentsMargins(0, 0, 0, 0);
@@ -797,7 +797,7 @@ void BillingPeriodWidget::createWidgets(FuelType fuelType, BillFormat billFormat
   }
 }
 
-void BillingPeriodWidget::attach(openstudio::model::BillingPeriod& billingPeriod) {
+void BillingPeriodWidget::attach(const openstudio::model::BillingPeriod& billingPeriod) {
   m_billingPeriod = billingPeriod;
 
   if (m_billingPeriodIntEdit) {

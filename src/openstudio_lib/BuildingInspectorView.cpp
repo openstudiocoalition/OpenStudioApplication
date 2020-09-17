@@ -693,7 +693,7 @@ void BuildingInspectorView::populateStandardsTemplates() {
     }
   }
 
-  connect(m_standardsTemplateComboBox, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentIndexChanged), this,
+  connect(m_standardsTemplateComboBox, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentTextChanged), this,
           &BuildingInspectorView::standardsTemplateChanged);
   connect(m_standardsTemplateComboBox, &QComboBox::editTextChanged, this, &BuildingInspectorView::editStandardsTemplate);
 }
@@ -717,7 +717,7 @@ void BuildingInspectorView::populateStandardsBuildingTypes() {
     }
   }
 
-  connect(m_standardsBuildingTypeComboBox, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentIndexChanged), this,
+  connect(m_standardsBuildingTypeComboBox, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentTextChanged), this,
           &BuildingInspectorView::standardsBuildingTypeChanged);
   connect(m_standardsBuildingTypeComboBox, &QComboBox::editTextChanged, this, &BuildingInspectorView::editStandardsBuildingType);
 }
