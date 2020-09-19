@@ -347,6 +347,8 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
           std::vector<boost::optional<model::ModelObject>> allModelObjects;
           std::vector<boost::optional<model::ShadingControl>> allShadingControls;
           for (auto subSurface : allSubSurfaces(t_space)) {
+// temporary workaround, Shading Control Enhancements #239
+#pragma warning(disable : 4996)  // ignore deprecated method warning
             auto shadingControl = subSurface.cast<model::SubSurface>().shadingControl();
             if (shadingControl) {
               allShadingControls.push_back(shadingControl);
@@ -431,8 +433,14 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
       } else if (field == SHADINGSURFACENAME) {
 
       } else if (field == SHADINGCONTROLNAME) {
-        addDropZoneColumn(Heading(QString(SHADINGCONTROLNAME)), CastNullAdapter<model::SubSurface>(&model::SubSurface::shadingControl),
-                          CastNullAdapter<model::SubSurface>(&model::SubSurface::setShadingControl),
+
+        // temporary workaround, see Shading Control Enhancements #239
+        std::function<bool(model::SubSurface*, const model::ShadingControl&)> setter(
+          [](model::SubSurface* t_surface, const model::ShadingControl& t_arg) {
+            return const_cast<model::ShadingControl&>(t_arg).addSubSurface(*t_surface);
+          });
+
+        addDropZoneColumn(Heading(QString(SHADINGCONTROLNAME)), CastNullAdapter<model::SubSurface>(&model::SubSurface::shadingControl), setter,
                           boost::optional<std::function<void(model::SubSurface*)>>(NullAdapter(&model::SubSurface::resetShadingControl)),
                           boost::optional<std::function<bool(model::SubSurface*)>>(), DataSource(allSubSurfaces, true));
       } else if (field == SHADINGTYPE) {
