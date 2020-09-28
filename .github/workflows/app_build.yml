@@ -440,28 +440,49 @@ jobs:
           name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.os }}-Test.xml
           path: build/Testing/**/*.xml
 
-    - name: Create a release if triggered by a tag
-      id: create_release_tag
-      if: contains(github.ref, 'refs/tags')
-      uses: actions/create-release@v1.1.1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }}
-        body: |
-          Release Notes pending
-        draft: false
-        prerelease: true
+    #- name: Create a release if triggered by a tag
+      #id: create_release_tag
+      #if: contains(github.ref, 'refs/tags')
+      #uses: actions/create-release@v1.1.1
+      #env:
+        #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #with:
+        #tag_name: ${{ github.ref }}
+        #release_name: Release ${{ github.ref }}
+        #body: |
+          #Release Notes pending
+        #draft: false
+        #prerelease: true
 
-    - name: Release Asset Glob
+    #- name: Release Asset Glob
+      #if: contains(github.ref, 'refs/tags')
+      #uses: shogo82148/actions-upload-release-asset@v1
+      #env:
+        #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #with:
+        #upload_url: ${{ steps.create_release_tag.outputs.upload_url }}
+        #asset_path: ./OpenStudioApplication-*
+
+    - name: Upload Binary installer to release
       if: contains(github.ref, 'refs/tags')
-      uses: shogo82148/actions-upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      uses: svenstaro/upload-release-action@v2
       with:
-        upload_url: ${{ steps.create_release_tag.outputs.upload_url }}
-        asset_path: ./OpenStudioApplication-*
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        file: build/${{ matrix.BINARY_PKG_PATH }}/*.${{ env.BINARY_EXT }}
+        tag: ${{ github.ref }}
+        overwrite: true
+        file_glob: true
+
+    - name: Upload TGZ to release
+      if: contains(github.ref, 'refs/tags')
+      uses: svenstaro/upload-release-action@v2
+      with:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        file: build/${{ matrix.COMPRESSED_PKG_PATH }}/*.${{ env.COMPRESSED_EXT }}
+        tag: ${{ github.ref }}
+        overwrite: true
+        file_glob: true
+
 
     - name: Delete binary packages
       working-directory: ./build/
