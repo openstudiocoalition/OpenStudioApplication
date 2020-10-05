@@ -2,32 +2,24 @@ require 'github_api'
 require 'date'
 require 'yaml'
 
-begin_date = Time.parse('2020-4-27' + 'T06:00:00Z')
+# Get the begin date, by finding the last major/minor (X.Y.0) release
+# that is at least a week old
+def get_begin_date_and_previous_tag()
+  a_week_ago = Time.now - (60*60*24*7)
 
-end_date = Time.now
-end_date = Time.parse('2020-10-31' + 'T006:00:00Z')
-
-repo_owner = 'openstudiocoalition'
-repo = 'OpenStudioApplication'
-
-if !ENV['GITHUB_TOKEN'].nil?
-  token = ENV['GITHUB_TOKEN']
-  github = Github.new oauth_token: token
-elsif File.exists?(Dir.home + '/github_config.yml')
-  github_options = YAML.load_file(Dir.home + '/github_config.yml')
-  token = github_options['oauth_token']
-  github = Github.new oauth_token: token
-else
-  puts "Github Token not found"
-  github = Github.new
+  @github.repos.releases.list(owner: @repo_owner,
+                              repo: @repo).each_page do |page|
+    page.each do |release|
+      next if release.tag_name !~ /^v\d\.\d\.0$/
+      release_date = Time.parse(release.created_at)
+      next if release_date > a_week_ago
+      puts "Found previous major/minor release: #{release.tag_name}, #{release_date}"
+      return release_date, " (#{release.tag_name})"
+    end
+  end
+  puts "Cannot find previous release, setting time to 2005"
+  return Time.new(2005, 01, 01), ""
 end
-
-totalOpenIssues = Array.new
-totalOpenPullRequests = Array.new
-newIssues = Array.new
-newOpenIssues = Array.new
-closedIssues = Array.new
-acceptedPullRequests = Array.new
 
 def get_num(issue)
   issue.html_url.split('/')[-1].to_i
@@ -56,11 +48,37 @@ def print_issue(issue)
   end
 end
 
+
+@repo_owner = 'openstudiocoalition'
+@repo = 'OpenStudioApplication'
+@end_date = Time.now
+@github = nil
+
+if !ENV['GITHUB_TOKEN'].nil?
+  token = ENV['GITHUB_TOKEN']
+  @github = Github.new oauth_token: token
+elsif File.exists?(Dir.home + '/github_config.yml')
+  github_options = YAML.load_file(Dir.home + '/github_config.yml')
+  token = github_options['oauth_token']
+  @github = Github.new oauth_token: token
+else
+  puts "Github Token not found"
+  @github = Github.new
+end
+
+@begin_date, @prev_tag = get_begin_date_and_previous_tag()
+
+totalOpenIssues = Array.new
+totalOpenPullRequests = Array.new
+newIssues = Array.new
+closedIssues = Array.new
+acceptedPullRequests = Array.new
+
 # Process Open Issues
 results = -1
 page = 1
 while (results != 0)
-  resp = github.issues.list user: repo_owner, repo: repo,
+  resp = @github.issues.list user: @repo_owner, repo: @repo,
                             :sort => 'created',
                             :direction => 'asc',
                             :state => 'open',
@@ -71,7 +89,7 @@ while (results != 0)
     created = Time.parse(issue.created_at)
     if !issue.has_key?(:pull_request)
       totalOpenIssues << issue
-      if created >= begin_date && created <= end_date
+      if created >= @begin_date && created <= @end_date
         newIssues << issue
       end
     else
@@ -86,7 +104,7 @@ end
 results = -1
 page = 1
 while (results != 0)
-  resp = github.issues.list user: repo_owner, repo: repo,
+  resp = @github.issues.list user: @repo_owner, repo: @repo,
                             :sort => 'created',
                             :direction => 'asc',
                             :state => 'closed',
@@ -97,13 +115,13 @@ while (results != 0)
     created = Time.parse(issue.created_at)
     closed = Time.parse(issue.closed_at)
     if !issue.has_key?(:pull_request)
-      if created >= begin_date && created <= end_date
+      if created >= @begin_date && created <= @end_date
         newIssues << issue
       end
-      if closed >= begin_date && closed <= end_date
+      if closed >= @begin_date && closed <= @end_date
         closedIssues << issue
       end
-    elsif closed >= begin_date && closed <= end_date
+    elsif closed >= @begin_date && closed <= @end_date
       acceptedPullRequests << issue
     end
   end
@@ -118,7 +136,7 @@ totalOpenPullRequests.sort! {|x,y| get_num(x) <=> get_num(y)}
 
 puts "Total Open Issues: #{totalOpenIssues.length}"
 puts "Total Open Pull Requests: #{totalOpenPullRequests.length}"
-puts "\nDate Range: #{begin_date.strftime('%m/%d/%y')} - #{end_date.strftime('%m/%d/%y')}:"
+puts "\nDate Range: #{@begin_date.to_date.iso8601}#{@prev_tag} - #{@end_date.to_date.iso8601}:"
 puts "\nNew Issues: #{newIssues.length} (" + newIssues.map{|issue| get_issue_num(issue)}.join(', ') + ')'
 
 puts "\nClosed Issues: #{closedIssues.length} (" + closedIssues.map{|issue| get_issue_num(issue)}.join(', ') + ')'
