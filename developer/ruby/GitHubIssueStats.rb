@@ -47,7 +47,7 @@ end
 
 def print_issue(issue)
   is_feature = false
-  issue.labels.each {|label| is_feature = true if label.name == "Feature Request"}
+  issue.labels.each {|label| is_feature = true if label.name == "Enhancement Request"}
 
   if is_feature
     "- ![Improved:][improved] [#{get_issue_num(issue)}]( #{get_html_url(issue)} ), #{get_title(issue)}"
