@@ -10,11 +10,16 @@ end_date = Time.parse('2020-10-31' + 'T006:00:00Z')
 repo_owner = 'openstudiocoalition'
 repo = 'OpenStudioApplication'
 
-github = Github.new
-if File.exists?(Dir.home + '/github_config.yml')
+if !ENV['GITHUB_TOKEN'].nil?
+  token = ENV['GITHUB_TOKEN']
+  github = Github.new oauth_token: token
+elsif File.exists?(Dir.home + '/github_config.yml')
   github_options = YAML.load_file(Dir.home + '/github_config.yml')
   token = github_options['oauth_token']
   github = Github.new oauth_token: token
+else
+  puts "Github Token not found"
+  github = Github.new
 end
 
 totalOpenIssues = Array.new
