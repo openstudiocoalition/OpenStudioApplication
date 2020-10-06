@@ -1,0 +1,21 @@
+name: Check OSM Versions
+
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  osm-versions:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.5
+
+    - name: Verify that OSMs have been updated
+      shell: bash
+      run: |
+          ruby ./developer/ruby/CheckOSMVersions.rb
