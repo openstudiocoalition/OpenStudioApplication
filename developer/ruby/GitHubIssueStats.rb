@@ -141,10 +141,10 @@ totalOpenPullRequests.sort! {|x,y| get_num(x) <=> get_num(y)}
 puts "\n**Date Range: #{@begin_date.to_date.iso8601}**#{@prev_tag} - **#{@end_date.to_date.iso8601}:**"
 puts "\n**New Issues: #{newIssues.length}** (" + newIssues.map{|issue| get_issue_num(issue)}.join(', ') + ')'
 
-puts "\n**Closed Issues: #{closedIssues.length}** (" + closedIssues.map{|issue| get_issue_num(issue)}.join(', ') + ')'
+puts "\n**Closed Issues: #{closedIssues.length}**"  # (" + closedIssues.map{|issue| get_issue_num(issue)}.join(', ') + ')'
 closedIssues.each{|issue| puts print_issue(issue)}
 
-puts "\n**Accepted Pull Requests: #{acceptedPullRequests.length}** (" + acceptedPullRequests.map{|issue| get_issue_num(issue)}.join(', ') + ')'
+puts "\n**Accepted Pull Requests: #{acceptedPullRequests.length}**" # (" + acceptedPullRequests.map{|issue| get_issue_num(issue)}.join(', ') + ')'
 acceptedPullRequests.each{|issue| puts print_issue(issue)}
 
 puts "\n**Total Open Issues: #{totalOpenIssues.length}** (" + totalOpenIssues.map{|issue| get_issue_num(issue)}.join(', ') + ')'
