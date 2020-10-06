@@ -13,11 +13,15 @@ def get_begin_date_and_previous_tag()
       next if release.tag_name !~ /^v\d\.\d\.0$/
       release_date = Time.parse(release.created_at)
       next if release_date > a_week_ago
-      puts "Found previous major/minor release: #{release.tag_name}, #{release_date}"
+      # This is perhaps unecessary since we match to a tag in vX.Y.0 format
+      # already but it doesn't hurt
+      next if release.prerelease
+      next if release.draft
+      STDERR.puts "Found previous major/minor release: #{release.tag_name}, #{release_date}"
       return release_date, " (#{release.tag_name})"
     end
   end
-  puts "Cannot find previous release, setting time to 2005"
+  STDERR.puts "Cannot find previous release, setting time to 2005"
   return Time.new(2005, 01, 01), ""
 end
 
