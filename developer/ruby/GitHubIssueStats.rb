@@ -66,7 +66,7 @@ elsif File.exists?(Dir.home + '/github_config.yml')
   token = github_options['oauth_token']
   @github = Github.new oauth_token: token
 else
-  puts "Github Token not found"
+  STDERR.puts "Github Token not found"
   @github = Github.new
 end
 
@@ -138,15 +138,14 @@ newIssues.sort! {|x,y| get_num(x) <=> get_num(y)}
 acceptedPullRequests.sort! {|x,y| get_num(x) <=> get_num(y)}
 totalOpenPullRequests.sort! {|x,y| get_num(x) <=> get_num(y)}
 
-puts "Total Open Issues: #{totalOpenIssues.length}"
-puts "Total Open Pull Requests: #{totalOpenPullRequests.length}"
-puts "\nDate Range: #{@begin_date.to_date.iso8601}#{@prev_tag} - #{@end_date.to_date.iso8601}:"
-puts "\nNew Issues: #{newIssues.length} (" + newIssues.map{|issue| get_issue_num(issue)}.join(', ') + ')'
+puts "\n**Date Range: #{@begin_date.to_date.iso8601}**#{@prev_tag} - **#{@end_date.to_date.iso8601}:**"
+puts "\n**New Issues: #{newIssues.length}** (" + newIssues.map{|issue| get_issue_num(issue)}.join(', ') + ')'
 
-puts "\nClosed Issues: #{closedIssues.length} (" + closedIssues.map{|issue| get_issue_num(issue)}.join(', ') + ')'
+puts "\n**Closed Issues: #{closedIssues.length}** (" + closedIssues.map{|issue| get_issue_num(issue)}.join(', ') + ')'
 closedIssues.each{|issue| puts print_issue(issue)}
 
-puts "\nAccepted Pull Requests: #{acceptedPullRequests.length} (" + acceptedPullRequests.map{|issue| get_issue_num(issue)}.join(', ') + ')'
+puts "\n**Accepted Pull Requests: #{acceptedPullRequests.length}** (" + acceptedPullRequests.map{|issue| get_issue_num(issue)}.join(', ') + ')'
 acceptedPullRequests.each{|issue| puts print_issue(issue)}
 
-puts "\nAll Open Issues: #{totalOpenIssues.length} (" + totalOpenIssues.map{|issue| get_issue_num(issue)}.join(', ') + ')'
+puts "\n**Total Open Issues: #{totalOpenIssues.length}** (" + totalOpenIssues.map{|issue| get_issue_num(issue)}.join(', ') + ')'
+puts "\n**Total Open Pull Requests: #{totalOpenPullRequests.length}** (" + totalOpenPullRequests.map{|issue| get_issue_num(issue)}.join(', ') + ')'
