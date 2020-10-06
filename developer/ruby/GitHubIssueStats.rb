@@ -46,9 +46,9 @@ def print_issue(issue)
   issue.labels.each {|label| is_feature = true if label.name == "Enhancement Request"}
 
   if is_feature
-    "- ![Improved:][improved] [#{get_issue_num(issue)}]( #{get_html_url(issue)} ), #{get_title(issue)}"
+    "- :heavy_plus_sign: [#{get_issue_num(issue)}]( #{get_html_url(issue)} ), #{get_title(issue)}"
   else
-    "- ![Fixed:][fixed] [#{get_issue_num(issue)}]( #{get_html_url(issue)} ), #{get_title(issue)}"
+    "- :heavy_check_mark: [#{get_issue_num(issue)}]( #{get_html_url(issue)} ), #{get_title(issue)}"
   end
 end
 
