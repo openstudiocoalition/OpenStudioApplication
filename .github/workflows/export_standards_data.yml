@@ -106,7 +106,7 @@ jobs:
         echo "Branch Name: ${{ github.event.inputs.branch_name }}"
         echo ""
 
-        installer_link = "${{ github.event.inputs.os_installer_link }}"
+        installer_link="${{ github.event.inputs.os_installer_link }}"
         if [ -z "$installer_link" ]; then
           installer_link="$OS_SDK_BASELINK/$OS_SDK_INSTALLER_NAME"
           echo -e "${Yellow}Trying with Baselink: $installer_link${Color_Off}"
