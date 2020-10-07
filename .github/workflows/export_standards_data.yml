@@ -146,6 +146,7 @@ jobs:
                 exit 1
               fi
 
+              echo -e "${Yellow}Trying with latest release: $installer_link${Color_Off}"
               if ! wget -q "$installer_link"; then
                 echo -e "${Red}Not found at $installer_link${Color_Off}"
                 echo -e "${Red}I've exhausted all options here. Sorry${Color_Off}"
