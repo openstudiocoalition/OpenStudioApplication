@@ -91,7 +91,8 @@ def export_openstudio_libraries
   # templates = templates_to_climate_zones.keys
   # Make a library model for each template
   # We parallelize this loop, since it takes really long
-  Parallel.each(templates, in_threads: $nproc, progress: 'Exporting openstudio-standards templates') do |template_name|
+  # Note: You DO want to use in_processes here, and not in_threads!
+  Parallel.each(templates, in_processes: $nproc, progress: 'Exporting openstudio-standards templates') do |template_name|
 
     # Wrap each library creation in a begin/rescue because
     # the entire process can take a long time and
@@ -99,7 +100,7 @@ def export_openstudio_libraries
     begin
 
       # Make a Standard for this template
-      puts "*** Making #{template_name} ***"
+      puts "*** Making #{template_name} *** (Worker: #{Parallel.worker_number})"
       template_start_time = Time.now
       puts "* Started #{template_name} at: #{template_start_time}"
       begin
