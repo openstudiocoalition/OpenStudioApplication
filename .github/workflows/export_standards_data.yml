@@ -106,7 +106,7 @@ jobs:
                 f.write(f"\n{OS_SDK_BASELINK=}")
             print(f"Defaulted baselink '{OS_SDK_BASELINK=}'")
 
-        links = re.findall(r'"https?:\/\/openstudio-ci-builds.*?"', content)
+        links = re.findall(r'"(https?:\/\/openstudio-ci-builds.*?)"', content)
         links = [link.replace('${OPENSTUDIO_VERSION}', sdk_version) for link in links]
         if len(links) > 0:
             OS_SDK_ALTERNATE_LINK_1 = links[0]
@@ -126,7 +126,8 @@ jobs:
         Red='\033[0;31m'
         Yellow='\033[0;33m'
 
-        set -x
+        cat $GITHUB_ENV
+
         echo "User-supplied arguments:"
         echo "Installer link: ${{ github.event.inputs.os_installer_link }}"
         echo "Branch Name: ${{ github.event.inputs.branch_name }}"
@@ -134,6 +135,8 @@ jobs:
 
         installer_link="${{ github.event.inputs.os_installer_link }}"
         if [ -z "$installer_link" ]; then
+          echo "OS_SDK_BASELINK=$OS_SDK_BASELINK"
+          echo "OS_SDK_INSTALLER_NAME=$OS_SDK_INSTALLER_NAME"
           installer_link="$OS_SDK_BASELINK/$OS_SDK_INSTALLER_NAME"
           echo -e "${Yellow}Trying with Baselink: $installer_link${Color_Off}"
           if ! wget -q "$installer_link"; then
