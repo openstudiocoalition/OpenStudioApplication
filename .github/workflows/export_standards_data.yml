@@ -161,9 +161,7 @@ jobs:
         set -x
         N=$(nproc) openstudio export_OpenStudio.rb
 
-    - name: Upload libraries
-
-    - name: Commit results
+    - name: Upload libraries and logs
       if: ${{ always() }}
       shell: bash
       run: |
