@@ -136,7 +136,7 @@ jobs:
           installer_link="$OS_SDK_BASELINK/$OS_SDK_INSTALLER_NAME"
           echo -e "${Yellow}Trying with Baselink: $installer_link${Color_Off}"
           if ! wget -q "$installer_link"; then
-            installer_link="$OS_SDK_BASELINK/$OS_SDK_INSTALLER_NAME"
+            installer_link="$OS_SDK_ALTERNATE_LINK_1/$OS_SDK_INSTALLER_NAME"
             echo -e "${Yellow}Not found at baselink. Trying with alternate link: $installer_link${Color_Off}"
             if ! wget -q "$installer_link"; then
               echo -e "${Yellow}Cannot find the OS SDK installer. Defaulting to latest release (pre-release included)${Color_Off}"
