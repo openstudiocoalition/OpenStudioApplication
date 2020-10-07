@@ -136,10 +136,10 @@ jobs:
         if [ -z "$installer_link" ]; then
           installer_link="$OS_SDK_BASELINK/$OS_SDK_INSTALLER_NAME"
           echo -e "${Yellow}Trying with Baselink: $installer_link${Color_Off}"
-          if [[ ! $(wget "$installer_link") ]]; then
+          if ! wget -q "$installer_link"; then
             installer_link="$OS_SDK_BASELINK/$OS_SDK_INSTALLER_NAME"
             echo -e "${Yellow}Not found at baselink. Trying with alternate link: $installer_link${Color_Off}"
-            if [[ ! $(wget "$installer_link") ]]; then
+            if ! wget -q "$installer_link"; then
               echo -e "${Yellow}Cannot find the OS SDK installer. Defaulting to latest release (pre-release included)${Color_Off}"
               installer_link=$(curl -s https://api.github.com/repos/NREL/OpenStudio/releases | jq -r '. [0] | .assets | .[] | select(.name | contains("Linux")) | select(.name | contains("deb")) | .browser_download_url')
               if [ -z "$installer_link" ]; then
@@ -147,7 +147,7 @@ jobs:
                 exit 1
               fi
 
-              if [[ ! $(wget "$installer_link") ]]; then
+              if ! wget -q "$installer_link"; then
                 echo -e "${Red}Not found at $installer_link${Color_Off}"
                 echo -e "${Red}I've exhausted all options here. Sorry${Color_Off}"
                 exit 1
@@ -155,7 +155,7 @@ jobs:
             fi
           fi
         else
-          if [[ ! $(wget "$installer_link") ]]; then
+          if ! wget -q "$installer_link"; then
             echo "Could not locate the DEB installer at supplied $installer_link"
             exit 1
           fi
