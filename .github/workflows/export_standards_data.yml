@@ -1,0 +1,190 @@
+name: Export OpenStudio Standards Data
+
+on:
+  workflow_dispatch:
+    inputs:
+      os_installer_link:
+        description: 'The Link where to download the LINUX OpenStudio SDK Installer (.DEB), otherwise defaults to the one specified in FindOpenStudioSDK.cmake'
+        required: false
+      branch_name:
+        description: 'The branch name to use and where to commit the test results. If ommited, check out develop, and commit results to a branch named like the installer SHA'
+        required: false
+
+jobs:
+  export-os-standards:
+    runs-on: ubuntu-18.04
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: actions/setup-python@v2
+      with:
+        python-version: '3.8.x'
+
+    - name: Extract OS SDK version from FindOpenStudioSDK.cmake
+      shell: python
+      run: |
+        import re
+        with open('FindOpenStudioSDK.cmake', 'r') as f:
+            content = f.read()
+
+        no_comments_lines = []
+        for line in content.splitlines():
+            l = line.strip().split('#')[0]
+            if l:
+                no_comments_lines.append(l)
+        content = "\n".join(no_comments_lines)
+
+        m_major = re.search(r'set\(OPENSTUDIO_VERSION_MAJOR (\d+)\)', content)
+        m_minor = re.search(r'set\(OPENSTUDIO_VERSION_MINOR (\d+)\)', content)
+        m_patch = re.search(r'set\(OPENSTUDIO_VERSION_PATCH (\d+)\)', content)
+        m_sha = re.search(r'set\(OPENSTUDIO_VERSION_SHA "(.*?)"\)', content)
+
+        sdk_version = ''
+        if m_major:
+            sdk_version += m_major.groups()[0]
+            print("::set-env name=OS_SDK_VERSION_MAJOR::{}".format(m_major.groups()[0]))
+        else:
+            print("Unable to find OPENSTUDIO_VERSION_MAJOR")
+            sdk_version += 'X'
+
+        sdk_version += '.'
+        if m_minor:
+            sdk_version += m_minor.groups()[0]
+            print("::set-env name=OS_SDK_VERSION_MINOR::{}".format(m_minor.groups()[0]))
+        else:
+            print("Unable to find OPENSTUDIO_VERSION_MINOR")
+            sdk_version += 'Y'
+
+        sdk_version += '.'
+        if m_patch:
+            sdk_version += m_patch.groups()[0]
+            print("::set-env name=OS_SDK_VERSION_PATCH::{}".format(m_patch.groups()[0]))
+        else:
+            print("Unable to find OPENSTUDIO_VERSION_PATCH")
+            sdk_version += 'Z'
+
+        if m_sha:
+            sdk_sha = m_sha.groups()[0]
+            # NOT ADDING IT to sdk_version
+            # sdk_version += sdk_sha
+            print("::set-env name=OS_SDK_VERSION_SHA::{}".format(sdk_sha))
+        else:
+            print("Unable to find OPENSTUDIO_VERSION_SHA")
+
+
+        with open('sdk_version.txt', 'w') as f:
+            f.write(sdk_version)
+
+        print("::set-env name=OS_SDK_VERSION::{}".format(sdk_version))
+
+        m_baselink = re.search(r'set\(OPENSTUDIO_BASELINK_RELEASE "(http.*?)"', content)
+        if m_baselink:
+            baselink = m_baselink.groups()[0].replace('${OPENSTUDIO_VERSION}', sdk_version)
+        else:
+            print("Unable to find OPENSTUDIO_BASELINK_RELEASE")
+            baselink = f"https://github.com/NREL/OpenStudio/releases/download/v{sdk_version}{sdk_sha.split('+')[0]}"
+            print(f"::set-env name=OS_SDK_BASELINK::{baselink}")
+        links = re.findall(r'"https?:\/\/openstudio-ci-builds.*?"', content)
+        links = [link.replace('${OPENSTUDIO_VERSION}', sdk_version) for link in links]
+        if len(links) > 0:
+            print(f"::set-env name=OS_SDK_ALTERNATE_LINK_1::{links[0]}")
+
+        sdk_installer_name = f"OpenStudio-{sdk_version}{sdk_sha}-Linux.deb"
+        print(f"::set-env name=OS_SDK_INSTALLER_NAME::{sdk_installer_name}")
+
+    - name: Download and install OS SDK installer
+      shell: bash
+      run: |
+        Color_Off='\033[0m' # No Color
+        Red='\033[0;31m'
+        Yellow='\033[0;33m'
+
+        set -x
+        echo "User-supplied arguments:"
+        echo "Installer link: ${{ github.event.inputs.os_installer_link }}"
+        echo "Branch Name: ${{ github.event.inputs.branch_name }}"
+        echo ""
+
+        installer_link = "${{ github.event.inputs.os_installer_link }}"
+        if [ -z "$installer_link" ]; then
+          installer_link="$OS_SDK_BASELINK/$OS_SDK_INSTALLER_NAME"
+          echo -e "${Yellow}Trying with Baselink: $installer_link${Color_Off}"
+          if [[ ! $(wget "$installer_link") ]]; then
+            installer_link="$OS_SDK_BASELINK/$OS_SDK_INSTALLER_NAME"
+            echo -e "${Yellow}Not found at baselink. Trying with alternate link: $installer_link${Color_Off}"
+            if [[ ! $(wget "$installer_link") ]]; then
+              echo -e "${Yellow}Cannot find the OS SDK installer. Defaulting to latest release (pre-release included)${Color_Off}"
+              installer_link=$(curl -s https://api.github.com/repos/NREL/OpenStudio/releases | jq -r '. [0] | .assets | .[] | select(.name | contains("Linux")) | select(.name | contains("deb")) | .browser_download_url')
+              if [ -z "$installer_link" ]; then
+                echo -e "${Red}Could not locate the latest OpenStudio deb from the release page.${Color_Off}"
+                exit 1
+              fi
+
+              if [[ ! $(wget "$installer_link") ]]; then
+                echo -e "${Red}Not found at $installer_link${Color_Off}"
+                echo -e "${Red}I've exhausted all options here. Sorry${Color_Off}"
+                exit 1
+              fi
+            fi
+          fi
+        else
+          if [[ ! $(wget "$installer_link") ]]; then
+            echo "Could not locate the DEB installer at supplied $installer_link"
+            exit 1
+          fi
+        fi
+
+        sudo apt update
+        sudo apt install -y ./OpenStudio*.deb
+        os_version=openstudio openstudio_version
+        echo "::set-env name=os_version::$os_version"
+
+    - name: Checkout the branch
+      shell: bash
+      run: |
+        branch_name="${{ github.event.inputs.branch_name }}"
+
+        if [ -z "$branch_name" ]; then
+          branch_name=$(openstudio -e "puts OpenStudio::openStudioVersionBuildSHA")
+          echo "Branch name not supplied, defaulting to '$branch_name'"
+        fi;
+
+        echo "::set-env name=branch_name::$branch_name"
+
+        git checkout -b $branch_name || git checkout $branch_name
+
+    - name: Export openstudio-standards libraries
+      shell: bash
+      working-directory: ./developer/ruby/
+      run: |
+        set -x
+        N=$(nproc) openstudio export_openstudio_standards_libraries.rb
+
+    - name: Upload libraries and logs
+      if: ${{ always() }}
+      shell: bash
+      run: |
+        Color_Off='\033[0m' # No Color
+        Red='\033[0;31m'
+        git add -f ./developer/ruby/pkg/libraries/*
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git config --global user.name 'github-actions[bot]'
+
+        mv developer/ruby/pkg/libraries/*.osm src/openstudio_app/Resources/
+        git add src/openstudio_app/Resources/
+        if [[ $(git diff --cached --exit-code) ]]; then
+          git commit -m "Add OSMs results from exporting openstudio-standards libraries with $os_version (${{ github.event.inputs.os_installer_link }})"
+          git push -u origin $branch_name
+        else
+          echo -e "${Red}No OSMs generated...${Color_Off}"
+        fi
+
+        git add -f ./developer/ruby/pkg/libraries/*
+        if [[ $(git diff --cached --exit-code) ]]; then
+          git commit -m "Add logs for review (DISCARD ME)"
+          git push -u origin $branch_name
+        else
+          echo "${Red}No logs to commit, that's very strange...${Color_Off}"
+        fi
+
