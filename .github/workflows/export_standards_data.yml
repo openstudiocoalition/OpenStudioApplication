@@ -46,7 +46,7 @@ jobs:
             OS_SDK_VERSION_MAJOR = m_major.groups()[0]
             sdk_version += OS_SDK_VERSION_MAJOR
             with open(os.environ['GITHUB_ENV'], 'a') as f:
-                f.write(f"\n{OS_SDK_VERSION_MAJOR=}")
+                f.write(f"\nOS_SDK_VERSION_MAJOR={OS_SDK_VERSION_MAJOR}")
             print(f"\n{OS_SDK_VERSION_MAJOR=}")
         else:
             print("Unable to find OPENSTUDIO_VERSION_MAJOR")
@@ -57,7 +57,7 @@ jobs:
             OS_SDK_VERSION_MINOR = m_minor.groups()[0]
             sdk_version += OS_SDK_VERSION_MINOR
             with open(os.environ['GITHUB_ENV'], 'a') as f:
-                f.write(f"\n{OS_SDK_VERSION_MINOR=}")
+                f.write(f"\nOS_SDK_VERSION_MINOR={OS_SDK_VERSION_MINOR}")
             print(f"\n{OS_SDK_VERSION_MINOR=}")
         else:
             print("Unable to find OPENSTUDIO_VERSION_MINOR")
@@ -68,7 +68,7 @@ jobs:
             OS_SDK_VERSION_PATCH = m_patch.groups()[0]
             sdk_version += OS_SDK_VERSION_PATCH
             with open(os.environ['GITHUB_ENV'], 'a') as f:
-                f.write(f"\n{OS_SDK_VERSION_PATCH=}")
+                f.write(f"\nOS_SDK_VERSION_PATCH={OS_SDK_VERSION_PATCH}")
             print(f"\n{OS_SDK_VERSION_PATCH=}")
         else:
             print("Unable to find OPENSTUDIO_VERSION_PATCH")
@@ -79,14 +79,14 @@ jobs:
             # NOT ADDING IT to sdk_version
             # sdk_version += OS_SDK_VERSION_SHA
             with open(os.environ['GITHUB_ENV'], 'a') as f:
-                f.write(f"\n{OS_SDK_VERSION_SHA=}")
+                f.write(f"\nOS_SDK_VERSION_SHA={OS_SDK_VERSION_SHA}")
             print(f"{OS_SDK_VERSION_SHA=}")
         else:
             print("Unable to find OPENSTUDIO_VERSION_SHA")
 
         OS_SDK_VERSION = sdk_version
         with open(os.environ['GITHUB_ENV'], 'a') as f:
-            f.write(f"\n{OS_SDK_VERSION=}")
+            f.write(f"\nOS_SDK_VERSION={OS_SDK_VERSION}")
         print(f"{OS_SDK_VERSION=}")
 
         with open('sdk_version.txt', 'a') as f:
@@ -96,14 +96,14 @@ jobs:
         if m_baselink:
             OS_SDK_BASELINK = m_baselink.groups()[0].replace('${OPENSTUDIO_VERSION}', sdk_version)
             with open(os.environ['GITHUB_ENV'], 'a') as f:
-                f.write(f"\n{OS_SDK_BASELINK=}")
+                f.write(f"\nOS_SDK_BASELINK={OS_SDK_BASELINK}")
             print(f"Found baselink '{OS_SDK_BASELINK=}'")
 
         else:
             print("Unable to find OPENSTUDIO_BASELINK_RELEASE")
             OS_SDK_BASELINK = f"https://github.com/NREL/OpenStudio/releases/download/v{sdk_version}{sdk_sha.split('+')[0]}"
             with open(os.environ['GITHUB_ENV'], 'a') as f:
-                f.write(f"\n{OS_SDK_BASELINK=}")
+                f.write(f"\nOS_SDK_BASELINK={OS_SDK_BASELINK}")
             print(f"Defaulted baselink '{OS_SDK_BASELINK=}'")
 
         links = re.findall(r'"(https?:\/\/openstudio-ci-builds.*?)"', content)
@@ -111,12 +111,12 @@ jobs:
         if len(links) > 0:
             OS_SDK_ALTERNATE_LINK_1 = links[0]
             with open(os.environ['GITHUB_ENV'], 'a') as f:
-                f.write(f"\n{OS_SDK_ALTERNATE_LINK_1=}")
+                f.write(f"\nOS_SDK_ALTERNATE_LINK_1={OS_SDK_ALTERNATE_LINK_1}")
             print(f"Alternate link '{OS_SDK_ALTERNATE_LINK_1=}'")
 
         OS_SDK_INSTALLER_NAME = f"OpenStudio-{sdk_version}{OS_SDK_VERSION_SHA}-Linux.deb"
         with open(os.environ['GITHUB_ENV'], 'a') as f:
-            f.write(f"\n{OS_SDK_INSTALLER_NAME=}")
+            f.write(f"\nOS_SDK_INSTALLER_NAME={OS_SDK_INSTALLER_NAME}")
         print(f"{OS_SDK_INSTALLER_NAME=}")
 
     - name: Download and install OS SDK installer
@@ -126,8 +126,6 @@ jobs:
         Red='\033[0;31m'
         Yellow='\033[0;33m'
 
-        cat $GITHUB_ENV
-
         echo "User-supplied arguments:"
         echo "Installer link: ${{ github.event.inputs.os_installer_link }}"
         echo "Branch Name: ${{ github.event.inputs.branch_name }}"
@@ -135,8 +133,6 @@ jobs:
 
         installer_link="${{ github.event.inputs.os_installer_link }}"
         if [ -z "$installer_link" ]; then
-          echo "OS_SDK_BASELINK=$OS_SDK_BASELINK"
-          echo "OS_SDK_INSTALLER_NAME=$OS_SDK_INSTALLER_NAME"
           installer_link="$OS_SDK_BASELINK/$OS_SDK_INSTALLER_NAME"
           echo -e "${Yellow}Trying with Baselink: $installer_link${Color_Off}"
           if ! wget -q "$installer_link"; then
