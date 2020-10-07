@@ -42,7 +42,7 @@ module Model
 end
 end
 
-def export_openstudio_libraries
+def export_openstudio_standards_libraries
 
   # Environment variables
   if ENV['N'].nil?
@@ -518,4 +518,4 @@ def export_openstudio_libraries
 
 end
 
-export_openstudio_libraries
+export_openstudio_standards_libraries
