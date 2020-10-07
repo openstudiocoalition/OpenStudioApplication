@@ -176,11 +176,13 @@ jobs:
         if [ -z "$branch_name" ]; then
           branch_name=$(openstudio -e "puts OpenStudio::openStudioVersionBuildSHA")
           echo "Branch name not supplied, defaulting to '$branch_name'"
+        else
+          git fetch
         fi;
 
-        echo "::set-env name=branch_name::$branch_name"
+        echo "branch_name::$branch_name" >> $GITHUB_ENV
 
-        git checkout -b $branch_name || git checkout $branch_name
+        git checkout $branch_name || git checkout -b $branch_name
 
     - name: Export openstudio-standards libraries
       shell: bash
