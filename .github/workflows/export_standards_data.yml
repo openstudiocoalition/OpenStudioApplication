@@ -159,7 +159,7 @@ jobs:
       working-directory: ./developer/ruby/
       run: |
         set -x
-        N=$(nproc) openstudio export_OpenStudio.rb
+        N=$(nproc) openstudio export_openstudio_standards_libraries.rb
 
     - name: Upload libraries and logs
       if: ${{ always() }}
