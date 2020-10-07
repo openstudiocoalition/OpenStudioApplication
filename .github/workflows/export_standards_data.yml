@@ -7,7 +7,7 @@ on:
         description: 'The Link where to download the LINUX OpenStudio SDK Installer (.DEB), otherwise defaults to the one specified in FindOpenStudioSDK.cmake'
         required: false
       branch_name:
-        description: 'The branch name to use and where to commit the test results. If ommited, it will default to the installer SHA'
+        description: 'The branch name to use and where to commit the test results. If ommited, check out develop, and commit results to a branch named like the installer SHA'
         required: false
 
 jobs:
