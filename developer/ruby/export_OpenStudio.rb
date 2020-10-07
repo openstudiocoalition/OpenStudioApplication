@@ -7,10 +7,40 @@
 
 require 'json'
 require 'openstudio'
-require_relative '../../lib/openstudio-standards'
+require 'openstudio-standards'
 
 # gem install parallel
 require 'parallel'
+
+class FakeSqlFile
+end
+
+module OpenStudio
+module Model
+
+  class Model
+    def getAutosizedValue(object, str, units)
+      puts "OH YEAH"
+      STDOUT.flush
+
+      case str
+      when 'Design Size Rated Air Flow Rate'
+        return OpenStudio::OptionalDouble.new(1)
+      when 'Design Size Gross Rated Total Cooling Capacity'
+        return OpenStudio::OptionalDouble.new(1)
+      when 'Design Size Gross Rated Sensible Heat Ratio'
+        return OpenStudio::OptionalDouble.new(1)
+      end
+
+      super(object, str, units)
+    end
+
+    def sqlFile
+      return FakeSqlFile.new
+    end
+  end
+end
+end
 
 def export_openstudio_libraries
 
@@ -42,18 +72,19 @@ def export_openstudio_libraries
   temp = File.read("#{__dir__}/templates_to_climate_zones.json")
   templates_to_climate_zones = JSON.parse(temp)
 
+  templates = ['90.1-2007', '90.1-2010', '90.1-2013']
+
   # Make a library model for each template
   # We parallelize this loop, since it takes really long
-  Parallel.each(std.standards_data["templates"],
-                in_threads: $nproc) do |template|
+  #Parallel.each(templates, in_threads: $nproc) do |template_name|
+  templates.each do |template_name|
 
     # Wrap each library creation in a begin/rescue because
     # the entire process can take a long time and
     # we don't want to lose all templates if one fails
-    begin
+    #begin
 
       # Make a Standard for this template
-      template_name = template['name']
       puts "*** Making #{template_name} ***"
       template_start_time = Time.now
       puts "* Started #{template_name} at: #{template_start_time}"
@@ -207,6 +238,7 @@ def export_openstudio_libraries
           mid_cap_btu_per_hr = (min_cap_btu_per_hr + max_cap_btu_per_hr) / 2
           mid_cap_w = OpenStudio.convert(mid_cap_btu_per_hr, 'Btu/hr', 'W').get
           dx_coil.setRatedTotalCoolingCapacity(mid_cap_w)
+          dx_coil.autosizeRatedSensibleHeatRatio
 
           # Add the subcategory to the name so that it
           # can be used by the efficiency lookup
@@ -435,7 +467,7 @@ def export_openstudio_libraries
       end
 
       # Save the library
-      pkg_dir = "#{__dir__}/../../pkg"
+      pkg_dir = "#{__dir__}/pkg"
       Dir.mkdir(pkg_dir) unless Dir.exists?(pkg_dir)
       osm_lib_dir = "#{pkg_dir}/libraries"
       Dir.mkdir(osm_lib_dir) unless Dir.exists?(osm_lib_dir)
@@ -453,17 +485,17 @@ def export_openstudio_libraries
       template_time_min = ((template_end_time - template_start_time)/60.0).round(1)
       puts "* Finished #{template_name} at: #{template_end_time}, time elapsed = #{template_time_min} min."
 
-    rescue Exception => exc
-      puts "ERROR creating '#{template_name}', skipping to next template."
-      puts "#{exc}"
-      puts "Backtrace:\n\t#{e.caller.join("\n\t")}"
-      puts "Backtrace:\n\t#{e.backtrace.join("\n\t")}"
+    #rescue Exception => exc
+    #  puts "ERROR creating '#{template_name}', skipping to next template."
+    #  puts "#{exc}"
+    #  puts "Backtrace:\n\t#{e.caller.join("\n\t")}"
+    #  puts "Backtrace:\n\t#{e.backtrace.join("\n\t")}"
 
       # Save the log messages for debugging library creation even on failure
-      log_path = "#{osm_lib_dir}/#{template_name.gsub(/\W/,'_')}.log"
-      puts "* Saving log #{log_path}"
-      log_messages_to_file(log_path, debug=false)
-    end
+    #  log_path = "#{osm_lib_dir}/#{template_name.gsub(/\W/,'_')}.log"
+    #  puts "* Saving log #{log_path}"
+    #  log_messages_to_file(log_path, debug=false)
+    #end
 
   end
 
@@ -473,3 +505,5 @@ def export_openstudio_libraries
   puts "*** Finished all templates at: #{end_time}, time elapsed = #{total_time_min} min."
 
 end
+
+export_openstudio_libraries
