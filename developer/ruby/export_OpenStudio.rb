@@ -500,8 +500,8 @@ def export_openstudio_libraries
     rescue Exception => exc
       STDERR.puts "\e[0;31;49mERROR creating '#{template_name}', skipping to next template.\e[0m"
       STDERR.puts "#{exc}"
-      STDERR.puts "Backtrace:\n\t#{e.caller.join("\n\t")}"
-      STDERR.puts "Backtrace:\n\t#{e.backtrace.join("\n\t")}"
+      STDERR.puts "Backtrace:\n\t#{exc.caller.join("\n\t")}"
+      STDERR.puts "Backtrace:\n\t#{exc.backtrace.join("\n\t")}"
 
       # Save the log messages for debugging library creation even on failure
       log_path = "#{osm_lib_dir}/#{template_name.gsub(/\W/,'_')}.log"
