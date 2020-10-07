@@ -26,6 +26,8 @@ jobs:
       run: |
         import re
         import os
+        import urllib.parse as ul
+
         with open('FindOpenStudioSDK.cmake', 'r') as f:
             content = f.read()
 
@@ -114,7 +116,7 @@ jobs:
                 f.write(f"\nOS_SDK_ALTERNATE_LINK_1={OS_SDK_ALTERNATE_LINK_1}")
             print(f"Alternate link '{OS_SDK_ALTERNATE_LINK_1=}'")
 
-        OS_SDK_INSTALLER_NAME = f"OpenStudio-{sdk_version}{OS_SDK_VERSION_SHA}-Linux.deb"
+        OS_SDK_INSTALLER_NAME = ul.quote_plus(f"OpenStudio-{sdk_version}{OS_SDK_VERSION_SHA}-Linux.deb")
         with open(os.environ['GITHUB_ENV'], 'a') as f:
             f.write(f"\nOS_SDK_INSTALLER_NAME={OS_SDK_INSTALLER_NAME}")
         print(f"{OS_SDK_INSTALLER_NAME=}")
