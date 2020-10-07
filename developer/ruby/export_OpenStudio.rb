@@ -72,17 +72,31 @@ def export_openstudio_libraries
   temp = File.read("#{__dir__}/templates_to_climate_zones.json")
   templates_to_climate_zones = JSON.parse(temp)
 
-  templates = ['90.1-2007', '90.1-2010', '90.1-2013']
+  # templates = Standard::STANDARDS_LIST.keys.reject!{|s| s.include?('_') || s.include?('BTAP') || s == 'ECMS'}.sort
+  templates = (Standard::STANDARDS_LIST.keys
+    .select{|s| (s.start_with?('DEER') && (s.split(' ')[1].to_i <= (Time.now.year))) ||
+                s.start_with?('90.1') ||
+                s.start_with?('DOE') }
+    .reject{|s| s.include?('_') }
+    .sort)
 
+  puts "There are #{templates.size} templates selected: #{templates}"
+  missing_czs = templates - templates_to_climate_zones.keys
+  if !missing_czs.empty?
+    puts "templates_to_climate_zones.json does not contain entries for #{missing_czs.size} templates: #{missing_czs}"
+    puts "Removing these templates"
+    templates = templates - missing_czs
+  end
+
+  # templates = templates_to_climate_zones.keys
   # Make a library model for each template
   # We parallelize this loop, since it takes really long
-  #Parallel.each(templates, in_threads: $nproc) do |template_name|
-  templates.each do |template_name|
+  Parallel.each(templates, in_threads: $nproc, progress: 'Exporting openstudio-standards templates') do |template_name|
 
     # Wrap each library creation in a begin/rescue because
     # the entire process can take a long time and
     # we don't want to lose all templates if one fails
-    #begin
+    begin
 
       # Make a Standard for this template
       puts "*** Making #{template_name} ***"
@@ -485,17 +499,17 @@ def export_openstudio_libraries
       template_time_min = ((template_end_time - template_start_time)/60.0).round(1)
       puts "* Finished #{template_name} at: #{template_end_time}, time elapsed = #{template_time_min} min."
 
-    #rescue Exception => exc
-    #  puts "ERROR creating '#{template_name}', skipping to next template."
-    #  puts "#{exc}"
-    #  puts "Backtrace:\n\t#{e.caller.join("\n\t")}"
-    #  puts "Backtrace:\n\t#{e.backtrace.join("\n\t")}"
+    rescue Exception => exc
+      STDERR.puts "\e[0;31;49mERROR creating '#{template_name}', skipping to next template.\e[0m"
+      STDERR.puts "#{exc}"
+      STDERR.puts "Backtrace:\n\t#{e.caller.join("\n\t")}"
+      STDERR.puts "Backtrace:\n\t#{e.backtrace.join("\n\t")}"
 
       # Save the log messages for debugging library creation even on failure
-    #  log_path = "#{osm_lib_dir}/#{template_name.gsub(/\W/,'_')}.log"
-    #  puts "* Saving log #{log_path}"
-    #  log_messages_to_file(log_path, debug=false)
-    #end
+      log_path = "#{osm_lib_dir}/#{template_name.gsub(/\W/,'_')}.log"
+      STDERR.puts "* Saving log #{log_path}"
+      log_messages_to_file(log_path, debug=false)
+    end
 
   end
 
