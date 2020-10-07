@@ -65,9 +65,6 @@ def export_openstudio_libraries
   include_space_types = true # Space Types, Internal Loads, and associated Schedule Sets and Schedules
   include_construction_sets = true # Construction Sets, Constructions, and Materials
 
-  # Make an initial Standard to access the library data
-  std = Standard.build('90.1-2013')
-
   # Read in the map of valid template/climate zone combinations
   temp = File.read("#{__dir__}/templates_to_climate_zones.json")
   templates_to_climate_zones = JSON.parse(temp)
@@ -122,7 +119,7 @@ def export_openstudio_libraries
       # Boilers
       if include_boilers
         puts "* Boilers *"
-        std.standards_data['boilers'].each do |props|
+        std_applier.standards_data['boilers'].each do |props|
           next unless props['template'] == template_name
 
           # Make a new boiler
@@ -178,7 +175,7 @@ def export_openstudio_libraries
       # Chillers
       if include_chillers
         puts "* Chillers *"
-        std.standards_data['chillers'].each do |props|
+        std_applier.standards_data['chillers'].each do |props|
           next unless props['template'] == template_name
 
           # Skip absorption chillers
@@ -239,7 +236,7 @@ def export_openstudio_libraries
       # Unitary AC
       if include_unitary_acs
         puts "* Unitary ACs *"
-        std.standards_data['unitary_acs'].each do |props|
+        std_applier.standards_data['unitary_acs'].each do |props|
           next unless props['template'] == template_name
 
           # Skip interim efficiency requirements
@@ -320,7 +317,7 @@ def export_openstudio_libraries
       # Heat Pumps
       if include_heat_pumps
         puts "* Heat Pumps *"
-        std.standards_data['heat_pumps'].each do |props|
+        std_applier.standards_data['heat_pumps'].each do |props|
           next unless props['template'] == template_name
 
           # Skip interim efficiency requirements
@@ -434,7 +431,7 @@ def export_openstudio_libraries
       # Space Types
       if include_space_types
         puts "* Space Types *"
-        std.standards_data['space_types'].each do |props|
+        std_applier.standards_data['space_types'].each do |props|
           next unless props['template'] == template_name
 
           # Create a new space type
@@ -459,7 +456,7 @@ def export_openstudio_libraries
       # TODO fix code to remove duplicate constructions and materials
       if include_construction_sets
         puts "* Construction Sets *"
-        std.standards_data['construction_sets'].each do |props|
+        std_applier.standards_data['construction_sets'].each do |props|
           next unless props['template'] == template_name
           # Add a construction set for each valid climate zone
           templates_to_climate_zones[props['template']].each do |climate_zone|
