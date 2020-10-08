@@ -25,6 +25,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         gem install github_api
+        pip install requests
         ruby ./developer/ruby/GitHubIssueStats.rb > changelog.txt
 
     - name: Upload changelog to release body
