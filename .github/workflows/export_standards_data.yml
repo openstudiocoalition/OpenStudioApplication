@@ -197,7 +197,6 @@ jobs:
       run: |
         Color_Off='\033[0m' # No Color
         Red='\033[0;31m'
-        git add -f ./developer/ruby/pkg/libraries/*
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
         git config --global user.name 'github-actions[bot]'
 
