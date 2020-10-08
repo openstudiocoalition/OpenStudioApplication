@@ -35,15 +35,25 @@ if (os_version_str != current_os_version)
   raise "Current openstudio used is as version #{current_os_version} while FindOpenStudioSDK.cmake has it at #{os_version_str}"
 end
 
+if !OpenStudio::openStudioVersionPrerelease.empty?
+  puts ""
+  puts "*" * 80
+  puts "   /!\\ Warning /!\\ You are trying to upgrade the libraries\n"
+  puts "                   with a pre-release installer. Are you sure?!"
+  puts "*" * 80
+  puts ""
+end
+
+
 all_osms = find_resource_osms()
 
 mismatches = check_all_osm_versions(all_osms, os_version_str)
 
 Parallel.map(mismatches,
-             in_threads: nproc,
+             in_process: nproc,
              progress: "Updating Libraries") do |model_path|
 
-  # puts "Starting for '#{model_path}'"
+  puts "Starting for '#{model_path}'"
 
   model_path = OpenStudio::Path.new(model_path)
   #model_path = OpenStudio::Path.new('hvac_library.osm')

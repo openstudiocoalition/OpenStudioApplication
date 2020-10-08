@@ -78,15 +78,23 @@ end
 # @return [String] the resulting version, eg "2.8.0"
 def parse_osm_version(osm_path)
 
-  this_version = File.read(osm_path).scan(/OS:Version,.*?(\d+\.\d+\.\d+)\s*;/m)
+  content = File.read(osm_path)
+  this_version = content.scan(/OS:Version,.*?(\d+\.\d+\.\d+)\s*;/m)
 
-  if !((this_version.class == Array) && (this_version.size == 1) &&
-       (this_version[0].class == Array) && (this_version[0].size == 1))
-    raise "Something went wrong looking for version in #{osm_path},"
-          "found: #{this_version}"
+  if ((this_version.class == Array) && (this_version.size == 1) &&
+      (this_version[0].class == Array) && (this_version[0].size == 1))
+    osm_version_str = this_version[0][0]
+  else
+    # Try with a pre-release?
+    this_version = content.scan(/OS:Version,.*?(\d+\.\d+\.\d+) *,.*?\n *(.*?);/m)
+    if ((this_version.class == Array) && (this_version.size == 1) &&
+        (this_version[0].class == Array) && (this_version[0].size == 2))
+      osm_version_str = "#{this_version[0][0]}-#{this_version[0][1]}"
+    else
+      raise "Something went wrong looking for version in #{osm_path},"
+            "found: #{this_version}"
+    end
   end
-
-  osm_version_str = this_version[0][0]
 
   return osm_version_str
 end
