@@ -34,6 +34,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         import json
+        import os
         import requests
 
         OWNER_REPO = "${{ github.repository }}"    # 'openstudiocoalition/OpenStudioApplication'
