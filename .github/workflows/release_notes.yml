@@ -24,6 +24,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
+        gem install github_api
         ruby ./developer/ruby/GitHubIssueStats.rb > changelog.txt
 
     - name: Upload changelog to release body
