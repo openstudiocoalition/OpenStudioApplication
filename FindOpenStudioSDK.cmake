@@ -87,7 +87,11 @@ else()
     # Try with the official releases first, then fall back to the CI (develop) nightly builds
     foreach(BASELINK IN LISTS OPENSTUDIO_BASELINK_RELEASE OPENSTUDIO_BASELINK_CI)
       set(OPENSTUDIO_URL "${BASELINK}/${OPENSTUDIO_ARCHIVE_NAME}")
-      string(REPLACE "+" "%2B" OPENSTUDIO_URL ${OPENSTUDIO_URL})
+
+      if(CMAKE_CXX_COMPILER_ID MATCHES "amazonaws")
+        string(REPLACE "+" "%2B" OPENSTUDIO_URL ${OPENSTUDIO_URL})
+      endif()
+
       message(STATUS "Try Downloading OpenStudio SDK: ${OPENSTUDIO_URL}")
 
       # Cannot use EXPECTED_MD5 here, or it'll throw an error, which we do not want.
