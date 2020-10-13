@@ -46,7 +46,9 @@ else()
   # Not found: no problem, we download it
 
   # base link for release builds
-  set(OPENSTUDIO_BASELINK_RELEASE "https://openstudio-builds.s3.amazonaws.com/${OPENSTUDIO_VERSION}"
+  set(OPENSTUDIO_BASELINK_RELEASE
+    #"https://openstudio-builds.s3.amazonaws.com/${OPENSTUDIO_VERSION}"
+    https://github.com/NREL/OpenStudio/releases/download/v3.1.0-rc3
     CACHE STRING "Base link to where the openstudio archives are hosted" FORCE)
 
   # base link for develop builds. (Using https will fail)
