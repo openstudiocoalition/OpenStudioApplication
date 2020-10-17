@@ -409,6 +409,7 @@ set(SWIG_EXECUTABLE "${CURRENT_CONAN_SWIG_ROOT}/bin/swig")
 set(SWIG_LIB "${CURRENT_CONAN_SWIG_ROOT}/bin/swiglib")
 
 # Qt
+# e.g. QT_INSTALL_DIR = C:/Qt-5.15.0/5.15.0/msvc2019_64
 set(QT_INSTALL_DIR "" CACHE PATH "Path to Qt Install")
 mark_as_advanced(QT_INSTALL_DIR)
 set(QT_VERSION "5.15.0")

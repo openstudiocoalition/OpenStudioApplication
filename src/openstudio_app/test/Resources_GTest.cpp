@@ -70,7 +70,7 @@ TEST_F(OpenStudioAppFixture, Resources_Templates) {
     ASSERT_TRUE(model);
 
     // check that each space load has a parent space type
-    std::vector<model::SpaceLoad> spaceLoads;
+    std::vector<model::SpaceLoad> spaceLoads = model.getModelObjects<model::SpaceLoad>();
     for (const model::SpaceLoad& spaceLoad : spaceLoads) {
       EXPECT_TRUE(spaceLoad.spaceType());
     }
