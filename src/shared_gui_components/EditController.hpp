@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -67,7 +67,7 @@ class EditController : public QObject
 
   virtual ~EditController();
 
-  void setMeasureStepItem(measuretab::MeasureStepItem* measureItem, BaseApp* t_app);
+  void setMeasureStepItem(measuretab::MeasureStepItem* measureStepItem, BaseApp* t_app);
 
   measuretab::MeasureStepItem* measureStepItem() const;
 
@@ -101,7 +101,7 @@ class InputController : public QObject
 
  private slots:
 
-  void setValue(const QString& value);
+  void setValue(const QString& text);
 
   void setValue(bool value);
 

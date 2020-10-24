@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -147,7 +147,7 @@ void SteamEquipmentDefinitionInspectorView::onUpdate() {
   refresh();
 }
 
-void SteamEquipmentDefinitionInspectorView::attach(openstudio::model::SteamEquipmentDefinition& steamEquipmentDefinition) {
+void SteamEquipmentDefinitionInspectorView::attach(const openstudio::model::SteamEquipmentDefinition& steamEquipmentDefinition) {
   // m_nameEdit->bind(steamEquipmentDefinition,"name");
   m_steamEquipmentDefinition = steamEquipmentDefinition;
   m_nameEdit->bind(*m_steamEquipmentDefinition,

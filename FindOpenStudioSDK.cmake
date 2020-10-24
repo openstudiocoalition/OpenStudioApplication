@@ -6,22 +6,22 @@ set(OPENSTUDIO_VERSION "${OPENSTUDIO_VERSION_MAJOR}.${OPENSTUDIO_VERSION_MINOR}.
 #If this is a release enter the SHA as "+79857912c4"
 #set(OPENSTUDIO_VERSION_SHA "+09b7c8a554")
 #If this is a pre-release enter the pre-release and SHA as "-rc1+79857912c4"
-set(OPENSTUDIO_VERSION_SHA "-alpha+fa9a77bf17")
+set(OPENSTUDIO_VERSION_SHA "+82d3ea2978")
 
 # Paths where the cmake-downloaded archives will be put
 set(OPENSTUDIO_ARCHIVE_DIR "${PROJECT_BINARY_DIR}/OpenStudio-${OPENSTUDIO_VERSION}")
 
 # If downloaded, we need the SHA to match. This block is here since we need "OPENSTUDIO_PLATFORM" anyways
 if(APPLE)
-  set(OPENSTUDIO_EXPECTED_HASH 4f9d9fcf1f384bfc7e32557fe0c9913f)
+  set(OPENSTUDIO_EXPECTED_HASH 9706edd710bd5471c1063c9d08789267)
   set(OPENSTUDIO_PLATFORM "Darwin")
   set(OPENSTUDIO_EXT "tar.gz")
 elseif(UNIX)
-  set(OPENSTUDIO_EXPECTED_HASH a978690432bca4c4eac5b780c89ca461)
+  set(OPENSTUDIO_EXPECTED_HASH 7fe8354f4f8c11ba0945d77f908ab8c7)
   set(OPENSTUDIO_PLATFORM "Linux")
   set(OPENSTUDIO_EXT "tar.gz")
 elseif(WIN32)
-  set(OPENSTUDIO_EXPECTED_HASH c5c3bf8922ac695d22f0c94f957f535c)
+  set(OPENSTUDIO_EXPECTED_HASH 10a754b836869e2d3fa03a190587ba3a)
   set(OPENSTUDIO_PLATFORM "Windows")
   set(OPENSTUDIO_EXT "tar.gz")
 endif()
@@ -46,11 +46,17 @@ else()
   # Not found: no problem, we download it
 
   # base link for release builds
-  set(OPENSTUDIO_BASELINK_RELEASE "https://openstudio-builds.s3.amazonaws.com/${OPENSTUDIO_VERSION}"
+  set(OPENSTUDIO_BASELINK_RELEASE
+    #"https://openstudio-builds.s3.amazonaws.com/${OPENSTUDIO_VERSION}"
+    https://github.com/NREL/OpenStudio/releases/download/v3.1.0-rc3
     CACHE STRING "Base link to where the openstudio archives are hosted" FORCE)
 
   # base link for develop builds. (Using https will fail)
-  set(OPENSTUDIO_BASELINK_CI "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/develop"
+  # Note: this should be set to ""http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/develop" for nightly builds
+  # Occasionally we can point to a specific PR by using something like ""http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/PR-4080"
+  set(OPENSTUDIO_BASELINK_CI
+    #"http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/develop"
+    "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/PR-4121"
     CACHE STRING "Base link to where the openstudio develop archives are hosted" FORCE)
 
   # Make subdir if it doesn't exist
@@ -81,7 +87,11 @@ else()
     # Try with the official releases first, then fall back to the CI (develop) nightly builds
     foreach(BASELINK IN LISTS OPENSTUDIO_BASELINK_RELEASE OPENSTUDIO_BASELINK_CI)
       set(OPENSTUDIO_URL "${BASELINK}/${OPENSTUDIO_ARCHIVE_NAME}")
-      string(REPLACE "+" "%2B" OPENSTUDIO_URL ${OPENSTUDIO_URL})
+
+      if(BASELINK MATCHES "amazonaws")
+        string(REPLACE "+" "%2B" OPENSTUDIO_URL ${OPENSTUDIO_URL})
+      endif()
+
       message(STATUS "Try Downloading OpenStudio SDK: ${OPENSTUDIO_URL}")
 
       # Cannot use EXPECTED_MD5 here, or it'll throw an error, which we do not want.
@@ -110,13 +120,20 @@ else()
             message(STATUS "Download OpenStudio SDK is a success, from: ${OPENSTUDIO_URL}")
             break()
           else()
-            message(FATAL_ERROR
+            set(ERROR_MSG
               "Download seemed to have worked, but archive md5sum HASH mismatch\n"
               "     for file: ${OPENSTUDIO_ARCHIVE_DIR}/${OPENSTUDIO_ARCHIVE_NAME}\n"
               "     from URL: ${OPENSTUDIO_URL}\n"
               "       expected hash: [${OPENSTUDIO_EXPECTED_HASH}]\n"
               "         actual hash: [${OPENSTUDIO_HASH}]\n"
             )
+            # If official => FATAL_ERROR. If CI build, it's possibe the package is overriden by nightly build if the SHA of develop is the same as the
+            # day before, so only warn
+            if (BASELINK STREQUAL OPENSTUDIO_BASELINK_RELEASE)
+              message(FATAL_ERROR "${ERROR_MSG}")
+            else()
+              message(AUTHOR_WARNING "${ERROR_MSG}")
+            endif()
           endif()
         endif()
       endif()

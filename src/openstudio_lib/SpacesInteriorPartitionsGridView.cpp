@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -47,6 +47,7 @@
 #include <openstudio/model/Space_Impl.hpp>
 
 #include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Compare.hpp>
 #include <openstudio/utilities/idd/IddEnums.hxx>
 #include <openstudio/utilities/idd/OS_Space_FieldEnums.hxx>
 
@@ -67,14 +68,6 @@
 #define DAYLIGHTINGSHELFNAME "Daylighting Shelf Name"  // read only
 
 namespace openstudio {
-
-struct ModelObjectNameSorter
-{
-  // sort by name
-  bool operator()(const model::ModelObject& lhs, const model::ModelObject& rhs) {
-    return (lhs.name() < rhs.name());
-  }
-};
 
 SpacesInteriorPartitionsGridView::SpacesInteriorPartitionsGridView(bool isIP, const model::Model& model, QWidget* parent)
   : SpacesSubtabGridView(isIP, model, parent) {
@@ -114,7 +107,8 @@ void SpacesInteriorPartitionsGridView::onClearSelection() {
 }
 
 SpacesInteriorPartitionsGridController::SpacesInteriorPartitionsGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType,
-                                                                               model::Model model, std::vector<model::ModelObject> modelObjects)
+                                                                               const model::Model& model,
+                                                                               const std::vector<model::ModelObject>& modelObjects)
   : OSGridController(isIP, headerText, iddObjectType, model, modelObjects) {
   setCategoriesAndFields();
 }
@@ -270,7 +264,7 @@ void SpacesInteriorPartitionsGridController::onItemDropped(const OSItemId& itemI
 
 void SpacesInteriorPartitionsGridController::refreshModelObjects() {
   m_modelObjects = subsetCastVector<model::ModelObject>(m_model.getConcreteModelObjects<model::Space>());
-  std::sort(m_modelObjects.begin(), m_modelObjects.end(), ModelObjectNameSorter());
+  std::sort(m_modelObjects.begin(), m_modelObjects.end(), openstudio::WorkspaceObjectNameLess());
 }
 
 }  // namespace openstudio

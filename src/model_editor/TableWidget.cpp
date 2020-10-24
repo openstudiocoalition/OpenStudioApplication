@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -58,7 +58,7 @@ void TableWidget::populateTable(const openstudio::WorkspaceObject& obj) {
     // setItem causes QTableWIdget to take ownership of newItem
     QTableWidgetItem* newItem = new QTableWidgetItem((*val).c_str());
     if (defaultText) {
-      newItem->setTextColor(Qt::gray);
+      newItem->setForeground(Qt::gray);
     }
     setItem(rowCount() - 1, 1, newItem);
 

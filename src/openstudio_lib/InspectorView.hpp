@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -115,7 +115,6 @@ class InspectorView : public QWidget
  private:
   QVBoxLayout* m_vLayout;
   BaseInspectorView* m_currentView;
-  QStackedWidget* m_stackedWidget;
   boost::optional<model::ModelObject> m_modelObject;
   bool m_mouseOverInspectorView = false;
 };
@@ -356,6 +355,7 @@ class AirTerminalInspectorView : public BaseInspectorView
 
  protected:
   template <class T>
+  // cppcheck-suppress missingOverride
   void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP);
 
   //private:

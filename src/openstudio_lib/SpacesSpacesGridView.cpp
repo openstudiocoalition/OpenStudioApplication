@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -54,6 +54,7 @@
 #include <openstudio/model/ThermalZone_Impl.hpp>
 
 #include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Compare.hpp>
 #include <openstudio/utilities/idd/IddEnums.hxx>
 #include <openstudio/utilities/idd/OS_Space_FieldEnums.hxx>
 
@@ -79,14 +80,6 @@
 #define DESIGNSPECIFICATIONOUTDOORAIROBJECTNAME "Design Specification Outdoor Air Object Name"
 
 namespace openstudio {
-
-struct ModelObjectNameSorter
-{
-  // sort by name
-  bool operator()(const model::ModelObject& lhs, const model::ModelObject& rhs) {
-    return (lhs.name() < rhs.name());
-  }
-};
 
 SpacesSpacesGridView::SpacesSpacesGridView(bool isIP, const model::Model& model, QWidget* parent) : SpacesSubtabGridView(isIP, model, parent) {
   showStoryFilter();
@@ -123,8 +116,8 @@ void SpacesSpacesGridView::onClearSelection() {
   // m_itemSelectorButtons->disablePurgeButton();
 }
 
-SpacesSpacesGridController::SpacesSpacesGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model model,
-                                                       std::vector<model::ModelObject> modelObjects)
+SpacesSpacesGridController::SpacesSpacesGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, const model::Model& model,
+                                                       const std::vector<model::ModelObject>& modelObjects)
   : OSGridController(isIP, headerText, iddObjectType, model, modelObjects) {
   setCategoriesAndFields();
 }
@@ -302,7 +295,7 @@ void SpacesSpacesGridController::onItemDropped(const OSItemId& itemId) {}
 void SpacesSpacesGridController::refreshModelObjects() {
   auto spaces = m_model.getModelObjects<model::Space>();
   m_modelObjects = subsetCastVector<model::ModelObject>(spaces);
-  std::sort(m_modelObjects.begin(), m_modelObjects.end(), ModelObjectNameSorter());
+  std::sort(m_modelObjects.begin(), m_modelObjects.end(), openstudio::WorkspaceObjectNameLess());
 }
 
 }  // namespace openstudio

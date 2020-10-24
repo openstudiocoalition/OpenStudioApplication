@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -50,8 +50,7 @@
 namespace openstudio {
 
 // Return the version in MAJOR.MINOR.PATCH format (eg '3.0.0')
-std::string openStudioApplicationVersion()
-{
+std::string openStudioApplicationVersion() {
   return "${OPENSTUDIOAPPLICATION_VERSION}";
 }
 
@@ -65,28 +64,23 @@ std::string openStudioApplicationLongVersion() {
   return "${OPENSTUDIOAPPLICATION_LONG_VERSION}";
 }
 
-std::string OpenStudioApplicationVersionMajor()
-{
+std::string OpenStudioApplicationVersionMajor() {
   return "${PROJECT_VERSION_MAJOR}";
 }
 
-std::string OpenStudioApplicationVersionMinor()
-{
+std::string OpenStudioApplicationVersionMinor() {
   return "${PROJECT_VERSION_MINOR}";
 }
 
-std::string OpenStudioApplicationVersionPatch()
-{
+std::string OpenStudioApplicationVersionPatch() {
   return "${PROJECT_VERSION_PATCH}";
 }
 
-std::string OpenStudioApplicationVersionPrerelease()
-{
+std::string OpenStudioApplicationVersionPrerelease() {
   return "${PROJECT_VERSION_PRERELEASE}";
 }
 
-std::string OpenStudioApplicationVersionBuildSHA()
-{
+std::string OpenStudioApplicationVersionBuildSHA() {
   return "${PROJECT_VERSION_BUILD}";
 }
 

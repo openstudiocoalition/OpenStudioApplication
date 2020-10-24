@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -66,12 +66,12 @@ class OSUnsignedEdit2 : public QLineEdit
     return m_intValidator;
   }
 
-  void bind(model::ModelObject& modelObject, UnsignedGetter get, boost::optional<UnsignedSetter> set = boost::none,
+  void bind(const model::ModelObject& modelObject, UnsignedGetter get, boost::optional<UnsignedSetter> set = boost::none,
             boost::optional<NoFailAction> reset = boost::none, boost::optional<NoFailAction> autosize = boost::none,
             boost::optional<NoFailAction> autocalculate = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none,
             boost::optional<BasicQuery> isAutosized = boost::none, boost::optional<BasicQuery> isAutocalculated = boost::none);
 
-  void bind(model::ModelObject& modelObject, OptionalUnsignedGetter get, boost::optional<UnsignedSetter> set = boost::none,
+  void bind(const model::ModelObject& modelObject, OptionalUnsignedGetter get, boost::optional<UnsignedSetter> set = boost::none,
             boost::optional<NoFailAction> reset = boost::none, boost::optional<NoFailAction> autosize = boost::none,
             boost::optional<NoFailAction> autocalculate = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none,
             boost::optional<BasicQuery> isAutosized = boost::none, boost::optional<BasicQuery> isAutocalculated = boost::none);
@@ -144,7 +144,7 @@ class OSUnsignedEdit2 : public QLineEdit
 
 //   QIntValidator * intValidator() { return m_intValidator; }
 
-//   void bind(model::ModelObject& modelObject,
+//   void bind(const model::ModelObject& modelObject,
 //             const char* property,
 //             const boost::optional<std::string>& isDefaultedProperty = boost::none,
 //             const boost::optional<std::string>& isAutosizedProperty = boost::none,

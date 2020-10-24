@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -126,8 +126,8 @@ void WindowMaterialDaylightRedirectionDeviceInspectorView::onUpdate() {
   refresh();
 }
 
-void WindowMaterialDaylightRedirectionDeviceInspectorView::attach(openstudio::model::DaylightRedirectionDevice& material) {
-  m_material = material;
+void WindowMaterialDaylightRedirectionDeviceInspectorView::attach(openstudio::model::DaylightRedirectionDevice& daylightRedirectionDevice) {
+  m_material = daylightRedirectionDevice;
 
   m_nameEdit->bind(*m_material, OptionalStringGetter(std::bind(&model::DaylightRedirectionDevice::name, m_material.get_ptr(), true)),
                    boost::optional<StringSetterOptionalStringReturn>(
@@ -141,7 +141,7 @@ void WindowMaterialDaylightRedirectionDeviceInspectorView::attach(openstudio::mo
       std::bind(&openstudio::model::DaylightRedirectionDevice::setDaylightRedirectionDeviceType, m_material.get_ptr(), std::placeholders::_1)),
     NoFailAction(std::bind(&model::DaylightRedirectionDevice::resetDaylightRedirectionDeviceType, m_material.get_ptr())));
 
-  m_standardsInformationWidget->attach(material);
+  m_standardsInformationWidget->attach(daylightRedirectionDevice);
 
   this->stackedWidget()->setCurrentIndex(1);
 }

@@ -191,7 +191,7 @@ endif()
 
 # TODO: Modify the more specific variables as needed to indicate prerelease, etc
 # Keep in beta in-between release cycles. Set to empty string (or comment out) for official)
-set(PROJECT_VERSION_PRERELEASE "alpha")
+set(PROJECT_VERSION_PRERELEASE "")
 
 # OpenStudio version: Only include Major.Minor.Patch, eg "3.0.0", even if you have a prerelease tag
 set(OPENSTUDIOAPPLICATION_VERSION "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}")
@@ -224,6 +224,8 @@ if(UNIX AND NOT APPLE)
 endif()
 
 option(BUILD_PACKAGE "Build package" OFF)
+
+option(BUILD_TESTING "Build testing" OFF)
 
 # DView
 # option(BUILD_DVIEW "Build DView" OFF)
@@ -407,80 +409,89 @@ set(SWIG_EXECUTABLE "${CURRENT_CONAN_SWIG_ROOT}/bin/swig")
 set(SWIG_LIB "${CURRENT_CONAN_SWIG_ROOT}/bin/swiglib")
 
 # Qt
+# e.g. QT_INSTALL_DIR = C:/Qt-5.15.0/5.15.0/msvc2019_64
 set(QT_INSTALL_DIR "" CACHE PATH "Path to Qt Install")
 mark_as_advanced(QT_INSTALL_DIR)
+set(QT_VERSION "5.15.0")
+#if(NOT EXISTS ${QT_INSTALL_DIR})
+  ## download qt
+  #if(WIN32)
+    #if(CMAKE_CL_64)
+      #set(QT_ZIP_FILENAME "qt_5_11_msvc2017_64_shared.zip")
+      #set(QT_ZIP_EXPECTED_MD5 "82f44a8decf101ca7cb7efafd899e8ee")
+    #else()
+      #set(QT_ZIP_FILENAME "DOES_NOT_EXIST_qt_5_11_msvc2017_32_shared.zip")
+      #set(QT_ZIP_EXPECTED_MD5 "25abd383e7db2dfd971b4a4ef145002b")
+    #endif()
+  #elseif(APPLE)
+      ## TODO: this is missing a root level "Qt-install" directory.
+      #set(QT_ZIP_FILENAME "qt_5_11_osx_shared.tar.gz")
+      #set(QT_ZIP_EXPECTED_MD5 "080ff576111d50be5888807055114166")
+  #elseif(EXISTS "/etc/redhat-release")
+    #set(QT_ZIP_FILENAME "DOES_NOT_EXIST_qt_5_11_redhat_shared.tar.gz")
+    #set(QT_ZIP_EXPECTED_MD5 "b0610716854ed91a003347c455b22eb8")
+  #else()
+    #if(LSB_RELEASE_ID_SHORT MATCHES "18.04")
+      #set(QT_ZIP_FILENAME "qt_5_11_linux_shared.tar.gz")
+      #set(QT_ZIP_EXPECTED_MD5 "33c5a562935612625ec5e41fe4b75e17")
+    #else()
+      ## 16.04
+      #set(QT_ZIP_FILENAME "qt_5_11_linux_shared_xenial.tar.gz")
+      #set(QT_ZIP_EXPECTED_MD5 "cb02b8cb34de94038a1a7cba59c0c43a")
+    #endif()
+  #endif()
 
-if(NOT EXISTS ${QT_INSTALL_DIR})
-  # download qt
-  if(WIN32)
-    if(CMAKE_CL_64)
-      set(QT_ZIP_FILENAME "qt_5_11_msvc2017_64_shared.zip")
-      set(QT_ZIP_EXPECTED_MD5 "82f44a8decf101ca7cb7efafd899e8ee")
-    else()
-      set(QT_ZIP_FILENAME "DOES_NOT_EXIST_qt_5_11_msvc2017_32_shared.zip")
-      set(QT_ZIP_EXPECTED_MD5 "25abd383e7db2dfd971b4a4ef145002b")
-    endif()
-  elseif(APPLE)
-      # TODO: this is missing a root level "Qt-install" directory.
-      set(QT_ZIP_FILENAME "qt_5_11_osx_shared.tar.gz")
-      set(QT_ZIP_EXPECTED_MD5 "080ff576111d50be5888807055114166")
-  elseif(EXISTS "/etc/redhat-release")
-    set(QT_ZIP_FILENAME "DOES_NOT_EXIST_qt_5_11_redhat_shared.tar.gz")
-    set(QT_ZIP_EXPECTED_MD5 "b0610716854ed91a003347c455b22eb8")
-  else()
-    if(LSB_RELEASE_ID_SHORT MATCHES "18.04")
-      set(QT_ZIP_FILENAME "qt_5_11_linux_shared.tar.gz")
-      set(QT_ZIP_EXPECTED_MD5 "33c5a562935612625ec5e41fe4b75e17")
-    else()
-      # 16.04
-      set(QT_ZIP_FILENAME "qt_5_11_linux_shared_xenial.tar.gz")
-      set(QT_ZIP_EXPECTED_MD5 "cb02b8cb34de94038a1a7cba59c0c43a")
-    endif()
-  endif()
+  #set(QT_ZIP_LOCAL_PATH "${PROJECT_BINARY_DIR}/${QT_ZIP_FILENAME}")
+  #if(EXISTS "${QT_ZIP_LOCAL_PATH}")
+    #file(MD5 "${QT_ZIP_LOCAL_PATH}" QT_ZIP_MD5)
+  #endif()
 
-  set(QT_ZIP_LOCAL_PATH "${PROJECT_BINARY_DIR}/${QT_ZIP_FILENAME}")
-  if(EXISTS "${QT_ZIP_LOCAL_PATH}")
-    file(MD5 "${QT_ZIP_LOCAL_PATH}" QT_ZIP_MD5)
-  endif()
+  #if(NOT QT_ZIP_MD5 STREQUAL QT_ZIP_EXPECTED_MD5)
+    #message(STATUS "Downloading Qt: ${QT_ZIP_FILENAME}")
+    #file(DOWNLOAD "http://openstudio-resources.s3.amazonaws.com/dependencies/${QT_ZIP_FILENAME}"
+      #${QT_ZIP_LOCAL_PATH}
+      #INACTIVITY_TIMEOUT 900
+      #SHOW_PROGRESS
+      #EXPECTED_MD5 ${QT_ZIP_EXPECTED_MD5})
+  ## TODO: TEMP
+    #if (APPLE)
+      #execute_process(COMMAND ${CMAKE_COMMAND} -E make_directory "${PROJECT_BINARY_DIR}/Qt-install")
+      #execute_process(COMMAND ${CMAKE_COMMAND} -E tar xfz ${QT_ZIP_LOCAL_PATH} WORKING_DIRECTORY "${PROJECT_BINARY_DIR}/Qt-install")
+    #else()
+      #execute_process(COMMAND ${CMAKE_COMMAND} -E tar xfz ${QT_ZIP_LOCAL_PATH} WORKING_DIRECTORY "${PROJECT_BINARY_DIR}")
+    #endif()
+  #endif()
+#endif()
 
-  if(NOT QT_ZIP_MD5 STREQUAL QT_ZIP_EXPECTED_MD5)
-    message(STATUS "Downloading Qt: ${QT_ZIP_FILENAME}")
-    file(DOWNLOAD "http://openstudio-resources.s3.amazonaws.com/dependencies/${QT_ZIP_FILENAME}"
-      ${QT_ZIP_LOCAL_PATH}
-      INACTIVITY_TIMEOUT 900
-      SHOW_PROGRESS
-      EXPECTED_MD5 ${QT_ZIP_EXPECTED_MD5})
-  # TODO: TEMP
-    if (APPLE)
-      execute_process(COMMAND ${CMAKE_COMMAND} -E make_directory "${PROJECT_BINARY_DIR}/Qt-install")
-      execute_process(COMMAND ${CMAKE_COMMAND} -E tar xfz ${QT_ZIP_LOCAL_PATH} WORKING_DIRECTORY "${PROJECT_BINARY_DIR}/Qt-install")
-    else()
-      execute_process(COMMAND ${CMAKE_COMMAND} -E tar xfz ${QT_ZIP_LOCAL_PATH} WORKING_DIRECTORY "${PROJECT_BINARY_DIR}")
-    endif()
-  endif()
-endif()
+#if(APPLE)
+  #set(QT_INSTALL_DIR "${PROJECT_BINARY_DIR}/Qt-install/${QT_VERSION}/clang_64")
+#elseif(UNIX)
+  #set(QT_INSTALL_DIR "${PROJECT_BINARY_DIR}/Qt-install/${QT_VERSION}/gcc_64")
+#elseif(WIN32)
+  #set(QT_INSTALL_DIR "${PROJECT_BINARY_DIR}/Qt-install/${QT_VERSION}/win64_msvc2019_64")
+#endif()
 
-set(QT_INSTALL_DIR "${PROJECT_BINARY_DIR}/Qt-install/")
+message(STATUS "QT_INSTALL_DIR=${QT_INSTALL_DIR}")
 
-find_package(Qt5Core 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-find_package(Qt5Widgets 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-find_package(Qt5Sql 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-find_package(Qt5Network 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-find_package(Qt5Xml 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-find_package(Qt5Concurrent 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-find_package(Qt5PrintSupport 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-find_package(Qt5Gui 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-find_package(Qt5Quick 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-find_package(Qt5QuickWidgets 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-find_package(Qt5Qml 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-find_package(Qt5WebChannel 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-find_package(Qt5Positioning 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+find_package(Qt5Core ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+find_package(Qt5Widgets ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+find_package(Qt5Sql ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+find_package(Qt5Network ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+find_package(Qt5Xml ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+find_package(Qt5Concurrent ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+find_package(Qt5PrintSupport ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+find_package(Qt5Gui ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+find_package(Qt5Quick ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+find_package(Qt5QuickWidgets ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+find_package(Qt5Qml ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+find_package(Qt5WebChannel ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+find_package(Qt5Positioning ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
 
-find_package(Qt5WebEngine 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-find_package(Qt5WebEngineWidgets 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-#find_package(Qt53DCore 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-#find_package(Qt53DInput 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-#find_package(Qt53DRender 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+find_package(Qt5WebEngine ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+find_package(Qt5WebEngineWidgets ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+#find_package(Qt53DCore ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+#find_package(Qt53DInput ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+#find_package(Qt53DRender ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
 
 if(APPLE)
   set(QtWebEngineProcess "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Helpers/QtWebEngineProcess.app" CACHE PATH "Path to the QtWebEngineProcess")
@@ -506,23 +517,23 @@ set_target_properties(${QT_WEB_LIBS} PROPERTIES INTERFACE_LINK_LIBRARIES "")
 
 if(NOT APPLE)
 
-    find_package(Qt5WebChannel 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+    find_package(Qt5WebChannel ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
     list(APPEND QT_WEB_LIBS Qt5::WebChannel)
 
-    find_package(Qt5Quick 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+    find_package(Qt5Quick ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
     list(APPEND QT_WEB_LIBS Qt5::Quick)
 
-    find_package(Qt5QuickWidgets 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+    find_package(Qt5QuickWidgets ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
     list(APPEND QT_WEB_LIBS Qt5::QuickWidgets)
 
-    find_package(Qt5Qml 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+    find_package(Qt5Qml ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
     list(APPEND QT_WEB_LIBS Qt5::Qml)
 
-    find_package(Qt5Positioning 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+    find_package(Qt5Positioning ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
     list(APPEND QT_WEB_LIBS Qt5::Positioning)
 
     if(UNIX)
-      find_package(Qt5DBus 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+      find_package(Qt5DBus ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
       list(APPEND QT_WEB_LIBS Qt5::DBus)
 
       # there does not appear to be a normal qt finder for this
@@ -535,14 +546,14 @@ if(NOT APPLE)
       list(APPEND QT_PLUGINS Qt5::QXcbIntegrationPlugin)
       # This one doesn't end up in bin/platforms/, but in bin/xcbglintegrations/ so do not append, will be treated separately
       # list(APPEND QT_PLUGINS Qt5::QXcbGlxIntegrationPlugin)
-      find_library(QT_QXCBQPA NAMES libQt5XcbQpa.so.5.11.2 PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
+      find_library(QT_QXCBQPA NAMES libQt5XcbQpa.so.${QT_VERSION} PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
 
       list(APPEND QT_EXTRA_LIBS ${QT_QXCBQPA})
     endif()
 endif()
 
 if(APPLE)
-  find_package(Qt5DBus 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+  find_package(Qt5DBus ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
   list(APPEND QT_WEB_LIBS Qt5::DBus)
 endif()
 
@@ -555,7 +566,7 @@ list(APPEND QT_LIBS Qt5::PrintSupport)
 list(APPEND QT_LIBS Qt5::Gui)
 
 if(WIN32)
-  find_package(Qt5WinExtras 5.11.2 REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+  find_package(Qt5WinExtras ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
   list(APPEND QT_LIBS Qt5::WinExtras)
 
   find_library(QT_MAIN_LIB NAMES qtmain PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
@@ -568,7 +579,7 @@ list(APPEND QT_INCLUDES ${Qt5Widgets_INCLUDE_DIRS})
 list(APPEND QT_INCLUDES ${Qt5Xml_INCLUDE_DIRS})
 list(APPEND QT_INCLUDES ${Qt5Network_INCLUDE_DIRS})
 list(APPEND QT_INCLUDES ${Qt5Gui_INCLUDE_DIRS})
-list(APPEND QT_INCLUDES "${QT_INSTALL_DIR}/include/QtGui/5.11.2/QtGui") # needed by qtwinmigrate
+list(APPEND QT_INCLUDES "${QT_INSTALL_DIR}/include/QtGui/${QT_VERSION}/QtGui") # needed by qtwinmigrate
 list(APPEND QT_INCLUDES ${Qt5PrintSupport_INCLUDE_DIRS})
 
 # DLM: added this, but seems to conflict with idea of a separate set of Qt Web dependencies?
@@ -704,6 +715,9 @@ set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "OpenStudioApplication ${OpenStudioApplica
 
 # The actual package file name on disk
 set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${OPENSTUDIOAPPLICATION_LONG_VERSION}-${CMAKE_SYSTEM_NAME}")
+if(LSB_RELEASE_ID_SHORT MATCHES "20.04")
+  set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${OPENSTUDIOAPPLICATION_LONG_VERSION}-${CMAKE_SYSTEM_NAME}20.04")
+endif()
 set(CPACK_PACKAGE_CONTACT "openstudio@nrel.gov")
 
   # Install additional Documents, such as release notes
@@ -719,7 +733,8 @@ elseif(UNIX)
   # set(CPACK_DEBIAN_PACKAGE_DEBUG ON)
 
   # Trusty (14.04) uses 3.0-0, all other including Xenial (16.04) and most importantly the supported one Bionic (18.04) use 3.0-0v5
-  set(CPACK_DEBIAN_PACKAGE_DEPENDS "libwxgtk3.0-0v5 (>= 3.0.0) | libwxgtk3.0-0 (>=3.0.0)")
+  # Focal Fossa (20.04) uses libwxgtk3.0-gtk3-0v5, apparently need libxcb-xinerama0 as well
+  set(CPACK_DEBIAN_PACKAGE_DEPENDS "libxcb-xinerama0 (>= 1.13), libwxgtk3.0-0v5 (>= 3.0.0) | libwxgtk3.0-0 (>=3.0.0) | libwxgtk3.0-gtk3-0v5 (>=3.0.0)")
 
   # These two will set the .deb install path correctly
   set(CPACK_SET_DESTDIR ON)

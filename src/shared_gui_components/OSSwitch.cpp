@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -58,7 +58,7 @@ void OSSwitch2::makeTrueFalse() {
   setObjectName("TrueFalseSliderButton");
 }
 
-void OSSwitch2::bind(model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetter> set, boost::optional<NoFailAction> reset,
+void OSSwitch2::bind(const model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetter> set, boost::optional<NoFailAction> reset,
                      boost::optional<BasicQuery> isDefaulted) {
   m_modelObject = modelObject;
   m_get = get;

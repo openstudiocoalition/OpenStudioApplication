@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -71,7 +71,7 @@ QCoreApplication* ApplicationSingleton::application(bool gui) {
     } else {
 
       QCoreApplication::setAttribute(Qt::AA_DontUseNativeMenuBar, true);
-      QCoreApplication::setAttribute(Qt::AA_MacPluginApplication, true);
+      QCoreApplication::setAttribute(Qt::AA_PluginApplication, true);
 
       // dir containing the current module, can be openstudio.so or openstudio.exe
       openstudio::path openstudioModuleDirPath = getOpenStudioModuleDirectory();
@@ -171,18 +171,14 @@ QWidget* ApplicationSingleton::sketchUpWidget() {
   return m_sketchUpWidget;
 }
 
-bool ApplicationSingleton::processEvents() {
+void ApplicationSingleton::processEvents() {
   application()->sendPostedEvents();
-  const bool hadevents = application()->hasPendingEvents();
   application()->processEvents(QEventLoop::AllEvents);
-  return hadevents;
 }
 
-bool ApplicationSingleton::processEvents(int maxTime) {
+void ApplicationSingleton::processEvents(int maxTime) {
   application()->sendPostedEvents();
-  const bool hadevents = application()->hasPendingEvents();
   application()->processEvents(QEventLoop::AllEvents, maxTime);
-  return hadevents;
 }
 
 bool ApplicationSingleton::hasSetting(const std::string& key) {
@@ -199,7 +195,7 @@ void ApplicationSingleton::removeSetting(const std::string& key) {
   settings.remove(toQString(key));
 }
 
-bool ApplicationSingleton::isDefaultInstance() {
+bool ApplicationSingleton::isDefaultInstance() const {
   return m_defaultInstance;
 }
 

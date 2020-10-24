@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -125,10 +125,10 @@ void WaitDialog::on_cancelButton(bool checked) {
   OSDialog::on_cancelButton(checked);
 }
 
-void WaitDialog::closeEvent(QCloseEvent* e) {
+void WaitDialog::closeEvent(QCloseEvent* event) {
   // DLM: do not accept the event, we don't allow this dialog to close
   // would be better to set window flags to not have the close button
-  e->ignore();
+  event->ignore();
 }
 
 }  // namespace openstudio

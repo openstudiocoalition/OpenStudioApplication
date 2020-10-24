@@ -1,0 +1,85 @@
+name: Create release notes changelog
+on:
+  release:
+    types: [created]
+
+jobs:
+  release-notes:
+    name: Create changelog
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.5
+
+    - uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+
+    - name: Create changelog using GitHubIssueStats.rb
+      shell: bash
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        gem install github_api
+        pip install requests
+        ruby ./developer/ruby/GitHubIssueStats.rb > changelog.txt
+
+    - name: Upload changelog to release body
+      shell: python
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        import json
+        import os
+        import requests
+
+        OWNER_REPO = "${{ github.repository }}"    # 'openstudiocoalition/OpenStudioApplication'
+        GITHUB_REF = os.environ['GITHUB_REF']      # v1.1.0-rc1
+        GITHUB_TOKEN = os.environ['GITHUB_TOKEN']  # Secret oauth token (40 chars)
+
+        HEADERS = {
+          "Content-Type": 'application/json',
+          "Accept": 'application/vnd.github.antiope-preview+json',
+          "Authorization": "Bearer {}".format(GITHUB_TOKEN),
+          "User-Agent": 'github-actions-changelog'
+        }
+
+        # Just to be safe
+        TAG_NAME = GITHUB_REF.replace('refs/tags/', '')
+
+        print(f"{OWNER_REPO=}, {GITHUB_REF=}, {TAG_NAME=}")
+
+        def get_release_by_tag_name(owner_repo, tag_name):
+
+            query_url = f"https://api.github.com/repos/{owner_repo}/releases/tags/{tag_name}"
+
+            r = requests.get(query_url, headers=HEADERS)
+            if r.status_code != requests.codes.ok:
+                http_error_msg = ("{} Error: {} for url: "
+                                  "{}.\n{}".format(r.status_code, r.reason, r.url, json.dumps(r.json(), indent=4, sort_keys=True)))
+                raise requests.exceptions.HTTPError(http_error_msg, response=r)
+
+            return r.json()
+
+        data = get_release_by_tag_name(owner_repo=OWNER_REPO, tag_name=TAG_NAME)
+
+        release_id = data['id']
+
+        with open('changelog.txt', 'r') as f:
+            changelog = f.read()
+
+        new_body = data['body'] + "\n\n## Changelog\n\n" + changelog
+
+        patch_data = {
+          "body": new_body,
+        }
+
+        patch_url = f"https://api.github.com/repos/{OWNER_REPO}/releases/{release_id}"
+
+        r = requests.patch(patch_url, data=json.dumps(patch_data), headers=HEADERS)
+        if r.status_code != requests.codes.ok:
+            r.raise_for_status()

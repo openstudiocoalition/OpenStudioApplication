@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -139,10 +139,10 @@ class MODELEDITOR_API InspectorDialog : public QMainWindow, public Nano::Observe
 
  protected:
   // handle show event
-  virtual void showEvent(QShowEvent* t_event) override;
+  virtual void showEvent(QShowEvent* event) override;
 
   // handle close event
-  virtual void closeEvent(QCloseEvent* t_event) override;
+  virtual void closeEvent(QCloseEvent* event) override;
 
  private slots:
 
@@ -190,7 +190,7 @@ class MODELEDITOR_API InspectorDialog : public QMainWindow, public Nano::Observe
   void createWidgets();
   void connectSelfSignalsAndSlots();
   void connectModelSignalsAndSlots();
-  void hideSelectionWidget(bool hide);
+  void hideSelectionWidget(bool hideSelectionWidget);
   void loadStyleSheet();
   void loadListWidgetData();
   void updateListWidgetData();

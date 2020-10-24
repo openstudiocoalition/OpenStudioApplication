@@ -1,6 +1,6 @@
 require 'openstudio'
-# Helper to load a model in one line
 
+# Helper to load a model in one line
 def osload(path)
   translator = OpenStudio::OSVersion::VersionTranslator.new
   ospath = OpenStudio::Path.new(path)

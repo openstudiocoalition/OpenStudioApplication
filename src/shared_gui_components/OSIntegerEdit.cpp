@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -56,7 +56,7 @@ OSIntegerEdit2::OSIntegerEdit2(QWidget* parent) : m_isScientific(false) {
 
 OSIntegerEdit2::~OSIntegerEdit2() {}
 
-void OSIntegerEdit2::bind(model::ModelObject& modelObject, IntGetter get, boost::optional<IntSetter> set, boost::optional<NoFailAction> reset,
+void OSIntegerEdit2::bind(const model::ModelObject& modelObject, IntGetter get, boost::optional<IntSetter> set, boost::optional<NoFailAction> reset,
                           boost::optional<NoFailAction> autosize, boost::optional<NoFailAction> autocalculate,
                           boost::optional<BasicQuery> isDefaulted, boost::optional<BasicQuery> isAutosized,
                           boost::optional<BasicQuery> isAutocalculated) {
@@ -73,8 +73,8 @@ void OSIntegerEdit2::bind(model::ModelObject& modelObject, IntGetter get, boost:
   completeBind();
 }
 
-void OSIntegerEdit2::bind(model::ModelObject& modelObject, OptionalIntGetter get, boost::optional<IntSetter> set, boost::optional<NoFailAction> reset,
-                          boost::optional<NoFailAction> autosize, boost::optional<NoFailAction> autocalculate,
+void OSIntegerEdit2::bind(const model::ModelObject& modelObject, OptionalIntGetter get, boost::optional<IntSetter> set,
+                          boost::optional<NoFailAction> reset, boost::optional<NoFailAction> autosize, boost::optional<NoFailAction> autocalculate,
                           boost::optional<BasicQuery> isDefaulted, boost::optional<BasicQuery> isAutosized,
                           boost::optional<BasicQuery> isAutocalculated) {
   m_modelObject = modelObject;
@@ -269,7 +269,6 @@ void OSIntegerEdit2::refreshTextAndLabel() {
 
   if (m_modelObject) {
     QString textValue;
-    ModelObject modelObject = m_modelObject.get();
     std::stringstream ss;
 
     if (m_isAutosized && (*m_isAutosized)()) {

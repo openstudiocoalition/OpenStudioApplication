@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -104,6 +104,7 @@
 
 #include "../model_editor/Utilities.hpp"
 
+#include <openstudio/utilities/core/Compare.hpp>
 #include <openstudio/utilities/idd/IddEnums.hxx>
 #include <openstudio/utilities/idd/OS_SpaceType_FieldEnums.hxx>
 
@@ -153,14 +154,6 @@
 #define SPACEINFILTRATIONEFFECTIVELEAKAGEAREA "Space Infiltration Effective Leakage Area"
 
 namespace openstudio {
-
-struct ModelObjectNameSorter
-{
-  // sort by name
-  bool operator()(const model::ModelObject& lhs, const model::ModelObject& rhs) {
-    return (lhs.name() < rhs.name());
-  }
-};
 
 SpaceTypesGridView::SpaceTypesGridView(bool isIP, const model::Model& model, QWidget* parent) : QWidget(parent), m_isIP(isIP) {
   auto mainLayout = new QVBoxLayout();
@@ -305,7 +298,7 @@ SpaceTypesGridView::SpaceTypesGridView(bool isIP, const model::Model& model, QWi
   isConnected = connect(this, SIGNAL(toggleUnitsClicked(bool)), m_gridController, SLOT(toggleUnits(bool)));
   OS_ASSERT(isConnected);
 
-  std::vector<model::SpaceType> spaceType = model.getConcreteModelObjects<model::SpaceType>();  // NOTE for horizontal system lists
+  // std::vector<model::SpaceType> spaceType = model.getConcreteModelObjects<model::SpaceType>();  // NOTE for horizontal system lists
 }
 
 std::vector<model::ModelObject> SpaceTypesGridView::selectedObjects() const {
@@ -322,8 +315,8 @@ void SpaceTypesGridView::disableFilter() {
   m_filters->setEnabled(false);
 }
 
-SpaceTypesGridController::SpaceTypesGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model model,
-                                                   std::vector<model::ModelObject> modelObjects)
+SpaceTypesGridController::SpaceTypesGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, const model::Model& model,
+                                                   const std::vector<model::ModelObject>& modelObjects)
   : OSGridController(isIP, headerText, iddObjectType, model, modelObjects) {
   setCategoriesAndFields();
 }
@@ -1269,8 +1262,7 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
 
     } else if (field == STANDARDSTEMPLATE) {
 
-      // nothing to do, it is a string already
-      std::function<std::string(const std::string&)> toString = [](std::string t_s) { return t_s; };
+      std::function<std::string(const std::string&)> toStringNoOp = [](std::string t_s) { return t_s; };
 
       std::function<std::vector<std::string>(model::SpaceType*)> choices = [](model::SpaceType* t_spaceType) {
         std::vector<std::string> retval;
@@ -1337,14 +1329,13 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
       });
 
       // Note: It will end up creating a ComboBoxOptionalChoiceImpl
-      addComboBoxColumn(Heading(QString(STANDARDSTEMPLATE)), toString, choices, getter, setter, resetter,
+      addComboBoxColumn(Heading(QString(STANDARDSTEMPLATE)), toStringNoOp, choices, getter, setter, resetter,
                         boost::none,  // No DataSource
                         // Make editable
                         true);
     } else if (field == STANDARDSBUILDINGTYPE) {
 
-      // nothing to do, it is a string already
-      std::function<std::string(const std::string&)> toString = [](std::string t_s) { return t_s; };
+      std::function<std::string(const std::string&)> toStringNoOp = [](std::string t_s) { return t_s; };
 
       std::function<std::vector<std::string>(model::SpaceType*)> choices = [](model::SpaceType* t_spaceType) {
         std::vector<std::string> retval;
@@ -1396,14 +1387,13 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
       });
 
       // Note: It will end up creating a ComboBoxOptionalChoiceImpl
-      addComboBoxColumn(Heading(QString(STANDARDSBUILDINGTYPE)), toString, choices, getter, setter, resetter,
+      addComboBoxColumn(Heading(QString(STANDARDSBUILDINGTYPE)), toStringNoOp, choices, getter, setter, resetter,
                         boost::none,  // No DataSource
                         // Make editable
                         true);
     } else if (field == STANDARDSSPACETYPE) {
 
-      // nothing to do, it is a string already
-      std::function<std::string(const std::string&)> toString = [](std::string t_s) { return t_s; };
+      std::function<std::string(const std::string&)> toStringNoOp = [](std::string t_s) { return t_s; };
 
       std::function<std::vector<std::string>(model::SpaceType*)> choices = [](model::SpaceType* t_spaceType) {
         std::vector<std::string> retval;
@@ -1425,7 +1415,7 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
       boost::optional<std::function<void(model::SpaceType * t_spaceType)>> resetter(
         [](model::SpaceType* t_spaceType) { t_spaceType->resetStandardsSpaceType(); });
 
-      addComboBoxColumn(Heading(QString(STANDARDSSPACETYPE)), toString, choices, getter, setter, resetter, boost::none,
+      addComboBoxColumn(Heading(QString(STANDARDSSPACETYPE)), toStringNoOp, choices, getter, setter, resetter, boost::none,
                         // Make editable
                         true);
     } else {
@@ -1484,7 +1474,7 @@ void SpaceTypesGridController::onItemDropped(const OSItemId& itemId) {
 void SpaceTypesGridController::refreshModelObjects() {
   std::vector<model::SpaceType> spaceTypes = m_model.getConcreteModelObjects<model::SpaceType>();
   m_modelObjects = subsetCastVector<model::ModelObject>(spaceTypes);
-  std::sort(m_modelObjects.begin(), m_modelObjects.end(), ModelObjectNameSorter());
+  std::sort(m_modelObjects.begin(), m_modelObjects.end(), openstudio::WorkspaceObjectNameLess());
 }
 
 void SpaceTypesGridController::onComboBoxIndexChanged(int index) {

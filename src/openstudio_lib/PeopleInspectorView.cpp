@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -279,7 +279,7 @@ void PeopleDefinitionInspectorView::onUpdate() {
   refresh();
 }
 
-void PeopleDefinitionInspectorView::attach(openstudio::model::PeopleDefinition& peopleDefinition) {
+void PeopleDefinitionInspectorView::attach(const openstudio::model::PeopleDefinition& peopleDefinition) {
   m_peopleDefinition = peopleDefinition;
   m_nameEdit->bind(*m_peopleDefinition, OptionalStringGetter(std::bind(&model::PeopleDefinition::name, m_peopleDefinition.get_ptr(), true)),
                    boost::optional<StringSetterOptionalStringReturn>(
@@ -423,7 +423,7 @@ void PeopleDefinitionInspectorView::checkButtons() {
     unsigned int numFields = m_peopleDefinition->numFields();
 
     unsigned int numNonEx = m_peopleDefinition->numNonextensibleFields();
-    if ((numFields - numNonEx) <= 0) {
+    if (numFields <= numNonEx) {
       removeBtn->setEnabled(false);
     } else {
       removeBtn->setEnabled(true);

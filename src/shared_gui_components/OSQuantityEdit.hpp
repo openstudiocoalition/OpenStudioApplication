@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -92,22 +92,22 @@ class OSQuantityEdit2 : public QWidget, public Nano::Observer
     return !this->m_lineEdit->text().isEmpty();
   }
 
-  void bind(bool isIP, model::ModelObject& modelObject, DoubleGetter get, boost::optional<DoubleSetter> set = boost::none,
+  void bind(bool isIP, const model::ModelObject& modelObject, DoubleGetter get, boost::optional<DoubleSetter> set = boost::none,
             boost::optional<NoFailAction> reset = boost::none, boost::optional<NoFailAction> autosize = boost::none,
             boost::optional<NoFailAction> autocalculate = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none,
             boost::optional<BasicQuery> isAutosized = boost::none, boost::optional<BasicQuery> isAutocalculated = boost::none);
 
-  void bind(bool isIP, model::ModelObject& modelObject, OptionalDoubleGetter optionalGet, boost::optional<DoubleSetter> set = boost::none,
+  void bind(bool isIP, const model::ModelObject& modelObject, OptionalDoubleGetter optionalGet, boost::optional<DoubleSetter> set = boost::none,
             boost::optional<NoFailAction> reset = boost::none, boost::optional<NoFailAction> autosize = boost::none,
             boost::optional<NoFailAction> autocalculate = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none,
             boost::optional<BasicQuery> isAutosized = boost::none, boost::optional<BasicQuery> isAutocalculated = boost::none);
 
-  void bind(bool isIP, model::ModelObject& modelObject, DoubleGetter get, DoubleSetterVoidReturn set,
+  void bind(bool isIP, const model::ModelObject& modelObject, DoubleGetter get, DoubleSetterVoidReturn set,
             boost::optional<NoFailAction> reset = boost::none, boost::optional<NoFailAction> autosize = boost::none,
             boost::optional<NoFailAction> autocalculate = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none,
             boost::optional<BasicQuery> isAutosized = boost::none, boost::optional<BasicQuery> isAutocalculated = boost::none);
 
-  void bind(bool isIP, model::ModelObject& modelObject, OptionalDoubleGetter optionalGet, DoubleSetterVoidReturn set,
+  void bind(bool isIP, const model::ModelObject& modelObject, OptionalDoubleGetter optionalGet, DoubleSetterVoidReturn set,
             boost::optional<NoFailAction> reset = boost::none, boost::optional<NoFailAction> autosize = boost::none,
             boost::optional<NoFailAction> autocalculate = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none,
             boost::optional<BasicQuery> isAutosized = boost::none, boost::optional<BasicQuery> isAutocalculated = boost::none);
@@ -130,7 +130,7 @@ class OSQuantityEdit2 : public QWidget, public Nano::Observer
 
   void onModelObjectRemove(const Handle& handle);
 
-  void onInFocus(bool inFocus);
+  void onInFocus(bool hasFocus);
 
  private:
   QuantityLineEdit* m_lineEdit;
@@ -162,7 +162,7 @@ class OSQuantityEdit2 : public QWidget, public Nano::Observer
 
   void setPrecision(const std::string& str);
 
-  void completeBind(bool isIP, model::ModelObject& modelObject, boost::optional<NoFailAction> reset, boost::optional<NoFailAction> autosize,
+  void completeBind(bool isIP, const model::ModelObject& modelObject, boost::optional<NoFailAction> reset, boost::optional<NoFailAction> autosize,
                     boost::optional<NoFailAction> autocalculate, boost::optional<BasicQuery> isDefaulted, boost::optional<BasicQuery> isAutosized,
                     boost::optional<BasicQuery> isAutocalculated);
 

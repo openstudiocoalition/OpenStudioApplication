@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -77,7 +77,7 @@ class OSItemList : public OSItemSelector
   void addItem(OSItem* item, bool selectItem = true);
 
   // selects an item, emits objectSelected if object is selected, emits selectionCleared if item is null or not found
-  void selectItem(OSItem* item);
+  void selectItem(OSItem* selectItem);
 
   // selects an item by id
   void selectItemId(const OSItemId& itemId);

@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -161,9 +161,9 @@ class GridLayoutItem : public QGraphicsObject
 
  private slots:
 
-  void insertItemView(int i);
+  void insertItemView(int index);
 
-  void removeItemView(int i);
+  void removeItemView(int index);
 
   void removePair(QObject* object);
 
@@ -176,13 +176,13 @@ class GridLayoutItem : public QGraphicsObject
 
   int columns() const;
 
-  std::pair<int, int> gridPos(int i);
+  std::pair<int, int> gridPos(int index);
 
   QGraphicsObject* createNewItemView(int i);
 
   void setItemViewGridPos(QGraphicsObject* item, std::pair<int, int> gridPos);
 
-  QGraphicsObject* viewFromGridPos(std::pair<int, int> gridPos);
+  QGraphicsObject* viewFromGridPos(std::pair<int, int> location);
 
   QSharedPointer<OSGraphicsItemDelegate> m_delegate;
 

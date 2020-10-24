@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -89,27 +89,27 @@ class DesignDayGridController : public OSGridController
   Q_OBJECT
 
  public:
-  DesignDayGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model model,
-                          std::vector<model::ModelObject> modelObjects);
+  DesignDayGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, const model::Model& model,
+                          const std::vector<model::ModelObject>& modelObjects);
 
   virtual ~DesignDayGridController() {}
 
-  virtual void refreshModelObjects();
+  virtual void refreshModelObjects() override;
 
  protected:
-  virtual void setCategoriesAndFields();
+  virtual void setCategoriesAndFields() override;
 
-  virtual void addColumns(const QString& t_category, std::vector<QString>& fields);
+  virtual void addColumns(const QString& t_category, std::vector<QString>& fields) override;
 
-  virtual void checkSelectedFields();
+  virtual void checkSelectedFields() override;
 
-  virtual QString getColor(const model::ModelObject& modelObject);
+  virtual QString getColor(const model::ModelObject& modelObject) override;
 
  public slots:
 
-  virtual void onItemDropped(const OSItemId& itemId);
+  virtual void onItemDropped(const OSItemId& itemId) override;
 
-  virtual void onComboBoxIndexChanged(int index);
+  virtual void onComboBoxIndexChanged(int index) override;
 };
 
 }  // namespace openstudio

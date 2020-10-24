@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -116,25 +116,15 @@ void InspectorController::layoutModelObject(model::OptionalModelObject& modelObj
 }
 
 void InspectorController::addBranchForZone(model::ThermalZone& zone) {
-  model::OptionalHVACComponent hvacComponent = m_modelObject->optionalCast<model::HVACComponent>();
-
-  model::OptionalAirLoopHVAC airLoop;
-
-  if (hvacComponent) {
-    airLoop = hvacComponent->airLoopHVAC();
-  }
-
-  if (airLoop) {
-    model::Model model = zone.model();
-
-    airLoop->multiAddBranchForZone(zone);
+  if (model::OptionalHVACComponent hvacComponent = m_modelObject->optionalCast<model::HVACComponent>()) {
+    if (model::OptionalAirLoopHVAC airLoop = hvacComponent->airLoopHVAC()) {
+      airLoop->multiAddBranchForZone(zone);
+    }
   }
 }
 
 void InspectorController::removeBranchForZone(model::ThermalZone& zone) {
-  model::OptionalAirLoopHVAC airLoop = zone.airLoopHVAC();
-
-  if (airLoop) {
+  if (model::OptionalAirLoopHVAC airLoop = zone.airLoopHVAC()) {
     airLoop->removeBranchForZone(zone);
   }
 }

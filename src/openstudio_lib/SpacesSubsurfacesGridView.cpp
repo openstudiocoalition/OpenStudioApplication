@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -56,6 +56,7 @@
 #include <openstudio/model/WindowPropertyFrameAndDivider_Impl.hpp>
 
 #include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Compare.hpp>
 #include <openstudio/utilities/idd/IddEnums.hxx>
 #include <openstudio/utilities/idd/OS_Space_FieldEnums.hxx>
 
@@ -129,14 +130,6 @@
 
 namespace openstudio {
 
-struct ModelObjectNameSorter
-{
-  // sort by name
-  bool operator()(const model::ModelObject& lhs, const model::ModelObject& rhs) {
-    return (lhs.name() < rhs.name());
-  }
-};
-
 SpacesSubsurfacesGridView::SpacesSubsurfacesGridView(bool isIP, const model::Model& model, QWidget* parent)
   : SpacesSubtabGridView(isIP, model, parent) {
   showStoryFilter();
@@ -161,7 +154,7 @@ SpacesSubsurfacesGridView::SpacesSubsurfacesGridView(bool isIP, const model::Mod
 }
 
 SpacesSubsurfacesGridController::SpacesSubsurfacesGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType,
-                                                                 model::Model model, std::vector<model::ModelObject> modelObjects)
+                                                                 const model::Model& model, const std::vector<model::ModelObject>& modelObjects)
   : OSGridController(isIP, headerText, iddObjectType, model, modelObjects) {
   setCategoriesAndFields();
 }
@@ -303,9 +296,10 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
           for (auto surface : allSurfaces(t_space)) {
             auto subSurfaces = surface.cast<model::Surface>().subSurfaces();
             for (auto subSurface : subSurfaces) {
-              auto surface = subSurface.surface();
-              if (surface) {
-                allModelObjects.push_back(*surface);
+              // TODO: What is this?! loop on surface.subsurfaces, then check subsurface.surface? Isn't that redundant?
+              auto surf = subSurface.surface();
+              if (surf) {
+                allModelObjects.push_back(*surf);
               } else {
                 allModelObjects.emplace_back();
               }
@@ -353,6 +347,8 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
           std::vector<boost::optional<model::ModelObject>> allModelObjects;
           std::vector<boost::optional<model::ShadingControl>> allShadingControls;
           for (auto subSurface : allSubSurfaces(t_space)) {
+// temporary workaround, Shading Control Enhancements #239
+#pragma warning(disable : 4996)  // ignore deprecated method warning
             auto shadingControl = subSurface.cast<model::SubSurface>().shadingControl();
             if (shadingControl) {
               allShadingControls.push_back(shadingControl);
@@ -437,8 +433,14 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
       } else if (field == SHADINGSURFACENAME) {
 
       } else if (field == SHADINGCONTROLNAME) {
-        addDropZoneColumn(Heading(QString(SHADINGCONTROLNAME)), CastNullAdapter<model::SubSurface>(&model::SubSurface::shadingControl),
-                          CastNullAdapter<model::SubSurface>(&model::SubSurface::setShadingControl),
+
+        // temporary workaround, see Shading Control Enhancements #239
+        std::function<bool(model::SubSurface*, const model::ShadingControl&)> setter(
+          [](model::SubSurface* t_surface, const model::ShadingControl& t_arg) {
+            return const_cast<model::ShadingControl&>(t_arg).addSubSurface(*t_surface);
+          });
+
+        addDropZoneColumn(Heading(QString(SHADINGCONTROLNAME)), CastNullAdapter<model::SubSurface>(&model::SubSurface::shadingControl), setter,
                           boost::optional<std::function<void(model::SubSurface*)>>(NullAdapter(&model::SubSurface::resetShadingControl)),
                           boost::optional<std::function<bool(model::SubSurface*)>>(), DataSource(allSubSurfaces, true));
       } else if (field == SHADINGTYPE) {
@@ -759,7 +761,7 @@ void SpacesSubsurfacesGridController::onItemDropped(const OSItemId& itemId) {}
 
 void SpacesSubsurfacesGridController::refreshModelObjects() {
   m_modelObjects = subsetCastVector<model::ModelObject>(m_model.getConcreteModelObjects<model::Space>());
-  std::sort(m_modelObjects.begin(), m_modelObjects.end(), ModelObjectNameSorter());
+  std::sort(m_modelObjects.begin(), m_modelObjects.end(), openstudio::WorkspaceObjectNameLess());
 }
 
 }  // namespace openstudio

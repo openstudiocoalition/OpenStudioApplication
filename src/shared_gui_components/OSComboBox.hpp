@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -169,7 +169,7 @@ class OSComboBox2 : public QComboBox, public Nano::Observer
   }
 
   // interface for OSGridController bind
-  void bind(model::ModelObject& modelObject, std::shared_ptr<ChoiceConcept> choiceConcept) {
+  void bind(const model::ModelObject& modelObject, std::shared_ptr<ChoiceConcept> choiceConcept) {
     m_modelObject = modelObject;
     m_choiceConcept = choiceConcept;
     clear();

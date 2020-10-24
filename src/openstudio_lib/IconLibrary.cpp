@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -45,8 +45,8 @@ IconLibrary& IconLibrary::Instance() {
   return *s_instance;
 }
 
-const QPixmap* IconLibrary::findIcon(unsigned int v) const {
-  auto i = m_icons.find(v);
+const QPixmap* IconLibrary::findIcon(unsigned int val) const {
+  auto i = m_icons.find(val);
   if (i != m_icons.end()) {
     return (*i).second;
   } else {
@@ -55,8 +55,8 @@ const QPixmap* IconLibrary::findIcon(unsigned int v) const {
   }
 }
 
-const QPixmap* IconLibrary::findMiniIcon(unsigned int v) const {
-  auto i = m_miniIcons.find(v);
+const QPixmap* IconLibrary::findMiniIcon(unsigned int val) const {
+  auto i = m_miniIcons.find(val);
   if (i != m_miniIcons.end()) {
     return (*i).second;
   } else {

@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -155,7 +155,7 @@ void ZoneChooserView::paintEvent(QPaintEvent* event) {
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
 
-ZoneChooserItem* ZoneChooserView::zoneChooserItemForZone(std::string zoneName) {
+ZoneChooserItem* ZoneChooserView::zoneChooserItemForZone(const std::string& zoneName) {
   for (auto it = m_zoneChooserItems.begin(); it < m_zoneChooserItems.end(); ++it) {
     if ((*it)->zoneName() == zoneName) {
       return *it;

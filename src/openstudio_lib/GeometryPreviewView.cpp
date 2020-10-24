@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -143,9 +143,9 @@ void PreviewWebView::onUnitSystemChange(bool t_isIP) {
   m_isIP = t_isIP;
 }
 
-void callWithResult(const QString& result) {
-  QString x = result;
-}
+// void callWithResult(const QString& result) {
+//   QString x = result;
+// }
 
 void PreviewWebView::onLoadFinished(bool ok) {
   QString title = m_view->title();

@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -91,7 +91,7 @@ OSQuantityEdit2::OSQuantityEdit2(const std::string& modelUnits, const std::strin
 
 OSQuantityEdit2::~OSQuantityEdit2() {}
 
-void OSQuantityEdit2::bind(bool isIP, model::ModelObject& modelObject, DoubleGetter get, boost::optional<DoubleSetter> set,
+void OSQuantityEdit2::bind(bool isIP, const model::ModelObject& modelObject, DoubleGetter get, boost::optional<DoubleSetter> set,
                            boost::optional<NoFailAction> reset, boost::optional<NoFailAction> autosize, boost::optional<NoFailAction> autocalculate,
                            boost::optional<BasicQuery> isDefaulted, boost::optional<BasicQuery> isAutosized,
                            boost::optional<BasicQuery> isAutocalculated) {
@@ -103,7 +103,7 @@ void OSQuantityEdit2::bind(bool isIP, model::ModelObject& modelObject, DoubleGet
   completeBind(isIP, modelObject, reset, autosize, autocalculate, isDefaulted, isAutosized, isAutocalculated);
 }
 
-void OSQuantityEdit2::bind(bool isIP, model::ModelObject& modelObject, OptionalDoubleGetter optionalGet, boost::optional<DoubleSetter> set,
+void OSQuantityEdit2::bind(bool isIP, const model::ModelObject& modelObject, OptionalDoubleGetter optionalGet, boost::optional<DoubleSetter> set,
                            boost::optional<NoFailAction> reset, boost::optional<NoFailAction> autosize, boost::optional<NoFailAction> autocalculate,
                            boost::optional<BasicQuery> isDefaulted, boost::optional<BasicQuery> isAutosized,
                            boost::optional<BasicQuery> isAutocalculated) {
@@ -115,7 +115,7 @@ void OSQuantityEdit2::bind(bool isIP, model::ModelObject& modelObject, OptionalD
   completeBind(isIP, modelObject, reset, autosize, autocalculate, isDefaulted, isAutosized, isAutocalculated);
 }
 
-void OSQuantityEdit2::bind(bool isIP, model::ModelObject& modelObject, DoubleGetter get, DoubleSetterVoidReturn set,
+void OSQuantityEdit2::bind(bool isIP, const model::ModelObject& modelObject, DoubleGetter get, DoubleSetterVoidReturn set,
                            boost::optional<NoFailAction> reset, boost::optional<NoFailAction> autosize, boost::optional<NoFailAction> autocalculate,
                            boost::optional<BasicQuery> isDefaulted, boost::optional<BasicQuery> isAutosized,
                            boost::optional<BasicQuery> isAutocalculated) {
@@ -127,7 +127,7 @@ void OSQuantityEdit2::bind(bool isIP, model::ModelObject& modelObject, DoubleGet
   completeBind(isIP, modelObject, reset, autosize, autocalculate, isDefaulted, isAutosized, isAutocalculated);
 }
 
-void OSQuantityEdit2::bind(bool isIP, model::ModelObject& modelObject, OptionalDoubleGetter optionalGet, DoubleSetterVoidReturn set,
+void OSQuantityEdit2::bind(bool isIP, const model::ModelObject& modelObject, OptionalDoubleGetter optionalGet, DoubleSetterVoidReturn set,
                            boost::optional<NoFailAction> reset, boost::optional<NoFailAction> autosize, boost::optional<NoFailAction> autocalculate,
                            boost::optional<BasicQuery> isDefaulted, boost::optional<BasicQuery> isAutosized,
                            boost::optional<BasicQuery> isAutocalculated) {
@@ -139,7 +139,7 @@ void OSQuantityEdit2::bind(bool isIP, model::ModelObject& modelObject, OptionalD
   completeBind(isIP, modelObject, reset, autosize, autocalculate, isDefaulted, isAutosized, isAutocalculated);
 }
 
-void OSQuantityEdit2::completeBind(bool isIP, model::ModelObject& modelObject, boost::optional<NoFailAction> reset,
+void OSQuantityEdit2::completeBind(bool isIP, const model::ModelObject& modelObject, boost::optional<NoFailAction> reset,
                                    boost::optional<NoFailAction> autosize, boost::optional<NoFailAction> autocalculate,
                                    boost::optional<BasicQuery> isDefaulted, boost::optional<BasicQuery> isAutosized,
                                    boost::optional<BasicQuery> isAutocalculated) {

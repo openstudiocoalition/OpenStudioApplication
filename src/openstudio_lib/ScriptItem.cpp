@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -47,12 +47,12 @@ OSItemId scriptToItemId(const openstudio::path& t_path) {
   return OSItemId(openstudio::toQString(t_path), openstudio::toQString(t_path.parent_path().filename()), false, "");
 }
 
-ScriptItem::ScriptItem(const openstudio::path& path, OSItemType type, QWidget* parent)
-  : OSItem(scriptToItemId(path), type, parent),
+ScriptItem::ScriptItem(const openstudio::path& t_path, OSItemType type, QWidget* parent)
+  : OSItem(scriptToItemId(t_path), type, parent),
     m_removed(false)
-//m_scriptInfo(path, true, false)
+// m_scriptInfo(t_path, true, false)
 {
-  setText(openstudio::toQString(path.filename()));
+  setText(openstudio::toQString(t_path.filename()));
   setLeftPixmap(QPixmap(":/images/icon_scripts.png"));
   //if (boost::regex_search(toString(itemId().sourceId()),boost::regex("resource"))) {
   //  m_scriptInfo.isUserScript = false;

@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -57,7 +57,7 @@ class BuildingComponentDialogCentralWidget : public QWidget, public Nano::Observ
   BuildingComponentDialogCentralWidget(int tid, QWidget* parent = nullptr);
   virtual ~BuildingComponentDialogCentralWidget() {}
   int tid();
-  void setTid(const std::string& filterType, int tids, int pageIdx, const QString& title, const QString& string = "");
+  void setTid(const std::string& filterType, int tid, int pageIdx, const QString& title, const QString& searchString = "");
   Component* checkedComponent() const;
   int pageIdx();
   bool showNewComponents();

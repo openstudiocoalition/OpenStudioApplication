@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -30,6 +30,8 @@
 #ifndef MODELEDITOR_PATHWATCHER_HPP
 #define MODELEDITOR_PATHWATCHER_HPP
 
+#include "ModelEditorAPI.hpp"
+
 #include <openstudio/utilities/core/Path.hpp>
 
 #include <QObject>
@@ -42,7 +44,7 @@ class QTimer;
 /** Class for watching either a file or directory, QFileSystemWatcher has issues when watching
   **  many files so it is not recommended to use too many of these objects.
   **/
-class PathWatcher : public QObject
+class MODELEDITOR_API PathWatcher : public QObject
 {
 
   Q_OBJECT;

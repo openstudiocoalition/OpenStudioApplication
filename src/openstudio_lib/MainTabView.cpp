@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -129,13 +129,13 @@ bool MainTabView::addTabWidget(QWidget* widget) {
   return true;
 }
 
-bool MainTabView::addSubTab(const QString& subTablabel, int id) {
+bool MainTabView::addSubTab(const QString& subTabLabel, int id) {
   // This method should only be called in cases where the tab will have sub tabs
   OS_ASSERT(m_tabType != MAIN_TAB);
   if (m_tabType == MAIN_TAB) return false;
 
   auto button = new QPushButton(this);
-  button->setText(subTablabel);
+  button->setText(subTabLabel);
   button->setFixedHeight(21);
   m_tabButtons.push_back(button);
   connect(button, &QPushButton::clicked, this, &MainTabView::select);

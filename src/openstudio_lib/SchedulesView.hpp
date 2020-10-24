@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -146,7 +146,7 @@ class SchedulesView : public QWidget, public Nano::Observer
 
   void setCurrentSchedule(const model::ScheduleRuleset& schedule);
 
-  void showAddRulePage(const model::ScheduleRuleset& schedule);
+  void showAddRulePage(const model::ScheduleRuleset& scheduleRuleset);
 
   void showScheduleRule(model::ScheduleRule scheduleRule);
 

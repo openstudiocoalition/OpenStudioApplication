@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -275,7 +275,7 @@ LocationView::LocationView(bool isIP, const model::Model& model, const QString& 
   OS_ASSERT(idx != -1);
   m_ashraeClimateZone->setCurrentIndex(idx);
 
-  connect(m_ashraeClimateZone, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentIndexChanged), this,
+  connect(m_ashraeClimateZone, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentTextChanged), this,
           &LocationView::onASHRAEClimateZoneChanged);
 
   label = new QLabel("CEC Climate Zone");
@@ -305,7 +305,7 @@ LocationView::LocationView(bool isIP, const model::Model& model, const QString& 
   OS_ASSERT(idx != -1);
   m_cecClimateZone->setCurrentIndex(idx);
 
-  connect(m_cecClimateZone, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentIndexChanged), this,
+  connect(m_cecClimateZone, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentTextChanged), this,
           &LocationView::onCECClimateZoneChanged);
 
   // ***** Measure Tags GridLayout *****
@@ -458,10 +458,8 @@ void LocationView::update() {
 
             if (savePath.contains(".osm")) {
               savePath.chop(4);
-              if (epwPath) {
-                filePath = savePath + "/files/";
-                filePath += (epwPath.get().filename()).string().c_str();
-              }
+              filePath = savePath + "/files/";
+              filePath += (epwPath.get().filename()).string().c_str();
             }
 
             fileExists = QFile(filePath).exists();

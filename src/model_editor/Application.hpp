@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -68,31 +68,30 @@ class ApplicationSingleton
   QWidget* sketchUpWidget();
 
   /// Process pending Qt events
-  /// returns true if some work was done
-  bool processEvents();
-  bool processEvents(int maxTime);
+  void processEvents();
+  void processEvents(int maxTime);
 
   /// Check if application has given setting
-  bool hasSetting(const std::string& key);
+  static bool hasSetting(const std::string& key);
 
   /// Remove setting
-  void removeSetting(const std::string& key);
+  static void removeSetting(const std::string& key);
 
   /// Check if the application is headless
-  bool isDefaultInstance();
+  bool isDefaultInstance() const;
 
   /// Get the value of setting as given type, be careful when using getSettingValueAsBool
   /// you must first check if the optional is set and then check its value
-  boost::optional<bool> getSettingValueAsBool(const std::string& key);
-  boost::optional<int> getSettingValueAsInt(const std::string& key);
-  boost::optional<double> getSettingValueAsDouble(const std::string& key);
-  boost::optional<std::string> getSettingValueAsString(const std::string& key);
+  static boost::optional<bool> getSettingValueAsBool(const std::string& key);
+  static boost::optional<int> getSettingValueAsInt(const std::string& key);
+  static boost::optional<double> getSettingValueAsDouble(const std::string& key);
+  static boost::optional<std::string> getSettingValueAsString(const std::string& key);
 
   /// Set application value to given value
-  void setSettingValue(const std::string& key, bool value);
-  void setSettingValue(const std::string& key, int value);
-  void setSettingValue(const std::string& key, double value);
-  void setSettingValue(const std::string& key, const std::string& value);
+  static void setSettingValue(const std::string& key, bool value);
+  static void setSettingValue(const std::string& key, int value);
+  static void setSettingValue(const std::string& key, double value);
+  static void setSettingValue(const std::string& key, const std::string& value);
 
   ~ApplicationSingleton();
 

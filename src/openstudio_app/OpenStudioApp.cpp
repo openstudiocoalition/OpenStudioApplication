@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -1412,10 +1412,10 @@ void OpenStudioApp::removeLibraryFromsSettings(const openstudio::path& path) {
   writeLibraryPaths(paths);
 }
 
-void OpenStudioApp::showFailedLibraryDialog(const std::vector<std::string>& failed) {
-  if (!failed.empty()) {
+void OpenStudioApp::showFailedLibraryDialog(const std::vector<std::string>& failedPaths) {
+  if (!failedPaths.empty()) {
     QString text("Failed to load the following libraries...\n\n");
-    for (const auto& path : failed) {
+    for (const auto& path : failedPaths) {
       text.append(QString::fromStdString(path));
       text.append("\n");
     }

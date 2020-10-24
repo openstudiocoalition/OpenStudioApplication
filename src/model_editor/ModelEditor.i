@@ -27,7 +27,6 @@
   #include <model_editor/InspectorDialog.hpp>
   #include <model_editor/ModalDialogs.hpp>
   #include <model_editor/OSProgressBar.hpp>
-  #include <model_editor/PathWatcher.hpp>
   #include <model_editor/Utilities.hpp>
 
   #include <openstudio/model/Model.hpp>
@@ -51,6 +50,13 @@
     class WorkspaceObjectWatcher;
     class WorkspaceWatcher;
   }
+%}
+
+#if defined(SWIGCSHARP) || defined(SWIGJAVA)
+%module(directors="1")
+#endif
+%{
+  #include <model_editor/PathWatcher.hpp>
 %}
 
 %include <model_editor/Qt.i>

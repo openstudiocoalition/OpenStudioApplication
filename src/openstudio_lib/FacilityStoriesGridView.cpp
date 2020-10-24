@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -53,6 +53,7 @@
 #include <openstudio/model/Space.hpp>
 
 #include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Compare.hpp>
 #include <openstudio/utilities/idd/IddEnums.hxx>
 #include <openstudio/utilities/idd/OS_BuildingStory_FieldEnums.hxx>
 #include <openstudio/utilities/units/QuantityConverter.hpp>
@@ -83,17 +84,9 @@
 
 namespace openstudio {
 
-struct ModelObjectNameSorter
-{
-  // sort by name
-  bool operator()(const model::ModelObject& lhs, const model::ModelObject& rhs) {
-    return (lhs.name() < rhs.name());
-  }
-};
-
 FacilityStoriesGridView::FacilityStoriesGridView(bool isIP, const model::Model& model, QWidget* parent) : GridViewSubTab(isIP, model, parent) {
   auto modelObjects = subsetCastVector<model::ModelObject>(m_model.getConcreteModelObjects<model::BuildingStory>());
-  std::sort(modelObjects.begin(), modelObjects.end(), ModelObjectNameSorter());
+  std::sort(modelObjects.begin(), modelObjects.end(), openstudio::WorkspaceObjectNameLess());
 
   m_gridController = new FacilityStoriesGridController(isIP, "Building Stories", IddObjectType::OS_BuildingStory, model, modelObjects);
   m_gridView = new OSGridView(m_gridController, "Building Stories", "Drop\nStory", false, parent);
@@ -243,8 +236,8 @@ void FacilityStoriesGridView::onClearSelection() {
   //m_itemSelectorButtons->disablePurgeButton();
 }
 
-FacilityStoriesGridController::FacilityStoriesGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, model::Model model,
-                                                             std::vector<model::ModelObject> modelObjects)
+FacilityStoriesGridController::FacilityStoriesGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType,
+                                                             const model::Model& model, const std::vector<model::ModelObject>& modelObjects)
   : OSGridController(isIP, headerText, iddObjectType, model, modelObjects) {
   setCategoriesAndFields();
 }
@@ -335,7 +328,7 @@ void FacilityStoriesGridController::onItemDropped(const OSItemId& itemId) {}
 
 void FacilityStoriesGridController::refreshModelObjects() {
   m_modelObjects = subsetCastVector<model::ModelObject>(m_model.getConcreteModelObjects<model::BuildingStory>());
-  std::sort(m_modelObjects.begin(), m_modelObjects.end(), ModelObjectNameSorter());
+  std::sort(m_modelObjects.begin(), m_modelObjects.end(), openstudio::WorkspaceObjectNameLess());
 }
 
 }  // namespace openstudio

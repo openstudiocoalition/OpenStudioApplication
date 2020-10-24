@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -77,17 +77,18 @@ QString toQString(const UUID& uuid) {
 QString toQString(const path& p) {
 #if (defined(_WIN32) || defined(_WIN64))
   return QString::fromStdWString(p.generic_wstring());
-#endif
+#else
   return QString::fromUtf8(p.generic_string().c_str());
+#endif
 }
 
 /** QString to path*/
 path toPath(const QString& q) {
 #if (defined(_WIN32) || defined(_WIN64))
   return path(q.toStdWString());
-#endif
-
+#else
   return path(q.toStdString());
+#endif
 }
 
 }  // namespace openstudio

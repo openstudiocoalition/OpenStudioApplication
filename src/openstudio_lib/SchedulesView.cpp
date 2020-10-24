@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -254,16 +254,17 @@ void SchedulesView::addSchedule(model::ScheduleRuleset& schedule) {
   m_leftVLayout->insertWidget(0, scheduleTab);
 }
 
-void SchedulesView::addScheduleRule(model::ScheduleRule& rule) {
-  model::ScheduleRuleset scheduleRuleset = rule.scheduleRuleset();
+void SchedulesView::addScheduleRule(model::ScheduleRule& scheduleRule) {
+  model::ScheduleRuleset scheduleRuleset = scheduleRule.scheduleRuleset();
 
   ScheduleTab* tab = tabForSchedule(scheduleRuleset);
 
   if (tab) {
     tab->scheduleTabContent()->scheduleRefresh(scheduleRuleset.handle());  // Handle as dummy
 
-    rule.getImpl<model::detail::ScheduleRule_Impl>().get()->onRemoveFromWorkspace.connect<ScheduleTabContent, &ScheduleTabContent::scheduleRefresh>(
-      tab->scheduleTabContent());
+    scheduleRule.getImpl<model::detail::ScheduleRule_Impl>()
+      .get()
+      ->onRemoveFromWorkspace.connect<ScheduleTabContent, &ScheduleTabContent::scheduleRefresh>(tab->scheduleTabContent());
   }
 }
 
@@ -314,7 +315,7 @@ void SchedulesView::onModelObjectRemoved(std::shared_ptr<openstudio::detail::Wor
       }
 
       if (newIndex > -1) {
-        ScheduleTab* scheduleTab = qobject_cast<ScheduleTab*>(m_leftVLayout->itemAt(newIndex)->widget());
+        scheduleTab = qobject_cast<ScheduleTab*>(m_leftVLayout->itemAt(newIndex)->widget());
 
         if (!scheduleTab->schedule().handle().isNull()) {
           this->setCurrentSchedule(scheduleTab->schedule());

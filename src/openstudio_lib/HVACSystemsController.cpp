@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -143,12 +143,12 @@ const QString SHW = "SHW";
 const QString REFRIGERATION = "REFRIGERATION";
 const QString VRF = "VRF";
 
-HVACSystemsController::HVACSystemsController(bool isIP, const model::Model& model) : QObject(), m_model(model), m_isIP(isIP) {
-  m_hvacSystemsView = new HVACSystemsView();
+HVACSystemsController::HVACSystemsController(bool isIP, const model::Model& model)
+  : QObject(), m_hvacSystemsView(new HVACSystemsView()), m_model(model), m_isIP(isIP) {
 
-  m_hvacLayoutController = std::shared_ptr<HVACLayoutController>(new HVACLayoutController(this));
+  m_hvacLayoutController = std::make_shared<HVACLayoutController>(this);
 
-  m_hvacControlsController = std::shared_ptr<HVACControlsController>(new HVACControlsController(this));
+  m_hvacControlsController = std::make_shared<HVACControlsController>(this);
 
   m_model.getImpl<model::detail::Model_Impl>().get()->addWorkspaceObject.connect<HVACSystemsController, &HVACSystemsController::onObjectAdded>(this);
   //connect(OSAppBase::instance(), &OSAppBase::workspaceObjectAdded, this, &HVACSystemsController::onObjectAdded, Qt::QueuedConnection);
@@ -340,7 +340,7 @@ void HVACSystemsController::update() {
       m_hvacSystemsView->hvacToolbarView->zoomOutButton->setEnabled(false);
 
       if (m_hvacSystemsView->hvacToolbarView->topologyViewButton->isChecked()) {
-        m_refrigerationController = std::shared_ptr<RefrigerationController>(new RefrigerationController());
+        m_refrigerationController = std::make_shared<RefrigerationController>();
 
         m_hvacSystemsView->mainViewSwitcher->setView(m_refrigerationController->refrigerationView());
       } else if (m_hvacSystemsView->hvacToolbarView->gridViewButton->isChecked()) {
@@ -352,7 +352,7 @@ void HVACSystemsController::update() {
         m_hvacSystemsView->hvacToolbarView->addButton->hide();
         m_hvacSystemsView->hvacToolbarView->deleteButton->hide();
 
-        m_refrigerationGridController = std::shared_ptr<RefrigerationGridController>(new RefrigerationGridController(m_isIP, m_model));
+        m_refrigerationGridController = std::make_shared<RefrigerationGridController>(m_isIP, m_model);
 
         connect(this, &HVACSystemsController::toggleUnitsClicked, m_refrigerationGridController.get()->refrigerationGridView(),
                 &RefrigerationGridView::toggleUnitsClicked);
@@ -362,7 +362,7 @@ void HVACSystemsController::update() {
         m_hvacSystemsView->mainViewSwitcher->setView(m_refrigerationGridController->refrigerationGridView());
       } else {
         // Not allowed
-        m_hvacControlsController = std::shared_ptr<HVACControlsController>(new HVACControlsController(this));
+        m_hvacControlsController = std::make_shared<HVACControlsController>(this);
 
         m_hvacSystemsView->mainViewSwitcher->setView(m_hvacControlsController->noControlsView());
       }
@@ -371,23 +371,23 @@ void HVACSystemsController::update() {
       m_hvacSystemsView->hvacToolbarView->zoomOutButton->setEnabled(false);
 
       if (m_hvacSystemsView->hvacToolbarView->topologyViewButton->isChecked()) {
-        m_vrfController = std::shared_ptr<VRFController>(new VRFController());
+        m_vrfController = std::make_shared<VRFController>();
 
         m_hvacSystemsView->mainViewSwitcher->setView(m_vrfController->vrfView());
       } else if (m_hvacSystemsView->hvacToolbarView->gridViewButton->isChecked()) {
         // Not allowed: Refrigeration only on Refrigeration tab
-        m_refrigerationController = std::shared_ptr<RefrigerationController>(new RefrigerationController());
+        m_refrigerationController = std::make_shared<RefrigerationController>();
 
         m_hvacSystemsView->mainViewSwitcher->setView(m_refrigerationController->noRefrigerationView());
       } else {
-        m_hvacControlsController = std::shared_ptr<HVACControlsController>(new HVACControlsController(this));
+        m_hvacControlsController = std::make_shared<HVACControlsController>(this);
 
         m_hvacSystemsView->mainViewSwitcher->setView(m_hvacControlsController->noControlsView());
       }
     } else  // NOT VRF NOR REFRIGERATION
     {
       if (m_hvacSystemsView->hvacToolbarView->topologyViewButton->isChecked()) {
-        m_hvacLayoutController = std::shared_ptr<HVACLayoutController>(new HVACLayoutController(this));
+        m_hvacLayoutController = std::make_shared<HVACLayoutController>(this);
         m_hvacSystemsView->mainViewSwitcher->setView(m_hvacLayoutController->hvacGraphicsView());
 
         m_hvacSystemsView->hvacToolbarView->zoomInButton->setEnabled(true);
@@ -397,11 +397,11 @@ void HVACSystemsController::update() {
           MainRightColumnController::LIBRARY);
       } else if (m_hvacSystemsView->hvacToolbarView->gridViewButton->isChecked()) {
         // Not allowed: Refrigeration only on Refrigeration tab
-        m_refrigerationController = std::shared_ptr<RefrigerationController>(new RefrigerationController());
+        m_refrigerationController = std::make_shared<RefrigerationController>();
 
         m_hvacSystemsView->mainViewSwitcher->setView(m_refrigerationController->noRefrigerationView());
       } else {
-        m_hvacControlsController = std::shared_ptr<HVACControlsController>(new HVACControlsController(this));
+        m_hvacControlsController = std::make_shared<HVACControlsController>(this);
 
         if (currentLoop()) {
           // If an AirLoopHVAC, set the view to the HVACAirLoopControlsView
@@ -523,7 +523,6 @@ void HVACLayoutController::addLibraryObjectToTopLevel(OSItemId itemid) {
 void HVACLayoutController::addLibraryObjectToModelNode(OSItemId itemid, model::HVACComponent& comp) {
   model::OptionalModelObject object;
   bool remove = false;
-  bool added = false;
   auto doc = OSAppBase::instance()->currentDocument();
 
   object = doc->getModelObject(itemid);
@@ -544,6 +543,8 @@ void HVACLayoutController::addLibraryObjectToModelNode(OSItemId itemid, model::H
   }
 
   if (object) {
+
+    bool added = false;
 
     if (boost::optional<model::HVACComponent> hvacComponent = object->optionalCast<model::HVACComponent>()) {
       if (boost::optional<model::Node> node = comp.optionalCast<model::Node>()) {
@@ -689,13 +690,13 @@ void HVACLayoutController::goToOtherLoop(model::ModelObject& modelObject) {
 
   if (t_currentLoop) {
     if (boost::optional<model::WaterToAirComponent> comp = modelObject.optionalCast<model::WaterToAirComponent>()) {
-      if (boost::optional<model::AirLoopHVAC> airLoopHVAC = t_currentLoop->optionalCast<model::AirLoopHVAC>()) {
+      if (t_currentLoop->optionalCast<model::AirLoopHVAC>()) {
         if (boost::optional<model::PlantLoop> plantLoop = comp->plantLoop()) {
           m_hvacSystemsController->setCurrentHandle(toQString(plantLoop->handle()));
         }
 
         return;
-      } else if (boost::optional<model::PlantLoop> plantLoop = t_currentLoop->optionalCast<model::PlantLoop>()) {
+      } else {  // always true if not an AirLoopHVAC:  if (t_currentLoop->optionalCast<model::PlantLoop>())
         if (boost::optional<model::AirLoopHVAC> airLoopHVAC = comp->airLoopHVAC()) {
           m_hvacSystemsController->setCurrentHandle(toQString(airLoopHVAC->handle()));
         }
@@ -886,7 +887,7 @@ void HVACSystemsController::onRemoveLoopClicked() {
     int i = chooser->findData(toQString(loop->handle()));
 
     if (i == 0) {
-      setCurrentHandle(chooser->itemData(i + 1).toString());
+      setCurrentHandle(chooser->itemData(1).toString());
     } else {
       setCurrentHandle(chooser->itemData(i - 1).toString());
     }
@@ -908,13 +909,11 @@ void HVACLayoutController::onModelObjectSelected(model::OptionalModelObject& mod
 }
 
 HVACControlsController::HVACControlsController(HVACSystemsController* hvacSystemsController)
-  : QObject(), m_hvacSystemsController(hvacSystemsController) {
-  m_hvacAirLoopControlsView = new HVACAirLoopControlsView();
-
-  m_hvacPlantLoopControlsView = new HVACPlantLoopControlsView();
-
-  m_noControlsView = new NoControlsView();
-
+  : QObject(),
+    m_hvacAirLoopControlsView(new HVACAirLoopControlsView()),
+    m_hvacPlantLoopControlsView(new HVACPlantLoopControlsView()),
+    m_noControlsView(new NoControlsView()),
+    m_hvacSystemsController(hvacSystemsController) {
   updateLater();
 }
 
@@ -1237,11 +1236,11 @@ void HVACControlsController::update() {
         // Allow clicking on the Schedule to see it in the right column inspector
         connect(m_supplyAirTempScheduleDropZone.data(), &OSDropZone::itemClicked, supplyAirTempScheduleVectorController,
                 &SupplyAirTempScheduleVectorController::onDropZoneItemClicked);
-      } else if (_spm && (spmFOAT = _spm->optionalCast<model::SetpointManagerFollowOutdoorAirTemperature>())) {
+      } else if (_spm && (_spm->optionalCast<model::SetpointManagerFollowOutdoorAirTemperature>())) {
         m_followOATempSPMView = new FollowOATempSPMView();
 
         m_hvacAirLoopControlsView->supplyAirTemperatureViewSwitcher->setView(m_followOATempSPMView);
-      } else if (_spm && (spmOAR = _spm->optionalCast<model::SetpointManagerOutdoorAirReset>())) {
+      } else if (_spm && (_spm->optionalCast<model::SetpointManagerOutdoorAirReset>())) {
         m_oaResetSPMView = new OAResetSPMView();
 
         m_hvacAirLoopControlsView->supplyAirTemperatureViewSwitcher->setView(m_oaResetSPMView);
@@ -1523,11 +1522,12 @@ void HVACControlsController::updateLater() {
   QTimer::singleShot(0, this, SLOT(update()));
 }
 
-HVACLayoutController::HVACLayoutController(HVACSystemsController* hvacSystemsController) : QObject(), m_hvacSystemsController(hvacSystemsController) {
-  m_hvacGraphicsView = new HVACGraphicsView();
-
-  //m_refrigerationController = std::shared_ptr<RefrigerationController>(new RefrigerationController());
-
+HVACLayoutController::HVACLayoutController(HVACSystemsController* hvacSystemsController)
+  : QObject(),
+    m_hvacGraphicsView(new HVACGraphicsView()),
+    m_hvacSystemsController(hvacSystemsController)
+// m_refrigerationController(std::make_shared<RefrigerationController>())
+{
   connect(m_hvacSystemsController->hvacSystemsView()->hvacToolbarView->zoomOutButton, &QPushButton::clicked, m_hvacGraphicsView.data(),
           &HVACGraphicsView::zoomOut);
 
@@ -1648,9 +1648,8 @@ void HVACLayoutController::updateLater() {
   QTimer::singleShot(0, this, SLOT(update()));
 }
 
-SystemAvailabilityVectorController::SystemAvailabilityVectorController() : ModelObjectVectorController() {
-  m_reportItemsMutex = new QMutex();
-}
+SystemAvailabilityVectorController::SystemAvailabilityVectorController()
+  : ModelObjectVectorController(), m_reportScheduled(false), m_reportItemsMutex(new QMutex()) {}
 
 SystemAvailabilityVectorController::~SystemAvailabilityVectorController() {
   delete m_reportItemsMutex;
@@ -1747,9 +1746,8 @@ void SystemAvailabilityVectorController::onReplaceItem(OSItem* currentItem, cons
   onDrop(replacementItemId);
 }
 
-SupplyAirTempScheduleVectorController::SupplyAirTempScheduleVectorController() : ModelObjectVectorController() {
-  m_reportItemsMutex = new QMutex();
-}
+SupplyAirTempScheduleVectorController::SupplyAirTempScheduleVectorController()
+  : ModelObjectVectorController(), m_reportScheduled(false), m_reportItemsMutex(new QMutex()) {}
 
 SupplyAirTempScheduleVectorController::~SupplyAirTempScheduleVectorController() {
   delete m_reportItemsMutex;
@@ -1863,9 +1861,8 @@ void SupplyAirTempScheduleVectorController::onDropZoneItemClicked(OSItem* item) 
 // CLASSIC ONES
 
 // CTOR
-AvailabilityManagerObjectVectorController::AvailabilityManagerObjectVectorController() : ModelObjectVectorController() {
-  m_reportItemsMutex = new QMutex();
-}
+AvailabilityManagerObjectVectorController::AvailabilityManagerObjectVectorController()
+  : ModelObjectVectorController(), m_reportScheduled(false), m_reportItemsMutex(new QMutex()) {}
 
 AvailabilityManagerObjectVectorController::~AvailabilityManagerObjectVectorController() {
   delete m_reportItemsMutex;
@@ -1936,7 +1933,7 @@ boost::optional<model::PlantLoop> AvailabilityManagerObjectVectorController::cur
 boost::optional<model::AvailabilityManagerAssignmentList> AvailabilityManagerObjectVectorController::avmList() {
   if (m_modelObject && !m_modelObject->handle().isNull()) {
     if (auto mo = m_modelObject->optionalCast<model::Loop>()) {
-      model::Loop loop = m_modelObject->cast<model::Loop>();
+      model::Loop loop = mo.get();
       return loop.getImpl<model::detail::Loop_Impl>()->availabilityManagerAssignmentList();
     }
     /*

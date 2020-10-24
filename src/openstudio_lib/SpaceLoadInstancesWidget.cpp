@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -347,7 +347,7 @@ void SpaceLoadInstanceScheduleVectorController::onReplaceItem(OSItem* currentIte
 
 void SpaceLoadInstanceScheduleVectorController::onDrop(const OSItemId& itemId) {
   if (m_modelObject) {
-    model::SpaceLoadInstance spaceLoadInstance = m_modelObject->cast<model::SpaceLoadInstance>();
+    // model::SpaceLoadInstance spaceLoadInstance = m_modelObject->cast<model::SpaceLoadInstance>();
     boost::optional<model::ModelObject> modelObject = this->getModelObject(itemId);
     if (modelObject) {
       if (modelObject->optionalCast<model::Schedule>()) {
@@ -803,8 +803,9 @@ void SpaceLoadInstancesWidget::attach(const model::SpaceType& spaceType) {
     .get()
     ->onRelationshipChange.connect<SpaceLoadInstancesWidget, &SpaceLoadInstancesWidget::onBuildingRelationshipChange>(this);
 
-  for (model::SpaceType spaceType : m_model->getConcreteModelObjects<model::SpaceType>()) {
-    spaceType.getImpl<model::detail::ModelObject_Impl>()
+  // TODO: why are we connecting all spacetypes?
+  for (const auto& sp : m_model->getConcreteModelObjects<model::SpaceType>()) {
+    sp.getImpl<model::detail::ModelObject_Impl>()
       .get()
       ->onRelationshipChange.connect<SpaceLoadInstancesWidget, &SpaceLoadInstancesWidget::onSpaceTypeRelationshipChange>(this);
   }

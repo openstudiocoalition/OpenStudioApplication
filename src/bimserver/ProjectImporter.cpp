@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -135,20 +135,20 @@ boost::optional<model::Model> ProjectImporter::run() {
   }
 }
 
-void ProjectImporter::processProjectList(QStringList pList) {
+void ProjectImporter::processProjectList(QStringList projectList) {
 
   m_proList->clear();
 
-  foreach (QString itm, pList) { m_proList->addItem(itm); }
+  foreach (QString itm, projectList) { m_proList->addItem(itm); }
 
   m_selectButton->setEnabled(true);
 }
 
-void ProjectImporter::processIFCList(QStringList iList) {
+void ProjectImporter::processIFCList(QStringList ifcList) {
 
   m_ifcList->clear();
 
-  foreach (QString itm, iList) { m_ifcList->addItem(itm); }
+  foreach (QString itm, ifcList) { m_ifcList->addItem(itm); }
 
   m_loadButton->setEnabled(true);
   m_okButton->setEnabled(true);

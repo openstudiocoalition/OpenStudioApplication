@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -396,8 +396,8 @@ void WindowMaterialBlindInspectorView::onUpdate() {
   refresh();
 }
 
-void WindowMaterialBlindInspectorView::attach(openstudio::model::Blind& material) {
-  m_material = material;
+void WindowMaterialBlindInspectorView::attach(openstudio::model::Blind& blind) {
+  m_material = blind;
 
   // m_slatOrientation->bind(material,"slatOrientation");
   m_slatOrientation->bind<std::string>(*m_material, static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
@@ -603,7 +603,7 @@ void WindowMaterialBlindInspectorView::attach(openstudio::model::Blind& material
                            boost::optional<NoFailAction>(std::bind(&model::Blind::resetMaximumSlatAngle, m_material.get_ptr())), boost::none,
                            boost::none, boost::optional<BasicQuery>(std::bind(&model::Blind::isMaximumSlatAngleDefaulted, m_material.get_ptr())));
 
-  m_standardsInformationWidget->attach(material);
+  m_standardsInformationWidget->attach(blind);
 
   this->stackedWidget()->setCurrentIndex(1);
 }

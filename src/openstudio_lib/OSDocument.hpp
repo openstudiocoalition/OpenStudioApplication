@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -73,7 +73,7 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
   Q_OBJECT
 
  public:
-  OSDocument(openstudio::model::Model library, const openstudio::path& resourcesPath, openstudio::model::OptionalModel model = boost::none,
+  OSDocument(const openstudio::model::Model& library, const openstudio::path& resourcesPath, openstudio::model::OptionalModel model = boost::none,
              QString filePath = QString(), bool isPlugin = false, int startTabIndex = 0, int startSubTabIndex = 0);
 
   virtual ~OSDocument();
@@ -254,7 +254,7 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
 
  private slots:
 
-  void onVerticalTabSelected(int id);
+  void onVerticalTabSelected(int verticalId);
 
   void inspectModelObject(model::OptionalModelObject&, bool readOnly);
 

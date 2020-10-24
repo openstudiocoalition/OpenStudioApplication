@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -83,7 +83,7 @@ void OSLoadNamePixmapLineEdit::setIcon() {
   }
 }
 
-void OSLoadNamePixmapLineEdit::bind(model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetter> set,
+void OSLoadNamePixmapLineEdit::bind(const model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetter> set,
                                     boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted) {
   m_modelObject = modelObject;
 
@@ -92,7 +92,7 @@ void OSLoadNamePixmapLineEdit::bind(model::ModelObject& modelObject, StringGette
   completeBind();
 }
 
-void OSLoadNamePixmapLineEdit::bind(model::ModelObject& modelObject, OptionalStringGetter get, boost::optional<StringSetter> set,
+void OSLoadNamePixmapLineEdit::bind(const model::ModelObject& modelObject, OptionalStringGetter get, boost::optional<StringSetter> set,
                                     boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted) {
   m_modelObject = modelObject;
 
@@ -101,7 +101,7 @@ void OSLoadNamePixmapLineEdit::bind(model::ModelObject& modelObject, OptionalStr
   completeBind();
 }
 
-void OSLoadNamePixmapLineEdit::bind(model::ModelObject& modelObject, OptionalStringGetterBoolArg get,
+void OSLoadNamePixmapLineEdit::bind(const model::ModelObject& modelObject, OptionalStringGetterBoolArg get,
                                     boost::optional<StringSetterOptionalStringReturn> set, boost::optional<NoFailAction> reset,
                                     boost::optional<BasicQuery> isDefaulted) {
   m_modelObject = modelObject;

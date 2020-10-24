@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -70,7 +70,7 @@ MeasureDragData::MeasureDragData(const QByteArray& data) : QObject() {
   m_id = toUUID(idString);
 }
 
-MeasureDragData::MeasureDragData(const UUID& id) : QObject(), m_id(id) {}
+MeasureDragData::MeasureDragData(const UUID& id) : QObject(), m_id(id), m_sourceEnum(LocalLibrary::USER) {}
 
 LocalLibrary::LibrarySource MeasureDragData::source() {
   return m_sourceEnum;

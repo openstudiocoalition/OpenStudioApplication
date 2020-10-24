@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -290,7 +290,7 @@ class MODELEDITOR_API InspectorGadget : public QWidget, public Nano::Observer
 
     *It depends on weather or not you called layoutModel with a ModelObject or a WorkspaceObj
     */
-  virtual void layoutItems(QVBoxLayout* layout, QWidget* parent, bool hideChildren = false);
+  virtual void layoutItems(QVBoxLayout* masterLayout, QWidget* parent, bool hideChildren = false);
 
   void parseItem(QVBoxLayout* layout, QWidget* parent, openstudio::IddField& field, const std::string& name, const std::string& curVal,
                  openstudio::model::AccessPolicy::ACCESS_LEVEL level, int index, const std::string& comment, bool exists);

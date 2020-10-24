@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -165,14 +165,15 @@ void SpaceTypesController::onDrop(const OSItemId& itemId) {
   if (modelObject) {
     if (modelObject->optionalCast<model::SpaceType>()) {
       if (this->fromComponentLibrary(itemId)) {
-        modelObject = modelObject->clone(this->model());
+        modelObject->clone(this->model());
       }
     }
   } else {
     boost::optional<model::Component> component = this->getComponent(itemId);
     if (component) {
       if (component->primaryObject().optionalCast<model::SpaceType>()) {
-        boost::optional<model::ComponentData> componentData = this->model().insertComponent(*component);
+        // boost::optional<model::ComponentData> componentData
+        this->model().insertComponent(*component);
       }
     }
   }

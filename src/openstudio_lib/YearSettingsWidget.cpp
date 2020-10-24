@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -111,7 +111,7 @@ YearSettingsWidget::YearSettingsWidget(const model::Model& model, QWidget* paren
   for (const auto dayOfWeekValue : dayOfWeekValues) {
     m_firstDayOfYearEdit->addItem(QString::fromStdString(dayOfWeekValue));
   }
-  connect(m_firstDayOfYearEdit, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentIndexChanged), this,
+  connect(m_firstDayOfYearEdit, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentTextChanged), this,
           &YearSettingsWidget::firstDayofYearSelected);
   yearGridLayout->addWidget(m_firstDayOfYearEdit, 1, 1);
 
@@ -249,19 +249,19 @@ YearSettingsWidget::YearSettingsWidget(const model::Model& model, QWidget* paren
     .get()
     ->removeWorkspaceObjectPtr.connect<YearSettingsWidget, &YearSettingsWidget::onWorkspaceObjectRemove>(this);
 
-  connect(m_startWeekBox, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentIndexChanged), this,
+  connect(m_startWeekBox, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentTextChanged), this,
           &YearSettingsWidget::onDstStartDayWeekMonthChanged);
-  connect(m_startDayBox, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentIndexChanged), this,
+  connect(m_startDayBox, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentTextChanged), this,
           &YearSettingsWidget::onDstStartDayWeekMonthChanged);
-  connect(m_startMonthBox, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentIndexChanged), this,
+  connect(m_startMonthBox, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentTextChanged), this,
           &YearSettingsWidget::onDstStartDayWeekMonthChanged);
   connect(m_startDateEdit, &QDateEdit::dateChanged, this, &YearSettingsWidget::dstStartDateChanged);
 
-  connect(m_endWeekBox, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentIndexChanged), this,
+  connect(m_endWeekBox, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentTextChanged), this,
           &YearSettingsWidget::onDstEndDayWeekMonthChanged);
-  connect(m_endDayBox, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentIndexChanged), this,
+  connect(m_endDayBox, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentTextChanged), this,
           &YearSettingsWidget::onDstEndDayWeekMonthChanged);
-  connect(m_endMonthBox, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentIndexChanged), this,
+  connect(m_endMonthBox, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentTextChanged), this,
           &YearSettingsWidget::onDstEndDayWeekMonthChanged);
   connect(m_endDateEdit, &QDateEdit::dateChanged, this, &YearSettingsWidget::dstEndDateChanged);
 }
@@ -351,13 +351,13 @@ void YearSettingsWidget::refresh() {
     // DLM: this is not the right place for this code, however this is an example of how to get the start day
     // of week from the epw file.  The right approach would be to put all this in the model, however the model
     // would have to know the resource path.
-    boost::optional<EpwFile> epwFile;
-    boost::optional<model::WeatherFile> weatherFile = m_model.getOptionalUniqueModelObject<model::WeatherFile>();
-    if (weatherFile) {
-      std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
-      openstudio::path resourcesPath = openstudio::toPath(doc->modelTempDir()) / openstudio::toPath("resources");
-      epwFile = weatherFile->file(resourcesPath);
-    }
+    //boost::optional<EpwFile> epwFile;
+    //boost::optional<model::WeatherFile> weatherFile = m_model.getOptionalUniqueModelObject<model::WeatherFile>();
+    //if (weatherFile) {
+    //std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
+    //openstudio::path resourcesPath = openstudio::toPath(doc->modelTempDir()) / openstudio::toPath("resources");
+    //epwFile = weatherFile->file(resourcesPath);
+    //}
 
     // Refresh Daylight Savings Time
 

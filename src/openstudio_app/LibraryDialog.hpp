@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -43,7 +43,7 @@ class LibraryDialog : public QDialog
   Q_OBJECT
 
  public:
-  LibraryDialog(std::vector<openstudio::path> paths, std::vector<openstudio::path> defaultPaths, const openstudio::path& resourcesPath);
+  LibraryDialog(const std::vector<openstudio::path>& paths, const std::vector<openstudio::path>& defaultPaths, const openstudio::path& resourcesPath);
 
   virtual ~LibraryDialog(){};
 

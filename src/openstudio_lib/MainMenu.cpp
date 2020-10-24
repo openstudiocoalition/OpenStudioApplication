@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -254,12 +254,12 @@ void MainMenu::enableRevertToSavedAction(bool enable) {
 
   // Instead, we display an asterisk to indicate whether we think the model is dirty or not
   // Note: (The MainWindow also displays an asterisk, so perhaps it's not needed)
-  if (enable) {
-    //m_revertToSavedAction->setText(tr("&Revert to Saved *"));
-    m_revertToSavedAction->setText(tr("&Revert to Saved"));
-  } else {
-    m_revertToSavedAction->setText(tr("&Revert to Saved"));
-  }
+  //if (enable) {
+  //  //m_revertToSavedAction->setText(tr("&Revert to Saved *"));
+  m_revertToSavedAction->setText(tr("&Revert to Saved"));
+  //} else {
+  //  m_revertToSavedAction->setText(tr("&Revert to Saved"));
+  //}
 }
 
 void MainMenu::enableFileImportActions(bool enable) {

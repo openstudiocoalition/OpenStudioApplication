@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -213,9 +213,8 @@ QSharedPointer<LibraryTypeListController> LocalLibraryController::createLibraryL
   return libraryTypeListController;
 }
 
-LibraryTypeItem::LibraryTypeItem(const QString& name) : OSListItem(), m_name(name) {
-  m_libraryGroupListController = QSharedPointer<LibraryGroupListController>(new LibraryGroupListController());
-}
+LibraryTypeItem::LibraryTypeItem(const QString& name)
+  : OSListItem(), m_name(name), m_libraryGroupListController(QSharedPointer<LibraryGroupListController>::create()) {}
 
 LibraryTypeItemDelegate::LibraryTypeItemDelegate(BaseApp* t_app) : m_app(t_app) {}
 
@@ -268,9 +267,8 @@ void LibraryTypeListController::reset() {
   }
 }
 
-LibraryGroupItem::LibraryGroupItem(const QString& name, BaseApp* t_app) : OSListItem(), m_name(name) {
-  m_librarySubGroupListController = QSharedPointer<LibrarySubGroupListController>(new LibrarySubGroupListController(t_app));
-}
+LibraryGroupItem::LibraryGroupItem(const QString& name, BaseApp* t_app)
+  : OSListItem(), m_name(name), m_librarySubGroupListController(QSharedPointer<LibrarySubGroupListController>::create(t_app)) {}
 
 LibraryGroupItemDelegate::LibraryGroupItemDelegate(BaseApp* t_app) : m_app(t_app) {}
 
@@ -490,9 +488,10 @@ QWidget* LibraryItemDelegate::view(QSharedPointer<OSListItem> dataSource) {
     MeasureType measureType = libraryItem->m_bclMeasure.measureType();
 
     // NOTE: replaces needed to trim unwanted curly braces
-    QString measureUUID = toQString(libraryItem->m_bclMeasure.uuid()).replace("{", "").replace("}", "");
+    // TODO: Why was it there (and unused)?
+    // QString measureUUID = toQString(libraryItem->m_bclMeasure.uuid()).replace("{", "").replace("}", "");
 
-    std::vector<std::string> localUUIDs = (LocalBCL::instance().measureUids());
+    // std::vector<std::string> localUUIDs = (LocalBCL::instance().measureUids());
 
     auto widget = new LibraryItemView();
 
@@ -579,7 +578,7 @@ int LibraryListController::count() {
 struct MeasureSorter
 {
   // sort by type and then name
-  bool operator()(const BCLMeasure& lhs, const BCLMeasure& rhs) {
+  bool operator()(const BCLMeasure& lhs, const BCLMeasure& rhs) const {
     if (lhs.measureType() != rhs.measureType()) {
       return lhs.measureType() < rhs.measureType();
     }

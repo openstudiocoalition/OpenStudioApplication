@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -34,8 +34,8 @@
 
 namespace openstudio {
 
-HVACSystemsTabController::HVACSystemsTabController(bool isIP, const model::Model& model) : MainTabController(new HVACSystemsTabView()), m_isIP(isIP) {
-  m_hvacSystemsController = std::shared_ptr<HVACSystemsController>(new HVACSystemsController(isIP, model));
+HVACSystemsTabController::HVACSystemsTabController(bool isIP, const model::Model& model)
+  : MainTabController(new HVACSystemsTabView()), m_hvacSystemsController(std::make_shared<HVACSystemsController>(isIP, model)), m_isIP(isIP) {
 
   connect(this, &HVACSystemsTabController::toggleUnitsClicked, m_hvacSystemsController.get(), &HVACSystemsController::toggleUnitsClicked);
 

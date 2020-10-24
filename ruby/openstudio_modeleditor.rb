@@ -1,5 +1,5 @@
 ########################################################################################################################
-#  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+#  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 #
 #  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 #  following conditions are met:
@@ -33,7 +33,7 @@ original_dll_directory = nil
 platform_specific_path = nil
 
 if /mswin/.match(RUBY_PLATFORM) or /mingw/.match(RUBY_PLATFORM)
-  
+
   require 'fiddle/import'
   require 'fiddle/types'
   module WinAPI
@@ -45,40 +45,60 @@ if /mswin/.match(RUBY_PLATFORM) or /mingw/.match(RUBY_PLATFORM)
   end
 
   buffer = 1024
-  original_dll_directory = Fiddle::Pointer.malloc(buffer) 
+  original_dll_directory = Fiddle::Pointer.malloc(buffer)
   WinAPI.GetDllDirectory(buffer, original_dll_directory)
-  
+
   qt_dll_path = File.expand_path(File.join(File.dirname(__FILE__), '../bin/'))
+
+  # if install path fails, try developer paths
+  if !File.exists?(File.join(qt_dll_path, 'Qt5Core.dll'))
+    release_dll_path = File.expand_path(File.join(File.dirname(__FILE__), '../../Release/'))
+    debug_dll_path = File.expand_path(File.join(File.dirname(__FILE__), '../../Debug/'))
+    if File.exists?(File.join(release_dll_path, 'Qt5Core.dll'))
+      qt_dll_path = release_dll_path
+    elsif File.exists?(File.join(debug_dll_path, 'Qt5Core.dll'))
+      qt_dll_path = debug_dll_path
+    end
+  end
+
   WinAPI.SetDllDirectory(qt_dll_path)
 
-  $OPENSTUDIO_APPLICATION_DIR = File.join(File.dirname(__FILE__), '../bin/')
+  $OPENSTUDIO_APPLICATION_DIR = qt_dll_path
 else
 
   # Do something here for Mac OSX environments
-  qt_so_path = File.expand_path(File.join(File.dirname(__FILE__), '../bin/'))
+  qt_so_path = File.expand_path(File.join(File.dirname(__FILE__)))
   ENV['PATH'] = "#{qt_so_path}:#{original_path}"
-  
+
   $OPENSTUDIO_APPLICATION_DIR = File.join(File.dirname(__FILE__), '../bin/')
 end
 
 begin
 
   # require openstudio
-  require_relative 'openstudio'
+  begin
+    require_relative 'openstudio'
+  rescue LoadError
+    begin
+      require 'openstudio'
+    rescue LoadError
+      puts 'Unable to require openstudio'
+    end
+  end
 
   # require openstudio_modeleditor.so
   require_relative 'openstudio_modeleditor.so'
-  
+
   # add this directory to Ruby load path
   $:.unshift(File.expand_path(File.dirname(__FILE__)))
-  
+
 ensure
 
   # restore original path
   ENV['PATH'] = original_path
-  
+
   if original_dll_directory
     WinAPI.SetDllDirectory(original_dll_directory)
   end
-  
+
 end

@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -108,9 +108,9 @@ class MODELEDITOR_API AccessPolicyStore
 
   /*! loads an xml with the policy rules
        */
-  bool loadFile(openstudio::filesystem::ifstream& file);
-  bool loadFile(const openstudio::path& path);
-  bool loadFile(const std::vector<char>& data);
+  static bool loadFile(openstudio::filesystem::ifstream& file);
+  static bool loadFile(const openstudio::path& path);
+  static bool loadFile(const std::vector<char>& data);
 
   /*!Each IddObjectType has a uniqueAccessPolicy. This function will retrieve it*/
   const AccessPolicy* getPolicy(const openstudio::IddObjectType&) const;
