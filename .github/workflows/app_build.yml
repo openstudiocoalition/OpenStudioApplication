@@ -121,6 +121,8 @@ jobs:
       run: |
         import re
         import os
+        import urllib.parse as ul
+
         with open('FindOpenStudioSDK.cmake', 'r') as f:
             content = f.read()
 
@@ -138,57 +140,81 @@ jobs:
 
         sdk_version = ''
         if m_major:
-            sdk_version += m_major.groups()[0]
-            os.system(f"echo OS_SDK_VERSION_MAJOR={m_major.groups()[0]} >> $GITHUB_ENV")
+            OS_SDK_VERSION_MAJOR = m_major.groups()[0]
+            sdk_version += OS_SDK_VERSION_MAJOR
+            with open(os.environ['GITHUB_ENV'], 'a') as f:
+                f.write(f"\nOS_SDK_VERSION_MAJOR={OS_SDK_VERSION_MAJOR}")
+            print(f"\n{OS_SDK_VERSION_MAJOR=}")
         else:
             print("Unable to find OPENSTUDIO_VERSION_MAJOR")
             sdk_version += 'X'
 
         sdk_version += '.'
         if m_minor:
-            sdk_version += m_minor.groups()[0]
-            os.system(f"echo OS_SDK_VERSION_MINOR={m_minor.groups()[0]} >> $GITHUB_ENV")
+            OS_SDK_VERSION_MINOR = m_minor.groups()[0]
+            sdk_version += OS_SDK_VERSION_MINOR
+            with open(os.environ['GITHUB_ENV'], 'a') as f:
+                f.write(f"\nOS_SDK_VERSION_MINOR={OS_SDK_VERSION_MINOR}")
+            print(f"\n{OS_SDK_VERSION_MINOR=}")
         else:
             print("Unable to find OPENSTUDIO_VERSION_MINOR")
             sdk_version += 'Y'
 
         sdk_version += '.'
         if m_patch:
-            sdk_version += m_patch.groups()[0]
-            os.system(f"echo name=OS_SDK_VERSION_PATCH::{m_patch.groups()[0]} >> $GITHUB_ENV")
+            OS_SDK_VERSION_PATCH = m_patch.groups()[0]
+            sdk_version += OS_SDK_VERSION_PATCH
+            with open(os.environ['GITHUB_ENV'], 'a') as f:
+                f.write(f"\nOS_SDK_VERSION_PATCH={OS_SDK_VERSION_PATCH}")
+            print(f"\n{OS_SDK_VERSION_PATCH=}")
         else:
             print("Unable to find OPENSTUDIO_VERSION_PATCH")
             sdk_version += 'Z'
 
         if m_sha:
-            sdk_sha = m_sha.groups()[0]
+            OS_SDK_VERSION_SHA = m_sha.groups()[0]
             # NOT ADDING IT to sdk_version
-            # sdk_version += sdk_sha
-            os.system(f"echo name=OS_SDK_VERSION_SHA::{sdk_sha} >> $GITHUB_ENV")
+            # sdk_version += OS_SDK_VERSION_SHA
+            with open(os.environ['GITHUB_ENV'], 'a') as f:
+                f.write(f"\nOS_SDK_VERSION_SHA={OS_SDK_VERSION_SHA}")
+            print(f"{OS_SDK_VERSION_SHA=}")
         else:
             print("Unable to find OPENSTUDIO_VERSION_SHA")
 
+        OS_SDK_VERSION = sdk_version
+        with open(os.environ['GITHUB_ENV'], 'a') as f:
+            f.write(f"\nOS_SDK_VERSION={OS_SDK_VERSION}")
+        print(f"{OS_SDK_VERSION=}")
 
-        with open('sdk_version.txt', 'w') as f:
+        with open('sdk_version.txt', 'a') as f:
             f.write(sdk_version)
-
-        os.system(f"echo name=OS_SDK_VERSION::{sdk_version} >> $GITHUB_ENV")
 
         m_baselink = re.search(r'set\(OPENSTUDIO_BASELINK_RELEASE "(http.*?)"', content)
         if m_baselink:
-            baselink = m_baselink.groups()[0].replace('${OPENSTUDIO_VERSION}', sdk_version)
+            OS_SDK_BASELINK = m_baselink.groups()[0].replace('${OPENSTUDIO_VERSION}', sdk_version)
+            with open(os.environ['GITHUB_ENV'], 'a') as f:
+                f.write(f"\nOS_SDK_BASELINK={OS_SDK_BASELINK}")
+            print(f"Found baselink '{OS_SDK_BASELINK=}'")
+
         else:
             print("Unable to find OPENSTUDIO_BASELINK_RELEASE")
-            baselink = f"https://github.com/NREL/OpenStudio/releases/download/v{sdk_version}{sdk_sha.split('+')[0]}"
-            os.system(f"echo name=OS_SDK_BASELINK::{baselink} >> $GITHUB_ENV")
+            OS_SDK_BASELINK = f"https://github.com/NREL/OpenStudio/releases/download/v{sdk_version}{sdk_sha.split('+')[0]}"
+            with open(os.environ['GITHUB_ENV'], 'a') as f:
+                f.write(f"\nOS_SDK_BASELINK={OS_SDK_BASELINK}")
+            print(f"Defaulted baselink '{OS_SDK_BASELINK=}'")
 
-        links = re.findall(r'"https?:\/\/openstudio-ci-builds.*?"', content)
+        links = re.findall(r'"(https?:\/\/openstudio-ci-builds.*?)"', content)
         links = [link.replace('${OPENSTUDIO_VERSION}', sdk_version) for link in links]
         if len(links) > 0:
-            os.system(f"echo name=OS_SDK_ALTERNATE_LINK_1::{links[0]} >> $GITHUB_ENV")
+            OS_SDK_ALTERNATE_LINK_1 = links[0]
+            with open(os.environ['GITHUB_ENV'], 'a') as f:
+                f.write(f"\nOS_SDK_ALTERNATE_LINK_1={OS_SDK_ALTERNATE_LINK_1}")
+            print(f"Alternate link '{OS_SDK_ALTERNATE_LINK_1=}'")
 
-        sdk_installer_name = f"OpenStudio-{sdk_version}{sdk_sha}-Linux.deb"
-        os.system(f"echo name=OS_SDK_INSTALLER_NAME::{sdk_installer_name} >> $GITHUB_ENV")
+        OS_SDK_INSTALLER_NAME = ul.quote_plus(f"OpenStudio-{sdk_version}{OS_SDK_VERSION_SHA}-Linux.deb")
+        with open(os.environ['GITHUB_ENV'], 'a') as f:
+            f.write(f"\nOS_SDK_INSTALLER_NAME={OS_SDK_INSTALLER_NAME}")
+        print(f"{OS_SDK_INSTALLER_NAME=}")
 
     - name: Set OS-specific options and system dependencies (and QtIFW)
       # Use a bash shell so we can use the same syntax for environment variable
