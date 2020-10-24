@@ -239,7 +239,7 @@ jobs:
         elif [ "$RUNNER_OS" == "Windows" ]; then
           curl -L -O https://download.qt.io/official_releases/qt-installer-framework/3.2.2/QtInstallerFramework-win-x86.exe
           ./QtInstallerFramework-win-x86.exe --verbose --script ./ci/install_script_qtifw.qs
-          echo "::add-path::C:/Qt/QtIFW-3.2.2/bin"
+          echo "C:/Qt/QtIFW-3.2.2/bin" >> $GITHUB_PATH
         elif [ "$RUNNER_OS" == "macOS" ]; then
           echo MACOSX_DEPLOYMENT_TARGET=${{ matrix.MACOSX_DEPLOYMENT_TARGET }} >> $GITHUB_ENV
           echo SDKROOT=${{ matrix.SDKROOT }} >> $GITHUB_ENV
@@ -256,7 +256,7 @@ jobs:
           echo "ls ./qtfiw_installer/QtInstallerFramework-mac-x64.app/Contents/Frameworks"
 
           sudo ./qtfiw_installer/QtInstallerFramework-mac-x64.app/Contents/MacOS/QtInstallerFramework-mac-x64 --verbose --script ./ci/install_script_qtifw.qs
-          echo "::add-path::~/Qt/QtIFW-3.2.2/bin/"
+          echo "~/Qt/QtIFW-3.2.2/bin/" >> $GITHUB_PATH
         fi;
 
     # TODO: cache the QtIFW folder too
@@ -396,7 +396,7 @@ jobs:
           aqt install --outputdir ./build/Qt-install/ $QT_VERSION ${{ matrix.QT_OS_NAME }} desktop ${{ matrix.QT_ARCH }} -m qtwebengine qtwebglplugin
         fi
 
-        echo "::add-path::$QT_INSTALL_DIR/bin"
+        echo "$QT_INSTALL_DIR/bin" >> $GITHUB_PATH
         echo QT_INSTALL_DIR=$QT_INSTALL_DIR >> $GITHUB_ENV
         ls ./build/Qt-install/$QT_VERSION/
         ls $QT_INSTALL_DIR || true
