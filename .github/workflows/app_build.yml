@@ -120,6 +120,9 @@ jobs:
       shell: python
       run: |
         import re
+        import os
+        import urllib.parse as ul
+
         with open('FindOpenStudioSDK.cmake', 'r') as f:
             content = f.read()
 
@@ -137,56 +140,81 @@ jobs:
 
         sdk_version = ''
         if m_major:
-            sdk_version += m_major.groups()[0]
-            print("::set-env name=OS_SDK_VERSION_MAJOR::{}".format(m_major.groups()[0]))
+            OS_SDK_VERSION_MAJOR = m_major.groups()[0]
+            sdk_version += OS_SDK_VERSION_MAJOR
+            with open(os.environ['GITHUB_ENV'], 'a') as f:
+                f.write(f"\nOS_SDK_VERSION_MAJOR={OS_SDK_VERSION_MAJOR}")
+            print(f"\n{OS_SDK_VERSION_MAJOR=}")
         else:
             print("Unable to find OPENSTUDIO_VERSION_MAJOR")
             sdk_version += 'X'
 
         sdk_version += '.'
         if m_minor:
-            sdk_version += m_minor.groups()[0]
-            print("::set-env name=OS_SDK_VERSION_MINOR::{}".format(m_minor.groups()[0]))
+            OS_SDK_VERSION_MINOR = m_minor.groups()[0]
+            sdk_version += OS_SDK_VERSION_MINOR
+            with open(os.environ['GITHUB_ENV'], 'a') as f:
+                f.write(f"\nOS_SDK_VERSION_MINOR={OS_SDK_VERSION_MINOR}")
+            print(f"\n{OS_SDK_VERSION_MINOR=}")
         else:
             print("Unable to find OPENSTUDIO_VERSION_MINOR")
             sdk_version += 'Y'
 
         sdk_version += '.'
         if m_patch:
-            sdk_version += m_patch.groups()[0]
-            print("::set-env name=OS_SDK_VERSION_PATCH::{}".format(m_patch.groups()[0]))
+            OS_SDK_VERSION_PATCH = m_patch.groups()[0]
+            sdk_version += OS_SDK_VERSION_PATCH
+            with open(os.environ['GITHUB_ENV'], 'a') as f:
+                f.write(f"\nOS_SDK_VERSION_PATCH={OS_SDK_VERSION_PATCH}")
+            print(f"\n{OS_SDK_VERSION_PATCH=}")
         else:
             print("Unable to find OPENSTUDIO_VERSION_PATCH")
             sdk_version += 'Z'
 
         if m_sha:
-            sdk_sha = m_sha.groups()[0]
+            OS_SDK_VERSION_SHA = m_sha.groups()[0]
             # NOT ADDING IT to sdk_version
-            # sdk_version += sdk_sha
-            print("::set-env name=OS_SDK_VERSION_SHA::{}".format(sdk_sha))
+            # sdk_version += OS_SDK_VERSION_SHA
+            with open(os.environ['GITHUB_ENV'], 'a') as f:
+                f.write(f"\nOS_SDK_VERSION_SHA={OS_SDK_VERSION_SHA}")
+            print(f"{OS_SDK_VERSION_SHA=}")
         else:
             print("Unable to find OPENSTUDIO_VERSION_SHA")
 
+        OS_SDK_VERSION = sdk_version
+        with open(os.environ['GITHUB_ENV'], 'a') as f:
+            f.write(f"\nOS_SDK_VERSION={OS_SDK_VERSION}")
+        print(f"{OS_SDK_VERSION=}")
 
-        with open('sdk_version.txt', 'w') as f:
+        with open('sdk_version.txt', 'a') as f:
             f.write(sdk_version)
-
-        print("::set-env name=OS_SDK_VERSION::{}".format(sdk_version))
 
         m_baselink = re.search(r'set\(OPENSTUDIO_BASELINK_RELEASE "(http.*?)"', content)
         if m_baselink:
-            baselink = m_baselink.groups()[0].replace('${OPENSTUDIO_VERSION}', sdk_version)
+            OS_SDK_BASELINK = m_baselink.groups()[0].replace('${OPENSTUDIO_VERSION}', sdk_version)
+            with open(os.environ['GITHUB_ENV'], 'a') as f:
+                f.write(f"\nOS_SDK_BASELINK={OS_SDK_BASELINK}")
+            print(f"Found baselink '{OS_SDK_BASELINK=}'")
+
         else:
             print("Unable to find OPENSTUDIO_BASELINK_RELEASE")
-            baselink = f"https://github.com/NREL/OpenStudio/releases/download/v{sdk_version}{sdk_sha.split('+')[0]}"
-            print(f"::set-env name=OS_SDK_BASELINK::{baselink}")
-        links = re.findall(r'"https?:\/\/openstudio-ci-builds.*?"', content)
+            OS_SDK_BASELINK = f"https://github.com/NREL/OpenStudio/releases/download/v{sdk_version}{OS_SDK_VERSION_SHA.split('+')[0]}"
+            with open(os.environ['GITHUB_ENV'], 'a') as f:
+                f.write(f"\nOS_SDK_BASELINK={OS_SDK_BASELINK}")
+            print(f"Defaulted baselink '{OS_SDK_BASELINK=}'")
+
+        links = re.findall(r'"(https?:\/\/openstudio-ci-builds.*?)"', content)
         links = [link.replace('${OPENSTUDIO_VERSION}', sdk_version) for link in links]
         if len(links) > 0:
-            print(f"::set-env name=OS_SDK_ALTERNATE_LINK_1::{links[0]}")
+            OS_SDK_ALTERNATE_LINK_1 = links[0]
+            with open(os.environ['GITHUB_ENV'], 'a') as f:
+                f.write(f"\nOS_SDK_ALTERNATE_LINK_1={OS_SDK_ALTERNATE_LINK_1}")
+            print(f"Alternate link '{OS_SDK_ALTERNATE_LINK_1=}'")
 
-        sdk_installer_name = f"OpenStudio-{sdk_version}{sdk_sha}-Linux.deb"
-        print(f"::set-env name=OS_SDK_INSTALLER_NAME::{sdk_installer_name}")
+        OS_SDK_INSTALLER_NAME = ul.quote_plus(f"OpenStudio-{sdk_version}{OS_SDK_VERSION_SHA}-Linux.deb")
+        with open(os.environ['GITHUB_ENV'], 'a') as f:
+            f.write(f"\nOS_SDK_INSTALLER_NAME={OS_SDK_INSTALLER_NAME}")
+        print(f"{OS_SDK_INSTALLER_NAME=}")
 
     - name: Set OS-specific options and system dependencies (and QtIFW)
       # Use a bash shell so we can use the same syntax for environment variable
@@ -194,15 +222,15 @@ jobs:
       shell: bash
       run: |
         OS_APP_VERSION=$(cat version.txt)
-        echo "::set-env name=OS_APP_VERSION::$OS_APP_VERSION"
+        echo OS_APP_VERSION=$OS_APP_VERSION >> $GITHUB_ENV
 
-        echo "::set-env name=PLATFORM_NAME::${{ matrix.PLATFORM_NAME }}"
-        echo "::set-env name=CPACK_BINARY_DEB::${{ matrix.CPACK_BINARY_DEB }}"
-        echo "::set-env name=CPACK_BINARY_IFW::${{ matrix.CPACK_BINARY_IFW }}"
-        echo "::set-env name=CPACK_BINARY_ZIP::${{ matrix.CPACK_BINARY_ZIP }}"
-        echo "::set-env name=CPACK_BINARY_TGZ::${{ matrix.CPACK_BINARY_TGZ }}"
-        echo "::set-env name=BINARY_EXT::${{ matrix.BINARY_EXT }}"
-        echo "::set-env name=COMPRESSED_EXT::${{ matrix.COMPRESSED_EXT }}"
+        echo PLATFORM_NAME=${{ matrix.PLATFORM_NAME }} >> $GITHUB_ENV
+        echo CPACK_BINARY_DEB=${{ matrix.CPACK_BINARY_DEB }} >> $GITHUB_ENV
+        echo CPACK_BINARY_IFW=${{ matrix.CPACK_BINARY_IFW }} >> $GITHUB_ENV
+        echo CPACK_BINARY_ZIP=${{ matrix.CPACK_BINARY_ZIP }} >> $GITHUB_ENV
+        echo CPACK_BINARY_TGZ=${{ matrix.CPACK_BINARY_TGZ }} >> $GITHUB_ENV
+        echo BINARY_EXT=${{ matrix.BINARY_EXT }} >> $GITHUB_ENV
+        echo COMPRESSED_EXT=${{ matrix.COMPRESSED_EXT }} >> $GITHUB_ENV
 
         if [ "$RUNNER_OS" == "Linux" ]; then
           echo "Install needed system dependencies for OPENGL (due to Qt) for Linux"
@@ -211,11 +239,11 @@ jobs:
         elif [ "$RUNNER_OS" == "Windows" ]; then
           curl -L -O https://download.qt.io/official_releases/qt-installer-framework/3.2.2/QtInstallerFramework-win-x86.exe
           ./QtInstallerFramework-win-x86.exe --verbose --script ./ci/install_script_qtifw.qs
-          echo "::add-path::C:/Qt/QtIFW-3.2.2/bin"
+          echo "C:/Qt/QtIFW-3.2.2/bin" >> $GITHUB_PATH
         elif [ "$RUNNER_OS" == "macOS" ]; then
-          echo "::set-env name=MACOSX_DEPLOYMENT_TARGET::${{ matrix.MACOSX_DEPLOYMENT_TARGET }}"
-          echo "::set-env name=SDKROOT::${{ matrix.SDKROOT }}"
-          echo "::set-env name=CMAKE_MACOSX_DEPLOYMENT_TARGET::'-DCMAKE_OSX_DEPLOYMENT_TARGET=$MACOSX_DEPLOYMENT_TARGET'"
+          echo MACOSX_DEPLOYMENT_TARGET=${{ matrix.MACOSX_DEPLOYMENT_TARGET }} >> $GITHUB_ENV
+          echo SDKROOT=${{ matrix.SDKROOT }} >> $GITHUB_ENV
+          echo CMAKE_MACOSX_DEPLOYMENT_TARGET='-DCMAKE_OSX_DEPLOYMENT_TARGET=$MACOSX_DEPLOYMENT_TARGET' >> $GITHUB_ENV
 
           curl -L -O https://download.qt.io/official_releases/qt-installer-framework/3.2.2/QtInstallerFramework-mac-x64.dmg
           hdiutil attach -mountpoint ./qtfiw_installer QtInstallerFramework-mac-x64.dmg
@@ -228,7 +256,7 @@ jobs:
           echo "ls ./qtfiw_installer/QtInstallerFramework-mac-x64.app/Contents/Frameworks"
 
           sudo ./qtfiw_installer/QtInstallerFramework-mac-x64.app/Contents/MacOS/QtInstallerFramework-mac-x64 --verbose --script ./ci/install_script_qtifw.qs
-          echo "::add-path::~/Qt/QtIFW-3.2.2/bin/"
+          echo "~/Qt/QtIFW-3.2.2/bin/" >> $GITHUB_PATH
         fi;
 
     # TODO: cache the QtIFW folder too
@@ -353,7 +381,7 @@ jobs:
         # openstudio_DIR=$(find `pwd`/OpenStudio-$OS_SDK_VERSION/ -name "openstudioConfig.cmake")
         # openstudio_DIR=$(dirname "${openstudio_DIR}")
         # echo "openstudio_DIR=${openstudio_DIR}"
-        # echo "::set-env name=openstudio_DIR::$openstudio_DIR"
+        # echo openstudio_DIR=$openstudio_DIR >> $GITHUB_ENV
 
         if [ "$RUNNER_OS" == "Windows" ]; then
           QT_INSTALL_DIR="$(pwd)/build/Qt-install/$QT_VERSION/msvc2019_64"
@@ -368,8 +396,8 @@ jobs:
           aqt install --outputdir ./build/Qt-install/ $QT_VERSION ${{ matrix.QT_OS_NAME }} desktop ${{ matrix.QT_ARCH }} -m qtwebengine qtwebglplugin
         fi
 
-        echo "::add-path::$QT_INSTALL_DIR/bin"
-        echo "::set-env name=QT_INSTALL_DIR::$QT_INSTALL_DIR"
+        echo "$QT_INSTALL_DIR/bin" >> $GITHUB_PATH
+        echo QT_INSTALL_DIR=$QT_INSTALL_DIR >> $GITHUB_ENV
         ls ./build/Qt-install/$QT_VERSION/
         ls $QT_INSTALL_DIR || true
         ls $QT_INSTALL_DIR/lib || true
