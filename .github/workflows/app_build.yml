@@ -458,7 +458,7 @@ jobs:
       working-directory: ./build
       shell: bash
       # Execute the build.  You can specify a specific target with "--target <NAME>"
-      run: cmake --build . --target package --config $BUILD_TYPE
+      run: cmake --build . --target package -j 2 --config $BUILD_TYPE
 
     - name: Archive binary artifacts
       uses: actions/upload-artifact@v2
