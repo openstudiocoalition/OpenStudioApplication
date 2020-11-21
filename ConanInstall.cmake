@@ -59,6 +59,7 @@ if(NOT CONAN_OPENSTUDIO_ALREADY_RUN)
     # Track NREL/stable in general, on a feature branch this could be temporarily switched to NREL/testing
     openstudio_ruby/2.5.5@nrel/stable   # TODO: Temp #@nrel/stable
     boost/1.73.0
+    bison/3.7.1
     pugixml/1.10
     jsoncpp/1.9.3
     zlib/1.2.11
