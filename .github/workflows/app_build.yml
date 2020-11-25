@@ -196,6 +196,9 @@ jobs:
         OS_APP_VERSION=$(cat version.txt)
         echo "::set-env name=OS_APP_VERSION::$OS_APP_VERSION"
 
+        CONAN_INSTALL_MD5=$(md5sum ConanInstall.cmake)
+        echo "::set-env name=CONAN_INSTALL_MD5::$CONAN_INSTALL_MD5"
+
         echo "::set-env name=PLATFORM_NAME::${{ matrix.PLATFORM_NAME }}"
         echo "::set-env name=CPACK_BINARY_DEB::${{ matrix.CPACK_BINARY_DEB }}"
         echo "::set-env name=CPACK_BINARY_IFW::${{ matrix.CPACK_BINARY_IFW }}"
@@ -325,7 +328,7 @@ jobs:
       uses: actions/cache@v2
       with:
         path: ~/.conan
-        key: ${{ matrix.os }}-conan-cache
+        key: ${{ matrix.os }}-conan-cache-${{ env.CONAN_INSTALL_MD5 }}
 
     - name: Did restoring the conan-cache work? No
       # If the SDK wasn't found in the cache
