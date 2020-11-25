@@ -103,7 +103,7 @@ jobs:
 
         else:
             print("Unable to find OPENSTUDIO_BASELINK_RELEASE")
-            OS_SDK_BASELINK = f"https://github.com/NREL/OpenStudio/releases/download/v{sdk_version}{sdk_sha.split('+')[0]}"
+            OS_SDK_BASELINK = f"https://github.com/NREL/OpenStudio/releases/download/v{sdk_version}{OS_SDK_VERSION_SHA.split('+')[0]}"
             with open(os.environ['GITHUB_ENV'], 'a') as f:
                 f.write(f"\nOS_SDK_BASELINK={OS_SDK_BASELINK}")
             print(f"Defaulted baselink '{OS_SDK_BASELINK=}'")
