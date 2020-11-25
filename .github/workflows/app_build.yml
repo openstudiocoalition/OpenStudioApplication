@@ -225,7 +225,7 @@ jobs:
         echo OS_APP_VERSION=$OS_APP_VERSION >> $GITHUB_ENV
 
         CONAN_INSTALL_MD5=$(md5sum ConanInstall.cmake | awk '{print $1}')
-        echo CONAN_INSTALL_MD5::$CONAN_INSTALL_MD5 >> $GITHUB_ENV
+        echo CONAN_INSTALL_MD5=$CONAN_INSTALL_MD5 >> $GITHUB_ENV
 
         echo PLATFORM_NAME=${{ matrix.PLATFORM_NAME }} >> $GITHUB_ENV
         echo CPACK_BINARY_DEB=${{ matrix.CPACK_BINARY_DEB }} >> $GITHUB_ENV
