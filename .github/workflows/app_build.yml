@@ -245,6 +245,8 @@ jobs:
           echo SDKROOT=${{ matrix.SDKROOT }} >> $GITHUB_ENV
           echo CMAKE_MACOSX_DEPLOYMENT_TARGET='-DCMAKE_OSX_DEPLOYMENT_TARGET=$MACOSX_DEPLOYMENT_TARGET' >> $GITHUB_ENV
 
+          brew install md5sha1sum
+
           curl -L -O https://download.qt.io/official_releases/qt-installer-framework/3.2.2/QtInstallerFramework-mac-x64.dmg
           hdiutil attach -mountpoint ./qtfiw_installer QtInstallerFramework-mac-x64.dmg
           echo "ls ./qtfiw_installer"
@@ -258,6 +260,9 @@ jobs:
           sudo ./qtfiw_installer/QtInstallerFramework-mac-x64.app/Contents/MacOS/QtInstallerFramework-mac-x64 --verbose --script ./ci/install_script_qtifw.qs
           echo "~/Qt/QtIFW-3.2.2/bin/" >> $GITHUB_PATH
         fi;
+
+        CONAN_INSTALL_MD5=$(md5sum ConanInstall.cmake | awk '{print $1}')
+        echo CONAN_INSTALL_MD5=$CONAN_INSTALL_MD5 >> $GITHUB_ENV
 
     # TODO: cache the QtIFW folder too
 
@@ -352,8 +357,10 @@ jobs:
       id: cacheconan
       uses: actions/cache@v2
       with:
-        path: ~/.conan
-        key: ${{ matrix.os }}-conan-cache
+        path: |
+          ~/.conan
+          /.conan
+        key: ${{ matrix.os }}-conan-cache-${{ env.CONAN_INSTALL_MD5 }}
 
     - name: Did restoring the conan-cache work? No
       # If the SDK wasn't found in the cache
@@ -369,6 +376,7 @@ jobs:
       run: |
           ls ~/.conan/
           ls ~/.conan/data/
+          ls /.conan
 
     - name: Create Build Environment and locate openstudio
       # Some projects don't allow in-source building, so create a separate build directory

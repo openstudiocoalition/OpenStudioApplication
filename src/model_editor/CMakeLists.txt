@@ -59,7 +59,6 @@ set(${target_name}_moc
   TableView.hpp
   TableWidget.hpp
   TestButton.hpp
-  Utilities.hpp
   IGPrecisionDialog.hpp
   IGLineEdit.hpp
   IGSpinBoxes.hpp
