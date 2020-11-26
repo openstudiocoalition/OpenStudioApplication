@@ -61,14 +61,14 @@ if(APPLE)
     POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E make_directory $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/platforms/
     COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:Qt5::QCocoaIntegrationPlugin> $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/platforms/.
-    COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:Qt5::Concurrent> $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/.
-    COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:Qt5::Core> $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/.
-    COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:Qt5::DBus> $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/.
-    COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:Qt5::Gui> $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/.
-    COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:Qt5::Network> $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/.
-    COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:Qt5::PrintSupport> $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/.
-    COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:Qt5::Widgets> $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/.
-    COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:Qt5::Xml> $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/.
+    COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/lib/QtConcurrent.framework $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtConcurrent.framework
+    COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/lib/QtCore.framework $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtCore.framework 
+    COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/lib/QtDBus.framework $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtDBus.framework 
+    COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/lib/QtGui.framework $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtGui.framework 
+    COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/lib/QtNetwork.framework $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtNetwork.framework
+    COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/lib/QtPrintSupport.framework $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtPrintSupport.framework
+    COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/lib/QtWidgets.framework $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtWidgets.framework 
+    COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/lib/QtXml.framework $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtXml.framework
     COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:openstudio::openstudiolib> $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/.
     COMMAND ruby "${PROJECT_SOURCE_DIR}/SketchUpInstallName.rb" "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/ruby/openstudio_modeleditor.bundle"
   )
@@ -91,15 +91,15 @@ install(TARGETS openstudio_modeleditor_rb DESTINATION Ruby COMPONENT "RubyAPI")
 install(FILES openstudio_modeleditor.rb DESTINATION Ruby COMPONENT "RubyAPI")
 if(APPLE)
   install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/platforms/$<TARGET_FILE_NAME:Qt5::QCocoaIntegrationPlugin> DESTINATION Ruby/platforms COMPONENT "RubyAPI")
-  install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/$<TARGET_FILE_NAME:Qt5::Concurrent> DESTINATION Ruby COMPONENT "RubyAPI")
-  install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/$<TARGET_FILE_NAME:Qt5::Core> DESTINATION Ruby COMPONENT "RubyAPI")
-  install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/$<TARGET_FILE_NAME:Qt5::DBus> DESTINATION Ruby COMPONENT "RubyAPI")
-  install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/$<TARGET_FILE_NAME:Qt5::Gui> DESTINATION Ruby COMPONENT "RubyAPI")
-  install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/$<TARGET_FILE_NAME:Qt5::Network> DESTINATION Ruby COMPONENT "RubyAPI")
-  install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/$<TARGET_FILE_NAME:Qt5::PrintSupport> DESTINATION Ruby COMPONENT "RubyAPI")
-  install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/$<TARGET_FILE_NAME:Qt5::Widgets> DESTINATION Ruby COMPONENT "RubyAPI")
+  install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtConcurrent.framework DESTINATION Ruby COMPONENT "RubyAPI")
+  install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtCore.framework DESTINATION Ruby COMPONENT "RubyAPI")
+  install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtDBus.framework DESTINATION Ruby COMPONENT "RubyAPI")
+  install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtGui.framework DESTINATION Ruby COMPONENT "RubyAPI")
+  install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtNetwork.framework DESTINATION Ruby COMPONENT "RubyAPI")
+  install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtPrintSupport.framework DESTINATION Ruby COMPONENT "RubyAPI")
+  install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtWidgets.framework DESTINATION Ruby COMPONENT "RubyAPI")
+  install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtXml.framework DESTINATION Ruby COMPONENT "RubyAPI")
   install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/$<TARGET_FILE_NAME:openstudio::openstudiolib> DESTINATION Ruby COMPONENT "RubyAPI")
-  install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/$<TARGET_FILE_NAME:Qt5::Xml> DESTINATION Ruby COMPONENT "RubyAPI")
 endif()
 
 if( BUILD_PAT )

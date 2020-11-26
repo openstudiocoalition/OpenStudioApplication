@@ -38,6 +38,8 @@ find_package(openstudio "${OPENSTUDIO_VERSION}" CONFIG
     "${OPENSTUDIO_ARCHIVE_DIR}/${OPENSTUDIO_ARCHIVE_BASENAME}"
   HINTS
     "${OPENSTUDIO_ARCHIVE_DIR}"
+  NO_DEFAULT_PATH
+  NO_PACKAGE_ROOT_PATH
 )
 if(openstudio_FOUND)
   message("Found specified openstudio at openstudio_DIR=${openstudio_DIR}")
