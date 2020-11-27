@@ -6,22 +6,22 @@ set(OPENSTUDIO_VERSION "${OPENSTUDIO_VERSION_MAJOR}.${OPENSTUDIO_VERSION_MINOR}.
 #If this is a release enter the SHA as "+79857912c4"
 #set(OPENSTUDIO_VERSION_SHA "+09b7c8a554")
 #If this is a pre-release enter the pre-release and SHA as "-rc1+79857912c4"
-set(OPENSTUDIO_VERSION_SHA "-alpha+e454bfaffb")
+set(OPENSTUDIO_VERSION_SHA "+82d3ea2978")
 
 # Paths where the cmake-downloaded archives will be put
 set(OPENSTUDIO_ARCHIVE_DIR "${PROJECT_BINARY_DIR}/OpenStudio-${OPENSTUDIO_VERSION}")
 
 # If downloaded, we need the SHA to match. This block is here since we need "OPENSTUDIO_PLATFORM" anyways
 if(APPLE)
-  set(OPENSTUDIO_EXPECTED_HASH 4eabc4a81dda2b34eb57a4e3414e2f84)
+  set(OPENSTUDIO_EXPECTED_HASH 9706edd710bd5471c1063c9d08789267)
   set(OPENSTUDIO_PLATFORM "Darwin")
   set(OPENSTUDIO_EXT "tar.gz")
 elseif(UNIX)
-  set(OPENSTUDIO_EXPECTED_HASH 15dca067b1fdf79a639e121a8e376534)
+  set(OPENSTUDIO_EXPECTED_HASH 7fe8354f4f8c11ba0945d77f908ab8c7)
   set(OPENSTUDIO_PLATFORM "Linux")
   set(OPENSTUDIO_EXT "tar.gz")
 elseif(WIN32)
-  set(OPENSTUDIO_EXPECTED_HASH 483512d858677821ea24d6adf87cbf80)
+  set(OPENSTUDIO_EXPECTED_HASH 10a754b836869e2d3fa03a190587ba3a)
   set(OPENSTUDIO_PLATFORM "Windows")
   set(OPENSTUDIO_EXT "tar.gz")
 endif()
@@ -38,6 +38,8 @@ find_package(openstudio "${OPENSTUDIO_VERSION}" CONFIG
     "${OPENSTUDIO_ARCHIVE_DIR}/${OPENSTUDIO_ARCHIVE_BASENAME}"
   HINTS
     "${OPENSTUDIO_ARCHIVE_DIR}"
+  NO_DEFAULT_PATH
+  NO_PACKAGE_ROOT_PATH
 )
 if(openstudio_FOUND)
   message("Found specified openstudio at openstudio_DIR=${openstudio_DIR}")
@@ -46,15 +48,17 @@ else()
   # Not found: no problem, we download it
 
   # base link for release builds
-  set(OPENSTUDIO_BASELINK_RELEASE "https://openstudio-builds.s3.amazonaws.com/${OPENSTUDIO_VERSION}"
+  set(OPENSTUDIO_BASELINK_RELEASE
+    #"https://openstudio-builds.s3.amazonaws.com/${OPENSTUDIO_VERSION}"
+    https://github.com/NREL/OpenStudio/releases/download/v3.1.0-rc3
     CACHE STRING "Base link to where the openstudio archives are hosted" FORCE)
 
   # base link for develop builds. (Using https will fail)
   # Note: this should be set to ""http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/develop" for nightly builds
   # Occasionally we can point to a specific PR by using something like ""http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/PR-4080"
   set(OPENSTUDIO_BASELINK_CI
-    # "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/develop"
-    "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/PR-4066"
+    #"http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/develop"
+    "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/PR-4121"
     CACHE STRING "Base link to where the openstudio develop archives are hosted" FORCE)
 
   # Make subdir if it doesn't exist
@@ -85,7 +89,11 @@ else()
     # Try with the official releases first, then fall back to the CI (develop) nightly builds
     foreach(BASELINK IN LISTS OPENSTUDIO_BASELINK_RELEASE OPENSTUDIO_BASELINK_CI)
       set(OPENSTUDIO_URL "${BASELINK}/${OPENSTUDIO_ARCHIVE_NAME}")
-      string(REPLACE "+" "%2B" OPENSTUDIO_URL ${OPENSTUDIO_URL})
+
+      if(BASELINK MATCHES "amazonaws")
+        string(REPLACE "+" "%2B" OPENSTUDIO_URL ${OPENSTUDIO_URL})
+      endif()
+
       message(STATUS "Try Downloading OpenStudio SDK: ${OPENSTUDIO_URL}")
 
       # Cannot use EXPECTED_MD5 here, or it'll throw an error, which we do not want.

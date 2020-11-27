@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -70,7 +70,7 @@ TEST_F(OpenStudioAppFixture, Resources_Templates) {
     ASSERT_TRUE(model);
 
     // check that each space load has a parent space type
-    std::vector<model::SpaceLoad> spaceLoads;
+    std::vector<model::SpaceLoad> spaceLoads = model->getModelObjects<model::SpaceLoad>();
     for (const model::SpaceLoad& spaceLoad : spaceLoads) {
       EXPECT_TRUE(spaceLoad.spaceType());
     }

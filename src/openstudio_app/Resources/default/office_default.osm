@@ -1,7 +1,7 @@
 
 OS:Version,
-  {c1f6de95-6122-49bc-9c7a-670edbfc51ea}, !- Handle
-  3.0.0;                                  !- Version Identifier
+  {bc70e4b4-b96e-4598-8c9f-7cec3569bf05}, !- Handle
+  3.1.0;                                  !- Version Identifier
 
 OS:Schedule:Constant,
   {1fe75643-8848-46bb-8327-b84d604dc1cc}, !- Handle
@@ -7939,7 +7939,16 @@ OS:ShadingControl,
   Shading Control 1,                      !- Name
   InteriorBlind,                          !- Shading Type
   ,                                       !- Construction with Shading Name
-  {57a656b0-06ef-4771-ad1b-2a27d4d72bbc}; !- Shading Device Material Name
+  {57a656b0-06ef-4771-ad1b-2a27d4d72bbc}, !- Shading Device Material Name
+  ,                                       !- Shading Control Type
+  ,                                       !- Schedule Name
+  ,                                       !- Setpoint
+  ,                                       !- Shading Control Is Scheduled
+  ,                                       !- Glare Control Is Active
+  ,                                       !- Type of Slat Angle Control for Blinds
+  ,                                       !- Slat Angle Schedule Name
+  ,                                       !- Setpoint 2
+  Sequential;                             !- Multiple Surface Control Type
 
 OS:WindowProperty:FrameAndDivider,
   {98241f7b-1b8e-4151-8ed1-52b764874a82}, !- Handle

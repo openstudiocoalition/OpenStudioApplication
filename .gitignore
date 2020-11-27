@@ -21,6 +21,8 @@ core-build/
 super-build/
 debug/
 release/
+relwithdebinfo/
+profile/
 /super-build-shared/
 /super-build-static/
 
