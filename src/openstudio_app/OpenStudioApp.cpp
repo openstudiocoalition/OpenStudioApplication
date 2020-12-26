@@ -277,7 +277,7 @@ void OpenStudioApp::onMeasureManagerAndLibraryReady() {
       boost::optional<openstudio::model::Model> model = versionTranslator.loadModel(toPath(fileName));
       if (model) {
 
-        m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), model, fileName));
+        m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), model, fileName, false, startTabIndex()));
 
         connectOSDocumentSignals();
 
@@ -325,7 +325,7 @@ bool OpenStudioApp::openFile(const QString& fileName, bool restoreTabs) {
       bool wasQuitOnLastWindowClosed = this->quitOnLastWindowClosed();
       this->setQuitOnLastWindowClosed(false);
 
-      int startTabIndex = 0;
+      int startTabIndex = this->startTabIndex();
       int startSubTabIndex = 0;
       if (m_osDocument) {
 
@@ -453,7 +453,8 @@ void OpenStudioApp::newFromEmptyTemplateSlot() {
 }
 
 void OpenStudioApp::newFromTemplateSlot(NewFromTemplateEnum newFromTemplateEnum) {
-  m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath()));
+  m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(),
+                                                            boost::none, QString(), false, startTabIndex()));
 
   connectOSDocumentSignals();
 
@@ -552,7 +553,8 @@ void OpenStudioApp::importIdf() {
           processEvents();
         }
 
-        m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), model));
+        m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), model,
+                                                                  QString(), false, startTabIndex()));
         m_osDocument->markAsModified();
         // ETH: parent should change now ...
         //parent = m_osDocument->mainWindow();
@@ -678,7 +680,8 @@ void OpenStudioApp::importIFC() {
       processEvents();
     }
 
-    m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), *model));
+    m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), *model,
+                                                              QString(), false, startTabIndex()));
 
     m_osDocument->markAsModified();
 
@@ -740,7 +743,8 @@ void OpenStudioApp::import(OpenStudioApp::fileType type) {
         processEvents();
       }
 
-      m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), *model));
+      m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), *model,
+                                                                QString(), false, startTabIndex()));
       m_osDocument->markAsModified();
       // ETH: parent should change now ...
       //parent = m_osDocument->mainWindow();
@@ -1354,6 +1358,23 @@ void OpenStudioApp::writeLibraryPaths(std::vector<openstudio::path> paths) {
     }
     settings.endArray();
   }
+}
+
+int OpenStudioApp::startTabIndex() const {
+  int result = OSDocument::VerticalTabID::SITE;
+  if (qEnvironmentVariableIsSet("OPENSTUDIO_APPLICATION_START_TAB_INDEX")) {
+    LOG(Debug, "OPENSTUDIO_APPLICATION_START_TAB_INDEX is set");
+    bool ok;
+    int test = qEnvironmentVariableIntValue("OPENSTUDIO_APPLICATION_START_TAB_INDEX", &ok);
+    if (ok) {
+      if ((test >= OSDocument::VerticalTabID::SITE) && (test <= OSDocument::VerticalTabID::RESULTS_SUMMARY)) {
+        result = test;
+        LOG(Debug, "OPENSTUDIO_APPLICATION_START_TAB_INDEX is " << result);
+      }
+    }
+  }
+
+  return result;
 }
 
 void OpenStudioApp::loadLibrary() {

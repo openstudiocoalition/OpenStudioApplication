@@ -1157,17 +1157,6 @@ void MainRightColumnController::configureForHVACSystemsSubTab(int subTabID) {
   doc->openSidebar();
 }
 
-void MainRightColumnController::configureForBuildingSummarySubTab(int subTabID) {
-  std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
-
-  setLibraryView(nullptr);
-  setMyModelView(nullptr);
-  setEditView(nullptr);
-
-  //doc->openSidebar();
-  doc->closeSidebar();
-}
-
 void MainRightColumnController::configureForOutputVariablesSubTab(int subTabID) {
   std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
 

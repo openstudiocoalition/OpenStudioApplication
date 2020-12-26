@@ -133,8 +133,7 @@
 
 namespace openstudio {
 
-OSDocument::OSDocument(const openstudio::model::Model& library, const openstudio::path& resourcesPath, openstudio::model::OptionalModel model,
-                       QString filePath, bool isPlugin, int startTabIndex, int startSubTabIndex)
+OSDocument::OSDocument(const openstudio::model::Model& library, const openstudio::path& resourcesPath, openstudio::model::OptionalModel model, QString filePath, bool isPlugin, int startTabIndex, int startSubTabIndex)
   : OSQObjectController(),
     m_compLibrary(library),
     m_resourcesPath(resourcesPath),
@@ -142,9 +141,8 @@ OSDocument::OSDocument(const openstudio::model::Model& library, const openstudio
     m_onlineBclDialog(nullptr),
     m_localLibraryDialog(nullptr),
     m_savePath(filePath),
-    m_isPlugin(isPlugin),
-    m_startTabIndex(startTabIndex),
-    m_startSubTabIndex(startSubTabIndex) {
+    m_isPlugin(isPlugin)
+{
   QFile data(":openstudiolib.qss");
 
   static QString style;
@@ -229,6 +227,13 @@ OSDocument::OSDocument(const openstudio::model::Model& library, const openstudio
 
   if (initalizeWorkflow) {
     QTimer::singleShot(0, this, SLOT(addStandardMeasures()));
+  }
+
+  if (startTabIndex != m_verticalId) {
+    QTimer::singleShot(0, [=] {
+      this->onVerticalTabSelected(startTabIndex);
+      this->updateSubTabSelected(startSubTabIndex);
+    } );
   }
 }
 
@@ -657,20 +662,6 @@ void OSDocument::createTab(int verticalId) {
               &MainRightColumnController::configureForHVACSystemsSubTab);
 
       connect(m_mainTabController->mainContentWidget(), &MainTabView::tabSelected, this, &OSDocument::updateSubTabSelected);
-
-      break;
-
-    case BUILDING_SUMMARY:
-      //******************************************************************************************************
-      //
-      //// Summary
-      //
-      //m_summaryTabController = std::shared_ptr<SummaryTabController>( new SummaryTabController(m_model) );
-      //m_mainWindow->setView( m_summaryTabController->mainContentWidget(),BUILDING_SUMMARY );
-      ////connect(m_summaryTabController->mainContentWidget(), &MainTabView::tabSelected,
-      ////        m_mainRightColumnController.get(), &MainRightColumnController::configureForBuildingSummarySubTab);
-      //
-      //******************************************************************************************************
 
       break;
 
@@ -1169,9 +1160,6 @@ void OSDocument::onVerticalTabSelected(int verticalId) {
       if (qobject_cast<HVACSystemsTabController*>(m_mainTabController.get())) {
         qobject_cast<HVACSystemsTabController*>(m_mainTabController.get())->clearSceneSelection();
       }
-      break;
-    case BUILDING_SUMMARY:
-      m_mainRightColumnController->configureForBuildingSummarySubTab(m_subTabId);
       break;
     case OUTPUT_VARIABLES:
       m_mainRightColumnController->configureForOutputVariablesSubTab(m_subTabId);
