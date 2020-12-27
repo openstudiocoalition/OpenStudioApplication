@@ -15,6 +15,7 @@ jobs:
     - name: Run cppcheck
       shell: bash
       run: |
+          snap list cppcheck
           sudo snap install cppcheck
           cppcheck \
             --suppress=noExplicitConstructor \
