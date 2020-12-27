@@ -394,12 +394,12 @@ class CheckBoxConceptBoolReturnImpl : public CheckBoxConceptBoolReturn
 
   virtual ~CheckBoxConceptBoolReturnImpl() {}
 
-  virtual bool get(const ConceptProxy& t_obj) {
+  virtual bool get(const ConceptProxy& t_obj) override {
     DataSourceType obj = t_obj.cast<DataSourceType>();
     return m_getter(&obj);
   }
 
-  virtual bool set(const ConceptProxy& t_obj, bool value) {
+  virtual bool set(const ConceptProxy& t_obj, bool value) override {
     DataSourceType obj = t_obj.cast<DataSourceType>();
     return m_setter(&obj, value);
   }
@@ -769,24 +769,24 @@ class ValueEditConceptImpl : public ValueEditConcept<ValueType>
 
   virtual ~ValueEditConceptImpl() {}
 
-  virtual ValueType get(const ConceptProxy& t_obj) {
+  virtual ValueType get(const ConceptProxy& t_obj) override {
     DataSourceType obj = t_obj.cast<DataSourceType>();
     return m_getter(&obj);
   }
 
-  virtual bool set(const ConceptProxy& t_obj, ValueType value) {
+  virtual bool set(const ConceptProxy& t_obj, ValueType value) override {
     DataSourceType obj = t_obj.cast<DataSourceType>();
     return m_setter(&obj, value);
   }
 
-  virtual void reset(const ConceptProxy& t_obj) {
+  virtual void reset(const ConceptProxy& t_obj) override {
     if (m_reset) {
       DataSourceType obj = t_obj.cast<DataSourceType>();
       (*m_reset)(&obj);
     }
   }
 
-  virtual bool isDefaulted(const ConceptProxy& t_obj) {
+  virtual bool isDefaulted(const ConceptProxy& t_obj) override {
     if (m_isDefaulted) {
       DataSourceType obj = t_obj.cast<DataSourceType>();
       return (*m_isDefaulted)(&obj);
@@ -826,12 +826,12 @@ class OptionalValueEditConceptImpl : public OptionalValueEditConcept<ValueType>
 
   virtual ~OptionalValueEditConceptImpl() {}
 
-  virtual boost::optional<ValueType> get(const ConceptProxy& t_obj) {
+  virtual boost::optional<ValueType> get(const ConceptProxy& t_obj) override {
     DataSourceType obj = t_obj.cast<DataSourceType>();
     return m_getter(&obj);
   }
 
-  virtual bool set(const ConceptProxy& t_obj, ValueType value) {
+  virtual bool set(const ConceptProxy& t_obj, ValueType value) override {
     DataSourceType obj = t_obj.cast<DataSourceType>();
     return m_setter(&obj, value);
   }
@@ -869,24 +869,24 @@ class ValueEditVoidReturnConceptImpl : public ValueEditVoidReturnConcept<ValueTy
 
   virtual ~ValueEditVoidReturnConceptImpl() {}
 
-  virtual ValueType get(const ConceptProxy& t_obj) {
+  virtual ValueType get(const ConceptProxy& t_obj) override {
     DataSourceType obj = t_obj.cast<DataSourceType>();
     return m_getter(&obj);
   }
 
-  virtual void set(const ConceptProxy& t_obj, ValueType value) {
+  virtual void set(const ConceptProxy& t_obj, ValueType value) override {
     DataSourceType obj = t_obj.cast<DataSourceType>();
     return m_setter(&obj, value);
   }
 
-  virtual void reset(const ConceptProxy& t_obj) {
+  virtual void reset(const ConceptProxy& t_obj) override {
     if (m_reset) {
       DataSourceType obj = t_obj.cast<DataSourceType>();
       (*m_reset)(&obj);
     }
   }
 
-  virtual bool isDefaulted(const ConceptProxy& t_obj) {
+  virtual bool isDefaulted(const ConceptProxy& t_obj) override {
     if (m_isDefaulted) {
       DataSourceType obj = t_obj.cast<DataSourceType>();
       return (*m_isDefaulted)(&obj);
@@ -926,12 +926,12 @@ class OptionalValueEditVoidReturnConceptImpl : public OptionalValueEditVoidRetur
 
   virtual ~OptionalValueEditVoidReturnConceptImpl() {}
 
-  virtual boost::optional<ValueType> get(const ConceptProxy& t_obj) {
+  virtual boost::optional<ValueType> get(const ConceptProxy& t_obj) override {
     DataSourceType obj = t_obj.cast<DataSourceType>();
     return m_getter(&obj);
   }
 
-  virtual void set(const ConceptProxy& t_obj, ValueType value) {
+  virtual void set(const ConceptProxy& t_obj, ValueType value) override {
     DataSourceType obj = t_obj.cast<DataSourceType>();
     return m_setter(&obj, value);
   }
@@ -1132,24 +1132,24 @@ class QuantityEditConceptImpl : public QuantityEditConcept<ValueType>
 
   virtual ~QuantityEditConceptImpl() {}
 
-  virtual ValueType get(const ConceptProxy& t_obj) {
+  virtual ValueType get(const ConceptProxy& t_obj) override {
     DataSourceType obj = t_obj.cast<DataSourceType>();
     return m_getter(&obj);
   }
 
-  virtual bool set(const ConceptProxy& t_obj, ValueType value) {
+  virtual bool set(const ConceptProxy& t_obj, ValueType value) override {
     DataSourceType obj = t_obj.cast<DataSourceType>();
     return m_setter(&obj, value);
   }
 
-  virtual void reset(const ConceptProxy& t_obj) {
+  virtual void reset(const ConceptProxy& t_obj) override {
     if (m_reset) {
       DataSourceType obj = t_obj.cast<DataSourceType>();
       (*m_reset)(&obj);
     }
   }
 
-  virtual bool isDefaulted(const ConceptProxy& t_obj) {
+  virtual bool isDefaulted(const ConceptProxy& t_obj) override {
     if (m_isDefaulted) {
       DataSourceType obj = t_obj.cast<DataSourceType>();
       return (*m_isDefaulted)(&obj);
@@ -1211,12 +1211,12 @@ class OptionalQuantityEditConceptImpl : public OptionalQuantityEditConcept<Value
 
   virtual ~OptionalQuantityEditConceptImpl() {}
 
-  virtual boost::optional<ValueType> get(const ConceptProxy& t_obj) {
+  virtual boost::optional<ValueType> get(const ConceptProxy& t_obj) override {
     DataSourceType obj = t_obj.cast<DataSourceType>();
     return m_getter(&obj);
   }
 
-  virtual bool set(const ConceptProxy& t_obj, ValueType value) {
+  virtual bool set(const ConceptProxy& t_obj, ValueType value) override {
     DataSourceType obj = t_obj.cast<DataSourceType>();
     return m_setter(&obj, value);
   }
@@ -1280,24 +1280,24 @@ class QuantityEditVoidReturnConceptImpl : public QuantityEditVoidReturnConcept<V
 
   virtual ~QuantityEditVoidReturnConceptImpl() {}
 
-  virtual ValueType get(const ConceptProxy& t_obj) {
+  virtual ValueType get(const ConceptProxy& t_obj) override {
     DataSourceType obj = t_obj.cast<DataSourceType>();
     return m_getter(&obj);
   }
 
-  virtual void set(const ConceptProxy& t_obj, ValueType value) {
+  virtual void set(const ConceptProxy& t_obj, ValueType value) override {
     DataSourceType obj = t_obj.cast<DataSourceType>();
     return m_setter(&obj, value);
   }
 
-  virtual void reset(const ConceptProxy& t_obj) {
+  virtual void reset(const ConceptProxy& t_obj) override {
     if (m_reset) {
       DataSourceType obj = t_obj.cast<DataSourceType>();
       (*m_reset)(&obj);
     }
   }
 
-  virtual bool isDefaulted(const ConceptProxy& t_obj) {
+  virtual bool isDefaulted(const ConceptProxy& t_obj) override {
     if (m_isDefaulted) {
       DataSourceType obj = t_obj.cast<DataSourceType>();
       return (*m_isDefaulted)(&obj);
@@ -1361,12 +1361,12 @@ class OptionalQuantityEditVoidReturnConceptImpl : public OptionalQuantityEditVoi
 
   virtual ~OptionalQuantityEditVoidReturnConceptImpl() {}
 
-  virtual boost::optional<ValueType> get(const ConceptProxy& t_obj) {
+  virtual boost::optional<ValueType> get(const ConceptProxy& t_obj) override {
     DataSourceType obj = t_obj.cast<DataSourceType>();
     return m_getter(&obj);
   }
 
-  virtual void set(const ConceptProxy& t_obj, ValueType value) {
+  virtual void set(const ConceptProxy& t_obj, ValueType value) override {
     DataSourceType obj = t_obj.cast<DataSourceType>();
     return m_setter(&obj, value);
   }

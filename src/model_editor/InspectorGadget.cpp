@@ -771,8 +771,8 @@ void InspectorGadget::layoutComboBox(QVBoxLayout* layout, QWidget* parent, opens
       combo->addItem("");
     }
 
-    for (const std::string& name : names) {
-      combo->addItem(name.c_str());
+    for (const std::string& thisName : names) {
+      combo->addItem(thisName.c_str());
     }
   } else {
     if (!prop.required) {
