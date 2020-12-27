@@ -133,7 +133,8 @@
 
 namespace openstudio {
 
-OSDocument::OSDocument(const openstudio::model::Model& library, const openstudio::path& resourcesPath, openstudio::model::OptionalModel model, QString filePath, bool isPlugin, int startTabIndex, int startSubTabIndex)
+OSDocument::OSDocument(const openstudio::model::Model& library, const openstudio::path& resourcesPath, openstudio::model::OptionalModel model,
+                       QString filePath, bool isPlugin, int startTabIndex, int startSubTabIndex)
   : OSQObjectController(),
     m_compLibrary(library),
     m_resourcesPath(resourcesPath),
@@ -141,8 +142,7 @@ OSDocument::OSDocument(const openstudio::model::Model& library, const openstudio
     m_onlineBclDialog(nullptr),
     m_localLibraryDialog(nullptr),
     m_savePath(filePath),
-    m_isPlugin(isPlugin)
-{
+    m_isPlugin(isPlugin) {
   QFile data(":openstudiolib.qss");
 
   static QString style;
@@ -233,7 +233,7 @@ OSDocument::OSDocument(const openstudio::model::Model& library, const openstudio
     QTimer::singleShot(0, [=] {
       this->onVerticalTabSelected(startTabIndex);
       this->updateSubTabSelected(startSubTabIndex);
-    } );
+    });
   }
 }
 

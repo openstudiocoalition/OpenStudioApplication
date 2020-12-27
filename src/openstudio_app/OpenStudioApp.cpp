@@ -453,8 +453,7 @@ void OpenStudioApp::newFromEmptyTemplateSlot() {
 }
 
 void OpenStudioApp::newFromTemplateSlot(NewFromTemplateEnum newFromTemplateEnum) {
-  m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(),
-                                                            boost::none, QString(), false, startTabIndex()));
+  m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), boost::none, QString(), false, startTabIndex()));
 
   connectOSDocumentSignals();
 
@@ -553,8 +552,7 @@ void OpenStudioApp::importIdf() {
           processEvents();
         }
 
-        m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), model,
-                                                                  QString(), false, startTabIndex()));
+        m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), model, QString(), false, startTabIndex()));
         m_osDocument->markAsModified();
         // ETH: parent should change now ...
         //parent = m_osDocument->mainWindow();
@@ -680,8 +678,7 @@ void OpenStudioApp::importIFC() {
       processEvents();
     }
 
-    m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), *model,
-                                                              QString(), false, startTabIndex()));
+    m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), *model, QString(), false, startTabIndex()));
 
     m_osDocument->markAsModified();
 
@@ -743,8 +740,7 @@ void OpenStudioApp::import(OpenStudioApp::fileType type) {
         processEvents();
       }
 
-      m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), *model,
-                                                                QString(), false, startTabIndex()));
+      m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), *model, QString(), false, startTabIndex()));
       m_osDocument->markAsModified();
       // ETH: parent should change now ...
       //parent = m_osDocument->mainWindow();
