@@ -95,7 +95,7 @@ class MODELEDITOR_API InspectorDialog : public QMainWindow, public Nano::Observe
   openstudio::model::Model model() const;
 
   // point the dialog at a new model
-  void setModel(openstudio::model::Model& model, bool force = false);
+  void setModel(const openstudio::model::Model& model, bool force = false);
 
   // void rebuild inspector gadget
   void rebuildInspectorGadget(bool recursive);

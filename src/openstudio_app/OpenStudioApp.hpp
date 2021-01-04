@@ -239,6 +239,8 @@ class OpenStudioApp : public OSAppBase
    */
   void writeLibraryPaths(std::vector<openstudio::path> paths);
 
+  int startTabIndex() const;
+
   QProcess* m_measureManagerProcess;
 
   openstudio::model::Model m_compLibrary;

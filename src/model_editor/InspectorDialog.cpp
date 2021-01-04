@@ -271,7 +271,7 @@ openstudio::model::Model InspectorDialog::model() const {
   return m_model;
 }
 
-void InspectorDialog::setModel(openstudio::model::Model& model, bool force) {
+void InspectorDialog::setModel(const openstudio::model::Model& model, bool force) {
   if ((model == m_model) && !force) {
     return;
   }

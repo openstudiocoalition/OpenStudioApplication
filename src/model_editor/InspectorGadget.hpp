@@ -155,7 +155,7 @@ class MODELEDITOR_API InspectorGadget : public QWidget, public Nano::Observer
    * parameter to true
    *
    */
-  void layoutModelObj(openstudio::WorkspaceObject& workObj, bool force = false, bool recursive = true, bool locked = false,
+  void layoutModelObj(openstudio::WorkspaceObject& workspaceObj, bool force = false, bool recursive = true, bool locked = false,
                       bool hideChildren = false);
 
   /*! \brief sets the display precision for number fields
@@ -302,7 +302,7 @@ class MODELEDITOR_API InspectorGadget : public QWidget, public Nano::Observer
                           const std::string& name, const std::string& curVal, int index, const std::string& comment, bool exists, bool number,
                           bool real = false);
 
-  void layoutComboBox(QVBoxLayout* layout, QWidget* parent, openstudio::IddField& field, openstudio::IddFieldProperties& properties,
+  void layoutComboBox(QVBoxLayout* layout, QWidget* parent, openstudio::IddField& field, openstudio::IddFieldProperties& prop,
                       const std::string& name, const std::string& curVal, int index, const std::string& comment, bool exists);
 
   void createExtensibleToolBar(QVBoxLayout* layout, QWidget* parent, const openstudio::IddObjectProperties& props);
