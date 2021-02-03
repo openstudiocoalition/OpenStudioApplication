@@ -130,6 +130,10 @@ add_executable(${target_name}
   ${ICON_SRC}
 )
 
+if (NINJA)
+  target_compile_definitions(${target_name} PRIVATE NINJA=1)
+endif()
+
 # This is because Apple has app bundles for .apps.
 # We copy the openstudio cli into the app bundle in an effort
 # to be self contained. It also makes it easy to find the cli since
