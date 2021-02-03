@@ -716,6 +716,10 @@ add_library(${target_name}
   ${${target_name}_qrcs}
 )
 
+if (NINJA)
+  target_compile_definitions(${target_name} PRIVATE NINJA=1)
+endif()
+
 set(${target_name}_depends
   openstudio_modeleditor
   openstudio::openstudiolib

@@ -2,7 +2,7 @@ name: C++ CI for OpenStudioApplication
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, develop ]
     # Sequence of patterns matched against refs/tags
     tags:
       - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
@@ -104,6 +104,10 @@ jobs:
     - uses: actions/setup-python@v2
       with:
         python-version: '3.8.x'
+
+    - uses: actions/setup-ruby@v1
+      with:
+        ruby-version: '2.5.5'
 
     - name: Extract OSApp version from CMakeLists.txt
       shell: python
