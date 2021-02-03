@@ -1070,6 +1070,7 @@ void MainRightColumnController::configureForHVACSystemsSubTab(int subTabID) {
   libraryWidget->addModelObjectType(IddObjectType::OS_Pipe_Adiabatic, "Pipe - Adiabatic");
   libraryWidget->addModelObjectType(IddObjectType::OS_LoadProfile_Plant, "Load Profile - Plant");
   libraryWidget->addModelObjectType(IddObjectType::OS_Humidifier_Steam_Electric, "Humidifier Steam Electric");
+  libraryWidget->addModelObjectType(IddObjectType::OS_Humidifier_Steam_Gas, "Humidifier Steam Gas");
   libraryWidget->addModelObjectType(IddObjectType::OS_HeatPump_WaterToWater_EquationFit_Heating, "Heat Pump - Water to Water - Heating");
   libraryWidget->addModelObjectType(IddObjectType::OS_HeatPump_WaterToWater_EquationFit_Cooling, "Heat Pump - Water to Water - Cooling");
   libraryWidget->addModelObjectType(IddObjectType::OS_HeatExchanger_FluidToFluid, "Heat Exchanger Fluid To Fluid");
