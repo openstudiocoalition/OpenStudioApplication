@@ -323,7 +323,8 @@ if(MSVC)
   #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Wall")
 
   # create compiler processes on all effective processors
-  if(BUILD_WITH_MULTIPLE_PROCESSES)
+  # /MP is useless for ninja and will cause problems. BUILD_WITH_MULTIPLE_PROCESSES shouldn't have been set if ninja but let's be safe
+  if(BUILD_WITH_MULTIPLE_PROCESSES AND NOT NINJA)
     add_definitions(/MP)
   endif()
 
