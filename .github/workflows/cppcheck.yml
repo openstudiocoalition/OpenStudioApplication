@@ -24,7 +24,7 @@ jobs:
           tar xfz 2.3.tar.gz
           mkdir build
           cd build
-          cmake -G Ninja -DCMAKE_BUILD_TYPE=Release ../cppcheck-2.3/
+          cmake -DCMAKE_BUILD_TYPE=Release ../cppcheck-2.3/
           make -j $(nproc)
           sudo make install
 
