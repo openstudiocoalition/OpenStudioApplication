@@ -553,13 +553,14 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
             &model::WindowPropertyFrameAndDivider::isFrameThermalHemisphericalEmissivityDefaulted)),
           DataSource(allWindowPropertyFrameAndDividers, true));
       } else if (field == DIVIDERTYPE) {
-        addValueEditColumn(Heading(QString(DIVIDERTYPE), true, false), NullAdapter(&model::WindowPropertyFrameAndDivider::dividerType),
-                           NullAdapter(&model::WindowPropertyFrameAndDivider::setDividerType),
-                           boost::optional<std::function<void(model::WindowPropertyFrameAndDivider*)>>(
-                             CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::resetDividerType)),
-                           boost::optional<std::function<bool(model::WindowPropertyFrameAndDivider*)>>(
-                             CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::isDividerTypeDefaulted)),
-                           DataSource(allWindowPropertyFrameAndDividers, true));
+        addComboBoxColumn<std::string, model::WindowPropertyFrameAndDivider>(
+          Heading(QString(DIVIDERTYPE), true, false), static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
+          std::function<std::vector<std::string>()>(&model::WindowPropertyFrameAndDivider::dividerTypeValues),
+          CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::dividerType),
+          CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::setDividerType),
+          boost::optional<std::function<void(model::WindowPropertyFrameAndDivider*)>>(NullAdapter(&model::WindowPropertyFrameAndDivider::resetDividerType)),
+          boost::optional<std::function<bool(model::WindowPropertyFrameAndDivider*)>>(NullAdapter(&model::WindowPropertyFrameAndDivider::isDividerTypeDefaulted)),
+          DataSource(allWindowPropertyFrameAndDividers, true));
       } else if (field == DIVIDERWIDTH) {
         addValueEditColumn(Heading(QString(DIVIDERWIDTH), true, false), NullAdapter(&model::WindowPropertyFrameAndDivider::dividerWidth),
                            NullAdapter(&model::WindowPropertyFrameAndDivider::setDividerWidth),
