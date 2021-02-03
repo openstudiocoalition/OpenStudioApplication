@@ -1,27 +1,27 @@
 set(OPENSTUDIO_VERSION_MAJOR 3)
 set(OPENSTUDIO_VERSION_MINOR 1)
-set(OPENSTUDIO_VERSION_PATCH 0)
+set(OPENSTUDIO_VERSION_PATCH 1)
 set(OPENSTUDIO_VERSION "${OPENSTUDIO_VERSION_MAJOR}.${OPENSTUDIO_VERSION_MINOR}.${OPENSTUDIO_VERSION_PATCH}")
 
 #If this is a release enter the SHA as "+79857912c4"
 #set(OPENSTUDIO_VERSION_SHA "+09b7c8a554")
 #If this is a pre-release enter the pre-release and SHA as "-rc1+79857912c4"
-set(OPENSTUDIO_VERSION_SHA "+82d3ea2978")
+set(OPENSTUDIO_VERSION_SHA "-alpha+3d83fc2b65")
 
 # Paths where the cmake-downloaded archives will be put
 set(OPENSTUDIO_ARCHIVE_DIR "${PROJECT_BINARY_DIR}/OpenStudio-${OPENSTUDIO_VERSION}")
 
 # If downloaded, we need the SHA to match. This block is here since we need "OPENSTUDIO_PLATFORM" anyways
 if(APPLE)
-  set(OPENSTUDIO_EXPECTED_HASH 9706edd710bd5471c1063c9d08789267)
+  set(OPENSTUDIO_EXPECTED_HASH b584509c1ee4d22336a1557f5e32c914)
   set(OPENSTUDIO_PLATFORM "Darwin")
   set(OPENSTUDIO_EXT "tar.gz")
 elseif(UNIX)
-  set(OPENSTUDIO_EXPECTED_HASH 7fe8354f4f8c11ba0945d77f908ab8c7)
+  set(OPENSTUDIO_EXPECTED_HASH 3ae05f06deb53219e0cb519026a0e6df)
   set(OPENSTUDIO_PLATFORM "Linux")
   set(OPENSTUDIO_EXT "tar.gz")
 elseif(WIN32)
-  set(OPENSTUDIO_EXPECTED_HASH 10a754b836869e2d3fa03a190587ba3a)
+  set(OPENSTUDIO_EXPECTED_HASH 10a754b836869e2d3fa03a190587ba3a) # not updated
   set(OPENSTUDIO_PLATFORM "Windows")
   set(OPENSTUDIO_EXT "tar.gz")
 endif()
@@ -50,15 +50,15 @@ else()
   # base link for release builds
   set(OPENSTUDIO_BASELINK_RELEASE
     #"https://openstudio-builds.s3.amazonaws.com/${OPENSTUDIO_VERSION}"
-    https://github.com/NREL/OpenStudio/releases/download/v3.1.0-rc3
+    https://github.com/NREL/OpenStudio/releases/download/v3.1.0
     CACHE STRING "Base link to where the openstudio archives are hosted" FORCE)
 
   # base link for develop builds. (Using https will fail)
   # Note: this should be set to ""http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/develop" for nightly builds
   # Occasionally we can point to a specific PR by using something like ""http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/PR-4080"
   set(OPENSTUDIO_BASELINK_CI
-    #"http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/develop"
-    "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/PR-4121"
+    "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/develop"
+    #"http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/PR-4121"
     CACHE STRING "Base link to where the openstudio develop archives are hosted" FORCE)
 
   # Make subdir if it doesn't exist
