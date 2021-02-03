@@ -1623,7 +1623,8 @@ void ZoneHVACBaseboardRadiantConvectiveWaterInspectorView::layoutModelObject(mod
 ZoneHVACCoolingPanelRadiantConvectiveWaterInspectorView::ZoneHVACCoolingPanelRadiantConvectiveWaterInspectorView(QWidget* parent)
   : BaseInspectorView(parent) {
   m_inspectorGadget = new InspectorGadget();
-  connect(this, &ZoneHVACCoolingPanelRadiantConvectiveWaterInspectorView::toggleUnitsClicked, m_inspectorGadget, &InspectorGadget::toggleUnitsClicked);
+  connect(this, &ZoneHVACCoolingPanelRadiantConvectiveWaterInspectorView::toggleUnitsClicked, m_inspectorGadget,
+          &InspectorGadget::toggleUnitsClicked);
   connect(m_inspectorGadget, &InspectorGadget::workspaceObjectRemoved, this, &BaseInspectorView::workspaceObjectRemoved);
 
   m_coolingLoopChooserView = new LoopChooserView();
