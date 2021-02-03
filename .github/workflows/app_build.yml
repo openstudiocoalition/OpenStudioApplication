@@ -467,7 +467,7 @@ jobs:
         ninja
         ninja package
     - name: Output errors
-      if: failed()
+      if: ${{ failure() }}
       shell: bash
       run:
         echo "CMakeError.log"
