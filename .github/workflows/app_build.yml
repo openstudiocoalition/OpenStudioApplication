@@ -33,11 +33,11 @@ env:
 
 jobs:
   build:
+    # Note: as of 2021-01-29, this only works for push, not for pull request
+    if: "!(contains(github.event.head_commit.message, 'skip') && contains(github.event.head_commit.message, 'ci'))"
     # runs-on: ubuntu-18.04
     runs-on: ${{ matrix.os }}
     continue-on-error: ${{ matrix.allow_failure }}
-    # Note: as of 2021-01-29, this only works for push, not for pull request
-    if: "!(contains(github.event.head_commit.message, 'skip') && contains(github.event.head_commit.message, 'ci'))"
     strategy:
       # fail-fast: Default is true, switch to false to allow one platform to fail and still run others
       fail-fast: false
