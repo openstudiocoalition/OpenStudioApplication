@@ -240,7 +240,6 @@ jobs:
           sudo apt install -y mesa-common-dev libglu1-mesa-dev patchelf ninja
           # Weirdly enough, ninja makes ubuntu unresponsive...
           echo CMAKE_GENERATOR='Ninja' >> $GITHUB_ENV
-
         elif [ "$RUNNER_OS" == "Windows" ]; then
           curl -L -O https://download.qt.io/official_releases/qt-installer-framework/4.0.1/QtInstallerFramework-win-x86.exe
           ./QtInstallerFramework-win-x86.exe --verbose --script ./ci/install_script_qtifw.qs
@@ -254,13 +253,10 @@ jobs:
           echo "MSVC_DIR=$MSVC_DIR" >> $GITHUB_ENV
           # add folder containing vcvarsall.bat
           echo "$MSVC_DIR\VC\Auxiliary\Build" >> $GITHUB_PATH
-
-
         elif [ "$RUNNER_OS" == "macOS" ]; then
           echo MACOSX_DEPLOYMENT_TARGET=${{ matrix.MACOSX_DEPLOYMENT_TARGET }} >> $GITHUB_ENV
           echo SDKROOT=${{ matrix.SDKROOT }} >> $GITHUB_ENV
           echo CMAKE_MACOSX_DEPLOYMENT_TARGET='-DCMAKE_OSX_DEPLOYMENT_TARGET=$MACOSX_DEPLOYMENT_TARGET' >> $GITHUB_ENV
-
            # The MACOSX_DEPLOYMENT_TARGET environment variable sets the default value for the CMAKE_OSX_DEPLOYMENT_TARGET variable.
           # echo CMAKE_MACOSX_DEPLOYMENT_TARGET='-DCMAKE_OSX_DEPLOYMENT_TARGET=$MACOSX_DEPLOYMENT_TARGET' >> $GITHUB_ENV
           echo "Using brew to install ninja"
