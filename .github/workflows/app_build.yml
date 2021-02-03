@@ -33,8 +33,6 @@ env:
 
 jobs:
   build:
-    # Note: as of 2021-01-29, this only works for push, not for pull request
-    # if: "!(contains(github.event.head_commit.message, 'skip') && contains(github.event.head_commit.message, 'ci'))"
     # runs-on: ubuntu-18.04
     runs-on: ${{ matrix.os }}
     continue-on-error: ${{ matrix.allow_failure }}
@@ -237,35 +235,19 @@ jobs:
         if [ "$RUNNER_OS" == "Linux" ]; then
           echo "Install needed system dependencies for OPENGL (due to Qt) for Linux"
           sudo apt update
-          sudo apt install -y mesa-common-dev libglu1-mesa-dev patchelf ninja
-          # Weirdly enough, ninja makes ubuntu unresponsive...
-          echo CMAKE_GENERATOR='Ninja' >> $GITHUB_ENV
+          sudo apt install -y mesa-common-dev libglu1-mesa-dev patchelf
         elif [ "$RUNNER_OS" == "Windows" ]; then
-          curl -L -O https://download.qt.io/official_releases/qt-installer-framework/4.0.1/QtInstallerFramework-win-x86.exe
+          curl -L -O https://download.qt.io/official_releases/qt-installer-framework/3.2.2/QtInstallerFramework-win-x86.exe
           ./QtInstallerFramework-win-x86.exe --verbose --script ./ci/install_script_qtifw.qs
-          echo "C:/Qt/QtIFW-4.0.1/bin" >> $GITHUB_PATH
-
-          echo "Using chocolatey to install ninja"
-          choco install ninja
-          # C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise
-          MSVC_DIR=$(cmd.exe /c "vswhere -products * -requires Microsoft.Component.MSBuild -property installationPath -latest")
-          echo "Latest is: $MSVC_DIR"
-          echo "MSVC_DIR=$MSVC_DIR" >> $GITHUB_ENV
-          # add folder containing vcvarsall.bat
-          echo "$MSVC_DIR\VC\Auxiliary\Build" >> $GITHUB_PATH
+          echo "C:/Qt/QtIFW-3.2.2/bin" >> $GITHUB_PATH
         elif [ "$RUNNER_OS" == "macOS" ]; then
           echo MACOSX_DEPLOYMENT_TARGET=${{ matrix.MACOSX_DEPLOYMENT_TARGET }} >> $GITHUB_ENV
           echo SDKROOT=${{ matrix.SDKROOT }} >> $GITHUB_ENV
           echo CMAKE_MACOSX_DEPLOYMENT_TARGET='-DCMAKE_OSX_DEPLOYMENT_TARGET=$MACOSX_DEPLOYMENT_TARGET' >> $GITHUB_ENV
-           # The MACOSX_DEPLOYMENT_TARGET environment variable sets the default value for the CMAKE_OSX_DEPLOYMENT_TARGET variable.
-          # echo CMAKE_MACOSX_DEPLOYMENT_TARGET='-DCMAKE_OSX_DEPLOYMENT_TARGET=$MACOSX_DEPLOYMENT_TARGET' >> $GITHUB_ENV
-          echo "Using brew to install ninja"
-          brew install ninja
-          echo CMAKE_GENERATOR='Ninja' >> $GITHUB_ENV
 
           brew install md5sha1sum
 
-          curl -L -O https://download.qt.io/official_releases/qt-installer-framework/4.0.1/QtInstallerFramework-mac-x64.dmg
+          curl -L -O https://download.qt.io/official_releases/qt-installer-framework/3.2.2/QtInstallerFramework-mac-x64.dmg
           hdiutil attach -mountpoint ./qtfiw_installer QtInstallerFramework-mac-x64.dmg
           echo "ls ./qtfiw_installer"
           ls ./qtfiw_installer
@@ -276,12 +258,11 @@ jobs:
           echo "ls ./qtfiw_installer/QtInstallerFramework-mac-x64.app/Contents/Frameworks"
 
           sudo ./qtfiw_installer/QtInstallerFramework-mac-x64.app/Contents/MacOS/QtInstallerFramework-mac-x64 --verbose --script ./ci/install_script_qtifw.qs
-          echo "~/Qt/QtIFW-4.0.1/bin/" >> $GITHUB_PATH
+          echo "~/Qt/QtIFW-3.2.2/bin/" >> $GITHUB_PATH
         fi;
 
         CONAN_INSTALL_MD5=$(md5sum ConanInstall.cmake | awk '{print $1}')
         echo CONAN_INSTALL_MD5=$CONAN_INSTALL_MD5 >> $GITHUB_ENV
-        cmake --version
 
     # TODO: cache the QtIFW folder too
 
@@ -452,23 +433,9 @@ jobs:
           #echo "The more I think about it, the more I think we should cache the entire build/ directory to speed up builds"
           #echo "We can use a manual counter in the key so we can effectively wipe the build directory when we want to"
 
-    - name: Configure CMake & build (Windows)
-      if: runner.os == 'Windows'
-      shell: cmd
-      working-directory: ./build
-      # Note the current convention is to use the -S and -B options here to specify source
-      # and build directories, but this is only available with CMake 3.13 and higher.
-      # The CMake binaries on the Github Actions machines are (as of this writing) 3.12
-      # NOTE: If you re-enable 'Download the OpenStudio installer' step, then pass `openstudio_DIR=$openstudio_DIR cmake [etc]`
-      run: |
-        echo "Using vcvarsall to initialize the development environment"
-        call vcvarsall.bat x64
-        cmake -G Ninja -DQT_INSTALL_DIR=$QT_INSTALL_DIR -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DBUILD_DOCUMENTATION=$DBUILD_DOCUMENTATION -DBUILD_TESTING=$BUILD_TESTING -DBUILD_PACKAGE=$BUILD_PACKAGE -DCPACK_BINARY_DEB=$CPACK_BINARY_DEB -DCPACK_BINARY_IFW=$CPACK_BINARY_IFW -DCPACK_BINARY_NSIS=$CPACK_BINARY_NSIS -DCPACK_BINARY_RPM=$CPACK_BINARY_RPM -DCPACK_BINARY_STGZ=$CPACK_BINARY_STGZ -DCPACK_BINARY_TBZ2=$CPACK_BINARY_TBZ2 -DCPACK_BINARY_TGZ=$CPACK_BINARY_TGZ -DCPACK_BINARY_ZIP=$CPACK_BINARY_ZIP -DCPACK_BINARY_TXZ=$CPACK_BINARY_TXZ -DCPACK_BINARY_TZ=$CPACK_BINARY_TZ -DCPACK_SOURCE_RPM=$CPACK_SOURCE_RPM -DCPACK_SOURCE_TBZ2=$CPACK_SOURCE_TBZ2 -DCPACK_SOURCE_TGZ=$CPACK_SOURCE_TGZ -DCPACK_SOURCE_TXZ=$CPACK_SOURCE_TXZ -DCPACK_SOURCE_TZ=$CPACK_SOURCE_TZ -DCPACK_SOURCE_ZIP=$CPACK_SOURCE_ZIP ../
-        ninja
-        ninja package
-
-    - name: Configure CMake (Unix)
-      if: runner.os != 'Windows'
+    - name: Configure CMake
+      # Use a bash shell so we can use the same syntax for environment variable
+      # access regardless of the host operating system
       shell: bash
       working-directory: ./build
       # Note the current convention is to use the -S and -B options here to specify source
@@ -476,8 +443,7 @@ jobs:
       # The CMake binaries on the Github Actions machines are (as of this writing) 3.12
       # NOTE: If you re-enable 'Download the OpenStudio installer' step, then pass `openstudio_DIR=$openstudio_DIR cmake [etc]`
       run: |
-        set -x
-        cmake -DQT_INSTALL_DIR=$QT_INSTALL_DIR -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DBUILD_DOCUMENTATION=$DBUILD_DOCUMENTATION -DBUILD_TESTING=$BUILD_TESTING -DBUILD_PACKAGE=$BUILD_PACKAGE -DCPACK_BINARY_DEB=$CPACK_BINARY_DEB -DCPACK_BINARY_IFW=$CPACK_BINARY_IFW -DCPACK_BINARY_NSIS=$CPACK_BINARY_NSIS -DCPACK_BINARY_RPM=$CPACK_BINARY_RPM -DCPACK_BINARY_STGZ=$CPACK_BINARY_STGZ -DCPACK_BINARY_TBZ2=$CPACK_BINARY_TBZ2 -DCPACK_BINARY_TGZ=$CPACK_BINARY_TGZ -DCPACK_BINARY_ZIP=$CPACK_BINARY_ZIP -DCPACK_BINARY_TXZ=$CPACK_BINARY_TXZ -DCPACK_BINARY_TZ=$CPACK_BINARY_TZ -DCPACK_SOURCE_RPM=$CPACK_SOURCE_RPM -DCPACK_SOURCE_TBZ2=$CPACK_SOURCE_TBZ2 -DCPACK_SOURCE_TGZ=$CPACK_SOURCE_TGZ -DCPACK_SOURCE_TXZ=$CPACK_SOURCE_TXZ -DCPACK_SOURCE_TZ=$CPACK_SOURCE_TZ -DCPACK_SOURCE_ZIP=$CPACK_SOURCE_ZIP ../
+        cmake $CMAKE_GENERATOR $GITHUB_WORKSPACE -DQT_INSTALL_DIR=$QT_INSTALL_DIR -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DBUILD_DOCUMENTATION=$DBUILD_DOCUMENTATION -DBUILD_TESTING=$BUILD_TESTING -DBUILD_PACKAGE=$BUILD_PACKAGE -DCPACK_BINARY_DEB=$CPACK_BINARY_DEB -DCPACK_BINARY_IFW=$CPACK_BINARY_IFW -DCPACK_BINARY_NSIS=$CPACK_BINARY_NSIS -DCPACK_BINARY_RPM=$CPACK_BINARY_RPM -DCPACK_BINARY_STGZ=$CPACK_BINARY_STGZ -DCPACK_BINARY_TBZ2=$CPACK_BINARY_TBZ2 -DCPACK_BINARY_TGZ=$CPACK_BINARY_TGZ -DCPACK_BINARY_ZIP=$CPACK_BINARY_ZIP -DCPACK_BINARY_TXZ=$CPACK_BINARY_TXZ -DCPACK_BINARY_TZ=$CPACK_BINARY_TZ -DCPACK_SOURCE_RPM=$CPACK_SOURCE_RPM -DCPACK_SOURCE_TBZ2=$CPACK_SOURCE_TBZ2 -DCPACK_SOURCE_TGZ=$CPACK_SOURCE_TGZ -DCPACK_SOURCE_TXZ=$CPACK_SOURCE_TXZ -DCPACK_SOURCE_TZ=$CPACK_SOURCE_TZ -DCPACK_SOURCE_ZIP=$CPACK_SOURCE_ZIP ../
 
     # Note: JM 2020-07-22 This is an example of how to get a config log for a failed conan dependency build (no binary available)
     # This WILL be handy some day, so leave it here
@@ -495,9 +461,8 @@ jobs:
           #name: ${{ matrix.os }}-gdbm_config.log
           #path: ~/.conan/data/gdbm/1.18.1/_/_/build/**/source_subfolder/config.log
 
-    - name: Build (Unix)
+    - name: Build
       working-directory: ./build
-      if: runner.os != 'Windows'
       shell: bash
       # Execute the build.  You can specify a specific target with "--target <NAME>"
       run: cmake --build . --target package -j 2 --config $BUILD_TYPE
