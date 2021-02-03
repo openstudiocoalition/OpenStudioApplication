@@ -106,6 +106,9 @@ macro(AddCXXFlagIfSupported flag test)
 endmacro()
 
 if("Ninja" STREQUAL ${CMAKE_GENERATOR})
+  # Will be passed to OpenStudio.in to deal with the Win32 case
+  set(NINJA TRUE)
+
   # Clang
   if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
     AddCXXFlagIfSupported(-fcolor-diagnostics COMPILER_SUPPORTS_fcolor-diagnostics)
