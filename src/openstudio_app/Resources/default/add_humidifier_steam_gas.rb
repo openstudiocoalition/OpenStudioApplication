@@ -27,8 +27,8 @@ alwaysOn = m.getScheduleConstantByName("Always On Discrete hvac_library").get
 
 h = HumidifierSteamGas.new(m)
 h.setName("Humidifier Steam Gas")
-#h.setAvailabilitySchedule(alwaysOn)
-#h.setInletWaterTemperatureOption("FixedInletWaterTemperature")
+h.setAvailabilitySchedule(alwaysOn)
+h.setInletWaterTemperatureOption("FixedInletWaterTemperature")
 
 # Remove the alwaysOn it created by default, and the schedule type lim
 sch = m.getScheduleConstantByName("Always On Discrete")
