@@ -285,6 +285,7 @@ jobs:
 
         CONAN_INSTALL_MD5=$(md5sum ConanInstall.cmake | awk '{print $1}')
         echo CONAN_INSTALL_MD5=$CONAN_INSTALL_MD5 >> $GITHUB_ENV
+        cmake --version
 
     # TODO: cache the QtIFW folder too
 
