@@ -21,7 +21,7 @@ elseif(UNIX)
   set(OPENSTUDIO_PLATFORM "Linux")
   set(OPENSTUDIO_EXT "tar.gz")
 elseif(WIN32)
-  set(OPENSTUDIO_EXPECTED_HASH 10a754b836869e2d3fa03a190587ba3a) # not updated
+  set(OPENSTUDIO_EXPECTED_HASH e761d02a7b377dc0cc9682287d51f698)
   set(OPENSTUDIO_PLATFORM "Windows")
   set(OPENSTUDIO_EXT "tar.gz")
 endif()
