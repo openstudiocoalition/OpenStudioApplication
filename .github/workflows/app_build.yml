@@ -105,6 +105,10 @@ jobs:
       with:
         python-version: '3.8.x'
 
+    - uses: actions/setup-ruby@v1
+      with:
+        python-version: '2.5.5'
+
     - name: Extract OSApp version from CMakeLists.txt
       shell: python
       run: |
