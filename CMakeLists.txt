@@ -681,18 +681,17 @@ endif()
 ##########################################################   S Y S T E M    L I B R A R I E S   ######################################################
 
 # Add compiler-provided system runtime libraries
-# TODO: Old code was just "NOT UNIX"
-if( WIN32 AND NOT UNIX )
+if( NOT UNIX )
   # Skip the call to install(PROGRAMS) so we can specify our own install rule (using the value of `CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS`)
   set(CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS_SKIP TRUE)
 
-  # Set to TRUE to install the Windows Universal CRT libraries for app-local deployment (e.g. to Windows XP, but apparently needed for Windows 8 too).
+  # Set to TRUE to install the Windows Universal CRT libraries for app-local deployment.
   # This is meaningful only with MSVC from Visual Studio 2015 or higher, which is our case
   #SET(CMAKE_INSTALL_UCRT_LIBRARIES TRUE)
 
   include(InstallRequiredSystemLibraries)
   if(CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS)
-    message("CMAKE_INSTALL_SYSTEM_RUNTIME_LIBs: ${CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS}")
+    message(DEBUG "CMAKE_INSTALL_SYSTEM_RUNTIME_LIBs: ${CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS}")
     install(PROGRAMS ${CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS} DESTINATION "bin" COMPONENT Libraries)
   endif()
 endif()
@@ -718,7 +717,7 @@ else()
   install(PROGRAMS "${openstudio_ROOT_DIR}/bin/install_utility" DESTINATION bin COMPONENT "CLI")
 endif()
 
-
+# Leaving it
 set(CPACK_IFW_VERBOSE ON)
 
 set(CPACK_PACKAGE_VENDOR "National Renewable Energy Laboratory")
@@ -839,8 +838,6 @@ endif()
 ######################################################################################################################################################
 #                                                    P A C K A G I N G   &   C O M P O N E N T S                                                     #
 ######################################################################################################################################################
-
-# TODO: Why was CPackIFW placed before CPack?
 
 # Careful: the position (and what you include) matters a lot!
 include(CPack)
