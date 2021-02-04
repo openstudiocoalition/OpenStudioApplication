@@ -10,7 +10,7 @@ if(CCACHE_PROGRAM)
   set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "${CCACHE_PROGRAM}")
 endif()
 
-project(OpenStudioApplication VERSION 1.1.0)
+project(OpenStudioApplication VERSION 1.1.1)
 
 # set openstudio_DIR to the directory that contains the openstudioConfig.cmake
 # eg C:\src\OpenStudio\build-vs\_CPack_Packages\win64\ZIP\OpenStudio-3.0.0-rc2+ce27ae6b85-Windows\lib\cmake\openstudio
@@ -194,7 +194,7 @@ endif()
 
 # TODO: Modify the more specific variables as needed to indicate prerelease, etc
 # Keep in beta in-between release cycles. Set to empty string (or comment out) for official)
-set(PROJECT_VERSION_PRERELEASE "")
+set(PROJECT_VERSION_PRERELEASE "alpha")
 
 # OpenStudio version: Only include Major.Minor.Patch, eg "3.0.0", even if you have a prerelease tag
 set(OPENSTUDIOAPPLICATION_VERSION "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}")
@@ -323,7 +323,8 @@ if(MSVC)
   #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Wall")
 
   # create compiler processes on all effective processors
-  if(BUILD_WITH_MULTIPLE_PROCESSES)
+  # /MP is useless for ninja and will cause problems. BUILD_WITH_MULTIPLE_PROCESSES shouldn't have been set if ninja but let's be safe
+  if(BUILD_WITH_MULTIPLE_PROCESSES AND NOT NINJA)
     add_definitions(/MP)
   endif()
 
@@ -677,11 +678,21 @@ if(UNIX AND NOT APPLE)
 endif()
 
 
-if(NOT UNIX)
-  include(InstallRequiredSystemLibraries)
+##########################################################   S Y S T E M    L I B R A R I E S   ######################################################
 
+# Add compiler-provided system runtime libraries
+if( NOT UNIX )
+  # Skip the call to install(PROGRAMS) so we can specify our own install rule (using the value of `CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS`)
+  set(CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS_SKIP TRUE)
+
+  # Set to TRUE to install the Windows Universal CRT libraries for app-local deployment.
+  # This is meaningful only with MSVC from Visual Studio 2015 or higher, which is our case
+  #SET(CMAKE_INSTALL_UCRT_LIBRARIES TRUE)
+
+  include(InstallRequiredSystemLibraries)
   if(CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS)
-    install(FILES ${CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS} DESTINATION "bin")
+    message(DEBUG "CMAKE_INSTALL_SYSTEM_RUNTIME_LIBs: ${CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS}")
+    install(PROGRAMS ${CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS} DESTINATION "bin" COMPONENT Libraries)
   endif()
 endif()
 
@@ -706,6 +717,8 @@ else()
   install(PROGRAMS "${openstudio_ROOT_DIR}/bin/install_utility" DESTINATION bin COMPONENT "CLI")
 endif()
 
+# Leaving it
+set(CPACK_IFW_VERBOSE ON)
 
 set(CPACK_PACKAGE_VENDOR "National Renewable Energy Laboratory")
 # These are ok, even if we have a prerelease tag
@@ -822,7 +835,19 @@ elseif(WIN32)
   set(CPACK_BINARY_NSIS OFF CACHE BOOL "Enable to build NSIS packages")
 endif()
 
+######################################################################################################################################################
+#                                                    P A C K A G I N G   &   C O M P O N E N T S                                                     #
+######################################################################################################################################################
+
+# Careful: the position (and what you include) matters a lot!
+include(CPack)
 include(CPackIFW)
+# include(CPackComponent)
+
+# Note: If you ever need to debug a CPack Package Error in MSVC, right-click on "PACKAGE" target, click Properties
+# and in the Build Events > Post Build Event, edit the command that calls cpack to add `--verbose --debug`:
+# eg: `"C:\Program Files\CMake\bin\cpack.exe" -C $(Configuration) --config ./CPackConfig.cmake --verbose --debug`
+
 
 cpack_add_component(Resources
   DISPLAY_NAME "Application Resources"
@@ -844,5 +869,15 @@ cpack_ifw_configure_component(OpenStudioApp
   REQUIRES_ADMIN_RIGHTS
 )
 
-include(CPack)
+cpack_add_component(Libraries
+  DISPLAY_NAME "Install required system libraries"
+  DESCRIPTION  "Install compiler-provided system runtime libraries, and Windows Universal CRT libraries for app-local deployment"
+  REQUIRED
+  HIDDEN
+)
 
+message("CMAKE_CPACK_COMMAND=${CMAKE_CPACK_COMMAND}")
+add_custom_target(PACKAGE_DEBUG
+  COMMAND ${CMAKE_CPACK_COMMAND} --debug --verbose --config CPackConfig.cmake
+  COMMENTS "Build package with debug and verbose output"
+)
