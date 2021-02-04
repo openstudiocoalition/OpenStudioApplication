@@ -386,7 +386,7 @@ install(CODE "
   get_filename_component(APPS_EXPANDED ${APPS} REALPATH)
   include(BundleUtilities)
   include(\"${CMAKE_SOURCE_DIR}/CMake/FixupBundleOverrides.cmake\")
-  fixup_bundle(\"\${APPS_EXPANDED}\" \"${QTPLUGINS}\" \"${DIRS}\")
+  fixup_bundle(\"\${APPS_EXPANDED}\" \"${QTPLUGINS}\" \"${DIRS}\" IGNORE_ITEM \"CONCRT140.DLL;concrt140.dll\")
   " COMPONENT "OpenStudioApp"
 )
 
