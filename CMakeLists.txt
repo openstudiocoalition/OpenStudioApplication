@@ -678,11 +678,22 @@ if(UNIX AND NOT APPLE)
 endif()
 
 
-if(NOT UNIX)
-  include(InstallRequiredSystemLibraries)
+##########################################################   S Y S T E M    L I B R A R I E S   ######################################################
 
+# Add compiler-provided system runtime libraries
+# TODO: Old code was just "NOT UNIX"
+if( WIN32 AND NOT UNIX )
+  # Skip the call to install(PROGRAMS) so we can specify our own install rule (using the value of `CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS`)
+  set(CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS_SKIP TRUE)
+
+  # Set to TRUE to install the Windows Universal CRT libraries for app-local deployment (e.g. to Windows XP, but apparently needed for Windows 8 too).
+  # This is meaningful only with MSVC from Visual Studio 2015 or higher, which is our case
+  #SET(CMAKE_INSTALL_UCRT_LIBRARIES TRUE)
+
+  include(InstallRequiredSystemLibraries)
   if(CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS)
-    install(FILES ${CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS} DESTINATION "bin")
+    message("CMAKE_INSTALL_SYSTEM_RUNTIME_LIBs: ${CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS}")
+    install(PROGRAMS ${CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS} DESTINATION "bin" COMPONENT Libraries)
   endif()
 endif()
 
@@ -707,6 +718,8 @@ else()
   install(PROGRAMS "${openstudio_ROOT_DIR}/bin/install_utility" DESTINATION bin COMPONENT "CLI")
 endif()
 
+
+set(CPACK_IFW_VERBOSE ON)
 
 set(CPACK_PACKAGE_VENDOR "National Renewable Energy Laboratory")
 # These are ok, even if we have a prerelease tag
@@ -823,7 +836,21 @@ elseif(WIN32)
   set(CPACK_BINARY_NSIS OFF CACHE BOOL "Enable to build NSIS packages")
 endif()
 
+######################################################################################################################################################
+#                                                    P A C K A G I N G   &   C O M P O N E N T S                                                     #
+######################################################################################################################################################
+
+# TODO: Why was CPackIFW placed before CPack?
+
+# Careful: the position (and what you include) matters a lot!
+include(CPack)
 include(CPackIFW)
+# include(CPackComponent)
+
+# Note: If you ever need to debug a CPack Package Error in MSVC, right-click on "PACKAGE" target, click Properties
+# and in the Build Events > Post Build Event, edit the command that calls cpack to add `--verbose --debug`:
+# eg: `"C:\Program Files\CMake\bin\cpack.exe" -C $(Configuration) --config ./CPackConfig.cmake --verbose --debug`
+
 
 cpack_add_component(Resources
   DISPLAY_NAME "Application Resources"
@@ -845,5 +872,15 @@ cpack_ifw_configure_component(OpenStudioApp
   REQUIRES_ADMIN_RIGHTS
 )
 
-include(CPack)
+cpack_add_component(Libraries
+  DISPLAY_NAME "Install required system libraries"
+  DESCRIPTION  "Install compiler-provided system runtime libraries, and Windows Universal CRT libraries for app-local deployment"
+  REQUIRED
+  HIDDEN
+)
 
+message("CMAKE_CPACK_COMMAND=${CMAKE_CPACK_COMMAND}")
+add_custom_target(PACKAGE_DEBUG
+  COMMAND ${CMAKE_CPACK_COMMAND} --debug --verbose --config CPackConfig.cmake
+  COMMENTS "Build package with debug and verbose output"
+)
