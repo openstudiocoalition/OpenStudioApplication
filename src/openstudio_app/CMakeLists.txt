@@ -386,8 +386,9 @@ if(WIN32 OR APPLE)
     # expand APPS to a real path
     get_filename_component(APPS_EXPANDED ${APPS} REALPATH)
     include(BundleUtilities)
+    # This file defines some libs we are excluding. Some like concrt140.dll are installed already via InstallRequiredSystemLibraries
     include(\"${CMAKE_SOURCE_DIR}/CMake/FixupBundleOverrides.cmake\")
-    fixup_bundle(\"\${APPS_EXPANDED}\" \"${QTPLUGINS}\" \"${DIRS}\" IGNORE_ITEM \"CONCRT140.DLL;concrt140.dll\")
+    fixup_bundle(\"\${APPS_EXPANDED}\" \"${QTPLUGINS}\" \"${DIRS}\")
     " COMPONENT "OpenStudioApp"
   )
 endif()
