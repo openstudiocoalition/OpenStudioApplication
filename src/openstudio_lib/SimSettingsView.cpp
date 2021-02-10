@@ -1882,10 +1882,7 @@ void SimSettingsView::attachOutputTableSummaryReports() {
   }
 
   // typedef std::function<bool()> BoolGetter
-  std::function<bool()> getter = [this]() {
-    return m_outputTableSummaryReports->summaryReportIndex("AllSummary").has_value();
-  };
-
+  std::function<bool()> getter = [this]() { return m_outputTableSummaryReports->summaryReportIndex("AllSummary").has_value(); };
 
   // typedef std::function<void(bool)> BoolSetter;
   std::function<void(bool)> setter = [this](bool value) {
@@ -1911,16 +1908,11 @@ void SimSettingsView::attachOutputDiagnostics() {
   // typedef std::function<bool()> BoolGetter
   std::function<bool()> getter = [this]() {
     auto ks = m_outputDiagnostics->keys();
-    return std::find_if(ks.begin(), ks.end(),
-                        [](const std::string& k) {
-                          return openstudio::istringEqual(k, "DisplayExtraWarnings");
-                        }
-                       ) != ks.end();
+    return std::find_if(ks.begin(), ks.end(), [](const std::string& k) { return openstudio::istringEqual(k, "DisplayExtraWarnings"); }) != ks.end();
   };
 
   // void bind(const model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetter> set = boost::none,
   //           boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none);
-
 
   // typedef std::function<void(bool)> BoolSetter;
   std::function<void(bool)> setter = [this](bool value) {
@@ -1928,18 +1920,15 @@ void SimSettingsView::attachOutputDiagnostics() {
       m_outputDiagnostics->enableDisplayExtraWarnings();
     } else {
       auto ks = m_outputDiagnostics->keys();
-      ks.erase(std::remove_if(ks.begin(), ks.end(),
-                              [](const std::string& k) {
-                                return openstudio::istringEqual(k, "DisplayExtraWarnings");
-                              }),
+      ks.erase(std::remove_if(ks.begin(), ks.end(), [](const std::string& k) { return openstudio::istringEqual(k, "DisplayExtraWarnings"); }),
                ks.end());
       m_outputDiagnostics->setKeys(ks);
     }
   };
 
   m_diagnostics_displayExtraWarnings->bind(*m_outputDiagnostics, getter, setter,
-                           boost::none,  // reset
-                           boost::none   // isDefaulted;
+                                           boost::none,  // reset
+                                           boost::none   // isDefaulted;
   );
 }
 
