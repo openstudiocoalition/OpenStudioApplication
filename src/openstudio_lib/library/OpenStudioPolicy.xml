@@ -1216,6 +1216,13 @@
     <rule IddField="Inlet Node Name" Access="HIDDEN"/>
     <rule IddField="Outlet Node Name" Access="HIDDEN"/>
   </POLICY>
+  <POLICY IddObjectType="OS_ZoneHVAC_CoolingPanel_RadiantConvective_Water">
+    <rule IddField="Cooling Coil Name" Access="LOCKED"/>
+  </POLICY>
+  <POLICY IddObjectType="OS_Coil_Cooling_Water_Panel_Radiant">
+    <rule IddField="Water Inlet Node Name" Access="HIDDEN"/>
+    <rule IddField="Water Outlet Node Name" Access="HIDDEN"/>
+  </POLICY>
   <POLICY IddObjectType="OS_SolarCollectorPerformance_FlatPlate">
   </POLICY>
   <POLICY IddObjectType="OS_SolarCollectorPerformance_IntegralCollectorStorage">

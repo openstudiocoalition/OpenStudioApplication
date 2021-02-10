@@ -37,6 +37,7 @@
     <file>images/coilheatinglowtemprad_constflow.png</file>
     <file>images/coilheatinglowtemprad_varflow.png</file>
     <file>images/coilheatingwater_baseboard.png</file>
+    <file>images/coilcooling_water_panel_radiant.png</file>
     <file>images/Coil_Heating_Water_Baseboard_Radiant.png</file>
     <file>images/coilsystem_cooling_dx.png</file>
     <file>images/cool_coil_dx_vari_speed.png</file>
@@ -332,6 +333,7 @@
     <file>images/zone_icon_off.png</file>
     <file>images/zone_icon_pressed.png</file>
     <file>images/zonehvac_low_temperature_radiant_electric.png</file>
+    <file>images/zonehvac_coolingpanel_radiantconvective_water.png</file>
     <file>images/zoom-in-over.png</file>
     <file>images/zoom-in-press.png</file>
     <file>images/zoom-in.png</file>
@@ -367,6 +369,7 @@
     <file>images/mini_icons/coilheatinglowtemprad_varflow.png</file>
     <file>images/mini_icons/coilheatingwater_baseboard_mini.png</file>
     <file>images/mini_icons/Coil_Heating_Water_Baseboard_Radiant.png</file>
+    <file>images/mini_icons/coilcooling_water_panel_radiant.png</file>
     <file>images/mini_icons/mini_ht_coil_dx_vari.png</file>
     <file>images/mini_icons/construct_inter_source.png</file>
     <file>images/mini_icons/construction.png</file>
@@ -561,6 +564,7 @@
     <file>images/mini_icons/window_material_gasmixture.png</file>
     <file>images/mini_icons/window_material_glazing.png</file>
     <file>images/mini_icons/zonehvac_low_temperature_radiant_electric.png</file>
+    <file>images/mini_icons/zonehvac_coolingpanel_radiantconvective_water.png</file>
     <file>images/mini_icons/heatpump_watertowater_equationfit_cooling.png</file>
     <file>images/mini_icons/heatpump_watertowater_equationfit_heating.png</file>
 
