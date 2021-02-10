@@ -1112,6 +1112,11 @@
     <rule IddField="Water Storage Tank Name" Access="HIDDEN"/>
     <rule IddField="Availability Schedule Name" Access="HIDDEN"/>
   </POLICY>
+  <POLICY IddObjectType="OS_Humidifier_Steam_Gas">
+    <rule IddField="Air Inlet Node Name" Access="HIDDEN"/>
+    <rule IddField="Air Outlet Node Name" Access="HIDDEN"/>
+    <rule IddField="Water Storage Tank Name" Access="HIDDEN"/>
+  </POLICY>
   <POLICY IddObjectType="OS_TemperingValve">
     <rule IddField="Inlet Node Name" Access="HIDDEN"/>
     <rule IddField="Outlet Node Name" Access="HIDDEN"/>

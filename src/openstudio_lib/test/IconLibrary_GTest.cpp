@@ -107,6 +107,7 @@ TEST_F(OpenStudioLibFixture, IconLibrary_Icon) {
   //iddObjectTypes.push_back(IddObjectType::OS_Space);
   //iddObjectTypes.push_back(IddObjectType::OS_SpaceInfiltration_DesignFlowRate);
   //iddObjectTypes.push_back(IddObjectType::OS_SpaceType);
+  iddObjectTypes.push_back(IddObjectType::OS_Humidifier_Steam_Gas);
   //iddObjectTypes.push_back(IddObjectType::OS_SteamEquipment);
   //iddObjectTypes.push_back(IddObjectType::OS_SteamEquipment_Definition);
   //iddObjectTypes.push_back(IddObjectType::OS_SubSurface);
@@ -198,6 +199,7 @@ TEST_F(OpenStudioLibFixture, IconLibrary_MiniIcon) {
   iddObjectTypes.push_back(IddObjectType::OS_SpaceInfiltration_DesignFlowRate);
   iddObjectTypes.push_back(IddObjectType::OS_SpaceInfiltration_EffectiveLeakageArea);
   iddObjectTypes.push_back(IddObjectType::OS_SpaceType);
+  iddObjectTypes.push_back(IddObjectType::OS_Humidifier_Steam_Gas);
   iddObjectTypes.push_back(IddObjectType::OS_SteamEquipment);
   iddObjectTypes.push_back(IddObjectType::OS_SteamEquipment_Definition);
   iddObjectTypes.push_back(IddObjectType::OS_SubSurface);
