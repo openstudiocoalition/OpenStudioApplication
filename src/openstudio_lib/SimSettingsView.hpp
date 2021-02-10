@@ -36,6 +36,8 @@
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/ShadowCalculation.hpp>
 #include <openstudio/model/SimulationControl.hpp>
+#include <openstudio/model/OutputTableSummaryReports.hpp>
+#include <openstudio/model/OutputDiagnostics.hpp>
 #include <openstudio/model/RunPeriod.hpp>
 
 class QButtonGroup;
@@ -155,6 +157,8 @@ class SimSettingsView : public QWidget, public Nano::Observer
   model::Model m_model;
   boost::optional<model::ShadowCalculation> m_shadowCalculation;
   boost::optional<model::SimulationControl> m_simulationControl;
+  boost::optional<model::OutputTableSummaryReports> m_outputTableSummaryReports;
+  boost::optional<model::OutputDiagnostics> m_outputDiagnostics;
 
   QCheckBox* m_runSimWeatherFiles;
   QCheckBox* m_runSimDesignDays;

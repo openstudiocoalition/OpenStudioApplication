@@ -1149,7 +1149,7 @@ QWidget* SimSettingsView::createOutputDiagnosticsWidget() {
   int row = 0;
   int col = 0;
 
-  addField(gridLayout, row, col, "Enable AllSummary Report", m_diagnostics_displayExtraWarnings);
+  addField(gridLayout, row, col, "Enable DisplayExtraWarnings", m_diagnostics_displayExtraWarnings);
 
   auto widget = new QWidget();
   widget->setLayout(gridLayout);
@@ -1876,34 +1876,29 @@ void SimSettingsView::attachOutputTableSummaryReports() {
     forceAllSummary = true;
   }
 
-  model::OutputTableSummaryReports mo = m_model.getUniqueModelObject<model::OutputTableSummaryReports>();
+  m_outputTableSummaryReports = m_model.getUniqueModelObject<model::OutputTableSummaryReports>();
   if (forceAllSummary) {
-    mo.enableAllSummaryReport();
+    m_outputTableSummaryReports->enableAllSummaryReport();
   }
 
   // typedef std::function<bool()> BoolGetter
-  std::function<bool()> getter = [&mo]() {
-    if (mo.summaryReportIndex("AllSummary")) {
-      return true;
-    } else {
-      return false;
+  std::function<bool()> getter = [this]() {
+    return m_outputTableSummaryReports->summaryReportIndex("AllSummary").has_value();
+  };
+
+
+  // typedef std::function<void(bool)> BoolSetter;
+  std::function<void(bool)> setter = [this](bool value) {
+    if (value) {
+      m_outputTableSummaryReports->enableAllSummaryReport();
+    } else if (boost::optional<unsigned> index = m_outputTableSummaryReports->summaryReportIndex("AllSummary")) {
+      m_outputTableSummaryReports->removeSummaryReport(index.get());
     }
   };
 
   // void bind(const model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetter> set = boost::none,
   //           boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none);
-
-
-  // typedef std::function<void(bool)> BoolSetter;
-  std::function<void(bool)> setter = [&mo](bool value) {
-    if (value) {
-      mo.enableAllSummaryReport();
-    } else if (boost::optional<unsigned> index = mo.summaryReportIndex("AllSummary")) {
-      mo.removeSummaryReport(index.get());
-    }
-  };
-
-  m_table_allSummary->bind(mo, getter, setter,
+  m_table_allSummary->bind(*m_outputTableSummaryReports, getter, boost::optional<BoolSetter>(setter),
                            boost::none,  // reset
                            boost::none   // isDefaulted;
   );
@@ -1911,11 +1906,11 @@ void SimSettingsView::attachOutputTableSummaryReports() {
 
 void SimSettingsView::attachOutputDiagnostics() {
 
-  model::OutputDiagnostics mo = m_model.getUniqueModelObject<model::OutputDiagnostics>();
+  m_outputDiagnostics = m_model.getUniqueModelObject<model::OutputDiagnostics>();
 
   // typedef std::function<bool()> BoolGetter
-  std::function<bool()> getter = [&mo]() {
-    auto ks = mo.keys();
+  std::function<bool()> getter = [this]() {
+    auto ks = m_outputDiagnostics->keys();
     return std::find_if(ks.begin(), ks.end(),
                         [](const std::string& k) {
                           return openstudio::istringEqual(k, "DisplayExtraWarnings");
@@ -1928,21 +1923,21 @@ void SimSettingsView::attachOutputDiagnostics() {
 
 
   // typedef std::function<void(bool)> BoolSetter;
-  std::function<void(bool)> setter = [&mo](bool value) {
+  std::function<void(bool)> setter = [this](bool value) {
     if (value) {
-      mo.enableDisplayExtraWarnings();
+      m_outputDiagnostics->enableDisplayExtraWarnings();
     } else {
-      auto ks = mo.keys();
+      auto ks = m_outputDiagnostics->keys();
       ks.erase(std::remove_if(ks.begin(), ks.end(),
                               [](const std::string& k) {
                                 return openstudio::istringEqual(k, "DisplayExtraWarnings");
                               }),
                ks.end());
-      mo.setKeys(ks);
+      m_outputDiagnostics->setKeys(ks);
     }
   };
 
-  m_diagnostics_displayExtraWarnings->bind(mo, getter, setter,
+  m_diagnostics_displayExtraWarnings->bind(*m_outputDiagnostics, getter, setter,
                            boost::none,  // reset
                            boost::none   // isDefaulted;
   );
