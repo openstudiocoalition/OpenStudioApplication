@@ -40,6 +40,7 @@
 #include "../shared_gui_components/OSSwitch.hpp"
 #include "SchedulesView.hpp"  // ScheduleCalendarWidget, MonthView
 
+#include <algorithm>
 #include <openstudio/model/ConvergenceLimits.hpp>
 #include <openstudio/model/ConvergenceLimits_Impl.hpp>
 #include <openstudio/model/HeatBalanceAlgorithm.hpp>
@@ -51,6 +52,10 @@
 #include <openstudio/model/OutputControlReportingTolerances_Impl.hpp>
 #include <openstudio/model/OutputJSON.hpp>
 #include <openstudio/model/OutputJSON_Impl.hpp>
+#include <openstudio/model/OutputTableSummaryReports.hpp>
+#include <openstudio/model/OutputTableSummaryReports_Impl.hpp>
+#include <openstudio/model/OutputDiagnostics.hpp>
+#include <openstudio/model/OutputDiagnostics_Impl.hpp>
 #include <openstudio/model/OutsideSurfaceConvectionAlgorithm.hpp>
 #include <openstudio/model/OutsideSurfaceConvectionAlgorithm_Impl.hpp>
 #include <openstudio/model/ProgramControl.hpp>
@@ -215,7 +220,12 @@ SimSettingsView::SimSettingsView(bool isIP, const model::Model& model, QWidget* 
     m_json_optionType(nullptr),
     m_json_outputJSON(nullptr),
     m_json_outputCBOR(nullptr),
-    m_json_outputMessagePack(nullptr) {
+    m_json_outputMessagePack(nullptr),
+
+    // Advanced Output
+    m_table_allSummary(nullptr),
+    m_diagnostics_displayExtraWarnings(nullptr) {
+
   connect(this, &SimSettingsView::toggleUnitsClicked, this, &SimSettingsView::toggleUnits);
 
   // when the year settings object changes need to update the year in all child widgets
@@ -303,6 +313,14 @@ void SimSettingsView::createWidgets() {
 
   //******************* OS:Output:JSON *******************
   collapsibleInspector = new CollapsibleInspector("Output JSON", createOutputJSONWidget());
+  mainLayout->addWidget(collapsibleInspector);
+
+  //******************* OS:Output:Table:SummaryReports *******************
+  collapsibleInspector = new CollapsibleInspector("Output Table Summary Reports", createOutputTableSummaryReportsWidget());
+  mainLayout->addWidget(collapsibleInspector);
+
+  //******************* OS:Output:Diagnostics *******************
+  collapsibleInspector = new CollapsibleInspector("Output Diagnostics", createOutputDiagnosticsWidget());
   mainLayout->addWidget(collapsibleInspector);
 
   mainLayout->addStretch();
@@ -1102,6 +1120,44 @@ QWidget* SimSettingsView::createOutputJSONWidget() {
   return widget;
 }
 
+QWidget* SimSettingsView::createOutputTableSummaryReportsWidget() {
+
+  auto gridLayout = new QGridLayout();
+  gridLayout->setContentsMargins(7, 7, 7, 7);
+  gridLayout->setSpacing(GRID_LAYOUT_SPACING);
+  gridLayout->setAlignment(Qt::AlignLeft);
+
+  int row = 0;
+  int col = 0;
+
+  addField(gridLayout, row, col, "Enable AllSummary Report", m_table_allSummary);
+
+  auto widget = new QWidget();
+  widget->setLayout(gridLayout);
+  widget->hide();
+
+  return widget;
+}
+
+QWidget* SimSettingsView::createOutputDiagnosticsWidget() {
+
+  auto gridLayout = new QGridLayout();
+  gridLayout->setContentsMargins(7, 7, 7, 7);
+  gridLayout->setSpacing(GRID_LAYOUT_SPACING);
+  gridLayout->setAlignment(Qt::AlignLeft);
+
+  int row = 0;
+  int col = 0;
+
+  addField(gridLayout, row, col, "Enable AllSummary Report", m_diagnostics_displayExtraWarnings);
+
+  auto widget = new QWidget();
+  widget->setLayout(gridLayout);
+  widget->hide();
+
+  return widget;
+}
+
 void SimSettingsView::addField(QGridLayout* gridLayout, int row, int column, QString text, OSComboBox2*& comboBox) {
   auto label = new QLabel(text, this);
   label->setFixedWidth(TEXT_FIELD_WIDTH);
@@ -1210,6 +1266,8 @@ void SimSettingsView::attachAll() {
   attachZoneAirContaminantBalance();
   attachZoneCapacitanceMultipleResearchSpecial();
   attachOutputJSON();
+  attachOutputTableSummaryReports();
+  attachOutputDiagnostics();
 }
 
 void SimSettingsView::detachAll() {
@@ -1230,6 +1288,8 @@ void SimSettingsView::detachAll() {
   detachZoneCapacitanceMultipleResearchSpecial();
   detachRadianceParameters();
   detachOutputJSON();
+  detachOutputTableSummaryReports();
+  detachOutputDiagnostics();
 }
 
 void SimSettingsView::attachRunPeriod() {
@@ -1808,6 +1868,86 @@ void SimSettingsView::attachOutputJSON() {
   );
 }
 
+void SimSettingsView::attachOutputTableSummaryReports() {
+  bool forceAllSummary = false;
+  // If it wasn't already in the model, it'll be initialized, and the Ctor defaults it to no fields, while the FT will add AllSummary if not present
+  // in the model, so to maintain behavior, we add the AllSummary report if needed
+  if (!m_model.outputTableSummaryReports()) {
+    forceAllSummary = true;
+  }
+
+  model::OutputTableSummaryReports mo = m_model.getUniqueModelObject<model::OutputTableSummaryReports>();
+  if (forceAllSummary) {
+    mo.enableAllSummaryReport();
+  }
+
+  // typedef std::function<bool()> BoolGetter
+  std::function<bool()> getter = [&mo]() {
+    if (mo.summaryReportIndex("AllSummary")) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  // void bind(const model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetter> set = boost::none,
+  //           boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none);
+
+
+  // typedef std::function<void(bool)> BoolSetter;
+  std::function<void(bool)> setter = [&mo](bool value) {
+    if (value) {
+      mo.enableAllSummaryReport();
+    } else if (boost::optional<unsigned> index = mo.summaryReportIndex("AllSummary")) {
+      mo.removeSummaryReport(index.get());
+    }
+  };
+
+  m_table_allSummary->bind(mo, getter, setter,
+                           boost::none,  // reset
+                           boost::none   // isDefaulted;
+  );
+}
+
+void SimSettingsView::attachOutputDiagnostics() {
+
+  model::OutputDiagnostics mo = m_model.getUniqueModelObject<model::OutputDiagnostics>();
+
+  // typedef std::function<bool()> BoolGetter
+  std::function<bool()> getter = [&mo]() {
+    auto ks = mo.keys();
+    return std::find_if(ks.begin(), ks.end(),
+                        [](const std::string& k) {
+                          return openstudio::istringEqual(k, "DisplayExtraWarnings");
+                        }
+                       ) != ks.end();
+  };
+
+  // void bind(const model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetter> set = boost::none,
+  //           boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none);
+
+
+  // typedef std::function<void(bool)> BoolSetter;
+  std::function<void(bool)> setter = [&mo](bool value) {
+    if (value) {
+      mo.enableDisplayExtraWarnings();
+    } else {
+      auto ks = mo.keys();
+      ks.erase(std::remove_if(ks.begin(), ks.end(),
+                              [](const std::string& k) {
+                                return openstudio::istringEqual(k, "DisplayExtraWarnings");
+                              }),
+               ks.end());
+      mo.setKeys(ks);
+    }
+  };
+
+  m_diagnostics_displayExtraWarnings->bind(mo, getter, setter,
+                           boost::none,  // reset
+                           boost::none   // isDefaulted;
+  );
+}
+
 void SimSettingsView::detachRunPeriod() {
   m_useWeatherFileHolidaysandSpecialDays->unbind();
   m_useWeatherFileDaylightSavingsPeriod->unbind();
@@ -1929,6 +2069,14 @@ void SimSettingsView::detachOutputJSON() {
   m_json_outputJSON->unbind();
   m_json_outputCBOR->unbind();
   m_json_outputMessagePack->unbind();
+}
+
+void SimSettingsView::detachOutputTableSummaryReports() {
+  m_table_allSummary->unbind();
+}
+
+void SimSettingsView::detachOutputDiagnostics() {
+  m_diagnostics_displayExtraWarnings->unbind();
 }
 
 //***** SLOTS *****
