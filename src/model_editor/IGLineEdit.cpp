@@ -119,7 +119,7 @@ bool IGLineEdit::checkValue(QString& txt) {
 }
 
 QString IGLineEdit::doubleToQString(double v) {
-  return QString::number(v, 'g', 6);
+  return QString::number(v, 'g', 14);
 }
 
 void IGLineEdit::editDone() {
