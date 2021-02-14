@@ -38,21 +38,14 @@
 class MODELEDITOR_API IGLineEdit : public QLineEdit
 {
   Q_OBJECT;
-  Q_PROPERTY(bool precision READ getPrec WRITE setPrec);
 
  public:
   IGLineEdit(const QString& val, InspectorGadget* ig, QWidget* parent);
   virtual ~IGLineEdit();
 
-  void setDisplay(bool status);
-
   void setMin(double min);
   void setMax(double max);
-
-  bool getPrec() const;
-  void setPrec(bool);
-  void setStyle(InspectorGadget::FLOAT_DISPLAY style);
-  InspectorGadget::FLOAT_DISPLAY getStyle() const;
+  void setDefault(double def);
 
   bool checkValue(QString& txt);
 
@@ -60,7 +53,6 @@ class MODELEDITOR_API IGLineEdit : public QLineEdit
   //QString intToQString( int v );
 
  public slots:
-  void togglePrec();
 
   void editDone();
 
@@ -72,11 +64,10 @@ class MODELEDITOR_API IGLineEdit : public QLineEdit
 
  private:
   InspectorGadget* m_ig;
-  bool m_precision;
-  InspectorGadget::FLOAT_DISPLAY m_floatType;
 
   double m_min;
   double m_max;
+  double m_default;
 };
 
 #endif  // MODELEDITOR_IGLINEEDIT_HPP
