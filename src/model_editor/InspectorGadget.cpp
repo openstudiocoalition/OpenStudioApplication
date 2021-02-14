@@ -131,8 +131,8 @@ InspectorGadget::InspectorGadget(QWidget* parent, int indent, ComboHighlightBrid
   connectSignalsAndSlots();
 }
 
-InspectorGadget::InspectorGadget(WorkspaceObject& workspaceObj, int indent, ComboHighlightBridge* bridge, 
-                                 bool showComments, bool showAllFields, bool recursive, bool locked)
+InspectorGadget::InspectorGadget(WorkspaceObject& workspaceObj, int indent, ComboHighlightBridge* bridge, bool showComments, bool showAllFields,
+                                 bool recursive, bool locked)
   : QWidget(nullptr),
     m_layout(nullptr),
     m_deleteHandle(nullptr),
@@ -362,8 +362,7 @@ void InspectorGadget::layoutItems(QVBoxLayout* masterLayout, QWidget* parent, bo
           showComment = m_showComments;
           showFields = m_showAllFields;
         }
-        auto igChild =
-          new InspectorGadget(elem, m_indent, m_comboBridge, showComment, showFields, m_recursive, m_locked);
+        auto igChild = new InspectorGadget(elem, m_indent, m_comboBridge, showComment, showFields, m_recursive, m_locked);
 
         igChild->setUnitSystem(m_unitSystem);
         layout->addWidget(igChild);

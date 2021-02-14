@@ -109,7 +109,6 @@ TEST_F(ModelEditorFixture, IGLineEdit_Real) {
   EXPECT_EQ(QString("1.5"), val);
 }
 
-
 TEST_F(ModelEditorFixture, IGLineEdit_Int) {
   InspectorGadget gadget;
   QString val;

@@ -253,8 +253,8 @@ class MODELEDITOR_API InspectorGadget : public QWidget, public Nano::Observer
     If model has children, those children will get their own InspectorGadget, indent
     will be passed again to that constructor so the frames will nest.
   */
-  InspectorGadget(openstudio::WorkspaceObject& workspaceObj, int indent, ComboHighlightBridge* bridge, 
-                  bool showComments, bool showAllFields, bool recursive, bool locked);
+  InspectorGadget(openstudio::WorkspaceObject& workspaceObj, int indent, ComboHighlightBridge* bridge, bool showComments, bool showAllFields,
+                  bool recursive, bool locked);
   /*!
     \param layout the layout to attach the items to
     \param parent the widget that owns all the items that will be created.

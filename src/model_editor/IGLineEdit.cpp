@@ -47,12 +47,7 @@ using std::stringstream;
 using namespace openstudio;
 
 IGLineEdit::IGLineEdit(const QString& val, InspectorGadget* ig, QWidget* parent)
-  : QLineEdit(val, parent),
-    m_ig(ig),
-    m_min(-std::numeric_limits<double>::max()),
-    m_max(std::numeric_limits<double>::max()),
-    m_default(0.0)
-{}
+  : QLineEdit(val, parent), m_ig(ig), m_min(-std::numeric_limits<double>::max()), m_max(std::numeric_limits<double>::max()), m_default(0.0) {}
 
 IGLineEdit::~IGLineEdit() {}
 
@@ -80,7 +75,7 @@ bool IGLineEdit::checkValue(QString& txt) {
   if (dv) {
     bool ok;
     double val = textVal.toDouble(&ok);
-    if (!ok){
+    if (!ok) {
       val = m_default;
     }
     if (val < m_min) {
@@ -98,9 +93,9 @@ bool IGLineEdit::checkValue(QString& txt) {
     int max = iv->top();
     bool ok;
     int val = textVal.toInt(&ok);
-    if (!ok){
-      val = (int) m_default;
-    } 
+    if (!ok) {
+      val = (int)m_default;
+    }
     if (val < min) {
       val = min;
     } else if (val > max) {

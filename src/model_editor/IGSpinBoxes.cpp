@@ -49,9 +49,7 @@ void IGSpinBox::triggered(bool trig) {
   }
 }
 
-IGDSpinBox::IGDSpinBox(InspectorGadget* ig, QWidget* parent)
-  : QDoubleSpinBox(parent), m_ig(ig)
-{}
+IGDSpinBox::IGDSpinBox(InspectorGadget* ig, QWidget* parent) : QDoubleSpinBox(parent), m_ig(ig) {}
 
 void IGDSpinBox::wheelEvent(QWheelEvent* event) {
   event->ignore();
@@ -64,4 +62,3 @@ void IGDSpinBox::triggered(bool trig) {
     emit textChanged("AutoSize");
   }
 }
-
