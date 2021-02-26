@@ -34,6 +34,9 @@ if (NINJA)
 endif()
 target_link_libraries(${target_name} ${${target_name}_depends} )
 
+if(BUILD_MICRO_PROFILING)
+  target_link_libraries(${target_name} ${MICRO_PROFILER_LIB} )
+endif()
 
 if(BUILD_TESTING)
   CREATE_TEST_TARGETS(${target_name} "${${target_name}_test_src}" "${${target_name}_depends}")
