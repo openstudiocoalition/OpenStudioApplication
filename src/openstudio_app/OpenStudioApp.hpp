@@ -117,7 +117,7 @@ class OpenStudioApp : public OSAppBase
 
   // Returns the hard set path (in settings), and or if not set will try to infer it by looking into the current PATH
   // If all fails, ends up returning an empty path (no need to wrap into a boost::optional (with overhead) for this)
-  openstudio::path dviewPath() const;
+  virtual openstudio::path dviewPath() const override;
 
   virtual bool notify(QObject* receiver, QEvent* event) override;
 
@@ -161,7 +161,7 @@ class OpenStudioApp : public OSAppBase
   void changeDefaultLibraries();
 
   // Checks what happened in the ExternalToolsDialog preference pane
-  void configureExternalTools();
+  virtual void configureExternalTools() override;
 
  private slots:
 

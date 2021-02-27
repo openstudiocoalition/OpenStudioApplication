@@ -81,6 +81,7 @@ class OPENSTUDIO_API OSAppBase : public QApplication, public BaseApp
   boost::shared_ptr<WaitDialog> waitDialog() {
     return m_waitDialog;
   }
+  virtual openstudio::path dviewPath() const;
   virtual bool notify(QObject* receiver, QEvent* e) override;
 
   // Slots
@@ -118,6 +119,8 @@ class OPENSTUDIO_API OSAppBase : public QApplication, public BaseApp
   virtual void reloadFile(const QString& osmPath, bool modified, bool saveCurrentTabs) = 0;
 
   void showMeasureUpdateDlg();
+
+  virtual void configureExternalTools();
 };
 
 }  // namespace openstudio
