@@ -269,4 +269,12 @@ QSharedPointer<EditController> OSAppBase::editController() {
   }
 }
 
+openstudio::path OSAppBase::dviewPath() const {
+  return openstudio::path();
+}
+
+void OSAppBase::configureExternalTools() {
+
+}
+
 }  // namespace openstudio
