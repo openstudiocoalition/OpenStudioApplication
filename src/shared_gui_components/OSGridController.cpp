@@ -159,7 +159,7 @@ void ObjectSelector::setObjectSelection(const model::ModelObject& t_obj, bool t_
   }
 
   if (changed) {
-    updateWidgets(t_obj);
+    updateWidgetsForModelObject(t_obj);
   }
 }
 
@@ -356,7 +356,7 @@ QWidget* ObjectSelector::getWidget(const int t_row, const int t_column, const bo
   return widget;
 }
 
-void ObjectSelector::updateWidgets(const int t_row, const boost::optional<int>& t_subrow, bool t_objectSelected, bool t_objectVisible) {
+void ObjectSelector::updateWidgetsImpl(const int t_row, const boost::optional<int>& t_subrow, bool t_objectSelected, bool t_objectVisible) {
   std::set<std::pair<QWidget*, int>> widgetsToUpdate;
   bool isSubRow = t_subrow.has_value();
 
@@ -378,7 +378,7 @@ void ObjectSelector::updateWidgets(const int t_row, const boost::optional<int>& 
   // loop over list of determined widgets
   for (auto& widget : widgetsToUpdate) {
     widget.first->setVisible(t_objectVisible);
-    widget.first->setStyleSheet(m_grid->cellStyle(t_row, widget.second, t_objectSelected, isSubRow));
+    m_grid->setCellProperties(widget.first, t_objectVisible, t_row, widget.second, t_objectSelected, isSubRow);
   }
 }
 
@@ -398,41 +398,17 @@ void ObjectSelector::updateWidgets(bool isRowLevel) {
       }
 
       // We'll hide the entire row
-      updateWidgets(t_row, boost::optional<int>(), objectSelected, objectVisible);
+      updateWidgetsImpl(t_row, boost::optional<int>(), objectSelected, objectVisible);
     }
   } else {
     // This contains the (unique) individual DataObjects (eg: Loads subtab = SpaceLoadInstances (People, Lights, etc))
     for (const auto& obj : m_selectorObjects) {
-      updateWidgets(obj);
+      updateWidgetsForModelObject(obj);
     }
   }
 }
 
-// TODO: this overloaded function isn't called anywhere...
-void ObjectSelector::updateWidgets(const model::ModelObject& t_obj, const bool t_objectVisible) {
-  auto range = m_widgetMap.equal_range(boost::optional<model::ModelObject>(t_obj));
-
-  assert(range.first != range.second);
-
-  // Find the row that contains this object
-  auto row = std::make_tuple(range.first->second->row, range.first->second->subrow);
-
-  // TODO: should we delete that too? see comment below in updateWidgets(const model::ModelObject &t_obj)
-#if _DEBUG || (__GNUC__ && !NDEBUG)
-  // Sanity check to make sure we don't have the same object in two different rows
-  ++range.first;
-  while (range.first != range.second) {
-    assert(row == std::make_tuple(range.first->second->row, range.first->second->subrow));
-    ++range.first;
-  }
-#endif
-
-  const auto objectSelected = m_selectedObjects.count(t_obj) != 0;
-
-  updateWidgets(std::get<0>(row), std::get<1>(row), objectSelected, t_objectVisible);
-}
-
-void ObjectSelector::updateWidgets(const model::ModelObject& t_obj) {
+void ObjectSelector::updateWidgetsForModelObject(const model::ModelObject& t_obj) {
 
   // Find all entries in m_widgetMap that matches t_obj
   auto range = m_widgetMap.equal_range(boost::optional<model::ModelObject>(t_obj));
@@ -560,7 +536,7 @@ void ObjectSelector::updateWidgets(const model::ModelObject& t_obj) {
         }
       }
     }
-    updateWidgets(t_row, t_subrow, objectSelected, objectVisible);
+    updateWidgetsImpl(t_row, t_subrow, objectSelected, objectVisible);
   }
 }
 
@@ -1245,33 +1221,39 @@ OSGridView* OSGridController::gridView() {
 }
 
 // Evan: Required for Qt to respect style sheet commands
-QString OSGridController::cellStyle(int rowIndex, int columnIndex, bool isSelected, bool isSubRow)  // Evan note: check here for sub row color
-{
-  /// \todo this is a lot of string concatenation to do for each cell update
-  QString cellColor;
-  if (isSelected) {
-    // blue
-    cellColor = "#94b3de";
-  } else if (rowIndex % 2) {
-    // light gray
-    cellColor = "#ededed";
-  } else {
-    // medium gray
-    cellColor = "#cecece";
-  }
-
-  QString style;
-  style.append("QWidget#TableCell { border: none;");
-  style.append("                        background-color: " + cellColor + ";");
-  if (rowIndex == 0) {
-    style.append("                      border-top: 1px solid black;");
-  }
-  style.append("                        border-right: 1px solid black;");
-  style.append("                        border-bottom: 1px solid black;");
-  style.append("}");
+QString OSGridController::cellStyle() {
+  const static QString style = 
+  "QWidget#TableCell[selected=\"true\"]{ border: none; background-color: #94b3de; border-top: 1px solid black;  border-right: 1px solid black; border-bottom: 1px solid black;}"
+  "QWidget#TableCell[selected=\"false\"][even=\"true\"] { border: none; background-color: #ededed; border-top: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;}"
+  "QWidget#TableCell[selected=\"false\"][even=\"false\"] { border: none; background-color: #cecece; border-top: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;}";
+  
 
   return style;
 }
+
+void OSGridController::setCellProperties(QWidget* wrapper, bool isVisible, int rowIndex, int columnIndex, bool isSelected, bool isSubRow) {
+  bool isEven = ((rowIndex % 2) == 0);
+  bool isChanged = false;
+
+  QVariant currentSelected = wrapper->property("selected");
+  if (currentSelected.isNull() || currentSelected.toBool() != isSelected) {
+    wrapper->setProperty("selected", isSelected);
+    isChanged = true;
+  }
+
+  QVariant currentEven = wrapper->property("even");
+  if (currentEven.isNull() || currentEven.toBool() != isSelected) {
+    wrapper->setProperty("even", isEven);
+    isChanged = true;
+  }  
+
+  //if (isChanged) {
+  //  wrapper->style()->unpolish(wrapper);
+  //  wrapper->style()->polish(wrapper);
+  //}
+
+}
+
 
 QWidget* OSGridController::widgetAt(int row, int column) {
   OS_ASSERT(row >= 0);
@@ -1295,7 +1277,8 @@ QWidget* OSGridController::widgetAt(int row, int column) {
   // May contain sub rows.
   auto wrapper = new QWidget(this->gridView());
   wrapper->setObjectName("TableCell");
-  wrapper->setStyleSheet(this->cellStyle(row, column, false, true));
+  setCellProperties(wrapper, true, row, column, false, true);
+  wrapper->setStyleSheet(this->cellStyle());
   layout->setSpacing(0);
   layout->setVerticalSpacing(0);
   layout->setHorizontalSpacing(0);

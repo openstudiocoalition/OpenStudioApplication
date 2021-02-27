@@ -222,9 +222,8 @@ class ObjectSelector : public QObject, public Nano::Observer
   REGISTER_LOGGER("openstudio.ObjectSelector");
 
  private:
-  void updateWidgets(const model::ModelObject& t_obj);
-  void updateWidgets(const model::ModelObject& t_obj, const bool t_objectVisible);
-  void updateWidgets(const int t_row, const boost::optional<int>& t_subrow, bool t_objectSelected, bool t_objectVisible);
+  void updateWidgetsForModelObject(const model::ModelObject& t_obj);
+  void updateWidgetsImpl(const int t_row, const boost::optional<int>& t_subrow, bool t_objectSelected, bool t_objectVisible);
   static std::function<bool(const model::ModelObject&)> getDefaultFilter();
 
   OSGridController* m_grid;
@@ -590,7 +589,9 @@ class OSGridController : public QObject, public Nano::Observer
 
   void setCustomCategoryAndFields();
 
-  QString cellStyle(int rowIndex, int columnIndex, bool isSelected, bool isSubRow);
+  QString cellStyle();
+
+  void setCellProperties(QWidget* wrapper, bool isVisible, int rowIndex, int columnIndex, bool isSelected, bool isSubRow);
 
   OSItem* getSelectedItemFromModelSubTabView();
 

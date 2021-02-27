@@ -177,7 +177,7 @@ void OSCollapsibleItemList::addCollapsibleItem(OSCollapsibleItem* collapsibleIte
     collapsibleItem->itemList()->selectItem(collapsibleItem->itemList()->firstItem());
   }
 
-  collapsibleItem->setSelected(true);
+  //collapsibleItem->setSelected(true);
 }
 
 void OSCollapsibleItemList::onCollapsableItemSelected(OSCollapsibleItem* selectedItem) {

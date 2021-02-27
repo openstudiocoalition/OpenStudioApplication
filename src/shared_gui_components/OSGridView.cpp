@@ -359,11 +359,14 @@ void OSGridView::doRefresh() {
   //  OS_ASSERT(false);
   //}
 
+  setEnabled(false);
   refreshAll();  // TODO remove this and uncomment the block above for finer granularity refreshes
   setEnabled(true);
 }
 
 void OSGridView::refreshAll() {
+  setUpdatesEnabled(false);
+
   // std::cout << " REFRESHALL CALLED " << std::endl;
   m_queueRequests.clear();
   deleteAll();
@@ -378,6 +381,10 @@ void OSGridView::refreshAll() {
     }
 
     this->m_gridController->getObjectSelector()->updateWidgets();
+
+    this->ensurePolished();
+
+    setUpdatesEnabled(true);
 
     QTimer::singleShot(0, this, SLOT(selectRowDeterminedByModelSubTabView()));
   }
