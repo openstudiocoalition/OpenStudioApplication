@@ -220,6 +220,8 @@ bool ObjectSelector::getObjectVisible(const model::ModelObject& t_obj) const {
 
 void ObjectSelector::setObjectFilter(const std::function<bool(const model::ModelObject&)>& t_filter) {
   m_objectFilter = t_filter;
+
+  // TODO deselect any hidden objects
 }
 
 void ObjectSelector::resetObjectFilter() {
@@ -1077,7 +1079,7 @@ QWidget* OSGridController::widgetAt(int row, int column) {
   OS_ASSERT(static_cast<int>(m_modelObjects.size()) > modelObjectRow);
   OS_ASSERT(static_cast<int>(m_baseConcepts.size()) > column);
 
-  auto layout = new QGridLayout(this->gridView());
+  auto layout = new QGridLayout();
   const int widgetHeight = 30;
   int numWidgets = 0;
 
@@ -1112,7 +1114,7 @@ QWidget* OSGridController::widgetAt(int row, int column) {
 
     auto holder = new Holder(this->gridView());
     holder->setMinimumHeight(widgetHeight);
-    auto l = new QVBoxLayout(this->gridView());
+    auto l = new QVBoxLayout();
     l->setAlignment(Qt::AlignCenter);
     l->setSpacing(0);
     l->setContentsMargins(0, 0, 0, 0);

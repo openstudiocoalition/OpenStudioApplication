@@ -42,6 +42,10 @@
 #include <openstudio/model/Surface.hpp>
 #include <openstudio/model/Surface_Impl.hpp>
 
+#include <QComboBox>
+
+#include <memory>
+
 using namespace openstudio;
 
 class TestGridController : public OSGridController
@@ -120,8 +124,8 @@ TEST_F(OpenStudioLibFixture, SpacesSurfacesGridView) {
   EXPECT_EQ(1u, spaceTypes.size());
   EXPECT_EQ(24u, surfaces.size());
 
-  SpacesSurfacesGridView gridView(false, model);
-  auto gridController = getGridController(gridView);
+  auto gridView = std::make_shared<SpacesSurfacesGridView>(false, model);
+  auto gridController = getGridController(gridView.get());
   auto objectSelector = gridController->getObjectSelector();
   
   processEvents();
@@ -139,49 +143,108 @@ TEST_F(OpenStudioLibFixture, SpacesSurfacesGridView) {
     EXPECT_TRUE(objectSelector->containsObject(space));
   }
 
-  // Headers
-  auto objRow0Col0 = objectSelector->getObject(0, 0, boost::none);
-  EXPECT_FALSE(objRow0Col0);
-
-  auto objRow0Col1 = objectSelector->getObject(0, 1, boost::none);
-  EXPECT_FALSE(objRow0Col1);
-
-  auto widRow0Col0 = objectSelector->getWidget(0, 0, boost::none);
-  EXPECT_TRUE(widRow0Col0);
-
-  auto widRow0Col1 = objectSelector->getWidget(0, 1, boost::none);
-  EXPECT_TRUE(widRow0Col1);
-
-  // First row
-  auto objRow1Col0 = objectSelector->getObject(1, 0, boost::none);
-  ASSERT_TRUE(objRow1Col0);
-  ASSERT_TRUE(objRow1Col0->optionalCast<model::Space>());
-  auto spaceRow1 = objRow1Col0->cast<model::Space>();
-
-  auto objRow1Col1 = objectSelector->getObject(1, 1, boost::none);
-  EXPECT_FALSE(objRow1Col1);
-
-  auto widRow1Col0 = objectSelector->getWidget(1, 0, boost::none);
-  EXPECT_TRUE(widRow1Col0);
-
-  auto widRow1Col1 = objectSelector->getWidget(1, 1, boost::none);
-  EXPECT_FALSE(widRow1Col1);
-
+  // Headers on row = 0
+  unsigned row = 0;
+  unsigned col = 0;
   unsigned i = 0;
-  for (const auto& surface : spaceRow1.surfaces()) {
-    auto objRow1Col1Sub = objectSelector->getObject(1, 1, i);
-    ASSERT_TRUE(objRow1Col1Sub);
-    ASSERT_TRUE(objRow1Col1Sub->optionalCast<model::Surface>());
-    auto surfaceRow1 = objRow1Col1Sub->cast<model::Surface>();
-    ASSERT_TRUE(surfaceRow1.space());
-    EXPECT_EQ(spaceRow1, surfaceRow1.space());
 
-    auto widRow1Col1Sub0 = objectSelector->getWidget(1, 1, i);
-    EXPECT_TRUE(widRow1Col1Sub0);
+  // Row = 0, Col = 0 is Space Name header, No SubRow
+  row = 0;
+  col = 0;
+
+  auto obj = objectSelector->getObject(row, col, boost::none);
+  EXPECT_FALSE(obj);
+
+  auto widget = objectSelector->getWidget(row, col, boost::none);
+  ASSERT_TRUE(widget);
+
+  obj = objectSelector->getObject(row, col, 0);
+  EXPECT_FALSE(obj);
+
+  widget = objectSelector->getWidget(row, col, 0);
+  EXPECT_FALSE(widget);
+
+  // Row = 0, Col = 1 is All header, No SubRow
+  row = 0;
+  col = 1;
+
+  obj = objectSelector->getObject(row, col, boost::none);
+  EXPECT_FALSE(obj);
+
+  widget = objectSelector->getWidget(row, col, boost::none);
+  ASSERT_TRUE(widget);
+
+  obj = objectSelector->getObject(row, col, 0);
+  EXPECT_FALSE(obj);
+
+  widget = objectSelector->getWidget(row, col, 0);
+  EXPECT_FALSE(widget);
+
+  // First row of objects on row = 1
+
+  // Row = 1, Col = 0 is Space, No SubRow
+  row = 1;
+  col = 0;
+
+  obj = objectSelector->getObject(row, col, boost::none);
+  ASSERT_TRUE(obj);
+  ASSERT_TRUE(obj->optionalCast<model::Space>());
+  auto spaceObj = obj->cast<model::Space>();
+
+  widget = objectSelector->getWidget(row, col, boost::none);
+  ASSERT_TRUE(widget);
+
+  // Row = 1, Col = 1 is Surface Select Check Boxes, Has SubRow
+  row = 1;
+  col = 1;
+
+  obj = objectSelector->getObject(row, col, boost::none);
+  EXPECT_FALSE(obj);
+
+  widget = objectSelector->getWidget(row, col, boost::none);
+  EXPECT_FALSE(widget);
+
+  i = 0;
+  for (const auto& surface : spaceObj.surfaces()) {
+    obj = objectSelector->getObject(row, col, i);
+    ASSERT_TRUE(obj);
+    ASSERT_TRUE(obj->optionalCast<model::Surface>());
+    auto surfaceObj = obj->cast<model::Surface>();
+    ASSERT_TRUE(surfaceObj.space());
+    EXPECT_EQ(spaceObj, surfaceObj.space());
+
+    widget = objectSelector->getWidget(row, col, i);
+    ASSERT_TRUE(widget);
 
     i += 1;
   }
 
+  // Row = 1, Col = 1 is Surface Name Line Edits, Has SubRow
+  row = 1;
+  col = 2;
+
+ obj = objectSelector->getObject(row, col, boost::none);
+  EXPECT_FALSE(obj);
+
+  widget = objectSelector->getWidget(row, col, boost::none);
+  EXPECT_FALSE(widget);
+
+  i = 0;
+  for (const auto& surface : spaceObj.surfaces()) {
+    obj = objectSelector->getObject(row, col, i);
+    ASSERT_TRUE(obj);
+    ASSERT_TRUE(obj->optionalCast<model::Surface>());
+    auto surfaceObj = obj->cast<model::Surface>();
+    ASSERT_TRUE(surfaceObj.space());
+    EXPECT_EQ(spaceObj, surfaceObj.space());
+
+    widget = objectSelector->getWidget(row, col, i);
+    ASSERT_TRUE(widget);
+
+    i += 1;
+  }
+
+  // selection
   objectSelector->selectAllVisible();
 
   processEvents();
@@ -193,6 +256,41 @@ TEST_F(OpenStudioLibFixture, SpacesSurfacesGridView) {
   EXPECT_EQ(surfaces.size(), selectedObjects.size());
 
   processEvents();
+
+  EXPECT_EQ("All", gridView->m_surfaceTypeFilter->currentText());
+  gridView->m_surfaceTypeFilter->setCurrentText("Wall");
+  EXPECT_EQ("Wall", gridView->m_surfaceTypeFilter->currentText());
+
+  processEvents();
+
+  selectableObjects = objectSelector->selectableObjects();
+  EXPECT_EQ(surfaces.size(), selectableObjects.size());
+
+  selectedObjects = objectSelector->selectedObjects();
+  EXPECT_EQ(surfaces.size(), selectedObjects.size());
+
+  i = 0;
+  for (const auto& surface : spaceObj.surfaces()) {
+    obj = objectSelector->getObject(row, col, i);
+    ASSERT_TRUE(obj);
+    ASSERT_TRUE(obj->optionalCast<model::Surface>());
+    auto surfaceObj = obj->cast<model::Surface>();
+    ASSERT_TRUE(surfaceObj.space());
+    EXPECT_EQ(spaceObj, surfaceObj.space());
+
+    bool isVisible = surfaceObj.surfaceType() == "Wall";
+
+    EXPECT_EQ(true, objectSelector->containsObject(surfaceObj));
+    EXPECT_EQ(isVisible, objectSelector->getObjectVisible(surfaceObj));
+
+    widget = objectSelector->getWidget(row, col, i);
+    ASSERT_TRUE(widget);
+    //EXPECT_EQ(isVisible, widget->isVisible());
+
+    i += 1;
+  }
+
+
   /*
   std::vector<model::ModelObject> selectedObjects() const;
   std::vector<QString> categories();

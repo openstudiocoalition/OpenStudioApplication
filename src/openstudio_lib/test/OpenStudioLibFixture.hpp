@@ -60,8 +60,8 @@ class OpenStudioLibFixture : public ::testing::Test
   void processEvents();
 
   // Acceessors for private members
-  openstudio::OSGridView* getGridView(openstudio::GridViewSubTab& gvst);
-  openstudio::OSGridController* getGridController(openstudio::GridViewSubTab& gvst);
+  openstudio::OSGridView* getGridView(openstudio::GridViewSubTab* gvst);
+  openstudio::OSGridController* getGridController(openstudio::GridViewSubTab* gvst);
 
   // static variables
   static boost::optional<openstudio::FileLogSink> logFile;

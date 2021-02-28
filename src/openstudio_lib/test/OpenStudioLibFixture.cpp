@@ -58,12 +58,12 @@ void OpenStudioLibFixture::processEvents() {
   openstudio::Application::instance().application(true)->processEvents();
 }
 
-OSGridView* OpenStudioLibFixture::getGridView(GridViewSubTab& gvst) {
-  return gvst.m_gridView; 
+OSGridView* OpenStudioLibFixture::getGridView(GridViewSubTab* gvst) {
+  return gvst->m_gridView; 
 }
 
-OSGridController* OpenStudioLibFixture::getGridController(GridViewSubTab& gvst) {
-  return gvst.m_gridController;
+OSGridController* OpenStudioLibFixture::getGridController(GridViewSubTab* gvst) {
+  return gvst->m_gridController;
 }
 
 

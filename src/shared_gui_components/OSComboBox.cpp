@@ -140,9 +140,11 @@ void OSObjectListCBDS::onObjectChanged() {
 
 OSComboBox2::OSComboBox2(QWidget* parent, bool editable) : QComboBox(parent) {
   this->setAcceptDrops(false);
-  auto completer = new QCompleter();
-  this->setCompleter(completer);
   setEditable(editable);
+  if (editable) {
+    auto completer = new QCompleter();
+    this->setCompleter(completer);
+  }
   setEnabled(false);
   setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
 }
