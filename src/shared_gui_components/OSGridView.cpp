@@ -379,11 +379,11 @@ void OSGridView::refreshAll() {
       }
     }
 
-    this->m_gridController->getObjectSelector()->updateWidgets(false);
+    this->m_gridController->getObjectSelector()->updateWidgets();
 
     setUpdatesEnabled(true);
 
-    QTimer::singleShot(0, this, SLOT(selectRowDeterminedByModelSubTabView()));
+    //QTimer::singleShot(0, this, SLOT(selectRowDeterminedByModelSubTabView()));
   }
 }
 
@@ -391,7 +391,7 @@ void OSGridView::refreshAll() {
 void OSGridView::refreshRow(int row) {
   this->m_gridController->getObjectSelector()->updateWidgetsForRow(row);
 }
-
+/*
 void OSGridView::selectRowDeterminedByModelSubTabView() {
   // Get selected item
   auto selectedItem = m_gridController->getSelectedItemFromModelSubTabView();
@@ -405,18 +405,19 @@ void OSGridView::selectRowDeterminedByModelSubTabView() {
   }
 
   // If the index is valid, call slot
-  if (m_gridController->m_oldIndex > -1) {
-    QTimer::singleShot(0, this, SLOT(doRowSelect()));
-  }
+  //if (m_gridController->m_oldIndex > -1) {
+  //  QTimer::singleShot(0, this, SLOT(doRowSelect()));
+  //}
 }
-
+*/
+/*
 void OSGridView::doRowSelect() {
   // If the index is valid, do some work
   if (m_gridController->m_oldIndex > -1) {
     m_gridController->selectRow(m_gridController->m_oldIndex, true);
   }
 }
-
+*/
 void OSGridView::addWidget(int row, int column) {
   OS_ASSERT(m_gridController);
 

@@ -77,8 +77,6 @@ class ModelSubTabView : public SubTabView
 
   virtual void onDropZoneItemClicked(OSItem* item) override;
 
-  //void onItemSelected(); Evan: Dead slot
-
  private:
   ModelObjectInspectorView* m_modelObjectInspectorView;
 };

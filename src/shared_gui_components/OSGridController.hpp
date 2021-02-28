@@ -166,14 +166,17 @@ class WidgetLocation : public QObject, public Nano::Observer
   Q_OBJECT;
 
  public:
-  WidgetLocation(QWidget* t_widget, int t_row, int t_column, boost::optional<int> t_subrow);
+  WidgetLocation(Holder* t_holder, bool isSelector, int t_row, int t_column, boost::optional<int> t_subrow, bool isVisible, bool isSelected);
 
   virtual ~WidgetLocation();
 
-  QWidget* widget;
-  int row;
-  int column;
-  boost::optional<int> subrow;
+  Holder* holder;
+  const bool isSelector;
+  const int row;
+  const int column;
+  const boost::optional<int> subrow;
+  bool isVisible;
+  bool isSelected;
 
   bool equal(int t_row, int t_column, boost::optional<int> t_subrow) const;
 
@@ -241,13 +244,13 @@ class ObjectSelector : public QObject, public Nano::Observer
   // Reset the object filter function
   void resetObjectFilter();
   
-  // Update widgets 
-  void updateWidgets(bool isRowLevel);
+  // Update all widgets 
+  void updateWidgets();
 
-  // Update the leftmost column widgets (which may not be selectable)
+  // Update all widgets in row
   void updateWidgetsForRow(const int t_row);
 
-  // Update widgets for selectable objects
+  // Update widgets for given object
   void updateWidgetsForModelObject(const model::ModelObject& t_obj);
 
  signals:
@@ -267,7 +270,8 @@ class ObjectSelector : public QObject, public Nano::Observer
   // set of objects which are selected, subset of m_selectableObjects
   std::set<model::ModelObject> m_selectedObjects;
 
-  void updateWidgetsImpl(const int t_row, const boost::optional<int>& t_subrow, bool t_objectSelected, bool t_objectVisible);
+  void updateWidgetLoc(const boost::optional<model::ModelObject>& obj, WidgetLocation* widgetLoc);
+  void updateWidgetsImpl(const std::set<WidgetLocation*>& widgetLocsToUpdate);
   static std::function<bool(const model::ModelObject&)> getDefaultFilter();
 
   OSGridController* m_grid;
@@ -529,7 +533,7 @@ class OSGridController : public QObject, public Nano::Observer
 
   virtual std::vector<QWidget*> row(int rowIndex);
 
-  void selectRow(int rowIndex, bool select);
+  //void selectRow(int rowIndex, bool select);
 
   int rowIndexFromModelIndex(int modelIndex);
 
@@ -637,7 +641,7 @@ class OSGridController : public QObject, public Nano::Observer
 
   QString cellStyle();
 
-  void setCellProperties(QWidget* wrapper, bool isVisible, int rowIndex, int columnIndex, bool isSelected, bool isSubRow);
+  void setCellProperties(QWidget* wrapper, bool isSelector, int row, int column, boost::optional<int> subrow, bool isVisible, bool isSelected);
 
   OSItem* getSelectedItemFromModelSubTabView();
 
@@ -676,8 +680,6 @@ class OSGridController : public QObject, public Nano::Observer
   void toggleUnits(bool displayIP);
 
   virtual void onComboBoxIndexChanged(int index);
-
-  void onItemSelected(OSItem* item);
 
   void onSelectionCleared();
 

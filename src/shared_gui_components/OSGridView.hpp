@@ -109,9 +109,9 @@ class OSGridView : public QWidget
 
   void doRefresh();
 
-  void doRowSelect();
+  //void doRowSelect();
 
-  void selectRowDeterminedByModelSubTabView();
+  //void selectRowDeterminedByModelSubTabView();
 
  private:
   

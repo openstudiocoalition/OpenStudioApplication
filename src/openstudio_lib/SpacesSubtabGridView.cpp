@@ -848,22 +848,6 @@ void SpacesSubtabGridView::filterChanged() {
     // return false if object in allFilteredObjects
     return allFilteredObjects.count(obj) == 0;
   });
-
-  if (this->hasSubRows()) {
-    // We do it in two steps, the row level stuff (=space related)
-    bool isRowLevel = true;
-    this->m_gridController->getObjectSelector()->updateWidgets(isRowLevel);
-
-    // The subrow level stuff, that could link to Space and/or Space Type
-    isRowLevel = false;
-    this->m_gridController->getObjectSelector()->updateWidgets(isRowLevel);
-
-  } else {
-
-    // One step
-    bool isRowLevel = false;
-    this->m_gridController->getObjectSelector()->updateWidgets(isRowLevel);
-  }
 }
 
 void SpacesSubtabGridView::addObject(const IddObjectType& iddObjectType) {

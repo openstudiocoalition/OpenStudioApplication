@@ -383,10 +383,6 @@ void FacilityShadingGridView::filterChanged() {
     // return false if object in allFilteredObjects
     return allFilteredObjects.count(obj) == 0;
   });
-
-  this->m_gridView->requestRefreshAll();
-
-  onClearSelection();
 }
 
 void FacilityShadingGridView::addObject(const IddObjectType& iddObjectType) {

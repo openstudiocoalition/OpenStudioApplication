@@ -220,8 +220,6 @@ void FacilityStoriesGridView::filterChanged() {
     }
     return true;
   });
-
-  this->m_gridView->requestRefreshAll();
 }
 
 void FacilityStoriesGridView::onSelectItem() {
