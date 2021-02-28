@@ -175,6 +175,8 @@ class WidgetLocation : public QObject, public Nano::Observer
   int column;
   boost::optional<int> subrow;
 
+  bool equal(int t_row, int t_column, boost::optional<int> t_subrow) const;
+
  signals:
 
   void inFocus(bool inFocus, bool hasData, int row, int column, boost::optional<int> subrow);
@@ -191,26 +193,62 @@ class ObjectSelector : public QObject, public Nano::Observer
  public:
   ObjectSelector(OSGridController* t_grid);
 
+  virtual ~ObjectSelector();
+
+  // Reset all state
+  void clear();
+
+  // Adds widget to the internal maps
   void addWidget(const boost::optional<model::ModelObject>& t_obj, Holder* t_holder, int t_row, int t_column, const boost::optional<int>& t_subrow,
                  bool t_selector);
-  void setObjectSelection(const model::ModelObject& t_obj, bool t_selected);
-  bool getObjectSelection(const model::ModelObject& t_obj) const;
-  boost::optional<model::ModelObject> getObject(const int t_row, const int t_column, const boost::optional<int>& t_subrow);
-  QWidget* getWidget(const int t_row, const int t_column, const boost::optional<int>& t_subrow);
-  std::set<model::ModelObject> getSelectedObjects() const;
-  std::vector<QWidget*> getColumnsSelectedWidgets(int column);
-  void clear();
-  void objectRemoved(const openstudio::model::ModelObject& t_obj);
-  void setObjectFilter(const std::function<bool(const model::ModelObject&)>& t_filter);
-  void resetObjectFilter();
-  bool containsObject(const openstudio::model::ModelObject& t_obj) const;
-  void selectAll();
-  void clearSelection();
-  void updateWidgets(bool isRowLevel = false);
 
-  std::set<model::ModelObject> m_selectedObjects;
-  std::set<model::ModelObject> m_selectorObjects;
-  std::set<model::ModelObject> m_filteredObjects;
+  // Remove an object
+  void objectRemoved(const openstudio::model::ModelObject& t_obj);
+
+  // Check if object is included
+  bool containsObject(const openstudio::model::ModelObject& t_obj) const;
+
+  // Get object at given location
+  boost::optional<model::ModelObject> getObject(const int t_row, const int t_column, const boost::optional<int>& t_subrow);
+
+  // Get widget at given location
+  QWidget* getWidget(const int t_row, const int t_column, const boost::optional<int>& t_subrow);
+
+  // Select all selectable and visible objects
+  void selectAllVisible();
+
+  // Clear the selection
+  void clearSelection();
+
+  // Set a selectable object as selected
+  void setObjectSelected(const model::ModelObject& t_obj, bool t_selected);
+
+  // Check if an object is selected
+  bool getObjectSelected(const model::ModelObject& t_obj) const;
+
+  // Gets selectable objects
+  std::set<model::ModelObject> selectableObjects() const;
+
+  // Gets selected objects
+  std::set<model::ModelObject> selectedObjects() const;
+
+  // Check if an object is visible (passes the filter)
+  bool getObjectVisible(const model::ModelObject& t_obj) const;
+
+  // Set the object filter function, function true if object is visible
+  void setObjectFilter(const std::function<bool(const model::ModelObject&)>& t_filter);
+  
+  // Reset the object filter function
+  void resetObjectFilter();
+  
+  // Update widgets 
+  void updateWidgets(bool isRowLevel);
+
+  // Update the leftmost column widgets (which may not be selectable)
+  void updateWidgetsForRow(const int t_row);
+
+  // Update widgets for selectable objects
+  void updateWidgetsForModelObject(const model::ModelObject& t_obj);
 
  signals:
   void inFocus(bool inFocus, bool hasData, int row, int column, boost::optional<int> subrow);
@@ -222,12 +260,20 @@ class ObjectSelector : public QObject, public Nano::Observer
   REGISTER_LOGGER("openstudio.ObjectSelector");
 
  private:
-  void updateWidgetsForModelObject(const model::ModelObject& t_obj);
+
+  // set of objects which can be selected
+  std::set<model::ModelObject> m_selectableObjects;
+
+  // set of objects which are selected, subset of m_selectableObjects
+  std::set<model::ModelObject> m_selectedObjects;
+
   void updateWidgetsImpl(const int t_row, const boost::optional<int>& t_subrow, bool t_objectSelected, bool t_objectVisible);
   static std::function<bool(const model::ModelObject&)> getDefaultFilter();
 
   OSGridController* m_grid;
-  std::multimap<boost::optional<model::ModelObject>, WidgetLocation*> m_widgetMap;
+  std::multimap<boost::optional<model::ModelObject>, WidgetLocation* > m_objToWidgetLocMap;
+
+  // returns true if object is visible
   std::function<bool(const model::ModelObject&)> m_objectFilter;
 };
 
@@ -263,12 +309,12 @@ class OSGridController : public QObject, public Nano::Observer
     auto objectSelector = m_objectSelector;
     auto getter = std::function<bool(model::ModelObject*)>([objectSelector](model::ModelObject* t_obj) -> bool {
       assert(t_obj);
-      return objectSelector->getObjectSelection(*t_obj);
+      return objectSelector->getObjectSelected(*t_obj);
     });
 
     auto setter = std::function<void(model::ModelObject*, bool)>([objectSelector](model::ModelObject* t_obj, bool t_set) {
       assert(t_obj);
-      objectSelector->setObjectSelection(*t_obj, t_set);
+      objectSelector->setObjectSelected(*t_obj, t_set);
     });
 
     addCheckBoxColumn(heading, tooltip, getter, setter, t_source);

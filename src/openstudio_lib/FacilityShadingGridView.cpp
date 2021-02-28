@@ -259,7 +259,7 @@ void FacilityShadingGridView::nameFilterChanged() {
   if (m_nameFilter->text().isEmpty()) {
     // nothing to filter
   } else {
-    for (auto obj : this->m_gridController->getObjectSelector()->m_selectorObjects) {
+    for (auto obj : this->m_gridController->getObjectSelector()->selectableObjects()) {
       QString objName(obj.name().get().c_str());
       if (!objName.contains(m_nameFilter->text(), Qt::CaseInsensitive)) {
         m_objectsFilteredByName.insert(obj);
@@ -275,7 +275,7 @@ void FacilityShadingGridView::typeFilterChanged(const QString& text) {
   if (m_typeFilter->currentText() == "All") {
     // Nothing to filter
   } else {
-    for (auto obj : this->m_gridController->getObjectSelector()->m_selectorObjects) {
+    for (auto obj : this->m_gridController->getObjectSelector()->selectableObjects()) {
       auto parent = obj.parent();
       if (parent && parent->iddObjectType() == IddObjectType::OS_ShadingSurfaceGroup) {
         if (m_typeFilter->currentText() != parent->cast<model::ShadingSurfaceGroup>().shadingSurfaceType().c_str()) {
@@ -312,9 +312,7 @@ void FacilityShadingGridView::orientationFilterChanged() {
   OS_ASSERT(convertedValue);
   lowerLimit = *convertedValue;
 
-  objectSelector->m_filteredObjects.clear();
-
-  for (auto obj : this->m_gridController->getObjectSelector()->m_selectorObjects) {
+  for (auto obj : this->m_gridController->getObjectSelector()->selectableObjects()) {
     if (obj.iddObjectType() == IddObjectType::OS_ShadingSurfaceGroup) {
       for (auto shadingSurface : obj.cast<model::ShadingSurfaceGroup>().shadingSurfaces()) {
         auto orientation = shadingSurface.azimuth();
@@ -324,8 +322,6 @@ void FacilityShadingGridView::orientationFilterChanged() {
       }
     }
   }
-
-  this->m_gridView->requestRefreshAll();
 
   filterChanged();
 }
@@ -354,9 +350,7 @@ void FacilityShadingGridView::tiltFilterChanged() {
   OS_ASSERT(convertedValue);
   lowerLimit = *convertedValue;
 
-  objectSelector->m_filteredObjects.clear();
-
-  for (auto obj : this->m_gridController->getObjectSelector()->m_selectorObjects) {
+  for (auto obj : this->m_gridController->getObjectSelector()->selectableObjects()) {
     if (obj.iddObjectType() == IddObjectType::OS_ShadingSurfaceGroup) {
       for (auto shadingSurface : obj.cast<model::ShadingSurfaceGroup>().shadingSurfaces()) {
         auto tilt = shadingSurface.tilt();
@@ -366,8 +360,6 @@ void FacilityShadingGridView::tiltFilterChanged() {
       }
     }
   }
-
-  this->m_gridView->requestRefreshAll();
 
   filterChanged();
 }
@@ -387,7 +379,10 @@ void FacilityShadingGridView::filterChanged() {
     allFilteredObjects.insert(obj);
   }
 
-  this->m_gridController->getObjectSelector()->m_filteredObjects = allFilteredObjects;
+  this->m_gridController->getObjectSelector()->setObjectFilter([allFilteredObjects](const model::ModelObject& obj) -> bool { 
+    // return false if object in allFilteredObjects
+    return allFilteredObjects.count(obj) == 0;
+  });
 
   this->m_gridView->requestRefreshAll();
 

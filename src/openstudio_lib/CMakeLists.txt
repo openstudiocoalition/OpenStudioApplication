@@ -737,10 +737,12 @@ set(${target_name}_test_src
   test/OpenStudioLibFixture.hpp
   test/OpenStudioLibFixture.cpp
   test/IconLibrary_GTest.cpp
+  test/ObjectSelector_GTest.cpp
 )
 
 set(${target_name}_test_depends
   ${${target_name}_depends}
+  ${QT_WEB_LIBS}
 )
 
 CREATE_TEST_TARGETS(${target_name} "${${target_name}_test_src}" "${${target_name}_test_depends}")

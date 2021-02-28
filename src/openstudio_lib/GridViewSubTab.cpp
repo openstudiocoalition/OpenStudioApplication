@@ -178,7 +178,7 @@ void GridViewSubTab::toggleUnits(bool isIP) {
 }
 
 void GridViewSubTab::gridRowSelectionChanged(int checkState) {
-  if (this->m_gridController->getObjectSelector()->m_selectedObjects.size() == 0) {
+  if (this->m_gridController->getObjectSelector()->selectedObjects().size() == 0) {
     onClearSelection();
   } else {
     onSelectItem();

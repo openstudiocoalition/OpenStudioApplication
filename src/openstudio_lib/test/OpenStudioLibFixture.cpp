@@ -31,7 +31,13 @@
 
 #include "../../model_editor/Application.hpp"
 
+#include "../GridViewSubTab.hpp"
+#include "../shared_gui_components/OSGridController.hpp"
+#include "../shared_gui_components/OSGridView.hpp"
+
 #include <openstudio/utilities/core/Path.hpp>
+
+using namespace openstudio;
 
 void OpenStudioLibFixture::SetUp() {
   openstudio::Application::instance().application(true);
@@ -47,6 +53,19 @@ void OpenStudioLibFixture::SetUpTestCase() {
 }
 
 void OpenStudioLibFixture::TearDownTestCase() {}
+
+void OpenStudioLibFixture::processEvents() {
+  openstudio::Application::instance().application(true)->processEvents();
+}
+
+OSGridView* OpenStudioLibFixture::getGridView(GridViewSubTab& gvst) {
+  return gvst.m_gridView; 
+}
+
+OSGridController* OpenStudioLibFixture::getGridController(GridViewSubTab& gvst) {
+  return gvst.m_gridController;
+}
+
 
 // static variables
 boost::optional<openstudio::FileLogSink> OpenStudioLibFixture::logFile;

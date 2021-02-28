@@ -40,6 +40,7 @@
 
 class QScrollArea;
 class QVBoxLayout;
+class OpenStudioLibFixture;
 
 namespace openstudio {
 
@@ -120,6 +121,12 @@ class GridViewSubTab : public QWidget
   virtual void onSelectItem() = 0;
 
   virtual void onClearSelection() = 0;
+
+private:
+
+  // For testing
+  friend class OpenStudioLibFixture;
+
 };
 
 }  // namespace openstudio

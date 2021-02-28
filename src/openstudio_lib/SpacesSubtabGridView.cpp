@@ -596,8 +596,8 @@ void SpacesSubtabGridView::subSurfaceTypeFilterChanged(const QString& text) {
     // by SubSurface::validSubSurfaceTypes(), so we'll do a case-insensitive string comparison later
     std::string subSurfaceTypeToKeep = openstudio::toString(text);
 
-    // ObjectSelector::m_selectorObjects returns SubSurfaces directly
-    for (auto obj : this->m_gridController->getObjectSelector()->m_selectorObjects) {
+    // ObjectSelector::m_selectableObjects returns SubSurfaces directly
+    for (auto obj : this->m_gridController->getObjectSelector()->selectableObjects()) {
       // LOG(Debug, "subSurfaceTypeFilterChanged, obj=" << obj.briefDescription());
       auto subsurface = obj.optionalCast<model::SubSurface>();
       if (subsurface) {
@@ -702,8 +702,8 @@ void SpacesSubtabGridView::windExposureFilterChanged(const QString& text) {
     // For a case-insensitive comparison later
     std::string windExposureToKeep = openstudio::toString(text);
 
-    // ObjectSelector::m_selectorObjects returns Surfaces directly
-    for (auto obj : this->m_gridController->getObjectSelector()->m_selectorObjects) {
+    // ObjectSelector::m_selectableObjects returns Surfaces directly
+    for (auto obj : this->m_gridController->getObjectSelector()->selectableObjects()) {
       // LOG(Debug, "windExposureFilterChanged, obj=" << obj.briefDescription());
       auto surface = obj.optionalCast<model::Surface>();
       if (surface) {
@@ -727,8 +727,8 @@ void SpacesSubtabGridView::sunExposureFilterChanged(const QString& text) {
     // For a case-insensitive comparison later
     std::string sunExposureToKeep = openstudio::toString(text);
 
-    // ObjectSelector::m_selectorObjects returns Surfaces directly
-    for (auto obj : this->m_gridController->getObjectSelector()->m_selectorObjects) {
+    // ObjectSelector::m_selectableObjects returns Surfaces directly
+    for (auto obj : this->m_gridController->getObjectSelector()->selectableObjects()) {
       // LOG(Debug, "sunExposureFilterChanged, obj=" << obj.briefDescription());
       auto surface = obj.optionalCast<model::Surface>();
       if (surface) {
@@ -752,8 +752,8 @@ void SpacesSubtabGridView::outsideBoundaryConditionFilterChanged(const QString& 
     // For a case-insensitive comparison later
     std::string outsideBoundCondToKeep = openstudio::toString(text);
 
-    // ObjectSelector::m_selectorObjects returns either Surfaces or SubSurfaces directly, depending on the subtab it's on
-    for (auto obj : this->m_gridController->getObjectSelector()->m_selectorObjects) {
+    // ObjectSelector::m_selectableObjects returns either Surfaces or SubSurfaces directly, depending on the subtab it's on
+    for (auto obj : this->m_gridController->getObjectSelector()->selectableObjects()) {
       // LOG(Debug, "outsideBoundaryConditionFilterChanged, obj=" << obj.briefDescription());
       std::string outsideBoundaryCondition;
       if (auto surface = obj.optionalCast<model::Surface>()) {
@@ -779,8 +779,8 @@ void SpacesSubtabGridView::surfaceTypeFilterChanged(const QString& text) {
     // For a case-insensitive comparison later
     std::string surfaceTypeToKeep = openstudio::toString(text);
 
-    // ObjectSelector::m_selectorObjects Surfaces directly
-    for (auto obj : this->m_gridController->getObjectSelector()->m_selectorObjects) {
+    // ObjectSelector::m_selectableObjects Surfaces directly
+    for (auto obj : this->m_gridController->getObjectSelector()->selectableObjects()) {
       // LOG(Debug, "surfaceTypeFilterChanged, obj=" << obj.briefDescription());
       auto surface = obj.optionalCast<model::Surface>();
       if (surface) {
@@ -801,7 +801,7 @@ void SpacesSubtabGridView::interiorPartitionGroupFilterChanged(const QString& te
   if (m_interiorPartitionGroupFilter->currentText() == ALL) {
     // nothing to filter
   } else {
-    for (auto obj : this->m_gridController->getObjectSelector()->m_selectorObjects) {
+    for (auto obj : this->m_gridController->getObjectSelector()->selectableObjects()) {
       auto interiorPartitionSurfaceGroup = obj.optionalCast<model::InteriorPartitionSurfaceGroup>();
       if (interiorPartitionSurfaceGroup) {
         if (!interiorPartitionSurfaceGroup->name() ||
@@ -825,62 +825,43 @@ void SpacesSubtabGridView::filterChanged() {
      ***************************************************************************/
   std::set<openstudio::model::ModelObject> spaceFilteredObjects = m_objectsFilteredByStory;
 
-  // No need to do `if (spaceFilteredObjects.count(obj) == 0)` since we're dealing with a set
-  for (auto obj : m_objectsFilteredByThermalZone) {
-    spaceFilteredObjects.insert(obj);
-  }
-
-  for (auto obj : m_objectsFilteredBySpaceType) {
-    spaceFilteredObjects.insert(obj);
-  }
-
-  for (auto obj : m_objectsFilteredBySpaceName) {
-    spaceFilteredObjects.insert(obj);
-  }
+  spaceFilteredObjects.insert(m_objectsFilteredByThermalZone.begin(), m_objectsFilteredByThermalZone.end());
+  spaceFilteredObjects.insert(m_objectsFilteredBySpaceType.begin(), m_objectsFilteredBySpaceType.end());
+  spaceFilteredObjects.insert(m_objectsFilteredBySpaceName.begin(), m_objectsFilteredBySpaceName.end());
 
   /***********************************************************************************
      * Filters that should apply at the SUBROW level because they are DataObject-related
      ***********************************************************************************/
   std::set<openstudio::model::ModelObject> allFilteredObjects;
 
-  for (auto obj : m_objectsFilteredBySubSurfaceType) {
-    allFilteredObjects.insert(obj);
-  }
+  allFilteredObjects.insert(m_objectsFilteredBySubSurfaceType.begin(), m_objectsFilteredBySubSurfaceType.end());
+  allFilteredObjects.insert(m_objectsFilteredByWindExposure.begin(), m_objectsFilteredByWindExposure.end());
+  allFilteredObjects.insert(m_objectsFilteredBySunExposure.begin(), m_objectsFilteredBySunExposure.end());
+  allFilteredObjects.insert(m_objectsFilteredByOutsideBoundaryCondition.begin(), m_objectsFilteredByOutsideBoundaryCondition.end());
+  allFilteredObjects.insert(m_objectsFilteredBySurfaceType.begin(), m_objectsFilteredBySurfaceType.end());
+  allFilteredObjects.insert(m_objectsFilteredByInteriorPartitionGroup.begin(), m_objectsFilteredByInteriorPartitionGroup.end());
 
-  for (auto obj : m_objectsFilteredByWindExposure) {
-    allFilteredObjects.insert(obj);
-  }
+  // add space filters to all filters
+  allFilteredObjects.insert(spaceFilteredObjects.begin(), spaceFilteredObjects.end());
 
-  for (auto obj : m_objectsFilteredBySunExposure) {
-    allFilteredObjects.insert(obj);
-  }
-
-  for (auto obj : m_objectsFilteredByOutsideBoundaryCondition) {
-    allFilteredObjects.insert(obj);
-  }
-
-  for (auto obj : m_objectsFilteredBySurfaceType) {
-    allFilteredObjects.insert(obj);
-  }
-
-  for (auto obj : m_objectsFilteredByInteriorPartitionGroup) {
-    allFilteredObjects.insert(obj);
-  }
+  this->m_gridController->getObjectSelector()->setObjectFilter([allFilteredObjects](const model::ModelObject& obj) -> bool {
+    // return false if object in allFilteredObjects
+    return allFilteredObjects.count(obj) == 0;
+  });
 
   if (this->hasSubRows()) {
     // We do it in two steps, the row level stuff (=space related)
     bool isRowLevel = true;
-    this->m_gridController->getObjectSelector()->m_filteredObjects = spaceFilteredObjects;
     this->m_gridController->getObjectSelector()->updateWidgets(isRowLevel);
+
     // The subrow level stuff, that could link to Space and/or Space Type
     isRowLevel = false;
-    this->m_gridController->getObjectSelector()->m_filteredObjects = allFilteredObjects;
     this->m_gridController->getObjectSelector()->updateWidgets(isRowLevel);
+
   } else {
+
     // One step
     bool isRowLevel = false;
-    allFilteredObjects.insert(spaceFilteredObjects.begin(), spaceFilteredObjects.end());
-    this->m_gridController->getObjectSelector()->m_filteredObjects = allFilteredObjects;
     this->m_gridController->getObjectSelector()->updateWidgets(isRowLevel);
   }
 }

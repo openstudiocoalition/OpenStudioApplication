@@ -208,16 +208,18 @@ void FacilityStoriesGridView::filterChanged() {
     lowerLimit = *convertedValue;
   }
 
-  objectSelector->m_filteredObjects.clear();
-
-  for (auto obj : objectSelector->m_selectorObjects) {
-    auto nominalZCoordinate = obj.cast<model::BuildingStory>().nominalZCoordinate();
-    if (nominalZCoordinate) {
-      if (*nominalZCoordinate >= upperLimit || *nominalZCoordinate <= lowerLimit) {
-        objectSelector->m_filteredObjects.insert(obj);
+  objectSelector->setObjectFilter([upperLimit, lowerLimit](const model::ModelObject& obj) -> bool {
+    boost::optional<model::BuildingStory> story = obj.optionalCast<model::BuildingStory>();
+    if (story){
+      auto nominalZCoordinate = story->nominalZCoordinate();
+      if (nominalZCoordinate) {
+        if (*nominalZCoordinate >= upperLimit || *nominalZCoordinate <= lowerLimit) {
+          return false;
+        }
       }
     }
-  }
+    return true;
+  });
 
   this->m_gridView->requestRefreshAll();
 }

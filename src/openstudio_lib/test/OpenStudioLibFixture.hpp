@@ -35,6 +35,12 @@
 #include <openstudio/utilities/core/Logger.hpp>
 #include <openstudio/utilities/core/FileLogSink.hpp>
 
+namespace openstudio {
+  class GridViewSubTab;
+  class OSGridController;
+  class OSGridView;
+}
+
 class OpenStudioLibFixture : public ::testing::Test
 {
  protected:
@@ -49,6 +55,13 @@ class OpenStudioLibFixture : public ::testing::Test
 
   // tear down static members
   static void TearDownTestCase();
+  
+  // Process events
+  void processEvents();
+
+  // Acceessors for private members
+  openstudio::OSGridView* getGridView(openstudio::GridViewSubTab& gvst);
+  openstudio::OSGridController* getGridController(openstudio::GridViewSubTab& gvst);
 
   // static variables
   static boost::optional<openstudio::FileLogSink> logFile;

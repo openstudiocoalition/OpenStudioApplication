@@ -78,6 +78,7 @@
 
 #include <iostream>
 #include <algorithm>
+#include <map>
 #include <set>
 #include <string>
 #include <iterator>
@@ -87,70 +88,112 @@ namespace openstudio {
 const std::vector<QColor> OSGridController::m_colors = SchedulesView::initializeColors();
 
 WidgetLocation::WidgetLocation(QWidget* t_widget, int t_row, int t_column, boost::optional<int> t_subrow)
-  : widget(t_widget), row(t_row), column(t_column), subrow(std::move(t_subrow)) {}
+  : QObject(t_widget), widget(t_widget), row(t_row), column(t_column), subrow(std::move(t_subrow)) {}
 
 WidgetLocation::~WidgetLocation() {}
+
+bool WidgetLocation::equal(int t_row, int t_column, boost::optional<int> t_subrow) const {
+  return row == t_row && column == t_column && subrow == t_subrow;
+}
 
 void WidgetLocation::onInFocus(bool hasFocus, bool hasData) {
   emit inFocus(hasFocus, hasData, row, column, subrow);
 }
 
-ObjectSelector::ObjectSelector(OSGridController* t_grid) : m_grid(t_grid), m_objectFilter(getDefaultFilter()) {}
+ObjectSelector::ObjectSelector(OSGridController* t_grid) 
+  : m_grid(t_grid), m_objectFilter(getDefaultFilter()) 
+{}
+
+ObjectSelector::~ObjectSelector() {}
+
+void ObjectSelector::clear() {
+  m_objToWidgetLocMap.clear();  
+  m_selectedObjects.clear();
+  m_selectableObjects.clear();
+  m_objectFilter = getDefaultFilter();
+}
 
 void ObjectSelector::addWidget(const boost::optional<model::ModelObject>& t_obj, Holder* t_holder, int t_row, int t_column,
                                const boost::optional<int>& t_subrow, const bool t_selector) {
+
+  assert(t_holder);
+  
+  // WidgetLocation is parented by Holder, deletion of Holder will delete WidgetLocation
   WidgetLocation* widgetLoc = new WidgetLocation(t_holder, t_row, t_column, t_subrow);
 
   connect(t_holder, &QObject::destroyed, this, &ObjectSelector::widgetDestroyed);
   connect(t_holder, &Holder::inFocus, widgetLoc, &WidgetLocation::onInFocus);
   connect(widgetLoc, &WidgetLocation::inFocus, this, &ObjectSelector::inFocus);
 
-  m_widgetMap.insert(std::make_pair(t_obj, widgetLoc));
+  m_objToWidgetLocMap.insert(std::make_pair(t_obj, widgetLoc));
 
   if (t_selector && t_obj) {
-    m_selectorObjects.insert(*t_obj);
+    m_selectableObjects.insert(*t_obj);
   }
-}
-
-void ObjectSelector::clear() {
-  m_widgetMap.clear();  // TODO delete all QObjects, or set parent
-  m_selectedObjects.clear();
-  m_selectorObjects.clear();
-  m_filteredObjects.clear();
-  m_objectFilter = getDefaultFilter();
 }
 
 void ObjectSelector::objectRemoved(const openstudio::model::ModelObject& t_obj) {
   // std::cout << " Object removed\n";
 
   m_selectedObjects.erase(t_obj);
-  m_selectorObjects.erase(t_obj);
-  m_filteredObjects.erase(t_obj);
-  m_widgetMap.erase(boost::optional<model::ModelObject>(t_obj));
+  m_selectableObjects.erase(t_obj);
+  m_objToWidgetLocMap.erase(boost::optional<model::ModelObject>(t_obj));
 }
 
 bool ObjectSelector::containsObject(const openstudio::model::ModelObject& t_obj) const {
-  return m_selectedObjects.count(t_obj) != 0 || m_selectorObjects.count(t_obj) != 0 || m_filteredObjects.count(t_obj) != 0 ||
-         m_widgetMap.count(boost::optional<model::ModelObject>(t_obj));
+  return m_objToWidgetLocMap.count(boost::optional<model::ModelObject>(t_obj)) != 0;
 }
 
-void ObjectSelector::widgetDestroyed(QObject* t_obj) {
-  auto itr = m_widgetMap.begin();
+boost::optional<model::ModelObject> ObjectSelector::getObject(const int t_row, const int t_column, const boost::optional<int>& t_subrow) {
+  boost::optional<model::ModelObject> result;
 
-  while (itr != m_widgetMap.end()) {
-    if (itr->second->widget == t_obj) {
-      itr = m_widgetMap.erase(itr);
-    } else {
-      ++itr;
+  for (auto& objWidgetLocPair : m_objToWidgetLocMap) {
+    if (objWidgetLocPair.second->equal(t_row, t_column, t_subrow)) {
+      result = objWidgetLocPair.first;
+      break;
     }
   }
+  return result;
 }
 
-bool ObjectSelector::getObjectSelection(const model::ModelObject& t_obj) const {
+QWidget* ObjectSelector::getWidget(const int t_row, const int t_column, const boost::optional<int>& t_subrow) {
+  QWidget* result = nullptr;
+
+  for (auto& objWidgetLocPair : m_objToWidgetLocMap) {
+    if (objWidgetLocPair.second->equal(t_row, t_column, t_subrow)) {
+      result = qobject_cast<Holder*>(objWidgetLocPair.second->widget)->widget;
+      break;
+    }
+  }
+  return result;
+}
+
+void ObjectSelector::selectAllVisible() {
+  m_selectedObjects.clear();
+
+  for (auto obj : m_selectableObjects) {
+    auto objectVisible = m_objectFilter(obj);
+
+    if (objectVisible) {
+      // add this to the selected set
+      m_selectedObjects.insert(obj);
+    }
+  }
+  
+  m_grid->requestRefreshGrid();
+}
+
+void ObjectSelector::clearSelection() {
+  m_selectedObjects.clear();
+  
+  m_grid->requestRefreshGrid();
+}
+
+bool ObjectSelector::getObjectSelected(const model::ModelObject& t_obj) const {
   return m_selectedObjects.count(t_obj) != 0;
 }
 
-void ObjectSelector::setObjectSelection(const model::ModelObject& t_obj, bool t_selected) {
+void ObjectSelector::setObjectSelected(const model::ModelObject& t_obj, bool t_selected) {
   auto changed = false;
   if (t_selected) {
     changed = m_selectedObjects.insert(t_obj).second;
@@ -163,263 +206,83 @@ void ObjectSelector::setObjectSelection(const model::ModelObject& t_obj, bool t_
   }
 }
 
-std::set<model::ModelObject> ObjectSelector::getSelectedObjects() const {
-  std::set<model::ModelObject> returned;
-
-  std::copy_if(m_selectedObjects.begin(), m_selectedObjects.end(), std::inserter(returned, returned.begin()), m_objectFilter);
-
-  return returned;
+std::set<model::ModelObject> ObjectSelector::selectableObjects() const {
+  return m_selectableObjects;
 }
 
-std::vector<QWidget*> ObjectSelector::getColumnsSelectedWidgets(int column) {
-  std::vector<QWidget*> results;
+std::set<model::ModelObject> ObjectSelector::selectedObjects() const {
+  return m_selectedObjects;
+}
 
-  for (auto selectedObject : m_selectedObjects) {
-    for (auto& widgetLoc : m_widgetMap) {
-      if (widgetLoc.first && selectedObject == widgetLoc.first.get()) {
-        results.push_back(getWidget(widgetLoc.second->row, column, widgetLoc.second->subrow));
-        break;
-      }
-    }
-  }
-  return results;
+bool ObjectSelector::getObjectVisible(const model::ModelObject& t_obj) const {
+  return m_objectFilter(t_obj);
 }
 
 void ObjectSelector::setObjectFilter(const std::function<bool(const model::ModelObject&)>& t_filter) {
   m_objectFilter = t_filter;
-  updateWidgets();
 }
 
 void ObjectSelector::resetObjectFilter() {
   m_objectFilter = getDefaultFilter();
-  updateWidgets();
+}
+
+void ObjectSelector::widgetDestroyed(QObject* t_widget) {
+  auto itr = m_objToWidgetLocMap.begin();
+
+  while (itr != m_objToWidgetLocMap.end()) {
+    if (itr->second->widget == t_widget) {
+      itr = m_objToWidgetLocMap.erase(itr);
+    } else {
+      ++itr;
+    }
+  }
 }
 
 std::function<bool(const model::ModelObject&)> ObjectSelector::getDefaultFilter() {
   return [](const model::ModelObject&) { return true; };
 }
 
-void ObjectSelector::selectAll() {
-  m_selectedObjects.clear();
-
-  for (auto obj : m_selectorObjects) {
-
-    auto range = m_widgetMap.equal_range(boost::optional<model::ModelObject>(obj));
-
-    assert(range.first != range.second);
-
-    // Find the row that contains this object
-    auto row = std::make_tuple(range.first->second->row, range.first->second->subrow);
-
-    auto objectVisible = m_objectFilter(obj);
-
-    if (objectVisible) {
-      if (std::get<1>(row)) {
-        // We have a matched sub row
-        auto parent = obj.parent();
-        if (parent) {
-          // Check if we are filtering on the sub row's parent object
-          if (m_filteredObjects.count(*parent) != 0) {
-            objectVisible = false;
-          }
-
-          if (objectVisible) {
-            // We still haven't matched the sub row, let's look up 1 more level
-            auto parentsParent = parent->parent();
-            // Evan's note:
-            //   in the case of SpacesSubsurfacesGridView,
-            //   obj.parent() returns Surface,
-            //   but our common currency is Space.
-            //   obj.parent()->parent() returns Space
-
-            if (parentsParent) {
-              // Check if we are filtering on the sub row's parent's parent object
-              if (m_filteredObjects.count(*parentsParent) != 0) {
-                objectVisible = false;
-              }
-            }
-          }
-        }
-        // Hmmm, still no match, let's check if we
-        // are filtering on the sub row's object
-        if (objectVisible && m_filteredObjects.count(obj) != 0) {
-          objectVisible = false;
-        }
-      } else {
-        // We only matched the row
-        if (m_filteredObjects.count(obj) != 0) {
-          objectVisible = false;
-        }
-      }
-    }
-
-    if (objectVisible) {
-      // add this to the selected set
-      m_selectedObjects.insert(obj);
-    }
-  }
-
-  m_grid->requestRefreshGrid();
-}
-
-void ObjectSelector::clearSelection() {
-  std::set<model::ModelObject> deselectedObjects;
-
-  auto selectedObjects = m_selectedObjects;
-
-  m_selectedObjects.clear();
-
-  for (auto obj : m_selectorObjects) {
-
-    auto range = m_widgetMap.equal_range(boost::optional<model::ModelObject>(obj));
-
-    assert(range.first != range.second);
-
-    // Find the row that contains this object
-    auto row = std::make_tuple(range.first->second->row, range.first->second->subrow);
-
-    auto objectVisible = m_objectFilter(obj);
-
-    if (objectVisible) {
-      if (std::get<1>(row)) {
-        // We have a matched sub row
-        auto parent = obj.parent();
-        if (parent) {
-          // Check if we are filtering on the sub row's parent object
-          if (m_filteredObjects.count(*parent) != 0) {
-            objectVisible = false;
-          }
-
-          if (objectVisible) {
-            // We still haven't matched the sub row, let's look up 1 more level
-            auto parentsParent = parent->parent();
-            // Evan's note:
-            //   in the case of SpacesSubsurfacesGridView,
-            //   obj.parent() returns Surface,
-            //   but our common currency is Space.
-            //   obj.parent()->parent() returns Space
-
-            if (parentsParent) {
-              // Check if we are filtering on the sub row's parent's parent object
-              if (m_filteredObjects.count(*parentsParent) != 0) {
-                objectVisible = false;
-              }
-            }
-          }
-        }
-        // Hmmm, still no match, let's check if we
-        // are filtering on the sub row's object
-        if (objectVisible && m_filteredObjects.count(obj) != 0) {
-          objectVisible = false;
-        }
-      } else {
-        // We only matched the row
-        if (m_filteredObjects.count(obj) != 0) {
-          objectVisible = false;
-        }
-      }
-    }
-
-    if (objectVisible) {
-      // add this to the selected set
-      deselectedObjects.insert(obj);
-    }
-  }
-
-  std::set_difference(selectedObjects.begin(), selectedObjects.end(), deselectedObjects.begin(), deselectedObjects.end(),
-                      inserter(m_selectedObjects, m_selectedObjects.begin()));
-
-  m_grid->requestRefreshGrid();
-}
-
-boost::optional<model::ModelObject> ObjectSelector::getObject(const int t_row, const int t_column, const boost::optional<int>& t_subrow) {
-  boost::optional<model::ModelObject> object;
-
-  for (auto& widgetLoc : m_widgetMap) {
-    if (widgetLoc.second->row == t_row && widgetLoc.second->column == t_column && (!t_subrow || t_subrow == widgetLoc.second->subrow)) {
-      object = widgetLoc.first;
-      break;
-    }
-  }
-  return object;
-}
-
-QWidget* ObjectSelector::getWidget(const int t_row, const int t_column, const boost::optional<int>& t_subrow) {
-  QWidget* widget = nullptr;
-
-  for (auto& widgetLoc : m_widgetMap) {
-    if (widgetLoc.second->row == t_row && widgetLoc.second->column == t_column && (!t_subrow || t_subrow == widgetLoc.second->subrow)) {
-      widget = qobject_cast<Holder*>(widgetLoc.second->widget)->widget;
-      break;
-    }
-  }
-  return widget;
-}
-
-void ObjectSelector::updateWidgetsImpl(const int t_row, const boost::optional<int>& t_subrow, bool t_objectSelected, bool t_objectVisible) {
-  std::set<std::pair<QWidget*, int>> widgetsToUpdate;
-  bool isSubRow = t_subrow.has_value();
-
-  // determine if we want to update the parent widget or the child widget
-  for (auto& widgetLoc : m_widgetMap) {
-    // If the row corresponds
-    if (widgetLoc.second->row == t_row) {
-      // And there isn't any subrow, we get the parent
-      if (!isSubRow) {
-        widgetsToUpdate.insert(std::make_pair(widgetLoc.second->widget->parentWidget(), widgetLoc.second->column));
-        // Otherwise, the subrow needs to corresponds, and we hide that widget
-      } else if (t_subrow == widgetLoc.second->subrow) {
-        widgetsToUpdate.insert(std::make_pair(widgetLoc.second->widget, widgetLoc.second->column));
-        widgetLoc.second->widget->setStyleSheet("");
-      }
-    }
-  }
-
-  // loop over list of determined widgets
-  for (auto& widget : widgetsToUpdate) {
-    widget.first->setVisible(t_objectVisible);
-    m_grid->setCellProperties(widget.first, t_objectVisible, t_row, widget.second, t_objectSelected, isSubRow);
-  }
-}
-
 void ObjectSelector::updateWidgets(bool isRowLevel) {
   if (isRowLevel) {
     // We loop on all object in the leftmost colum (eg: 'Space' for all SpaceSubtabs)
     for (int t_row = 0; t_row < this->m_grid->rowCount(); ++t_row) {
-      bool objectVisible = true;
-      bool objectSelected = false;
-
-      // If that object is present in m_filteredObjects
-      boost::optional<model::ModelObject> _rowLevelObj = getObject(t_row, 0, boost::optional<int>());
-      if (_rowLevelObj && (m_filteredObjects.count(_rowLevelObj.get()) != 0)) {
-        // LOG(Debug, "Hidding t_row=" << t_row << " matched as rowLevelObj (=" << _rowLevelObj.get().briefDescription() << ")");
-        objectVisible = false;
-        objectSelected = m_selectedObjects.count(_rowLevelObj.get()) != 0;
-      }
-
-      // We'll hide the entire row
-      updateWidgetsImpl(t_row, boost::optional<int>(), objectSelected, objectVisible);
+      updateWidgetsForRow(t_row);
     }
   } else {
     // This contains the (unique) individual DataObjects (eg: Loads subtab = SpaceLoadInstances (People, Lights, etc))
-    for (const auto& obj : m_selectorObjects) {
+    for (const auto& obj : m_selectableObjects) {
       updateWidgetsForModelObject(obj);
     }
   }
 }
 
+void ObjectSelector::updateWidgetsForRow(const int t_row) {
+  bool objectVisible = true;
+  bool objectSelected = false;
+
+  const int column = 0;
+  boost::optional<model::ModelObject> _rowLevelObj = getObject(t_row, column, boost::optional<int>());
+
+  if (_rowLevelObj) {
+    objectVisible = getObjectVisible(_rowLevelObj.get());
+    objectSelected = m_selectedObjects.count(_rowLevelObj.get()) != 0;
+  }
+
+  updateWidgetsImpl(t_row, boost::optional<int>(), objectSelected, objectVisible);
+}
+
 void ObjectSelector::updateWidgetsForModelObject(const model::ModelObject& t_obj) {
 
-  // Find all entries in m_widgetMap that matches t_obj
-  auto range = m_widgetMap.equal_range(boost::optional<model::ModelObject>(t_obj));
+  // Find all entries in m_objToWidgetLocMap that matches t_obj
+  auto range = m_objToWidgetLocMap.equal_range(boost::optional<model::ModelObject>(t_obj));
 
   // Check that it did return something
   assert(range.first != range.second);
 
-  // Note JM: leaving it here in case you need to look at the contents of m_widgetMap...
+  // Note JM: leaving it here in case you need to look at the contents of m_objToWidgetLocMap...
   /*
-     *std::cout << "\n\nContent of m_widgetMap\n";
-     *for (auto it = m_widgetMap.begin(); it != m_widgetMap.end(); ++it) {
+     *std::cout << "\n\nContent of m_objToWidgetLocMap\n";
+     *for (auto it = m_objToWidgetLocMap.begin(); it != m_objToWidgetLocMap.end(); ++it) {
      *  const boost::optional<model::ModelObject> mo = it->first;
      *  int t_row = it->second->row;
      *  boost::optional<int> t_subrow = it->second->subrow;
@@ -455,90 +318,37 @@ void ObjectSelector::updateWidgetsForModelObject(const model::ModelObject& t_obj
     boost::optional<int> t_subrow = it->second->subrow;
 
     const auto objectSelected = m_selectedObjects.count(t_obj) != 0;
-    auto objectVisible = m_objectFilter(t_obj);
+    auto objectVisible = getObjectVisible(t_obj);
 
-    // If the object is not already hidden
-    if (objectVisible) {
-      // We try find it it's a subrow
-      if (t_subrow) {
-        // We have a matched sub row
-        auto parent = t_obj.parent();
-        if (parent) {
-          // Check if we are filtering on the sub row's parent object
-          if (m_filteredObjects.count(*parent) != 0) {
-            objectVisible = false;
-          }
-
-          if (objectVisible) {
-            // We still haven't matched the sub row, let's look up 1 more level
-            auto parentsParent = parent->parent();
-            // Evan's note:
-            //   in the case of SpacesSubsurfacesGridView,
-            //   t_obj.parent() returns Surface,
-            //   but our common currency is Space.
-            //   t_obj.parent()->parent() returns Space
-            //
-            // JM: 2018-08-21
-            //  in the case of the Loads subtab
-            //  t_obj.parent() will return either Space or SpaceType depending on how owns it
-            //  So if it's SpaceType, it won't match...
-            //  Also, even for Space, it will filter out only that load and not the entire corresponding Space master
-            //  which is fine if filtering by "Load Type", but not fine if filtering by Story for eg...
-
-            if (parentsParent) {
-              // Check if we are filtering on the sub row's parent's parent object
-              if (m_filteredObjects.count(*parentsParent) != 0) {
-                objectVisible = false;
-              }
-            }
-          }
-        }
-        // Hmmm, still no match, let's check if we
-        // are filtering on the sub row's object
-        if (objectVisible && m_filteredObjects.count(t_obj) != 0) {
-          objectVisible = false;
-        }
-
-        // Still no match? That's problematic... perhaps it's the Loads subtab?
-        /*
- *          if (objectVisible) {
- *            boost::optional<const model::ModelObject &> _rowLevelObj = getObject(t_row, 0, boost::optional<int>());
- *            if (_rowLevelObj && m_filteredObjects.count(_rowLevelObj.get()) != 0) {
- *              LOG(Debug, t_obj.briefDescription() << " matched as rowLevelObj (=" << _rowLevelObj.get().briefDescription() << ")"
- *                  << " || t_row=" << t_row << ", t_subrow=" << t_subrow);
- *              objectVisible = false;
- *              t_subrow = boost::optional<int>();
- *            }
- *
- *            //range = m_widgetMap.equal_range(boost::optional<model::ModelObject>(t_obj));
- *            //std::cout << "\n\nt_obj=" << t_obj.briefDescription() << "\n";
- *            //for (auto it = range.first; it != range.second; ++it) {
- *              //boost::optional<model::ModelObject> mo = it->first;
- *              //WidgetLocation * wL = it->second;
- *              //if (mo) {
- *                //std::cout << "mo=" << mo->name().get()
- *                  //<< ", row=" << wL->row << ", subrow=";
- *                //if (boost::optional<int> sr = wL->subrow) {
- *                  //std::cout << sr;
- *                //} else {
- *                  //std::cout << "None";
- *                //}
- *                //std::cout << "\n";
- *              //}
- *            //}
- *          }
- */
-      } else {
-        // We only matched the row: (works for the Properties subtab probably)
-        if (m_filteredObjects.count(t_obj) != 0) {
-          LOG(Debug, t_obj.briefDescription() << " matched as row");
-          objectVisible = false;
-        }
-      }
-    }
     updateWidgetsImpl(t_row, t_subrow, objectSelected, objectVisible);
   }
 }
+
+void ObjectSelector::updateWidgetsImpl(const int t_row, const boost::optional<int>& t_subrow, bool t_objectSelected, bool t_objectVisible) {
+  std::set<std::pair<QWidget*, int>> widgetsToUpdate;
+  bool isSubRow = t_subrow.has_value();
+
+  // determine if we want to update the parent widget or the child widget
+  for (auto& widgetLoc : m_objToWidgetLocMap) {
+    // If the row corresponds
+    if (widgetLoc.second->row == t_row) {
+      // And there isn't any subrow, we get the parent
+      if (!isSubRow) {
+        widgetsToUpdate.insert(std::make_pair(widgetLoc.second->widget->parentWidget(), widgetLoc.second->column));
+        // Otherwise, the subrow needs to corresponds, and we hide that widget
+      } else if (t_subrow == widgetLoc.second->subrow) {
+        widgetsToUpdate.insert(std::make_pair(widgetLoc.second->widget, widgetLoc.second->column));
+        //widgetLoc.second->widget->setStyleSheet("");
+      }
+    }
+  }
+
+  // loop over list of determined widgets
+  for (auto& widget : widgetsToUpdate) {
+    m_grid->setCellProperties(widget.first, t_objectVisible, t_row, widget.second, t_objectSelected, isSubRow);
+  }
+}
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -686,8 +496,7 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
     checkBox->bind(t_mo, BoolGetter(std::bind(&CheckBoxConcept::get, checkBoxConcept.data(), t_mo)),
                    boost::optional<BoolSetter>(std::bind(&CheckBoxConcept::set, checkBoxConcept.data(), t_mo, std::placeholders::_1)));
 
-    isConnected = connect(checkBox, SIGNAL(stateChanged(int)), gridView(),
-                          SLOT(requestRefreshGrid()));  // TODO this is not the most efficient, by single row would be better
+    isConnected = connect(checkBox, SIGNAL(stateChanged(int)), gridView(), SLOT(refreshRow(int)));  
     OS_ASSERT(isConnected);
 
     isConnected = connect(checkBox, SIGNAL(stateChanged(int)), gridView(), SIGNAL(gridRowSelectionChanged(int)));
@@ -732,8 +541,9 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
 
     widget = comboBox;
 
-    isConnected = connect(comboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(onComboBoxIndexChanged(int)));
-    OS_ASSERT(isConnected);
+    // This onComboBoxIndexChanged slot does nothing
+    //isConnected = connect(comboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(onComboBoxIndexChanged(int)));
+    //OS_ASSERT(isConnected);
 
   } else if (QSharedPointer<ValueEditConcept<double>> doubleEditConcept = t_baseConcept.dynamicCast<ValueEditConcept<double>>()) {
 
@@ -1220,7 +1030,7 @@ OSGridView* OSGridController::gridView() {
   return gridView;
 }
 
-// Evan: Required for Qt to respect style sheet commands
+
 QString OSGridController::cellStyle() {
   const static QString style = 
   "QWidget#TableCell[selected=\"true\"]{ border: none; background-color: #94b3de; border-top: 1px solid black;  border-right: 1px solid black; border-bottom: 1px solid black;}"
@@ -1235,6 +1045,8 @@ void OSGridController::setCellProperties(QWidget* wrapper, bool isVisible, int r
   bool isEven = ((rowIndex % 2) == 0);
   bool isChanged = false;
 
+  wrapper->setVisible(isVisible);
+
   QVariant currentSelected = wrapper->property("selected");
   if (currentSelected.isNull() || currentSelected.toBool() != isSelected) {
     wrapper->setProperty("selected", isSelected);
@@ -1247,10 +1059,10 @@ void OSGridController::setCellProperties(QWidget* wrapper, bool isVisible, int r
     isChanged = true;
   }  
 
-  //if (isChanged) {
-  //  wrapper->style()->unpolish(wrapper);
-  //  wrapper->style()->polish(wrapper);
-  //}
+  if (isChanged) {
+    wrapper->style()->unpolish(wrapper);
+    wrapper->style()->polish(wrapper);
+  }
 
 }
 
@@ -1739,7 +1551,7 @@ void OSGridController::selectAllStateChanged(const int newState) const {
   if (newState == 0) {
     objectSelector->clearSelection();
   } else {
-    objectSelector->selectAll();
+    objectSelector->selectAllVisible();
   }
 }
 
@@ -1756,7 +1568,7 @@ void OSGridController::onInFocus(bool inFocus, bool /*hasData*/, int row, int co
 
     m_selectedCellLocation = std::make_tuple(row, column, subrow);
 
-    std::set<model::ModelObject> selectedObjects = this->m_objectSelector->getSelectedObjects();
+    std::set<model::ModelObject> selectedObjects = this->m_objectSelector->selectedObjects();
 
     QSharedPointer<DataSourceAdapter> dataSource = m_baseConcepts[column].dynamicCast<DataSourceAdapter>();
     if (selectedSubrow && dataSource) {
@@ -1838,7 +1650,7 @@ void OSGridController::setApplyButtonState() {
 }
 
 std::vector<model::ModelObject> OSGridController::selectedObjects() const {
-  const auto objs = this->getObjectSelector()->getSelectedObjects();
+  const auto objs = this->getObjectSelector()->selectedObjects();
 
   return std::vector<model::ModelObject>(objs.cbegin(), objs.cend());
 }

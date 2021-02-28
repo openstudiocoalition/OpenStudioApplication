@@ -51,6 +51,7 @@ class SpacesSurfacesGridView : public SpacesSubtabGridView
   virtual ~SpacesSurfacesGridView() {}
 
  private:
+
   REGISTER_LOGGER("openstudio.SpacesSurfacesGridView");
 
  protected slots:

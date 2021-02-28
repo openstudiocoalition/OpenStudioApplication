@@ -44,6 +44,7 @@ class QLabel;
 class QShowEvent;
 class QString;
 class QLayoutItem;
+class OpenStudioLibFixture;
 
 namespace openstudio {
 
@@ -92,6 +93,8 @@ class OSGridView : public QWidget
 
   void refreshAll();
 
+  void refreshRow(int row);
+
   void requestRefreshAll();
 
   void requestRefreshGrid();
@@ -111,6 +114,10 @@ class OSGridView : public QWidget
   void selectRowDeterminedByModelSubTabView();
 
  private:
+  
+  // For testing
+  friend class OpenStudioLibFixture;
+
   enum QueueType
   {
     AddRow,
