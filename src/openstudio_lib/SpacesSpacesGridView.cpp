@@ -132,7 +132,7 @@ void SpacesSpacesGridController::setCategoriesAndFields() {
     fields.push_back(DEFAULTSCHEDULESET);
     fields.push_back(PARTOFTOTALFLOORAREA);
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("General"), fields);
-    m_categoriesAndFields.push_back(categoryAndFields);
+    addCategoryAndFields(categoryAndFields);
   }
 
   {
@@ -141,7 +141,7 @@ void SpacesSpacesGridController::setCategoriesAndFields() {
     fields.push_back(SPACEINFILTRATIONDESIGNFLOWRATES);
     fields.push_back(SPACEINFILTRATIONEFFECTIVELEAKAGEAREAS);
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Airflow"), fields);
-    m_categoriesAndFields.push_back(categoryAndFields);
+    addCategoryAndFields(categoryAndFields);
   }
 
   OSGridController::setCategoriesAndFields();
@@ -155,7 +155,7 @@ void SpacesSpacesGridController::addColumns(const QString& category, std::vector
   // always show name and selected columns
   fields.insert(fields.begin(), {NAME, SELECTED});
 
-  m_baseConcepts.clear();
+  resetBaseConcepts();
 
   for (const auto& field : fields) {
 
@@ -285,7 +285,7 @@ QString SpacesSpacesGridController::getColor(const model::ModelObject& modelObje
 }
 
 void SpacesSpacesGridController::checkSelectedFields() {
-  if (!this->m_hasHorizontalHeader) return;
+  if (!this->hasHorizontalHeader()) return;
 
   OSGridController::checkSelectedFields();
 }
@@ -293,9 +293,10 @@ void SpacesSpacesGridController::checkSelectedFields() {
 void SpacesSpacesGridController::onItemDropped(const OSItemId& itemId) {}
 
 void SpacesSpacesGridController::refreshModelObjects() {
-  auto spaces = m_model.getModelObjects<model::Space>();
-  m_modelObjects = subsetCastVector<model::ModelObject>(spaces);
-  std::sort(m_modelObjects.begin(), m_modelObjects.end(), openstudio::WorkspaceObjectNameLess());
+  auto spaces = model().getModelObjects<model::Space>();
+  std::sort(spaces.begin(), spaces.end(), openstudio::WorkspaceObjectNameLess());
+  setModelObjects(subsetCastVector<model::ModelObject>(spaces));
+  
 }
 
 }  // namespace openstudio

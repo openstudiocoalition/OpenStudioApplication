@@ -123,7 +123,7 @@ void SpacesInteriorPartitionsGridController::setCategoriesAndFields() {
     //fields.push_back(SURFACEAREA);
     //fields.push_back(DAYLIGHTINGSHELFNAME);
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("General"), fields);
-    m_categoriesAndFields.push_back(categoryAndFields);
+    addCategoryAndFields(categoryAndFields);
   }
 
   OSGridController::setCategoriesAndFields();
@@ -137,7 +137,7 @@ void SpacesInteriorPartitionsGridController::addColumns(const QString& category,
   // always show name and selected columns
   fields.insert(fields.begin(), {NAME, SELECTED});
 
-  m_baseConcepts.clear();
+  resetBaseConcepts();
 
   for (const auto& field : fields) {
 
@@ -203,7 +203,7 @@ void SpacesInteriorPartitionsGridController::addColumns(const QString& category,
                               boost::optional<std::function<void(model::InteriorPartitionSurface*)>>(),
                               DataSource(allInteriorPartitionSurfaces, true));
       } else if (field == CONSTRUCTIONNAME) {
-        m_constructionColumn = 4;
+        setConstructionColumn(4);
         addDropZoneColumn(
           Heading(QString(CONSTRUCTIONNAME), true, false),
           CastNullAdapter<model::InteriorPartitionSurface>(&model::InteriorPartitionSurface::construction),
@@ -255,7 +255,7 @@ QString SpacesInteriorPartitionsGridController::getColor(const model::ModelObjec
 }
 
 void SpacesInteriorPartitionsGridController::checkSelectedFields() {
-  if (!this->m_hasHorizontalHeader) return;
+  if (!this->hasHorizontalHeader()) return;
 
   OSGridController::checkSelectedFields();
 }
@@ -263,8 +263,9 @@ void SpacesInteriorPartitionsGridController::checkSelectedFields() {
 void SpacesInteriorPartitionsGridController::onItemDropped(const OSItemId& itemId) {}
 
 void SpacesInteriorPartitionsGridController::refreshModelObjects() {
-  m_modelObjects = subsetCastVector<model::ModelObject>(m_model.getConcreteModelObjects<model::Space>());
-  std::sort(m_modelObjects.begin(), m_modelObjects.end(), openstudio::WorkspaceObjectNameLess());
+  auto spaces = model().getConcreteModelObjects<model::Space>();
+  std::sort(spaces.begin(), spaces.end(), openstudio::WorkspaceObjectNameLess());
+  setModelObjects(subsetCastVector<model::ModelObject>(spaces));
 }
 
 }  // namespace openstudio

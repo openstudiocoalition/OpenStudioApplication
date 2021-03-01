@@ -518,14 +518,14 @@ void SpacesSubtabGridView::storyFilterChanged(const QString& text) {
   if (text == ALL) {
     // nothing to filter
   } else if (text == UNASSIGNED) {
-    for (auto obj : this->m_gridController->m_modelObjects) {
+    for (auto obj : this->m_gridController->modelObjects()) {
       if (obj.cast<model::Space>().buildingStory()) {
         m_objectsFilteredByStory.insert(obj);
       }
     }
   } else {
     // OSGridController::m_modelObjects returns the Spaces
-    for (auto obj : this->m_gridController->m_modelObjects) {
+    for (auto obj : this->m_gridController->modelObjects()) {
       auto buildingStory = obj.cast<model::Space>().buildingStory();
       if (!buildingStory || !buildingStory->name() || (buildingStory && buildingStory->name() && buildingStory->name().get().c_str() != text)) {
         m_objectsFilteredByStory.insert(obj);
@@ -542,14 +542,14 @@ void SpacesSubtabGridView::thermalZoneFilterChanged(const QString& text) {
   if (text == ALL) {
     // nothing to filter
   } else if (text == UNASSIGNED) {
-    for (auto obj : this->m_gridController->m_modelObjects) {
+    for (auto obj : this->m_gridController->modelObjects()) {
       if (obj.cast<model::Space>().thermalZone()) {
         m_objectsFilteredByThermalZone.insert(obj);
       }
     }
   } else {
     // OSGridController::m_modelObjects returns the Spaces
-    for (auto obj : this->m_gridController->m_modelObjects) {
+    for (auto obj : this->m_gridController->modelObjects()) {
       auto thermalZone = obj.cast<model::Space>().thermalZone();
       if (!thermalZone || !thermalZone->name() || (thermalZone && thermalZone->name() && thermalZone->name().get().c_str() != text)) {
         m_objectsFilteredByThermalZone.insert(obj);
@@ -566,14 +566,14 @@ void SpacesSubtabGridView::spaceTypeFilterChanged(const QString& text) {
   if (text == ALL) {
     // nothing to filter
   } else if (text == UNASSIGNED) {
-    for (auto obj : this->m_gridController->m_modelObjects) {
+    for (auto obj : this->m_gridController->modelObjects()) {
       if (obj.cast<model::Space>().spaceType()) {
         m_objectsFilteredBySpaceType.insert(obj);
       }
     }
   } else {
     // OSGridController::m_modelObjects returns the Spaces
-    for (auto obj : this->m_gridController->m_modelObjects) {
+    for (auto obj : this->m_gridController->modelObjects()) {
       // LOG(Debug, "spaceTypeFilterChanged, obj=" << obj.briefDescription());
       auto spaceType = obj.cast<model::Space>().spaceType();
       if (!spaceType || !spaceType->name() || (spaceType && spaceType->name() && spaceType->name().get().c_str() != text)) {
@@ -636,7 +636,7 @@ void SpacesSubtabGridView::spaceNameFilterChanged() {
   if (m_spaceNameFilter->text().isEmpty()) {
     // nothing to filter
   } else {
-    for (auto obj : this->m_gridController->m_modelObjects) {
+    for (auto obj : this->m_gridController->modelObjects()) {
       QString objName(obj.name().get().c_str());
       if (!objName.contains(m_spaceNameFilter->text(), Qt::CaseInsensitive)) {
         m_objectsFilteredBySpaceName.insert(obj);

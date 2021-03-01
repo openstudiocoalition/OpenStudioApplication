@@ -252,7 +252,7 @@ void FacilityStoriesGridController::setCategoriesAndFields() {
     fields.push_back(DEFAULTCONSTRUCTIONSETNAME);
     fields.push_back(DEFAULTSCHEDULESETNAME);
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("General"), fields);
-    m_categoriesAndFields.push_back(categoryAndFields);
+    addCategoryAndFields(categoryAndFields);
   }
 
   OSGridController::setCategoriesAndFields();
@@ -266,7 +266,7 @@ void FacilityStoriesGridController::addColumns(const QString& category, std::vec
   // always show name and selected columns
   fields.insert(fields.begin(), {NAME, SELECTED});
 
-  m_baseConcepts.clear();
+  resetBaseConcepts();
 
   for (const auto& field : fields) {
 
@@ -281,10 +281,10 @@ void FacilityStoriesGridController::addColumns(const QString& category, std::vec
 
       addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row");
     } else if (field == NOMINALZCOORDINATE) {
-      addQuantityEditColumn(Heading(QString(NOMINALFLOORTOFLOORHEIGHT)), QString("m"), QString("m"), QString("ft"), m_isIP,
+      addQuantityEditColumn(Heading(QString(NOMINALFLOORTOFLOORHEIGHT)), QString("m"), QString("m"), QString("ft"), isIP(),
                             NullAdapter(&model::BuildingStory::nominalZCoordinate), NullAdapter(&model::BuildingStory::setNominalZCoordinate));
     } else if (field == NOMINALFLOORTOFLOORHEIGHT) {
-      addQuantityEditColumn(Heading(QString(NOMINALFLOORTOFLOORHEIGHT)), QString("m"), QString("m"), QString("ft"), m_isIP,
+      addQuantityEditColumn(Heading(QString(NOMINALFLOORTOFLOORHEIGHT)), QString("m"), QString("m"), QString("ft"), isIP(),
                             NullAdapter(&model::BuildingStory::nominalFloortoFloorHeight),
                             NullAdapter(&model::BuildingStory::setNominalFloortoFloorHeight));
     } else if (field == DEFAULTCONSTRUCTIONSETNAME) {
@@ -303,7 +303,7 @@ void FacilityStoriesGridController::addColumns(const QString& category, std::vec
                               CastNullAdapter<model::BuildingStory>(&model::BuildingStory::renderingColor),
                               CastNullAdapter<model::BuildingStory>(&model::BuildingStory::setRenderingColor));
     } else if (field == NOMINALFLOORTOCEILINGHEIGHT) {
-      addQuantityEditColumn(Heading(QString(NOMINALFLOORTOCEILINGHEIGHT)), QString("m"), QString("m"), QString("ft"), m_isIP,
+      addQuantityEditColumn(Heading(QString(NOMINALFLOORTOCEILINGHEIGHT)), QString("m"), QString("m"), QString("ft"), isIP(),
                             NullAdapter(&model::BuildingStory::nominalFloortoCeilingHeight),
                             NullAdapter(&model::BuildingStory::setNominalFloortoCeilingHeight));
     } else {
@@ -319,7 +319,7 @@ QString FacilityStoriesGridController::getColor(const model::ModelObject& modelO
 }
 
 void FacilityStoriesGridController::checkSelectedFields() {
-  if (!this->m_hasHorizontalHeader) return;
+  if (!this->hasHorizontalHeader()) return;
 
   OSGridController::checkSelectedFields();
 }
@@ -327,8 +327,9 @@ void FacilityStoriesGridController::checkSelectedFields() {
 void FacilityStoriesGridController::onItemDropped(const OSItemId& itemId) {}
 
 void FacilityStoriesGridController::refreshModelObjects() {
-  m_modelObjects = subsetCastVector<model::ModelObject>(m_model.getConcreteModelObjects<model::BuildingStory>());
-  std::sort(m_modelObjects.begin(), m_modelObjects.end(), openstudio::WorkspaceObjectNameLess());
+  auto stories = model().getConcreteModelObjects<model::BuildingStory>();
+  std::sort(stories.begin(), stories.end(), openstudio::WorkspaceObjectNameLess());
+  setModelObjects(subsetCastVector<model::ModelObject>(stories));
 }
 
 }  // namespace openstudio

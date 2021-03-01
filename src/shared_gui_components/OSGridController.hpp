@@ -300,30 +300,11 @@ class OSGridController : public QObject, public Nano::Observer
 
   std::vector<model::ModelObject> selectedObjects() const;
 
-  static QSharedPointer<BaseConcept> makeDataSourceAdapter(const QSharedPointer<BaseConcept>& t_inner, const boost::optional<DataSource>& t_source) {
-    if (t_source) {
-      return QSharedPointer<BaseConcept>(new DataSourceAdapter(*t_source, t_inner));
-    } else {
-      // if there is no t_source passed in, we don't want to wrap, just pass through
-      return t_inner;
-    }
-  }
+  static QSharedPointer<BaseConcept> makeDataSourceAdapter(const QSharedPointer<BaseConcept>& t_inner, const boost::optional<DataSource>& t_source);
 
-  void addSelectColumn(const Heading& heading, const std::string& tooltip, const boost::optional<DataSource>& t_source = boost::none) {
-    auto objectSelector = m_objectSelector;
-    auto getter = std::function<bool(model::ModelObject*)>([objectSelector](model::ModelObject* t_obj) -> bool {
-      assert(t_obj);
-      return objectSelector->getObjectSelected(*t_obj);
-    });
+  void resetBaseConcepts();
 
-    auto setter = std::function<void(model::ModelObject*, bool)>([objectSelector](model::ModelObject* t_obj, bool t_set) {
-      assert(t_obj);
-      objectSelector->setObjectSelected(*t_obj, t_set);
-    });
-
-    addCheckBoxColumn(heading, tooltip, getter, setter, t_source);
-    m_baseConcepts.back()->setIsSelector(true);
-  }
+  void addSelectColumn(const Heading& heading, const std::string& tooltip, const boost::optional<DataSource>& t_source = boost::none);
 
   template <typename DataSourceType>
   void addCheckBoxColumn(const Heading& heading, const std::string& tooltip, std::function<bool(DataSourceType*)> t_getter,
@@ -551,26 +532,74 @@ class OSGridController : public QObject, public Nano::Observer
 
   std::shared_ptr<ObjectSelector> getObjectSelector() const {
     return m_objectSelector;
-  }
-
-  IddObjectType m_iddObjectType;
-
-  std::vector<model::ModelObject> m_modelObjects;
-
-  std::vector<model::ModelObject> m_inheritedModelObjects;
+  }  
 
   model::Model& model() {
     return m_model;
   }
 
+  std::vector<model::ModelObject> modelObjects() const;
+
   OSGridView* gridView();
+
+  IddObjectType iddObjectType() const;
+
+ private:
+
+  IddObjectType m_iddObjectType;
+
+  std::vector<model::ModelObject> m_modelObjects; 
+
+  std::vector<model::ModelObject> m_inheritedModelObjects; 
 
   // If a column contains information about a construction, it may be an inherited construction
   // (as determined by calling PlanarSurface::isConstructionDefaulted). An instantiated gridview
   // should set this value, if appropriate.
   int m_constructionColumn = -1;
 
+  std::vector<std::pair<QString, std::vector<QString>>> m_categoriesAndFields;
+
+  std::vector<QSharedPointer<BaseConcept>> m_baseConcepts;
+
+  std::vector<QWidget*> m_horizontalHeaders;
+
+  bool m_hasHorizontalHeader;
+
+  QString m_currentCategory;
+
+  int m_currentCategoryIndex;
+
+  std::vector<QString> m_currentFields;
+
+  std::vector<QString> m_customFields;
+
+  static const std::vector<QColor> m_colors;
+
+  model::Model m_model;
+
+  bool m_isIP;
+
+  unsigned m_subrowCounter = 0;
+
+  std::vector<bool> m_subrowsInherited = std::vector<bool>();
+
  protected:
+  
+  bool isIP() const;
+
+  bool hasHorizontalHeader() const;
+  std::vector<QWidget*> horizontalHeaders() const;
+
+  void setConstructionColumn(int constructionColumn);
+
+  void setModelObjects(const std::vector<model::ModelObject>& modelObjects);
+
+  std::vector<model::ModelObject> inheritedModelObjects() const;
+  void setInheritedModelObjects(const std::vector<model::ModelObject>& inheritedModelObjects);
+
+  void addCategoryAndFields(const std::pair<QString, std::vector<QString>>& categoryAndFields);
+  void resetCategoryAndFields();
+
   // This function determines the category for
   // each button, and the fields associated with
   // each category
@@ -596,32 +625,6 @@ class OSGridController : public QObject, public Nano::Observer
   virtual void checkSelectedFields();
 
   void checkSelectedFields(int category);
-
-  std::vector<std::pair<QString, std::vector<QString>>> m_categoriesAndFields;
-
-  std::vector<QSharedPointer<BaseConcept>> m_baseConcepts;
-
-  std::vector<QWidget*> m_horizontalHeader;
-
-  bool m_hasHorizontalHeader;
-
-  QString m_currentCategory;
-
-  int m_currentCategoryIndex;
-
-  std::vector<QString> m_currentFields;
-
-  std::vector<QString> m_customFields;
-
-  static const std::vector<QColor> m_colors;
-
-  model::Model m_model;
-
-  bool m_isIP;
-
-  unsigned m_subrowCounter = 0;
-
-  std::vector<bool> m_subrowsInherited = std::vector<bool>();
 
   REGISTER_LOGGER("openstudio.OSGridController");
 
@@ -682,8 +685,6 @@ class OSGridController : public QObject, public Nano::Observer
   virtual void onComboBoxIndexChanged(int index);
 
   void onSelectionCleared();
-
-  void refreshGrid();
 
   void requestRefreshGrid();
 

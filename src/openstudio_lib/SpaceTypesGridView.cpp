@@ -332,7 +332,7 @@ void SpaceTypesGridController::setCategoriesAndFields() {
     fields.push_back(SPACEINFILTRATIONDESIGNFLOWRATES);
     fields.push_back(SPACEINFILTRATIONEFFECTIVELEAKAGEAREAS);
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("General"), fields);
-    m_categoriesAndFields.push_back(categoryAndFields);
+    addCategoryAndFields(categoryAndFields);
   }
 
   {
@@ -343,7 +343,7 @@ void SpaceTypesGridController::setCategoriesAndFields() {
     fields.push_back(SCHEDULE);
     fields.push_back(ACTIVITYSCHEDULE);
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Loads"), fields);
-    m_categoriesAndFields.push_back(categoryAndFields);
+    addCategoryAndFields(categoryAndFields);
   }
 
   {
@@ -352,7 +352,7 @@ void SpaceTypesGridController::setCategoriesAndFields() {
     fields.push_back(STANDARDSBUILDINGTYPE);
     fields.push_back(STANDARDSSPACETYPE);
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Measure\nTags"), fields);
-    m_categoriesAndFields.push_back(categoryAndFields);
+    addCategoryAndFields(categoryAndFields);
   }
 
   OSGridController::setCategoriesAndFields();
@@ -448,7 +448,7 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
   // always show name and selected columns
   fields.insert(fields.begin(), {NAME, SELECTED});
 
-  m_baseConcepts.clear();
+  resetBaseConcepts();
 
   for (const auto& field : fields) {
 
@@ -1456,7 +1456,7 @@ QString SpaceTypesGridController::getColor(const model::ModelObject& modelObject
 }
 
 void SpaceTypesGridController::checkSelectedFields() {
-  if (!this->m_hasHorizontalHeader) return;
+  if (!this->hasHorizontalHeader()) return;
 
   OSGridController::checkSelectedFields();
 }
@@ -1465,20 +1465,18 @@ void SpaceTypesGridController::onItemDropped(const OSItemId& itemId) {
   boost::optional<model::ModelObject> modelObject = OSAppBase::instance()->currentDocument()->getModelObject(itemId);
   if (modelObject) {
     if (modelObject->optionalCast<model::SpaceType>()) {
-      modelObject->clone(m_model);
+      modelObject->clone(model());
       emit modelReset();
     }
   }
 }
 
 void SpaceTypesGridController::refreshModelObjects() {
-  std::vector<model::SpaceType> spaceTypes = m_model.getConcreteModelObjects<model::SpaceType>();
-  m_modelObjects = subsetCastVector<model::ModelObject>(spaceTypes);
-  std::sort(m_modelObjects.begin(), m_modelObjects.end(), openstudio::WorkspaceObjectNameLess());
+  std::vector<model::SpaceType> spaceTypes = model().getConcreteModelObjects<model::SpaceType>();
+  std::sort(spaceTypes.begin(), spaceTypes.end(), openstudio::WorkspaceObjectNameLess());
+  setModelObjects(subsetCastVector<model::ModelObject>(spaceTypes));
 }
 
-void SpaceTypesGridController::onComboBoxIndexChanged(int index) {
-  std::cout << "index=" << index;
-}
+void SpaceTypesGridController::onComboBoxIndexChanged(int index) {}
 
 }  // namespace openstudio

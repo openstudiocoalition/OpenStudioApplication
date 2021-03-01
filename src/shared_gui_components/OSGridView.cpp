@@ -445,7 +445,7 @@ void OSGridView::addWidget(QWidget* w, int row, int column) {
 void OSGridView::selectCategory(int index) {
   m_gridController->categorySelected(index);
 
-  requestRefreshAll();
+  requestRefreshAll(); // DLM: acceptable use of requestRefreshAll
 }
 
 ModelSubTabView* OSGridView::modelSubTabView() {

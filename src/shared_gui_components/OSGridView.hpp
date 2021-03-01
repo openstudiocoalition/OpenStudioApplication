@@ -135,7 +135,7 @@ class OSGridView : public QWidget
 
   void setGridController(OSGridController* gridController);
 
-  static const int ROWS_PER_LAYOUT = 100;
+  static const int ROWS_PER_LAYOUT = 100000000;
 
   std::vector<QGridLayout*> m_gridLayouts;
 

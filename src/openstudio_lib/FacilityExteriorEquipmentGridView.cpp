@@ -124,7 +124,7 @@ void FacilityExteriorEquipmentGridController::setCategoriesAndFields() {
     fields.push_back(MULTIPLIER);
     fields.push_back(ENDUSESUBCATEGORY);
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Exterior Lights"), fields);
-    m_categoriesAndFields.push_back(categoryAndFields);
+    addCategoryAndFields(categoryAndFields);
   }
 
   OSGridController::setCategoriesAndFields();
@@ -138,7 +138,7 @@ void FacilityExteriorEquipmentGridController::addColumns(const QString& category
   // always show name and selected columns
   fields.insert(fields.begin(), {NAME, SELECTED});
 
-  m_baseConcepts.clear();
+  resetBaseConcepts();
 
   for (const auto& field : fields) {
 
@@ -210,16 +210,17 @@ QString FacilityExteriorEquipmentGridController::getColor(const model::ModelObje
 }
 
 void FacilityExteriorEquipmentGridController::checkSelectedFields() {
-  if (!this->m_hasHorizontalHeader) return;
+  if (!this->hasHorizontalHeader()) return;
 
   OSGridController::checkSelectedFields();
 }
 
 void FacilityExteriorEquipmentGridController::onItemDropped(const OSItemId& itemId) {}
 
-void FacilityExteriorEquipmentGridController::refreshModelObjects() {
-  m_modelObjects = subsetCastVector<model::ModelObject>(m_model.getConcreteModelObjects<model::ExteriorLights>());
-  std::sort(m_modelObjects.begin(), m_modelObjects.end(), openstudio::WorkspaceObjectNameLess());
+void FacilityExteriorEquipmentGridController::refreshModelObjects() { 
+  auto lights = model().getConcreteModelObjects<model::ExteriorLights>();
+  std::sort(lights.begin(), lights.end(), openstudio::WorkspaceObjectNameLess());
+  setModelObjects(subsetCastVector<model::ModelObject>(lights));
 }
 
 void FacilityExteriorEquipmentGridController::onComboBoxIndexChanged(int index) {}

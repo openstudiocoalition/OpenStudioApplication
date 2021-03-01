@@ -184,7 +184,7 @@ void SpacesSubsurfacesGridController::setCategoriesAndFields() {
     fields.push_back(OUTSIDEBOUNDARYCONDITIONOBJECT);
     //fields.push_back(SHADINGSURFACENAME);
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("General"), fields);
-    m_categoriesAndFields.push_back(categoryAndFields);
+    addCategoryAndFields(categoryAndFields);
   }
 
   {
@@ -204,7 +204,7 @@ void SpacesSubsurfacesGridController::setCategoriesAndFields() {
     //fields.push_back(SLATANGLESCHEDULENAME);           IN IDD, BUT NOT EXPOSED IN MODEL OBJECT
     //fields.push_back(SETPOINT2);                       IN IDD, BUT NOT EXPOSED IN MODEL OBJECT
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Shading Controls"), fields);
-    m_categoriesAndFields.push_back(categoryAndFields);
+    addCategoryAndFields(categoryAndFields);
   }
 
   {
@@ -238,7 +238,7 @@ void SpacesSubsurfacesGridController::setCategoriesAndFields() {
     fields.push_back(INSIDEREVEALDEPTH);
     fields.push_back(INSIDEREVEALSOLARABSORPTANCE);
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Frame and Divider"), fields);
-    m_categoriesAndFields.push_back(categoryAndFields);
+    addCategoryAndFields(categoryAndFields);
   }
 
   {
@@ -251,7 +251,7 @@ void SpacesSubsurfacesGridController::setCategoriesAndFields() {
     fields.push_back(OUTSIDESHELFNAME);
     fields.push_back(VIEWFACTORTOOUTSIDESHELF);
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Daylighting Shelves"), fields);
-    m_categoriesAndFields.push_back(categoryAndFields);
+    addCategoryAndFields(categoryAndFields);
   }
 
   OSGridController::setCategoriesAndFields();
@@ -265,7 +265,7 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
   // always show name and selected columns
   fields.insert(fields.begin(), {NAME, SELECTED});
 
-  m_baseConcepts.clear();
+  resetBaseConcepts();
 
   for (const auto& field : fields) {
 
@@ -414,7 +414,7 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
                            boost::optional<std::function<bool(model::SubSurface*)>>(NullAdapter(&model::SubSurface::isMultiplierDefaulted)),
                            DataSource(allSubSurfaces, true));
       } else if (field == CONSTRUCTION) {
-        m_constructionColumn = 6;
+        setConstructionColumn(6);
         addDropZoneColumn(Heading(QString(CONSTRUCTION)), CastNullAdapter<model::SubSurface>(&model::SubSurface::construction),
                           CastNullAdapter<model::SubSurface>(&model::SubSurface::setConstruction),
                           boost::optional<std::function<void(model::SubSurface*)>>(NullAdapter(&model::SubSurface::resetConstruction)),
@@ -753,7 +753,7 @@ QString SpacesSubsurfacesGridController::getColor(const model::ModelObject& mode
 }
 
 void SpacesSubsurfacesGridController::checkSelectedFields() {
-  if (!this->m_hasHorizontalHeader) return;
+  if (!this->hasHorizontalHeader()) return;
 
   OSGridController::checkSelectedFields();
 }
@@ -761,8 +761,9 @@ void SpacesSubsurfacesGridController::checkSelectedFields() {
 void SpacesSubsurfacesGridController::onItemDropped(const OSItemId& itemId) {}
 
 void SpacesSubsurfacesGridController::refreshModelObjects() {
-  m_modelObjects = subsetCastVector<model::ModelObject>(m_model.getConcreteModelObjects<model::Space>());
-  std::sort(m_modelObjects.begin(), m_modelObjects.end(), openstudio::WorkspaceObjectNameLess());
+  auto spaces = model().getConcreteModelObjects<model::Space>();
+  std::sort(spaces.begin(), spaces.end(), openstudio::WorkspaceObjectNameLess());
+  setModelObjects(subsetCastVector<model::ModelObject>(spaces));
 }
 
 }  // namespace openstudio

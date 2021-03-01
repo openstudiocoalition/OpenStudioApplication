@@ -434,7 +434,7 @@ void FacilityShadingGridController::setCategoriesAndFields() {
     fields.push_back(TRANSMITTANCESCHEDULENAME);
     fields.push_back(CONSTRUCTIONNAME);
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("General"), fields);
-    m_categoriesAndFields.push_back(categoryAndFields);
+    addCategoryAndFields(categoryAndFields);
   }
 
   OSGridController::setCategoriesAndFields();
@@ -449,7 +449,7 @@ void FacilityShadingGridController::addColumns(const QString& category, std::vec
   // show type next to name, since it comes from the groups
   fields.insert(fields.begin(), {NAME, TYPE, SELECTED});
 
-  m_baseConcepts.clear();
+  resetBaseConcepts();
 
   for (const auto& field : fields) {
 
@@ -534,7 +534,7 @@ QString FacilityShadingGridController::getColor(const model::ModelObject& modelO
 }
 
 void FacilityShadingGridController::checkSelectedFields() {
-  if (!this->m_hasHorizontalHeader) return;
+  if (!this->hasHorizontalHeader()) return;
 
   OSGridController::checkSelectedFields();
 }
@@ -542,17 +542,17 @@ void FacilityShadingGridController::checkSelectedFields() {
 void FacilityShadingGridController::onItemDropped(const OSItemId& itemId) {}
 
 void FacilityShadingGridController::refreshModelObjects() {
-  std::vector<model::ShadingSurfaceGroup> shadingGroups = m_model.getConcreteModelObjects<model::ShadingSurfaceGroup>();
+  auto shadingGroups = model().getConcreteModelObjects<model::ShadingSurfaceGroup>();
+
   // Filter out the 'Space' shadingSurfaceTypes
   // These are displayed on the Space's "Shading" subtab
   shadingGroups.erase(std::remove_if(shadingGroups.begin(), shadingGroups.end(),
                                      [](const model::ShadingSurfaceGroup& sg) { return sg.shadingSurfaceType() == "Space"; }),
                       shadingGroups.end());
+  
+  std::sort(shadingGroups.begin(), shadingGroups.end(), openstudio::WorkspaceObjectNameLess());
 
-  m_modelObjects = subsetCastVector<model::ModelObject>(shadingGroups);
-
-  // Sort them
-  std::sort(m_modelObjects.begin(), m_modelObjects.end(), openstudio::WorkspaceObjectNameLess());
+  setModelObjects(subsetCastVector<model::ModelObject>(shadingGroups));
 }
 
 }  // namespace openstudio

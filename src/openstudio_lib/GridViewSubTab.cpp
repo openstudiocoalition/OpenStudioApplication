@@ -109,7 +109,7 @@ void GridViewSubTab::onAddClicked() {
   if (m_supportsMultipleObjectSelection || m_gridController->selectedObjects().size() == 1) {
     // Always make at least one
     if (!m_gridController->selectedObjects().size()) {
-      addObject(m_gridController->m_iddObjectType);
+      addObject(m_gridController->iddObjectType());
     } else {
       for (auto& obj : m_gridController->selectedObjects()) {
         addObject(obj);

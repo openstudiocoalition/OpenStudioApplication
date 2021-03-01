@@ -140,6 +140,9 @@ void ObjectSelector::addWidget(const boost::optional<model::ModelObject>& t_obj,
 void ObjectSelector::objectRemoved(const openstudio::model::ModelObject& t_obj) {
   // std::cout << " Object removed\n";
 
+  // see also onRemoveWorkspaceObject
+  // don't update widgets here, gridView is going to remove the row with all widgets
+
   m_selectedObjects.erase(t_obj);
   m_selectableObjects.erase(t_obj);
   m_objToWidgetLocMap.erase(boost::optional<model::ModelObject>(t_obj));
@@ -338,7 +341,7 @@ OSGridController::OSGridController(bool isIP, const QString& headerText, IddObje
     m_modelObjects(modelObjects),
     m_categoriesAndFields(std::vector<std::pair<QString, std::vector<QString>>>()),
     m_baseConcepts(std::vector<QSharedPointer<BaseConcept>>()),
-    m_horizontalHeader(std::vector<QWidget*>()),
+    m_horizontalHeaders(std::vector<QWidget*>()),
     m_hasHorizontalHeader(true),
     m_currentCategory(QString()),
     m_currentCategoryIndex(0),
@@ -362,11 +365,6 @@ void OSGridController::requestRefreshGrid() {
   gridView()->requestRefreshGrid();
 }
 
-void OSGridController::refreshGrid() {
-  // Never hit
-  OS_ASSERT(false);
-}
-
 void OSGridController::loadQSettings() {
   QSettings settings("OpenStudio", m_headerText);
   auto temp = settings.value("customFields").toStringList().toVector();
@@ -384,10 +382,54 @@ void OSGridController::saveQSettings() const {
   settings.setValue("customCategories", list);
 }
 
+IddObjectType OSGridController::iddObjectType() const { 
+  return m_iddObjectType; 
+}
+
+bool OSGridController::isIP() const {
+  return m_isIP;
+}
+
+bool OSGridController::hasHorizontalHeader() const {
+  return m_hasHorizontalHeader;
+}
+
+std::vector<QWidget*> OSGridController::horizontalHeaders() const {
+  return m_horizontalHeaders;
+}
+
+void OSGridController::setConstructionColumn(int constructionColumn){
+  m_constructionColumn = constructionColumn;
+}
+
+std::vector<model::ModelObject> OSGridController::modelObjects() const { 
+  return m_modelObjects; 
+}
+
+void OSGridController::setModelObjects(const std::vector<model::ModelObject>& modelObjects) {
+  m_modelObjects = modelObjects; 
+}
+
+std::vector<model::ModelObject> OSGridController::inheritedModelObjects() const {
+  return m_inheritedModelObjects;
+}
+
+void OSGridController::setInheritedModelObjects(const std::vector<model::ModelObject>& inheritedModelObjects) {
+  m_inheritedModelObjects = inheritedModelObjects;
+}
+
+void OSGridController::addCategoryAndFields(const std::pair<QString, std::vector<QString>>& categoryAndFields) {
+  m_categoriesAndFields.push_back(categoryAndFields);
+}
+
+void OSGridController::resetCategoryAndFields() {
+  m_categoriesAndFields.clear();
+}
+
 void OSGridController::setCategoriesAndFields() {
   std::vector<QString> fields;
   std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Custom"), fields);
-  m_categoriesAndFields.push_back(categoryAndFields);
+  addCategoryAndFields(categoryAndFields);
 
   setCustomCategoryAndFields();
 }
@@ -419,7 +461,7 @@ void OSGridController::categorySelected(int index) {
 }
 
 void OSGridController::setHorizontalHeader() {
-  m_horizontalHeader.clear();
+  m_horizontalHeaders.clear();
 
   if (m_horizontalHeaderBtnGrp == nullptr) {
     m_horizontalHeaderBtnGrp = new QButtonGroup();
@@ -443,7 +485,7 @@ void OSGridController::setHorizontalHeader() {
   for (const QString& field : m_currentFields) {
     auto horizontalHeaderWidget = new HorizontalHeaderWidget(field, this->gridView());
     m_horizontalHeaderBtnGrp->addButton(horizontalHeaderWidget->m_checkBox, m_horizontalHeaderBtnGrp->buttons().size());
-    m_horizontalHeader.push_back(horizontalHeaderWidget);
+    m_horizontalHeaders.push_back(horizontalHeaderWidget);
   }
 
   checkSelectedFields();
@@ -1079,6 +1121,10 @@ QWidget* OSGridController::widgetAt(int row, int column) {
   // Also adds to layout, which is the layout of the main cell (wrapper).
   // holders and layout are accessible in the lambda through capture.
   // t_widget will be provided by ::makeWidget, it is the bindable control
+
+  ///////////////////////////////////////////////////////////////////////////////////////
+  // Begin lambda
+  ///////////////////////////////////////////////////////////////////////////////////////
   auto addWidget = [&](QWidget* t_widget, const boost::optional<model::ModelObject>& t_obj, const bool t_isSelector) {
     if (column == 0) {
       m_subrowsInherited.clear();
@@ -1139,19 +1185,22 @@ QWidget* OSGridController::widgetAt(int row, int column) {
     m_objectSelector->addWidget(t_obj, holder, row, column, hasSubRows ? numWidgets : boost::optional<int>(), t_isSelector);
 
     ++numWidgets;
-  };  // End of lambda
+  };  
+  ///////////////////////////////////////////////////////////////////////////////////////
+  // End of lambda
+  ///////////////////////////////////////////////////////////////////////////////////////
 
   if (m_hasHorizontalHeader && row == 0) {
     if (column == 0) {
       setHorizontalHeader();
       // Each concept should have its own column
-      OS_ASSERT(m_horizontalHeader.size() == m_baseConcepts.size());
+      OS_ASSERT(m_horizontalHeaders.size() == m_baseConcepts.size());
     }
     layout->setContentsMargins(0, 1, 1, 0);
-    addWidget(m_horizontalHeader.at(column), boost::none, false);
+    addWidget(m_horizontalHeaders.at(column), boost::none, false);
     QSharedPointer<BaseConcept> baseConcept = m_baseConcepts[column];
     const Heading& heading = baseConcept->heading();
-    HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeader.at(column));
+    HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeaders.at(column));
     OS_ASSERT(horizontalHeaderWidget);
     if (!heading.showCheckbox()) {
       horizontalHeaderWidget->m_checkBox->hide();
@@ -1251,7 +1300,7 @@ void OSGridController::checkSelectedFields() {
     it = std::find(m_currentFields.begin(), m_currentFields.end(), m_customFields.at(j));
     if (it != m_currentFields.end()) {
       int index = std::distance(m_currentFields.begin(), it);
-      HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeader.at(index));
+      HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeaders.at(index));
       OS_ASSERT(horizontalHeaderWidget);
       horizontalHeaderWidget->m_checkBox->blockSignals(true);
       horizontalHeaderWidget->m_checkBox->setChecked(true);
@@ -1486,7 +1535,7 @@ void OSGridController::onRemoveWorkspaceObject(const WorkspaceObject& object, co
   } else if (weHaveObject) {
     // we know we are tracking this object, but it's not one of the row-major ones...
     // must be a subrow... for now, not ideal, but let's queue a refresh of the grid
-    requestRefreshGrid();
+    requestRefreshGrid(); // TODO: fix
   }
   //}
 }
@@ -1504,6 +1553,9 @@ void OSGridController::onAddWorkspaceObject(const WorkspaceObject& object, const
 }
 
 void OSGridController::onObjectRemoved(boost::optional<model::ParentObject> parent) {
+  
+  // see also onRemoveWorkspaceObject
+  
   //  if (parent) {
   //    // We have a parent we can search for in our current list of modelObjects and just delete that 1 row
   //    // TODO replace this with a by-row refresh only
@@ -1513,7 +1565,7 @@ void OSGridController::onObjectRemoved(boost::optional<model::ParentObject> pare
   //    this->requestRefreshGrid();
   //  }
 
-  this->requestRefreshGrid();
+  this->requestRefreshGrid(); // TODO: fix
 }
 
 void OSGridController::selectAllStateChanged(const int newState) const {
@@ -1579,7 +1631,7 @@ void OSGridController::onInFocus(bool inFocus, bool /*hasData*/, int row, int co
     gridView()->requestRefreshGrid();  // TODO this is heavy handed; each cell should update itself
 
   } else {
-    HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeader.at(column));
+    HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeaders.at(column));
     OS_ASSERT(horizontalHeaderWidget);
     auto button = horizontalHeaderWidget->m_pushButton;
     OS_ASSERT(button);
@@ -1611,7 +1663,7 @@ void OSGridController::onInFocus(bool inFocus, bool /*hasData*/, int row, int co
 
 void OSGridController::setApplyButtonState() {
   for (auto pair : m_applyToButtonStates) {
-    HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeader.at(pair.first));
+    HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeaders.at(pair.first));
     OS_ASSERT(horizontalHeaderWidget);
     auto button = horizontalHeaderWidget->m_pushButton;
     OS_ASSERT(button);
@@ -1625,6 +1677,37 @@ std::vector<model::ModelObject> OSGridController::selectedObjects() const {
   const auto objs = this->getObjectSelector()->selectedObjects();
 
   return std::vector<model::ModelObject>(objs.cbegin(), objs.cend());
+}
+
+QSharedPointer<BaseConcept> OSGridController::makeDataSourceAdapter(const QSharedPointer<BaseConcept>& t_inner,
+                                                                    const boost::optional<DataSource>& t_source) {
+  if (t_source) {
+    return QSharedPointer<BaseConcept>(new DataSourceAdapter(*t_source, t_inner));
+  } else {
+    // if there is no t_source passed in, we don't want to wrap, just pass through
+    return t_inner;
+  }
+}
+
+void OSGridController::resetBaseConcepts() {
+  m_baseConcepts.clear();
+}
+
+void OSGridController::addSelectColumn(const Heading& heading, const std::string& tooltip,
+                                       const boost::optional<DataSource>& t_source) {
+  auto objectSelector = m_objectSelector;
+  auto getter = std::function<bool(model::ModelObject*)>([objectSelector](model::ModelObject* t_obj) -> bool {
+    assert(t_obj);
+    return objectSelector->getObjectSelected(*t_obj);
+  });
+
+  auto setter = std::function<void(model::ModelObject*, bool)>([objectSelector](model::ModelObject* t_obj, bool t_set) {
+    assert(t_obj);
+    objectSelector->setObjectSelected(*t_obj, t_set);
+  });
+
+  addCheckBoxColumn(heading, tooltip, getter, setter, t_source);
+  m_baseConcepts.back()->setIsSelector(true);
 }
 
 HorizontalHeaderPushButton::HorizontalHeaderPushButton(QWidget* parent) : QPushButton() {

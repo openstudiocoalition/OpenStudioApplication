@@ -146,7 +146,7 @@ void SpacesDaylightingGridController::setCategoriesAndFields() {
     //fields.push_back(NUMBEROFDAYLIGHTINGVIEWS);
     //fields.push_back(MAXIMUMALLOWABLEDISCOMFORTGLAREINDEX);
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Daylighting Controls"), fields);
-    m_categoriesAndFields.push_back(categoryAndFields);
+    addCategoryAndFields(categoryAndFields);
   }
 
   {
@@ -164,7 +164,7 @@ void SpacesDaylightingGridController::setCategoriesAndFields() {
     //fields.push_back(YLENGTH);
     //fields.push_back(NUMBEROFYGRIDPOINTS);
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Illuminance Maps"), fields);
-    m_categoriesAndFields.push_back(categoryAndFields);
+    addCategoryAndFields(categoryAndFields);
   }
 
   {
@@ -180,7 +180,7 @@ void SpacesDaylightingGridController::setCategoriesAndFields() {
     //fields.push_back(NUMBEROFGLAREVIEWVECTORS);
     //fields.push_back(MAXIMUMALLOWABLEDAYLIGHTGLAREPROBABILITY);
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Glare Sensors"), fields);
-    m_categoriesAndFields.push_back(categoryAndFields);
+    addCategoryAndFields(categoryAndFields);
   }
 
   OSGridController::setCategoriesAndFields();
@@ -194,7 +194,7 @@ void SpacesDaylightingGridController::addColumns(const QString& category, std::v
   // always show name and selected columns
   fields.insert(fields.begin(), {NAME, SELECTED});
 
-  m_baseConcepts.clear();
+  resetBaseConcepts();
 
   for (const auto& field : fields) {
 
@@ -418,7 +418,7 @@ QString SpacesDaylightingGridController::getColor(const model::ModelObject& mode
 }
 
 void SpacesDaylightingGridController::checkSelectedFields() {
-  if (!this->m_hasHorizontalHeader) return;
+  if (!this->hasHorizontalHeader()) return;
 
   OSGridController::checkSelectedFields();
 }
@@ -426,8 +426,10 @@ void SpacesDaylightingGridController::checkSelectedFields() {
 void SpacesDaylightingGridController::onItemDropped(const OSItemId& itemId) {}
 
 void SpacesDaylightingGridController::refreshModelObjects() {
-  m_modelObjects = subsetCastVector<model::ModelObject>(m_model.getConcreteModelObjects<model::Space>());
-  std::sort(m_modelObjects.begin(), m_modelObjects.end(), openstudio::WorkspaceObjectNameLess());
+  auto spaces = model().getConcreteModelObjects<model::Space>();
+  std::sort(spaces.begin(), spaces.end(), openstudio::WorkspaceObjectNameLess());
+  setModelObjects(subsetCastVector<model::ModelObject>(spaces));
+  
 }
 
 }  // namespace openstudio

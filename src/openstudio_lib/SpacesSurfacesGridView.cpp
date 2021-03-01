@@ -126,7 +126,7 @@ void SpacesSurfacesGridController::setCategoriesAndFields() {
     fields.push_back(WINDEXPOSURE);
     //fields.push_back(SHADINGSURFACENAME); // UNDESIRABLE TO SHOW THIS VECTOR IN THIS VIEW
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("General"), fields);
-    m_categoriesAndFields.push_back(categoryAndFields);
+    addCategoryAndFields(categoryAndFields);
   }
 
   OSGridController::setCategoriesAndFields();
@@ -140,7 +140,7 @@ void SpacesSurfacesGridController::addColumns(const QString& category, std::vect
   // always show name and selected columns
   fields.insert(fields.begin(), {NAME, SELECTED});
 
-  m_baseConcepts.clear();
+  resetBaseConcepts();
 
   for (const auto& field : fields) {
 
@@ -177,7 +177,7 @@ void SpacesSurfacesGridController::addColumns(const QString& category, std::vect
                           CastNullAdapter<model::Surface>(&model::Surface::setSurfaceType), boost::optional<std::function<void(model::Surface*)>>(),
                           boost::optional<std::function<bool(model::Surface*)>>(), DataSource(allSurfaces, true));
       } else if (field == CONSTRUCTION) {
-        m_constructionColumn = 4;
+        setConstructionColumn(4);
         addDropZoneColumn(Heading(QString(CONSTRUCTION)), CastNullAdapter<model::Surface>(&model::Surface::construction),
                           CastNullAdapter<model::Surface>(&model::Surface::setConstruction),
                           boost::optional<std::function<void(model::Surface*)>>(NullAdapter(&model::Surface::resetConstruction)),
@@ -232,7 +232,7 @@ QString SpacesSurfacesGridController::getColor(const model::ModelObject& modelOb
 }
 
 void SpacesSurfacesGridController::checkSelectedFields() {
-  if (!this->m_hasHorizontalHeader) return;
+  if (!this->hasHorizontalHeader()) return;
 
   OSGridController::checkSelectedFields();
 }
@@ -240,8 +240,9 @@ void SpacesSurfacesGridController::checkSelectedFields() {
 void SpacesSurfacesGridController::onItemDropped(const OSItemId& itemId) {}
 
 void SpacesSurfacesGridController::refreshModelObjects() {
-  m_modelObjects = subsetCastVector<model::ModelObject>(m_model.getConcreteModelObjects<model::Space>());
-  std::sort(m_modelObjects.begin(), m_modelObjects.end(), openstudio::WorkspaceObjectNameLess());
+  std::vector<model::Space> spaces = model().getConcreteModelObjects<model::Space>();
+  std::sort(spaces.begin(), spaces.end(), openstudio::WorkspaceObjectNameLess());
+  setModelObjects(subsetCastVector<model::ModelObject>(spaces));
 }
 
 }  // namespace openstudio

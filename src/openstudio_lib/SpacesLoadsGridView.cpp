@@ -164,7 +164,7 @@ void SpacesLoadsGridController::setCategoriesAndFields() {
     fields.push_back(SCHEDULE);
     fields.push_back(ACTIVITYSCHEDULE);
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("General"), fields);
-    m_categoriesAndFields.push_back(categoryAndFields);
+    addCategoryAndFields(categoryAndFields);
   }
 
   OSGridController::setCategoriesAndFields();
@@ -178,7 +178,7 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
   // always show name and selected columns
   fields.insert(fields.begin(), {NAME, SELECTED});
 
-  m_baseConcepts.clear();
+  resetBaseConcepts();
 
   for (const auto& field : fields) {
 
@@ -927,7 +927,7 @@ QString SpacesLoadsGridController::getColor(const model::ModelObject& modelObjec
 }
 
 void SpacesLoadsGridController::checkSelectedFields() {
-  if (!this->m_hasHorizontalHeader) return;
+  if (!this->hasHorizontalHeader()) return;
 
   OSGridController::checkSelectedFields();
 }
@@ -935,16 +935,18 @@ void SpacesLoadsGridController::checkSelectedFields() {
 void SpacesLoadsGridController::onItemDropped(const OSItemId& itemId) {}
 
 void SpacesLoadsGridController::refreshModelObjects() {
-  m_modelObjects = subsetCastVector<model::ModelObject>(m_model.getConcreteModelObjects<model::Space>());
-  std::sort(m_modelObjects.begin(), m_modelObjects.end(), openstudio::WorkspaceObjectNameLess());
-
-  m_inheritedModelObjects.clear();
-  for (auto modelObject : m_modelObjects) {
-    boost::optional<model::SpaceType> spaceType = modelObject.cast<model::Space>().spaceType();
-    if (spaceType) {
-      m_inheritedModelObjects.push_back(*spaceType);
-    }
-  }
+  auto spaces = model().getConcreteModelObjects<model::Space>();
+  std::sort(spaces.begin(), spaces.end(), openstudio::WorkspaceObjectNameLess());
+  setModelObjects(subsetCastVector<model::ModelObject>(spaces));
+  
+  // TODO: fix 
+  //m_inheritedModelObjects.clear();
+  //for (auto modelObject : m_modelObjects) {
+  //  boost::optional<model::SpaceType> spaceType = modelObject.cast<model::Space>().spaceType();
+  //  if (spaceType) {
+  //    m_inheritedModelObjects.push_back(*spaceType);
+  //  }
+  //}
 }
 
 }  // namespace openstudio
