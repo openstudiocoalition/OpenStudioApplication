@@ -115,6 +115,9 @@ class OSLineEdit2 : public QLineEdit, public Nano::Observer
   void emitItemClicked();
 
  private:
+  // For testing
+  friend class OpenStudioLibFixture;
+
   void onModelObjectChangeInternal(bool startingup);
   void completeBind();
   void adjustWidth();

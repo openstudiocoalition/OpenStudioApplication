@@ -111,6 +111,9 @@ class OSDropZone2 : public QWidget, public Nano::Observer
   void dropEvent(QDropEvent* event) override;
 
  private:
+  // For testing
+  friend class OpenStudioLibFixture;
+
   void makeItem();
 
   boost::optional<OptionalModelObjectGetter> m_get;

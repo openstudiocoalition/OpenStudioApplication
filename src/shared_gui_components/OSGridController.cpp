@@ -1049,7 +1049,6 @@ QString OSGridController::cellStyle() {
   "QWidget#TableCell[selected=\"true\"]{ border: none; background-color: #94b3de; border-top: 1px solid black;  border-right: 1px solid black; border-bottom: 1px solid black;}"
   "QWidget#TableCell[selected=\"false\"][even=\"true\"] { border: none; background-color: #ededed; border-top: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;}"
   "QWidget#TableCell[selected=\"false\"][even=\"false\"] { border: none; background-color: #cecece; border-top: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;}";
-  
 
   return style;
 }

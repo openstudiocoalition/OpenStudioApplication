@@ -34,11 +34,14 @@
 
 #include <openstudio/utilities/core/Logger.hpp>
 #include <openstudio/utilities/core/FileLogSink.hpp>
+#include <openstudio/model/ModelObject.hpp>
 
 namespace openstudio {
   class GridViewSubTab;
   class OSGridController;
   class OSGridView;
+  class OSDropZone2;
+  class OSLineEdit2;
 }
 
 class OpenStudioLibFixture : public ::testing::Test
@@ -62,6 +65,8 @@ class OpenStudioLibFixture : public ::testing::Test
   // Acceessors for private members
   openstudio::OSGridView* getGridView(openstudio::GridViewSubTab* gvst);
   openstudio::OSGridController* getGridController(openstudio::GridViewSubTab* gvst);
+  boost::optional<openstudio::model::ModelObject> getModelObject(openstudio::OSDropZone2* dropZone);
+  boost::optional<openstudio::model::ModelObject> getModelObject(openstudio::OSLineEdit2* lineEdit);
 
   // static variables
   static boost::optional<openstudio::FileLogSink> logFile;

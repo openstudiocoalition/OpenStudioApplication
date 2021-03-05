@@ -32,8 +32,10 @@
 #include "../../model_editor/Application.hpp"
 
 #include "../GridViewSubTab.hpp"
+#include "../OSDropZone.hpp"
 #include "../shared_gui_components/OSGridController.hpp"
 #include "../shared_gui_components/OSGridView.hpp"
+#include "../shared_gui_components/OSLineEdit.hpp"
 
 #include <openstudio/utilities/core/Path.hpp>
 
@@ -64,6 +66,22 @@ OSGridView* OpenStudioLibFixture::getGridView(GridViewSubTab* gvst) {
 
 OSGridController* OpenStudioLibFixture::getGridController(GridViewSubTab* gvst) {
   return gvst->m_gridController;
+}
+
+boost::optional<openstudio::model::ModelObject> OpenStudioLibFixture::getModelObject(openstudio::OSDropZone2* dropZone) {
+  boost::optional<openstudio::model::ModelObject> result;
+  if (dropZone) {
+    result = dropZone->m_modelObject;
+  }
+  return result;
+}
+
+boost::optional<openstudio::model::ModelObject> OpenStudioLibFixture::getModelObject(openstudio::OSLineEdit2* lineEdit) {
+  boost::optional<openstudio::model::ModelObject> result;
+  if (lineEdit) {
+    result = lineEdit->m_modelObject;
+  }
+  return result;
 }
 
 
