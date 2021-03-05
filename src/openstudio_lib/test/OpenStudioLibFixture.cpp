@@ -84,6 +84,13 @@ boost::optional<openstudio::model::ModelObject> OpenStudioLibFixture::getModelOb
   return result;
 }
 
+boost::optional<openstudio::model::ModelObject> OpenStudioLibFixture::callGet(openstudio::OSDropZone2* dropZone) {
+  boost::optional<openstudio::model::ModelObject> result;
+  if (dropZone && dropZone->m_get) {
+    result = dropZone->m_get.get()();
+  }
+  return result;
+}
 
 // static variables
 boost::optional<openstudio::FileLogSink> OpenStudioLibFixture::logFile;

@@ -123,7 +123,7 @@ TEST_F(OpenStudioLibFixture, SpacesSpacesGridView) {
   auto spaceTypes = model.getConcreteModelObjects<model::SpaceType>();
 
   ASSERT_EQ(4u, spaces.size());
-  EXPECT_EQ(1u, spaceTypes.size());
+  ASSERT_EQ(1u, spaceTypes.size());
 
   auto space1 = spaces[0];
 
@@ -160,12 +160,12 @@ TEST_F(OpenStudioLibFixture, SpacesSpacesGridView) {
   unsigned row = 1, col = 0;
 
   auto rowWidgets = gridController->row(row);
-  auto cellWidget = gridController->cell(row, cell);
+  auto cellWidget = gridController->cell(row, col);
 
   ASSERT_EQ(8u, rowWidgets.size());
   ASSERT_TRUE(cellWidget);
-  ASSERT_TRUE(rowWidgets[cell]);
-  EXPECT_EQ(cellWidget, rowWidgets[cell]);
+  ASSERT_TRUE(rowWidgets[col]);
+  EXPECT_EQ(cellWidget, rowWidgets[col]);
 
   Holder* holder = qobject_cast<Holder*>(cellWidget->children()[1]);
   ASSERT_TRUE(holder);
@@ -179,12 +179,12 @@ TEST_F(OpenStudioLibFixture, SpacesSpacesGridView) {
   row = 1, col = 4;
 
   rowWidgets = gridController->row(row);
-  cellWidget = gridController->cell(row, cell);
+  cellWidget = gridController->cell(row, col);
 
   ASSERT_EQ(8u, rowWidgets.size());
   ASSERT_TRUE(cellWidget);
-  ASSERT_TRUE(rowWidgets[cell]);
-  EXPECT_EQ(cellWidget, rowWidgets[cell]);
+  ASSERT_TRUE(rowWidgets[col]);
+  EXPECT_EQ(cellWidget, rowWidgets[col]);
 
   holder = qobject_cast<Holder*>(cellWidget->children()[1]);
   ASSERT_TRUE(holder);
@@ -193,7 +193,12 @@ TEST_F(OpenStudioLibFixture, SpacesSpacesGridView) {
   modelObject = getModelObject(dropZone);
   ASSERT_TRUE(modelObject);
   EXPECT_EQ(modelObject->handle(), modelObjects[0].handle());
-
+  modelObject = callGet(dropZone);
+  ASSERT_TRUE(modelObject);
+  EXPECT_EQ(modelObject->handle(), spaceTypes[0].handle());
+  
+  EXPECT_TRUE(dropZone->isDefaulted());
+  EXPECT_TRUE(space1.isSpaceTypeDefaulted());
 
 }
 

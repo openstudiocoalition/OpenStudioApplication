@@ -68,6 +68,8 @@ class OpenStudioLibFixture : public ::testing::Test
   boost::optional<openstudio::model::ModelObject> getModelObject(openstudio::OSDropZone2* dropZone);
   boost::optional<openstudio::model::ModelObject> getModelObject(openstudio::OSLineEdit2* lineEdit);
 
+  boost::optional<openstudio::model::ModelObject> callGet(openstudio::OSDropZone2* dropZone);
+
   // static variables
   static boost::optional<openstudio::FileLogSink> logFile;
 };
