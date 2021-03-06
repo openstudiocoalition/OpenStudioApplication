@@ -27,49 +27,54 @@
 *  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ***********************************************************************************************************************/
 
-#ifndef SHAREDGUICOMPONENTS_FIELDMETHODTYPEDEFS_HPP
-#define SHAREDGUICOMPONENTS_FIELDMETHODTYPEDEFS_HPP
+#include <gtest/gtest.h>
+
+#include "OpenStudioLibFixture.hpp"
+
+#include "../OSDropZone.hpp"
+#include "../shared_gui_components/OSConcepts.hpp"
 
 #include <openstudio/model/Model.hpp>
-#include <openstudio/model/Model_Impl.hpp>
-#include <openstudio/model/ModelObject.hpp>
-#include <openstudio/model/ModelObject_Impl.hpp>
+#include <openstudio/model/Space.hpp>
+#include <openstudio/model/Space_Impl.hpp>
+#include <openstudio/model/SpaceType.hpp>
+#include <openstudio/model/SpaceType_Impl.hpp>
 
-#include <boost/optional.hpp>
+#include <QComboBox>
 
-#include <vector>
+#include <memory>
 
-namespace openstudio {
+using namespace openstudio;
 
-typedef std::function<bool()> BoolGetter;
-typedef std::function<double()> DoubleGetter;
-typedef std::function<int()> IntGetter;
-typedef std::function<std::string()> StringGetter;
-typedef std::function<unsigned()> UnsignedGetter;
-typedef std::function<model::ModelObject()> ModelObjectGetter;
+TEST_F(OpenStudioLibFixture, OSDropZone) {
 
-typedef std::function<boost::optional<double>()> OptionalDoubleGetter;
-typedef std::function<boost::optional<int>()> OptionalIntGetter;
-typedef std::function<boost::optional<std::string>()> OptionalStringGetter;
-typedef std::function<boost::optional<std::string>(bool)> OptionalStringGetterBoolArg;
-typedef std::function<boost::optional<unsigned>()> OptionalUnsignedGetter;
-typedef std::function<boost::optional<model::ModelObject>()> OptionalModelObjectGetter;
+  model::Model model = model::exampleModel();
+  auto spaces = model.getConcreteModelObjects<model::Space>();
+  std::sort(spaces.begin(), spaces.end(), WorkspaceObjectNameLess());
+  auto spaceTypes = model.getConcreteModelObjects<model::SpaceType>();
 
-typedef std::function<void(bool)> BoolSetter;
-typedef std::function<bool(bool)> BoolSetterBoolReturn;
-typedef std::function<bool(double)> DoubleSetter;
-typedef std::function<void(double)> DoubleSetterVoidReturn;
-typedef std::function<bool(int)> IntSetter;
-typedef std::function<bool(std::string)> StringSetter;
-typedef std::function<void(std::string)> StringSetterVoidReturn;
-typedef std::function<boost::optional<std::string>(const std::string&)> StringSetterOptionalStringReturn;
-typedef std::function<bool(unsigned)> UnsignedSetter;
-typedef std::function<bool(const model::ModelObject&)> ModelObjectSetter;
-typedef std::function<bool(const model::ModelObject&)> ModelObjectIsDefaulted;
+  ASSERT_EQ(4u, spaces.size());
+  ASSERT_EQ(1u, spaceTypes.size());
 
-typedef std::function<void()> NoFailAction;
-typedef std::function<bool()> BasicQuery;
+  auto space1 = spaces[0];
 
-}  // namespace openstudio
+  Heading heading("Heading", true, true);
 
-#endif  // SHAREDGUICOMPONENTS_FIELDMETHODTYPEDEFS_HPP
+  QSharedPointer<DropZoneConcept> dropZoneConcept(
+    new DropZoneConceptImpl<model::SpaceType, model::Space>(heading, &model::Space::spaceType, &model::Space::setSpaceType,
+    boost::optional<std::function<void(model::Space*)>>(&model::Space::resetSpaceType), 
+    boost::optional<std::function<bool(model::Space*)>>(&model::Space::isSpaceTypeDefaulted))
+  );
+
+  auto dropZone = std::make_shared<OSDropZone2>();
+  dropZone->bind(space1, OptionalModelObjectGetter(std::bind(&DropZoneConcept::get, dropZoneConcept.data(), space1)),
+                 ModelObjectSetter(std::bind(&DropZoneConcept::set, dropZoneConcept.data(), space1, std::placeholders::_1)),
+                 NoFailAction(std::bind(&DropZoneConcept::reset, dropZoneConcept.data(), space1)), 
+                 ModelObjectIsDefaulted(std::bind(&DropZoneConcept::isDefaulted, dropZoneConcept.data(), space1)));
+
+  processEvents();
+
+  dropZone
+
+
+}

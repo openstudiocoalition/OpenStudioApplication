@@ -70,21 +70,16 @@ class OSDropZone2 : public QWidget, public Nano::Observer
 
   ~OSDropZone2();
 
-  void enableClickFocus() {
-    this->setFocusPolicy(Qt::ClickFocus);
-  }
-  bool hasData() {
-    return !this->m_label->text().isEmpty();
-  }
-  void setDeleteObject(bool deleteObject) {
-    m_deleteObject = deleteObject;
-  }
-  bool deleteObject() {
-    return m_deleteObject;
-  }
-  void setIsDefaulted(bool defaulted);
+  void enableClickFocus();
+  bool hasData();
+  void setDeleteObject(bool deleteObject);
+  bool deleteObject();
+
+  //void setIsDefaulted(bool defaulted);
   bool isDefaulted();
-  void bind(model::ModelObject& modelObject, OptionalModelObjectGetter get, ModelObjectSetter set, boost::optional<NoFailAction> reset = boost::none);
+  void bind(model::ModelObject& modelObject, OptionalModelObjectGetter get, ModelObjectSetter set, 
+            boost::optional<NoFailAction> reset = boost::none,
+            boost::optional<ModelObjectIsDefaulted> isDefaulted = boost::none);
 
   void unbind();
 
@@ -119,6 +114,7 @@ class OSDropZone2 : public QWidget, public Nano::Observer
   boost::optional<OptionalModelObjectGetter> m_get;
   boost::optional<ModelObjectSetter> m_set;
   boost::optional<NoFailAction> m_reset;
+  boost::optional<ModelObjectIsDefaulted> m_isDefaulted;
   boost::optional<model::ModelObject> m_modelObject;
   //QString m_text;
   OSItem* m_item = nullptr;

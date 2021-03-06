@@ -738,6 +738,7 @@ set(${target_name}_test_src
   test/OpenStudioLibFixture.cpp
   test/IconLibrary_GTest.cpp
   test/ObjectSelector_GTest.cpp
+  test/OSDropZone_GTest.cpp
 )
 
 set(${target_name}_test_depends

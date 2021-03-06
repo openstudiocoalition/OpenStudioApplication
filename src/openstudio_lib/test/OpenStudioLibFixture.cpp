@@ -92,5 +92,16 @@ boost::optional<openstudio::model::ModelObject> OpenStudioLibFixture::callGet(op
   return result;
 }
 
+bool OpenStudioLibFixture::isDefaulted(openstudio::OSDropZone2* dropZone) {
+  bool isDefaulted = false;
+  if (dropZone && dropZone->m_label) {
+    QVariant currentDefaulted = dropZone->m_label->property("defaulted");
+    if (!currentDefaulted.isNull()){
+      isDefaulted = currentDefaulted.toBool();
+    }
+  }
+  return isDefaulted;
+}
+
 // static variables
 boost::optional<openstudio::FileLogSink> OpenStudioLibFixture::logFile;

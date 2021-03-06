@@ -526,13 +526,34 @@ OSDropZone2::OSDropZone2() : QWidget() {
 
   m_label = new QLabel();
   layout->addWidget(m_label);
-
+  m_label->setProperty("defaulted", false);
+  m_label->setStyleSheet( 
+    "QLabel[defaulted=\"true\"] { color:green }"
+    "QLabel { color:black }"
+  );
+  
   setFixedHeight(25);
   setMinimumWidth(75);
   setMaximumWidth(150);
 }
 
 OSDropZone2::~OSDropZone2() {}
+
+void OSDropZone2::enableClickFocus() {
+  this->setFocusPolicy(Qt::ClickFocus);
+}
+
+bool OSDropZone2::hasData() {
+  return !this->m_label->text().isEmpty();
+}
+
+void OSDropZone2::setDeleteObject(bool deleteObject) {
+  m_deleteObject = deleteObject;
+}
+
+bool OSDropZone2::deleteObject() {
+  return m_deleteObject;
+}
 
 void OSDropZone2::refresh() {
   boost::optional<model::ModelObject> modelObject;
@@ -544,11 +565,29 @@ void OSDropZone2::refresh() {
   }
 
   if (modelObject) {
+    
+    bool isChanged = false;
+
     QString temp = QString::fromStdString(modelObject->name().get());
-    if (m_label->text() == temp) {
-      return;
-    } else {
+    if (m_label->text() != temp) {
+      isChanged = true;
       m_label->setText(temp);
+    }
+
+    bool defaulted = false;
+    if (m_isDefaulted) {
+      defaulted = (*m_isDefaulted)(*modelObject);
+    }
+
+    QVariant currentDefaulted = m_label->property("defaulted");
+    if (currentDefaulted.isNull() || currentDefaulted.toBool() != defaulted) {
+      m_label->setProperty("defaulted", defaulted);
+      isChanged = true;
+    }
+
+    if (isChanged) {
+      m_label->style()->unpolish(m_label);
+      m_label->style()->polish(m_label);
     }
 
     emit inFocus(true, hasData());
@@ -564,10 +603,12 @@ void OSDropZone2::refresh() {
 }
 
 // cppcheck-suppress constParameter
-void OSDropZone2::bind(model::ModelObject& modelObject, OptionalModelObjectGetter get, ModelObjectSetter set, boost::optional<NoFailAction> reset) {
+void OSDropZone2::bind(model::ModelObject& modelObject, OptionalModelObjectGetter get, ModelObjectSetter set, 
+                       boost::optional<NoFailAction> reset, boost::optional<ModelObjectIsDefaulted> isDefaulted) {
   m_get = get;
   m_set = set;
   m_reset = reset;
+  m_isDefaulted = isDefaulted;
   m_modelObject = modelObject;
   setAcceptDrops(true);
 
@@ -676,8 +717,6 @@ void OSDropZone2::dropEvent(QDropEvent* event) {
         refresh();
       }
     }
-    // A dropped object cannot be inherited
-    this->setIsDefaulted(false);
   }
 }
 
@@ -750,8 +789,18 @@ void OSDropZone2::makeItem() {
     boost::optional<model::ModelObject> modelObject = (*m_get)();
 
     if (modelObject) {
-      m_item = OSItem::makeItem(modelObjectToItemId(*modelObject, false));
+
+      bool isDefaulted = false;
+      if (m_isDefaulted) {
+        isDefaulted = (*m_isDefaulted)(*modelObject);
+      }
+
+      m_item = OSItem::makeItem(modelObjectToItemId(*modelObject, isDefaulted));
       m_item->setParent(this);
+
+      if (!isDefaulted && m_reset) {
+        m_item->setRemoveable(true);
+      }
       connect(m_item, &OSItem::itemRemoveClicked, this, &OSDropZone2::onItemRemoveClicked);
 
       modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
@@ -760,7 +809,7 @@ void OSDropZone2::makeItem() {
     }
   }
 }
-
+/*
 void OSDropZone2::setIsDefaulted(bool defaulted) {
   if (defaulted) {
     m_label->setStyleSheet("QLabel { color:green }");  // color: #006837
@@ -768,7 +817,8 @@ void OSDropZone2::setIsDefaulted(bool defaulted) {
     m_label->setStyleSheet("QLabel { color:black }");
   }
 }
-
+*/
+/*
 bool OSDropZone2::isDefaulted() {
   bool isDefaluted = false;
   if (m_item) {
@@ -776,5 +826,6 @@ bool OSDropZone2::isDefaulted() {
   }
   return isDefaluted;
 }
+*/
 
 }  // namespace openstudio

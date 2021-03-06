@@ -409,7 +409,7 @@ std::vector<model::ModelObject> OSGridController::modelObjects() const {
 void OSGridController::setModelObjects(const std::vector<model::ModelObject>& modelObjects) {
   m_modelObjects = modelObjects; 
 }
-
+/*
 std::vector<model::ModelObject> OSGridController::inheritedModelObjects() const {
   return m_inheritedModelObjects;
 }
@@ -417,7 +417,7 @@ std::vector<model::ModelObject> OSGridController::inheritedModelObjects() const 
 void OSGridController::setInheritedModelObjects(const std::vector<model::ModelObject>& inheritedModelObjects) {
   m_inheritedModelObjects = inheritedModelObjects;
 }
-
+*/
 void OSGridController::addCategoryAndFields(const std::pair<QString, std::vector<QString>>& categoryAndFields) {
   m_categoriesAndFields.push_back(categoryAndFields);
 }
@@ -842,7 +842,8 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
 
     dropZone->bind(t_mo, OptionalModelObjectGetter(std::bind(&DropZoneConcept::get, dropZoneConcept.data(), t_mo)),
                    ModelObjectSetter(std::bind(&DropZoneConcept::set, dropZoneConcept.data(), t_mo, std::placeholders::_1)),
-                   NoFailAction(std::bind(&DropZoneConcept::reset, dropZoneConcept.data(), t_mo)));
+                   NoFailAction(std::bind(&DropZoneConcept::reset, dropZoneConcept.data(), t_mo)), 
+                   ModelObjectIsDefaulted(std::bind(&DropZoneConcept::isDefaulted, dropZoneConcept.data(), t_mo)));
 
     //connect(dropZone, OSDropZone2::itemClicked, gridView(), OSGridView::dropZoneItemClicked);
     isConnected = connect(dropZone, SIGNAL(itemClicked(OSItem*)), gridView(), SIGNAL(dropZoneItemClicked(OSItem*)));
@@ -867,11 +868,12 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
     OS_ASSERT(false);
   }
 
+  // TODO - fix?
   // Is this widget inherited?
-  if (m_subrowCounter < m_subrowsInherited.size() && m_subrowsInherited.at(m_subrowCounter)) {
-    widget->setDisabled(true);
-    widget->setStyleSheet("color:green");
-  }
+ // if (m_subrowCounter < m_subrowsInherited.size() && m_subrowsInherited.at(m_subrowCounter)) {
+ //   widget->setDisabled(true);
+ //   widget->setStyleSheet("color:green");
+  //}
 
   return widget;
 }
@@ -1125,9 +1127,9 @@ QWidget* OSGridController::widgetAt(int row, int column) {
   // Begin lambda
   ///////////////////////////////////////////////////////////////////////////////////////
   auto addWidget = [&](QWidget* t_widget, const boost::optional<model::ModelObject>& t_obj, const bool t_isSelector) {
-    if (column == 0) {
-      m_subrowsInherited.clear();
-    }
+    //if (column == 0) {
+    //  m_subrowsInherited.clear();
+    //}
 
     auto holder = new Holder(this->gridView());
     holder->setMinimumHeight(widgetHeight);
@@ -1162,16 +1164,16 @@ QWidget* OSGridController::widgetAt(int row, int column) {
     } else if (OSDropZone2* dropZone = qobject_cast<OSDropZone2*>(t_widget)) {
       connect(dropZone, &OSDropZone2::inFocus, holder, &Holder::inFocus);
       // Is this widget's subrow a surface with a defaulted construction?
-      if (t_obj) {
-        if (auto planarSurface = t_obj->optionalCast<model::PlanarSurface>()) {
-          if (planarSurface->isConstructionDefaulted()) {
-            // Is this column a construction?
-            if (column == m_constructionColumn) {
-              dropZone->setIsDefaulted(true);
-            }
-          }
-        }
-      }
+      //if (t_obj) {
+      //  if (auto planarSurface = t_obj->optionalCast<model::PlanarSurface>()) {
+      //    if (planarSurface->isConstructionDefaulted()) {
+      //      // Is this column a construction?
+      //      if (column == m_constructionColumn) {
+      //        dropZone->setIsDefaulted(true);
+      //      }
+      //    }
+      //  }
+      //}
     } else if (HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(t_widget)) {
       connect(horizontalHeaderWidget, &HorizontalHeaderWidget::inFocus, holder, &Holder::inFocus);
     } else if (OSCheckBox3* checkBox = qobject_cast<OSCheckBox3*>(t_widget)) {
@@ -1227,23 +1229,23 @@ QWidget* OSGridController::widgetAt(int row, int column) {
       // all the way around.
 
       m_subrowCounter = 0;
-      auto subrowInherited = false;
+     // auto subrowInherited = false;
 
       for (auto& item : dataSource->source().items(mo)) {
         if (item) {
           // Is this widget's subrow inherited?
           // Check the first column of each potential subrow
-          if (column == 1) {
-            for (auto obj : m_inheritedModelObjects) {
-              if (item->cast<model::ModelObject>().parent()) {
-                if (item->cast<model::ModelObject>().parent().get() == obj) {
-                  subrowInherited = true;
-                  break;
-                }
-              }
-            }
-          }
-          m_subrowsInherited.push_back(subrowInherited);
+          //if (column == 1) {
+            //for (auto obj : m_inheritedModelObjects) {
+            //  if (item->cast<model::ModelObject>().parent()) {
+            //    if (item->cast<model::ModelObject>().parent().get() == obj) {
+            //      subrowInherited = true;
+            //      break;
+            //    }
+            //  }
+            //}
+          //}
+          //m_subrowsInherited.push_back(subrowInherited);
           addWidget(makeWidget(item->cast<model::ModelObject>(), dataSource->innerConcept()), item->cast<model::ModelObject>(),
                     baseConcept->isSelector() || dataSource->innerConcept()->isSelector());
         } else {

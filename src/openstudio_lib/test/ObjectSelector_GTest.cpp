@@ -197,7 +197,7 @@ TEST_F(OpenStudioLibFixture, SpacesSpacesGridView) {
   ASSERT_TRUE(modelObject);
   EXPECT_EQ(modelObject->handle(), spaceTypes[0].handle());
   
-  EXPECT_TRUE(dropZone->isDefaulted());
+  EXPECT_TRUE(isDefaulted(dropZone));
   EXPECT_TRUE(space1.isSpaceTypeDefaulted());
 
 }

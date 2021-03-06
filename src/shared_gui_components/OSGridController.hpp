@@ -485,7 +485,7 @@ class OSGridController : public QObject, public Nano::Observer
                          boost::optional<std::function<bool(DataSourceType*)>> isDefaulted = boost::none,
                          const boost::optional<DataSource>& t_source = boost::none) {
     m_baseConcepts.push_back(makeDataSourceAdapter(
-      QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<ValueType, DataSourceType>(heading, getter, setter, reset)), t_source));
+      QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<ValueType, DataSourceType>(heading, getter, setter, reset, isDefaulted)), t_source));
   }
 
   template <typename ValueType, typename DataSourceType>
@@ -550,7 +550,7 @@ class OSGridController : public QObject, public Nano::Observer
 
   std::vector<model::ModelObject> m_modelObjects; 
 
-  std::vector<model::ModelObject> m_inheritedModelObjects; 
+  //std::vector<model::ModelObject> m_inheritedModelObjects; 
 
   // If a column contains information about a construction, it may be an inherited construction
   // (as determined by calling PlanarSurface::isConstructionDefaulted). An instantiated gridview
@@ -581,7 +581,7 @@ class OSGridController : public QObject, public Nano::Observer
 
   unsigned m_subrowCounter = 0;
 
-  std::vector<bool> m_subrowsInherited = std::vector<bool>();
+  //std::vector<bool> m_subrowsInherited = std::vector<bool>();
 
  protected:
   
@@ -594,8 +594,8 @@ class OSGridController : public QObject, public Nano::Observer
 
   void setModelObjects(const std::vector<model::ModelObject>& modelObjects);
 
-  std::vector<model::ModelObject> inheritedModelObjects() const;
-  void setInheritedModelObjects(const std::vector<model::ModelObject>& inheritedModelObjects);
+  //std::vector<model::ModelObject> inheritedModelObjects() const;
+  //void setInheritedModelObjects(const std::vector<model::ModelObject>& inheritedModelObjects);
 
   void addCategoryAndFields(const std::pair<QString, std::vector<QString>>& categoryAndFields);
   void resetCategoryAndFields();

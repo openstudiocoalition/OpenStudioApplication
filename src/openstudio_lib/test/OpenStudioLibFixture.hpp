@@ -70,6 +70,8 @@ class OpenStudioLibFixture : public ::testing::Test
 
   boost::optional<openstudio::model::ModelObject> callGet(openstudio::OSDropZone2* dropZone);
 
+  bool isDefaulted(openstudio::OSDropZone2* dropZone);
+
   // static variables
   static boost::optional<openstudio::FileLogSink> logFile;
 };
