@@ -74,7 +74,4 @@ TEST_F(OpenStudioLibFixture, OSDropZone) {
 
   processEvents();
 
-  dropZone
-
-
 }
