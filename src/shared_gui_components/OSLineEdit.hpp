@@ -121,6 +121,7 @@ class OSLineEdit2 : public QLineEdit, public Nano::Observer
   void onModelObjectChangeInternal(bool startingup);
   void completeBind();
   void adjustWidth();
+  void updateStyle();
 
   boost::optional<model::ModelObject> m_modelObject;
   boost::optional<StringGetter> m_get;

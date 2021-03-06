@@ -319,7 +319,7 @@ class OSGridController : public QObject, public Nano::Observer
     m_baseConcepts.push_back(makeDataSourceAdapter(
       QSharedPointer<CheckBoxConceptBoolReturn>(new CheckBoxConceptBoolReturnImpl<DataSourceType>(heading, tooltip, t_getter, t_setter)), t_source));
   }
-
+  
   template <typename ChoiceType, typename DataSourceType>
   void addComboBoxColumn(const Heading& heading, std::function<std::string(const ChoiceType&)> toString,
                          std::function<std::vector<ChoiceType>()> choices, std::function<ChoiceType(DataSourceType*)> getter,
@@ -419,9 +419,10 @@ class OSGridController : public QObject, public Nano::Observer
                              const std::function<boost::optional<std::string>(DataSourceType*, bool)>& getter,
                              const std::function<boost::optional<std::string>(DataSourceType*, const std::string&)>& setter,
                              const boost::optional<std::function<void(DataSourceType*)>>& resetter = boost::none,
+                             const boost::optional<std::function<bool(DataSourceType*)>>& isDefaulted = boost::none,
                              const boost::optional<DataSource>& t_source = boost::none) {
     m_baseConcepts.push_back(makeDataSourceAdapter(QSharedPointer<NameLineEditConcept>(new NameLineEditConceptImpl<DataSourceType>(
-                                                     heading, isInspectable, deleteObject, getter, setter, resetter)),
+                                                     heading, isInspectable, deleteObject, getter, setter, resetter, isDefaulted)),
                                                    t_source));
   }
 
@@ -429,9 +430,10 @@ class OSGridController : public QObject, public Nano::Observer
   void addLoadNameColumn(const Heading& heading, const std::function<boost::optional<std::string>(DataSourceType*, bool)>& getter,
                          const std::function<boost::optional<std::string>(DataSourceType*, const std::string&)>& setter,
                          const boost::optional<std::function<void(DataSourceType*)>>& resetter = boost::none,
+                         const boost::optional<std::function<bool(DataSourceType*)>>& isDefaulted = boost::none,
                          const boost::optional<DataSource>& t_source = boost::none) {
-    m_baseConcepts.push_back(
-      makeDataSourceAdapter(QSharedPointer<LoadNameConcept>(new LoadNameConceptImpl<DataSourceType>(heading, getter, setter, resetter)), t_source));
+    m_baseConcepts.push_back(makeDataSourceAdapter(
+      QSharedPointer<LoadNameConcept>(new LoadNameConceptImpl<DataSourceType>(heading, getter, setter, resetter, isDefaulted)), t_source));
   }
 
   template <typename ValueType, typename DataSourceType>

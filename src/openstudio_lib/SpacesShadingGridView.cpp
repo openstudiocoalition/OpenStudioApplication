@@ -188,12 +188,15 @@ void SpacesShadingGridController::addColumns(const QString& category, std::vecto
         addNameLineEditColumn(Heading(QString(SHADEDSURFACENAME), true, false), false, false,
                               CastNullAdapter<model::ShadingSurface>(&model::ShadingSurface::name),
                               CastNullAdapter<model::ShadingSurface>(&model::ShadingSurface::setName),
-                              boost::optional<std::function<void(model::ShadingSurface*)>>(), DataSource(allShadingSurfaces, true));
+                              boost::optional<std::function<void(model::ShadingSurface*)>>(), 
+                              boost::optional<std::function<bool(model::ShadingSurface*)>>(), 
+                              DataSource(allShadingSurfaces, true));
       } else if (field == SHADINGSURFACEGROUP) {
         addNameLineEditColumn(Heading(QString(SHADINGSURFACEGROUP), true, false), false, false,
                               CastNullAdapter<model::ShadingSurfaceGroup>(&model::ShadingSurfaceGroup::name),
                               CastNullAdapter<model::ShadingSurfaceGroup>(&model::ShadingSurfaceGroup::setName),
                               boost::optional<std::function<void(model::ShadingSurfaceGroup*)>>(),
+                              boost::optional<std::function<bool(model::ShadingSurfaceGroup*)>>(),
                               DataSource(allShadingSurfaceShadingSurfaceGroups, true));
       } else if (field == CONSTRUCTION) {
         setConstructionColumn(4);

@@ -49,6 +49,7 @@
 #include <QFocusEvent>
 #include <QMouseEvent>
 #include <QString>
+#include <QStyle>
 
 #if !(_DEBUG || (__GNUC__ && !NDEBUG))
 #  define TIMEOUT_INTERVAL 500
@@ -61,6 +62,15 @@ namespace openstudio {
 OSLineEdit2::OSLineEdit2(QWidget* parent) : QLineEdit(parent) {
   this->setAcceptDrops(false);
   setEnabled(false);
+
+  this->setProperty("defaulted", false);
+  this->setProperty("selected", false);
+  this->setStyleSheet("QLineEdit[defaulted=\"true\"][selected=\"true\"] { color:green; background:#ffc627; } "
+                      "QLineEdit[defaulted=\"true\"][selected=\"false\"] { color:green; background:white; } "
+                      "QLineEdit[defaulted=\"false\"][selected=\"true\"] { color:green; background:#ffc627; } "
+                      "QLineEdit[defaulted=\"false\"][selected=\"false\"] { color:green; background:white; } "
+  );
+
 }
 
 OSLineEdit2::~OSLineEdit2() {}
@@ -203,6 +213,11 @@ void OSLineEdit2::adjustWidth() {
   }
 }
 
+void OSLineEdit2::updateStyle() {
+  this->style()->unpolish(this);
+  this->style()->polish(this);
+}
+
 void OSLineEdit2::onModelObjectChange() {
   onModelObjectChangeInternal(false);
 }
@@ -220,6 +235,17 @@ void OSLineEdit2::onModelObjectChangeInternal(bool startingup) {
       // unhandled
       OS_ASSERT(false);
     }
+  
+    bool defaulted = false;
+    if (m_isDefaulted) {
+      defaulted = (*m_isDefaulted)();
+    }
+    QVariant currentDefaulted = this->property("defaulted");
+    if (currentDefaulted.isNull() || currentDefaulted.toBool() != defaulted) {
+      this->setProperty("defaulted", defaulted);
+      updateStyle();
+    }
+
     std::string text;
     if (value) {
       text = *value;
@@ -276,8 +302,8 @@ void OSLineEdit2::onItemRemoveClicked() {
 
 void OSLineEdit2::focusInEvent(QFocusEvent* e) {
   if (e->reason() == Qt::MouseFocusReason && m_hasClickFocus) {
-    QString style("QLineEdit { background: #ffc627; }");
-    setStyleSheet(style);
+    this->setProperty("selected", true);
+    updateStyle();
 
     emit inFocus(true, hasData());
   }
@@ -287,8 +313,8 @@ void OSLineEdit2::focusInEvent(QFocusEvent* e) {
 
 void OSLineEdit2::focusOutEvent(QFocusEvent* e) {
   if (e->reason() == Qt::MouseFocusReason && m_hasClickFocus) {
-    QString style("QLineEdit { background: white; }");
-    setStyleSheet(style);
+    this->setProperty("selected", false);
+    updateStyle();
 
     emit inFocus(false, false);
 

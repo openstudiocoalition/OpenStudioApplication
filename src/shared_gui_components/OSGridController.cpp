@@ -683,7 +683,8 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
                    loadNameConcept->readOnly()
                      ? boost::none
                      : boost::optional<StringSetter>(std::bind(&LoadNameConcept::setReturnBool, loadNameConcept.data(), t_mo, std::placeholders::_1)),
-                   boost::optional<NoFailAction>(std::bind(&LoadNameConcept::reset, loadNameConcept.data(), t_mo)));
+                   boost::optional<NoFailAction>(std::bind(&LoadNameConcept::reset, loadNameConcept.data(), t_mo)),
+                   boost::optional<BasicQuery>(std::bind(&LoadNameConcept::isDefaulted, loadNameConcept.data(), t_mo)));
 
     //connect(loadName, OSLoadNamePixmapLineEdit::itemClicked, gridView(), OSGridView::dropZoneItemClicked);
     isConnected = connect(loadName, SIGNAL(itemClicked(OSItem*)), gridView(), SIGNAL(dropZoneItemClicked(OSItem*)));
@@ -718,7 +719,8 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
                        readOnly ? boost::none
                                 : boost::optional<StringSetter>(
                                     std::bind(&NameLineEditConcept::setReturnBool, nameLineEditConcept.data(), t_mo, std::placeholders::_1)),
-                       boost::optional<NoFailAction>(std::bind(&NameLineEditConcept::reset, nameLineEditConcept.data(), t_mo)));
+                       boost::optional<NoFailAction>(std::bind(&NameLineEditConcept::reset, nameLineEditConcept.data(), t_mo)),
+                       boost::optional<BasicQuery>(std::bind(&NameLineEditConcept::isDefaulted, nameLineEditConcept.data(), t_mo)));
 
     if (nameLineEditConcept->isInspectable()) {
       //connect(nameLineEdit, OSLineEdit2::itemClicked, gridView(), OSGridView::dropZoneItemClicked);

@@ -955,6 +955,7 @@ class NameLineEditConcept : public BaseConcept
   virtual boost::optional<std::string> set(const ConceptProxy& obj, const std::string&) = 0;
   virtual bool setReturnBool(const ConceptProxy& obj, const std::string&) = 0;
   virtual void reset(const ConceptProxy& obj) = 0;
+  virtual bool isDefaulted(const ConceptProxy& obj) = 0;
   virtual bool readOnly() const = 0;
   bool isInspectable() const {
     return m_isInspectable;
@@ -975,8 +976,13 @@ class NameLineEditConceptImpl : public NameLineEditConcept
   NameLineEditConceptImpl(const Heading& t_heading, bool t_isInspectable, bool t_deleteObject,
                           std::function<boost::optional<std::string>(DataSourceType*, bool)> t_getter,
                           std::function<boost::optional<std::string>(DataSourceType*, const std::string&)> t_setter,
-                          boost::optional<std::function<void(DataSourceType*)>> t_reset = boost::none)
-    : NameLineEditConcept(t_heading, t_isInspectable, t_deleteObject), m_getter(t_getter), m_setter(t_setter), m_reset(t_reset) {}
+                          boost::optional<std::function<void(DataSourceType*)>> t_reset = boost::none,
+                          boost::optional<std::function<bool(DataSourceType*)>> t_isDefaulted = boost::none)
+    : NameLineEditConcept(t_heading, t_isInspectable, t_deleteObject),
+      m_getter(t_getter),
+      m_setter(t_setter),
+      m_reset(t_reset),
+      m_isDefaulted(t_isDefaulted) {}
 
   virtual ~NameLineEditConceptImpl() {}
 
@@ -1005,6 +1011,15 @@ class NameLineEditConceptImpl : public NameLineEditConcept
     }
   }
 
+  virtual bool isDefaulted(const ConceptProxy& t_obj) override {
+    bool result = false;
+    if (m_isDefaulted) {
+      DataSourceType obj = t_obj.cast<DataSourceType>();
+      result = (*m_isDefaulted)(&obj);
+    }
+    return result;
+  }
+
   virtual bool readOnly() const override {
     return m_setter ? false : true;
   }
@@ -1013,6 +1028,7 @@ class NameLineEditConceptImpl : public NameLineEditConcept
   std::function<boost::optional<std::string>(DataSourceType*, bool)> m_getter;
   std::function<boost::optional<std::string>(DataSourceType*, const std::string&)> m_setter;
   boost::optional<std::function<void(DataSourceType*)>> m_reset;
+  boost::optional<std::function<bool(DataSourceType*)>> m_isDefaulted;
 };
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -1028,6 +1044,7 @@ class LoadNameConcept : public BaseConcept
   virtual boost::optional<std::string> set(const ConceptProxy& obj, const std::string&) = 0;
   virtual bool setReturnBool(const ConceptProxy& obj, const std::string&) = 0;
   virtual void reset(const ConceptProxy& obj) = 0;
+  virtual bool isDefaulted(const ConceptProxy& obj) = 0;
   virtual bool readOnly() const = 0;
 };
 
@@ -1037,8 +1054,9 @@ class LoadNameConceptImpl : public LoadNameConcept
  public:
   LoadNameConceptImpl(const Heading& t_heading, std::function<boost::optional<std::string>(DataSourceType*, bool)> t_getter,
                       std::function<boost::optional<std::string>(DataSourceType*, const std::string&)> t_setter,
-                      boost::optional<std::function<void(DataSourceType*)>> t_reset = boost::none)
-    : LoadNameConcept(t_heading), m_getter(t_getter), m_setter(t_setter), m_reset(t_reset) {}
+                      boost::optional<std::function<void(DataSourceType*)>> t_reset = boost::none,
+                      boost::optional<std::function<bool(DataSourceType*)>> t_isDefaulted = boost::none)
+    : LoadNameConcept(t_heading), m_getter(t_getter), m_setter(t_setter), m_isDefaulted(t_isDefaulted) {}
 
   virtual ~LoadNameConceptImpl() {}
 
@@ -1067,6 +1085,15 @@ class LoadNameConceptImpl : public LoadNameConcept
     }
   }
 
+  virtual bool isDefaulted(const ConceptProxy& t_obj) override {
+    bool result = false;
+    if (m_isDefaulted) {
+      DataSourceType obj = t_obj.cast<DataSourceType>();
+      result = (*m_isDefaulted)(&obj);
+    }
+    return result;
+  }
+
   virtual bool readOnly() const override {
     return m_setter ? false : true;
   }
@@ -1075,6 +1102,7 @@ class LoadNameConceptImpl : public LoadNameConcept
   std::function<boost::optional<std::string>(DataSourceType*, bool)> m_getter;
   std::function<boost::optional<std::string>(DataSourceType*, const std::string&)> m_setter;
   boost::optional<std::function<void(DataSourceType*)>> m_reset;
+  boost::optional<std::function<bool(DataSourceType*)>> m_isDefaulted;
 };
 
 ///////////////////////////////////////////////////////////////////////////////////

@@ -42,6 +42,8 @@
 #include <openstudio/model/DefaultScheduleSet_Impl.hpp>
 #include <openstudio/model/DesignSpecificationOutdoorAir.hpp>
 #include <openstudio/model/DesignSpecificationOutdoorAir_Impl.hpp>
+#include <openstudio/model/ParentObject.hpp>
+#include <openstudio/model/ParentObject_Impl.hpp>
 #include <openstudio/model/Space.hpp>
 #include <openstudio/model/Space_Impl.hpp>
 #include <openstudio/model/SpaceInfiltrationDesignFlowRate.hpp>
@@ -229,6 +231,8 @@ void SpacesSpacesGridController::addColumns(const QString& category, std::vector
         CastNullAdapter<model::SpaceInfiltrationDesignFlowRate>(&model::SpaceInfiltrationDesignFlowRate::setName),
         boost::optional<std::function<void(model::SpaceInfiltrationDesignFlowRate*)>>(
           std::function<void(model::SpaceInfiltrationDesignFlowRate*)>([](model::SpaceInfiltrationDesignFlowRate* t_fr) { t_fr->resetSpace(); })),
+        boost::optional<std::function<bool(model::SpaceInfiltrationDesignFlowRate*)>>(
+          std::function<bool(model::SpaceInfiltrationDesignFlowRate*)>([](model::SpaceInfiltrationDesignFlowRate* t_fr) { return t_fr->spaceType().is_initialized(); })),
         DataSource(flowRates, false,
                    QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<model::SpaceInfiltrationDesignFlowRate, model::Space>(
                      Heading(SPACEINFILTRATIONDESIGNFLOWRATES), getter, setter))));
@@ -262,6 +266,9 @@ void SpacesSpacesGridController::addColumns(const QString& category, std::vector
         boost::optional<std::function<void(model::SpaceInfiltrationEffectiveLeakageArea*)>>(
           std::function<void(model::SpaceInfiltrationEffectiveLeakageArea*)>(
             [](model::SpaceInfiltrationEffectiveLeakageArea* t_la) { t_la->resetSpace(); })),
+        boost::optional<std::function<bool(model::SpaceInfiltrationEffectiveLeakageArea*)>>(
+          std::function<bool(model::SpaceInfiltrationEffectiveLeakageArea*)>(
+            [](model::SpaceInfiltrationEffectiveLeakageArea* t_la) { return t_la->spaceType().is_initialized(); })),
         DataSource(leakageAreas, false,
                    QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<model::SpaceInfiltrationEffectiveLeakageArea, model::Space>(
                      Heading(SPACEINFILTRATIONEFFECTIVELEAKAGEAREAS), getter, setter))));

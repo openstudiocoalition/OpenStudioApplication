@@ -1056,7 +1056,8 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
         addLoadNameColumn(Heading(QString(LOADNAME), true, false), CastNullAdapter<model::SpaceLoad>(&model::SpaceLoad::name),
                           CastNullAdapter<model::SpaceLoad>(&model::SpaceLoad::setName),
                           boost::optional<std::function<void(model::SpaceLoad*)>>(
-                            std::function<void(model::SpaceLoad*)>([](model::SpaceLoad* t_sl) { t_sl->remove(); })),
+                          std::function<void(model::SpaceLoad*)>([](model::SpaceLoad* t_sl) { t_sl->remove(); })),
+                          boost::optional<std::function<bool(model::SpaceLoad*)>>(),
                           DataSource(allLoads, true));
 
       } else if (field == SELECTED) {
@@ -1152,7 +1153,8 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
         addNameLineEditColumn(Heading(QString(DEFINITION), true, false), true, false,
                               CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::name),
                               CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::setName),
-                              boost::optional<std::function<void(model::SpaceLoadDefinition*)>>(),
+                              boost::optional<std::function<void(model::SpaceLoadDefinition*)>>(), 
+                              boost::optional<std::function<bool(model::SpaceLoadDefinition*)>>(),
                               DataSource(allDefinitions, false,
                                          QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<model::SpaceLoadDefinition, model::SpaceType>(
                                            Heading(DEFINITION), getter, setter))));
@@ -1222,6 +1224,7 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
         CastNullAdapter<model::SpaceInfiltrationDesignFlowRate>(&model::SpaceInfiltrationDesignFlowRate::setName),
         boost::optional<std::function<void(model::SpaceInfiltrationDesignFlowRate*)>>(
           std::function<void(model::SpaceInfiltrationDesignFlowRate*)>([](model::SpaceInfiltrationDesignFlowRate* t_fr) { t_fr->resetSpaceType(); })),
+        boost::optional<std::function<bool(model::SpaceInfiltrationDesignFlowRate*)>>(),
         DataSource(flowRates, false,
                    QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<model::SpaceInfiltrationDesignFlowRate, model::SpaceType>(
                      Heading(SPACEINFILTRATIONDESIGNFLOWRATES), getter, setter))));
@@ -1256,6 +1259,7 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
         boost::optional<std::function<void(model::SpaceInfiltrationEffectiveLeakageArea*)>>(
           std::function<void(model::SpaceInfiltrationEffectiveLeakageArea*)>(
             [](model::SpaceInfiltrationEffectiveLeakageArea* t_la) { t_la->resetSpaceType(); })),
+        boost::optional<std::function<bool(model::SpaceInfiltrationEffectiveLeakageArea*)>>(),
         DataSource(leakageAreas, false,
                    QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<model::SpaceInfiltrationEffectiveLeakageArea, model::SpaceType>(
                      Heading(SPACEINFILTRATIONEFFECTIVELEAKAGEAREAS), getter, setter))));

@@ -392,6 +392,7 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
           Heading(QString(SURFACENAME), true, false), false, false, CastNullAdapter<model::Surface>(&model::Surface::name),
           CastNullAdapter<model::Surface>(&model::Surface::setName),
           boost::optional<std::function<void(model::Surface*)>>(std::function<void(model::Surface*)>([](model::Surface* t_s) { t_s->remove(); })),
+          boost::optional<std::function<bool(model::Surface*)>>(),
           DataSource(allSubsurfaceSurfaces, true));
       } else if (field == SUBSURFACENAME) {
         addNameLineEditColumn(Heading(QString(SUBSURFACENAME), true, false), false, false,
@@ -399,6 +400,7 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
                               CastNullAdapter<model::SubSurface>(&model::SubSurface::setName),
                               boost::optional<std::function<void(model::SubSurface*)>>(
                                 std::function<void(model::SubSurface*)>([](model::SubSurface* t_s) { t_s->remove(); })),
+                              boost::optional<std::function<bool(model::SubSurface*)>>(),
                               DataSource(allSubSurfaces, true));
       } else if (field == SUBSURFACETYPE) {
         addComboBoxColumn(Heading(QString(SUBSURFACETYPE)),
@@ -713,7 +715,9 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
         addNameLineEditColumn(Heading(QString(DAYLIGHTINGSHELFNAME)), false, false,
                               CastNullAdapter<model::DaylightingDeviceShelf>(&model::DaylightingDeviceShelf::name),
                               CastNullAdapter<model::DaylightingDeviceShelf>(&model::DaylightingDeviceShelf::setName),
-                              boost::optional<std::function<void(model::DaylightingDeviceShelf*)>>(), DataSource(allDaylightingDeviceShelfs, true));
+                              boost::optional<std::function<void(model::DaylightingDeviceShelf*)>>(), 
+                              boost::optional<std::function<bool(model::DaylightingDeviceShelf*)>>(),
+                              DataSource(allDaylightingDeviceShelfs, true));
       } else if (field == INSIDESHELFNAME) {
 
         std::function<bool(model::DaylightingDeviceShelf*, const model::InteriorPartitionSurface&)> setter(

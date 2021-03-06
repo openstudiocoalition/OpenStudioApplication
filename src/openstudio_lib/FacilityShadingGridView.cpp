@@ -499,7 +499,8 @@ void FacilityShadingGridController::addColumns(const QString& category, std::vec
         addLoadNameColumn(Heading(QString(SHADINGSURFACENAME), true, false), CastNullAdapter<model::ShadingSurface>(&model::ShadingSurface::name),
                           CastNullAdapter<model::ShadingSurface>(&model::ShadingSurface::setName),
                           boost::optional<std::function<void(model::ShadingSurface*)>>(
-                            std::function<void(model::ShadingSurface*)>([](model::ShadingSurface* t_ss) { t_ss->remove(); })),
+                          std::function<void(model::ShadingSurface*)>([](model::ShadingSurface* t_ss) { t_ss->remove(); })),
+                          boost::optional<std::function<bool(model::ShadingSurface*)>>(),
                           DataSource(allShadingSurfaces, true));
       } else if (field == CONSTRUCTIONNAME) {
         addDropZoneColumn(Heading(QString(CONSTRUCTIONNAME), true, false),
