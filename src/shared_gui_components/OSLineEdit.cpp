@@ -59,7 +59,7 @@
 
 namespace openstudio {
 
-OSLineEdit2::OSLineEdit2(QWidget* parent) : QLineEdit(parent) {
+OSLineEdit2Interface::OSLineEdit2Interface(QWidget* parent) : QLineEdit(parent) {
   this->setAcceptDrops(false);
   setEnabled(false);
 
@@ -68,12 +68,35 @@ OSLineEdit2::OSLineEdit2(QWidget* parent) : QLineEdit(parent) {
   this->setStyleSheet("QLineEdit[defaulted=\"true\"][selected=\"true\"] { color:green; background:#ffc627; } "
                       "QLineEdit[defaulted=\"true\"][selected=\"false\"] { color:green; background:white; } "
                       "QLineEdit[defaulted=\"false\"][selected=\"true\"] { color:green; background:#ffc627; } "
-                      "QLineEdit[defaulted=\"false\"][selected=\"false\"] { color:green; background:white; } "
-  );
+                      "QLineEdit[defaulted=\"false\"][selected=\"false\"] { color:green; background:white; } ");
+}
+
+
+OSLineEdit2::OSLineEdit2(QWidget* parent) : OSLineEdit2Interface(parent) {
 
 }
 
 OSLineEdit2::~OSLineEdit2() {}
+
+void OSLineEdit2::enableClickFocus() {
+  this->m_hasClickFocus = true;
+}
+
+void OSLineEdit2::setDeleteObject(bool deleteObject) {
+  m_deleteObject = deleteObject;
+}
+
+bool OSLineEdit2::hasData() {
+  return !this->text().isEmpty();
+}
+
+bool OSLineEdit2::deleteObject() {
+  return m_deleteObject;
+}
+
+boost::optional<model::ModelObject> OSLineEdit2::modelObject() const {
+  return m_modelObject;
+}
 
 void OSLineEdit2::bind(const model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetter> set,
                        boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted) {

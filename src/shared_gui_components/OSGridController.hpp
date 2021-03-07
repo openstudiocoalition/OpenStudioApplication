@@ -421,8 +421,10 @@ class OSGridController : public QObject, public Nano::Observer
                              const boost::optional<std::function<void(DataSourceType*)>>& resetter = boost::none,
                              const boost::optional<std::function<bool(DataSourceType*)>>& isDefaulted = boost::none,
                              const boost::optional<DataSource>& t_source = boost::none) {
+    const OSLineEditType osLineEditType = OSLineEditType::OSLineEdit2Type;
+    const bool hasClickFocus = true;
     m_baseConcepts.push_back(makeDataSourceAdapter(QSharedPointer<NameLineEditConcept>(new NameLineEditConceptImpl<DataSourceType>(
-                                                     heading, isInspectable, deleteObject, getter, setter, resetter, isDefaulted)),
+                              heading, osLineEditType, isInspectable, deleteObject, hasClickFocus, getter, setter, resetter, isDefaulted)),
                                                    t_source));
   }
 
@@ -432,8 +434,13 @@ class OSGridController : public QObject, public Nano::Observer
                          const boost::optional<std::function<void(DataSourceType*)>>& resetter = boost::none,
                          const boost::optional<std::function<bool(DataSourceType*)>>& isDefaulted = boost::none,
                          const boost::optional<DataSource>& t_source = boost::none) {
-    m_baseConcepts.push_back(makeDataSourceAdapter(
-      QSharedPointer<LoadNameConcept>(new LoadNameConceptImpl<DataSourceType>(heading, getter, setter, resetter, isDefaulted)), t_source));
+    const OSLineEditType osLineEditType = OSLineEditType::OSLoadNamePixmapLineEditType;
+    const bool isInspectable = true;
+    const bool deleteObject = true;
+    const bool hasClickFocus = true;
+    m_baseConcepts.push_back(makeDataSourceAdapter(QSharedPointer<NameLineEditConcept>(new NameLineEditConceptImpl<DataSourceType>(
+                              heading, osLineEditType, isInspectable, deleteObject, hasClickFocus, getter, setter, resetter, isDefaulted)),
+                            t_source));
   }
 
   template <typename ValueType, typename DataSourceType>

@@ -652,8 +652,7 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
 
     widget = lineEdit;
 
-  } else if (QSharedPointer<ValueEditVoidReturnConcept<std::string>> lineEditConcept =
-               t_baseConcept.dynamicCast<ValueEditVoidReturnConcept<std::string>>()) {
+  } else if (QSharedPointer<ValueEditVoidReturnConcept<std::string>> lineEditConcept = t_baseConcept.dynamicCast<ValueEditVoidReturnConcept<std::string>>()) {
 
     auto lineEdit = new OSLineEdit2(this->gridView());
     if (lineEditConcept->hasClickFocus()) {
@@ -671,34 +670,10 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
     OS_ASSERT(isConnected);
 
     widget = lineEdit;
-  } else if (QSharedPointer<LoadNameConcept> loadNameConcept = t_baseConcept.dynamicCast<LoadNameConcept>()) {
-
-    auto loadName = new OSLoadNamePixmapLineEdit(this->gridView());
-    if (loadNameConcept->hasClickFocus()) {
-      loadName->enableClickFocus();
-    }
-
-    loadName->bind(t_mo, OptionalStringGetter(std::bind(&LoadNameConcept::get, loadNameConcept.data(), t_mo, true)),
-                   // If the concept is read only, pass an empty optional
-                   loadNameConcept->readOnly()
-                     ? boost::none
-                     : boost::optional<StringSetter>(std::bind(&LoadNameConcept::setReturnBool, loadNameConcept.data(), t_mo, std::placeholders::_1)),
-                   boost::optional<NoFailAction>(std::bind(&LoadNameConcept::reset, loadNameConcept.data(), t_mo)),
-                   boost::optional<BasicQuery>(std::bind(&LoadNameConcept::isDefaulted, loadNameConcept.data(), t_mo)));
-
-    //connect(loadName, OSLoadNamePixmapLineEdit::itemClicked, gridView(), OSGridView::dropZoneItemClicked);
-    isConnected = connect(loadName, SIGNAL(itemClicked(OSItem*)), gridView(), SIGNAL(dropZoneItemClicked(OSItem*)));
-    OS_ASSERT(isConnected);
-
-    isConnected = connect(loadName, SIGNAL(objectRemoved(boost::optional<model::ParentObject>)), this,
-                          SLOT(onObjectRemoved(boost::optional<model::ParentObject>)));
-    OS_ASSERT(isConnected);
-
-    widget = loadName;
 
   } else if (QSharedPointer<NameLineEditConcept> nameLineEditConcept = t_baseConcept.dynamicCast<NameLineEditConcept>()) {
 
-    auto nameLineEdit = new OSLineEdit2(this->gridView());
+    OSLineEdit2Interface* nameLineEdit = nameLineEditConcept->makeWidget(this->gridView());
     if (nameLineEditConcept->hasClickFocus()) {
       nameLineEdit->enableClickFocus();
     }
@@ -720,7 +695,7 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
                                 : boost::optional<StringSetter>(
                                     std::bind(&NameLineEditConcept::setReturnBool, nameLineEditConcept.data(), t_mo, std::placeholders::_1)),
                        boost::optional<NoFailAction>(std::bind(&NameLineEditConcept::reset, nameLineEditConcept.data(), t_mo)),
-                       boost::optional<BasicQuery>(std::bind(&NameLineEditConcept::isDefaulted, nameLineEditConcept.data(), t_mo)));
+                       boost::optional<BasicQuery>(std::bind(&NameLineEditConcept::isInherited, nameLineEditConcept.data(), t_mo)));
 
     if (nameLineEditConcept->isInspectable()) {
       //connect(nameLineEdit, OSLineEdit2::itemClicked, gridView(), OSGridView::dropZoneItemClicked);
@@ -935,11 +910,6 @@ void OSGridController::setConceptValue(model::ModelObject t_setterMO, model::Mod
     auto getter = std::bind(&ValueEditVoidReturnConcept<std::string>::get, concept.data(), t_getterMO);
     auto temp = getter();
     setter(temp);
-  } else if (QSharedPointer<LoadNameConcept> concept = t_baseConcept.dynamicCast<LoadNameConcept>()) {
-    auto setter = std::bind(&LoadNameConcept::set, concept.data(), t_setterMO, std::placeholders::_1);
-    auto getter = std::bind(&LoadNameConcept::get, concept.data(), t_getterMO, true);  // NOTE Evan: Do we always want true?
-    auto temp = getter();
-    if (temp) setter(temp.get());
   } else if (QSharedPointer<NameLineEditConcept> concept = t_baseConcept.dynamicCast<NameLineEditConcept>()) {
     auto setter = std::bind(&NameLineEditConcept::set, concept.data(), t_setterMO, std::placeholders::_1);
     auto getter = std::bind(&NameLineEditConcept::get, concept.data(), t_getterMO, true);  // NOTE Evan: Do we always want true?
@@ -1016,9 +986,6 @@ void OSGridController::resetConceptValue(model::ModelObject t_resetMO, const QSh
     reset();
   } else if (QSharedPointer<ValueEditConcept<std::string>> concept = t_baseConcept.dynamicCast<ValueEditConcept<std::string>>()) {
     auto reset = std::bind(&ValueEditConcept<std::string>::reset, concept.data(), t_resetMO);
-    reset();
-  } else if (QSharedPointer<LoadNameConcept> concept = t_baseConcept.dynamicCast<LoadNameConcept>()) {
-    auto reset = std::bind(&LoadNameConcept::reset, concept.data(), t_resetMO);
     reset();
   } else if (QSharedPointer<NameLineEditConcept> concept = t_baseConcept.dynamicCast<NameLineEditConcept>()) {
     auto reset = std::bind(&NameLineEditConcept::reset, concept.data(), t_resetMO);

@@ -45,11 +45,82 @@
 
 namespace openstudio {
 
-OSLoadNamePixmapLineEdit::OSLoadNamePixmapLineEdit(QWidget* parent) : QWidget(parent) {
+OSLoadNamePixmapLineEdit::OSLoadNamePixmapLineEdit(QWidget* parent) 
+  : OSLineEdit2Interface(parent) {
   createWidgets();
 }
 
 OSLoadNamePixmapLineEdit::~OSLoadNamePixmapLineEdit() {}
+
+void OSLoadNamePixmapLineEdit::enableClickFocus() {
+  m_lineEdit->enableClickFocus();
+}
+
+void OSLoadNamePixmapLineEdit::setDeleteObject(bool deleteObject) {
+  m_lineEdit->setDeleteObject(deleteObject);
+}
+
+bool OSLoadNamePixmapLineEdit::hasData() {
+  return m_lineEdit->hasData();
+}
+
+bool OSLoadNamePixmapLineEdit::deleteObject() {
+  return m_lineEdit->deleteObject();
+}
+
+boost::optional<model::ModelObject> OSLoadNamePixmapLineEdit::modelObject() const {
+  return m_lineEdit->modelObject();
+}
+
+void OSLoadNamePixmapLineEdit::bind(const model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetter> set,
+                                    boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted) {
+  m_lineEdit->bind(modelObject, get, set, reset, isDefaulted);
+
+  completeBind();
+}
+
+void OSLoadNamePixmapLineEdit::bind(const model::ModelObject& modelObject, OptionalStringGetter get, boost::optional<StringSetter> set,
+                                    boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted) {
+  m_lineEdit->bind(modelObject, get, set, reset, isDefaulted);
+
+  completeBind();
+}
+
+void OSLoadNamePixmapLineEdit::bind(const model::ModelObject& modelObject, OptionalStringGetter get,
+                  boost::optional<StringSetterOptionalStringReturn> set, boost::optional<NoFailAction> reset,
+                  boost::optional<BasicQuery> isDefaulted) {
+  m_lineEdit->bind(modelObject, get, set, reset, isDefaulted);
+
+  completeBind();
+}
+
+void OSLoadNamePixmapLineEdit::bind(const model::ModelObject& modelObject, OptionalStringGetterBoolArg get,
+                                    boost::optional<StringSetterOptionalStringReturn> set, boost::optional<NoFailAction> reset,
+                                    boost::optional<BasicQuery> isDefaulted) {
+  m_lineEdit->bind(modelObject, get, set, reset, isDefaulted);
+
+  completeBind();
+}
+
+void OSLoadNamePixmapLineEdit::bind(const model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetterVoidReturn> set,
+                  boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted)
+{
+  m_lineEdit->bind(modelObject, get, set, reset, isDefaulted);
+
+  completeBind();
+}
+
+void OSLoadNamePixmapLineEdit::onItemRemoveClicked() {
+  // TODO: remove icon?
+}
+
+void OSLoadNamePixmapLineEdit::completeBind() {
+  setIcon();
+}
+
+void OSLoadNamePixmapLineEdit::unbind() {
+  m_lineEdit->unbind();
+}
 
 void OSLoadNamePixmapLineEdit::createWidgets() {
   QPixmap m_pixmap(MINI_ICON_SIZE, MINI_ICON_SIZE);
@@ -75,64 +146,14 @@ void OSLoadNamePixmapLineEdit::createWidgets() {
 }
 
 void OSLoadNamePixmapLineEdit::setIcon() {
-  if (m_modelObject) {
-    auto pixmap = IconLibrary::Instance().findMiniIcon(m_modelObject->iddObjectType().value());
+  auto mo = modelObject();
+  if (mo) {
+    auto pixmap = IconLibrary::Instance().findMiniIcon(mo->iddObjectType().value());
     if (pixmap) {
       m_label->setPixmap(*pixmap);
     }
   }
 }
 
-void OSLoadNamePixmapLineEdit::bind(const model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetter> set,
-                                    boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted) {
-  m_modelObject = modelObject;
-
-  m_lineEdit->bind(modelObject, get, set, reset, isDefaulted);
-
-  completeBind();
-}
-
-void OSLoadNamePixmapLineEdit::bind(const model::ModelObject& modelObject, OptionalStringGetter get, boost::optional<StringSetter> set,
-                                    boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted) {
-  m_modelObject = modelObject;
-
-  m_lineEdit->bind(modelObject, get, set, reset, isDefaulted);
-
-  completeBind();
-}
-
-void OSLoadNamePixmapLineEdit::bind(const model::ModelObject& modelObject, OptionalStringGetterBoolArg get,
-                                    boost::optional<StringSetterOptionalStringReturn> set, boost::optional<NoFailAction> reset,
-                                    boost::optional<BasicQuery> isDefaulted) {
-  m_modelObject = modelObject;
-
-  m_lineEdit->bind(modelObject, get, set, reset, isDefaulted);
-
-  completeBind();
-}
-
-void OSLoadNamePixmapLineEdit::completeBind() {
-
-  setIcon();
-
-  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
-    .get()
-    ->onChange.connect<OSLoadNamePixmapLineEdit, &OSLoadNamePixmapLineEdit::onModelObjectChange>(this);
-}
-
-void OSLoadNamePixmapLineEdit::unbind() {
-  m_lineEdit->unbind();
-}
-
-void OSLoadNamePixmapLineEdit::onModelObjectChange() {
-  // DLM: this was causing a crash with people objects in the space type grid view
-  // somehow this was getting called in grid redraw, apparently the grid redraw is calling the setters
-  // the type would not change in this signal anyway
-  //setIcon();
-}
-
-void OSLoadNamePixmapLineEdit::enableClickFocus() {
-  m_lineEdit->enableClickFocus();
-}
 
 }  // namespace openstudio
