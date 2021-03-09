@@ -75,11 +75,10 @@ class OSDropZone2 : public QWidget, public Nano::Observer
   void setDeleteObject(bool deleteObject);
   bool deleteObject();
 
-  //void setIsDefaulted(bool defaulted);
-  bool isDefaulted();
   void bind(model::ModelObject& modelObject, OptionalModelObjectGetter get, ModelObjectSetter set, 
             boost::optional<NoFailAction> reset = boost::none,
-            boost::optional<ModelObjectIsDefaulted> isDefaulted = boost::none);
+            boost::optional<ModelObjectIsDefaulted> isDefaulted = boost::none, 
+            boost::optional<ModelObjectIsDefaulted> isReadOnly = boost::none);
 
   void unbind();
 
@@ -115,6 +114,7 @@ class OSDropZone2 : public QWidget, public Nano::Observer
   boost::optional<ModelObjectSetter> m_set;
   boost::optional<NoFailAction> m_reset;
   boost::optional<ModelObjectIsDefaulted> m_isDefaulted;
+  boost::optional<ModelObjectIsReadOnly> m_isReadOnly;
   boost::optional<model::ModelObject> m_modelObject;
   //QString m_text;
   OSItem* m_item = nullptr;

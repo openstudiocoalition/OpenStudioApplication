@@ -366,7 +366,7 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
         return loads;
       });
 
-      std::function<double(model::ModelObject*)> multiplier([allLoads](model::ModelObject* t_modelObject) {
+      std::function<double(model::ModelObject*)> multiplier([](model::ModelObject* t_modelObject) {
         double retval = 0;
 
         boost::optional<model::InternalMass> im = t_modelObject->optionalCast<model::InternalMass>();
@@ -828,6 +828,8 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
                             std::function<void(model::SpaceLoad*)>([](model::SpaceLoad* t_sl) { t_sl->remove(); })),
                           boost::optional<std::function<bool(model::SpaceLoad*)>>(
                             std::function<bool(model::SpaceLoad*)>([](model::SpaceLoad* t_sl) { return !t_sl->space(); })),
+                          boost::optional<std::function<bool(model::SpaceLoad*)>>(
+                            std::function<bool(model::SpaceLoad*)>([](model::SpaceLoad* t_sl) { return !t_sl->space(); })),
                           DataSource(allLoads, true));
 
       } else if (field == SELECTED) {
@@ -836,8 +838,16 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
         connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpacesLoadsGridController::selectAllStateChanged);
         connect(checkbox.data(), &QCheckBox::stateChanged, this->gridView(), &OSGridView::gridRowSelectionChanged);
 
-        addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", DataSource(allLoads, true));
+        std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { 
+          if (t_obj->optionalCast<model::SpaceLoad>()) {
+            return !t_obj->cast<model::SpaceLoad>().space();
+          }
+          return false; 
+        });
+        addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", isLocked, DataSource(allLoads, true));
       } else if (field == MULTIPLIER) {
+        
+        // TODO: add isReadOnly to addValueEditColumn
         addValueEditColumn(Heading(QString(MULTIPLIER)), multiplier, setMultiplier, resetMultiplier, isMultiplierDefaulted,
                            DataSource(allLoadsWithMultipliers, true));
 
@@ -911,22 +921,24 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
             }
         ));
 
+        // TODO: disable drop zone here
         addNameLineEditColumn(Heading(QString(DEFINITION), true, false), true, false,
                               CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::name),
                               CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::setName),
                               boost::optional<std::function<void(model::SpaceLoadDefinition*)>>(), 
                               boost::optional<std::function<bool(model::SpaceLoadDefinition*)>>(),
+                              boost::optional<std::function<bool(model::SpaceLoadDefinition*)>>(),
                               DataSource(allDefinitions, false,
-                                         QSharedPointer<DropZoneConcept>(
-                                           new DropZoneConceptImpl<model::SpaceLoadDefinition, model::Space>(Heading(DEFINITION), getter, setter, resetter, isDefaulted))));
+                                         QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<model::SpaceLoadDefinition, model::Space>(
+                       Heading(DEFINITION), getter, setter, resetter, isDefaulted, isDefaulted))));
       } else if (field == SCHEDULE) {
 
-        addDropZoneColumn(Heading(QString(SCHEDULE)), schedule, setSchedule, resetSchedule, isScheduleDefaulted,
+        addDropZoneColumn(Heading(QString(SCHEDULE)), schedule, setSchedule, resetSchedule, isScheduleDefaulted, isScheduleDefaulted,
                           DataSource(allLoadsWithSchedules, true));
 
       } else if (field == ACTIVITYSCHEDULE) {
         addDropZoneColumn(Heading(QString(SCHEDULE)), activityLevelSchedule, setActivityLevelSchedule, resetActivityLevelSchedule,
-                          isActivityLevelScheduleDefaulted, DataSource(allLoadsWithActivityLevelSchedules, true));
+                          isActivityLevelScheduleDefaulted, isActivityLevelScheduleDefaulted, DataSource(allLoadsWithActivityLevelSchedules, true));
       } else {
         // unhandled
         OS_ASSERT(false);

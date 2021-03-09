@@ -604,11 +604,13 @@ void OSDropZone2::refresh() {
 
 // cppcheck-suppress constParameter
 void OSDropZone2::bind(model::ModelObject& modelObject, OptionalModelObjectGetter get, ModelObjectSetter set, 
-                       boost::optional<NoFailAction> reset, boost::optional<ModelObjectIsDefaulted> isDefaulted) {
+                       boost::optional<NoFailAction> reset, boost::optional<ModelObjectIsDefaulted> isDefaulted,
+                       boost::optional<ModelObjectIsReadOnly> isReadOnly) {
   m_get = get;
   m_set = set;
   m_reset = reset;
   m_isDefaulted = isDefaulted;
+  m_isReadOnly = isReadOnly;
   m_modelObject = modelObject;
   setAcceptDrops(true);
 
@@ -619,7 +621,10 @@ void OSDropZone2::unbind() {
   m_modelObject.reset();
   m_get.reset();
   m_set.reset();
-  m_reset.reset();
+  m_reset.reset();  
+  m_isDefaulted.reset();  
+  m_isReadOnly.reset();  
+
   setAcceptDrops(false);
 
   refresh();
@@ -809,23 +814,5 @@ void OSDropZone2::makeItem() {
     }
   }
 }
-/*
-void OSDropZone2::setIsDefaulted(bool defaulted) {
-  if (defaulted) {
-    m_label->setStyleSheet("QLabel { color:green }");  // color: #006837
-  } else {
-    m_label->setStyleSheet("QLabel { color:black }");
-  }
-}
-*/
-/*
-bool OSDropZone2::isDefaulted() {
-  bool isDefaluted = false;
-  if (m_item) {
-    isDefaluted = m_item->isDefaulted();
-  }
-  return isDefaluted;
-}
-*/
 
 }  // namespace openstudio

@@ -67,8 +67,8 @@ OSLineEdit2Interface::OSLineEdit2Interface(QWidget* parent) : QLineEdit(parent) 
   this->setProperty("selected", false);
   this->setStyleSheet("QLineEdit[defaulted=\"true\"][selected=\"true\"] { color:green; background:#ffc627; } "
                       "QLineEdit[defaulted=\"true\"][selected=\"false\"] { color:green; background:white; } "
-                      "QLineEdit[defaulted=\"false\"][selected=\"true\"] { color:green; background:#ffc627; } "
-                      "QLineEdit[defaulted=\"false\"][selected=\"false\"] { color:green; background:white; } ");
+                      "QLineEdit[defaulted=\"false\"][selected=\"true\"] { color:black; background:#ffc627; } "
+                      "QLineEdit[defaulted=\"false\"][selected=\"false\"] { color:black; background:white; } ");
 }
 
 
@@ -82,16 +82,16 @@ void OSLineEdit2::enableClickFocus() {
   this->m_hasClickFocus = true;
 }
 
-void OSLineEdit2::setDeleteObject(bool deleteObject) {
-  m_deleteObject = deleteObject;
+DeleteType OSLineEdit2::deleteType() {
+  return m_deleteType;
+}
+
+void OSLineEdit2::setDeleteType(DeleteType deleteType) {
+  m_deleteType = deleteType;
 }
 
 bool OSLineEdit2::hasData() {
   return !this->text().isEmpty();
-}
-
-bool OSLineEdit2::deleteObject() {
-  return m_deleteObject;
 }
 
 boost::optional<model::ModelObject> OSLineEdit2::modelObject() const {
@@ -99,56 +99,61 @@ boost::optional<model::ModelObject> OSLineEdit2::modelObject() const {
 }
 
 void OSLineEdit2::bind(const model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetter> set,
-                       boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted) {
+                       boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted, boost::optional<BasicQuery> isLocked) {
   m_modelObject = modelObject;
   m_get = get;
   m_set = set;
   m_reset = reset;
   m_isDefaulted = isDefaulted;
+  m_isLocked = isLocked;
 
   completeBind();
 }
 
 void OSLineEdit2::bind(const model::ModelObject& modelObject, OptionalStringGetter get, boost::optional<StringSetter> set,
-                       boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted) {
+                       boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted, boost::optional<BasicQuery> isLocked) {
   m_modelObject = modelObject;
   m_getOptional = get;
   m_set = set;
   m_reset = reset;
   m_isDefaulted = isDefaulted;
+  m_isLocked = isLocked;
 
   completeBind();
 }
 
 void OSLineEdit2::bind(const model::ModelObject& modelObject, OptionalStringGetter get, boost::optional<StringSetterOptionalStringReturn> set,
-                       boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted) {
+                       boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted, boost::optional<BasicQuery> isLocked) {
   m_modelObject = modelObject;
   m_getOptional = get;
   m_setOptionalStringReturn = set;
   m_reset = reset;
   m_isDefaulted = isDefaulted;
+  m_isLocked = isLocked;
 
   completeBind();
 }
 
 void OSLineEdit2::bind(const model::ModelObject& modelObject, OptionalStringGetterBoolArg get, boost::optional<StringSetterOptionalStringReturn> set,
-                       boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted) {
+                       boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted, boost::optional<BasicQuery> isLocked) {
   m_modelObject = modelObject;
   m_getOptionalBoolArg = get;
   m_setOptionalStringReturn = set;
   m_reset = reset;
   m_isDefaulted = isDefaulted;
+  m_isLocked = isLocked;
 
   completeBind();
 }
 
 void OSLineEdit2::bind(const model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetterVoidReturn> set,
-                       boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted) {
+                       boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted, boost::optional<BasicQuery> isLocked) {
   m_modelObject = modelObject;
   m_get = get;
   m_setVoidReturn = set;
   m_reset = reset;
   m_isDefaulted = isDefaulted;
+  m_isLocked = isLocked;
 
   completeBind();
 }
@@ -156,7 +161,9 @@ void OSLineEdit2::bind(const model::ModelObject& modelObject, StringGetter get, 
 void OSLineEdit2::completeBind() {
   setEnabled(true);
 
-  if (!m_set && !m_setOptionalStringReturn && !m_setVoidReturn) {
+  if (m_isLocked && (*m_isLocked)()) {
+    setReadOnly(true);
+  }else if (!m_set && !m_setOptionalStringReturn && !m_setVoidReturn) {
     setReadOnly(true);
   }
 
@@ -191,6 +198,8 @@ void OSLineEdit2::unbind() {
     m_setVoidReturn.reset();
     m_reset.reset();
     m_isDefaulted.reset();
+    m_isLocked.reset();
+    m_item = nullptr;
     setEnabled(false);
   }
 }
@@ -241,6 +250,24 @@ void OSLineEdit2::updateStyle() {
   this->style()->polish(this);
 }
 
+bool OSLineEdit2::deleteable() const {
+  bool result = false;
+  if (m_deleteType == DeleteType::AlwaysDelete) {
+    result = true;
+  } else if (m_deleteType == DeleteType::DeleteIfNotDefaulted) {
+    result = !defaulted();
+  }
+  return result;
+}
+
+bool OSLineEdit2::defaulted() const {
+  bool result = false;
+  if (m_isDefaulted) {
+    result = (*m_isDefaulted)();
+  }
+  return result;
+}
+
 void OSLineEdit2::onModelObjectChange() {
   onModelObjectChangeInternal(false);
 }
@@ -259,13 +286,10 @@ void OSLineEdit2::onModelObjectChangeInternal(bool startingup) {
       OS_ASSERT(false);
     }
   
-    bool defaulted = false;
-    if (m_isDefaulted) {
-      defaulted = (*m_isDefaulted)();
-    }
+    bool thisDefaulted = defaulted();
     QVariant currentDefaulted = this->property("defaulted");
-    if (currentDefaulted.isNull() || currentDefaulted.toBool() != defaulted) {
-      this->setProperty("defaulted", defaulted);
+    if (currentDefaulted.isNull() || currentDefaulted.toBool() != thisDefaulted) {
+      this->setProperty("defaulted", thisDefaulted);
       updateStyle();
     }
 
@@ -285,7 +309,7 @@ void OSLineEdit2::onModelObjectChangeInternal(bool startingup) {
 
 void OSLineEdit2::emitItemClicked() {
   if (!m_item && m_modelObject) {
-    m_item = OSItem::makeItem(modelObjectToItemId(*m_modelObject, false));
+    m_item = OSItem::makeItem(modelObjectToItemId(*m_modelObject, defaulted()));
     OS_ASSERT(m_item);
     m_item->setParent(this);
     connect(m_item, &OSItem::itemRemoveClicked, this, &OSLineEdit2::onItemRemoveClicked);
@@ -316,7 +340,7 @@ void OSLineEdit2::onItemRemoveClicked() {
       parent = m_modelObject->parent();
     }
     (*m_reset)();
-    if (m_deleteObject) {
+    if (deleteable()) {
       m_modelObject->remove();
     }
     emit objectRemoved(parent);

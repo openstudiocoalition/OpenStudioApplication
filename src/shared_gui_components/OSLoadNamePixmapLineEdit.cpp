@@ -56,16 +56,16 @@ void OSLoadNamePixmapLineEdit::enableClickFocus() {
   m_lineEdit->enableClickFocus();
 }
 
-void OSLoadNamePixmapLineEdit::setDeleteObject(bool deleteObject) {
-  m_lineEdit->setDeleteObject(deleteObject);
+DeleteType OSLoadNamePixmapLineEdit::deleteType() {
+  return m_lineEdit->deleteType();
+}
+
+void OSLoadNamePixmapLineEdit::setDeleteType(DeleteType deleteType) {
+  m_lineEdit->setDeleteType(deleteType);
 }
 
 bool OSLoadNamePixmapLineEdit::hasData() {
   return m_lineEdit->hasData();
-}
-
-bool OSLoadNamePixmapLineEdit::deleteObject() {
-  return m_lineEdit->deleteObject();
 }
 
 boost::optional<model::ModelObject> OSLoadNamePixmapLineEdit::modelObject() const {
@@ -73,39 +73,41 @@ boost::optional<model::ModelObject> OSLoadNamePixmapLineEdit::modelObject() cons
 }
 
 void OSLoadNamePixmapLineEdit::bind(const model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetter> set,
-                                    boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted) {
-  m_lineEdit->bind(modelObject, get, set, reset, isDefaulted);
+                                    boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted,
+                                    boost::optional<BasicQuery> isLocked) {
+  m_lineEdit->bind(modelObject, get, set, reset, isDefaulted, isLocked);
 
   completeBind();
 }
 
 void OSLoadNamePixmapLineEdit::bind(const model::ModelObject& modelObject, OptionalStringGetter get, boost::optional<StringSetter> set,
-                                    boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted) {
-  m_lineEdit->bind(modelObject, get, set, reset, isDefaulted);
+                                    boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted,
+                                    boost::optional<BasicQuery> isLocked) {
+  m_lineEdit->bind(modelObject, get, set, reset, isDefaulted, isLocked);
 
   completeBind();
 }
 
 void OSLoadNamePixmapLineEdit::bind(const model::ModelObject& modelObject, OptionalStringGetter get,
-                  boost::optional<StringSetterOptionalStringReturn> set, boost::optional<NoFailAction> reset,
-                  boost::optional<BasicQuery> isDefaulted) {
-  m_lineEdit->bind(modelObject, get, set, reset, isDefaulted);
+                                    boost::optional<StringSetterOptionalStringReturn> set, boost::optional<NoFailAction> reset,
+                                    boost::optional<BasicQuery> isDefaulted, boost::optional<BasicQuery> isLocked) {
+  m_lineEdit->bind(modelObject, get, set, reset, isDefaulted, isLocked);
 
   completeBind();
 }
 
 void OSLoadNamePixmapLineEdit::bind(const model::ModelObject& modelObject, OptionalStringGetterBoolArg get,
                                     boost::optional<StringSetterOptionalStringReturn> set, boost::optional<NoFailAction> reset,
-                                    boost::optional<BasicQuery> isDefaulted) {
-  m_lineEdit->bind(modelObject, get, set, reset, isDefaulted);
+                                    boost::optional<BasicQuery> isDefaulted, boost::optional<BasicQuery> isLocked) {
+  m_lineEdit->bind(modelObject, get, set, reset, isDefaulted, isLocked);
 
   completeBind();
 }
 
 void OSLoadNamePixmapLineEdit::bind(const model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetterVoidReturn> set,
-                  boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted)
-{
-  m_lineEdit->bind(modelObject, get, set, reset, isDefaulted);
+                                    boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted,
+                                    boost::optional<BasicQuery> isLocked) {
+  m_lineEdit->bind(modelObject, get, set, reset, isDefaulted, isLocked);
 
   completeBind();
 }

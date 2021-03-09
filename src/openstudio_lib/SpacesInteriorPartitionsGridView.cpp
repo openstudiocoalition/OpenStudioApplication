@@ -187,8 +187,8 @@ void SpacesInteriorPartitionsGridController::addColumns(const QString& category,
         checkbox->setToolTip("Check to select all rows");
         connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpacesInteriorPartitionsGridController::selectAllStateChanged);
         connect(checkbox.data(), &QCheckBox::stateChanged, this->gridView(), &OSGridView::gridRowSelectionChanged);
-
-        addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row",
+        std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; });
+        addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", isLocked,
                         DataSource(allInteriorPartitionSurfaces, true));
       } else if (field == INTERIORPARTITIONGROUPNAME) {
         addNameLineEditColumn(Heading(QString(INTERIORPARTITIONGROUPNAME), true, false), false, false,
@@ -196,12 +196,14 @@ void SpacesInteriorPartitionsGridController::addColumns(const QString& category,
                               CastNullAdapter<model::InteriorPartitionSurfaceGroup>(&model::InteriorPartitionSurfaceGroup::setName),
                               boost::optional<std::function<void(model::InteriorPartitionSurfaceGroup*)>>(),
                               boost::optional<std::function<bool(model::InteriorPartitionSurfaceGroup*)>>(),
+                              boost::optional<std::function<bool(model::InteriorPartitionSurfaceGroup*)>>(),
                               DataSource(allInteriorPartitionSurfaceInteriorPartitionSurfaceGroups, true));
       } else if (field == INTERIORPARTITIONNAME) {
         addNameLineEditColumn(Heading(QString(INTERIORPARTITIONNAME), true, false), false, false,
                               CastNullAdapter<model::InteriorPartitionSurface>(&model::InteriorPartitionSurface::name),
                               CastNullAdapter<model::InteriorPartitionSurface>(&model::InteriorPartitionSurface::setName),
                               boost::optional<std::function<void(model::InteriorPartitionSurface*)>>(),
+                              boost::optional<std::function<bool(model::InteriorPartitionSurface*)>>(),
                               boost::optional<std::function<bool(model::InteriorPartitionSurface*)>>(),
                               DataSource(allInteriorPartitionSurfaces, true));
       } else if (field == CONSTRUCTIONNAME) {
@@ -213,12 +215,15 @@ void SpacesInteriorPartitionsGridController::addColumns(const QString& category,
           boost::optional<std::function<void(model::InteriorPartitionSurface*)>>(NullAdapter(&model::InteriorPartitionSurface::resetConstruction)),
           boost::optional<std::function<bool(model::InteriorPartitionSurface*)>>(
             NullAdapter(&model::InteriorPartitionSurface::isConstructionDefaulted)),
+          boost::optional<std::function<bool(model::InteriorPartitionSurface*)>>(),
           DataSource(allInteriorPartitionSurfaces, true));
       } else if (field == CONVERTTOINTERNALMASS) {
         // We add the "Apply Selected" button to this column by passing 3rd arg, t_showColumnButton=true
+        std::function<bool(model::InteriorPartitionSurface*)> isLocked([](model::InteriorPartitionSurface* t_obj) -> bool { return false; });
         addCheckBoxColumn(Heading(QString(CONVERTTOINTERNALMASS), true, true), std::string("Check to enable convert to InternalMass."),
                           NullAdapter(&model::InteriorPartitionSurface::converttoInternalMass),
-                          NullAdapter(&model::InteriorPartitionSurface::setConverttoInternalMass), DataSource(allInteriorPartitionSurfaces, true));
+                          NullAdapter(&model::InteriorPartitionSurface::setConverttoInternalMass), isLocked,
+                          DataSource(allInteriorPartitionSurfaces, true));
       } else if (field == SURFACEAREA) {
         std::function<bool(model::InteriorPartitionSurface*, double)> setter(
           [](model::InteriorPartitionSurface* t_interiorPartitionSurface, double t_arg) {

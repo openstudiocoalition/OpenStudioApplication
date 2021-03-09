@@ -161,13 +161,14 @@ void SpacesSurfacesGridController::addColumns(const QString& category, std::vect
         checkbox->setToolTip("Check to select all rows");
         connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpacesSurfacesGridController::selectAllStateChanged);
         connect(checkbox.data(), &QCheckBox::stateChanged, this->gridView(), &OSGridView::gridRowSelectionChanged);
-
-        addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", DataSource(allSurfaces, true));
+        std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; });
+        addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", isLocked, DataSource(allSurfaces, true));
       } else if (field == SURFACENAME) {
         addNameLineEditColumn(
           Heading(QString(NAME), true, false), false, false, CastNullAdapter<model::Surface>(&model::Surface::name),
           CastNullAdapter<model::Surface>(&model::Surface::setName),
           boost::optional<std::function<void(model::Surface*)>>(std::function<void(model::Surface*)>([](model::Surface* t_s) { t_s->remove(); })),
+          boost::optional<std::function<bool(model::Surface*)>>(),
           boost::optional<std::function<bool(model::Surface*)>>(),
           DataSource(allSurfaces, true));
       } else if (field == SURFACETYPE) {
@@ -183,6 +184,7 @@ void SpacesSurfacesGridController::addColumns(const QString& category, std::vect
                           CastNullAdapter<model::Surface>(&model::Surface::setConstruction),
                           boost::optional<std::function<void(model::Surface*)>>(NullAdapter(&model::Surface::resetConstruction)),
                           boost::optional<std::function<bool(model::Surface*)>>(NullAdapter(&model::Surface::isConstructionDefaulted)),
+                          boost::optional<std::function<bool(model::Surface*)>>(),
                           DataSource(allSurfaces, true));
       } else if (field == OUTSIDEBOUNDARYCONDITION) {
         addComboBoxColumn(Heading(QString(OUTSIDEBOUNDARYCONDITION)),
@@ -201,6 +203,7 @@ void SpacesSurfacesGridController::addColumns(const QString& category, std::vect
         addDropZoneColumn(Heading(QString(OUTSIDEBOUNDARYCONDITIONOBJECT), true, false),
                           CastNullAdapter<model::Surface>(&model::Surface::adjacentSurface), setter,
                           boost::optional<std::function<void(model::Surface*)>>(NullAdapter(&model::Surface::resetAdjacentSurface)),
+                          boost::optional<std::function<bool(model::Surface*)>>(),
                           boost::optional<std::function<bool(model::Surface*)>>(), DataSource(allSurfaces, true));
       } else if (field == SUNEXPOSURE) {
         addComboBoxColumn(

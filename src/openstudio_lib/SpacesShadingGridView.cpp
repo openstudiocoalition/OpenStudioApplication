@@ -182,13 +182,14 @@ void SpacesShadingGridController::addColumns(const QString& category, std::vecto
         checkbox->setToolTip("Check to select all rows");
         connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpacesShadingGridController::selectAllStateChanged);
         connect(checkbox.data(), &QCheckBox::stateChanged, this->gridView(), &OSGridView::gridRowSelectionChanged);
-
-        addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", DataSource(allShadingSurfaceGroups, true));
+        std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; });
+        addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", isLocked, DataSource(allShadingSurfaceGroups, true));
       } else if (field == SHADEDSURFACENAME) {
         addNameLineEditColumn(Heading(QString(SHADEDSURFACENAME), true, false), false, false,
                               CastNullAdapter<model::ShadingSurface>(&model::ShadingSurface::name),
                               CastNullAdapter<model::ShadingSurface>(&model::ShadingSurface::setName),
                               boost::optional<std::function<void(model::ShadingSurface*)>>(), 
+                              boost::optional<std::function<bool(model::ShadingSurface*)>>(), 
                               boost::optional<std::function<bool(model::ShadingSurface*)>>(), 
                               DataSource(allShadingSurfaces, true));
       } else if (field == SHADINGSURFACEGROUP) {
@@ -197,6 +198,7 @@ void SpacesShadingGridController::addColumns(const QString& category, std::vecto
                               CastNullAdapter<model::ShadingSurfaceGroup>(&model::ShadingSurfaceGroup::setName),
                               boost::optional<std::function<void(model::ShadingSurfaceGroup*)>>(),
                               boost::optional<std::function<bool(model::ShadingSurfaceGroup*)>>(),
+                              boost::optional<std::function<bool(model::ShadingSurfaceGroup*)>>(),
                               DataSource(allShadingSurfaceShadingSurfaceGroups, true));
       } else if (field == CONSTRUCTION) {
         setConstructionColumn(4);
@@ -204,6 +206,7 @@ void SpacesShadingGridController::addColumns(const QString& category, std::vecto
                           CastNullAdapter<model::ShadingSurface>(&model::ShadingSurface::setConstruction),
                           boost::optional<std::function<void(model::ShadingSurface*)>>(NullAdapter(&model::ShadingSurface::resetConstruction)),
                           boost::optional<std::function<bool(model::ShadingSurface*)>>(NullAdapter(&model::ShadingSurface::isConstructionDefaulted)),
+                          boost::optional<std::function<bool(model::ShadingSurface*)>>(),
                           DataSource(allShadingSurfaces, true));
       } else if (field == TRANSMITTANCESCHEDULE) {
         std::function<bool(model::ShadingSurface*, const model::Schedule&)> setter(
@@ -215,6 +218,7 @@ void SpacesShadingGridController::addColumns(const QString& category, std::vecto
         addDropZoneColumn(
           Heading(QString(TRANSMITTANCESCHEDULE)), CastNullAdapter<model::ShadingSurface>(&model::ShadingSurface::transmittanceSchedule), setter,
           boost::optional<std::function<void(model::ShadingSurface*)>>(NullAdapter(&model::ShadingSurface::resetTransmittanceSchedule)),
+          boost::optional<std::function<bool(model::ShadingSurface*)>>(),
           boost::optional<std::function<bool(model::ShadingSurface*)>>(), DataSource(allShadingSurfaces, true));
       } else if (field == SHADEDSURFACENAME) {
         //ShadingSurfaceGroup

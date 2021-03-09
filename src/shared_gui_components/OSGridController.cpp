@@ -678,24 +678,17 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
       nameLineEdit->enableClickFocus();
     }
 
-    nameLineEdit->setDeleteObject(nameLineEditConcept->deleteObject());
-
-    bool readOnly = nameLineEditConcept->readOnly();
-
-    // handle special case for space types
-    if (t_mo.optionalCast<model::SpaceType>()) {
-      if (istringEqual("Plenum Space Type", t_mo.nameString())) {
-        readOnly = true;
-      }
+    if (nameLineEditConcept->deleteObject()) {
+      nameLineEdit->setDeleteType(DeleteType::DeleteIfNotDefaulted);
+    } else {
+      nameLineEdit->setDeleteType(DeleteType::NoDelete);
     }
 
     nameLineEdit->bind(t_mo, OptionalStringGetter(std::bind(&NameLineEditConcept::get, nameLineEditConcept.data(), t_mo, true)),
-                       // If the concept is read only, pass an empty optional
-                       readOnly ? boost::none
-                                : boost::optional<StringSetter>(
-                                    std::bind(&NameLineEditConcept::setReturnBool, nameLineEditConcept.data(), t_mo, std::placeholders::_1)),
+                       boost::optional<StringSetter>(std::bind(&NameLineEditConcept::setReturnBool, nameLineEditConcept.data(), t_mo, std::placeholders::_1)),
                        boost::optional<NoFailAction>(std::bind(&NameLineEditConcept::reset, nameLineEditConcept.data(), t_mo)),
-                       boost::optional<BasicQuery>(std::bind(&NameLineEditConcept::isInherited, nameLineEditConcept.data(), t_mo)));
+                       boost::optional<BasicQuery>(std::bind(&NameLineEditConcept::isInherited, nameLineEditConcept.data(), t_mo)),
+                       boost::optional<BasicQuery>(std::bind(&NameLineEditConcept::isLocked, nameLineEditConcept.data(), t_mo)));
 
     if (nameLineEditConcept->isInspectable()) {
       //connect(nameLineEdit, OSLineEdit2::itemClicked, gridView(), OSGridView::dropZoneItemClicked);
@@ -845,12 +838,12 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
     OS_ASSERT(false);
   }
 
-  // TODO - fix?
+  // TODO - fix? this prevents clicking on inherited objects to view in the inspector
   // Is this widget inherited?
- // if (m_subrowCounter < m_subrowsInherited.size() && m_subrowsInherited.at(m_subrowCounter)) {
- //   widget->setDisabled(true);
- //   widget->setStyleSheet("color:green");
-  //}
+  if (m_subrowCounter < m_subrowsLocked.size() && m_subrowsLocked.at(m_subrowCounter)) {
+    widget->setDisabled(true);
+    widget->setStyleSheet("color:green");
+  }
 
   return widget;
 }
@@ -1096,9 +1089,9 @@ QWidget* OSGridController::widgetAt(int row, int column) {
   // Begin lambda
   ///////////////////////////////////////////////////////////////////////////////////////
   auto addWidget = [&](QWidget* t_widget, const boost::optional<model::ModelObject>& t_obj, const bool t_isSelector) {
-    //if (column == 0) {
-    //  m_subrowsInherited.clear();
-    //}
+    if (column == 0) {
+      m_subrowsLocked.clear();
+    }
 
     auto holder = new Holder(this->gridView());
     holder->setMinimumHeight(widgetHeight);
@@ -1198,24 +1191,17 @@ QWidget* OSGridController::widgetAt(int row, int column) {
       // all the way around.
 
       m_subrowCounter = 0;
-     // auto subrowInherited = false;
 
       for (auto& item : dataSource->source().items(mo)) {
         if (item) {
-          // Is this widget's subrow inherited?
-          // Check the first column of each potential subrow
-          //if (column == 1) {
-            //for (auto obj : m_inheritedModelObjects) {
-            //  if (item->cast<model::ModelObject>().parent()) {
-            //    if (item->cast<model::ModelObject>().parent().get() == obj) {
-            //      subrowInherited = true;
-            //      break;
-            //    }
-            //  }
-            //}
-          //}
-          //m_subrowsInherited.push_back(subrowInherited);
-          addWidget(makeWidget(item->cast<model::ModelObject>(), dataSource->innerConcept()), item->cast<model::ModelObject>(),
+          auto mo = item->cast<model::ModelObject>();
+
+          if (dataSource->innerConcept()->isSelector()) {
+            auto subrowIsLocked = dataSource->innerConcept()->isLocked(mo);
+            m_subrowsLocked.push_back(subrowIsLocked);
+          }
+
+          addWidget(makeWidget(mo, dataSource->innerConcept()), mo,
                     baseConcept->isSelector() || dataSource->innerConcept()->isSelector());
         } else {
           addWidget(new QWidget(this->gridView()), boost::none, false);
@@ -1661,23 +1647,6 @@ QSharedPointer<BaseConcept> OSGridController::makeDataSourceAdapter(const QShare
 
 void OSGridController::resetBaseConcepts() {
   m_baseConcepts.clear();
-}
-
-void OSGridController::addSelectColumn(const Heading& heading, const std::string& tooltip,
-                                       const boost::optional<DataSource>& t_source) {
-  auto objectSelector = m_objectSelector;
-  auto getter = std::function<bool(model::ModelObject*)>([objectSelector](model::ModelObject* t_obj) -> bool {
-    assert(t_obj);
-    return objectSelector->getObjectSelected(*t_obj);
-  });
-
-  auto setter = std::function<void(model::ModelObject*, bool)>([objectSelector](model::ModelObject* t_obj, bool t_set) {
-    assert(t_obj);
-    objectSelector->setObjectSelected(*t_obj, t_set);
-  });
-
-  addCheckBoxColumn(heading, tooltip, getter, setter, t_source);
-  m_baseConcepts.back()->setIsSelector(true);
 }
 
 HorizontalHeaderPushButton::HorizontalHeaderPushButton(QWidget* parent) : QPushButton() {
