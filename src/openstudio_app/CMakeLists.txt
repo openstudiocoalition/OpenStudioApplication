@@ -119,7 +119,7 @@ elseif(UNIX)
 
 endif()
 
-#include_directories(${RUBY_INCLUDE_DIRS})
+#include_directories(SYSTEM ${RUBY_INCLUDE_DIRS})
 
 add_executable(${target_name}
   WIN32

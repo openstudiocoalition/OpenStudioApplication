@@ -334,8 +334,6 @@ macro(MAKE_SWIG_TARGET_OSAPP NAME SIMPLENAME KEY_I_FILE I_FILES PARENT_TARGET PA
   ## Finish requirements gathering
   ##
 
-  include_directories(${RUBY_INCLUDE_DIRS})
-
   if(WIN32)
     set(SWIG_DEFINES "-D_WINDOWS")
     set(SWIG_COMMON "-Fmicrosoft")
@@ -467,6 +465,7 @@ macro(MAKE_SWIG_TARGET_OSAPP NAME SIMPLENAME KEY_I_FILE I_FILES PARENT_TARGET PA
   set_target_properties(${swig_target} PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/ruby/")
   set_target_properties(${swig_target} PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/ruby/")
   target_link_libraries(${swig_target} ${PARENT_TARGET})
+  target_include_directories(${swig_target} SYSTEM PRIVATE ${RUBY_INCLUDE_DIRS})
   add_dependencies(${swig_target} ${PARENT_TARGET})
 
   # QT-Separation-Move
