@@ -72,6 +72,7 @@ class OSDropZone2 : public QWidget, public Nano::Observer
 
   void enableClickFocus();
   bool hasData();
+  void setLocked(bool locked);
   void setDeleteObject(bool deleteObject);
   bool deleteObject();
 

@@ -54,9 +54,9 @@ class OSCheckBox3 : public QCheckBox, public Nano::Observer
 
   // This method will be called to enable the Checkbox to accept focus
   // (typically by the OSGridController depending on whether the underlying BaseConcept allows it)
-  void enableClickFocus() {
-    this->setFocusPolicy(Qt::ClickFocus);
-  }
+  void enableClickFocus();
+
+  void setLocked(bool locked);
 
   void bind(const model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetter> set = boost::none,
             boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none);

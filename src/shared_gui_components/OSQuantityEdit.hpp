@@ -57,9 +57,9 @@ class QuantityLineEdit : public QLineEdit
 
   virtual ~QuantityLineEdit() {}
 
-  void enableClickFocus() {
-    this->m_hasClickFocus = true;
-  }
+  void enableClickFocus();
+
+  void setLocked(bool locked);
 
  protected:
   virtual void focusInEvent(QFocusEvent* e) override;
@@ -84,13 +84,11 @@ class OSQuantityEdit2 : public QWidget, public Nano::Observer
 
   void enableClickFocus();
 
-  QDoubleValidator* doubleValidator() {
-    return m_doubleValidator;
-  }
+  void setLocked(bool locked);
 
-  bool hasData() {
-    return !this->m_lineEdit->text().isEmpty();
-  }
+  QDoubleValidator* doubleValidator();
+
+  bool hasData();
 
   void bind(bool isIP, const model::ModelObject& modelObject, DoubleGetter get, boost::optional<DoubleSetter> set = boost::none,
             boost::optional<NoFailAction> reset = boost::none, boost::optional<NoFailAction> autosize = boost::none,

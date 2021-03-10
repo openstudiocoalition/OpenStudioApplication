@@ -613,8 +613,6 @@ class OSGridController : public QObject, public Nano::Observer
 
   bool m_isIP;
 
-  unsigned m_subrowCounter = 0;
-
   std::vector<bool> m_subrowsLocked = std::vector<bool>();
 
  protected:

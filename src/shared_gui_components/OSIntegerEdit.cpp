@@ -56,6 +56,22 @@ OSIntegerEdit2::OSIntegerEdit2(QWidget* parent) : m_isScientific(false) {
 
 OSIntegerEdit2::~OSIntegerEdit2() {}
 
+void OSIntegerEdit2::enableClickFocus() {
+  this->m_hasClickFocus = true;
+}
+
+bool OSIntegerEdit2::hasData() {
+  return !this->text().isEmpty();
+}
+
+void OSIntegerEdit2::setLocked(bool locked) {
+  setEnabled(!locked);
+}
+
+QIntValidator* OSIntegerEdit2::intValidator() {
+  return m_intValidator;
+}
+
 void OSIntegerEdit2::bind(const model::ModelObject& modelObject, IntGetter get, boost::optional<IntSetter> set, boost::optional<NoFailAction> reset,
                           boost::optional<NoFailAction> autosize, boost::optional<NoFailAction> autocalculate,
                           boost::optional<BasicQuery> isDefaulted, boost::optional<BasicQuery> isAutosized,

@@ -57,6 +57,22 @@ OSUnsignedEdit2::OSUnsignedEdit2(QWidget* parent) : m_isScientific(false) {
 
 OSUnsignedEdit2::~OSUnsignedEdit2() {}
 
+void OSUnsignedEdit2::enableClickFocus() {
+  this->m_hasClickFocus = true;
+}
+
+bool OSUnsignedEdit2::hasData() {
+  return !this->text().isEmpty();
+}
+
+void OSUnsignedEdit2::setLocked(bool locked) {
+  setEnabled(!locked);
+}
+
+QIntValidator* OSUnsignedEdit2::intValidator() {
+  return m_intValidator;
+}
+
 void OSUnsignedEdit2::bind(const model::ModelObject& modelObject, UnsignedGetter get, boost::optional<UnsignedSetter> set,
                            boost::optional<NoFailAction> reset, boost::optional<NoFailAction> autosize, boost::optional<NoFailAction> autocalculate,
                            boost::optional<BasicQuery> isDefaulted, boost::optional<BasicQuery> isAutosized,

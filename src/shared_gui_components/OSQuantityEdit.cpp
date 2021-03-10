@@ -91,6 +91,22 @@ OSQuantityEdit2::OSQuantityEdit2(const std::string& modelUnits, const std::strin
 
 OSQuantityEdit2::~OSQuantityEdit2() {}
 
+void OSQuantityEdit2::enableClickFocus() {
+  m_lineEdit->enableClickFocus();
+}
+
+void OSQuantityEdit2::setLocked(bool locked) {
+  setEnabled(!locked);
+}
+
+QDoubleValidator* OSQuantityEdit2::doubleValidator() {
+  return m_doubleValidator;
+}
+
+bool OSQuantityEdit2::hasData() {
+  return !this->m_lineEdit->text().isEmpty();
+}
+
 void OSQuantityEdit2::bind(bool isIP, const model::ModelObject& modelObject, DoubleGetter get, boost::optional<DoubleSetter> set,
                            boost::optional<NoFailAction> reset, boost::optional<NoFailAction> autosize, boost::optional<NoFailAction> autocalculate,
                            boost::optional<BasicQuery> isDefaulted, boost::optional<BasicQuery> isAutosized,
@@ -424,10 +440,6 @@ void OSQuantityEdit2::setPrecision(const std::string& str) {
   }
 }
 
-void OSQuantityEdit2::enableClickFocus() {
-  m_lineEdit->enableClickFocus();
-}
-
 void OSQuantityEdit2::onInFocus(bool hasFocus) {
   if (hasFocus) {
     emit inFocus(true, hasData());
@@ -439,6 +451,14 @@ void OSQuantityEdit2::onInFocus(bool hasFocus) {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 QuantityLineEdit::QuantityLineEdit(QWidget* parent) : QLineEdit(parent) {}
+
+void QuantityLineEdit::enableClickFocus() {
+  this->m_hasClickFocus = true;
+}
+
+void QuantityLineEdit::setLocked(bool locked) {
+  setEnabled(!locked);
+}
 
 void QuantityLineEdit::focusInEvent(QFocusEvent* e) {
   if (e->reason() == Qt::MouseFocusReason && m_hasClickFocus) {

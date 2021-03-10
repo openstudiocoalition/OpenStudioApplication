@@ -69,6 +69,8 @@ class OSLineEdit2Interface : public QLineEdit
 
   virtual bool hasData() = 0;  
 
+  virtual void setLocked(bool locked) = 0;  
+
   virtual boost::optional<model::ModelObject> modelObject() const = 0;
 
   virtual void bind(const model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetter> set = boost::none,
@@ -123,6 +125,8 @@ class OSLineEdit2 : public OSLineEdit2Interface, public Nano::Observer
   virtual void setDeleteType(DeleteType deleteType) override;
 
   virtual bool hasData() override;
+
+  virtual void setLocked(bool locked) override;  
 
   virtual boost::optional<model::ModelObject> modelObject() const override;
 

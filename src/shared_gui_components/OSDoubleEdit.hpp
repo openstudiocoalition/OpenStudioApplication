@@ -56,17 +56,13 @@ class OSDoubleEdit2 : public QLineEdit, public Nano::Observer
 
   virtual ~OSDoubleEdit2();
 
-  void enableClickFocus() {
-    this->m_hasClickFocus = true;
-  }
+  void enableClickFocus();
 
-  bool hasData() {
-    return !this->text().isEmpty();
-  }
+  bool hasData();
 
-  QDoubleValidator* doubleValidator() {
-    return m_doubleValidator;
-  }
+  void setLocked(bool locked);
+
+  QDoubleValidator* doubleValidator();
 
   void bind(const model::ModelObject& modelObject, DoubleGetter get, boost::optional<DoubleSetter> set = boost::none,
             boost::optional<NoFailAction> reset = boost::none, boost::optional<NoFailAction> autosize = boost::none,

@@ -298,16 +298,14 @@ class BaseConcept
   BaseConcept(const Heading& t_heading, bool t_hasClickFocus = false) : m_heading(t_heading), m_selector(false), m_hasClickFocus(t_hasClickFocus) {}
 
   // isLocked is true if the element cannot be modified, it can still be clicked on in some cases
-  virtual bool isLocked(const ConceptProxy& obj) { return false; }
+  virtual bool isLocked(const ConceptProxy& obj) { return m_baseLocked; }
+  bool baseLocked() { return m_baseLocked; }
+  void setBaseLocked(bool baseLocked) { m_baseLocked = baseLocked;}
 
   // isSelector is true for checkbox cells in the select column
-  bool isSelector() const {
-    return m_selector;
-  }
+  bool isSelector() const { return m_selector; }
 
-  void setIsSelector(const bool t_selector) {
-    m_selector = t_selector;
-  }
+  void setIsSelector(const bool t_selector) { m_selector = t_selector; }
 
   // hasClickFocus is true for elements that gain focus when clicked on
   bool hasClickFocus() const {
@@ -321,6 +319,7 @@ class BaseConcept
  private:
   Heading m_heading;
   bool m_selector;
+  bool m_baseLocked;
   bool m_hasClickFocus;
 };
 
@@ -365,6 +364,9 @@ class CheckBoxConceptImpl : public CheckBoxConcept
   }
 
   virtual bool isLocked(const ConceptProxy& t_obj) override {
+    if (baseLocked()) {
+      return true;
+    }
     DataSourceType obj = t_obj.cast<DataSourceType>();
     return m_isLocked(&obj);
   }
@@ -418,6 +420,9 @@ class CheckBoxConceptBoolReturnImpl : public CheckBoxConceptBoolReturn
   }
 
   virtual bool isLocked(const ConceptProxy& t_obj) override {
+    if (baseLocked()) {
+      return true;
+    }
     DataSourceType obj = t_obj.cast<DataSourceType>();
     return m_isLocked(&obj);
   }
@@ -708,11 +713,12 @@ class ComboBoxRequiredChoiceImpl : public ComboBoxConcept
 
   virtual std::shared_ptr<ChoiceConcept> choiceConcept(const ConceptProxy& obj) override {
     std::shared_ptr<DataSourceType> dataSource = std::shared_ptr<DataSourceType>(new DataSourceType(obj.cast<DataSourceType>()));
-    return std::shared_ptr<ChoiceConcept>(new RequiredChoiceSaveDataSourceConceptImpl<ChoiceType, DataSourceType>(
+    auto result = std::shared_ptr<ChoiceConcept>(new RequiredChoiceSaveDataSourceConceptImpl<ChoiceType, DataSourceType>(
       dataSource, m_toString, std::bind(m_choices, dataSource.get()), std::bind(m_getter, dataSource.get()),
       std::bind(m_setter, dataSource.get(), std::placeholders::_1),
       m_reset ? boost::optional<std::function<void()>>(std::bind(*m_reset, dataSource.get())) : boost::none,
       m_defaulted ? boost::optional<std::function<bool()>>(std::bind(*m_defaulted, dataSource.get())) : boost::none));
+    return result;
   }
 
  private:
@@ -751,9 +757,10 @@ class ComboBoxOptionalChoiceImpl : public ComboBoxConcept
       resetAction = std::bind(m_reset.get(), dataSource.get());
     }
 
-    return std::make_shared<OptionalChoiceSaveDataSourceConceptImpl<ChoiceType, DataSourceType>>(
+    auto result = std::make_shared<OptionalChoiceSaveDataSourceConceptImpl<ChoiceType, DataSourceType>>(
       dataSource, m_toString, std::bind(m_choices, dataSource.get()), std::bind(m_getter, dataSource.get()),
       std::bind(m_setter, dataSource.get(), std::placeholders::_1), resetAction, m_editable);
+    return result;
   }
 
  private:
@@ -1058,6 +1065,10 @@ class NameLineEditConceptImpl : public NameLineEditConcept
   }
 
   virtual bool isLocked(const ConceptProxy& t_obj) override {
+    if (baseLocked()) {
+      return true;
+    }
+    
     bool result = false;
     if (m_isLocked) {
       DataSourceType obj = t_obj.cast<DataSourceType>();
@@ -1466,6 +1477,9 @@ class DropZoneConceptImpl : public DropZoneConcept
   }
 
   virtual bool isLockedImpl(const ConceptProxy& t_obj) {
+    if (baseLocked()) {
+      return true;
+    }
     bool isLocked = false;
     if (m_isLocked) {
       DataSourceType obj = t_obj.cast<DataSourceType>();

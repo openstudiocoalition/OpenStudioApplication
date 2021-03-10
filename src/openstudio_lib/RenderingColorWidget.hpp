@@ -50,6 +50,8 @@ class RenderingColorWidget2 : public QWidget, public Nano::Observer
 
   virtual ~RenderingColorWidget2() {}
 
+  void setLocked(bool locked);
+
   virtual void bind(model::ModelObject& modelObject, OptionalModelObjectGetter get, ModelObjectSetter set);
 
   virtual void unbind();

@@ -68,6 +68,11 @@ bool OSLoadNamePixmapLineEdit::hasData() {
   return m_lineEdit->hasData();
 }
 
+void OSLoadNamePixmapLineEdit::setLocked(bool locked)
+{
+  setEnabled(!locked);
+}
+
 boost::optional<model::ModelObject> OSLoadNamePixmapLineEdit::modelObject() const {
   return m_lineEdit->modelObject();
 }

@@ -547,6 +547,10 @@ bool OSDropZone2::hasData() {
   return !this->m_label->text().isEmpty();
 }
 
+void OSDropZone2::setLocked(bool locked) {
+  setEnabled(!locked);
+}
+
 void OSDropZone2::setDeleteObject(bool deleteObject) {
   m_deleteObject = deleteObject;
 }

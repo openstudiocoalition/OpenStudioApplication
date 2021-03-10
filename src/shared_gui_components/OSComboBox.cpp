@@ -173,6 +173,18 @@ bool OSComboBox2::event(QEvent* e) {
   }
 }
 
+void OSComboBox2::enableClickFocus() {
+  this->setFocusPolicy(Qt::ClickFocus);
+}
+
+bool OSComboBox2::hasData() {
+  return !this->currentText().isEmpty();
+}
+
+void OSComboBox2::setLocked(bool locked) {
+  setEnabled(!locked);
+}
+
 void OSComboBox2::bind(std::shared_ptr<OSComboBoxDataSource> dataSource) {
   m_dataSource = dataSource;
 

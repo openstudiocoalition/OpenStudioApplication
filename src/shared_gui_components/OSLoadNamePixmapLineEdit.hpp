@@ -59,6 +59,8 @@ class OSLoadNamePixmapLineEdit : public OSLineEdit2Interface
 
   virtual bool hasData() override;
 
+  virtual void setLocked(bool locked) override;  
+
   virtual boost::optional<model::ModelObject> modelObject() const override;
 
   virtual void bind(const model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetter> set = boost::none,

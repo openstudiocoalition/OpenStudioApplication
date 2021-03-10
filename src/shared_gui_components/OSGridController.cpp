@@ -506,6 +506,10 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
       checkBox->setToolTip(checkBoxConcept->tooltip().c_str());
     }
 
+    if (checkBoxConcept->isLocked(t_mo)) {
+      checkBox->setLocked(true);
+    }
+
     checkBox->bind(t_mo, BoolGetter(std::bind(&CheckBoxConcept::get, checkBoxConcept.data(), t_mo)),
                    boost::optional<BoolSetter>(std::bind(&CheckBoxConcept::set, checkBoxConcept.data(), t_mo, std::placeholders::_1)));
 
@@ -526,6 +530,10 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
 
     if (checkBoxConceptBoolReturn->hasClickFocus()) {
       checkBoxBoolReturn->enableClickFocus();
+    }
+
+    if (checkBoxConceptBoolReturn->isLocked(t_mo)) {
+      checkBoxBoolReturn->setLocked(true);
     }
 
     checkBoxBoolReturn->bind(t_mo, BoolGetter(std::bind(&CheckBoxConceptBoolReturn::get, checkBoxConceptBoolReturn.data(), t_mo)),
@@ -550,6 +558,10 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
       comboBox->enableClickFocus();
     }
 
+    if (comboBoxConcept->isLocked(t_mo)) {
+      comboBox->setLocked(true);
+    }
+
     comboBox->bind(t_mo, choiceConcept);
 
     widget = comboBox;
@@ -563,6 +575,10 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
     auto doubleEdit = new OSDoubleEdit2(this->gridView());
     if (doubleEditConcept->hasClickFocus()) {
       doubleEdit->enableClickFocus();
+    }
+
+    if (doubleEditConcept->isLocked(t_mo)) {
+      doubleEdit->setLocked(true);
     }
 
     doubleEdit->bind(t_mo, DoubleGetter(std::bind(&ValueEditConcept<double>::get, doubleEditConcept.data(), t_mo)),
@@ -581,6 +597,10 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
       optionalDoubleEdit->enableClickFocus();
     }
 
+    if (optionalDoubleEditConcept->isLocked(t_mo)) {
+      optionalDoubleEdit->setLocked(true);
+    }
+
     optionalDoubleEdit->bind(t_mo, OptionalDoubleGetter(std::bind(&OptionalValueEditConcept<double>::get, optionalDoubleEditConcept.data(), t_mo)),
                              boost::optional<DoubleSetter>(
                                std::bind(&OptionalValueEditConcept<double>::set, optionalDoubleEditConcept.data(), t_mo, std::placeholders::_1)));
@@ -593,6 +613,10 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
     auto doubleEditVoidReturn = new OSDoubleEdit2(this->gridView());
     if (doubleEditVoidReturnConcept->hasClickFocus()) {
       doubleEditVoidReturn->enableClickFocus();
+    }
+
+    if (doubleEditVoidReturnConcept->isLocked(t_mo)) {
+      doubleEditVoidReturn->setLocked(true);
     }
 
     doubleEditVoidReturn->bind(
@@ -612,6 +636,10 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
       optionalDoubleEditVoidReturn->enableClickFocus();
     }
 
+    if (optionalDoubleEditVoidReturnConcept->isLocked(t_mo)) {
+      optionalDoubleEditVoidReturn->setLocked(true);
+    }
+
     optionalDoubleEditVoidReturn->bind(
       t_mo, OptionalDoubleGetter(std::bind(&OptionalValueEditVoidReturnConcept<double>::get, optionalDoubleEditVoidReturnConcept.data(), t_mo)),
       DoubleSetterVoidReturn(
@@ -624,6 +652,10 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
     auto integerEdit = new OSIntegerEdit2(this->gridView());
     if (integerEditConcept->hasClickFocus()) {
       integerEdit->enableClickFocus();
+    }
+
+    if (integerEditConcept->isLocked(t_mo)) {
+      integerEdit->setLocked(true);
     }
 
     integerEdit->bind(t_mo, IntGetter(std::bind(&ValueEditConcept<int>::get, integerEditConcept.data(), t_mo)),
@@ -639,6 +671,10 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
     auto lineEdit = new OSLineEdit2(this->gridView());
     if (lineEditConcept->hasClickFocus()) {
       lineEdit->enableClickFocus();
+    }
+
+    if (lineEditConcept->isLocked(t_mo)) {
+      lineEdit->setLocked(true);
     }
 
     lineEdit->bind(t_mo, StringGetter(std::bind(&ValueEditConcept<std::string>::get, lineEditConcept.data(), t_mo)),
@@ -657,6 +693,10 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
     auto lineEdit = new OSLineEdit2(this->gridView());
     if (lineEditConcept->hasClickFocus()) {
       lineEdit->enableClickFocus();
+    }
+
+    if (lineEditConcept->isLocked(t_mo)) {
+      lineEdit->setLocked(true);
     }
 
     lineEdit->bind(t_mo, StringGetter(std::bind(&ValueEditVoidReturnConcept<std::string>::get, lineEditConcept.data(), t_mo)),
@@ -682,6 +722,10 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
       nameLineEdit->setDeleteType(DeleteType::DeleteIfNotDefaulted);
     } else {
       nameLineEdit->setDeleteType(DeleteType::NoDelete);
+    }
+
+    if (nameLineEditConcept->isLocked(t_mo)) {
+      nameLineEdit->setLocked(true);
     }
 
     nameLineEdit->bind(t_mo, OptionalStringGetter(std::bind(&NameLineEditConcept::get, nameLineEditConcept.data(), t_mo, true)),
@@ -711,6 +755,10 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
       quantityEdit->enableClickFocus();
     }
 
+    if (quantityEditConcept->isLocked(t_mo)) {
+      quantityEdit->setLocked(true);
+    }
+
     quantityEdit->bind(
       m_isIP, t_mo, DoubleGetter(std::bind(&QuantityEditConcept<double>::get, quantityEditConcept.data(), t_mo)),
       boost::optional<DoubleSetter>(std::bind(&QuantityEditConcept<double>::set, quantityEditConcept.data(), t_mo, std::placeholders::_1)),
@@ -733,6 +781,10 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
       optionalQuantityEdit->enableClickFocus();
     }
 
+    if (optionalQuantityEditConcept->isLocked(t_mo)) {
+      optionalQuantityEdit->setLocked(true);
+    }
+
     optionalQuantityEdit->bind(m_isIP, t_mo,
                                OptionalDoubleGetter(std::bind(&OptionalQuantityEditConcept<double>::get, optionalQuantityEditConcept.data(), t_mo)),
                                boost::optional<DoubleSetter>(std::bind(&OptionalQuantityEditConcept<double>::set, optionalQuantityEditConcept.data(),
@@ -751,6 +803,10 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
       quantityEditVoidReturnConcept->ipUnits().toStdString().c_str(), quantityEditVoidReturnConcept->isIP(), this->gridView());
     if (quantityEditVoidReturnConcept->hasClickFocus()) {
       quantityEditVoidReturn->enableClickFocus();
+    }
+
+    if (quantityEditVoidReturnConcept->isLocked(t_mo)) {
+      quantityEditVoidReturn->setLocked(true);
     }
 
     quantityEditVoidReturn->bind(
@@ -777,6 +833,10 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
       optionalQuantityEditVoidReturn->enableClickFocus();
     }
 
+    if (optionalQuantityEditVoidReturnConcept->isLocked(t_mo)) {
+      optionalQuantityEditVoidReturn->setLocked(true);
+    }
+
     optionalQuantityEditVoidReturn->bind(
       m_isIP, t_mo,
       OptionalDoubleGetter(std::bind(&OptionalQuantityEditVoidReturnConcept<double>::get, optionalQuantityEditVoidReturnConcept.data(), t_mo)),
@@ -795,6 +855,10 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
       unsignedEdit->enableClickFocus();
     }
 
+    if (unsignedEditConcept->isLocked(t_mo)) {
+      unsignedEdit->setLocked(true);
+    }
+
     unsignedEdit->bind(
       t_mo, UnsignedGetter(std::bind(&ValueEditConcept<unsigned>::get, unsignedEditConcept.data(), t_mo)),
       boost::optional<UnsignedSetter>(std::bind(&ValueEditConcept<unsigned>::set, unsignedEditConcept.data(), t_mo, std::placeholders::_1)),
@@ -810,6 +874,10 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
       dropZone->enableClickFocus();
     }
 
+    if (dropZoneConcept->isLocked(t_mo)) {
+      dropZone->setLocked(true);
+    }
+    
     dropZone->bind(t_mo, OptionalModelObjectGetter(std::bind(&DropZoneConcept::get, dropZoneConcept.data(), t_mo)),
                    ModelObjectSetter(std::bind(&DropZoneConcept::set, dropZoneConcept.data(), t_mo, std::placeholders::_1)),
                    NoFailAction(std::bind(&DropZoneConcept::reset, dropZoneConcept.data(), t_mo)), 
@@ -828,6 +896,10 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
   } else if (QSharedPointer<RenderingColorConcept> renderingColorConcept = t_baseConcept.dynamicCast<RenderingColorConcept>()) {
     auto renderingColorWidget = new RenderingColorWidget2(this->gridView());
 
+    if (renderingColorConcept->isLocked(t_mo)) {
+      renderingColorWidget->setLocked(true);
+    }
+
     renderingColorWidget->bind(t_mo, OptionalModelObjectGetter(std::bind(&RenderingColorConcept::get, renderingColorConcept.data(), t_mo)),
                                ModelObjectSetter(std::bind(&RenderingColorConcept::set, renderingColorConcept.data(), t_mo, std::placeholders::_1)));
 
@@ -836,13 +908,6 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
   } else {
     // Unknown type
     OS_ASSERT(false);
-  }
-
-  // TODO - fix? this prevents clicking on inherited objects to view in the inspector
-  // Is this widget inherited?
-  if (m_subrowCounter < m_subrowsLocked.size() && m_subrowsLocked.at(m_subrowCounter)) {
-    widget->setDisabled(true);
-    widget->setStyleSheet("color:green");
   }
 
   return widget;
@@ -1189,24 +1254,30 @@ QWidget* OSGridController::widgetAt(int row, int column) {
       // however the placeHolder isn't doing its job, it might need to be a QSpacer of some kind.
       // The spacing around the list is a little awkward. The padding might need to be set to 0
       // all the way around.
+      auto items = dataSource->source().items(mo);
 
-      m_subrowCounter = 0;
-
-      for (auto& item : dataSource->source().items(mo)) {
+      if (items.size() > m_subrowsLocked.size()) {
+        m_subrowsLocked.resize(items.size(), false);
+      }      
+      
+      size_t subrowCounter = 0;
+      for (auto& item : items) {
         if (item) {
           auto mo = item->cast<model::ModelObject>();
 
           if (dataSource->innerConcept()->isSelector()) {
             auto subrowIsLocked = dataSource->innerConcept()->isLocked(mo);
-            m_subrowsLocked.push_back(subrowIsLocked);
+            m_subrowsLocked[subrowCounter] = subrowIsLocked;
           }
+
+          dataSource->innerConcept()->setBaseLocked(m_subrowsLocked[subrowCounter]);
 
           addWidget(makeWidget(mo, dataSource->innerConcept()), mo,
                     baseConcept->isSelector() || dataSource->innerConcept()->isSelector());
         } else {
           addWidget(new QWidget(this->gridView()), boost::none, false);
         }
-        m_subrowCounter++;
+        subrowCounter++;
       }
 
       if (dataSource->source().wantsPlaceholder()) {

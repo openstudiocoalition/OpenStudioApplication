@@ -54,17 +54,13 @@ class OSUnsignedEdit2 : public QLineEdit
 
   virtual ~OSUnsignedEdit2();
 
-  void enableClickFocus() {
-    this->m_hasClickFocus = true;
-  }
+  void enableClickFocus();
 
-  bool hasData() {
-    return !this->text().isEmpty();
-  }
+  bool hasData();
 
-  QIntValidator* intValidator() {
-    return m_intValidator;
-  }
+  void setLocked(bool locked);
+
+  QIntValidator* intValidator();
 
   void bind(const model::ModelObject& modelObject, UnsignedGetter get, boost::optional<UnsignedSetter> set = boost::none,
             boost::optional<NoFailAction> reset = boost::none, boost::optional<NoFailAction> autosize = boost::none,

@@ -66,6 +66,10 @@ RenderingColorWidget2::RenderingColorWidget2(QWidget* parent) : QWidget(parent) 
   OS_ASSERT(isConnected);
 }
 
+void RenderingColorWidget2::setLocked(bool locked) {
+  setEnabled(!locked);
+}
+
 void RenderingColorWidget2::bind(model::ModelObject& modelObject, OptionalModelObjectGetter get, ModelObjectSetter set) {
   m_get = get;
   m_set = set;

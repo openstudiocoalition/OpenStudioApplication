@@ -61,6 +61,22 @@ OSDoubleEdit2::OSDoubleEdit2(QWidget* parent) : m_isScientific(false) {
 
 OSDoubleEdit2::~OSDoubleEdit2() {}
 
+void OSDoubleEdit2::enableClickFocus() {
+  this->m_hasClickFocus = true;
+}
+
+bool OSDoubleEdit2::hasData() {
+  return !this->text().isEmpty();
+}
+
+void OSDoubleEdit2::setLocked(bool locked) {
+  setEnabled(!locked);
+}
+
+QDoubleValidator* OSDoubleEdit2::doubleValidator() {
+  return m_doubleValidator;
+}
+
 void OSDoubleEdit2::bind(const model::ModelObject& modelObject, DoubleGetter get, boost::optional<DoubleSetter> set,
                          boost::optional<NoFailAction> reset, boost::optional<NoFailAction> autosize, boost::optional<NoFailAction> autocalculate,
                          boost::optional<BasicQuery> isDefaulted, boost::optional<BasicQuery> isAutosized,

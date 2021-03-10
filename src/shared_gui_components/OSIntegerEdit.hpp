@@ -56,17 +56,13 @@ class OSIntegerEdit2 : public QLineEdit, public Nano::Observer
 
   virtual ~OSIntegerEdit2();
 
-  void enableClickFocus() {
-    this->m_hasClickFocus = true;
-  }
+  void enableClickFocus();
 
-  bool hasData() {
-    return !this->text().isEmpty();
-  }
+  bool hasData();
 
-  QIntValidator* intValidator() {
-    return m_intValidator;
-  }
+  void setLocked(bool locked);
+
+  QIntValidator* intValidator();
 
   void bind(const model::ModelObject& modelObject, IntGetter get, boost::optional<IntSetter> set = boost::none,
             boost::optional<NoFailAction> reset = boost::none, boost::optional<NoFailAction> autosize = boost::none,

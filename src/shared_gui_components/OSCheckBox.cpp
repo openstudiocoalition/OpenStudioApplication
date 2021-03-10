@@ -90,6 +90,14 @@ void OSCheckBox3::bind(const model::ModelObject& modelObject, BoolGetter get, bo
   this->setChecked(checked);
 }
 
+void OSCheckBox3::enableClickFocus() {
+  this->setFocusPolicy(Qt::ClickFocus);
+}
+
+void OSCheckBox3::setLocked(bool locked) {
+  setEnabled(!locked);
+}
+
 void OSCheckBox3::unbind() {
   if (m_modelObject) {
     m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.disconnect<OSCheckBox3, &OSCheckBox3::onModelObjectChange>(

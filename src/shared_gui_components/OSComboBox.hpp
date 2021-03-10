@@ -112,13 +112,11 @@ class OSComboBox2 : public QComboBox, public Nano::Observer
 
   virtual ~OSComboBox2();
 
-  void enableClickFocus() {
-    this->setFocusPolicy(Qt::ClickFocus);
-  }
+  void enableClickFocus();
 
-  bool hasData() {
-    return !this->currentText().isEmpty();
-  }
+  bool hasData();
+  
+  void setLocked(bool locked);
 
   // interface for direct bind
   template <typename ChoiceType>

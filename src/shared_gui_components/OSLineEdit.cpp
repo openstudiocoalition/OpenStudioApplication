@@ -94,6 +94,10 @@ bool OSLineEdit2::hasData() {
   return !this->text().isEmpty();
 }
 
+void OSLineEdit2::setLocked(bool locked) {
+  setEnabled(!locked);
+}
+
 boost::optional<model::ModelObject> OSLineEdit2::modelObject() const {
   return m_modelObject;
 }
