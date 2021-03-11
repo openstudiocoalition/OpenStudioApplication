@@ -104,6 +104,11 @@ class OSIntegerEdit2 : public QLineEdit, public Nano::Observer
   void onModelObjectRemove(const Handle& handle);
 
  private:
+  bool defaulted() const;
+  bool autosized() const;
+  bool autocalculated() const;
+  void updateStyle();
+
   boost::optional<model::ModelObject> m_modelObject;                    // will be set if attached to ModelObject or ModelExtensibleGroup
   boost::optional<model::ModelExtensibleGroup> m_modelExtensibleGroup;  // will only be set if attached to ModelExtensibleGroup
   boost::optional<IntGetter> m_get;

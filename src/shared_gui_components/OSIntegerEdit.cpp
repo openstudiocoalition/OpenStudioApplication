@@ -40,15 +40,30 @@
 
 #include <QFocusEvent>
 #include <QIntValidator>
+#include <QStyle>
 
 using openstudio::model::ModelObject;
 
 namespace openstudio {
 
-OSIntegerEdit2::OSIntegerEdit2(QWidget* parent) : m_isScientific(false) {
+OSIntegerEdit2::OSIntegerEdit2(QWidget* parent) 
+  : QLineEdit(parent),
+    m_isScientific(false) 
+{
   this->setFixedWidth(90);
   this->setAcceptDrops(false);
   setEnabled(false);
+
+  // if multiple qss rules apply with same specificity then the last one is chosen
+  this->setProperty("defaulted", false);
+  this->setProperty("auto", false);
+  this->setProperty("focused", false);
+  this->setStyleSheet("QLineEdit[defaulted=\"true\"][focused=\"true\"] { color:green; background:#ffc627; } "
+                         "QLineEdit[defaulted=\"true\"][focused=\"false\"] { color:green; background:white; } "
+                         "QLineEdit[defaulted=\"false\"][focused=\"true\"] { color:black; background:#ffc627; } "
+                         "QLineEdit[defaulted=\"false\"][focused=\"false\"] { color:black; background:white; } "
+                         "QLineEdit[auto=\"true\"][focused=\"true\"] { color:grey; background:#ffc627; } "
+                         "QLineEdit[auto=\"true\"][focused=\"false\"] { color:grey; background:white; } ");
 
   m_intValidator = new QIntValidator();
   //this->setValidator(m_intValidator);
@@ -145,7 +160,7 @@ void OSIntegerEdit2::bind(model::ModelExtensibleGroup& modelExtensibleGroup, Opt
 void OSIntegerEdit2::completeBind() {
 
   // only let one of autosize/autocalculate
-  if ((m_isAutosized && m_isAutocalculated) || (m_isAutosized && m_autocalculate) || (m_isAutocalculated && m_autosize)) {
+  if (autosized() && autocalculated()) {
     LOG_AND_THROW("A field can only be autosized or autocalculated, it cannot be both.");
   }
 
@@ -277,6 +292,35 @@ void OSIntegerEdit2::onModelObjectRemove(const Handle& handle) {
   unbind();
 }
 
+void OSIntegerEdit2::updateStyle() {
+  this->style()->unpolish(this);
+  this->style()->polish(this);
+}
+
+bool OSIntegerEdit2::defaulted() const {
+  bool result = false;
+  if (m_isDefaulted) {
+    result = (*m_isDefaulted)();
+  }
+  return result;
+}
+
+bool OSIntegerEdit2::autosized() const {
+  bool result = false;
+  if (m_isAutosized) {
+    result = (*m_isAutosized)();
+  }
+  return result;
+}
+
+bool OSIntegerEdit2::autocalculated() const {
+  bool result = false;
+  if (m_isAutocalculated) {
+    result = (*m_isAutocalculated)();
+  }
+  return result;
+}
+
 void OSIntegerEdit2::refreshTextAndLabel() {
 
   QString text = this->text();
@@ -286,13 +330,16 @@ void OSIntegerEdit2::refreshTextAndLabel() {
   if (m_modelObject) {
     QString textValue;
     std::stringstream ss;
-
-    if (m_isAutosized && (*m_isAutosized)()) {
+  
+    bool thisAuto = false;
+    if (autosized()) {
       textValue = QString("autosize");
+      thisAuto = true;
     }
 
-    if (m_isAutocalculated && (*m_isAutocalculated)()) {
+    if (autocalculated()) {
       textValue = QString("autocalculate");
+      thisAuto = true;
     }
 
     OptionalInt oi;
@@ -324,12 +371,23 @@ void OSIntegerEdit2::refreshTextAndLabel() {
       this->blockSignals(false);
     }
 
-    if (m_isDefaulted) {
-      if ((*m_isDefaulted)()) {
-        this->setStyleSheet("color:green");
-      } else {
-        this->setStyleSheet("color:black");
-      }
+    bool needsUpdateStyle = false;
+
+    QVariant currentAuto = this->property("auto");
+    if (currentAuto.isNull() || currentAuto.toBool() != thisAuto) {
+      this->setProperty("auto", thisAuto);
+      needsUpdateStyle = true;
+    }
+
+    bool thisDefaulted = defaulted();
+    QVariant currentDefaulted = this->property("defaulted");
+    if (currentDefaulted.isNull() || currentDefaulted.toBool() != thisDefaulted) {
+      this->setProperty("defaulted", thisDefaulted);
+      needsUpdateStyle = true;
+    }
+
+    if (needsUpdateStyle){
+      updateStyle();
     }
   }
 }
@@ -363,8 +421,8 @@ void OSIntegerEdit2::setPrecision(const std::string& str) {
 
 void OSIntegerEdit2::focusInEvent(QFocusEvent* e) {
   if (e->reason() == Qt::MouseFocusReason && m_hasClickFocus) {
-    QString style("QLineEdit { background: #ffc627; }");
-    setStyleSheet(style);
+    this->setProperty("focused", true);
+    updateStyle();
 
     emit inFocus(true, hasData());
   }
@@ -374,8 +432,8 @@ void OSIntegerEdit2::focusInEvent(QFocusEvent* e) {
 
 void OSIntegerEdit2::focusOutEvent(QFocusEvent* e) {
   if (e->reason() == Qt::MouseFocusReason && m_hasClickFocus) {
-    QString style("QLineEdit { background: white; }");
-    setStyleSheet(style);
+    this->setProperty("focused", false);
+    updateStyle();
 
     emit inFocus(false, false);
   }

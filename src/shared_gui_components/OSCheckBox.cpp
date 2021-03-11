@@ -34,11 +34,19 @@
 
 #include <QString>
 #include <QFocusEvent>
+#include <QStyle>
 
 namespace openstudio {
 
 OSCheckBox3::OSCheckBox3(QWidget* parent) : QCheckBox(parent) {
   this->setCheckable(true);
+
+  this->setProperty("defaulted", false);
+  this->setProperty("focused", false);
+  this->setStyleSheet("QCheckBox[defaulted=\"true\"][focused=\"true\"] { color:green; background:#ffc627; } "
+                      "QCheckBox[defaulted=\"true\"][focused=\"false\"] { color:green; background:white; } "
+                      "QCheckBox[defaulted=\"false\"][focused=\"true\"] { color:black; background:#ffc627; } "
+                      "QCheckBox[defaulted=\"false\"][focused=\"false\"] { color:black; background:white; } ");
 
   setEnabled(false);
 }
@@ -142,13 +150,23 @@ void OSCheckBox3::onModelObjectRemove(const Handle& handle) {
   unbind();
 }
 
+bool OSCheckBox3::defaulted() const {
+  bool result = false;
+  if (m_isDefaulted) {
+    result = (*m_isDefaulted)();
+  }
+  return result;
+}
+
+void OSCheckBox3::updateStyle() {
+  this->style()->unpolish(this);
+  this->style()->polish(this);
+}
+
 void OSCheckBox3::focusInEvent(QFocusEvent* e) {
   if ((e->reason() == Qt::MouseFocusReason) && (this->focusPolicy() == Qt::ClickFocus)) {
-    // Switch to yellow background
-    QPalette p = this->palette();
-    QColor yellow("#ffc627");
-    p.setColor(QPalette::Base, yellow);
-    this->setPalette(p);
+    this->setProperty("focused", true);
+    updateStyle();
 
     emit inFocus(true, true);
   }
@@ -157,8 +175,9 @@ void OSCheckBox3::focusInEvent(QFocusEvent* e) {
 
 void OSCheckBox3::focusOutEvent(QFocusEvent* e) {
   if ((e->reason() == Qt::MouseFocusReason) && (this->focusPolicy() == Qt::ClickFocus)) {
-    // Reset the style sheet
-    setStyleSheet("");
+    this->setProperty("focused", false);
+    updateStyle();
+
     emit inFocus(false, false);
   }
   // Pass it on for further processing
@@ -172,6 +191,13 @@ OSCheckBox2::OSCheckBox2(QWidget* parent) : QPushButton(parent) {
   this->setCheckable(true);
 
   setEnabled(false);
+
+  this->setProperty("defaulted", false);
+  this->setProperty("focused", false);
+  this->setStyleSheet("QLineEdit[defaulted=\"true\"][focused=\"true\"] { color:green; background:#ffc627; } "
+                      "QLineEdit[defaulted=\"true\"][focused=\"false\"] { color:green; background:white; } "
+                      "QLineEdit[defaulted=\"false\"][focused=\"true\"] { color:black; background:#ffc627; } "
+                      "QLineEdit[defaulted=\"false\"][focused=\"false\"] { color:black; background:white; } ");
 }
 
 void OSCheckBox2::bind(const model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetter> set, boost::optional<NoFailAction> reset,
@@ -212,6 +238,27 @@ void OSCheckBox2::unbind() {
   }
 }
 
+void OSCheckBox2::focusInEvent(QFocusEvent* e) {
+  if ((e->reason() == Qt::MouseFocusReason) && (this->focusPolicy() == Qt::ClickFocus)) {
+    this->setProperty("focused", true);
+    updateStyle();
+
+    emit inFocus(true, true);
+  }
+  QWidget::focusInEvent(e);
+}
+
+void OSCheckBox2::focusOutEvent(QFocusEvent* e) {
+  if ((e->reason() == Qt::MouseFocusReason) && (this->focusPolicy() == Qt::ClickFocus)) {
+    this->setProperty("focused", false);
+    updateStyle();
+
+    emit inFocus(false, false);
+  }
+  // Pass it on for further processing
+  QWidget::focusOutEvent(e);
+}
+
 void OSCheckBox2::onToggled(bool checked) {
   if (m_modelObject && m_set) {
     if ((*m_get)() != checked) {
@@ -228,6 +275,19 @@ void OSCheckBox2::onModelObjectChange() {
 
 void OSCheckBox2::onModelObjectRemove(const Handle& handle) {
   unbind();
+}
+
+bool OSCheckBox2::defaulted() const {
+  bool result = false;
+  if (m_isDefaulted) {
+    result = (*m_isDefaulted)();
+  }
+  return result;
+}
+
+void OSCheckBox2::updateStyle() {
+  this->style()->unpolish(this);
+  this->style()->polish(this);
 }
 
 // OSCheckBox::OSCheckBox( QWidget * parent )

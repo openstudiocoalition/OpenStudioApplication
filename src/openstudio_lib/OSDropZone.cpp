@@ -61,6 +61,7 @@
 #include <QResizeEvent>
 #include <QScrollArea>
 #include <QStyleOption>
+#include <QStyle>
 #include <QTimer>
 
 using namespace openstudio::model;
@@ -513,12 +514,11 @@ void OSDropZoneItem::mouseReleaseEvent(QGraphicsSceneMouseEvent* event) {
 
 OSDropZone2::OSDropZone2() : QWidget() {
   setObjectName("OSDropZone");
-
-  QString style("QWidget#OSDropZone {\
-    background: #CECECE;\
-    border: 2px dashed #808080;\
-    border-radius: 5px; }");
-  setStyleSheet(style);
+  this->setProperty("focused", false);
+  setStyleSheet(
+    "QWidget#DropBox[focused=\"true\"] { border: 2px dashed #808080; border-radius : 5px; background:#ffc627; } "
+    "QWidget#DropBox[focused=\"false\"] { border: 2px dashed #808080; border-radius : 5px;background:#CECECE; } "
+  );
 
   auto layout = new QVBoxLayout();
   layout->setContentsMargins(5, 5, 5, 5);
@@ -578,20 +578,19 @@ void OSDropZone2::refresh() {
       m_label->setText(temp);
     }
 
-    bool defaulted = false;
+    bool thisDefaulted = false;
     if (m_isDefaulted) {
-      defaulted = (*m_isDefaulted)(*modelObject);
+      thisDefaulted = (*m_isDefaulted)(*modelObject);
     }
 
     QVariant currentDefaulted = m_label->property("defaulted");
-    if (currentDefaulted.isNull() || currentDefaulted.toBool() != defaulted) {
-      m_label->setProperty("defaulted", defaulted);
+    if (currentDefaulted.isNull() || currentDefaulted.toBool() != thisDefaulted) {
+      m_label->setProperty("defaulted", thisDefaulted);
       isChanged = true;
     }
 
     if (isChanged) {
-      m_label->style()->unpolish(m_label);
-      m_label->style()->polish(m_label);
+      updateStyle();
     }
 
     emit inFocus(true, hasData());
@@ -745,14 +744,10 @@ void OSDropZone2::mouseReleaseEvent(QMouseEvent* event) {
 
 void OSDropZone2::focusInEvent(QFocusEvent* e) {
   if (e->reason() == Qt::MouseFocusReason) {
-    if (hasData()) {
-      QString style("QWidget#OSDropZone {\
-                     background: #ffc627;\
-                     border: 2px dashed #808080;\
-                     border-radius: 5px; }");
-      setStyleSheet(style);
+    if (hasData()){
+      this->setProperty("focused", true);
+      updateStyle();
     }
-
     emit inFocus(true, hasData());
   }
 
@@ -761,11 +756,8 @@ void OSDropZone2::focusInEvent(QFocusEvent* e) {
 
 void OSDropZone2::focusOutEvent(QFocusEvent* e) {
   if (e->reason() == Qt::MouseFocusReason) {
-    QString style("QWidget#OSDropZone {\
-                   background: #CECECE;\
-                   border: 2px dashed #808080;\
-                   border-radius: 5px; }");
-    setStyleSheet(style);
+    this->setProperty("focused", false);
+    updateStyle();
 
     emit inFocus(false, false);
 
@@ -787,12 +779,21 @@ void OSDropZone2::onItemRemoveClicked() {
       parent = modelObject->parent();
     }
     (*m_reset)();
-    if (m_deleteObject) {
-      m_modelObject->remove();
+    if (modelObject && m_deleteObject) {
+      modelObject->remove();
     }
     emit objectRemoved(parent);
   }
 }
+
+void OSDropZone2::updateStyle() {
+  this->style()->unpolish(this);
+  this->style()->polish(this);
+
+  m_label->style()->unpolish(m_label);
+  m_label->style()->polish(m_label);
+}
+
 void OSDropZone2::makeItem() {
   if (!m_item && m_get && *m_get) {
     boost::optional<model::ModelObject> modelObject = (*m_get)();

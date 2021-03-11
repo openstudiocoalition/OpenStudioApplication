@@ -40,12 +40,16 @@
 
 #include <QFocusEvent>
 #include <QIntValidator>
+#include <QStyle>
 
 using openstudio::model::ModelObject;
 
 namespace openstudio {
 
-OSUnsignedEdit2::OSUnsignedEdit2(QWidget* parent) : m_isScientific(false) {
+OSUnsignedEdit2::OSUnsignedEdit2(QWidget* parent) 
+  : QLineEdit(parent), 
+    m_isScientific(false) 
+{
   this->setFixedWidth(90);
   this->setAcceptDrops(false);
   setEnabled(false);
@@ -53,6 +57,13 @@ OSUnsignedEdit2::OSUnsignedEdit2(QWidget* parent) : m_isScientific(false) {
   m_intValidator = new QIntValidator();
   m_intValidator->setBottom(0);
   //this->setValidator(m_intValidator);
+
+  this->setProperty("defaulted", false);
+  this->setProperty("focused", false);
+  this->setStyleSheet("QLineEdit[defaulted=\"true\"][focused=\"true\"] { color:green; background:#ffc627; } "
+                      "QLineEdit[defaulted=\"true\"][focused=\"false\"] { color:green; background:white; } "
+                      "QLineEdit[defaulted=\"false\"][focused=\"true\"] { color:black; background:#ffc627; } "
+                      "QLineEdit[defaulted=\"false\"][focused=\"false\"] { color:black; background:white; } ");
 }
 
 OSUnsignedEdit2::~OSUnsignedEdit2() {}
@@ -276,6 +287,19 @@ void OSUnsignedEdit2::onModelObjectRemove(const Handle& handle) {
   unbind();
 }
 
+bool OSUnsignedEdit2::defaulted() const {
+  bool result = false;
+  if (m_isDefaulted) {
+    result = (*m_isDefaulted)();
+  }
+  return result;
+}
+
+void OSUnsignedEdit2::updateStyle() {
+  this->style()->unpolish(this);
+  this->style()->polish(this);
+}
+
 void OSUnsignedEdit2::refreshTextAndLabel() {
 
   QString text = this->text();
@@ -323,12 +347,11 @@ void OSUnsignedEdit2::refreshTextAndLabel() {
       this->blockSignals(false);
     }
 
-    if (m_isDefaulted) {
-      if ((*m_isDefaulted)()) {
-        this->setStyleSheet("color:green");
-      } else {
-        this->setStyleSheet("color:black");
-      }
+    bool thisDefaulted = defaulted();
+    QVariant currentDefaulted = this->property("defaulted");
+    if (currentDefaulted.isNull() || currentDefaulted.toBool() != thisDefaulted) {
+      this->setProperty("defaulted", thisDefaulted);
+      updateStyle();
     }
   }
 }
@@ -362,8 +385,8 @@ void OSUnsignedEdit2::setPrecision(const std::string& str) {
 
 void OSUnsignedEdit2::focusInEvent(QFocusEvent* e) {
   if (e->reason() == Qt::MouseFocusReason && m_hasClickFocus) {
-    QString style("QLineEdit { background: #ffc627; }");
-    setStyleSheet(style);
+    this->setProperty("focused", true);
+    updateStyle();
 
     emit inFocus(true, hasData());
   }
@@ -373,8 +396,8 @@ void OSUnsignedEdit2::focusInEvent(QFocusEvent* e) {
 
 void OSUnsignedEdit2::focusOutEvent(QFocusEvent* e) {
   if (e->reason() == Qt::MouseFocusReason && m_hasClickFocus) {
-    QString style("QLineEdit { background: white; }");
-    setStyleSheet(style);
+    this->setProperty("focused", false);
+    updateStyle();
 
     emit inFocus(false, false);
   }

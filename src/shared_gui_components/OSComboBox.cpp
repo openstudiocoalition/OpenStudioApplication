@@ -146,6 +146,14 @@ OSComboBox2::OSComboBox2(QWidget* parent, bool editable) : QComboBox(parent) {
     this->setCompleter(completer);
   }
   setEnabled(false);
+
+  this->setProperty("defaulted", false);
+  this->setProperty("focused", false);
+  this->setStyleSheet("QComboBox[defaulted=\"true\"][focused=\"true\"] { color:green; background:#ffc627; } "
+                      "QComboBox[defaulted=\"true\"][focused=\"false\"] { color:green; background:white; } "
+                      "QComboBox[defaulted=\"false\"][focused=\"true\"] { color:black; background:#ffc627; } "
+                      "QComboBox[defaulted=\"false\"][focused=\"false\"] { color:black; background:white; } ");
+
   setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
 }
 
@@ -155,15 +163,15 @@ bool OSComboBox2::event(QEvent* e) {
   if (e->type() == QEvent::Wheel) {
     return false;
   } else if (e->type() == QEvent::FocusIn && this->focusPolicy() == Qt::ClickFocus) {
-    QString style("QComboBox { background: #ffc627; }");
-    setStyleSheet(style);
+    this->setProperty("focused", true);
+    updateStyle();
 
     emit inFocus(true, hasData());
 
     return QComboBox::event(e);
   } else if (e->type() == QEvent::FocusOut && this->focusPolicy() == Qt::ClickFocus) {
-    QString style("QComboBox { background: white; }");
-    setStyleSheet(style);
+    this->setProperty("focused", false);
+    updateStyle();
 
     emit inFocus(false, false);
 
@@ -310,6 +318,11 @@ void OSComboBox2::onDataSourceRemove(int i) {
   }
 
   this->removeItem(i);
+}
+
+void OSComboBox2::updateStyle() {
+  this->style()->unpolish(this);
+  this->style()->polish(this);
 }
 
 void OSComboBox2::completeBind() {

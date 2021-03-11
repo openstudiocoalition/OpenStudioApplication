@@ -102,6 +102,10 @@ class OSUnsignedEdit2 : public QLineEdit
   void onModelObjectRemove(const Handle& handle);
 
  private:
+
+  bool defaulted() const;
+  void updateStyle();
+
   boost::optional<model::ModelObject> m_modelObject;                    // will be set if attached to ModelObject or ModelExtensibleGroup
   boost::optional<model::ModelExtensibleGroup> m_modelExtensibleGroup;  // will only be set if attached to ModelExtensibleGroup
   boost::optional<UnsignedGetter> m_get;

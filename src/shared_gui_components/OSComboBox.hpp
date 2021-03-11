@@ -207,6 +207,9 @@ class OSComboBox2 : public QComboBox, public Nano::Observer
   void onDataSourceRemove(int);
 
  private:
+
+  void updateStyle();
+
   std::shared_ptr<OSComboBoxDataSource> m_dataSource;
 
   boost::optional<model::ModelObject> m_modelObject;

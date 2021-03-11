@@ -64,11 +64,11 @@ OSLineEdit2Interface::OSLineEdit2Interface(QWidget* parent) : QLineEdit(parent) 
   setEnabled(false);
 
   this->setProperty("defaulted", false);
-  this->setProperty("selected", false);
-  this->setStyleSheet("QLineEdit[defaulted=\"true\"][selected=\"true\"] { color:green; background:#ffc627; } "
-                      "QLineEdit[defaulted=\"true\"][selected=\"false\"] { color:green; background:white; } "
-                      "QLineEdit[defaulted=\"false\"][selected=\"true\"] { color:black; background:#ffc627; } "
-                      "QLineEdit[defaulted=\"false\"][selected=\"false\"] { color:black; background:white; } ");
+  this->setProperty("focused", false);
+  this->setStyleSheet("QLineEdit[defaulted=\"true\"][focused=\"true\"] { color:green; background:#ffc627; } "
+                      "QLineEdit[defaulted=\"true\"][focused=\"false\"] { color:green; background:white; } "
+                      "QLineEdit[defaulted=\"false\"][focused=\"true\"] { color:black; background:#ffc627; } "
+                      "QLineEdit[defaulted=\"false\"][focused=\"false\"] { color:black; background:white; } ");
 }
 
 
@@ -353,7 +353,7 @@ void OSLineEdit2::onItemRemoveClicked() {
 
 void OSLineEdit2::focusInEvent(QFocusEvent* e) {
   if (e->reason() == Qt::MouseFocusReason && m_hasClickFocus) {
-    this->setProperty("selected", true);
+    this->setProperty("focused", true);
     updateStyle();
 
     emit inFocus(true, hasData());
@@ -364,7 +364,7 @@ void OSLineEdit2::focusInEvent(QFocusEvent* e) {
 
 void OSLineEdit2::focusOutEvent(QFocusEvent* e) {
   if (e->reason() == Qt::MouseFocusReason && m_hasClickFocus) {
-    this->setProperty("selected", false);
+    this->setProperty("focused", false);
     updateStyle();
 
     emit inFocus(false, false);

@@ -109,6 +109,7 @@ class OSDropZone2 : public QWidget, public Nano::Observer
   // For testing
   friend class OpenStudioLibFixture;
 
+  void updateStyle();
   void makeItem();
 
   boost::optional<OptionalModelObjectGetter> m_get;

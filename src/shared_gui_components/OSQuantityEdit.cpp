@@ -43,6 +43,7 @@
 #include <QDoubleValidator>
 #include <QFocusEvent>
 #include <QLocale>
+#include <QStyle>
 
 #include <iomanip>
 
@@ -87,6 +88,27 @@ OSQuantityEdit2::OSQuantityEdit2(const std::string& modelUnits, const std::strin
   setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
   m_units->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
   m_lineEdit->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Fixed);
+
+  // if multiple qss rules apply with same specificity then the last one is chosen
+  m_units->setProperty("defaulted", false);
+  m_units->setProperty("auto", false);
+  m_units->setProperty("focused", false);
+  m_units->setStyleSheet("QLineEdit[defaulted=\"true\"][focused=\"true\"] { color:green; background:#ffc627; } "
+                         "QLineEdit[defaulted=\"true\"][focused=\"false\"] { color:green; background:white; } "
+                         "QLineEdit[defaulted=\"false\"][focused=\"true\"] { color:black; background:#ffc627; } "
+                         "QLineEdit[defaulted=\"false\"][focused=\"false\"] { color:black; background:white; } "
+                         "QLineEdit[auto=\"true\"][focused=\"true\"] { color:grey; background:#ffc627; } "
+                         "QLineEdit[auto=\"true\"][focused=\"false\"] { color:grey; background:white; } ");
+
+  m_lineEdit->setProperty("defaulted", false);
+  m_lineEdit->setProperty("auto", false);
+  m_lineEdit->setProperty("focused", false);
+  m_lineEdit->setStyleSheet("QLineEdit[defaulted=\"true\"][focused=\"true\"] { color:green; background:#ffc627; } "
+                            "QLineEdit[defaulted=\"true\"][focused=\"false\"] { color:green; background:white; } "
+                            "QLineEdit[defaulted=\"false\"][focused=\"true\"] { color:black; background:#ffc627; } "
+                            "QLineEdit[defaulted=\"false\"][focused=\"false\"] { color:black; background:white; } "
+                            "QLineEdit[auto=\"true\"][focused=\"true\"] { color:grey; background:#ffc627; } "
+                            "QLineEdit[auto=\"true\"][focused=\"false\"] { color:grey; background:white; } ");
 }
 
 OSQuantityEdit2::~OSQuantityEdit2() {}
@@ -97,6 +119,7 @@ void OSQuantityEdit2::enableClickFocus() {
 
 void OSQuantityEdit2::setLocked(bool locked) {
   setEnabled(!locked);
+  m_lineEdit->setLocked(locked);
 }
 
 QDoubleValidator* OSQuantityEdit2::doubleValidator() {
@@ -319,6 +342,37 @@ void OSQuantityEdit2::onModelObjectRemove(const Handle& handle) {
   unbind();
 }
 
+void OSQuantityEdit2::updateStyle() {
+  m_lineEdit->updateStyle();
+
+  m_units->style()->unpolish(this);
+  m_units->style()->polish(this);
+}
+
+bool OSQuantityEdit2::defaulted() const {
+  bool result = false;
+  if (m_isDefaulted) {
+    result = (*m_isDefaulted)();
+  }
+  return result;
+}
+
+bool OSQuantityEdit2::autosized() const {
+  bool result = false;
+  if (m_isAutosized) {
+    result = (*m_isAutosized)();
+  }
+  return result;
+}
+
+bool OSQuantityEdit2::autocalculated() const {
+  bool result = false;
+  if (m_isAutocalculated) {
+    result = (*m_isAutocalculated)();
+  }
+  return result;
+}
+
 void OSQuantityEdit2::refreshTextAndLabel() {
 
   QString text = m_lineEdit->text();
@@ -336,15 +390,6 @@ void OSQuantityEdit2::refreshTextAndLabel() {
     QString textValue;
     std::stringstream ss;
 
-    if (m_isAutosized && (*m_isAutosized)()) {
-      textValue = QString("autosize");
-      m_units->setStyleSheet("color:grey");
-    }
-
-    if (m_isAutocalculated && (*m_isAutocalculated)()) {
-      textValue = QString("autocalculate");
-      m_units->setStyleSheet("color:grey");
-    }
 
     boost::optional<double> value;
 
@@ -379,10 +424,6 @@ void OSQuantityEdit2::refreshTextAndLabel() {
       ss << *displayValue;
       textValue = toQString(ss.str());
       ss.str("");
-
-      m_units->setStyleSheet("color:black");
-    } else {
-      m_units->setStyleSheet("color:grey");
     }
 
     if (m_text != textValue || text != textValue || m_unitsStr != units) {
@@ -399,13 +440,27 @@ void OSQuantityEdit2::refreshTextAndLabel() {
     m_units->setText(toQString(formatUnitString(ss.str(), DocumentFormat::XHTML)));
     m_units->blockSignals(false);
 
-    if (m_isDefaulted) {
-      if ((*m_isDefaulted)()) {
-        m_lineEdit->setStyleSheet("color:green");
-      } else {
-        m_lineEdit->setStyleSheet("color:black");
-      }
+    bool needsUpdateStyle = false;
+
+    bool thisAuto = (autosized() || autocalculated());
+    QVariant currentAuto = this->property("auto");
+    if (currentAuto.isNull() || currentAuto.toBool() != thisAuto) {
+      m_lineEdit->setProperty("auto", thisAuto);
+      m_units->setProperty("auto", thisAuto);
+      needsUpdateStyle = true;
     }
+
+    bool thisDefaulted = defaulted();
+    QVariant currentDefaulted = this->property("defaulted");
+    if (currentDefaulted.isNull() || currentDefaulted.toBool() != thisDefaulted) {
+      m_lineEdit->setProperty("defaulted", thisDefaulted);
+      needsUpdateStyle = true;
+    }
+
+    if (needsUpdateStyle){
+      updateStyle();
+    }
+
   }
 }
 
@@ -460,10 +515,15 @@ void QuantityLineEdit::setLocked(bool locked) {
   setEnabled(!locked);
 }
 
+void QuantityLineEdit::updateStyle() {
+  this->style()->unpolish(this);
+  this->style()->polish(this);
+}
+
 void QuantityLineEdit::focusInEvent(QFocusEvent* e) {
   if (e->reason() == Qt::MouseFocusReason && m_hasClickFocus) {
-    QString style("QLineEdit { background: #ffc627; }");
-    setStyleSheet(style);
+    this->setProperty("focused", true);
+    updateStyle();
 
     emit inFocus(true);
   }
@@ -473,8 +533,8 @@ void QuantityLineEdit::focusInEvent(QFocusEvent* e) {
 
 void QuantityLineEdit::focusOutEvent(QFocusEvent* e) {
   if (e->reason() == Qt::MouseFocusReason && m_hasClickFocus) {
-    QString style("QLineEdit { background: white; }");
-    setStyleSheet(style);
+    this->setProperty("focused", true);
+    updateStyle();
 
     emit inFocus(false);
   }

@@ -61,12 +61,15 @@ class QuantityLineEdit : public QLineEdit
 
   void setLocked(bool locked);
 
+  void updateStyle();
+
  protected:
   virtual void focusInEvent(QFocusEvent* e) override;
 
   virtual void focusOutEvent(QFocusEvent* e) override;
 
  private:
+
   bool m_hasClickFocus = false;
 
  signals:
@@ -131,6 +134,12 @@ class OSQuantityEdit2 : public QWidget, public Nano::Observer
   void onInFocus(bool hasFocus);
 
  private:
+  
+  bool defaulted() const;
+  bool autosized() const;
+  bool autocalculated() const;
+  void updateStyle();
+
   QuantityLineEdit* m_lineEdit;
   QLabel* m_units;
   QString m_text = "UNINITIALIZED";
