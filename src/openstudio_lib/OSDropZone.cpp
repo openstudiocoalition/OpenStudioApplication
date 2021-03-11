@@ -514,10 +514,10 @@ void OSDropZoneItem::mouseReleaseEvent(QGraphicsSceneMouseEvent* event) {
 
 OSDropZone2::OSDropZone2() : QWidget() {
   setObjectName("OSDropZone");
-  this->setProperty("focused", false);
+  setProperty("focused", false);
   setStyleSheet(
-    "QWidget#DropBox[focused=\"true\"] { border: 2px dashed #808080; border-radius : 5px; background:#ffc627; } "
-    "QWidget#DropBox[focused=\"false\"] { border: 2px dashed #808080; border-radius : 5px;background:#CECECE; } "
+    "QWidget#OSDropZone[focused=\"true\"] { border: 2px dashed #808080; border-radius: 5px; background:#ffc627; } "
+    "QWidget#OSDropZone[focused=\"false\"] { border: 2px dashed #808080; border-radius: 5px; background:#CECECE; } "
   );
 
   auto layout = new QVBoxLayout();

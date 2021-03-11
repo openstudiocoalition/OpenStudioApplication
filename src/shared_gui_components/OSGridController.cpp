@@ -1265,15 +1265,16 @@ QWidget* OSGridController::widgetAt(int row, int column) {
         if (item) {
           auto mo = item->cast<model::ModelObject>();
 
-          if (dataSource->innerConcept()->isSelector()) {
+          bool isSelector = (baseConcept->isSelector() || dataSource->innerConcept()->isSelector());
+
+          if (isSelector) {
             auto subrowIsLocked = dataSource->innerConcept()->isLocked(mo);
             m_subrowsLocked[subrowCounter] = subrowIsLocked;
           }
 
           dataSource->innerConcept()->setBaseLocked(m_subrowsLocked[subrowCounter]);
 
-          addWidget(makeWidget(mo, dataSource->innerConcept()), mo,
-                    baseConcept->isSelector() || dataSource->innerConcept()->isSelector());
+          addWidget(makeWidget(mo, dataSource->innerConcept()), mo, isSelector);
         } else {
           addWidget(new QWidget(this->gridView()), boost::none, false);
         }

@@ -295,7 +295,8 @@ class BaseConcept
  public:
   virtual ~BaseConcept() {}
 
-  BaseConcept(const Heading& t_heading, bool t_hasClickFocus = false) : m_heading(t_heading), m_selector(false), m_hasClickFocus(t_hasClickFocus) {}
+  BaseConcept(const Heading& t_heading, bool t_hasClickFocus = false)
+    : m_heading(t_heading), m_selector(false), m_baseLocked(false), m_hasClickFocus(t_hasClickFocus) {}
 
   // isLocked is true if the element cannot be modified, it can still be clicked on in some cases
   virtual bool isLocked(const ConceptProxy& obj) { return m_baseLocked; }

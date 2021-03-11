@@ -489,7 +489,7 @@ void OSDoubleEdit2::focusInEvent(QFocusEvent* e) {
 
 void OSDoubleEdit2::focusOutEvent(QFocusEvent* e) {
   if (e->reason() == Qt::MouseFocusReason && m_hasClickFocus) {
-    this->setProperty("focused", true);
+    this->setProperty("focused", false);
     updateStyle();
 
     emit inFocus(false, false);

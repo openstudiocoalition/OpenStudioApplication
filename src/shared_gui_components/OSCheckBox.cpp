@@ -185,7 +185,6 @@ void OSCheckBox3::focusOutEvent(QFocusEvent* e) {
 }
 
 OSCheckBox2::OSCheckBox2(QWidget* parent) : QPushButton(parent) {
-  setObjectName("StandardGrayButton");
   this->setAcceptDrops(false);
 
   this->setCheckable(true);
@@ -194,10 +193,10 @@ OSCheckBox2::OSCheckBox2(QWidget* parent) : QPushButton(parent) {
 
   this->setProperty("defaulted", false);
   this->setProperty("focused", false);
-  this->setStyleSheet("QLineEdit[defaulted=\"true\"][focused=\"true\"] { color:green; background:#ffc627; } "
-                      "QLineEdit[defaulted=\"true\"][focused=\"false\"] { color:green; background:white; } "
-                      "QLineEdit[defaulted=\"false\"][focused=\"true\"] { color:black; background:#ffc627; } "
-                      "QLineEdit[defaulted=\"false\"][focused=\"false\"] { color:black; background:white; } ");
+  this->setStyleSheet("QPushButton[defaulted=\"true\"][focused=\"true\"] { color:green; background:#ffc627; } "
+                      "QPushButton[defaulted=\"true\"][focused=\"false\"] { color:green; background:white; } "
+                      "QPushButton[defaulted=\"false\"][focused=\"true\"] { color:black; background:#ffc627; } "
+                      "QPushButton[defaulted=\"false\"][focused=\"false\"] { color:black; background:white; } ");
 }
 
 void OSCheckBox2::bind(const model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetter> set, boost::optional<NoFailAction> reset,
