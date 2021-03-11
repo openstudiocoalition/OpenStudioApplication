@@ -478,6 +478,7 @@ void OSDoubleEdit2::setPrecision(const std::string& str) {
 
 void OSDoubleEdit2::focusInEvent(QFocusEvent* e) {
   if (e->reason() == Qt::MouseFocusReason && m_hasClickFocus) {
+    bool enabled = isEnabled();
     this->setProperty("focused", true);
     updateStyle();
 

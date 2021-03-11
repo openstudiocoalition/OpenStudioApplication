@@ -506,12 +506,12 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
       checkBox->setToolTip(checkBoxConcept->tooltip().c_str());
     }
 
+    checkBox->bind(t_mo, BoolGetter(std::bind(&CheckBoxConcept::get, checkBoxConcept.data(), t_mo)),
+                   boost::optional<BoolSetter>(std::bind(&CheckBoxConcept::set, checkBoxConcept.data(), t_mo, std::placeholders::_1)));
+
     if (checkBoxConcept->isLocked(t_mo)) {
       checkBox->setLocked(true);
     }
-
-    checkBox->bind(t_mo, BoolGetter(std::bind(&CheckBoxConcept::get, checkBoxConcept.data(), t_mo)),
-                   boost::optional<BoolSetter>(std::bind(&CheckBoxConcept::set, checkBoxConcept.data(), t_mo, std::placeholders::_1)));
 
     isConnected = connect(checkBox, SIGNAL(stateChanged(int)), gridView(), SLOT(refreshRow(int)));  
     OS_ASSERT(isConnected);
@@ -532,14 +532,13 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
       checkBoxBoolReturn->enableClickFocus();
     }
 
-    if (checkBoxConceptBoolReturn->isLocked(t_mo)) {
-      checkBoxBoolReturn->setLocked(true);
-    }
-
     checkBoxBoolReturn->bind(t_mo, BoolGetter(std::bind(&CheckBoxConceptBoolReturn::get, checkBoxConceptBoolReturn.data(), t_mo)),
                              boost::optional<BoolSetterBoolReturn>(
                                std::bind(&CheckBoxConceptBoolReturn::set, checkBoxConceptBoolReturn.data(), t_mo, std::placeholders::_1)));
 
+    if (checkBoxConceptBoolReturn->isLocked(t_mo)) {
+      checkBoxBoolReturn->setLocked(true);
+    }
     // We don't need to refresh the whole grid, since we do not have to color the rows blue like the "Select All" checkboc
     // isConnected = connect(checkBoxBoolReturn, SIGNAL(stateChanged(int)), gridView(), SLOT(requestRefreshGrid()));
     // OS_ASSERT(isConnected);
@@ -558,11 +557,11 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
       comboBox->enableClickFocus();
     }
 
+    comboBox->bind(t_mo, choiceConcept);
+
     if (comboBoxConcept->isLocked(t_mo)) {
       comboBox->setLocked(true);
     }
-
-    comboBox->bind(t_mo, choiceConcept);
 
     widget = comboBox;
 
@@ -577,15 +576,15 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
       doubleEdit->enableClickFocus();
     }
 
-    if (doubleEditConcept->isLocked(t_mo)) {
-      doubleEdit->setLocked(true);
-    }
-
     doubleEdit->bind(t_mo, DoubleGetter(std::bind(&ValueEditConcept<double>::get, doubleEditConcept.data(), t_mo)),
                      boost::optional<DoubleSetter>(std::bind(&ValueEditConcept<double>::set, doubleEditConcept.data(), t_mo, std::placeholders::_1)),
                      boost::optional<NoFailAction>(std::bind(&ValueEditConcept<double>::reset, doubleEditConcept.data(), t_mo)),
                      boost::optional<NoFailAction>(), boost::optional<NoFailAction>(),
                      boost::optional<BasicQuery>(std::bind(&ValueEditConcept<double>::isDefaulted, doubleEditConcept.data(), t_mo)));
+
+    if (doubleEditConcept->isLocked(t_mo)) {
+      doubleEdit->setLocked(true);
+    }
 
     widget = doubleEdit;
 
@@ -597,13 +596,13 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
       optionalDoubleEdit->enableClickFocus();
     }
 
-    if (optionalDoubleEditConcept->isLocked(t_mo)) {
-      optionalDoubleEdit->setLocked(true);
-    }
-
     optionalDoubleEdit->bind(t_mo, OptionalDoubleGetter(std::bind(&OptionalValueEditConcept<double>::get, optionalDoubleEditConcept.data(), t_mo)),
                              boost::optional<DoubleSetter>(
                                std::bind(&OptionalValueEditConcept<double>::set, optionalDoubleEditConcept.data(), t_mo, std::placeholders::_1)));
+
+    if (optionalDoubleEditConcept->isLocked(t_mo)) {
+      optionalDoubleEdit->setLocked(true);
+    }
 
     widget = optionalDoubleEdit;
 
@@ -615,16 +614,16 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
       doubleEditVoidReturn->enableClickFocus();
     }
 
-    if (doubleEditVoidReturnConcept->isLocked(t_mo)) {
-      doubleEditVoidReturn->setLocked(true);
-    }
-
     doubleEditVoidReturn->bind(
       t_mo, DoubleGetter(std::bind(&ValueEditVoidReturnConcept<double>::get, doubleEditVoidReturnConcept.data(), t_mo)),
       DoubleSetterVoidReturn(std::bind(&ValueEditVoidReturnConcept<double>::set, doubleEditVoidReturnConcept.data(), t_mo, std::placeholders::_1)),
       boost::optional<NoFailAction>(std::bind(&ValueEditVoidReturnConcept<double>::reset, doubleEditVoidReturnConcept.data(), t_mo)),
       boost::optional<NoFailAction>(), boost::optional<NoFailAction>(),
       boost::optional<BasicQuery>(std::bind(&ValueEditVoidReturnConcept<double>::isDefaulted, doubleEditVoidReturnConcept.data(), t_mo)));
+
+    if (doubleEditVoidReturnConcept->isLocked(t_mo)) {
+      doubleEditVoidReturn->setLocked(true);
+    }
 
     widget = doubleEditVoidReturn;
 
@@ -636,14 +635,14 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
       optionalDoubleEditVoidReturn->enableClickFocus();
     }
 
-    if (optionalDoubleEditVoidReturnConcept->isLocked(t_mo)) {
-      optionalDoubleEditVoidReturn->setLocked(true);
-    }
-
     optionalDoubleEditVoidReturn->bind(
       t_mo, OptionalDoubleGetter(std::bind(&OptionalValueEditVoidReturnConcept<double>::get, optionalDoubleEditVoidReturnConcept.data(), t_mo)),
       DoubleSetterVoidReturn(
         std::bind(&OptionalValueEditVoidReturnConcept<double>::set, optionalDoubleEditVoidReturnConcept.data(), t_mo, std::placeholders::_1)));
+
+    if (optionalDoubleEditVoidReturnConcept->isLocked(t_mo)) {
+      optionalDoubleEditVoidReturn->setLocked(true);
+    }
 
     widget = optionalDoubleEditVoidReturn;
 
@@ -654,15 +653,15 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
       integerEdit->enableClickFocus();
     }
 
-    if (integerEditConcept->isLocked(t_mo)) {
-      integerEdit->setLocked(true);
-    }
-
     integerEdit->bind(t_mo, IntGetter(std::bind(&ValueEditConcept<int>::get, integerEditConcept.data(), t_mo)),
                       boost::optional<IntSetter>(std::bind(&ValueEditConcept<int>::set, integerEditConcept.data(), t_mo, std::placeholders::_1)),
                       boost::optional<NoFailAction>(std::bind(&ValueEditConcept<int>::reset, integerEditConcept.data(), t_mo)),
                       boost::optional<NoFailAction>(), boost::optional<NoFailAction>(),
                       boost::optional<BasicQuery>(std::bind(&ValueEditConcept<int>::isDefaulted, integerEditConcept.data(), t_mo)));
+
+    if (integerEditConcept->isLocked(t_mo)) {
+      integerEdit->setLocked(true);
+    }
 
     widget = integerEdit;
 
@@ -673,14 +672,14 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
       lineEdit->enableClickFocus();
     }
 
-    if (lineEditConcept->isLocked(t_mo)) {
-      lineEdit->setLocked(true);
-    }
-
     lineEdit->bind(t_mo, StringGetter(std::bind(&ValueEditConcept<std::string>::get, lineEditConcept.data(), t_mo)),
                    boost::optional<StringSetter>(std::bind(&ValueEditConcept<std::string>::set, lineEditConcept.data(), t_mo, std::placeholders::_1)),
                    boost::optional<NoFailAction>(std::bind(&ValueEditConcept<std::string>::reset, lineEditConcept.data(), t_mo)),
                    boost::optional<BasicQuery>(std::bind(&ValueEditConcept<std::string>::isDefaulted, lineEditConcept.data(), t_mo)));
+
+    if (lineEditConcept->isLocked(t_mo)) {
+      lineEdit->setLocked(true);
+    }
 
     isConnected = connect(lineEdit, SIGNAL(objectRemoved(boost::optional<model::ParentObject>)), this,
                           SLOT(onObjectRemoved(boost::optional<model::ParentObject>)));
@@ -695,15 +694,15 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
       lineEdit->enableClickFocus();
     }
 
-    if (lineEditConcept->isLocked(t_mo)) {
-      lineEdit->setLocked(true);
-    }
-
     lineEdit->bind(t_mo, StringGetter(std::bind(&ValueEditVoidReturnConcept<std::string>::get, lineEditConcept.data(), t_mo)),
                    boost::optional<StringSetterVoidReturn>(
                      std::bind(&ValueEditVoidReturnConcept<std::string>::set, lineEditConcept.data(), t_mo, std::placeholders::_1)),
                    boost::optional<NoFailAction>(std::bind(&ValueEditVoidReturnConcept<std::string>::reset, lineEditConcept.data(), t_mo)),
                    boost::optional<BasicQuery>(std::bind(&ValueEditVoidReturnConcept<std::string>::isDefaulted, lineEditConcept.data(), t_mo)));
+
+    if (lineEditConcept->isLocked(t_mo)) {
+      lineEdit->setLocked(true);
+    }
 
     isConnected = connect(lineEdit, SIGNAL(objectRemoved(boost::optional<model::ParentObject>)), this,
                           SLOT(onObjectRemoved(boost::optional<model::ParentObject>)));
@@ -724,15 +723,15 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
       nameLineEdit->setDeleteType(DeleteType::NoDelete);
     }
 
-    if (nameLineEditConcept->isLocked(t_mo)) {
-      nameLineEdit->setLocked(true);
-    }
-
     nameLineEdit->bind(t_mo, OptionalStringGetter(std::bind(&NameLineEditConcept::get, nameLineEditConcept.data(), t_mo, true)),
                        boost::optional<StringSetter>(std::bind(&NameLineEditConcept::setReturnBool, nameLineEditConcept.data(), t_mo, std::placeholders::_1)),
                        boost::optional<NoFailAction>(std::bind(&NameLineEditConcept::reset, nameLineEditConcept.data(), t_mo)),
                        boost::optional<BasicQuery>(std::bind(&NameLineEditConcept::isInherited, nameLineEditConcept.data(), t_mo)),
                        boost::optional<BasicQuery>(std::bind(&NameLineEditConcept::isLocked, nameLineEditConcept.data(), t_mo)));
+
+    if (nameLineEditConcept->isLocked(t_mo)) {
+      nameLineEdit->setLocked(true);
+    }
 
     if (nameLineEditConcept->isInspectable()) {
       //connect(nameLineEdit, OSLineEdit2::itemClicked, gridView(), OSGridView::dropZoneItemClicked);
@@ -755,16 +754,16 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
       quantityEdit->enableClickFocus();
     }
 
-    if (quantityEditConcept->isLocked(t_mo)) {
-      quantityEdit->setLocked(true);
-    }
-
     quantityEdit->bind(
       m_isIP, t_mo, DoubleGetter(std::bind(&QuantityEditConcept<double>::get, quantityEditConcept.data(), t_mo)),
       boost::optional<DoubleSetter>(std::bind(&QuantityEditConcept<double>::set, quantityEditConcept.data(), t_mo, std::placeholders::_1)),
       boost::optional<NoFailAction>(std::bind(&QuantityEditConcept<double>::reset, quantityEditConcept.data(), t_mo)),
       boost::optional<NoFailAction>(), boost::optional<NoFailAction>(),
       boost::optional<BasicQuery>(std::bind(&QuantityEditConcept<double>::isDefaulted, quantityEditConcept.data(), t_mo)));
+
+    if (quantityEditConcept->isLocked(t_mo)) {
+      quantityEdit->setLocked(true);
+    }
 
     isConnected = connect(this, SIGNAL(toggleUnitsClicked(bool)), quantityEdit, SLOT(onUnitSystemChange(bool)));
     OS_ASSERT(isConnected);
@@ -781,14 +780,14 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
       optionalQuantityEdit->enableClickFocus();
     }
 
-    if (optionalQuantityEditConcept->isLocked(t_mo)) {
-      optionalQuantityEdit->setLocked(true);
-    }
-
     optionalQuantityEdit->bind(m_isIP, t_mo,
                                OptionalDoubleGetter(std::bind(&OptionalQuantityEditConcept<double>::get, optionalQuantityEditConcept.data(), t_mo)),
                                boost::optional<DoubleSetter>(std::bind(&OptionalQuantityEditConcept<double>::set, optionalQuantityEditConcept.data(),
                                                                        t_mo, std::placeholders::_1)));
+
+    if (optionalQuantityEditConcept->isLocked(t_mo)) {
+      optionalQuantityEdit->setLocked(true);
+    }
 
     isConnected = connect(this, SIGNAL(toggleUnitsClicked(bool)), optionalQuantityEdit, SLOT(onUnitSystemChange(bool)));
     OS_ASSERT(isConnected);
@@ -805,10 +804,6 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
       quantityEditVoidReturn->enableClickFocus();
     }
 
-    if (quantityEditVoidReturnConcept->isLocked(t_mo)) {
-      quantityEditVoidReturn->setLocked(true);
-    }
-
     quantityEditVoidReturn->bind(
       m_isIP, t_mo, DoubleGetter(std::bind(&QuantityEditVoidReturnConcept<double>::get, quantityEditVoidReturnConcept.data(), t_mo)),
       DoubleSetterVoidReturn(
@@ -816,6 +811,10 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
       boost::optional<NoFailAction>(std::bind(&QuantityEditVoidReturnConcept<double>::reset, quantityEditVoidReturnConcept.data(), t_mo)),
       boost::optional<NoFailAction>(), boost::optional<NoFailAction>(),
       boost::optional<BasicQuery>(std::bind(&QuantityEditVoidReturnConcept<double>::isDefaulted, quantityEditVoidReturnConcept.data(), t_mo)));
+
+    if (quantityEditVoidReturnConcept->isLocked(t_mo)) {
+      quantityEditVoidReturn->setLocked(true);
+    }
 
     isConnected = connect(this, SIGNAL(toggleUnitsClicked(bool)), quantityEditVoidReturn, SLOT(onUnitSystemChange(bool)));
     OS_ASSERT(isConnected);
@@ -833,15 +832,15 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
       optionalQuantityEditVoidReturn->enableClickFocus();
     }
 
-    if (optionalQuantityEditVoidReturnConcept->isLocked(t_mo)) {
-      optionalQuantityEditVoidReturn->setLocked(true);
-    }
-
     optionalQuantityEditVoidReturn->bind(
       m_isIP, t_mo,
       OptionalDoubleGetter(std::bind(&OptionalQuantityEditVoidReturnConcept<double>::get, optionalQuantityEditVoidReturnConcept.data(), t_mo)),
       DoubleSetterVoidReturn(
         std::bind(&OptionalQuantityEditVoidReturnConcept<double>::set, optionalQuantityEditVoidReturnConcept.data(), t_mo, std::placeholders::_1)));
+
+    if (optionalQuantityEditVoidReturnConcept->isLocked(t_mo)) {
+      optionalQuantityEditVoidReturn->setLocked(true);
+    }
 
     isConnected = connect(this, SIGNAL(toggleUnitsClicked(bool)), optionalQuantityEditVoidReturn, SLOT(onUnitSystemChange(bool)));
     OS_ASSERT(isConnected);
@@ -855,16 +854,16 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
       unsignedEdit->enableClickFocus();
     }
 
-    if (unsignedEditConcept->isLocked(t_mo)) {
-      unsignedEdit->setLocked(true);
-    }
-
     unsignedEdit->bind(
       t_mo, UnsignedGetter(std::bind(&ValueEditConcept<unsigned>::get, unsignedEditConcept.data(), t_mo)),
       boost::optional<UnsignedSetter>(std::bind(&ValueEditConcept<unsigned>::set, unsignedEditConcept.data(), t_mo, std::placeholders::_1)),
       boost::optional<NoFailAction>(std::bind(&ValueEditConcept<unsigned>::reset, unsignedEditConcept.data(), t_mo)), boost::optional<NoFailAction>(),
       boost::optional<NoFailAction>(),
       boost::optional<BasicQuery>(std::bind(&ValueEditConcept<unsigned>::isDefaulted, unsignedEditConcept.data(), t_mo)));
+
+    if (unsignedEditConcept->isLocked(t_mo)) {
+      unsignedEdit->setLocked(true);
+    }
 
     widget = unsignedEdit;
 
@@ -873,15 +872,15 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
     if (dropZoneConcept->hasClickFocus()) {
       dropZone->enableClickFocus();
     }
-
-    if (dropZoneConcept->isLocked(t_mo)) {
-      dropZone->setLocked(true);
-    }
     
     dropZone->bind(t_mo, OptionalModelObjectGetter(std::bind(&DropZoneConcept::get, dropZoneConcept.data(), t_mo)),
                    ModelObjectSetter(std::bind(&DropZoneConcept::set, dropZoneConcept.data(), t_mo, std::placeholders::_1)),
                    NoFailAction(std::bind(&DropZoneConcept::reset, dropZoneConcept.data(), t_mo)), 
                    ModelObjectIsDefaulted(std::bind(&DropZoneConcept::isDefaulted, dropZoneConcept.data(), t_mo)));
+
+    if (dropZoneConcept->isLocked(t_mo)) {
+      dropZone->setLocked(true);
+    }
 
     //connect(dropZone, OSDropZone2::itemClicked, gridView(), OSGridView::dropZoneItemClicked);
     isConnected = connect(dropZone, SIGNAL(itemClicked(OSItem*)), gridView(), SIGNAL(dropZoneItemClicked(OSItem*)));
@@ -896,12 +895,12 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
   } else if (QSharedPointer<RenderingColorConcept> renderingColorConcept = t_baseConcept.dynamicCast<RenderingColorConcept>()) {
     auto renderingColorWidget = new RenderingColorWidget2(this->gridView());
 
+    renderingColorWidget->bind(t_mo, OptionalModelObjectGetter(std::bind(&RenderingColorConcept::get, renderingColorConcept.data(), t_mo)),
+                               ModelObjectSetter(std::bind(&RenderingColorConcept::set, renderingColorConcept.data(), t_mo, std::placeholders::_1)));
+   
     if (renderingColorConcept->isLocked(t_mo)) {
       renderingColorWidget->setLocked(true);
     }
-
-    renderingColorWidget->bind(t_mo, OptionalModelObjectGetter(std::bind(&RenderingColorConcept::get, renderingColorConcept.data(), t_mo)),
-                               ModelObjectSetter(std::bind(&RenderingColorConcept::set, renderingColorConcept.data(), t_mo, std::placeholders::_1)));
 
     widget = renderingColorWidget;
 
@@ -1264,17 +1263,17 @@ QWidget* OSGridController::widgetAt(int row, int column) {
       for (auto& item : items) {
         if (item) {
           auto mo = item->cast<model::ModelObject>();
-
-          bool isSelector = (baseConcept->isSelector() || dataSource->innerConcept()->isSelector());
+          auto innerConcept = dataSource->innerConcept();
+          bool isSelector = (baseConcept->isSelector() || innerConcept->isSelector());
 
           if (isSelector) {
-            auto subrowIsLocked = dataSource->innerConcept()->isLocked(mo);
+            auto subrowIsLocked = innerConcept->isLocked(mo);
             m_subrowsLocked[subrowCounter] = subrowIsLocked;
           }
 
-          dataSource->innerConcept()->setBaseLocked(m_subrowsLocked[subrowCounter]);
+          innerConcept->setBaseLocked(m_subrowsLocked[subrowCounter]);
 
-          addWidget(makeWidget(mo, dataSource->innerConcept()), mo, isSelector);
+          addWidget(makeWidget(mo, innerConcept), mo, isSelector);
         } else {
           addWidget(new QWidget(this->gridView()), boost::none, false);
         }
