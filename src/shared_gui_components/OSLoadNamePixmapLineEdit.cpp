@@ -46,7 +46,7 @@
 namespace openstudio {
 
 OSLoadNamePixmapLineEdit::OSLoadNamePixmapLineEdit(QWidget* parent) 
-  : OSLineEdit2Interface(parent) {
+  : QWidget(parent) {
   createWidgets();
 }
 
@@ -70,7 +70,7 @@ bool OSLoadNamePixmapLineEdit::hasData() {
 
 void OSLoadNamePixmapLineEdit::setLocked(bool locked)
 {
-  setEnabled(!locked);
+  m_lineEdit->setLocked(locked);
 }
 
 boost::optional<model::ModelObject> OSLoadNamePixmapLineEdit::modelObject() const {
@@ -127,6 +127,10 @@ void OSLoadNamePixmapLineEdit::completeBind() {
 
 void OSLoadNamePixmapLineEdit::unbind() {
   m_lineEdit->unbind();
+}
+
+QWidget* OSLoadNamePixmapLineEdit::qwidget() {
+  return this;
 }
 
 void OSLoadNamePixmapLineEdit::createWidgets() {

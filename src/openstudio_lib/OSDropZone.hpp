@@ -118,6 +118,7 @@ class OSDropZone2 : public QWidget, public Nano::Observer
   boost::optional<ModelObjectIsDefaulted> m_isDefaulted;
   boost::optional<ModelObjectIsReadOnly> m_isReadOnly;
   boost::optional<model::ModelObject> m_modelObject;
+  bool m_locked = false;
   //QString m_text;
   OSItem* m_item = nullptr;
   bool m_deleteObject = false;

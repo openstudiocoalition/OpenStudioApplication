@@ -441,12 +441,12 @@ class OSGridController : public QObject, public Nano::Observer
                              const std::function<boost::optional<std::string>(DataSourceType*, const std::string&)>& setter,
                              const boost::optional<std::function<void(DataSourceType*)>>& resetter = boost::none,
                              const boost::optional<std::function<bool(DataSourceType*)>>& isDefaulted = boost::none,
-                             const boost::optional<std::function<bool(DataSourceType*)>>& isReadOnly = boost::none,
+                             const boost::optional<std::function<bool(DataSourceType*)>>& isLocked = boost::none,
                              const boost::optional<DataSource>& t_source = boost::none) {
     const OSLineEditType osLineEditType = OSLineEditType::OSLineEdit2Type;
     const bool hasClickFocus = true;
     m_baseConcepts.push_back(makeDataSourceAdapter(QSharedPointer<NameLineEditConcept>(new NameLineEditConceptImpl<DataSourceType>(
-        heading, osLineEditType, isInspectable, deleteObject, hasClickFocus, getter, setter, resetter, isDefaulted, isReadOnly)),
+        heading, osLineEditType, isInspectable, deleteObject, hasClickFocus, getter, setter, resetter, isDefaulted, isLocked)),
                                                    t_source));
   }
 
@@ -455,14 +455,14 @@ class OSGridController : public QObject, public Nano::Observer
                          const std::function<boost::optional<std::string>(DataSourceType*, const std::string&)>& setter,
                          const boost::optional<std::function<void(DataSourceType*)>>& resetter = boost::none,
                          const boost::optional<std::function<bool(DataSourceType*)>>& isDefaulted = boost::none,
-                         const boost::optional<std::function<bool(DataSourceType*)>>& isReadOnly = boost::none,
+                         const boost::optional<std::function<bool(DataSourceType*)>>& isLocked = boost::none,
                          const boost::optional<DataSource>& t_source = boost::none) {
     const OSLineEditType osLineEditType = OSLineEditType::OSLoadNamePixmapLineEditType;
     const bool isInspectable = true;
     const bool deleteObject = true;
     const bool hasClickFocus = true;
     m_baseConcepts.push_back(makeDataSourceAdapter(QSharedPointer<NameLineEditConcept>(new NameLineEditConceptImpl<DataSourceType>(
-        heading, osLineEditType, isInspectable, deleteObject, hasClickFocus, getter, setter, resetter, isDefaulted, isReadOnly)),
+        heading, osLineEditType, isInspectable, deleteObject, hasClickFocus, getter, setter, resetter, isDefaulted, isLocked)),
                             t_source));
   }
 
@@ -515,10 +515,10 @@ class OSGridController : public QObject, public Nano::Observer
                          std::function<bool(DataSourceType*, const ValueType&)> setter,
                          boost::optional<std::function<void(DataSourceType*)>> reset = boost::none,
                          boost::optional<std::function<bool(DataSourceType*)>> isDefaulted = boost::none,
-                         boost::optional<std::function<bool(DataSourceType*)>> isReadOnly = boost::none,
+                         boost::optional<std::function<bool(DataSourceType*)>> isLocked = boost::none,
                          const boost::optional<DataSource>& t_source = boost::none) {
     m_baseConcepts.push_back(makeDataSourceAdapter(
-      QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<ValueType, DataSourceType>(heading, getter, setter, reset, isDefaulted, isReadOnly)),
+      QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<ValueType, DataSourceType>(heading, getter, setter, reset, isDefaulted, isLocked)),
       t_source));
   }
 

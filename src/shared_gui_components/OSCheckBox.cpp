@@ -43,10 +43,11 @@ OSCheckBox3::OSCheckBox3(QWidget* parent) : QCheckBox(parent) {
 
   this->setProperty("defaulted", false);
   this->setProperty("focused", false);
-  this->setStyleSheet("QCheckBox[defaulted=\"true\"][focused=\"true\"] { color:green; background:#ffc627; } "
-                      "QCheckBox[defaulted=\"true\"][focused=\"false\"] { color:green; background:white; } "
-                      "QCheckBox[defaulted=\"false\"][focused=\"true\"] { color:black; background:#ffc627; } "
-                      "QCheckBox[defaulted=\"false\"][focused=\"false\"] { color:black; background:white; } ");
+  this->setStyleSheet("QCheckBox { background-color:red; } "
+                      "QCheckBox[defaulted=\"true\"][focused=\"true\"] { background-color:#ffc627; } "
+                      "QCheckBox[defaulted=\"true\"][focused=\"false\"] { background-color:white; } "
+                      "QCheckBox[defaulted=\"false\"][focused=\"true\"] { background-color:#ffc627; } "
+                      "QCheckBox[defaulted=\"false\"][focused=\"false\"] { background-color:white; } ");
 
   setEnabled(false);
 }

@@ -59,7 +59,8 @@
 
 namespace openstudio {
 
-OSLineEdit2Interface::OSLineEdit2Interface(QWidget* parent) : QLineEdit(parent) {
+
+OSLineEdit2::OSLineEdit2(QWidget* parent) : QLineEdit(parent) {
   this->setAcceptDrops(false);
   setEnabled(false);
 
@@ -68,12 +69,11 @@ OSLineEdit2Interface::OSLineEdit2Interface(QWidget* parent) : QLineEdit(parent) 
   this->setStyleSheet("QLineEdit[defaulted=\"true\"][focused=\"true\"] { color:green; background:#ffc627; } "
                       "QLineEdit[defaulted=\"true\"][focused=\"false\"] { color:green; background:white; } "
                       "QLineEdit[defaulted=\"false\"][focused=\"true\"] { color:black; background:#ffc627; } "
-                      "QLineEdit[defaulted=\"false\"][focused=\"false\"] { color:black; background:white; } ");
-}
-
-
-OSLineEdit2::OSLineEdit2(QWidget* parent) : OSLineEdit2Interface(parent) {
-
+                      "QLineEdit[defaulted=\"false\"][focused=\"false\"] { color:black; background:white; } "
+                      "QLineEdit:read-only[defaulted=\"true\"][focused=\"true\"] { color:green; background:#ffc627; } "
+                      "QLineEdit:read-only[defaulted=\"true\"][focused=\"false\"] { color:green; background:#e6e6e6; } "
+                      "QLineEdit:read-only[defaulted=\"false\"][focused=\"true\"] { color:black; background:#ffc627; } "
+                      "QLineEdit:read-only[defaulted=\"false\"][focused=\"false\"] { color:black; background:#e6e6e6; } ");
 }
 
 OSLineEdit2::~OSLineEdit2() {}
@@ -95,7 +95,8 @@ bool OSLineEdit2::hasData() {
 }
 
 void OSLineEdit2::setLocked(bool locked) {
-  setEnabled(!locked);
+  setReadOnly(locked);
+  updateStyle();
 }
 
 boost::optional<model::ModelObject> OSLineEdit2::modelObject() const {
@@ -166,9 +167,9 @@ void OSLineEdit2::completeBind() {
   setEnabled(true);
 
   if (m_isLocked && (*m_isLocked)()) {
-    setReadOnly(true);
+    setLocked(true);
   }else if (!m_set && !m_setOptionalStringReturn && !m_setVoidReturn) {
-    setReadOnly(true);
+    setLocked(true);
   }
 
   m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.connect<OSLineEdit2, &OSLineEdit2::onModelObjectChange>(this);
@@ -206,6 +207,10 @@ void OSLineEdit2::unbind() {
     m_item = nullptr;
     setEnabled(false);
   }
+}
+
+QWidget* OSLineEdit2::qwidget() {
+  return this;
 }
 
 void OSLineEdit2::onEditingFinished() {

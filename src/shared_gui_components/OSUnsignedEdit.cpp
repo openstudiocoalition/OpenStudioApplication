@@ -63,7 +63,11 @@ OSUnsignedEdit2::OSUnsignedEdit2(QWidget* parent)
   this->setStyleSheet("QLineEdit[defaulted=\"true\"][focused=\"true\"] { color:green; background:#ffc627; } "
                       "QLineEdit[defaulted=\"true\"][focused=\"false\"] { color:green; background:white; } "
                       "QLineEdit[defaulted=\"false\"][focused=\"true\"] { color:black; background:#ffc627; } "
-                      "QLineEdit[defaulted=\"false\"][focused=\"false\"] { color:black; background:white; } ");
+                      "QLineEdit[defaulted=\"false\"][focused=\"false\"] { color:black; background:white; } "
+                      "QLineEdit:read-only[defaulted=\"true\"][focused=\"true\"] { color:green; background:#ffc627; } "
+                      "QLineEdit:read-only[defaulted=\"true\"][focused=\"false\"] { color:green; background:#e6e6e6; } "
+                      "QLineEdit:read-only[defaulted=\"false\"][focused=\"true\"] { color:black; background:#ffc627; } "
+                      "QLineEdit:read-only[defaulted=\"false\"][focused=\"false\"] { color:black; background:#e6e6e6; } ");
 }
 
 OSUnsignedEdit2::~OSUnsignedEdit2() {}
@@ -77,7 +81,8 @@ bool OSUnsignedEdit2::hasData() {
 }
 
 void OSUnsignedEdit2::setLocked(bool locked) {
-  setEnabled(!locked);
+  setReadOnly(locked);
+  updateStyle();
 }
 
 QIntValidator* OSUnsignedEdit2::intValidator() {

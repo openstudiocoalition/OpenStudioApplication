@@ -59,11 +59,17 @@ OSIntegerEdit2::OSIntegerEdit2(QWidget* parent)
   this->setProperty("auto", false);
   this->setProperty("focused", false);
   this->setStyleSheet("QLineEdit[defaulted=\"true\"][focused=\"true\"] { color:green; background:#ffc627; } "
-                         "QLineEdit[defaulted=\"true\"][focused=\"false\"] { color:green; background:white; } "
-                         "QLineEdit[defaulted=\"false\"][focused=\"true\"] { color:black; background:#ffc627; } "
-                         "QLineEdit[defaulted=\"false\"][focused=\"false\"] { color:black; background:white; } "
-                         "QLineEdit[auto=\"true\"][focused=\"true\"] { color:grey; background:#ffc627; } "
-                         "QLineEdit[auto=\"true\"][focused=\"false\"] { color:grey; background:white; } ");
+                      "QLineEdit[defaulted=\"true\"][focused=\"false\"] { color:green; background:white; } "
+                      "QLineEdit[defaulted=\"false\"][focused=\"true\"] { color:black; background:#ffc627; } "
+                      "QLineEdit[defaulted=\"false\"][focused=\"false\"] { color:black; background:white; } "
+                      "QLineEdit[auto=\"true\"][focused=\"true\"] { color:grey; background:#ffc627; } "
+                      "QLineEdit[auto=\"true\"][focused=\"false\"] { color:grey; background:white; } "
+                      "QLineEdit[defaulted=\"true\"][focused=\"true\"] { color:green; background:#ffc627; } "
+                      "QLineEdit[defaulted=\"true\"][focused=\"false\"] { color:green; background:#e6e6e6; } "
+                      "QLineEdit[defaulted=\"false\"][focused=\"true\"] { color:black; background:#ffc627; } "
+                      "QLineEdit[defaulted=\"false\"][focused=\"false\"] { color:black; background:#e6e6e6; } "
+                      "QLineEdit[auto=\"true\"][focused=\"true\"] { color:grey; background:#ffc627; } "
+                      "QLineEdit[auto=\"true\"][focused=\"false\"] { color:grey; background:#e6e6e6; } ");
 
   m_intValidator = new QIntValidator();
   //this->setValidator(m_intValidator);
@@ -80,7 +86,8 @@ bool OSIntegerEdit2::hasData() {
 }
 
 void OSIntegerEdit2::setLocked(bool locked) {
-  setEnabled(!locked);
+  setReadOnly(locked);
+  updateStyle();
 }
 
 QIntValidator* OSIntegerEdit2::intValidator() {

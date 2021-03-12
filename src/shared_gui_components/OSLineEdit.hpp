@@ -53,13 +53,9 @@ enum DeleteType
   DeleteIfNotDefaulted 
 };
 
-class OSLineEdit2Interface : public QLineEdit
+class OSLineEdit2Interface
 {
-  Q_OBJECT
-
  public:
-
-  OSLineEdit2Interface(QWidget* parent = nullptr);
 
   virtual void enableClickFocus() = 0;
   
@@ -95,21 +91,11 @@ class OSLineEdit2Interface : public QLineEdit
 
   virtual void unbind() = 0;
 
- signals:
-
-  void itemClicked(OSItem* item);
-
-  void objectRemoved(boost::optional<model::ParentObject> parent);
-
-  void inFocus(bool inFocus, bool hasData);
-
- public slots:
-
-  virtual void onItemRemoveClicked() = 0;
+  virtual QWidget* qwidget() = 0;
 
 };
 
-class OSLineEdit2 : public OSLineEdit2Interface, public Nano::Observer
+class OSLineEdit2 : public QLineEdit, public OSLineEdit2Interface, public Nano::Observer
 {
   Q_OBJECT
 
@@ -152,6 +138,8 @@ class OSLineEdit2 : public OSLineEdit2Interface, public Nano::Observer
 
   virtual void unbind() override;
 
+  virtual QWidget* qwidget() override;
+
  protected:
 
   virtual void mouseReleaseEvent(QMouseEvent* event) override;
@@ -170,7 +158,7 @@ class OSLineEdit2 : public OSLineEdit2Interface, public Nano::Observer
 
  public slots:
 
-  virtual void onItemRemoveClicked() override;
+  void onItemRemoveClicked();
 
  private slots:
 

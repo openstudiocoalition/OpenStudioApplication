@@ -42,7 +42,7 @@ namespace openstudio {
 
 class OSItem;
 
-class OSLoadNamePixmapLineEdit : public OSLineEdit2Interface
+class OSLoadNamePixmapLineEdit : public QWidget, public OSLineEdit2Interface
 {
   Q_OBJECT
 
@@ -84,6 +84,8 @@ class OSLoadNamePixmapLineEdit : public OSLineEdit2Interface
                     boost::optional<BasicQuery> isLocked = boost::none) override;
 
   virtual void unbind() override;
+
+  virtual QWidget* qwidget() override;
 
  signals:
 

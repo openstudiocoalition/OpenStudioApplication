@@ -614,6 +614,8 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
         return false;
       });
 
+      boost::optional<std::function<bool(model::ModelObject*)>> isActivityLevelScheduleLocked;
+
       std::function<bool(model::ModelObject*, const model::Schedule&)> setSchedule([](model::ModelObject* l, model::Schedule t_s) {
         if (boost::optional<model::People> p = l->optionalCast<model::People>()) {
           return p->setNumberofPeopleSchedule(t_s);
@@ -718,6 +720,8 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
           return false;
         }
       });
+    
+      boost::optional<std::function<bool(model::ModelObject*)>> isScheduleLocked;
 
       std::function<boost::optional<model::Schedule>(model::ModelObject*)> activityLevelSchedule([](model::ModelObject* l) {
         if (boost::optional<model::People> p = l->optionalCast<model::People>()) {
@@ -828,8 +832,7 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
                             std::function<void(model::SpaceLoad*)>([](model::SpaceLoad* t_sl) { t_sl->remove(); })),
                           boost::optional<std::function<bool(model::SpaceLoad*)>>(
                             std::function<bool(model::SpaceLoad*)>([](model::SpaceLoad* t_sl) { return !t_sl->space(); })),
-                          boost::optional<std::function<bool(model::SpaceLoad*)>>(
-                            std::function<bool(model::SpaceLoad*)>([](model::SpaceLoad* t_sl) { return !t_sl->space(); })),
+                          boost::optional<std::function<bool(model::SpaceLoad*)>>(),
                           DataSource(allLoads, true));
 
       } else if (field == SELECTED) {
@@ -920,8 +923,8 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
               return false;
             }
         ));
+        boost::optional<std::function<bool(model::Space*)>> isLocked;
 
-        // TODO: disable drop zone here
         addNameLineEditColumn(Heading(QString(DEFINITION), true, false), true, false,
                               CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::name),
                               CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::setName),
@@ -930,15 +933,15 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
                               boost::optional<std::function<bool(model::SpaceLoadDefinition*)>>(),
                               DataSource(allDefinitions, false,
                                          QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<model::SpaceLoadDefinition, model::Space>(
-                       Heading(DEFINITION), getter, setter, resetter, isDefaulted, isDefaulted))));
+                       Heading(DEFINITION), getter, setter, resetter, isDefaulted, isLocked))));
       } else if (field == SCHEDULE) {
 
-        addDropZoneColumn(Heading(QString(SCHEDULE)), schedule, setSchedule, resetSchedule, isScheduleDefaulted, isScheduleDefaulted,
+        addDropZoneColumn(Heading(QString(SCHEDULE)), schedule, setSchedule, resetSchedule, isScheduleDefaulted, isScheduleLocked,
                           DataSource(allLoadsWithSchedules, true));
 
       } else if (field == ACTIVITYSCHEDULE) {
         addDropZoneColumn(Heading(QString(SCHEDULE)), activityLevelSchedule, setActivityLevelSchedule, resetActivityLevelSchedule,
-                          isActivityLevelScheduleDefaulted, isActivityLevelScheduleDefaulted, DataSource(allLoadsWithActivityLevelSchedules, true));
+                          isActivityLevelScheduleDefaulted, isActivityLevelScheduleLocked, DataSource(allLoadsWithActivityLevelSchedules, true));
       } else {
         // unhandled
         OS_ASSERT(false);

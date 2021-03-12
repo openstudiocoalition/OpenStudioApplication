@@ -735,15 +735,15 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
 
     if (nameLineEditConcept->isInspectable()) {
       //connect(nameLineEdit, OSLineEdit2::itemClicked, gridView(), OSGridView::dropZoneItemClicked);
-      isConnected = connect(nameLineEdit, SIGNAL(itemClicked(OSItem*)), gridView(), SIGNAL(dropZoneItemClicked(OSItem*)));
+      isConnected = connect(nameLineEdit->qwidget(), SIGNAL(itemClicked(OSItem*)), gridView(), SIGNAL(dropZoneItemClicked(OSItem*)));
       OS_ASSERT(isConnected);
 
-      isConnected = connect(nameLineEdit, SIGNAL(objectRemoved(boost::optional<model::ParentObject>)), this,
+      isConnected = connect(nameLineEdit->qwidget(), SIGNAL(objectRemoved(boost::optional<model::ParentObject>)), this,
                             SLOT(onObjectRemoved(boost::optional<model::ParentObject>)));
       OS_ASSERT(isConnected);
     }
 
-    widget = nameLineEdit;
+    widget = nameLineEdit->qwidget();
 
   } else if (QSharedPointer<QuantityEditConcept<double>> quantityEditConcept = t_baseConcept.dynamicCast<QuantityEditConcept<double>>()) {
 

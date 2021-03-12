@@ -52,7 +52,8 @@ using openstudio::model::ModelObject;
 namespace openstudio {
 
 OSQuantityEdit2::OSQuantityEdit2(const std::string& modelUnits, const std::string& siUnits, const std::string& ipUnits, bool isIP, QWidget* parent)
-  : m_lineEdit(new QuantityLineEdit()),
+  : QWidget(parent),
+    m_lineEdit(new QuantityLineEdit()),
     m_units(new QLabel()),
     m_isIP(isIP),
     m_modelUnits(modelUnits),
@@ -98,7 +99,13 @@ OSQuantityEdit2::OSQuantityEdit2(const std::string& modelUnits, const std::strin
                          "QLineEdit[defaulted=\"false\"][focused=\"true\"] { color:black; background:#ffc627; } "
                          "QLineEdit[defaulted=\"false\"][focused=\"false\"] { color:black; background:white; } "
                          "QLineEdit[auto=\"true\"][focused=\"true\"] { color:grey; background:#ffc627; } "
-                         "QLineEdit[auto=\"true\"][focused=\"false\"] { color:grey; background:white; } ");
+                         "QLineEdit[auto=\"true\"][focused=\"false\"] { color:grey; background:white; } "
+                         "QLineEdit:read-only[defaulted=\"true\"][focused=\"true\"] { color:green; background:#ffc627; } "
+                         "QLineEdit:read-only[defaulted=\"true\"][focused=\"false\"] { color:green; background:#e6e6e6; } "
+                         "QLineEdit:read-only[defaulted=\"false\"][focused=\"true\"] { color:black; background:#ffc627; } "
+                         "QLineEdit:read-only[defaulted=\"false\"][focused=\"false\"] { color:black; background:#e6e6e6; } "
+                         "QLineEdit:read-only[auto=\"true\"][focused=\"true\"] { color:grey; background:#ffc627; } "
+                         "QLineEdit:read-only[auto=\"true\"][focused=\"false\"] { color:grey; background:#e6e6e6; } ");
 
   m_lineEdit->setProperty("defaulted", false);
   m_lineEdit->setProperty("auto", false);
@@ -118,7 +125,6 @@ void OSQuantityEdit2::enableClickFocus() {
 }
 
 void OSQuantityEdit2::setLocked(bool locked) {
-  setEnabled(!locked);
   m_lineEdit->setLocked(locked);
 }
 
@@ -512,7 +518,8 @@ void QuantityLineEdit::enableClickFocus() {
 }
 
 void QuantityLineEdit::setLocked(bool locked) {
-  setEnabled(!locked);
+  setReadOnly(locked);
+  updateStyle();
 }
 
 void QuantityLineEdit::updateStyle() {

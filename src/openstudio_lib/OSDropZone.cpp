@@ -548,7 +548,7 @@ bool OSDropZone2::hasData() {
 }
 
 void OSDropZone2::setLocked(bool locked) {
-  setEnabled(!locked);
+  m_locked = locked;
 }
 
 void OSDropZone2::setDeleteObject(bool deleteObject) {
@@ -772,7 +772,7 @@ void OSDropZone2::focusOutEvent(QFocusEvent* e) {
 }
 
 void OSDropZone2::onItemRemoveClicked() {
-  if (m_reset) {
+  if (m_reset && !m_locked) {
     boost::optional<model::ModelObject> modelObject = (*m_get)();
     boost::optional<model::ParentObject> parent = boost::none;
     if (modelObject) {
@@ -803,6 +803,9 @@ void OSDropZone2::makeItem() {
       bool isDefaulted = false;
       if (m_isDefaulted) {
         isDefaulted = (*m_isDefaulted)(*modelObject);
+      }
+      if (m_locked) {
+        isDefaulted = true;
       }
 
       m_item = OSItem::makeItem(modelObjectToItemId(*modelObject, isDefaulted));
