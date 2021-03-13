@@ -55,7 +55,7 @@ class SpaceTypesGridView : public QWidget
 
   virtual ~SpaceTypesGridView() {}
 
-  std::vector<model::ModelObject> selectedObjects() const;
+  std::set<model::ModelObject> selectedObjects() const;
 
   void enableFilter();
 

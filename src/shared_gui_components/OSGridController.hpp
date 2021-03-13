@@ -35,8 +35,6 @@
 #include "../openstudio_lib/OSItem.hpp"
 #include "../openstudio_lib/OSVectorController.hpp"
 
-#include <openstudio/nano/nano_signal_slot.hpp>  // Signal-Slot replacement
-
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/ModelObject.hpp>
 
@@ -161,64 +159,69 @@ class DataSourceAdapter : public BaseConcept
 
 class OSGridController;
 
-class WidgetLocation : public QObject, public Nano::Observer
+class GridCellLocation
 {
-  Q_OBJECT;
-
  public:
-  WidgetLocation(Holder* t_holder, bool isSelector, int t_row, int t_column, boost::optional<int> t_subrow, bool isVisible, bool isSelected);
+  GridCellLocation(int t_row, int t_column, boost::optional<int> t_subrow);
 
-  virtual ~WidgetLocation();
+  virtual ~GridCellLocation();
 
-  Holder* holder;
-  const bool isSelector;
   const int row;
   const int column;
   const boost::optional<int> subrow;
-  bool isVisible;
-  bool isSelected;
 
   bool equal(int t_row, int t_column, boost::optional<int> t_subrow) const;
-
- signals:
-
-  void inFocus(bool inFocus, bool hasData, int row, int column, boost::optional<int> subrow);
-
- public slots:
-
-  void onInFocus(bool hasFocus, bool hasData);
+  bool operator==(const GridCellLocation& other) const;
+  bool operator<(const GridCellLocation& other) const;
 };
 
-class ObjectSelector : public QObject, public Nano::Observer
+class GridCellInfo 
+{
+ public:
+  GridCellInfo(const boost::optional<model::ModelObject>& t_modelObject, bool t_isSelector, bool t_isVisible, bool t_isSelected, bool t_isLocked);
+
+  virtual ~GridCellInfo();
+
+  const boost::optional<model::ModelObject> modelObject;
+  const bool isSelector;
+  bool isVisible;
+  bool isSelected;
+  bool isLocked;
+
+  void setLocked(bool locked);
+  bool isSelectable() const;
+};
+
+/// ObjectSelector keeps track of which cells are selected, filtered/not visible, and locked
+class ObjectSelector : public QObject
 {
   Q_OBJECT;
 
  public:
-  ObjectSelector(OSGridController* t_grid);
+  ObjectSelector(QObject* parent);
 
   virtual ~ObjectSelector();
 
   // Reset all state
   void clear();
 
-  // Adds widget to the internal maps
-  void addWidget(const boost::optional<model::ModelObject>& t_obj, Holder* t_holder, int t_row, int t_column, const boost::optional<int>& t_subrow,
-                 bool t_selector);
+  // Adds object to the internal maps
+  void addObject(const boost::optional<model::ModelObject>& t_obj, int t_row, int t_column, const boost::optional<int>& t_subrow, bool t_isSelector);
 
-  // Remove an object
-  void objectRemoved(const openstudio::model::ModelObject& t_obj);
+  // Remove an object from all rows and subrows
+  void removeObject(const openstudio::model::ModelObject& t_obj);
 
-  // Check if object is included
+  // Check if object is included in any row or subrow
   bool containsObject(const openstudio::model::ModelObject& t_obj) const;
 
   // Get object at given location
-  boost::optional<model::ModelObject> getObject(const int t_row, const int t_column, const boost::optional<int>& t_subrow);
+  boost::optional<model::ModelObject> getObject(const int t_row, const int t_column, const boost::optional<int>& t_subrow) const;
 
-  // Get widget at given location
-  QWidget* getWidget(const int t_row, const int t_column, const boost::optional<int>& t_subrow);
+  // Get GridCellInfo at given location
+  GridCellInfo* getGridCellInfo(const int t_row, const int t_column, const boost::optional<int>& t_subrow) const;
 
-  // Select all selectable and visible objects
-  void selectAllVisible();
+  // Select all selectable objects
+  void selectAll();
 
   // Clear the selection
   void clearSelection();
@@ -243,45 +246,38 @@ class ObjectSelector : public QObject, public Nano::Observer
   
   // Reset the object filter function
   void resetObjectFilter();
-  
-  // Update all widgets 
-  void updateWidgets();
 
-  // Update all widgets in row
-  void updateWidgetsForRow(const int t_row);
+  // Check if an object is locked
+  bool getObjectIsLocked(const model::ModelObject& t_obj) const;
 
-  // Update widgets for given object
-  void updateWidgetsForModelObject(const model::ModelObject& t_obj);
+  // Set the object is locked function, function true if object is locked
+  void setObjectIsLocked(const std::function<bool(const model::ModelObject&)>& t_isLocked);
 
- signals:
-  void inFocus(bool inFocus, bool hasData, int row, int column, boost::optional<int> subrow);
+  // Reset the object is locked function
+  void resetObjectIsLocked();
 
- private slots:
-  void widgetDestroyed(QObject* t_obj);
+  // Applies locks to entire rows and subrows
+  void applyLocks();
 
  protected:
   REGISTER_LOGGER("openstudio.ObjectSelector");
 
  private:
 
-  // set of objects which can be selected
-  std::set<model::ModelObject> m_selectableObjects;
-
-  // set of objects which are selected, subset of m_selectableObjects
-  std::set<model::ModelObject> m_selectedObjects;
-
-  void updateWidgetLoc(const boost::optional<model::ModelObject>& obj, WidgetLocation* widgetLoc);
-  void updateWidgetsImpl(const std::set<WidgetLocation*>& widgetLocsToUpdate);
-  static std::function<bool(const model::ModelObject&)> getDefaultFilter();
-
-  OSGridController* m_grid;
-  std::multimap<boost::optional<model::ModelObject>, WidgetLocation* > m_objToWidgetLocMap;
+  std::map<GridCellLocation, GridCellInfo> m_gridCellLocationToInfoMap;
 
   // returns true if object is visible
+  // e.g. a lights object would not be visible if the user filted only people objects
   std::function<bool(const model::ModelObject&)> m_objectFilter;
+  static std::function<bool(const model::ModelObject&)> getDefaultFilter();
+
+  // returns true if object is locked
+  // e.g. an inherited space load would be locked
+  std::function<bool(const model::ModelObject&)> m_isLocked;
+  static std::function<bool(const model::ModelObject&)> getDefaultIsLocked();
 };
 
-class OSGridController : public QObject, public Nano::Observer
+class OSGridController : public QObject
 {
   Q_OBJECT
 
@@ -297,8 +293,6 @@ class OSGridController : public QObject, public Nano::Observer
                    const std::vector<model::ModelObject>& modelObjects);
 
   virtual ~OSGridController();
-
-  std::vector<model::ModelObject> selectedObjects() const;
 
   static QSharedPointer<BaseConcept> makeDataSourceAdapter(const QSharedPointer<BaseConcept>& t_inner, const boost::optional<DataSource>& t_source);
 
@@ -555,7 +549,7 @@ class OSGridController : public QObject, public Nano::Observer
   // Return a new widget at a "top level" row and column specified by arguments.
   // There might be sub rows within the specified location.
   // In that case a QWidget with sub rows (inner grid layout) will be returned.
-  QWidget* widgetAt(int row, int column);
+  QWidget* createWidget(int row, int column);
 
   // Call this function on a model update
   virtual void refreshModelObjects() = 0;
@@ -564,15 +558,17 @@ class OSGridController : public QObject, public Nano::Observer
 
   void disconnectFromModel();
 
-  std::shared_ptr<ObjectSelector> getObjectSelector() const {
-    return m_objectSelector;
-  }  
-
-  model::Model& model() {
-    return m_model;
-  }
+  model::Model& model();
 
   std::vector<model::ModelObject> modelObjects() const;
+
+  std::set<model::ModelObject> selectableObjects() const;
+
+  std::set<model::ModelObject> selectedObjects() const;
+
+  void setObjectFilter(const std::function<bool(const model::ModelObject&)>& t_filter);
+
+  void setObjectIsLocked(const std::function<bool(const model::ModelObject&)>& t_isLocked);
 
   OSGridView* gridView();
 
@@ -612,8 +608,6 @@ class OSGridController : public QObject, public Nano::Observer
   model::Model m_model;
 
   bool m_isIP;
-
-  std::vector<bool> m_subrowsLocked = std::vector<bool>();
 
  protected:
   
@@ -748,7 +742,7 @@ class OSGridController : public QObject, public Nano::Observer
 //  void mouseMoveEvent ( QMouseEvent * event );
 //}
 
-class Holder : public QWidget, public Nano::Observer
+class Holder : public QWidget
 {
   Q_OBJECT
 
@@ -786,7 +780,7 @@ class HorizontalHeaderPushButton : public QPushButton
   void inFocus(bool inFocus, bool hasData);
 };
 
-class HorizontalHeaderWidget : public QWidget, public Nano::Observer
+class HorizontalHeaderWidget : public QWidget
 {
   Q_OBJECT
 

@@ -69,7 +69,7 @@ class LocationView : public QWidget
     return true;
   }
 
-  virtual std::vector<model::ModelObject> selectedObjects() const;
+  virtual std::set<model::ModelObject> selectedObjects() const;
 
   bool calendarYearChecked();
 

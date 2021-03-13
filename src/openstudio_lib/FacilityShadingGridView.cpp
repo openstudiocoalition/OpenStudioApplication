@@ -259,7 +259,7 @@ void FacilityShadingGridView::nameFilterChanged() {
   if (m_nameFilter->text().isEmpty()) {
     // nothing to filter
   } else {
-    for (auto obj : this->m_gridController->getObjectSelector()->selectableObjects()) {
+    for (auto obj : this->m_gridController->selectableObjects()) {
       QString objName(obj.name().get().c_str());
       if (!objName.contains(m_nameFilter->text(), Qt::CaseInsensitive)) {
         m_objectsFilteredByName.insert(obj);
@@ -275,7 +275,7 @@ void FacilityShadingGridView::typeFilterChanged(const QString& text) {
   if (m_typeFilter->currentText() == "All") {
     // Nothing to filter
   } else {
-    for (auto obj : this->m_gridController->getObjectSelector()->selectableObjects()) {
+    for (auto obj : this->m_gridController->selectableObjects()) {
       auto parent = obj.parent();
       if (parent && parent->iddObjectType() == IddObjectType::OS_ShadingSurfaceGroup) {
         if (m_typeFilter->currentText() != parent->cast<model::ShadingSurfaceGroup>().shadingSurfaceType().c_str()) {
@@ -290,8 +290,6 @@ void FacilityShadingGridView::typeFilterChanged(const QString& text) {
 
 void FacilityShadingGridView::orientationFilterChanged() {
   m_objectsFilteredByOrientation.clear();
-
-  auto objectSelector = this->m_gridController->getObjectSelector();
 
   auto upperLimit = std::numeric_limits<double>::max();
   auto lowerLimit = std::numeric_limits<double>::min();
@@ -312,7 +310,7 @@ void FacilityShadingGridView::orientationFilterChanged() {
   OS_ASSERT(convertedValue);
   lowerLimit = *convertedValue;
 
-  for (auto obj : this->m_gridController->getObjectSelector()->selectableObjects()) {
+  for (auto obj : this->m_gridController->selectableObjects()) {
     if (obj.iddObjectType() == IddObjectType::OS_ShadingSurfaceGroup) {
       for (auto shadingSurface : obj.cast<model::ShadingSurfaceGroup>().shadingSurfaces()) {
         auto orientation = shadingSurface.azimuth();
@@ -328,8 +326,6 @@ void FacilityShadingGridView::orientationFilterChanged() {
 
 void FacilityShadingGridView::tiltFilterChanged() {
   m_objectsFilteredByTilt.clear();
-
-  auto objectSelector = this->m_gridController->getObjectSelector();
 
   auto upperLimit = std::numeric_limits<double>::max();
   auto lowerLimit = std::numeric_limits<double>::min();
@@ -350,7 +346,7 @@ void FacilityShadingGridView::tiltFilterChanged() {
   OS_ASSERT(convertedValue);
   lowerLimit = *convertedValue;
 
-  for (auto obj : this->m_gridController->getObjectSelector()->selectableObjects()) {
+  for (auto obj : this->m_gridController->selectableObjects()) {
     if (obj.iddObjectType() == IddObjectType::OS_ShadingSurfaceGroup) {
       for (auto shadingSurface : obj.cast<model::ShadingSurfaceGroup>().shadingSurfaces()) {
         auto tilt = shadingSurface.tilt();
@@ -379,7 +375,7 @@ void FacilityShadingGridView::filterChanged() {
     allFilteredObjects.insert(obj);
   }
 
-  this->m_gridController->getObjectSelector()->setObjectFilter([allFilteredObjects](const model::ModelObject& obj) -> bool { 
+  this->m_gridController->setObjectFilter([allFilteredObjects](const model::ModelObject& obj) -> bool { 
     // return false if object in allFilteredObjects
     return allFilteredObjects.count(obj) == 0;
   });

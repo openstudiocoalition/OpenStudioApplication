@@ -52,7 +52,7 @@ class ThermalZonesGridView : public QWidget
 
   virtual ~ThermalZonesGridView() {}
 
-  std::vector<model::ModelObject> selectedObjects() const;
+  std::set<model::ModelObject> selectedObjects() const;
 
  private:
   ThermalZonesGridController* m_gridController = nullptr;

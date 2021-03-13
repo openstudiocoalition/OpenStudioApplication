@@ -185,7 +185,6 @@ void FacilityStoriesGridView::lessThanFilterChanged() {
 }
 
 void FacilityStoriesGridView::filterChanged() {
-  auto objectSelector = this->m_gridController->getObjectSelector();
 
   auto upperLimit = std::numeric_limits<double>::max();
   auto lowerLimit = std::numeric_limits<double>::min();
@@ -208,7 +207,7 @@ void FacilityStoriesGridView::filterChanged() {
     lowerLimit = *convertedValue;
   }
 
-  objectSelector->setObjectFilter([upperLimit, lowerLimit](const model::ModelObject& obj) -> bool {
+  this->m_gridController->setObjectFilter([upperLimit, lowerLimit](const model::ModelObject& obj) -> bool {
     boost::optional<model::BuildingStory> story = obj.optionalCast<model::BuildingStory>();
     if (story){
       auto nominalZCoordinate = story->nominalZCoordinate();

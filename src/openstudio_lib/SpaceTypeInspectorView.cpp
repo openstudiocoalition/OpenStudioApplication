@@ -62,7 +62,7 @@ SpaceTypeInspectorView::SpaceTypeInspectorView(bool isIP, const model::Model& mo
   OS_ASSERT(isConnected);
 }
 
-std::vector<model::ModelObject> SpaceTypeInspectorView::selectedObjects() const {
+std::set<model::ModelObject> SpaceTypeInspectorView::selectedObjects() const {
   return m_gridView->selectedObjects();
 }
 

@@ -53,7 +53,7 @@ class DesignDayGridView : public QWidget
 
   DesignDayGridController* m_gridController = nullptr;
 
-  std::vector<model::ModelObject> selectedObjects() const;
+  std::set<model::ModelObject> selectedObjects() const;
 
  private:
   void addObject(const model::ModelObject& modelObject);

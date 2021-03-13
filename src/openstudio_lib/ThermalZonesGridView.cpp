@@ -149,7 +149,7 @@ ThermalZonesGridView::ThermalZonesGridView(bool isIP, const model::Model& model,
   // std::vector<model::ThermalZone> thermalZone = model.getConcreteModelObjects<model::ThermalZone>();  // NOTE for horizontal system lists
 }
 
-std::vector<model::ModelObject> ThermalZonesGridView::selectedObjects() const {
+std::set<model::ModelObject> ThermalZonesGridView::selectedObjects() const {
   return m_gridController->selectedObjects();
 }
 

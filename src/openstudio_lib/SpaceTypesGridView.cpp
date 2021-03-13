@@ -301,7 +301,7 @@ SpaceTypesGridView::SpaceTypesGridView(bool isIP, const model::Model& model, QWi
   // std::vector<model::SpaceType> spaceType = model.getConcreteModelObjects<model::SpaceType>();  // NOTE for horizontal system lists
 }
 
-std::vector<model::ModelObject> SpaceTypesGridView::selectedObjects() const {
+std::set<model::ModelObject> SpaceTypesGridView::selectedObjects() const {
   return m_gridController->selectedObjects();
 }
 
@@ -361,11 +361,10 @@ void SpaceTypesGridController::setCategoriesAndFields() {
 void SpaceTypesGridController::filterChanged(const QString& text) {
   LOG(Debug, "Load filter changed: " << toString(text));
 
-  auto objectSelector = getObjectSelector();
   if (text == SHOWALLLOADS) {
-    objectSelector->resetObjectFilter();
+    setObjectFilter([](const model::ModelObject& obj) -> bool {return true;} );
   } else {
-    objectSelector->setObjectFilter([text](const model::ModelObject& obj) -> bool {
+    setObjectFilter([text](const model::ModelObject& obj) -> bool {
       try {
         //obj.cast<model::SpaceLoadInstance>();  TODO uncomment with correct type
         // This is a spaceloadinstance, so we want to see if it matches our filter

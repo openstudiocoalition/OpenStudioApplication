@@ -48,7 +48,7 @@ class OpenStudioLibFixture;
 
 namespace openstudio {
 
-class ModelSubTabView;
+//class ModelSubTabView;
 class OSCollapsibleView;
 class OSDropZone;
 class OSGridController;
@@ -61,14 +61,14 @@ class OSGridView : public QWidget
  public:
   OSGridView(OSGridController* gridController, const QString& headerText, const QString& dropZoneText, bool useHeader, QWidget* parent = nullptr);
 
-  virtual ~OSGridView(){};
+  virtual ~OSGridView();
 
   // return the QLayoutItem at a particular partition, accounting for multiple grid layouts
   QLayoutItem* itemAtPosition(int row, int column);
 
   OSDropZone* m_dropZone;
 
-  virtual ModelSubTabView* modelSubTabView();
+  //virtual ModelSubTabView* modelSubTabView();
 
   void requestRemoveRow(int row);
 
@@ -132,6 +132,9 @@ class OSGridView : public QWidget
 
   // Add a widget, adding a new layout if necessary
   void addWidget(QWidget* w, int row, int column);
+
+  // update the style for the widget at row, column
+  void updateWidget(int row, int column);
 
   void setGridController(OSGridController* gridController);
 

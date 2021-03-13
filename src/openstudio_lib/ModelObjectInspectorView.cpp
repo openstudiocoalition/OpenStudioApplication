@@ -105,9 +105,9 @@ void ModelObjectInspectorView::onSelectItem(OSItem* item) {
   selectModelObject(modelObjectItem->modelObject());
 }
 
-std::vector<model::ModelObject> ModelObjectInspectorView::selectedObjects() const {
+std::set<model::ModelObject> ModelObjectInspectorView::selectedObjects() const {
   // Default implementation. The tabs with grid views need to do their own thing here
-  return std::vector<model::ModelObject>();
+  return std::set<model::ModelObject>();
 }
 
 boost::optional<openstudio::model::ModelObject> ModelObjectInspectorView::modelObject() const {

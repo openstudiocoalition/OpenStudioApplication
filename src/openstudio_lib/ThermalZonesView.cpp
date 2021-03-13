@@ -76,7 +76,7 @@ ThermalZoneView::ThermalZoneView(bool isIP, const model::Model& model, QWidget* 
   refresh();
 }
 
-std::vector<model::ModelObject> ThermalZoneView::selectedObjects() const {
+std::set<model::ModelObject> ThermalZoneView::selectedObjects() const {
   return m_thermalZonesGridView->selectedObjects();
 }
 

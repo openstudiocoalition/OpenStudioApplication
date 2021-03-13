@@ -178,7 +178,7 @@ void DesignDayGridView::purgeObjects(const IddObjectType& iddObjectType) {
   }
 }
 
-std::vector<model::ModelObject> DesignDayGridView::selectedObjects() const {
+std::set<model::ModelObject> DesignDayGridView::selectedObjects() const {
   return m_gridController->selectedObjects();
 }
 

@@ -43,7 +43,7 @@
 #include "../openstudio_lib/MainRightColumnController.hpp"
 #include "../openstudio_lib/ModelObjectInspectorView.hpp"
 #include "../openstudio_lib/ModelObjectItem.hpp"
-#include "../openstudio_lib/ModelSubTabView.hpp"
+//#include "../openstudio_lib/ModelSubTabView.hpp"
 #include "../openstudio_lib/OSAppBase.hpp"
 #include "../openstudio_lib/OSDocument.hpp"
 #include "../openstudio_lib/OSDropZone.hpp"
@@ -87,215 +87,261 @@ namespace openstudio {
 
 const std::vector<QColor> OSGridController::m_colors = SchedulesView::initializeColors();
 
-WidgetLocation::WidgetLocation(Holder* t_widget, bool t_isSelector, int t_row, int t_column, boost::optional<int> t_subrow, 
-                               bool t_isVisible, bool t_isSelected)
-  : QObject(t_widget), holder(t_widget), isSelector(t_isSelector), row(t_row), column(t_column), subrow(std::move(t_subrow)),
-    isVisible(t_isVisible), isSelected(t_isSelected)
+GridCellLocation::GridCellLocation(int t_row, int t_column, boost::optional<int> t_subrow)
+  : row(t_row),
+    column(t_column),
+    subrow(t_subrow)
 {}
 
-WidgetLocation::~WidgetLocation() {}
+GridCellLocation::~GridCellLocation() {}
 
-bool WidgetLocation::equal(int t_row, int t_column, boost::optional<int> t_subrow) const {
-  return row == t_row && column == t_column && subrow == t_subrow;
+bool GridCellLocation::equal(int t_row, int t_column, boost::optional<int> t_subrow) const {
+  return (row == t_row) && (column == t_column) && (subrow == t_subrow);
 }
 
-void WidgetLocation::onInFocus(bool hasFocus, bool hasData) {
-  emit inFocus(hasFocus, hasData, row, column, subrow);
+bool GridCellLocation::operator==(const GridCellLocation& other) const {
+  return equal(other.row, other.column, other.subrow);
 }
 
-ObjectSelector::ObjectSelector(OSGridController* t_grid) 
-  : m_grid(t_grid), m_objectFilter(getDefaultFilter()) 
-{}
+bool GridCellLocation::operator<(const GridCellLocation& other) const {
+  if (row < other.row) {
+    return true;
+  } else if (row > other.row) {
+    return false;
+  }
+
+  if (column < other.column) {
+    return true;
+  } else if (column > other.column) {
+    return false;
+  }
+
+  if (!subrow && other.subrow) {
+    return true;
+  } else if (subrow && !other.subrow) {
+    return false;
+  }
+
+  if (subrow.get() < other.subrow.get()) {
+    return true;
+  } else if (subrow.get() > other.subrow.get()) {
+    return false;
+  }
+
+  // equal index
+  return false;
+}
+
+GridCellInfo::GridCellInfo(const boost::optional<model::ModelObject>& t_modelObject, bool t_isSelector, bool t_isVisible, bool t_isSelected, bool t_isLocked)
+  : modelObject(t_modelObject),
+    isSelector(t_isSelector),
+    isVisible(t_isVisible),
+    isSelected(t_isSelected),
+    isLocked(t_isLocked) {}
+
+GridCellInfo::~GridCellInfo() {}
+
+void GridCellInfo::setLocked(bool locked) {
+  if (locked) {
+    isLocked = true;
+    isSelected = false;
+  } else {
+    isLocked = false;
+  }
+}
+
+bool GridCellInfo::isSelectable() const { return (isSelector && isVisible && !isLocked); }
+
+ObjectSelector::ObjectSelector(QObject* parent) 
+  : QObject(parent), m_objectFilter(getDefaultFilter()) {}
 
 ObjectSelector::~ObjectSelector() {}
 
 void ObjectSelector::clear() {
-  m_objToWidgetLocMap.clear();  
-  m_selectedObjects.clear();
-  m_selectableObjects.clear();
+  m_gridCellLocationToInfoMap.clear();
   m_objectFilter = getDefaultFilter();
+  m_isLocked = getDefaultIsLocked();
 }
 
-void ObjectSelector::addWidget(const boost::optional<model::ModelObject>& t_obj, Holder* t_holder, int t_row, int t_column,
-                               const boost::optional<int>& t_subrow, const bool t_selector) {
+void ObjectSelector::addObject(const boost::optional<model::ModelObject>& t_obj, int t_row, int t_column,
+                               const boost::optional<int>& t_subrow, const bool t_isSelector) {
 
-  assert(t_holder);
-  
-  // WidgetLocation is parented by Holder, deletion of Holder will delete WidgetLocation
   const bool isVisible = true;
   const bool isSelected = false;
-  WidgetLocation* widgetLoc = new WidgetLocation(t_holder, t_selector, t_row, t_column, t_subrow, isVisible, isSelected);
+  const bool isLocked = false;
+  GridCellInfo info(t_obj, t_isSelector, isVisible, isSelected, isLocked);
+  GridCellLocation location(t_row, t_column, t_subrow);
 
-  connect(t_holder, &QObject::destroyed, this, &ObjectSelector::widgetDestroyed);
-  connect(t_holder, &Holder::inFocus, widgetLoc, &WidgetLocation::onInFocus);
-  connect(widgetLoc, &WidgetLocation::inFocus, this, &ObjectSelector::inFocus);
-
-  m_objToWidgetLocMap.insert(std::make_pair(t_obj, widgetLoc));
-
-  if (t_selector && t_obj) {
-    m_selectableObjects.insert(*t_obj);
-  }
+  OS_ASSERT(m_gridCellLocationToInfoMap.count(location) == 0);
+  m_gridCellLocationToInfoMap.insert(std::make_pair(location, info));
 }
 
-void ObjectSelector::objectRemoved(const openstudio::model::ModelObject& t_obj) {
-  // std::cout << " Object removed\n";
-
-  // see also onRemoveWorkspaceObject
-  // don't update widgets here, gridView is going to remove the row with all widgets
-
-  m_selectedObjects.erase(t_obj);
-  m_selectableObjects.erase(t_obj);
-  m_objToWidgetLocMap.erase(boost::optional<model::ModelObject>(t_obj));
+void ObjectSelector::removeObject(const openstudio::model::ModelObject& t_obj) {
+  auto it = m_gridCellLocationToInfoMap.begin();
+  while (it != m_gridCellLocationToInfoMap.end()) {
+    if (it->second.modelObject && (it->second.modelObject.get() == t_obj)) {
+      it = m_gridCellLocationToInfoMap.erase(it);
+    } else {
+      ++it;
+    }
+  }
 }
 
 bool ObjectSelector::containsObject(const openstudio::model::ModelObject& t_obj) const {
-  return m_objToWidgetLocMap.count(boost::optional<model::ModelObject>(t_obj)) != 0;
-}
-
-boost::optional<model::ModelObject> ObjectSelector::getObject(const int t_row, const int t_column, const boost::optional<int>& t_subrow) {
-  boost::optional<model::ModelObject> result;
-
-  for (auto& objWidgetLocPair : m_objToWidgetLocMap) {
-    if (objWidgetLocPair.second->equal(t_row, t_column, t_subrow)) {
-      result = objWidgetLocPair.first;
-      break;
+  for (const auto& locationInfoPair : m_gridCellLocationToInfoMap) {
+    if (locationInfoPair.second.modelObject && locationInfoPair.second.modelObject.get() == t_obj) {
+      return true;
     }
   }
-  return result;
+  return false;
 }
 
-QWidget* ObjectSelector::getWidget(const int t_row, const int t_column, const boost::optional<int>& t_subrow) {
-  QWidget* result = nullptr;
-
-  for (auto& objWidgetLocPair : m_objToWidgetLocMap) {
-    if (objWidgetLocPair.second->equal(t_row, t_column, t_subrow)) {
-      result = objWidgetLocPair.second->holder->widget;
-      break;
+boost::optional<model::ModelObject> ObjectSelector::getObject(const int t_row, const int t_column, const boost::optional<int>& t_subrow) const {
+  for (const auto& locationInfoPair : m_gridCellLocationToInfoMap) {
+    if (locationInfoPair.first.equal(t_row, t_column, t_subrow)) {
+      return locationInfoPair.second.modelObject;
     }
   }
-  return result;
+  return boost::none;
 }
 
-void ObjectSelector::selectAllVisible() {
-  m_selectedObjects.clear();
-
-  for (auto obj : m_selectableObjects) {
-    auto objectVisible = m_objectFilter(obj);
-
-    if (objectVisible) {
-      // add this to the selected set
-      m_selectedObjects.insert(obj);
+void ObjectSelector::selectAll() {
+  for (auto& locationInfoPair : m_gridCellLocationToInfoMap) {
+    if (locationInfoPair.second.isSelectable()) {
+      locationInfoPair.second.isSelected = true;
     }
   }
-  
-  updateWidgets();
 }
 
 void ObjectSelector::clearSelection() {
-  m_selectedObjects.clear();
-  
-  updateWidgets();
+  for (auto& locationInfoPair : m_gridCellLocationToInfoMap) {
+    if (locationInfoPair.second.isSelector) {
+      locationInfoPair.second.isSelected = false;
+    }
+  }
 }
 
 bool ObjectSelector::getObjectSelected(const model::ModelObject& t_obj) const {
-  return m_selectedObjects.count(t_obj) != 0;
+  for (auto& locationInfoPair : m_gridCellLocationToInfoMap) {
+    if (locationInfoPair.second.isSelected && locationInfoPair.second.modelObject && (locationInfoPair.second.modelObject.get() == t_obj)) {
+      return true;
+    }
+  }
+  return false;
 }
 
 void ObjectSelector::setObjectSelected(const model::ModelObject& t_obj, bool t_selected) {
-  auto changed = false;
-  if (t_selected) {
-    changed = m_selectedObjects.insert(t_obj).second;
-  } else {
-    changed = m_selectedObjects.erase(t_obj) != 0;
-  }
-
-  if (changed) {
-    updateWidgetsForModelObject(t_obj);
+  for (auto& locationInfoPair : m_gridCellLocationToInfoMap) {
+    if (locationInfoPair.second.isSelectable() && locationInfoPair.second.modelObject && (locationInfoPair.second.modelObject.get() == t_obj)) {
+      locationInfoPair.second.isSelected = t_selected;
+    }
   }
 }
 
 std::set<model::ModelObject> ObjectSelector::selectableObjects() const {
-  return m_selectableObjects;
+  std::set<model::ModelObject> result;
+  for (auto& locationInfoPair : m_gridCellLocationToInfoMap) {
+    if (locationInfoPair.second.isSelectable() && locationInfoPair.second.modelObject) {
+      result.insert(locationInfoPair.second.modelObject.get());
+    }
+  }
+  return result;
 }
 
 std::set<model::ModelObject> ObjectSelector::selectedObjects() const {
-  return m_selectedObjects;
+  std::set<model::ModelObject> result;
+  for (auto& locationInfoPair : m_gridCellLocationToInfoMap) {
+    if (locationInfoPair.second.isSelected && locationInfoPair.second.modelObject) {
+      result.insert(locationInfoPair.second.modelObject.get());
+    }
+  }
+  return result;
 }
 
 bool ObjectSelector::getObjectVisible(const model::ModelObject& t_obj) const {
-  return m_objectFilter(t_obj);
+  for (auto& locationInfoPair : m_gridCellLocationToInfoMap) {
+    if (locationInfoPair.second.isVisible && locationInfoPair.second.modelObject && (locationInfoPair.second.modelObject.get() == t_obj)) {
+      return true;
+    }
+  }
+  return false;
 }
 
 void ObjectSelector::setObjectFilter(const std::function<bool(const model::ModelObject&)>& t_filter) {
   m_objectFilter = t_filter;
 
-  updateWidgets();
+  for (auto& locationInfoPair : m_gridCellLocationToInfoMap) {
+    if (locationInfoPair.second.modelObject){
+      locationInfoPair.second.isVisible = m_objectFilter(locationInfoPair.second.modelObject.get());
+    }
+  }
 }
 
 void ObjectSelector::resetObjectFilter() {
   setObjectFilter(getDefaultFilter());
 }
 
-void ObjectSelector::widgetDestroyed(QObject* t_widget) {
-  auto itr = m_objToWidgetLocMap.begin();
+bool ObjectSelector::getObjectIsLocked(const model::ModelObject& t_obj) const {
+  for (auto& locationInfoPair : m_gridCellLocationToInfoMap) {
+    if (locationInfoPair.second.isLocked && locationInfoPair.second.modelObject && (locationInfoPair.second.modelObject.get() == t_obj)) {
+      return true;
+    }
+  }
+  return false;
+}
 
-  while (itr != m_objToWidgetLocMap.end()) {
-    if (itr->second->holder == t_widget) {
-      itr = m_objToWidgetLocMap.erase(itr);
+void ObjectSelector::setObjectIsLocked(const std::function<bool(const model::ModelObject&)>& t_isLocked) {
+  m_isLocked = t_isLocked;
+
+  for (auto& locationInfoPair : m_gridCellLocationToInfoMap) {
+    if (locationInfoPair.second.modelObject) {
+      locationInfoPair.second.setLocked(m_isLocked(locationInfoPair.second.modelObject.get()));
     } else {
-      ++itr;
+      locationInfoPair.second.setLocked(false);
     }
   }
 }
+
+void ObjectSelector::resetObjectIsLocked() {
+  setObjectIsLocked(getDefaultIsLocked());
+}
+
+void ObjectSelector::applyLocks() {
+  std::set<int> rowsToLock;
+  std::set<std::pair<int, int>> rowSubrowsToLock;
+  for (auto& locationInfoPair : m_gridCellLocationToInfoMap) {
+    if (locationInfoPair.second.isLocked && locationInfoPair.second.isSelector) {
+      if (locationInfoPair.first.subrow) {
+        rowSubrowsToLock.insert(std::make_pair(locationInfoPair.first.row, locationInfoPair.first.subrow.get()));
+      } else {
+        rowsToLock.insert(locationInfoPair.first.row);
+      }
+    }
+  }
+
+  for (auto& locationInfoPair : m_gridCellLocationToInfoMap) {
+    if (locationInfoPair.first.subrow) {
+      if (rowSubrowsToLock.count(std::make_pair(locationInfoPair.first.row, locationInfoPair.first.subrow.get())) > 0) {
+        locationInfoPair.second.setLocked(true);
+      }
+    } else {
+      if (rowsToLock.count(locationInfoPair.first.row) > 0) {
+        locationInfoPair.second.setLocked(true);
+      }
+    }
+  }
+}
+
 
 std::function<bool(const model::ModelObject&)> ObjectSelector::getDefaultFilter() {
   return [](const model::ModelObject&) { return true; };
 }
 
-void ObjectSelector::updateWidgets() {
-  std::set<WidgetLocation*> widgetLocsToUpdate;
-
-  for (auto& objWidgetLocPair : m_objToWidgetLocMap) {
-    updateWidgetLoc(objWidgetLocPair.first, objWidgetLocPair.second);
-    widgetLocsToUpdate.insert(objWidgetLocPair.second);
-  }
-  
-  updateWidgetsImpl(widgetLocsToUpdate);
+std::function<bool(const model::ModelObject&)> ObjectSelector::getDefaultIsLocked() {
+  return [](const model::ModelObject&) { return false; };
 }
 
-void ObjectSelector::updateWidgetsForRow(const int t_row) {
-  std::set<WidgetLocation*> widgetLocsToUpdate;
-
-  for (auto& objWidgetLocPair : m_objToWidgetLocMap) {
-    if (objWidgetLocPair.second->row == t_row) {
-      updateWidgetLoc(objWidgetLocPair.first, objWidgetLocPair.second);
-      widgetLocsToUpdate.insert(objWidgetLocPair.second);
-    }
-  }
-
-  updateWidgetsImpl(widgetLocsToUpdate);
-}
-
-void ObjectSelector::updateWidgetsForModelObject(const model::ModelObject& t_obj) {
-  std::set<WidgetLocation*> widgetLocsToUpdate;
-
-  for (auto& objWidgetLocPair : m_objToWidgetLocMap) {
-    if (objWidgetLocPair.first && objWidgetLocPair.first.get() == t_obj) {
-      updateWidgetLoc(objWidgetLocPair.first, objWidgetLocPair.second);
-      widgetLocsToUpdate.insert(objWidgetLocPair.second);
-    }
-  }
-
-  updateWidgetsImpl(widgetLocsToUpdate);
-}
-
-void ObjectSelector::updateWidgetLoc(const boost::optional<model::ModelObject>& obj, WidgetLocation* widgetLoc) {
-  if (obj && widgetLoc) {
-    widgetLoc->isVisible = getObjectVisible(obj.get());
-    widgetLoc->isSelected = getObjectSelected(obj.get());
-  }
-}
-
+/*
 void ObjectSelector::updateWidgetsImpl(const std::set<WidgetLocation*>& widgetLocsToUpdate) {
 
   // determine if we want to update the parent widget or the child widget
@@ -322,7 +368,7 @@ void ObjectSelector::updateWidgetsImpl(const std::set<WidgetLocation*>& widgetLo
     m_grid->setCellProperties(widget, widgetLoc->isSelector, widgetLoc->row, widgetLoc->column, widgetLoc->subrow, widgetLoc->isVisible, widgetLoc->isSelected);
   }
 }
-
+*/
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -354,7 +400,8 @@ OSGridController::OSGridController(bool isIP, const QString& headerText, IddObje
     m_objectSelector(std::make_shared<ObjectSelector>(this)) {
   loadQSettings();
 
-  connect(m_objectSelector.get(), &ObjectSelector::inFocus, this, &OSGridController::onInFocus);
+  // TODO
+  //connect(m_objectSelector.get(), &ObjectSelector::inFocus, this, &OSGridController::onInFocus);
 }
 
 OSGridController::~OSGridController() {
@@ -400,6 +447,10 @@ std::vector<QWidget*> OSGridController::horizontalHeaders() const {
 
 void OSGridController::setConstructionColumn(int constructionColumn){
   m_constructionColumn = constructionColumn;
+}
+
+model::Model& OSGridController::model() {
+  return m_model;
 }
 
 std::vector<model::ModelObject> OSGridController::modelObjects() const { 
@@ -1108,7 +1159,7 @@ void OSGridController::setCellProperties(QWidget* wrapper, bool isSelector, int 
 }
 
 
-QWidget* OSGridController::widgetAt(int row, int column) {
+QWidget* OSGridController::createWidget(int row, int column) {
   OS_ASSERT(row >= 0);
   OS_ASSERT(column >= 0);
 
@@ -1153,9 +1204,6 @@ QWidget* OSGridController::widgetAt(int row, int column) {
   // Begin lambda
   ///////////////////////////////////////////////////////////////////////////////////////
   auto addWidget = [&](QWidget* t_widget, const boost::optional<model::ModelObject>& t_obj, const bool t_isSelector) {
-    if (column == 0) {
-      m_subrowsLocked.clear();
-    }
 
     auto holder = new Holder(this->gridView());
     holder->setMinimumHeight(widgetHeight);
@@ -1209,7 +1257,7 @@ QWidget* OSGridController::widgetAt(int row, int column) {
       }
     }
 
-    m_objectSelector->addWidget(t_obj, holder, row, column, hasSubRows ? numWidgets : boost::optional<int>(), t_isSelector);
+    m_objectSelector->addObject(t_obj, row, column, hasSubRows ? numWidgets : boost::optional<int>(), t_isSelector);
 
     ++numWidgets;
   };  
@@ -1254,10 +1302,6 @@ QWidget* OSGridController::widgetAt(int row, int column) {
       // The spacing around the list is a little awkward. The padding might need to be set to 0
       // all the way around.
       auto items = dataSource->source().items(mo);
-
-      if (items.size() > m_subrowsLocked.size()) {
-        m_subrowsLocked.resize(items.size(), false);
-      }      
       
       size_t subrowCounter = 0;
       for (auto& item : items) {
@@ -1265,14 +1309,12 @@ QWidget* OSGridController::widgetAt(int row, int column) {
           auto mo = item->cast<model::ModelObject>();
           auto innerConcept = dataSource->innerConcept();
           bool isSelector = (baseConcept->isSelector() || innerConcept->isSelector());
-
+    
           if (isSelector) {
-            auto subrowIsLocked = innerConcept->isLocked(mo);
-            m_subrowsLocked[subrowCounter] = subrowIsLocked;
+            bool isLocked = innerConcept->isLocked(mo);
+            innerConcept->setBaseLocked(isLocked);
           }
-
-          innerConcept->setBaseLocked(m_subrowsLocked[subrowCounter]);
-
+      
           addWidget(makeWidget(mo, innerConcept), mo, isSelector);
         } else {
           addWidget(new QWidget(this->gridView()), boost::none, false);
@@ -1512,7 +1554,7 @@ bool OSGridController::getRowIndexByItem(OSItem* item, int& rowIndex) {
 
   return success;
 }
-
+/*
 OSItem* OSGridController::getSelectedItemFromModelSubTabView() {
   OSItem* item = nullptr;
 
@@ -1523,7 +1565,7 @@ OSItem* OSGridController::getSelectedItemFromModelSubTabView() {
 
   return item;
 }
-
+*/
 void OSGridController::connectToModel() {
   m_model.getImpl<model::detail::Model_Impl>().get()->addWorkspaceObject.connect<OSGridController, &OSGridController::onAddWorkspaceObject>(this);
   m_model.getImpl<model::detail::Model_Impl>().get()->removeWorkspaceObject.connect<OSGridController, &OSGridController::onRemoveWorkspaceObject>(
@@ -1544,7 +1586,7 @@ void OSGridController::onRemoveWorkspaceObject(const WorkspaceObject& object, co
   auto weHaveObject = false;
 
   if (m_objectSelector->containsObject(modelObject)) {
-    m_objectSelector->objectRemoved(object.cast<model::ModelObject>());
+    m_objectSelector->removeObject(modelObject);
     weHaveObject = true;
   }
 
@@ -1598,16 +1640,14 @@ void OSGridController::onObjectRemoved(boost::optional<model::ParentObject> pare
 void OSGridController::selectAllStateChanged(const int newState) const {
   LOG(Debug, "Select all state changed: " << newState);
 
-  auto objectSelector = getObjectSelector();
   if (newState == 0) {
-    objectSelector->clearSelection();
+    m_objectSelector->clearSelection();
   } else {
-    objectSelector->selectAllVisible();
+    m_objectSelector->selectAll();
   }
 }
 
-void OSGridController::onInFocus(bool inFocus, bool /*hasData*/, int row, int column, boost::optional<int> subrow) {
-  // TODO: Why is hasData unused?
+void OSGridController::onInFocus(bool inFocus, bool hasData, int row, int column, boost::optional<int> subrow) {
 
   // First thing to do is to check if row is 0, because that means that the apply button was clicked
   if (row == 0 && this->m_hasHorizontalHeader) {
@@ -1663,14 +1703,8 @@ void OSGridController::onInFocus(bool inFocus, bool /*hasData*/, int row, int co
     auto button = horizontalHeaderWidget->m_pushButton;
     OS_ASSERT(button);
 
-    bool hasData = true;
-
     if (inFocus) {
       m_selectedCellLocation = std::make_tuple(row, column, subrow);
-      auto widget = m_objectSelector->getWidget(row, column, subrow);
-      if (widget && qobject_cast<OSDropZone2*>(widget)) {
-        hasData = qobject_cast<OSDropZone2*>(widget)->hasData();
-      }
 
       // if (hasData) {
       button->setText("Apply to Selected");
@@ -1700,10 +1734,20 @@ void OSGridController::setApplyButtonState() {
   m_applyToButtonStates.clear();
 }
 
-std::vector<model::ModelObject> OSGridController::selectedObjects() const {
-  const auto objs = this->getObjectSelector()->selectedObjects();
+std::set<model::ModelObject> OSGridController::selectableObjects() const {
+  return m_objectSelector->selectableObjects();
+}
 
-  return std::vector<model::ModelObject>(objs.cbegin(), objs.cend());
+std::set<model::ModelObject> OSGridController::selectedObjects() const {
+  return m_objectSelector->selectedObjects();
+}
+
+void OSGridController::setObjectFilter(const std::function<bool(const model::ModelObject&)>& t_filter) {
+  m_objectSelector->setObjectFilter(t_filter);
+}
+
+void OSGridController::setObjectIsLocked(const std::function<bool(const model::ModelObject&)>& t_isLocked) {
+  m_objectSelector->setObjectIsLocked(t_isLocked);
 }
 
 QSharedPointer<BaseConcept> OSGridController::makeDataSourceAdapter(const QSharedPointer<BaseConcept>& t_inner,

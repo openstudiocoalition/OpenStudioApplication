@@ -36,7 +36,7 @@
 #include "../model_editor/Application.hpp"
 
 #include "../openstudio_lib/ModelObjectInspectorView.hpp"
-#include "../openstudio_lib/ModelSubTabView.hpp"
+//#include "../openstudio_lib/ModelSubTabView.hpp"
 #include "../openstudio_lib/OSDropZone.hpp"
 #include "../openstudio_lib/OSItem.hpp"
 
@@ -52,7 +52,7 @@
 #include <QHideEvent>
 #include <QLabel>
 #include <QPushButton>
-#include <QScrollArea>
+//#include <QScrollArea>
 #include <QShowEvent>
 #include <QStackedWidget>
 
@@ -171,6 +171,11 @@ OSGridView::OSGridView(OSGridController* gridController, const QString& headerTe
     refreshAll();
   }
 }
+
+OSGridView::~OSGridView()
+{
+  bool test = false;
+};
 
 void OSGridView::setGridController(OSGridController* gridController) {
   if (m_gridController) {
@@ -373,13 +378,18 @@ void OSGridView::refreshAll() {
   if (m_gridController) {
     m_gridController->refreshModelObjects();
 
-    for (int i = 0; i < m_gridController->rowCount(); i++) {
-      for (int j = 0; j < m_gridController->columnCount(); j++) {
+    const auto numRows = m_gridController->rowCount();
+    const auto numColumns = m_gridController->columnCount();
+    for (int i = 0; i < numRows; i++) {
+      for (int j = 0; j < numColumns; j++) {
         addWidget(i, j);
       }
     }
-
-    this->m_gridController->getObjectSelector()->updateWidgets();
+    for (int i = 0; i < numRows; i++) {
+      for (int j = 0; j < numColumns; j++) {
+        updateWidget(i, j);
+      }
+    }
 
     setUpdatesEnabled(true);
 
@@ -389,7 +399,8 @@ void OSGridView::refreshAll() {
 
 
 void OSGridView::refreshRow(int row) {
-  this->m_gridController->getObjectSelector()->updateWidgetsForRow(row);
+  // TODO: fix
+//  this->m_gridController->getObjectSelector()->updateWidgetsForRow(row);
 }
 /*
 void OSGridView::selectRowDeterminedByModelSubTabView() {
@@ -421,7 +432,7 @@ void OSGridView::doRowSelect() {
 void OSGridView::addWidget(int row, int column) {
   OS_ASSERT(m_gridController);
 
-  QWidget* widget = m_gridController->widgetAt(row, column);
+  QWidget* widget = m_gridController->createWidget(row, column);
 
   addWidget(widget, row, column);
 }
@@ -442,12 +453,16 @@ void OSGridView::addWidget(QWidget* w, int row, int column) {
   m_gridLayouts[layoutindex]->addWidget(w, relativerow, column);
 }
 
+void OSGridView::updateWidget(int row, int column) {
+  // todo
+}
+
 void OSGridView::selectCategory(int index) {
   m_gridController->categorySelected(index);
 
   requestRefreshAll(); // DLM: acceptable use of requestRefreshAll
 }
-
+/*
 ModelSubTabView* OSGridView::modelSubTabView() {
   ModelSubTabView* modelSubTabView = nullptr;
 
@@ -471,7 +486,7 @@ ModelSubTabView* OSGridView::modelSubTabView() {
   modelSubTabView = qobject_cast<ModelSubTabView*>(object->parent());
   return modelSubTabView;
 }
-
+*/
 void OSGridView::onSelectionCleared() {
   m_gridController->onSelectionCleared();
 }

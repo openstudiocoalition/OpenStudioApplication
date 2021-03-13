@@ -397,7 +397,7 @@ bool LocationView::calendarYearChecked() {
   }
 }
 
-std::vector<model::ModelObject> LocationView::selectedObjects() const {
+std::set<model::ModelObject> LocationView::selectedObjects() const {
   return m_designDaysGridView->selectedObjects();
 }
 
