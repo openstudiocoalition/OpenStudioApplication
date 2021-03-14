@@ -32,7 +32,7 @@
 #include "OSCheckBox.hpp"
 #include "OSComboBox.hpp"
 #include "OSDoubleEdit.hpp"
-#include "OSGridView.hpp"
+//#include "OSGridView.hpp"
 #include "OSIntegerEdit.hpp"
 #include "OSLineEdit.hpp"
 #include "OSLoadNamePixmapLineEdit.hpp"
@@ -119,6 +119,8 @@ bool GridCellLocation::operator<(const GridCellLocation& other) const {
   if (!subrow && other.subrow) {
     return true;
   } else if (subrow && !other.subrow) {
+    return false;
+  } else if (!subrow && !other.subrow) {
     return false;
   }
 
@@ -408,10 +410,6 @@ OSGridController::~OSGridController() {
   saveQSettings();
 }
 
-void OSGridController::requestRefreshGrid() {
-  gridView()->requestRefreshGrid();
-}
-
 void OSGridController::loadQSettings() {
   QSettings settings("OpenStudio", m_headerText);
   auto temp = settings.value("customFields").toStringList().toVector();
@@ -509,9 +507,12 @@ void OSGridController::categorySelected(int index) {
   m_currentFields = m_categoriesAndFields.at(index).second;
 
   addColumns(m_currentCategory, m_currentFields);
+
+  // One of the only times we request a recreate all
+  emit recreateAll();
 }
 
-void OSGridController::setHorizontalHeader() {
+void OSGridController::setHorizontalHeader(QWidget* gridView) {
   m_horizontalHeaders.clear();
 
   if (m_horizontalHeaderBtnGrp == nullptr) {
@@ -534,7 +535,7 @@ void OSGridController::setHorizontalHeader() {
   OS_ASSERT(buttons.size() == 0);
 
   for (const QString& field : m_currentFields) {
-    auto horizontalHeaderWidget = new HorizontalHeaderWidget(field, this->gridView());
+    auto horizontalHeaderWidget = new HorizontalHeaderWidget(field, gridView);
     m_horizontalHeaderBtnGrp->addButton(horizontalHeaderWidget->m_checkBox, m_horizontalHeaderBtnGrp->buttons().size());
     m_horizontalHeaders.push_back(horizontalHeaderWidget);
   }
@@ -542,7 +543,7 @@ void OSGridController::setHorizontalHeader() {
   checkSelectedFields();
 }
 
-QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPointer<BaseConcept>& t_baseConcept) {
+QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPointer<BaseConcept>& t_baseConcept, QWidget* parent) {
   QWidget* widget = nullptr;
 
   // False positive from cppcheck here due to OS_ASSERT
@@ -552,7 +553,7 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
   if (QSharedPointer<CheckBoxConcept> checkBoxConcept = t_baseConcept.dynamicCast<CheckBoxConcept>()) {
 
     // This is basically for the "Select All" column
-    auto checkBox = new OSCheckBox3(this->gridView());  // OSCheckBox3 is derived from QCheckBox, whereas OSCheckBox2 is derived from QPushButton
+    auto checkBox = new OSCheckBox3(parent);  // OSCheckBox3 is derived from QCheckBox, whereas OSCheckBox2 is derived from QPushButton
     if (checkBoxConcept->tooltip().size()) {
       checkBox->setToolTip(checkBoxConcept->tooltip().c_str());
     }
@@ -564,17 +565,17 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
       checkBox->setLocked(true);
     }
 
-    isConnected = connect(checkBox, SIGNAL(stateChanged(int)), gridView(), SLOT(refreshRow(int)));  
+    isConnected = connect(checkBox, SIGNAL(stateChanged(int)), parent, SLOT(refreshRow(int)));  
     OS_ASSERT(isConnected);
 
-    isConnected = connect(checkBox, SIGNAL(stateChanged(int)), gridView(), SIGNAL(gridRowSelectionChanged(int)));
+    isConnected = connect(checkBox, SIGNAL(stateChanged(int)), parent, SIGNAL(gridRowSelectionChanged(int)));
     OS_ASSERT(isConnected);
 
     widget = checkBox;
 
   } else if (auto checkBoxConceptBoolReturn = t_baseConcept.dynamicCast<CheckBoxConceptBoolReturn>()) {
     // This is for a proper setter **that returns a bool**, such as Ideal Air Loads column
-    auto checkBoxBoolReturn = new OSCheckBox3(this->gridView());
+    auto checkBoxBoolReturn = new OSCheckBox3(parent);
     if (checkBoxConceptBoolReturn->tooltip().size()) {
       checkBoxBoolReturn->setToolTip(checkBoxConceptBoolReturn->tooltip().c_str());
     }
@@ -603,7 +604,7 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
 
     auto choiceConcept = comboBoxConcept->choiceConcept(t_mo);
 
-    auto comboBox = new OSComboBox2(this->gridView(), choiceConcept->editable());
+    auto comboBox = new OSComboBox2(parent, choiceConcept->editable());
     if (comboBoxConcept->hasClickFocus()) {
       comboBox->enableClickFocus();
     }
@@ -622,7 +623,7 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
 
   } else if (QSharedPointer<ValueEditConcept<double>> doubleEditConcept = t_baseConcept.dynamicCast<ValueEditConcept<double>>()) {
 
-    auto doubleEdit = new OSDoubleEdit2(this->gridView());
+    auto doubleEdit = new OSDoubleEdit2(parent);
     if (doubleEditConcept->hasClickFocus()) {
       doubleEdit->enableClickFocus();
     }
@@ -642,7 +643,7 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
   } else if (QSharedPointer<OptionalValueEditConcept<double>> optionalDoubleEditConcept =
                t_baseConcept.dynamicCast<OptionalValueEditConcept<double>>()) {
 
-    auto optionalDoubleEdit = new OSDoubleEdit2(this->gridView());
+    auto optionalDoubleEdit = new OSDoubleEdit2(parent);
     if (optionalDoubleEditConcept->hasClickFocus()) {
       optionalDoubleEdit->enableClickFocus();
     }
@@ -660,7 +661,7 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
   } else if (QSharedPointer<ValueEditVoidReturnConcept<double>> doubleEditVoidReturnConcept =
                t_baseConcept.dynamicCast<ValueEditVoidReturnConcept<double>>()) {
 
-    auto doubleEditVoidReturn = new OSDoubleEdit2(this->gridView());
+    auto doubleEditVoidReturn = new OSDoubleEdit2(parent);
     if (doubleEditVoidReturnConcept->hasClickFocus()) {
       doubleEditVoidReturn->enableClickFocus();
     }
@@ -681,7 +682,7 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
   } else if (QSharedPointer<OptionalValueEditVoidReturnConcept<double>> optionalDoubleEditVoidReturnConcept =
                t_baseConcept.dynamicCast<OptionalValueEditVoidReturnConcept<double>>()) {
 
-    auto optionalDoubleEditVoidReturn = new OSDoubleEdit2(this->gridView());
+    auto optionalDoubleEditVoidReturn = new OSDoubleEdit2(parent);
     if (optionalDoubleEditVoidReturnConcept->hasClickFocus()) {
       optionalDoubleEditVoidReturn->enableClickFocus();
     }
@@ -699,7 +700,7 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
 
   } else if (QSharedPointer<ValueEditConcept<int>> integerEditConcept = t_baseConcept.dynamicCast<ValueEditConcept<int>>()) {
 
-    auto integerEdit = new OSIntegerEdit2(this->gridView());
+    auto integerEdit = new OSIntegerEdit2(parent);
     if (integerEditConcept->hasClickFocus()) {
       integerEdit->enableClickFocus();
     }
@@ -718,7 +719,7 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
 
   } else if (QSharedPointer<ValueEditConcept<std::string>> lineEditConcept = t_baseConcept.dynamicCast<ValueEditConcept<std::string>>()) {
 
-    auto lineEdit = new OSLineEdit2(this->gridView());
+    auto lineEdit = new OSLineEdit2(parent);
     if (lineEditConcept->hasClickFocus()) {
       lineEdit->enableClickFocus();
     }
@@ -740,7 +741,7 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
 
   } else if (QSharedPointer<ValueEditVoidReturnConcept<std::string>> lineEditConcept = t_baseConcept.dynamicCast<ValueEditVoidReturnConcept<std::string>>()) {
 
-    auto lineEdit = new OSLineEdit2(this->gridView());
+    auto lineEdit = new OSLineEdit2(parent);
     if (lineEditConcept->hasClickFocus()) {
       lineEdit->enableClickFocus();
     }
@@ -763,7 +764,7 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
 
   } else if (QSharedPointer<NameLineEditConcept> nameLineEditConcept = t_baseConcept.dynamicCast<NameLineEditConcept>()) {
 
-    OSLineEdit2Interface* nameLineEdit = nameLineEditConcept->makeWidget(this->gridView());
+    OSLineEdit2Interface* nameLineEdit = nameLineEditConcept->makeWidget(parent);
     if (nameLineEditConcept->hasClickFocus()) {
       nameLineEdit->enableClickFocus();
     }
@@ -786,7 +787,7 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
 
     if (nameLineEditConcept->isInspectable()) {
       //connect(nameLineEdit, OSLineEdit2::itemClicked, gridView(), OSGridView::dropZoneItemClicked);
-      isConnected = connect(nameLineEdit->qwidget(), SIGNAL(itemClicked(OSItem*)), gridView(), SIGNAL(dropZoneItemClicked(OSItem*)));
+      isConnected = connect(nameLineEdit->qwidget(), SIGNAL(itemClicked(OSItem*)), parent, SIGNAL(dropZoneItemClicked(OSItem*)));
       OS_ASSERT(isConnected);
 
       isConnected = connect(nameLineEdit->qwidget(), SIGNAL(objectRemoved(boost::optional<model::ParentObject>)), this,
@@ -800,7 +801,7 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
 
     OSQuantityEdit2* quantityEdit =
       new OSQuantityEdit2(quantityEditConcept->modelUnits().toStdString().c_str(), quantityEditConcept->siUnits().toStdString().c_str(),
-                          quantityEditConcept->ipUnits().toStdString().c_str(), quantityEditConcept->isIP(), this->gridView());
+                          quantityEditConcept->ipUnits().toStdString().c_str(), quantityEditConcept->isIP(), parent);
     if (quantityEditConcept->hasClickFocus()) {
       quantityEdit->enableClickFocus();
     }
@@ -826,7 +827,7 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
 
     OSQuantityEdit2* optionalQuantityEdit = new OSQuantityEdit2(
       optionalQuantityEditConcept->modelUnits().toStdString().c_str(), optionalQuantityEditConcept->siUnits().toStdString().c_str(),
-      optionalQuantityEditConcept->ipUnits().toStdString().c_str(), optionalQuantityEditConcept->isIP(), this->gridView());
+      optionalQuantityEditConcept->ipUnits().toStdString().c_str(), optionalQuantityEditConcept->isIP(), parent);
     if (optionalQuantityEditConcept->hasClickFocus()) {
       optionalQuantityEdit->enableClickFocus();
     }
@@ -850,7 +851,7 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
 
     OSQuantityEdit2* quantityEditVoidReturn = new OSQuantityEdit2(
       quantityEditVoidReturnConcept->modelUnits().toStdString().c_str(), quantityEditVoidReturnConcept->siUnits().toStdString().c_str(),
-      quantityEditVoidReturnConcept->ipUnits().toStdString().c_str(), quantityEditVoidReturnConcept->isIP(), this->gridView());
+      quantityEditVoidReturnConcept->ipUnits().toStdString().c_str(), quantityEditVoidReturnConcept->isIP(), parent);
     if (quantityEditVoidReturnConcept->hasClickFocus()) {
       quantityEditVoidReturn->enableClickFocus();
     }
@@ -878,7 +879,7 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
     OSQuantityEdit2* optionalQuantityEditVoidReturn = new OSQuantityEdit2(optionalQuantityEditVoidReturnConcept->modelUnits().toStdString().c_str(),
                                                                           optionalQuantityEditVoidReturnConcept->siUnits().toStdString().c_str(),
                                                                           optionalQuantityEditVoidReturnConcept->ipUnits().toStdString().c_str(),
-                                                                          optionalQuantityEditVoidReturnConcept->isIP(), this->gridView());
+                                                                          optionalQuantityEditVoidReturnConcept->isIP(), parent);
     if (optionalQuantityEditVoidReturnConcept->hasClickFocus()) {
       optionalQuantityEditVoidReturn->enableClickFocus();
     }
@@ -900,7 +901,7 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
 
   } else if (QSharedPointer<ValueEditConcept<unsigned>> unsignedEditConcept = t_baseConcept.dynamicCast<ValueEditConcept<unsigned>>()) {
 
-    auto unsignedEdit = new OSUnsignedEdit2(this->gridView());
+    auto unsignedEdit = new OSUnsignedEdit2(parent);
     if (unsignedEditConcept->hasClickFocus()) {
       unsignedEdit->enableClickFocus();
     }
@@ -934,7 +935,7 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
     }
 
     //connect(dropZone, OSDropZone2::itemClicked, gridView(), OSGridView::dropZoneItemClicked);
-    isConnected = connect(dropZone, SIGNAL(itemClicked(OSItem*)), gridView(), SIGNAL(dropZoneItemClicked(OSItem*)));
+    isConnected = connect(dropZone, SIGNAL(itemClicked(OSItem*)), parent, SIGNAL(dropZoneItemClicked(OSItem*)));
     OS_ASSERT(isConnected);
 
     isConnected = connect(dropZone, SIGNAL(objectRemoved(boost::optional<model::ParentObject>)), this,
@@ -944,7 +945,7 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
     widget = dropZone;
 
   } else if (QSharedPointer<RenderingColorConcept> renderingColorConcept = t_baseConcept.dynamicCast<RenderingColorConcept>()) {
-    auto renderingColorWidget = new RenderingColorWidget2(this->gridView());
+    auto renderingColorWidget = new RenderingColorWidget2(parent);
 
     renderingColorWidget->bind(t_mo, OptionalModelObjectGetter(std::bind(&RenderingColorConcept::get, renderingColorConcept.data(), t_mo)),
                                ModelObjectSetter(std::bind(&RenderingColorConcept::set, renderingColorConcept.data(), t_mo, std::placeholders::_1)));
@@ -1116,13 +1117,6 @@ void OSGridController::resetConceptValue(model::ModelObject t_resetMO, const QSh
   }
 }
 
-OSGridView* OSGridController::gridView() {
-  auto gridView = qobject_cast<OSGridView*>(this->parent());
-  OS_ASSERT(gridView);
-  return gridView;
-}
-
-
 QString OSGridController::cellStyle() {
   const static QString style = 
   "QWidget#TableCell[selected=\"true\"]{ border: none; background-color: #94b3de; border-top: 1px solid black;  border-right: 1px solid black; border-bottom: 1px solid black;}"
@@ -1159,7 +1153,7 @@ void OSGridController::setCellProperties(QWidget* wrapper, bool isSelector, int 
 }
 
 
-QWidget* OSGridController::createWidget(int row, int column) {
+QWidget* OSGridController::createWidget(int row, int column, QWidget* parent) {
   OS_ASSERT(row >= 0);
   OS_ASSERT(column >= 0);
 
@@ -1181,7 +1175,7 @@ QWidget* OSGridController::createWidget(int row, int column) {
 
   // wrapper - this is the thing that will be returned by this method.  The outermost widget that forms a gridview cell.
   // May contain sub rows.
-  auto wrapper = new QWidget(this->gridView());
+  auto wrapper = new QWidget(parent);
   wrapper->setObjectName("TableCell");
   setCellProperties(wrapper, isSelector, row, column, boost::none, isVisible, isSelected);
   wrapper->setStyleSheet(this->cellStyle());
@@ -1203,9 +1197,9 @@ QWidget* OSGridController::createWidget(int row, int column) {
   ///////////////////////////////////////////////////////////////////////////////////////
   // Begin lambda
   ///////////////////////////////////////////////////////////////////////////////////////
-  auto addWidget = [&](QWidget* t_widget, const boost::optional<model::ModelObject>& t_obj, const bool t_isSelector) {
+  auto addWidgetLambda = [&](QWidget* t_widget, const boost::optional<model::ModelObject>& t_obj, const bool t_isSelector) {
 
-    auto holder = new Holder(this->gridView());
+    auto holder = new Holder(parent);
     holder->setMinimumHeight(widgetHeight);
     auto l = new QVBoxLayout();
     l->setAlignment(Qt::AlignCenter);
@@ -1267,12 +1261,12 @@ QWidget* OSGridController::createWidget(int row, int column) {
 
   if (m_hasHorizontalHeader && row == 0) {
     if (column == 0) {
-      setHorizontalHeader();
+      setHorizontalHeader(parent);
       // Each concept should have its own column
       OS_ASSERT(m_horizontalHeaders.size() == m_baseConcepts.size());
     }
     layout->setContentsMargins(0, 1, 1, 0);
-    addWidget(m_horizontalHeaders.at(column), boost::none, false);
+    addWidgetLambda(m_horizontalHeaders.at(column), boost::none, false);
     QSharedPointer<BaseConcept> baseConcept = m_baseConcepts[column];
     const Heading& heading = baseConcept->heading();
     HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeaders.at(column));
@@ -1315,9 +1309,9 @@ QWidget* OSGridController::createWidget(int row, int column) {
             innerConcept->setBaseLocked(isLocked);
           }
       
-          addWidget(makeWidget(mo, innerConcept), mo, isSelector);
+          addWidgetLambda(makeWidget(mo, innerConcept, parent), mo, isSelector);
         } else {
-          addWidget(new QWidget(this->gridView()), boost::none, false);
+          addWidgetLambda(new QWidget(parent), boost::none, false);
         }
         subrowCounter++;
       }
@@ -1325,14 +1319,14 @@ QWidget* OSGridController::createWidget(int row, int column) {
       if (dataSource->source().wantsPlaceholder()) {
         // use this space to put in a blank placeholder of some kind to make sure the
         // widget is evenly laid out relative to its friends in the adjacent columns
-        addWidget(new QWidget(this->gridView()), boost::none, false);
+        addWidgetLambda(new QWidget(parent), boost::none, false);
       }
 
       if (dataSource->source().dropZoneConcept()) {
         // it makes sense to me that the drop zone would need a reference to the parent containing object
         // not an object the rest in the list was derived from
         // this should also be working and doing what you want
-        addWidget(makeWidget(mo, dataSource->source().dropZoneConcept()), boost::none, false);
+        addWidgetLambda(makeWidget(mo, dataSource->source().dropZoneConcept(), parent), boost::none, false);
       }
 
       // right here you probably want some kind of container that's smart enough to know how to grow
@@ -1344,7 +1338,7 @@ QWidget* OSGridController::createWidget(int row, int column) {
       // This case is exactly what it used to do before the DataSource idea was added.
 
       // just the one
-      addWidget(makeWidget(mo, baseConcept), mo, baseConcept->isSelector());
+      addWidgetLambda(makeWidget(mo, baseConcept, parent), mo, baseConcept->isSelector());
     }
   }
 
@@ -1404,7 +1398,7 @@ int OSGridController::rowCount() const {
 int OSGridController::columnCount() const {
   return m_baseConcepts.size();
 }
-
+/*
 QWidget* OSGridController::cell(int rowIndex, int columnIndex) {
   QWidget* widget = nullptr;
 
@@ -1415,7 +1409,7 @@ QWidget* OSGridController::cell(int rowIndex, int columnIndex) {
 
   return widget;
 }
-
+*/
 model::ModelObject OSGridController::modelObject(int rowIndex) {
   if (m_hasHorizontalHeader) {
     OS_ASSERT(rowIndex > 0);
@@ -1474,7 +1468,7 @@ void OSGridController::horizontalHeaderChecked(int index) {
   setCustomCategoryAndFields();
 }
 
-void OSGridController::toggleUnits(bool displayIP) {
+void OSGridController::onToggleUnits(bool displayIP) {
   m_isIP = displayIP;
 }
 
@@ -1570,6 +1564,10 @@ void OSGridController::connectToModel() {
   m_model.getImpl<model::detail::Model_Impl>().get()->addWorkspaceObject.connect<OSGridController, &OSGridController::onAddWorkspaceObject>(this);
   m_model.getImpl<model::detail::Model_Impl>().get()->removeWorkspaceObject.connect<OSGridController, &OSGridController::onRemoveWorkspaceObject>(
     this);
+
+  refreshModelObjects();
+
+  emit recreateAll();
 }
 
 void OSGridController::disconnectFromModel() {
@@ -1582,59 +1580,22 @@ void OSGridController::onSelectionCleared() {}
 
 void OSGridController::onRemoveWorkspaceObject(const WorkspaceObject& object, const openstudio::IddObjectType& iddObjectType,
                                                const openstudio::UUID& handle) {
-  auto modelObject = object.cast<model::ModelObject>();
-  auto weHaveObject = false;
+  // TODO: fix this
+  refreshModelObjects();
 
-  if (m_objectSelector->containsObject(modelObject)) {
-    m_objectSelector->removeObject(modelObject);
-    weHaveObject = true;
-  }
-
-  //if (m_iddObjectType == iddObjectType) { TODO uncomment
-  // Update model list
-  std::vector<model::ModelObject>::iterator it;
-  it = std::find(m_modelObjects.begin(), m_modelObjects.end(), object.cast<model::ModelObject>());
-  if (it != m_modelObjects.end()) {
-    int index = std::distance(m_modelObjects.begin(), it);
-    OS_ASSERT(index >= 0);
-    m_modelObjects.erase(m_modelObjects.begin() + index);
-
-    // Update row
-    gridView()->requestRemoveRow(rowIndexFromModelIndex(index));
-  } else if (weHaveObject) {
-    // we know we are tracking this object, but it's not one of the row-major ones...
-    // must be a subrow... for now, not ideal, but let's queue a refresh of the grid
-    requestRefreshGrid(); // TODO: fix
-  }
-  //}
+  emit recreateAll();
 }
 
 void OSGridController::onAddWorkspaceObject(const WorkspaceObject& object, const openstudio::IddObjectType& iddObjectType,
                                             const openstudio::UUID& handle) {
-  //if (m_iddObjectType == iddObjectType) { TODO uncomment, currently used to update views with extensible dropzones, which need to issue their own signal to refresh
-  // Update model list
-  // m_modelObjects.push_back(object.cast<model::ModelObject>());
+  // TODO: fix this
   refreshModelObjects();
 
-  // Update row
-  gridView()->requestAddRow(rowCount() - 1);
-  //}
+  emit recreateAll();
 }
 
 void OSGridController::onObjectRemoved(boost::optional<model::ParentObject> parent) {
-  
-  // see also onRemoveWorkspaceObject
-  
-  //  if (parent) {
-  //    // We have a parent we can search for in our current list of modelObjects and just delete that 1 row
-  //    // TODO replace this with a by-row refresh only
-  //    this->requestRefreshGrid();
-  //  } else {
-  //    // We don't know which row needs to be redrawn, so we have to do the whole grid
-  //    this->requestRefreshGrid();
-  //  }
 
-  this->requestRefreshGrid(); // TODO: fix
 }
 
 void OSGridController::selectAllStateChanged(const int newState) const {
@@ -1695,7 +1656,7 @@ void OSGridController::onInFocus(bool inFocus, bool hasData, int row, int column
     }
 
     // Now refresh
-    gridView()->requestRefreshGrid();  // TODO this is heavy handed; each cell should update itself
+    emit recreateAll();  // TODO this is heavy handed; each cell should update itself
 
   } else {
     HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeaders.at(column));

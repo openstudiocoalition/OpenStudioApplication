@@ -259,6 +259,10 @@ class ObjectSelector : public QObject
   // Applies locks to entire rows and subrows
   void applyLocks();
 
+signals:
+
+  void cellUpdated(const GridCellLocation& location, const GridCellInfo& info);
+
  protected:
   REGISTER_LOGGER("openstudio.ObjectSelector");
 
@@ -294,7 +298,11 @@ class OSGridController : public QObject
 
   virtual ~OSGridController();
 
+private:
+
   static QSharedPointer<BaseConcept> makeDataSourceAdapter(const QSharedPointer<BaseConcept>& t_inner, const boost::optional<DataSource>& t_source);
+
+protected:
 
   void resetBaseConcepts();
 
@@ -524,6 +532,7 @@ class OSGridController : public QObject
       QSharedPointer<RenderingColorConcept>(new RenderingColorConceptImpl<ValueType, DataSourceType>(heading, getter, setter)));
   }
 
+public:
   std::vector<QString> categories();
 
   std::vector<std::pair<QString, std::vector<QString>>> categoriesAndFields();
@@ -549,7 +558,7 @@ class OSGridController : public QObject
   // Return a new widget at a "top level" row and column specified by arguments.
   // There might be sub rows within the specified location.
   // In that case a QWidget with sub rows (inner grid layout) will be returned.
-  QWidget* createWidget(int row, int column);
+  QWidget* createWidget(int row, int column, QWidget* parent);
 
   // Call this function on a model update
   virtual void refreshModelObjects() = 0;
@@ -570,8 +579,6 @@ class OSGridController : public QObject
 
   void setObjectIsLocked(const std::function<bool(const model::ModelObject&)>& t_isLocked);
 
-  OSGridView* gridView();
-
   IddObjectType iddObjectType() const;
 
  private:
@@ -585,6 +592,7 @@ class OSGridController : public QObject
   // If a column contains information about a construction, it may be an inherited construction
   // (as determined by calling PlanarSurface::isConstructionDefaulted). An instantiated gridview
   // should set this value, if appropriate.
+// TODO: remove this
   int m_constructionColumn = -1;
 
   std::vector<std::pair<QString, std::vector<QString>>> m_categoriesAndFields;
@@ -643,7 +651,7 @@ class OSGridController : public QObject
   virtual QString getColor(const model::ModelObject& modelObject) = 0;
 
   // This function sets the column header caption
-  virtual void setHorizontalHeader();
+  virtual void setHorizontalHeader(QWidget* parent);
 
   // Call this function after the table is constructed
   // to appropriately check user-selected category fields
@@ -655,12 +663,12 @@ class OSGridController : public QObject
   REGISTER_LOGGER("openstudio.OSGridController");
 
  private:
-  friend class OSGridView;
+  friend class OSGridView; // TODO: remove this
   friend class ObjectSelector;
 
   // Make the lowest level widgets that corresponds to concepts.
   // These will be put in container widgets to form the cell, regardless of the presence of sub rows.
-  QWidget* makeWidget(model::ModelObject t_mo, const QSharedPointer<BaseConcept>& t_baseConcept);
+  QWidget* makeWidget(model::ModelObject t_mo, const QSharedPointer<BaseConcept>& t_baseConcept, QWidget* parent);
 
   void loadQSettings();
 
@@ -697,22 +705,24 @@ class OSGridController : public QObject
 
  signals:
 
-  // Nuclear reset of everything
-  void modelReset();
+  // signal to parent to recreate all widgets
+  void recreateAll();
 
+  // signal to parent to update a widget
+  void cellUpdated(const GridCellLocation& location, const GridCellInfo& info);
+
+  // signal to any created quantity edits to update
   void toggleUnitsClicked(bool displayIP);
 
  public slots:
 
   virtual void onItemDropped(const OSItemId& itemId) = 0;
 
-  void toggleUnits(bool displayIP);
+  void onToggleUnits(bool displayIP);
 
   virtual void onComboBoxIndexChanged(int index);
 
   void onSelectionCleared();
-
-  void requestRefreshGrid();
 
   void onInFocus(bool inFocus, bool hasData, int row, int column, boost::optional<int> subrow);
 
@@ -806,6 +816,7 @@ class HorizontalHeaderWidget : public QWidget
   QVBoxLayout* m_innerLayout;
 };
 
+// DropZone controller that is always empty
 class GridViewDropZoneVectorController : public OSVectorController
 {
  protected:

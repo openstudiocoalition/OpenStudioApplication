@@ -53,6 +53,8 @@ class OSCollapsibleView;
 class OSDropZone;
 class OSGridController;
 class OSItem;
+class GridCellLocation;
+class GridCellInfo;
 
 class OSGridView : public QWidget
 {
@@ -89,25 +91,15 @@ class OSGridView : public QWidget
 
  public slots:
 
-  void onSelectionCleared();
+  void requestRecreateAll();
 
-  void refreshAll();
-
-  void refreshRow(int row);
-
-  void requestRefreshAll();
-
-  void requestRefreshGrid();
+  void onCellUpdated(const GridCellLocation& location, const GridCellInfo& info);
 
  private slots:
 
-  void deleteAll();
+  void recreateAll();
 
-  void addWidget(int row, int column);
-
-  void selectCategory(int index);
-
-  void doRefresh();
+  void processRequests();
 
   //void doRowSelect();
 
@@ -127,6 +119,10 @@ class OSGridView : public QWidget
     RefreshAll
   };
 
+  void createWidget(int row, int column);
+
+  void deleteAll();
+
   // construct a grid layout to our specs
   QGridLayout* makeGridLayout();
 
@@ -136,13 +132,9 @@ class OSGridView : public QWidget
   // update the style for the widget at row, column
   void updateWidget(int row, int column);
 
-  void setGridController(OSGridController* gridController);
+  QGridLayout* m_gridLayout;
 
-  static const int ROWS_PER_LAYOUT = 100000000;
-
-  std::vector<QGridLayout*> m_gridLayouts;
-
-  OSCollapsibleView* m_CollapsibleView;
+  OSCollapsibleView* m_collapsibleView;
 
   OSGridController* m_gridController;
 

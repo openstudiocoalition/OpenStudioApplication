@@ -78,17 +78,21 @@ QGridLayout* OSGridView::makeGridLayout() {
 }
 
 OSGridView::OSGridView(OSGridController* gridController, const QString& headerText, const QString& dropZoneText, bool useHeader, QWidget* parent)
-  : QWidget(parent), m_dropZone(nullptr), m_contentLayout(nullptr), m_CollapsibleView(nullptr), m_gridController(gridController) {
+  : QWidget(parent), m_dropZone(nullptr), m_contentLayout(nullptr), m_collapsibleView(nullptr), m_gridController(gridController) {
 
   // We use the headerText as the object name, will help in indentifying objects for any warnings
   setObjectName(headerText);
+
+  m_gridController->setParent(this);
+  connect(m_gridController, &OSGridController::recreateAll, this, &OSGridView::requestRecreateAll);
+  connect(m_gridController, &OSGridController::cellUpdated, this, &OSGridView::onCellUpdated);
 
   /** Set up buttons for Categories: eg: SpaceTypes tab: that's the dropzone "Drop Space Type", "General", "Loads", "Measure Tags", "Custom"
    * QHBoxLayout manages the visual representation: they are placed side by side
    * QButtonGroup manages the state of the buttons in the group. By default a QButtonGroup is exclusive (only one button can be checked at one time)
    */
   auto buttonGroup = new QButtonGroup();
-  connect(buttonGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::idClicked), this, &OSGridView::selectCategory);
+  connect(buttonGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::idClicked), m_gridController, &OSGridController::categorySelected);
 
   auto buttonLayout = new QHBoxLayout();
   buttonLayout->setSpacing(3);
@@ -151,8 +155,8 @@ OSGridView::OSGridView(OSGridController* gridController, const QString& headerTe
   m_contentLayout->addLayout(buttonLayout);
   widget->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Fixed);
 
-  // This should have been done in the Ctor
-  setGridController(m_gridController);
+  m_gridLayout = makeGridLayout();
+  m_contentLayout->addLayout(m_gridLayout);
 
   // Make the first button checked by default
   QVector<QAbstractButton*> buttons = buttonGroup->buttons().toVector();
@@ -160,32 +164,17 @@ OSGridView::OSGridView(OSGridController* gridController, const QString& headerTe
     QPushButton* button = qobject_cast<QPushButton*>(buttons.at(0));
     OS_ASSERT(button);
     button->setChecked(true);
-    selectCategory(0);
+    m_gridController->categorySelected(0);
   }
 
   m_timer.setSingleShot(true);
-  connect(&m_timer, &QTimer::timeout, this, &OSGridView::doRefresh);
-
-  if (this->isVisible()) {
-    m_gridController->connectToModel();
-    refreshAll();
-  }
+  connect(&m_timer, &QTimer::timeout, this, &OSGridView::processRequests);
 }
 
 OSGridView::~OSGridView()
 {
   bool test = false;
 };
-
-void OSGridView::setGridController(OSGridController* gridController) {
-  if (m_gridController) {
-    m_gridController->disconnect(this);
-  }
-
-  m_gridController = gridController;
-
-  m_gridController->setParent(this);
-}
 
 void OSGridView::requestAddRow(int row) {
   // std::cout << "REQUEST ADDROW CALLED " << std::endl;
@@ -218,10 +207,7 @@ void OSGridView::requestRemoveRow(int row) {
 //}
 
 QLayoutItem* OSGridView::itemAtPosition(int row, int column) {
-  auto layoutnum = row / ROWS_PER_LAYOUT;
-  auto relativerow = row % ROWS_PER_LAYOUT;
-
-  return m_gridLayouts.at(layoutnum)->itemAtPosition(relativerow, column);
+  return m_gridLayout->itemAtPosition(row, column);
 }
 
 //void OSGridView::removeWidget(int row, int column)
@@ -263,22 +249,21 @@ QLayoutItem* OSGridView::itemAtPosition(int row, int column) {
 //}
 
 void OSGridView::deleteAll() {
-  for (auto layout : m_gridLayouts) {
-    QLayoutItem* child;
-    while ((child = layout->takeAt(0)) != nullptr) {
-      QWidget* widget = child->widget();
+  QLayoutItem* child;
+  while ((child = m_gridLayout->takeAt(0)) != nullptr) {
+    QWidget* widget = child->widget();
 
-      OS_ASSERT(widget);
+    OS_ASSERT(widget);
 
-      delete widget;
-      // Using deleteLater is actually slower than calling delete directly on the widget
-      // deleteLater also introduces a strange redraw issue where the select all check box
-      // is not redrawn, after being checked.
-      //widget->deleteLater();
+    delete widget;
+    // Using deleteLater is actually slower than calling delete directly on the widget
+    // deleteLater also introduces a strange redraw issue where the select all check box
+    // is not redrawn, after being checked.
+    //widget->deleteLater();
 
-      delete child;
-    }
+    delete child;
   }
+
 }
 
 //void OSGridView::refreshGrid()
@@ -297,22 +282,13 @@ void OSGridView::deleteAll() {
 //  }
 //}
 
-void OSGridView::requestRefreshAll() {
+void OSGridView::requestRecreateAll() {
   // std::cout << "REQUEST REFRESHALL CALLED " << std::endl;
   setEnabled(false);
 
   m_timer.start();
 
   m_queueRequests.emplace_back(RefreshAll);
-}
-
-void OSGridView::requestRefreshGrid() {
-  // std::cout << "REQUEST REFRESHGRID CALLED " << std::endl;
-  setEnabled(false);
-
-  m_timer.start();
-
-  m_queueRequests.emplace_back(RefreshGrid);
 }
 
 //void OSGridView::requestRefreshRow(int t_row)
@@ -324,7 +300,7 @@ void OSGridView::requestRefreshGrid() {
 //  m_queueRequests.emplace_back(RefreshRow);
 //}
 
-void OSGridView::doRefresh() {
+void OSGridView::processRequests() {
   // std::cout << " DO REFRESH CALLED " << m_queueRequests.size() << std::endl;
 
   if (m_queueRequests.empty()) {
@@ -364,11 +340,11 @@ void OSGridView::doRefresh() {
   //  OS_ASSERT(false);
   //}
 
-  refreshAll();  // TODO remove this and uncomment the block above for finer granularity refreshes
+  recreateAll();  // TODO remove this and uncomment the block above for finer granularity refreshes
   setEnabled(true);
 }
 
-void OSGridView::refreshAll() {
+void OSGridView::recreateAll() {
   setUpdatesEnabled(false);
 
   // std::cout << " REFRESHALL CALLED " << std::endl;
@@ -377,17 +353,13 @@ void OSGridView::refreshAll() {
 
   if (m_gridController) {
     m_gridController->refreshModelObjects();
+    m_gridController->m_objectSelector->clear();
 
     const auto numRows = m_gridController->rowCount();
     const auto numColumns = m_gridController->columnCount();
     for (int i = 0; i < numRows; i++) {
       for (int j = 0; j < numColumns; j++) {
-        addWidget(i, j);
-      }
-    }
-    for (int i = 0; i < numRows; i++) {
-      for (int j = 0; j < numColumns; j++) {
-        updateWidget(i, j);
+        createWidget(i, j);
       }
     }
 
@@ -398,10 +370,10 @@ void OSGridView::refreshAll() {
 }
 
 
-void OSGridView::refreshRow(int row) {
+//void OSGridView::refreshRow(int row) {
   // TODO: fix
 //  this->m_gridController->getObjectSelector()->updateWidgetsForRow(row);
-}
+//}
 /*
 void OSGridView::selectRowDeterminedByModelSubTabView() {
   // Get selected item
@@ -429,39 +401,22 @@ void OSGridView::doRowSelect() {
   }
 }
 */
-void OSGridView::addWidget(int row, int column) {
+void OSGridView::createWidget(int row, int column) {
   OS_ASSERT(m_gridController);
 
-  QWidget* widget = m_gridController->createWidget(row, column);
+  QWidget* widget = m_gridController->createWidget(row, column, this);
 
   addWidget(widget, row, column);
 }
 
 void OSGridView::addWidget(QWidget* w, int row, int column) {
-  unsigned layoutindex = row / ROWS_PER_LAYOUT;
-  auto relativerow = row % ROWS_PER_LAYOUT;
-
-  if (layoutindex >= m_gridLayouts.size()) {
-    auto grid = makeGridLayout();
-    OS_ASSERT(grid);
-
-    m_gridLayouts.push_back(grid);
-    OS_ASSERT(m_contentLayout);
-    m_contentLayout->addLayout(grid);
-  }
-
-  m_gridLayouts[layoutindex]->addWidget(w, relativerow, column);
+  m_gridLayout->addWidget(w, row, column);
 }
 
 void OSGridView::updateWidget(int row, int column) {
   // todo
 }
 
-void OSGridView::selectCategory(int index) {
-  m_gridController->categorySelected(index);
-
-  requestRefreshAll(); // DLM: acceptable use of requestRefreshAll
-}
 /*
 ModelSubTabView* OSGridView::modelSubTabView() {
   ModelSubTabView* modelSubTabView = nullptr;
@@ -487,10 +442,6 @@ ModelSubTabView* OSGridView::modelSubTabView() {
   return modelSubTabView;
 }
 */
-void OSGridView::onSelectionCleared() {
-  m_gridController->onSelectionCleared();
-}
-
 void OSGridView::hideEvent(QHideEvent* event) {
   m_gridController->disconnectFromModel();
 
@@ -499,7 +450,6 @@ void OSGridView::hideEvent(QHideEvent* event) {
 
 void OSGridView::showEvent(QShowEvent* event) {
   m_gridController->connectToModel();
-  refreshAll();
 
   QWidget::showEvent(event);
 }
