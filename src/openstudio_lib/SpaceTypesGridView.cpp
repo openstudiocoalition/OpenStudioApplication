@@ -272,9 +272,8 @@ SpaceTypesGridView::SpaceTypesGridView(bool isIP, const model::Model& model, QWi
   filterGridLayout->setRowStretch(filterGridLayout->rowCount(), 100);
   filterGridLayout->setColumnStretch(filterGridLayout->columnCount(), 100);
 
-  gridView->m_contentLayout->addLayout(filterGridLayout);
-
-  gridView->m_contentLayout->addSpacing(7);
+  gridView->addLayoutToContentLayout(filterGridLayout);
+  gridView->addSpacingToContentLayout(7);
 
   mainLayout->addWidget(gridView, 0, Qt::AlignTop);
 
@@ -461,7 +460,7 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
       auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
       checkbox->setToolTip("Check to select all rows");
       connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpaceTypesGridController::selectAllStateChanged);
-      connect(checkbox.data(), &QCheckBox::stateChanged, this->gridView(), &OSGridView::gridRowSelectionChanged);
+      connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpaceTypesGridController::gridRowSelectionChanged);
 
       std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; }); 
 
@@ -1066,7 +1065,7 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
         auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
         checkbox->setToolTip("Check to select all rows");
         connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpaceTypesGridController::selectAllStateChanged);
-        connect(checkbox.data(), &QCheckBox::stateChanged, this->gridView(), &OSGridView::gridRowSelectionChanged);
+        connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpaceTypesGridController::gridRowSelectionChanged);
     
         std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; });
 
@@ -1299,6 +1298,8 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
         // a change in STANDARDSTEMPLATE to trigger a refresh of STANDARDSBUILDINGTYPE AND STANDARDSSPACETYPE
         // This is a hack (at best), but it works
         // Get the corresponding Standards Building Type Dropdown, and trigger repopulating
+
+/* TODO
         int columnCount = this->columnCount();
         for (int i = 1; i < this->rowCount(); ++i) {
           if (this->modelObject(i).handle() == t_spaceType->handle()) {
@@ -1328,6 +1329,7 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
             break;
           }
         }
+*/
 
         return success;
       };
@@ -1371,6 +1373,8 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
         // a change in STANDARDSBUILDINGTYPE to trigger a refresh of STANDARDSSPACETYPE
         // This is a hack (at best), but it works
         // Get the corresponding Standards Space Type Dropdown, and trigger repopulating
+
+/* TODO
         int columnCount = this->columnCount();
         for (int i = 1; i < this->rowCount(); ++i) {
           if (this->modelObject(i).handle() == t_spaceType->handle()) {
@@ -1387,7 +1391,7 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
             break;
           }
         }
-
+*/
         return success;
       };
 
@@ -1477,7 +1481,7 @@ void SpaceTypesGridController::onItemDropped(const OSItemId& itemId) {
   if (modelObject) {
     if (modelObject->optionalCast<model::SpaceType>()) {
       modelObject->clone(model());
-      emit modelReset();
+      emit recreateAll();
     }
   }
 }

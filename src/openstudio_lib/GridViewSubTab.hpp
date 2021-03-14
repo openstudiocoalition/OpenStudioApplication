@@ -104,7 +104,7 @@ class GridViewSubTab : public QWidget
 
   void onDropZoneItemClicked(OSItem* item);
 
-  void onGridRowSelectionChanged(int checkState);
+  void onGridRowSelectionChanged();
 
  protected slots:
 

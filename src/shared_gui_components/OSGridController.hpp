@@ -159,10 +159,12 @@ class DataSourceAdapter : public BaseConcept
 
 class OSGridController;
 
-class GridCellLocation
+class GridCellLocation : public QObject
 {
+  Q_OBJECT;
+
  public:
-  GridCellLocation(int t_row, int t_column, boost::optional<int> t_subrow);
+  GridCellLocation(int t_row, int t_column, boost::optional<int> t_subrow, QObject* parent);
 
   virtual ~GridCellLocation();
 
@@ -173,12 +175,22 @@ class GridCellLocation
   bool equal(int t_row, int t_column, boost::optional<int> t_subrow) const;
   bool operator==(const GridCellLocation& other) const;
   bool operator<(const GridCellLocation& other) const;
+
+ signals:
+  
+  void inFocus(bool inFocus, bool hasData, int row, int column, boost::optional<int> subrow);
+
+ public slots:
+ 
+  void onInFocus(bool inFocus, bool hasData);
 };
 
-class GridCellInfo 
+class GridCellInfo : public QObject
 {
+  Q_OBJECT;
+
  public:
-  GridCellInfo(const boost::optional<model::ModelObject>& t_modelObject, bool t_isSelector, bool t_isVisible, bool t_isSelected, bool t_isLocked);
+  GridCellInfo(const boost::optional<model::ModelObject>& t_modelObject, bool t_isSelector, bool t_isVisible, bool t_isSelected, bool t_isLocked, QObject* parent);
 
   virtual ~GridCellInfo();
 
@@ -206,7 +218,7 @@ class ObjectSelector : public QObject
   void clear();
 
   // Adds object to the internal maps
-  void addObject(const boost::optional<model::ModelObject>& t_obj, int t_row, int t_column, const boost::optional<int>& t_subrow, bool t_isSelector);
+  void addObject(const boost::optional<model::ModelObject>& t_obj, Holder* t_holder, int t_row, int t_column, const boost::optional<int>& t_subrow, bool t_isSelector);
 
   // Remove an object from all rows and subrows
   void removeObject(const openstudio::model::ModelObject& t_obj);
@@ -261,14 +273,18 @@ class ObjectSelector : public QObject
 
 signals:
 
+  void inFocus(bool inFocus, bool hasData, int row, int column, boost::optional<int> subrow);
+
   void cellUpdated(const GridCellLocation& location, const GridCellInfo& info);
+
+  void gridRowSelectionChanged();
 
  protected:
   REGISTER_LOGGER("openstudio.ObjectSelector");
 
  private:
 
-  std::map<GridCellLocation, GridCellInfo> m_gridCellLocationToInfoMap;
+  std::map<GridCellLocation*, GridCellInfo*> m_gridCellLocationToInfoMap;
 
   // returns true if object is visible
   // e.g. a lights object would not be visible if the user filted only people objects
@@ -324,7 +340,6 @@ protected:
     addCheckBoxColumn(heading, tooltip, getter, setter, isLocked, t_source);
     m_baseConcepts.back()->setIsSelector(true);
   }
-
 
   template <typename DataSourceType>
   void addCheckBoxColumn(const Heading& heading, const std::string& tooltip, std::function<bool(DataSourceType*)> t_getter,
@@ -533,23 +548,18 @@ protected:
   }
 
 public:
+
   std::vector<QString> categories();
 
   std::vector<std::pair<QString, std::vector<QString>>> categoriesAndFields();
-
-  virtual void categorySelected(int index);
 
   virtual int rowCount() const;
 
   virtual int columnCount() const;
 
-  // Widget that exists at the given top level coordinates (may contain sub rows).
-  // This will not create a new widget.
-  QWidget* cell(int rowIndex, int columnIndex);
-
   model::ModelObject modelObject(int rowIndex);
 
-  virtual std::vector<QWidget*> row(int rowIndex);
+  //virtual std::vector<QWidget*> row(int rowIndex);
 
   //void selectRow(int rowIndex, bool select);
 
@@ -582,6 +592,9 @@ public:
   IddObjectType iddObjectType() const;
 
  private:
+
+  // For testing
+  friend class OpenStudioLibFixture;
 
   IddObjectType m_iddObjectType;
 
@@ -664,7 +677,7 @@ public:
 
  private:
   friend class OSGridView; // TODO: remove this
-  friend class ObjectSelector;
+  friend class ObjectSelector; // TODO: remove this
 
   // Make the lowest level widgets that corresponds to concepts.
   // These will be put in container widgets to form the cell, regardless of the presence of sub rows.
@@ -714,7 +727,12 @@ public:
   // signal to any created quantity edits to update
   void toggleUnitsClicked(bool displayIP);
 
+  // signal when selection changes
+  void gridRowSelectionChanged();
+
  public slots:
+
+  virtual void categorySelected(int index);
 
   virtual void onItemDropped(const OSItemId& itemId) = 0;
 

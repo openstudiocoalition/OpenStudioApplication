@@ -61,49 +61,47 @@ class OSGridView : public QWidget
   Q_OBJECT
 
  public:
+
   OSGridView(OSGridController* gridController, const QString& headerText, const QString& dropZoneText, bool useHeader, QWidget* parent = nullptr);
 
   virtual ~OSGridView();
 
-  // return the QLayoutItem at a particular partition, accounting for multiple grid layouts
+  // return the QLayoutItem at a particular row and column
   QLayoutItem* itemAtPosition(int row, int column);
 
-  OSDropZone* m_dropZone;
+  void showDropZone(bool visible);
 
-  //virtual ModelSubTabView* modelSubTabView();
+  void addLayoutToContentLayout(QLayout* layout);
 
-  void requestRemoveRow(int row);
-
-  void requestAddRow(int row);
-
-  QVBoxLayout* m_contentLayout;
+  void addSpacingToContentLayout(int spacing);
 
  protected:
+
   virtual void hideEvent(QHideEvent* event) override;
 
   virtual void showEvent(QShowEvent* event) override;
 
  signals:
 
+  // emitted when this drop zone is clicked, goes down to controller
   void dropZoneItemClicked(OSItem* item);
 
-  void gridRowSelectionChanged(int checkState);
+  // emitted when the selection changes, goes up to parent
+  void gridRowSelectionChanged();
 
  public slots:
 
-  void requestRecreateAll();
+  //void requestRemoveRow(int row);
+
+  //void requestAddRow(int row);
+
+  void onRequestRecreateAll();
 
   void onCellUpdated(const GridCellLocation& location, const GridCellInfo& info);
 
  private slots:
 
-  void recreateAll();
-
   void processRequests();
-
-  //void doRowSelect();
-
-  //void selectRowDeterminedByModelSubTabView();
 
  private:
   
@@ -112,16 +110,17 @@ class OSGridView : public QWidget
 
   enum QueueType
   {
-    AddRow,
-    RemoveRow,
-    RefreshRow,
-    RefreshGrid,
-    RefreshAll
+    RecreateAll
   };
 
+  // uses the OSGridController to create the widget for row, column
   void createWidget(int row, int column);
 
+  // delete all widgets 
   void deleteAll();
+
+  // recreate all widgets
+  void recreateAll();
 
   // construct a grid layout to our specs
   QGridLayout* makeGridLayout();
@@ -131,6 +130,10 @@ class OSGridView : public QWidget
 
   // update the style for the widget at row, column
   void updateWidget(int row, int column);
+
+  OSDropZone* m_dropZone;
+
+  QVBoxLayout* m_contentLayout;
 
   QGridLayout* m_gridLayout;
 

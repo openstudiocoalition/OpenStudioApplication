@@ -97,9 +97,9 @@ SpacesSpacesGridView::SpacesSpacesGridView(bool isIP, const model::Model& model,
   setGridController(m_gridController);
   setGridView(m_gridView);
 
-  m_gridView->m_contentLayout->addLayout(m_filterGridLayout);
-  m_gridView->m_contentLayout->addSpacing(7);
-  m_gridView->m_dropZone->hide();
+  m_gridView->addLayoutToContentLayout(m_filterGridLayout);
+  m_gridView->addSpacingToContentLayout(7);
+  m_gridView->showDropZone(false);
 
   onClearSelection();
 }
@@ -168,7 +168,7 @@ void SpacesSpacesGridController::addColumns(const QString& category, std::vector
       auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
       checkbox->setToolTip("Check to select all rows");
       connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpacesSpacesGridController::selectAllStateChanged);
-      connect(checkbox.data(), &QCheckBox::stateChanged, this->gridView(), &OSGridView::gridRowSelectionChanged);
+      connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpacesSpacesGridController::gridRowSelectionChanged);
       std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; });
       addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", isLocked);
     } else if (field == STORY) {

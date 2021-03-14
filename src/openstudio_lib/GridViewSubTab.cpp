@@ -98,11 +98,11 @@ void GridViewSubTab::setGridView(OSGridView* gridView) {
 
   connect(this, &GridViewSubTab::toggleUnitsClicked, m_gridController, &OSGridController::toggleUnitsClicked);
 
-  connect(this, &GridViewSubTab::toggleUnitsClicked, m_gridController, &OSGridController::toggleUnits);
+  connect(this, &GridViewSubTab::toggleUnitsClicked, m_gridController, &OSGridController::onToggleUnits);
 }
 
 void GridViewSubTab::setGridController(OSGridController* gridController) {
-  connect(this, &GridViewSubTab::toggleUnitsClicked, gridController, &OSGridController::toggleUnits);
+  connect(this, &GridViewSubTab::toggleUnitsClicked, gridController, &OSGridController::onToggleUnits);
 }
 
 void GridViewSubTab::onAddClicked() {
@@ -180,7 +180,7 @@ void GridViewSubTab::toggleUnits(bool isIP) {
   m_isIP = isIP;
 }
 
-void GridViewSubTab::onGridRowSelectionChanged(int checkState) {
+void GridViewSubTab::onGridRowSelectionChanged() {
   if (this->m_gridController->selectedObjects().size() == 0) {
     onClearSelection();
   } else {

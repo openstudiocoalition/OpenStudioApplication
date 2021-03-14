@@ -84,8 +84,9 @@ OSGridView::OSGridView(OSGridController* gridController, const QString& headerTe
   setObjectName(headerText);
 
   m_gridController->setParent(this);
-  connect(m_gridController, &OSGridController::recreateAll, this, &OSGridView::requestRecreateAll);
+  connect(m_gridController, &OSGridController::recreateAll, this, &OSGridView::onRequestRecreateAll);
   connect(m_gridController, &OSGridController::cellUpdated, this, &OSGridView::onCellUpdated);
+  connect(m_gridController, &OSGridController::gridRowSelectionChanged, this, &OSGridView::gridRowSelectionChanged);
 
   /** Set up buttons for Categories: eg: SpaceTypes tab: that's the dropzone "Drop Space Type", "General", "Loads", "Measure Tags", "Custom"
    * QHBoxLayout manages the visual representation: they are placed side by side
@@ -176,6 +177,7 @@ OSGridView::~OSGridView()
   bool test = false;
 };
 
+/*
 void OSGridView::requestAddRow(int row) {
   // std::cout << "REQUEST ADDROW CALLED " << std::endl;
   setEnabled(false);
@@ -197,7 +199,7 @@ void OSGridView::requestRemoveRow(int row) {
 
   m_queueRequests.emplace_back(RemoveRow);
 }
-
+*/
 //void OSGridView::refreshRow(int row)
 //{
 //  for( int j = 0; j < m_gridController->columnCount(); j++ )
@@ -208,6 +210,18 @@ void OSGridView::requestRemoveRow(int row) {
 
 QLayoutItem* OSGridView::itemAtPosition(int row, int column) {
   return m_gridLayout->itemAtPosition(row, column);
+}
+
+void OSGridView::showDropZone(bool visible) {
+  m_dropZone->setVisible(visible);
+}
+
+void OSGridView::addLayoutToContentLayout(QLayout* layout) {
+  m_contentLayout->addLayout(layout);
+}
+
+void OSGridView::addSpacingToContentLayout(int spacing) {
+  m_contentLayout->addSpacing(spacing);
 }
 
 //void OSGridView::removeWidget(int row, int column)
@@ -248,6 +262,19 @@ QLayoutItem* OSGridView::itemAtPosition(int row, int column) {
 //  delete item;
 //}
 
+
+
+void OSGridView::onRequestRecreateAll() {
+  setEnabled(false);
+  m_timer.start();
+  m_queueRequests.emplace_back(RecreateAll);
+}
+
+void OSGridView::onCellUpdated(const GridCellLocation& location, const GridCellInfo& info) {
+
+}
+
+
 void OSGridView::deleteAll() {
   QLayoutItem* child;
   while ((child = m_gridLayout->takeAt(0)) != nullptr) {
@@ -282,14 +309,7 @@ void OSGridView::deleteAll() {
 //  }
 //}
 
-void OSGridView::requestRecreateAll() {
-  // std::cout << "REQUEST REFRESHALL CALLED " << std::endl;
-  setEnabled(false);
 
-  m_timer.start();
-
-  m_queueRequests.emplace_back(RefreshAll);
-}
 
 //void OSGridView::requestRefreshRow(int t_row)
 //{

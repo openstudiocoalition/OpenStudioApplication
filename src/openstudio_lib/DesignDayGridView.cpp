@@ -117,7 +117,7 @@ DesignDayGridView::DesignDayGridView(bool isIP, const model::Model& model, QWidg
   //isConnected = connect(gridView, SIGNAL(gridRowSelected(OSItem*)), this, SIGNAL(gridRowSelected(OSItem*)));
   //OS_ASSERT(isConnected);
 
-  gridView->m_dropZone->hide();
+  gridView->showDropZone(false);
 
   layout->addWidget(gridView, 0, Qt::AlignTop);
 
@@ -272,7 +272,7 @@ void DesignDayGridController::addColumns(const QString& /*category*/, std::vecto
       auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
       checkbox->setToolTip("Check to select all rows");
       connect(checkbox.data(), &QCheckBox::stateChanged, this, &DesignDayGridController::selectAllStateChanged);
-      connect(checkbox.data(), &QCheckBox::stateChanged, this->gridView(), &OSGridView::gridRowSelectionChanged);
+      connect(checkbox.data(), &QCheckBox::stateChanged, this, &DesignDayGridController::gridRowSelectionChanged);
 
       std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; });
       addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", isLocked, boost::none);
@@ -455,7 +455,7 @@ void DesignDayGridController::onItemDropped(const OSItemId& itemId) {
   if (modelObject) {
     if (modelObject->optionalCast<model::DesignDay>()) {
       modelObject->clone(model());
-      emit modelReset();
+      emit recreateAll();
     }
   }
 }

@@ -38,6 +38,7 @@
 
 namespace openstudio {
   class GridViewSubTab;
+  class ObjectSelector;
   class OSGridController;
   class OSGridView;
   class OSDropZone2;
@@ -65,6 +66,7 @@ class OpenStudioLibFixture : public ::testing::Test
   // Acceessors for private members
   openstudio::OSGridView* getGridView(openstudio::GridViewSubTab* gvst);
   openstudio::OSGridController* getGridController(openstudio::GridViewSubTab* gvst);
+  openstudio::ObjectSelector* getObjectSelector(openstudio::OSGridController* gc);
   boost::optional<openstudio::model::ModelObject> getModelObject(openstudio::OSDropZone2* dropZone);
   boost::optional<openstudio::model::ModelObject> getModelObject(openstudio::OSLineEdit2* lineEdit);
 

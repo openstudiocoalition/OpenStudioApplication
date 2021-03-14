@@ -68,6 +68,10 @@ OSGridController* OpenStudioLibFixture::getGridController(GridViewSubTab* gvst) 
   return gvst->m_gridController;
 }
 
+ObjectSelector* OpenStudioLibFixture::getObjectSelector(OSGridController* gc) {
+  return gc->m_objectSelector.get();
+}
+
 boost::optional<openstudio::model::ModelObject> OpenStudioLibFixture::getModelObject(openstudio::OSDropZone2* dropZone) {
   boost::optional<openstudio::model::ModelObject> result;
   if (dropZone) {

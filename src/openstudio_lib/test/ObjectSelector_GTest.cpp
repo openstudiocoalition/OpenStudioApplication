@@ -129,7 +129,7 @@ TEST_F(OpenStudioLibFixture, SpacesSpacesGridView) {
 
   auto gridView = std::make_shared<SpacesSpacesGridView>(false, model);
   auto gridController = getGridController(gridView.get());
-  auto objectSelector = gridController->getObjectSelector();
+  auto objectSelector = getObjectSelector(gridController);
 
   processEvents();
 
@@ -140,65 +140,15 @@ TEST_F(OpenStudioLibFixture, SpacesSpacesGridView) {
   auto selectableObjectsSet = objectSelector->selectableObjects();
   EXPECT_EQ(spaces.size(), selectableObjectsSet.size());
 
-  auto selectedObjects = gridController->selectedObjects();
-  EXPECT_EQ(0u, selectedObjects.size());
-
   auto selectedObjectsSet = objectSelector->selectedObjects();
   EXPECT_EQ(0u, selectedObjectsSet.size());
   
   objectSelector->setObjectSelected(space1, true);
 
-  selectedObjects = gridController->selectedObjects();
-  ASSERT_EQ(1u, selectedObjects.size());
-  EXPECT_EQ(space1.handle(), selectedObjects[0].handle());
-
   selectedObjectsSet = objectSelector->selectedObjects();
   ASSERT_EQ(1u, selectedObjectsSet.size());
   EXPECT_EQ(space1.handle(), selectedObjectsSet.begin()->handle());
 
-  // Row = 1, Col = 1 is Space Name header, No SubRow
-  unsigned row = 1, col = 0;
-
-  auto rowWidgets = gridController->row(row);
-  auto cellWidget = gridController->cell(row, col);
-
-  ASSERT_EQ(8u, rowWidgets.size());
-  ASSERT_TRUE(cellWidget);
-  ASSERT_TRUE(rowWidgets[col]);
-  EXPECT_EQ(cellWidget, rowWidgets[col]);
-
-  Holder* holder = qobject_cast<Holder*>(cellWidget->children()[1]);
-  ASSERT_TRUE(holder);
-  OSLineEdit2* lineEdit = qobject_cast<OSLineEdit2*>(holder->widget);
-  ASSERT_TRUE(lineEdit);
-  auto modelObject = getModelObject(lineEdit);
-  ASSERT_TRUE(modelObject);
-  EXPECT_EQ(modelObject->handle(), modelObjects[0].handle());
-
-  // Row = 1, Col = 4 is Space Type, No SubRow
-  row = 1, col = 4;
-
-  rowWidgets = gridController->row(row);
-  cellWidget = gridController->cell(row, col);
-
-  ASSERT_EQ(8u, rowWidgets.size());
-  ASSERT_TRUE(cellWidget);
-  ASSERT_TRUE(rowWidgets[col]);
-  EXPECT_EQ(cellWidget, rowWidgets[col]);
-
-  holder = qobject_cast<Holder*>(cellWidget->children()[1]);
-  ASSERT_TRUE(holder);
-  OSDropZone2* dropZone = qobject_cast<OSDropZone2*>(holder->widget);
-  ASSERT_TRUE(dropZone);
-  modelObject = getModelObject(dropZone);
-  ASSERT_TRUE(modelObject);
-  EXPECT_EQ(modelObject->handle(), modelObjects[0].handle());
-  modelObject = callGet(dropZone);
-  ASSERT_TRUE(modelObject);
-  EXPECT_EQ(modelObject->handle(), spaceTypes[0].handle());
-  
-  EXPECT_TRUE(isDefaulted(dropZone));
-  EXPECT_TRUE(space1.isSpaceTypeDefaulted());
 
 }
 
@@ -216,7 +166,7 @@ TEST_F(OpenStudioLibFixture, SpacesSurfacesGridView) {
 
   auto gridView = std::make_shared<SpacesSurfacesGridView>(false, model);
   auto gridController = getGridController(gridView.get());
-  auto objectSelector = gridController->getObjectSelector();
+  auto objectSelector = getObjectSelector(gridController);
   
   processEvents();
 
@@ -245,14 +195,8 @@ TEST_F(OpenStudioLibFixture, SpacesSurfacesGridView) {
   auto obj = objectSelector->getObject(row, col, boost::none);
   EXPECT_FALSE(obj);
 
-  auto widget = objectSelector->getWidget(row, col, boost::none);
-  ASSERT_TRUE(widget);
-
   obj = objectSelector->getObject(row, col, 0);
   EXPECT_FALSE(obj);
-
-  widget = objectSelector->getWidget(row, col, 0);
-  EXPECT_FALSE(widget);
 
   // Row = 0, Col = 1 is All header, No SubRow
   row = 0;
@@ -261,14 +205,8 @@ TEST_F(OpenStudioLibFixture, SpacesSurfacesGridView) {
   obj = objectSelector->getObject(row, col, boost::none);
   EXPECT_FALSE(obj);
 
-  widget = objectSelector->getWidget(row, col, boost::none);
-  ASSERT_TRUE(widget);
-
   obj = objectSelector->getObject(row, col, 0);
   EXPECT_FALSE(obj);
-
-  widget = objectSelector->getWidget(row, col, 0);
-  EXPECT_FALSE(widget);
 
   // First row of objects on row = 1
 
@@ -281,18 +219,12 @@ TEST_F(OpenStudioLibFixture, SpacesSurfacesGridView) {
   ASSERT_TRUE(obj->optionalCast<model::Space>());
   auto spaceObj = obj->cast<model::Space>();
 
-  widget = objectSelector->getWidget(row, col, boost::none);
-  ASSERT_TRUE(widget);
-
   // Row = 1, Col = 1 is Surface Select Check Boxes, Has SubRow
   row = 1;
   col = 1;
 
   obj = objectSelector->getObject(row, col, boost::none);
   EXPECT_FALSE(obj);
-
-  widget = objectSelector->getWidget(row, col, boost::none);
-  EXPECT_FALSE(widget);
 
   i = 0;
   for (const auto& surface : spaceObj.surfaces()) {
@@ -302,9 +234,6 @@ TEST_F(OpenStudioLibFixture, SpacesSurfacesGridView) {
     auto surfaceObj = obj->cast<model::Surface>();
     ASSERT_TRUE(surfaceObj.space());
     EXPECT_EQ(spaceObj, surfaceObj.space());
-
-    widget = objectSelector->getWidget(row, col, i);
-    ASSERT_TRUE(widget);
 
     i += 1;
   }
@@ -313,11 +242,8 @@ TEST_F(OpenStudioLibFixture, SpacesSurfacesGridView) {
   row = 1;
   col = 2;
 
- obj = objectSelector->getObject(row, col, boost::none);
+  obj = objectSelector->getObject(row, col, boost::none);
   EXPECT_FALSE(obj);
-
-  widget = objectSelector->getWidget(row, col, boost::none);
-  EXPECT_FALSE(widget);
 
   i = 0;
   for (const auto& surface : spaceObj.surfaces()) {
@@ -328,14 +254,11 @@ TEST_F(OpenStudioLibFixture, SpacesSurfacesGridView) {
     ASSERT_TRUE(surfaceObj.space());
     EXPECT_EQ(spaceObj, surfaceObj.space());
 
-    widget = objectSelector->getWidget(row, col, i);
-    ASSERT_TRUE(widget);
-
     i += 1;
   }
 
   // selection
-  objectSelector->selectAllVisible();
+  objectSelector->selectAll();
 
   processEvents();
 
@@ -373,9 +296,6 @@ TEST_F(OpenStudioLibFixture, SpacesSurfacesGridView) {
     EXPECT_EQ(true, objectSelector->containsObject(surfaceObj));
     EXPECT_EQ(isVisible, objectSelector->getObjectVisible(surfaceObj));
 
-    widget = objectSelector->getWidget(row, col, i);
-    ASSERT_TRUE(widget);
-    //EXPECT_EQ(isVisible, widget->isVisible());
 
     i += 1;
   }

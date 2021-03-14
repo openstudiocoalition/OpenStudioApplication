@@ -148,9 +148,9 @@ SpacesSubsurfacesGridView::SpacesSubsurfacesGridView(bool isIP, const model::Mod
   setGridController(m_gridController);
   setGridView(m_gridView);
 
-  m_gridView->m_contentLayout->addLayout(m_filterGridLayout);
-  m_gridView->m_contentLayout->addSpacing(7);
-  m_gridView->m_dropZone->hide();
+  m_gridView->addLayoutToContentLayout(m_filterGridLayout);
+  m_gridView->addSpacingToContentLayout(7);
+  m_gridView->showDropZone(false);
 }
 
 SpacesSubsurfacesGridController::SpacesSubsurfacesGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType,
@@ -382,7 +382,7 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
         auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
         checkbox->setToolTip("Check to select all rows");
         connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpacesSubsurfacesGridController::selectAllStateChanged);
-        connect(checkbox.data(), &QCheckBox::stateChanged, this->gridView(), &OSGridView::gridRowSelectionChanged);
+        connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpacesSubsurfacesGridController::gridRowSelectionChanged);
         std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; });
         addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", isLocked, DataSource(allSubSurfaces, true));
       }

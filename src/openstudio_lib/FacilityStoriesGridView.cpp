@@ -154,9 +154,8 @@ FacilityStoriesGridView::FacilityStoriesGridView(bool isIP, const model::Model& 
   filterGridLayout->setRowStretch(filterGridLayout->rowCount(), 100);
   filterGridLayout->setColumnStretch(filterGridLayout->columnCount(), 100);
 
-  m_gridView->m_contentLayout->addLayout(filterGridLayout);
-
-  m_gridView->m_contentLayout->addSpacing(7);
+  m_gridView->addLayoutToContentLayout(filterGridLayout);
+  m_gridView->addSpacingToContentLayout(7);
 
   onClearSelection();
 }
@@ -276,7 +275,7 @@ void FacilityStoriesGridController::addColumns(const QString& category, std::vec
       auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
       checkbox->setToolTip("Check to select all rows");
       connect(checkbox.data(), &QCheckBox::stateChanged, this, &FacilityStoriesGridController::selectAllStateChanged);
-      connect(checkbox.data(), &QCheckBox::stateChanged, this->gridView(), &OSGridView::gridRowSelectionChanged);
+      connect(checkbox.data(), &QCheckBox::stateChanged, this, &FacilityStoriesGridController::gridRowSelectionChanged);
       std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; });
       addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", isLocked);
     } else if (field == NOMINALZCOORDINATE) {

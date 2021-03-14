@@ -134,7 +134,7 @@ ThermalZonesGridView::ThermalZonesGridView(bool isIP, const model::Model& model,
   isConnected = connect(this, SIGNAL(selectionCleared()), gridView, SLOT(onSelectionCleared()));
   OS_ASSERT(isConnected);
 
-  gridView->m_dropZone->hide();
+  gridView->showDropZone(false);
 
   layout->addWidget(gridView, 0, Qt::AlignTop);
 
@@ -225,7 +225,7 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
       auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
       checkbox->setToolTip("Check to select all rows");
       connect(checkbox.data(), &QCheckBox::stateChanged, this, &ThermalZonesGridController::selectAllStateChanged);
-      connect(checkbox.data(), &QCheckBox::stateChanged, this->gridView(), &OSGridView::gridRowSelectionChanged);
+      connect(checkbox.data(), &QCheckBox::stateChanged, this, &ThermalZonesGridController::gridRowSelectionChanged);
       std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; });
       addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", isLocked);
     } else if (field == RENDERINGCOLOR) {
@@ -603,7 +603,7 @@ void ThermalZonesGridController::onItemDropped(const OSItemId& itemId) {
   if (modelObject) {
     if (modelObject->optionalCast<model::ThermalZone>()) {
       modelObject->clone(model());
-      emit modelReset();
+      emit recreateAll();
     }
   }
 }
