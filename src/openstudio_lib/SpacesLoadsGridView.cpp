@@ -170,8 +170,8 @@ void SpacesLoadsGridController::setCategoriesAndFields() {
   OSGridController::setCategoriesAndFields();
 }
 
-void SpacesLoadsGridController::categorySelected(int index) {
-  OSGridController::categorySelected(index);
+void SpacesLoadsGridController::onCategorySelected(int index) {
+  OSGridController::onCategorySelected(index);
 }
 
 void SpacesLoadsGridController::addColumns(const QString& category, std::vector<QString>& fields) {
@@ -838,7 +838,7 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
       } else if (field == SELECTED) {
         auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
         checkbox->setToolTip("Check to select all rows");
-        connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpacesLoadsGridController::selectAllStateChanged);
+        connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpacesLoadsGridController::onSelectAllStateChanged);
         connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpacesLoadsGridController::gridRowSelectionChanged);
 
         std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { 

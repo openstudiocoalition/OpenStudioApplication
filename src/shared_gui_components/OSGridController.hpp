@@ -180,9 +180,13 @@ class GridCellLocation : public QObject
   
   void inFocus(bool inFocus, bool hasData, int row, int column, boost::optional<int> subrow);
 
+  void selectionChanged(int state, int row, int column, boost::optional<int> subrow);
+
  public slots:
  
   void onInFocus(bool inFocus, bool hasData);
+
+  void onSelectionChanged(int state);
 };
 
 class GridCellInfo : public QObject
@@ -196,12 +200,29 @@ class GridCellInfo : public QObject
 
   const boost::optional<model::ModelObject> modelObject;
   const bool isSelector;
-  bool isVisible;
-  bool isSelected;
-  bool isLocked;
 
-  void setLocked(bool locked);
+  bool isVisible() const;
+
+  // returns true if changed
+  bool setVisible(bool visible);
+
   bool isSelectable() const;
+
+  bool isSelected() const;
+
+  // returns true if changed
+  bool setSelected(bool selected);
+
+  bool isLocked() const;
+  
+  // returns true if changed
+  bool setLocked(bool locked);
+
+private:
+
+  bool m_isVisible;
+  bool m_isSelected;
+  bool m_isLocked;
 };
 
 /// ObjectSelector keeps track of which cells are selected, filtered/not visible, and locked
@@ -275,9 +296,13 @@ signals:
 
   void inFocus(bool inFocus, bool hasData, int row, int column, boost::optional<int> subrow);
 
-  void cellUpdated(const GridCellLocation& location, const GridCellInfo& info);
+  void gridCellChanged(const GridCellLocation& location, const GridCellInfo& info);
 
   void gridRowSelectionChanged();
+
+public slots:
+ 
+  void onSelectionChanged(int state, int row, int column, boost::optional<int> subrow);
 
  protected:
   REGISTER_LOGGER("openstudio.ObjectSelector");
@@ -568,7 +593,7 @@ public:
   // Return a new widget at a "top level" row and column specified by arguments.
   // There might be sub rows within the specified location.
   // In that case a QWidget with sub rows (inner grid layout) will be returned.
-  QWidget* createWidget(int row, int column, QWidget* parent);
+  QWidget* createWidget(int row, int column, OSGridView* gridView);
 
   // Call this function on a model update
   virtual void refreshModelObjects() = 0;
@@ -681,17 +706,13 @@ public:
 
   // Make the lowest level widgets that corresponds to concepts.
   // These will be put in container widgets to form the cell, regardless of the presence of sub rows.
-  QWidget* makeWidget(model::ModelObject t_mo, const QSharedPointer<BaseConcept>& t_baseConcept, QWidget* parent);
+  QWidget* makeWidget(model::ModelObject t_mo, const QSharedPointer<BaseConcept>& t_baseConcept, OSGridView* gridView);
 
   void loadQSettings();
 
   void saveQSettings() const;
 
   void setCustomCategoryAndFields();
-
-  QString cellStyle();
-
-  void setCellProperties(QWidget* wrapper, bool isSelector, int row, int column, boost::optional<int> subrow, bool isVisible, bool isSelected);
 
   OSItem* getSelectedItemFromModelSubTabView();
 
@@ -721,8 +742,8 @@ public:
   // signal to parent to recreate all widgets
   void recreateAll();
 
-  // signal to parent to update a widget
-  void cellUpdated(const GridCellLocation& location, const GridCellInfo& info);
+  // signal to update a widget
+  void gridCellChanged(const GridCellLocation& location, const GridCellInfo& info);
 
   // signal to any created quantity edits to update
   void toggleUnitsClicked(bool displayIP);
@@ -732,7 +753,7 @@ public:
 
  public slots:
 
-  virtual void categorySelected(int index);
+  virtual void onCategorySelected(int index);
 
   virtual void onItemDropped(const OSItemId& itemId) = 0;
 
@@ -746,19 +767,19 @@ public:
 
  protected slots:
 
-  void selectAllStateChanged(const int newState) const;
+  void onSelectAllStateChanged(const int newState) const;
 
  private slots:
 
-  void horizontalHeaderChecked(int index);
+  void onHorizontalHeaderChecked(int index);
 
   void onRemoveWorkspaceObject(const WorkspaceObject& object, const openstudio::IddObjectType& iddObjectType, const openstudio::UUID& handle);
 
   void onAddWorkspaceObject(const WorkspaceObject& object, const openstudio::IddObjectType& iddObjectType, const openstudio::UUID& handle);
 
-  void onObjectRemoved(boost::optional<model::ParentObject> parent);
+  void onObjectRemoved(boost::optional<model::ParentObject> parent);  // TODO: remove?
 
-  void setApplyButtonState();
+  void onSetApplyButtonState();
 };
 
 // Possible solution for user facing column resize
@@ -787,6 +808,8 @@ class Holder : public QWidget
  signals:
 
   void inFocus(bool inFocus, bool hasData);
+
+  void selectionChanged(int state);
 };
 
 class HorizontalHeaderPushButton : public QPushButton

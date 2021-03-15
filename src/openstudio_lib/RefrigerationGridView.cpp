@@ -175,10 +175,7 @@ RefrigerationGridView::RefrigerationGridView(bool isIP, const model::Model& mode
     new RefrigerationCaseGridController(m_isIP, "Display Cases", IddObjectType::OS_Refrigeration_Case, model, caseModelObjects);
   OSGridView* caseGridView = new OSGridView(refrigerationCaseGridController, "Display Cases", "Drop\nCase", true, parent);
 
-  bool isConnected = false;
-
-  isConnected = connect(caseGridView, SIGNAL(dropZoneItemClicked(OSItem*)), this, SIGNAL(dropZoneItemClicked(OSItem*)));
-  OS_ASSERT(isConnected);
+  connect(caseGridView, &OSGridView::dropZoneItemClicked, this, &RefrigerationGridView::dropZoneItemClicked);
 
   scrollLayout->addWidget(caseGridView, 0, Qt::AlignTop);
 
@@ -189,8 +186,7 @@ RefrigerationGridView::RefrigerationGridView(bool isIP, const model::Model& mode
     new RefrigerationWalkInGridController(m_isIP, "Walk Ins", IddObjectType::OS_Refrigeration_WalkIn, model, walkInModelObjects);
   OSGridView* walkInView = new OSGridView(refrigerationWalkInGridController, "Walk Ins", "Drop\nWalk In", true, parent);
 
-  isConnected = connect(walkInView, SIGNAL(dropZoneItemClicked(OSItem*)), this, SIGNAL(dropZoneItemClicked(OSItem*)));
-  OS_ASSERT(isConnected);
+  connect(walkInView, &OSGridView::dropZoneItemClicked, this, &RefrigerationGridView::dropZoneItemClicked);
 
   scrollLayout->addWidget(walkInView, 0, Qt::AlignTop);
 
@@ -198,8 +194,7 @@ RefrigerationGridView::RefrigerationGridView(bool isIP, const model::Model& mode
 
   connect(this, &RefrigerationGridView::toggleUnitsClicked, refrigerationCaseGridController, &RefrigerationCaseGridController::toggleUnitsClicked);
 
-  connect(this, &RefrigerationGridView::toggleUnitsClicked, refrigerationWalkInGridController,
-          &RefrigerationWalkInGridController::toggleUnitsClicked);
+  connect(this, &RefrigerationGridView::toggleUnitsClicked, refrigerationWalkInGridController, &RefrigerationWalkInGridController::toggleUnitsClicked);
 
   connect(this, &RefrigerationGridView::toggleUnitsClicked, refrigerationCaseGridController, &RefrigerationCaseGridController::onToggleUnits);
 
@@ -299,7 +294,7 @@ void RefrigerationCaseGridController::addColumns(const QString& /*category*/, st
     } else if (field == SELECTED) {
       auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
       checkbox->setToolTip("Check to select all rows");
-      connect(checkbox.data(), &QCheckBox::stateChanged, this, &RefrigerationCaseGridController::selectAllStateChanged);
+      connect(checkbox.data(), &QCheckBox::stateChanged, this, &RefrigerationCaseGridController::onSelectAllStateChanged);
       connect(checkbox.data(), &QCheckBox::stateChanged, this, &RefrigerationCaseGridController::gridRowSelectionChanged);
       std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; });
       addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", isLocked);
@@ -660,7 +655,7 @@ void RefrigerationWalkInGridController::addColumns(const QString& /*category*/, 
     } else if (field == SELECTED) {
       auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
       checkbox->setToolTip("Check to select all rows");
-      connect(checkbox.data(), &QCheckBox::stateChanged, this, &RefrigerationWalkInGridController::selectAllStateChanged);
+      connect(checkbox.data(), &QCheckBox::stateChanged, this, &RefrigerationWalkInGridController::onSelectAllStateChanged);
       connect(checkbox.data(), &QCheckBox::stateChanged, this, &RefrigerationWalkInGridController::gridRowSelectionChanged);
       std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; });
       addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", isLocked);

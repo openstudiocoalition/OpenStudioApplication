@@ -94,9 +94,8 @@ class SpaceTypesGridController : public OSGridController
 
   virtual void refreshModelObjects() override;
 
-  virtual void categorySelected(int index) override;
-
  protected:
+
   virtual void setCategoriesAndFields() override;
 
   virtual void addColumns(const QString& category, std::vector<QString>& fields) override;
@@ -106,9 +105,12 @@ class SpaceTypesGridController : public OSGridController
   virtual QString getColor(const model::ModelObject& modelObject) override;
 
  private:
+
   SpaceTypesGridView* spaceTypesGridView();
 
  public slots:
+
+  virtual void onCategorySelected(int index) override;
 
   virtual void onItemDropped(const OSItemId& itemId) override;
 

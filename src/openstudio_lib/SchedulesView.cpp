@@ -800,7 +800,7 @@ void ScheduleTabHeader::toggle() {
 void ScheduleTabHeader::refresh() {
   m_dirty = true;
 
-  QTimer::singleShot(0, this, SLOT(refreshNow()));
+  QTimer::singleShot(0, this, &ScheduleTabHeader::refreshNow);
 }
 
 void ScheduleTabHeader::refreshNow() {
@@ -958,7 +958,7 @@ void ScheduleTabContent::refresh() {
 void ScheduleTabContent::scheduleRefresh(const Handle& handle) {
   m_dirty = true;
 
-  QTimer::singleShot(0, this, SLOT(refresh()));
+  QTimer::singleShot(0, this, &ScheduleTabContent::refresh);
 }
 
 void ScheduleTabContent::onScheduleRuleClicked() {
@@ -1022,7 +1022,7 @@ void ScheduleTabRule::refresh() {
 void ScheduleTabRule::scheduleRefresh() {
   m_dirty = true;
 
-  QTimer::singleShot(0, this, SLOT(refresh()));
+  QTimer::singleShot(0, this, &ScheduleTabRule::refresh);
 }
 
 void ScheduleTabRule::paintEvent(QPaintEvent* event) {
@@ -1772,7 +1772,7 @@ void ScheduleRuleView::refresh() {
 void ScheduleRuleView::scheduleRefresh() {
   m_dirty = true;
 
-  QTimer::singleShot(0, this, SLOT(refresh()));
+  QTimer::singleShot(0, this, &ScheduleRuleView::refresh);
 }
 
 void ScheduleRuleView::onStartDateTimeChanged(const QDateTime& newDate) {
@@ -1978,7 +1978,7 @@ std::vector<int> YearOverview::activeRuleIndices() const {
 void YearOverview::scheduleRefresh() {
   m_dirty = true;
 
-  QTimer::singleShot(0, this, SLOT(refresh()));
+  QTimer::singleShot(0, this, &YearOverview::refresh);
 }
 
 void YearOverview::refresh() {

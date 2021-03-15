@@ -1967,7 +1967,7 @@ void SimSettingsView::on_startDateChanged(const QDate& date) {
   static bool firstTimeInFunction = true;
   if (firstTimeInFunction && m_startDateEdit->date().month() == 12 && m_startDateEdit->date().day() == 31) {
     firstTimeInFunction = false;
-    QTimer::singleShot(0, this, SLOT(initStartDateEdit()));
+    QTimer::singleShot(0, this, &SimSettingsView::initStartDateEdit);
     return;
   }
 

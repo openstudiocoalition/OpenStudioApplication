@@ -891,6 +891,7 @@ void InspectorGadget::IGdefaultRemoved(const QString&) {
   QObject* source = sender();
   QWidget* w = dynamic_cast<QWidget*>(source);
   w->setStyleSheet("color:black");
+  // using old style disconnect here
   disconnect(source, nullptr, this, SLOT(IGdefaultRemoved(const QString&)));
 }
 
@@ -1102,7 +1103,7 @@ void InspectorGadget::setRecursive(bool recursive) {
 void InspectorGadget::onWorkspaceObjectChanged() {
   m_workspaceObjectChanged = true;
 
-  QTimer::singleShot(0, this, SLOT(onTimeout()));
+  QTimer::singleShot(0, this, &InspectorGadget::onTimeout);
 }
 
 void InspectorGadget::onTimeout() {
@@ -1118,7 +1119,7 @@ void InspectorGadget::onWorkspaceObjectRemoved(const openstudio::Handle&) {
   m_workspaceObjectChanged = true;
   clear(true);
 
-  QTimer::singleShot(0, this, SLOT(onTimeout()));
+  QTimer::singleShot(0, this, &InspectorGadget::onTimeout);
 }
 
 void InspectorGadget::removeWorkspaceObject(const openstudio::Handle& handle) {

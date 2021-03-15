@@ -186,8 +186,8 @@ void SpacesDaylightingGridController::setCategoriesAndFields() {
   OSGridController::setCategoriesAndFields();
 }
 
-void SpacesDaylightingGridController::categorySelected(int index) {
-  OSGridController::categorySelected(index);
+void SpacesDaylightingGridController::onCategorySelected(int index) {
+  OSGridController::onCategorySelected(index);
 }
 
 void SpacesDaylightingGridController::addColumns(const QString& category, std::vector<QString>& fields) {
@@ -205,7 +205,7 @@ void SpacesDaylightingGridController::addColumns(const QString& category, std::v
       if (field == SELECTED) {
         auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
         checkbox->setToolTip("Check to select all rows");
-        connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpacesDaylightingGridController::selectAllStateChanged);
+        connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpacesDaylightingGridController::onSelectAllStateChanged);
         connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpacesDaylightingGridController::gridRowSelectionChanged);
         std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; });
         addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", isLocked);

@@ -337,8 +337,7 @@ void OSComboBox2::completeBind() {
     connect(this, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentTextChanged), this, &OSComboBox2::onCurrentIndexChanged);
 
     if (isEditable()) {
-      bool isConnected = connect(this, SIGNAL(editTextChanged(const QString&)), this, SLOT(onEditTextChanged(const QString&)));
-      OS_ASSERT(isConnected);
+      connect(this, &OSComboBox2::editTextChanged, this, &OSComboBox2::onEditTextChanged);
     }
 
     // isConnected = connect( m_modelObject->model().getImpl<openstudio::model::detail::Model_Impl>().get(),

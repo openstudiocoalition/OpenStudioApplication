@@ -127,8 +127,8 @@ void SpacesShadingGridController::setCategoriesAndFields() {
   OSGridController::setCategoriesAndFields();
 }
 
-void SpacesShadingGridController::categorySelected(int index) {
-  OSGridController::categorySelected(index);
+void SpacesShadingGridController::onCategorySelected(int index) {
+  OSGridController::onCategorySelected(index);
 }
 
 void SpacesShadingGridController::addColumns(const QString& category, std::vector<QString>& fields) {
@@ -180,7 +180,7 @@ void SpacesShadingGridController::addColumns(const QString& category, std::vecto
       if (field == SELECTED) {
         auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
         checkbox->setToolTip("Check to select all rows");
-        connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpacesShadingGridController::selectAllStateChanged);
+        connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpacesShadingGridController::onSelectAllStateChanged);
         connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpacesShadingGridController::gridRowSelectionChanged);
         std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; });
         addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", isLocked, DataSource(allShadingSurfaceGroups, true));

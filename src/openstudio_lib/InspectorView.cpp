@@ -838,8 +838,7 @@ BaseInspectorView::BaseInspectorView(QWidget* parent) {
 
   m_libraryTabWidget = new LibraryTabWidget();
 
-  auto isConnected = connect(m_libraryTabWidget, SIGNAL(removeButtonClicked(bool)), this, SIGNAL(removeButtonClicked(bool)));
-  OS_ASSERT(isConnected);
+  connect(m_libraryTabWidget, &LibraryTabWidget::removeButtonClicked, this, &BaseInspectorView::removeButtonClicked);
 
   m_vLayout->addWidget(m_libraryTabWidget);
 
@@ -1342,7 +1341,7 @@ void WaterToAirInspectorView::layoutModelObject(model::ModelObject& modelObject,
 }
 
 void WaterToAirInspectorView::onWorkspaceObjectChanged() {
-  QTimer::singleShot(0, this, SLOT(layoutControllerObject()));
+  QTimer::singleShot(0, this, &WaterToAirInspectorView::layoutControllerObject);
 }
 
 void WaterToAirInspectorView::layoutControllerObject() {

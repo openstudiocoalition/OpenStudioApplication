@@ -130,8 +130,8 @@ void FacilityExteriorEquipmentGridController::setCategoriesAndFields() {
   OSGridController::setCategoriesAndFields();
 }
 
-void FacilityExteriorEquipmentGridController::categorySelected(int index) {
-  OSGridController::categorySelected(index);
+void FacilityExteriorEquipmentGridController::onCategorySelected(int index) {
+  OSGridController::onCategorySelected(index);
 }
 
 void FacilityExteriorEquipmentGridController::addColumns(const QString& category, std::vector<QString>& fields) {
@@ -148,7 +148,7 @@ void FacilityExteriorEquipmentGridController::addColumns(const QString& category
     } else if (field == SELECTED) {
       auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
       checkbox->setToolTip("Check to select all rows");
-      connect(checkbox.data(), &QCheckBox::stateChanged, this, &FacilityExteriorEquipmentGridController::selectAllStateChanged);
+      connect(checkbox.data(), &QCheckBox::stateChanged, this, &FacilityExteriorEquipmentGridController::onSelectAllStateChanged);
       connect(checkbox.data(), &QCheckBox::stateChanged, this, &FacilityExteriorEquipmentGridController::gridRowSelectionChanged);
 
       std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false;});

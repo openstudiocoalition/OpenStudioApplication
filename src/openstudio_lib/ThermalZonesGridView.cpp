@@ -126,13 +126,9 @@ ThermalZonesGridView::ThermalZonesGridView(bool isIP, const model::Model& model,
   m_gridController = new ThermalZonesGridController(m_isIP, "Thermal Zones", IddObjectType::OS_ThermalZone, model, thermalZoneModelObjects);
   OSGridView* gridView = new OSGridView(m_gridController, "Thermal Zones", "Drop\nZone", false, parent);
 
-  bool isConnected = false;
+  connect(gridView, &OSGridView::dropZoneItemClicked, this, &ThermalZonesGridView::dropZoneItemClicked);
 
-  isConnected = connect(gridView, SIGNAL(dropZoneItemClicked(OSItem*)), this, SIGNAL(dropZoneItemClicked(OSItem*)));
-  OS_ASSERT(isConnected);
-
-  isConnected = connect(this, SIGNAL(selectionCleared()), gridView, SLOT(onSelectionCleared()));
-  OS_ASSERT(isConnected);
+  connect(this, &ThermalZonesGridView::selectionCleared, m_gridController, &ThermalZonesGridController::onSelectionCleared);
 
   gridView->showDropZone(false);
 
@@ -140,11 +136,9 @@ ThermalZonesGridView::ThermalZonesGridView(bool isIP, const model::Model& model,
 
   layout->addStretch(1);
 
-  isConnected = connect(this, SIGNAL(toggleUnitsClicked(bool)), m_gridController, SIGNAL(toggleUnitsClicked(bool)));
-  OS_ASSERT(isConnected);
+  connect(this, &ThermalZonesGridView::toggleUnitsClicked, m_gridController, &ThermalZonesGridController::toggleUnitsClicked);
 
-  isConnected = connect(this, SIGNAL(toggleUnitsClicked(bool)), m_gridController, SLOT(toggleUnits(bool)));
-  OS_ASSERT(isConnected);
+  connect(this, &ThermalZonesGridView::toggleUnitsClicked, m_gridController, &ThermalZonesGridController::onToggleUnits);
 
   // std::vector<model::ThermalZone> thermalZone = model.getConcreteModelObjects<model::ThermalZone>();  // NOTE for horizontal system lists
 }
@@ -224,7 +218,7 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
     } else if (field == SELECTED) {
       auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
       checkbox->setToolTip("Check to select all rows");
-      connect(checkbox.data(), &QCheckBox::stateChanged, this, &ThermalZonesGridController::selectAllStateChanged);
+      connect(checkbox.data(), &QCheckBox::stateChanged, this, &ThermalZonesGridController::onSelectAllStateChanged);
       connect(checkbox.data(), &QCheckBox::stateChanged, this, &ThermalZonesGridController::gridRowSelectionChanged);
       std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; });
       addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", isLocked);
@@ -524,7 +518,7 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
                             CastNullAdapter<model::ModelObject>(&model::ModelObject::setName),
                             boost::optional<std::function<void(model::ModelObject*)>>(
                               std::function<void(model::ModelObject*)>([](model::ModelObject* t_mo) { t_mo->remove(); })),
-                            boost::optional<std::function<bool(model::ModelObject*)>>(), 
+                            boost::optional<std::function<bool(model::ModelObject*)>>(),
                             boost::optional<std::function<bool(model::ModelObject*)>>(),
                             DataSource(equipment, false,
                                        QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<model::ModelObject, model::ThermalZone>(
@@ -546,7 +540,7 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
       // we are passing in an empty std::function for the separate parameter because there's no way to set it
       addNameLineEditColumn(Heading(QString(AIRLOOPNAME), true, false), false, false, CastNullAdapter<model::ModelObject>(&model::ModelObject::name),
                             std::function<boost::optional<std::string>(model::ModelObject*, const std::string&)>(),
-                            boost::optional<std::function<void(model::ModelObject*)>>(), 
+                            boost::optional<std::function<void(model::ModelObject*)>>(),
                             boost::optional<std::function<bool(model::ModelObject*)>>(),
                             boost::optional<std::function<bool(model::ModelObject*)>>(),
                             // insert DataSourceAdapter

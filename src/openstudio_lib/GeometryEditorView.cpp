@@ -142,7 +142,7 @@ DebugWebView::~DebugWebView() {}
 BaseEditor::BaseEditor(bool isIP, const openstudio::model::Model& model, QWebEngineView* view, QWidget* t_parent)
   : QObject(t_parent), m_editorLoaded(false), m_javascriptRunning(false), m_versionNumber(0), m_isIP(isIP), m_model(model), m_view(view) {
   m_checkForUpdateTimer = new QTimer(this);
-  connect(m_checkForUpdateTimer, SIGNAL(timeout()), this, SLOT(checkForUpdate()));
+  connect(m_checkForUpdateTimer, &QTimer::timeout, this, &BaseEditor::checkForUpdate);
 
   openstudio::OSAppBase* app = OSAppBase::instance();
   OS_ASSERT(app);

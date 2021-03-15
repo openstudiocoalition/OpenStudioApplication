@@ -105,10 +105,7 @@ DesignDayGridView::DesignDayGridView(bool isIP, const model::Model& model, QWidg
   m_gridController = new DesignDayGridController(m_isIP, "Design Days", IddObjectType::OS_SizingPeriod_DesignDay, model, designDayModelObjects);
   auto gridView = new OSGridView(m_gridController, "Design Days", "Drop\nZone", true, parent);
 
-  bool isConnected = false;
-
-  isConnected = connect(gridView, SIGNAL(dropZoneItemClicked(OSItem*)), this, SIGNAL(dropZoneItemClicked(OSItem*)));
-  OS_ASSERT(isConnected);
+  connect(gridView, &OSGridView::dropZoneItemClicked, this, &DesignDayGridView::dropZoneItemClicked);
 
   //isConnected = connect(this, SIGNAL(itemSelected(OSItem *)), gridView, SIGNAL(itemSelected(OSItem*)));
   //OS_ASSERT(isConnected);
@@ -123,11 +120,9 @@ DesignDayGridView::DesignDayGridView(bool isIP, const model::Model& model, QWidg
 
   layout->addStretch(1);
 
-  isConnected = connect(this, SIGNAL(toggleUnitsClicked(bool)), m_gridController, SIGNAL(toggleUnitsClicked(bool)));
-  OS_ASSERT(isConnected);
+  connect(this, &DesignDayGridView::toggleUnitsClicked, m_gridController, &DesignDayGridController::toggleUnitsClicked);
 
-  isConnected = connect(this, SIGNAL(toggleUnitsClicked(bool)), m_gridController, SLOT(toggleUnits(bool)));
-  OS_ASSERT(isConnected);
+  connect(this, &DesignDayGridView::toggleUnitsClicked, m_gridController, &DesignDayGridController::onToggleUnits);
 }
 
 void DesignDayGridView::onAddClicked() {
@@ -271,7 +266,7 @@ void DesignDayGridController::addColumns(const QString& /*category*/, std::vecto
     } else if (field == SELECTED) {
       auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
       checkbox->setToolTip("Check to select all rows");
-      connect(checkbox.data(), &QCheckBox::stateChanged, this, &DesignDayGridController::selectAllStateChanged);
+      connect(checkbox.data(), &QCheckBox::stateChanged, this, &DesignDayGridController::onSelectAllStateChanged);
       connect(checkbox.data(), &QCheckBox::stateChanged, this, &DesignDayGridController::gridRowSelectionChanged);
 
       std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; });

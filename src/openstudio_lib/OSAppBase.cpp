@@ -58,7 +58,7 @@ OSAppBase::OSAppBase(int& argc, char** argv, const QSharedPointer<MeasureManager
   openstudio::path umd = userMeasuresDir();
 
   if (isNetworkPath(umd) && !isNetworkPathAvailable(umd)) {
-    QTimer::singleShot(0, this, SLOT(showMeasureUpdateDlg()));
+    QTimer::singleShot(0, this, &OSAppBase::showMeasureUpdateDlg);
   } else {
     LOG(Debug, "Measures dir: " << openstudio::toString(umd));
     if (!QDir().exists(toQString(umd))) {

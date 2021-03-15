@@ -55,6 +55,7 @@
 //#include <QScrollArea>
 #include <QShowEvent>
 #include <QStackedWidget>
+#include <QStyle>
 
 #ifdef Q_OS_DARWIN
 #  define WIDTH 110
@@ -84,8 +85,8 @@ OSGridView::OSGridView(OSGridController* gridController, const QString& headerTe
   setObjectName(headerText);
 
   m_gridController->setParent(this);
-  connect(m_gridController, &OSGridController::recreateAll, this, &OSGridView::onRequestRecreateAll);
-  connect(m_gridController, &OSGridController::cellUpdated, this, &OSGridView::onCellUpdated);
+  connect(m_gridController, &OSGridController::recreateAll, this, &OSGridView::onRecreateAll);
+  connect(m_gridController, &OSGridController::gridCellChanged, this, &OSGridView::onGridCellChanged);
   connect(m_gridController, &OSGridController::gridRowSelectionChanged, this, &OSGridView::gridRowSelectionChanged);
 
   /** Set up buttons for Categories: eg: SpaceTypes tab: that's the dropzone "Drop Space Type", "General", "Loads", "Measure Tags", "Custom"
@@ -93,7 +94,7 @@ OSGridView::OSGridView(OSGridController* gridController, const QString& headerTe
    * QButtonGroup manages the state of the buttons in the group. By default a QButtonGroup is exclusive (only one button can be checked at one time)
    */
   auto buttonGroup = new QButtonGroup();
-  connect(buttonGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::idClicked), m_gridController, &OSGridController::categorySelected);
+  connect(buttonGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::idClicked), m_gridController, &OSGridController::onCategorySelected);
 
   auto buttonLayout = new QHBoxLayout();
   buttonLayout->setSpacing(3);
@@ -165,11 +166,8 @@ OSGridView::OSGridView(OSGridController* gridController, const QString& headerTe
     QPushButton* button = qobject_cast<QPushButton*>(buttons.at(0));
     OS_ASSERT(button);
     button->setChecked(true);
-    m_gridController->categorySelected(0);
+    m_gridController->onCategorySelected(0);
   }
-
-  m_timer.setSingleShot(true);
-  connect(&m_timer, &QTimer::timeout, this, &OSGridView::processRequests);
 }
 
 OSGridView::~OSGridView()
@@ -224,6 +222,42 @@ void OSGridView::addSpacingToContentLayout(int spacing) {
   m_contentLayout->addSpacing(spacing);
 }
 
+QString OSGridView::cellStyle() {
+  const static QString style = "QWidget#TableCell[selected=\"true\"]{ border: none; background-color: #94b3de; border-top: 1px solid black;  "
+                               "border-right: 1px solid black; border-bottom: 1px solid black;}"
+                               "QWidget#TableCell[selected=\"false\"][even=\"true\"] { border: none; background-color: #ededed; border-top: 1px "
+                               "solid black; border-right: 1px solid black; border-bottom: 1px solid black;}"
+                               "QWidget#TableCell[selected=\"false\"][even=\"false\"] { border: none; background-color: #cecece; border-top: 1px "
+                               "solid black; border-right: 1px solid black; border-bottom: 1px solid black;}";
+
+  return style;
+}
+
+void OSGridView::setCellProperties(QWidget* wrapper, bool isSelector, int rowIndex, int columnIndex, boost::optional<int> subrow,
+                                   bool isVisible, bool isSelected, bool isLocked) {
+  bool isEven = ((rowIndex % 2) == 0);
+  bool isChanged = false;
+
+  wrapper->setVisible(isVisible);
+
+  QVariant currentSelected = wrapper->property("selected");
+  if (currentSelected.isNull() || currentSelected.toBool() != isSelected) {
+    wrapper->setProperty("selected", isSelected);
+    isChanged = true;
+  }
+
+  QVariant currentEven = wrapper->property("even");
+  if (currentEven.isNull() || currentEven.toBool() != isSelected) {
+    wrapper->setProperty("even", isEven);
+    isChanged = true;
+  }
+
+  if (isChanged) {
+    wrapper->style()->unpolish(wrapper);
+    wrapper->style()->polish(wrapper);
+  }
+}
+
 //void OSGridView::removeWidget(int row, int column)
 //{
 //  // Currently this is cruft code
@@ -264,15 +298,40 @@ void OSGridView::addSpacingToContentLayout(int spacing) {
 
 
 
-void OSGridView::onRequestRecreateAll() {
+void OSGridView::onRecreateAll() {
   setEnabled(false);
-  m_timer.start();
-  m_queueRequests.emplace_back(RecreateAll);
+  recreateAll();  
+  setEnabled(true);
 }
 
-void OSGridView::onCellUpdated(const GridCellLocation& location, const GridCellInfo& info) {
+void OSGridView::onGridCellChanged(const GridCellLocation& location, const GridCellInfo& info) {
+  /* TODO
+  // determine if we want to update the parent widget or the child widget
+  for (auto& widgetLoc : widgetLocsToUpdate) {
+    QWidget* widget = nullptr;
 
-}
+    // If it isn't a subrow, we get the parent
+    if (!widgetLoc->subrow) {
+      widget = widgetLoc->holder->parentWidget();
+    } else {
+      widget = widgetLoc->holder;
+    }
+
+    if (widgetLoc->isSelector) {
+      auto check = qobject_cast<QCheckBox*>(widgetLoc->holder->widget);
+      if (check) {
+        check->blockSignals(true);
+        check->setChecked(widgetLoc->isSelected);
+        check->blockSignals(false);
+      }
+    }
+
+    // style the holder wrapper
+    m_grid->setCellProperties(widget, widgetLoc->isSelector, widgetLoc->row, widgetLoc->column, widgetLoc->subrow, widgetLoc->isVisible,
+ widgetLoc->isSelected);
+*/
+                             
+  }
 
 
 void OSGridView::deleteAll() {
@@ -293,82 +352,9 @@ void OSGridView::deleteAll() {
 
 }
 
-//void OSGridView::refreshGrid()
-//{
-//  if( m_gridController )
-//  {
-//    m_gridController->refreshModelObjects();
-
-//    for( int i = 1; i < m_gridController->rowCount(); i++ )
-//    {
-//      for( int j = 0; j < m_gridController->columnCount(); j++ )
-//      {
-//        refreshCell(i, j);
-//      }
-//    }
-//  }
-//}
-
-
-
-//void OSGridView::requestRefreshRow(int t_row)
-//{
-//  setEnabled(false);
-//
-//  m_timer.start();
-//
-//  m_queueRequests.emplace_back(RefreshRow);
-//}
-
-void OSGridView::processRequests() {
-  // std::cout << " DO REFRESH CALLED " << m_queueRequests.size() << std::endl;
-
-  if (m_queueRequests.empty()) {
-    setEnabled(true);
-    return;
-  }
-
-  // TODO: JM 2019-01-03 : Unused!
-  //bool has_add_row = false;
-  //bool has_remove_row = false;
-  //bool has_refresh_grid = false;
-  //bool has_refresh_all = false;
-
-  //for (const auto& r : m_queueRequests) {
-  //if (r == AddRow) has_add_row = true;
-  //if (r == RemoveRow) has_remove_row = true;
-  //if (r == RefreshGrid) has_refresh_grid = true;
-  //if (r == RefreshAll) has_refresh_all = true;
-  //}
-
-  m_queueRequests.clear();
-
-  //if (has_refresh_all) {
-  //  refreshAll();
-  //}
-  //else if (has_refresh_grid) {
-  //  refreshGrid(); // This now causes a crash
-  //}
-  //else if (has_add_row) {
-  //  addRow(m_rowToAdd);
-  //}
-  //else if (has_remove_row) {
-  //  removeRow(m_rowToRemove);
-  //}
-  //else {
-  //  // Should never get here
-  //  OS_ASSERT(false);
-  //}
-
-  recreateAll();  // TODO remove this and uncomment the block above for finer granularity refreshes
-  setEnabled(true);
-}
-
 void OSGridView::recreateAll() {
   setUpdatesEnabled(false);
 
-  // std::cout << " REFRESHALL CALLED " << std::endl;
-  m_queueRequests.clear();
   deleteAll();
 
   if (m_gridController) {

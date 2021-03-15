@@ -173,8 +173,6 @@ SpaceTypesGridView::SpaceTypesGridView(bool isIP, const model::Model& model, QWi
 
   QVBoxLayout* layout = nullptr;
 
-  bool isConnected = false;
-
   auto filterGridLayout = new QGridLayout();
   filterGridLayout->setContentsMargins(7, 4, 0, 8);
   filterGridLayout->setSpacing(5);
@@ -282,20 +280,16 @@ SpaceTypesGridView::SpaceTypesGridView(bool isIP, const model::Model& model, QWi
   // GridController
 
   OS_ASSERT(m_gridController);
-  isConnected = connect(m_filters, &QComboBox::currentTextChanged, m_gridController, &openstudio::SpaceTypesGridController::filterChanged);
-  OS_ASSERT(isConnected);
+  
+  connect(m_filters, &QComboBox::currentTextChanged, m_gridController, &SpaceTypesGridController::filterChanged);
 
-  isConnected = connect(gridView, SIGNAL(dropZoneItemClicked(OSItem*)), this, SIGNAL(dropZoneItemClicked(OSItem*)));
-  OS_ASSERT(isConnected);
+  connect(gridView, &OSGridView::dropZoneItemClicked, this, &SpaceTypesGridView::dropZoneItemClicked);
 
-  isConnected = connect(this, SIGNAL(selectionCleared()), gridView, SLOT(onSelectionCleared()));
-  OS_ASSERT(isConnected);
+  connect(this, &SpaceTypesGridView::selectionCleared, m_gridController, &SpaceTypesGridController::onSelectionCleared);
 
-  isConnected = connect(this, SIGNAL(toggleUnitsClicked(bool)), m_gridController, SIGNAL(toggleUnitsClicked(bool)));
-  OS_ASSERT(isConnected);
+  connect(this, &SpaceTypesGridView::toggleUnitsClicked, m_gridController, &SpaceTypesGridController::toggleUnitsClicked);
 
-  isConnected = connect(this, SIGNAL(toggleUnitsClicked(bool)), m_gridController, SLOT(toggleUnits(bool)));
-  OS_ASSERT(isConnected);
+  connect(this, &SpaceTypesGridView::toggleUnitsClicked, m_gridController, &SpaceTypesGridController::onToggleUnits);
 
   // std::vector<model::SpaceType> spaceType = model.getConcreteModelObjects<model::SpaceType>();  // NOTE for horizontal system lists
 }
@@ -411,7 +405,7 @@ SpaceTypesGridView* SpaceTypesGridController::spaceTypesGridView() {
   return spaceTypesGridView;
 }
 
-void SpaceTypesGridController::categorySelected(int index) {
+void SpaceTypesGridController::onCategorySelected(int index) {
   auto gridView = this->spaceTypesGridView();
   if (gridView) {
     if (gridView->m_filters) {
@@ -439,7 +433,7 @@ void SpaceTypesGridController::categorySelected(int index) {
     }
   }
 
-  OSGridController::categorySelected(index);
+  OSGridController::onCategorySelected(index);
 }
 
 void SpaceTypesGridController::addColumns(const QString& category, std::vector<QString>& fields) {
@@ -459,10 +453,10 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
     } else if (field == SELECTED && category != "Loads") {
       auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
       checkbox->setToolTip("Check to select all rows");
-      connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpaceTypesGridController::selectAllStateChanged);
+      connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpaceTypesGridController::onSelectAllStateChanged);
       connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpaceTypesGridController::gridRowSelectionChanged);
 
-      std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; }); 
+      std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; });
 
       addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", isLocked);
     } else if (field == LOADNAME || field == MULTIPLIER || field == DEFINITION || field == SCHEDULE || field == ACTIVITYSCHEDULE ||
@@ -1057,16 +1051,16 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
                           CastNullAdapter<model::SpaceLoad>(&model::SpaceLoad::setName),
                           boost::optional<std::function<void(model::SpaceLoad*)>>(
                           std::function<void(model::SpaceLoad*)>([](model::SpaceLoad* t_sl) { t_sl->remove(); })),
-                          boost::optional<std::function<bool(model::SpaceLoad*)>>(), 
+                          boost::optional<std::function<bool(model::SpaceLoad*)>>(),
                           boost::optional<std::function<bool(model::SpaceLoad*)>>(),
                           DataSource(allLoads, true));
 
       } else if (field == SELECTED) {
         auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
         checkbox->setToolTip("Check to select all rows");
-        connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpaceTypesGridController::selectAllStateChanged);
+        connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpaceTypesGridController::onSelectAllStateChanged);
         connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpaceTypesGridController::gridRowSelectionChanged);
-    
+
         std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; });
 
         addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", isLocked, DataSource(allLoads, true));
@@ -1156,7 +1150,7 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
         addNameLineEditColumn(Heading(QString(DEFINITION), true, false), true, false,
                               CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::name),
                               CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::setName),
-                              boost::optional<std::function<void(model::SpaceLoadDefinition*)>>(), 
+                              boost::optional<std::function<void(model::SpaceLoadDefinition*)>>(),
                               boost::optional<std::function<bool(model::SpaceLoadDefinition*)>>(),
                               boost::optional<std::function<bool(model::SpaceLoadDefinition*)>>(),
                               DataSource(allDefinitions, false,

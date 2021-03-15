@@ -32,7 +32,7 @@
 #include "OSCheckBox.hpp"
 #include "OSComboBox.hpp"
 #include "OSDoubleEdit.hpp"
-//#include "OSGridView.hpp"
+#include "OSGridView.hpp"
 #include "OSIntegerEdit.hpp"
 #include "OSLineEdit.hpp"
 #include "OSLoadNamePixmapLineEdit.hpp"
@@ -139,26 +139,62 @@ void GridCellLocation::onInFocus(bool t_inFocus, bool t_hasData) {
   emit inFocus(t_inFocus, t_hasData, row, column, subrow);
 }
 
+void GridCellLocation::onSelectionChanged(int state) {
+  emit selectionChanged(state, row, column, subrow);
+}
+
 GridCellInfo::GridCellInfo(const boost::optional<model::ModelObject>& t_modelObject, bool t_isSelector, bool t_isVisible, bool t_isSelected, bool t_isLocked, QObject* parent)
   : QObject(parent),
     modelObject(t_modelObject),
     isSelector(t_isSelector),
-    isVisible(t_isVisible),
-    isSelected(t_isSelected),
-    isLocked(t_isLocked) {}
+    m_isVisible(t_isVisible),
+    m_isSelected(t_isSelected),
+    m_isLocked(t_isLocked) {}
 
 GridCellInfo::~GridCellInfo() {}
 
-void GridCellInfo::setLocked(bool locked) {
-  if (locked) {
-    isLocked = true;
-    isSelected = false;
-  } else {
-    isLocked = false;
-  }
+bool GridCellInfo::isVisible() const {
+  return m_isVisible;
 }
 
-bool GridCellInfo::isSelectable() const { return (isSelector && isVisible && !isLocked); }
+bool GridCellInfo::setVisible(bool visible) {
+  if (m_isVisible != visible) {
+    m_isVisible = visible;
+    return true;
+  }
+  return false;
+}
+
+bool GridCellInfo::isSelectable() const {
+  return (isSelector && m_isVisible && !m_isLocked);
+}
+
+bool GridCellInfo::isSelected() const {
+  return m_isSelected;
+}
+
+bool GridCellInfo::setSelected(bool selected) {
+  if (m_isSelected != selected) {
+    m_isSelected = selected;
+    return true;
+  }
+  return false;
+}
+
+bool GridCellInfo::isLocked() const {
+  return m_isLocked;
+}
+
+bool GridCellInfo::setLocked(bool locked) {
+  if (m_isLocked != locked) {
+    m_isLocked = locked;
+    if (locked) {
+      m_isSelected = false;
+    }
+    return true;
+  }
+  return false;
+}
 
 ObjectSelector::ObjectSelector(QObject* parent) 
   : QObject(parent), m_objectFilter(getDefaultFilter()) {}
@@ -182,6 +218,11 @@ void ObjectSelector::addObject(const boost::optional<model::ModelObject>& t_obj,
 
   connect(t_holder, &Holder::inFocus, location, &GridCellLocation::onInFocus);
   connect(location, &GridCellLocation::inFocus, this, &ObjectSelector::inFocus);
+
+  if (t_isSelector) {
+    connect(t_holder, &Holder::selectionChanged, location, &GridCellLocation::onSelectionChanged);
+    connect(location, &GridCellLocation::selectionChanged, this, &ObjectSelector::onSelectionChanged);
+  }
   
   m_gridCellLocationToInfoMap.insert(std::make_pair(location, info));
 }
@@ -218,7 +259,10 @@ boost::optional<model::ModelObject> ObjectSelector::getObject(const int t_row, c
 void ObjectSelector::selectAll() {
   for (auto& locationInfoPair : m_gridCellLocationToInfoMap) {
     if (locationInfoPair.second->isSelectable()) {
-      locationInfoPair.second->isSelected = true;
+      bool changed = locationInfoPair.second->setSelected(true);
+      if (changed) {
+        emit gridCellChanged(*locationInfoPair.first, *locationInfoPair.second);
+      }
     }
   }
 }
@@ -226,14 +270,17 @@ void ObjectSelector::selectAll() {
 void ObjectSelector::clearSelection() {
   for (auto& locationInfoPair : m_gridCellLocationToInfoMap) {
     if (locationInfoPair.second->isSelector) {
-      locationInfoPair.second->isSelected = false;
+      bool changed = locationInfoPair.second->setSelected(false);
+      if (changed) {
+        emit gridCellChanged(*locationInfoPair.first, *locationInfoPair.second);
+      }
     }
   }
 }
 
 bool ObjectSelector::getObjectSelected(const model::ModelObject& t_obj) const {
   for (auto& locationInfoPair : m_gridCellLocationToInfoMap) {
-    if (locationInfoPair.second->isSelected && locationInfoPair.second->modelObject && (locationInfoPair.second->modelObject.get() == t_obj)) {
+    if (locationInfoPair.second->isSelected() && locationInfoPair.second->modelObject && (locationInfoPair.second->modelObject.get() == t_obj)) {
       return true;
     }
   }
@@ -243,7 +290,10 @@ bool ObjectSelector::getObjectSelected(const model::ModelObject& t_obj) const {
 void ObjectSelector::setObjectSelected(const model::ModelObject& t_obj, bool t_selected) {
   for (auto& locationInfoPair : m_gridCellLocationToInfoMap) {
     if (locationInfoPair.second->isSelectable() && locationInfoPair.second->modelObject && (locationInfoPair.second->modelObject.get() == t_obj)) {
-      locationInfoPair.second->isSelected = t_selected;
+      bool changed = locationInfoPair.second->setSelected(t_selected);
+      if (changed) {
+        emit gridCellChanged(*locationInfoPair.first, *locationInfoPair.second);
+      }
     }
   }
 }
@@ -261,7 +311,7 @@ std::set<model::ModelObject> ObjectSelector::selectableObjects() const {
 std::set<model::ModelObject> ObjectSelector::selectedObjects() const {
   std::set<model::ModelObject> result;
   for (auto& locationInfoPair : m_gridCellLocationToInfoMap) {
-    if (locationInfoPair.second->isSelected && locationInfoPair.second->modelObject) {
+    if (locationInfoPair.second->isSelected() && locationInfoPair.second->modelObject) {
       result.insert(locationInfoPair.second->modelObject.get());
     }
   }
@@ -270,7 +320,7 @@ std::set<model::ModelObject> ObjectSelector::selectedObjects() const {
 
 bool ObjectSelector::getObjectVisible(const model::ModelObject& t_obj) const {
   for (auto& locationInfoPair : m_gridCellLocationToInfoMap) {
-    if (locationInfoPair.second->isVisible && locationInfoPair.second->modelObject && (locationInfoPair.second->modelObject.get() == t_obj)) {
+    if (locationInfoPair.second->isVisible() && locationInfoPair.second->modelObject && (locationInfoPair.second->modelObject.get() == t_obj)) {
       return true;
     }
   }
@@ -282,7 +332,10 @@ void ObjectSelector::setObjectFilter(const std::function<bool(const model::Model
 
   for (auto& locationInfoPair : m_gridCellLocationToInfoMap) {
     if (locationInfoPair.second->modelObject) {
-      locationInfoPair.second->isVisible = m_objectFilter(locationInfoPair.second->modelObject.get());
+      bool changed = locationInfoPair.second->setVisible(m_objectFilter(locationInfoPair.second->modelObject.get()));
+      if (changed) {
+        emit gridCellChanged(*locationInfoPair.first, *locationInfoPair.second);
+      }
     }
   }
 }
@@ -293,7 +346,7 @@ void ObjectSelector::resetObjectFilter() {
 
 bool ObjectSelector::getObjectIsLocked(const model::ModelObject& t_obj) const {
   for (auto& locationInfoPair : m_gridCellLocationToInfoMap) {
-    if (locationInfoPair.second->isLocked && locationInfoPair.second->modelObject && (locationInfoPair.second->modelObject.get() == t_obj)) {
+    if (locationInfoPair.second->isLocked() && locationInfoPair.second->modelObject && (locationInfoPair.second->modelObject.get() == t_obj)) {
       return true;
     }
   }
@@ -304,10 +357,14 @@ void ObjectSelector::setObjectIsLocked(const std::function<bool(const model::Mod
   m_isLocked = t_isLocked;
 
   for (auto& locationInfoPair : m_gridCellLocationToInfoMap) {
+    bool changed;
     if (locationInfoPair.second->modelObject) {
-      locationInfoPair.second->setLocked(m_isLocked(locationInfoPair.second->modelObject.get()));
+      changed = locationInfoPair.second->setLocked(m_isLocked(locationInfoPair.second->modelObject.get()));
     } else {
-      locationInfoPair.second->setLocked(false);
+      changed = locationInfoPair.second->setLocked(false);
+    }
+    if (changed) {
+      emit gridCellChanged(*locationInfoPair.first, *locationInfoPair.second);
     }
   }
 }
@@ -320,7 +377,7 @@ void ObjectSelector::applyLocks() {
   std::set<int> rowsToLock;
   std::set<std::pair<int, int>> rowSubrowsToLock;
   for (auto& locationInfoPair : m_gridCellLocationToInfoMap) {
-    if (locationInfoPair.second->isLocked && locationInfoPair.second->isSelector) {
+    if (locationInfoPair.second->isLocked() && locationInfoPair.second->isSelector) {
       if (locationInfoPair.first->subrow) {
         rowSubrowsToLock.insert(std::make_pair(locationInfoPair.first->row, locationInfoPair.first->subrow.get()));
       } else {
@@ -332,14 +389,24 @@ void ObjectSelector::applyLocks() {
   for (auto& locationInfoPair : m_gridCellLocationToInfoMap) {
     if (locationInfoPair.first->subrow) {
       if (rowSubrowsToLock.count(std::make_pair(locationInfoPair.first->row, locationInfoPair.first->subrow.get())) > 0) {
-        locationInfoPair.second->setLocked(true);
+        bool changed = locationInfoPair.second->setLocked(true);
+        if (changed) {
+          emit gridCellChanged(*locationInfoPair.first, *locationInfoPair.second);
+        }
       }
     } else {
       if (rowsToLock.count(locationInfoPair.first->row) > 0) {
-        locationInfoPair.second->setLocked(true);
+        bool changed = locationInfoPair.second->setLocked(true);
+        if (changed) {
+          emit gridCellChanged(*locationInfoPair.first, *locationInfoPair.second);
+        }
       }
     }
   }
+}
+
+void ObjectSelector::onSelectionChanged(int state, int row, int column, boost::optional<int> subrow) {
+  // TODO: implement
 }
 
 
@@ -350,35 +417,6 @@ std::function<bool(const model::ModelObject&)> ObjectSelector::getDefaultFilter(
 std::function<bool(const model::ModelObject&)> ObjectSelector::getDefaultIsLocked() {
   return [](const model::ModelObject&) { return false; };
 }
-
-/*
-void ObjectSelector::updateWidgetsImpl(const std::set<WidgetLocation*>& widgetLocsToUpdate) {
-
-  // determine if we want to update the parent widget or the child widget
-  for (auto& widgetLoc : widgetLocsToUpdate) {
-    QWidget* widget = nullptr;
-
-    // If it isn't a subrow, we get the parent
-    if (!widgetLoc->subrow) {
-      widget = widgetLoc->holder->parentWidget();
-    } else {
-      widget = widgetLoc->holder;
-    }
-
-    if (widgetLoc->isSelector){
-      auto check = qobject_cast<QCheckBox*>(widgetLoc->holder->widget);
-      if (check) {
-        check->blockSignals(true);
-        check->setChecked(widgetLoc->isSelected);
-        check->blockSignals(false);
-      }
-    }
-
-    // style the holder wrapper
-    m_grid->setCellProperties(widget, widgetLoc->isSelector, widgetLoc->row, widgetLoc->column, widgetLoc->subrow, widgetLoc->isVisible, widgetLoc->isSelected);
-  }
-}
-*/
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -505,7 +543,7 @@ std::vector<std::pair<QString, std::vector<QString>>> OSGridController::categori
   return m_categoriesAndFields;
 }
 
-void OSGridController::categorySelected(int index) {
+void OSGridController::onCategorySelected(int index) {
   m_objectSelector->clear();
   m_currentCategoryIndex = index;
   m_selectedCellLocation = std::make_tuple(-1, -1, -1);
@@ -528,7 +566,7 @@ void OSGridController::setHorizontalHeader(QWidget* gridView) {
     m_horizontalHeaderBtnGrp->setExclusive(false);
 
     connect(m_horizontalHeaderBtnGrp, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::idClicked), this,
-            &OSGridController::horizontalHeaderChecked);
+            &OSGridController::onHorizontalHeaderChecked);
 
   } else {
     QList<QAbstractButton*> buttons = m_horizontalHeaderBtnGrp->buttons();
@@ -551,17 +589,13 @@ void OSGridController::setHorizontalHeader(QWidget* gridView) {
   checkSelectedFields();
 }
 
-QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPointer<BaseConcept>& t_baseConcept, QWidget* parent) {
+QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPointer<BaseConcept>& t_baseConcept, OSGridView* gridView) {
   QWidget* widget = nullptr;
-
-  // False positive from cppcheck here due to OS_ASSERT
-  // cppcheck-suppress unreadVariable
-  bool isConnected = false;
 
   if (QSharedPointer<CheckBoxConcept> checkBoxConcept = t_baseConcept.dynamicCast<CheckBoxConcept>()) {
 
-    // This is basically for the "Select All" column
-    auto checkBox = new OSCheckBox3(parent);  // OSCheckBox3 is derived from QCheckBox, whereas OSCheckBox2 is derived from QPushButton
+    // This is basically for a row in the "Select All" column
+    auto checkBox = new OSCheckBox3(gridView);  // OSCheckBox3 is derived from QCheckBox, whereas OSCheckBox2 is derived from QPushButton
     if (checkBoxConcept->tooltip().size()) {
       checkBox->setToolTip(checkBoxConcept->tooltip().c_str());
     }
@@ -573,17 +607,13 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
       checkBox->setLocked(true);
     }
 
-    //isConnected = connect(checkBox, SIGNAL(stateChanged(int)), parent, SLOT(refreshRow(int)));  
-    //OS_ASSERT(isConnected);
-
-    isConnected = connect(checkBox, SIGNAL(stateChanged(int)), parent, SIGNAL(gridRowSelectionChanged(int)));
-    OS_ASSERT(isConnected);
+    connect(checkBox, &OSCheckBox3::stateChanged, gridView, &OSGridView::gridRowSelectionChanged);
 
     widget = checkBox;
 
   } else if (auto checkBoxConceptBoolReturn = t_baseConcept.dynamicCast<CheckBoxConceptBoolReturn>()) {
     // This is for a proper setter **that returns a bool**, such as Ideal Air Loads column
-    auto checkBoxBoolReturn = new OSCheckBox3(parent);
+    auto checkBoxBoolReturn = new OSCheckBox3(gridView);
     if (checkBoxConceptBoolReturn->tooltip().size()) {
       checkBoxBoolReturn->setToolTip(checkBoxConceptBoolReturn->tooltip().c_str());
     }
@@ -599,12 +629,6 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
     if (checkBoxConceptBoolReturn->isLocked(t_mo)) {
       checkBoxBoolReturn->setLocked(true);
     }
-    // We don't need to refresh the whole grid, since we do not have to color the rows blue like the "Select All" checkboc
-    // isConnected = connect(checkBoxBoolReturn, SIGNAL(stateChanged(int)), gridView(), SLOT(requestRefreshGrid()));
-    // OS_ASSERT(isConnected);
-
-    // isConnected = connect(checkBoxBoolReturn, SIGNAL(stateChanged(int)), gridView(), SIGNAL(gridRowSelectionChanged(int)));
-    // OS_ASSERT(isConnected);
 
     widget = checkBoxBoolReturn;
 
@@ -612,7 +636,7 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
 
     auto choiceConcept = comboBoxConcept->choiceConcept(t_mo);
 
-    auto comboBox = new OSComboBox2(parent, choiceConcept->editable());
+    auto comboBox = new OSComboBox2(gridView, choiceConcept->editable());
     if (comboBoxConcept->hasClickFocus()) {
       comboBox->enableClickFocus();
     }
@@ -625,13 +649,9 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
 
     widget = comboBox;
 
-    // This onComboBoxIndexChanged slot does nothing
-    //isConnected = connect(comboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(onComboBoxIndexChanged(int)));
-    //OS_ASSERT(isConnected);
-
   } else if (QSharedPointer<ValueEditConcept<double>> doubleEditConcept = t_baseConcept.dynamicCast<ValueEditConcept<double>>()) {
 
-    auto doubleEdit = new OSDoubleEdit2(parent);
+    auto doubleEdit = new OSDoubleEdit2(gridView);
     if (doubleEditConcept->hasClickFocus()) {
       doubleEdit->enableClickFocus();
     }
@@ -651,7 +671,7 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
   } else if (QSharedPointer<OptionalValueEditConcept<double>> optionalDoubleEditConcept =
                t_baseConcept.dynamicCast<OptionalValueEditConcept<double>>()) {
 
-    auto optionalDoubleEdit = new OSDoubleEdit2(parent);
+    auto optionalDoubleEdit = new OSDoubleEdit2(gridView);
     if (optionalDoubleEditConcept->hasClickFocus()) {
       optionalDoubleEdit->enableClickFocus();
     }
@@ -669,7 +689,7 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
   } else if (QSharedPointer<ValueEditVoidReturnConcept<double>> doubleEditVoidReturnConcept =
                t_baseConcept.dynamicCast<ValueEditVoidReturnConcept<double>>()) {
 
-    auto doubleEditVoidReturn = new OSDoubleEdit2(parent);
+    auto doubleEditVoidReturn = new OSDoubleEdit2(gridView);
     if (doubleEditVoidReturnConcept->hasClickFocus()) {
       doubleEditVoidReturn->enableClickFocus();
     }
@@ -690,7 +710,7 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
   } else if (QSharedPointer<OptionalValueEditVoidReturnConcept<double>> optionalDoubleEditVoidReturnConcept =
                t_baseConcept.dynamicCast<OptionalValueEditVoidReturnConcept<double>>()) {
 
-    auto optionalDoubleEditVoidReturn = new OSDoubleEdit2(parent);
+    auto optionalDoubleEditVoidReturn = new OSDoubleEdit2(gridView);
     if (optionalDoubleEditVoidReturnConcept->hasClickFocus()) {
       optionalDoubleEditVoidReturn->enableClickFocus();
     }
@@ -708,7 +728,7 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
 
   } else if (QSharedPointer<ValueEditConcept<int>> integerEditConcept = t_baseConcept.dynamicCast<ValueEditConcept<int>>()) {
 
-    auto integerEdit = new OSIntegerEdit2(parent);
+    auto integerEdit = new OSIntegerEdit2(gridView);
     if (integerEditConcept->hasClickFocus()) {
       integerEdit->enableClickFocus();
     }
@@ -727,7 +747,7 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
 
   } else if (QSharedPointer<ValueEditConcept<std::string>> lineEditConcept = t_baseConcept.dynamicCast<ValueEditConcept<std::string>>()) {
 
-    auto lineEdit = new OSLineEdit2(parent);
+    auto lineEdit = new OSLineEdit2(gridView);
     if (lineEditConcept->hasClickFocus()) {
       lineEdit->enableClickFocus();
     }
@@ -741,15 +761,13 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
       lineEdit->setLocked(true);
     }
 
-    isConnected = connect(lineEdit, SIGNAL(objectRemoved(boost::optional<model::ParentObject>)), this,
-                          SLOT(onObjectRemoved(boost::optional<model::ParentObject>)));
-    OS_ASSERT(isConnected);
+    connect(lineEdit, &OSLineEdit2::objectRemoved, this, &OSGridController::onObjectRemoved);
 
     widget = lineEdit;
 
   } else if (QSharedPointer<ValueEditVoidReturnConcept<std::string>> lineEditConcept = t_baseConcept.dynamicCast<ValueEditVoidReturnConcept<std::string>>()) {
 
-    auto lineEdit = new OSLineEdit2(parent);
+    auto lineEdit = new OSLineEdit2(gridView);
     if (lineEditConcept->hasClickFocus()) {
       lineEdit->enableClickFocus();
     }
@@ -764,15 +782,13 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
       lineEdit->setLocked(true);
     }
 
-    isConnected = connect(lineEdit, SIGNAL(objectRemoved(boost::optional<model::ParentObject>)), this,
-                          SLOT(onObjectRemoved(boost::optional<model::ParentObject>)));
-    OS_ASSERT(isConnected);
+    connect(lineEdit, &OSLineEdit2::objectRemoved, this, &OSGridController::onObjectRemoved);
 
     widget = lineEdit;
 
   } else if (QSharedPointer<NameLineEditConcept> nameLineEditConcept = t_baseConcept.dynamicCast<NameLineEditConcept>()) {
 
-    OSLineEdit2Interface* nameLineEdit = nameLineEditConcept->makeWidget(parent);
+    OSLineEdit2Interface* nameLineEdit = nameLineEditConcept->makeWidget(gridView);
     if (nameLineEditConcept->hasClickFocus()) {
       nameLineEdit->enableClickFocus();
     }
@@ -793,23 +809,25 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
       nameLineEdit->setLocked(true);
     }
 
-    if (nameLineEditConcept->isInspectable()) {
-      //connect(nameLineEdit, OSLineEdit2::itemClicked, gridView(), OSGridView::dropZoneItemClicked);
-      isConnected = connect(nameLineEdit->qwidget(), SIGNAL(itemClicked(OSItem*)), parent, SIGNAL(dropZoneItemClicked(OSItem*)));
-      OS_ASSERT(isConnected);
+    widget = nameLineEdit->qwidget();
 
-      isConnected = connect(nameLineEdit->qwidget(), SIGNAL(objectRemoved(boost::optional<model::ParentObject>)), this,
-                            SLOT(onObjectRemoved(boost::optional<model::ParentObject>)));
-      OS_ASSERT(isConnected);
+    if (nameLineEditConcept->isInspectable()) {
+      if (OSLineEdit2* normalLineEdit = qobject_cast<OSLineEdit2*>(widget)) {
+        connect(normalLineEdit, &OSLineEdit2::itemClicked, gridView, &OSGridView::dropZoneItemClicked);
+        connect(normalLineEdit, &OSLineEdit2::objectRemoved, this, &OSGridController::onObjectRemoved);
+      } else if (OSLoadNamePixmapLineEdit* pixmapLineEdit = qobject_cast<OSLoadNamePixmapLineEdit*>(widget)) {
+        connect(pixmapLineEdit, &OSLoadNamePixmapLineEdit::itemClicked, gridView, &OSGridView::dropZoneItemClicked);
+        connect(pixmapLineEdit, &OSLoadNamePixmapLineEdit::objectRemoved, this, &OSGridController::onObjectRemoved);
+      }
     }
 
-    widget = nameLineEdit->qwidget();
+    
 
   } else if (QSharedPointer<QuantityEditConcept<double>> quantityEditConcept = t_baseConcept.dynamicCast<QuantityEditConcept<double>>()) {
 
     OSQuantityEdit2* quantityEdit =
       new OSQuantityEdit2(quantityEditConcept->modelUnits().toStdString().c_str(), quantityEditConcept->siUnits().toStdString().c_str(),
-                          quantityEditConcept->ipUnits().toStdString().c_str(), quantityEditConcept->isIP(), parent);
+                          quantityEditConcept->ipUnits().toStdString().c_str(), quantityEditConcept->isIP(), gridView);
     if (quantityEditConcept->hasClickFocus()) {
       quantityEdit->enableClickFocus();
     }
@@ -825,8 +843,7 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
       quantityEdit->setLocked(true);
     }
 
-    isConnected = connect(this, SIGNAL(toggleUnitsClicked(bool)), quantityEdit, SLOT(onUnitSystemChange(bool)));
-    OS_ASSERT(isConnected);
+    connect(this, &OSGridController::toggleUnitsClicked, quantityEdit, &OSQuantityEdit2::onUnitSystemChange);
 
     widget = quantityEdit;
 
@@ -835,7 +852,7 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
 
     OSQuantityEdit2* optionalQuantityEdit = new OSQuantityEdit2(
       optionalQuantityEditConcept->modelUnits().toStdString().c_str(), optionalQuantityEditConcept->siUnits().toStdString().c_str(),
-      optionalQuantityEditConcept->ipUnits().toStdString().c_str(), optionalQuantityEditConcept->isIP(), parent);
+      optionalQuantityEditConcept->ipUnits().toStdString().c_str(), optionalQuantityEditConcept->isIP(), gridView);
     if (optionalQuantityEditConcept->hasClickFocus()) {
       optionalQuantityEdit->enableClickFocus();
     }
@@ -849,8 +866,7 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
       optionalQuantityEdit->setLocked(true);
     }
 
-    isConnected = connect(this, SIGNAL(toggleUnitsClicked(bool)), optionalQuantityEdit, SLOT(onUnitSystemChange(bool)));
-    OS_ASSERT(isConnected);
+    connect(this, &OSGridController::toggleUnitsClicked, optionalQuantityEdit, &OSQuantityEdit2::onUnitSystemChange);
 
     widget = optionalQuantityEdit;
 
@@ -859,7 +875,7 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
 
     OSQuantityEdit2* quantityEditVoidReturn = new OSQuantityEdit2(
       quantityEditVoidReturnConcept->modelUnits().toStdString().c_str(), quantityEditVoidReturnConcept->siUnits().toStdString().c_str(),
-      quantityEditVoidReturnConcept->ipUnits().toStdString().c_str(), quantityEditVoidReturnConcept->isIP(), parent);
+      quantityEditVoidReturnConcept->ipUnits().toStdString().c_str(), quantityEditVoidReturnConcept->isIP(), gridView);
     if (quantityEditVoidReturnConcept->hasClickFocus()) {
       quantityEditVoidReturn->enableClickFocus();
     }
@@ -876,8 +892,7 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
       quantityEditVoidReturn->setLocked(true);
     }
 
-    isConnected = connect(this, SIGNAL(toggleUnitsClicked(bool)), quantityEditVoidReturn, SLOT(onUnitSystemChange(bool)));
-    OS_ASSERT(isConnected);
+    connect(this, &OSGridController::toggleUnitsClicked, quantityEditVoidReturn, &OSQuantityEdit2::onUnitSystemChange);
 
     widget = quantityEditVoidReturn;
 
@@ -887,7 +902,7 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
     OSQuantityEdit2* optionalQuantityEditVoidReturn = new OSQuantityEdit2(optionalQuantityEditVoidReturnConcept->modelUnits().toStdString().c_str(),
                                                                           optionalQuantityEditVoidReturnConcept->siUnits().toStdString().c_str(),
                                                                           optionalQuantityEditVoidReturnConcept->ipUnits().toStdString().c_str(),
-                                                                          optionalQuantityEditVoidReturnConcept->isIP(), parent);
+                                                                          optionalQuantityEditVoidReturnConcept->isIP(), gridView);
     if (optionalQuantityEditVoidReturnConcept->hasClickFocus()) {
       optionalQuantityEditVoidReturn->enableClickFocus();
     }
@@ -902,14 +917,13 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
       optionalQuantityEditVoidReturn->setLocked(true);
     }
 
-    isConnected = connect(this, SIGNAL(toggleUnitsClicked(bool)), optionalQuantityEditVoidReturn, SLOT(onUnitSystemChange(bool)));
-    OS_ASSERT(isConnected);
+    connect(this, &OSGridController::toggleUnitsClicked, optionalQuantityEditVoidReturn, &OSQuantityEdit2::onUnitSystemChange);
 
     widget = optionalQuantityEditVoidReturn;
 
   } else if (QSharedPointer<ValueEditConcept<unsigned>> unsignedEditConcept = t_baseConcept.dynamicCast<ValueEditConcept<unsigned>>()) {
 
-    auto unsignedEdit = new OSUnsignedEdit2(parent);
+    auto unsignedEdit = new OSUnsignedEdit2(gridView);
     if (unsignedEditConcept->hasClickFocus()) {
       unsignedEdit->enableClickFocus();
     }
@@ -943,17 +957,14 @@ QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPoin
     }
 
     //connect(dropZone, OSDropZone2::itemClicked, gridView(), OSGridView::dropZoneItemClicked);
-    isConnected = connect(dropZone, SIGNAL(itemClicked(OSItem*)), parent, SIGNAL(dropZoneItemClicked(OSItem*)));
-    OS_ASSERT(isConnected);
+    connect(dropZone, &OSDropZone2::itemClicked, gridView, &OSGridView::dropZoneItemClicked);
 
-    isConnected = connect(dropZone, SIGNAL(objectRemoved(boost::optional<model::ParentObject>)), this,
-                          SLOT(onObjectRemoved(boost::optional<model::ParentObject>)));
-    OS_ASSERT(isConnected);
+    connect(dropZone, &OSDropZone2::objectRemoved, this, &OSGridController::onObjectRemoved);
 
     widget = dropZone;
 
   } else if (QSharedPointer<RenderingColorConcept> renderingColorConcept = t_baseConcept.dynamicCast<RenderingColorConcept>()) {
-    auto renderingColorWidget = new RenderingColorWidget2(parent);
+    auto renderingColorWidget = new RenderingColorWidget2(gridView);
 
     renderingColorWidget->bind(t_mo, OptionalModelObjectGetter(std::bind(&RenderingColorConcept::get, renderingColorConcept.data(), t_mo)),
                                ModelObjectSetter(std::bind(&RenderingColorConcept::set, renderingColorConcept.data(), t_mo, std::placeholders::_1)));
@@ -1125,43 +1136,8 @@ void OSGridController::resetConceptValue(model::ModelObject t_resetMO, const QSh
   }
 }
 
-QString OSGridController::cellStyle() {
-  const static QString style = 
-  "QWidget#TableCell[selected=\"true\"]{ border: none; background-color: #94b3de; border-top: 1px solid black;  border-right: 1px solid black; border-bottom: 1px solid black;}"
-  "QWidget#TableCell[selected=\"false\"][even=\"true\"] { border: none; background-color: #ededed; border-top: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;}"
-  "QWidget#TableCell[selected=\"false\"][even=\"false\"] { border: none; background-color: #cecece; border-top: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;}";
 
-  return style;
-}
-
-void OSGridController::setCellProperties(QWidget* wrapper, bool isSelector, int rowIndex, int columnIndex,
-                                         boost::optional<int> subrow, bool isVisible, bool isSelected) {
-  bool isEven = ((rowIndex % 2) == 0);
-  bool isChanged = false;
-
-  wrapper->setVisible(isVisible);
-
-  QVariant currentSelected = wrapper->property("selected");
-  if (currentSelected.isNull() || currentSelected.toBool() != isSelected) {
-    wrapper->setProperty("selected", isSelected);
-    isChanged = true;
-  }
-
-  QVariant currentEven = wrapper->property("even");
-  if (currentEven.isNull() || currentEven.toBool() != isSelected) {
-    wrapper->setProperty("even", isEven);
-    isChanged = true;
-  }  
-
-  if (isChanged) {
-    wrapper->style()->unpolish(wrapper);
-    wrapper->style()->polish(wrapper);
-  }
-
-}
-
-
-QWidget* OSGridController::createWidget(int row, int column, QWidget* parent) {
+QWidget* OSGridController::createWidget(int row, int column, OSGridView* gridView) {
   OS_ASSERT(row >= 0);
   OS_ASSERT(column >= 0);
 
@@ -1179,14 +1155,15 @@ QWidget* OSGridController::createWidget(int row, int column, QWidget* parent) {
   const bool isSelector = false;
   const bool isVisible = true;
   const bool isSelected = false;
+  const bool isLocked = false;
   bool hasSubRows = false;
 
   // wrapper - this is the thing that will be returned by this method.  The outermost widget that forms a gridview cell.
   // May contain sub rows.
-  auto wrapper = new QWidget(parent);
+  auto wrapper = new QWidget(gridView);
   wrapper->setObjectName("TableCell");
-  setCellProperties(wrapper, isSelector, row, column, boost::none, isVisible, isSelected);
-  wrapper->setStyleSheet(this->cellStyle());
+  gridView->setCellProperties(wrapper, isSelector, row, column, boost::none, isVisible, isSelected, isLocked);
+  wrapper->setStyleSheet(gridView->cellStyle());
   layout->setSpacing(0);
   layout->setVerticalSpacing(0);
   layout->setHorizontalSpacing(0);
@@ -1207,7 +1184,7 @@ QWidget* OSGridController::createWidget(int row, int column, QWidget* parent) {
   ///////////////////////////////////////////////////////////////////////////////////////
   auto addWidgetLambda = [&](QWidget* t_widget, const boost::optional<model::ModelObject>& t_obj, const bool t_isSelector) {
 
-    auto holder = new Holder(parent);
+    auto holder = new Holder(gridView);
     holder->setMinimumHeight(widgetHeight);
     auto l = new QVBoxLayout();
     l->setAlignment(Qt::AlignCenter);
@@ -1253,8 +1230,9 @@ QWidget* OSGridController::createWidget(int row, int column, QWidget* parent) {
     } else if (HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(t_widget)) {
       connect(horizontalHeaderWidget, &HorizontalHeaderWidget::inFocus, holder, &Holder::inFocus);
     } else if (OSCheckBox3* checkBox = qobject_cast<OSCheckBox3*>(t_widget)) {
-      // If it's not the "Select All" column, we connect the inFocus method
-      if (column > 1) {
+      if (t_isSelector) {
+        connect(checkBox, &OSCheckBox3::stateChanged, holder, &Holder::selectionChanged);
+      }else{
         connect(checkBox, &OSCheckBox3::inFocus, holder, &Holder::inFocus);
       }
     }
@@ -1269,7 +1247,7 @@ QWidget* OSGridController::createWidget(int row, int column, QWidget* parent) {
 
   if (m_hasHorizontalHeader && row == 0) {
     if (column == 0) {
-      setHorizontalHeader(parent);
+      setHorizontalHeader(gridView);
       // Each concept should have its own column
       OS_ASSERT(m_horizontalHeaders.size() == m_baseConcepts.size());
     }
@@ -1317,9 +1295,9 @@ QWidget* OSGridController::createWidget(int row, int column, QWidget* parent) {
             innerConcept->setBaseLocked(isLocked);
           }
       
-          addWidgetLambda(makeWidget(mo, innerConcept, parent), mo, isSelector);
+          addWidgetLambda(makeWidget(mo, innerConcept, gridView), mo, isSelector);
         } else {
-          addWidgetLambda(new QWidget(parent), boost::none, false);
+          addWidgetLambda(new QWidget(gridView), boost::none, false);
         }
         subrowCounter++;
       }
@@ -1327,14 +1305,14 @@ QWidget* OSGridController::createWidget(int row, int column, QWidget* parent) {
       if (dataSource->source().wantsPlaceholder()) {
         // use this space to put in a blank placeholder of some kind to make sure the
         // widget is evenly laid out relative to its friends in the adjacent columns
-        addWidgetLambda(new QWidget(parent), boost::none, false);
+        addWidgetLambda(new QWidget(gridView), boost::none, false);
       }
 
       if (dataSource->source().dropZoneConcept()) {
         // it makes sense to me that the drop zone would need a reference to the parent containing object
         // not an object the rest in the list was derived from
         // this should also be working and doing what you want
-        addWidgetLambda(makeWidget(mo, dataSource->source().dropZoneConcept(), parent), boost::none, false);
+        addWidgetLambda(makeWidget(mo, dataSource->source().dropZoneConcept(), gridView), boost::none, false);
       }
 
       // right here you probably want some kind of container that's smart enough to know how to grow
@@ -1346,7 +1324,7 @@ QWidget* OSGridController::createWidget(int row, int column, QWidget* parent) {
       // This case is exactly what it used to do before the DataSource idea was added.
 
       // just the one
-      addWidgetLambda(makeWidget(mo, baseConcept, parent), mo, baseConcept->isSelector());
+      addWidgetLambda(makeWidget(mo, baseConcept, gridView), mo, baseConcept->isSelector());
     }
   }
 
@@ -1458,7 +1436,7 @@ void OSGridController::selectRow(int rowIndex, bool select) {
   }
 }
 */
-void OSGridController::horizontalHeaderChecked(int index) {
+void OSGridController::onHorizontalHeaderChecked(int index) {
   // Push_back or erase the field from the user-selected fields
   auto checkBox = qobject_cast<QAbstractButton*>(m_horizontalHeaderBtnGrp->button(index));
   OS_ASSERT(checkBox);
@@ -1584,7 +1562,9 @@ void OSGridController::disconnectFromModel() {
     this);
 }
 
-void OSGridController::onSelectionCleared() {}
+void OSGridController::onSelectionCleared() {
+  m_objectSelector->clearSelection();
+}
 
 void OSGridController::onRemoveWorkspaceObject(const WorkspaceObject& object, const openstudio::IddObjectType& iddObjectType,
                                                const openstudio::UUID& handle) {
@@ -1606,7 +1586,7 @@ void OSGridController::onObjectRemoved(boost::optional<model::ParentObject> pare
 
 }
 
-void OSGridController::selectAllStateChanged(const int newState) const {
+void OSGridController::onSelectAllStateChanged(const int newState) const {
   LOG(Debug, "Select all state changed: " << newState);
 
   if (newState == 0) {
@@ -1687,11 +1667,11 @@ void OSGridController::onInFocus(bool inFocus, bool hasData, int row, int column
 
     m_applyToButtonStates.push_back(std::make_pair(column, inFocus && hasData));
 
-    QTimer::singleShot(0, this, SLOT(setApplyButtonState()));
+    QTimer::singleShot(0, this, &OSGridController::onSetApplyButtonState);
   }
 }
 
-void OSGridController::setApplyButtonState() {
+void OSGridController::onSetApplyButtonState() {
   for (auto pair : m_applyToButtonStates) {
     HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeaders.at(pair.first));
     OS_ASSERT(horizontalHeaderWidget);

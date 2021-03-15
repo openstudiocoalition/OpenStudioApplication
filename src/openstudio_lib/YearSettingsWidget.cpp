@@ -293,7 +293,7 @@ void YearSettingsWidget::onWorkspaceObjectRemove(std::shared_ptr<openstudio::det
 void YearSettingsWidget::scheduleRefresh() {
   m_dirty = true;
 
-  QTimer::singleShot(0, this, SLOT(refresh()));
+  QTimer::singleShot(0, this, &YearSettingsWidget::refresh);
 }
 
 void YearSettingsWidget::refresh() {

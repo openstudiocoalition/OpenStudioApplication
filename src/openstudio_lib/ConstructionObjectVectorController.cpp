@@ -60,7 +60,7 @@ ConstructionObjectVectorController::~ConstructionObjectVectorController() {
 void ConstructionObjectVectorController::reportItemsLater() {
   m_reportScheduled = true;
 
-  QTimer::singleShot(0, this, SLOT(reportItems()));
+  QTimer::singleShot(0, this, &ConstructionObjectVectorController::reportItems);
 }
 
 void ConstructionObjectVectorController::reportItems() {

@@ -159,6 +159,8 @@ class MODELEDITOR_API InspectorDialog : public QMainWindow, public Nano::Observe
   void onRemoveWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl, const openstudio::IddObjectType& type,
                                const openstudio::UUID& uuid);
 
+  void onNeedsSetFocus();
+ 
  private:
   QListWidget* m_listWidget;
   QStackedWidget* m_stackedWidget;

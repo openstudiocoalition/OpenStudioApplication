@@ -171,8 +171,7 @@ void OSListView::insertItemView(int i) {
   m_widgetItemPairs.insert(std::make_pair(itemView, itemData));
 
   // For some reason, this needs to use the old-style connect on mac (exiting OS app crash)
-  bool isConnected = connect(itemView, SIGNAL(destroyed(QObject*)), this, SLOT(removePair(QObject*)));
-  OS_ASSERT(isConnected);
+  connect(itemView, &QWidget::destroyed, this, &OSListView::removePair);
 }
 
 void OSListView::removeItemView(int i) {

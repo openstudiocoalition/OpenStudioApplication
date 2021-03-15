@@ -443,7 +443,7 @@ void HVACSystemsController::update() {
 void HVACSystemsController::updateLater() {
   m_dirty = true;
 
-  QTimer::singleShot(0, this, SLOT(update()));
+  QTimer::singleShot(0, this, &HVACSystemsController::update);
 }
 
 HVACSystemsView* HVACSystemsController::hvacSystemsView() const {
@@ -1519,7 +1519,7 @@ void HVACControlsController::onUnitaryHeatPumpControlZoneChanged(int index) {
 void HVACControlsController::updateLater() {
   m_dirty = true;
 
-  QTimer::singleShot(0, this, SLOT(update()));
+  QTimer::singleShot(0, this, &HVACControlsController::update);
 }
 
 HVACLayoutController::HVACLayoutController(HVACSystemsController* hvacSystemsController)
@@ -1645,7 +1645,7 @@ void HVACLayoutController::update() {
 void HVACLayoutController::updateLater() {
   m_dirty = true;
 
-  QTimer::singleShot(0, this, SLOT(update()));
+  QTimer::singleShot(0, this, &HVACLayoutController::update);
 }
 
 SystemAvailabilityVectorController::SystemAvailabilityVectorController()
@@ -1690,7 +1690,7 @@ void SystemAvailabilityVectorController::detach() {
 void SystemAvailabilityVectorController::reportItemsLater() {
   m_reportScheduled = true;
 
-  QTimer::singleShot(0, this, SLOT(reportItems()));
+  QTimer::singleShot(0, this, &SystemAvailabilityVectorController::reportItems);
 }
 
 void SystemAvailabilityVectorController::reportItems() {
@@ -1792,7 +1792,7 @@ void SupplyAirTempScheduleVectorController::detach() {
 void SupplyAirTempScheduleVectorController::reportItemsLater() {
   m_reportScheduled = true;
 
-  QTimer::singleShot(0, this, SLOT(reportItems()));
+  QTimer::singleShot(0, this, &SupplyAirTempScheduleVectorController::reportItems);
 }
 
 void SupplyAirTempScheduleVectorController::reportItems() {
@@ -1903,7 +1903,7 @@ void AvailabilityManagerObjectVectorController::detach() {
 void AvailabilityManagerObjectVectorController::reportItemsLater() {
   m_reportScheduled = true;
 
-  QTimer::singleShot(0, this, SLOT(reportItems()));
+  QTimer::singleShot(0, this, &AvailabilityManagerObjectVectorController::reportItems);
 }
 
 void AvailabilityManagerObjectVectorController::reportItems() {

@@ -101,7 +101,7 @@ OSItemList::OSItemList(OSVectorController* vectorController, bool addScrollArea,
   connect(vectorController, &OSVectorController::selectedItemId, this, &OSItemList::selectItemId);
 
   // allow time for OSDocument to finish constructing
-  QTimer::singleShot(0, vectorController, SLOT(reportItems()));
+  QTimer::singleShot(0, vectorController, &OSVectorController::reportItems);
 }
 
 OSItem* OSItemList::selectedItem() const {
@@ -207,7 +207,7 @@ void OSItemList::setItemIds(const std::vector<OSItemId>& itemIds) {
   selectItem(firstItem());
 
   m_dirty = true;
-  QTimer::singleShot(0, this, SLOT(refresh()));
+  QTimer::singleShot(0, this, &OSItemList::refresh);
 }
 
 void OSItemList::refresh() {
@@ -238,7 +238,7 @@ void OSItemList::addItem(OSItem* item, bool selectItem) {
   }
 
   m_dirty = true;
-  QTimer::singleShot(0, this, SLOT(refresh()));
+  QTimer::singleShot(0, this, &OSItemList::refresh);
 }
 
 void OSItemList::selectItem(OSItem* selectItem) {

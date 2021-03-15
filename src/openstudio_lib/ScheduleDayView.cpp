@@ -615,7 +615,7 @@ ScheduleDayEditor::ScheduleDayEditor(bool isIP, ScheduleDayView* scheduleDayView
   //  &model::detail::ScheduleTypeLimits_Impl::onChange, this, &ScheduleDayEditor::scheduleRefresh);
 
   connect(this, &ScheduleDayEditor::changeVerticalAxisClicked, m_scheduleDayView->schedulesView(), &SchedulesView::changeVerticalAxisClicked);
-  QTimer::singleShot(0, this, SLOT(fitInView()));
+  QTimer::singleShot(0, this, &ScheduleDayEditor::fitInView);
 }
 
 void ScheduleDayEditor::setLabelText(bool isIP) {
@@ -1286,7 +1286,7 @@ DayScheduleOverview::DayScheduleOverview(ScheduleDayView* scheduleRuleView) : QW
 
   m_focusRectangle->setStyleSheet("QWidget { border: 1px solid black; }");
 
-  QTimer::singleShot(0, this, SLOT(fitInView()));
+  QTimer::singleShot(0, this, &DayScheduleOverview::fitInView);
 
   updateFocusRectangleGeometry();
 
@@ -1743,7 +1743,7 @@ model::ScheduleDay DayScheduleScene::scheduleDay() const {
 void DayScheduleScene::scheduleRefresh() {
   m_dirty = true;
 
-  QTimer::singleShot(0, this, SLOT(refresh()));
+  QTimer::singleShot(0, this, &DayScheduleScene::refresh);
 }
 
 void DayScheduleScene::refresh() {

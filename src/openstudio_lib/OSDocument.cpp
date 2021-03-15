@@ -175,8 +175,6 @@ OSDocument::OSDocument(const openstudio::model::Model& library, const openstudio
   }
   m_modelTempDir = toQString(modelTempDir);
 
-  bool isConnected;
-
   m_verticalId = 0;
   m_subTabIds = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
   // Make sure that the vector is the same size as the number of tabs
@@ -210,7 +208,7 @@ OSDocument::OSDocument(const openstudio::model::Model& library, const openstudio
   connect(m_mainWindow, &MainWindow::saveAsFileClicked, this, &OSDocument::saveAs);
   connect(m_mainWindow, &MainWindow::saveFileClicked, this, &OSDocument::save);
   // Using old-style connect here to avoid including OpenStudioApp files
-  isConnected = connect(m_mainWindow, SIGNAL(revertFileClicked()), OSAppBase::instance(), SLOT(revertToSaved()));
+  auto isConnected = connect(m_mainWindow, SIGNAL(revertFileClicked()), OSAppBase::instance(), SLOT(revertToSaved()));
   OS_ASSERT(isConnected);
   connect(m_mainWindow, &MainWindow::scanForToolsClicked, this, &OSDocument::scanForTools);
   connect(m_mainWindow, &MainWindow::showRunManagerPreferencesClicked, this, &OSDocument::showRunManagerPreferences);
@@ -223,10 +221,10 @@ OSDocument::OSDocument(const openstudio::model::Model& library, const openstudio
   connect(this, &OSDocument::openLibDlgClicked, this, &OSDocument::openLibDlg);
 
   // update window path after the dialog is shown
-  QTimer::singleShot(0, this, SLOT(updateWindowFilePath()));
+  QTimer::singleShot(0, this, &OSDocument::updateWindowFilePath);
 
   if (initalizeWorkflow) {
-    QTimer::singleShot(0, this, SLOT(addStandardMeasures()));
+    QTimer::singleShot(0, this, &OSDocument::addStandardMeasures);
   }
 
   if (startTabIndex != m_verticalId) {
@@ -316,7 +314,7 @@ void OSDocument::setModel(const model::Model& model, bool modified, bool saveCur
     modified = true;
 
     // connect to slot that would show user error dialog
-    QTimer::singleShot(0, this, SLOT(weatherFileReset()));
+    QTimer::singleShot(0, this, &OSDocument::weatherFileReset);
   }
 
   m_model.getImpl<model::detail::Model_Impl>().get()->addWorkspaceObjectPtr.connect<OSAppBase, &OSAppBase::addWorkspaceObjectPtr>(
@@ -339,9 +337,9 @@ void OSDocument::setModel(const model::Model& model, bool modified, bool saveCur
   // Main Vertical Tabs
 
   if (modified) {
-    QTimer::singleShot(0, this, SLOT(markAsModified()));
+    QTimer::singleShot(0, this, &OSDocument::markAsModified);
   } else {
-    QTimer::singleShot(0, this, SLOT(markAsUnmodified()));
+    QTimer::singleShot(0, this, &OSDocument::markAsUnmodified);
   }
 
   // There are (at least) two situations where setModel
@@ -357,12 +355,12 @@ void OSDocument::setModel(const model::Model& model, bool modified, bool saveCur
     onVerticalTabSelected(m_verticalId);
   }
 
-  QTimer::singleShot(0, this, SLOT(initializeModel()));
+  QTimer::singleShot(0, this, &OSDocument::initializeModel);
 
   app->waitDialog()->setVisible(false);
   m_mainWindow->setVisible(wasVisible);
 
-  QTimer::singleShot(0, this, SLOT(showStartTabAndStartSubTab()));
+  QTimer::singleShot(0, this, &OSDocument::showStartTabAndStartSubTab);
 }
 
 void OSDocument::weatherFileReset() {
@@ -1017,7 +1015,7 @@ bool OSDocument::fixWeatherFileInTemp(bool opening) {
 
     // not yet listening to model signals
     if (opening) {
-      QTimer::singleShot(0, this, SLOT(markAsModified()));
+      QTimer::singleShot(0, this, &OSDocument::markAsModified);
     }
 
     return false;
@@ -1064,7 +1062,7 @@ bool OSDocument::fixWeatherFileInTemp(bool opening) {
 
       // not yet listening to model signals
       if (opening) {
-        QTimer::singleShot(0, this, SLOT(markAsModified()));
+        QTimer::singleShot(0, this, &OSDocument::markAsModified);
       }
 
       return false;
@@ -1081,7 +1079,7 @@ bool OSDocument::fixWeatherFileInTemp(bool opening) {
 
     // not yet listening to model signals
     if (opening) {
-      QTimer::singleShot(0, this, SLOT(markAsModified()));
+      QTimer::singleShot(0, this, &OSDocument::markAsModified);
     }
 
   } catch (...) {
@@ -1090,7 +1088,7 @@ bool OSDocument::fixWeatherFileInTemp(bool opening) {
 
     // not yet listening to model signals
     if (opening) {
-      QTimer::singleShot(0, this, SLOT(markAsModified()));
+      QTimer::singleShot(0, this, &OSDocument::markAsModified);
     }
 
     if (doCopy) {

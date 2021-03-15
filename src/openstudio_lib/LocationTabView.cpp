@@ -745,7 +745,7 @@ void LocationView::onDesignDayBtnClicked() {
       }
     }
 
-    QTimer::singleShot(0, this, SLOT(checkNumDesignDays()));
+    QTimer::singleShot(0, this, &LocationView::checkNumDesignDays);
   }
 }
 

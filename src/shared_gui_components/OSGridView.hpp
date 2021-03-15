@@ -75,6 +75,10 @@ class OSGridView : public QWidget
 
   void addSpacingToContentLayout(int spacing);
 
+  QString cellStyle();
+
+  void setCellProperties(QWidget* wrapper, bool isSelector, int row, int column, boost::optional<int> subrow, bool isVisible, bool isSelected, bool isLocked);
+
  protected:
 
   virtual void hideEvent(QHideEvent* event) override;
@@ -83,10 +87,8 @@ class OSGridView : public QWidget
 
  signals:
 
-  // emitted when this drop zone is clicked, goes down to controller
   void dropZoneItemClicked(OSItem* item);
 
-  // emitted when the selection changes, goes up to parent
   void gridRowSelectionChanged();
 
  public slots:
@@ -95,23 +97,14 @@ class OSGridView : public QWidget
 
   //void requestAddRow(int row);
 
-  void onRequestRecreateAll();
+  void onRecreateAll();
 
-  void onCellUpdated(const GridCellLocation& location, const GridCellInfo& info);
-
- private slots:
-
-  void processRequests();
+  void onGridCellChanged(const GridCellLocation& location, const GridCellInfo& info);
 
  private:
   
   // For testing
   friend class OpenStudioLibFixture;
-
-  enum QueueType
-  {
-    RecreateAll
-  };
 
   // uses the OSGridController to create the widget for row, column
   void createWidget(int row, int column);
@@ -140,14 +133,6 @@ class OSGridView : public QWidget
   OSCollapsibleView* m_collapsibleView;
 
   OSGridController* m_gridController;
-
-  std::vector<QueueType> m_queueRequests;
-
-  QTimer m_timer;
-
-  int m_rowToAdd = -1;
-
-  int m_rowToRemove = -1;
 };
 
 }  // namespace openstudio
