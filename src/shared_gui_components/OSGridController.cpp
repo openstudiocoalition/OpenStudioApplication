@@ -202,7 +202,14 @@ ObjectSelector::ObjectSelector(QObject* parent)
 ObjectSelector::~ObjectSelector() {}
 
 void ObjectSelector::clear() {
-  m_gridCellLocationToInfoMap.clear();
+
+  auto it = m_gridCellLocationToInfoMap.begin();
+  while (it != m_gridCellLocationToInfoMap.end()) {
+    delete it->first;
+    delete it->second;
+    it = m_gridCellLocationToInfoMap.erase(it);
+  }
+
   m_objectFilter = getDefaultFilter();
   m_isLocked = getDefaultIsLocked();
 }
@@ -231,6 +238,8 @@ void ObjectSelector::removeObject(const openstudio::model::ModelObject& t_obj) {
   auto it = m_gridCellLocationToInfoMap.begin();
   while (it != m_gridCellLocationToInfoMap.end()) {
     if (it->second->modelObject && (it->second->modelObject.get() == t_obj)) {
+      delete it->first;
+      delete it->second;
       it = m_gridCellLocationToInfoMap.erase(it);
     } else {
       ++it;
@@ -453,6 +462,7 @@ OSGridController::OSGridController(bool isIP, const QString& headerText, IddObje
 }
 
 OSGridController::~OSGridController() {
+  disconnectFromModelSignals();
   saveQSettings();
 }
 
@@ -1546,17 +1556,13 @@ OSItem* OSGridController::getSelectedItemFromModelSubTabView() {
   return item;
 }
 */
-void OSGridController::connectToModel() {
+void OSGridController::connectToModelSignals() {
   m_model.getImpl<model::detail::Model_Impl>().get()->addWorkspaceObject.connect<OSGridController, &OSGridController::onAddWorkspaceObject>(this);
   m_model.getImpl<model::detail::Model_Impl>().get()->removeWorkspaceObject.connect<OSGridController, &OSGridController::onRemoveWorkspaceObject>(
     this);
-
-  refreshModelObjects();
-
-  emit recreateAll();
 }
 
-void OSGridController::disconnectFromModel() {
+void OSGridController::disconnectFromModelSignals() {
   m_model.getImpl<model::detail::Model_Impl>().get()->addWorkspaceObject.disconnect<OSGridController, &OSGridController::onAddWorkspaceObject>(this);
   m_model.getImpl<model::detail::Model_Impl>().get()->removeWorkspaceObject.disconnect<OSGridController, &OSGridController::onRemoveWorkspaceObject>(
     this);
@@ -1568,18 +1574,25 @@ void OSGridController::onSelectionCleared() {
 
 void OSGridController::onRemoveWorkspaceObject(const WorkspaceObject& object, const openstudio::IddObjectType& iddObjectType,
                                                const openstudio::UUID& handle) {
-  // TODO: fix this
-  refreshModelObjects();
+  if (iddObjectType == m_iddObjectType) {
+    
+    // TODO: disable, lock, hide the row for this object
+    // if extra special, re-adjust the even/odd pattern 
+    refreshModelObjects();
 
-  emit recreateAll();
+    emit recreateAll();
+  }
 }
 
 void OSGridController::onAddWorkspaceObject(const WorkspaceObject& object, const openstudio::IddObjectType& iddObjectType,
                                             const openstudio::UUID& handle) {
-  // TODO: fix this
-  refreshModelObjects();
+  if (iddObjectType == m_iddObjectType) {
+    
+    // TODO: just stick object at the end and ask for a new row
+    refreshModelObjects();
 
-  emit recreateAll();
+    emit recreateAll();
+  }
 }
 
 void OSGridController::onObjectRemoved(boost::optional<model::ParentObject> parent) {
@@ -1642,9 +1655,6 @@ void OSGridController::onInFocus(bool inFocus, bool hasData, int row, int column
       // Should never get here
       OS_ASSERT(false);
     }
-
-    // Now refresh
-    emit recreateAll();  // TODO this is heavy handed; each cell should update itself
 
   } else {
     HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeaders.at(column));

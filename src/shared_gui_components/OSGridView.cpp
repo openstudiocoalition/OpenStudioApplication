@@ -79,7 +79,7 @@ QGridLayout* OSGridView::makeGridLayout() {
 }
 
 OSGridView::OSGridView(OSGridController* gridController, const QString& headerText, const QString& dropZoneText, bool useHeader, QWidget* parent)
-  : QWidget(parent), m_dropZone(nullptr), m_contentLayout(nullptr), m_collapsibleView(nullptr), m_gridController(gridController) {
+  : QWidget(parent), m_dropZone(nullptr), m_contentLayout(nullptr), m_gridLayout(nullptr), m_collapsibleView(nullptr), m_gridController(gridController) {
 
   // We use the headerText as the object name, will help in indentifying objects for any warnings
   setObjectName(headerText);
@@ -157,22 +157,22 @@ OSGridView::OSGridView(OSGridController* gridController, const QString& headerTe
   m_contentLayout->addLayout(buttonLayout);
   widget->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Fixed);
 
-  m_gridLayout = makeGridLayout();
-  m_contentLayout->addLayout(m_gridLayout);
-
   // Make the first button checked by default
   QVector<QAbstractButton*> buttons = buttonGroup->buttons().toVector();
   if (buttons.size() > 0) {
     QPushButton* button = qobject_cast<QPushButton*>(buttons.at(0));
     OS_ASSERT(button);
     button->setChecked(true);
-    m_gridController->onCategorySelected(0);
+    m_gridController->blockSignals(true);
+    m_gridController->onCategorySelected(0); // would normally trigger refreshAll
+    m_gridController->blockSignals(false);
   }
+
+  QTimer::singleShot(0, this, &OSGridView::recreateAll);
 }
 
 OSGridView::~OSGridView()
 {
-  bool test = false;
 };
 
 /*
@@ -355,6 +355,12 @@ void OSGridView::deleteAll() {
 void OSGridView::recreateAll() {
   setUpdatesEnabled(false);
 
+  if (!m_gridLayout) {
+    // create grid layout here so it is underneath the filters or other things added by concreate gridviews in m_contentLayout
+    m_gridLayout = makeGridLayout();
+    m_contentLayout->addLayout(m_gridLayout);
+  }
+
   deleteAll();
 
   if (m_gridController) {
@@ -449,13 +455,13 @@ ModelSubTabView* OSGridView::modelSubTabView() {
 }
 */
 void OSGridView::hideEvent(QHideEvent* event) {
-  m_gridController->disconnectFromModel();
+  m_gridController->disconnectFromModelSignals();
 
   QWidget::hideEvent(event);
 }
 
 void OSGridView::showEvent(QShowEvent* event) {
-  m_gridController->connectToModel();
+  m_gridController->connectToModelSignals();
 
   QWidget::showEvent(event);
 }

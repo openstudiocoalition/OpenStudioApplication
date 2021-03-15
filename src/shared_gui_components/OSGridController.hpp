@@ -598,9 +598,9 @@ public:
   // Call this function on a model update
   virtual void refreshModelObjects() = 0;
 
-  void connectToModel();
+  void connectToModelSignals();
 
-  void disconnectFromModel();
+  void disconnectFromModelSignals();
 
   model::Model& model();
 
