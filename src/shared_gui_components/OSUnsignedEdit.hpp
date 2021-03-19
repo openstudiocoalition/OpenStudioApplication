@@ -104,6 +104,8 @@ class OSUnsignedEdit2 : public QLineEdit
  private:
 
   bool defaulted() const;
+  bool autosized() const;
+  bool autocalculated() const;
   void updateStyle();
 
   boost::optional<model::ModelObject> m_modelObject;                    // will be set if attached to ModelObject or ModelExtensibleGroup

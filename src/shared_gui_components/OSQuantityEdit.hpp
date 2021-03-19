@@ -61,8 +61,6 @@ class QuantityLineEdit : public QLineEdit
 
   void setLocked(bool locked);
 
-  void updateStyle();
-
  protected:
   virtual void focusInEvent(QFocusEvent* e) override;
 

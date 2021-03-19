@@ -164,23 +164,24 @@ class GridCellLocation : public QObject
   Q_OBJECT;
 
  public:
-  GridCellLocation(int t_row, int t_column, boost::optional<int> t_subrow, QObject* parent);
+  GridCellLocation(int t_modelRow, int t_gridRow, int t_column, boost::optional<int> t_subrow, QObject* parent);
 
   virtual ~GridCellLocation();
 
-  const int row;
+  const int modelRow;
+  const int gridRow;
   const int column;
   const boost::optional<int> subrow;
 
-  bool equal(int t_row, int t_column, boost::optional<int> t_subrow) const;
+  bool equal(int t_modelRow, int t_gridRow, int t_column, boost::optional<int> t_subrow) const;
   bool operator==(const GridCellLocation& other) const;
   bool operator<(const GridCellLocation& other) const;
 
  signals:
   
-  void inFocus(bool inFocus, bool hasData, int row, int column, boost::optional<int> subrow);
+  void inFocus(bool inFocus, bool hasData, int modelRow, int gridRow, int column, boost::optional<int> subrow);
 
-  void selectionChanged(int state, int row, int column, boost::optional<int> subrow);
+  void selectionChanged(int state, int modelRow, int gridRow, int column, boost::optional<int> subrow);
 
  public slots:
  
@@ -239,7 +240,7 @@ class ObjectSelector : public QObject
   void clear();
 
   // Adds object to the internal maps
-  void addObject(const boost::optional<model::ModelObject>& t_obj, Holder* t_holder, int t_row, int t_column, const boost::optional<int>& t_subrow, bool t_isSelector);
+  void addObject(const boost::optional<model::ModelObject>& t_obj, Holder* t_holder, int t_modelRow, int t_gridRow, int t_column, const boost::optional<int>& t_subrow, bool t_isSelector);
 
   // Remove an object from all rows and subrows
   void removeObject(const openstudio::model::ModelObject& t_obj);
@@ -248,7 +249,7 @@ class ObjectSelector : public QObject
   bool containsObject(const openstudio::model::ModelObject& t_obj) const;
 
   // Get object at given location
-  boost::optional<model::ModelObject> getObject(const int t_row, const int t_column, const boost::optional<int>& t_subrow) const;
+  boost::optional<model::ModelObject> getObject(const int t_modelRow, const int t_gridRow, const int t_column, const boost::optional<int>& t_subrow) const;
 
   // Get GridCellInfo at given location
   GridCellInfo* getGridCellInfo(const int t_row, const int t_column, const boost::optional<int>& t_subrow) const;
@@ -294,7 +295,7 @@ class ObjectSelector : public QObject
 
 signals:
 
-  void inFocus(bool inFocus, bool hasData, int row, int column, boost::optional<int> subrow);
+  void inFocus(bool inFocus, bool hasData, int modelRow, int gridRow, int column, boost::optional<int> subrow);
 
   void gridCellChanged(const GridCellLocation& location, const GridCellInfo& info);
 
@@ -582,18 +583,19 @@ public:
 
   virtual int columnCount() const;
 
-  model::ModelObject modelObject(int rowIndex);
+  model::ModelObject modelObjectFromGridRow(int gridRow);
 
-  //virtual std::vector<QWidget*> row(int rowIndex);
+  //virtual std::vector<QWidget*> row(int gridRow);
 
-  //void selectRow(int rowIndex, bool select);
+  //void selectRow(int gridRow, bool select);
 
-  int rowIndexFromModelIndex(int modelIndex);
+  int gridRowFromModelRow(int modelRow);
+  int modelRowFromGridRow(int gridRow);
 
   // Return a new widget at a "top level" row and column specified by arguments.
   // There might be sub rows within the specified location.
   // In that case a QWidget with sub rows (inner grid layout) will be returned.
-  QWidget* createWidget(int row, int column, OSGridView* gridView);
+  QWidget* createWidget(int gridRow, int column, OSGridView* gridView);
 
   // Call this function on a model update
   virtual void refreshModelObjects() = 0;
@@ -716,7 +718,7 @@ public:
 
   OSItem* getSelectedItemFromModelSubTabView();
 
-  bool getRowIndexByItem(OSItem* item, int& rowIndex);
+  bool getgridRowByItem(OSItem* item, int& gridRow);
 
   void setConceptValue(model::ModelObject t_setterMO, model::ModelObject t_getterMO, const QSharedPointer<BaseConcept>& t_baseConcept);
 
@@ -763,7 +765,7 @@ public:
 
   void onSelectionCleared();
 
-  void onInFocus(bool inFocus, bool hasData, int row, int column, boost::optional<int> subrow);
+  void onInFocus(bool inFocus, bool hasData, int modelRow, int gridRow, int column, boost::optional<int> subrow);
 
  protected slots:
 

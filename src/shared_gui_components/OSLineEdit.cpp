@@ -51,6 +51,8 @@
 #include <QString>
 #include <QStyle>
 
+#include <bitset>
+
 #if !(_DEBUG || (__GNUC__ && !NDEBUG))
 #  define TIMEOUT_INTERVAL 500
 #else
@@ -64,16 +66,16 @@ OSLineEdit2::OSLineEdit2(QWidget* parent) : QLineEdit(parent) {
   this->setAcceptDrops(false);
   setEnabled(false);
 
-  this->setProperty("defaulted", false);
-  this->setProperty("focused", false);
-  this->setStyleSheet("QLineEdit[defaulted=\"true\"][focused=\"true\"] { color:green; background:#ffc627; } "
-                      "QLineEdit[defaulted=\"true\"][focused=\"false\"] { color:green; background:white; } "
-                      "QLineEdit[defaulted=\"false\"][focused=\"true\"] { color:black; background:#ffc627; } "
-                      "QLineEdit[defaulted=\"false\"][focused=\"false\"] { color:black; background:white; } "
-                      "QLineEdit:read-only[defaulted=\"true\"][focused=\"true\"] { color:green; background:#ffc627; } "
-                      "QLineEdit:read-only[defaulted=\"true\"][focused=\"false\"] { color:green; background:#e6e6e6; } "
-                      "QLineEdit:read-only[defaulted=\"false\"][focused=\"true\"] { color:black; background:#ffc627; } "
-                      "QLineEdit:read-only[defaulted=\"false\"][focused=\"false\"] { color:black; background:#e6e6e6; } ");
+  // if multiple qss rules apply with same specificity then the last one is chosen
+  this->setStyleSheet("QLineEdit[style=\"000\"] { color:black; background:white;   } "  // Locked=0, Focused=0, Defaulted=0
+                      "QLineEdit[style=\"001\"] { color:green; background:white;   } "  // Locked=0, Focused=0, Defaulted=1
+                      "QLineEdit[style=\"010\"] { color:black; background:#ffc627; } "  // Locked=0, Focused=1, Defaulted=0
+                      "QLineEdit[style=\"011\"] { color:green; background:#ffc627; } "  // Locked=0, Focused=1, Defaulted=1
+                      "QLineEdit[style=\"100\"] { color:black; background:#e6e6e6; } "  // Locked=1, Focused=0, Defaulted=0
+                      "QLineEdit[style=\"101\"] { color:green; background:#e6e6e6; } "  // Locked=1, Focused=0, Defaulted=1
+                      "QLineEdit[style=\"110\"] { color:black; background:#e6e6e6; } "  // Locked=1, Focused=1, Defaulted=0
+                      "QLineEdit[style=\"111\"] { color:green; background:#e6e6e6; } "  // Locked=1, Focused=1, Defaulted=1
+  );
 }
 
 OSLineEdit2::~OSLineEdit2() {}
@@ -205,7 +207,7 @@ void OSLineEdit2::unbind() {
     m_isDefaulted.reset();
     m_isLocked.reset();
     m_item = nullptr;
-    setEnabled(false);
+    setLocked(true);
   }
 }
 
@@ -255,8 +257,19 @@ void OSLineEdit2::adjustWidth() {
 }
 
 void OSLineEdit2::updateStyle() {
-  this->style()->unpolish(this);
-  this->style()->polish(this);
+  // Locked, Focused, Defaulted
+  std::bitset<3> style;
+  style[0] = defaulted();
+  style[1] = hasFocus();
+  style[2] = isReadOnly();
+  QString thisStyle = QString::fromStdString(style.to_string());
+
+  QVariant currentStyle = property("style");
+  if (currentStyle.isNull() || currentStyle.toString() != thisStyle) {
+    this->setProperty("style", thisStyle);
+    this->style()->unpolish(this);
+    this->style()->polish(this);
+  }
 }
 
 bool OSLineEdit2::deleteable() const {
@@ -295,13 +308,6 @@ void OSLineEdit2::onModelObjectChangeInternal(bool startingup) {
       OS_ASSERT(false);
     }
   
-    bool thisDefaulted = defaulted();
-    QVariant currentDefaulted = this->property("defaulted");
-    if (currentDefaulted.isNull() || currentDefaulted.toBool() != thisDefaulted) {
-      this->setProperty("defaulted", thisDefaulted);
-      updateStyle();
-    }
-
     std::string text;
     if (value) {
       text = *value;
@@ -309,6 +315,7 @@ void OSLineEdit2::onModelObjectChangeInternal(bool startingup) {
         m_text = text;
         this->blockSignals(true);
         this->setText(QString::fromStdString(m_text));
+        updateStyle();
         this->blockSignals(false);
         if (!startingup) m_timer.start(TIMEOUT_INTERVAL);
       }
@@ -358,7 +365,6 @@ void OSLineEdit2::onItemRemoveClicked() {
 
 void OSLineEdit2::focusInEvent(QFocusEvent* e) {
   if (e->reason() == Qt::MouseFocusReason && m_hasClickFocus) {
-    this->setProperty("focused", true);
     updateStyle();
 
     emit inFocus(true, hasData());
@@ -369,7 +375,6 @@ void OSLineEdit2::focusInEvent(QFocusEvent* e) {
 
 void OSLineEdit2::focusOutEvent(QFocusEvent* e) {
   if (e->reason() == Qt::MouseFocusReason && m_hasClickFocus) {
-    this->setProperty("focused", false);
     updateStyle();
 
     emit inFocus(false, false);

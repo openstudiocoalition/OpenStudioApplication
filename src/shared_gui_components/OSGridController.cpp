@@ -87,27 +87,28 @@ namespace openstudio {
 
 const std::vector<QColor> OSGridController::m_colors = SchedulesView::initializeColors();
 
-GridCellLocation::GridCellLocation(int t_row, int t_column, boost::optional<int> t_subrow, QObject* parent)
-  : QObject(parent),
-    row(t_row),
+GridCellLocation::GridCellLocation(int t_modelRow, int m_gridRow, int t_column, boost::optional<int> t_subrow, QObject* parent)
+  : QObject(parent), 
+    modelRow(t_modelRow), 
+    gridRow(m_gridRow),
     column(t_column),
     subrow(t_subrow)
 {}
 
 GridCellLocation::~GridCellLocation() {}
 
-bool GridCellLocation::equal(int t_row, int t_column, boost::optional<int> t_subrow) const {
-  return (row == t_row) && (column == t_column) && (subrow == t_subrow);
+bool GridCellLocation::equal(int t_modelRow, int m_gridRow, int t_column, boost::optional<int> t_subrow) const {
+  return (modelRow == t_modelRow) && (gridRow == m_gridRow) && (column == t_column) && (subrow == t_subrow);
 }
 
 bool GridCellLocation::operator==(const GridCellLocation& other) const {
-  return equal(other.row, other.column, other.subrow);
+  return equal(other.modelRow, other.gridRow, other.column, other.subrow);
 }
 
 bool GridCellLocation::operator<(const GridCellLocation& other) const {
-  if (row < other.row) {
+  if (gridRow < other.gridRow) {
     return true;
-  } else if (row > other.row) {
+  } else if (gridRow > other.gridRow) {
     return false;
   }
 
@@ -136,11 +137,11 @@ bool GridCellLocation::operator<(const GridCellLocation& other) const {
 }
 
 void GridCellLocation::onInFocus(bool t_inFocus, bool t_hasData) {
-  emit inFocus(t_inFocus, t_hasData, row, column, subrow);
+  emit inFocus(t_inFocus, t_hasData, modelRow, gridRow, column, subrow);
 }
 
 void GridCellLocation::onSelectionChanged(int state) {
-  emit selectionChanged(state, row, column, subrow);
+  emit selectionChanged(state, modelRow, gridRow, column, subrow);
 }
 
 GridCellInfo::GridCellInfo(const boost::optional<model::ModelObject>& t_modelObject, bool t_isSelector, bool t_isVisible, bool t_isSelected, bool t_isLocked, QObject* parent)
@@ -166,7 +167,7 @@ bool GridCellInfo::setVisible(bool visible) {
 }
 
 bool GridCellInfo::isSelectable() const {
-  return (isSelector && m_isVisible && !m_isLocked);
+  return (m_isVisible && !m_isLocked);
 }
 
 bool GridCellInfo::isSelected() const {
@@ -214,14 +215,14 @@ void ObjectSelector::clear() {
   m_isLocked = getDefaultIsLocked();
 }
 
-void ObjectSelector::addObject(const boost::optional<model::ModelObject>& t_obj, Holder* t_holder, int t_row, int t_column,
+void ObjectSelector::addObject(const boost::optional<model::ModelObject>& t_obj, Holder* t_holder, int t_modelRow, int t_gridRow, int t_column,
                                const boost::optional<int>& t_subrow, const bool t_isSelector) {
 
   const bool isVisible = true;
   const bool isSelected = false;
   const bool isLocked = false;
   GridCellInfo* info = new GridCellInfo(t_obj, t_isSelector, isVisible, isSelected, isLocked, this);
-  GridCellLocation* location = new GridCellLocation(t_row, t_column, t_subrow, this);
+  GridCellLocation* location = new GridCellLocation(t_modelRow, t_gridRow, t_column, t_subrow, this);
 
   connect(t_holder, &Holder::inFocus, location, &GridCellLocation::onInFocus);
   connect(location, &GridCellLocation::inFocus, this, &ObjectSelector::inFocus);
@@ -256,9 +257,9 @@ bool ObjectSelector::containsObject(const openstudio::model::ModelObject& t_obj)
   return false;
 }
 
-boost::optional<model::ModelObject> ObjectSelector::getObject(const int t_row, const int t_column, const boost::optional<int>& t_subrow) const {
+boost::optional<model::ModelObject> ObjectSelector::getObject(const int t_modelRow, const int t_gridRow, const int t_column, const boost::optional<int>& t_subrow) const {
   for (const auto& locationInfoPair : m_gridCellLocationToInfoMap) {
-    if (locationInfoPair.first->equal(t_row, t_column, t_subrow)) {
+    if (locationInfoPair.first->equal(t_modelRow, t_gridRow, t_column, t_subrow)) {
       return locationInfoPair.second->modelObject;
     }
   }
@@ -267,7 +268,7 @@ boost::optional<model::ModelObject> ObjectSelector::getObject(const int t_row, c
 
 void ObjectSelector::selectAll() {
   for (auto& locationInfoPair : m_gridCellLocationToInfoMap) {
-    if (locationInfoPair.second->isSelectable()) {
+    if (locationInfoPair.first->modelRow >= 0 && locationInfoPair.second->isSelectable()) {
       bool changed = locationInfoPair.second->setSelected(true);
       if (changed) {
         emit gridCellChanged(*locationInfoPair.first, *locationInfoPair.second);
@@ -278,7 +279,7 @@ void ObjectSelector::selectAll() {
 
 void ObjectSelector::clearSelection() {
   for (auto& locationInfoPair : m_gridCellLocationToInfoMap) {
-    if (locationInfoPair.second->isSelector) {
+    if (locationInfoPair.first->modelRow >= 0 && locationInfoPair.second->isSelectable()) {
       bool changed = locationInfoPair.second->setSelected(false);
       if (changed) {
         emit gridCellChanged(*locationInfoPair.first, *locationInfoPair.second);
@@ -383,28 +384,28 @@ void ObjectSelector::resetObjectIsLocked() {
 }
 
 void ObjectSelector::applyLocks() {
-  std::set<int> rowsToLock;
-  std::set<std::pair<int, int>> rowSubrowsToLock;
+  std::set<int> gridRowsToLock;
+  std::set<std::pair<int, int>> gridRowSubrowsToLock;
   for (auto& locationInfoPair : m_gridCellLocationToInfoMap) {
     if (locationInfoPair.second->isLocked() && locationInfoPair.second->isSelector) {
       if (locationInfoPair.first->subrow) {
-        rowSubrowsToLock.insert(std::make_pair(locationInfoPair.first->row, locationInfoPair.first->subrow.get()));
+        gridRowSubrowsToLock.insert(std::make_pair(locationInfoPair.first->gridRow, locationInfoPair.first->subrow.get()));
       } else {
-        rowsToLock.insert(locationInfoPair.first->row);
+        gridRowsToLock.insert(locationInfoPair.first->gridRow);
       }
     }
   }
 
   for (auto& locationInfoPair : m_gridCellLocationToInfoMap) {
     if (locationInfoPair.first->subrow) {
-      if (rowSubrowsToLock.count(std::make_pair(locationInfoPair.first->row, locationInfoPair.first->subrow.get())) > 0) {
+      if (gridRowSubrowsToLock.count(std::make_pair(locationInfoPair.first->gridRow, locationInfoPair.first->subrow.get())) > 0) {
         bool changed = locationInfoPair.second->setLocked(true);
         if (changed) {
           emit gridCellChanged(*locationInfoPair.first, *locationInfoPair.second);
         }
       }
     } else {
-      if (rowsToLock.count(locationInfoPair.first->row) > 0) {
+      if (gridRowsToLock.count(locationInfoPair.first->gridRow) > 0) {
         bool changed = locationInfoPair.second->setLocked(true);
         if (changed) {
           emit gridCellChanged(*locationInfoPair.first, *locationInfoPair.second);
@@ -459,6 +460,7 @@ OSGridController::OSGridController(bool isIP, const QString& headerText, IddObje
 
   connect(m_objectSelector.get(), &ObjectSelector::inFocus, this, &OSGridController::onInFocus);
   connect(m_objectSelector.get(), &ObjectSelector::gridRowSelectionChanged, this, &OSGridController::gridRowSelectionChanged);
+  connect(m_objectSelector.get(), &ObjectSelector::gridCellChanged, this, &OSGridController::gridCellChanged);
 }
 
 OSGridController::~OSGridController() {
@@ -1147,14 +1149,14 @@ void OSGridController::resetConceptValue(model::ModelObject t_resetMO, const QSh
 }
 
 
-QWidget* OSGridController::createWidget(int row, int column, OSGridView* gridView) {
-  OS_ASSERT(row >= 0);
+QWidget* OSGridController::createWidget(int gridRow, int column, OSGridView* gridView) {
+  OS_ASSERT(gridRow >= 0);
   OS_ASSERT(column >= 0);
 
   // Note: If there is a horizontal header row,  m_modelObjects[0] starts on gridLayout[1]
-  int modelObjectRow = m_hasHorizontalHeader ? row - 1 : row;
+  int modelRow = modelRowFromGridRow(gridRow); //m_hasHorizontalHeader ? gridRow - 1 : gridRow;
 
-  OS_ASSERT(static_cast<int>(m_modelObjects.size()) > modelObjectRow);
+  OS_ASSERT(static_cast<int>(m_modelObjects.size()) > modelRow);
   OS_ASSERT(static_cast<int>(m_baseConcepts.size()) > column);
 
   auto layout = new QGridLayout();
@@ -1172,7 +1174,7 @@ QWidget* OSGridController::createWidget(int row, int column, OSGridView* gridVie
   // May contain sub rows.
   auto wrapper = new QWidget(gridView);
   wrapper->setObjectName("TableCell");
-  gridView->setCellProperties(wrapper, isSelector, row, column, boost::none, isVisible, isSelected, isLocked);
+  gridView->setCellProperties(wrapper, isSelector, gridRow, column, boost::none, isVisible, isSelected, isLocked);
   wrapper->setStyleSheet(gridView->cellStyle());
   layout->setSpacing(0);
   layout->setVerticalSpacing(0);
@@ -1247,7 +1249,7 @@ QWidget* OSGridController::createWidget(int row, int column, OSGridView* gridVie
       }
     }
 
-    m_objectSelector->addObject(t_obj, holder, row, column, hasSubRows ? numWidgets : boost::optional<int>(), t_isSelector);
+    m_objectSelector->addObject(t_obj, holder, modelRow, gridRow, column, hasSubRows ? numWidgets : boost::optional<int>(), t_isSelector);
 
     ++numWidgets;
   };  
@@ -1255,7 +1257,7 @@ QWidget* OSGridController::createWidget(int row, int column, OSGridView* gridVie
   // End of lambda
   ///////////////////////////////////////////////////////////////////////////////////////
 
-  if (m_hasHorizontalHeader && row == 0) {
+  if (m_hasHorizontalHeader && gridRow == 0) {
     if (column == 0) {
       setHorizontalHeader(gridView);
       // Each concept should have its own column
@@ -1277,7 +1279,7 @@ QWidget* OSGridController::createWidget(int row, int column, OSGridView* gridVie
     horizontalHeaderWidget->addWidget(heading.widget());
   } else {
 
-    model::ModelObject mo = m_modelObjects[modelObjectRow];
+    model::ModelObject mo = m_modelObjects[modelRow];
 
     //cellColor = getColor(mo);  TODO
 
@@ -1395,10 +1397,10 @@ int OSGridController::columnCount() const {
   return m_baseConcepts.size();
 }
 /*
-QWidget* OSGridController::cell(int rowIndex, int columnIndex) {
+QWidget* OSGridController::cell(int gridRow, int columnIndex) {
   QWidget* widget = nullptr;
 
-  QLayoutItem* child = gridView()->itemAtPosition(rowIndex, columnIndex);
+  QLayoutItem* child = gridView()->itemAtPosition(gridRow, columnIndex);
   if (child) {
     widget = child->widget();
   }
@@ -1406,35 +1408,37 @@ QWidget* OSGridController::cell(int rowIndex, int columnIndex) {
   return widget;
 }
 */
-model::ModelObject OSGridController::modelObject(int rowIndex) {
-  if (m_hasHorizontalHeader) {
-    OS_ASSERT(rowIndex > 0);
-    return m_modelObjects.at(rowIndex - 1);
-  } else {
-    return m_modelObjects.at(rowIndex);
-  }
+model::ModelObject OSGridController::modelObjectFromGridRow(int gridRow) {
+  return m_modelObjects.at(modelRowFromGridRow(gridRow));
 }
 
-int OSGridController::rowIndexFromModelIndex(int modelIndex) {
+int OSGridController::gridRowFromModelRow(int modelRow) {
   if (m_hasHorizontalHeader) {
-    return modelIndex + 1;
-  } else {
-    return modelIndex;
-  }
+    return modelRow + 1;
+  } 
+  return modelRow;
 }
+
+int OSGridController::modelRowFromGridRow(int gridRow) {
+  if (m_hasHorizontalHeader) {
+    return gridRow - 1;
+  }
+  return gridRow;
+}
+
 /*
-std::vector<QWidget*> OSGridController::row(int rowIndex) {
+std::vector<QWidget*> OSGridController::row(int gridRow) {
   std::vector<QWidget*> row;
 
   for (unsigned columnIndex = 0; columnIndex < m_currentFields.size(); columnIndex++) {
-    row.push_back(cell(rowIndex, columnIndex));
+    row.push_back(cell(gridRow, columnIndex));
   }
 
   return row;
 }
 
-void OSGridController::selectRow(int rowIndex, bool select) {
-  std::vector<QWidget*> row = this->row(rowIndex);
+void OSGridController::selectRow(int gridRow, bool select) {
+  std::vector<QWidget*> row = this->row(gridRow);
   for (auto widget : row) {
     auto button = qobject_cast<QPushButton*>(widget);
     if (!button) {
@@ -1478,7 +1482,7 @@ void OSGridController::onComboBoxIndexChanged(int index) {}
 //  for (auto modelObject : m_modelObjects){
 //    OSItemId itemId = modelObjectToItemId(modelObject, false);
 //    if (item->itemId() == itemId){
-//      selectRow(rowIndexFromModelIndex(i), isSelected);
+//      selectRow(gridRowFromModelIndex(i), isSelected);
 //      success = true;
 //      break;
 //    }
@@ -1487,12 +1491,12 @@ void OSGridController::onComboBoxIndexChanged(int index) {}
 //  return success;
 //}
 
-bool OSGridController::getRowIndexByItem(OSItem* item, int& rowIndex) {
+bool OSGridController::getgridRowByItem(OSItem* item, int& gridRow) {
   auto success = false;
-  rowIndex = -1;
+  gridRow = -1;
 
   for (auto modelObject : m_modelObjects) {
-    rowIndex++;
+    gridRow++;
     OSItemId itemId = modelObjectToItemId(modelObject, false);
     if (item->itemId() == itemId) {
       success = true;
@@ -1503,7 +1507,7 @@ bool OSGridController::getRowIndexByItem(OSItem* item, int& rowIndex) {
   if (!success) {
     // At this point, none of the itemIds exactly matched,
     // let's try to match a subset.
-    rowIndex = -1;
+    gridRow = -1;
 
     QString handle(""), handle2("");
     QStringList strings = item->itemId().otherData().split(",");
@@ -1516,7 +1520,7 @@ bool OSGridController::getRowIndexByItem(OSItem* item, int& rowIndex) {
     }
 
     for (auto modelObject : m_modelObjects) {
-      rowIndex++;
+      gridRow++;
       OSItemId itemId = modelObjectToItemId(modelObject, false);
       strings = itemId.otherData().split(",");
       if (strings.size() > 2) {
@@ -1536,10 +1540,10 @@ bool OSGridController::getRowIndexByItem(OSItem* item, int& rowIndex) {
 
   if (success) {
     // We found the model index and must convert it to the row index
-    rowIndex = rowIndexFromModelIndex(rowIndex);
+    gridRow = gridRowFromModelRow(gridRow);
   } else {
     // We could never find a valid index
-    rowIndex = -1;
+    gridRow = -1;
   }
 
   return success;
@@ -1609,17 +1613,18 @@ void OSGridController::onSelectAllStateChanged(const int newState) const {
   }
 }
 
-void OSGridController::onInFocus(bool inFocus, bool hasData, int row, int column, boost::optional<int> subrow) {
+void OSGridController::onInFocus(bool inFocus, bool hasData, int modelRow, int gridRow, int column, boost::optional<int> subrow) {
 
   // First thing to do is to check if row is 0, because that means that the apply button was clicked
-  if (row == 0 && this->m_hasHorizontalHeader) {
+  if (gridRow == 0 && this->m_hasHorizontalHeader) {
     // Do great things
-    auto selectedRow = std::get<0>(m_selectedCellLocation);
+    auto selectedGridRow = std::get<0>(m_selectedCellLocation);
+    auto selectedModelRow = modelRowFromGridRow(selectedGridRow);
     auto selectedColumn = std::get<1>(m_selectedCellLocation);
     auto selectedSubrow = std::get<2>(m_selectedCellLocation);
     OS_ASSERT(selectedColumn == column);
 
-    m_selectedCellLocation = std::make_tuple(row, column, subrow);
+    m_selectedCellLocation = std::make_tuple(gridRow, column, subrow);
 
     std::set<model::ModelObject> selectedObjects = this->m_objectSelector->selectedObjects();
 
@@ -1628,7 +1633,7 @@ void OSGridController::onInFocus(bool inFocus, bool hasData, int row, int column
       // Sub rows present, either in a widget, or in a row
       const DataSource& source = dataSource->source();
       QSharedPointer<BaseConcept> dropZoneConcept = source.dropZoneConcept();
-      boost::optional<model::ModelObject> object = this->m_objectSelector->getObject(selectedRow, selectedColumn, selectedSubrow);
+      boost::optional<model::ModelObject> object = this->m_objectSelector->getObject(selectedModelRow, selectedGridRow, selectedColumn, selectedSubrow);
       if (object) {
         for (auto modelObject : selectedObjects) {
           // Don't set the chosen object when iterating through the selected objects
@@ -1647,8 +1652,8 @@ void OSGridController::onInFocus(bool inFocus, bool hasData, int row, int column
     } else if (!selectedSubrow) {
       for (auto modelObject : selectedObjects) {
         // Don't set the chosen object when iterating through the selected objects
-        if (modelObject != this->modelObject(selectedRow)) {
-          setConceptValue(modelObject, this->modelObject(selectedRow), m_baseConcepts[column]);
+        if (modelObject != this->modelObjectFromGridRow(selectedGridRow)) {
+          setConceptValue(modelObject, this->modelObjectFromGridRow(selectedGridRow), m_baseConcepts[column]);
         }
       }
     } else {
@@ -1663,7 +1668,7 @@ void OSGridController::onInFocus(bool inFocus, bool hasData, int row, int column
     OS_ASSERT(button);
 
     if (inFocus) {
-      m_selectedCellLocation = std::make_tuple(row, column, subrow);
+      m_selectedCellLocation = std::make_tuple(gridRow, column, subrow);
 
       // if (hasData) {
       button->setText("Apply to Selected");

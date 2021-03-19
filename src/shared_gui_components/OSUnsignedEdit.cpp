@@ -36,11 +36,12 @@
 #include <openstudio/utilities/core/Assert.hpp>
 #include <openstudio/utilities/core/Containers.hpp>
 
-#include <iomanip>
-
 #include <QFocusEvent>
 #include <QIntValidator>
 #include <QStyle>
+
+#include <bitset>
+#include <iomanip>
 
 using openstudio::model::ModelObject;
 
@@ -58,16 +59,24 @@ OSUnsignedEdit2::OSUnsignedEdit2(QWidget* parent)
   m_intValidator->setBottom(0);
   //this->setValidator(m_intValidator);
 
-  this->setProperty("defaulted", false);
-  this->setProperty("focused", false);
-  this->setStyleSheet("QLineEdit[defaulted=\"true\"][focused=\"true\"] { color:green; background:#ffc627; } "
-                      "QLineEdit[defaulted=\"true\"][focused=\"false\"] { color:green; background:white; } "
-                      "QLineEdit[defaulted=\"false\"][focused=\"true\"] { color:black; background:#ffc627; } "
-                      "QLineEdit[defaulted=\"false\"][focused=\"false\"] { color:black; background:white; } "
-                      "QLineEdit:read-only[defaulted=\"true\"][focused=\"true\"] { color:green; background:#ffc627; } "
-                      "QLineEdit:read-only[defaulted=\"true\"][focused=\"false\"] { color:green; background:#e6e6e6; } "
-                      "QLineEdit:read-only[defaulted=\"false\"][focused=\"true\"] { color:black; background:#ffc627; } "
-                      "QLineEdit:read-only[defaulted=\"false\"][focused=\"false\"] { color:black; background:#e6e6e6; } ");
+  // if multiple qss rules apply with same specificity then the last one is chosen
+  this->setStyleSheet("QLineEdit[style=\"0000\"] { color:black; background:white;   } "  // Locked=0, Focused=0, Auto=0, Defaulted=0
+                      "QLineEdit[style=\"0001\"] { color:green; background:white;   } "  // Locked=0, Focused=0, Auto=0, Defaulted=1
+                      "QLineEdit[style=\"0010\"] { color:grey;  background:white;   } "  // Locked=0, Focused=0, Auto=1, Defaulted=0
+                      "QLineEdit[style=\"0011\"] { color:grey;  background:white;   } "  // Locked=0, Focused=0, Auto=1, Defaulted=1
+                      "QLineEdit[style=\"0100\"] { color:black; background:#ffc627; } "  // Locked=0, Focused=1, Auto=0, Defaulted=0
+                      "QLineEdit[style=\"0101\"] { color:green; background:#ffc627; } "  // Locked=0, Focused=1, Auto=0, Defaulted=1
+                      "QLineEdit[style=\"0110\"] { color:grey;  background:#ffc627; } "  // Locked=0, Focused=1, Auto=1, Defaulted=0
+                      "QLineEdit[style=\"0111\"] { color:grey;  background:#ffc627; } "  // Locked=0, Focused=1, Auto=1, Defaulted=1
+                      "QLineEdit[style=\"1000\"] { color:black; background:#e6e6e6; } "  // Locked=1, Focused=0, Auto=0, Defaulted=0
+                      "QLineEdit[style=\"1001\"] { color:green; background:#e6e6e6; } "  // Locked=1, Focused=0, Auto=0, Defaulted=1
+                      "QLineEdit[style=\"1010\"] { color:grey;  background:#e6e6e6; } "  // Locked=1, Focused=0, Auto=1, Defaulted=0
+                      "QLineEdit[style=\"1011\"] { color:grey;  background:#e6e6e6; } "  // Locked=1, Focused=0, Auto=1, Defaulted=1
+                      "QLineEdit[style=\"1100\"] { color:black; background:#e6e6e6; } "  // Locked=1, Focused=1, Auto=0, Defaulted=0
+                      "QLineEdit[style=\"1101\"] { color:green; background:#e6e6e6; } "  // Locked=1, Focused=1, Auto=0, Defaulted=1
+                      "QLineEdit[style=\"1110\"] { color:grey;  background:#e6e6e6; } "  // Locked=1, Focused=1, Auto=1, Defaulted=0
+                      "QLineEdit[style=\"1111\"] { color:grey;  background:#e6e6e6; } "  // Locked=1, Focused=1, Auto=1, Defaulted=1
+  );
 }
 
 OSUnsignedEdit2::~OSUnsignedEdit2() {}
@@ -199,7 +208,7 @@ void OSUnsignedEdit2::unbind() {
     m_isDefaulted.reset();
     m_isAutosized.reset();
     m_isAutocalculated.reset();
-    setEnabled(false);
+    setLocked(true);
   }
 }
 
@@ -300,9 +309,37 @@ bool OSUnsignedEdit2::defaulted() const {
   return result;
 }
 
+bool OSUnsignedEdit2::autosized() const {
+  bool result = false;
+  if (m_isAutosized) {
+    result = (*m_isAutosized)();
+  }
+  return result;
+}
+
+bool OSUnsignedEdit2::autocalculated() const {
+  bool result = false;
+  if (m_isAutocalculated) {
+    result = (*m_isAutocalculated)();
+  }
+  return result;
+}
+
 void OSUnsignedEdit2::updateStyle() {
-  this->style()->unpolish(this);
-  this->style()->polish(this);
+  // Locked, Focused, Auto, Defaulted
+  std::bitset<4> style;
+  style[0] = defaulted();
+  style[1] = autosized() || autocalculated();
+  style[2] = hasFocus();
+  style[3] = isReadOnly();
+  QString thisStyle = QString::fromStdString(style.to_string());
+
+  QVariant currentStyle = property("style");
+  if (currentStyle.isNull() || currentStyle.toString() != thisStyle) {
+    this->setProperty("style", thisStyle);
+    this->style()->unpolish(this);
+    this->style()->polish(this);
+  }
 }
 
 void OSUnsignedEdit2::refreshTextAndLabel() {
@@ -315,11 +352,9 @@ void OSUnsignedEdit2::refreshTextAndLabel() {
     QString textValue;
     std::stringstream ss;
 
-    if (m_isAutosized && (*m_isAutosized)()) {
+    if (autosized()) {
       textValue = QString("autosize");
-    }
-
-    if (m_isAutocalculated && (*m_isAutocalculated)()) {
+    }else if (autocalculated()) {
       textValue = QString("autocalculate");
     }
 
@@ -349,14 +384,8 @@ void OSUnsignedEdit2::refreshTextAndLabel() {
       m_text = textValue;
       this->blockSignals(true);
       this->setText(m_text);
-      this->blockSignals(false);
-    }
-
-    bool thisDefaulted = defaulted();
-    QVariant currentDefaulted = this->property("defaulted");
-    if (currentDefaulted.isNull() || currentDefaulted.toBool() != thisDefaulted) {
-      this->setProperty("defaulted", thisDefaulted);
       updateStyle();
+      this->blockSignals(false);
     }
   }
 }
@@ -390,7 +419,6 @@ void OSUnsignedEdit2::setPrecision(const std::string& str) {
 
 void OSUnsignedEdit2::focusInEvent(QFocusEvent* e) {
   if (e->reason() == Qt::MouseFocusReason && m_hasClickFocus) {
-    this->setProperty("focused", true);
     updateStyle();
 
     emit inFocus(true, hasData());
@@ -401,7 +429,6 @@ void OSUnsignedEdit2::focusInEvent(QFocusEvent* e) {
 
 void OSUnsignedEdit2::focusOutEvent(QFocusEvent* e) {
   if (e->reason() == Qt::MouseFocusReason && m_hasClickFocus) {
-    this->setProperty("focused", false);
     updateStyle();
 
     emit inFocus(false, false);

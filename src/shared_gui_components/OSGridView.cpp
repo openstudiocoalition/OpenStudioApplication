@@ -32,6 +32,7 @@
 #include "HeaderViews.hpp"
 #include "OSCollapsibleView.hpp"
 #include "OSGridController.hpp"
+#include "OSCheckBox.hpp"
 
 #include "../model_editor/Application.hpp"
 
@@ -305,34 +306,37 @@ void OSGridView::onRecreateAll() {
 }
 
 void OSGridView::onGridCellChanged(const GridCellLocation& location, const GridCellInfo& info) {
-  /* TODO
-  // determine if we want to update the parent widget or the child widget
-  for (auto& widgetLoc : widgetLocsToUpdate) {
-    QWidget* widget = nullptr;
-
-    // If it isn't a subrow, we get the parent
-    if (!widgetLoc->subrow) {
-      widget = widgetLoc->holder->parentWidget();
-    } else {
-      widget = widgetLoc->holder;
-    }
-
-    if (widgetLoc->isSelector) {
-      auto check = qobject_cast<QCheckBox*>(widgetLoc->holder->widget);
-      if (check) {
-        check->blockSignals(true);
-        check->setChecked(widgetLoc->isSelected);
-        check->blockSignals(false);
+  QLayoutItem* item = m_gridLayout->itemAtPosition(location.gridRow, location.column);
+  if (item) {
+    QWidget* wrapper = item->widget();
+    QGridLayout* innerLayout = qobject_cast<QGridLayout*>(wrapper->layout());
+    if (innerLayout) {
+      QLayoutItem* innerItem;
+      // If it is a subrow, we get the subrow
+      if (location.subrow) {
+        innerItem = innerLayout->itemAtPosition(location.subrow.get(), 0);
+      } else {
+        innerItem = innerLayout->itemAtPosition(0, 0);
       }
-    }
+      OS_ASSERT(innerItem);
+      Holder* holder = qobject_cast<Holder*>(innerItem->widget());
+      OS_ASSERT(holder);
+      QWidget* widget = holder->widget;
 
-    // style the holder wrapper
-    m_grid->setCellProperties(widget, widgetLoc->isSelector, widgetLoc->row, widgetLoc->column, widgetLoc->subrow, widgetLoc->isVisible,
- widgetLoc->isSelected);
-*/
-                             
+      if (info.isSelector) {
+        auto check = qobject_cast<QCheckBox*>(widget);
+        if (check) {
+          check->blockSignals(true);
+          check->setChecked(info.isSelected());
+          check->blockSignals(false);
+        }
+      }
+
+      // style the wrapper
+      setCellProperties(wrapper, info.isSelector, location.gridRow, location.column, location.subrow, info.isVisible(), info.isSelected(), info.isLocked());
+    }              
   }
-
+}
 
 void OSGridView::deleteAll() {
   QLayoutItem* child;
