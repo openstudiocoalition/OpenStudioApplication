@@ -558,7 +558,7 @@ std::vector<std::pair<QString, std::vector<QString>>> OSGridController::categori
 void OSGridController::onCategorySelected(int index) {
   m_objectSelector->clear();
   m_currentCategoryIndex = index;
-  m_selectedCellLocation = std::make_tuple(-1, -1, -1);
+  m_focusedCellLocation = std::make_tuple(-1, -1, -1);
 
   m_currentCategory = m_categoriesAndFields.at(index).first;
 
@@ -1617,43 +1617,49 @@ void OSGridController::onInFocus(bool inFocus, bool hasData, int modelRow, int g
 
   // First thing to do is to check if row is 0, because that means that the apply button was clicked
   if (gridRow == 0 && this->m_hasHorizontalHeader) {
-    // Do great things
-    auto selectedGridRow = std::get<0>(m_selectedCellLocation);
-    auto selectedModelRow = modelRowFromGridRow(selectedGridRow);
-    auto selectedColumn = std::get<1>(m_selectedCellLocation);
-    auto selectedSubrow = std::get<2>(m_selectedCellLocation);
-    OS_ASSERT(selectedColumn == column);
+    // Set selected objects to the focused object's value for given column
+    auto focusedGridRow = std::get<0>(m_focusedCellLocation);
+    auto focusedModelRow = modelRowFromGridRow(focusedGridRow);
+    auto focusedColumn = std::get<1>(m_focusedCellLocation);
+    auto focusedSubrow = std::get<2>(m_focusedCellLocation);
 
-    m_selectedCellLocation = std::make_tuple(gridRow, column, subrow);
+    if (focusedGridRow < 0) {
+      // something has gone wrong
+      return;
+    }
+
+    OS_ASSERT(focusedColumn == column);
 
     std::set<model::ModelObject> selectedObjects = this->m_objectSelector->selectedObjects();
+    boost::optional<model::ModelObject> focusedObject = this->m_objectSelector->getObject(focusedModelRow, focusedGridRow, focusedColumn, focusedSubrow);
+    if (!focusedObject) {
+      // we don't have a focused object to apply values from
+      return;
+    }
 
     QSharedPointer<DataSourceAdapter> dataSource = m_baseConcepts[column].dynamicCast<DataSourceAdapter>();
-    if (selectedSubrow && dataSource) {
+    if (focusedSubrow && dataSource) {
       // Sub rows present, either in a widget, or in a row
       const DataSource& source = dataSource->source();
       QSharedPointer<BaseConcept> dropZoneConcept = source.dropZoneConcept();
-      boost::optional<model::ModelObject> object = this->m_objectSelector->getObject(selectedModelRow, selectedGridRow, selectedColumn, selectedSubrow);
-      if (object) {
-        for (auto modelObject : selectedObjects) {
-          // Don't set the chosen object when iterating through the selected objects
-          if (modelObject != object.get()) {
-            OS_ASSERT(dataSource.data()->innerConcept());
-            if (dropZoneConcept) {
-              // Widget has sub rows
-              setConceptValue(modelObject, object.get(), dropZoneConcept, dataSource.data()->innerConcept());
-            } else {
-              // Row has sub rows
-              setConceptValue(modelObject, object.get(), dataSource.data()->innerConcept());
-            }
+      for (auto modelObject : selectedObjects) {
+        // Don't set the chosen object when iterating through the selected objects
+        if (modelObject != focusedObject.get()) {
+          OS_ASSERT(dataSource.data()->innerConcept());
+          if (dropZoneConcept) {
+            // Widget has sub rows
+            setConceptValue(modelObject, focusedObject.get(), dropZoneConcept, dataSource.data()->innerConcept());
+          } else {
+            // Row has sub rows
+            setConceptValue(modelObject, focusedObject.get(), dataSource.data()->innerConcept());
           }
         }
       }
-    } else if (!selectedSubrow) {
+    } else if (!focusedSubrow) {
       for (auto modelObject : selectedObjects) {
         // Don't set the chosen object when iterating through the selected objects
-        if (modelObject != this->modelObjectFromGridRow(selectedGridRow)) {
-          setConceptValue(modelObject, this->modelObjectFromGridRow(selectedGridRow), m_baseConcepts[column]);
+        if (modelObject != focusedObject.get()) {
+          setConceptValue(modelObject, focusedObject.get(), m_baseConcepts[column]);
         }
       }
     } else {
@@ -1662,21 +1668,19 @@ void OSGridController::onInFocus(bool inFocus, bool hasData, int modelRow, int g
     }
 
   } else {
+    // not in a header row, an object was selected
+    OS_ASSERT(gridRow >= 0);
+
     HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeaders.at(column));
     OS_ASSERT(horizontalHeaderWidget);
     auto button = horizontalHeaderWidget->m_pushButton;
     OS_ASSERT(button);
 
     if (inFocus) {
-      m_selectedCellLocation = std::make_tuple(gridRow, column, subrow);
-
-      // if (hasData) {
+      m_focusedCellLocation = std::make_tuple(gridRow, column, subrow);
       button->setText("Apply to Selected");
-      // } else {
-      //   //button->setText("Clear Selected");
-      //   button->setText("Apply to Selected");
-      // }
     } else {
+      // do not reset m_focusedCellLocation here because the focused cell goes out of focus when the apply button is clicked
       button->setText("Apply to Selected");
     }
 

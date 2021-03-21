@@ -41,6 +41,8 @@
 #include <QCompleter>
 #include <QEvent>
 
+#include <bitset>
+
 namespace openstudio {
 
 OSObjectListCBDS::OSObjectListCBDS(const IddObjectType& type, const model::Model& model)
@@ -322,8 +324,19 @@ void OSComboBox2::onDataSourceRemove(int i) {
 }
 
 void OSComboBox2::updateStyle() {
-  this->style()->unpolish(this);
-  this->style()->polish(this);
+  // Locked, Focused, Defaulted
+  std::bitset<3> style;
+  style[0] = m_choiceConcept->isDefaulted();
+  style[1] = hasFocus();
+  style[2] = !isEnabled();
+  QString thisStyle = QString::fromStdString(style.to_string());
+
+  QVariant currentStyle = property("style");
+  if (currentStyle.isNull() || currentStyle.toString() != thisStyle) {
+    this->setProperty("style", thisStyle);
+    this->style()->unpolish(this);
+    this->style()->polish(this);
+  }
 }
 
 void OSComboBox2::completeBind() {
@@ -392,6 +405,7 @@ void OSComboBox2::completeBind() {
 
   this->blockSignals(false);
   setEnabled(true);
+  updateStyle();
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////

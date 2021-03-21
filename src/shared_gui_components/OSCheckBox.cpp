@@ -36,19 +36,28 @@
 #include <QFocusEvent>
 #include <QStyle>
 
+#include <bitset>
+
 namespace openstudio {
 
 OSCheckBox3::OSCheckBox3(QWidget* parent) : QCheckBox(parent) {
   this->setCheckable(true);
 
-  this->setProperty("defaulted", false);
-  this->setProperty("focused", false);
-  this->setStyleSheet("QCheckBox { background-color:red; } "
-                      "QCheckBox[defaulted=\"true\"][focused=\"true\"] { background-color:#ffc627; } "
-                      "QCheckBox[defaulted=\"true\"][focused=\"false\"] { background-color:white; } "
-                      "QCheckBox[defaulted=\"false\"][focused=\"true\"] { background-color:#ffc627; } "
-                      "QCheckBox[defaulted=\"false\"][focused=\"false\"] { background-color:white; } ");
-
+  // if multiple qss rules apply with same specificity then the last one is chosen
+  this->setStyleSheet("QCheckBox[style=\"000\"] { border: none; background-color:white;   } "  // Locked=0, Focused=0, Defaulted=0
+                      "QCheckBox[style=\"001\"] { border: none; background-color:white;   } "  // Locked=0, Focused=0, Defaulted=1
+                      "QCheckBox[style=\"010\"] { border: none; background-color:#ffc627; } "  // Locked=0, Focused=1, Defaulted=0
+                      "QCheckBox[style=\"011\"] { border: none; background-color:#ffc627; } "  // Locked=0, Focused=1, Defaulted=1
+                      "QCheckBox[style=\"100\"] { border: none; background-color:#e6e6e6; } "  // Locked=1, Focused=0, Defaulted=0
+                      "QCheckBox[style=\"101\"] { border: none; background-color:#e6e6e6; } "  // Locked=1, Focused=0, Defaulted=1
+                      "QCheckBox[style=\"110\"] { border: none; background-color:#e6e6e6; } "  // Locked=1, Focused=1, Defaulted=0
+                      "QCheckBox[style=\"111\"] { border: none; background-color:#e6e6e6; } "  // Locked=1, Focused=1, Defaulted=1
+                      "QCheckBox::indicator:checked { border: 1px solid white; color:#000000; background-color:#ff0000; }"
+                      "QCheckBox::indicator:unchecked { border: 1px solid white; color:#000000; background-color:#ff0000; }"
+                      "QCheckBox::indicator:checked[style=\"000\"] { border: 1px solid white; color:#000000; background-color:#0000ff; }"
+                      "QCheckBox::indicator:unchecked[style=\"000\"] { border: 1px solid white; color:#000000; background-color:#0000ff; }"
+  );
+  
   setEnabled(false);
 }
 
@@ -75,6 +84,7 @@ void OSCheckBox3::bind(const model::ModelObject& modelObject, BoolGetter get, bo
   bool checked = (*m_get)();
 
   this->setChecked(checked);
+  updateStyle();
 }
 
 void OSCheckBox3::bind(const model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetterBoolReturn> set,
@@ -97,6 +107,7 @@ void OSCheckBox3::bind(const model::ModelObject& modelObject, BoolGetter get, bo
   bool checked = (*m_get)();
 
   this->setChecked(checked);
+  updateStyle();
 }
 
 void OSCheckBox3::enableClickFocus() {
@@ -105,6 +116,7 @@ void OSCheckBox3::enableClickFocus() {
 
 void OSCheckBox3::setLocked(bool locked) {
   setEnabled(!locked);
+  updateStyle();
 }
 
 void OSCheckBox3::unbind() {
@@ -121,6 +133,7 @@ void OSCheckBox3::unbind() {
     m_reset.reset();
     m_isDefaulted.reset();
     setEnabled(false);
+    updateStyle();
   }
 }
 
@@ -142,6 +155,7 @@ void OSCheckBox3::onModelObjectChange() {
     if ((*m_get)() != this->isChecked()) {
       this->blockSignals(true);
       this->setChecked((*m_get)());
+      updateStyle();
       this->blockSignals(false);
     }
   }
@@ -160,13 +174,23 @@ bool OSCheckBox3::defaulted() const {
 }
 
 void OSCheckBox3::updateStyle() {
-  this->style()->unpolish(this);
-  this->style()->polish(this);
+  // Locked, Focused, Defaulted
+  std::bitset<3> style;
+  style[0] = defaulted();
+  style[1] = hasFocus();
+  style[2] = !isEnabled();
+  QString thisStyle = QString::fromStdString(style.to_string());
+
+  QVariant currentStyle = property("style");
+  if (currentStyle.isNull() || currentStyle.toString() != thisStyle) {
+    this->setProperty("style", thisStyle);
+    this->style()->unpolish(this);
+    this->style()->polish(this);
+  }
 }
 
 void OSCheckBox3::focusInEvent(QFocusEvent* e) {
   if ((e->reason() == Qt::MouseFocusReason) && (this->focusPolicy() == Qt::ClickFocus)) {
-    this->setProperty("focused", true);
     updateStyle();
 
     emit inFocus(true, true);
@@ -176,7 +200,6 @@ void OSCheckBox3::focusInEvent(QFocusEvent* e) {
 
 void OSCheckBox3::focusOutEvent(QFocusEvent* e) {
   if ((e->reason() == Qt::MouseFocusReason) && (this->focusPolicy() == Qt::ClickFocus)) {
-    this->setProperty("focused", false);
     updateStyle();
 
     emit inFocus(false, false);
@@ -192,12 +215,16 @@ OSCheckBox2::OSCheckBox2(QWidget* parent) : QPushButton(parent) {
 
   setEnabled(false);
 
-  this->setProperty("defaulted", false);
-  this->setProperty("focused", false);
-  this->setStyleSheet("QPushButton[defaulted=\"true\"][focused=\"true\"] { color:green; background:#ffc627; } "
-                      "QPushButton[defaulted=\"true\"][focused=\"false\"] { color:green; background:white; } "
-                      "QPushButton[defaulted=\"false\"][focused=\"true\"] { color:black; background:#ffc627; } "
-                      "QPushButton[defaulted=\"false\"][focused=\"false\"] { color:black; background:white; } ");
+  // if multiple qss rules apply with same specificity then the last one is chosen
+  this->setStyleSheet("QPushButton[style=\"000\"] { border: none; background-color:white;   } "  // Locked=0, Focused=0, Defaulted=0
+                      "QPushButton[style=\"001\"] { border: none; background-color:white;   } "  // Locked=0, Focused=0, Defaulted=1
+                      "QPushButton[style=\"010\"] { border: none; background-color:#ffc627; } "  // Locked=0, Focused=1, Defaulted=0
+                      "QPushButton[style=\"011\"] { border: none; background-color:#ffc627; } "  // Locked=0, Focused=1, Defaulted=1
+                      "QPushButton[style=\"100\"] { border: none; background-color:#e6e6e6; } "  // Locked=1, Focused=0, Defaulted=0
+                      "QPushButton[style=\"101\"] { border: none; background-color:#e6e6e6; } "  // Locked=1, Focused=0, Defaulted=1
+                      "QPushButton[style=\"110\"] { border: none; background-color:#e6e6e6; } "  // Locked=1, Focused=1, Defaulted=0
+                      "QPushButton[style=\"111\"] { border: none; background-color:#e6e6e6; } "  // Locked=1, Focused=1, Defaulted=1
+  );
 }
 
 void OSCheckBox2::bind(const model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetter> set, boost::optional<NoFailAction> reset,
@@ -220,6 +247,7 @@ void OSCheckBox2::bind(const model::ModelObject& modelObject, BoolGetter get, bo
   bool checked = (*m_get)();
 
   this->setChecked(checked);
+  updateStyle();
 }
 
 void OSCheckBox2::unbind() {
@@ -235,12 +263,12 @@ void OSCheckBox2::unbind() {
     m_reset.reset();
     m_isDefaulted.reset();
     setEnabled(false);
+    updateStyle();
   }
 }
 
 void OSCheckBox2::focusInEvent(QFocusEvent* e) {
   if ((e->reason() == Qt::MouseFocusReason) && (this->focusPolicy() == Qt::ClickFocus)) {
-    this->setProperty("focused", true);
     updateStyle();
 
     emit inFocus(true, true);
@@ -250,7 +278,6 @@ void OSCheckBox2::focusInEvent(QFocusEvent* e) {
 
 void OSCheckBox2::focusOutEvent(QFocusEvent* e) {
   if ((e->reason() == Qt::MouseFocusReason) && (this->focusPolicy() == Qt::ClickFocus)) {
-    this->setProperty("focused", false);
     updateStyle();
 
     emit inFocus(false, false);
@@ -286,8 +313,19 @@ bool OSCheckBox2::defaulted() const {
 }
 
 void OSCheckBox2::updateStyle() {
-  this->style()->unpolish(this);
-  this->style()->polish(this);
+  // Locked, Focused, Defaulted
+  std::bitset<3> style;
+  style[0] = defaulted();
+  style[1] = hasFocus();
+  style[2] = !isEnabled();
+  QString thisStyle = QString::fromStdString(style.to_string());
+
+  QVariant currentStyle = property("style");
+  if (currentStyle.isNull() || currentStyle.toString() != thisStyle) {
+    this->setProperty("style", thisStyle);
+    this->style()->unpolish(this);
+    this->style()->polish(this);
+  }
 }
 
 // OSCheckBox::OSCheckBox( QWidget * parent )
