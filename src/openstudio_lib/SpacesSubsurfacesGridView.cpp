@@ -79,20 +79,6 @@
 #define OUTSIDEBOUNDARYCONDITIONOBJECT "Outside Boundary Condition Object"  // Dan note: needs model method for suggestions
 #define SHADINGSURFACENAME "Shading Surface Name"                           // read only
 
-// SHADINGCONTROLS "Shading Controls"
-#define SHADINGCONTROLNAME "Shading Control"
-#define SHADINGTYPE "Shading Type"
-#define CONSTRUCTIONWITHSHADINGNAME "Construction with Shading Name"
-#define SHADINGDEVICEMATERIALNAME "Shading Device Material Name"
-#define SHADINGCONTROLTYPE "Shading Control Type"
-#define SCHEDULENAME "Schedule Name"
-#define SETPOINT "Setpoint"
-#define SHADINGCONTROLISSCHEDULED "Shading Control Is Scheduled"
-#define GLARECONTROLISACTIVE "Glare Control Is Active"
-#define TYPEOFSLATANGLECONTROLFORBLINDS "Type of Slat Angle Control for Blinds"
-#define SLATANGLESCHEDULENAME "Slat Angle Schedule Name"
-#define SETPOINT2 "Setpoint 2"
-
 // FRAMEANDDIVIDER "Frame and Divider"
 #define FRAMEANDDIVIDERNAME "Frame and Divider"
 #define FRAMEWIDTH "Frame Width"
@@ -184,26 +170,6 @@ void SpacesSubsurfacesGridController::setCategoriesAndFields() {
     fields.push_back(OUTSIDEBOUNDARYCONDITIONOBJECT);
     //fields.push_back(SHADINGSURFACENAME);
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("General"), fields);
-    m_categoriesAndFields.push_back(categoryAndFields);
-  }
-
-  {
-    std::vector<QString> fields;
-    fields.push_back(SUBSURFACENAME);
-    fields.push_back(SURFACENAME);
-    fields.push_back(SHADINGCONTROLNAME);
-    fields.push_back(SHADINGTYPE);
-    //fields.push_back(CONSTRUCTIONWITHSHADINGNAME);
-    //fields.push_back(SHADINGDEVICEMATERIALNAME);
-    fields.push_back(SHADINGCONTROLTYPE);
-    fields.push_back(SCHEDULENAME);
-    //fields.push_back(SETPOINT);                        IN IDD, BUT NOT EXPOSED IN MODEL OBJECT
-    //fields.push_back(SHADINGCONTROLISSCHEDULED);       IN IDD, BUT NOT EXPOSED IN MODEL OBJECT
-    //fields.push_back(GLARECONTROLISACTIVE);            IN IDD, BUT NOT EXPOSED IN MODEL OBJECT
-    //fields.push_back(TYPEOFSLATANGLECONTROLFORBLINDS); IN IDD, BUT NOT EXPOSED IN MODEL OBJECT
-    //fields.push_back(SLATANGLESCHEDULENAME);           IN IDD, BUT NOT EXPOSED IN MODEL OBJECT
-    //fields.push_back(SETPOINT2);                       IN IDD, BUT NOT EXPOSED IN MODEL OBJECT
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Shading Controls"), fields);
     m_categoriesAndFields.push_back(categoryAndFields);
   }
 
@@ -342,25 +308,6 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
           return allModelObjects;
         });
 
-      std::function<std::vector<boost::optional<model::ModelObject>>(const model::Space&)> allShadingControls(
-        [allSubSurfaces](const model::Space& t_space) {
-          std::vector<boost::optional<model::ModelObject>> allModelObjects;
-          std::vector<boost::optional<model::ShadingControl>> allShadingControls;
-          for (auto subSurface : allSubSurfaces(t_space)) {
-// temporary workaround, Shading Control Enhancements #239
-#pragma warning(disable : 4996)  // ignore deprecated method warning
-            auto shadingControl = subSurface.cast<model::SubSurface>().shadingControl();
-            if (shadingControl) {
-              allShadingControls.push_back(shadingControl);
-            } else {
-              allShadingControls.push_back(boost::optional<model::ShadingControl>());
-            }
-          }
-          allModelObjects.insert(allModelObjects.end(), allShadingControls.begin(), allShadingControls.end());
-
-          return allModelObjects;
-        });
-
       std::function<std::vector<boost::optional<model::ModelObject>>(const model::Space&)> allOutsideBoundaryConditionObjects(
         [allSubSurfaces](const model::Space& t_space) {
           std::vector<boost::optional<model::ModelObject>> allModelObjects;
@@ -432,50 +379,6 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
                           boost::optional<std::function<bool(model::SubSurface*)>>(), DataSource(allOutsideBoundaryConditionObjects, true));
       } else if (field == SHADINGSURFACENAME) {
 
-      } else if (field == SHADINGCONTROLNAME) {
-
-        // temporary workaround, see Shading Control Enhancements #239
-        std::function<bool(model::SubSurface*, const model::ShadingControl&)> setter(
-          [](model::SubSurface* t_surface, const model::ShadingControl& t_arg) {
-            return const_cast<model::ShadingControl&>(t_arg).addSubSurface(*t_surface);
-          });
-
-        addDropZoneColumn(Heading(QString(SHADINGCONTROLNAME)), CastNullAdapter<model::SubSurface>(&model::SubSurface::shadingControl), setter,
-                          boost::optional<std::function<void(model::SubSurface*)>>(NullAdapter(&model::SubSurface::resetShadingControl)),
-                          boost::optional<std::function<bool(model::SubSurface*)>>(), DataSource(allSubSurfaces, true));
-      } else if (field == SHADINGTYPE) {
-        addComboBoxColumn<std::string, model::ShadingControl>(
-          Heading(QString(SHADINGTYPE), true, false), static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
-          std::function<std::vector<std::string>()>(&model::ShadingControl::shadingTypeValues),
-          CastNullAdapter<model::ShadingControl>(&model::ShadingControl::shadingType),
-          CastNullAdapter<model::ShadingControl>(&model::ShadingControl::setShadingType),
-          boost::optional<std::function<void(model::ShadingControl*)>>(), DataSource(allShadingControls, true));
-      } else if (field == CONSTRUCTIONWITHSHADINGNAME) {
-        // ShadingControl
-        //boost::optional<Construction> construction() const;
-      } else if (field == SHADINGDEVICEMATERIALNAME) {
-        // ShadingControl
-        //boost::optional<ShadingMaterial> shadingMaterial() const;
-      } else if (field == SHADINGCONTROLTYPE) {
-        addComboBoxColumn<std::string, model::ShadingControl>(
-          Heading(QString(SHADINGCONTROLTYPE), true, false), static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
-          std::function<std::vector<std::string>()>(&model::ShadingControl::shadingControlTypeValues),
-          CastNullAdapter<model::ShadingControl>(&model::ShadingControl::shadingControlType),
-          CastNullAdapter<model::ShadingControl>(&model::ShadingControl::setShadingControlType),
-          boost::optional<std::function<void(model::ShadingControl*)>>(NullAdapter(&model::ShadingControl::resetShadingControlType)),
-          boost::optional<std::function<bool(model::ShadingControl*)>>(NullAdapter(&model::ShadingControl::isShadingControlTypeDefaulted)),
-          DataSource(allShadingControls, true));
-      } else if (field == SCHEDULENAME) {
-        std::function<bool(model::ShadingControl*, const model::Schedule&)> setter(
-          [](model::ShadingControl* t_shadingControl, const model::Schedule& t_arg) {
-            auto copy = t_arg;
-            return t_shadingControl->setSchedule(copy);
-          });
-
-        addDropZoneColumn(
-          Heading(QString(SCHEDULENAME), true, false), NullAdapter(&model::ShadingControl::schedule), setter,
-          boost::optional<std::function<void(model::ShadingControl*)>>(CastNullAdapter<model::ShadingControl>(&model::ShadingControl::resetSchedule)),
-          boost::optional<std::function<bool(model::ShadingControl*)>>(), DataSource(allShadingControls, true));
       } else if (field == FRAMEANDDIVIDERNAME) {
         addDropZoneColumn(
           Heading(QString(FRAMEANDDIVIDERNAME)), CastNullAdapter<model::SubSurface>(&model::SubSurface::windowPropertyFrameAndDivider),
