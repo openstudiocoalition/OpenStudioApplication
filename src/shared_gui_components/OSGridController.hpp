@@ -242,8 +242,8 @@ class ObjectSelector : public QObject
   // Adds object to the internal maps
   void addObject(const boost::optional<model::ModelObject>& t_obj, Holder* t_holder, int t_modelRow, int t_gridRow, int t_column, const boost::optional<int>& t_subrow, bool t_isSelector);
 
-  // Remove an object from all rows and subrows
-  void removeObject(const openstudio::model::ModelObject& t_obj);
+  // Lock and hide any grid cells referencing this object
+  void setObjectRemoved(const openstudio::Handle& handle);
 
   // Check if object is included in any row or subrow
   bool containsObject(const openstudio::model::ModelObject& t_obj) const;

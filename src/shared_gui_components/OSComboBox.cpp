@@ -159,7 +159,7 @@ OSComboBox2::OSComboBox2(QWidget* parent, bool editable) : QComboBox(parent) {
                       "QComboBox[style=\"110\"] { color:black; background:#e6e6e6; } "  // Locked=1, Focused=1, Defaulted=0
                       "QComboBox[style=\"111\"] { color:green; background:#e6e6e6; } "  // Locked=1, Focused=1, Defaulted=1
   );
-  
+
   setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
 }
 
@@ -189,12 +189,22 @@ void OSComboBox2::enableClickFocus() {
   this->setFocusPolicy(Qt::ClickFocus);
 }
 
+void OSComboBox2::disableClickFocus() {
+  this->setFocusPolicy(Qt::NoFocus);
+  clearFocus();
+}
+
 bool OSComboBox2::hasData() {
   return !this->currentText().isEmpty();
 }
 
 void OSComboBox2::setLocked(bool locked) {
-  setEnabled(!locked);
+  if (isEnabled() == locked) {
+    setEnabled(!locked);
+  }
+  if (locked) {
+    disableClickFocus();
+  }
   updateStyle();
 }
 
@@ -326,7 +336,7 @@ void OSComboBox2::onDataSourceRemove(int i) {
 void OSComboBox2::updateStyle() {
   // Locked, Focused, Defaulted
   std::bitset<3> style;
-  style[0] = m_choiceConcept->isDefaulted();
+  style[0] = m_choiceConcept ? m_choiceConcept->isDefaulted() : false;
   style[1] = hasFocus();
   style[2] = !isEnabled();
   QString thisStyle = QString::fromStdString(style.to_string());

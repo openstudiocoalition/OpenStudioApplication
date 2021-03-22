@@ -71,14 +71,15 @@ class OSDropZone2 : public QWidget, public Nano::Observer
   ~OSDropZone2();
 
   void enableClickFocus();
+  void disableClickFocus();
   bool hasData();
   void setLocked(bool locked);
   void setDeleteObject(bool deleteObject);
   bool deleteObject();
 
-  void bind(model::ModelObject& modelObject, OptionalModelObjectGetter get, ModelObjectSetter set, 
+  void bind(model::ModelObject& modelObject, OptionalModelObjectGetter get, ModelObjectSetter set,
             boost::optional<NoFailAction> reset = boost::none,
-            boost::optional<ModelObjectIsDefaulted> isDefaulted = boost::none, 
+            boost::optional<ModelObjectIsDefaulted> isDefaulted = boost::none,
             boost::optional<ModelObjectIsDefaulted> isReadOnly = boost::none);
 
   void unbind();

@@ -114,8 +114,10 @@ class OSComboBox2 : public QComboBox, public Nano::Observer
 
   void enableClickFocus();
 
+  void disableClickFocus();
+
   bool hasData();
-  
+
   void setLocked(bool locked);
 
   // interface for direct bind

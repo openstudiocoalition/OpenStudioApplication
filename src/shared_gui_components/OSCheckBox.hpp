@@ -56,6 +56,8 @@ class OSCheckBox3 : public QCheckBox, public Nano::Observer
   // (typically by the OSGridController depending on whether the underlying BaseConcept allows it)
   void enableClickFocus();
 
+  void disableClickFocus();
+
   void setLocked(bool locked);
 
   void bind(const model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetter> set = boost::none,

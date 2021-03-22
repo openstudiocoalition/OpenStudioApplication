@@ -56,6 +56,8 @@ class OSUnsignedEdit2 : public QLineEdit
 
   void enableClickFocus();
 
+  void disableClickFocus();
+
   bool hasData();
 
   void setLocked(bool locked);

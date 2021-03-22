@@ -499,8 +499,17 @@ void QuantityLineEdit::enableClickFocus() {
   this->m_hasClickFocus = true;
 }
 
+void QuantityLineEdit::disableClickFocus() {
+  this->m_hasClickFocus = false;
+}
+
 void QuantityLineEdit::setLocked(bool locked) {
-  setReadOnly(locked);
+  if (isReadOnly() != locked) {
+    setReadOnly(locked);
+  }
+  if (locked) {
+    disableClickFocus();
+  }
 }
 
 void QuantityLineEdit::focusInEvent(QFocusEvent* e) {

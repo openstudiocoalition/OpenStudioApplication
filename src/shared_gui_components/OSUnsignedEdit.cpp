@@ -47,9 +47,9 @@ using openstudio::model::ModelObject;
 
 namespace openstudio {
 
-OSUnsignedEdit2::OSUnsignedEdit2(QWidget* parent) 
-  : QLineEdit(parent), 
-    m_isScientific(false) 
+OSUnsignedEdit2::OSUnsignedEdit2(QWidget* parent)
+  : QLineEdit(parent),
+    m_isScientific(false)
 {
   this->setFixedWidth(90);
   this->setAcceptDrops(false);
@@ -85,12 +85,21 @@ void OSUnsignedEdit2::enableClickFocus() {
   this->m_hasClickFocus = true;
 }
 
+void OSUnsignedEdit2::disableClickFocus() {
+  this->m_hasClickFocus = false;
+}
+
 bool OSUnsignedEdit2::hasData() {
   return !this->text().isEmpty();
 }
 
 void OSUnsignedEdit2::setLocked(bool locked) {
-  setReadOnly(locked);
+  if (isReadOnly() != locked) {
+    setReadOnly(locked);
+  }
+  if (locked) {
+    disableClickFocus();
+  }
   updateStyle();
 }
 

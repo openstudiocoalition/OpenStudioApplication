@@ -47,9 +47,9 @@ using openstudio::model::ModelObject;
 
 namespace openstudio {
 
-OSIntegerEdit2::OSIntegerEdit2(QWidget* parent) 
+OSIntegerEdit2::OSIntegerEdit2(QWidget* parent)
   : QLineEdit(parent),
-    m_isScientific(false) 
+    m_isScientific(false)
 {
   this->setFixedWidth(90);
   this->setAcceptDrops(false);
@@ -74,7 +74,7 @@ OSIntegerEdit2::OSIntegerEdit2(QWidget* parent)
     "QLineEdit[style=\"1110\"] { color:grey;  background:#e6e6e6; } "     // Locked=1, Focused=1, Auto=1, Defaulted=0
     "QLineEdit[style=\"1111\"] { color:grey;  background:#e6e6e6; } "     // Locked=1, Focused=1, Auto=1, Defaulted=1
   );
-  
+
   m_intValidator = new QIntValidator();
   //this->setValidator(m_intValidator);
 }
@@ -85,12 +85,21 @@ void OSIntegerEdit2::enableClickFocus() {
   this->m_hasClickFocus = true;
 }
 
+void OSIntegerEdit2::disableClickFocus() {
+  this->m_hasClickFocus = false;
+}
+
 bool OSIntegerEdit2::hasData() {
   return !this->text().isEmpty();
 }
 
 void OSIntegerEdit2::setLocked(bool locked) {
-  setReadOnly(locked);
+  if (isEnabled() == locked) {
+    setEnabled(!locked);
+  }
+  if (locked) {
+    disableClickFocus();
+  }
   updateStyle();
 }
 
@@ -312,7 +321,7 @@ void OSIntegerEdit2::updateStyle() {
   style[2] = hasFocus();
   style[3] = isReadOnly();
   QString thisStyle = QString::fromStdString(style.to_string());
-  
+
   QVariant currentStyle = property("style");
   if (currentStyle.isNull() || currentStyle.toString() != thisStyle) {
     this->setProperty("style", thisStyle);
@@ -354,7 +363,7 @@ void OSIntegerEdit2::refreshTextAndLabel() {
   if (m_modelObject) {
     QString textValue;
     std::stringstream ss;
-  
+
     OptionalInt oi;
     if (m_get) {
       oi = (*m_get)();

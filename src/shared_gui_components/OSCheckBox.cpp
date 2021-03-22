@@ -35,6 +35,7 @@
 #include <QString>
 #include <QFocusEvent>
 #include <QStyle>
+#include <QTimer>
 
 #include <bitset>
 
@@ -42,6 +43,10 @@ namespace openstudio {
 
 OSCheckBox3::OSCheckBox3(QWidget* parent) : QCheckBox(parent) {
   this->setCheckable(true);
+
+  setFocusPolicy(Qt::NoFocus);
+
+  setEnabled(false);
 
   // if multiple qss rules apply with same specificity then the last one is chosen
   this->setStyleSheet("QCheckBox::indicator:checked[style=\"000\"]   { image: url(:/shared_gui_components/images/checked_checkbox.png); }"           // Locked=0, Focused=0, Defaulted=0
@@ -61,8 +66,6 @@ OSCheckBox3::OSCheckBox3(QWidget* parent) : QCheckBox(parent) {
                       "QCheckBox::indicator:checked[style=\"111\"]   { image: url(:/shared_gui_components/images/checked_checkbox_locked.png); }"    // Locked=0, Focused=1, Defaulted=1
                       "QCheckBox::indicator:unchecked[style=\"111\"] { image: url(:/shared_gui_components/images/unchecked_checkbox_locked.png); }"  // Locked=0, Focused=1, Defaulted=1
   );
-  
-  setEnabled(false);
 }
 
 OSCheckBox3::~OSCheckBox3() {}
@@ -118,8 +121,18 @@ void OSCheckBox3::enableClickFocus() {
   this->setFocusPolicy(Qt::ClickFocus);
 }
 
+void OSCheckBox3::disableClickFocus() {
+  this->setFocusPolicy(Qt::NoFocus);
+  clearFocus();
+}
+
 void OSCheckBox3::setLocked(bool locked) {
-  setEnabled(!locked);
+  if (isEnabled() == locked) {
+    setEnabled(!locked);
+  }
+  if (locked) {
+    disableClickFocus();
+  }
   updateStyle();
 }
 
@@ -216,6 +229,8 @@ OSCheckBox2::OSCheckBox2(QWidget* parent) : QPushButton(parent) {
   this->setAcceptDrops(false);
 
   this->setCheckable(true);
+
+  setFocusPolicy(Qt::NoFocus);
 
   setEnabled(false);
 

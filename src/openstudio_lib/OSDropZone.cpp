@@ -527,11 +527,11 @@ OSDropZone2::OSDropZone2() : QWidget() {
   m_label = new QLabel();
   layout->addWidget(m_label);
   m_label->setProperty("defaulted", false);
-  m_label->setStyleSheet( 
+  m_label->setStyleSheet(
     "QLabel[defaulted=\"true\"] { color:green }"
     "QLabel { color:black }"
   );
-  
+
   setFixedHeight(25);
   setMinimumWidth(75);
   setMaximumWidth(150);
@@ -541,6 +541,11 @@ OSDropZone2::~OSDropZone2() {}
 
 void OSDropZone2::enableClickFocus() {
   this->setFocusPolicy(Qt::ClickFocus);
+}
+
+void OSDropZone2::disableClickFocus() {
+  this->setFocusPolicy(Qt::NoFocus);
+  clearFocus();
 }
 
 bool OSDropZone2::hasData() {
@@ -569,7 +574,7 @@ void OSDropZone2::refresh() {
   }
 
   if (modelObject) {
-    
+
     bool isChanged = false;
 
     QString temp = QString::fromStdString(modelObject->name().get());
@@ -606,7 +611,7 @@ void OSDropZone2::refresh() {
 }
 
 // cppcheck-suppress constParameter
-void OSDropZone2::bind(model::ModelObject& modelObject, OptionalModelObjectGetter get, ModelObjectSetter set, 
+void OSDropZone2::bind(model::ModelObject& modelObject, OptionalModelObjectGetter get, ModelObjectSetter set,
                        boost::optional<NoFailAction> reset, boost::optional<ModelObjectIsDefaulted> isDefaulted,
                        boost::optional<ModelObjectIsReadOnly> isReadOnly) {
   m_get = get;
@@ -624,9 +629,9 @@ void OSDropZone2::unbind() {
   m_modelObject.reset();
   m_get.reset();
   m_set.reset();
-  m_reset.reset();  
-  m_isDefaulted.reset();  
-  m_isReadOnly.reset();  
+  m_reset.reset();
+  m_isDefaulted.reset();
+  m_isReadOnly.reset();
 
   setAcceptDrops(false);
 

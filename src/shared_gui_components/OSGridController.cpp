@@ -235,15 +235,12 @@ void ObjectSelector::addObject(const boost::optional<model::ModelObject>& t_obj,
   m_gridCellLocationToInfoMap.insert(std::make_pair(location, info));
 }
 
-void ObjectSelector::removeObject(const openstudio::model::ModelObject& t_obj) {
-  auto it = m_gridCellLocationToInfoMap.begin();
-  while (it != m_gridCellLocationToInfoMap.end()) {
-    if (it->second->modelObject && (it->second->modelObject.get() == t_obj)) {
-      delete it->first;
-      delete it->second;
-      it = m_gridCellLocationToInfoMap.erase(it);
-    } else {
-      ++it;
+void ObjectSelector::setObjectRemoved(const openstudio::Handle& handle) {
+  for (auto& locationInfoPair : m_gridCellLocationToInfoMap) {
+    if (locationInfoPair.second->modelObject && locationInfoPair.second->modelObject->handle() == handle) {
+      locationInfoPair.second->setLocked(true);
+      //locationInfoPair.second->setVisible(false);
+      emit gridCellChanged(*locationInfoPair.first, *locationInfoPair.second);
     }
   }
 }
@@ -1578,21 +1575,15 @@ void OSGridController::onSelectionCleared() {
 
 void OSGridController::onRemoveWorkspaceObject(const WorkspaceObject& object, const openstudio::IddObjectType& iddObjectType,
                                                const openstudio::UUID& handle) {
-  if (iddObjectType == m_iddObjectType) {
-    
-    // TODO: disable, lock, hide the row for this object
-    // if extra special, re-adjust the even/odd pattern 
-    refreshModelObjects();
-
-    emit recreateAll();
-  }
+  m_objectSelector->setObjectRemoved(handle);
 }
 
 void OSGridController::onAddWorkspaceObject(const WorkspaceObject& object, const openstudio::IddObjectType& iddObjectType,
                                             const openstudio::UUID& handle) {
   if (iddObjectType == m_iddObjectType) {
-    
-    // TODO: just stick object at the end and ask for a new row
+
+    // TODO: disable, lock, hide the row for this object
+    // if extra special, re-adjust the even/odd pattern
     refreshModelObjects();
 
     emit recreateAll();
@@ -1600,7 +1591,7 @@ void OSGridController::onAddWorkspaceObject(const WorkspaceObject& object, const
 }
 
 void OSGridController::onObjectRemoved(boost::optional<model::ParentObject> parent) {
-
+  
 }
 
 void OSGridController::onSelectAllStateChanged(const int newState) const {

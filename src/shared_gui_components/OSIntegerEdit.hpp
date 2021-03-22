@@ -58,6 +58,8 @@ class OSIntegerEdit2 : public QLineEdit, public Nano::Observer
 
   void enableClickFocus();
 
+  void disableClickFocus();
+
   bool hasData();
 
   void setLocked(bool locked);

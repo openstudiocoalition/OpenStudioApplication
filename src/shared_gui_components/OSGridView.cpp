@@ -33,11 +33,18 @@
 #include "OSCollapsibleView.hpp"
 #include "OSGridController.hpp"
 #include "OSCheckBox.hpp"
+#include "OSComboBox.hpp"
+#include "OSDoubleEdit.hpp"
+#include "OSGridView.hpp"
+#include "OSIntegerEdit.hpp"
+#include "OSLineEdit.hpp"
+#include "OSLoadNamePixmapLineEdit.hpp"
+#include "OSQuantityEdit.hpp"
+#include "OSUnsignedEdit.hpp"
 
 #include "../model_editor/Application.hpp"
 
 #include "../openstudio_lib/ModelObjectInspectorView.hpp"
-//#include "../openstudio_lib/ModelSubTabView.hpp"
 #include "../openstudio_lib/OSDropZone.hpp"
 #include "../openstudio_lib/OSItem.hpp"
 
@@ -329,6 +336,30 @@ void OSGridView::onGridCellChanged(const GridCellLocation& location, const GridC
           check->blockSignals(true);
           check->setChecked(info.isSelected());
           check->blockSignals(false);
+        }
+      }
+
+      // lock the widget if needed, probably a sign we need a base class with setLocked
+      if (OSComboBox2* comboBox = qobject_cast<OSComboBox2*>(widget)) {
+        comboBox->setLocked(info.isLocked());
+      } else if (OSDoubleEdit2* doubleEdit = qobject_cast<OSDoubleEdit2*>(widget)) {
+        doubleEdit->setLocked(info.isLocked());
+      } else if (OSIntegerEdit2* integerEdit = qobject_cast<OSIntegerEdit2*>(widget)) {
+        integerEdit->setLocked(info.isLocked());
+      } else if (OSQuantityEdit2* quantityEdit = qobject_cast<OSQuantityEdit2*>(widget)) {
+        quantityEdit->setLocked(info.isLocked());
+      } else if (OSLineEdit2* lineEdit = qobject_cast<OSLineEdit2*>(widget)) {
+        lineEdit->setLocked(info.isLocked());
+      } else if (OSUnsignedEdit2* unsignedEdit = qobject_cast<OSUnsignedEdit2*>(widget)) {
+        unsignedEdit->setLocked(info.isLocked());
+      } else if (OSDropZone2* dropZone = qobject_cast<OSDropZone2*>(widget)) {
+        dropZone->setLocked(info.isLocked());
+      } else if (OSCheckBox3* checkBox = qobject_cast<OSCheckBox3*>(widget)) {
+        checkBox->setLocked(info.isLocked());
+        if (info.isSelector) {
+          checkBox->blockSignals(true);
+          checkBox->setChecked(info.isSelected());
+          checkBox->blockSignals(false);
         }
       }
 

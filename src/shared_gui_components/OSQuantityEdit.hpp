@@ -59,6 +59,8 @@ class QuantityLineEdit : public QLineEdit
 
   void enableClickFocus();
 
+  void disableClickFocus();
+
   void setLocked(bool locked);
 
  protected:
@@ -84,6 +86,8 @@ class OSQuantityEdit2 : public QWidget, public Nano::Observer
   virtual ~OSQuantityEdit2();
 
   void enableClickFocus();
+
+  void disableClickFocus();
 
   void setLocked(bool locked);
 
@@ -132,7 +136,7 @@ class OSQuantityEdit2 : public QWidget, public Nano::Observer
   void onInFocus(bool hasFocus);
 
  private:
-  
+
   bool defaulted() const;
   bool autosized() const;
   bool autocalculated() const;
