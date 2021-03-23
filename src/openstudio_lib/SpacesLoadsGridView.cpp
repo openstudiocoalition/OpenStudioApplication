@@ -185,7 +185,7 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
     if (field == NAME) {
       const bool isInspectable = false;
       const bool deleteObject = false;
-      addNameLineEditColumn(Heading(QString(NAME), false, false), isInspectable, deleteObject, 
+      addNameLineEditColumn(Heading(QString(NAME), false, false), isInspectable, deleteObject,
                             CastNullAdapter<model::Space>(&model::Space::name),
                             CastNullAdapter<model::Space>(&model::Space::setName));
     } else {
@@ -720,7 +720,7 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
           return false;
         }
       });
-    
+
       boost::optional<std::function<bool(model::ModelObject*)>> isScheduleLocked;
 
       std::function<boost::optional<model::Schedule>(model::ModelObject*)> activityLevelSchedule([](model::ModelObject* l) {
@@ -839,17 +839,17 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
         auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
         checkbox->setToolTip("Check to select all rows");
         connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpacesLoadsGridController::onSelectAllStateChanged);
-        connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpacesLoadsGridController::gridRowSelectionChanged);
+        //connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpacesLoadsGridController::gridRowSelectionChanged);
 
-        std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { 
+        std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool {
           if (t_obj->optionalCast<model::SpaceLoad>()) {
             return !t_obj->cast<model::SpaceLoad>().space();
           }
-          return false; 
+          return false;
         });
         addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", isLocked, DataSource(allLoads, true));
       } else if (field == MULTIPLIER) {
-        
+
         // TODO: add isReadOnly to addValueEditColumn
         addValueEditColumn(Heading(QString(MULTIPLIER)), multiplier, setMultiplier, resetMultiplier, isMultiplierDefaulted,
                            DataSource(allLoadsWithMultipliers, true));
@@ -928,7 +928,7 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
         addNameLineEditColumn(Heading(QString(DEFINITION), true, false), true, false,
                               CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::name),
                               CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::setName),
-                              boost::optional<std::function<void(model::SpaceLoadDefinition*)>>(), 
+                              boost::optional<std::function<void(model::SpaceLoadDefinition*)>>(),
                               boost::optional<std::function<bool(model::SpaceLoadDefinition*)>>(),
                               boost::optional<std::function<bool(model::SpaceLoadDefinition*)>>(),
                               DataSource(allDefinitions, false,
@@ -967,8 +967,8 @@ void SpacesLoadsGridController::refreshModelObjects() {
   auto spaces = model().getConcreteModelObjects<model::Space>();
   std::sort(spaces.begin(), spaces.end(), openstudio::WorkspaceObjectNameLess());
   setModelObjects(subsetCastVector<model::ModelObject>(spaces));
-  
-  // TODO: fix 
+
+  // TODO: fix
   //m_inheritedModelObjects.clear();
   //for (auto modelObject : m_modelObjects) {
   //  boost::optional<model::SpaceType> spaceType = modelObject.cast<model::Space>().spaceType();

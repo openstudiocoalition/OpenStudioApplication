@@ -267,7 +267,7 @@ void DesignDayGridController::addColumns(const QString& /*category*/, std::vecto
       auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
       checkbox->setToolTip("Check to select all rows");
       connect(checkbox.data(), &QCheckBox::stateChanged, this, &DesignDayGridController::onSelectAllStateChanged);
-      connect(checkbox.data(), &QCheckBox::stateChanged, this, &DesignDayGridController::gridRowSelectionChanged);
+      //connect(checkbox.data(), &QCheckBox::stateChanged, this, &DesignDayGridController::gridRowSelectionChanged);
 
       std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; });
       addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", isLocked, boost::none);

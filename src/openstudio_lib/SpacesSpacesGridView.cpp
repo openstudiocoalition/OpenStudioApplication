@@ -168,7 +168,7 @@ void SpacesSpacesGridController::addColumns(const QString& category, std::vector
       auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
       checkbox->setToolTip("Check to select all rows");
       connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpacesSpacesGridController::onSelectAllStateChanged);
-      connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpacesSpacesGridController::gridRowSelectionChanged);
+      //connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpacesSpacesGridController::gridRowSelectionChanged);
       std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; });
       addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", isLocked);
     } else if (field == STORY) {
@@ -308,7 +308,7 @@ void SpacesSpacesGridController::refreshModelObjects() {
   auto spaces = model().getModelObjects<model::Space>();
   std::sort(spaces.begin(), spaces.end(), openstudio::WorkspaceObjectNameLess());
   setModelObjects(subsetCastVector<model::ModelObject>(spaces));
-  
+
 }
 
 }  // namespace openstudio

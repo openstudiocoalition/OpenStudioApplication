@@ -374,7 +374,7 @@ void FacilityShadingGridView::filterChanged() {
     allFilteredObjects.insert(obj);
   }
 
-  this->m_gridController->setObjectFilter([allFilteredObjects](const model::ModelObject& obj) -> bool { 
+  this->m_gridController->setObjectFilter([allFilteredObjects](const model::ModelObject& obj) -> bool {
     // return false if object in allFilteredObjects
     return allFilteredObjects.count(obj) == 0;
   });
@@ -487,7 +487,7 @@ void FacilityShadingGridController::addColumns(const QString& category, std::vec
         auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
         checkbox->setToolTip("Check to select all rows");
         connect(checkbox.data(), &QCheckBox::stateChanged, this, &FacilityShadingGridController::onSelectAllStateChanged);
-        connect(checkbox.data(), &QCheckBox::stateChanged, this, &FacilityShadingGridController::gridRowSelectionChanged);
+        //connect(checkbox.data(), &QCheckBox::stateChanged, this, &FacilityShadingGridController::gridRowSelectionChanged);
         std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; });
         addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", isLocked, DataSource(allShadingSurfaces, true));
       } else if (field == SHADINGSURFACENAME) {
@@ -518,7 +518,7 @@ void FacilityShadingGridController::addColumns(const QString& category, std::vec
                           boost::optional<std::function<void(model::ShadingSurface*)>>(
                             CastNullAdapter<model::ShadingSurface>(&model::ShadingSurface::resetTransmittanceSchedule)),
                           boost::optional<std::function<bool(model::ShadingSurface*)>>(),
-                          boost::optional<std::function<bool(model::ShadingSurface*)>>(), 
+                          boost::optional<std::function<bool(model::ShadingSurface*)>>(),
                           DataSource(allShadingSurfaces, true));
       } else {
         // unhandled
@@ -549,7 +549,7 @@ void FacilityShadingGridController::refreshModelObjects() {
   shadingGroups.erase(std::remove_if(shadingGroups.begin(), shadingGroups.end(),
                                      [](const model::ShadingSurfaceGroup& sg) { return sg.shadingSurfaceType() == "Space"; }),
                       shadingGroups.end());
-  
+
   std::sort(shadingGroups.begin(), shadingGroups.end(), openstudio::WorkspaceObjectNameLess());
 
   setModelObjects(subsetCastVector<model::ModelObject>(shadingGroups));

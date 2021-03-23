@@ -181,16 +181,16 @@ void SpacesShadingGridController::addColumns(const QString& category, std::vecto
         auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
         checkbox->setToolTip("Check to select all rows");
         connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpacesShadingGridController::onSelectAllStateChanged);
-        connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpacesShadingGridController::gridRowSelectionChanged);
+        //connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpacesShadingGridController::gridRowSelectionChanged);
         std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; });
         addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", isLocked, DataSource(allShadingSurfaceGroups, true));
       } else if (field == SHADEDSURFACENAME) {
         addNameLineEditColumn(Heading(QString(SHADEDSURFACENAME), true, false), false, false,
                               CastNullAdapter<model::ShadingSurface>(&model::ShadingSurface::name),
                               CastNullAdapter<model::ShadingSurface>(&model::ShadingSurface::setName),
-                              boost::optional<std::function<void(model::ShadingSurface*)>>(), 
-                              boost::optional<std::function<bool(model::ShadingSurface*)>>(), 
-                              boost::optional<std::function<bool(model::ShadingSurface*)>>(), 
+                              boost::optional<std::function<void(model::ShadingSurface*)>>(),
+                              boost::optional<std::function<bool(model::ShadingSurface*)>>(),
+                              boost::optional<std::function<bool(model::ShadingSurface*)>>(),
                               DataSource(allShadingSurfaces, true));
       } else if (field == SHADINGSURFACEGROUP) {
         addNameLineEditColumn(Heading(QString(SHADINGSURFACEGROUP), true, false), false, false,

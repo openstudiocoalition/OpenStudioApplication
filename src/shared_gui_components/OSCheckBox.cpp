@@ -91,7 +91,9 @@ void OSCheckBox3::bind(const model::ModelObject& modelObject, BoolGetter get, bo
   bool checked = (*m_get)();
 
   this->setChecked(checked);
-  updateStyle();
+  
+  // if we call update style here the set enabled above may not be in effect
+  QTimer::singleShot(0, this, &OSCheckBox3::updateStyle);
 }
 
 void OSCheckBox3::bind(const model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetterBoolReturn> set,
@@ -114,7 +116,9 @@ void OSCheckBox3::bind(const model::ModelObject& modelObject, BoolGetter get, bo
   bool checked = (*m_get)();
 
   this->setChecked(checked);
-  updateStyle();
+
+  // if we call update style here the set enabled above may not be in effect
+  QTimer::singleShot(0, this, &OSCheckBox3::updateStyle);
 }
 
 void OSCheckBox3::enableClickFocus() {

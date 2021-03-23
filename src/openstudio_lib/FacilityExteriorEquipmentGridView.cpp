@@ -149,7 +149,7 @@ void FacilityExteriorEquipmentGridController::addColumns(const QString& category
       auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
       checkbox->setToolTip("Check to select all rows");
       connect(checkbox.data(), &QCheckBox::stateChanged, this, &FacilityExteriorEquipmentGridController::onSelectAllStateChanged);
-      connect(checkbox.data(), &QCheckBox::stateChanged, this, &FacilityExteriorEquipmentGridController::gridRowSelectionChanged);
+      //connect(checkbox.data(), &QCheckBox::stateChanged, this, &FacilityExteriorEquipmentGridController::gridRowSelectionChanged);
 
       std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false;});
 
@@ -219,7 +219,7 @@ void FacilityExteriorEquipmentGridController::checkSelectedFields() {
 
 void FacilityExteriorEquipmentGridController::onItemDropped(const OSItemId& itemId) {}
 
-void FacilityExteriorEquipmentGridController::refreshModelObjects() { 
+void FacilityExteriorEquipmentGridController::refreshModelObjects() {
   auto lights = model().getConcreteModelObjects<model::ExteriorLights>();
   std::sort(lights.begin(), lights.end(), openstudio::WorkspaceObjectNameLess());
   setModelObjects(subsetCastVector<model::ModelObject>(lights));

@@ -454,7 +454,7 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
       auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
       checkbox->setToolTip("Check to select all rows");
       connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpaceTypesGridController::onSelectAllStateChanged);
-      connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpaceTypesGridController::gridRowSelectionChanged);
+      //connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpaceTypesGridController::gridRowSelectionChanged);
 
       std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; });
 
@@ -1059,7 +1059,7 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
         auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
         checkbox->setToolTip("Check to select all rows");
         connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpaceTypesGridController::onSelectAllStateChanged);
-        connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpaceTypesGridController::gridRowSelectionChanged);
+        //connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpaceTypesGridController::gridRowSelectionChanged);
 
         std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; });
 

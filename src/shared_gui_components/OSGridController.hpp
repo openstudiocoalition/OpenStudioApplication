@@ -181,13 +181,13 @@ class GridCellLocation : public QObject
   
   void inFocus(bool inFocus, bool hasData, int modelRow, int gridRow, int column, boost::optional<int> subrow);
 
-  void selectionChanged(int state, int modelRow, int gridRow, int column, boost::optional<int> subrow);
+  //void selectionChanged(int state, int modelRow, int gridRow, int column, boost::optional<int> subrow);
 
  public slots:
  
   void onInFocus(bool inFocus, bool hasData);
 
-  void onSelectionChanged(int state);
+  //void onSelectionChanged(int state);
 };
 
 class GridCellInfo : public QObject
@@ -234,6 +234,14 @@ class ObjectSelector : public QObject
  public:
   ObjectSelector(QObject* parent);
 
+  enum PropertyChange
+  {
+    NoChange,
+    ToggleChange,
+    ChangeToFalse,
+    ChangeToTrue
+  };
+
   virtual ~ObjectSelector();
 
   // Reset all state
@@ -246,13 +254,13 @@ class ObjectSelector : public QObject
   void setObjectRemoved(const openstudio::Handle& handle);
 
   // Check if object is included in any row or subrow
-  bool containsObject(const openstudio::model::ModelObject& t_obj) const;
+  //bool containsObject(const openstudio::model::ModelObject& t_obj) const;
 
   // Get object at given location
   boost::optional<model::ModelObject> getObject(const int t_modelRow, const int t_gridRow, const int t_column, const boost::optional<int>& t_subrow) const;
 
   // Get GridCellInfo at given location
-  GridCellInfo* getGridCellInfo(const int t_row, const int t_column, const boost::optional<int>& t_subrow) const;
+ // GridCellInfo* getGridCellInfo(const int t_row, const int t_column, const boost::optional<int>& t_subrow) const;
 
   // Select all selectable objects
   void selectAll();
@@ -260,11 +268,17 @@ class ObjectSelector : public QObject
   // Clear the selection
   void clearSelection();
 
-  // Set a selectable object as selected
-  void setObjectSelected(const model::ModelObject& t_obj, bool t_selected);
+  // Set an entire row as selected
+  void setRowProperties(const int t_gridRow, PropertyChange t_visible, PropertyChange t_selected, PropertyChange t_locked);
+
+  // Set a subrow as selected
+  void setSubrowProperties(const int t_gridRow, const int t_subrow, PropertyChange t_visible, PropertyChange t_selected, PropertyChange t_locked);
 
   // Check if an object is selected
   bool getObjectSelected(const model::ModelObject& t_obj) const;
+
+  // Set a selectable object as selected
+  void setObjectSelected(const model::ModelObject& t_obj, bool t_selected);
 
   // Gets selectable objects
   std::set<model::ModelObject> selectableObjects() const;
@@ -273,7 +287,7 @@ class ObjectSelector : public QObject
   std::set<model::ModelObject> selectedObjects() const;
 
   // Check if an object is visible (passes the filter)
-  bool getObjectVisible(const model::ModelObject& t_obj) const;
+  //bool getObjectVisible(const model::ModelObject& t_obj) const;
 
   // Set the object filter function, function true if object is visible
   void setObjectFilter(const std::function<bool(const model::ModelObject&)>& t_filter);
@@ -282,7 +296,7 @@ class ObjectSelector : public QObject
   void resetObjectFilter();
 
   // Check if an object is locked
-  bool getObjectIsLocked(const model::ModelObject& t_obj) const;
+  //bool getObjectIsLocked(const model::ModelObject& t_obj) const;
 
   // Set the object is locked function, function true if object is locked
   void setObjectIsLocked(const std::function<bool(const model::ModelObject&)>& t_isLocked);
@@ -291,7 +305,7 @@ class ObjectSelector : public QObject
   void resetObjectIsLocked();
 
   // Applies locks to entire rows and subrows
-  void applyLocks();
+  //void applyLocks();
 
 signals:
 
@@ -303,7 +317,7 @@ signals:
 
 public slots:
  
-  void onSelectionChanged(int state, int row, int column, boost::optional<int> subrow);
+  //void onSelectionChanged(int state, int row, int column, boost::optional<int> subrow);
 
  protected:
   REGISTER_LOGGER("openstudio.ObjectSelector");
@@ -311,6 +325,10 @@ public slots:
  private:
 
   std::map<GridCellLocation*, GridCellInfo*> m_gridCellLocationToInfoMap;
+
+  std::vector<GridCellLocation*> m_selectorCellLocations;
+
+  GridCellInfo* getGridCellInfo(GridCellLocation* location) const;
 
   // returns true if object is visible
   // e.g. a lights object would not be visible if the user filted only people objects
@@ -811,7 +829,7 @@ class Holder : public QWidget
 
   void inFocus(bool inFocus, bool hasData);
 
-  void selectionChanged(int state);
+  //void selectionChanged(int state);
 };
 
 class HorizontalHeaderPushButton : public QPushButton

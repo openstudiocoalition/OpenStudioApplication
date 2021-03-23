@@ -382,7 +382,7 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
         auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
         checkbox->setToolTip("Check to select all rows");
         connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpacesSubsurfacesGridController::onSelectAllStateChanged);
-        connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpacesSubsurfacesGridController::gridRowSelectionChanged);
+        //connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpacesSubsurfacesGridController::gridRowSelectionChanged);
         std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; });
         addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", isLocked, DataSource(allSubSurfaces, true));
       }
@@ -722,7 +722,7 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
         addNameLineEditColumn(Heading(QString(DAYLIGHTINGSHELFNAME)), false, false,
                               CastNullAdapter<model::DaylightingDeviceShelf>(&model::DaylightingDeviceShelf::name),
                               CastNullAdapter<model::DaylightingDeviceShelf>(&model::DaylightingDeviceShelf::setName),
-                              boost::optional<std::function<void(model::DaylightingDeviceShelf*)>>(), 
+                              boost::optional<std::function<void(model::DaylightingDeviceShelf*)>>(),
                               boost::optional<std::function<bool(model::DaylightingDeviceShelf*)>>(),
                               boost::optional<std::function<bool(model::DaylightingDeviceShelf*)>>(),
                               DataSource(allDaylightingDeviceShelfs, true));
