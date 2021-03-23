@@ -95,7 +95,7 @@ class OSGridView : public QWidget
 
   //void requestRemoveRow(int row);
 
-  //void requestAddRow(int row);
+  void onAddRow(int row);
 
   void onRecreateAll();
 
@@ -111,6 +111,9 @@ class OSGridView : public QWidget
 
   // delete all widgets 
   void deleteAll();
+
+  // add a row
+  void addRow(int row);
 
   // recreate all widgets
   void recreateAll();

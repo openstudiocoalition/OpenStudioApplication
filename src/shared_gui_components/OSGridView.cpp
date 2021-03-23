@@ -94,6 +94,7 @@ OSGridView::OSGridView(OSGridController* gridController, const QString& headerTe
 
   m_gridController->setParent(this);
   connect(m_gridController, &OSGridController::recreateAll, this, &OSGridView::onRecreateAll);
+  connect(m_gridController, &OSGridController::addRow, this, &OSGridView::onAddRow);
   connect(m_gridController, &OSGridController::gridCellChanged, this, &OSGridView::onGridCellChanged);
   connect(m_gridController, &OSGridController::gridRowSelectionChanged, this, &OSGridView::gridRowSelectionChanged);
 
@@ -304,7 +305,11 @@ void OSGridView::setCellProperties(QWidget* wrapper, bool isSelector, int rowInd
 //  delete item;
 //}
 
-
+void OSGridView::onAddRow(int row) {
+  setEnabled(false);
+  addRow(row);
+  setEnabled(true);
+}
 
 void OSGridView::onRecreateAll() {
   setEnabled(false);
@@ -385,6 +390,22 @@ void OSGridView::deleteAll() {
     delete child;
   }
 
+}
+
+void OSGridView::addRow(int row) {
+  setUpdatesEnabled(false);
+  
+  OS_ASSERT(m_gridLayout);
+  OS_ASSERT(m_gridController);
+
+  const auto numRows = m_gridController->rowCount();
+  OS_ASSERT(row < numRows);
+  const auto numColumns = m_gridController->columnCount();
+  for (int j = 0; j < numColumns; j++) {
+    createWidget(row, j);
+  }
+
+  setUpdatesEnabled(true);
 }
 
 void OSGridView::recreateAll() {

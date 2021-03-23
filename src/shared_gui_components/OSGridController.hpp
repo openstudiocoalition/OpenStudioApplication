@@ -759,6 +759,9 @@ public:
 
  signals:
 
+  // signal to add a row
+  void addRow(int row);
+
   // signal to parent to recreate all widgets
   void recreateAll();
 

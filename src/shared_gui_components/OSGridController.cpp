@@ -242,7 +242,7 @@ void ObjectSelector::addObject(const boost::optional<model::ModelObject>& t_obj,
 void ObjectSelector::setObjectRemoved(const openstudio::Handle& handle) {
   const PropertyChange visible = NoChange;
   const PropertyChange selected = ChangeToFalse;
-  const PropertyChange locked = ChangeToFalse;
+  const PropertyChange locked = ChangeToTrue;
   for (const auto location : m_selectorCellLocations) {
     GridCellInfo* info = getGridCellInfo(location);
     if (info && info->modelObject && info->modelObject->handle() == handle) {
@@ -280,6 +280,9 @@ void ObjectSelector::selectAll() {
   for (auto& location : m_selectorCellLocations) {
     GridCellInfo* info = getGridCellInfo(location);
     if (info && info->isSelectable()) {
+      if (info->isLocked()) {
+        bool wut = true;
+      }
       if (location->subrow) {
         setSubrowProperties(location->gridRow, location->subrow.get(), visible, selected, locked);
       } else {
@@ -1702,11 +1705,12 @@ void OSGridController::onAddWorkspaceObject(const WorkspaceObject& object, const
                                             const openstudio::UUID& handle) {
   if (iddObjectType == m_iddObjectType) {
 
-    // TODO: disable, lock, hide the row for this object
-    // if extra special, re-adjust the even/odd pattern
-    refreshModelObjects();
+    // do not call refreshModelObjects right now because that could resort the grid which is very costly
+    //refreshModelObjects();
 
-    emit recreateAll();
+    m_modelObjects.push_back(object.cast<model::ModelObject>());
+
+    emit addRow(rowCount() - 1);
   }
 }
 
