@@ -32,6 +32,7 @@
 #include "OSDropZone.hpp"
 #include "OSItemSelectorButtons.hpp"
 
+#include "../shared_gui_components/OSCheckBox.hpp"
 #include "../shared_gui_components/OSGridView.hpp"
 
 #include <openstudio/model/BuildingStory.hpp>
@@ -165,10 +166,10 @@ void SpacesSpacesGridController::addColumns(const QString& category, std::vector
       addNameLineEditColumn(Heading(QString(NAME), false, false), false, false, CastNullAdapter<model::Space>(&model::Space::name),
                             CastNullAdapter<model::Space>(&model::Space::setName));
     } else if (field == SELECTED) {
-      auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
+      auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
       checkbox->setToolTip("Check to select all rows");
-      connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpacesSpacesGridController::onSelectAllStateChanged);
-      //connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpacesSpacesGridController::gridRowSelectionChanged);
+      connect(checkbox.data(), &OSSelectAllCheckBox::stateChanged, this, &SpacesSpacesGridController::onSelectAllStateChanged);
+      connect(this, &SpacesSpacesGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
       std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; });
       addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", isLocked);
     } else if (field == STORY) {

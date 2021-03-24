@@ -36,6 +36,7 @@
 #include "OSDocument.hpp"
 #include "OSDropZone.hpp"
 
+#include "../shared_gui_components/OSCheckBox.hpp"
 #include "../shared_gui_components/OSGridView.hpp"
 
 #include <openstudio/model/AirLoopHVAC.hpp>
@@ -216,10 +217,10 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
       addCheckBoxColumn(Heading(QString(IDEALAIRLOADS), true, true), std::string("Check to enable ideal air loads."),
                         NullAdapter(&model::ThermalZone::useIdealAirLoads), NullAdapter(&model::ThermalZone::setUseIdealAirLoads), isLocked);
     } else if (field == SELECTED) {
-      auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
+      auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
       checkbox->setToolTip("Check to select all rows");
-      connect(checkbox.data(), &QCheckBox::stateChanged, this, &ThermalZonesGridController::onSelectAllStateChanged);
-      //connect(checkbox.data(), &QCheckBox::stateChanged, this, &ThermalZonesGridController::gridRowSelectionChanged);
+      connect(checkbox.data(), &OSSelectAllCheckBox::stateChanged, this, &ThermalZonesGridController::onSelectAllStateChanged);
+      connect(this, &ThermalZonesGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
       std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; });
       addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", isLocked);
     } else if (field == RENDERINGCOLOR) {

@@ -31,6 +31,7 @@
 
 #include "OSDropZone.hpp"
 
+#include "../shared_gui_components/OSCheckBox.hpp"
 #include "../shared_gui_components/OSGridView.hpp"
 
 #include <openstudio/model/DaylightingControl.hpp>
@@ -203,10 +204,10 @@ void SpacesDaylightingGridController::addColumns(const QString& category, std::v
                             CastNullAdapter<model::Space>(&model::Space::setName));
     } else {
       if (field == SELECTED) {
-        auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
+        auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
         checkbox->setToolTip("Check to select all rows");
-        connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpacesDaylightingGridController::onSelectAllStateChanged);
-        //connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpacesDaylightingGridController::gridRowSelectionChanged);
+        connect(checkbox.data(), &OSSelectAllCheckBox::stateChanged, this, &SpacesDaylightingGridController::onSelectAllStateChanged);
+        connect(this, &SpacesDaylightingGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
         std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; });
         addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", isLocked);
         //addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row",
@@ -429,7 +430,7 @@ void SpacesDaylightingGridController::refreshModelObjects() {
   auto spaces = model().getConcreteModelObjects<model::Space>();
   std::sort(spaces.begin(), spaces.end(), openstudio::WorkspaceObjectNameLess());
   setModelObjects(subsetCastVector<model::ModelObject>(spaces));
-  
+
 }
 
 }  // namespace openstudio

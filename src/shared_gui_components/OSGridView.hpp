@@ -89,7 +89,7 @@ class OSGridView : public QWidget
 
   void dropZoneItemClicked(OSItem* item);
 
-  void gridRowSelectionChanged();
+  void gridRowSelectionChanged(int numSelected, int numSelectable);
 
  public slots:
 

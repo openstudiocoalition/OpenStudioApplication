@@ -43,6 +43,20 @@ class QFocusEvent;
 
 namespace openstudio {
 
+class OSSelectAllCheckBox : public QCheckBox
+{
+  Q_OBJECT
+
+ public: 
+  OSSelectAllCheckBox(QWidget* parent = nullptr);
+
+  virtual ~OSSelectAllCheckBox();
+
+ public slots:
+
+  void onGridRowSelectionChanged(int numSelected, int numSelectable);
+};
+
 class OSCheckBox3 : public QCheckBox, public Nano::Observer
 {
   Q_OBJECT
@@ -120,7 +134,7 @@ class OSCheckBox2 : public QPushButton, public Nano::Observer
   // We override these methods to emit inFocus as appropriate to enable/disable the header button
   virtual void focusInEvent(QFocusEvent* e) override;
   virtual void focusOutEvent(QFocusEvent* e) override;
-  
+
  private slots:
 
   void onToggled(bool checked);

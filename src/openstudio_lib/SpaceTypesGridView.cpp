@@ -36,8 +36,10 @@
 #include "OSDocument.hpp"
 #include "OSDropZone.hpp"
 
-#include "../shared_gui_components/OSGridView.hpp"
+#include "../shared_gui_components/OSCheckBox.hpp"
 #include "../shared_gui_components/OSComboBox.hpp"
+#include "../shared_gui_components/OSGridView.hpp"
+
 
 #include <openstudio/model/DefaultConstructionSet.hpp>
 #include <openstudio/model/DefaultConstructionSet_Impl.hpp>
@@ -280,7 +282,7 @@ SpaceTypesGridView::SpaceTypesGridView(bool isIP, const model::Model& model, QWi
   // GridController
 
   OS_ASSERT(m_gridController);
-  
+
   connect(m_filters, &QComboBox::currentTextChanged, m_gridController, &SpaceTypesGridController::filterChanged);
 
   connect(gridView, &OSGridView::dropZoneItemClicked, this, &SpaceTypesGridView::dropZoneItemClicked);
@@ -451,11 +453,10 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
       addNameLineEditColumn(Heading(QString(NAME), false, false), false, false, getter, setter);
 
     } else if (field == SELECTED && category != "Loads") {
-      auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
+      auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
       checkbox->setToolTip("Check to select all rows");
-      connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpaceTypesGridController::onSelectAllStateChanged);
-      //connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpaceTypesGridController::gridRowSelectionChanged);
-
+      connect(checkbox.data(), &OSSelectAllCheckBox::stateChanged, this, &SpaceTypesGridController::onSelectAllStateChanged);
+      connect(this, &SpaceTypesGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
       std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; });
 
       addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", isLocked);
@@ -1056,11 +1057,10 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
                           DataSource(allLoads, true));
 
       } else if (field == SELECTED) {
-        auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
+        auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
         checkbox->setToolTip("Check to select all rows");
-        connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpaceTypesGridController::onSelectAllStateChanged);
-        //connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpaceTypesGridController::gridRowSelectionChanged);
-
+        connect(checkbox.data(), &OSSelectAllCheckBox::stateChanged, this, &SpaceTypesGridController::onSelectAllStateChanged);
+        connect(this, &SpaceTypesGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
         std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; });
 
         addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", isLocked, DataSource(allLoads, true));

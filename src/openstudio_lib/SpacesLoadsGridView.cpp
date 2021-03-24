@@ -32,6 +32,7 @@
 #include "OSDropZone.hpp"
 #include "OSItemSelectorButtons.hpp"
 
+#include "../shared_gui_components/OSCheckBox.hpp"
 #include "../shared_gui_components/OSGridView.hpp"
 
 #include <openstudio/model/ElectricEquipment.hpp>
@@ -836,11 +837,10 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
                           DataSource(allLoads, true));
 
       } else if (field == SELECTED) {
-        auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
+        auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
         checkbox->setToolTip("Check to select all rows");
-        connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpacesLoadsGridController::onSelectAllStateChanged);
-        //connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpacesLoadsGridController::gridRowSelectionChanged);
-
+        connect(checkbox.data(), &OSSelectAllCheckBox::stateChanged, this, &SpacesLoadsGridController::onSelectAllStateChanged);
+        connect(this, &SpacesLoadsGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
         std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool {
           if (t_obj->optionalCast<model::SpaceLoad>()) {
             return !t_obj->cast<model::SpaceLoad>().space();

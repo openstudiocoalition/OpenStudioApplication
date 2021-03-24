@@ -32,6 +32,7 @@
 #include "OSDropZone.hpp"
 #include "OSItemSelectorButtons.hpp"
 
+#include "../shared_gui_components/OSCheckBox.hpp"
 #include "../shared_gui_components/OSGridView.hpp"
 
 #include <openstudio/model/ConstructionBase.hpp>
@@ -379,10 +380,10 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
         });
 
       if (field == SELECTED) {
-        auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
+        auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
         checkbox->setToolTip("Check to select all rows");
-        connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpacesSubsurfacesGridController::onSelectAllStateChanged);
-        //connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpacesSubsurfacesGridController::gridRowSelectionChanged);
+        connect(checkbox.data(), &OSSelectAllCheckBox::stateChanged, this, &SpacesSubsurfacesGridController::onSelectAllStateChanged);
+        connect(this, &SpacesSubsurfacesGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
         std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; });
         addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", isLocked, DataSource(allSubSurfaces, true));
       }

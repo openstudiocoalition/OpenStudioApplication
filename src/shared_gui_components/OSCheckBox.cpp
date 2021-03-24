@@ -41,6 +41,24 @@
 
 namespace openstudio {
 
+OSSelectAllCheckBox::OSSelectAllCheckBox(QWidget* parent) : QCheckBox(parent) {
+  setTristate(true);
+}
+
+OSSelectAllCheckBox::~OSSelectAllCheckBox() {}
+
+void OSSelectAllCheckBox::onGridRowSelectionChanged(int numSelected, int numSelectable) {
+  blockSignals(true);
+  if(numSelected == 0){
+    setCheckState(Qt::Unchecked);
+  }else if (numSelected == numSelectable){
+    setCheckState(Qt::Checked);
+  }else{
+    setCheckState(Qt::PartiallyChecked);
+  }
+  blockSignals(false);
+}
+
 OSCheckBox3::OSCheckBox3(QWidget* parent) : QCheckBox(parent) {
   this->setCheckable(true);
 
@@ -91,7 +109,7 @@ void OSCheckBox3::bind(const model::ModelObject& modelObject, BoolGetter get, bo
   bool checked = (*m_get)();
 
   this->setChecked(checked);
-  
+
   // if we call update style here the set enabled above may not be in effect
   QTimer::singleShot(0, this, &OSCheckBox3::updateStyle);
 }

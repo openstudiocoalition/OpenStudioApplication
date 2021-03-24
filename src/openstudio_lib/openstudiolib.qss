@@ -638,6 +638,10 @@ QCheckBox::indicator:checked   {
   image: url(:/shared_gui_components/images/checked_checkbox.png);
 }
 
+QCheckBox::indicator:indeterminate {
+  image: url(:/shared_gui_components/images/partially_checked_checkbox.png);
+}
+
 QCheckBox::indicator:unchecked {
   image: url(:/shared_gui_components/images/unchecked_checkbox.png);
 }

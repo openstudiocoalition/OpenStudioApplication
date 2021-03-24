@@ -29,6 +29,7 @@
 
 #include "RefrigerationGridView.hpp"
 
+#include "../shared_gui_components/OSCheckBox.hpp"
 #include "../shared_gui_components/OSGridView.hpp"
 
 #include "ModelObjectItem.hpp"
@@ -292,10 +293,10 @@ void RefrigerationCaseGridController::addColumns(const QString& /*category*/, st
                             NullAdapter(&model::RefrigerationCase::ratedAmbientTemperature),
                             NullAdapter(&model::RefrigerationCase::setRatedAmbientTemperature));
     } else if (field == SELECTED) {
-      auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
+      auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
       checkbox->setToolTip("Check to select all rows");
-      connect(checkbox.data(), &QCheckBox::stateChanged, this, &RefrigerationCaseGridController::onSelectAllStateChanged);
-      //connect(checkbox.data(), &QCheckBox::stateChanged, this, &RefrigerationCaseGridController::gridRowSelectionChanged);
+      connect(checkbox.data(), &OSSelectAllCheckBox::stateChanged, this, &RefrigerationCaseGridController::onSelectAllStateChanged);
+      connect(this, &RefrigerationCaseGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
       std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; });
       addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", isLocked);
     } else if (field == RATEDAMBIENTRELATIVEHUMIDITY) {
@@ -653,10 +654,10 @@ void RefrigerationWalkInGridController::addColumns(const QString& /*category*/, 
         CastNullAdapter<model::RefrigerationWalkIn>(&model::RefrigerationWalkIn::setDefrostType),
         boost::optional<std::function<void(model::RefrigerationWalkIn*)>>(), boost::optional<DataSource>());
     } else if (field == SELECTED) {
-      auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
+      auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
       checkbox->setToolTip("Check to select all rows");
-      connect(checkbox.data(), &QCheckBox::stateChanged, this, &RefrigerationWalkInGridController::onSelectAllStateChanged);
-      //connect(checkbox.data(), &QCheckBox::stateChanged, this, &RefrigerationWalkInGridController::gridRowSelectionChanged);
+      connect(checkbox.data(), &OSSelectAllCheckBox::stateChanged, this, &RefrigerationWalkInGridController::onSelectAllStateChanged);
+      connect(this, &RefrigerationWalkInGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
       std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; });
       addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", isLocked);
     } else if (field == DEFROSTCONTROLTYPE) {

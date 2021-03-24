@@ -180,8 +180,8 @@ void GridViewSubTab::toggleUnits(bool isIP) {
   m_isIP = isIP;
 }
 
-void GridViewSubTab::onGridRowSelectionChanged() {
-  if (this->m_gridController->selectedObjects().size() == 0) {
+void GridViewSubTab::onGridRowSelectionChanged(int numSelected, int numSelectable) {
+  if (numSelected == 0) {
     onClearSelection();
   } else {
     onSelectItem();

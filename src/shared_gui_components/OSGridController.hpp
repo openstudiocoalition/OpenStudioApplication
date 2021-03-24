@@ -313,7 +313,7 @@ signals:
 
   void gridCellChanged(const GridCellLocation& location, const GridCellInfo& info);
 
-  void gridRowSelectionChanged();
+  void gridRowSelectionChanged(int numSelected, int numSelectable);
 
 public slots:
  
@@ -327,6 +327,8 @@ public slots:
   std::map<GridCellLocation*, GridCellInfo*> m_gridCellLocationToInfoMap;
 
   std::vector<GridCellLocation*> m_selectorCellLocations;
+
+  std::vector<GridCellInfo*> m_selectorCellInfos;
 
   GridCellInfo* getGridCellInfo(GridCellLocation* location) const;
 
@@ -772,7 +774,7 @@ public:
   void toggleUnitsClicked(bool displayIP);
 
   // signal when selection changes
-  void gridRowSelectionChanged();
+  void gridRowSelectionChanged(int numSelected, int numSelectable);
 
  public slots:
 

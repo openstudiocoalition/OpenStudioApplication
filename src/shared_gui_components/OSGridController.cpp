@@ -213,6 +213,7 @@ void ObjectSelector::clear() {
   }
   
   m_selectorCellLocations.clear();
+  m_selectorCellInfos.clear();
 
   m_objectFilter = getDefaultFilter();
   m_isLocked = getDefaultIsLocked();
@@ -232,8 +233,7 @@ void ObjectSelector::addObject(const boost::optional<model::ModelObject>& t_obj,
 
   if (t_isSelector) {
     m_selectorCellLocations.push_back(location);
-    //connect(t_holder, &Holder::selectionChanged, location, &GridCellLocation::onSelectionChanged);
-    //connect(location, &GridCellLocation::selectionChanged, this, &ObjectSelector::onSelectionChanged);
+    m_selectorCellInfos.push_back(info);
   }
   
   m_gridCellLocationToInfoMap.insert(std::make_pair(location, info));
@@ -277,39 +277,44 @@ void ObjectSelector::selectAll() {
   const PropertyChange visible = NoChange;
   const PropertyChange selected = ChangeToTrue;
   const PropertyChange locked = NoChange;
+  int numSelected = 0;
   for (auto& location : m_selectorCellLocations) {
     GridCellInfo* info = getGridCellInfo(location);
     if (info && info->isSelectable()) {
-      if (info->isLocked()) {
-        bool wut = true;
-      }
+      numSelected += 1;
       if (location->subrow) {
         setSubrowProperties(location->gridRow, location->subrow.get(), visible, selected, locked);
       } else {
         setRowProperties(location->gridRow, visible, selected, locked);
       }
+    } else {
+      OS_ASSERT(!info->isSelected());
     }
   }
 
-  emit gridRowSelectionChanged();
+  emit gridRowSelectionChanged(numSelected, numSelected);
 }
 
 void ObjectSelector::clearSelection() {
   const PropertyChange visible = NoChange;
   const PropertyChange selected = ChangeToFalse;
   const PropertyChange locked = NoChange;
+  int numSelectable = 0;
   for (auto& location : m_selectorCellLocations) {
     GridCellInfo* info = getGridCellInfo(location);
     if (info && info->isSelectable()) {
+      numSelectable += 1;
       if (location->subrow) {
         setSubrowProperties(location->gridRow, location->subrow.get(), visible, selected, locked);
       } else {
         setRowProperties(location->gridRow, visible, selected, locked);
       }
+    } else {
+      OS_ASSERT(!info->isSelected());
     }
   }
   
-  emit gridRowSelectionChanged();
+  emit gridRowSelectionChanged(0, numSelectable);
 }
 
 void ObjectSelector::setRowProperties(const int t_gridRow, PropertyChange t_visible, PropertyChange t_selected, PropertyChange t_locked) {
@@ -400,6 +405,8 @@ void ObjectSelector::setObjectSelected(const model::ModelObject& t_obj, bool t_s
   const PropertyChange visible = NoChange;
   const PropertyChange selected = (t_selected ? ChangeToTrue : ChangeToFalse);
   const PropertyChange locked = NoChange;
+  int numSelected = 0;
+  int numSelectable = 0;
   for (auto& location : m_selectorCellLocations) {
     GridCellInfo* info = getGridCellInfo(location);
     if (info && info->isSelectable() && info->modelObject && info->modelObject.get() == t_obj) {
@@ -409,9 +416,16 @@ void ObjectSelector::setObjectSelected(const model::ModelObject& t_obj, bool t_s
         setRowProperties(location->gridRow, visible, selected, locked);
       }
     }
+    
+    if (info && info->isSelectable()) {
+      numSelectable += 1;
+      if (info->isSelected()) {
+        numSelected += 1;
+      }
+    }
   }
 
-  emit gridRowSelectionChanged();
+  emit gridRowSelectionChanged(numSelected, numSelectable);
 }
 
 std::set<model::ModelObject> ObjectSelector::selectableObjects() const {
