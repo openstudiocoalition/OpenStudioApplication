@@ -176,59 +176,53 @@ TEST_F(OpenStudioLibFixture, SpacesSurfacesGridView) {
   auto selectedObjects = objectSelector->selectedObjects();
   EXPECT_EQ(0u, selectedObjects.size());
 
-  for (const auto &surface: surfaces) {
-    EXPECT_TRUE(objectSelector->containsObject(surface));
-  }
-  for (const auto &space: spaces) {
-    EXPECT_TRUE(objectSelector->containsObject(space));
-  }
 
   // Headers on row = 0
-  unsigned row = 0;
+  unsigned gridRow = 0;
   unsigned col = 0;
   unsigned i = 0;
 
   // Row = 0, Col = 0 is Space Name header, No SubRow
-  row = 0;
+  gridRow = 0;
   col = 0;
 
-  auto obj = objectSelector->getObject(row, col, boost::none);
+  auto obj = objectSelector->getObject(gridRow - 1, gridRow, col, boost::none);
   EXPECT_FALSE(obj);
 
-  obj = objectSelector->getObject(row, col, 0);
+  obj = objectSelector->getObject(gridRow - 1, gridRow, col, 0);
   EXPECT_FALSE(obj);
 
   // Row = 0, Col = 1 is All header, No SubRow
-  row = 0;
+  gridRow = 0;
   col = 1;
 
-  obj = objectSelector->getObject(row, col, boost::none);
+  obj = objectSelector->getObject(gridRow - 1, gridRow, col, boost::none);
   EXPECT_FALSE(obj);
 
-  obj = objectSelector->getObject(row, col, 0);
+  obj = objectSelector->getObject(gridRow - 1, gridRow, col, 0);
   EXPECT_FALSE(obj);
 
   // First row of objects on row = 1
 
   // Row = 1, Col = 0 is Space, No SubRow
-  row = 1;
+  gridRow = 1;
   col = 0;
 
-  obj = objectSelector->getObject(row, col, boost::none);
+  obj = objectSelector->getObject(gridRow - 1, gridRow, col, boost::none);
   ASSERT_TRUE(obj);
   ASSERT_TRUE(obj->optionalCast<model::Space>());
   auto spaceObj = obj->cast<model::Space>();
 
   // Row = 1, Col = 1 is Surface Select Check Boxes, Has SubRow
-  row = 1;
+  gridRow = 1;
   col = 1;
 
-  obj = objectSelector->getObject(row, col, boost::none);
+  obj = objectSelector->getObject(gridRow - 1, gridRow, col, boost::none);
   EXPECT_FALSE(obj);
 
   i = 0;
   for (const auto& surface : spaceObj.surfaces()) {
-    obj = objectSelector->getObject(row, col, i);
+    obj = objectSelector->getObject(gridRow - 1, gridRow, col, i);
     ASSERT_TRUE(obj);
     ASSERT_TRUE(obj->optionalCast<model::Surface>());
     auto surfaceObj = obj->cast<model::Surface>();
@@ -239,15 +233,15 @@ TEST_F(OpenStudioLibFixture, SpacesSurfacesGridView) {
   }
 
   // Row = 1, Col = 1 is Surface Name Line Edits, Has SubRow
-  row = 1;
+  gridRow = 1;
   col = 2;
 
-  obj = objectSelector->getObject(row, col, boost::none);
+  obj = objectSelector->getObject(gridRow - 1, gridRow, col, boost::none);
   EXPECT_FALSE(obj);
 
   i = 0;
   for (const auto& surface : spaceObj.surfaces()) {
-    obj = objectSelector->getObject(row, col, i);
+    obj = objectSelector->getObject(gridRow - 1, gridRow, col, i);
     ASSERT_TRUE(obj);
     ASSERT_TRUE(obj->optionalCast<model::Surface>());
     auto surfaceObj = obj->cast<model::Surface>();
@@ -284,18 +278,12 @@ TEST_F(OpenStudioLibFixture, SpacesSurfacesGridView) {
 
   i = 0;
   for (const auto& surface : spaceObj.surfaces()) {
-    obj = objectSelector->getObject(row, col, i);
+    obj = objectSelector->getObject(gridRow - 1, gridRow, col, i);
     ASSERT_TRUE(obj);
     ASSERT_TRUE(obj->optionalCast<model::Surface>());
     auto surfaceObj = obj->cast<model::Surface>();
     ASSERT_TRUE(surfaceObj.space());
     EXPECT_EQ(spaceObj, surfaceObj.space());
-
-    bool isVisible = surfaceObj.surfaceType() == "Wall";
-
-    EXPECT_EQ(true, objectSelector->containsObject(surfaceObj));
-    EXPECT_EQ(isVisible, objectSelector->getObjectVisible(surfaceObj));
-
 
     i += 1;
   }
