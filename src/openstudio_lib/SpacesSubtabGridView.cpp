@@ -803,8 +803,7 @@ void SpacesSubtabGridView::interiorPartitionGroupFilterChanged(const QString& te
     for (const auto& obj : this->m_gridController->selectableObjects()) {
       const auto& interiorPartitionSurfaceGroup = obj.optionalCast<model::InteriorPartitionSurfaceGroup>();
       if (interiorPartitionSurfaceGroup) {
-        if (!interiorPartitionSurfaceGroup->name() ||
-            (interiorPartitionSurfaceGroup->name() && interiorPartitionSurfaceGroup->name().get().c_str() != text)) {
+        if (!interiorPartitionSurfaceGroup->name() || (interiorPartitionSurfaceGroup->name().get().c_str() != text)) {
           m_objectsFilteredByInteriorPartitionGroup.insert(obj);
         }
       }

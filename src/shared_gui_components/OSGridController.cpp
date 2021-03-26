@@ -276,15 +276,17 @@ void ObjectSelector::selectAll() {
   int numSelected = 0;
   for (auto& location : m_selectorCellLocations) {
     GridCellInfo* info = getGridCellInfo(location);
-    if (info && info->isSelectable()) {
-      numSelected += 1;
-      if (location->subrow) {
-        setSubrowProperties(location->gridRow, location->subrow.get(), visible, selected, locked);
+    if (info){
+      if (info->isSelectable()) {
+        numSelected += 1;
+        if (location->subrow) {
+          setSubrowProperties(location->gridRow, location->subrow.get(), visible, selected, locked);
+        } else {
+          setRowProperties(location->gridRow, visible, selected, locked);
+        }
       } else {
-        setRowProperties(location->gridRow, visible, selected, locked);
+        OS_ASSERT(!(info->isSelected()));
       }
-    } else {
-      OS_ASSERT(!(info->isSelected()));
     }
   }
 
@@ -298,15 +300,17 @@ void ObjectSelector::clearSelection() {
   int numSelectable = 0;
   for (auto& location : m_selectorCellLocations) {
     GridCellInfo* info = getGridCellInfo(location);
-    if (info && info->isSelectable()) {
-      numSelectable += 1;
-      if (location->subrow) {
-        setSubrowProperties(location->gridRow, location->subrow.get(), visible, selected, locked);
+    if (info){
+      if (info->isSelectable()) {
+        numSelectable += 1;
+        if (location->subrow) {
+          setSubrowProperties(location->gridRow, location->subrow.get(), visible, selected, locked);
+        } else {
+          setRowProperties(location->gridRow, visible, selected, locked);
+        }
       } else {
-        setRowProperties(location->gridRow, visible, selected, locked);
+        OS_ASSERT(!(info->isSelected()));
       }
-    } else {
-      OS_ASSERT(!(info->isSelected()));
     }
   }
 
