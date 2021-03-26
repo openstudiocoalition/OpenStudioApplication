@@ -52,6 +52,8 @@ class QPushButton;
 class QScrollArea;
 class QLabel;
 
+class OpenStudioLibFixture;
+
 namespace openstudio {
 
 class OSItem;
@@ -108,7 +110,7 @@ class OSDropZone2 : public QWidget, public Nano::Observer
 
  private:
   // For testing
-  friend class OpenStudioLibFixture;
+  friend class ::OpenStudioLibFixture;
 
   void updateStyle();
   void makeItem();

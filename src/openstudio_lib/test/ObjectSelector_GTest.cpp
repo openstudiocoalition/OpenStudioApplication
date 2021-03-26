@@ -34,8 +34,8 @@
 #include "../SpacesSpacesGridView.hpp"
 #include "../SpacesSurfacesGridView.hpp"
 #include "../OSDropZone.hpp"
-#include "../shared_gui_components/OSGridController.hpp"
-#include "../shared_gui_components/OSLineEdit.hpp"
+#include "../../shared_gui_components/OSGridController.hpp"
+#include "../../shared_gui_components/OSLineEdit.hpp"
 
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/Space.hpp>

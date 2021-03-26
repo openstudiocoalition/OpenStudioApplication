@@ -33,9 +33,9 @@
 
 #include "../GridViewSubTab.hpp"
 #include "../OSDropZone.hpp"
-#include "../shared_gui_components/OSGridController.hpp"
-#include "../shared_gui_components/OSGridView.hpp"
-#include "../shared_gui_components/OSLineEdit.hpp"
+#include "../../shared_gui_components/OSGridController.hpp"
+#include "../../shared_gui_components/OSGridView.hpp"
+#include "../../shared_gui_components/OSLineEdit.hpp"
 
 #include <openstudio/utilities/core/Path.hpp>
 

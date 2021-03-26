@@ -41,6 +41,7 @@
 
 class QFocusEvent;
 class QMouseEvent;
+class OpenStudioLibFixture;
 
 namespace openstudio {
 
@@ -172,7 +173,7 @@ class OSLineEdit2 : public QLineEdit, public OSLineEdit2Interface, public Nano::
 
  private:
   // For testing
-  friend class OpenStudioLibFixture;
+  friend class ::OpenStudioLibFixture;
 
   void onModelObjectChangeInternal(bool startingup);
   void completeBind();

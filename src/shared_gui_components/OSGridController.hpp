@@ -55,6 +55,7 @@ class QCheckBox;
 class QColor;
 class QLabel;
 class QPaintEvent;
+class OpenStudioLibFixture;
 
 namespace openstudio {
 
@@ -641,7 +642,7 @@ public:
  private:
 
   // For testing
-  friend class OpenStudioLibFixture;
+  friend class ::OpenStudioLibFixture;
 
   IddObjectType m_iddObjectType;
 

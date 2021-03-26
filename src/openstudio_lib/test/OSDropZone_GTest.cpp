@@ -32,7 +32,7 @@
 #include "OpenStudioLibFixture.hpp"
 
 #include "../OSDropZone.hpp"
-#include "../shared_gui_components/OSConcepts.hpp"
+#include "../../shared_gui_components/OSConcepts.hpp"
 
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/Space.hpp>

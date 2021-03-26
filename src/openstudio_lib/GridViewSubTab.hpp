@@ -125,7 +125,7 @@ class GridViewSubTab : public QWidget
 private:
 
   // For testing
-  friend class OpenStudioLibFixture;
+  friend class ::OpenStudioLibFixture;
 
 };
 
