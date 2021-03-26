@@ -87,13 +87,13 @@ namespace openstudio {
 
 const std::vector<QColor> OSGridController::m_colors = SchedulesView::initializeColors();
 
-GridCellLocation::GridCellLocation(int t_modelRow, int m_gridRow, int t_column, boost::optional<int> t_subrow, QObject* parent)
-  : QObject(parent), modelRow(t_modelRow), gridRow(m_gridRow), column(t_column), subrow(t_subrow) {}
+GridCellLocation::GridCellLocation(int t_modelRow, int t_gridRow, int t_column, boost::optional<int> t_subrow, QObject* parent)
+  : QObject(parent), modelRow(t_modelRow), gridRow(t_gridRow), column(t_column), subrow(t_subrow) {}
 
 GridCellLocation::~GridCellLocation() {}
 
-bool GridCellLocation::equal(int t_modelRow, int m_gridRow, int t_column, boost::optional<int> t_subrow) const {
-  return (modelRow == t_modelRow) && (gridRow == m_gridRow) && (column == t_column) && (subrow == t_subrow);
+bool GridCellLocation::equal(int t_modelRow, int t_gridRow, int t_column, boost::optional<int> t_subrow) const {
+  return (modelRow == t_modelRow) && (gridRow == t_gridRow) && (column == t_column) && (subrow == t_subrow);
 }
 
 bool GridCellLocation::operator==(const GridCellLocation& other) const {
@@ -284,7 +284,7 @@ void ObjectSelector::selectAll() {
         setRowProperties(location->gridRow, visible, selected, locked);
       }
     } else {
-      OS_ASSERT(!info->isSelected());
+      OS_ASSERT(!(info->isSelected()));
     }
   }
 
@@ -306,7 +306,7 @@ void ObjectSelector::clearSelection() {
         setRowProperties(location->gridRow, visible, selected, locked);
       }
     } else {
-      OS_ASSERT(!info->isSelected());
+      OS_ASSERT(!(info->isSelected()));
     }
   }
 
@@ -461,7 +461,12 @@ void ObjectSelector::setObjectFilter(const std::function<bool(const model::Model
 
   for (auto& locationInfoPair : m_gridCellLocationToInfoMap) {
     if (locationInfoPair.second->modelObject) {
-      bool changed = locationInfoPair.second->setVisible(m_objectFilter(locationInfoPair.second->modelObject.get()));
+      bool visible = m_objectFilter(locationInfoPair.second->modelObject.get());
+      bool changed = locationInfoPair.second->setVisible(visible);
+      if (!visible) {
+        // deselect object when it gets filtered out
+        changed = locationInfoPair.second->setSelected(false) || changed;
+      }
       if (changed) {
         emit gridCellChanged(*locationInfoPair.first, *locationInfoPair.second);
       }
@@ -486,11 +491,14 @@ void ObjectSelector::setObjectIsLocked(const std::function<bool(const model::Mod
   m_isLocked = t_isLocked;
 
   for (auto& locationInfoPair : m_gridCellLocationToInfoMap) {
-    bool changed;
+    bool locked = false;
     if (locationInfoPair.second->modelObject) {
-      changed = locationInfoPair.second->setLocked(m_isLocked(locationInfoPair.second->modelObject.get()));
-    } else {
-      changed = locationInfoPair.second->setLocked(false);
+      locked = m_isLocked(locationInfoPair.second->modelObject.get());
+    }
+    bool changed = locationInfoPair.second->setLocked(locked);
+    if (locked) {
+      // deselect object when it gets locked
+      changed = locationInfoPair.second->setSelected(false) || changed;
     }
     if (changed) {
       emit gridCellChanged(*locationInfoPair.first, *locationInfoPair.second);
@@ -1408,9 +1416,9 @@ QWidget* OSGridController::createWidget(int gridRow, int column, OSGridView* gri
     horizontalHeaderWidget->addWidget(heading.widget());
   } else {
 
-    model::ModelObject mo = m_modelObjects[modelRow];
+    model::ModelObject modelObject = m_modelObjects[modelRow];
 
-    //cellColor = getColor(mo);  TODO
+    //cellColor = getColor(modelObject);  TODO
 
     QSharedPointer<BaseConcept> baseConcept = m_baseConcepts[column];
 
@@ -1422,21 +1430,21 @@ QWidget* OSGridController::createWidget(int gridRow, int column, OSGridView* gri
       // however the placeHolder isn't doing its job, it might need to be a QSpacer of some kind.
       // The spacing around the list is a little awkward. The padding might need to be set to 0
       // all the way around.
-      auto items = dataSource->source().items(mo);
+      auto items = dataSource->source().items(modelObject);
 
       size_t subrowCounter = 0;
       for (auto& item : items) {
         if (item) {
           auto mo = item->cast<model::ModelObject>();
           auto innerConcept = dataSource->innerConcept();
-          bool isSelector = (baseConcept->isSelector() || innerConcept->isSelector());
+          bool isThisSelector = (baseConcept->isSelector() || innerConcept->isSelector());
 
-          if (isSelector) {
-            bool isLocked = innerConcept->isLocked(mo);
-            innerConcept->setBaseLocked(isLocked);
+          if (isThisSelector) {
+            bool isThisLocked = innerConcept->isLocked(mo);
+            innerConcept->setBaseLocked(isThisLocked);
           }
 
-          addWidgetLambda(makeWidget(mo, innerConcept, gridView), mo, isSelector);
+          addWidgetLambda(makeWidget(mo, innerConcept, gridView), mo, isThisSelector);
         } else {
           addWidgetLambda(new QWidget(gridView), boost::none, false);
         }
@@ -1453,7 +1461,7 @@ QWidget* OSGridController::createWidget(int gridRow, int column, OSGridView* gri
         // it makes sense to me that the drop zone would need a reference to the parent containing object
         // not an object the rest in the list was derived from
         // this should also be working and doing what you want
-        addWidgetLambda(makeWidget(mo, dataSource->source().dropZoneConcept(), gridView), boost::none, false);
+        addWidgetLambda(makeWidget(modelObject, dataSource->source().dropZoneConcept(), gridView), boost::none, false);
       }
 
       // right here you probably want some kind of container that's smart enough to know how to grow
@@ -1465,7 +1473,7 @@ QWidget* OSGridController::createWidget(int gridRow, int column, OSGridView* gri
       // This case is exactly what it used to do before the DataSource idea was added.
 
       // just the one
-      addWidgetLambda(makeWidget(mo, baseConcept, gridView), mo, baseConcept->isSelector());
+      addWidgetLambda(makeWidget(modelObject, baseConcept, gridView), modelObject, baseConcept->isSelector());
     }
   }
 

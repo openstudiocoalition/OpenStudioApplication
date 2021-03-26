@@ -606,7 +606,6 @@ void OSDropZone2::refresh() {
   update();
 }
 
-// cppcheck-suppress constParameter
 void OSDropZone2::bind(model::ModelObject& modelObject, OptionalModelObjectGetter get, ModelObjectSetter set, boost::optional<NoFailAction> reset,
                        boost::optional<ModelObjectIsDefaulted> isDefaulted, boost::optional<ModelObjectIsReadOnly> isReadOnly) {
   m_get = get;

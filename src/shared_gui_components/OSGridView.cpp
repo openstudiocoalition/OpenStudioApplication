@@ -245,9 +245,9 @@ QString OSGridView::cellStyle() {
   return style;
 }
 
-void OSGridView::setCellProperties(QWidget* wrapper, bool isSelector, int rowIndex, int columnIndex, boost::optional<int> subrow, bool isVisible,
+void OSGridView::setCellProperties(QWidget* wrapper, bool isSelector, int row, int column, boost::optional<int> subrow, bool isVisible,
                                    bool isSelected, bool isLocked) {
-  bool isEven = ((rowIndex % 2) == 0);
+  bool isEven = ((row % 2) == 0);
   bool isChanged = false;
 
   wrapper->setVisible(isVisible);

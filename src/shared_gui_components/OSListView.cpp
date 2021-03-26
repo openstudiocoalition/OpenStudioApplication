@@ -193,8 +193,6 @@ void OSListView::removePair(QObject* object) {
   auto it = m_widgetItemPairs.find(object);
   if (it != m_widgetItemPairs.end()) {
     m_widgetItemPairs.erase(it);
-  } else {
-    bool wut = false;
   }
 }
 

@@ -186,7 +186,7 @@ class GridCellLocation : public QObject
 
  public slots:
 
-  void onInFocus(bool inFocus, bool hasData);
+  void onInFocus(bool t_inFocus, bool t_hasData);
 
   //void onSelectionChanged(int state);
 };
@@ -709,7 +709,7 @@ class OSGridController : public QObject
   virtual QString getColor(const model::ModelObject& modelObject) = 0;
 
   // This function sets the column header caption
-  virtual void setHorizontalHeader(QWidget* parent);
+  virtual void setHorizontalHeader(QWidget* gridView);
 
   // Call this function after the table is constructed
   // to appropriately check user-selected category fields

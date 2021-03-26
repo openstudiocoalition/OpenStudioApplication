@@ -264,10 +264,10 @@ TEST_F(OpenStudioLibFixture, SpacesSurfacesGridView) {
   processEvents();
 
   selectableObjects = objectSelector->selectableObjects();
-  EXPECT_EQ(surfaces.size(), selectableObjects.size());
+  EXPECT_EQ(16u, selectableObjects.size());
 
   selectedObjects = objectSelector->selectedObjects();
-  EXPECT_EQ(surfaces.size(), selectedObjects.size());
+  EXPECT_EQ(16u, selectedObjects.size());
 
   i = 0;
   for (const auto& surface : spaceObj.surfaces()) {

@@ -302,7 +302,7 @@ class BaseConcept
   virtual bool isLocked(const ConceptProxy& obj) {
     return m_baseLocked;
   }
-  bool baseLocked() {
+  bool baseLocked() const {
     return m_baseLocked;
   }
   void setBaseLocked(bool baseLocked) {
@@ -1476,24 +1476,24 @@ class DropZoneConceptImpl : public DropZoneConcept
   }
 
   virtual bool isDefaultedImpl(const ConceptProxy& t_obj) {
-    bool isDefaulted = false;
+    bool result = false;
     if (m_isDefaulted) {
       DataSourceType obj = t_obj.cast<DataSourceType>();
-      isDefaulted = (*m_isDefaulted)(&obj);
+      result = (*m_isDefaulted)(&obj);
     }
-    return isDefaulted;
+    return result;
   }
 
   virtual bool isLockedImpl(const ConceptProxy& t_obj) {
     if (baseLocked()) {
       return true;
     }
-    bool isLocked = false;
+    bool result = false;
     if (m_isLocked) {
       DataSourceType obj = t_obj.cast<DataSourceType>();
-      isLocked = (*m_isLocked)(&obj);
+      result = (*m_isLocked)(&obj);
     }
-    return isLocked;
+    return result;
   }
 
  private:
