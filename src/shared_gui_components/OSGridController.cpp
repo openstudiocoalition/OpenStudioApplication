@@ -276,7 +276,7 @@ void ObjectSelector::selectAll() {
   int numSelected = 0;
   for (auto& location : m_selectorCellLocations) {
     GridCellInfo* info = getGridCellInfo(location);
-    if (info){
+    if (info) {
       if (info->isSelectable()) {
         numSelected += 1;
         if (location->subrow) {
@@ -300,7 +300,7 @@ void ObjectSelector::clearSelection() {
   int numSelectable = 0;
   for (auto& location : m_selectorCellLocations) {
     GridCellInfo* info = getGridCellInfo(location);
-    if (info){
+    if (info) {
       if (info->isSelectable()) {
         numSelectable += 1;
         if (location->subrow) {
