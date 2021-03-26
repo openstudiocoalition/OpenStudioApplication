@@ -77,7 +77,7 @@ class SpacesDaylightingGridController : public OSGridController
   virtual QString getColor(const model::ModelObject& modelObject) override;
 
  public slots:
-  
+
   virtual void onCategorySelected(int index) override;
 
   virtual void onItemDropped(const OSItemId& itemId) override;

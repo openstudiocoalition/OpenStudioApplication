@@ -187,7 +187,8 @@ void SpacesInteriorPartitionsGridController::addColumns(const QString& category,
         auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
         checkbox->setToolTip("Check to select all rows");
         connect(checkbox.data(), &OSSelectAllCheckBox::stateChanged, this, &SpacesInteriorPartitionsGridController::onSelectAllStateChanged);
-        connect(this, &SpacesInteriorPartitionsGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
+        connect(this, &SpacesInteriorPartitionsGridController::gridRowSelectionChanged, checkbox.data(),
+                &OSSelectAllCheckBox::onGridRowSelectionChanged);
         std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; });
         addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", isLocked,
                         DataSource(allInteriorPartitionSurfaces, true));
@@ -216,8 +217,7 @@ void SpacesInteriorPartitionsGridController::addColumns(const QString& category,
           boost::optional<std::function<void(model::InteriorPartitionSurface*)>>(NullAdapter(&model::InteriorPartitionSurface::resetConstruction)),
           boost::optional<std::function<bool(model::InteriorPartitionSurface*)>>(
             NullAdapter(&model::InteriorPartitionSurface::isConstructionDefaulted)),
-          boost::optional<std::function<bool(model::InteriorPartitionSurface*)>>(),
-          DataSource(allInteriorPartitionSurfaces, true));
+          boost::optional<std::function<bool(model::InteriorPartitionSurface*)>>(), DataSource(allInteriorPartitionSurfaces, true));
       } else if (field == CONVERTTOINTERNALMASS) {
         // We add the "Apply Selected" button to this column by passing 3rd arg, t_showColumnButton=true
         std::function<bool(model::InteriorPartitionSurface*)> isLocked([](model::InteriorPartitionSurface* t_obj) -> bool { return false; });

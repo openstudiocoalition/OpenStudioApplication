@@ -104,7 +104,6 @@ class OSUnsignedEdit2 : public QLineEdit
   void onModelObjectRemove(const Handle& handle);
 
  private:
-
   bool defaulted() const;
   bool autosized() const;
   bool autocalculated() const;

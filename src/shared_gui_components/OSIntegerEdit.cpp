@@ -47,32 +47,28 @@ using openstudio::model::ModelObject;
 
 namespace openstudio {
 
-OSIntegerEdit2::OSIntegerEdit2(QWidget* parent)
-  : QLineEdit(parent),
-    m_isScientific(false)
-{
+OSIntegerEdit2::OSIntegerEdit2(QWidget* parent) : QLineEdit(parent), m_isScientific(false) {
   this->setFixedWidth(90);
   this->setAcceptDrops(false);
   setEnabled(false);
 
   // if multiple qss rules apply with same specificity then the last one is chosen
-  this->setStyleSheet(
-    "QLineEdit[style=\"0000\"] { color:black; background:white;   } "     // Locked=0, Focused=0, Auto=0, Defaulted=0
-    "QLineEdit[style=\"0001\"] { color:green; background:white;   } "     // Locked=0, Focused=0, Auto=0, Defaulted=1
-    "QLineEdit[style=\"0010\"] { color:grey;  background:white;   } "     // Locked=0, Focused=0, Auto=1, Defaulted=0
-    "QLineEdit[style=\"0011\"] { color:grey;  background:white;   } "     // Locked=0, Focused=0, Auto=1, Defaulted=1
-    "QLineEdit[style=\"0100\"] { color:black; background:#ffc627; } "     // Locked=0, Focused=1, Auto=0, Defaulted=0
-    "QLineEdit[style=\"0101\"] { color:green; background:#ffc627; } "     // Locked=0, Focused=1, Auto=0, Defaulted=1
-    "QLineEdit[style=\"0110\"] { color:grey;  background:#ffc627; } "     // Locked=0, Focused=1, Auto=1, Defaulted=0
-    "QLineEdit[style=\"0111\"] { color:grey;  background:#ffc627; } "     // Locked=0, Focused=1, Auto=1, Defaulted=1
-    "QLineEdit[style=\"1000\"] { color:black; background:#e6e6e6; } "     // Locked=1, Focused=0, Auto=0, Defaulted=0
-    "QLineEdit[style=\"1001\"] { color:green; background:#e6e6e6; } "     // Locked=1, Focused=0, Auto=0, Defaulted=1
-    "QLineEdit[style=\"1010\"] { color:grey;  background:#e6e6e6; } "     // Locked=1, Focused=0, Auto=1, Defaulted=0
-    "QLineEdit[style=\"1011\"] { color:grey;  background:#e6e6e6; } "     // Locked=1, Focused=0, Auto=1, Defaulted=1
-    "QLineEdit[style=\"1100\"] { color:black; background:#e6e6e6; } "     // Locked=1, Focused=1, Auto=0, Defaulted=0
-    "QLineEdit[style=\"1101\"] { color:green; background:#e6e6e6; } "     // Locked=1, Focused=1, Auto=0, Defaulted=1
-    "QLineEdit[style=\"1110\"] { color:grey;  background:#e6e6e6; } "     // Locked=1, Focused=1, Auto=1, Defaulted=0
-    "QLineEdit[style=\"1111\"] { color:grey;  background:#e6e6e6; } "     // Locked=1, Focused=1, Auto=1, Defaulted=1
+  this->setStyleSheet("QLineEdit[style=\"0000\"] { color:black; background:white;   } "  // Locked=0, Focused=0, Auto=0, Defaulted=0
+                      "QLineEdit[style=\"0001\"] { color:green; background:white;   } "  // Locked=0, Focused=0, Auto=0, Defaulted=1
+                      "QLineEdit[style=\"0010\"] { color:grey;  background:white;   } "  // Locked=0, Focused=0, Auto=1, Defaulted=0
+                      "QLineEdit[style=\"0011\"] { color:grey;  background:white;   } "  // Locked=0, Focused=0, Auto=1, Defaulted=1
+                      "QLineEdit[style=\"0100\"] { color:black; background:#ffc627; } "  // Locked=0, Focused=1, Auto=0, Defaulted=0
+                      "QLineEdit[style=\"0101\"] { color:green; background:#ffc627; } "  // Locked=0, Focused=1, Auto=0, Defaulted=1
+                      "QLineEdit[style=\"0110\"] { color:grey;  background:#ffc627; } "  // Locked=0, Focused=1, Auto=1, Defaulted=0
+                      "QLineEdit[style=\"0111\"] { color:grey;  background:#ffc627; } "  // Locked=0, Focused=1, Auto=1, Defaulted=1
+                      "QLineEdit[style=\"1000\"] { color:black; background:#e6e6e6; } "  // Locked=1, Focused=0, Auto=0, Defaulted=0
+                      "QLineEdit[style=\"1001\"] { color:green; background:#e6e6e6; } "  // Locked=1, Focused=0, Auto=0, Defaulted=1
+                      "QLineEdit[style=\"1010\"] { color:grey;  background:#e6e6e6; } "  // Locked=1, Focused=0, Auto=1, Defaulted=0
+                      "QLineEdit[style=\"1011\"] { color:grey;  background:#e6e6e6; } "  // Locked=1, Focused=0, Auto=1, Defaulted=1
+                      "QLineEdit[style=\"1100\"] { color:black; background:#e6e6e6; } "  // Locked=1, Focused=1, Auto=0, Defaulted=0
+                      "QLineEdit[style=\"1101\"] { color:green; background:#e6e6e6; } "  // Locked=1, Focused=1, Auto=0, Defaulted=1
+                      "QLineEdit[style=\"1110\"] { color:grey;  background:#e6e6e6; } "  // Locked=1, Focused=1, Auto=1, Defaulted=0
+                      "QLineEdit[style=\"1111\"] { color:grey;  background:#e6e6e6; } "  // Locked=1, Focused=1, Auto=1, Defaulted=1
   );
 
   m_intValidator = new QIntValidator();

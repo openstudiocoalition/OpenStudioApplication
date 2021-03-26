@@ -632,7 +632,7 @@ SpaceLoadInstanceMiniView::SpaceLoadInstanceMiniView(const model::SpaceLoadInsta
   mainGridLayout->setRowMinimumHeight(1, 30);
 
   QTimer::singleShot(0, m_definitionVectorController, &SpaceLoadInstanceDefinitionVectorController::reportItems);
- 
+
   QTimer::singleShot(0, m_scheduleVectorController, &SpaceLoadInstanceScheduleVectorController::reportItems);
 
   if (spaceLoadInstance.optionalCast<model::People>()) {

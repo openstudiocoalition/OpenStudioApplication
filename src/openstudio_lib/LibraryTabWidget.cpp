@@ -74,7 +74,7 @@ LibraryTabWidget::LibraryTabWidget(QWidget* parent) : QWidget(parent) {
   m_removeButton->hide();
 
   connect(m_removeButton, &QPushButton::clicked, this, &LibraryTabWidget::removeButtonClicked);
-  
+
   auto hLayout = new QHBoxLayout();
   hLayout->setContentsMargins(0, 0, 0, 0);
   hLayout->addStretch();

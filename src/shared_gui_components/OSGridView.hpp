@@ -61,7 +61,6 @@ class OSGridView : public QWidget
   Q_OBJECT
 
  public:
-
   OSGridView(OSGridController* gridController, const QString& headerText, const QString& dropZoneText, bool useHeader, QWidget* parent = nullptr);
 
   virtual ~OSGridView();
@@ -77,10 +76,10 @@ class OSGridView : public QWidget
 
   QString cellStyle();
 
-  void setCellProperties(QWidget* wrapper, bool isSelector, int row, int column, boost::optional<int> subrow, bool isVisible, bool isSelected, bool isLocked);
+  void setCellProperties(QWidget* wrapper, bool isSelector, int row, int column, boost::optional<int> subrow, bool isVisible, bool isSelected,
+                         bool isLocked);
 
  protected:
-
   virtual void hideEvent(QHideEvent* event) override;
 
   virtual void showEvent(QShowEvent* event) override;
@@ -102,14 +101,13 @@ class OSGridView : public QWidget
   void onGridCellChanged(const GridCellLocation& location, const GridCellInfo& info);
 
  private:
-  
   // For testing
   friend class OpenStudioLibFixture;
 
   // uses the OSGridController to create the widget for row, column
   void createWidget(int row, int column);
 
-  // delete all widgets 
+  // delete all widgets
   void deleteAll();
 
   // add a row

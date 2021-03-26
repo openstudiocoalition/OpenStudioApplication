@@ -186,8 +186,7 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
     if (field == NAME) {
       const bool isInspectable = false;
       const bool deleteObject = false;
-      addNameLineEditColumn(Heading(QString(NAME), false, false), isInspectable, deleteObject,
-                            CastNullAdapter<model::Space>(&model::Space::name),
+      addNameLineEditColumn(Heading(QString(NAME), false, false), isInspectable, deleteObject, CastNullAdapter<model::Space>(&model::Space::name),
                             CastNullAdapter<model::Space>(&model::Space::setName));
     } else {
       // Create a lambda function that collates all of the loads in a space
@@ -833,8 +832,7 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
                             std::function<void(model::SpaceLoad*)>([](model::SpaceLoad* t_sl) { t_sl->remove(); })),
                           boost::optional<std::function<bool(model::SpaceLoad*)>>(
                             std::function<bool(model::SpaceLoad*)>([](model::SpaceLoad* t_sl) { return !t_sl->space(); })),
-                          boost::optional<std::function<bool(model::SpaceLoad*)>>(),
-                          DataSource(allLoads, true));
+                          boost::optional<std::function<bool(model::SpaceLoad*)>>(), DataSource(allLoads, true));
 
       } else if (field == SELECTED) {
         auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
@@ -918,21 +916,16 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
 
         boost::optional<std::function<void(model::Space*)>> resetter;
         boost::optional<std::function<bool(model::Space*)>> isDefaulted(
-          std::function<bool(model::Space*)>(
-            [](model::Space * t_space) {
-              return false;
-            }
-        ));
+          std::function<bool(model::Space*)>([](model::Space* t_space) { return false; }));
         boost::optional<std::function<bool(model::Space*)>> isLocked;
 
-        addNameLineEditColumn(Heading(QString(DEFINITION), true, false), true, false,
-                              CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::name),
-                              CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::setName),
-                              boost::optional<std::function<void(model::SpaceLoadDefinition*)>>(),
-                              boost::optional<std::function<bool(model::SpaceLoadDefinition*)>>(),
-                              boost::optional<std::function<bool(model::SpaceLoadDefinition*)>>(),
-                              DataSource(allDefinitions, false,
-                                         QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<model::SpaceLoadDefinition, model::Space>(
+        addNameLineEditColumn(
+          Heading(QString(DEFINITION), true, false), true, false, CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::name),
+          CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::setName),
+          boost::optional<std::function<void(model::SpaceLoadDefinition*)>>(), boost::optional<std::function<bool(model::SpaceLoadDefinition*)>>(),
+          boost::optional<std::function<bool(model::SpaceLoadDefinition*)>>(),
+          DataSource(allDefinitions, false,
+                     QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<model::SpaceLoadDefinition, model::Space>(
                        Heading(DEFINITION), getter, setter, resetter, isDefaulted, isLocked))));
       } else if (field == SCHEDULE) {
 

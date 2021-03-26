@@ -37,13 +37,13 @@
 #include <openstudio/model/ModelObject.hpp>
 
 namespace openstudio {
-  class GridViewSubTab;
-  class ObjectSelector;
-  class OSGridController;
-  class OSGridView;
-  class OSDropZone2;
-  class OSLineEdit2;
-}
+class GridViewSubTab;
+class ObjectSelector;
+class OSGridController;
+class OSGridView;
+class OSDropZone2;
+class OSLineEdit2;
+}  // namespace openstudio
 
 class OpenStudioLibFixture : public ::testing::Test
 {
@@ -59,7 +59,7 @@ class OpenStudioLibFixture : public ::testing::Test
 
   // tear down static members
   static void TearDownTestCase();
-  
+
   // Process events
   void processEvents();
 

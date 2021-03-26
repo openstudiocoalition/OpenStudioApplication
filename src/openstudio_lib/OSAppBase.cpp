@@ -273,8 +273,6 @@ openstudio::path OSAppBase::dviewPath() const {
   return openstudio::path();
 }
 
-void OSAppBase::configureExternalTools() {
-
-}
+void OSAppBase::configureExternalTools() {}
 
 }  // namespace openstudio

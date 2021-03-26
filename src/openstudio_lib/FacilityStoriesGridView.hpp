@@ -92,7 +92,6 @@ class FacilityStoriesGridController : public OSGridController
   virtual void refreshModelObjects() override;
 
  protected:
-
   virtual void setCategoriesAndFields() override;
 
   virtual void addColumns(const QString& category, std::vector<QString>& fields) override;

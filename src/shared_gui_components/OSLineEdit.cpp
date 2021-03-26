@@ -61,7 +61,6 @@
 
 namespace openstudio {
 
-
 OSLineEdit2::OSLineEdit2(QWidget* parent) : QLineEdit(parent) {
   this->setAcceptDrops(false);
   setEnabled(false);
@@ -170,7 +169,7 @@ void OSLineEdit2::completeBind() {
 
   if (m_isLocked && (*m_isLocked)()) {
     setLocked(true);
-  }else if (!m_set && !m_setOptionalStringReturn && !m_setVoidReturn) {
+  } else if (!m_set && !m_setOptionalStringReturn && !m_setVoidReturn) {
     setLocked(true);
   }
 
@@ -307,7 +306,7 @@ void OSLineEdit2::onModelObjectChangeInternal(bool startingup) {
       // unhandled
       OS_ASSERT(false);
     }
-  
+
     std::string text;
     if (value) {
       text = *value;

@@ -69,7 +69,6 @@ class QuantityLineEdit : public QLineEdit
   virtual void focusOutEvent(QFocusEvent* e) override;
 
  private:
-
   bool m_hasClickFocus = false;
 
  signals:
@@ -136,7 +135,6 @@ class OSQuantityEdit2 : public QWidget, public Nano::Observer
   void onInFocus(bool hasFocus);
 
  private:
-
   bool defaulted() const;
   bool autosized() const;
   bool autocalculated() const;

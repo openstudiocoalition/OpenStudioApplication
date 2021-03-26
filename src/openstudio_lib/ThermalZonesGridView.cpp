@@ -519,8 +519,7 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
                             CastNullAdapter<model::ModelObject>(&model::ModelObject::setName),
                             boost::optional<std::function<void(model::ModelObject*)>>(
                               std::function<void(model::ModelObject*)>([](model::ModelObject* t_mo) { t_mo->remove(); })),
-                            boost::optional<std::function<bool(model::ModelObject*)>>(),
-                            boost::optional<std::function<bool(model::ModelObject*)>>(),
+                            boost::optional<std::function<bool(model::ModelObject*)>>(), boost::optional<std::function<bool(model::ModelObject*)>>(),
                             DataSource(equipment, false,
                                        QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<model::ModelObject, model::ThermalZone>(
                                          Heading(ZONEEQUIPMENT), getter, setter, reset, boost::none, boost::none))));
@@ -541,8 +540,7 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
       // we are passing in an empty std::function for the separate parameter because there's no way to set it
       addNameLineEditColumn(Heading(QString(AIRLOOPNAME), true, false), false, false, CastNullAdapter<model::ModelObject>(&model::ModelObject::name),
                             std::function<boost::optional<std::string>(model::ModelObject*, const std::string&)>(),
-                            boost::optional<std::function<void(model::ModelObject*)>>(),
-                            boost::optional<std::function<bool(model::ModelObject*)>>(),
+                            boost::optional<std::function<void(model::ModelObject*)>>(), boost::optional<std::function<bool(model::ModelObject*)>>(),
                             boost::optional<std::function<bool(model::ModelObject*)>>(),
                             // insert DataSourceAdapter
                             DataSource(airloops, true));

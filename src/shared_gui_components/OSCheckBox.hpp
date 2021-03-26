@@ -47,7 +47,7 @@ class OSSelectAllCheckBox : public QCheckBox
 {
   Q_OBJECT
 
- public: 
+ public:
   OSSelectAllCheckBox(QWidget* parent = nullptr);
 
   virtual ~OSSelectAllCheckBox();
@@ -100,7 +100,6 @@ class OSCheckBox3 : public QCheckBox, public Nano::Observer
   void onModelObjectRemove(const Handle& handle);
 
  private:
-
   bool defaulted() const;
   void updateStyle();
 
@@ -144,7 +143,6 @@ class OSCheckBox2 : public QPushButton, public Nano::Observer
   void onModelObjectRemove(const Handle& handle);
 
  private:
-
   bool defaulted() const;
   void updateStyle();
 

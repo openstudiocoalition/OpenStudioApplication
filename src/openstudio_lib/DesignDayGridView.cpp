@@ -253,7 +253,8 @@ void DesignDayGridController::addColumns(const QString& /*category*/, std::vecto
       // We add the "Apply Selected" button to this column by passing 3rd arg, t_showColumnButton=true
       std::function<bool(model::DesignDay*)> isLocked([](model::DesignDay* t_obj) -> bool { return false; });
       addCheckBoxColumn(Heading(QString(DAYLIGHTSAVINGTIMEINDICATOR), true, true), std::string("Check to enable daylight saving time indicator."),
-                        NullAdapter(&model::DesignDay::daylightSavingTimeIndicator), NullAdapter(&model::DesignDay::setDaylightSavingTimeIndicator), isLocked);
+                        NullAdapter(&model::DesignDay::daylightSavingTimeIndicator), NullAdapter(&model::DesignDay::setDaylightSavingTimeIndicator),
+                        isLocked);
     } else if (field == RAININDICATOR) {
       // We add the "Apply Selected" button to this column by passing 3rd arg, t_showColumnButton=true
       std::function<bool(model::DesignDay*)> isLocked([](model::DesignDay* t_obj) -> bool { return false; });

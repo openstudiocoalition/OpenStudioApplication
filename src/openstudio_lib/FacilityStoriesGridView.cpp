@@ -209,7 +209,7 @@ void FacilityStoriesGridView::filterChanged() {
 
   this->m_gridController->setObjectFilter([upperLimit, lowerLimit](const model::ModelObject& obj) -> bool {
     boost::optional<model::BuildingStory> story = obj.optionalCast<model::BuildingStory>();
-    if (story){
+    if (story) {
       auto nominalZCoordinate = story->nominalZCoordinate();
       if (nominalZCoordinate) {
         if (*nominalZCoordinate >= upperLimit || *nominalZCoordinate <= lowerLimit) {

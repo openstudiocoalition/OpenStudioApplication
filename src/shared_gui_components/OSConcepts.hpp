@@ -299,14 +299,24 @@ class BaseConcept
     : m_heading(t_heading), m_selector(false), m_baseLocked(false), m_hasClickFocus(t_hasClickFocus) {}
 
   // isLocked is true if the element cannot be modified, it can still be clicked on in some cases
-  virtual bool isLocked(const ConceptProxy& obj) { return m_baseLocked; }
-  bool baseLocked() { return m_baseLocked; }
-  void setBaseLocked(bool baseLocked) { m_baseLocked = baseLocked;}
+  virtual bool isLocked(const ConceptProxy& obj) {
+    return m_baseLocked;
+  }
+  bool baseLocked() {
+    return m_baseLocked;
+  }
+  void setBaseLocked(bool baseLocked) {
+    m_baseLocked = baseLocked;
+  }
 
   // isSelector is true for checkbox cells in the select column
-  bool isSelector() const { return m_selector; }
+  bool isSelector() const {
+    return m_selector;
+  }
 
-  void setIsSelector(const bool t_selector) { m_selector = t_selector; }
+  void setIsSelector(const bool t_selector) {
+    m_selector = t_selector;
+  }
 
   // hasClickFocus is true for elements that gain focus when clicked on
   bool hasClickFocus() const {
@@ -371,7 +381,7 @@ class CheckBoxConceptImpl : public CheckBoxConcept
     DataSourceType obj = t_obj.cast<DataSourceType>();
     return m_isLocked(&obj);
   }
-  
+
  private:
   std::function<bool(DataSourceType*)> m_getter;
   std::function<void(DataSourceType*, bool)> m_setter;
@@ -427,7 +437,7 @@ class CheckBoxConceptBoolReturnImpl : public CheckBoxConceptBoolReturn
     DataSourceType obj = t_obj.cast<DataSourceType>();
     return m_isLocked(&obj);
   }
-  
+
  private:
   std::function<bool(DataSourceType*)> m_getter;
   std::function<bool(DataSourceType*, bool)> m_setter;
@@ -463,8 +473,8 @@ class RequiredChoiceConceptImpl : public ChoiceConcept
 {
  public:
   RequiredChoiceConceptImpl(std::function<std::string(ChoiceType)> toString, std::function<std::vector<ChoiceType>()> choices,
-                            std::function<ChoiceType()> getter, std::function<bool(ChoiceType)> setter,
-                            boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted)
+                            std::function<ChoiceType()> getter, std::function<bool(ChoiceType)> setter, boost::optional<NoFailAction> reset,
+                            boost::optional<BasicQuery> isDefaulted)
     : m_toString(toString), m_choices(choices), m_getter(getter), m_setter(setter), m_reset(reset), m_isDefaulted(isDefaulted) {}
 
   virtual ~RequiredChoiceConceptImpl() {}
@@ -673,8 +683,7 @@ class OptionalChoiceSaveDataSourceConceptImpl : public OptionalChoiceConceptImpl
  public:
   OptionalChoiceSaveDataSourceConceptImpl(std::shared_ptr<DataSourceType> dataSource, std::function<std::string(ChoiceType)> toString,
                                           std::function<std::vector<ChoiceType>()> choices, std::function<boost::optional<ChoiceType>()> getter,
-                                          std::function<bool(ChoiceType)> setter, boost::optional<NoFailAction> reset,
-                                          bool editable = false)
+                                          std::function<bool(ChoiceType)> setter, boost::optional<NoFailAction> reset, bool editable = false)
     : OptionalChoiceConceptImpl<ChoiceType>(toString, choices, getter, setter, reset, editable), m_dataSource(dataSource) {}
 
   virtual ~OptionalChoiceSaveDataSourceConceptImpl() {}
@@ -699,8 +708,7 @@ class ComboBoxRequiredChoiceImpl : public ComboBoxConcept
  public:
   ComboBoxRequiredChoiceImpl(const Heading& t_heading, std::function<std::string(ChoiceType)> t_toString,
                              std::function<std::vector<ChoiceType>(DataSourceType*)> t_choices, std::function<ChoiceType(DataSourceType*)> t_getter,
-                             std::function<bool(DataSourceType*, ChoiceType)> t_setter,
-                             boost::optional<std::function<void(DataSourceType*)>> t_reset,
+                             std::function<bool(DataSourceType*, ChoiceType)> t_setter, boost::optional<std::function<void(DataSourceType*)>> t_reset,
                              boost::optional<std::function<bool(DataSourceType*)>> t_defaulted)
     : ComboBoxConcept(t_heading),
       m_toString(t_toString),
@@ -738,8 +746,8 @@ class ComboBoxOptionalChoiceImpl : public ComboBoxConcept
   ComboBoxOptionalChoiceImpl(const Heading& t_heading, std::function<std::string(ChoiceType)> t_toString,
                              std::function<std::vector<ChoiceType>(DataSourceType*)> t_choices,
                              std::function<boost::optional<ChoiceType>(DataSourceType*)> t_getter,
-                             std::function<bool(DataSourceType*, ChoiceType)> t_setter,
-                             boost::optional<std::function<void(DataSourceType*)>> t_reset, bool t_editable = false)
+                             std::function<bool(DataSourceType*, ChoiceType)> t_setter, boost::optional<std::function<void(DataSourceType*)>> t_reset,
+                             bool t_editable = false)
     : ComboBoxConcept(t_heading),
       m_toString(t_toString),
       m_choices(t_choices),
@@ -995,9 +1003,15 @@ class NameLineEditConcept : public BaseConcept
   virtual void reset(const ConceptProxy& obj) = 0;
   virtual bool isInherited(const ConceptProxy& obj) = 0;
 
-  OSLineEditType osLineEditType() const { return m_osLineEditType; }
-  bool isInspectable() const { return m_isInspectable; }
-  bool deleteObject() const { return m_deleteObject; }
+  OSLineEditType osLineEditType() const {
+    return m_osLineEditType;
+  }
+  bool isInspectable() const {
+    return m_isInspectable;
+  }
+  bool deleteObject() const {
+    return m_deleteObject;
+  }
 
  private:
   OSLineEditType m_osLineEditType;
@@ -1069,7 +1083,7 @@ class NameLineEditConceptImpl : public NameLineEditConcept
     if (baseLocked()) {
       return true;
     }
-    
+
     bool result = false;
     if (m_isLocked) {
       DataSourceType obj = t_obj.cast<DataSourceType>();
@@ -1405,17 +1419,10 @@ class DropZoneConceptImpl : public DropZoneConcept
 {
  public:
   DropZoneConceptImpl(const Heading& t_heading, std::function<boost::optional<ValueType>(DataSourceType*)> t_getter,
-                      std::function<bool(DataSourceType*, const ValueType&)> t_setter,
-                      boost::optional<std::function<void(DataSourceType*)>> t_reset,
-                      boost::optional<std::function<bool(DataSourceType*)>> t_isDefaulted, 
+                      std::function<bool(DataSourceType*, const ValueType&)> t_setter, boost::optional<std::function<void(DataSourceType*)>> t_reset,
+                      boost::optional<std::function<bool(DataSourceType*)>> t_isDefaulted,
                       boost::optional<std::function<bool(DataSourceType*)>> t_isLocked)
-    : DropZoneConcept(t_heading),
-      m_getter(t_getter),
-      m_setter(t_setter),
-      m_reset(t_reset),
-      m_isDefaulted(t_isDefaulted),
-      m_isLocked(t_isLocked)
-  {}
+    : DropZoneConcept(t_heading), m_getter(t_getter), m_setter(t_setter), m_reset(t_reset), m_isDefaulted(t_isDefaulted), m_isLocked(t_isLocked) {}
 
   virtual ~DropZoneConceptImpl() {}
 

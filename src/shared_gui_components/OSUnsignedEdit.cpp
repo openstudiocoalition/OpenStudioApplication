@@ -47,10 +47,7 @@ using openstudio::model::ModelObject;
 
 namespace openstudio {
 
-OSUnsignedEdit2::OSUnsignedEdit2(QWidget* parent)
-  : QLineEdit(parent),
-    m_isScientific(false)
-{
+OSUnsignedEdit2::OSUnsignedEdit2(QWidget* parent) : QLineEdit(parent), m_isScientific(false) {
   this->setFixedWidth(90);
   this->setAcceptDrops(false);
   setEnabled(false);
@@ -363,7 +360,7 @@ void OSUnsignedEdit2::refreshTextAndLabel() {
 
     if (autosized()) {
       textValue = QString("autosize");
-    }else if (autocalculated()) {
+    } else if (autocalculated()) {
       textValue = QString("autocalculate");
     }
 

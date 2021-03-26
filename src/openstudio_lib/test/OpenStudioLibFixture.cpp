@@ -61,7 +61,7 @@ void OpenStudioLibFixture::processEvents() {
 }
 
 OSGridView* OpenStudioLibFixture::getGridView(GridViewSubTab* gvst) {
-  return gvst->m_gridView; 
+  return gvst->m_gridView;
 }
 
 OSGridController* OpenStudioLibFixture::getGridController(GridViewSubTab* gvst) {
@@ -100,7 +100,7 @@ bool OpenStudioLibFixture::isDefaulted(openstudio::OSDropZone2* dropZone) {
   bool isDefaulted = false;
   if (dropZone && dropZone->m_label) {
     QVariant currentDefaulted = dropZone->m_label->property("defaulted");
-    if (!currentDefaulted.isNull()){
+    if (!currentDefaulted.isNull()) {
       isDefaulted = currentDefaulted.toBool();
     }
   }

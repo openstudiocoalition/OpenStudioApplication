@@ -189,8 +189,7 @@ void SpacesSpacesGridController::addColumns(const QString& category, std::vector
                         CastNullAdapter<model::Space>(&model::Space::setSpaceType),
                         boost::optional<std::function<void(model::Space*)>>(CastNullAdapter<model::Space>(&model::Space::resetSpaceType)),
                         boost::optional<std::function<bool(model::Space*)>>(CastNullAdapter<model::Space>(&model::Space::isSpaceTypeDefaulted)),
-                        boost::optional<std::function<bool(model::Space*)>>(),
-                        boost::optional<DataSource>());
+                        boost::optional<std::function<bool(model::Space*)>>(), boost::optional<DataSource>());
     } else if (field == DEFAULTCONSTRUCTIONSET) {
       addDropZoneColumn(
         Heading(QString(DEFAULTCONSTRUCTIONSET)), CastNullAdapter<model::Space>(&model::Space::defaultConstructionSet),
@@ -234,8 +233,8 @@ void SpacesSpacesGridController::addColumns(const QString& category, std::vector
         CastNullAdapter<model::SpaceInfiltrationDesignFlowRate>(&model::SpaceInfiltrationDesignFlowRate::setName),
         boost::optional<std::function<void(model::SpaceInfiltrationDesignFlowRate*)>>(
           std::function<void(model::SpaceInfiltrationDesignFlowRate*)>([](model::SpaceInfiltrationDesignFlowRate* t_fr) { t_fr->resetSpace(); })),
-        boost::optional<std::function<bool(model::SpaceInfiltrationDesignFlowRate*)>>(
-          std::function<bool(model::SpaceInfiltrationDesignFlowRate*)>([](model::SpaceInfiltrationDesignFlowRate* t_fr) { return t_fr->spaceType().is_initialized(); })),
+        boost::optional<std::function<bool(model::SpaceInfiltrationDesignFlowRate*)>>(std::function<bool(model::SpaceInfiltrationDesignFlowRate*)>(
+          [](model::SpaceInfiltrationDesignFlowRate* t_fr) { return t_fr->spaceType().is_initialized(); })),
         boost::optional<std::function<bool(model::SpaceInfiltrationDesignFlowRate*)>>(),
         DataSource(flowRates, false,
                    QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<model::SpaceInfiltrationDesignFlowRate, model::Space>(
@@ -283,8 +282,7 @@ void SpacesSpacesGridController::addColumns(const QString& category, std::vector
         CastNullAdapter<model::Space>(&model::Space::setDesignSpecificationOutdoorAir),
         boost::optional<std::function<void(model::Space*)>>(CastNullAdapter<model::Space>(&model::Space::resetDesignSpecificationOutdoorAir)),
         boost::optional<std::function<bool(model::Space*)>>(CastNullAdapter<model::Space>(&model::Space::isDesignSpecificationOutdoorAirDefaulted)),
-        boost::optional<std::function<bool(model::Space*)>>(),
-        boost::optional<DataSource>());
+        boost::optional<std::function<bool(model::Space*)>>(), boost::optional<DataSource>());
     } else {
       // unhandled
       OS_ASSERT(false);
@@ -309,7 +307,6 @@ void SpacesSpacesGridController::refreshModelObjects() {
   auto spaces = model().getModelObjects<model::Space>();
   std::sort(spaces.begin(), spaces.end(), openstudio::WorkspaceObjectNameLess());
   setModelObjects(subsetCastVector<model::ModelObject>(spaces));
-
 }
 
 }  // namespace openstudio

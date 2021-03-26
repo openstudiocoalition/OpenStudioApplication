@@ -179,13 +179,13 @@ class GridCellLocation : public QObject
   bool operator<(const GridCellLocation& other) const;
 
  signals:
-  
+
   void inFocus(bool inFocus, bool hasData, int modelRow, int gridRow, int column, boost::optional<int> subrow);
 
   //void selectionChanged(int state, int modelRow, int gridRow, int column, boost::optional<int> subrow);
 
  public slots:
- 
+
   void onInFocus(bool inFocus, bool hasData);
 
   //void onSelectionChanged(int state);
@@ -196,7 +196,8 @@ class GridCellInfo : public QObject
   Q_OBJECT;
 
  public:
-  GridCellInfo(const boost::optional<model::ModelObject>& t_modelObject, bool t_isSelector, bool t_isVisible, bool t_isSelected, bool t_isLocked, QObject* parent);
+  GridCellInfo(const boost::optional<model::ModelObject>& t_modelObject, bool t_isSelector, bool t_isVisible, bool t_isSelected, bool t_isLocked,
+               QObject* parent);
 
   virtual ~GridCellInfo();
 
@@ -216,12 +217,11 @@ class GridCellInfo : public QObject
   bool setSelected(bool selected);
 
   bool isLocked() const;
-  
+
   // returns true if changed
   bool setLocked(bool locked);
 
-private:
-
+ private:
   bool m_isVisible;
   bool m_isSelected;
   bool m_isLocked;
@@ -249,7 +249,8 @@ class ObjectSelector : public QObject
   void clear();
 
   // Adds object to the internal maps
-  void addObject(const boost::optional<model::ModelObject>& t_obj, Holder* t_holder, int t_modelRow, int t_gridRow, int t_column, const boost::optional<int>& t_subrow, bool t_isSelector);
+  void addObject(const boost::optional<model::ModelObject>& t_obj, Holder* t_holder, int t_modelRow, int t_gridRow, int t_column,
+                 const boost::optional<int>& t_subrow, bool t_isSelector);
 
   // Lock and hide any grid cells referencing this object
   void setObjectRemoved(const openstudio::Handle& handle);
@@ -258,10 +259,11 @@ class ObjectSelector : public QObject
   //bool containsObject(const openstudio::model::ModelObject& t_obj) const;
 
   // Get object at given location
-  boost::optional<model::ModelObject> getObject(const int t_modelRow, const int t_gridRow, const int t_column, const boost::optional<int>& t_subrow) const;
+  boost::optional<model::ModelObject> getObject(const int t_modelRow, const int t_gridRow, const int t_column,
+                                                const boost::optional<int>& t_subrow) const;
 
   // Get GridCellInfo at given location
- // GridCellInfo* getGridCellInfo(const int t_row, const int t_column, const boost::optional<int>& t_subrow) const;
+  // GridCellInfo* getGridCellInfo(const int t_row, const int t_column, const boost::optional<int>& t_subrow) const;
 
   // Select all selectable objects
   void selectAll();
@@ -292,7 +294,7 @@ class ObjectSelector : public QObject
 
   // Set the object filter function, function true if object is visible
   void setObjectFilter(const std::function<bool(const model::ModelObject&)>& t_filter);
-  
+
   // Reset the object filter function
   void resetObjectFilter();
 
@@ -308,7 +310,7 @@ class ObjectSelector : public QObject
   // Applies locks to entire rows and subrows
   //void applyLocks();
 
-signals:
+ signals:
 
   void inFocus(bool inFocus, bool hasData, int modelRow, int gridRow, int column, boost::optional<int> subrow);
 
@@ -316,15 +318,14 @@ signals:
 
   void gridRowSelectionChanged(int numSelected, int numSelectable);
 
-public slots:
- 
+ public slots:
+
   //void onSelectionChanged(int state, int row, int column, boost::optional<int> subrow);
 
  protected:
   REGISTER_LOGGER("openstudio.ObjectSelector");
 
  private:
-
   std::map<GridCellLocation*, GridCellInfo*> m_gridCellLocationToInfoMap;
 
   std::vector<GridCellLocation*> m_selectorCellLocations;
@@ -361,18 +362,15 @@ class OSGridController : public QObject
 
   virtual ~OSGridController();
 
-private:
-
+ private:
   static QSharedPointer<BaseConcept> makeDataSourceAdapter(const QSharedPointer<BaseConcept>& t_inner, const boost::optional<DataSource>& t_source);
 
-protected:
-
+ protected:
   void resetBaseConcepts();
 
   template <typename DataSourceType>
-  void addSelectColumn(const Heading& heading, const std::string& tooltip, std::function<bool(DataSourceType*)> isLocked, 
-                       const boost::optional<DataSource>& t_source = boost::none)
-  {
+  void addSelectColumn(const Heading& heading, const std::string& tooltip, std::function<bool(DataSourceType*)> isLocked,
+                       const boost::optional<DataSource>& t_source = boost::none) {
     auto objectSelector = m_objectSelector;
     auto getter = std::function<bool(model::ModelObject*)>([objectSelector](model::ModelObject* t_obj) -> bool {
       assert(t_obj);
@@ -398,13 +396,13 @@ protected:
 
   template <typename DataSourceType>
   void addCheckBoxColumn(const Heading& heading, const std::string& tooltip, std::function<bool(DataSourceType*)> t_getter,
-                         std::function<bool(DataSourceType*, bool)> t_setter, std::function<bool(DataSourceType*)> t_isLocked, 
+                         std::function<bool(DataSourceType*, bool)> t_setter, std::function<bool(DataSourceType*)> t_isLocked,
                          const boost::optional<DataSource>& t_source = boost::none) {
     m_baseConcepts.push_back(makeDataSourceAdapter(
       QSharedPointer<CheckBoxConceptBoolReturn>(new CheckBoxConceptBoolReturnImpl<DataSourceType>(heading, tooltip, t_getter, t_setter, t_isLocked)),
       t_source));
   }
-  
+
   template <typename ChoiceType, typename DataSourceType>
   void addComboBoxColumn(const Heading& heading, std::function<std::string(const ChoiceType&)> toString,
                          std::function<std::vector<ChoiceType>()> choices, std::function<ChoiceType(DataSourceType*)> getter,
@@ -509,9 +507,10 @@ protected:
                              const boost::optional<DataSource>& t_source = boost::none) {
     const OSLineEditType osLineEditType = OSLineEditType::OSLineEdit2Type;
     const bool hasClickFocus = true;
-    m_baseConcepts.push_back(makeDataSourceAdapter(QSharedPointer<NameLineEditConcept>(new NameLineEditConceptImpl<DataSourceType>(
-        heading, osLineEditType, isInspectable, deleteObject, hasClickFocus, getter, setter, resetter, isDefaulted, isLocked)),
-                                                   t_source));
+    m_baseConcepts.push_back(
+      makeDataSourceAdapter(QSharedPointer<NameLineEditConcept>(new NameLineEditConceptImpl<DataSourceType>(
+                              heading, osLineEditType, isInspectable, deleteObject, hasClickFocus, getter, setter, resetter, isDefaulted, isLocked)),
+                            t_source));
   }
 
   template <typename DataSourceType>
@@ -525,8 +524,9 @@ protected:
     const bool isInspectable = true;
     const bool deleteObject = true;
     const bool hasClickFocus = true;
-    m_baseConcepts.push_back(makeDataSourceAdapter(QSharedPointer<NameLineEditConcept>(new NameLineEditConceptImpl<DataSourceType>(
-        heading, osLineEditType, isInspectable, deleteObject, hasClickFocus, getter, setter, resetter, isDefaulted, isLocked)),
+    m_baseConcepts.push_back(
+      makeDataSourceAdapter(QSharedPointer<NameLineEditConcept>(new NameLineEditConceptImpl<DataSourceType>(
+                              heading, osLineEditType, isInspectable, deleteObject, hasClickFocus, getter, setter, resetter, isDefaulted, isLocked)),
                             t_source));
   }
 
@@ -594,8 +594,7 @@ protected:
       QSharedPointer<RenderingColorConcept>(new RenderingColorConceptImpl<ValueType, DataSourceType>(heading, getter, setter)));
   }
 
-public:
-
+ public:
   std::vector<QString> categories();
 
   std::vector<std::pair<QString, std::vector<QString>>> categoriesAndFields();
@@ -640,20 +639,19 @@ public:
   IddObjectType iddObjectType() const;
 
  private:
-
   // For testing
   friend class ::OpenStudioLibFixture;
 
   IddObjectType m_iddObjectType;
 
-  std::vector<model::ModelObject> m_modelObjects; 
+  std::vector<model::ModelObject> m_modelObjects;
 
-  //std::vector<model::ModelObject> m_inheritedModelObjects; 
+  //std::vector<model::ModelObject> m_inheritedModelObjects;
 
   // If a column contains information about a construction, it may be an inherited construction
   // (as determined by calling PlanarSurface::isConstructionDefaulted). An instantiated gridview
   // should set this value, if appropriate.
-// TODO: remove this
+  // TODO: remove this
   int m_constructionColumn = -1;
 
   std::vector<std::pair<QString, std::vector<QString>>> m_categoriesAndFields;
@@ -679,7 +677,6 @@ public:
   bool m_isIP;
 
  protected:
-  
   bool isIP() const;
 
   bool hasHorizontalHeader() const;
@@ -724,8 +721,8 @@ public:
   REGISTER_LOGGER("openstudio.OSGridController");
 
  private:
-  friend class OSGridView; // TODO: remove this
-  friend class ObjectSelector; // TODO: remove this
+  friend class OSGridView;      // TODO: remove this
+  friend class ObjectSelector;  // TODO: remove this
 
   // Make the lowest level widgets that corresponds to concepts.
   // These will be put in container widgets to form the cell, regardless of the presence of sub rows.

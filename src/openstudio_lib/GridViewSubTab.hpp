@@ -122,11 +122,9 @@ class GridViewSubTab : public QWidget
 
   virtual void onClearSelection() = 0;
 
-private:
-
+ private:
   // For testing
   friend class ::OpenStudioLibFixture;
-
 };
 
 }  // namespace openstudio

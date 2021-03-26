@@ -87,7 +87,12 @@ QGridLayout* OSGridView::makeGridLayout() {
 }
 
 OSGridView::OSGridView(OSGridController* gridController, const QString& headerText, const QString& dropZoneText, bool useHeader, QWidget* parent)
-  : QWidget(parent), m_dropZone(nullptr), m_contentLayout(nullptr), m_gridLayout(nullptr), m_collapsibleView(nullptr), m_gridController(gridController) {
+  : QWidget(parent),
+    m_dropZone(nullptr),
+    m_contentLayout(nullptr),
+    m_gridLayout(nullptr),
+    m_collapsibleView(nullptr),
+    m_gridController(gridController) {
 
   // We use the headerText as the object name, will help in indentifying objects for any warnings
   setObjectName(headerText);
@@ -173,16 +178,14 @@ OSGridView::OSGridView(OSGridController* gridController, const QString& headerTe
     OS_ASSERT(button);
     button->setChecked(true);
     m_gridController->blockSignals(true);
-    m_gridController->onCategorySelected(0); // would normally trigger refreshAll
+    m_gridController->onCategorySelected(0);  // would normally trigger refreshAll
     m_gridController->blockSignals(false);
   }
 
   QTimer::singleShot(0, this, &OSGridView::recreateAll);
 }
 
-OSGridView::~OSGridView()
-{
-};
+OSGridView::~OSGridView(){};
 
 /*
 void OSGridView::requestAddRow(int row) {
@@ -242,8 +245,8 @@ QString OSGridView::cellStyle() {
   return style;
 }
 
-void OSGridView::setCellProperties(QWidget* wrapper, bool isSelector, int rowIndex, int columnIndex, boost::optional<int> subrow,
-                                   bool isVisible, bool isSelected, bool isLocked) {
+void OSGridView::setCellProperties(QWidget* wrapper, bool isSelector, int rowIndex, int columnIndex, boost::optional<int> subrow, bool isVisible,
+                                   bool isSelected, bool isLocked) {
   bool isEven = ((rowIndex % 2) == 0);
   bool isChanged = false;
 
@@ -313,7 +316,7 @@ void OSGridView::onAddRow(int row) {
 
 void OSGridView::onRecreateAll() {
   setEnabled(false);
-  recreateAll();  
+  recreateAll();
   setEnabled(true);
 }
 
@@ -369,8 +372,9 @@ void OSGridView::onGridCellChanged(const GridCellLocation& location, const GridC
       }
 
       // style the wrapper
-      setCellProperties(wrapper, info.isSelector, location.gridRow, location.column, location.subrow, info.isVisible(), info.isSelected(), info.isLocked());
-    }              
+      setCellProperties(wrapper, info.isSelector, location.gridRow, location.column, location.subrow, info.isVisible(), info.isSelected(),
+                        info.isLocked());
+    }
   }
 }
 
@@ -389,12 +393,11 @@ void OSGridView::deleteAll() {
 
     delete child;
   }
-
 }
 
 void OSGridView::addRow(int row) {
   setUpdatesEnabled(false);
-  
+
   OS_ASSERT(m_gridLayout);
   OS_ASSERT(m_gridController);
 
@@ -437,9 +440,8 @@ void OSGridView::recreateAll() {
   }
 }
 
-
 //void OSGridView::refreshRow(int row) {
-  // TODO: fix
+// TODO: fix
 //  this->m_gridController->getObjectSelector()->updateWidgetsForRow(row);
 //}
 /*

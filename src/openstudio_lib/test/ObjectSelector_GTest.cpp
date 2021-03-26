@@ -55,14 +55,11 @@ class TestGridController : public OSGridController
 {
 
  public:
-  TestGridController() 
-  : OSGridController()
-  {}
+  TestGridController() : OSGridController() {}
 
   TestGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, const model::Model& model,
                      const std::vector<model::ModelObject>& modelObjects)
-  : OSGridController(isIP, headerText, iddObjectType, model, modelObjects)
-  {}
+    : OSGridController(isIP, headerText, iddObjectType, model, modelObjects) {}
 
   virtual ~TestGridController() {}
 
@@ -71,11 +68,11 @@ class TestGridController : public OSGridController
   virtual void onItemDropped(const OSItemId& itemId) override {}
 
  protected:
-
   virtual void addColumns(const QString& t_category, std::vector<QString>& fields) override {}
 
-  virtual QString getColor(const model::ModelObject& modelObject) override {return "";}
-
+  virtual QString getColor(const model::ModelObject& modelObject) override {
+    return "";
+  }
 };
 
 TEST_F(OpenStudioLibFixture, OptionalAssumptions) {
@@ -101,7 +98,7 @@ TEST_F(OpenStudioLibFixture, OptionalAssumptions) {
   EXPECT_TRUE(optSpace1 == optSpace2);
   EXPECT_TRUE(optSpace1 == space1);
   EXPECT_TRUE(optSpace1 == space1_copy);
-  
+
   optSpace1 = space1;
   optSpace2 = space2;
 
@@ -112,7 +109,7 @@ TEST_F(OpenStudioLibFixture, OptionalAssumptions) {
 TEST_F(OpenStudioLibFixture, ObjectSelector) {
 
   TestGridController grid;
-  ObjectSelector selector(&grid);  
+  ObjectSelector selector(&grid);
 }
 
 TEST_F(OpenStudioLibFixture, SpacesSpacesGridView) {
@@ -142,16 +139,13 @@ TEST_F(OpenStudioLibFixture, SpacesSpacesGridView) {
 
   auto selectedObjectsSet = objectSelector->selectedObjects();
   EXPECT_EQ(0u, selectedObjectsSet.size());
-  
+
   objectSelector->setObjectSelected(space1, true);
 
   selectedObjectsSet = objectSelector->selectedObjects();
   ASSERT_EQ(1u, selectedObjectsSet.size());
   EXPECT_EQ(space1.handle(), selectedObjectsSet.begin()->handle());
-
-
 }
-
 
 TEST_F(OpenStudioLibFixture, SpacesSurfacesGridView) {
 
@@ -167,7 +161,7 @@ TEST_F(OpenStudioLibFixture, SpacesSurfacesGridView) {
   auto gridView = std::make_shared<SpacesSurfacesGridView>(false, model);
   auto gridController = getGridController(gridView.get());
   auto objectSelector = getObjectSelector(gridController);
-  
+
   processEvents();
 
   auto selectableObjects = objectSelector->selectableObjects();
@@ -175,7 +169,6 @@ TEST_F(OpenStudioLibFixture, SpacesSurfacesGridView) {
 
   auto selectedObjects = objectSelector->selectedObjects();
   EXPECT_EQ(0u, selectedObjects.size());
-
 
   // Headers on row = 0
   unsigned gridRow = 0;

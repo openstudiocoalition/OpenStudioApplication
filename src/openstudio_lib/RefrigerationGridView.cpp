@@ -195,7 +195,8 @@ RefrigerationGridView::RefrigerationGridView(bool isIP, const model::Model& mode
 
   connect(this, &RefrigerationGridView::toggleUnitsClicked, refrigerationCaseGridController, &RefrigerationCaseGridController::toggleUnitsClicked);
 
-  connect(this, &RefrigerationGridView::toggleUnitsClicked, refrigerationWalkInGridController, &RefrigerationWalkInGridController::toggleUnitsClicked);
+  connect(this, &RefrigerationGridView::toggleUnitsClicked, refrigerationWalkInGridController,
+          &RefrigerationWalkInGridController::toggleUnitsClicked);
 
   connect(this, &RefrigerationGridView::toggleUnitsClicked, refrigerationCaseGridController, &RefrigerationCaseGridController::onToggleUnits);
 

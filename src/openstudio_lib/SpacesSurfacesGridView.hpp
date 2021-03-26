@@ -51,7 +51,6 @@ class SpacesSurfacesGridView : public SpacesSubtabGridView
   virtual ~SpacesSurfacesGridView() {}
 
  private:
-
   REGISTER_LOGGER("openstudio.SpacesSurfacesGridView");
 
  protected slots:
@@ -75,7 +74,6 @@ class SpacesSurfacesGridController : public OSGridController
   virtual void refreshModelObjects() override;
 
  protected:
-
   virtual void setCategoriesAndFields() override;
 
   virtual void addColumns(const QString& category, std::vector<QString>& fields) override;

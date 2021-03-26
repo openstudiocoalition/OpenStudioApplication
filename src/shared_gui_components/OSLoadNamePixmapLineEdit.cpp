@@ -45,8 +45,7 @@
 
 namespace openstudio {
 
-OSLoadNamePixmapLineEdit::OSLoadNamePixmapLineEdit(QWidget* parent) 
-  : QWidget(parent) {
+OSLoadNamePixmapLineEdit::OSLoadNamePixmapLineEdit(QWidget* parent) : QWidget(parent) {
   createWidgets();
 }
 
@@ -68,8 +67,7 @@ bool OSLoadNamePixmapLineEdit::hasData() {
   return m_lineEdit->hasData();
 }
 
-void OSLoadNamePixmapLineEdit::setLocked(bool locked)
-{
+void OSLoadNamePixmapLineEdit::setLocked(bool locked) {
   m_lineEdit->setLocked(locked);
 }
 
@@ -161,6 +159,5 @@ void OSLoadNamePixmapLineEdit::setIcon() {
     }
   }
 }
-
 
 }  // namespace openstudio

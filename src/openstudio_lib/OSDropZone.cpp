@@ -515,10 +515,8 @@ void OSDropZoneItem::mouseReleaseEvent(QGraphicsSceneMouseEvent* event) {
 OSDropZone2::OSDropZone2() : QWidget() {
   setObjectName("OSDropZone");
   setProperty("focused", false);
-  setStyleSheet(
-    "QWidget#OSDropZone[focused=\"true\"] { border: 2px dashed #808080; border-radius: 5px; background:#ffc627; } "
-    "QWidget#OSDropZone[focused=\"false\"] { border: 2px dashed #808080; border-radius: 5px; background:#CECECE; } "
-  );
+  setStyleSheet("QWidget#OSDropZone[focused=\"true\"] { border: 2px dashed #808080; border-radius: 5px; background:#ffc627; } "
+                "QWidget#OSDropZone[focused=\"false\"] { border: 2px dashed #808080; border-radius: 5px; background:#CECECE; } ");
 
   auto layout = new QVBoxLayout();
   layout->setContentsMargins(5, 5, 5, 5);
@@ -527,10 +525,8 @@ OSDropZone2::OSDropZone2() : QWidget() {
   m_label = new QLabel();
   layout->addWidget(m_label);
   m_label->setProperty("defaulted", false);
-  m_label->setStyleSheet(
-    "QLabel[defaulted=\"true\"] { color:green }"
-    "QLabel { color:black }"
-  );
+  m_label->setStyleSheet("QLabel[defaulted=\"true\"] { color:green }"
+                         "QLabel { color:black }");
 
   setFixedHeight(25);
   setMinimumWidth(75);
@@ -611,9 +607,8 @@ void OSDropZone2::refresh() {
 }
 
 // cppcheck-suppress constParameter
-void OSDropZone2::bind(model::ModelObject& modelObject, OptionalModelObjectGetter get, ModelObjectSetter set,
-                       boost::optional<NoFailAction> reset, boost::optional<ModelObjectIsDefaulted> isDefaulted,
-                       boost::optional<ModelObjectIsReadOnly> isReadOnly) {
+void OSDropZone2::bind(model::ModelObject& modelObject, OptionalModelObjectGetter get, ModelObjectSetter set, boost::optional<NoFailAction> reset,
+                       boost::optional<ModelObjectIsDefaulted> isDefaulted, boost::optional<ModelObjectIsReadOnly> isReadOnly) {
   m_get = get;
   m_set = set;
   m_reset = reset;
@@ -749,7 +744,7 @@ void OSDropZone2::mouseReleaseEvent(QMouseEvent* event) {
 
 void OSDropZone2::focusInEvent(QFocusEvent* e) {
   if (e->reason() == Qt::MouseFocusReason) {
-    if (hasData()){
+    if (hasData()) {
       this->setProperty("focused", true);
       updateStyle();
     }

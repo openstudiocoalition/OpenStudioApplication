@@ -188,7 +188,8 @@ void OSListView::removeItemView(int i) {
   delete item;
 }
 
-void OSListView::removePair(QObject* object) {;
+void OSListView::removePair(QObject* object) {
+  ;
   auto it = m_widgetItemPairs.find(object);
   if (it != m_widgetItemPairs.end()) {
     m_widgetItemPairs.erase(it);

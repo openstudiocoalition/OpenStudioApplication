@@ -49,11 +49,11 @@ OSSelectAllCheckBox::~OSSelectAllCheckBox() {}
 
 void OSSelectAllCheckBox::onGridRowSelectionChanged(int numSelected, int numSelectable) {
   blockSignals(true);
-  if(numSelected == 0){
+  if (numSelected == 0) {
     setCheckState(Qt::Unchecked);
-  }else if (numSelected == numSelectable){
+  } else if (numSelected == numSelectable) {
     setCheckState(Qt::Checked);
-  }else{
+  } else {
     setCheckState(Qt::PartiallyChecked);
   }
   blockSignals(false);
@@ -67,22 +67,23 @@ OSCheckBox3::OSCheckBox3(QWidget* parent) : QCheckBox(parent) {
   setEnabled(false);
 
   // if multiple qss rules apply with same specificity then the last one is chosen
-  this->setStyleSheet("QCheckBox::indicator:checked[style=\"000\"]   { image: url(:/shared_gui_components/images/checked_checkbox.png); }"           // Locked=0, Focused=0, Defaulted=0
-                      "QCheckBox::indicator:unchecked[style=\"000\"] { image: url(:/shared_gui_components/images/unchecked_checkbox.png); }"         // Locked=0, Focused=0, Defaulted=0
-                      "QCheckBox::indicator:checked[style=\"001\"]   { image: url(:/shared_gui_components/images/checked_checkbox_green.png); }"     // Locked=0, Focused=0, Defaulted=1
-                      "QCheckBox::indicator:unchecked[style=\"001\"] { image: url(:/shared_gui_components/images/unchecked_checkbox_green.png); }"   // Locked=0, Focused=0, Defaulted=1
-                      "QCheckBox::indicator:checked[style=\"010\"]   { image: url(:/shared_gui_components/images/checked_checkbox_focused.png); }"   // Locked=0, Focused=1, Defaulted=0
-                      "QCheckBox::indicator:unchecked[style=\"010\"] { image: url(:/shared_gui_components/images/unchecked_checkbox_focused.png); }" // Locked=0, Focused=1, Defaulted=0
-                      "QCheckBox::indicator:checked[style=\"011\"]   { image: url(:/shared_gui_components/images/checked_checkbox_focused.png); }"   // Locked=0, Focused=1, Defaulted=1
-                      "QCheckBox::indicator:unchecked[style=\"011\"] { image: url(:/shared_gui_components/images/unchecked_checkbox_focused.png); }" // Locked=0, Focused=1, Defaulted=1
-                      "QCheckBox::indicator:checked[style=\"100\"]   { image: url(:/shared_gui_components/images/checked_checkbox_locked.png); }"    // Locked=0, Focused=0, Defaulted=0
-                      "QCheckBox::indicator:unchecked[style=\"100\"] { image: url(:/shared_gui_components/images/unchecked_checkbox_locked.png); }"  // Locked=0, Focused=0, Defaulted=0
-                      "QCheckBox::indicator:checked[style=\"101\"]   { image: url(:/shared_gui_components/images/checked_checkbox_locked.png); }"    // Locked=0, Focused=0, Defaulted=1
-                      "QCheckBox::indicator:unchecked[style=\"101\"] { image: url(:/shared_gui_components/images/unchecked_checkbox_locked.png); }"  // Locked=0, Focused=0, Defaulted=1
-                      "QCheckBox::indicator:checked[style=\"110\"]   { image: url(:/shared_gui_components/images/checked_checkbox_locked.png); }"    // Locked=0, Focused=1, Defaulted=0
-                      "QCheckBox::indicator:unchecked[style=\"110\"] { image: url(:/shared_gui_components/images/unchecked_checkbox_locked.png); }"  // Locked=0, Focused=1, Defaulted=0
-                      "QCheckBox::indicator:checked[style=\"111\"]   { image: url(:/shared_gui_components/images/checked_checkbox_locked.png); }"    // Locked=0, Focused=1, Defaulted=1
-                      "QCheckBox::indicator:unchecked[style=\"111\"] { image: url(:/shared_gui_components/images/unchecked_checkbox_locked.png); }"  // Locked=0, Focused=1, Defaulted=1
+  this->setStyleSheet(
+    "QCheckBox::indicator:checked[style=\"000\"]   { image: url(:/shared_gui_components/images/checked_checkbox.png); }"  // Locked=0, Focused=0, Defaulted=0
+    "QCheckBox::indicator:unchecked[style=\"000\"] { image: url(:/shared_gui_components/images/unchecked_checkbox.png); }"  // Locked=0, Focused=0, Defaulted=0
+    "QCheckBox::indicator:checked[style=\"001\"]   { image: url(:/shared_gui_components/images/checked_checkbox_green.png); }"  // Locked=0, Focused=0, Defaulted=1
+    "QCheckBox::indicator:unchecked[style=\"001\"] { image: url(:/shared_gui_components/images/unchecked_checkbox_green.png); }"  // Locked=0, Focused=0, Defaulted=1
+    "QCheckBox::indicator:checked[style=\"010\"]   { image: url(:/shared_gui_components/images/checked_checkbox_focused.png); }"  // Locked=0, Focused=1, Defaulted=0
+    "QCheckBox::indicator:unchecked[style=\"010\"] { image: url(:/shared_gui_components/images/unchecked_checkbox_focused.png); }"  // Locked=0, Focused=1, Defaulted=0
+    "QCheckBox::indicator:checked[style=\"011\"]   { image: url(:/shared_gui_components/images/checked_checkbox_focused.png); }"  // Locked=0, Focused=1, Defaulted=1
+    "QCheckBox::indicator:unchecked[style=\"011\"] { image: url(:/shared_gui_components/images/unchecked_checkbox_focused.png); }"  // Locked=0, Focused=1, Defaulted=1
+    "QCheckBox::indicator:checked[style=\"100\"]   { image: url(:/shared_gui_components/images/checked_checkbox_locked.png); }"  // Locked=0, Focused=0, Defaulted=0
+    "QCheckBox::indicator:unchecked[style=\"100\"] { image: url(:/shared_gui_components/images/unchecked_checkbox_locked.png); }"  // Locked=0, Focused=0, Defaulted=0
+    "QCheckBox::indicator:checked[style=\"101\"]   { image: url(:/shared_gui_components/images/checked_checkbox_locked.png); }"  // Locked=0, Focused=0, Defaulted=1
+    "QCheckBox::indicator:unchecked[style=\"101\"] { image: url(:/shared_gui_components/images/unchecked_checkbox_locked.png); }"  // Locked=0, Focused=0, Defaulted=1
+    "QCheckBox::indicator:checked[style=\"110\"]   { image: url(:/shared_gui_components/images/checked_checkbox_locked.png); }"  // Locked=0, Focused=1, Defaulted=0
+    "QCheckBox::indicator:unchecked[style=\"110\"] { image: url(:/shared_gui_components/images/unchecked_checkbox_locked.png); }"  // Locked=0, Focused=1, Defaulted=0
+    "QCheckBox::indicator:checked[style=\"111\"]   { image: url(:/shared_gui_components/images/checked_checkbox_locked.png); }"  // Locked=0, Focused=1, Defaulted=1
+    "QCheckBox::indicator:unchecked[style=\"111\"] { image: url(:/shared_gui_components/images/unchecked_checkbox_locked.png); }"  // Locked=0, Focused=1, Defaulted=1
   );
 }
 

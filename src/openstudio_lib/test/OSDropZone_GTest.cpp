@@ -60,20 +60,17 @@ TEST_F(OpenStudioLibFixture, OSDropZone) {
 
   Heading heading("Heading", true, true);
 
-  QSharedPointer<DropZoneConcept> dropZoneConcept(
-    new DropZoneConceptImpl<model::SpaceType, model::Space>(heading, &model::Space::spaceType, &model::Space::setSpaceType,
-    boost::optional<std::function<void(model::Space*)>>(&model::Space::resetSpaceType), 
-    boost::optional<std::function<bool(model::Space*)>>(&model::Space::isSpaceTypeDefaulted), 
-    boost::optional<std::function<bool(model::Space*)>>())
-  );
+  QSharedPointer<DropZoneConcept> dropZoneConcept(new DropZoneConceptImpl<model::SpaceType, model::Space>(
+    heading, &model::Space::spaceType, &model::Space::setSpaceType,
+    boost::optional<std::function<void(model::Space*)>>(&model::Space::resetSpaceType),
+    boost::optional<std::function<bool(model::Space*)>>(&model::Space::isSpaceTypeDefaulted), boost::optional<std::function<bool(model::Space*)>>()));
 
   auto dropZone = std::make_shared<OSDropZone2>();
   dropZone->bind(space1, OptionalModelObjectGetter(std::bind(&DropZoneConcept::get, dropZoneConcept.data(), space1)),
                  ModelObjectSetter(std::bind(&DropZoneConcept::set, dropZoneConcept.data(), space1, std::placeholders::_1)),
-                 NoFailAction(std::bind(&DropZoneConcept::reset, dropZoneConcept.data(), space1)), 
+                 NoFailAction(std::bind(&DropZoneConcept::reset, dropZoneConcept.data(), space1)),
                  ModelObjectIsDefaulted(std::bind(&DropZoneConcept::isDefaulted, dropZoneConcept.data(), space1)),
                  ModelObjectIsReadOnly(std::bind(&DropZoneConcept::isLocked, dropZoneConcept.data(), space1)));
 
   processEvents();
-
 }

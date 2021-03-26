@@ -51,22 +51,21 @@ enum DeleteType
 {
   NoDelete,
   AlwaysDelete,
-  DeleteIfNotDefaulted 
+  DeleteIfNotDefaulted
 };
 
 class OSLineEdit2Interface
 {
  public:
-
   virtual void enableClickFocus() = 0;
-  
+
   virtual DeleteType deleteType() = 0;
 
   virtual void setDeleteType(DeleteType deleteType) = 0;
 
-  virtual bool hasData() = 0;  
+  virtual bool hasData() = 0;
 
-  virtual void setLocked(bool locked) = 0;  
+  virtual void setLocked(bool locked) = 0;
 
   virtual boost::optional<model::ModelObject> modelObject() const = 0;
 
@@ -93,7 +92,6 @@ class OSLineEdit2Interface
   virtual void unbind() = 0;
 
   virtual QWidget* qwidget() = 0;
-
 };
 
 class OSLineEdit2 : public QLineEdit, public OSLineEdit2Interface, public Nano::Observer
@@ -113,7 +111,7 @@ class OSLineEdit2 : public QLineEdit, public OSLineEdit2Interface, public Nano::
 
   virtual bool hasData() override;
 
-  virtual void setLocked(bool locked) override;  
+  virtual void setLocked(bool locked) override;
 
   virtual boost::optional<model::ModelObject> modelObject() const override;
 
@@ -142,7 +140,6 @@ class OSLineEdit2 : public QLineEdit, public OSLineEdit2Interface, public Nano::
   virtual QWidget* qwidget() override;
 
  protected:
-
   virtual void mouseReleaseEvent(QMouseEvent* event) override;
 
   virtual void focusInEvent(QFocusEvent* e) override;

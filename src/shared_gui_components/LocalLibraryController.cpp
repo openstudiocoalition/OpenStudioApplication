@@ -124,7 +124,7 @@ LocalLibraryController::~LocalLibraryController() {
   if (localLibraryView && !localLibraryView.isNull()) {
     // TODO: who should own these things
     //delete localLibraryView;
-  } 
+  }
 
   if (libraryView && !libraryView.isNull()) {
     // TODO: who should own these things

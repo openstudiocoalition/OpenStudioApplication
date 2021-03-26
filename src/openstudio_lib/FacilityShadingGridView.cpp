@@ -490,23 +490,22 @@ void FacilityShadingGridController::addColumns(const QString& category, std::vec
         connect(checkbox.data(), &OSSelectAllCheckBox::stateChanged, this, &FacilityShadingGridController::onSelectAllStateChanged);
         connect(this, &FacilityShadingGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
         std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; });
-        addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", isLocked, DataSource(allShadingSurfaces, true));
+        addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", isLocked,
+                        DataSource(allShadingSurfaces, true));
       } else if (field == SHADINGSURFACENAME) {
         addLoadNameColumn(Heading(QString(SHADINGSURFACENAME), true, false), CastNullAdapter<model::ShadingSurface>(&model::ShadingSurface::name),
                           CastNullAdapter<model::ShadingSurface>(&model::ShadingSurface::setName),
                           boost::optional<std::function<void(model::ShadingSurface*)>>(
-                          std::function<void(model::ShadingSurface*)>([](model::ShadingSurface* t_ss) { t_ss->remove(); })),
+                            std::function<void(model::ShadingSurface*)>([](model::ShadingSurface* t_ss) { t_ss->remove(); })),
                           boost::optional<std::function<bool(model::ShadingSurface*)>>(),
-                          boost::optional<std::function<bool(model::ShadingSurface*)>>(),
-                          DataSource(allShadingSurfaces, true));
+                          boost::optional<std::function<bool(model::ShadingSurface*)>>(), DataSource(allShadingSurfaces, true));
       } else if (field == CONSTRUCTIONNAME) {
         addDropZoneColumn(Heading(QString(CONSTRUCTIONNAME), true, false),
                           CastNullAdapter<model::ShadingSurface>(&model::ShadingSurface::construction),
                           CastNullAdapter<model::ShadingSurface>(&model::ShadingSurface::setConstruction),
                           boost::optional<std::function<void(model::ShadingSurface*)>>(NullAdapter(&model::ShadingSurface::resetConstruction)),
                           boost::optional<std::function<bool(model::ShadingSurface*)>>(NullAdapter(&model::ShadingSurface::isConstructionDefaulted)),
-                          boost::optional<std::function<bool(model::ShadingSurface*)>>(),
-                          DataSource(allShadingSurfaces, true));
+                          boost::optional<std::function<bool(model::ShadingSurface*)>>(), DataSource(allShadingSurfaces, true));
       } else if (field == TRANSMITTANCESCHEDULENAME) {
         std::function<bool(model::ShadingSurface*, const model::Schedule&)> setter(
           [](model::ShadingSurface* t_shadingSurface, const model::Schedule& t_schedule) {
@@ -519,8 +518,7 @@ void FacilityShadingGridController::addColumns(const QString& category, std::vec
                           boost::optional<std::function<void(model::ShadingSurface*)>>(
                             CastNullAdapter<model::ShadingSurface>(&model::ShadingSurface::resetTransmittanceSchedule)),
                           boost::optional<std::function<bool(model::ShadingSurface*)>>(),
-                          boost::optional<std::function<bool(model::ShadingSurface*)>>(),
-                          DataSource(allShadingSurfaces, true));
+                          boost::optional<std::function<bool(model::ShadingSurface*)>>(), DataSource(allShadingSurfaces, true));
       } else {
         // unhandled
         OS_ASSERT(false);

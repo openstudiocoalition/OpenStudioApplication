@@ -430,7 +430,6 @@ void SpacesDaylightingGridController::refreshModelObjects() {
   auto spaces = model().getConcreteModelObjects<model::Space>();
   std::sort(spaces.begin(), spaces.end(), openstudio::WorkspaceObjectNameLess());
   setModelObjects(subsetCastVector<model::ModelObject>(spaces));
-
 }
 
 }  // namespace openstudio

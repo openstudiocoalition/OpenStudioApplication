@@ -40,7 +40,6 @@
 #include "../shared_gui_components/OSComboBox.hpp"
 #include "../shared_gui_components/OSGridView.hpp"
 
-
 #include <openstudio/model/DefaultConstructionSet.hpp>
 #include <openstudio/model/DefaultConstructionSet_Impl.hpp>
 #include <openstudio/model/DefaultScheduleSet.hpp>
@@ -357,7 +356,7 @@ void SpaceTypesGridController::filterChanged(const QString& text) {
   LOG(Debug, "Load filter changed: " << toString(text));
 
   if (text == SHOWALLLOADS) {
-    setObjectFilter([](const model::ModelObject& obj) -> bool {return true;} );
+    setObjectFilter([](const model::ModelObject& obj) -> bool { return true; });
   } else {
     setObjectFilter([text](const model::ModelObject& obj) -> bool {
       try {
@@ -1051,9 +1050,8 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
         addLoadNameColumn(Heading(QString(LOADNAME), true, false), CastNullAdapter<model::SpaceLoad>(&model::SpaceLoad::name),
                           CastNullAdapter<model::SpaceLoad>(&model::SpaceLoad::setName),
                           boost::optional<std::function<void(model::SpaceLoad*)>>(
-                          std::function<void(model::SpaceLoad*)>([](model::SpaceLoad* t_sl) { t_sl->remove(); })),
-                          boost::optional<std::function<bool(model::SpaceLoad*)>>(),
-                          boost::optional<std::function<bool(model::SpaceLoad*)>>(),
+                            std::function<void(model::SpaceLoad*)>([](model::SpaceLoad* t_sl) { t_sl->remove(); })),
+                          boost::optional<std::function<bool(model::SpaceLoad*)>>(), boost::optional<std::function<bool(model::SpaceLoad*)>>(),
                           DataSource(allLoads, true));
 
       } else if (field == SELECTED) {
@@ -1147,15 +1145,14 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
             return false;
           });
 
-        addNameLineEditColumn(Heading(QString(DEFINITION), true, false), true, false,
-                              CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::name),
-                              CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::setName),
-                              boost::optional<std::function<void(model::SpaceLoadDefinition*)>>(),
-                              boost::optional<std::function<bool(model::SpaceLoadDefinition*)>>(),
-                              boost::optional<std::function<bool(model::SpaceLoadDefinition*)>>(),
-                              DataSource(allDefinitions, false,
-                                         QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<model::SpaceLoadDefinition, model::SpaceType>(
-                                           Heading(DEFINITION), getter, setter, boost::none, boost::none, boost::none))));
+        addNameLineEditColumn(
+          Heading(QString(DEFINITION), true, false), true, false, CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::name),
+          CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::setName),
+          boost::optional<std::function<void(model::SpaceLoadDefinition*)>>(), boost::optional<std::function<bool(model::SpaceLoadDefinition*)>>(),
+          boost::optional<std::function<bool(model::SpaceLoadDefinition*)>>(),
+          DataSource(allDefinitions, false,
+                     QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<model::SpaceLoadDefinition, model::SpaceType>(
+                       Heading(DEFINITION), getter, setter, boost::none, boost::none, boost::none))));
 
       } else if (field == SCHEDULE) {
 
@@ -1293,7 +1290,7 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
         // This is a hack (at best), but it works
         // Get the corresponding Standards Building Type Dropdown, and trigger repopulating
 
-/* TODO
+        /* TODO
         int columnCount = this->columnCount();
         for (int i = 1; i < this->rowCount(); ++i) {
           if (this->modelObject(i).handle() == t_spaceType->handle()) {
@@ -1368,7 +1365,7 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
         // This is a hack (at best), but it works
         // Get the corresponding Standards Space Type Dropdown, and trigger repopulating
 
-/* TODO
+        /* TODO
         int columnCount = this->columnCount();
         for (int i = 1; i < this->rowCount(); ++i) {
           if (this->modelObject(i).handle() == t_spaceType->handle()) {

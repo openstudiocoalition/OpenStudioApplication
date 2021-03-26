@@ -160,7 +160,7 @@ class MODELEDITOR_API InspectorDialog : public QMainWindow, public Nano::Observe
                                const openstudio::UUID& uuid);
 
   void onNeedsSetFocus();
- 
+
  private:
   QListWidget* m_listWidget;
   QStackedWidget* m_stackedWidget;

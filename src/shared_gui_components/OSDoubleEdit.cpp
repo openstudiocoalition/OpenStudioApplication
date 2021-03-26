@@ -48,10 +48,7 @@ using openstudio::model::ModelObject;
 
 namespace openstudio {
 
-OSDoubleEdit2::OSDoubleEdit2(QWidget* parent)
-  : QLineEdit(parent),
-    m_isScientific(false)
-{
+OSDoubleEdit2::OSDoubleEdit2(QWidget* parent) : QLineEdit(parent), m_isScientific(false) {
   this->setFixedWidth(90);
   this->setAcceptDrops(false);
   setEnabled(false);

@@ -59,12 +59,12 @@ class OSLoadNamePixmapLineEdit : public QWidget, public OSLineEdit2Interface
 
   virtual bool hasData() override;
 
-  virtual void setLocked(bool locked) override;  
+  virtual void setLocked(bool locked) override;
 
   virtual boost::optional<model::ModelObject> modelObject() const override;
 
   virtual void bind(const model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetter> set = boost::none,
-                    boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none, 
+                    boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none,
                     boost::optional<BasicQuery> isLocked = boost::none) override;
 
   virtual void bind(const model::ModelObject& modelObject, OptionalStringGetter get, boost::optional<StringSetter> set = boost::none,
@@ -100,7 +100,6 @@ class OSLoadNamePixmapLineEdit : public QWidget, public OSLineEdit2Interface
   virtual void onItemRemoveClicked();
 
  private:
-
   void completeBind();
   void createWidgets();
   void setIcon();
