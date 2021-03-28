@@ -96,6 +96,7 @@ bool OSLineEdit2::hasData() {
 }
 
 void OSLineEdit2::setLocked(bool locked) {
+  m_locked = locked;
   setReadOnly(locked);
   updateStyle();
 }
@@ -237,7 +238,7 @@ void OSLineEdit2::onEditingFinished() {
         //restore
         onModelObjectChange();
       } else {
-        emit inFocus(hasFocus(), hasData());
+        emit inFocus(m_focused, hasData());
         adjustWidth();
       }
     }
@@ -259,8 +260,8 @@ void OSLineEdit2::updateStyle() {
   // Locked, Focused, Defaulted
   std::bitset<3> style;
   style[0] = defaulted();
-  style[1] = hasFocus();
-  style[2] = isReadOnly();
+  style[1] = m_focused;
+  style[2] = m_locked;
   QString thisStyle = QString::fromStdString(style.to_string());
 
   QVariant currentStyle = property("style");
@@ -364,9 +365,10 @@ void OSLineEdit2::onItemRemoveClicked() {
 
 void OSLineEdit2::focusInEvent(QFocusEvent* e) {
   if (e->reason() == Qt::MouseFocusReason && m_hasClickFocus) {
+    m_focused = true;
     updateStyle();
 
-    emit inFocus(true, hasData());
+    emit inFocus(m_focused, hasData());
   }
 
   QLineEdit::focusInEvent(e);
@@ -374,9 +376,10 @@ void OSLineEdit2::focusInEvent(QFocusEvent* e) {
 
 void OSLineEdit2::focusOutEvent(QFocusEvent* e) {
   if (e->reason() == Qt::MouseFocusReason && m_hasClickFocus) {
+    m_focused = false;
     updateStyle();
 
-    emit inFocus(false, false);
+    emit inFocus(m_focused, false);
 
     auto mouseOverInspectorView =
       OSAppBase::instance()->currentDocument()->mainRightColumnController()->inspectorController()->inspectorView()->mouseOverInspectorView();

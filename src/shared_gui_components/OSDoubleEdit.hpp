@@ -136,6 +136,9 @@ class OSDoubleEdit2 : public QLineEdit, public Nano::Observer
 
   bool m_isScientific;
   bool m_hasClickFocus = false;
+  bool m_locked = false;
+  bool m_focused = false;
+
   boost::optional<int> m_precision;
   QString m_text = "UNINITIALIZED";
   QDoubleValidator* m_doubleValidator;

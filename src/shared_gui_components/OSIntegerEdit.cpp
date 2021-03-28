@@ -85,6 +85,7 @@ void OSIntegerEdit2::disableClickFocus() {
   this->m_hasClickFocus = false;
   if (m_focused) {
     m_focused = false;
+    clearFocus();
     updateStyle();
     emit inFocus(m_focused, false);
   }

@@ -197,7 +197,9 @@ class OSLineEdit2 : public QLineEdit, public OSLineEdit2Interface, public Nano::
   QTimer m_timer;
 
   bool m_hasClickFocus = false;
-
+  bool m_locked = false;
+  bool m_focused = false;
+   
   DeleteType m_deleteType = DeleteType::NoDelete;
 };
 

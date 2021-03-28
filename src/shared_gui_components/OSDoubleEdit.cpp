@@ -88,6 +88,12 @@ void OSDoubleEdit2::enableClickFocus() {
 
 void OSDoubleEdit2::disableClickFocus() {
   this->m_hasClickFocus = false;
+  if (m_focused){
+    m_focused = false;
+    clearFocus();
+	updateStyle();
+    emit inFocus(false, false);
+  }
 }
 
 bool OSDoubleEdit2::hasData() {
@@ -95,13 +101,13 @@ bool OSDoubleEdit2::hasData() {
 }
 
 void OSDoubleEdit2::setLocked(bool locked) {
-  if (isReadOnly() != locked) {
+  if (m_locked != locked) {
     setReadOnly(locked);
+    if (locked) {
+      disableClickFocus();
+    }
+    updateStyle();
   }
-  if (locked) {
-    disableClickFocus();
-  }
-  updateStyle();
 }
 
 QDoubleValidator* OSDoubleEdit2::doubleValidator() {
@@ -260,7 +266,7 @@ void OSDoubleEdit2::unbind() {
 
 void OSDoubleEdit2::onEditingFinished() {
 
-  emit inFocus(true, hasData());
+  emit inFocus(m_focused, hasData());
 
   QString text = this->text();
   if (m_text == text) return;
@@ -356,8 +362,8 @@ void OSDoubleEdit2::updateStyle() {
   std::bitset<4> style;
   style[0] = defaulted();
   style[1] = autosized() || autocalculated();
-  style[2] = hasFocus();
-  style[3] = isReadOnly();
+  style[2] = m_focused;
+  style[3] = m_locked;
   QString thisStyle = QString::fromStdString(style.to_string());
 
   QVariant currentStyle = property("style");
@@ -478,9 +484,10 @@ void OSDoubleEdit2::setPrecision(const std::string& str) {
 
 void OSDoubleEdit2::focusInEvent(QFocusEvent* e) {
   if (e->reason() == Qt::MouseFocusReason && m_hasClickFocus) {
+    m_focused = true;
     updateStyle();
 
-    emit inFocus(true, hasData());
+    emit inFocus(m_focused, hasData());
   }
 
   QLineEdit::focusInEvent(e);
@@ -488,9 +495,10 @@ void OSDoubleEdit2::focusInEvent(QFocusEvent* e) {
 
 void OSDoubleEdit2::focusOutEvent(QFocusEvent* e) {
   if (e->reason() == Qt::MouseFocusReason && m_hasClickFocus) {
+    m_focused = false;
     updateStyle();
 
-    emit inFocus(false, false);
+    emit inFocus(m_focused, false);
   }
 
   QLineEdit::focusOutEvent(e);
