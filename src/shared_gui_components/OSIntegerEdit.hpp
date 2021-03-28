@@ -125,6 +125,8 @@ class OSIntegerEdit2 : public QLineEdit, public Nano::Observer
 
   bool m_isScientific;
   bool m_hasClickFocus = false;
+  bool m_focused = false;
+  bool m_locked = false;
   boost::optional<int> m_precision;
   QString m_text = "UNINITIALIZED";
   QIntValidator* m_intValidator = nullptr;

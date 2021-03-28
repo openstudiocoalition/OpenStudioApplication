@@ -237,7 +237,7 @@ void OSLineEdit2::onEditingFinished() {
         //restore
         onModelObjectChange();
       } else {
-        emit inFocus(true, hasData());
+        emit inFocus(hasFocus(), hasData());
         adjustWidth();
       }
     }

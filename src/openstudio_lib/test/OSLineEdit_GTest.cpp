@@ -27,99 +27,36 @@
 *  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ***********************************************************************************************************************/
 
-#ifndef OPENSTUDIO_DESIGNDAYGRIDVIEW_HPP
-#define OPENSTUDIO_DESIGNDAYGRIDVIEW_HPP
+#include <gtest/gtest.h>
 
-#include "../shared_gui_components/OSGridController.hpp"
+#include "OpenStudioLibFixture.hpp"
 
-#include "OSItem.hpp"
+#include "../../shared_gui_components/OSLineEdit.hpp"
+#include "../../shared_gui_components/OSConcepts.hpp"
 
 #include <openstudio/model/Model.hpp>
+#include <openstudio/model/Space.hpp>
+#include <openstudio/model/Space_Impl.hpp>
+#include <openstudio/model/SpaceType.hpp>
+#include <openstudio/model/SpaceType_Impl.hpp>
 
-#include <QWidget>
+#include <QComboBox>
 
-class OpenStudioLibFixture;
+#include <memory>
 
-namespace openstudio {
+using namespace openstudio;
 
-class DesignDayGridController;
+TEST_F(OpenStudioLibFixture, OSLineEdit) {
 
-class DesignDayGridView : public QWidget
-{
-  Q_OBJECT
+  model::Model model = model::exampleModel();
+  auto spaces = model.getConcreteModelObjects<model::Space>();
+  std::sort(spaces.begin(), spaces.end(), WorkspaceObjectNameLess());
+  auto spaceTypes = model.getConcreteModelObjects<model::SpaceType>();
 
- public:
-  DesignDayGridView(bool isIP, const model::Model& model, QWidget* parent = 0);
+  ASSERT_EQ(4u, spaces.size());
+  ASSERT_EQ(1u, spaceTypes.size());
 
-  virtual ~DesignDayGridView() {}
+  auto space1 = spaces[0];
 
-  std::set<model::ModelObject> selectedObjects() const;
-
- private:
-  
-  // for testing
-  friend class ::OpenStudioLibFixture;
-  
-  void addObject(const model::ModelObject& modelObject);
-
-  void copyObject(const openstudio::model::ModelObject& modelObject);
-
-  void removeObject(openstudio::model::ModelObject modelObject);
-
-  void purgeObjects(const IddObjectType& iddObjectType);
-
-  DesignDayGridController* m_gridController = nullptr;
-
-  OSGridView* m_gridView = nullptr;
-
-  bool m_isIP;
-
- signals:
-
-  void toggleUnitsClicked(bool displayIP);
-
-  void dropZoneItemClicked(OSItem* item);
-
- public slots:
-
-  void onAddClicked();
-
-  void onCopyClicked();
-
-  void onRemoveClicked();
-
-  void onPurgeClicked();
-};
-
-class DesignDayGridController : public OSGridController
-{
-
-  Q_OBJECT
-
- public:
-  DesignDayGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, const model::Model& model,
-                          const std::vector<model::ModelObject>& modelObjects);
-
-  virtual ~DesignDayGridController() {}
-
-  virtual void refreshModelObjects() override;
-
- protected:
-  virtual void setCategoriesAndFields() override;
-
-  virtual void addColumns(const QString& t_category, std::vector<QString>& fields) override;
-
-  virtual void checkSelectedFields() override;
-
-  virtual QString getColor(const model::ModelObject& modelObject) override;
-
- public slots:
-
-  virtual void onItemDropped(const OSItemId& itemId) override;
-
-  virtual void onComboBoxIndexChanged(int index) override;
-};
-
-}  // namespace openstudio
-
-#endif  // OPENSTUDIO_DESIGNDAYGRIDVIEW_HPP
+  processEvents();
+}

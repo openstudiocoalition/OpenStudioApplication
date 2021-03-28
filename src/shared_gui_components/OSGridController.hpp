@@ -326,6 +326,10 @@ class ObjectSelector : public QObject
   REGISTER_LOGGER("openstudio.ObjectSelector");
 
  private:
+  
+  // for testing
+  friend class ::OpenStudioLibFixture;
+
   std::map<GridCellLocation*, GridCellInfo*> m_gridCellLocationToInfoMap;
 
   std::vector<GridCellLocation*> m_selectorCellLocations;

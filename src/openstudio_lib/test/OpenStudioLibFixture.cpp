@@ -31,6 +31,7 @@
 
 #include "../../model_editor/Application.hpp"
 
+#include "../DesignDayGridView.hpp"
 #include "../GridViewSubTab.hpp"
 #include "../OSDropZone.hpp"
 #include "../../shared_gui_components/OSGridController.hpp"
@@ -39,7 +40,13 @@
 
 #include <openstudio/utilities/core/Path.hpp>
 
+#include <boost/optional/optional_io.hpp> 
+
 using namespace openstudio;
+
+// static variables
+boost::optional<openstudio::FileLogSink> OpenStudioLibFixture::logFile;
+
 
 void OpenStudioLibFixture::SetUp() {
   openstudio::Application::instance().application(true);
@@ -64,12 +71,31 @@ OSGridView* OpenStudioLibFixture::getGridView(GridViewSubTab* gvst) {
   return gvst->m_gridView;
 }
 
+OSGridView* OpenStudioLibFixture::getGridView(DesignDayGridView* gv) {
+  return gv->m_gridView;
+}
+
 OSGridController* OpenStudioLibFixture::getGridController(GridViewSubTab* gvst) {
   return gvst->m_gridController;
 }
 
+OSGridController* OpenStudioLibFixture::getGridController(DesignDayGridView* gv) {
+  return gv->m_gridController;
+}
+
 ObjectSelector* OpenStudioLibFixture::getObjectSelector(OSGridController* gc) {
   return gc->m_objectSelector.get();
+}
+std::map<GridCellLocation*, GridCellInfo*> OpenStudioLibFixture::getGridCellLocationToInfoMap(openstudio::ObjectSelector* os) {
+  return os->m_gridCellLocationToInfoMap;
+}
+
+std::vector<GridCellLocation*> OpenStudioLibFixture::getSelectorCellLocations(openstudio::ObjectSelector* os) {
+  return os->m_selectorCellLocations;
+}
+
+std::vector<GridCellInfo*> OpenStudioLibFixture::getSelectorCellInfos(openstudio::ObjectSelector* os) {
+  return os->m_selectorCellInfos;
 }
 
 boost::optional<openstudio::model::ModelObject> OpenStudioLibFixture::getModelObject(openstudio::OSDropZone2* dropZone) {
@@ -107,5 +133,105 @@ bool OpenStudioLibFixture::isDefaulted(openstudio::OSDropZone2* dropZone) {
   return isDefaulted;
 }
 
-// static variables
-boost::optional<openstudio::FileLogSink> OpenStudioLibFixture::logFile;
+openstudio::GridCellLocation* OpenStudioLibFixture::getGridCellLocationAt(openstudio::ObjectSelector* os, int modelRow, int gridRow, int column,
+                                                                          boost::optional<int> subrow) {
+  auto m = getGridCellLocationToInfoMap(os);
+  for (const auto& locationInfoPair : m) {
+    if (locationInfoPair.first->equal(modelRow, gridRow, column, subrow)) {
+      return locationInfoPair.first;
+    }
+  }
+  return nullptr;
+}
+
+openstudio::GridCellInfo* OpenStudioLibFixture::getGridCellInfoAt(openstudio::ObjectSelector* os, int modelRow, int gridRow, int column,
+                                                                  boost::optional<int> subrow) {
+  auto m = getGridCellLocationToInfoMap(os);
+  for (const auto& locationInfoPair : m) {
+    if (locationInfoPair.first->equal(modelRow, gridRow, column, subrow)) {
+      return locationInfoPair.second;
+    }
+  }
+  return nullptr;
+}
+
+QWidget* OpenStudioLibFixture::getWrapperAt(openstudio::OSGridView* gv, int row, int column, boost::optional<int> subrow) {
+  QWidget* result;
+  QLayoutItem* item = gv->itemAtPosition(row, column);
+  if (item) {
+    result = item->widget();
+  }
+  return result;
+}
+
+QWidget* OpenStudioLibFixture::getOSWidgetAt(openstudio::OSGridView* gv, int row, int column, boost::optional<int> subrow) {
+  QWidget* result;
+  QLayoutItem* item = gv->itemAtPosition(row, column);
+  if (item) {
+    QWidget* wrapper = item->widget();
+    QGridLayout* innerLayout = qobject_cast<QGridLayout*>(wrapper->layout());
+    if (innerLayout) {
+      QLayoutItem* innerItem;
+      // If it is a subrow, we get the subrow
+      if (subrow) {
+        innerItem = innerLayout->itemAtPosition(subrow.get(), 0);
+      } else {
+        innerItem = innerLayout->itemAtPosition(0, 0);
+      }
+      OS_ASSERT(innerItem);
+      Holder* holder = qobject_cast<Holder*>(innerItem->widget());
+      OS_ASSERT(holder);
+      result = holder->widget;
+    }
+  }
+  return result;
+}
+
+void OpenStudioLibFixture::updateStyle(QWidget* widget) {
+  if (OSLineEdit2* lineEdit = qobject_cast<OSLineEdit2*>(widget)) {
+    lineEdit->updateStyle();
+  }
+}
+
+
+void OpenStudioLibFixture::checkExpected(ObjectSelector* os, OSGridView* gv, int modelRow, int gridRow, int column, boost::optional<int> subrow,
+                                         boost::optional<model::ModelObject> mo, bool visible, bool selectable, bool selected, bool selector,
+                                         bool locked, const std::string& style) {
+  GridCellLocation* location;
+  GridCellInfo* info;
+  QWidget* wrapper;
+  QWidget* widget;
+
+  bool isEven = ((gridRow % 2) == 0);
+
+  location = getGridCellLocationAt(os, modelRow, gridRow, column, subrow);
+  ASSERT_TRUE(location) << gridRow << ", " << column << ", " << subrow;
+  info = getGridCellInfoAt(os, modelRow, gridRow, column, subrow);
+  ASSERT_TRUE(info) << gridRow << ", " << column << ", " << subrow;
+  wrapper = getWrapperAt(gv, gridRow, column, subrow);
+  ASSERT_TRUE(wrapper) << gridRow << ", " << column << ", " << subrow;
+  widget = getOSWidgetAt(gv, gridRow, column, subrow);
+  ASSERT_TRUE(widget) << gridRow << ", " << column << ", " << subrow;
+
+  EXPECT_EQ(visible, info->isVisible()) << gridRow << ", " << column << ", " << subrow;
+  EXPECT_EQ(selectable, info->isSelectable()) << gridRow << ", " << column << ", " << subrow;
+  EXPECT_EQ(selected, info->isSelected()) << gridRow << ", " << column << ", " << subrow;
+  EXPECT_EQ(selector, info->isSelector) << gridRow << ", " << column << ", " << subrow;
+  EXPECT_EQ(locked, info->isLocked()) << gridRow << ", " << column << ", " << subrow;
+
+  if (mo) {
+    ASSERT_TRUE(info->modelObject) << gridRow << ", " << column << ", " << subrow;
+    EXPECT_EQ(mo->handle(), info->modelObject->handle()) << gridRow << ", " << column << ", " << subrow;
+  } else {
+    EXPECT_FALSE(info->modelObject) << gridRow << ", " << column << ", " << subrow;
+  }
+
+  QVariant var = wrapper->property("selected");
+  EXPECT_EQ(var.toBool(), selected) << gridRow << ", " << column << ", " << subrow;
+
+  var = wrapper->property("even");
+  EXPECT_EQ(var.toBool(), isEven) << gridRow << ", " << column << ", " << subrow;
+
+  var = widget->property("style");
+  EXPECT_EQ(var.toString().toStdString(), style) << gridRow << ", " << column << ", " << subrow;
+}

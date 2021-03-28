@@ -104,9 +104,9 @@ DesignDayGridView::DesignDayGridView(bool isIP, const model::Model& model, QWidg
   auto designDayModelObjects = subsetCastVector<model::ModelObject>(designDays);
 
   m_gridController = new DesignDayGridController(m_isIP, "Design Days", IddObjectType::OS_SizingPeriod_DesignDay, model, designDayModelObjects);
-  auto gridView = new OSGridView(m_gridController, "Design Days", "Drop\nZone", true, parent);
+  m_gridView = new OSGridView(m_gridController, "Design Days", "Drop\nZone", true, parent);
 
-  connect(gridView, &OSGridView::dropZoneItemClicked, this, &DesignDayGridView::dropZoneItemClicked);
+  connect(m_gridView, &OSGridView::dropZoneItemClicked, this, &DesignDayGridView::dropZoneItemClicked);
 
   //isConnected = connect(this, SIGNAL(itemSelected(OSItem *)), gridView, SIGNAL(itemSelected(OSItem*)));
   //OS_ASSERT(isConnected);
@@ -115,9 +115,9 @@ DesignDayGridView::DesignDayGridView(bool isIP, const model::Model& model, QWidg
   //isConnected = connect(gridView, SIGNAL(gridRowSelected(OSItem*)), this, SIGNAL(gridRowSelected(OSItem*)));
   //OS_ASSERT(isConnected);
 
-  gridView->showDropZone(false);
+  m_gridView->showDropZone(false);
 
-  layout->addWidget(gridView, 0, Qt::AlignTop);
+  layout->addWidget(m_gridView, 0, Qt::AlignTop);
 
   layout->addStretch(1);
 

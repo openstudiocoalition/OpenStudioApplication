@@ -36,14 +36,22 @@
 #include <openstudio/utilities/core/FileLogSink.hpp>
 #include <openstudio/model/ModelObject.hpp>
 
+#include <map>
+
 namespace openstudio {
-class GridViewSubTab;
-class ObjectSelector;
-class OSGridController;
-class OSGridView;
-class OSDropZone2;
-class OSLineEdit2;
+  class DesignDayGridView;
+  class GridCellLocation;
+  class GridCellInfo;
+  class GridViewSubTab;
+  class ObjectSelector;
+  class OSGridController;
+  class OSGridView;
+  class OSDropZone2;
+  class OSLineEdit2;
 }  // namespace openstudio
+
+class QWidget;
+class QString;
 
 class OpenStudioLibFixture : public ::testing::Test
 {
@@ -65,14 +73,32 @@ class OpenStudioLibFixture : public ::testing::Test
 
   // Acceessors for private members
   openstudio::OSGridView* getGridView(openstudio::GridViewSubTab* gvst);
+  openstudio::OSGridView* getGridView(openstudio::DesignDayGridView* gv);
   openstudio::OSGridController* getGridController(openstudio::GridViewSubTab* gvst);
+  openstudio::OSGridController* getGridController(openstudio::DesignDayGridView* gv);
   openstudio::ObjectSelector* getObjectSelector(openstudio::OSGridController* gc);
+
+  std::map<openstudio::GridCellLocation*, openstudio::GridCellInfo*> getGridCellLocationToInfoMap(openstudio::ObjectSelector* os);
+  std::vector<openstudio::GridCellLocation*> getSelectorCellLocations(openstudio::ObjectSelector* os);
+  std::vector<openstudio::GridCellInfo*> getSelectorCellInfos(openstudio::ObjectSelector* os);
+
   boost::optional<openstudio::model::ModelObject> getModelObject(openstudio::OSDropZone2* dropZone);
   boost::optional<openstudio::model::ModelObject> getModelObject(openstudio::OSLineEdit2* lineEdit);
 
   boost::optional<openstudio::model::ModelObject> callGet(openstudio::OSDropZone2* dropZone);
 
   bool isDefaulted(openstudio::OSDropZone2* dropZone);
+
+  openstudio::GridCellLocation* getGridCellLocationAt(openstudio::ObjectSelector* os, int modelRow, int gridRow, int column, boost::optional<int> subrow);
+  openstudio::GridCellInfo* getGridCellInfoAt(openstudio::ObjectSelector* os, int modelRow, int gridRow, int column, boost::optional<int> subrow);
+
+  QWidget* getWrapperAt(openstudio::OSGridView* gv, int row, int column, boost::optional<int> subrow);
+  QWidget* getOSWidgetAt(openstudio::OSGridView* gv, int row, int column, boost::optional<int> subrow);
+
+  void updateStyle(QWidget* widget);
+
+  void checkExpected(openstudio::ObjectSelector* os, openstudio::OSGridView* gv, int modelRow, int gridRow, int column, boost::optional<int> subrow,
+                     boost::optional<openstudio::model::ModelObject> mo, bool visible, bool selectable, bool selected, bool selector, bool locked, const std::string& style);
 
   // static variables
   static boost::optional<openstudio::FileLogSink> logFile;

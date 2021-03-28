@@ -83,6 +83,11 @@ void OSIntegerEdit2::enableClickFocus() {
 
 void OSIntegerEdit2::disableClickFocus() {
   this->m_hasClickFocus = false;
+  if (m_focused) {
+    m_focused = false;
+    updateStyle();
+    emit inFocus(m_focused, false);
+  }
 }
 
 bool OSIntegerEdit2::hasData() {
@@ -90,13 +95,15 @@ bool OSIntegerEdit2::hasData() {
 }
 
 void OSIntegerEdit2::setLocked(bool locked) {
-  if (isEnabled() == locked) {
+  if (m_locked != locked) {
+    m_locked = locked;
     setEnabled(!locked);
+ 
+    if (locked) {
+      disableClickFocus();
+    }
+    updateStyle();
   }
-  if (locked) {
-    disableClickFocus();
-  }
-  updateStyle();
 }
 
 QIntValidator* OSIntegerEdit2::intValidator() {
@@ -220,7 +227,7 @@ void OSIntegerEdit2::unbind() {
 
 void OSIntegerEdit2::onEditingFinished() {
 
-  emit inFocus(true, hasData());
+  emit inFocus(m_focused, hasData());
 
   QString text = this->text();
   if (m_text == text) return;
@@ -314,8 +321,8 @@ void OSIntegerEdit2::updateStyle() {
   std::bitset<4> style;
   style[0] = defaulted();
   style[1] = autosized() || autocalculated();
-  style[2] = hasFocus();
-  style[3] = isReadOnly();
+  style[2] = m_focused;
+  style[3] = m_locked;
   QString thisStyle = QString::fromStdString(style.to_string());
 
   QVariant currentStyle = property("style");
@@ -421,9 +428,10 @@ void OSIntegerEdit2::setPrecision(const std::string& str) {
 
 void OSIntegerEdit2::focusInEvent(QFocusEvent* e) {
   if (e->reason() == Qt::MouseFocusReason && m_hasClickFocus) {
+    m_focused = true;
     updateStyle();
 
-    emit inFocus(true, hasData());
+    emit inFocus(m_focused, hasData());
   }
 
   QLineEdit::focusInEvent(e);
@@ -431,9 +439,10 @@ void OSIntegerEdit2::focusInEvent(QFocusEvent* e) {
 
 void OSIntegerEdit2::focusOutEvent(QFocusEvent* e) {
   if (e->reason() == Qt::MouseFocusReason && m_hasClickFocus) {
+    m_focused = false;
     updateStyle();
 
-    emit inFocus(false, false);
+    emit inFocus(m_focused, false);
   }
 
   QLineEdit::focusOutEvent(e);

@@ -259,7 +259,7 @@ void OSGridView::setCellProperties(QWidget* wrapper, bool isSelector, int row, i
   }
 
   QVariant currentEven = wrapper->property("even");
-  if (currentEven.isNull() || currentEven.toBool() != isSelected) {
+  if (currentEven.isNull() || currentEven.toBool() != isEven) {
     wrapper->setProperty("even", isEven);
     isChanged = true;
   }
