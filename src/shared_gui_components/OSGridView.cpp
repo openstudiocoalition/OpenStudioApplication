@@ -234,42 +234,6 @@ void OSGridView::addSpacingToContentLayout(int spacing) {
   m_contentLayout->addSpacing(spacing);
 }
 
-QString OSGridView::cellStyle() {
-  const static QString style = "QWidget#TableCell[selected=\"true\"]{ border: none; background-color: #94b3de; border-top: 1px solid black;  "
-                               "border-right: 1px solid black; border-bottom: 1px solid black;}"
-                               "QWidget#TableCell[selected=\"false\"][even=\"true\"] { border: none; background-color: #ededed; border-top: 1px "
-                               "solid black; border-right: 1px solid black; border-bottom: 1px solid black;}"
-                               "QWidget#TableCell[selected=\"false\"][even=\"false\"] { border: none; background-color: #cecece; border-top: 1px "
-                               "solid black; border-right: 1px solid black; border-bottom: 1px solid black;}";
-
-  return style;
-}
-
-void OSGridView::setCellProperties(QWidget* wrapper, bool isSelector, int row, int column, boost::optional<int> subrow, bool isVisible,
-                                   bool isSelected, bool isLocked) {
-  bool isEven = ((row % 2) == 0);
-  bool isChanged = false;
-
-  wrapper->setVisible(isVisible);
-
-  QVariant currentSelected = wrapper->property("selected");
-  if (currentSelected.isNull() || currentSelected.toBool() != isSelected) {
-    wrapper->setProperty("selected", isSelected);
-    isChanged = true;
-  }
-
-  QVariant currentEven = wrapper->property("even");
-  if (currentEven.isNull() || currentEven.toBool() != isEven) {
-    wrapper->setProperty("even", isEven);
-    isChanged = true;
-  }
-
-  if (isChanged) {
-    wrapper->style()->unpolish(wrapper);
-    wrapper->style()->polish(wrapper);
-  }
-}
-
 //void OSGridView::removeWidget(int row, int column)
 //{
 //  // Currently this is cruft code
@@ -323,7 +287,8 @@ void OSGridView::onRecreateAll() {
 void OSGridView::onGridCellChanged(const GridCellLocation& location, const GridCellInfo& info) {
   QLayoutItem* item = m_gridLayout->itemAtPosition(location.gridRow, location.column);
   if (item) {
-    QWidget* wrapper = item->widget();
+    Wrapper* wrapper = qobject_cast<Wrapper*>(item->widget());
+    OS_ASSERT(wrapper);
     QGridLayout* innerLayout = qobject_cast<QGridLayout*>(wrapper->layout());
     if (innerLayout) {
       QLayoutItem* innerItem;
@@ -372,8 +337,7 @@ void OSGridView::onGridCellChanged(const GridCellLocation& location, const GridC
       }
 
       // style the wrapper
-      setCellProperties(wrapper, info.isSelector, location.gridRow, location.column, location.subrow, info.isVisible(), info.isSelected(),
-                        info.isLocked());
+      wrapper->setCellProperties(info.isSelector, location.gridRow, location.column, location.subrow, info.isVisible(), info.isSelected(), info.isLocked());
     }
   }
 }

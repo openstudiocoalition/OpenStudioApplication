@@ -74,11 +74,6 @@ class OSGridView : public QWidget
 
   void addSpacingToContentLayout(int spacing);
 
-  QString cellStyle();
-
-  void setCellProperties(QWidget* wrapper, bool isSelector, int row, int column, boost::optional<int> subrow, bool isVisible, bool isSelected,
-                         bool isLocked);
-
  protected:
   virtual void hideEvent(QHideEvent* event) override;
 

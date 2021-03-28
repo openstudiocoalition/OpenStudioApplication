@@ -63,6 +63,7 @@ class OSComboBox2;
 class OSGridView;
 
 // forward declaration
+class Wrapper;
 class Holder;
 
 /// Provides a Concept with an alternative source of data.
@@ -727,6 +728,7 @@ class OSGridController : public QObject
  private:
   friend class OSGridView;      // TODO: remove this
   friend class ObjectSelector;  // TODO: remove this
+  friend class Wrapper;         // TODO: remove this, move makeWidget to Wrapper?
 
   // Make the lowest level widgets that corresponds to concepts.
   // These will be put in container widgets to form the cell, regardless of the presence of sub rows.
@@ -755,7 +757,7 @@ class OSGridController : public QObject
 
   int m_oldIndex = -1;
 
-  std::shared_ptr<ObjectSelector> m_objectSelector;
+  ObjectSelector* m_objectSelector;
 
   std::tuple<int, int, boost::optional<int>> m_focusedCellLocation = std::make_tuple(-1, -1, -1);
 
@@ -818,6 +820,45 @@ class OSGridController : public QObject
 //  void mouseMoveEvent ( QMouseEvent * event );
 //}
 
+
+// A Wrapper has one or more Holders
+class Wrapper : public QWidget
+{
+  Q_OBJECT
+
+ public:
+  Wrapper(OSGridView* gridView);
+
+  virtual ~Wrapper();
+
+  void addWidgetLambda(QWidget* t_widget, const boost::optional<model::ModelObject>& t_obj, const bool t_isSelector);
+
+  void setGridController(OSGridController* gridController);
+  void setObjectSelector(ObjectSelector* objectSelector, int modelRow, int gridRow, int column);
+  void setModelObject(const boost::optional<model::ModelObject>& modelObject);
+  void setBaseConcept(QSharedPointer<BaseConcept> baseConcept);
+  void refresh();
+
+  void setCellProperties(bool isSelector, int row, int column, boost::optional<int> subrow, bool isVisible, bool isSelected, bool isLocked);
+
+ private:
+  
+  OSGridView* m_gridView;
+  QGridLayout* m_layout;
+  std::vector<Holder*> m_holders;
+  QSharedPointer<BaseConcept> m_baseConcept;
+  ObjectSelector* m_objectSelector;
+  bool m_hasSubRows = false;
+
+  // only has these members if not a header cell
+  boost::optional<model::ModelObject> m_modelObject;
+  OSGridController* m_gridController;
+  int m_modelRow = 0;
+  int m_gridRow = 0;
+  int m_column = 0;
+};
+
+// A Holder holds an OS Widget line OSLineEdit
 class Holder : public QWidget
 {
   Q_OBJECT
@@ -835,8 +876,6 @@ class Holder : public QWidget
  signals:
 
   void inFocus(bool inFocus, bool hasData);
-
-  //void selectionChanged(int state);
 };
 
 class HorizontalHeaderPushButton : public QPushButton

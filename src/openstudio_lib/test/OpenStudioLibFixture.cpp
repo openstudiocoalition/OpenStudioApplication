@@ -84,7 +84,7 @@ OSGridController* OpenStudioLibFixture::getGridController(DesignDayGridView* gv)
 }
 
 ObjectSelector* OpenStudioLibFixture::getObjectSelector(OSGridController* gc) {
-  return gc->m_objectSelector.get();
+  return gc->m_objectSelector;
 }
 std::map<GridCellLocation*, GridCellInfo*> OpenStudioLibFixture::getGridCellLocationToInfoMap(openstudio::ObjectSelector* os) {
   return os->m_gridCellLocationToInfoMap;
