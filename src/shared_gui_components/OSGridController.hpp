@@ -51,20 +51,17 @@
 #include <QVBoxLayout>
 
 class QButtonGroup;
-class QCheckBox;
 class QColor;
 class QLabel;
-class QPaintEvent;
 class OpenStudioLibFixture;
 
 namespace openstudio {
 
-class OSComboBox2;
+class GridCellLocation;
+class GridCellInfo;
+class OSCellWrapper;
 class OSGridView;
-
-// forward declaration
-class Wrapper;
-class Holder;
+class OSWidgetHolder;
 
 /// Provides a Concept with an alternative source of data.
 ///
@@ -157,197 +154,6 @@ class DataSourceAdapter : public BaseConcept
  private:
   DataSource m_source;
   QSharedPointer<BaseConcept> m_inner;
-};
-
-class OSGridController;
-
-class GridCellLocation : public QObject
-{
-  Q_OBJECT;
-
- public:
-  GridCellLocation(int t_modelRow, int t_gridRow, int t_column, boost::optional<int> t_subrow, QObject* parent);
-
-  virtual ~GridCellLocation();
-
-  const int modelRow;
-  const int gridRow;
-  const int column;
-  const boost::optional<int> subrow;
-
-  bool equal(int t_modelRow, int t_gridRow, int t_column, boost::optional<int> t_subrow) const;
-  bool operator==(const GridCellLocation& other) const;
-  bool operator<(const GridCellLocation& other) const;
-
- signals:
-
-  void inFocus(bool inFocus, bool hasData, int modelRow, int gridRow, int column, boost::optional<int> subrow);
-
-  //void selectionChanged(int state, int modelRow, int gridRow, int column, boost::optional<int> subrow);
-
- public slots:
-
-  void onInFocus(bool t_inFocus, bool t_hasData);
-
-  //void onSelectionChanged(int state);
-};
-
-class GridCellInfo : public QObject
-{
-  Q_OBJECT;
-
- public:
-  GridCellInfo(const boost::optional<model::ModelObject>& t_modelObject, bool t_isSelector, bool t_isVisible, bool t_isSelected, bool t_isLocked,
-               QObject* parent);
-
-  virtual ~GridCellInfo();
-
-  const boost::optional<model::ModelObject> modelObject;
-  const bool isSelector;
-
-  bool isVisible() const;
-
-  // returns true if changed
-  bool setVisible(bool visible);
-
-  bool isSelectable() const;
-
-  bool isSelected() const;
-
-  // returns true if changed
-  bool setSelected(bool selected);
-
-  bool isLocked() const;
-
-  // returns true if changed
-  bool setLocked(bool locked);
-
- private:
-  bool m_isVisible;
-  bool m_isSelected;
-  bool m_isLocked;
-};
-
-/// ObjectSelector keeps track of which cells are selected, filtered/not visible, and locked
-class ObjectSelector : public QObject
-{
-  Q_OBJECT;
-
- public:
-  ObjectSelector(QObject* parent);
-
-  enum PropertyChange
-  {
-    NoChange,
-    ToggleChange,
-    ChangeToFalse,
-    ChangeToTrue
-  };
-
-  virtual ~ObjectSelector();
-
-  // Reset all state
-  void clear();
-
-  // Adds object to the internal maps
-  void addObject(const boost::optional<model::ModelObject>& t_obj, Holder* t_holder, int t_modelRow, int t_gridRow, int t_column,
-                 const boost::optional<int>& t_subrow, bool t_isSelector);
-
-  // Lock and hide any grid cells referencing this object
-  void setObjectRemoved(const openstudio::Handle& handle);
-
-  // Check if object is included in any row or subrow
-  //bool containsObject(const openstudio::model::ModelObject& t_obj) const;
-
-  // Get object at given location
-  boost::optional<model::ModelObject> getObject(const int t_modelRow, const int t_gridRow, const int t_column,
-                                                const boost::optional<int>& t_subrow) const;
-
-  // Get GridCellInfo at given location
-  // GridCellInfo* getGridCellInfo(const int t_row, const int t_column, const boost::optional<int>& t_subrow) const;
-
-  // Select all selectable objects
-  void selectAll();
-
-  // Clear the selection
-  void clearSelection();
-
-  // Set an entire row as selected
-  void setRowProperties(const int t_gridRow, PropertyChange t_visible, PropertyChange t_selected, PropertyChange t_locked);
-
-  // Set a subrow as selected
-  void setSubrowProperties(const int t_gridRow, const int t_subrow, PropertyChange t_visible, PropertyChange t_selected, PropertyChange t_locked);
-
-  // Check if an object is selected
-  bool getObjectSelected(const model::ModelObject& t_obj) const;
-
-  // Set a selectable object as selected
-  void setObjectSelected(const model::ModelObject& t_obj, bool t_selected);
-
-  // Gets selectable objects
-  std::set<model::ModelObject> selectableObjects() const;
-
-  // Gets selected objects
-  std::set<model::ModelObject> selectedObjects() const;
-
-  // Check if an object is visible (passes the filter)
-  //bool getObjectVisible(const model::ModelObject& t_obj) const;
-
-  // Set the object filter function, function true if object is visible
-  void setObjectFilter(const std::function<bool(const model::ModelObject&)>& t_filter);
-
-  // Reset the object filter function
-  void resetObjectFilter();
-
-  // Check if an object is locked
-  //bool getObjectIsLocked(const model::ModelObject& t_obj) const;
-
-  // Set the object is locked function, function true if object is locked
-  void setObjectIsLocked(const std::function<bool(const model::ModelObject&)>& t_isLocked);
-
-  // Reset the object is locked function
-  void resetObjectIsLocked();
-
-  // Applies locks to entire rows and subrows
-  //void applyLocks();
-
- signals:
-
-  void inFocus(bool inFocus, bool hasData, int modelRow, int gridRow, int column, boost::optional<int> subrow);
-
-  void gridCellChanged(const GridCellLocation& location, const GridCellInfo& info);
-
-  void gridRowSelectionChanged(int numSelected, int numSelectable);
-
- public slots:
-
-  //void onSelectionChanged(int state, int row, int column, boost::optional<int> subrow);
-
- protected:
-  REGISTER_LOGGER("openstudio.ObjectSelector");
-
- private:
-  
-  // for testing
-  friend class ::OpenStudioLibFixture;
-
-  std::map<GridCellLocation*, GridCellInfo*> m_gridCellLocationToInfoMap;
-
-  std::vector<GridCellLocation*> m_selectorCellLocations;
-
-  std::vector<GridCellInfo*> m_selectorCellInfos;
-
-  GridCellInfo* getGridCellInfo(GridCellLocation* location) const;
-
-  // returns true if object is visible
-  // e.g. a lights object would not be visible if the user filted only people objects
-  std::function<bool(const model::ModelObject&)> m_objectFilter;
-  static std::function<bool(const model::ModelObject&)> getDefaultFilter();
-
-  // returns true if object is locked
-  // e.g. an inherited space load would be locked
-  std::function<bool(const model::ModelObject&)> m_isLocked;
-  static std::function<bool(const model::ModelObject&)> getDefaultIsLocked();
 };
 
 class OSGridController : public QObject
@@ -726,9 +532,9 @@ class OSGridController : public QObject
   REGISTER_LOGGER("openstudio.OSGridController");
 
  private:
-  friend class OSGridView;      // TODO: remove this
-  friend class ObjectSelector;  // TODO: remove this
-  friend class Wrapper;         // TODO: remove this, move makeWidget to Wrapper?
+  friend class OSGridView;        // TODO: remove this
+  friend class OSObjectSelector;  // TODO: remove this
+  friend class OSCellWrapper;     // TODO: remove this, move makeWidget to Wrapper?
 
   // Make the lowest level widgets that corresponds to concepts.
   // These will be put in container widgets to form the cell, regardless of the presence of sub rows.
@@ -757,7 +563,7 @@ class OSGridController : public QObject
 
   int m_oldIndex = -1;
 
-  ObjectSelector* m_objectSelector;
+  OSObjectSelector* m_objectSelector;
 
   std::tuple<int, int, boost::optional<int>> m_focusedCellLocation = std::make_tuple(-1, -1, -1);
 
@@ -809,73 +615,6 @@ class OSGridController : public QObject
   void onObjectRemoved(boost::optional<model::ParentObject> parent);  // TODO: remove?
 
   void onSetApplyButtonState();
-};
-
-// Possible solution for user facing column resize
-// Hardst part is addressing persitance when grid redraws
-//class ColumnSizer : public QWidget
-//{
-//  Q_OBJECT
-//
-//  void mouseMoveEvent ( QMouseEvent * event );
-//}
-
-
-// A Wrapper has one or more Holders
-class Wrapper : public QWidget
-{
-  Q_OBJECT
-
- public:
-  Wrapper(OSGridView* gridView);
-
-  virtual ~Wrapper();
-
-  void addWidgetLambda(QWidget* t_widget, const boost::optional<model::ModelObject>& t_obj, const bool t_isSelector);
-
-  void setGridController(OSGridController* gridController);
-  void setObjectSelector(ObjectSelector* objectSelector, int modelRow, int gridRow, int column);
-  void setModelObject(const boost::optional<model::ModelObject>& modelObject);
-  void setBaseConcept(QSharedPointer<BaseConcept> baseConcept);
-  void refresh();
-
-  void setCellProperties(bool isSelector, int row, int column, boost::optional<int> subrow, bool isVisible, bool isSelected, bool isLocked);
-
- private:
-  
-  OSGridView* m_gridView;
-  QGridLayout* m_layout;
-  std::vector<Holder*> m_holders;
-  QSharedPointer<BaseConcept> m_baseConcept;
-  ObjectSelector* m_objectSelector;
-  bool m_hasSubRows = false;
-
-  // only has these members if not a header cell
-  boost::optional<model::ModelObject> m_modelObject;
-  OSGridController* m_gridController;
-  int m_modelRow = 0;
-  int m_gridRow = 0;
-  int m_column = 0;
-};
-
-// A Holder holds an OS Widget line OSLineEdit
-class Holder : public QWidget
-{
-  Q_OBJECT
-
- public:
-  Holder(QWidget* parent = nullptr);
-
-  virtual ~Holder();
-
-  QWidget* widget = nullptr;
-
- protected:
-  void paintEvent(QPaintEvent* event) override;
-
- signals:
-
-  void inFocus(bool inFocus, bool hasData);
 };
 
 class HorizontalHeaderPushButton : public QPushButton

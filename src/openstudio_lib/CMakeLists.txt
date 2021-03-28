@@ -407,6 +407,8 @@ set(${target_name}_SRC
   ../shared_gui_components/MeasureManager.hpp
   ../shared_gui_components/NetworkProxyDialog.cpp
   ../shared_gui_components/NetworkProxyDialog.hpp
+  ../shared_gui_components/OSCellWrapper.cpp
+  ../shared_gui_components/OSCellWrapper.hpp
   ../shared_gui_components/OSCheckBox.cpp
   ../shared_gui_components/OSCheckBox.hpp
   ../shared_gui_components/OSCollapsibleView.cpp
@@ -434,6 +436,8 @@ set(${target_name}_SRC
   ../shared_gui_components/OSListView.hpp
   ../shared_gui_components/OSLoadNamePixmapLineEdit.cpp
   ../shared_gui_components/OSLoadNamePixmapLineEdit.hpp
+  ../shared_gui_components/OSObjectSelector.cpp
+  ../shared_gui_components/OSObjectSelector.hpp
   ../shared_gui_components/OSQObjectController.cpp
   ../shared_gui_components/OSQObjectController.hpp
   ../shared_gui_components/OSQuantityEdit.cpp
@@ -444,6 +448,8 @@ set(${target_name}_SRC
   ../shared_gui_components/OSUnsignedEdit.hpp
   ../shared_gui_components/OSViewSwitcher.cpp
   ../shared_gui_components/OSViewSwitcher.hpp
+  ../shared_gui_components/OSWidgetHolder.cpp
+  ../shared_gui_components/OSWidgetHolder.hpp
   ../shared_gui_components/PageNavigator.cpp
   ../shared_gui_components/PageNavigator.hpp
   ../shared_gui_components/ProcessEventsProgressBar.cpp
@@ -668,6 +674,7 @@ set(${target_name}_moc
   ../shared_gui_components/MeasureBadge.hpp
   ../shared_gui_components/MeasureDragData.hpp
   ../shared_gui_components/MeasureManager.hpp
+  ../shared_gui_components/OSCellWrapper.hpp
   ../shared_gui_components/OSCheckBox.hpp
   ../shared_gui_components/OSCollapsibleView.hpp
   ../shared_gui_components/OSComboBox.hpp
@@ -681,11 +688,13 @@ set(${target_name}_moc
   ../shared_gui_components/OSListController.hpp
   ../shared_gui_components/OSListView.hpp
   ../shared_gui_components/OSLoadNamePixmapLineEdit.hpp
+  ../shared_gui_components/OSObjectSelector.hpp
   ../shared_gui_components/OSQObjectController.hpp
   ../shared_gui_components/OSQuantityEdit.hpp
   ../shared_gui_components/OSSwitch.hpp
   ../shared_gui_components/OSUnsignedEdit.hpp
   ../shared_gui_components/OSViewSwitcher.hpp
+  ../shared_gui_components/OSWidgetHolder.hpp
   ../shared_gui_components/PageNavigator.hpp
   ../shared_gui_components/SyncMeasuresDialog.hpp
   ../shared_gui_components/SyncMeasuresDialogCentralWidget.hpp

@@ -32,6 +32,7 @@
 #include "HeaderViews.hpp"
 #include "OSCollapsibleView.hpp"
 #include "OSGridController.hpp"
+#include "OSCellWrapper.hpp"
 #include "OSCheckBox.hpp"
 #include "OSComboBox.hpp"
 #include "OSDoubleEdit.hpp"
@@ -39,8 +40,10 @@
 #include "OSIntegerEdit.hpp"
 #include "OSLineEdit.hpp"
 #include "OSLoadNamePixmapLineEdit.hpp"
+#include "OSObjectSelector.hpp"
 #include "OSQuantityEdit.hpp"
 #include "OSUnsignedEdit.hpp"
+#include "OSWidgetHolder.hpp"
 
 #include "../model_editor/Application.hpp"
 
@@ -287,7 +290,7 @@ void OSGridView::onRecreateAll() {
 void OSGridView::onGridCellChanged(const GridCellLocation& location, const GridCellInfo& info) {
   QLayoutItem* item = m_gridLayout->itemAtPosition(location.gridRow, location.column);
   if (item) {
-    Wrapper* wrapper = qobject_cast<Wrapper*>(item->widget());
+    OSCellWrapper* wrapper = qobject_cast<OSCellWrapper*>(item->widget());
     OS_ASSERT(wrapper);
     QGridLayout* innerLayout = qobject_cast<QGridLayout*>(wrapper->layout());
     if (innerLayout) {
@@ -299,7 +302,7 @@ void OSGridView::onGridCellChanged(const GridCellLocation& location, const GridC
         innerItem = innerLayout->itemAtPosition(0, 0);
       }
       OS_ASSERT(innerItem);
-      Holder* holder = qobject_cast<Holder*>(innerItem->widget());
+      OSWidgetHolder* holder = qobject_cast<OSWidgetHolder*>(innerItem->widget());
       OS_ASSERT(holder);
       QWidget* widget = holder->widget;
 

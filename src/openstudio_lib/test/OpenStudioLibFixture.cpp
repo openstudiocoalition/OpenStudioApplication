@@ -34,9 +34,13 @@
 #include "../DesignDayGridView.hpp"
 #include "../GridViewSubTab.hpp"
 #include "../OSDropZone.hpp"
+#include "../../shared_gui_components/OSCellWrapper.hpp"
 #include "../../shared_gui_components/OSGridController.hpp"
 #include "../../shared_gui_components/OSGridView.hpp"
 #include "../../shared_gui_components/OSLineEdit.hpp"
+#include "../../shared_gui_components/OSObjectSelector.hpp"
+#include "../../shared_gui_components/OSWidgetHolder.hpp"
+
 
 #include <openstudio/utilities/core/Path.hpp>
 
@@ -83,18 +87,18 @@ OSGridController* OpenStudioLibFixture::getGridController(DesignDayGridView* gv)
   return gv->m_gridController;
 }
 
-ObjectSelector* OpenStudioLibFixture::getObjectSelector(OSGridController* gc) {
+OSObjectSelector* OpenStudioLibFixture::getObjectSelector(OSGridController* gc) {
   return gc->m_objectSelector;
 }
-std::map<GridCellLocation*, GridCellInfo*> OpenStudioLibFixture::getGridCellLocationToInfoMap(openstudio::ObjectSelector* os) {
+std::map<GridCellLocation*, GridCellInfo*> OpenStudioLibFixture::getGridCellLocationToInfoMap(openstudio::OSObjectSelector* os) {
   return os->m_gridCellLocationToInfoMap;
 }
 
-std::vector<GridCellLocation*> OpenStudioLibFixture::getSelectorCellLocations(openstudio::ObjectSelector* os) {
+std::vector<GridCellLocation*> OpenStudioLibFixture::getSelectorCellLocations(openstudio::OSObjectSelector* os) {
   return os->m_selectorCellLocations;
 }
 
-std::vector<GridCellInfo*> OpenStudioLibFixture::getSelectorCellInfos(openstudio::ObjectSelector* os) {
+std::vector<GridCellInfo*> OpenStudioLibFixture::getSelectorCellInfos(openstudio::OSObjectSelector* os) {
   return os->m_selectorCellInfos;
 }
 
@@ -133,7 +137,7 @@ bool OpenStudioLibFixture::isDefaulted(openstudio::OSDropZone2* dropZone) {
   return isDefaulted;
 }
 
-openstudio::GridCellLocation* OpenStudioLibFixture::getGridCellLocationAt(openstudio::ObjectSelector* os, int modelRow, int gridRow, int column,
+openstudio::GridCellLocation* OpenStudioLibFixture::getGridCellLocationAt(openstudio::OSObjectSelector* os, int modelRow, int gridRow, int column,
                                                                           boost::optional<int> subrow) {
   auto m = getGridCellLocationToInfoMap(os);
   for (const auto& locationInfoPair : m) {
@@ -144,7 +148,7 @@ openstudio::GridCellLocation* OpenStudioLibFixture::getGridCellLocationAt(openst
   return nullptr;
 }
 
-openstudio::GridCellInfo* OpenStudioLibFixture::getGridCellInfoAt(openstudio::ObjectSelector* os, int modelRow, int gridRow, int column,
+openstudio::GridCellInfo* OpenStudioLibFixture::getGridCellInfoAt(openstudio::OSObjectSelector* os, int modelRow, int gridRow, int column,
                                                                   boost::optional<int> subrow) {
   auto m = getGridCellLocationToInfoMap(os);
   for (const auto& locationInfoPair : m) {
@@ -179,7 +183,7 @@ QWidget* OpenStudioLibFixture::getOSWidgetAt(openstudio::OSGridView* gv, int row
         innerItem = innerLayout->itemAtPosition(0, 0);
       }
       OS_ASSERT(innerItem);
-      Holder* holder = qobject_cast<Holder*>(innerItem->widget());
+      OSWidgetHolder* holder = qobject_cast<OSWidgetHolder*>(innerItem->widget());
       OS_ASSERT(holder);
       result = holder->widget;
     }
@@ -194,7 +198,7 @@ void OpenStudioLibFixture::updateStyle(QWidget* widget) {
 }
 
 
-void OpenStudioLibFixture::checkExpected(ObjectSelector* os, OSGridView* gv, int modelRow, int gridRow, int column, boost::optional<int> subrow,
+void OpenStudioLibFixture::checkExpected(OSObjectSelector* os, OSGridView* gv, int modelRow, int gridRow, int column, boost::optional<int> subrow,
                                          boost::optional<model::ModelObject> mo, bool visible, bool selectable, bool selected, bool selector,
                                          bool locked, const std::string& style) {
   GridCellLocation* location;

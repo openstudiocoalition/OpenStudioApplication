@@ -34,6 +34,7 @@
 
 #include "../shared_gui_components/OSCheckBox.hpp"
 #include "../shared_gui_components/OSGridView.hpp"
+#include "../shared_gui_components/OSObjectSelector.hpp"
 
 #include <openstudio/model/ConstructionBase.hpp>
 #include <openstudio/model/ConstructionBase_Impl.hpp>

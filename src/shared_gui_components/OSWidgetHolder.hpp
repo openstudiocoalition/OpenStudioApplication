@@ -27,51 +27,34 @@
 *  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ***********************************************************************************************************************/
 
-#include <gtest/gtest.h>
+#ifndef SHAREDGUICOMPONENTS_OSWIDGETHOLDER_HPP
+#define SHAREDGUICOMPONENTS_OSWIDGETHOLDER_HPP
 
-#include "OpenStudioLibFixture.hpp"
+#include <QWidget>
 
-#include "../FacilityStoriesGridView.hpp"
-#include "../../shared_gui_components/OSGridController.hpp"
-#include "../../shared_gui_components/OSObjectSelector.hpp"
+namespace openstudio {
 
-#include <openstudio/model/Model.hpp>
-#include <openstudio/model/BuildingStory.hpp>
-#include <openstudio/model/BuildingStory_Impl.hpp>
+// An Holder holds an OS Widget like OSLineEdit
+class OSWidgetHolder : public QWidget
+{
+  Q_OBJECT
 
-#include <memory>
+ public:
+  OSWidgetHolder(QWidget* parent = nullptr);
 
-using namespace openstudio;
+  virtual ~OSWidgetHolder();
 
-TEST_F(OpenStudioLibFixture, FacilityStoriesGridView) {
+  QWidget* widget = nullptr;
 
-  model::Model model = model::exampleModel();
-  auto stories = model.getConcreteModelObjects<model::BuildingStory>();
-  std::sort(stories.begin(), stories.end(), WorkspaceObjectNameLess());
+ protected:
+  void paintEvent(QPaintEvent* event) override;
 
-  ASSERT_EQ(1u, stories.size());
+ signals:
 
-  auto story1 = stories[0];
+  void inFocus(bool inFocus, bool hasData);
+};
 
-  auto gridView = std::make_shared<FacilityStoriesGridView>(false, model);
-  auto gridController = getGridController(gridView.get());
-  auto objectSelector = getObjectSelector(gridController);
 
-  processEvents();
+}  // namespace openstudio
 
-  auto modelObjects = gridController->modelObjects();
-  ASSERT_EQ(1u, modelObjects.size());
-  EXPECT_EQ(story1.handle(), modelObjects[0].handle());
-
-  auto selectableObjectsSet = objectSelector->selectableObjects();
-  EXPECT_EQ(stories.size(), selectableObjectsSet.size());
-
-  auto selectedObjectsSet = objectSelector->selectedObjects();
-  EXPECT_EQ(0u, selectedObjectsSet.size());
-
-  objectSelector->setObjectSelected(story1, true);
-
-  selectedObjectsSet = objectSelector->selectedObjects();
-  ASSERT_EQ(1u, selectedObjectsSet.size());
-  EXPECT_EQ(story1.handle(), selectedObjectsSet.begin()->handle());
-}
+#endif  // SHAREDGUICOMPONENTS_OSWIDGETHOLDER_HPP

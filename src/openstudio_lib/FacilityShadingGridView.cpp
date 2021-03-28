@@ -34,6 +34,7 @@
 
 #include "../shared_gui_components/OSCheckBox.hpp"
 #include "../shared_gui_components/OSGridView.hpp"
+#include "../shared_gui_components/OSObjectSelector.hpp"
 
 #include <openstudio/model/Blind.hpp>
 #include <openstudio/model/Blind_Impl.hpp>

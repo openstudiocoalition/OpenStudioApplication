@@ -32,6 +32,7 @@
 #include "OpenStudioLibFixture.hpp"
 
 #include "../../shared_gui_components/OSGridController.hpp"
+#include "../../shared_gui_components/OSObjectSelector.hpp"
 
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/Space.hpp>
@@ -96,8 +97,8 @@ TEST_F(OpenStudioLibFixture, OptionalAssumptions) {
   EXPECT_TRUE(optSpace1 != optSpace2);
 }
 
-TEST_F(OpenStudioLibFixture, ObjectSelector) {
+TEST_F(OpenStudioLibFixture, OSObjectSelector) {
 
   TestGridController grid;
-  ObjectSelector selector(&grid);
+  OSObjectSelector selector(&grid);
 }

@@ -33,6 +33,7 @@
 
 #include "../SpacesSpacesGridView.hpp"
 #include "../../shared_gui_components/OSGridController.hpp"
+#include "../../shared_gui_components/OSObjectSelector.hpp"
 
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/Space.hpp>

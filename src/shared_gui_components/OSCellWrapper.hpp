@@ -27,51 +27,72 @@
 *  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ***********************************************************************************************************************/
 
-#include <gtest/gtest.h>
+#ifndef SHAREDGUICOMPONENTS_OSCELLWRAPPER_HPP
+#define SHAREDGUICOMPONENTS_OSCELLWRAPPER_HPP
 
-#include "OpenStudioLibFixture.hpp"
-
-#include "../FacilityStoriesGridView.hpp"
-#include "../../shared_gui_components/OSGridController.hpp"
-#include "../../shared_gui_components/OSObjectSelector.hpp"
+#include "OSConcepts.hpp"
 
 #include <openstudio/model/Model.hpp>
-#include <openstudio/model/BuildingStory.hpp>
-#include <openstudio/model/BuildingStory_Impl.hpp>
+#include <openstudio/model/ModelObject.hpp>
 
-#include <memory>
+#include <vector>
 
-using namespace openstudio;
+#include <QSharedPointer>
+#include <QWidget>
+#include <QVBoxLayout>
 
-TEST_F(OpenStudioLibFixture, FacilityStoriesGridView) {
+class QButtonGroup;
+class QCheckBox;
+class QColor;
+class QLabel;
+class QPaintEvent;
+class OpenStudioLibFixture;
 
-  model::Model model = model::exampleModel();
-  auto stories = model.getConcreteModelObjects<model::BuildingStory>();
-  std::sort(stories.begin(), stories.end(), WorkspaceObjectNameLess());
+namespace openstudio {
 
-  ASSERT_EQ(1u, stories.size());
+class OSGridView;
+class OSGridController;
+class OSObjectSelector;
+class OSWidgetHolder;
 
-  auto story1 = stories[0];
+// An OSCellWrapper has one or more OSWidgetHolders, one for each subrow in a cell
+class OSCellWrapper : public QWidget
+{
+  Q_OBJECT
 
-  auto gridView = std::make_shared<FacilityStoriesGridView>(false, model);
-  auto gridController = getGridController(gridView.get());
-  auto objectSelector = getObjectSelector(gridController);
+ public:
+  OSCellWrapper(OSGridView* gridView);
 
-  processEvents();
+  virtual ~OSCellWrapper();
 
-  auto modelObjects = gridController->modelObjects();
-  ASSERT_EQ(1u, modelObjects.size());
-  EXPECT_EQ(story1.handle(), modelObjects[0].handle());
+  void addWidgetLambda(QWidget* t_widget, const boost::optional<model::ModelObject>& t_obj, const bool t_isSelector);
 
-  auto selectableObjectsSet = objectSelector->selectableObjects();
-  EXPECT_EQ(stories.size(), selectableObjectsSet.size());
+  void setGridController(OSGridController* gridController);
+  void setObjectSelector(OSObjectSelector* objectSelector, int modelRow, int gridRow, int column);
+  void setModelObject(const boost::optional<model::ModelObject>& modelObject);
+  void setBaseConcept(QSharedPointer<BaseConcept> baseConcept);
+  void refresh();
 
-  auto selectedObjectsSet = objectSelector->selectedObjects();
-  EXPECT_EQ(0u, selectedObjectsSet.size());
+  void setCellProperties(bool isSelector, int row, int column, boost::optional<int> subrow, bool isVisible, bool isSelected, bool isLocked);
 
-  objectSelector->setObjectSelected(story1, true);
+ private:
+  
+  OSGridView* m_gridView;
+  QGridLayout* m_layout;
+  std::vector<OSWidgetHolder*> m_holders;
+  QSharedPointer<BaseConcept> m_baseConcept;
+  OSObjectSelector* m_objectSelector;
+  bool m_hasSubRows = false;
 
-  selectedObjectsSet = objectSelector->selectedObjects();
-  ASSERT_EQ(1u, selectedObjectsSet.size());
-  EXPECT_EQ(story1.handle(), selectedObjectsSet.begin()->handle());
-}
+  // only has these members if not a header cell
+  boost::optional<model::ModelObject> m_modelObject;
+  OSGridController* m_gridController;
+  int m_modelRow = 0;
+  int m_gridRow = 0;
+  int m_column = 0;
+};
+
+
+}  // namespace openstudio
+
+#endif  // SHAREDGUICOMPONENTS_OSCELLWRAPPER_HPP

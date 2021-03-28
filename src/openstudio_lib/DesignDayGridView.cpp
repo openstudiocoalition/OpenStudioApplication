@@ -31,6 +31,7 @@
 
 #include "../shared_gui_components/OSCheckBox.hpp"
 #include "../shared_gui_components/OSGridView.hpp"
+#include "../shared_gui_components/OSObjectSelector.hpp"
 
 #include "ModelObjectItem.hpp"
 #include "OSAppBase.hpp"
