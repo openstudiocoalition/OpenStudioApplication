@@ -158,7 +158,7 @@ openstudio::GridCellInfo* OpenStudioLibFixture::getGridCellInfoAt(openstudio::OS
 }
 
 OSCellWrapper* OpenStudioLibFixture::getWrapperAt(openstudio::OSGridView* gv, int row, int column, boost::optional<int> subrow) {
-  OSCellWrapper* result;
+  OSCellWrapper* result = nullptr;
   QLayoutItem* item = gv->itemAtPosition(row, column);
   if (item) {
     result = qobject_cast<OSCellWrapper*>(item->widget());
@@ -167,7 +167,7 @@ OSCellWrapper* OpenStudioLibFixture::getWrapperAt(openstudio::OSGridView* gv, in
 }
 
 QWidget* OpenStudioLibFixture::getOSWidgetAt(openstudio::OSGridView* gv, int row, int column, boost::optional<int> subrow) {
-  QWidget* result;
+  QWidget* result = nullptr;
   QLayoutItem* item = gv->itemAtPosition(row, column);
   if (item) {
     QWidget* wrapper = item->widget();

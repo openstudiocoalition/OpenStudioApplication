@@ -56,7 +56,5 @@ TEST_F(OpenStudioLibFixture, OSLineEdit) {
   ASSERT_EQ(4u, spaces.size());
   ASSERT_EQ(1u, spaceTypes.size());
 
-  auto space1 = spaces[0];
-
   processEvents();
 }
