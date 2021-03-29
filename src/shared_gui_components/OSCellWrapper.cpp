@@ -78,28 +78,12 @@ OSCellWrapper::OSCellWrapper(OSGridView* gridView, QSharedPointer<BaseConcept> b
     m_gridRow(gridRow),
     m_column(column)
  {
-  this->setObjectName("OSCellWrapper");
-
   m_layout = new QGridLayout();
   m_layout->setSpacing(0);
   m_layout->setVerticalSpacing(0);
   m_layout->setHorizontalSpacing(0);
-  m_layout->setContentsMargins(5, 5, 5, 5);
+  m_layout->setContentsMargins(0, 0, 0, 0);
   this->setLayout(m_layout);
-
-  // set properties for style
-  this->setProperty("selected", false);
-  bool isEven = ((m_gridRow % 2) == 0);
-  this->setProperty("even", isEven);
-
-  this->setStyleSheet("QWidget#OSCellWrapper[selected=\"true\"]{ border: none; background-color: #94b3de; border-top: 1px solid black;  "
-                      "border-right: 1px solid black; border-bottom: 1px solid black;}"
-                      "QWidget#OSCellWrapper[selected=\"false\"][even=\"true\"] { border: none; background-color: #ededed; border-top: 1px "
-                      "solid black; border-right: 1px solid black; border-bottom: 1px solid black;}"
-                      "QWidget#OSCellWrapper[selected=\"false\"][even=\"false\"] { border: none; background-color: #cecece; border-top: 1px "
-                      "solid black; border-right: 1px solid black; border-bottom: 1px solid black;}"
-                      "QWidget#OSCellWrapper { border: none; background-color: #ff0000; border-top: 1px "
-                      "solid black; border-right: 1px solid black; border-bottom: 1px solid black;}");
 }
 
 OSCellWrapper::~OSCellWrapper() {}
@@ -145,7 +129,7 @@ void OSCellWrapper::refresh() {
 
         addOSWidget(createOSWidget(mo, innerConcept), mo, isThisSelector);
       } else {
-        addOSWidget(new QWidget(m_gridView), boost::none, false);
+        addOSWidget(new QWidget(nullptr), boost::none, false);
       }
       subrowCounter++;
     }
@@ -153,7 +137,7 @@ void OSCellWrapper::refresh() {
     if (dataSource->source().wantsPlaceholder()) {
       // use this space to put in a blank placeholder of some kind to make sure the
       // widget is evenly laid out relative to its friends in the adjacent columns
-      addOSWidget(new QWidget(m_gridView), boost::none, false);
+      addOSWidget(new QWidget(nullptr), boost::none, false);
     }
 
     if (dataSource->source().dropZoneConcept()) {
@@ -179,7 +163,7 @@ void OSCellWrapper::refresh() {
     // You need a holder, either by specifying a column which has a placeholder,
     // or by specifying a column which has a DataSource DropZoneConcept
     OS_ASSERT(!m_holders.empty());
-    m_holders.back()->setObjectName("InnerCellBottom");
+    //m_holders.back()->setObjectName("InnerCellBottom");
   }
 }
 
@@ -195,29 +179,6 @@ void OSCellWrapper::setCellProperties(const GridCellLocation& location, const Gr
     for (auto holder: m_holders){
       holder->setCellProperties(location, info);
     }
-
-    // apply to this as well
-    bool isSelected = info.isSelected();
-    bool isEven = ((location.gridRow % 2) == 0);
-    bool isChanged = false;
-
-    this->setVisible(info.isVisible());
-    QVariant currentSelected = this->property("selected");
-    if (currentSelected.isNull() || currentSelected.toBool() != isSelected) {
-      this->setProperty("selected", isSelected);
-      isChanged = true;
-    }
-
-    QVariant currentEven = this->property("even");
-    if (currentEven.isNull() || currentEven.toBool() != isEven) {
-      this->setProperty("even", isEven);
-      isChanged = true;
-    }
-
-    if (isChanged) {
-      this->style()->unpolish(this);
-      this->style()->polish(this);
-    }
   }
 }
 
@@ -229,7 +190,7 @@ QWidget* OSCellWrapper::createOSWidget(model::ModelObject t_mo, const QSharedPoi
   if (QSharedPointer<CheckBoxConcept> checkBoxConcept = t_baseConcept.dynamicCast<CheckBoxConcept>()) {
 
     // This is basically for a row in the "Select All" column
-    auto checkBox = new OSCheckBox3(m_gridView);  // OSCheckBox3 is derived from QCheckBox, whereas OSCheckBox2 is derived from QPushButton
+    auto checkBox = new OSCheckBox3(nullptr);  // OSCheckBox3 is derived from QCheckBox, whereas OSCheckBox2 is derived from QPushButton
     if (checkBoxConcept->tooltip().size()) {
       checkBox->setToolTip(checkBoxConcept->tooltip().c_str());
     }
@@ -245,7 +206,7 @@ QWidget* OSCellWrapper::createOSWidget(model::ModelObject t_mo, const QSharedPoi
 
   } else if (auto checkBoxConceptBoolReturn = t_baseConcept.dynamicCast<CheckBoxConceptBoolReturn>()) {
     // This is for a proper setter **that returns a bool**, such as Ideal Air Loads column
-    auto checkBoxBoolReturn = new OSCheckBox3(m_gridView);
+    auto checkBoxBoolReturn = new OSCheckBox3(nullptr);
     if (checkBoxConceptBoolReturn->tooltip().size()) {
       checkBoxBoolReturn->setToolTip(checkBoxConceptBoolReturn->tooltip().c_str());
     }
@@ -268,7 +229,7 @@ QWidget* OSCellWrapper::createOSWidget(model::ModelObject t_mo, const QSharedPoi
 
     auto choiceConcept = comboBoxConcept->choiceConcept(t_mo);
 
-    auto comboBox = new OSComboBox2(m_gridView, choiceConcept->editable());
+    auto comboBox = new OSComboBox2(nullptr, choiceConcept->editable());
     if (comboBoxConcept->hasClickFocus()) {
       comboBox->enableClickFocus();
     }
@@ -283,7 +244,7 @@ QWidget* OSCellWrapper::createOSWidget(model::ModelObject t_mo, const QSharedPoi
 
   } else if (QSharedPointer<ValueEditConcept<double>> doubleEditConcept = t_baseConcept.dynamicCast<ValueEditConcept<double>>()) {
 
-    auto doubleEdit = new OSDoubleEdit2(m_gridView);
+    auto doubleEdit = new OSDoubleEdit2(nullptr);
     if (doubleEditConcept->hasClickFocus()) {
       doubleEdit->enableClickFocus();
     }
@@ -303,7 +264,7 @@ QWidget* OSCellWrapper::createOSWidget(model::ModelObject t_mo, const QSharedPoi
   } else if (QSharedPointer<OptionalValueEditConcept<double>> optionalDoubleEditConcept =
                t_baseConcept.dynamicCast<OptionalValueEditConcept<double>>()) {
 
-    auto optionalDoubleEdit = new OSDoubleEdit2(m_gridView);
+    auto optionalDoubleEdit = new OSDoubleEdit2(nullptr);
     if (optionalDoubleEditConcept->hasClickFocus()) {
       optionalDoubleEdit->enableClickFocus();
     }
@@ -321,7 +282,7 @@ QWidget* OSCellWrapper::createOSWidget(model::ModelObject t_mo, const QSharedPoi
   } else if (QSharedPointer<ValueEditVoidReturnConcept<double>> doubleEditVoidReturnConcept =
                t_baseConcept.dynamicCast<ValueEditVoidReturnConcept<double>>()) {
 
-    auto doubleEditVoidReturn = new OSDoubleEdit2(m_gridView);
+    auto doubleEditVoidReturn = new OSDoubleEdit2(nullptr);
     if (doubleEditVoidReturnConcept->hasClickFocus()) {
       doubleEditVoidReturn->enableClickFocus();
     }
@@ -342,7 +303,7 @@ QWidget* OSCellWrapper::createOSWidget(model::ModelObject t_mo, const QSharedPoi
   } else if (QSharedPointer<OptionalValueEditVoidReturnConcept<double>> optionalDoubleEditVoidReturnConcept =
                t_baseConcept.dynamicCast<OptionalValueEditVoidReturnConcept<double>>()) {
 
-    auto optionalDoubleEditVoidReturn = new OSDoubleEdit2(m_gridView);
+    auto optionalDoubleEditVoidReturn = new OSDoubleEdit2(nullptr);
     if (optionalDoubleEditVoidReturnConcept->hasClickFocus()) {
       optionalDoubleEditVoidReturn->enableClickFocus();
     }
@@ -360,7 +321,7 @@ QWidget* OSCellWrapper::createOSWidget(model::ModelObject t_mo, const QSharedPoi
 
   } else if (QSharedPointer<ValueEditConcept<int>> integerEditConcept = t_baseConcept.dynamicCast<ValueEditConcept<int>>()) {
 
-    auto integerEdit = new OSIntegerEdit2(m_gridView);
+    auto integerEdit = new OSIntegerEdit2(nullptr);
     if (integerEditConcept->hasClickFocus()) {
       integerEdit->enableClickFocus();
     }
@@ -379,7 +340,7 @@ QWidget* OSCellWrapper::createOSWidget(model::ModelObject t_mo, const QSharedPoi
 
   } else if (QSharedPointer<ValueEditConcept<std::string>> lineEditConcept = t_baseConcept.dynamicCast<ValueEditConcept<std::string>>()) {
 
-    auto lineEdit = new OSLineEdit2(m_gridView);
+    auto lineEdit = new OSLineEdit2(nullptr);
     if (lineEditConcept->hasClickFocus()) {
       lineEdit->enableClickFocus();
     }
@@ -398,7 +359,7 @@ QWidget* OSCellWrapper::createOSWidget(model::ModelObject t_mo, const QSharedPoi
   } else if (QSharedPointer<ValueEditVoidReturnConcept<std::string>> lineEditConcept =
                t_baseConcept.dynamicCast<ValueEditVoidReturnConcept<std::string>>()) {
 
-    auto lineEdit = new OSLineEdit2(m_gridView);
+    auto lineEdit = new OSLineEdit2(nullptr);
     if (lineEditConcept->hasClickFocus()) {
       lineEdit->enableClickFocus();
     }
@@ -417,7 +378,7 @@ QWidget* OSCellWrapper::createOSWidget(model::ModelObject t_mo, const QSharedPoi
 
   } else if (QSharedPointer<NameLineEditConcept> nameLineEditConcept = t_baseConcept.dynamicCast<NameLineEditConcept>()) {
 
-    OSLineEdit2Interface* nameLineEdit = nameLineEditConcept->makeWidget(m_gridView);
+    OSLineEdit2Interface* nameLineEdit = nameLineEditConcept->makeWidget(nullptr);
     if (nameLineEditConcept->hasClickFocus()) {
       nameLineEdit->enableClickFocus();
     }
@@ -453,7 +414,7 @@ QWidget* OSCellWrapper::createOSWidget(model::ModelObject t_mo, const QSharedPoi
 
     OSQuantityEdit2* quantityEdit =
       new OSQuantityEdit2(quantityEditConcept->modelUnits().toStdString().c_str(), quantityEditConcept->siUnits().toStdString().c_str(),
-                          quantityEditConcept->ipUnits().toStdString().c_str(), quantityEditConcept->isIP(), m_gridView);
+                          quantityEditConcept->ipUnits().toStdString().c_str(), quantityEditConcept->isIP(), nullptr);
     if (quantityEditConcept->hasClickFocus()) {
       quantityEdit->enableClickFocus();
     }
@@ -478,7 +439,7 @@ QWidget* OSCellWrapper::createOSWidget(model::ModelObject t_mo, const QSharedPoi
 
     OSQuantityEdit2* optionalQuantityEdit = new OSQuantityEdit2(
       optionalQuantityEditConcept->modelUnits().toStdString().c_str(), optionalQuantityEditConcept->siUnits().toStdString().c_str(),
-      optionalQuantityEditConcept->ipUnits().toStdString().c_str(), optionalQuantityEditConcept->isIP(), m_gridView);
+      optionalQuantityEditConcept->ipUnits().toStdString().c_str(), optionalQuantityEditConcept->isIP(), nullptr);
     if (optionalQuantityEditConcept->hasClickFocus()) {
       optionalQuantityEdit->enableClickFocus();
     }
@@ -501,7 +462,7 @@ QWidget* OSCellWrapper::createOSWidget(model::ModelObject t_mo, const QSharedPoi
 
     OSQuantityEdit2* quantityEditVoidReturn = new OSQuantityEdit2(
       quantityEditVoidReturnConcept->modelUnits().toStdString().c_str(), quantityEditVoidReturnConcept->siUnits().toStdString().c_str(),
-      quantityEditVoidReturnConcept->ipUnits().toStdString().c_str(), quantityEditVoidReturnConcept->isIP(), m_gridView);
+      quantityEditVoidReturnConcept->ipUnits().toStdString().c_str(), quantityEditVoidReturnConcept->isIP(), nullptr);
     if (quantityEditVoidReturnConcept->hasClickFocus()) {
       quantityEditVoidReturn->enableClickFocus();
     }
@@ -528,7 +489,7 @@ QWidget* OSCellWrapper::createOSWidget(model::ModelObject t_mo, const QSharedPoi
     OSQuantityEdit2* optionalQuantityEditVoidReturn = new OSQuantityEdit2(optionalQuantityEditVoidReturnConcept->modelUnits().toStdString().c_str(),
                                                                           optionalQuantityEditVoidReturnConcept->siUnits().toStdString().c_str(),
                                                                           optionalQuantityEditVoidReturnConcept->ipUnits().toStdString().c_str(),
-                                                                          optionalQuantityEditVoidReturnConcept->isIP(), m_gridView);
+                                                                          optionalQuantityEditVoidReturnConcept->isIP(), nullptr);
     if (optionalQuantityEditVoidReturnConcept->hasClickFocus()) {
       optionalQuantityEditVoidReturn->enableClickFocus();
     }
@@ -549,7 +510,7 @@ QWidget* OSCellWrapper::createOSWidget(model::ModelObject t_mo, const QSharedPoi
 
   } else if (QSharedPointer<ValueEditConcept<unsigned>> unsignedEditConcept = t_baseConcept.dynamicCast<ValueEditConcept<unsigned>>()) {
 
-    auto unsignedEdit = new OSUnsignedEdit2(m_gridView);
+    auto unsignedEdit = new OSUnsignedEdit2(nullptr);
     if (unsignedEditConcept->hasClickFocus()) {
       unsignedEdit->enableClickFocus();
     }
@@ -588,7 +549,7 @@ QWidget* OSCellWrapper::createOSWidget(model::ModelObject t_mo, const QSharedPoi
     widget = dropZone;
 
   } else if (QSharedPointer<RenderingColorConcept> renderingColorConcept = t_baseConcept.dynamicCast<RenderingColorConcept>()) {
-    auto renderingColorWidget = new RenderingColorWidget2(m_gridView);
+    auto renderingColorWidget = new RenderingColorWidget2(nullptr);
 
     renderingColorWidget->bind(t_mo, OptionalModelObjectGetter(std::bind(&RenderingColorConcept::get, renderingColorConcept.data(), t_mo)),
                                ModelObjectSetter(std::bind(&RenderingColorConcept::set, renderingColorConcept.data(), t_mo, std::placeholders::_1)));
@@ -610,40 +571,32 @@ QWidget* OSCellWrapper::createOSWidget(model::ModelObject t_mo, const QSharedPoi
   return widget;
 }
 
-void OSCellWrapper::addOSWidget(QWidget* t_widget, const boost::optional<model::ModelObject>& t_obj, const bool t_isSelector) {
+void OSCellWrapper::addOSWidget(QWidget* widget, const boost::optional<model::ModelObject>& obj, const bool isSelector) {
   OS_ASSERT(m_objectSelector);
 
-  const int widgetHeight = 30;
   bool isEven = ((m_gridRow % 2) == 0);
 
-  auto holder = new OSWidgetHolder(m_gridView, isEven);
-  holder->setMinimumHeight(widgetHeight);
-  auto l = new QVBoxLayout();
-  l->setAlignment(Qt::AlignCenter);
-  l->setSpacing(0);
-  l->setContentsMargins(0, 0, 0, 0);
-  l->addWidget(t_widget);
-  holder->widget = t_widget;
-  holder->setLayout(l);
+  // holder will take ownership of widget
+  auto holder = new OSWidgetHolder(this, widget, isEven);
 
   m_holders.push_back(holder);
 
   int subrow = m_holders.size() - 1;
   m_layout->addWidget(holder, subrow, 0);
 
-  if (OSComboBox2* comboBox = qobject_cast<OSComboBox2*>(t_widget)) {
+  if (OSComboBox2* comboBox = qobject_cast<OSComboBox2*>(widget)) {
     connect(comboBox, &OSComboBox2::inFocus, holder, &OSWidgetHolder::inFocus);
-  } else if (OSDoubleEdit2* doubleEdit = qobject_cast<OSDoubleEdit2*>(t_widget)) {
+  } else if (OSDoubleEdit2* doubleEdit = qobject_cast<OSDoubleEdit2*>(widget)) {
     connect(doubleEdit, &OSDoubleEdit2::inFocus, holder, &OSWidgetHolder::inFocus);
-  } else if (OSIntegerEdit2* integerEdit = qobject_cast<OSIntegerEdit2*>(t_widget)) {
+  } else if (OSIntegerEdit2* integerEdit = qobject_cast<OSIntegerEdit2*>(widget)) {
     connect(integerEdit, &OSIntegerEdit2::inFocus, holder, &OSWidgetHolder::inFocus);
-  } else if (OSQuantityEdit2* quantityEdit = qobject_cast<OSQuantityEdit2*>(t_widget)) {
+  } else if (OSQuantityEdit2* quantityEdit = qobject_cast<OSQuantityEdit2*>(widget)) {
     connect(quantityEdit, &OSQuantityEdit2::inFocus, holder, &OSWidgetHolder::inFocus);
-  } else if (OSLineEdit2* lineEdit = qobject_cast<OSLineEdit2*>(t_widget)) {
+  } else if (OSLineEdit2* lineEdit = qobject_cast<OSLineEdit2*>(widget)) {
     connect(lineEdit, &OSLineEdit2::inFocus, holder, &OSWidgetHolder::inFocus);
-  } else if (OSUnsignedEdit2* unsignedEdit = qobject_cast<OSUnsignedEdit2*>(t_widget)) {
+  } else if (OSUnsignedEdit2* unsignedEdit = qobject_cast<OSUnsignedEdit2*>(widget)) {
     connect(unsignedEdit, &OSUnsignedEdit2::inFocus, holder, &OSWidgetHolder::inFocus);
-  } else if (OSDropZone2* dropZone = qobject_cast<OSDropZone2*>(t_widget)) {
+  } else if (OSDropZone2* dropZone = qobject_cast<OSDropZone2*>(widget)) {
     connect(dropZone, &OSDropZone2::inFocus, holder, &OSWidgetHolder::inFocus);
     // Is this widget's subrow a surface with a defaulted construction?
     //if (t_obj) {
@@ -656,13 +609,13 @@ void OSCellWrapper::addOSWidget(QWidget* t_widget, const boost::optional<model::
     //    }
     //  }
     //}
-  } else if (HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(t_widget)) {
+  } else if (HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(widget)) {
     connect(horizontalHeaderWidget, &HorizontalHeaderWidget::inFocus, holder, &OSWidgetHolder::inFocus);
-  } else if (OSCheckBox3* checkBox = qobject_cast<OSCheckBox3*>(t_widget)) {
+  } else if (OSCheckBox3* checkBox = qobject_cast<OSCheckBox3*>(widget)) {
     connect(checkBox, &OSCheckBox3::inFocus, holder, &OSWidgetHolder::inFocus);
   }
 
-  m_objectSelector->addObject(t_obj, holder, m_modelRow, m_gridRow, m_column, m_hasSubRows ? subrow : boost::optional<int>(), t_isSelector);
+  m_objectSelector->addObject(obj, holder, m_modelRow, m_gridRow, m_column, m_hasSubRows ? subrow : boost::optional<int>(), isSelector);
 }
 
 }  // namespace openstudio

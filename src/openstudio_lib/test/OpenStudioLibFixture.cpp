@@ -159,11 +159,11 @@ openstudio::GridCellInfo* OpenStudioLibFixture::getGridCellInfoAt(openstudio::OS
   return nullptr;
 }
 
-QWidget* OpenStudioLibFixture::getWrapperAt(openstudio::OSGridView* gv, int row, int column, boost::optional<int> subrow) {
-  QWidget* result;
+OSCellWrapper* OpenStudioLibFixture::getWrapperAt(openstudio::OSGridView* gv, int row, int column, boost::optional<int> subrow) {
+  OSCellWrapper* result;
   QLayoutItem* item = gv->itemAtPosition(row, column);
   if (item) {
-    result = item->widget();
+    result = qobject_cast<OSCellWrapper*>(item->widget());
   }
   return result;
 }
@@ -185,10 +185,14 @@ QWidget* OpenStudioLibFixture::getOSWidgetAt(openstudio::OSGridView* gv, int row
       OS_ASSERT(innerItem);
       OSWidgetHolder* holder = qobject_cast<OSWidgetHolder*>(innerItem->widget());
       OS_ASSERT(holder);
-      result = holder->widget;
+      result = holder->widget();
     }
   }
   return result;
+}
+
+std::vector<OSWidgetHolder*> OpenStudioLibFixture::getHolders(openstudio::OSCellWrapper* wrapper) {
+  return wrapper->m_holders;
 }
 
 void OpenStudioLibFixture::updateStyle(QWidget* widget) {
@@ -203,7 +207,7 @@ void OpenStudioLibFixture::checkExpected(OSObjectSelector* os, OSGridView* gv, i
                                          bool locked, const std::string& style) {
   GridCellLocation* location;
   GridCellInfo* info;
-  QWidget* wrapper;
+  OSCellWrapper* wrapper;
   QWidget* widget;
 
   bool isEven = ((gridRow % 2) == 0);
@@ -230,10 +234,20 @@ void OpenStudioLibFixture::checkExpected(OSObjectSelector* os, OSGridView* gv, i
     EXPECT_FALSE(info->modelObject) << gridRow << ", " << column << ", " << subrow;
   }
 
-  QVariant var = wrapper->property("selected");
+  auto holders = getHolders(wrapper);
+  OSWidgetHolder* holder;
+  if (subrow) {
+    ASSERT_TRUE(subrow.get() < holders.size()) << gridRow << ", " << column << ", " << subrow;
+    holder = holders[subrow.get()];
+  } else {
+    ASSERT_TRUE(!holders.empty());
+    holder = holders[0];
+  }
+
+  QVariant var = holder->property("selected");
   EXPECT_EQ(var.toBool(), selected) << gridRow << ", " << column << ", " << subrow;
 
-  var = wrapper->property("even");
+  var = holder->property("even");
   EXPECT_EQ(var.toBool(), isEven) << gridRow << ", " << column << ", " << subrow;
 
   var = widget->property("style");

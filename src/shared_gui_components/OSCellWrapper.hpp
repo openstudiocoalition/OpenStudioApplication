@@ -68,7 +68,7 @@ class OSCellWrapper : public QWidget
 
   virtual ~OSCellWrapper();
 
-  void addOSWidget(QWidget* t_widget, const boost::optional<model::ModelObject>& t_obj, const bool t_isSelector);
+  void addOSWidget(QWidget* widget, const boost::optional<model::ModelObject>& obj, const bool isSelector);
 
   void setGridController(OSGridController* gridController);
   void setModelObject(const boost::optional<model::ModelObject>& modelObject);
@@ -77,11 +77,13 @@ class OSCellWrapper : public QWidget
   void setCellProperties(const GridCellLocation& location, const GridCellInfo& info);
 
  private:
+  
+  // for testing
+  friend class ::OpenStudioLibFixture;
 
   // Make the lowest level os widgets that corresponds to concepts (e.g. OSLineEdit2).
   // These will be put in container widgets to form the cell, regardless of the presence of sub rows.
   QWidget* createOSWidget(model::ModelObject t_mo, const QSharedPointer<BaseConcept>& t_baseConcept);
-
 
   OSGridView* m_gridView;
   QGridLayout* m_layout;

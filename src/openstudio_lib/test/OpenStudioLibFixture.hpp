@@ -37,17 +37,20 @@
 #include <openstudio/model/ModelObject.hpp>
 
 #include <map>
+#include <vector>
 
 namespace openstudio {
   class DesignDayGridView;
   class GridCellLocation;
   class GridCellInfo;
   class GridViewSubTab;
+  class OSCellWrapper;
   class OSObjectSelector;
   class OSGridController;
   class OSGridView;
   class OSDropZone2;
   class OSLineEdit2;
+  class OSWidgetHolder;
 }  // namespace openstudio
 
 class QWidget;
@@ -92,8 +95,10 @@ class OpenStudioLibFixture : public ::testing::Test
   openstudio::GridCellLocation* getGridCellLocationAt(openstudio::OSObjectSelector* os, int modelRow, int gridRow, int column, boost::optional<int> subrow);
   openstudio::GridCellInfo* getGridCellInfoAt(openstudio::OSObjectSelector* os, int modelRow, int gridRow, int column, boost::optional<int> subrow);
 
-  QWidget* getWrapperAt(openstudio::OSGridView* gv, int row, int column, boost::optional<int> subrow);
+  openstudio::OSCellWrapper* getWrapperAt(openstudio::OSGridView* gv, int row, int column, boost::optional<int> subrow);
   QWidget* getOSWidgetAt(openstudio::OSGridView* gv, int row, int column, boost::optional<int> subrow);
+
+  std::vector<openstudio::OSWidgetHolder*> getHolders(openstudio::OSCellWrapper* wrapper);
 
   void updateStyle(QWidget* widget);
 

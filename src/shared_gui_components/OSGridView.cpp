@@ -84,7 +84,6 @@ QGridLayout* OSGridView::makeGridLayout() {
   auto gridLayout = new QGridLayout();
   gridLayout->setSpacing(0);
   gridLayout->setContentsMargins(0, 0, 0, 0);
-  //gridLayout->setAlignment(Qt::AlignTop | Qt::AlignLeft);
   gridLayout->setAlignment(Qt::AlignTop | Qt::AlignLeft);
   return gridLayout;
 }

@@ -36,19 +36,19 @@ namespace openstudio {
 
 class GridCellLocation;
 class GridCellInfo;
-class OSGridView;
+class OSCellWrapper;
 
-// An Holder holds an OS Widget like OSLineEdit
+// An OSWidgetHolder holds an OSWidget like OSLineEdit
 class OSWidgetHolder : public QWidget
 {
   Q_OBJECT
 
  public:
-  OSWidgetHolder(OSGridView* gridView, bool isEven);
+  OSWidgetHolder(OSCellWrapper* cellWrapper, QWidget* widget, bool isEven);
 
   virtual ~OSWidgetHolder();
 
-  QWidget* widget = nullptr;
+  QWidget* widget() const;
 
   void setCellProperties(const GridCellLocation& location, const GridCellInfo& info);
 
@@ -56,6 +56,7 @@ class OSWidgetHolder : public QWidget
   void paintEvent(QPaintEvent* event) override;
 
  private:
+  QWidget* m_widget;
   bool m_isEven;
 
  signals:
