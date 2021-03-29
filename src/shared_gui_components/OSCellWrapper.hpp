@@ -50,6 +50,8 @@ class OpenStudioLibFixture;
 
 namespace openstudio {
 
+class GridCellLocation;
+class GridCellInfo;
 class OSGridView;
 class OSGridController;
 class OSObjectSelector;
@@ -61,35 +63,39 @@ class OSCellWrapper : public QWidget
   Q_OBJECT
 
  public:
-  OSCellWrapper(OSGridView* gridView);
+  OSCellWrapper(OSGridView* gridView, QSharedPointer<BaseConcept> baseConcept,
+                OSObjectSelector* objectSelector, int modelRow, int gridRow, int column);
 
   virtual ~OSCellWrapper();
 
-  void addWidgetLambda(QWidget* t_widget, const boost::optional<model::ModelObject>& t_obj, const bool t_isSelector);
+  void addOSWidget(QWidget* t_widget, const boost::optional<model::ModelObject>& t_obj, const bool t_isSelector);
 
   void setGridController(OSGridController* gridController);
-  void setObjectSelector(OSObjectSelector* objectSelector, int modelRow, int gridRow, int column);
   void setModelObject(const boost::optional<model::ModelObject>& modelObject);
-  void setBaseConcept(QSharedPointer<BaseConcept> baseConcept);
   void refresh();
 
-  void setCellProperties(bool isSelector, int row, int column, boost::optional<int> subrow, bool isVisible, bool isSelected, bool isLocked);
+  void setCellProperties(const GridCellLocation& location, const GridCellInfo& info);
 
  private:
-  
+
+  // Make the lowest level os widgets that corresponds to concepts (e.g. OSLineEdit2).
+  // These will be put in container widgets to form the cell, regardless of the presence of sub rows.
+  QWidget* createOSWidget(model::ModelObject t_mo, const QSharedPointer<BaseConcept>& t_baseConcept);
+
+
   OSGridView* m_gridView;
   QGridLayout* m_layout;
   std::vector<OSWidgetHolder*> m_holders;
   QSharedPointer<BaseConcept> m_baseConcept;
   OSObjectSelector* m_objectSelector;
+  int m_modelRow = 0;
+  int m_gridRow = 0;
+  int m_column = 0;
   bool m_hasSubRows = false;
 
   // only has these members if not a header cell
   boost::optional<model::ModelObject> m_modelObject;
   OSGridController* m_gridController;
-  int m_modelRow = 0;
-  int m_gridRow = 0;
-  int m_column = 0;
 };
 
 

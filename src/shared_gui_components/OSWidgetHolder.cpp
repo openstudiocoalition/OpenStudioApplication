@@ -29,16 +29,103 @@
 
 #include "OSWidgetHolder.hpp"
 
+#include "OSCheckBox.hpp"
+#include "OSComboBox.hpp"
+#include "OSDoubleEdit.hpp"
+#include "OSGridView.hpp"
+#include "OSIntegerEdit.hpp"
+#include "OSLineEdit.hpp"
+#include "OSLoadNamePixmapLineEdit.hpp"
+#include "OSObjectSelector.hpp"
+#include "OSQuantityEdit.hpp"
+#include "OSUnsignedEdit.hpp"
+
+#include "../openstudio_lib/OSDropZone.hpp"
+#include "../openstudio_lib/RenderingColorWidget.hpp"
+
 #include <QPainter>
 #include <QStyleOption>
 
 namespace openstudio {
 
-OSWidgetHolder::OSWidgetHolder(QWidget* parent) : QWidget(parent) {
-  this->setObjectName("TableCell");
+OSWidgetHolder::OSWidgetHolder(OSGridView* gridView, bool isEven) : QWidget(gridView), m_isEven(isEven) {
+  this->setObjectName("OSWidgetHolder");
+
+  // set properties for style
+  this->setProperty("selected", false);
+  this->setProperty("even", m_isEven);
+
+  this->setStyleSheet("QWidget#OSWidgetHolder[selected=\"true\"]{ border: none; background-color: #94b3de; border-top: 1px solid black;  "
+                      "border-right: 1px solid black; border-bottom: 1px solid black;}"
+                      "QWidget#OSWidgetHolder[selected=\"false\"][even=\"true\"] { border: none; background-color: #ededed; border-top: 1px "
+                      "solid black; border-right: 1px solid black; border-bottom: 1px solid black;}"
+                      "QWidget#OSWidgetHolder[selected=\"false\"][even=\"false\"] { border: none; background-color: #cecece; border-top: 1px "
+                      "solid black; border-right: 1px solid black; border-bottom: 1px solid black;}"
+                      "QWidget#OSWidgetHolder { border: none; background-color: #ff0000; border-top: 1px "
+                      "solid black; border-right: 1px solid black; border-bottom: 1px solid black;}");
 }
 
 OSWidgetHolder::~OSWidgetHolder() {}
+
+void OSWidgetHolder::setCellProperties(const GridCellLocation& location, const GridCellInfo& info) {
+
+  // set widget properties
+  if (info.isSelector) {
+    auto check = qobject_cast<QCheckBox*>(widget);
+    if (check) {
+      check->blockSignals(true);
+      check->setChecked(info.isSelected());
+      check->blockSignals(false);
+    }
+  }
+
+  // lock the widget if needed, probably a sign we need a base class with setLocked
+  if (OSComboBox2* comboBox = qobject_cast<OSComboBox2*>(widget)) {
+    comboBox->setLocked(info.isLocked());
+  } else if (OSDoubleEdit2* doubleEdit = qobject_cast<OSDoubleEdit2*>(widget)) {
+    doubleEdit->setLocked(info.isLocked());
+  } else if (OSIntegerEdit2* integerEdit = qobject_cast<OSIntegerEdit2*>(widget)) {
+    integerEdit->setLocked(info.isLocked());
+  } else if (OSQuantityEdit2* quantityEdit = qobject_cast<OSQuantityEdit2*>(widget)) {
+    quantityEdit->setLocked(info.isLocked());
+  } else if (OSLineEdit2* lineEdit = qobject_cast<OSLineEdit2*>(widget)) {
+    lineEdit->setLocked(info.isLocked());
+  } else if (OSUnsignedEdit2* unsignedEdit = qobject_cast<OSUnsignedEdit2*>(widget)) {
+    unsignedEdit->setLocked(info.isLocked());
+  } else if (OSDropZone2* dropZone = qobject_cast<OSDropZone2*>(widget)) {
+    dropZone->setLocked(info.isLocked());
+  } else if (OSCheckBox3* checkBox = qobject_cast<OSCheckBox3*>(widget)) {
+    checkBox->setLocked(info.isLocked());
+    if (info.isSelector) {
+      checkBox->blockSignals(true);
+      checkBox->setChecked(info.isSelected());
+      checkBox->blockSignals(false);
+    }
+  }
+
+  // apply style to this
+  bool isSelected = info.isSelected();
+  bool isEven = ((location.gridRow % 2) == 0);
+  bool isChanged = false;
+
+  this->setVisible(info.isVisible());
+  QVariant currentSelected = this->property("selected");
+  if (currentSelected.isNull() || currentSelected.toBool() != isSelected) {
+    this->setProperty("selected", isSelected);
+    isChanged = true;
+  }
+
+  QVariant currentEven = this->property("even");
+  if (currentEven.isNull() || currentEven.toBool() != isEven) {
+    this->setProperty("even", isEven);
+    isChanged = true;
+  }
+
+  if (isChanged) {
+    this->style()->unpolish(this);
+    this->style()->polish(this);
+  }
+}
 
 void OSWidgetHolder::paintEvent(QPaintEvent*) {
   QStyleOption opt;

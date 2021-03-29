@@ -292,56 +292,9 @@ void OSGridView::onGridCellChanged(const GridCellLocation& location, const GridC
   if (item) {
     OSCellWrapper* wrapper = qobject_cast<OSCellWrapper*>(item->widget());
     OS_ASSERT(wrapper);
-    QGridLayout* innerLayout = qobject_cast<QGridLayout*>(wrapper->layout());
-    if (innerLayout) {
-      QLayoutItem* innerItem;
-      // If it is a subrow, we get the subrow
-      if (location.subrow) {
-        innerItem = innerLayout->itemAtPosition(location.subrow.get(), 0);
-      } else {
-        innerItem = innerLayout->itemAtPosition(0, 0);
-      }
-      OS_ASSERT(innerItem);
-      OSWidgetHolder* holder = qobject_cast<OSWidgetHolder*>(innerItem->widget());
-      OS_ASSERT(holder);
-      QWidget* widget = holder->widget;
-
-      if (info.isSelector) {
-        auto check = qobject_cast<QCheckBox*>(widget);
-        if (check) {
-          check->blockSignals(true);
-          check->setChecked(info.isSelected());
-          check->blockSignals(false);
-        }
-      }
-
-      // lock the widget if needed, probably a sign we need a base class with setLocked
-      if (OSComboBox2* comboBox = qobject_cast<OSComboBox2*>(widget)) {
-        comboBox->setLocked(info.isLocked());
-      } else if (OSDoubleEdit2* doubleEdit = qobject_cast<OSDoubleEdit2*>(widget)) {
-        doubleEdit->setLocked(info.isLocked());
-      } else if (OSIntegerEdit2* integerEdit = qobject_cast<OSIntegerEdit2*>(widget)) {
-        integerEdit->setLocked(info.isLocked());
-      } else if (OSQuantityEdit2* quantityEdit = qobject_cast<OSQuantityEdit2*>(widget)) {
-        quantityEdit->setLocked(info.isLocked());
-      } else if (OSLineEdit2* lineEdit = qobject_cast<OSLineEdit2*>(widget)) {
-        lineEdit->setLocked(info.isLocked());
-      } else if (OSUnsignedEdit2* unsignedEdit = qobject_cast<OSUnsignedEdit2*>(widget)) {
-        unsignedEdit->setLocked(info.isLocked());
-      } else if (OSDropZone2* dropZone = qobject_cast<OSDropZone2*>(widget)) {
-        dropZone->setLocked(info.isLocked());
-      } else if (OSCheckBox3* checkBox = qobject_cast<OSCheckBox3*>(widget)) {
-        checkBox->setLocked(info.isLocked());
-        if (info.isSelector) {
-          checkBox->blockSignals(true);
-          checkBox->setChecked(info.isSelected());
-          checkBox->blockSignals(false);
-        }
-      }
-
-      // style the wrapper
-      wrapper->setCellProperties(info.isSelector, location.gridRow, location.column, location.subrow, info.isVisible(), info.isSelected(), info.isLocked());
-    }
+   
+    // style the wrapper and/or any subrows
+    wrapper->setCellProperties(location, info);
   }
 }
 
@@ -372,7 +325,7 @@ void OSGridView::addRow(int row) {
   OS_ASSERT(row < numRows);
   const auto numColumns = m_gridController->columnCount();
   for (int j = 0; j < numColumns; j++) {
-    createWidget(row, j);
+    createCellWrapper(row, j);
   }
 
   setUpdatesEnabled(true);
@@ -397,7 +350,7 @@ void OSGridView::recreateAll() {
     const auto numColumns = m_gridController->columnCount();
     for (int i = 0; i < numRows; i++) {
       for (int j = 0; j < numColumns; j++) {
-        createWidget(i, j);
+        createCellWrapper(i, j);
       }
     }
 
@@ -438,47 +391,18 @@ void OSGridView::doRowSelect() {
   }
 }
 */
-void OSGridView::createWidget(int row, int column) {
+void OSGridView::createCellWrapper(int row, int column) {
   OS_ASSERT(m_gridController);
 
-  QWidget* widget = m_gridController->createWidget(row, column, this);
+  OSCellWrapper* widget = m_gridController->createCellWrapper(row, column, this);
 
-  addWidget(widget, row, column);
+  addCellWrapper(widget, row, column);
 }
 
-void OSGridView::addWidget(QWidget* w, int row, int column) {
+void OSGridView::addCellWrapper(OSCellWrapper* w, int row, int column) {
   m_gridLayout->addWidget(w, row, column);
 }
 
-void OSGridView::updateWidget(int row, int column) {
-  // todo
-}
-
-/*
-ModelSubTabView* OSGridView::modelSubTabView() {
-  ModelSubTabView* modelSubTabView = nullptr;
-
-  if (!this->parent() || !this->parent()->parent()) return modelSubTabView;
-
-  auto stackedWidget = qobject_cast<QStackedWidget*>(this->parent()->parent());
-  if (!stackedWidget) return modelSubTabView;
-
-  auto widget = qobject_cast<QWidget*>(stackedWidget->parent());
-  if (!widget) return modelSubTabView;
-
-  auto scrollArea = qobject_cast<QScrollArea*>(widget->parent());
-  if (!scrollArea) return modelSubTabView;
-
-  auto modelObjectInspectorView = qobject_cast<ModelObjectInspectorView*>(scrollArea->parent());
-  if (!modelObjectInspectorView) return modelSubTabView;
-
-  auto object = qobject_cast<QObject*>(modelObjectInspectorView->parent());
-  if (!object) return modelSubTabView;
-
-  modelSubTabView = qobject_cast<ModelSubTabView*>(object->parent());
-  return modelSubTabView;
-}
-*/
 void OSGridView::hideEvent(QHideEvent* event) {
   m_gridController->disconnectFromModelSignals();
 

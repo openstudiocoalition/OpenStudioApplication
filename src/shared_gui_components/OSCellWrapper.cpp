@@ -68,8 +68,17 @@
 
 namespace openstudio {
 
-OSCellWrapper::OSCellWrapper(OSGridView* gridView) : QWidget(gridView), m_gridView(gridView) {
-  this->setObjectName("TableCell");
+OSCellWrapper::OSCellWrapper(OSGridView* gridView, QSharedPointer<BaseConcept> baseConcept, OSObjectSelector* objectSelector, int modelRow, int gridRow,
+                             int column)
+  : QWidget(gridView), 
+    m_gridView(gridView), 
+    m_baseConcept(baseConcept),
+    m_objectSelector(objectSelector),
+    m_modelRow(modelRow),
+    m_gridRow(gridRow),
+    m_column(column)
+ {
+  this->setObjectName("OSCellWrapper");
 
   m_layout = new QGridLayout();
   m_layout->setSpacing(0);
@@ -78,25 +87,536 @@ OSCellWrapper::OSCellWrapper(OSGridView* gridView) : QWidget(gridView), m_gridVi
   m_layout->setContentsMargins(5, 5, 5, 5);
   this->setLayout(m_layout);
 
+  // set properties for style
+  this->setProperty("selected", false);
+  bool isEven = ((m_gridRow % 2) == 0);
+  this->setProperty("even", isEven);
 
-  this->setStyleSheet("QWidget#TableCell[selected=\"true\"]{ border: none; background-color: #94b3de; border-top: 1px solid black;  "
+  this->setStyleSheet("QWidget#OSCellWrapper[selected=\"true\"]{ border: none; background-color: #94b3de; border-top: 1px solid black;  "
                       "border-right: 1px solid black; border-bottom: 1px solid black;}"
-                      "QWidget#TableCell[selected=\"false\"][even=\"true\"] { border: none; background-color: #ededed; border-top: 1px "
+                      "QWidget#OSCellWrapper[selected=\"false\"][even=\"true\"] { border: none; background-color: #ededed; border-top: 1px "
                       "solid black; border-right: 1px solid black; border-bottom: 1px solid black;}"
-                      "QWidget#TableCell[selected=\"false\"][even=\"false\"] { border: none; background-color: #cecece; border-top: 1px "
+                      "QWidget#OSCellWrapper[selected=\"false\"][even=\"false\"] { border: none; background-color: #cecece; border-top: 1px "
                       "solid black; border-right: 1px solid black; border-bottom: 1px solid black;}"
-                      "QWidget#TableCell { border: none; background-color: #ff0000; border-top: 1px "
+                      "QWidget#OSCellWrapper { border: none; background-color: #ff0000; border-top: 1px "
                       "solid black; border-right: 1px solid black; border-bottom: 1px solid black;}");
 }
 
 OSCellWrapper::~OSCellWrapper() {}
 
-void OSCellWrapper::addWidgetLambda(QWidget* t_widget, const boost::optional<model::ModelObject>& t_obj, const bool t_isSelector) {
+void OSCellWrapper::setGridController(OSGridController* gridController) {
+  m_gridController = gridController;
+}
+
+void OSCellWrapper::setModelObject(const boost::optional<model::ModelObject>& modelObject) {
+  m_modelObject = modelObject;
+}
+
+void OSCellWrapper::refresh() {
+  OS_ASSERT(m_baseConcept);
+  OS_ASSERT(m_modelObject);
+  OS_ASSERT(m_objectSelector);
+  OS_ASSERT(m_gridController);
+  
+  m_holders.clear();
+
+  m_hasSubRows = false;
+  if (QSharedPointer<DataSourceAdapter> dataSource = m_baseConcept.dynamicCast<DataSourceAdapter>()) {
+    m_hasSubRows = true;
+    // here we magically create a multi-row column of any type that was constructed
+    //
+    // The details need to be fleshed out. The ideas all work, and it's rendering as expected,
+    // however the placeHolder isn't doing its job, it might need to be a QSpacer of some kind.
+    // The spacing around the list is a little awkward. The padding might need to be set to 0
+    // all the way around.
+    auto items = dataSource->source().items(m_modelObject.get());
+
+    size_t subrowCounter = 0;
+    for (auto& item : items) {
+      if (item) {
+        auto mo = item->cast<model::ModelObject>();
+        auto innerConcept = dataSource->innerConcept();
+        bool isThisSelector = (m_baseConcept->isSelector() || innerConcept->isSelector());
+
+        if (isThisSelector) {
+          bool isThisLocked = innerConcept->isLocked(mo);
+          innerConcept->setBaseLocked(isThisLocked);
+        }
+
+        addOSWidget(createOSWidget(mo, innerConcept), mo, isThisSelector);
+      } else {
+        addOSWidget(new QWidget(m_gridView), boost::none, false);
+      }
+      subrowCounter++;
+    }
+
+    if (dataSource->source().wantsPlaceholder()) {
+      // use this space to put in a blank placeholder of some kind to make sure the
+      // widget is evenly laid out relative to its friends in the adjacent columns
+      addOSWidget(new QWidget(m_gridView), boost::none, false);
+    }
+
+    if (dataSource->source().dropZoneConcept()) {
+      // it makes sense to me that the drop zone would need a reference to the parent containing object
+      // not an object the rest in the list was derived from
+      // this should also be working and doing what you want
+      addOSWidget(createOSWidget(m_modelObject.get(), dataSource->source().dropZoneConcept()), boost::none, false);
+    }
+
+    // right here you probably want some kind of container that's smart enough to know how to grow
+    // and shrink as the contained items change. But I don't know enough about the model
+    // to know how you'd want to do that. For now we make a fixed list that's got a VBoxLayout
+    //
+    // And think about this.
+  } else {
+    // This case is exactly what it used to do before the DataSource idea was added.
+
+    // just the one
+    addOSWidget(createOSWidget(m_modelObject.get(), m_baseConcept), m_modelObject.get(), m_baseConcept->isSelector());
+  }
+
+  if (m_hasSubRows) {
+    // You need a holder, either by specifying a column which has a placeholder,
+    // or by specifying a column which has a DataSource DropZoneConcept
+    OS_ASSERT(!m_holders.empty());
+    m_holders.back()->setObjectName("InnerCellBottom");
+  }
+}
+
+void OSCellWrapper::setCellProperties(const GridCellLocation& location, const GridCellInfo& info) {
+
+  if (location.subrow){
+    // apply to just one subrow
+    OS_ASSERT(location.subrow.get() < m_holders.size());
+    m_holders[location.subrow.get()]->setCellProperties(location, info);
+
+  }else{
+    // apply to all the subrows
+    for (auto holder: m_holders){
+      holder->setCellProperties(location, info);
+    }
+
+    // apply to this as well
+    bool isSelected = info.isSelected();
+    bool isEven = ((location.gridRow % 2) == 0);
+    bool isChanged = false;
+
+    this->setVisible(info.isVisible());
+    QVariant currentSelected = this->property("selected");
+    if (currentSelected.isNull() || currentSelected.toBool() != isSelected) {
+      this->setProperty("selected", isSelected);
+      isChanged = true;
+    }
+
+    QVariant currentEven = this->property("even");
+    if (currentEven.isNull() || currentEven.toBool() != isEven) {
+      this->setProperty("even", isEven);
+      isChanged = true;
+    }
+
+    if (isChanged) {
+      this->style()->unpolish(this);
+      this->style()->polish(this);
+    }
+  }
+}
+
+QWidget* OSCellWrapper::createOSWidget(model::ModelObject t_mo, const QSharedPointer<BaseConcept>& t_baseConcept) {
+  QWidget* widget = nullptr;
+  
+  OS_ASSERT(m_gridController);
+
+  if (QSharedPointer<CheckBoxConcept> checkBoxConcept = t_baseConcept.dynamicCast<CheckBoxConcept>()) {
+
+    // This is basically for a row in the "Select All" column
+    auto checkBox = new OSCheckBox3(m_gridView);  // OSCheckBox3 is derived from QCheckBox, whereas OSCheckBox2 is derived from QPushButton
+    if (checkBoxConcept->tooltip().size()) {
+      checkBox->setToolTip(checkBoxConcept->tooltip().c_str());
+    }
+
+    checkBox->bind(t_mo, BoolGetter(std::bind(&CheckBoxConcept::get, checkBoxConcept.data(), t_mo)),
+                   boost::optional<BoolSetter>(std::bind(&CheckBoxConcept::set, checkBoxConcept.data(), t_mo, std::placeholders::_1)));
+
+    if (checkBoxConcept->isLocked(t_mo)) {
+      checkBox->setLocked(true);
+    }
+
+    widget = checkBox;
+
+  } else if (auto checkBoxConceptBoolReturn = t_baseConcept.dynamicCast<CheckBoxConceptBoolReturn>()) {
+    // This is for a proper setter **that returns a bool**, such as Ideal Air Loads column
+    auto checkBoxBoolReturn = new OSCheckBox3(m_gridView);
+    if (checkBoxConceptBoolReturn->tooltip().size()) {
+      checkBoxBoolReturn->setToolTip(checkBoxConceptBoolReturn->tooltip().c_str());
+    }
+
+    if (checkBoxConceptBoolReturn->hasClickFocus()) {
+      checkBoxBoolReturn->enableClickFocus();
+    }
+
+    checkBoxBoolReturn->bind(t_mo, BoolGetter(std::bind(&CheckBoxConceptBoolReturn::get, checkBoxConceptBoolReturn.data(), t_mo)),
+                             boost::optional<BoolSetterBoolReturn>(
+                               std::bind(&CheckBoxConceptBoolReturn::set, checkBoxConceptBoolReturn.data(), t_mo, std::placeholders::_1)));
+
+    if (checkBoxConceptBoolReturn->isLocked(t_mo)) {
+      checkBoxBoolReturn->setLocked(true);
+    }
+
+    widget = checkBoxBoolReturn;
+
+  } else if (QSharedPointer<ComboBoxConcept> comboBoxConcept = t_baseConcept.dynamicCast<ComboBoxConcept>()) {
+
+    auto choiceConcept = comboBoxConcept->choiceConcept(t_mo);
+
+    auto comboBox = new OSComboBox2(m_gridView, choiceConcept->editable());
+    if (comboBoxConcept->hasClickFocus()) {
+      comboBox->enableClickFocus();
+    }
+
+    comboBox->bind(t_mo, choiceConcept);
+
+    if (comboBoxConcept->isLocked(t_mo)) {
+      comboBox->setLocked(true);
+    }
+
+    widget = comboBox;
+
+  } else if (QSharedPointer<ValueEditConcept<double>> doubleEditConcept = t_baseConcept.dynamicCast<ValueEditConcept<double>>()) {
+
+    auto doubleEdit = new OSDoubleEdit2(m_gridView);
+    if (doubleEditConcept->hasClickFocus()) {
+      doubleEdit->enableClickFocus();
+    }
+
+    doubleEdit->bind(t_mo, DoubleGetter(std::bind(&ValueEditConcept<double>::get, doubleEditConcept.data(), t_mo)),
+                     boost::optional<DoubleSetter>(std::bind(&ValueEditConcept<double>::set, doubleEditConcept.data(), t_mo, std::placeholders::_1)),
+                     boost::optional<NoFailAction>(std::bind(&ValueEditConcept<double>::reset, doubleEditConcept.data(), t_mo)),
+                     boost::optional<NoFailAction>(), boost::optional<NoFailAction>(),
+                     boost::optional<BasicQuery>(std::bind(&ValueEditConcept<double>::isDefaulted, doubleEditConcept.data(), t_mo)));
+
+    if (doubleEditConcept->isLocked(t_mo)) {
+      doubleEdit->setLocked(true);
+    }
+
+    widget = doubleEdit;
+
+  } else if (QSharedPointer<OptionalValueEditConcept<double>> optionalDoubleEditConcept =
+               t_baseConcept.dynamicCast<OptionalValueEditConcept<double>>()) {
+
+    auto optionalDoubleEdit = new OSDoubleEdit2(m_gridView);
+    if (optionalDoubleEditConcept->hasClickFocus()) {
+      optionalDoubleEdit->enableClickFocus();
+    }
+
+    optionalDoubleEdit->bind(t_mo, OptionalDoubleGetter(std::bind(&OptionalValueEditConcept<double>::get, optionalDoubleEditConcept.data(), t_mo)),
+                             boost::optional<DoubleSetter>(
+                               std::bind(&OptionalValueEditConcept<double>::set, optionalDoubleEditConcept.data(), t_mo, std::placeholders::_1)));
+
+    if (optionalDoubleEditConcept->isLocked(t_mo)) {
+      optionalDoubleEdit->setLocked(true);
+    }
+
+    widget = optionalDoubleEdit;
+
+  } else if (QSharedPointer<ValueEditVoidReturnConcept<double>> doubleEditVoidReturnConcept =
+               t_baseConcept.dynamicCast<ValueEditVoidReturnConcept<double>>()) {
+
+    auto doubleEditVoidReturn = new OSDoubleEdit2(m_gridView);
+    if (doubleEditVoidReturnConcept->hasClickFocus()) {
+      doubleEditVoidReturn->enableClickFocus();
+    }
+
+    doubleEditVoidReturn->bind(
+      t_mo, DoubleGetter(std::bind(&ValueEditVoidReturnConcept<double>::get, doubleEditVoidReturnConcept.data(), t_mo)),
+      DoubleSetterVoidReturn(std::bind(&ValueEditVoidReturnConcept<double>::set, doubleEditVoidReturnConcept.data(), t_mo, std::placeholders::_1)),
+      boost::optional<NoFailAction>(std::bind(&ValueEditVoidReturnConcept<double>::reset, doubleEditVoidReturnConcept.data(), t_mo)),
+      boost::optional<NoFailAction>(), boost::optional<NoFailAction>(),
+      boost::optional<BasicQuery>(std::bind(&ValueEditVoidReturnConcept<double>::isDefaulted, doubleEditVoidReturnConcept.data(), t_mo)));
+
+    if (doubleEditVoidReturnConcept->isLocked(t_mo)) {
+      doubleEditVoidReturn->setLocked(true);
+    }
+
+    widget = doubleEditVoidReturn;
+
+  } else if (QSharedPointer<OptionalValueEditVoidReturnConcept<double>> optionalDoubleEditVoidReturnConcept =
+               t_baseConcept.dynamicCast<OptionalValueEditVoidReturnConcept<double>>()) {
+
+    auto optionalDoubleEditVoidReturn = new OSDoubleEdit2(m_gridView);
+    if (optionalDoubleEditVoidReturnConcept->hasClickFocus()) {
+      optionalDoubleEditVoidReturn->enableClickFocus();
+    }
+
+    optionalDoubleEditVoidReturn->bind(
+      t_mo, OptionalDoubleGetter(std::bind(&OptionalValueEditVoidReturnConcept<double>::get, optionalDoubleEditVoidReturnConcept.data(), t_mo)),
+      DoubleSetterVoidReturn(
+        std::bind(&OptionalValueEditVoidReturnConcept<double>::set, optionalDoubleEditVoidReturnConcept.data(), t_mo, std::placeholders::_1)));
+
+    if (optionalDoubleEditVoidReturnConcept->isLocked(t_mo)) {
+      optionalDoubleEditVoidReturn->setLocked(true);
+    }
+
+    widget = optionalDoubleEditVoidReturn;
+
+  } else if (QSharedPointer<ValueEditConcept<int>> integerEditConcept = t_baseConcept.dynamicCast<ValueEditConcept<int>>()) {
+
+    auto integerEdit = new OSIntegerEdit2(m_gridView);
+    if (integerEditConcept->hasClickFocus()) {
+      integerEdit->enableClickFocus();
+    }
+
+    integerEdit->bind(t_mo, IntGetter(std::bind(&ValueEditConcept<int>::get, integerEditConcept.data(), t_mo)),
+                      boost::optional<IntSetter>(std::bind(&ValueEditConcept<int>::set, integerEditConcept.data(), t_mo, std::placeholders::_1)),
+                      boost::optional<NoFailAction>(std::bind(&ValueEditConcept<int>::reset, integerEditConcept.data(), t_mo)),
+                      boost::optional<NoFailAction>(), boost::optional<NoFailAction>(),
+                      boost::optional<BasicQuery>(std::bind(&ValueEditConcept<int>::isDefaulted, integerEditConcept.data(), t_mo)));
+
+    if (integerEditConcept->isLocked(t_mo)) {
+      integerEdit->setLocked(true);
+    }
+
+    widget = integerEdit;
+
+  } else if (QSharedPointer<ValueEditConcept<std::string>> lineEditConcept = t_baseConcept.dynamicCast<ValueEditConcept<std::string>>()) {
+
+    auto lineEdit = new OSLineEdit2(m_gridView);
+    if (lineEditConcept->hasClickFocus()) {
+      lineEdit->enableClickFocus();
+    }
+
+    lineEdit->bind(t_mo, StringGetter(std::bind(&ValueEditConcept<std::string>::get, lineEditConcept.data(), t_mo)),
+                   boost::optional<StringSetter>(std::bind(&ValueEditConcept<std::string>::set, lineEditConcept.data(), t_mo, std::placeholders::_1)),
+                   boost::optional<NoFailAction>(std::bind(&ValueEditConcept<std::string>::reset, lineEditConcept.data(), t_mo)),
+                   boost::optional<BasicQuery>(std::bind(&ValueEditConcept<std::string>::isDefaulted, lineEditConcept.data(), t_mo)));
+
+    if (lineEditConcept->isLocked(t_mo)) {
+      lineEdit->setLocked(true);
+    }
+
+    widget = lineEdit;
+
+  } else if (QSharedPointer<ValueEditVoidReturnConcept<std::string>> lineEditConcept =
+               t_baseConcept.dynamicCast<ValueEditVoidReturnConcept<std::string>>()) {
+
+    auto lineEdit = new OSLineEdit2(m_gridView);
+    if (lineEditConcept->hasClickFocus()) {
+      lineEdit->enableClickFocus();
+    }
+
+    lineEdit->bind(t_mo, StringGetter(std::bind(&ValueEditVoidReturnConcept<std::string>::get, lineEditConcept.data(), t_mo)),
+                   boost::optional<StringSetterVoidReturn>(
+                     std::bind(&ValueEditVoidReturnConcept<std::string>::set, lineEditConcept.data(), t_mo, std::placeholders::_1)),
+                   boost::optional<NoFailAction>(std::bind(&ValueEditVoidReturnConcept<std::string>::reset, lineEditConcept.data(), t_mo)),
+                   boost::optional<BasicQuery>(std::bind(&ValueEditVoidReturnConcept<std::string>::isDefaulted, lineEditConcept.data(), t_mo)));
+
+    if (lineEditConcept->isLocked(t_mo)) {
+      lineEdit->setLocked(true);
+    }
+
+    widget = lineEdit;
+
+  } else if (QSharedPointer<NameLineEditConcept> nameLineEditConcept = t_baseConcept.dynamicCast<NameLineEditConcept>()) {
+
+    OSLineEdit2Interface* nameLineEdit = nameLineEditConcept->makeWidget(m_gridView);
+    if (nameLineEditConcept->hasClickFocus()) {
+      nameLineEdit->enableClickFocus();
+    }
+
+    if (nameLineEditConcept->deleteObject()) {
+      nameLineEdit->setDeleteType(DeleteType::DeleteIfNotDefaulted);
+    } else {
+      nameLineEdit->setDeleteType(DeleteType::NoDelete);
+    }
+
+    nameLineEdit->bind(
+      t_mo, OptionalStringGetter(std::bind(&NameLineEditConcept::get, nameLineEditConcept.data(), t_mo, true)),
+      boost::optional<StringSetter>(std::bind(&NameLineEditConcept::setReturnBool, nameLineEditConcept.data(), t_mo, std::placeholders::_1)),
+      boost::optional<NoFailAction>(std::bind(&NameLineEditConcept::reset, nameLineEditConcept.data(), t_mo)),
+      boost::optional<BasicQuery>(std::bind(&NameLineEditConcept::isInherited, nameLineEditConcept.data(), t_mo)),
+      boost::optional<BasicQuery>(std::bind(&NameLineEditConcept::isLocked, nameLineEditConcept.data(), t_mo)));
+
+    if (nameLineEditConcept->isLocked(t_mo)) {
+      nameLineEdit->setLocked(true);
+    }
+
+    widget = nameLineEdit->qwidget();
+
+    if (nameLineEditConcept->isInspectable()) {
+      if (OSLineEdit2* normalLineEdit = qobject_cast<OSLineEdit2*>(widget)) {
+        connect(normalLineEdit, &OSLineEdit2::itemClicked, m_gridView, &OSGridView::dropZoneItemClicked);
+      } else if (OSLoadNamePixmapLineEdit* pixmapLineEdit = qobject_cast<OSLoadNamePixmapLineEdit*>(widget)) {
+        connect(pixmapLineEdit, &OSLoadNamePixmapLineEdit::itemClicked, m_gridView, &OSGridView::dropZoneItemClicked);
+      }
+    }
+
+  } else if (QSharedPointer<QuantityEditConcept<double>> quantityEditConcept = t_baseConcept.dynamicCast<QuantityEditConcept<double>>()) {
+
+    OSQuantityEdit2* quantityEdit =
+      new OSQuantityEdit2(quantityEditConcept->modelUnits().toStdString().c_str(), quantityEditConcept->siUnits().toStdString().c_str(),
+                          quantityEditConcept->ipUnits().toStdString().c_str(), quantityEditConcept->isIP(), m_gridView);
+    if (quantityEditConcept->hasClickFocus()) {
+      quantityEdit->enableClickFocus();
+    }
+
+    quantityEdit->bind(
+      m_gridController->isIP(), t_mo, DoubleGetter(std::bind(&QuantityEditConcept<double>::get, quantityEditConcept.data(), t_mo)),
+      boost::optional<DoubleSetter>(std::bind(&QuantityEditConcept<double>::set, quantityEditConcept.data(), t_mo, std::placeholders::_1)),
+      boost::optional<NoFailAction>(std::bind(&QuantityEditConcept<double>::reset, quantityEditConcept.data(), t_mo)),
+      boost::optional<NoFailAction>(), boost::optional<NoFailAction>(),
+      boost::optional<BasicQuery>(std::bind(&QuantityEditConcept<double>::isDefaulted, quantityEditConcept.data(), t_mo)));
+
+    if (quantityEditConcept->isLocked(t_mo)) {
+      quantityEdit->setLocked(true);
+    }
+
+    connect(m_gridController, &OSGridController::toggleUnitsClicked, quantityEdit, &OSQuantityEdit2::onUnitSystemChange);
+
+    widget = quantityEdit;
+
+  } else if (QSharedPointer<OptionalQuantityEditConcept<double>> optionalQuantityEditConcept =
+               t_baseConcept.dynamicCast<OptionalQuantityEditConcept<double>>()) {
+
+    OSQuantityEdit2* optionalQuantityEdit = new OSQuantityEdit2(
+      optionalQuantityEditConcept->modelUnits().toStdString().c_str(), optionalQuantityEditConcept->siUnits().toStdString().c_str(),
+      optionalQuantityEditConcept->ipUnits().toStdString().c_str(), optionalQuantityEditConcept->isIP(), m_gridView);
+    if (optionalQuantityEditConcept->hasClickFocus()) {
+      optionalQuantityEdit->enableClickFocus();
+    }
+
+    optionalQuantityEdit->bind(m_gridController->isIP(), t_mo,
+                               OptionalDoubleGetter(std::bind(&OptionalQuantityEditConcept<double>::get, optionalQuantityEditConcept.data(), t_mo)),
+                               boost::optional<DoubleSetter>(std::bind(&OptionalQuantityEditConcept<double>::set, optionalQuantityEditConcept.data(),
+                                                                       t_mo, std::placeholders::_1)));
+
+    if (optionalQuantityEditConcept->isLocked(t_mo)) {
+      optionalQuantityEdit->setLocked(true);
+    }
+
+    connect(m_gridController, &OSGridController::toggleUnitsClicked, optionalQuantityEdit, &OSQuantityEdit2::onUnitSystemChange);
+
+    widget = optionalQuantityEdit;
+
+  } else if (QSharedPointer<QuantityEditVoidReturnConcept<double>> quantityEditVoidReturnConcept =
+               t_baseConcept.dynamicCast<QuantityEditVoidReturnConcept<double>>()) {
+
+    OSQuantityEdit2* quantityEditVoidReturn = new OSQuantityEdit2(
+      quantityEditVoidReturnConcept->modelUnits().toStdString().c_str(), quantityEditVoidReturnConcept->siUnits().toStdString().c_str(),
+      quantityEditVoidReturnConcept->ipUnits().toStdString().c_str(), quantityEditVoidReturnConcept->isIP(), m_gridView);
+    if (quantityEditVoidReturnConcept->hasClickFocus()) {
+      quantityEditVoidReturn->enableClickFocus();
+    }
+
+    quantityEditVoidReturn->bind(
+      m_gridController->isIP(), t_mo, DoubleGetter(std::bind(&QuantityEditVoidReturnConcept<double>::get, quantityEditVoidReturnConcept.data(), t_mo)),
+      DoubleSetterVoidReturn(
+        std::bind(&QuantityEditVoidReturnConcept<double>::set, quantityEditVoidReturnConcept.data(), t_mo, std::placeholders::_1)),
+      boost::optional<NoFailAction>(std::bind(&QuantityEditVoidReturnConcept<double>::reset, quantityEditVoidReturnConcept.data(), t_mo)),
+      boost::optional<NoFailAction>(), boost::optional<NoFailAction>(),
+      boost::optional<BasicQuery>(std::bind(&QuantityEditVoidReturnConcept<double>::isDefaulted, quantityEditVoidReturnConcept.data(), t_mo)));
+
+    if (quantityEditVoidReturnConcept->isLocked(t_mo)) {
+      quantityEditVoidReturn->setLocked(true);
+    }
+
+    connect(m_gridController, &OSGridController::toggleUnitsClicked, quantityEditVoidReturn, &OSQuantityEdit2::onUnitSystemChange);
+
+    widget = quantityEditVoidReturn;
+
+  } else if (QSharedPointer<OptionalQuantityEditVoidReturnConcept<double>> optionalQuantityEditVoidReturnConcept =
+               t_baseConcept.dynamicCast<OptionalQuantityEditVoidReturnConcept<double>>()) {
+
+    OSQuantityEdit2* optionalQuantityEditVoidReturn = new OSQuantityEdit2(optionalQuantityEditVoidReturnConcept->modelUnits().toStdString().c_str(),
+                                                                          optionalQuantityEditVoidReturnConcept->siUnits().toStdString().c_str(),
+                                                                          optionalQuantityEditVoidReturnConcept->ipUnits().toStdString().c_str(),
+                                                                          optionalQuantityEditVoidReturnConcept->isIP(), m_gridView);
+    if (optionalQuantityEditVoidReturnConcept->hasClickFocus()) {
+      optionalQuantityEditVoidReturn->enableClickFocus();
+    }
+
+    optionalQuantityEditVoidReturn->bind(
+      m_gridController->isIP(), t_mo,
+      OptionalDoubleGetter(std::bind(&OptionalQuantityEditVoidReturnConcept<double>::get, optionalQuantityEditVoidReturnConcept.data(), t_mo)),
+      DoubleSetterVoidReturn(
+        std::bind(&OptionalQuantityEditVoidReturnConcept<double>::set, optionalQuantityEditVoidReturnConcept.data(), t_mo, std::placeholders::_1)));
+
+    if (optionalQuantityEditVoidReturnConcept->isLocked(t_mo)) {
+      optionalQuantityEditVoidReturn->setLocked(true);
+    }
+
+    connect(m_gridController, &OSGridController::toggleUnitsClicked, optionalQuantityEditVoidReturn, &OSQuantityEdit2::onUnitSystemChange);
+
+    widget = optionalQuantityEditVoidReturn;
+
+  } else if (QSharedPointer<ValueEditConcept<unsigned>> unsignedEditConcept = t_baseConcept.dynamicCast<ValueEditConcept<unsigned>>()) {
+
+    auto unsignedEdit = new OSUnsignedEdit2(m_gridView);
+    if (unsignedEditConcept->hasClickFocus()) {
+      unsignedEdit->enableClickFocus();
+    }
+
+    unsignedEdit->bind(
+      t_mo, UnsignedGetter(std::bind(&ValueEditConcept<unsigned>::get, unsignedEditConcept.data(), t_mo)),
+      boost::optional<UnsignedSetter>(std::bind(&ValueEditConcept<unsigned>::set, unsignedEditConcept.data(), t_mo, std::placeholders::_1)),
+      boost::optional<NoFailAction>(std::bind(&ValueEditConcept<unsigned>::reset, unsignedEditConcept.data(), t_mo)), boost::optional<NoFailAction>(),
+      boost::optional<NoFailAction>(),
+      boost::optional<BasicQuery>(std::bind(&ValueEditConcept<unsigned>::isDefaulted, unsignedEditConcept.data(), t_mo)));
+
+    if (unsignedEditConcept->isLocked(t_mo)) {
+      unsignedEdit->setLocked(true);
+    }
+
+    widget = unsignedEdit;
+
+  } else if (QSharedPointer<DropZoneConcept> dropZoneConcept = t_baseConcept.dynamicCast<DropZoneConcept>()) {
+    auto dropZone = new OSDropZone2();
+    if (dropZoneConcept->hasClickFocus()) {
+      dropZone->enableClickFocus();
+    }
+
+    dropZone->bind(t_mo, OptionalModelObjectGetter(std::bind(&DropZoneConcept::get, dropZoneConcept.data(), t_mo)),
+                   ModelObjectSetter(std::bind(&DropZoneConcept::set, dropZoneConcept.data(), t_mo, std::placeholders::_1)),
+                   NoFailAction(std::bind(&DropZoneConcept::reset, dropZoneConcept.data(), t_mo)),
+                   ModelObjectIsDefaulted(std::bind(&DropZoneConcept::isDefaulted, dropZoneConcept.data(), t_mo)));
+
+    if (dropZoneConcept->isLocked(t_mo)) {
+      dropZone->setLocked(true);
+    }
+
+    //connect(dropZone, OSDropZone2::itemClicked, gridView(), OSGridView::dropZoneItemClicked);
+    connect(dropZone, &OSDropZone2::itemClicked, m_gridView, &OSGridView::dropZoneItemClicked);
+
+    widget = dropZone;
+
+  } else if (QSharedPointer<RenderingColorConcept> renderingColorConcept = t_baseConcept.dynamicCast<RenderingColorConcept>()) {
+    auto renderingColorWidget = new RenderingColorWidget2(m_gridView);
+
+    renderingColorWidget->bind(t_mo, OptionalModelObjectGetter(std::bind(&RenderingColorConcept::get, renderingColorConcept.data(), t_mo)),
+                               ModelObjectSetter(std::bind(&RenderingColorConcept::set, renderingColorConcept.data(), t_mo, std::placeholders::_1)));
+
+    if (renderingColorConcept->isLocked(t_mo)) {
+      renderingColorWidget->setLocked(true);
+    }
+
+    widget = renderingColorWidget;
+
+  } else {
+    // Unknown type
+    OS_ASSERT(false);
+  }
+
+
+// todo: connect model signals to Wrapper so subrows refresh when needed
+
+  return widget;
+}
+
+void OSCellWrapper::addOSWidget(QWidget* t_widget, const boost::optional<model::ModelObject>& t_obj, const bool t_isSelector) {
   OS_ASSERT(m_objectSelector);
 
   const int widgetHeight = 30;
+  bool isEven = ((m_gridRow % 2) == 0);
 
-  auto holder = new OSWidgetHolder(m_gridView);
+  auto holder = new OSWidgetHolder(m_gridView, isEven);
   holder->setMinimumHeight(widgetHeight);
   auto l = new QVBoxLayout();
   l->setAlignment(Qt::AlignCenter);
@@ -143,121 +663,6 @@ void OSCellWrapper::addWidgetLambda(QWidget* t_widget, const boost::optional<mod
   }
 
   m_objectSelector->addObject(t_obj, holder, m_modelRow, m_gridRow, m_column, m_hasSubRows ? subrow : boost::optional<int>(), t_isSelector);
-}
-
-void OSCellWrapper::setGridController(OSGridController* gridController) {
-  m_gridController = gridController;
-}
-
-void OSCellWrapper::setObjectSelector(OSObjectSelector* objectSelector, int modelRow, int gridRow, int column) {
-  m_objectSelector = objectSelector;
-  m_modelRow = modelRow;
-  m_gridRow = gridRow;
-  m_column = column;
-}
-
-void OSCellWrapper::setModelObject(const boost::optional<model::ModelObject>& modelObject) {
-  m_modelObject = modelObject;
-}
-
-void OSCellWrapper::setBaseConcept(QSharedPointer<BaseConcept> baseConcept) {
-  m_baseConcept = baseConcept;
-}
-
-void OSCellWrapper::refresh() {
-  OS_ASSERT(m_baseConcept);
-  OS_ASSERT(m_modelObject);
-  OS_ASSERT(m_objectSelector);
-  OS_ASSERT(m_gridController);
-  
-  m_holders.clear();
-
-  m_hasSubRows = false;
-  if (QSharedPointer<DataSourceAdapter> dataSource = m_baseConcept.dynamicCast<DataSourceAdapter>()) {
-    m_hasSubRows = true;
-    // here we magically create a multi-row column of any type that was constructed
-    //
-    // The details need to be fleshed out. The ideas all work, and it's rendering as expected,
-    // however the placeHolder isn't doing its job, it might need to be a QSpacer of some kind.
-    // The spacing around the list is a little awkward. The padding might need to be set to 0
-    // all the way around.
-    auto items = dataSource->source().items(m_modelObject.get());
-
-    size_t subrowCounter = 0;
-    for (auto& item : items) {
-      if (item) {
-        auto mo = item->cast<model::ModelObject>();
-        auto innerConcept = dataSource->innerConcept();
-        bool isThisSelector = (m_baseConcept->isSelector() || innerConcept->isSelector());
-
-        if (isThisSelector) {
-          bool isThisLocked = innerConcept->isLocked(mo);
-          innerConcept->setBaseLocked(isThisLocked);
-        }
-
-        addWidgetLambda(m_gridController->makeWidget(mo, innerConcept, m_gridView), mo, isThisSelector);
-      } else {
-        addWidgetLambda(new QWidget(m_gridView), boost::none, false);
-      }
-      subrowCounter++;
-    }
-
-    if (dataSource->source().wantsPlaceholder()) {
-      // use this space to put in a blank placeholder of some kind to make sure the
-      // widget is evenly laid out relative to its friends in the adjacent columns
-      addWidgetLambda(new QWidget(m_gridView), boost::none, false);
-    }
-
-    if (dataSource->source().dropZoneConcept()) {
-      // it makes sense to me that the drop zone would need a reference to the parent containing object
-      // not an object the rest in the list was derived from
-      // this should also be working and doing what you want
-      addWidgetLambda(m_gridController->makeWidget(m_modelObject.get(), dataSource->source().dropZoneConcept(), m_gridView), boost::none, false);
-    }
-
-    // right here you probably want some kind of container that's smart enough to know how to grow
-    // and shrink as the contained items change. But I don't know enough about the model
-    // to know how you'd want to do that. For now we make a fixed list that's got a VBoxLayout
-    //
-    // And think about this.
-  } else {
-    // This case is exactly what it used to do before the DataSource idea was added.
-
-    // just the one
-    addWidgetLambda(m_gridController->makeWidget(m_modelObject.get(), m_baseConcept, m_gridView), m_modelObject.get(), m_baseConcept->isSelector());
-  }
-
-  if (m_hasSubRows) {
-    // You need a holder, either by specifying a column which has a placeholder,
-    // or by specifying a column which has a DataSource DropZoneConcept
-    OS_ASSERT(!m_holders.empty());
-    m_holders.back()->setObjectName("InnerCellBottom");
-  }
-}
-
-void OSCellWrapper::setCellProperties(bool isSelector, int row, int column, boost::optional<int> subrow, bool isVisible, bool isSelected,
-                                      bool isLocked) {
-  bool isEven = ((row % 2) == 0);
-  bool isChanged = false;
-
-  this->setVisible(isVisible);
-
-  QVariant currentSelected = this->property("selected");
-  if (currentSelected.isNull() || currentSelected.toBool() != isSelected) {
-    this->setProperty("selected", isSelected);
-    isChanged = true;
-  }
-
-  QVariant currentEven = this->property("even");
-  if (currentEven.isNull() || currentEven.toBool() != isEven) {
-    this->setProperty("even", isEven);
-    isChanged = true;
-  }
-
-  if (isChanged) {
-    this->style()->unpolish(this);
-    this->style()->polish(this);
-  }
 }
 
 }  // namespace openstudio

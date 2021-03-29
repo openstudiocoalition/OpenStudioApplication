@@ -48,7 +48,7 @@ class OpenStudioLibFixture;
 
 namespace openstudio {
 
-//class ModelSubTabView;
+class OSCellWrapper;
 class OSCollapsibleView;
 class OSDropZone;
 class OSGridController;
@@ -99,8 +99,8 @@ class OSGridView : public QWidget
   // For testing
   friend class OpenStudioLibFixture;
 
-  // uses the OSGridController to create the widget for row, column
-  void createWidget(int row, int column);
+  // uses the OSGridController to create the OSCellWrapper for row, column
+  void createCellWrapper(int row, int column);
 
   // delete all widgets
   void deleteAll();
@@ -115,10 +115,7 @@ class OSGridView : public QWidget
   QGridLayout* makeGridLayout();
 
   // Add a widget, adding a new layout if necessary
-  void addWidget(QWidget* w, int row, int column);
-
-  // update the style for the widget at row, column
-  void updateWidget(int row, int column);
+  void addCellWrapper(OSCellWrapper* w, int row, int column);
 
   OSDropZone* m_dropZone;
 

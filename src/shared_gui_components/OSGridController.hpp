@@ -424,9 +424,8 @@ class OSGridController : public QObject
   int modelRowFromGridRow(int gridRow);
 
   // Return a new widget at a "top level" row and column specified by arguments.
-  // There might be sub rows within the specified location.
-  // In that case a QWidget with sub rows (inner grid layout) will be returned.
-  QWidget* createWidget(int gridRow, int column, OSGridView* gridView);
+  // There might be subrows within the specified location.
+  OSCellWrapper* createCellWrapper(int gridRow, int column, OSGridView* gridView);
 
   // Call this function on a model update
   virtual void refreshModelObjects() = 0;
@@ -448,6 +447,8 @@ class OSGridController : public QObject
   void setObjectIsLocked(const std::function<bool(const model::ModelObject&)>& t_isLocked);
 
   IddObjectType iddObjectType() const;
+
+  bool isIP() const;
 
  private:
   // For testing
@@ -488,7 +489,6 @@ class OSGridController : public QObject
   bool m_isIP;
 
  protected:
-  bool isIP() const;
 
   bool hasHorizontalHeader() const;
   std::vector<QWidget*> horizontalHeaders() const;
@@ -534,11 +534,6 @@ class OSGridController : public QObject
  private:
   friend class OSGridView;        // TODO: remove this
   friend class OSObjectSelector;  // TODO: remove this
-  friend class OSCellWrapper;     // TODO: remove this, move makeWidget to Wrapper?
-
-  // Make the lowest level widgets that corresponds to concepts.
-  // These will be put in container widgets to form the cell, regardless of the presence of sub rows.
-  QWidget* makeWidget(model::ModelObject t_mo, const QSharedPointer<BaseConcept>& t_baseConcept, OSGridView* gridView);
 
   void loadQSettings();
 
@@ -611,8 +606,6 @@ class OSGridController : public QObject
   void onRemoveWorkspaceObject(const WorkspaceObject& object, const openstudio::IddObjectType& iddObjectType, const openstudio::UUID& handle);
 
   void onAddWorkspaceObject(const WorkspaceObject& object, const openstudio::IddObjectType& iddObjectType, const openstudio::UUID& handle);
-
-  void onObjectRemoved(boost::optional<model::ParentObject> parent);  // TODO: remove?
 
   void onSetApplyButtonState();
 };
