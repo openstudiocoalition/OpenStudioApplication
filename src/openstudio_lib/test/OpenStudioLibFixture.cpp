@@ -41,16 +41,14 @@
 #include "../../shared_gui_components/OSObjectSelector.hpp"
 #include "../../shared_gui_components/OSWidgetHolder.hpp"
 
-
 #include <openstudio/utilities/core/Path.hpp>
 
-#include <boost/optional/optional_io.hpp> 
+#include <boost/optional/optional_io.hpp>
 
 using namespace openstudio;
 
 // static variables
 boost::optional<openstudio::FileLogSink> OpenStudioLibFixture::logFile;
-
 
 void OpenStudioLibFixture::SetUp() {
   openstudio::Application::instance().application(true);
@@ -200,7 +198,6 @@ void OpenStudioLibFixture::updateStyle(QWidget* widget) {
     lineEdit->updateStyle();
   }
 }
-
 
 void OpenStudioLibFixture::checkExpected(OSObjectSelector* os, OSGridView* gv, int modelRow, int gridRow, int column, boost::optional<int> subrow,
                                          boost::optional<model::ModelObject> mo, bool visible, bool selectable, bool selected, bool selector,

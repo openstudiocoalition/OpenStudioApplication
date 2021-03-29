@@ -63,8 +63,8 @@ class OSCellWrapper : public QWidget
   Q_OBJECT
 
  public:
-  OSCellWrapper(OSGridView* gridView, QSharedPointer<BaseConcept> baseConcept,
-                OSObjectSelector* objectSelector, int modelRow, int gridRow, int column);
+  OSCellWrapper(OSGridView* gridView, QSharedPointer<BaseConcept> baseConcept, OSObjectSelector* objectSelector, int modelRow, int gridRow,
+                int column);
 
   virtual ~OSCellWrapper();
 
@@ -77,7 +77,6 @@ class OSCellWrapper : public QWidget
   void setCellProperties(const GridCellLocation& location, const GridCellInfo& info);
 
  private:
-  
   // for testing
   friend class ::OpenStudioLibFixture;
 
@@ -99,7 +98,6 @@ class OSCellWrapper : public QWidget
   boost::optional<model::ModelObject> m_modelObject;
   OSGridController* m_gridController;
 };
-
 
 }  // namespace openstudio
 

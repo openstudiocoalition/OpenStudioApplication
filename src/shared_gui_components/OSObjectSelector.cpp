@@ -213,8 +213,8 @@ void OSObjectSelector::clear() {
   m_isLocked = getDefaultIsLocked();
 }
 
-void OSObjectSelector::addObject(const boost::optional<model::ModelObject>& t_obj, OSWidgetHolder* t_holder, int t_modelRow, int t_gridRow, int t_column,
-                               const boost::optional<int>& t_subrow, const bool t_isSelector) {
+void OSObjectSelector::addObject(const boost::optional<model::ModelObject>& t_obj, OSWidgetHolder* t_holder, int t_modelRow, int t_gridRow,
+                                 int t_column, const boost::optional<int>& t_subrow, const bool t_isSelector) {
 
   // todo: remove existing location and info if they exist
 
@@ -261,7 +261,7 @@ void OSObjectSelector::setObjectRemoved(const openstudio::Handle& handle) {
 //}
 
 boost::optional<model::ModelObject> OSObjectSelector::getObject(const int t_modelRow, const int t_gridRow, const int t_column,
-                                                              const boost::optional<int>& t_subrow) const {
+                                                                const boost::optional<int>& t_subrow) const {
   for (const auto& locationInfoPair : m_gridCellLocationToInfoMap) {
     if (locationInfoPair.first->equal(t_modelRow, t_gridRow, t_column, t_subrow)) {
       return locationInfoPair.second->modelObject;
@@ -355,7 +355,7 @@ void OSObjectSelector::setRowProperties(const int t_gridRow, PropertyChange t_vi
 }
 
 void OSObjectSelector::setSubrowProperties(const int t_gridRow, const int t_subrow, PropertyChange t_visible, PropertyChange t_selected,
-                                         PropertyChange t_locked) {
+                                           PropertyChange t_locked) {
   for (auto& locationInfoPair : m_gridCellLocationToInfoMap) {
     if (locationInfoPair.first->gridRow == t_gridRow && locationInfoPair.first->subrow == t_subrow) {
       bool changed = false;

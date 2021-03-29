@@ -84,7 +84,7 @@ void OSUnsignedEdit2::enableClickFocus() {
 
 void OSUnsignedEdit2::disableClickFocus() {
   this->m_hasClickFocus = false;
-  if (m_focused){
+  if (m_focused) {
     m_focused = false;
     clearFocus();
     updateStyle();

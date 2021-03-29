@@ -99,7 +99,7 @@ void OSIntegerEdit2::setLocked(bool locked) {
   if (m_locked != locked) {
     m_locked = locked;
     setEnabled(!locked);
- 
+
     if (locked) {
       disableClickFocus();
     }

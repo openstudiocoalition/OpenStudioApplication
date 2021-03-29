@@ -291,7 +291,7 @@ void OSGridView::onGridCellChanged(const GridCellLocation& location, const GridC
   if (item) {
     OSCellWrapper* wrapper = qobject_cast<OSCellWrapper*>(item->widget());
     OS_ASSERT(wrapper);
-   
+
     // style the wrapper and/or any subrows
     wrapper->setCellProperties(location, info);
   }

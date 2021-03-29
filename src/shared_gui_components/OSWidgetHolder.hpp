@@ -64,7 +64,6 @@ class OSWidgetHolder : public QWidget
   void inFocus(bool inFocus, bool hasData);
 };
 
-
 }  // namespace openstudio
 
 #endif  // SHAREDGUICOMPONENTS_OSWIDGETHOLDER_HPP

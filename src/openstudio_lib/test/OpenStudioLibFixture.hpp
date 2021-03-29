@@ -40,17 +40,17 @@
 #include <vector>
 
 namespace openstudio {
-  class DesignDayGridView;
-  class GridCellLocation;
-  class GridCellInfo;
-  class GridViewSubTab;
-  class OSCellWrapper;
-  class OSObjectSelector;
-  class OSGridController;
-  class OSGridView;
-  class OSDropZone2;
-  class OSLineEdit2;
-  class OSWidgetHolder;
+class DesignDayGridView;
+class GridCellLocation;
+class GridCellInfo;
+class GridViewSubTab;
+class OSCellWrapper;
+class OSObjectSelector;
+class OSGridController;
+class OSGridView;
+class OSDropZone2;
+class OSLineEdit2;
+class OSWidgetHolder;
 }  // namespace openstudio
 
 class QWidget;
@@ -92,7 +92,8 @@ class OpenStudioLibFixture : public ::testing::Test
 
   bool isDefaulted(openstudio::OSDropZone2* dropZone);
 
-  openstudio::GridCellLocation* getGridCellLocationAt(openstudio::OSObjectSelector* os, int modelRow, int gridRow, int column, boost::optional<int> subrow);
+  openstudio::GridCellLocation* getGridCellLocationAt(openstudio::OSObjectSelector* os, int modelRow, int gridRow, int column,
+                                                      boost::optional<int> subrow);
   openstudio::GridCellInfo* getGridCellInfoAt(openstudio::OSObjectSelector* os, int modelRow, int gridRow, int column, boost::optional<int> subrow);
 
   openstudio::OSCellWrapper* getWrapperAt(openstudio::OSGridView* gv, int row, int column, boost::optional<int> subrow);
@@ -103,7 +104,8 @@ class OpenStudioLibFixture : public ::testing::Test
   void updateStyle(QWidget* widget);
 
   void checkExpected(openstudio::OSObjectSelector* os, openstudio::OSGridView* gv, int modelRow, int gridRow, int column, boost::optional<int> subrow,
-                     boost::optional<openstudio::model::ModelObject> mo, bool visible, bool selectable, bool selected, bool selector, bool locked, const std::string& style);
+                     boost::optional<openstudio::model::ModelObject> mo, bool visible, bool selectable, bool selected, bool selector, bool locked,
+                     const std::string& style);
 
   // static variables
   static boost::optional<openstudio::FileLogSink> logFile;

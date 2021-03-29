@@ -68,16 +68,15 @@
 
 namespace openstudio {
 
-OSCellWrapper::OSCellWrapper(OSGridView* gridView, QSharedPointer<BaseConcept> baseConcept, OSObjectSelector* objectSelector, int modelRow, int gridRow,
-                             int column)
-  : QWidget(gridView), 
-    m_gridView(gridView), 
+OSCellWrapper::OSCellWrapper(OSGridView* gridView, QSharedPointer<BaseConcept> baseConcept, OSObjectSelector* objectSelector, int modelRow,
+                             int gridRow, int column)
+  : QWidget(gridView),
+    m_gridView(gridView),
     m_baseConcept(baseConcept),
     m_objectSelector(objectSelector),
     m_modelRow(modelRow),
     m_gridRow(gridRow),
-    m_column(column)
- {
+    m_column(column) {
   m_layout = new QGridLayout();
   m_layout->setSpacing(0);
   m_layout->setVerticalSpacing(0);
@@ -101,7 +100,7 @@ void OSCellWrapper::refresh() {
   OS_ASSERT(m_modelObject);
   OS_ASSERT(m_objectSelector);
   OS_ASSERT(m_gridController);
-  
+
   m_holders.clear();
 
   m_hasSubRows = false;
@@ -169,14 +168,14 @@ void OSCellWrapper::refresh() {
 
 void OSCellWrapper::setCellProperties(const GridCellLocation& location, const GridCellInfo& info) {
 
-  if (location.subrow){
+  if (location.subrow) {
     // apply to just one subrow
     OS_ASSERT(location.subrow.get() < m_holders.size());
     m_holders[location.subrow.get()]->setCellProperties(location, info);
 
-  }else{
+  } else {
     // apply to all the subrows
-    for (auto holder: m_holders){
+    for (auto holder : m_holders) {
       holder->setCellProperties(location, info);
     }
   }
@@ -184,7 +183,7 @@ void OSCellWrapper::setCellProperties(const GridCellLocation& location, const Gr
 
 QWidget* OSCellWrapper::createOSWidget(model::ModelObject t_mo, const QSharedPointer<BaseConcept>& t_baseConcept) {
   QWidget* widget = nullptr;
-  
+
   OS_ASSERT(m_gridController);
 
   if (QSharedPointer<CheckBoxConcept> checkBoxConcept = t_baseConcept.dynamicCast<CheckBoxConcept>()) {
@@ -468,7 +467,8 @@ QWidget* OSCellWrapper::createOSWidget(model::ModelObject t_mo, const QSharedPoi
     }
 
     quantityEditVoidReturn->bind(
-      m_gridController->isIP(), t_mo, DoubleGetter(std::bind(&QuantityEditVoidReturnConcept<double>::get, quantityEditVoidReturnConcept.data(), t_mo)),
+      m_gridController->isIP(), t_mo,
+      DoubleGetter(std::bind(&QuantityEditVoidReturnConcept<double>::get, quantityEditVoidReturnConcept.data(), t_mo)),
       DoubleSetterVoidReturn(
         std::bind(&QuantityEditVoidReturnConcept<double>::set, quantityEditVoidReturnConcept.data(), t_mo, std::placeholders::_1)),
       boost::optional<NoFailAction>(std::bind(&QuantityEditVoidReturnConcept<double>::reset, quantityEditVoidReturnConcept.data(), t_mo)),
@@ -565,8 +565,7 @@ QWidget* OSCellWrapper::createOSWidget(model::ModelObject t_mo, const QSharedPoi
     OS_ASSERT(false);
   }
 
-
-// todo: connect model signals to Wrapper so subrows refresh when needed
+  // todo: connect model signals to Wrapper so subrows refresh when needed
 
   return widget;
 }

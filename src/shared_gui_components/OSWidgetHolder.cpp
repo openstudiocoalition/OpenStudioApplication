@@ -50,7 +50,7 @@ namespace openstudio {
 
 OSWidgetHolder::OSWidgetHolder(OSCellWrapper* cellWrapper, QWidget* widget, bool isEven) : QWidget(cellWrapper), m_widget(widget), m_isEven(isEven) {
   this->setObjectName("OSWidgetHolder");
-  
+
   const int widgetHeight = 30;
 
   this->setMinimumHeight(widgetHeight);
@@ -73,7 +73,6 @@ OSWidgetHolder::OSWidgetHolder(OSCellWrapper* cellWrapper, QWidget* widget, bool
                       "solid black; border-right: 1px solid black; border-bottom: 1px solid black;}"
                       "QWidget#OSWidgetHolder { border: none; background-color: #ff0000; border-top: 1px "
                       "solid black; border-right: 1px solid black; border-bottom: 1px solid black;}");
-
 }
 
 OSWidgetHolder::~OSWidgetHolder() {}

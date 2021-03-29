@@ -56,10 +56,9 @@ class DesignDayGridView : public QWidget
   std::set<model::ModelObject> selectedObjects() const;
 
  private:
-  
   // for testing
   friend class ::OpenStudioLibFixture;
-  
+
   void addObject(const model::ModelObject& modelObject);
 
   void copyObject(const openstudio::model::ModelObject& modelObject);

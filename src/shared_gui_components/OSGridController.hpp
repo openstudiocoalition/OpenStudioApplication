@@ -489,7 +489,6 @@ class OSGridController : public QObject
   bool m_isIP;
 
  protected:
-
   bool hasHorizontalHeader() const;
   std::vector<QWidget*> horizontalHeaders() const;
 

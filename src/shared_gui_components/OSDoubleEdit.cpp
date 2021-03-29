@@ -88,10 +88,10 @@ void OSDoubleEdit2::enableClickFocus() {
 
 void OSDoubleEdit2::disableClickFocus() {
   this->m_hasClickFocus = false;
-  if (m_focused){
+  if (m_focused) {
     m_focused = false;
     clearFocus();
-	updateStyle();
+    updateStyle();
     emit inFocus(false, false);
   }
 }

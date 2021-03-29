@@ -213,7 +213,6 @@ class OSObjectSelector : public QObject
   REGISTER_LOGGER("openstudio.ObjectSelector");
 
  private:
-  
   // for testing
   friend class ::OpenStudioLibFixture;
 

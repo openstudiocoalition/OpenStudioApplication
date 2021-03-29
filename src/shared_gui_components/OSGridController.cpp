@@ -78,12 +78,7 @@ namespace openstudio {
 const std::vector<QColor> OSGridController::m_colors = SchedulesView::initializeColors();
 
 OSGridController::OSGridController()
-  : QObject(),
-    m_hasHorizontalHeader(true),
-    m_currentCategoryIndex(0),
-    m_isIP(false),
-    m_horizontalHeaderBtnGrp(nullptr)
-{
+  : QObject(), m_hasHorizontalHeader(true), m_currentCategoryIndex(0), m_isIP(false), m_horizontalHeaderBtnGrp(nullptr) {
   m_objectSelector = new OSObjectSelector(this);
 }
 
@@ -103,10 +98,9 @@ OSGridController::OSGridController(bool isIP, const QString& headerText, IddObje
     m_model(model),
     m_isIP(isIP),
     m_horizontalHeaderBtnGrp(nullptr),
-    m_headerText(headerText) 
-{
+    m_headerText(headerText) {
   loadQSettings();
-  
+
   m_objectSelector = new OSObjectSelector(this);
 
   connect(m_objectSelector, &OSObjectSelector::inFocus, this, &OSGridController::onInFocus);
