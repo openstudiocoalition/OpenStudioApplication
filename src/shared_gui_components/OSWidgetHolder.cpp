@@ -51,7 +51,7 @@ namespace openstudio {
 OSWidgetHolder::OSWidgetHolder(OSCellWrapper* cellWrapper, QWidget* widget, bool isEven) : QWidget(cellWrapper), m_widget(widget), m_isEven(isEven) {
   this->setObjectName("OSWidgetHolder");
 
-  const int widgetHeight = 30;
+  const int widgetHeight = 40;
 
   this->setMinimumHeight(widgetHeight);
   auto layout = new QVBoxLayout();
