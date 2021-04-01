@@ -103,6 +103,7 @@ class OSDropZone2 : public QWidget, public Nano::Observer
  private slots:
 
   void refresh();
+  void onModelObjectRemove(const Handle& handle);
   void dragEnterEvent(QDragEnterEvent* event) override;
   void dropEvent(QDropEvent* event) override;
 
@@ -112,6 +113,7 @@ class OSDropZone2 : public QWidget, public Nano::Observer
 
   void updateStyle();
   void makeItem();
+  boost::optional<model::ModelObject> updateGetterResult();
 
   boost::optional<OptionalModelObjectGetter> m_get;
   boost::optional<ModelObjectSetter> m_set;
@@ -119,6 +121,7 @@ class OSDropZone2 : public QWidget, public Nano::Observer
   boost::optional<ModelObjectIsDefaulted> m_isDefaulted;
   boost::optional<ModelObjectIsReadOnly> m_isReadOnly;
   boost::optional<model::ModelObject> m_modelObject;
+  boost::optional<model::ModelObject> m_getterResult;
   bool m_locked = false;
   //QString m_text;
   OSItem* m_item = nullptr;

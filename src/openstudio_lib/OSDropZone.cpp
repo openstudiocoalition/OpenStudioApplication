@@ -563,15 +563,20 @@ bool OSDropZone2::deleteObject() {
 void OSDropZone2::refresh() {
   boost::optional<model::ModelObject> modelObject;
 
-  if (m_item) {
-    modelObject = OSAppBase::instance()->currentDocument()->getModelObject(m_item->itemId());
-  } else if (m_get && *m_get) {
-    modelObject = (*m_get)();
+  if (m_get) {
+    modelObject = updateGetterResult();
   }
 
+  bool isChanged = false;
   if (modelObject) {
 
-    bool isChanged = false;
+    modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
+      .get()
+      ->openstudio::model::detail::ModelObject_Impl::onChange.connect<OSDropZone2, &OSDropZone2::refresh>(this);
+
+    modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
+      .get()
+      ->onRemoveFromWorkspace.connect<OSDropZone2, &OSDropZone2::onModelObjectRemove>(this);
 
     QString temp = QString::fromStdString(modelObject->name().get());
     if (m_label->text() != temp) {
@@ -590,20 +595,35 @@ void OSDropZone2::refresh() {
       isChanged = true;
     }
 
-    if (isChanged) {
-      updateStyle();
-    }
-
-    emit inFocus(true, hasData());
-
     //// Adjust the width to accommodate the text
     //QFont myFont;
     //QFontMetrics fm(myFont);
     //auto width = fm.width(m_text);
     //setFixedWidth(width + 10);
+  } else {
+
+    if (!m_label->text().isEmpty()) {
+      isChanged = true;
+      m_label->setText("");
+    }
+
+    bool thisDefaulted = false;
+    QVariant currentDefaulted = m_label->property("defaulted");
+    if (currentDefaulted.isNull() || currentDefaulted.toBool() != thisDefaulted) {
+      m_label->setProperty("defaulted", thisDefaulted);
+      isChanged = true;
+    }
+  }
+
+  if (isChanged) {
+    updateStyle();
   }
 
   update();
+}
+
+void OSDropZone2::onModelObjectRemove(const Handle& handle) {
+  refresh();
 }
 
 void OSDropZone2::bind(model::ModelObject& modelObject, OptionalModelObjectGetter get, ModelObjectSetter set, boost::optional<NoFailAction> reset,
@@ -614,7 +634,12 @@ void OSDropZone2::bind(model::ModelObject& modelObject, OptionalModelObjectGette
   m_isDefaulted = isDefaulted;
   m_isReadOnly = isReadOnly;
   m_modelObject = modelObject;
+
   setAcceptDrops(true);
+
+  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
+    .get()
+    ->openstudio::model::detail::ModelObject_Impl::onChange.connect<OSDropZone2, &OSDropZone2::refresh>(this);
 
   refresh();
 }
@@ -628,6 +653,10 @@ void OSDropZone2::unbind() {
   m_isReadOnly.reset();
 
   setAcceptDrops(false);
+
+  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
+    .get()
+    ->openstudio::model::detail::ModelObject_Impl::onChange.disconnect<OSDropZone2, &OSDropZone2::refresh>(this);
 
   refresh();
 }
@@ -686,44 +715,38 @@ void OSDropZone2::dropEvent(QDropEvent* event) {
 
     connect(m_item, &OSItem::itemRemoveClicked, this, &OSDropZone2::onItemRemoveClicked);
 
-    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
-      .get()
-      ->openstudio::model::detail::ModelObject_Impl::onChange.connect<OSDropZone2, &OSDropZone2::refresh>(this);
-
-    if (modelObject) {
-      if (doc->fromBCL(itemId)) {
-        // model object already cloned above
-        OS_ASSERT(componentData);
-        if (m_set) {
-          bool success = (*m_set)(modelObject.get());
-          if (!success) {
-            std::vector<Handle> handlesToRemove;
-            for (const auto& object : componentData->componentObjects()) {
-              handlesToRemove.push_back(object.handle());
-            }
-            doc->model().removeObjects(handlesToRemove);
-            // removing objects in component will remove component data object via component watcher
-            //componentData->remove();
-            OS_ASSERT(componentData->handle().isNull());
+    if (doc->fromBCL(itemId)) {
+      // model object already cloned above
+      OS_ASSERT(componentData);
+      if (m_set) {
+        bool success = (*m_set)(modelObject.get());
+        if (!success) {
+          std::vector<Handle> handlesToRemove;
+          for (const auto& object : componentData->componentObjects()) {
+            handlesToRemove.push_back(object.handle());
           }
+          doc->model().removeObjects(handlesToRemove);
+          // removing objects in component will remove component data object via component watcher
+          //componentData->remove();
+          OS_ASSERT(componentData->handle().isNull());
         }
-        refresh();
-      } else if (doc->fromComponentLibrary(itemId)) {
-        modelObject = modelObject->clone(m_modelObject->model());
-        if (m_set) {
-          bool success = (*m_set)(modelObject.get());
-          if (!success) {
-            modelObject->remove();
-          }
+      }
+    } else if (doc->fromComponentLibrary(itemId)) {
+      modelObject = modelObject->clone(m_modelObject->model());
+      if (m_set) {
+        bool success = (*m_set)(modelObject.get());
+        if (!success) {
+          modelObject->remove();
         }
-        refresh();
-      } else {
-        if (m_set) {
-          (*m_set)(modelObject.get());
-        }
-        refresh();
+      }
+    } else {
+      if (m_set) {
+        (*m_set)(modelObject.get());
       }
     }
+
+    refresh();
+
   }
 }
 
@@ -772,7 +795,7 @@ void OSDropZone2::focusOutEvent(QFocusEvent* e) {
 
 void OSDropZone2::onItemRemoveClicked() {
   if (m_reset && !m_locked) {
-    boost::optional<model::ModelObject> modelObject = (*m_get)();
+    boost::optional<model::ModelObject> modelObject = updateGetterResult();
     boost::optional<model::ParentObject> parent = boost::none;
     if (modelObject) {
       parent = modelObject->parent();
@@ -794,8 +817,8 @@ void OSDropZone2::updateStyle() {
 }
 
 void OSDropZone2::makeItem() {
-  if (!m_item && m_get && *m_get) {
-    boost::optional<model::ModelObject> modelObject = (*m_get)();
+  if (!m_item && m_get) {
+    boost::optional<model::ModelObject> modelObject = updateGetterResult();
 
     if (modelObject) {
 
@@ -814,12 +837,48 @@ void OSDropZone2::makeItem() {
         m_item->setRemoveable(true);
       }
       connect(m_item, &OSItem::itemRemoveClicked, this, &OSDropZone2::onItemRemoveClicked);
-
-      modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
-        .get()
-        ->openstudio::model::detail::ModelObject_Impl::onChange.connect<OSDropZone2, &OSDropZone2::refresh>(this);
     }
   }
+}
+
+boost::optional<model::ModelObject> OSDropZone2::updateGetterResult() {
+  if (!m_get) {
+    if (m_getterResult) {
+      // we don't care about this object anymore
+      m_getterResult->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.disconnect<OSDropZone2, &OSDropZone2::refresh>(this);
+      m_getterResult->getImpl<openstudio::model::detail::ModelObject_Impl>()
+        .get()
+        ->onRemoveFromWorkspace.disconnect<OSDropZone2, &OSDropZone2::onModelObjectRemove>(this);
+      m_getterResult.reset();
+    }
+    return boost::none;
+  }
+
+  boost::optional<model::ModelObject> newGetterResult = (*m_get)();
+
+  if (m_getterResult == newGetterResult) {
+    // no change
+    return m_getterResult;
+  }
+
+  if (m_getterResult) {
+    // we don't care about this object anymore
+    m_getterResult->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.disconnect<OSDropZone2, &OSDropZone2::refresh>(this);
+    m_getterResult->getImpl<openstudio::model::detail::ModelObject_Impl>()
+      .get()
+      ->onRemoveFromWorkspace.disconnect<OSDropZone2, &OSDropZone2::onModelObjectRemove>(this);
+  }
+
+  m_getterResult = newGetterResult;
+
+  if (m_getterResult) {
+    m_getterResult->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.connect<OSDropZone2, &OSDropZone2::refresh>(this);
+    m_getterResult->getImpl<openstudio::model::detail::ModelObject_Impl>()
+      .get()
+      ->onRemoveFromWorkspace.connect<OSDropZone2, &OSDropZone2::onModelObjectRemove>(this);
+  }
+  
+  return m_getterResult;
 }
 
 }  // namespace openstudio
