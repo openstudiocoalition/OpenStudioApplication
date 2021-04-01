@@ -108,6 +108,8 @@ void OSWidgetHolder::setCellProperties(const GridCellLocation& location, const G
     unsignedEdit->setLocked(info.isLocked());
   } else if (OSDropZone2* dropZone = qobject_cast<OSDropZone2*>(m_widget)) {
     dropZone->setLocked(info.isLocked());
+  } else if (OSLoadNamePixmapLineEdit* pixmap = qobject_cast<OSLoadNamePixmapLineEdit*>(m_widget)) {
+    pixmap->setLocked(info.isLocked());
   } else if (OSCheckBox3* checkBox = qobject_cast<OSCheckBox3*>(m_widget)) {
     checkBox->setLocked(info.isLocked());
     if (info.isSelector) {

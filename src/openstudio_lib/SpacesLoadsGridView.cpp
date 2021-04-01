@@ -115,6 +115,14 @@
 
 namespace openstudio {
 
+bool laamalama(const model::ModelObject& modelObject) {
+  if (modelObject.optionalCast<model::SpaceLoad>()) {
+    model::SpaceLoad load = modelObject.cast<model::SpaceLoad>();
+    return load.spaceType().is_initialized();
+  }
+  return false;
+}
+
 SpacesLoadsGridView::SpacesLoadsGridView(bool isIP, const model::Model& model, QWidget* parent) : SpacesSubtabGridView(isIP, model, parent) {
   showStoryFilter();
   showThermalZoneFilter();
@@ -126,6 +134,16 @@ SpacesLoadsGridView::SpacesLoadsGridView(bool isIP, const model::Model& model, Q
 
   m_gridController = new SpacesLoadsGridController(isIP, "Space", IddObjectType::OS_Space, model, m_spacesModelObjects);
   m_gridView = new OSGridView(m_gridController, "Space", "Drop\nSpace", false, parent);
+
+  const std::function<bool(const model::ModelObject&)> isLocked([](const model::ModelObject& modelObject) {
+    if (modelObject.optionalCast<model::SpaceLoad>()) {
+      model::SpaceLoad load = modelObject.cast<model::SpaceLoad>();
+      return load.spaceType().is_initialized();
+    }
+    return false;
+  });
+
+  m_gridController->setObjectIsLocked(isLocked);
 
   setGridController(m_gridController);
   setGridView(m_gridView);
@@ -615,8 +633,6 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
         return false;
       });
 
-      boost::optional<std::function<bool(model::ModelObject*)>> isActivityLevelScheduleLocked;
-
       std::function<bool(model::ModelObject*, const model::Schedule&)> setSchedule([](model::ModelObject* l, model::Schedule t_s) {
         if (boost::optional<model::People> p = l->optionalCast<model::People>()) {
           return p->setNumberofPeopleSchedule(t_s);
@@ -721,8 +737,6 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
           return false;
         }
       });
-
-      boost::optional<std::function<bool(model::ModelObject*)>> isScheduleLocked;
 
       std::function<boost::optional<model::Schedule>(model::ModelObject*)> activityLevelSchedule([](model::ModelObject* l) {
         if (boost::optional<model::People> p = l->optionalCast<model::People>()) {
@@ -833,20 +847,14 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
                             std::function<void(model::SpaceLoad*)>([](model::SpaceLoad* t_sl) { t_sl->remove(); })),
                           boost::optional<std::function<bool(model::SpaceLoad*)>>(
                             std::function<bool(model::SpaceLoad*)>([](model::SpaceLoad* t_sl) { return !t_sl->space(); })),
-                          boost::optional<std::function<bool(model::SpaceLoad*)>>(), DataSource(allLoads, true));
+                          DataSource(allLoads, true));
 
       } else if (field == SELECTED) {
         auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
         checkbox->setToolTip("Check to select all rows");
         connect(checkbox.data(), &OSSelectAllCheckBox::stateChanged, this, &SpacesLoadsGridController::onSelectAllStateChanged);
         connect(this, &SpacesLoadsGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
-        std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool {
-          if (t_obj->optionalCast<model::SpaceLoad>()) {
-            return !t_obj->cast<model::SpaceLoad>().space();
-          }
-          return false;
-        });
-        addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", isLocked, DataSource(allLoads, true));
+        addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", DataSource(allLoads, true));
       } else if (field == MULTIPLIER) {
 
         // TODO: add isReadOnly to addValueEditColumn
@@ -918,24 +926,22 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
         boost::optional<std::function<void(model::Space*)>> resetter;
         boost::optional<std::function<bool(model::Space*)>> isDefaulted(
           std::function<bool(model::Space*)>([](model::Space* t_space) { return false; }));
-        boost::optional<std::function<bool(model::Space*)>> isLocked;
 
         addNameLineEditColumn(
           Heading(QString(DEFINITION), true, false), true, false, CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::name),
           CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::setName),
           boost::optional<std::function<void(model::SpaceLoadDefinition*)>>(), boost::optional<std::function<bool(model::SpaceLoadDefinition*)>>(),
-          boost::optional<std::function<bool(model::SpaceLoadDefinition*)>>(),
           DataSource(allDefinitions, false,
                      QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<model::SpaceLoadDefinition, model::Space>(
-                       Heading(DEFINITION), getter, setter, resetter, isDefaulted, isLocked))));
+                       Heading(DEFINITION), getter, setter, resetter, isDefaulted))));
       } else if (field == SCHEDULE) {
 
-        addDropZoneColumn(Heading(QString(SCHEDULE)), schedule, setSchedule, resetSchedule, isScheduleDefaulted, isScheduleLocked,
+        addDropZoneColumn(Heading(QString(SCHEDULE)), schedule, setSchedule, resetSchedule, isScheduleDefaulted,
                           DataSource(allLoadsWithSchedules, true));
 
       } else if (field == ACTIVITYSCHEDULE) {
         addDropZoneColumn(Heading(QString(SCHEDULE)), activityLevelSchedule, setActivityLevelSchedule, resetActivityLevelSchedule,
-                          isActivityLevelScheduleDefaulted, isActivityLevelScheduleLocked, DataSource(allLoadsWithActivityLevelSchedules, true));
+                          isActivityLevelScheduleDefaulted, DataSource(allLoadsWithActivityLevelSchedules, true));
       } else {
         // unhandled
         OS_ASSERT(false);

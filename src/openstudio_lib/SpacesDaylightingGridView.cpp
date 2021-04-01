@@ -209,8 +209,7 @@ void SpacesDaylightingGridController::addColumns(const QString& category, std::v
         checkbox->setToolTip("Check to select all rows");
         connect(checkbox.data(), &OSSelectAllCheckBox::stateChanged, this, &SpacesDaylightingGridController::onSelectAllStateChanged);
         connect(this, &SpacesDaylightingGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
-        std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; });
-        addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", isLocked);
+        addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row");
         //addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row",
         //  DataSource(
         //  allLoads,

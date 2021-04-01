@@ -296,18 +296,7 @@ class BaseConcept
   virtual ~BaseConcept() {}
 
   BaseConcept(const Heading& t_heading, bool t_hasClickFocus = false)
-    : m_heading(t_heading), m_selector(false), m_baseLocked(false), m_hasClickFocus(t_hasClickFocus) {}
-
-  // isLocked is true if the element cannot be modified, it can still be clicked on in some cases
-  virtual bool isLocked(const ConceptProxy& obj) {
-    return m_baseLocked;
-  }
-  bool baseLocked() const {
-    return m_baseLocked;
-  }
-  void setBaseLocked(bool baseLocked) {
-    m_baseLocked = baseLocked;
-  }
+    : m_heading(t_heading), m_selector(false), m_hasClickFocus(t_hasClickFocus) {}
 
   // isSelector is true for checkbox cells in the select column
   bool isSelector() const {
@@ -330,7 +319,6 @@ class BaseConcept
  private:
   Heading m_heading;
   bool m_selector;
-  bool m_baseLocked;
   bool m_hasClickFocus;
 };
 
@@ -359,8 +347,8 @@ class CheckBoxConceptImpl : public CheckBoxConcept
 {
  public:
   CheckBoxConceptImpl(const Heading& t_heading, const std::string& t_tooltip, std::function<bool(DataSourceType*)> t_getter,
-                      std::function<void(DataSourceType*, bool)> t_setter, std::function<bool(DataSourceType*)> t_isLocked)
-    : CheckBoxConcept(t_heading, t_tooltip), m_getter(t_getter), m_setter(t_setter), m_isLocked(t_isLocked) {}
+                      std::function<void(DataSourceType*, bool)> t_setter)
+    : CheckBoxConcept(t_heading, t_tooltip), m_getter(t_getter), m_setter(t_setter) {}
 
   virtual ~CheckBoxConceptImpl() {}
 
@@ -374,18 +362,9 @@ class CheckBoxConceptImpl : public CheckBoxConcept
     return m_setter(&obj, value);
   }
 
-  virtual bool isLocked(const ConceptProxy& t_obj) override {
-    if (baseLocked()) {
-      return true;
-    }
-    DataSourceType obj = t_obj.cast<DataSourceType>();
-    return m_isLocked(&obj);
-  }
-
  private:
   std::function<bool(DataSourceType*)> m_getter;
   std::function<void(DataSourceType*, bool)> m_setter;
-  std::function<bool(DataSourceType*)> m_isLocked;
 };
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -415,8 +394,8 @@ class CheckBoxConceptBoolReturnImpl : public CheckBoxConceptBoolReturn
 {
  public:
   CheckBoxConceptBoolReturnImpl(const Heading& t_heading, const std::string& t_tooltip, std::function<bool(DataSourceType*)> t_getter,
-                                std::function<bool(DataSourceType*, bool)> t_setter, std::function<bool(DataSourceType*)> t_isLocked)
-    : CheckBoxConceptBoolReturn(t_heading, t_tooltip), m_getter(t_getter), m_setter(t_setter), m_isLocked(t_isLocked) {}
+                                std::function<bool(DataSourceType*, bool)> t_setter)
+    : CheckBoxConceptBoolReturn(t_heading, t_tooltip), m_getter(t_getter), m_setter(t_setter) {}
 
   virtual ~CheckBoxConceptBoolReturnImpl() {}
 
@@ -430,18 +409,9 @@ class CheckBoxConceptBoolReturnImpl : public CheckBoxConceptBoolReturn
     return m_setter(&obj, value);
   }
 
-  virtual bool isLocked(const ConceptProxy& t_obj) override {
-    if (baseLocked()) {
-      return true;
-    }
-    DataSourceType obj = t_obj.cast<DataSourceType>();
-    return m_isLocked(&obj);
-  }
-
  private:
   std::function<bool(DataSourceType*)> m_getter;
   std::function<bool(DataSourceType*, bool)> m_setter;
-  std::function<bool(DataSourceType*)> m_isLocked;
 };
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -1027,14 +997,12 @@ class NameLineEditConceptImpl : public NameLineEditConcept
                           std::function<boost::optional<std::string>(DataSourceType*, bool)> t_getter,
                           std::function<boost::optional<std::string>(DataSourceType*, const std::string&)> t_setter,
                           boost::optional<std::function<void(DataSourceType*)>> t_reset,
-                          boost::optional<std::function<bool(DataSourceType*)>> t_isInherited,
-                          boost::optional<std::function<bool(DataSourceType*)>> t_isLocked)
+                          boost::optional<std::function<bool(DataSourceType*)>> t_isInherited)
     : NameLineEditConcept(t_heading, t_osLineEditType, t_isInspectable, t_deleteObject, t_hasClickFocus),
       m_getter(t_getter),
       m_setter(t_setter),
       m_reset(t_reset),
-      m_isInherited(t_isInherited),
-      m_isLocked(t_isLocked) {}
+      m_isInherited(t_isInherited) {}
 
   virtual ~NameLineEditConceptImpl() {}
 
@@ -1079,25 +1047,11 @@ class NameLineEditConceptImpl : public NameLineEditConcept
     return result;
   }
 
-  virtual bool isLocked(const ConceptProxy& t_obj) override {
-    if (baseLocked()) {
-      return true;
-    }
-
-    bool result = false;
-    if (m_isLocked) {
-      DataSourceType obj = t_obj.cast<DataSourceType>();
-      result = (*m_isLocked)(&obj);
-    }
-    return result;
-  }
-
  private:
   std::function<boost::optional<std::string>(DataSourceType*, bool)> m_getter;
   std::function<boost::optional<std::string>(DataSourceType*, const std::string&)> m_setter;
   boost::optional<std::function<void(DataSourceType*)>> m_reset;
   boost::optional<std::function<bool(DataSourceType*)>> m_isInherited;
-  boost::optional<std::function<bool(DataSourceType*)>> m_isLocked;
 };
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -1420,9 +1374,8 @@ class DropZoneConceptImpl : public DropZoneConcept
  public:
   DropZoneConceptImpl(const Heading& t_heading, std::function<boost::optional<ValueType>(DataSourceType*)> t_getter,
                       std::function<bool(DataSourceType*, const ValueType&)> t_setter, boost::optional<std::function<void(DataSourceType*)>> t_reset,
-                      boost::optional<std::function<bool(DataSourceType*)>> t_isDefaulted,
-                      boost::optional<std::function<bool(DataSourceType*)>> t_isLocked)
-    : DropZoneConcept(t_heading), m_getter(t_getter), m_setter(t_setter), m_reset(t_reset), m_isDefaulted(t_isDefaulted), m_isLocked(t_isLocked) {}
+                      boost::optional<std::function<bool(DataSourceType*)>> t_isDefaulted)
+    : DropZoneConcept(t_heading), m_getter(t_getter), m_setter(t_setter), m_reset(t_reset), m_isDefaulted(t_isDefaulted) {}
 
   virtual ~DropZoneConceptImpl() {}
 
@@ -1448,10 +1401,6 @@ class DropZoneConceptImpl : public DropZoneConcept
 
   virtual bool isDefaulted(const ConceptProxy& obj) override {
     return isDefaultedImpl(obj);
-  }
-
-  virtual bool isLocked(const ConceptProxy& obj) override {
-    return isLockedImpl(obj);
   }
 
   virtual boost::optional<ValueType> getImpl(const ConceptProxy& t_obj) {
@@ -1484,24 +1433,11 @@ class DropZoneConceptImpl : public DropZoneConcept
     return result;
   }
 
-  virtual bool isLockedImpl(const ConceptProxy& t_obj) {
-    if (baseLocked()) {
-      return true;
-    }
-    bool result = false;
-    if (m_isLocked) {
-      DataSourceType obj = t_obj.cast<DataSourceType>();
-      result = (*m_isLocked)(&obj);
-    }
-    return result;
-  }
-
  private:
   std::function<boost::optional<ValueType>(DataSourceType*)> m_getter;
   std::function<bool(DataSourceType*, const ValueType&)> m_setter;
   boost::optional<std::function<void(DataSourceType*)>> m_reset;
   boost::optional<std::function<bool(DataSourceType*)>> m_isDefaulted;
-  boost::optional<std::function<bool(DataSourceType*)>> m_isLocked;
 };
 
 ///////////////////////////////////////////////////////////////////////////////////

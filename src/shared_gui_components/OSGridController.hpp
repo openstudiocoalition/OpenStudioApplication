@@ -31,6 +31,7 @@
 #define SHAREDGUICOMPONENTS_OSGRIDCONTROLLER_HPP
 
 #include "OSConcepts.hpp"
+#include "OSObjectSelector.hpp"
 #include "../model_editor/QMetaTypes.hpp"
 #include "../openstudio_lib/OSItem.hpp"
 #include "../openstudio_lib/OSVectorController.hpp"
@@ -179,8 +180,7 @@ class OSGridController : public QObject
  protected:
   void resetBaseConcepts();
 
-  template <typename DataSourceType>
-  void addSelectColumn(const Heading& heading, const std::string& tooltip, std::function<bool(DataSourceType*)> isLocked,
+  void addSelectColumn(const Heading& heading, const std::string& tooltip, 
                        const boost::optional<DataSource>& t_source = boost::none) {
     auto objectSelector = m_objectSelector;
     auto getter = std::function<bool(model::ModelObject*)>([objectSelector](model::ModelObject* t_obj) -> bool {
@@ -193,24 +193,24 @@ class OSGridController : public QObject
       objectSelector->setObjectSelected(*t_obj, t_set);
     });
 
-    addCheckBoxColumn(heading, tooltip, getter, setter, isLocked, t_source);
+    addCheckBoxColumn(heading, tooltip, getter, setter, t_source);
     m_baseConcepts.back()->setIsSelector(true);
   }
 
   template <typename DataSourceType>
   void addCheckBoxColumn(const Heading& heading, const std::string& tooltip, std::function<bool(DataSourceType*)> t_getter,
-                         std::function<void(DataSourceType*, bool)> t_setter, std::function<bool(DataSourceType*)> t_isLocked,
+                         std::function<void(DataSourceType*, bool)> t_setter, 
                          const boost::optional<DataSource>& t_source = boost::none) {
     m_baseConcepts.push_back(makeDataSourceAdapter(
-      QSharedPointer<CheckBoxConcept>(new CheckBoxConceptImpl<DataSourceType>(heading, tooltip, t_getter, t_setter, t_isLocked)), t_source));
+      QSharedPointer<CheckBoxConcept>(new CheckBoxConceptImpl<DataSourceType>(heading, tooltip, t_getter, t_setter)), t_source));
   }
 
   template <typename DataSourceType>
   void addCheckBoxColumn(const Heading& heading, const std::string& tooltip, std::function<bool(DataSourceType*)> t_getter,
-                         std::function<bool(DataSourceType*, bool)> t_setter, std::function<bool(DataSourceType*)> t_isLocked,
+                         std::function<bool(DataSourceType*, bool)> t_setter,
                          const boost::optional<DataSource>& t_source = boost::none) {
     m_baseConcepts.push_back(makeDataSourceAdapter(
-      QSharedPointer<CheckBoxConceptBoolReturn>(new CheckBoxConceptBoolReturnImpl<DataSourceType>(heading, tooltip, t_getter, t_setter, t_isLocked)),
+      QSharedPointer<CheckBoxConceptBoolReturn>(new CheckBoxConceptBoolReturnImpl<DataSourceType>(heading, tooltip, t_getter, t_setter)),
       t_source));
   }
 
@@ -314,13 +314,12 @@ class OSGridController : public QObject
                              const std::function<boost::optional<std::string>(DataSourceType*, const std::string&)>& setter,
                              const boost::optional<std::function<void(DataSourceType*)>>& resetter = boost::none,
                              const boost::optional<std::function<bool(DataSourceType*)>>& isDefaulted = boost::none,
-                             const boost::optional<std::function<bool(DataSourceType*)>>& isLocked = boost::none,
                              const boost::optional<DataSource>& t_source = boost::none) {
     const OSLineEditType osLineEditType = OSLineEditType::OSLineEdit2Type;
     const bool hasClickFocus = true;
     m_baseConcepts.push_back(
       makeDataSourceAdapter(QSharedPointer<NameLineEditConcept>(new NameLineEditConceptImpl<DataSourceType>(
-                              heading, osLineEditType, isInspectable, deleteObject, hasClickFocus, getter, setter, resetter, isDefaulted, isLocked)),
+                              heading, osLineEditType, isInspectable, deleteObject, hasClickFocus, getter, setter, resetter, isDefaulted)),
                             t_source));
   }
 
@@ -329,7 +328,6 @@ class OSGridController : public QObject
                          const std::function<boost::optional<std::string>(DataSourceType*, const std::string&)>& setter,
                          const boost::optional<std::function<void(DataSourceType*)>>& resetter = boost::none,
                          const boost::optional<std::function<bool(DataSourceType*)>>& isDefaulted = boost::none,
-                         const boost::optional<std::function<bool(DataSourceType*)>>& isLocked = boost::none,
                          const boost::optional<DataSource>& t_source = boost::none) {
     const OSLineEditType osLineEditType = OSLineEditType::OSLoadNamePixmapLineEditType;
     const bool isInspectable = true;
@@ -337,7 +335,7 @@ class OSGridController : public QObject
     const bool hasClickFocus = true;
     m_baseConcepts.push_back(
       makeDataSourceAdapter(QSharedPointer<NameLineEditConcept>(new NameLineEditConceptImpl<DataSourceType>(
-                              heading, osLineEditType, isInspectable, deleteObject, hasClickFocus, getter, setter, resetter, isDefaulted, isLocked)),
+                              heading, osLineEditType, isInspectable, deleteObject, hasClickFocus, getter, setter, resetter, isDefaulted)),
                             t_source));
   }
 
@@ -390,10 +388,9 @@ class OSGridController : public QObject
                          std::function<bool(DataSourceType*, const ValueType&)> setter,
                          boost::optional<std::function<void(DataSourceType*)>> reset = boost::none,
                          boost::optional<std::function<bool(DataSourceType*)>> isDefaulted = boost::none,
-                         boost::optional<std::function<bool(DataSourceType*)>> isLocked = boost::none,
                          const boost::optional<DataSource>& t_source = boost::none) {
     m_baseConcepts.push_back(makeDataSourceAdapter(
-      QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<ValueType, DataSourceType>(heading, getter, setter, reset, isDefaulted, isLocked)),
+      QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<ValueType, DataSourceType>(heading, getter, setter, reset, isDefaulted)),
       t_source));
   }
 
@@ -442,7 +439,13 @@ class OSGridController : public QObject
 
   std::set<model::ModelObject> selectedObjects() const;
 
+  void clearObjectSelector();
+
+  std::function<bool(const model::ModelObject&)> objectFilter() const;
+
   void setObjectFilter(const std::function<bool(const model::ModelObject&)>& t_filter);
+
+  std::function<bool(const model::ModelObject&)> objectIsLocked() const;
 
   void setObjectIsLocked(const std::function<bool(const model::ModelObject&)>& t_isLocked);
 

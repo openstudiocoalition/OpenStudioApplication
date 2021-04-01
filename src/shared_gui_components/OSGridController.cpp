@@ -798,8 +798,20 @@ std::set<model::ModelObject> OSGridController::selectedObjects() const {
   return m_objectSelector->selectedObjects();
 }
 
+void OSGridController::clearObjectSelector() {
+  m_objectSelector->clear();
+}
+
+std::function<bool(const model::ModelObject&)> OSGridController::objectFilter() const {
+  return m_objectSelector->objectFilter();
+}
+
 void OSGridController::setObjectFilter(const std::function<bool(const model::ModelObject&)>& t_filter) {
   m_objectSelector->setObjectFilter(t_filter);
+}
+
+std::function<bool(const model::ModelObject&)> OSGridController::objectIsLocked() const {
+  return m_objectSelector->objectIsLocked();
 }
 
 void OSGridController::setObjectIsLocked(const std::function<bool(const model::ModelObject&)>& t_isLocked) {

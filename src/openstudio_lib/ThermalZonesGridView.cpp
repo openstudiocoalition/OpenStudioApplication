@@ -214,16 +214,14 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
   Q_FOREACH (QString field, fields) {
     if (field == IDEALAIRLOADS) {
       // We add the "Apply Selected" button to this column by passing 3rd arg, t_showColumnButton=true
-      std::function<bool(model::ThermalZone*)> isLocked([](model::ThermalZone* t_obj) -> bool { return false; });
       addCheckBoxColumn(Heading(QString(IDEALAIRLOADS), true, true), std::string("Check to enable ideal air loads."),
-                        NullAdapter(&model::ThermalZone::useIdealAirLoads), NullAdapter(&model::ThermalZone::setUseIdealAirLoads), isLocked);
+                        NullAdapter(&model::ThermalZone::useIdealAirLoads), NullAdapter(&model::ThermalZone::setUseIdealAirLoads));
     } else if (field == SELECTED) {
       auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
       checkbox->setToolTip("Check to select all rows");
       connect(checkbox.data(), &OSSelectAllCheckBox::stateChanged, this, &ThermalZonesGridController::onSelectAllStateChanged);
       connect(this, &ThermalZonesGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
-      std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; });
-      addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", isLocked);
+      addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row");
     } else if (field == RENDERINGCOLOR) {
       addRenderingColorColumn(Heading(QString(RENDERINGCOLOR), true, false), CastNullAdapter<model::ThermalZone>(&model::ThermalZone::renderingColor),
                               CastNullAdapter<model::ThermalZone>(&model::ThermalZone::setRenderingColor));
@@ -520,10 +518,10 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
                             CastNullAdapter<model::ModelObject>(&model::ModelObject::setName),
                             boost::optional<std::function<void(model::ModelObject*)>>(
                               std::function<void(model::ModelObject*)>([](model::ModelObject* t_mo) { t_mo->remove(); })),
-                            boost::optional<std::function<bool(model::ModelObject*)>>(), boost::optional<std::function<bool(model::ModelObject*)>>(),
+                            boost::optional<std::function<bool(model::ModelObject*)>>(), 
                             DataSource(equipment, false,
                                        QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<model::ModelObject, model::ThermalZone>(
-                                         Heading(ZONEEQUIPMENT), getter, setter, reset, boost::none, boost::none))));
+                                         Heading(ZONEEQUIPMENT), getter, setter, reset, boost::none))));
 
     } else if (field == NAME) {
       addNameLineEditColumn(Heading(QString(NAME), false, false), false, false, CastNullAdapter<model::ThermalZone>(&model::ThermalZone::name),
@@ -542,7 +540,6 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
       addNameLineEditColumn(Heading(QString(AIRLOOPNAME), true, false), false, false, CastNullAdapter<model::ModelObject>(&model::ModelObject::name),
                             std::function<boost::optional<std::string>(model::ModelObject*, const std::string&)>(),
                             boost::optional<std::function<void(model::ModelObject*)>>(), boost::optional<std::function<bool(model::ModelObject*)>>(),
-                            boost::optional<std::function<bool(model::ModelObject*)>>(),
                             // insert DataSourceAdapter
                             DataSource(airloops, true));
 

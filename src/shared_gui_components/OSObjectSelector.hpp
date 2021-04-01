@@ -158,11 +158,6 @@ class OSObjectSelector : public QObject
   // Clear the selection
   void clearSelection();
 
-  // Set an entire row as selected
-  void setRowProperties(const int t_gridRow, PropertyChange t_visible, PropertyChange t_selected, PropertyChange t_locked);
-
-  // Set a subrow as selected
-  void setSubrowProperties(const int t_gridRow, const int t_subrow, PropertyChange t_visible, PropertyChange t_selected, PropertyChange t_locked);
 
   // Check if an object is selected
   bool getObjectSelected(const model::ModelObject& t_obj) const;
@@ -176,8 +171,8 @@ class OSObjectSelector : public QObject
   // Gets selected objects
   std::set<model::ModelObject> selectedObjects() const;
 
-  // Check if an object is visible (passes the filter)
-  //bool getObjectVisible(const model::ModelObject& t_obj) const;
+  // Get the object filter function, function true if object is visible
+  std::function<bool(const model::ModelObject&)> objectFilter() const;
 
   // Set the object filter function, function true if object is visible
   void setObjectFilter(const std::function<bool(const model::ModelObject&)>& t_filter);
@@ -185,8 +180,8 @@ class OSObjectSelector : public QObject
   // Reset the object filter function
   void resetObjectFilter();
 
-  // Check if an object is locked
-  //bool getObjectIsLocked(const model::ModelObject& t_obj) const;
+  // Get the object is locked function, function true if object is locked
+  std::function<bool(const model::ModelObject&)> objectIsLocked() const;
 
   // Set the object is locked function, function true if object is locked
   void setObjectIsLocked(const std::function<bool(const model::ModelObject&)>& t_isLocked);
@@ -222,6 +217,15 @@ class OSObjectSelector : public QObject
 
   std::vector<GridCellInfo*> m_selectorCellInfos;
 
+  // Apply locked and not visible properties to rows and subrows by selector
+  void updateRowsAndSubrows();
+
+  // Set an entire row as selected
+  void setRowProperties(const int t_gridRow, PropertyChange t_visible, PropertyChange t_selected, PropertyChange t_locked);
+
+  // Set a subrow as selected
+  void setSubrowProperties(const int t_gridRow, const int t_subrow, PropertyChange t_visible, PropertyChange t_selected, PropertyChange t_locked);
+  
   GridCellInfo* getGridCellInfo(GridCellLocation* location) const;
 
   // returns true if object is visible

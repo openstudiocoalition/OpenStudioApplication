@@ -278,8 +278,7 @@ void FacilityStoriesGridController::addColumns(const QString& category, std::vec
       checkbox->setToolTip("Check to select all rows");
       connect(checkbox.data(), &OSSelectAllCheckBox::stateChanged, this, &FacilityStoriesGridController::onSelectAllStateChanged);
       connect(this, &FacilityStoriesGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
-      std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; });
-      addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", isLocked);
+      addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row");
     } else if (field == NOMINALZCOORDINATE) {
       addQuantityEditColumn(Heading(QString(NOMINALFLOORTOFLOORHEIGHT)), QString("m"), QString("m"), QString("ft"), isIP(),
                             NullAdapter(&model::BuildingStory::nominalZCoordinate), NullAdapter(&model::BuildingStory::setNominalZCoordinate));

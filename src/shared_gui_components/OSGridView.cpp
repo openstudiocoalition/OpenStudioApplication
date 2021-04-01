@@ -343,7 +343,9 @@ void OSGridView::recreateAll() {
 
   if (m_gridController) {
     m_gridController->refreshModelObjects();
-    m_gridController->m_objectSelector->clear();
+    auto objectFilter = m_gridController->objectFilter();
+    auto objectIsLocked = m_gridController->objectIsLocked();
+    m_gridController->clearObjectSelector();
 
     const auto numRows = m_gridController->rowCount();
     const auto numColumns = m_gridController->columnCount();
@@ -352,6 +354,9 @@ void OSGridView::recreateAll() {
         createCellWrapper(i, j);
       }
     }
+
+    m_gridController->setObjectFilter(objectFilter);
+    m_gridController->setObjectIsLocked(objectIsLocked);
 
     setUpdatesEnabled(true);
 

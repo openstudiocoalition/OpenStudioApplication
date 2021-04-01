@@ -153,9 +153,7 @@ void FacilityExteriorEquipmentGridController::addColumns(const QString& category
       connect(checkbox.data(), &OSSelectAllCheckBox::stateChanged, this, &FacilityExteriorEquipmentGridController::onSelectAllStateChanged);
       connect(this, &FacilityExteriorEquipmentGridController::gridRowSelectionChanged, checkbox.data(),
               &OSSelectAllCheckBox::onGridRowSelectionChanged);
-      std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; });
-
-      addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", isLocked);
+      addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row");
     } else if (field == EXTERIORLIGHTSDEFINITION) {
       std::function<boost::optional<model::ExteriorLightsDefinition>(model::ExteriorLights*)> get([](model::ExteriorLights* el) {
         boost::optional<model::ExteriorLightsDefinition> optional = el->exteriorLightsDefinition();

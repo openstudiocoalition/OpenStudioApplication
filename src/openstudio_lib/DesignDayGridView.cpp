@@ -252,27 +252,22 @@ void DesignDayGridController::addColumns(const QString& /*category*/, std::vecto
     // Evan note: addCheckBoxColumn does not yet handle reset and default
     if (field == DAYLIGHTSAVINGTIMEINDICATOR) {
       // We add the "Apply Selected" button to this column by passing 3rd arg, t_showColumnButton=true
-      std::function<bool(model::DesignDay*)> isLocked([](model::DesignDay* t_obj) -> bool { return false; });
       addCheckBoxColumn(Heading(QString(DAYLIGHTSAVINGTIMEINDICATOR), true, true), std::string("Check to enable daylight saving time indicator."),
-                        NullAdapter(&model::DesignDay::daylightSavingTimeIndicator), NullAdapter(&model::DesignDay::setDaylightSavingTimeIndicator),
-                        isLocked);
+                        NullAdapter(&model::DesignDay::daylightSavingTimeIndicator), NullAdapter(&model::DesignDay::setDaylightSavingTimeIndicator));
     } else if (field == RAININDICATOR) {
       // We add the "Apply Selected" button to this column by passing 3rd arg, t_showColumnButton=true
-      std::function<bool(model::DesignDay*)> isLocked([](model::DesignDay* t_obj) -> bool { return false; });
       addCheckBoxColumn(Heading(QString(RAININDICATOR), true, true), std::string("Check to enable rain indicator."),
-                        NullAdapter(&model::DesignDay::rainIndicator), NullAdapter(&model::DesignDay::setRainIndicator), isLocked);
+                        NullAdapter(&model::DesignDay::rainIndicator), NullAdapter(&model::DesignDay::setRainIndicator));
     } else if (field == SNOWINDICATOR) {
       // We add the "Apply Selected" button to this column by passing 3rd arg, t_showColumnButton=true
-      std::function<bool(model::DesignDay*)> isLocked([](model::DesignDay* t_obj) -> bool { return false; });
       addCheckBoxColumn(Heading(QString(SNOWINDICATOR), true, true), std::string("Check to enable snow indicator."),
-                        NullAdapter(&model::DesignDay::snowIndicator), NullAdapter(&model::DesignDay::setSnowIndicator), isLocked);
+                        NullAdapter(&model::DesignDay::snowIndicator), NullAdapter(&model::DesignDay::setSnowIndicator));
     } else if (field == SELECTED) {
       auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
       checkbox->setToolTip("Check to select all rows");
       connect(checkbox.data(), &OSSelectAllCheckBox::stateChanged, this, &DesignDayGridController::onSelectAllStateChanged);
       connect(this, &DesignDayGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
-      std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; });
-      addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", isLocked, boost::none);
+      addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row");
     }
     // INTEGER
     else if (field == DAYOFMONTH) {

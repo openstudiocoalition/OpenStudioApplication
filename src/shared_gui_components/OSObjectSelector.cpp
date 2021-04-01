@@ -157,6 +157,9 @@ bool GridCellInfo::isVisible() const {
 bool GridCellInfo::setVisible(bool visible) {
   if (m_isVisible != visible) {
     m_isVisible = visible;
+    if (!visible) {
+      m_isSelected = false;
+    }
     return true;
   }
   return false;
@@ -193,7 +196,7 @@ bool GridCellInfo::setLocked(bool locked) {
   return false;
 }
 
-OSObjectSelector::OSObjectSelector(QObject* parent) : QObject(parent), m_objectFilter(getDefaultFilter()) {}
+OSObjectSelector::OSObjectSelector(QObject* parent) : QObject(parent), m_objectFilter(getDefaultFilter()), m_isLocked(getDefaultIsLocked()) {}
 
 OSObjectSelector::~OSObjectSelector() {}
 
@@ -216,11 +219,12 @@ void OSObjectSelector::clear() {
 void OSObjectSelector::addObject(const boost::optional<model::ModelObject>& t_obj, OSWidgetHolder* t_holder, int t_modelRow, int t_gridRow,
                                  int t_column, const boost::optional<int>& t_subrow, const bool t_isSelector) {
 
-  // todo: remove existing location and info if they exist
+  // todo: remove existing GridCellInfo and GridCellLocation if they exist
 
-  const bool isVisible = true;
-  const bool isSelected = false;
-  const bool isLocked = false;
+  bool isVisible = true;
+  bool isSelected = false;
+  bool isLocked = false;
+
   GridCellInfo* info = new GridCellInfo(t_obj, t_isSelector, isVisible, isSelected, isLocked, this);
   GridCellLocation* location = new GridCellLocation(t_modelRow, t_gridRow, t_column, t_subrow, this);
 
@@ -316,6 +320,39 @@ void OSObjectSelector::clearSelection() {
   }
 
   emit gridRowSelectionChanged(0, numSelectable);
+}
+
+void OSObjectSelector::updateRowsAndSubrows() {
+  for (auto& location : m_selectorCellLocations) {
+    GridCellInfo* info = getGridCellInfo(location);
+    if (info && info->isSelector) {
+  
+      bool needsUpdate = false;
+      PropertyChange visible = NoChange;
+      PropertyChange selected = NoChange;
+      PropertyChange locked = NoChange;
+
+      if (info->isLocked()) {
+        needsUpdate = true;
+        selected = PropertyChange::ChangeToFalse;
+        locked = PropertyChange::ChangeToTrue;
+      }
+
+      if (!info->isVisible()) {
+        needsUpdate = true;
+        visible = PropertyChange::ChangeToFalse;
+        selected = PropertyChange::ChangeToFalse;
+      }
+
+      if (needsUpdate) {
+        if (location->subrow) {
+          setSubrowProperties(location->gridRow, location->subrow.get(), visible, selected, locked);
+        } else {
+          setRowProperties(location->gridRow, visible, selected, locked);
+        }
+      }
+    }
+  }
 }
 
 void OSObjectSelector::setRowProperties(const int t_gridRow, PropertyChange t_visible, PropertyChange t_selected, PropertyChange t_locked) {
@@ -461,6 +498,10 @@ std::set<model::ModelObject> OSObjectSelector::selectedObjects() const {
 //  return false;
 //}
 
+std::function<bool(const model::ModelObject&)> OSObjectSelector::objectFilter() const {
+  return m_objectFilter;
+}
+
 void OSObjectSelector::setObjectFilter(const std::function<bool(const model::ModelObject&)>& t_filter) {
   m_objectFilter = t_filter;
 
@@ -468,15 +509,12 @@ void OSObjectSelector::setObjectFilter(const std::function<bool(const model::Mod
     if (locationInfoPair.second->modelObject) {
       bool visible = m_objectFilter(locationInfoPair.second->modelObject.get());
       bool changed = locationInfoPair.second->setVisible(visible);
-      if (!visible) {
-        // deselect object when it gets filtered out
-        changed = locationInfoPair.second->setSelected(false) || changed;
-      }
       if (changed) {
         emit gridCellChanged(*locationInfoPair.first, *locationInfoPair.second);
       }
     }
   }
+  updateRowsAndSubrows();
 }
 
 void OSObjectSelector::resetObjectFilter() {
@@ -492,6 +530,10 @@ void OSObjectSelector::resetObjectFilter() {
 //  return false;
 //}
 
+std::function<bool(const model::ModelObject&)> OSObjectSelector::objectIsLocked() const {
+  return m_isLocked;
+}
+
 void OSObjectSelector::setObjectIsLocked(const std::function<bool(const model::ModelObject&)>& t_isLocked) {
   m_isLocked = t_isLocked;
 
@@ -501,14 +543,11 @@ void OSObjectSelector::setObjectIsLocked(const std::function<bool(const model::M
       locked = m_isLocked(locationInfoPair.second->modelObject.get());
     }
     bool changed = locationInfoPair.second->setLocked(locked);
-    if (locked) {
-      // deselect object when it gets locked
-      changed = locationInfoPair.second->setSelected(false) || changed;
-    }
     if (changed) {
       emit gridCellChanged(*locationInfoPair.first, *locationInfoPair.second);
     }
   }
+  updateRowsAndSubrows();
 }
 
 void OSObjectSelector::resetObjectIsLocked() {

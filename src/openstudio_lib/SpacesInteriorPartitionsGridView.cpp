@@ -190,8 +190,7 @@ void SpacesInteriorPartitionsGridController::addColumns(const QString& category,
         connect(checkbox.data(), &OSSelectAllCheckBox::stateChanged, this, &SpacesInteriorPartitionsGridController::onSelectAllStateChanged);
         connect(this, &SpacesInteriorPartitionsGridController::gridRowSelectionChanged, checkbox.data(),
                 &OSSelectAllCheckBox::onGridRowSelectionChanged);
-        std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; });
-        addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", isLocked,
+        addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row",
                         DataSource(allInteriorPartitionSurfaces, true));
       } else if (field == INTERIORPARTITIONGROUPNAME) {
         addNameLineEditColumn(Heading(QString(INTERIORPARTITIONGROUPNAME), true, false), false, false,
@@ -199,14 +198,12 @@ void SpacesInteriorPartitionsGridController::addColumns(const QString& category,
                               CastNullAdapter<model::InteriorPartitionSurfaceGroup>(&model::InteriorPartitionSurfaceGroup::setName),
                               boost::optional<std::function<void(model::InteriorPartitionSurfaceGroup*)>>(),
                               boost::optional<std::function<bool(model::InteriorPartitionSurfaceGroup*)>>(),
-                              boost::optional<std::function<bool(model::InteriorPartitionSurfaceGroup*)>>(),
                               DataSource(allInteriorPartitionSurfaceInteriorPartitionSurfaceGroups, true));
       } else if (field == INTERIORPARTITIONNAME) {
         addNameLineEditColumn(Heading(QString(INTERIORPARTITIONNAME), true, false), false, false,
                               CastNullAdapter<model::InteriorPartitionSurface>(&model::InteriorPartitionSurface::name),
                               CastNullAdapter<model::InteriorPartitionSurface>(&model::InteriorPartitionSurface::setName),
                               boost::optional<std::function<void(model::InteriorPartitionSurface*)>>(),
-                              boost::optional<std::function<bool(model::InteriorPartitionSurface*)>>(),
                               boost::optional<std::function<bool(model::InteriorPartitionSurface*)>>(),
                               DataSource(allInteriorPartitionSurfaces, true));
       } else if (field == CONSTRUCTIONNAME) {
@@ -218,13 +215,12 @@ void SpacesInteriorPartitionsGridController::addColumns(const QString& category,
           boost::optional<std::function<void(model::InteriorPartitionSurface*)>>(NullAdapter(&model::InteriorPartitionSurface::resetConstruction)),
           boost::optional<std::function<bool(model::InteriorPartitionSurface*)>>(
             NullAdapter(&model::InteriorPartitionSurface::isConstructionDefaulted)),
-          boost::optional<std::function<bool(model::InteriorPartitionSurface*)>>(), DataSource(allInteriorPartitionSurfaces, true));
+          DataSource(allInteriorPartitionSurfaces, true));
       } else if (field == CONVERTTOINTERNALMASS) {
         // We add the "Apply Selected" button to this column by passing 3rd arg, t_showColumnButton=true
-        std::function<bool(model::InteriorPartitionSurface*)> isLocked([](model::InteriorPartitionSurface* t_obj) -> bool { return false; });
         addCheckBoxColumn(Heading(QString(CONVERTTOINTERNALMASS), true, true), std::string("Check to enable convert to InternalMass."),
                           NullAdapter(&model::InteriorPartitionSurface::converttoInternalMass),
-                          NullAdapter(&model::InteriorPartitionSurface::setConverttoInternalMass), isLocked,
+                          NullAdapter(&model::InteriorPartitionSurface::setConverttoInternalMass),
                           DataSource(allInteriorPartitionSurfaces, true));
       } else if (field == SURFACEAREA) {
         std::function<bool(model::InteriorPartitionSurface*, double)> setter(

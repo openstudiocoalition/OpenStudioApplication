@@ -299,8 +299,7 @@ void RefrigerationCaseGridController::addColumns(const QString& /*category*/, st
       checkbox->setToolTip("Check to select all rows");
       connect(checkbox.data(), &OSSelectAllCheckBox::stateChanged, this, &RefrigerationCaseGridController::onSelectAllStateChanged);
       connect(this, &RefrigerationCaseGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
-      std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; });
-      addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", isLocked);
+      addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row");
     } else if (field == RATEDAMBIENTRELATIVEHUMIDITY) {
       addValueEditColumn(Heading(QString(RATEDAMBIENTRELATIVEHUMIDITY)), NullAdapter(&model::RefrigerationCase::ratedAmbientRelativeHumidity),
                          NullAdapter(&model::RefrigerationCase::setRatedAmbientRelativeHumidity));
@@ -660,8 +659,7 @@ void RefrigerationWalkInGridController::addColumns(const QString& /*category*/, 
       checkbox->setToolTip("Check to select all rows");
       connect(checkbox.data(), &OSSelectAllCheckBox::stateChanged, this, &RefrigerationWalkInGridController::onSelectAllStateChanged);
       connect(this, &RefrigerationWalkInGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
-      std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; });
-      addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", isLocked);
+      addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row");
     } else if (field == DEFROSTCONTROLTYPE) {
       addComboBoxColumn<std::string, model::RefrigerationWalkIn>(
         Heading(QString(DEFROSTCONTROLTYPE)), static_cast<std::string (*)(const std::string&)>(&openstudio::toString),

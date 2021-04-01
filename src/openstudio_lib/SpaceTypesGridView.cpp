@@ -457,9 +457,8 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
       checkbox->setToolTip("Check to select all rows");
       connect(checkbox.data(), &OSSelectAllCheckBox::stateChanged, this, &SpaceTypesGridController::onSelectAllStateChanged);
       connect(this, &SpaceTypesGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
-      std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; });
 
-      addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", isLocked);
+      addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row");
     } else if (field == LOADNAME || field == MULTIPLIER || field == DEFINITION || field == SCHEDULE || field == ACTIVITYSCHEDULE ||
                field == SELECTED) {
       // Create a lambda function that collates all of the loads in a space type
@@ -1052,7 +1051,7 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
                           CastNullAdapter<model::SpaceLoad>(&model::SpaceLoad::setName),
                           boost::optional<std::function<void(model::SpaceLoad*)>>(
                             std::function<void(model::SpaceLoad*)>([](model::SpaceLoad* t_sl) { t_sl->remove(); })),
-                          boost::optional<std::function<bool(model::SpaceLoad*)>>(), boost::optional<std::function<bool(model::SpaceLoad*)>>(),
+                          boost::optional<std::function<bool(model::SpaceLoad*)>>(),
                           DataSource(allLoads, true));
 
       } else if (field == SELECTED) {
@@ -1060,9 +1059,7 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
         checkbox->setToolTip("Check to select all rows");
         connect(checkbox.data(), &OSSelectAllCheckBox::stateChanged, this, &SpaceTypesGridController::onSelectAllStateChanged);
         connect(this, &SpaceTypesGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
-        std::function<bool(model::ModelObject*)> isLocked([](model::ModelObject* t_obj) -> bool { return false; });
-
-        addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", isLocked, DataSource(allLoads, true));
+        addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", DataSource(allLoads, true));
       } else if (field == MULTIPLIER) {
 
         addValueEditColumn(
@@ -1150,20 +1147,19 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
           Heading(QString(DEFINITION), true, false), true, false, CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::name),
           CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::setName),
           boost::optional<std::function<void(model::SpaceLoadDefinition*)>>(), boost::optional<std::function<bool(model::SpaceLoadDefinition*)>>(),
-          boost::optional<std::function<bool(model::SpaceLoadDefinition*)>>(),
           DataSource(allDefinitions, false,
                      QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<model::SpaceLoadDefinition, model::SpaceType>(
-                       Heading(DEFINITION), getter, setter, boost::none, boost::none, boost::none))));
+                       Heading(DEFINITION), getter, setter, boost::none, boost::none))));
 
       } else if (field == SCHEDULE) {
 
-        addDropZoneColumn(Heading(QString(SCHEDULE)), schedule, setSchedule, resetSchedule, isScheduleDefaulted, isScheduleDefaulted,
+        addDropZoneColumn(Heading(QString(SCHEDULE)), schedule, setSchedule, resetSchedule, isScheduleDefaulted,
                           DataSource(allLoadsWithSchedules, true));
 
       } else if (field == ACTIVITYSCHEDULE) {
 
         addDropZoneColumn(Heading(QString(SCHEDULE)), activityLevelSchedule, setActivityLevelSchedule, resetActivityLevelSchedule,
-                          isActivityLevelScheduleDefaulted, isActivityLevelScheduleDefaulted, DataSource(allLoadsWithActivityLevelSchedules, true));
+                          isActivityLevelScheduleDefaulted, DataSource(allLoadsWithActivityLevelSchedules, true));
       }
 
     } else if (field == DEFAULTCONSTRUCTIONSET) {
@@ -1221,10 +1217,9 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
         boost::optional<std::function<void(model::SpaceInfiltrationDesignFlowRate*)>>(
           std::function<void(model::SpaceInfiltrationDesignFlowRate*)>([](model::SpaceInfiltrationDesignFlowRate* t_fr) { t_fr->resetSpaceType(); })),
         boost::optional<std::function<bool(model::SpaceInfiltrationDesignFlowRate*)>>(),
-        boost::optional<std::function<bool(model::SpaceInfiltrationDesignFlowRate*)>>(),
         DataSource(flowRates, false,
                    QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<model::SpaceInfiltrationDesignFlowRate, model::SpaceType>(
-                     Heading(SPACEINFILTRATIONDESIGNFLOWRATES), getter, setter, boost::none, boost::none, boost::none))));
+                     Heading(SPACEINFILTRATIONDESIGNFLOWRATES), getter, setter, boost::none, boost::none))));
 
     } else if (field == SPACEINFILTRATIONEFFECTIVELEAKAGEAREAS) {
       std::function<boost::optional<model::SpaceInfiltrationEffectiveLeakageArea>(model::SpaceType*)> getter;
@@ -1257,10 +1252,9 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
           std::function<void(model::SpaceInfiltrationEffectiveLeakageArea*)>(
             [](model::SpaceInfiltrationEffectiveLeakageArea* t_la) { t_la->resetSpaceType(); })),
         boost::optional<std::function<bool(model::SpaceInfiltrationEffectiveLeakageArea*)>>(),
-        boost::optional<std::function<bool(model::SpaceInfiltrationEffectiveLeakageArea*)>>(),
         DataSource(leakageAreas, false,
                    QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<model::SpaceInfiltrationEffectiveLeakageArea, model::SpaceType>(
-                     Heading(SPACEINFILTRATIONEFFECTIVELEAKAGEAREAS), getter, setter, boost::none, boost::none, boost::none))));
+                     Heading(SPACEINFILTRATIONEFFECTIVELEAKAGEAREAS), getter, setter, boost::none, boost::none))));
 
     } else if (field == STANDARDSTEMPLATE) {
 

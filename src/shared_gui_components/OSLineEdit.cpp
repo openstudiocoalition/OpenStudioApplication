@@ -248,11 +248,11 @@ void OSLineEdit2::onEditingFinished() {
 void OSLineEdit2::adjustWidth() {
   if (m_modelObject) {
     // Adjust the width to accommodate the text
-    QFont myFont;
-    QFontMetrics fm(myFont);
-    auto width = fm.horizontalAdvance(toQString(m_text));
-    if (width < 80) width = 80;
-    setFixedWidth(width + 10);
+    //QFont myFont;
+    //QFontMetrics fm(myFont);
+    //auto width = fm.horizontalAdvance(toQString(m_text));
+    //if (width < 80) width = 80;
+    //setFixedWidth(width + 10);
   }
 }
 
