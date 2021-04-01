@@ -180,8 +180,7 @@ class OSGridController : public QObject
  protected:
   void resetBaseConcepts();
 
-  void addSelectColumn(const Heading& heading, const std::string& tooltip, 
-                       const boost::optional<DataSource>& t_source = boost::none) {
+  void addSelectColumn(const Heading& heading, const std::string& tooltip, const boost::optional<DataSource>& t_source = boost::none) {
     auto objectSelector = m_objectSelector;
     auto getter = std::function<bool(model::ModelObject*)>([objectSelector](model::ModelObject* t_obj) -> bool {
       assert(t_obj);
@@ -199,19 +198,16 @@ class OSGridController : public QObject
 
   template <typename DataSourceType>
   void addCheckBoxColumn(const Heading& heading, const std::string& tooltip, std::function<bool(DataSourceType*)> t_getter,
-                         std::function<void(DataSourceType*, bool)> t_setter, 
-                         const boost::optional<DataSource>& t_source = boost::none) {
+                         std::function<void(DataSourceType*, bool)> t_setter, const boost::optional<DataSource>& t_source = boost::none) {
     m_baseConcepts.push_back(makeDataSourceAdapter(
       QSharedPointer<CheckBoxConcept>(new CheckBoxConceptImpl<DataSourceType>(heading, tooltip, t_getter, t_setter)), t_source));
   }
 
   template <typename DataSourceType>
   void addCheckBoxColumn(const Heading& heading, const std::string& tooltip, std::function<bool(DataSourceType*)> t_getter,
-                         std::function<bool(DataSourceType*, bool)> t_setter,
-                         const boost::optional<DataSource>& t_source = boost::none) {
+                         std::function<bool(DataSourceType*, bool)> t_setter, const boost::optional<DataSource>& t_source = boost::none) {
     m_baseConcepts.push_back(makeDataSourceAdapter(
-      QSharedPointer<CheckBoxConceptBoolReturn>(new CheckBoxConceptBoolReturnImpl<DataSourceType>(heading, tooltip, t_getter, t_setter)),
-      t_source));
+      QSharedPointer<CheckBoxConceptBoolReturn>(new CheckBoxConceptBoolReturnImpl<DataSourceType>(heading, tooltip, t_getter, t_setter)), t_source));
   }
 
   template <typename ChoiceType, typename DataSourceType>
@@ -390,8 +386,7 @@ class OSGridController : public QObject
                          boost::optional<std::function<bool(DataSourceType*)>> isDefaulted = boost::none,
                          const boost::optional<DataSource>& t_source = boost::none) {
     m_baseConcepts.push_back(makeDataSourceAdapter(
-      QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<ValueType, DataSourceType>(heading, getter, setter, reset, isDefaulted)),
-      t_source));
+      QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<ValueType, DataSourceType>(heading, getter, setter, reset, isDefaulted)), t_source));
   }
 
   template <typename ValueType, typename DataSourceType>

@@ -1051,8 +1051,7 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
                           CastNullAdapter<model::SpaceLoad>(&model::SpaceLoad::setName),
                           boost::optional<std::function<void(model::SpaceLoad*)>>(
                             std::function<void(model::SpaceLoad*)>([](model::SpaceLoad* t_sl) { t_sl->remove(); })),
-                          boost::optional<std::function<bool(model::SpaceLoad*)>>(),
-                          DataSource(allLoads, true));
+                          boost::optional<std::function<bool(model::SpaceLoad*)>>(), DataSource(allLoads, true));
 
       } else if (field == SELECTED) {
         auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());

@@ -746,7 +746,6 @@ void OSDropZone2::dropEvent(QDropEvent* event) {
     }
 
     refresh();
-
   }
 }
 
@@ -877,7 +876,7 @@ boost::optional<model::ModelObject> OSDropZone2::updateGetterResult() {
       .get()
       ->onRemoveFromWorkspace.connect<OSDropZone2, &OSDropZone2::onModelObjectRemove>(this);
   }
-  
+
   return m_getterResult;
 }
 

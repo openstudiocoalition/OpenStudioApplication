@@ -326,7 +326,7 @@ void OSObjectSelector::updateRowsAndSubrows() {
   for (auto& location : m_selectorCellLocations) {
     GridCellInfo* info = getGridCellInfo(location);
     if (info && info->isSelector) {
-  
+
       bool needsUpdate = false;
       PropertyChange visible = NoChange;
       PropertyChange selected = NoChange;

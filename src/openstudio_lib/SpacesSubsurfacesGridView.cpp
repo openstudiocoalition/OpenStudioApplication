@@ -482,8 +482,7 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
           Heading(QString(FRAMEANDDIVIDERNAME)), CastNullAdapter<model::SubSurface>(&model::SubSurface::windowPropertyFrameAndDivider),
           CastNullAdapter<model::SubSurface>(&model::SubSurface::setWindowPropertyFrameAndDivider),
           boost::optional<std::function<void(model::SubSurface*)>>(NullAdapter(&model::SubSurface::resetWindowPropertyFrameAndDivider)),
-          boost::optional<std::function<bool(model::SubSurface*)>>(), 
-          DataSource(allSubSurfaces, true));
+          boost::optional<std::function<bool(model::SubSurface*)>>(), DataSource(allSubSurfaces, true));
       } else if (field == FRAMEWIDTH) {
         addValueEditColumn(Heading(QString(FRAMEWIDTH), true, false), NullAdapter(&model::WindowPropertyFrameAndDivider::frameWidth),
                            NullAdapter(&model::WindowPropertyFrameAndDivider::setFrameWidth),
@@ -718,8 +717,7 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
                               CastNullAdapter<model::DaylightingDeviceShelf>(&model::DaylightingDeviceShelf::name),
                               CastNullAdapter<model::DaylightingDeviceShelf>(&model::DaylightingDeviceShelf::setName),
                               boost::optional<std::function<void(model::DaylightingDeviceShelf*)>>(),
-                              boost::optional<std::function<bool(model::DaylightingDeviceShelf*)>>(),
-                              DataSource(allDaylightingDeviceShelfs, true));
+                              boost::optional<std::function<bool(model::DaylightingDeviceShelf*)>>(), DataSource(allDaylightingDeviceShelfs, true));
       } else if (field == INSIDESHELFNAME) {
 
         std::function<bool(model::DaylightingDeviceShelf*, const model::InteriorPartitionSurface&)> setter(
@@ -728,8 +726,7 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
         addDropZoneColumn(Heading(QString(INSIDESHELFNAME)),
                           CastNullAdapter<model::DaylightingDeviceShelf>(&model::DaylightingDeviceShelf::insideShelf), setter,
                           boost::optional<std::function<void(model::DaylightingDeviceShelf*)>>(),
-                          boost::optional<std::function<bool(model::DaylightingDeviceShelf*)>>(),
-                          DataSource(allDaylightingDeviceShelfs, true));
+                          boost::optional<std::function<bool(model::DaylightingDeviceShelf*)>>(), DataSource(allDaylightingDeviceShelfs, true));
       } else if (field == OUTSIDESHELFNAME) {
 
         std::function<bool(model::DaylightingDeviceShelf*, const model::ShadingSurface&)> setter(
@@ -738,8 +735,7 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
         addDropZoneColumn(Heading(QString(OUTSIDESHELFNAME)),
                           CastNullAdapter<model::DaylightingDeviceShelf>(&model::DaylightingDeviceShelf::outsideShelf), setter,
                           boost::optional<std::function<void(model::DaylightingDeviceShelf*)>>(),
-                          boost::optional<std::function<bool(model::DaylightingDeviceShelf*)>>(),
-                          DataSource(allDaylightingDeviceShelfs, true));
+                          boost::optional<std::function<bool(model::DaylightingDeviceShelf*)>>(), DataSource(allDaylightingDeviceShelfs, true));
       } else if (field == VIEWFACTORTOOUTSIDESHELF) {
         addValueEditColumn(
           Heading(QString(VIEWFACTORTOOUTSIDESHELF)), NullAdapter(&model::DaylightingDeviceShelf::viewFactortoOutsideShelf),

@@ -158,7 +158,6 @@ class OSObjectSelector : public QObject
   // Clear the selection
   void clearSelection();
 
-
   // Check if an object is selected
   bool getObjectSelected(const model::ModelObject& t_obj) const;
 
@@ -225,7 +224,7 @@ class OSObjectSelector : public QObject
 
   // Set a subrow as selected
   void setSubrowProperties(const int t_gridRow, const int t_subrow, PropertyChange t_visible, PropertyChange t_selected, PropertyChange t_locked);
-  
+
   GridCellInfo* getGridCellInfo(GridCellLocation* location) const;
 
   // returns true if object is visible

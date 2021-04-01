@@ -220,8 +220,7 @@ void SpacesInteriorPartitionsGridController::addColumns(const QString& category,
         // We add the "Apply Selected" button to this column by passing 3rd arg, t_showColumnButton=true
         addCheckBoxColumn(Heading(QString(CONVERTTOINTERNALMASS), true, true), std::string("Check to enable convert to InternalMass."),
                           NullAdapter(&model::InteriorPartitionSurface::converttoInternalMass),
-                          NullAdapter(&model::InteriorPartitionSurface::setConverttoInternalMass),
-                          DataSource(allInteriorPartitionSurfaces, true));
+                          NullAdapter(&model::InteriorPartitionSurface::setConverttoInternalMass), DataSource(allInteriorPartitionSurfaces, true));
       } else if (field == SURFACEAREA) {
         std::function<bool(model::InteriorPartitionSurface*, double)> setter(
           [](model::InteriorPartitionSurface* t_interiorPartitionSurface, double t_arg) {

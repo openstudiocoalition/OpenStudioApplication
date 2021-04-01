@@ -490,8 +490,7 @@ void FacilityShadingGridController::addColumns(const QString& category, std::vec
         checkbox->setToolTip("Check to select all rows");
         connect(checkbox.data(), &OSSelectAllCheckBox::stateChanged, this, &FacilityShadingGridController::onSelectAllStateChanged);
         connect(this, &FacilityShadingGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
-        addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row",
-                        DataSource(allShadingSurfaces, true));
+        addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", DataSource(allShadingSurfaces, true));
       } else if (field == SHADINGSURFACENAME) {
         addLoadNameColumn(Heading(QString(SHADINGSURFACENAME), true, false), CastNullAdapter<model::ShadingSurface>(&model::ShadingSurface::name),
                           CastNullAdapter<model::ShadingSurface>(&model::ShadingSurface::setName),
