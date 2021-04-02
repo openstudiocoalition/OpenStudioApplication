@@ -68,7 +68,7 @@ class OSCellWrapper : public QWidget
 
   virtual ~OSCellWrapper();
 
-  void addOSWidget(QWidget* widget, const boost::optional<model::ModelObject>& obj, const bool isSelector);
+  void addOSWidget(QWidget* widget, const boost::optional<model::ModelObject>& obj, const bool isSelector, const bool hasSubRows);
 
   void setGridController(OSGridController* gridController);
   void setModelObject(const boost::optional<model::ModelObject>& modelObject);

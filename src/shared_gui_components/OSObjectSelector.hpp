@@ -137,7 +137,7 @@ class OSObjectSelector : public QObject
 
   // Adds object to the internal maps
   void addObject(const boost::optional<model::ModelObject>& t_obj, OSWidgetHolder* t_holder, int t_modelRow, int t_gridRow, int t_column,
-                 const boost::optional<int>& t_subrow, bool t_isSelector);
+                 const boost::optional<int>& t_subrow, bool t_isSelector, bool t_isParent);
 
   // Lock and hide any grid cells referencing this object
   void setObjectRemoved(const openstudio::Handle& handle);
@@ -163,6 +163,9 @@ class OSObjectSelector : public QObject
 
   // Set a selectable object as selected
   void setObjectSelected(const model::ModelObject& t_obj, bool t_selected);
+
+  // Gets selector objects
+  std::set<model::ModelObject> selectorObjects() const;
 
   // Gets selectable objects
   std::set<model::ModelObject> selectableObjects() const;
@@ -212,12 +215,17 @@ class OSObjectSelector : public QObject
 
   std::map<GridCellLocation*, GridCellInfo*> m_gridCellLocationToInfoMap;
 
+  // selector cells are the ones with checkboxes, performance optimization
   std::vector<GridCellLocation*> m_selectorCellLocations;
 
-  std::vector<GridCellInfo*> m_selectorCellInfos;
+  // parent cells are the first column in a row that has sub rows, performance optimization
+  std::vector<GridCellLocation*> m_parentCellLocations;
 
-  // Apply locked and not visible properties to rows and subrows by selector
-  void updateRowsAndSubrows();
+  std::vector<GridCellLocation*> m_selectorOrParentCellLocations;
+
+  // Apply locked and not visible properties to rows and subrows
+  void updateRowsAndSubrows(const std::vector<std::pair<GridCellLocation*, PropertyChange>>& visibleChanges,
+                            const std::vector<std::pair<GridCellLocation*, PropertyChange>>& lockedChanges);
 
   // Set an entire row as selected
   void setRowProperties(const int t_gridRow, PropertyChange t_visible, PropertyChange t_selected, PropertyChange t_locked);

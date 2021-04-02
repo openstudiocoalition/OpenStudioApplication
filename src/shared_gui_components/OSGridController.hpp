@@ -319,6 +319,23 @@ class OSGridController : public QObject
                             t_source));
   }
 
+  // parent here means column 0 in a row with subrows
+  template <typename DataSourceType>
+  void addParentNameLineEditColumn(const Heading& heading, bool isInspectable, bool deleteObject,
+                                   const std::function<boost::optional<std::string>(DataSourceType*, bool)>& getter,
+                                   const std::function<boost::optional<std::string>(DataSourceType*, const std::string&)>& setter,
+                                   const boost::optional<std::function<void(DataSourceType*)>>& resetter = boost::none,
+                                   const boost::optional<std::function<bool(DataSourceType*)>>& isDefaulted = boost::none,
+                                   const boost::optional<DataSource>& t_source = boost::none) {
+    const OSLineEditType osLineEditType = OSLineEditType::OSLineEdit2Type;
+    const bool hasClickFocus = true;
+    m_baseConcepts.push_back(
+      makeDataSourceAdapter(QSharedPointer<NameLineEditConcept>(new NameLineEditConceptImpl<DataSourceType>(
+                              heading, osLineEditType, isInspectable, deleteObject, hasClickFocus, getter, setter, resetter, isDefaulted)),
+                            t_source));
+    m_baseConcepts.back()->setIsParent(true);
+  }
+
   template <typename DataSourceType>
   void addLoadNameColumn(const Heading& heading, const std::function<boost::optional<std::string>(DataSourceType*, bool)>& getter,
                          const std::function<boost::optional<std::string>(DataSourceType*, const std::string&)>& setter,
@@ -429,6 +446,8 @@ class OSGridController : public QObject
   model::Model& model();
 
   std::vector<model::ModelObject> modelObjects() const;
+
+  std::set<model::ModelObject> selectorObjects() const;
 
   std::set<model::ModelObject> selectableObjects() const;
 

@@ -422,7 +422,7 @@ OSCellWrapper* OSGridController::createCellWrapper(int gridRow, int column, OSGr
     const Heading& heading = baseConcept->heading();
 
     wrapper->layout()->setContentsMargins(0, 1, 1, 0);
-    wrapper->addOSWidget(m_horizontalHeaders.at(column), boost::none, false);
+    wrapper->addOSWidget(m_horizontalHeaders.at(column), boost::none, false, false);
 
     HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeaders.at(column));
     OS_ASSERT(horizontalHeaderWidget);
@@ -788,6 +788,10 @@ void OSGridController::onSetApplyButtonState() {
   }
 
   m_applyToButtonStates.clear();
+}
+
+std::set<model::ModelObject> OSGridController::selectorObjects() const {
+  return m_objectSelector->selectorObjects();
 }
 
 std::set<model::ModelObject> OSGridController::selectableObjects() const {

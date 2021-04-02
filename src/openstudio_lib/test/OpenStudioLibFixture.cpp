@@ -96,8 +96,8 @@ std::vector<GridCellLocation*> OpenStudioLibFixture::getSelectorCellLocations(op
   return os->m_selectorCellLocations;
 }
 
-std::vector<GridCellInfo*> OpenStudioLibFixture::getSelectorCellInfos(openstudio::OSObjectSelector* os) {
-  return os->m_selectorCellInfos;
+std::vector<GridCellLocation*> OpenStudioLibFixture::getParentCellLocations(openstudio::OSObjectSelector* os) {
+  return os->m_parentCellLocations;
 }
 
 boost::optional<openstudio::model::ModelObject> OpenStudioLibFixture::getModelObject(openstudio::OSDropZone2* dropZone) {

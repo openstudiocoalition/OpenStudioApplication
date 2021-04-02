@@ -597,7 +597,7 @@ void SpacesSubtabGridView::subSurfaceTypeFilterChanged(const QString& text) {
     std::string subSurfaceTypeToKeep = openstudio::toString(text);
 
     // ObjectSelector::m_selectableObjects returns SubSurfaces directly
-    for (const auto& obj : this->m_gridController->selectableObjects()) {
+    for (const auto& obj : this->m_gridController->selectorObjects()) {
       // LOG(Debug, "subSurfaceTypeFilterChanged, obj=" << obj.briefDescription());
       const auto& subsurface = obj.optionalCast<model::SubSurface>();
       if (subsurface) {
@@ -648,48 +648,66 @@ void SpacesSubtabGridView::spaceNameFilterChanged() {
 }
 
 void SpacesSubtabGridView::loadTypeFilterChanged(const QString& text) {
-  LOG(Debug, "Load filter changed: " << toString(text));
+  m_objectsFilteredByLoadType.clear();
 
   if (text == ALL) {
-    this->m_gridController->setObjectFilter([](const model::ModelObject& obj) -> bool { return true; });
+    // nothing to filter
   } else {
-    this->m_gridController->setObjectFilter([text](const model::ModelObject& obj) -> bool {
-      try {
-        //obj.cast<model::SpaceLoadInstance>();  TODO uncomment with correct type
-        // This is a spaceloadinstance, so we want to see if it matches our filter
 
-        if (text == INTERNALMASS) {
-          return static_cast<bool>(obj.optionalCast<model::InternalMass>());
-        } else if (text == PEOPLE) {
-          return static_cast<bool>(obj.optionalCast<model::People>());
-        } else if (text == LIGHTS) {
-          return static_cast<bool>(obj.optionalCast<model::Lights>());
-        } else if (text == LUMINAIRE) {
-          return static_cast<bool>(obj.optionalCast<model::Luminaire>());
-        } else if (text == ELECTRICEQUIPMENT) {
-          return static_cast<bool>(obj.optionalCast<model::ElectricEquipment>());
-        } else if (text == GASEQUIPMENT) {
-          return static_cast<bool>(obj.optionalCast<model::GasEquipment>());
-        } else if (text == HOTWATEREQUIPMENT) {
-          return static_cast<bool>(obj.optionalCast<model::HotWaterEquipment>());
-        } else if (text == STEAMEQUIPMENT) {
-          return static_cast<bool>(obj.optionalCast<model::SteamEquipment>());
-        } else if (text == OTHEREQUIPMENT) {
-          return static_cast<bool>(obj.optionalCast<model::OtherEquipment>());
-        } else if (text == SPACEINFILTRATIONDESIGNFLOWRATE) {
-          return static_cast<bool>(obj.optionalCast<model::SpaceInfiltrationDesignFlowRate>());
-        } else if (text == SPACEINFILTRATIONEFFECTIVELEAKAGEAREA) {
-          return static_cast<bool>(obj.optionalCast<model::SpaceInfiltrationEffectiveLeakageArea>());
-        } else {
-          // Should never get here
-          OS_ASSERT(false);
-          return false;
+    // ObjectSelector::m_selectableObjects returns Load objects directly
+    for (const auto& obj : this->m_gridController->selectorObjects()) {
+      if (text == INTERNALMASS) {
+        if (!obj.optionalCast<model::InternalMass>()) {
+          m_objectsFilteredByLoadType.insert(obj);
         }
-      } catch (...) {
-        return true;  // this isn't a space load instance, so don't apply filtering
+      } else if (text == PEOPLE) {
+        if (!obj.optionalCast<model::People>()) {
+          m_objectsFilteredByLoadType.insert(obj);
+        }
+      } else if (text == LIGHTS) {
+        if (!obj.optionalCast<model::Lights>()) {
+          m_objectsFilteredByLoadType.insert(obj);
+        }
+      } else if (text == LUMINAIRE) {
+        if (!obj.optionalCast<model::Luminaire>()) {
+          m_objectsFilteredByLoadType.insert(obj);
+        }
+      } else if (text == ELECTRICEQUIPMENT) {
+        if (!obj.optionalCast<model::ElectricEquipment>()) {
+          m_objectsFilteredByLoadType.insert(obj);
+        }
+      } else if (text == GASEQUIPMENT) {
+        if (!obj.optionalCast<model::GasEquipment>()) {
+          m_objectsFilteredByLoadType.insert(obj);
+        }
+      } else if (text == HOTWATEREQUIPMENT) {
+        if (!obj.optionalCast<model::HotWaterEquipment>()) {
+          m_objectsFilteredByLoadType.insert(obj);
+        }
+      } else if (text == STEAMEQUIPMENT) {
+        if (!obj.optionalCast<model::SteamEquipment>()) {
+          m_objectsFilteredByLoadType.insert(obj);
+        }
+      } else if (text == OTHEREQUIPMENT) {
+        if (!obj.optionalCast<model::OtherEquipment>()) {
+          m_objectsFilteredByLoadType.insert(obj);
+        }
+      } else if (text == SPACEINFILTRATIONDESIGNFLOWRATE) {
+        if (!obj.optionalCast<model::SpaceInfiltrationDesignFlowRate>()) {
+          m_objectsFilteredByLoadType.insert(obj);
+        }
+      } else if (text == SPACEINFILTRATIONEFFECTIVELEAKAGEAREA) {
+        if (!obj.optionalCast<model::SpaceInfiltrationEffectiveLeakageArea>()) {
+          m_objectsFilteredByLoadType.insert(obj);
+        }
+      } else {
+        // Should never get here
+        OS_ASSERT(false);
       }
-    });
+    }
   }
+
+  filterChanged();
 }
 
 void SpacesSubtabGridView::windExposureFilterChanged(const QString& text) {
@@ -702,7 +720,7 @@ void SpacesSubtabGridView::windExposureFilterChanged(const QString& text) {
     std::string windExposureToKeep = openstudio::toString(text);
 
     // ObjectSelector::m_selectableObjects returns Surfaces directly
-    for (const auto& obj : this->m_gridController->selectableObjects()) {
+    for (const auto& obj : this->m_gridController->selectorObjects()) {
       // LOG(Debug, "windExposureFilterChanged, obj=" << obj.briefDescription());
       const auto& surface = obj.optionalCast<model::Surface>();
       if (surface) {
@@ -727,7 +745,7 @@ void SpacesSubtabGridView::sunExposureFilterChanged(const QString& text) {
     std::string sunExposureToKeep = openstudio::toString(text);
 
     // ObjectSelector::m_selectableObjects returns Surfaces directly
-    for (const auto& obj : this->m_gridController->selectableObjects()) {
+    for (const auto& obj : this->m_gridController->selectorObjects()) {
       // LOG(Debug, "sunExposureFilterChanged, obj=" << obj.briefDescription());
       const auto& surface = obj.optionalCast<model::Surface>();
       if (surface) {
@@ -752,7 +770,7 @@ void SpacesSubtabGridView::outsideBoundaryConditionFilterChanged(const QString& 
     std::string outsideBoundCondToKeep = openstudio::toString(text);
 
     // ObjectSelector::m_selectableObjects returns either Surfaces or SubSurfaces directly, depending on the subtab it's on
-    for (const auto& obj : this->m_gridController->selectableObjects()) {
+    for (const auto& obj : this->m_gridController->selectorObjects()) {
       // LOG(Debug, "outsideBoundaryConditionFilterChanged, obj=" << obj.briefDescription());
       std::string outsideBoundaryCondition;
       if (const auto& surface = obj.optionalCast<model::Surface>()) {
@@ -779,7 +797,7 @@ void SpacesSubtabGridView::surfaceTypeFilterChanged(const QString& text) {
     std::string surfaceTypeToKeep = openstudio::toString(text);
 
     // ObjectSelector::m_selectableObjects Surfaces directly
-    for (const auto& obj : this->m_gridController->selectableObjects()) {
+    for (const auto& obj : this->m_gridController->selectorObjects()) {
       // LOG(Debug, "surfaceTypeFilterChanged, obj=" << obj.briefDescription());
       const auto& surface = obj.optionalCast<model::Surface>();
       if (surface) {
@@ -800,7 +818,7 @@ void SpacesSubtabGridView::interiorPartitionGroupFilterChanged(const QString& te
   if (m_interiorPartitionGroupFilter->currentText() == ALL) {
     // nothing to filter
   } else {
-    for (const auto& obj : this->m_gridController->selectableObjects()) {
+    for (const auto& obj : this->m_gridController->selectorObjects()) {
       const auto& interiorPartitionSurfaceGroup = obj.optionalCast<model::InteriorPartitionSurfaceGroup>();
       if (interiorPartitionSurfaceGroup) {
         if (!interiorPartitionSurfaceGroup->name() || (interiorPartitionSurfaceGroup->name().get().c_str() != text)) {
@@ -838,6 +856,7 @@ void SpacesSubtabGridView::filterChanged() {
   allFilteredObjects.insert(m_objectsFilteredByOutsideBoundaryCondition.begin(), m_objectsFilteredByOutsideBoundaryCondition.end());
   allFilteredObjects.insert(m_objectsFilteredBySurfaceType.begin(), m_objectsFilteredBySurfaceType.end());
   allFilteredObjects.insert(m_objectsFilteredByInteriorPartitionGroup.begin(), m_objectsFilteredByInteriorPartitionGroup.end());
+  allFilteredObjects.insert(m_objectsFilteredByLoadType.begin(), m_objectsFilteredByLoadType.end());
 
   // add space filters to all filters
   allFilteredObjects.insert(spaceFilteredObjects.begin(), spaceFilteredObjects.end());

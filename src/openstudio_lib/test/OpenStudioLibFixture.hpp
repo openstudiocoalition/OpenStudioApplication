@@ -83,7 +83,7 @@ class OpenStudioLibFixture : public ::testing::Test
 
   std::map<openstudio::GridCellLocation*, openstudio::GridCellInfo*> getGridCellLocationToInfoMap(openstudio::OSObjectSelector* os);
   std::vector<openstudio::GridCellLocation*> getSelectorCellLocations(openstudio::OSObjectSelector* os);
-  std::vector<openstudio::GridCellInfo*> getSelectorCellInfos(openstudio::OSObjectSelector* os);
+  std::vector<openstudio::GridCellLocation*> getParentCellLocations(openstudio::OSObjectSelector* os);
 
   boost::optional<openstudio::model::ModelObject> getModelObject(openstudio::OSDropZone2* dropZone);
   boost::optional<openstudio::model::ModelObject> getModelObject(openstudio::OSLineEdit2* lineEdit);

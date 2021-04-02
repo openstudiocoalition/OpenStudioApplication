@@ -120,10 +120,11 @@ void OSCellWrapper::refresh() {
         auto mo = item->cast<model::ModelObject>();
         auto innerConcept = dataSource->innerConcept();
         bool isThisSelector = (m_baseConcept->isSelector() || innerConcept->isSelector());
+        bool isThisParent = (m_baseConcept->isParent() || innerConcept->isParent());
 
-        addOSWidget(createOSWidget(mo, innerConcept), mo, isThisSelector);
+        addOSWidget(createOSWidget(mo, innerConcept), mo, isThisSelector, isThisParent);
       } else {
-        addOSWidget(new QWidget(nullptr), boost::none, false);
+        addOSWidget(new QWidget(nullptr), boost::none, false, false);
       }
       subrowCounter++;
     }
@@ -131,14 +132,14 @@ void OSCellWrapper::refresh() {
     if (dataSource->source().wantsPlaceholder()) {
       // use this space to put in a blank placeholder of some kind to make sure the
       // widget is evenly laid out relative to its friends in the adjacent columns
-      addOSWidget(new QWidget(nullptr), boost::none, false);
+      addOSWidget(new QWidget(nullptr), boost::none, false, false);
     }
 
     if (dataSource->source().dropZoneConcept()) {
       // it makes sense to me that the drop zone would need a reference to the parent containing object
       // not an object the rest in the list was derived from
       // this should also be working and doing what you want
-      addOSWidget(createOSWidget(m_modelObject.get(), dataSource->source().dropZoneConcept()), boost::none, false);
+      addOSWidget(createOSWidget(m_modelObject.get(), dataSource->source().dropZoneConcept()), boost::none, false, false);
     }
 
     // right here you probably want some kind of container that's smart enough to know how to grow
@@ -150,7 +151,7 @@ void OSCellWrapper::refresh() {
     // This case is exactly what it used to do before the DataSource idea was added.
 
     // just the one
-    addOSWidget(createOSWidget(m_modelObject.get(), m_baseConcept), m_modelObject.get(), m_baseConcept->isSelector());
+    addOSWidget(createOSWidget(m_modelObject.get(), m_baseConcept), m_modelObject.get(), m_baseConcept->isSelector(), m_baseConcept->isParent());
   }
 
   if (m_hasSubRows) {
@@ -492,7 +493,7 @@ QWidget* OSCellWrapper::createOSWidget(model::ModelObject t_mo, const QSharedPoi
   return widget;
 }
 
-void OSCellWrapper::addOSWidget(QWidget* widget, const boost::optional<model::ModelObject>& obj, const bool isSelector) {
+void OSCellWrapper::addOSWidget(QWidget* widget, const boost::optional<model::ModelObject>& obj, const bool isSelector, const bool isParent) {
   OS_ASSERT(m_objectSelector);
 
   bool isEven = ((m_gridRow % 2) == 0);
@@ -517,26 +518,17 @@ void OSCellWrapper::addOSWidget(QWidget* widget, const boost::optional<model::Mo
     connect(lineEdit, &OSLineEdit2::inFocus, holder, &OSWidgetHolder::inFocus);
   } else if (OSUnsignedEdit2* unsignedEdit = qobject_cast<OSUnsignedEdit2*>(widget)) {
     connect(unsignedEdit, &OSUnsignedEdit2::inFocus, holder, &OSWidgetHolder::inFocus);
+  } else if (OSLoadNamePixmapLineEdit* pixmap = qobject_cast<OSLoadNamePixmapLineEdit*>(widget)) {
+    connect(pixmap, &OSLoadNamePixmapLineEdit::inFocus, holder, &OSWidgetHolder::inFocus);
   } else if (OSDropZone2* dropZone = qobject_cast<OSDropZone2*>(widget)) {
     connect(dropZone, &OSDropZone2::inFocus, holder, &OSWidgetHolder::inFocus);
-    // Is this widget's subrow a surface with a defaulted construction?
-    //if (t_obj) {
-    //  if (auto planarSurface = t_obj->optionalCast<model::PlanarSurface>()) {
-    //    if (planarSurface->isConstructionDefaulted()) {
-    //      // Is this column a construction?
-    //      if (column == m_constructionColumn) {
-    //        dropZone->setIsDefaulted(true);
-    //      }
-    //    }
-    //  }
-    //}
   } else if (HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(widget)) {
     connect(horizontalHeaderWidget, &HorizontalHeaderWidget::inFocus, holder, &OSWidgetHolder::inFocus);
   } else if (OSCheckBox3* checkBox = qobject_cast<OSCheckBox3*>(widget)) {
     connect(checkBox, &OSCheckBox3::inFocus, holder, &OSWidgetHolder::inFocus);
   }
 
-  m_objectSelector->addObject(obj, holder, m_modelRow, m_gridRow, m_column, m_hasSubRows ? subrow : boost::optional<int>(), isSelector);
+  m_objectSelector->addObject(obj, holder, m_modelRow, m_gridRow, m_column, m_hasSubRows ? subrow : boost::optional<int>(), isSelector, isParent);
 }
 
 }  // namespace openstudio

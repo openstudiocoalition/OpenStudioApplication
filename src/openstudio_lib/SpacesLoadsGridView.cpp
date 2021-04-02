@@ -115,14 +115,6 @@
 
 namespace openstudio {
 
-bool laamalama(const model::ModelObject& modelObject) {
-  if (modelObject.optionalCast<model::SpaceLoad>()) {
-    model::SpaceLoad load = modelObject.cast<model::SpaceLoad>();
-    return load.spaceType().is_initialized();
-  }
-  return false;
-}
-
 SpacesLoadsGridView::SpacesLoadsGridView(bool isIP, const model::Model& model, QWidget* parent) : SpacesSubtabGridView(isIP, model, parent) {
   showStoryFilter();
   showThermalZoneFilter();
@@ -205,8 +197,8 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
     if (field == NAME) {
       const bool isInspectable = false;
       const bool deleteObject = false;
-      addNameLineEditColumn(Heading(QString(NAME), false, false), isInspectable, deleteObject, CastNullAdapter<model::Space>(&model::Space::name),
-                            CastNullAdapter<model::Space>(&model::Space::setName));
+      addParentNameLineEditColumn(Heading(QString(NAME), false, false), isInspectable, deleteObject,
+                                  CastNullAdapter<model::Space>(&model::Space::name), CastNullAdapter<model::Space>(&model::Space::setName));
     } else {
       // Create a lambda function that collates all of the loads in a space
       // and returns them as an std::vector

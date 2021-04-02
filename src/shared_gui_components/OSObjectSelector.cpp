@@ -210,14 +210,15 @@ void OSObjectSelector::clear() {
   }
 
   m_selectorCellLocations.clear();
-  m_selectorCellInfos.clear();
+  m_parentCellLocations.clear();
+  m_selectorOrParentCellLocations.clear();
 
   m_objectFilter = getDefaultFilter();
   m_isLocked = getDefaultIsLocked();
 }
 
 void OSObjectSelector::addObject(const boost::optional<model::ModelObject>& t_obj, OSWidgetHolder* t_holder, int t_modelRow, int t_gridRow,
-                                 int t_column, const boost::optional<int>& t_subrow, const bool t_isSelector) {
+                                 int t_column, const boost::optional<int>& t_subrow, const bool t_isSelector, const bool t_isParent) {
 
   // todo: remove existing GridCellInfo and GridCellLocation if they exist
 
@@ -233,7 +234,14 @@ void OSObjectSelector::addObject(const boost::optional<model::ModelObject>& t_ob
 
   if (t_isSelector) {
     m_selectorCellLocations.push_back(location);
-    m_selectorCellInfos.push_back(info);
+  }
+
+  if (t_isParent) {
+    m_parentCellLocations.push_back(location);
+  }
+
+  if (t_isSelector || t_isParent) {
+    m_selectorOrParentCellLocations.push_back(location);
   }
 
   m_gridCellLocationToInfoMap.insert(std::make_pair(location, info));
@@ -322,35 +330,32 @@ void OSObjectSelector::clearSelection() {
   emit gridRowSelectionChanged(0, numSelectable);
 }
 
-void OSObjectSelector::updateRowsAndSubrows() {
-  for (auto& location : m_selectorCellLocations) {
-    GridCellInfo* info = getGridCellInfo(location);
-    if (info && info->isSelector) {
+void OSObjectSelector::updateRowsAndSubrows(const std::vector<std::pair<GridCellLocation*, PropertyChange>>& visibleChanges,
+                                            const std::vector<std::pair<GridCellLocation*, PropertyChange>>& lockedChanges) {
 
-      bool needsUpdate = false;
-      PropertyChange visible = NoChange;
-      PropertyChange selected = NoChange;
-      PropertyChange locked = NoChange;
+  for (auto& locationPropertyChangePair : visibleChanges) {
+    GridCellLocation* location = locationPropertyChangePair.first;
+    PropertyChange visible = locationPropertyChangePair.second;
+    PropertyChange selected = NoChange;
+    PropertyChange locked = NoChange;
 
-      if (info->isLocked()) {
-        needsUpdate = true;
-        selected = PropertyChange::ChangeToFalse;
-        locked = PropertyChange::ChangeToTrue;
-      }
+    if (location->subrow) {
+      setSubrowProperties(location->gridRow, location->subrow.get(), visible, selected, locked);
+    } else {
+      setRowProperties(location->gridRow, visible, selected, locked);
+    }
+  }
 
-      if (!info->isVisible()) {
-        needsUpdate = true;
-        visible = PropertyChange::ChangeToFalse;
-        selected = PropertyChange::ChangeToFalse;
-      }
+  for (auto& locationPropertyChangePair : lockedChanges) {
+    GridCellLocation* location = locationPropertyChangePair.first;
+    PropertyChange visible = NoChange;
+    PropertyChange selected = NoChange;
+    PropertyChange locked = locationPropertyChangePair.second;
 
-      if (needsUpdate) {
-        if (location->subrow) {
-          setSubrowProperties(location->gridRow, location->subrow.get(), visible, selected, locked);
-        } else {
-          setRowProperties(location->gridRow, visible, selected, locked);
-        }
-      }
+    if (location->subrow) {
+      setSubrowProperties(location->gridRow, location->subrow.get(), visible, selected, locked);
+    } else {
+      setRowProperties(location->gridRow, visible, selected, locked);
     }
   }
 }
@@ -467,6 +472,17 @@ void OSObjectSelector::setObjectSelected(const model::ModelObject& t_obj, bool t
   emit gridRowSelectionChanged(numSelected, numSelectable);
 }
 
+std::set<model::ModelObject> OSObjectSelector::selectorObjects() const {
+  std::set<model::ModelObject> result;
+  for (auto& location : m_selectorCellLocations) {
+    GridCellInfo* info = getGridCellInfo(location);
+    if (info && info->isSelector && info->modelObject) {
+      result.insert(info->modelObject.get());
+    }
+  }
+  return result;
+}
+
 std::set<model::ModelObject> OSObjectSelector::selectableObjects() const {
   std::set<model::ModelObject> result;
   for (auto& location : m_selectorCellLocations) {
@@ -505,16 +521,46 @@ std::function<bool(const model::ModelObject&)> OSObjectSelector::objectFilter() 
 void OSObjectSelector::setObjectFilter(const std::function<bool(const model::ModelObject&)>& t_filter) {
   m_objectFilter = t_filter;
 
-  for (auto& locationInfoPair : m_gridCellLocationToInfoMap) {
-    if (locationInfoPair.second->modelObject) {
-      bool visible = m_objectFilter(locationInfoPair.second->modelObject.get());
-      bool changed = locationInfoPair.second->setVisible(visible);
-      if (changed) {
-        emit gridCellChanged(*locationInfoPair.first, *locationInfoPair.second);
+  std::vector<std::pair<GridCellLocation*, PropertyChange>> visibleChanges;
+  std::vector<std::pair<GridCellLocation*, PropertyChange>> lockedChanges;
+
+  // loop over selector cells first
+  for (auto& location : m_selectorCellLocations) {
+    GridCellInfo* info = getGridCellInfo(location);
+    if (info && info->modelObject) {
+      PropertyChange visibleChange = PropertyChange::NoChange;
+      if (m_objectFilter(info->modelObject.get())) {
+        visibleChange = PropertyChange::ChangeToTrue;
+      } else {
+        visibleChange = PropertyChange::ChangeToFalse;
       }
+      visibleChanges.push_back(std::make_pair(location, visibleChange));
     }
   }
-  updateRowsAndSubrows();
+
+  // loop over parent cells first
+  for (auto& location : m_parentCellLocations) {
+    GridCellInfo* info = getGridCellInfo(location);
+    if (info && info->modelObject) {
+      PropertyChange visibleChange = PropertyChange::NoChange;
+      if (m_objectFilter(info->modelObject.get())) {
+        visibleChange = PropertyChange::ChangeToTrue;
+      } else {
+        visibleChange = PropertyChange::ChangeToFalse;
+
+        // parent hidden, selector always hidden
+        visibleChanges.erase(
+          std::remove_if(visibleChanges.begin(), visibleChanges.end(),
+                         [location](std::pair<GridCellLocation*, PropertyChange> tmp) { return location->gridRow == tmp.first->gridRow; }));
+      }
+      visibleChanges.push_back(std::make_pair(location, visibleChange));
+    }
+  }
+
+  // apply the changes in reverse order
+  std::reverse(visibleChanges.begin(), visibleChanges.end());
+
+  updateRowsAndSubrows(visibleChanges, lockedChanges);
 }
 
 void OSObjectSelector::resetObjectFilter() {
@@ -537,17 +583,47 @@ std::function<bool(const model::ModelObject&)> OSObjectSelector::objectIsLocked(
 void OSObjectSelector::setObjectIsLocked(const std::function<bool(const model::ModelObject&)>& t_isLocked) {
   m_isLocked = t_isLocked;
 
-  for (auto& locationInfoPair : m_gridCellLocationToInfoMap) {
-    bool locked = false;
-    if (locationInfoPair.second->modelObject) {
-      locked = m_isLocked(locationInfoPair.second->modelObject.get());
-    }
-    bool changed = locationInfoPair.second->setLocked(locked);
-    if (changed) {
-      emit gridCellChanged(*locationInfoPair.first, *locationInfoPair.second);
+  std::vector<std::pair<GridCellLocation*, PropertyChange>> visibleChanges;
+  std::vector<std::pair<GridCellLocation*, PropertyChange>> lockedChanges;
+
+  // loop over selector cells first
+  for (auto& location : m_selectorCellLocations) {
+    GridCellInfo* info = getGridCellInfo(location);
+    if (info && info->modelObject) {
+      PropertyChange lockedChange = PropertyChange::NoChange;
+      if (m_isLocked(info->modelObject.get())) {
+        lockedChange = PropertyChange::ChangeToTrue;
+      } else {
+        lockedChange = PropertyChange::ChangeToFalse;
+      }
+      lockedChanges.push_back(std::make_pair(location, lockedChange));
     }
   }
-  updateRowsAndSubrows();
+
+  // loop over parent cells first
+  for (auto& location : m_parentCellLocations) {
+    GridCellInfo* info = getGridCellInfo(location);
+    if (info && info->modelObject) {
+      PropertyChange lockedChange = PropertyChange::NoChange;
+      if (m_isLocked(info->modelObject.get())) {
+        lockedChange = PropertyChange::ChangeToTrue;
+
+        // parent locked, selector always locked
+        lockedChanges.erase(std::remove_if(lockedChanges.begin(), lockedChanges.end(), [location](std::pair<GridCellLocation*, PropertyChange> tmp) {
+          return location->gridRow == tmp.first->gridRow;
+        }));
+
+      } else {
+        lockedChange = PropertyChange::ChangeToFalse;
+      }
+      lockedChanges.push_back(std::make_pair(location, lockedChange));
+    }
+  }
+
+  // apply the changes in reverse order
+  std::reverse(lockedChanges.begin(), lockedChanges.end());
+
+  updateRowsAndSubrows(visibleChanges, lockedChanges);
 }
 
 void OSObjectSelector::resetObjectIsLocked() {

@@ -295,7 +295,8 @@ class BaseConcept
  public:
   virtual ~BaseConcept() {}
 
-  BaseConcept(const Heading& t_heading, bool t_hasClickFocus = false) : m_heading(t_heading), m_selector(false), m_hasClickFocus(t_hasClickFocus) {}
+  BaseConcept(const Heading& t_heading, bool t_hasClickFocus = false)
+    : m_heading(t_heading), m_selector(false), m_parent(false), m_hasClickFocus(t_hasClickFocus) {}
 
   // isSelector is true for checkbox cells in the select column
   bool isSelector() const {
@@ -304,6 +305,15 @@ class BaseConcept
 
   void setIsSelector(const bool t_selector) {
     m_selector = t_selector;
+  }
+
+  // isParent is true for leftmost cells in a row with subrows
+  bool isParent() const {
+    return m_parent;
+  }
+
+  void setIsParent(const bool t_isParent) {
+    m_parent = t_isParent;
   }
 
   // hasClickFocus is true for elements that gain focus when clicked on
@@ -318,6 +328,7 @@ class BaseConcept
  private:
   Heading m_heading;
   bool m_selector;
+  bool m_parent;
   bool m_hasClickFocus;
 };
 
