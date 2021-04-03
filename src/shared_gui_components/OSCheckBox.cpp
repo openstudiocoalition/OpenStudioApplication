@@ -141,22 +141,22 @@ void OSCheckBox3::bind(const model::ModelObject& modelObject, BoolGetter get, bo
 }
 
 void OSCheckBox3::enableClickFocus() {
+  m_hasClickFocus = true;
   this->setFocusPolicy(Qt::ClickFocus);
 }
 
 void OSCheckBox3::disableClickFocus() {
+  m_hasClickFocus = true;
   this->setFocusPolicy(Qt::NoFocus);
   clearFocus();
 }
 
 void OSCheckBox3::setLocked(bool locked) {
-  if (isEnabled() == locked) {
+  if (m_locked != locked) {
+    m_locked = locked;
     setEnabled(!locked);
+    updateStyle();
   }
-  if (locked) {
-    disableClickFocus();
-  }
-  updateStyle();
 }
 
 void OSCheckBox3::unbind() {
@@ -178,7 +178,7 @@ void OSCheckBox3::unbind() {
 }
 
 void OSCheckBox3::onToggled(bool checked) {
-  emit inFocus(true, true);  // fake that is has data
+  emit inFocus(m_focused, true);  // fake that is has data
   if (m_modelObject && m_set) {
     if ((*m_get)() != checked) {
       (*m_set)(checked);
@@ -217,8 +217,8 @@ void OSCheckBox3::updateStyle() {
   // Locked, Focused, Defaulted
   std::bitset<3> style;
   style[0] = defaulted();
-  style[1] = hasFocus();
-  style[2] = !isEnabled();
+  style[1] = m_focused;
+  style[2] = m_locked;
   QString thisStyle = QString::fromStdString(style.to_string());
 
   QVariant currentStyle = property("style");
@@ -230,19 +230,21 @@ void OSCheckBox3::updateStyle() {
 }
 
 void OSCheckBox3::focusInEvent(QFocusEvent* e) {
-  if ((e->reason() == Qt::MouseFocusReason) && (this->focusPolicy() == Qt::ClickFocus)) {
+  if ((e->reason() == Qt::MouseFocusReason) && m_hasClickFocus) {
+    m_focused = true;
     updateStyle();
 
-    emit inFocus(true, true);
+    emit inFocus(m_focused, true);
   }
   QWidget::focusInEvent(e);
 }
 
 void OSCheckBox3::focusOutEvent(QFocusEvent* e) {
-  if ((e->reason() == Qt::MouseFocusReason) && (this->focusPolicy() == Qt::ClickFocus)) {
+  if ((e->reason() == Qt::MouseFocusReason) && m_hasClickFocus) {
+    m_focused = false;
     updateStyle();
 
-    emit inFocus(false, false);
+    emit inFocus(m_focused, false);
   }
   // Pass it on for further processing
   QWidget::focusOutEvent(e);
@@ -310,19 +312,21 @@ void OSCheckBox2::unbind() {
 }
 
 void OSCheckBox2::focusInEvent(QFocusEvent* e) {
-  if ((e->reason() == Qt::MouseFocusReason) && (this->focusPolicy() == Qt::ClickFocus)) {
+  if ((e->reason() == Qt::MouseFocusReason) && m_hasClickFocus) {
+    m_focused = true;
     updateStyle();
 
-    emit inFocus(true, true);
+    emit inFocus(m_focused, true);
   }
   QWidget::focusInEvent(e);
 }
 
 void OSCheckBox2::focusOutEvent(QFocusEvent* e) {
-  if ((e->reason() == Qt::MouseFocusReason) && (this->focusPolicy() == Qt::ClickFocus)) {
+  if ((e->reason() == Qt::MouseFocusReason) && m_hasClickFocus) {
+    m_focused = false;
     updateStyle();
 
-    emit inFocus(false, false);
+    emit inFocus(m_focused, false);
   }
   // Pass it on for further processing
   QWidget::focusOutEvent(e);
@@ -358,8 +362,8 @@ void OSCheckBox2::updateStyle() {
   // Locked, Focused, Defaulted
   std::bitset<3> style;
   style[0] = defaulted();
-  style[1] = hasFocus();
-  style[2] = !isEnabled();
+  style[1] = m_focused;
+  style[2] = m_locked;
   QString thisStyle = QString::fromStdString(style.to_string());
 
   QVariant currentStyle = property("style");

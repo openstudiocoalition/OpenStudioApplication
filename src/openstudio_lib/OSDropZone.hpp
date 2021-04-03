@@ -122,6 +122,8 @@ class OSDropZone2 : public QWidget, public Nano::Observer
   boost::optional<ModelObjectIsReadOnly> m_isReadOnly;
   boost::optional<model::ModelObject> m_modelObject;
   boost::optional<model::ModelObject> m_getterResult;
+  bool m_hasClickFocus = false;
+  bool m_focused = false;
   bool m_locked = false;
   //QString m_text;
   OSItem* m_item = nullptr;

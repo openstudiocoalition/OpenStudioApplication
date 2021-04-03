@@ -83,6 +83,8 @@ OSCellWrapper::OSCellWrapper(OSGridView* gridView, QSharedPointer<BaseConcept> b
   m_layout->setHorizontalSpacing(0);
   m_layout->setContentsMargins(0, 0, 0, 0);
   this->setLayout(m_layout);
+
+  connect(this, &OSCellWrapper::rowNeedsStyle, objectSelector, &OSObjectSelector::onRowNeedsStyle);
 }
 
 OSCellWrapper::~OSCellWrapper() {}
@@ -113,6 +115,14 @@ void OSCellWrapper::refresh() {
     // The spacing around the list is a little awkward. The padding might need to be set to 0
     // all the way around.
     auto items = dataSource->source().items(m_modelObject.get());
+
+    if (m_refreshCount == 0) {    
+      // get signals if object is added or removed
+      m_modelObject->model().getImpl<model::detail::Model_Impl>().get()
+        ->addWorkspaceObject.connect<OSCellWrapper, &OSCellWrapper::onAddWorkspaceObject>(this);
+      m_modelObject->model().getImpl<model::detail::Model_Impl>().get()
+        ->removeWorkspaceObject.connect<OSCellWrapper, &OSCellWrapper::onRemoveWorkspaceObject>(this);
+    }
 
     size_t subrowCounter = 0;
     for (auto& item : items) {
@@ -160,6 +170,12 @@ void OSCellWrapper::refresh() {
     OS_ASSERT(!m_holders.empty());
     //m_holders.back()->setObjectName("InnerCellBottom");
   }
+
+  if (m_refreshCount > 0) {
+    emit rowNeedsStyle(m_modelRow, m_gridRow);
+  }  
+
+  ++m_refreshCount;
 }
 
 void OSCellWrapper::setCellProperties(const GridCellLocation& location, const GridCellInfo& info) {
@@ -529,6 +545,59 @@ void OSCellWrapper::addOSWidget(QWidget* widget, const boost::optional<model::Mo
   }
 
   m_objectSelector->addObject(obj, holder, m_modelRow, m_gridRow, m_column, m_hasSubRows ? subrow : boost::optional<int>(), isSelector, isParent);
+}
+
+void OSCellWrapper::onRemoveWorkspaceObject(const WorkspaceObject& object, const openstudio::IddObjectType& iddObjectType,
+                                            const openstudio::UUID& handle) {
+  bool doSomething = true;
+}
+
+void OSCellWrapper::onAddWorkspaceObject(const WorkspaceObject& object, const openstudio::IddObjectType& iddObjectType,
+                                         const openstudio::UUID& handle) {
+  OS_ASSERT(m_baseConcept);
+  OS_ASSERT(m_modelObject);
+  OS_ASSERT(m_objectSelector);
+  OS_ASSERT(m_gridController);
+
+  // the object has been added to the model but does not yet have a parent
+  model::ModelObject newModelObject = object.cast<model::ModelObject>();
+  m_newModelObjects.insert(newModelObject);
+  QTimer::singleShot(0, this, &OSCellWrapper::processNewModelObjects);
+}
+
+void OSCellWrapper::processNewModelObjects(){
+  OS_ASSERT(m_modelObject);
+  OS_ASSERT(m_objectSelector);
+
+  bool needsRefresh = false;
+  
+  if (QSharedPointer<DataSourceAdapter> dataSource = m_baseConcept.dynamicCast<DataSourceAdapter>()) {
+    for (const auto& newModelObject : m_newModelObjects){
+      boost::optional<model::ParentObject> p = newModelObject.parent();
+      if (p){
+        if (p.get() == m_modelObject.get()) {
+          needsRefresh = true;
+        }
+      }
+    }
+  }
+  m_newModelObjects.clear();
+  
+  if (needsRefresh) {
+    // clear current holders
+    QLayoutItem* child;
+    while ((child = m_layout->takeAt(0)) != nullptr) {
+      delete child->widget();  // delete the widget
+      delete child;            // delete the layout item
+    }
+    m_holders.clear();
+
+    // tell object selector to clear this cell
+    m_objectSelector->clearCell(m_modelRow, m_gridRow, m_column);
+
+    // schedule refresh
+    QTimer::singleShot(0, this, &OSCellWrapper::refresh);
+  }
 }
 
 }  // namespace openstudio

@@ -66,10 +66,10 @@ OSDoubleEdit2::OSDoubleEdit2(QWidget* parent) : QLineEdit(parent), m_isScientifi
                       "QLineEdit[style=\"1001\"] { color:green; background:#e6e6e6; } "  // Locked=1, Focused=0, Auto=0, Defaulted=1
                       "QLineEdit[style=\"1010\"] { color:grey;  background:#e6e6e6; } "  // Locked=1, Focused=0, Auto=1, Defaulted=0
                       "QLineEdit[style=\"1011\"] { color:grey;  background:#e6e6e6; } "  // Locked=1, Focused=0, Auto=1, Defaulted=1
-                      "QLineEdit[style=\"1100\"] { color:black; background:#e6e6e6; } "  // Locked=1, Focused=1, Auto=0, Defaulted=0
-                      "QLineEdit[style=\"1101\"] { color:green; background:#e6e6e6; } "  // Locked=1, Focused=1, Auto=0, Defaulted=1
-                      "QLineEdit[style=\"1110\"] { color:grey;  background:#e6e6e6; } "  // Locked=1, Focused=1, Auto=1, Defaulted=0
-                      "QLineEdit[style=\"1111\"] { color:grey;  background:#e6e6e6; } "  // Locked=1, Focused=1, Auto=1, Defaulted=1
+                      "QLineEdit[style=\"1100\"] { color:black; background:#cc9a00; } "  // Locked=1, Focused=1, Auto=0, Defaulted=0
+                      "QLineEdit[style=\"1101\"] { color:green; background:#cc9a00; } "  // Locked=1, Focused=1, Auto=0, Defaulted=1
+                      "QLineEdit[style=\"1110\"] { color:grey;  background:#cc9a00; } "  // Locked=1, Focused=1, Auto=1, Defaulted=0
+                      "QLineEdit[style=\"1111\"] { color:grey;  background:#cc9a00; } "  // Locked=1, Focused=1, Auto=1, Defaulted=1
   );
 
   m_doubleValidator = new QDoubleValidator();
@@ -102,10 +102,8 @@ bool OSDoubleEdit2::hasData() {
 
 void OSDoubleEdit2::setLocked(bool locked) {
   if (m_locked != locked) {
+    m_locked = locked;
     setReadOnly(locked);
-    if (locked) {
-      disableClickFocus();
-    }
     updateStyle();
   }
 }

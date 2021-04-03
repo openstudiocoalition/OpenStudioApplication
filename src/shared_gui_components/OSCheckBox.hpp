@@ -109,6 +109,10 @@ class OSCheckBox3 : public QCheckBox, public Nano::Observer
   boost::optional<BoolSetterBoolReturn> m_setBoolReturn;
   boost::optional<NoFailAction> m_reset;
   boost::optional<BasicQuery> m_isDefaulted;
+
+  bool m_hasClickFocus = false;
+  bool m_focused = false;
+  bool m_locked = false;
 };
 
 class OSCheckBox2 : public QPushButton, public Nano::Observer
@@ -151,6 +155,10 @@ class OSCheckBox2 : public QPushButton, public Nano::Observer
   boost::optional<BoolSetter> m_set;
   boost::optional<NoFailAction> m_reset;
   boost::optional<BasicQuery> m_isDefaulted;
+
+  bool m_hasClickFocus = false;
+  bool m_focused = false;
+  bool m_locked = false;
 };
 
 // class OSCheckBox : public QPushButton, public Nano::Observer {

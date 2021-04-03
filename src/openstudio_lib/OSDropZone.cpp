@@ -39,12 +39,10 @@
 #include "OSItem.hpp"
 #include "OSVectorController.hpp"
 
-#include <openstudio/model/ModelObject_Impl.hpp>
-#include <openstudio/model/Model_Impl.hpp>
-
 #include <openstudio/model/Component.hpp>
 #include <openstudio/model/ComponentData.hpp>
-
+#include <openstudio/model/ModelObject_Impl.hpp>
+#include <openstudio/model/Model_Impl.hpp>
 #include <openstudio/utilities/core/Assert.hpp>
 
 #include <QApplication>
@@ -63,6 +61,8 @@
 #include <QStyleOption>
 #include <QStyle>
 #include <QTimer>
+
+#include <bitset>
 
 using namespace openstudio::model;
 
@@ -514,9 +514,17 @@ void OSDropZoneItem::mouseReleaseEvent(QGraphicsSceneMouseEvent* event) {
 
 OSDropZone2::OSDropZone2() : QWidget() {
   setObjectName("OSDropZone");
-  setProperty("focused", false);
-  setStyleSheet("QWidget#OSDropZone[focused=\"true\"] { border: 2px dashed #808080; border-radius: 5px; background:#ffc627; } "
-                "QWidget#OSDropZone[focused=\"false\"] { border: 2px dashed #808080; border-radius: 5px; background:#CECECE; } ");
+
+  // if multiple qss rules apply with same specificity then the last one is chosen
+  this->setStyleSheet("QWidget#OSDropZone[style=\"000\"] { border: 2px dashed #808080; border-radius: 5px; background:#cecece; } "  // Locked=0, Focused=0, Defaulted=0
+                      "QWidget#OSDropZone[style=\"001\"] { border: 2px dashed #808080; border-radius: 5px; background:#cecece; } "  // Locked=0, Focused=0, Defaulted=1
+                      "QWidget#OSDropZone[style=\"010\"] { border: 2px dashed #808080; border-radius: 5px; background:#ffc627; } "  // Locked=0, Focused=1, Defaulted=0
+                      "QWidget#OSDropZone[style=\"011\"] { border: 2px dashed #808080; border-radius: 5px; background:#ffc627; } "  // Locked=0, Focused=1, Defaulted=1
+                      "QWidget#OSDropZone[style=\"100\"] { border: 2px dashed #808080; border-radius: 5px; background:#e6e6e6; } "  // Locked=1, Focused=0, Defaulted=0
+                      "QWidget#OSDropZone[style=\"101\"] { border: 2px dashed #808080; border-radius: 5px; background:#e6e6e6; } "  // Locked=1, Focused=0, Defaulted=1
+                      "QWidget#OSDropZone[style=\"110\"] { border: 2px dashed #808080; border-radius: 5px; background:#cc9a00; } "  // Locked=1, Focused=1, Defaulted=0
+                      "QWidget#OSDropZone[style=\"111\"] { border: 2px dashed #808080; border-radius: 5px; background:#cc9a00; } "  // Locked=1, Focused=1, Defaulted=1
+  );
 
   auto layout = new QVBoxLayout();
   layout->setContentsMargins(5, 5, 5, 5);
@@ -524,9 +532,15 @@ OSDropZone2::OSDropZone2() : QWidget() {
 
   m_label = new QLabel();
   layout->addWidget(m_label);
-  m_label->setProperty("defaulted", false);
-  m_label->setStyleSheet("QLabel[defaulted=\"true\"] { color:green }"
-                         "QLabel { color:black }");
+  m_label->setStyleSheet("QLabel[style=\"000\"] { color:black; background:#cecece; } "  // Locked=0, Focused=0, Defaulted=0
+                         "QLabel[style=\"001\"] { color:green; background:#cecece; } "  // Locked=0, Focused=0, Defaulted=1
+                         "QLabel[style=\"010\"] { color:black; background:#ffc627; } "  // Locked=0, Focused=1, Defaulted=0
+                         "QLabel[style=\"011\"] { color:green; background:#ffc627; } "  // Locked=0, Focused=1, Defaulted=1
+                         "QLabel[style=\"100\"] { color:black; background:#e6e6e6; } "  // Locked=1, Focused=0, Defaulted=0
+                         "QLabel[style=\"101\"] { color:green; background:#e6e6e6; } "  // Locked=1, Focused=0, Defaulted=1
+                         "QLabel[style=\"110\"] { color:black; background:#cc9a00; } "  // Locked=1, Focused=1, Defaulted=0
+                         "QLabel[style=\"111\"] { color:green; background:#cc9a00; } "  // Locked=1, Focused=1, Defaulted=1
+  ); 
 
   setFixedHeight(25);
   setMinimumWidth(75);
@@ -536,10 +550,12 @@ OSDropZone2::OSDropZone2() : QWidget() {
 OSDropZone2::~OSDropZone2() {}
 
 void OSDropZone2::enableClickFocus() {
+  m_hasClickFocus = true;
   this->setFocusPolicy(Qt::ClickFocus);
 }
 
 void OSDropZone2::disableClickFocus() {
+  m_hasClickFocus = false;
   this->setFocusPolicy(Qt::NoFocus);
   clearFocus();
 }
@@ -561,13 +577,8 @@ bool OSDropZone2::deleteObject() {
 }
 
 void OSDropZone2::refresh() {
-  boost::optional<model::ModelObject> modelObject;
+  boost::optional<model::ModelObject> modelObject = updateGetterResult();
 
-  if (m_get) {
-    modelObject = updateGetterResult();
-  }
-
-  bool isChanged = false;
   if (modelObject) {
 
     modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
@@ -580,19 +591,7 @@ void OSDropZone2::refresh() {
 
     QString temp = QString::fromStdString(modelObject->name().get());
     if (m_label->text() != temp) {
-      isChanged = true;
       m_label->setText(temp);
-    }
-
-    bool thisDefaulted = false;
-    if (m_isDefaulted) {
-      thisDefaulted = (*m_isDefaulted)(*modelObject);
-    }
-
-    QVariant currentDefaulted = m_label->property("defaulted");
-    if (currentDefaulted.isNull() || currentDefaulted.toBool() != thisDefaulted) {
-      m_label->setProperty("defaulted", thisDefaulted);
-      isChanged = true;
     }
 
     //// Adjust the width to accommodate the text
@@ -603,22 +602,11 @@ void OSDropZone2::refresh() {
   } else {
 
     if (!m_label->text().isEmpty()) {
-      isChanged = true;
       m_label->setText("");
     }
-
-    bool thisDefaulted = false;
-    QVariant currentDefaulted = m_label->property("defaulted");
-    if (currentDefaulted.isNull() || currentDefaulted.toBool() != thisDefaulted) {
-      m_label->setProperty("defaulted", thisDefaulted);
-      isChanged = true;
-    }
   }
 
-  if (isChanged) {
-    updateStyle();
-  }
-
+  updateStyle();
   update();
 }
 
@@ -766,10 +754,10 @@ void OSDropZone2::mouseReleaseEvent(QMouseEvent* event) {
 void OSDropZone2::focusInEvent(QFocusEvent* e) {
   if (e->reason() == Qt::MouseFocusReason) {
     if (hasData()) {
-      this->setProperty("focused", true);
+      m_focused = true;
       updateStyle();
+      emit inFocus(m_focused, true);
     }
-    emit inFocus(true, hasData());
   }
 
   QWidget::focusInEvent(e);
@@ -777,10 +765,10 @@ void OSDropZone2::focusInEvent(QFocusEvent* e) {
 
 void OSDropZone2::focusOutEvent(QFocusEvent* e) {
   if (e->reason() == Qt::MouseFocusReason) {
-    this->setProperty("focused", false);
+    m_focused = false;
     updateStyle();
 
-    emit inFocus(false, false);
+    emit inFocus(m_focused, false);
 
     auto mouseOverInspectorView =
       OSAppBase::instance()->currentDocument()->mainRightColumnController()->inspectorController()->inspectorView()->mouseOverInspectorView();
@@ -808,23 +796,42 @@ void OSDropZone2::onItemRemoveClicked() {
 }
 
 void OSDropZone2::updateStyle() {
-  this->style()->unpolish(this);
-  this->style()->polish(this);
 
-  m_label->style()->unpolish(m_label);
-  m_label->style()->polish(m_label);
+  bool thisDefaulted = false;
+  if (m_isDefaulted) {
+    thisDefaulted = (*m_isDefaulted)(*m_modelObject);
+  }
+  
+  // Locked, Focused, Defaulted
+  std::bitset<3> style;
+  style[0] = thisDefaulted;
+  style[1] = m_focused;
+  style[2] = m_locked;
+  QString thisStyle = QString::fromStdString(style.to_string());
+
+  QVariant currentStyle = property("style");
+  if (currentStyle.isNull() || currentStyle.toString() != thisStyle) {
+    this->setProperty("style", thisStyle);
+    this->style()->unpolish(this);
+    this->style()->polish(this);
+
+    m_label->setProperty("style", thisStyle);
+    m_label->style()->unpolish(m_label);
+    m_label->style()->polish(m_label);
+  }
 }
 
 void OSDropZone2::makeItem() {
-  if (!m_item && m_get) {
+  if (!m_item) {
     boost::optional<model::ModelObject> modelObject = updateGetterResult();
-
     if (modelObject) {
 
       bool isDefaulted = false;
-      if (m_isDefaulted) {
-        isDefaulted = (*m_isDefaulted)(*modelObject);
+      if (m_isDefaulted && m_getterResult) {
+        isDefaulted = (*m_isDefaulted)(*m_getterResult);
       }
+
+      // override isDefaulted to prevent deleting in the inspector
       if (m_locked) {
         isDefaulted = true;
       }
@@ -834,6 +841,8 @@ void OSDropZone2::makeItem() {
 
       if (!isDefaulted && m_reset) {
         m_item->setRemoveable(true);
+      } else {
+        m_item->setRemoveable(false);
       }
       connect(m_item, &OSItem::itemRemoveClicked, this, &OSDropZone2::onItemRemoveClicked);
     }

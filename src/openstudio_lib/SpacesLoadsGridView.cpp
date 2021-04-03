@@ -549,6 +549,12 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
       });
 
       const boost::optional<std::function<bool(model::ModelObject*)>> isMultiplierDefaulted([](model::ModelObject* t_modelObject) {
+        boost::optional<model::ParentObject> parent = t_modelObject->parent();
+        if (parent && parent->optionalCast<model::SpaceType>()) {
+          // show multipliers on inherited loads as inherited
+          return true;
+        }
+      
         boost::optional<model::InternalMass> im = t_modelObject->optionalCast<model::InternalMass>();
         if (im) {
           return im->isMultiplierDefaulted();

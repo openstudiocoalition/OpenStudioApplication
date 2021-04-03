@@ -155,6 +155,7 @@ class DataSourceAdapter : public BaseConcept
  private:
   DataSource m_source;
   QSharedPointer<BaseConcept> m_inner;
+
 };
 
 class OSGridController : public QObject
@@ -328,7 +329,7 @@ class OSGridController : public QObject
                                    const boost::optional<std::function<bool(DataSourceType*)>>& isDefaulted = boost::none,
                                    const boost::optional<DataSource>& t_source = boost::none) {
     const OSLineEditType osLineEditType = OSLineEditType::OSLineEdit2Type;
-    const bool hasClickFocus = true;
+    const bool hasClickFocus = false;
     m_baseConcepts.push_back(
       makeDataSourceAdapter(QSharedPointer<NameLineEditConcept>(new NameLineEditConceptImpl<DataSourceType>(
                               heading, osLineEditType, isInspectable, deleteObject, hasClickFocus, getter, setter, resetter, isDefaulted)),

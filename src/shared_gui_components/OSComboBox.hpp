@@ -217,6 +217,10 @@ class OSComboBox2 : public QComboBox, public Nano::Observer
   std::shared_ptr<ChoiceConcept> m_choiceConcept;
   std::vector<std::string> m_values;
 
+  bool m_hasClickFocus = false;
+  bool m_focused = false;
+  bool m_locked = false;
+
   void completeBind();
 };
 

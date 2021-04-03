@@ -156,8 +156,8 @@ OSComboBox2::OSComboBox2(QWidget* parent, bool editable) : QComboBox(parent) {
                       "QComboBox[style=\"011\"] { color:green; background:#ffc627; } "  // Locked=0, Focused=1, Defaulted=1
                       "QComboBox[style=\"100\"] { color:black; background:#e6e6e6; } "  // Locked=1, Focused=0, Defaulted=0
                       "QComboBox[style=\"101\"] { color:green; background:#e6e6e6; } "  // Locked=1, Focused=0, Defaulted=1
-                      "QComboBox[style=\"110\"] { color:black; background:#e6e6e6; } "  // Locked=1, Focused=1, Defaulted=0
-                      "QComboBox[style=\"111\"] { color:green; background:#e6e6e6; } "  // Locked=1, Focused=1, Defaulted=1
+                      "QComboBox[style=\"110\"] { color:black; background:#cc9a00; } "  // Locked=1, Focused=1, Defaulted=0
+                      "QComboBox[style=\"111\"] { color:green; background:#cc9a00; } "  // Locked=1, Focused=1, Defaulted=1
   );
 
   setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
@@ -168,16 +168,18 @@ OSComboBox2::~OSComboBox2() {}
 bool OSComboBox2::event(QEvent* e) {
   if (e->type() == QEvent::Wheel) {
     return false;
-  } else if (e->type() == QEvent::FocusIn && this->focusPolicy() == Qt::ClickFocus) {
+  } else if (e->type() == QEvent::FocusIn && m_hasClickFocus) {
+    m_focused = true;
     updateStyle();
 
-    emit inFocus(true, hasData());
+    emit inFocus(m_focused, hasData());
 
     return QComboBox::event(e);
-  } else if (e->type() == QEvent::FocusOut && this->focusPolicy() == Qt::ClickFocus) {
+  } else if (e->type() == QEvent::FocusOut && m_hasClickFocus) {
+    m_focused = false;
     updateStyle();
 
-    emit inFocus(false, false);
+    emit inFocus(m_focused, false);
 
     return QComboBox::event(e);
   } else {
@@ -186,10 +188,12 @@ bool OSComboBox2::event(QEvent* e) {
 }
 
 void OSComboBox2::enableClickFocus() {
+  m_hasClickFocus = true;
   this->setFocusPolicy(Qt::ClickFocus);
 }
 
 void OSComboBox2::disableClickFocus() {
+  m_hasClickFocus = false;
   this->setFocusPolicy(Qt::NoFocus);
   clearFocus();
 }
@@ -199,13 +203,11 @@ bool OSComboBox2::hasData() {
 }
 
 void OSComboBox2::setLocked(bool locked) {
-  if (isEnabled() == locked) {
+  if (m_locked != locked) {
+    m_locked = locked;
     setEnabled(!locked);
+    updateStyle();
   }
-  if (locked) {
-    disableClickFocus();
-  }
-  updateStyle();
 }
 
 void OSComboBox2::bind(std::shared_ptr<OSComboBoxDataSource> dataSource) {
@@ -263,7 +265,7 @@ void OSComboBox2::onModelObjectRemoved(const Handle& handle) {
 }
 
 void OSComboBox2::onCurrentIndexChanged(const QString& text) {
-  emit inFocus(true, hasData());
+  emit inFocus(m_focused, hasData());
 
   OS_ASSERT(m_modelObject);
 
@@ -337,8 +339,8 @@ void OSComboBox2::updateStyle() {
   // Locked, Focused, Defaulted
   std::bitset<3> style;
   style[0] = m_choiceConcept ? m_choiceConcept->isDefaulted() : false;
-  style[1] = hasFocus();
-  style[2] = !isEnabled();
+  style[1] = m_focused;
+  style[2] = m_locked;
   QString thisStyle = QString::fromStdString(style.to_string());
 
   QVariant currentStyle = property("style");

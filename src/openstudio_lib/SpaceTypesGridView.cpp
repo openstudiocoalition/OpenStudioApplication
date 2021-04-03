@@ -450,7 +450,7 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
       auto getter = CastNullAdapter<model::SpaceType>(&model::SpaceType::name);
       auto setter = CastNullAdapter<model::SpaceType>(&model::SpaceType::setNameProtected);
 
-      addNameLineEditColumn(Heading(QString(NAME), false, false), false, false, getter, setter);
+      addParentNameLineEditColumn(Heading(QString(NAME), false, false), false, false, getter, setter);
 
     } else if (field == SELECTED && category != "Loads") {
       auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());

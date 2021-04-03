@@ -524,7 +524,7 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
                                          Heading(ZONEEQUIPMENT), getter, setter, reset, boost::none))));
 
     } else if (field == NAME) {
-      addNameLineEditColumn(Heading(QString(NAME), false, false), false, false, CastNullAdapter<model::ThermalZone>(&model::ThermalZone::name),
+      addParentNameLineEditColumn(Heading(QString(NAME), false, false), false, false, CastNullAdapter<model::ThermalZone>(&model::ThermalZone::name),
                             CastNullAdapter<model::ThermalZone>(&model::ThermalZone::setName),
                             boost::optional<std::function<void(model::ThermalZone*)>>());
 

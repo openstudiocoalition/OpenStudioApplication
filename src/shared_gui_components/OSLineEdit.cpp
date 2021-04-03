@@ -36,12 +36,10 @@
 #include "../openstudio_lib/OSAppBase.hpp"
 #include "../openstudio_lib/OSDocument.hpp"
 #include "../openstudio_lib/OSItem.hpp"
+#include "../model_editor/Utilities.hpp"
 
 #include <openstudio/model/ModelObject.hpp>
 #include <openstudio/model/ModelObject_Impl.hpp>
-
-#include "../model_editor/Utilities.hpp"
-
 #include <openstudio/utilities/core/Assert.hpp>
 
 #include <boost/optional.hpp>
@@ -72,8 +70,8 @@ OSLineEdit2::OSLineEdit2(QWidget* parent) : QLineEdit(parent) {
                       "QLineEdit[style=\"011\"] { color:green; background:#ffc627; } "  // Locked=0, Focused=1, Defaulted=1
                       "QLineEdit[style=\"100\"] { color:black; background:#e6e6e6; } "  // Locked=1, Focused=0, Defaulted=0
                       "QLineEdit[style=\"101\"] { color:green; background:#e6e6e6; } "  // Locked=1, Focused=0, Defaulted=1
-                      "QLineEdit[style=\"110\"] { color:black; background:#e6e6e6; } "  // Locked=1, Focused=1, Defaulted=0
-                      "QLineEdit[style=\"111\"] { color:green; background:#e6e6e6; } "  // Locked=1, Focused=1, Defaulted=1
+                      "QLineEdit[style=\"110\"] { color:black; background:#cc9a00; } "  // Locked=1, Focused=1, Defaulted=0
+                      "QLineEdit[style=\"111\"] { color:green; background:#cc9a00; } "  // Locked=1, Focused=1, Defaulted=1
   );
 }
 
@@ -325,9 +323,22 @@ void OSLineEdit2::onModelObjectChangeInternal(bool startingup) {
 
 void OSLineEdit2::emitItemClicked() {
   if (!m_item && m_modelObject) {
-    m_item = OSItem::makeItem(modelObjectToItemId(*m_modelObject, defaulted()));
+    bool isDefaulted = defaulted();
+
+    // override isDefaulted to prevent deleting in the inspector
+    if (m_locked) {
+      isDefaulted = true;
+    }
+
+    m_item = OSItem::makeItem(modelObjectToItemId(*m_modelObject, isDefaulted));
     OS_ASSERT(m_item);
     m_item->setParent(this);
+
+    if (!isDefaulted && m_reset) {
+      m_item->setRemoveable(true);
+    } else {
+      m_item->setRemoveable(false);
+    }
     connect(m_item, &OSItem::itemRemoveClicked, this, &OSLineEdit2::onItemRemoveClicked);
   }
 

@@ -135,6 +135,10 @@ class OSObjectSelector : public QObject
   // Reset all state
   void clear();
 
+  // Reset all state in a cell
+  void clearCell(int t_modelRow, int t_gridRow, int t_column);
+  void clearSubCell(int t_modelRow, int t_gridRow, int t_column, int t_subrow);
+
   // Adds object to the internal maps
   void addObject(const boost::optional<model::ModelObject>& t_obj, OSWidgetHolder* t_holder, int t_modelRow, int t_gridRow, int t_column,
                  const boost::optional<int>& t_subrow, bool t_isSelector, bool t_isParent);
@@ -204,7 +208,7 @@ class OSObjectSelector : public QObject
 
  public slots:
 
-  //void onSelectionChanged(int state, int row, int column, boost::optional<int> subrow);
+  void onRowNeedsStyle(int modelRow, int gridRow);
 
  protected:
   REGISTER_LOGGER("openstudio.ObjectSelector");
