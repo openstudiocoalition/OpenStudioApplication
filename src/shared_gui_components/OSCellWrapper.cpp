@@ -566,7 +566,6 @@ void OSCellWrapper::addOSWidget(QWidget* widget, const boost::optional<model::Mo
 
 void OSCellWrapper::onRemoveWorkspaceObject(const WorkspaceObject& object, const openstudio::IddObjectType& iddObjectType,
                                             const openstudio::UUID& handle) {
-  bool doSomething = true;
 }
 
 void OSCellWrapper::onAddWorkspaceObject(const WorkspaceObject& object, const openstudio::IddObjectType& iddObjectType,
@@ -588,16 +587,15 @@ void OSCellWrapper::processNewModelObjects() {
 
   bool needsRefresh = false;
 
-  if (QSharedPointer<DataSourceAdapter> dataSource = m_baseConcept.dynamicCast<DataSourceAdapter>()) {
-    for (const auto& newModelObject : m_newModelObjects) {
-      boost::optional<model::ParentObject> p = newModelObject.parent();
-      if (p) {
-        if (p.get() == m_modelObject.get()) {
-          needsRefresh = true;
-        }
+  for (const auto& newModelObject : m_newModelObjects) {
+    boost::optional<model::ParentObject> p = newModelObject.parent();
+    if (p) {
+      if (p.get() == m_modelObject.get()) {
+        needsRefresh = true;
       }
     }
   }
+
   m_newModelObjects.clear();
 
   if (needsRefresh) {

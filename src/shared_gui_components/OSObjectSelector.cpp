@@ -207,10 +207,10 @@ void OSObjectSelector::clear() {
   m_isLocked = getDefaultIsLocked();
 }
 
-void OSObjectSelector::clearCell(int modelRow, int gridRow, int column) {
+void OSObjectSelector::clearCell(int t_modelRow, int t_gridRow, int t_column) {
 
-  auto sameCellLambda = [modelRow, gridRow, column](GridCellLocation* tmp) {
-    return modelRow == tmp->modelRow && gridRow == tmp->gridRow && column == tmp->column;
+  auto sameCellLambda = [t_modelRow, t_gridRow, t_column](GridCellLocation* tmp) {
+    return t_modelRow == tmp->modelRow && t_gridRow == tmp->gridRow && t_column == tmp->column;
   };
 
   m_selectorCellLocations.erase(std::remove_if(m_selectorCellLocations.begin(), m_selectorCellLocations.end(), sameCellLambda),
@@ -225,7 +225,7 @@ void OSObjectSelector::clearCell(int modelRow, int gridRow, int column) {
 
   auto it = m_gridCellLocationToInfoMap.begin();
   while (it != m_gridCellLocationToInfoMap.end()) {
-    if (it->first->modelRow == modelRow && it->first->gridRow == gridRow && it->first->column == column) {
+    if (it->first->modelRow == t_modelRow && it->first->gridRow == t_gridRow && it->first->column == t_column) {
       delete it->first;
       delete it->second;
       it = m_gridCellLocationToInfoMap.erase(it);
@@ -235,10 +235,10 @@ void OSObjectSelector::clearCell(int modelRow, int gridRow, int column) {
   }
 }
 
-void OSObjectSelector::clearSubCell(int modelRow, int gridRow, int column, int subrow) {
+void OSObjectSelector::clearSubCell(int t_modelRow, int t_gridRow, int t_column, int t_subrow) {
 
-  auto sameSubCellLambda = [modelRow, gridRow, column, subrow](GridCellLocation* tmp) {
-    return modelRow == tmp->modelRow && gridRow == tmp->gridRow && column == tmp->column && tmp->subrow && subrow == tmp->subrow.get();
+  auto sameSubCellLambda = [t_modelRow, t_gridRow, t_column, t_subrow](GridCellLocation* tmp) {
+    return t_modelRow == tmp->modelRow && t_gridRow == tmp->gridRow && t_column == tmp->column && tmp->subrow && t_subrow == tmp->subrow.get();
   };
 
   m_selectorCellLocations.erase(std::remove_if(m_selectorCellLocations.begin(), m_selectorCellLocations.end(), sameSubCellLambda),
@@ -253,8 +253,8 @@ void OSObjectSelector::clearSubCell(int modelRow, int gridRow, int column, int s
 
   auto it = m_gridCellLocationToInfoMap.begin();
   while (it != m_gridCellLocationToInfoMap.end()) {
-    if (it->first->modelRow == modelRow && it->first->gridRow == gridRow && it->first->column == column && it->first->subrow &&
-        it->first->subrow.get() == subrow) {
+    if (it->first->modelRow == t_modelRow && it->first->gridRow == t_gridRow && it->first->column == t_column && it->first->subrow &&
+        it->first->subrow.get() == t_subrow) {
       delete it->first;
       delete it->second;
       it = m_gridCellLocationToInfoMap.erase(it);
@@ -392,7 +392,7 @@ void OSObjectSelector::onRowNeedsStyle(int modelRow, int gridRow) {
     if (location->modelRow == modelRow && location->gridRow == gridRow) {
       GridCellInfo* info = getGridCellInfo(location);
       if (info && info->modelObject) {
-        PropertyChange lockedChange = PropertyChange::NoChange;
+        PropertyChange lockedChange;;
         if (m_isLocked(info->modelObject.get())) {
           lockedChange = PropertyChange::ChangeToTrue;
         } else {
@@ -400,7 +400,7 @@ void OSObjectSelector::onRowNeedsStyle(int modelRow, int gridRow) {
         }
         lockedChanges.push_back(std::make_pair(location, lockedChange));
 
-        PropertyChange visibleChange = PropertyChange::NoChange;
+        PropertyChange visibleChange;
         if (m_objectFilter(info->modelObject.get())) {
           visibleChange = PropertyChange::ChangeToTrue;
         } else {
@@ -416,7 +416,7 @@ void OSObjectSelector::onRowNeedsStyle(int modelRow, int gridRow) {
     if (location->modelRow == modelRow && location->gridRow == gridRow) {
       GridCellInfo* info = getGridCellInfo(location);
       if (info && info->modelObject) {
-        PropertyChange lockedChange = PropertyChange::NoChange;
+        PropertyChange lockedChange;
         if (m_isLocked(info->modelObject.get())) {
           lockedChange = PropertyChange::ChangeToTrue;
 
@@ -431,7 +431,7 @@ void OSObjectSelector::onRowNeedsStyle(int modelRow, int gridRow) {
         }
         lockedChanges.push_back(std::make_pair(location, lockedChange));
 
-        PropertyChange visibleChange = PropertyChange::NoChange;
+        PropertyChange visibleChange;
         if (m_objectFilter(info->modelObject.get())) {
           visibleChange = PropertyChange::ChangeToTrue;
         } else {
@@ -653,7 +653,7 @@ void OSObjectSelector::setObjectFilter(const std::function<bool(const model::Mod
   for (auto& location : m_selectorCellLocations) {
     GridCellInfo* info = getGridCellInfo(location);
     if (info && info->modelObject) {
-      PropertyChange visibleChange = PropertyChange::NoChange;
+      PropertyChange visibleChange;
       if (m_objectFilter(info->modelObject.get())) {
         visibleChange = PropertyChange::ChangeToTrue;
       } else {
@@ -667,7 +667,7 @@ void OSObjectSelector::setObjectFilter(const std::function<bool(const model::Mod
   for (auto& location : m_parentCellLocations) {
     GridCellInfo* info = getGridCellInfo(location);
     if (info && info->modelObject) {
-      PropertyChange visibleChange = PropertyChange::NoChange;
+      PropertyChange visibleChange;
       if (m_objectFilter(info->modelObject.get())) {
         visibleChange = PropertyChange::ChangeToTrue;
       } else {
@@ -716,7 +716,7 @@ void OSObjectSelector::setObjectIsLocked(const std::function<bool(const model::M
   for (auto& location : m_selectorCellLocations) {
     GridCellInfo* info = getGridCellInfo(location);
     if (info && info->modelObject) {
-      PropertyChange lockedChange = PropertyChange::NoChange;
+      PropertyChange lockedChange;
       if (m_isLocked(info->modelObject.get())) {
         lockedChange = PropertyChange::ChangeToTrue;
       } else {
@@ -730,7 +730,7 @@ void OSObjectSelector::setObjectIsLocked(const std::function<bool(const model::M
   for (auto& location : m_parentCellLocations) {
     GridCellInfo* info = getGridCellInfo(location);
     if (info && info->modelObject) {
-      PropertyChange lockedChange = PropertyChange::NoChange;
+      PropertyChange lockedChange;
       if (m_isLocked(info->modelObject.get())) {
         lockedChange = PropertyChange::ChangeToTrue;
 
