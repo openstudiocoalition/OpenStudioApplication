@@ -450,7 +450,7 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
       auto getter = CastNullAdapter<model::SpaceType>(&model::SpaceType::name);
       auto setter = CastNullAdapter<model::SpaceType>(&model::SpaceType::setNameProtected);
 
-      addParentNameLineEditColumn(Heading(QString(NAME), false, false), false, false, getter, setter);
+      addParentNameLineEditColumn(Heading(QString(NAME), false, false), false, getter, setter);
 
     } else if (field == SELECTED && category != "Loads") {
       auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
@@ -1143,7 +1143,7 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
           });
 
         addNameLineEditColumn(
-          Heading(QString(DEFINITION), true, false), true, false, CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::name),
+          Heading(QString(DEFINITION), true, false), true, CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::name),
           CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::setName),
           boost::optional<std::function<void(model::SpaceLoadDefinition*)>>(), boost::optional<std::function<bool(model::SpaceLoadDefinition*)>>(),
           DataSource(allDefinitions, false,
@@ -1210,11 +1210,11 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
       });
 
       addNameLineEditColumn(
-        Heading(QString(SPACEINFILTRATIONDESIGNFLOWRATES)), true, true,
+        Heading(QString(SPACEINFILTRATIONDESIGNFLOWRATES)), true,
         CastNullAdapter<model::SpaceInfiltrationDesignFlowRate>(&model::SpaceInfiltrationDesignFlowRate::name),
         CastNullAdapter<model::SpaceInfiltrationDesignFlowRate>(&model::SpaceInfiltrationDesignFlowRate::setName),
         boost::optional<std::function<void(model::SpaceInfiltrationDesignFlowRate*)>>(
-          std::function<void(model::SpaceInfiltrationDesignFlowRate*)>([](model::SpaceInfiltrationDesignFlowRate* t_fr) { t_fr->resetSpaceType(); })),
+          std::function<void(model::SpaceInfiltrationDesignFlowRate*)>([](model::SpaceInfiltrationDesignFlowRate* t_fr) { t_fr->remove(); })),
         boost::optional<std::function<bool(model::SpaceInfiltrationDesignFlowRate*)>>(),
         DataSource(flowRates, false,
                    QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<model::SpaceInfiltrationDesignFlowRate, model::SpaceType>(
@@ -1244,12 +1244,12 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
       });
 
       addNameLineEditColumn(
-        Heading(QString(SPACEINFILTRATIONEFFECTIVELEAKAGEAREAS)), true, true,
+        Heading(QString(SPACEINFILTRATIONEFFECTIVELEAKAGEAREAS)), true,
         CastNullAdapter<model::SpaceInfiltrationEffectiveLeakageArea>(&model::SpaceInfiltrationEffectiveLeakageArea::name),
         CastNullAdapter<model::SpaceInfiltrationEffectiveLeakageArea>(&model::SpaceInfiltrationEffectiveLeakageArea::setName),
         boost::optional<std::function<void(model::SpaceInfiltrationEffectiveLeakageArea*)>>(
           std::function<void(model::SpaceInfiltrationEffectiveLeakageArea*)>(
-            [](model::SpaceInfiltrationEffectiveLeakageArea* t_la) { t_la->resetSpaceType(); })),
+            [](model::SpaceInfiltrationEffectiveLeakageArea* t_la) { t_la->remove(); })),
         boost::optional<std::function<bool(model::SpaceInfiltrationEffectiveLeakageArea*)>>(),
         DataSource(leakageAreas, false,
                    QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<model::SpaceInfiltrationEffectiveLeakageArea, model::SpaceType>(

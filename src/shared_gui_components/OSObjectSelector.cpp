@@ -54,8 +54,6 @@
 
 #include <openstudio/model/Model_Impl.hpp>
 #include <openstudio/model/ModelObject_Impl.hpp>
-#include <openstudio/model/SpaceLoadDefinition.hpp>
-#include <openstudio/model/SpaceLoadDefinition_Impl.hpp>
 
 #include <openstudio/utilities/core/Assert.hpp>
 
@@ -265,7 +263,8 @@ void OSObjectSelector::clearSubCell(int modelRow, int gridRow, int column, int s
 }
 
 void OSObjectSelector::addObject(const boost::optional<model::ModelObject>& t_obj, OSWidgetHolder* t_holder, int t_modelRow, int t_gridRow,
-                                 int t_column, const boost::optional<int>& t_subrow, const bool t_isSelector, const bool t_isParent) {
+                                 int t_column, const boost::optional<int>& t_subrow, const bool t_isSelector, const bool t_isParent,
+                                 const bool t_isLocked) {
 
   if (t_subrow) {
     clearSubCell(t_modelRow, t_gridRow, t_column, *t_subrow);
@@ -275,12 +274,7 @@ void OSObjectSelector::addObject(const boost::optional<model::ModelObject>& t_ob
 
   bool isVisible = true;
   bool isSelected = false;
-  bool isLocked = false;
-
-  // override locked to prevent editing in the grid
-  if (t_obj && t_obj->optionalCast<model::SpaceLoadDefinition>()) {
-    isLocked = true;
-  }
+  bool isLocked = t_isLocked;
 
   GridCellInfo* info = new GridCellInfo(t_obj, t_isSelector, isVisible, isSelected, isLocked, this);
   GridCellLocation* location = new GridCellLocation(t_modelRow, t_gridRow, t_column, t_subrow, this);
@@ -304,7 +298,7 @@ void OSObjectSelector::addObject(const boost::optional<model::ModelObject>& t_ob
 }
 
 void OSObjectSelector::setObjectRemoved(const openstudio::Handle& handle) {
-  const PropertyChange visible = NoChange;
+  const PropertyChange visible = ChangeToFalse;
   const PropertyChange selected = ChangeToFalse;
   const PropertyChange locked = ChangeToTrue;
   for (const auto location : m_selectorCellLocations) {
@@ -400,7 +394,7 @@ void OSObjectSelector::onRowNeedsStyle(int modelRow, int gridRow) {
         if (m_isLocked(info->modelObject.get())) {
           lockedChange = PropertyChange::ChangeToTrue;
         } else {
-          lockedChange = PropertyChange::ChangeToFalse;
+          lockedChange = PropertyChange::NoChange;
         }
         lockedChanges.push_back(std::make_pair(location, lockedChange));
 
@@ -430,7 +424,7 @@ void OSObjectSelector::onRowNeedsStyle(int modelRow, int gridRow) {
             lockedChanges.end());
 
         } else {
-          lockedChange = PropertyChange::ChangeToFalse;
+          lockedChange = PropertyChange::NoChange;
         }
         lockedChanges.push_back(std::make_pair(location, lockedChange));
 
@@ -723,7 +717,7 @@ void OSObjectSelector::setObjectIsLocked(const std::function<bool(const model::M
       if (m_isLocked(info->modelObject.get())) {
         lockedChange = PropertyChange::ChangeToTrue;
       } else {
-        lockedChange = PropertyChange::ChangeToFalse;
+        lockedChange = PropertyChange::NoChange;
       }
       lockedChanges.push_back(std::make_pair(location, lockedChange));
     }
@@ -743,7 +737,7 @@ void OSObjectSelector::setObjectIsLocked(const std::function<bool(const model::M
         }), lockedChanges.end());
 
       } else {
-        lockedChange = PropertyChange::ChangeToFalse;
+        lockedChange = PropertyChange::NoChange;
       }
       lockedChanges.push_back(std::make_pair(location, lockedChange));
     }

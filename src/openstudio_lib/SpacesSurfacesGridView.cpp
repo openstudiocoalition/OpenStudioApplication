@@ -147,7 +147,7 @@ void SpacesSurfacesGridController::addColumns(const QString& category, std::vect
   for (const auto& field : fields) {
 
     if (field == NAME) {
-      addParentNameLineEditColumn(Heading(QString(NAME), false, false), false, false, CastNullAdapter<model::Space>(&model::Space::name),
+      addParentNameLineEditColumn(Heading(QString(NAME), false, false), false, CastNullAdapter<model::Space>(&model::Space::name),
                             CastNullAdapter<model::Space>(&model::Space::setName));
     } else {
 
@@ -166,7 +166,7 @@ void SpacesSurfacesGridController::addColumns(const QString& category, std::vect
         addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", DataSource(allSurfaces, true));
       } else if (field == SURFACENAME) {
         addNameLineEditColumn(
-          Heading(QString(NAME), true, false), false, false, CastNullAdapter<model::Surface>(&model::Surface::name),
+          Heading(QString(NAME), true, false), false, CastNullAdapter<model::Surface>(&model::Surface::name),
           CastNullAdapter<model::Surface>(&model::Surface::setName),
           boost::optional<std::function<void(model::Surface*)>>(std::function<void(model::Surface*)>([](model::Surface* t_s) { t_s->remove(); })),
           boost::optional<std::function<bool(model::Surface*)>>(), DataSource(allSurfaces, true));

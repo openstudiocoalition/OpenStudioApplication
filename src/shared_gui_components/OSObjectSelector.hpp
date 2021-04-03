@@ -141,7 +141,7 @@ class OSObjectSelector : public QObject
 
   // Adds object to the internal maps
   void addObject(const boost::optional<model::ModelObject>& t_obj, OSWidgetHolder* t_holder, int t_modelRow, int t_gridRow, int t_column,
-                 const boost::optional<int>& t_subrow, bool t_isSelector, bool t_isParent);
+                 const boost::optional<int>& t_subrow, bool t_isSelector, bool t_isParent, bool t_isLocked);
 
   // Lock and hide any grid cells referencing this object
   void setObjectRemoved(const openstudio::Handle& handle);

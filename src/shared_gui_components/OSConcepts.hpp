@@ -971,8 +971,8 @@ enum OSLineEditType
 class NameLineEditConcept : public BaseConcept
 {
  public:
-  NameLineEditConcept(const Heading& t_heading, OSLineEditType osLineEditType, bool t_isInspectable, bool t_deleteObject, bool t_hasClickFocus)
-    : BaseConcept(t_heading, t_hasClickFocus), m_osLineEditType(osLineEditType), m_isInspectable(t_isInspectable), m_deleteObject(t_deleteObject) {}
+  NameLineEditConcept(const Heading& t_heading, OSLineEditType osLineEditType, bool t_isInspectable, bool t_hasClickFocus)
+    : BaseConcept(t_heading, t_hasClickFocus), m_osLineEditType(osLineEditType), m_isInspectable(t_isInspectable) {}
 
   virtual ~NameLineEditConcept() {}
 
@@ -989,26 +989,22 @@ class NameLineEditConcept : public BaseConcept
   bool isInspectable() const {
     return m_isInspectable;
   }
-  bool deleteObject() const {
-    return m_deleteObject;
-  }
 
  private:
   OSLineEditType m_osLineEditType;
   bool m_isInspectable;
-  bool m_deleteObject;
 };
 
 template <typename DataSourceType>
 class NameLineEditConceptImpl : public NameLineEditConcept
 {
  public:
-  NameLineEditConceptImpl(const Heading& t_heading, OSLineEditType t_osLineEditType, bool t_isInspectable, bool t_deleteObject, bool t_hasClickFocus,
+  NameLineEditConceptImpl(const Heading& t_heading, OSLineEditType t_osLineEditType, bool t_isInspectable, bool t_hasClickFocus,
                           std::function<boost::optional<std::string>(DataSourceType*, bool)> t_getter,
                           std::function<boost::optional<std::string>(DataSourceType*, const std::string&)> t_setter,
                           boost::optional<std::function<void(DataSourceType*)>> t_reset,
                           boost::optional<std::function<bool(DataSourceType*)>> t_isInherited)
-    : NameLineEditConcept(t_heading, t_osLineEditType, t_isInspectable, t_deleteObject, t_hasClickFocus),
+    : NameLineEditConcept(t_heading, t_osLineEditType, t_isInspectable, t_hasClickFocus),
       m_getter(t_getter),
       m_setter(t_setter),
       m_reset(t_reset),

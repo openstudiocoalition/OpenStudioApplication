@@ -53,10 +53,6 @@ class OSLoadNamePixmapLineEdit : public QWidget, public OSLineEdit2Interface
 
   virtual void enableClickFocus() override;
 
-  virtual DeleteType deleteType() override;
-
-  virtual void setDeleteType(DeleteType deleteType) override;
-
   virtual bool hasData() override;
 
   virtual void setLocked(bool locked) override;

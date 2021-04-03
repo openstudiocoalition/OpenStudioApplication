@@ -55,14 +55,6 @@ void OSLoadNamePixmapLineEdit::enableClickFocus() {
   m_lineEdit->enableClickFocus();
 }
 
-DeleteType OSLoadNamePixmapLineEdit::deleteType() {
-  return m_lineEdit->deleteType();
-}
-
-void OSLoadNamePixmapLineEdit::setDeleteType(DeleteType deleteType) {
-  m_lineEdit->setDeleteType(deleteType);
-}
-
 bool OSLoadNamePixmapLineEdit::hasData() {
   return m_lineEdit->hasData();
 }
@@ -141,7 +133,6 @@ void OSLoadNamePixmapLineEdit::createWidgets() {
   m_lineEdit = new OSLineEdit2();
 
   connect(m_lineEdit, &OSLineEdit2::itemClicked, this, &OSLoadNamePixmapLineEdit::itemClicked);
-  connect(m_lineEdit, &OSLineEdit2::objectRemoved, this, &OSLoadNamePixmapLineEdit::objectRemoved);
 
   auto layout = new QHBoxLayout();
   layout->setContentsMargins(0, 0, 0, 0);

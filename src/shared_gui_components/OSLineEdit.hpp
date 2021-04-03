@@ -47,21 +47,10 @@ namespace openstudio {
 
 class OSItem;
 
-enum DeleteType
-{
-  NoDelete,
-  AlwaysDelete,
-  DeleteIfNotDefaulted
-};
-
 class OSLineEdit2Interface
 {
  public:
   virtual void enableClickFocus() = 0;
-
-  virtual DeleteType deleteType() = 0;
-
-  virtual void setDeleteType(DeleteType deleteType) = 0;
 
   virtual bool hasData() = 0;
 
@@ -105,10 +94,6 @@ class OSLineEdit2 : public QLineEdit, public OSLineEdit2Interface, public Nano::
 
   virtual void enableClickFocus() override;
 
-  virtual DeleteType deleteType() override;
-
-  virtual void setDeleteType(DeleteType deleteType) override;
-
   virtual bool hasData() override;
 
   virtual void setLocked(bool locked) override;
@@ -150,7 +135,7 @@ class OSLineEdit2 : public QLineEdit, public OSLineEdit2Interface, public Nano::
 
   void itemClicked(OSItem* item);
 
-  void objectRemoved(boost::optional<model::ParentObject> parent);
+  //void objectRemoved(boost::optional<model::ParentObject> parent);
 
   void inFocus(bool inFocus, bool hasData);
 
@@ -176,7 +161,6 @@ class OSLineEdit2 : public QLineEdit, public OSLineEdit2Interface, public Nano::
   void completeBind();
   void adjustWidth();
   void updateStyle();
-  bool deleteable() const;
   bool defaulted() const;
 
   boost::optional<model::ModelObject> m_modelObject;
@@ -199,8 +183,6 @@ class OSLineEdit2 : public QLineEdit, public OSLineEdit2Interface, public Nano::
   bool m_hasClickFocus = false;
   bool m_locked = false;
   bool m_focused = false;
-
-  DeleteType m_deleteType = DeleteType::NoDelete;
 };
 
 // class OSLineEdit : public QLineEdit, public Nano::Observer

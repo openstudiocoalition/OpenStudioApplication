@@ -164,7 +164,7 @@ void SpacesSpacesGridController::addColumns(const QString& category, std::vector
   for (const auto& field : fields) {
 
     if (field == NAME) {
-      addParentNameLineEditColumn(Heading(QString(NAME), false, false), false, false, CastNullAdapter<model::Space>(&model::Space::name),
+      addParentNameLineEditColumn(Heading(QString(NAME), false, false), false, CastNullAdapter<model::Space>(&model::Space::name),
                             CastNullAdapter<model::Space>(&model::Space::setName));
     } else if (field == SELECTED) {
       auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
@@ -227,11 +227,11 @@ void SpacesSpacesGridController::addColumns(const QString& category, std::vector
       });
 
       addNameLineEditColumn(
-        Heading(QString(SPACEINFILTRATIONDESIGNFLOWRATES)), true, true,
+        Heading(QString(SPACEINFILTRATIONDESIGNFLOWRATES)), true,
         CastNullAdapter<model::SpaceInfiltrationDesignFlowRate>(&model::SpaceInfiltrationDesignFlowRate::name),
         CastNullAdapter<model::SpaceInfiltrationDesignFlowRate>(&model::SpaceInfiltrationDesignFlowRate::setName),
         boost::optional<std::function<void(model::SpaceInfiltrationDesignFlowRate*)>>(
-          std::function<void(model::SpaceInfiltrationDesignFlowRate*)>([](model::SpaceInfiltrationDesignFlowRate* t_fr) { t_fr->resetSpace(); })),
+          std::function<void(model::SpaceInfiltrationDesignFlowRate*)>([](model::SpaceInfiltrationDesignFlowRate* t_fr) { t_fr->remove(); })),
         boost::optional<std::function<bool(model::SpaceInfiltrationDesignFlowRate*)>>(std::function<bool(model::SpaceInfiltrationDesignFlowRate*)>(
           [](model::SpaceInfiltrationDesignFlowRate* t_fr) { return t_fr->spaceType().is_initialized(); })),
         DataSource(flowRates, false,
@@ -261,12 +261,12 @@ void SpacesSpacesGridController::addColumns(const QString& category, std::vector
       });
 
       addNameLineEditColumn(
-        Heading(QString(SPACEINFILTRATIONEFFECTIVELEAKAGEAREAS)), true, true,
+        Heading(QString(SPACEINFILTRATIONEFFECTIVELEAKAGEAREAS)), true,
         CastNullAdapter<model::SpaceInfiltrationEffectiveLeakageArea>(&model::SpaceInfiltrationEffectiveLeakageArea::name),
         CastNullAdapter<model::SpaceInfiltrationEffectiveLeakageArea>(&model::SpaceInfiltrationEffectiveLeakageArea::setName),
         boost::optional<std::function<void(model::SpaceInfiltrationEffectiveLeakageArea*)>>(
           std::function<void(model::SpaceInfiltrationEffectiveLeakageArea*)>(
-            [](model::SpaceInfiltrationEffectiveLeakageArea* t_la) { t_la->resetSpace(); })),
+            [](model::SpaceInfiltrationEffectiveLeakageArea* t_la) { t_la->remove(); })),
         boost::optional<std::function<bool(model::SpaceInfiltrationEffectiveLeakageArea*)>>(
           std::function<bool(model::SpaceInfiltrationEffectiveLeakageArea*)>(
             [](model::SpaceInfiltrationEffectiveLeakageArea* t_la) { return t_la->spaceType().is_initialized(); })),

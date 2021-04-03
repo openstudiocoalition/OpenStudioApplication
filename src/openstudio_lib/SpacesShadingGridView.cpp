@@ -142,7 +142,7 @@ void SpacesShadingGridController::addColumns(const QString& category, std::vecto
   for (const auto& field : fields) {
 
     if (field == NAME) {
-      addParentNameLineEditColumn(Heading(QString(NAME), false, false), false, false, CastNullAdapter<model::Space>(&model::Space::name),
+      addParentNameLineEditColumn(Heading(QString(NAME), false, false), false, CastNullAdapter<model::Space>(&model::Space::name),
                             CastNullAdapter<model::Space>(&model::Space::setName));
     } else {
 
@@ -187,11 +187,11 @@ void SpacesShadingGridController::addColumns(const QString& category, std::vecto
         addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", DataSource(allShadingSurfaceGroups, true));
       } else if (field == SHADEDSURFACENAME) {
         addNameLineEditColumn(
-          Heading(QString(SHADEDSURFACENAME), true, false), false, false, CastNullAdapter<model::ShadingSurface>(&model::ShadingSurface::name),
+          Heading(QString(SHADEDSURFACENAME), true, false), false, CastNullAdapter<model::ShadingSurface>(&model::ShadingSurface::name),
           CastNullAdapter<model::ShadingSurface>(&model::ShadingSurface::setName), boost::optional<std::function<void(model::ShadingSurface*)>>(),
           boost::optional<std::function<bool(model::ShadingSurface*)>>(), DataSource(allShadingSurfaces, true));
       } else if (field == SHADINGSURFACEGROUP) {
-        addNameLineEditColumn(Heading(QString(SHADINGSURFACEGROUP), true, false), false, false,
+        addNameLineEditColumn(Heading(QString(SHADINGSURFACEGROUP), true, false), false,
                               CastNullAdapter<model::ShadingSurfaceGroup>(&model::ShadingSurfaceGroup::name),
                               CastNullAdapter<model::ShadingSurfaceGroup>(&model::ShadingSurfaceGroup::setName),
                               boost::optional<std::function<void(model::ShadingSurfaceGroup*)>>(),

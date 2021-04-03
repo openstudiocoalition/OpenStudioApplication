@@ -271,7 +271,7 @@ void FacilityStoriesGridController::addColumns(const QString& category, std::vec
   for (const auto& field : fields) {
 
     if (field == NAME) {
-      addParentNameLineEditColumn(Heading(QString(NAME), false, false), false, false, CastNullAdapter<model::BuildingStory>(&model::BuildingStory::name),
+      addParentNameLineEditColumn(Heading(QString(NAME), false, false), false, CastNullAdapter<model::BuildingStory>(&model::BuildingStory::name),
                             CastNullAdapter<model::BuildingStory>(&model::BuildingStory::setName));
     } else if (field == SELECTED) {
       auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());

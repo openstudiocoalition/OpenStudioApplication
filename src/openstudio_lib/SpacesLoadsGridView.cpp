@@ -196,8 +196,7 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
 
     if (field == NAME) {
       const bool isInspectable = false;
-      const bool deleteObject = false;
-      addParentNameLineEditColumn(Heading(QString(NAME), false, false), isInspectable, deleteObject,
+      addParentNameLineEditColumn(Heading(QString(NAME), false, false), isInspectable,
                                   CastNullAdapter<model::Space>(&model::Space::name), CastNullAdapter<model::Space>(&model::Space::setName));
     } else {
       // Create a lambda function that collates all of the loads in a space
@@ -926,7 +925,7 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
           std::function<bool(model::Space*)>([](model::Space* t_space) { return false; }));
 
         addNameLineEditColumn(
-          Heading(QString(DEFINITION), true, false), true, false, CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::name),
+          Heading(QString(DEFINITION), true, false), true, CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::name),
           CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::setName),
           boost::optional<std::function<void(model::SpaceLoadDefinition*)>>(), boost::optional<std::function<bool(model::SpaceLoadDefinition*)>>(),
           DataSource(allDefinitions, false,

@@ -144,7 +144,7 @@ void SpacesInteriorPartitionsGridController::addColumns(const QString& category,
   for (const auto& field : fields) {
 
     if (field == NAME) {
-      addParentNameLineEditColumn(Heading(QString(NAME), false, false), false, false, CastNullAdapter<model::Space>(&model::Space::name),
+      addParentNameLineEditColumn(Heading(QString(NAME), false, false), false, CastNullAdapter<model::Space>(&model::Space::name),
                             CastNullAdapter<model::Space>(&model::Space::setName));
     } else {
 
@@ -193,14 +193,14 @@ void SpacesInteriorPartitionsGridController::addColumns(const QString& category,
         addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row",
                         DataSource(allInteriorPartitionSurfaces, true));
       } else if (field == INTERIORPARTITIONGROUPNAME) {
-        addNameLineEditColumn(Heading(QString(INTERIORPARTITIONGROUPNAME), true, false), false, false,
+        addNameLineEditColumn(Heading(QString(INTERIORPARTITIONGROUPNAME), true, false), false,
                               CastNullAdapter<model::InteriorPartitionSurfaceGroup>(&model::InteriorPartitionSurfaceGroup::name),
                               CastNullAdapter<model::InteriorPartitionSurfaceGroup>(&model::InteriorPartitionSurfaceGroup::setName),
                               boost::optional<std::function<void(model::InteriorPartitionSurfaceGroup*)>>(),
                               boost::optional<std::function<bool(model::InteriorPartitionSurfaceGroup*)>>(),
                               DataSource(allInteriorPartitionSurfaceInteriorPartitionSurfaceGroups, true));
       } else if (field == INTERIORPARTITIONNAME) {
-        addNameLineEditColumn(Heading(QString(INTERIORPARTITIONNAME), true, false), false, false,
+        addNameLineEditColumn(Heading(QString(INTERIORPARTITIONNAME), true, false), false,
                               CastNullAdapter<model::InteriorPartitionSurface>(&model::InteriorPartitionSurface::name),
                               CastNullAdapter<model::InteriorPartitionSurface>(&model::InteriorPartitionSurface::setName),
                               boost::optional<std::function<void(model::InteriorPartitionSurface*)>>(),

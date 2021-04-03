@@ -81,14 +81,6 @@ void OSLineEdit2::enableClickFocus() {
   this->m_hasClickFocus = true;
 }
 
-DeleteType OSLineEdit2::deleteType() {
-  return m_deleteType;
-}
-
-void OSLineEdit2::setDeleteType(DeleteType deleteType) {
-  m_deleteType = deleteType;
-}
-
 bool OSLineEdit2::hasData() {
   return !this->text().isEmpty();
 }
@@ -270,16 +262,6 @@ void OSLineEdit2::updateStyle() {
   }
 }
 
-bool OSLineEdit2::deleteable() const {
-  bool result = false;
-  if (m_deleteType == DeleteType::AlwaysDelete) {
-    result = true;
-  } else if (m_deleteType == DeleteType::DeleteIfNotDefaulted) {
-    result = !defaulted();
-  }
-  return result;
-}
-
 bool OSLineEdit2::defaulted() const {
   bool result = false;
   if (m_isDefaulted) {
@@ -362,15 +344,8 @@ void OSLineEdit2::mouseReleaseEvent(QMouseEvent* event) {
 
 void OSLineEdit2::onItemRemoveClicked() {
   if (m_reset) {
-    boost::optional<model::ParentObject> parent = boost::none;
-    if (m_modelObject) {
-      parent = m_modelObject->parent();
-    }
+    // unbind will get called in onModelObjectRemove if model object is removed
     (*m_reset)();
-    if (deleteable()) {
-      m_modelObject->remove();
-    }
-    emit objectRemoved(parent);
   }
 }
 

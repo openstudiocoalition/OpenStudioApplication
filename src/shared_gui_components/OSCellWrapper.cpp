@@ -46,6 +46,8 @@
 
 #include <openstudio/model/Model_Impl.hpp>
 #include <openstudio/model/ModelObject_Impl.hpp>
+#include <openstudio/model/SpaceLoadDefinition.hpp>
+#include <openstudio/model/SpaceLoadDefinition_Impl.hpp>
 
 #include <openstudio/utilities/core/Assert.hpp>
 
@@ -354,12 +356,6 @@ QWidget* OSCellWrapper::createOSWidget(model::ModelObject t_mo, const QSharedPoi
       nameLineEdit->enableClickFocus();
     }
 
-    if (nameLineEditConcept->deleteObject()) {
-      nameLineEdit->setDeleteType(DeleteType::DeleteIfNotDefaulted);
-    } else {
-      nameLineEdit->setDeleteType(DeleteType::NoDelete);
-    }
-
     nameLineEdit->bind(
       t_mo, OptionalStringGetter(std::bind(&NameLineEditConcept::get, nameLineEditConcept.data(), t_mo, true)),
       boost::optional<StringSetter>(std::bind(&NameLineEditConcept::setReturnBool, nameLineEditConcept.data(), t_mo, std::placeholders::_1)),
@@ -522,29 +518,45 @@ void OSCellWrapper::addOSWidget(QWidget* widget, const boost::optional<model::Mo
   int subrow = m_holders.size() - 1;
   m_layout->addWidget(holder, subrow, 0);
 
+  // override locked to prevent editing in the grid
+  bool isLocked = false;
+  if (obj && obj->optionalCast<model::SpaceLoadDefinition>()) {
+    isLocked = true;
+  }
+
   if (OSComboBox2* comboBox = qobject_cast<OSComboBox2*>(widget)) {
+    comboBox->setLocked(isLocked);
     connect(comboBox, &OSComboBox2::inFocus, holder, &OSWidgetHolder::inFocus);
   } else if (OSDoubleEdit2* doubleEdit = qobject_cast<OSDoubleEdit2*>(widget)) {
+    doubleEdit->setLocked(isLocked);
     connect(doubleEdit, &OSDoubleEdit2::inFocus, holder, &OSWidgetHolder::inFocus);
   } else if (OSIntegerEdit2* integerEdit = qobject_cast<OSIntegerEdit2*>(widget)) {
+    integerEdit->setLocked(isLocked);
     connect(integerEdit, &OSIntegerEdit2::inFocus, holder, &OSWidgetHolder::inFocus);
   } else if (OSQuantityEdit2* quantityEdit = qobject_cast<OSQuantityEdit2*>(widget)) {
+    quantityEdit->setLocked(isLocked);
     connect(quantityEdit, &OSQuantityEdit2::inFocus, holder, &OSWidgetHolder::inFocus);
   } else if (OSLineEdit2* lineEdit = qobject_cast<OSLineEdit2*>(widget)) {
+    lineEdit->setLocked(isLocked);
     connect(lineEdit, &OSLineEdit2::inFocus, holder, &OSWidgetHolder::inFocus);
   } else if (OSUnsignedEdit2* unsignedEdit = qobject_cast<OSUnsignedEdit2*>(widget)) {
+    unsignedEdit->setLocked(isLocked);
     connect(unsignedEdit, &OSUnsignedEdit2::inFocus, holder, &OSWidgetHolder::inFocus);
   } else if (OSLoadNamePixmapLineEdit* pixmap = qobject_cast<OSLoadNamePixmapLineEdit*>(widget)) {
+    pixmap->setLocked(isLocked);
     connect(pixmap, &OSLoadNamePixmapLineEdit::inFocus, holder, &OSWidgetHolder::inFocus);
   } else if (OSDropZone2* dropZone = qobject_cast<OSDropZone2*>(widget)) {
+    dropZone->setLocked(isLocked);
     connect(dropZone, &OSDropZone2::inFocus, holder, &OSWidgetHolder::inFocus);
   } else if (HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(widget)) {
+    // not locked
     connect(horizontalHeaderWidget, &HorizontalHeaderWidget::inFocus, holder, &OSWidgetHolder::inFocus);
   } else if (OSCheckBox3* checkBox = qobject_cast<OSCheckBox3*>(widget)) {
+    checkBox->setLocked(isLocked);
     connect(checkBox, &OSCheckBox3::inFocus, holder, &OSWidgetHolder::inFocus);
   }
 
-  m_objectSelector->addObject(obj, holder, m_modelRow, m_gridRow, m_column, m_hasSubRows ? subrow : boost::optional<int>(), isSelector, isParent);
+  m_objectSelector->addObject(obj, holder, m_modelRow, m_gridRow, m_column, m_hasSubRows ? subrow : boost::optional<int>(), isSelector, isParent, isLocked);
 }
 
 void OSCellWrapper::onRemoveWorkspaceObject(const WorkspaceObject& object, const openstudio::IddObjectType& iddObjectType,
