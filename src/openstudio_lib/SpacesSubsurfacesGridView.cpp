@@ -273,7 +273,7 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
 
     if (field == NAME) {
       addParentNameLineEditColumn(Heading(QString(NAME), false, false), false, CastNullAdapter<model::Space>(&model::Space::name),
-                            CastNullAdapter<model::Space>(&model::Space::setName));
+                                  CastNullAdapter<model::Space>(&model::Space::setName));
     } else {
 
       std::function<std::vector<model::ModelObject>(const model::Space&)> allSurfaces([](const model::Space& t_space) {
@@ -395,8 +395,7 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
           boost::optional<std::function<void(model::Surface*)>>(std::function<void(model::Surface*)>([](model::Surface* t_s) { t_s->remove(); })),
           boost::optional<std::function<bool(model::Surface*)>>(), DataSource(allSubsurfaceSurfaces, true));
       } else if (field == SUBSURFACENAME) {
-        addNameLineEditColumn(Heading(QString(SUBSURFACENAME), true, false), false,
-                              CastNullAdapter<model::SubSurface>(&model::SubSurface::name),
+        addNameLineEditColumn(Heading(QString(SUBSURFACENAME), true, false), false, CastNullAdapter<model::SubSurface>(&model::SubSurface::name),
                               CastNullAdapter<model::SubSurface>(&model::SubSurface::setName),
                               boost::optional<std::function<void(model::SubSurface*)>>(
                                 std::function<void(model::SubSurface*)>([](model::SubSurface* t_s) { t_s->remove(); })),

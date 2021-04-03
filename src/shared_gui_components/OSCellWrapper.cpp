@@ -118,11 +118,15 @@ void OSCellWrapper::refresh() {
     // all the way around.
     auto items = dataSource->source().items(m_modelObject.get());
 
-    if (m_refreshCount == 0) {    
+    if (m_refreshCount == 0) {
       // get signals if object is added or removed
-      m_modelObject->model().getImpl<model::detail::Model_Impl>().get()
+      m_modelObject->model()
+        .getImpl<model::detail::Model_Impl>()
+        .get()
         ->addWorkspaceObject.connect<OSCellWrapper, &OSCellWrapper::onAddWorkspaceObject>(this);
-      m_modelObject->model().getImpl<model::detail::Model_Impl>().get()
+      m_modelObject->model()
+        .getImpl<model::detail::Model_Impl>()
+        .get()
         ->removeWorkspaceObject.connect<OSCellWrapper, &OSCellWrapper::onRemoveWorkspaceObject>(this);
     }
 
@@ -175,7 +179,7 @@ void OSCellWrapper::refresh() {
 
   if (m_refreshCount > 0) {
     emit rowNeedsStyle(m_modelRow, m_gridRow);
-  }  
+  }
 
   ++m_refreshCount;
 }
@@ -556,7 +560,8 @@ void OSCellWrapper::addOSWidget(QWidget* widget, const boost::optional<model::Mo
     connect(checkBox, &OSCheckBox3::inFocus, holder, &OSWidgetHolder::inFocus);
   }
 
-  m_objectSelector->addObject(obj, holder, m_modelRow, m_gridRow, m_column, m_hasSubRows ? subrow : boost::optional<int>(), isSelector, isParent, isLocked);
+  m_objectSelector->addObject(obj, holder, m_modelRow, m_gridRow, m_column, m_hasSubRows ? subrow : boost::optional<int>(), isSelector, isParent,
+                              isLocked);
 }
 
 void OSCellWrapper::onRemoveWorkspaceObject(const WorkspaceObject& object, const openstudio::IddObjectType& iddObjectType,
@@ -577,16 +582,16 @@ void OSCellWrapper::onAddWorkspaceObject(const WorkspaceObject& object, const op
   QTimer::singleShot(0, this, &OSCellWrapper::processNewModelObjects);
 }
 
-void OSCellWrapper::processNewModelObjects(){
+void OSCellWrapper::processNewModelObjects() {
   OS_ASSERT(m_modelObject);
   OS_ASSERT(m_objectSelector);
 
   bool needsRefresh = false;
-  
+
   if (QSharedPointer<DataSourceAdapter> dataSource = m_baseConcept.dynamicCast<DataSourceAdapter>()) {
-    for (const auto& newModelObject : m_newModelObjects){
+    for (const auto& newModelObject : m_newModelObjects) {
       boost::optional<model::ParentObject> p = newModelObject.parent();
-      if (p){
+      if (p) {
         if (p.get() == m_modelObject.get()) {
           needsRefresh = true;
         }
@@ -594,7 +599,7 @@ void OSCellWrapper::processNewModelObjects(){
     }
   }
   m_newModelObjects.clear();
-  
+
   if (needsRefresh) {
     // clear current holders
     QLayoutItem* child;

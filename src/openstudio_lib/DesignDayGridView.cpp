@@ -312,7 +312,7 @@ void DesignDayGridController::addColumns(const QString& /*category*/, std::vecto
     // STRING
     else if (field == NAME) {
       addParentNameLineEditColumn(Heading(QString(NAME), false, false), false, CastNullAdapter<model::DesignDay>(&model::DesignDay::name),
-                            CastNullAdapter<model::DesignDay>(&model::DesignDay::setName));
+                                  CastNullAdapter<model::DesignDay>(&model::DesignDay::setName));
     } else if (field == MAXIMUMDRYBULBTEMPERATURE) {
       addQuantityEditColumn(
         Heading(QString(MAXIMUMDRYBULBTEMPERATURE)), QString("C"), QString("C"), QString("F"), isIP(),

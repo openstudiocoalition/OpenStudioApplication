@@ -143,7 +143,7 @@ void SpacesShadingGridController::addColumns(const QString& category, std::vecto
 
     if (field == NAME) {
       addParentNameLineEditColumn(Heading(QString(NAME), false, false), false, CastNullAdapter<model::Space>(&model::Space::name),
-                            CastNullAdapter<model::Space>(&model::Space::setName));
+                                  CastNullAdapter<model::Space>(&model::Space::setName));
     } else {
 
       std::function<std::vector<model::ModelObject>(const model::Space&)> allShadingSurfaceGroups([](const model::Space& t_space) {
@@ -191,12 +191,11 @@ void SpacesShadingGridController::addColumns(const QString& category, std::vecto
           CastNullAdapter<model::ShadingSurface>(&model::ShadingSurface::setName), boost::optional<std::function<void(model::ShadingSurface*)>>(),
           boost::optional<std::function<bool(model::ShadingSurface*)>>(), DataSource(allShadingSurfaces, true));
       } else if (field == SHADINGSURFACEGROUP) {
-        addNameLineEditColumn(Heading(QString(SHADINGSURFACEGROUP), true, false), false,
-                              CastNullAdapter<model::ShadingSurfaceGroup>(&model::ShadingSurfaceGroup::name),
-                              CastNullAdapter<model::ShadingSurfaceGroup>(&model::ShadingSurfaceGroup::setName),
-                              boost::optional<std::function<void(model::ShadingSurfaceGroup*)>>(),
-                              boost::optional<std::function<bool(model::ShadingSurfaceGroup*)>>(),
-                              DataSource(allShadingSurfaceShadingSurfaceGroups, true));
+        addNameLineEditColumn(
+          Heading(QString(SHADINGSURFACEGROUP), true, false), false, CastNullAdapter<model::ShadingSurfaceGroup>(&model::ShadingSurfaceGroup::name),
+          CastNullAdapter<model::ShadingSurfaceGroup>(&model::ShadingSurfaceGroup::setName),
+          boost::optional<std::function<void(model::ShadingSurfaceGroup*)>>(), boost::optional<std::function<bool(model::ShadingSurfaceGroup*)>>(),
+          DataSource(allShadingSurfaceShadingSurfaceGroups, true));
       } else if (field == CONSTRUCTION) {
         setConstructionColumn(4);
         addDropZoneColumn(Heading(QString(CONSTRUCTION)), CastNullAdapter<model::ShadingSurface>(&model::ShadingSurface::construction),

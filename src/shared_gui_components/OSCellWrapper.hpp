@@ -77,15 +77,15 @@ class OSCellWrapper : public QWidget
   void setCellProperties(const GridCellLocation& location, const GridCellInfo& info);
 
  private slots:
- 
+
   void onRemoveWorkspaceObject(const WorkspaceObject& object, const openstudio::IddObjectType& iddObjectType, const openstudio::UUID& handle);
 
   void onAddWorkspaceObject(const WorkspaceObject& object, const openstudio::IddObjectType& iddObjectType, const openstudio::UUID& handle);
-  
+
   void processNewModelObjects();
 
  signals:
-  
+
   void rowNeedsStyle(int modelRow, int gridRow);
 
  private:
@@ -111,7 +111,7 @@ class OSCellWrapper : public QWidget
   boost::optional<model::ModelObject> m_modelObject;
   OSGridController* m_gridController;
 
-  // temp variable 
+  // temp variable
   std::set<model::ModelObject> m_newModelObjects;
 };
 

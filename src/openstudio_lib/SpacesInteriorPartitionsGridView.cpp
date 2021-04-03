@@ -145,7 +145,7 @@ void SpacesInteriorPartitionsGridController::addColumns(const QString& category,
 
     if (field == NAME) {
       addParentNameLineEditColumn(Heading(QString(NAME), false, false), false, CastNullAdapter<model::Space>(&model::Space::name),
-                            CastNullAdapter<model::Space>(&model::Space::setName));
+                                  CastNullAdapter<model::Space>(&model::Space::setName));
     } else {
 
       std::function<std::vector<model::ModelObject>(const model::Space&)> allInteriorPartitionSurfaceGroups([](const model::Space& t_space) {

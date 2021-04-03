@@ -129,7 +129,7 @@ class SpacesSubtabGridView : public GridViewSubTab
   void filterChanged();
 
   // All these sets will store the objects that DO NEED to be hidden
-  // These objects should be the selector type objects 
+  // These objects should be the selector type objects
   // So if the set is empty -> show all
   std::set<openstudio::model::ModelObject> m_objectsFilteredByStory;
 

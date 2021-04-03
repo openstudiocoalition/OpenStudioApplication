@@ -471,8 +471,8 @@ void RefrigerationCaseGridController::addColumns(const QString& /*category*/, st
       //boost::optional<CurveCubic> defrostEnergyCorrectionCurve() const; TODO
     } else if (field == NAME) {
       addParentNameLineEditColumn(Heading(QString(NAME), false, false), false,
-                            CastNullAdapter<model::RefrigerationCase>(&model::RefrigerationCase::name),
-                            CastNullAdapter<model::RefrigerationCase>(&model::RefrigerationCase::setName));
+                                  CastNullAdapter<model::RefrigerationCase>(&model::RefrigerationCase::name),
+                                  CastNullAdapter<model::RefrigerationCase>(&model::RefrigerationCase::setName));
     } else {
       // unhandled
       OS_ASSERT(false);
@@ -772,8 +772,8 @@ void RefrigerationWalkInGridController::addColumns(const QString& /*category*/, 
       //std::vector<RefrigerationWalkInZoneBoundary> zoneBoundaries() const; TODO
     } else if (field == NAME) {
       addParentNameLineEditColumn(Heading(QString(NAME), false, false), false,
-                            CastNullAdapter<model::RefrigerationWalkIn>(&model::RefrigerationWalkIn::name),
-                            CastNullAdapter<model::RefrigerationWalkIn>(&model::RefrigerationWalkIn::setName));
+                                  CastNullAdapter<model::RefrigerationWalkIn>(&model::RefrigerationWalkIn::name),
+                                  CastNullAdapter<model::RefrigerationWalkIn>(&model::RefrigerationWalkIn::setName));
     } else if (field == RACK) {
       addComboBoxColumn<model::RefrigerationSystem, model::RefrigerationWalkIn>(
         Heading(QString(RACK)), &openstudio::objectName,

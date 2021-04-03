@@ -516,14 +516,15 @@ OSDropZone2::OSDropZone2() : QWidget() {
   setObjectName("OSDropZone");
 
   // if multiple qss rules apply with same specificity then the last one is chosen
-  this->setStyleSheet("QWidget#OSDropZone[style=\"000\"] { border: 2px dashed #808080; border-radius: 5px; background:#cecece; } "  // Locked=0, Focused=0, Defaulted=0
-                      "QWidget#OSDropZone[style=\"001\"] { border: 2px dashed #808080; border-radius: 5px; background:#cecece; } "  // Locked=0, Focused=0, Defaulted=1
-                      "QWidget#OSDropZone[style=\"010\"] { border: 2px dashed #808080; border-radius: 5px; background:#ffc627; } "  // Locked=0, Focused=1, Defaulted=0
-                      "QWidget#OSDropZone[style=\"011\"] { border: 2px dashed #808080; border-radius: 5px; background:#ffc627; } "  // Locked=0, Focused=1, Defaulted=1
-                      "QWidget#OSDropZone[style=\"100\"] { border: 2px dashed #808080; border-radius: 5px; background:#e6e6e6; } "  // Locked=1, Focused=0, Defaulted=0
-                      "QWidget#OSDropZone[style=\"101\"] { border: 2px dashed #808080; border-radius: 5px; background:#e6e6e6; } "  // Locked=1, Focused=0, Defaulted=1
-                      "QWidget#OSDropZone[style=\"110\"] { border: 2px dashed #808080; border-radius: 5px; background:#cc9a00; } "  // Locked=1, Focused=1, Defaulted=0
-                      "QWidget#OSDropZone[style=\"111\"] { border: 2px dashed #808080; border-radius: 5px; background:#cc9a00; } "  // Locked=1, Focused=1, Defaulted=1
+  this->setStyleSheet(
+    "QWidget#OSDropZone[style=\"000\"] { border: 2px dashed #808080; border-radius: 5px; background:#cecece; } "  // Locked=0, Focused=0, Defaulted=0
+    "QWidget#OSDropZone[style=\"001\"] { border: 2px dashed #808080; border-radius: 5px; background:#cecece; } "  // Locked=0, Focused=0, Defaulted=1
+    "QWidget#OSDropZone[style=\"010\"] { border: 2px dashed #808080; border-radius: 5px; background:#ffc627; } "  // Locked=0, Focused=1, Defaulted=0
+    "QWidget#OSDropZone[style=\"011\"] { border: 2px dashed #808080; border-radius: 5px; background:#ffc627; } "  // Locked=0, Focused=1, Defaulted=1
+    "QWidget#OSDropZone[style=\"100\"] { border: 2px dashed #808080; border-radius: 5px; background:#e6e6e6; } "  // Locked=1, Focused=0, Defaulted=0
+    "QWidget#OSDropZone[style=\"101\"] { border: 2px dashed #808080; border-radius: 5px; background:#e6e6e6; } "  // Locked=1, Focused=0, Defaulted=1
+    "QWidget#OSDropZone[style=\"110\"] { border: 2px dashed #808080; border-radius: 5px; background:#cc9a00; } "  // Locked=1, Focused=1, Defaulted=0
+    "QWidget#OSDropZone[style=\"111\"] { border: 2px dashed #808080; border-radius: 5px; background:#cc9a00; } "  // Locked=1, Focused=1, Defaulted=1
   );
 
   auto layout = new QVBoxLayout();
@@ -540,7 +541,7 @@ OSDropZone2::OSDropZone2() : QWidget() {
                          "QLabel[style=\"101\"] { color:green; background:#e6e6e6; } "  // Locked=1, Focused=0, Defaulted=1
                          "QLabel[style=\"110\"] { color:black; background:#cc9a00; } "  // Locked=1, Focused=1, Defaulted=0
                          "QLabel[style=\"111\"] { color:green; background:#cc9a00; } "  // Locked=1, Focused=1, Defaulted=1
-  ); 
+  );
 
   setFixedHeight(25);
   setMinimumWidth(75);
@@ -801,7 +802,7 @@ void OSDropZone2::updateStyle() {
   if (m_isDefaulted) {
     thisDefaulted = (*m_isDefaulted)(*m_modelObject);
   }
-  
+
   // Locked, Focused, Defaulted
   std::bitset<3> style;
   style[0] = thisDefaulted;

@@ -146,7 +146,7 @@ void FacilityExteriorEquipmentGridController::addColumns(const QString& category
 
     if (field == NAME) {
       addParentNameLineEditColumn(Heading(QString(NAME), false, false), false, CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::name),
-                            CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::setName));
+                                  CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::setName));
     } else if (field == SELECTED) {
       auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
       checkbox->setToolTip("Check to select all rows");

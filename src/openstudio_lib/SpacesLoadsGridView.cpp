@@ -196,8 +196,8 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
 
     if (field == NAME) {
       const bool isInspectable = false;
-      addParentNameLineEditColumn(Heading(QString(NAME), false, false), isInspectable,
-                                  CastNullAdapter<model::Space>(&model::Space::name), CastNullAdapter<model::Space>(&model::Space::setName));
+      addParentNameLineEditColumn(Heading(QString(NAME), false, false), isInspectable, CastNullAdapter<model::Space>(&model::Space::name),
+                                  CastNullAdapter<model::Space>(&model::Space::setName));
     } else {
       // Create a lambda function that collates all of the loads in a space
       // and returns them as an std::vector
@@ -553,7 +553,7 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
           // show multipliers on inherited loads as inherited
           return true;
         }
-      
+
         boost::optional<model::InternalMass> im = t_modelObject->optionalCast<model::InternalMass>();
         if (im) {
           return im->isMultiplierDefaulted();

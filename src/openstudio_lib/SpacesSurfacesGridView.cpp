@@ -148,7 +148,7 @@ void SpacesSurfacesGridController::addColumns(const QString& category, std::vect
 
     if (field == NAME) {
       addParentNameLineEditColumn(Heading(QString(NAME), false, false), false, CastNullAdapter<model::Space>(&model::Space::name),
-                            CastNullAdapter<model::Space>(&model::Space::setName));
+                                  CastNullAdapter<model::Space>(&model::Space::setName));
     } else {
 
       std::function<std::vector<model::ModelObject>(const model::Space&)> allSurfaces([](const model::Space& t_space) {
