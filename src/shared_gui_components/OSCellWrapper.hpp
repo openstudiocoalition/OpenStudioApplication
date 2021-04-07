@@ -96,6 +96,9 @@ class OSCellWrapper : public QWidget
   // These will be put in container widgets to form the cell, regardless of the presence of sub rows.
   QWidget* createOSWidget(model::ModelObject t_mo, const QSharedPointer<BaseConcept>& t_baseConcept);
 
+  void connectModelSignals();
+  void disconnectModelSignals();
+
   OSGridView* m_gridView;
   QGridLayout* m_layout;
   std::vector<OSWidgetHolder*> m_holders;
@@ -109,6 +112,7 @@ class OSCellWrapper : public QWidget
 
   // only has these members if not a header cell
   boost::optional<model::ModelObject> m_modelObject;
+  boost::optional<model::Model> m_model;
   OSGridController* m_gridController;
 
   // temp variable

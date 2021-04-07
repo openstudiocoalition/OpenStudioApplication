@@ -89,7 +89,9 @@ OSCellWrapper::OSCellWrapper(OSGridView* gridView, QSharedPointer<BaseConcept> b
   connect(this, &OSCellWrapper::rowNeedsStyle, objectSelector, &OSObjectSelector::onRowNeedsStyle);
 }
 
-OSCellWrapper::~OSCellWrapper() {}
+OSCellWrapper::~OSCellWrapper() {
+  disconnectModelSignals();
+}
 
 void OSCellWrapper::setGridController(OSGridController* gridController) {
   m_gridController = gridController;
@@ -97,6 +99,9 @@ void OSCellWrapper::setGridController(OSGridController* gridController) {
 
 void OSCellWrapper::setModelObject(const boost::optional<model::ModelObject>& modelObject) {
   m_modelObject = modelObject;
+  if (m_modelObject) {
+    m_model = modelObject->model();
+  }
 }
 
 void OSCellWrapper::refresh() {
@@ -119,15 +124,7 @@ void OSCellWrapper::refresh() {
     auto items = dataSource->source().items(m_modelObject.get());
 
     if (m_refreshCount == 0) {
-      // get signals if object is added or removed
-      m_modelObject->model()
-        .getImpl<model::detail::Model_Impl>()
-        .get()
-        ->addWorkspaceObject.connect<OSCellWrapper, &OSCellWrapper::onAddWorkspaceObject>(this);
-      m_modelObject->model()
-        .getImpl<model::detail::Model_Impl>()
-        .get()
-        ->removeWorkspaceObject.connect<OSCellWrapper, &OSCellWrapper::onRemoveWorkspaceObject>(this);
+      connectModelSignals();
     }
 
     size_t subrowCounter = 0;
@@ -504,8 +501,6 @@ QWidget* OSCellWrapper::createOSWidget(model::ModelObject t_mo, const QSharedPoi
     OS_ASSERT(false);
   }
 
-  // todo: connect model signals to Wrapper so subrows refresh when needed
-
   return widget;
 }
 
@@ -562,6 +557,27 @@ void OSCellWrapper::addOSWidget(QWidget* widget, const boost::optional<model::Mo
 
   m_objectSelector->addObject(obj, holder, m_modelRow, m_gridRow, m_column, m_hasSubRows ? subrow : boost::optional<int>(), isSelector, isParent,
                               isLocked);
+}
+
+void OSCellWrapper::connectModelSignals() {
+  if (m_model) {
+    // get signals if object is added or removed
+    m_model->getImpl<model::detail::Model_Impl>().get()->addWorkspaceObject.connect<OSCellWrapper, &OSCellWrapper::onAddWorkspaceObject>(
+      this);
+    m_model->getImpl<model::detail::Model_Impl>()
+      .get()
+      ->removeWorkspaceObject.connect<OSCellWrapper, &OSCellWrapper::onRemoveWorkspaceObject>(this);
+  }
+}
+
+void OSCellWrapper::disconnectModelSignals() {
+  if (m_model) {
+    m_model->getImpl<model::detail::Model_Impl>().get()->addWorkspaceObject.disconnect<OSCellWrapper, &OSCellWrapper::onAddWorkspaceObject>(
+      this);
+    m_model->getImpl<model::detail::Model_Impl>()
+      .get()
+      ->removeWorkspaceObject.disconnect<OSCellWrapper, &OSCellWrapper::onRemoveWorkspaceObject>(this);
+  }
 }
 
 void OSCellWrapper::onRemoveWorkspaceObject(const WorkspaceObject& object, const openstudio::IddObjectType& iddObjectType,
