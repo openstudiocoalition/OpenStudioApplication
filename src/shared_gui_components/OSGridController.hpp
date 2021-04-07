@@ -576,6 +576,9 @@ class OSGridController : public QObject
 
   std::vector<std::pair<int, bool>> m_applyToButtonStates = std::vector<std::pair<int, bool>>();
 
+  // temp variable
+  std::set<model::ModelObject> m_newModelObjects;
+
  signals:
 
   // signal to add a row
@@ -618,6 +621,8 @@ class OSGridController : public QObject
   void onRemoveWorkspaceObject(const WorkspaceObject& object, const openstudio::IddObjectType& iddObjectType, const openstudio::UUID& handle);
 
   void onAddWorkspaceObject(const WorkspaceObject& object, const openstudio::IddObjectType& iddObjectType, const openstudio::UUID& handle);
+
+  void processNewModelObjects();
 
   void onSetApplyButtonState();
 };

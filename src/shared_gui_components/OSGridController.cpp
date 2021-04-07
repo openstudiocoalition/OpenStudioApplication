@@ -680,14 +680,18 @@ void OSGridController::onRemoveWorkspaceObject(const WorkspaceObject& object, co
 void OSGridController::onAddWorkspaceObject(const WorkspaceObject& object, const openstudio::IddObjectType& iddObjectType,
                                             const openstudio::UUID& handle) {
   if (iddObjectType == m_iddObjectType) {
+    // note that object is not yet fully constructed
+    m_newModelObjects.insert(object.cast<model::ModelObject>());
+    QTimer::singleShot(0, this, &OSGridController::processNewModelObjects);
+  }
+}
 
-    // do not call refreshModelObjects right now because that could resort the grid which is very costly
-    //refreshModelObjects();
-
-    m_modelObjects.push_back(object.cast<model::ModelObject>());
-
+void OSGridController::processNewModelObjects() {
+  for (const model::ModelObject& newModelObject : m_newModelObjects){
+    m_modelObjects.push_back(newModelObject);
     emit addRow(rowCount() - 1);
   }
+  m_newModelObjects.clear();
 }
 
 void OSGridController::onSelectAllStateChanged(const int newState) const {

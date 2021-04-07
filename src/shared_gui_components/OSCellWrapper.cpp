@@ -591,9 +591,8 @@ void OSCellWrapper::onAddWorkspaceObject(const WorkspaceObject& object, const op
   OS_ASSERT(m_objectSelector);
   OS_ASSERT(m_gridController);
 
-  // the object has been added to the model but does not yet have a parent
-  model::ModelObject newModelObject = object.cast<model::ModelObject>();
-  m_newModelObjects.insert(newModelObject);
+  // the object has been added to the model but is not fully constructed and does not yet have a parent
+  m_newModelObjects.insert(object.cast<model::ModelObject>());
   QTimer::singleShot(0, this, &OSCellWrapper::processNewModelObjects);
 }
 
