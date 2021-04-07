@@ -687,7 +687,7 @@ void OSGridController::onAddWorkspaceObject(const WorkspaceObject& object, const
 }
 
 void OSGridController::processNewModelObjects() {
-  for (const model::ModelObject& newModelObject : m_newModelObjects){
+  for (const model::ModelObject& newModelObject : m_newModelObjects) {
     m_modelObjects.push_back(newModelObject);
     emit addRow(rowCount() - 1);
   }
