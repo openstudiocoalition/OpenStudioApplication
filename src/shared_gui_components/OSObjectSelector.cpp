@@ -392,7 +392,8 @@ void OSObjectSelector::onRowNeedsStyle(int modelRow, int gridRow) {
     if (location->modelRow == modelRow && location->gridRow == gridRow) {
       GridCellInfo* info = getGridCellInfo(location);
       if (info && info->modelObject) {
-        PropertyChange lockedChange;;
+        PropertyChange lockedChange;
+
         if (m_isLocked(info->modelObject.get())) {
           lockedChange = PropertyChange::ChangeToTrue;
         } else {

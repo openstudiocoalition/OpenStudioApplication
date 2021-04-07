@@ -576,14 +576,13 @@ void OSCellWrapper::disconnectModelSignals() {
     m_connectedmodel->getImpl<model::detail::Model_Impl>()
       .get()
       ->removeWorkspaceObject.disconnect<OSCellWrapper, &OSCellWrapper::onRemoveWorkspaceObject>(this);
-    
+
     m_connectedmodel.reset();
   }
 }
 
 void OSCellWrapper::onRemoveWorkspaceObject(const WorkspaceObject& object, const openstudio::IddObjectType& iddObjectType,
-                                            const openstudio::UUID& handle) {
-}
+                                            const openstudio::UUID& handle) {}
 
 void OSCellWrapper::onAddWorkspaceObject(const WorkspaceObject& object, const openstudio::IddObjectType& iddObjectType,
                                          const openstudio::UUID& handle) {
