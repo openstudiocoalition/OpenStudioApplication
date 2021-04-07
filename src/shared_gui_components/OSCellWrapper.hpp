@@ -71,7 +71,7 @@ class OSCellWrapper : public QWidget
   void addOSWidget(QWidget* widget, const boost::optional<model::ModelObject>& obj, const bool isSelector, const bool isParent);
 
   void setGridController(OSGridController* gridController);
-  void setModelObject(const boost::optional<model::ModelObject>& modelObject);
+  void setModelObject(const model::ModelObject& modelObject);
   void refresh();
 
   void setCellProperties(const GridCellLocation& location, const GridCellInfo& info);
@@ -112,8 +112,10 @@ class OSCellWrapper : public QWidget
 
   // only has these members if not a header cell
   boost::optional<model::ModelObject> m_modelObject;
-  boost::optional<model::Model> m_model;
   OSGridController* m_gridController;
+
+  // set when connecting to a model signals
+  boost::optional<model::Model> m_connectedmodel;
 
   // temp variable
   std::set<model::ModelObject> m_newModelObjects;

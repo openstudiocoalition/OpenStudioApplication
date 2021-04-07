@@ -97,11 +97,8 @@ void OSCellWrapper::setGridController(OSGridController* gridController) {
   m_gridController = gridController;
 }
 
-void OSCellWrapper::setModelObject(const boost::optional<model::ModelObject>& modelObject) {
+void OSCellWrapper::setModelObject(const model::ModelObject& modelObject) {
   m_modelObject = modelObject;
-  if (m_modelObject) {
-    m_model = modelObject->model();
-  }
 }
 
 void OSCellWrapper::refresh() {
@@ -560,23 +557,27 @@ void OSCellWrapper::addOSWidget(QWidget* widget, const boost::optional<model::Mo
 }
 
 void OSCellWrapper::connectModelSignals() {
-  if (m_model) {
+  if (m_modelObject && !m_connectedmodel) {
+    m_connectedmodel = m_modelObject->model();
+
     // get signals if object is added or removed
-    m_model->getImpl<model::detail::Model_Impl>().get()->addWorkspaceObject.connect<OSCellWrapper, &OSCellWrapper::onAddWorkspaceObject>(
+    m_connectedmodel->getImpl<model::detail::Model_Impl>().get()->addWorkspaceObject.connect<OSCellWrapper, &OSCellWrapper::onAddWorkspaceObject>(
       this);
-    m_model->getImpl<model::detail::Model_Impl>()
+    m_connectedmodel->getImpl<model::detail::Model_Impl>()
       .get()
       ->removeWorkspaceObject.connect<OSCellWrapper, &OSCellWrapper::onRemoveWorkspaceObject>(this);
   }
 }
 
 void OSCellWrapper::disconnectModelSignals() {
-  if (m_model) {
-    m_model->getImpl<model::detail::Model_Impl>().get()->addWorkspaceObject.disconnect<OSCellWrapper, &OSCellWrapper::onAddWorkspaceObject>(
+  if (m_connectedmodel) {
+    m_connectedmodel->getImpl<model::detail::Model_Impl>().get()->addWorkspaceObject.disconnect<OSCellWrapper, &OSCellWrapper::onAddWorkspaceObject>(
       this);
-    m_model->getImpl<model::detail::Model_Impl>()
+    m_connectedmodel->getImpl<model::detail::Model_Impl>()
       .get()
       ->removeWorkspaceObject.disconnect<OSCellWrapper, &OSCellWrapper::onRemoveWorkspaceObject>(this);
+    
+    m_connectedmodel.reset();
   }
 }
 
