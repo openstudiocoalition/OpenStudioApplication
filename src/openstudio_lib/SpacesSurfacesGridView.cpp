@@ -105,8 +105,8 @@ void SpacesSurfacesGridView::onSelectItem() {
 
 void SpacesSurfacesGridView::onClearSelection() {
   m_itemSelectorButtons->disableAddButton();
-  //m_itemSelectorButtons->disableCopyButton();
-  //m_itemSelectorButtons->disableRemoveButton();
+  m_itemSelectorButtons->disableCopyButton();
+  m_itemSelectorButtons->disableRemoveButton();
   m_itemSelectorButtons->disablePurgeButton();
 }
 

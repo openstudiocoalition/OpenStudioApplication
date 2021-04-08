@@ -153,6 +153,8 @@ SpacesSubsurfacesGridView::SpacesSubsurfacesGridView(bool isIP, const model::Mod
   m_gridView->addLayoutToContentLayout(m_filterGridLayout);
   m_gridView->addSpacingToContentLayout(7);
   m_gridView->showDropZone(false);
+
+  onClearSelection();
 }
 
 SpacesSubsurfacesGridController::SpacesSubsurfacesGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType,
@@ -164,13 +166,13 @@ SpacesSubsurfacesGridController::SpacesSubsurfacesGridController(bool isIP, cons
 void SpacesSubsurfacesGridView::onSelectItem() {
   //m_itemSelectorButtons->enableAddButton();
   //m_itemSelectorButtons->enableCopyButton();
-  m_itemSelectorButtons->enableRemoveButton();
-  m_itemSelectorButtons->enablePurgeButton();
+  //m_itemSelectorButtons->enableRemoveButton();
+  //m_itemSelectorButtons->enablePurgeButton();
 }
 
 void SpacesSubsurfacesGridView::onClearSelection() {
-  //m_itemSelectorButtons->disableAddButton();
-  //m_itemSelectorButtons->disableCopyButton();
+  m_itemSelectorButtons->disableAddButton();
+  m_itemSelectorButtons->disableCopyButton();
   m_itemSelectorButtons->disableRemoveButton();
   m_itemSelectorButtons->disablePurgeButton();
 }

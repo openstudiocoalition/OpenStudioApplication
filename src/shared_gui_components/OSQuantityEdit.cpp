@@ -61,7 +61,7 @@ OSQuantityEdit2::OSQuantityEdit2(const std::string& modelUnits, const std::strin
     m_siUnits(siUnits),
     m_ipUnits(ipUnits),
     m_isScientific(false) {
-  connect(m_lineEdit, &QuantityLineEdit::inFocus, this, &OSQuantityEdit2::onInFocus);
+  connect(m_lineEdit, &QuantityLineEdit::inFocus, this, &OSQuantityEdit2::inFocus);
 
   // do a test conversion to make sure units are ok
   boost::optional<double> test = convert(1.0, modelUnits, ipUnits);
@@ -90,24 +90,6 @@ OSQuantityEdit2::OSQuantityEdit2(const std::string& modelUnits, const std::strin
   setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
   m_units->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
   m_lineEdit->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Fixed);
-
-  m_lineEdit->setStyleSheet("QLineEdit[style=\"0000\"] { color:black; background:white;   } "  // Locked=0, Focused=0, Auto=0, Defaulted=0
-                            "QLineEdit[style=\"0001\"] { color:green; background:white;   } "  // Locked=0, Focused=0, Auto=0, Defaulted=1
-                            "QLineEdit[style=\"0010\"] { color:grey;  background:white;   } "  // Locked=0, Focused=0, Auto=1, Defaulted=0
-                            "QLineEdit[style=\"0011\"] { color:grey;  background:white;   } "  // Locked=0, Focused=0, Auto=1, Defaulted=1
-                            "QLineEdit[style=\"0100\"] { color:black; background:#ffc627; } "  // Locked=0, Focused=1, Auto=0, Defaulted=0
-                            "QLineEdit[style=\"0101\"] { color:green; background:#ffc627; } "  // Locked=0, Focused=1, Auto=0, Defaulted=1
-                            "QLineEdit[style=\"0110\"] { color:grey;  background:#ffc627; } "  // Locked=0, Focused=1, Auto=1, Defaulted=0
-                            "QLineEdit[style=\"0111\"] { color:grey;  background:#ffc627; } "  // Locked=0, Focused=1, Auto=1, Defaulted=1
-                            "QLineEdit[style=\"1000\"] { color:black; background:#e6e6e6; } "  // Locked=1, Focused=0, Auto=0, Defaulted=0
-                            "QLineEdit[style=\"1001\"] { color:green; background:#e6e6e6; } "  // Locked=1, Focused=0, Auto=0, Defaulted=1
-                            "QLineEdit[style=\"1010\"] { color:grey;  background:#e6e6e6; } "  // Locked=1, Focused=0, Auto=1, Defaulted=0
-                            "QLineEdit[style=\"1011\"] { color:grey;  background:#e6e6e6; } "  // Locked=1, Focused=0, Auto=1, Defaulted=1
-                            "QLineEdit[style=\"1100\"] { color:black; background:#cc9a00; } "  // Locked=1, Focused=1, Auto=0, Defaulted=0
-                            "QLineEdit[style=\"1101\"] { color:green; background:#cc9a00; } "  // Locked=1, Focused=1, Auto=0, Defaulted=1
-                            "QLineEdit[style=\"1110\"] { color:grey;  background:#cc9a00; } "  // Locked=1, Focused=1, Auto=1, Defaulted=0
-                            "QLineEdit[style=\"1111\"] { color:grey;  background:#cc9a00; } "  // Locked=1, Focused=1, Auto=1, Defaulted=1
-  );
 }
 
 OSQuantityEdit2::~OSQuantityEdit2() {}
@@ -118,15 +100,10 @@ void OSQuantityEdit2::enableClickFocus() {
 
 void OSQuantityEdit2::setLocked(bool locked) {
   m_lineEdit->setLocked(locked);
-  updateStyle();
 }
 
 QDoubleValidator* OSQuantityEdit2::doubleValidator() {
   return m_doubleValidator;
-}
-
-bool OSQuantityEdit2::hasData() {
-  return !this->m_lineEdit->text().isEmpty();
 }
 
 void OSQuantityEdit2::bind(bool isIP, const model::ModelObject& modelObject, DoubleGetter get, boost::optional<DoubleSetter> set,
@@ -235,7 +212,7 @@ void OSQuantityEdit2::unbind() {
 
 void OSQuantityEdit2::onEditingFinished() {
 
-  emit inFocus(true, hasData());
+  emit inFocus(m_lineEdit->focused(), m_lineEdit->hasData());
 
   QString text = m_lineEdit->text();
   if (m_text == text) return;
@@ -342,20 +319,8 @@ void OSQuantityEdit2::onModelObjectRemove(const Handle& handle) {
 }
 
 void OSQuantityEdit2::updateStyle() {
-  // Locked, Focused, Auto, Defaulted
-  std::bitset<4> style;
-  style[0] = defaulted();
-  style[1] = autosized() || autocalculated();
-  style[2] = m_lineEdit->hasFocus();
-  style[3] = m_lineEdit->isReadOnly();
-  QString thisStyle = QString::fromStdString(style.to_string());
-
-  QVariant currentStyle = m_lineEdit->property("style");
-  if (currentStyle.isNull() || currentStyle.toString() != thisStyle) {
-    m_lineEdit->setProperty("style", thisStyle);
-    m_lineEdit->style()->unpolish(this);
-    m_lineEdit->style()->polish(this);
-  }
+  // will also call m_lineEdit->updateStyle()
+  m_lineEdit->setDefaultedAndAuto(defaulted(), (autosized() || autocalculated()));
 }
 
 bool OSQuantityEdit2::defaulted() const {
@@ -481,51 +446,99 @@ void OSQuantityEdit2::setPrecision(const std::string& str) {
   }
 }
 
-void OSQuantityEdit2::onInFocus(bool hasFocus) {
-  if (hasFocus) {
-    updateStyle();
-    emit inFocus(true, hasData());
-  } else {
-    updateStyle();
-    emit inFocus(false, false);
-  }
-}
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-QuantityLineEdit::QuantityLineEdit(QWidget* parent) : QLineEdit(parent) {}
+QuantityLineEdit::QuantityLineEdit(QWidget* parent) : QLineEdit(parent) {
+  this->setStyleSheet("QLineEdit[style=\"0000\"] { color:black; background:white;   } "  // Locked=0, Focused=0, Auto=0, Defaulted=0
+                      "QLineEdit[style=\"0001\"] { color:green; background:white;   } "  // Locked=0, Focused=0, Auto=0, Defaulted=1
+                      "QLineEdit[style=\"0010\"] { color:grey;  background:white;   } "  // Locked=0, Focused=0, Auto=1, Defaulted=0
+                      "QLineEdit[style=\"0011\"] { color:grey;  background:white;   } "  // Locked=0, Focused=0, Auto=1, Defaulted=1
+                      "QLineEdit[style=\"0100\"] { color:black; background:#ffc627; } "  // Locked=0, Focused=1, Auto=0, Defaulted=0
+                      "QLineEdit[style=\"0101\"] { color:green; background:#ffc627; } "  // Locked=0, Focused=1, Auto=0, Defaulted=1
+                      "QLineEdit[style=\"0110\"] { color:grey;  background:#ffc627; } "  // Locked=0, Focused=1, Auto=1, Defaulted=0
+                      "QLineEdit[style=\"0111\"] { color:grey;  background:#ffc627; } "  // Locked=0, Focused=1, Auto=1, Defaulted=1
+                      "QLineEdit[style=\"1000\"] { color:black; background:#e6e6e6; } "  // Locked=1, Focused=0, Auto=0, Defaulted=0
+                      "QLineEdit[style=\"1001\"] { color:green; background:#e6e6e6; } "  // Locked=1, Focused=0, Auto=0, Defaulted=1
+                      "QLineEdit[style=\"1010\"] { color:grey;  background:#e6e6e6; } "  // Locked=1, Focused=0, Auto=1, Defaulted=0
+                      "QLineEdit[style=\"1011\"] { color:grey;  background:#e6e6e6; } "  // Locked=1, Focused=0, Auto=1, Defaulted=1
+                      "QLineEdit[style=\"1100\"] { color:black; background:#cc9a00; } "  // Locked=1, Focused=1, Auto=0, Defaulted=0
+                      "QLineEdit[style=\"1101\"] { color:green; background:#cc9a00; } "  // Locked=1, Focused=1, Auto=0, Defaulted=1
+                      "QLineEdit[style=\"1110\"] { color:grey;  background:#cc9a00; } "  // Locked=1, Focused=1, Auto=1, Defaulted=0
+                      "QLineEdit[style=\"1111\"] { color:grey;  background:#cc9a00; } "  // Locked=1, Focused=1, Auto=1, Defaulted=1
+  );
+}
 
 void QuantityLineEdit::enableClickFocus() {
-  this->m_hasClickFocus = true;
+  m_hasClickFocus = true;
 }
 
 void QuantityLineEdit::disableClickFocus() {
-  this->m_hasClickFocus = false;
+  m_hasClickFocus = false;
+  m_focused = false;
+  updateStyle();
+  clearFocus();
+  emit inFocus(false, false);
+}
+
+bool QuantityLineEdit::hasData() const {
+  return !(this->text().isEmpty());
+}
+
+bool QuantityLineEdit::focused() const {
+  return m_focused;
+}
+
+void QuantityLineEdit::setDefaultedAndAuto(bool defaulted, bool isAuto) {
+  m_defaulted = defaulted;
+  m_auto = isAuto;
+  updateStyle();
 }
 
 void QuantityLineEdit::setLocked(bool locked) {
-  if (isReadOnly() != locked) {
+  if (m_locked != locked) {
+    m_locked = locked;
     setReadOnly(locked);
-  }
-  if (locked) {
-    disableClickFocus();
+    updateStyle();
   }
 }
 
 void QuantityLineEdit::focusInEvent(QFocusEvent* e) {
   if (e->reason() == Qt::MouseFocusReason && m_hasClickFocus) {
-    emit inFocus(true);
+    m_focused = true;
+    updateStyle();
+    emit inFocus(m_focused, hasData());
   }
 
   QLineEdit::focusInEvent(e);
 }
 
 void QuantityLineEdit::focusOutEvent(QFocusEvent* e) {
-  if (e->reason() == Qt::MouseFocusReason && m_hasClickFocus) {
-    emit inFocus(false);
+  if (e->reason() == Qt::MouseFocusReason && m_hasClickFocus) { 
+    m_focused = false;
+    updateStyle();
+    emit inFocus(m_focused, false);
   }
 
   QLineEdit::focusOutEvent(e);
 }
+
+
+void QuantityLineEdit::updateStyle() {
+  // Locked, Focused, Auto, Defaulted
+  std::bitset<4> style;
+  style[0] = m_defaulted;
+  style[1] = m_auto;
+  style[2] = m_focused;
+  style[3] = m_locked;
+  QString thisStyle = QString::fromStdString(style.to_string());
+
+  QVariant currentStyle = this->property("style");
+  if (currentStyle.isNull() || currentStyle.toString() != thisStyle) {
+    this->setProperty("style", thisStyle);
+    this->style()->unpolish(this);
+    this->style()->polish(this);
+  }
+}
+
 
 }  // namespace openstudio

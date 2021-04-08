@@ -82,6 +82,8 @@ FacilityExteriorEquipmentGridView::FacilityExteriorEquipmentGridView(bool isIP, 
 
   setGridController(m_gridController);
   setGridView(gridView);
+
+  onClearSelection();
 }
 
 void FacilityExteriorEquipmentGridView::addObject(const IddObjectType& iddObjectType) {
@@ -104,7 +106,7 @@ void FacilityExteriorEquipmentGridView::onSelectItem() {
 }
 
 void FacilityExteriorEquipmentGridView::onClearSelection() {
-  //m_itemSelectorButtons->disableAddButton();
+  m_itemSelectorButtons->disableAddButton();
   m_itemSelectorButtons->disableCopyButton();
   m_itemSelectorButtons->disableRemoveButton();
   m_itemSelectorButtons->disablePurgeButton();

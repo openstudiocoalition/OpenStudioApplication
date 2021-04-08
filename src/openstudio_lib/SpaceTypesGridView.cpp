@@ -354,48 +354,69 @@ void SpaceTypesGridController::setCategoriesAndFields() {
 }
 
 void SpaceTypesGridController::filterChanged(const QString& text) {
-  LOG(Debug, "Load filter changed: " << toString(text));
+  std::set<openstudio::model::ModelObject> allFilteredObjects;
 
   if (text == SHOWALLLOADS) {
-    setObjectFilter([](const model::ModelObject& obj) -> bool { return true; });
+    // nothing to filter
   } else {
-    setObjectFilter([text](const model::ModelObject& obj) -> bool {
-      try {
-        //obj.cast<model::SpaceLoadInstance>();  TODO uncomment with correct type
-        // This is a spaceloadinstance, so we want to see if it matches our filter
 
-        if (text == INTERNALMASS) {
-          return static_cast<bool>(obj.optionalCast<model::InternalMass>());
-        } else if (text == PEOPLE) {
-          return static_cast<bool>(obj.optionalCast<model::People>());
-        } else if (text == LIGHTS) {
-          return static_cast<bool>(obj.optionalCast<model::Lights>());
-        } else if (text == LUMINAIRE) {
-          return static_cast<bool>(obj.optionalCast<model::Luminaire>());
-        } else if (text == ELECTRICEQUIPMENT) {
-          return static_cast<bool>(obj.optionalCast<model::ElectricEquipment>());
-        } else if (text == GASEQUIPMENT) {
-          return static_cast<bool>(obj.optionalCast<model::GasEquipment>());
-        } else if (text == HOTWATEREQUIPMENT) {
-          return static_cast<bool>(obj.optionalCast<model::HotWaterEquipment>());
-        } else if (text == STEAMEQUIPMENT) {
-          return static_cast<bool>(obj.optionalCast<model::SteamEquipment>());
-        } else if (text == OTHEREQUIPMENT) {
-          return static_cast<bool>(obj.optionalCast<model::OtherEquipment>());
-        } else if (text == SPACEINFILTRATIONDESIGNFLOWRATE) {
-          return static_cast<bool>(obj.optionalCast<model::SpaceInfiltrationDesignFlowRate>());
-        } else if (text == SPACEINFILTRATIONEFFECTIVELEAKAGEAREA) {
-          return static_cast<bool>(obj.optionalCast<model::SpaceInfiltrationEffectiveLeakageArea>());
-        } else {
-          // Should never get here
-          OS_ASSERT(false);
-          return false;
+    // ObjectSelector::m_selectableObjects returns Load objects directly
+    for (const auto& obj : this->selectorObjects()) {
+      if (text == INTERNALMASS) {
+        if (!obj.optionalCast<model::InternalMass>()) {
+          allFilteredObjects.insert(obj);
         }
-      } catch (...) {
-        return true;  // this isn't a space load instance, so don't apply filtering
+      } else if (text == PEOPLE) {
+        if (!obj.optionalCast<model::People>()) {
+          allFilteredObjects.insert(obj);
+        }
+      } else if (text == LIGHTS) {
+        if (!obj.optionalCast<model::Lights>()) {
+          allFilteredObjects.insert(obj);
+        }
+      } else if (text == LUMINAIRE) {
+        if (!obj.optionalCast<model::Luminaire>()) {
+          allFilteredObjects.insert(obj);
+        }
+      } else if (text == ELECTRICEQUIPMENT) {
+        if (!obj.optionalCast<model::ElectricEquipment>()) {
+          allFilteredObjects.insert(obj);
+        }
+      } else if (text == GASEQUIPMENT) {
+        if (!obj.optionalCast<model::GasEquipment>()) {
+          allFilteredObjects.insert(obj);
+        }
+      } else if (text == HOTWATEREQUIPMENT) {
+        if (!obj.optionalCast<model::HotWaterEquipment>()) {
+          allFilteredObjects.insert(obj);
+        }
+      } else if (text == STEAMEQUIPMENT) {
+        if (!obj.optionalCast<model::SteamEquipment>()) {
+          allFilteredObjects.insert(obj);
+        }
+      } else if (text == OTHEREQUIPMENT) {
+        if (!obj.optionalCast<model::OtherEquipment>()) {
+          allFilteredObjects.insert(obj);
+        }
+      } else if (text == SPACEINFILTRATIONDESIGNFLOWRATE) {
+        if (!obj.optionalCast<model::SpaceInfiltrationDesignFlowRate>()) {
+          allFilteredObjects.insert(obj);
+        }
+      } else if (text == SPACEINFILTRATIONEFFECTIVELEAKAGEAREA) {
+        if (!obj.optionalCast<model::SpaceInfiltrationEffectiveLeakageArea>()) {
+          allFilteredObjects.insert(obj);
+        }
+      } else {
+        // Should never get here
+        OS_ASSERT(false);
       }
-    });
+    }
   }
+
+  this->setObjectFilter([allFilteredObjects](const model::ModelObject& obj) -> bool {
+    // return false if object in allFilteredObjects
+    return allFilteredObjects.count(obj) == 0;
+  });
 }
 
 SpaceTypesGridView* SpaceTypesGridController::spaceTypesGridView() {

@@ -61,7 +61,15 @@ class QuantityLineEdit : public QLineEdit
 
   void disableClickFocus();
 
+  bool hasData() const;
+
+  bool focused() const;
+  
+  void setDefaultedAndAuto(bool defaulted, bool isAuto);
+
   void setLocked(bool locked);
+
+  void updateStyle();
 
  protected:
   virtual void focusInEvent(QFocusEvent* e) override;
@@ -69,11 +77,16 @@ class QuantityLineEdit : public QLineEdit
   virtual void focusOutEvent(QFocusEvent* e) override;
 
  private:
+  
   bool m_hasClickFocus = false;
+  bool m_defaulted = false;
+  bool m_auto = false;
+  bool m_focused = false;
+  bool m_locked = false;
 
  signals:
 
-  void inFocus(bool inFocus);
+  void inFocus(bool inFocus, bool hasData);
 };
 
 class OSQuantityEdit2 : public QWidget, public Nano::Observer
@@ -91,8 +104,6 @@ class OSQuantityEdit2 : public QWidget, public Nano::Observer
   void setLocked(bool locked);
 
   QDoubleValidator* doubleValidator();
-
-  bool hasData();
 
   void bind(bool isIP, const model::ModelObject& modelObject, DoubleGetter get, boost::optional<DoubleSetter> set = boost::none,
             boost::optional<NoFailAction> reset = boost::none, boost::optional<NoFailAction> autosize = boost::none,
@@ -131,8 +142,6 @@ class OSQuantityEdit2 : public QWidget, public Nano::Observer
   void onModelObjectChange();
 
   void onModelObjectRemove(const Handle& handle);
-
-  void onInFocus(bool hasFocus);
 
  private:
   bool defaulted() const;
