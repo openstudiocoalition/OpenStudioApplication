@@ -64,7 +64,7 @@ class QuantityLineEdit : public QLineEdit
   bool hasData() const;
 
   bool focused() const;
-  
+
   void setDefaultedAndAuto(bool defaulted, bool isAuto);
 
   void setLocked(bool locked);
@@ -77,7 +77,6 @@ class QuantityLineEdit : public QLineEdit
   virtual void focusOutEvent(QFocusEvent* e) override;
 
  private:
-  
   bool m_hasClickFocus = false;
   bool m_defaulted = false;
   bool m_auto = false;

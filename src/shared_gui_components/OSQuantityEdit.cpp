@@ -513,7 +513,7 @@ void QuantityLineEdit::focusInEvent(QFocusEvent* e) {
 }
 
 void QuantityLineEdit::focusOutEvent(QFocusEvent* e) {
-  if (e->reason() == Qt::MouseFocusReason && m_hasClickFocus) { 
+  if (e->reason() == Qt::MouseFocusReason && m_hasClickFocus) {
     m_focused = false;
     updateStyle();
     emit inFocus(m_focused, false);
@@ -521,7 +521,6 @@ void QuantityLineEdit::focusOutEvent(QFocusEvent* e) {
 
   QLineEdit::focusOutEvent(e);
 }
-
 
 void QuantityLineEdit::updateStyle() {
   // Locked, Focused, Auto, Defaulted
@@ -539,6 +538,5 @@ void QuantityLineEdit::updateStyle() {
     this->style()->polish(this);
   }
 }
-
 
 }  // namespace openstudio
