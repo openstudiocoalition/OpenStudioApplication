@@ -54,7 +54,7 @@ class OSLineEdit2Interface
 
   virtual bool hasData() = 0;
 
-  virtual bool locked() const = 0;  
+  virtual bool locked() const = 0;
 
   virtual void setLocked(bool locked) = 0;
 

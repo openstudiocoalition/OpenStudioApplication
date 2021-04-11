@@ -518,7 +518,7 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
                             CastNullAdapter<model::ModelObject>(&model::ModelObject::setName),
                             boost::optional<std::function<void(model::ModelObject*)>>(
                               std::function<void(model::ModelObject*)>([](model::ModelObject* t_mo) { t_mo->remove(); })),
-                            boost::optional<std::function<bool(model::ModelObject*)>>(), 
+                            boost::optional<std::function<bool(model::ModelObject*)>>(),
                             DataSource(equipment, false,
                                        QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<model::ModelObject, model::ThermalZone>(
                                          Heading(ZONEEQUIPMENT), getter, setter, reset, boost::none))));

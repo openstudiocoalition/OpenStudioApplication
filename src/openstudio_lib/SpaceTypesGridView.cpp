@@ -1166,8 +1166,7 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
         addNameLineEditColumn(
           Heading(QString(DEFINITION), true, false), true, true, CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::name),
           CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::setName),
-          boost::optional<std::function<void(model::SpaceLoadDefinition*)>>(), 
-          boost::optional<std::function<bool(model::SpaceLoadDefinition*)>>(),
+          boost::optional<std::function<void(model::SpaceLoadDefinition*)>>(), boost::optional<std::function<bool(model::SpaceLoadDefinition*)>>(),
           DataSource(allDefinitions, false,
                      QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<model::SpaceLoadDefinition, model::SpaceType>(
                        Heading(DEFINITION), getter, setter, boost::none, boost::none))));

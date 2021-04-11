@@ -556,8 +556,9 @@ void OSCellWrapper::addOSWidget(QWidget* widget, const boost::optional<model::Mo
   } else {
     // Unknown type
   }
-  
-  m_objectSelector->addObject(obj, holder, m_modelRow, m_gridRow, m_column, m_hasSubRows ? subrow : boost::optional<int>(), isSelector, isParent, isLocked);
+
+  m_objectSelector->addObject(obj, holder, m_modelRow, m_gridRow, m_column, m_hasSubRows ? subrow : boost::optional<int>(), isSelector, isParent,
+                              isLocked);
 }
 
 void OSCellWrapper::connectModelSignals() {

@@ -71,7 +71,7 @@ class OSCheckBox3 : public QCheckBox, public Nano::Observer
   void enableClickFocus();
 
   void disableClickFocus();
-  
+
   bool locked() const;
 
   void setLocked(bool locked);
