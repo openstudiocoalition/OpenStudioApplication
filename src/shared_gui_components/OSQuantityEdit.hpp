@@ -67,6 +67,8 @@ class QuantityLineEdit : public QLineEdit
 
   void setDefaultedAndAuto(bool defaulted, bool isAuto);
 
+  bool locked() const;
+
   void setLocked(bool locked);
 
   void updateStyle();
@@ -99,6 +101,8 @@ class OSQuantityEdit2 : public QWidget, public Nano::Observer
   void enableClickFocus();
 
   void disableClickFocus();
+
+  bool locked() const;
 
   void setLocked(bool locked);
 

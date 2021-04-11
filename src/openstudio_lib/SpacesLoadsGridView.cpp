@@ -622,6 +622,12 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
       });
 
       boost::optional<std::function<bool(model::ModelObject*)>> isActivityLevelScheduleDefaulted([](model::ModelObject* l) {
+        boost::optional<model::ParentObject> parent = l->parent();
+        if (parent && parent->optionalCast<model::SpaceType>()) {
+          // show schedules on inherited loads as inherited
+          return true;
+        }
+
         if (boost::optional<model::People> p = l->optionalCast<model::People>()) {
           return p->isActivityLevelScheduleDefaulted();
         }
@@ -705,8 +711,13 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
       });
 
       boost::optional<std::function<bool(model::ModelObject*)>> isScheduleDefaulted([](model::ModelObject* l) {
+        boost::optional<model::ParentObject> parent = l->parent();
+        if (parent && parent->optionalCast<model::SpaceType>()) {
+          // show schedules on inherited loads as inherited
+          return true;
+        }
         if (boost::optional<model::People> p = l->optionalCast<model::People>()) {
-          return p->isActivityLevelScheduleDefaulted();
+          return p->isNumberofPeopleScheduleDefaulted();
         } else if (boost::optional<model::Lights> light = l->optionalCast<model::Lights>()) {
           return light->isScheduleDefaulted();
         } else if (boost::optional<model::Luminaire> lum = l->optionalCast<model::Luminaire>()) {
@@ -925,9 +936,10 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
           std::function<bool(model::Space*)>([](model::Space* t_space) { return false; }));
 
         addNameLineEditColumn(
-          Heading(QString(DEFINITION), true, false), true, CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::name),
+          Heading(QString(DEFINITION), true, false), true, true, CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::name),
           CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::setName),
-          boost::optional<std::function<void(model::SpaceLoadDefinition*)>>(), boost::optional<std::function<bool(model::SpaceLoadDefinition*)>>(),
+          boost::optional<std::function<void(model::SpaceLoadDefinition*)>>(), 
+          boost::optional<std::function<bool(model::SpaceLoadDefinition*)>>(),
           DataSource(allDefinitions, false,
                      QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<model::SpaceLoadDefinition, model::Space>(
                        Heading(DEFINITION), getter, setter, resetter, isDefaulted))));

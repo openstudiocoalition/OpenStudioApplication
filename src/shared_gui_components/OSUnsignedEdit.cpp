@@ -96,6 +96,10 @@ bool OSUnsignedEdit2::hasData() {
   return !this->text().isEmpty();
 }
 
+bool OSUnsignedEdit2::locked() const {
+  return m_locked;
+}
+
 void OSUnsignedEdit2::setLocked(bool locked) {
   if (m_locked != locked) {
     m_locked = locked;

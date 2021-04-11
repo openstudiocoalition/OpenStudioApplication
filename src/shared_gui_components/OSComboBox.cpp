@@ -202,6 +202,10 @@ bool OSComboBox2::hasData() {
   return !this->currentText().isEmpty();
 }
 
+bool OSComboBox2::locked() const {
+  return m_locked;
+}
+
 void OSComboBox2::setLocked(bool locked) {
   if (m_locked != locked) {
     m_locked = locked;

@@ -54,29 +54,27 @@ class OSLineEdit2Interface
 
   virtual bool hasData() = 0;
 
+  virtual bool locked() const = 0;  
+
   virtual void setLocked(bool locked) = 0;
 
   virtual boost::optional<model::ModelObject> modelObject() const = 0;
 
   virtual void bind(const model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetter> set = boost::none,
-                    boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none,
-                    boost::optional<BasicQuery> isLocked = boost::none) = 0;
+                    boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none) = 0;
 
   virtual void bind(const model::ModelObject& modelObject, OptionalStringGetter get, boost::optional<StringSetter> set = boost::none,
-                    boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none,
-                    boost::optional<BasicQuery> isLocked = boost::none) = 0;
+                    boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none) = 0;
 
   virtual void bind(const model::ModelObject& modelObject, OptionalStringGetter get,
                     boost::optional<StringSetterOptionalStringReturn> set = boost::none, boost::optional<NoFailAction> reset = boost::none,
-                    boost::optional<BasicQuery> isDefaulted = boost::none, boost::optional<BasicQuery> isLocked = boost::none) = 0;
+                    boost::optional<BasicQuery> isDefaulted = boost::none) = 0;
 
   virtual void bind(const model::ModelObject& modelObject, OptionalStringGetterBoolArg get, boost::optional<StringSetterOptionalStringReturn> set,
-                    boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none,
-                    boost::optional<BasicQuery> isLocked = boost::none) = 0;
+                    boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none) = 0;
 
   virtual void bind(const model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetterVoidReturn> set = boost::none,
-                    boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none,
-                    boost::optional<BasicQuery> isLocked = boost::none) = 0;
+                    boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none) = 0;
 
   virtual void unbind() = 0;
 
@@ -96,29 +94,27 @@ class OSLineEdit2 : public QLineEdit, public OSLineEdit2Interface, public Nano::
 
   virtual bool hasData() override;
 
+  virtual bool locked() const override;
+
   virtual void setLocked(bool locked) override;
 
   virtual boost::optional<model::ModelObject> modelObject() const override;
 
   virtual void bind(const model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetter> set = boost::none,
-                    boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none,
-                    boost::optional<BasicQuery> isLocked = boost::none) override;
+                    boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none) override;
 
   virtual void bind(const model::ModelObject& modelObject, OptionalStringGetter get, boost::optional<StringSetter> set = boost::none,
-                    boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none,
-                    boost::optional<BasicQuery> isLocked = boost::none) override;
+                    boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none) override;
 
   virtual void bind(const model::ModelObject& modelObject, OptionalStringGetter get,
                     boost::optional<StringSetterOptionalStringReturn> set = boost::none, boost::optional<NoFailAction> reset = boost::none,
-                    boost::optional<BasicQuery> isDefaulted = boost::none, boost::optional<BasicQuery> isLocked = boost::none) override;
+                    boost::optional<BasicQuery> isDefaulted = boost::none) override;
 
   virtual void bind(const model::ModelObject& modelObject, OptionalStringGetterBoolArg get, boost::optional<StringSetterOptionalStringReturn> set,
-                    boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none,
-                    boost::optional<BasicQuery> isLocked = boost::none) override;
+                    boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none) override;
 
   virtual void bind(const model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetterVoidReturn> set = boost::none,
-                    boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none,
-                    boost::optional<BasicQuery> isLocked = boost::none) override;
+                    boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none) override;
 
   virtual void unbind() override;
 
@@ -172,7 +168,6 @@ class OSLineEdit2 : public QLineEdit, public OSLineEdit2Interface, public Nano::
   boost::optional<StringSetterVoidReturn> m_setVoidReturn;
   boost::optional<NoFailAction> m_reset;
   boost::optional<BasicQuery> m_isDefaulted;
-  boost::optional<BasicQuery> m_isLocked;
 
   OSItem* m_item = nullptr;
 

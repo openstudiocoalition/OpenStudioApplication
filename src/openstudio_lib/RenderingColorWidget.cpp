@@ -65,6 +65,10 @@ RenderingColorWidget2::RenderingColorWidget2(QWidget* parent) : QWidget(parent) 
   connect(m_renderColorButton, &QPushButton::clicked, this, &RenderingColorWidget2::renderColorButtonClicked);
 }
 
+bool RenderingColorWidget2::locked() const {
+  return !isEnabled();
+}
+
 void RenderingColorWidget2::setLocked(bool locked) {
   if (isEnabled() == locked) {
     setEnabled(!locked);

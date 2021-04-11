@@ -1164,9 +1164,10 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
           });
 
         addNameLineEditColumn(
-          Heading(QString(DEFINITION), true, false), true, CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::name),
+          Heading(QString(DEFINITION), true, false), true, true, CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::name),
           CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::setName),
-          boost::optional<std::function<void(model::SpaceLoadDefinition*)>>(), boost::optional<std::function<bool(model::SpaceLoadDefinition*)>>(),
+          boost::optional<std::function<void(model::SpaceLoadDefinition*)>>(), 
+          boost::optional<std::function<bool(model::SpaceLoadDefinition*)>>(),
           DataSource(allDefinitions, false,
                      QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<model::SpaceLoadDefinition, model::SpaceType>(
                        Heading(DEFINITION), getter, setter, boost::none, boost::none))));
@@ -1231,7 +1232,7 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
       });
 
       addNameLineEditColumn(
-        Heading(QString(SPACEINFILTRATIONDESIGNFLOWRATES)), true,
+        Heading(QString(SPACEINFILTRATIONDESIGNFLOWRATES)), true, false,
         CastNullAdapter<model::SpaceInfiltrationDesignFlowRate>(&model::SpaceInfiltrationDesignFlowRate::name),
         CastNullAdapter<model::SpaceInfiltrationDesignFlowRate>(&model::SpaceInfiltrationDesignFlowRate::setName),
         boost::optional<std::function<void(model::SpaceInfiltrationDesignFlowRate*)>>(
@@ -1265,7 +1266,7 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
       });
 
       addNameLineEditColumn(
-        Heading(QString(SPACEINFILTRATIONEFFECTIVELEAKAGEAREAS)), true,
+        Heading(QString(SPACEINFILTRATIONEFFECTIVELEAKAGEAREAS)), true, false,
         CastNullAdapter<model::SpaceInfiltrationEffectiveLeakageArea>(&model::SpaceInfiltrationEffectiveLeakageArea::name),
         CastNullAdapter<model::SpaceInfiltrationEffectiveLeakageArea>(&model::SpaceInfiltrationEffectiveLeakageArea::setName),
         boost::optional<std::function<void(model::SpaceInfiltrationEffectiveLeakageArea*)>>(
@@ -1487,7 +1488,6 @@ void SpaceTypesGridController::onItemDropped(const OSItemId& itemId) {
   if (modelObject) {
     if (modelObject->optionalCast<model::SpaceType>()) {
       modelObject->clone(model());
-      emit recreateAll();
     }
   }
 }

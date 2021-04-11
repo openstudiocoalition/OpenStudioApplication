@@ -62,6 +62,8 @@ class OSDoubleEdit2 : public QLineEdit, public Nano::Observer
 
   bool hasData();
 
+  bool locked() const;
+
   void setLocked(bool locked);
 
   QDoubleValidator* doubleValidator();

@@ -305,7 +305,7 @@ class OSGridController : public QObject
   }
 
   template <typename DataSourceType>
-  void addNameLineEditColumn(const Heading& heading, bool isInspectable,
+  void addNameLineEditColumn(const Heading& heading, bool isInspectable, bool isLocked,
                              const std::function<boost::optional<std::string>(DataSourceType*, bool)>& getter,
                              const std::function<boost::optional<std::string>(DataSourceType*, const std::string&)>& setter,
                              const boost::optional<std::function<void(DataSourceType*)>>& resetter = boost::none,
@@ -314,7 +314,7 @@ class OSGridController : public QObject
     const OSLineEditType osLineEditType = OSLineEditType::OSLineEdit2Type;
     const bool hasClickFocus = true;
     m_baseConcepts.push_back(makeDataSourceAdapter(QSharedPointer<NameLineEditConcept>(new NameLineEditConceptImpl<DataSourceType>(
-                                                     heading, osLineEditType, isInspectable, hasClickFocus, getter, setter, resetter, isDefaulted)),
+                                                     heading, osLineEditType, isInspectable, hasClickFocus, isLocked, getter, setter, resetter, isDefaulted)),
                                                    t_source));
   }
 
@@ -328,8 +328,9 @@ class OSGridController : public QObject
                                    const boost::optional<DataSource>& t_source = boost::none) {
     const OSLineEditType osLineEditType = OSLineEditType::OSLineEdit2Type;
     const bool hasClickFocus = false;
+    const bool isLocked = false;
     m_baseConcepts.push_back(makeDataSourceAdapter(QSharedPointer<NameLineEditConcept>(new NameLineEditConceptImpl<DataSourceType>(
-                                                     heading, osLineEditType, isInspectable, hasClickFocus, getter, setter, resetter, isDefaulted)),
+                              heading, osLineEditType, isInspectable, hasClickFocus, isLocked, getter, setter, resetter, isDefaulted)),
                                                    t_source));
     m_baseConcepts.back()->setIsParent(true);
   }
@@ -343,8 +344,9 @@ class OSGridController : public QObject
     const OSLineEditType osLineEditType = OSLineEditType::OSLoadNamePixmapLineEditType;
     const bool isInspectable = true;
     const bool hasClickFocus = true;
+    const bool isLocked = false;
     m_baseConcepts.push_back(makeDataSourceAdapter(QSharedPointer<NameLineEditConcept>(new NameLineEditConceptImpl<DataSourceType>(
-                                                     heading, osLineEditType, isInspectable, hasClickFocus, getter, setter, resetter, isDefaulted)),
+                              heading, osLineEditType, isInspectable, hasClickFocus, isLocked, getter, setter, resetter, isDefaulted)),
                                                    t_source));
   }
 

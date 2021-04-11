@@ -98,6 +98,10 @@ void OSQuantityEdit2::enableClickFocus() {
   m_lineEdit->enableClickFocus();
 }
 
+bool OSQuantityEdit2::locked() const {
+  return m_lineEdit->locked();
+}
+
 void OSQuantityEdit2::setLocked(bool locked) {
   m_lineEdit->setLocked(locked);
 }
@@ -492,6 +496,10 @@ void QuantityLineEdit::setDefaultedAndAuto(bool defaulted, bool isAuto) {
   m_defaulted = defaulted;
   m_auto = isAuto;
   updateStyle();
+}
+
+bool QuantityLineEdit::locked() const {
+  return m_locked;
 }
 
 void QuantityLineEdit::setLocked(bool locked) {

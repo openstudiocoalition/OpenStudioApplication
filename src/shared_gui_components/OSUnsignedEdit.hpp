@@ -60,6 +60,8 @@ class OSUnsignedEdit2 : public QLineEdit
 
   bool hasData();
 
+  bool locked() const;
+
   void setLocked(bool locked);
 
   QIntValidator* intValidator();

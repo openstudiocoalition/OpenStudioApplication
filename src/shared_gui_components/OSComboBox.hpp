@@ -118,6 +118,8 @@ class OSComboBox2 : public QComboBox, public Nano::Observer
 
   bool hasData();
 
+  bool locked() const;
+
   void setLocked(bool locked);
 
   // interface for direct bind

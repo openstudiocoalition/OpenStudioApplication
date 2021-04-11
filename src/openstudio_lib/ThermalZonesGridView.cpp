@@ -514,11 +514,11 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
         return t.equipmentInHeatingOrder();
       });
 
-      addNameLineEditColumn(Heading(QString(ZONEEQUIPMENT)), true, CastNullAdapter<model::ModelObject>(&model::ModelObject::name),
+      addNameLineEditColumn(Heading(QString(ZONEEQUIPMENT)), true, false, CastNullAdapter<model::ModelObject>(&model::ModelObject::name),
                             CastNullAdapter<model::ModelObject>(&model::ModelObject::setName),
                             boost::optional<std::function<void(model::ModelObject*)>>(
                               std::function<void(model::ModelObject*)>([](model::ModelObject* t_mo) { t_mo->remove(); })),
-                            boost::optional<std::function<bool(model::ModelObject*)>>(),
+                            boost::optional<std::function<bool(model::ModelObject*)>>(), 
                             DataSource(equipment, false,
                                        QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<model::ModelObject, model::ThermalZone>(
                                          Heading(ZONEEQUIPMENT), getter, setter, reset, boost::none))));
@@ -537,7 +537,7 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
 
       // Notes: this only requires a static_cast because `name` comes from IdfObject
       // we are passing in an empty std::function for the separate parameter because there's no way to set it
-      addNameLineEditColumn(Heading(QString(AIRLOOPNAME), true, false), false, CastNullAdapter<model::ModelObject>(&model::ModelObject::name),
+      addNameLineEditColumn(Heading(QString(AIRLOOPNAME), true, false), false, false, CastNullAdapter<model::ModelObject>(&model::ModelObject::name),
                             std::function<boost::optional<std::string>(model::ModelObject*, const std::string&)>(),
                             boost::optional<std::function<void(model::ModelObject*)>>(), boost::optional<std::function<bool(model::ModelObject*)>>(),
                             // insert DataSourceAdapter
@@ -594,7 +594,6 @@ void ThermalZonesGridController::onItemDropped(const OSItemId& itemId) {
   if (modelObject) {
     if (modelObject->optionalCast<model::ThermalZone>()) {
       modelObject->clone(model());
-      emit recreateAll();
     }
   }
 }

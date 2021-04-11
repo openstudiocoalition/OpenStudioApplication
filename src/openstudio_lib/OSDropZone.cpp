@@ -565,6 +565,10 @@ bool OSDropZone2::hasData() {
   return !this->m_label->text().isEmpty();
 }
 
+bool OSDropZone2::locked() const {
+  return m_locked;
+}
+
 void OSDropZone2::setLocked(bool locked) {
   m_locked = locked;
 }

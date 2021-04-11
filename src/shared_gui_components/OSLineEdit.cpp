@@ -85,6 +85,10 @@ bool OSLineEdit2::hasData() {
   return !this->text().isEmpty();
 }
 
+bool OSLineEdit2::locked() const {
+  return m_locked;
+}
+
 void OSLineEdit2::setLocked(bool locked) {
   m_locked = locked;
   setReadOnly(locked);
@@ -96,61 +100,56 @@ boost::optional<model::ModelObject> OSLineEdit2::modelObject() const {
 }
 
 void OSLineEdit2::bind(const model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetter> set,
-                       boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted, boost::optional<BasicQuery> isLocked) {
+                       boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted) {
   m_modelObject = modelObject;
   m_get = get;
   m_set = set;
   m_reset = reset;
   m_isDefaulted = isDefaulted;
-  m_isLocked = isLocked;
 
   completeBind();
 }
 
 void OSLineEdit2::bind(const model::ModelObject& modelObject, OptionalStringGetter get, boost::optional<StringSetter> set,
-                       boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted, boost::optional<BasicQuery> isLocked) {
+                       boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted) {
   m_modelObject = modelObject;
   m_getOptional = get;
   m_set = set;
   m_reset = reset;
   m_isDefaulted = isDefaulted;
-  m_isLocked = isLocked;
 
   completeBind();
 }
 
 void OSLineEdit2::bind(const model::ModelObject& modelObject, OptionalStringGetter get, boost::optional<StringSetterOptionalStringReturn> set,
-                       boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted, boost::optional<BasicQuery> isLocked) {
+                       boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted) {
   m_modelObject = modelObject;
   m_getOptional = get;
   m_setOptionalStringReturn = set;
   m_reset = reset;
   m_isDefaulted = isDefaulted;
-  m_isLocked = isLocked;
 
   completeBind();
 }
 
 void OSLineEdit2::bind(const model::ModelObject& modelObject, OptionalStringGetterBoolArg get, boost::optional<StringSetterOptionalStringReturn> set,
-                       boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted, boost::optional<BasicQuery> isLocked) {
+                       boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted) {
   m_modelObject = modelObject;
   m_getOptionalBoolArg = get;
   m_setOptionalStringReturn = set;
   m_reset = reset;
   m_isDefaulted = isDefaulted;
-  m_isLocked = isLocked;
 
   completeBind();
 }
 
 void OSLineEdit2::bind(const model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetterVoidReturn> set,
-                       boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted, boost::optional<BasicQuery> isLocked) {
+                       boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted) {
   m_modelObject = modelObject;
   m_get = get;
   m_setVoidReturn = set;
   m_reset = reset;
   m_isDefaulted = isDefaulted;
-  m_isLocked = isLocked;
 
   completeBind();
 }
@@ -158,9 +157,7 @@ void OSLineEdit2::bind(const model::ModelObject& modelObject, StringGetter get, 
 void OSLineEdit2::completeBind() {
   setEnabled(true);
 
-  if (m_isLocked && (*m_isLocked)()) {
-    setLocked(true);
-  } else if (!m_set && !m_setOptionalStringReturn && !m_setVoidReturn) {
+  if (!m_set && !m_setOptionalStringReturn && !m_setVoidReturn) {
     setLocked(true);
   }
 
@@ -195,7 +192,6 @@ void OSLineEdit2::unbind() {
     m_setVoidReturn.reset();
     m_reset.reset();
     m_isDefaulted.reset();
-    m_isLocked.reset();
     m_item = nullptr;
     setLocked(true);
   }

@@ -447,7 +447,6 @@ void DesignDayGridController::onItemDropped(const OSItemId& itemId) {
   if (modelObject) {
     if (modelObject->optionalCast<model::DesignDay>()) {
       modelObject->clone(model());
-      emit recreateAll();
     }
   }
 }

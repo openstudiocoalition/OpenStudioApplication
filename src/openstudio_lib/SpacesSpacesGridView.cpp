@@ -227,7 +227,7 @@ void SpacesSpacesGridController::addColumns(const QString& category, std::vector
       });
 
       addNameLineEditColumn(
-        Heading(QString(SPACEINFILTRATIONDESIGNFLOWRATES)), true,
+        Heading(QString(SPACEINFILTRATIONDESIGNFLOWRATES)), true, false,
         CastNullAdapter<model::SpaceInfiltrationDesignFlowRate>(&model::SpaceInfiltrationDesignFlowRate::name),
         CastNullAdapter<model::SpaceInfiltrationDesignFlowRate>(&model::SpaceInfiltrationDesignFlowRate::setName),
         boost::optional<std::function<void(model::SpaceInfiltrationDesignFlowRate*)>>(
@@ -261,7 +261,7 @@ void SpacesSpacesGridController::addColumns(const QString& category, std::vector
       });
 
       addNameLineEditColumn(
-        Heading(QString(SPACEINFILTRATIONEFFECTIVELEAKAGEAREAS)), true,
+        Heading(QString(SPACEINFILTRATIONEFFECTIVELEAKAGEAREAS)), true, false,
         CastNullAdapter<model::SpaceInfiltrationEffectiveLeakageArea>(&model::SpaceInfiltrationEffectiveLeakageArea::name),
         CastNullAdapter<model::SpaceInfiltrationEffectiveLeakageArea>(&model::SpaceInfiltrationEffectiveLeakageArea::setName),
         boost::optional<std::function<void(model::SpaceInfiltrationEffectiveLeakageArea*)>>(

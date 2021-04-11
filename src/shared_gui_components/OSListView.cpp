@@ -75,6 +75,10 @@ OSListView::OSListView(bool scrollable, QWidget* parent)
   setSpacing(5);
 }
 
+OSListView::~OSListView() {
+  bool hi = true;
+}
+
 void OSListView::setHorizontalScrollBarAlwaysOn(bool alwaysOn) {
   if (!m_scrollable && !m_scrollArea) return;
 

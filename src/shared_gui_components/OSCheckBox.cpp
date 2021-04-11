@@ -151,6 +151,10 @@ void OSCheckBox3::disableClickFocus() {
   clearFocus();
 }
 
+bool OSCheckBox3::locked() const {
+  return m_locked;
+}
+
 void OSCheckBox3::setLocked(bool locked) {
   if (m_locked != locked) {
     m_locked = locked;

@@ -521,7 +521,6 @@ void RefrigerationCaseGridController::onItemDropped(const OSItemId& itemId) {
   if (modelObject) {
     if (modelObject->optionalCast<model::RefrigerationCase>()) {
       modelObject->clone(model());
-      emit recreateAll();
     }
   }
 }
@@ -882,7 +881,6 @@ void RefrigerationWalkInGridController::onItemDropped(const OSItemId& itemId) {
   if (modelObject) {
     if (modelObject->optionalCast<model::RefrigerationWalkIn>()) {
       modelObject->clone(model());
-      emit recreateAll();
     }
   }
 }

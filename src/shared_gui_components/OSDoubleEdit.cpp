@@ -100,6 +100,10 @@ bool OSDoubleEdit2::hasData() {
   return !this->text().isEmpty();
 }
 
+bool OSDoubleEdit2::locked() const {
+  return m_locked;
+}
+
 void OSDoubleEdit2::setLocked(bool locked) {
   if (m_locked != locked) {
     m_locked = locked;

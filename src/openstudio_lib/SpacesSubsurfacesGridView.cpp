@@ -392,16 +392,16 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
 
       else if (field == SURFACENAME) {
         addNameLineEditColumn(
-          Heading(QString(SURFACENAME), true, false), false, CastNullAdapter<model::Surface>(&model::Surface::name),
+          Heading(QString(SURFACENAME), true, false), false, false, CastNullAdapter<model::Surface>(&model::Surface::name),
           CastNullAdapter<model::Surface>(&model::Surface::setName),
           boost::optional<std::function<void(model::Surface*)>>(std::function<void(model::Surface*)>([](model::Surface* t_s) { t_s->remove(); })),
           boost::optional<std::function<bool(model::Surface*)>>(), DataSource(allSubsurfaceSurfaces, true));
       } else if (field == SUBSURFACENAME) {
-        addNameLineEditColumn(Heading(QString(SUBSURFACENAME), true, false), false, CastNullAdapter<model::SubSurface>(&model::SubSurface::name),
+        addNameLineEditColumn(Heading(QString(SUBSURFACENAME), true, false), false, false, CastNullAdapter<model::SubSurface>(&model::SubSurface::name),
                               CastNullAdapter<model::SubSurface>(&model::SubSurface::setName),
                               boost::optional<std::function<void(model::SubSurface*)>>(
                                 std::function<void(model::SubSurface*)>([](model::SubSurface* t_s) { t_s->remove(); })),
-                              boost::optional<std::function<bool(model::SubSurface*)>>(), DataSource(allSubSurfaces, true));
+                              boost::optional<std::function<bool(model::SubSurface*)>>(),  DataSource(allSubSurfaces, true));
       } else if (field == SUBSURFACETYPE) {
         addComboBoxColumn(Heading(QString(SUBSURFACETYPE)),
                           std::function<std::string(const std::string&)>(static_cast<std::string (*)(const std::string&)>(&openstudio::toString)),
@@ -714,7 +714,7 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
           DataSource(allWindowPropertyFrameAndDividers, true));
       } else if (field == WINDOWNAME) {
       } else if (field == DAYLIGHTINGSHELFNAME) {
-        addNameLineEditColumn(Heading(QString(DAYLIGHTINGSHELFNAME)), false,
+        addNameLineEditColumn(Heading(QString(DAYLIGHTINGSHELFNAME)), false, false, 
                               CastNullAdapter<model::DaylightingDeviceShelf>(&model::DaylightingDeviceShelf::name),
                               CastNullAdapter<model::DaylightingDeviceShelf>(&model::DaylightingDeviceShelf::setName),
                               boost::optional<std::function<void(model::DaylightingDeviceShelf*)>>(),

@@ -55,29 +55,27 @@ class OSLoadNamePixmapLineEdit : public QWidget, public OSLineEdit2Interface
 
   virtual bool hasData() override;
 
+  virtual bool locked() const override;
+
   virtual void setLocked(bool locked) override;
 
   virtual boost::optional<model::ModelObject> modelObject() const override;
 
   virtual void bind(const model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetter> set = boost::none,
-                    boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none,
-                    boost::optional<BasicQuery> isLocked = boost::none) override;
+                    boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none) override;
 
   virtual void bind(const model::ModelObject& modelObject, OptionalStringGetter get, boost::optional<StringSetter> set = boost::none,
-                    boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none,
-                    boost::optional<BasicQuery> isLocked = boost::none) override;
+                    boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none) override;
 
   virtual void bind(const model::ModelObject& modelObject, OptionalStringGetter get,
                     boost::optional<StringSetterOptionalStringReturn> set = boost::none, boost::optional<NoFailAction> reset = boost::none,
-                    boost::optional<BasicQuery> isDefaulted = boost::none, boost::optional<BasicQuery> isLocked = boost::none) override;
+                    boost::optional<BasicQuery> isDefaulted = boost::none) override;
 
   virtual void bind(const model::ModelObject& modelObject, OptionalStringGetterBoolArg get, boost::optional<StringSetterOptionalStringReturn> set,
-                    boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none,
-                    boost::optional<BasicQuery> isLocked = boost::none) override;
+                    boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none) override;
 
   virtual void bind(const model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetterVoidReturn> set = boost::none,
-                    boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none,
-                    boost::optional<BasicQuery> isLocked = boost::none) override;
+                    boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none) override;
 
   virtual void unbind() override;
 

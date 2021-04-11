@@ -451,7 +451,7 @@ void FacilityShadingGridController::addColumns(const QString& category, std::vec
   for (const auto& field : fields) {
 
     if (field == NAME) {
-      addNameLineEditColumn(Heading(QString(NAME), false, false), false,
+      addNameLineEditColumn(Heading(QString(NAME), false, false), false, false,
                             CastNullAdapter<model::ShadingSurfaceGroup>(&model::ShadingSurfaceGroup::name),
                             CastNullAdapter<model::ShadingSurfaceGroup>(&model::ShadingSurfaceGroup::setName));
     }
