@@ -701,18 +701,14 @@ void OSDropZone2::dropEvent(QDropEvent* event) {
       modelObject = doc->getModelObject(itemId);
     }
 
-    m_item = OSItem::makeItem(itemId, OSItemType::ListItem);
-    m_item->setParent(this);
-
     OS_ASSERT(modelObject);
 
-    connect(m_item, &OSItem::itemRemoveClicked, this, &OSDropZone2::onItemRemoveClicked);
-
+    bool success = false;
     if (doc->fromBCL(itemId)) {
       // model object already cloned above
       OS_ASSERT(componentData);
       if (m_set) {
-        bool success = (*m_set)(modelObject.get());
+        success = (*m_set)(modelObject.get());
         if (!success) {
           std::vector<Handle> handlesToRemove;
           for (const auto& object : componentData->componentObjects()) {
@@ -727,15 +723,21 @@ void OSDropZone2::dropEvent(QDropEvent* event) {
     } else if (doc->fromComponentLibrary(itemId)) {
       modelObject = modelObject->clone(m_modelObject->model());
       if (m_set) {
-        bool success = (*m_set)(modelObject.get());
+        success = (*m_set)(modelObject.get());
         if (!success) {
           modelObject->remove();
         }
       }
     } else {
       if (m_set) {
-        (*m_set)(modelObject.get());
+        success = (*m_set)(modelObject.get());
       }
+    }
+
+    if (success) {
+      m_item = OSItem::makeItem(itemId, OSItemType::ListItem);
+      m_item->setParent(this);
+      connect(m_item, &OSItem::itemRemoveClicked, this, &OSDropZone2::onItemRemoveClicked);
     }
 
     refresh();
@@ -796,6 +798,11 @@ void OSDropZone2::onItemRemoveClicked() {
     if (modelObject && m_deleteObject) {
       modelObject->remove();
     }
+    if (m_item) {
+      delete m_item;
+      m_item = nullptr;
+    }
+
     emit objectRemoved(parent);
   }
 }
