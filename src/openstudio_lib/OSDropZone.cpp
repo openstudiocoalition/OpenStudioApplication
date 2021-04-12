@@ -517,8 +517,8 @@ OSDropZone2::OSDropZone2() : QWidget() {
 
   // if multiple qss rules apply with same specificity then the last one is chosen
   this->setStyleSheet(
-    "QWidget#OSDropZone[style=\"000\"] { border: 2px dashed #808080; border-radius: 5px; background:#cecece; } "  // Locked=0, Focused=0, Defaulted=0
-    "QWidget#OSDropZone[style=\"001\"] { border: 2px dashed #808080; border-radius: 5px; background:#cecece; } "  // Locked=0, Focused=0, Defaulted=1
+    "QWidget#OSDropZone[style=\"000\"] { border: 2px dashed #808080; border-radius: 5px; background:#ffffff; } "  // Locked=0, Focused=0, Defaulted=0
+    "QWidget#OSDropZone[style=\"001\"] { border: 2px dashed #808080; border-radius: 5px; background:#ffffff; } "  // Locked=0, Focused=0, Defaulted=1
     "QWidget#OSDropZone[style=\"010\"] { border: 2px dashed #808080; border-radius: 5px; background:#ffc627; } "  // Locked=0, Focused=1, Defaulted=0
     "QWidget#OSDropZone[style=\"011\"] { border: 2px dashed #808080; border-radius: 5px; background:#ffc627; } "  // Locked=0, Focused=1, Defaulted=1
     "QWidget#OSDropZone[style=\"100\"] { border: 2px dashed #808080; border-radius: 5px; background:#e6e6e6; } "  // Locked=1, Focused=0, Defaulted=0
@@ -533,8 +533,8 @@ OSDropZone2::OSDropZone2() : QWidget() {
 
   m_label = new QLabel();
   layout->addWidget(m_label);
-  m_label->setStyleSheet("QLabel[style=\"000\"] { color:black; background:#cecece; } "  // Locked=0, Focused=0, Defaulted=0
-                         "QLabel[style=\"001\"] { color:green; background:#cecece; } "  // Locked=0, Focused=0, Defaulted=1
+  m_label->setStyleSheet("QLabel[style=\"000\"] { color:black; background:#ffffff; } "  // Locked=0, Focused=0, Defaulted=0
+                         "QLabel[style=\"001\"] { color:green; background:#ffffff; } "  // Locked=0, Focused=0, Defaulted=1
                          "QLabel[style=\"010\"] { color:black; background:#ffc627; } "  // Locked=0, Focused=1, Defaulted=0
                          "QLabel[style=\"011\"] { color:green; background:#ffc627; } "  // Locked=0, Focused=1, Defaulted=1
                          "QLabel[style=\"100\"] { color:black; background:#e6e6e6; } "  // Locked=1, Focused=0, Defaulted=0
@@ -571,6 +571,10 @@ bool OSDropZone2::locked() const {
 
 void OSDropZone2::setLocked(bool locked) {
   m_locked = locked;
+  if (locked) {
+    setAcceptDrops(false);
+  }
+  updateStyle();
 }
 
 void OSDropZone2::setDeleteObject(bool deleteObject) {
@@ -597,6 +601,7 @@ void OSDropZone2::refresh() {
     QString temp = QString::fromStdString(modelObject->name().get());
     if (m_label->text() != temp) {
       m_label->setText(temp);
+      m_label->setToolTip(temp);
     }
 
     //// Adjust the width to accommodate the text
@@ -608,6 +613,7 @@ void OSDropZone2::refresh() {
 
     if (!m_label->text().isEmpty()) {
       m_label->setText("");
+      m_label->setToolTip("");
     }
   }
 
@@ -735,6 +741,9 @@ void OSDropZone2::dropEvent(QDropEvent* event) {
     }
 
     if (success) {
+      if (m_item) {
+        delete m_item;
+      }
       m_item = OSItem::makeItem(itemId, OSItemType::ListItem);
       m_item->setParent(this);
       connect(m_item, &OSItem::itemRemoveClicked, this, &OSDropZone2::onItemRemoveClicked);

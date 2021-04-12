@@ -290,7 +290,9 @@ void OSLineEdit2::onModelObjectChangeInternal(bool startingup) {
       if (m_text != text) {
         m_text = text;
         this->blockSignals(true);
-        this->setText(QString::fromStdString(m_text));
+        QString qtext = QString::fromStdString(m_text);
+        this->setText(qtext);
+        this->setToolTip(qtext);
         updateStyle();
         this->blockSignals(false);
         if (!startingup) m_timer.start(TIMEOUT_INTERVAL);
