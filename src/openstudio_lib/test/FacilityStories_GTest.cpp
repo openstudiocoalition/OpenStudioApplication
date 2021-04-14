@@ -113,16 +113,14 @@ TEST_F(OpenStudioLibFixture, FacilityStoriesGridView) {
   for (const auto& locationInfoPair : locationToInfoMap) {
     if (locationInfoPair.first->modelRow == 0) {
       EXPECT_FALSE(locationInfoPair.second->isVisible());
-    } else if(locationInfoPair.first->modelRow == 1) {
+    } else if (locationInfoPair.first->modelRow == 1) {
       EXPECT_TRUE(locationInfoPair.second->isVisible());
     } else if (locationInfoPair.first->modelRow == 2) {
       EXPECT_FALSE(locationInfoPair.second->isVisible());
     }
   }
 
-  gridController->setObjectFilter([upperLimit, lowerLimit](const model::ModelObject& obj) -> bool {
-    return true;
-  });
+  gridController->setObjectFilter([upperLimit, lowerLimit](const model::ModelObject& obj) -> bool { return true; });
 
   for (const auto& locationInfoPair : locationToInfoMap) {
     if (locationInfoPair.first->modelRow >= 0) {
