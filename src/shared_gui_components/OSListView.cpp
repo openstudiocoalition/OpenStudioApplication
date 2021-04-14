@@ -75,7 +75,11 @@ OSListView::OSListView(bool scrollable, QWidget* parent)
   setSpacing(5);
 }
 
-OSListView::~OSListView() {}
+OSListView::~OSListView() {
+  for (const auto& widgetItemPair : m_widgetItemPairs) {
+    disconnect(widgetItemPair.first, &QWidget::destroyed, this, &OSListView::removePair);
+  }
+}
 
 void OSListView::setHorizontalScrollBarAlwaysOn(bool alwaysOn) {
   if (!m_scrollable && !m_scrollArea) return;
@@ -191,7 +195,6 @@ void OSListView::removeItemView(int i) {
 }
 
 void OSListView::removePair(QObject* object) {
-  ;
   auto it = m_widgetItemPairs.find(object);
   if (it != m_widgetItemPairs.end()) {
     m_widgetItemPairs.erase(it);
