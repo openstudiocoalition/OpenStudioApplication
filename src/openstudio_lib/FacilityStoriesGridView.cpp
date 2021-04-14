@@ -188,7 +188,7 @@ void FacilityStoriesGridView::lessThanFilterChanged() {
 void FacilityStoriesGridView::filterChanged() {
 
   auto upperLimit = std::numeric_limits<double>::max();
-  auto lowerLimit = std::numeric_limits<double>::min();
+  auto lowerLimit = std::numeric_limits<double>::lowest();
 
   if (!this->m_lessThanFilter->text().isEmpty()) {
     upperLimit = this->m_lessThanFilter->text().toDouble();

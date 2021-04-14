@@ -293,7 +293,7 @@ void FacilityShadingGridView::orientationFilterChanged() {
   m_objectsFilteredByOrientation.clear();
 
   auto upperLimit = std::numeric_limits<double>::max();
-  auto lowerLimit = std::numeric_limits<double>::min();
+  auto lowerLimit = std::numeric_limits<double>::lowest();
 
   if (!this->m_orientationLessThanFilter->text().isEmpty()) {
     upperLimit = this->m_orientationLessThanFilter->text().toDouble();
@@ -329,7 +329,7 @@ void FacilityShadingGridView::tiltFilterChanged() {
   m_objectsFilteredByTilt.clear();
 
   auto upperLimit = std::numeric_limits<double>::max();
-  auto lowerLimit = std::numeric_limits<double>::min();
+  auto lowerLimit = std::numeric_limits<double>::lowest();
 
   if (!this->m_tiltLessThanFilter->text().isEmpty()) {
     upperLimit = this->m_tiltLessThanFilter->text().toDouble();
