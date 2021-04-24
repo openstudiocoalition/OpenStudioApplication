@@ -107,7 +107,7 @@ jobs:
 
     - uses: actions/setup-ruby@v1
       with:
-        ruby-version: 2.5
+        ruby-version: 2.7
 
     - name: Extract OSApp version from CMakeLists.txt
       shell: python

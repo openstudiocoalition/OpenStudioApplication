@@ -56,67 +56,6 @@ macro(FIND_QT_STATIC_LIB NAMES P)
   unset(QT_STATIC_LIB_D CACHE )
 endmacro()
 
-# This function is nearly identical to QT5_WRAP_CPP (from Qt5CoreMacros.cmake), except that it removes Boost
-# from the include directories and outputs .cxx files
-
-# qt5_wrap_cpp_minimally(outfiles inputfile ...)
-function(QT5_WRAP_CPP_MINIMALLY outfiles)
-  # Remove Boost and possibly other include directories
-  get_directory_property(_inc_DIRS INCLUDE_DIRECTORIES)
-  set(_orig_DIRS ${_inc_DIRS})
-  if(APPLE)
-    if(NOT ${target_name} STREQUAL "qwt")
-      foreach(_current ${_inc_DIRS})
-        if(NOT "${_current}" MATCHES "[Qq][Tt]5")
-          list(REMOVE_ITEM _inc_DIRS "${_current}")
-        endif()
-      endforeach()
-      set_directory_properties(PROPERTIES INCLUDE_DIRECTORIES "${PROJECT_SOURCE_DIR}/src;${PROJECT_BINARY_DIR}/src;${_inc_DIRS}")
-    endif()
-  elseif(UNIX)
-    foreach(_current ${_inc_DIRS})
-      if(NOT "${_current}" MATCHES "[Qq][Tt]5")
-        list(REMOVE_ITEM _inc_DIRS "${_current}")
-      endif()
-    endforeach()
-    set_directory_properties(PROPERTIES INCLUDE_DIRECTORIES "${PROJECT_SOURCE_DIR}/src;${PROJECT_BINARY_DIR}/src;${_inc_DIRS}")
-  else()
-    foreach(_current ${_inc_DIRS})
-      if("${_current}" MATCHES "[Bb][Oo][Oo][Ss][Tt]")
-        list(REMOVE_ITEM _inc_DIRS "${_current}")
-      endif()
-    endforeach()
-    set_directory_properties(PROPERTIES INCLUDE_DIRECTORIES "${_inc_DIRS}")
-  endif()
-
-  qt5_get_moc_flags(moc_flags)
-
-  set(options)
-  set(oneValueArgs TARGET)
-  set(multiValueArgs OPTIONS)
-
-  cmake_parse_arguments(_WRAP_CPP "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
-
-  set(moc_files ${_WRAP_CPP_UNPARSED_ARGUMENTS})
-  set(moc_options ${_WRAP_CPP_OPTIONS})
-  set(moc_target ${_WRAP_CPP_TARGET})
-
-  if(moc_target AND CMAKE_VERSION VERSION_LESS 2.8.12)
-    message(FATAL_ERROR "The TARGET parameter to qt5_wrap_cpp is only available when using CMake 2.8.12 or later.")
-  endif()
-  foreach(it ${moc_files})
-    get_filename_component(it ${it} ABSOLUTE)
-    qt5_make_output_file(${it} moc_ cxx outfile)
-    qt5_create_moc_command(${it} ${outfile} "${moc_flags}" "${moc_options}" "${moc_target}" "")
-    list(APPEND ${outfiles} ${outfile})
-  endforeach()
-  set(${outfiles} ${${outfiles}} PARENT_SCOPE)
-
-  # Restore include directories
-  set_directory_properties(PROPERTIES INCLUDE_DIRECTORIES "${_orig_DIRS}")
-endfunction()
-
-
 
 ###############################################################################
 #                                  O T H E R                                  #
@@ -334,8 +273,6 @@ macro(MAKE_SWIG_TARGET_OSAPP NAME SIMPLENAME KEY_I_FILE I_FILES PARENT_TARGET PA
   ## Finish requirements gathering
   ##
 
-  include_directories(${RUBY_INCLUDE_DIRS})
-
   if(WIN32)
     set(SWIG_DEFINES "-D_WINDOWS")
     set(SWIG_COMMON "-Fmicrosoft")
@@ -467,6 +404,7 @@ macro(MAKE_SWIG_TARGET_OSAPP NAME SIMPLENAME KEY_I_FILE I_FILES PARENT_TARGET PA
   set_target_properties(${swig_target} PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/ruby/")
   set_target_properties(${swig_target} PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/ruby/")
   target_link_libraries(${swig_target} ${PARENT_TARGET})
+  target_include_directories(${swig_target} SYSTEM PRIVATE ${RUBY_INCLUDE_DIRS})
   add_dependencies(${swig_target} ${PARENT_TARGET})
 
   # QT-Separation-Move

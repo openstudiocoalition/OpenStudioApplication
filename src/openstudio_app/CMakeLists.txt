@@ -39,7 +39,7 @@ set(${target_name}_moc
 )
 
 ## Qt UI generation
-qt5_wrap_cpp_minimally(${target_name}_moc_src ${${target_name}_moc})
+qt5_wrap_cpp(${target_name}_moc_src ${${target_name}_moc})
 
 # configure the AboutBox.hpp file
 # this needs to be configured to embed the build number
@@ -119,7 +119,7 @@ elseif(UNIX)
 
 endif()
 
-#include_directories(${RUBY_INCLUDE_DIRS})
+#include_directories(SYSTEM ${RUBY_INCLUDE_DIRS})
 
 add_executable(${target_name}
   WIN32
