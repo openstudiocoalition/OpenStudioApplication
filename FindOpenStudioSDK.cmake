@@ -6,29 +6,29 @@ set(OPENSTUDIO_VERSION "${OPENSTUDIO_VERSION_MAJOR}.${OPENSTUDIO_VERSION_MINOR}.
 #If this is a release enter the SHA as "+79857912c4"
 #set(OPENSTUDIO_VERSION_SHA "+09b7c8a554")
 #If this is a pre-release enter the pre-release and SHA as "-rc1+79857912c4"
-set(OPENSTUDIO_VERSION_SHA "-alpha+a007b7801e")
+set(OPENSTUDIO_VERSION_SHA "-rc1+2249bb4700")
 
 # Paths where the cmake-downloaded archives will be put
 set(OPENSTUDIO_ARCHIVE_DIR "${PROJECT_BINARY_DIR}/OpenStudio-${OPENSTUDIO_VERSION}")
 
 # If downloaded, we need the SHA to match. This block is here since we need "OPENSTUDIO_PLATFORM" anyways
 if(APPLE)
-  set(OPENSTUDIO_EXPECTED_HASH 183593d07655689f3904e5d6d4075080)
+  set(OPENSTUDIO_EXPECTED_HASH 6b553cc839852f94f0c77c2fd222007a)
   set(OPENSTUDIO_PLATFORM "Darwin")
   set(OPENSTUDIO_EXT "tar.gz")
 elseif(UNIX)
 
   if(LSB_RELEASE_VERSION_SHORT MATCHES "20.04")
-    set(OPENSTUDIO_EXPECTED_HASH 4e7766a06b2758c8aee7af64f5205272)
+    set(OPENSTUDIO_EXPECTED_HASH 0bca38a37f74e733ac49a2577abac9cf)
     set(OPENSTUDIO_PLATFORM "Ubuntu-20.04")
   else() # Assumes 18.04
-    set(OPENSTUDIO_EXPECTED_HASH a278deee33dbcd85cbb3d43ddbaa34f8)
+    set(OPENSTUDIO_EXPECTED_HASH 9161ae070c597affa88a38b9c2f5e82f)
     set(OPENSTUDIO_PLATFORM "Ubuntu-18.04")
   endif()
   set(OPENSTUDIO_EXT "tar.gz")
 
 elseif(WIN32)
-  set(OPENSTUDIO_EXPECTED_HASH 9e0f578098f45f7c1c955eee58476cd6)
+  set(OPENSTUDIO_EXPECTED_HASH fbb37b1e83beb41abbe002bcf3d19f68)
   set(OPENSTUDIO_PLATFORM "Windows")
   set(OPENSTUDIO_EXT "tar.gz")
 endif()
@@ -57,7 +57,7 @@ else()
   # base link for release builds
   set(OPENSTUDIO_BASELINK_RELEASE
     #"https://openstudio-builds.s3.amazonaws.com/${OPENSTUDIO_VERSION}"
-    https://github.com/NREL/OpenStudio/releases/download/v3.1.0
+    https://github.com/NREL/OpenStudio/releases/download/v3.2.0-rc1/
     CACHE STRING "Base link to where the openstudio archives are hosted" FORCE)
 
   # base link for develop builds. (Using https will fail)
