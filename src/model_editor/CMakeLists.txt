@@ -80,7 +80,7 @@ set(${target_name}_qrc
 CONFIGURE_FILE_WITH_CHECKSUM(AboutBox.hpp.in "${CMAKE_CURRENT_BINARY_DIR}/AboutBox.hpp")
 
 ## Qt MOC generation
-qt5_wrap_cpp_minimally(${target_name}_mocs ${${target_name}_moc})
+qt5_wrap_cpp(${target_name}_mocs ${${target_name}_moc})
 
 ## Qt UI Generation
 qt5_wrap_ui(${target_name}_uis ${${target_name}_ui})
