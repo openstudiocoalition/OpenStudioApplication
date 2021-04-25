@@ -404,7 +404,7 @@ void InputCheckBox::paintEvent(QPaintEvent* event) {
 
   if (isChecked()) {
     opt.state |= QStyle::State_On;
-  }else{
+  } else {
     opt.state |= QStyle::State_Off;
   }
 
