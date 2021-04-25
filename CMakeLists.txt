@@ -10,7 +10,7 @@ if(CCACHE_PROGRAM)
   set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "${CCACHE_PROGRAM}")
 endif()
 
-project(OpenStudioApplication VERSION 1.1.1)
+project(OpenStudioApplication VERSION 1.2.0)
 
 
 # If Linux, check LSB_RELEASE globally so we can use it after
