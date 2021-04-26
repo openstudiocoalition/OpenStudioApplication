@@ -53,8 +53,6 @@ ConstructionAirBoundaryInspectorView::ConstructionAirBoundaryInspectorView(bool 
     m_isIP(isIP),
     m_nameEdit(nullptr),
     m_standardsInformationWidget(nullptr),
-    m_solarAndDaylightingMethod(nullptr),
-    m_radiantExchangeMethod(nullptr),
     m_airExchangeMethod(nullptr),
     m_simpleMixingAirChangesPerHour(nullptr),
     m_scheduleDropZone(nullptr) {
@@ -95,32 +93,6 @@ void ConstructionAirBoundaryInspectorView::createLayout() {
   m_standardsInformationWidget = new StandardsInformationConstructionWidget(m_isIP, mainGridLayout, row);
   m_standardsInformationWidget->hideFenestration();
   m_standardsInformationWidget->disableFenestration();
-
-  ++row;
-
-  // Solar and Daylighting Method
-
-  label = new QLabel("Solar and Daylighting Method: ");
-  label->setObjectName("H2");
-  mainGridLayout->addWidget(label, row, 0);
-
-  ++row;
-
-  m_solarAndDaylightingMethod = new OSComboBox2(nullptr, true);
-  mainGridLayout->addWidget(m_solarAndDaylightingMethod, row, 0);
-
-  ++row;
-
-  // Radiant Exchange Method
-
-  label = new QLabel("Radiant Exchange Method: ");
-  label->setObjectName("H2");
-  mainGridLayout->addWidget(label, row, 0);
-
-  ++row;
-
-  m_radiantExchangeMethod = new OSComboBox2(nullptr, true);
-  mainGridLayout->addWidget(m_radiantExchangeMethod, row, 0);
 
   ++row;
 
@@ -194,23 +166,6 @@ void ConstructionAirBoundaryInspectorView::attach(const openstudio::model::Const
                    boost::optional<StringSetterOptionalStringReturn>(
                      std::bind(&model::ConstructionAirBoundary::setName, m_constructionAirBoundary.get_ptr(), std::placeholders::_1)));
 
-  m_solarAndDaylightingMethod->bind<std::string>(
-    *m_constructionAirBoundary, static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
-    &model::ConstructionAirBoundary::solarAndDaylightingMethodValues,
-    std::bind(&model::ConstructionAirBoundary::solarAndDaylightingMethod, m_constructionAirBoundary.get_ptr()),
-    std::bind(&model::ConstructionAirBoundary::setSolarAndDaylightingMethod, m_constructionAirBoundary.get_ptr(), std::placeholders::_1),
-    boost::optional<NoFailAction>(std::bind(&model::ConstructionAirBoundary::resetSolarAndDaylightingMethod, m_constructionAirBoundary.get_ptr())),
-    boost::optional<BasicQuery>(
-      std::bind(&model::ConstructionAirBoundary::isSolarAndDaylightingMethodDefaulted, m_constructionAirBoundary.get_ptr())));
-
-  m_radiantExchangeMethod->bind<std::string>(
-    *m_constructionAirBoundary, static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
-    &model::ConstructionAirBoundary::radiantExchangeMethodValues,
-    std::bind(&model::ConstructionAirBoundary::radiantExchangeMethod, m_constructionAirBoundary.get_ptr()),
-    std::bind(&model::ConstructionAirBoundary::setRadiantExchangeMethod, m_constructionAirBoundary.get_ptr(), std::placeholders::_1),
-    boost::optional<NoFailAction>(std::bind(&model::ConstructionAirBoundary::resetRadiantExchangeMethod, m_constructionAirBoundary.get_ptr())),
-    boost::optional<BasicQuery>(std::bind(&model::ConstructionAirBoundary::isRadiantExchangeMethodDefaulted, m_constructionAirBoundary.get_ptr())));
-
   m_airExchangeMethod->bind<std::string>(
     *m_constructionAirBoundary, static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
     &model::ConstructionAirBoundary::airExchangeMethodValues,
@@ -231,8 +186,6 @@ void ConstructionAirBoundaryInspectorView::attach(const openstudio::model::Const
 
 void ConstructionAirBoundaryInspectorView::detach() {
   m_nameEdit->unbind();
-  m_solarAndDaylightingMethod->unbind();
-  m_radiantExchangeMethod->unbind();
   m_airExchangeMethod->unbind();
   m_simpleMixingAirChangesPerHour->unbind();
 

@@ -398,12 +398,14 @@ void InputCheckBox::setText(const QString& text) {
 
 void InputCheckBox::paintEvent(QPaintEvent* event) {
   QStyleOptionButton opt;
-  opt.init(this);
+  opt.initFrom(this);
   QPainter p(this);
   QPalette palette;
 
   if (isChecked()) {
     opt.state |= QStyle::State_On;
+  } else {
+    opt.state |= QStyle::State_Off;
   }
 
   style()->drawControl(QStyle::CE_CheckBox, &opt, &p, this);

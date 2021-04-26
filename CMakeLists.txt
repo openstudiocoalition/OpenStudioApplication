@@ -10,7 +10,20 @@ if(CCACHE_PROGRAM)
   set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "${CCACHE_PROGRAM}")
 endif()
 
-project(OpenStudioApplication VERSION 1.1.1)
+project(OpenStudioApplication VERSION 1.2.0)
+
+
+# If Linux, check LSB_RELEASE globally so we can use it after
+if(UNIX AND NOT APPLE)
+
+  find_program(LSB_RELEASE lsb_release)
+  # -rs outputs only 18.04, or 20.04
+  execute_process(COMMAND ${LSB_RELEASE} -rs
+    OUTPUT_VARIABLE LSB_RELEASE_VERSION_SHORT
+    OUTPUT_STRIP_TRAILING_WHITESPACE
+  )
+  message(STATUS "LSB_RELEASE_VERSION_SHORT = ${LSB_RELEASE_VERSION_SHORT}")
+endif()
 
 # set openstudio_DIR to the directory that contains the openstudioConfig.cmake
 # eg C:\src\OpenStudio\build-vs\_CPack_Packages\win64\ZIP\OpenStudio-3.0.0-rc2+ce27ae6b85-Windows\lib\cmake\openstudio
@@ -372,18 +385,6 @@ if(CMAKE_COMPILER_IS_GNUCC)
                   OUTPUT_VARIABLE GCC_VERSION)
 endif()
 
-# If Linux, check LSB_RELEASE globally so we can use it after
-if(UNIX AND NOT APPLE)
-
-  find_program(LSB_RELEASE lsb_release)
-  # -rs outputs only 16.04, or 18.04
-  execute_process(COMMAND ${LSB_RELEASE} -rs
-    OUTPUT_VARIABLE LSB_RELEASE_ID_SHORT
-    OUTPUT_STRIP_TRAILING_WHITESPACE
-  )
-  message(STATUS "LSB_RELEASE_ID_SHORT = ${LSB_RELEASE_ID_SHORT}")
-endif()
-
 # compiler id for about boxes
 if(MSVC)
   set(ABOUT_COMPILER "${CMAKE_GENERATOR}")
@@ -435,7 +436,7 @@ set(QT_VERSION "5.15.0")
     #set(QT_ZIP_FILENAME "DOES_NOT_EXIST_qt_5_11_redhat_shared.tar.gz")
     #set(QT_ZIP_EXPECTED_MD5 "b0610716854ed91a003347c455b22eb8")
   #else()
-    #if(LSB_RELEASE_ID_SHORT MATCHES "18.04")
+    #if(LSB_RELEASE_VERSION_SHORT MATCHES "18.04")
       #set(QT_ZIP_FILENAME "qt_5_11_linux_shared.tar.gz")
       #set(QT_ZIP_EXPECTED_MD5 "33c5a562935612625ec5e41fe4b75e17")
     #else()
@@ -731,7 +732,7 @@ set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "OpenStudioApplication ${OpenStudioApplica
 
 # The actual package file name on disk
 set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${OPENSTUDIOAPPLICATION_LONG_VERSION}-${CMAKE_SYSTEM_NAME}")
-if(LSB_RELEASE_ID_SHORT MATCHES "20.04")
+if(LSB_RELEASE_VERSION_SHORT MATCHES "20.04")
   set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${OPENSTUDIOAPPLICATION_LONG_VERSION}-${CMAKE_SYSTEM_NAME}20.04")
 endif()
 set(CPACK_PACKAGE_CONTACT "openstudio@nrel.gov")
