@@ -412,3 +412,18 @@ if(BUILD_TESTING)
   #)
 
 endif()
+
+if (BUILD_BENCHMARK)
+  qt5_wrap_cpp(OpenStudioApp_Benchmark_moc benchmark/OpenStudioApp_Benchmark.hpp)
+  add_executable(OpenStudioApp_Benchmark
+    benchmark/OpenStudioApp_Benchmark.cpp
+    ${OpenStudioApp_Benchmark_moc}
+  )
+  target_link_libraries(OpenStudioApp_Benchmark
+    Qt5::Test
+    Qt5::Widgets
+    ${${target_name}_SRC}
+    ${${target_name}_moc_src}
+    ${${target_name}_moc}
+    ${depends})
+endif()

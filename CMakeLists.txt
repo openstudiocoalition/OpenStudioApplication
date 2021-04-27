@@ -500,6 +500,10 @@ find_package(Qt5WebEngineWidgets ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} 
 #find_package(Qt53DInput ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
 #find_package(Qt53DRender ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
 
+if (BUILD_TESTING OR BUILD_BENCHMARK)
+  find_package(Qt5Test ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+endif()
+
 if(APPLE)
   set(QtWebEngineProcess "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Helpers/QtWebEngineProcess.app" CACHE PATH "Path to the QtWebEngineProcess")
 else()
