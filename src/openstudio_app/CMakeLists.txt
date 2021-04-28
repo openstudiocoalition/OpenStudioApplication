@@ -5,7 +5,7 @@ include_directories(${QT_INCLUDES})
 
 # source files
 set(${target_name}_SRC
-  main.cpp
+  #main.cpp is included directly on the App executable, so I can reuse this list for the QTest one and not have a "double main" issue
   OpenStudioApp.cpp
   OpenStudioApp.hpp
   StartupView.hpp
@@ -124,6 +124,7 @@ endif()
 add_executable(${target_name}
   WIN32
   MACOSX_BUNDLE
+  main.cpp
   ${${target_name}_SRC}
   ${${target_name}_moc_src}
   ${${target_name}_moc}
@@ -418,12 +419,13 @@ if (BUILD_BENCHMARK)
   add_executable(OpenStudioApp_Benchmark
     benchmark/OpenStudioApp_Benchmark.cpp
     ${OpenStudioApp_Benchmark_moc}
+    ${${target_name}_SRC}
+    ${${target_name}_moc_src}
+    ${${target_name}_moc}
   )
   target_link_libraries(OpenStudioApp_Benchmark
     Qt5::Test
     Qt5::Widgets
-    ${${target_name}_SRC}
-    ${${target_name}_moc_src}
-    ${${target_name}_moc}
+
     ${depends})
 endif()

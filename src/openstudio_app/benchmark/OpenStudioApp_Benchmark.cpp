@@ -11,10 +11,7 @@
 //}
 
 void TestBenchmark::init() {
-  int argc = 0;
-  char ** argv;
-  mApp = new openstudio::OpenStudioApp(argc, argv);
-  openstudio::Application::instance().setApplication(mApp);
+
 }
 
 void TestBenchmark::simple()

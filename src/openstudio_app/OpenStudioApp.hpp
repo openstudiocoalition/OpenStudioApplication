@@ -66,6 +66,8 @@
 
 class QEvent;
 
+class OpenStudioAppBenchmark;
+
 namespace openstudio {
 
 namespace osversion {
@@ -263,6 +265,9 @@ class OpenStudioApp : public OSAppBase
   QFutureWatcher<std::vector<std::string>> m_buildCompLibWatcher;
   QFutureWatcher<bool> m_waitForMeasureManagerWatcher;
   QFutureWatcher<std::vector<std::string>> m_changeLibrariesWatcher;
+
+  // for testing
+  friend class ::OpenStudioAppBenchmark;
 };
 
 }  // namespace openstudio
