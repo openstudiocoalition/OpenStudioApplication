@@ -535,7 +535,7 @@ jobs:
       run: |
           Xvfb :99 &
           export DISPLAY=:99
-          ctest -j -T test --no-compress-output -C $BUILD_TYPE || true
+          ctest -j -T test --output-on-failure --no-compress-output -C $BUILD_TYPE || true
 
     - name: Archive test results?
       uses: actions/upload-artifact@v2
@@ -551,7 +551,7 @@ jobs:
       run: |
         Xvfb :99 &
         export DISPLAY=:99
-        Products/SpacesSurfaces_Benchmark --benchmark_out_format=csv --benchmark_out='bench_results_SpacesSurfaces.csv'
+        Products/SpacesSurfaces_Benchmark --benchmark_out_format=csv --benchmark_out='bench_results_SpacesSurfaces.csv' || true
 
     - name: Archive benchmark results?
       uses: actions/upload-artifact@v2
