@@ -243,6 +243,8 @@ option(BUILD_PACKAGE "Build package" OFF)
 
 option(BUILD_TESTING "Build testing" OFF)
 
+option(BUILD_BENCHMARK "Build benchmarking targets" OFF)
+
 # DView
 # option(BUILD_DVIEW "Build DView" OFF)
 

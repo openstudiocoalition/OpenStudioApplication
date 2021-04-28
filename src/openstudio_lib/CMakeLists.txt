@@ -741,10 +741,33 @@ set(${target_name}_test_src
 
 set(${target_name}_test_depends
   ${${target_name}_depends}
+  ${QT_WEB_LIBS}
 )
 
-CREATE_TEST_TARGETS(${target_name} "${${target_name}_test_src}" "${${target_name}_test_depends}")
-CREATE_SRC_GROUPS("${${target_name}_test_src}")
+
 if(BUILD_TESTING)
+  CREATE_TEST_TARGETS(${target_name} "${${target_name}_test_src}" "${${target_name}_test_depends}")
+  CREATE_SRC_GROUPS("${${target_name}_test_src}")
+endif()
+
+
+if(BUILD_BENCHMARK)
+
+  SET(${target_name}_benchmark_src
+    test/SpacesSurfaces_Benchmark.cpp
+  )
+
+  foreach( bench_file ${${target_name}_benchmark_src} )
+    get_filename_component(bench_name ${bench_file} NAME_WE)
+    message("bench_name=${bench_name}")
+    add_executable( ${bench_name} ${bench_file} )
+    target_link_libraries(${bench_name}
+      CONAN_PKG::benchmark
+      ${target_name}
+      ${${target_name}_test_depends}
+    )
+  endforeach()
 
 endif()
+
+
