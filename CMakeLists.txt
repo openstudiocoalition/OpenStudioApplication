@@ -252,6 +252,8 @@ option(BUILD_PACKAGE "Build package" OFF)
 
 option(BUILD_TESTING "Build testing" OFF)
 
+option(BUILD_BENCHMARK "Build benchmarking targets" OFF)
+
 option(BUILD_MICRO_PROFILING "Build micro profiling" OFF)
 
 # DView
