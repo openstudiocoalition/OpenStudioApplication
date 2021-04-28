@@ -10,17 +10,41 @@
 #include <openstudio/model/SpaceType_Impl.hpp>
 #include <openstudio/model/Surface.hpp>
 #include <openstudio/model/Surface_Impl.hpp>
+#include <openstudio/utilities/geometry/Point3d.hpp>
 
 using namespace openstudio;
+using namespace openstudio::model;
+
+model::Model makeModelWithNSurfaces(size_t nSurfaces) {
+
+  Model m;
+
+  constexpr int nSurfacesperSpace = 6;
+
+  constexpr double floorHeight = 2.0;
+
+  double zOrigin = 0.0;
+  for (int i = 0; i <= (nSurfaces / nSurfacesperSpace); ++i) {
+
+    Point3dVector pts {
+      {0, 0, zOrigin},
+      {0, 1, zOrigin},
+      {1, 1, zOrigin},
+      {1, 0, zOrigin}
+    };
+    Space::fromFloorPrint(pts, floorHeight, m);
+    zOrigin += floorHeight;
+  }
+
+  return m;
+}
+
 
 static void BM_SpacesSurfaces(benchmark::State& state) {
 
   openstudio::Application::instance().application(true);
 
-  model::Model model = model::exampleModel();
-  auto spaces = model.getConcreteModelObjects<model::Space>();
-  auto spaceTypes = model.getConcreteModelObjects<model::SpaceType>();
-  auto surfaces = model.getConcreteModelObjects<model::Surface>();
+  model::Model model = makeModelWithNSurfaces(state.range(0));
 
   // Code inside this loop is measured repeatedly
   for (auto _ : state) {
@@ -29,6 +53,11 @@ static void BM_SpacesSurfaces(benchmark::State& state) {
     benchmark::DoNotOptimize(gridView);
   };
 
+  state.SetComplexityN(state.range(0));
+
 }
 
-BENCHMARK(BM_SpacesSurfaces);
+// This doesn't work, it goes [6, 8, 16...]
+//BENCHMARK(BM_SpacesSurfaces)->RangeMultiplier(2)->Range(6, 6<<6)->Unit(benchmark::kMillisecond)->Complexity();
+BENCHMARK(BM_SpacesSurfaces)->Arg(6)->Arg(12)->Arg(24)->Arg(48)->Arg(96)->Arg(192)->Arg(384)->Arg(768) // ->Arg(1536) // 1536 takes 89 secodns AFTER dan's improvements
+  ->Unit(benchmark::kMillisecond)->Complexity();
