@@ -26,19 +26,13 @@ model::Model makeModelWithNSurfaces(size_t nSurfaces) {
   double zOrigin = 0.0;
   for (int i = 0; i <= (nSurfaces / nSurfacesperSpace); ++i) {
 
-    Point3dVector pts {
-      {0, 0, zOrigin},
-      {0, 1, zOrigin},
-      {1, 1, zOrigin},
-      {1, 0, zOrigin}
-    };
+    Point3dVector pts{{0, 0, zOrigin}, {0, 1, zOrigin}, {1, 1, zOrigin}, {1, 0, zOrigin}};
     Space::fromFloorPrint(pts, floorHeight, m);
     zOrigin += floorHeight;
   }
 
   return m;
 }
-
 
 static void BM_SpacesSurfaces(benchmark::State& state) {
 
@@ -54,10 +48,19 @@ static void BM_SpacesSurfaces(benchmark::State& state) {
   };
 
   state.SetComplexityN(state.range(0));
-
 }
 
 // This doesn't work, it goes [6, 8, 16...]
 //BENCHMARK(BM_SpacesSurfaces)->RangeMultiplier(2)->Range(6, 6<<6)->Unit(benchmark::kMillisecond)->Complexity();
-BENCHMARK(BM_SpacesSurfaces)->Arg(6)->Arg(12)->Arg(24)->Arg(48)->Arg(96)->Arg(192)->Arg(384)->Arg(768) // ->Arg(1536) // 1536 takes 89 secodns AFTER dan's improvements
-  ->Unit(benchmark::kMillisecond)->Complexity();
+BENCHMARK(BM_SpacesSurfaces)
+  ->Arg(6)
+  ->Arg(12)
+  ->Arg(24)
+  ->Arg(48)
+  ->Arg(96)
+  ->Arg(192)
+  ->Arg(384)
+  ->Arg(768)
+  //->Arg(1536) // 1536 takes 89 secodns AFTER dan's improvements
+  ->Unit(benchmark::kMillisecond)
+  ->Complexity();
