@@ -6,12 +6,12 @@
 #include <QtWidgets>
 #include "../OpenStudioApp.hpp"
 
-class TestBenchmark : public QObject
+class OpenStudioAppBenchmark : public QObject
 {
     Q_OBJECT
 
 //  public:
-//    TestBenchmark();
+//    OpenStudioAppBenchmark();
 
   private slots:
     void init();
@@ -21,7 +21,7 @@ class TestBenchmark : public QObject
     //void series_data();
     //void series();
   private:
-    openstudio::OpenStudioApp *mApp = nullptr;
+    //openstudio::OpenStudioApp *mApp = nullptr;
 };
 
 #endif /* ifndef OPENSTUDIOAPP_BENCHMARK_H */
