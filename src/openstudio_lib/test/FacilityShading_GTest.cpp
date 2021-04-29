@@ -56,11 +56,11 @@ TEST_F(OpenStudioLibFixture, FacilityShadingGridView) {
   ASSERT_EQ(3u, shadingGroups.size());
 
   auto it = std::find_if(shadingGroups.begin(), shadingGroups.end(),
-      [](const model::ShadingSurfaceGroup& s) { return openstudio::istringEqual("Space", s.shadingSurfaceType()); });
+                         [](const model::ShadingSurfaceGroup& s) { return openstudio::istringEqual("Space", s.shadingSurfaceType()); });
   ASSERT_NE(it, shadingGroups.end());
 
   it = std::find_if(shadingGroups.begin(), shadingGroups.end(),
-      [](const model::ShadingSurfaceGroup& s) { return openstudio::istringEqual("Building", s.shadingSurfaceType()); });
+                    [](const model::ShadingSurfaceGroup& s) { return openstudio::istringEqual("Building", s.shadingSurfaceType()); });
   ASSERT_NE(it, shadingGroups.end());
   auto shadingGroup1 = *it;
 
@@ -75,7 +75,7 @@ TEST_F(OpenStudioLibFixture, FacilityShadingGridView) {
   EXPECT_EQ(shadingGroup1.handle(), modelObjects[0].handle());
 
   auto selectableObjectsSet = objectSelector->selectableObjects();
-  EXPECT_EQ(shadingGroups.size() - 1, selectableObjectsSet.size()); // Excludes the "Space" one
+  EXPECT_EQ(shadingGroups.size() - 1, selectableObjectsSet.size());  // Excludes the "Space" one
 
   auto selectedObjectsSet = objectSelector->selectedObjects();
   EXPECT_EQ(0u, selectedObjectsSet.size());
