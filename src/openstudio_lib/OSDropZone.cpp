@@ -811,7 +811,7 @@ void OSDropZone2::onItemRemoveClicked() {
       delete m_item;
       m_item = nullptr;
     }
-
+    refresh();
     emit objectRemoved(parent);
   }
 }

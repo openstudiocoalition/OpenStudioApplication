@@ -48,6 +48,10 @@
 #include <openstudio/model/ModelObject_Impl.hpp>
 #include <openstudio/model/SpaceLoadDefinition.hpp>
 #include <openstudio/model/SpaceLoadDefinition_Impl.hpp>
+#include <openstudio/model/ThermalZone.hpp>
+#include <openstudio/model/ThermalZone_Impl.hpp>
+#include <openstudio/model/ZoneHVACComponent.hpp>
+#include <openstudio/model/ZoneHVACComponent_Impl.hpp>
 
 #include <openstudio/utilities/core/Assert.hpp>
 
@@ -605,6 +609,8 @@ void OSCellWrapper::processNewModelObjects() {
   OS_ASSERT(m_modelObject);
   OS_ASSERT(m_objectSelector);
 
+  boost::optional<model::ThermalZone> thisThermalZone = m_modelObject->optionalCast<model::ThermalZone>();
+
   bool needsRefresh = false;
 
   for (const auto& newModelObject : m_newModelObjects) {
@@ -612,8 +618,20 @@ void OSCellWrapper::processNewModelObjects() {
     if (p) {
       if (p.get() == m_modelObject.get()) {
         needsRefresh = true;
+        break;
       }
     }
+  
+    if (thisThermalZone) {
+      boost::optional<model::ZoneHVACComponent> zoneHVACEquip = newModelObject.optionalCast<model::ZoneHVACComponent>();
+      if (zoneHVACEquip) {
+        boost::optional<model::ThermalZone> thermalZone = zoneHVACEquip->thermalZone();
+        if (thermalZone && thermalZone.get() == thisThermalZone.get()) {
+          needsRefresh = true;
+          break;
+        }
+      }
+    } 
   }
 
   m_newModelObjects.clear();
