@@ -32,10 +32,7 @@ if(NOT CONAN_OPENSTUDIO_ALREADY_RUN)
      URL https://conan.commercialbuildings.dev/artifactory/api/conan/openstudio)
 
   conan_add_remote(NAME bincrafters
-    URL https://api.bintray.com/conan/bincrafters/public-conan)
-
-  #conan_add_remote(NAME jmarrec
-  #  URL https://api.bintray.com/conan/jmarrec/testing)
+    URL https://bincrafters.jfrog.io/artifactory/api/conan/public-conan)
 
   # Enable revisions in conan: check if they are already enabled, if not do it and warn user
   execute_process(
