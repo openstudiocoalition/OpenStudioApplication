@@ -87,8 +87,14 @@ OSCellWrapper::OSCellWrapper(OSGridView* gridView, QSharedPointer<BaseConcept> b
   m_layout->setSpacing(0);
   m_layout->setVerticalSpacing(0);
   m_layout->setHorizontalSpacing(0);
-  m_layout->setContentsMargins(0, 0, 0, 0);
+  m_layout->setContentsMargins(0, 0, 1, 1);
   this->setLayout(m_layout);
+  this->setAttribute(Qt::WA_StyledBackground);
+  this->setObjectName("OSCellWrapper");
+  setStyleSheet(
+    "QWidget#OSCellWrapper { border: none; border-right: 1px solid gray; border-bottom: 1px solid gray; }"
+    "QWidget#OSCellWrapper[header=\"true\"]{ border: none; border-top: 1px solid black; border-right: 1px solid gray; border-bottom: 1px solid black; }"
+  );
 
   connect(this, &OSCellWrapper::rowNeedsStyle, objectSelector, &OSObjectSelector::onRowNeedsStyle);
 }
@@ -551,6 +557,7 @@ void OSCellWrapper::addOSWidget(QWidget* widget, const boost::optional<model::Mo
   } else if (HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(widget)) {
     // not locked
     connect(horizontalHeaderWidget, &HorizontalHeaderWidget::inFocus, holder, &OSWidgetHolder::inFocus);
+    makeHeader();
   } else if (OSCheckBox3* checkBox = qobject_cast<OSCheckBox3*>(widget)) {
     isLocked = checkBox->locked();
     connect(checkBox, &OSCheckBox3::inFocus, holder, &OSWidgetHolder::inFocus);
@@ -588,6 +595,13 @@ void OSCellWrapper::disconnectModelSignals() {
 
     m_connectedmodel.reset();
   }
+}
+
+void OSCellWrapper::makeHeader() {
+  m_layout->setContentsMargins(0, 1, 1, 1);
+  setProperty("header", true);
+  this->style()->unpolish(this);
+  this->style()->polish(this);
 }
 
 void OSCellWrapper::onRemoveWorkspaceObject(const WorkspaceObject& object, const openstudio::IddObjectType& iddObjectType,

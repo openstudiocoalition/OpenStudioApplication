@@ -65,14 +65,10 @@ OSWidgetHolder::OSWidgetHolder(OSCellWrapper* cellWrapper, QWidget* widget, bool
   this->setProperty("selected", false);
   this->setProperty("even", m_isEven);
 
-  this->setStyleSheet("QWidget#OSWidgetHolder[selected=\"true\"]{ border: none; background-color: #94b3de; border-top: 1px solid black;  "
-                      "border-right: 1px solid black; border-bottom: 1px solid black;}"
-                      "QWidget#OSWidgetHolder[selected=\"false\"][even=\"true\"] { border: none; background-color: #ededed; border-top: 1px "
-                      "solid black; border-right: 1px solid black; border-bottom: 1px solid black;}"
-                      "QWidget#OSWidgetHolder[selected=\"false\"][even=\"false\"] { border: none; background-color: #cecece; border-top: 1px "
-                      "solid black; border-right: 1px solid black; border-bottom: 1px solid black;}"
-                      "QWidget#OSWidgetHolder { border: none; background-color: #ff0000; border-top: 1px "
-                      "solid black; border-right: 1px solid black; border-bottom: 1px solid black;}");
+  this->setStyleSheet("QWidget#OSWidgetHolder[selected=\"true\"]{ border: none; background-color: #94b3de; }"
+                      "QWidget#OSWidgetHolder[selected=\"false\"][even=\"true\"] { border: none; background-color: #ededed; }"
+                      "QWidget#OSWidgetHolder[selected=\"false\"][even=\"false\"] { border: none; background-color: #cecece; }"
+                      "QWidget#OSWidgetHolder { border: none; background-color: #ff0000; }");
 }
 
 OSWidgetHolder::~OSWidgetHolder() {}

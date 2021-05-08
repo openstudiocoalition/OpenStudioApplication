@@ -98,6 +98,7 @@ class OSCellWrapper : public QWidget
 
   void connectModelSignals();
   void disconnectModelSignals();
+  void makeHeader();
 
   OSGridView* m_gridView;
   QGridLayout* m_layout;
