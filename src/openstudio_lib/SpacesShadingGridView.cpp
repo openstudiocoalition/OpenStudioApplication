@@ -215,9 +215,8 @@ void SpacesShadingGridController::addColumns(const QString& category, std::vecto
         addDropZoneColumn(
           Heading(QString(TRANSMITTANCESCHEDULE)), CastNullAdapter<model::ShadingSurface>(&model::ShadingSurface::transmittanceSchedule), setter,
           boost::optional<std::function<void(model::ShadingSurface*)>>(NullAdapter(&model::ShadingSurface::resetTransmittanceSchedule)),
-          boost::optional<std::function<bool(model::ShadingSurface*)>>(), 
-          boost::optional<std::function<std::vector<model::ModelObject>(model::ShadingSurface*)>>(),
-          DataSource(allShadingSurfaces, true));
+          boost::optional<std::function<bool(model::ShadingSurface*)>>(),
+          boost::optional<std::function<std::vector<model::ModelObject>(model::ShadingSurface*)>>(), DataSource(allShadingSurfaces, true));
       } else if (field == SHADEDSURFACENAME) {
         //ShadingSurfaceGroup
         //boost::optional<Surface> shadedSurface() const;

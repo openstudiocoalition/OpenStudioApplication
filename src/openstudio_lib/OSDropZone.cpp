@@ -643,7 +643,7 @@ void OSDropZone2::bind(model::ModelObject& modelObject, OptionalModelObjectGette
   m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
     .get()
     ->openstudio::model::detail::ModelObject_Impl::onChange.connect<OSDropZone2, &OSDropZone2::refresh>(this);
-  
+
   for (const model::ModelObject& otherModelObject : m_otherModelObjects) {
     otherModelObject.getImpl<openstudio::model::detail::ModelObject_Impl>()
       .get()

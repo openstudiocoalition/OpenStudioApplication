@@ -1462,6 +1462,7 @@ class DropZoneConceptImpl : public DropZoneConcept
     }
     return result;
   }
+
  private:
   std::function<boost::optional<ValueType>(DataSourceType*)> m_getter;
   std::function<bool(DataSourceType*, const ValueType&)> m_setter;

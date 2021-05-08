@@ -453,7 +453,7 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
         boost::optional<model::ThermostatSetpointDualSetpoint> thermostatDualSetpoint = z->thermostatSetpointDualSetpoint();
         if (thermostat) {
           result.push_back(*thermostat);
-        }else if (thermostatDualSetpoint) {
+        } else if (thermostatDualSetpoint) {
           result.push_back(*thermostatDualSetpoint);
         } else {
           model::ThermostatSetpointDualSetpoint t(z->model());
@@ -462,7 +462,7 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
         }
         return result;
       });
-      
+
       addDropZoneColumn(Heading(QString(HEATINGTHERMOSTATSCHEDULE)), heatingSchedule, setHeatingSchedule, resetHeatingSchedule, isDefaulted,
                         otherObjects);
 

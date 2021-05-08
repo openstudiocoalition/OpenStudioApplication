@@ -404,8 +404,9 @@ class OSGridController : public QObject
                          boost::optional<std::function<bool(DataSourceType*)>> isDefaulted = boost::none,
                          boost::optional<std::function<std::vector<model::ModelObject>(DataSourceType*)>> otherObjects = boost::none,
                          const boost::optional<DataSource>& t_source = boost::none) {
-    m_baseConcepts.push_back(makeDataSourceAdapter(QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<ValueType, DataSourceType>(heading, getter, setter, reset, isDefaulted, otherObjects)),
-                                                   t_source));
+    m_baseConcepts.push_back(makeDataSourceAdapter(
+      QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<ValueType, DataSourceType>(heading, getter, setter, reset, isDefaulted, otherObjects)),
+      t_source));
   }
 
   template <typename ValueType, typename DataSourceType>

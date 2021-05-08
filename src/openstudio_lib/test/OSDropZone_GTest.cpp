@@ -60,11 +60,11 @@ TEST_F(OpenStudioLibFixture, OSDropZone) {
 
   Heading heading("Heading", true, true);
 
-  QSharedPointer<DropZoneConcept> dropZoneConcept(new DropZoneConceptImpl<model::SpaceType, model::Space>(
-    heading, &model::Space::spaceType, &model::Space::setSpaceType,
-    boost::optional<std::function<void(model::Space*)>>(&model::Space::resetSpaceType),
-    boost::optional<std::function<bool(model::Space*)>>(&model::Space::isSpaceTypeDefaulted),
-    boost::optional<std::function<std::vector<model::ModelObject>(model::Space*)>>()));
+  QSharedPointer<DropZoneConcept> dropZoneConcept(
+    new DropZoneConceptImpl<model::SpaceType, model::Space>(heading, &model::Space::spaceType, &model::Space::setSpaceType,
+                                                            boost::optional<std::function<void(model::Space*)>>(&model::Space::resetSpaceType),
+                                                            boost::optional<std::function<bool(model::Space*)>>(&model::Space::isSpaceTypeDefaulted),
+                                                            boost::optional<std::function<std::vector<model::ModelObject>(model::Space*)>>()));
 
   auto dropZone = std::make_shared<OSDropZone2>();
   dropZone->bind(space1, OptionalModelObjectGetter(std::bind(&DropZoneConcept::get, dropZoneConcept.data(), space1)),
