@@ -91,10 +91,9 @@ OSCellWrapper::OSCellWrapper(OSGridView* gridView, QSharedPointer<BaseConcept> b
   this->setLayout(m_layout);
   this->setAttribute(Qt::WA_StyledBackground);
   this->setObjectName("OSCellWrapper");
-  setStyleSheet(
-    "QWidget#OSCellWrapper { border: none; border-right: 1px solid gray; border-bottom: 1px solid gray; }"
-    "QWidget#OSCellWrapper[header=\"true\"]{ border: none; border-top: 1px solid black; border-right: 1px solid gray; border-bottom: 1px solid black; }"
-  );
+  setStyleSheet("QWidget#OSCellWrapper { border: none; border-right: 1px solid gray; border-bottom: 1px solid gray; }"
+                "QWidget#OSCellWrapper[header=\"true\"]{ border: none; border-top: 1px solid black; border-right: 1px solid gray; border-bottom: 1px "
+                "solid black; }");
 
   connect(this, &OSCellWrapper::rowNeedsStyle, objectSelector, &OSObjectSelector::onRowNeedsStyle);
 }
@@ -635,7 +634,7 @@ void OSCellWrapper::processNewModelObjects() {
         break;
       }
     }
-  
+
     if (thisThermalZone) {
       boost::optional<model::ZoneHVACComponent> zoneHVACEquip = newModelObject.optionalCast<model::ZoneHVACComponent>();
       if (zoneHVACEquip) {
@@ -645,7 +644,7 @@ void OSCellWrapper::processNewModelObjects() {
           break;
         }
       }
-    } 
+    }
   }
 
   m_newModelObjects.clear();
