@@ -193,6 +193,15 @@ void OSLineEdit2::unbind() {
     m_reset.reset();
     m_isDefaulted.reset();
     m_item = nullptr;
+    m_text = "";
+
+    this->blockSignals(true);
+    this->setText("");
+    this->setToolTip("");
+    this->blockSignals(false);
+
+    m_hasClickFocus = false;
+    m_focused = false;
     setLocked(true);
   }
 }
