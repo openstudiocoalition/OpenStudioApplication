@@ -746,6 +746,8 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
         }
       });
 
+      boost::optional<std::function<std::vector<model::ModelObject>(model::ModelObject*)>> scheduleOtherObjects;
+
       std::function<boost::optional<model::Schedule>(model::ModelObject*)> activityLevelSchedule([](model::ModelObject* l) {
         if (boost::optional<model::People> p = l->optionalCast<model::People>()) {
           return p->activityLevelSchedule();
@@ -755,6 +757,8 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
         OS_ASSERT(false);
         return boost::optional<model::Schedule>();
       });
+
+      boost::optional<std::function<std::vector<model::ModelObject>(model::ModelObject*)>> activityLevelScheduleOtherObjects;
 
       std::function<boost::optional<model::Schedule>(model::ModelObject*)> schedule([](model::ModelObject* l) {
         if (boost::optional<model::InternalMass> im = l->optionalCast<model::InternalMass>()) {
@@ -941,15 +945,15 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
           boost::optional<std::function<void(model::SpaceLoadDefinition*)>>(), boost::optional<std::function<bool(model::SpaceLoadDefinition*)>>(),
           DataSource(allDefinitions, false,
                      QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<model::SpaceLoadDefinition, model::Space>(
-                       Heading(DEFINITION), getter, setter, resetter, isDefaulted))));
+                       Heading(DEFINITION), getter, setter, resetter, isDefaulted, boost::none))));
       } else if (field == SCHEDULE) {
 
-        addDropZoneColumn(Heading(QString(SCHEDULE)), schedule, setSchedule, resetSchedule, isScheduleDefaulted,
+        addDropZoneColumn(Heading(QString(SCHEDULE)), schedule, setSchedule, resetSchedule, isScheduleDefaulted, scheduleOtherObjects,
                           DataSource(allLoadsWithSchedules, true));
 
       } else if (field == ACTIVITYSCHEDULE) {
         addDropZoneColumn(Heading(QString(SCHEDULE)), activityLevelSchedule, setActivityLevelSchedule, resetActivityLevelSchedule,
-                          isActivityLevelScheduleDefaulted, DataSource(allLoadsWithActivityLevelSchedules, true));
+                          isActivityLevelScheduleDefaulted, activityLevelScheduleOtherObjects, DataSource(allLoadsWithActivityLevelSchedules, true));
       } else {
         // unhandled
         OS_ASSERT(false);

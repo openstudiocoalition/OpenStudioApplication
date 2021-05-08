@@ -54,6 +54,8 @@
 #include <openstudio/model/SizingZone_Impl.hpp>
 #include <openstudio/model/ThermalZone.hpp>
 #include <openstudio/model/ThermalZone_Impl.hpp>
+#include <openstudio/model/Thermostat.hpp>
+#include <openstudio/model/Thermostat.hpp>
 #include <openstudio/model/ThermostatSetpointDualSetpoint.hpp>
 #include <openstudio/model/ThermostatSetpointDualSetpoint_Impl.hpp>
 #include <openstudio/model/ZoneControlHumidistat.hpp>
@@ -396,7 +398,26 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
         }
       });
 
-      addDropZoneColumn(Heading(QString(COOLINGTHERMOSTATSCHEDULE)), coolingSchedule, setCoolingSchedule, resetCoolingSchedule);
+      boost::optional<std::function<bool(model::ThermalZone*)>> isDefaulted;
+
+      boost::optional<std::function<std::vector<model::ModelObject>(model::ThermalZone*)>> otherObjects([](model::ThermalZone* z) {
+        std::vector<model::ModelObject> result;
+        boost::optional<model::Thermostat> thermostat = z->thermostat();
+        boost::optional<model::ThermostatSetpointDualSetpoint> thermostatDualSetpoint = z->thermostatSetpointDualSetpoint();
+        if (thermostat) {
+          result.push_back(*thermostat);
+        } else if (thermostatDualSetpoint) {
+          result.push_back(*thermostatDualSetpoint);
+        } else {
+          model::ThermostatSetpointDualSetpoint t(z->model());
+          z->setThermostatSetpointDualSetpoint(t);
+          result.push_back(t);
+        }
+        return result;
+      });
+
+      addDropZoneColumn(Heading(QString(COOLINGTHERMOSTATSCHEDULE)), coolingSchedule, setCoolingSchedule, resetCoolingSchedule, isDefaulted,
+                        otherObjects);
 
     } else if (field == HEATINGTHERMOSTATSCHEDULE) {
 
@@ -424,7 +445,26 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
         }
       });
 
-      addDropZoneColumn(Heading(QString(HEATINGTHERMOSTATSCHEDULE)), heatingSchedule, setHeatingSchedule, resetHeatingSchedule);
+      boost::optional<std::function<bool(model::ThermalZone*)>> isDefaulted;
+
+      boost::optional<std::function<std::vector<model::ModelObject>(model::ThermalZone*)>> otherObjects([](model::ThermalZone* z) {
+        std::vector<model::ModelObject> result;
+        boost::optional<model::Thermostat> thermostat = z->thermostat();
+        boost::optional<model::ThermostatSetpointDualSetpoint> thermostatDualSetpoint = z->thermostatSetpointDualSetpoint();
+        if (thermostat) {
+          result.push_back(*thermostat);
+        }else if (thermostatDualSetpoint) {
+          result.push_back(*thermostatDualSetpoint);
+        } else {
+          model::ThermostatSetpointDualSetpoint t(z->model());
+          z->setThermostatSetpointDualSetpoint(t);
+          result.push_back(t);
+        }
+        return result;
+      });
+      
+      addDropZoneColumn(Heading(QString(HEATINGTHERMOSTATSCHEDULE)), heatingSchedule, setHeatingSchedule, resetHeatingSchedule, isDefaulted,
+                        otherObjects);
 
     } else if (field == HUMIDIFYINGSETPOINTSCHEDULE) {
 
@@ -455,7 +495,23 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
         }
       });
 
-      addDropZoneColumn(Heading(QString(HUMIDIFYINGSETPOINTSCHEDULE)), humidifyingSchedule, setHumidifyingSchedule, resetHumidifyingSchedule);
+      boost::optional<std::function<bool(model::ThermalZone*)>> isDefaulted;
+
+      boost::optional<std::function<std::vector<model::ModelObject>(model::ThermalZone*)>> otherObjects([](model::ThermalZone* z) {
+        std::vector<model::ModelObject> result;
+        boost::optional<model::ZoneControlHumidistat> humidistat = z->zoneControlHumidistat();
+        if (humidistat) {
+          result.push_back(*humidistat);
+        } else {
+          model::ZoneControlHumidistat h(z->model());
+          z->setZoneControlHumidistat(h);
+          result.push_back(h);
+        }
+        return result;
+      });
+
+      addDropZoneColumn(Heading(QString(HUMIDIFYINGSETPOINTSCHEDULE)), humidifyingSchedule, setHumidifyingSchedule, resetHumidifyingSchedule,
+                        isDefaulted, otherObjects);
 
     } else if (field == DEHUMIDIFYINGSETPOINTSCHEDULE) {
 
@@ -486,7 +542,23 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
         }
       });
 
-      addDropZoneColumn(Heading(QString(DEHUMIDIFYINGSETPOINTSCHEDULE)), dehumidifyingSchedule, setDehumidifyingSchedule, resetDehumidifyingSchedule);
+      boost::optional<std::function<bool(model::ThermalZone*)>> isDefaulted;
+
+      boost::optional<std::function<std::vector<model::ModelObject>(model::ThermalZone*)>> otherObjects([](model::ThermalZone* z) {
+        std::vector<model::ModelObject> result;
+        boost::optional<model::ZoneControlHumidistat> humidistat = z->zoneControlHumidistat();
+        if (humidistat) {
+          result.push_back(*humidistat);
+        } else {
+          model::ZoneControlHumidistat h(z->model());
+          z->setZoneControlHumidistat(h);
+          result.push_back(h);
+        }
+        return result;
+      });
+
+      addDropZoneColumn(Heading(QString(DEHUMIDIFYINGSETPOINTSCHEDULE)), dehumidifyingSchedule, setDehumidifyingSchedule, resetDehumidifyingSchedule,
+                        isDefaulted, otherObjects);
 
     } else if (field == ZONEEQUIPMENT) {
       std::function<boost::optional<model::ModelObject>(model::ThermalZone*)> getter;
@@ -521,7 +593,7 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
                             boost::optional<std::function<bool(model::ModelObject*)>>(),
                             DataSource(equipment, false,
                                        QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<model::ModelObject, model::ThermalZone>(
-                                         Heading(ZONEEQUIPMENT), getter, setter, reset, boost::none))));
+                                         Heading(ZONEEQUIPMENT), getter, setter, reset, boost::none, boost::none))));
 
     } else if (field == NAME) {
       addParentNameLineEditColumn(Heading(QString(NAME), false, false), false, CastNullAdapter<model::ThermalZone>(&model::ThermalZone::name),

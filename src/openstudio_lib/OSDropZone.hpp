@@ -81,7 +81,7 @@ class OSDropZone2 : public QWidget, public Nano::Observer
   bool deleteObject();
 
   void bind(model::ModelObject& modelObject, OptionalModelObjectGetter get, ModelObjectSetter set, boost::optional<NoFailAction> reset = boost::none,
-            boost::optional<ModelObjectIsDefaulted> isDefaulted = boost::none, boost::optional<ModelObjectIsDefaulted> isReadOnly = boost::none);
+            boost::optional<ModelObjectIsDefaulted> isDefaulted = boost::none, boost::optional<OtherModelObjects> otherObjects = boost::none);
 
   void unbind();
 
@@ -120,9 +120,10 @@ class OSDropZone2 : public QWidget, public Nano::Observer
   boost::optional<ModelObjectSetter> m_set;
   boost::optional<NoFailAction> m_reset;
   boost::optional<ModelObjectIsDefaulted> m_isDefaulted;
-  boost::optional<ModelObjectIsReadOnly> m_isReadOnly;
+  boost::optional<OtherModelObjects> m_otherObjects;
   boost::optional<model::ModelObject> m_modelObject;
   boost::optional<model::ModelObject> m_getterResult;
+  std::vector<model::ModelObject> m_otherModelObjects;
   bool m_hasClickFocus = false;
   bool m_focused = false;
   bool m_locked = false;

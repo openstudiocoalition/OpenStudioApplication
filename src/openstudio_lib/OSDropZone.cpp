@@ -626,36 +626,54 @@ void OSDropZone2::onModelObjectRemove(const Handle& handle) {
 }
 
 void OSDropZone2::bind(model::ModelObject& modelObject, OptionalModelObjectGetter get, ModelObjectSetter set, boost::optional<NoFailAction> reset,
-                       boost::optional<ModelObjectIsDefaulted> isDefaulted, boost::optional<ModelObjectIsReadOnly> isReadOnly) {
+                       boost::optional<ModelObjectIsDefaulted> isDefaulted, boost::optional<OtherModelObjects> otherObjects) {
   m_get = get;
   m_set = set;
   m_reset = reset;
   m_isDefaulted = isDefaulted;
-  m_isReadOnly = isReadOnly;
+  m_otherObjects = otherObjects;
+
   m_modelObject = modelObject;
+  if (m_otherObjects) {
+    m_otherModelObjects = (*m_otherObjects)(modelObject);
+  }
 
   setAcceptDrops(true);
 
   m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
     .get()
     ->openstudio::model::detail::ModelObject_Impl::onChange.connect<OSDropZone2, &OSDropZone2::refresh>(this);
+  
+  for (const model::ModelObject& otherModelObject : m_otherModelObjects) {
+    otherModelObject.getImpl<openstudio::model::detail::ModelObject_Impl>()
+      .get()
+      ->openstudio::model::detail::ModelObject_Impl::onChange.connect<OSDropZone2, &OSDropZone2::refresh>(this);
+  }
 
   refresh();
 }
 
 void OSDropZone2::unbind() {
-  m_modelObject.reset();
-  m_get.reset();
-  m_set.reset();
-  m_reset.reset();
-  m_isDefaulted.reset();
-  m_isReadOnly.reset();
-
-  setAcceptDrops(false);
 
   m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
     .get()
     ->openstudio::model::detail::ModelObject_Impl::onChange.disconnect<OSDropZone2, &OSDropZone2::refresh>(this);
+
+  for (const model::ModelObject& otherModelObject : m_otherModelObjects) {
+    otherModelObject.getImpl<openstudio::model::detail::ModelObject_Impl>()
+      .get()
+      ->openstudio::model::detail::ModelObject_Impl::onChange.disconnect<OSDropZone2, &OSDropZone2::refresh>(this);
+  }
+
+  m_modelObject.reset();
+  m_otherModelObjects.clear();
+  m_get.reset();
+  m_set.reset();
+  m_reset.reset();
+  m_isDefaulted.reset();
+  m_otherObjects.reset();
+
+  setAcceptDrops(false);
 
   refresh();
 }

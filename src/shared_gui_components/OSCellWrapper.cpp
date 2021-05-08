@@ -491,7 +491,8 @@ QWidget* OSCellWrapper::createOSWidget(model::ModelObject t_mo, const QSharedPoi
     dropZone->bind(t_mo, OptionalModelObjectGetter(std::bind(&DropZoneConcept::get, dropZoneConcept.data(), t_mo)),
                    ModelObjectSetter(std::bind(&DropZoneConcept::set, dropZoneConcept.data(), t_mo, std::placeholders::_1)),
                    NoFailAction(std::bind(&DropZoneConcept::reset, dropZoneConcept.data(), t_mo)),
-                   ModelObjectIsDefaulted(std::bind(&DropZoneConcept::isDefaulted, dropZoneConcept.data(), t_mo)));
+                   ModelObjectIsDefaulted(std::bind(&DropZoneConcept::isDefaulted, dropZoneConcept.data(), t_mo)),
+                   OtherModelObjects(std::bind(&DropZoneConcept::otherObjects, dropZoneConcept.data(), t_mo)));
 
     //connect(dropZone, OSDropZone2::itemClicked, gridView(), OSGridView::dropZoneItemClicked);
     connect(dropZone, &OSDropZone2::itemClicked, m_gridView, &OSGridView::dropZoneItemClicked);

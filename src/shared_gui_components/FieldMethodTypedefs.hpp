@@ -67,6 +67,7 @@ typedef std::function<bool(unsigned)> UnsignedSetter;
 typedef std::function<bool(const model::ModelObject&)> ModelObjectSetter;
 typedef std::function<bool(const model::ModelObject&)> ModelObjectIsDefaulted;
 typedef std::function<bool(const model::ModelObject&)> ModelObjectIsReadOnly;
+typedef std::function<std::vector<model::ModelObject>(const model::ModelObject&)> OtherModelObjects;
 
 typedef std::function<void()> NoFailAction;
 typedef std::function<bool()> BasicQuery;

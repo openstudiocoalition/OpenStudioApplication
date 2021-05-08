@@ -189,6 +189,7 @@ void SpacesSpacesGridController::addColumns(const QString& category, std::vector
                         CastNullAdapter<model::Space>(&model::Space::setSpaceType),
                         boost::optional<std::function<void(model::Space*)>>(CastNullAdapter<model::Space>(&model::Space::resetSpaceType)),
                         boost::optional<std::function<bool(model::Space*)>>(CastNullAdapter<model::Space>(&model::Space::isSpaceTypeDefaulted)),
+                        boost::optional<std::function<std::vector<model::ModelObject>(model::Space*)>>(),
                         boost::optional<DataSource>());
     } else if (field == DEFAULTCONSTRUCTIONSET) {
       addDropZoneColumn(
@@ -236,7 +237,7 @@ void SpacesSpacesGridController::addColumns(const QString& category, std::vector
           [](model::SpaceInfiltrationDesignFlowRate* t_fr) { return t_fr->spaceType().is_initialized(); })),
         DataSource(flowRates, false,
                    QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<model::SpaceInfiltrationDesignFlowRate, model::Space>(
-                     Heading(SPACEINFILTRATIONDESIGNFLOWRATES), getter, setter, boost::none, boost::none))));
+                     Heading(SPACEINFILTRATIONDESIGNFLOWRATES), getter, setter, boost::none, boost::none, boost::none))));
     } else if (field == SPACEINFILTRATIONEFFECTIVELEAKAGEAREAS) {
       std::function<boost::optional<model::SpaceInfiltrationEffectiveLeakageArea>(model::Space*)> getter;
 
@@ -272,7 +273,7 @@ void SpacesSpacesGridController::addColumns(const QString& category, std::vector
             [](model::SpaceInfiltrationEffectiveLeakageArea* t_la) { return t_la->spaceType().is_initialized(); })),
         DataSource(leakageAreas, false,
                    QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<model::SpaceInfiltrationEffectiveLeakageArea, model::Space>(
-                     Heading(SPACEINFILTRATIONEFFECTIVELEAKAGEAREAS), getter, setter, boost::none, boost::none))));
+                     Heading(SPACEINFILTRATIONEFFECTIVELEAKAGEAREAS), getter, setter, boost::none, boost::none, boost::none))));
     } else if (field == DESIGNSPECIFICATIONOUTDOORAIROBJECTNAME) {
       addDropZoneColumn(
         Heading(QString(DESIGNSPECIFICATIONOUTDOORAIROBJECTNAME)), CastNullAdapter<model::Space>(&model::Space::designSpecificationOutdoorAir),

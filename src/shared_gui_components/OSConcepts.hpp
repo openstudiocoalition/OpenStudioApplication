@@ -1376,6 +1376,7 @@ class DropZoneConcept : public BaseConcept
   virtual bool set(const ConceptProxy& obj, const model::ModelObject&) = 0;
   virtual void reset(const ConceptProxy& obj) = 0;
   virtual bool isDefaulted(const ConceptProxy& obj) = 0;
+  virtual std::vector<model::ModelObject> otherObjects(const ConceptProxy& obj) = 0;
 };
 
 template <typename ValueType, typename DataSourceType>
@@ -1384,8 +1385,14 @@ class DropZoneConceptImpl : public DropZoneConcept
  public:
   DropZoneConceptImpl(const Heading& t_heading, std::function<boost::optional<ValueType>(DataSourceType*)> t_getter,
                       std::function<bool(DataSourceType*, const ValueType&)> t_setter, boost::optional<std::function<void(DataSourceType*)>> t_reset,
-                      boost::optional<std::function<bool(DataSourceType*)>> t_isDefaulted)
-    : DropZoneConcept(t_heading), m_getter(t_getter), m_setter(t_setter), m_reset(t_reset), m_isDefaulted(t_isDefaulted) {}
+                      boost::optional<std::function<bool(DataSourceType*)>> t_isDefaulted,
+                      boost::optional<std::function<std::vector<model::ModelObject>(DataSourceType*)>> t_otherObjects)
+    : DropZoneConcept(t_heading),
+      m_getter(t_getter),
+      m_setter(t_setter),
+      m_reset(t_reset),
+      m_isDefaulted(t_isDefaulted),
+      m_otherObjects(t_otherObjects) {}
 
   virtual ~DropZoneConceptImpl() {}
 
@@ -1411,6 +1418,10 @@ class DropZoneConceptImpl : public DropZoneConcept
 
   virtual bool isDefaulted(const ConceptProxy& obj) override {
     return isDefaultedImpl(obj);
+  }
+
+  virtual std::vector<model::ModelObject> otherObjects(const ConceptProxy& obj) override {
+    return otherObjectsImpl(obj);
   }
 
   virtual boost::optional<ValueType> getImpl(const ConceptProxy& t_obj) {
@@ -1443,11 +1454,20 @@ class DropZoneConceptImpl : public DropZoneConcept
     return result;
   }
 
+  virtual std::vector<model::ModelObject> otherObjectsImpl(const ConceptProxy& t_obj) {
+    std::vector<model::ModelObject> result;
+    if (m_otherObjects) {
+      DataSourceType obj = t_obj.cast<DataSourceType>();
+      result = (*m_otherObjects)(&obj);
+    }
+    return result;
+  }
  private:
   std::function<boost::optional<ValueType>(DataSourceType*)> m_getter;
   std::function<bool(DataSourceType*, const ValueType&)> m_setter;
   boost::optional<std::function<void(DataSourceType*)>> m_reset;
   boost::optional<std::function<bool(DataSourceType*)>> m_isDefaulted;
+  boost::optional<std::function<std::vector<model::ModelObject>(DataSourceType*)>> m_otherObjects;
 };
 
 ///////////////////////////////////////////////////////////////////////////////////
