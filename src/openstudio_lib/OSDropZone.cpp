@@ -625,7 +625,7 @@ void OSDropZone2::onModelObjectRemove(const Handle& handle) {
   refresh();
 }
 
-void OSDropZone2::bind(model::ModelObject& modelObject, OptionalModelObjectGetter get, ModelObjectSetter set, boost::optional<NoFailAction> reset,
+void OSDropZone2::bind(const model::ModelObject& modelObject, OptionalModelObjectGetter get, ModelObjectSetter set, boost::optional<NoFailAction> reset,
                        boost::optional<ModelObjectIsDefaulted> isDefaulted, boost::optional<OtherModelObjects> otherObjects) {
   m_get = get;
   m_set = set;
