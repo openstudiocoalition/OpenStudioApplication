@@ -323,6 +323,7 @@ void HVACSystemsController::update() {
     m_hvacSystemsView->hvacToolbarView->zoomOutButton->show();
 
     m_hvacSystemsView->hvacToolbarView->addButton->show();
+    m_hvacSystemsView->hvacToolbarView->copyButton->show();
     m_hvacSystemsView->hvacToolbarView->deleteButton->show();
 
     // Show Controls, to avoid still displaying the name of a previously selected "Water Use Connection" object for eg
@@ -350,6 +351,7 @@ void HVACSystemsController::update() {
         m_hvacSystemsView->hvacToolbarView->zoomOutButton->hide();
 
         m_hvacSystemsView->hvacToolbarView->addButton->hide();
+        m_hvacSystemsView->hvacToolbarView->copyButton->hide();
         m_hvacSystemsView->hvacToolbarView->deleteButton->hide();
 
         m_refrigerationGridController = std::make_shared<RefrigerationGridController>(m_isIP, m_model);
