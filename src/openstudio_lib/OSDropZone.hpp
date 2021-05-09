@@ -80,8 +80,9 @@ class OSDropZone2 : public QWidget, public Nano::Observer
   void setDeleteObject(bool deleteObject);
   bool deleteObject();
 
-  void bind(const model::ModelObject& modelObject, OptionalModelObjectGetter get, ModelObjectSetter set, boost::optional<NoFailAction> reset = boost::none,
-            boost::optional<ModelObjectIsDefaulted> isDefaulted = boost::none, boost::optional<OtherModelObjects> otherObjects = boost::none);
+  void bind(const model::ModelObject& modelObject, OptionalModelObjectGetter get, ModelObjectSetter set,
+            boost::optional<NoFailAction> reset = boost::none, boost::optional<ModelObjectIsDefaulted> isDefaulted = boost::none,
+            boost::optional<OtherModelObjects> otherObjects = boost::none);
 
   void unbind();
 
