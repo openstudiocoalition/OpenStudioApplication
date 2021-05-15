@@ -47,47 +47,26 @@ using std::stringstream;
 using namespace openstudio;
 
 IGLineEdit::IGLineEdit(const QString& val, InspectorGadget* ig, QWidget* parent)
-  : QLineEdit(val, parent),
-    m_ig(ig),
-    m_precision(false),
-    m_floatType(InspectorGadget::UNFORMATED),
-    m_min(-std::numeric_limits<double>::max()),
-    m_max(std::numeric_limits<double>::max()) {}
+  : QLineEdit(val, parent), m_ig(ig), m_min(-std::numeric_limits<double>::max()), m_max(std::numeric_limits<double>::max()), m_default(0.0) {}
 
 IGLineEdit::~IGLineEdit() {}
-
-void IGLineEdit::setDisplay(bool status) {
-  m_precision = !status;
-  togglePrec();
-}
 
 void IGLineEdit::setMin(double min) {
   m_min = min;
 }
+
 void IGLineEdit::setMax(double max) {
   m_max = max;
 }
 
-bool IGLineEdit::getPrec() const {
-  return m_precision;
-}
-
-void IGLineEdit::setPrec(bool prec) {
-  m_precision = prec;
-}
-
-void IGLineEdit::setStyle(InspectorGadget::FLOAT_DISPLAY style) {
-  m_floatType = style;
-}
-
-InspectorGadget::FLOAT_DISPLAY IGLineEdit::getStyle() const {
-  return m_floatType;
+void IGLineEdit::setDefault(double def) {
+  m_default = def;
 }
 
 bool IGLineEdit::checkValue(QString& txt) {
   const QValidator* v = validator();
   QString textVal = text();
-  if (!v || !(textVal.compare("autosize", Qt::CaseInsensitive))) {
+  if (!v || (textVal.compare("autosize", Qt::CaseInsensitive) == 0)) {
     txt = textVal;
     return true;
   }
@@ -96,7 +75,9 @@ bool IGLineEdit::checkValue(QString& txt) {
   if (dv) {
     bool ok;
     double val = textVal.toDouble(&ok);
-    if (!ok) val = 0.0;
+    if (!ok) {
+      val = m_default;
+    }
     if (val < m_min) {
       val = m_min;
     } else if (val > m_max) {
@@ -112,7 +93,9 @@ bool IGLineEdit::checkValue(QString& txt) {
     int max = iv->top();
     bool ok;
     int val = textVal.toInt(&ok);
-    if (!ok) val = 0;
+    if (!ok) {
+      val = (int)m_default;
+    }
     if (val < min) {
       val = min;
     } else if (val > max) {
@@ -131,47 +114,7 @@ bool IGLineEdit::checkValue(QString& txt) {
 }
 
 QString IGLineEdit::doubleToQString(double v) {
-  if (m_floatType == InspectorGadget::SCIENTIFIC) {
-    stringstream convert;
-    convert.precision(m_ig->m_precision - 1);
-    convert.setf(ios::scientific, ios::floatfield);
-    convert << v;
-    return QString::fromStdString(convert.str());
-  } else if (m_floatType == InspectorGadget::FIXED) {
-    stringstream convert;
-    convert.precision(m_ig->m_precision);
-    convert.setf(ios::fixed, ios::floatfield);
-    convert << v;
-    return QString::fromStdString(convert.str());
-  } else {
-    return QString::number(v, 'g', 14);
-  }
-}
-
-void IGLineEdit::togglePrec() {
-  QVariant v = property(InspectorGadget::s_indexSlotName);
-  int index = v.toInt();
-
-  OptionalString s = m_ig->m_workspaceObj->getString(index);
-  if (!s) return;
-  string val = *s;
-
-  QString temp = QString::fromStdString(val);
-  if (m_precision) {
-    m_precision = false;
-    setText(temp);
-    setStyleSheet("color:black");
-  } else {
-    m_precision = true;
-    if (m_floatType == InspectorGadget::UNFORMATED) {
-      setText(temp);
-      setStyleSheet("color:black");
-      return;
-    }
-
-    if (checkValue(temp)) setText(temp);
-    setStyleSheet("color:green");
-  }
+  return QString::number(v, 'g', 14);
 }
 
 void IGLineEdit::editDone() {
@@ -188,9 +131,9 @@ void IGLineEdit::hardsizeClicked(bool checked) {
   }
 
   QString val;
-  if (!checkValue(val)) {
+  if (!checkValue(val) || val.isEmpty()) {
     // do not allow empty string when hard sizing
-    val = "0";
+    val = doubleToQString(m_default);
   }
 
   setText(val);
