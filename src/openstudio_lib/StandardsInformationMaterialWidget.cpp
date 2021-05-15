@@ -351,7 +351,7 @@ void StandardsInformationMaterialWidget::requestPopulateFields() {
     m_populateFieldsRequested = true;
 
     //populateFields();
-    QTimer::singleShot(0, this, SLOT(populateFields()));
+    QTimer::singleShot(0, this, &StandardsInformationMaterialWidget::populateFields);
     //QTimer::singleShot(0, this, &openstudio::StandardsInformationMaterialWidget::populateFields); // Qt 5.4 only
   }
 }

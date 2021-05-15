@@ -323,6 +323,7 @@ void HVACSystemsController::update() {
     m_hvacSystemsView->hvacToolbarView->zoomOutButton->show();
 
     m_hvacSystemsView->hvacToolbarView->addButton->show();
+    m_hvacSystemsView->hvacToolbarView->copyButton->show();
     m_hvacSystemsView->hvacToolbarView->deleteButton->show();
 
     // Show Controls, to avoid still displaying the name of a previously selected "Water Use Connection" object for eg
@@ -350,6 +351,7 @@ void HVACSystemsController::update() {
         m_hvacSystemsView->hvacToolbarView->zoomOutButton->hide();
 
         m_hvacSystemsView->hvacToolbarView->addButton->hide();
+        m_hvacSystemsView->hvacToolbarView->copyButton->hide();
         m_hvacSystemsView->hvacToolbarView->deleteButton->hide();
 
         m_refrigerationGridController = std::make_shared<RefrigerationGridController>(m_isIP, m_model);
@@ -443,7 +445,7 @@ void HVACSystemsController::update() {
 void HVACSystemsController::updateLater() {
   m_dirty = true;
 
-  QTimer::singleShot(0, this, SLOT(update()));
+  QTimer::singleShot(0, this, &HVACSystemsController::update);
 }
 
 HVACSystemsView* HVACSystemsController::hvacSystemsView() const {
@@ -1519,7 +1521,7 @@ void HVACControlsController::onUnitaryHeatPumpControlZoneChanged(int index) {
 void HVACControlsController::updateLater() {
   m_dirty = true;
 
-  QTimer::singleShot(0, this, SLOT(update()));
+  QTimer::singleShot(0, this, &HVACControlsController::update);
 }
 
 HVACLayoutController::HVACLayoutController(HVACSystemsController* hvacSystemsController)
@@ -1645,7 +1647,7 @@ void HVACLayoutController::update() {
 void HVACLayoutController::updateLater() {
   m_dirty = true;
 
-  QTimer::singleShot(0, this, SLOT(update()));
+  QTimer::singleShot(0, this, &HVACLayoutController::update);
 }
 
 SystemAvailabilityVectorController::SystemAvailabilityVectorController()
@@ -1690,7 +1692,7 @@ void SystemAvailabilityVectorController::detach() {
 void SystemAvailabilityVectorController::reportItemsLater() {
   m_reportScheduled = true;
 
-  QTimer::singleShot(0, this, SLOT(reportItems()));
+  QTimer::singleShot(0, this, &SystemAvailabilityVectorController::reportItems);
 }
 
 void SystemAvailabilityVectorController::reportItems() {
@@ -1792,7 +1794,7 @@ void SupplyAirTempScheduleVectorController::detach() {
 void SupplyAirTempScheduleVectorController::reportItemsLater() {
   m_reportScheduled = true;
 
-  QTimer::singleShot(0, this, SLOT(reportItems()));
+  QTimer::singleShot(0, this, &SupplyAirTempScheduleVectorController::reportItems);
 }
 
 void SupplyAirTempScheduleVectorController::reportItems() {
@@ -1903,7 +1905,7 @@ void AvailabilityManagerObjectVectorController::detach() {
 void AvailabilityManagerObjectVectorController::reportItemsLater() {
   m_reportScheduled = true;
 
-  QTimer::singleShot(0, this, SLOT(reportItems()));
+  QTimer::singleShot(0, this, &AvailabilityManagerObjectVectorController::reportItems);
 }
 
 void AvailabilityManagerObjectVectorController::reportItems() {

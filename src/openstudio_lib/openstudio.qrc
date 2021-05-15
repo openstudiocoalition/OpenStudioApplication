@@ -591,6 +591,10 @@
     <file alias="shared_gui_components/images/arrow_up_over.png">../shared_gui_components/images/arrow_up_over.png</file>
     <file alias="shared_gui_components/images/arrow_up_press.png">../shared_gui_components/images/arrow_up_press.png</file>
     <file alias="shared_gui_components/images/broken_script.png">../shared_gui_components/images/broken_script.png</file>
+    <file alias="shared_gui_components/images/checked_checkbox.png">../shared_gui_components/images/checked_checkbox.png</file>
+    <file alias="shared_gui_components/images/checked_checkbox_focused.png">../shared_gui_components/images/checked_checkbox_focused.png</file>
+    <file alias="shared_gui_components/images/checked_checkbox_green.png">../shared_gui_components/images/checked_checkbox_green.png</file>
+    <file alias="shared_gui_components/images/checked_checkbox_locked.png">../shared_gui_components/images/checked_checkbox_locked.png</file>
     <file alias="shared_gui_components/images/clear_cloud_session.png">../shared_gui_components/images/clear_cloud_session.png</file>
     <file alias="shared_gui_components/images/cloud_arrow.png">../shared_gui_components/images/cloud_arrow.png</file>
     <file alias="shared_gui_components/images/cloud_arrow_magenta.png">../shared_gui_components/images/cloud_arrow_magenta.png</file>
@@ -621,6 +625,7 @@
     <file alias="shared_gui_components/images/open_my_measures.png">../shared_gui_components/images/open_my_measures.png</file>
     <file alias="shared_gui_components/images/open_my_measures_press.png">../shared_gui_components/images/open_my_measures_press.png</file>
     <file alias="shared_gui_components/images/openstudio_measure_icon.png">../shared_gui_components/images/openstudio_measure_icon.png</file>
+    <file alias="shared_gui_components/images/partially_checked_checkbox.png">../shared_gui_components/images/partially_checked_checkbox.png</file>
     <file alias="shared_gui_components/images/pause_over.png">../shared_gui_components/images/pause_over.png</file>
     <file alias="shared_gui_components/images/pause_press.png">../shared_gui_components/images/pause_press.png</file>
     <file alias="shared_gui_components/images/pause_regular.png">../shared_gui_components/images/pause_regular.png</file>
@@ -640,8 +645,10 @@
     <file alias="shared_gui_components/images/toggle_arrow.png">../shared_gui_components/images/toggle_arrow.png</file>
     <file alias="shared_gui_components/images/toggle_arrow_closed.png">../shared_gui_components/images/toggle_arrow_closed.png</file>
     <file alias="shared_gui_components/images/warning_icon.png">../shared_gui_components/images/warning_icon.png</file>
-
     <file alias="shared_gui_components/taxonomy.xml">../shared_gui_components/taxonomy.xml</file>
-
+    <file alias="shared_gui_components/images/unchecked_checkbox.png">../shared_gui_components/images/unchecked_checkbox.png</file>
+    <file alias="shared_gui_components/images/unchecked_checkbox_focused.png">../shared_gui_components/images/unchecked_checkbox_focused.png</file>
+    <file alias="shared_gui_components/images/unchecked_checkbox_green.png">../shared_gui_components/images/unchecked_checkbox_green.png</file>
+    <file alias="shared_gui_components/images/unchecked_checkbox_locked.png">../shared_gui_components/images/unchecked_checkbox_locked.png</file>
   </qresource>
 </RCC>

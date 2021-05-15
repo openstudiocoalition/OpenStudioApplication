@@ -397,7 +397,7 @@ bool LocationView::calendarYearChecked() {
   }
 }
 
-std::vector<model::ModelObject> LocationView::selectedObjects() const {
+std::set<model::ModelObject> LocationView::selectedObjects() const {
   return m_designDaysGridView->selectedObjects();
 }
 
@@ -745,7 +745,7 @@ void LocationView::onDesignDayBtnClicked() {
       }
     }
 
-    QTimer::singleShot(0, this, SLOT(checkNumDesignDays()));
+    QTimer::singleShot(0, this, &LocationView::checkNumDesignDays);
   }
 }
 

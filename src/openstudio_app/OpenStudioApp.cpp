@@ -285,7 +285,7 @@ void OpenStudioApp::onMeasureManagerAndLibraryReady() {
           // check for 'noSavePath'
           if (args.at(1) == QString("noSavePath")) {
             m_osDocument->setSavePath("");
-            QTimer::singleShot(0, m_osDocument.get(), SLOT(markAsModified()));
+            QTimer::singleShot(0, m_osDocument.get(), &OSDocument::markAsModified);
           } else {
             LOG_FREE(Warn, "OpenStudio", "Incorrect second argument '" << toString(args.at(1)) << "'");
           }
@@ -1131,7 +1131,7 @@ void OpenStudioApp::versionUpdateMessageBox(const osversion::VersionTranslator& 
     bool versionChanged = originalVersion != currentVersion;
 
     if (versionChanged || removedScriptDirs) {
-      QTimer::singleShot(0, m_osDocument.get(), SLOT(markAsModified()));
+      QTimer::singleShot(0, m_osDocument.get(), &OSDocument::markAsModified);
 
       QString message;
       if (versionChanged) {

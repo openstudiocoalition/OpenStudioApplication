@@ -62,8 +62,17 @@ RenderingColorWidget2::RenderingColorWidget2(QWidget* parent) : QWidget(parent) 
   m_renderColorButton->setFixedSize(QSize(20, 20));
   layout->addWidget(m_renderColorButton);
 
-  bool isConnected = connect(m_renderColorButton, SIGNAL(clicked()), this, SLOT(renderColorButtonClicked()));
-  OS_ASSERT(isConnected);
+  connect(m_renderColorButton, &QPushButton::clicked, this, &RenderingColorWidget2::renderColorButtonClicked);
+}
+
+bool RenderingColorWidget2::locked() const {
+  return !isEnabled();
+}
+
+void RenderingColorWidget2::setLocked(bool locked) {
+  if (isEnabled() == locked) {
+    setEnabled(!locked);
+  }
 }
 
 void RenderingColorWidget2::bind(model::ModelObject& modelObject, OptionalModelObjectGetter get, ModelObjectSetter set) {
@@ -95,7 +104,7 @@ void RenderingColorWidget2::setRenderingColor() {
   if (!m_renderingColor) {
     // app->processEvents not sufficient; must use singleShot
     // to prevent race condition stack overflow
-    QTimer::singleShot(0, this, SLOT(getRenderingColor()));
+    QTimer::singleShot(0, this, &RenderingColorWidget2::getRenderingColor);
   } else {
     refresh();
   }

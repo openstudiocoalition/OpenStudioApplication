@@ -61,13 +61,9 @@ SpaceTypesView::SpaceTypesView(bool isIP, const openstudio::model::Model& model,
   OS_ASSERT(modelObjectListView);
   modelObjectListView->setItemsDraggable(false);
 
-  bool isConnected = false;
+  connect(itemSelector(), &OSItemSelector::selectionCleared, inspectorView(), &OSInspectorView::clearSelection);
 
-  isConnected = connect(itemSelector(), SIGNAL(selectionCleared()), inspectorView(), SIGNAL(selectionCleared()));
-  OS_ASSERT(isConnected);
-
-  isConnected = connect(inspectorView(), SIGNAL(dropZoneItemClicked(OSItem*)), this, SIGNAL(dropZoneItemClicked(OSItem*)));
-  OS_ASSERT(isConnected);
+  connect(inspectorView(), &OSInspectorView::dropZoneItemClicked, this, &SpaceTypesView::dropZoneItemClicked);
 }
 
 }  // namespace openstudio

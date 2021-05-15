@@ -121,12 +121,14 @@ void LocalLibraryController::openBclDlg() {
 }
 
 LocalLibraryController::~LocalLibraryController() {
-  if (localLibraryView) {
-    delete localLibraryView;
-  }  // TODO what is this?
+  if (localLibraryView && !localLibraryView.isNull()) {
+    // TODO: who should own these things
+    //delete localLibraryView;
+  }
 
-  if (libraryView) {
-    delete libraryView;
+  if (libraryView && !libraryView.isNull()) {
+    // TODO: who should own these things
+    //delete libraryView;
   }
 }
 

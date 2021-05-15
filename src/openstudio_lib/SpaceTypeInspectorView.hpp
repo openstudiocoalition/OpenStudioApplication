@@ -48,7 +48,7 @@ class SpaceTypeInspectorView : public ModelObjectInspectorView
   virtual bool supportsMultipleObjectSelection() const override {
     return true;
   }
-  virtual std::vector<model::ModelObject> selectedObjects() const override;
+  virtual std::set<model::ModelObject> selectedObjects() const override;
 
  protected:
   virtual void onClearSelection() override;

@@ -36,12 +36,10 @@
 #include "../openstudio_lib/OSAppBase.hpp"
 #include "../openstudio_lib/OSDocument.hpp"
 #include "../openstudio_lib/OSItem.hpp"
+#include "../model_editor/Utilities.hpp"
 
 #include <openstudio/model/ModelObject.hpp>
 #include <openstudio/model/ModelObject_Impl.hpp>
-
-#include "../model_editor/Utilities.hpp"
-
 #include <openstudio/utilities/core/Assert.hpp>
 
 #include <boost/optional.hpp>
@@ -49,6 +47,9 @@
 #include <QFocusEvent>
 #include <QMouseEvent>
 #include <QString>
+#include <QStyle>
+
+#include <bitset>
 
 #if !(_DEBUG || (__GNUC__ && !NDEBUG))
 #  define TIMEOUT_INTERVAL 500
@@ -61,9 +62,42 @@ namespace openstudio {
 OSLineEdit2::OSLineEdit2(QWidget* parent) : QLineEdit(parent) {
   this->setAcceptDrops(false);
   setEnabled(false);
+
+  // if multiple qss rules apply with same specificity then the last one is chosen
+  this->setStyleSheet("QLineEdit[style=\"000\"] { color:black; background:white;   } "  // Locked=0, Focused=0, Defaulted=0
+                      "QLineEdit[style=\"001\"] { color:green; background:white;   } "  // Locked=0, Focused=0, Defaulted=1
+                      "QLineEdit[style=\"010\"] { color:black; background:#ffc627; } "  // Locked=0, Focused=1, Defaulted=0
+                      "QLineEdit[style=\"011\"] { color:green; background:#ffc627; } "  // Locked=0, Focused=1, Defaulted=1
+                      "QLineEdit[style=\"100\"] { color:black; background:#e6e6e6; } "  // Locked=1, Focused=0, Defaulted=0
+                      "QLineEdit[style=\"101\"] { color:green; background:#e6e6e6; } "  // Locked=1, Focused=0, Defaulted=1
+                      "QLineEdit[style=\"110\"] { color:black; background:#cc9a00; } "  // Locked=1, Focused=1, Defaulted=0
+                      "QLineEdit[style=\"111\"] { color:green; background:#cc9a00; } "  // Locked=1, Focused=1, Defaulted=1
+  );
 }
 
 OSLineEdit2::~OSLineEdit2() {}
+
+void OSLineEdit2::enableClickFocus() {
+  this->m_hasClickFocus = true;
+}
+
+bool OSLineEdit2::hasData() {
+  return !this->text().isEmpty();
+}
+
+bool OSLineEdit2::locked() const {
+  return m_locked;
+}
+
+void OSLineEdit2::setLocked(bool locked) {
+  m_locked = locked;
+  setReadOnly(locked);
+  updateStyle();
+}
+
+boost::optional<model::ModelObject> OSLineEdit2::modelObject() const {
+  return m_modelObject;
+}
 
 void OSLineEdit2::bind(const model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetter> set,
                        boost::optional<NoFailAction> reset, boost::optional<BasicQuery> isDefaulted) {
@@ -124,7 +158,7 @@ void OSLineEdit2::completeBind() {
   setEnabled(true);
 
   if (!m_set && !m_setOptionalStringReturn && !m_setVoidReturn) {
-    setReadOnly(true);
+    setLocked(true);
   }
 
   m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.connect<OSLineEdit2, &OSLineEdit2::onModelObjectChange>(this);
@@ -158,8 +192,22 @@ void OSLineEdit2::unbind() {
     m_setVoidReturn.reset();
     m_reset.reset();
     m_isDefaulted.reset();
-    setEnabled(false);
+    m_item = nullptr;
+    m_text = "";
+
+    this->blockSignals(true);
+    this->setText("");
+    this->setToolTip("");
+    this->blockSignals(false);
+
+    m_hasClickFocus = false;
+    m_focused = false;
+    setLocked(true);
   }
+}
+
+QWidget* OSLineEdit2::qwidget() {
+  return this;
 }
 
 void OSLineEdit2::onEditingFinished() {
@@ -185,7 +233,7 @@ void OSLineEdit2::onEditingFinished() {
         //restore
         onModelObjectChange();
       } else {
-        emit inFocus(true, hasData());
+        emit inFocus(m_focused, hasData());
         adjustWidth();
       }
     }
@@ -195,12 +243,36 @@ void OSLineEdit2::onEditingFinished() {
 void OSLineEdit2::adjustWidth() {
   if (m_modelObject) {
     // Adjust the width to accommodate the text
-    QFont myFont;
-    QFontMetrics fm(myFont);
-    auto width = fm.horizontalAdvance(toQString(m_text));
-    if (width < 80) width = 80;
-    setFixedWidth(width + 10);
+    //QFont myFont;
+    //QFontMetrics fm(myFont);
+    //auto width = fm.horizontalAdvance(toQString(m_text));
+    //if (width < 80) width = 80;
+    //setFixedWidth(width + 10);
   }
+}
+
+void OSLineEdit2::updateStyle() {
+  // Locked, Focused, Defaulted
+  std::bitset<3> style;
+  style[0] = defaulted();
+  style[1] = m_focused;
+  style[2] = m_locked;
+  QString thisStyle = QString::fromStdString(style.to_string());
+
+  QVariant currentStyle = property("style");
+  if (currentStyle.isNull() || currentStyle.toString() != thisStyle) {
+    this->setProperty("style", thisStyle);
+    this->style()->unpolish(this);
+    this->style()->polish(this);
+  }
+}
+
+bool OSLineEdit2::defaulted() const {
+  bool result = false;
+  if (m_isDefaulted) {
+    result = (*m_isDefaulted)();
+  }
+  return result;
 }
 
 void OSLineEdit2::onModelObjectChange() {
@@ -220,13 +292,17 @@ void OSLineEdit2::onModelObjectChangeInternal(bool startingup) {
       // unhandled
       OS_ASSERT(false);
     }
+
     std::string text;
     if (value) {
       text = *value;
       if (m_text != text) {
         m_text = text;
         this->blockSignals(true);
-        this->setText(QString::fromStdString(m_text));
+        QString qtext = QString::fromStdString(m_text);
+        this->setText(qtext);
+        this->setToolTip(qtext);
+        updateStyle();
         this->blockSignals(false);
         if (!startingup) m_timer.start(TIMEOUT_INTERVAL);
       }
@@ -236,9 +312,22 @@ void OSLineEdit2::onModelObjectChangeInternal(bool startingup) {
 
 void OSLineEdit2::emitItemClicked() {
   if (!m_item && m_modelObject) {
-    m_item = OSItem::makeItem(modelObjectToItemId(*m_modelObject, false));
+    bool isDefaulted = defaulted();
+
+    // override isDefaulted to prevent deleting in the inspector
+    if (m_locked) {
+      isDefaulted = true;
+    }
+
+    m_item = OSItem::makeItem(modelObjectToItemId(*m_modelObject, isDefaulted));
     OS_ASSERT(m_item);
     m_item->setParent(this);
+
+    if (!isDefaulted && m_reset) {
+      m_item->setRemoveable(true);
+    } else {
+      m_item->setRemoveable(false);
+    }
     connect(m_item, &OSItem::itemRemoveClicked, this, &OSLineEdit2::onItemRemoveClicked);
   }
 
@@ -262,24 +351,17 @@ void OSLineEdit2::mouseReleaseEvent(QMouseEvent* event) {
 
 void OSLineEdit2::onItemRemoveClicked() {
   if (m_reset) {
-    boost::optional<model::ParentObject> parent = boost::none;
-    if (m_modelObject) {
-      parent = m_modelObject->parent();
-    }
+    // unbind will get called in onModelObjectRemove if model object is removed
     (*m_reset)();
-    if (m_deleteObject) {
-      m_modelObject->remove();
-    }
-    emit objectRemoved(parent);
   }
 }
 
 void OSLineEdit2::focusInEvent(QFocusEvent* e) {
   if (e->reason() == Qt::MouseFocusReason && m_hasClickFocus) {
-    QString style("QLineEdit { background: #ffc627; }");
-    setStyleSheet(style);
+    m_focused = true;
+    updateStyle();
 
-    emit inFocus(true, hasData());
+    emit inFocus(m_focused, hasData());
   }
 
   QLineEdit::focusInEvent(e);
@@ -287,10 +369,10 @@ void OSLineEdit2::focusInEvent(QFocusEvent* e) {
 
 void OSLineEdit2::focusOutEvent(QFocusEvent* e) {
   if (e->reason() == Qt::MouseFocusReason && m_hasClickFocus) {
-    QString style("QLineEdit { background: white; }");
-    setStyleSheet(style);
+    m_focused = false;
+    updateStyle();
 
-    emit inFocus(false, false);
+    emit inFocus(m_focused, false);
 
     auto mouseOverInspectorView =
       OSAppBase::instance()->currentDocument()->mainRightColumnController()->inspectorController()->inspectorView()->mouseOverInspectorView();

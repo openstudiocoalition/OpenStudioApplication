@@ -32,7 +32,9 @@
 #include "OSDropZone.hpp"
 #include "OSItemSelectorButtons.hpp"
 
+#include "../shared_gui_components/OSCheckBox.hpp"
 #include "../shared_gui_components/OSGridView.hpp"
+#include "../shared_gui_components/OSObjectSelector.hpp"
 
 #include <openstudio/model/ElectricEquipment.hpp>
 #include <openstudio/model/ElectricEquipment_Impl.hpp>
@@ -125,12 +127,22 @@ SpacesLoadsGridView::SpacesLoadsGridView(bool isIP, const model::Model& model, Q
   m_gridController = new SpacesLoadsGridController(isIP, "Space", IddObjectType::OS_Space, model, m_spacesModelObjects);
   m_gridView = new OSGridView(m_gridController, "Space", "Drop\nSpace", false, parent);
 
+  const std::function<bool(const model::ModelObject&)> isLocked([](const model::ModelObject& modelObject) {
+    if (modelObject.optionalCast<model::SpaceLoad>()) {
+      model::SpaceLoad load = modelObject.cast<model::SpaceLoad>();
+      return load.spaceType().is_initialized();
+    }
+    return false;
+  });
+
+  m_gridController->setObjectIsLocked(isLocked);
+
   setGridController(m_gridController);
   setGridView(m_gridView);
 
-  m_gridView->m_contentLayout->addLayout(m_filterGridLayout);
-  m_gridView->m_contentLayout->addSpacing(7);
-  m_gridView->m_dropZone->hide();
+  m_gridView->addLayoutToContentLayout(m_filterGridLayout);
+  m_gridView->addSpacingToContentLayout(7);
+  m_gridView->showDropZone(false);
 
   onClearSelection();
 }
@@ -164,27 +176,28 @@ void SpacesLoadsGridController::setCategoriesAndFields() {
     fields.push_back(SCHEDULE);
     fields.push_back(ACTIVITYSCHEDULE);
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("General"), fields);
-    m_categoriesAndFields.push_back(categoryAndFields);
+    addCategoryAndFields(categoryAndFields);
   }
 
   OSGridController::setCategoriesAndFields();
 }
 
-void SpacesLoadsGridController::categorySelected(int index) {
-  OSGridController::categorySelected(index);
+void SpacesLoadsGridController::onCategorySelected(int index) {
+  OSGridController::onCategorySelected(index);
 }
 
 void SpacesLoadsGridController::addColumns(const QString& category, std::vector<QString>& fields) {
   // always show name and selected columns
   fields.insert(fields.begin(), {NAME, SELECTED});
 
-  m_baseConcepts.clear();
+  resetBaseConcepts();
 
   for (const auto& field : fields) {
 
     if (field == NAME) {
-      addNameLineEditColumn(Heading(QString(NAME), false, false), false, false, CastNullAdapter<model::Space>(&model::Space::name),
-                            CastNullAdapter<model::Space>(&model::Space::setName));
+      const bool isInspectable = false;
+      addParentNameLineEditColumn(Heading(QString(NAME), false, false), isInspectable, CastNullAdapter<model::Space>(&model::Space::name),
+                                  CastNullAdapter<model::Space>(&model::Space::setName));
     } else {
       // Create a lambda function that collates all of the loads in a space
       // and returns them as an std::vector
@@ -363,7 +376,7 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
         return loads;
       });
 
-      std::function<double(model::ModelObject*)> multiplier([allLoads](model::ModelObject* t_modelObject) {
+      std::function<double(model::ModelObject*)> multiplier([](model::ModelObject* t_modelObject) {
         double retval = 0;
 
         boost::optional<model::InternalMass> im = t_modelObject->optionalCast<model::InternalMass>();
@@ -535,6 +548,12 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
       });
 
       const boost::optional<std::function<bool(model::ModelObject*)>> isMultiplierDefaulted([](model::ModelObject* t_modelObject) {
+        boost::optional<model::ParentObject> parent = t_modelObject->parent();
+        if (parent && parent->optionalCast<model::SpaceType>()) {
+          // show multipliers on inherited loads as inherited
+          return true;
+        }
+
         boost::optional<model::InternalMass> im = t_modelObject->optionalCast<model::InternalMass>();
         if (im) {
           return im->isMultiplierDefaulted();
@@ -603,6 +622,12 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
       });
 
       boost::optional<std::function<bool(model::ModelObject*)>> isActivityLevelScheduleDefaulted([](model::ModelObject* l) {
+        boost::optional<model::ParentObject> parent = l->parent();
+        if (parent && parent->optionalCast<model::SpaceType>()) {
+          // show schedules on inherited loads as inherited
+          return true;
+        }
+
         if (boost::optional<model::People> p = l->optionalCast<model::People>()) {
           return p->isActivityLevelScheduleDefaulted();
         }
@@ -686,8 +711,13 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
       });
 
       boost::optional<std::function<bool(model::ModelObject*)>> isScheduleDefaulted([](model::ModelObject* l) {
+        boost::optional<model::ParentObject> parent = l->parent();
+        if (parent && parent->optionalCast<model::SpaceType>()) {
+          // show schedules on inherited loads as inherited
+          return true;
+        }
         if (boost::optional<model::People> p = l->optionalCast<model::People>()) {
-          return p->isActivityLevelScheduleDefaulted();
+          return p->isNumberofPeopleScheduleDefaulted();
         } else if (boost::optional<model::Lights> light = l->optionalCast<model::Lights>()) {
           return light->isScheduleDefaulted();
         } else if (boost::optional<model::Luminaire> lum = l->optionalCast<model::Luminaire>()) {
@@ -716,6 +746,8 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
         }
       });
 
+      boost::optional<std::function<std::vector<model::ModelObject>(model::ModelObject*)>> scheduleOtherObjects;
+
       std::function<boost::optional<model::Schedule>(model::ModelObject*)> activityLevelSchedule([](model::ModelObject* l) {
         if (boost::optional<model::People> p = l->optionalCast<model::People>()) {
           return p->activityLevelSchedule();
@@ -725,6 +757,8 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
         OS_ASSERT(false);
         return boost::optional<model::Schedule>();
       });
+
+      boost::optional<std::function<std::vector<model::ModelObject>(model::ModelObject*)>> activityLevelScheduleOtherObjects;
 
       std::function<boost::optional<model::Schedule>(model::ModelObject*)> schedule([](model::ModelObject* l) {
         if (boost::optional<model::InternalMass> im = l->optionalCast<model::InternalMass>()) {
@@ -823,16 +857,19 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
                           CastNullAdapter<model::SpaceLoad>(&model::SpaceLoad::setName),
                           boost::optional<std::function<void(model::SpaceLoad*)>>(
                             std::function<void(model::SpaceLoad*)>([](model::SpaceLoad* t_sl) { t_sl->remove(); })),
+                          boost::optional<std::function<bool(model::SpaceLoad*)>>(
+                            std::function<bool(model::SpaceLoad*)>([](model::SpaceLoad* t_sl) { return !t_sl->space(); })),
                           DataSource(allLoads, true));
 
       } else if (field == SELECTED) {
-        auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
+        auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
         checkbox->setToolTip("Check to select all rows");
-        connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpacesLoadsGridController::selectAllStateChanged);
-        connect(checkbox.data(), &QCheckBox::stateChanged, this->gridView(), &OSGridView::gridRowSelectionChanged);
-
+        connect(checkbox.data(), &OSSelectAllCheckBox::stateChanged, this, &SpacesLoadsGridController::onSelectAllStateChanged);
+        connect(this, &SpacesLoadsGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
         addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", DataSource(allLoads, true));
       } else if (field == MULTIPLIER) {
+
+        // TODO: add isReadOnly to addValueEditColumn
         addValueEditColumn(Heading(QString(MULTIPLIER)), multiplier, setMultiplier, resetMultiplier, isMultiplierDefaulted,
                            DataSource(allLoadsWithMultipliers, true));
 
@@ -898,21 +935,25 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
             return false;
           });
 
-        addNameLineEditColumn(Heading(QString(DEFINITION), true, false), true, false,
-                              CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::name),
-                              CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::setName),
-                              boost::optional<std::function<void(model::SpaceLoadDefinition*)>>(),
-                              DataSource(allDefinitions, false,
-                                         QSharedPointer<DropZoneConcept>(
-                                           new DropZoneConceptImpl<model::SpaceLoadDefinition, model::Space>(Heading(DEFINITION), getter, setter))));
+        boost::optional<std::function<void(model::Space*)>> resetter;
+        boost::optional<std::function<bool(model::Space*)>> isDefaulted(
+          std::function<bool(model::Space*)>([](model::Space* t_space) { return false; }));
+
+        addNameLineEditColumn(
+          Heading(QString(DEFINITION), true, false), true, true, CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::name),
+          CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::setName),
+          boost::optional<std::function<void(model::SpaceLoadDefinition*)>>(), boost::optional<std::function<bool(model::SpaceLoadDefinition*)>>(),
+          DataSource(allDefinitions, false,
+                     QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<model::SpaceLoadDefinition, model::Space>(
+                       Heading(DEFINITION), getter, setter, resetter, isDefaulted, boost::none))));
       } else if (field == SCHEDULE) {
 
-        addDropZoneColumn(Heading(QString(SCHEDULE)), schedule, setSchedule, resetSchedule, isScheduleDefaulted,
+        addDropZoneColumn(Heading(QString(SCHEDULE)), schedule, setSchedule, resetSchedule, isScheduleDefaulted, scheduleOtherObjects,
                           DataSource(allLoadsWithSchedules, true));
 
       } else if (field == ACTIVITYSCHEDULE) {
         addDropZoneColumn(Heading(QString(SCHEDULE)), activityLevelSchedule, setActivityLevelSchedule, resetActivityLevelSchedule,
-                          isActivityLevelScheduleDefaulted, DataSource(allLoadsWithActivityLevelSchedules, true));
+                          isActivityLevelScheduleDefaulted, activityLevelScheduleOtherObjects, DataSource(allLoadsWithActivityLevelSchedules, true));
       } else {
         // unhandled
         OS_ASSERT(false);
@@ -927,7 +968,7 @@ QString SpacesLoadsGridController::getColor(const model::ModelObject& modelObjec
 }
 
 void SpacesLoadsGridController::checkSelectedFields() {
-  if (!this->m_hasHorizontalHeader) return;
+  if (!this->hasHorizontalHeader()) return;
 
   OSGridController::checkSelectedFields();
 }
@@ -935,16 +976,18 @@ void SpacesLoadsGridController::checkSelectedFields() {
 void SpacesLoadsGridController::onItemDropped(const OSItemId& itemId) {}
 
 void SpacesLoadsGridController::refreshModelObjects() {
-  m_modelObjects = subsetCastVector<model::ModelObject>(m_model.getConcreteModelObjects<model::Space>());
-  std::sort(m_modelObjects.begin(), m_modelObjects.end(), openstudio::WorkspaceObjectNameLess());
+  auto spaces = model().getConcreteModelObjects<model::Space>();
+  std::sort(spaces.begin(), spaces.end(), openstudio::WorkspaceObjectNameLess());
+  setModelObjects(subsetCastVector<model::ModelObject>(spaces));
 
-  m_inheritedModelObjects.clear();
-  for (auto modelObject : m_modelObjects) {
-    boost::optional<model::SpaceType> spaceType = modelObject.cast<model::Space>().spaceType();
-    if (spaceType) {
-      m_inheritedModelObjects.push_back(*spaceType);
-    }
-  }
+  // TODO: fix
+  //m_inheritedModelObjects.clear();
+  //for (auto modelObject : m_modelObjects) {
+  //  boost::optional<model::SpaceType> spaceType = modelObject.cast<model::Space>().spaceType();
+  //  if (spaceType) {
+  //    m_inheritedModelObjects.push_back(*spaceType);
+  //  }
+  //}
 }
 
 }  // namespace openstudio

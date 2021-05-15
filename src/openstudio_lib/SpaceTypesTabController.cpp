@@ -54,10 +54,7 @@ SpaceTypesTabController::SpaceTypesTabController(bool isIP, const model::Model& 
   SpaceTypeInspectorView* spaceTypeInspectorView = qobject_cast<SpaceTypeInspectorView*>(m_spaceTypesController->subTabView()->inspectorView());
   OS_ASSERT(spaceTypeInspectorView);
 
-  bool isConnected = false;
-
-  isConnected = connect(this, SIGNAL(itemRemoveClicked(OSItem*)), m_spaceTypesController.get(), SLOT(removeItem(OSItem*)));
-  OS_ASSERT(isConnected);
+  connect(this, &SpaceTypesTabController::itemRemoveClicked, m_spaceTypesController.get(), &SpaceTypesController::removeItem);
 
   mainContentWidget()->addTabWidget(m_spaceTypesController->subTabView());
 }

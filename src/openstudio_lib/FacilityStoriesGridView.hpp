@@ -91,8 +91,6 @@ class FacilityStoriesGridController : public OSGridController
 
   virtual void refreshModelObjects() override;
 
-  virtual void categorySelected(int index) override;
-
  protected:
   virtual void setCategoriesAndFields() override;
 
@@ -103,6 +101,8 @@ class FacilityStoriesGridController : public OSGridController
   virtual QString getColor(const model::ModelObject& modelObject) override;
 
  public slots:
+
+  virtual void onCategorySelected(int index) override;
 
   virtual void onItemDropped(const OSItemId& itemId) override;
 };

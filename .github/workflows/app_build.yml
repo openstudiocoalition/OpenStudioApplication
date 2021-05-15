@@ -13,6 +13,7 @@ env:
   BUILD_TYPE: Release
   BUILD_DOCUMENTATION: OFF
   BUILD_TESTING: ON
+  BUILD_BENCHMARK: ON
   BUILD_PACKAGE: ON
   CPACK_BINARY_NSIS: OFF
   CPACK_BINARY_RPM: OFF
@@ -468,7 +469,7 @@ jobs:
       run: |
         echo "Using vcvarsall to initialize the development environment"
         call vcvarsall.bat x64
-        cmake -G Ninja -DQT_INSTALL_DIR=${{ env.QT_INSTALL_DIR }} -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DBUILD_DOCUMENTATION=${{ env.BUILD_DOCUMENTATION }} -DBUILD_TESTING=${{ env.BUILD_TESTING }} -DBUILD_PACKAGE=${{ env.BUILD_PACKAGE }} -DCPACK_BINARY_DEB=${{ env.CPACK_BINARY_DEB }} -DCPACK_BINARY_IFW=${{ env.CPACK_BINARY_IFW }} -DCPACK_BINARY_NSIS=${{ env.CPACK_BINARY_NSIS }} -DCPACK_BINARY_RPM=${{ env.CPACK_BINARY_RPM }} -DCPACK_BINARY_STGZ=${{ env.CPACK_BINARY_STGZ }} -DCPACK_BINARY_TBZ2=${{ env.CPACK_BINARY_TBZ2 }} -DCPACK_BINARY_TGZ=${{ env.CPACK_BINARY_TGZ }} -DCPACK_BINARY_ZIP=${{ env.CPACK_BINARY_ZIP }} -DCPACK_BINARY_TXZ=${{ env.CPACK_BINARY_TXZ }} -DCPACK_BINARY_TZ=${{ env.CPACK_BINARY_TZ }} -DCPACK_SOURCE_RPM=${{ env.CPACK_SOURCE_RPM }} -DCPACK_SOURCE_TBZ2=${{ env.CPACK_SOURCE_TBZ2 }} -DCPACK_SOURCE_TGZ=${{ env.CPACK_SOURCE_TGZ }} -DCPACK_SOURCE_TXZ=${{ env.CPACK_SOURCE_TXZ }} -DCPACK_SOURCE_TZ=${{ env.CPACK_SOURCE_TZ }} -DCPACK_SOURCE_ZIP=${{ env.CPACK_SOURCE_ZIP }} ../
+        cmake -G Ninja -DQT_INSTALL_DIR=${{ env.QT_INSTALL_DIR }} -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DBUILD_DOCUMENTATION=${{ env.BUILD_DOCUMENTATION }} -DBUILD_TESTING=${{ env.BUILD_TESTING }} -DBUILD_BENCHMARK=${{ env.BUILD_BENCHMARK}} -DBUILD_PACKAGE=${{ env.BUILD_PACKAGE }} -DCPACK_BINARY_DEB=${{ env.CPACK_BINARY_DEB }} -DCPACK_BINARY_IFW=${{ env.CPACK_BINARY_IFW }} -DCPACK_BINARY_NSIS=${{ env.CPACK_BINARY_NSIS }} -DCPACK_BINARY_RPM=${{ env.CPACK_BINARY_RPM }} -DCPACK_BINARY_STGZ=${{ env.CPACK_BINARY_STGZ }} -DCPACK_BINARY_TBZ2=${{ env.CPACK_BINARY_TBZ2 }} -DCPACK_BINARY_TGZ=${{ env.CPACK_BINARY_TGZ }} -DCPACK_BINARY_ZIP=${{ env.CPACK_BINARY_ZIP }} -DCPACK_BINARY_TXZ=${{ env.CPACK_BINARY_TXZ }} -DCPACK_BINARY_TZ=${{ env.CPACK_BINARY_TZ }} -DCPACK_SOURCE_RPM=${{ env.CPACK_SOURCE_RPM }} -DCPACK_SOURCE_TBZ2=${{ env.CPACK_SOURCE_TBZ2 }} -DCPACK_SOURCE_TGZ=${{ env.CPACK_SOURCE_TGZ }} -DCPACK_SOURCE_TXZ=${{ env.CPACK_SOURCE_TXZ }} -DCPACK_SOURCE_TZ=${{ env.CPACK_SOURCE_TZ }} -DCPACK_SOURCE_ZIP=${{ env.CPACK_SOURCE_ZIP }} ../
         ninja
         ninja package
 
@@ -485,7 +486,7 @@ jobs:
       # NOTE: If you re-enable 'Download the OpenStudio installer' step, then pass `openstudio_DIR=$openstudio_DIR cmake [etc]`
       run: |
         set -x
-        cmake -DQT_INSTALL_DIR=$QT_INSTALL_DIR -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DBUILD_DOCUMENTATION=$DBUILD_DOCUMENTATION -DBUILD_TESTING=$BUILD_TESTING -DBUILD_PACKAGE=$BUILD_PACKAGE -DCPACK_BINARY_DEB=$CPACK_BINARY_DEB -DCPACK_BINARY_IFW=$CPACK_BINARY_IFW -DCPACK_BINARY_NSIS=$CPACK_BINARY_NSIS -DCPACK_BINARY_RPM=$CPACK_BINARY_RPM -DCPACK_BINARY_STGZ=$CPACK_BINARY_STGZ -DCPACK_BINARY_TBZ2=$CPACK_BINARY_TBZ2 -DCPACK_BINARY_TGZ=$CPACK_BINARY_TGZ -DCPACK_BINARY_ZIP=$CPACK_BINARY_ZIP -DCPACK_BINARY_TXZ=$CPACK_BINARY_TXZ -DCPACK_BINARY_TZ=$CPACK_BINARY_TZ -DCPACK_SOURCE_RPM=$CPACK_SOURCE_RPM -DCPACK_SOURCE_TBZ2=$CPACK_SOURCE_TBZ2 -DCPACK_SOURCE_TGZ=$CPACK_SOURCE_TGZ -DCPACK_SOURCE_TXZ=$CPACK_SOURCE_TXZ -DCPACK_SOURCE_TZ=$CPACK_SOURCE_TZ -DCPACK_SOURCE_ZIP=$CPACK_SOURCE_ZIP ../
+        cmake -DQT_INSTALL_DIR=$QT_INSTALL_DIR -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DBUILD_DOCUMENTATION=$DBUILD_DOCUMENTATION -DBUILD_TESTING=$BUILD_TESTING -DBUILD_BENCHMARK=$BUILD_BENCHMARK -DBUILD_PACKAGE=$BUILD_PACKAGE -DCPACK_BINARY_DEB=$CPACK_BINARY_DEB -DCPACK_BINARY_IFW=$CPACK_BINARY_IFW -DCPACK_BINARY_NSIS=$CPACK_BINARY_NSIS -DCPACK_BINARY_RPM=$CPACK_BINARY_RPM -DCPACK_BINARY_STGZ=$CPACK_BINARY_STGZ -DCPACK_BINARY_TBZ2=$CPACK_BINARY_TBZ2 -DCPACK_BINARY_TGZ=$CPACK_BINARY_TGZ -DCPACK_BINARY_ZIP=$CPACK_BINARY_ZIP -DCPACK_BINARY_TXZ=$CPACK_BINARY_TXZ -DCPACK_BINARY_TZ=$CPACK_BINARY_TZ -DCPACK_SOURCE_RPM=$CPACK_SOURCE_RPM -DCPACK_SOURCE_TBZ2=$CPACK_SOURCE_TBZ2 -DCPACK_SOURCE_TGZ=$CPACK_SOURCE_TGZ -DCPACK_SOURCE_TXZ=$CPACK_SOURCE_TXZ -DCPACK_SOURCE_TZ=$CPACK_SOURCE_TZ -DCPACK_SOURCE_ZIP=$CPACK_SOURCE_ZIP ../
 
     # Note: JM 2020-07-22 This is an example of how to get a config log for a failed conan dependency build (no binary available)
     # This WILL be handy some day, so leave it here
@@ -534,13 +535,29 @@ jobs:
       run: |
           Xvfb :99 &
           export DISPLAY=:99
-          ctest -j -T test --no-compress-output -C $BUILD_TYPE || true
+          ctest -j -T test --output-on-failure --no-compress-output -C $BUILD_TYPE || true
 
     - name: Archive test results?
       uses: actions/upload-artifact@v2
       with:
           name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.os }}-Test.xml
           path: build/Testing/**/*.xml
+
+    - name: Benchmark
+      working-directory: ./build
+      shell: bash
+      # Execute tests defined by the CMake configuration.
+      # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
+      run: |
+        Xvfb :99 &
+        export DISPLAY=:99
+        Products/SpacesSurfaces_Benchmark --benchmark_out_format=csv --benchmark_out='bench_results_SpacesSurfaces.csv' || true
+
+    - name: Archive benchmark results?
+      uses: actions/upload-artifact@v2
+      with:
+          name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.os }}-bench_results.csv
+          path: build/bench_results_*.csv
 
     #- name: Create a release if triggered by a tag
       #id: create_release_tag

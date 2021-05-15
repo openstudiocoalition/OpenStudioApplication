@@ -56,17 +56,17 @@ class OSDoubleEdit2 : public QLineEdit, public Nano::Observer
 
   virtual ~OSDoubleEdit2();
 
-  void enableClickFocus() {
-    this->m_hasClickFocus = true;
-  }
+  void enableClickFocus();
 
-  bool hasData() {
-    return !this->text().isEmpty();
-  }
+  void disableClickFocus();
 
-  QDoubleValidator* doubleValidator() {
-    return m_doubleValidator;
-  }
+  bool hasData();
+
+  bool locked() const;
+
+  void setLocked(bool locked);
+
+  QDoubleValidator* doubleValidator();
 
   void bind(const model::ModelObject& modelObject, DoubleGetter get, boost::optional<DoubleSetter> set = boost::none,
             boost::optional<NoFailAction> reset = boost::none, boost::optional<NoFailAction> autosize = boost::none,
@@ -118,6 +118,11 @@ class OSDoubleEdit2 : public QLineEdit, public Nano::Observer
   void onModelObjectRemove(const Handle& handle);
 
  private:
+  bool defaulted() const;
+  bool autosized() const;
+  bool autocalculated() const;
+  void updateStyle();
+
   boost::optional<model::ModelObject> m_modelObject;                    // will be set if attached to ModelObject or ModelExtensibleGroup
   boost::optional<model::ModelExtensibleGroup> m_modelExtensibleGroup;  // will only be set if attached to ModelExtensibleGroup
   boost::optional<DoubleGetter> m_get;
@@ -133,6 +138,9 @@ class OSDoubleEdit2 : public QLineEdit, public Nano::Observer
 
   bool m_isScientific;
   bool m_hasClickFocus = false;
+  bool m_locked = false;
+  bool m_focused = false;
+
   boost::optional<int> m_precision;
   QString m_text = "UNINITIALIZED";
   QDoubleValidator* m_doubleValidator;

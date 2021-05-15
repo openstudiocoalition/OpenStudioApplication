@@ -43,6 +43,20 @@ class QFocusEvent;
 
 namespace openstudio {
 
+class OSSelectAllCheckBox : public QCheckBox
+{
+  Q_OBJECT
+
+ public:
+  OSSelectAllCheckBox(QWidget* parent = nullptr);
+
+  virtual ~OSSelectAllCheckBox();
+
+ public slots:
+
+  void onGridRowSelectionChanged(int numSelected, int numSelectable);
+};
+
 class OSCheckBox3 : public QCheckBox, public Nano::Observer
 {
   Q_OBJECT
@@ -54,9 +68,13 @@ class OSCheckBox3 : public QCheckBox, public Nano::Observer
 
   // This method will be called to enable the Checkbox to accept focus
   // (typically by the OSGridController depending on whether the underlying BaseConcept allows it)
-  void enableClickFocus() {
-    this->setFocusPolicy(Qt::ClickFocus);
-  }
+  void enableClickFocus();
+
+  void disableClickFocus();
+
+  bool locked() const;
+
+  void setLocked(bool locked);
 
   void bind(const model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetter> set = boost::none,
             boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none);
@@ -84,12 +102,19 @@ class OSCheckBox3 : public QCheckBox, public Nano::Observer
   void onModelObjectRemove(const Handle& handle);
 
  private:
+  bool defaulted() const;
+  void updateStyle();
+
   boost::optional<model::ModelObject> m_modelObject;
   boost::optional<BoolGetter> m_get;
   boost::optional<BoolSetter> m_set;
   boost::optional<BoolSetterBoolReturn> m_setBoolReturn;
   boost::optional<NoFailAction> m_reset;
   boost::optional<BasicQuery> m_isDefaulted;
+
+  bool m_hasClickFocus = false;
+  bool m_focused = false;
+  bool m_locked = false;
 };
 
 class OSCheckBox2 : public QPushButton, public Nano::Observer
@@ -106,6 +131,15 @@ class OSCheckBox2 : public QPushButton, public Nano::Observer
 
   void unbind();
 
+ signals:
+
+  void inFocus(bool inFocus, bool hasData);
+
+ protected:
+  // We override these methods to emit inFocus as appropriate to enable/disable the header button
+  virtual void focusInEvent(QFocusEvent* e) override;
+  virtual void focusOutEvent(QFocusEvent* e) override;
+
  private slots:
 
   void onToggled(bool checked);
@@ -115,11 +149,18 @@ class OSCheckBox2 : public QPushButton, public Nano::Observer
   void onModelObjectRemove(const Handle& handle);
 
  private:
+  bool defaulted() const;
+  void updateStyle();
+
   boost::optional<model::ModelObject> m_modelObject;
   boost::optional<BoolGetter> m_get;
   boost::optional<BoolSetter> m_set;
   boost::optional<NoFailAction> m_reset;
   boost::optional<BasicQuery> m_isDefaulted;
+
+  bool m_hasClickFocus = false;
+  bool m_focused = false;
+  bool m_locked = false;
 };
 
 // class OSCheckBox : public QPushButton, public Nano::Observer {

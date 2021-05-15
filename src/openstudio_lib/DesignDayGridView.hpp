@@ -38,6 +38,8 @@
 
 #include <QWidget>
 
+class OpenStudioLibFixture;
+
 namespace openstudio {
 
 class DesignDayGridController;
@@ -51,11 +53,12 @@ class DesignDayGridView : public QWidget
 
   virtual ~DesignDayGridView() {}
 
-  DesignDayGridController* m_gridController = nullptr;
-
-  std::vector<model::ModelObject> selectedObjects() const;
+  std::set<model::ModelObject> selectedObjects() const;
 
  private:
+  // for testing
+  friend class ::OpenStudioLibFixture;
+
   void addObject(const model::ModelObject& modelObject);
 
   void copyObject(const openstudio::model::ModelObject& modelObject);
@@ -63,6 +66,10 @@ class DesignDayGridView : public QWidget
   void removeObject(openstudio::model::ModelObject modelObject);
 
   void purgeObjects(const IddObjectType& iddObjectType);
+
+  DesignDayGridController* m_gridController = nullptr;
+
+  OSGridView* m_gridView = nullptr;
 
   bool m_isIP;
 

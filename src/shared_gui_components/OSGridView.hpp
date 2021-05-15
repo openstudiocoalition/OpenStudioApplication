@@ -44,14 +44,17 @@ class QLabel;
 class QShowEvent;
 class QString;
 class QLayoutItem;
+class OpenStudioLibFixture;
 
 namespace openstudio {
 
-class ModelSubTabView;
+class OSCellWrapper;
 class OSCollapsibleView;
 class OSDropZone;
 class OSGridController;
 class OSItem;
+class GridCellLocation;
+class GridCellInfo;
 
 class OSGridView : public QWidget
 {
@@ -60,20 +63,16 @@ class OSGridView : public QWidget
  public:
   OSGridView(OSGridController* gridController, const QString& headerText, const QString& dropZoneText, bool useHeader, QWidget* parent = nullptr);
 
-  virtual ~OSGridView(){};
+  virtual ~OSGridView();
 
-  // return the QLayoutItem at a particular partition, accounting for multiple grid layouts
+  // return the QLayoutItem at a particular row and column
   QLayoutItem* itemAtPosition(int row, int column);
 
-  OSDropZone* m_dropZone;
+  void showDropZone(bool visible);
 
-  virtual ModelSubTabView* modelSubTabView();
+  void addLayoutToContentLayout(QLayout* layout);
 
-  void requestRemoveRow(int row);
-
-  void requestAddRow(int row);
-
-  QVBoxLayout* m_contentLayout;
+  void addSpacingToContentLayout(int spacing);
 
  protected:
   virtual void hideEvent(QHideEvent* event) override;
@@ -84,65 +83,49 @@ class OSGridView : public QWidget
 
   void dropZoneItemClicked(OSItem* item);
 
-  void gridRowSelectionChanged(int checkState);
+  void gridRowSelectionChanged(int numSelected, int numSelectable);
 
  public slots:
 
-  void onSelectionCleared();
+  //void requestRemoveRow(int row);
 
-  void refreshAll();
+  void onAddRow(int row);
 
-  void requestRefreshAll();
+  void onRecreateAll();
 
-  void requestRefreshGrid();
-
- private slots:
-
-  void deleteAll();
-
-  void addWidget(int row, int column);
-
-  void selectCategory(int index);
-
-  void doRefresh();
-
-  void doRowSelect();
-
-  void selectRowDeterminedByModelSubTabView();
+  void onGridCellChanged(const GridCellLocation& location, const GridCellInfo& info);
 
  private:
-  enum QueueType
-  {
-    AddRow,
-    RemoveRow,
-    RefreshRow,
-    RefreshGrid,
-    RefreshAll
-  };
+  // For testing
+  friend class OpenStudioLibFixture;
+
+  // uses the OSGridController to create the OSCellWrapper for row, column
+  void createCellWrapper(int row, int column);
+
+  // delete all widgets
+  void deleteAll();
+
+  // add a row
+  void addRow(int row);
+
+  // recreate all widgets
+  void recreateAll();
 
   // construct a grid layout to our specs
   QGridLayout* makeGridLayout();
 
   // Add a widget, adding a new layout if necessary
-  void addWidget(QWidget* w, int row, int column);
+  void addCellWrapper(OSCellWrapper* w, int row, int column);
 
-  void setGridController(OSGridController* gridController);
+  OSDropZone* m_dropZone;
 
-  static const int ROWS_PER_LAYOUT = 100;
+  QVBoxLayout* m_contentLayout;
 
-  std::vector<QGridLayout*> m_gridLayouts;
+  QGridLayout* m_gridLayout;
 
-  OSCollapsibleView* m_CollapsibleView;
+  OSCollapsibleView* m_collapsibleView;
 
   OSGridController* m_gridController;
-
-  std::vector<QueueType> m_queueRequests;
-
-  QTimer m_timer;
-
-  int m_rowToAdd = -1;
-
-  int m_rowToRemove = -1;
 };
 
 }  // namespace openstudio

@@ -400,13 +400,12 @@ set(${target_name}_test_src
   test/Units_GTest.cpp
 )
 
-set(${target_name}_test_depends
-  ${depends}
-)
-
-CREATE_TEST_TARGETS(${target_name} "${${target_name}_test_src}" "${${target_name}_test_depends}")
 CREATE_SRC_GROUPS("${${target_name}_test_src}")
 if(BUILD_TESTING)
+  set(${target_name}_test_depends
+    ${depends}
+  )
+  CREATE_TEST_TARGETS(${target_name} "${${target_name}_test_src}" "${${target_name}_test_depends}")
 
   #add_dependencies("${target_name}_tests"
   #  openstudio_app_resources

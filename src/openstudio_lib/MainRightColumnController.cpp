@@ -99,9 +99,7 @@ MainRightColumnController::MainRightColumnController(const model::Model& model, 
   connect(this, &MainRightColumnController::toggleUnitsClicked, m_inspectorController.get(), &InspectorController::toggleUnitsClicked);
   connect(m_inspectorController.get(), &InspectorController::removeButtonClicked, this, &MainRightColumnController::onRemoveButtonClicked);
   connect(m_inspectorController.get(), &InspectorController::workspaceObjectRemoved, this, &MainRightColumnController::onWorkspaceObjectRemoved);
-
-  auto isConnected = connect(m_inspectorController.get(), SIGNAL(itemRemoveClicked(OSItem*)), this, SLOT(onItemRemoveClicked(OSItem*)));
-  OS_ASSERT(isConnected);
+  connect(m_inspectorController.get(), &InspectorController::itemRemoveClicked, this, &MainRightColumnController::onItemRemoveClicked);
 }
 
 void MainRightColumnController::onItemRemoveClicked(OSItem*) {

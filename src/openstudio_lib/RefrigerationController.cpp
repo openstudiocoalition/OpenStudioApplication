@@ -587,7 +587,7 @@ void RefrigerationController::removeSubCoolerLiquidSuction(const OSItemId& itemi
 void RefrigerationController::refresh() {
   m_dirty = true;
 
-  QTimer::singleShot(0, this, SLOT(refreshNow()));
+  QTimer::singleShot(0, this, &RefrigerationController::refreshNow);
 }
 
 void RefrigerationController::refreshNow() {

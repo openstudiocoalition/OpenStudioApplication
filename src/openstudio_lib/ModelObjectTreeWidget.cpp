@@ -99,7 +99,7 @@ void ModelObjectTreeWidget::refresh() {
     if (modelObjectTreeItem) {
       if (!modelObjectTreeItem->isDirty()) {
         modelObjectTreeItem->makeDirty();
-        QTimer::singleShot(0, modelObjectTreeItem, SLOT(refresh()));
+        QTimer::singleShot(0, modelObjectTreeItem, &ModelObjectTreeItem::refresh);
       }
     }
   }

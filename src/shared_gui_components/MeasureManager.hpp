@@ -39,7 +39,6 @@
 #include <vector>
 #include <map>
 #include <QSharedPointer>
-#include <QPointer>
 #include <QApplication>
 #include <QUrl>
 #include <QMutex>
