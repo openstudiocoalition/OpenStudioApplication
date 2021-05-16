@@ -185,7 +185,6 @@ class OSGreyCheckBox2 : public QPushButton, public Nano::Observer
   void onModelObjectRemove(const Handle& handle);
 
  private:
-
   boost::optional<model::ModelObject> m_modelObject;
   boost::optional<BoolGetter> m_get;
   boost::optional<BoolSetter> m_set;

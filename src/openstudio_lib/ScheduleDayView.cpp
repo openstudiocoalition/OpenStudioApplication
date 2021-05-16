@@ -139,7 +139,7 @@ ScheduleDayView::ScheduleDayView(bool isIP, const model::ScheduleDay& scheduleDa
 
   auto lineEdit = new OSLineEdit2();
   lineEdit->bind(m_scheduleDay, OptionalStringGetter(std::bind(&model::ScheduleDay::name, &m_scheduleDay, true)),
-    boost::optional<StringSetterOptionalStringReturn>(std::bind(&model::ScheduleDay::setName, &m_scheduleDay, std::placeholders::_1)));
+                 boost::optional<StringSetterOptionalStringReturn>(std::bind(&model::ScheduleDay::setName, &m_scheduleDay, std::placeholders::_1)));
   lineEdit->setFixedWidth(200);
 
   hLayout->addWidget(lineEdit);
@@ -147,7 +147,7 @@ ScheduleDayView::ScheduleDayView(bool isIP, const model::ScheduleDay& scheduleDa
   hLayout->addStretch();
 
   mainVLayout->addLayout(hLayout);
-  
+
   // Schedule Limits View
 
   m_scheduleLimitsView = new ScheduleLimitsView(isIP, currentScheduleTypeLimits, this);

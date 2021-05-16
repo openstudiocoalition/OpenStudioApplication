@@ -394,8 +394,7 @@ void OSGreyCheckBox2::bind(const model::ModelObject& modelObject, BoolGetter get
 
   m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
     .get()
-    ->onChange.connect<OSGreyCheckBox2, &OSGreyCheckBox2::onModelObjectChange>(
-    this);
+    ->onChange.connect<OSGreyCheckBox2, &OSGreyCheckBox2::onModelObjectChange>(this);
 
   m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
     .get()
@@ -407,13 +406,11 @@ void OSGreyCheckBox2::bind(const model::ModelObject& modelObject, BoolGetter get
   this->setChecked(checked);
 }
 
-void OSGreyCheckBox2::unbind()
-{ 
+void OSGreyCheckBox2::unbind() {
   if (m_modelObject) {
     m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
       .get()
-      ->onChange.disconnect<OSGreyCheckBox2, &OSGreyCheckBox2::onModelObjectChange>(
-      this);
+      ->onChange.disconnect<OSGreyCheckBox2, &OSGreyCheckBox2::onModelObjectChange>(this);
     m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
       .get()
       ->onRemoveFromWorkspace.disconnect<OSGreyCheckBox2, &OSGreyCheckBox2::onModelObjectRemove>(this);
