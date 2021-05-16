@@ -1668,7 +1668,7 @@ void SimSettingsView::attachZoneAirContaminantBalance() {
 
     model::Model model = t_z->model();
     model::ScheduleType scheduleType = model::ScheduleTypeRegistry::instance().getScheduleType("ZoneAirContaminantBalance", "Outdoor Carbon Dioxide");
-    
+
     bool isStringent = false;
     model::ScheduleTypeLimitsVector okTypes;
     for (const model::ScheduleTypeLimits& candidate : model.getConcreteModelObjects<model::ScheduleTypeLimits>()) {
