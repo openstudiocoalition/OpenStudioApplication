@@ -378,68 +378,68 @@ void OSCheckBox2::updateStyle() {
   }
 }
 
-// OSCheckBox::OSCheckBox( QWidget * parent )
-//   : QPushButton(parent)
-// {
-//   setObjectName("StandardGrayButton");
-//   this->setAcceptDrops(false);
+OSGreyCheckBox2::OSGreyCheckBox2(QWidget* parent) : QPushButton(parent) {
+  setObjectName("StandardGrayButton");
+  this->setAcceptDrops(false);
+  this->setCheckable(true);
+  setEnabled(false);
+}
 
-//   this->setCheckable(true);
+void OSGreyCheckBox2::bind(const model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetter> set) {
+  m_modelObject = modelObject;
+  m_get = get;
+  m_set = set;
 
-//   setEnabled(false);
-// }
+  setEnabled(true);
 
-// void OSCheckBox::bind(model::ModelObject & modelObject, const char * property)
-// {
-//   m_modelObject = modelObject;
+  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
+    .get()
+    ->onChange.connect<OSGreyCheckBox2, &OSGreyCheckBox2::onModelObjectChange>(
+    this);
 
-//   m_property = property;
+  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
+    .get()
+    ->onRemoveFromWorkspace.connect<OSGreyCheckBox2, &OSGreyCheckBox2::onModelObjectRemove>(this);
 
-//   setEnabled(true);
+  connect(this, &OSGreyCheckBox2::toggled, this, &OSGreyCheckBox2::onToggled);
+  bool checked = (*m_get)();
 
-//   m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->openstudio::model::detail::ModelObject_Impl::onChange.connect<OSCheckBox, &OSCheckBox::onModelObjectChange>(this);
+  this->setChecked(checked);
+}
 
-//   m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->openstudio::model::detail::ModelObject_Impl::onRemoveFromWorkspace.connect<OSCheckBox, &OSCheckBox::onModelObjectRemove>(this);
+void OSGreyCheckBox2::unbind()
+{ 
+  if (m_modelObject) {
+    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
+      .get()
+      ->onChange.disconnect<OSGreyCheckBox2, &OSGreyCheckBox2::onModelObjectChange>(
+      this);
+    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
+      .get()
+      ->onRemoveFromWorkspace.disconnect<OSGreyCheckBox2, &OSGreyCheckBox2::onModelObjectRemove>(this);
 
-//   connect(this, &OSCheckBox::toggled, this, &OSCheckBox::onToggled);
-//   bool checked = m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()->property(m_property.c_str()).toBool();
+    m_get.reset();
+    m_set.reset();
+    setEnabled(false);
+  }
+}
 
-//   this->setChecked(checked);
-// }
+void OSGreyCheckBox2::onToggled(bool checked) {
+  if (m_modelObject && m_set) {
+    if ((*m_get)() != checked) {
+      (*m_set)(checked);
+    }
+  }
+}
 
-// void OSCheckBox::unbind()
-// {
-//   if (m_modelObject){
-//     this->disconnect(m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get());
-//     m_modelObject.reset();
-//     m_property = "";
-//     setEnabled(false);
-//   }
-// }
+void OSGreyCheckBox2::onModelObjectChange() {
+  if (m_modelObject) {
+    this->setChecked((*m_get)());
+  }
+}
 
-// void OSCheckBox::onToggled(bool checked)
-// {
-//   if( m_modelObject )
-//   {
-//     m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()->setProperty(m_property.c_str(),checked);
-//   }
-// }
-
-// void OSCheckBox::onModelObjectChange()
-// {
-//   if( m_modelObject )
-//   {
-//     bool checked = m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()->property(m_property.c_str()).toBool();
-
-//     this->setChecked(checked);
-//   }
-// }
-
-// void OSCheckBox::onModelObjectRemove(const Handle& handle)
-// {
-//   m_modelObject.reset();
-//   m_property = "";
-//   setEnabled(false);
-// }
+void OSGreyCheckBox2::onModelObjectRemove(const Handle& handle) {
+  unbind();
+}
 
 }  // namespace openstudio
