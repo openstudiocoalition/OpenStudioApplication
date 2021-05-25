@@ -100,19 +100,29 @@ PreviewWebView::PreviewWebView(bool isIP, const model::Model& model, QWidget* t_
   m_refreshBtn->setVisible(true);
 
   m_view = new QWebEngineView(this);
-  m_view->settings()->setAttribute(QWebEngineSettings::WebAttribute::LocalContentCanAccessRemoteUrls, true);
-  m_view->settings()->setAttribute(QWebEngineSettings::WebAttribute::SpatialNavigationEnabled, true);
-
   m_page = new OSWebEnginePage(this);
   m_view->setPage(m_page);  // note, view does not take ownership of page
 
+
   connect(m_view, &QWebEngineView::loadFinished, this, &PreviewWebView::onLoadFinished);
-  //connect(m_view, &QWebEngineView::loadProgress, this, &PreviewWebView::onLoadProgress);
-  //connect(m_view, &QWebEngineView::loadStarted, this, &PreviewWebView::onLoadStarted);
   connect(m_view, &QWebEngineView::renderProcessTerminated, this, &PreviewWebView::onRenderProcessTerminated);
+
+  constexpr bool isDebug_= true;
+  if (isDebug_) {
+    connect(m_view, &QWebEngineView::loadStarted, this, [](){ qDebug() << "Loading started"; });
+    connect(m_view, &QWebEngineView::loadProgress, this, [](int progress) { qDebug() << "PreviewWebView::onLoadProgress: " << progress; }); // &PreviewWebView::onLoadProgress);
+    connect(m_page, &QWebEnginePage::loadStarted, this, []() { qDebug() << "Page Loading Started"; });
+    connect(m_page, &QWebEnginePage::loadProgress, this, [](int progress) { qDebug() << "Page Loading Progress: " << progress; });
+    connect(m_page, &QWebEnginePage::loadFinished, this, [](bool ok) { qDebug() << "Page Loading Finished: " << ok; });
+  }
+
 
   // Qt 5.8 and higher
   m_view->settings()->setAttribute(QWebEngineSettings::AllowRunningInsecureContent, true);
+
+  m_view->settings()->setAttribute(QWebEngineSettings::WebAttribute::LocalContentCanAccessRemoteUrls, true);
+  m_view->settings()->setAttribute(QWebEngineSettings::WebAttribute::SpatialNavigationEnabled, true);
+
   // Force QWebEngineView to fill the rest of the space
   m_view->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
   m_view->setContextMenuPolicy(Qt::NoContextMenu);
@@ -147,6 +157,7 @@ void PreviewWebView::onUnitSystemChange(bool t_isIP) {
 
 void PreviewWebView::onLoadFinished(bool ok) {
   QString title = m_view->title();
+  qDebug() << "onLoadFinished, ok=" << ok << ", title=" << title;
   if (ok) {
     m_progressBar->setValue(10);
   } else {
@@ -200,6 +211,7 @@ void PreviewWebView::onJavaScriptFinished(const QVariant& v) {
 }
 
 void PreviewWebView::onRenderProcessTerminated(QWebEnginePage::RenderProcessTerminationStatus terminationStatus, int exitCode) {
+  qDebug() << "RenderProcessTerminationStatus: terminationStatus= " << terminationStatus << "exitCode=" << exitCode;
   m_progressBar->setValue(100);
   m_progressBar->setStyleSheet("QProgressBar::chunk {background-color: #FF0000;}");
   m_progressBar->setFormat("Error");
