@@ -196,6 +196,7 @@ OSDocument::OSDocument(const openstudio::model::Model& library, const openstudio
   connect(m_mainWindow, &MainWindow::changeDefaultLibrariesClicked, this, &OSDocument::changeDefaultLibrariesClicked);
   connect(m_mainWindow, &MainWindow::configureExternalToolsClicked, this, &OSDocument::configureExternalToolsClicked);
   connect(m_mainWindow, &MainWindow::loadLibraryClicked, this, &OSDocument::loadLibraryClicked);
+  connect(m_mainWindow, &MainWindow::loadExampleModelClicked, this, &OSDocument::loadExampleModelClicked);
   connect(m_mainWindow, &MainWindow::newClicked, this, &OSDocument::newClicked);
   connect(m_mainWindow, &MainWindow::exitClicked, this, &OSDocument::exitClicked);
   connect(m_mainWindow, &MainWindow::helpClicked, this, &OSDocument::helpClicked);

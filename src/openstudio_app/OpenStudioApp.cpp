@@ -1227,6 +1227,7 @@ void OpenStudioApp::connectOSDocumentSignals() {
   connect(m_osDocument.get(), &OSDocument::changeDefaultLibrariesClicked, this, &OpenStudioApp::changeDefaultLibraries);
   connect(m_osDocument.get(), &OSDocument::configureExternalToolsClicked, this, &OpenStudioApp::configureExternalTools);
   connect(m_osDocument.get(), &OSDocument::loadLibraryClicked, this, &OpenStudioApp::loadLibrary);
+  connect(m_osDocument.get(), &OSDocument::loadExampleModelClicked, this, &OpenStudioApp::loadExampleModel);
   connect(m_osDocument.get(), &OSDocument::newClicked, this, &OpenStudioApp::newModel);
   connect(m_osDocument.get(), &OSDocument::helpClicked, this, &OpenStudioApp::showHelp);
   connect(m_osDocument.get(), &OSDocument::checkForUpdateClicked, this, &OpenStudioApp::checkForUpdate);
@@ -1397,6 +1398,32 @@ void OpenStudioApp::loadLibrary() {
       }
     }
   }
+}
+
+void OpenStudioApp::loadExampleModel() {
+
+  bool wasQuitOnLastWindowClosed = this->quitOnLastWindowClosed();
+  this->setQuitOnLastWindowClosed(false);
+
+  if (m_osDocument) {
+    if (!closeDocument()) {
+      this->setQuitOnLastWindowClosed(wasQuitOnLastWindowClosed);
+      return;
+    }
+    processEvents();
+  }
+
+  waitDialog()->setVisible(true);
+  processEvents();
+
+  auto model = openstudio::model::exampleModel();
+  m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), model, QString(), false, startTabIndex()));
+
+  connectOSDocumentSignals();
+
+  waitDialog()->setVisible(false);
+
+  this->setQuitOnLastWindowClosed(wasQuitOnLastWindowClosed);
 }
 
 void OpenStudioApp::changeDefaultLibraries() {
