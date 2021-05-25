@@ -123,6 +123,14 @@ PreviewWebView::PreviewWebView(bool isIP, const model::Model& model, QWidget* t_
   m_view->settings()->setAttribute(QWebEngineSettings::WebAttribute::LocalContentCanAccessRemoteUrls, true);
   m_view->settings()->setAttribute(QWebEngineSettings::WebAttribute::SpatialNavigationEnabled, true);
 
+  /*
+  m_view->settings()->setAttribute(QWebEngineSettings::JavascriptCanAccessClipboard, true);
+  m_view->settings()->setAttribute(QWebEngineSettings::AllowGeolocationOnInsecureOrigins, true);
+  m_view->settings()->setAttribute(QWebEngineSettings::AllowWindowActivationFromJavaScript, true);
+
+  m_view->settings()->setUnknownUrlSchemePolicy(QWebEngineSettings::AllowAllUnknownUrlSchemes);
+  */
+
   // Force QWebEngineView to fill the rest of the space
   m_view->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
   m_view->setContextMenuPolicy(Qt::NoContextMenu);
@@ -130,7 +138,36 @@ PreviewWebView::PreviewWebView(bool isIP, const model::Model& model, QWidget* t_
   //mainLayout->addWidget(m_view, 10, Qt::AlignTop);
   mainLayout->addWidget(m_view);
 
-  m_view->load(QUrl("qrc:///library/geometry_preview.html"));
+  if (isDebug_) {
+    QDir root_embedded(":/library");
+    for (const auto l: root_embedded.entryList()) {
+      // Debug: "geometry_preview.html" ((null):0, (null))
+      qDebug() << l;
+    }
+  }
+
+  /*
+  // This works on Windows, macOS, Ubuntu1804, fails on Ubuntu 20.04
+  QUrl previewURL("qrc:/library/geometry_preview.html");
+  // QUrl previewURL("qrc://library/geometry_preview.html"); // => Warning: QResource '/geometry_preview.html' not found or is empty ((null):0, (null))
+  // QUrl previewURL("qrc:///library/geometry_preview.html");
+  m_view->load(previewURL);
+
+  // Local FileSystem: This works on Ubuntu 20.04 as well....
+  QUrl previewURL("file:///home/julien/Software/Others/OpenStudioApplication/src/openstudio_lib/library/geometry_preview.html");
+  m_view->load(previewURL);
+  qDebug() << "Loading previewURL=" << previewURL;
+  */
+
+  QFile htmlFile(":/library/geometry_preview.html");
+  if (htmlFile.open(QFile::ReadOnly | QFile::Text)) {
+    QTextStream in(&htmlFile);
+    QString htmlContent = in.readAll();
+    m_view->setHtml(htmlContent);
+  } else {
+    qDebug() << "Error opening htmlFile=" << htmlFile;
+  }
+
 }
 
 PreviewWebView::~PreviewWebView() {
