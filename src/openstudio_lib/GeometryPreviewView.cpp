@@ -74,8 +74,6 @@ PreviewWebView::PreviewWebView(bool isIP, const model::Model& model, QWidget* t_
   m_document = app->currentDocument();
   OS_ASSERT(m_document);
 
-  std::shared_ptr<OSDocument> m_document;
-
   auto mainLayout = new QVBoxLayout;
   setLayout(mainLayout);
 
