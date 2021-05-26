@@ -107,8 +107,9 @@ PreviewWebView::PreviewWebView(bool isIP, const model::Model& model, QWidget* t_
   connect(m_view, &QWebEngineView::loadFinished, this, &PreviewWebView::onLoadFinished);
   connect(m_view, &QWebEngineView::renderProcessTerminated, this, &PreviewWebView::onRenderProcessTerminated);
 
-  constexpr bool isDebug_= true;
-  if (isDebug_) {
+  // Debug: switch to true. if false, code isn't even compiled since if-constexpr is used
+  constexpr bool isDebug_= false;
+  if constexpr (isDebug_) {
     connect(m_view, &QWebEngineView::loadStarted, this, [](){ qDebug() << "Loading started"; });
     connect(m_view, &QWebEngineView::loadProgress, this, [](int progress) { qDebug() << "PreviewWebView::onLoadProgress: " << progress; }); // &PreviewWebView::onLoadProgress);
     connect(m_page, &QWebEnginePage::loadStarted, this, []() { qDebug() << "Page Loading Started"; });
@@ -123,13 +124,11 @@ PreviewWebView::PreviewWebView(bool isIP, const model::Model& model, QWidget* t_
   m_view->settings()->setAttribute(QWebEngineSettings::WebAttribute::LocalContentCanAccessRemoteUrls, true);
   m_view->settings()->setAttribute(QWebEngineSettings::WebAttribute::SpatialNavigationEnabled, true);
 
-  /*
-  m_view->settings()->setAttribute(QWebEngineSettings::JavascriptCanAccessClipboard, true);
-  m_view->settings()->setAttribute(QWebEngineSettings::AllowGeolocationOnInsecureOrigins, true);
-  m_view->settings()->setAttribute(QWebEngineSettings::AllowWindowActivationFromJavaScript, true);
-
-  m_view->settings()->setUnknownUrlSchemePolicy(QWebEngineSettings::AllowAllUnknownUrlSchemes);
-  */
+  // These aren't needed
+  //m_view->settings()->setAttribute(QWebEngineSettings::JavascriptCanAccessClipboard, true);
+  //m_view->settings()->setAttribute(QWebEngineSettings::AllowGeolocationOnInsecureOrigins, true);
+  //m_view->settings()->setAttribute(QWebEngineSettings::AllowWindowActivationFromJavaScript, true);
+  //m_view->settings()->setUnknownUrlSchemePolicy(QWebEngineSettings::AllowAllUnknownUrlSchemes);
 
   // Force QWebEngineView to fill the rest of the space
   m_view->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -138,36 +137,8 @@ PreviewWebView::PreviewWebView(bool isIP, const model::Model& model, QWidget* t_
   //mainLayout->addWidget(m_view, 10, Qt::AlignTop);
   mainLayout->addWidget(m_view);
 
-  if (isDebug_) {
-    QDir root_embedded(":/library");
-    for (const auto l: root_embedded.entryList()) {
-      // Debug: "geometry_preview.html" ((null):0, (null))
-      qDebug() << l;
-    }
-  }
-
-  /*
-  // This works on Windows, macOS, Ubuntu1804, fails on Ubuntu 20.04
-  QUrl previewURL("qrc:/library/geometry_preview.html");
-  // QUrl previewURL("qrc://library/geometry_preview.html"); // => Warning: QResource '/geometry_preview.html' not found or is empty ((null):0, (null))
-  // QUrl previewURL("qrc:///library/geometry_preview.html");
+  QUrl previewURL("qrc:///library/geometry_preview.html");
   m_view->load(previewURL);
-
-  // Local FileSystem: This works on Ubuntu 20.04 as well....
-  QUrl previewURL("file:///home/julien/Software/Others/OpenStudioApplication/src/openstudio_lib/library/geometry_preview.html");
-  m_view->load(previewURL);
-  qDebug() << "Loading previewURL=" << previewURL;
-  */
-
-  QFile htmlFile(":/library/geometry_preview.html");
-  if (htmlFile.open(QFile::ReadOnly | QFile::Text)) {
-    QTextStream in(&htmlFile);
-    QString htmlContent = in.readAll();
-    m_view->setHtml(htmlContent);
-  } else {
-    qDebug() << "Error opening htmlFile=" << htmlFile;
-  }
-
 }
 
 PreviewWebView::~PreviewWebView() {
@@ -194,7 +165,7 @@ void PreviewWebView::onUnitSystemChange(bool t_isIP) {
 
 void PreviewWebView::onLoadFinished(bool ok) {
   QString title = m_view->title();
-  qDebug() << "onLoadFinished, ok=" << ok << ", title=" << title;
+  // qDebug() << "onLoadFinished, ok=" << ok << ", title=" << title;
   if (ok) {
     m_progressBar->setValue(10);
   } else {
@@ -248,7 +219,7 @@ void PreviewWebView::onJavaScriptFinished(const QVariant& v) {
 }
 
 void PreviewWebView::onRenderProcessTerminated(QWebEnginePage::RenderProcessTerminationStatus terminationStatus, int exitCode) {
-  qDebug() << "RenderProcessTerminationStatus: terminationStatus= " << terminationStatus << "exitCode=" << exitCode;
+  // qDebug() << "RenderProcessTerminationStatus: terminationStatus= " << terminationStatus << "exitCode=" << exitCode;
   m_progressBar->setValue(100);
   m_progressBar->setStyleSheet("QProgressBar::chunk {background-color: #FF0000;}");
   m_progressBar->setFormat("Error");
