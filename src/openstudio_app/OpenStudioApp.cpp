@@ -891,35 +891,6 @@ void OpenStudioApp::open() {
   waitDialog()->resetLabels();
 }
 
-//void OpenStudioApp::loadLibrary()
-//{
-//  if( this->currentDocument() )
-//  {
-//    QWidget * parent = this->currentDocument()->mainWindow();
-//
-//
-//    QString fileName = QFileDialog::getOpenFileName( parent,
-//                                                    tr("Select Library"),
-//                                                    toQString(resourcesPath()),
-//                                                    tr("(*.osm)") );
-//
-//    if( ! (fileName == "") )
-//    {
-//      osversion::VersionTranslator versionTranslator;
-//      versionTranslator.setAllowNewerVersions(false);
-//
-//      boost::optional<openstudio::model::Model> model = versionTranslator.loadModel(toPath(fileName));
-//      if( model ) {
-//        this->currentDocument()->setComponentLibrary(*model);
-//        versionUpdateMessageBox(versionTranslator, true, fileName, openstudio::path());
-//      }else{
-//        LOG_FREE(Warn, "OpenStudio", "Could not open file at " << toString(fileName));
-//        versionUpdateMessageBox(versionTranslator, false, fileName, openstudio::path());
-//      }
-//    }
-//  }
-//}
-
 void OpenStudioApp::newModel() {
   bool wasQuitOnLastWindowClosed = this->quitOnLastWindowClosed();
   this->setQuitOnLastWindowClosed(false);
@@ -1413,15 +1384,12 @@ void OpenStudioApp::loadExampleModel() {
     processEvents();
   }
 
-  waitDialog()->setVisible(true);
-  processEvents();
-
   auto model = openstudio::model::exampleModel();
   m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), model, QString(), false, startTabIndex()));
 
   connectOSDocumentSignals();
 
-  waitDialog()->setVisible(false);
+  waitDialog()->hide();
 
   this->setQuitOnLastWindowClosed(wasQuitOnLastWindowClosed);
 }

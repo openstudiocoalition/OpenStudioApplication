@@ -126,7 +126,7 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, QWidget* parent) : QMenuBar(parent)
   m_fileImportActions.push_back(action);
   //m_preferencesActions.push_back(action); // DLM: I'm unclear if this should be enabled/disabled with preferences or file imports, right now does not matter
 
-  QMenu* exampleMenu = m_fileMenu->addMenu(tr("&Examples"));
+  QMenu* exampleMenu = m_fileMenu->addMenu(tr("E&xamples"));
 
   action = new QAction(tr("&Example Model"), this);
   exampleMenu->addAction(action);
