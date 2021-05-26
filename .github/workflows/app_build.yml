@@ -608,5 +608,6 @@ jobs:
       shell: bash
       run: |
         ls OpenStudioApplication-*
-        /bin/rm OpenStudioApplication-*${{ env.PLATFORM_NAME }}*
+        /bin/rm OpenStudioApplication-*${{ env.COMPRESSED_EXT }} || true
+        /bin/rm OpenStudioApplication-*${{ env.BINARY_EXT }} || true
         ls OpenStudioApplication-* || true
