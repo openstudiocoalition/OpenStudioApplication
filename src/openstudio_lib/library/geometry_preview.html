@@ -2261,8 +2261,8 @@ function init(os_data_in) {
     clearColor: 0xffffff
   });
   renderer.setSize(window.innerWidth, window.innerHeight);
-  renderer.shadowMapEnabled = true;
-  renderer.shadowMapSoft = true;
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.soft = true;
   document.body.appendChild(renderer.domElement);
 
   scene = new THREE.Scene();
@@ -2352,7 +2352,7 @@ function init(os_data_in) {
   back_objects = {};
   object_edges = {};
   scene_objects.forEach(function(object) {
-    edges = new THREE.EdgesHelper( object, 0x000000 );
+    edges = new THREE.LineSegments( new THREE.EdgesGeometry( object.geometry ), new THREE.LineBasicMaterial( { color: 0x000000 } ) );
     scene.add(edges);
     edge = scene.children[scene.children.length-1];
     scene_edges.push(edge);
