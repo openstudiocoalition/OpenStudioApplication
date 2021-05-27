@@ -380,18 +380,17 @@ if( APPLE )
   list(APPEND QTPLUGINS "\${CMAKE_INSTALL_PREFIX}/OpenStudioApp.app/Contents/Frameworks/QtWebEngineCore.framework/Versions/5/Helpers/QtWebEngineProcess.app/Contents/MacOS/QtWebEngineProcess")
 endif()
 
-if(WIN32 OR APPLE)
-  install(CODE "
-    # APPS might be a symbolic link which does not work with fixup_bundle
-    # expand APPS to a real path
-    get_filename_component(APPS_EXPANDED ${APPS} REALPATH)
-    include(BundleUtilities)
-    # This file defines some libs we are excluding. Some like concrt140.dll are installed already via InstallRequiredSystemLibraries
-    include(\"${CMAKE_SOURCE_DIR}/CMake/FixupBundleOverrides.cmake\")
-    fixup_bundle(\"\${APPS_EXPANDED}\" \"${QTPLUGINS}\" \"${DIRS}\")
-    " COMPONENT "OpenStudioApp"
-  )
-endif()
+# This does some "magic" **including on Linux** (cf #345) (On linux it will install in ./bin/ the libopenstudio.so, and libicu* stuff)
+install(CODE "
+  # APPS might be a symbolic link which does not work with fixup_bundle
+  # expand APPS to a real path
+  get_filename_component(APPS_EXPANDED ${APPS} REALPATH)
+  include(BundleUtilities)
+  # This file defines some libs we are excluding. Some like concrt140.dll are installed already via InstallRequiredSystemLibraries
+  include(\"${CMAKE_SOURCE_DIR}/CMake/FixupBundleOverrides.cmake\")
+  fixup_bundle(\"\${APPS_EXPANDED}\" \"${QTPLUGINS}\" \"${DIRS}\")
+  " COMPONENT "OpenStudioApp"
+)
 
 set(${target_name}_test_src
   test/OpenStudioAppFixture.hpp
