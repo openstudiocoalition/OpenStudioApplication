@@ -190,7 +190,10 @@ elseif( UNIX )
   endforeach()
 
   foreach(LIB_LOCATION ${QT_LIB_LOCATIONS} ${QT_EXTRA_LIBS})
-    get_filename_component(LIB_BASE_NAME ${LIB_LOCATION} NAME)
+    # In case we grabed "xx.so", it'll be resolved to "xx.so.X.Y.Z" as we expect
+    get_filename_component(LIB_LOCATION_RESOLVED "${LIB_LOCATION}" REALPATH)
+
+    get_filename_component(LIB_BASE_NAME ${LIB_LOCATION_RESOLVED} NAME)
     string(REGEX REPLACE "\\.[^.]*$" "" LIB_MAJOR_MINOR_NAME ${LIB_BASE_NAME})
     string(REGEX REPLACE "\\.[^.]*$" "" LIB_MAJOR_NAME ${LIB_MAJOR_MINOR_NAME})
 
@@ -198,7 +201,7 @@ elseif( UNIX )
 
     add_custom_command(TARGET ${target_name}
       POST_BUILD
-      COMMAND ${CMAKE_COMMAND} -E copy_if_different ${LIB_LOCATION} $<TARGET_FILE_DIR:${target_name}>/
+      COMMAND ${CMAKE_COMMAND} -E copy_if_different ${LIB_LOCATION_RESOLVED} $<TARGET_FILE_DIR:${target_name}>/
       COMMAND ln -sf "${LIB_BASE_NAME}" "$<TARGET_FILE_DIR:${target_name}>/${LIB_MAJOR_MINOR_NAME}"
       COMMAND ln -sf "${LIB_BASE_NAME}" "$<TARGET_FILE_DIR:${target_name}>/${LIB_MAJOR_NAME}"
       COMMAND patchelf --set-rpath "$ORIGIN/." $<TARGET_FILE_DIR:${target_name}>/${LIB_BASE_NAME}
