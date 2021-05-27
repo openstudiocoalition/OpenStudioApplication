@@ -224,7 +224,11 @@ elseif( UNIX )
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources} $<TARGET_FILE_DIR:${target_name}>/resources/
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_100} $<TARGET_FILE_DIR:${target_name}>/resources/
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_200} $<TARGET_FILE_DIR:${target_name}>/resources/
-    COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/translations $<TARGET_FILE_DIR:${target_name}>/translations/
+    #COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/translations $<TARGET_FILE_DIR:${target_name}>/translations/
+    # Copying just one locale is enough to shut the annoying console warning...
+    COMMAND ${CMAKE_COMMAND} -E make_directory $<TARGET_FILE_DIR:${target_name}>/translations/
+    COMMAND ${CMAKE_COMMAND} -E make_directory $<TARGET_FILE_DIR:${target_name}>/translations/qtwebengine_locales
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qtwebengine_locales/en-US.pak $<TARGET_FILE_DIR:${target_name}>/translations/qtwebengine_locales/
   )
 
   # TODO: not sure if chrpath is needed
@@ -268,7 +272,11 @@ elseif( WIN32 )
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources} $<TARGET_FILE_DIR:${target_name}>/resources/
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_100} $<TARGET_FILE_DIR:${target_name}>/resources/
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_200} $<TARGET_FILE_DIR:${target_name}>/resources/
-    COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/translations $<TARGET_FILE_DIR:${target_name}>/translations/
+    #COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/translations $<TARGET_FILE_DIR:${target_name}>/translations/
+    # Copying just one locale is enough to shut the annoying console warning...
+    COMMAND ${CMAKE_COMMAND} -E make_directory $<TARGET_FILE_DIR:${target_name}>/translations/
+    COMMAND ${CMAKE_COMMAND} -E make_directory $<TARGET_FILE_DIR:${target_name}>/translations/qtwebengine_locales
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qtwebengine_locales/en-US.pak $<TARGET_FILE_DIR:${target_name}>/translations/qtwebengine_locales/
   )
 
   add_custom_command(TARGET ${target_name}
@@ -344,12 +352,13 @@ endif()
 if( NOT APPLE )
 
   install(FILES $<TARGET_FILE_DIR:${target_name}>/qt.conf DESTINATION bin COMPONENT OpenStudioApp)
-  install(DIRECTORY ${QT_INSTALL_DIR}/translations DESTINATION bin COMPONENT OpenStudioApp)
-
-  install(FILES ${icudtl} DESTINATION bin/resources COMPONENT OpenStudioApp )
-  install(FILES ${qweb_resources} DESTINATION bin/resources COMPONENT OpenStudioApp )
-  install(FILES ${qweb_resources_100} DESTINATION bin/resources COMPONENT OpenStudioApp )
-  install(FILES ${qweb_resources_200} DESTINATION bin/resources COMPONENT OpenStudioApp )
+  # install(DIRECTORY ${QT_INSTALL_DIR}/translations DESTINATION bin COMPONENT OpenStudioApp)
+  install(DIRECTORY $<TARGET_FILE_DIR:${target_name}>/translations/ DESTINATION bin/translations/ COMPONENT OpenStudioApp)
+  install(DIRECTORY $<TARGET_FILE_DIR:${target_name}>/resources/ DESTINATION bin/resources/ COMPONENT OpenStudioApp)
+  # install(FILES ${icudtl} DESTINATION bin/resources COMPONENT OpenStudioApp )/translatio
+  # install(FILES ${qweb_resources} DESTINATION bin/resources COMPONENT OpenStudioApp )
+  # install(FILES ${qweb_resources_100} DESTINATION bin/resources COMPONENT OpenStudioApp )
+  # install(FILES ${qweb_resources_200} DESTINATION bin/resources COMPONENT OpenStudioApp )
   if(WIN32)
     install(TARGETS OpenStudioApp DESTINATION bin COMPONENT OpenStudioApp )
 
