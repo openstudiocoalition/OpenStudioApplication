@@ -1419,6 +1419,8 @@ void OpenStudioApp::loadExampleModel() {
 
   disconnectOSDocumentSignals();
 
+  processEvents();
+
   auto model = openstudio::model::exampleModel();
   m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), model, QString(), false, startTabIndex()));
 
