@@ -172,6 +172,7 @@ OSDocument::OSDocument(const openstudio::model::Model& library, const openstudio
   } else {
     modelTempDir = model::initializeModel(*model);
     m_mainWindow->setWindowTitle("Untitled[*]");
+    initalizeWorkflow = true;
   }
   m_modelTempDir = toQString(modelTempDir);
 

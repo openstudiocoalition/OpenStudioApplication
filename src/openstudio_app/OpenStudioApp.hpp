@@ -233,6 +233,8 @@ class OpenStudioApp : public OSAppBase
 
   void connectOSDocumentSignals();
 
+  void disconnectOSDocumentSignals();
+
   // Removes the given path from the list of library settings (and calls writeLibraryPaths)
   void removeLibraryFromsSettings(const openstudio::path& path);
 

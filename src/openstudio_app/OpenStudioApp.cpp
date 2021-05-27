@@ -277,6 +277,8 @@ void OpenStudioApp::onMeasureManagerAndLibraryReady() {
       boost::optional<openstudio::model::Model> model = versionTranslator.loadModel(toPath(fileName));
       if (model) {
 
+        disconnectOSDocumentSignals();
+
         m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), model, fileName, false, startTabIndex()));
 
         connectOSDocumentSignals();
@@ -346,6 +348,8 @@ bool OpenStudioApp::openFile(const QString& fileName, bool restoreTabs) {
       // transparent + hidden by Filedialog which isn't closed yet.
       waitDialog()->setVisible(true);
       processEvents();
+
+      disconnectOSDocumentSignals();
 
       m_osDocument =
         std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), model, fileName, false, startTabIndex, startSubTabIndex));
@@ -453,6 +457,8 @@ void OpenStudioApp::newFromEmptyTemplateSlot() {
 }
 
 void OpenStudioApp::newFromTemplateSlot(NewFromTemplateEnum newFromTemplateEnum) {
+  disconnectOSDocumentSignals();
+
   m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), boost::none, QString(), false, startTabIndex()));
 
   connectOSDocumentSignals();
@@ -551,6 +557,8 @@ void OpenStudioApp::importIdf() {
           }
           processEvents();
         }
+
+        disconnectOSDocumentSignals();
 
         m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), model, QString(), false, startTabIndex()));
         m_osDocument->markAsModified();
@@ -678,6 +686,8 @@ void OpenStudioApp::importIFC() {
       processEvents();
     }
 
+    disconnectOSDocumentSignals();
+
     m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), *model, QString(), false, startTabIndex()));
 
     m_osDocument->markAsModified();
@@ -739,6 +749,8 @@ void OpenStudioApp::import(OpenStudioApp::fileType type) {
         }
         processEvents();
       }
+
+      disconnectOSDocumentSignals();
 
       m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), *model, QString(), false, startTabIndex()));
       m_osDocument->markAsModified();
@@ -1205,6 +1217,27 @@ void OpenStudioApp::connectOSDocumentSignals() {
   connect(m_osDocument.get(), &OSDocument::aboutClicked, this, &OpenStudioApp::showAbout);
 }
 
+void OpenStudioApp::disconnectOSDocumentSignals() {
+  if (m_osDocument) {
+    disconnect(m_osDocument.get(), &OSDocument::closeClicked, this, &OpenStudioApp::onCloseClicked);
+    disconnect(m_osDocument.get(), &OSDocument::exitClicked, this, &OpenStudioApp::quit);
+    disconnect(m_osDocument.get(), &OSDocument::importClicked, this, &OpenStudioApp::importIdf);
+    disconnect(m_osDocument.get(), &OSDocument::importgbXMLClicked, this, &OpenStudioApp::importgbXML);
+    disconnect(m_osDocument.get(), &OSDocument::importSDDClicked, this, &OpenStudioApp::importSDD);
+    disconnect(m_osDocument.get(), &OSDocument::importIFCClicked, this, &OpenStudioApp::importIFC);
+    disconnect(m_osDocument.get(), &OSDocument::loadFileClicked, this, &OpenStudioApp::open);
+    disconnect(m_osDocument.get(), &OSDocument::osmDropped, this, &OpenStudioApp::openFromDrag);
+    disconnect(m_osDocument.get(), &OSDocument::changeDefaultLibrariesClicked, this, &OpenStudioApp::changeDefaultLibraries);
+    disconnect(m_osDocument.get(), &OSDocument::configureExternalToolsClicked, this, &OpenStudioApp::configureExternalTools);
+    disconnect(m_osDocument.get(), &OSDocument::loadLibraryClicked, this, &OpenStudioApp::loadLibrary);
+    disconnect(m_osDocument.get(), &OSDocument::loadExampleModelClicked, this, &OpenStudioApp::loadExampleModel);
+    disconnect(m_osDocument.get(), &OSDocument::newClicked, this, &OpenStudioApp::newModel);
+    disconnect(m_osDocument.get(), &OSDocument::helpClicked, this, &OpenStudioApp::showHelp);
+    disconnect(m_osDocument.get(), &OSDocument::checkForUpdateClicked, this, &OpenStudioApp::checkForUpdate);
+    disconnect(m_osDocument.get(), &OSDocument::aboutClicked, this, &OpenStudioApp::showAbout);
+  }
+}
+
 void OpenStudioApp::measureManagerProcessStateChanged(QProcess::ProcessState newState) {}
 
 void OpenStudioApp::measureManagerProcessFinished() {
@@ -1383,6 +1416,8 @@ void OpenStudioApp::loadExampleModel() {
     }
     processEvents();
   }
+
+  disconnectOSDocumentSignals();
 
   auto model = openstudio::model::exampleModel();
   m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), model, QString(), false, startTabIndex()));
