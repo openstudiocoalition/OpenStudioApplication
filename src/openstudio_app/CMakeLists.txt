@@ -218,10 +218,14 @@ elseif( UNIX )
 
   add_custom_command(TARGET ${target_name}
     POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${icudtl} $<TARGET_FILE_DIR:${target_name}>/
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources} $<TARGET_FILE_DIR:${target_name}>/
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_100} $<TARGET_FILE_DIR:${target_name}>/
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_200} $<TARGET_FILE_DIR:${target_name}>/ )
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_CURRENT_SOURCE_DIR}/qt.conf $<TARGET_FILE_DIR:${target_name}>
+    COMMAND ${CMAKE_COMMAND} -E make_directory $<TARGET_FILE_DIR:${target_name}>/resources/
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${icudtl} $<TARGET_FILE_DIR:${target_name}>/resources/
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources} $<TARGET_FILE_DIR:${target_name}>/resources/
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_100} $<TARGET_FILE_DIR:${target_name}>/resources/
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_200} $<TARGET_FILE_DIR:${target_name}>/resources/
+    COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/translations $<TARGET_FILE_DIR:${target_name}>/translations/
+  )
 
   # TODO: not sure if chrpath is needed
   add_custom_command(TARGET ${target_name}
@@ -258,10 +262,14 @@ elseif( WIN32 )
 
   add_custom_command(TARGET ${target_name}
     POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${icudtl} $<TARGET_FILE_DIR:${target_name}>/
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources} $<TARGET_FILE_DIR:${target_name}>/
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_100} $<TARGET_FILE_DIR:${target_name}>/
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_200} $<TARGET_FILE_DIR:${target_name}>/ )
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_CURRENT_SOURCE_DIR}/qt.conf $<TARGET_FILE_DIR:${target_name}>
+    COMMAND ${CMAKE_COMMAND} -E make_directory $<TARGET_FILE_DIR:${target_name}>/resources/
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${icudtl} $<TARGET_FILE_DIR:${target_name}>/resources/
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources} $<TARGET_FILE_DIR:${target_name}>/resources/
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_100} $<TARGET_FILE_DIR:${target_name}>/resources/
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_200} $<TARGET_FILE_DIR:${target_name}>/resources/
+    COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/translations $<TARGET_FILE_DIR:${target_name}>/translations/
+  )
 
   add_custom_command(TARGET ${target_name}
     POST_BUILD
@@ -334,10 +342,14 @@ endif()
 
 # since on apple the whole app bundle is installed (including these webkit components) we can exclude apple
 if( NOT APPLE )
-  install(FILES ${icudtl} DESTINATION bin COMPONENT OpenStudioApp )
-  install(FILES ${qweb_resources} DESTINATION bin COMPONENT OpenStudioApp )
-  install(FILES ${qweb_resources_100} DESTINATION bin COMPONENT OpenStudioApp )
-  install(FILES ${qweb_resources_200} DESTINATION bin COMPONENT OpenStudioApp )
+
+  install(FILES $<TARGET_FILE_DIR:${target_name}>/qt.conf DESTINATION bin COMPONENT OpenStudioApp)
+  install(DIRECTORY ${QT_INSTALL_DIR}/translations DESTINATION bin COMPONENT OpenStudioApp)
+
+  install(FILES ${icudtl} DESTINATION bin/resources COMPONENT OpenStudioApp )
+  install(FILES ${qweb_resources} DESTINATION bin/resources COMPONENT OpenStudioApp )
+  install(FILES ${qweb_resources_100} DESTINATION bin/resources COMPONENT OpenStudioApp )
+  install(FILES ${qweb_resources_200} DESTINATION bin/resources COMPONENT OpenStudioApp )
   if(WIN32)
     install(TARGETS OpenStudioApp DESTINATION bin COMPONENT OpenStudioApp )
 

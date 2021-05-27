@@ -54,6 +54,7 @@
 #include <QDir>
 #include <QTcpServer>
 #include <QtGlobal>
+#include <QLibraryInfo>
 
 #ifdef _WIN32
 #  include <Windows.h>
@@ -222,6 +223,11 @@ int main(int argc, char* argv[]) {
 
     // Make the run path the default plugin search location
     QCoreApplication::addLibraryPath(QCoreApplication::applicationDirPath());
+
+    LOG_FREE(Info, "OpenStudioApp.main", "LibraryExecutablesPath: "
+        << openstudio::toString(QLibraryInfo::location(QLibraryInfo::LibraryExecutablesPath)));
+    LOG_FREE(Info, "OpenStudioApp.main", "DataPath: " << openstudio::toString(QLibraryInfo::location(QLibraryInfo::DataPath)));
+    LOG_FREE(Info, "OpenStudioApp.main", "TranslationsPath: " << openstudio::toString(QLibraryInfo::location(QLibraryInfo::TranslationsPath)));
 
 #ifdef Q_OS_DARWIN
     // Gross but perhaps the simplest way to find the webengine process
