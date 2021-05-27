@@ -553,6 +553,9 @@ if(NOT APPLE)
     find_package(Qt5Qml ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
     list(APPEND QT_WEB_LIBS Qt5::Qml)
 
+    find_package(Qt5QmlModels ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+    list(APPEND QT_WEB_LIBS Qt5::QmlModels)
+
     find_package(Qt5Positioning ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
     list(APPEND QT_WEB_LIBS Qt5::Positioning)
 
