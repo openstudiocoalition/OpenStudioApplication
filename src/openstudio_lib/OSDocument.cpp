@@ -251,6 +251,8 @@ OSDocument::~OSDocument() {
   // blockSignals wouldn't work now anyways because of nano signal slot implementation
   // m_model.getImpl<openstudio::model::detail::Model_Impl>()->blockSignals(true);
 
+  disconnect();
+
   // release the file watchers so can remove model temp dir
   m_mainTabController.reset();
 
