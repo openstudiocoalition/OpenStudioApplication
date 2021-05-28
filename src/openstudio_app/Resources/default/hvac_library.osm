@@ -12419,3 +12419,30 @@ OS:Humidifier:Steam:Gas,
   ,                                       !- Water Storage Tank Name
   FixedInletWaterTemperature;             !- Inlet Water Temperature Option
 
+OS:ZoneHVAC:CoolingPanel:RadiantConvective:Water,
+  {f0476560-12e6-45a5-8208-bb88dd284131}, !- Handle
+  Zone HVAC Cooling Panel Radiant Convective Water, !- Name
+  {9f54092d-a4a8-41b8-a381-c4c332ecb843}, !- Availability Schedule Name
+  {eadefa43-33f6-4def-a2f4-1d95565ecf3a}, !- Cooling Coil Name
+  0.65,                                   !- Fraction Radiant
+  0.2;                                    !- Fraction of Radiant Energy Incident on People
+
+OS:Coil:Cooling:Water:Panel:Radiant,
+  {eadefa43-33f6-4def-a2f4-1d95565ecf3a}, !- Handle
+  Coil Cooling Water Panel Radiant,       !- Name
+  ,                                       !- Water Inlet Node Name
+  ,                                       !- Water Outlet Node Name
+  5,                                      !- Rated Inlet Water Temperature {C}
+  24,                                     !- Rated Inlet Space Temperature {C}
+  0.063,                                  !- Rated Water Mass Flow Rate {kg/s}
+  CoolingDesignCapacity,                  !- Cooling Design Capacity Method
+  autosize,                               !- Cooling Design Capacity {W}
+  0,                                      !- Cooling Design Capacity Per Floor Area {W/m2}
+  1,                                      !- Fraction of Autosized Cooling Design Capacity
+  autosize,                               !- Maximum Chilled Water Flow Rate {m3/s}
+  MeanAirTemperature,                     !- Control Type
+  0.5,                                    !- Cooling Control Throttling Range {deltaC}
+  ,                                       !- Cooling Control Temperature Schedule Name
+  SimpleOff,                              !- Condensation Control Type
+  1;                                      !- Condensation Control Dewpoint Offset {C}
+
