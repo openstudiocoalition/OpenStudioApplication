@@ -64,8 +64,7 @@ using namespace openstudio;
 
 // these methods duplicate code from FloorspaceEditor in GeometryEditorView.cpp
 
-boost::optional<FloorplanJS> loadFloorPlanJS(const openstudio::path& floorplanPath)
-{
+boost::optional<FloorplanJS> loadFloorPlanJS(const openstudio::path& floorplanPath) {
 
   openstudio::filesystem::ifstream ifs(floorplanPath);
   OS_ASSERT(ifs.is_open());
@@ -117,8 +116,7 @@ boost::optional<model::Model> getExportModel(const boost::optional<FloorplanJS>&
     building.setNorthAxis(-floorplan->northAxis());
     boost::optional<Handle> cloneDefaultConstructionSetHandle;
     if (originalDefaultConstructionSet && !building.defaultConstructionSet()) {
-      model::ModelObject cloneDefaultConstructionSet =
-        originalDefaultConstructionSet->clone(*exportModel);
+      model::ModelObject cloneDefaultConstructionSet = originalDefaultConstructionSet->clone(*exportModel);
       cloneDefaultConstructionSetHandle = cloneDefaultConstructionSet.handle();
       building.setDefaultConstructionSet(cloneDefaultConstructionSet.cast<model::DefaultConstructionSet>());
     }
@@ -142,14 +140,15 @@ boost::optional<model::Model> getExportModel(const boost::optional<FloorplanJS>&
     if (originalDefaultConstructionSet && cloneDefaultConstructionSetHandle) {
       exportModelHandleMapping[originalDefaultConstructionSet->handle()] = *cloneDefaultConstructionSetHandle;
     }
-  } 
+  }
 
   return exportModel;
 }
 
 TEST_F(OpenStudioLibFixture, Geometry_SingleSpace_DefaultConstructionSet) {
 
-  openstudio::path floorplanPath = getOpenStudioApplicationSourceDirectory() / openstudio::toPath("src/openstudio_lib/test/floorplans/single_space.json");
+  openstudio::path floorplanPath =
+    getOpenStudioApplicationSourceDirectory() / openstudio::toPath("src/openstudio_lib/test/floorplans/single_space.json");
   ASSERT_TRUE(exists(floorplanPath));
 
   boost::optional<FloorplanJS> floorplan = loadFloorPlanJS(floorplanPath);
@@ -175,7 +174,7 @@ TEST_F(OpenStudioLibFixture, Geometry_SingleSpace_DefaultConstructionSet) {
   std::map<UUID, UUID> exportModelHandleMapping;
   boost::optional<model::Model> exportModel = getExportModel(floorplan, model, exportModelHandleMapping);
   ASSERT_TRUE(exportModel);
-  
+
   model::ModelMerger mm;
   mm.mergeModels(model, *exportModel, exportModelHandleMapping);
 
@@ -187,5 +186,4 @@ TEST_F(OpenStudioLibFixture, Geometry_SingleSpace_DefaultConstructionSet) {
   EXPECT_EQ(building.spaceType()->handle(), spaceType.handle());
   ASSERT_TRUE(building.defaultScheduleSet());
   EXPECT_EQ(building.defaultScheduleSet()->handle(), defaultScheduleSet.handle());
-
 }

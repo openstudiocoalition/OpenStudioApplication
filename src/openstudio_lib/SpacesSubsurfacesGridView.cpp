@@ -416,8 +416,7 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
                           CastNullAdapter<model::SubSurface>(&model::SubSurface::adjacentSubSurface), setter,
                           boost::optional<std::function<void(model::SubSurface*)>>(NullAdapter(&model::SubSurface::resetAdjacentSubSurface)),
                           boost::optional<std::function<bool(model::SubSurface*)>>(),
-                          boost::optional<std::function<std::vector<model::ModelObject>(model::SubSurface*)>>(), 
-                          DataSource(allSubSurfaces, true));
+                          boost::optional<std::function<std::vector<model::ModelObject>(model::SubSurface*)>>(), DataSource(allSubSurfaces, true));
       } else if (field == SHADINGSURFACENAME) {
 
       } else if (field == SHADINGCONTROLNAME) {
