@@ -2,26 +2,6 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="fr_FR">
 <context>
-    <name>DesignDayGridView</name>
-    <message>
-        <source>Design Day Name</source>
-        <translation type="vanished">Jour de dimmensionnement</translation>
-    </message>
-    <message>
-        <source>All</source>
-        <translation type="vanished">Tous</translation>
-    </message>
-    <message>
-        <source>Day Of Month</source>
-        <translation type="vanished">Jour du Mois</translation>
-    </message>
-    <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="94"/>
-        <source>Sky Clearness</source>
-        <translation>Clarté du ciel</translation>
-    </message>
-</context>
-<context>
     <name>InspectorDialog</name>
     <message>
         <location filename="../src/model_editor/InspectorDialog.cpp" line="706"/>
@@ -98,22 +78,22 @@
 <context>
     <name>openstudio::DesignDayGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="199"/>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="195"/>
         <source>Date</source>
         <translation>Date</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="210"/>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="206"/>
         <source>Temperature</source>
         <translation>Température</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="219"/>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="215"/>
         <source>Humidity</source>
         <translation>Humidité</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="230"/>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="226"/>
         <source>Pressure
 Wind
 Precipitation</source>
@@ -122,12 +102,12 @@ Vent
 Précipitation</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="242"/>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="238"/>
         <source>Solar</source>
         <translation>Solaire</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="271"/>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="267"/>
         <source>Check to select all rows</source>
         <translation>Cocher pour sélectionner toutes les lignes</translation>
     </message>
@@ -142,7 +122,7 @@ Précipitation</translation>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="61"/>
         <source>All</source>
-        <translation>Tous</translation>
+        <translation>All</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="64"/>
@@ -150,13 +130,123 @@ Précipitation</translation>
         <translation>Jour du Mois</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="111"/>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="112"/>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="65"/>
+        <source>Month</source>
+        <translation>Mois</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="66"/>
+        <source>Day Type</source>
+        <translation>Type de jour</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="67"/>
+        <source>Daylight Saving Time Indicator</source>
+        <translation>Indicateur d&apos;heure d&apos;été</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="70"/>
+        <source>Maximum Dry Bulb Temperature</source>
+        <translation>Température sèche maximale</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="71"/>
+        <source>Daily Dry Bulb Temperature Range</source>
+        <translation>Plage quotidienne de température sèche</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="72"/>
+        <source>Daily Wet Bulb Temperature Range</source>
+        <translation>Plage quotidienne de température humide</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="73"/>
+        <source>Dry Bulb Temperature Range Modifier Type</source>
+        <translation>Type de modificateur de la plage quotidienne de température sèche</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="74"/>
+        <source>Dry Bulb Temperature Range Modifier Schedule</source>
+        <translation>Calendrier modificateur de la plage quotidienne de température sèche</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="77"/>
+        <source>Humidity Indicating Conditions At Maximum Dry Bulb</source>
+        <translation>Conditions de l&apos;indicateur d&apos;humidité au maximum de la température sèche</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="78"/>
+        <source>Humidity Indicating Type</source>
+        <translation>Type d&apos;indicateur d&apos;humidité</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="79"/>
+        <source>Humidity Indicating Day Schedule</source>
+        <translation>Calendrier journalier d&apos;indicateur d&apos;humidité</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="82"/>
+        <source>Barometric Pressure</source>
+        <translation>Pression atmosphérique</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="83"/>
+        <source>Wind Speed</source>
+        <translation>Vitesse du vent</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="84"/>
+        <source>Wind Direction</source>
+        <translation>Direction du vent</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="85"/>
+        <source>Rain Indicator</source>
+        <translation>Indicateur de pluie</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="86"/>
+        <source>Snow Indicator</source>
+        <translation>Indicateur de neige</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="89"/>
+        <source>Solar Model Indicator</source>
+        <translation>Modèle solaire</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="90"/>
+        <source>Beam Solar Day Schedule</source>
+        <translation>Calendrier journalier du faisceau solaire (Beam)</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="91"/>
+        <source>Diffuse Solar Day Schedule</source>
+        <translation>Calendrier journalier du rayonnement diffuss (Beam)</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="92"/>
+        <source>ASHRAE Taub</source>
+        <translation>ASHRAE Taub</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="93"/>
+        <source>ASHRAE Taud</source>
+        <translation>ASHRAE Taud</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="94"/>
+        <source>Sky Clearness</source>
+        <translation>Clarté du ciel</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="107"/>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="108"/>
         <source>Design Days</source>
         <translation>Jour de dimensionnement</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="112"/>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="108"/>
         <source>Drop
 Zone</source>
         <translation>Zone de dépôt</translation>
@@ -1061,164 +1151,176 @@ Souhaitez-vous restaurer les chemins de bibliothèque aux valeurs par défaut ou
 <context>
     <name>openstudio::YearSettingsWidget</name>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="80"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="81"/>
         <source>Select Year by:</source>
         <translation>Choisir Année par : </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="92"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="93"/>
         <source>Calendar Year</source>
         <translation>Année calendaire</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="105"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="106"/>
         <source>First Day of Year</source>
         <translation>Premier jour de l&apos;année</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="131"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="129"/>
         <source>Daylight Savings Time:</source>
         <translation>Heure d&apos;été :</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="149"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="147"/>
         <source>Starts</source>
         <translation>Début</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="155"/>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="184"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="153"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="182"/>
         <source>Define by Day of The Week And Month</source>
         <translation>Définir par Jour de la semaine et Mois</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="168"/>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="197"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="166"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="195"/>
         <source>Define by Date</source>
         <translation>Définir par Date</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="178"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="176"/>
         <source>Ends</source>
         <translation>Fin</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="515"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="509"/>
         <source>First</source>
         <translation>Premier</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="515"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="509"/>
         <source>Second</source>
         <translation>Deuxième</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="515"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="509"/>
         <source>Third</source>
         <translation>Troisième</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="515"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="509"/>
         <source>Fourth</source>
         <translation>Quatrième</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="515"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="509"/>
         <source>Last</source>
         <translation>Dernier</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="521"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="518"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="532"/>
         <source>Monday</source>
         <translation>Lundi</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="522"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="519"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="533"/>
         <source>Tuesday</source>
         <translation>Mardi</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="523"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="520"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="534"/>
         <source>Wednesday</source>
         <translation>Mercredi</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="524"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="521"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="535"/>
         <source>Thursday</source>
         <translation>Jeudi</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="525"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="522"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="536"/>
         <source>Friday</source>
         <translation>Vendredi</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="526"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="523"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="537"/>
         <source>Saturday</source>
         <translation>Samedi</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="527"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="517"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="538"/>
         <source>Sunday</source>
         <translation>Dimanche</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="535"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="524"/>
+        <source>UseWeatherFile</source>
+        <translation>Utiliser Fichier Météo</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="546"/>
         <source>January</source>
         <translation>Janvier</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="536"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="547"/>
         <source>February</source>
         <translation>Février</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="537"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="548"/>
         <source>March</source>
         <translation>Mars</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="538"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="549"/>
         <source>April</source>
         <translation>Avril</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="539"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="550"/>
         <source>May</source>
         <translation>Mai</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="540"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="551"/>
         <source>June</source>
         <translation>Juin</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="541"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="552"/>
         <source>July</source>
         <translation>Juillet</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="542"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="553"/>
         <source>August</source>
         <translation>Août</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="543"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="554"/>
         <source>September</source>
         <translation>Septembre</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="544"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="555"/>
         <source>October</source>
         <translation>Octobre</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="545"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="556"/>
         <source>November</source>
         <translation>Novembre</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="546"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="557"/>
         <source>December</source>
         <translation>Décembre</translation>
     </message>

@@ -68,6 +68,8 @@ class YearSettingsWidget : public QWidget, public Nano::Observer
   // A list of the months.
   static QStringList months();
 
+  static QStringList validDayofWeekforStartDay();
+
   YearSettingsWidget(const model::Model& model, QWidget* parent = nullptr);
 
   bool calendarYearChecked();

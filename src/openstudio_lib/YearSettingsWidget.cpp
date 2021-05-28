@@ -55,6 +55,7 @@
 #include <QLabel>
 #include <QPushButton>
 #include <QTimer>
+#include <QDebug>
 
 namespace openstudio {
 
@@ -107,10 +108,7 @@ YearSettingsWidget::YearSettingsWidget(const model::Model& model, QWidget* paren
   yearButtonGroup->addButton(m_firstDayOfYearButton);
   connect(m_firstDayOfYearButton, &QRadioButton::clicked, this, &YearSettingsWidget::onFirstDayofYearClicked);
   m_firstDayOfYearEdit = new OSComboBox2();
-  std::vector<std::string> dayOfWeekValues = model::YearDescription::validDayofWeekforStartDayValues();
-  for (const auto dayOfWeekValue : dayOfWeekValues) {
-    m_firstDayOfYearEdit->addItem(QString::fromStdString(dayOfWeekValue));
-  }
+  m_firstDayOfYearEdit->addItems(validDayofWeekforStartDay());
   connect(m_firstDayOfYearEdit, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentTextChanged), this,
           &YearSettingsWidget::firstDayofYearSelected);
   yearGridLayout->addWidget(m_firstDayOfYearEdit, 1, 1);
@@ -318,16 +316,12 @@ void YearSettingsWidget::refresh() {
 
       m_calendarYearEdit->setEnabled(false);
 
-      unsigned dayOfWeekIndex = 0;
 
       std::string dayOfWeekString = m_yearDescription->dayofWeekforStartDay();
-
-      std::vector<std::string> dayOfWeekValues = model::YearDescription::validDayofWeekforStartDayValues();
-
-      for (dayOfWeekIndex = 0; dayOfWeekIndex < dayOfWeekValues.size(); dayOfWeekIndex++) {
-        if (istringEqual(dayOfWeekValues[dayOfWeekIndex], dayOfWeekString)) {
-          break;
-        }
+      auto dayOfWeekIndex =  validDayofWeekforStartDay().indexOf(toQString(dayOfWeekString));
+      if (dayOfWeekIndex < 0) {
+        qDebug() << "Not found: " << toQString(dayOfWeekString);
+        dayOfWeekIndex = 7; // Default UseWeatherFile
       }
 
       m_firstDayOfYearEdit->blockSignals(true);
@@ -516,6 +510,23 @@ QStringList YearSettingsWidget::weeksInMonth() {
   return result;
 }
 
+QStringList YearSettingsWidget::validDayofWeekforStartDay() {
+
+  // Similar to model::YearDescription::validDayofWeekforStartDayValues(), but we need to be able to translate them
+  QStringList result  = {
+    tr("Sunday"),
+    tr("Monday"),
+    tr("Tuesday"),
+    tr("Wednesday"),
+    tr("Thursday"),
+    tr("Friday"),
+    tr("Saturday"),
+    tr("UseWeatherFile")
+  };
+
+  return result;
+
+}
 QStringList YearSettingsWidget::daysOfWeek() {
   QStringList result  = {
     tr("Monday"),
