@@ -1412,19 +1412,6 @@ bool OpenStudioApp::switchLanguage(const QString& rLanguage) {
   QLocale::setDefault(loc);
   // QString languageName = QLocale::languageToString(loc.language());
 
-  // remove the old translator
-  this->removeTranslator(&m_translator);
-
-  if (m_translator.load(loc, QLatin1String("OpenStudioApp"), QLatin1String("_"), QString(":/translations/"))) {
-    qDebug() << "\n\n\INSTALLING lang = " << QLocale::languageToString(loc.language()) << "\n\n\n";
-
-    this->installTranslator(&m_translator);
-  } else {
-    qDebug() << "\n\n\nFAILED TO INSTALL TRANSLATOR for lang = " << QLocale::languageToString(loc.language()) << "\n\n\n";
-    return false;
-  }
-
-
   this->removeTranslator(&m_qtTranslator);
   if (m_qtTranslator.load(loc, QLatin1String("qt"), QLatin1String("_"), QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
   {
@@ -1437,6 +1424,22 @@ bool OpenStudioApp::switchLanguage(const QString& rLanguage) {
   {
     qDebug() << "m_qtBaseTranslator ok";
     this->installTranslator(&m_qtBaseTranslator);
+  }
+
+  // remove the old translator
+  this->removeTranslator(&m_translator);
+
+  if (m_translator.load(loc, QLatin1String("OpenStudioApp"), QLatin1String("_"), QLibraryInfo::location(QLibraryInfo::TranslationsPath))) {
+    qDebug() << "\n\n\nNSTALLING lang = " << QLocale::languageToString(loc.language()) << "\n\n\n";
+
+    this->installTranslator(&m_translator);
+  } else {
+    if (m_currLang != "en") {
+      qDebug() << "\n\n\nFAILED TO INSTALL TRANSLATOR for lang = " << QLocale::languageToString(loc.language()) << "\n\n\n";
+      return false;
+    } else {
+      qDebug() << "\n\n\nNO TRANSLATOR NEEDED for lang = " << QLocale::languageToString(loc.language()) << "\n\n\n";
+    }
   }
 
   return true;

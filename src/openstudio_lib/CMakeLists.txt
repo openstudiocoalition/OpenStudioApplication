@@ -710,8 +710,7 @@ set(${target_name}_moc
 set(TS_FILES
   ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_fr.ts
 )
-
-set_source_files_properties(${TS_FILES} PROPERTIES OUTPUT_LOCATION ${PROJECT_SOURCE_DIR}/translations)
+#set_source_files_properties(${TS_FILES} PROPERTIES OUTPUT_LOCATION $<TARGET_FILE_DIR:${target_name}>/translations)
 
 qt5_create_translation(QM_FILES
   ${PROJECT_SOURCE_DIR}
@@ -742,7 +741,12 @@ add_library(${target_name}
   ${${target_name}_moc_src}
   ${${target_name}_moc}
   ${${target_name}_qrcs}
-  ${QM_FILES}
+  #${QM_FILES}
+)
+
+add_custom_command(TARGET ${target_name}
+  POST_BUILD
+  COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QM_FILES} $<TARGET_FILE_DIR:${target_name}>/translations
 )
 
 if (NINJA)

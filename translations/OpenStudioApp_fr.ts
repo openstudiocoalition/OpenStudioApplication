@@ -959,7 +959,7 @@ Zone</source>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="887"/>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1430"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1447"/>
         <source>(*.osm)</source>
         <translation>(*.osm)</translation>
     </message>
@@ -1071,16 +1071,16 @@ Voulez-vous créer un nouveau modèle ?</translation>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1396"/>
         <source>A restart of the OpenStudio Application is required for language changes to be fully functionnal.
 Would you like to restart now?</source>
-        <translation>Un Redémarrage de l'OpenStudio Application est requis pour que le changement de langue soit complètement fonctionnel.
+        <translation>Un Redémarrage de l&apos;OpenStudio Application est requis pour que le changement de langue soit complètement fonctionnel.
 Souhaitez-vous redémarrer maintenant ?</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1430"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1447"/>
         <source>Select Library</source>
         <translation>Selectionner la Librairie</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1484"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1501"/>
         <source>Failed to load the following libraries...
 
 </source>
@@ -1089,7 +1089,7 @@ Souhaitez-vous redémarrer maintenant ?</translation>
 </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1492"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1509"/>
         <source>
 
 Would you like to Restore library paths to default values or Open the library settings to change them manually?</source>

@@ -295,6 +295,7 @@ void MainWindow::toggleUnits(bool displayIP) {
 
 void MainWindow::changeLanguage(const QString& rLanguage) {
   m_currLang = rLanguage;
+  writeSettings();
 }
 
 void MainWindow::configureProxyClicked() {
