@@ -1238,134 +1238,134 @@ Souhaitez-vous restaurer les chemins de bibliothèque aux valeurs par défaut ou
         <translation>Fin</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="505"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="509"/>
         <source>First</source>
         <translation>Premier</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="505"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="509"/>
         <source>Second</source>
         <translation>Deuxième</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="505"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="509"/>
         <source>Third</source>
         <translation>Troisième</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="505"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="509"/>
         <source>Fourth</source>
         <translation>Quatrième</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="505"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="509"/>
         <source>Last</source>
         <translation>Dernier</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="514"/>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="528"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="518"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="532"/>
         <source>Monday</source>
         <translation>Lundi</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="515"/>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="529"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="519"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="533"/>
         <source>Tuesday</source>
         <translation>Mardi</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="516"/>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="530"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="520"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="534"/>
         <source>Wednesday</source>
         <translation>Mercredi</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="517"/>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="531"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="521"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="535"/>
         <source>Thursday</source>
         <translation>Jeudi</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="518"/>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="532"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="522"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="536"/>
         <source>Friday</source>
         <translation>Vendredi</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="519"/>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="533"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="523"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="537"/>
         <source>Saturday</source>
         <translation>Samedi</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="513"/>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="534"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="517"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="538"/>
         <source>Sunday</source>
         <translation>Dimanche</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="520"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="524"/>
         <source>UseWeatherFile</source>
         <translation>Utiliser Fichier Météo</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="542"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="546"/>
         <source>January</source>
         <translation>Janvier</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="543"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="547"/>
         <source>February</source>
         <translation>Février</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="544"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="548"/>
         <source>March</source>
         <translation>Mars</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="545"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="549"/>
         <source>April</source>
         <translation>Avril</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="546"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="550"/>
         <source>May</source>
         <translation>Mai</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="547"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="551"/>
         <source>June</source>
         <translation>Juin</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="548"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="552"/>
         <source>July</source>
         <translation>Juillet</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="549"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="553"/>
         <source>August</source>
         <translation>Août</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="550"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="554"/>
         <source>September</source>
         <translation>Septembre</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="551"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="555"/>
         <source>October</source>
         <translation>Octobre</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="552"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="556"/>
         <source>November</source>
         <translation>Novembre</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="553"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="557"/>
         <source>December</source>
         <translation>Décembre</translation>
     </message>

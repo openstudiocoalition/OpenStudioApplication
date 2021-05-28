@@ -409,6 +409,7 @@ void YearSettingsWidget::refresh() {
         m_dayOfWeekAndMonthEndButton->setChecked(true);
 
         m_endWeekBox->setEnabled(true);
+        // For some <insert reason>, MonthOfYear::getValues NthDayOfWeekInMonth and starts a 1, while DayOfWeek starts at 0...
         m_endWeekBox->setCurrentIndex(endNthDayOfWeekInMonth->value() - 1);
 
         m_endDayBox->setEnabled(true);
@@ -481,10 +482,13 @@ void YearSettingsWidget::onFirstDayofYearClicked() {
 
 void YearSettingsWidget::onDstStartDayWeekMonthChanged() {
 
-  NthDayOfWeekInMonth _nth(m_startWeekBox->currentIndex() + 1);
+  auto idx = m_startWeekBox->currentIndex();
+  NthDayOfWeekInMonth _nth(m_startWeekBox->currentIndex() + 1);  // NthDayOfWeekInMonth starts at 1...
 
+  idx = m_startDayBox->currentIndex();
   DayOfWeek _dayOfWeek(m_startDayBox->currentIndex());
-  MonthOfYear _monthOfYear(m_startMonthBox->currentIndex());
+  idx = m_startMonthBox->currentIndex();
+  MonthOfYear _monthOfYear(m_startMonthBox->currentIndex() + 1);  // MonthOfYear starts at 1...
 
   emit dstStartDayOfWeekAndMonthChanged(_nth.value(), _dayOfWeek.value(), _monthOfYear.value());
 }
@@ -493,10 +497,10 @@ void YearSettingsWidget::onDstEndDayWeekMonthChanged() {
   std::string s_dayOfWeek;
   std::string s_monthOfYear;
 
-  NthDayOfWeekInMonth _nth(m_endWeekBox->currentIndex() + 1);
+  NthDayOfWeekInMonth _nth(m_endWeekBox->currentIndex() + 1); // NthDayOfWeekInMonth starts at 1...
 
   DayOfWeek _dayOfWeek(m_endDayBox->currentIndex());
-  MonthOfYear _monthOfYear(m_endMonthBox->currentIndex());
+  MonthOfYear _monthOfYear(m_endMonthBox->currentIndex() + 1); // MonthOfYear starts at 1...
 
   emit dstEndDayOfWeekAndMonthChanged(_nth.value(), _dayOfWeek.value(), _monthOfYear.value());
 }
