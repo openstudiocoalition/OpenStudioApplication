@@ -12,17 +12,28 @@ endif()
 
 project(OpenStudioApplication VERSION 1.2.0)
 
+# Check system info globally so we can use it everywhere after: Has to be done before FindOpenStudioSDK.cmake
+if(APPLE)
+  # Looking at cmake source code OS_RELEASE is already set to the output of `sw_vers -productVersion` which is what we want
+  cmake_host_system_information(RESULT OSX_VERSION QUERY OS_RELEASE)
+  message("-- OS_RELEASE variable is set to: " ${OSX_VERSION})
+  if(NOT CMAKE_OSX_DEPLOYMENT_TARGET STREQUAL "")
+    message("Using CMAKE_OSX_DEPLOYMENT_TARGET=${CMAKE_OSX_DEPLOYMENT_TARGET}")
+    set(OSX_VERSION "${CMAKE_OSX_DEPLOYMENT_TARGET}")
+  endif()
 
-# If Linux, check LSB_RELEASE globally so we can use it after
-if(UNIX AND NOT APPLE)
+  # The output is like 10.12.6 or 10.13, let's strip the end component if any
+  string(REGEX REPLACE "^([0-9]+\\.[0-9]+)\\.?.*" "\\1" OSX_VERSION_MAJOR_MINOR ${OSX_VERSION})
 
+elseif(UNIX)
+  # OS_RELEASE is the result of `uname -r` which is unhelpful (eg '5.4.0-42-generic')
   find_program(LSB_RELEASE lsb_release)
-  # -rs outputs only 18.04, or 20.04
-  execute_process(COMMAND ${LSB_RELEASE} -rs
-    OUTPUT_VARIABLE LSB_RELEASE_VERSION_SHORT
-    OUTPUT_STRIP_TRAILING_WHITESPACE
-  )
-  message(STATUS "LSB_RELEASE_VERSION_SHORT = ${LSB_RELEASE_VERSION_SHORT}")
+  # -rs outputs only 16.04, or 18.04
+  execute_process(COMMAND ${LSB_RELEASE} -rs OUTPUT_VARIABLE LSB_RELEASE_VERSION_SHORT OUTPUT_STRIP_TRAILING_WHITESPACE)
+
+  # -is outputs "Ubuntu" or "Fedora"
+  execute_process(COMMAND ${LSB_RELEASE} -is OUTPUT_VARIABLE LSB_RELEASE_ID_SHORT OUTPUT_STRIP_TRAILING_WHITESPACE)
+
 endif()
 
 # set openstudio_DIR to the directory that contains the openstudioConfig.cmake
@@ -216,7 +227,7 @@ endif()
 
 # TODO: Modify the more specific variables as needed to indicate prerelease, etc
 # Keep in beta in-between release cycles. Set to empty string (or comment out) for official)
-set(PROJECT_VERSION_PRERELEASE "alpha")
+set(PROJECT_VERSION_PRERELEASE "rc3")
 
 # OpenStudio version: Only include Major.Minor.Patch, eg "3.0.0", even if you have a prerelease tag
 set(OPENSTUDIOAPPLICATION_VERSION "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}")
@@ -245,7 +256,7 @@ endif()
 
 if(UNIX AND NOT APPLE)
   # the RPATH to be used when installing
-  set(CMAKE_INSTALL_RPATH "$ORIGIN/../lib")
+  set(CMAKE_INSTALL_RPATH "$ORIGIN")
 endif()
 
 option(BUILD_PACKAGE "Build package" OFF)
@@ -573,9 +584,18 @@ if(NOT APPLE)
       list(APPEND QT_PLUGINS Qt5::QXcbIntegrationPlugin)
       # This one doesn't end up in bin/platforms/, but in bin/xcbglintegrations/ so do not append, will be treated separately
       # list(APPEND QT_PLUGINS Qt5::QXcbGlxIntegrationPlugin)
-      find_library(QT_QXCBQPA NAMES libQt5XcbQpa.so PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
+      find_library(QT_QXCBQPA NAMES libQt5XcbQpa.so.${QT_VERSION} PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
 
-      list(APPEND QT_EXTRA_LIBS ${QT_QXCBQPA})
+      find_library(QT_ICU icui18n REQUIRED PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
+      find_library(QT_ICUDATA icudata REQUIRED PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
+      find_library(QT_ICUUC icuuc REQUIRED PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
+      set(QT_ICU_LIBS
+        ${QT_ICU}
+        ${QT_ICUDATA}
+        ${QT_ICUUC}
+        )
+
+      list(APPEND QT_EXTRA_LIBS ${QT_QXCBQPA} ${QT_ICU_LIBS})
     endif()
 endif()
 
@@ -730,7 +750,8 @@ install(DIRECTORY "${openstudio_ROOT_DIR}/Radiance" DESTINATION "." COMPONENT "O
 install(DIRECTORY "${openstudio_ROOT_DIR}/Ruby" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
 install(DIRECTORY "${openstudio_ROOT_DIR}/EnergyPlus" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
 install(DIRECTORY "${openstudio_ROOT_DIR}/Examples" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
-install(DIRECTORY "${openstudio_ROOT_DIR}/lib" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
+# I don't see any point shipping libopenstudiolib in `lib/` when it's already installed in ./bin/ via fixup_bundle
+#install(DIRECTORY "${openstudio_ROOT_DIR}/lib" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
 
 install(PROGRAMS ${os_cli_location} DESTINATION bin COMPONENT "CLI" RENAME "${os_cli_install_name}")
 
@@ -753,10 +774,20 @@ set(CPACK_PACKAGE_VERSION_PATCH ${OpenStudioApplication_VERSION_PATCH})
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "OpenStudioApplication ${OpenStudioApplication_VERSION}, based on openstudio (core) ${OPENSTUDIO_VERSION}. OpenStudio is a cross-platform collection of software tools to support whole building energy modeling using EnergyPlus and advanced daylight analysis using Radiance")
 
 # The actual package file name on disk
-set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${OPENSTUDIOAPPLICATION_LONG_VERSION}-${CMAKE_SYSTEM_NAME}")
-if(LSB_RELEASE_VERSION_SHORT MATCHES "20.04")
-  set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${OPENSTUDIOAPPLICATION_LONG_VERSION}-${CMAKE_SYSTEM_NAME}20.04")
+if(APPLE)
+  include(CMake/TargetArch.cmake)
+  target_architecture(TARGET_ARCH)
+
+  # eg OpenStudioApplication-1.2.0-alpha+394bbe9f8d-macOS-10.15-x86_64 (future: OpenStudioApplication-1.2.0-alpha+394bbe9f8d-macOS-11.2-arm64)
+  set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${OPENSTUDIOAPPLICATION_LONG_VERSION}-macOS${OSX_VERSION_MAJOR_MINOR}-${TARGET_ARCH}")
+elseif(UNIX)
+  # eg: OpenStudioApplication-1.2.0-alpha+394bbe9f8d-Ubuntu18.04
+  set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${OPENSTUDIOAPPLICATION_LONG_VERSION}-${LSB_RELEASE_ID_SHORT}${LSB_RELEASE_VERSION_SHORT}")
+else()
+  # eg: OpenStudioApplication-1.2.0-alpha+394bbe9f8d-Windows
+  set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${OPENSTUDIOAPPLICATION_LONG_VERSION}-${CMAKE_SYSTEM_NAME}")
 endif()
+
 set(CPACK_PACKAGE_CONTACT "openstudio@nrel.gov")
 
   # Install additional Documents, such as release notes
@@ -899,7 +930,6 @@ cpack_add_component(Libraries
   HIDDEN
 )
 
-message("CMAKE_CPACK_COMMAND=${CMAKE_CPACK_COMMAND}")
 add_custom_target(PACKAGE_DEBUG
   COMMAND ${CMAKE_CPACK_COMMAND} --debug --verbose --config CPackConfig.cmake
   COMMENTS "Build package with debug and verbose output"

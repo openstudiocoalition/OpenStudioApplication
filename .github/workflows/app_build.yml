@@ -295,7 +295,7 @@ jobs:
       uses: actions/cache@v2
       with:
         path: build/
-        key: ${{ matrix.os }}-build-cache
+        key: ${{ matrix.os }}-build-cache-${{ secrets.CACHE_KEY }}
 
     - name: Did restoring the build-cache work? No
       # If the build cache wasn't found in the cache
@@ -322,7 +322,7 @@ jobs:
       uses: actions/cache@v2
       with:
         path: OpenStudio-${{ env.OS_SDK_VERSION }}
-        key: OpenStudio-SDK-${{ matrix.os }}-${{ env.OS_SDK_VERSION }}
+        key: OpenStudio-SDK-${{ matrix.os }}-${{ env.OS_SDK_VERSION }}-${{ secrets.CACHE_KEY }}
 
     - name: Did restoring the build-cache or OpenStudioSDK cache work? Yes
       # If it wasn't found in the cache
@@ -384,7 +384,7 @@ jobs:
     #  with:
     #    path: |
     #      ~/.conan
-    #    key: ${{ matrix.os }}-conan-cache-${{ env.CONAN_INSTALL_MD5 }}
+    #    key: ${{ matrix.os }}-conan-cache-${{ env.CONAN_INSTALL_MD5 }}-${{ secrets.CACHE_KEY }}
 
     - name: Did restoring the conan-cache work? No
       # If the SDK wasn't found in the cache
@@ -608,5 +608,6 @@ jobs:
       shell: bash
       run: |
         ls OpenStudioApplication-*
-        /bin/rm OpenStudioApplication-*${{ env.PLATFORM_NAME }}*
+        /bin/rm OpenStudioApplication-*${{ env.COMPRESSED_EXT }} || true
+        /bin/rm OpenStudioApplication-*${{ env.BINARY_EXT }} || true
         ls OpenStudioApplication-* || true

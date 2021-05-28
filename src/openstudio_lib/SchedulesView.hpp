@@ -110,6 +110,8 @@ class OSCheckBox;
 
 class OSCheckBox2;
 
+class OSGreyCheckBox2;
+
 class OSLineEdit2;
 
 class ScheduleDayView;
@@ -650,19 +652,19 @@ class ScheduleRuleView : public QWidget, public Nano::Observer
 
   boost::optional<model::YearDescription> m_yearDescription;
 
-  OSCheckBox2* m_sundayButton;
+  OSGreyCheckBox2* m_sundayButton;
 
-  OSCheckBox2* m_mondayButton;
+  OSGreyCheckBox2* m_mondayButton;
 
-  OSCheckBox2* m_tuesdayButton;
+  OSGreyCheckBox2* m_tuesdayButton;
 
-  OSCheckBox2* m_wednesdayButton;
+  OSGreyCheckBox2* m_wednesdayButton;
 
-  OSCheckBox2* m_thursdayButton;
+  OSGreyCheckBox2* m_thursdayButton;
 
-  OSCheckBox2* m_fridayButton;
+  OSGreyCheckBox2* m_fridayButton;
 
-  OSCheckBox2* m_saturdayButton;
+  OSGreyCheckBox2* m_saturdayButton;
 
   OSLineEdit2* m_nameEditField;
 

@@ -190,7 +190,10 @@ elseif( UNIX )
   endforeach()
 
   foreach(LIB_LOCATION ${QT_LIB_LOCATIONS} ${QT_EXTRA_LIBS})
-    get_filename_component(LIB_BASE_NAME ${LIB_LOCATION} NAME)
+    # In case we grabed "xx.so", it'll be resolved to "xx.so.X.Y.Z" as we expect
+    get_filename_component(LIB_LOCATION_RESOLVED "${LIB_LOCATION}" REALPATH)
+
+    get_filename_component(LIB_BASE_NAME ${LIB_LOCATION_RESOLVED} NAME)
     string(REGEX REPLACE "\\.[^.]*$" "" LIB_MAJOR_MINOR_NAME ${LIB_BASE_NAME})
     string(REGEX REPLACE "\\.[^.]*$" "" LIB_MAJOR_NAME ${LIB_MAJOR_MINOR_NAME})
 
@@ -198,7 +201,7 @@ elseif( UNIX )
 
     add_custom_command(TARGET ${target_name}
       POST_BUILD
-      COMMAND ${CMAKE_COMMAND} -E copy_if_different ${LIB_LOCATION} $<TARGET_FILE_DIR:${target_name}>/
+      COMMAND ${CMAKE_COMMAND} -E copy_if_different ${LIB_LOCATION_RESOLVED} $<TARGET_FILE_DIR:${target_name}>/
       COMMAND ln -sf "${LIB_BASE_NAME}" "$<TARGET_FILE_DIR:${target_name}>/${LIB_MAJOR_MINOR_NAME}"
       COMMAND ln -sf "${LIB_BASE_NAME}" "$<TARGET_FILE_DIR:${target_name}>/${LIB_MAJOR_NAME}"
       COMMAND patchelf --set-rpath "$ORIGIN/." $<TARGET_FILE_DIR:${target_name}>/${LIB_BASE_NAME}
@@ -215,10 +218,18 @@ elseif( UNIX )
 
   add_custom_command(TARGET ${target_name}
     POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${icudtl} $<TARGET_FILE_DIR:${target_name}>/
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources} $<TARGET_FILE_DIR:${target_name}>/
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_100} $<TARGET_FILE_DIR:${target_name}>/
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_200} $<TARGET_FILE_DIR:${target_name}>/ )
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_CURRENT_SOURCE_DIR}/qt.conf $<TARGET_FILE_DIR:${target_name}>
+    COMMAND ${CMAKE_COMMAND} -E make_directory $<TARGET_FILE_DIR:${target_name}>/resources/
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${icudtl} $<TARGET_FILE_DIR:${target_name}>/resources/
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources} $<TARGET_FILE_DIR:${target_name}>/resources/
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_100} $<TARGET_FILE_DIR:${target_name}>/resources/
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_200} $<TARGET_FILE_DIR:${target_name}>/resources/
+    #COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/translations $<TARGET_FILE_DIR:${target_name}>/translations/
+    # Copying just one locale is enough to shut the annoying console warning...
+    COMMAND ${CMAKE_COMMAND} -E make_directory $<TARGET_FILE_DIR:${target_name}>/translations/
+    COMMAND ${CMAKE_COMMAND} -E make_directory $<TARGET_FILE_DIR:${target_name}>/translations/qtwebengine_locales
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qtwebengine_locales/en-US.pak $<TARGET_FILE_DIR:${target_name}>/translations/qtwebengine_locales/
+  )
 
   # TODO: not sure if chrpath is needed
   add_custom_command(TARGET ${target_name}
@@ -255,10 +266,18 @@ elseif( WIN32 )
 
   add_custom_command(TARGET ${target_name}
     POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${icudtl} $<TARGET_FILE_DIR:${target_name}>/
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources} $<TARGET_FILE_DIR:${target_name}>/
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_100} $<TARGET_FILE_DIR:${target_name}>/
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_200} $<TARGET_FILE_DIR:${target_name}>/ )
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_CURRENT_SOURCE_DIR}/qt.conf $<TARGET_FILE_DIR:${target_name}>
+    COMMAND ${CMAKE_COMMAND} -E make_directory $<TARGET_FILE_DIR:${target_name}>/resources/
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${icudtl} $<TARGET_FILE_DIR:${target_name}>/resources/
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources} $<TARGET_FILE_DIR:${target_name}>/resources/
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_100} $<TARGET_FILE_DIR:${target_name}>/resources/
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_200} $<TARGET_FILE_DIR:${target_name}>/resources/
+    #COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/translations $<TARGET_FILE_DIR:${target_name}>/translations/
+    # Copying just one locale is enough to shut the annoying console warning...
+    COMMAND ${CMAKE_COMMAND} -E make_directory $<TARGET_FILE_DIR:${target_name}>/translations/
+    COMMAND ${CMAKE_COMMAND} -E make_directory $<TARGET_FILE_DIR:${target_name}>/translations/qtwebengine_locales
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qtwebengine_locales/en-US.pak $<TARGET_FILE_DIR:${target_name}>/translations/qtwebengine_locales/
+  )
 
   add_custom_command(TARGET ${target_name}
     POST_BUILD
@@ -331,10 +350,15 @@ endif()
 
 # since on apple the whole app bundle is installed (including these webkit components) we can exclude apple
 if( NOT APPLE )
-  install(FILES ${icudtl} DESTINATION bin COMPONENT OpenStudioApp )
-  install(FILES ${qweb_resources} DESTINATION bin COMPONENT OpenStudioApp )
-  install(FILES ${qweb_resources_100} DESTINATION bin COMPONENT OpenStudioApp )
-  install(FILES ${qweb_resources_200} DESTINATION bin COMPONENT OpenStudioApp )
+
+  install(FILES $<TARGET_FILE_DIR:${target_name}>/qt.conf DESTINATION bin COMPONENT OpenStudioApp)
+  # install(DIRECTORY ${QT_INSTALL_DIR}/translations DESTINATION bin COMPONENT OpenStudioApp)
+  install(DIRECTORY $<TARGET_FILE_DIR:${target_name}>/translations/ DESTINATION bin/translations/ COMPONENT OpenStudioApp)
+  install(DIRECTORY $<TARGET_FILE_DIR:${target_name}>/resources/ DESTINATION bin/resources/ COMPONENT OpenStudioApp)
+  # install(FILES ${icudtl} DESTINATION bin/resources COMPONENT OpenStudioApp )/translatio
+  # install(FILES ${qweb_resources} DESTINATION bin/resources COMPONENT OpenStudioApp )
+  # install(FILES ${qweb_resources_100} DESTINATION bin/resources COMPONENT OpenStudioApp )
+  # install(FILES ${qweb_resources_200} DESTINATION bin/resources COMPONENT OpenStudioApp )
   if(WIN32)
     install(TARGETS OpenStudioApp DESTINATION bin COMPONENT OpenStudioApp )
 
@@ -380,18 +404,17 @@ if( APPLE )
   list(APPEND QTPLUGINS "\${CMAKE_INSTALL_PREFIX}/OpenStudioApp.app/Contents/Frameworks/QtWebEngineCore.framework/Versions/5/Helpers/QtWebEngineProcess.app/Contents/MacOS/QtWebEngineProcess")
 endif()
 
-if(WIN32 OR APPLE)
-  install(CODE "
-    # APPS might be a symbolic link which does not work with fixup_bundle
-    # expand APPS to a real path
-    get_filename_component(APPS_EXPANDED ${APPS} REALPATH)
-    include(BundleUtilities)
-    # This file defines some libs we are excluding. Some like concrt140.dll are installed already via InstallRequiredSystemLibraries
-    include(\"${CMAKE_SOURCE_DIR}/CMake/FixupBundleOverrides.cmake\")
-    fixup_bundle(\"\${APPS_EXPANDED}\" \"${QTPLUGINS}\" \"${DIRS}\")
-    " COMPONENT "OpenStudioApp"
-  )
-endif()
+# This does some "magic" **including on Linux** (cf #345) (On linux it will install in ./bin/ the libopenstudio.so, and libicu* stuff)
+install(CODE "
+  # APPS might be a symbolic link which does not work with fixup_bundle
+  # expand APPS to a real path
+  get_filename_component(APPS_EXPANDED ${APPS} REALPATH)
+  include(BundleUtilities)
+  # This file defines some libs we are excluding. Some like concrt140.dll are installed already via InstallRequiredSystemLibraries
+  include(\"${CMAKE_SOURCE_DIR}/CMake/FixupBundleOverrides.cmake\")
+  fixup_bundle(\"\${APPS_EXPANDED}\" \"${QTPLUGINS}\" \"${DIRS}\")
+  " COMPONENT "OpenStudioApp"
+)
 
 set(${target_name}_test_src
   test/OpenStudioAppFixture.hpp
