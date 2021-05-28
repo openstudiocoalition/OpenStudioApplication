@@ -586,7 +586,16 @@ if(NOT APPLE)
       # list(APPEND QT_PLUGINS Qt5::QXcbGlxIntegrationPlugin)
       find_library(QT_QXCBQPA NAMES libQt5XcbQpa.so.${QT_VERSION} PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
 
-      list(APPEND QT_EXTRA_LIBS ${QT_QXCBQPA})
+      find_library(QT_ICU icui18n REQUIRED PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
+      find_library(QT_ICUDATA icudata REQUIRED PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
+      find_library(QT_ICUUC icuuc REQUIRED PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
+      set(QT_ICU_LIBS
+        ${QT_ICU}
+        ${QT_ICUDATA}
+        ${QT_ICUUC}
+        )
+
+      list(APPEND QT_EXTRA_LIBS ${QT_QXCBQPA} ${QT_ICU_LIBS})
     endif()
 endif()
 
