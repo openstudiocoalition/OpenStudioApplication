@@ -713,93 +713,99 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="509"/>
         <source>&apos; while OpenStudio uses an &lt;strong&gt;older&lt;/strong&gt; EnergyPlus &apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>&apos; tandis qu&apos;OpenStudio utilise une version &lt;strong&gt;plus ancienne&lt;/strong&gt; d&apos;EnergyPlus &apos;</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="510"/>
         <source>&apos;.</source>
-        <translation type="unfinished"></translation>
+        <translation>&apos;.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="512"/>
         <source>&apos; which is the &lt;strong&gt;same&lt;/strong&gt; version of EnergyPlus that OpenStudio uses (</source>
-        <translation type="unfinished"></translation>
+        <translation>&apos; qui est la &lt;strong&gt;même&lt;/strong&gt; version d&apos;EnergyPlus qu&apos;OpenStudio utilise (</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="516"/>
         <source>&lt;strong&gt;The IDF does not have a VersionObject&lt;/strong&gt;. Check that it is of correct version (</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;Le fichier IDF n&apos;a pas de VersionObject&lt;/strong&gt;. Vérifiez qu&apos;il utilise bien la bonne version (</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="517"/>
         <source>) and that all fields are valid against Energy+.idd. </source>
-        <translation type="unfinished"></translation>
+        <translation>) et que tous les champs sont valides par rapport à Energy+.idd. </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="520"/>
         <source>&lt;br/&gt;&lt;br/&gt;The ValidityReport follows.</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&lt;br/&gt;The rapport de validité (ValidityReport) suit.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="522"/>
         <source>&lt;strong&gt;File is not valid to draft strictness&lt;/strong&gt;. Check that all fields are valid against Energy+.idd.</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;Le fichier n&apos;est pas valide au niveau Draft&lt;/strong&gt;. Vérifiez que tous les champs sont valides par rapport à Energy+.idd.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="528"/>
         <source> IDF Import Failed</source>
-        <translation type="unfinished"></translation>
+        <translation> Import de l&apos;IDF raté</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="603"/>
         <source>=============== Errors ===============
 
 </source>
-        <translation type="unfinished"></translation>
+        <translation>=============== Erreurs ===============
+
+</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="611"/>
         <source>============== Warnings ==============
 
 </source>
-        <translation type="unfinished"></translation>
+        <translation>============== Avertissements ==============
+
+</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="619"/>
         <source>==== The following idf objects were not imported ====
 
 </source>
-        <translation type="unfinished"></translation>
+        <translation>==== Les objets IDF suivants n&apos;ont pas été importés ====
+
+</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="624"/>
         <source> named </source>
-        <translation type="unfinished"></translation>
+        <translation> nommé </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="626"/>
         <source>Unnamed </source>
-        <translation type="unfinished"></translation>
+        <translation>Sans nom </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="632"/>
         <source>&lt;strong&gt;Some portions of the IDF file were not imported.&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;Certaines portions de l&apos;IDF n&apos;ont pas été importées.&lt;/strong&gt;</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="638"/>
         <source>IDF Import</source>
-        <translation type="unfinished"></translation>
+        <translation>Import IDF</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="641"/>
         <source>Only geometry, constructions, loads, thermal zones, and schedules are supported by the OpenStudio IDF import feature.</source>
-        <translation type="unfinished"></translation>
+        <translation>Seules les informations de géométrie, constructions, gains, zone thermiques, et calendriers sont supportés par l&apos;import IDF d&apos;OpenStudio.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="706"/>
         <source>Import </source>
-        <translation type="unfinished"></translation>
+        <translation>Import </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="713"/>
@@ -809,17 +815,17 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="773"/>
         <source>Errors or warnings occurred on import of </source>
-        <translation type="unfinished"></translation>
+        <translation>Des erreurs or avertissements ont été émis pendant l&apos;import du </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="783"/>
         <source>Could not import SDD file.</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossible d&apos;importer le fichier SDD.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="785"/>
         <source>Could not import </source>
-        <translation type="unfinished"></translation>
+        <translation>Impossible d&apos;importer </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="785"/>
@@ -911,7 +917,8 @@ Zone</source>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1151"/>
         <source>Existing Ruby scripts have been removed.
 Ruby scripts are no longer supported and have been replaced by measures.</source>
-        <translation type="unfinished"></translation>
+        <translation>Les scripts Ruby ont été supprimés.
+Les scrips Ruby sont désormais obsolètes et ont été remplacés par les Mesures.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1158"/>
