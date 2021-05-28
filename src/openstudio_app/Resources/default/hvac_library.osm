@@ -12404,3 +12404,18 @@ OS:Curve:Quartic,
   Dimensionless,                          !- Input Unit Type for X
   Dimensionless;                          !- Output Unit Type
 
+OS:Humidifier:Steam:Gas,
+  {f60187e2-d000-4c53-a0d3-3394f2350dd2}, !- Handle
+  Humidifier Steam Gas,                   !- Name
+  {9f54092d-a4a8-41b8-a381-c4c332ecb843}, !- Availability Schedule Name
+  autosize,                               !- Rated Capacity {m3/s}
+  104000,                                 !- Rated Gas Use Rate {W}
+  ,                                       !- Thermal Efficiency {dimensionless}
+  ,                                       !- Thermal Efficiency Modifier Curve Name
+  ,                                       !- Rated Fan Power {W}
+  ,                                       !- Auxiliary Electric Power {W}
+  ,                                       !- Air Inlet Node Name
+  ,                                       !- Air Outlet Node Name
+  ,                                       !- Water Storage Tank Name
+  FixedInletWaterTemperature;             !- Inlet Water Temperature Option
+
