@@ -45,6 +45,8 @@
 #include <openstudio/model/Building_Impl.hpp>
 #include <openstudio/model/BuildingStory.hpp>
 #include <openstudio/model/BuildingStory_Impl.hpp>
+#include <openstudio/model/DefaultConstructionSet.hpp>
+#include <openstudio/model/DefaultConstructionSet_Impl.hpp>
 #include <openstudio/model/PlanarSurfaceGroup.hpp>
 #include <openstudio/model/PlanarSurfaceGroup_Impl.hpp>
 #include <openstudio/model/Space.hpp>
@@ -185,6 +187,7 @@ FloorspaceEditor::FloorspaceEditor(const openstudio::path& floorplanPath, bool i
   boost::optional<model::Building> building = model.getOptionalUniqueModelObject<model::Building>();
   if (building) {
     m_originalBuildingName = building->nameString();
+    m_originalDefaultConstructionSet = building->defaultConstructionSet();
   }
 
   boost::optional<model::Site> site = model.getOptionalUniqueModelObject<model::Site>();
@@ -481,6 +484,7 @@ void FloorspaceEditor::saveExport() {
 void FloorspaceEditor::translateExport() {
   model::ThreeJSReverseTranslator rt;
   boost::optional<model::Model> model;
+  boost::optional<Handle> cloneDefaultConstructionSetHandle;
   if (m_floorplan) {
     ThreeScene scene = m_floorplan->toThreeScene(true);
     model = rt.modelFromThreeJS(scene);
@@ -490,6 +494,11 @@ void FloorspaceEditor::translateExport() {
       model::Building building = model->getUniqueModelObject<model::Building>();
       building.setName(m_originalBuildingName);
       building.setNorthAxis(-m_floorplan->northAxis());
+      if (m_originalDefaultConstructionSet && !building.defaultConstructionSet()) {
+        model::ModelObject cloneDefaultConstructionSet = m_originalDefaultConstructionSet->clone(*model);
+        cloneDefaultConstructionSetHandle = cloneDefaultConstructionSet.handle();
+        building.setDefaultConstructionSet(cloneDefaultConstructionSet.cast<model::DefaultConstructionSet>());
+      }
 
       // synchronize latitude and longitude, floorspace does not set elevation when locating on map
       model::Site site = model->getUniqueModelObject<model::Site>();
@@ -526,6 +535,9 @@ void FloorspaceEditor::translateExport() {
       m_exportModel.getUniqueModelObject<model::Facility>().handle();
     m_exportModelHandleMapping[m_model.getUniqueModelObject<model::Building>().handle()] =
       m_exportModel.getUniqueModelObject<model::Building>().handle();
+    if (m_originalDefaultConstructionSet && cloneDefaultConstructionSetHandle) {
+      m_exportModelHandleMapping[m_originalDefaultConstructionSet->handle()] = *cloneDefaultConstructionSetHandle;
+    }
 
   } else {
     // DLM: this is an error, either floorplan was empty or could not be translated
