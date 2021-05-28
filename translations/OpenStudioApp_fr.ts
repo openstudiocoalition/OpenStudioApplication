@@ -544,7 +544,7 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="167"/>
         <source>&amp;Change Default Libraries</source>
-        <translation>&amp;Changer les librairies par défaut</translation>
+        <translation>&amp;Changer les bibliothèques par défaut</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="172"/>
@@ -667,12 +667,12 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="381"/>
         <source>Loading Library Files</source>
-        <translation>Chargement des Librairies OSM</translation>
+        <translation>Chargement des Bibliothèques OSM</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="382"/>
         <source>(Manage library files in Preferences-&gt;Change default libraries)</source>
-        <translation>Gérer les fichiers Librairies dans Préférences-&gt; Modifier les Libraires par défaut)</translation>
+        <translation>Gérer les fichiers Bibliothèques dans Préférences-&gt; Modifier les Libraires par défaut)</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="399"/>
