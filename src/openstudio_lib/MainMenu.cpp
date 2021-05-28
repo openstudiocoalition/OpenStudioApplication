@@ -38,6 +38,7 @@
 #include <openstudio/utilities/core/Path.hpp>
 
 #include <QMenu>
+#include <QMessageBox>
 
 namespace openstudio {
 
@@ -189,6 +190,11 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, QWidget* p
   langMenu->addAction(m_langFrenchAction);
   connect(m_langFrenchAction, &QAction::triggered, this, &MainMenu::langFrenchClicked);
 
+  action = new QAction(tr("Add a new language"), this);
+  m_preferencesActions.push_back(action);
+  langMenu->addAction(action);
+  connect(action, &QAction::triggered, this, &MainMenu::addingNewLanguageClicked);
+
   //action = new QAction(tr("&Scan for Tools"),this);
   //m_preferencesMenu->addAction(action);
   //connect(action, &QAction::triggered, this, &MainMenu::scanForToolsClicked);
@@ -284,6 +290,14 @@ void MainMenu::langFrenchClicked() {
   m_langEnglishAction->setChecked(false);
   m_langFrenchAction->setChecked(true);
   emit changeLanguageClicked("fr");
+}
+
+void MainMenu::addingNewLanguageClicked() {
+
+   QMessageBox::information(nullptr,
+       tr("Adding a new language"),
+       tr("Adding a new language requires almost no coding skill, but it does require language skills: the only thing to do is to translate each sentence/word with the help of a dedicated software.\nIf you would like to see the OpenStudioApplication translated in your language of choice, we would welcome your help. Send an email to osc@openstudiocoalition.org specifying which language you want to add, and we will be in touch to help you get started.")
+  );
 }
 
 void MainMenu::enableRevertToSavedAction(bool enable) {

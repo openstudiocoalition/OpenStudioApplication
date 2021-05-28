@@ -161,6 +161,7 @@ class MainMenu : public QMenuBar
 
   void langEnglishClicked();
   void langFrenchClicked();
+  void addingNewLanguageClicked();
 };
 
 }  // namespace openstudio
