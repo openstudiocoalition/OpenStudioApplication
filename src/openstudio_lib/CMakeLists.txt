@@ -707,6 +707,20 @@ set(${target_name}_moc
 
 )
 
+set(TS_FILES
+  ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_fr.ts
+)
+
+set_source_files_properties(${TS_FILES} PROPERTIES OUTPUT_LOCATION ${PROJECT_SOURCE_DIR}/translations)
+
+qt5_create_translation(QM_FILES
+  ${PROJECT_SOURCE_DIR}
+  ${${target_name}_SRC}
+  ${TS_FILES})
+#include_directories(SYSTEM ${RUBY_INCLUDE_DIRS})
+
+add_custom_target(translations ALL DEPENDS ${QM_FILES})
+
 # resource files
 set(${target_name}_qrc
   openstudio.qrc
@@ -718,11 +732,17 @@ qt5_wrap_cpp(${target_name}_moc_src ${${target_name}_moc})
 # generate rules for building source files from the resources
 qt5_add_resources(${target_name}_qrcs ${${target_name}_qrc})
 
+add_custom_target(resources DEPENDS ${target_name}_qrcs)
+
+add_dependencies(resources translations)
+
+
 add_library(${target_name}
   ${${target_name}_SRC}
   ${${target_name}_moc_src}
   ${${target_name}_moc}
   ${${target_name}_qrcs}
+  ${QM_FILES}
 )
 
 if (NINJA)

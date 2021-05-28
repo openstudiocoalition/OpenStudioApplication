@@ -77,7 +77,7 @@ YearSettingsWidget::YearSettingsWidget(const model::Model& model, QWidget* paren
 
   // Year
 
-  QLabel* selectYearLabel = new QLabel("Select Year by:");
+  QLabel* selectYearLabel = new QLabel(tr("Select Year by:"));
   selectYearLabel->setObjectName("H2");
   mainVLayout->addWidget(selectYearLabel);
 
@@ -89,7 +89,7 @@ YearSettingsWidget::YearSettingsWidget(const model::Model& model, QWidget* paren
 
   auto yearButtonGroup = new QButtonGroup(this);
 
-  m_calendarYearButton = new QRadioButton("Calendar Year", this);
+  m_calendarYearButton = new QRadioButton(tr("Calendar Year"), this);
   yearGridLayout->addWidget(m_calendarYearButton, 0, 0);
   yearButtonGroup->addButton(m_calendarYearButton);
   connect(m_calendarYearButton, &QRadioButton::clicked, this, &YearSettingsWidget::onCalendarYearButtonClicked);
@@ -102,7 +102,7 @@ YearSettingsWidget::YearSettingsWidget(const model::Model& model, QWidget* paren
           &YearSettingsWidget::onCalendarYearChanged);
   yearGridLayout->addWidget(m_calendarYearEdit, 0, 1);
 
-  m_firstDayOfYearButton = new QRadioButton("First Day of Year", this);
+  m_firstDayOfYearButton = new QRadioButton(tr("First Day of Year"), this);
   yearGridLayout->addWidget(m_firstDayOfYearButton, 1, 0);
   yearButtonGroup->addButton(m_firstDayOfYearButton);
   connect(m_firstDayOfYearButton, &QRadioButton::clicked, this, &YearSettingsWidget::onFirstDayofYearClicked);
@@ -128,7 +128,7 @@ YearSettingsWidget::YearSettingsWidget(const model::Model& model, QWidget* paren
   dstHLayout1->setContentsMargins(0, 0, 0, 0);
   dstHLayout1->setSpacing(10);
 
-  QLabel* dstLabel = new QLabel("Daylight Savings Time:");
+  QLabel* dstLabel = new QLabel(tr("Daylight Savings Time:"));
   dstLabel->setObjectName("H2");
   dstHLayout1->addWidget(dstLabel);
 
@@ -146,13 +146,13 @@ YearSettingsWidget::YearSettingsWidget(const model::Model& model, QWidget* paren
 
   // Starts
 
-  QLabel* startsLabel = new QLabel("Starts");
+  QLabel* startsLabel = new QLabel(tr("Starts"));
   startsLabel->setObjectName("H2");
   dstGridLayout->addWidget(startsLabel, 0, 0);
 
   auto dstStartButtonGroup = new QButtonGroup(this);
 
-  m_dayOfWeekAndMonthStartButton = new QRadioButton("Define by Day of The Week And Month", this);
+  m_dayOfWeekAndMonthStartButton = new QRadioButton(tr("Define by Day of The Week And Month"), this);
   dstStartButtonGroup->addButton(m_dayOfWeekAndMonthStartButton);
   dstGridLayout->addWidget(m_dayOfWeekAndMonthStartButton, 1, 0);
   connect(m_dayOfWeekAndMonthStartButton, &QRadioButton::clicked, this, &YearSettingsWidget::onDefineStartByDayWeekMonthClicked);
@@ -165,7 +165,7 @@ YearSettingsWidget::YearSettingsWidget(const model::Model& model, QWidget* paren
   m_startMonthBox = new OSComboBox2();
   dstGridLayout->addWidget(m_startMonthBox, 1, 3);
 
-  m_dateStartButton = new QRadioButton("Define by Date", this);
+  m_dateStartButton = new QRadioButton(tr("Define by Date"), this);
   dstStartButtonGroup->addButton(m_dateStartButton);
   dstGridLayout->addWidget(m_dateStartButton, 2, 0);
   connect(m_dateStartButton, &QRadioButton::clicked, this, &YearSettingsWidget::onDefineStartByDateClicked);
@@ -175,13 +175,13 @@ YearSettingsWidget::YearSettingsWidget(const model::Model& model, QWidget* paren
 
   // Ends
 
-  QLabel* endsLabel = new QLabel("Ends");
+  QLabel* endsLabel = new QLabel(tr("Ends"));
   endsLabel->setObjectName("H2");
   dstGridLayout->addWidget(endsLabel, 3, 0);
 
   auto dstEndButtonGroup = new QButtonGroup(this);
 
-  m_dayOfWeekAndMonthEndButton = new QRadioButton("Define by Day of The Week And Month", this);
+  m_dayOfWeekAndMonthEndButton = new QRadioButton(tr("Define by Day of The Week And Month"), this);
   dstEndButtonGroup->addButton(m_dayOfWeekAndMonthEndButton);
   dstGridLayout->addWidget(m_dayOfWeekAndMonthEndButton, 4, 0);
   connect(m_dayOfWeekAndMonthEndButton, &QRadioButton::clicked, this, &YearSettingsWidget::onDefineEndByDayWeekMonthClicked);
@@ -194,7 +194,7 @@ YearSettingsWidget::YearSettingsWidget(const model::Model& model, QWidget* paren
   m_endMonthBox = new OSComboBox2();
   dstGridLayout->addWidget(m_endMonthBox, 4, 3);
 
-  m_dateEndButton = new QRadioButton("Define by Date", this);
+  m_dateEndButton = new QRadioButton(tr("Define by Date"), this);
   dstEndButtonGroup->addButton(m_dateEndButton);
   dstGridLayout->addWidget(m_dateEndButton, 5, 0);
   connect(m_dateEndButton, &QRadioButton::clicked, this, &YearSettingsWidget::onDefineEndByDateClicked);
@@ -206,24 +206,14 @@ YearSettingsWidget::YearSettingsWidget(const model::Model& model, QWidget* paren
 
   // choices
 
-  std::vector<std::string> weeks = YearSettingsWidget::weeksInMonth();
-  std::vector<std::string> days = YearSettingsWidget::daysOfWeek();
-  std::vector<std::string> months = YearSettingsWidget::months();
+  m_startWeekBox->addItems(YearSettingsWidget::weeksInMonth());
+  m_endWeekBox->addItems(YearSettingsWidget::weeksInMonth());
 
-  for (auto it = weeks.begin(); it < weeks.end(); ++it) {
-    m_startWeekBox->addItem(QString::fromStdString(*it));
-    m_endWeekBox->addItem(QString::fromStdString(*it));
-  }
+  m_startDayBox->addItems(YearSettingsWidget::daysOfWeek());
+  m_endDayBox->addItems(YearSettingsWidget::daysOfWeek());
 
-  for (auto it = days.begin(); it < days.end(); ++it) {
-    m_startDayBox->addItem(QString::fromStdString(*it));
-    m_endDayBox->addItem(QString::fromStdString(*it));
-  }
-
-  for (auto it = months.begin(); it < months.end(); ++it) {
-    m_startMonthBox->addItem(QString::fromStdString(*it));
-    m_endMonthBox->addItem(QString::fromStdString(*it));
-  }
+  m_startMonthBox->addItems(YearSettingsWidget::months());
+  m_endMonthBox->addItems(YearSettingsWidget::months());
 
   // Stretch
 
@@ -521,44 +511,40 @@ void YearSettingsWidget::onDstEndDayWeekMonthChanged() {
   emit dstEndDayOfWeekAndMonthChanged(_nth.value(), _dayOfWeek.value(), _monthOfYear.value());
 }
 
-std::vector<std::string> YearSettingsWidget::weeksInMonth() {
-  std::vector<std::string> result(5);
+QStringList YearSettingsWidget::weeksInMonth() {
+  QStringList result = {tr("First"), tr("Second"), tr("Third"), tr("Fourth"), tr("Last")};
+  return result;
+}
 
-  result[0] = "First";
-  result[1] = "Second";
-  result[2] = "Third";
-  result[3] = "Fourth";
-  result[4] = "Last";
+QStringList YearSettingsWidget::daysOfWeek() {
+  QStringList result  = {
+    tr("Monday"),
+    tr("Tuesday"),
+    tr("Wednesday"),
+    tr("Thursday"),
+    tr("Friday"),
+    tr("Saturday"),
+    tr("Sunday")
+  };
 
   return result;
 }
 
-std::vector<std::string> YearSettingsWidget::daysOfWeek() {
-  std::vector<std::string> result;
-
-  std::map<int, std::string> nameMap = DayOfWeek::getNames();
-
-  for (auto it = nameMap.begin(); it != nameMap.end(); ++it) {
-    result.push_back(it->second);
-  }
-
-  return result;
-}
-
-std::vector<std::string> YearSettingsWidget::months() {
-  std::vector<std::string> result;
-
-  std::map<int, std::string> nameMap = MonthOfYear::getDescriptions();
-
-  for (auto it = nameMap.begin(); it != nameMap.end(); ++it) {
-    if (it->first == boost::date_time::NumMonths) {
-      // do nothing
-    } else if (it->first == boost::date_time::NotAMonth) {
-      // do nothing
-    } else {
-      result.push_back(it->second);
-    }
-  }
+QStringList YearSettingsWidget::months() {
+  QStringList result  = {
+    tr("January"),
+    tr("February"),
+    tr("March"),
+    tr("April"),
+    tr("May"),
+    tr("June"),
+    tr("July"),
+    tr("August"),
+    tr("September"),
+    tr("October"),
+    tr("November"),
+    tr("December")
+  };
 
   return result;
 }

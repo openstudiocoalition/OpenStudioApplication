@@ -57,41 +57,45 @@
 // These defines provide a common area for field display names
 // used on column headers, and other grid widgets
 
-#define NAME "Design Day Name"
-#define SELECTED "All"
+static constexpr auto NAME = QT_TRANSLATE_NOOP_UTF8("openstudio::DesignDayGridView", "Design Day Name");
+static const char * SELECTED = QT_TRANSLATE_NOOP_UTF8("openstudio::DesignDayGridView", "All");
 
 // DATE
-#define DAYOFMONTH "Day Of Month"
-#define MONTH "Month"
-#define DAYTYPE "Day Type"
-#define DAYLIGHTSAVINGTIMEINDICATOR "Daylight Saving Time Indicator"
+#define DAYOFMONTH openstudio::DesignDayGridView::tr("Day Of Month")
+static constexpr auto MONTH = QT_TR_NOOP("Month");
+static constexpr auto DAYTYPE = QT_TR_NOOP("Day Type");
+static constexpr auto DAYLIGHTSAVINGTIMEINDICATOR = QT_TR_NOOP("Daylight Saving Time Indicator");
 
 // TEMPERATURE
-#define MAXIMUMDRYBULBTEMPERATURE "Maximum Dry Bulb Temperature"
-#define DAILYDRYBULBTEMPERATURERANGE "Daily Dry Bulb Temperature Range"
-#define DAILYWETBULBTEMPERATURERANGE "Daily Wet Bulb Temperature Range"
-#define DRYBULBTEMPERATURERANGEMODIFIERTYPE "Dry Bulb Temperature Range Modifier Type"
-#define DRYBULBTEMPERATURERANGEMODIFIERSCHEDULE "Dry Bulb Temperature Range Modifier Schedule"
+static constexpr auto MAXIMUMDRYBULBTEMPERATURE = QT_TR_NOOP("Maximum Dry Bulb Temperature");
+static constexpr auto DAILYDRYBULBTEMPERATURERANGE = QT_TR_NOOP("Daily Dry Bulb Temperature Range");
+static constexpr auto DAILYWETBULBTEMPERATURERANGE = QT_TR_NOOP("Daily Wet Bulb Temperature Range");
+static constexpr auto DRYBULBTEMPERATURERANGEMODIFIERTYPE = QT_TR_NOOP("Dry Bulb Temperature Range Modifier Type");
+static constexpr auto DRYBULBTEMPERATURERANGEMODIFIERSCHEDULE = QT_TR_NOOP("Dry Bulb Temperature Range Modifier Schedule");
 
 // HUMIDITY
-#define HUMIDITYINDICATINGCONDITIONSATMAXIMUMDRYBULB "Humidity Indicating Conditions At Maximum Dry Bulb"
-#define HUMIDITYINDICATINGTYPE "Humidity Indicating Type"
-#define HUMIDITYINDICATINGDAYSCHEDULE "Humidity Indicating Day Schedule"
+static constexpr auto HUMIDITYINDICATINGCONDITIONSATMAXIMUMDRYBULB = QT_TR_NOOP("Humidity Indicating Conditions At Maximum Dry Bulb");
+static constexpr auto HUMIDITYINDICATINGTYPE = QT_TR_NOOP("Humidity Indicating Type");
+static constexpr auto HUMIDITYINDICATINGDAYSCHEDULE = QT_TR_NOOP("Humidity Indicating Day Schedule");
 
 // PRESSURE / WIND / PRECIP
-#define BAROMETRICPRESSURE "Barometric Pressure"
-#define WINDSPEED "Wind Speed"
-#define WINDDIRECTION "Wind Direction"
-#define RAININDICATOR "Rain Indicator"
-#define SNOWINDICATOR "Snow Indicator"
+static constexpr auto BAROMETRICPRESSURE = QT_TR_NOOP("Barometric Pressure");
+static constexpr auto WINDSPEED = QT_TR_NOOP("Wind Speed");
+static constexpr auto WINDDIRECTION = QT_TR_NOOP("Wind Direction");
+static constexpr auto RAININDICATOR = QT_TR_NOOP("Rain Indicator");
+static constexpr auto SNOWINDICATOR = QT_TR_NOOP("Snow Indicator");
 
 // SOLAR
-#define SOLARMODELINDICATOR "Solar Model Indicator"
-#define BEAMSOLARDAYSCHEDULE "Beam Solar Day Schedule"
-#define DIFFUSESOLARDAYSCHEDULE "Diffuse Solar Day Schedule"
-#define ASHRAETAUB "ASHRAE Taub"
-#define ASHRAETAUD "ASHRAE Taud"
-#define SKYCLEARNESS "Sky Clearness"
+static constexpr auto SOLARMODELINDICATOR = QT_TR_NOOP("Solar Model Indicator");
+static constexpr auto BEAMSOLARDAYSCHEDULE = QT_TR_NOOP("Beam Solar Day Schedule");
+static constexpr auto DIFFUSESOLARDAYSCHEDULE = QT_TR_NOOP("Diffuse Solar Day Schedule");
+static constexpr auto ASHRAETAUB = QT_TR_NOOP("ASHRAE Taub");
+static constexpr auto ASHRAETAUD = QT_TR_NOOP("ASHRAE Taud");
+#define SKYCLEARNESS DesignDayGridView::tr("Sky Clearness")
+
+//static const char* LT_FAMILY_NAME [] = {
+//  QT_TRANSLATE_NOOP_UTF8("global","Lt\xE2\x84\xA2")
+//};
 
 namespace openstudio {
 
@@ -104,8 +108,8 @@ DesignDayGridView::DesignDayGridView(bool isIP, const model::Model& model, QWidg
   auto designDays = model.getConcreteModelObjects<model::DesignDay>();
   auto designDayModelObjects = subsetCastVector<model::ModelObject>(designDays);
 
-  m_gridController = new DesignDayGridController(m_isIP, "Design Days", IddObjectType::OS_SizingPeriod_DesignDay, model, designDayModelObjects);
-  m_gridView = new OSGridView(m_gridController, "Design Days", "Drop\nZone", true, parent);
+  m_gridController = new DesignDayGridController(m_isIP, tr("Design Days"), IddObjectType::OS_SizingPeriod_DesignDay, model, designDayModelObjects);
+  m_gridView = new OSGridView(m_gridController, tr("Design Days"), tr("Drop\nZone"), true, parent);
 
   connect(m_gridView, &OSGridView::dropZoneItemClicked, this, &DesignDayGridView::dropZoneItemClicked);
 
@@ -192,7 +196,7 @@ void DesignDayGridController::setCategoriesAndFields() {
     fields.push_back(MONTH);
     fields.push_back(DAYTYPE);
     fields.push_back(DAYLIGHTSAVINGTIMEINDICATOR);
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Date"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(tr("Date"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -203,7 +207,7 @@ void DesignDayGridController::setCategoriesAndFields() {
     fields.push_back(DAILYWETBULBTEMPERATURERANGE);
     fields.push_back(DRYBULBTEMPERATURERANGEMODIFIERTYPE);
     fields.push_back(DRYBULBTEMPERATURERANGEMODIFIERSCHEDULE);
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Temperature"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(tr("Temperature"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -212,7 +216,7 @@ void DesignDayGridController::setCategoriesAndFields() {
     fields.push_back(HUMIDITYINDICATINGCONDITIONSATMAXIMUMDRYBULB);
     fields.push_back(HUMIDITYINDICATINGTYPE);
     fields.push_back(HUMIDITYINDICATINGDAYSCHEDULE);
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Humidity"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(tr("Humidity"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -223,7 +227,7 @@ void DesignDayGridController::setCategoriesAndFields() {
     fields.push_back(WINDDIRECTION);
     fields.push_back(RAININDICATOR);
     fields.push_back(SNOWINDICATOR);
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Pressure\nWind\nPrecipitation"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(tr("Pressure\nWind\nPrecipitation"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -235,7 +239,7 @@ void DesignDayGridController::setCategoriesAndFields() {
     fields.push_back(ASHRAETAUB);
     fields.push_back(ASHRAETAUD);
     fields.push_back(SKYCLEARNESS);
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Solar"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(tr("Solar"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -264,15 +268,15 @@ void DesignDayGridController::addColumns(const QString& /*category*/, std::vecto
                         NullAdapter(&model::DesignDay::snowIndicator), NullAdapter(&model::DesignDay::setSnowIndicator));
     } else if (field == SELECTED) {
       auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
-      checkbox->setToolTip("Check to select all rows");
+      checkbox->setToolTip(tr("Check to select all rows"));
       connect(checkbox.data(), &OSSelectAllCheckBox::stateChanged, this, &DesignDayGridController::onSelectAllStateChanged);
       connect(this, &DesignDayGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
-      addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row");
+      addSelectColumn(Heading(tr(SELECTED), false, false, checkbox), "Check to select this row");
     }
     // INTEGER
     else if (field == DAYOFMONTH) {
       addValueEditColumn(
-        Heading(QString(DAYOFMONTH)), NullAdapter(&model::DesignDay::dayOfMonth), NullAdapter(&model::DesignDay::setDayOfMonth),
+        Heading(DAYOFMONTH), NullAdapter(&model::DesignDay::dayOfMonth), NullAdapter(&model::DesignDay::setDayOfMonth),
         boost::optional<std::function<void(model::DesignDay*)>>(CastNullAdapter<model::DesignDay>(&model::DesignDay::resetDayOfMonth)),
         boost::optional<std::function<bool(model::DesignDay*)>>(CastNullAdapter<model::DesignDay>(&model::DesignDay::isDayOfMonthDefaulted)),
         boost::optional<DataSource>());
@@ -311,7 +315,7 @@ void DesignDayGridController::addColumns(const QString& /*category*/, std::vecto
     }
     // STRING
     else if (field == NAME) {
-      addParentNameLineEditColumn(Heading(QString(NAME), false, false), false, CastNullAdapter<model::DesignDay>(&model::DesignDay::name),
+      addParentNameLineEditColumn(Heading(NAME, false, false), false, CastNullAdapter<model::DesignDay>(&model::DesignDay::name),
                                   CastNullAdapter<model::DesignDay>(&model::DesignDay::setName));
     } else if (field == MAXIMUMDRYBULBTEMPERATURE) {
       addQuantityEditColumn(

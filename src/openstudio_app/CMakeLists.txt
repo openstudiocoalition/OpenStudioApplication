@@ -119,15 +119,6 @@ elseif(UNIX)
 
 endif()
 
-
-
-set(TS_FILES
-  ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_fr.ts
-)
-
-qt5_create_translation(QM_FILES ${PROJECT_SOURCE_DIR} ${TS_FILES})
-#include_directories(SYSTEM ${RUBY_INCLUDE_DIRS})
-
 add_executable(${target_name}
   WIN32
   MACOSX_BUNDLE

@@ -2,6 +2,26 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="fr_FR">
 <context>
+    <name>DesignDayGridView</name>
+    <message>
+        <source>Design Day Name</source>
+        <translation type="vanished">Jour de dimmensionnement</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation type="vanished">Tous</translation>
+    </message>
+    <message>
+        <source>Day Of Month</source>
+        <translation type="vanished">Jour du Mois</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="94"/>
+        <source>Sky Clearness</source>
+        <translation>Clarté du ciel</translation>
+    </message>
+</context>
+<context>
     <name>InspectorDialog</name>
     <message>
         <location filename="../src/model_editor/InspectorDialog.cpp" line="706"/>
@@ -76,6 +96,73 @@
     </message>
 </context>
 <context>
+    <name>openstudio::DesignDayGridController</name>
+    <message>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="199"/>
+        <source>Date</source>
+        <translation>Date</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="210"/>
+        <source>Temperature</source>
+        <translation>Température</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="219"/>
+        <source>Humidity</source>
+        <translation>Humidité</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="230"/>
+        <source>Pressure
+Wind
+Precipitation</source>
+        <translation>Pression
+Vent
+Précipitation</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="242"/>
+        <source>Solar</source>
+        <translation>Solaire</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="271"/>
+        <source>Check to select all rows</source>
+        <translation>Cocher pour sélectionner toutes les lignes</translation>
+    </message>
+</context>
+<context>
+    <name>openstudio::DesignDayGridView</name>
+    <message>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="60"/>
+        <source>Design Day Name</source>
+        <translation>Jour de dimmensionnement</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="61"/>
+        <source>All</source>
+        <translation>Tous</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="64"/>
+        <source>Day Of Month</source>
+        <translation>Jour du Mois</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="111"/>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="112"/>
+        <source>Design Days</source>
+        <translation>Jour de dimensionnement</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="112"/>
+        <source>Drop
+Zone</source>
+        <translation>Zone de dépôt</translation>
+    </message>
+</context>
+<context>
     <name>openstudio::EditorWebView</name>
     <message>
         <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1185"/>
@@ -119,6 +206,131 @@
         <location filename="../src/openstudio_app/LibraryDialog.cpp" line="92"/>
         <source>OpenStudio Files (*.osm)</source>
         <translation>OpenStudio Files (*.osm)</translation>
+    </message>
+</context>
+<context>
+    <name>openstudio::LocationTabView</name>
+    <message>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="93"/>
+        <source>Site</source>
+        <translation>Site</translation>
+    </message>
+</context>
+<context>
+    <name>openstudio::LocationView</name>
+    <message>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="177"/>
+        <source>Weather File</source>
+        <translation>Fichier météo</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="198"/>
+        <source>Name: </source>
+        <translation>Nom : </translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="213"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="485"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="509"/>
+        <source>Latitude: </source>
+        <translation>Latitude : </translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="216"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="490"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="511"/>
+        <source>Longitude: </source>
+        <translation>Longitude : </translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="219"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="495"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="513"/>
+        <source>Elevation: </source>
+        <translation>Elévation : </translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="222"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="500"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="515"/>
+        <source>Time Zone: </source>
+        <translation>Fuseau horaire : </translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="226"/>
+        <source>Download weather files at &lt;a href=&quot;http://www.energyplus.net/weather&quot;&gt;www.energyplus.net/weather&lt;/a&gt;</source>
+        <translation>Fichiers météos téléchargeables sur &lt;a href=&quot;http://www.energyplus.net/weather&quot;&gt;www.energyplus.net/weather&lt;/a&gt;</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="235"/>
+        <source>Measure Tags (Optional):</source>
+        <translation>Tags de Mesures (Optionnel) :</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="239"/>
+        <source>ASHRAE Climate Zone</source>
+        <translation>Zone Climate ASHRAE</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="272"/>
+        <source>CEC Climate Zone</source>
+        <translation>Zone Climatique CEC</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="340"/>
+        <source>Design Days</source>
+        <translation>Jours de dimmensionnement</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="343"/>
+        <source>Import From DDY</source>
+        <translation>Importer depuis fichier DDY</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="463"/>
+        <source>Change Weather File</source>
+        <translation>Changer fichier météo</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="466"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="470"/>
+        <source>Set Weather File</source>
+        <translation>Attributer fichier météo</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="520"/>
+        <source>EPW Files (*.epw);; All Files (*.*)</source>
+        <translation>Fichiers EPW (*.epw);; Tous (*.*)</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="531"/>
+        <source>Open Weather File</source>
+        <translation>Ouvrir fichier météo</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="617"/>
+        <source>Failed To Set Weather File</source>
+        <translation>Impossible d&apos;attribuer le fichier météo</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="617"/>
+        <source>Failed To Set Weather File To </source>
+        <translation>Impossible d&apos;attribuer le fichier météo suivant : </translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="652"/>
+        <source>Open DDY File</source>
+        <translation>Ouvrir fichier DDY</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="747"/>
+        <source>No Design Days in DDY File</source>
+        <translation>Aucun jours de dimmensionnement dans le fichier DDY</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="748"/>
+        <source>This DDY file does not contain any valid design days.  Check the DDY file itself for errors or omissions.</source>
+        <translation>Ce fichier DDY ne contient aucun jours de dimmensionnement valides. Vérifiez le fichier DDY.</translation>
     </message>
 </context>
 <context>
@@ -443,40 +655,324 @@
 <context>
     <name>openstudio::OpenStudioApp</name>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="474"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="244"/>
+        <source>Timeout</source>
+        <translation>Délai expiré</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="246"/>
+        <source>Failed to start the Measure Manager. Would you like to retry?</source>
+        <translation>Impossible de démarrer le Manager de Measure Voulez-vous réessayer ?</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="381"/>
+        <source>Loading Library Files</source>
+        <translation>Chargement des Librairies OSM</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="382"/>
+        <source>(Manage library files in Preferences-&gt;Change default libraries)</source>
+        <translation>Gérer les fichiers Librairies dans Préférences-&gt; Modifier les Libraires par défaut)</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="399"/>
+        <source>Translation From version </source>
+        <translation>Translation depuis la version </translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="399"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1142"/>
+        <source> to </source>
+        <translation> vers </translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="402"/>
+        <source>Unknown starting version</source>
+        <translation>Version de départ inconnue</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="475"/>
         <source>Import Idf</source>
         <translation>Importer un IDF</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="474"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="475"/>
         <source>(*.idf)</source>
         <translation>(*.idf)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="712"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="506"/>
+        <source>&apos; while OpenStudio uses a &lt;strong&gt;newer&lt;/strong&gt; EnergyPlus &apos;</source>
+        <translation>&apos; tandis qu&apos;OpenStudio utilise une version &lt;strong&gt;plus récente&lt;/strong&gt; d&apos;EnergyPlus &apos;</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="507"/>
+        <source>&apos;. Consider using the EnergyPlus Auxiliary program IDFVersionUpdater to update your IDF file.</source>
+        <translation>&apos;. Vous pouvez utiliser le program axuliaire d&apos;EnergyPlus appelé IDFVersionUpdater pour mettre à jour votre fichier IDF.</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="509"/>
+        <source>&apos; while OpenStudio uses an &lt;strong&gt;older&lt;/strong&gt; EnergyPlus &apos;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="510"/>
+        <source>&apos;.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="512"/>
+        <source>&apos; which is the &lt;strong&gt;same&lt;/strong&gt; version of EnergyPlus that OpenStudio uses (</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="516"/>
+        <source>&lt;strong&gt;The IDF does not have a VersionObject&lt;/strong&gt;. Check that it is of correct version (</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="517"/>
+        <source>) and that all fields are valid against Energy+.idd. </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="520"/>
+        <source>&lt;br/&gt;&lt;br/&gt;The ValidityReport follows.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="522"/>
+        <source>&lt;strong&gt;File is not valid to draft strictness&lt;/strong&gt;. Check that all fields are valid against Energy+.idd.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="528"/>
+        <source> IDF Import Failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="603"/>
+        <source>=============== Errors ===============
+
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="611"/>
+        <source>============== Warnings ==============
+
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="619"/>
+        <source>==== The following idf objects were not imported ====
+
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="624"/>
+        <source> named </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="626"/>
+        <source>Unnamed </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="632"/>
+        <source>&lt;strong&gt;Some portions of the IDF file were not imported.&lt;/strong&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="638"/>
+        <source>IDF Import</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="641"/>
+        <source>Only geometry, constructions, loads, thermal zones, and schedules are supported by the OpenStudio IDF import feature.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="706"/>
+        <source>Import </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="713"/>
         <source>(*.xml)</source>
         <translation>(*.xml)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="882"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="773"/>
+        <source>Errors or warnings occurred on import of </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="783"/>
+        <source>Could not import SDD file.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="785"/>
+        <source>Could not import </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="785"/>
+        <source> file at </source>
+        <translation> au chemin </translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="815"/>
+        <source>Save Changes?</source>
+        <translation>Sauvegarder les changements ?</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="816"/>
+        <source>The document has been modified.</source>
+        <translation>Le document a été modifié.</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="817"/>
+        <source>Do you want to save your changes?</source>
+        <translation>Voulez-vous sauvegarder les changements ?</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="883"/>
         <source>Open</source>
         <translation>Ouvrir</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="882"/>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1380"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="883"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1382"/>
         <source>(*.osm)</source>
         <translation>(*.osm)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="968"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="969"/>
         <source>A new version is available at &lt;a href=&quot;</source>
         <translation>Une ouvelle version est disponible à &lt;a href=&quot;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1380"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="974"/>
+        <source>Currently using the most recent version</source>
+        <translation>Vous utilisez la version la plus récente.</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="982"/>
+        <source>Check for Updates</source>
+        <translation>Rechercher les mises à jour</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="996"/>
+        <source>Measure Manager Server: </source>
+        <translation>Serveur du Manager des Mesures :</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="997"/>
+        <source>Chrome Debugger: http://localhost:</source>
+        <translation>Chrome Debugger: http://localhost:</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="998"/>
+        <source>Temp Directory: </source>
+        <translation>Dossier temporaire : </translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1003"/>
+        <source>About </source>
+        <translation>A propos de </translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1034"/>
+        <source>Failed to load model</source>
+        <translation>Impossible de charger le modèle</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1140"/>
+        <source>Opening future version </source>
+        <translation>Ouverture d&apos;une version future </translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1140"/>
+        <source> using </source>
+        <translation> avec la version </translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1142"/>
+        <source>Model updated from </source>
+        <translation>Modèle mis à jour depuis </translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1151"/>
+        <source>Existing Ruby scripts have been removed.
+Ruby scripts are no longer supported and have been replaced by measures.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1158"/>
+        <source>Failed to open file at </source>
+        <translation>Impossible de charger le fichier </translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1196"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1208"/>
+        <source>Revert to Saved</source>
+        <translation>Revenir à la dernière sauvegarde</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1196"/>
+        <source>This model has never been saved.
+Do you want to create a new model?</source>
+        <translation>Ce Modèle n&apos;a jamais été sauvegardé.
+Voulez-vous créer un nouveau modèle ?</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1208"/>
+        <source>Are you sure you want to revert to the last saved version?</source>
+        <translation>Etes-vous sûr de vouloir revenir à la dernière version sauvegardée ?</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1249"/>
+        <source>Measure Manager has crashed, attempting to restart
+
+</source>
+        <translation>Le Manager des Mesures a planté, tentative de redémarrage
+
+</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1253"/>
+        <source>Measure Manager has crashed</source>
+        <translation>Le Manager des Mesures a planté</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1382"/>
         <source>Select Library</source>
         <translation>Selectionner la Librairie</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1436"/>
+        <source>Failed to load the following libraries...
+
+</source>
+        <translation>Impossible de charger les bibliothèques suivantes...
+
+</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1444"/>
+        <source>
+
+Would you like to Restore library paths to default values or Open the library settings to change them manually?</source>
+        <translation>
+
+
+Souhaitez-vous restaurer les chemins de bibliothèque aux valeurs par défaut ou ouvrir les paramètres de la bibliothèque pour les modifier manuellement ?</translation>
     </message>
 </context>
 <context>
@@ -553,6 +1049,171 @@
         <location filename="../src/openstudio_app/StartupMenu.cpp" line="87"/>
         <source>&amp;About</source>
         <translation>&amp;A propos</translation>
+    </message>
+</context>
+<context>
+    <name>openstudio::YearSettingsWidget</name>
+    <message>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="80"/>
+        <source>Select Year by:</source>
+        <translation>Choisir Année par : </translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="92"/>
+        <source>Calendar Year</source>
+        <translation>Année calendaire</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="105"/>
+        <source>First Day of Year</source>
+        <translation>Premier jour de l&apos;année</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="131"/>
+        <source>Daylight Savings Time:</source>
+        <translation>Heure d&apos;été :</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="149"/>
+        <source>Starts</source>
+        <translation>Début</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="155"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="184"/>
+        <source>Define by Day of The Week And Month</source>
+        <translation>Définir par Jour de la semaine et Mois</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="168"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="197"/>
+        <source>Define by Date</source>
+        <translation>Définir par Date</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="178"/>
+        <source>Ends</source>
+        <translation>Fin</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="515"/>
+        <source>First</source>
+        <translation>Premier</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="515"/>
+        <source>Second</source>
+        <translation>Deuxième</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="515"/>
+        <source>Third</source>
+        <translation>Troisième</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="515"/>
+        <source>Fourth</source>
+        <translation>Quatrième</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="515"/>
+        <source>Last</source>
+        <translation>Dernier</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="521"/>
+        <source>Monday</source>
+        <translation>Lundi</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="522"/>
+        <source>Tuesday</source>
+        <translation>Mardi</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="523"/>
+        <source>Wednesday</source>
+        <translation>Mercredi</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="524"/>
+        <source>Thursday</source>
+        <translation>Jeudi</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="525"/>
+        <source>Friday</source>
+        <translation>Vendredi</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="526"/>
+        <source>Saturday</source>
+        <translation>Samedi</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="527"/>
+        <source>Sunday</source>
+        <translation>Dimanche</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="535"/>
+        <source>January</source>
+        <translation>Janvier</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="536"/>
+        <source>February</source>
+        <translation>Février</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="537"/>
+        <source>March</source>
+        <translation>Mars</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="538"/>
+        <source>April</source>
+        <translation>Avril</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="539"/>
+        <source>May</source>
+        <translation>Mai</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="540"/>
+        <source>June</source>
+        <translation>Juin</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="541"/>
+        <source>July</source>
+        <translation>Juillet</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="542"/>
+        <source>August</source>
+        <translation>Août</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="543"/>
+        <source>September</source>
+        <translation>Septembre</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="544"/>
+        <source>October</source>
+        <translation>Octobre</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="545"/>
+        <source>November</source>
+        <translation>Novembre</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="546"/>
+        <source>December</source>
+        <translation>Décembre</translation>
     </message>
 </context>
 <context>
