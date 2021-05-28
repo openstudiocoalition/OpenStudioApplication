@@ -132,6 +132,7 @@
 #include <QTcpServer>
 #include <QtConcurrent>
 #include <QtGlobal>
+#include <QTranslator>
 
 #include <openstudio/OpenStudio.hxx>
 #include <openstudio/utilities/idd/IddEnums.hxx>
@@ -165,6 +166,9 @@ OpenStudioApp::OpenStudioApp(int& argc, char** argv)
   QCoreApplication::setAttribute(Qt::AA_DontUseNativeMenuBar, true);
 
   readSettings();
+
+  // Need to set the first translator early on
+  switchLanguage(m_currLang);
 
   QFile f(":/library/OpenStudioPolicy.xml");
   if (f.open(QFile::ReadOnly)) {
@@ -1168,6 +1172,11 @@ void OpenStudioApp::readSettings() {
   QSettings settings(organizationName, applicationName);
   setLastPath(settings.value("lastPath", QDir::homePath()).toString());
   setDviewPath(openstudio::toPath(settings.value("dviewPath", "").toString()));
+  m_currLang = settings.value("language", "en").toString();
+  LOG_FREE(Debug, "OpenStudioApp", "\n\n\nm_currLang=[" << m_currLang.toStdString() << "]\n\n\n");
+  if (m_currLang.isEmpty()) {
+    m_currLang = "en";
+  }
 }
 
 void OpenStudioApp::writeSettings() {
@@ -1175,7 +1184,6 @@ void OpenStudioApp::writeSettings() {
   QString applicationName = QCoreApplication::applicationName();
   QSettings settings(organizationName, applicationName);
   settings.setValue("lastPath", lastPath());
-  settings.setValue("LANG", "fr"); // TODO
 }
 
 QString OpenStudioApp::lastPath() const {
@@ -1230,6 +1238,7 @@ void OpenStudioApp::connectOSDocumentSignals() {
   connect(m_osDocument.get(), &OSDocument::osmDropped, this, &OpenStudioApp::openFromDrag);
   connect(m_osDocument.get(), &OSDocument::changeDefaultLibrariesClicked, this, &OpenStudioApp::changeDefaultLibraries);
   connect(m_osDocument.get(), &OSDocument::configureExternalToolsClicked, this, &OpenStudioApp::configureExternalTools);
+  connect(m_osDocument.get(), &OSDocument::changeLanguageClicked, this, &OpenStudioApp::changeLanguage);
   connect(m_osDocument.get(), &OSDocument::loadLibraryClicked, this, &OpenStudioApp::loadLibrary);
   connect(m_osDocument.get(), &OSDocument::newClicked, this, &OpenStudioApp::newModel);
   connect(m_osDocument.get(), &OSDocument::helpClicked, this, &OpenStudioApp::showHelp);
@@ -1375,6 +1384,62 @@ int OpenStudioApp::startTabIndex() const {
   }
 
   return result;
+}
+
+void OpenStudioApp::changeLanguage(const QString& rLanguage) {
+  qDebug() << "Trying to change language from '" << m_currLang << "' to '" << rLanguage << "'.";
+  if(m_currLang != rLanguage) {
+    switchLanguage(rLanguage);
+
+    QMessageBox::StandardButton reply;
+    reply =
+      QMessageBox::question(
+          mainWidget(), tr("Restart required"),
+          tr("A restart of the OpenStudio Application is required for language changes to be fully functionnal.\nWould you like to restart now?"),
+                            QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
+    if (reply == QMessageBox::Yes) {
+      revertToSaved();
+    }
+
+  }
+}
+
+bool OpenStudioApp::switchLanguage(const QString& rLanguage) {
+
+  qDebug() << "Trying to change language from '" << m_currLang << "' to '" << rLanguage << "'.";
+  m_currLang = rLanguage;
+  QLocale loc = QLocale(m_currLang);
+  QLocale::setDefault(loc);
+  // QString languageName = QLocale::languageToString(loc.language());
+
+  // remove the old translator
+  this->removeTranslator(&m_translator);
+
+  if (m_translator.load(loc, QLatin1String("OpenStudioApp"), QLatin1String("_"), QString(":/translations/"))) {
+    qDebug() << "\n\n\INSTALLING lang = " << QLocale::languageToString(loc.language()) << "\n\n\n";
+
+    this->installTranslator(&m_translator);
+  } else {
+    qDebug() << "\n\n\nFAILED TO INSTALL TRANSLATOR for lang = " << QLocale::languageToString(loc.language()) << "\n\n\n";
+    return false;
+  }
+
+
+  this->removeTranslator(&m_qtTranslator);
+  if (m_qtTranslator.load(loc, QLatin1String("qt"), QLatin1String("_"), QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
+  {
+    qDebug() << "m_qtTranslator ok";
+    this->installTranslator(&m_qtTranslator);
+  }
+
+  this->removeTranslator(&m_qtBaseTranslator);
+  if (m_qtBaseTranslator.load(loc, QLatin1String("qtbase"), QLatin1String("_"), QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
+  {
+    qDebug() << "m_qtBaseTranslator ok";
+    this->installTranslator(&m_qtBaseTranslator);
+  }
+
+  return true;
 }
 
 void OpenStudioApp::loadLibrary() {

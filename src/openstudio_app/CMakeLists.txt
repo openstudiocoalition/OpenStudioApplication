@@ -227,8 +227,16 @@ elseif( UNIX )
     #COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/translations $<TARGET_FILE_DIR:${target_name}>/translations/
     # Copying just one locale is enough to shut the annoying console warning...
     COMMAND ${CMAKE_COMMAND} -E make_directory $<TARGET_FILE_DIR:${target_name}>/translations/
+
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qt_en.qm $<TARGET_FILE_DIR:${target_name}>/translations/
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qtbase_en.qm $<TARGET_FILE_DIR:${target_name}>/translations/
+
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qt_fr.qm $<TARGET_FILE_DIR:${target_name}>/translations/
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qtbase_fr.qm $<TARGET_FILE_DIR:${target_name}>/translations/
+
     COMMAND ${CMAKE_COMMAND} -E make_directory $<TARGET_FILE_DIR:${target_name}>/translations/qtwebengine_locales
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qtwebengine_locales/en-US.pak $<TARGET_FILE_DIR:${target_name}>/translations/qtwebengine_locales/
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qtwebengine_locales/fr.pak $<TARGET_FILE_DIR:${target_name}>/translations/qtwebengine_locales/
   )
 
   # TODO: not sure if chrpath is needed

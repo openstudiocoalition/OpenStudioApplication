@@ -41,8 +41,8 @@
 
 namespace openstudio {
 
-MainMenu::MainMenu(bool isIP, bool isPlugin, QWidget* parent) : QMenuBar(parent), m_isPlugin(isPlugin) {
-  m_isIP = isIP;
+MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, QWidget* parent) :
+  QMenuBar(parent), m_isPlugin(isPlugin), m_isIP(isIP), m_currLang(currLang) {
 
   QAction* action = nullptr;
 
@@ -174,6 +174,21 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, QWidget* parent) : QMenuBar(parent)
   m_preferencesMenu->addAction(action);
   connect(action, &QAction::triggered, this, &MainMenu::configureExternalToolsClicked);
 
+
+  QMenu* langMenu = m_preferencesMenu->addMenu(tr("&Language"));
+
+  m_langEnglishAction = new QAction(tr("English"), this);
+  m_preferencesActions.push_back(m_langEnglishAction);
+  m_langEnglishAction->setCheckable(true);
+  langMenu->addAction(m_langEnglishAction);
+  connect(m_langEnglishAction, &QAction::triggered, this, &MainMenu::langEnglishClicked);
+
+  m_langFrenchAction = new QAction(tr("French"), this);
+  m_preferencesActions.push_back(m_langFrenchAction);
+  m_langFrenchAction->setCheckable(true);
+  langMenu->addAction(m_langFrenchAction);
+  connect(m_langFrenchAction, &QAction::triggered, this, &MainMenu::langFrenchClicked);
+
   //action = new QAction(tr("&Scan for Tools"),this);
   //m_preferencesMenu->addAction(action);
   //connect(action, &QAction::triggered, this, &MainMenu::scanForToolsClicked);
@@ -195,6 +210,17 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, QWidget* parent) : QMenuBar(parent)
     m_displayIPUnitsAction->trigger();
   } else {
     m_displaySIUnitsAction->trigger();
+  }
+
+  if (m_currLang == "fr") {
+    // m_langFrenchAction->trigger();
+    m_langEnglishAction->setChecked(false);
+    m_langFrenchAction->setChecked(true);
+  } else {
+    // default to english
+    // m_langEnglishAction->trigger();
+    m_langEnglishAction->setChecked(true);
+    m_langFrenchAction->setChecked(false);
   }
 
   // Measure menu
@@ -246,6 +272,18 @@ void MainMenu::displayIPUnitsClicked() {
   m_displayIPUnitsAction->setChecked(true);
   m_displaySIUnitsAction->setChecked(false);
   emit toggleUnitsClicked(true);
+}
+
+void MainMenu::langEnglishClicked() {
+  m_langEnglishAction->setChecked(true);
+  m_langFrenchAction->setChecked(false);
+  emit changeLanguageClicked("en");
+}
+
+void MainMenu::langFrenchClicked() {
+  m_langEnglishAction->setChecked(false);
+  m_langFrenchAction->setChecked(true);
+  emit changeLanguageClicked("fr");
 }
 
 void MainMenu::enableRevertToSavedAction(bool enable) {

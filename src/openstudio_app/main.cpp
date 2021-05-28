@@ -243,31 +243,6 @@ int main(int argc, char* argv[]) {
 #if !(_DEBUG || (__GNUC__ && !NDEBUG))
     try {
 #endif
-
-      QDir root_embedded(":/translations");
-      for (const auto l: root_embedded.entryList()) {
-        // Debug: "geometry_preview.html" ((null):0, (null))
-        qDebug() << l;
-      }
-
-      qDebug() << QLocale();
-      QString rLanguage("fr");
-      auto filename = QString("OpenStudioApp_%1.qm").arg(rLanguage);
-      auto fPath = QDir(QCoreApplication::applicationDirPath()).filePath(filename);
-      qDebug() << "fPath=" << fPath << "\n\n";
-
-      QTranslator translator;
-      if (translator.load(QLocale(), QLatin1String("OpenStudioApp"), QLatin1String("_"), QString(":/translations/"))) {
-      // if (translator.load("OpenStudioApp_fr")) {
-      // if (translator.load(fPath)) {
-        //QCoreApplication::installTranslator(&translator);
-        app.installTranslator(&translator);
-      } else {
-        qDebug() << "\n\n\nFAILED TO INSTALL TRANSLATOR \n\n\n";
-      }
-
-
-
       int result = app.exec();
 
       // shut down global state

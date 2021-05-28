@@ -41,7 +41,7 @@ class MainMenu : public QMenuBar
   Q_OBJECT
 
  public:
-  MainMenu(bool isIP, bool isPlugin, QWidget* parent = nullptr);
+  MainMenu(bool isIP, bool isPlugin, const QString& currLang, QWidget* parent = nullptr);
 
   virtual ~MainMenu();
 
@@ -93,6 +93,8 @@ class MainMenu : public QMenuBar
 
   void toggleUnitsClicked(bool displayIP);
 
+  void changeLanguageClicked(const QString& rLanguage);
+
   void openLibDlgClicked();
 
   void configureProxyClicked();
@@ -122,6 +124,9 @@ class MainMenu : public QMenuBar
 
   QAction* m_displaySIUnitsAction;
 
+  QAction* m_langEnglishAction;
+  QAction* m_langFrenchAction;
+
   QAction* m_openLibDlgAction;
 
   QAction* m_configureProxy;
@@ -135,6 +140,8 @@ class MainMenu : public QMenuBar
   std::vector<QAction*> m_componentsMeasuresActions;
 
   bool m_isIP;
+
+  QString m_currLang;
 
  public slots:
 
@@ -151,6 +158,9 @@ class MainMenu : public QMenuBar
   void displaySIUnitsClicked();
 
   void displayIPUnitsClicked();
+
+  void langEnglishClicked();
+  void langFrenchClicked();
 };
 
 }  // namespace openstudio
