@@ -480,16 +480,11 @@ void YearSettingsWidget::onFirstDayofYearClicked() {
 }
 
 void YearSettingsWidget::onDstStartDayWeekMonthChanged() {
-  std::string s_dayOfWeek;
-  std::string s_monthOfYear;
 
-  int i_nthDayOfWeekInMonth = m_startWeekBox->currentIndex();
-  s_dayOfWeek = m_startDayBox->currentText().toStdString();
-  s_monthOfYear = m_startMonthBox->currentText().toStdString();
+  NthDayOfWeekInMonth _nth(m_startWeekBox->currentIndex() + 1);
 
-  NthDayOfWeekInMonth _nth(i_nthDayOfWeekInMonth + 1);
-  DayOfWeek _dayOfWeek = dayOfWeek(s_dayOfWeek);
-  MonthOfYear _monthOfYear = monthOfYear(s_monthOfYear);
+  DayOfWeek _dayOfWeek(m_startDayBox->currentIndex());
+  MonthOfYear _monthOfYear(m_startMonthBox->currentIndex());
 
   emit dstStartDayOfWeekAndMonthChanged(_nth.value(), _dayOfWeek.value(), _monthOfYear.value());
 }
@@ -498,13 +493,10 @@ void YearSettingsWidget::onDstEndDayWeekMonthChanged() {
   std::string s_dayOfWeek;
   std::string s_monthOfYear;
 
-  int i_nthDayOfWeekInMonth = m_endWeekBox->currentIndex();
-  s_dayOfWeek = m_endDayBox->currentText().toStdString();
-  s_monthOfYear = m_endMonthBox->currentText().toStdString();
+  NthDayOfWeekInMonth _nth(m_endWeekBox->currentIndex() + 1);
 
-  NthDayOfWeekInMonth _nth(i_nthDayOfWeekInMonth + 1);
-  DayOfWeek _dayOfWeek = dayOfWeek(s_dayOfWeek);
-  MonthOfYear _monthOfYear = monthOfYear(s_monthOfYear);
+  DayOfWeek _dayOfWeek(m_endDayBox->currentIndex());
+  MonthOfYear _monthOfYear(m_endMonthBox->currentIndex());
 
   emit dstEndDayOfWeekAndMonthChanged(_nth.value(), _dayOfWeek.value(), _monthOfYear.value());
 }
