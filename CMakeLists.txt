@@ -12,17 +12,28 @@ endif()
 
 project(OpenStudioApplication VERSION 1.2.0)
 
+# Check system info globally so we can use it everywhere after: Has to be done before FindOpenStudioSDK.cmake
+if(APPLE)
+  # Looking at cmake source code OS_RELEASE is already set to the output of `sw_vers -productVersion` which is what we want
+  cmake_host_system_information(RESULT OSX_VERSION QUERY OS_RELEASE)
+  message("-- OS_RELEASE variable is set to: " ${OSX_VERSION})
+  if(NOT CMAKE_OSX_DEPLOYMENT_TARGET STREQUAL "")
+    message("Using CMAKE_OSX_DEPLOYMENT_TARGET=${CMAKE_OSX_DEPLOYMENT_TARGET}")
+    set(OSX_VERSION "${CMAKE_OSX_DEPLOYMENT_TARGET}")
+  endif()
 
-# If Linux, check LSB_RELEASE globally so we can use it after
-if(UNIX AND NOT APPLE)
+  # The output is like 10.12.6 or 10.13, let's strip the end component if any
+  string(REGEX REPLACE "^([0-9]+\\.[0-9]+)\\.?.*" "\\1" OSX_VERSION_MAJOR_MINOR ${OSX_VERSION})
 
+elseif(UNIX)
+  # OS_RELEASE is the result of `uname -r` which is unhelpful (eg '5.4.0-42-generic')
   find_program(LSB_RELEASE lsb_release)
-  # -rs outputs only 18.04, or 20.04
-  execute_process(COMMAND ${LSB_RELEASE} -rs
-    OUTPUT_VARIABLE LSB_RELEASE_VERSION_SHORT
-    OUTPUT_STRIP_TRAILING_WHITESPACE
-  )
-  message(STATUS "LSB_RELEASE_VERSION_SHORT = ${LSB_RELEASE_VERSION_SHORT}")
+  # -rs outputs only 16.04, or 18.04
+  execute_process(COMMAND ${LSB_RELEASE} -rs OUTPUT_VARIABLE LSB_RELEASE_VERSION_SHORT OUTPUT_STRIP_TRAILING_WHITESPACE)
+
+  # -is outputs "Ubuntu" or "Fedora"
+  execute_process(COMMAND ${LSB_RELEASE} -is OUTPUT_VARIABLE LSB_RELEASE_ID_SHORT OUTPUT_STRIP_TRAILING_WHITESPACE)
+
 endif()
 
 # set openstudio_DIR to the directory that contains the openstudioConfig.cmake
@@ -750,10 +761,20 @@ set(CPACK_PACKAGE_VERSION_PATCH ${OpenStudioApplication_VERSION_PATCH})
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "OpenStudioApplication ${OpenStudioApplication_VERSION}, based on openstudio (core) ${OPENSTUDIO_VERSION}. OpenStudio is a cross-platform collection of software tools to support whole building energy modeling using EnergyPlus and advanced daylight analysis using Radiance")
 
 # The actual package file name on disk
-set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${OPENSTUDIOAPPLICATION_LONG_VERSION}-${CMAKE_SYSTEM_NAME}")
-if(LSB_RELEASE_VERSION_SHORT MATCHES "20.04")
-  set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${OPENSTUDIOAPPLICATION_LONG_VERSION}-${CMAKE_SYSTEM_NAME}20.04")
+if(APPLE)
+  include(CMake/TargetArch.cmake)
+  target_architecture(TARGET_ARCH)
+
+  # eg OpenStudioApplication-1.2.0-alpha+394bbe9f8d-macOS-10.15-x86_64 (future: OpenStudioApplication-1.2.0-alpha+394bbe9f8d-macOS-11.2-arm64)
+  set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${OPENSTUDIOAPPLICATION_LONG_VERSION}-macOS${OSX_VERSION_MAJOR_MINOR}-${TARGET_ARCH}")
+elseif(UNIX)
+  # eg: OpenStudioApplication-1.2.0-alpha+394bbe9f8d-Ubuntu18.04
+  set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${OPENSTUDIOAPPLICATION_LONG_VERSION}-${LSB_RELEASE_ID_SHORT}${LSB_RELEASE_VERSION_SHORT}")
+else()
+  # eg: OpenStudioApplication-1.2.0-alpha+394bbe9f8d-Windows
+  set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${OPENSTUDIOAPPLICATION_LONG_VERSION}-${CMAKE_SYSTEM_NAME}")
 endif()
+
 set(CPACK_PACKAGE_CONTACT "openstudio@nrel.gov")
 
   # Install additional Documents, such as release notes
@@ -896,7 +917,6 @@ cpack_add_component(Libraries
   HIDDEN
 )
 
-message("CMAKE_CPACK_COMMAND=${CMAKE_CPACK_COMMAND}")
 add_custom_target(PACKAGE_DEBUG
   COMMAND ${CMAKE_CPACK_COMMAND} --debug --verbose --config CPackConfig.cmake
   COMMENTS "Build package with debug and verbose output"
