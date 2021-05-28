@@ -190,7 +190,10 @@ elseif( UNIX )
   endforeach()
 
   foreach(LIB_LOCATION ${QT_LIB_LOCATIONS} ${QT_EXTRA_LIBS})
-    get_filename_component(LIB_BASE_NAME ${LIB_LOCATION} NAME)
+    # In case we grabed "xx.so", it'll be resolved to "xx.so.X.Y.Z" as we expect
+    get_filename_component(LIB_LOCATION_RESOLVED "${LIB_LOCATION}" REALPATH)
+
+    get_filename_component(LIB_BASE_NAME ${LIB_LOCATION_RESOLVED} NAME)
     string(REGEX REPLACE "\\.[^.]*$" "" LIB_MAJOR_MINOR_NAME ${LIB_BASE_NAME})
     string(REGEX REPLACE "\\.[^.]*$" "" LIB_MAJOR_NAME ${LIB_MAJOR_MINOR_NAME})
 
@@ -198,7 +201,7 @@ elseif( UNIX )
 
     add_custom_command(TARGET ${target_name}
       POST_BUILD
-      COMMAND ${CMAKE_COMMAND} -E copy_if_different ${LIB_LOCATION} $<TARGET_FILE_DIR:${target_name}>/
+      COMMAND ${CMAKE_COMMAND} -E copy_if_different ${LIB_LOCATION_RESOLVED} $<TARGET_FILE_DIR:${target_name}>/
       COMMAND ln -sf "${LIB_BASE_NAME}" "$<TARGET_FILE_DIR:${target_name}>/${LIB_MAJOR_MINOR_NAME}"
       COMMAND ln -sf "${LIB_BASE_NAME}" "$<TARGET_FILE_DIR:${target_name}>/${LIB_MAJOR_NAME}"
       COMMAND patchelf --set-rpath "$ORIGIN/." $<TARGET_FILE_DIR:${target_name}>/${LIB_BASE_NAME}
@@ -380,18 +383,17 @@ if( APPLE )
   list(APPEND QTPLUGINS "\${CMAKE_INSTALL_PREFIX}/OpenStudioApp.app/Contents/Frameworks/QtWebEngineCore.framework/Versions/5/Helpers/QtWebEngineProcess.app/Contents/MacOS/QtWebEngineProcess")
 endif()
 
-if(WIN32 OR APPLE)
-  install(CODE "
-    # APPS might be a symbolic link which does not work with fixup_bundle
-    # expand APPS to a real path
-    get_filename_component(APPS_EXPANDED ${APPS} REALPATH)
-    include(BundleUtilities)
-    # This file defines some libs we are excluding. Some like concrt140.dll are installed already via InstallRequiredSystemLibraries
-    include(\"${CMAKE_SOURCE_DIR}/CMake/FixupBundleOverrides.cmake\")
-    fixup_bundle(\"\${APPS_EXPANDED}\" \"${QTPLUGINS}\" \"${DIRS}\")
-    " COMPONENT "OpenStudioApp"
-  )
-endif()
+# This does some "magic" **including on Linux** (cf #345) (On linux it will install in ./bin/ the libopenstudio.so, and libicu* stuff)
+install(CODE "
+  # APPS might be a symbolic link which does not work with fixup_bundle
+  # expand APPS to a real path
+  get_filename_component(APPS_EXPANDED ${APPS} REALPATH)
+  include(BundleUtilities)
+  # This file defines some libs we are excluding. Some like concrt140.dll are installed already via InstallRequiredSystemLibraries
+  include(\"${CMAKE_SOURCE_DIR}/CMake/FixupBundleOverrides.cmake\")
+  fixup_bundle(\"\${APPS_EXPANDED}\" \"${QTPLUGINS}\" \"${DIRS}\")
+  " COMPONENT "OpenStudioApp"
+)
 
 set(${target_name}_test_src
   test/OpenStudioAppFixture.hpp

@@ -306,7 +306,9 @@ void OSComboBox2::onChoicesRefreshTrigger() {
 
     clear();
     for (const auto& value : m_values) {
-      addItem(QString::fromStdString(value));
+      QString qvalue = QString::fromStdString(value);
+      addItem(qvalue);
+      setItemData(count() - 1, qvalue, Qt::ToolTipRole);
     }
 
     // re-initialize
@@ -394,7 +396,9 @@ void OSComboBox2::completeBind() {
     this->blockSignals(true);
 
     for (const auto& value : m_values) {
-      addItem(QString::fromStdString(value));
+      QString qvalue = QString::fromStdString(value);
+      addItem(qvalue);
+      setItemData(count() - 1, qvalue, Qt::ToolTipRole);
     }
 
     // initialize
@@ -410,7 +414,9 @@ void OSComboBox2::completeBind() {
 
     // populate choices
     for (int i = 0; i < m_dataSource->numberOfItems(); i++) {
-      this->addItem(m_dataSource->valueAt(i));
+      QString qvalue = m_dataSource->valueAt(i);
+      addItem(qvalue);
+      setItemData(count() - 1, qvalue, Qt::ToolTipRole);
     }
 
     // initialize

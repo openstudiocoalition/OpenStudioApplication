@@ -128,21 +128,25 @@ ScheduleDayView::ScheduleDayView(bool isIP, const model::ScheduleDay& scheduleDa
 
   setLayout(mainVLayout);
 
-  // Name
+  // Schedule Day Name
 
-  //label = new QLabel("Name:");
-  //label->setObjectName("H2");
-  //mainVLayout->addWidget(label);
+  auto hLayout = new QHBoxLayout();
+  hLayout->setContentsMargins(MARGINLEFT, 0, 0, 0);
+  hLayout->setSpacing(10);
 
-  //QString name;
-  //boost::optional<std::string> optionalString = scheduleDay.name();
-  //if(optionalString){
-  //  name = optionalString->c_str();
-  //}
-  //QLineEdit * lineEdit = new QLineEdit(name);
-  //lineEdit->setReadOnly(true);
+  auto label = new QLabel("Schedule Day Name:");
+  hLayout->addWidget(label);
 
-  //mainVLayout->addWidget(lineEdit);
+  auto lineEdit = new OSLineEdit2();
+  lineEdit->bind(m_scheduleDay, OptionalStringGetter(std::bind(&model::ScheduleDay::name, &m_scheduleDay, true)),
+                 boost::optional<StringSetterOptionalStringReturn>(std::bind(&model::ScheduleDay::setName, &m_scheduleDay, std::placeholders::_1)));
+  lineEdit->setFixedWidth(200);
+
+  hLayout->addWidget(lineEdit);
+
+  hLayout->addStretch();
+
+  mainVLayout->addLayout(hLayout);
 
   // Schedule Limits View
 

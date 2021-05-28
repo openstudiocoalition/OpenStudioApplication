@@ -163,33 +163,32 @@ class OSCheckBox2 : public QPushButton, public Nano::Observer
   bool m_locked = false;
 };
 
-// class OSCheckBox : public QPushButton, public Nano::Observer {
-//   Q_OBJECT
+class OSGreyCheckBox2 : public QPushButton, public Nano::Observer
+{
+  Q_OBJECT
 
-//  public:
+ public:
+  OSGreyCheckBox2(QWidget* parent = nullptr);
 
-//   OSCheckBox(QWidget * parent = nullptr);
+  virtual ~OSGreyCheckBox2() {}
 
-//   virtual ~OSCheckBox() {}
+  void bind(const model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetter> set = boost::none);
 
-//   void bind(model::ModelObject & modelObject, const char * property);
+  void unbind();
 
-//   void unbind();
+ private slots:
 
-//  private slots:
+  void onToggled(bool checked);
 
-//   void onToggled(bool checked);
+  void onModelObjectChange();
 
-//   void onModelObjectChange();
+  void onModelObjectRemove(const Handle& handle);
 
-//   void onModelObjectRemove(const Handle& handle);
-
-//  private:
-
-//   boost::optional<model::ModelObject> m_modelObject;
-
-//   std::string m_property;
-// };
+ private:
+  boost::optional<model::ModelObject> m_modelObject;
+  boost::optional<BoolGetter> m_get;
+  boost::optional<BoolSetter> m_set;
+};
 
 }  // namespace openstudio
 

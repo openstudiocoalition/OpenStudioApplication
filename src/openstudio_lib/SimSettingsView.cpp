@@ -84,6 +84,8 @@
 #include <openstudio/model/ZoneCapacitanceMultiplierResearchSpecial_Impl.hpp>
 #include <openstudio/model/Schedule.hpp>
 #include <openstudio/model/Schedule_Impl.hpp>
+#include <openstudio/model/ScheduleTypeLimits.hpp>
+#include <openstudio/model/ScheduleTypeLimits_Impl.hpp>
 #include <openstudio/model/ScheduleTypeRegistry.hpp>
 
 #include <openstudio/utilities/time/Date.hpp>
@@ -1660,8 +1662,33 @@ void SimSettingsView::attachZoneAirContaminantBalance() {
    */
 
   std::function<std::vector<model::Schedule>(model::ZoneAirContaminantBalance*)> choices_lambda = [](model::ZoneAirContaminantBalance* t_z) {
-    std::vector<model::Schedule> results =
-      openstudio::model::getCompatibleSchedules(t_z->model(), "ZoneAirContaminantBalance", "Outdoor Carbon Dioxide");
+    // openstudio::model::getCompatibleSchedules uses stringent checking, allow non-stringent checking here
+    //std::vector<model::Schedule> results =
+    //  openstudio::model::getCompatibleSchedules(t_z->model(), "ZoneAirContaminantBalance", "Outdoor Carbon Dioxide");
+
+    model::Model model = t_z->model();
+    model::ScheduleType scheduleType = model::ScheduleTypeRegistry::instance().getScheduleType("ZoneAirContaminantBalance", "Outdoor Carbon Dioxide");
+
+    bool isStringent = false;
+    model::ScheduleTypeLimitsVector okTypes;
+    for (const model::ScheduleTypeLimits& candidate : model.getConcreteModelObjects<model::ScheduleTypeLimits>()) {
+      if (isCompatible(scheduleType, candidate, isStringent)) {
+        okTypes.push_back(candidate);
+      }
+    }
+
+    model::ScheduleVector results;
+    for (const model::Schedule& candidate : model.getModelObjects<model::Schedule>()) {
+      if (model::OptionalScheduleTypeLimits candidateType = candidate.scheduleTypeLimits()) {
+        if (std::find(okTypes.begin(), okTypes.end(), *candidateType) != okTypes.end()) {
+          results.push_back(candidate);
+        }
+      } else {
+        // by default, keep all non-typed schedules
+        results.push_back(candidate);
+      }
+    }
+
     return openstudio::sortByObjectName<model::Schedule>(results);
   };
 
