@@ -773,7 +773,8 @@ void LocationView::setCalendarYear(int year) {
 void LocationView::setFirstDayofYear(const QString& firstDayofYear) {
   m_yearDescription->resetCalendarYear();
 
-  m_yearDescription->setDayofWeekforStartDay(firstDayofYear.toStdString());
+  auto idx = YearSettingsWidget::validDayofWeekforStartDay().indexOf(firstDayofYear);
+  m_yearDescription->setDayofWeekforStartDay(model::YearDescription::validDayofWeekforStartDayValues()[idx]);
 
   emit calendarYearSelectionChanged();
 }

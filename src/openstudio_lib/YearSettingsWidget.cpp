@@ -316,12 +316,16 @@ void YearSettingsWidget::refresh() {
 
       m_calendarYearEdit->setEnabled(false);
 
+      unsigned dayOfWeekIndex = 0;
 
       std::string dayOfWeekString = m_yearDescription->dayofWeekforStartDay();
-      auto dayOfWeekIndex =  validDayofWeekforStartDay().indexOf(toQString(dayOfWeekString));
-      if (dayOfWeekIndex < 0) {
-        qDebug() << "Not found: " << toQString(dayOfWeekString);
-        dayOfWeekIndex = 7; // Default UseWeatherFile
+
+      std::vector<std::string> dayOfWeekValues = model::YearDescription::validDayofWeekforStartDayValues();
+
+      for (dayOfWeekIndex = 0; dayOfWeekIndex < dayOfWeekValues.size(); dayOfWeekIndex++) {
+        if (istringEqual(dayOfWeekValues[dayOfWeekIndex], dayOfWeekString)) {
+          break;
+        }
       }
 
       m_firstDayOfYearEdit->blockSignals(true);
