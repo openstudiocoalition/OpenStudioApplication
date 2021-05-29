@@ -556,7 +556,7 @@ void FloorspaceEditor::translateExport() {
             auto adjacentSurface = surface.adjacentSurface();
             if (adjacentSurface) {
               abovePlenumSpace = adjacentSurface->space();
-              if (abovePlenumSpace && !abovePlenumSpace->isPlenum() && !boost::algorithm::contains(abovePlenumSpace->nameString(), "Plenum")) {
+              if (abovePlenumSpace && !abovePlenumSpace->isPlenum() && !boost::algorithm::icontains(abovePlenumSpace->nameString(), "Plenum")) {
                 abovePlenumSpace.reset();
               }
             }
@@ -564,7 +564,7 @@ void FloorspaceEditor::translateExport() {
             auto adjacentSurface = surface.adjacentSurface();
             if (adjacentSurface) {
               belowPlenumSpace = adjacentSurface->space();
-              if (belowPlenumSpace && !belowPlenumSpace->isPlenum() && !boost::algorithm::contains(belowPlenumSpace->nameString(), "Plenum")) {
+              if (belowPlenumSpace && !belowPlenumSpace->isPlenum() && !boost::algorithm::icontains(belowPlenumSpace->nameString(), "Plenum")) {
                 belowPlenumSpace.reset();
               }
             }

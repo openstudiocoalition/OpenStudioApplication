@@ -160,7 +160,7 @@ boost::optional<model::Model> getExportModel(const boost::optional<FloorplanJS>&
             auto adjacentSurface = surface.adjacentSurface();
             if (adjacentSurface) {
               abovePlenumSpace = adjacentSurface->space();
-              if (abovePlenumSpace && !abovePlenumSpace->isPlenum() && !boost::algorithm::contains(abovePlenumSpace->nameString(), "Plenum")) {
+              if (abovePlenumSpace && !abovePlenumSpace->isPlenum() && !boost::algorithm::icontains(abovePlenumSpace->nameString(), "Plenum")) {
                 abovePlenumSpace.reset();
               }
             }
@@ -168,7 +168,7 @@ boost::optional<model::Model> getExportModel(const boost::optional<FloorplanJS>&
             auto adjacentSurface = surface.adjacentSurface();
             if (adjacentSurface) {
               belowPlenumSpace = adjacentSurface->space();
-              if (belowPlenumSpace && !belowPlenumSpace->isPlenum() && !boost::algorithm::contains(belowPlenumSpace->nameString(), "Plenum")) {
+              if (belowPlenumSpace && !belowPlenumSpace->isPlenum() && !boost::algorithm::icontains(belowPlenumSpace->nameString(), "Plenum")) {
                 belowPlenumSpace.reset();
               }
             }
