@@ -61,6 +61,8 @@
 #include <openstudio/model/SubSurface_Impl.hpp>
 #include <openstudio/model/ShadingSurface.hpp>
 #include <openstudio/model/ShadingSurface_Impl.hpp>
+#include <openstudio/model/ThermalZone.hpp>
+#include <openstudio/model/ThermalZone_Impl.hpp>
 
 #include "../model_editor/Utilities.hpp"
 
@@ -96,6 +98,8 @@
 #include <QProcess>
 #include <QSettings>
 #include <QProcessEnvironment>
+
+#include <boost/algorithm/string/predicate.hpp>
 
 const int CHECKFORUPDATEMSEC = 5000;
 
@@ -528,6 +532,104 @@ void FloorspaceEditor::translateExport() {
   if (model) {
     m_exportModel = *model;
     m_exportModelHandleMapping = rt.handleMapping();
+
+    // User cannot edit thermal zone for plenums in floorspace, a new thermal zone will always be created for each plenum
+    // if the associated space has a thermal zone in FloorplanJS::toThreeScene.  This was probably a bad decision, since
+    // the user cannot see or edit this zone we should not create it.  Created floorspace.js/issues/388 to better attach
+    // information related to plenum zones
+
+    // the exported plenum space is not matched to an existing space, so existing space will be replaced by exported space
+    // we can throw away the new plenum zone, it will not be mapped to anything
+    for (const auto& exportSpace : m_exportModel.getConcreteModelObjects<model::Space>()) {
+      if (boost::algorithm::ends_with(exportSpace.nameString(), "Plenum")) {
+        boost::optional<model::ThermalZone> exportThermalZone = exportSpace.thermalZone();
+        if (exportThermalZone) {
+          exportThermalZone->remove();
+        }
+      }
+    }
+
+    // attempt to match thermal zones for existing plenums with new plenums
+    for (const auto& space : m_model.getConcreteModelObjects<model::Space>()) {
+      boost::optional<model::Space> abovePlenumSpace;
+      boost::optional<model::Space> belowPlenumSpace;
+      for (const auto& surface : space.surfaces()) {
+        if (istringEqual(surface.surfaceType(), "RoofCeiling")) {
+          auto adjacentSurface = surface.adjacentSurface();
+          if (adjacentSurface) {
+            abovePlenumSpace = adjacentSurface->space();
+            if (abovePlenumSpace && !boost::algorithm::ends_with(abovePlenumSpace->nameString(), "Plenum")) {
+              abovePlenumSpace.reset();
+            }
+          }
+        } else if (istringEqual(surface.surfaceType(), "Floor")) {
+          auto adjacentSurface = surface.adjacentSurface();
+          if (adjacentSurface) {
+            belowPlenumSpace = adjacentSurface->space();
+            if (belowPlenumSpace && !boost::algorithm::ends_with(belowPlenumSpace->nameString(), "Plenum")) {
+              belowPlenumSpace.reset();
+            }
+          }
+        }
+      }
+
+      boost::optional<model::Space> exportSpace;
+      boost::optional<model::Space> exportAbovePlenumSpace;
+      boost::optional<model::Space> exportBelowPlenumSpace;
+      auto exportSpaceHandle = m_exportModelHandleMapping.find(space.handle());
+      if (exportSpaceHandle != m_exportModelHandleMapping.end()) {
+        exportSpace = m_exportModel.getModelObject<model::Space>(exportSpaceHandle->second);
+        if (exportSpace) {
+          for (const auto& surface : exportSpace->surfaces()) {
+            if (istringEqual(surface.surfaceType(), "RoofCeiling")) {
+              auto adjacentSurface = surface.adjacentSurface();
+              if (adjacentSurface) {
+                exportAbovePlenumSpace = adjacentSurface->space();
+                if (exportAbovePlenumSpace && !boost::algorithm::ends_with(exportAbovePlenumSpace->nameString(), "Plenum")) {
+                  exportAbovePlenumSpace.reset();
+                }
+              }
+            } else if (istringEqual(surface.surfaceType(), "Floor")) {
+              auto adjacentSurface = surface.adjacentSurface();
+              if (adjacentSurface) {
+                exportBelowPlenumSpace = adjacentSurface->space();
+                if (exportBelowPlenumSpace && !boost::algorithm::ends_with(exportBelowPlenumSpace->nameString(), "Plenum")) {
+                  exportBelowPlenumSpace.reset();
+                }
+              }
+            }
+          }
+        }
+      }
+
+      if (abovePlenumSpace && exportAbovePlenumSpace) {
+        boost::optional<model::ThermalZone> thermalZone = abovePlenumSpace->thermalZone();
+        if (thermalZone) {
+          auto exportThermalZoneHandle = m_exportModelHandleMapping.find(thermalZone->handle());
+          if (exportThermalZoneHandle != m_exportModelHandleMapping.end()) {
+            boost::optional<model::ThermalZone> exportThermalZone =
+              m_exportModel.getModelObject<model::ThermalZone>(exportThermalZoneHandle->second);
+            if (exportThermalZone) {
+              exportAbovePlenumSpace->setThermalZone(*exportThermalZone);
+            }
+          }
+        }
+      }
+
+      if (belowPlenumSpace && exportBelowPlenumSpace) {
+        boost::optional<model::ThermalZone> thermalZone = belowPlenumSpace->thermalZone();
+        if (thermalZone) {
+          auto exportThermalZoneHandle = m_exportModelHandleMapping.find(thermalZone->handle());
+          if (exportThermalZoneHandle != m_exportModelHandleMapping.end()) {
+            boost::optional<model::ThermalZone> exportThermalZone =
+              m_exportModel.getModelObject<model::ThermalZone>(exportThermalZoneHandle->second);
+            if (exportThermalZone) {
+              exportBelowPlenumSpace->setThermalZone(*exportThermalZone);
+            }
+          }
+        }
+      }
+    }
 
     // manually add mappings between current model and new model for Site, Facility, and Building objects
     m_exportModelHandleMapping[m_model.getUniqueModelObject<model::Site>().handle()] = m_exportModel.getUniqueModelObject<model::Site>().handle();

@@ -7,7 +7,7 @@
                 "1": "3"
             },
             "component_id": null,
-            "component_definition_id": null,
+            "component_definition_id": "14",
             "component_instance_id": null,
             "space_property_id": null,
             "tool": "Rectangle",
@@ -21,11 +21,11 @@
         "scale": {
             "x": {
                 "pixels": 1576,
-                "rwuRange": [-273.928157589803, 273.928157589803]
+                "rwuRange": [-40.17612977983777, 40.17612977983777]
             },
             "y": {
                 "pixels": 863,
-                "rwuRange": [-150, 150]
+                "rwuRange": [-22, 22]
             }
         }
     },
@@ -46,10 +46,10 @@
             "spacing": 5
         },
         "view": {
-            "min_x": -165.80778887504206,
-            "min_y": -122.01108164340104,
-            "max_x": 159.94952513033837,
-            "max_y": 56.36998560700715
+            "min_x": -48.076787481156494,
+            "min_y": -27.373218973912735,
+            "max_x": 47.478691293755055,
+            "max_y": 24.95189408620699
         },
         "map": {
             "initialized": false,
@@ -73,7 +73,7 @@
             "image_visible": true,
             "below_floor_plenum_height": 0,
             "floor_to_ceiling_height": 8,
-            "above_ceiling_plenum_height": 0,
+            "above_ceiling_plenum_height": 3,
             "multiplier": 1,
             "color": "#88ccee",
             "geometry": {
@@ -154,7 +154,14 @@
                     "color": "#E8E3E5"
                 }
             ],
-            "windows": [],
+            "windows": [{
+                    "window_definition_id": "14",
+                    "edge_id": "9",
+                    "alpha": 0.5,
+                    "id": "15",
+                    "name": "Window 1 - 1"
+                }
+            ],
             "doors": []
         }
     ],
@@ -162,7 +169,22 @@
     "thermal_zones": [],
     "space_types": [],
     "construction_sets": [],
-    "window_definitions": [],
+    "window_definitions": [{
+            "id": "14",
+            "name": "Window 1",
+            "window_definition_mode": "Window to Wall Ratio",
+            "wwr": 0.2,
+            "sill_height": 3,
+            "window_spacing": null,
+            "height": null,
+            "width": null,
+            "window_type": "Fixed",
+            "overhang_projection_factor": null,
+            "fin_projection_factor": null,
+            "texture": "circles-5",
+            "type": "window_definitions"
+        }
+    ],
     "daylighting_control_definitions": [],
     "pitched_roofs": [],
     "door_definitions": [],

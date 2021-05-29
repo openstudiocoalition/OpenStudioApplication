@@ -48,6 +48,10 @@
 #include <openstudio/model/Space_Impl.hpp>
 #include <openstudio/model/SpaceType.hpp>
 #include <openstudio/model/SpaceType_Impl.hpp>
+#include <openstudio/model/Surface.hpp>
+#include <openstudio/model/Surface_Impl.hpp>
+#include <openstudio/model/ThermalZone.hpp>
+#include <openstudio/model/ThermalZone_Impl.hpp>
 #include <openstudio/model/ThreeJSReverseTranslator.hpp>
 #include <openstudio/model/ThreeJSForwardTranslator.hpp>
 
@@ -56,6 +60,8 @@
 #include <openstudio/utilities/geometry/ThreeJS.hpp>
 
 #include "../../utilities/OpenStudioApplicationPathHelpers.hpp"
+
+#include <boost/algorithm/string/predicate.hpp>
 
 #include <memory>
 #include <algorithm>
@@ -133,6 +139,102 @@ boost::optional<model::Model> getExportModel(const boost::optional<FloorplanJS>&
 
     exportModelHandleMapping = rt.handleMapping();
 
+    // User cannot edit thermal zone for plenums in floorspace, a new thermal zone will always be created for each plenum
+    // if the associated space has a thermal zone in FloorplanJS::toThreeScene.  This was probably a bad decision, since
+    // the user cannot see or edit this zone we should not create it.  Created floorspace.js/issues/388 to better attach 
+    // information related to plenum zones
+
+    // the exported plenum space is not matched to an existing space, so existing space will be replaced by exported space
+    // we can throw away the new plenum zone, it will not be mapped to anything
+    for (const auto& exportSpace : exportModel->getConcreteModelObjects<model::Space>()) {
+      if (boost::algorithm::ends_with(exportSpace.nameString(), "Plenum")) {
+        boost::optional<model::ThermalZone> exportThermalZone = exportSpace.thermalZone();
+        if (exportThermalZone) {
+          exportThermalZone->remove();
+        }
+      }
+    }
+    
+    // attempt to match thermal zones for existing plenums with new plenums
+    for (const auto& space : model.getConcreteModelObjects<model::Space>()) {
+      boost::optional<model::Space> abovePlenumSpace;
+      boost::optional<model::Space> belowPlenumSpace;
+      for (const auto& surface : space.surfaces()) {
+        if (istringEqual(surface.surfaceType(), "RoofCeiling")) {
+          auto adjacentSurface = surface.adjacentSurface();
+          if (adjacentSurface){
+            abovePlenumSpace = adjacentSurface->space();
+            if (abovePlenumSpace && !boost::algorithm::ends_with(abovePlenumSpace->nameString(), "Plenum")) {
+              abovePlenumSpace.reset();
+            }
+          }
+        } else if (istringEqual(surface.surfaceType(), "Floor")) {
+          auto adjacentSurface = surface.adjacentSurface();
+          if (adjacentSurface) {
+            belowPlenumSpace = adjacentSurface->space();
+            if (belowPlenumSpace && !boost::algorithm::ends_with(belowPlenumSpace->nameString(), "Plenum")) {
+              belowPlenumSpace.reset();
+            }
+          }
+        }
+      }
+
+      boost::optional<model::Space> exportSpace;
+      boost::optional<model::Space> exportAbovePlenumSpace;
+      boost::optional<model::Space> exportBelowPlenumSpace;
+      auto exportSpaceHandle = exportModelHandleMapping.find(space.handle());
+      if (exportSpaceHandle != exportModelHandleMapping.end()) {
+        exportSpace = exportModel->getModelObject<model::Space>(exportSpaceHandle->second);
+        if (exportSpace) {
+          for (const auto& surface : exportSpace->surfaces()) {
+            if (istringEqual(surface.surfaceType(), "RoofCeiling")) {
+              auto adjacentSurface = surface.adjacentSurface();
+              if (adjacentSurface) {
+                exportAbovePlenumSpace = adjacentSurface->space();
+                if (exportAbovePlenumSpace && !boost::algorithm::ends_with(exportAbovePlenumSpace->nameString(), "Plenum")) {
+                  exportAbovePlenumSpace.reset();
+                }
+              }
+            } else if (istringEqual(surface.surfaceType(), "Floor")) {
+              auto adjacentSurface = surface.adjacentSurface();
+              if (adjacentSurface) {
+                exportBelowPlenumSpace = adjacentSurface->space();
+                if (exportBelowPlenumSpace && !boost::algorithm::ends_with(exportBelowPlenumSpace->nameString(), "Plenum")) {
+                  exportBelowPlenumSpace.reset();
+                }
+              }
+            }
+          }
+        }
+      }
+
+      if (abovePlenumSpace && exportAbovePlenumSpace) {
+        boost::optional<model::ThermalZone> thermalZone = abovePlenumSpace->thermalZone();
+        if (thermalZone) {
+          auto exportThermalZoneHandle = exportModelHandleMapping.find(thermalZone->handle());
+          if (exportThermalZoneHandle != exportModelHandleMapping.end()) {
+            boost::optional<model::ThermalZone> exportThermalZone = exportModel->getModelObject<model::ThermalZone>(exportThermalZoneHandle->second);
+            if (exportThermalZone) {
+              exportAbovePlenumSpace->setThermalZone(*exportThermalZone);
+            }
+          }
+        }
+      }
+      
+      if (belowPlenumSpace && exportBelowPlenumSpace) {
+        boost::optional<model::ThermalZone> thermalZone = belowPlenumSpace->thermalZone();
+        if (thermalZone) {
+          auto exportThermalZoneHandle = exportModelHandleMapping.find(thermalZone->handle());
+          if (exportThermalZoneHandle != exportModelHandleMapping.end()) {
+            boost::optional<model::ThermalZone> exportThermalZone = exportModel->getModelObject<model::ThermalZone>(exportThermalZoneHandle->second);
+            if (exportThermalZone) {
+              exportBelowPlenumSpace->setThermalZone(*exportThermalZone);
+            }
+          }
+        }
+      }
+    }
+
     // manually add mappings between current model and new model for Site, Facility, and Building objects
     exportModelHandleMapping[model.getUniqueModelObject<model::Site>().handle()] = exportModel->getUniqueModelObject<model::Site>().handle();
     exportModelHandleMapping[model.getUniqueModelObject<model::Facility>().handle()] = exportModel->getUniqueModelObject<model::Facility>().handle();
@@ -178,7 +280,8 @@ TEST_F(OpenStudioLibFixture, Geometry_SingleSpace_DefaultConstructionSet) {
   model::ModelMerger mm;
   mm.mergeModels(model, *exportModel, exportModelHandleMapping);
 
-  floorplan = updateFloorplan(floorplan, model);
+  EXPECT_EQ(building.nameString(), originalBuildingName);
+  EXPECT_EQ(site.nameString(), originalSiteName);
 
   ASSERT_TRUE(building.defaultConstructionSet());
   EXPECT_EQ(building.defaultConstructionSet()->handle(), defaultConstructionSet.handle());
@@ -186,4 +289,56 @@ TEST_F(OpenStudioLibFixture, Geometry_SingleSpace_DefaultConstructionSet) {
   EXPECT_EQ(building.spaceType()->handle(), spaceType.handle());
   ASSERT_TRUE(building.defaultScheduleSet());
   EXPECT_EQ(building.defaultScheduleSet()->handle(), defaultScheduleSet.handle());
+
+  floorplan = updateFloorplan(floorplan, model);
+}
+
+TEST_F(OpenStudioLibFixture, Geometry_SingleSpace_Plenum) {
+
+  openstudio::path floorplanPath =
+    getOpenStudioApplicationSourceDirectory() / openstudio::toPath("src/openstudio_lib/test/floorplans/single_space_plenum.json");
+  ASSERT_TRUE(exists(floorplanPath));
+
+  boost::optional<FloorplanJS> floorplan = loadFloorPlanJS(floorplanPath);
+  ASSERT_TRUE(floorplan);
+
+  model::Model model;
+
+  floorplan = updateFloorplan(floorplan, model);
+
+  std::map<UUID, UUID> exportModelHandleMapping;
+  boost::optional<model::Model> exportModel = getExportModel(floorplan, model, exportModelHandleMapping);
+  ASSERT_TRUE(exportModel);
+
+  model::ModelMerger mm;
+  mm.mergeModels(model, *exportModel, exportModelHandleMapping);
+
+  auto spaces = model.getConcreteModelObjects<model::Space>();
+  auto zones = model.getConcreteModelObjects<model::ThermalZone>();
+
+  ASSERT_EQ(spaces.size(), 2u);
+  ASSERT_EQ(zones.size(), 0u);
+
+  for (auto& space : spaces) {
+    EXPECT_FALSE(space.thermalZone());
+    model::ThermalZone zone(model);
+    EXPECT_TRUE(space.setThermalZone(zone));
+  }
+
+  floorplan = updateFloorplan(floorplan, model);
+
+  exportModelHandleMapping.clear();
+  exportModel = getExportModel(floorplan, model, exportModelHandleMapping);
+  ASSERT_TRUE(exportModel);
+
+  mm.mergeModels(model, *exportModel, exportModelHandleMapping);
+
+  spaces = model.getConcreteModelObjects<model::Space>();
+  zones = model.getConcreteModelObjects<model::ThermalZone>();
+
+  ASSERT_EQ(spaces.size(), 2u);
+  ASSERT_EQ(zones.size(), 2u);
+  for (auto& space : spaces) {
+    EXPECT_TRUE(space.thermalZone());
+  }
 }
