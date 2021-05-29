@@ -120,12 +120,6 @@ boost::optional<model::Model> getExportModel(const boost::optional<FloorplanJS>&
     model::Building building = exportModel->getUniqueModelObject<model::Building>();
     building.setName(originalBuildingName);
     building.setNorthAxis(-floorplan->northAxis());
-    boost::optional<Handle> cloneDefaultConstructionSetHandle;
-    if (originalDefaultConstructionSet && !building.defaultConstructionSet()) {
-      model::ModelObject cloneDefaultConstructionSet = originalDefaultConstructionSet->clone(*exportModel);
-      cloneDefaultConstructionSetHandle = cloneDefaultConstructionSet.handle();
-      building.setDefaultConstructionSet(cloneDefaultConstructionSet.cast<model::DefaultConstructionSet>());
-    }
 
     // synchronize latitude and longitude, floorspace does not set elevation when locating on map
     model::Site site = exportModel->getUniqueModelObject<model::Site>();
@@ -239,8 +233,17 @@ boost::optional<model::Model> getExportModel(const boost::optional<FloorplanJS>&
     exportModelHandleMapping[model.getUniqueModelObject<model::Site>().handle()] = exportModel->getUniqueModelObject<model::Site>().handle();
     exportModelHandleMapping[model.getUniqueModelObject<model::Facility>().handle()] = exportModel->getUniqueModelObject<model::Facility>().handle();
     exportModelHandleMapping[model.getUniqueModelObject<model::Building>().handle()] = exportModel->getUniqueModelObject<model::Building>().handle();
-    if (originalDefaultConstructionSet && cloneDefaultConstructionSetHandle) {
-      exportModelHandleMapping[originalDefaultConstructionSet->handle()] = *cloneDefaultConstructionSetHandle;
+  
+    // restore properties on unique objects
+    if (originalDefaultConstructionSet) {
+      auto it = exportModelHandleMapping.find(originalDefaultConstructionSet->handle());
+      if (it != exportModelHandleMapping.end()) {
+        boost::optional<model::DefaultConstructionSet> exportDefaultConstructionSet =
+          exportModel->getModelObject<model::DefaultConstructionSet>(it->second);
+        if (exportDefaultConstructionSet) {
+          building.setDefaultConstructionSet(*exportDefaultConstructionSet);
+        }
+      }
     }
   }
 
@@ -282,6 +285,14 @@ TEST_F(OpenStudioLibFixture, Geometry_SingleSpace_DefaultConstructionSet) {
 
   EXPECT_EQ(building.nameString(), originalBuildingName);
   EXPECT_EQ(site.nameString(), originalSiteName);
+
+  auto defaultConstructionSets = model.getConcreteModelObjects<model::DefaultConstructionSet>();
+  auto spaceTypes = model.getConcreteModelObjects<model::SpaceType>();
+  auto defaultScheduleSets = model.getConcreteModelObjects<model::DefaultScheduleSet>();
+
+  EXPECT_EQ(defaultConstructionSets.size(), 1u);
+  EXPECT_EQ(spaceTypes.size(), 1u);
+  EXPECT_EQ(defaultScheduleSets.size(), 1u);
 
   ASSERT_TRUE(building.defaultConstructionSet());
   EXPECT_EQ(building.defaultConstructionSet()->handle(), defaultConstructionSet.handle());

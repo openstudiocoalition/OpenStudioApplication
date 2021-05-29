@@ -498,11 +498,6 @@ void FloorspaceEditor::translateExport() {
       model::Building building = model->getUniqueModelObject<model::Building>();
       building.setName(m_originalBuildingName);
       building.setNorthAxis(-m_floorplan->northAxis());
-      if (m_originalDefaultConstructionSet && !building.defaultConstructionSet()) {
-        model::ModelObject cloneDefaultConstructionSet = m_originalDefaultConstructionSet->clone(*model);
-        cloneDefaultConstructionSetHandle = cloneDefaultConstructionSet.handle();
-        building.setDefaultConstructionSet(cloneDefaultConstructionSet.cast<model::DefaultConstructionSet>());
-      }
 
       // synchronize latitude and longitude, floorspace does not set elevation when locating on map
       model::Site site = model->getUniqueModelObject<model::Site>();
@@ -635,8 +630,17 @@ void FloorspaceEditor::translateExport() {
       m_exportModel.getUniqueModelObject<model::Facility>().handle();
     m_exportModelHandleMapping[m_model.getUniqueModelObject<model::Building>().handle()] =
       m_exportModel.getUniqueModelObject<model::Building>().handle();
-    if (m_originalDefaultConstructionSet && cloneDefaultConstructionSetHandle) {
-      m_exportModelHandleMapping[m_originalDefaultConstructionSet->handle()] = *cloneDefaultConstructionSetHandle;
+
+    // restore properties on unique objects
+    if (m_originalDefaultConstructionSet) {
+      auto it = m_exportModelHandleMapping.find(m_originalDefaultConstructionSet->handle());
+      if (it != m_exportModelHandleMapping.end()) {
+        boost::optional<model::DefaultConstructionSet> exportDefaultConstructionSet =
+          m_exportModel.getModelObject<model::DefaultConstructionSet>(it->second);
+        if (exportDefaultConstructionSet) {
+          m_exportModel.getUniqueModelObject<model::Building>().setDefaultConstructionSet(*exportDefaultConstructionSet);
+        }
+      }
     }
 
   } else {
