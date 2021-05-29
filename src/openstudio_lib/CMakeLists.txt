@@ -748,6 +748,7 @@ set(${target_name}_test_src
   test/DesignDays_GTest.cpp
   test/FacilityStories_GTest.cpp
   test/FacilityShading_GTest.cpp
+  test/Geometry_GTest.cpp
   test/IconLibrary_GTest.cpp
   test/ObjectSelector_GTest.cpp
   test/OSDropZone_GTest.cpp

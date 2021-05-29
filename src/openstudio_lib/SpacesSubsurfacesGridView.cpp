@@ -365,23 +365,6 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
           return allModelObjects;
         });
 
-      std::function<std::vector<boost::optional<model::ModelObject>>(const model::Space&)> allOutsideBoundaryConditionObjects(
-        [allSubSurfaces](const model::Space& t_space) {
-          std::vector<boost::optional<model::ModelObject>> allModelObjects;
-          std::vector<boost::optional<model::SubSurface>> allAdjacentSubSurfaces;
-          for (auto subSurface : allSubSurfaces(t_space)) {
-            auto adjacentSubSurface = subSurface.cast<model::SubSurface>().adjacentSubSurface();
-            if (adjacentSubSurface) {
-              allAdjacentSubSurfaces.push_back(adjacentSubSurface);
-            } else {
-              allAdjacentSubSurfaces.push_back(boost::optional<model::SubSurface>());
-            }
-          }
-          allModelObjects.insert(allModelObjects.end(), allAdjacentSubSurfaces.begin(), allAdjacentSubSurfaces.end());
-
-          return allModelObjects;
-        });
-
       if (field == SELECTED) {
         auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
         checkbox->setToolTip("Check to select all rows");
@@ -433,8 +416,7 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
                           CastNullAdapter<model::SubSurface>(&model::SubSurface::adjacentSubSurface), setter,
                           boost::optional<std::function<void(model::SubSurface*)>>(NullAdapter(&model::SubSurface::resetAdjacentSubSurface)),
                           boost::optional<std::function<bool(model::SubSurface*)>>(),
-                          boost::optional<std::function<std::vector<model::ModelObject>(model::SubSurface*)>>(),
-                          DataSource(allOutsideBoundaryConditionObjects, true));
+                          boost::optional<std::function<std::vector<model::ModelObject>(model::SubSurface*)>>(), DataSource(allSubSurfaces, true));
       } else if (field == SHADINGSURFACENAME) {
 
       } else if (field == SHADINGCONTROLNAME) {
