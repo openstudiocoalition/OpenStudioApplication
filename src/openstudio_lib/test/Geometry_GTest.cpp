@@ -149,7 +149,7 @@ boost::optional<model::Model> getExportModel(const boost::optional<FloorplanJS>&
         }
       }
     }
-    
+
     if (removedPlenumZones) {
       // attempt to match thermal zones for existing plenums with new plenums
       for (const auto& space : model.getConcreteModelObjects<model::Space>()) {
@@ -209,7 +209,8 @@ boost::optional<model::Model> getExportModel(const boost::optional<FloorplanJS>&
           if (thermalZone) {
             auto exportThermalZoneHandle = exportModelHandleMapping.find(thermalZone->handle());
             if (exportThermalZoneHandle != exportModelHandleMapping.end()) {
-              boost::optional<model::ThermalZone> exportThermalZone = exportModel->getModelObject<model::ThermalZone>(exportThermalZoneHandle->second);
+              boost::optional<model::ThermalZone> exportThermalZone =
+                exportModel->getModelObject<model::ThermalZone>(exportThermalZoneHandle->second);
               if (exportThermalZone) {
                 exportAbovePlenumSpace->setThermalZone(*exportThermalZone);
               }
@@ -222,7 +223,8 @@ boost::optional<model::Model> getExportModel(const boost::optional<FloorplanJS>&
           if (thermalZone) {
             auto exportThermalZoneHandle = exportModelHandleMapping.find(thermalZone->handle());
             if (exportThermalZoneHandle != exportModelHandleMapping.end()) {
-              boost::optional<model::ThermalZone> exportThermalZone = exportModel->getModelObject<model::ThermalZone>(exportThermalZoneHandle->second);
+              boost::optional<model::ThermalZone> exportThermalZone =
+                exportModel->getModelObject<model::ThermalZone>(exportThermalZoneHandle->second);
               if (exportThermalZone) {
                 exportBelowPlenumSpace->setThermalZone(*exportThermalZone);
               }
