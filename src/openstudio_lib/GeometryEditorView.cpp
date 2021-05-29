@@ -607,8 +607,7 @@ void FloorspaceEditor::translateExport() {
         if (thermalZone) {
           auto exportThermalZoneHandle = m_exportModelHandleMapping.find(thermalZone->handle());
           if (exportThermalZoneHandle != m_exportModelHandleMapping.end()) {
-            boost::optional<model::ThermalZone> exportThermalZone =
-              m_exportModel.getModelObject<model::ThermalZone>(exportThermalZoneHandle->second);
+            boost::optional<model::ThermalZone> exportThermalZone = m_exportModel.getModelObject<model::ThermalZone>(exportThermalZoneHandle->second);
             if (exportThermalZone) {
               exportAbovePlenumSpace->setThermalZone(*exportThermalZone);
             }
@@ -621,8 +620,7 @@ void FloorspaceEditor::translateExport() {
         if (thermalZone) {
           auto exportThermalZoneHandle = m_exportModelHandleMapping.find(thermalZone->handle());
           if (exportThermalZoneHandle != m_exportModelHandleMapping.end()) {
-            boost::optional<model::ThermalZone> exportThermalZone =
-              m_exportModel.getModelObject<model::ThermalZone>(exportThermalZoneHandle->second);
+            boost::optional<model::ThermalZone> exportThermalZone = m_exportModel.getModelObject<model::ThermalZone>(exportThermalZoneHandle->second);
             if (exportThermalZone) {
               exportBelowPlenumSpace->setThermalZone(*exportThermalZone);
             }

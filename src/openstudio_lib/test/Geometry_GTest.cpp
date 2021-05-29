@@ -141,7 +141,7 @@ boost::optional<model::Model> getExportModel(const boost::optional<FloorplanJS>&
 
     // User cannot edit thermal zone for plenums in floorspace, a new thermal zone will always be created for each plenum
     // if the associated space has a thermal zone in FloorplanJS::toThreeScene.  This was probably a bad decision, since
-    // the user cannot see or edit this zone we should not create it.  Created floorspace.js/issues/388 to better attach 
+    // the user cannot see or edit this zone we should not create it.  Created floorspace.js/issues/388 to better attach
     // information related to plenum zones
 
     // the exported plenum space is not matched to an existing space, so existing space will be replaced by exported space
@@ -154,7 +154,7 @@ boost::optional<model::Model> getExportModel(const boost::optional<FloorplanJS>&
         }
       }
     }
-    
+
     // attempt to match thermal zones for existing plenums with new plenums
     for (const auto& space : model.getConcreteModelObjects<model::Space>()) {
       boost::optional<model::Space> abovePlenumSpace;
@@ -162,7 +162,7 @@ boost::optional<model::Model> getExportModel(const boost::optional<FloorplanJS>&
       for (const auto& surface : space.surfaces()) {
         if (istringEqual(surface.surfaceType(), "RoofCeiling")) {
           auto adjacentSurface = surface.adjacentSurface();
-          if (adjacentSurface){
+          if (adjacentSurface) {
             abovePlenumSpace = adjacentSurface->space();
             if (abovePlenumSpace && !boost::algorithm::ends_with(abovePlenumSpace->nameString(), "Plenum")) {
               abovePlenumSpace.reset();
@@ -220,7 +220,7 @@ boost::optional<model::Model> getExportModel(const boost::optional<FloorplanJS>&
           }
         }
       }
-      
+
       if (belowPlenumSpace && exportBelowPlenumSpace) {
         boost::optional<model::ThermalZone> thermalZone = belowPlenumSpace->thermalZone();
         if (thermalZone) {
