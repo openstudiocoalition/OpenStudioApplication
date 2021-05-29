@@ -233,7 +233,7 @@ boost::optional<model::Model> getExportModel(const boost::optional<FloorplanJS>&
     exportModelHandleMapping[model.getUniqueModelObject<model::Site>().handle()] = exportModel->getUniqueModelObject<model::Site>().handle();
     exportModelHandleMapping[model.getUniqueModelObject<model::Facility>().handle()] = exportModel->getUniqueModelObject<model::Facility>().handle();
     exportModelHandleMapping[model.getUniqueModelObject<model::Building>().handle()] = exportModel->getUniqueModelObject<model::Building>().handle();
-  
+
     // restore properties on unique objects
     if (originalDefaultConstructionSet) {
       auto it = exportModelHandleMapping.find(originalDefaultConstructionSet->handle());
