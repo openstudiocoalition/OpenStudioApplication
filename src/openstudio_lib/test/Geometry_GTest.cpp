@@ -85,7 +85,6 @@ boost::optional<FloorplanJS> loadFloorPlanJS(const openstudio::path& floorplanPa
 boost::optional<FloorplanJS> updateFloorplan(boost::optional<FloorplanJS>& floorplan, const openstudio::model::Model& model) {
 
   boost::optional<model::Building> building = model.getOptionalUniqueModelObject<model::Building>();
-  boost::optional<model::Site> site = model.getOptionalUniqueModelObject<model::Site>();
 
   // update with current model content
   // at this point you may have removed objects in the app, so tell updateFloorplanJS to remove missing objects
