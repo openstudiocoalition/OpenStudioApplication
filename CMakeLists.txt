@@ -10,7 +10,7 @@ if(CCACHE_PROGRAM)
   set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "${CCACHE_PROGRAM}")
 endif()
 
-project(OpenStudioApplication VERSION 1.1.0)
+project(OpenStudioApplication VERSION 1.1.1)
 
 # set openstudio_DIR to the directory that contains the openstudioConfig.cmake
 # eg C:\src\OpenStudio\build-vs\_CPack_Packages\win64\ZIP\OpenStudio-3.0.0-rc2+ce27ae6b85-Windows\lib\cmake\openstudio
