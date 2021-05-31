@@ -226,7 +226,7 @@ OpenStudioApp::OpenStudioApp(int& argc, char** argv)
 OpenStudioApp::~OpenStudioApp() {
   if (m_measureManagerProcess) {
     m_measureManagerProcess->disconnect();
-    m_measureManagerProcess->terminate();
+    m_measureManagerProcess->kill();
     m_measureManagerProcess->waitForFinished();
     delete m_measureManagerProcess;
     m_measureManagerProcess = nullptr;
