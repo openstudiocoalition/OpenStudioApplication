@@ -1156,8 +1156,8 @@ EditorWebView::EditorWebView(bool isIP, const openstudio::model::Model& model, Q
   m_view->settings()->setAttribute(QWebEngineSettings::WebAttribute::LocalContentCanAccessRemoteUrls, true);
   m_view->settings()->setAttribute(QWebEngineSettings::WebAttribute::SpatialNavigationEnabled, true);
 
-  m_page = new OSWebEnginePage(this);
-  m_view->setPage(m_page);  // note, view does not take ownership of page
+  m_page = new OSWebEnginePage(m_view);
+  m_view->setPage(m_page); 
 
   //connect(m_view, &QWebEngineView::loadFinished, this, &EditorWebView::onLoadFinished);
   //connect(m_view, &QWebEngineView::loadProgress, this, &EditorWebView::onLoadProgress);
@@ -1269,7 +1269,6 @@ EditorWebView::~EditorWebView() {
     }
   }
   saveClickedBlocking("");
-  delete m_page;
   delete m_view;
 }
 
