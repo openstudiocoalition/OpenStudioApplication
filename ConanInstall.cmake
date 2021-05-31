@@ -29,10 +29,10 @@ if(NOT CONAN_OPENSTUDIO_ALREADY_RUN)
 
   # Add NREL remote and place it first in line, since we vendored dependencies to NREL's repo, they will be picked first
   conan_add_remote(NAME nrel INDEX 0
-    URL https://api.bintray.com/conan/commercialbuilding/nrel)
+    URL https://conan.commercialbuildings.dev/artifactory/api/conan/openstudio)
 
   conan_add_remote(NAME bincrafters
-    URL https://api.bintray.com/conan/bincrafters/public-conan)
+    URL https://bincrafters.jfrog.io/artifactory/api/conan/public-conan)
 
   #conan_add_remote(NAME jmarrec
   #  URL https://api.bintray.com/conan/jmarrec/testing)
@@ -61,7 +61,7 @@ if(NOT CONAN_OPENSTUDIO_ALREADY_RUN)
     boost/1.73.0
     pugixml/1.10
     jsoncpp/1.9.3
-    zlib/1.2.11
+    "zlib/1.2.11#0df31fd24179543f5720ec7beb2a88d7"
     minizip/1.2.11
     fmt/7.0.1
     sqlite3/3.32.3
