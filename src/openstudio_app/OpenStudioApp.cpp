@@ -502,18 +502,18 @@ void OpenStudioApp::importIdf() {
           informativeText = QString("The IDF is at version '") + toQString(idfFileVersion->str());
 
           if (idfFileVersion.get() < currentVersion) {
-            informativeText.append(QString("' while OpenStudio uses a <strong>newer</strong> EnergyPlus '") + toQString(currentVersion.str()) +
-                                   QString("'. Consider using the EnergyPlus Auxiliary program IDFVersionUpdater to update your IDF file."));
+            informativeText.append(QString("' while OpenStudio uses a <strong>newer</strong> EnergyPlus '") + toQString(currentVersion.str())
+                                   + QString("'. Consider using the EnergyPlus Auxiliary program IDFVersionUpdater to update your IDF file."));
           } else if (idfFileVersion.get() > currentVersion) {
-            informativeText.append(QString("' while OpenStudio uses an <strong>older</strong> EnergyPlus '") + toQString(currentVersion.str()) +
-                                   QString("'."));
+            informativeText.append(QString("' while OpenStudio uses an <strong>older</strong> EnergyPlus '") + toQString(currentVersion.str())
+                                   + QString("'."));
           } else {
-            informativeText.append(QString("' which is the <strong>same</strong> version of EnergyPlus that OpenStudio uses (") +
-                                   toQString(currentVersion.str()) + QString(")."));
+            informativeText.append(QString("' which is the <strong>same</strong> version of EnergyPlus that OpenStudio uses (")
+                                   + toQString(currentVersion.str()) + QString(")."));
           }
         } else {
-          informativeText = QString("<strong>The IDF does not have a VersionObject</strong>. Check that it is of correct version (") +
-                            toQString(currentVersion.str()) + QString(") and that all fields are valid against Energy+.idd. ");
+          informativeText = QString("<strong>The IDF does not have a VersionObject</strong>. Check that it is of correct version (")
+                            + toQString(currentVersion.str()) + QString(") and that all fields are valid against Energy+.idd. ");
         }
 
         informativeText.append("<br/><br/>The ValidityReport follows.");
@@ -965,8 +965,8 @@ void OpenStudioApp::checkForUpdate() {
   QMessageBox::StandardButtons buttons;
   bool openURL = false;
   if (releases.newReleaseAvailable()) {
-    text = QString(tr("A new version is available at <a href=\"")) + toQString(releases.releasesUrl()) + QString("\">") +
-           toQString(releases.releasesUrl()) + QString("</a>");
+    text = QString(tr("A new version is available at <a href=\"")) + toQString(releases.releasesUrl()) + QString("\">")
+           + toQString(releases.releasesUrl()) + QString("</a>");
     openURL = true;
     buttons = QMessageBox::Open | QMessageBox::Ignore;
   } else {

@@ -667,8 +667,8 @@ void LocationView::onDesignDayBtnClicked() {
       openstudio::Workspace ddyWorkspace(StrictnessLevel::None, IddFileType::EnergyPlus);
       for (IdfObject idfObject : ddyIdfFile->objects()) {
         IddObjectType iddObjectType = idfObject.iddObject().type();
-        if ((iddObjectType == IddObjectType::SizingPeriod_DesignDay) || (iddObjectType == IddObjectType::SizingPeriod_WeatherFileDays) ||
-            (iddObjectType == IddObjectType::SizingPeriod_WeatherFileConditionType)) {
+        if ((iddObjectType == IddObjectType::SizingPeriod_DesignDay) || (iddObjectType == IddObjectType::SizingPeriod_WeatherFileDays)
+            || (iddObjectType == IddObjectType::SizingPeriod_WeatherFileConditionType)) {
 
           ddyWorkspace.addObject(idfObject);
         }

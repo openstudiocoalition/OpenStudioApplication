@@ -127,14 +127,14 @@ std::vector<OSItemId> ModelObjectListController::makeVector() {
           openstudio::IddObjectType zCompType = zComp->iddObjectType();
 
           // Special case for a WaterHeaterMixed, can be part of a HeatPump(PumpedCondenser) or HeatPump:WrappedCondenser
-          if ((m_iddObjectType == openstudio::IddObjectType::OS_WaterHeater_Stratified) &&
-              ((zCompType == openstudio::IddObjectType::OS_WaterHeater_HeatPump) ||
-               (zCompType == openstudio::IddObjectType::OS_WaterHeater_HeatPump_WrappedCondenser))) {
+          if ((m_iddObjectType == openstudio::IddObjectType::OS_WaterHeater_Stratified)
+              && ((zCompType == openstudio::IddObjectType::OS_WaterHeater_HeatPump)
+                  || (zCompType == openstudio::IddObjectType::OS_WaterHeater_HeatPump_WrappedCondenser))) {
             result.push_back(modelObjectToItemId(hvacComponent.get(), false));
           }
           // Special case for a WaterHeaterMixed, can be part of a HeatPump(PumpedCondenser) only
-          else if ((m_iddObjectType == openstudio::IddObjectType::OS_WaterHeater_Mixed) &&
-                   (zCompType == openstudio::IddObjectType::OS_WaterHeater_HeatPump)) {
+          else if ((m_iddObjectType == openstudio::IddObjectType::OS_WaterHeater_Mixed)
+                   && (zCompType == openstudio::IddObjectType::OS_WaterHeater_HeatPump)) {
             result.push_back(modelObjectToItemId(hvacComponent.get(), false));
           }
         }

@@ -462,8 +462,8 @@ std::vector<measure::OSArgument> MeasureManager::getArguments(const BCLMeasure& 
 
   std::string url_s = m_url.toString().toStdString();
 
-  QString data = QString("{\"measure_dir\": \"") + toQString(t_measure.directory()) + QString("\", \"osm_path\": \"") + toQString(m_tempModelPath) +
-                 QString("\"}");
+  QString data = QString("{\"measure_dir\": \"") + toQString(t_measure.directory()) + QString("\", \"osm_path\": \"") + toQString(m_tempModelPath)
+                 + QString("\"}");
 
   QNetworkRequest request(url);
   request.setHeader(QNetworkRequest::ContentTypeHeader, "json");
@@ -916,8 +916,8 @@ bool MeasureManager::checkForUpdates(const openstudio::path& measureDir, bool fo
 
   // std::string url_s = m_url.toString().toStdString();
 
-  QString data = QString("{\"measures_dir\": \"") + toQString(measureDir) + QString("\", \"force_reload\": ") +
-                 (force ? QString("true") : QString("false")) + QString("}");
+  QString data = QString("{\"measures_dir\": \"") + toQString(measureDir) + QString("\", \"force_reload\": ")
+                 + (force ? QString("true") : QString("false")) + QString("}");
 
   QNetworkRequest request(url);
   request.setHeader(QNetworkRequest::ContentTypeHeader, "json");

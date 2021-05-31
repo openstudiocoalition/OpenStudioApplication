@@ -9,9 +9,9 @@
 #
 # You can also run the clang-format on the entire /src directory if desired. To do that can use the following:
 # using find on for Mac osx
-# find -E ./src -regex '.*\.(cpp|hpp|c|h)$'  | xargs clang-format -style=file -i -fallback-style=none
+# find -E ./src -regex '.*\.\(cpp\|c\|cxx\|cxx.in\|hpp\|h\|hxx\|hxx.in\)$' | xargs clang-format -style=file -i -fallback-style=none
 # using find on linux
-# find ./src -regextype posix-extended -regex '.*\.(cpp|hpp|c|h)$' | xargs clang-format -style=file -i -fallback-style=none
+# find ./src -regextype posix-extended -regex '.*\.(cpp|c|cxx|cxx.in|hpp\|h|hxx|hxx.in)$' | xargs clang-format -style=file -i -fallback-style=none
 
 display_usage() {
   echo -e "\nUsage:\ PR_BRANCH_NAME TARGET_BRANCH_NAME \n"

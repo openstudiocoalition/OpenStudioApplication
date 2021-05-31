@@ -253,8 +253,8 @@ void OSObjectSelector::clearSubCell(int t_modelRow, int t_gridRow, int t_column,
 
   auto it = m_gridCellLocationToInfoMap.begin();
   while (it != m_gridCellLocationToInfoMap.end()) {
-    if (it->first->modelRow == t_modelRow && it->first->gridRow == t_gridRow && it->first->column == t_column && it->first->subrow &&
-        it->first->subrow.get() == t_subrow) {
+    if (it->first->modelRow == t_modelRow && it->first->gridRow == t_gridRow && it->first->column == t_column && it->first->subrow
+        && it->first->subrow.get() == t_subrow) {
       delete it->first;
       delete it->second;
       it = m_gridCellLocationToInfoMap.erase(it);

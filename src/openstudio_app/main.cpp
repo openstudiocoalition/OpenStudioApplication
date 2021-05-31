@@ -207,8 +207,8 @@ int main(int argc, char* argv[]) {
     }
 
     // QCoreApplication::setAttribute should really be put here because it's set before we create the App
-    if (!qEnvironmentVariableIsSet("QT_DEVICE_PIXEL_RATIO") && !qEnvironmentVariableIsSet("QT_AUTO_SCREEN_SCALE_FACTOR") &&
-        !qEnvironmentVariableIsSet("QT_SCALE_FACTOR") && !qEnvironmentVariableIsSet("QT_SCREEN_SCALE_FACTORS")) {
+    if (!qEnvironmentVariableIsSet("QT_DEVICE_PIXEL_RATIO") && !qEnvironmentVariableIsSet("QT_AUTO_SCREEN_SCALE_FACTOR")
+        && !qEnvironmentVariableIsSet("QT_SCALE_FACTOR") && !qEnvironmentVariableIsSet("QT_SCREEN_SCALE_FACTORS")) {
       LOG_FREE(Info, "OpenStudioApp.main",
                "Setting Qt::AA_EnableHighDpiScaling. "
                  << "Instead, you can also manually set the environment variable 'QT_SCALE_FACTOR'.");

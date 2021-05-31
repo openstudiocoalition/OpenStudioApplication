@@ -1706,9 +1706,9 @@ void DaySchedulePlotArea::keyPressEvent(QKeyEvent* event) {
           m_keyboardInputValue.chop(1);
           updateKeyboardPrompt();
 
-        } else if (event->key() == Qt::Key_0 || event->key() == Qt::Key_1 || event->key() == Qt::Key_2 || event->key() == Qt::Key_3 ||
-                   event->key() == Qt::Key_4 || event->key() == Qt::Key_5 || event->key() == Qt::Key_6 || event->key() == Qt::Key_7 ||
-                   event->key() == Qt::Key_8 || event->key() == Qt::Key_9) {
+        } else if (event->key() == Qt::Key_0 || event->key() == Qt::Key_1 || event->key() == Qt::Key_2 || event->key() == Qt::Key_3
+                   || event->key() == Qt::Key_4 || event->key() == Qt::Key_5 || event->key() == Qt::Key_6 || event->key() == Qt::Key_7
+                   || event->key() == Qt::Key_8 || event->key() == Qt::Key_9) {
 
           m_keyboardInputValue.append(event->text());
           updateKeyboardPrompt();

@@ -114,13 +114,13 @@ void LostCloudConnectionDialog::createWidgets(bool internetAvailable, bool authe
   label = new QLabel;
   vLayout->addWidget(label);
   if (cloudRunning) {
-    label->setText("<FONT COLOR = GREEN>3. <FONT COLOR = BLACK>" + tr("Cloud Connection: ") + "<b> <FONT COLOR = GREEN>" + tr("reconnected") +
-                   "</b>");
+    label->setText("<FONT COLOR = GREEN>3. <FONT COLOR = BLACK>" + tr("Cloud Connection: ") + "<b> <FONT COLOR = GREEN>" + tr("reconnected")
+                   + "</b>");
 
   } else {
     label->setWordWrap(true);
-    label->setText("<FONT COLOR = RED>3. <FONT COLOR = BLACK>" + tr("Cloud Connection: ") + "<b> <FONT COLOR = RED>" + tr("unable to reconnect. ") +
-                   "</b>" + "<FONT COLOR = BLACK>" + tr("Remember that cloud charges may currently be accruing."));
+    label->setText("<FONT COLOR = RED>3. <FONT COLOR = BLACK>" + tr("Cloud Connection: ") + "<b> <FONT COLOR = RED>" + tr("unable to reconnect. ")
+                   + "</b>" + "<FONT COLOR = BLACK>" + tr("Remember that cloud charges may currently be accruing."));
     createCloudConnectionWidgets(vLayout);
   }
 }
@@ -148,8 +148,8 @@ void LostCloudConnectionDialog::createCloudConnectionWidgets(QVBoxLayout* vLayou
 
   label = new QLabel;
   label->setWordWrap(true);
-  label->setText("<b>" + tr("Try Again Later. ") + "</b>" +
-                 tr("Verify your computer's internet connection then click \"Lost Cloud Connection\" to recover the lost cloud session."));
+  label->setText("<b>" + tr("Try Again Later. ") + "</b>"
+                 + tr("Verify your computer's internet connection then click \"Lost Cloud Connection\" to recover the lost cloud session."));
   hLayout->addWidget(label);
 
   label = new QLabel;
@@ -166,9 +166,9 @@ void LostCloudConnectionDialog::createCloudConnectionWidgets(QVBoxLayout* vLayou
 
   label = new QLabel;
   label->setWordWrap(true);
-  label->setText("<b>" + tr("Stop Cloud. ") + "</b>" +
-                 tr("Disconnect from cloud.  This option will make the failed cloud session unavailable to Pat.  Any data that has not been "
-                    "downloaded to Pat will be lost.  Use the AWS Console to verify that the Amazon service have been completely shutdown."));
+  label->setText("<b>" + tr("Stop Cloud. ") + "</b>"
+                 + tr("Disconnect from cloud.  This option will make the failed cloud session unavailable to Pat.  Any data that has not been "
+                      "downloaded to Pat will be lost.  Use the AWS Console to verify that the Amazon service have been completely shutdown."));
   hLayout->addWidget(label);
 
   label = new QLabel;
@@ -185,8 +185,8 @@ void LostCloudConnectionDialog::createCloudConnectionWidgets(QVBoxLayout* vLayou
 
   label = new QLabel;
   label->setWordWrap(true);
-  label->setText("<b>" + tr("Launch AWS Console. ") + "</b>" +
-                 tr("Use the AWS Console to diagnose Amazon services.  You may still attempt to recover the lost cloud session."));
+  label->setText("<b>" + tr("Launch AWS Console. ") + "</b>"
+                 + tr("Use the AWS Console to diagnose Amazon services.  You may still attempt to recover the lost cloud session."));
   hLayout->addWidget(label, 0);
 
   vLayout->addStretch();
