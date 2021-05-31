@@ -1234,8 +1234,8 @@ EditorWebView::EditorWebView(bool isIP, const openstudio::model::Model& model, Q
   }
 
   // no files found
-  if ((model.getConcreteModelObjects<model::Surface>().size() > 0) || (model.getConcreteModelObjects<model::SubSurface>().size() > 0) ||
-      (model.getConcreteModelObjects<model::ShadingSurface>().size() > 0)) {
+  if ((model.getConcreteModelObjects<model::Surface>().size() > 0) || (model.getConcreteModelObjects<model::SubSurface>().size() > 0)
+      || (model.getConcreteModelObjects<model::ShadingSurface>().size() > 0)) {
     m_newImportGeometry->setEnabled(false);
     m_view->load(getEmbeddedFileUrl("geometry_editor_start.html"));
   } else {

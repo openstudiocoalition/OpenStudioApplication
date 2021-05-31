@@ -382,7 +382,8 @@ if( NOT APPLE )
     endforeach()
 
     foreach(LIB_LOCATION ${QT_EXTRA_LIBS})
-      get_filename_component(LIB_BASE_NAME ${LIB_LOCATION} NAME)
+      get_filename_component(LIB_LOCATION_RESOLVED "${LIB_LOCATION}" REALPATH)
+      get_filename_component(LIB_BASE_NAME ${LIB_LOCATION_RESOLVED} NAME)
       install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/${LIB_BASE_NAME} DESTINATION bin/ COMPONENT OpenStudioApp)
     endforeach()
 
