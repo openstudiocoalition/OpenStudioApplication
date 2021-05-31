@@ -244,7 +244,10 @@ jobs:
           echo MACOSX_DEPLOYMENT_TARGET=${{ matrix.MACOSX_DEPLOYMENT_TARGET }} >> $GITHUB_ENV
           echo SDKROOT=${{ matrix.SDKROOT }} >> $GITHUB_ENV
           echo CMAKE_MACOSX_DEPLOYMENT_TARGET='-DCMAKE_OSX_DEPLOYMENT_TARGET=$MACOSX_DEPLOYMENT_TARGET' >> $GITHUB_ENV
-
+          echo "Using brew to install ninja"
+          brew install ninja
+          echo CMAKE_GENERATOR='Ninja' >> $GITHUB_ENV
+          
           brew install md5sha1sum
 
           curl -L -O https://download.qt.io/official_releases/qt-installer-framework/3.2.2/QtInstallerFramework-mac-x64.dmg
