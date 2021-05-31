@@ -4989,7 +4989,7 @@ OS:AirConditioner:VariableRefrigerantFlow,
   {30fbccd3-f4f0-4bf8-94be-faf7bba3e968}, !- Heating Energy Input Ratio Modifier Function of High Part-Load Ratio Curve Name
   {68c0f092-88a2-4ba9-b6b4-4d8f2b091efc}, !- Heating Combination Ratio Correction Factor Curve Name
   {14f8f003-46ae-43fe-a743-607c63cd092c}, !- Heating Part-Load Fraction Correlation Curve Name
-  0.25,                                   !- Minimum Heat Pump Part-Load Ratio {dimensionless}
+  0.5,                                    !- Minimum Heat Pump Part-Load Ratio {dimensionless}
   ,                                       !- Zone Name for Master Thermostat Location
   LoadPriority,                           !- Master Thermostat Priority Control Type
   ,                                       !- Thermostat Priority Schedule
