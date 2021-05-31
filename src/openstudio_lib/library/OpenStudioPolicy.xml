@@ -424,6 +424,10 @@
     <rule IddField="Control High Indoor Humidity Based on Outdoor Humidity Ratio" Access="HIDDEN"/>
     <rule IddField="Controller Mechanical Ventilation" Access="HIDDEN"/>
   </POLICY>
+  <POLICY IddObjectType="OS_Fan_ComponentModel">
+    <rule IddField="Air Inlet Node Name" Access="HIDDEN"/>
+    <rule IddField="Air Outlet Node Name" Access="HIDDEN"/>
+  </POLICY>
   <POLICY IddObjectType="OS_Fan_ConstantVolume">
     <rule IddField="Air Inlet Node Name" Access="HIDDEN"/>
     <rule IddField="Air Outlet Node Name" Access="HIDDEN"/>
