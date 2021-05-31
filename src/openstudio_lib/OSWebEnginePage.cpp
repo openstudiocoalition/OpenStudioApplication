@@ -45,15 +45,14 @@ void OSUrlRequestInterceptor::interceptRequest(QWebEngineUrlRequestInfo& info) {
   info.setHttpHeader("Access-Control-Allow-Origin", "*");
 }
 
-OSWebEnginePage::OSWebEnginePage(QObject* parent) : QWebEnginePage(parent)
-{
+OSWebEnginePage::OSWebEnginePage(QObject* parent) : QWebEnginePage(parent) {
   OSUrlRequestInterceptor* interceptor = new OSUrlRequestInterceptor(this);
   this->profile()->setUrlRequestInterceptor(interceptor);
 }
 
 OSWebEnginePage::~OSWebEnginePage() {}
 
- bool OSWebEnginePage::acceptNavigationRequest(const QUrl& url, QWebEnginePage::NavigationType type, bool isMainFrame) {
+bool OSWebEnginePage::acceptNavigationRequest(const QUrl& url, QWebEnginePage::NavigationType type, bool isMainFrame) {
   if (type == QWebEnginePage::NavigationTypeLinkClicked) {
     // QString s = url.toString();
     // open links in system browser rather than embedded view
