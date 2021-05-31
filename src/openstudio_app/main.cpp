@@ -225,8 +225,8 @@ int main(int argc, char* argv[]) {
     // Make the run path the default plugin search location
     QCoreApplication::addLibraryPath(QCoreApplication::applicationDirPath());
 
-    LOG_FREE(Info, "OpenStudioApp.main", "LibraryExecutablesPath: "
-        << openstudio::toString(QLibraryInfo::location(QLibraryInfo::LibraryExecutablesPath)));
+    LOG_FREE(Info, "OpenStudioApp.main",
+             "LibraryExecutablesPath: " << openstudio::toString(QLibraryInfo::location(QLibraryInfo::LibraryExecutablesPath)));
     LOG_FREE(Info, "OpenStudioApp.main", "DataPath: " << openstudio::toString(QLibraryInfo::location(QLibraryInfo::DataPath)));
     LOG_FREE(Info, "OpenStudioApp.main", "TranslationsPath: " << openstudio::toString(QLibraryInfo::location(QLibraryInfo::TranslationsPath)));
 
