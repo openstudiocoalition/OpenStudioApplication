@@ -222,6 +222,7 @@ elseif( UNIX )
     COMMAND ${CMAKE_COMMAND} -E make_directory $<TARGET_FILE_DIR:${target_name}>/resources/
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${icudtl} $<TARGET_FILE_DIR:${target_name}>/resources/
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources} $<TARGET_FILE_DIR:${target_name}>/resources/
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_devtools} $<TARGET_FILE_DIR:${target_name}>/resources/
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_100} $<TARGET_FILE_DIR:${target_name}>/resources/
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_200} $<TARGET_FILE_DIR:${target_name}>/resources/
     #COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/translations $<TARGET_FILE_DIR:${target_name}>/translations/
@@ -270,6 +271,7 @@ elseif( WIN32 )
     COMMAND ${CMAKE_COMMAND} -E make_directory $<TARGET_FILE_DIR:${target_name}>/resources/
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${icudtl} $<TARGET_FILE_DIR:${target_name}>/resources/
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources} $<TARGET_FILE_DIR:${target_name}>/resources/
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_devtools} $<TARGET_FILE_DIR:${target_name}>/resources/
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_100} $<TARGET_FILE_DIR:${target_name}>/resources/
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_200} $<TARGET_FILE_DIR:${target_name}>/resources/
     #COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/translations $<TARGET_FILE_DIR:${target_name}>/translations/

@@ -33,10 +33,27 @@
 
 #include <QDesktopServices>
 #include <QWebEngineCertificateError>
+#include <QWebEngineProfile>
 
 namespace openstudio {
 
-bool OSWebEnginePage::acceptNavigationRequest(const QUrl& url, QWebEnginePage::NavigationType type, bool isMainFrame) {
+OSUrlRequestInterceptor::OSUrlRequestInterceptor(QObject* parent) : QWebEngineUrlRequestInterceptor(parent) {}
+OSUrlRequestInterceptor::~OSUrlRequestInterceptor() {}
+
+void OSUrlRequestInterceptor::interceptRequest(QWebEngineUrlRequestInfo& info) {
+  info.setHttpHeader("Accept-Language", "en-US,en;q=0.9,es;q=0.8,de;q=0.7");
+  info.setHttpHeader("Access-Control-Allow-Origin", "*");
+}
+
+OSWebEnginePage::OSWebEnginePage(QObject* parent) : QWebEnginePage(parent)
+{
+  OSUrlRequestInterceptor* interceptor = new OSUrlRequestInterceptor(this);
+  this->profile()->setUrlRequestInterceptor(interceptor);
+}
+
+OSWebEnginePage::~OSWebEnginePage() {}
+
+ bool OSWebEnginePage::acceptNavigationRequest(const QUrl& url, QWebEnginePage::NavigationType type, bool isMainFrame) {
   if (type == QWebEnginePage::NavigationTypeLinkClicked) {
     // QString s = url.toString();
     // open links in system browser rather than embedded view
