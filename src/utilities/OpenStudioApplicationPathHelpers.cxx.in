@@ -116,21 +116,20 @@ openstudio::path getOpenStudioApplicationPath() {
   // (Another option would be to always start by calling findInSystemPath and modify the findInSystemPath to prepend the PATH list with '.')
 
   openstudio::path applicationPath = completeAndNormalize(path);
-  if( !openstudio::filesystem::exists( applicationPath ) || openstudio::filesystem::is_directory( applicationPath ) ) {
-      // It that didn't work, it means it's in the system PATH. So you have to look for it in your PATH by calling findInSystemPath
-      // There's no way around it IMHO.
-      // Note: This wouldn't be a concern unless you are launching a symlink that lives in your PATH, and outside the directory where the symlink is
-      // * ./OpenStudioApplicationSymlink will work
-      // * /home/OpenStudioApplicationSymlink will work
-      // * OpenStudioApplicationSymlink itself will not work (if you aren't in the same folder as the symlink)
+  if (!openstudio::filesystem::exists(applicationPath) || openstudio::filesystem::is_directory(applicationPath)) {
+    // It that didn't work, it means it's in the system PATH. So you have to look for it in your PATH by calling findInSystemPath
+    // There's no way around it IMHO.
+    // Note: This wouldn't be a concern unless you are launching a symlink that lives in your PATH, and outside the directory where the symlink is
+    // * ./OpenStudioApplicationSymlink will work
+    // * /home/OpenStudioApplicationSymlink will work
+    // * OpenStudioApplicationSymlink itself will not work (if you aren't in the same folder as the symlink)
 
-
-      LOG_FREE(Debug, "ApplicationPathHelpers", "getOpenStudioApplicationPath failed as is, trying in to locate in systemPath");
-      path = findInSystemPath(path);
-      applicationPath = completeAndNormalize(path);
+    LOG_FREE(Debug, "ApplicationPathHelpers", "getOpenStudioApplicationPath failed as is, trying in to locate in systemPath");
+    path = findInSystemPath(path);
+    applicationPath = completeAndNormalize(path);
   }
-  if( !openstudio::filesystem::exists( applicationPath ) || openstudio::filesystem::is_directory( applicationPath ) ) {
-      LOG_FREE_AND_THROW("ApplicationPathHelpers", "getOpenStudioApplicationPath failed!");
+  if (!openstudio::filesystem::exists(applicationPath) || openstudio::filesystem::is_directory(applicationPath)) {
+    LOG_FREE_AND_THROW("ApplicationPathHelpers", "getOpenStudioApplicationPath failed!");
   }
 
   LOG_FREE(Debug, "ApplicationPathHelpers", "getOpenStudioApplicationPath, found '" << applicationPath << "'");
@@ -197,13 +196,13 @@ openstudio::path getOpenStudioApplicationModule() {
   // (Another option would be to always start by calling findInSystemPath and modify the findInSystemPath to prepend the PATH list with '.')
   openstudio::path openstudioDirPath = openstudio::completeAndNormalize(path);
 
-  if( !openstudio::filesystem::exists( openstudioDirPath ) || openstudio::filesystem::is_directory( openstudioDirPath ) ) {
-      LOG_FREE(Debug, "OpenStudioApplicationPathHelpers", "getOpenStudioApplicationModule failed as is, trying in to locate in systemPath");
-      path = findInSystemPath(path);
-      openstudioDirPath = completeAndNormalize(path);
+  if (!openstudio::filesystem::exists(openstudioDirPath) || openstudio::filesystem::is_directory(openstudioDirPath)) {
+    LOG_FREE(Debug, "OpenStudioApplicationPathHelpers", "getOpenStudioApplicationModule failed as is, trying in to locate in systemPath");
+    path = findInSystemPath(path);
+    openstudioDirPath = completeAndNormalize(path);
   }
-  if( !openstudio::filesystem::exists( openstudioDirPath ) || openstudio::filesystem::is_directory( openstudioDirPath ) ) {
-      LOG_FREE_AND_THROW("OpenStudioApplicationPathHelpers", "getOpenStudioApplicationModule failed!");
+  if (!openstudio::filesystem::exists(openstudioDirPath) || openstudio::filesystem::is_directory(openstudioDirPath)) {
+    LOG_FREE_AND_THROW("OpenStudioApplicationPathHelpers", "getOpenStudioApplicationModule failed!");
   }
 
   LOG_FREE(Debug, "ApplicationPathHelpers", "getOpenStudioApplicationModule, found '" << openstudioDirPath << "'");
