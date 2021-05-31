@@ -192,7 +192,7 @@ OpenStudioApp::OpenStudioApp(int& argc, char** argv)
   setQuitOnLastWindowClosed(false);
 
   m_startupMenu = std::shared_ptr<StartupMenu>(new StartupMenu());
-  connect(m_startupMenu.get(), &StartupMenu::exitClicked, this, &OpenStudioApp::quit);
+  connect(m_startupMenu.get(), &StartupMenu::exitClicked, this, &OpenStudioApp::quit, Qt::QueuedConnection);
   connect(m_startupMenu.get(), &StartupMenu::importClicked, this, &OpenStudioApp::importIdf);
   connect(m_startupMenu.get(), &StartupMenu::importgbXMLClicked, this, &OpenStudioApp::importgbXML);
   connect(m_startupMenu.get(), &StartupMenu::importSDDClicked, this, &OpenStudioApp::importSDD);
@@ -226,6 +226,8 @@ OpenStudioApp::OpenStudioApp(int& argc, char** argv)
 OpenStudioApp::~OpenStudioApp() {
   if (m_measureManagerProcess) {
     m_measureManagerProcess->disconnect();
+    m_measureManagerProcess->kill();
+    m_measureManagerProcess->waitForFinished();
     delete m_measureManagerProcess;
     m_measureManagerProcess = nullptr;
   }
@@ -1216,8 +1218,8 @@ void OpenStudioApp::revertToSaved() {
 
 void OpenStudioApp::connectOSDocumentSignals() {
   OS_ASSERT(m_osDocument);
-  connect(m_osDocument.get(), &OSDocument::closeClicked, this, &OpenStudioApp::onCloseClicked);
-  connect(m_osDocument.get(), &OSDocument::exitClicked, this, &OpenStudioApp::quit);
+  connect(m_osDocument.get(), &OSDocument::closeClicked, this, &OpenStudioApp::onCloseClicked, Qt::QueuedConnection);
+  connect(m_osDocument.get(), &OSDocument::exitClicked, this, &OpenStudioApp::quit, Qt::QueuedConnection);
   connect(m_osDocument.get(), &OSDocument::importClicked, this, &OpenStudioApp::importIdf);
   connect(m_osDocument.get(), &OSDocument::importgbXMLClicked, this, &OpenStudioApp::importgbXML);
   connect(m_osDocument.get(), &OSDocument::importSDDClicked, this, &OpenStudioApp::importSDD);

@@ -141,8 +141,8 @@ PreviewWebView::PreviewWebView(bool isIP, const model::Model& model, QWidget* t_
 }
 
 PreviewWebView::~PreviewWebView() {
-  delete m_view;
   delete m_page;
+  delete m_view;
 }
 
 void PreviewWebView::refreshClicked() {
