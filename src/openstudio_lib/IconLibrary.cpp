@@ -169,6 +169,7 @@ IconLibrary::IconLibrary() {
     new QPixmap(":images/directEvap.png");
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_EvaporativeCooler_Indirect_ResearchSpecial).value()] =
     new QPixmap(":images/indirectEvap.png");
+  m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Fan_ComponentModel).value()] = new QPixmap(":images/fan_componentmodel.png");
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Fan_ConstantVolume).value()] = new QPixmap(":images/fan_constant.png");
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Fan_OnOff).value()] = new QPixmap(":images/fan_on_off.png");
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Fan_SystemModel).value()] = new QPixmap(":images/fan_systemmodel.png");
@@ -617,6 +618,8 @@ IconLibrary::IconLibrary() {
     new QPixmap(":images/mini_icons/directEvap.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_EvaporativeCooler_Indirect_ResearchSpecial).value()] =
     new QPixmap(":images/mini_icons/indirectEvap.png");
+  m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Fan_ComponentModel).value()] =
+    new QPixmap(":images/mini_icons/fan_componentmodel.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Fan_ConstantVolume).value()] =
     new QPixmap(":images/mini_icons/fan_constant.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Fan_OnOff).value()] = new QPixmap(":images/mini_icons/fan_on_off_mini.png");
