@@ -501,7 +501,7 @@ void OSItem::mouseMoveEvent(QMouseEvent* event) {
     return;
   }
 
-  if (!(event->buttons() && Qt::LeftButton)) {
+  if (!(event->buttons() & Qt::LeftButton)) {
     return;
   }
 
