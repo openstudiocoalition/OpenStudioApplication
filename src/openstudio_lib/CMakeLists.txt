@@ -709,7 +709,7 @@ set(${target_name}_moc
 
 set(TS_FILES
   ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_fr.ts # French
-  ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_en.ts # Spanish
+  ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_es.ts # Spanish
   ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_ar.ts # Arabic
   ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_he.ts # Hebrew
   ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_fa.ts # Farsi-Persian

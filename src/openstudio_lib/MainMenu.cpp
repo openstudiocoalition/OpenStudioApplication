@@ -189,6 +189,30 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, QWidget* p
   langMenu->addAction(m_langFrenchAction);
   connect(m_langFrenchAction, &QAction::triggered, this, &MainMenu::langFrenchClicked);
 
+  m_langArabicAction = new QAction(tr("Arabic"), this);
+  m_preferencesActions.push_back(m_langArabicAction);
+  m_langArabicAction->setCheckable(true);
+  langMenu->addAction(m_langArabicAction);
+  connect(m_langArabicAction, &QAction::triggered, this, &MainMenu::langArabicClicked);
+
+  m_langSpanishAction = new QAction(tr("Spanish"), this);
+  m_preferencesActions.push_back(m_langSpanishAction);
+  m_langSpanishAction->setCheckable(true);
+  langMenu->addAction(m_langSpanishAction);
+  connect(m_langSpanishAction, &QAction::triggered, this, &MainMenu::langSpanishClicked);
+
+  m_langFarsiAction = new QAction(tr("Farsi"), this);
+  m_preferencesActions.push_back(m_langFarsiAction);
+  m_langFarsiAction->setCheckable(true);
+  langMenu->addAction(m_langFarsiAction);
+  connect(m_langFarsiAction, &QAction::triggered, this, &MainMenu::langFarsiClicked);
+
+  m_langHebrewAction = new QAction(tr("Hebrew"), this);
+  m_preferencesActions.push_back(m_langHebrewAction);
+  m_langHebrewAction->setCheckable(true);
+  langMenu->addAction(m_langHebrewAction);
+  connect(m_langHebrewAction, &QAction::triggered, this, &MainMenu::langHebrewClicked);
+
   action = new QAction(tr("Add a new language"), this);
   m_preferencesActions.push_back(action);
   langMenu->addAction(action);
@@ -217,15 +241,27 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, QWidget* p
     m_displaySIUnitsAction->trigger();
   }
 
+  m_langEnglishAction->setChecked(false);
+  m_langFrenchAction->setChecked(false);
+  m_langArabicAction->setChecked(false);
+  m_langSpanishAction->setChecked(false);
+  m_langFarsiAction->setChecked(false);
+  m_langHebrewAction->setChecked(false);
+
   if (m_currLang == "fr") {
-    // m_langFrenchAction->trigger();
-    m_langEnglishAction->setChecked(false);
     m_langFrenchAction->setChecked(true);
+  } else if (m_currLang == "ar") {
+    m_langArabicAction->setChecked(true);
+  } else if (m_currLang == "es") {
+    m_langSpanishAction->setChecked(true);
+  } else if (m_currLang == "fa") {
+    m_langFarsiAction->setChecked(true);
+  } else if (m_currLang == "he") {
+    m_langHebrewAction->setChecked(true);
   } else {
     // default to english
     // m_langEnglishAction->trigger();
     m_langEnglishAction->setChecked(true);
-    m_langFrenchAction->setChecked(false);
   }
 
   // Measure menu
@@ -282,13 +318,67 @@ void MainMenu::displayIPUnitsClicked() {
 void MainMenu::langEnglishClicked() {
   m_langEnglishAction->setChecked(true);
   m_langFrenchAction->setChecked(false);
+  m_langArabicAction->setChecked(false);
+  m_langSpanishAction->setChecked(false);
+  m_langFarsiAction->setChecked(false);
+  m_langHebrewAction->setChecked(false);
+
   emit changeLanguageClicked("en");
 }
 
 void MainMenu::langFrenchClicked() {
   m_langEnglishAction->setChecked(false);
   m_langFrenchAction->setChecked(true);
+  m_langArabicAction->setChecked(false);
+  m_langSpanishAction->setChecked(false);
+  m_langFarsiAction->setChecked(false);
+  m_langHebrewAction->setChecked(false);
+
   emit changeLanguageClicked("fr");
+}
+
+void MainMenu::langArabicClicked() {
+  m_langEnglishAction->setChecked(false);
+  m_langFrenchAction->setChecked(false);
+  m_langArabicAction->setChecked(true);
+  m_langSpanishAction->setChecked(false);
+  m_langFarsiAction->setChecked(false);
+  m_langHebrewAction->setChecked(false);
+
+  emit changeLanguageClicked("ar");
+}
+
+void MainMenu::langSpanishClicked() {
+  m_langEnglishAction->setChecked(false);
+  m_langFrenchAction->setChecked(false);
+  m_langArabicAction->setChecked(false);
+  m_langSpanishAction->setChecked(true);
+  m_langFarsiAction->setChecked(false);
+  m_langHebrewAction->setChecked(false);
+
+  emit changeLanguageClicked("es");
+}
+
+void MainMenu::langFarsiClicked() {
+  m_langEnglishAction->setChecked(false);
+  m_langFrenchAction->setChecked(false);
+  m_langArabicAction->setChecked(false);
+  m_langSpanishAction->setChecked(false);
+  m_langFarsiAction->setChecked(true);
+  m_langHebrewAction->setChecked(false);
+
+  emit changeLanguageClicked("fa");
+}
+
+void MainMenu::langHebrewClicked() {
+  m_langEnglishAction->setChecked(false);
+  m_langFrenchAction->setChecked(false);
+  m_langArabicAction->setChecked(false);
+  m_langSpanishAction->setChecked(false);
+  m_langFarsiAction->setChecked(false);
+  m_langHebrewAction->setChecked(true);
+
+  emit changeLanguageClicked("he");
 }
 
 void MainMenu::addingNewLanguageClicked() {
