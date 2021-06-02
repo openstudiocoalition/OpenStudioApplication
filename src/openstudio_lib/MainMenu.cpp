@@ -42,8 +42,8 @@
 
 namespace openstudio {
 
-MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, QWidget* parent) :
-  QMenuBar(parent), m_isPlugin(isPlugin), m_isIP(isIP), m_currLang(currLang) {
+MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, QWidget* parent)
+  : QMenuBar(parent), m_isPlugin(isPlugin), m_isIP(isIP), m_currLang(currLang) {
 
   QAction* action = nullptr;
 
@@ -175,7 +175,6 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, QWidget* p
   m_preferencesMenu->addAction(action);
   connect(action, &QAction::triggered, this, &MainMenu::configureExternalToolsClicked);
 
-
   QMenu* langMenu = m_preferencesMenu->addMenu(tr("&Language"));
 
   m_langEnglishAction = new QAction(tr("English"), this);
@@ -294,10 +293,12 @@ void MainMenu::langFrenchClicked() {
 
 void MainMenu::addingNewLanguageClicked() {
 
-   QMessageBox::information(nullptr,
-       tr("Adding a new language"),
-       tr("Adding a new language requires almost no coding skill, but it does require language skills: the only thing to do is to translate each sentence/word with the help of a dedicated software.\nIf you would like to see the OpenStudioApplication translated in your language of choice, we would welcome your help. Send an email to osc@openstudiocoalition.org specifying which language you want to add, and we will be in touch to help you get started.")
-  );
+  QMessageBox::information(
+    nullptr, tr("Adding a new language"),
+    tr("Adding a new language requires almost no coding skill, but it does require language skills: the only thing to do is to translate each "
+       "sentence/word with the help of a dedicated software.\nIf you would like to see the OpenStudioApplication translated in your language of "
+       "choice, we would welcome your help. Send an email to osc@openstudiocoalition.org specifying which language you want to add, and we will be "
+       "in touch to help you get started."));
 }
 
 void MainMenu::enableRevertToSavedAction(bool enable) {

@@ -346,8 +346,8 @@ void DesignDayGridController::addColumns(const QString& /*category*/, std::vecto
 
     else if (field == BAROMETRICPRESSURE) {
       addQuantityEditColumn(
-        Heading(BAROMETRICPRESSURE), QString("Pa"), QString("Pa"), QString("inHg"), isIP(),
-        NullAdapter(&model::DesignDay::barometricPressure), NullAdapter(&model::DesignDay::setBarometricPressure),
+        Heading(BAROMETRICPRESSURE), QString("Pa"), QString("Pa"), QString("inHg"), isIP(), NullAdapter(&model::DesignDay::barometricPressure),
+        NullAdapter(&model::DesignDay::setBarometricPressure),
         boost::optional<std::function<void(model::DesignDay*)>>(CastNullAdapter<model::DesignDay>(&model::DesignDay::resetBarometricPressure)),
         boost::optional<std::function<bool(model::DesignDay*)>>(CastNullAdapter<model::DesignDay>(&model::DesignDay::isBarometricPressureDefaulted)),
         boost::optional<DataSource>());
@@ -410,8 +410,7 @@ void DesignDayGridController::addColumns(const QString& /*category*/, std::vecto
     }
 
     else if (field == HUMIDITYINDICATINGDAYSCHEDULE) {
-      addDropZoneColumn(Heading(HUMIDITYINDICATINGDAYSCHEDULE),
-                        CastNullAdapter<model::DesignDay>(&model::DesignDay::humidityIndicatingDaySchedule),
+      addDropZoneColumn(Heading(HUMIDITYINDICATINGDAYSCHEDULE), CastNullAdapter<model::DesignDay>(&model::DesignDay::humidityIndicatingDaySchedule),
                         CastNullAdapter<model::DesignDay>(&model::DesignDay::setHumidityIndicatingDaySchedule),
                         boost::optional<std::function<void(model::DesignDay*)>>(
                           CastNullAdapter<model::DesignDay>(&model::DesignDay::resetHumidityIndicatingDaySchedule)));

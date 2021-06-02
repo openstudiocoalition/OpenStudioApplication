@@ -403,7 +403,7 @@ std::vector<std::string> OpenStudioApp::buildCompLibraries() {
         boost::optional<VersionString> version = openstudio::IdfFile::loadVersionOnly(path);
         if (version) {
           waitDialog()->m_thirdLine->setText(tr("Translation From version ") + QString::fromStdString(version->str()) + tr(" to ")
-              + QString::fromStdString(thisVersion) + ": ");
+                                             + QString::fromStdString(thisVersion) + ": ");
         } else {
           waitDialog()->m_thirdLine->setText(tr("Unknown starting version"));
         }
@@ -509,18 +509,17 @@ void OpenStudioApp::importIdf() {
           informativeText = QString("The IDF is at version '") + toQString(idfFileVersion->str());
 
           if (idfFileVersion.get() < currentVersion) {
-            informativeText.append(tr("' while OpenStudio uses a <strong>newer</strong> EnergyPlus '") + toQString(currentVersion.str()) +
-                                   tr("'. Consider using the EnergyPlus Auxiliary program IDFVersionUpdater to update your IDF file."));
+            informativeText.append(tr("' while OpenStudio uses a <strong>newer</strong> EnergyPlus '") + toQString(currentVersion.str())
+                                   + tr("'. Consider using the EnergyPlus Auxiliary program IDFVersionUpdater to update your IDF file."));
           } else if (idfFileVersion.get() > currentVersion) {
-            informativeText.append(tr("' while OpenStudio uses an <strong>older</strong> EnergyPlus '") + toQString(currentVersion.str()) +
-                                   tr("'."));
+            informativeText.append(tr("' while OpenStudio uses an <strong>older</strong> EnergyPlus '") + toQString(currentVersion.str()) + tr("'."));
           } else {
-            informativeText.append(tr("' which is the <strong>same</strong> version of EnergyPlus that OpenStudio uses (") +
-                                   toQString(currentVersion.str()) + QString(")."));
+            informativeText.append(tr("' which is the <strong>same</strong> version of EnergyPlus that OpenStudio uses (")
+                                   + toQString(currentVersion.str()) + QString(")."));
           }
         } else {
-          informativeText = tr("<strong>The IDF does not have a VersionObject</strong>. Check that it is of correct version (") +
-                            toQString(currentVersion.str()) + tr(") and that all fields are valid against Energy+.idd. ");
+          informativeText = tr("<strong>The IDF does not have a VersionObject</strong>. Check that it is of correct version (")
+                            + toQString(currentVersion.str()) + tr(") and that all fields are valid against Energy+.idd. ");
         }
 
         informativeText.append(tr("<br/><br/>The ValidityReport follows."));
@@ -1202,9 +1201,8 @@ void OpenStudioApp::revertToSaved() {
   if (!testFile.exists()) {
     // Tell the user the file has never been saved, and ask them if they want to create a new file
     QMessageBox::StandardButton reply;
-    reply =
-      QMessageBox::question(mainWidget(), tr("Revert to Saved"), tr("This model has never been saved.\nDo you want to create a new model?"),
-                            QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
+    reply = QMessageBox::question(mainWidget(), tr("Revert to Saved"), tr("This model has never been saved.\nDo you want to create a new model?"),
+                                  QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
     if (reply == QMessageBox::Yes) {
       // JM: copied DLM's hack below so we do not trigger prompt to save in call to closeDocument during newModel()
       // this->currentDocument()->markAsUnmodified();
@@ -1388,19 +1386,17 @@ int OpenStudioApp::startTabIndex() const {
 
 void OpenStudioApp::changeLanguage(const QString& rLanguage) {
   qDebug() << "Trying to change language from '" << m_currLang << "' to '" << rLanguage << "'.";
-  if(m_currLang != rLanguage) {
+  if (m_currLang != rLanguage) {
     switchLanguage(rLanguage);
 
     QMessageBox::StandardButton reply;
-    reply =
-      QMessageBox::question(
-          mainWidget(), tr("Restart required"),
-          tr("A restart of the OpenStudio Application is required for language changes to be fully functionnal.\nWould you like to restart now?"),
-                            QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
+    reply = QMessageBox::question(
+      mainWidget(), tr("Restart required"),
+      tr("A restart of the OpenStudio Application is required for language changes to be fully functionnal.\nWould you like to restart now?"),
+      QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
     if (reply == QMessageBox::Yes) {
       revertToSaved();
     }
-
   }
 }
 
@@ -1413,15 +1409,13 @@ bool OpenStudioApp::switchLanguage(const QString& rLanguage) {
   // QString languageName = QLocale::languageToString(loc.language());
 
   this->removeTranslator(&m_qtTranslator);
-  if (m_qtTranslator.load(loc, QLatin1String("qt"), QLatin1String("_"), QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
-  {
+  if (m_qtTranslator.load(loc, QLatin1String("qt"), QLatin1String("_"), QLibraryInfo::location(QLibraryInfo::TranslationsPath))) {
     qDebug() << "m_qtTranslator ok";
     this->installTranslator(&m_qtTranslator);
   }
 
   this->removeTranslator(&m_qtBaseTranslator);
-  if (m_qtBaseTranslator.load(loc, QLatin1String("qtbase"), QLatin1String("_"), QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
-  {
+  if (m_qtBaseTranslator.load(loc, QLatin1String("qtbase"), QLatin1String("_"), QLibraryInfo::location(QLibraryInfo::TranslationsPath))) {
     qDebug() << "m_qtBaseTranslator ok";
     this->installTranslator(&m_qtBaseTranslator);
   }

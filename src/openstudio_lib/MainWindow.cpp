@@ -286,7 +286,7 @@ QString MainWindow::lastPath() const {
 }
 
 //QString MainWindow::currentLanguage() const {
-  //return m_currLang.isEmpty() ? "en" : m_currLang;
+//return m_currLang.isEmpty() ? "en" : m_currLang;
 //}
 
 void MainWindow::toggleUnits(bool displayIP) {

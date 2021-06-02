@@ -497,10 +497,10 @@ void YearSettingsWidget::onDstEndDayWeekMonthChanged() {
   std::string s_dayOfWeek;
   std::string s_monthOfYear;
 
-  NthDayOfWeekInMonth _nth(m_endWeekBox->currentIndex() + 1); // NthDayOfWeekInMonth starts at 1...
+  NthDayOfWeekInMonth _nth(m_endWeekBox->currentIndex() + 1);  // NthDayOfWeekInMonth starts at 1...
 
   DayOfWeek _dayOfWeek(m_endDayBox->currentIndex());
-  MonthOfYear _monthOfYear(m_endMonthBox->currentIndex() + 1); // MonthOfYear starts at 1...
+  MonthOfYear _monthOfYear(m_endMonthBox->currentIndex() + 1);  // MonthOfYear starts at 1...
 
   emit dstEndDayOfWeekAndMonthChanged(_nth.value(), _dayOfWeek.value(), _monthOfYear.value());
 }
@@ -513,49 +513,20 @@ QStringList YearSettingsWidget::weeksInMonth() {
 QStringList YearSettingsWidget::validDayofWeekforStartDay() {
 
   // Similar to model::YearDescription::validDayofWeekforStartDayValues(), but we need to be able to translate them
-  QStringList result  = {
-    tr("Sunday"),
-    tr("Monday"),
-    tr("Tuesday"),
-    tr("Wednesday"),
-    tr("Thursday"),
-    tr("Friday"),
-    tr("Saturday"),
-    tr("UseWeatherFile")
-  };
+  QStringList result = {tr("Sunday"),   tr("Monday"), tr("Tuesday"),  tr("Wednesday"),
+                        tr("Thursday"), tr("Friday"), tr("Saturday"), tr("UseWeatherFile")};
 
   return result;
-
 }
 QStringList YearSettingsWidget::daysOfWeek() {
-  QStringList result  = {
-    tr("Monday"),
-    tr("Tuesday"),
-    tr("Wednesday"),
-    tr("Thursday"),
-    tr("Friday"),
-    tr("Saturday"),
-    tr("Sunday")
-  };
+  QStringList result = {tr("Monday"), tr("Tuesday"), tr("Wednesday"), tr("Thursday"), tr("Friday"), tr("Saturday"), tr("Sunday")};
 
   return result;
 }
 
 QStringList YearSettingsWidget::months() {
-  QStringList result  = {
-    tr("January"),
-    tr("February"),
-    tr("March"),
-    tr("April"),
-    tr("May"),
-    tr("June"),
-    tr("July"),
-    tr("August"),
-    tr("September"),
-    tr("October"),
-    tr("November"),
-    tr("December")
-  };
+  QStringList result = {tr("January"), tr("February"), tr("March"),     tr("April"),   tr("May"),      tr("June"),
+                        tr("July"),    tr("August"),   tr("September"), tr("October"), tr("November"), tr("December")};
 
   return result;
 }
