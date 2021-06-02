@@ -258,6 +258,11 @@ elseif( UNIX )
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qt_he.qm $<TARGET_FILE_DIR:${target_name}>/translations/
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qtbase_he.qm $<TARGET_FILE_DIR:${target_name}>/translations/
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qtwebengine_locales/he.pak $<TARGET_FILE_DIR:${target_name}>/translations/qtwebengine_locales/
+
+    # Italian
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qt_it.qm $<TARGET_FILE_DIR:${target_name}>/translations/
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qtbase_it.qm $<TARGET_FILE_DIR:${target_name}>/translations/
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qtwebengine_locales/it.pak $<TARGET_FILE_DIR:${target_name}>/translations/qtwebengine_locales/
   )
 
   # TODO: not sure if chrpath is needed

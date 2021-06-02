@@ -130,6 +130,7 @@ class MainMenu : public QMenuBar
   QAction* m_langSpanishAction;
   QAction* m_langFarsiAction;
   QAction* m_langHebrewAction;
+  QAction* m_langItalianAction;
 
   QAction* m_openLibDlgAction;
 
@@ -169,6 +170,7 @@ class MainMenu : public QMenuBar
   void langSpanishClicked();
   void langFarsiClicked();
   void langHebrewClicked();
+  void langItalianClicked();
   void addingNewLanguageClicked();
 };
 
