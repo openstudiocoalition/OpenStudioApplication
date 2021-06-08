@@ -57,7 +57,9 @@ class OSSelectAllCheckBox : public QCheckBox
   void onGridRowSelectionChanged(int numSelected, int numSelectable);
 };
 
-class OSCheckBox3 : public QCheckBox, public Nano::Observer
+class OSCheckBox3
+  : public QCheckBox
+  , public Nano::Observer
 {
   Q_OBJECT
 
@@ -117,7 +119,9 @@ class OSCheckBox3 : public QCheckBox, public Nano::Observer
   bool m_locked = false;
 };
 
-class OSCheckBox2 : public QPushButton, public Nano::Observer
+class OSCheckBox2
+  : public QPushButton
+  , public Nano::Observer
 {
   Q_OBJECT
 
@@ -163,7 +167,9 @@ class OSCheckBox2 : public QPushButton, public Nano::Observer
   bool m_locked = false;
 };
 
-class OSGreyCheckBox2 : public QPushButton, public Nano::Observer
+class OSGreyCheckBox2
+  : public QPushButton
+  , public Nano::Observer
 {
   Q_OBJECT
 

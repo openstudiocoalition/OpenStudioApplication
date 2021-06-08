@@ -48,7 +48,9 @@
 
 namespace openstudio {
 
-class OSComboBoxDataSource : public QObject, public Nano::Observer
+class OSComboBoxDataSource
+  : public QObject
+  , public Nano::Observer
 {
   Q_OBJECT
 
@@ -104,7 +106,9 @@ class OSObjectListCBDS : public OSComboBoxDataSource
   QList<WorkspaceObject> m_workspaceObjects;
 };
 
-class OSComboBox2 : public QComboBox, public Nano::Observer
+class OSComboBox2
+  : public QComboBox
+  , public Nano::Observer
 {
   Q_OBJECT
  public:

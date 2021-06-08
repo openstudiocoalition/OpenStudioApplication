@@ -81,7 +81,10 @@ class OSLineEdit2Interface
   virtual QWidget* qwidget() = 0;
 };
 
-class OSLineEdit2 : public QLineEdit, public OSLineEdit2Interface, public Nano::Observer
+class OSLineEdit2
+  : public QLineEdit
+  , public OSLineEdit2Interface
+  , public Nano::Observer
 {
   Q_OBJECT
 

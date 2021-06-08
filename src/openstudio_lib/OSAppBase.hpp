@@ -50,7 +50,9 @@ class OSDocument;
 
 class WaitDialog;
 
-class OPENSTUDIO_API OSAppBase : public QApplication, public BaseApp
+class OPENSTUDIO_API OSAppBase
+  : public QApplication
+  , public BaseApp
 {
 
   Q_OBJECT;

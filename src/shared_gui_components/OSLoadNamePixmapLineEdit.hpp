@@ -42,7 +42,9 @@ namespace openstudio {
 
 class OSItem;
 
-class OSLoadNamePixmapLineEdit : public QWidget, public OSLineEdit2Interface
+class OSLoadNamePixmapLineEdit
+  : public QWidget
+  , public OSLineEdit2Interface
 {
   Q_OBJECT
 

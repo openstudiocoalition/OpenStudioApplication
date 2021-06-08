@@ -125,7 +125,9 @@ class MonthView;
 class ScheduleCalendarWidget;
 
 // Overall view for the schedules tab, includes left column selector
-class SchedulesView : public QWidget, public Nano::Observer
+class SchedulesView
+  : public QWidget
+  , public Nano::Observer
 {
   Q_OBJECT
 
@@ -239,7 +241,9 @@ class SchedulesView : public QWidget, public Nano::Observer
 /******************************************************************************/
 
 // Overall item in left column selector, includes collapsible header and content
-class ScheduleTab : public QWidget, public Nano::Observer
+class ScheduleTab
+  : public QWidget
+  , public Nano::Observer
 {
   Q_OBJECT
 
@@ -309,7 +313,9 @@ class ScheduleTab : public QWidget, public Nano::Observer
 };
 
 // Collapsible header for each schedule ruleset in left column selector
-class ScheduleTabHeader : public QWidget, public Nano::Observer
+class ScheduleTabHeader
+  : public QWidget
+  , public Nano::Observer
 {
   Q_OBJECT
 
@@ -366,7 +372,9 @@ class ScheduleTabHeader : public QWidget, public Nano::Observer
 };
 
 // Content under collapsible header, includes a button for each rule and default schedule
-class ScheduleTabContent : public QWidget, public Nano::Observer
+class ScheduleTabContent
+  : public QWidget
+  , public Nano::Observer
 {
   Q_OBJECT
 
@@ -410,7 +418,9 @@ class ScheduleTabContent : public QWidget, public Nano::Observer
 };
 
 // Inner item in ScheduleTabContent, represents a ScheduleRule
-class ScheduleTabRule : public QWidget, public Nano::Observer
+class ScheduleTabRule
+  : public QWidget
+  , public Nano::Observer
 {
   Q_OBJECT
 
@@ -455,7 +465,9 @@ class ScheduleTabRule : public QWidget, public Nano::Observer
 };
 
 // Inner item in ScheduleTabContent, represents a default schedule such as design day or the default schedule
-class ScheduleTabDefault : public QWidget, public Nano::Observer
+class ScheduleTabDefault
+  : public QWidget
+  , public Nano::Observer
 {
   Q_OBJECT
 
@@ -510,7 +522,9 @@ class ScheduleTabDefault : public QWidget, public Nano::Observer
 /******************************************************************************/
 
 // View presented when need to make a new profile (either schedule rule or design day)
-class NewProfileView : public QWidget, public Nano::Observer
+class NewProfileView
+  : public QWidget
+  , public Nano::Observer
 {
   Q_OBJECT
 
@@ -554,7 +568,9 @@ class NewProfileView : public QWidget, public Nano::Observer
 };
 
 // View presented only showing schedule name widget
-class ScheduleRulesetNameView : public QWidget, public Nano::Observer
+class ScheduleRulesetNameView
+  : public QWidget
+  , public Nano::Observer
 {
   Q_OBJECT
 
@@ -610,7 +626,9 @@ class SpecialScheduleDayView : public QWidget
 };
 
 // View a schedule rule of a schedule ruleset
-class ScheduleRuleView : public QWidget, public Nano::Observer
+class ScheduleRuleView
+  : public QWidget
+  , public Nano::Observer
 {
   Q_OBJECT
 
@@ -678,7 +696,9 @@ class ScheduleRuleView : public QWidget, public Nano::Observer
 };
 
 // Widget which shows the name and schedule type limits of a schedule ruleset
-class ScheduleRulesetNameWidget : public QWidget, public Nano::Observer
+class ScheduleRulesetNameWidget
+  : public QWidget
+  , public Nano::Observer
 {
   Q_OBJECT
 
@@ -694,7 +714,9 @@ class ScheduleRulesetNameWidget : public QWidget, public Nano::Observer
 };
 
 // Overview of the year, held by ScheduleRuleView
-class YearOverview : public QWidget, public Nano::Observer
+class YearOverview
+  : public QWidget
+  , public Nano::Observer
 {
   Q_OBJECT
 
@@ -750,7 +772,9 @@ class YearOverview : public QWidget, public Nano::Observer
 };
 
 // Overview of the month, held by YearOverview
-class MonthView : public QWidget, public Nano::Observer
+class MonthView
+  : public QWidget
+  , public Nano::Observer
 {
   Q_OBJECT
 
