@@ -36,8 +36,10 @@
 #include "OSDocument.hpp"
 #include "OSDropZone.hpp"
 
-#include "../shared_gui_components/OSGridView.hpp"
+#include "../shared_gui_components/OSCheckBox.hpp"
 #include "../shared_gui_components/OSComboBox.hpp"
+#include "../shared_gui_components/OSGridView.hpp"
+#include "../shared_gui_components/OSObjectSelector.hpp"
 
 #include <openstudio/model/DefaultConstructionSet.hpp>
 #include <openstudio/model/DefaultConstructionSet_Impl.hpp>
@@ -173,8 +175,6 @@ SpaceTypesGridView::SpaceTypesGridView(bool isIP, const model::Model& model, QWi
 
   QVBoxLayout* layout = nullptr;
 
-  bool isConnected = false;
-
   auto filterGridLayout = new QGridLayout();
   filterGridLayout->setContentsMargins(7, 4, 0, 8);
   filterGridLayout->setSpacing(5);
@@ -272,9 +272,8 @@ SpaceTypesGridView::SpaceTypesGridView(bool isIP, const model::Model& model, QWi
   filterGridLayout->setRowStretch(filterGridLayout->rowCount(), 100);
   filterGridLayout->setColumnStretch(filterGridLayout->columnCount(), 100);
 
-  gridView->m_contentLayout->addLayout(filterGridLayout);
-
-  gridView->m_contentLayout->addSpacing(7);
+  gridView->addLayoutToContentLayout(filterGridLayout);
+  gridView->addSpacingToContentLayout(7);
 
   mainLayout->addWidget(gridView, 0, Qt::AlignTop);
 
@@ -283,25 +282,21 @@ SpaceTypesGridView::SpaceTypesGridView(bool isIP, const model::Model& model, QWi
   // GridController
 
   OS_ASSERT(m_gridController);
-  isConnected = connect(m_filters, &QComboBox::currentTextChanged, m_gridController, &openstudio::SpaceTypesGridController::filterChanged);
-  OS_ASSERT(isConnected);
 
-  isConnected = connect(gridView, SIGNAL(dropZoneItemClicked(OSItem*)), this, SIGNAL(dropZoneItemClicked(OSItem*)));
-  OS_ASSERT(isConnected);
+  connect(m_filters, &QComboBox::currentTextChanged, m_gridController, &SpaceTypesGridController::filterChanged);
 
-  isConnected = connect(this, SIGNAL(selectionCleared()), gridView, SLOT(onSelectionCleared()));
-  OS_ASSERT(isConnected);
+  connect(gridView, &OSGridView::dropZoneItemClicked, this, &SpaceTypesGridView::dropZoneItemClicked);
 
-  isConnected = connect(this, SIGNAL(toggleUnitsClicked(bool)), m_gridController, SIGNAL(toggleUnitsClicked(bool)));
-  OS_ASSERT(isConnected);
+  connect(this, &SpaceTypesGridView::selectionCleared, m_gridController, &SpaceTypesGridController::onSelectionCleared);
 
-  isConnected = connect(this, SIGNAL(toggleUnitsClicked(bool)), m_gridController, SLOT(toggleUnits(bool)));
-  OS_ASSERT(isConnected);
+  connect(this, &SpaceTypesGridView::toggleUnitsClicked, m_gridController, &SpaceTypesGridController::toggleUnitsClicked);
+
+  connect(this, &SpaceTypesGridView::toggleUnitsClicked, m_gridController, &SpaceTypesGridController::onToggleUnits);
 
   // std::vector<model::SpaceType> spaceType = model.getConcreteModelObjects<model::SpaceType>();  // NOTE for horizontal system lists
 }
 
-std::vector<model::ModelObject> SpaceTypesGridView::selectedObjects() const {
+std::set<model::ModelObject> SpaceTypesGridView::selectedObjects() const {
   return m_gridController->selectedObjects();
 }
 
@@ -332,7 +327,7 @@ void SpaceTypesGridController::setCategoriesAndFields() {
     fields.push_back(SPACEINFILTRATIONDESIGNFLOWRATES);
     fields.push_back(SPACEINFILTRATIONEFFECTIVELEAKAGEAREAS);
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("General"), fields);
-    m_categoriesAndFields.push_back(categoryAndFields);
+    addCategoryAndFields(categoryAndFields);
   }
 
   {
@@ -343,7 +338,7 @@ void SpaceTypesGridController::setCategoriesAndFields() {
     fields.push_back(SCHEDULE);
     fields.push_back(ACTIVITYSCHEDULE);
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Loads"), fields);
-    m_categoriesAndFields.push_back(categoryAndFields);
+    addCategoryAndFields(categoryAndFields);
   }
 
   {
@@ -352,56 +347,76 @@ void SpaceTypesGridController::setCategoriesAndFields() {
     fields.push_back(STANDARDSBUILDINGTYPE);
     fields.push_back(STANDARDSSPACETYPE);
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Measure\nTags"), fields);
-    m_categoriesAndFields.push_back(categoryAndFields);
+    addCategoryAndFields(categoryAndFields);
   }
 
   OSGridController::setCategoriesAndFields();
 }
 
 void SpaceTypesGridController::filterChanged(const QString& text) {
-  LOG(Debug, "Load filter changed: " << toString(text));
+  std::set<openstudio::model::ModelObject> allFilteredObjects;
 
-  auto objectSelector = getObjectSelector();
   if (text == SHOWALLLOADS) {
-    objectSelector->resetObjectFilter();
+    // nothing to filter
   } else {
-    objectSelector->setObjectFilter([text](const model::ModelObject& obj) -> bool {
-      try {
-        //obj.cast<model::SpaceLoadInstance>();  TODO uncomment with correct type
-        // This is a spaceloadinstance, so we want to see if it matches our filter
 
-        if (text == INTERNALMASS) {
-          return static_cast<bool>(obj.optionalCast<model::InternalMass>());
-        } else if (text == PEOPLE) {
-          return static_cast<bool>(obj.optionalCast<model::People>());
-        } else if (text == LIGHTS) {
-          return static_cast<bool>(obj.optionalCast<model::Lights>());
-        } else if (text == LUMINAIRE) {
-          return static_cast<bool>(obj.optionalCast<model::Luminaire>());
-        } else if (text == ELECTRICEQUIPMENT) {
-          return static_cast<bool>(obj.optionalCast<model::ElectricEquipment>());
-        } else if (text == GASEQUIPMENT) {
-          return static_cast<bool>(obj.optionalCast<model::GasEquipment>());
-        } else if (text == HOTWATEREQUIPMENT) {
-          return static_cast<bool>(obj.optionalCast<model::HotWaterEquipment>());
-        } else if (text == STEAMEQUIPMENT) {
-          return static_cast<bool>(obj.optionalCast<model::SteamEquipment>());
-        } else if (text == OTHEREQUIPMENT) {
-          return static_cast<bool>(obj.optionalCast<model::OtherEquipment>());
-        } else if (text == SPACEINFILTRATIONDESIGNFLOWRATE) {
-          return static_cast<bool>(obj.optionalCast<model::SpaceInfiltrationDesignFlowRate>());
-        } else if (text == SPACEINFILTRATIONEFFECTIVELEAKAGEAREA) {
-          return static_cast<bool>(obj.optionalCast<model::SpaceInfiltrationEffectiveLeakageArea>());
-        } else {
-          // Should never get here
-          OS_ASSERT(false);
-          return false;
+    // ObjectSelector::m_selectableObjects returns Load objects directly
+    for (const auto& obj : this->selectorObjects()) {
+      if (text == INTERNALMASS) {
+        if (!obj.optionalCast<model::InternalMass>()) {
+          allFilteredObjects.insert(obj);
         }
-      } catch (...) {
-        return true;  // this isn't a space load instance, so don't apply filtering
+      } else if (text == PEOPLE) {
+        if (!obj.optionalCast<model::People>()) {
+          allFilteredObjects.insert(obj);
+        }
+      } else if (text == LIGHTS) {
+        if (!obj.optionalCast<model::Lights>()) {
+          allFilteredObjects.insert(obj);
+        }
+      } else if (text == LUMINAIRE) {
+        if (!obj.optionalCast<model::Luminaire>()) {
+          allFilteredObjects.insert(obj);
+        }
+      } else if (text == ELECTRICEQUIPMENT) {
+        if (!obj.optionalCast<model::ElectricEquipment>()) {
+          allFilteredObjects.insert(obj);
+        }
+      } else if (text == GASEQUIPMENT) {
+        if (!obj.optionalCast<model::GasEquipment>()) {
+          allFilteredObjects.insert(obj);
+        }
+      } else if (text == HOTWATEREQUIPMENT) {
+        if (!obj.optionalCast<model::HotWaterEquipment>()) {
+          allFilteredObjects.insert(obj);
+        }
+      } else if (text == STEAMEQUIPMENT) {
+        if (!obj.optionalCast<model::SteamEquipment>()) {
+          allFilteredObjects.insert(obj);
+        }
+      } else if (text == OTHEREQUIPMENT) {
+        if (!obj.optionalCast<model::OtherEquipment>()) {
+          allFilteredObjects.insert(obj);
+        }
+      } else if (text == SPACEINFILTRATIONDESIGNFLOWRATE) {
+        if (!obj.optionalCast<model::SpaceInfiltrationDesignFlowRate>()) {
+          allFilteredObjects.insert(obj);
+        }
+      } else if (text == SPACEINFILTRATIONEFFECTIVELEAKAGEAREA) {
+        if (!obj.optionalCast<model::SpaceInfiltrationEffectiveLeakageArea>()) {
+          allFilteredObjects.insert(obj);
+        }
+      } else {
+        // Should never get here
+        OS_ASSERT(false);
       }
-    });
+    }
   }
+
+  this->setObjectFilter([allFilteredObjects](const model::ModelObject& obj) -> bool {
+    // return false if object in allFilteredObjects
+    return allFilteredObjects.count(obj) == 0;
+  });
 }
 
 SpaceTypesGridView* SpaceTypesGridController::spaceTypesGridView() {
@@ -413,7 +428,7 @@ SpaceTypesGridView* SpaceTypesGridController::spaceTypesGridView() {
   return spaceTypesGridView;
 }
 
-void SpaceTypesGridController::categorySelected(int index) {
+void SpaceTypesGridController::onCategorySelected(int index) {
   auto gridView = this->spaceTypesGridView();
   if (gridView) {
     if (gridView->m_filters) {
@@ -441,14 +456,14 @@ void SpaceTypesGridController::categorySelected(int index) {
     }
   }
 
-  OSGridController::categorySelected(index);
+  OSGridController::onCategorySelected(index);
 }
 
 void SpaceTypesGridController::addColumns(const QString& category, std::vector<QString>& fields) {
   // always show name and selected columns
   fields.insert(fields.begin(), {NAME, SELECTED});
 
-  m_baseConcepts.clear();
+  resetBaseConcepts();
 
   for (const auto& field : fields) {
 
@@ -456,17 +471,17 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
       auto getter = CastNullAdapter<model::SpaceType>(&model::SpaceType::name);
       auto setter = CastNullAdapter<model::SpaceType>(&model::SpaceType::setNameProtected);
 
-      addNameLineEditColumn(Heading(QString(NAME), false, false), false, false, getter, setter);
+      addParentNameLineEditColumn(Heading(QString(NAME), false, false), false, getter, setter);
 
     } else if (field == SELECTED && category != "Loads") {
-      auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
+      auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
       checkbox->setToolTip("Check to select all rows");
-      connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpaceTypesGridController::selectAllStateChanged);
-      connect(checkbox.data(), &QCheckBox::stateChanged, this->gridView(), &OSGridView::gridRowSelectionChanged);
+      connect(checkbox.data(), &OSSelectAllCheckBox::stateChanged, this, &SpaceTypesGridController::onSelectAllStateChanged);
+      connect(this, &SpaceTypesGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
 
       addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row");
-    } else if (field == LOADNAME || field == MULTIPLIER || field == DEFINITION || field == SCHEDULE || field == ACTIVITYSCHEDULE ||
-               field == SELECTED) {
+    } else if (field == LOADNAME || field == MULTIPLIER || field == DEFINITION || field == SCHEDULE || field == ACTIVITYSCHEDULE
+               || field == SELECTED) {
       // Create a lambda function that collates all of the loads in a space type
       // and returns them as an std::vector
       std::function<std::vector<model::ModelObject>(const model::SpaceType&)> allLoads([](const model::SpaceType& t_spaceType) {
@@ -950,6 +965,8 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
         }
       });
 
+      boost::optional<std::function<std::vector<model::ModelObject>(model::ModelObject*)>> scheduleOtherObjects;
+
       std::function<boost::optional<model::Schedule>(model::ModelObject*)> activityLevelSchedule([](model::ModelObject* l) {
         if (boost::optional<model::People> p = l->optionalCast<model::People>()) {
           return p->activityLevelSchedule();
@@ -959,6 +976,8 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
         OS_ASSERT(false);
         return boost::optional<model::Schedule>();
       });
+
+      boost::optional<std::function<std::vector<model::ModelObject>(model::ModelObject*)>> activityLevelScheduleOtherObjects;
 
       std::function<boost::optional<model::Schedule>(model::ModelObject*)> schedule([](model::ModelObject* l) {
         if (boost::optional<model::InternalMass> im = l->optionalCast<model::InternalMass>()) {
@@ -1057,14 +1076,13 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
                           CastNullAdapter<model::SpaceLoad>(&model::SpaceLoad::setName),
                           boost::optional<std::function<void(model::SpaceLoad*)>>(
                             std::function<void(model::SpaceLoad*)>([](model::SpaceLoad* t_sl) { t_sl->remove(); })),
-                          DataSource(allLoads, true));
+                          boost::optional<std::function<bool(model::SpaceLoad*)>>(), DataSource(allLoads, true));
 
       } else if (field == SELECTED) {
-        auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
+        auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
         checkbox->setToolTip("Check to select all rows");
-        connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpaceTypesGridController::selectAllStateChanged);
-        connect(checkbox.data(), &QCheckBox::stateChanged, this->gridView(), &OSGridView::gridRowSelectionChanged);
-
+        connect(checkbox.data(), &OSSelectAllCheckBox::stateChanged, this, &SpaceTypesGridController::onSelectAllStateChanged);
+        connect(this, &SpaceTypesGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
         addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", DataSource(allLoads, true));
       } else if (field == MULTIPLIER) {
 
@@ -1149,23 +1167,23 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
             return false;
           });
 
-        addNameLineEditColumn(Heading(QString(DEFINITION), true, false), true, false,
-                              CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::name),
-                              CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::setName),
-                              boost::optional<std::function<void(model::SpaceLoadDefinition*)>>(),
-                              DataSource(allDefinitions, false,
-                                         QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<model::SpaceLoadDefinition, model::SpaceType>(
-                                           Heading(DEFINITION), getter, setter))));
+        addNameLineEditColumn(
+          Heading(QString(DEFINITION), true, false), true, true, CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::name),
+          CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::setName),
+          boost::optional<std::function<void(model::SpaceLoadDefinition*)>>(), boost::optional<std::function<bool(model::SpaceLoadDefinition*)>>(),
+          DataSource(allDefinitions, false,
+                     QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<model::SpaceLoadDefinition, model::SpaceType>(
+                       Heading(DEFINITION), getter, setter, boost::none, boost::none, boost::none))));
 
       } else if (field == SCHEDULE) {
 
-        addDropZoneColumn(Heading(QString(SCHEDULE)), schedule, setSchedule, resetSchedule, isScheduleDefaulted,
+        addDropZoneColumn(Heading(QString(SCHEDULE)), schedule, setSchedule, resetSchedule, isScheduleDefaulted, scheduleOtherObjects,
                           DataSource(allLoadsWithSchedules, true));
 
       } else if (field == ACTIVITYSCHEDULE) {
 
         addDropZoneColumn(Heading(QString(SCHEDULE)), activityLevelSchedule, setActivityLevelSchedule, resetActivityLevelSchedule,
-                          isActivityLevelScheduleDefaulted, DataSource(allLoadsWithActivityLevelSchedules, true));
+                          isActivityLevelScheduleDefaulted, activityLevelScheduleOtherObjects, DataSource(allLoadsWithActivityLevelSchedules, true));
       }
 
     } else if (field == DEFAULTCONSTRUCTIONSET) {
@@ -1217,14 +1235,15 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
       });
 
       addNameLineEditColumn(
-        Heading(QString(SPACEINFILTRATIONDESIGNFLOWRATES)), true, true,
+        Heading(QString(SPACEINFILTRATIONDESIGNFLOWRATES)), true, false,
         CastNullAdapter<model::SpaceInfiltrationDesignFlowRate>(&model::SpaceInfiltrationDesignFlowRate::name),
         CastNullAdapter<model::SpaceInfiltrationDesignFlowRate>(&model::SpaceInfiltrationDesignFlowRate::setName),
         boost::optional<std::function<void(model::SpaceInfiltrationDesignFlowRate*)>>(
-          std::function<void(model::SpaceInfiltrationDesignFlowRate*)>([](model::SpaceInfiltrationDesignFlowRate* t_fr) { t_fr->resetSpaceType(); })),
+          std::function<void(model::SpaceInfiltrationDesignFlowRate*)>([](model::SpaceInfiltrationDesignFlowRate* t_fr) { t_fr->remove(); })),
+        boost::optional<std::function<bool(model::SpaceInfiltrationDesignFlowRate*)>>(),
         DataSource(flowRates, false,
                    QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<model::SpaceInfiltrationDesignFlowRate, model::SpaceType>(
-                     Heading(SPACEINFILTRATIONDESIGNFLOWRATES), getter, setter))));
+                     Heading(SPACEINFILTRATIONDESIGNFLOWRATES), getter, setter, boost::none, boost::none, boost::none))));
 
     } else if (field == SPACEINFILTRATIONEFFECTIVELEAKAGEAREAS) {
       std::function<boost::optional<model::SpaceInfiltrationEffectiveLeakageArea>(model::SpaceType*)> getter;
@@ -1250,15 +1269,16 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
       });
 
       addNameLineEditColumn(
-        Heading(QString(SPACEINFILTRATIONEFFECTIVELEAKAGEAREAS)), true, true,
+        Heading(QString(SPACEINFILTRATIONEFFECTIVELEAKAGEAREAS)), true, false,
         CastNullAdapter<model::SpaceInfiltrationEffectiveLeakageArea>(&model::SpaceInfiltrationEffectiveLeakageArea::name),
         CastNullAdapter<model::SpaceInfiltrationEffectiveLeakageArea>(&model::SpaceInfiltrationEffectiveLeakageArea::setName),
         boost::optional<std::function<void(model::SpaceInfiltrationEffectiveLeakageArea*)>>(
           std::function<void(model::SpaceInfiltrationEffectiveLeakageArea*)>(
-            [](model::SpaceInfiltrationEffectiveLeakageArea* t_la) { t_la->resetSpaceType(); })),
+            [](model::SpaceInfiltrationEffectiveLeakageArea* t_la) { t_la->remove(); })),
+        boost::optional<std::function<bool(model::SpaceInfiltrationEffectiveLeakageArea*)>>(),
         DataSource(leakageAreas, false,
                    QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<model::SpaceInfiltrationEffectiveLeakageArea, model::SpaceType>(
-                     Heading(SPACEINFILTRATIONEFFECTIVELEAKAGEAREAS), getter, setter))));
+                     Heading(SPACEINFILTRATIONEFFECTIVELEAKAGEAREAS), getter, setter, boost::none, boost::none, boost::none))));
 
     } else if (field == STANDARDSTEMPLATE) {
 
@@ -1288,6 +1308,8 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
         // a change in STANDARDSTEMPLATE to trigger a refresh of STANDARDSBUILDINGTYPE AND STANDARDSSPACETYPE
         // This is a hack (at best), but it works
         // Get the corresponding Standards Building Type Dropdown, and trigger repopulating
+
+        /* TODO
         int columnCount = this->columnCount();
         for (int i = 1; i < this->rowCount(); ++i) {
           if (this->modelObject(i).handle() == t_spaceType->handle()) {
@@ -1317,6 +1339,7 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
             break;
           }
         }
+*/
 
         return success;
       };
@@ -1360,6 +1383,8 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
         // a change in STANDARDSBUILDINGTYPE to trigger a refresh of STANDARDSSPACETYPE
         // This is a hack (at best), but it works
         // Get the corresponding Standards Space Type Dropdown, and trigger repopulating
+
+        /* TODO
         int columnCount = this->columnCount();
         for (int i = 1; i < this->rowCount(); ++i) {
           if (this->modelObject(i).handle() == t_spaceType->handle()) {
@@ -1376,7 +1401,7 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
             break;
           }
         }
-
+*/
         return success;
       };
 
@@ -1456,7 +1481,7 @@ QString SpaceTypesGridController::getColor(const model::ModelObject& modelObject
 }
 
 void SpaceTypesGridController::checkSelectedFields() {
-  if (!this->m_hasHorizontalHeader) return;
+  if (!this->hasHorizontalHeader()) return;
 
   OSGridController::checkSelectedFields();
 }
@@ -1465,20 +1490,17 @@ void SpaceTypesGridController::onItemDropped(const OSItemId& itemId) {
   boost::optional<model::ModelObject> modelObject = OSAppBase::instance()->currentDocument()->getModelObject(itemId);
   if (modelObject) {
     if (modelObject->optionalCast<model::SpaceType>()) {
-      modelObject->clone(m_model);
-      emit modelReset();
+      modelObject->clone(model());
     }
   }
 }
 
 void SpaceTypesGridController::refreshModelObjects() {
-  std::vector<model::SpaceType> spaceTypes = m_model.getConcreteModelObjects<model::SpaceType>();
-  m_modelObjects = subsetCastVector<model::ModelObject>(spaceTypes);
-  std::sort(m_modelObjects.begin(), m_modelObjects.end(), openstudio::WorkspaceObjectNameLess());
+  std::vector<model::SpaceType> spaceTypes = model().getConcreteModelObjects<model::SpaceType>();
+  std::sort(spaceTypes.begin(), spaceTypes.end(), openstudio::WorkspaceObjectNameLess());
+  setModelObjects(subsetCastVector<model::ModelObject>(spaceTypes));
 }
 
-void SpaceTypesGridController::onComboBoxIndexChanged(int index) {
-  std::cout << "index=" << index;
-}
+void SpaceTypesGridController::onComboBoxIndexChanged(int index) {}
 
 }  // namespace openstudio

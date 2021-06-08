@@ -19,7 +19,7 @@ add_library(openstudio_modeleditor_rb MODULE
   openstudio_modeleditor_rb.cpp
 )
 
-target_include_directories(openstudio_modeleditor_rb PRIVATE ${RUBY_INCLUDE_DIRS})
+target_include_directories(openstudio_modeleditor_rb SYSTEM PRIVATE ${RUBY_INCLUDE_DIRS})
 
 set_target_properties(openstudio_modeleditor_rb PROPERTIES PREFIX "")
 set_target_properties(openstudio_modeleditor_rb PROPERTIES OUTPUT_NAME openstudio_modeleditor)
@@ -62,12 +62,12 @@ if(APPLE)
     COMMAND ${CMAKE_COMMAND} -E make_directory $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/platforms/
     COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:Qt5::QCocoaIntegrationPlugin> $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/platforms/.
     COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/lib/QtConcurrent.framework $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtConcurrent.framework
-    COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/lib/QtCore.framework $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtCore.framework 
-    COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/lib/QtDBus.framework $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtDBus.framework 
-    COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/lib/QtGui.framework $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtGui.framework 
+    COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/lib/QtCore.framework $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtCore.framework
+    COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/lib/QtDBus.framework $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtDBus.framework
+    COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/lib/QtGui.framework $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtGui.framework
     COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/lib/QtNetwork.framework $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtNetwork.framework
     COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/lib/QtPrintSupport.framework $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtPrintSupport.framework
-    COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/lib/QtWidgets.framework $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtWidgets.framework 
+    COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/lib/QtWidgets.framework $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtWidgets.framework
     COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/lib/QtXml.framework $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtXml.framework
     COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:openstudio::openstudiolib> $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/.
     COMMAND ruby "${PROJECT_SOURCE_DIR}/SketchUpInstallName.rb" "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/ruby/openstudio_modeleditor.bundle"
@@ -120,7 +120,7 @@ if(BUILD_TESTING)
 
   # I added FindRuby.cmake from cmake 3.18.2 (after patching cmake to support versions greater than 2 and adding RVM support) in the CMake folder which is part of the CMAKE_MODULE_PATH
   set(Ruby_FIND_VIRTUALENV FIRST)
-  find_package(Ruby 2.5)
+  find_package(Ruby 2.7)
 
   if(NOT Ruby_EXECUTABLE)
     message(WARNING "Your system ruby wasn't found, you won't be able to run the `ctest -R RubyTest` command and the tests won't be created at all.")

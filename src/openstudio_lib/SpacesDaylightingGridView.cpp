@@ -31,7 +31,9 @@
 
 #include "OSDropZone.hpp"
 
+#include "../shared_gui_components/OSCheckBox.hpp"
 #include "../shared_gui_components/OSGridView.hpp"
+#include "../shared_gui_components/OSObjectSelector.hpp"
 
 #include <openstudio/model/DaylightingControl.hpp>
 #include <openstudio/model/DaylightingControl_Impl.hpp>
@@ -115,9 +117,9 @@ SpacesDaylightingGridView::SpacesDaylightingGridView(bool isIP, const model::Mod
   setGridController(m_gridController);
   setGridView(m_gridView);
 
-  m_gridView->m_contentLayout->addLayout(m_filterGridLayout);
-  m_gridView->m_contentLayout->addSpacing(7);
-  m_gridView->m_dropZone->hide();
+  m_gridView->addLayoutToContentLayout(m_filterGridLayout);
+  m_gridView->addSpacingToContentLayout(7);
+  m_gridView->showDropZone(false);
 }
 
 SpacesDaylightingGridController::SpacesDaylightingGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType,
@@ -146,7 +148,7 @@ void SpacesDaylightingGridController::setCategoriesAndFields() {
     //fields.push_back(NUMBEROFDAYLIGHTINGVIEWS);
     //fields.push_back(MAXIMUMALLOWABLEDISCOMFORTGLAREINDEX);
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Daylighting Controls"), fields);
-    m_categoriesAndFields.push_back(categoryAndFields);
+    addCategoryAndFields(categoryAndFields);
   }
 
   {
@@ -164,7 +166,7 @@ void SpacesDaylightingGridController::setCategoriesAndFields() {
     //fields.push_back(YLENGTH);
     //fields.push_back(NUMBEROFYGRIDPOINTS);
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Illuminance Maps"), fields);
-    m_categoriesAndFields.push_back(categoryAndFields);
+    addCategoryAndFields(categoryAndFields);
   }
 
   {
@@ -180,21 +182,21 @@ void SpacesDaylightingGridController::setCategoriesAndFields() {
     //fields.push_back(NUMBEROFGLAREVIEWVECTORS);
     //fields.push_back(MAXIMUMALLOWABLEDAYLIGHTGLAREPROBABILITY);
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Glare Sensors"), fields);
-    m_categoriesAndFields.push_back(categoryAndFields);
+    addCategoryAndFields(categoryAndFields);
   }
 
   OSGridController::setCategoriesAndFields();
 }
 
-void SpacesDaylightingGridController::categorySelected(int index) {
-  OSGridController::categorySelected(index);
+void SpacesDaylightingGridController::onCategorySelected(int index) {
+  OSGridController::onCategorySelected(index);
 }
 
 void SpacesDaylightingGridController::addColumns(const QString& category, std::vector<QString>& fields) {
   // always show name and selected columns
   fields.insert(fields.begin(), {NAME, SELECTED});
 
-  m_baseConcepts.clear();
+  resetBaseConcepts();
 
   for (const auto& field : fields) {
 
@@ -203,11 +205,10 @@ void SpacesDaylightingGridController::addColumns(const QString& category, std::v
                             CastNullAdapter<model::Space>(&model::Space::setName));
     } else {
       if (field == SELECTED) {
-        auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
+        auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
         checkbox->setToolTip("Check to select all rows");
-        connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpacesDaylightingGridController::selectAllStateChanged);
-        connect(checkbox.data(), &QCheckBox::stateChanged, this->gridView(), &OSGridView::gridRowSelectionChanged);
-
+        connect(checkbox.data(), &OSSelectAllCheckBox::stateChanged, this, &SpacesDaylightingGridController::onSelectAllStateChanged);
+        connect(this, &SpacesDaylightingGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
         addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row");
         //addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row",
         //  DataSource(
@@ -418,7 +419,7 @@ QString SpacesDaylightingGridController::getColor(const model::ModelObject& mode
 }
 
 void SpacesDaylightingGridController::checkSelectedFields() {
-  if (!this->m_hasHorizontalHeader) return;
+  if (!this->hasHorizontalHeader()) return;
 
   OSGridController::checkSelectedFields();
 }
@@ -426,8 +427,9 @@ void SpacesDaylightingGridController::checkSelectedFields() {
 void SpacesDaylightingGridController::onItemDropped(const OSItemId& itemId) {}
 
 void SpacesDaylightingGridController::refreshModelObjects() {
-  m_modelObjects = subsetCastVector<model::ModelObject>(m_model.getConcreteModelObjects<model::Space>());
-  std::sort(m_modelObjects.begin(), m_modelObjects.end(), openstudio::WorkspaceObjectNameLess());
+  auto spaces = model().getConcreteModelObjects<model::Space>();
+  std::sort(spaces.begin(), spaces.end(), openstudio::WorkspaceObjectNameLess());
+  setModelObjects(subsetCastVector<model::ModelObject>(spaces));
 }
 
 }  // namespace openstudio

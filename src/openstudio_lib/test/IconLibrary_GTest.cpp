@@ -54,6 +54,7 @@ TEST_F(OpenStudioLibFixture, IconLibrary_Icon) {
   iddObjectTypes.push_back(IddObjectType::OS_Coil_Heating_Electric);
   iddObjectTypes.push_back(IddObjectType::OS_Coil_Heating_Gas);
   iddObjectTypes.push_back(IddObjectType::OS_Coil_Heating_Water);
+  iddObjectTypes.push_back(IddObjectType::OS_Coil_Cooling_Water_Panel_Radiant);
   //iddObjectTypes.push_back(IddObjectType::OS_Construction);
   //iddObjectTypes.push_back(IddObjectType::OS_Construction_AirBoundary);
   //iddObjectTypes.push_back(IddObjectType::OS_Construction_CfactorUndergroundWall);
@@ -68,6 +69,7 @@ TEST_F(OpenStudioLibFixture, IconLibrary_Icon) {
   //iddObjectTypes.push_back(IddObjectType::OS_ElectricEquipment_Definition);
   iddObjectTypes.push_back(IddObjectType::OS_EvaporativeCooler_Direct_ResearchSpecial);
   //iddObjectTypes.push_back(IddObjectType::OS_Facility);
+  iddObjectTypes.push_back(IddObjectType::OS_Fan_ComponentModel);
   iddObjectTypes.push_back(IddObjectType::OS_Fan_ConstantVolume);
   iddObjectTypes.push_back(IddObjectType::OS_Fan_OnOff);
   iddObjectTypes.push_back(IddObjectType::OS_Fan_SystemModel);
@@ -107,6 +109,7 @@ TEST_F(OpenStudioLibFixture, IconLibrary_Icon) {
   //iddObjectTypes.push_back(IddObjectType::OS_Space);
   //iddObjectTypes.push_back(IddObjectType::OS_SpaceInfiltration_DesignFlowRate);
   //iddObjectTypes.push_back(IddObjectType::OS_SpaceType);
+  iddObjectTypes.push_back(IddObjectType::OS_Humidifier_Steam_Gas);
   //iddObjectTypes.push_back(IddObjectType::OS_SteamEquipment);
   //iddObjectTypes.push_back(IddObjectType::OS_SteamEquipment_Definition);
   //iddObjectTypes.push_back(IddObjectType::OS_SubSurface);
@@ -120,6 +123,7 @@ TEST_F(OpenStudioLibFixture, IconLibrary_Icon) {
   //iddObjectTypes.push_back(IddObjectType::OS_WindowMaterial_Screen);
   //iddObjectTypes.push_back(IddObjectType::OS_WindowMaterial_Shade);
   //iddObjectTypes.push_back(IddObjectType::OS_WindowMaterial_SimpleGlazingSystem);
+  iddObjectTypes.push_back(IddObjectType::OS_ZoneHVAC_CoolingPanel_RadiantConvective_Water);
   iddObjectTypes.push_back(IddObjectType::OS_ZoneHVAC_PackagedTerminalAirConditioner);
   iddObjectTypes.push_back(IddObjectType::OS_ZoneHVAC_PackagedTerminalHeatPump);
 
@@ -144,6 +148,7 @@ TEST_F(OpenStudioLibFixture, IconLibrary_MiniIcon) {
   iddObjectTypes.push_back(IddObjectType::OS_Coil_Heating_Electric);
   iddObjectTypes.push_back(IddObjectType::OS_Coil_Heating_Gas);
   iddObjectTypes.push_back(IddObjectType::OS_Coil_Heating_Water);
+  iddObjectTypes.push_back(IddObjectType::OS_Coil_Cooling_Water_Panel_Radiant);
   iddObjectTypes.push_back(IddObjectType::OS_Construction);
   iddObjectTypes.push_back(IddObjectType::OS_Construction_AirBoundary);
   iddObjectTypes.push_back(IddObjectType::OS_Construction_CfactorUndergroundWall);
@@ -158,6 +163,7 @@ TEST_F(OpenStudioLibFixture, IconLibrary_MiniIcon) {
   iddObjectTypes.push_back(IddObjectType::OS_ElectricEquipment_Definition);
   iddObjectTypes.push_back(IddObjectType::OS_EvaporativeCooler_Direct_ResearchSpecial);
   iddObjectTypes.push_back(IddObjectType::OS_Facility);
+  iddObjectTypes.push_back(IddObjectType::OS_Fan_ComponentModel);
   iddObjectTypes.push_back(IddObjectType::OS_Fan_ConstantVolume);
   iddObjectTypes.push_back(IddObjectType::OS_Fan_OnOff);
   iddObjectTypes.push_back(IddObjectType::OS_Fan_SystemModel);
@@ -198,6 +204,7 @@ TEST_F(OpenStudioLibFixture, IconLibrary_MiniIcon) {
   iddObjectTypes.push_back(IddObjectType::OS_SpaceInfiltration_DesignFlowRate);
   iddObjectTypes.push_back(IddObjectType::OS_SpaceInfiltration_EffectiveLeakageArea);
   iddObjectTypes.push_back(IddObjectType::OS_SpaceType);
+  iddObjectTypes.push_back(IddObjectType::OS_Humidifier_Steam_Gas);
   iddObjectTypes.push_back(IddObjectType::OS_SteamEquipment);
   iddObjectTypes.push_back(IddObjectType::OS_SteamEquipment_Definition);
   iddObjectTypes.push_back(IddObjectType::OS_SubSurface);
@@ -211,6 +218,7 @@ TEST_F(OpenStudioLibFixture, IconLibrary_MiniIcon) {
   iddObjectTypes.push_back(IddObjectType::OS_WindowMaterial_Screen);
   iddObjectTypes.push_back(IddObjectType::OS_WindowMaterial_Shade);
   iddObjectTypes.push_back(IddObjectType::OS_WindowMaterial_SimpleGlazingSystem);
+  iddObjectTypes.push_back(IddObjectType::OS_ZoneHVAC_CoolingPanel_RadiantConvective_Water);
   iddObjectTypes.push_back(IddObjectType::OS_ZoneHVAC_PackagedTerminalAirConditioner);
   iddObjectTypes.push_back(IddObjectType::OS_ZoneHVAC_PackagedTerminalHeatPump);
 

@@ -87,8 +87,7 @@ void SubTabView::connectInspectorView() {
   // Inspector View
   connect(m_inspectorView, &OSInspectorView::dropZoneItemClicked, this, &SubTabView::dropZoneItemClicked);
 
-  auto isConnected = connect(this, SIGNAL(dropZoneItemClicked(OSItem*)), this, SLOT(onDropZoneItemClicked(OSItem*)));
-  OS_ASSERT(isConnected);
+  connect(this, &SubTabView::dropZoneItemClicked, this, &SubTabView::onDropZoneItemClicked);
 }
 
 void SubTabView::connectItemSelectorButtons() {

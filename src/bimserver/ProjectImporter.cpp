@@ -63,12 +63,12 @@ ProjectImporter::ProjectImporter(QWidget* parent) : QDialog(parent) {
   QPushButton* settingButton = new QPushButton(tr("Setting"), this);
   m_statusBar = new QStatusBar(this);
 
-  connect(m_okButton, SIGNAL(clicked()), this, SLOT(okButton_clicked()));
-  connect(newButton, SIGNAL(clicked()), this, SLOT(newButton_clicked()));
-  connect(m_loadButton, SIGNAL(clicked()), this, SLOT(loadButton_clicked()));
-  connect(m_selectButton, SIGNAL(clicked()), this, SLOT(selectButton_clicked()));
-  connect(settingButton, SIGNAL(clicked()), this, SLOT(settingButton_clicked()));
-  connect(cancelButton, SIGNAL(clicked()), this, SLOT(app_ended()));
+  connect(m_okButton, &QPushButton::clicked, this, &ProjectImporter::okButton_clicked);
+  connect(newButton, &QPushButton::clicked, this, &ProjectImporter::newButton_clicked);
+  connect(m_loadButton, &QPushButton::clicked, this, &ProjectImporter::loadButton_clicked);
+  connect(m_selectButton, &QPushButton::clicked, this, &ProjectImporter::selectButton_clicked);
+  connect(settingButton, &QPushButton::clicked, this, &ProjectImporter::settingButton_clicked);
+  connect(cancelButton, &QPushButton::clicked, this, &ProjectImporter::app_ended);
 
   subLayout->addWidget(m_proList, 1, 0, 1, 1);
   subLayout->addWidget(m_ifcList, 1, 2, 1, 1);
@@ -111,7 +111,7 @@ boost::optional<model::Model> ProjectImporter::run() {
     connect(m_bimserverConnection, &BIMserverConnection::operationSucceeded, this, &ProjectImporter::processSucessCases);
     connect(m_bimserverConnection, &BIMserverConnection::errorOccured, this, &ProjectImporter::processFailureCases);
     connect(m_bimserverConnection, &BIMserverConnection::bimserverError, this, &ProjectImporter::processBIMserverErrors);
-    connect(this, SIGNAL(finished()), m_waitForOSM, SLOT(quit()));
+    connect(this, &ProjectImporter::finished, m_waitForOSM, &QEventLoop::quit);
 
     m_bimserverConnection->login(usrname, psw);
 
@@ -228,8 +228,8 @@ void ProjectImporter::newButton_clicked() {
   newLayout.addWidget(&new_okButton, 2, 0, 1, 1);
   newLayout.addWidget(&new_cancelButton, 2, 1, 1, 1);
 
-  connect(&new_okButton, SIGNAL(clicked()), &newDialog, SLOT(accept()));
-  connect(&new_cancelButton, SIGNAL(clicked()), &newDialog, SLOT(reject()));
+  connect(&new_okButton, &QPushButton::clicked, &newDialog, &QDialog::accept);
+  connect(&new_cancelButton, &QPushButton::clicked, &newDialog, &QDialog::reject);
 
   if (newDialog.exec() == QDialog::Accepted) {
     QString new_proString = new_nameEdit.text();
@@ -320,8 +320,8 @@ void ProjectImporter::settingButton_clicked() {
   setLayout->addWidget(set_okButton, 5, 0, 1, 1);
   setLayout->addWidget(set_cancelButton, 5, 1, 1, 1);
 
-  connect(set_okButton, SIGNAL(clicked()), &setDialog, SLOT(accept()));
-  connect(set_cancelButton, SIGNAL(clicked()), &setDialog, SLOT(reject()));
+  connect(set_okButton, &QPushButton::clicked, &setDialog, &QDialog::accept);
+  connect(set_cancelButton, &QPushButton::clicked, &setDialog, &QDialog::reject);
 
   setDialog.setLayout(setLayout);
 
@@ -350,7 +350,7 @@ void ProjectImporter::settingButton_clicked() {
       connect(m_bimserverConnection, &BIMserverConnection::operationSucceeded, this, &ProjectImporter::processSucessCases);
       connect(m_bimserverConnection, &BIMserverConnection::errorOccured, this, &ProjectImporter::processFailureCases);
       connect(m_bimserverConnection, &BIMserverConnection::bimserverError, this, &ProjectImporter::processBIMserverErrors);
-      connect(this, SIGNAL(finished()), m_waitForOSM, SLOT(quit()));
+      connect(this, &ProjectImporter::finished, m_waitForOSM, &QEventLoop::quit);
 
       m_bimserverConnection->login(usrname, psw);
 

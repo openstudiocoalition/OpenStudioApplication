@@ -32,8 +32,10 @@
 #include "OSDropZone.hpp"
 #include "OSItemSelectorButtons.hpp"
 
+#include "../shared_gui_components/OSCheckBox.hpp"
 #include "../shared_gui_components/OSGridController.hpp"
 #include "../shared_gui_components/OSGridView.hpp"
+#include "../shared_gui_components/OSObjectSelector.hpp"
 
 #include <openstudio/model/ConstructionBase.hpp>
 #include <openstudio/model/ConstructionBase_Impl.hpp>
@@ -87,9 +89,9 @@ SpacesSurfacesGridView::SpacesSurfacesGridView(bool isIP, const model::Model& mo
   setGridController(m_gridController);
   setGridView(m_gridView);
 
-  m_gridView->m_contentLayout->addLayout(m_filterGridLayout);
-  m_gridView->m_contentLayout->addSpacing(7);
-  m_gridView->m_dropZone->hide();
+  m_gridView->addLayoutToContentLayout(m_filterGridLayout);
+  m_gridView->addSpacingToContentLayout(7);
+  m_gridView->showDropZone(false);
 
   onClearSelection();
 }
@@ -103,8 +105,8 @@ void SpacesSurfacesGridView::onSelectItem() {
 
 void SpacesSurfacesGridView::onClearSelection() {
   m_itemSelectorButtons->disableAddButton();
-  //m_itemSelectorButtons->disableCopyButton();
-  //m_itemSelectorButtons->disableRemoveButton();
+  m_itemSelectorButtons->disableCopyButton();
+  m_itemSelectorButtons->disableRemoveButton();
   m_itemSelectorButtons->disablePurgeButton();
 }
 
@@ -126,27 +128,27 @@ void SpacesSurfacesGridController::setCategoriesAndFields() {
     fields.push_back(WINDEXPOSURE);
     //fields.push_back(SHADINGSURFACENAME); // UNDESIRABLE TO SHOW THIS VECTOR IN THIS VIEW
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("General"), fields);
-    m_categoriesAndFields.push_back(categoryAndFields);
+    addCategoryAndFields(categoryAndFields);
   }
 
   OSGridController::setCategoriesAndFields();
 }
 
-void SpacesSurfacesGridController::categorySelected(int index) {
-  OSGridController::categorySelected(index);
+void SpacesSurfacesGridController::onCategorySelected(int index) {
+  OSGridController::onCategorySelected(index);
 }
 
 void SpacesSurfacesGridController::addColumns(const QString& category, std::vector<QString>& fields) {
   // always show name and selected columns
   fields.insert(fields.begin(), {NAME, SELECTED});
 
-  m_baseConcepts.clear();
+  resetBaseConcepts();
 
   for (const auto& field : fields) {
 
     if (field == NAME) {
-      addNameLineEditColumn(Heading(QString(NAME), false, false), false, false, CastNullAdapter<model::Space>(&model::Space::name),
-                            CastNullAdapter<model::Space>(&model::Space::setName));
+      addParentNameLineEditColumn(Heading(QString(NAME), false, false), false, CastNullAdapter<model::Space>(&model::Space::name),
+                                  CastNullAdapter<model::Space>(&model::Space::setName));
     } else {
 
       std::function<std::vector<model::ModelObject>(const model::Space&)> allSurfaces([](const model::Space& t_space) {
@@ -157,18 +159,17 @@ void SpacesSurfacesGridController::addColumns(const QString& category, std::vect
       });
 
       if (field == SELECTED) {
-        auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
+        auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
         checkbox->setToolTip("Check to select all rows");
-        connect(checkbox.data(), &QCheckBox::stateChanged, this, &SpacesSurfacesGridController::selectAllStateChanged);
-        connect(checkbox.data(), &QCheckBox::stateChanged, this->gridView(), &OSGridView::gridRowSelectionChanged);
-
+        connect(checkbox.data(), &OSSelectAllCheckBox::stateChanged, this, &SpacesSurfacesGridController::onSelectAllStateChanged);
+        connect(this, &SpacesSurfacesGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
         addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", DataSource(allSurfaces, true));
       } else if (field == SURFACENAME) {
         addNameLineEditColumn(
           Heading(QString(NAME), true, false), false, false, CastNullAdapter<model::Surface>(&model::Surface::name),
           CastNullAdapter<model::Surface>(&model::Surface::setName),
           boost::optional<std::function<void(model::Surface*)>>(std::function<void(model::Surface*)>([](model::Surface* t_s) { t_s->remove(); })),
-          DataSource(allSurfaces, true));
+          boost::optional<std::function<bool(model::Surface*)>>(), DataSource(allSurfaces, true));
       } else if (field == SURFACETYPE) {
         addComboBoxColumn(Heading(QString(SURFACETYPE)),
                           std::function<std::string(const std::string&)>(static_cast<std::string (*)(const std::string&)>(&openstudio::toString)),
@@ -177,12 +178,12 @@ void SpacesSurfacesGridController::addColumns(const QString& category, std::vect
                           CastNullAdapter<model::Surface>(&model::Surface::setSurfaceType), boost::optional<std::function<void(model::Surface*)>>(),
                           boost::optional<std::function<bool(model::Surface*)>>(), DataSource(allSurfaces, true));
       } else if (field == CONSTRUCTION) {
-        m_constructionColumn = 4;
+        setConstructionColumn(4);
         addDropZoneColumn(Heading(QString(CONSTRUCTION)), CastNullAdapter<model::Surface>(&model::Surface::construction),
                           CastNullAdapter<model::Surface>(&model::Surface::setConstruction),
                           boost::optional<std::function<void(model::Surface*)>>(NullAdapter(&model::Surface::resetConstruction)),
                           boost::optional<std::function<bool(model::Surface*)>>(NullAdapter(&model::Surface::isConstructionDefaulted)),
-                          DataSource(allSurfaces, true));
+                          boost::optional<std::function<std::vector<model::ModelObject>(model::Surface*)>>(), DataSource(allSurfaces, true));
       } else if (field == OUTSIDEBOUNDARYCONDITION) {
         addComboBoxColumn(Heading(QString(OUTSIDEBOUNDARYCONDITION)),
                           std::function<std::string(const std::string&)>(static_cast<std::string (*)(const std::string&)>(&openstudio::toString)),
@@ -200,7 +201,8 @@ void SpacesSurfacesGridController::addColumns(const QString& category, std::vect
         addDropZoneColumn(Heading(QString(OUTSIDEBOUNDARYCONDITIONOBJECT), true, false),
                           CastNullAdapter<model::Surface>(&model::Surface::adjacentSurface), setter,
                           boost::optional<std::function<void(model::Surface*)>>(NullAdapter(&model::Surface::resetAdjacentSurface)),
-                          boost::optional<std::function<bool(model::Surface*)>>(), DataSource(allSurfaces, true));
+                          boost::optional<std::function<bool(model::Surface*)>>(),
+                          boost::optional<std::function<std::vector<model::ModelObject>(model::Surface*)>>(), DataSource(allSurfaces, true));
       } else if (field == SUNEXPOSURE) {
         addComboBoxColumn(
           Heading(QString(SUNEXPOSURE)),
@@ -232,7 +234,7 @@ QString SpacesSurfacesGridController::getColor(const model::ModelObject& modelOb
 }
 
 void SpacesSurfacesGridController::checkSelectedFields() {
-  if (!this->m_hasHorizontalHeader) return;
+  if (!this->hasHorizontalHeader()) return;
 
   OSGridController::checkSelectedFields();
 }
@@ -240,8 +242,9 @@ void SpacesSurfacesGridController::checkSelectedFields() {
 void SpacesSurfacesGridController::onItemDropped(const OSItemId& itemId) {}
 
 void SpacesSurfacesGridController::refreshModelObjects() {
-  m_modelObjects = subsetCastVector<model::ModelObject>(m_model.getConcreteModelObjects<model::Space>());
-  std::sort(m_modelObjects.begin(), m_modelObjects.end(), openstudio::WorkspaceObjectNameLess());
+  std::vector<model::Space> spaces = model().getConcreteModelObjects<model::Space>();
+  std::sort(spaces.begin(), spaces.end(), openstudio::WorkspaceObjectNameLess());
+  setModelObjects(subsetCastVector<model::ModelObject>(spaces));
 }
 
 }  // namespace openstudio

@@ -95,7 +95,7 @@ QSharedPointer<VRFSystemListController> VRFController::vrfSystemListController()
 void VRFController::refresh() {
   m_dirty = true;
 
-  QTimer::singleShot(0, this, SLOT(refreshNow()));
+  QTimer::singleShot(0, this, &VRFController::refreshNow);
 }
 
 void VRFController::refreshNow() {

@@ -62,8 +62,17 @@ RenderingColorWidget2::RenderingColorWidget2(QWidget* parent) : QWidget(parent) 
   m_renderColorButton->setFixedSize(QSize(20, 20));
   layout->addWidget(m_renderColorButton);
 
-  bool isConnected = connect(m_renderColorButton, SIGNAL(clicked()), this, SLOT(renderColorButtonClicked()));
-  OS_ASSERT(isConnected);
+  connect(m_renderColorButton, &QPushButton::clicked, this, &RenderingColorWidget2::renderColorButtonClicked);
+}
+
+bool RenderingColorWidget2::locked() const {
+  return !isEnabled();
+}
+
+void RenderingColorWidget2::setLocked(bool locked) {
+  if (isEnabled() == locked) {
+    setEnabled(!locked);
+  }
 }
 
 void RenderingColorWidget2::bind(model::ModelObject& modelObject, OptionalModelObjectGetter get, ModelObjectSetter set) {
@@ -95,7 +104,7 @@ void RenderingColorWidget2::setRenderingColor() {
   if (!m_renderingColor) {
     // app->processEvents not sufficient; must use singleShot
     // to prevent race condition stack overflow
-    QTimer::singleShot(0, this, SLOT(getRenderingColor()));
+    QTimer::singleShot(0, this, &RenderingColorWidget2::getRenderingColor);
   } else {
     refresh();
   }
@@ -204,8 +213,8 @@ void RenderingColorWidget2::refresh() {
     style.append("QPushButton { ");
     style.append("              border-radius: 0px; ");
     style.append("              border: 1px solid #949393; ");
-    style.append("              background : rgba(" + QString::number(r) + "," + QString::number(g) + ", " + QString::number(b) + ", " +
-                 QString::number(a) + "); ");
+    style.append("              background : rgba(" + QString::number(r) + "," + QString::number(g) + ", " + QString::number(b) + ", "
+                 + QString::number(a) + "); ");
     style.append("              margin: 0; ");
     style.append("              padding-left: 0px; ");
     style.append("              padding-right: 0px; ");
@@ -301,8 +310,8 @@ void RenderingColorWidget::refresh() {
     int g = m_renderingColor->renderingGreenValue();
     int b = m_renderingColor->renderingBlueValue();
     int a = m_renderingColor->renderingAlphaValue();
-    QString style = "QWidget { background-color : rgba(" + QString::number(r) + "," + QString::number(g) + ", " + QString::number(b) + ", " +
-                    QString::number(a) + ");}";
+    QString style = "QWidget { background-color : rgba(" + QString::number(r) + "," + QString::number(g) + ", " + QString::number(b) + ", "
+                    + QString::number(a) + ");}";
     m_renderColorWidget->setStyleSheet(style);
     m_renderColorButton->setEnabled(true);
   }

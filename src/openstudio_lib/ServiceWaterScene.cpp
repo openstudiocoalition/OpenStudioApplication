@@ -78,7 +78,7 @@ void ServiceWaterScene::onAddedWorkspaceObject(std::shared_ptr<openstudio::detai
   if (hvac_impl) {
     m_dirty = true;
 
-    QTimer::singleShot(0, this, SLOT(layout()));
+    QTimer::singleShot(0, this, &ServiceWaterScene::layout);
   }
 }
 
@@ -88,7 +88,7 @@ void ServiceWaterScene::onRemovedWorkspaceObject(std::shared_ptr<openstudio::det
   if (hvac_impl) {
     m_dirty = true;
 
-    QTimer::singleShot(0, this, SLOT(layout()));
+    QTimer::singleShot(0, this, &ServiceWaterScene::layout);
   }
 }
 
@@ -129,7 +129,7 @@ void WaterUseConnectionsDetailScene::onAddedWorkspaceObject(std::shared_ptr<open
   if (hvac_impl) {
     m_dirty = true;
 
-    QTimer::singleShot(0, this, SLOT(layout()));
+    QTimer::singleShot(0, this, &WaterUseConnectionsDetailScene::layout);
   }
 }
 
@@ -139,7 +139,7 @@ void WaterUseConnectionsDetailScene::onRemovedWorkspaceObject(std::shared_ptr<op
   if (hvac_impl) {
     m_dirty = true;
 
-    QTimer::singleShot(0, this, SLOT(layout()));
+    QTimer::singleShot(0, this, &WaterUseConnectionsDetailScene::layout);
   }
 }
 

@@ -60,20 +60,11 @@ class MODELEDITOR_API IGDSpinBox : public QDoubleSpinBox
 
   virtual void wheelEvent(QWheelEvent* event) override;
 
-  void setDisplay(bool status);
-
-  bool getPrec() const;
-  void setPrec(bool);
-  void setFloatStyle(InspectorGadget::FLOAT_DISPLAY style);
-  InspectorGadget::FLOAT_DISPLAY getFloatStyle() const;
  public slots:
   void triggered(bool);  //the radio button got triggered and calls this slot
-  void togglePrec();
 
  private:
   InspectorGadget* m_ig;
-  bool m_precision;
-  InspectorGadget::FLOAT_DISPLAY m_floatType;
 };
 
 #endif  // MODELEDITOR_IGSPINBOXES_HPP

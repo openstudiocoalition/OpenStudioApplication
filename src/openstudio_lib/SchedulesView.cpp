@@ -800,7 +800,7 @@ void ScheduleTabHeader::toggle() {
 void ScheduleTabHeader::refresh() {
   m_dirty = true;
 
-  QTimer::singleShot(0, this, SLOT(refreshNow()));
+  QTimer::singleShot(0, this, &ScheduleTabHeader::refreshNow);
 }
 
 void ScheduleTabHeader::refreshNow() {
@@ -958,7 +958,7 @@ void ScheduleTabContent::refresh() {
 void ScheduleTabContent::scheduleRefresh(const Handle& handle) {
   m_dirty = true;
 
-  QTimer::singleShot(0, this, SLOT(refresh()));
+  QTimer::singleShot(0, this, &ScheduleTabContent::refresh);
 }
 
 void ScheduleTabContent::onScheduleRuleClicked() {
@@ -1022,7 +1022,7 @@ void ScheduleTabRule::refresh() {
 void ScheduleTabRule::scheduleRefresh() {
   m_dirty = true;
 
-  QTimer::singleShot(0, this, SLOT(refresh()));
+  QTimer::singleShot(0, this, &ScheduleTabRule::refresh);
 }
 
 void ScheduleTabRule::paintEvent(QPaintEvent* event) {
@@ -1587,6 +1587,9 @@ ScheduleRuleView::ScheduleRuleView(bool isIP, const model::ScheduleRule& schedul
 
   nameHLayout->addSpacing(10);
 
+  auto label = new QLabel("Schedule Rule Name:");
+  nameHLayout->addWidget(label);
+
   m_nameEditField = new OSLineEdit2();
 
   m_nameEditField->bind(
@@ -1622,7 +1625,7 @@ ScheduleRuleView::ScheduleRuleView(bool isIP, const model::ScheduleRule& schedul
 
   weekHLayout->addStretch();
 
-  m_sundayButton = new OSCheckBox2();
+  m_sundayButton = new OSGreyCheckBox2();
   m_sundayButton->setText("S");
   m_sundayButton->bind(m_scheduleRule, std::bind(&model::ScheduleRule::applySunday, &m_scheduleRule),
                        boost::optional<BoolSetter>(std::bind(&model::ScheduleRule::setApplySundayNoFail, &m_scheduleRule, std::placeholders::_1)));
@@ -1630,7 +1633,7 @@ ScheduleRuleView::ScheduleRuleView(bool isIP, const model::ScheduleRule& schedul
 
   weekHLayout->addSpacing(10);
 
-  m_mondayButton = new OSCheckBox2();
+  m_mondayButton = new OSGreyCheckBox2();
   m_mondayButton->setText("M");
   m_mondayButton->bind(m_scheduleRule, std::bind(&model::ScheduleRule::applyMonday, &m_scheduleRule),
                        boost::optional<BoolSetter>(std::bind(&model::ScheduleRule::setApplyMondayNoFail, &m_scheduleRule, std::placeholders::_1)));
@@ -1638,7 +1641,7 @@ ScheduleRuleView::ScheduleRuleView(bool isIP, const model::ScheduleRule& schedul
 
   weekHLayout->addSpacing(10);
 
-  m_tuesdayButton = new OSCheckBox2();
+  m_tuesdayButton = new OSGreyCheckBox2();
   m_tuesdayButton->setText("T");
   m_tuesdayButton->bind(m_scheduleRule, std::bind(&model::ScheduleRule::applyTuesday, &m_scheduleRule),
                         boost::optional<BoolSetter>(std::bind(&model::ScheduleRule::setApplyTuesdayNoFail, &m_scheduleRule, std::placeholders::_1)));
@@ -1646,7 +1649,7 @@ ScheduleRuleView::ScheduleRuleView(bool isIP, const model::ScheduleRule& schedul
 
   weekHLayout->addSpacing(10);
 
-  m_wednesdayButton = new OSCheckBox2();
+  m_wednesdayButton = new OSGreyCheckBox2();
   m_wednesdayButton->setText("W");
   m_wednesdayButton->bind(
     m_scheduleRule, std::bind(&model::ScheduleRule::applyWednesday, &m_scheduleRule),
@@ -1655,7 +1658,7 @@ ScheduleRuleView::ScheduleRuleView(bool isIP, const model::ScheduleRule& schedul
 
   weekHLayout->addSpacing(10);
 
-  m_thursdayButton = new OSCheckBox2();
+  m_thursdayButton = new OSGreyCheckBox2();
   m_thursdayButton->setText("T");
   m_thursdayButton->bind(
     m_scheduleRule, std::bind(&model::ScheduleRule::applyThursday, &m_scheduleRule),
@@ -1664,7 +1667,7 @@ ScheduleRuleView::ScheduleRuleView(bool isIP, const model::ScheduleRule& schedul
 
   weekHLayout->addSpacing(10);
 
-  m_fridayButton = new OSCheckBox2();
+  m_fridayButton = new OSGreyCheckBox2();
   m_fridayButton->setText("F");
   m_fridayButton->bind(m_scheduleRule, std::bind(&model::ScheduleRule::applyFriday, &m_scheduleRule),
                        boost::optional<BoolSetter>(std::bind(&model::ScheduleRule::setApplyFridayNoFail, &m_scheduleRule, std::placeholders::_1)));
@@ -1672,7 +1675,7 @@ ScheduleRuleView::ScheduleRuleView(bool isIP, const model::ScheduleRule& schedul
 
   weekHLayout->addSpacing(10);
 
-  m_saturdayButton = new OSCheckBox2();
+  m_saturdayButton = new OSGreyCheckBox2();
   m_saturdayButton->setText("S");
   m_saturdayButton->bind(
     m_scheduleRule, std::bind(&model::ScheduleRule::applySaturday, &m_scheduleRule),
@@ -1772,7 +1775,7 @@ void ScheduleRuleView::refresh() {
 void ScheduleRuleView::scheduleRefresh() {
   m_dirty = true;
 
-  QTimer::singleShot(0, this, SLOT(refresh()));
+  QTimer::singleShot(0, this, &ScheduleRuleView::refresh);
 }
 
 void ScheduleRuleView::onStartDateTimeChanged(const QDateTime& newDate) {
@@ -1978,7 +1981,7 @@ std::vector<int> YearOverview::activeRuleIndices() const {
 void YearOverview::scheduleRefresh() {
   m_dirty = true;
 
-  QTimer::singleShot(0, this, SLOT(refresh()));
+  QTimer::singleShot(0, this, &YearOverview::refresh);
 }
 
 void YearOverview::refresh() {

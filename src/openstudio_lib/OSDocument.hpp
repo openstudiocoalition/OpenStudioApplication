@@ -141,7 +141,7 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
 
   enum VerticalTabID
   {
-    SITE,
+    SITE = 0,
     SCHEDULES,
     CONSTRUCTIONS,
     LOADS,
@@ -151,7 +151,6 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
     SPACES,
     THERMAL_ZONES,
     HVAC_SYSTEMS,
-    BUILDING_SUMMARY,
     OUTPUT_VARIABLES,
     SIMULATION_SETTINGS,
     RUBY_SCRIPTS,
@@ -352,9 +351,6 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
   int m_mainTabId = 0;
   int m_subTabId = 0;
   bool m_isPlugin;
-
-  int m_startTabIndex;
-  int m_startSubTabIndex;
 
   int m_verticalId;
   std::vector<int> m_subTabIds;

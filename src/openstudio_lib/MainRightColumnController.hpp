@@ -113,8 +113,6 @@ class MainRightColumnController : public OSQObjectController
 
   void configureForHVACSystemsSubTab(int subTabID);
 
-  void configureForBuildingSummarySubTab(int subTabID);
-
   void configureForOutputVariablesSubTab(int subTabID);
 
   void configureForSimulationSettingsSubTab(int subTabID);

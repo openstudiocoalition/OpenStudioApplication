@@ -40,6 +40,7 @@
 #include "../shared_gui_components/OSSwitch.hpp"
 #include "SchedulesView.hpp"  // ScheduleCalendarWidget, MonthView
 
+#include <algorithm>
 #include <openstudio/model/ConvergenceLimits.hpp>
 #include <openstudio/model/ConvergenceLimits_Impl.hpp>
 #include <openstudio/model/HeatBalanceAlgorithm.hpp>
@@ -51,6 +52,10 @@
 #include <openstudio/model/OutputControlReportingTolerances_Impl.hpp>
 #include <openstudio/model/OutputJSON.hpp>
 #include <openstudio/model/OutputJSON_Impl.hpp>
+#include <openstudio/model/OutputTableSummaryReports.hpp>
+#include <openstudio/model/OutputTableSummaryReports_Impl.hpp>
+#include <openstudio/model/OutputDiagnostics.hpp>
+#include <openstudio/model/OutputDiagnostics_Impl.hpp>
 #include <openstudio/model/OutsideSurfaceConvectionAlgorithm.hpp>
 #include <openstudio/model/OutsideSurfaceConvectionAlgorithm_Impl.hpp>
 #include <openstudio/model/ProgramControl.hpp>
@@ -79,6 +84,8 @@
 #include <openstudio/model/ZoneCapacitanceMultiplierResearchSpecial_Impl.hpp>
 #include <openstudio/model/Schedule.hpp>
 #include <openstudio/model/Schedule_Impl.hpp>
+#include <openstudio/model/ScheduleTypeLimits.hpp>
+#include <openstudio/model/ScheduleTypeLimits_Impl.hpp>
 #include <openstudio/model/ScheduleTypeRegistry.hpp>
 
 #include <openstudio/utilities/time/Date.hpp>
@@ -215,7 +222,12 @@ SimSettingsView::SimSettingsView(bool isIP, const model::Model& model, QWidget* 
     m_json_optionType(nullptr),
     m_json_outputJSON(nullptr),
     m_json_outputCBOR(nullptr),
-    m_json_outputMessagePack(nullptr) {
+    m_json_outputMessagePack(nullptr),
+
+    // Advanced Output
+    m_table_allSummary(nullptr),
+    m_diagnostics_displayExtraWarnings(nullptr) {
+
   connect(this, &SimSettingsView::toggleUnitsClicked, this, &SimSettingsView::toggleUnits);
 
   // when the year settings object changes need to update the year in all child widgets
@@ -303,6 +315,14 @@ void SimSettingsView::createWidgets() {
 
   //******************* OS:Output:JSON *******************
   collapsibleInspector = new CollapsibleInspector("Output JSON", createOutputJSONWidget());
+  mainLayout->addWidget(collapsibleInspector);
+
+  //******************* OS:Output:Table:SummaryReports *******************
+  collapsibleInspector = new CollapsibleInspector("Output Table Summary Reports", createOutputTableSummaryReportsWidget());
+  mainLayout->addWidget(collapsibleInspector);
+
+  //******************* OS:Output:Diagnostics *******************
+  collapsibleInspector = new CollapsibleInspector("Output Diagnostics", createOutputDiagnosticsWidget());
   mainLayout->addWidget(collapsibleInspector);
 
   mainLayout->addStretch();
@@ -1102,6 +1122,44 @@ QWidget* SimSettingsView::createOutputJSONWidget() {
   return widget;
 }
 
+QWidget* SimSettingsView::createOutputTableSummaryReportsWidget() {
+
+  auto gridLayout = new QGridLayout();
+  gridLayout->setContentsMargins(7, 7, 7, 7);
+  gridLayout->setSpacing(GRID_LAYOUT_SPACING);
+  gridLayout->setAlignment(Qt::AlignLeft);
+
+  int row = 0;
+  int col = 0;
+
+  addField(gridLayout, row, col, "Enable AllSummary Report", m_table_allSummary);
+
+  auto widget = new QWidget();
+  widget->setLayout(gridLayout);
+  widget->hide();
+
+  return widget;
+}
+
+QWidget* SimSettingsView::createOutputDiagnosticsWidget() {
+
+  auto gridLayout = new QGridLayout();
+  gridLayout->setContentsMargins(7, 7, 7, 7);
+  gridLayout->setSpacing(GRID_LAYOUT_SPACING);
+  gridLayout->setAlignment(Qt::AlignLeft);
+
+  int row = 0;
+  int col = 0;
+
+  addField(gridLayout, row, col, "Enable DisplayExtraWarnings", m_diagnostics_displayExtraWarnings);
+
+  auto widget = new QWidget();
+  widget->setLayout(gridLayout);
+  widget->hide();
+
+  return widget;
+}
+
 void SimSettingsView::addField(QGridLayout* gridLayout, int row, int column, QString text, OSComboBox2*& comboBox) {
   auto label = new QLabel(text, this);
   label->setFixedWidth(TEXT_FIELD_WIDTH);
@@ -1210,6 +1268,8 @@ void SimSettingsView::attachAll() {
   attachZoneAirContaminantBalance();
   attachZoneCapacitanceMultipleResearchSpecial();
   attachOutputJSON();
+  attachOutputTableSummaryReports();
+  attachOutputDiagnostics();
 }
 
 void SimSettingsView::detachAll() {
@@ -1230,6 +1290,8 @@ void SimSettingsView::detachAll() {
   detachZoneCapacitanceMultipleResearchSpecial();
   detachRadianceParameters();
   detachOutputJSON();
+  detachOutputTableSummaryReports();
+  detachOutputDiagnostics();
 }
 
 void SimSettingsView::attachRunPeriod() {
@@ -1600,8 +1662,33 @@ void SimSettingsView::attachZoneAirContaminantBalance() {
    */
 
   std::function<std::vector<model::Schedule>(model::ZoneAirContaminantBalance*)> choices_lambda = [](model::ZoneAirContaminantBalance* t_z) {
-    std::vector<model::Schedule> results =
-      openstudio::model::getCompatibleSchedules(t_z->model(), "ZoneAirContaminantBalance", "Outdoor Carbon Dioxide");
+    // openstudio::model::getCompatibleSchedules uses stringent checking, allow non-stringent checking here
+    //std::vector<model::Schedule> results =
+    //  openstudio::model::getCompatibleSchedules(t_z->model(), "ZoneAirContaminantBalance", "Outdoor Carbon Dioxide");
+
+    model::Model model = t_z->model();
+    model::ScheduleType scheduleType = model::ScheduleTypeRegistry::instance().getScheduleType("ZoneAirContaminantBalance", "Outdoor Carbon Dioxide");
+
+    bool isStringent = false;
+    model::ScheduleTypeLimitsVector okTypes;
+    for (const model::ScheduleTypeLimits& candidate : model.getConcreteModelObjects<model::ScheduleTypeLimits>()) {
+      if (isCompatible(scheduleType, candidate, isStringent)) {
+        okTypes.push_back(candidate);
+      }
+    }
+
+    model::ScheduleVector results;
+    for (const model::Schedule& candidate : model.getModelObjects<model::Schedule>()) {
+      if (model::OptionalScheduleTypeLimits candidateType = candidate.scheduleTypeLimits()) {
+        if (std::find(okTypes.begin(), okTypes.end(), *candidateType) != okTypes.end()) {
+          results.push_back(candidate);
+        }
+      } else {
+        // by default, keep all non-typed schedules
+        results.push_back(candidate);
+      }
+    }
+
     return openstudio::sortByObjectName<model::Schedule>(results);
   };
 
@@ -1808,6 +1895,70 @@ void SimSettingsView::attachOutputJSON() {
   );
 }
 
+void SimSettingsView::attachOutputTableSummaryReports() {
+  bool forceAllSummary = false;
+  // If it wasn't already in the model, it'll be initialized, and the Ctor defaults it to no fields, while the FT will add AllSummary if not present
+  // in the model, so to maintain behavior, we add the AllSummary report if needed
+  if (!m_model.outputTableSummaryReports()) {
+    forceAllSummary = true;
+  }
+
+  m_outputTableSummaryReports = m_model.getUniqueModelObject<model::OutputTableSummaryReports>();
+  if (forceAllSummary) {
+    m_outputTableSummaryReports->enableAllSummaryReport();
+  }
+
+  // typedef std::function<bool()> BoolGetter
+  std::function<bool()> getter = [this]() { return m_outputTableSummaryReports->summaryReportIndex("AllSummary").has_value(); };
+
+  // typedef std::function<void(bool)> BoolSetter;
+  std::function<void(bool)> setter = [this](bool value) {
+    if (value) {
+      m_outputTableSummaryReports->enableAllSummaryReport();
+    } else if (boost::optional<unsigned> index = m_outputTableSummaryReports->summaryReportIndex("AllSummary")) {
+      m_outputTableSummaryReports->removeSummaryReport(index.get());
+    }
+  };
+
+  // void bind(const model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetter> set = boost::none,
+  //           boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none);
+  m_table_allSummary->bind(*m_outputTableSummaryReports, getter, boost::optional<BoolSetter>(setter),
+                           boost::none,  // reset
+                           boost::none   // isDefaulted;
+  );
+}
+
+void SimSettingsView::attachOutputDiagnostics() {
+
+  m_outputDiagnostics = m_model.getUniqueModelObject<model::OutputDiagnostics>();
+
+  // typedef std::function<bool()> BoolGetter
+  std::function<bool()> getter = [this]() {
+    auto ks = m_outputDiagnostics->keys();
+    return std::find_if(ks.begin(), ks.end(), [](const std::string& k) { return openstudio::istringEqual(k, "DisplayExtraWarnings"); }) != ks.end();
+  };
+
+  // void bind(const model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetter> set = boost::none,
+  //           boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none);
+
+  // typedef std::function<void(bool)> BoolSetter;
+  std::function<void(bool)> setter = [this](bool value) {
+    if (value) {
+      m_outputDiagnostics->enableDisplayExtraWarnings();
+    } else {
+      auto ks = m_outputDiagnostics->keys();
+      ks.erase(std::remove_if(ks.begin(), ks.end(), [](const std::string& k) { return openstudio::istringEqual(k, "DisplayExtraWarnings"); }),
+               ks.end());
+      m_outputDiagnostics->setKeys(ks);
+    }
+  };
+
+  m_diagnostics_displayExtraWarnings->bind(*m_outputDiagnostics, getter, setter,
+                                           boost::none,  // reset
+                                           boost::none   // isDefaulted;
+  );
+}
+
 void SimSettingsView::detachRunPeriod() {
   m_useWeatherFileHolidaysandSpecialDays->unbind();
   m_useWeatherFileDaylightSavingsPeriod->unbind();
@@ -1931,6 +2082,14 @@ void SimSettingsView::detachOutputJSON() {
   m_json_outputMessagePack->unbind();
 }
 
+void SimSettingsView::detachOutputTableSummaryReports() {
+  m_table_allSummary->unbind();
+}
+
+void SimSettingsView::detachOutputDiagnostics() {
+  m_diagnostics_displayExtraWarnings->unbind();
+}
+
 //***** SLOTS *****
 
 void SimSettingsView::on_runPeriodGroupClicked(int idx) {
@@ -1967,7 +2126,7 @@ void SimSettingsView::on_startDateChanged(const QDate& date) {
   static bool firstTimeInFunction = true;
   if (firstTimeInFunction && m_startDateEdit->date().month() == 12 && m_startDateEdit->date().day() == 31) {
     firstTimeInFunction = false;
-    QTimer::singleShot(0, this, SLOT(initStartDateEdit()));
+    QTimer::singleShot(0, this, &SimSettingsView::initStartDateEdit);
     return;
   }
 

@@ -80,9 +80,11 @@
 #include <openstudio/model/CoilHeatingLowTempRadiantVarFlow.hpp>
 #include <openstudio/model/CoilHeatingLowTempRadiantVarFlow_Impl.hpp>
 #include <openstudio/model/CoilHeatingWater.hpp>
+#include <openstudio/model/CoilHeatingWater_Impl.hpp>
 #include <openstudio/model/CoilHeatingWaterBaseboard.hpp>
 #include <openstudio/model/CoilHeatingWaterBaseboard_Impl.hpp>
-#include <openstudio/model/CoilHeatingWater_Impl.hpp>
+#include <openstudio/model/CoilCoolingWaterPanelRadiant.hpp>
+#include <openstudio/model/CoilCoolingWaterPanelRadiant_Impl.hpp>
 #include <openstudio/model/ConnectorMixer.hpp>
 #include <openstudio/model/ConnectorMixer_Impl.hpp>
 #include <openstudio/model/ConnectorSplitter.hpp>
@@ -116,6 +118,8 @@
 #include <openstudio/model/ZoneHVACBaseboardConvectiveWater_Impl.hpp>
 #include <openstudio/model/ZoneHVACBaseboardRadiantConvectiveWater.hpp>
 #include <openstudio/model/ZoneHVACBaseboardRadiantConvectiveWater_Impl.hpp>
+#include <openstudio/model/ZoneHVACCoolingPanelRadiantConvectiveWater.hpp>
+#include <openstudio/model/ZoneHVACCoolingPanelRadiantConvectiveWater_Impl.hpp>
 #include <openstudio/model/ZoneHVACFourPipeFanCoil.hpp>
 #include <openstudio/model/ZoneHVACFourPipeFanCoil_Impl.hpp>
 #include <openstudio/model/ZoneHVACLowTempRadiantConstFlow.hpp>
@@ -461,6 +465,24 @@ void InspectorView::layoutModelObject(openstudio::model::OptionalModelObject& mo
 
       connect(static_cast<ZoneHVACBaseboardRadiantConvectiveWaterInspectorView*>(m_currentView),
               &ZoneHVACBaseboardRadiantConvectiveWaterInspectorView::removeFromLoopClicked, this, &InspectorView::removeFromLoopClicked);
+    } else if (boost::optional<model::ZoneHVACCoolingPanelRadiantConvectiveWater> component =
+                 modelObject->optionalCast<model::ZoneHVACCoolingPanelRadiantConvectiveWater>()) {
+      if (m_currentView) {
+        delete m_currentView;
+      }
+
+      m_currentView = new ZoneHVACCoolingPanelRadiantConvectiveWaterInspectorView();
+      connect(this, &InspectorView::toggleUnitsClicked, m_currentView, &BaseInspectorView::toggleUnitsClicked);
+
+      m_currentView->layoutModelObject(component.get(), readOnly, displayIP);
+
+      m_vLayout->addWidget(m_currentView);
+
+      connect(static_cast<ZoneHVACCoolingPanelRadiantConvectiveWaterInspectorView*>(m_currentView),
+              &ZoneHVACCoolingPanelRadiantConvectiveWaterInspectorView::addToLoopClicked, this, &InspectorView::addToLoopClicked);
+
+      connect(static_cast<ZoneHVACCoolingPanelRadiantConvectiveWaterInspectorView*>(m_currentView),
+              &ZoneHVACCoolingPanelRadiantConvectiveWaterInspectorView::removeFromLoopClicked, this, &InspectorView::removeFromLoopClicked);
     } else if (boost::optional<model::ZoneHVACFourPipeFanCoil> component = modelObject->optionalCast<model::ZoneHVACFourPipeFanCoil>()) {
       if (m_currentView) {
         delete m_currentView;
@@ -816,8 +838,7 @@ BaseInspectorView::BaseInspectorView(QWidget* parent) {
 
   m_libraryTabWidget = new LibraryTabWidget();
 
-  auto isConnected = connect(m_libraryTabWidget, SIGNAL(removeButtonClicked(bool)), this, SIGNAL(removeButtonClicked(bool)));
-  OS_ASSERT(isConnected);
+  connect(m_libraryTabWidget, &LibraryTabWidget::removeButtonClicked, this, &BaseInspectorView::removeButtonClicked);
 
   m_vLayout->addWidget(m_libraryTabWidget);
 
@@ -1320,7 +1341,7 @@ void WaterToAirInspectorView::layoutModelObject(model::ModelObject& modelObject,
 }
 
 void WaterToAirInspectorView::onWorkspaceObjectChanged() {
-  QTimer::singleShot(0, this, SLOT(layoutControllerObject()));
+  QTimer::singleShot(0, this, &WaterToAirInspectorView::layoutControllerObject);
 }
 
 void WaterToAirInspectorView::layoutControllerObject() {
@@ -1595,6 +1616,61 @@ void ZoneHVACBaseboardRadiantConvectiveWaterInspectorView::layoutModelObject(mod
   if (!waterHeatingCoil) {
     // Hide the tab (by hiding the button)
     m_libraryTabWidget->hideTab(m_heatingLoopChooserView, true);
+  }
+}
+
+ZoneHVACCoolingPanelRadiantConvectiveWaterInspectorView::ZoneHVACCoolingPanelRadiantConvectiveWaterInspectorView(QWidget* parent)
+  : BaseInspectorView(parent) {
+  m_inspectorGadget = new InspectorGadget();
+  connect(this, &ZoneHVACCoolingPanelRadiantConvectiveWaterInspectorView::toggleUnitsClicked, m_inspectorGadget,
+          &InspectorGadget::toggleUnitsClicked);
+  connect(m_inspectorGadget, &InspectorGadget::workspaceObjectRemoved, this, &BaseInspectorView::workspaceObjectRemoved);
+
+  m_coolingLoopChooserView = new LoopChooserView();
+
+  m_libraryTabWidget->addTab(m_inspectorGadget, ":images/properties_icon_on.png", ":images/properties_icon_off.png");
+
+  m_libraryTabWidget->addTab(m_coolingLoopChooserView, ":images/link_icon_on.png", ":images/link_icon_off.png");
+
+  m_libraryTabWidget->setCurrentIndex(0);
+
+  connect(m_coolingLoopChooserView, &LoopChooserView::addToLoopClicked, this,
+          &ZoneHVACCoolingPanelRadiantConvectiveWaterInspectorView::addToLoopClicked);
+
+  connect(m_coolingLoopChooserView, &LoopChooserView::removeFromLoopClicked, this,
+          &ZoneHVACCoolingPanelRadiantConvectiveWaterInspectorView::removeFromLoopClicked);
+}
+
+void ZoneHVACCoolingPanelRadiantConvectiveWaterInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP) {
+  m_modelObject = modelObject;
+
+  bool force = false;
+  bool recursive = true;
+  bool locked = readOnly;
+  bool hideChildren = false;
+  if (displayIP) {
+    m_inspectorGadget->setUnitSystem(InspectorGadget::IP);
+  } else {
+    m_inspectorGadget->setUnitSystem(InspectorGadget::SI);
+  }
+  m_inspectorGadget->layoutModelObj(modelObject, force, recursive, locked, hideChildren);
+
+  bool waterCoolingCoil = false;
+
+  //check if the object is a zone baseboard
+  boost::optional<model::ZoneHVACCoolingPanelRadiantConvectiveWater> baseboardConvtest =
+    modelObject.optionalCast<model::ZoneHVACCoolingPanelRadiantConvectiveWater>();
+
+  if (baseboardConvtest) {
+    // if it is, check if has a heating coil (but optional needed)
+    boost::optional<model::ModelObject> coilcoolingpanel = baseboardConvtest->coolingCoil();
+    m_coolingLoopChooserView->layoutModelObject(coilcoolingpanel);
+    waterCoolingCoil = true;
+  }
+
+  if (!waterCoolingCoil) {
+    // Hide the tab (by hiding the button)
+    m_libraryTabWidget->hideTab(m_coolingLoopChooserView, true);
   }
 }
 

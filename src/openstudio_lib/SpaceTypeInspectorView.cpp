@@ -44,25 +44,20 @@ namespace openstudio {
 
 SpaceTypeInspectorView::SpaceTypeInspectorView(bool isIP, const model::Model& model, QWidget* parent)
   : ModelObjectInspectorView(model, true, parent), m_isIP(isIP) {
-  bool isConnected = false;
 
   m_gridView = new SpaceTypesGridView(this->m_isIP, this->m_model, this);
   stackedWidget()->addWidget(m_gridView);
 
-  isConnected = connect(m_gridView, SIGNAL(dropZoneItemClicked(OSItem*)), this, SIGNAL(dropZoneItemClicked(OSItem*)));
-  OS_ASSERT(isConnected);
+  connect(m_gridView, &SpaceTypesGridView::dropZoneItemClicked, this, &SpaceTypeInspectorView::dropZoneItemClicked);
 
-  isConnected = connect(this, SIGNAL(selectionCleared()), m_gridView, SIGNAL(selectionCleared()));
-  OS_ASSERT(isConnected);
+  connect(this, &SpaceTypeInspectorView::selectionCleared, m_gridView, &SpaceTypesGridView::selectionCleared);
 
-  isConnected = connect(this, SIGNAL(toggleUnitsClicked(bool)), this, SLOT(toggleUnits(bool)));
-  OS_ASSERT(isConnected);
+  connect(this, &SpaceTypeInspectorView::toggleUnitsClicked, this, &SpaceTypeInspectorView::toggleUnits);
 
-  isConnected = connect(this, SIGNAL(toggleUnitsClicked(bool)), m_gridView, SIGNAL(toggleUnitsClicked(bool)));
-  OS_ASSERT(isConnected);
+  connect(this, &SpaceTypeInspectorView::toggleUnitsClicked, m_gridView, &SpaceTypesGridView::toggleUnitsClicked);
 }
 
-std::vector<model::ModelObject> SpaceTypeInspectorView::selectedObjects() const {
+std::set<model::ModelObject> SpaceTypeInspectorView::selectedObjects() const {
   return m_gridView->selectedObjects();
 }
 

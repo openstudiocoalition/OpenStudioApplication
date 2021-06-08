@@ -271,7 +271,7 @@ openstudio::model::Model InspectorDialog::model() const {
   return m_model;
 }
 
-void InspectorDialog::setModel(openstudio::model::Model& model, bool force) {
+void InspectorDialog::setModel(const openstudio::model::Model& model, bool force) {
   if ((model == m_model) && !force) {
     return;
   }
@@ -292,7 +292,7 @@ void InspectorDialog::setModel(openstudio::model::Model& model, bool force) {
   ///       gets "lost" on MacOS After several hours of trial and error, I found that setting the focus
   ///       programmatically in this out-of-band call consistently resolves the problem.
   ///       The "todo" is to reevaluate with a later version of Qt.
-  QTimer::singleShot(0, this, SLOT(setFocus()));
+  QTimer::singleShot(0, this, &InspectorDialog::onNeedsSetFocus);
 }
 
 void InspectorDialog::rebuildInspectorGadget(bool recursive) {
@@ -427,13 +427,13 @@ void InspectorDialog::onAddWorkspaceObject(std::shared_ptr<openstudio::detail::W
     }
   }
 
-  QTimer::singleShot(0, this, SLOT(onTimeout()));
+  QTimer::singleShot(0, this, &InspectorDialog::onTimeout);
 }
 
 void InspectorDialog::onWorkspaceChange() {
   m_workspaceChanged = true;
 
-  QTimer::singleShot(0, this, SLOT(onTimeout()));
+  QTimer::singleShot(0, this, &InspectorDialog::onTimeout);
 }
 
 void InspectorDialog::onTimeout() {
@@ -479,7 +479,11 @@ void InspectorDialog::onRemoveWorkspaceObject(std::shared_ptr<openstudio::detail
     }
   }
 
-  QTimer::singleShot(0, this, SLOT(onTimeout()));
+  QTimer::singleShot(0, this, &InspectorDialog::onTimeout);
+}
+
+void InspectorDialog::onNeedsSetFocus() {
+  this->setFocus();
 }
 
 void InspectorDialog::init(InspectorDialogClient client) {

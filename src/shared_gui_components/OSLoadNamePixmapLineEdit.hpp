@@ -34,16 +34,17 @@
 
 #include <openstudio/model/Model.hpp>
 
-#include <QWidget>
+#include "OSLineEdit.hpp"
 
 class QLabel;
 
 namespace openstudio {
 
 class OSItem;
-class OSLineEdit2;
 
-class OSLoadNamePixmapLineEdit : public QWidget
+class OSLoadNamePixmapLineEdit
+  : public QWidget
+  , public OSLineEdit2Interface
 {
   Q_OBJECT
 
@@ -52,22 +53,35 @@ class OSLoadNamePixmapLineEdit : public QWidget
 
   virtual ~OSLoadNamePixmapLineEdit();
 
-  void enableClickFocus();
+  virtual void enableClickFocus() override;
 
-  void createWidgets();
+  virtual bool hasData() override;
 
-  void setIcon();
+  virtual bool locked() const override;
 
-  void bind(const model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetter> set = boost::none,
-            boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none);
+  virtual void setLocked(bool locked) override;
 
-  void bind(const model::ModelObject& modelObject, OptionalStringGetter get, boost::optional<StringSetter> set = boost::none,
-            boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none);
+  virtual boost::optional<model::ModelObject> modelObject() const override;
 
-  void bind(const model::ModelObject& modelObject, OptionalStringGetterBoolArg get, boost::optional<StringSetterOptionalStringReturn> set,
-            boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none);
+  virtual void bind(const model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetter> set = boost::none,
+                    boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none) override;
 
-  void unbind();
+  virtual void bind(const model::ModelObject& modelObject, OptionalStringGetter get, boost::optional<StringSetter> set = boost::none,
+                    boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none) override;
+
+  virtual void bind(const model::ModelObject& modelObject, OptionalStringGetter get,
+                    boost::optional<StringSetterOptionalStringReturn> set = boost::none, boost::optional<NoFailAction> reset = boost::none,
+                    boost::optional<BasicQuery> isDefaulted = boost::none) override;
+
+  virtual void bind(const model::ModelObject& modelObject, OptionalStringGetterBoolArg get, boost::optional<StringSetterOptionalStringReturn> set,
+                    boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none) override;
+
+  virtual void bind(const model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetterVoidReturn> set = boost::none,
+                    boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none) override;
+
+  virtual void unbind() override;
+
+  virtual QWidget* qwidget() override;
 
  signals:
 
@@ -75,14 +89,16 @@ class OSLoadNamePixmapLineEdit : public QWidget
 
   void objectRemoved(boost::optional<model::ParentObject> parent);
 
- private slots:
+  void inFocus(bool inFocus, bool hasData);
 
-  void onModelObjectChange();
+ public slots:
+
+  virtual void onItemRemoveClicked();
 
  private:
-  boost::optional<model::ModelObject> m_modelObject;
-
   void completeBind();
+  void createWidgets();
+  void setIcon();
 
   OSLineEdit2* m_lineEdit = nullptr;
   QLabel* m_label = nullptr;

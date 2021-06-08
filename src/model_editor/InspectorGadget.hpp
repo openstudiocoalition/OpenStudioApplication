@@ -58,7 +58,9 @@ class QVBoxLayout;
 
 class ComboHighlightBridge;
 
-class MODELEDITOR_API IGWidget : public QWidget, public Nano::Observer
+class MODELEDITOR_API IGWidget
+  : public QWidget
+  , public Nano::Observer
 {
  public:
   IGWidget(QWidget* parent = nullptr);
@@ -92,7 +94,9 @@ class IGComboBox : public QComboBox
  * Choice is displayed as a ComboBox
  *
  */
-class MODELEDITOR_API InspectorGadget : public QWidget, public Nano::Observer
+class MODELEDITOR_API InspectorGadget
+  : public QWidget
+  , public Nano::Observer
 {
 
   Q_OBJECT
@@ -100,13 +104,6 @@ class MODELEDITOR_API InspectorGadget : public QWidget, public Nano::Observer
  public:
   friend class IGLineEdit;
   friend class IGDSpinBox;
-
-  enum FLOAT_DISPLAY
-  {
-    FIXED,
-    SCIENTIFIC,
-    UNFORMATED
-  };
 
   enum UNIT_SYSTEM
   {
@@ -155,20 +152,8 @@ class MODELEDITOR_API InspectorGadget : public QWidget, public Nano::Observer
    * parameter to true
    *
    */
-  void layoutModelObj(openstudio::WorkspaceObject& workObj, bool force = false, bool recursive = true, bool locked = false,
+  void layoutModelObj(openstudio::WorkspaceObject& workspaceObj, bool force = false, bool recursive = true, bool locked = false,
                       bool hideChildren = false);
-
-  /*! \brief sets the display precision for number fields
-   *
-   * \param prec the # of significant figures to display
-   * \param dispType how to format the floating point number
-   *
-   * If you pass in a zero to this function, IG will not format the number in anyway,
-   * meaning you will see exactly the string that was typed into the IDF/OSM file. (Default behavior)
-   * If you pass in a non zero number, all number fields will display that number of significant figures
-   * in scientific notation.
-   */
-  void setPrecision(unsigned int prec, FLOAT_DISPLAY dispType);
 
   void setUnitSystem(const UNIT_SYSTEM unitSystem);
 
@@ -223,8 +208,6 @@ class MODELEDITOR_API InspectorGadget : public QWidget, public Nano::Observer
    */
   void commentConfig(bool showComments);
 
-  void setPrec();
-
   void addExtensible();
 
   void removeExtensible();
@@ -267,8 +250,6 @@ class MODELEDITOR_API InspectorGadget : public QWidget, public Nano::Observer
     \param workspaceObj the current workspace
     \param indent indentation for the child frame
     \param bridge pass in a bridge here if you need signals to get out of the IG (or the IG's children)
-    \param precision sets the number of sigfigs to display
-    \param style sets the style of floating point display
     \param showComments show or hide idf comment field
     \param showAllFields show or hide all fields
     \param recursive recursively create and show fields
@@ -276,8 +257,8 @@ class MODELEDITOR_API InspectorGadget : public QWidget, public Nano::Observer
     If model has children, those children will get their own InspectorGadget, indent
     will be passed again to that constructor so the frames will nest.
   */
-  InspectorGadget(openstudio::WorkspaceObject& workspaceObj, int indent, ComboHighlightBridge* bridge, int precision, FLOAT_DISPLAY style,
-                  bool showComments, bool showAllFields, bool recursive, bool locked);
+  InspectorGadget(openstudio::WorkspaceObject& workspaceObj, int indent, ComboHighlightBridge* bridge, bool showComments, bool showAllFields,
+                  bool recursive, bool locked);
   /*!
     \param layout the layout to attach the items to
     \param parent the widget that owns all the items that will be created.
@@ -302,7 +283,7 @@ class MODELEDITOR_API InspectorGadget : public QWidget, public Nano::Observer
                           const std::string& name, const std::string& curVal, int index, const std::string& comment, bool exists, bool number,
                           bool real = false);
 
-  void layoutComboBox(QVBoxLayout* layout, QWidget* parent, openstudio::IddField& field, openstudio::IddFieldProperties& properties,
+  void layoutComboBox(QVBoxLayout* layout, QWidget* parent, openstudio::IddField& field, openstudio::IddFieldProperties& prop,
                       const std::string& name, const std::string& curVal, int index, const std::string& comment, bool exists);
 
   void createExtensibleToolBar(QVBoxLayout* layout, QWidget* parent, const openstudio::IddObjectProperties& props);
@@ -336,8 +317,6 @@ class MODELEDITOR_API InspectorGadget : public QWidget, public Nano::Observer
   bool m_showComments;
   bool m_showAllFields;
   bool m_recursive;
-  unsigned int m_precision;
-  FLOAT_DISPLAY m_floatDisplayType;
   UNIT_SYSTEM m_unitSystem;
   bool m_workspaceObjectChanged;
 

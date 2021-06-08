@@ -58,7 +58,7 @@ class OSListView : public QWidget
  public:
   OSListView(bool scrollable = false, QWidget* parent = nullptr);
 
-  virtual ~OSListView() {}
+  virtual ~OSListView();
 
   void setDelegate(QSharedPointer<OSItemDelegate> delegate);
 

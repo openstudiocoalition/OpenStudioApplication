@@ -41,6 +41,8 @@
 #include <QCompleter>
 #include <QEvent>
 
+#include <bitset>
+
 namespace openstudio {
 
 OSObjectListCBDS::OSObjectListCBDS(const IddObjectType& type, const model::Model& model)
@@ -140,10 +142,24 @@ void OSObjectListCBDS::onObjectChanged() {
 
 OSComboBox2::OSComboBox2(QWidget* parent, bool editable) : QComboBox(parent) {
   this->setAcceptDrops(false);
-  auto completer = new QCompleter();
-  this->setCompleter(completer);
   setEditable(editable);
+  if (editable) {
+    auto completer = new QCompleter();
+    this->setCompleter(completer);
+  }
   setEnabled(false);
+
+  // if multiple qss rules apply with same specificity then the last one is chosen
+  this->setStyleSheet("QComboBox[style=\"000\"] { color:black; background:white;   } "  // Locked=0, Focused=0, Defaulted=0
+                      "QComboBox[style=\"001\"] { color:green; background:white;   } "  // Locked=0, Focused=0, Defaulted=1
+                      "QComboBox[style=\"010\"] { color:black; background:#ffc627; } "  // Locked=0, Focused=1, Defaulted=0
+                      "QComboBox[style=\"011\"] { color:green; background:#ffc627; } "  // Locked=0, Focused=1, Defaulted=1
+                      "QComboBox[style=\"100\"] { color:black; background:#e6e6e6; } "  // Locked=1, Focused=0, Defaulted=0
+                      "QComboBox[style=\"101\"] { color:green; background:#e6e6e6; } "  // Locked=1, Focused=0, Defaulted=1
+                      "QComboBox[style=\"110\"] { color:black; background:#cc9a00; } "  // Locked=1, Focused=1, Defaulted=0
+                      "QComboBox[style=\"111\"] { color:green; background:#cc9a00; } "  // Locked=1, Focused=1, Defaulted=1
+  );
+
   setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
 }
 
@@ -152,22 +168,49 @@ OSComboBox2::~OSComboBox2() {}
 bool OSComboBox2::event(QEvent* e) {
   if (e->type() == QEvent::Wheel) {
     return false;
-  } else if (e->type() == QEvent::FocusIn && this->focusPolicy() == Qt::ClickFocus) {
-    QString style("QComboBox { background: #ffc627; }");
-    setStyleSheet(style);
+  } else if (e->type() == QEvent::FocusIn && m_hasClickFocus) {
+    m_focused = true;
+    updateStyle();
 
-    emit inFocus(true, hasData());
+    emit inFocus(m_focused, hasData());
 
     return QComboBox::event(e);
-  } else if (e->type() == QEvent::FocusOut && this->focusPolicy() == Qt::ClickFocus) {
-    QString style("QComboBox { background: white; }");
-    setStyleSheet(style);
+  } else if (e->type() == QEvent::FocusOut && m_hasClickFocus) {
+    m_focused = false;
+    updateStyle();
 
-    emit inFocus(false, false);
+    emit inFocus(m_focused, false);
 
     return QComboBox::event(e);
   } else {
     return QComboBox::event(e);
+  }
+}
+
+void OSComboBox2::enableClickFocus() {
+  m_hasClickFocus = true;
+  this->setFocusPolicy(Qt::ClickFocus);
+}
+
+void OSComboBox2::disableClickFocus() {
+  m_hasClickFocus = false;
+  this->setFocusPolicy(Qt::NoFocus);
+  clearFocus();
+}
+
+bool OSComboBox2::hasData() {
+  return !this->currentText().isEmpty();
+}
+
+bool OSComboBox2::locked() const {
+  return m_locked;
+}
+
+void OSComboBox2::setLocked(bool locked) {
+  if (m_locked != locked) {
+    m_locked = locked;
+    setEnabled(!locked);
+    updateStyle();
   }
 }
 
@@ -200,12 +243,9 @@ void OSComboBox2::unbind() {
   }
 
   this->blockSignals(true);
-
   clear();
-
+  setLocked(true);
   this->blockSignals(false);
-
-  setEnabled(false);
 }
 
 void OSComboBox2::onModelObjectChanged() {
@@ -219,6 +259,7 @@ void OSComboBox2::onModelObjectChanged() {
     int i = int(it - m_values.begin());
     this->blockSignals(true);
     setCurrentIndex(i);
+    updateStyle();
     this->blockSignals(false);
   }
 }
@@ -228,7 +269,7 @@ void OSComboBox2::onModelObjectRemoved(const Handle& handle) {
 }
 
 void OSComboBox2::onCurrentIndexChanged(const QString& text) {
-  emit inFocus(true, hasData());
+  emit inFocus(m_focused, hasData());
 
   OS_ASSERT(m_modelObject);
 
@@ -265,7 +306,9 @@ void OSComboBox2::onChoicesRefreshTrigger() {
 
     clear();
     for (const auto& value : m_values) {
-      addItem(QString::fromStdString(value));
+      QString qvalue = QString::fromStdString(value);
+      addItem(qvalue);
+      setItemData(count() - 1, qvalue, Qt::ToolTipRole);
     }
 
     // re-initialize
@@ -298,6 +341,22 @@ void OSComboBox2::onDataSourceRemove(int i) {
   this->removeItem(i);
 }
 
+void OSComboBox2::updateStyle() {
+  // Locked, Focused, Defaulted
+  std::bitset<3> style;
+  style[0] = m_choiceConcept ? m_choiceConcept->isDefaulted() : false;
+  style[1] = m_focused;
+  style[2] = m_locked;
+  QString thisStyle = QString::fromStdString(style.to_string());
+
+  QVariant currentStyle = property("style");
+  if (currentStyle.isNull() || currentStyle.toString() != thisStyle) {
+    this->setProperty("style", thisStyle);
+    this->style()->unpolish(this);
+    this->style()->polish(this);
+  }
+}
+
 void OSComboBox2::completeBind() {
   if (m_modelObject) {
     // connections
@@ -310,8 +369,7 @@ void OSComboBox2::completeBind() {
     connect(this, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentTextChanged), this, &OSComboBox2::onCurrentIndexChanged);
 
     if (isEditable()) {
-      bool isConnected = connect(this, SIGNAL(editTextChanged(const QString&)), this, SLOT(onEditTextChanged(const QString&)));
-      OS_ASSERT(isConnected);
+      connect(this, &OSComboBox2::editTextChanged, this, &OSComboBox2::onEditTextChanged);
     }
 
     // isConnected = connect( m_modelObject->model().getImpl<openstudio::model::detail::Model_Impl>().get(),
@@ -338,7 +396,9 @@ void OSComboBox2::completeBind() {
     this->blockSignals(true);
 
     for (const auto& value : m_values) {
-      addItem(QString::fromStdString(value));
+      QString qvalue = QString::fromStdString(value);
+      addItem(qvalue);
+      setItemData(count() - 1, qvalue, Qt::ToolTipRole);
     }
 
     // initialize
@@ -354,7 +414,9 @@ void OSComboBox2::completeBind() {
 
     // populate choices
     for (int i = 0; i < m_dataSource->numberOfItems(); i++) {
-      this->addItem(m_dataSource->valueAt(i));
+      QString qvalue = m_dataSource->valueAt(i);
+      addItem(qvalue);
+      setItemData(count() - 1, qvalue, Qt::ToolTipRole);
     }
 
     // initialize
@@ -365,6 +427,7 @@ void OSComboBox2::completeBind() {
 
   this->blockSignals(false);
   setEnabled(true);
+  updateStyle();
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////

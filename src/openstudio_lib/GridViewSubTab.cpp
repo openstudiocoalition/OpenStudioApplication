@@ -92,26 +92,27 @@ void GridViewSubTab::setGridView(OSGridView* gridView) {
 
   connect(gridView, &OSGridView::dropZoneItemClicked, this, &GridViewSubTab::onDropZoneItemClicked);
 
-  connect(this, &GridViewSubTab::selectionCleared, gridView, &OSGridView::onSelectionCleared);
+  connect(gridView, &OSGridView::gridRowSelectionChanged, this, &GridViewSubTab::onGridRowSelectionChanged);
 
-  connect(gridView, &OSGridView::gridRowSelectionChanged, this, &GridViewSubTab::gridRowSelectionChanged);
+  connect(this, &GridViewSubTab::selectionCleared, m_gridController, &OSGridController::onSelectionCleared);
 
   connect(this, &GridViewSubTab::toggleUnitsClicked, m_gridController, &OSGridController::toggleUnitsClicked);
 
-  connect(this, &GridViewSubTab::toggleUnitsClicked, m_gridController, &OSGridController::toggleUnits);
+  connect(this, &GridViewSubTab::toggleUnitsClicked, m_gridController, &OSGridController::onToggleUnits);
 }
 
 void GridViewSubTab::setGridController(OSGridController* gridController) {
-  connect(this, &GridViewSubTab::toggleUnitsClicked, gridController, &OSGridController::toggleUnits);
+  connect(this, &GridViewSubTab::toggleUnitsClicked, gridController, &OSGridController::onToggleUnits);
 }
 
 void GridViewSubTab::onAddClicked() {
-  if (m_supportsMultipleObjectSelection || m_gridController->selectedObjects().size() == 1) {
+  const auto& selectedObjects = m_gridController->selectedObjects();
+  if (m_supportsMultipleObjectSelection || selectedObjects.size() == 1) {
     // Always make at least one
-    if (!m_gridController->selectedObjects().size()) {
-      addObject(m_gridController->m_iddObjectType);
+    if (!selectedObjects.size()) {
+      addObject(m_gridController->iddObjectType());
     } else {
-      for (auto& obj : m_gridController->selectedObjects()) {
+      for (auto& obj : selectedObjects) {
         addObject(obj);
       }
     }
@@ -119,8 +120,9 @@ void GridViewSubTab::onAddClicked() {
 }
 
 void GridViewSubTab::onCopyClicked() {
-  if (m_supportsMultipleObjectSelection || m_gridController->selectedObjects().size() == 1) {
-    for (auto& obj : m_gridController->selectedObjects()) {
+  const auto& selectedObjects = m_gridController->selectedObjects();
+  if (m_supportsMultipleObjectSelection || selectedObjects.size() == 1) {
+    for (auto& obj : selectedObjects) {
       if (!obj.handle().isNull()) {
         copyObject(obj);
       }
@@ -129,8 +131,9 @@ void GridViewSubTab::onCopyClicked() {
 }
 
 void GridViewSubTab::onRemoveClicked() {
-  if (m_supportsMultipleObjectSelection || m_gridController->selectedObjects().size() == 1) {
-    for (auto& obj : m_gridController->selectedObjects()) {
+  const auto& selectedObjects = m_gridController->selectedObjects();
+  if (m_supportsMultipleObjectSelection || selectedObjects.size() == 1) {
+    for (auto& obj : selectedObjects) {
       removeObject(obj);
     }
   }
@@ -157,7 +160,7 @@ void GridViewSubTab::removeObject(openstudio::model::ModelObject modelObject) {
   modelObject.remove();
 }
 
-std::vector<model::ModelObject> GridViewSubTab::selectedObjects() const {
+std::set<model::ModelObject> GridViewSubTab::selectedObjects() const {
   return m_gridController->selectedObjects();
 }
 
@@ -177,8 +180,8 @@ void GridViewSubTab::toggleUnits(bool isIP) {
   m_isIP = isIP;
 }
 
-void GridViewSubTab::gridRowSelectionChanged(int checkState) {
-  if (this->m_gridController->getObjectSelector()->m_selectedObjects.size() == 0) {
+void GridViewSubTab::onGridRowSelectionChanged(int numSelected, int numSelectable) {
+  if (numSelected == 0) {
     onClearSelection();
   } else {
     onSelectItem();

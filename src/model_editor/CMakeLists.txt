@@ -41,8 +41,6 @@ set(${target_name}_src
   UserSettings.cpp
   Utilities.hpp
   Utilities.cpp
-  IGPrecisionDialog.hpp
-  IGPrecisionDialog.cpp
   IGLineEdit.hpp
   IGLineEdit.cpp
   IGSpinBoxes.hpp
@@ -59,15 +57,9 @@ set(${target_name}_moc
   TableView.hpp
   TableWidget.hpp
   TestButton.hpp
-  IGPrecisionDialog.hpp
   IGLineEdit.hpp
   IGSpinBoxes.hpp
   BridgeClasses.hpp
-)
-
-# lib ui files
-set(${target_name}_ui
-  precisiondialog.ui
 )
 
 # lib resource files
@@ -80,10 +72,7 @@ set(${target_name}_qrc
 CONFIGURE_FILE_WITH_CHECKSUM(AboutBox.hpp.in "${CMAKE_CURRENT_BINARY_DIR}/AboutBox.hpp")
 
 ## Qt MOC generation
-qt5_wrap_cpp_minimally(${target_name}_mocs ${${target_name}_moc})
-
-## Qt UI Generation
-qt5_wrap_ui(${target_name}_uis ${${target_name}_ui})
+qt5_wrap_cpp(${target_name}_mocs ${${target_name}_moc})
 
 # generate rules for building source files from the resources
 qt5_add_resources(${target_name}_qrcs ${${target_name}_qrc})
@@ -95,8 +84,6 @@ add_library(${target_name}
   ${${target_name}_mocs}
   ${${target_name}_qrc}
   ${${target_name}_qrcs}
-  ${${target_name}_ui}
-  ${${target_name}_uis}
 )
 
 # lib dependencies
@@ -122,6 +109,7 @@ endif()
 set(${target_name}_test_src
   test/ModelEditorFixture.hpp
   test/ModelEditorFixture.cpp
+  test/IGLineEdit_GTest.cpp
   test/InspectorDialog_GTest.cpp
   test/ModalDialogs_GTest.cpp
   test/PathWatcher_GTest.cpp

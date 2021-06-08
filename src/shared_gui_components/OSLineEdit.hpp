@@ -41,12 +41,50 @@
 
 class QFocusEvent;
 class QMouseEvent;
+class OpenStudioLibFixture;
 
 namespace openstudio {
 
 class OSItem;
 
-class OSLineEdit2 : public QLineEdit, public Nano::Observer
+class OSLineEdit2Interface
+{
+ public:
+  virtual void enableClickFocus() = 0;
+
+  virtual bool hasData() = 0;
+
+  virtual bool locked() const = 0;
+
+  virtual void setLocked(bool locked) = 0;
+
+  virtual boost::optional<model::ModelObject> modelObject() const = 0;
+
+  virtual void bind(const model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetter> set = boost::none,
+                    boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none) = 0;
+
+  virtual void bind(const model::ModelObject& modelObject, OptionalStringGetter get, boost::optional<StringSetter> set = boost::none,
+                    boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none) = 0;
+
+  virtual void bind(const model::ModelObject& modelObject, OptionalStringGetter get,
+                    boost::optional<StringSetterOptionalStringReturn> set = boost::none, boost::optional<NoFailAction> reset = boost::none,
+                    boost::optional<BasicQuery> isDefaulted = boost::none) = 0;
+
+  virtual void bind(const model::ModelObject& modelObject, OptionalStringGetterBoolArg get, boost::optional<StringSetterOptionalStringReturn> set,
+                    boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none) = 0;
+
+  virtual void bind(const model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetterVoidReturn> set = boost::none,
+                    boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none) = 0;
+
+  virtual void unbind() = 0;
+
+  virtual QWidget* qwidget() = 0;
+};
+
+class OSLineEdit2
+  : public QLineEdit
+  , public OSLineEdit2Interface
+  , public Nano::Observer
 {
   Q_OBJECT
 
@@ -55,38 +93,38 @@ class OSLineEdit2 : public QLineEdit, public Nano::Observer
 
   virtual ~OSLineEdit2();
 
-  void enableClickFocus() {
-    this->m_hasClickFocus = true;
-  }
-  void setDeleteObject(bool deleteObject) {
-    m_deleteObject = deleteObject;
-  }
-  bool hasData() {
-    return !this->text().isEmpty();
-  }
-  bool deleteObject() {
-    return m_deleteObject;
-  }
+  virtual void enableClickFocus() override;
 
-  void bind(const model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetter> set = boost::none,
-            boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none);
+  virtual bool hasData() override;
 
-  void bind(const model::ModelObject& modelObject, OptionalStringGetter get, boost::optional<StringSetter> set = boost::none,
-            boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none);
+  virtual bool locked() const override;
 
-  void bind(const model::ModelObject& modelObject, OptionalStringGetter get, boost::optional<StringSetterOptionalStringReturn> set = boost::none,
-            boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none);
+  virtual void setLocked(bool locked) override;
 
-  void bind(const model::ModelObject& modelObject, OptionalStringGetterBoolArg get, boost::optional<StringSetterOptionalStringReturn> set,
-            boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none);
+  virtual boost::optional<model::ModelObject> modelObject() const override;
 
-  void bind(const model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetterVoidReturn> set = boost::none,
-            boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none);
+  virtual void bind(const model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetter> set = boost::none,
+                    boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none) override;
 
-  void unbind();
+  virtual void bind(const model::ModelObject& modelObject, OptionalStringGetter get, boost::optional<StringSetter> set = boost::none,
+                    boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none) override;
+
+  virtual void bind(const model::ModelObject& modelObject, OptionalStringGetter get,
+                    boost::optional<StringSetterOptionalStringReturn> set = boost::none, boost::optional<NoFailAction> reset = boost::none,
+                    boost::optional<BasicQuery> isDefaulted = boost::none) override;
+
+  virtual void bind(const model::ModelObject& modelObject, OptionalStringGetterBoolArg get, boost::optional<StringSetterOptionalStringReturn> set,
+                    boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none) override;
+
+  virtual void bind(const model::ModelObject& modelObject, StringGetter get, boost::optional<StringSetterVoidReturn> set = boost::none,
+                    boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none) override;
+
+  virtual void unbind() override;
+
+  virtual QWidget* qwidget() override;
 
  protected:
-  void mouseReleaseEvent(QMouseEvent* event) override;
+  virtual void mouseReleaseEvent(QMouseEvent* event) override;
 
   virtual void focusInEvent(QFocusEvent* e) override;
 
@@ -96,7 +134,7 @@ class OSLineEdit2 : public QLineEdit, public Nano::Observer
 
   void itemClicked(OSItem* item);
 
-  void objectRemoved(boost::optional<model::ParentObject> parent);
+  //void objectRemoved(boost::optional<model::ParentObject> parent);
 
   void inFocus(bool inFocus, bool hasData);
 
@@ -115,9 +153,14 @@ class OSLineEdit2 : public QLineEdit, public Nano::Observer
   void emitItemClicked();
 
  private:
+  // For testing
+  friend class ::OpenStudioLibFixture;
+
   void onModelObjectChangeInternal(bool startingup);
   void completeBind();
   void adjustWidth();
+  void updateStyle();
+  bool defaulted() const;
 
   boost::optional<model::ModelObject> m_modelObject;
   boost::optional<StringGetter> m_get;
@@ -136,8 +179,8 @@ class OSLineEdit2 : public QLineEdit, public Nano::Observer
   QTimer m_timer;
 
   bool m_hasClickFocus = false;
-
-  bool m_deleteObject = false;
+  bool m_locked = false;
+  bool m_focused = false;
 };
 
 // class OSLineEdit : public QLineEdit, public Nano::Observer

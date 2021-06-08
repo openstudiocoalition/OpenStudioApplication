@@ -99,9 +99,7 @@ MainRightColumnController::MainRightColumnController(const model::Model& model, 
   connect(this, &MainRightColumnController::toggleUnitsClicked, m_inspectorController.get(), &InspectorController::toggleUnitsClicked);
   connect(m_inspectorController.get(), &InspectorController::removeButtonClicked, this, &MainRightColumnController::onRemoveButtonClicked);
   connect(m_inspectorController.get(), &InspectorController::workspaceObjectRemoved, this, &MainRightColumnController::onWorkspaceObjectRemoved);
-
-  auto isConnected = connect(m_inspectorController.get(), SIGNAL(itemRemoveClicked(OSItem*)), this, SLOT(onItemRemoveClicked(OSItem*)));
-  OS_ASSERT(isConnected);
+  connect(m_inspectorController.get(), &InspectorController::itemRemoveClicked, this, &MainRightColumnController::onItemRemoveClicked);
 }
 
 void MainRightColumnController::onItemRemoveClicked(OSItem*) {
@@ -908,6 +906,7 @@ void MainRightColumnController::configureForThermalZonesSubTab(int subTabID) {
   libraryWidget->setShowFilterLayout(true);
 
   libraryWidget->addModelObjectType(IddObjectType::OS_AirLoopHVAC_UnitarySystem, "Unitary System");
+  libraryWidget->addModelObjectType(IddObjectType::OS_ZoneHVAC_CoolingPanel_RadiantConvective_Water, "Cooling Panel Radiant Convective Water");
   libraryWidget->addModelObjectType(IddObjectType::OS_ZoneHVAC_Baseboard_Convective_Electric, "Baseboard Convective Electric");
   libraryWidget->addModelObjectType(IddObjectType::OS_ZoneHVAC_Baseboard_Convective_Water, "Baseboard Convective Water");
   libraryWidget->addModelObjectType(IddObjectType::OS_ZoneHVAC_Baseboard_RadiantConvective_Electric, "Baseboard Radiant Convective Electric");
@@ -1070,6 +1069,7 @@ void MainRightColumnController::configureForHVACSystemsSubTab(int subTabID) {
   libraryWidget->addModelObjectType(IddObjectType::OS_Pipe_Adiabatic, "Pipe - Adiabatic");
   libraryWidget->addModelObjectType(IddObjectType::OS_LoadProfile_Plant, "Load Profile - Plant");
   libraryWidget->addModelObjectType(IddObjectType::OS_Humidifier_Steam_Electric, "Humidifier Steam Electric");
+  libraryWidget->addModelObjectType(IddObjectType::OS_Humidifier_Steam_Gas, "Humidifier Steam Gas");
   libraryWidget->addModelObjectType(IddObjectType::OS_HeatPump_WaterToWater_EquationFit_Heating, "Heat Pump - Water to Water - Heating");
   libraryWidget->addModelObjectType(IddObjectType::OS_HeatPump_WaterToWater_EquationFit_Cooling, "Heat Pump - Water to Water - Cooling");
   libraryWidget->addModelObjectType(IddObjectType::OS_HeatExchanger_FluidToFluid, "Heat Exchanger Fluid To Fluid");
@@ -1087,9 +1087,10 @@ void MainRightColumnController::configureForHVACSystemsSubTab(int subTabID) {
   libraryWidget->addModelObjectType(IddObjectType::OS_ZoneHVAC_PackagedTerminalAirConditioner, "PTAC");
   libraryWidget->addModelObjectType(IddObjectType::OS_ZoneHVAC_UnitHeater, "Unit Heater");
   libraryWidget->addModelObjectType(IddObjectType::OS_ZoneHVAC_UnitVentilator, "Unit Ventilator");
+  libraryWidget->addModelObjectType(IddObjectType::OS_Fan_ComponentModel, "Fan Component Model");
+  libraryWidget->addModelObjectType(IddObjectType::OS_Fan_SystemModel, "Fan System Model");
   libraryWidget->addModelObjectType(IddObjectType::OS_Fan_VariableVolume, "Fan Variable Volume");
   libraryWidget->addModelObjectType(IddObjectType::OS_Fan_ConstantVolume, "Fan Constant Volume");
-  libraryWidget->addModelObjectType(IddObjectType::OS_Fan_SystemModel, "Fan System Model");
   libraryWidget->addModelObjectType(IddObjectType::OS_EvaporativeCooler_Direct_ResearchSpecial, "Evaporative Cooler Direct Research Special");
   libraryWidget->addModelObjectType(IddObjectType::OS_EvaporativeCooler_Indirect_ResearchSpecial, "Evaporative Cooler Indirect Research Special");
   libraryWidget->addModelObjectType(IddObjectType::OS_EvaporativeFluidCooler_TwoSpeed, "Evaporative Fluid Cooler Two Speed");
@@ -1155,17 +1156,6 @@ void MainRightColumnController::configureForHVACSystemsSubTab(int subTabID) {
   m_horizontalTabWidget->setCurrentId(LIBRARY);
 
   doc->openSidebar();
-}
-
-void MainRightColumnController::configureForBuildingSummarySubTab(int subTabID) {
-  std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
-
-  setLibraryView(nullptr);
-  setMyModelView(nullptr);
-  setEditView(nullptr);
-
-  //doc->openSidebar();
-  doc->closeSidebar();
 }
 
 void MainRightColumnController::configureForOutputVariablesSubTab(int subTabID) {

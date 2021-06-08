@@ -630,6 +630,22 @@ QPushButton#TrueFalseSliderButton:checked:hover {
   background-image: url(":/images/toggle_true_over.png");
 }
 
+QCheckBox::indicator {
+  width: 15px; height: 15px;
+}
+
+QCheckBox::indicator:checked   {
+  image: url(:/shared_gui_components/images/checked_checkbox.png);
+}
+
+QCheckBox::indicator:indeterminate {
+  image: url(:/shared_gui_components/images/partially_checked_checkbox.png);
+}
+
+QCheckBox::indicator:unchecked {
+  image: url(:/shared_gui_components/images/unchecked_checkbox.png);
+}
+
 QLabel#H1 {
   font-size: 14px;
   font: bold;

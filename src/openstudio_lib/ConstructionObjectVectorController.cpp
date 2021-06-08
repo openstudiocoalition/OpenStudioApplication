@@ -60,7 +60,7 @@ ConstructionObjectVectorController::~ConstructionObjectVectorController() {
 void ConstructionObjectVectorController::reportItemsLater() {
   m_reportScheduled = true;
 
-  QTimer::singleShot(0, this, SLOT(reportItems()));
+  QTimer::singleShot(0, this, &ConstructionObjectVectorController::reportItems);
 }
 
 void ConstructionObjectVectorController::reportItems() {
@@ -229,16 +229,16 @@ void ConstructionObjectVectorController::setParentWidget(QWidget* parentWidget) 
 }
 
 ConstructionObjectVectorController::LayerType ConstructionObjectVectorController::getLayerType(IddObjectType iddObjectType) {
-  if (iddObjectType == IddObjectType::OS_WindowMaterial_Blind || iddObjectType == IddObjectType::OS_WindowMaterial_DaylightRedirectionDevice ||
-      iddObjectType == IddObjectType::OS_WindowMaterial_Gas || iddObjectType == IddObjectType::OS_WindowMaterial_GasMixture ||
-      iddObjectType == IddObjectType::OS_WindowMaterial_Glazing ||
-      iddObjectType == IddObjectType::OS_WindowMaterial_Glazing_RefractionExtinctionMethod ||
-      iddObjectType == IddObjectType::OS_WindowMaterial_GlazingGroup_Thermochromic || iddObjectType == IddObjectType::OS_WindowMaterial_Screen ||
-      iddObjectType == IddObjectType::OS_WindowMaterial_Shade || iddObjectType == IddObjectType::OS_WindowMaterial_SimpleGlazingSystem) {
+  if (iddObjectType == IddObjectType::OS_WindowMaterial_Blind || iddObjectType == IddObjectType::OS_WindowMaterial_DaylightRedirectionDevice
+      || iddObjectType == IddObjectType::OS_WindowMaterial_Gas || iddObjectType == IddObjectType::OS_WindowMaterial_GasMixture
+      || iddObjectType == IddObjectType::OS_WindowMaterial_Glazing
+      || iddObjectType == IddObjectType::OS_WindowMaterial_Glazing_RefractionExtinctionMethod
+      || iddObjectType == IddObjectType::OS_WindowMaterial_GlazingGroup_Thermochromic || iddObjectType == IddObjectType::OS_WindowMaterial_Screen
+      || iddObjectType == IddObjectType::OS_WindowMaterial_Shade || iddObjectType == IddObjectType::OS_WindowMaterial_SimpleGlazingSystem) {
     return ConstructionObjectVectorController::FENESTRATION;
-  } else if (iddObjectType == IddObjectType::OS_Material || iddObjectType == IddObjectType::OS_Material_AirGap ||
-             iddObjectType == IddObjectType::OS_Material_InfraredTransparent || iddObjectType == IddObjectType::OS_Material_NoMass ||
-             iddObjectType == IddObjectType::OS_Material_RoofVegetation) {
+  } else if (iddObjectType == IddObjectType::OS_Material || iddObjectType == IddObjectType::OS_Material_AirGap
+             || iddObjectType == IddObjectType::OS_Material_InfraredTransparent || iddObjectType == IddObjectType::OS_Material_NoMass
+             || iddObjectType == IddObjectType::OS_Material_RoofVegetation) {
     return ConstructionObjectVectorController::OPAQUE;
   } else if (iddObjectType == IddObjectType::OS_Material_AirWall) {
     return ConstructionObjectVectorController::AIRWALL;

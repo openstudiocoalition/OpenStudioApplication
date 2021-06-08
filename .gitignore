@@ -36,4 +36,6 @@ developer/msvc/Visualizers/all_concat.natvis
 .vs/
 *.cache
 .DS_Store
-
+.clangd/
+cppcheck.txt*
+clang_format.patch

@@ -61,7 +61,9 @@ struct ScheduleTypeCompare
     }
 
     if (lhs.lowerLimitValue && rhs.lowerLimitValue) {
-      return lhs.lowerLimitValue.get() < rhs.lowerLimitValue.get();
+      if (lhs.lowerLimitValue.get() != rhs.lowerLimitValue.get()) {
+        return lhs.lowerLimitValue.get() < rhs.lowerLimitValue.get();
+      }
     } else if (lhs.lowerLimitValue) {
       return false;
     } else if (rhs.lowerLimitValue) {
@@ -69,7 +71,9 @@ struct ScheduleTypeCompare
     }
 
     if (lhs.upperLimitValue && rhs.upperLimitValue) {
-      return lhs.upperLimitValue.get() < rhs.upperLimitValue.get();
+      if (lhs.upperLimitValue.get() != rhs.upperLimitValue.get()) {
+        return lhs.upperLimitValue.get() < rhs.upperLimitValue.get();
+      }
     } else if (lhs.upperLimitValue) {
       return false;
     } else if (rhs.upperLimitValue) {

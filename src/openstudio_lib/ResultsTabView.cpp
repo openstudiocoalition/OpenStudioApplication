@@ -29,7 +29,6 @@
 
 #include "ResultsTabView.hpp"
 #include "OSDocument.hpp"
-#include "../openstudio_app/OpenStudioApp.hpp"
 #include "OSAppBase.hpp"
 #include "../model_editor/Utilities.hpp"
 
@@ -106,13 +105,11 @@ ResultsView::ResultsView(QWidget* t_parent)
   hLayout->addWidget(m_refreshBtn, 0, Qt::AlignVCenter);
   m_refreshBtn->setVisible(true);
 
-  // This seems fishy, nowhere is OpenStudioApp::instance used (OSAppBase::instance is used instead), and only one time there's a
-  // static_cast<OpenStudioApp>(app)
-  openstudio::OpenStudioApp* app = OpenStudioApp::instance();
+  openstudio::OSAppBase* app = OSAppBase::instance();
   m_dviewPath = app->dviewPath();
   if (m_dviewPath.empty()) {
     m_openDViewBtn->setText("Set Path to DView\nin Preferences");
-    connect(m_openDViewBtn, &QPushButton::clicked, app, &OpenStudioApp::configureExternalTools);
+    connect(m_openDViewBtn, &QPushButton::clicked, app, &OSAppBase::configureExternalTools);
   } else {
     connect(m_openDViewBtn, &QPushButton::clicked, this, &ResultsView::openDViewClicked);
   }

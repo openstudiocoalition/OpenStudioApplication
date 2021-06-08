@@ -34,7 +34,6 @@
 #include <QBoxLayout>
 #include <QCloseEvent>
 #include <QLabel>
-#include <QPointer>
 #include <QPushButton>
 #include <QTimer>
 

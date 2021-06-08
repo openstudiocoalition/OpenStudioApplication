@@ -631,11 +631,12 @@ SpaceLoadInstanceMiniView::SpaceLoadInstanceMiniView(const model::SpaceLoadInsta
   mainGridLayout->setRowMinimumHeight(0, 30);
   mainGridLayout->setRowMinimumHeight(1, 30);
 
-  QTimer::singleShot(0, m_definitionVectorController, SLOT(reportItems()));
-  QTimer::singleShot(0, m_scheduleVectorController, SLOT(reportItems()));
+  QTimer::singleShot(0, m_definitionVectorController, &SpaceLoadInstanceDefinitionVectorController::reportItems);
+
+  QTimer::singleShot(0, m_scheduleVectorController, &SpaceLoadInstanceScheduleVectorController::reportItems);
 
   if (spaceLoadInstance.optionalCast<model::People>()) {
-    QTimer::singleShot(0, m_activityScheduleVectorController, SLOT(reportItems()));
+    QTimer::singleShot(0, m_activityScheduleVectorController, &SpaceLoadInstanceActivityScheduleVectorController::reportItems);
   } else {
     m_activityScheduleDropZone->hide();
     m_activityScheduleLabel->hide();
@@ -752,7 +753,7 @@ void SpaceLoadInstancesWidget::detach() {
   }
 
   m_dirty = true;
-  QTimer::singleShot(0, this, SLOT(refresh()));
+  QTimer::singleShot(0, this, &SpaceLoadInstancesWidget::refresh);
 }
 
 void SpaceLoadInstancesWidget::attach(const model::Space& space) {
@@ -783,7 +784,7 @@ void SpaceLoadInstancesWidget::attach(const model::Space& space) {
     ->onRelationshipChange.connect<SpaceLoadInstancesWidget, &SpaceLoadInstancesWidget::onSpaceRelationshipChange>(this);
 
   m_dirty = true;
-  QTimer::singleShot(0, this, SLOT(refresh()));
+  QTimer::singleShot(0, this, &SpaceLoadInstancesWidget::refresh);
 }
 
 void SpaceLoadInstancesWidget::attach(const model::SpaceType& spaceType) {
@@ -811,7 +812,7 @@ void SpaceLoadInstancesWidget::attach(const model::SpaceType& spaceType) {
   }
 
   m_dirty = true;
-  QTimer::singleShot(0, this, SLOT(refresh()));
+  QTimer::singleShot(0, this, &SpaceLoadInstancesWidget::refresh);
 }
 
 void SpaceLoadInstancesWidget::remove(SpaceLoadInstanceMiniView* spaceLoadInstanceMiniView) {
@@ -825,7 +826,7 @@ void SpaceLoadInstancesWidget::onBuildingRelationshipChange(int index, Handle ne
 
   if (index == OS_BuildingFields::SpaceTypeName) {
     m_dirty = true;
-    QTimer::singleShot(0, this, SLOT(refresh()));
+    QTimer::singleShot(0, this, &SpaceLoadInstancesWidget::refresh);
   }
 }
 
@@ -842,7 +843,7 @@ void SpaceLoadInstancesWidget::onSpaceRelationshipChange(int index, Handle newHa
 
   if (index == OS_SpaceFields::SpaceTypeName) {
     m_dirty = true;
-    QTimer::singleShot(0, this, SLOT(refresh()));
+    QTimer::singleShot(0, this, &SpaceLoadInstancesWidget::refresh);
   }
 }
 
@@ -866,7 +867,7 @@ void SpaceLoadInstancesWidget::objectAdded(std::shared_ptr<openstudio::detail::W
       if (spaceLoadInstanceImpl->space()) {
         if (m_space->handle() == spaceLoadInstanceImpl->space()->handle()) {
           m_dirty = true;
-          QTimer::singleShot(0, this, SLOT(refresh()));
+          QTimer::singleShot(0, this, &SpaceLoadInstancesWidget::refresh);
           return;
         }
       }
@@ -876,7 +877,7 @@ void SpaceLoadInstancesWidget::objectAdded(std::shared_ptr<openstudio::detail::W
       if (spaceLoadInstanceImpl->spaceType()) {
         if (spaceType->handle() == spaceLoadInstanceImpl->spaceType()->handle()) {
           m_dirty = true;
-          QTimer::singleShot(0, this, SLOT(refresh()));
+          QTimer::singleShot(0, this, &SpaceLoadInstancesWidget::refresh);
           return;
         }
       }
@@ -890,7 +891,7 @@ void SpaceLoadInstancesWidget::objectRemoved(std::shared_ptr<openstudio::detail:
     std::dynamic_pointer_cast<model::detail::SpaceLoadInstance_Impl>(impl);
   if (spaceLoadInstanceImpl) {
     m_dirty = true;
-    QTimer::singleShot(0, this, SLOT(refresh()));
+    QTimer::singleShot(0, this, &SpaceLoadInstancesWidget::refresh);
   }
 }
 

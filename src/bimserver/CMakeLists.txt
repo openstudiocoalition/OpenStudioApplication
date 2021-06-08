@@ -36,6 +36,10 @@ add_library(${target_name} ${${target_name}_src})
 target_link_libraries(${target_name} ${${target_name}_depends})
 AddPCH(${target_name})
 
+if(BUILD_MICRO_PROFILING)
+  target_link_libraries(${target_name} ${MICRO_PROFILER_LIB} )
+endif()
+
 #if(NOT APPLE)
 #install(TARGETS ${target_name}
 #  RUNTIME DESTINATION bin

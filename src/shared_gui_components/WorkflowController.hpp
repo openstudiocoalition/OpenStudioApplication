@@ -37,7 +37,6 @@
 #include <openstudio/utilities/core/Logger.hpp>
 #include <openstudio/utilities/filetypes/WorkflowStep.hpp>
 #include <QObject>
-#include <QPointer>
 #include <QSharedPointer>
 #include <map>
 

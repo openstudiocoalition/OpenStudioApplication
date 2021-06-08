@@ -118,7 +118,7 @@ void LoopScene::addedWorkspaceObject(std::shared_ptr<openstudio::detail::Workspa
   if (hvac_impl) {
     m_dirty = true;
 
-    QTimer::singleShot(0, this, SLOT(layout()));
+    QTimer::singleShot(0, this, &LoopScene::layout);
   }
 }
 
@@ -126,7 +126,7 @@ void LoopScene::removedWorkspaceObject(std::shared_ptr<openstudio::detail::Works
                                        const openstudio::UUID& uuid) {
   m_dirty = true;
 
-  QTimer::singleShot(0, this, SLOT(layout()));
+  QTimer::singleShot(0, this, &LoopScene::layout);
 }
 
 }  // namespace openstudio

@@ -54,6 +54,7 @@
 #include <QDir>
 #include <QTcpServer>
 #include <QtGlobal>
+#include <QLibraryInfo>
 
 #ifdef _WIN32
 #  include <Windows.h>
@@ -123,24 +124,25 @@ int main(int argc, char* argv[]) {
 // DLM: set env var 'QT_FATAL_WARNINGS' to error on qt warnings for debugging
 #if _DEBUG || (__GNUC__ && !NDEBUG)
   bool debugging = true;
-
-  // Give you a chance to attach your debugger to the OS App before it dies out.
-  // Sometimes launching the OSApp via your debugger isn't wanted (eg: it resolves the symlink before actually launching the OSApp)
-  if (qEnvironmentVariableIsSet("OPENSTUDIO_APPLICATION_SLEEP_AT_START") && !qEnvironmentVariableIsEmpty("OPENSTUDIO_APPLICATION_SLEEP_AT_START")) {
-    bool ok;
-    int n_seconds = qEnvironmentVariableIntValue("OPENSTUDIO_APPLICATION_SLEEP_AT_START", &ok);
-    if (!ok) {
-      // If can't convert to int (such as when you pass true), use a default
-      n_seconds = 60;
-    }
-    LOG_FREE(Warn, "OpenStudioApp.main", "Will sleep for " << n_seconds << " seconds now");
-    std::this_thread::sleep_for(std::chrono::seconds(n_seconds));
-  }
 #else
   bool debugging = (qEnvironmentVariableIsSet("OPENSTUDIO_APPLICATION_DEBUG") && !qEnvironmentVariableIsEmpty("OPENSTUDIO_APPLICATION_DEBUG"));
 #endif
 
   if (debugging) {
+
+    // Give you a chance to attach your debugger to the OS App before it dies out.
+    // Sometimes launching the OSApp via your debugger isn't wanted (eg: it resolves the symlink before actually launching the OSApp)
+    if (qEnvironmentVariableIsSet("OPENSTUDIO_APPLICATION_SLEEP_AT_START") && !qEnvironmentVariableIsEmpty("OPENSTUDIO_APPLICATION_SLEEP_AT_START")) {
+      bool ok;
+      int n_seconds = qEnvironmentVariableIntValue("OPENSTUDIO_APPLICATION_SLEEP_AT_START", &ok);
+      if (!ok) {
+        // If can't convert to int (such as when you pass true), use a default
+        n_seconds = 60;
+      }
+      LOG_FREE(Warn, "OpenStudioApp.main", "Will sleep for " << n_seconds << " seconds now");
+      std::this_thread::sleep_for(std::chrono::seconds(n_seconds));
+    }
+
     qInstallMessageHandler(qDebugMessageHandler);
     openstudio::Logger::instance().standardOutLogger().setLogLevel(Debug);
   } else {
@@ -205,8 +207,8 @@ int main(int argc, char* argv[]) {
     }
 
     // QCoreApplication::setAttribute should really be put here because it's set before we create the App
-    if (!qEnvironmentVariableIsSet("QT_DEVICE_PIXEL_RATIO") && !qEnvironmentVariableIsSet("QT_AUTO_SCREEN_SCALE_FACTOR") &&
-        !qEnvironmentVariableIsSet("QT_SCALE_FACTOR") && !qEnvironmentVariableIsSet("QT_SCREEN_SCALE_FACTORS")) {
+    if (!qEnvironmentVariableIsSet("QT_DEVICE_PIXEL_RATIO") && !qEnvironmentVariableIsSet("QT_AUTO_SCREEN_SCALE_FACTOR")
+        && !qEnvironmentVariableIsSet("QT_SCALE_FACTOR") && !qEnvironmentVariableIsSet("QT_SCREEN_SCALE_FACTORS")) {
       LOG_FREE(Info, "OpenStudioApp.main",
                "Setting Qt::AA_EnableHighDpiScaling. "
                  << "Instead, you can also manually set the environment variable 'QT_SCALE_FACTOR'.");
@@ -222,6 +224,11 @@ int main(int argc, char* argv[]) {
 
     // Make the run path the default plugin search location
     QCoreApplication::addLibraryPath(QCoreApplication::applicationDirPath());
+
+    LOG_FREE(Info, "OpenStudioApp.main",
+             "LibraryExecutablesPath: " << openstudio::toString(QLibraryInfo::location(QLibraryInfo::LibraryExecutablesPath)));
+    LOG_FREE(Info, "OpenStudioApp.main", "DataPath: " << openstudio::toString(QLibraryInfo::location(QLibraryInfo::DataPath)));
+    LOG_FREE(Info, "OpenStudioApp.main", "TranslationsPath: " << openstudio::toString(QLibraryInfo::location(QLibraryInfo::TranslationsPath)));
 
 #ifdef Q_OS_DARWIN
     // Gross but perhaps the simplest way to find the webengine process

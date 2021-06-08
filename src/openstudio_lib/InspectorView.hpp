@@ -119,7 +119,9 @@ class InspectorView : public QWidget
   bool m_mouseOverInspectorView = false;
 };
 
-class BaseInspectorView : public QWidget, public Nano::Observer
+class BaseInspectorView
+  : public QWidget
+  , public Nano::Observer
 {
   Q_OBJECT;
 
@@ -656,6 +658,31 @@ class ZoneHVACBaseboardRadiantConvectiveWaterInspectorView : public BaseInspecto
   InspectorGadget* m_inspectorGadget;
 
   LoopChooserView* m_heatingLoopChooserView;
+};
+
+class ZoneHVACCoolingPanelRadiantConvectiveWaterInspectorView : public BaseInspectorView
+{
+  Q_OBJECT;
+
+ public:
+  ZoneHVACCoolingPanelRadiantConvectiveWaterInspectorView(QWidget* parent = nullptr);
+
+  virtual ~ZoneHVACCoolingPanelRadiantConvectiveWaterInspectorView() {}
+
+  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP) override;
+
+ signals:
+
+  void addToLoopClicked(model::Loop&, boost::optional<model::HVACComponent>&);
+
+  void removeFromLoopClicked(model::Loop&, boost::optional<model::HVACComponent>&);
+
+ private:
+  boost::optional<model::ModelObject> m_modelObject;
+
+  InspectorGadget* m_inspectorGadget;
+
+  LoopChooserView* m_coolingLoopChooserView;
 };
 
 class ZoneHVACUnitHeaterInspectorView : public BaseInspectorView

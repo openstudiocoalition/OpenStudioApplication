@@ -34,13 +34,57 @@
 
 #include <QString>
 #include <QFocusEvent>
+#include <QStyle>
+#include <QTimer>
+
+#include <bitset>
 
 namespace openstudio {
+
+OSSelectAllCheckBox::OSSelectAllCheckBox(QWidget* parent) : QCheckBox(parent) {
+  setTristate(true);
+}
+
+OSSelectAllCheckBox::~OSSelectAllCheckBox() {}
+
+void OSSelectAllCheckBox::onGridRowSelectionChanged(int numSelected, int numSelectable) {
+  blockSignals(true);
+  if (numSelected == 0) {
+    setCheckState(Qt::Unchecked);
+  } else if (numSelected == numSelectable) {
+    setCheckState(Qt::Checked);
+  } else {
+    setCheckState(Qt::PartiallyChecked);
+  }
+  blockSignals(false);
+}
 
 OSCheckBox3::OSCheckBox3(QWidget* parent) : QCheckBox(parent) {
   this->setCheckable(true);
 
+  setFocusPolicy(Qt::NoFocus);
+
   setEnabled(false);
+
+  // if multiple qss rules apply with same specificity then the last one is chosen
+  this->setStyleSheet(
+    "QCheckBox::indicator:checked[style=\"000\"]   { image: url(:/shared_gui_components/images/checked_checkbox.png); }"  // Locked=0, Focused=0, Defaulted=0
+    "QCheckBox::indicator:unchecked[style=\"000\"] { image: url(:/shared_gui_components/images/unchecked_checkbox.png); }"  // Locked=0, Focused=0, Defaulted=0
+    "QCheckBox::indicator:checked[style=\"001\"]   { image: url(:/shared_gui_components/images/checked_checkbox_green.png); }"  // Locked=0, Focused=0, Defaulted=1
+    "QCheckBox::indicator:unchecked[style=\"001\"] { image: url(:/shared_gui_components/images/unchecked_checkbox_green.png); }"  // Locked=0, Focused=0, Defaulted=1
+    "QCheckBox::indicator:checked[style=\"010\"]   { image: url(:/shared_gui_components/images/checked_checkbox_focused.png); }"  // Locked=0, Focused=1, Defaulted=0
+    "QCheckBox::indicator:unchecked[style=\"010\"] { image: url(:/shared_gui_components/images/unchecked_checkbox_focused.png); }"  // Locked=0, Focused=1, Defaulted=0
+    "QCheckBox::indicator:checked[style=\"011\"]   { image: url(:/shared_gui_components/images/checked_checkbox_focused.png); }"  // Locked=0, Focused=1, Defaulted=1
+    "QCheckBox::indicator:unchecked[style=\"011\"] { image: url(:/shared_gui_components/images/unchecked_checkbox_focused.png); }"  // Locked=0, Focused=1, Defaulted=1
+    "QCheckBox::indicator:checked[style=\"100\"]   { image: url(:/shared_gui_components/images/checked_checkbox_locked.png); }"  // Locked=0, Focused=0, Defaulted=0
+    "QCheckBox::indicator:unchecked[style=\"100\"] { image: url(:/shared_gui_components/images/unchecked_checkbox_locked.png); }"  // Locked=0, Focused=0, Defaulted=0
+    "QCheckBox::indicator:checked[style=\"101\"]   { image: url(:/shared_gui_components/images/checked_checkbox_locked.png); }"  // Locked=0, Focused=0, Defaulted=1
+    "QCheckBox::indicator:unchecked[style=\"101\"] { image: url(:/shared_gui_components/images/unchecked_checkbox_locked.png); }"  // Locked=0, Focused=0, Defaulted=1
+    "QCheckBox::indicator:checked[style=\"110\"]   { image: url(:/shared_gui_components/images/checked_checkbox_locked.png); }"  // Locked=0, Focused=1, Defaulted=0
+    "QCheckBox::indicator:unchecked[style=\"110\"] { image: url(:/shared_gui_components/images/unchecked_checkbox_locked.png); }"  // Locked=0, Focused=1, Defaulted=0
+    "QCheckBox::indicator:checked[style=\"111\"]   { image: url(:/shared_gui_components/images/checked_checkbox_locked.png); }"  // Locked=0, Focused=1, Defaulted=1
+    "QCheckBox::indicator:unchecked[style=\"111\"] { image: url(:/shared_gui_components/images/unchecked_checkbox_locked.png); }"  // Locked=0, Focused=1, Defaulted=1
+  );
 }
 
 OSCheckBox3::~OSCheckBox3() {}
@@ -66,6 +110,9 @@ void OSCheckBox3::bind(const model::ModelObject& modelObject, BoolGetter get, bo
   bool checked = (*m_get)();
 
   this->setChecked(checked);
+
+  // if we call update style here the set enabled above may not be in effect
+  QTimer::singleShot(0, this, &OSCheckBox3::updateStyle);
 }
 
 void OSCheckBox3::bind(const model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetterBoolReturn> set,
@@ -88,6 +135,32 @@ void OSCheckBox3::bind(const model::ModelObject& modelObject, BoolGetter get, bo
   bool checked = (*m_get)();
 
   this->setChecked(checked);
+
+  // if we call update style here the set enabled above may not be in effect
+  QTimer::singleShot(0, this, &OSCheckBox3::updateStyle);
+}
+
+void OSCheckBox3::enableClickFocus() {
+  m_hasClickFocus = true;
+  this->setFocusPolicy(Qt::ClickFocus);
+}
+
+void OSCheckBox3::disableClickFocus() {
+  m_hasClickFocus = true;
+  this->setFocusPolicy(Qt::NoFocus);
+  clearFocus();
+}
+
+bool OSCheckBox3::locked() const {
+  return m_locked;
+}
+
+void OSCheckBox3::setLocked(bool locked) {
+  if (m_locked != locked) {
+    m_locked = locked;
+    setEnabled(!locked);
+    updateStyle();
+  }
 }
 
 void OSCheckBox3::unbind() {
@@ -104,11 +177,12 @@ void OSCheckBox3::unbind() {
     m_reset.reset();
     m_isDefaulted.reset();
     setEnabled(false);
+    updateStyle();
   }
 }
 
 void OSCheckBox3::onToggled(bool checked) {
-  emit inFocus(true, true);  // fake that is has data
+  emit inFocus(m_focused, true);  // fake that is has data
   if (m_modelObject && m_set) {
     if ((*m_get)() != checked) {
       (*m_set)(checked);
@@ -125,6 +199,7 @@ void OSCheckBox3::onModelObjectChange() {
     if ((*m_get)() != this->isChecked()) {
       this->blockSignals(true);
       this->setChecked((*m_get)());
+      updateStyle();
       this->blockSignals(false);
     }
   }
@@ -134,36 +209,70 @@ void OSCheckBox3::onModelObjectRemove(const Handle& handle) {
   unbind();
 }
 
-void OSCheckBox3::focusInEvent(QFocusEvent* e) {
-  if ((e->reason() == Qt::MouseFocusReason) && (this->focusPolicy() == Qt::ClickFocus)) {
-    // Switch to yellow background
-    QPalette p = this->palette();
-    QColor yellow("#ffc627");
-    p.setColor(QPalette::Base, yellow);
-    this->setPalette(p);
+bool OSCheckBox3::defaulted() const {
+  bool result = false;
+  if (m_isDefaulted) {
+    result = (*m_isDefaulted)();
+  }
+  return result;
+}
 
-    emit inFocus(true, true);
+void OSCheckBox3::updateStyle() {
+  // Locked, Focused, Defaulted
+  std::bitset<3> style;
+  style[0] = defaulted();
+  style[1] = m_focused;
+  style[2] = m_locked;
+  QString thisStyle = QString::fromStdString(style.to_string());
+
+  QVariant currentStyle = property("style");
+  if (currentStyle.isNull() || currentStyle.toString() != thisStyle) {
+    this->setProperty("style", thisStyle);
+    this->style()->unpolish(this);
+    this->style()->polish(this);
+  }
+}
+
+void OSCheckBox3::focusInEvent(QFocusEvent* e) {
+  if ((e->reason() == Qt::MouseFocusReason) && m_hasClickFocus) {
+    m_focused = true;
+    updateStyle();
+
+    emit inFocus(m_focused, true);
   }
   QWidget::focusInEvent(e);
 }
 
 void OSCheckBox3::focusOutEvent(QFocusEvent* e) {
-  if ((e->reason() == Qt::MouseFocusReason) && (this->focusPolicy() == Qt::ClickFocus)) {
-    // Reset the style sheet
-    setStyleSheet("");
-    emit inFocus(false, false);
+  if ((e->reason() == Qt::MouseFocusReason) && m_hasClickFocus) {
+    m_focused = false;
+    updateStyle();
+
+    emit inFocus(m_focused, false);
   }
   // Pass it on for further processing
   QWidget::focusOutEvent(e);
 }
 
 OSCheckBox2::OSCheckBox2(QWidget* parent) : QPushButton(parent) {
-  setObjectName("StandardGrayButton");
   this->setAcceptDrops(false);
 
   this->setCheckable(true);
 
+  setFocusPolicy(Qt::NoFocus);
+
   setEnabled(false);
+
+  // if multiple qss rules apply with same specificity then the last one is chosen
+  this->setStyleSheet("QPushButton[style=\"000\"] { border: none; background-color:white;   } "  // Locked=0, Focused=0, Defaulted=0
+                      "QPushButton[style=\"001\"] { border: none; background-color:white;   } "  // Locked=0, Focused=0, Defaulted=1
+                      "QPushButton[style=\"010\"] { border: none; background-color:#ffc627; } "  // Locked=0, Focused=1, Defaulted=0
+                      "QPushButton[style=\"011\"] { border: none; background-color:#ffc627; } "  // Locked=0, Focused=1, Defaulted=1
+                      "QPushButton[style=\"100\"] { border: none; background-color:#e6e6e6; } "  // Locked=1, Focused=0, Defaulted=0
+                      "QPushButton[style=\"101\"] { border: none; background-color:#e6e6e6; } "  // Locked=1, Focused=0, Defaulted=1
+                      "QPushButton[style=\"110\"] { border: none; background-color:#e6e6e6; } "  // Locked=1, Focused=1, Defaulted=0
+                      "QPushButton[style=\"111\"] { border: none; background-color:#e6e6e6; } "  // Locked=1, Focused=1, Defaulted=1
+  );
 }
 
 void OSCheckBox2::bind(const model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetter> set, boost::optional<NoFailAction> reset,
@@ -186,6 +295,7 @@ void OSCheckBox2::bind(const model::ModelObject& modelObject, BoolGetter get, bo
   bool checked = (*m_get)();
 
   this->setChecked(checked);
+  updateStyle();
 }
 
 void OSCheckBox2::unbind() {
@@ -201,7 +311,29 @@ void OSCheckBox2::unbind() {
     m_reset.reset();
     m_isDefaulted.reset();
     setEnabled(false);
+    updateStyle();
   }
+}
+
+void OSCheckBox2::focusInEvent(QFocusEvent* e) {
+  if ((e->reason() == Qt::MouseFocusReason) && m_hasClickFocus) {
+    m_focused = true;
+    updateStyle();
+
+    emit inFocus(m_focused, true);
+  }
+  QWidget::focusInEvent(e);
+}
+
+void OSCheckBox2::focusOutEvent(QFocusEvent* e) {
+  if ((e->reason() == Qt::MouseFocusReason) && m_hasClickFocus) {
+    m_focused = false;
+    updateStyle();
+
+    emit inFocus(m_focused, false);
+  }
+  // Pass it on for further processing
+  QWidget::focusOutEvent(e);
 }
 
 void OSCheckBox2::onToggled(bool checked) {
@@ -222,68 +354,89 @@ void OSCheckBox2::onModelObjectRemove(const Handle& handle) {
   unbind();
 }
 
-// OSCheckBox::OSCheckBox( QWidget * parent )
-//   : QPushButton(parent)
-// {
-//   setObjectName("StandardGrayButton");
-//   this->setAcceptDrops(false);
+bool OSCheckBox2::defaulted() const {
+  bool result = false;
+  if (m_isDefaulted) {
+    result = (*m_isDefaulted)();
+  }
+  return result;
+}
 
-//   this->setCheckable(true);
+void OSCheckBox2::updateStyle() {
+  // Locked, Focused, Defaulted
+  std::bitset<3> style;
+  style[0] = defaulted();
+  style[1] = m_focused;
+  style[2] = m_locked;
+  QString thisStyle = QString::fromStdString(style.to_string());
 
-//   setEnabled(false);
-// }
+  QVariant currentStyle = property("style");
+  if (currentStyle.isNull() || currentStyle.toString() != thisStyle) {
+    this->setProperty("style", thisStyle);
+    this->style()->unpolish(this);
+    this->style()->polish(this);
+  }
+}
 
-// void OSCheckBox::bind(model::ModelObject & modelObject, const char * property)
-// {
-//   m_modelObject = modelObject;
+OSGreyCheckBox2::OSGreyCheckBox2(QWidget* parent) : QPushButton(parent) {
+  setObjectName("StandardGrayButton");
+  this->setAcceptDrops(false);
+  this->setCheckable(true);
+  setEnabled(false);
+}
 
-//   m_property = property;
+void OSGreyCheckBox2::bind(const model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetter> set) {
+  m_modelObject = modelObject;
+  m_get = get;
+  m_set = set;
 
-//   setEnabled(true);
+  setEnabled(true);
 
-//   m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->openstudio::model::detail::ModelObject_Impl::onChange.connect<OSCheckBox, &OSCheckBox::onModelObjectChange>(this);
+  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
+    .get()
+    ->onChange.connect<OSGreyCheckBox2, &OSGreyCheckBox2::onModelObjectChange>(this);
 
-//   m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->openstudio::model::detail::ModelObject_Impl::onRemoveFromWorkspace.connect<OSCheckBox, &OSCheckBox::onModelObjectRemove>(this);
+  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
+    .get()
+    ->onRemoveFromWorkspace.connect<OSGreyCheckBox2, &OSGreyCheckBox2::onModelObjectRemove>(this);
 
-//   connect(this, &OSCheckBox::toggled, this, &OSCheckBox::onToggled);
-//   bool checked = m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()->property(m_property.c_str()).toBool();
+  connect(this, &OSGreyCheckBox2::toggled, this, &OSGreyCheckBox2::onToggled);
+  bool checked = (*m_get)();
 
-//   this->setChecked(checked);
-// }
+  this->setChecked(checked);
+}
 
-// void OSCheckBox::unbind()
-// {
-//   if (m_modelObject){
-//     this->disconnect(m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get());
-//     m_modelObject.reset();
-//     m_property = "";
-//     setEnabled(false);
-//   }
-// }
+void OSGreyCheckBox2::unbind() {
+  if (m_modelObject) {
+    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
+      .get()
+      ->onChange.disconnect<OSGreyCheckBox2, &OSGreyCheckBox2::onModelObjectChange>(this);
+    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
+      .get()
+      ->onRemoveFromWorkspace.disconnect<OSGreyCheckBox2, &OSGreyCheckBox2::onModelObjectRemove>(this);
 
-// void OSCheckBox::onToggled(bool checked)
-// {
-//   if( m_modelObject )
-//   {
-//     m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()->setProperty(m_property.c_str(),checked);
-//   }
-// }
+    m_get.reset();
+    m_set.reset();
+    setEnabled(false);
+  }
+}
 
-// void OSCheckBox::onModelObjectChange()
-// {
-//   if( m_modelObject )
-//   {
-//     bool checked = m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()->property(m_property.c_str()).toBool();
+void OSGreyCheckBox2::onToggled(bool checked) {
+  if (m_modelObject && m_set) {
+    if ((*m_get)() != checked) {
+      (*m_set)(checked);
+    }
+  }
+}
 
-//     this->setChecked(checked);
-//   }
-// }
+void OSGreyCheckBox2::onModelObjectChange() {
+  if (m_modelObject) {
+    this->setChecked((*m_get)());
+  }
+}
 
-// void OSCheckBox::onModelObjectRemove(const Handle& handle)
-// {
-//   m_modelObject.reset();
-//   m_property = "";
-//   setEnabled(false);
-// }
+void OSGreyCheckBox2::onModelObjectRemove(const Handle& handle) {
+  unbind();
+}
 
 }  // namespace openstudio

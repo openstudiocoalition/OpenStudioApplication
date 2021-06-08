@@ -29,21 +29,15 @@
 
 #include "OSGridController.hpp"
 
-#include "OSCheckBox.hpp"
-#include "OSComboBox.hpp"
-#include "OSDoubleEdit.hpp"
+#include "OSCellWrapper.hpp"
 #include "OSGridView.hpp"
-#include "OSIntegerEdit.hpp"
-#include "OSLineEdit.hpp"
-#include "OSLoadNamePixmapLineEdit.hpp"
-#include "OSQuantityEdit.hpp"
-#include "OSUnsignedEdit.hpp"
+#include "OSObjectSelector.hpp"
 
 #include "../openstudio_lib/HorizontalTabWidget.hpp"
 #include "../openstudio_lib/MainRightColumnController.hpp"
 #include "../openstudio_lib/ModelObjectInspectorView.hpp"
 #include "../openstudio_lib/ModelObjectItem.hpp"
-#include "../openstudio_lib/ModelSubTabView.hpp"
+//#include "../openstudio_lib/ModelSubTabView.hpp"
 #include "../openstudio_lib/OSAppBase.hpp"
 #include "../openstudio_lib/OSDocument.hpp"
 #include "../openstudio_lib/OSDropZone.hpp"
@@ -53,10 +47,6 @@
 
 #include <openstudio/model/Model_Impl.hpp>
 #include <openstudio/model/ModelObject_Impl.hpp>
-#include <openstudio/model/PlanarSurface.hpp>
-#include <openstudio/model/PlanarSurface_Impl.hpp>
-#include <openstudio/model/SpaceType.hpp>
-#include <openstudio/model/SpaceType_Impl.hpp>
 
 // Which is faster?
 #include <openstudio/model/ThermalZone.hpp>
@@ -78,6 +68,7 @@
 
 #include <iostream>
 #include <algorithm>
+#include <map>
 #include <set>
 #include <string>
 #include <iterator>
@@ -86,493 +77,10 @@ namespace openstudio {
 
 const std::vector<QColor> OSGridController::m_colors = SchedulesView::initializeColors();
 
-WidgetLocation::WidgetLocation(QWidget* t_widget, int t_row, int t_column, boost::optional<int> t_subrow)
-  : widget(t_widget), row(t_row), column(t_column), subrow(std::move(t_subrow)) {}
-
-WidgetLocation::~WidgetLocation() {}
-
-void WidgetLocation::onInFocus(bool hasFocus, bool hasData) {
-  emit inFocus(hasFocus, hasData, row, column, subrow);
-}
-
-ObjectSelector::ObjectSelector(OSGridController* t_grid) : m_grid(t_grid), m_objectFilter(getDefaultFilter()) {}
-
-void ObjectSelector::addWidget(const boost::optional<model::ModelObject>& t_obj, Holder* t_holder, int t_row, int t_column,
-                               const boost::optional<int>& t_subrow, const bool t_selector) {
-  WidgetLocation* widgetLoc = new WidgetLocation(t_holder, t_row, t_column, t_subrow);
-
-  connect(t_holder, &QObject::destroyed, this, &ObjectSelector::widgetDestroyed);
-  connect(t_holder, &Holder::inFocus, widgetLoc, &WidgetLocation::onInFocus);
-  connect(widgetLoc, &WidgetLocation::inFocus, this, &ObjectSelector::inFocus);
-
-  m_widgetMap.insert(std::make_pair(t_obj, widgetLoc));
-
-  if (t_selector && t_obj) {
-    m_selectorObjects.insert(*t_obj);
-  }
-}
-
-void ObjectSelector::clear() {
-  m_widgetMap.clear();  // TODO delete all QObjects, or set parent
-  m_selectedObjects.clear();
-  m_selectorObjects.clear();
-  m_filteredObjects.clear();
-  m_objectFilter = getDefaultFilter();
-}
-
-void ObjectSelector::objectRemoved(const openstudio::model::ModelObject& t_obj) {
-  // std::cout << " Object removed\n";
-
-  m_selectedObjects.erase(t_obj);
-  m_selectorObjects.erase(t_obj);
-  m_filteredObjects.erase(t_obj);
-  m_widgetMap.erase(boost::optional<model::ModelObject>(t_obj));
-}
-
-bool ObjectSelector::containsObject(const openstudio::model::ModelObject& t_obj) const {
-  return m_selectedObjects.count(t_obj) != 0 || m_selectorObjects.count(t_obj) != 0 || m_filteredObjects.count(t_obj) != 0 ||
-         m_widgetMap.count(boost::optional<model::ModelObject>(t_obj));
-}
-
-void ObjectSelector::widgetDestroyed(QObject* t_obj) {
-  auto itr = m_widgetMap.begin();
-
-  while (itr != m_widgetMap.end()) {
-    if (itr->second->widget == t_obj) {
-      itr = m_widgetMap.erase(itr);
-    } else {
-      ++itr;
-    }
-  }
-}
-
-bool ObjectSelector::getObjectSelection(const model::ModelObject& t_obj) const {
-  return m_selectedObjects.count(t_obj) != 0;
-}
-
-void ObjectSelector::setObjectSelection(const model::ModelObject& t_obj, bool t_selected) {
-  auto changed = false;
-  if (t_selected) {
-    changed = m_selectedObjects.insert(t_obj).second;
-  } else {
-    changed = m_selectedObjects.erase(t_obj) != 0;
-  }
-
-  if (changed) {
-    updateWidgets(t_obj);
-  }
-}
-
-std::set<model::ModelObject> ObjectSelector::getSelectedObjects() const {
-  std::set<model::ModelObject> returned;
-
-  std::copy_if(m_selectedObjects.begin(), m_selectedObjects.end(), std::inserter(returned, returned.begin()), m_objectFilter);
-
-  return returned;
-}
-
-std::vector<QWidget*> ObjectSelector::getColumnsSelectedWidgets(int column) {
-  std::vector<QWidget*> results;
-
-  for (auto selectedObject : m_selectedObjects) {
-    for (auto& widgetLoc : m_widgetMap) {
-      if (widgetLoc.first && selectedObject == widgetLoc.first.get()) {
-        results.push_back(getWidget(widgetLoc.second->row, column, widgetLoc.second->subrow));
-        break;
-      }
-    }
-  }
-  return results;
-}
-
-void ObjectSelector::setObjectFilter(const std::function<bool(const model::ModelObject&)>& t_filter) {
-  m_objectFilter = t_filter;
-  updateWidgets();
-}
-
-void ObjectSelector::resetObjectFilter() {
-  m_objectFilter = getDefaultFilter();
-  updateWidgets();
-}
-
-std::function<bool(const model::ModelObject&)> ObjectSelector::getDefaultFilter() {
-  return [](const model::ModelObject&) { return true; };
-}
-
-void ObjectSelector::selectAll() {
-  m_selectedObjects.clear();
-
-  for (auto obj : m_selectorObjects) {
-
-    auto range = m_widgetMap.equal_range(boost::optional<model::ModelObject>(obj));
-
-    assert(range.first != range.second);
-
-    // Find the row that contains this object
-    auto row = std::make_tuple(range.first->second->row, range.first->second->subrow);
-
-    auto objectVisible = m_objectFilter(obj);
-
-    if (objectVisible) {
-      if (std::get<1>(row)) {
-        // We have a matched sub row
-        auto parent = obj.parent();
-        if (parent) {
-          // Check if we are filtering on the sub row's parent object
-          if (m_filteredObjects.count(*parent) != 0) {
-            objectVisible = false;
-          }
-
-          if (objectVisible) {
-            // We still haven't matched the sub row, let's look up 1 more level
-            auto parentsParent = parent->parent();
-            // Evan's note:
-            //   in the case of SpacesSubsurfacesGridView,
-            //   obj.parent() returns Surface,
-            //   but our common currency is Space.
-            //   obj.parent()->parent() returns Space
-
-            if (parentsParent) {
-              // Check if we are filtering on the sub row's parent's parent object
-              if (m_filteredObjects.count(*parentsParent) != 0) {
-                objectVisible = false;
-              }
-            }
-          }
-        }
-        // Hmmm, still no match, let's check if we
-        // are filtering on the sub row's object
-        if (objectVisible && m_filteredObjects.count(obj) != 0) {
-          objectVisible = false;
-        }
-      } else {
-        // We only matched the row
-        if (m_filteredObjects.count(obj) != 0) {
-          objectVisible = false;
-        }
-      }
-    }
-
-    if (objectVisible) {
-      // add this to the selected set
-      m_selectedObjects.insert(obj);
-    }
-  }
-
-  m_grid->requestRefreshGrid();
-}
-
-void ObjectSelector::clearSelection() {
-  std::set<model::ModelObject> deselectedObjects;
-
-  auto selectedObjects = m_selectedObjects;
-
-  m_selectedObjects.clear();
-
-  for (auto obj : m_selectorObjects) {
-
-    auto range = m_widgetMap.equal_range(boost::optional<model::ModelObject>(obj));
-
-    assert(range.first != range.second);
-
-    // Find the row that contains this object
-    auto row = std::make_tuple(range.first->second->row, range.first->second->subrow);
-
-    auto objectVisible = m_objectFilter(obj);
-
-    if (objectVisible) {
-      if (std::get<1>(row)) {
-        // We have a matched sub row
-        auto parent = obj.parent();
-        if (parent) {
-          // Check if we are filtering on the sub row's parent object
-          if (m_filteredObjects.count(*parent) != 0) {
-            objectVisible = false;
-          }
-
-          if (objectVisible) {
-            // We still haven't matched the sub row, let's look up 1 more level
-            auto parentsParent = parent->parent();
-            // Evan's note:
-            //   in the case of SpacesSubsurfacesGridView,
-            //   obj.parent() returns Surface,
-            //   but our common currency is Space.
-            //   obj.parent()->parent() returns Space
-
-            if (parentsParent) {
-              // Check if we are filtering on the sub row's parent's parent object
-              if (m_filteredObjects.count(*parentsParent) != 0) {
-                objectVisible = false;
-              }
-            }
-          }
-        }
-        // Hmmm, still no match, let's check if we
-        // are filtering on the sub row's object
-        if (objectVisible && m_filteredObjects.count(obj) != 0) {
-          objectVisible = false;
-        }
-      } else {
-        // We only matched the row
-        if (m_filteredObjects.count(obj) != 0) {
-          objectVisible = false;
-        }
-      }
-    }
-
-    if (objectVisible) {
-      // add this to the selected set
-      deselectedObjects.insert(obj);
-    }
-  }
-
-  std::set_difference(selectedObjects.begin(), selectedObjects.end(), deselectedObjects.begin(), deselectedObjects.end(),
-                      inserter(m_selectedObjects, m_selectedObjects.begin()));
-
-  m_grid->requestRefreshGrid();
-}
-
-boost::optional<model::ModelObject> ObjectSelector::getObject(const int t_row, const int t_column, const boost::optional<int>& t_subrow) {
-  boost::optional<model::ModelObject> object;
-
-  for (auto& widgetLoc : m_widgetMap) {
-    if (widgetLoc.second->row == t_row && widgetLoc.second->column == t_column && (!t_subrow || t_subrow == widgetLoc.second->subrow)) {
-      object = widgetLoc.first;
-      break;
-    }
-  }
-  return object;
-}
-
-QWidget* ObjectSelector::getWidget(const int t_row, const int t_column, const boost::optional<int>& t_subrow) {
-  QWidget* widget = nullptr;
-
-  for (auto& widgetLoc : m_widgetMap) {
-    if (widgetLoc.second->row == t_row && widgetLoc.second->column == t_column && (!t_subrow || t_subrow == widgetLoc.second->subrow)) {
-      widget = qobject_cast<Holder*>(widgetLoc.second->widget)->widget;
-      break;
-    }
-  }
-  return widget;
-}
-
-void ObjectSelector::updateWidgets(const int t_row, const boost::optional<int>& t_subrow, bool t_objectSelected, bool t_objectVisible) {
-  std::set<std::pair<QWidget*, int>> widgetsToUpdate;
-  bool isSubRow = t_subrow.has_value();
-
-  // determine if we want to update the parent widget or the child widget
-  for (auto& widgetLoc : m_widgetMap) {
-    // If the row corresponds
-    if (widgetLoc.second->row == t_row) {
-      // And there isn't any subrow, we get the parent
-      if (!isSubRow) {
-        widgetsToUpdate.insert(std::make_pair(widgetLoc.second->widget->parentWidget(), widgetLoc.second->column));
-        // Otherwise, the subrow needs to corresponds, and we hide that widget
-      } else if (t_subrow == widgetLoc.second->subrow) {
-        widgetsToUpdate.insert(std::make_pair(widgetLoc.second->widget, widgetLoc.second->column));
-        widgetLoc.second->widget->setStyleSheet("");
-      }
-    }
-  }
-
-  // loop over list of determined widgets
-  for (auto& widget : widgetsToUpdate) {
-    widget.first->setVisible(t_objectVisible);
-    widget.first->setStyleSheet(m_grid->cellStyle(t_row, widget.second, t_objectSelected, isSubRow));
-  }
-}
-
-void ObjectSelector::updateWidgets(bool isRowLevel) {
-  if (isRowLevel) {
-    // We loop on all object in the leftmost colum (eg: 'Space' for all SpaceSubtabs)
-    for (int t_row = 0; t_row < this->m_grid->rowCount(); ++t_row) {
-      bool objectVisible = true;
-      bool objectSelected = false;
-
-      // If that object is present in m_filteredObjects
-      boost::optional<model::ModelObject> _rowLevelObj = getObject(t_row, 0, boost::optional<int>());
-      if (_rowLevelObj && (m_filteredObjects.count(_rowLevelObj.get()) != 0)) {
-        // LOG(Debug, "Hidding t_row=" << t_row << " matched as rowLevelObj (=" << _rowLevelObj.get().briefDescription() << ")");
-        objectVisible = false;
-        objectSelected = m_selectedObjects.count(_rowLevelObj.get()) != 0;
-      }
-
-      // We'll hide the entire row
-      updateWidgets(t_row, boost::optional<int>(), objectSelected, objectVisible);
-    }
-  } else {
-    // This contains the (unique) individual DataObjects (eg: Loads subtab = SpaceLoadInstances (People, Lights, etc))
-    for (const auto& obj : m_selectorObjects) {
-      updateWidgets(obj);
-    }
-  }
-}
-
-// TODO: this overloaded function isn't called anywhere...
-void ObjectSelector::updateWidgets(const model::ModelObject& t_obj, const bool t_objectVisible) {
-  auto range = m_widgetMap.equal_range(boost::optional<model::ModelObject>(t_obj));
-
-  assert(range.first != range.second);
-
-  // Find the row that contains this object
-  auto row = std::make_tuple(range.first->second->row, range.first->second->subrow);
-
-  // TODO: should we delete that too? see comment below in updateWidgets(const model::ModelObject &t_obj)
-#if _DEBUG || (__GNUC__ && !NDEBUG)
-  // Sanity check to make sure we don't have the same object in two different rows
-  ++range.first;
-  while (range.first != range.second) {
-    assert(row == std::make_tuple(range.first->second->row, range.first->second->subrow));
-    ++range.first;
-  }
-#endif
-
-  const auto objectSelected = m_selectedObjects.count(t_obj) != 0;
-
-  updateWidgets(std::get<0>(row), std::get<1>(row), objectSelected, t_objectVisible);
-}
-
-void ObjectSelector::updateWidgets(const model::ModelObject& t_obj) {
-
-  // Find all entries in m_widgetMap that matches t_obj
-  auto range = m_widgetMap.equal_range(boost::optional<model::ModelObject>(t_obj));
-
-  // Check that it did return something
-  assert(range.first != range.second);
-
-  // Note JM: leaving it here in case you need to look at the contents of m_widgetMap...
-  /*
-     *std::cout << "\n\nContent of m_widgetMap\n";
-     *for (auto it = m_widgetMap.begin(); it != m_widgetMap.end(); ++it) {
-     *  const boost::optional<model::ModelObject> mo = it->first;
-     *  int t_row = it->second->row;
-     *  boost::optional<int> t_subrow = it->second->subrow;
-     *  if( mo ) {
-     *    std::cout << "row=" << t_row << ", subrow=" << t_subrow <<", mo=" << mo->briefDescription() << "\n";
-     *  } else {
-     *    std::cout << "row=" << t_row << ", subrow=" << t_subrow <<", mo=None\n";
-     *  }
-     *}
-     */
-
-  /*
-   *  auto row = std::make_tuple(t_row, t_subrow);
-   *#if _DEBUG || (__GNUC__ && !NDEBUG)
-   *    // Sanity check to make sure we don't have the same object in two different rows
-   *    // TODO: JM 2018-08-21: In case of the Loads subtab for eg, given than obj is a **Space** (always!)
-   *    // but given that we have lots of load objects (People, Light, etc) for each Space,
-   *    // We kinda expect to have the same object in several rows, don't we?
-   *    ++range.first;
-   *    while (range.first != range.second)
-   *    {
-   *      assert(row == std::make_tuple(range.first->second->row, range.first->second->subrow));
-   *      ++range.first;
-   *    }
-   *#endif
-   */
-
-  // For all rows that contain this object
-  for (auto it = range.first; it != range.second; ++it) {
-    // it->second returns the WidgetLocation of that entry
-    // it->second->row (subrow) returns the WidgetLocation's row (and subrow)
-    int t_row = it->second->row;
-    boost::optional<int> t_subrow = it->second->subrow;
-
-    const auto objectSelected = m_selectedObjects.count(t_obj) != 0;
-    auto objectVisible = m_objectFilter(t_obj);
-
-    // If the object is not already hidden
-    if (objectVisible) {
-      // We try find it it's a subrow
-      if (t_subrow) {
-        // We have a matched sub row
-        auto parent = t_obj.parent();
-        if (parent) {
-          // Check if we are filtering on the sub row's parent object
-          if (m_filteredObjects.count(*parent) != 0) {
-            objectVisible = false;
-          }
-
-          if (objectVisible) {
-            // We still haven't matched the sub row, let's look up 1 more level
-            auto parentsParent = parent->parent();
-            // Evan's note:
-            //   in the case of SpacesSubsurfacesGridView,
-            //   t_obj.parent() returns Surface,
-            //   but our common currency is Space.
-            //   t_obj.parent()->parent() returns Space
-            //
-            // JM: 2018-08-21
-            //  in the case of the Loads subtab
-            //  t_obj.parent() will return either Space or SpaceType depending on how owns it
-            //  So if it's SpaceType, it won't match...
-            //  Also, even for Space, it will filter out only that load and not the entire corresponding Space master
-            //  which is fine if filtering by "Load Type", but not fine if filtering by Story for eg...
-
-            if (parentsParent) {
-              // Check if we are filtering on the sub row's parent's parent object
-              if (m_filteredObjects.count(*parentsParent) != 0) {
-                objectVisible = false;
-              }
-            }
-          }
-        }
-        // Hmmm, still no match, let's check if we
-        // are filtering on the sub row's object
-        if (objectVisible && m_filteredObjects.count(t_obj) != 0) {
-          objectVisible = false;
-        }
-
-        // Still no match? That's problematic... perhaps it's the Loads subtab?
-        /*
- *          if (objectVisible) {
- *            boost::optional<const model::ModelObject &> _rowLevelObj = getObject(t_row, 0, boost::optional<int>());
- *            if (_rowLevelObj && m_filteredObjects.count(_rowLevelObj.get()) != 0) {
- *              LOG(Debug, t_obj.briefDescription() << " matched as rowLevelObj (=" << _rowLevelObj.get().briefDescription() << ")"
- *                  << " || t_row=" << t_row << ", t_subrow=" << t_subrow);
- *              objectVisible = false;
- *              t_subrow = boost::optional<int>();
- *            }
- *
- *            //range = m_widgetMap.equal_range(boost::optional<model::ModelObject>(t_obj));
- *            //std::cout << "\n\nt_obj=" << t_obj.briefDescription() << "\n";
- *            //for (auto it = range.first; it != range.second; ++it) {
- *              //boost::optional<model::ModelObject> mo = it->first;
- *              //WidgetLocation * wL = it->second;
- *              //if (mo) {
- *                //std::cout << "mo=" << mo->name().get()
- *                  //<< ", row=" << wL->row << ", subrow=";
- *                //if (boost::optional<int> sr = wL->subrow) {
- *                  //std::cout << sr;
- *                //} else {
- *                  //std::cout << "None";
- *                //}
- *                //std::cout << "\n";
- *              //}
- *            //}
- *          }
- */
-      } else {
-        // We only matched the row: (works for the Properties subtab probably)
-        if (m_filteredObjects.count(t_obj) != 0) {
-          LOG(Debug, t_obj.briefDescription() << " matched as row");
-          objectVisible = false;
-        }
-      }
-    }
-    updateWidgets(t_row, t_subrow, objectSelected, objectVisible);
-  }
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 OSGridController::OSGridController()
-  : QObject(),
-    m_hasHorizontalHeader(true),
-    m_currentCategoryIndex(0),
-    m_isIP(false),
-    m_horizontalHeaderBtnGrp(nullptr),
-    m_objectSelector(std::make_shared<ObjectSelector>(this)) {}
+  : QObject(), m_hasHorizontalHeader(true), m_currentCategoryIndex(0), m_isIP(false), m_horizontalHeaderBtnGrp(nullptr) {
+  m_objectSelector = new OSObjectSelector(this);
+}
 
 OSGridController::OSGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, const model::Model& model,
                                    const std::vector<model::ModelObject>& modelObjects)
@@ -581,7 +89,7 @@ OSGridController::OSGridController(bool isIP, const QString& headerText, IddObje
     m_modelObjects(modelObjects),
     m_categoriesAndFields(std::vector<std::pair<QString, std::vector<QString>>>()),
     m_baseConcepts(std::vector<QSharedPointer<BaseConcept>>()),
-    m_horizontalHeader(std::vector<QWidget*>()),
+    m_horizontalHeaders(std::vector<QWidget*>()),
     m_hasHorizontalHeader(true),
     m_currentCategory(QString()),
     m_currentCategoryIndex(0),
@@ -590,24 +98,19 @@ OSGridController::OSGridController(bool isIP, const QString& headerText, IddObje
     m_model(model),
     m_isIP(isIP),
     m_horizontalHeaderBtnGrp(nullptr),
-    m_headerText(headerText),
-    m_objectSelector(std::make_shared<ObjectSelector>(this)) {
+    m_headerText(headerText) {
   loadQSettings();
 
-  connect(m_objectSelector.get(), &ObjectSelector::inFocus, this, &OSGridController::onInFocus);
+  m_objectSelector = new OSObjectSelector(this);
+
+  connect(m_objectSelector, &OSObjectSelector::inFocus, this, &OSGridController::onInFocus);
+  connect(m_objectSelector, &OSObjectSelector::gridRowSelectionChanged, this, &OSGridController::gridRowSelectionChanged);
+  connect(m_objectSelector, &OSObjectSelector::gridCellChanged, this, &OSGridController::gridCellChanged);
 }
 
 OSGridController::~OSGridController() {
+  disconnectFromModelSignals();
   saveQSettings();
-}
-
-void OSGridController::requestRefreshGrid() {
-  gridView()->requestRefreshGrid();
-}
-
-void OSGridController::refreshGrid() {
-  // Never hit
-  OS_ASSERT(false);
 }
 
 void OSGridController::loadQSettings() {
@@ -627,10 +130,58 @@ void OSGridController::saveQSettings() const {
   settings.setValue("customCategories", list);
 }
 
+IddObjectType OSGridController::iddObjectType() const {
+  return m_iddObjectType;
+}
+
+bool OSGridController::isIP() const {
+  return m_isIP;
+}
+
+bool OSGridController::hasHorizontalHeader() const {
+  return m_hasHorizontalHeader;
+}
+
+std::vector<QWidget*> OSGridController::horizontalHeaders() const {
+  return m_horizontalHeaders;
+}
+
+void OSGridController::setConstructionColumn(int constructionColumn) {
+  m_constructionColumn = constructionColumn;
+}
+
+model::Model& OSGridController::model() {
+  return m_model;
+}
+
+std::vector<model::ModelObject> OSGridController::modelObjects() const {
+  return m_modelObjects;
+}
+
+void OSGridController::setModelObjects(const std::vector<model::ModelObject>& modelObjects) {
+  m_modelObjects = modelObjects;
+}
+/*
+std::vector<model::ModelObject> OSGridController::inheritedModelObjects() const {
+  return m_inheritedModelObjects;
+}
+
+void OSGridController::setInheritedModelObjects(const std::vector<model::ModelObject>& inheritedModelObjects) {
+  m_inheritedModelObjects = inheritedModelObjects;
+}
+*/
+void OSGridController::addCategoryAndFields(const std::pair<QString, std::vector<QString>>& categoryAndFields) {
+  m_categoriesAndFields.push_back(categoryAndFields);
+}
+
+void OSGridController::resetCategoryAndFields() {
+  m_categoriesAndFields.clear();
+}
+
 void OSGridController::setCategoriesAndFields() {
   std::vector<QString> fields;
   std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Custom"), fields);
-  m_categoriesAndFields.push_back(categoryAndFields);
+  addCategoryAndFields(categoryAndFields);
 
   setCustomCategoryAndFields();
 }
@@ -649,27 +200,30 @@ std::vector<std::pair<QString, std::vector<QString>>> OSGridController::categori
   return m_categoriesAndFields;
 }
 
-void OSGridController::categorySelected(int index) {
+void OSGridController::onCategorySelected(int index) {
   m_objectSelector->clear();
   m_currentCategoryIndex = index;
-  m_selectedCellLocation = std::make_tuple(-1, -1, -1);
+  m_focusedCellLocation = std::make_tuple(-1, -1, -1);
 
   m_currentCategory = m_categoriesAndFields.at(index).first;
 
   m_currentFields = m_categoriesAndFields.at(index).second;
 
   addColumns(m_currentCategory, m_currentFields);
+
+  // One of the only times we request a recreate all
+  emit recreateAll();
 }
 
-void OSGridController::setHorizontalHeader() {
-  m_horizontalHeader.clear();
+void OSGridController::setHorizontalHeader(QWidget* gridView) {
+  m_horizontalHeaders.clear();
 
   if (m_horizontalHeaderBtnGrp == nullptr) {
     m_horizontalHeaderBtnGrp = new QButtonGroup();
     m_horizontalHeaderBtnGrp->setExclusive(false);
 
     connect(m_horizontalHeaderBtnGrp, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::idClicked), this,
-            &OSGridController::horizontalHeaderChecked);
+            &OSGridController::onHorizontalHeaderChecked);
 
   } else {
     QList<QAbstractButton*> buttons = m_horizontalHeaderBtnGrp->buttons();
@@ -684,397 +238,12 @@ void OSGridController::setHorizontalHeader() {
   OS_ASSERT(buttons.size() == 0);
 
   for (const QString& field : m_currentFields) {
-    auto horizontalHeaderWidget = new HorizontalHeaderWidget(field, this->gridView());
+    auto horizontalHeaderWidget = new HorizontalHeaderWidget(field, gridView);
     m_horizontalHeaderBtnGrp->addButton(horizontalHeaderWidget->m_checkBox, m_horizontalHeaderBtnGrp->buttons().size());
-    m_horizontalHeader.push_back(horizontalHeaderWidget);
+    m_horizontalHeaders.push_back(horizontalHeaderWidget);
   }
 
   checkSelectedFields();
-}
-
-QWidget* OSGridController::makeWidget(model::ModelObject t_mo, const QSharedPointer<BaseConcept>& t_baseConcept) {
-  QWidget* widget = nullptr;
-
-  // False positive from cppcheck here due to OS_ASSERT
-  // cppcheck-suppress unreadVariable
-  bool isConnected = false;
-
-  if (QSharedPointer<CheckBoxConcept> checkBoxConcept = t_baseConcept.dynamicCast<CheckBoxConcept>()) {
-
-    // This is basically for the "Select All" column
-    auto checkBox = new OSCheckBox3(this->gridView());  // OSCheckBox3 is derived from QCheckBox, whereas OSCheckBox2 is derived from QPushButton
-    if (checkBoxConcept->tooltip().size()) {
-      checkBox->setToolTip(checkBoxConcept->tooltip().c_str());
-    }
-
-    checkBox->bind(t_mo, BoolGetter(std::bind(&CheckBoxConcept::get, checkBoxConcept.data(), t_mo)),
-                   boost::optional<BoolSetter>(std::bind(&CheckBoxConcept::set, checkBoxConcept.data(), t_mo, std::placeholders::_1)));
-
-    isConnected = connect(checkBox, SIGNAL(stateChanged(int)), gridView(),
-                          SLOT(requestRefreshGrid()));  // TODO this is not the most efficient, by single row would be better
-    OS_ASSERT(isConnected);
-
-    isConnected = connect(checkBox, SIGNAL(stateChanged(int)), gridView(), SIGNAL(gridRowSelectionChanged(int)));
-    OS_ASSERT(isConnected);
-
-    widget = checkBox;
-
-  } else if (auto checkBoxConceptBoolReturn = t_baseConcept.dynamicCast<CheckBoxConceptBoolReturn>()) {
-    // This is for a proper setter **that returns a bool**, such as Ideal Air Loads column
-    auto checkBoxBoolReturn = new OSCheckBox3(this->gridView());
-    if (checkBoxConceptBoolReturn->tooltip().size()) {
-      checkBoxBoolReturn->setToolTip(checkBoxConceptBoolReturn->tooltip().c_str());
-    }
-
-    if (checkBoxConceptBoolReturn->hasClickFocus()) {
-      checkBoxBoolReturn->enableClickFocus();
-    }
-
-    checkBoxBoolReturn->bind(t_mo, BoolGetter(std::bind(&CheckBoxConceptBoolReturn::get, checkBoxConceptBoolReturn.data(), t_mo)),
-                             boost::optional<BoolSetterBoolReturn>(
-                               std::bind(&CheckBoxConceptBoolReturn::set, checkBoxConceptBoolReturn.data(), t_mo, std::placeholders::_1)));
-
-    // We don't need to refresh the whole grid, since we do not have to color the rows blue like the "Select All" checkboc
-    // isConnected = connect(checkBoxBoolReturn, SIGNAL(stateChanged(int)), gridView(), SLOT(requestRefreshGrid()));
-    // OS_ASSERT(isConnected);
-
-    // isConnected = connect(checkBoxBoolReturn, SIGNAL(stateChanged(int)), gridView(), SIGNAL(gridRowSelectionChanged(int)));
-    // OS_ASSERT(isConnected);
-
-    widget = checkBoxBoolReturn;
-
-  } else if (QSharedPointer<ComboBoxConcept> comboBoxConcept = t_baseConcept.dynamicCast<ComboBoxConcept>()) {
-
-    auto choiceConcept = comboBoxConcept->choiceConcept(t_mo);
-
-    auto comboBox = new OSComboBox2(this->gridView(), choiceConcept->editable());
-    if (comboBoxConcept->hasClickFocus()) {
-      comboBox->enableClickFocus();
-    }
-
-    comboBox->bind(t_mo, choiceConcept);
-
-    widget = comboBox;
-
-    isConnected = connect(comboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(onComboBoxIndexChanged(int)));
-    OS_ASSERT(isConnected);
-
-  } else if (QSharedPointer<ValueEditConcept<double>> doubleEditConcept = t_baseConcept.dynamicCast<ValueEditConcept<double>>()) {
-
-    auto doubleEdit = new OSDoubleEdit2(this->gridView());
-    if (doubleEditConcept->hasClickFocus()) {
-      doubleEdit->enableClickFocus();
-    }
-
-    doubleEdit->bind(t_mo, DoubleGetter(std::bind(&ValueEditConcept<double>::get, doubleEditConcept.data(), t_mo)),
-                     boost::optional<DoubleSetter>(std::bind(&ValueEditConcept<double>::set, doubleEditConcept.data(), t_mo, std::placeholders::_1)),
-                     boost::optional<NoFailAction>(std::bind(&ValueEditConcept<double>::reset, doubleEditConcept.data(), t_mo)),
-                     boost::optional<NoFailAction>(), boost::optional<NoFailAction>(),
-                     boost::optional<BasicQuery>(std::bind(&ValueEditConcept<double>::isDefaulted, doubleEditConcept.data(), t_mo)));
-
-    widget = doubleEdit;
-
-  } else if (QSharedPointer<OptionalValueEditConcept<double>> optionalDoubleEditConcept =
-               t_baseConcept.dynamicCast<OptionalValueEditConcept<double>>()) {
-
-    auto optionalDoubleEdit = new OSDoubleEdit2(this->gridView());
-    if (optionalDoubleEditConcept->hasClickFocus()) {
-      optionalDoubleEdit->enableClickFocus();
-    }
-
-    optionalDoubleEdit->bind(t_mo, OptionalDoubleGetter(std::bind(&OptionalValueEditConcept<double>::get, optionalDoubleEditConcept.data(), t_mo)),
-                             boost::optional<DoubleSetter>(
-                               std::bind(&OptionalValueEditConcept<double>::set, optionalDoubleEditConcept.data(), t_mo, std::placeholders::_1)));
-
-    widget = optionalDoubleEdit;
-
-  } else if (QSharedPointer<ValueEditVoidReturnConcept<double>> doubleEditVoidReturnConcept =
-               t_baseConcept.dynamicCast<ValueEditVoidReturnConcept<double>>()) {
-
-    auto doubleEditVoidReturn = new OSDoubleEdit2(this->gridView());
-    if (doubleEditVoidReturnConcept->hasClickFocus()) {
-      doubleEditVoidReturn->enableClickFocus();
-    }
-
-    doubleEditVoidReturn->bind(
-      t_mo, DoubleGetter(std::bind(&ValueEditVoidReturnConcept<double>::get, doubleEditVoidReturnConcept.data(), t_mo)),
-      DoubleSetterVoidReturn(std::bind(&ValueEditVoidReturnConcept<double>::set, doubleEditVoidReturnConcept.data(), t_mo, std::placeholders::_1)),
-      boost::optional<NoFailAction>(std::bind(&ValueEditVoidReturnConcept<double>::reset, doubleEditVoidReturnConcept.data(), t_mo)),
-      boost::optional<NoFailAction>(), boost::optional<NoFailAction>(),
-      boost::optional<BasicQuery>(std::bind(&ValueEditVoidReturnConcept<double>::isDefaulted, doubleEditVoidReturnConcept.data(), t_mo)));
-
-    widget = doubleEditVoidReturn;
-
-  } else if (QSharedPointer<OptionalValueEditVoidReturnConcept<double>> optionalDoubleEditVoidReturnConcept =
-               t_baseConcept.dynamicCast<OptionalValueEditVoidReturnConcept<double>>()) {
-
-    auto optionalDoubleEditVoidReturn = new OSDoubleEdit2(this->gridView());
-    if (optionalDoubleEditVoidReturnConcept->hasClickFocus()) {
-      optionalDoubleEditVoidReturn->enableClickFocus();
-    }
-
-    optionalDoubleEditVoidReturn->bind(
-      t_mo, OptionalDoubleGetter(std::bind(&OptionalValueEditVoidReturnConcept<double>::get, optionalDoubleEditVoidReturnConcept.data(), t_mo)),
-      DoubleSetterVoidReturn(
-        std::bind(&OptionalValueEditVoidReturnConcept<double>::set, optionalDoubleEditVoidReturnConcept.data(), t_mo, std::placeholders::_1)));
-
-    widget = optionalDoubleEditVoidReturn;
-
-  } else if (QSharedPointer<ValueEditConcept<int>> integerEditConcept = t_baseConcept.dynamicCast<ValueEditConcept<int>>()) {
-
-    auto integerEdit = new OSIntegerEdit2(this->gridView());
-    if (integerEditConcept->hasClickFocus()) {
-      integerEdit->enableClickFocus();
-    }
-
-    integerEdit->bind(t_mo, IntGetter(std::bind(&ValueEditConcept<int>::get, integerEditConcept.data(), t_mo)),
-                      boost::optional<IntSetter>(std::bind(&ValueEditConcept<int>::set, integerEditConcept.data(), t_mo, std::placeholders::_1)),
-                      boost::optional<NoFailAction>(std::bind(&ValueEditConcept<int>::reset, integerEditConcept.data(), t_mo)),
-                      boost::optional<NoFailAction>(), boost::optional<NoFailAction>(),
-                      boost::optional<BasicQuery>(std::bind(&ValueEditConcept<int>::isDefaulted, integerEditConcept.data(), t_mo)));
-
-    widget = integerEdit;
-
-  } else if (QSharedPointer<ValueEditConcept<std::string>> lineEditConcept = t_baseConcept.dynamicCast<ValueEditConcept<std::string>>()) {
-
-    auto lineEdit = new OSLineEdit2(this->gridView());
-    if (lineEditConcept->hasClickFocus()) {
-      lineEdit->enableClickFocus();
-    }
-
-    lineEdit->bind(t_mo, StringGetter(std::bind(&ValueEditConcept<std::string>::get, lineEditConcept.data(), t_mo)),
-                   boost::optional<StringSetter>(std::bind(&ValueEditConcept<std::string>::set, lineEditConcept.data(), t_mo, std::placeholders::_1)),
-                   boost::optional<NoFailAction>(std::bind(&ValueEditConcept<std::string>::reset, lineEditConcept.data(), t_mo)),
-                   boost::optional<BasicQuery>(std::bind(&ValueEditConcept<std::string>::isDefaulted, lineEditConcept.data(), t_mo)));
-
-    isConnected = connect(lineEdit, SIGNAL(objectRemoved(boost::optional<model::ParentObject>)), this,
-                          SLOT(onObjectRemoved(boost::optional<model::ParentObject>)));
-    OS_ASSERT(isConnected);
-
-    widget = lineEdit;
-
-  } else if (QSharedPointer<ValueEditVoidReturnConcept<std::string>> lineEditConcept =
-               t_baseConcept.dynamicCast<ValueEditVoidReturnConcept<std::string>>()) {
-
-    auto lineEdit = new OSLineEdit2(this->gridView());
-    if (lineEditConcept->hasClickFocus()) {
-      lineEdit->enableClickFocus();
-    }
-
-    lineEdit->bind(t_mo, StringGetter(std::bind(&ValueEditVoidReturnConcept<std::string>::get, lineEditConcept.data(), t_mo)),
-                   boost::optional<StringSetterVoidReturn>(
-                     std::bind(&ValueEditVoidReturnConcept<std::string>::set, lineEditConcept.data(), t_mo, std::placeholders::_1)),
-                   boost::optional<NoFailAction>(std::bind(&ValueEditVoidReturnConcept<std::string>::reset, lineEditConcept.data(), t_mo)),
-                   boost::optional<BasicQuery>(std::bind(&ValueEditVoidReturnConcept<std::string>::isDefaulted, lineEditConcept.data(), t_mo)));
-
-    isConnected = connect(lineEdit, SIGNAL(objectRemoved(boost::optional<model::ParentObject>)), this,
-                          SLOT(onObjectRemoved(boost::optional<model::ParentObject>)));
-    OS_ASSERT(isConnected);
-
-    widget = lineEdit;
-  } else if (QSharedPointer<LoadNameConcept> loadNameConcept = t_baseConcept.dynamicCast<LoadNameConcept>()) {
-
-    auto loadName = new OSLoadNamePixmapLineEdit(this->gridView());
-    if (loadNameConcept->hasClickFocus()) {
-      loadName->enableClickFocus();
-    }
-
-    loadName->bind(t_mo, OptionalStringGetter(std::bind(&LoadNameConcept::get, loadNameConcept.data(), t_mo, true)),
-                   // If the concept is read only, pass an empty optional
-                   loadNameConcept->readOnly()
-                     ? boost::none
-                     : boost::optional<StringSetter>(std::bind(&LoadNameConcept::setReturnBool, loadNameConcept.data(), t_mo, std::placeholders::_1)),
-                   boost::optional<NoFailAction>(std::bind(&LoadNameConcept::reset, loadNameConcept.data(), t_mo)));
-
-    //connect(loadName, OSLoadNamePixmapLineEdit::itemClicked, gridView(), OSGridView::dropZoneItemClicked);
-    isConnected = connect(loadName, SIGNAL(itemClicked(OSItem*)), gridView(), SIGNAL(dropZoneItemClicked(OSItem*)));
-    OS_ASSERT(isConnected);
-
-    isConnected = connect(loadName, SIGNAL(objectRemoved(boost::optional<model::ParentObject>)), this,
-                          SLOT(onObjectRemoved(boost::optional<model::ParentObject>)));
-    OS_ASSERT(isConnected);
-
-    widget = loadName;
-
-  } else if (QSharedPointer<NameLineEditConcept> nameLineEditConcept = t_baseConcept.dynamicCast<NameLineEditConcept>()) {
-
-    auto nameLineEdit = new OSLineEdit2(this->gridView());
-    if (nameLineEditConcept->hasClickFocus()) {
-      nameLineEdit->enableClickFocus();
-    }
-
-    nameLineEdit->setDeleteObject(nameLineEditConcept->deleteObject());
-
-    bool readOnly = nameLineEditConcept->readOnly();
-
-    // handle special case for space types
-    if (t_mo.optionalCast<model::SpaceType>()) {
-      if (istringEqual("Plenum Space Type", t_mo.nameString())) {
-        readOnly = true;
-      }
-    }
-
-    nameLineEdit->bind(t_mo, OptionalStringGetter(std::bind(&NameLineEditConcept::get, nameLineEditConcept.data(), t_mo, true)),
-                       // If the concept is read only, pass an empty optional
-                       readOnly ? boost::none
-                                : boost::optional<StringSetter>(
-                                    std::bind(&NameLineEditConcept::setReturnBool, nameLineEditConcept.data(), t_mo, std::placeholders::_1)),
-                       boost::optional<NoFailAction>(std::bind(&NameLineEditConcept::reset, nameLineEditConcept.data(), t_mo)));
-
-    if (nameLineEditConcept->isInspectable()) {
-      //connect(nameLineEdit, OSLineEdit2::itemClicked, gridView(), OSGridView::dropZoneItemClicked);
-      isConnected = connect(nameLineEdit, SIGNAL(itemClicked(OSItem*)), gridView(), SIGNAL(dropZoneItemClicked(OSItem*)));
-      OS_ASSERT(isConnected);
-
-      isConnected = connect(nameLineEdit, SIGNAL(objectRemoved(boost::optional<model::ParentObject>)), this,
-                            SLOT(onObjectRemoved(boost::optional<model::ParentObject>)));
-      OS_ASSERT(isConnected);
-    }
-
-    widget = nameLineEdit;
-
-  } else if (QSharedPointer<QuantityEditConcept<double>> quantityEditConcept = t_baseConcept.dynamicCast<QuantityEditConcept<double>>()) {
-
-    OSQuantityEdit2* quantityEdit =
-      new OSQuantityEdit2(quantityEditConcept->modelUnits().toStdString().c_str(), quantityEditConcept->siUnits().toStdString().c_str(),
-                          quantityEditConcept->ipUnits().toStdString().c_str(), quantityEditConcept->isIP(), this->gridView());
-    if (quantityEditConcept->hasClickFocus()) {
-      quantityEdit->enableClickFocus();
-    }
-
-    quantityEdit->bind(
-      m_isIP, t_mo, DoubleGetter(std::bind(&QuantityEditConcept<double>::get, quantityEditConcept.data(), t_mo)),
-      boost::optional<DoubleSetter>(std::bind(&QuantityEditConcept<double>::set, quantityEditConcept.data(), t_mo, std::placeholders::_1)),
-      boost::optional<NoFailAction>(std::bind(&QuantityEditConcept<double>::reset, quantityEditConcept.data(), t_mo)),
-      boost::optional<NoFailAction>(), boost::optional<NoFailAction>(),
-      boost::optional<BasicQuery>(std::bind(&QuantityEditConcept<double>::isDefaulted, quantityEditConcept.data(), t_mo)));
-
-    isConnected = connect(this, SIGNAL(toggleUnitsClicked(bool)), quantityEdit, SLOT(onUnitSystemChange(bool)));
-    OS_ASSERT(isConnected);
-
-    widget = quantityEdit;
-
-  } else if (QSharedPointer<OptionalQuantityEditConcept<double>> optionalQuantityEditConcept =
-               t_baseConcept.dynamicCast<OptionalQuantityEditConcept<double>>()) {
-
-    OSQuantityEdit2* optionalQuantityEdit = new OSQuantityEdit2(
-      optionalQuantityEditConcept->modelUnits().toStdString().c_str(), optionalQuantityEditConcept->siUnits().toStdString().c_str(),
-      optionalQuantityEditConcept->ipUnits().toStdString().c_str(), optionalQuantityEditConcept->isIP(), this->gridView());
-    if (optionalQuantityEditConcept->hasClickFocus()) {
-      optionalQuantityEdit->enableClickFocus();
-    }
-
-    optionalQuantityEdit->bind(m_isIP, t_mo,
-                               OptionalDoubleGetter(std::bind(&OptionalQuantityEditConcept<double>::get, optionalQuantityEditConcept.data(), t_mo)),
-                               boost::optional<DoubleSetter>(std::bind(&OptionalQuantityEditConcept<double>::set, optionalQuantityEditConcept.data(),
-                                                                       t_mo, std::placeholders::_1)));
-
-    isConnected = connect(this, SIGNAL(toggleUnitsClicked(bool)), optionalQuantityEdit, SLOT(onUnitSystemChange(bool)));
-    OS_ASSERT(isConnected);
-
-    widget = optionalQuantityEdit;
-
-  } else if (QSharedPointer<QuantityEditVoidReturnConcept<double>> quantityEditVoidReturnConcept =
-               t_baseConcept.dynamicCast<QuantityEditVoidReturnConcept<double>>()) {
-
-    OSQuantityEdit2* quantityEditVoidReturn = new OSQuantityEdit2(
-      quantityEditVoidReturnConcept->modelUnits().toStdString().c_str(), quantityEditVoidReturnConcept->siUnits().toStdString().c_str(),
-      quantityEditVoidReturnConcept->ipUnits().toStdString().c_str(), quantityEditVoidReturnConcept->isIP(), this->gridView());
-    if (quantityEditVoidReturnConcept->hasClickFocus()) {
-      quantityEditVoidReturn->enableClickFocus();
-    }
-
-    quantityEditVoidReturn->bind(
-      m_isIP, t_mo, DoubleGetter(std::bind(&QuantityEditVoidReturnConcept<double>::get, quantityEditVoidReturnConcept.data(), t_mo)),
-      DoubleSetterVoidReturn(
-        std::bind(&QuantityEditVoidReturnConcept<double>::set, quantityEditVoidReturnConcept.data(), t_mo, std::placeholders::_1)),
-      boost::optional<NoFailAction>(std::bind(&QuantityEditVoidReturnConcept<double>::reset, quantityEditVoidReturnConcept.data(), t_mo)),
-      boost::optional<NoFailAction>(), boost::optional<NoFailAction>(),
-      boost::optional<BasicQuery>(std::bind(&QuantityEditVoidReturnConcept<double>::isDefaulted, quantityEditVoidReturnConcept.data(), t_mo)));
-
-    isConnected = connect(this, SIGNAL(toggleUnitsClicked(bool)), quantityEditVoidReturn, SLOT(onUnitSystemChange(bool)));
-    OS_ASSERT(isConnected);
-
-    widget = quantityEditVoidReturn;
-
-  } else if (QSharedPointer<OptionalQuantityEditVoidReturnConcept<double>> optionalQuantityEditVoidReturnConcept =
-               t_baseConcept.dynamicCast<OptionalQuantityEditVoidReturnConcept<double>>()) {
-
-    OSQuantityEdit2* optionalQuantityEditVoidReturn = new OSQuantityEdit2(optionalQuantityEditVoidReturnConcept->modelUnits().toStdString().c_str(),
-                                                                          optionalQuantityEditVoidReturnConcept->siUnits().toStdString().c_str(),
-                                                                          optionalQuantityEditVoidReturnConcept->ipUnits().toStdString().c_str(),
-                                                                          optionalQuantityEditVoidReturnConcept->isIP(), this->gridView());
-    if (optionalQuantityEditVoidReturnConcept->hasClickFocus()) {
-      optionalQuantityEditVoidReturn->enableClickFocus();
-    }
-
-    optionalQuantityEditVoidReturn->bind(
-      m_isIP, t_mo,
-      OptionalDoubleGetter(std::bind(&OptionalQuantityEditVoidReturnConcept<double>::get, optionalQuantityEditVoidReturnConcept.data(), t_mo)),
-      DoubleSetterVoidReturn(
-        std::bind(&OptionalQuantityEditVoidReturnConcept<double>::set, optionalQuantityEditVoidReturnConcept.data(), t_mo, std::placeholders::_1)));
-
-    isConnected = connect(this, SIGNAL(toggleUnitsClicked(bool)), optionalQuantityEditVoidReturn, SLOT(onUnitSystemChange(bool)));
-    OS_ASSERT(isConnected);
-
-    widget = optionalQuantityEditVoidReturn;
-
-  } else if (QSharedPointer<ValueEditConcept<unsigned>> unsignedEditConcept = t_baseConcept.dynamicCast<ValueEditConcept<unsigned>>()) {
-
-    auto unsignedEdit = new OSUnsignedEdit2(this->gridView());
-    if (unsignedEditConcept->hasClickFocus()) {
-      unsignedEdit->enableClickFocus();
-    }
-
-    unsignedEdit->bind(
-      t_mo, UnsignedGetter(std::bind(&ValueEditConcept<unsigned>::get, unsignedEditConcept.data(), t_mo)),
-      boost::optional<UnsignedSetter>(std::bind(&ValueEditConcept<unsigned>::set, unsignedEditConcept.data(), t_mo, std::placeholders::_1)),
-      boost::optional<NoFailAction>(std::bind(&ValueEditConcept<unsigned>::reset, unsignedEditConcept.data(), t_mo)), boost::optional<NoFailAction>(),
-      boost::optional<NoFailAction>(),
-      boost::optional<BasicQuery>(std::bind(&ValueEditConcept<unsigned>::isDefaulted, unsignedEditConcept.data(), t_mo)));
-
-    widget = unsignedEdit;
-
-  } else if (QSharedPointer<DropZoneConcept> dropZoneConcept = t_baseConcept.dynamicCast<DropZoneConcept>()) {
-    auto dropZone = new OSDropZone2();
-    if (dropZoneConcept->hasClickFocus()) {
-      dropZone->enableClickFocus();
-    }
-
-    dropZone->bind(t_mo, OptionalModelObjectGetter(std::bind(&DropZoneConcept::get, dropZoneConcept.data(), t_mo)),
-                   ModelObjectSetter(std::bind(&DropZoneConcept::set, dropZoneConcept.data(), t_mo, std::placeholders::_1)),
-                   NoFailAction(std::bind(&DropZoneConcept::reset, dropZoneConcept.data(), t_mo)));
-
-    //connect(dropZone, OSDropZone2::itemClicked, gridView(), OSGridView::dropZoneItemClicked);
-    isConnected = connect(dropZone, SIGNAL(itemClicked(OSItem*)), gridView(), SIGNAL(dropZoneItemClicked(OSItem*)));
-    OS_ASSERT(isConnected);
-
-    isConnected = connect(dropZone, SIGNAL(objectRemoved(boost::optional<model::ParentObject>)), this,
-                          SLOT(onObjectRemoved(boost::optional<model::ParentObject>)));
-    OS_ASSERT(isConnected);
-
-    widget = dropZone;
-
-  } else if (QSharedPointer<RenderingColorConcept> renderingColorConcept = t_baseConcept.dynamicCast<RenderingColorConcept>()) {
-    auto renderingColorWidget = new RenderingColorWidget2(this->gridView());
-
-    renderingColorWidget->bind(t_mo, OptionalModelObjectGetter(std::bind(&RenderingColorConcept::get, renderingColorConcept.data(), t_mo)),
-                               ModelObjectSetter(std::bind(&RenderingColorConcept::set, renderingColorConcept.data(), t_mo, std::placeholders::_1)));
-
-    widget = renderingColorWidget;
-
-  } else {
-    // Unknown type
-    OS_ASSERT(false);
-  }
-
-  // Is this widget inherited?
-  if (m_subrowCounter < m_subrowsInherited.size() && m_subrowsInherited.at(m_subrowCounter)) {
-    widget->setDisabled(true);
-    widget->setStyleSheet("color:green");
-  }
-
-  return widget;
 }
 
 void OSGridController::setConceptValue(model::ModelObject t_setterMO, model::ModelObject t_getterMO,
@@ -1132,11 +301,6 @@ void OSGridController::setConceptValue(model::ModelObject t_setterMO, model::Mod
     auto getter = std::bind(&ValueEditVoidReturnConcept<std::string>::get, concept.data(), t_getterMO);
     auto temp = getter();
     setter(temp);
-  } else if (QSharedPointer<LoadNameConcept> concept = t_baseConcept.dynamicCast<LoadNameConcept>()) {
-    auto setter = std::bind(&LoadNameConcept::set, concept.data(), t_setterMO, std::placeholders::_1);
-    auto getter = std::bind(&LoadNameConcept::get, concept.data(), t_getterMO, true);  // NOTE Evan: Do we always want true?
-    auto temp = getter();
-    if (temp) setter(temp.get());
   } else if (QSharedPointer<NameLineEditConcept> concept = t_baseConcept.dynamicCast<NameLineEditConcept>()) {
     auto setter = std::bind(&NameLineEditConcept::set, concept.data(), t_setterMO, std::placeholders::_1);
     auto getter = std::bind(&NameLineEditConcept::get, concept.data(), t_getterMO, true);  // NOTE Evan: Do we always want true?
@@ -1214,9 +378,6 @@ void OSGridController::resetConceptValue(model::ModelObject t_resetMO, const QSh
   } else if (QSharedPointer<ValueEditConcept<std::string>> concept = t_baseConcept.dynamicCast<ValueEditConcept<std::string>>()) {
     auto reset = std::bind(&ValueEditConcept<std::string>::reset, concept.data(), t_resetMO);
     reset();
-  } else if (QSharedPointer<LoadNameConcept> concept = t_baseConcept.dynamicCast<LoadNameConcept>()) {
-    auto reset = std::bind(&LoadNameConcept::reset, concept.data(), t_resetMO);
-    reset();
   } else if (QSharedPointer<NameLineEditConcept> concept = t_baseConcept.dynamicCast<NameLineEditConcept>()) {
     auto reset = std::bind(&NameLineEditConcept::reset, concept.data(), t_resetMO);
     reset();
@@ -1238,151 +399,32 @@ void OSGridController::resetConceptValue(model::ModelObject t_resetMO, const QSh
   }
 }
 
-OSGridView* OSGridController::gridView() {
-  auto gridView = qobject_cast<OSGridView*>(this->parent());
-  OS_ASSERT(gridView);
-  return gridView;
-}
-
-// Evan: Required for Qt to respect style sheet commands
-QString OSGridController::cellStyle(int rowIndex, int columnIndex, bool isSelected, bool isSubRow)  // Evan note: check here for sub row color
-{
-  /// \todo this is a lot of string concatenation to do for each cell update
-  QString cellColor;
-  if (isSelected) {
-    // blue
-    cellColor = "#94b3de";
-  } else if (rowIndex % 2) {
-    // light gray
-    cellColor = "#ededed";
-  } else {
-    // medium gray
-    cellColor = "#cecece";
-  }
-
-  QString style;
-  style.append("QWidget#TableCell { border: none;");
-  style.append("                        background-color: " + cellColor + ";");
-  if (rowIndex == 0) {
-    style.append("                      border-top: 1px solid black;");
-  }
-  style.append("                        border-right: 1px solid black;");
-  style.append("                        border-bottom: 1px solid black;");
-  style.append("}");
-
-  return style;
-}
-
-QWidget* OSGridController::widgetAt(int row, int column) {
-  OS_ASSERT(row >= 0);
+OSCellWrapper* OSGridController::createCellWrapper(int gridRow, int column, OSGridView* gridView) {
+  OS_ASSERT(gridRow >= 0);
   OS_ASSERT(column >= 0);
 
   // Note: If there is a horizontal header row,  m_modelObjects[0] starts on gridLayout[1]
-  int modelObjectRow = m_hasHorizontalHeader ? row - 1 : row;
+  int modelRow = modelRowFromGridRow(gridRow);  //m_hasHorizontalHeader ? gridRow - 1 : gridRow;
 
-  OS_ASSERT(static_cast<int>(m_modelObjects.size()) > modelObjectRow);
+  OS_ASSERT(static_cast<int>(m_modelObjects.size()) > modelRow);
   OS_ASSERT(static_cast<int>(m_baseConcepts.size()) > column);
 
-  auto layout = new QGridLayout(this->gridView());
-  const int widgetHeight = 30;
-  int numWidgets = 0;
+  QSharedPointer<BaseConcept> baseConcept = m_baseConcepts[column];
 
-  // start with a default sane value
-  QSize recommendedSize(100, 20);  // TODO: unused
-  bool hasSubRows = false;
+  auto wrapper = new OSCellWrapper(gridView, baseConcept, m_objectSelector, modelRow, gridRow, column);
 
-  // wrapper - this is the thing that will be returned by this method.  The outermost widget that forms a gridview cell.
-  // May contain sub rows.
-  auto wrapper = new QWidget(this->gridView());
-  wrapper->setObjectName("TableCell");
-  wrapper->setStyleSheet(this->cellStyle(row, column, false, true));
-  layout->setSpacing(0);
-  layout->setVerticalSpacing(0);
-  layout->setHorizontalSpacing(0);
-  layout->setContentsMargins(5, 5, 5, 5);
-  wrapper->setLayout(layout);
-  // end wrapper
-
-  // Holder is a Widget that corresponds to sub row cell, it is present even if the cell does not have sub rows
-  // When no subrows wrapper -> holder -> bindable control provided by ::makeWidget
-  std::vector<Holder*> holders;
-  // addWidget lambda adds to holders (by first creating a new holder).
-  // Also adds to layout, which is the layout of the main cell (wrapper).
-  // holders and layout are accessible in the lambda through capture.
-  // t_widget will be provided by ::makeWidget, it is the bindable control
-  auto addWidget = [&](QWidget* t_widget, const boost::optional<model::ModelObject>& t_obj, const bool t_selector) {
+  if (m_hasHorizontalHeader && gridRow == 0) {
     if (column == 0) {
-      m_subrowsInherited.clear();
-    }
-
-    auto holder = new Holder(this->gridView());
-    holder->setMinimumHeight(widgetHeight);
-    auto l = new QVBoxLayout(this->gridView());
-    l->setAlignment(Qt::AlignCenter);
-    l->setSpacing(0);
-    l->setContentsMargins(0, 0, 0, 0);
-    l->addWidget(t_widget);
-    holder->widget = t_widget;
-    holder->setLayout(l);
-    // layout is defined outside the lambda and brought in through capture!
-    layout->addWidget(holder, numWidgets, 0);
-
-    //if (hasSubRows) {
-    //  holder->setObjectName("InnerCell");
-    //}
-    // holders is defined outside the lambda and brought in through capture!
-    holders.push_back(holder);
-
-    if (OSComboBox2* comboBox = qobject_cast<OSComboBox2*>(t_widget)) {
-      connect(comboBox, &OSComboBox2::inFocus, holder, &Holder::inFocus);
-    } else if (OSDoubleEdit2* doubleEdit = qobject_cast<OSDoubleEdit2*>(t_widget)) {
-      connect(doubleEdit, &OSDoubleEdit2::inFocus, holder, &Holder::inFocus);
-    } else if (OSIntegerEdit2* integerEdit = qobject_cast<OSIntegerEdit2*>(t_widget)) {
-      connect(integerEdit, &OSIntegerEdit2::inFocus, holder, &Holder::inFocus);
-    } else if (OSQuantityEdit2* quantityEdit = qobject_cast<OSQuantityEdit2*>(t_widget)) {
-      connect(quantityEdit, &OSQuantityEdit2::inFocus, holder, &Holder::inFocus);
-    } else if (OSLineEdit2* lineEdit = qobject_cast<OSLineEdit2*>(t_widget)) {
-      connect(lineEdit, &OSLineEdit2::inFocus, holder, &Holder::inFocus);
-    } else if (OSUnsignedEdit2* unsignedEdit = qobject_cast<OSUnsignedEdit2*>(t_widget)) {
-      connect(unsignedEdit, &OSUnsignedEdit2::inFocus, holder, &Holder::inFocus);
-    } else if (OSDropZone2* dropZone = qobject_cast<OSDropZone2*>(t_widget)) {
-      connect(dropZone, &OSDropZone2::inFocus, holder, &Holder::inFocus);
-      // Is this widget's subrow a surface with a defaulted construction?
-      if (t_obj) {
-        if (auto planarSurface = t_obj->optionalCast<model::PlanarSurface>()) {
-          if (planarSurface->isConstructionDefaulted()) {
-            // Is this column a construction?
-            if (column == m_constructionColumn) {
-              dropZone->setIsDefaulted(true);
-            }
-          }
-        }
-      }
-    } else if (HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(t_widget)) {
-      connect(horizontalHeaderWidget, &HorizontalHeaderWidget::inFocus, holder, &Holder::inFocus);
-    } else if (OSCheckBox3* checkBox = qobject_cast<OSCheckBox3*>(t_widget)) {
-      // If it's not the "Select All" column, we connect the inFocus method
-      if (column > 1) {
-        connect(checkBox, &OSCheckBox3::inFocus, holder, &Holder::inFocus);
-      }
-    }
-
-    m_objectSelector->addWidget(t_obj, holder, row, column, hasSubRows ? numWidgets : boost::optional<int>(), t_selector);
-
-    ++numWidgets;
-  };  // End of lambda
-
-  if (m_hasHorizontalHeader && row == 0) {
-    if (column == 0) {
-      setHorizontalHeader();
+      setHorizontalHeader(gridView);
       // Each concept should have its own column
-      OS_ASSERT(m_horizontalHeader.size() == m_baseConcepts.size());
+      OS_ASSERT(m_horizontalHeaders.size() == m_baseConcepts.size());
     }
-    layout->setContentsMargins(0, 1, 1, 0);
-    addWidget(m_horizontalHeader.at(column), boost::none, false);
-    QSharedPointer<BaseConcept> baseConcept = m_baseConcepts[column];
     const Heading& heading = baseConcept->heading();
-    HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeader.at(column));
+
+    wrapper->layout()->setContentsMargins(0, 1, 1, 0);
+    wrapper->addOSWidget(m_horizontalHeaders.at(column), boost::none, false, false);
+
+    HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeaders.at(column));
     OS_ASSERT(horizontalHeaderWidget);
     if (!heading.showCheckbox()) {
       horizontalHeaderWidget->m_checkBox->hide();
@@ -1394,78 +436,11 @@ QWidget* OSGridController::widgetAt(int row, int column) {
     horizontalHeaderWidget->addWidget(heading.widget());
   } else {
 
-    model::ModelObject mo = m_modelObjects[modelObjectRow];
+    model::ModelObject modelObject = m_modelObjects[modelRow];
 
-    //cellColor = getColor(mo);  TODO
-
-    QSharedPointer<BaseConcept> baseConcept = m_baseConcepts[column];
-
-    if (QSharedPointer<DataSourceAdapter> dataSource = baseConcept.dynamicCast<DataSourceAdapter>()) {
-      hasSubRows = true;
-      // here we magically create a multi-row column of any type that was constructed
-      //
-      // The details need to be fleshed out. The ideas all work, and it's rendering as expected,
-      // however the placeHolder isn't doing its job, it might need to be a QSpacer of some kind.
-      // The spacing around the list is a little awkward. The padding might need to be set to 0
-      // all the way around.
-
-      m_subrowCounter = 0;
-      auto subrowInherited = false;
-
-      for (auto& item : dataSource->source().items(mo)) {
-        if (item) {
-          // Is this widget's subrow inherited?
-          // Check the first column of each potential subrow
-          if (column == 1) {
-            for (auto obj : m_inheritedModelObjects) {
-              if (item->cast<model::ModelObject>().parent()) {
-                if (item->cast<model::ModelObject>().parent().get() == obj) {
-                  subrowInherited = true;
-                  break;
-                }
-              }
-            }
-          }
-          m_subrowsInherited.push_back(subrowInherited);
-          addWidget(makeWidget(item->cast<model::ModelObject>(), dataSource->innerConcept()), item->cast<model::ModelObject>(),
-                    baseConcept->isSelector() || dataSource->innerConcept()->isSelector());
-        } else {
-          addWidget(new QWidget(this->gridView()), boost::none, false);
-        }
-        m_subrowCounter++;
-      }
-
-      if (dataSource->source().wantsPlaceholder()) {
-        // use this space to put in a blank placeholder of some kind to make sure the
-        // widget is evenly laid out relative to its friends in the adjacent columns
-        addWidget(new QWidget(this->gridView()), boost::none, false);
-      }
-
-      if (dataSource->source().dropZoneConcept()) {
-        // it makes sense to me that the drop zone would need a reference to the parent containing object
-        // not an object the rest in the list was derived from
-        // this should also be working and doing what you want
-        addWidget(makeWidget(mo, dataSource->source().dropZoneConcept()), boost::none, false);
-      }
-
-      // right here you probably want some kind of container that's smart enough to know how to grow
-      // and shrink as the contained items change. But I don't know enough about the model
-      // to know how you'd want to do that. For now we make a fixed list that's got a VBoxLayout
-      //
-      // And think about this.
-    } else {
-      // This case is exactly what it used to do before the DataSource idea was added.
-
-      // just the one
-      addWidget(makeWidget(mo, baseConcept), mo, baseConcept->isSelector());
-    }
-  }
-
-  if (hasSubRows) {
-    // You need a holder, either by specifying a column which has a placeholder,
-    // or by specifying a column which has a DataSource DropZoneConcept
-    OS_ASSERT(!holders.empty());
-    holders.back()->setObjectName("InnerCellBottom");
+    wrapper->setGridController(this);
+    wrapper->setModelObject(modelObject);
+    wrapper->refresh();
   }
 
   return wrapper;
@@ -1482,7 +457,7 @@ void OSGridController::checkSelectedFields() {
     it = std::find(m_currentFields.begin(), m_currentFields.end(), m_customFields.at(j));
     if (it != m_currentFields.end()) {
       int index = std::distance(m_currentFields.begin(), it);
-      HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeader.at(index));
+      HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeaders.at(index));
       OS_ASSERT(horizontalHeaderWidget);
       horizontalHeaderWidget->m_checkBox->blockSignals(true);
       horizontalHeaderWidget->m_checkBox->setChecked(true);
@@ -1517,47 +492,49 @@ int OSGridController::rowCount() const {
 int OSGridController::columnCount() const {
   return m_baseConcepts.size();
 }
-
-QWidget* OSGridController::cell(int rowIndex, int columnIndex) {
+/*
+QWidget* OSGridController::cell(int gridRow, int columnIndex) {
   QWidget* widget = nullptr;
 
-  QLayoutItem* child = gridView()->itemAtPosition(rowIndex, columnIndex);
+  QLayoutItem* child = gridView()->itemAtPosition(gridRow, columnIndex);
   if (child) {
     widget = child->widget();
   }
 
   return widget;
 }
-
-model::ModelObject OSGridController::modelObject(int rowIndex) {
-  if (m_hasHorizontalHeader) {
-    OS_ASSERT(rowIndex > 0);
-    return m_modelObjects.at(rowIndex - 1);
-  } else {
-    return m_modelObjects.at(rowIndex);
-  }
+*/
+model::ModelObject OSGridController::modelObjectFromGridRow(int gridRow) {
+  return m_modelObjects.at(modelRowFromGridRow(gridRow));
 }
 
-int OSGridController::rowIndexFromModelIndex(int modelIndex) {
+int OSGridController::gridRowFromModelRow(int modelRow) {
   if (m_hasHorizontalHeader) {
-    return modelIndex + 1;
-  } else {
-    return modelIndex;
+    return modelRow + 1;
   }
+  return modelRow;
 }
 
-std::vector<QWidget*> OSGridController::row(int rowIndex) {
+int OSGridController::modelRowFromGridRow(int gridRow) {
+  if (m_hasHorizontalHeader) {
+    return gridRow - 1;
+  }
+  return gridRow;
+}
+
+/*
+std::vector<QWidget*> OSGridController::row(int gridRow) {
   std::vector<QWidget*> row;
 
   for (unsigned columnIndex = 0; columnIndex < m_currentFields.size(); columnIndex++) {
-    row.push_back(cell(rowIndex, columnIndex));
+    row.push_back(cell(gridRow, columnIndex));
   }
 
   return row;
 }
 
-void OSGridController::selectRow(int rowIndex, bool select) {
-  std::vector<QWidget*> row = this->row(rowIndex);
+void OSGridController::selectRow(int gridRow, bool select) {
+  std::vector<QWidget*> row = this->row(gridRow);
   for (auto widget : row) {
     auto button = qobject_cast<QPushButton*>(widget);
     if (!button) {
@@ -1568,8 +545,8 @@ void OSGridController::selectRow(int rowIndex, bool select) {
     button->blockSignals(false);
   }
 }
-
-void OSGridController::horizontalHeaderChecked(int index) {
+*/
+void OSGridController::onHorizontalHeaderChecked(int index) {
   // Push_back or erase the field from the user-selected fields
   auto checkBox = qobject_cast<QAbstractButton*>(m_horizontalHeaderBtnGrp->button(index));
   OS_ASSERT(checkBox);
@@ -1587,13 +564,11 @@ void OSGridController::horizontalHeaderChecked(int index) {
   setCustomCategoryAndFields();
 }
 
-void OSGridController::toggleUnits(bool displayIP) {
+void OSGridController::onToggleUnits(bool displayIP) {
   m_isIP = displayIP;
 }
 
 void OSGridController::onComboBoxIndexChanged(int index) {}
-
-void OSGridController::onItemSelected(OSItem* item) {}
 
 //bool OSGridController::selectRowByItem(OSItem * item, bool isSelected)
 //{
@@ -1603,7 +578,7 @@ void OSGridController::onItemSelected(OSItem* item) {}
 //  for (auto modelObject : m_modelObjects){
 //    OSItemId itemId = modelObjectToItemId(modelObject, false);
 //    if (item->itemId() == itemId){
-//      selectRow(rowIndexFromModelIndex(i), isSelected);
+//      selectRow(gridRowFromModelIndex(i), isSelected);
 //      success = true;
 //      break;
 //    }
@@ -1612,12 +587,12 @@ void OSGridController::onItemSelected(OSItem* item) {}
 //  return success;
 //}
 
-bool OSGridController::getRowIndexByItem(OSItem* item, int& rowIndex) {
+bool OSGridController::getgridRowByItem(OSItem* item, int& gridRow) {
   auto success = false;
-  rowIndex = -1;
+  gridRow = -1;
 
   for (auto modelObject : m_modelObjects) {
-    rowIndex++;
+    gridRow++;
     OSItemId itemId = modelObjectToItemId(modelObject, false);
     if (item->itemId() == itemId) {
       success = true;
@@ -1628,7 +603,7 @@ bool OSGridController::getRowIndexByItem(OSItem* item, int& rowIndex) {
   if (!success) {
     // At this point, none of the itemIds exactly matched,
     // let's try to match a subset.
-    rowIndex = -1;
+    gridRow = -1;
 
     QString handle(""), handle2("");
     QStringList strings = item->itemId().otherData().split(",");
@@ -1641,7 +616,7 @@ bool OSGridController::getRowIndexByItem(OSItem* item, int& rowIndex) {
     }
 
     for (auto modelObject : m_modelObjects) {
-      rowIndex++;
+      gridRow++;
       OSItemId itemId = modelObjectToItemId(modelObject, false);
       strings = itemId.otherData().split(",");
       if (strings.size() > 2) {
@@ -1661,15 +636,15 @@ bool OSGridController::getRowIndexByItem(OSItem* item, int& rowIndex) {
 
   if (success) {
     // We found the model index and must convert it to the row index
-    rowIndex = rowIndexFromModelIndex(rowIndex);
+    gridRow = gridRowFromModelRow(gridRow);
   } else {
     // We could never find a valid index
-    rowIndex = -1;
+    gridRow = -1;
   }
 
   return success;
 }
-
+/*
 OSItem* OSGridController::getSelectedItemFromModelSubTabView() {
   OSItem* item = nullptr;
 
@@ -1680,127 +655,103 @@ OSItem* OSGridController::getSelectedItemFromModelSubTabView() {
 
   return item;
 }
-
-void OSGridController::connectToModel() {
+*/
+void OSGridController::connectToModelSignals() {
   m_model.getImpl<model::detail::Model_Impl>().get()->addWorkspaceObject.connect<OSGridController, &OSGridController::onAddWorkspaceObject>(this);
   m_model.getImpl<model::detail::Model_Impl>().get()->removeWorkspaceObject.connect<OSGridController, &OSGridController::onRemoveWorkspaceObject>(
     this);
 }
 
-void OSGridController::disconnectFromModel() {
+void OSGridController::disconnectFromModelSignals() {
   m_model.getImpl<model::detail::Model_Impl>().get()->addWorkspaceObject.disconnect<OSGridController, &OSGridController::onAddWorkspaceObject>(this);
   m_model.getImpl<model::detail::Model_Impl>().get()->removeWorkspaceObject.disconnect<OSGridController, &OSGridController::onRemoveWorkspaceObject>(
     this);
 }
 
-void OSGridController::onSelectionCleared() {}
+void OSGridController::onSelectionCleared() {
+  m_objectSelector->clearSelection();
+}
 
 void OSGridController::onRemoveWorkspaceObject(const WorkspaceObject& object, const openstudio::IddObjectType& iddObjectType,
                                                const openstudio::UUID& handle) {
-  auto modelObject = object.cast<model::ModelObject>();
-  auto weHaveObject = false;
-
-  if (m_objectSelector->containsObject(modelObject)) {
-    m_objectSelector->objectRemoved(object.cast<model::ModelObject>());
-    weHaveObject = true;
-  }
-
-  //if (m_iddObjectType == iddObjectType) { TODO uncomment
-  // Update model list
-  std::vector<model::ModelObject>::iterator it;
-  it = std::find(m_modelObjects.begin(), m_modelObjects.end(), object.cast<model::ModelObject>());
-  if (it != m_modelObjects.end()) {
-    int index = std::distance(m_modelObjects.begin(), it);
-    OS_ASSERT(index >= 0);
-    m_modelObjects.erase(m_modelObjects.begin() + index);
-
-    // Update row
-    gridView()->requestRemoveRow(rowIndexFromModelIndex(index));
-  } else if (weHaveObject) {
-    // we know we are tracking this object, but it's not one of the row-major ones...
-    // must be a subrow... for now, not ideal, but let's queue a refresh of the grid
-    requestRefreshGrid();
-  }
-  //}
+  m_objectSelector->setObjectRemoved(handle);
 }
 
 void OSGridController::onAddWorkspaceObject(const WorkspaceObject& object, const openstudio::IddObjectType& iddObjectType,
                                             const openstudio::UUID& handle) {
-  //if (m_iddObjectType == iddObjectType) { TODO uncomment, currently used to update views with extensible dropzones, which need to issue their own signal to refresh
-  // Update model list
-  // m_modelObjects.push_back(object.cast<model::ModelObject>());
-  refreshModelObjects();
-
-  // Update row
-  gridView()->requestAddRow(rowCount() - 1);
-  //}
-}
-
-void OSGridController::onObjectRemoved(boost::optional<model::ParentObject> parent) {
-  //  if (parent) {
-  //    // We have a parent we can search for in our current list of modelObjects and just delete that 1 row
-  //    // TODO replace this with a by-row refresh only
-  //    this->requestRefreshGrid();
-  //  } else {
-  //    // We don't know which row needs to be redrawn, so we have to do the whole grid
-  //    this->requestRefreshGrid();
-  //  }
-
-  this->requestRefreshGrid();
-}
-
-void OSGridController::selectAllStateChanged(const int newState) const {
-  LOG(Debug, "Select all state changed: " << newState);
-
-  auto objectSelector = getObjectSelector();
-  if (newState == 0) {
-    objectSelector->clearSelection();
-  } else {
-    objectSelector->selectAll();
+  if (iddObjectType == m_iddObjectType) {
+    // note that object is not yet fully constructed
+    m_newModelObjects.insert(object.cast<model::ModelObject>());
+    QTimer::singleShot(0, this, &OSGridController::processNewModelObjects);
   }
 }
 
-void OSGridController::onInFocus(bool inFocus, bool /*hasData*/, int row, int column, boost::optional<int> subrow) {
-  // TODO: Why is hasData unused?
+void OSGridController::processNewModelObjects() {
+  for (const model::ModelObject& newModelObject : m_newModelObjects) {
+    m_modelObjects.push_back(newModelObject);
+    emit addRow(rowCount() - 1);
+  }
+  m_newModelObjects.clear();
+}
+
+void OSGridController::onSelectAllStateChanged(const int newState) const {
+  LOG(Debug, "Select all state changed: " << newState);
+
+  if (newState == 0) {
+    m_objectSelector->clearSelection();
+  } else {
+    m_objectSelector->selectAll();
+  }
+}
+
+void OSGridController::onInFocus(bool inFocus, bool hasData, int modelRow, int gridRow, int column, boost::optional<int> subrow) {
 
   // First thing to do is to check if row is 0, because that means that the apply button was clicked
-  if (row == 0 && this->m_hasHorizontalHeader) {
-    // Do great things
-    auto selectedRow = std::get<0>(m_selectedCellLocation);
-    auto selectedColumn = std::get<1>(m_selectedCellLocation);
-    auto selectedSubrow = std::get<2>(m_selectedCellLocation);
-    OS_ASSERT(selectedColumn == column);
+  if (gridRow == 0 && this->m_hasHorizontalHeader) {
+    // Set selected objects to the focused object's value for given column
+    auto focusedGridRow = std::get<0>(m_focusedCellLocation);
+    auto focusedModelRow = modelRowFromGridRow(focusedGridRow);
+    auto focusedColumn = std::get<1>(m_focusedCellLocation);
+    auto focusedSubrow = std::get<2>(m_focusedCellLocation);
 
-    m_selectedCellLocation = std::make_tuple(row, column, subrow);
+    if (focusedGridRow < 0) {
+      // something has gone wrong
+      return;
+    }
 
-    std::set<model::ModelObject> selectedObjects = this->m_objectSelector->getSelectedObjects();
+    OS_ASSERT(focusedColumn == column);
+
+    std::set<model::ModelObject> selectedObjects = this->m_objectSelector->selectedObjects();
+    boost::optional<model::ModelObject> focusedObject =
+      this->m_objectSelector->getObject(focusedModelRow, focusedGridRow, focusedColumn, focusedSubrow);
+    if (!focusedObject) {
+      // we don't have a focused object to apply values from
+      return;
+    }
 
     QSharedPointer<DataSourceAdapter> dataSource = m_baseConcepts[column].dynamicCast<DataSourceAdapter>();
-    if (selectedSubrow && dataSource) {
+    if (focusedSubrow && dataSource) {
       // Sub rows present, either in a widget, or in a row
       const DataSource& source = dataSource->source();
       QSharedPointer<BaseConcept> dropZoneConcept = source.dropZoneConcept();
-      boost::optional<model::ModelObject> object = this->m_objectSelector->getObject(selectedRow, selectedColumn, selectedSubrow);
-      if (object) {
-        for (auto modelObject : selectedObjects) {
-          // Don't set the chosen object when iterating through the selected objects
-          if (modelObject != object.get()) {
-            OS_ASSERT(dataSource.data()->innerConcept());
-            if (dropZoneConcept) {
-              // Widget has sub rows
-              setConceptValue(modelObject, object.get(), dropZoneConcept, dataSource.data()->innerConcept());
-            } else {
-              // Row has sub rows
-              setConceptValue(modelObject, object.get(), dataSource.data()->innerConcept());
-            }
+      for (auto modelObject : selectedObjects) {
+        // Don't set the chosen object when iterating through the selected objects
+        if (modelObject != focusedObject.get()) {
+          OS_ASSERT(dataSource.data()->innerConcept());
+          if (dropZoneConcept) {
+            // Widget has sub rows
+            setConceptValue(modelObject, focusedObject.get(), dropZoneConcept, dataSource.data()->innerConcept());
+          } else {
+            // Row has sub rows
+            setConceptValue(modelObject, focusedObject.get(), dataSource.data()->innerConcept());
           }
         }
       }
-    } else if (!selectedSubrow) {
+    } else if (!focusedSubrow) {
       for (auto modelObject : selectedObjects) {
         // Don't set the chosen object when iterating through the selected objects
-        if (modelObject != this->modelObject(selectedRow)) {
-          setConceptValue(modelObject, this->modelObject(selectedRow), m_baseConcepts[column]);
+        if (modelObject != focusedObject.get()) {
+          setConceptValue(modelObject, focusedObject.get(), m_baseConcepts[column]);
         }
       }
     } else {
@@ -1808,43 +759,32 @@ void OSGridController::onInFocus(bool inFocus, bool /*hasData*/, int row, int co
       OS_ASSERT(false);
     }
 
-    // Now refresh
-    gridView()->requestRefreshGrid();  // TODO this is heavy handed; each cell should update itself
-
   } else {
-    HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeader.at(column));
+    // not in a header row, an object was selected
+    OS_ASSERT(gridRow >= 0);
+
+    HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeaders.at(column));
     OS_ASSERT(horizontalHeaderWidget);
     auto button = horizontalHeaderWidget->m_pushButton;
     OS_ASSERT(button);
 
-    bool hasData = true;
-
     if (inFocus) {
-      m_selectedCellLocation = std::make_tuple(row, column, subrow);
-      auto widget = m_objectSelector->getWidget(row, column, subrow);
-      if (widget && qobject_cast<OSDropZone2*>(widget)) {
-        hasData = qobject_cast<OSDropZone2*>(widget)->hasData();
-      }
-
-      // if (hasData) {
+      m_focusedCellLocation = std::make_tuple(gridRow, column, subrow);
       button->setText("Apply to Selected");
-      // } else {
-      //   //button->setText("Clear Selected");
-      //   button->setText("Apply to Selected");
-      // }
     } else {
+      // do not reset m_focusedCellLocation here because the focused cell goes out of focus when the apply button is clicked
       button->setText("Apply to Selected");
     }
 
     m_applyToButtonStates.push_back(std::make_pair(column, inFocus && hasData));
 
-    QTimer::singleShot(0, this, SLOT(setApplyButtonState()));
+    QTimer::singleShot(0, this, &OSGridController::onSetApplyButtonState);
   }
 }
 
-void OSGridController::setApplyButtonState() {
+void OSGridController::onSetApplyButtonState() {
   for (auto pair : m_applyToButtonStates) {
-    HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeader.at(pair.first));
+    HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeaders.at(pair.first));
     OS_ASSERT(horizontalHeaderWidget);
     auto button = horizontalHeaderWidget->m_pushButton;
     OS_ASSERT(button);
@@ -1854,10 +794,50 @@ void OSGridController::setApplyButtonState() {
   m_applyToButtonStates.clear();
 }
 
-std::vector<model::ModelObject> OSGridController::selectedObjects() const {
-  const auto objs = this->getObjectSelector()->getSelectedObjects();
+std::set<model::ModelObject> OSGridController::selectorObjects() const {
+  return m_objectSelector->selectorObjects();
+}
 
-  return std::vector<model::ModelObject>(objs.cbegin(), objs.cend());
+std::set<model::ModelObject> OSGridController::selectableObjects() const {
+  return m_objectSelector->selectableObjects();
+}
+
+std::set<model::ModelObject> OSGridController::selectedObjects() const {
+  return m_objectSelector->selectedObjects();
+}
+
+void OSGridController::clearObjectSelector() {
+  m_objectSelector->clear();
+}
+
+std::function<bool(const model::ModelObject&)> OSGridController::objectFilter() const {
+  return m_objectSelector->objectFilter();
+}
+
+void OSGridController::setObjectFilter(const std::function<bool(const model::ModelObject&)>& t_filter) {
+  m_objectSelector->setObjectFilter(t_filter);
+}
+
+std::function<bool(const model::ModelObject&)> OSGridController::objectIsLocked() const {
+  return m_objectSelector->objectIsLocked();
+}
+
+void OSGridController::setObjectIsLocked(const std::function<bool(const model::ModelObject&)>& t_isLocked) {
+  m_objectSelector->setObjectIsLocked(t_isLocked);
+}
+
+QSharedPointer<BaseConcept> OSGridController::makeDataSourceAdapter(const QSharedPointer<BaseConcept>& t_inner,
+                                                                    const boost::optional<DataSource>& t_source) {
+  if (t_source) {
+    return QSharedPointer<BaseConcept>(new DataSourceAdapter(*t_source, t_inner));
+  } else {
+    // if there is no t_source passed in, we don't want to wrap, just pass through
+    return t_inner;
+  }
+}
+
+void OSGridController::resetBaseConcepts() {
+  m_baseConcepts.clear();
 }
 
 HorizontalHeaderPushButton::HorizontalHeaderPushButton(QWidget* parent) : QPushButton() {
@@ -1884,24 +864,6 @@ void HorizontalHeaderPushButton::focusOutEvent(QFocusEvent* e) {
   }
 
   QPushButton::focusOutEvent(e);
-}
-
-//ColumnSizer::mouseMoveEvent ( QMouseEvent * event )
-//{
-//  if( event->buttons == Qt::LeftButton ) {
-//
-//  }
-//}
-
-Holder::Holder(QWidget* parent) : QWidget(parent) {}
-
-Holder::~Holder() {}
-
-void Holder::paintEvent(QPaintEvent*) {
-  QStyleOption opt;
-  opt.init(this);
-  QPainter p(this);
-  style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
 
 HorizontalHeaderWidget::HorizontalHeaderWidget(const QString& fieldName, QWidget* parent)

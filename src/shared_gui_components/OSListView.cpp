@@ -75,6 +75,12 @@ OSListView::OSListView(bool scrollable, QWidget* parent)
   setSpacing(5);
 }
 
+OSListView::~OSListView() {
+  for (const auto& widgetItemPair : m_widgetItemPairs) {
+    disconnect(widgetItemPair.first, &QWidget::destroyed, this, &OSListView::removePair);
+  }
+}
+
 void OSListView::setHorizontalScrollBarAlwaysOn(bool alwaysOn) {
   if (!m_scrollable && !m_scrollArea) return;
 
@@ -171,8 +177,7 @@ void OSListView::insertItemView(int i) {
   m_widgetItemPairs.insert(std::make_pair(itemView, itemData));
 
   // For some reason, this needs to use the old-style connect on mac (exiting OS app crash)
-  bool isConnected = connect(itemView, SIGNAL(destroyed(QObject*)), this, SLOT(removePair(QObject*)));
-  OS_ASSERT(isConnected);
+  connect(itemView, &QWidget::destroyed, this, &OSListView::removePair);
 }
 
 void OSListView::removeItemView(int i) {
@@ -190,7 +195,10 @@ void OSListView::removeItemView(int i) {
 }
 
 void OSListView::removePair(QObject* object) {
-  m_widgetItemPairs.erase(m_widgetItemPairs.find(object));
+  auto it = m_widgetItemPairs.find(object);
+  if (it != m_widgetItemPairs.end()) {
+    m_widgetItemPairs.erase(it);
+  }
 }
 
 void OSListView::refreshItemView(int i) {

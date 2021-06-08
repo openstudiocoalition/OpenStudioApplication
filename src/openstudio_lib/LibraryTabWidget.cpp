@@ -73,8 +73,7 @@ LibraryTabWidget::LibraryTabWidget(QWidget* parent) : QWidget(parent) {
   // Default to hide
   m_removeButton->hide();
 
-  auto isConnected = connect(m_removeButton, SIGNAL(clicked(bool)), this, SIGNAL(removeButtonClicked(bool)));
-  OS_ASSERT(isConnected);
+  connect(m_removeButton, &QPushButton::clicked, this, &LibraryTabWidget::removeButtonClicked);
 
   auto hLayout = new QHBoxLayout();
   hLayout->setContentsMargins(0, 0, 0, 0);

@@ -77,10 +77,6 @@ class ConstructionAirBoundaryInspectorView : public ModelObjectInspectorView
 
   StandardsInformationConstructionWidget* m_standardsInformationWidget;
 
-  OSComboBox2* m_solarAndDaylightingMethod;
-
-  OSComboBox2* m_radiantExchangeMethod;
-
   OSComboBox2* m_airExchangeMethod;
 
   OSQuantityEdit2* m_simpleMixingAirChangesPerHour;

@@ -31,6 +31,8 @@
 #define SHAREDGUICOMPONENTS_OSCONCEPTS_HPP
 
 #include "FieldMethodTypedefs.hpp"
+#include "OSLineEdit.hpp"
+#include "OSLoadNamePixmapLineEdit.hpp"
 
 #include <openstudio/model/ModelObject.hpp>
 
@@ -293,8 +295,10 @@ class BaseConcept
  public:
   virtual ~BaseConcept() {}
 
-  BaseConcept(const Heading& t_heading, bool t_hasClickFocus = false) : m_heading(t_heading), m_selector(false), m_hasClickFocus(t_hasClickFocus) {}
+  BaseConcept(const Heading& t_heading, bool t_hasClickFocus = false)
+    : m_heading(t_heading), m_selector(false), m_parent(false), m_hasClickFocus(t_hasClickFocus) {}
 
+  // isSelector is true for checkbox cells in the select column
   bool isSelector() const {
     return m_selector;
   }
@@ -303,6 +307,16 @@ class BaseConcept
     m_selector = t_selector;
   }
 
+  // isParent is true for leftmost cells in a row with subrows
+  bool isParent() const {
+    return m_parent;
+  }
+
+  void setIsParent(const bool t_isParent) {
+    m_parent = t_isParent;
+  }
+
+  // hasClickFocus is true for elements that gain focus when clicked on
   bool hasClickFocus() const {
     return m_hasClickFocus;
   }
@@ -314,6 +328,7 @@ class BaseConcept
  private:
   Heading m_heading;
   bool m_selector;
+  bool m_parent;
   bool m_hasClickFocus;
 };
 
@@ -394,12 +409,12 @@ class CheckBoxConceptBoolReturnImpl : public CheckBoxConceptBoolReturn
 
   virtual ~CheckBoxConceptBoolReturnImpl() {}
 
-  virtual bool get(const ConceptProxy& t_obj) {
+  virtual bool get(const ConceptProxy& t_obj) override {
     DataSourceType obj = t_obj.cast<DataSourceType>();
     return m_getter(&obj);
   }
 
-  virtual bool set(const ConceptProxy& t_obj, bool value) {
+  virtual bool set(const ConceptProxy& t_obj, bool value) override {
     DataSourceType obj = t_obj.cast<DataSourceType>();
     return m_setter(&obj, value);
   }
@@ -420,10 +435,10 @@ class ChoiceConcept
   virtual std::vector<std::string> choices() = 0;
   virtual std::string get() = 0;
   virtual bool set(std::string value) = 0;
-  virtual void clear() {}
-  virtual bool isDefaulted() {
-    return false;
-  }
+  virtual void clear() = 0;
+  virtual bool isDefaulted() = 0;
+
+  // editable means the user can free enter text
   virtual bool editable() {
     return false;
   }
@@ -438,8 +453,8 @@ class RequiredChoiceConceptImpl : public ChoiceConcept
 {
  public:
   RequiredChoiceConceptImpl(std::function<std::string(ChoiceType)> toString, std::function<std::vector<ChoiceType>()> choices,
-                            std::function<ChoiceType()> getter, std::function<bool(ChoiceType)> setter,
-                            boost::optional<NoFailAction> reset = boost::none, boost::optional<BasicQuery> isDefaulted = boost::none)
+                            std::function<ChoiceType()> getter, std::function<bool(ChoiceType)> setter, boost::optional<NoFailAction> reset,
+                            boost::optional<BasicQuery> isDefaulted)
     : m_toString(toString), m_choices(choices), m_getter(getter), m_setter(setter), m_reset(reset), m_isDefaulted(isDefaulted) {}
 
   virtual ~RequiredChoiceConceptImpl() {}
@@ -541,7 +556,7 @@ class OptionalChoiceConceptImpl : public ChoiceConcept
  public:
   OptionalChoiceConceptImpl(std::function<std::string(ChoiceType)> toString, std::function<std::vector<ChoiceType>()> choices,
                             std::function<boost::optional<ChoiceType>()> getter, std::function<bool(ChoiceType)> setter,
-                            boost::optional<NoFailAction> reset = boost::none, bool editable = false)
+                            boost::optional<NoFailAction> reset, bool editable = false)
     : m_toString(toString), m_choices(choices), m_getter(getter), m_setter(setter), m_reset(reset), m_editable(editable) {}
 
   virtual ~OptionalChoiceConceptImpl() {}
@@ -627,6 +642,10 @@ class OptionalChoiceConceptImpl : public ChoiceConcept
     return m_editable;
   }
 
+  virtual bool isDefaulted() override {
+    return false;
+  }
+
  private:
   std::function<std::string(ChoiceType)> m_toString;
   std::function<std::vector<ChoiceType>()> m_choices;
@@ -644,8 +663,7 @@ class OptionalChoiceSaveDataSourceConceptImpl : public OptionalChoiceConceptImpl
  public:
   OptionalChoiceSaveDataSourceConceptImpl(std::shared_ptr<DataSourceType> dataSource, std::function<std::string(ChoiceType)> toString,
                                           std::function<std::vector<ChoiceType>()> choices, std::function<boost::optional<ChoiceType>()> getter,
-                                          std::function<bool(ChoiceType)> setter, boost::optional<NoFailAction> reset = boost::none,
-                                          bool editable = false)
+                                          std::function<bool(ChoiceType)> setter, boost::optional<NoFailAction> reset, bool editable = false)
     : OptionalChoiceConceptImpl<ChoiceType>(toString, choices, getter, setter, reset, editable), m_dataSource(dataSource) {}
 
   virtual ~OptionalChoiceSaveDataSourceConceptImpl() {}
@@ -670,9 +688,8 @@ class ComboBoxRequiredChoiceImpl : public ComboBoxConcept
  public:
   ComboBoxRequiredChoiceImpl(const Heading& t_heading, std::function<std::string(ChoiceType)> t_toString,
                              std::function<std::vector<ChoiceType>(DataSourceType*)> t_choices, std::function<ChoiceType(DataSourceType*)> t_getter,
-                             std::function<bool(DataSourceType*, ChoiceType)> t_setter,
-                             boost::optional<std::function<void(DataSourceType*)>> t_reset = boost::none,
-                             boost::optional<std::function<bool(DataSourceType*)>> t_defaulted = boost::none)
+                             std::function<bool(DataSourceType*, ChoiceType)> t_setter, boost::optional<std::function<void(DataSourceType*)>> t_reset,
+                             boost::optional<std::function<bool(DataSourceType*)>> t_defaulted)
     : ComboBoxConcept(t_heading),
       m_toString(t_toString),
       m_choices(t_choices),
@@ -685,11 +702,12 @@ class ComboBoxRequiredChoiceImpl : public ComboBoxConcept
 
   virtual std::shared_ptr<ChoiceConcept> choiceConcept(const ConceptProxy& obj) override {
     std::shared_ptr<DataSourceType> dataSource = std::shared_ptr<DataSourceType>(new DataSourceType(obj.cast<DataSourceType>()));
-    return std::shared_ptr<ChoiceConcept>(new RequiredChoiceSaveDataSourceConceptImpl<ChoiceType, DataSourceType>(
+    auto result = std::shared_ptr<ChoiceConcept>(new RequiredChoiceSaveDataSourceConceptImpl<ChoiceType, DataSourceType>(
       dataSource, m_toString, std::bind(m_choices, dataSource.get()), std::bind(m_getter, dataSource.get()),
       std::bind(m_setter, dataSource.get(), std::placeholders::_1),
       m_reset ? boost::optional<std::function<void()>>(std::bind(*m_reset, dataSource.get())) : boost::none,
       m_defaulted ? boost::optional<std::function<bool()>>(std::bind(*m_defaulted, dataSource.get())) : boost::none));
+    return result;
   }
 
  private:
@@ -708,8 +726,8 @@ class ComboBoxOptionalChoiceImpl : public ComboBoxConcept
   ComboBoxOptionalChoiceImpl(const Heading& t_heading, std::function<std::string(ChoiceType)> t_toString,
                              std::function<std::vector<ChoiceType>(DataSourceType*)> t_choices,
                              std::function<boost::optional<ChoiceType>(DataSourceType*)> t_getter,
-                             std::function<bool(DataSourceType*, ChoiceType)> t_setter,
-                             boost::optional<std::function<void(DataSourceType*)>> t_reset = boost::none, bool t_editable = false)
+                             std::function<bool(DataSourceType*, ChoiceType)> t_setter, boost::optional<std::function<void(DataSourceType*)>> t_reset,
+                             bool t_editable = false)
     : ComboBoxConcept(t_heading),
       m_toString(t_toString),
       m_choices(t_choices),
@@ -728,9 +746,10 @@ class ComboBoxOptionalChoiceImpl : public ComboBoxConcept
       resetAction = std::bind(m_reset.get(), dataSource.get());
     }
 
-    return std::make_shared<OptionalChoiceSaveDataSourceConceptImpl<ChoiceType, DataSourceType>>(
+    auto result = std::make_shared<OptionalChoiceSaveDataSourceConceptImpl<ChoiceType, DataSourceType>>(
       dataSource, m_toString, std::bind(m_choices, dataSource.get()), std::bind(m_getter, dataSource.get()),
       std::bind(m_setter, dataSource.get(), std::placeholders::_1), resetAction, m_editable);
+    return result;
   }
 
  private:
@@ -769,24 +788,24 @@ class ValueEditConceptImpl : public ValueEditConcept<ValueType>
 
   virtual ~ValueEditConceptImpl() {}
 
-  virtual ValueType get(const ConceptProxy& t_obj) {
+  virtual ValueType get(const ConceptProxy& t_obj) override {
     DataSourceType obj = t_obj.cast<DataSourceType>();
     return m_getter(&obj);
   }
 
-  virtual bool set(const ConceptProxy& t_obj, ValueType value) {
+  virtual bool set(const ConceptProxy& t_obj, ValueType value) override {
     DataSourceType obj = t_obj.cast<DataSourceType>();
     return m_setter(&obj, value);
   }
 
-  virtual void reset(const ConceptProxy& t_obj) {
+  virtual void reset(const ConceptProxy& t_obj) override {
     if (m_reset) {
       DataSourceType obj = t_obj.cast<DataSourceType>();
       (*m_reset)(&obj);
     }
   }
 
-  virtual bool isDefaulted(const ConceptProxy& t_obj) {
+  virtual bool isDefaulted(const ConceptProxy& t_obj) override {
     if (m_isDefaulted) {
       DataSourceType obj = t_obj.cast<DataSourceType>();
       return (*m_isDefaulted)(&obj);
@@ -826,12 +845,12 @@ class OptionalValueEditConceptImpl : public OptionalValueEditConcept<ValueType>
 
   virtual ~OptionalValueEditConceptImpl() {}
 
-  virtual boost::optional<ValueType> get(const ConceptProxy& t_obj) {
+  virtual boost::optional<ValueType> get(const ConceptProxy& t_obj) override {
     DataSourceType obj = t_obj.cast<DataSourceType>();
     return m_getter(&obj);
   }
 
-  virtual bool set(const ConceptProxy& t_obj, ValueType value) {
+  virtual bool set(const ConceptProxy& t_obj, ValueType value) override {
     DataSourceType obj = t_obj.cast<DataSourceType>();
     return m_setter(&obj, value);
   }
@@ -869,24 +888,24 @@ class ValueEditVoidReturnConceptImpl : public ValueEditVoidReturnConcept<ValueTy
 
   virtual ~ValueEditVoidReturnConceptImpl() {}
 
-  virtual ValueType get(const ConceptProxy& t_obj) {
+  virtual ValueType get(const ConceptProxy& t_obj) override {
     DataSourceType obj = t_obj.cast<DataSourceType>();
     return m_getter(&obj);
   }
 
-  virtual void set(const ConceptProxy& t_obj, ValueType value) {
+  virtual void set(const ConceptProxy& t_obj, ValueType value) override {
     DataSourceType obj = t_obj.cast<DataSourceType>();
     return m_setter(&obj, value);
   }
 
-  virtual void reset(const ConceptProxy& t_obj) {
+  virtual void reset(const ConceptProxy& t_obj) override {
     if (m_reset) {
       DataSourceType obj = t_obj.cast<DataSourceType>();
       (*m_reset)(&obj);
     }
   }
 
-  virtual bool isDefaulted(const ConceptProxy& t_obj) {
+  virtual bool isDefaulted(const ConceptProxy& t_obj) override {
     if (m_isDefaulted) {
       DataSourceType obj = t_obj.cast<DataSourceType>();
       return (*m_isDefaulted)(&obj);
@@ -926,12 +945,12 @@ class OptionalValueEditVoidReturnConceptImpl : public OptionalValueEditVoidRetur
 
   virtual ~OptionalValueEditVoidReturnConceptImpl() {}
 
-  virtual boost::optional<ValueType> get(const ConceptProxy& t_obj) {
+  virtual boost::optional<ValueType> get(const ConceptProxy& t_obj) override {
     DataSourceType obj = t_obj.cast<DataSourceType>();
     return m_getter(&obj);
   }
 
-  virtual void set(const ConceptProxy& t_obj, ValueType value) {
+  virtual void set(const ConceptProxy& t_obj, ValueType value) override {
     DataSourceType obj = t_obj.cast<DataSourceType>();
     return m_setter(&obj, value);
   }
@@ -943,104 +962,66 @@ class OptionalValueEditVoidReturnConceptImpl : public OptionalValueEditVoidRetur
 
 ///////////////////////////////////////////////////////////////////////////////////
 
+enum OSLineEditType
+{
+  OSLineEdit2Type,
+  OSLoadNamePixmapLineEditType
+};
+
 class NameLineEditConcept : public BaseConcept
 {
  public:
-  NameLineEditConcept(const Heading& t_heading, bool t_isInspectable, bool t_deleteObject, bool t_hasClickFocus = true)
-    : BaseConcept(t_heading, t_hasClickFocus), m_isInspectable(t_isInspectable), m_deleteObject(t_deleteObject) {}
+  NameLineEditConcept(const Heading& t_heading, OSLineEditType osLineEditType, bool t_isInspectable, bool t_hasClickFocus, bool t_isLocked)
+    : BaseConcept(t_heading, t_hasClickFocus), m_osLineEditType(osLineEditType), m_isInspectable(t_isInspectable), m_isLocked(t_isLocked) {}
 
   virtual ~NameLineEditConcept() {}
 
+  virtual OSLineEdit2Interface* makeWidget(QWidget* parent) = 0;
   virtual boost::optional<std::string> get(const ConceptProxy& obj, bool) = 0;
   virtual boost::optional<std::string> set(const ConceptProxy& obj, const std::string&) = 0;
   virtual bool setReturnBool(const ConceptProxy& obj, const std::string&) = 0;
   virtual void reset(const ConceptProxy& obj) = 0;
-  virtual bool readOnly() const = 0;
+  virtual bool isInherited(const ConceptProxy& obj) = 0;
+
+  OSLineEditType osLineEditType() const {
+    return m_osLineEditType;
+  }
   bool isInspectable() const {
     return m_isInspectable;
   }
-  bool deleteObject() const {
-    return m_deleteObject;
+  bool isLocked() const {
+    return m_isLocked;
   }
 
  private:
+  OSLineEditType m_osLineEditType;
   bool m_isInspectable;
-  bool m_deleteObject;
+  bool m_isLocked;
 };
 
 template <typename DataSourceType>
 class NameLineEditConceptImpl : public NameLineEditConcept
 {
  public:
-  NameLineEditConceptImpl(const Heading& t_heading, bool t_isInspectable, bool t_deleteObject,
+  NameLineEditConceptImpl(const Heading& t_heading, OSLineEditType t_osLineEditType, bool t_isInspectable, bool t_hasClickFocus, bool t_isLocked,
                           std::function<boost::optional<std::string>(DataSourceType*, bool)> t_getter,
                           std::function<boost::optional<std::string>(DataSourceType*, const std::string&)> t_setter,
-                          boost::optional<std::function<void(DataSourceType*)>> t_reset = boost::none)
-    : NameLineEditConcept(t_heading, t_isInspectable, t_deleteObject), m_getter(t_getter), m_setter(t_setter), m_reset(t_reset) {}
+                          boost::optional<std::function<void(DataSourceType*)>> t_reset,
+                          boost::optional<std::function<bool(DataSourceType*)>> t_isInherited)
+    : NameLineEditConcept(t_heading, t_osLineEditType, t_isInspectable, t_hasClickFocus, t_isLocked),
+      m_getter(t_getter),
+      m_setter(t_setter),
+      m_reset(t_reset),
+      m_isInherited(t_isInherited) {}
 
   virtual ~NameLineEditConceptImpl() {}
 
-  virtual boost::optional<std::string> get(const ConceptProxy& t_obj, bool value) override {
-    DataSourceType obj = t_obj.cast<DataSourceType>();
-    return m_getter(&obj, value);
-  }
-
-  virtual boost::optional<std::string> set(const ConceptProxy& t_obj, const std::string& value) override {
-    DataSourceType obj = t_obj.cast<DataSourceType>();
-    if (m_setter) {
-      return m_setter(&obj, value);
-    } else {
-      return boost::optional<std::string>();
+  virtual OSLineEdit2Interface* makeWidget(QWidget* parent) override {
+    if (osLineEditType() == OSLineEditType::OSLoadNamePixmapLineEditType) {
+      return new OSLoadNamePixmapLineEdit(parent);
     }
+    return new OSLineEdit2(parent);
   }
-
-  virtual bool setReturnBool(const ConceptProxy& t_obj, const std::string& value) override {
-    return set(t_obj, value).has_value();
-  }
-
-  virtual void reset(const ConceptProxy& t_obj) override {
-    if (m_reset) {
-      DataSourceType obj = t_obj.cast<DataSourceType>();
-      (*m_reset)(&obj);
-    }
-  }
-
-  virtual bool readOnly() const override {
-    return m_setter ? false : true;
-  }
-
- private:
-  std::function<boost::optional<std::string>(DataSourceType*, bool)> m_getter;
-  std::function<boost::optional<std::string>(DataSourceType*, const std::string&)> m_setter;
-  boost::optional<std::function<void(DataSourceType*)>> m_reset;
-};
-
-///////////////////////////////////////////////////////////////////////////////////
-
-class LoadNameConcept : public BaseConcept
-{
- public:
-  LoadNameConcept(const Heading& t_heading, bool t_hasClickFocus = true) : BaseConcept(t_heading, t_hasClickFocus) {}
-
-  virtual ~LoadNameConcept() {}
-
-  virtual boost::optional<std::string> get(const ConceptProxy& obj, bool) = 0;
-  virtual boost::optional<std::string> set(const ConceptProxy& obj, const std::string&) = 0;
-  virtual bool setReturnBool(const ConceptProxy& obj, const std::string&) = 0;
-  virtual void reset(const ConceptProxy& obj) = 0;
-  virtual bool readOnly() const = 0;
-};
-
-template <typename DataSourceType>
-class LoadNameConceptImpl : public LoadNameConcept
-{
- public:
-  LoadNameConceptImpl(const Heading& t_heading, std::function<boost::optional<std::string>(DataSourceType*, bool)> t_getter,
-                      std::function<boost::optional<std::string>(DataSourceType*, const std::string&)> t_setter,
-                      boost::optional<std::function<void(DataSourceType*)>> t_reset = boost::none)
-    : LoadNameConcept(t_heading), m_getter(t_getter), m_setter(t_setter), m_reset(t_reset) {}
-
-  virtual ~LoadNameConceptImpl() {}
 
   virtual boost::optional<std::string> get(const ConceptProxy& t_obj, bool value) override {
     DataSourceType obj = t_obj.cast<DataSourceType>();
@@ -1067,14 +1048,20 @@ class LoadNameConceptImpl : public LoadNameConcept
     }
   }
 
-  virtual bool readOnly() const override {
-    return m_setter ? false : true;
+  virtual bool isInherited(const ConceptProxy& t_obj) override {
+    bool result = false;
+    if (m_isInherited) {
+      DataSourceType obj = t_obj.cast<DataSourceType>();
+      result = (*m_isInherited)(&obj);
+    }
+    return result;
   }
 
  private:
   std::function<boost::optional<std::string>(DataSourceType*, bool)> m_getter;
   std::function<boost::optional<std::string>(DataSourceType*, const std::string&)> m_setter;
   boost::optional<std::function<void(DataSourceType*)>> m_reset;
+  boost::optional<std::function<bool(DataSourceType*)>> m_isInherited;
 };
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -1132,24 +1119,24 @@ class QuantityEditConceptImpl : public QuantityEditConcept<ValueType>
 
   virtual ~QuantityEditConceptImpl() {}
 
-  virtual ValueType get(const ConceptProxy& t_obj) {
+  virtual ValueType get(const ConceptProxy& t_obj) override {
     DataSourceType obj = t_obj.cast<DataSourceType>();
     return m_getter(&obj);
   }
 
-  virtual bool set(const ConceptProxy& t_obj, ValueType value) {
+  virtual bool set(const ConceptProxy& t_obj, ValueType value) override {
     DataSourceType obj = t_obj.cast<DataSourceType>();
     return m_setter(&obj, value);
   }
 
-  virtual void reset(const ConceptProxy& t_obj) {
+  virtual void reset(const ConceptProxy& t_obj) override {
     if (m_reset) {
       DataSourceType obj = t_obj.cast<DataSourceType>();
       (*m_reset)(&obj);
     }
   }
 
-  virtual bool isDefaulted(const ConceptProxy& t_obj) {
+  virtual bool isDefaulted(const ConceptProxy& t_obj) override {
     if (m_isDefaulted) {
       DataSourceType obj = t_obj.cast<DataSourceType>();
       return (*m_isDefaulted)(&obj);
@@ -1211,12 +1198,12 @@ class OptionalQuantityEditConceptImpl : public OptionalQuantityEditConcept<Value
 
   virtual ~OptionalQuantityEditConceptImpl() {}
 
-  virtual boost::optional<ValueType> get(const ConceptProxy& t_obj) {
+  virtual boost::optional<ValueType> get(const ConceptProxy& t_obj) override {
     DataSourceType obj = t_obj.cast<DataSourceType>();
     return m_getter(&obj);
   }
 
-  virtual bool set(const ConceptProxy& t_obj, ValueType value) {
+  virtual bool set(const ConceptProxy& t_obj, ValueType value) override {
     DataSourceType obj = t_obj.cast<DataSourceType>();
     return m_setter(&obj, value);
   }
@@ -1280,24 +1267,24 @@ class QuantityEditVoidReturnConceptImpl : public QuantityEditVoidReturnConcept<V
 
   virtual ~QuantityEditVoidReturnConceptImpl() {}
 
-  virtual ValueType get(const ConceptProxy& t_obj) {
+  virtual ValueType get(const ConceptProxy& t_obj) override {
     DataSourceType obj = t_obj.cast<DataSourceType>();
     return m_getter(&obj);
   }
 
-  virtual void set(const ConceptProxy& t_obj, ValueType value) {
+  virtual void set(const ConceptProxy& t_obj, ValueType value) override {
     DataSourceType obj = t_obj.cast<DataSourceType>();
     return m_setter(&obj, value);
   }
 
-  virtual void reset(const ConceptProxy& t_obj) {
+  virtual void reset(const ConceptProxy& t_obj) override {
     if (m_reset) {
       DataSourceType obj = t_obj.cast<DataSourceType>();
       (*m_reset)(&obj);
     }
   }
 
-  virtual bool isDefaulted(const ConceptProxy& t_obj) {
+  virtual bool isDefaulted(const ConceptProxy& t_obj) override {
     if (m_isDefaulted) {
       DataSourceType obj = t_obj.cast<DataSourceType>();
       return (*m_isDefaulted)(&obj);
@@ -1361,12 +1348,12 @@ class OptionalQuantityEditVoidReturnConceptImpl : public OptionalQuantityEditVoi
 
   virtual ~OptionalQuantityEditVoidReturnConceptImpl() {}
 
-  virtual boost::optional<ValueType> get(const ConceptProxy& t_obj) {
+  virtual boost::optional<ValueType> get(const ConceptProxy& t_obj) override {
     DataSourceType obj = t_obj.cast<DataSourceType>();
     return m_getter(&obj);
   }
 
-  virtual void set(const ConceptProxy& t_obj, ValueType value) {
+  virtual void set(const ConceptProxy& t_obj, ValueType value) override {
     DataSourceType obj = t_obj.cast<DataSourceType>();
     return m_setter(&obj, value);
   }
@@ -1388,6 +1375,8 @@ class DropZoneConcept : public BaseConcept
   virtual boost::optional<model::ModelObject> get(const ConceptProxy& obj) = 0;
   virtual bool set(const ConceptProxy& obj, const model::ModelObject&) = 0;
   virtual void reset(const ConceptProxy& obj) = 0;
+  virtual bool isDefaulted(const ConceptProxy& obj) = 0;
+  virtual std::vector<model::ModelObject> otherObjects(const ConceptProxy& obj) = 0;
 };
 
 template <typename ValueType, typename DataSourceType>
@@ -1395,14 +1384,15 @@ class DropZoneConceptImpl : public DropZoneConcept
 {
  public:
   DropZoneConceptImpl(const Heading& t_heading, std::function<boost::optional<ValueType>(DataSourceType*)> t_getter,
-                      std::function<bool(DataSourceType*, const ValueType&)> t_setter,
-                      boost::optional<std::function<void(DataSourceType*)>> t_reset = boost::none)
-    : DropZoneConcept(t_heading), m_getter(t_getter), m_setter(t_setter), m_reset(t_reset) {
-    //boost::optional<NoFailAction> resetAction;
-    //if (m_reset) {
-    //  resetAction = std::bind(m_reset.get(), dataSource.get());
-    //}
-  }
+                      std::function<bool(DataSourceType*, const ValueType&)> t_setter, boost::optional<std::function<void(DataSourceType*)>> t_reset,
+                      boost::optional<std::function<bool(DataSourceType*)>> t_isDefaulted,
+                      boost::optional<std::function<std::vector<model::ModelObject>(DataSourceType*)>> t_otherObjects)
+    : DropZoneConcept(t_heading),
+      m_getter(t_getter),
+      m_setter(t_setter),
+      m_reset(t_reset),
+      m_isDefaulted(t_isDefaulted),
+      m_otherObjects(t_otherObjects) {}
 
   virtual ~DropZoneConceptImpl() {}
 
@@ -1426,6 +1416,14 @@ class DropZoneConceptImpl : public DropZoneConcept
     resetImpl(obj);
   }
 
+  virtual bool isDefaulted(const ConceptProxy& obj) override {
+    return isDefaultedImpl(obj);
+  }
+
+  virtual std::vector<model::ModelObject> otherObjects(const ConceptProxy& obj) override {
+    return otherObjectsImpl(obj);
+  }
+
   virtual boost::optional<ValueType> getImpl(const ConceptProxy& t_obj) {
     if (m_getter) {
       DataSourceType obj = t_obj.cast<DataSourceType>();
@@ -1447,10 +1445,30 @@ class DropZoneConceptImpl : public DropZoneConcept
     }
   }
 
+  virtual bool isDefaultedImpl(const ConceptProxy& t_obj) {
+    bool result = false;
+    if (m_isDefaulted) {
+      DataSourceType obj = t_obj.cast<DataSourceType>();
+      result = (*m_isDefaulted)(&obj);
+    }
+    return result;
+  }
+
+  virtual std::vector<model::ModelObject> otherObjectsImpl(const ConceptProxy& t_obj) {
+    std::vector<model::ModelObject> result;
+    if (m_otherObjects) {
+      DataSourceType obj = t_obj.cast<DataSourceType>();
+      result = (*m_otherObjects)(&obj);
+    }
+    return result;
+  }
+
  private:
   std::function<boost::optional<ValueType>(DataSourceType*)> m_getter;
   std::function<bool(DataSourceType*, const ValueType&)> m_setter;
   boost::optional<std::function<void(DataSourceType*)>> m_reset;
+  boost::optional<std::function<bool(DataSourceType*)>> m_isDefaulted;
+  boost::optional<std::function<std::vector<model::ModelObject>(DataSourceType*)>> m_otherObjects;
 };
 
 ///////////////////////////////////////////////////////////////////////////////////

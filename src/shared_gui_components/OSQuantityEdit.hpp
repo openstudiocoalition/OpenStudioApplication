@@ -57,9 +57,21 @@ class QuantityLineEdit : public QLineEdit
 
   virtual ~QuantityLineEdit() {}
 
-  void enableClickFocus() {
-    this->m_hasClickFocus = true;
-  }
+  void enableClickFocus();
+
+  void disableClickFocus();
+
+  bool hasData() const;
+
+  bool focused() const;
+
+  void setDefaultedAndAuto(bool defaulted, bool isAuto);
+
+  bool locked() const;
+
+  void setLocked(bool locked);
+
+  void updateStyle();
 
  protected:
   virtual void focusInEvent(QFocusEvent* e) override;
@@ -68,13 +80,19 @@ class QuantityLineEdit : public QLineEdit
 
  private:
   bool m_hasClickFocus = false;
+  bool m_defaulted = false;
+  bool m_auto = false;
+  bool m_focused = false;
+  bool m_locked = false;
 
  signals:
 
-  void inFocus(bool inFocus);
+  void inFocus(bool inFocus, bool hasData);
 };
 
-class OSQuantityEdit2 : public QWidget, public Nano::Observer
+class OSQuantityEdit2
+  : public QWidget
+  , public Nano::Observer
 {
   Q_OBJECT
  public:
@@ -84,13 +102,13 @@ class OSQuantityEdit2 : public QWidget, public Nano::Observer
 
   void enableClickFocus();
 
-  QDoubleValidator* doubleValidator() {
-    return m_doubleValidator;
-  }
+  void disableClickFocus();
 
-  bool hasData() {
-    return !this->m_lineEdit->text().isEmpty();
-  }
+  bool locked() const;
+
+  void setLocked(bool locked);
+
+  QDoubleValidator* doubleValidator();
 
   void bind(bool isIP, const model::ModelObject& modelObject, DoubleGetter get, boost::optional<DoubleSetter> set = boost::none,
             boost::optional<NoFailAction> reset = boost::none, boost::optional<NoFailAction> autosize = boost::none,
@@ -130,9 +148,12 @@ class OSQuantityEdit2 : public QWidget, public Nano::Observer
 
   void onModelObjectRemove(const Handle& handle);
 
-  void onInFocus(bool hasFocus);
-
  private:
+  bool defaulted() const;
+  bool autosized() const;
+  bool autocalculated() const;
+  void updateStyle();
+
   QuantityLineEdit* m_lineEdit;
   QLabel* m_units;
   QString m_text = "UNINITIALIZED";

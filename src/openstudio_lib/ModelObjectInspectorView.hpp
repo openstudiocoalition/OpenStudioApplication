@@ -61,7 +61,7 @@ class ModelObjectInspectorView : public OSInspectorView
   virtual bool supportsMultipleObjectSelection() const {
     return false;
   }
-  virtual std::vector<model::ModelObject> selectedObjects() const;
+  virtual std::set<model::ModelObject> selectedObjects() const;
   void update();
 
  signals:

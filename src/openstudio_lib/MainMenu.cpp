@@ -77,7 +77,7 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, QWidget* parent) : QMenuBar(parent)
   connect(action, &QAction::triggered, this, &MainMenu::saveFileClicked);
 
   action = new QAction(tr("Save &As"), this);
-  action->setShortcut(QKeySequence(QKeySequence::SaveAs));
+  action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_S));
   m_fileMenu->addAction(action);
   connect(action, &QAction::triggered, this, &MainMenu::saveAsFileClicked);
 

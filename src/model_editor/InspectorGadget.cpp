@@ -31,7 +31,6 @@
 
 #include "BridgeClasses.hpp"
 #include "IGLineEdit.hpp"
-#include "IGPrecisionDialog.hpp"
 #include "IGSpinBoxes.hpp"
 
 #include <openstudio/model/Model.hpp>
@@ -115,8 +114,6 @@ InspectorGadget::InspectorGadget(QWidget* parent, int indent, ComboHighlightBrid
     m_showComments(false),
     m_showAllFields(true),
     m_recursive(false),
-    m_precision(1000),
-    m_floatDisplayType(UNFORMATED),
     m_unitSystem(IP),
     m_workspaceObjectChanged(false)
 //m_workspaceObjs(std::vector<openstudio::OptionalWorkspaceObject>&())
@@ -134,8 +131,8 @@ InspectorGadget::InspectorGadget(QWidget* parent, int indent, ComboHighlightBrid
   connectSignalsAndSlots();
 }
 
-InspectorGadget::InspectorGadget(WorkspaceObject& workspaceObj, int indent, ComboHighlightBridge* bridge, int precision, FLOAT_DISPLAY style,
-                                 bool showComments, bool showAllFields, bool recursive, bool locked)
+InspectorGadget::InspectorGadget(WorkspaceObject& workspaceObj, int indent, ComboHighlightBridge* bridge, bool showComments, bool showAllFields,
+                                 bool recursive, bool locked)
   : QWidget(nullptr),
     m_layout(nullptr),
     m_deleteHandle(nullptr),
@@ -148,8 +145,6 @@ InspectorGadget::InspectorGadget(WorkspaceObject& workspaceObj, int indent, Comb
     m_showComments(showComments),
     m_showAllFields(showAllFields),
     m_recursive(recursive),
-    m_precision(precision),
-    m_floatDisplayType(style),
     m_unitSystem(IP),
     m_workspaceObjectChanged(false)
 //m_workspaceObjs(std::vector<openstudio::OptionalWorkspaceObject>&())
@@ -269,12 +264,6 @@ void InspectorGadget::clear(bool recursive) {
   //m_workspaceObj.reset();
 }
 
-void InspectorGadget::setPrecision(unsigned int prec, FLOAT_DISPLAY dispType) {
-  m_floatDisplayType = dispType;
-  m_precision = prec;
-  rebuild(true);
-}
-
 void InspectorGadget::layoutItems(QVBoxLayout* masterLayout, QWidget* parent, bool hideChildren) {
   IddObject iddObj = m_workspaceObj->iddObject();
   std::string comment = m_workspaceObj->comment();
@@ -373,8 +362,7 @@ void InspectorGadget::layoutItems(QVBoxLayout* masterLayout, QWidget* parent, bo
           showComment = m_showComments;
           showFields = m_showAllFields;
         }
-        auto igChild =
-          new InspectorGadget(elem, m_indent, m_comboBridge, m_precision, m_floatDisplayType, showComment, showFields, m_recursive, m_locked);
+        auto igChild = new InspectorGadget(elem, m_indent, m_comboBridge, showComment, showFields, m_recursive, m_locked);
 
         igChild->setUnitSystem(m_unitSystem);
         layout->addWidget(igChild);
@@ -586,6 +574,17 @@ void InspectorGadget::layoutText(QVBoxLayout* layout, QWidget* parent, openstudi
           text->setMax(d);
         }
       }
+      if (prop.numericDefault) {
+        double d = *(prop.numericDefault);
+        if (m_unitSystem == IP) {
+          OptionalQuantity defQ = convert(Quantity(d, u_si), u);
+          if (defQ) {
+            text->setDefault(defQ->value());
+          }
+        } else {
+          text->setDefault(d);
+        }
+      }
 
       text->setValidator(valid);
 
@@ -709,20 +708,6 @@ void InspectorGadget::layoutText(QVBoxLayout* layout, QWidget* parent, openstudi
       vbox->addLayout(hardSizedLayout);
     }
 
-    if (m_floatDisplayType != UNFORMATED) {
-      auto btn = new QPushButton(this);
-      QIcon ico(":images/switch.png");
-      btn->setIcon(ico);
-      btn->setStyleSheet(" margin: 0px; border: 0px;");
-
-      hardSizedLayout->addWidget(btn);
-
-      btn->setProperty(s_indexSlotName, index);
-      connect(btn, &QPushButton::clicked, text, &IGLineEdit::togglePrec);
-      text->setPrec(m_precision);
-      text->setStyle(m_floatDisplayType);
-      text->setDisplay(true);
-    }
   } else  //not a number
   {
     vbox->addWidget(text);
@@ -771,8 +756,8 @@ void InspectorGadget::layoutComboBox(QVBoxLayout* layout, QWidget* parent, opens
       combo->addItem("");
     }
 
-    for (const std::string& name : names) {
-      combo->addItem(name.c_str());
+    for (const std::string& thisName : names) {
+      combo->addItem(thisName.c_str());
     }
   } else {
     if (!prop.required) {
@@ -891,6 +876,7 @@ void InspectorGadget::IGdefaultRemoved(const QString&) {
   QObject* source = sender();
   QWidget* w = dynamic_cast<QWidget*>(source);
   w->setStyleSheet("color:black");
+  // using old style disconnect here
   disconnect(source, nullptr, this, SLOT(IGdefaultRemoved(const QString&)));
 }
 
@@ -1013,31 +999,6 @@ void InspectorGadget::commentConfig(bool showComments) {
   }
 }
 
-void InspectorGadget::setPrec() {
-  IGPrecisionDialog* source = dynamic_cast<IGPrecisionDialog*>(sender());
-  OS_ASSERT(source);
-
-  if (source->sciBtn->isChecked()) {
-    bool ok;
-    int val = source->lineEdit->text().toInt(&ok);
-    if (!ok) {
-      val = 2;
-      source->lineEdit->setText("2");
-    }
-    setPrecision(val, SCIENTIFIC);
-  } else if (source->fixedBtn->isChecked()) {
-    bool ok;
-    int val = source->lineEdit->text().toInt(&ok);
-    if (!ok) {
-      val = 2;
-      source->lineEdit->setText("2");
-    }
-    setPrecision(val, FIXED);
-  } else {
-    setPrecision(1000, UNFORMATED);
-  }
-}
-
 void InspectorGadget::addExtensible() {
   disconnectWorkspaceObjectSignals();
   m_workspaceObj->pushExtensibleGroup();
@@ -1102,7 +1063,7 @@ void InspectorGadget::setRecursive(bool recursive) {
 void InspectorGadget::onWorkspaceObjectChanged() {
   m_workspaceObjectChanged = true;
 
-  QTimer::singleShot(0, this, SLOT(onTimeout()));
+  QTimer::singleShot(0, this, &InspectorGadget::onTimeout);
 }
 
 void InspectorGadget::onTimeout() {
@@ -1118,7 +1079,7 @@ void InspectorGadget::onWorkspaceObjectRemoved(const openstudio::Handle&) {
   m_workspaceObjectChanged = true;
   clear(true);
 
-  QTimer::singleShot(0, this, SLOT(onTimeout()));
+  QTimer::singleShot(0, this, &InspectorGadget::onTimeout);
 }
 
 void InspectorGadget::removeWorkspaceObject(const openstudio::Handle& handle) {

@@ -54,17 +54,17 @@ class OSUnsignedEdit2 : public QLineEdit
 
   virtual ~OSUnsignedEdit2();
 
-  void enableClickFocus() {
-    this->m_hasClickFocus = true;
-  }
+  void enableClickFocus();
 
-  bool hasData() {
-    return !this->text().isEmpty();
-  }
+  void disableClickFocus();
 
-  QIntValidator* intValidator() {
-    return m_intValidator;
-  }
+  bool hasData();
+
+  bool locked() const;
+
+  void setLocked(bool locked);
+
+  QIntValidator* intValidator();
 
   void bind(const model::ModelObject& modelObject, UnsignedGetter get, boost::optional<UnsignedSetter> set = boost::none,
             boost::optional<NoFailAction> reset = boost::none, boost::optional<NoFailAction> autosize = boost::none,
@@ -106,6 +106,11 @@ class OSUnsignedEdit2 : public QLineEdit
   void onModelObjectRemove(const Handle& handle);
 
  private:
+  bool defaulted() const;
+  bool autosized() const;
+  bool autocalculated() const;
+  void updateStyle();
+
   boost::optional<model::ModelObject> m_modelObject;                    // will be set if attached to ModelObject or ModelExtensibleGroup
   boost::optional<model::ModelExtensibleGroup> m_modelExtensibleGroup;  // will only be set if attached to ModelExtensibleGroup
   boost::optional<UnsignedGetter> m_get;
@@ -120,6 +125,9 @@ class OSUnsignedEdit2 : public QLineEdit
 
   bool m_isScientific;
   bool m_hasClickFocus = false;
+  bool m_locked = false;
+  bool m_focused = false;
+
   boost::optional<int> m_precision;
   QString m_text = "UNINITIALIZED";
   QIntValidator* m_intValidator = nullptr;

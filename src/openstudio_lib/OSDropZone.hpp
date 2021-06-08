@@ -52,6 +52,8 @@ class QPushButton;
 class QScrollArea;
 class QLabel;
 
+class OpenStudioLibFixture;
+
 namespace openstudio {
 
 class OSItem;
@@ -61,7 +63,9 @@ class OSVectorController;
 // that looks different because it is initially designed to go
 // in a grid.  It also works differently because it binds to function pointers.
 // There is no use of VectorController like in OSDropZone.
-class OSDropZone2 : public QWidget, public Nano::Observer
+class OSDropZone2
+  : public QWidget
+  , public Nano::Observer
 {
   Q_OBJECT
 
@@ -70,21 +74,17 @@ class OSDropZone2 : public QWidget, public Nano::Observer
 
   ~OSDropZone2();
 
-  void enableClickFocus() {
-    this->setFocusPolicy(Qt::ClickFocus);
-  }
-  bool hasData() {
-    return !this->m_label->text().isEmpty();
-  }
-  void setDeleteObject(bool deleteObject) {
-    m_deleteObject = deleteObject;
-  }
-  bool deleteObject() {
-    return m_deleteObject;
-  }
-  void setIsDefaulted(bool defaulted);
-  bool isDefaulted();
-  void bind(model::ModelObject& modelObject, OptionalModelObjectGetter get, ModelObjectSetter set, boost::optional<NoFailAction> reset = boost::none);
+  void enableClickFocus();
+  void disableClickFocus();
+  bool hasData();
+  bool locked() const;
+  void setLocked(bool locked);
+  void setDeleteObject(bool deleteObject);
+  bool deleteObject();
+
+  void bind(const model::ModelObject& modelObject, OptionalModelObjectGetter get, ModelObjectSetter set,
+            boost::optional<NoFailAction> reset = boost::none, boost::optional<ModelObjectIsDefaulted> isDefaulted = boost::none,
+            boost::optional<OtherModelObjects> otherObjects = boost::none);
 
   void unbind();
 
@@ -107,23 +107,38 @@ class OSDropZone2 : public QWidget, public Nano::Observer
  private slots:
 
   void refresh();
+  void onModelObjectRemove(const Handle& handle);
   void dragEnterEvent(QDragEnterEvent* event) override;
   void dropEvent(QDropEvent* event) override;
 
  private:
+  // For testing
+  friend class ::OpenStudioLibFixture;
+
+  void updateStyle();
   void makeItem();
+  boost::optional<model::ModelObject> updateGetterResult();
 
   boost::optional<OptionalModelObjectGetter> m_get;
   boost::optional<ModelObjectSetter> m_set;
   boost::optional<NoFailAction> m_reset;
+  boost::optional<ModelObjectIsDefaulted> m_isDefaulted;
+  boost::optional<OtherModelObjects> m_otherObjects;
   boost::optional<model::ModelObject> m_modelObject;
+  boost::optional<model::ModelObject> m_getterResult;
+  std::vector<model::ModelObject> m_otherModelObjects;
+  bool m_hasClickFocus = false;
+  bool m_focused = false;
+  bool m_locked = false;
   //QString m_text;
   OSItem* m_item = nullptr;
   bool m_deleteObject = false;
   QLabel* m_label;
 };
 
-class OSDropZone : public QWidget, public Nano::Observer
+class OSDropZone
+  : public QWidget
+  , public Nano::Observer
 {
   Q_OBJECT
 
@@ -233,7 +248,9 @@ class OSItemDropZone : public QWidget
 // This is a version of OSDropZone that works with QGraphicsScene
 // as opposed to QWidget.  Much of the custom drawing in the HVAC
 // interface is done with QGraphicsScene.
-class OSDropZoneItem : public QGraphicsObject, public Nano::Observer
+class OSDropZoneItem
+  : public QGraphicsObject
+  , public Nano::Observer
 {
   Q_OBJECT;
 

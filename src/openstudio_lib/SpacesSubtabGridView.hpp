@@ -129,6 +129,7 @@ class SpacesSubtabGridView : public GridViewSubTab
   void filterChanged();
 
   // All these sets will store the objects that DO NEED to be hidden
+  // These objects should be the selector type objects
   // So if the set is empty -> show all
   std::set<openstudio::model::ModelObject> m_objectsFilteredByStory;
 
@@ -149,6 +150,8 @@ class SpacesSubtabGridView : public GridViewSubTab
   std::set<openstudio::model::ModelObject> m_objectsFilteredBySurfaceType;
 
   std::set<openstudio::model::ModelObject> m_objectsFilteredByInteriorPartitionGroup;
+
+  std::set<openstudio::model::ModelObject> m_objectsFilteredByLoadType;
 
   QGridLayout* m_filterGridLayout = nullptr;
 

@@ -385,7 +385,7 @@ void ModelObjectTreeItem::refreshTree() {
 
     if (!modelObjectTreeItem->isDirty()) {
       modelObjectTreeItem->makeDirty();
-      QTimer::singleShot(0, modelObjectTreeItem, SLOT(refresh()));
+      QTimer::singleShot(0, modelObjectTreeItem, &ModelObjectTreeItem::refresh);
     }
   }
 }
@@ -436,8 +436,8 @@ void ModelObjectTreeItem::changeRelationship(int index, Handle newHandle, Handle
       }
       break;
     case IddObjectType::OS_Space:
-      if (index == OS_SpaceFields::BuildingStoryName || index == OS_SpaceFields::SpaceTypeName || index == OS_SpaceFields::ThermalZoneName ||
-          index == OS_SpaceFields::DesignSpecificationOutdoorAirObjectName) {
+      if (index == OS_SpaceFields::BuildingStoryName || index == OS_SpaceFields::SpaceTypeName || index == OS_SpaceFields::ThermalZoneName
+          || index == OS_SpaceFields::DesignSpecificationOutdoorAirObjectName) {
         refreshTree();
       }
       break;

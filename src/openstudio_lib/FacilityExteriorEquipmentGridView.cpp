@@ -31,7 +31,9 @@
 
 #include "OSItemSelectorButtons.hpp"
 
+#include "../shared_gui_components/OSCheckBox.hpp"
 #include "../shared_gui_components/OSGridView.hpp"
+#include "../shared_gui_components/OSObjectSelector.hpp"
 
 #include <openstudio/model/ExteriorLights.hpp>
 #include <openstudio/model/ExteriorLights_Impl.hpp>
@@ -80,6 +82,8 @@ FacilityExteriorEquipmentGridView::FacilityExteriorEquipmentGridView(bool isIP, 
 
   setGridController(m_gridController);
   setGridView(gridView);
+
+  onClearSelection();
 }
 
 void FacilityExteriorEquipmentGridView::addObject(const IddObjectType& iddObjectType) {
@@ -102,7 +106,7 @@ void FacilityExteriorEquipmentGridView::onSelectItem() {
 }
 
 void FacilityExteriorEquipmentGridView::onClearSelection() {
-  //m_itemSelectorButtons->disableAddButton();
+  m_itemSelectorButtons->disableAddButton();
   m_itemSelectorButtons->disableCopyButton();
   m_itemSelectorButtons->disableRemoveButton();
   m_itemSelectorButtons->disablePurgeButton();
@@ -124,33 +128,33 @@ void FacilityExteriorEquipmentGridController::setCategoriesAndFields() {
     fields.push_back(MULTIPLIER);
     fields.push_back(ENDUSESUBCATEGORY);
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Exterior Lights"), fields);
-    m_categoriesAndFields.push_back(categoryAndFields);
+    addCategoryAndFields(categoryAndFields);
   }
 
   OSGridController::setCategoriesAndFields();
 }
 
-void FacilityExteriorEquipmentGridController::categorySelected(int index) {
-  OSGridController::categorySelected(index);
+void FacilityExteriorEquipmentGridController::onCategorySelected(int index) {
+  OSGridController::onCategorySelected(index);
 }
 
 void FacilityExteriorEquipmentGridController::addColumns(const QString& category, std::vector<QString>& fields) {
   // always show name and selected columns
   fields.insert(fields.begin(), {NAME, SELECTED});
 
-  m_baseConcepts.clear();
+  resetBaseConcepts();
 
   for (const auto& field : fields) {
 
     if (field == NAME) {
-      addNameLineEditColumn(Heading(QString(NAME), false, false), false, false, CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::name),
-                            CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::setName));
+      addParentNameLineEditColumn(Heading(QString(NAME), false, false), false, CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::name),
+                                  CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::setName));
     } else if (field == SELECTED) {
-      auto checkbox = QSharedPointer<QCheckBox>(new QCheckBox());
+      auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
       checkbox->setToolTip("Check to select all rows");
-      connect(checkbox.data(), &QCheckBox::stateChanged, this, &FacilityExteriorEquipmentGridController::selectAllStateChanged);
-      connect(checkbox.data(), &QCheckBox::stateChanged, this->gridView(), &OSGridView::gridRowSelectionChanged);
-
+      connect(checkbox.data(), &OSSelectAllCheckBox::stateChanged, this, &FacilityExteriorEquipmentGridController::onSelectAllStateChanged);
+      connect(this, &FacilityExteriorEquipmentGridController::gridRowSelectionChanged, checkbox.data(),
+              &OSSelectAllCheckBox::onGridRowSelectionChanged);
       addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row");
     } else if (field == EXTERIORLIGHTSDEFINITION) {
       std::function<boost::optional<model::ExteriorLightsDefinition>(model::ExteriorLights*)> get([](model::ExteriorLights* el) {
@@ -210,7 +214,7 @@ QString FacilityExteriorEquipmentGridController::getColor(const model::ModelObje
 }
 
 void FacilityExteriorEquipmentGridController::checkSelectedFields() {
-  if (!this->m_hasHorizontalHeader) return;
+  if (!this->hasHorizontalHeader()) return;
 
   OSGridController::checkSelectedFields();
 }
@@ -218,8 +222,9 @@ void FacilityExteriorEquipmentGridController::checkSelectedFields() {
 void FacilityExteriorEquipmentGridController::onItemDropped(const OSItemId& itemId) {}
 
 void FacilityExteriorEquipmentGridController::refreshModelObjects() {
-  m_modelObjects = subsetCastVector<model::ModelObject>(m_model.getConcreteModelObjects<model::ExteriorLights>());
-  std::sort(m_modelObjects.begin(), m_modelObjects.end(), openstudio::WorkspaceObjectNameLess());
+  auto lights = model().getConcreteModelObjects<model::ExteriorLights>();
+  std::sort(lights.begin(), lights.end(), openstudio::WorkspaceObjectNameLess());
+  setModelObjects(subsetCastVector<model::ModelObject>(lights));
 }
 
 void FacilityExteriorEquipmentGridController::onComboBoxIndexChanged(int index) {}

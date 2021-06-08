@@ -48,7 +48,9 @@
 
 namespace openstudio {
 
-class OSComboBoxDataSource : public QObject, public Nano::Observer
+class OSComboBoxDataSource
+  : public QObject
+  , public Nano::Observer
 {
   Q_OBJECT
 
@@ -104,7 +106,9 @@ class OSObjectListCBDS : public OSComboBoxDataSource
   QList<WorkspaceObject> m_workspaceObjects;
 };
 
-class OSComboBox2 : public QComboBox, public Nano::Observer
+class OSComboBox2
+  : public QComboBox
+  , public Nano::Observer
 {
   Q_OBJECT
  public:
@@ -112,13 +116,15 @@ class OSComboBox2 : public QComboBox, public Nano::Observer
 
   virtual ~OSComboBox2();
 
-  void enableClickFocus() {
-    this->setFocusPolicy(Qt::ClickFocus);
-  }
+  void enableClickFocus();
 
-  bool hasData() {
-    return !this->currentText().isEmpty();
-  }
+  void disableClickFocus();
+
+  bool hasData();
+
+  bool locked() const;
+
+  void setLocked(bool locked);
 
   // interface for direct bind
   template <typename ChoiceType>
@@ -209,11 +215,17 @@ class OSComboBox2 : public QComboBox, public Nano::Observer
   void onDataSourceRemove(int);
 
  private:
+  void updateStyle();
+
   std::shared_ptr<OSComboBoxDataSource> m_dataSource;
 
   boost::optional<model::ModelObject> m_modelObject;
   std::shared_ptr<ChoiceConcept> m_choiceConcept;
   std::vector<std::string> m_values;
+
+  bool m_hasClickFocus = false;
+  bool m_focused = false;
+  bool m_locked = false;
 
   void completeBind();
 };

@@ -407,6 +407,8 @@ set(${target_name}_SRC
   ../shared_gui_components/MeasureManager.hpp
   ../shared_gui_components/NetworkProxyDialog.cpp
   ../shared_gui_components/NetworkProxyDialog.hpp
+  ../shared_gui_components/OSCellWrapper.cpp
+  ../shared_gui_components/OSCellWrapper.hpp
   ../shared_gui_components/OSCheckBox.cpp
   ../shared_gui_components/OSCheckBox.hpp
   ../shared_gui_components/OSCollapsibleView.cpp
@@ -434,6 +436,8 @@ set(${target_name}_SRC
   ../shared_gui_components/OSListView.hpp
   ../shared_gui_components/OSLoadNamePixmapLineEdit.cpp
   ../shared_gui_components/OSLoadNamePixmapLineEdit.hpp
+  ../shared_gui_components/OSObjectSelector.cpp
+  ../shared_gui_components/OSObjectSelector.hpp
   ../shared_gui_components/OSQObjectController.cpp
   ../shared_gui_components/OSQObjectController.hpp
   ../shared_gui_components/OSQuantityEdit.cpp
@@ -444,6 +448,8 @@ set(${target_name}_SRC
   ../shared_gui_components/OSUnsignedEdit.hpp
   ../shared_gui_components/OSViewSwitcher.cpp
   ../shared_gui_components/OSViewSwitcher.hpp
+  ../shared_gui_components/OSWidgetHolder.cpp
+  ../shared_gui_components/OSWidgetHolder.hpp
   ../shared_gui_components/PageNavigator.cpp
   ../shared_gui_components/PageNavigator.hpp
   ../shared_gui_components/ProcessEventsProgressBar.cpp
@@ -668,6 +674,7 @@ set(${target_name}_moc
   ../shared_gui_components/MeasureBadge.hpp
   ../shared_gui_components/MeasureDragData.hpp
   ../shared_gui_components/MeasureManager.hpp
+  ../shared_gui_components/OSCellWrapper.hpp
   ../shared_gui_components/OSCheckBox.hpp
   ../shared_gui_components/OSCollapsibleView.hpp
   ../shared_gui_components/OSComboBox.hpp
@@ -681,11 +688,13 @@ set(${target_name}_moc
   ../shared_gui_components/OSListController.hpp
   ../shared_gui_components/OSListView.hpp
   ../shared_gui_components/OSLoadNamePixmapLineEdit.hpp
+  ../shared_gui_components/OSObjectSelector.hpp
   ../shared_gui_components/OSQObjectController.hpp
   ../shared_gui_components/OSQuantityEdit.hpp
   ../shared_gui_components/OSSwitch.hpp
   ../shared_gui_components/OSUnsignedEdit.hpp
   ../shared_gui_components/OSViewSwitcher.hpp
+  ../shared_gui_components/OSWidgetHolder.hpp
   ../shared_gui_components/PageNavigator.hpp
   ../shared_gui_components/SyncMeasuresDialog.hpp
   ../shared_gui_components/SyncMeasuresDialogCentralWidget.hpp
@@ -704,7 +713,7 @@ set(${target_name}_qrc
 )
 
 ## Qt UI generation
-qt5_wrap_cpp_minimally(${target_name}_moc_src ${${target_name}_moc})
+qt5_wrap_cpp(${target_name}_moc_src ${${target_name}_moc})
 
 # generate rules for building source files from the resources
 qt5_add_resources(${target_name}_qrcs ${${target_name}_qrc})
@@ -715,6 +724,10 @@ add_library(${target_name}
   ${${target_name}_moc}
   ${${target_name}_qrcs}
 )
+
+if (NINJA)
+  target_compile_definitions(${target_name} PRIVATE NINJA=1)
+endif()
 
 set(${target_name}_depends
   openstudio_modeleditor
@@ -732,15 +745,48 @@ AddPCH(${target_name})
 set(${target_name}_test_src
   test/OpenStudioLibFixture.hpp
   test/OpenStudioLibFixture.cpp
+  test/DesignDays_GTest.cpp
+  test/FacilityStories_GTest.cpp
+  test/FacilityShading_GTest.cpp
+  test/Geometry_GTest.cpp
   test/IconLibrary_GTest.cpp
+  test/ObjectSelector_GTest.cpp
+  test/OSDropZone_GTest.cpp
+  test/OSLineEdit_GTest.cpp
+  test/SpacesLoads_GTest.cpp
+  test/SpacesSpaces_GTest.cpp
+  test/SpacesSurfaces_GTest.cpp
 )
 
 set(${target_name}_test_depends
   ${${target_name}_depends}
+  ${QT_WEB_LIBS}
 )
 
-CREATE_TEST_TARGETS(${target_name} "${${target_name}_test_src}" "${${target_name}_test_depends}")
-CREATE_SRC_GROUPS("${${target_name}_test_src}")
+
 if(BUILD_TESTING)
+  CREATE_TEST_TARGETS(${target_name} "${${target_name}_test_src}" "${${target_name}_test_depends}")
+  CREATE_SRC_GROUPS("${${target_name}_test_src}")
+endif()
+
+
+if(BUILD_BENCHMARK)
+
+  SET(${target_name}_benchmark_src
+    test/SpacesSurfaces_Benchmark.cpp
+  )
+
+  foreach( bench_file ${${target_name}_benchmark_src} )
+    get_filename_component(bench_name ${bench_file} NAME_WE)
+    message("bench_name=${bench_name}")
+    add_executable( ${bench_name} ${bench_file} )
+    target_link_libraries(${bench_name}
+      CONAN_PKG::benchmark
+      ${target_name}
+      ${${target_name}_test_depends}
+    )
+  endforeach()
 
 endif()
+
+

@@ -424,6 +424,10 @@
     <rule IddField="Control High Indoor Humidity Based on Outdoor Humidity Ratio" Access="HIDDEN"/>
     <rule IddField="Controller Mechanical Ventilation" Access="HIDDEN"/>
   </POLICY>
+  <POLICY IddObjectType="OS_Fan_ComponentModel">
+    <rule IddField="Air Inlet Node Name" Access="HIDDEN"/>
+    <rule IddField="Air Outlet Node Name" Access="HIDDEN"/>
+  </POLICY>
   <POLICY IddObjectType="OS_Fan_ConstantVolume">
     <rule IddField="Air Inlet Node Name" Access="HIDDEN"/>
     <rule IddField="Air Outlet Node Name" Access="HIDDEN"/>
@@ -811,16 +815,20 @@
   </POLICY>
   <POLICY IddObjectType="OS_AirLoopHVAC">
     <rule IddField="Controller List Name" Access="HIDDEN"/>
-    <rule IddField="Availability Manager" Access="HIDDEN"/>
+    <rule IddField="Availability Manager List Name" Access="HIDDEN"/>
+    <rule IddField="Availability Schedule" Access="HIDDEN"/>
     <rule IddField="Branch List Name" Access="HIDDEN"/>
     <rule IddField="Connector List Name" Access="HIDDEN"/>
-    <rule IddField="Availability Schedule" Access="HIDDEN"/>
     <rule IddField="Supply Side Inlet Node Name" Access="HIDDEN"/>
     <rule IddField="Supply Side Outlet Node A" Access="HIDDEN"/>
     <rule IddField="Supply Side Outlet Node B" Access="HIDDEN"/>
     <rule IddField="Demand Side Outlet Node Name" Access="HIDDEN"/>
     <rule IddField="Demand Side Inlet Node A" Access="HIDDEN"/>
     <rule IddField="Demand Side Inlet Node B" Access="HIDDEN"/>
+    <rule IddField="Demand Mixer Name" Access="HIDDEN"/>
+    <rule IddField="Demand Splitter A Name" Access="HIDDEN"/>
+    <rule IddField="Demand Splitter B Name" Access="HIDDEN"/>
+    <rule IddField="Supply Splitter Name" Access="HIDDEN"/>
   </POLICY>
   <POLICY IddObjectType="OS_PlantLoop">
     <rule IddField="Plant Equipment Operation Scheme Name" Access="HIDDEN"/>
@@ -1112,6 +1120,11 @@
     <rule IddField="Water Storage Tank Name" Access="HIDDEN"/>
     <rule IddField="Availability Schedule Name" Access="HIDDEN"/>
   </POLICY>
+  <POLICY IddObjectType="OS_Humidifier_Steam_Gas">
+    <rule IddField="Air Inlet Node Name" Access="HIDDEN"/>
+    <rule IddField="Air Outlet Node Name" Access="HIDDEN"/>
+    <rule IddField="Water Storage Tank Name" Access="HIDDEN"/>
+  </POLICY>
   <POLICY IddObjectType="OS_TemperingValve">
     <rule IddField="Inlet Node Name" Access="HIDDEN"/>
     <rule IddField="Outlet Node Name" Access="HIDDEN"/>
@@ -1210,6 +1223,13 @@
   <POLICY IddObjectType="OS_Coil_Heating_Water_Baseboard_Radiant">
     <rule IddField="Inlet Node Name" Access="HIDDEN"/>
     <rule IddField="Outlet Node Name" Access="HIDDEN"/>
+  </POLICY>
+  <POLICY IddObjectType="OS_ZoneHVAC_CoolingPanel_RadiantConvective_Water">
+    <rule IddField="Cooling Coil Name" Access="LOCKED"/>
+  </POLICY>
+  <POLICY IddObjectType="OS_Coil_Cooling_Water_Panel_Radiant">
+    <rule IddField="Water Inlet Node Name" Access="HIDDEN"/>
+    <rule IddField="Water Outlet Node Name" Access="HIDDEN"/>
   </POLICY>
   <POLICY IddObjectType="OS_SolarCollectorPerformance_FlatPlate">
   </POLICY>

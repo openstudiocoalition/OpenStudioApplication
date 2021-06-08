@@ -32,11 +32,22 @@
 #include "HeaderViews.hpp"
 #include "OSCollapsibleView.hpp"
 #include "OSGridController.hpp"
+#include "OSCellWrapper.hpp"
+#include "OSCheckBox.hpp"
+#include "OSComboBox.hpp"
+#include "OSDoubleEdit.hpp"
+#include "OSGridView.hpp"
+#include "OSIntegerEdit.hpp"
+#include "OSLineEdit.hpp"
+#include "OSLoadNamePixmapLineEdit.hpp"
+#include "OSObjectSelector.hpp"
+#include "OSQuantityEdit.hpp"
+#include "OSUnsignedEdit.hpp"
+#include "OSWidgetHolder.hpp"
 
 #include "../model_editor/Application.hpp"
 
 #include "../openstudio_lib/ModelObjectInspectorView.hpp"
-#include "../openstudio_lib/ModelSubTabView.hpp"
 #include "../openstudio_lib/OSDropZone.hpp"
 #include "../openstudio_lib/OSItem.hpp"
 
@@ -52,9 +63,10 @@
 #include <QHideEvent>
 #include <QLabel>
 #include <QPushButton>
-#include <QScrollArea>
+//#include <QScrollArea>
 #include <QShowEvent>
 #include <QStackedWidget>
+#include <QStyle>
 
 #ifdef Q_OS_DARWIN
 #  define WIDTH 110
@@ -72,23 +84,33 @@ QGridLayout* OSGridView::makeGridLayout() {
   auto gridLayout = new QGridLayout();
   gridLayout->setSpacing(0);
   gridLayout->setContentsMargins(0, 0, 0, 0);
-  //gridLayout->setAlignment(Qt::AlignTop | Qt::AlignLeft);
   gridLayout->setAlignment(Qt::AlignTop | Qt::AlignLeft);
   return gridLayout;
 }
 
 OSGridView::OSGridView(OSGridController* gridController, const QString& headerText, const QString& dropZoneText, bool useHeader, QWidget* parent)
-  : QWidget(parent), m_dropZone(nullptr), m_contentLayout(nullptr), m_CollapsibleView(nullptr), m_gridController(gridController) {
+  : QWidget(parent),
+    m_dropZone(nullptr),
+    m_contentLayout(nullptr),
+    m_gridLayout(nullptr),
+    m_collapsibleView(nullptr),
+    m_gridController(gridController) {
 
   // We use the headerText as the object name, will help in indentifying objects for any warnings
   setObjectName(headerText);
+
+  m_gridController->setParent(this);
+  connect(m_gridController, &OSGridController::recreateAll, this, &OSGridView::onRecreateAll);
+  connect(m_gridController, &OSGridController::addRow, this, &OSGridView::onAddRow);
+  connect(m_gridController, &OSGridController::gridCellChanged, this, &OSGridView::onGridCellChanged);
+  connect(m_gridController, &OSGridController::gridRowSelectionChanged, this, &OSGridView::gridRowSelectionChanged);
 
   /** Set up buttons for Categories: eg: SpaceTypes tab: that's the dropzone "Drop Space Type", "General", "Loads", "Measure Tags", "Custom"
    * QHBoxLayout manages the visual representation: they are placed side by side
    * QButtonGroup manages the state of the buttons in the group. By default a QButtonGroup is exclusive (only one button can be checked at one time)
    */
   auto buttonGroup = new QButtonGroup();
-  connect(buttonGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::idClicked), this, &OSGridView::selectCategory);
+  connect(buttonGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::idClicked), m_gridController, &OSGridController::onCategorySelected);
 
   auto buttonLayout = new QHBoxLayout();
   buttonLayout->setSpacing(3);
@@ -151,37 +173,23 @@ OSGridView::OSGridView(OSGridController* gridController, const QString& headerTe
   m_contentLayout->addLayout(buttonLayout);
   widget->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Fixed);
 
-  // This should have been done in the Ctor
-  setGridController(m_gridController);
-
   // Make the first button checked by default
   QVector<QAbstractButton*> buttons = buttonGroup->buttons().toVector();
   if (buttons.size() > 0) {
     QPushButton* button = qobject_cast<QPushButton*>(buttons.at(0));
     OS_ASSERT(button);
     button->setChecked(true);
-    selectCategory(0);
+    m_gridController->blockSignals(true);
+    m_gridController->onCategorySelected(0);  // would normally trigger refreshAll
+    m_gridController->blockSignals(false);
   }
 
-  m_timer.setSingleShot(true);
-  connect(&m_timer, &QTimer::timeout, this, &OSGridView::doRefresh);
-
-  if (this->isVisible()) {
-    m_gridController->connectToModel();
-    refreshAll();
-  }
+  QTimer::singleShot(0, this, &OSGridView::recreateAll);
 }
 
-void OSGridView::setGridController(OSGridController* gridController) {
-  if (m_gridController) {
-    m_gridController->disconnect(this);
-  }
+OSGridView::~OSGridView(){};
 
-  m_gridController = gridController;
-
-  m_gridController->setParent(this);
-}
-
+/*
 void OSGridView::requestAddRow(int row) {
   // std::cout << "REQUEST ADDROW CALLED " << std::endl;
   setEnabled(false);
@@ -203,7 +211,7 @@ void OSGridView::requestRemoveRow(int row) {
 
   m_queueRequests.emplace_back(RemoveRow);
 }
-
+*/
 //void OSGridView::refreshRow(int row)
 //{
 //  for( int j = 0; j < m_gridController->columnCount(); j++ )
@@ -213,10 +221,19 @@ void OSGridView::requestRemoveRow(int row) {
 //}
 
 QLayoutItem* OSGridView::itemAtPosition(int row, int column) {
-  auto layoutnum = row / ROWS_PER_LAYOUT;
-  auto relativerow = row % ROWS_PER_LAYOUT;
+  return m_gridLayout->itemAtPosition(row, column);
+}
 
-  return m_gridLayouts.at(layoutnum)->itemAtPosition(relativerow, column);
+void OSGridView::showDropZone(bool visible) {
+  m_dropZone->setVisible(visible);
+}
+
+void OSGridView::addLayoutToContentLayout(QLayout* layout) {
+  m_contentLayout->addLayout(layout);
+}
+
+void OSGridView::addSpacingToContentLayout(int spacing) {
+  m_contentLayout->addSpacing(spacing);
 }
 
 //void OSGridView::removeWidget(int row, int column)
@@ -257,132 +274,101 @@ QLayoutItem* OSGridView::itemAtPosition(int row, int column) {
 //  delete item;
 //}
 
-void OSGridView::deleteAll() {
-  for (auto layout : m_gridLayouts) {
-    QLayoutItem* child;
-    while ((child = layout->takeAt(0)) != nullptr) {
-      QWidget* widget = child->widget();
-
-      OS_ASSERT(widget);
-
-      delete widget;
-      // Using deleteLater is actually slower than calling delete directly on the widget
-      // deleteLater also introduces a strange redraw issue where the select all check box
-      // is not redrawn, after being checked.
-      //widget->deleteLater();
-
-      delete child;
-    }
-  }
-}
-
-//void OSGridView::refreshGrid()
-//{
-//  if( m_gridController )
-//  {
-//    m_gridController->refreshModelObjects();
-
-//    for( int i = 1; i < m_gridController->rowCount(); i++ )
-//    {
-//      for( int j = 0; j < m_gridController->columnCount(); j++ )
-//      {
-//        refreshCell(i, j);
-//      }
-//    }
-//  }
-//}
-
-void OSGridView::requestRefreshAll() {
-  // std::cout << "REQUEST REFRESHALL CALLED " << std::endl;
+void OSGridView::onAddRow(int row) {
   setEnabled(false);
-
-  m_timer.start();
-
-  m_queueRequests.emplace_back(RefreshAll);
-}
-
-void OSGridView::requestRefreshGrid() {
-  // std::cout << "REQUEST REFRESHGRID CALLED " << std::endl;
-  setEnabled(false);
-
-  m_timer.start();
-
-  m_queueRequests.emplace_back(RefreshGrid);
-}
-
-//void OSGridView::requestRefreshRow(int t_row)
-//{
-//  setEnabled(false);
-//
-//  m_timer.start();
-//
-//  m_queueRequests.emplace_back(RefreshRow);
-//}
-
-void OSGridView::doRefresh() {
-  // std::cout << " DO REFRESH CALLED " << m_queueRequests.size() << std::endl;
-
-  if (m_queueRequests.empty()) {
-    setEnabled(true);
-    return;
-  }
-
-  // TODO: JM 2019-01-03 : Unused!
-  //bool has_add_row = false;
-  //bool has_remove_row = false;
-  //bool has_refresh_grid = false;
-  //bool has_refresh_all = false;
-
-  //for (const auto& r : m_queueRequests) {
-  //if (r == AddRow) has_add_row = true;
-  //if (r == RemoveRow) has_remove_row = true;
-  //if (r == RefreshGrid) has_refresh_grid = true;
-  //if (r == RefreshAll) has_refresh_all = true;
-  //}
-
-  m_queueRequests.clear();
-
-  //if (has_refresh_all) {
-  //  refreshAll();
-  //}
-  //else if (has_refresh_grid) {
-  //  refreshGrid(); // This now causes a crash
-  //}
-  //else if (has_add_row) {
-  //  addRow(m_rowToAdd);
-  //}
-  //else if (has_remove_row) {
-  //  removeRow(m_rowToRemove);
-  //}
-  //else {
-  //  // Should never get here
-  //  OS_ASSERT(false);
-  //}
-
-  refreshAll();  // TODO remove this and uncomment the block above for finer granularity refreshes
+  addRow(row);
   setEnabled(true);
 }
 
-void OSGridView::refreshAll() {
-  // std::cout << " REFRESHALL CALLED " << std::endl;
-  m_queueRequests.clear();
+void OSGridView::onRecreateAll() {
+  setEnabled(false);
+  recreateAll();
+  setEnabled(true);
+}
+
+void OSGridView::onGridCellChanged(const GridCellLocation& location, const GridCellInfo& info) {
+  QLayoutItem* item = m_gridLayout->itemAtPosition(location.gridRow, location.column);
+  if (item) {
+    OSCellWrapper* wrapper = qobject_cast<OSCellWrapper*>(item->widget());
+    OS_ASSERT(wrapper);
+
+    // style the wrapper and/or any subrows
+    wrapper->setCellProperties(location, info);
+  }
+}
+
+void OSGridView::deleteAll() {
+  QLayoutItem* child;
+  while ((child = m_gridLayout->takeAt(0)) != nullptr) {
+    QWidget* widget = child->widget();
+
+    OS_ASSERT(widget);
+
+    delete widget;
+    // Using deleteLater is actually slower than calling delete directly on the widget
+    // deleteLater also introduces a strange redraw issue where the select all check box
+    // is not redrawn, after being checked.
+    //widget->deleteLater();
+
+    delete child;
+  }
+}
+
+void OSGridView::addRow(int row) {
+  setUpdatesEnabled(false);
+
+  OS_ASSERT(m_gridLayout);
+  OS_ASSERT(m_gridController);
+
+  const auto numRows = m_gridController->rowCount();
+  OS_ASSERT(row < numRows);
+  const auto numColumns = m_gridController->columnCount();
+  for (int j = 0; j < numColumns; j++) {
+    createCellWrapper(row, j);
+  }
+
+  setUpdatesEnabled(true);
+}
+
+void OSGridView::recreateAll() {
+  setUpdatesEnabled(false);
+
+  if (!m_gridLayout) {
+    // create grid layout here so it is underneath the filters or other things added by concreate gridviews in m_contentLayout
+    m_gridLayout = makeGridLayout();
+    m_contentLayout->addLayout(m_gridLayout);
+  }
+
   deleteAll();
 
   if (m_gridController) {
     m_gridController->refreshModelObjects();
+    auto objectFilter = m_gridController->objectFilter();
+    auto objectIsLocked = m_gridController->objectIsLocked();
+    m_gridController->clearObjectSelector();
 
-    for (int i = 0; i < m_gridController->rowCount(); i++) {
-      for (int j = 0; j < m_gridController->columnCount(); j++) {
-        addWidget(i, j);
+    const auto numRows = m_gridController->rowCount();
+    const auto numColumns = m_gridController->columnCount();
+    for (int i = 0; i < numRows; i++) {
+      for (int j = 0; j < numColumns; j++) {
+        createCellWrapper(i, j);
       }
     }
 
-    this->m_gridController->getObjectSelector()->updateWidgets();
+    m_gridController->setObjectFilter(objectFilter);
+    m_gridController->setObjectIsLocked(objectIsLocked);
 
-    QTimer::singleShot(0, this, SLOT(selectRowDeterminedByModelSubTabView()));
+    setUpdatesEnabled(true);
+
+    //QTimer::singleShot(0, this, SLOT(selectRowDeterminedByModelSubTabView()));
   }
 }
 
+//void OSGridView::refreshRow(int row) {
+// TODO: fix
+//  this->m_gridController->getObjectSelector()->updateWidgetsForRow(row);
+//}
+/*
 void OSGridView::selectRowDeterminedByModelSubTabView() {
   // Get selected item
   auto selectedItem = m_gridController->getSelectedItemFromModelSubTabView();
@@ -396,85 +382,39 @@ void OSGridView::selectRowDeterminedByModelSubTabView() {
   }
 
   // If the index is valid, call slot
-  if (m_gridController->m_oldIndex > -1) {
-    QTimer::singleShot(0, this, SLOT(doRowSelect()));
-  }
+  //if (m_gridController->m_oldIndex > -1) {
+  //  QTimer::singleShot(0, this, SLOT(doRowSelect()));
+  //}
 }
-
+*/
+/*
 void OSGridView::doRowSelect() {
   // If the index is valid, do some work
   if (m_gridController->m_oldIndex > -1) {
     m_gridController->selectRow(m_gridController->m_oldIndex, true);
   }
 }
-
-void OSGridView::addWidget(int row, int column) {
+*/
+void OSGridView::createCellWrapper(int row, int column) {
   OS_ASSERT(m_gridController);
 
-  QWidget* widget = m_gridController->widgetAt(row, column);
+  OSCellWrapper* widget = m_gridController->createCellWrapper(row, column, this);
 
-  addWidget(widget, row, column);
+  addCellWrapper(widget, row, column);
 }
 
-void OSGridView::addWidget(QWidget* w, int row, int column) {
-  unsigned layoutindex = row / ROWS_PER_LAYOUT;
-  auto relativerow = row % ROWS_PER_LAYOUT;
-
-  if (layoutindex >= m_gridLayouts.size()) {
-    auto grid = makeGridLayout();
-    OS_ASSERT(grid);
-
-    m_gridLayouts.push_back(grid);
-    OS_ASSERT(m_contentLayout);
-    m_contentLayout->addLayout(grid);
-  }
-
-  m_gridLayouts[layoutindex]->addWidget(w, relativerow, column);
-}
-
-void OSGridView::selectCategory(int index) {
-  m_gridController->categorySelected(index);
-
-  requestRefreshAll();
-}
-
-ModelSubTabView* OSGridView::modelSubTabView() {
-  ModelSubTabView* modelSubTabView = nullptr;
-
-  if (!this->parent() || !this->parent()->parent()) return modelSubTabView;
-
-  auto stackedWidget = qobject_cast<QStackedWidget*>(this->parent()->parent());
-  if (!stackedWidget) return modelSubTabView;
-
-  auto widget = qobject_cast<QWidget*>(stackedWidget->parent());
-  if (!widget) return modelSubTabView;
-
-  auto scrollArea = qobject_cast<QScrollArea*>(widget->parent());
-  if (!scrollArea) return modelSubTabView;
-
-  auto modelObjectInspectorView = qobject_cast<ModelObjectInspectorView*>(scrollArea->parent());
-  if (!modelObjectInspectorView) return modelSubTabView;
-
-  auto object = qobject_cast<QObject*>(modelObjectInspectorView->parent());
-  if (!object) return modelSubTabView;
-
-  modelSubTabView = qobject_cast<ModelSubTabView*>(object->parent());
-  return modelSubTabView;
-}
-
-void OSGridView::onSelectionCleared() {
-  m_gridController->onSelectionCleared();
+void OSGridView::addCellWrapper(OSCellWrapper* w, int row, int column) {
+  m_gridLayout->addWidget(w, row, column);
 }
 
 void OSGridView::hideEvent(QHideEvent* event) {
-  m_gridController->disconnectFromModel();
+  m_gridController->disconnectFromModelSignals();
 
   QWidget::hideEvent(event);
 }
 
 void OSGridView::showEvent(QShowEvent* event) {
-  m_gridController->connectToModel();
-  refreshAll();
+  m_gridController->connectToModelSignals();
 
   QWidget::showEvent(event);
 }

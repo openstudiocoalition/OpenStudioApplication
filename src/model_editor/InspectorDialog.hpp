@@ -65,7 +65,9 @@ class ModelObject;
 OPENSTUDIO_ENUM(InspectorDialogClient, ((AllOpenStudio))((SketchUpPlugin)));
 #endif
 
-class MODELEDITOR_API InspectorDialog : public QMainWindow, public Nano::Observer
+class MODELEDITOR_API InspectorDialog
+  : public QMainWindow
+  , public Nano::Observer
 {
   Q_OBJECT;
 
@@ -95,7 +97,7 @@ class MODELEDITOR_API InspectorDialog : public QMainWindow, public Nano::Observe
   openstudio::model::Model model() const;
 
   // point the dialog at a new model
-  void setModel(openstudio::model::Model& model, bool force = false);
+  void setModel(const openstudio::model::Model& model, bool force = false);
 
   // void rebuild inspector gadget
   void rebuildInspectorGadget(bool recursive);
@@ -158,6 +160,8 @@ class MODELEDITOR_API InspectorDialog : public QMainWindow, public Nano::Observe
   void onTimeout();
   void onRemoveWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl, const openstudio::IddObjectType& type,
                                const openstudio::UUID& uuid);
+
+  void onNeedsSetFocus();
 
  private:
   QListWidget* m_listWidget;

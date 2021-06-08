@@ -40,6 +40,7 @@
 
 class QScrollArea;
 class QVBoxLayout;
+class OpenStudioLibFixture;
 
 namespace openstudio {
 
@@ -75,7 +76,7 @@ class GridViewSubTab : public QWidget
 
   virtual void purgeObjects(const openstudio::IddObjectType& iddObjectType) = 0;
 
-  virtual std::vector<model::ModelObject> selectedObjects() const;
+  virtual std::set<model::ModelObject> selectedObjects() const;
 
   model::Model m_model;
 
@@ -103,7 +104,7 @@ class GridViewSubTab : public QWidget
 
   void onDropZoneItemClicked(OSItem* item);
 
-  void gridRowSelectionChanged(int checkState);
+  void onGridRowSelectionChanged(int numSelected, int numSelectable);
 
  protected slots:
 
@@ -120,6 +121,10 @@ class GridViewSubTab : public QWidget
   virtual void onSelectItem() = 0;
 
   virtual void onClearSelection() = 0;
+
+ private:
+  // For testing
+  friend class ::OpenStudioLibFixture;
 };
 
 }  // namespace openstudio

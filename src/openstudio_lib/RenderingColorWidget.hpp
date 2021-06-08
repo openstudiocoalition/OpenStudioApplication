@@ -41,7 +41,9 @@ class QPushButton;
 
 namespace openstudio {
 
-class RenderingColorWidget2 : public QWidget, public Nano::Observer
+class RenderingColorWidget2
+  : public QWidget
+  , public Nano::Observer
 {
   Q_OBJECT
 
@@ -49,6 +51,10 @@ class RenderingColorWidget2 : public QWidget, public Nano::Observer
   RenderingColorWidget2(QWidget* parent = nullptr);
 
   virtual ~RenderingColorWidget2() {}
+
+  bool locked() const;
+
+  void setLocked(bool locked);
 
   virtual void bind(model::ModelObject& modelObject, OptionalModelObjectGetter get, ModelObjectSetter set);
 
@@ -74,7 +80,9 @@ class RenderingColorWidget2 : public QWidget, public Nano::Observer
   boost::optional<model::RenderingColor> m_renderingColor;
 };
 
-class RenderingColorWidget : public QWidget, public Nano::Observer
+class RenderingColorWidget
+  : public QWidget
+  , public Nano::Observer
 {
   Q_OBJECT
 

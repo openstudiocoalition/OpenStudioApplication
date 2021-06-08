@@ -27,24 +27,43 @@
 *  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ***********************************************************************************************************************/
 
-#ifndef MODELEDITOR_IGPRECISIONDIALOG_HPP
-#define MODELEDITOR_IGPRECISIONDIALOG_HPP
+#ifndef SHAREDGUICOMPONENTS_OSWIDGETHOLDER_HPP
+#define SHAREDGUICOMPONENTS_OSWIDGETHOLDER_HPP
 
-#include <QDialog>
+#include <QWidget>
 
-#include <model_editor/ui_precisiondialog.h>
-#include "ModelEditorAPI.hpp"
+namespace openstudio {
 
-class MODELEDITOR_API IGPrecisionDialog : public QDialog, public Ui::PrecisionDialog
+class GridCellLocation;
+class GridCellInfo;
+class OSCellWrapper;
+
+// An OSWidgetHolder holds an OSWidget like OSLineEdit
+class OSWidgetHolder : public QWidget
 {
   Q_OBJECT
 
  public:
-  IGPrecisionDialog(QWidget* parent = nullptr);
+  OSWidgetHolder(OSCellWrapper* cellWrapper, QWidget* widget, bool isEven);
 
- public slots:
-  void on_buttonBox_accepted();
-  void on_buttonBox_rejected();
+  virtual ~OSWidgetHolder();
+
+  QWidget* widget() const;
+
+  void setCellProperties(const GridCellLocation& location, const GridCellInfo& info);
+
+ protected:
+  void paintEvent(QPaintEvent* event) override;
+
+ private:
+  QWidget* m_widget;
+  bool m_isEven;
+
+ signals:
+
+  void inFocus(bool inFocus, bool hasData);
 };
 
-#endif  // MODELEDITOR_IGPRECISIONDIALOG_HPP
+}  // namespace openstudio
+
+#endif  // SHAREDGUICOMPONENTS_OSWIDGETHOLDER_HPP

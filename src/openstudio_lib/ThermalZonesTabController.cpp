@@ -41,10 +41,7 @@ ThermalZonesTabController::ThermalZonesTabController(bool isIP, const model::Mod
   : MainTabController(new ThermalZonesTabView()), m_thermalZonesController(std::make_shared<ThermalZonesController>(isIP, model)) {
   this->mainContentWidget()->addTabWidget(m_thermalZonesController->subTabView());
 
-  bool isConnected = false;
-
-  isConnected = connect(this, SIGNAL(itemRemoveClicked(OSItem*)), m_thermalZonesController.get(), SLOT(removeItem(OSItem*)));
-  OS_ASSERT(isConnected);
+  connect(this, &ThermalZonesTabController::itemRemoveClicked, m_thermalZonesController.get(), &ThermalZonesController::removeItem);
 
   connect(m_thermalZonesController.get(), &ThermalZonesController::modelObjectSelected, this, &ThermalZonesTabController::modelObjectSelected);
 

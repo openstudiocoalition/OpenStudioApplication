@@ -1,7 +1,7 @@
 
 OS:Version,
-  {38caca90-7311-4369-9e98-0c721bfb1453}, !- Handle
-  3.1.0;                                  !- Version Identifier
+  {c78f3c6c-d61e-4523-b24e-8832c674b9ce}, !- Handle
+  3.2.0;                                  !- Version Identifier
 
 ! Always OnOff Discrete Schedule Type Limits
 OS:ScheduleTypeLimits,
@@ -900,7 +900,6 @@ OS:Node,
 
 OS:Connection,
   {4a0c34af-46aa-4bec-8932-022685198a19}, !- Handle
-  {ab6565d1-98be-46cb-8300-d59a9aa9edd1}, !- Name
   {2a432bd5-2747-4b47-88d6-d03816a96036}, !- Source Object
   3,                                      !- Outlet Port
   {b883cca7-f436-48ce-ad23-7e8310c7a85d}, !- Target Object
@@ -1262,7 +1261,6 @@ OS:Node,
 
 OS:Connection,
   {ca2ea505-d13e-4c3c-a2bc-c2c0348a41ec}, !- Handle
-  Connection 1,                           !- Name
   {d4a53d23-ca16-4a01-9a97-bd302fcc08b2}, !- Source Object
   3,                                      !- Outlet Port
   {4b8b842c-2628-4074-aaa1-e3636b179cce}, !- Target Object
@@ -1276,7 +1274,6 @@ OS:Node,
 
 OS:Connection,
   {10382728-d838-45e0-a3a8-b5e23f9f9f23}, !- Handle
-  Connection 2,                           !- Name
   {4b8b842c-2628-4074-aaa1-e3636b179cce}, !- Source Object
   7,                                      !- Outlet Port
   {0d33d444-2aab-4502-b2e2-f0444bf8a529}, !- Target Object
@@ -3327,16 +3324,42 @@ OS:Coil:Heating:WaterToAirHeatPump:EquationFit,
   ,                                       !- Rated Water Flow Rate {m3/s}
   ,                                       !- Rated Heating Capacity {W}
   ,                                       !- Rated Heating Coefficient of Performance {W/W}
-  -5.50102734,                            !- Heating Capacity Coefficient 1
-  -0.96688754,                            !- Heating Capacity Coefficient 2
-  7.70755007,                             !- Heating Capacity Coefficient 3
-  0.031928881,                            !- Heating Capacity Coefficient 4
-  0.028112522,                            !- Heating Capacity Coefficient 5
-  -7.47517858,                            !- Heating Power Consumption Coefficient 1
-  6.40876653,                             !- Heating Power Consumption Coefficient 2
-  1.99711665,                             !- Heating Power Consumption Coefficient 3
-  -0.050682973,                           !- Heating Power Consumption Coefficient 4
-  0.011385145;                            !- Heating Power Consumption Coefficient 5
+  {54fa4856-1e98-47ed-b6f3-d745cb872634}, !- Heating Capacity Curve Name
+  {24c898c5-c202-403d-9f77-b0d593c664ec}; !- Heating Power Consumption Curve Name
+
+OS:Curve:QuadLinear,
+  {54fa4856-1e98-47ed-b6f3-d745cb872634}, !- Handle
+  Wtr-to-Air HP Elec Backup HP Htg Coil HeatCapCurve, !- Name
+  -5.50102734,                            !- Coefficient1 Constant
+  -0.96688754,                            !- Coefficient2 w
+  7.70755007,                             !- Coefficient3 x
+  0.031928881,                            !- Coefficient4 y
+  0.028112522,                            !- Coefficient5 z
+  -100,                                   !- Minimum Value of w {BasedOnField A2}
+  100,                                    !- Maximum Value of w {BasedOnField A2}
+  -100,                                   !- Minimum Value of x {BasedOnField A3}
+  100,                                    !- Maximum Value of x {BasedOnField A3}
+  0,                                      !- Minimum Value of y {BasedOnField A4}
+  100,                                    !- Maximum Value of y {BasedOnField A4}
+  0,                                      !- Minimum Value of z {BasedOnField A5}
+  100;                                    !- Maximum Value of z {BasedOnField A5}
+
+OS:Curve:QuadLinear,
+  {24c898c5-c202-403d-9f77-b0d593c664ec}, !- Handle
+  Wtr-to-Air HP Elec Backup HP Htg Coil HeatPowCurve, !- Name
+  -7.47517858,                            !- Coefficient1 Constant
+  6.40876653,                             !- Coefficient2 w
+  1.99711665,                             !- Coefficient3 x
+  -0.050682973,                           !- Coefficient4 y
+  0.011385145,                            !- Coefficient5 z
+  -100,                                   !- Minimum Value of w {BasedOnField A2}
+  100,                                    !- Maximum Value of w {BasedOnField A2}
+  -100,                                   !- Minimum Value of x {BasedOnField A3}
+  100,                                    !- Maximum Value of x {BasedOnField A3}
+  0,                                      !- Minimum Value of y {BasedOnField A4}
+  100,                                    !- Maximum Value of y {BasedOnField A4}
+  0,                                      !- Minimum Value of z {BasedOnField A5}
+  100;                                    !- Maximum Value of z {BasedOnField A5}
 
 OS:Coil:Cooling:WaterToAirHeatPump:EquationFit,
   {497dcb6a-5e26-44b9-ad01-3a2cee449abb}, !- Handle
@@ -3350,24 +3373,65 @@ OS:Coil:Cooling:WaterToAirHeatPump:EquationFit,
   ,                                       !- Rated Total Cooling Capacity {W}
   ,                                       !- Rated Sensible Cooling Capacity {W}
   3,                                      !- Rated Cooling Coefficient of Performance {W/W}
-  -0.68126221,                            !- Total Cooling Capacity Coefficient 1
-  1.99529297,                             !- Total Cooling Capacity Coefficient 2
-  -0.93611888,                            !- Total Cooling Capacity Coefficient 3
-  0.02081177,                             !- Total Cooling Capacity Coefficient 4
-  0.008438868,                            !- Total Cooling Capacity Coefficient 5
-  2.24209455,                             !- Sensible Cooling Capacity Coefficient 1
-  7.28913391,                             !- Sensible Cooling Capacity Coefficient 2
-  -9.06079896,                            !- Sensible Cooling Capacity Coefficient 3
-  -0.36729404,                            !- Sensible Cooling Capacity Coefficient 4
-  0.218826161,                            !- Sensible Cooling Capacity Coefficient 5
-  0.00901534,                             !- Sensible Cooling Capacity Coefficient 6
-  -3.20456384,                            !- Cooling Power Consumption Coefficient 1
-  0.47656454,                             !- Cooling Power Consumption Coefficient 2
-  3.16734236,                             !- Cooling Power Consumption Coefficient 3
-  0.10244637,                             !- Cooling Power Consumption Coefficient 4
-  -0.038132556,                           !- Cooling Power Consumption Coefficient 5
+  {414418cb-345c-4318-a9e6-71571785657d}, !- Total Cooling Capacity Curve Name
+  {b91981df-6795-4615-a33d-6f1b4d39701a}, !- Sensible Cooling Capacity Curve Name
+  {19fab439-6278-43c1-8b91-ce30aadd14ac}, !- Cooling Power Consumption Curve Name
   ,                                       !- Nominal Time for Condensate Removal to Begin {s}
   ;                                       !- Ratio of Initial Moisture Evaporation Rate and Steady State Latent Capacity {dimensionless}
+
+OS:Curve:QuadLinear,
+  {414418cb-345c-4318-a9e6-71571785657d}, !- Handle
+  Wtr-to-Air HP Elec Backup HP Clg Coil TotCoolCapCurve, !- Name
+  -0.68126221,                            !- Coefficient1 Constant
+  1.99529297,                             !- Coefficient2 w
+  -0.93611888,                            !- Coefficient3 x
+  0.02081177,                             !- Coefficient4 y
+  0.008438868,                            !- Coefficient5 z
+  -100,                                   !- Minimum Value of w {BasedOnField A2}
+  100,                                    !- Maximum Value of w {BasedOnField A2}
+  -100,                                   !- Minimum Value of x {BasedOnField A3}
+  100,                                    !- Maximum Value of x {BasedOnField A3}
+  0,                                      !- Minimum Value of y {BasedOnField A4}
+  100,                                    !- Maximum Value of y {BasedOnField A4}
+  0,                                      !- Minimum Value of z {BasedOnField A5}
+  100;                                    !- Maximum Value of z {BasedOnField A5}
+
+OS:Curve:QuintLinear,
+  {b91981df-6795-4615-a33d-6f1b4d39701a}, !- Handle
+  Wtr-to-Air HP Elec Backup HP Clg Coil SensCoolCapCurve, !- Name
+  2.24209455,                             !- Coefficient1 Constant
+  7.28913391,                             !- Coefficient2 v
+  -9.06079896,                            !- Coefficient3 w
+  -0.36729404,                            !- Coefficient4 x
+  0.218826161,                            !- Coefficient5 y
+  0.00901534,                             !- Coefficient6 z
+  -100,                                   !- Minimum Value of v {BasedOnField A2}
+  100,                                    !- Maximum Value of v {BasedOnField A2}
+  -100,                                   !- Minimum Value of w {BasedOnField A2}
+  100,                                    !- Maximum Value of w {BasedOnField A2}
+  -100,                                   !- Minimum Value of x {BasedOnField A3}
+  100,                                    !- Maximum Value of x {BasedOnField A3}
+  0,                                      !- Minimum Value of y {BasedOnField A4}
+  100,                                    !- Maximum Value of y {BasedOnField A4}
+  0,                                      !- Minimum Value of z {BasedOnField A5}
+  100;                                    !- Maximum Value of z {BasedOnField A5}
+
+OS:Curve:QuadLinear,
+  {19fab439-6278-43c1-8b91-ce30aadd14ac}, !- Handle
+  Wtr-to-Air HP Elec Backup HP Clg Coil CoolPowCurve, !- Name
+  -3.20456384,                            !- Coefficient1 Constant
+  0.47656454,                             !- Coefficient2 w
+  3.16734236,                             !- Coefficient3 x
+  0.10244637,                             !- Coefficient4 y
+  -0.038132556,                           !- Coefficient5 z
+  -100,                                   !- Minimum Value of w {BasedOnField A2}
+  100,                                    !- Maximum Value of w {BasedOnField A2}
+  -100,                                   !- Minimum Value of x {BasedOnField A3}
+  100,                                    !- Maximum Value of x {BasedOnField A3}
+  0,                                      !- Minimum Value of y {BasedOnField A4}
+  100,                                    !- Maximum Value of y {BasedOnField A4}
+  0,                                      !- Minimum Value of z {BasedOnField A5}
+  100;                                    !- Maximum Value of z {BasedOnField A5}
 
 OS:Fan:OnOff,
   {686ec71a-e2b4-4e6c-bb5a-b8245ecd33e4}, !- Handle
@@ -3395,16 +3459,42 @@ OS:Coil:Heating:WaterToAirHeatPump:EquationFit,
   ,                                       !- Rated Water Flow Rate {m3/s}
   ,                                       !- Rated Heating Capacity {W}
   ,                                       !- Rated Heating Coefficient of Performance {W/W}
-  -5.50102734,                            !- Heating Capacity Coefficient 1
-  -0.96688754,                            !- Heating Capacity Coefficient 2
-  7.70755007,                             !- Heating Capacity Coefficient 3
-  0.031928881,                            !- Heating Capacity Coefficient 4
-  0.028112522,                            !- Heating Capacity Coefficient 5
-  -7.47517858,                            !- Heating Power Consumption Coefficient 1
-  6.40876653,                             !- Heating Power Consumption Coefficient 2
-  1.99711665,                             !- Heating Power Consumption Coefficient 3
-  -0.050682973,                           !- Heating Power Consumption Coefficient 4
-  0.011385145;                            !- Heating Power Consumption Coefficient 5
+  {85509492-8cf7-45fe-b247-37566886f177}, !- Heating Capacity Curve Name
+  {0f71fc55-7375-4cd1-af51-c81323994e0a}; !- Heating Power Consumption Curve Name
+
+OS:Curve:QuadLinear,
+  {85509492-8cf7-45fe-b247-37566886f177}, !- Handle
+  Wtr-to-Air HP Gas Backup HP Htg Coil HeatCapCurve, !- Name
+  -5.50102734,                            !- Coefficient1 Constant
+  -0.96688754,                            !- Coefficient2 w
+  7.70755007,                             !- Coefficient3 x
+  0.031928881,                            !- Coefficient4 y
+  0.028112522,                            !- Coefficient5 z
+  -100,                                   !- Minimum Value of w {BasedOnField A2}
+  100,                                    !- Maximum Value of w {BasedOnField A2}
+  -100,                                   !- Minimum Value of x {BasedOnField A3}
+  100,                                    !- Maximum Value of x {BasedOnField A3}
+  0,                                      !- Minimum Value of y {BasedOnField A4}
+  100,                                    !- Maximum Value of y {BasedOnField A4}
+  0,                                      !- Minimum Value of z {BasedOnField A5}
+  100;                                    !- Maximum Value of z {BasedOnField A5}
+
+OS:Curve:QuadLinear,
+  {0f71fc55-7375-4cd1-af51-c81323994e0a}, !- Handle
+  Wtr-to-Air HP Gas Backup HP Htg Coil HeatPowCurve, !- Name
+  -7.47517858,                            !- Coefficient1 Constant
+  6.40876653,                             !- Coefficient2 w
+  1.99711665,                             !- Coefficient3 x
+  -0.050682973,                           !- Coefficient4 y
+  0.011385145,                            !- Coefficient5 z
+  -100,                                   !- Minimum Value of w {BasedOnField A2}
+  100,                                    !- Maximum Value of w {BasedOnField A2}
+  -100,                                   !- Minimum Value of x {BasedOnField A3}
+  100,                                    !- Maximum Value of x {BasedOnField A3}
+  0,                                      !- Minimum Value of y {BasedOnField A4}
+  100,                                    !- Maximum Value of y {BasedOnField A4}
+  0,                                      !- Minimum Value of z {BasedOnField A5}
+  100;                                    !- Maximum Value of z {BasedOnField A5}
 
 OS:Coil:Cooling:WaterToAirHeatPump:EquationFit,
   {e6f679f1-9fe3-4189-af37-13d8cb88d7d8}, !- Handle
@@ -3418,24 +3508,65 @@ OS:Coil:Cooling:WaterToAirHeatPump:EquationFit,
   ,                                       !- Rated Total Cooling Capacity {W}
   ,                                       !- Rated Sensible Cooling Capacity {W}
   3,                                      !- Rated Cooling Coefficient of Performance {W/W}
-  -0.68126221,                            !- Total Cooling Capacity Coefficient 1
-  1.99529297,                             !- Total Cooling Capacity Coefficient 2
-  -0.93611888,                            !- Total Cooling Capacity Coefficient 3
-  0.02081177,                             !- Total Cooling Capacity Coefficient 4
-  0.008438868,                            !- Total Cooling Capacity Coefficient 5
-  2.24209455,                             !- Sensible Cooling Capacity Coefficient 1
-  7.28913391,                             !- Sensible Cooling Capacity Coefficient 2
-  -9.06079896,                            !- Sensible Cooling Capacity Coefficient 3
-  -0.36729404,                            !- Sensible Cooling Capacity Coefficient 4
-  0.218826161,                            !- Sensible Cooling Capacity Coefficient 5
-  0.00901534,                             !- Sensible Cooling Capacity Coefficient 6
-  -3.20456384,                            !- Cooling Power Consumption Coefficient 1
-  0.47656454,                             !- Cooling Power Consumption Coefficient 2
-  3.16734236,                             !- Cooling Power Consumption Coefficient 3
-  0.10244637,                             !- Cooling Power Consumption Coefficient 4
-  -0.038132556,                           !- Cooling Power Consumption Coefficient 5
+  {b513eb49-8f83-4c64-aac2-cc2a856df035}, !- Total Cooling Capacity Curve Name
+  {091a5d44-4f9f-47d3-a0ff-18a58a383e0b}, !- Sensible Cooling Capacity Curve Name
+  {69e27838-d9bd-4e20-9835-93be1a1852e8}, !- Cooling Power Consumption Curve Name
   ,                                       !- Nominal Time for Condensate Removal to Begin {s}
   ;                                       !- Ratio of Initial Moisture Evaporation Rate and Steady State Latent Capacity {dimensionless}
+
+OS:Curve:QuadLinear,
+  {b513eb49-8f83-4c64-aac2-cc2a856df035}, !- Handle
+  Wtr-to-Air HP Gas Backup HP Clg Coil TotCoolCapCurve, !- Name
+  -0.68126221,                            !- Coefficient1 Constant
+  1.99529297,                             !- Coefficient2 w
+  -0.93611888,                            !- Coefficient3 x
+  0.02081177,                             !- Coefficient4 y
+  0.008438868,                            !- Coefficient5 z
+  -100,                                   !- Minimum Value of w {BasedOnField A2}
+  100,                                    !- Maximum Value of w {BasedOnField A2}
+  -100,                                   !- Minimum Value of x {BasedOnField A3}
+  100,                                    !- Maximum Value of x {BasedOnField A3}
+  0,                                      !- Minimum Value of y {BasedOnField A4}
+  100,                                    !- Maximum Value of y {BasedOnField A4}
+  0,                                      !- Minimum Value of z {BasedOnField A5}
+  100;                                    !- Maximum Value of z {BasedOnField A5}
+
+OS:Curve:QuintLinear,
+  {091a5d44-4f9f-47d3-a0ff-18a58a383e0b}, !- Handle
+  Wtr-to-Air HP Gas Backup HP Clg Coil SensCoolCapCurve, !- Name
+  2.24209455,                             !- Coefficient1 Constant
+  7.28913391,                             !- Coefficient2 v
+  -9.06079896,                            !- Coefficient3 w
+  -0.36729404,                            !- Coefficient4 x
+  0.218826161,                            !- Coefficient5 y
+  0.00901534,                             !- Coefficient6 z
+  -100,                                   !- Minimum Value of v {BasedOnField A2}
+  100,                                    !- Maximum Value of v {BasedOnField A2}
+  -100,                                   !- Minimum Value of w {BasedOnField A2}
+  100,                                    !- Maximum Value of w {BasedOnField A2}
+  -100,                                   !- Minimum Value of x {BasedOnField A3}
+  100,                                    !- Maximum Value of x {BasedOnField A3}
+  0,                                      !- Minimum Value of y {BasedOnField A4}
+  100,                                    !- Maximum Value of y {BasedOnField A4}
+  0,                                      !- Minimum Value of z {BasedOnField A5}
+  100;                                    !- Maximum Value of z {BasedOnField A5}
+
+OS:Curve:QuadLinear,
+  {69e27838-d9bd-4e20-9835-93be1a1852e8}, !- Handle
+  Wtr-to-Air HP Gas Backup HP Clg Coil CoolPowCurve, !- Name
+  -3.20456384,                            !- Coefficient1 Constant
+  0.47656454,                             !- Coefficient2 w
+  3.16734236,                             !- Coefficient3 x
+  0.10244637,                             !- Coefficient4 y
+  -0.038132556,                           !- Coefficient5 z
+  -100,                                   !- Minimum Value of w {BasedOnField A2}
+  100,                                    !- Maximum Value of w {BasedOnField A2}
+  -100,                                   !- Minimum Value of x {BasedOnField A3}
+  100,                                    !- Maximum Value of x {BasedOnField A3}
+  0,                                      !- Minimum Value of y {BasedOnField A4}
+  100,                                    !- Maximum Value of y {BasedOnField A4}
+  0,                                      !- Minimum Value of z {BasedOnField A5}
+  100;                                    !- Maximum Value of z {BasedOnField A5}
 
 OS:Fan:OnOff,
   {c947bbf7-a7f6-473b-af51-f5709ab08feb}, !- Handle
@@ -3463,16 +3594,42 @@ OS:Coil:Heating:WaterToAirHeatPump:EquationFit,
   ,                                       !- Rated Water Flow Rate {m3/s}
   ,                                       !- Rated Heating Capacity {W}
   ,                                       !- Rated Heating Coefficient of Performance {W/W}
-  -5.50102734,                            !- Heating Capacity Coefficient 1
-  -0.96688754,                            !- Heating Capacity Coefficient 2
-  7.70755007,                             !- Heating Capacity Coefficient 3
-  0.031928881,                            !- Heating Capacity Coefficient 4
-  0.028112522,                            !- Heating Capacity Coefficient 5
-  -7.47517858,                            !- Heating Power Consumption Coefficient 1
-  6.40876653,                             !- Heating Power Consumption Coefficient 2
-  1.99711665,                             !- Heating Power Consumption Coefficient 3
-  -0.050682973,                           !- Heating Power Consumption Coefficient 4
-  0.011385145;                            !- Heating Power Consumption Coefficient 5
+  {b37d22bd-260d-46b1-95b4-e8eeacf35e4d}, !- Heating Capacity Curve Name
+  {1dc9928b-c2df-41c0-b5f3-3b2d613b45a7}; !- Heating Power Consumption Curve Name
+
+OS:Curve:QuadLinear,
+  {b37d22bd-260d-46b1-95b4-e8eeacf35e4d}, !- Handle
+  Wtr-to-Air HP HW Backup HP Htg Coil HeatCapCurve, !- Name
+  -5.50102734,                            !- Coefficient1 Constant
+  -0.96688754,                            !- Coefficient2 w
+  7.70755007,                             !- Coefficient3 x
+  0.031928881,                            !- Coefficient4 y
+  0.028112522,                            !- Coefficient5 z
+  -100,                                   !- Minimum Value of w {BasedOnField A2}
+  100,                                    !- Maximum Value of w {BasedOnField A2}
+  -100,                                   !- Minimum Value of x {BasedOnField A3}
+  100,                                    !- Maximum Value of x {BasedOnField A3}
+  0,                                      !- Minimum Value of y {BasedOnField A4}
+  100,                                    !- Maximum Value of y {BasedOnField A4}
+  0,                                      !- Minimum Value of z {BasedOnField A5}
+  100;                                    !- Maximum Value of z {BasedOnField A5}
+
+OS:Curve:QuadLinear,
+  {1dc9928b-c2df-41c0-b5f3-3b2d613b45a7}, !- Handle
+  Wtr-to-Air HP HW Backup HP Htg Coil HeatPowCurve, !- Name
+  -7.47517858,                            !- Coefficient1 Constant
+  6.40876653,                             !- Coefficient2 w
+  1.99711665,                             !- Coefficient3 x
+  -0.050682973,                           !- Coefficient4 y
+  0.011385145,                            !- Coefficient5 z
+  -100,                                   !- Minimum Value of w {BasedOnField A2}
+  100,                                    !- Maximum Value of w {BasedOnField A2}
+  -100,                                   !- Minimum Value of x {BasedOnField A3}
+  100,                                    !- Maximum Value of x {BasedOnField A3}
+  0,                                      !- Minimum Value of y {BasedOnField A4}
+  100,                                    !- Maximum Value of y {BasedOnField A4}
+  0,                                      !- Minimum Value of z {BasedOnField A5}
+  100;                                    !- Maximum Value of z {BasedOnField A5}
 
 OS:Coil:Cooling:WaterToAirHeatPump:EquationFit,
   {7b550b0c-a709-4422-8f21-690b52ad8519}, !- Handle
@@ -3486,24 +3643,65 @@ OS:Coil:Cooling:WaterToAirHeatPump:EquationFit,
   ,                                       !- Rated Total Cooling Capacity {W}
   ,                                       !- Rated Sensible Cooling Capacity {W}
   3,                                      !- Rated Cooling Coefficient of Performance {W/W}
-  -0.68126221,                            !- Total Cooling Capacity Coefficient 1
-  1.99529297,                             !- Total Cooling Capacity Coefficient 2
-  -0.93611888,                            !- Total Cooling Capacity Coefficient 3
-  0.02081177,                             !- Total Cooling Capacity Coefficient 4
-  0.008438868,                            !- Total Cooling Capacity Coefficient 5
-  2.24209455,                             !- Sensible Cooling Capacity Coefficient 1
-  7.28913391,                             !- Sensible Cooling Capacity Coefficient 2
-  -9.06079896,                            !- Sensible Cooling Capacity Coefficient 3
-  -0.36729404,                            !- Sensible Cooling Capacity Coefficient 4
-  0.218826161,                            !- Sensible Cooling Capacity Coefficient 5
-  0.00901534,                             !- Sensible Cooling Capacity Coefficient 6
-  -3.20456384,                            !- Cooling Power Consumption Coefficient 1
-  0.47656454,                             !- Cooling Power Consumption Coefficient 2
-  3.16734236,                             !- Cooling Power Consumption Coefficient 3
-  0.10244637,                             !- Cooling Power Consumption Coefficient 4
-  -0.038132556,                           !- Cooling Power Consumption Coefficient 5
+  {fdd9c030-4eab-4dc8-b22d-5eeffd8cad54}, !- Total Cooling Capacity Curve Name
+  {f4aa74c7-3d29-45a2-9259-8706221e352f}, !- Sensible Cooling Capacity Curve Name
+  {ccfb6792-ae3c-48ee-a18e-b6e38fc3930b}, !- Cooling Power Consumption Curve Name
   ,                                       !- Nominal Time for Condensate Removal to Begin {s}
   ;                                       !- Ratio of Initial Moisture Evaporation Rate and Steady State Latent Capacity {dimensionless}
+
+OS:Curve:QuadLinear,
+  {fdd9c030-4eab-4dc8-b22d-5eeffd8cad54}, !- Handle
+  Wtr-to-Air HP HW Backup HP Clg Coil TotCoolCapCurve, !- Name
+  -0.68126221,                            !- Coefficient1 Constant
+  1.99529297,                             !- Coefficient2 w
+  -0.93611888,                            !- Coefficient3 x
+  0.02081177,                             !- Coefficient4 y
+  0.008438868,                            !- Coefficient5 z
+  -100,                                   !- Minimum Value of w {BasedOnField A2}
+  100,                                    !- Maximum Value of w {BasedOnField A2}
+  -100,                                   !- Minimum Value of x {BasedOnField A3}
+  100,                                    !- Maximum Value of x {BasedOnField A3}
+  0,                                      !- Minimum Value of y {BasedOnField A4}
+  100,                                    !- Maximum Value of y {BasedOnField A4}
+  0,                                      !- Minimum Value of z {BasedOnField A5}
+  100;                                    !- Maximum Value of z {BasedOnField A5}
+
+OS:Curve:QuintLinear,
+  {f4aa74c7-3d29-45a2-9259-8706221e352f}, !- Handle
+  Wtr-to-Air HP HW Backup HP Clg Coil SensCoolCapCurve, !- Name
+  2.24209455,                             !- Coefficient1 Constant
+  7.28913391,                             !- Coefficient2 v
+  -9.06079896,                            !- Coefficient3 w
+  -0.36729404,                            !- Coefficient4 x
+  0.218826161,                            !- Coefficient5 y
+  0.00901534,                             !- Coefficient6 z
+  -100,                                   !- Minimum Value of v {BasedOnField A2}
+  100,                                    !- Maximum Value of v {BasedOnField A2}
+  -100,                                   !- Minimum Value of w {BasedOnField A2}
+  100,                                    !- Maximum Value of w {BasedOnField A2}
+  -100,                                   !- Minimum Value of x {BasedOnField A3}
+  100,                                    !- Maximum Value of x {BasedOnField A3}
+  0,                                      !- Minimum Value of y {BasedOnField A4}
+  100,                                    !- Maximum Value of y {BasedOnField A4}
+  0,                                      !- Minimum Value of z {BasedOnField A5}
+  100;                                    !- Maximum Value of z {BasedOnField A5}
+
+OS:Curve:QuadLinear,
+  {ccfb6792-ae3c-48ee-a18e-b6e38fc3930b}, !- Handle
+  Wtr-to-Air HP HW Backup HP Clg Coil CoolPowCurve, !- Name
+  -3.20456384,                            !- Coefficient1 Constant
+  0.47656454,                             !- Coefficient2 w
+  3.16734236,                             !- Coefficient3 x
+  0.10244637,                             !- Coefficient4 y
+  -0.038132556,                           !- Coefficient5 z
+  -100,                                   !- Minimum Value of w {BasedOnField A2}
+  100,                                    !- Maximum Value of w {BasedOnField A2}
+  -100,                                   !- Minimum Value of x {BasedOnField A3}
+  100,                                    !- Maximum Value of x {BasedOnField A3}
+  0,                                      !- Minimum Value of y {BasedOnField A4}
+  100,                                    !- Maximum Value of y {BasedOnField A4}
+  0,                                      !- Minimum Value of z {BasedOnField A5}
+  100;                                    !- Maximum Value of z {BasedOnField A5}
 
 OS:Coil:Heating:Electric,
   {c29736fa-c1bc-4abc-89e5-9eff83d9426f}, !- Handle
@@ -3942,6 +4140,10 @@ OS:Schedule:Day,
 OS:Coil:Heating:LowTemperatureRadiant:VariableFlow,
   {0bb8d9e1-257b-4f72-872b-1c8352ebcff5}, !- Handle
   Low Temp Rad Var Flow Htg Coil,         !- Name
+  HeatingDesignCapacity,                  !- Heating Design Capacity Method
+  Autosize,                               !- Heating Design Capacity {W}
+  0,                                      !- Heating Design Capacity Per Floor Area {W/m2}
+  1,                                      !- Fraction of Autosized Heating Design Capacity
   ,                                       !- Maximum Hot Water Flow {m3/s}
   ,                                       !- Heating Water Inlet Node Name
   ,                                       !- Heating Water Outlet Node Name
@@ -3966,6 +4168,10 @@ OS:Schedule:Day,
 OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow,
   {bc6be488-1c8b-43d3-8064-00a09ab21444}, !- Handle
   Low Temp Rad Var Flow Clg Coil,         !- Name
+  CoolingDesignCapacity,                  !- Cooling Design Capacity Method
+  Autosize,                               !- Cooling Design Capacity {W}
+  0,                                      !- Cooling Design Capacity Per Floor Area {W/m2}
+  1,                                      !- Fraction of Autosized Cooling Design Capacity
   ,                                       !- Maximum Cold Water Flow {m3/s}
   ,                                       !- Cooling Water Inlet Node Name
   ,                                       !- Cooling Water Outlet Node Name
@@ -4783,7 +4989,7 @@ OS:AirConditioner:VariableRefrigerantFlow,
   {30fbccd3-f4f0-4bf8-94be-faf7bba3e968}, !- Heating Energy Input Ratio Modifier Function of High Part-Load Ratio Curve Name
   {68c0f092-88a2-4ba9-b6b4-4d8f2b091efc}, !- Heating Combination Ratio Correction Factor Curve Name
   {14f8f003-46ae-43fe-a743-607c63cd092c}, !- Heating Part-Load Fraction Correlation Curve Name
-  0.25,                                   !- Minimum Heat Pump Part-Load Ratio {dimensionless}
+  0.5,                                    !- Minimum Heat Pump Part-Load Ratio {dimensionless}
   ,                                       !- Zone Name for Master Thermostat Location
   LoadPriority,                           !- Master Thermostat Priority Control Type
   ,                                       !- Thermostat Priority Schedule
@@ -5271,7 +5477,7 @@ OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow,
   autosize,                               !- Outdoor Air Flow Rate During Heating Operation {m3/s}
   autosize,                               !- Outdoor Air Flow Rate When No Cooling or Heating is Needed {m3/s}
   {9f54092d-a4a8-41b8-a381-c4c332ecb843}, !- Supply Air Fan Operating Mode Schedule
-  ,                                       !- Supply Air Fan placement
+  DrawThrough,                            !- Supply Air Fan Placement
   {de259b99-d14c-4c97-a714-fc200c52027a}, !- Supply Air Fan
   ,                                       !- Outside Air Mixer
   {8c84c0ac-6832-4444-a64f-9d88308c1b14}, !- Cooling Coil
@@ -7151,24 +7357,65 @@ OS:Coil:Cooling:WaterToAirHeatPump:EquationFit,
   ,                                       !- Rated Total Cooling Capacity {W}
   ,                                       !- Rated Sensible Cooling Capacity {W}
   ,                                       !- Rated Cooling Coefficient of Performance {W/W}
-  -0.68126221,                            !- Total Cooling Capacity Coefficient 1
-  1.99529297,                             !- Total Cooling Capacity Coefficient 2
-  -0.93611888,                            !- Total Cooling Capacity Coefficient 3
-  0.02081177,                             !- Total Cooling Capacity Coefficient 4
-  0.008438868,                            !- Total Cooling Capacity Coefficient 5
-  2.24209455,                             !- Sensible Cooling Capacity Coefficient 1
-  7.28913391,                             !- Sensible Cooling Capacity Coefficient 2
-  -9.06079896,                            !- Sensible Cooling Capacity Coefficient 3
-  -0.36729404,                            !- Sensible Cooling Capacity Coefficient 4
-  0.218826161,                            !- Sensible Cooling Capacity Coefficient 5
-  0.00901534,                             !- Sensible Cooling Capacity Coefficient 6
-  -3.20456384,                            !- Cooling Power Consumption Coefficient 1
-  0.47656454,                             !- Cooling Power Consumption Coefficient 2
-  3.16734236,                             !- Cooling Power Consumption Coefficient 3
-  0.10244637,                             !- Cooling Power Consumption Coefficient 4
-  -0.038132556,                           !- Cooling Power Consumption Coefficient 5
+  {d145ad65-b318-49d6-99ce-1c1416b975c6}, !- Total Cooling Capacity Curve Name
+  {fed92a37-e70f-4a7e-8ee3-c4cf5f524681}, !- Sensible Cooling Capacity Curve Name
+  {99921d9c-340b-4033-8530-bb0aa36bee1d}, !- Cooling Power Consumption Curve Name
   ,                                       !- Nominal Time for Condensate Removal to Begin {s}
   ;                                       !- Ratio of Initial Moisture Evaporation Rate and Steady State Latent Capacity {dimensionless}
+
+OS:Curve:QuadLinear,
+  {d145ad65-b318-49d6-99ce-1c1416b975c6}, !- Handle
+  Wtr-to-Air HP Clg Coil 1 TotCoolCapCurve, !- Name
+  -0.68126221,                            !- Coefficient1 Constant
+  1.99529297,                             !- Coefficient2 w
+  -0.93611888,                            !- Coefficient3 x
+  0.02081177,                             !- Coefficient4 y
+  0.008438868,                            !- Coefficient5 z
+  -100,                                   !- Minimum Value of w {BasedOnField A2}
+  100,                                    !- Maximum Value of w {BasedOnField A2}
+  -100,                                   !- Minimum Value of x {BasedOnField A3}
+  100,                                    !- Maximum Value of x {BasedOnField A3}
+  0,                                      !- Minimum Value of y {BasedOnField A4}
+  100,                                    !- Maximum Value of y {BasedOnField A4}
+  0,                                      !- Minimum Value of z {BasedOnField A5}
+  100;                                    !- Maximum Value of z {BasedOnField A5}
+
+OS:Curve:QuintLinear,
+  {fed92a37-e70f-4a7e-8ee3-c4cf5f524681}, !- Handle
+  Wtr-to-Air HP Clg Coil 1 SensCoolCapCurve, !- Name
+  2.24209455,                             !- Coefficient1 Constant
+  7.28913391,                             !- Coefficient2 v
+  -9.06079896,                            !- Coefficient3 w
+  -0.36729404,                            !- Coefficient4 x
+  0.218826161,                            !- Coefficient5 y
+  0.00901534,                             !- Coefficient6 z
+  -100,                                   !- Minimum Value of v {BasedOnField A2}
+  100,                                    !- Maximum Value of v {BasedOnField A2}
+  -100,                                   !- Minimum Value of w {BasedOnField A2}
+  100,                                    !- Maximum Value of w {BasedOnField A2}
+  -100,                                   !- Minimum Value of x {BasedOnField A3}
+  100,                                    !- Maximum Value of x {BasedOnField A3}
+  0,                                      !- Minimum Value of y {BasedOnField A4}
+  100,                                    !- Maximum Value of y {BasedOnField A4}
+  0,                                      !- Minimum Value of z {BasedOnField A5}
+  100;                                    !- Maximum Value of z {BasedOnField A5}
+
+OS:Curve:QuadLinear,
+  {99921d9c-340b-4033-8530-bb0aa36bee1d}, !- Handle
+  Wtr-to-Air HP Clg Coil 1 CoolPowCurve,  !- Name
+  -3.20456384,                            !- Coefficient1 Constant
+  0.47656454,                             !- Coefficient2 w
+  3.16734236,                             !- Coefficient3 x
+  0.10244637,                             !- Coefficient4 y
+  -0.038132556,                           !- Coefficient5 z
+  -100,                                   !- Minimum Value of w {BasedOnField A2}
+  100,                                    !- Maximum Value of w {BasedOnField A2}
+  -100,                                   !- Minimum Value of x {BasedOnField A3}
+  100,                                    !- Maximum Value of x {BasedOnField A3}
+  0,                                      !- Minimum Value of y {BasedOnField A4}
+  100,                                    !- Maximum Value of y {BasedOnField A4}
+  0,                                      !- Minimum Value of z {BasedOnField A5}
+  100;                                    !- Maximum Value of z {BasedOnField A5}
 
 OS:Coil:Heating:WaterToAirHeatPump:EquationFit,
   {07468aec-7855-4a75-8aec-93bcb433af35}, !- Handle
@@ -7181,16 +7428,42 @@ OS:Coil:Heating:WaterToAirHeatPump:EquationFit,
   ,                                       !- Rated Water Flow Rate {m3/s}
   ,                                       !- Rated Heating Capacity {W}
   ,                                       !- Rated Heating Coefficient of Performance {W/W}
-  -5.50102734,                            !- Heating Capacity Coefficient 1
-  -0.96688754,                            !- Heating Capacity Coefficient 2
-  7.70755007,                             !- Heating Capacity Coefficient 3
-  0.031928881,                            !- Heating Capacity Coefficient 4
-  0.028112522,                            !- Heating Capacity Coefficient 5
-  -7.47517858,                            !- Heating Power Consumption Coefficient 1
-  6.40876653,                             !- Heating Power Consumption Coefficient 2
-  1.99711665,                             !- Heating Power Consumption Coefficient 3
-  -0.050682973,                           !- Heating Power Consumption Coefficient 4
-  0.011385145;                            !- Heating Power Consumption Coefficient 5
+  {694ad55b-ec7d-4476-a624-e5151cc051eb}, !- Heating Capacity Curve Name
+  {c146ac09-cf40-43e9-ab3b-a98fcbd352bc}; !- Heating Power Consumption Curve Name
+
+OS:Curve:QuadLinear,
+  {694ad55b-ec7d-4476-a624-e5151cc051eb}, !- Handle
+  Wtr-to-Air HP Htg Coil 1 HeatCapCurve,  !- Name
+  -5.50102734,                            !- Coefficient1 Constant
+  -0.96688754,                            !- Coefficient2 w
+  7.70755007,                             !- Coefficient3 x
+  0.031928881,                            !- Coefficient4 y
+  0.028112522,                            !- Coefficient5 z
+  -100,                                   !- Minimum Value of w {BasedOnField A2}
+  100,                                    !- Maximum Value of w {BasedOnField A2}
+  -100,                                   !- Minimum Value of x {BasedOnField A3}
+  100,                                    !- Maximum Value of x {BasedOnField A3}
+  0,                                      !- Minimum Value of y {BasedOnField A4}
+  100,                                    !- Maximum Value of y {BasedOnField A4}
+  0,                                      !- Minimum Value of z {BasedOnField A5}
+  100;                                    !- Maximum Value of z {BasedOnField A5}
+
+OS:Curve:QuadLinear,
+  {c146ac09-cf40-43e9-ab3b-a98fcbd352bc}, !- Handle
+  Wtr-to-Air HP Htg Coil 1 HeatPowCurve,  !- Name
+  -7.47517858,                            !- Coefficient1 Constant
+  6.40876653,                             !- Coefficient2 w
+  1.99711665,                             !- Coefficient3 x
+  -0.050682973,                           !- Coefficient4 y
+  0.011385145,                            !- Coefficient5 z
+  -100,                                   !- Minimum Value of w {BasedOnField A2}
+  100,                                    !- Maximum Value of w {BasedOnField A2}
+  -100,                                   !- Minimum Value of x {BasedOnField A3}
+  100,                                    !- Maximum Value of x {BasedOnField A3}
+  0,                                      !- Minimum Value of y {BasedOnField A4}
+  100,                                    !- Maximum Value of y {BasedOnField A4}
+  0,                                      !- Minimum Value of z {BasedOnField A5}
+  100;                                    !- Maximum Value of z {BasedOnField A5}
 
 OS:Coil:Heating:Electric,
   {251f0a6b-debb-4eeb-9f5a-cab558637dcf}, !- Handle
@@ -8173,7 +8446,6 @@ OS:Node,
 
 OS:Connection,
   {96e23b68-0ea3-4f0b-b14e-baf0cf3405e0}, !- Handle
-  {f09e4d0a-0735-4c49-bcdb-f2371817f943}, !- Name
   {8b3614b6-19a8-496b-ad68-96351a2ab688}, !- Source Object
   24,                                     !- Outlet Port
   {c67a19fa-782f-4d1d-8f3e-dab9b6e44746}, !- Target Object
@@ -10830,19 +11102,45 @@ OS:HeatPump:WaterToWater:EquationFit:Cooling,
   0.00189,                                !- Reference Source Side Flow Rate {m3/s}
   39890.91,                               !- Reference Cooling Capacity {W}
   4790,                                   !- Reference Cooling Power Consumption {W}
-  -1.52030596,                            !- Cooling Capacity Coefficient 1
-  3.46625667,                             !- Cooling Capacity Coefficient 2
-  -1.32267797,                            !- Cooling Capacity Coefficient 3
-  0.09395678,                             !- Cooling Capacity Coefficient 4
-  0.038975504,                            !- Cooling Capacity Coefficient 5
-  -8.59564386,                            !- Cooling Compressor Power Coefficient 1
-  0.96265085,                             !- Cooling Compressor Power Coefficient 2
-  8.69489229,                             !- Cooling Compressor Power Coefficient 3
-  0.02501669,                             !- Cooling Compressor Power Coefficient 4
-  -0.20132665,                            !- Cooling Compressor Power Coefficient 5
+  {8c1d8302-6c16-484a-af00-84608164565f}, !- Cooling Capacity Curve Name
+  {dc17ad0f-f362-4de6-aacd-43d394f04aba}, !- Cooling Compressor Power Curve Name
   8.0,                                    !- Reference Coefficient of Performance {W/W}
   1.0,                                    !- Sizing Factor
   ;                                       !- Companion Heating Heat Pump Name
+
+OS:Curve:QuadLinear,
+  {8c1d8302-6c16-484a-af00-84608164565f}, !- Handle
+  Heat Pump - Water To Water - Cooling CoolCapCurve, !- Name
+  -1.52030596,                            !- Coefficient1 Constant
+  3.46625667,                             !- Coefficient2 w
+  -1.32267797,                            !- Coefficient3 x
+  0.09395678,                             !- Coefficient4 y
+  0.038975504,                            !- Coefficient5 z
+  -100,                                   !- Minimum Value of w {BasedOnField A2}
+  100,                                    !- Maximum Value of w {BasedOnField A2}
+  -100,                                   !- Minimum Value of x {BasedOnField A3}
+  100,                                    !- Maximum Value of x {BasedOnField A3}
+  0,                                      !- Minimum Value of y {BasedOnField A4}
+  100,                                    !- Maximum Value of y {BasedOnField A4}
+  0,                                      !- Minimum Value of z {BasedOnField A5}
+  100;                                    !- Maximum Value of z {BasedOnField A5}
+
+OS:Curve:QuadLinear,
+  {dc17ad0f-f362-4de6-aacd-43d394f04aba}, !- Handle
+  Heat Pump - Water To Water - Cooling CoolCompPowerCurve, !- Name
+  -8.59564386,                            !- Coefficient1 Constant
+  0.96265085,                             !- Coefficient2 w
+  8.69489229,                             !- Coefficient3 x
+  0.02501669,                             !- Coefficient4 y
+  -0.20132665,                            !- Coefficient5 z
+  -100,                                   !- Minimum Value of w {BasedOnField A2}
+  100,                                    !- Maximum Value of w {BasedOnField A2}
+  -100,                                   !- Minimum Value of x {BasedOnField A3}
+  100,                                    !- Maximum Value of x {BasedOnField A3}
+  0,                                      !- Minimum Value of y {BasedOnField A4}
+  100,                                    !- Maximum Value of y {BasedOnField A4}
+  0,                                      !- Minimum Value of z {BasedOnField A5}
+  100;                                    !- Maximum Value of z {BasedOnField A5}
 
 OS:HeatPump:WaterToWater:EquationFit:Heating,
   {80f71496-82ae-4ad8-b677-1ca17b0ca84a}, !- Handle
@@ -10855,19 +11153,45 @@ OS:HeatPump:WaterToWater:EquationFit:Heating,
   0.00189,                                !- Reference Source Side Flow Rate {m3/s}
   39040.92,                               !- Reference Heating Capacity {W}
   5130,                                   !- Reference Heating Power Consumption {W}
-  -3.33491153,                            !- Heating Capacity Coefficient 1
-  -0.51451946,                            !- Heating Capacity Coefficient 2
-  4.51592706,                             !- Heating Capacity Coefficient 3
-  0.01797107,                             !- Heating Capacity Coefficient 4
-  0.155797661,                            !- Heating Capacity Coefficient 5
-  -8.93121751,                            !- Heating Compressor Power Coefficient 1
-  8.57035762,                             !- Heating Compressor Power Coefficient 2
-  1.29660976,                             !- Heating Compressor Power Coefficient 3
-  -0.21629222,                            !- Heating Compressor Power Coefficient 4
-  0.033862378,                            !- Heating Compressor Power Coefficient 5
+  {c43befc0-0225-421d-8414-a161cf4bef6c}, !- Heating Capacity Curve Name
+  {4e72fb05-9bcc-4a39-b949-84a89cb2555b}, !- Heating Compressor Power Curve Name
   7.5,                                    !- Reference Coefficient of Performance {W/W}
   1.0,                                    !- Sizing Factor
   ;                                       !- Companion Cooling Heat Pump Name
+
+OS:Curve:QuadLinear,
+  {c43befc0-0225-421d-8414-a161cf4bef6c}, !- Handle
+  Heat Pump - Water To Water - Heating HeatCapCurve, !- Name
+  -3.33491153,                            !- Coefficient1 Constant
+  -0.51451946,                            !- Coefficient2 w
+  4.51592706,                             !- Coefficient3 x
+  0.01797107,                             !- Coefficient4 y
+  0.155797661,                            !- Coefficient5 z
+  -100,                                   !- Minimum Value of w {BasedOnField A2}
+  100,                                    !- Maximum Value of w {BasedOnField A2}
+  -100,                                   !- Minimum Value of x {BasedOnField A3}
+  100,                                    !- Maximum Value of x {BasedOnField A3}
+  0,                                      !- Minimum Value of y {BasedOnField A4}
+  100,                                    !- Maximum Value of y {BasedOnField A4}
+  0,                                      !- Minimum Value of z {BasedOnField A5}
+  100;                                    !- Maximum Value of z {BasedOnField A5}
+
+OS:Curve:QuadLinear,
+  {4e72fb05-9bcc-4a39-b949-84a89cb2555b}, !- Handle
+  Heat Pump - Water To Water - Heating HeatCompPowerCurve, !- Name
+  -8.93121751,                            !- Coefficient1 Constant
+  8.57035762,                             !- Coefficient2 w
+  1.29660976,                             !- Coefficient3 x
+  -0.21629222,                            !- Coefficient4 y
+  0.033862378,                            !- Coefficient5 z
+  -100,                                   !- Minimum Value of w {BasedOnField A2}
+  100,                                    !- Maximum Value of w {BasedOnField A2}
+  -100,                                   !- Minimum Value of x {BasedOnField A3}
+  100,                                    !- Maximum Value of x {BasedOnField A3}
+  0,                                      !- Minimum Value of y {BasedOnField A4}
+  100,                                    !- Maximum Value of y {BasedOnField A4}
+  0,                                      !- Minimum Value of z {BasedOnField A5}
+  100;                                    !- Maximum Value of z {BasedOnField A5}
 
 OS:Generator:MicroTurbine,
   {5f037e71-1ba0-4b22-9d0d-0ab372356d49}, !- Handle
@@ -12079,4 +12403,239 @@ OS:Curve:Quartic,
   1,                                      !- Maximum Curve Output
   Dimensionless,                          !- Input Unit Type for X
   Dimensionless;                          !- Output Unit Type
+
+OS:Humidifier:Steam:Gas,
+  {f60187e2-d000-4c53-a0d3-3394f2350dd2}, !- Handle
+  Humidifier Steam Gas,                   !- Name
+  {9f54092d-a4a8-41b8-a381-c4c332ecb843}, !- Availability Schedule Name
+  autosize,                               !- Rated Capacity {m3/s}
+  104000,                                 !- Rated Gas Use Rate {W}
+  ,                                       !- Thermal Efficiency {dimensionless}
+  ,                                       !- Thermal Efficiency Modifier Curve Name
+  ,                                       !- Rated Fan Power {W}
+  ,                                       !- Auxiliary Electric Power {W}
+  ,                                       !- Air Inlet Node Name
+  ,                                       !- Air Outlet Node Name
+  ,                                       !- Water Storage Tank Name
+  FixedInletWaterTemperature;             !- Inlet Water Temperature Option
+
+OS:ZoneHVAC:CoolingPanel:RadiantConvective:Water,
+  {f0476560-12e6-45a5-8208-bb88dd284131}, !- Handle
+  Zone HVAC Cooling Panel Radiant Convective Water, !- Name
+  {9f54092d-a4a8-41b8-a381-c4c332ecb843}, !- Availability Schedule Name
+  {eadefa43-33f6-4def-a2f4-1d95565ecf3a}, !- Cooling Coil Name
+  0.65,                                   !- Fraction Radiant
+  0.2;                                    !- Fraction of Radiant Energy Incident on People
+
+OS:Coil:Cooling:Water:Panel:Radiant,
+  {eadefa43-33f6-4def-a2f4-1d95565ecf3a}, !- Handle
+  Coil Cooling Water Panel Radiant,       !- Name
+  ,                                       !- Water Inlet Node Name
+  ,                                       !- Water Outlet Node Name
+  5,                                      !- Rated Inlet Water Temperature {C}
+  24,                                     !- Rated Inlet Space Temperature {C}
+  0.063,                                  !- Rated Water Mass Flow Rate {kg/s}
+  CoolingDesignCapacity,                  !- Cooling Design Capacity Method
+  autosize,                               !- Cooling Design Capacity {W}
+  0,                                      !- Cooling Design Capacity Per Floor Area {W/m2}
+  1,                                      !- Fraction of Autosized Cooling Design Capacity
+  autosize,                               !- Maximum Chilled Water Flow Rate {m3/s}
+  MeanAirTemperature,                     !- Control Type
+  0.5,                                    !- Cooling Control Throttling Range {deltaC}
+  ,                                       !- Cooling Control Temperature Schedule Name
+  SimpleOff,                              !- Condensation Control Type
+  1;                                      !- Condensation Control Dewpoint Offset {C}
+
+OS:Fan:ComponentModel,
+  {475b553b-8a0f-4284-a544-b3c47a7e5dd7}, !- Handle
+  FanComponentModel,                      !- Name
+  ,                                       !- Air Inlet Node Name
+  ,                                       !- Air Outlet Node Name
+  {9f54092d-a4a8-41b8-a381-c4c332ecb843}, !- Availability Schedule Name
+  autosize,                               !- Maximum Flow Rate {m3/s}
+  autosize,                               !- Minimum Flow Rate {m3/s}
+  1,                                      !- Fan Sizing Factor
+  0.3048,                                 !- Fan Wheel Diameter {m}
+  0.0873288576,                           !- Fan Outlet Area {m2}
+  0.514,                                  !- Maximum Fan Static Efficiency
+  9.76,                                   !- Euler Number at Maximum Fan Static Efficiency
+  0.160331811647483,                      !- Maximum Dimensionless Fan Airflow
+  autosize,                               !- Motor Fan Pulley Ratio
+  autosize,                               !- Belt Maximum Torque {N-m}
+  1,                                      !- Belt Sizing Factor
+  0.167,                                  !- Belt Fractional Torque Transition
+  1800,                                   !- Motor Maximum Speed {rev/min}
+  autosize,                               !- Maximum Motor Output Power {W}
+  1,                                      !- Motor Sizing Factor
+  1,                                      !- Motor In Airstream Fraction
+  Power,                                  !- VFD Efficiency Type
+  autosize,                               !- Maximum VFD Output Power {W}
+  1,                                      !- VFD Sizing Factor
+  {31a1c3be-65c2-4610-b3cc-55829f353537}, !- Fan Pressure Rise Curve Name
+  {d07cf831-1280-4336-90ae-f5cc67a89010}, !- Duct Static Pressure Reset Curve Name
+  {bfd1ae73-7dc0-4854-97e2-5d15ebeb42e5}, !- Normalized Fan Static Efficiency Curve Name-Non-Stall Region
+  {fb68ee6a-ee02-4f48-b553-186326d8c671}, !- Normalized Fan Static Efficiency Curve Name-Stall Region
+  {8bcde119-4168-424f-9705-28b8c0b0afaa}, !- Normalized Dimensionless Airflow Curve Name-Non-Stall Region
+  {0e7b24ee-1cd5-4412-bc9c-a4e7816ed2d7}, !- Normalized Dimensionless Airflow Curve Name-Stall Region
+  {f7cf787d-6adf-4db3-bca9-bc153fa574e6}, !- Maximum Belt Efficiency Curve Name
+  {13de9540-fdab-42fe-9456-6d95cdd92b89}, !- Normalized Belt Efficiency Curve Name - Region 1
+  {d1341341-bb1a-4832-aa6a-f1c4b8fb4905}, !- Normalized Belt Efficiency Curve Name - Region 2
+  {d679a541-5275-491f-926e-10465ec58d81}, !- Normalized Belt Efficiency Curve Name - Region 3
+  {3dc3f15f-87eb-4a51-88f6-e577ab451c39}, !- Maximum Motor Efficiency Curve Name
+  {45a687b2-4a28-407b-a7de-09efc66e4594}, !- Normalized Motor Efficiency Curve Name
+  {fb67a44a-9aac-4d75-be07-dba2806f8016}, !- VFD Efficiency Curve Name
+  General;                                !- End-Use Subcategory
+
+OS:Curve:FanPressureRise,
+  {31a1c3be-65c2-4610-b3cc-55829f353537}, !- Handle
+  VSD Example,                            !- Name
+  1446.75833497653,                       !- Coefficient1 C1
+  0,                                      !- Coefficient2 C2
+  0,                                      !- Coefficient3 C3
+  1,                                      !- Coefficient4 C4
+  0,                                      !- Minimum Value of Qfan {m3/s}
+  100,                                    !- Maximum Value of Qfan {m3/s}
+  62.5,                                   !- Minimum Value of Psm {Pa}
+  300,                                    !- Maximum Value of Psm {Pa}
+  0,                                      !- Minimum Curve Output {Pa}
+  5000;                                   !- Maximum Curve Output {Pa}
+
+OS:Curve:Linear,
+  {d07cf831-1280-4336-90ae-f5cc67a89010}, !- Handle
+  DiagnosticSPR,                          !- Name
+  248.84,                                 !- Coefficient1 Constant
+  0,                                      !- Coefficient2 x
+  0,                                      !- Minimum Value of x
+  100,                                    !- Maximum Value of x
+  62.5,                                   !- Minimum Curve Output
+  248.84;                                 !- Maximum Curve Output
+
+OS:Curve:ExponentialSkewNormal,
+  {bfd1ae73-7dc0-4854-97e2-5d15ebeb42e5}, !- Handle
+  FanEff120CPLANormal,                    !- Name
+  0.072613,                               !- Coefficient1 C1
+  0.833213,                               !- Coefficient2 C2
+  0,                                      !- Coefficient3 C3
+  0.013911,                               !- Coefficient4 C4
+  -4,                                     !- Minimum Value of x
+  5,                                      !- Maximum Value of x
+  0.1,                                    !- Minimum Curve Output
+  1;                                      !- Maximum Curve Output
+
+OS:Curve:ExponentialSkewNormal,
+  {fb68ee6a-ee02-4f48-b553-186326d8c671}, !- Handle
+  FanEff120CPLAStall,                     !- Name
+  -1.674931,                              !- Coefficient1 C1
+  1.980182,                               !- Coefficient2 C2
+  0,                                      !- Coefficient3 C3
+  1.84495,                                !- Coefficient4 C4
+  -4,                                     !- Minimum Value of x
+  5,                                      !- Maximum Value of x
+  0.1,                                    !- Minimum Curve Output
+  1;                                      !- Maximum Curve Output
+
+OS:Curve:Sigmoid,
+  {8bcde119-4168-424f-9705-28b8c0b0afaa}, !- Handle
+  FanDimFlowNormal,                       !- Name
+  0,                                      !- Coefficient1 C1
+  1.001423,                               !- Coefficient2 C2
+  0.123935,                               !- Coefficient3 C3
+  -0.476026,                              !- Coefficient4 C4
+  1,                                      !- Coefficient5 C5
+  -4,                                     !- Minimum Value of x
+  5,                                      !- Maximum Value of x
+  0.05,                                   !- Minimum Curve Output
+  1;                                      !- Maximum Curve Output
+
+OS:Curve:Sigmoid,
+  {0e7b24ee-1cd5-4412-bc9c-a4e7816ed2d7}, !- Handle
+  FanDimFlowStall,                        !- Name
+  0,                                      !- Coefficient1 C1
+  5.924993,                               !- Coefficient2 C2
+  -1.91636,                               !- Coefficient3 C3
+  -0.851779,                              !- Coefficient4 C4
+  1,                                      !- Coefficient5 C5
+  -4,                                     !- Minimum Value of x
+  5,                                      !- Maximum Value of x
+  0.05,                                   !- Minimum Curve Output
+  1;                                      !- Maximum Curve Output
+
+OS:Curve:Quartic,
+  {f7cf787d-6adf-4db3-bca9-bc153fa574e6}, !- Handle
+  BeltMaxEffMedium,                       !- Name
+  -0.09504,                               !- Coefficient1 Constant
+  0.03415,                                !- Coefficient2 x
+  -0.008897,                              !- Coefficient3 x**2
+  0.001159,                               !- Coefficient4 x**3
+  -6.132e-05,                             !- Coefficient5 x**4
+  -1.2,                                   !- Minimum Value of x
+  6.2,                                    !- Maximum Value of x
+  -4.6,                                   !- Minimum Curve Output
+  0;                                      !- Maximum Curve Output
+
+OS:Curve:RectangularHyperbola2,
+  {13de9540-fdab-42fe-9456-6d95cdd92b89}, !- Handle
+  BeltPartLoadRegion1,                    !- Name
+  0.920797,                               !- Coefficient1 C1
+  0.0262686,                              !- Coefficient2 C2
+  0.151594,                               !- Coefficient3 C3
+  0,                                      !- Minimum Value of x
+  1,                                      !- Maximum Value of x
+  0.01,                                   !- Minimum Curve Output
+  1;                                      !- Maximum Curve Output
+
+OS:Curve:ExponentialDecay,
+  {d1341341-bb1a-4832-aa6a-f1c4b8fb4905}, !- Handle
+  BeltPartLoadRegion2,                    !- Name
+  1.011965,                               !- Coefficient1 C1
+  -0.339038,                              !- Coefficient2 C2
+  -3.43626,                               !- Coefficient3 C3
+  0,                                      !- Minimum Value of x
+  1,                                      !- Maximum Value of x
+  0.01,                                   !- Minimum Curve Output
+  1;                                      !- Maximum Curve Output
+
+OS:Curve:RectangularHyperbola2,
+  {d679a541-5275-491f-926e-10465ec58d81}, !- Handle
+  BeltPartLoadRegion3,                    !- Name
+  1.037778,                               !- Coefficient1 C1
+  0.0103068,                              !- Coefficient2 C2
+  -0.0268146,                             !- Coefficient3 C3
+  0,                                      !- Minimum Value of x
+  1,                                      !- Maximum Value of x
+  0.01,                                   !- Minimum Curve Output
+  1;                                      !- Maximum Curve Output
+
+OS:Curve:RectangularHyperbola1,
+  {3dc3f15f-87eb-4a51-88f6-e577ab451c39}, !- Handle
+  MotorMaxEffAvg,                         !- Name
+  0.29228,                                !- Coefficient1 C1
+  3.368739,                               !- Coefficient2 C2
+  0.762471,                               !- Coefficient3 C3
+  0,                                      !- Minimum Value of x
+  7.6,                                    !- Maximum Value of x
+  0.01,                                   !- Minimum Curve Output
+  1;                                      !- Maximum Curve Output
+
+OS:Curve:RectangularHyperbola2,
+  {45a687b2-4a28-407b-a7de-09efc66e4594}, !- Handle
+  MotorPartLoad,                          !- Name
+  1.137209,                               !- Coefficient1 C1
+  0.0502359,                              !- Coefficient2 C2
+  -0.0891503,                             !- Coefficient3 C3
+  0,                                      !- Minimum Value of x
+  1,                                      !- Maximum Value of x
+  0.01,                                   !- Minimum Curve Output
+  1;                                      !- Maximum Curve Output
+
+OS:Curve:RectangularHyperbola2,
+  {fb67a44a-9aac-4d75-be07-dba2806f8016}, !- Handle
+  VFDPartLoad,                            !- Name
+  0.987405,                               !- Coefficient1 C1
+  0.0155361,                              !- Coefficient2 C2
+  -0.0059365,                             !- Coefficient3 C3
+  0,                                      !- Minimum Value of x
+  1,                                      !- Maximum Value of x
+  0.01,                                   !- Minimum Curve Output
+  1;                                      !- Maximum Curve Output
 

@@ -397,7 +397,7 @@ bool LocationView::calendarYearChecked() {
   }
 }
 
-std::vector<model::ModelObject> LocationView::selectedObjects() const {
+std::set<model::ModelObject> LocationView::selectedObjects() const {
   return m_designDaysGridView->selectedObjects();
 }
 
@@ -667,8 +667,8 @@ void LocationView::onDesignDayBtnClicked() {
       openstudio::Workspace ddyWorkspace(StrictnessLevel::None, IddFileType::EnergyPlus);
       for (IdfObject idfObject : ddyIdfFile->objects()) {
         IddObjectType iddObjectType = idfObject.iddObject().type();
-        if ((iddObjectType == IddObjectType::SizingPeriod_DesignDay) || (iddObjectType == IddObjectType::SizingPeriod_WeatherFileDays) ||
-            (iddObjectType == IddObjectType::SizingPeriod_WeatherFileConditionType)) {
+        if ((iddObjectType == IddObjectType::SizingPeriod_DesignDay) || (iddObjectType == IddObjectType::SizingPeriod_WeatherFileDays)
+            || (iddObjectType == IddObjectType::SizingPeriod_WeatherFileConditionType)) {
 
           ddyWorkspace.addObject(idfObject);
         }
@@ -745,7 +745,7 @@ void LocationView::onDesignDayBtnClicked() {
       }
     }
 
-    QTimer::singleShot(0, this, SLOT(checkNumDesignDays()));
+    QTimer::singleShot(0, this, &LocationView::checkNumDesignDays);
   }
 }
 

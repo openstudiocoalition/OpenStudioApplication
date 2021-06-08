@@ -31,11 +31,10 @@
 #define SHAREDGUICOMPONENTS_OSGRIDCONTROLLER_HPP
 
 #include "OSConcepts.hpp"
+#include "OSObjectSelector.hpp"
 #include "../model_editor/QMetaTypes.hpp"
 #include "../openstudio_lib/OSItem.hpp"
 #include "../openstudio_lib/OSVectorController.hpp"
-
-#include <openstudio/nano/nano_signal_slot.hpp>  // Signal-Slot replacement
 
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/ModelObject.hpp>
@@ -53,18 +52,17 @@
 #include <QVBoxLayout>
 
 class QButtonGroup;
-class QCheckBox;
 class QColor;
 class QLabel;
-class QPaintEvent;
+class OpenStudioLibFixture;
 
 namespace openstudio {
 
-class OSComboBox2;
+class GridCellLocation;
+class GridCellInfo;
+class OSCellWrapper;
 class OSGridView;
-
-// forward declaration
-class Holder;
+class OSWidgetHolder;
 
 /// Provides a Concept with an alternative source of data.
 ///
@@ -159,80 +157,7 @@ class DataSourceAdapter : public BaseConcept
   QSharedPointer<BaseConcept> m_inner;
 };
 
-class OSGridController;
-
-class WidgetLocation : public QObject, public Nano::Observer
-{
-  Q_OBJECT;
-
- public:
-  WidgetLocation(QWidget* t_widget, int t_row, int t_column, boost::optional<int> t_subrow);
-
-  virtual ~WidgetLocation();
-
-  QWidget* widget;
-  int row;
-  int column;
-  boost::optional<int> subrow;
-
- signals:
-
-  void inFocus(bool inFocus, bool hasData, int row, int column, boost::optional<int> subrow);
-
- public slots:
-
-  void onInFocus(bool hasFocus, bool hasData);
-};
-
-class ObjectSelector : public QObject, public Nano::Observer
-{
-  Q_OBJECT;
-
- public:
-  ObjectSelector(OSGridController* t_grid);
-
-  void addWidget(const boost::optional<model::ModelObject>& t_obj, Holder* t_holder, int t_row, int t_column, const boost::optional<int>& t_subrow,
-                 bool t_selector);
-  void setObjectSelection(const model::ModelObject& t_obj, bool t_selected);
-  bool getObjectSelection(const model::ModelObject& t_obj) const;
-  boost::optional<model::ModelObject> getObject(const int t_row, const int t_column, const boost::optional<int>& t_subrow);
-  QWidget* getWidget(const int t_row, const int t_column, const boost::optional<int>& t_subrow);
-  std::set<model::ModelObject> getSelectedObjects() const;
-  std::vector<QWidget*> getColumnsSelectedWidgets(int column);
-  void clear();
-  void objectRemoved(const openstudio::model::ModelObject& t_obj);
-  void setObjectFilter(const std::function<bool(const model::ModelObject&)>& t_filter);
-  void resetObjectFilter();
-  bool containsObject(const openstudio::model::ModelObject& t_obj) const;
-  void selectAll();
-  void clearSelection();
-  void updateWidgets(bool isRowLevel = false);
-
-  std::set<model::ModelObject> m_selectedObjects;
-  std::set<model::ModelObject> m_selectorObjects;
-  std::set<model::ModelObject> m_filteredObjects;
-
- signals:
-  void inFocus(bool inFocus, bool hasData, int row, int column, boost::optional<int> subrow);
-
- private slots:
-  void widgetDestroyed(QObject* t_obj);
-
- protected:
-  REGISTER_LOGGER("openstudio.ObjectSelector");
-
- private:
-  void updateWidgets(const model::ModelObject& t_obj);
-  void updateWidgets(const model::ModelObject& t_obj, const bool t_objectVisible);
-  void updateWidgets(const int t_row, const boost::optional<int>& t_subrow, bool t_objectSelected, bool t_objectVisible);
-  static std::function<bool(const model::ModelObject&)> getDefaultFilter();
-
-  OSGridController* m_grid;
-  std::multimap<boost::optional<model::ModelObject>, WidgetLocation*> m_widgetMap;
-  std::function<bool(const model::ModelObject&)> m_objectFilter;
-};
-
-class OSGridController : public QObject, public Nano::Observer
+class OSGridController : public QObject
 {
   Q_OBJECT
 
@@ -249,27 +174,22 @@ class OSGridController : public QObject, public Nano::Observer
 
   virtual ~OSGridController();
 
-  std::vector<model::ModelObject> selectedObjects() const;
+ private:
+  static QSharedPointer<BaseConcept> makeDataSourceAdapter(const QSharedPointer<BaseConcept>& t_inner, const boost::optional<DataSource>& t_source);
 
-  static QSharedPointer<BaseConcept> makeDataSourceAdapter(const QSharedPointer<BaseConcept>& t_inner, const boost::optional<DataSource>& t_source) {
-    if (t_source) {
-      return QSharedPointer<BaseConcept>(new DataSourceAdapter(*t_source, t_inner));
-    } else {
-      // if there is no t_source passed in, we don't want to wrap, just pass through
-      return t_inner;
-    }
-  }
+ protected:
+  void resetBaseConcepts();
 
   void addSelectColumn(const Heading& heading, const std::string& tooltip, const boost::optional<DataSource>& t_source = boost::none) {
     auto objectSelector = m_objectSelector;
     auto getter = std::function<bool(model::ModelObject*)>([objectSelector](model::ModelObject* t_obj) -> bool {
       assert(t_obj);
-      return objectSelector->getObjectSelection(*t_obj);
+      return objectSelector->getObjectSelected(*t_obj);
     });
 
     auto setter = std::function<void(model::ModelObject*, bool)>([objectSelector](model::ModelObject* t_obj, bool t_set) {
       assert(t_obj);
-      objectSelector->setObjectSelection(*t_obj, t_set);
+      objectSelector->setObjectSelected(*t_obj, t_set);
     });
 
     addCheckBoxColumn(heading, tooltip, getter, setter, t_source);
@@ -385,23 +305,52 @@ class OSGridController : public QObject, public Nano::Observer
   }
 
   template <typename DataSourceType>
-  void addNameLineEditColumn(const Heading& heading, bool isInspectable, bool deleteObject,
+  void addNameLineEditColumn(const Heading& heading, bool isInspectable, bool isLocked,
                              const std::function<boost::optional<std::string>(DataSourceType*, bool)>& getter,
                              const std::function<boost::optional<std::string>(DataSourceType*, const std::string&)>& setter,
                              const boost::optional<std::function<void(DataSourceType*)>>& resetter = boost::none,
+                             const boost::optional<std::function<bool(DataSourceType*)>>& isDefaulted = boost::none,
                              const boost::optional<DataSource>& t_source = boost::none) {
-    m_baseConcepts.push_back(makeDataSourceAdapter(QSharedPointer<NameLineEditConcept>(new NameLineEditConceptImpl<DataSourceType>(
-                                                     heading, isInspectable, deleteObject, getter, setter, resetter)),
-                                                   t_source));
+    const OSLineEditType osLineEditType = OSLineEditType::OSLineEdit2Type;
+    const bool hasClickFocus = true;
+    m_baseConcepts.push_back(
+      makeDataSourceAdapter(QSharedPointer<NameLineEditConcept>(new NameLineEditConceptImpl<DataSourceType>(
+                              heading, osLineEditType, isInspectable, hasClickFocus, isLocked, getter, setter, resetter, isDefaulted)),
+                            t_source));
+  }
+
+  // parent here means column 0 in a row with subrows
+  template <typename DataSourceType>
+  void addParentNameLineEditColumn(const Heading& heading, bool isInspectable,
+                                   const std::function<boost::optional<std::string>(DataSourceType*, bool)>& getter,
+                                   const std::function<boost::optional<std::string>(DataSourceType*, const std::string&)>& setter,
+                                   const boost::optional<std::function<void(DataSourceType*)>>& resetter = boost::none,
+                                   const boost::optional<std::function<bool(DataSourceType*)>>& isDefaulted = boost::none,
+                                   const boost::optional<DataSource>& t_source = boost::none) {
+    const OSLineEditType osLineEditType = OSLineEditType::OSLineEdit2Type;
+    const bool hasClickFocus = false;
+    const bool isLocked = false;
+    m_baseConcepts.push_back(
+      makeDataSourceAdapter(QSharedPointer<NameLineEditConcept>(new NameLineEditConceptImpl<DataSourceType>(
+                              heading, osLineEditType, isInspectable, hasClickFocus, isLocked, getter, setter, resetter, isDefaulted)),
+                            t_source));
+    m_baseConcepts.back()->setIsParent(true);
   }
 
   template <typename DataSourceType>
   void addLoadNameColumn(const Heading& heading, const std::function<boost::optional<std::string>(DataSourceType*, bool)>& getter,
                          const std::function<boost::optional<std::string>(DataSourceType*, const std::string&)>& setter,
                          const boost::optional<std::function<void(DataSourceType*)>>& resetter = boost::none,
+                         const boost::optional<std::function<bool(DataSourceType*)>>& isDefaulted = boost::none,
                          const boost::optional<DataSource>& t_source = boost::none) {
+    const OSLineEditType osLineEditType = OSLineEditType::OSLoadNamePixmapLineEditType;
+    const bool isInspectable = true;
+    const bool hasClickFocus = true;
+    const bool isLocked = false;
     m_baseConcepts.push_back(
-      makeDataSourceAdapter(QSharedPointer<LoadNameConcept>(new LoadNameConceptImpl<DataSourceType>(heading, getter, setter, resetter)), t_source));
+      makeDataSourceAdapter(QSharedPointer<NameLineEditConcept>(new NameLineEditConceptImpl<DataSourceType>(
+                              heading, osLineEditType, isInspectable, hasClickFocus, isLocked, getter, setter, resetter, isDefaulted)),
+                            t_source));
   }
 
   template <typename ValueType, typename DataSourceType>
@@ -453,9 +402,11 @@ class OSGridController : public QObject, public Nano::Observer
                          std::function<bool(DataSourceType*, const ValueType&)> setter,
                          boost::optional<std::function<void(DataSourceType*)>> reset = boost::none,
                          boost::optional<std::function<bool(DataSourceType*)>> isDefaulted = boost::none,
+                         boost::optional<std::function<std::vector<model::ModelObject>(DataSourceType*)>> otherObjects = boost::none,
                          const boost::optional<DataSource>& t_source = boost::none) {
     m_baseConcepts.push_back(makeDataSourceAdapter(
-      QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<ValueType, DataSourceType>(heading, getter, setter, reset)), t_source));
+      QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<ValueType, DataSourceType>(heading, getter, setter, reset, isDefaulted, otherObjects)),
+      t_source));
   }
 
   template <typename ValueType, typename DataSourceType>
@@ -466,93 +417,80 @@ class OSGridController : public QObject, public Nano::Observer
       QSharedPointer<RenderingColorConcept>(new RenderingColorConceptImpl<ValueType, DataSourceType>(heading, getter, setter)));
   }
 
+ public:
   std::vector<QString> categories();
 
   std::vector<std::pair<QString, std::vector<QString>>> categoriesAndFields();
-
-  virtual void categorySelected(int index);
 
   virtual int rowCount() const;
 
   virtual int columnCount() const;
 
-  // Widget that exists at the given top level coordinates (may contain sub rows).
-  // This will not create a new widget.
-  QWidget* cell(int rowIndex, int columnIndex);
+  model::ModelObject modelObjectFromGridRow(int gridRow);
 
-  model::ModelObject modelObject(int rowIndex);
+  //virtual std::vector<QWidget*> row(int gridRow);
 
-  virtual std::vector<QWidget*> row(int rowIndex);
+  //void selectRow(int gridRow, bool select);
 
-  void selectRow(int rowIndex, bool select);
-
-  int rowIndexFromModelIndex(int modelIndex);
+  int gridRowFromModelRow(int modelRow);
+  int modelRowFromGridRow(int gridRow);
 
   // Return a new widget at a "top level" row and column specified by arguments.
-  // There might be sub rows within the specified location.
-  // In that case a QWidget with sub rows (inner grid layout) will be returned.
-  QWidget* widgetAt(int row, int column);
+  // There might be subrows within the specified location.
+  OSCellWrapper* createCellWrapper(int gridRow, int column, OSGridView* gridView);
 
   // Call this function on a model update
   virtual void refreshModelObjects() = 0;
 
-  void connectToModel();
+  void connectToModelSignals();
 
-  void disconnectFromModel();
+  void disconnectFromModelSignals();
 
-  std::shared_ptr<ObjectSelector> getObjectSelector() const {
-    return m_objectSelector;
-  }
+  model::Model& model();
+
+  std::vector<model::ModelObject> modelObjects() const;
+
+  std::set<model::ModelObject> selectorObjects() const;
+
+  std::set<model::ModelObject> selectableObjects() const;
+
+  std::set<model::ModelObject> selectedObjects() const;
+
+  void clearObjectSelector();
+
+  std::function<bool(const model::ModelObject&)> objectFilter() const;
+
+  void setObjectFilter(const std::function<bool(const model::ModelObject&)>& t_filter);
+
+  std::function<bool(const model::ModelObject&)> objectIsLocked() const;
+
+  void setObjectIsLocked(const std::function<bool(const model::ModelObject&)>& t_isLocked);
+
+  IddObjectType iddObjectType() const;
+
+  bool isIP() const;
+
+ private:
+  // For testing
+  friend class ::OpenStudioLibFixture;
 
   IddObjectType m_iddObjectType;
 
   std::vector<model::ModelObject> m_modelObjects;
 
-  std::vector<model::ModelObject> m_inheritedModelObjects;
-
-  model::Model& model() {
-    return m_model;
-  }
-
-  OSGridView* gridView();
+  //std::vector<model::ModelObject> m_inheritedModelObjects;
 
   // If a column contains information about a construction, it may be an inherited construction
   // (as determined by calling PlanarSurface::isConstructionDefaulted). An instantiated gridview
   // should set this value, if appropriate.
+  // TODO: remove this
   int m_constructionColumn = -1;
-
- protected:
-  // This function determines the category for
-  // each button, and the fields associated with
-  // each category
-  virtual void setCategoriesAndFields();
-
-  // Call this function with the fields required,
-  // and it adds the columns and does the binds.
-  // This provides a mechanism to easily manage
-  // a dynamic, user-preference column.
-  // This function will be called from the slot
-  // connected to the QButtonGroup signal
-  virtual void addColumns(const QString& category, std::vector<QString>& fields) = 0;
-
-  // Call this function to get the color for the cell color
-  virtual QString getColor(const model::ModelObject& modelObject) = 0;
-
-  // This function sets the column header caption
-  virtual void setHorizontalHeader();
-
-  // Call this function after the table is constructed
-  // to appropriately check user-selected category fields
-  // from QSettings and load them into a "Custom" button
-  virtual void checkSelectedFields();
-
-  void checkSelectedFields(int category);
 
   std::vector<std::pair<QString, std::vector<QString>>> m_categoriesAndFields;
 
   std::vector<QSharedPointer<BaseConcept>> m_baseConcepts;
 
-  std::vector<QWidget*> m_horizontalHeader;
+  std::vector<QWidget*> m_horizontalHeaders;
 
   bool m_hasHorizontalHeader;
 
@@ -570,19 +508,51 @@ class OSGridController : public QObject, public Nano::Observer
 
   bool m_isIP;
 
-  unsigned m_subrowCounter = 0;
+ protected:
+  bool hasHorizontalHeader() const;
+  std::vector<QWidget*> horizontalHeaders() const;
 
-  std::vector<bool> m_subrowsInherited = std::vector<bool>();
+  void setConstructionColumn(int constructionColumn);
+
+  void setModelObjects(const std::vector<model::ModelObject>& modelObjects);
+
+  //std::vector<model::ModelObject> inheritedModelObjects() const;
+  //void setInheritedModelObjects(const std::vector<model::ModelObject>& inheritedModelObjects);
+
+  void addCategoryAndFields(const std::pair<QString, std::vector<QString>>& categoryAndFields);
+  void resetCategoryAndFields();
+
+  // This function determines the category for
+  // each button, and the fields associated with
+  // each category
+  virtual void setCategoriesAndFields();
+
+  // Call this function with the fields required,
+  // and it adds the columns and does the binds.
+  // This provides a mechanism to easily manage
+  // a dynamic, user-preference column.
+  // This function will be called from the slot
+  // connected to the QButtonGroup signal
+  virtual void addColumns(const QString& category, std::vector<QString>& fields) = 0;
+
+  // Call this function to get the color for the cell color
+  virtual QString getColor(const model::ModelObject& modelObject) = 0;
+
+  // This function sets the column header caption
+  virtual void setHorizontalHeader(QWidget* gridView);
+
+  // Call this function after the table is constructed
+  // to appropriately check user-selected category fields
+  // from QSettings and load them into a "Custom" button
+  virtual void checkSelectedFields();
+
+  void checkSelectedFields(int category);
 
   REGISTER_LOGGER("openstudio.OSGridController");
 
  private:
-  friend class OSGridView;
-  friend class ObjectSelector;
-
-  // Make the lowest level widgets that corresponds to concepts.
-  // These will be put in container widgets to form the cell, regardless of the presence of sub rows.
-  QWidget* makeWidget(model::ModelObject t_mo, const QSharedPointer<BaseConcept>& t_baseConcept);
+  friend class OSGridView;        // TODO: remove this
+  friend class OSObjectSelector;  // TODO: remove this
 
   void loadQSettings();
 
@@ -590,11 +560,9 @@ class OSGridController : public QObject, public Nano::Observer
 
   void setCustomCategoryAndFields();
 
-  QString cellStyle(int rowIndex, int columnIndex, bool isSelected, bool isSubRow);
-
   OSItem* getSelectedItemFromModelSubTabView();
 
-  bool getRowIndexByItem(OSItem* item, int& rowIndex);
+  bool getgridRowByItem(OSItem* item, int& gridRow);
 
   void setConceptValue(model::ModelObject t_setterMO, model::ModelObject t_getterMO, const QSharedPointer<BaseConcept>& t_baseConcept);
 
@@ -609,80 +577,61 @@ class OSGridController : public QObject, public Nano::Observer
 
   int m_oldIndex = -1;
 
-  std::shared_ptr<ObjectSelector> m_objectSelector;
+  OSObjectSelector* m_objectSelector;
 
-  std::tuple<int, int, boost::optional<int>> m_selectedCellLocation = std::make_tuple(-1, -1, -1);
+  std::tuple<int, int, boost::optional<int>> m_focusedCellLocation = std::make_tuple(-1, -1, -1);
 
   std::vector<std::pair<int, bool>> m_applyToButtonStates = std::vector<std::pair<int, bool>>();
 
+  // temp variable
+  std::set<model::ModelObject> m_newModelObjects;
+
  signals:
 
-  // Nuclear reset of everything
-  void modelReset();
+  // signal to add a row
+  void addRow(int row);
 
+  // signal to parent to recreate all widgets
+  void recreateAll();
+
+  // signal to update a widget
+  void gridCellChanged(const GridCellLocation& location, const GridCellInfo& info);
+
+  // signal to any created quantity edits to update
   void toggleUnitsClicked(bool displayIP);
+
+  // signal when selection changes
+  void gridRowSelectionChanged(int numSelected, int numSelectable);
 
  public slots:
 
+  virtual void onCategorySelected(int index);
+
   virtual void onItemDropped(const OSItemId& itemId) = 0;
 
-  void toggleUnits(bool displayIP);
+  void onToggleUnits(bool displayIP);
 
   virtual void onComboBoxIndexChanged(int index);
 
-  void onItemSelected(OSItem* item);
-
   void onSelectionCleared();
 
-  void refreshGrid();
-
-  void requestRefreshGrid();
-
-  void onInFocus(bool inFocus, bool hasData, int row, int column, boost::optional<int> subrow);
+  void onInFocus(bool inFocus, bool hasData, int modelRow, int gridRow, int column, boost::optional<int> subrow);
 
  protected slots:
 
-  void selectAllStateChanged(const int newState) const;
+  void onSelectAllStateChanged(const int newState) const;
 
  private slots:
 
-  void horizontalHeaderChecked(int index);
+  void onHorizontalHeaderChecked(int index);
 
   void onRemoveWorkspaceObject(const WorkspaceObject& object, const openstudio::IddObjectType& iddObjectType, const openstudio::UUID& handle);
 
   void onAddWorkspaceObject(const WorkspaceObject& object, const openstudio::IddObjectType& iddObjectType, const openstudio::UUID& handle);
 
-  void onObjectRemoved(boost::optional<model::ParentObject> parent);
+  void processNewModelObjects();
 
-  void setApplyButtonState();
-};
-
-// Possible solution for user facing column resize
-// Hardst part is addressing persitance when grid redraws
-//class ColumnSizer : public QWidget
-//{
-//  Q_OBJECT
-//
-//  void mouseMoveEvent ( QMouseEvent * event );
-//}
-
-class Holder : public QWidget, public Nano::Observer
-{
-  Q_OBJECT
-
- public:
-  Holder(QWidget* parent = nullptr);
-
-  virtual ~Holder();
-
-  QWidget* widget = nullptr;
-
- protected:
-  void paintEvent(QPaintEvent* event) override;
-
- signals:
-
-  void inFocus(bool inFocus, bool hasData);
+  void onSetApplyButtonState();
 };
 
 class HorizontalHeaderPushButton : public QPushButton
@@ -704,7 +653,7 @@ class HorizontalHeaderPushButton : public QPushButton
   void inFocus(bool inFocus, bool hasData);
 };
 
-class HorizontalHeaderWidget : public QWidget, public Nano::Observer
+class HorizontalHeaderWidget : public QWidget
 {
   Q_OBJECT
 
@@ -730,6 +679,7 @@ class HorizontalHeaderWidget : public QWidget, public Nano::Observer
   QVBoxLayout* m_innerLayout;
 };
 
+// DropZone controller that is always empty
 class GridViewDropZoneVectorController : public OSVectorController
 {
  protected:

@@ -37,6 +37,7 @@
     <file>images/coilheatinglowtemprad_constflow.png</file>
     <file>images/coilheatinglowtemprad_varflow.png</file>
     <file>images/coilheatingwater_baseboard.png</file>
+    <file>images/coilcooling_water_panel_radiant.png</file>
     <file>images/Coil_Heating_Water_Baseboard_Radiant.png</file>
     <file>images/coilsystem_cooling_dx.png</file>
     <file>images/cool_coil_dx_vari_speed.png</file>
@@ -108,6 +109,7 @@
     <file>images/evap_cooled.png</file>
     <file>images/evap_fluid_cooler.png</file>
     <file>images/evap_fluid_cooler_two_speed.png</file>
+    <file>images/fan_componentmodel.png</file>
     <file>images/fan_constant.png</file>
     <file>images/fan_on_off.png</file>
     <file>images/fan_systemmodel.png</file>
@@ -123,6 +125,7 @@
     <file>images/four_pipe_fan_coil.png</file>
     <file>images/furnace.png</file>
     <file>images/furnace_multi_stage.png</file>
+    <file>images/gas_humidifier.png</file>
     <file>images/ground_heat_exchanger_horizontal.png</file>
     <file>images/ground_heat_exchanger_vertical.png</file>
     <file>images/generator_fuelcell_exhaustgastowaterheatexchanger.png</file>
@@ -331,6 +334,7 @@
     <file>images/zone_icon_off.png</file>
     <file>images/zone_icon_pressed.png</file>
     <file>images/zonehvac_low_temperature_radiant_electric.png</file>
+    <file>images/zonehvac_coolingpanel_radiantconvective_water.png</file>
     <file>images/zoom-in-over.png</file>
     <file>images/zoom-in-press.png</file>
     <file>images/zoom-in.png</file>
@@ -366,6 +370,7 @@
     <file>images/mini_icons/coilheatinglowtemprad_varflow.png</file>
     <file>images/mini_icons/coilheatingwater_baseboard_mini.png</file>
     <file>images/mini_icons/Coil_Heating_Water_Baseboard_Radiant.png</file>
+    <file>images/mini_icons/coilcooling_water_panel_radiant.png</file>
     <file>images/mini_icons/mini_ht_coil_dx_vari.png</file>
     <file>images/mini_icons/construct_inter_source.png</file>
     <file>images/mini_icons/construction.png</file>
@@ -392,6 +397,7 @@
     <file>images/mini_icons/evap_fluid_cooler.png</file>
     <file>images/mini_icons/evap_fluid_cooler_two_speed.png</file>
     <file>images/mini_icons/facility.png</file>
+    <file>images/mini_icons/fan_componentmodel.png</file>
     <file>images/mini_icons/fan_constant.png</file>
     <file>images/mini_icons/fan_on_off_mini.png</file>
     <file>images/mini_icons/fan_systemmodel.png</file>
@@ -404,6 +410,7 @@
     <file>images/mini_icons/furnace.png</file>
     <file>images/mini_icons/gas_equipment.png</file>
     <file>images/mini_icons/gas_equipment_definition.png</file>
+    <file>images/mini_icons/gas_humidifier.png</file>
     <file>images/mini_icons/generator_fuelcell_exhaustgastowaterheatexchanger.png</file>
     <file>images/mini_icons/generator_microturbine_heatrecovery.png</file>
     <file>images/mini_icons/glare_sensor.png</file>
@@ -559,6 +566,7 @@
     <file>images/mini_icons/window_material_gasmixture.png</file>
     <file>images/mini_icons/window_material_glazing.png</file>
     <file>images/mini_icons/zonehvac_low_temperature_radiant_electric.png</file>
+    <file>images/mini_icons/zonehvac_coolingpanel_radiantconvective_water.png</file>
     <file>images/mini_icons/heatpump_watertowater_equationfit_cooling.png</file>
     <file>images/mini_icons/heatpump_watertowater_equationfit_heating.png</file>
 
@@ -585,6 +593,10 @@
     <file alias="shared_gui_components/images/arrow_up_over.png">../shared_gui_components/images/arrow_up_over.png</file>
     <file alias="shared_gui_components/images/arrow_up_press.png">../shared_gui_components/images/arrow_up_press.png</file>
     <file alias="shared_gui_components/images/broken_script.png">../shared_gui_components/images/broken_script.png</file>
+    <file alias="shared_gui_components/images/checked_checkbox.png">../shared_gui_components/images/checked_checkbox.png</file>
+    <file alias="shared_gui_components/images/checked_checkbox_focused.png">../shared_gui_components/images/checked_checkbox_focused.png</file>
+    <file alias="shared_gui_components/images/checked_checkbox_green.png">../shared_gui_components/images/checked_checkbox_green.png</file>
+    <file alias="shared_gui_components/images/checked_checkbox_locked.png">../shared_gui_components/images/checked_checkbox_locked.png</file>
     <file alias="shared_gui_components/images/clear_cloud_session.png">../shared_gui_components/images/clear_cloud_session.png</file>
     <file alias="shared_gui_components/images/cloud_arrow.png">../shared_gui_components/images/cloud_arrow.png</file>
     <file alias="shared_gui_components/images/cloud_arrow_magenta.png">../shared_gui_components/images/cloud_arrow_magenta.png</file>
@@ -605,6 +617,10 @@
     <file alias="shared_gui_components/images/duplicate_off.png">../shared_gui_components/images/duplicate_off.png</file>
     <file alias="shared_gui_components/images/duplicate_over.png">../shared_gui_components/images/duplicate_over.png</file>
     <file alias="shared_gui_components/images/duplicate_press.png">../shared_gui_components/images/duplicate_press.png</file>
+    <file alias="shared_gui_components/images/duplicate_softer_disabled.png">../shared_gui_components/images/duplicate_softer_disabled.png</file>
+    <file alias="shared_gui_components/images/duplicate_softer_off.png">../shared_gui_components/images/duplicate_softer_off.png</file>
+    <file alias="shared_gui_components/images/duplicate_softer_over.png">../shared_gui_components/images/duplicate_softer_over.png</file>
+    <file alias="shared_gui_components/images/duplicate_softer_press.png">../shared_gui_components/images/duplicate_softer_press.png</file>
     <file alias="shared_gui_components/images/energyplus_measure_icon.png">../shared_gui_components/images/energyplus_measure_icon.png</file>
     <file alias="shared_gui_components/images/error-alert.png">../shared_gui_components/images/error-alert.png</file>
     <file alias="shared_gui_components/images/fast_forward.png">../shared_gui_components/images/fast_forward.png</file>
@@ -615,6 +631,7 @@
     <file alias="shared_gui_components/images/open_my_measures.png">../shared_gui_components/images/open_my_measures.png</file>
     <file alias="shared_gui_components/images/open_my_measures_press.png">../shared_gui_components/images/open_my_measures_press.png</file>
     <file alias="shared_gui_components/images/openstudio_measure_icon.png">../shared_gui_components/images/openstudio_measure_icon.png</file>
+    <file alias="shared_gui_components/images/partially_checked_checkbox.png">../shared_gui_components/images/partially_checked_checkbox.png</file>
     <file alias="shared_gui_components/images/pause_over.png">../shared_gui_components/images/pause_over.png</file>
     <file alias="shared_gui_components/images/pause_press.png">../shared_gui_components/images/pause_press.png</file>
     <file alias="shared_gui_components/images/pause_regular.png">../shared_gui_components/images/pause_regular.png</file>
@@ -634,8 +651,10 @@
     <file alias="shared_gui_components/images/toggle_arrow.png">../shared_gui_components/images/toggle_arrow.png</file>
     <file alias="shared_gui_components/images/toggle_arrow_closed.png">../shared_gui_components/images/toggle_arrow_closed.png</file>
     <file alias="shared_gui_components/images/warning_icon.png">../shared_gui_components/images/warning_icon.png</file>
-
     <file alias="shared_gui_components/taxonomy.xml">../shared_gui_components/taxonomy.xml</file>
-
+    <file alias="shared_gui_components/images/unchecked_checkbox.png">../shared_gui_components/images/unchecked_checkbox.png</file>
+    <file alias="shared_gui_components/images/unchecked_checkbox_focused.png">../shared_gui_components/images/unchecked_checkbox_focused.png</file>
+    <file alias="shared_gui_components/images/unchecked_checkbox_green.png">../shared_gui_components/images/unchecked_checkbox_green.png</file>
+    <file alias="shared_gui_components/images/unchecked_checkbox_locked.png">../shared_gui_components/images/unchecked_checkbox_locked.png</file>
   </qresource>
 </RCC>

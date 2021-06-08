@@ -128,21 +128,25 @@ ScheduleDayView::ScheduleDayView(bool isIP, const model::ScheduleDay& scheduleDa
 
   setLayout(mainVLayout);
 
-  // Name
+  // Schedule Day Name
 
-  //label = new QLabel("Name:");
-  //label->setObjectName("H2");
-  //mainVLayout->addWidget(label);
+  auto hLayout = new QHBoxLayout();
+  hLayout->setContentsMargins(MARGINLEFT, 0, 0, 0);
+  hLayout->setSpacing(10);
 
-  //QString name;
-  //boost::optional<std::string> optionalString = scheduleDay.name();
-  //if(optionalString){
-  //  name = optionalString->c_str();
-  //}
-  //QLineEdit * lineEdit = new QLineEdit(name);
-  //lineEdit->setReadOnly(true);
+  auto label = new QLabel("Schedule Day Name:");
+  hLayout->addWidget(label);
 
-  //mainVLayout->addWidget(lineEdit);
+  auto lineEdit = new OSLineEdit2();
+  lineEdit->bind(m_scheduleDay, OptionalStringGetter(std::bind(&model::ScheduleDay::name, &m_scheduleDay, true)),
+                 boost::optional<StringSetterOptionalStringReturn>(std::bind(&model::ScheduleDay::setName, &m_scheduleDay, std::placeholders::_1)));
+  lineEdit->setFixedWidth(200);
+
+  hLayout->addWidget(lineEdit);
+
+  hLayout->addStretch();
+
+  mainVLayout->addLayout(hLayout);
 
   // Schedule Limits View
 
@@ -615,7 +619,7 @@ ScheduleDayEditor::ScheduleDayEditor(bool isIP, ScheduleDayView* scheduleDayView
   //  &model::detail::ScheduleTypeLimits_Impl::onChange, this, &ScheduleDayEditor::scheduleRefresh);
 
   connect(this, &ScheduleDayEditor::changeVerticalAxisClicked, m_scheduleDayView->schedulesView(), &SchedulesView::changeVerticalAxisClicked);
-  QTimer::singleShot(0, this, SLOT(fitInView()));
+  QTimer::singleShot(0, this, &ScheduleDayEditor::fitInView);
 }
 
 void ScheduleDayEditor::setLabelText(bool isIP) {
@@ -1286,7 +1290,7 @@ DayScheduleOverview::DayScheduleOverview(ScheduleDayView* scheduleRuleView) : QW
 
   m_focusRectangle->setStyleSheet("QWidget { border: 1px solid black; }");
 
-  QTimer::singleShot(0, this, SLOT(fitInView()));
+  QTimer::singleShot(0, this, &DayScheduleOverview::fitInView);
 
   updateFocusRectangleGeometry();
 
@@ -1702,9 +1706,9 @@ void DaySchedulePlotArea::keyPressEvent(QKeyEvent* event) {
           m_keyboardInputValue.chop(1);
           updateKeyboardPrompt();
 
-        } else if (event->key() == Qt::Key_0 || event->key() == Qt::Key_1 || event->key() == Qt::Key_2 || event->key() == Qt::Key_3 ||
-                   event->key() == Qt::Key_4 || event->key() == Qt::Key_5 || event->key() == Qt::Key_6 || event->key() == Qt::Key_7 ||
-                   event->key() == Qt::Key_8 || event->key() == Qt::Key_9) {
+        } else if (event->key() == Qt::Key_0 || event->key() == Qt::Key_1 || event->key() == Qt::Key_2 || event->key() == Qt::Key_3
+                   || event->key() == Qt::Key_4 || event->key() == Qt::Key_5 || event->key() == Qt::Key_6 || event->key() == Qt::Key_7
+                   || event->key() == Qt::Key_8 || event->key() == Qt::Key_9) {
 
           m_keyboardInputValue.append(event->text());
           updateKeyboardPrompt();
@@ -1743,7 +1747,7 @@ model::ScheduleDay DayScheduleScene::scheduleDay() const {
 void DayScheduleScene::scheduleRefresh() {
   m_dirty = true;
 
-  QTimer::singleShot(0, this, SLOT(refresh()));
+  QTimer::singleShot(0, this, &DayScheduleScene::refresh);
 }
 
 void DayScheduleScene::refresh() {

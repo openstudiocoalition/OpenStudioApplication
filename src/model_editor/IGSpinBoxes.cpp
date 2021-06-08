@@ -49,31 +49,10 @@ void IGSpinBox::triggered(bool trig) {
   }
 }
 
-IGDSpinBox::IGDSpinBox(InspectorGadget* ig, QWidget* parent)
-  : QDoubleSpinBox(parent), m_ig(ig), m_precision(false), m_floatType(InspectorGadget::UNFORMATED) {}
+IGDSpinBox::IGDSpinBox(InspectorGadget* ig, QWidget* parent) : QDoubleSpinBox(parent), m_ig(ig) {}
+
 void IGDSpinBox::wheelEvent(QWheelEvent* event) {
   event->ignore();
-}
-
-void IGDSpinBox::setDisplay(bool status) {
-  m_precision = !status;
-  togglePrec();
-}
-
-bool IGDSpinBox::getPrec() const {
-  return m_precision;
-}
-
-void IGDSpinBox::setPrec(bool prec) {
-  m_precision = prec;
-}
-
-void IGDSpinBox::setFloatStyle(InspectorGadget::FLOAT_DISPLAY style) {
-  m_floatType = style;
-}
-
-InspectorGadget::FLOAT_DISPLAY IGDSpinBox::getFloatStyle() const {
-  return m_floatType;
 }
 
 void IGDSpinBox::triggered(bool trig) {
@@ -81,37 +60,5 @@ void IGDSpinBox::triggered(bool trig) {
     emit textChanged(QString("%1").arg(value()));
   } else {
     emit textChanged("AutoSize");
-  }
-}
-
-void IGDSpinBox::togglePrec() {
-  QVariant v = property(InspectorGadget::s_indexSlotName);
-  int index = v.toInt();
-
-  string val = *(m_ig->m_workspaceObj->getString(index));
-
-  try {
-    double dResult = boost::lexical_cast<double>(val);
-    if (m_precision) {
-      m_precision = false;
-      setValue(dResult);
-      setStyleSheet("color:black");
-    } else {
-      m_precision = true;
-
-      if (m_floatType == InspectorGadget::SCIENTIFIC) {
-        setDecimals(m_ig->m_precision);
-      } else if (m_floatType == InspectorGadget::FIXED) {
-        setDecimals(m_ig->m_precision);
-      } else {
-        setValue(dResult);
-        setStyleSheet("color:black");
-        return;  //don't allow the next bit to change the text to aqua, return instead.
-      }
-      setValue(dResult);
-      setStyleSheet("color:green");
-    }
-  } catch (...) {
-    OS_ASSERT(false);
   }
 }

@@ -192,7 +192,7 @@ OpenStudioApp::OpenStudioApp(int& argc, char** argv)
   setQuitOnLastWindowClosed(false);
 
   m_startupMenu = std::shared_ptr<StartupMenu>(new StartupMenu());
-  connect(m_startupMenu.get(), &StartupMenu::exitClicked, this, &OpenStudioApp::quit);
+  connect(m_startupMenu.get(), &StartupMenu::exitClicked, this, &OpenStudioApp::quit, Qt::QueuedConnection);
   connect(m_startupMenu.get(), &StartupMenu::importClicked, this, &OpenStudioApp::importIdf);
   connect(m_startupMenu.get(), &StartupMenu::importgbXMLClicked, this, &OpenStudioApp::importgbXML);
   connect(m_startupMenu.get(), &StartupMenu::importSDDClicked, this, &OpenStudioApp::importSDD);
@@ -226,6 +226,8 @@ OpenStudioApp::OpenStudioApp(int& argc, char** argv)
 OpenStudioApp::~OpenStudioApp() {
   if (m_measureManagerProcess) {
     m_measureManagerProcess->disconnect();
+    m_measureManagerProcess->kill();
+    m_measureManagerProcess->waitForFinished();
     delete m_measureManagerProcess;
     m_measureManagerProcess = nullptr;
   }
@@ -277,7 +279,7 @@ void OpenStudioApp::onMeasureManagerAndLibraryReady() {
       boost::optional<openstudio::model::Model> model = versionTranslator.loadModel(toPath(fileName));
       if (model) {
 
-        m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), model, fileName));
+        m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), model, fileName, false, startTabIndex()));
 
         connectOSDocumentSignals();
 
@@ -285,7 +287,7 @@ void OpenStudioApp::onMeasureManagerAndLibraryReady() {
           // check for 'noSavePath'
           if (args.at(1) == QString("noSavePath")) {
             m_osDocument->setSavePath("");
-            QTimer::singleShot(0, m_osDocument.get(), SLOT(markAsModified()));
+            QTimer::singleShot(0, m_osDocument.get(), &OSDocument::markAsModified);
           } else {
             LOG_FREE(Warn, "OpenStudio", "Incorrect second argument '" << toString(args.at(1)) << "'");
           }
@@ -325,7 +327,7 @@ bool OpenStudioApp::openFile(const QString& fileName, bool restoreTabs) {
       bool wasQuitOnLastWindowClosed = this->quitOnLastWindowClosed();
       this->setQuitOnLastWindowClosed(false);
 
-      int startTabIndex = 0;
+      int startTabIndex = this->startTabIndex();
       int startSubTabIndex = 0;
       if (m_osDocument) {
 
@@ -453,7 +455,7 @@ void OpenStudioApp::newFromEmptyTemplateSlot() {
 }
 
 void OpenStudioApp::newFromTemplateSlot(NewFromTemplateEnum newFromTemplateEnum) {
-  m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath()));
+  m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), boost::none, QString(), false, startTabIndex()));
 
   connectOSDocumentSignals();
 
@@ -502,18 +504,18 @@ void OpenStudioApp::importIdf() {
           informativeText = QString("The IDF is at version '") + toQString(idfFileVersion->str());
 
           if (idfFileVersion.get() < currentVersion) {
-            informativeText.append(QString("' while OpenStudio uses a <strong>newer</strong> EnergyPlus '") + toQString(currentVersion.str()) +
-                                   QString("'. Consider using the EnergyPlus Auxiliary program IDFVersionUpdater to update your IDF file."));
+            informativeText.append(QString("' while OpenStudio uses a <strong>newer</strong> EnergyPlus '") + toQString(currentVersion.str())
+                                   + QString("'. Consider using the EnergyPlus Auxiliary program IDFVersionUpdater to update your IDF file."));
           } else if (idfFileVersion.get() > currentVersion) {
-            informativeText.append(QString("' while OpenStudio uses an <strong>older</strong> EnergyPlus '") + toQString(currentVersion.str()) +
-                                   QString("'."));
+            informativeText.append(QString("' while OpenStudio uses an <strong>older</strong> EnergyPlus '") + toQString(currentVersion.str())
+                                   + QString("'."));
           } else {
-            informativeText.append(QString("' which is the <strong>same</strong> version of EnergyPlus that OpenStudio uses (") +
-                                   toQString(currentVersion.str()) + QString(")."));
+            informativeText.append(QString("' which is the <strong>same</strong> version of EnergyPlus that OpenStudio uses (")
+                                   + toQString(currentVersion.str()) + QString(")."));
           }
         } else {
-          informativeText = QString("<strong>The IDF does not have a VersionObject</strong>. Check that it is of correct version (") +
-                            toQString(currentVersion.str()) + QString(") and that all fields are valid against Energy+.idd. ");
+          informativeText = QString("<strong>The IDF does not have a VersionObject</strong>. Check that it is of correct version (")
+                            + toQString(currentVersion.str()) + QString(") and that all fields are valid against Energy+.idd. ");
         }
 
         informativeText.append("<br/><br/>The ValidityReport follows.");
@@ -552,7 +554,7 @@ void OpenStudioApp::importIdf() {
           processEvents();
         }
 
-        m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), model));
+        m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), model, QString(), false, startTabIndex()));
         m_osDocument->markAsModified();
         // ETH: parent should change now ...
         //parent = m_osDocument->mainWindow();
@@ -678,7 +680,7 @@ void OpenStudioApp::importIFC() {
       processEvents();
     }
 
-    m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), *model));
+    m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), *model, QString(), false, startTabIndex()));
 
     m_osDocument->markAsModified();
 
@@ -740,7 +742,7 @@ void OpenStudioApp::import(OpenStudioApp::fileType type) {
         processEvents();
       }
 
-      m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), *model));
+      m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), *model, QString(), false, startTabIndex()));
       m_osDocument->markAsModified();
       // ETH: parent should change now ...
       //parent = m_osDocument->mainWindow();
@@ -965,8 +967,8 @@ void OpenStudioApp::checkForUpdate() {
   QMessageBox::StandardButtons buttons;
   bool openURL = false;
   if (releases.newReleaseAvailable()) {
-    text = QString(tr("A new version is available at <a href=\"")) + toQString(releases.releasesUrl()) + QString("\">") +
-           toQString(releases.releasesUrl()) + QString("</a>");
+    text = QString(tr("A new version is available at <a href=\"")) + toQString(releases.releasesUrl()) + QString("\">")
+           + toQString(releases.releasesUrl()) + QString("</a>");
     openURL = true;
     buttons = QMessageBox::Open | QMessageBox::Ignore;
   } else {
@@ -1131,7 +1133,7 @@ void OpenStudioApp::versionUpdateMessageBox(const osversion::VersionTranslator& 
     bool versionChanged = originalVersion != currentVersion;
 
     if (versionChanged || removedScriptDirs) {
-      QTimer::singleShot(0, m_osDocument.get(), SLOT(markAsModified()));
+      QTimer::singleShot(0, m_osDocument.get(), &OSDocument::markAsModified);
 
       QString message;
       if (versionChanged) {
@@ -1216,8 +1218,8 @@ void OpenStudioApp::revertToSaved() {
 
 void OpenStudioApp::connectOSDocumentSignals() {
   OS_ASSERT(m_osDocument);
-  connect(m_osDocument.get(), &OSDocument::closeClicked, this, &OpenStudioApp::onCloseClicked);
-  connect(m_osDocument.get(), &OSDocument::exitClicked, this, &OpenStudioApp::quit);
+  connect(m_osDocument.get(), &OSDocument::closeClicked, this, &OpenStudioApp::onCloseClicked, Qt::QueuedConnection);
+  connect(m_osDocument.get(), &OSDocument::exitClicked, this, &OpenStudioApp::quit, Qt::QueuedConnection);
   connect(m_osDocument.get(), &OSDocument::importClicked, this, &OpenStudioApp::importIdf);
   connect(m_osDocument.get(), &OSDocument::importgbXMLClicked, this, &OpenStudioApp::importgbXML);
   connect(m_osDocument.get(), &OSDocument::importSDDClicked, this, &OpenStudioApp::importSDD);
@@ -1354,6 +1356,23 @@ void OpenStudioApp::writeLibraryPaths(std::vector<openstudio::path> paths) {
     }
     settings.endArray();
   }
+}
+
+int OpenStudioApp::startTabIndex() const {
+  int result = OSDocument::VerticalTabID::SITE;
+  if (qEnvironmentVariableIsSet("OPENSTUDIO_APPLICATION_START_TAB_INDEX")) {
+    LOG(Debug, "OPENSTUDIO_APPLICATION_START_TAB_INDEX is set");
+    bool ok;
+    int test = qEnvironmentVariableIntValue("OPENSTUDIO_APPLICATION_START_TAB_INDEX", &ok);
+    if (ok) {
+      if ((test >= OSDocument::VerticalTabID::SITE) && (test <= OSDocument::VerticalTabID::RESULTS_SUMMARY)) {
+        result = test;
+        LOG(Debug, "OPENSTUDIO_APPLICATION_START_TAB_INDEX is " << result);
+      }
+    }
+  }
+
+  return result;
 }
 
 void OpenStudioApp::loadLibrary() {

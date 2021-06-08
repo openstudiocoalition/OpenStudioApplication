@@ -10,7 +10,31 @@ if(CCACHE_PROGRAM)
   set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "${CCACHE_PROGRAM}")
 endif()
 
-project(OpenStudioApplication VERSION 1.1.0)
+project(OpenStudioApplication VERSION 1.2.0)
+
+# Check system info globally so we can use it everywhere after: Has to be done before FindOpenStudioSDK.cmake
+if(APPLE)
+  # Looking at cmake source code OS_RELEASE is already set to the output of `sw_vers -productVersion` which is what we want
+  cmake_host_system_information(RESULT OSX_VERSION QUERY OS_RELEASE)
+  message("-- OS_RELEASE variable is set to: " ${OSX_VERSION})
+  if(NOT CMAKE_OSX_DEPLOYMENT_TARGET STREQUAL "")
+    message("Using CMAKE_OSX_DEPLOYMENT_TARGET=${CMAKE_OSX_DEPLOYMENT_TARGET}")
+    set(OSX_VERSION "${CMAKE_OSX_DEPLOYMENT_TARGET}")
+  endif()
+
+  # The output is like 10.12.6 or 10.13, let's strip the end component if any
+  string(REGEX REPLACE "^([0-9]+\\.[0-9]+)\\.?.*" "\\1" OSX_VERSION_MAJOR_MINOR ${OSX_VERSION})
+
+elseif(UNIX)
+  # OS_RELEASE is the result of `uname -r` which is unhelpful (eg '5.4.0-42-generic')
+  find_program(LSB_RELEASE lsb_release)
+  # -rs outputs only 16.04, or 18.04
+  execute_process(COMMAND ${LSB_RELEASE} -rs OUTPUT_VARIABLE LSB_RELEASE_VERSION_SHORT OUTPUT_STRIP_TRAILING_WHITESPACE)
+
+  # -is outputs "Ubuntu" or "Fedora"
+  execute_process(COMMAND ${LSB_RELEASE} -is OUTPUT_VARIABLE LSB_RELEASE_ID_SHORT OUTPUT_STRIP_TRAILING_WHITESPACE)
+
+endif()
 
 # set openstudio_DIR to the directory that contains the openstudioConfig.cmake
 # eg C:\src\OpenStudio\build-vs\_CPack_Packages\win64\ZIP\OpenStudio-3.0.0-rc2+ce27ae6b85-Windows\lib\cmake\openstudio
@@ -92,6 +116,15 @@ if(POLICY CMP0077)
   cmake_policy(SET CMP0077 NEW)
 endif()
 
+if(BUILD_MICRO_PROFILING)
+  if(MSVC)
+    # Install micro-profiler extension https://github.com/tyoma/micro-profiler
+    # Locate micro-profiler_x64.lib under %LocalAppData%\Microsoft\VisualStudio\<Visual Studio version>\Extensions\
+    # Copy dbghelp_x64.dll from extension into directory containing executable to profile
+    find_library(MICRO_PROFILER_LIB micro-profiler_x64)
+  endif()
+endif()
+
 ###############################################################################
 #                                  N I N J A                                  #
 ###############################################################################
@@ -106,6 +139,9 @@ macro(AddCXXFlagIfSupported flag test)
 endmacro()
 
 if("Ninja" STREQUAL ${CMAKE_GENERATOR})
+  # Will be passed to OpenStudio.in to deal with the Win32 case
+  set(NINJA TRUE)
+
   # Clang
   if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
     AddCXXFlagIfSupported(-fcolor-diagnostics COMPILER_SUPPORTS_fcolor-diagnostics)
@@ -220,12 +256,16 @@ endif()
 
 if(UNIX AND NOT APPLE)
   # the RPATH to be used when installing
-  set(CMAKE_INSTALL_RPATH "$ORIGIN/../lib")
+  set(CMAKE_INSTALL_RPATH "$ORIGIN")
 endif()
 
 option(BUILD_PACKAGE "Build package" OFF)
 
 option(BUILD_TESTING "Build testing" OFF)
+
+option(BUILD_BENCHMARK "Build benchmarking targets" OFF)
+
+option(BUILD_MICRO_PROFILING "Build micro profiling" OFF)
 
 # DView
 # option(BUILD_DVIEW "Build DView" OFF)
@@ -320,7 +360,8 @@ if(MSVC)
   #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Wall")
 
   # create compiler processes on all effective processors
-  if(BUILD_WITH_MULTIPLE_PROCESSES)
+  # /MP is useless for ninja and will cause problems. BUILD_WITH_MULTIPLE_PROCESSES shouldn't have been set if ninja but let's be safe
+  if(BUILD_WITH_MULTIPLE_PROCESSES AND NOT NINJA)
     add_definitions(/MP)
   endif()
 
@@ -360,24 +401,18 @@ if(MSVC)
   add_definitions(-D_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS)
   add_definitions(-D_SILENCE_FPOS_SEEKPOS_DEPRECATION_WARNING)
 
+  # for profiling with micro-profiler
+  if(BUILD_MICRO_PROFILING)
+    add_definitions(/GH /Gh /Zi)
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /DEBUG /OPT:REF /OPT:ICF")
+  endif()
+
 endif()
 
 # Check version of gcc
 if(CMAKE_COMPILER_IS_GNUCC)
   execute_process(COMMAND ${CMAKE_C_COMPILER} -dumpversion
                   OUTPUT_VARIABLE GCC_VERSION)
-endif()
-
-# If Linux, check LSB_RELEASE globally so we can use it after
-if(UNIX AND NOT APPLE)
-
-  find_program(LSB_RELEASE lsb_release)
-  # -rs outputs only 16.04, or 18.04
-  execute_process(COMMAND ${LSB_RELEASE} -rs
-    OUTPUT_VARIABLE LSB_RELEASE_ID_SHORT
-    OUTPUT_STRIP_TRAILING_WHITESPACE
-  )
-  message(STATUS "LSB_RELEASE_ID_SHORT = ${LSB_RELEASE_ID_SHORT}")
 endif()
 
 # compiler id for about boxes
@@ -431,7 +466,7 @@ set(QT_VERSION "5.15.0")
     #set(QT_ZIP_FILENAME "DOES_NOT_EXIST_qt_5_11_redhat_shared.tar.gz")
     #set(QT_ZIP_EXPECTED_MD5 "b0610716854ed91a003347c455b22eb8")
   #else()
-    #if(LSB_RELEASE_ID_SHORT MATCHES "18.04")
+    #if(LSB_RELEASE_VERSION_SHORT MATCHES "18.04")
       #set(QT_ZIP_FILENAME "qt_5_11_linux_shared.tar.gz")
       #set(QT_ZIP_EXPECTED_MD5 "33c5a562935612625ec5e41fe4b75e17")
     #else()
@@ -500,6 +535,7 @@ else()
 endif()
 find_file(icudtl NAMES icudtl.dat PATHS "${QT_INSTALL_DIR}/resources/" "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Resources" NO_DEFAULT_PATH)
 find_file(qweb_resources NAMES qtwebengine_resources.pak PATHS "${QT_INSTALL_DIR}/resources/" "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Resources" NO_DEFAULT_PATH)
+find_file(qweb_resources_devtools NAMES qtwebengine_devtools_resources.pak PATHS "${QT_INSTALL_DIR}/resources/" "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Resources" NO_DEFAULT_PATH)
 find_file(qweb_resources_100 NAMES qtwebengine_resources_100p.pak PATHS "${QT_INSTALL_DIR}/resources/" "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Resources" NO_DEFAULT_PATH)
 find_file(qweb_resources_200 NAMES qtwebengine_resources_200p.pak PATHS "${QT_INSTALL_DIR}/resources/" "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Resources" NO_DEFAULT_PATH)
 
@@ -529,6 +565,9 @@ if(NOT APPLE)
     find_package(Qt5Qml ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
     list(APPEND QT_WEB_LIBS Qt5::Qml)
 
+    find_package(Qt5QmlModels ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+    list(APPEND QT_WEB_LIBS Qt5::QmlModels)
+
     find_package(Qt5Positioning ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
     list(APPEND QT_WEB_LIBS Qt5::Positioning)
 
@@ -548,7 +587,16 @@ if(NOT APPLE)
       # list(APPEND QT_PLUGINS Qt5::QXcbGlxIntegrationPlugin)
       find_library(QT_QXCBQPA NAMES libQt5XcbQpa.so.${QT_VERSION} PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
 
-      list(APPEND QT_EXTRA_LIBS ${QT_QXCBQPA})
+      find_library(QT_ICU icui18n REQUIRED PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
+      find_library(QT_ICUDATA icudata REQUIRED PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
+      find_library(QT_ICUUC icuuc REQUIRED PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
+      set(QT_ICU_LIBS
+        ${QT_ICU}
+        ${QT_ICUDATA}
+        ${QT_ICUUC}
+        )
+
+      list(APPEND QT_EXTRA_LIBS ${QT_QXCBQPA} ${QT_ICU_LIBS})
     endif()
 endif()
 
@@ -674,11 +722,21 @@ if(UNIX AND NOT APPLE)
 endif()
 
 
-if(NOT UNIX)
-  include(InstallRequiredSystemLibraries)
+##########################################################   S Y S T E M    L I B R A R I E S   ######################################################
 
+# Add compiler-provided system runtime libraries
+if( NOT UNIX )
+  # Skip the call to install(PROGRAMS) so we can specify our own install rule (using the value of `CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS`)
+  set(CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS_SKIP TRUE)
+
+  # Set to TRUE to install the Windows Universal CRT libraries for app-local deployment.
+  # This is meaningful only with MSVC from Visual Studio 2015 or higher, which is our case
+  #SET(CMAKE_INSTALL_UCRT_LIBRARIES TRUE)
+
+  include(InstallRequiredSystemLibraries)
   if(CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS)
-    install(FILES ${CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS} DESTINATION "bin")
+    message(DEBUG "CMAKE_INSTALL_SYSTEM_RUNTIME_LIBs: ${CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS}")
+    install(PROGRAMS ${CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS} DESTINATION "bin" COMPONENT Libraries)
   endif()
 endif()
 
@@ -693,7 +751,8 @@ install(DIRECTORY "${openstudio_ROOT_DIR}/Radiance" DESTINATION "." COMPONENT "O
 install(DIRECTORY "${openstudio_ROOT_DIR}/Ruby" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
 install(DIRECTORY "${openstudio_ROOT_DIR}/EnergyPlus" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
 install(DIRECTORY "${openstudio_ROOT_DIR}/Examples" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
-install(DIRECTORY "${openstudio_ROOT_DIR}/lib" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
+# I don't see any point shipping libopenstudiolib in `lib/` when it's already installed in ./bin/ via fixup_bundle
+#install(DIRECTORY "${openstudio_ROOT_DIR}/lib" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
 
 install(PROGRAMS ${os_cli_location} DESTINATION bin COMPONENT "CLI" RENAME "${os_cli_install_name}")
 
@@ -703,6 +762,8 @@ else()
   install(PROGRAMS "${openstudio_ROOT_DIR}/bin/install_utility" DESTINATION bin COMPONENT "CLI")
 endif()
 
+# Leaving it
+set(CPACK_IFW_VERBOSE ON)
 
 set(CPACK_PACKAGE_VENDOR "National Renewable Energy Laboratory")
 # These are ok, even if we have a prerelease tag
@@ -714,10 +775,20 @@ set(CPACK_PACKAGE_VERSION_PATCH ${OpenStudioApplication_VERSION_PATCH})
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "OpenStudioApplication ${OpenStudioApplication_VERSION}, based on openstudio (core) ${OPENSTUDIO_VERSION}. OpenStudio is a cross-platform collection of software tools to support whole building energy modeling using EnergyPlus and advanced daylight analysis using Radiance")
 
 # The actual package file name on disk
-set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${OPENSTUDIOAPPLICATION_LONG_VERSION}-${CMAKE_SYSTEM_NAME}")
-if(LSB_RELEASE_ID_SHORT MATCHES "20.04")
-  set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${OPENSTUDIOAPPLICATION_LONG_VERSION}-${CMAKE_SYSTEM_NAME}20.04")
+if(APPLE)
+  include(CMake/TargetArch.cmake)
+  target_architecture(TARGET_ARCH)
+
+  # eg OpenStudioApplication-1.2.0-alpha+394bbe9f8d-macOS-10.15-x86_64 (future: OpenStudioApplication-1.2.0-alpha+394bbe9f8d-macOS-11.2-arm64)
+  set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${OPENSTUDIOAPPLICATION_LONG_VERSION}-macOS${OSX_VERSION_MAJOR_MINOR}-${TARGET_ARCH}")
+elseif(UNIX)
+  # eg: OpenStudioApplication-1.2.0-alpha+394bbe9f8d-Ubuntu18.04
+  set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${OPENSTUDIOAPPLICATION_LONG_VERSION}-${LSB_RELEASE_ID_SHORT}${LSB_RELEASE_VERSION_SHORT}")
+else()
+  # eg: OpenStudioApplication-1.2.0-alpha+394bbe9f8d-Windows
+  set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${OPENSTUDIOAPPLICATION_LONG_VERSION}-${CMAKE_SYSTEM_NAME}")
 endif()
+
 set(CPACK_PACKAGE_CONTACT "openstudio@nrel.gov")
 
   # Install additional Documents, such as release notes
@@ -819,7 +890,19 @@ elseif(WIN32)
   set(CPACK_BINARY_NSIS OFF CACHE BOOL "Enable to build NSIS packages")
 endif()
 
+######################################################################################################################################################
+#                                                    P A C K A G I N G   &   C O M P O N E N T S                                                     #
+######################################################################################################################################################
+
+# Careful: the position (and what you include) matters a lot!
+include(CPack)
 include(CPackIFW)
+# include(CPackComponent)
+
+# Note: If you ever need to debug a CPack Package Error in MSVC, right-click on "PACKAGE" target, click Properties
+# and in the Build Events > Post Build Event, edit the command that calls cpack to add `--verbose --debug`:
+# eg: `"C:\Program Files\CMake\bin\cpack.exe" -C $(Configuration) --config ./CPackConfig.cmake --verbose --debug`
+
 
 cpack_add_component(Resources
   DISPLAY_NAME "Application Resources"
@@ -841,5 +924,14 @@ cpack_ifw_configure_component(OpenStudioApp
   REQUIRES_ADMIN_RIGHTS
 )
 
-include(CPack)
+cpack_add_component(Libraries
+  DISPLAY_NAME "Install required system libraries"
+  DESCRIPTION  "Install compiler-provided system runtime libraries, and Windows Universal CRT libraries for app-local deployment"
+  REQUIRED
+  HIDDEN
+)
 
+add_custom_target(PACKAGE_DEBUG
+  COMMAND ${CMAKE_CPACK_COMMAND} --debug --verbose --config CPackConfig.cmake
+  COMMENTS "Build package with debug and verbose output"
+)

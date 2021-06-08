@@ -193,7 +193,7 @@ void VariablesList::onAdded(const WorkspaceObject&, const openstudio::IddObjectT
   if (type != openstudio::IddObjectType::OS_Output_Variable) {
     if (!m_dirty) {
       m_dirty = true;
-      QTimer::singleShot(0, this, SLOT(updateVariableList()));
+      QTimer::singleShot(0, this, &VariablesList::updateVariableList);
     }
   }
 }
@@ -205,7 +205,7 @@ void VariablesList::onRemoved(const WorkspaceObject&, const openstudio::IddObjec
   if (type != openstudio::IddObjectType::OS_Output_Variable) {
     if (!m_dirty) {
       m_dirty = true;
-      QTimer::singleShot(0, this, SLOT(updateVariableList()));
+      QTimer::singleShot(0, this, &VariablesList::updateVariableList);
     }
   }
 }
