@@ -263,17 +263,17 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1307"/>
         <source>gbXML (*.xml *.gbxml)</source>
-        <translation></translation>
+        <translation>gbXML (*.xml *.gbxml)</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1333"/>
         <source>IDF (*.idf)</source>
-        <translation></translation>
+        <translation>IDF (*.idf)</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1359"/>
         <source>OSM (*.osm)</source>
-        <translation></translation>
+        <translation>OSM (*.osm)</translation>
     </message>
 </context>
 <context>
@@ -568,7 +568,7 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="69"/>
         <source>Ctrl+R</source>
-        <translation></translation>
+        <translation>Ctrl+R</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="75"/>
@@ -589,24 +589,24 @@ Zone</source>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="90"/>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="112"/>
         <source>&amp;IDF</source>
-        <translation></translation>
+        <translation>&amp;IDF</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="95"/>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="116"/>
         <source>&amp;gbXML</source>
-        <translation></translation>
+        <translation>&amp;gbXML</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="100"/>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="120"/>
         <source>&amp;SDD</source>
-        <translation></translation>
+        <translation>&amp;SDD</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="105"/>
         <source>I&amp;FC</source>
-        <translation></translation>
+        <translation>I&amp;FC</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="110"/>
@@ -721,7 +721,7 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="282"/>
         <source>Ctrl+M</source>
-        <translation></translation>
+        <translation>Ctrl+M</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="286"/>
@@ -776,12 +776,12 @@ Si le gustaría ver la AplicaciónOpenStudio traducido a algun otro lenguaje, le
     <message>
         <location filename="../src/openstudio_lib/OSDocument.cpp" line="1207"/>
         <source>(*.idf)</source>
-        <translation></translation>
+        <translation>(*.idf)</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OSDocument.cpp" line="1244"/>
         <source>(*.xml)</source>
-        <translation></translation>
+        <translation>(*.xml)</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OSDocument.cpp" line="1372"/>
@@ -801,7 +801,7 @@ Si le gustaría ver la AplicaciónOpenStudio traducido a algun otro lenguaje, le
     <message>
         <location filename="../src/openstudio_lib/OSDocument.cpp" line="1420"/>
         <source>(*.osm)</source>
-        <translation></translation>
+        <translation>(*.osm)</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OSDocument.cpp" line="1606"/>
@@ -862,7 +862,7 @@ Si le gustaría ver la AplicaciónOpenStudio traducido a algun otro lenguaje, le
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="481"/>
         <source>(*.idf)</source>
-        <translation></translation>
+        <translation>(*.idf)</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="512"/>
@@ -882,7 +882,7 @@ Si le gustaría ver la AplicaciónOpenStudio traducido a algun otro lenguaje, le
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="515"/>
         <source>&apos;.</source>
-        <translation></translation>
+        <translation>&apos;.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="517"/>
@@ -974,7 +974,7 @@ Si le gustaría ver la AplicaciónOpenStudio traducido a algun otro lenguaje, le
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="718"/>
         <source>(*.xml)</source>
-        <translation></translation>
+        <translation>(*.xml)</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="778"/>
@@ -1020,7 +1020,7 @@ Si le gustaría ver la AplicaciónOpenStudio traducido a algun otro lenguaje, le
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="888"/>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1446"/>
         <source>(*.osm)</source>
-        <translation></translation>
+        <translation>(*.osm)</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="974"/>
@@ -1045,7 +1045,7 @@ Si le gustaría ver la AplicaciónOpenStudio traducido a algun otro lenguaje, le
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1002"/>
         <source>Chrome Debugger: http://localhost:</source>
-        <translation></translation>
+        <translation>Chrome Debugger: http://localhost:</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1003"/>
@@ -1195,22 +1195,22 @@ Desea Restaurar la ruta por defecto de las librerías o Abrir los ajustes de lib
     <message>
         <location filename="../src/openstudio_app/StartupMenu.cpp" line="48"/>
         <source>IDF</source>
-        <translation></translation>
+        <translation>IDF</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/StartupMenu.cpp" line="51"/>
         <source>gbXML</source>
-        <translation></translation>
+        <translation>gbXML</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/StartupMenu.cpp" line="54"/>
         <source>SDD</source>
-        <translation></translation>
+        <translation>SDD</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/StartupMenu.cpp" line="57"/>
         <source>IFC</source>
-        <translation></translation>
+        <translation>IFC</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/StartupMenu.cpp" line="74"/>
@@ -1431,7 +1431,7 @@ Desea Restaurar la ruta por defecto de las librerías o Abrir los ajustes de lib
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="60"/>
         <source> &gt; </source>
-        <translation></translation>
+        <translation> &gt; </translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="62"/>
