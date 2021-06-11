@@ -132,6 +132,7 @@
 #include <QTcpServer>
 #include <QtConcurrent>
 #include <QtGlobal>
+#include <QSettings>
 #include <QTranslator>
 
 #include <openstudio/OpenStudio.hxx>
@@ -1182,6 +1183,10 @@ void OpenStudioApp::writeSettings() {
   QString organizationName = QCoreApplication::organizationName();
   QString applicationName = QCoreApplication::applicationName();
   QSettings settings(organizationName, applicationName);
+  if (!settings.isWritable()) {
+    QMessageBox::warning(nullptr, tr("Settings file not writable"),
+                         tr("Your settings file '") + settings.fileName() + tr("' is not writable. Adjust the file permissions"));
+  }
   settings.setValue("lastPath", lastPath());
 }
 
@@ -1310,6 +1315,11 @@ void OpenStudioApp::writeLibraryPaths(std::vector<openstudio::path> paths) {
   auto defaultPaths = defaultLibraryPaths();
 
   QSettings settings(QCoreApplication::organizationName(), QCoreApplication::applicationName());
+
+  if (!settings.isWritable()) {
+    QMessageBox::warning(nullptr, tr("Settings file not writable"),
+                         tr("Your settings file '") + settings.fileName() + tr("' is not writable. Adjust the file permissions"));
+  }
 
   if (paths == defaultPaths) {
     settings.remove("library");
