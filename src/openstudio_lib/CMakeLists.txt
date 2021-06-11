@@ -714,6 +714,7 @@ set(TS_FILES
   ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_he.ts # Hebrew
   ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_fa.ts # Farsi-Persian
   ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_it.ts # Italian
+  ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_zh_CN.ts # Chinese
 )
 #set_source_files_properties(${TS_FILES} PROPERTIES OUTPUT_LOCATION $<TARGET_FILE_DIR:${target_name}>/translations)
 
