@@ -702,7 +702,7 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="222"/>
         <source>Chinese</source>
-        <translation type="unfinished"></translation>
+        <translation>Chinois</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="228"/>
@@ -1099,19 +1099,19 @@ Les scrips Ruby sont désormais obsolètes et ont été remplacés par les Mesur
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1187"/>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1320"/>
         <source>Settings file not writable</source>
-        <translation type="unfinished"></translation>
+        <translation>Le fichier des paramètres n&apos;est pas accessible en écriture</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1188"/>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1321"/>
         <source>Your settings file &apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>Votre fichier des paramètres &apos;</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1188"/>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1321"/>
         <source>&apos; is not writable. Adjust the file permissions</source>
-        <translation type="unfinished"></translation>
+        <translation>&apos; n&apos;est pas accessible en écriture. Ajustez les droits.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1209"/>
