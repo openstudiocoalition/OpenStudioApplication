@@ -268,6 +268,16 @@ elseif( UNIX )
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qt_zh_CN.qm $<TARGET_FILE_DIR:${target_name}>/translations/
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qtbase_zh_TW.qm $<TARGET_FILE_DIR:${target_name}>/translations/
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qtwebengine_locales/zh-CN.pak $<TARGET_FILE_DIR:${target_name}>/translations/qtwebengine_locales/
+
+    # Greek: : unfortunaly qt / qtbase isn't translated. webengine is
+    # COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qt_el.qm $<TARGET_FILE_DIR:${target_name}>/translations/
+    # COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qtbase_el.qm $<TARGET_FILE_DIR:${target_name}>/translations/
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qtwebengine_locales/el.pak $<TARGET_FILE_DIR:${target_name}>/translations/qtwebengine_locales/
+
+    # Polish
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qt_pl.qm $<TARGET_FILE_DIR:${target_name}>/translations/
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qtbase_pl.qm $<TARGET_FILE_DIR:${target_name}>/translations/
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qtwebengine_locales/pl.pak $<TARGET_FILE_DIR:${target_name}>/translations/qtwebengine_locales/
   )
 
   # TODO: not sure if chrpath is needed
