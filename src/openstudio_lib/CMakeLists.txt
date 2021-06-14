@@ -717,6 +717,7 @@ set(TS_FILES
   ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_zh_CN.ts # Chinese
   ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_el.ts # Greek
   ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_pl.ts # Polish
+  ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_ca.ts # Catalan
 )
 #set_source_files_properties(${TS_FILES} PROPERTIES OUTPUT_LOCATION $<TARGET_FILE_DIR:${target_name}>/translations)
 
@@ -808,6 +809,11 @@ add_custom_command(TARGET ${target_name}
   COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qt_pl.qm $<TARGET_FILE_DIR:${target_name}>/translations/
   COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qtbase_pl.qm $<TARGET_FILE_DIR:${target_name}>/translations/
   COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qtwebengine_locales/pl.pak $<TARGET_FILE_DIR:${target_name}>/translations/qtwebengine_locales/
+
+  # Catalan
+  COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qt_ca.qm $<TARGET_FILE_DIR:${target_name}>/translations/
+  COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qtbase_ca.qm $<TARGET_FILE_DIR:${target_name}>/translations/
+  COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qtwebengine_locales/ca.pak $<TARGET_FILE_DIR:${target_name}>/translations/qtwebengine_locales/
 
   DEPENDS ${QM_FILES}
 )
