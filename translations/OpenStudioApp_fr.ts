@@ -562,7 +562,7 @@ Zone</source>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="68"/>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="557"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="594"/>
         <source>&amp;Revert to Saved</source>
         <translation>&amp;Revenir à la dernière sauvegarde</translation>
     </message>
@@ -721,66 +721,71 @@ Zone</source>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="246"/>
+        <source>Hindi</source>
+        <translation>Hindi</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="252"/>
         <source>Add a new language</source>
         <translation>Ajouter une nouvelle langue</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="263"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="269"/>
         <source>&amp;Configure Internet Proxy</source>
         <translation>&amp;Configurer un proxy Internet</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="313"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="322"/>
         <source>&amp;Components &amp;&amp; Measures</source>
         <translation>&amp;Composants &amp;&amp; Mesures</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="316"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="325"/>
         <source>&amp;Apply Measure Now</source>
         <translation>&amp;Appliquer une Mesure maintenant</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="318"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="327"/>
         <source>Ctrl+M</source>
         <translation>Ctrl+M</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="322"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="331"/>
         <source>Find &amp;Measures</source>
         <translation>Trouver une &amp;Mesure</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="327"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="336"/>
         <source>Find &amp;Components</source>
         <translation>Trouver un &amp;Composant</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="333"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="342"/>
         <source>&amp;Help</source>
         <translation>&amp;Aide</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="336"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="345"/>
         <source>OpenStudio &amp;Help</source>
         <translation>&amp;Aide OpenStudio</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="340"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="349"/>
         <source>Check For &amp;Update</source>
         <translation>&amp;Vérifier les mises à jour</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="344"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="353"/>
         <source>&amp;About</source>
         <translation>&amp;A propos</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="542"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="579"/>
         <source>Adding a new language</source>
         <translation>Ajouter une nouvelle langue</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="543"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="580"/>
         <source>Adding a new language requires almost no coding skill, but it does require language skills: the only thing to do is to translate each sentence/word with the help of a dedicated software.
 If you would like to see the OpenStudioApplication translated in your language of choice, we would welcome your help. Send an email to osc@openstudiocoalition.org specifying which language you want to add, and we will be in touch to help you get started.</source>
         <translation>Ajouter une nouvelle langue ne requiert pas de compétence en programmation informatique : la seule chose à faire est de traduire chaque phrase/mot à l&apos;aide d&apos;un logiciel dédié.
