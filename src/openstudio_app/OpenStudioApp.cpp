@@ -1439,7 +1439,7 @@ bool OpenStudioApp::switchLanguage(const QString& rLanguage) {
   this->removeTranslator(&m_translator);
 
   if (m_translator.load(loc, QLatin1String("OpenStudioApp"), QLatin1String("_"), QLibraryInfo::location(QLibraryInfo::TranslationsPath))) {
-    qDebug() << "\n\n\nNSTALLING lang = " << QLocale::languageToString(loc.language()) << "\n\n\n";
+    qDebug() << "\n\n\nINSTALLING lang = " << QLocale::languageToString(loc.language()) << "\n\n\n";
 
     this->installTranslator(&m_translator);
   } else {
