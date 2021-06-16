@@ -758,7 +758,7 @@ add_library(${target_name}
 add_custom_command(TARGET ${target_name}
   POST_BUILD
   COMMAND ${CMAKE_COMMAND} -E make_directory $<TARGET_FILE_DIR:${target_name}>/translations/
-  COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QM_FILES} $<TARGET_FILE_DIR:${target_name}>/translations
+  COMMAND ${CMAKE_COMMAND} -E copy ${QM_FILES} $<TARGET_FILE_DIR:${target_name}>/translations
   COMMAND ${CMAKE_COMMAND} -E make_directory $<TARGET_FILE_DIR:${target_name}>/translations/qtwebengine_locales/
 
   # English
