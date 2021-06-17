@@ -302,7 +302,7 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, QWidget* p
     m_langHebrewAction->setChecked(true);
   } else if (m_currLang == "it") {
     m_langItalianAction->setChecked(true);
-  } else if (m_currLang == "zh-CN") {
+  } else if (m_currLang == "zh_CN") {
     m_langChineseAction->setChecked(true);
   } else if (m_currLang == "el") {
     m_langGreekAction->setChecked(true);
@@ -502,7 +502,7 @@ void MainMenu::langChineseClicked() {
   m_langCatalanAction->setChecked(false);
   m_langHindiAction->setChecked(false);
 
-  emit changeLanguageClicked("zh-CN");
+  emit changeLanguageClicked("zh_CN");
 }
 
 void MainMenu::langGreekClicked() {
