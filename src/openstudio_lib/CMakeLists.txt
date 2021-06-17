@@ -799,7 +799,7 @@ add_custom_command(TARGET ${target_name}
   COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qtbase_it.qm $<TARGET_FILE_DIR:${target_name}>/translations/
   COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qtwebengine_locales/it.pak $<TARGET_FILE_DIR:${target_name}>/translations/qtwebengine_locales/
 
-  # Chinese
+  # Chinese: TODO NOTE: qtbase_zh_TW.qm only, there is no qtbase_zh_CN.qm...
   COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qt_zh_CN.qm $<TARGET_FILE_DIR:${target_name}>/translations/
   COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qtbase_zh_TW.qm $<TARGET_FILE_DIR:${target_name}>/translations/
   COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qtwebengine_locales/zh-CN.pak $<TARGET_FILE_DIR:${target_name}>/translations/qtwebengine_locales/

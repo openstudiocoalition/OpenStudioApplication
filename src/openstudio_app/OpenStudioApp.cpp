@@ -1427,12 +1427,25 @@ bool OpenStudioApp::switchLanguage(const QString& rLanguage) {
   if (m_qtTranslator.load(loc, QLatin1String("qt"), QLatin1String("_"), QLibraryInfo::location(QLibraryInfo::TranslationsPath))) {
     qDebug() << "m_qtTranslator ok";
     this->installTranslator(&m_qtTranslator);
+  } else {
+    qDebug() << "m_qtTranslator not ok for m_currLang=" << m_currLang;
   }
 
   this->removeTranslator(&m_qtBaseTranslator);
   if (m_qtBaseTranslator.load(loc, QLatin1String("qtbase"), QLatin1String("_"), QLibraryInfo::location(QLibraryInfo::TranslationsPath))) {
     qDebug() << "m_qtBaseTranslator ok";
     this->installTranslator(&m_qtBaseTranslator);
+  } else if (m_currLang == "zh_CN") {
+    // For some reason, zh_CN doesn't exist for qt_base but zh_TW does. Using that...
+    QLocale loc2("zh_TW");
+    if (m_qtBaseTranslator.load(loc2, QLatin1String("qtbase"), QLatin1String("_"), QLibraryInfo::location(QLibraryInfo::TranslationsPath))) {
+      qDebug() << "m_qtBaseTranslator ok, with alternative zh_TW";
+    } else {
+      qDebug() << "m_qtBaseTranslator not ok for m_currLang=" << m_currLang << ", tried zh_TW too but it failed";
+    }
+
+  } else {
+    qDebug() << "m_qtBaseTranslator not ok for m_currLang=" << m_currLang;
   }
 
   // remove the old translator

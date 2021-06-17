@@ -1035,7 +1035,7 @@ If you would like to see the OpenStudioApplication translated in your language o
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="889"/>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1461"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1474"/>
         <source>(*.osm)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1164,19 +1164,19 @@ Would you like to restart now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1461"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1474"/>
         <source>Select Library</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1515"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1528"/>
         <source>Failed to load the following libraries...
 
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1523"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1536"/>
         <source>
 
 Would you like to Restore library paths to default values or Open the library settings to change them manually?</source>
