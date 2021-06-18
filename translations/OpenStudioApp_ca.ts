@@ -724,7 +724,7 @@ Zona</translation>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="246"/>
         <source>Hindi</source>
-        <translation type="unfinished"></translation>
+        <translation>Hindi</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="252"/>
@@ -998,7 +998,7 @@ Si voleu que OpeStudioApplication estigui a la vostra llengua, esperem la vostra
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="712"/>
         <source>Import </source>
-        <translation>Importar</translation>
+        <translation>Importar </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="719"/>
@@ -1623,7 +1623,8 @@ Voldries Restaurar els valors per defecte dels camins de les llibrerires o Obrir
         <location filename="../src/bimserver/ProjectImporter.cpp" line="365"/>
         <source>Please provide valid BIMserver address, port, your username and password. You may ask your BIMserver manager for such information.
 </source>
-        <translation>Introduïui una adreça, port, nom d&apos;usuari i contrassenya vàlids del BIMserver. Parleu amb l&apos;administrador de BIMserver.</translation>
+        <translation>Introduïui una adreça, port, nom d&apos;usuari i contrassenya vàlids del BIMserver. Parleu amb l&apos;administrador de BIMserver.
+</translation>
     </message>
 </context>
 </TS>
