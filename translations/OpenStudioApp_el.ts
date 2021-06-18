@@ -282,7 +282,7 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_app/ExternalToolsDialog.cpp" line="103"/>
         <source>Select Path to </source>
-        <translation>Επιλέξτε φάκελο στον δίσκο σας</translation>
+        <translation>Επιλέξτε φάκελο στον δίσκο σας </translation>
     </message>
 </context>
 <context>
@@ -334,35 +334,35 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="198"/>
         <source>Name: </source>
-        <translation>Όνομα:</translation>
+        <translation>Όνομα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="213"/>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="485"/>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="509"/>
         <source>Latitude: </source>
-        <translation>Γεωγραφικό πλάτος:</translation>
+        <translation>Γεωγραφικό πλάτος: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="216"/>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="490"/>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="511"/>
         <source>Longitude: </source>
-        <translation>Γεωγραφικό μήκος:</translation>
+        <translation>Γεωγραφικό μήκος: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="219"/>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="495"/>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="513"/>
         <source>Elevation: </source>
-        <translation>Υψόμετρο:</translation>
+        <translation>Υψόμετρο: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="222"/>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="500"/>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="515"/>
         <source>Time Zone: </source>
-        <translation>Ζώνη ώρας:</translation>
+        <translation>Ζώνη ώρας: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="226"/>
@@ -372,7 +372,7 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="235"/>
         <source>Measure Tags (Optional):</source>
-        <translation>Ενεργειακά Μέτρα σημείωση (προαιρετικός)</translation>
+        <translation>Ενεργειακά Μέτρα σημείωση (προαιρετικός):</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="239"/>
@@ -423,7 +423,7 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="617"/>
         <source>Failed To Set Weather File To </source>
-        <translation>Αποτυχία ορισμού αρχείου καιρού σε</translation>
+        <translation>Αποτυχία ορισμού αρχείου καιρού σε </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="652"/>
@@ -452,7 +452,7 @@ Zone</source>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="99"/>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="101"/>
         <source>Internet Connection: </source>
-        <translation>Σύνδεση στο Internet:</translation>
+        <translation>Σύνδεση στο Internet: </translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="99"/>
@@ -468,7 +468,7 @@ Zone</source>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="108"/>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="110"/>
         <source>Cloud Log-in: </source>
-        <translation>Σύνδεση στο Cloud:</translation>
+        <translation>Σύνδεση στο Cloud: </translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="108"/>
@@ -484,7 +484,7 @@ Zone</source>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="117"/>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="122"/>
         <source>Cloud Connection: </source>
-        <translation>Σύνδεση Cloud:</translation>
+        <translation>Σύνδεση Cloud: </translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="117"/>
@@ -494,7 +494,7 @@ Zone</source>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="122"/>
         <source>unable to reconnect. </source>
-        <translation>Δεν μπορεί να ξανασυνδεθεί</translation>
+        <translation>Δεν μπορεί να ξανασυνδεθεί. </translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="123"/>
@@ -509,7 +509,7 @@ Zone</source>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="151"/>
         <source>Try Again Later. </source>
-        <translation>Προσπαθήστε ξανά αργότερα.</translation>
+        <translation>Προσπαθήστε ξανά αργότερα. </translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="152"/>
@@ -525,7 +525,7 @@ Zone</source>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="169"/>
         <source>Stop Cloud. </source>
-        <translation>Σταματήστε το Cloud.</translation>
+        <translation>Σταματήστε το Cloud. </translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="170"/>
@@ -535,7 +535,7 @@ Zone</source>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="188"/>
         <source>Launch AWS Console. </source>
-        <translation>Εκκινήστε την κονσόλα AWS.</translation>
+        <translation>Εκκινήστε την κονσόλα AWS. </translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="189"/>
@@ -717,12 +717,12 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="240"/>
         <source>Catalan</source>
-        <translation type="unfinished"></translation>
+        <translation>Καταλανικά</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="246"/>
         <source>Hindi</source>
-        <translation type="unfinished"></translation>
+        <translation>Χίντι</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="252"/>
@@ -867,13 +867,13 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="406"/>
         <source>Translation From version </source>
-        <translation>Μετάφραση από την έκδοση</translation>
+        <translation>Μετάφραση από την έκδοση </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="406"/>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1148"/>
         <source> to </source>
-        <translation>Σε</translation>
+        <translation> Σε </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="409"/>
@@ -938,38 +938,44 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="534"/>
         <source> IDF Import Failed</source>
-        <translation>Η εισαγωγή IDF απέτυχε</translation>
+        <translation> Η εισαγωγή IDF απέτυχε</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="609"/>
         <source>=============== Errors ===============
 
 </source>
-        <translation>=============== Σφάλματα ===============</translation>
+        <translation>=============== Σφάλματα ===============
+
+</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="617"/>
         <source>============== Warnings ==============
 
 </source>
-        <translation>============== Προειδοποιήσεις ==============</translation>
+        <translation>============== Προειδοποιήσεις ==============
+
+</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="625"/>
         <source>==== The following idf objects were not imported ====
 
 </source>
-        <translation>==== Δεν εισήχθησαν τα ακόλουθα αντικείμενα idf ====</translation>
+        <translation>==== Δεν εισήχθησαν τα ακόλουθα αντικείμενα idf ====
+
+</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="630"/>
         <source> named </source>
-        <translation>Ονομασμένα</translation>
+        <translation> Ονομασμένα </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="632"/>
         <source>Unnamed </source>
-        <translation>Χωρίς όνομα</translation>
+        <translation>Χωρίς όνομα </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="638"/>
@@ -989,7 +995,7 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="712"/>
         <source>Import </source>
-        <translation>Εισαγωγή</translation>
+        <translation>Εισαγωγή </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="719"/>
@@ -999,7 +1005,7 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="779"/>
         <source>Errors or warnings occurred on import of </source>
-        <translation>Παρουσιάστηκαν σφάλματα ή προειδοποιήσεις κατά την εισαγωγή του</translation>
+        <translation>Παρουσιάστηκαν σφάλματα ή προειδοποιήσεις κατά την εισαγωγή του </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="789"/>
@@ -1009,12 +1015,12 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="791"/>
         <source>Could not import </source>
-        <translation>Δεν ήταν δυνατή η εισαγωγή</translation>
+        <translation>Δεν ήταν δυνατή η εισαγωγή </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="791"/>
         <source> file at </source>
-        <translation>Αρχείο στο</translation>
+        <translation> Αρχείο στο </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="821"/>
@@ -1060,7 +1066,7 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1002"/>
         <source>Measure Manager Server: </source>
-        <translation>Διαχείριση Ενεργειακών Μέτρων Διακομιστής</translation>
+        <translation>Διαχείριση Ενεργειακών Μέτρων Διακομιστής: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1003"/>
@@ -1070,12 +1076,12 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1004"/>
         <source>Temp Directory: </source>
-        <translation>Κατάλογος Temp:</translation>
+        <translation>Κατάλογος Temp: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1009"/>
         <source>About </source>
-        <translation>Σχετικά με</translation>
+        <translation>Σχετικά με </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1040"/>
@@ -1085,17 +1091,17 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1146"/>
         <source>Opening future version </source>
-        <translation>Άνοιγμα μελλοντικής έκδοσης</translation>
+        <translation>Άνοιγμα μελλοντικής έκδοσης </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1146"/>
         <source> using </source>
-        <translation>χρησιμοποιώντας</translation>
+        <translation> χρησιμοποιώντας </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1148"/>
         <source>Model updated from </source>
-        <translation>Το μοντέλο ενημερώθηκε από</translation>
+        <translation>Το μοντέλο ενημερώθηκε από </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1157"/>
@@ -1107,7 +1113,7 @@ Ruby scripts are no longer supported and have been replaced by measures.</source
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1164"/>
         <source>Failed to open file at </source>
-        <translation>Αποτυχία ανοίγματος αρχείου στο</translation>
+        <translation>Αποτυχία ανοίγματος αρχείου στο </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1187"/>
@@ -1150,12 +1156,14 @@ Do you want to create a new model?</source>
         <source>Measure Manager has crashed, attempting to restart
 
 </source>
-        <translation>Το Measure Manager έχει διακοπεί, προσπαθώντας να επανεκκινήσει.</translation>
+        <translation>Το Measure Manager έχει διακοπεί, προσπαθώντας να επανεκκινήσει
+
+</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1267"/>
         <source>Measure Manager has crashed</source>
-        <translation>Το Measure Manager έχει διακοπεί.</translation>
+        <translation>Το Measure Manager έχει διακοπεί</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1404"/>
@@ -1179,14 +1187,18 @@ Would you like to restart now?</source>
         <source>Failed to load the following libraries...
 
 </source>
-        <translation>Αποτυχία φόρτωσης των παρακάτω βιβλιοθηκών ...</translation>
+        <translation>Αποτυχία φόρτωσης των παρακάτω βιβλιοθηκών ...
+
+</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1536"/>
         <source>
 
 Would you like to Restore library paths to default values or Open the library settings to change them manually?</source>
-        <translation>Θέλετε να επαναφέρετε διαδρομές βιβλιοθήκης σε προεπιλεγμένες τιμές ή να ανοίξετε τις ρυθμίσεις της βιβλιοθήκης για να τις αλλάξετε χειροκίνητα;</translation>
+        <translation>
+
+Θέλετε να επαναφέρετε διαδρομές βιβλιοθήκης σε προεπιλεγμένες τιμές ή να ανοίξετε τις ρυθμίσεις της βιβλιοθήκης για να τις αλλάξετε χειροκίνητα?</translation>
     </message>
 </context>
 <context>
@@ -1285,7 +1297,7 @@ Would you like to Restore library paths to default values or Open the library se
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="129"/>
         <source>Daylight Savings Time:</source>
-        <translation>Θερινή ώρα</translation>
+        <translation>Θερινή ώρα:</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="147"/>
@@ -1463,7 +1475,7 @@ Would you like to Restore library paths to default values or Open the library se
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="60"/>
         <source> &gt; </source>
-        <translation>&gt;</translation>
+        <translation> &gt; </translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="62"/>
@@ -1501,7 +1513,8 @@ Would you like to Restore library paths to default values or Open the library se
         <location filename="../src/bimserver/ProjectImporter.cpp" line="184"/>
         <source>BIMserver is not connected correctly. Please check if BIMserver is running and make sure your username and password are valid.
 </source>
-        <translation>Ο διακομιστής BIM δεν είναι σωστά συνδεδεμένος. Ελέγξτε εάν ο διακομιστής BIM εκτελείται και βεβαιωθείτε ότι το όνομα χρήστη και ο κωδικός πρόσβασης είναι έγκυροι.</translation>
+        <translation>Ο διακομιστής BIM δεν είναι σωστά συνδεδεμένος. Ελέγξτε εάν ο διακομιστής BIM εκτελείται και βεβαιωθείτε ότι το όνομα χρήστη και ο κωδικός πρόσβασης είναι έγκυροι.
+</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="197"/>
@@ -1526,7 +1539,7 @@ Would you like to Restore library paths to default values or Open the library se
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="219"/>
         <source>Please enter the project name: </source>
-        <translation>Εισαγάγετε το όνομα της εργασίας:</translation>
+        <translation>Εισαγάγετε το όνομα της εργασίας: </translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="220"/>
@@ -1571,7 +1584,7 @@ Would you like to Restore library paths to default values or Open the library se
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="274"/>
         <source>Please enter the BIMserver information: </source>
-        <translation>Εισαγάγετε τις πληροφορίες του διακομιστή BIM:</translation>
+        <translation>Εισαγάγετε τις πληροφορίες του διακομιστή BIM: </translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="275"/>
@@ -1607,7 +1620,8 @@ Would you like to Restore library paths to default values or Open the library se
         <location filename="../src/bimserver/ProjectImporter.cpp" line="365"/>
         <source>Please provide valid BIMserver address, port, your username and password. You may ask your BIMserver manager for such information.
 </source>
-        <translation>Καταχωρίστε έγκυρη διεύθυνση διακομιστή BIM, θύρα, το όνομα χρήστη και τον κωδικό πρόσβασής σας. Μπορείτε να ζητήσετε από τον διαχειριστή BIMserver σας τέτοιες πληροφορίες</translation>
+        <translation>Καταχωρίστε έγκυρη διεύθυνση διακομιστή BIM, θύρα, το όνομα χρήστη και τον κωδικό πρόσβασής σας. Μπορείτε να ζητήσετε από τον διαχειριστή BIMserver σας τέτοιες πληροφορίες.
+</translation>
     </message>
 </context>
 </TS>
