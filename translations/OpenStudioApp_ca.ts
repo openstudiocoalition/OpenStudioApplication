@@ -564,7 +564,7 @@ Zona</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="68"/>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="557"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="594"/>
         <source>&amp;Revert to Saved</source>
         <translation>&amp;Tornar al Desat</translation>
     </message>
@@ -723,66 +723,71 @@ Zona</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="246"/>
+        <source>Hindi</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="252"/>
         <source>Add a new language</source>
         <translation>Afegir una llengua nova</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="263"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="269"/>
         <source>&amp;Configure Internet Proxy</source>
         <translation>&amp;Configurar el Proxy d&apos;Internet</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="313"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="322"/>
         <source>&amp;Components &amp;&amp; Measures</source>
         <translation>&amp;Componenents &amp;&amp; Mesures</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="316"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="325"/>
         <source>&amp;Apply Measure Now</source>
         <translation>&amp;Aplcar Measure Ara</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="318"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="327"/>
         <source>Ctrl+M</source>
         <translation>Ctrl+M</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="322"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="331"/>
         <source>Find &amp;Measures</source>
         <translation>Buscar &amp;Mesures</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="327"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="336"/>
         <source>Find &amp;Components</source>
         <translation>Buscar &amp;Components</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="333"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="342"/>
         <source>&amp;Help</source>
         <translation>&amp;Ajuda</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="336"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="345"/>
         <source>OpenStudio &amp;Help</source>
         <translation>&amp;Ajuda d&apos;OpenStudio</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="340"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="349"/>
         <source>Check For &amp;Update</source>
         <translation>Cercar &amp;Actutalitzacions</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="344"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="353"/>
         <source>&amp;About</source>
         <translation>&amp;Sobre</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="542"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="579"/>
         <source>Adding a new language</source>
         <translation>Afegir una llengua nova</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="543"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="580"/>
         <source>Adding a new language requires almost no coding skill, but it does require language skills: the only thing to do is to translate each sentence/word with the help of a dedicated software.
 If you would like to see the OpenStudioApplication translated in your language of choice, we would welcome your help. Send an email to osc@openstudiocoalition.org specifying which language you want to add, and we will be in touch to help you get started.</source>
         <translation>Per afegir una llengua nova no cal saber programar, però és important conèixer la llengua: només s&apos;ha de traduir paraula a paraula amb l&apos;ajuda d&apos;un programa pensat per a això.
@@ -1042,7 +1047,7 @@ Si voleu que OpeStudioApplication estigui a la vostra llengua, esperem la vostra
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="889"/>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1456"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1474"/>
         <source>(*.osm)</source>
         <translation>(*.osm)</translation>
     </message>
@@ -1176,12 +1181,12 @@ Would you like to restart now?</source>
 Vols reiniciar ara?</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1456"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1474"/>
         <source>Select Library</source>
         <translation>Seleccionar llibreria</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1510"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1528"/>
         <source>Failed to load the following libraries...
 
 </source>
@@ -1190,7 +1195,7 @@ Vols reiniciar ara?</translation>
 </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1518"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1536"/>
         <source>
 
 Would you like to Restore library paths to default values or Open the library settings to change them manually?</source>
