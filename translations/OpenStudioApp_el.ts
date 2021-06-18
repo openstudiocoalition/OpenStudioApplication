@@ -7,27 +7,27 @@
         <location filename="../src/model_editor/InspectorDialog.cpp" line="706"/>
         <location filename="../src/model_editor/InspectorDialog.cpp" line="707"/>
         <source>OpenStudio Inspector</source>
-        <translation type="unfinished"></translation>
+        <translation>OpenStudio ελεγκτής</translation>
     </message>
     <message>
         <location filename="../src/model_editor/InspectorDialog.cpp" line="786"/>
         <source>Add new object</source>
-        <translation type="unfinished"></translation>
+        <translation>Προσθέστε ένα νέο αντικείμενο</translation>
     </message>
     <message>
         <location filename="../src/model_editor/InspectorDialog.cpp" line="790"/>
         <source>Copy selected object</source>
-        <translation type="unfinished"></translation>
+        <translation>Αντέγραψε επιλεγμένο αντικειμένο</translation>
     </message>
     <message>
         <location filename="../src/model_editor/InspectorDialog.cpp" line="794"/>
         <source>Remove selected objects</source>
-        <translation type="unfinished"></translation>
+        <translation>Αφαιρέσε επιλεγμένα αντικείμενα</translation>
     </message>
     <message>
         <location filename="../src/model_editor/InspectorDialog.cpp" line="798"/>
         <source>Purge unused objects</source>
-        <translation type="unfinished"></translation>
+        <translation>Εκκαθάριση αχρησιμοποίητων αντικειμένων</translation>
     </message>
 </context>
 <context>
@@ -36,22 +36,22 @@
         <location filename="../src/model_editor/InspectorGadget.cpp" line="617"/>
         <location filename="../src/model_editor/InspectorGadget.cpp" line="662"/>
         <source>Hard Sized</source>
-        <translation type="unfinished"></translation>
+        <translation>Εκτίμηση μηχανολογικού συστήματος με παραμέτρους από τον χρήστη</translation>
     </message>
     <message>
         <location filename="../src/model_editor/InspectorGadget.cpp" line="618"/>
         <source>Autosized</source>
-        <translation type="unfinished"></translation>
+        <translation>Αυτόματη εκτίμηση μηχανολογικού συστήματος</translation>
     </message>
     <message>
         <location filename="../src/model_editor/InspectorGadget.cpp" line="663"/>
         <source>Autocalculate</source>
-        <translation type="unfinished"></translation>
+        <translation>Αυτόματος υπολογισμός</translation>
     </message>
     <message>
         <location filename="../src/model_editor/InspectorGadget.cpp" line="832"/>
         <source>Add/Remove Extensible Groups</source>
-        <translation type="unfinished"></translation>
+        <translation>Προσθήκη/Κατάργηση επεκτάσιμων ομάδων</translation>
     </message>
 </context>
 <context>
@@ -60,19 +60,19 @@
         <location filename="../src/model_editor/ModalDialogs.cpp" line="171"/>
         <location filename="../src/model_editor/ModalDialogs.cpp" line="172"/>
         <source>Select Model Object</source>
-        <translation type="unfinished"></translation>
+        <translation>Επιλέξτε Μοντέλο</translation>
     </message>
     <message>
         <location filename="../src/model_editor/ModalDialogs.cpp" line="197"/>
         <location filename="../src/model_editor/ModalDialogs.cpp" line="198"/>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>Εντάξει</translation>
     </message>
     <message>
         <location filename="../src/model_editor/ModalDialogs.cpp" line="202"/>
         <location filename="../src/model_editor/ModalDialogs.cpp" line="203"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Ακύρωση</translation>
     </message>
 </context>
 <context>
@@ -80,34 +80,36 @@
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="195"/>
         <source>Date</source>
-        <translation type="unfinished"></translation>
+        <translation>Ημερομηνία</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="206"/>
         <source>Temperature</source>
-        <translation type="unfinished"></translation>
+        <translation>Θερμοκρασία</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="215"/>
         <source>Humidity</source>
-        <translation type="unfinished"></translation>
+        <translation>Υγρασία</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="226"/>
         <source>Pressure
 Wind
 Precipitation</source>
-        <translation type="unfinished"></translation>
+        <translation>Πίεση
+Ανεμος
+Βροχή</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="238"/>
         <source>Solar</source>
-        <translation type="unfinished"></translation>
+        <translation>Ηλιακή ενέργεια</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="267"/>
         <source>Check to select all rows</source>
-        <translation type="unfinished"></translation>
+        <translation>Επιλέξτε για να επιλέξετε όλες τις σειρές</translation>
     </message>
 </context>
 <context>
@@ -115,139 +117,139 @@ Precipitation</source>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="60"/>
         <source>Design Day Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Ονομα ημέρα σχεδιασμού/αξιολόγησης</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="61"/>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>Όλα</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="64"/>
         <source>Day Of Month</source>
-        <translation type="unfinished"></translation>
+        <translation>Ημέρα του μήνα</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="65"/>
         <source>Month</source>
-        <translation type="unfinished"></translation>
+        <translation>Μήνας</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="66"/>
         <source>Day Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Τύπος ημέρας</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="67"/>
         <source>Daylight Saving Time Indicator</source>
-        <translation type="unfinished"></translation>
+        <translation>Δείκτης θερινής ώρας</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="70"/>
         <source>Maximum Dry Bulb Temperature</source>
-        <translation type="unfinished"></translation>
+        <translation>Μέγιστη εξωτερική θερμοκρασία υπο σκιά</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="71"/>
         <source>Daily Dry Bulb Temperature Range</source>
-        <translation type="unfinished"></translation>
+        <translation>Εύρος καθημερινής εξωτερικής θερμοκρασίας υπο σκιά</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="72"/>
         <source>Daily Wet Bulb Temperature Range</source>
-        <translation type="unfinished"></translation>
+        <translation>Εύρος καθημερινής εξωτερικής θερμοκρασίας υγρού θερμομέτρου</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="73"/>
         <source>Dry Bulb Temperature Range Modifier Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Τύπος αλλαγής εύρους εξωτερικής θερμοκρασίας υπο σκιά</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="74"/>
         <source>Dry Bulb Temperature Range Modifier Schedule</source>
-        <translation type="unfinished"></translation>
+        <translation>Τύπος αλλαγής προγράμματος εξωτερικής θερμοκρασίας υπο σκιά</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="77"/>
         <source>Humidity Indicating Conditions At Maximum Dry Bulb</source>
-        <translation type="unfinished"></translation>
+        <translation>Συνθήκες ένδειξης υγρασίας στη μέγιστη εξωτερική θερμοκρασία υπο σκιά</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="78"/>
         <source>Humidity Indicating Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Τύπος ένδειξης υγρασίας</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="79"/>
         <source>Humidity Indicating Day Schedule</source>
-        <translation type="unfinished"></translation>
+        <translation>Πρόγραμμα ημέρας για την υγρασία</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="82"/>
         <source>Barometric Pressure</source>
-        <translation type="unfinished"></translation>
+        <translation>Βαρομετρική πίεση</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="83"/>
         <source>Wind Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Ταχύτητα ανέμου</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="84"/>
         <source>Wind Direction</source>
-        <translation type="unfinished"></translation>
+        <translation>Κατεύθυνση ανέμου</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="85"/>
         <source>Rain Indicator</source>
-        <translation type="unfinished"></translation>
+        <translation>Δείκτης βροχής</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="86"/>
         <source>Snow Indicator</source>
-        <translation type="unfinished"></translation>
+        <translation>Δείκτης χιονιού</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="89"/>
         <source>Solar Model Indicator</source>
-        <translation type="unfinished"></translation>
+        <translation>Δείκτης ηλιακού μοντέλου</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="90"/>
         <source>Beam Solar Day Schedule</source>
-        <translation type="unfinished"></translation>
+        <translation>Άμεση ηλιακή ακτινοβολία</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="91"/>
         <source>Diffuse Solar Day Schedule</source>
-        <translation type="unfinished"></translation>
+        <translation>Διάχυτη ηλιακή ακτινοβολία</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="92"/>
         <source>ASHRAE Taub</source>
-        <translation type="unfinished"></translation>
+        <translation>ASHRAE Taub</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="93"/>
         <source>ASHRAE Taud</source>
-        <translation type="unfinished"></translation>
+        <translation>ASHRAE Taud</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="94"/>
         <source>Sky Clearness</source>
-        <translation type="unfinished"></translation>
+        <translation>Διαύγεια ουρανού</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="107"/>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="108"/>
         <source>Design Days</source>
-        <translation type="unfinished"></translation>
+        <translation>Ημέρες σχεδιασμού/αξιολόγησης</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="108"/>
         <source>Drop
 Zone</source>
-        <translation type="unfinished"></translation>
+        <translation>Ζώνη</translation>
     </message>
 </context>
 <context>
@@ -257,22 +259,22 @@ Zone</source>
         <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1333"/>
         <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1359"/>
         <source>Open File</source>
-        <translation type="unfinished"></translation>
+        <translation>Άνοιγμα αρχείου</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1307"/>
         <source>gbXML (*.xml *.gbxml)</source>
-        <translation type="unfinished"></translation>
+        <translation>gbXML (*.xml *.gbxml)</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1333"/>
         <source>IDF (*.idf)</source>
-        <translation type="unfinished"></translation>
+        <translation>IDF (*.idf)</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1359"/>
         <source>OSM (*.osm)</source>
-        <translation type="unfinished"></translation>
+        <translation>OSM (*.osm)</translation>
     </message>
 </context>
 <context>
@@ -280,7 +282,7 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_app/ExternalToolsDialog.cpp" line="103"/>
         <source>Select Path to </source>
-        <translation type="unfinished"></translation>
+        <translation>Επιλέξτε φάκελο στον δίσκο σας</translation>
     </message>
 </context>
 <context>
@@ -288,12 +290,12 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_app/LibraryDialog.cpp" line="92"/>
         <source>Select OpenStudio Library</source>
-        <translation type="unfinished"></translation>
+        <translation>Επιλέξτε OpenStudio βιβλιοθήκη</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/LibraryDialog.cpp" line="92"/>
         <source>OpenStudio Files (*.osm)</source>
-        <translation type="unfinished"></translation>
+        <translation>OpenStudio αρχεία (*.osm)</translation>
     </message>
 </context>
 <context>
@@ -301,17 +303,17 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/LocationTabController.cpp" line="53"/>
         <source>Weather File &amp;&amp; Design Days</source>
-        <translation type="unfinished"></translation>
+        <translation>Αρχείο καιρού &amp; Μέρες αξιολόγησης</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabController.cpp" line="54"/>
         <source>Life Cycle Costs</source>
-        <translation type="unfinished"></translation>
+        <translation>Κόστος κύκλου ζωής</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabController.cpp" line="55"/>
         <source>Utility Bills</source>
-        <translation type="unfinished"></translation>
+        <translation>Λογαριασμοί κοινής ωφελείας</translation>
     </message>
 </context>
 <context>
@@ -319,7 +321,7 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="93"/>
         <source>Site</source>
-        <translation type="unfinished"></translation>
+        <translation>Τοποθεσία</translation>
     </message>
 </context>
 <context>
@@ -327,116 +329,116 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="177"/>
         <source>Weather File</source>
-        <translation type="unfinished"></translation>
+        <translation>Αρχείο καιρού</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="198"/>
         <source>Name: </source>
-        <translation type="unfinished"></translation>
+        <translation>Όνομα:</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="213"/>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="485"/>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="509"/>
         <source>Latitude: </source>
-        <translation type="unfinished"></translation>
+        <translation>Γεωγραφικό πλάτος:</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="216"/>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="490"/>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="511"/>
         <source>Longitude: </source>
-        <translation type="unfinished"></translation>
+        <translation>Γεωγραφικό μήκος:</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="219"/>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="495"/>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="513"/>
         <source>Elevation: </source>
-        <translation type="unfinished"></translation>
+        <translation>Υψόμετρο:</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="222"/>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="500"/>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="515"/>
         <source>Time Zone: </source>
-        <translation type="unfinished"></translation>
+        <translation>Ζώνη ώρας:</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="226"/>
         <source>Download weather files at &lt;a href=&quot;http://www.energyplus.net/weather&quot;&gt;www.energyplus.net/weather&lt;/a&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Λήψη αρχείων καιρού στη διεύθυνση &lt;a href=&quot;http://www.energyplus.net/weather&quot;&gt; www.energyplus.net/weather &lt;/a&gt;</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="235"/>
         <source>Measure Tags (Optional):</source>
-        <translation type="unfinished"></translation>
+        <translation>Ενεργειακά Μέτρα σημείωση (προαιρετικός)</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="239"/>
         <source>ASHRAE Climate Zone</source>
-        <translation type="unfinished"></translation>
+        <translation>Κλιματική ζώνη ASHRAE</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="272"/>
         <source>CEC Climate Zone</source>
-        <translation type="unfinished"></translation>
+        <translation>Κλιματική ζώνη CEC</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="340"/>
         <source>Design Days</source>
-        <translation type="unfinished"></translation>
+        <translation>Ημέρες σχεδιασμού/αξιολόγησης</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="343"/>
         <source>Import From DDY</source>
-        <translation type="unfinished"></translation>
+        <translation>Εισαγωγή από DDY</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="463"/>
         <source>Change Weather File</source>
-        <translation type="unfinished"></translation>
+        <translation>Αλλαγή αρχείου καιρού</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="466"/>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="470"/>
         <source>Set Weather File</source>
-        <translation type="unfinished"></translation>
+        <translation>Ορισμός αρχείου καιρού</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="520"/>
         <source>EPW Files (*.epw);; All Files (*.*)</source>
-        <translation type="unfinished"></translation>
+        <translation>EPW Files (*.epw);; All Files (*.*)</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="531"/>
         <source>Open Weather File</source>
-        <translation type="unfinished"></translation>
+        <translation>Άνοιγμα αρχείου καιρού</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="617"/>
         <source>Failed To Set Weather File</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποτυχία ορισμού αρχείου καιρού</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="617"/>
         <source>Failed To Set Weather File To </source>
-        <translation type="unfinished"></translation>
+        <translation>Αποτυχία ορισμού αρχείου καιρού σε</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="652"/>
         <source>Open DDY File</source>
-        <translation type="unfinished"></translation>
+        <translation>Άνοιγμα αρχείου DDY</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="747"/>
         <source>No Design Days in DDY File</source>
-        <translation type="unfinished"></translation>
+        <translation>Δεν υπάρχουν ημέρες αξιολόγησης στο αρχείο DDY</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="748"/>
         <source>This DDY file does not contain any valid design days.  Check the DDY file itself for errors or omissions.</source>
-        <translation type="unfinished"></translation>
+        <translation>Αυτό το αρχείο DDY δεν περιέχει έγκυρες ημέρες σχεδιασμού/αξιολόγησης. Ελέγξτε το ίδιο το αρχείο DDY για σφάλματα ή παραλείψεις.</translation>
     </message>
 </context>
 <context>
@@ -444,101 +446,101 @@ Zone</source>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="85"/>
         <source>Requirements for cloud:</source>
-        <translation type="unfinished"></translation>
+        <translation>Απαιτήσεις για cloud:</translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="99"/>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="101"/>
         <source>Internet Connection: </source>
-        <translation type="unfinished"></translation>
+        <translation>Σύνδεση στο Internet:</translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="99"/>
         <source>yes</source>
-        <translation type="unfinished"></translation>
+        <translation>Ναι</translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="101"/>
         <source>no</source>
-        <translation type="unfinished"></translation>
+        <translation>Όχι</translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="108"/>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="110"/>
         <source>Cloud Log-in: </source>
-        <translation type="unfinished"></translation>
+        <translation>Σύνδεση στο Cloud:</translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="108"/>
         <source>accepted</source>
-        <translation type="unfinished"></translation>
+        <translation>Δεκτό</translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="110"/>
         <source>denied</source>
-        <translation type="unfinished"></translation>
+        <translation>Δεν επιτρέπεται</translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="117"/>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="122"/>
         <source>Cloud Connection: </source>
-        <translation type="unfinished"></translation>
+        <translation>Σύνδεση Cloud:</translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="117"/>
         <source>reconnected</source>
-        <translation type="unfinished"></translation>
+        <translation>Ξανασυνδέθηκε</translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="122"/>
         <source>unable to reconnect. </source>
-        <translation type="unfinished"></translation>
+        <translation>Δεν μπορεί να ξανασυνδεθεί</translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="123"/>
         <source>Remember that cloud charges may currently be accruing.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ενδέχεται να προκύψουν χρεώσεις στο cloud services.</translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="138"/>
         <source>Options to correct the problem:</source>
-        <translation type="unfinished"></translation>
+        <translation>Επιλογές για τη διόρθωση του προβλήματος:</translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="151"/>
         <source>Try Again Later. </source>
-        <translation type="unfinished"></translation>
+        <translation>Προσπαθήστε ξανά αργότερα.</translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="152"/>
         <source>Verify your computer&apos;s internet connection then click &quot;Lost Cloud Connection&quot; to recover the lost cloud session.</source>
-        <translation type="unfinished"></translation>
+        <translation>Επαληθεύστε τη σύνδεση στο Διαδίκτυο του υπολογιστή σας και, στη συνέχεια, κάντε κλικ στο &quot;Lost Cloud Connection&quot; για να ανακτήσετε τη χαμένη συνεδρία cloud.</translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="156"/>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="175"/>
         <source>Or</source>
-        <translation type="unfinished"></translation>
+        <translation>Ή</translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="169"/>
         <source>Stop Cloud. </source>
-        <translation type="unfinished"></translation>
+        <translation>Σταματήστε το Cloud.</translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="170"/>
         <source>Disconnect from cloud.  This option will make the failed cloud session unavailable to Pat.  Any data that has not been downloaded to Pat will be lost.  Use the AWS Console to verify that the Amazon service have been completely shutdown.</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποσύνδεση από το cloud. Αυτή η επιλογή θα καταστήσει την αποτυχημένη συνεδρία cloud μη διαθέσιμη στο Pat Τυχόν δεδομένα που δεν έχουν ληφθεί στο Pat θα χαθούν. Χρησιμοποιήστε την κονσόλα AWS για να επιβεβαιώσετε ότι η υπηρεσία Amazon έχει τερματιστεί πλήρως.</translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="188"/>
         <source>Launch AWS Console. </source>
-        <translation type="unfinished"></translation>
+        <translation>Εκκινήστε την κονσόλα AWS.</translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="189"/>
         <source>Use the AWS Console to diagnose Amazon services.  You may still attempt to recover the lost cloud session.</source>
-        <translation type="unfinished"></translation>
+        <translation>Χρησιμοποιήστε την κονσόλα AWS για τη διάγνωση των υπηρεσιών Amazon. Μπορείτε ακόμα να προσπαθήσετε να ανακτήσετε τη χαμένη περίοδο λειτουργίας cloud.</translation>
     </message>
 </context>
 <context>
@@ -546,247 +548,238 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="51"/>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Αρχείο</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="55"/>
         <source>&amp;New</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Νέο</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="61"/>
         <source>&amp;Open</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Άνοιγμα</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="68"/>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="594"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="519"/>
         <source>&amp;Revert to Saved</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Επαναφορά στο αποθηκευμένο</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="69"/>
         <source>Ctrl+R</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+R</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="75"/>
         <source>&amp;Save</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Αποθήκευση</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="80"/>
         <source>Save &amp;As</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποθήκευση &amp;ως</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="88"/>
         <source>&amp;Import</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Εισαγωγή</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="90"/>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="112"/>
         <source>&amp;IDF</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;IDF</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="95"/>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="116"/>
         <source>&amp;gbXML</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;gbXML</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="100"/>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="120"/>
         <source>&amp;SDD</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;SDD</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="105"/>
         <source>I&amp;FC</source>
-        <translation type="unfinished"></translation>
+        <translation>I&amp;FC</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="110"/>
         <source>&amp;Export</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Εξαγωγή</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="124"/>
         <source>&amp;Load Library</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Φόρτωση βιβλιοθήκης</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="139"/>
         <source>E&amp;xit</source>
-        <translation type="unfinished"></translation>
+        <translation>Έ&amp;ξοδος</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="146"/>
         <source>&amp;Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Προτιμήσεις</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="149"/>
         <source>&amp;Units</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Μονάδες</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="151"/>
         <source>Metric (&amp;SI)</source>
-        <translation type="unfinished"></translation>
+        <translation>Διεθνές σύστημα μονάδων (&amp;SI)</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="157"/>
         <source>English (&amp;I-P)</source>
-        <translation type="unfinished"></translation>
+        <translation>Βρετανικό σύστημα μονάδων (&amp;I-P)</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="163"/>
         <source>&amp;Change My Measures Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Άλλαξε τον φάκελο των Ενεργειακών Μέτρων</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="168"/>
         <source>&amp;Change Default Libraries</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Άλλαξε τισ προκαθορισμένες βιβλιοθήκες</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="173"/>
         <source>&amp;Configure External Tools</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Διαμόρφωση Εξωτερικών Εργαλείων</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="178"/>
         <source>&amp;Language</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Γλώσσα</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="180"/>
         <source>English</source>
-        <translation type="unfinished"></translation>
+        <translation>Αγγλικά</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="186"/>
         <source>French</source>
-        <translation type="unfinished"></translation>
+        <translation>Γαλλικά</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="192"/>
         <source>Arabic</source>
-        <translation type="unfinished"></translation>
+        <translation>Αραβικά</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="198"/>
         <source>Spanish</source>
-        <translation type="unfinished"></translation>
+        <translation>Ισπανικά</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="204"/>
         <source>Farsi</source>
-        <translation type="unfinished"></translation>
+        <translation>Ιρανικά</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="210"/>
         <source>Hebrew</source>
-        <translation type="unfinished"></translation>
+        <translation>Εβραϊκά</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="216"/>
         <source>Italian</source>
-        <translation type="unfinished"></translation>
+        <translation>Ιταλικά</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="222"/>
         <source>Chinese</source>
-        <translation type="unfinished"></translation>
+        <translation>Κινέζικα</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="228"/>
         <source>Greek</source>
-        <translation type="unfinished"></translation>
+        <translation>Ελληνικά</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="234"/>
         <source>Polish</source>
-        <translation type="unfinished"></translation>
+        <translation>Πολωνικά</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="240"/>
-        <source>Catalan</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="246"/>
-        <source>Hindi</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="252"/>
         <source>Add a new language</source>
-        <translation type="unfinished"></translation>
+        <translation>Πρόσθεσαι νέα γλώσσα</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="269"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="257"/>
         <source>&amp;Configure Internet Proxy</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Διαμόρφωση διακομιστή μεσολάβησης διαδικτύου</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="322"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="301"/>
         <source>&amp;Components &amp;&amp; Measures</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Μηχανικά μέρη και Ενεργειακά Μέτρα</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="325"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="304"/>
         <source>&amp;Apply Measure Now</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Εφάρμοσαι μέτρα τώρα</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="327"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="306"/>
         <source>Ctrl+M</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+M</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="331"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="310"/>
         <source>Find &amp;Measures</source>
-        <translation type="unfinished"></translation>
+        <translation>Βρες &amp;Ενεργειακά Μέτρα</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="336"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="315"/>
         <source>Find &amp;Components</source>
-        <translation type="unfinished"></translation>
+        <translation>Βρές &amp;Μηχανικά Μέρη</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="342"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="321"/>
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Βοήθεια</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="345"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="324"/>
         <source>OpenStudio &amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation>OpenStudio &amp;Βοήθεια</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="349"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="328"/>
         <source>Check For &amp;Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Έλεγχος για &amp;ενημερώσεις</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="353"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="332"/>
         <source>&amp;About</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Σχετικά με</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="579"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="504"/>
         <source>Adding a new language</source>
-        <translation type="unfinished"></translation>
+        <translation>Προσθήκη νέας γλώσσας</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="580"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="505"/>
         <source>Adding a new language requires almost no coding skill, but it does require language skills: the only thing to do is to translate each sentence/word with the help of a dedicated software.
 If you would like to see the OpenStudioApplication translated in your language of choice, we would welcome your help. Send an email to osc@openstudiocoalition.org specifying which language you want to add, and we will be in touch to help you get started.</source>
-        <translation type="unfinished"></translation>
+        <translation>Η προσθήκη μιας νέας γλώσσας δεν απαιτεί σχεδόν καμία ικανότητα κωδικοποίησης, αλλά απαιτεί γλωσσικές δεξιότητες: το μόνο που πρέπει να κάνετε είναι να μεταφράσετε κάθε πρόταση / λέξη με τη βοήθεια ενός αποκλειστικού λογισμικού.
+Εάν θέλετε να μεταφραστεί το OpenStudioApplication στη γλώσσα επιλογής σας, θα χαιρόμασταν τη βοήθειά σας. Στείλτε ένα email στο osc@openstudiocoalition.org καθορίζοντας ποια γλώσσα θέλετε να προσθέσετε και θα επικοινωνήσουμε μαζί σας για να σας βοηθήσουμε να ξεκινήσετε.</translation>
     </message>
 </context>
 <context>
@@ -794,49 +787,49 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_lib/OSDocument.cpp" line="1207"/>
         <source>Export Idf</source>
-        <translation type="unfinished"></translation>
+        <translation>Εξαγωγή Idf</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OSDocument.cpp" line="1207"/>
         <source>(*.idf)</source>
-        <translation type="unfinished"></translation>
+        <translation>(*.idf)</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OSDocument.cpp" line="1244"/>
         <source>(*.xml)</source>
-        <translation type="unfinished"></translation>
+        <translation>(*.xml)</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OSDocument.cpp" line="1372"/>
         <source>Failed to save model</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποτυχία αποθήκευσης μοντέλου</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OSDocument.cpp" line="1373"/>
         <source>Failed to save model, make sure that you do not have the location open and that you have correct write access.</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποτυχία αποθήκευσης μοντέλου, βεβαιωθείτε ότι δεν έχετε ανοιχτή την τοποθεσία και ότι έχετε σωστή πρόσβαση εγγραφής.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OSDocument.cpp" line="1420"/>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποθήκευση</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OSDocument.cpp" line="1420"/>
         <source>(*.osm)</source>
-        <translation type="unfinished"></translation>
+        <translation>(*.osm)</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OSDocument.cpp" line="1606"/>
         <location filename="../src/openstudio_lib/OSDocument.cpp" line="1608"/>
         <source>Select My Measures Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Επιλέξτε τον κατάλογο των Ενεργειακών Μέτρων μου</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OSDocument.cpp" line="1689"/>
         <location filename="../src/openstudio_lib/OSDocument.cpp" line="1755"/>
         <source>Online BCL</source>
-        <translation type="unfinished"></translation>
+        <translation>Διαδικτυακό BCL</translation>
     </message>
 </context>
 <context>
@@ -844,343 +837,346 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="251"/>
         <source>Timeout</source>
-        <translation type="unfinished"></translation>
+        <translation>Τέλος χρόνου</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="253"/>
         <source>Failed to start the Measure Manager. Would you like to retry?</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποτυχία εκκίνησης της Διαχείρισης Ενεργειακών Μέτρων. Θέλετε να δοκιμάσετε ξανά;</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="388"/>
         <source>Loading Library Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Φόρτωση αρχείων βιβλιοθήκης</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="389"/>
         <source>(Manage library files in Preferences-&gt;Change default libraries)</source>
-        <translation type="unfinished"></translation>
+        <translation>(Διαχείριση αρχείων βιβλιοθήκης στις Προτιμήσεις-&gt; Αλλαγή προεπιλεγμένων βιβλιοθηκών)</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="406"/>
         <source>Translation From version </source>
-        <translation type="unfinished"></translation>
+        <translation>Μετάφραση από την έκδοση</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="406"/>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1148"/>
         <source> to </source>
-        <translation type="unfinished"></translation>
+        <translation>Σε</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="409"/>
         <source>Unknown starting version</source>
-        <translation type="unfinished"></translation>
+        <translation>Άγνωστη αρχική έκδοση</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="482"/>
         <source>Import Idf</source>
-        <translation type="unfinished"></translation>
+        <translation>Εισαγωγή Idf</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="482"/>
         <source>(*.idf)</source>
-        <translation type="unfinished"></translation>
+        <translation>(*.idf)</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="513"/>
         <source>&apos; while OpenStudio uses a &lt;strong&gt;newer&lt;/strong&gt; EnergyPlus &apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>&apos; while OpenStudio uses a &lt;strong&gt;newer&lt;/strong&gt; EnergyPlus &apos;</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="514"/>
         <source>&apos;. Consider using the EnergyPlus Auxiliary program IDFVersionUpdater to update your IDF file.</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;. Εξετάστε το ενδεχόμενο να χρησιμοποιήσετε το πρόγραμμα EnergyPlus Auxiliary IDFVersionUpdater για να ενημερώσετε το αρχείο IDF.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="516"/>
         <source>&apos; while OpenStudio uses an &lt;strong&gt;older&lt;/strong&gt; EnergyPlus &apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>&apos; while OpenStudio uses an &lt;strong&gt;older&lt;/strong&gt; EnergyPlus &apos;</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="516"/>
         <source>&apos;.</source>
-        <translation type="unfinished"></translation>
+        <translation>.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="518"/>
         <source>&apos; which is the &lt;strong&gt;same&lt;/strong&gt; version of EnergyPlus that OpenStudio uses (</source>
-        <translation type="unfinished"></translation>
+        <translation>&apos; which is the &lt;strong&gt;same&lt;/strong&gt; version of EnergyPlus that OpenStudio uses (</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="522"/>
         <source>&lt;strong&gt;The IDF does not have a VersionObject&lt;/strong&gt;. Check that it is of correct version (</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;The IDF does not have a VersionObject&lt;/strong&gt;. Check that it is of correct version (</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="523"/>
         <source>) and that all fields are valid against Energy+.idd. </source>
-        <translation type="unfinished"></translation>
+        <translation>) and that all fields are valid against Energy+.idd. </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="526"/>
         <source>&lt;br/&gt;&lt;br/&gt;The ValidityReport follows.</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&lt;br/&gt;The ValidityReport follows.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="528"/>
         <source>&lt;strong&gt;File is not valid to draft strictness&lt;/strong&gt;. Check that all fields are valid against Energy+.idd.</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;File is not valid to draft strictness&lt;/strong&gt;. Check that all fields are valid against Energy+.idd.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="534"/>
         <source> IDF Import Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Η εισαγωγή IDF απέτυχε</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="609"/>
         <source>=============== Errors ===============
 
 </source>
-        <translation type="unfinished"></translation>
+        <translation>=============== Σφάλματα ===============</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="617"/>
         <source>============== Warnings ==============
 
 </source>
-        <translation type="unfinished"></translation>
+        <translation>============== Προειδοποιήσεις ==============</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="625"/>
         <source>==== The following idf objects were not imported ====
 
 </source>
-        <translation type="unfinished"></translation>
+        <translation>==== Δεν εισήχθησαν τα ακόλουθα αντικείμενα idf ====</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="630"/>
         <source> named </source>
-        <translation type="unfinished"></translation>
+        <translation>Ονομασμένα</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="632"/>
         <source>Unnamed </source>
-        <translation type="unfinished"></translation>
+        <translation>Χωρίς όνομα</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="638"/>
         <source>&lt;strong&gt;Some portions of the IDF file were not imported.&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;Some portions of the IDF file were not imported.&lt;/strong&gt;</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="644"/>
         <source>IDF Import</source>
-        <translation type="unfinished"></translation>
+        <translation>IDF Εισαγωγή</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="647"/>
         <source>Only geometry, constructions, loads, thermal zones, and schedules are supported by the OpenStudio IDF import feature.</source>
-        <translation type="unfinished"></translation>
+        <translation>Μόνο η γεωμετρία, οι κατασκευές, τα φορτία, οι θερμικές ζώνες και τα προγράμματα υποστηρίζονται από τη δυνατότητα εισαγωγής OpenStudio IDF.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="712"/>
         <source>Import </source>
-        <translation type="unfinished"></translation>
+        <translation>Εισαγωγή</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="719"/>
         <source>(*.xml)</source>
-        <translation type="unfinished"></translation>
+        <translation>(*.xml)</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="779"/>
         <source>Errors or warnings occurred on import of </source>
-        <translation type="unfinished"></translation>
+        <translation>Παρουσιάστηκαν σφάλματα ή προειδοποιήσεις κατά την εισαγωγή του</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="789"/>
         <source>Could not import SDD file.</source>
-        <translation type="unfinished"></translation>
+        <translation>Δεν ήταν δυνατή η εισαγωγή αρχείου SDD.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="791"/>
         <source>Could not import </source>
-        <translation type="unfinished"></translation>
+        <translation>Δεν ήταν δυνατή η εισαγωγή</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="791"/>
         <source> file at </source>
-        <translation type="unfinished"></translation>
+        <translation>Αρχείο στο</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="821"/>
         <source>Save Changes?</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποθήκευσε τις αλλαγές?</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="822"/>
         <source>The document has been modified.</source>
-        <translation type="unfinished"></translation>
+        <translation>Το έγγραφο έχει τροποποιηθεί.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="823"/>
         <source>Do you want to save your changes?</source>
-        <translation type="unfinished"></translation>
+        <translation>Θέλετε να αποθηκεύσετε τις αλλαγές σας;</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="889"/>
         <source>Open</source>
-        <translation type="unfinished"></translation>
+        <translation>Άνοιγμα</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="889"/>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1474"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1456"/>
         <source>(*.osm)</source>
-        <translation type="unfinished"></translation>
+        <translation>(*.osm)</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="975"/>
         <source>A new version is available at &lt;a href=&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Μια νέα έκδοση είναι διαθέσιμη στο &lt;a href = &quot;</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="980"/>
         <source>Currently using the most recent version</source>
-        <translation type="unfinished"></translation>
+        <translation>Αυτήν τη στιγμή χρησιμοποιείται η πιο πρόσφατη έκδοση</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="988"/>
         <source>Check for Updates</source>
-        <translation type="unfinished"></translation>
+        <translation>Ελεγχος για ενημερώσεις</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1002"/>
         <source>Measure Manager Server: </source>
-        <translation type="unfinished"></translation>
+        <translation>Διαχείριση Ενεργειακών Μέτρων Διακομιστής</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1003"/>
         <source>Chrome Debugger: http://localhost:</source>
-        <translation type="unfinished"></translation>
+        <translation>Chrome Debugger: http: // localhost:</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1004"/>
         <source>Temp Directory: </source>
-        <translation type="unfinished"></translation>
+        <translation>Κατάλογος Temp:</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1009"/>
         <source>About </source>
-        <translation type="unfinished"></translation>
+        <translation>Σχετικά με</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1040"/>
         <source>Failed to load model</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποτυχία φόρτωσης μοντέλου</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1146"/>
         <source>Opening future version </source>
-        <translation type="unfinished"></translation>
+        <translation>Άνοιγμα μελλοντικής έκδοσης</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1146"/>
         <source> using </source>
-        <translation type="unfinished"></translation>
+        <translation>χρησιμοποιώντας</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1148"/>
         <source>Model updated from </source>
-        <translation type="unfinished"></translation>
+        <translation>Το μοντέλο ενημερώθηκε από</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1157"/>
         <source>Existing Ruby scripts have been removed.
 Ruby scripts are no longer supported and have been replaced by measures.</source>
-        <translation type="unfinished"></translation>
+        <translation>Οι υπάρχοντες Ruby κώδικες έχουν αφαιρεθεί.
+Οι κώδικες Ruby δεν υποστηρίζονται πλέον και έχουν αντικατασταθεί από τα Ενεργειακά Μέτρα.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1164"/>
         <source>Failed to open file at </source>
-        <translation type="unfinished"></translation>
+        <translation>Αποτυχία ανοίγματος αρχείου στο</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1187"/>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1320"/>
         <source>Settings file not writable</source>
-        <translation type="unfinished"></translation>
+        <translation>Το αρχείο ρυθμίσεων δεν είναι εγγράψιμο</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1188"/>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1321"/>
         <source>Your settings file &apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>Το αρχείο ρυθμίσεων &quot;</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1188"/>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1321"/>
         <source>&apos; is not writable. Adjust the file permissions</source>
-        <translation type="unfinished"></translation>
+        <translation>&apos;δεν είναι εγγράψιμο. Προσαρμόστε τα δικαιώματα αρχείου</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1209"/>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1221"/>
         <source>Revert to Saved</source>
-        <translation type="unfinished"></translation>
+        <translation>Επαναφορά σε Αποθηκευμένο</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1209"/>
         <source>This model has never been saved.
 Do you want to create a new model?</source>
-        <translation type="unfinished"></translation>
+        <translation>Αυτό το μοντέλο δεν έχει αποθηκευτεί ποτέ.
+Θέλετε να δημιουργήσετε ένα νέο μοντέλο;</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1221"/>
         <source>Are you sure you want to revert to the last saved version?</source>
-        <translation type="unfinished"></translation>
+        <translation>Είστε βέβαιοι ότι θέλετε να επιστρέψετε στην τελευταία αποθηκευμένη έκδοση;</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1263"/>
         <source>Measure Manager has crashed, attempting to restart
 
 </source>
-        <translation type="unfinished"></translation>
+        <translation>Το Measure Manager έχει διακοπεί, προσπαθώντας να επανεκκινήσει.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1267"/>
         <source>Measure Manager has crashed</source>
-        <translation type="unfinished"></translation>
+        <translation>Το Measure Manager έχει διακοπεί.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1404"/>
         <source>Restart required</source>
-        <translation type="unfinished"></translation>
+        <translation>Απαιτείται επανεκκίνηση</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1405"/>
         <source>A restart of the OpenStudio Application is required for language changes to be fully functionnal.
 Would you like to restart now?</source>
-        <translation type="unfinished"></translation>
+        <translation>Απαιτείται επανεκκίνηση της εφαρμογής OpenStudio προκειμένου οι αλλαγές γλώσσας να είναι πλήρως λειτουργικές.
+Θέλετε να κάνετε επανεκκίνηση τώρα;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1474"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1456"/>
         <source>Select Library</source>
-        <translation type="unfinished"></translation>
+        <translation>Επιλέξτε Βιβλιοθήκη</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1528"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1510"/>
         <source>Failed to load the following libraries...
 
 </source>
-        <translation type="unfinished"></translation>
+        <translation>Αποτυχία φόρτωσης των παρακάτω βιβλιοθηκών ...</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1536"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1518"/>
         <source>
 
 Would you like to Restore library paths to default values or Open the library settings to change them manually?</source>
-        <translation type="unfinished"></translation>
+        <translation>Θέλετε να επαναφέρετε διαδρομές βιβλιοθήκης σε προεπιλεγμένες τιμές ή να ανοίξετε τις ρυθμίσεις της βιβλιοθήκης για να τις αλλάξετε χειροκίνητα;</translation>
     </message>
 </context>
 <context>
@@ -1188,7 +1184,7 @@ Would you like to Restore library paths to default values or Open the library se
     <message>
         <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="201"/>
         <source>Add/Remove Extensible Groups</source>
-        <translation type="unfinished"></translation>
+        <translation>Προσθήκη / Κατάργηση επεκτάσιμων ομάδων</translation>
     </message>
 </context>
 <context>
@@ -1196,67 +1192,67 @@ Would you like to Restore library paths to default values or Open the library se
     <message>
         <location filename="../src/openstudio_app/StartupMenu.cpp" line="39"/>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Αρχείο</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/StartupMenu.cpp" line="40"/>
         <source>&amp;New</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Νέο</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/StartupMenu.cpp" line="42"/>
         <source>&amp;Open</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Άνοιξε</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/StartupMenu.cpp" line="44"/>
         <source>E&amp;xit</source>
-        <translation type="unfinished"></translation>
+        <translation>Έ&amp;ξοδος</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/StartupMenu.cpp" line="47"/>
         <source>Import</source>
-        <translation type="unfinished"></translation>
+        <translation>Εισαγωγή</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/StartupMenu.cpp" line="48"/>
         <source>IDF</source>
-        <translation type="unfinished"></translation>
+        <translation>IDF</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/StartupMenu.cpp" line="51"/>
         <source>gbXML</source>
-        <translation type="unfinished"></translation>
+        <translation>gbXML</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/StartupMenu.cpp" line="54"/>
         <source>SDD</source>
-        <translation type="unfinished"></translation>
+        <translation>SDD</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/StartupMenu.cpp" line="57"/>
         <source>IFC</source>
-        <translation type="unfinished"></translation>
+        <translation>IFC</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/StartupMenu.cpp" line="74"/>
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Βοήθεια</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/StartupMenu.cpp" line="78"/>
         <source>OpenStudio &amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation>OpenStudio &amp;Βοήθεια</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/StartupMenu.cpp" line="83"/>
         <source>Check For &amp;Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Ελεγχος για &amp;ενημερώσεις</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/StartupMenu.cpp" line="87"/>
         <source>&amp;About</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Σχετικά με</translation>
     </message>
 </context>
 <context>
@@ -1264,176 +1260,176 @@ Would you like to Restore library paths to default values or Open the library se
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="81"/>
         <source>Select Year by:</source>
-        <translation type="unfinished"></translation>
+        <translation>Επιλέξτε Έτος κατά:</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="93"/>
         <source>Calendar Year</source>
-        <translation type="unfinished"></translation>
+        <translation>Ημερολογιακό έτος</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="106"/>
         <source>First Day of Year</source>
-        <translation type="unfinished"></translation>
+        <translation>Πρώτη ημέρα του έτους</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="129"/>
         <source>Daylight Savings Time:</source>
-        <translation type="unfinished"></translation>
+        <translation>Θερινή ώρα</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="147"/>
         <source>Starts</source>
-        <translation type="unfinished"></translation>
+        <translation>Ξεκινάει</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="153"/>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="182"/>
         <source>Define by Day of The Week And Month</source>
-        <translation type="unfinished"></translation>
+        <translation>Ορίστε βάση ημέρα της εβδομάδας και μήνα</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="166"/>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="195"/>
         <source>Define by Date</source>
-        <translation type="unfinished"></translation>
+        <translation>Ορίστε βάση ημερομηνίας</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="176"/>
         <source>Ends</source>
-        <translation type="unfinished"></translation>
+        <translation>Τελειώνει</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="504"/>
         <source>First</source>
-        <translation type="unfinished"></translation>
+        <translation>Πρώτο</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="504"/>
         <source>Second</source>
-        <translation type="unfinished"></translation>
+        <translation>Δεύτερο</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="504"/>
         <source>Third</source>
-        <translation type="unfinished"></translation>
+        <translation>Τρίτο</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="504"/>
         <source>Fourth</source>
-        <translation type="unfinished"></translation>
+        <translation>Τέταρτο</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="504"/>
         <source>Last</source>
-        <translation type="unfinished"></translation>
+        <translation>Τελευταίο</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="511"/>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="517"/>
         <source>Sunday</source>
-        <translation type="unfinished"></translation>
+        <translation>Κυριακή</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="511"/>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="517"/>
         <source>Monday</source>
-        <translation type="unfinished"></translation>
+        <translation>Δευτέρα</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="511"/>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="517"/>
         <source>Tuesday</source>
-        <translation type="unfinished"></translation>
+        <translation>Τρίτη</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="511"/>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="517"/>
         <source>Wednesday</source>
-        <translation type="unfinished"></translation>
+        <translation>Τετάρτη</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="512"/>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="517"/>
         <source>Thursday</source>
-        <translation type="unfinished"></translation>
+        <translation>Πέμπτη</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="512"/>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="517"/>
         <source>Friday</source>
-        <translation type="unfinished"></translation>
+        <translation>Παρασκευή</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="512"/>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="517"/>
         <source>Saturday</source>
-        <translation type="unfinished"></translation>
+        <translation>Σάββατο</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="512"/>
         <source>UseWeatherFile</source>
-        <translation type="unfinished"></translation>
+        <translation>Χρησιμοποιήστε αρχείο καιρού</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="523"/>
         <source>January</source>
-        <translation type="unfinished"></translation>
+        <translation>Ιανουάριος</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="523"/>
         <source>February</source>
-        <translation type="unfinished"></translation>
+        <translation>Φεβρουάριος</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="523"/>
         <source>March</source>
-        <translation type="unfinished"></translation>
+        <translation>Μάρτιος</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="523"/>
         <source>April</source>
-        <translation type="unfinished"></translation>
+        <translation>Απρίλιος</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="523"/>
         <source>May</source>
-        <translation type="unfinished"></translation>
+        <translation>Μάϊος</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="523"/>
         <source>June</source>
-        <translation type="unfinished"></translation>
+        <translation>Ιούνιος</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="524"/>
         <source>July</source>
-        <translation type="unfinished"></translation>
+        <translation>Ιούλιος</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="524"/>
         <source>August</source>
-        <translation type="unfinished"></translation>
+        <translation>Αύγουστος</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="524"/>
         <source>September</source>
-        <translation type="unfinished"></translation>
+        <translation>Σεπτέμβριος</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="524"/>
         <source>October</source>
-        <translation type="unfinished"></translation>
+        <translation>Οκτώβριος</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="524"/>
         <source>November</source>
-        <translation type="unfinished"></translation>
+        <translation>Νοέμβριος</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="524"/>
         <source>December</source>
-        <translation type="unfinished"></translation>
+        <translation>Δεκέμβριος</translation>
     </message>
 </context>
 <context>
@@ -1441,167 +1437,167 @@ Would you like to Restore library paths to default values or Open the library se
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="55"/>
         <source>Download OSM File</source>
-        <translation type="unfinished"></translation>
+        <translation>Λήψη αρχείου OSM</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="57"/>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="216"/>
         <source>New Project</source>
-        <translation type="unfinished"></translation>
+        <translation>Νέα εργασία</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="58"/>
         <source>Check in IFC File</source>
-        <translation type="unfinished"></translation>
+        <translation>Eλέγξτε το αρχείο IFC</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="60"/>
         <source> &gt; </source>
-        <translation type="unfinished"></translation>
+        <translation>&gt;</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="62"/>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="223"/>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="289"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Ακύρωση</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="63"/>
         <source>Setting</source>
-        <translation type="unfinished"></translation>
+        <translation>Ρύθμιση</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="159"/>
         <source>Project created, showing updated project list.</source>
-        <translation type="unfinished"></translation>
+        <translation>Η εργασία δημιουργήθηκε, εμφανίζει ενημερωμένη λίστα εργασιών.</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="163"/>
         <source>IFC file loaded, showing updated IFC file list.</source>
-        <translation type="unfinished"></translation>
+        <translation>Το αρχείο IFC φορτώθηκε, εμφανίζοντας ενημερωμένη λίστα αρχείων IFC.</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="168"/>
         <source>Login success!</source>
-        <translation type="unfinished"></translation>
+        <translation>Επιτυχία σύνδεσης!</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="182"/>
         <source>BIMserver disconnected</source>
-        <translation type="unfinished"></translation>
+        <translation>Ο διακομιστής BIM αποσυνδέθηκε</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="184"/>
         <source>BIMserver is not connected correctly. Please check if BIMserver is running and make sure your username and password are valid.
 </source>
-        <translation type="unfinished"></translation>
+        <translation>Ο διακομιστής BIM δεν είναι σωστά συνδεδεμένος. Ελέγξτε εάν ο διακομιστής BIM εκτελείται και βεβαιωθείτε ότι το όνομα χρήστη και ο κωδικός πρόσβασης είναι έγκυροι.</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="197"/>
         <source>Please select a IFC version before proceeding.</source>
-        <translation type="unfinished"></translation>
+        <translation>Επιλέξτε μια έκδοση IFC πριν συνεχίσετε.</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="204"/>
         <source>Project selected, showing all versions of IFC files under it.</source>
-        <translation type="unfinished"></translation>
+        <translation>Η εργασία επιλέχθηκε, εμφανίζει όλες τις εκδόσεις αρχείων IFC που ανηκουν στην εργασια.</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="208"/>
         <source>Please select a project to see all the IFC versions under it.</source>
-        <translation type="unfinished"></translation>
+        <translation>Επιλέξτε μια εργασία για να δείτε όλες τις εκδόσεις IFC που ανηκουν στην εργασια.</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="213"/>
         <source>Create a new project and upload it to the server.</source>
-        <translation type="unfinished"></translation>
+        <translation>Δημιουργήστε μια καινούρια εργασια και ανεβάστε την στον διακομιστή.</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="219"/>
         <source>Please enter the project name: </source>
-        <translation type="unfinished"></translation>
+        <translation>Εισαγάγετε το όνομα της εργασίας:</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="220"/>
         <source>Project Name:</source>
-        <translation type="unfinished"></translation>
+        <translation>Όνομα εργασίας:</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="222"/>
         <source>Create Project</source>
-        <translation type="unfinished"></translation>
+        <translation>Δημιουργία εργασίας</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="245"/>
         <source>Check in a new version IFC file for the selected project.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ελέγξτε μια νέα έκδοση αρχείου IFC για την επιλεγμένη εργασία.</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="251"/>
         <source>Open IFC File</source>
-        <translation type="unfinished"></translation>
+        <translation>Ανοίξτε το αρχείο IFC</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="251"/>
         <source>IFC files (*.ifc)</source>
-        <translation type="unfinished"></translation>
+        <translation>Αρχεία IFC (* .ifc)</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="258"/>
         <source>Please select a project to check in a new IFC version.</source>
-        <translation type="unfinished"></translation>
+        <translation>Επιλέξτε μια εργασία για να ελέγξετε μια νέα έκδοση IFC.</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="269"/>
         <source>Please specify the bimserver address/port and user credentials.</source>
-        <translation type="unfinished"></translation>
+        <translation>Προσδιορίστε τη διεύθυνση/θύρα bimserver και τα διαπιστευτήρια χρήστη.</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="272"/>
         <source>BIMserver Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Ρυθμίσεις BIMserver</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="274"/>
         <source>Please enter the BIMserver information: </source>
-        <translation type="unfinished"></translation>
+        <translation>Εισαγάγετε τις πληροφορίες του διακομιστή BIM:</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="275"/>
         <source>BIMserver Address: http://</source>
-        <translation type="unfinished"></translation>
+        <translation>Διεύθυνση διακομιστή BIM: http: //</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="278"/>
         <source>BIMserver Port:</source>
-        <translation type="unfinished"></translation>
+        <translation>Θύρα BIMserver:</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="281"/>
         <source>Username</source>
-        <translation type="unfinished"></translation>
+        <translation>Όνομα χρήστη</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="284"/>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Κωδικός πρόσβασης</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="288"/>
         <source>Okay</source>
-        <translation type="unfinished"></translation>
+        <translation>Εντάξει</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="363"/>
         <source>BIMserver not set up</source>
-        <translation type="unfinished"></translation>
+        <translation>BIMserver δεν έχει ρυθμιστεί</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="365"/>
         <source>Please provide valid BIMserver address, port, your username and password. You may ask your BIMserver manager for such information.
 </source>
-        <translation type="unfinished"></translation>
+        <translation>Καταχωρίστε έγκυρη διεύθυνση διακομιστή BIM, θύρα, το όνομα χρήστη και τον κωδικό πρόσβασής σας. Μπορείτε να ζητήσετε από τον διαχειριστή BIMserver σας τέτοιες πληροφορίες</translation>
     </message>
 </context>
 </TS>
