@@ -563,7 +563,7 @@ Pomieszczenie</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="68"/>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="594"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="717"/>
         <source>&amp;Revert to Saved</source>
         <translation>&amp;Przywróc zapisane</translation>
     </message>
@@ -727,66 +727,81 @@ Pomieszczenie</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="252"/>
+        <source>Vietnamese</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="258"/>
+        <source>Japanese</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="264"/>
+        <source>German</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="270"/>
         <source>Add a new language</source>
         <translation>Dodaj nowy język</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="269"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="287"/>
         <source>&amp;Configure Internet Proxy</source>
         <translation>&amp;Konfiguruj internetowe proxy</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="322"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="349"/>
         <source>&amp;Components &amp;&amp; Measures</source>
         <translation>&amp;Komponenty &amp;&amp; Miary</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="325"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="352"/>
         <source>&amp;Apply Measure Now</source>
         <translation>&amp;Aplikuj miarę teraz</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="327"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="354"/>
         <source>Ctrl+M</source>
         <translation>Ctrl+M</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="331"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="358"/>
         <source>Find &amp;Measures</source>
         <translation>Znajdź &amp;miary</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="336"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="363"/>
         <source>Find &amp;Components</source>
         <translation>Znajdź &amp;komponenty</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="342"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="369"/>
         <source>&amp;Help</source>
         <translation>&amp;Pomoc</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="345"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="372"/>
         <source>OpenStudio &amp;Help</source>
         <translation>&amp;Pomoc OpenStudio</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="349"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="376"/>
         <source>Check For &amp;Update</source>
         <translation>Sprawdź &amp;aktualizacje</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="353"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="380"/>
         <source>&amp;About</source>
         <translation>&amp;O</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="579"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="702"/>
         <source>Adding a new language</source>
         <translation>Dodawanie nowego języka</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="580"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="703"/>
         <source>Adding a new language requires almost no coding skill, but it does require language skills: the only thing to do is to translate each sentence/word with the help of a dedicated software.
 If you would like to see the OpenStudioApplication translated in your language of choice, we would welcome your help. Send an email to osc@openstudiocoalition.org specifying which language you want to add, and we will be in touch to help you get started.</source>
         <translation>Dodanie nowego języka prawie nie wymaga umiejętności kodowania, ale wymaga umiejętności językowych: wystarczy przetłumaczyć każde zdanie/słowo za pomocą dedykowanego oprogramowania.
@@ -1045,7 +1060,7 @@ Jeśli chcesz zobaczyć aplikację OpenStudio przetłumaczoną na wybrany przez 
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="889"/>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1474"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1475"/>
         <source>(*.osm)</source>
         <translation>(*.osm)</translation>
     </message>
@@ -1179,12 +1194,12 @@ Would you like to restart now?</source>
 Czy chcesz teraz ponownie uruchomić?</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1474"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1475"/>
         <source>Select Library</source>
         <translation>Wybierz bibliotekę</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1528"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1529"/>
         <source>Failed to load the following libraries...
 
 </source>
@@ -1193,7 +1208,7 @@ Czy chcesz teraz ponownie uruchomić?</translation>
 </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1536"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1537"/>
         <source>
 
 Would you like to Restore library paths to default values or Open the library settings to change them manually?</source>

@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="hi_IN">
+<TS version="2.1" language="ja_JP">
 <context>
     <name>InspectorDialog</name>
     <message>
         <location filename="../src/model_editor/InspectorDialog.cpp" line="706"/>
         <location filename="../src/model_editor/InspectorDialog.cpp" line="707"/>
         <source>OpenStudio Inspector</source>
-        <translation>ओपेनस्टूडियो निरीक्षक</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/model_editor/InspectorDialog.cpp" line="786"/>
         <source>Add new object</source>
-        <translation>नया ऑब्जेक्ट जोड़ें</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/model_editor/InspectorDialog.cpp" line="790"/>
         <source>Copy selected object</source>
-        <translation>चयनित ऑब्जेक्ट की प्रतिलिपि बनाएँ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/model_editor/InspectorDialog.cpp" line="794"/>
         <source>Remove selected objects</source>
-        <translation>चयनित ऑब्जेक्ट हटाएं</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/model_editor/InspectorDialog.cpp" line="798"/>
         <source>Purge unused objects</source>
-        <translation>अप्रयुक्त ऑब्जेक्ट को शुद्ध करें</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -36,22 +36,22 @@
         <location filename="../src/model_editor/InspectorGadget.cpp" line="617"/>
         <location filename="../src/model_editor/InspectorGadget.cpp" line="662"/>
         <source>Hard Sized</source>
-        <translation>हार्ड साइज्ड</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/model_editor/InspectorGadget.cpp" line="618"/>
         <source>Autosized</source>
-        <translation>ऑटोसाइज्ड</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/model_editor/InspectorGadget.cpp" line="663"/>
         <source>Autocalculate</source>
-        <translation>स्व-गणना</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/model_editor/InspectorGadget.cpp" line="832"/>
         <source>Add/Remove Extensible Groups</source>
-        <translation>एक्स्टेंसिबल समूह जोड़ें/निकालें</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -60,20 +60,19 @@
         <location filename="../src/model_editor/ModalDialogs.cpp" line="171"/>
         <location filename="../src/model_editor/ModalDialogs.cpp" line="172"/>
         <source>Select Model Object</source>
-        <translation>मॉडल ऑब्जेक्ट का चयन करें</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/model_editor/ModalDialogs.cpp" line="197"/>
         <location filename="../src/model_editor/ModalDialogs.cpp" line="198"/>
         <source>OK</source>
-        <translation>ठीक है</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/model_editor/ModalDialogs.cpp" line="202"/>
         <location filename="../src/model_editor/ModalDialogs.cpp" line="203"/>
         <source>Cancel</source>
-        <translatorcomment>रद्द करें</translatorcomment>
-        <translation>रद्द करें</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -81,34 +80,34 @@
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="195"/>
         <source>Date</source>
-        <translation>दिनांक</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="206"/>
         <source>Temperature</source>
-        <translation>तापमान</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="215"/>
         <source>Humidity</source>
-        <translation>नमी</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="226"/>
         <source>Pressure
 Wind
 Precipitation</source>
-        <translation>दबाव हवा वर्षा</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="238"/>
         <source>Solar</source>
-        <translation>सूर्य-संबंधी</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="267"/>
         <source>Check to select all rows</source>
-        <translation>सभी का चयन करे</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -116,139 +115,139 @@ Precipitation</source>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="60"/>
         <source>Design Day Name</source>
-        <translation>डिजाइन दिवस का नाम</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="61"/>
         <source>All</source>
-        <translation>सब</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="64"/>
         <source>Day Of Month</source>
-        <translation>महीने का दिन</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="65"/>
         <source>Month</source>
-        <translation>महीना</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="66"/>
         <source>Day Type</source>
-        <translation>दिन का प्रकार</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="67"/>
         <source>Daylight Saving Time Indicator</source>
-        <translation>डेलाइट सेविंग टाइम इंडिकेटर</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="70"/>
         <source>Maximum Dry Bulb Temperature</source>
-        <translation>अधिकतम शुष्क बल्ब तापमान</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="71"/>
         <source>Daily Dry Bulb Temperature Range</source>
-        <translation>दैनिक शुष्क बल्ब तापमान रेंज</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="72"/>
         <source>Daily Wet Bulb Temperature Range</source>
-        <translation>दैनिक आर्द्र बल्ब तापमान रेंज</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="73"/>
         <source>Dry Bulb Temperature Range Modifier Type</source>
-        <translation>शुष्क बल्ब तापमान सीमा संशोधक प्रकार</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="74"/>
         <source>Dry Bulb Temperature Range Modifier Schedule</source>
-        <translation>शुष्क बल्ब तापमान सीमा संशोधक अनुसूची</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="77"/>
         <source>Humidity Indicating Conditions At Maximum Dry Bulb</source>
-        <translation>अधिकतम शुष्क बल्ब पर आर्द्रता संकेतक स्थितियां</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="78"/>
         <source>Humidity Indicating Type</source>
-        <translation>आर्द्रता संकेतक प्रकार</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="79"/>
         <source>Humidity Indicating Day Schedule</source>
-        <translation>आर्द्रता संकेत दिन अनुसूची</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="82"/>
         <source>Barometric Pressure</source>
-        <translation>बैरोमीटर का दबाव</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="83"/>
         <source>Wind Speed</source>
-        <translation>हवा की गति</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="84"/>
         <source>Wind Direction</source>
-        <translation>हवा की दिशा</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="85"/>
         <source>Rain Indicator</source>
-        <translation>वर्षा सूचक</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="86"/>
         <source>Snow Indicator</source>
-        <translation>हिमपात सूचक</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="89"/>
         <source>Solar Model Indicator</source>
-        <translation>सौर मॉडल सूचक</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="90"/>
         <source>Beam Solar Day Schedule</source>
-        <translation>बीम सौर दिवस अनुसूची</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="91"/>
         <source>Diffuse Solar Day Schedule</source>
-        <translation>डिफ्यूज सौर दिवस अनुसूची</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="92"/>
         <source>ASHRAE Taub</source>
-        <translation>अशरे ताउब</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="93"/>
         <source>ASHRAE Taud</source>
-        <translation>अशरे तौद</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="94"/>
         <source>Sky Clearness</source>
-        <translation>आसमान की स्पष्टता</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="107"/>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="108"/>
         <source>Design Days</source>
-        <translation>डिजाइन के दिन</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="108"/>
         <source>Drop
 Zone</source>
-        <translation>ड्रॉप क्षेत्र</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -258,22 +257,22 @@ Zone</source>
         <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1333"/>
         <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1359"/>
         <source>Open File</source>
-        <translation>फ़ाइल खोलें</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1307"/>
         <source>gbXML (*.xml *.gbxml)</source>
-        <translation>जीबीएक्सएमएल (*.xml *.gbxml)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1333"/>
         <source>IDF (*.idf)</source>
-        <translation>ईडफ (*..idf)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1359"/>
         <source>OSM (*.osm)</source>
-        <translation>ओएसएम (*.osm)</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -281,7 +280,7 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_app/ExternalToolsDialog.cpp" line="103"/>
         <source>Select Path to </source>
-        <translation>पथ चुनें </translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -289,12 +288,12 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_app/LibraryDialog.cpp" line="92"/>
         <source>Select OpenStudio Library</source>
-        <translation>ओपेनस्टूडियो लाइब्रेरी चुनें</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/LibraryDialog.cpp" line="92"/>
         <source>OpenStudio Files (*.osm)</source>
-        <translation>ओपेनस्टूडियो फ़ाइल (*.osm)</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -302,17 +301,17 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/LocationTabController.cpp" line="53"/>
         <source>Weather File &amp;&amp; Design Days</source>
-        <translation>मौसम फ़ाइल &amp;&amp;  डिजाइन के दिन</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabController.cpp" line="54"/>
         <source>Life Cycle Costs</source>
-        <translation>जीवन काल लागत</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabController.cpp" line="55"/>
         <source>Utility Bills</source>
-        <translation>उपयोगिता बिल</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -320,7 +319,7 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="93"/>
         <source>Site</source>
-        <translation>स्थल</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -328,116 +327,116 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="177"/>
         <source>Weather File</source>
-        <translation>मौसम फ़ाइल</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="198"/>
         <source>Name: </source>
-        <translation>नाम: </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="213"/>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="485"/>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="509"/>
         <source>Latitude: </source>
-        <translation>अक्षांश: </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="216"/>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="490"/>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="511"/>
         <source>Longitude: </source>
-        <translation>देशान्तर: </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="219"/>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="495"/>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="513"/>
         <source>Elevation: </source>
-        <translation>ऊंचाई: </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="222"/>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="500"/>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="515"/>
         <source>Time Zone: </source>
-        <translation>समय क्षेत्र: </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="226"/>
         <source>Download weather files at &lt;a href=&quot;http://www.energyplus.net/weather&quot;&gt;www.energyplus.net/weather&lt;/a&gt;</source>
-        <translation>मौसम फ़ाइल डाउनलोड करें &lt;a href=&quot;http://www.energyplus.net/weather&quot;&gt;www.energyplus.net</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="235"/>
         <source>Measure Tags (Optional):</source>
-        <translation>उपाय टैग(ऐच्छिक):</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="239"/>
         <source>ASHRAE Climate Zone</source>
-        <translation>ASHRAE जलवायु क्षेत्र</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="272"/>
         <source>CEC Climate Zone</source>
-        <translation>CEC जलवायु क्षेत्र</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="340"/>
         <source>Design Days</source>
-        <translation>डिजाइन के दिन</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="343"/>
         <source>Import From DDY</source>
-        <translation>डीडीवाई से आयात करें</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="463"/>
         <source>Change Weather File</source>
-        <translation>मौसम फ़ाइल बदलें</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="466"/>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="470"/>
         <source>Set Weather File</source>
-        <translation>मौसम फ़ाइल सेट करें</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="520"/>
         <source>EPW Files (*.epw);; All Files (*.*)</source>
-        <translation>ईपीडब्ल्यू फाइलें (*.epw);; सब फाइलें (*.*)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="531"/>
         <source>Open Weather File</source>
-        <translation>मौसम फ़ाइल खोले</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="617"/>
         <source>Failed To Set Weather File</source>
-        <translation>मौसम फ़ाइल सेट करने में विफल</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="617"/>
         <source>Failed To Set Weather File To </source>
-        <translation>निम्लिखित मौसम फ़ाइल सेट करने में विफल </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="652"/>
         <source>Open DDY File</source>
-        <translation>डीडीवाई फ़ाइल खोलें</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="747"/>
         <source>No Design Days in DDY File</source>
-        <translation>डीडीवाई फ़ाइल में कोई डिज़ाइन दिवस नहीं</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="748"/>
         <source>This DDY file does not contain any valid design days.  Check the DDY file itself for errors or omissions.</source>
-        <translation>इस डीडीवाई फ़ाइल में कोई मान्य डिज़ाइन दिवस नहीं है। त्रुटियों या चूक के लिए स्वयं डीडीवाई फ़ाइल की जाँच करें.</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -547,183 +546,181 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="51"/>
         <source>&amp;File</source>
-        <translation>&amp;फ़ाइल</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="55"/>
         <source>&amp;New</source>
-        <translation>&amp;नया</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="61"/>
         <source>&amp;Open</source>
-        <translation>&amp;खोलें</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="68"/>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="717"/>
         <source>&amp;Revert to Saved</source>
-        <translation>सहेजे गए पर &amp;वापस जाएं</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="69"/>
         <source>Ctrl+R</source>
-        <translation>Ctrl+र</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="75"/>
         <source>&amp;Save</source>
-        <translation>&amp;सहेजें</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="80"/>
         <source>Save &amp;As</source>
-        <translation>&amp;इस रूप में सहेजें</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="88"/>
         <source>&amp;Import</source>
-        <translation>&amp;आयात</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="90"/>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="112"/>
         <source>&amp;IDF</source>
-        <translation>&amp;ईडफ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="95"/>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="116"/>
         <source>&amp;gbXML</source>
-        <translation>&amp;जीबीएक्सएमएल</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="100"/>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="120"/>
         <source>&amp;SDD</source>
-        <translation>&amp;एसडीडी</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="105"/>
         <source>I&amp;FC</source>
-        <translation>आई&amp;एफसी</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="110"/>
         <source>&amp;Export</source>
-        <translation>&amp;निर्यात</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="124"/>
         <source>&amp;Load Library</source>
-        <translation>&amp;लोड लाइब्रेरी</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="139"/>
         <source>E&amp;xit</source>
-        <translation>नि&amp;कास</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="146"/>
         <source>&amp;Preferences</source>
-        <translation>&amp;तरजीह</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="149"/>
         <source>&amp;Units</source>
-        <translation>&amp;इकाई</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="151"/>
         <source>Metric (&amp;SI)</source>
-        <translation>मीट्रिक (&amp;SI)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="157"/>
         <source>English (&amp;I-P)</source>
-        <translation>आईपी ​​(&amp;IP)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="163"/>
         <source>&amp;Change My Measures Directory</source>
-        <translation>मेरी उपाय निर्देशिका &amp;बदलें</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="168"/>
         <source>&amp;Change Default Libraries</source>
-        <translation>Hindi
-metric
-&amp;मेरी उपाय निर्देशिका बदलें</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="173"/>
         <source>&amp;Configure External Tools</source>
-        <translation>&amp;बाहरी उपकरण कॉन्फ़िगर करें</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="178"/>
         <source>&amp;Language</source>
-        <translation>&amp;भाषा</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="180"/>
         <source>English</source>
-        <translation>अंग्रेज़ी</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="186"/>
         <source>French</source>
-        <translation>फ्रेंच</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="192"/>
         <source>Arabic</source>
-        <translation>अरबी</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="198"/>
         <source>Spanish</source>
-        <translation>स्पेनिश</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="204"/>
         <source>Farsi</source>
-        <translation>फारसी</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="210"/>
         <source>Hebrew</source>
-        <translation>यहूदी</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="216"/>
         <source>Italian</source>
-        <translation>इतालवी</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="222"/>
         <source>Chinese</source>
-        <translation>चीनी</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="228"/>
         <source>Greek</source>
-        <translation>यूनानी</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="234"/>
         <source>Polish</source>
-        <translation>पोलिश</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="240"/>
         <source>Catalan</source>
-        <translation>कातालान</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="246"/>
         <source>Hindi</source>
-        <translation>हिंदी</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="252"/>
@@ -743,69 +740,68 @@ metric
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="270"/>
         <source>Add a new language</source>
-        <translation>एक नई भाषा जोड़ें</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="287"/>
         <source>&amp;Configure Internet Proxy</source>
-        <translation>&amp;इंटरनेट प्रॉक्सी कॉन्फ़िगर करें</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="349"/>
         <source>&amp;Components &amp;&amp; Measures</source>
-        <translation>&amp;अवयव और उपाय</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="352"/>
         <source>&amp;Apply Measure Now</source>
-        <translation>&amp;उपाय लागू करें</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="354"/>
         <source>Ctrl+M</source>
-        <translation>Ctrl+म</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="358"/>
         <source>Find &amp;Measures</source>
-        <translation>&amp;उपाय खोजें</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="363"/>
         <source>Find &amp;Components</source>
-        <translation>अ&amp;वयव खोजें</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="369"/>
         <source>&amp;Help</source>
-        <translation>&amp;सहायता</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="372"/>
         <source>OpenStudio &amp;Help</source>
-        <translation>ओपनस्टूडियो &amp;सहायता</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="376"/>
         <source>Check For &amp;Update</source>
-        <translation>अपडेट के लिये &amp;जांचें</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="380"/>
         <source>&amp;About</source>
-        <translation>&amp;बारे में</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="702"/>
         <source>Adding a new language</source>
-        <translation>एक नई भाषा जोड़ना</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="703"/>
         <source>Adding a new language requires almost no coding skill, but it does require language skills: the only thing to do is to translate each sentence/word with the help of a dedicated software.
 If you would like to see the OpenStudioApplication translated in your language of choice, we would welcome your help. Send an email to osc@openstudiocoalition.org specifying which language you want to add, and we will be in touch to help you get started.</source>
-        <translation>क नई भाषा जोड़ने के लिए लगभग कोई कोडिंग कौशल की आवश्यकता नहीं होती है, लेकिन इसके लिए भाषा कौशल की आवश्यकता होती है: केवल एक ही काम करना है कि प्रत्येक वाक्य/शब्द का अनुवाद एक समर्पित सॉफ़्टवेयर की सहायता से करना है।
-यदि आप OpenStudioApplication को अपनी पसंद की भाषा में अनुवादित देखना चाहते हैं, तो हम आपकी मदद का स्वागत करेंगे। osc@openstudiocoalition.org पर एक ईमेल भेजें जिसमें निर्दिष्ट किया गया हो कि आप कौन सी भाषा जोड़ना चाहते हैं, और हम आरंभ करने में आपकी सहायता करने के लिए संपर्क में रहेंगे.</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -813,49 +809,49 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_lib/OSDocument.cpp" line="1207"/>
         <source>Export Idf</source>
-        <translation>निर्यात ईडफ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OSDocument.cpp" line="1207"/>
         <source>(*.idf)</source>
-        <translation>(*.ईडफ)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OSDocument.cpp" line="1244"/>
         <source>(*.xml)</source>
-        <translation>(*एक्सएमएल)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OSDocument.cpp" line="1372"/>
         <source>Failed to save model</source>
-        <translation>मॉडल सहेजने में विफल</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OSDocument.cpp" line="1373"/>
         <source>Failed to save model, make sure that you do not have the location open and that you have correct write access.</source>
-        <translation>मॉडल को सहेजने में विफल, सुनिश्चित करें कि आपके पास स्थान खुला नहीं है और आपके पास सही लेखन पहुंच है.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OSDocument.cpp" line="1420"/>
         <source>Save</source>
-        <translation>सहेजें</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OSDocument.cpp" line="1420"/>
         <source>(*.osm)</source>
-        <translation>(*.ओएसएम)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OSDocument.cpp" line="1606"/>
         <location filename="../src/openstudio_lib/OSDocument.cpp" line="1608"/>
         <source>Select My Measures Directory</source>
-        <translation>मेरी उपाय निर्देशिका का चयन करें</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OSDocument.cpp" line="1689"/>
         <location filename="../src/openstudio_lib/OSDocument.cpp" line="1755"/>
         <source>Online BCL</source>
-        <translation>ऑनलाइन बीसीएल</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -904,7 +900,7 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="482"/>
         <source>(*.idf)</source>
-        <translation type="unfinished">(*.ईडफ)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="513"/>
@@ -1010,7 +1006,7 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="719"/>
         <source>(*.xml)</source>
-        <translation type="unfinished">(*एक्सएमएल)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="779"/>
@@ -1056,7 +1052,7 @@ If you would like to see the OpenStudioApplication translated in your language o
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="889"/>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1475"/>
         <source>(*.osm)</source>
-        <translation type="unfinished">(*.ओएसएम)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="975"/>
@@ -1207,7 +1203,7 @@ Would you like to Restore library paths to default values or Open the library se
     <message>
         <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="201"/>
         <source>Add/Remove Extensible Groups</source>
-        <translation>एक्स्टेंसिबल समूह जोड़ें/निकालें</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1215,67 +1211,67 @@ Would you like to Restore library paths to default values or Open the library se
     <message>
         <location filename="../src/openstudio_app/StartupMenu.cpp" line="39"/>
         <source>&amp;File</source>
-        <translation>&amp;फ़ाइल</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/StartupMenu.cpp" line="40"/>
         <source>&amp;New</source>
-        <translation>&amp;नया</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/StartupMenu.cpp" line="42"/>
         <source>&amp;Open</source>
-        <translation>&amp;खोलें</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/StartupMenu.cpp" line="44"/>
         <source>E&amp;xit</source>
-        <translation>&amp;बंद करें</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/StartupMenu.cpp" line="47"/>
         <source>Import</source>
-        <translation>निर्यात करें</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/StartupMenu.cpp" line="48"/>
         <source>IDF</source>
-        <translation>ईडफ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/StartupMenu.cpp" line="51"/>
         <source>gbXML</source>
-        <translation>जीबीएक्सएमएल</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/StartupMenu.cpp" line="54"/>
         <source>SDD</source>
-        <translation>एसडीडी</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/StartupMenu.cpp" line="57"/>
         <source>IFC</source>
-        <translation>आईएफसी</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/StartupMenu.cpp" line="74"/>
         <source>&amp;Help</source>
-        <translation>&amp;मदद</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/StartupMenu.cpp" line="78"/>
         <source>OpenStudio &amp;Help</source>
-        <translation>ओपेनस्टूडियो &amp;मदद</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/StartupMenu.cpp" line="83"/>
         <source>Check For &amp;Update</source>
-        <translation>&amp;नया क्या है</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/StartupMenu.cpp" line="87"/>
         <source>&amp;About</source>
-        <translation>बा&amp;रे में</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1283,176 +1279,176 @@ Would you like to Restore library paths to default values or Open the library se
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="81"/>
         <source>Select Year by:</source>
-        <translation>वर्ष का चयन करें:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="93"/>
         <source>Calendar Year</source>
-        <translation>कलेंडर वर्ष</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="106"/>
         <source>First Day of Year</source>
-        <translation>साल का पहला दिन</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="129"/>
         <source>Daylight Savings Time:</source>
-        <translation>डेलाइट सेविंग समय:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="147"/>
         <source>Starts</source>
-        <translation>प्रारंभ तिथि</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="153"/>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="182"/>
         <source>Define by Day of The Week And Month</source>
-        <translation>सप्ताह और महीने के दिन के अनुसार परिभाषित करें</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="166"/>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="195"/>
         <source>Define by Date</source>
-        <translation>तिथि के अनुसार परिभाषित करें</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="176"/>
         <source>Ends</source>
-        <translation>अंत तिथि</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="504"/>
         <source>First</source>
-        <translation>प्रथम</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="504"/>
         <source>Second</source>
-        <translation>दूसरा</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="504"/>
         <source>Third</source>
-        <translation>तीसरा</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="504"/>
         <source>Fourth</source>
-        <translation>चौथा</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="504"/>
         <source>Last</source>
-        <translation>आखिरी</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="511"/>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="517"/>
         <source>Sunday</source>
-        <translation>रविवार</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="511"/>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="517"/>
         <source>Monday</source>
-        <translation>सोमवार</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="511"/>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="517"/>
         <source>Tuesday</source>
-        <translation>मंगलवार</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="511"/>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="517"/>
         <source>Wednesday</source>
-        <translation>बुधवार</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="512"/>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="517"/>
         <source>Thursday</source>
-        <translation>गुरूवार</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="512"/>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="517"/>
         <source>Friday</source>
-        <translation>शुक्रवार</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="512"/>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="517"/>
         <source>Saturday</source>
-        <translation>शनिवार</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="512"/>
         <source>UseWeatherFile</source>
-        <translation>मौसम फ़ाइल का उपयोग करें</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="523"/>
         <source>January</source>
-        <translation>जनवरी</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="523"/>
         <source>February</source>
-        <translation>फ़रवरी</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="523"/>
         <source>March</source>
-        <translation>मार्च</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="523"/>
         <source>April</source>
-        <translation>अप्रैल</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="523"/>
         <source>May</source>
-        <translation>मई</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="523"/>
         <source>June</source>
-        <translation>जून</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="524"/>
         <source>July</source>
-        <translation>जुलाई</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="524"/>
         <source>August</source>
-        <translation>अगस्त</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="524"/>
         <source>September</source>
-        <translation>सितंबर</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="524"/>
         <source>October</source>
-        <translation>अक्टूबर</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="524"/>
         <source>November</source>
-        <translation>नवंबर</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="524"/>
         <source>December</source>
-        <translation>दिसंबर</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1483,7 +1479,7 @@ Would you like to Restore library paths to default values or Open the library se
         <location filename="../src/bimserver/ProjectImporter.cpp" line="223"/>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="289"/>
         <source>Cancel</source>
-        <translation type="unfinished">रद्द करें</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="63"/>
