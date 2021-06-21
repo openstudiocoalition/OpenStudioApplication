@@ -1420,6 +1420,7 @@ bool OpenStudioApp::switchLanguage(const QString& rLanguage) {
 
   if (m_currLang == QString("fa")) {
     // Force Right to Left display. This is not done automatically like in Arabic because qt itself isn't translated (no qt_fa.qm / qt_base_fa.qm)
+    qDebug() << "Forcing RightToLeft";
     this->setLayoutDirection(Qt::RightToLeft);
   }
 
