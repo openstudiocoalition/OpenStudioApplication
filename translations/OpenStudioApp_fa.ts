@@ -282,7 +282,7 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_app/ExternalToolsDialog.cpp" line="103"/>
         <source>Select Path to </source>
-        <translation>انتخاب مسیر به</translation>
+        <translation>انتخاب مسیر به </translation>
     </message>
 </context>
 <context>
@@ -334,35 +334,35 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="198"/>
         <source>Name: </source>
-        <translation>نام:</translation>
+        <translation>نام: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="213"/>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="485"/>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="509"/>
         <source>Latitude: </source>
-        <translation>عرض جغرافیایی:</translation>
+        <translation>عرض جغرافیایی: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="216"/>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="490"/>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="511"/>
         <source>Longitude: </source>
-        <translation>طول جغرافیایی:</translation>
+        <translation>طول جغرافیایی: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="219"/>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="495"/>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="513"/>
         <source>Elevation: </source>
-        <translation>ارتفاع:</translation>
+        <translation>ارتفاع: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="222"/>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="500"/>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="515"/>
         <source>Time Zone: </source>
-        <translation>منطقه زمانی:</translation>
+        <translation>منطقه زمانی: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="226"/>
@@ -423,7 +423,7 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="617"/>
         <source>Failed To Set Weather File To </source>
-        <translation>ناموفق در تنظیم فایل آب و هوایی برای</translation>
+        <translation>ناموفق در تنظیم فایل آب و هوایی برای </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="652"/>
@@ -438,7 +438,7 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="748"/>
         <source>This DDY file does not contain any valid design days.  Check the DDY file itself for errors or omissions.</source>
-        <translation>در فایل DDY روزهای طراحی معتبر وجود ندارد</translation>
+        <translation>در فایل DDY روزهای طراحی معتبر وجود ندارد.</translation>
     </message>
 </context>
 <context>
@@ -452,7 +452,7 @@ Zone</source>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="99"/>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="101"/>
         <source>Internet Connection: </source>
-        <translation>اتصال اینترنت:</translation>
+        <translation>اتصال اینترنت: </translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="99"/>
@@ -468,7 +468,7 @@ Zone</source>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="108"/>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="110"/>
         <source>Cloud Log-in: </source>
-        <translation>ورود به فضای ابری</translation>
+        <translation>ورود به فضای ابری: </translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="108"/>
@@ -484,7 +484,7 @@ Zone</source>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="117"/>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="122"/>
         <source>Cloud Connection: </source>
-        <translation>اتصال فضای ابری:</translation>
+        <translation>اتصال فضای ابری: </translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="117"/>
@@ -494,7 +494,7 @@ Zone</source>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="122"/>
         <source>unable to reconnect. </source>
-        <translation>ناتوان در اتصال دوباره</translation>
+        <translation>ناتوان در اتصال دوباره. </translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="123"/>
@@ -509,7 +509,7 @@ Zone</source>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="151"/>
         <source>Try Again Later. </source>
-        <translation>بعدا تلاش کنید.</translation>
+        <translation>بعدا تلاش کنید. </translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="152"/>
@@ -525,7 +525,7 @@ Zone</source>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="169"/>
         <source>Stop Cloud. </source>
-        <translation>فضای ابری را متوقف کنید.</translation>
+        <translation>فضای ابری را متوقف کنید. </translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="170"/>
@@ -535,7 +535,7 @@ Zone</source>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="188"/>
         <source>Launch AWS Console. </source>
-        <translation>کنسول AWS را راه اندازی کنید.</translation>
+        <translation>کنسول AWS را راه اندازی کنید. </translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="189"/>
@@ -553,117 +553,111 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="51"/>
         <source>&amp;File</source>
-        <translation>فایل</translation>
+        <translation>&amp;فایل</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="55"/>
         <source>&amp;New</source>
-        <translation>جدید</translation>
-    </message>
-    <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="68"/>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="594"/>
-        <source></source>
-        <translation>&amp;برگشت به ذخیره شده</translation>
+        <translation>&amp;جدید</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="68"/>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="717"/>
         <source>&amp;Revert to Saved</source>
-        <translation>برگشت به فایل ذخیره شده</translation>
+        <translation>&amp;برگشت به فایل ذخیره شده</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="75"/>
         <source>&amp;Save</source>
-        <translation>ذخیره</translation>
+        <translation>&amp;ذخیره</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="80"/>
         <source>Save &amp;As</source>
-        <translation>ذخیره بعنوان</translation>
+        <translation>ذخیره &amp;بعنوان</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="88"/>
         <source>&amp;Import</source>
-        <translation>وارد کردن</translation>
+        <translation>&amp;وارد کردن</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="90"/>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="112"/>
         <source>&amp;IDF</source>
-        <translation>IDF</translation>
+        <translation>&amp;IDF</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="95"/>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="116"/>
         <source>&amp;gbXML</source>
-        <translation>gbXML</translation>
+        <translation>&amp;gbXML</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="100"/>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="120"/>
         <source>&amp;SDD</source>
-        <translation>SDD</translation>
+        <translation>&amp;SDD</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="105"/>
         <source>I&amp;FC</source>
-        <translation>IFC</translation>
+        <translation>&amp;IFC</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="110"/>
         <source>&amp;Export</source>
-        <translation>خارج کردن</translation>
+        <translation>&amp;خارج کردن</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="124"/>
         <source>&amp;Load Library</source>
-        <translation>بارگذاری کتابخانه</translation>
+        <translation>بارگذاری &amp;کتابخانه</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="139"/>
         <source>E&amp;xit</source>
-        <translation>خروج</translation>
+        <translation>&amp;خروج</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="146"/>
         <source>&amp;Preferences</source>
-        <translation>اولویت ها</translation>
+        <translation>&amp;اولویت ها</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="149"/>
         <source>&amp;Units</source>
-        <translation>واحدها</translation>
+        <translation>&amp;واحدها</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="151"/>
         <source>Metric (&amp;SI)</source>
-        <translation>متریک (SI)</translation>
+        <translation>متریک (SI&amp;)</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="157"/>
         <source>English (&amp;I-P)</source>
-        <translation>انگلیسی (I-P)</translation>
+        <translation>انگلیسی (I-P&amp;)</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="163"/>
         <source>&amp;Change My Measures Directory</source>
-        <translation>تغییر فهرست تمهیدات من</translation>
+        <translation>&amp;تغییر فهرست تمهیدات من</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="168"/>
         <source>&amp;Change Default Libraries</source>
-        <translation>تغییر کتابخانه های پیش فرض </translation>
+        <translation>&amp;تغییر کتابخانه های پیش فرض</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="173"/>
         <source>&amp;Configure External Tools</source>
-        <translation>پیکربندی ابزارهای خارجی</translation>
+        <translation>&amp;پیکربندی ابزارهای خارجی</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="178"/>
         <source>&amp;Language</source>
-        <translation>زبان</translation>
+        <translation>&amp;زبان</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="180"/>
@@ -727,90 +721,75 @@ Zone</source>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="252"/>
-        <source>Vietnamese</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="258"/>
-        <source>Japanese</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="264"/>
-        <source>German</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="270"/>
         <source>Add a new language</source>
         <translation>زبان جدید اضافه کنید</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="287"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="269"/>
         <source>&amp;Configure Internet Proxy</source>
-        <translation>پیکربندی پروکسی اینترنت</translation>
+        <translation>&amp;پیکربندی پروکسی اینترنت</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="322"/>
+        <source>&amp;Components &amp;&amp; Measures</source>
+        <translation>&amp;اجزاء و &amp;تمهیدات</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="325"/>
+        <source>&amp;Apply Measure Now</source>
+        <translation>حالا تمهیدات را ا&amp;عمال کن</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="331"/>
+        <source>Find &amp;Measures</source>
+        <translation>پیدا کردن ت&amp;مهیدات</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="336"/>
+        <source>Find &amp;Components</source>
+        <translation>پیدا کردن &amp;اجزاء</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="342"/>
+        <source>&amp;Help</source>
+        <translation>را&amp;هنما</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="345"/>
+        <source>OpenStudio &amp;Help</source>
+        <translation>را&amp;هنمای اپن استودیو</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="349"/>
-        <source>&amp;Components &amp;&amp; Measures</source>
-        <translation>اجزاء و تمهیدات</translation>
-    </message>
-    <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="352"/>
-        <source>&amp;Apply Measure Now</source>
-        <translation>حالا تمهیدات را اعمال کن</translation>
-    </message>
-    <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="358"/>
-        <source>Find &amp;Measures</source>
-        <translation>پیدا کردن تمهیدات</translation>
-    </message>
-    <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="363"/>
-        <source>Find &amp;Components</source>
-        <translation>پیدا کردن اجزاء</translation>
-    </message>
-    <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="369"/>
-        <source>&amp;Help</source>
-        <translation>راهنما</translation>
-    </message>
-    <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="372"/>
-        <source>OpenStudio &amp;Help</source>
-        <translation>راهنمای اپن استودیو</translation>
-    </message>
-    <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="376"/>
         <source>Check For &amp;Update</source>
-        <translation>بررسی بروزرسانی</translation>
+        <translation>بررسی ب&amp;روزرسانی</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="380"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="353"/>
         <source>&amp;About</source>
-        <translation>درباره</translation>
+        <translation>&amp;درباره</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="702"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="579"/>
         <source>Adding a new language</source>
         <translation>اضافه کردن زبان جدید</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="354"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="327"/>
         <source>Ctrl+M</source>
         <translation>Ctrl+M</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="61"/>
         <source>&amp;Open</source>
-        <translation>باز کردن</translation>
+        <translation>&amp;باز کردن</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="703"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="580"/>
         <source>Adding a new language requires almost no coding skill, but it does require language skills: the only thing to do is to translate each sentence/word with the help of a dedicated software.
 If you would like to see the OpenStudioApplication translated in your language of choice, we would welcome your help. Send an email to osc@openstudiocoalition.org specifying which language you want to add, and we will be in touch to help you get started.</source>
         <translation>افزودن یک زبان جدید به مهارت رمزگذاری نیاز ندارد ، اما به مهارت های زبانی نیاز دارد: تنها کاری که باید انجام دهید ترجمه هر جمله / کلمه با کمک یک نرم افزار اختصاصی است.
-اگر می خواهید اپلیکیشن اپن استودیو به زبان انتخابی شما ترجمه شود، ما از کمک شما استقبال می کنیم. با مشخص کردن اینکه می خواهید کدام زبان را اضافه کنید ، به osc@openstudiocoalition.org ایمیلی ارسال کنید و ما برای کمک به شما در تماس خواهیم بود. </translation>
+اگر می خواهید اپلیکیشن اپن استودیو به زبان انتخابی شما ترجمه شود، ما از کمک شما استقبال می کنیم. با مشخص کردن اینکه می خواهید کدام زبان را اضافه کنید ، به osc@openstudiocoalition.org ایمیلی ارسال کنید و ما برای کمک به شما در تماس خواهیم بود.</translation>
     </message>
 </context>
 <context>
@@ -856,13 +835,6 @@ If you would like to see the OpenStudioApplication translated in your language o
         <location filename="../src/openstudio_lib/OSDocument.cpp" line="1755"/>
         <source>Online BCL</source>
         <translation>کتابخانه آنلاین اجزاء ساختمان (BCL)</translation>
-    </message>
-    <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1606"/>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1608"/>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1755"/>
-        <source></source>
-        <translation>فهرست تمهیدات من را انتخاب کن.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OSDocument.cpp" line="1420"/>
@@ -951,7 +923,7 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="523"/>
         <source>) and that all fields are valid against Energy+.idd. </source>
-        <translation> و اینکه همه فیلدها در مقابل فایل Energy+.idd معتبر هستند.</translation>
+        <translation>و اینکه همه فیلدها در مقابل فایل Energy+.idd معتبر هستند. </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="526"/>
@@ -961,12 +933,12 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="528"/>
         <source>&lt;strong&gt;File is not valid to draft strictness&lt;/strong&gt;. Check that all fields are valid against Energy+.idd.</source>
-        <translation>فایل برای دقت پیش نویس معتبر نیست. بررسی کنید که تمام فیلدها در برابر Energy+.idd معتبر باشند. </translation>
+        <translation>&lt;strong&gt;فایل برای دقت پیش نویس معتبر نیست.&lt;/strong&gt; فایل برای دقت پیش نویس معتبر نیست. بررسی کنید که تمام فیلدها در برابر Energy+.idd معتبر باشند.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="534"/>
         <source> IDF Import Failed</source>
-        <translation>وارد کردن فایل IDF انجام نشد</translation>
+        <translation> وارد کردن فایل IDF انجام نشد</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="609"/>
@@ -1008,7 +980,7 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="638"/>
         <source>&lt;strong&gt;Some portions of the IDF file were not imported.&lt;/strong&gt;</source>
-        <translation>برخی از بخش های فایل IDF وارد نشده است.</translation>
+        <translation>&lt;strong&gt;برخی از بخش های فایل IDF وارد نشده است.&lt;/strong&gt;</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="644"/>
@@ -1043,12 +1015,12 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="791"/>
         <source>Could not import </source>
-        <translation>وارد کردن امکانپذیر نیست</translation>
+        <translation>وارد کردن امکانپذیر نیست </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="791"/>
         <source> file at </source>
-        <translation>فایل در</translation>
+        <translation> فایل در </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="821"/>
@@ -1072,7 +1044,7 @@ If you would like to see the OpenStudioApplication translated in your language o
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="889"/>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1475"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1474"/>
         <source>(*.osm)</source>
         <translation>(*.osm)</translation>
     </message>
@@ -1094,7 +1066,7 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1002"/>
         <source>Measure Manager Server: </source>
-        <translation>سرور مدیریت تمهیدات:</translation>
+        <translation>سرور مدیریت تمهیدات: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1003"/>
@@ -1109,7 +1081,7 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1009"/>
         <source>About </source>
-        <translation>درباره</translation>
+        <translation>درباره </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1040"/>
@@ -1124,7 +1096,7 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1146"/>
         <source> using </source>
-        <translation>استفاده</translation>
+        <translation> استفاده </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1148"/>
@@ -1205,12 +1177,12 @@ Would you like to restart now?</source>
 آیا می خواهید اکنون دوباره راه اندازی کنید؟</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1475"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1474"/>
         <source>Select Library</source>
         <translation>انتخاب کتابخانه</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1529"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1528"/>
         <source>Failed to load the following libraries...
 
 </source>
@@ -1219,7 +1191,7 @@ Would you like to restart now?</source>
 </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1537"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1536"/>
         <source>
 
 Would you like to Restore library paths to default values or Open the library settings to change them manually?</source>
@@ -1241,22 +1213,22 @@ Would you like to Restore library paths to default values or Open the library se
     <message>
         <location filename="../src/openstudio_app/StartupMenu.cpp" line="39"/>
         <source>&amp;File</source>
-        <translation>فایل</translation>
+        <translation>&amp;فایل</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/StartupMenu.cpp" line="40"/>
         <source>&amp;New</source>
-        <translation>جدید</translation>
+        <translation>&amp;جدید</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/StartupMenu.cpp" line="42"/>
         <source>&amp;Open</source>
-        <translation>باز کردن</translation>
+        <translation>&amp;باز کردن</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/StartupMenu.cpp" line="44"/>
         <source>E&amp;xit</source>
-        <translation>خروج</translation>
+        <translation>&amp;خروج</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/StartupMenu.cpp" line="47"/>
@@ -1286,22 +1258,22 @@ Would you like to Restore library paths to default values or Open the library se
     <message>
         <location filename="../src/openstudio_app/StartupMenu.cpp" line="74"/>
         <source>&amp;Help</source>
-        <translation>راهنما</translation>
+        <translation>&amp;راهنما</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/StartupMenu.cpp" line="78"/>
         <source>OpenStudio &amp;Help</source>
-        <translation>راهنمای اپن استودیو</translation>
+        <translation>را&amp;هنمای اپن استودیو</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/StartupMenu.cpp" line="83"/>
         <source>Check For &amp;Update</source>
-        <translation>بررسی بروزرسانی</translation>
+        <translation>بررسی ب&amp;روزرسانی</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/StartupMenu.cpp" line="87"/>
         <source>&amp;About</source>
-        <translation>درباره</translation>
+        <translation>&amp;درباره</translation>
     </message>
 </context>
 <context>
@@ -1648,7 +1620,8 @@ http://</translation>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="365"/>
         <source>Please provide valid BIMserver address, port, your username and password. You may ask your BIMserver manager for such information.
 </source>
-        <translation>لطفاً آدرس، پورت، نام کاربری و رمز عبور معتبر BIM سرور خود را وارد کنید. ممکن است چنین اطلاعاتی را از مدیر سرور BIM خود بخواهید.</translation>
+        <translation>لطفاً آدرس، پورت، نام کاربری و رمز عبور معتبر BIM سرور خود را وارد کنید. ممکن است چنین اطلاعاتی را از مدیر سرور BIM خود بخواهید.
+</translation>
     </message>
 </context>
 </TS>
