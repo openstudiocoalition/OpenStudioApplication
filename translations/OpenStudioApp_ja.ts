@@ -202,12 +202,12 @@ Precipitation</source>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="85"/>
         <source>Rain Indicator</source>
-        <translation>雨</translation>
+        <translation>降雨判定</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="86"/>
         <source>Snow Indicator</source>
-        <translation>雪</translation>
+        <translation>降雪判定</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="89"/>
