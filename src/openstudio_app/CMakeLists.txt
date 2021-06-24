@@ -393,6 +393,10 @@ if( APPLE )
   #list(APPEND QTPLUGINS "\${CMAKE_INSTALL_PREFIX}/${plugin_dest_dir}/sceneparsers/libgltfsceneparser.dylib")
   #list(APPEND QTPLUGINS "\${CMAKE_INSTALL_PREFIX}/${plugin_dest_dir}/sceneparsers/libassimpsceneparser.dylib")
   install(DIRECTORY ${QtWebEngineProcess} DESTINATION "OpenStudioApp.app/Contents/Frameworks/QtWebEngineCore.framework/Versions/5/Helpers/" COMPONENT OpenStudioApp USE_SOURCE_PERMISSIONS)
+
+  # TODO: this is definitely a shot in the dark and is unlikely to work. The WebEngine .paks in particular probably need to live somewhere else
+  install(DIRECTORY $<TARGET_FILE_DIR:${target_name}>/translations/ DESTINATION "OpenStudioApp.app/Contents/Resources/translations/" COMPONENT OpenStudioApp)
+
   list(APPEND QTPLUGINS "\${CMAKE_INSTALL_PREFIX}/OpenStudioApp.app/Contents/Frameworks/QtWebEngineCore.framework/Versions/5/Helpers/QtWebEngineProcess.app/Contents/MacOS/QtWebEngineProcess")
 endif()
 
