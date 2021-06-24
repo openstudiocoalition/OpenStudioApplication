@@ -445,101 +445,101 @@ Zone</source>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="85"/>
         <source>Requirements for cloud:</source>
-        <translation type="unfinished"></translation>
+        <translation>क्लाउड के लिए आवश्यकताएँ:</translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="99"/>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="101"/>
         <source>Internet Connection: </source>
-        <translation type="unfinished"></translation>
+        <translation>इंटरनेट कनेक्शन: </translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="99"/>
         <source>yes</source>
-        <translation type="unfinished"></translation>
+        <translation>हाँ</translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="101"/>
         <source>no</source>
-        <translation type="unfinished"></translation>
+        <translation>नहीं</translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="108"/>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="110"/>
         <source>Cloud Log-in: </source>
-        <translation type="unfinished"></translation>
+        <translation>क्लाउड लॉग-इन: </translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="108"/>
         <source>accepted</source>
-        <translation type="unfinished"></translation>
+        <translation>स्वीकृत</translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="110"/>
         <source>denied</source>
-        <translation type="unfinished"></translation>
+        <translation>अस्वीकृत</translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="117"/>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="122"/>
         <source>Cloud Connection: </source>
-        <translation type="unfinished"></translation>
+        <translation>क्लाउड कनेक्शन: </translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="117"/>
         <source>reconnected</source>
-        <translation type="unfinished"></translation>
+        <translation>पुन: कनेक्ट</translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="122"/>
         <source>unable to reconnect. </source>
-        <translation type="unfinished"></translation>
+        <translation>पुन: कनेक्ट करने में असमर्थ. </translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="123"/>
         <source>Remember that cloud charges may currently be accruing.</source>
-        <translation type="unfinished"></translation>
+        <translation>याद रखें कि वर्तमान में क्लाउड शुल्क जमा हो सकते हैं.</translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="138"/>
         <source>Options to correct the problem:</source>
-        <translation type="unfinished"></translation>
+        <translation>समस्या को ठीक करने के विकल्प:</translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="151"/>
         <source>Try Again Later. </source>
-        <translation type="unfinished"></translation>
+        <translation>बाद में पुन: प्रयास करें. </translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="152"/>
         <source>Verify your computer&apos;s internet connection then click &quot;Lost Cloud Connection&quot; to recover the lost cloud session.</source>
-        <translation type="unfinished"></translation>
+        <translation>अपने कंप्यूटर के इंटरनेट कनेक्शन को सत्यापित करें फिर खोए हुए क्लाउड सत्र को पुनर्प्राप्त करने के लिए &quot;लॉस्ट क्लाउड कनेक्शन&quot; पर क्लिक करें.</translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="156"/>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="175"/>
         <source>Or</source>
-        <translation type="unfinished"></translation>
+        <translation>अथवा</translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="169"/>
         <source>Stop Cloud. </source>
-        <translation type="unfinished"></translation>
+        <translation>क्लाउड बंद करो. </translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="170"/>
         <source>Disconnect from cloud.  This option will make the failed cloud session unavailable to Pat.  Any data that has not been downloaded to Pat will be lost.  Use the AWS Console to verify that the Amazon service have been completely shutdown.</source>
-        <translation type="unfinished"></translation>
+        <translation>क्लाउड से डिस्कनेक्ट करें। यह विकल्प विफल क्लाउड सत्र को पैट के लिए अनुपलब्ध बना देगा। कोई भी डेटा जो पैट में डाउनलोड नहीं किया गया है वह खो जाएगा। यह सत्यापित करने के लिए कि अमेज़न सेवा पूरी तरह से बंद कर दी गई है, AWS कंसोल का उपयोग करें.</translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="188"/>
         <source>Launch AWS Console. </source>
-        <translation type="unfinished"></translation>
+        <translation>एडब्ल्यूएस कंसोल लॉन्च करें. </translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="189"/>
         <source>Use the AWS Console to diagnose Amazon services.  You may still attempt to recover the lost cloud session.</source>
-        <translation type="unfinished"></translation>
+        <translation>Amazon सेवाओं का निदान करने के लिए AWS कंसोल का उपयोग करें। आप अभी भी खोए हुए क्लाउड सत्र को पुनर्प्राप्त करने का प्रयास कर सकते हैं.</translation>
     </message>
 </context>
 <context>
@@ -561,7 +561,7 @@ Zone</source>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="68"/>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="717"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="594"/>
         <source>&amp;Revert to Saved</source>
         <translation>सहेजे गए पर &amp;वापस जाएं</translation>
     </message>
@@ -727,81 +727,66 @@ metric
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="252"/>
-        <source>Vietnamese</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="258"/>
-        <source>Japanese</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="264"/>
-        <source>German</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="270"/>
         <source>Add a new language</source>
         <translation>एक नई भाषा जोड़ें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="287"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="269"/>
         <source>&amp;Configure Internet Proxy</source>
         <translation>&amp;इंटरनेट प्रॉक्सी कॉन्फ़िगर करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="349"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="322"/>
         <source>&amp;Components &amp;&amp; Measures</source>
         <translation>&amp;अवयव और उपाय</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="352"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="325"/>
         <source>&amp;Apply Measure Now</source>
         <translation>&amp;उपाय लागू करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="354"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="327"/>
         <source>Ctrl+M</source>
         <translation>Ctrl+म</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="358"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="331"/>
         <source>Find &amp;Measures</source>
         <translation>&amp;उपाय खोजें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="363"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="336"/>
         <source>Find &amp;Components</source>
         <translation>अ&amp;वयव खोजें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="369"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="342"/>
         <source>&amp;Help</source>
         <translation>&amp;सहायता</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="372"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="345"/>
         <source>OpenStudio &amp;Help</source>
         <translation>ओपनस्टूडियो &amp;सहायता</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="376"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="349"/>
         <source>Check For &amp;Update</source>
         <translation>अपडेट के लिये &amp;जांचें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="380"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="353"/>
         <source>&amp;About</source>
         <translation>&amp;बारे में</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="702"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="579"/>
         <source>Adding a new language</source>
         <translation>एक नई भाषा जोड़ना</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="703"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="580"/>
         <source>Adding a new language requires almost no coding skill, but it does require language skills: the only thing to do is to translate each sentence/word with the help of a dedicated software.
 If you would like to see the OpenStudioApplication translated in your language of choice, we would welcome your help. Send an email to osc@openstudiocoalition.org specifying which language you want to add, and we will be in touch to help you get started.</source>
         <translation>क नई भाषा जोड़ने के लिए लगभग कोई कोडिंग कौशल की आवश्यकता नहीं होती है, लेकिन इसके लिए भाषा कौशल की आवश्यकता होती है: केवल एक ही काम करना है कि प्रत्येक वाक्य/शब्द का अनुवाद एक समर्पित सॉफ़्टवेयर की सहायता से करना है।
@@ -863,343 +848,358 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="251"/>
         <source>Timeout</source>
-        <translation type="unfinished"></translation>
+        <translation>टाइम-आउट</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="253"/>
         <source>Failed to start the Measure Manager. Would you like to retry?</source>
-        <translation type="unfinished"></translation>
+        <translation>उपाय प्रबंधक प्रारंभ करने में विफल। क्या आप पुनः प्रयास करना चाहेंगे?</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="388"/>
         <source>Loading Library Files</source>
-        <translation type="unfinished"></translation>
+        <translation>लाइब्रेरी फ़ाइलें लोड हो रही हैं</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="389"/>
         <source>(Manage library files in Preferences-&gt;Change default libraries)</source>
-        <translation type="unfinished"></translation>
+        <translation>(वरीयताओं में लाइब्रेरी फ़ाइलों को प्रबंधित करें-&gt; डिफ़ॉल्ट लाइब्रेरी बदलें)</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="406"/>
         <source>Translation From version </source>
-        <translation type="unfinished"></translation>
+        <translation>संस्करण </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="406"/>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1148"/>
         <source> to </source>
-        <translation type="unfinished"></translation>
+        <translation> से </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="409"/>
         <source>Unknown starting version</source>
-        <translation type="unfinished"></translation>
+        <translation>अज्ञात संस्करण में अनुवाद</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="482"/>
         <source>Import Idf</source>
-        <translation type="unfinished"></translation>
+        <translation>आयात ईडफ</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="482"/>
         <source>(*.idf)</source>
-        <translation type="unfinished">(*.ईडफ)</translation>
+        <translation>(*.ईडफ)</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="513"/>
         <source>&apos; while OpenStudio uses a &lt;strong&gt;newer&lt;/strong&gt; EnergyPlus &apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>&apos; जबकि ओपेनस्टूडियो एक &lt;strong&gt;नए&lt;/strong&gt; एनर्जीप्लस &apos; का उपयोग करता है</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="514"/>
         <source>&apos;. Consider using the EnergyPlus Auxiliary program IDFVersionUpdater to update your IDF file.</source>
-        <translation type="unfinished"></translation>
+        <translation>अपनी ईडफ फ़ाइल को अद्यतन करने के लिए एनर्जीप्लस सहायक प्रोग्राम ईडफसंस्करणअपडेटर का उपयोग करने पर विचार करें.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="516"/>
         <source>&apos; while OpenStudio uses an &lt;strong&gt;older&lt;/strong&gt; EnergyPlus &apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>&apos; जबकि ओपेनस्टूडियो एक &lt;strong&gt;पुराने&lt;/strong&gt; एनर्जीप्लस &apos; का उपयोग करता है&apos;</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="516"/>
         <source>&apos;.</source>
-        <translation type="unfinished"></translation>
+        <translation>&apos;.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="518"/>
         <source>&apos; which is the &lt;strong&gt;same&lt;/strong&gt; version of EnergyPlus that OpenStudio uses (</source>
-        <translation type="unfinished"></translation>
+        <translation>जो ओपेनस्टूडियो द्वारा उपयोग किए जाने वाले एनर्जीप्लस का &lt;strong&gt;समान&lt;/strong&gt; संस्करण है (</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="522"/>
         <source>&lt;strong&gt;The IDF does not have a VersionObject&lt;/strong&gt;. Check that it is of correct version (</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;आईडीएफ में वर्जनऑब्जेक्ट नहीं है&lt;/strong&gt;। जांचें कि यह सही संस्करण का है (</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="523"/>
         <source>) and that all fields are valid against Energy+.idd. </source>
-        <translation type="unfinished"></translation>
+        <translation>) और यह कि सभी फ़ील्ड एनर्जी+.idd के अनुरूप मान्य हैं. </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="526"/>
         <source>&lt;br/&gt;&lt;br/&gt;The ValidityReport follows.</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&lt;br/&gt;वैधता रिपोर्ट इस प्रकार है.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="528"/>
         <source>&lt;strong&gt;File is not valid to draft strictness&lt;/strong&gt;. Check that all fields are valid against Energy+.idd.</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;ड्राफ़्ट स्ट्रिक्टनेस के लिए फ़ाइल मान्य नहीं है&lt;/strong&gt;. जांचें कि सभी फ़ील्ड एनर्जी+.idd के विरुद्ध मान्य हैं.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="534"/>
         <source> IDF Import Failed</source>
-        <translation type="unfinished"></translation>
+        <translation> आईडीएफ आयात विफल</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="609"/>
         <source>=============== Errors ===============
 
 </source>
-        <translation type="unfinished"></translation>
+        <translation>=============== त्रुटियाँ ===============
+
+</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="617"/>
         <source>============== Warnings ==============
 
 </source>
-        <translation type="unfinished"></translation>
+        <translation>============= चेतावनियाँ  =============
+
+</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="625"/>
         <source>==== The following idf objects were not imported ====
 
 </source>
-        <translation type="unfinished"></translation>
+        <translation>==== निम्नलिखित आईडीएफ ऑब्जेक्ट आयात नहीं किए गए थे ====
+
+</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="630"/>
         <source> named </source>
-        <translation type="unfinished"></translation>
+        <translation> नामांकित </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="632"/>
         <source>Unnamed </source>
-        <translation type="unfinished"></translation>
+        <translation>अज्ञात </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="638"/>
         <source>&lt;strong&gt;Some portions of the IDF file were not imported.&lt;/strong&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;strong&gt;IDF फ़ाइल के कुछ भाग आयात नहीं किए गए थे।&lt;/strong&gt;</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="644"/>
         <source>IDF Import</source>
-        <translation type="unfinished"></translation>
+        <translation>आईडीएफ आयात</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="647"/>
         <source>Only geometry, constructions, loads, thermal zones, and schedules are supported by the OpenStudio IDF import feature.</source>
-        <translation type="unfinished"></translation>
+        <translation>ओपेनस्टूडियो आईडीएफ आयात सुविधा द्वारा केवल भवन, कंस्ट्रक्शन, भार, थर्मल ज़ोन और शेड्यूल समर्थित हैं.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="712"/>
         <source>Import </source>
-        <translation type="unfinished"></translation>
+        <translation>आयात </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="719"/>
         <source>(*.xml)</source>
-        <translation type="unfinished">(*एक्सएमएल)</translation>
+        <translation>(*.एक्सएमएल)</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="779"/>
         <source>Errors or warnings occurred on import of </source>
-        <translation type="unfinished"></translation>
+        <translation>निम्न फ़ाइल के आयात पर त्रुटियाँ या चेतावनियाँ हुईं- </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="789"/>
         <source>Could not import SDD file.</source>
-        <translation type="unfinished"></translation>
+        <translation>एसडीडी फ़ाइल आयात नहीं कर पाए.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="791"/>
         <source>Could not import </source>
-        <translation type="unfinished"></translation>
+        <translation>आयात नहीं कर पाए </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="791"/>
         <source> file at </source>
-        <translation type="unfinished"></translation>
+        <translation> इस जगह पर </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="821"/>
         <source>Save Changes?</source>
-        <translation type="unfinished"></translation>
+        <translation>परिवर्तनों को सहेजें?</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="822"/>
         <source>The document has been modified.</source>
-        <translation type="unfinished"></translation>
+        <translation>दस्तावेज़ को संशोधित किया गया है.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="823"/>
         <source>Do you want to save your changes?</source>
-        <translation type="unfinished"></translation>
+        <translation>क्या आप अपने परिवर्तनों को सहेजना चाहते हैं?</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="889"/>
         <source>Open</source>
-        <translation type="unfinished"></translation>
+        <translation>खोलें</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="889"/>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1475"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1456"/>
         <source>(*.osm)</source>
-        <translation type="unfinished">(*.ओएसएम)</translation>
+        <translation>(*.ओएसएम)</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="975"/>
         <source>A new version is available at &lt;a href=&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>एक नया संस्करण &lt;a href=&quot; पर उपलब्ध है</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="980"/>
         <source>Currently using the most recent version</source>
-        <translation type="unfinished"></translation>
+        <translation>वर्तमान में नवीनतम संस्करण का उपयोग कर रहे हैं</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="988"/>
         <source>Check for Updates</source>
-        <translation type="unfinished"></translation>
+        <translation>अद्यतन के लिए जांचें</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1002"/>
         <source>Measure Manager Server: </source>
-        <translation type="unfinished"></translation>
+        <translation>उपाय प्रबंधक सर्वर: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1003"/>
         <source>Chrome Debugger: http://localhost:</source>
-        <translation type="unfinished"></translation>
+        <translation>क्रोम डीबगर: http://localhost:</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1004"/>
         <source>Temp Directory: </source>
-        <translation type="unfinished"></translation>
+        <translation>अस्थायी डायरेक्टरी: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1009"/>
         <source>About </source>
-        <translation type="unfinished"></translation>
+        <translation>बारे में </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1040"/>
         <source>Failed to load model</source>
-        <translation type="unfinished"></translation>
+        <translation>मॉडल लोड करने में विफल</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1146"/>
         <source>Opening future version </source>
-        <translation type="unfinished"></translation>
+        <translation>भविष्य का संस्करण खोलना </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1146"/>
         <source> using </source>
-        <translation type="unfinished"></translation>
+        <translation> का उपयोग करते हुए </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1148"/>
         <source>Model updated from </source>
-        <translation type="unfinished"></translation>
+        <translation>मॉडल से अपडेट किया गया </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1157"/>
         <source>Existing Ruby scripts have been removed.
 Ruby scripts are no longer supported and have been replaced by measures.</source>
-        <translation type="unfinished"></translation>
+        <translation>मौजूदा रूबी स्क्रिप्ट को हटा दिया गया है।
+रूबी स्क्रिप्ट अब समर्थित नहीं हैं और उन्हें उपायों द्वारा बदल दिया गया है.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1164"/>
         <source>Failed to open file at </source>
-        <translation type="unfinished"></translation>
+        <translation>इस जगह पर फ़ाइल खोलने में विफल </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1187"/>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1320"/>
         <source>Settings file not writable</source>
-        <translation type="unfinished"></translation>
+        <translation>सेटिंग फ़ाइल लिखने योग्य नहीं है</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1188"/>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1321"/>
         <source>Your settings file &apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>आपकी सेटिंग फ़ाइल &apos;</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1188"/>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1321"/>
         <source>&apos; is not writable. Adjust the file permissions</source>
-        <translation type="unfinished"></translation>
+        <translation>&apos;लिखने योग्य नहीं है। फ़ाइल अनुमतियों को समायोजित करें</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1209"/>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1221"/>
         <source>Revert to Saved</source>
-        <translation type="unfinished"></translation>
+        <translation>सहेजे गए पर वापस जाएं</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1209"/>
         <source>This model has never been saved.
 Do you want to create a new model?</source>
-        <translation type="unfinished"></translation>
+        <translation>यह मॉडल कभी सहेजा नहीं गया है।
+क्या आप एक नया मॉडल बनाना चाहते हैं?</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1221"/>
         <source>Are you sure you want to revert to the last saved version?</source>
-        <translation type="unfinished"></translation>
+        <translation>क्या आप वाकई अंतिम सहेजे गए संस्करण पर वापस जाना चाहते हैं?</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1263"/>
         <source>Measure Manager has crashed, attempting to restart
 
 </source>
-        <translation type="unfinished"></translation>
+        <translation>उपाय प्रबंधक क्रैश हो गया है, पुनरारंभ करने का प्रयास कर रहा है
+
+</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1267"/>
         <source>Measure Manager has crashed</source>
-        <translation type="unfinished"></translation>
+        <translation>उपाय प्रबंधक क्रैश हो गया है</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1404"/>
         <source>Restart required</source>
-        <translation type="unfinished"></translation>
+        <translation>पुनरारंभ करना आवश्यक है</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1405"/>
         <source>A restart of the OpenStudio Application is required for language changes to be fully functionnal.
 Would you like to restart now?</source>
-        <translation type="unfinished"></translation>
+        <translation>भाषा परिवर्तन पूरी तरह कार्यात्मक होने के लिए ओपेनस्टूडियो एप्लिकेशन के पुनरारंभ की आवश्यकता है।
+क्या आप अभी पुनः आरंभ करना चाहेंगे?</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1475"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1456"/>
         <source>Select Library</source>
-        <translation type="unfinished"></translation>
+        <translation>लाइब्रेरी का चयन करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1529"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1510"/>
         <source>Failed to load the following libraries...
 
 </source>
-        <translation type="unfinished"></translation>
+        <translation>निम्नलिखित लाइब्रेरी को लोड करने में विफल...
+
+</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1537"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1518"/>
         <source>
 
 Would you like to Restore library paths to default values or Open the library settings to change them manually?</source>
-        <translation type="unfinished"></translation>
+        <translation>
+
+क्या आप लाइब्रेरी पथों को डिफ़ॉल्ट मानों पर पुनर्स्थापित करना चाहते हैं या उन्हें मैन्युअल रूप से बदलने के लिए लाइब्रेरी सेटिंग्स खोलना चाहते हैं?</translation>
     </message>
 </context>
 <context>
@@ -1460,167 +1460,169 @@ Would you like to Restore library paths to default values or Open the library se
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="55"/>
         <source>Download OSM File</source>
-        <translation type="unfinished"></translation>
+        <translation>ओपेनस्टूडियो फ़ाइल डाउनलोड करें</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="57"/>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="216"/>
         <source>New Project</source>
-        <translation type="unfinished"></translation>
+        <translation>नया काम</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="58"/>
         <source>Check in IFC File</source>
-        <translation type="unfinished"></translation>
+        <translation>आईएफसी फाइल में चेक करें</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="60"/>
         <source> &gt; </source>
-        <translation type="unfinished"></translation>
+        <translation> &gt; </translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="62"/>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="223"/>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="289"/>
         <source>Cancel</source>
-        <translation type="unfinished">रद्द करें</translation>
+        <translation>रद्द करें</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="63"/>
         <source>Setting</source>
-        <translation type="unfinished"></translation>
+        <translation>व्यवस्था</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="159"/>
         <source>Project created, showing updated project list.</source>
-        <translation type="unfinished"></translation>
+        <translation>प्रोजेक्ट बनाया गया, अद्यतन प्रोजेक्ट सूची दिखा रहा है.</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="163"/>
         <source>IFC file loaded, showing updated IFC file list.</source>
-        <translation type="unfinished"></translation>
+        <translation>आईएफसी फ़ाइल लोड की गई, अद्यतन आईएफसी फ़ाइल सूची दिखा रही है.</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="168"/>
         <source>Login success!</source>
-        <translation type="unfinished"></translation>
+        <translation>लॉगिन सफल रहा!</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="182"/>
         <source>BIMserver disconnected</source>
-        <translation type="unfinished"></translation>
+        <translation>बीआईएमसर्वर डिस्कनेक्ट हो गया</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="184"/>
         <source>BIMserver is not connected correctly. Please check if BIMserver is running and make sure your username and password are valid.
 </source>
-        <translation type="unfinished"></translation>
+        <translation>बीआईएमसर्वर ठीक से कनेक्ट नहीं है। कृपया जांचें कि क्या बीआईएमसर्वर चल रहा है और सुनिश्चित करें कि आपका उपयोगकर्ता नाम और पासवर्ड मान्य है.
+</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="197"/>
         <source>Please select a IFC version before proceeding.</source>
-        <translation type="unfinished"></translation>
+        <translation>आगे बढ़ने से पहले कृपया आईएफसी संस्करण चुनें.</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="204"/>
         <source>Project selected, showing all versions of IFC files under it.</source>
-        <translation type="unfinished"></translation>
+        <translation>प्रोजेक्ट चयनित, इसके अंतर्गत आईएफसी फ़ाइलों के सभी संस्करण दिखा रहा है.</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="208"/>
         <source>Please select a project to see all the IFC versions under it.</source>
-        <translation type="unfinished"></translation>
+        <translation>प्रोजेक्ट के अंतर्गत सभी IFC संस्करण देखने के लिए कृपया चयन करें.</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="213"/>
         <source>Create a new project and upload it to the server.</source>
-        <translation type="unfinished"></translation>
+        <translation>एक नया प्रोजेक्ट बनाएं और इसे सर्वर पर अपलोड करें.</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="219"/>
         <source>Please enter the project name: </source>
-        <translation type="unfinished"></translation>
+        <translation>कृपया प्रोजेक्ट का नाम दर्ज करें: </translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="220"/>
         <source>Project Name:</source>
-        <translation type="unfinished"></translation>
+        <translation>प्रोजेक्ट का नाम:</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="222"/>
         <source>Create Project</source>
-        <translation type="unfinished"></translation>
+        <translation>प्रोजेक्ट बनाएं</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="245"/>
         <source>Check in a new version IFC file for the selected project.</source>
-        <translation type="unfinished"></translation>
+        <translation>चयनित प्रोजेक्ट को आईएफसी के नए संस्करण में जांचें.</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="251"/>
         <source>Open IFC File</source>
-        <translation type="unfinished"></translation>
+        <translation>आईएफसी फ़ाइल खोलें</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="251"/>
         <source>IFC files (*.ifc)</source>
-        <translation type="unfinished"></translation>
+        <translation>आईएफसी फ़ाइल (*.आईएफसी)</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="258"/>
         <source>Please select a project to check in a new IFC version.</source>
-        <translation type="unfinished"></translation>
+        <translation>नए आईएफसी संस्करण में जाँच करने के लिए कृपया किसी प्रोजेक्ट का चयन करें.</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="269"/>
         <source>Please specify the bimserver address/port and user credentials.</source>
-        <translation type="unfinished"></translation>
+        <translation>कृपया बिमसर्वर पता/पोर्ट और उपयोगकर्ता क्रेडेंशियल निर्दिष्ट करें.</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="272"/>
         <source>BIMserver Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>बीआईएमसर्वर सेटिंग्स</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="274"/>
         <source>Please enter the BIMserver information: </source>
-        <translation type="unfinished"></translation>
+        <translation>कृपया बीआईएमसर्वर जानकारी दर्ज करें: </translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="275"/>
         <source>BIMserver Address: http://</source>
-        <translation type="unfinished"></translation>
+        <translation>बीआईएमसर्वर पता: http://</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="278"/>
         <source>BIMserver Port:</source>
-        <translation type="unfinished"></translation>
+        <translation>बीआईएमसर्वर पोर्ट:</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="281"/>
         <source>Username</source>
-        <translation type="unfinished"></translation>
+        <translation>उपयोगकर्ता नाम</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="284"/>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>पासवर्ड</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="288"/>
         <source>Okay</source>
-        <translation type="unfinished"></translation>
+        <translation>ठीक है</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="363"/>
         <source>BIMserver not set up</source>
-        <translation type="unfinished"></translation>
+        <translation>BIMसर्वर सेट नहीं हुआ</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="365"/>
         <source>Please provide valid BIMserver address, port, your username and password. You may ask your BIMserver manager for such information.
 </source>
-        <translation type="unfinished"></translation>
+        <translation>कृपया मान्य बीआईएमसर्वर पता, पोर्ट, अपना उपयोगकर्ता नाम और पासवर्ड प्रदान करें। आप ऐसी जानकारी के लिए अपने बीआईएमसर्वर प्रबंधक से पूछ सकते हैं.
+</translation>
     </message>
 </context>
 </TS>
