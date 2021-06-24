@@ -547,7 +547,7 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="51"/>
         <source>&amp;File</source>
-        <translation>&amp;फ़ाइल</translation>
+        <translation>फ़ा&amp;इल</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="55"/>
@@ -728,17 +728,17 @@ metric
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="252"/>
         <source>Vietnamese</source>
-        <translation type="unfinished"></translation>
+        <translation>वियतनामी</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="258"/>
         <source>Japanese</source>
-        <translation type="unfinished"></translation>
+        <translation>जापानी</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="264"/>
         <source>German</source>
-        <translation type="unfinished"></translation>
+        <translation>जर्मन</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="270"/>
