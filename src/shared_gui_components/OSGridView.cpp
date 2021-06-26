@@ -78,6 +78,8 @@
 #  define HEIGHT 60
 #endif
 
+const int NUM_ROWS_PER_GRIDLAYOUT = 5;
+
 namespace openstudio {
 
 QGridLayout* OSGridView::makeGridLayout() {
@@ -92,7 +94,6 @@ OSGridView::OSGridView(OSGridController* gridController, const QString& headerTe
   : QWidget(parent),
     m_dropZone(nullptr),
     m_contentLayout(nullptr),
-    m_gridLayout(nullptr),
     m_collapsibleView(nullptr),
     m_gridController(gridController) {
 
@@ -221,7 +222,10 @@ void OSGridView::requestRemoveRow(int row) {
 //}
 
 QLayoutItem* OSGridView::itemAtPosition(int row, int column) {
-  return m_gridLayout->itemAtPosition(row, column);
+  int li = layoutIndex(row);
+  int ri = rowInLayout(row);
+  OS_ASSERT(li < m_gridLayouts.size());
+  return m_gridLayouts[li]->itemAtPosition(ri, column);
 }
 
 void OSGridView::showDropZone(bool visible) {
@@ -287,7 +291,10 @@ void OSGridView::onRecreateAll() {
 }
 
 void OSGridView::onGridCellChanged(const GridCellLocation& location, const GridCellInfo& info) {
-  QLayoutItem* item = m_gridLayout->itemAtPosition(location.gridRow, location.column);
+  int li = layoutIndex(location.gridRow);
+  int ri = rowInLayout(location.gridRow);
+  OS_ASSERT(li < m_gridLayouts.size());
+  QLayoutItem* item = m_gridLayouts[li]->itemAtPosition(ri, location.column);
   if (item) {
     OSCellWrapper* wrapper = qobject_cast<OSCellWrapper*>(item->widget());
     OS_ASSERT(wrapper);
@@ -299,27 +306,37 @@ void OSGridView::onGridCellChanged(const GridCellLocation& location, const GridC
 
 void OSGridView::deleteAll() {
   QLayoutItem* child;
-  while ((child = m_gridLayout->takeAt(0)) != nullptr) {
-    QWidget* widget = child->widget();
+  for (auto gridLayout : m_gridLayouts) {
+    while ((child = gridLayout->takeAt(0)) != nullptr) {
+      QWidget* widget = child->widget();
 
-    OS_ASSERT(widget);
+      OS_ASSERT(widget);
 
-    delete widget;
-    // Using deleteLater is actually slower than calling delete directly on the widget
-    // deleteLater also introduces a strange redraw issue where the select all check box
-    // is not redrawn, after being checked.
-    //widget->deleteLater();
+      delete widget;
+      // Using deleteLater is actually slower than calling delete directly on the widget
+      // deleteLater also introduces a strange redraw issue where the select all check box
+      // is not redrawn, after being checked.
+      //widget->deleteLater();
 
-    delete child;
+      delete child;
+    }
+    delete gridLayout;
   }
+  m_gridLayouts.clear();
+  m_columnWidths.clear();
 }
 
 void OSGridView::addRow(int row) {
   setUpdatesEnabled(false);
 
-  OS_ASSERT(m_gridLayout);
-  OS_ASSERT(m_gridController);
-
+  int li = layoutIndex(row);
+  int ri = rowInLayout(row);
+  while (li >= m_gridLayouts.size()) {
+    auto gridLayout = makeGridLayout();
+    m_gridLayouts.push_back(gridLayout);
+    m_contentLayout->addLayout(gridLayout);
+  }
+  
   const auto numRows = m_gridController->rowCount();
   OS_ASSERT(row < numRows);
   const auto numColumns = m_gridController->columnCount();
@@ -332,12 +349,6 @@ void OSGridView::addRow(int row) {
 
 void OSGridView::recreateAll() {
   setUpdatesEnabled(false);
-
-  if (!m_gridLayout) {
-    // create grid layout here so it is underneath the filters or other things added by concreate gridviews in m_contentLayout
-    m_gridLayout = makeGridLayout();
-    m_contentLayout->addLayout(m_gridLayout);
-  }
 
   deleteAll();
 
@@ -362,6 +373,35 @@ void OSGridView::recreateAll() {
 
     //QTimer::singleShot(0, this, SLOT(selectRowDeterminedByModelSubTabView()));
   }
+}
+
+int OSGridView::layoutIndex(int row) const
+{
+  return row / NUM_ROWS_PER_GRIDLAYOUT;
+}
+
+int OSGridView::rowInLayout(int row) const {
+  return row % NUM_ROWS_PER_GRIDLAYOUT;
+}
+
+void OSGridView::updateColumnWidths() {
+  m_columnWidths.clear();
+
+  OS_ASSERT(m_gridLayouts.size() > 0);  
+  OS_ASSERT(m_gridLayouts[0]->rowCount() > 0);  
+  int numColumns = m_gridLayouts[0]->columnCount();
+  for (int column = 0; column < numColumns; ++column) {
+    QLayoutItem* item = m_gridLayouts[0]->itemAtPosition(0, column);
+    OS_ASSERT(item);
+    OSCellWrapper* wrapper = qobject_cast<OSCellWrapper*>(item->widget());
+    OS_ASSERT(wrapper);
+    m_columnWidths.push_back(wrapper->width());
+  }
+}
+
+int OSGridView::widthForColumn(int column) const {
+  OS_ASSERT(column < m_columnWidths.size());
+  return m_columnWidths[column];
 }
 
 //void OSGridView::refreshRow(int row) {
@@ -399,12 +439,29 @@ void OSGridView::createCellWrapper(int row, int column) {
   OS_ASSERT(m_gridController);
 
   OSCellWrapper* widget = m_gridController->createCellWrapper(row, column, this);
+  LOG_FREE(Debug, "OSGridView", "Creating cell wrapper row=" << row << ", col=" << column);
 
   addCellWrapper(widget, row, column);
 }
 
 void OSGridView::addCellWrapper(OSCellWrapper* w, int row, int column) {
-  m_gridLayout->addWidget(w, row, column);
+
+  int li = layoutIndex(row);
+  int ri = rowInLayout(row);
+  while (li >= m_gridLayouts.size()) {
+    auto gridLayout = makeGridLayout();
+    m_gridLayouts.push_back(gridLayout);
+    m_contentLayout->addLayout(gridLayout);
+  }
+
+  if (li > 0) {
+    if (m_columnWidths.empty()) {
+      updateColumnWidths();
+    }
+    w->setFixedWidth(widthForColumn(column));
+  }
+
+  m_gridLayouts[li]->addWidget(w, ri, column);
 }
 
 void OSGridView::hideEvent(QHideEvent* event) {
@@ -417,6 +474,29 @@ void OSGridView::showEvent(QShowEvent* event) {
   m_gridController->connectToModelSignals();
 
   QWidget::showEvent(event);
+}
+
+void OSGridView::resizeEvent(QResizeEvent* event) {
+  QWidget::resizeEvent(event);
+
+  if (m_gridLayouts.size() > 0) {
+    updateColumnWidths();
+  }
+
+  const auto numRows = m_gridController->rowCount();
+  const auto numColumns = m_gridController->columnCount();
+  for (int i = NUM_ROWS_PER_GRIDLAYOUT; i < numRows; i++) {
+    int li = layoutIndex(i);
+    int ri = rowInLayout(i);
+    for (int j = 0; j < numColumns; j++) {
+      QLayoutItem* item = m_gridLayouts[li]->itemAtPosition(ri, j);
+      if (item) {
+        OSCellWrapper* wrapper = qobject_cast<OSCellWrapper*>(item->widget());
+        OS_ASSERT(wrapper);
+        wrapper->setFixedWidth(widthForColumn(j));
+      }
+    }
+  }
 }
 
 }  // namespace openstudio
