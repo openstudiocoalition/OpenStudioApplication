@@ -326,7 +326,6 @@ void OSGridView::addRow(int row) {
   setUpdatesEnabled(false);
 
   int li = layoutIndex(row);
-  int ri = rowInLayout(row);
   while (li >= m_gridLayouts.size()) {
     auto gridLayout = makeGridLayout();
     m_gridLayouts.push_back(gridLayout);
