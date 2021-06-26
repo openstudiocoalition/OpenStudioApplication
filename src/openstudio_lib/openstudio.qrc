@@ -109,6 +109,7 @@
     <file>images/evap_cooled.png</file>
     <file>images/evap_fluid_cooler.png</file>
     <file>images/evap_fluid_cooler_two_speed.png</file>
+    <file>images/fan_componentmodel.png</file>
     <file>images/fan_constant.png</file>
     <file>images/fan_on_off.png</file>
     <file>images/fan_systemmodel.png</file>
@@ -396,6 +397,7 @@
     <file>images/mini_icons/evap_fluid_cooler.png</file>
     <file>images/mini_icons/evap_fluid_cooler_two_speed.png</file>
     <file>images/mini_icons/facility.png</file>
+    <file>images/mini_icons/fan_componentmodel.png</file>
     <file>images/mini_icons/fan_constant.png</file>
     <file>images/mini_icons/fan_on_off_mini.png</file>
     <file>images/mini_icons/fan_systemmodel.png</file>
@@ -615,6 +617,10 @@
     <file alias="shared_gui_components/images/duplicate_off.png">../shared_gui_components/images/duplicate_off.png</file>
     <file alias="shared_gui_components/images/duplicate_over.png">../shared_gui_components/images/duplicate_over.png</file>
     <file alias="shared_gui_components/images/duplicate_press.png">../shared_gui_components/images/duplicate_press.png</file>
+    <file alias="shared_gui_components/images/duplicate_softer_disabled.png">../shared_gui_components/images/duplicate_softer_disabled.png</file>
+    <file alias="shared_gui_components/images/duplicate_softer_off.png">../shared_gui_components/images/duplicate_softer_off.png</file>
+    <file alias="shared_gui_components/images/duplicate_softer_over.png">../shared_gui_components/images/duplicate_softer_over.png</file>
+    <file alias="shared_gui_components/images/duplicate_softer_press.png">../shared_gui_components/images/duplicate_softer_press.png</file>
     <file alias="shared_gui_components/images/energyplus_measure_icon.png">../shared_gui_components/images/energyplus_measure_icon.png</file>
     <file alias="shared_gui_components/images/error-alert.png">../shared_gui_components/images/error-alert.png</file>
     <file alias="shared_gui_components/images/fast_forward.png">../shared_gui_components/images/fast_forward.png</file>

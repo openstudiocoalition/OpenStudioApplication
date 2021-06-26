@@ -1087,9 +1087,10 @@ void MainRightColumnController::configureForHVACSystemsSubTab(int subTabID) {
   libraryWidget->addModelObjectType(IddObjectType::OS_ZoneHVAC_PackagedTerminalAirConditioner, "PTAC");
   libraryWidget->addModelObjectType(IddObjectType::OS_ZoneHVAC_UnitHeater, "Unit Heater");
   libraryWidget->addModelObjectType(IddObjectType::OS_ZoneHVAC_UnitVentilator, "Unit Ventilator");
+  libraryWidget->addModelObjectType(IddObjectType::OS_Fan_ComponentModel, "Fan Component Model");
+  libraryWidget->addModelObjectType(IddObjectType::OS_Fan_SystemModel, "Fan System Model");
   libraryWidget->addModelObjectType(IddObjectType::OS_Fan_VariableVolume, "Fan Variable Volume");
   libraryWidget->addModelObjectType(IddObjectType::OS_Fan_ConstantVolume, "Fan Constant Volume");
-  libraryWidget->addModelObjectType(IddObjectType::OS_Fan_SystemModel, "Fan System Model");
   libraryWidget->addModelObjectType(IddObjectType::OS_EvaporativeCooler_Direct_ResearchSpecial, "Evaporative Cooler Direct Research Special");
   libraryWidget->addModelObjectType(IddObjectType::OS_EvaporativeCooler_Indirect_ResearchSpecial, "Evaporative Cooler Indirect Research Special");
   libraryWidget->addModelObjectType(IddObjectType::OS_EvaporativeFluidCooler_TwoSpeed, "Evaporative Fluid Cooler Two Speed");

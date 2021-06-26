@@ -4989,7 +4989,7 @@ OS:AirConditioner:VariableRefrigerantFlow,
   {30fbccd3-f4f0-4bf8-94be-faf7bba3e968}, !- Heating Energy Input Ratio Modifier Function of High Part-Load Ratio Curve Name
   {68c0f092-88a2-4ba9-b6b4-4d8f2b091efc}, !- Heating Combination Ratio Correction Factor Curve Name
   {14f8f003-46ae-43fe-a743-607c63cd092c}, !- Heating Part-Load Fraction Correlation Curve Name
-  0.25,                                   !- Minimum Heat Pump Part-Load Ratio {dimensionless}
+  0.5,                                    !- Minimum Heat Pump Part-Load Ratio {dimensionless}
   ,                                       !- Zone Name for Master Thermostat Location
   LoadPriority,                           !- Master Thermostat Priority Control Type
   ,                                       !- Thermostat Priority Schedule
@@ -12445,4 +12445,197 @@ OS:Coil:Cooling:Water:Panel:Radiant,
   ,                                       !- Cooling Control Temperature Schedule Name
   SimpleOff,                              !- Condensation Control Type
   1;                                      !- Condensation Control Dewpoint Offset {C}
+
+OS:Fan:ComponentModel,
+  {475b553b-8a0f-4284-a544-b3c47a7e5dd7}, !- Handle
+  FanComponentModel,                      !- Name
+  ,                                       !- Air Inlet Node Name
+  ,                                       !- Air Outlet Node Name
+  {9f54092d-a4a8-41b8-a381-c4c332ecb843}, !- Availability Schedule Name
+  autosize,                               !- Maximum Flow Rate {m3/s}
+  autosize,                               !- Minimum Flow Rate {m3/s}
+  1,                                      !- Fan Sizing Factor
+  0.3048,                                 !- Fan Wheel Diameter {m}
+  0.0873288576,                           !- Fan Outlet Area {m2}
+  0.514,                                  !- Maximum Fan Static Efficiency
+  9.76,                                   !- Euler Number at Maximum Fan Static Efficiency
+  0.160331811647483,                      !- Maximum Dimensionless Fan Airflow
+  autosize,                               !- Motor Fan Pulley Ratio
+  autosize,                               !- Belt Maximum Torque {N-m}
+  1,                                      !- Belt Sizing Factor
+  0.167,                                  !- Belt Fractional Torque Transition
+  1800,                                   !- Motor Maximum Speed {rev/min}
+  autosize,                               !- Maximum Motor Output Power {W}
+  1,                                      !- Motor Sizing Factor
+  1,                                      !- Motor In Airstream Fraction
+  Power,                                  !- VFD Efficiency Type
+  autosize,                               !- Maximum VFD Output Power {W}
+  1,                                      !- VFD Sizing Factor
+  {31a1c3be-65c2-4610-b3cc-55829f353537}, !- Fan Pressure Rise Curve Name
+  {d07cf831-1280-4336-90ae-f5cc67a89010}, !- Duct Static Pressure Reset Curve Name
+  {bfd1ae73-7dc0-4854-97e2-5d15ebeb42e5}, !- Normalized Fan Static Efficiency Curve Name-Non-Stall Region
+  {fb68ee6a-ee02-4f48-b553-186326d8c671}, !- Normalized Fan Static Efficiency Curve Name-Stall Region
+  {8bcde119-4168-424f-9705-28b8c0b0afaa}, !- Normalized Dimensionless Airflow Curve Name-Non-Stall Region
+  {0e7b24ee-1cd5-4412-bc9c-a4e7816ed2d7}, !- Normalized Dimensionless Airflow Curve Name-Stall Region
+  {f7cf787d-6adf-4db3-bca9-bc153fa574e6}, !- Maximum Belt Efficiency Curve Name
+  {13de9540-fdab-42fe-9456-6d95cdd92b89}, !- Normalized Belt Efficiency Curve Name - Region 1
+  {d1341341-bb1a-4832-aa6a-f1c4b8fb4905}, !- Normalized Belt Efficiency Curve Name - Region 2
+  {d679a541-5275-491f-926e-10465ec58d81}, !- Normalized Belt Efficiency Curve Name - Region 3
+  {3dc3f15f-87eb-4a51-88f6-e577ab451c39}, !- Maximum Motor Efficiency Curve Name
+  {45a687b2-4a28-407b-a7de-09efc66e4594}, !- Normalized Motor Efficiency Curve Name
+  {fb67a44a-9aac-4d75-be07-dba2806f8016}, !- VFD Efficiency Curve Name
+  General;                                !- End-Use Subcategory
+
+OS:Curve:FanPressureRise,
+  {31a1c3be-65c2-4610-b3cc-55829f353537}, !- Handle
+  VSD Example,                            !- Name
+  1446.75833497653,                       !- Coefficient1 C1
+  0,                                      !- Coefficient2 C2
+  0,                                      !- Coefficient3 C3
+  1,                                      !- Coefficient4 C4
+  0,                                      !- Minimum Value of Qfan {m3/s}
+  100,                                    !- Maximum Value of Qfan {m3/s}
+  62.5,                                   !- Minimum Value of Psm {Pa}
+  300,                                    !- Maximum Value of Psm {Pa}
+  0,                                      !- Minimum Curve Output {Pa}
+  5000;                                   !- Maximum Curve Output {Pa}
+
+OS:Curve:Linear,
+  {d07cf831-1280-4336-90ae-f5cc67a89010}, !- Handle
+  DiagnosticSPR,                          !- Name
+  248.84,                                 !- Coefficient1 Constant
+  0,                                      !- Coefficient2 x
+  0,                                      !- Minimum Value of x
+  100,                                    !- Maximum Value of x
+  62.5,                                   !- Minimum Curve Output
+  248.84;                                 !- Maximum Curve Output
+
+OS:Curve:ExponentialSkewNormal,
+  {bfd1ae73-7dc0-4854-97e2-5d15ebeb42e5}, !- Handle
+  FanEff120CPLANormal,                    !- Name
+  0.072613,                               !- Coefficient1 C1
+  0.833213,                               !- Coefficient2 C2
+  0,                                      !- Coefficient3 C3
+  0.013911,                               !- Coefficient4 C4
+  -4,                                     !- Minimum Value of x
+  5,                                      !- Maximum Value of x
+  0.1,                                    !- Minimum Curve Output
+  1;                                      !- Maximum Curve Output
+
+OS:Curve:ExponentialSkewNormal,
+  {fb68ee6a-ee02-4f48-b553-186326d8c671}, !- Handle
+  FanEff120CPLAStall,                     !- Name
+  -1.674931,                              !- Coefficient1 C1
+  1.980182,                               !- Coefficient2 C2
+  0,                                      !- Coefficient3 C3
+  1.84495,                                !- Coefficient4 C4
+  -4,                                     !- Minimum Value of x
+  5,                                      !- Maximum Value of x
+  0.1,                                    !- Minimum Curve Output
+  1;                                      !- Maximum Curve Output
+
+OS:Curve:Sigmoid,
+  {8bcde119-4168-424f-9705-28b8c0b0afaa}, !- Handle
+  FanDimFlowNormal,                       !- Name
+  0,                                      !- Coefficient1 C1
+  1.001423,                               !- Coefficient2 C2
+  0.123935,                               !- Coefficient3 C3
+  -0.476026,                              !- Coefficient4 C4
+  1,                                      !- Coefficient5 C5
+  -4,                                     !- Minimum Value of x
+  5,                                      !- Maximum Value of x
+  0.05,                                   !- Minimum Curve Output
+  1;                                      !- Maximum Curve Output
+
+OS:Curve:Sigmoid,
+  {0e7b24ee-1cd5-4412-bc9c-a4e7816ed2d7}, !- Handle
+  FanDimFlowStall,                        !- Name
+  0,                                      !- Coefficient1 C1
+  5.924993,                               !- Coefficient2 C2
+  -1.91636,                               !- Coefficient3 C3
+  -0.851779,                              !- Coefficient4 C4
+  1,                                      !- Coefficient5 C5
+  -4,                                     !- Minimum Value of x
+  5,                                      !- Maximum Value of x
+  0.05,                                   !- Minimum Curve Output
+  1;                                      !- Maximum Curve Output
+
+OS:Curve:Quartic,
+  {f7cf787d-6adf-4db3-bca9-bc153fa574e6}, !- Handle
+  BeltMaxEffMedium,                       !- Name
+  -0.09504,                               !- Coefficient1 Constant
+  0.03415,                                !- Coefficient2 x
+  -0.008897,                              !- Coefficient3 x**2
+  0.001159,                               !- Coefficient4 x**3
+  -6.132e-05,                             !- Coefficient5 x**4
+  -1.2,                                   !- Minimum Value of x
+  6.2,                                    !- Maximum Value of x
+  -4.6,                                   !- Minimum Curve Output
+  0;                                      !- Maximum Curve Output
+
+OS:Curve:RectangularHyperbola2,
+  {13de9540-fdab-42fe-9456-6d95cdd92b89}, !- Handle
+  BeltPartLoadRegion1,                    !- Name
+  0.920797,                               !- Coefficient1 C1
+  0.0262686,                              !- Coefficient2 C2
+  0.151594,                               !- Coefficient3 C3
+  0,                                      !- Minimum Value of x
+  1,                                      !- Maximum Value of x
+  0.01,                                   !- Minimum Curve Output
+  1;                                      !- Maximum Curve Output
+
+OS:Curve:ExponentialDecay,
+  {d1341341-bb1a-4832-aa6a-f1c4b8fb4905}, !- Handle
+  BeltPartLoadRegion2,                    !- Name
+  1.011965,                               !- Coefficient1 C1
+  -0.339038,                              !- Coefficient2 C2
+  -3.43626,                               !- Coefficient3 C3
+  0,                                      !- Minimum Value of x
+  1,                                      !- Maximum Value of x
+  0.01,                                   !- Minimum Curve Output
+  1;                                      !- Maximum Curve Output
+
+OS:Curve:RectangularHyperbola2,
+  {d679a541-5275-491f-926e-10465ec58d81}, !- Handle
+  BeltPartLoadRegion3,                    !- Name
+  1.037778,                               !- Coefficient1 C1
+  0.0103068,                              !- Coefficient2 C2
+  -0.0268146,                             !- Coefficient3 C3
+  0,                                      !- Minimum Value of x
+  1,                                      !- Maximum Value of x
+  0.01,                                   !- Minimum Curve Output
+  1;                                      !- Maximum Curve Output
+
+OS:Curve:RectangularHyperbola1,
+  {3dc3f15f-87eb-4a51-88f6-e577ab451c39}, !- Handle
+  MotorMaxEffAvg,                         !- Name
+  0.29228,                                !- Coefficient1 C1
+  3.368739,                               !- Coefficient2 C2
+  0.762471,                               !- Coefficient3 C3
+  0,                                      !- Minimum Value of x
+  7.6,                                    !- Maximum Value of x
+  0.01,                                   !- Minimum Curve Output
+  1;                                      !- Maximum Curve Output
+
+OS:Curve:RectangularHyperbola2,
+  {45a687b2-4a28-407b-a7de-09efc66e4594}, !- Handle
+  MotorPartLoad,                          !- Name
+  1.137209,                               !- Coefficient1 C1
+  0.0502359,                              !- Coefficient2 C2
+  -0.0891503,                             !- Coefficient3 C3
+  0,                                      !- Minimum Value of x
+  1,                                      !- Maximum Value of x
+  0.01,                                   !- Minimum Curve Output
+  1;                                      !- Maximum Curve Output
+
+OS:Curve:RectangularHyperbola2,
+  {fb67a44a-9aac-4d75-be07-dba2806f8016}, !- Handle
+  VFDPartLoad,                            !- Name
+  0.987405,                               !- Coefficient1 C1
+  0.0155361,                              !- Coefficient2 C2
+  -0.0059365,                             !- Coefficient3 C3
+  0,                                      !- Minimum Value of x
+  1,                                      !- Maximum Value of x
+  0.01,                                   !- Minimum Curve Output
+  1;                                      !- Maximum Curve Output
 

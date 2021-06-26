@@ -31,17 +31,28 @@
 #define OPENSTUDIO_OSWEBENGINEPAGE_HPP
 
 #include <QWebEnginePage>
+#include <QWebEngineUrlRequestInfo>
+#include <QWebEngineUrlRequestInterceptor>
 
 #include <openstudio/utilities/core/Logger.hpp>
 
 namespace openstudio {
+
+class OSUrlRequestInterceptor : public QWebEngineUrlRequestInterceptor
+{
+ public:
+  OSUrlRequestInterceptor(QObject* parent = 0);
+  virtual ~OSUrlRequestInterceptor();
+  void interceptRequest(QWebEngineUrlRequestInfo& info) final;
+};
 
 class OSWebEnginePage : public QWebEnginePage
 {
   Q_OBJECT
 
  public:
-  OSWebEnginePage(QObject* parent = 0) : QWebEnginePage(parent) {}
+  OSWebEnginePage(QObject* parent = 0);
+  virtual ~OSWebEnginePage();
 
  protected:
   virtual bool certificateError(const QWebEngineCertificateError& certificateError) override;

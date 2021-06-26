@@ -132,6 +132,7 @@
 #include <QTcpServer>
 #include <QtConcurrent>
 #include <QtGlobal>
+#include <QSettings>
 
 #include <openstudio/OpenStudio.hxx>
 #include <openstudio/utilities/idd/IddEnums.hxx>
@@ -192,7 +193,7 @@ OpenStudioApp::OpenStudioApp(int& argc, char** argv)
   setQuitOnLastWindowClosed(false);
 
   m_startupMenu = std::shared_ptr<StartupMenu>(new StartupMenu());
-  connect(m_startupMenu.get(), &StartupMenu::exitClicked, this, &OpenStudioApp::quit);
+  connect(m_startupMenu.get(), &StartupMenu::exitClicked, this, &OpenStudioApp::quit, Qt::QueuedConnection);
   connect(m_startupMenu.get(), &StartupMenu::importClicked, this, &OpenStudioApp::importIdf);
   connect(m_startupMenu.get(), &StartupMenu::importgbXMLClicked, this, &OpenStudioApp::importgbXML);
   connect(m_startupMenu.get(), &StartupMenu::importSDDClicked, this, &OpenStudioApp::importSDD);
@@ -226,6 +227,8 @@ OpenStudioApp::OpenStudioApp(int& argc, char** argv)
 OpenStudioApp::~OpenStudioApp() {
   if (m_measureManagerProcess) {
     m_measureManagerProcess->disconnect();
+    m_measureManagerProcess->kill();
+    m_measureManagerProcess->waitForFinished();
     delete m_measureManagerProcess;
     m_measureManagerProcess = nullptr;
   }
@@ -502,18 +505,18 @@ void OpenStudioApp::importIdf() {
           informativeText = QString("The IDF is at version '") + toQString(idfFileVersion->str());
 
           if (idfFileVersion.get() < currentVersion) {
-            informativeText.append(QString("' while OpenStudio uses a <strong>newer</strong> EnergyPlus '") + toQString(currentVersion.str()) +
-                                   QString("'. Consider using the EnergyPlus Auxiliary program IDFVersionUpdater to update your IDF file."));
+            informativeText.append(QString("' while OpenStudio uses a <strong>newer</strong> EnergyPlus '") + toQString(currentVersion.str())
+                                   + QString("'. Consider using the EnergyPlus Auxiliary program IDFVersionUpdater to update your IDF file."));
           } else if (idfFileVersion.get() > currentVersion) {
-            informativeText.append(QString("' while OpenStudio uses an <strong>older</strong> EnergyPlus '") + toQString(currentVersion.str()) +
-                                   QString("'."));
+            informativeText.append(QString("' while OpenStudio uses an <strong>older</strong> EnergyPlus '") + toQString(currentVersion.str())
+                                   + QString("'."));
           } else {
-            informativeText.append(QString("' which is the <strong>same</strong> version of EnergyPlus that OpenStudio uses (") +
-                                   toQString(currentVersion.str()) + QString(")."));
+            informativeText.append(QString("' which is the <strong>same</strong> version of EnergyPlus that OpenStudio uses (")
+                                   + toQString(currentVersion.str()) + QString(")."));
           }
         } else {
-          informativeText = QString("<strong>The IDF does not have a VersionObject</strong>. Check that it is of correct version (") +
-                            toQString(currentVersion.str()) + QString(") and that all fields are valid against Energy+.idd. ");
+          informativeText = QString("<strong>The IDF does not have a VersionObject</strong>. Check that it is of correct version (")
+                            + toQString(currentVersion.str()) + QString(") and that all fields are valid against Energy+.idd. ");
         }
 
         informativeText.append("<br/><br/>The ValidityReport follows.");
@@ -965,8 +968,8 @@ void OpenStudioApp::checkForUpdate() {
   QMessageBox::StandardButtons buttons;
   bool openURL = false;
   if (releases.newReleaseAvailable()) {
-    text = QString(tr("A new version is available at <a href=\"")) + toQString(releases.releasesUrl()) + QString("\">") +
-           toQString(releases.releasesUrl()) + QString("</a>");
+    text = QString(tr("A new version is available at <a href=\"")) + toQString(releases.releasesUrl()) + QString("\">")
+           + toQString(releases.releasesUrl()) + QString("</a>");
     openURL = true;
     buttons = QMessageBox::Open | QMessageBox::Ignore;
   } else {
@@ -1171,6 +1174,10 @@ void OpenStudioApp::writeSettings() {
   QString organizationName = QCoreApplication::organizationName();
   QString applicationName = QCoreApplication::applicationName();
   QSettings settings(organizationName, applicationName);
+  if (!settings.isWritable()) {
+    QMessageBox::warning(nullptr, tr("Settings file not writable"),
+                         tr("Your settings file '") + settings.fileName() + tr("' is not writable. Adjust the file permissions"));
+  }
   settings.setValue("lastPath", lastPath());
 }
 
@@ -1216,8 +1223,8 @@ void OpenStudioApp::revertToSaved() {
 
 void OpenStudioApp::connectOSDocumentSignals() {
   OS_ASSERT(m_osDocument);
-  connect(m_osDocument.get(), &OSDocument::closeClicked, this, &OpenStudioApp::onCloseClicked);
-  connect(m_osDocument.get(), &OSDocument::exitClicked, this, &OpenStudioApp::quit);
+  connect(m_osDocument.get(), &OSDocument::closeClicked, this, &OpenStudioApp::onCloseClicked, Qt::QueuedConnection);
+  connect(m_osDocument.get(), &OSDocument::exitClicked, this, &OpenStudioApp::quit, Qt::QueuedConnection);
   connect(m_osDocument.get(), &OSDocument::importClicked, this, &OpenStudioApp::importIdf);
   connect(m_osDocument.get(), &OSDocument::importgbXMLClicked, this, &OpenStudioApp::importgbXML);
   connect(m_osDocument.get(), &OSDocument::importSDDClicked, this, &OpenStudioApp::importSDD);
@@ -1299,6 +1306,11 @@ void OpenStudioApp::writeLibraryPaths(std::vector<openstudio::path> paths) {
   auto defaultPaths = defaultLibraryPaths();
 
   QSettings settings(QCoreApplication::organizationName(), QCoreApplication::applicationName());
+
+  if (!settings.isWritable()) {
+    QMessageBox::warning(nullptr, tr("Settings file not writable"),
+                         tr("Your settings file '") + settings.fileName() + tr("' is not writable. Adjust the file permissions"));
+  }
 
   if (paths == defaultPaths) {
     settings.remove("library");

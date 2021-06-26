@@ -69,6 +69,7 @@ TEST_F(OpenStudioLibFixture, IconLibrary_Icon) {
   //iddObjectTypes.push_back(IddObjectType::OS_ElectricEquipment_Definition);
   iddObjectTypes.push_back(IddObjectType::OS_EvaporativeCooler_Direct_ResearchSpecial);
   //iddObjectTypes.push_back(IddObjectType::OS_Facility);
+  iddObjectTypes.push_back(IddObjectType::OS_Fan_ComponentModel);
   iddObjectTypes.push_back(IddObjectType::OS_Fan_ConstantVolume);
   iddObjectTypes.push_back(IddObjectType::OS_Fan_OnOff);
   iddObjectTypes.push_back(IddObjectType::OS_Fan_SystemModel);
@@ -162,6 +163,7 @@ TEST_F(OpenStudioLibFixture, IconLibrary_MiniIcon) {
   iddObjectTypes.push_back(IddObjectType::OS_ElectricEquipment_Definition);
   iddObjectTypes.push_back(IddObjectType::OS_EvaporativeCooler_Direct_ResearchSpecial);
   iddObjectTypes.push_back(IddObjectType::OS_Facility);
+  iddObjectTypes.push_back(IddObjectType::OS_Fan_ComponentModel);
   iddObjectTypes.push_back(IddObjectType::OS_Fan_ConstantVolume);
   iddObjectTypes.push_back(IddObjectType::OS_Fan_OnOff);
   iddObjectTypes.push_back(IddObjectType::OS_Fan_SystemModel);
