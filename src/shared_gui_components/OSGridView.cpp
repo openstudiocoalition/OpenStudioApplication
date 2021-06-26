@@ -91,11 +91,7 @@ QGridLayout* OSGridView::makeGridLayout() {
 }
 
 OSGridView::OSGridView(OSGridController* gridController, const QString& headerText, const QString& dropZoneText, bool useHeader, QWidget* parent)
-  : QWidget(parent),
-    m_dropZone(nullptr),
-    m_contentLayout(nullptr),
-    m_collapsibleView(nullptr),
-    m_gridController(gridController) {
+  : QWidget(parent), m_dropZone(nullptr), m_contentLayout(nullptr), m_collapsibleView(nullptr), m_gridController(gridController) {
 
   // We use the headerText as the object name, will help in indentifying objects for any warnings
   setObjectName(headerText);
@@ -336,7 +332,7 @@ void OSGridView::addRow(int row) {
     m_gridLayouts.push_back(gridLayout);
     m_contentLayout->addLayout(gridLayout);
   }
-  
+
   const auto numRows = m_gridController->rowCount();
   OS_ASSERT(row < numRows);
   const auto numColumns = m_gridController->columnCount();
@@ -375,8 +371,7 @@ void OSGridView::recreateAll() {
   }
 }
 
-int OSGridView::layoutIndex(int row) const
-{
+int OSGridView::layoutIndex(int row) const {
   return row / NUM_ROWS_PER_GRIDLAYOUT;
 }
 
@@ -387,8 +382,8 @@ int OSGridView::rowInLayout(int row) const {
 void OSGridView::updateColumnWidths() {
   m_columnWidths.clear();
 
-  OS_ASSERT(m_gridLayouts.size() > 0);  
-  OS_ASSERT(m_gridLayouts[0]->rowCount() > 0);  
+  OS_ASSERT(m_gridLayouts.size() > 0);
+  OS_ASSERT(m_gridLayouts[0]->rowCount() > 0);
   int numColumns = m_gridLayouts[0]->columnCount();
   for (int column = 0; column < numColumns; ++column) {
     QLayoutItem* item = m_gridLayouts[0]->itemAtPosition(0, column);
