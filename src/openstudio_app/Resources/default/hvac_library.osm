@@ -1,7 +1,7 @@
 
 OS:Version,
-  {c78f3c6c-d61e-4523-b24e-8832c674b9ce}, !- Handle
-  3.2.0;                                  !- Version Identifier
+  {8304e7fb-be0b-4d3a-bb9a-f802e5497ab8}, !- Handle
+  3.2.1;                                  !- Version Identifier
 
 ! Always OnOff Discrete Schedule Type Limits
 OS:ScheduleTypeLimits,
@@ -2308,6 +2308,14 @@ OS:WaterHeater:Mixed,
   ,                                       !- Indirect Alternate Setpoint Temperature Schedule Name
   General;                                !- End-Use Subcategory
 
+OS:WaterHeater:Sizing,
+  {4e5098dc-0f19-4074-8971-faec7f3a281a}, !- Handle
+  {a5780efe-a3d2-4211-a0a1-66f758539f62}, !- WaterHeater Name
+  PeakDraw,                               !- Design Mode
+  0.538503,                               !- Time Storage Can Meet Peak Draw {hr}
+  0,                                      !- Time for Tank Recovery {hr}
+  1;                                      !- Nominal Tank Volume for Autosizing Plant Connections {m3}
+
 OS:WaterHeater:HeatPump,
   {8227efbf-0cf6-443c-bdd2-3f8217c5f85e}, !- Handle
   Heat Pump Water Heater,                 !- Name
@@ -2535,6 +2543,14 @@ OS:WaterHeater:Stratified,
   IndirectHeatPrimarySetpoint,            !- Source Side Flow Control Mode
   ;                                       !- Indirect Alternate Setpoint Temperature Schedule Name
 
+OS:WaterHeater:Sizing,
+  {b8e4780a-96a8-4f09-8b96-e7ab94bbd0f1}, !- Handle
+  {db2fa640-2a72-4846-9027-769207ea3ebf}, !- WaterHeater Name
+  PeakDraw,                               !- Design Mode
+  0.538503,                               !- Time Storage Can Meet Peak Draw {hr}
+  0,                                      !- Time for Tank Recovery {hr}
+  1;                                      !- Nominal Tank Volume for Autosizing Plant Connections {m3}
+
 OS:WaterHeater:Mixed,
   {5a6a31ef-f662-4452-925d-855d251337c0}, !- Handle
   HPWH Tank,                              !- Name
@@ -2579,6 +2595,14 @@ OS:WaterHeater:Mixed,
   IndirectHeatPrimarySetpoint,            !- Source Side Flow Control Mode
   ,                                       !- Indirect Alternate Setpoint Temperature Schedule Name
   General;                                !- End-Use Subcategory
+
+OS:WaterHeater:Sizing,
+  {a4f5e4ca-a908-469f-b5fa-ee9b91da07d4}, !- Handle
+  {5a6a31ef-f662-4452-925d-855d251337c0}, !- WaterHeater Name
+  PeakDraw,                               !- Design Mode
+  0.538503,                               !- Time Storage Can Meet Peak Draw {hr}
+  0,                                      !- Time for Tank Recovery {hr}
+  1;                                      !- Nominal Tank Volume for Autosizing Plant Connections {m3}
 
 OS:WaterHeater:HeatPump:WrappedCondenser,
   {0cf7ccd6-da8e-427d-8d2f-0acd55b7e681}, !- Handle
@@ -2761,6 +2785,14 @@ OS:WaterHeater:Stratified,
   0,                                      !- Node 11 Additional Loss Coefficient {W/m2-K}
   0,                                      !- Node 12 Additional Loss Coefficient {W/m2-K}
   IndirectHeatPrimarySetpoint;            !- Source Side Flow Control Mode
+
+OS:WaterHeater:Sizing,
+  {bf14549e-29ba-4b50-ba4f-db0640b0e8ed}, !- Handle
+  {488acc4e-9be5-426c-a365-587633e98f6c}, !- WaterHeater Name
+  PeakDraw,                               !- Design Mode
+  0.538503,                               !- Time Storage Can Meet Peak Draw {hr}
+  0,                                      !- Time for Tank Recovery {hr}
+  1;                                      !- Nominal Tank Volume for Autosizing Plant Connections {m3}
 
 OS:Schedule:Ruleset,
   {80bfe8ad-a507-4649-8f97-97aed8b7caa4}, !- Handle
