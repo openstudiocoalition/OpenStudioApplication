@@ -78,7 +78,7 @@
 #  define HEIGHT 60
 #endif
 
-const int NUM_ROWS_PER_GRIDLAYOUT = 5;
+constexpr int NUM_ROWS_PER_GRIDLAYOUT = 5;
 
 namespace openstudio {
 
@@ -303,6 +303,7 @@ void OSGridView::onGridCellChanged(const GridCellLocation& location, const GridC
 void OSGridView::deleteAll() {
   QLayoutItem* child;
   for (auto gridLayout : m_gridLayouts) {
+    m_contentLayout->removeItem(gridLayout);
     while ((child = gridLayout->takeAt(0)) != nullptr) {
       QWidget* widget = child->widget();
 
@@ -381,15 +382,17 @@ int OSGridView::rowInLayout(int row) const {
 void OSGridView::updateColumnWidths() {
   m_columnWidths.clear();
 
-  OS_ASSERT(m_gridLayouts.size() > 0);
-  OS_ASSERT(m_gridLayouts[0]->rowCount() > 0);
-  int numColumns = m_gridLayouts[0]->columnCount();
-  for (int column = 0; column < numColumns; ++column) {
-    QLayoutItem* item = m_gridLayouts[0]->itemAtPosition(0, column);
-    OS_ASSERT(item);
-    OSCellWrapper* wrapper = qobject_cast<OSCellWrapper*>(item->widget());
-    OS_ASSERT(wrapper);
-    m_columnWidths.push_back(wrapper->width());
+  if (m_gridLayouts.size() > 0) {
+    if (m_gridLayouts[0]->rowCount() > 0) {
+      int numColumns = m_gridLayouts[0]->columnCount();
+      for (int column = 0; column < numColumns; ++column) {
+        QLayoutItem* item = m_gridLayouts[0]->itemAtPosition(0, column);
+        OS_ASSERT(item);
+        OSCellWrapper* wrapper = qobject_cast<OSCellWrapper*>(item->widget());
+        OS_ASSERT(wrapper);
+        m_columnWidths.push_back(wrapper->width());
+      }
+    }
   }
 }
 
@@ -475,6 +478,9 @@ void OSGridView::resizeEvent(QResizeEvent* event) {
 
   if (m_gridLayouts.size() > 0) {
     updateColumnWidths();
+  } else {
+    // nothing to do
+    return;
   }
 
   const auto numRows = m_gridController->rowCount();
