@@ -78,7 +78,7 @@
 #  define HEIGHT 60
 #endif
 
-constexpr int NUM_ROWS_PER_GRIDLAYOUT = 5;
+constexpr int NUM_ROWS_PER_GRIDLAYOUT = 51;
 
 namespace openstudio {
 
@@ -476,24 +476,22 @@ void OSGridView::showEvent(QShowEvent* event) {
 void OSGridView::resizeEvent(QResizeEvent* event) {
   QWidget::resizeEvent(event);
 
-  if (m_gridLayouts.size() > 0) {
-    updateColumnWidths();
-  } else {
-    // nothing to do
-    return;
-  }
+  updateColumnWidths();
 
-  const auto numRows = m_gridController->rowCount();
-  const auto numColumns = m_gridController->columnCount();
-  for (int i = NUM_ROWS_PER_GRIDLAYOUT; i < numRows; i++) {
-    int li = layoutIndex(i);
-    int ri = rowInLayout(i);
-    for (int j = 0; j < numColumns; j++) {
-      QLayoutItem* item = m_gridLayouts[li]->itemAtPosition(ri, j);
-      if (item) {
-        OSCellWrapper* wrapper = qobject_cast<OSCellWrapper*>(item->widget());
-        OS_ASSERT(wrapper);
-        wrapper->setFixedWidth(widthForColumn(j));
+  if (m_gridLayouts.size() > 0) {
+    const auto numRows = m_gridController->rowCount();
+    const auto numColumns = m_gridController->columnCount();
+    for (int i = NUM_ROWS_PER_GRIDLAYOUT; i < numRows; i++) {
+      int li = layoutIndex(i);
+      int ri = rowInLayout(i);
+      for (int j = 0; j < numColumns; j++) {
+        QLayoutItem* item = m_gridLayouts[li]->itemAtPosition(ri, j);
+        if (item) {
+          OSCellWrapper* wrapper = qobject_cast<OSCellWrapper*>(item->widget());
+          if (wrapper) {
+            wrapper->setFixedWidth(widthForColumn(j));
+          }
+        }
       }
     }
   }
