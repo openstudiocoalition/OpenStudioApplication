@@ -400,9 +400,6 @@ if(MSVC)
   add_definitions(-D_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS)
   add_definitions(-D_SILENCE_FPOS_SEEKPOS_DEPRECATION_WARNING)
 
-  # increase stack size
-  set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /STACK:8000000")
-
   # for profiling with micro-profiler
   if(BUILD_MICRO_PROFILING)
     add_definitions(/GH /Gh /Zi)

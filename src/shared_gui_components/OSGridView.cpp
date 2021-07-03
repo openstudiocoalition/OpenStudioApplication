@@ -371,11 +371,11 @@ void OSGridView::recreateAll() {
   }
 }
 
-int OSGridView::layoutIndex(int row) const {
+constexpr int OSGridView::layoutIndex(int row) const {
   return row / NUM_ROWS_PER_GRIDLAYOUT;
 }
 
-int OSGridView::rowInLayout(int row) const {
+constexpr int OSGridView::rowInLayout(int row) const {
   return row % NUM_ROWS_PER_GRIDLAYOUT;
 }
 

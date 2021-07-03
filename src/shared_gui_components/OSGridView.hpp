@@ -114,10 +114,10 @@ class OSGridView : public QWidget
   void recreateAll();
 
   // convert row to layout index
-  int layoutIndex(int row) const;
+  constexpr int layoutIndex(int row) const;
 
   // get row in layout
-  int rowInLayout(int row) const;
+  constexpr int rowInLayout(int row) const;
 
   // update column widths
   void updateColumnWidths();
