@@ -248,7 +248,7 @@ void FacilityExteriorEquipmentGridController::addColumns(const QString& category
               &OSSelectAllCheckBox::onGridRowSelectionChanged);
       addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row");
 
-    // Exterior Lights
+      // Exterior Lights
     } else if (IddObjectType::OS_Exterior_Lights == iddObjectType().value()) {
 
       if (field == EXTERIORLIGHTSDEFINITION) {
@@ -277,9 +277,9 @@ void FacilityExteriorEquipmentGridController::addColumns(const QString& category
           return el->setSchedule(copy);
         });
 
-        addDropZoneColumn(
-          Heading(QString(EXTERIORLIGHTSSCHEDULE)), CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::schedule), set,
-          boost::optional<std::function<void(model::ExteriorLights*)>>(CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::resetSchedule)));
+        addDropZoneColumn(Heading(QString(EXTERIORLIGHTSSCHEDULE)), CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::schedule), set,
+                          boost::optional<std::function<void(model::ExteriorLights*)>>(
+                            CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::resetSchedule)));
 
       } else if (field == EXTERIORLIGHTSCONTROLOPTION) {
 
@@ -296,13 +296,13 @@ void FacilityExteriorEquipmentGridController::addColumns(const QString& category
 
       } else if (field == EXTERIORLIGHTSMULTIPLIER) {
 
-        addValueEditColumn(
-          Heading(QString(EXTERIORLIGHTSMULTIPLIER)), NullAdapter(&model::ExteriorLights::multiplier),
-          NullAdapter(&model::ExteriorLights::setMultiplier),
-          boost::optional<std::function<void(model::ExteriorLights*)>>(CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::resetMultiplier)),
-          boost::optional<std::function<bool(model::ExteriorLights*)>>(
-            CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::isMultiplierDefaulted)),
-          boost::optional<DataSource>());
+        addValueEditColumn(Heading(QString(EXTERIORLIGHTSMULTIPLIER)), NullAdapter(&model::ExteriorLights::multiplier),
+                           NullAdapter(&model::ExteriorLights::setMultiplier),
+                           boost::optional<std::function<void(model::ExteriorLights*)>>(
+                             CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::resetMultiplier)),
+                           boost::optional<std::function<bool(model::ExteriorLights*)>>(
+                             CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::isMultiplierDefaulted)),
+                           boost::optional<DataSource>());
 
       } else if (field == EXERIORLIGHTSENDUSESUBCATEGORY) {
 
@@ -320,15 +320,16 @@ void FacilityExteriorEquipmentGridController::addColumns(const QString& category
         OS_ASSERT(false);
       }
 
-    // Exterior Fuel Equipment
+      // Exterior Fuel Equipment
     } else if (IddObjectType::OS_Exterior_FuelEquipment == iddObjectType().value()) {
 
       if (field == EXTERIORFUELEQUIPMENTDEFINITION) {
 
-        std::function<boost::optional<model::ExteriorFuelEquipmentDefinition>(model::ExteriorFuelEquipment*)> get([](model::ExteriorFuelEquipment* el) {
-          boost::optional<model::ExteriorFuelEquipmentDefinition> optional = el->exteriorFuelEquipmentDefinition();
-          return optional;
-        });
+        std::function<boost::optional<model::ExteriorFuelEquipmentDefinition>(model::ExteriorFuelEquipment*)> get(
+          [](model::ExteriorFuelEquipment* el) {
+            boost::optional<model::ExteriorFuelEquipmentDefinition> optional = el->exteriorFuelEquipmentDefinition();
+            return optional;
+          });
 
         addDropZoneColumn(Heading(QString(EXTERIORFUELEQUIPMENTDEFINITION)), get,
                           CastNullAdapter<model::ExteriorFuelEquipment>(&model::ExteriorFuelEquipment::setExteriorFuelEquipmentDefinition),
@@ -342,19 +343,18 @@ void FacilityExteriorEquipmentGridController::addColumns(const QString& category
           ProxyAdapter(static_cast<bool (model::ExteriorFuelEquipmentDefinition::*)(double)>(&model::ExteriorFuelEquipmentDefinition::setDesignLevel),
                        &model::ExteriorFuelEquipment::exteriorFuelEquipmentDefinition));
 
-
       } else if (field == EXTERIORFUELEQUIPMENTSCHEDULE) {
 
         std::function<boost::optional<model::Schedule>(model::ExteriorFuelEquipment*)> get(
           [](model::ExteriorFuelEquipment* el) { return el->schedule(); });
 
-        std::function<bool(model::ExteriorFuelEquipment*, const model::Schedule&)> set([](model::ExteriorFuelEquipment* el, const model::Schedule& s) {
-          model::Schedule copy = s;
-          return el->setSchedule(copy);
-        });
+        std::function<bool(model::ExteriorFuelEquipment*, const model::Schedule&)> set(
+          [](model::ExteriorFuelEquipment* el, const model::Schedule& s) {
+            model::Schedule copy = s;
+            return el->setSchedule(copy);
+          });
 
-        addDropZoneColumn(
-          Heading(QString(EXTERIORFUELEQUIPMENTSCHEDULE)), get, set,
+        addDropZoneColumn(Heading(QString(EXTERIORFUELEQUIPMENTSCHEDULE)), get, set,
                           boost::optional<std::function<void(model::ExteriorFuelEquipment*)>>());
 
       } else if (field == EXTERIORFUELEQUIPMENTFUELTYPE) {
@@ -368,14 +368,13 @@ void FacilityExteriorEquipmentGridController::addColumns(const QString& category
 
       } else if (field == EXTERIORFUELEQUIPMENTMULTIPLIER) {
 
-        addValueEditColumn(
-          Heading(QString(EXTERIORFUELEQUIPMENTMULTIPLIER)), NullAdapter(&model::ExteriorFuelEquipment::multiplier),
-          NullAdapter(&model::ExteriorFuelEquipment::setMultiplier),
+        addValueEditColumn(Heading(QString(EXTERIORFUELEQUIPMENTMULTIPLIER)), NullAdapter(&model::ExteriorFuelEquipment::multiplier),
+                           NullAdapter(&model::ExteriorFuelEquipment::setMultiplier),
                            boost::optional<std::function<void(model::ExteriorFuelEquipment*)>>(
                              CastNullAdapter<model::ExteriorFuelEquipment>(&model::ExteriorFuelEquipment::resetMultiplier)),
                            boost::optional<std::function<bool(model::ExteriorFuelEquipment*)>>(
                              CastNullAdapter<model::ExteriorFuelEquipment>(&model::ExteriorFuelEquipment::isMultiplierDefaulted)),
-          boost::optional<DataSource>());
+                           boost::optional<DataSource>());
 
       } else if (field == EXTERIORFUELEQUIPMENTSUBCATEGORY) {
 
@@ -392,16 +391,17 @@ void FacilityExteriorEquipmentGridController::addColumns(const QString& category
         // unhandled
         OS_ASSERT(false);
       }
-    
-    // Exterior Water Equipment
+
+      // Exterior Water Equipment
     } else if (IddObjectType::OS_Exterior_WaterEquipment == iddObjectType().value()) {
 
       if (field == EXTERIORWATEREQUIPMENTDEFINITION) {
 
-        std::function<boost::optional<model::ExteriorWaterEquipmentDefinition>(model::ExteriorWaterEquipment*)> get([](model::ExteriorWaterEquipment* el) {
+        std::function<boost::optional<model::ExteriorWaterEquipmentDefinition>(model::ExteriorWaterEquipment*)> get(
+          [](model::ExteriorWaterEquipment* el) {
             boost::optional<model::ExteriorWaterEquipmentDefinition> optional = el->exteriorWaterEquipmentDefinition();
-          return optional;
-        });
+            return optional;
+          });
 
         addDropZoneColumn(Heading(QString(EXTERIORWATEREQUIPMENTDEFINITION)), get,
                           CastNullAdapter<model::ExteriorWaterEquipment>(&model::ExteriorWaterEquipment::setExteriorWaterEquipmentDefinition),
@@ -412,24 +412,22 @@ void FacilityExteriorEquipmentGridController::addColumns(const QString& category
         addValueEditColumn(
           Heading(QString(EXTERIORWATEREQUIPMENTDESIGNLEVEL)),
           ProxyAdapter(&model::ExteriorWaterEquipmentDefinition::designLevel, &model::ExteriorWaterEquipment::exteriorWaterEquipmentDefinition),
-          ProxyAdapter(static_cast<bool (model::ExteriorWaterEquipmentDefinition::*)(double)>(&model::ExteriorWaterEquipmentDefinition::setDesignLevel),
-                       &model::ExteriorWaterEquipment::exteriorWaterEquipmentDefinition));
+          ProxyAdapter(
+            static_cast<bool (model::ExteriorWaterEquipmentDefinition::*)(double)>(&model::ExteriorWaterEquipmentDefinition::setDesignLevel),
+            &model::ExteriorWaterEquipment::exteriorWaterEquipmentDefinition));
 
       } else if (field == EXTERIORWATEREQUIPMENTSCHEDULE) {
 
         std::function<boost::optional<model::Schedule>(model::ExteriorWaterEquipment*)> get(
-          [](model::ExteriorWaterEquipment* el) {
-            return el->schedule();
-          });
+          [](model::ExteriorWaterEquipment* el) { return el->schedule(); });
 
         std::function<bool(model::ExteriorWaterEquipment*, const model::Schedule&)> set(
           [](model::ExteriorWaterEquipment* el, const model::Schedule& s) {
-          model::Schedule copy = s;
-          return el->setSchedule(copy);
-        });
+            model::Schedule copy = s;
+            return el->setSchedule(copy);
+          });
 
-        addDropZoneColumn(Heading(QString(EXTERIORWATEREQUIPMENTSCHEDULE)),
-                          get, set,
+        addDropZoneColumn(Heading(QString(EXTERIORWATEREQUIPMENTSCHEDULE)), get, set,
                           boost::optional<std::function<void(model::ExteriorWaterEquipment*)>>());
 
       } else if (field == EXTERIORWATEREQUIPMENTMULTIPLIER) {
@@ -452,8 +450,8 @@ void FacilityExteriorEquipmentGridController::addColumns(const QString& category
                            boost::optional<std::function<bool(model::ExteriorWaterEquipment*)>>(
                              CastNullAdapter<model::ExteriorWaterEquipment>(&model::ExteriorWaterEquipment::isEndUseSubcategoryDefaulted)),
                            boost::optional<DataSource>());
-      
-      }else{
+
+      } else {
         // unhandled
         OS_ASSERT(false);
       }
