@@ -245,8 +245,11 @@ void FacilityExteriorEquipmentGridController::addColumns(const QString& category
       if (field == EXTERIORLIGHTSDEFINITION) {
 
         std::function<boost::optional<model::ExteriorLightsDefinition>(model::ExteriorLights*)> get([](model::ExteriorLights* el) {
-          boost::optional<model::ExteriorLightsDefinition> optional = el->exteriorLightsDefinition();
-          return optional;
+          boost::optional<model::ExteriorLightsDefinition> result;
+          if (!el->handle().isNull()) {
+            result = el->exteriorLightsDefinition();
+          }
+          return result;
         });
 
         addDropZoneColumn(Heading(QString(EXTERIORLIGHTSDEFINITION)), get,
@@ -310,8 +313,11 @@ void FacilityExteriorEquipmentGridController::addColumns(const QString& category
 
         std::function<boost::optional<model::ExteriorFuelEquipmentDefinition>(model::ExteriorFuelEquipment*)> get(
           [](model::ExteriorFuelEquipment* el) {
-            boost::optional<model::ExteriorFuelEquipmentDefinition> optional = el->exteriorFuelEquipmentDefinition();
-            return optional;
+            boost::optional<model::ExteriorFuelEquipmentDefinition> result;
+            if (!el->handle().isNull()) {
+              result = el->exteriorFuelEquipmentDefinition();
+            }
+            return result;
           });
 
         addDropZoneColumn(Heading(QString(EXTERIORFUELEQUIPMENTDEFINITION)), get,
@@ -374,8 +380,11 @@ void FacilityExteriorEquipmentGridController::addColumns(const QString& category
 
         std::function<boost::optional<model::ExteriorWaterEquipmentDefinition>(model::ExteriorWaterEquipment*)> get(
           [](model::ExteriorWaterEquipment* el) {
-            boost::optional<model::ExteriorWaterEquipmentDefinition> optional = el->exteriorWaterEquipmentDefinition();
-            return optional;
+            boost::optional<model::ExteriorWaterEquipmentDefinition> result;
+            if (!el->handle().isNull()) {
+              result = el->exteriorWaterEquipmentDefinition();
+            }
+            return result;
           });
 
         addDropZoneColumn(Heading(QString(EXTERIORWATEREQUIPMENTDEFINITION)), get,
