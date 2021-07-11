@@ -471,7 +471,6 @@ class OSGridController : public QObject
   bool isIP() const;
 
  protected:
-  
   void setIddObjectType(const IddObjectType& iddObjectType);
 
  private:

@@ -117,10 +117,10 @@ void FacilityExteriorEquipmentGridView::addObject(const IddObjectType& iddObject
     model::ExteriorFuelEquipment(model::ExteriorFuelEquipmentDefinition(this->m_model));
   } else if (IddObjectType::OS_Exterior_WaterEquipment == iddObjectType.value()) {
     model::ExteriorWaterEquipment(model::ExteriorWaterEquipmentDefinition(this->m_model));
-  }else {
-      // unhandled
-      OS_ASSERT(false);
-    }
+  } else {
+    // unhandled
+    OS_ASSERT(false);
+  }
 }
 
 void FacilityExteriorEquipmentGridView::purgeObjects(const IddObjectType& iddObjectType) {
@@ -257,21 +257,19 @@ void FacilityExteriorEquipmentGridController::addColumns(const QString& category
       addDropZoneColumn(Heading(QString(EXTERIORLIGHTSDEFINITION)), get,
                         CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::setExteriorLightsDefinition),
                         boost::optional<std::function<void(model::ExteriorLights*)>>());
-    
+
     } else if (field == EXTERIORLIGHTSDESIGNLEVEL) {
 
-      std::function<double(model::ExteriorLights * el)> get([](model::ExteriorLights* el) { 
-        return el->exteriorLightsDefinition().designLevel();
-      });
+      std::function<double(model::ExteriorLights * el)> get([](model::ExteriorLights* el) { return el->exteriorLightsDefinition().designLevel(); });
 
-      std::function<bool(model::ExteriorLights*, double value)> set([](model::ExteriorLights* el, double value) { 
-        return el->exteriorLightsDefinition().setDesignLevel(value);
-      });
+      std::function<bool(model::ExteriorLights*, double value)> set(
+        [](model::ExteriorLights* el, double value) { return el->exteriorLightsDefinition().setDesignLevel(value); });
 
       addValueEditColumn(
         Heading(QString(EXTERIORLIGHTSDESIGNLEVEL)),
-        ProxyAdapter(&model::ExteriorLightsDefinition::designLevel, &model::ExteriorLights::exteriorLightsDefinition), 
-        ProxyAdapter(static_cast<bool (model::ExteriorLightsDefinition::*)(double)>(&model::ExteriorLightsDefinition::setDesignLevel), &model::ExteriorLights::exteriorLightsDefinition));
+        ProxyAdapter(&model::ExteriorLightsDefinition::designLevel, &model::ExteriorLights::exteriorLightsDefinition),
+        ProxyAdapter(static_cast<bool (model::ExteriorLightsDefinition::*)(double)>(&model::ExteriorLightsDefinition::setDesignLevel),
+                     &model::ExteriorLights::exteriorLightsDefinition));
 
     } else if (field == EXTERIORLIGHTSSCHEDULE) {
 

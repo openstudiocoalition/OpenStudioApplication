@@ -240,7 +240,7 @@ void OSDoubleEdit2::completeBind() {
   m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
     .get()
     ->onRemoveFromWorkspace.connect<OSDoubleEdit2, &OSDoubleEdit2::onModelObjectRemove>(this);
-  
+
   m_otherModelObjects = getOtherModelObjects();
 
   for (const model::ModelObject& otherModelObject : m_otherModelObjects) {
