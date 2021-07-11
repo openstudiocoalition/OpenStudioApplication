@@ -222,6 +222,7 @@ void FacilityExteriorEquipmentGridController::onCategorySelected(int index) {
     // unhandled
     OS_ASSERT(false);
   }
+  setModelObjects(std::vector<model::ModelObject>());
   OSGridController::onCategorySelected(index);
 }
 
@@ -247,78 +248,219 @@ void FacilityExteriorEquipmentGridController::addColumns(const QString& category
               &OSSelectAllCheckBox::onGridRowSelectionChanged);
       addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row");
 
-    } else if (field == EXTERIORLIGHTSDEFINITION) {
+    // Exterior Lights
+    } else if (IddObjectType::OS_Exterior_Lights == iddObjectType().value()) {
 
-      std::function<boost::optional<model::ExteriorLightsDefinition>(model::ExteriorLights*)> get([](model::ExteriorLights* el) {
-        boost::optional<model::ExteriorLightsDefinition> optional = el->exteriorLightsDefinition();
-        return optional;
-      });
+      if (field == EXTERIORLIGHTSDEFINITION) {
 
-      addDropZoneColumn(Heading(QString(EXTERIORLIGHTSDEFINITION)), get,
-                        CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::setExteriorLightsDefinition),
-                        boost::optional<std::function<void(model::ExteriorLights*)>>());
+        std::function<boost::optional<model::ExteriorLightsDefinition>(model::ExteriorLights*)> get([](model::ExteriorLights* el) {
+          boost::optional<model::ExteriorLightsDefinition> optional = el->exteriorLightsDefinition();
+          return optional;
+        });
 
-    } else if (field == EXTERIORLIGHTSDESIGNLEVEL) {
+        addDropZoneColumn(Heading(QString(EXTERIORLIGHTSDEFINITION)), get,
+                          CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::setExteriorLightsDefinition),
+                          boost::optional<std::function<void(model::ExteriorLights*)>>());
 
-      std::function<double(model::ExteriorLights * el)> get([](model::ExteriorLights* el) { return el->exteriorLightsDefinition().designLevel(); });
+      } else if (field == EXTERIORLIGHTSDESIGNLEVEL) {
 
-      std::function<bool(model::ExteriorLights*, double value)> set(
-        [](model::ExteriorLights* el, double value) { return el->exteriorLightsDefinition().setDesignLevel(value); });
+        addValueEditColumn(
+          Heading(QString(EXTERIORLIGHTSDESIGNLEVEL)),
+          ProxyAdapter(&model::ExteriorLightsDefinition::designLevel, &model::ExteriorLights::exteriorLightsDefinition),
+          ProxyAdapter(static_cast<bool (model::ExteriorLightsDefinition::*)(double)>(&model::ExteriorLightsDefinition::setDesignLevel),
+                       &model::ExteriorLights::exteriorLightsDefinition));
 
-      addValueEditColumn(
-        Heading(QString(EXTERIORLIGHTSDESIGNLEVEL)),
-        ProxyAdapter(&model::ExteriorLightsDefinition::designLevel, &model::ExteriorLights::exteriorLightsDefinition),
-        ProxyAdapter(static_cast<bool (model::ExteriorLightsDefinition::*)(double)>(&model::ExteriorLightsDefinition::setDesignLevel),
-                     &model::ExteriorLights::exteriorLightsDefinition));
+      } else if (field == EXTERIORLIGHTSSCHEDULE) {
 
-    } else if (field == EXTERIORLIGHTSSCHEDULE) {
+        std::function<bool(model::ExteriorLights*, const model::Schedule&)> set([](model::ExteriorLights* el, const model::Schedule& s) {
+          model::Schedule copy = s;
+          return el->setSchedule(copy);
+        });
 
-      std::function<bool(model::ExteriorLights*, const model::Schedule&)> set([](model::ExteriorLights* el, const model::Schedule& s) {
-        model::Schedule copy = s;
-        return el->setSchedule(copy);
-      });
+        addDropZoneColumn(
+          Heading(QString(EXTERIORLIGHTSSCHEDULE)), CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::schedule), set,
+          boost::optional<std::function<void(model::ExteriorLights*)>>(CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::resetSchedule)));
 
-      addDropZoneColumn(
-        Heading(QString(EXTERIORLIGHTSSCHEDULE)), CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::schedule), set,
-        boost::optional<std::function<void(model::ExteriorLights*)>>(CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::resetSchedule)));
+      } else if (field == EXTERIORLIGHTSCONTROLOPTION) {
 
-    } else if (field == EXTERIORLIGHTSCONTROLOPTION) {
+        addComboBoxColumn<std::string, model::ExteriorLights>(
+          Heading(QString(EXTERIORLIGHTSCONTROLOPTION)), static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
+          std::function<std::vector<std::string>()>(&model::ExteriorLights::controlOptionValues),
+          CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::controlOption),
+          CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::setControlOption),
+          boost::optional<std::function<void(model::ExteriorLights*)>>(
+            CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::resetControlOption)),
+          boost::optional<std::function<bool(model::ExteriorLights*)>>(
+            CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::isControlOptionDefaulted)),
+          boost::optional<DataSource>());
 
-      addComboBoxColumn<std::string, model::ExteriorLights>(
-        Heading(QString(EXTERIORLIGHTSCONTROLOPTION)), static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
-        std::function<std::vector<std::string>()>(&model::ExteriorLights::controlOptionValues),
-        CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::controlOption),
-        CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::setControlOption),
-        boost::optional<std::function<void(model::ExteriorLights*)>>(
-          CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::resetControlOption)),
-        boost::optional<std::function<bool(model::ExteriorLights*)>>(
-          CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::isControlOptionDefaulted)),
-        boost::optional<DataSource>());
+      } else if (field == EXTERIORLIGHTSMULTIPLIER) {
 
-    } else if (field == EXTERIORLIGHTSMULTIPLIER) {
+        addValueEditColumn(
+          Heading(QString(EXTERIORLIGHTSMULTIPLIER)), NullAdapter(&model::ExteriorLights::multiplier),
+          NullAdapter(&model::ExteriorLights::setMultiplier),
+          boost::optional<std::function<void(model::ExteriorLights*)>>(CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::resetMultiplier)),
+          boost::optional<std::function<bool(model::ExteriorLights*)>>(
+            CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::isMultiplierDefaulted)),
+          boost::optional<DataSource>());
 
-      addValueEditColumn(
-        Heading(QString(EXTERIORLIGHTSMULTIPLIER)), NullAdapter(&model::ExteriorLights::multiplier),
-        NullAdapter(&model::ExteriorLights::setMultiplier),
-        boost::optional<std::function<void(model::ExteriorLights*)>>(CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::resetMultiplier)),
-        boost::optional<std::function<bool(model::ExteriorLights*)>>(
-          CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::isMultiplierDefaulted)),
-        boost::optional<DataSource>());
+      } else if (field == EXERIORLIGHTSENDUSESUBCATEGORY) {
 
-    } else if (field == EXERIORLIGHTSENDUSESUBCATEGORY) {
+        addValueEditColumn(Heading(QString(EXERIORLIGHTSENDUSESUBCATEGORY)),
+                           CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::endUseSubcategory),
+                           CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::setEndUseSubcategory),
+                           boost::optional<std::function<void(model::ExteriorLights*)>>(
+                             CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::resetEndUseSubcategory)),
+                           boost::optional<std::function<bool(model::ExteriorLights*)>>(
+                             CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::isEndUseSubcategoryDefaulted)),
+                           boost::optional<DataSource>());
 
-      addValueEditColumn(Heading(QString(EXERIORLIGHTSENDUSESUBCATEGORY)),
-                         CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::endUseSubcategory),
-                         CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::setEndUseSubcategory),
-                         boost::optional<std::function<void(model::ExteriorLights*)>>(
-                           CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::resetEndUseSubcategory)),
-                         boost::optional<std::function<bool(model::ExteriorLights*)>>(
-                           CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::isEndUseSubcategoryDefaulted)),
-                         boost::optional<DataSource>());
+      } else {
+        // unhandled
+        OS_ASSERT(false);
+      }
+
+    // Exterior Fuel Equipment
+    } else if (IddObjectType::OS_Exterior_FuelEquipment == iddObjectType().value()) {
+
+      if (field == EXTERIORFUELEQUIPMENTDEFINITION) {
+
+        std::function<boost::optional<model::ExteriorFuelEquipmentDefinition>(model::ExteriorFuelEquipment*)> get([](model::ExteriorFuelEquipment* el) {
+          boost::optional<model::ExteriorFuelEquipmentDefinition> optional = el->exteriorFuelEquipmentDefinition();
+          return optional;
+        });
+
+        addDropZoneColumn(Heading(QString(EXTERIORFUELEQUIPMENTDEFINITION)), get,
+                          CastNullAdapter<model::ExteriorFuelEquipment>(&model::ExteriorFuelEquipment::setExteriorFuelEquipmentDefinition),
+                          boost::optional<std::function<void(model::ExteriorFuelEquipment*)>>());
+
+      } else if (field == EXTERIORFUELEQUIPMENTDESIGNLEVEL) {
+
+        addValueEditColumn(
+          Heading(QString(EXTERIORFUELEQUIPMENTDESIGNLEVEL)),
+          ProxyAdapter(&model::ExteriorFuelEquipmentDefinition::designLevel, &model::ExteriorFuelEquipment::exteriorFuelEquipmentDefinition),
+          ProxyAdapter(static_cast<bool (model::ExteriorFuelEquipmentDefinition::*)(double)>(&model::ExteriorFuelEquipmentDefinition::setDesignLevel),
+                       &model::ExteriorFuelEquipment::exteriorFuelEquipmentDefinition));
+
+
+      } else if (field == EXTERIORFUELEQUIPMENTSCHEDULE) {
+
+        std::function<boost::optional<model::Schedule>(model::ExteriorFuelEquipment*)> get(
+          [](model::ExteriorFuelEquipment* el) { return el->schedule(); });
+
+        std::function<bool(model::ExteriorFuelEquipment*, const model::Schedule&)> set([](model::ExteriorFuelEquipment* el, const model::Schedule& s) {
+          model::Schedule copy = s;
+          return el->setSchedule(copy);
+        });
+
+        addDropZoneColumn(
+          Heading(QString(EXTERIORFUELEQUIPMENTSCHEDULE)), get, set,
+                          boost::optional<std::function<void(model::ExteriorFuelEquipment*)>>());
+
+      } else if (field == EXTERIORFUELEQUIPMENTFUELTYPE) {
+
+        addComboBoxColumn<std::string, model::ExteriorFuelEquipment>(
+          Heading(QString(EXTERIORFUELEQUIPMENTFUELTYPE)), static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
+          std::function<std::vector<std::string>()>(&model::ExteriorFuelEquipment::fuelTypeValues),
+          CastNullAdapter<model::ExteriorFuelEquipment>(&model::ExteriorFuelEquipment::fuelType),
+          CastNullAdapter<model::ExteriorFuelEquipment>(&model::ExteriorFuelEquipment::setFuelType),
+          boost::optional<std::function<void(model::ExteriorFuelEquipment*)>>(), boost::optional<DataSource>());
+
+      } else if (field == EXTERIORFUELEQUIPMENTMULTIPLIER) {
+
+        addValueEditColumn(
+          Heading(QString(EXTERIORFUELEQUIPMENTMULTIPLIER)), NullAdapter(&model::ExteriorFuelEquipment::multiplier),
+          NullAdapter(&model::ExteriorFuelEquipment::setMultiplier),
+                           boost::optional<std::function<void(model::ExteriorFuelEquipment*)>>(
+                             CastNullAdapter<model::ExteriorFuelEquipment>(&model::ExteriorFuelEquipment::resetMultiplier)),
+                           boost::optional<std::function<bool(model::ExteriorFuelEquipment*)>>(
+                             CastNullAdapter<model::ExteriorFuelEquipment>(&model::ExteriorFuelEquipment::isMultiplierDefaulted)),
+          boost::optional<DataSource>());
+
+      } else if (field == EXTERIORFUELEQUIPMENTSUBCATEGORY) {
+
+        addValueEditColumn(Heading(QString(EXTERIORFUELEQUIPMENTSUBCATEGORY)),
+                           CastNullAdapter<model::ExteriorFuelEquipment>(&model::ExteriorFuelEquipment::endUseSubcategory),
+                           CastNullAdapter<model::ExteriorFuelEquipment>(&model::ExteriorFuelEquipment::setEndUseSubcategory),
+                           boost::optional<std::function<void(model::ExteriorFuelEquipment*)>>(
+                             CastNullAdapter<model::ExteriorFuelEquipment>(&model::ExteriorFuelEquipment::resetEndUseSubcategory)),
+                           boost::optional<std::function<bool(model::ExteriorFuelEquipment*)>>(
+                             CastNullAdapter<model::ExteriorFuelEquipment>(&model::ExteriorFuelEquipment::isEndUseSubcategoryDefaulted)),
+                           boost::optional<DataSource>());
+
+      } else {
+        // unhandled
+        OS_ASSERT(false);
+      }
+    
+    // Exterior Water Equipment
+    } else if (IddObjectType::OS_Exterior_WaterEquipment == iddObjectType().value()) {
+
+      if (field == EXTERIORWATEREQUIPMENTDEFINITION) {
+
+        std::function<boost::optional<model::ExteriorWaterEquipmentDefinition>(model::ExteriorWaterEquipment*)> get([](model::ExteriorWaterEquipment* el) {
+            boost::optional<model::ExteriorWaterEquipmentDefinition> optional = el->exteriorWaterEquipmentDefinition();
+          return optional;
+        });
+
+        addDropZoneColumn(Heading(QString(EXTERIORWATEREQUIPMENTDEFINITION)), get,
+                          CastNullAdapter<model::ExteriorWaterEquipment>(&model::ExteriorWaterEquipment::setExteriorWaterEquipmentDefinition),
+                          boost::optional<std::function<void(model::ExteriorWaterEquipment*)>>());
+
+      } else if (field == EXTERIORWATEREQUIPMENTDESIGNLEVEL) {
+
+        addValueEditColumn(
+          Heading(QString(EXTERIORWATEREQUIPMENTDESIGNLEVEL)),
+          ProxyAdapter(&model::ExteriorWaterEquipmentDefinition::designLevel, &model::ExteriorWaterEquipment::exteriorWaterEquipmentDefinition),
+          ProxyAdapter(static_cast<bool (model::ExteriorWaterEquipmentDefinition::*)(double)>(&model::ExteriorWaterEquipmentDefinition::setDesignLevel),
+                       &model::ExteriorWaterEquipment::exteriorWaterEquipmentDefinition));
+
+      } else if (field == EXTERIORWATEREQUIPMENTSCHEDULE) {
+
+        std::function<boost::optional<model::Schedule>(model::ExteriorWaterEquipment*)> get(
+          [](model::ExteriorWaterEquipment* el) {
+            return el->schedule();
+          });
+
+        std::function<bool(model::ExteriorWaterEquipment*, const model::Schedule&)> set(
+          [](model::ExteriorWaterEquipment* el, const model::Schedule& s) {
+          model::Schedule copy = s;
+          return el->setSchedule(copy);
+        });
+
+        addDropZoneColumn(Heading(QString(EXTERIORWATEREQUIPMENTSCHEDULE)),
+                          get, set,
+                          boost::optional<std::function<void(model::ExteriorWaterEquipment*)>>());
+
+      } else if (field == EXTERIORWATEREQUIPMENTMULTIPLIER) {
+
+        addValueEditColumn(Heading(QString(EXTERIORWATEREQUIPMENTMULTIPLIER)), NullAdapter(&model::ExteriorWaterEquipment::multiplier),
+                           NullAdapter(&model::ExteriorWaterEquipment::setMultiplier),
+                           boost::optional<std::function<void(model::ExteriorWaterEquipment*)>>(
+                             CastNullAdapter<model::ExteriorWaterEquipment>(&model::ExteriorWaterEquipment::resetMultiplier)),
+                           boost::optional<std::function<bool(model::ExteriorWaterEquipment*)>>(
+                             CastNullAdapter<model::ExteriorWaterEquipment>(&model::ExteriorWaterEquipment::isMultiplierDefaulted)),
+                           boost::optional<DataSource>());
+
+      } else if (field == EXTERIORWATEREQUIPMENTSUBCATEGORY) {
+
+        addValueEditColumn(Heading(QString(EXTERIORWATEREQUIPMENTSUBCATEGORY)),
+                           CastNullAdapter<model::ExteriorWaterEquipment>(&model::ExteriorWaterEquipment::endUseSubcategory),
+                           CastNullAdapter<model::ExteriorWaterEquipment>(&model::ExteriorWaterEquipment::setEndUseSubcategory),
+                           boost::optional<std::function<void(model::ExteriorWaterEquipment*)>>(
+                             CastNullAdapter<model::ExteriorWaterEquipment>(&model::ExteriorWaterEquipment::resetEndUseSubcategory)),
+                           boost::optional<std::function<bool(model::ExteriorWaterEquipment*)>>(
+                             CastNullAdapter<model::ExteriorWaterEquipment>(&model::ExteriorWaterEquipment::isEndUseSubcategoryDefaulted)),
+                           boost::optional<DataSource>());
+      
+      }else{
+        // unhandled
+        OS_ASSERT(false);
+      }
 
     } else {
       // unhandled
-      OS_ASSERT(true);
+      OS_ASSERT(false);
     }
   }
 }
