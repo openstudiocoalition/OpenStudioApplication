@@ -73,7 +73,6 @@
 
 // EXTERIOR LIGHTS
 #define EXTERIORLIGHTSDEFINITION "Exterior Lights Definition"
-#define EXTERIORLIGHTSDESIGNLEVEL "Design Level"
 #define EXTERIORLIGHTSSCHEDULE "Schedule"
 #define EXTERIORLIGHTSCONTROLOPTION "Control Option"
 #define EXTERIORLIGHTSMULTIPLIER "Multiplier"
@@ -81,7 +80,6 @@
 
 // EXTERIOR FUEL EQUIPMENT
 #define EXTERIORFUELEQUIPMENTDEFINITION "Exterior Fuel Equipment Definition"
-#define EXTERIORFUELEQUIPMENTDESIGNLEVEL "Design Level"
 #define EXTERIORFUELEQUIPMENTSCHEDULE "Schedule"
 #define EXTERIORFUELEQUIPMENTFUELTYPE "Fuel Type"
 #define EXTERIORFUELEQUIPMENTMULTIPLIER "Multiplier"
@@ -89,7 +87,6 @@
 
 // EXTERIOR WATER EQUIPMENT
 #define EXTERIORWATEREQUIPMENTDEFINITION "Exterior Water Equipment Definition"
-#define EXTERIORWATEREQUIPMENTDESIGNLEVEL "Design Level"
 #define EXTERIORWATEREQUIPMENTSCHEDULE "Schedule"
 #define EXTERIORWATEREQUIPMENTMULTIPLIER "Multiplier"
 #define EXTERIORWATEREQUIPMENTSUBCATEGORY "End Use Subcategory"
@@ -125,25 +122,22 @@ void FacilityExteriorEquipmentGridView::addObject(const IddObjectType& iddObject
 
 void FacilityExteriorEquipmentGridView::purgeObjects(const IddObjectType& iddObjectType) {
   if (IddObjectType::OS_Exterior_Lights == iddObjectType.value()) {
-    for (auto mo : this->m_model.getConcreteModelObjects<model::ExteriorLights>()) {
-      mo.remove();
-    }
     for (auto mo : this->m_model.getConcreteModelObjects<model::ExteriorLightsDefinition>()) {
-      mo.remove();
+      if (mo.instances().empty()) {
+        mo.remove();
+      }
     }
   } else if (IddObjectType::OS_Exterior_FuelEquipment == iddObjectType.value()) {
-    for (auto mo : this->m_model.getConcreteModelObjects<model::ExteriorFuelEquipment>()) {
-      mo.remove();
-    }
     for (auto mo : this->m_model.getConcreteModelObjects<model::ExteriorFuelEquipmentDefinition>()) {
-      mo.remove();
+      if (mo.instances().empty()) {
+        mo.remove();
+      }
     }
   } else if (IddObjectType::OS_Exterior_WaterEquipment == iddObjectType.value()) {
-    for (auto mo : this->m_model.getConcreteModelObjects<model::ExteriorWaterEquipment>()) {
-      mo.remove();
-    }
     for (auto mo : this->m_model.getConcreteModelObjects<model::ExteriorWaterEquipmentDefinition>()) {
-      mo.remove();
+      if (mo.instances().empty()) {
+        mo.remove();
+      }
     }
   } else {
     // unhandled
@@ -153,14 +147,14 @@ void FacilityExteriorEquipmentGridView::purgeObjects(const IddObjectType& iddObj
 
 void FacilityExteriorEquipmentGridView::onSelectItem() {
   //m_itemSelectorButtons->enableAddButton();
-  //m_itemSelectorButtons->enableCopyButton();
+  m_itemSelectorButtons->enableCopyButton();
   m_itemSelectorButtons->enableRemoveButton();
   //m_itemSelectorButtons->enablePurgeButton();
 }
 
 void FacilityExteriorEquipmentGridView::onClearSelection() {
   //m_itemSelectorButtons->disableAddButton();
-  //m_itemSelectorButtons->disableCopyButton();
+  m_itemSelectorButtons->disableCopyButton();
   m_itemSelectorButtons->disableRemoveButton();
   //m_itemSelectorButtons->disablePurgeButton();
 }
@@ -176,7 +170,6 @@ void FacilityExteriorEquipmentGridController::setCategoriesAndFields() {
   {
     std::vector<QString> fields;
     fields.push_back(EXTERIORLIGHTSDEFINITION);
-    fields.push_back(EXTERIORLIGHTSDESIGNLEVEL);
     fields.push_back(EXTERIORLIGHTSSCHEDULE);
     fields.push_back(EXTERIORLIGHTSCONTROLOPTION);
     fields.push_back(EXTERIORLIGHTSMULTIPLIER);
@@ -188,7 +181,6 @@ void FacilityExteriorEquipmentGridController::setCategoriesAndFields() {
   {
     std::vector<QString> fields;
     fields.push_back(EXTERIORFUELEQUIPMENTDEFINITION);
-    fields.push_back(EXTERIORFUELEQUIPMENTDESIGNLEVEL);
     fields.push_back(EXTERIORFUELEQUIPMENTSCHEDULE);
     fields.push_back(EXTERIORFUELEQUIPMENTFUELTYPE);
     fields.push_back(EXTERIORFUELEQUIPMENTMULTIPLIER);
@@ -200,7 +192,6 @@ void FacilityExteriorEquipmentGridController::setCategoriesAndFields() {
   {
     std::vector<QString> fields;
     fields.push_back(EXTERIORWATEREQUIPMENTDEFINITION);
-    fields.push_back(EXTERIORWATEREQUIPMENTDESIGNLEVEL);
     fields.push_back(EXTERIORWATEREQUIPMENTSCHEDULE);
     fields.push_back(EXTERIORWATEREQUIPMENTMULTIPLIER);
     fields.push_back(EXTERIORWATEREQUIPMENTSUBCATEGORY);
@@ -261,14 +252,6 @@ void FacilityExteriorEquipmentGridController::addColumns(const QString& category
         addDropZoneColumn(Heading(QString(EXTERIORLIGHTSDEFINITION)), get,
                           CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::setExteriorLightsDefinition),
                           boost::optional<std::function<void(model::ExteriorLights*)>>());
-
-      } else if (field == EXTERIORLIGHTSDESIGNLEVEL) {
-
-        addValueEditColumn(
-          Heading(QString(EXTERIORLIGHTSDESIGNLEVEL)),
-          ProxyAdapter(&model::ExteriorLightsDefinition::designLevel, &model::ExteriorLights::exteriorLightsDefinition),
-          ProxyAdapter(static_cast<bool (model::ExteriorLightsDefinition::*)(double)>(&model::ExteriorLightsDefinition::setDesignLevel),
-                       &model::ExteriorLights::exteriorLightsDefinition));
 
       } else if (field == EXTERIORLIGHTSSCHEDULE) {
 
@@ -335,14 +318,6 @@ void FacilityExteriorEquipmentGridController::addColumns(const QString& category
                           CastNullAdapter<model::ExteriorFuelEquipment>(&model::ExteriorFuelEquipment::setExteriorFuelEquipmentDefinition),
                           boost::optional<std::function<void(model::ExteriorFuelEquipment*)>>());
 
-      } else if (field == EXTERIORFUELEQUIPMENTDESIGNLEVEL) {
-
-        addValueEditColumn(
-          Heading(QString(EXTERIORFUELEQUIPMENTDESIGNLEVEL)),
-          ProxyAdapter(&model::ExteriorFuelEquipmentDefinition::designLevel, &model::ExteriorFuelEquipment::exteriorFuelEquipmentDefinition),
-          ProxyAdapter(static_cast<bool (model::ExteriorFuelEquipmentDefinition::*)(double)>(&model::ExteriorFuelEquipmentDefinition::setDesignLevel),
-                       &model::ExteriorFuelEquipment::exteriorFuelEquipmentDefinition));
-
       } else if (field == EXTERIORFUELEQUIPMENTSCHEDULE) {
 
         std::function<boost::optional<model::Schedule>(model::ExteriorFuelEquipment*)> get(
@@ -406,15 +381,6 @@ void FacilityExteriorEquipmentGridController::addColumns(const QString& category
         addDropZoneColumn(Heading(QString(EXTERIORWATEREQUIPMENTDEFINITION)), get,
                           CastNullAdapter<model::ExteriorWaterEquipment>(&model::ExteriorWaterEquipment::setExteriorWaterEquipmentDefinition),
                           boost::optional<std::function<void(model::ExteriorWaterEquipment*)>>());
-
-      } else if (field == EXTERIORWATEREQUIPMENTDESIGNLEVEL) {
-
-        addValueEditColumn(
-          Heading(QString(EXTERIORWATEREQUIPMENTDESIGNLEVEL)),
-          ProxyAdapter(&model::ExteriorWaterEquipmentDefinition::designLevel, &model::ExteriorWaterEquipment::exteriorWaterEquipmentDefinition),
-          ProxyAdapter(
-            static_cast<bool (model::ExteriorWaterEquipmentDefinition::*)(double)>(&model::ExteriorWaterEquipmentDefinition::setDesignLevel),
-            &model::ExteriorWaterEquipment::exteriorWaterEquipmentDefinition));
 
       } else if (field == EXTERIORWATEREQUIPMENTSCHEDULE) {
 

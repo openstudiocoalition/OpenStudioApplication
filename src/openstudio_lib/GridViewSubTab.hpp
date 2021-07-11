@@ -59,8 +59,6 @@ class GridViewSubTab : public QWidget
 
   virtual ~GridViewSubTab() {}
 
-  openstudio::IddObjectType m_iddObjectType;
-
  protected:
   void setGridView(OSGridView* gridView);
 

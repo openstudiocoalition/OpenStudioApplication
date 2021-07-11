@@ -140,7 +140,7 @@ void GridViewSubTab::onRemoveClicked() {
 }
 
 void GridViewSubTab::onPurgeClicked() {
-  purgeObjects(m_iddObjectType);
+  purgeObjects(m_gridController->iddObjectType());
 
   // No selected rows will remain after a delete, so clear selection
   onClearSelection();
