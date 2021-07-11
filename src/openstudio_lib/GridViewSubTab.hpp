@@ -84,8 +84,6 @@ class GridViewSubTab : public QWidget
 
   OSGridController* m_gridController = nullptr;
 
-  bool m_supportsMultipleObjectSelection = true;
-
   bool m_isIP;
 
   QVBoxLayout* m_scrollLayout = nullptr;

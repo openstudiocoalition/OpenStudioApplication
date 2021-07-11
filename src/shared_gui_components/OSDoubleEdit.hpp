@@ -122,9 +122,11 @@ class OSDoubleEdit2 : public QLineEdit, public Nano::Observer
   bool autosized() const;
   bool autocalculated() const;
   void updateStyle();
+  std::vector<model::ModelObject> getOtherModelObjects() const;
 
   boost::optional<model::ModelObject> m_modelObject;                    // will be set if attached to ModelObject or ModelExtensibleGroup
   boost::optional<model::ModelExtensibleGroup> m_modelExtensibleGroup;  // will only be set if attached to ModelExtensibleGroup
+  std::vector<model::ModelObject> m_otherModelObjects;
   boost::optional<DoubleGetter> m_get;
   boost::optional<OptionalDoubleGetter> m_getOptional;
   boost::optional<DoubleSetter> m_set;

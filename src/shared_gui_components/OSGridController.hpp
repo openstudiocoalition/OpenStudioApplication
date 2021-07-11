@@ -470,6 +470,10 @@ class OSGridController : public QObject
 
   bool isIP() const;
 
+ protected:
+  
+  void setIddObjectType(const IddObjectType& iddObjectType);
+
  private:
   // For testing
   friend class ::OpenStudioLibFixture;
@@ -573,7 +577,7 @@ class OSGridController : public QObject
 
   QButtonGroup* m_horizontalHeaderBtnGrp;
 
-  QString m_headerText;
+  QString m_settingsKey;
 
   int m_oldIndex = -1;
 

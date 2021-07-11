@@ -30,6 +30,10 @@
 #include "OSDoubleEdit.hpp"
 
 #include <openstudio/model/ModelObject_Impl.hpp>
+#include <openstudio/model/ExteriorLoadDefinition.hpp>
+#include <openstudio/model/ExteriorLoadDefinition_Impl.hpp>
+#include <openstudio/model/ExteriorLoadInstance.hpp>
+#include <openstudio/model/ExteriorLoadInstance_Impl.hpp>
 
 #include "../model_editor/Utilities.hpp"
 
@@ -236,6 +240,14 @@ void OSDoubleEdit2::completeBind() {
   m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
     .get()
     ->onRemoveFromWorkspace.connect<OSDoubleEdit2, &OSDoubleEdit2::onModelObjectRemove>(this);
+  
+  m_otherModelObjects = getOtherModelObjects();
+
+  for (const model::ModelObject& otherModelObject : m_otherModelObjects) {
+    otherModelObject.getImpl<openstudio::model::detail::ModelObject_Impl>()
+      .get()
+      ->openstudio::model::detail::ModelObject_Impl::onChange.connect<OSDoubleEdit2, &OSDoubleEdit2::onModelObjectChange>(this);
+  }
 
   refreshTextAndLabel();
 }
@@ -246,12 +258,20 @@ void OSDoubleEdit2::unbind() {
     m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
       .get()
       ->onChange.disconnect<OSDoubleEdit2, &OSDoubleEdit2::onModelObjectChange>(this);
+
     m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
       .get()
       ->onRemoveFromWorkspace.disconnect<OSDoubleEdit2, &OSDoubleEdit2::onModelObjectRemove>(this);
 
+    for (const model::ModelObject& otherModelObject : m_otherModelObjects) {
+      otherModelObject.getImpl<openstudio::model::detail::ModelObject_Impl>()
+        .get()
+        ->openstudio::model::detail::ModelObject_Impl::onChange.disconnect<OSDoubleEdit2, &OSDoubleEdit2::onModelObjectChange>(this);
+    }
+
     m_modelObject.reset();
     m_modelExtensibleGroup.reset();
+    m_otherModelObjects.clear();
     m_get.reset();
     m_getOptional.reset();
     m_set.reset();
@@ -264,6 +284,16 @@ void OSDoubleEdit2::unbind() {
     m_isAutocalculated.reset();
     setLocked(true);
   }
+}
+
+std::vector<model::ModelObject> OSDoubleEdit2::getOtherModelObjects() const {
+  std::vector<model::ModelObject> result;
+  if (m_modelObject) {
+    if (m_modelObject->optionalCast<model::ExteriorLoadInstance>()) {
+      result.push_back(m_modelObject->optionalCast<model::ExteriorLoadInstance>()->definition());
+    }
+  }
+  return result;
 }
 
 void OSDoubleEdit2::onEditingFinished() {

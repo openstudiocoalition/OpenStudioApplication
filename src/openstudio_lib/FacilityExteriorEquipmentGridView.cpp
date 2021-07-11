@@ -39,6 +39,14 @@
 #include <openstudio/model/ExteriorLights_Impl.hpp>
 #include <openstudio/model/ExteriorLightsDefinition.hpp>
 #include <openstudio/model/ExteriorLightsDefinition_Impl.hpp>
+#include <openstudio/model/ExteriorFuelEquipment.hpp>
+#include <openstudio/model/ExteriorFuelEquipment_Impl.hpp>
+#include <openstudio/model/ExteriorFuelEquipmentDefinition.hpp>
+#include <openstudio/model/ExteriorFuelEquipmentDefinition_Impl.hpp>
+#include <openstudio/model/ExteriorWaterEquipment.hpp>
+#include <openstudio/model/ExteriorWaterEquipment_Impl.hpp>
+#include <openstudio/model/ExteriorWaterEquipmentDefinition.hpp>
+#include <openstudio/model/ExteriorWaterEquipmentDefinition_Impl.hpp>
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/Model_Impl.hpp>
 #include <openstudio/model/ModelObject.hpp>
@@ -60,15 +68,31 @@
 // These defines provide a common area for field display names
 // used on column headers, and other grid widgets
 
-#define NAME "Exterior Lights Name"
+#define NAME "Name"
 #define SELECTED "All"
 
 // EXTERIOR LIGHTS
 #define EXTERIORLIGHTSDEFINITION "Exterior Lights Definition"
-#define SCHEDULE "Schedule"
-#define CONTROLOPTION "Control Option"
-#define MULTIPLIER "Multiplier"
-#define ENDUSESUBCATEGORY "End Use Subcategory"
+#define EXTERIORLIGHTSDESIGNLEVEL "Design Level"
+#define EXTERIORLIGHTSSCHEDULE "Schedule"
+#define EXTERIORLIGHTSCONTROLOPTION "Control Option"
+#define EXTERIORLIGHTSMULTIPLIER "Multiplier"
+#define EXERIORLIGHTSENDUSESUBCATEGORY "End Use Subcategory"
+
+// EXTERIOR FUEL EQUIPMENT
+#define EXTERIORFUELEQUIPMENTDEFINITION "Exterior Fuel Equipment Definition"
+#define EXTERIORFUELEQUIPMENTDESIGNLEVEL "Design Level"
+#define EXTERIORFUELEQUIPMENTSCHEDULE "Schedule"
+#define EXTERIORFUELEQUIPMENTFUELTYPE "Fuel Type"
+#define EXTERIORFUELEQUIPMENTMULTIPLIER "Multiplier"
+#define EXTERIORFUELEQUIPMENTSUBCATEGORY "End Use Subcategory"
+
+// EXTERIOR WATER EQUIPMENT
+#define EXTERIORWATEREQUIPMENTDEFINITION "Exterior Water Equipment Definition"
+#define EXTERIORWATEREQUIPMENTDESIGNLEVEL "Design Level"
+#define EXTERIORWATEREQUIPMENTSCHEDULE "Schedule"
+#define EXTERIORWATEREQUIPMENTMULTIPLIER "Multiplier"
+#define EXTERIORWATEREQUIPMENTSUBCATEGORY "End Use Subcategory"
 
 namespace openstudio {
 
@@ -77,8 +101,8 @@ FacilityExteriorEquipmentGridView::FacilityExteriorEquipmentGridView(bool isIP, 
   auto modelObjects = subsetCastVector<model::ModelObject>(model.getConcreteModelObjects<model::ExteriorLights>());
   std::sort(modelObjects.begin(), modelObjects.end(), openstudio::WorkspaceObjectNameLess());
 
-  m_gridController = new FacilityExteriorEquipmentGridController(isIP, "Exterior Lights", IddObjectType::OS_Exterior_Lights, model, modelObjects);
-  auto gridView = new OSGridView(m_gridController, "Exterior Lights", "Drop\nExterior Lights", false, parent);
+  m_gridController = new FacilityExteriorEquipmentGridController(isIP, "Exterior Equipment", IddObjectType::OS_Exterior_Lights, model, modelObjects);
+  auto gridView = new OSGridView(m_gridController, "Exterior Equipment", "Drop\nExterior Equipment", false, parent);
 
   setGridController(m_gridController);
   setGridView(gridView);
@@ -89,33 +113,62 @@ FacilityExteriorEquipmentGridView::FacilityExteriorEquipmentGridView(bool isIP, 
 void FacilityExteriorEquipmentGridView::addObject(const IddObjectType& iddObjectType) {
   if (IddObjectType::OS_Exterior_Lights == iddObjectType.value()) {
     model::ExteriorLights(model::ExteriorLightsDefinition(this->m_model));
-  }
+  } else if (IddObjectType::OS_Exterior_FuelEquipment == iddObjectType.value()) {
+    model::ExteriorFuelEquipment(model::ExteriorFuelEquipmentDefinition(this->m_model));
+  } else if (IddObjectType::OS_Exterior_WaterEquipment == iddObjectType.value()) {
+    model::ExteriorWaterEquipment(model::ExteriorWaterEquipmentDefinition(this->m_model));
+  }else {
+      // unhandled
+      OS_ASSERT(false);
+    }
 }
 
 void FacilityExteriorEquipmentGridView::purgeObjects(const IddObjectType& iddObjectType) {
-  for (auto mo : this->m_model.getConcreteModelObjects<model::ExteriorLights>()) {
-    mo.remove();
+  if (IddObjectType::OS_Exterior_Lights == iddObjectType.value()) {
+    for (auto mo : this->m_model.getConcreteModelObjects<model::ExteriorLights>()) {
+      mo.remove();
+    }
+    for (auto mo : this->m_model.getConcreteModelObjects<model::ExteriorLightsDefinition>()) {
+      mo.remove();
+    }
+  } else if (IddObjectType::OS_Exterior_FuelEquipment == iddObjectType.value()) {
+    for (auto mo : this->m_model.getConcreteModelObjects<model::ExteriorFuelEquipment>()) {
+      mo.remove();
+    }
+    for (auto mo : this->m_model.getConcreteModelObjects<model::ExteriorFuelEquipmentDefinition>()) {
+      mo.remove();
+    }
+  } else if (IddObjectType::OS_Exterior_WaterEquipment == iddObjectType.value()) {
+    for (auto mo : this->m_model.getConcreteModelObjects<model::ExteriorWaterEquipment>()) {
+      mo.remove();
+    }
+    for (auto mo : this->m_model.getConcreteModelObjects<model::ExteriorWaterEquipmentDefinition>()) {
+      mo.remove();
+    }
+  } else {
+    // unhandled
+    OS_ASSERT(false);
   }
 }
 
 void FacilityExteriorEquipmentGridView::onSelectItem() {
   //m_itemSelectorButtons->enableAddButton();
-  m_itemSelectorButtons->enableCopyButton();
+  //m_itemSelectorButtons->enableCopyButton();
   m_itemSelectorButtons->enableRemoveButton();
-  m_itemSelectorButtons->enablePurgeButton();
+  //m_itemSelectorButtons->enablePurgeButton();
 }
 
 void FacilityExteriorEquipmentGridView::onClearSelection() {
-  m_itemSelectorButtons->disableAddButton();
-  m_itemSelectorButtons->disableCopyButton();
+  //m_itemSelectorButtons->disableAddButton();
+  //m_itemSelectorButtons->disableCopyButton();
   m_itemSelectorButtons->disableRemoveButton();
-  m_itemSelectorButtons->disablePurgeButton();
+  //m_itemSelectorButtons->disablePurgeButton();
 }
 
-FacilityExteriorEquipmentGridController::FacilityExteriorEquipmentGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType,
+FacilityExteriorEquipmentGridController::FacilityExteriorEquipmentGridController(bool isIP, const QString& settingsText, IddObjectType iddObjectType,
                                                                                  const model::Model& model,
                                                                                  const std::vector<model::ModelObject>& modelObjects)
-  : OSGridController(isIP, headerText, iddObjectType, model, modelObjects) {
+  : OSGridController(isIP, settingsText, iddObjectType, model, modelObjects) {
   setCategoriesAndFields();
 }
 
@@ -123,11 +176,35 @@ void FacilityExteriorEquipmentGridController::setCategoriesAndFields() {
   {
     std::vector<QString> fields;
     fields.push_back(EXTERIORLIGHTSDEFINITION);
-    fields.push_back(SCHEDULE);
-    fields.push_back(CONTROLOPTION);
-    fields.push_back(MULTIPLIER);
-    fields.push_back(ENDUSESUBCATEGORY);
+    fields.push_back(EXTERIORLIGHTSDESIGNLEVEL);
+    fields.push_back(EXTERIORLIGHTSSCHEDULE);
+    fields.push_back(EXTERIORLIGHTSCONTROLOPTION);
+    fields.push_back(EXTERIORLIGHTSMULTIPLIER);
+    fields.push_back(EXERIORLIGHTSENDUSESUBCATEGORY);
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Exterior Lights"), fields);
+    addCategoryAndFields(categoryAndFields);
+  }
+
+  {
+    std::vector<QString> fields;
+    fields.push_back(EXTERIORFUELEQUIPMENTDEFINITION);
+    fields.push_back(EXTERIORFUELEQUIPMENTDESIGNLEVEL);
+    fields.push_back(EXTERIORFUELEQUIPMENTSCHEDULE);
+    fields.push_back(EXTERIORFUELEQUIPMENTFUELTYPE);
+    fields.push_back(EXTERIORFUELEQUIPMENTMULTIPLIER);
+    fields.push_back(EXTERIORFUELEQUIPMENTSUBCATEGORY);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Exterior Fuel Equipment"), fields);
+    addCategoryAndFields(categoryAndFields);
+  }
+
+  {
+    std::vector<QString> fields;
+    fields.push_back(EXTERIORWATEREQUIPMENTDEFINITION);
+    fields.push_back(EXTERIORWATEREQUIPMENTDESIGNLEVEL);
+    fields.push_back(EXTERIORWATEREQUIPMENTSCHEDULE);
+    fields.push_back(EXTERIORWATEREQUIPMENTMULTIPLIER);
+    fields.push_back(EXTERIORWATEREQUIPMENTSUBCATEGORY);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Exterior Water Equipment"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -135,6 +212,16 @@ void FacilityExteriorEquipmentGridController::setCategoriesAndFields() {
 }
 
 void FacilityExteriorEquipmentGridController::onCategorySelected(int index) {
+  if (index == 0) {
+    setIddObjectType(IddObjectType::OS_Exterior_Lights);
+  } else if (index == 1) {
+    setIddObjectType(IddObjectType::OS_Exterior_FuelEquipment);
+  } else if (index == 2) {
+    setIddObjectType(IddObjectType::OS_Exterior_WaterEquipment);
+  } else {
+    // unhandled
+    OS_ASSERT(false);
+  }
   OSGridController::onCategorySelected(index);
 }
 
@@ -147,16 +234,21 @@ void FacilityExteriorEquipmentGridController::addColumns(const QString& category
   for (const auto& field : fields) {
 
     if (field == NAME) {
-      addParentNameLineEditColumn(Heading(QString(NAME), false, false), false, CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::name),
-                                  CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::setName));
+
+      addParentNameLineEditColumn(Heading(QString(NAME), false, false), false, CastNullAdapter<model::ModelObject>(&model::ModelObject::name),
+                                  CastNullAdapter<model::ModelObject>(&model::ModelObject::setName));
+
     } else if (field == SELECTED) {
+
       auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
       checkbox->setToolTip("Check to select all rows");
       connect(checkbox.data(), &OSSelectAllCheckBox::stateChanged, this, &FacilityExteriorEquipmentGridController::onSelectAllStateChanged);
       connect(this, &FacilityExteriorEquipmentGridController::gridRowSelectionChanged, checkbox.data(),
               &OSSelectAllCheckBox::onGridRowSelectionChanged);
       addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row");
+
     } else if (field == EXTERIORLIGHTSDEFINITION) {
+
       std::function<boost::optional<model::ExteriorLightsDefinition>(model::ExteriorLights*)> get([](model::ExteriorLights* el) {
         boost::optional<model::ExteriorLightsDefinition> optional = el->exteriorLightsDefinition();
         return optional;
@@ -165,7 +257,23 @@ void FacilityExteriorEquipmentGridController::addColumns(const QString& category
       addDropZoneColumn(Heading(QString(EXTERIORLIGHTSDEFINITION)), get,
                         CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::setExteriorLightsDefinition),
                         boost::optional<std::function<void(model::ExteriorLights*)>>());
-    } else if (field == SCHEDULE) {
+    
+    } else if (field == EXTERIORLIGHTSDESIGNLEVEL) {
+
+      std::function<double(model::ExteriorLights * el)> get([](model::ExteriorLights* el) { 
+        return el->exteriorLightsDefinition().designLevel();
+      });
+
+      std::function<bool(model::ExteriorLights*, double value)> set([](model::ExteriorLights* el, double value) { 
+        return el->exteriorLightsDefinition().setDesignLevel(value);
+      });
+
+      addValueEditColumn(
+        Heading(QString(EXTERIORLIGHTSDESIGNLEVEL)),
+        ProxyAdapter(&model::ExteriorLightsDefinition::designLevel, &model::ExteriorLights::exteriorLightsDefinition), 
+        ProxyAdapter(static_cast<bool (model::ExteriorLightsDefinition::*)(double)>(&model::ExteriorLightsDefinition::setDesignLevel), &model::ExteriorLights::exteriorLightsDefinition));
+
+    } else if (field == EXTERIORLIGHTSSCHEDULE) {
 
       std::function<bool(model::ExteriorLights*, const model::Schedule&)> set([](model::ExteriorLights* el, const model::Schedule& s) {
         model::Schedule copy = s;
@@ -173,11 +281,13 @@ void FacilityExteriorEquipmentGridController::addColumns(const QString& category
       });
 
       addDropZoneColumn(
-        Heading(QString(SCHEDULE)), CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::schedule), set,
+        Heading(QString(EXTERIORLIGHTSSCHEDULE)), CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::schedule), set,
         boost::optional<std::function<void(model::ExteriorLights*)>>(CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::resetSchedule)));
-    } else if (field == CONTROLOPTION) {
+
+    } else if (field == EXTERIORLIGHTSCONTROLOPTION) {
+
       addComboBoxColumn<std::string, model::ExteriorLights>(
-        Heading(QString(CONTROLOPTION)), static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
+        Heading(QString(EXTERIORLIGHTSCONTROLOPTION)), static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
         std::function<std::vector<std::string>()>(&model::ExteriorLights::controlOptionValues),
         CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::controlOption),
         CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::setControlOption),
@@ -186,24 +296,31 @@ void FacilityExteriorEquipmentGridController::addColumns(const QString& category
         boost::optional<std::function<bool(model::ExteriorLights*)>>(
           CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::isControlOptionDefaulted)),
         boost::optional<DataSource>());
-    } else if (field == MULTIPLIER) {
+
+    } else if (field == EXTERIORLIGHTSMULTIPLIER) {
+
       addValueEditColumn(
-        Heading(QString(MULTIPLIER)), NullAdapter(&model::ExteriorLights::multiplier), NullAdapter(&model::ExteriorLights::setMultiplier),
+        Heading(QString(EXTERIORLIGHTSMULTIPLIER)), NullAdapter(&model::ExteriorLights::multiplier),
+        NullAdapter(&model::ExteriorLights::setMultiplier),
         boost::optional<std::function<void(model::ExteriorLights*)>>(CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::resetMultiplier)),
         boost::optional<std::function<bool(model::ExteriorLights*)>>(
           CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::isMultiplierDefaulted)),
         boost::optional<DataSource>());
-    } else if (field == ENDUSESUBCATEGORY) {
-      addValueEditColumn(Heading(QString(ENDUSESUBCATEGORY)), CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::endUseSubcategory),
+
+    } else if (field == EXERIORLIGHTSENDUSESUBCATEGORY) {
+
+      addValueEditColumn(Heading(QString(EXERIORLIGHTSENDUSESUBCATEGORY)),
+                         CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::endUseSubcategory),
                          CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::setEndUseSubcategory),
                          boost::optional<std::function<void(model::ExteriorLights*)>>(
                            CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::resetEndUseSubcategory)),
                          boost::optional<std::function<bool(model::ExteriorLights*)>>(
                            CastNullAdapter<model::ExteriorLights>(&model::ExteriorLights::isEndUseSubcategoryDefaulted)),
                          boost::optional<DataSource>());
+
     } else {
       // unhandled
-      OS_ASSERT(false);
+      OS_ASSERT(true);
     }
   }
 }
@@ -222,9 +339,22 @@ void FacilityExteriorEquipmentGridController::checkSelectedFields() {
 void FacilityExteriorEquipmentGridController::onItemDropped(const OSItemId& itemId) {}
 
 void FacilityExteriorEquipmentGridController::refreshModelObjects() {
-  auto lights = model().getConcreteModelObjects<model::ExteriorLights>();
-  std::sort(lights.begin(), lights.end(), openstudio::WorkspaceObjectNameLess());
-  setModelObjects(subsetCastVector<model::ModelObject>(lights));
+  if (IddObjectType::OS_Exterior_Lights == iddObjectType().value()) {
+    auto lights = model().getConcreteModelObjects<model::ExteriorLights>();
+    std::sort(lights.begin(), lights.end(), openstudio::WorkspaceObjectNameLess());
+    setModelObjects(subsetCastVector<model::ModelObject>(lights));
+  } else if (IddObjectType::OS_Exterior_FuelEquipment == iddObjectType().value()) {
+    auto equip = model().getConcreteModelObjects<model::ExteriorFuelEquipment>();
+    std::sort(equip.begin(), equip.end(), openstudio::WorkspaceObjectNameLess());
+    setModelObjects(subsetCastVector<model::ModelObject>(equip));
+  } else if (IddObjectType::OS_Exterior_WaterEquipment == iddObjectType().value()) {
+    auto equip = model().getConcreteModelObjects<model::ExteriorWaterEquipment>();
+    std::sort(equip.begin(), equip.end(), openstudio::WorkspaceObjectNameLess());
+    setModelObjects(subsetCastVector<model::ModelObject>(equip));
+  } else {
+    // unhandled
+    OS_ASSERT(false);
+  }
 }
 
 void FacilityExteriorEquipmentGridController::onComboBoxIndexChanged(int index) {}
