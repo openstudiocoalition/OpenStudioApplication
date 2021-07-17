@@ -489,7 +489,6 @@ void InspectorDialog::onNeedsSetFocus() {
 void InspectorDialog::init(InspectorDialogClient client) {
 
   QFile sketchUpPluginPolicy(":/SketchUpPluginPolicy.xml");
-  sketchUpPluginPolicy.open(QIODevice::ReadOnly);
 
   const auto toVector = [](const auto& data) { return std::vector<char>(data.begin(), data.end()); };
 
@@ -508,7 +507,9 @@ void InspectorDialog::init(InspectorDialogClient client) {
       break;
     case InspectorDialogClient::SketchUpPlugin:
 
+      sketchUpPluginPolicy.open(QIODevice::ReadOnly);
       openstudio::model::AccessPolicyStore::Instance().loadFile(toVector(sketchUpPluginPolicy.readAll()));
+      sketchUpPluginPolicy.close();
 
       m_iddFile = IddFactory::instance().getIddFile(IddFileType::OpenStudio);
 
