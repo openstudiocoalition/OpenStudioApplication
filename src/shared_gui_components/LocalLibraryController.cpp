@@ -75,9 +75,10 @@ LocalLibraryController::LocalLibraryController(BaseApp* t_app, bool onlyShowMode
   LOG(Debug, "Creating LocalLibraryController with base app " << t_app);
   QDomDocument doc("taxonomy");
   QFile file(":/shared_gui_components/taxonomy.xml");
-  file.open(QIODevice::ReadOnly);
-  doc.setContent(&file);
-  file.close();
+  if (file.open(QIODevice::ReadOnly)) {
+    doc.setContent(&file);
+    file.close();
+  }
 
   QSharedPointer<LibraryTypeListController> libraryListController = createLibraryListController(doc, LocalLibrary::COMBINED);
 
