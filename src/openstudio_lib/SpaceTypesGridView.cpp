@@ -480,8 +480,8 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
       connect(this, &SpaceTypesGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
 
       addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row");
-    } else if (field == LOADNAME || field == MULTIPLIER || field == DEFINITION || field == SCHEDULE || field == ACTIVITYSCHEDULE ||
-               field == SELECTED) {
+    } else if (field == LOADNAME || field == MULTIPLIER || field == DEFINITION || field == SCHEDULE || field == ACTIVITYSCHEDULE
+               || field == SELECTED) {
       // Create a lambda function that collates all of the loads in a space type
       // and returns them as an std::vector
       std::function<std::vector<model::ModelObject>(const model::SpaceType&)> allLoads([](const model::SpaceType& t_spaceType) {

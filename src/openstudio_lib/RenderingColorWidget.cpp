@@ -213,8 +213,8 @@ void RenderingColorWidget2::refresh() {
     style.append("QPushButton { ");
     style.append("              border-radius: 0px; ");
     style.append("              border: 1px solid #949393; ");
-    style.append("              background : rgba(" + QString::number(r) + "," + QString::number(g) + ", " + QString::number(b) + ", " +
-                 QString::number(a) + "); ");
+    style.append("              background : rgba(" + QString::number(r) + "," + QString::number(g) + ", " + QString::number(b) + ", "
+                 + QString::number(a) + "); ");
     style.append("              margin: 0; ");
     style.append("              padding-left: 0px; ");
     style.append("              padding-right: 0px; ");
@@ -310,8 +310,8 @@ void RenderingColorWidget::refresh() {
     int g = m_renderingColor->renderingGreenValue();
     int b = m_renderingColor->renderingBlueValue();
     int a = m_renderingColor->renderingAlphaValue();
-    QString style = "QWidget { background-color : rgba(" + QString::number(r) + "," + QString::number(g) + ", " + QString::number(b) + ", " +
-                    QString::number(a) + ");}";
+    QString style = "QWidget { background-color : rgba(" + QString::number(r) + "," + QString::number(g) + ", " + QString::number(b) + ", "
+                    + QString::number(a) + ");}";
     m_renderColorWidget->setStyleSheet(style);
     m_renderColorButton->setEnabled(true);
   }

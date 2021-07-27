@@ -35,6 +35,7 @@
 #include "OSWebEnginePage.hpp"
 
 #include <openstudio/model/Model.hpp>
+#include <openstudio/model/DefaultConstructionSet.hpp>
 
 #include <openstudio/utilities/geometry/FloorplanJS.hpp>
 
@@ -142,6 +143,7 @@ class FloorspaceEditor : public BaseEditor
  private:
   std::string m_originalBuildingName;
   std::string m_originalSiteName;
+  boost::optional<openstudio::model::DefaultConstructionSet> m_originalDefaultConstructionSet;
   openstudio::path m_floorplanPath;
   boost::optional<FloorplanJS> m_floorplan;
 };

@@ -101,9 +101,9 @@ void WallConstructionVC::onDrop(const OSItemId& itemId) {
       QWidget* parent = OSAppBase::instance()->currentDocument()->mainWindow();
       QMessageBox::StandardButton button =
         QMessageBox::question(parent, "Shared Construction Set Resources",
-                              "This construction is shared by " + QString::number(numSources - 1) + " other construction sets.\n\n" +
-                                "Click \"Yes\" to change the construction in all construction sets.\n" +
-                                "Click \"No\" to change it in only this construction set.\n" + "Click \"Cancel\" to do nothing.",
+                              "This construction is shared by " + QString::number(numSources - 1) + " other construction sets.\n\n"
+                                + "Click \"Yes\" to change the construction in all construction sets.\n"
+                                + "Click \"No\" to change it in only this construction set.\n" + "Click \"Cancel\" to do nothing.",
                               QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel, QMessageBox::No);
       if (button == QMessageBox::Cancel) {
         return;
@@ -160,9 +160,9 @@ void FloorConstructionVC::onDrop(const OSItemId& itemId) {
       QWidget* parent = OSAppBase::instance()->currentDocument()->mainWindow();
       QMessageBox::StandardButton button =
         QMessageBox::question(parent, "Shared Construction Set Resources",
-                              "This construction is shared by " + QString::number(numSources - 1) + " other construction sets.\n\n" +
-                                "Click \"Yes\" to change the construction in all construction sets.\n" +
-                                "Click \"No\" to change it in only this construction set.\n" + "Click \"Cancel\" to do nothing.",
+                              "This construction is shared by " + QString::number(numSources - 1) + " other construction sets.\n\n"
+                                + "Click \"Yes\" to change the construction in all construction sets.\n"
+                                + "Click \"No\" to change it in only this construction set.\n" + "Click \"Cancel\" to do nothing.",
                               QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel, QMessageBox::No);
       if (button == QMessageBox::Cancel) {
         return;
@@ -219,9 +219,9 @@ void RoofConstructionVC::onDrop(const OSItemId& itemId) {
       QWidget* parent = OSAppBase::instance()->currentDocument()->mainWindow();
       QMessageBox::StandardButton button =
         QMessageBox::question(parent, "Shared Construction Set Resources",
-                              "This construction is shared by " + QString::number(numSources - 1) + " other construction sets.\n\n" +
-                                "Click \"Yes\" to change the construction in all construction sets.\n" +
-                                "Click \"No\" to change it in only this construction set.\n" + "Click \"Cancel\" to do nothing.",
+                              "This construction is shared by " + QString::number(numSources - 1) + " other construction sets.\n\n"
+                                + "Click \"Yes\" to change the construction in all construction sets.\n"
+                                + "Click \"No\" to change it in only this construction set.\n" + "Click \"Cancel\" to do nothing.",
                               QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel, QMessageBox::No);
       if (button == QMessageBox::Cancel) {
         return;
@@ -278,9 +278,9 @@ void GlassDoorConstructionVC::onDrop(const OSItemId& itemId) {
       QWidget* parent = OSAppBase::instance()->currentDocument()->mainWindow();
       QMessageBox::StandardButton button =
         QMessageBox::question(parent, "Shared Construction Set Resources",
-                              "This construction is shared by " + QString::number(numSources - 1) + " other construction sets.\n\n" +
-                                "Click \"Yes\" to change the construction in all construction sets.\n" +
-                                "Click \"No\" to change it in only this construction set.\n" + "Click \"Cancel\" to do nothing.",
+                              "This construction is shared by " + QString::number(numSources - 1) + " other construction sets.\n\n"
+                                + "Click \"Yes\" to change the construction in all construction sets.\n"
+                                + "Click \"No\" to change it in only this construction set.\n" + "Click \"Cancel\" to do nothing.",
                               QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel, QMessageBox::No);
       if (button == QMessageBox::Cancel) {
         return;
@@ -337,9 +337,9 @@ void OverheadDoorConstructionVC::onDrop(const OSItemId& itemId) {
       QWidget* parent = OSAppBase::instance()->currentDocument()->mainWindow();
       QMessageBox::StandardButton button =
         QMessageBox::question(parent, "Shared Construction Set Resources",
-                              "This construction is shared by " + QString::number(numSources - 1) + " other construction sets.\n\n" +
-                                "Click \"Yes\" to change the construction in all construction sets.\n" +
-                                "Click \"No\" to change it in only this construction set.\n" + "Click \"Cancel\" to do nothing.",
+                              "This construction is shared by " + QString::number(numSources - 1) + " other construction sets.\n\n"
+                                + "Click \"Yes\" to change the construction in all construction sets.\n"
+                                + "Click \"No\" to change it in only this construction set.\n" + "Click \"Cancel\" to do nothing.",
                               QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel, QMessageBox::No);
       if (button == QMessageBox::Cancel) {
         return;
@@ -396,9 +396,9 @@ void SkylightConstructionVC::onDrop(const OSItemId& itemId) {
       QWidget* parent = OSAppBase::instance()->currentDocument()->mainWindow();
       QMessageBox::StandardButton button =
         QMessageBox::question(parent, "Shared Construction Set Resources",
-                              "This construction is shared by " + QString::number(numSources - 1) + " other construction sets.\n\n" +
-                                "Click \"Yes\" to change the construction in all construction sets.\n" +
-                                "Click \"No\" to change it in only this construction set.\n" + "Click \"Cancel\" to do nothing.",
+                              "This construction is shared by " + QString::number(numSources - 1) + " other construction sets.\n\n"
+                                + "Click \"Yes\" to change the construction in all construction sets.\n"
+                                + "Click \"No\" to change it in only this construction set.\n" + "Click \"Cancel\" to do nothing.",
                               QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel, QMessageBox::No);
       if (button == QMessageBox::Cancel) {
         return;
@@ -455,9 +455,9 @@ void TubularDaylightDomeConstructionVC::onDrop(const OSItemId& itemId) {
       QWidget* parent = OSAppBase::instance()->currentDocument()->mainWindow();
       QMessageBox::StandardButton button =
         QMessageBox::question(parent, "Shared Construction Set Resources",
-                              "This construction is shared by " + QString::number(numSources - 1) + " other construction sets.\n\n" +
-                                "Click \"Yes\" to change the construction in all construction sets.\n" +
-                                "Click \"No\" to change it in only this construction set.\n" + "Click \"Cancel\" to do nothing.",
+                              "This construction is shared by " + QString::number(numSources - 1) + " other construction sets.\n\n"
+                                + "Click \"Yes\" to change the construction in all construction sets.\n"
+                                + "Click \"No\" to change it in only this construction set.\n" + "Click \"Cancel\" to do nothing.",
                               QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel, QMessageBox::No);
       if (button == QMessageBox::Cancel) {
         return;
@@ -515,9 +515,9 @@ void TubularDaylightDiffuserConstructionVC::onDrop(const OSItemId& itemId) {
       QWidget* parent = OSAppBase::instance()->currentDocument()->mainWindow();
       QMessageBox::StandardButton button =
         QMessageBox::question(parent, "Shared Construction Set Resources",
-                              "This construction is shared by " + QString::number(numSources - 1) + " other construction sets.\n\n" +
-                                "Click \"Yes\" to change the construction in all construction sets.\n" +
-                                "Click \"No\" to change it in only this construction set.\n" + "Click \"Cancel\" to do nothing.",
+                              "This construction is shared by " + QString::number(numSources - 1) + " other construction sets.\n\n"
+                                + "Click \"Yes\" to change the construction in all construction sets.\n"
+                                + "Click \"No\" to change it in only this construction set.\n" + "Click \"Cancel\" to do nothing.",
                               QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel, QMessageBox::No);
       if (button == QMessageBox::Cancel) {
         return;
@@ -574,9 +574,9 @@ void FixedWindowVC::onDrop(const OSItemId& itemId) {
       QWidget* parent = OSAppBase::instance()->currentDocument()->mainWindow();
       QMessageBox::StandardButton button =
         QMessageBox::question(parent, "Shared Construction Set Resources",
-                              "This construction is shared by " + QString::number(numSources - 1) + " other construction sets.\n\n" +
-                                "Click \"Yes\" to change the construction in all construction sets.\n" +
-                                "Click \"No\" to change it in only this construction set.\n" + "Click \"Cancel\" to do nothing.",
+                              "This construction is shared by " + QString::number(numSources - 1) + " other construction sets.\n\n"
+                                + "Click \"Yes\" to change the construction in all construction sets.\n"
+                                + "Click \"No\" to change it in only this construction set.\n" + "Click \"Cancel\" to do nothing.",
                               QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel, QMessageBox::No);
       if (button == QMessageBox::Cancel) {
         return;
@@ -633,9 +633,9 @@ void OperableWindowVC::onDrop(const OSItemId& itemId) {
       QWidget* parent = OSAppBase::instance()->currentDocument()->mainWindow();
       QMessageBox::StandardButton button =
         QMessageBox::question(parent, "Shared Construction Set Resources",
-                              "This construction is shared by " + QString::number(numSources - 1) + " other construction sets.\n\n" +
-                                "Click \"Yes\" to change the construction in all construction sets.\n" +
-                                "Click \"No\" to change it in only this construction set.\n" + "Click \"Cancel\" to do nothing.",
+                              "This construction is shared by " + QString::number(numSources - 1) + " other construction sets.\n\n"
+                                + "Click \"Yes\" to change the construction in all construction sets.\n"
+                                + "Click \"No\" to change it in only this construction set.\n" + "Click \"Cancel\" to do nothing.",
                               QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel, QMessageBox::No);
       if (button == QMessageBox::Cancel) {
         return;
@@ -692,9 +692,9 @@ void DoorVC::onDrop(const OSItemId& itemId) {
       QWidget* parent = OSAppBase::instance()->currentDocument()->mainWindow();
       QMessageBox::StandardButton button =
         QMessageBox::question(parent, "Shared Construction Set Resources",
-                              "This construction is shared by " + QString::number(numSources - 1) + " other construction sets.\n\n" +
-                                "Click \"Yes\" to change the construction in all construction sets.\n" +
-                                "Click \"No\" to change it in only this construction set.\n" + "Click \"Cancel\" to do nothing.",
+                              "This construction is shared by " + QString::number(numSources - 1) + " other construction sets.\n\n"
+                                + "Click \"Yes\" to change the construction in all construction sets.\n"
+                                + "Click \"No\" to change it in only this construction set.\n" + "Click \"Cancel\" to do nothing.",
                               QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel, QMessageBox::No);
       if (button == QMessageBox::Cancel) {
         return;

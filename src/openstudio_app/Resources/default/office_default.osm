@@ -1,7 +1,7 @@
 
 OS:Version,
-  {ebb223f1-fe44-4908-b828-eba5deb7a25e}, !- Handle
-  3.2.0;                                  !- Version Identifier
+  {1d665d83-bc09-4183-bc77-7e5149cc0174}, !- Handle
+  3.2.1;                                  !- Version Identifier
 
 OS:Schedule:Constant,
   {1fe75643-8848-46bb-8327-b84d604dc1cc}, !- Handle
@@ -7832,16 +7832,6 @@ OS:DefaultSubSurfaceConstructions,
   ,                                       !- Tubular Daylight Dome Construction Name
   ;                                       !- Tubular Daylight Diffuser Construction Name
 
-OS:Material:AirWall,
-  {9c2e9d3e-294f-43b6-a35a-50ee1f5a6da4}, !- Handle
-  Air Wall Material;                      !- Name
-
-OS:Construction,
-  {c2015e14-8a99-41b4-a8b9-ca08a758e5b5}, !- Handle
-  Air Wall,                               !- Name
-  ,                                       !- Surface Rendering Name
-  {9c2e9d3e-294f-43b6-a35a-50ee1f5a6da4}; !- Layer 1
-
 OS:SpaceInfiltration:EffectiveLeakageArea,
   {fa1b2cef-5376-4b21-8ebc-9ede6f08ab69}, !- Handle
   Space Infiltration Effective Leakage Area 1, !- Name
@@ -7893,14 +7883,6 @@ OS:LifeCycleCost:Parameters,
 
 OS:Facility,
   {67aa9559-41cc-4015-a2b3-ee95a9bcd8ad}; !- Handle
-
-OS:StandardsInformation:Construction,
-  {dc1dbb9e-e38d-40a9-a0d7-6dfda00779c4}, !- Handle
-  {c2015e14-8a99-41b4-a8b9-ca08a758e5b5}; !- Construction Name
-
-OS:StandardsInformation:Material,
-  {05225216-2b25-4f29-8135-2765309693d9}, !- Handle
-  {9c2e9d3e-294f-43b6-a35a-50ee1f5a6da4}; !- Material Name
 
 OS:WindowMaterial:Blind,
   {57a656b0-06ef-4771-ad1b-2a27d4d72bbc}, !- Handle

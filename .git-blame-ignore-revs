@@ -229,3 +229,28 @@ d2b2f4313ecd90adf7fc954bcb6e17d276d46ac9
 
 # [chore] Modify clang-format file for AccessModifierOffset (public/private) and rerun clang-format [Julien Marrec, 2020-07-23]
 a15f18dcc9f047c6b44fe13fa57a2fa8be4f4cd9
+
+# Clang format [chore] [Dan Macumber, 2020-09-05]
+e8a23dbe492a21d8619f67b42da7b0e6dd2c2caf
+
+# clang format pragma [chore] [Julien Marrec, 2020-09-07]
+13dbdd5b927c222a1206a6e412fadde3604cec96
+
+# clang format [chore] [Julien Marrec, 2020-09-08]
+b8d82f3a62acd0b0312a817162757e8d86aabb47
+
+# Add script to apply copyright [Dan Macumber, 2020-10-23]
+3269e69b8c2d657b9321d36b2ab2e11aa1f379be
+
+# Update copyrights in files [Dan Macumber, 2020-10-23]
+87b3610e9573bd31fbe3a3d067846a8395e6c552
+
+# Update Alliance copyright to 2020 [Dan Macumber, 2020-10-23]
+549a73e391e084e1cd68722a95e27affa10409a8
+
+# clang format [chore] [Julien Marrec, 2021-05-26]
+abcabd4cb0a2144b81e74212b19cc2dde1f04797
+
+# [chore] clang-format: BreakBeforeBinaryOperators: None to NonAssignment [Julien Marrec, 2021-05-31]
+1e066fcf865e22e0c23627ac7230024e244756a9
+

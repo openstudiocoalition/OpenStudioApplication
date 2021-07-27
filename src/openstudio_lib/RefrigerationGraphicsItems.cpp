@@ -344,8 +344,8 @@ QRectF RefrigerationSystemView::boundingRect() const {
                         ? refrigerationHeatReclaimView->boundingRect().width()
                         : refrigerationCompressorView->boundingRect().width();
 
-  double x = margin + refrigerationSubCoolerView->boundingRect().width() + margin + refrigerationCondenserView->boundingRect().width() + margin +
-             rightWidth + margin;
+  double x = margin + refrigerationSubCoolerView->boundingRect().width() + margin + refrigerationCondenserView->boundingRect().width() + margin
+             + rightWidth + margin;
 
   return QRectF(0, 0, x, refrigerationSecondaryView->y() + refrigerationSecondaryView->boundingRect().height() + verticalSpacing);
   //return QRectF(0,0,x,refrigerationCasesView->y() + refrigerationCasesView->boundingRect().height() + verticalSpacing);
@@ -366,8 +366,8 @@ int RefrigerationSystemView::rightXPos() const {
                         ? refrigerationHeatReclaimView->boundingRect().width()
                         : refrigerationCompressorView->boundingRect().width();
 
-  return margin + refrigerationSubCoolerView->boundingRect().width() + margin + refrigerationCondenserView->boundingRect().width() + margin +
-         (rightWidth / 2.0);
+  return margin + refrigerationSubCoolerView->boundingRect().width() + margin + refrigerationCondenserView->boundingRect().width() + margin
+         + (rightWidth / 2.0);
 }
 
 RefrigerationCasesView::RefrigerationCasesView()
@@ -469,9 +469,9 @@ QRectF RefrigerationCasesView::summaryRect() {
   double length = RefrigerationSystemView::componentHeight;
 
   return QRectF(0, 0,
-                RefrigerationSystemView::margin / 2.0 + RefrigerationCasesDropZoneView::size().width() + RefrigerationSystemView::margin / 2.0 +
-                  displayCasesRect().width() + RefrigerationSystemView::margin / 2.0 + walkinCasesRect().width() +
-                  RefrigerationSystemView::margin / 2.0,
+                RefrigerationSystemView::margin / 2.0 + RefrigerationCasesDropZoneView::size().width() + RefrigerationSystemView::margin / 2.0
+                  + displayCasesRect().width() + RefrigerationSystemView::margin / 2.0 + walkinCasesRect().width()
+                  + RefrigerationSystemView::margin / 2.0,
                 length);
 }
 
@@ -861,8 +861,8 @@ void RefrigerationCompressorView::removeAllCompressorDetailViews() {
 void RefrigerationCompressorView::adjustLayout() {
   refrigerationCompressorDropZoneView->setPos(RefrigerationSystemView::margin / 2.0, RefrigerationSystemView::margin / 2.0);
 
-  int x = refrigerationCompressorDropZoneView->pos().x() + refrigerationCompressorDropZoneView->boundingRect().width() +
-          RefrigerationSystemView::margin / 2.0;
+  int x = refrigerationCompressorDropZoneView->pos().x() + refrigerationCompressorDropZoneView->boundingRect().width()
+          + RefrigerationSystemView::margin / 2.0;
   int y = RefrigerationSystemView::margin / 2.0;
 
   for (auto it = m_compressorDetailViews.begin(); it != m_compressorDetailViews.end(); ++it) {
@@ -889,9 +889,9 @@ void RefrigerationCompressorView::paint(QPainter* painter, const QStyleOptionGra
 
 QRectF RefrigerationCompressorView::boundingRect() const {
   return QRectF(0, 0,
-                RefrigerationSystemView::margin / 2.0 + refrigerationCompressorDropZoneView->boundingRect().width() +
-                  m_compressorDetailViews.size() * (RefrigerationCompressorDetailView::size().width() + RefrigerationSystemView::margin / 2.0) +
-                  RefrigerationSystemView::margin / 2.0,
+                RefrigerationSystemView::margin / 2.0 + refrigerationCompressorDropZoneView->boundingRect().width()
+                  + m_compressorDetailViews.size() * (RefrigerationCompressorDetailView::size().width() + RefrigerationSystemView::margin / 2.0)
+                  + RefrigerationSystemView::margin / 2.0,
                 height());
 }
 
