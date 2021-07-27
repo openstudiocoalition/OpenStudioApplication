@@ -240,8 +240,7 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, QWidget* parent) : QMenuBar(parent)
   connect(action, &QAction::triggered, this, &MainMenu::aboutClicked);
 }
 
-MainMenu::~MainMenu() 
-{
+MainMenu::~MainMenu() {
   disconnect();
 }
 
