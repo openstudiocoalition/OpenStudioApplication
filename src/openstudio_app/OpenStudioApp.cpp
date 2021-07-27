@@ -168,9 +168,9 @@ OpenStudioApp::OpenStudioApp(int& argc, char** argv)
   readSettings();
 
   QFile f(":/library/OpenStudioPolicy.xml");
-  if (f.open(QFile::ReadOnly)) {
-    const auto data = f.readAll();
-    openstudio::model::AccessPolicyStore::Instance().loadFile(std::vector<char>{data.begin(), data.end()});
+  if (f.open(QIODevice::ReadOnly)) {
+    openstudio::model::AccessPolicyStore::Instance().loadFile(f.readAll());
+    f.close();
   }
 
   QFile data(":/openstudiolib.qss");

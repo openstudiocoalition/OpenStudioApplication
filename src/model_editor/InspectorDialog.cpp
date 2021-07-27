@@ -63,6 +63,7 @@
 #include <QCloseEvent>
 #include <QSettings>
 #include <QTextStream>
+#include <QDebug>
 
 using namespace openstudio;
 using namespace openstudio::model;
@@ -507,9 +508,12 @@ void InspectorDialog::init(InspectorDialogClient client) {
       break;
     case InspectorDialogClient::SketchUpPlugin:
 
-      sketchUpPluginPolicy.open(QIODevice::ReadOnly);
-      openstudio::model::AccessPolicyStore::Instance().loadFile(toVector(sketchUpPluginPolicy.readAll()));
-      sketchUpPluginPolicy.close();
+      if (sketchUpPluginPolicy.open(QIODevice::ReadOnly)) {
+        openstudio::model::AccessPolicyStore::Instance().loadFile(sketchUpPluginPolicy.readAll());
+        sketchUpPluginPolicy.close();
+      } else {
+        qDebug() << "Failed to open the SketchUpPluginPolicy.xml";
+      }
 
       m_iddFile = IddFactory::instance().getIddFile(IddFileType::OpenStudio);
 
