@@ -63,6 +63,7 @@
 #include <QCloseEvent>
 #include <QSettings>
 #include <QTextStream>
+#include <QDebug>
 
 using namespace openstudio;
 using namespace openstudio::model;
@@ -489,6 +490,7 @@ void InspectorDialog::onNeedsSetFocus() {
 void InspectorDialog::init(InspectorDialogClient client) {
 
   QFile sketchUpPluginPolicy(":/SketchUpPluginPolicy.xml");
+
   const auto toVector = [](const auto& data) { return std::vector<char>(data.begin(), data.end()); };
 
   switch (client.value()) {
@@ -506,7 +508,12 @@ void InspectorDialog::init(InspectorDialogClient client) {
       break;
     case InspectorDialogClient::SketchUpPlugin:
 
-      openstudio::model::AccessPolicyStore::Instance().loadFile(toVector(sketchUpPluginPolicy.readAll()));
+      if (sketchUpPluginPolicy.open(QIODevice::ReadOnly)) {
+        openstudio::model::AccessPolicyStore::Instance().loadFile(sketchUpPluginPolicy.readAll());
+        sketchUpPluginPolicy.close();
+      } else {
+        LOG_FREE(LogLevel::Error, "InspectorDialog", "Failed to open SketchUpPluginPolicy.xml");
+      }
 
       m_iddFile = IddFactory::instance().getIddFile(IddFileType::OpenStudio);
 
@@ -944,6 +951,8 @@ void InspectorDialog::loadStyleSheet() {
     style = styleIn.readAll();
     data.close();
     setStyleSheet(style);
+  } else {
+    LOG_FREE(LogLevel::Error, "InspectorDialog", "Failed to open InspectorDialog.qss");
   }
 }
 
