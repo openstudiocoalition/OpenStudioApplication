@@ -134,7 +134,7 @@ void FacilityExteriorEquipmentGridView::purgeObjects(const IddObjectType& iddObj
       }
     }
   } else if (IddObjectType::OS_Exterior_WaterEquipment == iddObjectType.value()) {
-    for (auto mo : this->m_model.getConcreteModelObjects<model::ExteriorWaterEquipmentDefinition>()) {
+    for (auto &mo : this->m_model.getConcreteModelObjects<model::ExteriorWaterEquipmentDefinition>()) {
       if (mo.instances().empty()) {
         mo.remove();
       }
