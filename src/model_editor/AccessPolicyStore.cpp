@@ -65,43 +65,43 @@ class AccessParser : public QXmlDefaultHandler
   AccessParser();
 
  protected:
-  bool startElement(const QString& namespaceURI, const QString& localName, const QString& qName, const QXmlAttributes& atts) override;
+  virtual bool startElement(const QString& namespaceURI, const QString& localName, const QString& qName, const QXmlAttributes& atts) override;
 
-  bool endElement(const QString& namespaceURI, const QString& localName, const QString& qName) override;
+  virtual bool endElement(const QString& namespaceURI, const QString& localName, const QString& qName) override;
 
-  bool error(QXmlParseException&);
-  bool fatalError(QXmlParseException&);
+  virtual bool error(const QXmlParseException& e) override;
+  virtual bool fatalError(const QXmlParseException& e) override;
 
  private:
-  AccessPolicy* m_curPolicy;
+  AccessPolicy* m_curPolicy = nullptr;
   IddObjectType m_curType;
   IddFileAndFactoryWrapper m_factory;
   REGISTER_LOGGER("AccessParser");
 };
 
-AccessParser::AccessParser() : m_curPolicy(nullptr), m_curType("Catchall") {}
+AccessParser::AccessParser() : m_curType("Catchall") {}
 
-bool AccessParser::error(QXmlParseException& e) {
+bool AccessParser::error(const QXmlParseException& e) {
   stringstream s;
   s << "Error line:" << e.lineNumber() << "\ncolumn:" << e.columnNumber() << "\n" << e.message().toStdString() << "\n";
   LOG(Debug, s.str());
   return false;
 }
-bool AccessParser::fatalError(QXmlParseException& e) {
+bool AccessParser::fatalError(const QXmlParseException& e) {
   LOG(Debug, "Error line:" << e.lineNumber() << "\ncolumn:" << e.columnNumber() << "\n" << e.message().toStdString() << "\n");
   return false;
 }
 
 bool AccessParser::startElement(const QString& /*namespaceURI*/, const QString& /*localName*/, const QString& qName, const QXmlAttributes& atts) {
-  if (!qName.compare("policy", Qt::CaseInsensitive)) {
-    if (m_curPolicy) {
+  if (qName.compare("policy", Qt::CaseInsensitive) != 0) {
+    if (m_curPolicy != nullptr) {
       LOG(Debug, "parse error, new policy started before old one ended\n");
       return false;
     }
 
     for (int i = 0, iend = atts.length(); i < iend; ++i) {
       QString name = atts.qName(i);
-      if (!name.compare("IddObjectType", Qt::CaseInsensitive)) {
+      if (name.compare("IddObjectType", Qt::CaseInsensitive) != 0) {
         QString val = atts.value(i);
         try {
           m_curType = IddObjectType(val.toStdString());
