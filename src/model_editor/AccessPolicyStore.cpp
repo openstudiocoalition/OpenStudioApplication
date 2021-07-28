@@ -93,7 +93,7 @@ bool AccessParser::fatalError(const QXmlParseException& e) {
 }
 
 bool AccessParser::startElement(const QString& /*namespaceURI*/, const QString& /*localName*/, const QString& qName, const QXmlAttributes& atts) {
-  if (qName.compare("policy", Qt::CaseInsensitive) != 0) {
+  if (qName.compare("policy", Qt::CaseInsensitive) == 0) {
     if (m_curPolicy != nullptr) {
       LOG(Debug, "parse error, new policy started before old one ended\n");
       return false;
@@ -101,7 +101,7 @@ bool AccessParser::startElement(const QString& /*namespaceURI*/, const QString& 
 
     for (int i = 0, iend = atts.length(); i < iend; ++i) {
       QString name = atts.qName(i);
-      if (name.compare("IddObjectType", Qt::CaseInsensitive) != 0) {
+      if (name.compare("IddObjectType", Qt::CaseInsensitive) == 0) {
         QString val = atts.value(i);
         try {
           m_curType = IddObjectType(val.toStdString());
@@ -131,8 +131,8 @@ bool AccessParser::startElement(const QString& /*namespaceURI*/, const QString& 
       }
     }
     return false;  //NO IddObjectType!!!!
-  } else if (!qName.compare("rule", Qt::CaseInsensitive)) {
-    if (!m_curPolicy) {
+  } else if (qName.compare("rule", Qt::CaseInsensitive) == 0) {
+    if (m_curPolicy == nullptr) {
       LOG(Debug, "parse error, rule started before a policy is started");
       return false;
     }
@@ -140,17 +140,17 @@ bool AccessParser::startElement(const QString& /*namespaceURI*/, const QString& 
     QString accessRule;
     for (int i = 0, iend = atts.length(); i < iend; ++i) {
       QString name = atts.qName(i);
-      if (!name.compare("IddField", Qt::CaseInsensitive)) {
+      if (name.compare("IddField", Qt::CaseInsensitive) == 0) {
         fieldName = atts.value(i);
-      } else if (!name.compare("access", Qt::CaseInsensitive)) {
+      } else if (name.compare("access", Qt::CaseInsensitive) == 0) {
         accessRule = atts.value(i);
       }
     }
     if (fieldName.size() && accessRule.size()) {
       AccessPolicy::ACCESS_LEVEL level = AccessPolicy::FREE;
-      if (!accessRule.compare("locked", Qt::CaseInsensitive)) {
+      if (accessRule.compare("locked", Qt::CaseInsensitive) == 0) {
         level = AccessPolicy::LOCKED;
-      } else if (!accessRule.compare("hidden", Qt::CaseInsensitive)) {
+      } else if (accessRule.compare("hidden", Qt::CaseInsensitive) == 0) {
         level = AccessPolicy::HIDDEN;
       }
 
@@ -165,7 +165,7 @@ bool AccessParser::startElement(const QString& /*namespaceURI*/, const QString& 
       for (unsigned int i = 0, iend = obj.numFields(); i < iend; ++i) {
         openstudio::OptionalIddField f = obj.getField(i);
         QString fieldName2(f->name().c_str());
-        if (!fieldName.compare(fieldName2, Qt::CaseInsensitive)) {
+        if (fieldName.compare(fieldName2, Qt::CaseInsensitive) == 0) {
           m_curPolicy->m_accessMap[i] = level;
           foundInFields = true;
           break;
@@ -176,7 +176,7 @@ bool AccessParser::startElement(const QString& /*namespaceURI*/, const QString& 
       for (unsigned int i = obj.numFields(), iend = obj.properties().numExtensible + obj.numFields(); i < iend && !foundInFields; ++i) {
         openstudio::OptionalIddField f = obj.getField(i);
         QString fieldName2(f->name().c_str());
-        if (!fieldName.compare(fieldName2, Qt::CaseInsensitive)) {
+        if (fieldName.compare(fieldName2, Qt::CaseInsensitive) == 0) {
           m_curPolicy->m_extensibleAccessMap[i - obj.numFields()] = level;
           foundInFields = true;
           break;
@@ -194,7 +194,7 @@ bool AccessParser::startElement(const QString& /*namespaceURI*/, const QString& 
 }
 
 bool AccessParser::endElement(const QString& /*namespaceURI*/, const QString& /*localName*/, const QString& qName) {
-  if (!qName.compare("policy", Qt::CaseInsensitive)) {
+  if (qName.compare("policy", Qt::CaseInsensitive) == 0) {
     m_curPolicy = nullptr;
   }
   return true;
@@ -263,7 +263,7 @@ AccessPolicyStore::~AccessPolicyStore() {
 }
 
 AccessPolicyStore& AccessPolicyStore::Instance() {
-  if (!s_instance) {
+  if (s_instance == nullptr) {
     s_instance = new AccessPolicyStore();
   }
   return *s_instance;
@@ -279,6 +279,7 @@ bool AccessPolicyStore::loadFile(const QByteArray& data) {
   //LER:: add error handler
   if (!xmlReader.parse(source)) {
     LOG(Debug, "xml parse error in AccessPolicyStore::loadFile\n");
+    OS_ASSERT(false);
     return false;
   }
   return true;
