@@ -42,9 +42,6 @@
 #include <openstudio/utilities/core/FilesystemHelpers.hpp>
 #include <openstudio/utilities/idd/IddFileAndFactoryWrapper.hpp>
 
-using std::map;
-using std::stringstream;
-
 // TODO: We will have to replace QXmlDefaultHandler at some point, ignore for now
 #if defined(_MSC_VER)
 #  pragma warning(push)
@@ -82,7 +79,7 @@ class AccessParser : public QXmlDefaultHandler
 AccessParser::AccessParser() : m_curType("Catchall") {}
 
 bool AccessParser::error(const QXmlParseException& e) {
-  stringstream s;
+  std::stringstream s;
   s << "Error line:" << e.lineNumber() << "\ncolumn:" << e.columnNumber() << "\n" << e.message().toStdString() << "\n";
   LOG(Debug, s.str());
   return false;
@@ -131,7 +128,9 @@ bool AccessParser::startElement(const QString& /*namespaceURI*/, const QString& 
       }
     }
     return false;  //NO IddObjectType!!!!
-  } else if (qName.compare("rule", Qt::CaseInsensitive) == 0) {
+  }
+
+  if (qName.compare("rule", Qt::CaseInsensitive) == 0) {
     if (m_curPolicy == nullptr) {
       LOG(Debug, "parse error, rule started before a policy is started");
       return false;
@@ -146,7 +145,7 @@ bool AccessParser::startElement(const QString& /*namespaceURI*/, const QString& 
         accessRule = atts.value(i);
       }
     }
-    if (fieldName.size() && accessRule.size()) {
+    if (!fieldName.isEmpty() && !accessRule.isEmpty()) {
       AccessPolicy::ACCESS_LEVEL level = AccessPolicy::FREE;
       if (accessRule.compare("locked", Qt::CaseInsensitive) == 0) {
         level = AccessPolicy::LOCKED;
@@ -239,9 +238,10 @@ bool AccessPolicy::setAccess(unsigned int index, AccessPolicy::ACCESS_LEVEL acce
     if (i != m_accessMap.end()) {
       (*i).second = accessLevel;
       return true;
-    } else {
-      m_accessMap[index] = accessLevel;
     }
+
+    m_accessMap[index] = accessLevel;
+
   } else {
     index -= m_numNormalFields;
     index = index % m_extensibleSize;
@@ -249,9 +249,9 @@ bool AccessPolicy::setAccess(unsigned int index, AccessPolicy::ACCESS_LEVEL acce
     if (i != m_extensibleAccessMap.end()) {
       (*i).second = accessLevel;
       return true;
-    } else {
-      m_extensibleAccessMap[index] = accessLevel;
     }
+
+    m_extensibleAccessMap[index] = accessLevel;
   }
   return false;
 }
@@ -300,9 +300,9 @@ bool AccessPolicyStore::loadFile(const openstudio::path& path) {
 }
 
 const AccessPolicy* AccessPolicyStore::getPolicy(const openstudio::IddObjectType& type) const {
-  auto i = m_policyMap.find(type);
-  if (i != m_policyMap.end()) {
-    return (*i).second;
+  auto it = m_policyMap.find(type);
+  if (it != m_policyMap.end()) {
+    return it->second;
   }
 
   return nullptr;
@@ -310,9 +310,8 @@ const AccessPolicy* AccessPolicyStore::getPolicy(const openstudio::IddObjectType
 
 void AccessPolicyStore::clear() {
   for (auto& policyPair : m_policyMap) {
-    if (policyPair.second) {
-      delete policyPair.second;
-    }
+    // Not need to test if ptr has a value, delete nullptr has no effect
+    delete policyPair.second;
   }
   m_policyMap.clear();
 }

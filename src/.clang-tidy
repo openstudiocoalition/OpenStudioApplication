@@ -12,6 +12,10 @@
 # We use raw pointers for Qt, since usually the memory is then owned by the parent
 #  -cppcoreguidelines-owning-memory
 
+# I don't think this really helps clarify the intent
+#  -readability-else-after-return
+#  -modernize-concat-nested-namespaces
+
 # Aliases
 # - cppcoreguidelines-avoid-c-arrays => modernize-avoid-c-arrays
 # - cppcoreguidelines-non-private-member-variables-in-classes => misc-non-private-member-variables-in-classes
@@ -31,6 +35,8 @@ Checks: |
   -cppcoreguidelines-owning-memory,
   -readability-redundant-access-specifiers,
   -cppcoreguidelines-explicit-virtual-functions,
+  -readability-else-after-return,
+  -modernize-concat-nested-namespaces,
   -hicpp-*,
   hicpp-avoid-goto,
   hicpp-exception-baseclass,
