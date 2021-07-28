@@ -28,6 +28,7 @@ Checks: |
   -zircon-*,
   -abseil-*,
   -llvm*,
+  -altera*,
   -modernize-use-trailing-return-type,
   -cppcoreguidelines-avoid-magic-numbers,
   -readability-magic-numbers,
