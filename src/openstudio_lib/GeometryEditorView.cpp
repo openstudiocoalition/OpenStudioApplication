@@ -350,7 +350,7 @@ void FloorspaceEditor::loadEditor() {
     } else {
       LOG_FREE(LogLevel::Error, "FloorspaceEditor", "Failed to open geometry_editor.qss");
     }
-    
+
     javascript += "`;\n\
 const style = document.createElement('style')\n\
 style.type = 'text/css';\n\

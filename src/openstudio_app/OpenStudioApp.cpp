@@ -182,7 +182,7 @@ OpenStudioApp::OpenStudioApp(int& argc, char** argv)
     style = styleIn.readAll();
     data.close();
     setStyleSheet(style);
-  }else{
+  } else {
     LOG(LogLevel::Error, "Failed to open openstudiolib.qss");
   }
 
