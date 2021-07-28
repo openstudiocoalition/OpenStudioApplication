@@ -1,4 +1,22 @@
 ---
+
+# magic numbers are useful to layout stuff in Qt...
+#  -readability-magic-numbers and its alias cppcoreguidelines-avoid-magic-numbers
+
+# `protected`: followed by `protected slots:` would trigger it
+#  -readability-redundant-access-specifiers,
+
+# Problem with OS_ASSERT macro
+#  -cppcoreguidelines-pro-bounds-array-to-pointer-decay,
+
+# We use raw pointers for Qt, since usually the memory is then owned by the parent
+#  -cppcoreguidelines-owning-memory
+
+# Aliases
+# - cppcoreguidelines-avoid-c-arrays => modernize-avoid-c-arrays
+# - cppcoreguidelines-non-private-member-variables-in-classes => misc-non-private-member-variables-in-classes
+# - cppcoreguidelines-explicit-virtual-functions, hicpp-use-override => modernize-use-override
+
 Checks: |
   *,
   -fuchsia-*,
@@ -11,8 +29,16 @@ Checks: |
   -readability-magic-numbers,
   -cppcoreguidelines-pro-bounds-array-to-pointer-decay,
   -cppcoreguidelines-owning-memory,
-  -hicpp-no-array-decay,
   -readability-redundant-access-specifiers,
+  -cppcoreguidelines-explicit-virtual-functions,
+  -hicpp-*,
+  hicpp-avoid-goto,
+  hicpp-exception-baseclass,
+  hicpp-multiway-paths-covered,
+  hicpp-no-assembler,
+  hicpp-signed-bitwise,
+  -cppcoreguidelines-avoid-c-arrays,
+  -cppcoreguidelines-non-private-member-variables-in-classes,
 
 WarningsAsErrors: '*'
 HeaderFilterRegex: '*'
@@ -20,13 +46,7 @@ FormatStyle:     file
 CheckOptions:
   - key:             modernize-use-override.AllowOverrideAndFinal
     value:           'true'
-  - key:             cppcoreguidelines-explicit-virtual-functions.AllowOverrideAndFinal
-    value:           'true'
-  - key:             hicpp-use-override.AllowOverrideAndFinal
-    value:           'true'
   - key:             modernize-use-override.IgnoreDestructors
     value:           'true'
-  - key:             cppcoreguidelines-explicit-virtual-functions.IgnoreDestructors
-    value:           'true'
-  - key:             hicpp-use-override.IgnoreDestructors
+  - key:             performance-for-range-copy.WarnOnAllAutoCopies
     value:           'true'
