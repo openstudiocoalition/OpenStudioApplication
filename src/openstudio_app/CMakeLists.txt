@@ -134,7 +134,7 @@ if (NINJA)
   target_compile_definitions(${target_name} PRIVATE NINJA=1)
 elseif(WIN32)
   # increase stack size
-  target_link_options(${target_name} PRIVATE /STACK:8000000)
+  target_link_options(${target_name} PRIVATE /STACK:8388608)
 endif()
 
 # This is because Apple has app bundles for .apps.
