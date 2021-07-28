@@ -339,15 +339,18 @@ void FloorspaceEditor::loadEditor() {
 
     m_javascriptRunning = true;
 
-    QFile cssFile(":/library/geometry_editor.css");
-    bool test = cssFile.open(QFile::ReadOnly | QFile::Text);
-    OS_ASSERT(test);
-    QTextStream cssStream(&cssFile);
-    QString css = cssStream.readAll();
-    cssFile.close();
-
     QString javascript = "const rules = `\n";
-    javascript += css;
+
+    QFile cssFile(":/library/geometry_editor.css");
+    if (cssFile.open(QFile::ReadOnly | QFile::Text)) {
+      QTextStream cssStream(&cssFile);
+      QString css = cssStream.readAll();
+      javascript += css;
+      cssFile.close();
+    } else {
+      LOG_FREE(LogLevel::Error, "FloorspaceEditor", "Failed to open geometry_editor.qss");
+    }
+    
     javascript += "`;\n\
 const style = document.createElement('style')\n\
 style.type = 'text/css';\n\

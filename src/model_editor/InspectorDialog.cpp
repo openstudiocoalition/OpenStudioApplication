@@ -512,7 +512,7 @@ void InspectorDialog::init(InspectorDialogClient client) {
         openstudio::model::AccessPolicyStore::Instance().loadFile(sketchUpPluginPolicy.readAll());
         sketchUpPluginPolicy.close();
       } else {
-        qDebug() << "Failed to open the SketchUpPluginPolicy.xml";
+        LOG_FREE(LogLevel::Error, "InspectorDialog", "Failed to open SketchUpPluginPolicy.xml");
       }
 
       m_iddFile = IddFactory::instance().getIddFile(IddFileType::OpenStudio);
@@ -951,6 +951,8 @@ void InspectorDialog::loadStyleSheet() {
     style = styleIn.readAll();
     data.close();
     setStyleSheet(style);
+  } else {
+    LOG_FREE(LogLevel::Error, "InspectorDialog", "Failed to open InspectorDialog.qss");
   }
 }
 

@@ -242,6 +242,8 @@ void ModelObjectSelectorDialog::loadStyleSheet() {
     style = styleIn.readAll();
     data.close();
     setStyleSheet(style);
+  } else {
+    LOG_FREE(LogLevel::Error, "ModelObjectSelectorDialog", "Failed to open ModalDialogs.qss");
   }
 }
 

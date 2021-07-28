@@ -78,6 +78,8 @@ LocalLibraryController::LocalLibraryController(BaseApp* t_app, bool onlyShowMode
   if (file.open(QIODevice::ReadOnly)) {
     doc.setContent(&file);
     file.close();
+  } else {
+    LOG(LogLevel::Error, "Failed to open taxonomy.xml");
   }
 
   QSharedPointer<LibraryTypeListController> libraryListController = createLibraryListController(doc, LocalLibrary::COMBINED);

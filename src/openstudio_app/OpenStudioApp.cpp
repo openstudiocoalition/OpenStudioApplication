@@ -171,6 +171,8 @@ OpenStudioApp::OpenStudioApp(int& argc, char** argv)
   if (f.open(QIODevice::ReadOnly)) {
     openstudio::model::AccessPolicyStore::Instance().loadFile(f.readAll());
     f.close();
+  } else {
+    LOG(LogLevel::Error, "Failed to open OpenStudioPolicy.xml");
   }
 
   QFile data(":/openstudiolib.qss");
@@ -180,6 +182,8 @@ OpenStudioApp::OpenStudioApp(int& argc, char** argv)
     style = styleIn.readAll();
     data.close();
     setStyleSheet(style);
+  }else{
+    LOG(LogLevel::Error, "Failed to open openstudiolib.qss");
   }
 
 #ifdef Q_OS_DARWIN
