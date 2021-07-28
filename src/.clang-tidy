@@ -1,0 +1,32 @@
+---
+Checks: |
+  *,
+  -fuchsia-*,
+  -google-*,
+  -zircon-*,
+  -abseil-*,
+  -llvm*,
+  -modernize-use-trailing-return-type,
+  -cppcoreguidelines-avoid-magic-numbers,
+  -readability-magic-numbers,
+  -cppcoreguidelines-pro-bounds-array-to-pointer-decay,
+  -cppcoreguidelines-owning-memory,
+  -hicpp-no-array-decay,
+  -readability-redundant-access-specifiers,
+
+WarningsAsErrors: '*'
+HeaderFilterRegex: '*'
+FormatStyle:     file
+CheckOptions:
+  - key:             modernize-use-override.AllowOverrideAndFinal
+    value:           'true'
+  - key:             cppcoreguidelines-explicit-virtual-functions.AllowOverrideAndFinal
+    value:           'true'
+  - key:             hicpp-use-override.AllowOverrideAndFinal
+    value:           'true'
+  - key:             modernize-use-override.IgnoreDestructors
+    value:           'true'
+  - key:             cppcoreguidelines-explicit-virtual-functions.IgnoreDestructors
+    value:           'true'
+  - key:             hicpp-use-override.IgnoreDestructors
+    value:           'true'
