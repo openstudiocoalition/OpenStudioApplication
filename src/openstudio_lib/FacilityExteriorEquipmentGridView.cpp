@@ -122,7 +122,7 @@ void FacilityExteriorEquipmentGridView::addObject(const IddObjectType& iddObject
 
 void FacilityExteriorEquipmentGridView::purgeObjects(const IddObjectType& iddObjectType) {
   if (IddObjectType::OS_Exterior_Lights == iddObjectType.value()) {
-    for (auto mo : this->m_model.getConcreteModelObjects<model::ExteriorLightsDefinition>()) {
+    for (auto &mo : this->m_model.getConcreteModelObjects<model::ExteriorLightsDefinition>()) {
       if (mo.instances().empty()) {
         mo.remove();
       }
