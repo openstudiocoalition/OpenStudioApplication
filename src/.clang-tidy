@@ -20,6 +20,11 @@
 # - cppcoreguidelines-avoid-c-arrays => modernize-avoid-c-arrays
 # - cppcoreguidelines-non-private-member-variables-in-classes => misc-non-private-member-variables-in-classes
 # - cppcoreguidelines-explicit-virtual-functions, hicpp-use-override => modernize-use-override
+# - bugprone-narrowing-conversions => cppcoreguidelines-narrowing-conversions
+
+# Annoying: some config options exist only in later versions...
+# cppcoreguidelines-narrowing-conversions.WarnOnEquivalentBitWidth was added in clang-tidy 13, and that would allow avoiding uint->int narrowing conversions
+# Instead I have to disable the entire check...
 
 Checks: |
   *,
@@ -46,6 +51,9 @@ Checks: |
   hicpp-signed-bitwise,
   -cppcoreguidelines-avoid-c-arrays,
   -cppcoreguidelines-non-private-member-variables-in-classes,
+  -bugprone-narrowing-conversions,
+  -cppcoreguidelines-narrowing-conversions,
+  -readability-function-cognitive-complexity,
 
 WarningsAsErrors: '*'
 HeaderFilterRegex: '*'
@@ -56,4 +64,8 @@ CheckOptions:
   - key:             modernize-use-override.IgnoreDestructors
     value:           'true'
   - key:             performance-for-range-copy.WarnOnAllAutoCopies
+    value:           'true'
+  - key:             cppcoreguidelines-narrowing-conversions.WarnOnEquivalentBitWidth
+    value:           'false'
+  - key:             readability-implicit-bool-conversion.AllowPointerConditions
     value:           'true'

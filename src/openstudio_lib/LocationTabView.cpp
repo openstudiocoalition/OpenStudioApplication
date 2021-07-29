@@ -98,7 +98,7 @@ static constexpr auto CHANGEWEATHERFILE("Change Weather File");
 
 namespace openstudio {
 
-LocationTabView::LocationTabView(const model::Model& model, const QString& modelTempDir, QWidget* parent)
+LocationTabView::LocationTabView(const model::Model&  /*model*/, const QString&  /*modelTempDir*/, QWidget* parent)
   : MainTabView("Site", MainTabView::SUB_TAB, parent) {}
 
 LocationView::LocationView(bool isIP, const model::Model& model, const QString& modelTempDir)
