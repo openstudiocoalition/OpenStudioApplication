@@ -454,7 +454,7 @@ void LocationView::update() {
 
             if (savePath.contains(".osm")) {
               savePath.chop(4);
-              QString filePath = savePath + "/files/";
+              filePath = savePath + "/files/";
               filePath += (epwPath.get().filename()).string().c_str();
             }
 
@@ -487,7 +487,6 @@ void LocationView::setSiteInfo() {
     m_siteName->setText("");
   }
 
-  info = LATITUDE;
   temp.setNum(m_site->latitude());
   info += temp;
   m_latitudeLbl->setText(info);
