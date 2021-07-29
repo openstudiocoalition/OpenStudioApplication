@@ -1852,7 +1852,8 @@ var dragXStart, dragYStart;
 var raycaster;
 var mouse;
 var headsUp;
-var intersected, selected_material, unknown_material;
+var intersected = [];
+var selected_material, unknown_material;
 
 var getStringFromLocalStorage = function (key, defaultValue) {
   try {
@@ -2432,61 +2433,74 @@ function restoreLastMaterial(object) {
   object.lastMaterial = null;
 }
 
+/**
+ * selects one or several objects (if objects is an array)
+ *
+ * @param object a single object or an array of objects to select
+ */
 function selectObject(object) {
-  renderBy = settings.renderBy;
-  isData = (renderBy == 'Data');
+  const renderBy = settings.renderBy;
+  const isData = (renderBy === 'Data');
+  const selected = Array.isArray(object) ? [...object] : object ? [object] : [];
 
-  if (intersected != object){
+  /**
+   * computes symmetric difference between 2 arrays
+   *
+   * @param newObjects
+   * @returns {boolean} if intersected and newObjects don't contain the same elements
+   */
+  function alreadyIntersected(newObjects) {
+    return intersected
+      .filter(x => !newObjects.includes(x))
+      .concat(newObjects.filter(x => !intersected.includes(x))).length === 0;
+  }
 
+  if (!alreadyIntersected(selected)) {
     // restore material on currently selected
-    if (intersected){
-      edges = object_edges[intersected.uuid];
-      if (edges){
-        edges.material.color.setRGB(0,0,0);
+    intersected.forEach(i => {
+      const edges = object_edges[i.uuid];
+      if (edges) {
+        edges.material.color.setRGB(0, 0, 0);
         edges.material.linewidth = 1;
         edges.material.needsUpdate = true;
       }
-    }
-    if (!isData && intersected) {
-      restoreLastMaterial(intersected);
-
-      coincident_intersected = coincident_objects[intersected.uuid];
-      if (coincident_intersected) {
-        restoreLastMaterial(coincident_intersected);
+      if (!isData && i) {
+        restoreLastMaterial(i);
+        const coincident_intersected = coincident_objects[i.uuid];
+        if (coincident_intersected) {
+          restoreLastMaterial(coincident_intersected);
+        }
+        const back_intersected = back_objects[i.uuid];
+        if (back_intersected) {
+          restoreLastMaterial(back_intersected);
+        }
       }
-
-      back_intersected = back_objects[intersected.uuid];
-      if (back_intersected) {
-        restoreLastMaterial(back_intersected);
-      }
-    }
+    });
 
     // set the new intersected objects
-    intersected = object;
+    intersected = selected;
 
     // save last material and set new one
-    if (intersected){
-      edges = object_edges[intersected.uuid];
-      if (edges){
-        edges.material.color.setRGB(0,255,0);
+    intersected.forEach(i => {
+      const edges = object_edges[i.uuid];
+      if (edges) {
+        edges.material.color.setRGB(252, 219, 57);
         edges.material.linewidth = 4;
         edges.material.needsUpdate = true;
       }
-    }
-    if (!isData && intersected) {
-      setSelectedMaterial(intersected);
-
-      coincident_intersected = coincident_objects[intersected.uuid];
-      if (coincident_intersected) {
-        removeMaterial(coincident_intersected);
+      if (!isData && i) {
+        setSelectedMaterial(i);
+        const coincident_intersected = coincident_objects[i.uuid];
+        if (coincident_intersected) {
+          removeMaterial(coincident_intersected);
+        }
+        const back_intersected = back_objects[i.uuid];
+        if (back_intersected) {
+          removeMaterial(back_intersected);
+        }
       }
-
-      back_intersected = back_objects[intersected.uuid];
-      if (back_intersected) {
-        removeMaterial(back_intersected);
-      }
-    }
-    if (isData && intersected) {
+    });
+    if (isData && intersected.length > 0) {
       update();
     }
   }
@@ -2530,74 +2544,91 @@ function displaySelectedObjectDetails() {
   document.getElementById('color-bar-selection-line').style.display = 'block';
   document.getElementById('color-bar-selection-text').style.display = 'inline-block';
 
-  var txt = 'Name: ' + intersected.userData.name + '<br>';
+  function highlightMatch(text) {
+    if (settings.search !== '' && text.toLowerCase().indexOf(settings.search.toLowerCase()) >= 0)
+      return `<span style="color: darkblue">${text}</span>`;
+    else
+      return text;
+  }
 
-  // show info used in search
-  if (settings.search !== '') {
-    txt += '<b>Surface Type:</b><br> ' + intersected.userData.surfaceType;
-    if (intersected.userData.surfaceName) {
-        txt += '<br><b>Surface Name:</b><br>' + intersected.userData.surfaceName;
+  let txt = '';
+  let nbDisplayedTiles = 0, maxTiles = 2;
+  intersected.some(inter => {
+    var txt = '<p>Name: ' + highlightMatch(inter.userData.name) + '<br>';
+
+    // show info used in search
+    if (settings.search !== '') {
+      txt += '<b>Surface Type:</b><br> ' + inter.userData.surfaceType;
+      if (inter.userData.surfaceName) {
+          txt += '<br><b>Surface Name:</b><br>' + highlightMatch(inter.userData.surfaceName);
+      }
+      if (inter.userData.spaceName) {
+          txt += '<br><b>Space Name:</b><br>' + highlightMatch(inter.userData.spaceName);
+      }
+      if (inter.userData.thermalZoneName) {
+          txt += '<br><b>Thermal Zone:</b><br>' + highlightMatch(inter.userData.thermalZoneName);
+      }
+    } else {
+      // render details depending on chosen renderBy value
+      switch (settings.renderBy) {
+        case "Surface Type":
+          txt += 'Surface Type: ' + inter.userData.surfaceType + '<br>';
+          if (inter.userData.spaceName){
+            txt += 'Space Name: ' + inter.userData.spaceName;
+          }
+          break;
+        case "Normal":
+          txt += 'Surface Type: ' + inter.userData.surfaceType + '<br>'
+          if (inter.userData.spaceName){
+            txt += 'Space Name: ' + inter.userData.spaceName;
+          }
+          break;
+        case "Boundary":
+          if (inter.userData.outsideBoundaryCondition){
+            txt += 'Outside Boundary Condition: ' + inter.userData.outsideBoundaryCondition + '<br>';
+          }
+          txt += 'Sun Exposure: ' + inter.userData.sunExposure + '<br>';
+          txt += 'Wind Exposure: ' + inter.userData.windExposure;
+          break;
+        case "Construction":
+          if (inter.userData.constructionName){
+            txt += 'Construction Name: ' + inter.userData.constructionName;
+          }
+          break;
+        case "Thermal Zone":
+          if (inter.userData.thermalZoneName){
+            txt += 'Thermal Zone: ' + inter.userData.thermalZoneName;
+          }
+          break;
+        case "Space Type":
+          if (inter.userData.spaceTypeName){
+            txt += 'Space Type: ' + inter.userData.spaceTypeName;
+          }
+          break;
+        case "Building Story":
+          if (inter.userData.buildingStoryName){
+            txt += 'Story Name: ' + inter.userData.buildingStoryName;
+          }
+          break;
+        case "Data":
+          // in javascript (0 == '' == false)
+          if (inter.userData.variableValue !== '') {
+            txt += 'Variable: <span id="balloon-variable-name">' + inter.userData.variableName + '</span><br>';
+            txt += 'Key: <span id="balloon-variable-key-name">' + inter.userData.variableKeyName + '</span><br>';
+            txt += 'Date: <span id="balloon-variable-date">' + inter.userData.variableDate + '</span><br>';
+            txt += 'Time: <span id="balloon-variable-time">' + inter.userData.variableTime + '</span><br>';
+            txt += 'Value: <span id="balloon-variable-value">' + inter.userData.variableValue + '</span> ' + inter.userData.variableUnits;
+          }
+          updateColorBarSelection(inter.userData.variableValue);
+          break;
+      }
     }
-    if (intersected.userData.spaceName) {
-        txt += '<br><b>Space Name:</b><br>' + intersected.userData.spaceName;
-    }
-    if (intersected.userData.thermalZoneName) {
-        txt += '<br><b>Thermal Zone:</b><br>' + intersected.userData.thermalZoneName;
-    }
-  } else {
-    // render details depending on chosen renderBy value
-    switch (settings.renderBy) {
-      case "Surface Type":
-        txt += 'Surface Type: ' + intersected.userData.surfaceType + '<br>';
-        if (intersected.userData.spaceName){
-          txt += 'Space Name: ' + intersected.userData.spaceName;
-        }
-        break;
-      case "Normal":
-        txt += 'Surface Type: ' + intersected.userData.surfaceType + '<br>'
-        if (intersected.userData.spaceName){
-          txt += 'Space Name: ' + intersected.userData.spaceName;
-        }
-        break;
-      case "Boundary":
-        if (intersected.userData.outsideBoundaryCondition){
-          txt += 'Outside Boundary Condition: ' + intersected.userData.outsideBoundaryCondition + '<br>';
-        }
-        txt += 'Sun Exposure: ' + intersected.userData.sunExposure + '<br>';
-        txt += 'Wind Exposure: ' + intersected.userData.windExposure;
-        break;
-      case "Construction":
-        if (intersected.userData.constructionName){
-          txt += 'Construction Name: ' + intersected.userData.constructionName;
-        }
-        break;
-      case "Thermal Zone":
-        if (intersected.userData.thermalZoneName){
-          txt += 'Thermal Zone: ' + intersected.userData.thermalZoneName;
-        }
-        break;
-      case "Space Type":
-        if (intersected.userData.spaceTypeName){
-          txt += 'Space Type: ' + intersected.userData.spaceTypeName;
-        }
-        break;
-      case "Building Story":
-        if (intersected.userData.buildingStoryName){
-          txt += 'Story Name: ' + intersected.userData.buildingStoryName;
-        }
-        break;
-      case "Data":
-        // in javascript (0 == '' == false)
-        if (intersected.userData.variableValue !== '') {
-          txt += 'Variable: <span id="balloon-variable-name">' + intersected.userData.variableName + '</span><br>';
-          txt += 'Key: <span id="balloon-variable-key-name">' + intersected.userData.variableKeyName + '</span><br>';
-          txt += 'Date: <span id="balloon-variable-date">' + intersected.userData.variableDate + '</span><br>';
-          txt += 'Time: <span id="balloon-variable-time">' + intersected.userData.variableTime + '</span><br>';
-          txt += 'Value: <span id="balloon-variable-value">' + intersected.userData.variableValue + '</span> ' + intersected.userData.variableUnits;
-        }
-        updateColorBarSelection(intersected.userData.variableValue);
-        break;
-    }
+    txt += "</p>";
+    nbDisplayedTiles += 1;
+    return nbDisplayedTiles >= maxTiles;
+  });
+  if (nbDisplayedTiles < intersected.length) {
+    txt += `<p>Not all matching objects details displayed (max: ${maxTiles})</p>`;
   }
   headsUp.innerHTML = txt;
   document.body.style.cursor = 'pointer';
@@ -2850,10 +2881,10 @@ var update = function (value) {
       material = unknown_material;
     }
 
-    if (intersected) {
-      updateBalloon(intersected);
-      updateColorBarSelection(intersected.userData.variableValue);
-    }
+    intersected.forEach(i => {
+      updateBalloon(i);
+      updateColorBarSelection(i.userData.variableValue);
+    });
 
     object.material = material;
     object.material_double_sided = material_double_sided;
@@ -2902,24 +2933,23 @@ var update = function (value) {
   });
 
   // select objects with surface, space or thermal zone names matching 'Search By Name' input value
-  // the first object that matches is returned
   if (searchedName !== '') {
     const lcSearchedName = searchedName.toLowerCase();
-    scene_objects.every(function (object) {
+    const objectsToSelect = [];
+    scene_objects.forEach(function (object) {
       var name = object.userData.name?.toLowerCase() || '';
       var surfaceName = object.userData.surfaceName?.toLowerCase() || '';
       var spaceName = object.userData.spaceName?.toLowerCase() || '';
       var tzName = object.userData.thermalZoneName?.toLowerCase() || '';
-      if (name.indexOf(lcSearchedName) >=0
-          || surfaceName.indexOf(lcSearchedName) >=0
+      if (name.indexOf(lcSearchedName) >= 0
+          || surfaceName.indexOf(lcSearchedName) >= 0
           || spaceName.indexOf(lcSearchedName) >= 0
           || tzName.indexOf(lcSearchedName) >= 0) {
-        selectObject(object);
-        displaySelectedObjectDetails();
-        return false;
-      } else
-        return true;
+        objectsToSelect.push(object);
+      }
     });
+    selectObject(objectsToSelect);
+    displaySelectedObjectDetails();
   }
 };
 
