@@ -35,6 +35,7 @@
 #include <map>
 
 #include <QString>
+#include <QByteArray>
 
 #include <openstudio/utilities/idd/IddObject.hpp>
 
@@ -110,7 +111,7 @@ class MODELEDITOR_API AccessPolicyStore
        */
   static bool loadFile(openstudio::filesystem::ifstream& file);
   static bool loadFile(const openstudio::path& path);
-  static bool loadFile(const std::vector<char>& data);
+  static bool loadFile(const QByteArray& data);
 
   /*!Each IddObjectType has a uniqueAccessPolicy. This function will retrieve it*/
   const AccessPolicy* getPolicy(const openstudio::IddObjectType&) const;

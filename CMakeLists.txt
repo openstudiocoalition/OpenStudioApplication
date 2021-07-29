@@ -10,7 +10,7 @@ if(CCACHE_PROGRAM)
   set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "${CCACHE_PROGRAM}")
 endif()
 
-project(OpenStudioApplication VERSION 1.2.0)
+project(OpenStudioApplication VERSION 1.2.1)
 
 # Check system info globally so we can use it everywhere after: Has to be done before FindOpenStudioSDK.cmake
 if(APPLE)
@@ -381,7 +381,6 @@ if(MSVC)
 
   # ignore base class not dll-exported error
   add_definitions(/wd4275)
-
 
   add_definitions(/bigobj)
 

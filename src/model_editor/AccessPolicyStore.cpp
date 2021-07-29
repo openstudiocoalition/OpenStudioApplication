@@ -269,13 +269,13 @@ AccessPolicyStore& AccessPolicyStore::Instance() {
   return *s_instance;
 }
 
-bool AccessPolicyStore::loadFile(const std::vector<char>& data) {
+bool AccessPolicyStore::loadFile(const QByteArray& data) {
   QXmlSimpleReader xmlReader;
   AccessParser ap;
   xmlReader.setContentHandler(&ap);
 
   QXmlInputSource source;
-  source.setData(QByteArray(data.data(), data.size()));
+  source.setData(data);
   //LER:: add error handler
   if (!xmlReader.parse(source)) {
     LOG(Debug, "xml parse error in AccessPolicyStore::loadFile\n");

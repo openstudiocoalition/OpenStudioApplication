@@ -143,6 +143,7 @@ OSDocument::OSDocument(const openstudio::model::Model& library, const openstudio
     m_localLibraryDialog(nullptr),
     m_savePath(filePath),
     m_isPlugin(isPlugin) {
+
   QFile data(":openstudiolib.qss");
 
   static QString style;
@@ -152,6 +153,8 @@ OSDocument::OSDocument(const openstudio::model::Model& library, const openstudio
       style = styleIn.readAll();
       data.close();
       qobject_cast<QApplication*>(QApplication::instance())->setStyleSheet(style);
+    } else {
+      LOG_FREE(LogLevel::Error, "OSDocument", "Failed to open openstudiolib.qss");
     }
   }
 

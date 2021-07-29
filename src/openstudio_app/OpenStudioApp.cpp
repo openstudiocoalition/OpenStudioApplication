@@ -172,9 +172,11 @@ OpenStudioApp::OpenStudioApp(int& argc, char** argv)
   switchLanguage(m_currLang);
 
   QFile f(":/library/OpenStudioPolicy.xml");
-  if (f.open(QFile::ReadOnly)) {
-    const auto data = f.readAll();
-    openstudio::model::AccessPolicyStore::Instance().loadFile(std::vector<char>{data.begin(), data.end()});
+  if (f.open(QIODevice::ReadOnly)) {
+    openstudio::model::AccessPolicyStore::Instance().loadFile(f.readAll());
+    f.close();
+  } else {
+    LOG(LogLevel::Error, "Failed to open OpenStudioPolicy.xml");
   }
 
   QFile data(":/openstudiolib.qss");
@@ -184,6 +186,8 @@ OpenStudioApp::OpenStudioApp(int& argc, char** argv)
     style = styleIn.readAll();
     data.close();
     setStyleSheet(style);
+  } else {
+    LOG(LogLevel::Error, "Failed to open openstudiolib.qss");
   }
 
 #ifdef Q_OS_DARWIN
