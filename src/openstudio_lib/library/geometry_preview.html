@@ -2544,84 +2544,62 @@ function displaySelectedObjectDetails() {
   document.getElementById('color-bar-selection-line').style.display = 'block';
   document.getElementById('color-bar-selection-text').style.display = 'inline-block';
 
-  function highlightMatch(text) {
-    if (settings.search !== '' && text.toLowerCase().indexOf(settings.search.toLowerCase()) >= 0)
-      return `<span style="color: darkblue">${text}</span>`;
-    else
-      return text;
-  }
-
   let txt = '';
   let nbDisplayedTiles = 0, maxTiles = 2;
   intersected.some(inter => {
     var txt = '<p>Name: ' + highlightMatch(inter.userData.name) + '<br>';
-
-    // show info used in search
-    if (settings.search !== '') {
-      txt += '<b>Surface Type:</b><br> ' + inter.userData.surfaceType;
-      if (inter.userData.surfaceName) {
-          txt += '<br><b>Surface Name:</b><br>' + highlightMatch(inter.userData.surfaceName);
-      }
-      if (inter.userData.spaceName) {
-          txt += '<br><b>Space Name:</b><br>' + highlightMatch(inter.userData.spaceName);
-      }
-      if (inter.userData.thermalZoneName) {
-          txt += '<br><b>Thermal Zone:</b><br>' + highlightMatch(inter.userData.thermalZoneName);
-      }
-    } else {
-      // render details depending on chosen renderBy value
-      switch (settings.renderBy) {
-        case "Surface Type":
-          txt += 'Surface Type: ' + inter.userData.surfaceType + '<br>';
-          if (inter.userData.spaceName){
-            txt += 'Space Name: ' + inter.userData.spaceName;
-          }
-          break;
-        case "Normal":
-          txt += 'Surface Type: ' + inter.userData.surfaceType + '<br>'
-          if (inter.userData.spaceName){
-            txt += 'Space Name: ' + inter.userData.spaceName;
-          }
-          break;
-        case "Boundary":
-          if (inter.userData.outsideBoundaryCondition){
-            txt += 'Outside Boundary Condition: ' + inter.userData.outsideBoundaryCondition + '<br>';
-          }
-          txt += 'Sun Exposure: ' + inter.userData.sunExposure + '<br>';
-          txt += 'Wind Exposure: ' + inter.userData.windExposure;
-          break;
-        case "Construction":
-          if (inter.userData.constructionName){
-            txt += 'Construction Name: ' + inter.userData.constructionName;
-          }
-          break;
-        case "Thermal Zone":
-          if (inter.userData.thermalZoneName){
-            txt += 'Thermal Zone: ' + inter.userData.thermalZoneName;
-          }
-          break;
-        case "Space Type":
-          if (inter.userData.spaceTypeName){
-            txt += 'Space Type: ' + inter.userData.spaceTypeName;
-          }
-          break;
-        case "Building Story":
-          if (inter.userData.buildingStoryName){
-            txt += 'Story Name: ' + inter.userData.buildingStoryName;
-          }
-          break;
-        case "Data":
-          // in javascript (0 == '' == false)
-          if (inter.userData.variableValue !== '') {
-            txt += 'Variable: <span id="balloon-variable-name">' + inter.userData.variableName + '</span><br>';
-            txt += 'Key: <span id="balloon-variable-key-name">' + inter.userData.variableKeyName + '</span><br>';
-            txt += 'Date: <span id="balloon-variable-date">' + inter.userData.variableDate + '</span><br>';
-            txt += 'Time: <span id="balloon-variable-time">' + inter.userData.variableTime + '</span><br>';
-            txt += 'Value: <span id="balloon-variable-value">' + inter.userData.variableValue + '</span> ' + inter.userData.variableUnits;
-          }
-          updateColorBarSelection(inter.userData.variableValue);
-          break;
-      }
+    // render details depending on chosen renderBy value
+    switch (settings.renderBy) {
+      case "Surface Type":
+        txt += 'Surface Type: ' + inter.userData.surfaceType + '<br>';
+        if (inter.userData.spaceName){
+          txt += 'Space Name: ' + inter.userData.spaceName;
+        }
+        break;
+      case "Normal":
+        txt += 'Surface Type: ' + inter.userData.surfaceType + '<br>'
+        if (inter.userData.spaceName){
+          txt += 'Space Name: ' + inter.userData.spaceName;
+        }
+        break;
+      case "Boundary":
+        if (inter.userData.outsideBoundaryCondition){
+          txt += 'Outside Boundary Condition: ' + inter.userData.outsideBoundaryCondition + '<br>';
+        }
+        txt += 'Sun Exposure: ' + inter.userData.sunExposure + '<br>';
+        txt += 'Wind Exposure: ' + inter.userData.windExposure;
+        break;
+      case "Construction":
+        if (inter.userData.constructionName){
+          txt += 'Construction Name: ' + inter.userData.constructionName;
+        }
+        break;
+      case "Thermal Zone":
+        if (inter.userData.thermalZoneName){
+          txt += 'Thermal Zone: ' + inter.userData.thermalZoneName;
+        }
+        break;
+      case "Space Type":
+        if (inter.userData.spaceTypeName){
+          txt += 'Space Type: ' + inter.userData.spaceTypeName;
+        }
+        break;
+      case "Building Story":
+        if (inter.userData.buildingStoryName){
+          txt += 'Story Name: ' + inter.userData.buildingStoryName;
+        }
+        break;
+      case "Data":
+        // in javascript (0 == '' == false)
+        if (inter.userData.variableValue !== '') {
+          txt += 'Variable: <span id="balloon-variable-name">' + inter.userData.variableName + '</span><br>';
+          txt += 'Key: <span id="balloon-variable-key-name">' + inter.userData.variableKeyName + '</span><br>';
+          txt += 'Date: <span id="balloon-variable-date">' + inter.userData.variableDate + '</span><br>';
+          txt += 'Time: <span id="balloon-variable-time">' + inter.userData.variableTime + '</span><br>';
+          txt += 'Value: <span id="balloon-variable-value">' + inter.userData.variableValue + '</span> ' + inter.userData.variableUnits;
+        }
+        updateColorBarSelection(inter.userData.variableValue);
+        break;
     }
     txt += "</p>";
     nbDisplayedTiles += 1;
@@ -2934,18 +2912,46 @@ var update = function (value) {
 
   // select objects with surface, space or thermal zone names matching 'Search By Name' input value
   if (searchedName !== '') {
+    function lowerOrEmpty(text) {
+      return text?.toLowerCase() || '';
+    }
     const lcSearchedName = searchedName.toLowerCase();
     const objectsToSelect = [];
     scene_objects.forEach(function (object) {
-      var name = object.userData.name?.toLowerCase() || '';
-      var surfaceName = object.userData.surfaceName?.toLowerCase() || '';
-      var spaceName = object.userData.spaceName?.toLowerCase() || '';
-      var tzName = object.userData.thermalZoneName?.toLowerCase() || '';
-      if (name.indexOf(lcSearchedName) >= 0
-          || surfaceName.indexOf(lcSearchedName) >= 0
-          || spaceName.indexOf(lcSearchedName) >= 0
-          || tzName.indexOf(lcSearchedName) >= 0) {
-        objectsToSelect.push(object);
+      let selectCondition;
+      const name = lowerOrEmpty(object.userData.name);
+      const surfaceTypeName = lowerOrEmpty(object.userData.surfaceType);
+      const spaceName = lowerOrEmpty(object.userData.spaceName);
+      const tzName = lowerOrEmpty(object.userData.thermalZoneName);
+      const outBoundCond = lowerOrEmpty(object.userData.outsideBoundaryCondition);
+      const constName = lowerOrEmpty(object.userData.constructionName);
+      const spaceTypeName = lowerOrEmpty(object.userData.spaceTypeName);
+      const storyName = lowerOrEmpty(object.userData.buildingStoryName);
+
+      switch (settings.renderBy) {
+        case "Surface Type":
+        case "Normal":
+          selectCondition = spaceName.indexOf(lcSearchedName) >= 0
+              || surfaceTypeName.indexOf(lcSearchedName) >= 0;
+          break;
+        case "Boundary":
+          selectCondition = outBoundCond.indexOf(lcSearchedName) >= 0;
+          break;
+        case "Construction":
+          selectCondition = constName.indexOf(lcSearchedName) >= 0;
+          break;
+        case "Thermal Zone":
+          selectCondition = tzName.indexOf(lcSearchedName) >= 0;
+          break;
+        case "Space Type":
+          selectCondition = spaceTypeName.indexOf(lcSearchedName) >= 0;
+          break;
+        case "Building Story":
+          selectCondition = storyName.indexOf(lcSearchedName) >= 0;
+          break;
+      }
+      if (selectCondition) {
+          objectsToSelect.push(object);
       }
     });
     selectObject(objectsToSelect);
