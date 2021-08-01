@@ -1904,7 +1904,8 @@ var setLocalStorage = function (key, value) {
 var settings = {
   renderBy: 'Surface Type',
   showStory: 'All Stories',
-  search: '',
+  searchType: getStringFromLocalStorage('searchType', 'Surfaces'),
+  searchName: getStringFromLocalStorage('searchName', ''),
   showFloors: getBoolFromLocalStorage('showFloors', true),
   showWalls: getBoolFromLocalStorage('showWalls', true),
   showRoofCeilings: getBoolFromLocalStorage('showRoofCeilings', true),
@@ -2545,9 +2546,9 @@ function displaySelectedObjectDetails() {
   document.getElementById('color-bar-selection-text').style.display = 'inline-block';
 
   let txt = '';
-  let nbDisplayedTiles = 0, maxTiles = 2;
+  let nbDisplayedTiles = 0, maxTiles = 1;
   intersected.some(inter => {
-    var txt = '<p>Name: ' + highlightMatch(inter.userData.name) + '<br>';
+    txt += '<p>Name: ' + inter.userData.name    + '<br>';
     // render details depending on chosen renderBy value
     switch (settings.renderBy) {
       case "Surface Type":
@@ -2677,7 +2678,7 @@ var gui = null;
 var dataFolder = null;
 var update = function (value) {
   var renderBy = settings.renderBy;
-  var searchedName = settings.search;
+  var searchedName = settings.searchName;
   var isData = (renderBy === 'Data');
   if (isData && !dataFolder){
     variable_names = [];
@@ -2748,16 +2749,36 @@ var update = function (value) {
     }
   }
 
+  function lowerOrEmpty(text) {
+    return text?.toLowerCase() || '';
+  }
+
+  const lcSearchedName = searchedName.toLowerCase();
+
   scene_objects.forEach(function(object) {
 
     surfaceType = object.userData.surfaceType;
 
-    object.visible = searchedName === '';
+    object.visible = true;
 
     if (settings.showStory == 'All Stories' || settings.showStory == object.userData.buildingStoryName){
       // no-op
     }else{
       object.visible = false;
+    }
+
+    // select objects with surface, space or thermal zone names matching 'Search By Name' input value
+    if (searchedName !== '') {
+      const surfaceName = lowerOrEmpty(object.userData.name);
+      const spaceName = lowerOrEmpty(object.userData.spaceName);
+      switch (settings.searchType) {
+        case "Surfaces":
+          object.visible = surfaceName.indexOf(lcSearchedName) >= 0;
+          break;
+        case "Spaces and Groups":
+          object.visible = spaceName.indexOf(lcSearchedName) >= 0;
+          break;
+      }
     }
 
     if (!settings.showFloors && surfaceType == 'Floor'){
@@ -2833,7 +2854,7 @@ var update = function (value) {
             keyName = object_variable.keyName;
           }
         }
-
+       
         if (value !== null) {
           object.userData.variableName = settings.variableName;
           object.userData.variableDate = date;
@@ -2845,7 +2866,7 @@ var update = function (value) {
           object.userData.variableName = settings.variableName;
           object.userData.variableDate = date;
           object.userData.variableTime = time;
-          object.userData.variableKeyName = keyName;
+          object.userData.variableKeyName = keyName;          
           object.userData.variableValue = '';
           object.userData.variableUnits = units;
         }
@@ -2854,7 +2875,7 @@ var update = function (value) {
         material.color.set(getColor(value, variable.valueMin, variable.valueMax, settings.colorScheme));
         break;
     }
-
+    
     if (!material) {
       material = unknown_material;
     }
@@ -2896,8 +2917,11 @@ var update = function (value) {
             // coincident object is visible, hide back object
             back_object.visible = false;
           }else{
-            // coincident object is not visible, show back object
-            back_object.visible = true;
+            
+            if (back_object.material){
+			  // coincident object is not visible, show back object
+              back_object.visible = true;
+            }
 
             if (object.material_double_sided){
               // switch to double sided material so we can select this
@@ -2909,54 +2933,6 @@ var update = function (value) {
       }
     }
   });
-
-  // select objects with surface, space or thermal zone names matching 'Search By Name' input value
-  if (searchedName !== '') {
-    function lowerOrEmpty(text) {
-      return text?.toLowerCase() || '';
-    }
-    const lcSearchedName = searchedName.toLowerCase();
-    const objectsToSelect = [];
-    scene_objects.forEach(function (object) {
-      let selectCondition;
-      const name = lowerOrEmpty(object.userData.name);
-      const surfaceTypeName = lowerOrEmpty(object.userData.surfaceType);
-      const spaceName = lowerOrEmpty(object.userData.spaceName);
-      const tzName = lowerOrEmpty(object.userData.thermalZoneName);
-      const outBoundCond = lowerOrEmpty(object.userData.outsideBoundaryCondition);
-      const constName = lowerOrEmpty(object.userData.constructionName);
-      const spaceTypeName = lowerOrEmpty(object.userData.spaceTypeName);
-      const storyName = lowerOrEmpty(object.userData.buildingStoryName);
-
-      switch (settings.renderBy) {
-        case "Surface Type":
-        case "Normal":
-          selectCondition = spaceName.indexOf(lcSearchedName) >= 0
-              || surfaceTypeName.indexOf(lcSearchedName) >= 0;
-          break;
-        case "Boundary":
-          selectCondition = outBoundCond.indexOf(lcSearchedName) >= 0;
-          break;
-        case "Construction":
-          selectCondition = constName.indexOf(lcSearchedName) >= 0;
-          break;
-        case "Thermal Zone":
-          selectCondition = tzName.indexOf(lcSearchedName) >= 0;
-          break;
-        case "Space Type":
-          selectCondition = spaceTypeName.indexOf(lcSearchedName) >= 0;
-          break;
-        case "Building Story":
-          selectCondition = storyName.indexOf(lcSearchedName) >= 0;
-          break;
-      }
-      if (selectCondition) {
-          objectsToSelect.push(object);
-      }
-    });
-    selectObject(objectsToSelect);
-    displaySelectedObjectDetails();
-  }
 };
 
 var updateVariable = function (variableName) {
@@ -2988,17 +2964,26 @@ var initDatGui = function () {
     update(value);
   });
 
-  gui.add(settings, 'search', "").name('Search By Name').onFinishChange(function (value) {
-    removeSelection();
-    update(value);
-  });
-
   building_story_names = os_data.metadata.buildingStoryNames;
   building_story_names.unshift('All Stories');
   gui.add(settings, 'showStory', building_story_names).name('Show Story').onChange(function(value) {
     removeSelection();
     update(value);
   });
+
+  var s1 = gui.addFolder('Search');
+  search_types = ['Surfaces', 'Spaces and Groups']
+  s1.add(settings, 'searchType', search_types).name('Search Type').onChange(function (value) {
+    removeSelection();
+    setLocalStorage('searchType', value);
+    update(value);
+  });
+  s1.add(settings, 'searchName', "").name('Search Name').onChange(function (value) {
+    removeSelection();
+    setLocalStorage('searchName', value);
+    update(value);
+  });
+  s1.open();
 
   var f1 = gui.addFolder('Surface Filters');
   f1.add(settings, 'showFloors').name('Show Floors').onChange(function(value) {
