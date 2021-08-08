@@ -1852,7 +1852,8 @@ var dragXStart, dragYStart;
 var raycaster;
 var mouse;
 var headsUp;
-var intersected, selected_material, unknown_material;
+var intersected = [];
+var selected_material, unknown_material;
 
 var getStringFromLocalStorage = function (key, defaultValue) {
   try {
@@ -1903,6 +1904,8 @@ var setLocalStorage = function (key, value) {
 var settings = {
   renderBy: 'Surface Type',
   showStory: 'All Stories',
+  searchType: getStringFromLocalStorage('searchType', 'Surfaces'),
+  searchName: getStringFromLocalStorage('searchName', ''),
   showFloors: getBoolFromLocalStorage('showFloors', true),
   showWalls: getBoolFromLocalStorage('showWalls', true),
   showRoofCeilings: getBoolFromLocalStorage('showRoofCeilings', true),
@@ -2431,61 +2434,74 @@ function restoreLastMaterial(object) {
   object.lastMaterial = null;
 }
 
+/**
+ * selects one or several objects (if objects is an array)
+ *
+ * @param object a single object or an array of objects to select
+ */
 function selectObject(object) {
-  renderBy = settings.renderBy;
-  isData = (renderBy == 'Data');
+  const renderBy = settings.renderBy;
+  const isData = (renderBy === 'Data');
+  const selected = Array.isArray(object) ? [...object] : object ? [object] : [];
 
-  if (intersected != object){
+  /**
+   * computes symmetric difference between 2 arrays
+   *
+   * @param newObjects
+   * @returns {boolean} if intersected and newObjects don't contain the same elements
+   */
+  function alreadyIntersected(newObjects) {
+    return intersected
+      .filter(x => !newObjects.includes(x))
+      .concat(newObjects.filter(x => !intersected.includes(x))).length === 0;
+  }
 
+  if (!alreadyIntersected(selected)) {
     // restore material on currently selected
-    if (intersected){
-      edges = object_edges[intersected.uuid];
-      if (edges){
-        edges.material.color.setRGB(0,0,0);
+    intersected.forEach(i => {
+      const edges = object_edges[i.uuid];
+      if (edges) {
+        edges.material.color.setRGB(0, 0, 0);
         edges.material.linewidth = 1;
         edges.material.needsUpdate = true;
       }
-    }
-    if (!isData && intersected) {
-      restoreLastMaterial(intersected);
-
-      coincident_intersected = coincident_objects[intersected.uuid];
-      if (coincident_intersected) {
-        restoreLastMaterial(coincident_intersected);
+      if (!isData && i) {
+        restoreLastMaterial(i);
+        const coincident_intersected = coincident_objects[i.uuid];
+        if (coincident_intersected) {
+          restoreLastMaterial(coincident_intersected);
+        }
+        const back_intersected = back_objects[i.uuid];
+        if (back_intersected) {
+          restoreLastMaterial(back_intersected);
+        }
       }
-
-      back_intersected = back_objects[intersected.uuid];
-      if (back_intersected) {
-        restoreLastMaterial(back_intersected);
-      }
-    }
+    });
 
     // set the new intersected objects
-    intersected = object;
+    intersected = selected;
 
     // save last material and set new one
-    if (intersected){
-      edges = object_edges[intersected.uuid];
-      if (edges){
-        edges.material.color.setRGB(0,255,0);
+    intersected.forEach(i => {
+      const edges = object_edges[i.uuid];
+      if (edges) {
+        edges.material.color.setRGB(252, 219, 57);
         edges.material.linewidth = 4;
         edges.material.needsUpdate = true;
       }
-    }
-    if (!isData && intersected) {
-      setSelectedMaterial(intersected);
-
-      coincident_intersected = coincident_objects[intersected.uuid];
-      if (coincident_intersected) {
-        removeMaterial(coincident_intersected);
+      if (!isData && i) {
+        setSelectedMaterial(i);
+        const coincident_intersected = coincident_objects[i.uuid];
+        if (coincident_intersected) {
+          removeMaterial(coincident_intersected);
+        }
+        const back_intersected = back_objects[i.uuid];
+        if (back_intersected) {
+          removeMaterial(back_intersected);
+        }
       }
-
-      back_intersected = back_objects[intersected.uuid];
-      if (back_intersected) {
-        removeMaterial(back_intersected);
-      }
-    }
-    if (isData && intersected) {
+    });
+    if (isData && intersected.length > 0) {
       update();
     }
   }
@@ -2513,73 +2529,88 @@ function onDocumentMouseClick(event) {
     if (intersects.length) {
 
       selectObject(intersects[0].object);
+      displaySelectedObjectDetails();
 
-      headsUp.style.left = 10 + 0.5 * window.innerWidth + mouse.x * 0.5 * window.innerWidth + 'px';
-      headsUp.style.top = -10 + 0.5 * window.innerHeight - mouse.y * 0.5 * window.innerHeight + 'px';
-      headsUp.style.display = 'block';
-      document.getElementById('color-bar-selection-line').style.display = 'block';
-      document.getElementById('color-bar-selection-text').style.display = 'inline-block';
-
-      var txt = 'Name: ' + intersected.userData.name + '<br>';
-      switch (settings.renderBy) {
-        case "Surface Type":
-          txt += 'Surface Type: ' + intersected.userData.surfaceType + '<br>';
-          if (intersected.userData.spaceName){
-            txt += 'Space Name: ' + intersected.userData.spaceName;
-          }
-          break;
-        case "Normal":
-          txt += 'Surface Type: ' + intersected.userData.surfaceType + '<br>'
-          if (intersected.userData.spaceName){
-            txt += 'Space Name: ' + intersected.userData.spaceName;
-          }
-          break;
-        case "Boundary":
-          if (intersected.userData.outsideBoundaryCondition){
-            txt += 'Outside Boundary Condition: ' + intersected.userData.outsideBoundaryCondition + '<br>';
-          }
-          txt += 'Sun Exposure: ' + intersected.userData.sunExposure + '<br>';
-          txt += 'Wind Exposure: ' + intersected.userData.windExposure;
-          break;
-        case "Construction":
-          if (intersected.userData.constructionName){
-            txt += 'Construction Name: ' + intersected.userData.constructionName;
-          }
-          break;
-        case "Thermal Zone":
-          if (intersected.userData.thermalZoneName){
-            txt += 'Thermal Zone: ' + intersected.userData.thermalZoneName;
-          }
-          break;
-        case "Space Type":
-          if (intersected.userData.spaceTypeName){
-            txt += 'Space Type: ' + intersected.userData.spaceTypeName;
-          }
-          break;
-        case "Building Story":
-          if (intersected.userData.buildingStoryName){
-            txt += 'Story Name: ' + intersected.userData.buildingStoryName;
-          }
-          break;
-        case "Data":
-          // in javascript (0 == '' == false)
-          if (intersected.userData.variableValue !== '') {
-            txt += 'Variable: <span id="balloon-variable-name">' + intersected.userData.variableName + '</span><br>';
-            txt += 'Key: <span id="balloon-variable-key-name">' + intersected.userData.variableKeyName + '</span><br>';
-            txt += 'Date: <span id="balloon-variable-date">' + intersected.userData.variableDate + '</span><br>';
-            txt += 'Time: <span id="balloon-variable-time">' + intersected.userData.variableTime + '</span><br>';
-            txt += 'Value: <span id="balloon-variable-value">' + intersected.userData.variableValue + '</span> ' + intersected.userData.variableUnits;
-          }
-          updateColorBarSelection(intersected.userData.variableValue);
-          break;
-      }
-
-      headsUp.innerHTML = txt;
-      document.body.style.cursor = 'pointer';
     } else {
       removeSelection();
     }
   }
+}
+
+function displaySelectedObjectDetails() {
+
+  headsUp.style.left = 10 + 0.5 * window.innerWidth + mouse.x * 0.5 * window.innerWidth + 'px';
+  headsUp.style.top = -10 + 0.5 * window.innerHeight - mouse.y * 0.5 * window.innerHeight + 'px';
+  headsUp.style.display = 'block';
+  document.getElementById('color-bar-selection-line').style.display = 'block';
+  document.getElementById('color-bar-selection-text').style.display = 'inline-block';
+
+  let txt = '';
+  let nbDisplayedTiles = 0, maxTiles = 1;
+  intersected.some(inter => {
+    txt += '<p>Name: ' + inter.userData.name    + '<br>';
+    // render details depending on chosen renderBy value
+    switch (settings.renderBy) {
+      case "Surface Type":
+        txt += 'Surface Type: ' + inter.userData.surfaceType + '<br>';
+        if (inter.userData.spaceName){
+          txt += 'Space Name: ' + inter.userData.spaceName;
+        }
+        break;
+      case "Normal":
+        txt += 'Surface Type: ' + inter.userData.surfaceType + '<br>'
+        if (inter.userData.spaceName){
+          txt += 'Space Name: ' + inter.userData.spaceName;
+        }
+        break;
+      case "Boundary":
+        if (inter.userData.outsideBoundaryCondition){
+          txt += 'Outside Boundary Condition: ' + inter.userData.outsideBoundaryCondition + '<br>';
+        }
+        txt += 'Sun Exposure: ' + inter.userData.sunExposure + '<br>';
+        txt += 'Wind Exposure: ' + inter.userData.windExposure;
+        break;
+      case "Construction":
+        if (inter.userData.constructionName){
+          txt += 'Construction Name: ' + inter.userData.constructionName;
+        }
+        break;
+      case "Thermal Zone":
+        if (inter.userData.thermalZoneName){
+          txt += 'Thermal Zone: ' + inter.userData.thermalZoneName;
+        }
+        break;
+      case "Space Type":
+        if (inter.userData.spaceTypeName){
+          txt += 'Space Type: ' + inter.userData.spaceTypeName;
+        }
+        break;
+      case "Building Story":
+        if (inter.userData.buildingStoryName){
+          txt += 'Story Name: ' + inter.userData.buildingStoryName;
+        }
+        break;
+      case "Data":
+        // in javascript (0 == '' == false)
+        if (inter.userData.variableValue !== '') {
+          txt += 'Variable: <span id="balloon-variable-name">' + inter.userData.variableName + '</span><br>';
+          txt += 'Key: <span id="balloon-variable-key-name">' + inter.userData.variableKeyName + '</span><br>';
+          txt += 'Date: <span id="balloon-variable-date">' + inter.userData.variableDate + '</span><br>';
+          txt += 'Time: <span id="balloon-variable-time">' + inter.userData.variableTime + '</span><br>';
+          txt += 'Value: <span id="balloon-variable-value">' + inter.userData.variableValue + '</span> ' + inter.userData.variableUnits;
+        }
+        updateColorBarSelection(inter.userData.variableValue);
+        break;
+    }
+    txt += "</p>";
+    nbDisplayedTiles += 1;
+    return nbDisplayedTiles >= maxTiles;
+  });
+  if (nbDisplayedTiles < intersected.length) {
+    txt += `<p>Not all matching objects details displayed (max: ${maxTiles})</p>`;
+  }
+  headsUp.innerHTML = txt;
+  document.body.style.cursor = 'pointer';
 }
 
 function animate(timestamp) {
@@ -2646,8 +2677,9 @@ function cycleHour() {
 var gui = null;
 var dataFolder = null;
 var update = function (value) {
-  renderBy = settings.renderBy;
-  isData = (renderBy == 'Data');
+  var renderBy = settings.renderBy;
+  var searchedName = settings.searchName;
+  var isData = (renderBy === 'Data');
   if (isData && !dataFolder){
     variable_names = [];
     os_data.variables.forEach(function(os_data_var) {
@@ -2717,6 +2749,12 @@ var update = function (value) {
     }
   }
 
+  function lowerOrEmpty(text) {
+    return text?.toLowerCase() || '';
+  }
+
+  const lcSearchedName = searchedName.toLowerCase();
+
   scene_objects.forEach(function(object) {
 
     surfaceType = object.userData.surfaceType;
@@ -2727,6 +2765,20 @@ var update = function (value) {
       // no-op
     }else{
       object.visible = false;
+    }
+
+    // select objects with surface, space or thermal zone names matching 'Search By Name' input value
+    if (searchedName !== '') {
+      const surfaceName = lowerOrEmpty(object.userData.name);
+      const spaceName = lowerOrEmpty(object.userData.spaceName);
+      switch (settings.searchType) {
+        case "Surfaces":
+          object.visible = surfaceName.indexOf(lcSearchedName) >= 0;
+          break;
+        case "Spaces and Groups":
+          object.visible = spaceName.indexOf(lcSearchedName) >= 0;
+          break;
+      }
     }
 
     if (!settings.showFloors && surfaceType == 'Floor'){
@@ -2802,7 +2854,7 @@ var update = function (value) {
             keyName = object_variable.keyName;
           }
         }
-
+       
         if (value !== null) {
           object.userData.variableName = settings.variableName;
           object.userData.variableDate = date;
@@ -2814,7 +2866,7 @@ var update = function (value) {
           object.userData.variableName = settings.variableName;
           object.userData.variableDate = date;
           object.userData.variableTime = time;
-          object.userData.variableKeyName = keyName;
+          object.userData.variableKeyName = keyName;          
           object.userData.variableValue = '';
           object.userData.variableUnits = units;
         }
@@ -2823,15 +2875,15 @@ var update = function (value) {
         material.color.set(getColor(value, variable.valueMin, variable.valueMax, settings.colorScheme));
         break;
     }
-
+    
     if (!material) {
       material = unknown_material;
     }
 
-    if (intersected) {
-      updateBalloon(intersected);
-      updateColorBarSelection(intersected.userData.variableValue);
-    }
+    intersected.forEach(i => {
+      updateBalloon(i);
+      updateColorBarSelection(i.userData.variableValue);
+    });
 
     object.material = material;
     object.material_double_sided = material_double_sided;
@@ -2840,11 +2892,7 @@ var update = function (value) {
     }
 
     var edge = object_edges[object.uuid];
-    if (settings.showWireframe || object.visible){
-      edge.visible = true;
-    }else{
-      edge.visible = false;
-    }
+    edge.visible = settings.showWireframe || object.visible;
 
     back_object = back_objects[object.uuid];
     if (back_object){
@@ -2869,8 +2917,11 @@ var update = function (value) {
             // coincident object is visible, hide back object
             back_object.visible = false;
           }else{
-            // coincident object is not visible, show back object
-            back_object.visible = true;
+            
+            if (back_object.material){
+			  // coincident object is not visible, show back object
+              back_object.visible = true;
+            }
 
             if (object.material_double_sided){
               // switch to double sided material so we can select this
@@ -2919,6 +2970,20 @@ var initDatGui = function () {
     removeSelection();
     update(value);
   });
+
+  var s1 = gui.addFolder('Search');
+  search_types = ['Surfaces', 'Spaces and Groups']
+  s1.add(settings, 'searchType', search_types).name('Search Type').onChange(function (value) {
+    removeSelection();
+    setLocalStorage('searchType', value);
+    update(value);
+  });
+  s1.add(settings, 'searchName', "").name('Search Name').onChange(function (value) {
+    removeSelection();
+    setLocalStorage('searchName', value);
+    update(value);
+  });
+  s1.open();
 
   var f1 = gui.addFolder('Surface Filters');
   f1.add(settings, 'showFloors').name('Show Floors').onChange(function(value) {
