@@ -122,19 +122,19 @@ void FacilityExteriorEquipmentGridView::addObject(const IddObjectType& iddObject
 
 void FacilityExteriorEquipmentGridView::purgeObjects(const IddObjectType& iddObjectType) {
   if (IddObjectType::OS_Exterior_Lights == iddObjectType.value()) {
-    for (auto &mo : this->m_model.getConcreteModelObjects<model::ExteriorLightsDefinition>()) {
+    for (auto& mo : this->m_model.getConcreteModelObjects<model::ExteriorLightsDefinition>()) {
       if (mo.instances().empty()) {
         mo.remove();
       }
     }
   } else if (IddObjectType::OS_Exterior_FuelEquipment == iddObjectType.value()) {
-    for (auto &mo : this->m_model.getConcreteModelObjects<model::ExteriorFuelEquipmentDefinition>()) {
+    for (auto& mo : this->m_model.getConcreteModelObjects<model::ExteriorFuelEquipmentDefinition>()) {
       if (mo.instances().empty()) {
         mo.remove();
       }
     }
   } else if (IddObjectType::OS_Exterior_WaterEquipment == iddObjectType.value()) {
-    for (auto &mo : this->m_model.getConcreteModelObjects<model::ExteriorWaterEquipmentDefinition>()) {
+    for (auto& mo : this->m_model.getConcreteModelObjects<model::ExteriorWaterEquipmentDefinition>()) {
       if (mo.instances().empty()) {
         mo.remove();
       }
