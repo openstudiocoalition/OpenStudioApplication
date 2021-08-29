@@ -120,7 +120,7 @@ void ConstructionObjectVectorController::onRemoveItem(OSItem* item) {
   }
 }
 
-void ConstructionObjectVectorController::insert(const OSItemId& itemId, int position, boost::optional<int> removePosition) {
+void ConstructionObjectVectorController::insert(const OSItemId& itemId, int insertPosition, boost::optional<int> erasePosition) {
   if (m_modelObject) {
     boost::optional<model::Material> material = this->addToModel<model::Material>(itemId);
     if (!material) {
@@ -151,12 +151,12 @@ void ConstructionObjectVectorController::insert(const OSItemId& itemId, int posi
       }
     }
 
-    if (position < 0) {
-      position = construction.numLayers();
+    if (insertPosition < 0) {
+      insertPosition = construction.numLayers();
     }
 
-    if (construction.insertLayer(position, *material) && removePosition) {
-      construction.eraseLayer(*removePosition);
+    if (construction.insertLayer(insertPosition, *material) && erasePosition) {
+      construction.eraseLayer(*erasePosition);
     }
   }
 }
