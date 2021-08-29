@@ -179,7 +179,7 @@ void ConstructionObjectVectorController::onReplaceItem(OSItem* currentItem, cons
       if (*toPosition == *fromPosition) {
         // to and from position are same, no-op
         return;
-      } else if (*toPosition <= *fromPosition) {
+      } else if (*toPosition < *fromPosition) {
         // position to delete will be one higher after doing the insert
         fromPosition = *fromPosition + 1;
       }
