@@ -74,7 +74,7 @@ class ConstructionObjectVectorController : public ModelObjectVectorController
  private:
   REGISTER_LOGGER("openstudio::ConstructionObjectVectorController");
 
-  void insert(const OSItemId& itemId, int position = -1, bool deleteExisting = false);
+  void insert(const OSItemId& itemId, int addPosition = -1, boost::optional<int> removePosition = boost::none);
 
   bool m_reportScheduled;
   QMutex* m_reportItemsMutex;

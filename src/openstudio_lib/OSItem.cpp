@@ -80,7 +80,14 @@ OSItemId::OSItemId(const QMimeData* mimeData) : m_isDefaulted(false) {
       m_isDefaulted = false;
     }
   }
-  for (int i = 3; i < strings.size(); ++i) {
+  if (strings.size() > 3) {
+    if (strings[3] == "None") {
+      m_position.reset();
+    } else {
+      m_position = strings[3].toInt();
+    }
+  }
+  for (int i = 4; i < strings.size(); ++i) {
     m_otherData += strings[i];
     if (i < strings.size() - 1) {
       m_otherData += ",";
@@ -102,7 +109,8 @@ QString OSItemId::otherData() const {
 
 QString OSItemId::mimeDataText() const {
   QString isDefaultedString((m_isDefaulted ? "True" : "False"));
-  QString result = m_itemId + "," + m_sourceId + "," + isDefaultedString + "," + m_otherData;
+  QString positonString((m_position ? QString::number(*m_position) : "None"));
+  QString result = m_itemId + "," + m_sourceId + "," + isDefaultedString + "," + positonString + "," + m_otherData;
   return result;
 }
 
@@ -112,6 +120,14 @@ bool OSItemId::isDefaulted() const {
 
 void OSItemId::setIsDefaulted(bool isDefaulted) {
   m_isDefaulted = isDefaulted;
+}
+
+boost::optional<int> OSItemId::position() const {
+  return m_position;
+}
+
+void OSItemId::setPosition(int position) {
+  m_position = position;
 }
 
 bool OSItemId::operator==(const OSItemId& other) const {
@@ -421,12 +437,12 @@ void OSItem::setOSItemType(OSItemType osItemType) {
   update();
 }
 
-int OSItem::position() const {
-  return m_position;
+boost::optional<int> OSItem::position() const {
+  return m_itemId.position();
 }
 
 void OSItem::setPosition(int position) {
-  m_position = position;
+  m_itemId.setPosition(position);
 }
 
 void OSItem::paintEvent(QPaintEvent* event) {

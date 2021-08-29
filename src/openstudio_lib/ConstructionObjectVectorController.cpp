@@ -120,10 +120,12 @@ void ConstructionObjectVectorController::onRemoveItem(OSItem* item) {
   }
 }
 
-void ConstructionObjectVectorController::insert(const OSItemId& itemId, int position, bool deleteExisting) {
+void ConstructionObjectVectorController::insert(const OSItemId& itemId, int position, boost::optional<int> removePosition) {
   if (m_modelObject) {
     boost::optional<model::Material> material = this->addToModel<model::Material>(itemId);
-    if (!material) return;
+    if (!material){
+      return;
+    }
 
     model::LayeredConstruction construction = m_modelObject->cast<model::LayeredConstruction>();
     std::vector<model::Material> layers = construction.layers();
@@ -153,66 +155,42 @@ void ConstructionObjectVectorController::insert(const OSItemId& itemId, int posi
       position = construction.numLayers();
     }
 
-    if (deleteExisting) {
-      //  Checking if from library or from model isn't sufficient, if from model it also HAS to be already in the layer list
-      std::vector<unsigned> existingIndices = construction.getLayerIndices(*material);
-      if (!existingIndices.empty()) {
-        int existingPos = existingIndices[0];
-        LOG(Debug, "Erasing layer at position = " << existingPos);
-        construction.eraseLayer(existingPos);
-      } else {
-        LOG(Debug, "Layer wasn't present to begin with");
-      }
+    if (construction.insertLayer(position, *material) && removePosition) {
+      construction.eraseLayer(*removePosition);
     }
-
-    construction.insertLayer(position, *material);
   }
 }
 
 void ConstructionObjectVectorController::onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) {
   if (m_modelObject) {
 
+    // currentItem position is set by OSDropZone::setItemIds
+    boost::optional<int> toPosition = currentItem->position();
+    boost::optional<int> fromPosition = replacementItemId.position();
+
     // If we drag from the library onto an existing, we want clone, then add at the position of the one existing
     // It will shift all other layers forward, and the user will be able to delete the one he dragged onto if he wants
-    // If not from library, we want to **update** the position instead.
-    bool deleteExisting = true;
+    // If not from library, we want to **move** the item instead.
     if (this->fromComponentLibrary(replacementItemId)) {
-      deleteExisting = false;
-    } else {
+      fromPosition.reset();
+    }
 
-      // Unfortunately, layers aren't necesarilly unique, and there is no way to get the actualy layerIndex from an OSItemId,
-      // which means that we cannot determine the specific position of the replacementItemId to move it (delete before insert)
-      // It's too dangerous to just assume it's arbitrarily the first found, so we don't do anything, the user will have
-      // to remove the old one herself.
-      // So we can deleteExisting only if unique layers
-
-      // Ensure layers are unique
-      model::LayeredConstruction construction = m_modelObject->cast<model::LayeredConstruction>();
-      std::vector<model::Material> layers = construction.layers();
-      auto it = std::unique(layers.begin(), layers.end());
-      deleteExisting = (it == layers.end());
-      if (!deleteExisting) {
-        LOG(Debug, "Layers aren't unique, so we can't remove the existing one, occured for " << m_modelObject->nameString());
-      } else {
-        LOG(Debug, "Layers are unique, occured for " << m_modelObject->nameString());
+    if (toPosition && fromPosition) {
+      if (*toPosition == *fromPosition) {
+        // to and from position are same, no-op
+        return;
+      } else if (*toPosition <= *fromPosition) {
+        // position to delete will be one higher after doing the insert
+        fromPosition = *fromPosition + 1;
       }
     }
 
-    // Here's the difference with onDrop: we want to INSERT at the position of the currentItem
-    // So we need to start by finding out which position that is
-    // start by getting the one being dragged ONTO
-    ModelObjectItem* modelObjectItem = qobject_cast<ModelObjectItem*>(currentItem);
-    OS_ASSERT(modelObjectItem);
-
-    model::ModelObject modelObject = modelObjectItem->modelObject();
-    if (!modelObject.handle().isNull()) {
-      // There is no reason we shouldn't enter this code block if the onDrop is fine...
-      if (modelObject.optionalCast<model::Material>()) {
-        int position = currentItem->position();
-        LOG(Debug, m_modelObject->nameString() << ", position = " << position);
-        insert(replacementItemId, position, deleteExisting);
-      }
+    if (!toPosition) {
+      // insert at the end
+      toPosition = -1;
     }
+
+    insert(replacementItemId, *toPosition, fromPosition);
   }
 }
 
