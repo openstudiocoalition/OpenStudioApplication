@@ -123,7 +123,7 @@ void ConstructionObjectVectorController::onRemoveItem(OSItem* item) {
 void ConstructionObjectVectorController::insert(const OSItemId& itemId, int position, boost::optional<int> removePosition) {
   if (m_modelObject) {
     boost::optional<model::Material> material = this->addToModel<model::Material>(itemId);
-    if (!material){
+    if (!material) {
       return;
     }
 

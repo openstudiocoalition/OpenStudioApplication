@@ -76,7 +76,9 @@ class OSItemId
   boost::optional<int> m_position;
 };
 
-class OSItem : public QWidget, public Nano::Observer
+class OSItem
+  : public QWidget
+  , public Nano::Observer
 {
   Q_OBJECT
 
