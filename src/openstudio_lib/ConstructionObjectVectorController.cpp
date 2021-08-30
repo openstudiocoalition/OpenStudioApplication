@@ -195,7 +195,17 @@ void ConstructionObjectVectorController::onReplaceItem(OSItem* currentItem, cons
 }
 
 void ConstructionObjectVectorController::onDrop(const OSItemId& itemId) {
-  insert(itemId);
+
+  boost::optional<int> fromPosition = itemId.position();
+
+  // If we drag from the library onto an existing, we want clone, then add at the position of the one existing
+  // It will shift all other layers forward, and the user will be able to delete the one he dragged onto if he wants
+  // If not from library, we want to **move** the item instead.
+  if (this->fromComponentLibrary(itemId)) {
+    fromPosition.reset();
+  }
+
+  insert(itemId, -1, fromPosition);
 }
 
 QWidget* ConstructionObjectVectorController::parentWidget() {
