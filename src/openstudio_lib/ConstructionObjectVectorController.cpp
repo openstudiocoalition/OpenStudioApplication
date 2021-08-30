@@ -77,24 +77,25 @@ void ConstructionObjectVectorController::reportItems() {
   m_reportItemsMutex->unlock();
 }
 
-void ConstructionObjectVectorController::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) {
+void ConstructionObjectVectorController::onChangeRelationship(const model::ModelObject& /*modelObject*/, int /*index*/, Handle /*newHandle*/,
+                                                              Handle /*oldHandle*/) {
   reportItemsLater();
 }
 
-void ConstructionObjectVectorController::onDataChange(const model::ModelObject& modelObject) {
+void ConstructionObjectVectorController::onDataChange(const model::ModelObject& /*modelObject*/) {
   reportItemsLater();
 }
 
-void ConstructionObjectVectorController::onChange(const model::ModelObject& modelObject) {
+void ConstructionObjectVectorController::onChange(const model::ModelObject& /*modelObject*/) {
   reportItemsLater();
 }
 
 std::vector<OSItemId> ConstructionObjectVectorController::makeVector() {
   std::vector<OSItemId> result;
   if (m_modelObject) {
-    model::LayeredConstruction construction = m_modelObject->cast<model::LayeredConstruction>();
+    auto construction = m_modelObject->cast<model::LayeredConstruction>();
     std::vector<model::Material> layers = construction.layers();
-    for (model::Material layer : layers) {
+    for (const model::Material& layer : layers) {
       result.push_back(modelObjectToItemId(layer, false));
     }
   }
@@ -103,11 +104,11 @@ std::vector<OSItemId> ConstructionObjectVectorController::makeVector() {
 
 void ConstructionObjectVectorController::onRemoveItem(OSItem* item) {
   if (m_modelObject) {
-    model::LayeredConstruction construction = m_modelObject->cast<model::LayeredConstruction>();
+    auto construction = m_modelObject->cast<model::LayeredConstruction>();
     std::vector<model::Material> layers = construction.layers();
     OSAppBase* app = OSAppBase::instance();
     unsigned idx = 0;
-    for (model::Material layer : layers) {
+    for (const model::Material& layer : layers) {
       boost::optional<model::ModelObject> modelObject = app->currentDocument()->getModelObject(item->itemId());
       if (modelObject) {
         if (modelObject->handle() == layer.handle()) {
@@ -120,19 +121,19 @@ void ConstructionObjectVectorController::onRemoveItem(OSItem* item) {
   }
 }
 
-void ConstructionObjectVectorController::insert(const OSItemId& itemId, int insertPosition, boost::optional<int> erasePosition) {
+void ConstructionObjectVectorController::insert(const OSItemId& itemId, int insertPosition, boost::optional<int> erasePosition_) {
   if (m_modelObject) {
-    boost::optional<model::Material> material = this->addToModel<model::Material>(itemId);
-    if (!material) {
+    boost::optional<model::Material> material_ = this->addToModel<model::Material>(itemId);
+    if (!material_) {
       return;
     }
 
-    model::LayeredConstruction construction = m_modelObject->cast<model::LayeredConstruction>();
+    auto construction = m_modelObject->cast<model::LayeredConstruction>();
     std::vector<model::Material> layers = construction.layers();
-    if (layers.size()) {
+    if (!layers.empty()) {
 
       IddObjectType existingIddObjectType = layers.at(0).iddObjectType();
-      IddObjectType newIddObjectType = material.get().iddObjectType();
+      IddObjectType newIddObjectType = material_.get().iddObjectType();
 
       LayerType existingLayerType = getLayerType(existingIddObjectType);
       LayerType newLayerType = getLayerType(newIddObjectType);
@@ -155,8 +156,8 @@ void ConstructionObjectVectorController::insert(const OSItemId& itemId, int inse
       insertPosition = construction.numLayers();
     }
 
-    if (construction.insertLayer(insertPosition, *material) && erasePosition) {
-      construction.eraseLayer(*erasePosition);
+    if (construction.insertLayer(insertPosition, material_.get()) && erasePosition_) {
+      construction.eraseLayer(erasePosition_.get());
     }
   }
 }
@@ -165,32 +166,32 @@ void ConstructionObjectVectorController::onReplaceItem(OSItem* currentItem, cons
   if (m_modelObject) {
 
     // currentItem position is set by OSDropZone::setItemIds
-    boost::optional<int> toPosition = currentItem->position();
-    boost::optional<int> fromPosition = replacementItemId.position();
+    boost::optional<int> toPosition_ = currentItem->position();
+    boost::optional<int> fromPosition_ = replacementItemId.position();
 
     // If we drag from the library onto an existing, we want clone, then add at the position of the one existing
     // It will shift all other layers forward, and the user will be able to delete the one he dragged onto if he wants
     // If not from library, we want to **move** the item instead.
     if (this->fromComponentLibrary(replacementItemId)) {
-      fromPosition.reset();
+      fromPosition_.reset();
     }
 
-    if (toPosition && fromPosition) {
-      if (*toPosition == *fromPosition) {
+    if (toPosition_ && fromPosition_) {
+      if (toPosition_.get() == fromPosition_.get()) {
         // to and from position are same, no-op
         return;
-      } else if (*toPosition < *fromPosition) {
+      } else if (toPosition_.get() < fromPosition_.get()) {
         // position to delete will be one higher after doing the insert
-        fromPosition = *fromPosition + 1;
+        fromPosition_ = fromPosition_.get() + 1;
       }
     }
 
-    if (!toPosition) {
+    if (!toPosition_) {
       // insert at the end
-      toPosition = -1;
+      toPosition_ = -1;
     }
 
-    insert(replacementItemId, *toPosition, fromPosition);
+    insert(replacementItemId, toPosition_.get(), fromPosition_);
   }
 }
 

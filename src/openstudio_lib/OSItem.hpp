@@ -73,7 +73,7 @@ class OSItemId
   QString m_sourceId;
   QString m_otherData;
   bool m_isDefaulted;
-  boost::optional<int> m_position;
+  boost::optional<int> m_position_;
 };
 
 class OSItem
@@ -123,7 +123,7 @@ class OSItem
   OSItemType osItemType() const;
   void setOSItemType(OSItemType osItemType);
 
-  bool useLargeIcon();
+  bool useLargeIcon() const;
   void setUseLargeIcon(bool useLargeIcon);
 
   virtual bool equal(const OSItem* other) const = 0;
@@ -170,7 +170,7 @@ class OSItem
   void setBold(bool isBold);
 
   QColor textColor();
-  void setTextColor(QColor color = Qt::black);
+  void setTextColor(const QColor& color = Qt::black);
   MeasureBadge* m_measureBadge;
 
  private:
@@ -180,7 +180,7 @@ class OSItem
   void setAttributes(OSItemType osItemType);
   void createLayout();
   //void setItemSize();
-  void setLabelPixmap(QLabel* label, const QPixmap& pixmap);
+  static void setLabelPixmap(QLabel* label, const QPixmap& pixmap);
 
   OSItemId m_itemId;
   QWidget* m_selectionWidget;
