@@ -59,8 +59,13 @@ class OSItemId
   QString sourceId() const;
   QString otherData() const;
   QString mimeDataText() const;
+
   bool isDefaulted() const;
   void setIsDefaulted(bool isDefaulted);
+
+  boost::optional<int> position() const;
+  void setPosition(int position);
+
   bool operator==(const OSItemId& other) const;
 
  private:
@@ -68,9 +73,12 @@ class OSItemId
   QString m_sourceId;
   QString m_otherData;
   bool m_isDefaulted;
+  boost::optional<int> m_position_;
 };
 
-class OSItem : public QWidget, public Nano::Observer
+class OSItem
+  : public QWidget
+  , public Nano::Observer
 {
   Q_OBJECT
 
@@ -115,7 +123,7 @@ class OSItem : public QWidget, public Nano::Observer
   OSItemType osItemType() const;
   void setOSItemType(OSItemType osItemType);
 
-  bool useLargeIcon();
+  bool useLargeIcon() const;
   void setUseLargeIcon(bool useLargeIcon);
 
   virtual bool equal(const OSItem* other) const = 0;
@@ -136,7 +144,7 @@ class OSItem : public QWidget, public Nano::Observer
   static const int BTN_HEIGHT = 20;
   static const int BTN_WIDTH = 20;
 
-  int position() const;
+  boost::optional<int> position() const;
   void setPosition(int position);
 
  signals:
@@ -162,7 +170,7 @@ class OSItem : public QWidget, public Nano::Observer
   void setBold(bool isBold);
 
   QColor textColor();
-  void setTextColor(QColor color = Qt::black);
+  void setTextColor(const QColor& color = Qt::black);
   MeasureBadge* m_measureBadge;
 
  private:
@@ -172,7 +180,7 @@ class OSItem : public QWidget, public Nano::Observer
   void setAttributes(OSItemType osItemType);
   void createLayout();
   //void setItemSize();
-  void setLabelPixmap(QLabel* label, const QPixmap& pixmap);
+  static void setLabelPixmap(QLabel* label, const QPixmap& pixmap);
 
   OSItemId m_itemId;
   QWidget* m_selectionWidget;
@@ -194,8 +202,6 @@ class OSItem : public QWidget, public Nano::Observer
   // Large icon used behind everything else
   // For items that map to model objects, this will be set to the icon as opposed to the mini icon mapped to the type.
   QPixmap m_largePixmap;
-
-  int m_position = -1;  // will be set to something >= 0 eventually
 };
 
 }  // namespace openstudio
