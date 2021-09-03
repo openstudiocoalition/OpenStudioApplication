@@ -127,6 +127,8 @@ void BuildingComponentDialog::createLayout(bool isBclDlg) {
     QTextStream docIn(&file);
     docString = docIn.readAll();
     file.close();
+  } else {
+    LOG_FREE(LogLevel::Error, "BuildingComponentDialog", "Failed to open tid_api.xml or taxonomy.xml");
   }
 
   doc.setContent(docString);

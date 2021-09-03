@@ -152,7 +152,8 @@ int main(int argc, char* argv[]) {
 
   // disable gpu blacklist for view model tab
   if (!qEnvironmentVariableIsSet("QTWEBENGINE_CHROMIUM_FLAGS")) {
-    qputenv("QTWEBENGINE_CHROMIUM_FLAGS", "--ignore-gpu-blacklist");
+    qputenv("QTWEBENGINE_CHROMIUM_FLAGS",
+            "--ignore-gpu-blacklist --blink-settings=forceDarkModeEnabled=false --blink-settings=darkModeEnabled=false");
   }
   // JM; set this environment variable to log to that path, eg: '/home/julien/OpenStudioApp.log'
   // Note to *Nix users: don't do it in bash_profile
@@ -169,7 +170,7 @@ int main(int argc, char* argv[]) {
   }
 
   // Output content of argc/argv
-  LOG_FREE(Debug, "OpenStudioApp.main", "main received argc=" << argc << " arguments")
+  LOG_FREE(Debug, "OpenStudioApp.main", "main received argc=" << argc << " arguments");
   for (int i = 0; i < argc; ++i) {
     LOG_FREE(Debug, "OpenStudioApp.main", "Argument " << i << "=" << argv[i]);
   }

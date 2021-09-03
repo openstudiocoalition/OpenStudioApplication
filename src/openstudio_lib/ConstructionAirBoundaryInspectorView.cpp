@@ -104,7 +104,7 @@ void ConstructionAirBoundaryInspectorView::createLayout() {
 
   ++row;
 
-  m_airExchangeMethod = new OSComboBox2(nullptr, true);
+  m_airExchangeMethod = new OSComboBox2(nullptr, false);  // editable = false
   mainGridLayout->addWidget(m_airExchangeMethod, row, 0);
 
   ++row;

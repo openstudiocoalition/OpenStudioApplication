@@ -132,6 +132,9 @@ add_executable(${target_name}
 
 if (NINJA)
   target_compile_definitions(${target_name} PRIVATE NINJA=1)
+elseif(WIN32)
+  # increase stack size
+  target_link_options(${target_name} PRIVATE /STACK:8388608)
 endif()
 
 # This is because Apple has app bundles for .apps.
@@ -365,6 +368,9 @@ if( NOT APPLE )
     install(TARGETS OpenStudioApp DESTINATION bin COMPONENT OpenStudioApp )
 
     install(PROGRAMS ${QtWebEngineProcess} DESTINATION bin COMPONENT OpenStudioApp )
+    install(PROGRAMS $<TARGET_FILE:Qt5::OpenGL> DESTINATION bin COMPONENT OpenStudioApp )
+    install(PROGRAMS $<TARGET_FILE:Qt5::Gui_EGL> DESTINATION bin COMPONENT OpenStudioApp )
+    install(PROGRAMS $<TARGET_FILE:Qt5::Gui_GLESv2> DESTINATION bin COMPONENT OpenStudioApp )
     install(PROGRAMS $<TARGET_FILE:Qt5::QWindowsIntegrationPlugin> DESTINATION bin/platforms/ COMPONENT OpenStudioApp)
     install(PROGRAMS $<TARGET_FILE:Qt5::QWindowsVistaStylePlugin> DESTINATION bin/styles/ COMPONENT OpenStudioApp)
     #install(PROGRAMS $<TARGET_FILE:Qt5::GLTFSceneParserPlugin> DESTINATION bin/sceneparsers/ COMPONENT OpenStudioApp)

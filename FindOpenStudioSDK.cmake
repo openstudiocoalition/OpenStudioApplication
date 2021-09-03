@@ -1,34 +1,34 @@
 set(OPENSTUDIO_VERSION_MAJOR 3)
 set(OPENSTUDIO_VERSION_MINOR 2)
-set(OPENSTUDIO_VERSION_PATCH 0)
+set(OPENSTUDIO_VERSION_PATCH 1)
 set(OPENSTUDIO_VERSION "${OPENSTUDIO_VERSION_MAJOR}.${OPENSTUDIO_VERSION_MINOR}.${OPENSTUDIO_VERSION_PATCH}")
 
 #If this is a release enter the SHA as "+79857912c4"
 #set(OPENSTUDIO_VERSION_SHA "+09b7c8a554")
 #If this is a pre-release enter the pre-release and SHA as "-rc1+79857912c4"
-set(OPENSTUDIO_VERSION_SHA "+e11f0a08b2")
+set(OPENSTUDIO_VERSION_SHA "+bdbdbc9da6")
 
 # Paths where the cmake-downloaded archives will be put
 set(OPENSTUDIO_ARCHIVE_DIR "${PROJECT_BINARY_DIR}/OpenStudio-${OPENSTUDIO_VERSION}")
 
 # If downloaded, we need the SHA to match. This block is here since we need "OPENSTUDIO_PLATFORM" anyways
 if(APPLE)
-  set(OPENSTUDIO_EXPECTED_HASH 883c0f83ab7a09875e851726e32ba591)
+  set(OPENSTUDIO_EXPECTED_HASH 5733364813912cb5256fb338faa82e47)
   set(OPENSTUDIO_PLATFORM "Darwin")
   set(OPENSTUDIO_EXT "tar.gz")
 elseif(UNIX)
 
   if(LSB_RELEASE_VERSION_SHORT MATCHES "20.04")
-    set(OPENSTUDIO_EXPECTED_HASH 25c4cfe614676376581657440ba447ae)
+    set(OPENSTUDIO_EXPECTED_HASH dce4f2eff5985d94255a1a49bc3aa97f)
     set(OPENSTUDIO_PLATFORM "Ubuntu-20.04")
   else() # Assumes 18.04
-    set(OPENSTUDIO_EXPECTED_HASH 623d3e10c17f1dc99bb869deb8a2550e)
+    set(OPENSTUDIO_EXPECTED_HASH 521802b1176ba7cd4a2ed4a94a347484)
     set(OPENSTUDIO_PLATFORM "Ubuntu-18.04")
   endif()
   set(OPENSTUDIO_EXT "tar.gz")
 
 elseif(WIN32)
-  set(OPENSTUDIO_EXPECTED_HASH 740d5d8ba67ca914412e12c618d2cc28)
+  set(OPENSTUDIO_EXPECTED_HASH 0ab2fdc4de81bd268732ffca6cb50a61)
   set(OPENSTUDIO_PLATFORM "Windows")
   set(OPENSTUDIO_EXT "tar.gz")
 endif()
@@ -56,7 +56,7 @@ else()
   # base link for release builds
   set(OPENSTUDIO_BASELINK_RELEASE
     #"https://openstudio-builds.s3.amazonaws.com/${OPENSTUDIO_VERSION}"
-    https://github.com/NREL/OpenStudio/releases/download/v3.2.0/
+    "https://github.com/NREL/OpenStudio/releases/download/v${OPENSTUDIO_VERSION}/"
     CACHE STRING "Base link to where the openstudio archives are hosted" FORCE)
 
   # base link for develop builds. (Using https will fail)

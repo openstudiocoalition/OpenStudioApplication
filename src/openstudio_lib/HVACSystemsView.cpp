@@ -535,6 +535,8 @@ MechanicalVentilationView::MechanicalVentilationView() : QWidget() {
   economizerComboBox->addItem("Differential Dry Bulb", "DifferentialDryBulb");
   economizerComboBox->addItem("Differential Enthalpy", "DifferentialEnthalpy");
   economizerComboBox->addItem("Fixed Dewpoint and Dry Bulb", "FixedDewPointAndDryBulb");
+  economizerComboBox->addItem("ElectronicEnthalpy", "ElectronicEnthalpy");
+  economizerComboBox->addItem("Differential Dry Bulb and Enthalpy", "DifferentialDryBulbAndEnthalpy");
   economizerComboBox->addItem("No Economizer", "NoEconomizer");
   economizerHBoxLayout->addWidget(economizerComboBox);
 

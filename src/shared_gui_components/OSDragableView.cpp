@@ -58,7 +58,7 @@ void OSDragableView::mouseMoveEvent(QMouseEvent* event) {
     return;
   }
 
-  if (!(event->buttons() && Qt::LeftButton)) {
+  if (!(event->buttons() & Qt::LeftButton)) {
     return;
   }
 

@@ -67,20 +67,23 @@ OSItemId::OSItemId(const QString& itemId, const QString& sourceId, bool isDefaul
 
 OSItemId::OSItemId(const QMimeData* mimeData) : m_isDefaulted(false) {
   QStringList strings = mimeData->text().split(",");
-  if (strings.size() > 0) {
+  if (!strings.empty()) {
     m_itemId = strings[0];
   }
   if (strings.size() > 1) {
     m_sourceId = strings[1];
   }
   if (strings.size() > 2) {
-    if (strings[2] == "True") {
-      m_isDefaulted = true;
+    m_isDefaulted = (strings[2] == "True");
+  }
+  if (strings.size() > 3) {
+    if (strings[3] == "None") {
+      m_position_.reset();
     } else {
-      m_isDefaulted = false;
+      m_position_ = strings[3].toInt();
     }
   }
-  for (int i = 3; i < strings.size(); ++i) {
+  for (int i = 4; i < strings.size(); ++i) {
     m_otherData += strings[i];
     if (i < strings.size() - 1) {
       m_otherData += ",";
@@ -102,7 +105,8 @@ QString OSItemId::otherData() const {
 
 QString OSItemId::mimeDataText() const {
   QString isDefaultedString((m_isDefaulted ? "True" : "False"));
-  QString result = m_itemId + "," + m_sourceId + "," + isDefaultedString + "," + m_otherData;
+  QString positonString((m_position_ ? QString::number(m_position_.get()) : "None"));
+  QString result = m_itemId + "," + m_sourceId + "," + isDefaultedString + "," + positonString + "," + m_otherData;
   return result;
 }
 
@@ -112,6 +116,14 @@ bool OSItemId::isDefaulted() const {
 
 void OSItemId::setIsDefaulted(bool isDefaulted) {
   m_isDefaulted = isDefaulted;
+}
+
+boost::optional<int> OSItemId::position() const {
+  return m_position_;
+}
+
+void OSItemId::setPosition(int position) {
+  m_position_ = position;
 }
 
 bool OSItemId::operator==(const OSItemId& other) const {
@@ -124,6 +136,7 @@ bool OSItemId::operator==(const OSItemId& other) const {
 
 OSItem::OSItem(const OSItemId& itemId, OSItemType osItemType, QWidget* parent)
   : QWidget(parent),
+    m_measureBadge(nullptr),
     m_itemId(itemId),
     m_selectionWidget(nullptr),
     m_borderWidget(nullptr),
@@ -172,12 +185,12 @@ OSItem* OSItem::makeItem(const OSItemId& itemId, OSItemType osItemType) {
 }
 
 void OSItem::createLayout() {
-  auto mainHLayout = new QHBoxLayout();
+  auto* mainHLayout = new QHBoxLayout();
   mainHLayout->setContentsMargins(10, 5, 10, 5);
   mainHLayout->setAlignment(Qt::AlignVCenter);
   setLayout(mainHLayout);
 
-  auto leftVBoxLayout = new QVBoxLayout();
+  auto* leftVBoxLayout = new QVBoxLayout();
 
   m_imageLeftLbl = new QLabel(this);
   leftVBoxLayout->addWidget(m_imageLeftLbl);
@@ -301,7 +314,7 @@ void OSItem::setInspectable(bool inspectable) {
   m_inspectable = inspectable;
 }
 
-bool OSItem::useLargeIcon() {
+bool OSItem::useLargeIcon() const {
   return m_useLargeIcon;
 }
 
@@ -312,7 +325,9 @@ void OSItem::setUseLargeIcon(bool useLargeIcon) {
 }
 
 QPixmap OSItem::leftPixmap() const {
-  if (!m_imageLeftLbl) return QPixmap();
+  if (!m_imageLeftLbl) {
+    return QPixmap();
+  }
 
   return m_imageLeftLbl->pixmap(Qt::ReturnByValue);
 }
@@ -322,7 +337,9 @@ void OSItem::setLeftPixmap(const QPixmap& pixmap) {
 }
 
 QPixmap OSItem::rightPixmap() const {
-  if (!m_imageRightLbl) return QPixmap();
+  if (!m_imageRightLbl) {
+    return QPixmap();
+  }
 
   return m_imageRightLbl->pixmap(Qt::ReturnByValue);
 }
@@ -332,7 +349,9 @@ void OSItem::setRightPixmap(const QPixmap& pixmap) {
 }
 
 void OSItem::setLabelPixmap(QLabel* label, const QPixmap& pixmap) {
-  if (!label) return;
+  if (!label) {
+    return;
+  }
 
   int w = pixmap.size().width();
   int h = pixmap.size().height();
@@ -361,7 +380,7 @@ QColor OSItem::textColor() {
   return m_textLbl->palette().color(m_textLbl->backgroundRole());
 }
 
-void OSItem::setTextColor(QColor color) {
+void OSItem::setTextColor(const QColor& color) {
   QPalette palette = m_textLbl->palette();
   palette.setColor(m_textLbl->backgroundRole(), color);
   palette.setColor(m_textLbl->foregroundRole(), color);
@@ -369,12 +388,16 @@ void OSItem::setTextColor(QColor color) {
 }
 
 void OSItem::setFixedWidth(int width) {
-  if (width < 0) return;
+  if (width < 0) {
+    return;
+  }
   QWidget::setFixedWidth(width);
 }
 
 void OSItem::setFixedHeight(int height) {
-  if (height < 0) return;
+  if (height < 0) {
+    return;
+  }
   QWidget::setFixedHeight(height);
 }
 
@@ -421,15 +444,15 @@ void OSItem::setOSItemType(OSItemType osItemType) {
   update();
 }
 
-int OSItem::position() const {
-  return m_position;
+boost::optional<int> OSItem::position() const {
+  return m_itemId.position();
 }
 
 void OSItem::setPosition(int position) {
-  m_position = position;
+  m_itemId.setPosition(position);
 }
 
-void OSItem::paintEvent(QPaintEvent* event) {
+void OSItem::paintEvent(QPaintEvent* /*event*/) {
   QPainter p(this);
 
   if (m_osItemType == OSItemType::ListItem) {
@@ -501,7 +524,7 @@ void OSItem::mouseMoveEvent(QMouseEvent* event) {
     return;
   }
 
-  if (!(event->buttons() && Qt::LeftButton)) {
+  if (!(event->buttons() & Qt::LeftButton)) {
     return;
   }
 
@@ -514,14 +537,14 @@ void OSItem::mouseMoveEvent(QMouseEvent* event) {
 
   QString mimeDataText = m_itemId.mimeDataText();
 
-  auto mimeData = new QMimeData;
+  auto* mimeData = new QMimeData;
   mimeData->setText(mimeDataText);
 
   QWidget* parent = this->parentWidget();
   OS_ASSERT(parent);
 
   // parent the QDrag on this parent instead of this, in case this item is deleted during drag
-  auto drag = new QDrag(parent);
+  auto* drag = new QDrag(parent);
   drag->setMimeData(mimeData);
 
   QPixmap _pixmap(size());
