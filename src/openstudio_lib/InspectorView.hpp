@@ -119,7 +119,9 @@ class InspectorView : public QWidget
   bool m_mouseOverInspectorView = false;
 };
 
-class BaseInspectorView : public QWidget, public Nano::Observer
+class BaseInspectorView
+  : public QWidget
+  , public Nano::Observer
 {
   Q_OBJECT;
 

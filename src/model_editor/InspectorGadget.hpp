@@ -58,7 +58,9 @@ class QVBoxLayout;
 
 class ComboHighlightBridge;
 
-class MODELEDITOR_API IGWidget : public QWidget, public Nano::Observer
+class MODELEDITOR_API IGWidget
+  : public QWidget
+  , public Nano::Observer
 {
  public:
   IGWidget(QWidget* parent = nullptr);
@@ -92,7 +94,9 @@ class IGComboBox : public QComboBox
  * Choice is displayed as a ComboBox
  *
  */
-class MODELEDITOR_API InspectorGadget : public QWidget, public Nano::Observer
+class MODELEDITOR_API InspectorGadget
+  : public QWidget
+  , public Nano::Observer
 {
 
   Q_OBJECT

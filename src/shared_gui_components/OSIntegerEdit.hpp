@@ -47,7 +47,9 @@ class QFocusEvent;
 
 namespace openstudio {
 
-class OSIntegerEdit2 : public QLineEdit, public Nano::Observer
+class OSIntegerEdit2
+  : public QLineEdit
+  , public Nano::Observer
 {
   Q_OBJECT
 

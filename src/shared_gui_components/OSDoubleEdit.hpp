@@ -48,7 +48,9 @@ namespace openstudio {
 
 /** Should only be used for dimensionless real fields. Real fields with units should use
  *  OSQuantityEdit. */
-class OSDoubleEdit2 : public QLineEdit, public Nano::Observer
+class OSDoubleEdit2
+  : public QLineEdit
+  , public Nano::Observer
 {
   Q_OBJECT
  public:

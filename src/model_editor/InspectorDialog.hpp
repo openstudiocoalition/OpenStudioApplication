@@ -65,7 +65,9 @@ class ModelObject;
 OPENSTUDIO_ENUM(InspectorDialogClient, ((AllOpenStudio))((SketchUpPlugin)));
 #endif
 
-class MODELEDITOR_API InspectorDialog : public QMainWindow, public Nano::Observer
+class MODELEDITOR_API InspectorDialog
+  : public QMainWindow
+  , public Nano::Observer
 {
   Q_OBJECT;
 

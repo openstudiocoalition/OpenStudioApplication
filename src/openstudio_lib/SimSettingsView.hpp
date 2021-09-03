@@ -58,7 +58,9 @@ class OSQuantityEdit2;
 class OSSwitch2;
 class ScheduleCalendarWidget;
 
-class SimSettingsView : public QWidget, public Nano::Observer
+class SimSettingsView
+  : public QWidget
+  , public Nano::Observer
 {
   Q_OBJECT
 

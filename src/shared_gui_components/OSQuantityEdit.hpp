@@ -90,7 +90,9 @@ class QuantityLineEdit : public QLineEdit
   void inFocus(bool inFocus, bool hasData);
 };
 
-class OSQuantityEdit2 : public QWidget, public Nano::Observer
+class OSQuantityEdit2
+  : public QWidget
+  , public Nano::Observer
 {
   Q_OBJECT
  public:
