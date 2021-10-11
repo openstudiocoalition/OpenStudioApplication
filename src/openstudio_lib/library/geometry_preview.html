@@ -2731,10 +2731,10 @@ var updateAdjacencyIssues = function(value) {
   /*
     * Implements part of Honeybee's SolveAdj tool licensed under the AGPL 3.0.
     * See:
-    * - https://github.com/ladybug-tools/honeybee-grasshopper-core/blob/master/honeybee_grasshopper_core/src/HB%20Solve%20Adjacency.py#L190
-    * - https://github.com/ladybug-tools/honeybee-core/blob/master/honeybee/room.py#L925
-    * - https://github.com/ladybug-tools/honeybee-core/blob/master/honeybee/room.py#L867
-    * - https://github.com/ladybug-tools/ladybug-geometry/blob/master/ladybug_geometry/geometry3d/polyface.py#L689
+    * - https://github.com/ladybug-tools/honeybee-grasshopper-core/blob/27773fe0097188d4be0e160c71a0cda2c54c6f73/honeybee_grasshopper_core/src/HB%20Solve%20Adjacency.py#L190
+    * - https://github.com/ladybug-tools/honeybee-core/blob/ae4e905a78635a7448291ff8dbe94aa2f627a1ae/honeybee/room.py#L925
+    * - https://github.com/ladybug-tools/honeybee-core/blob/ae4e905a78635a7448291ff8dbe94aa2f627a1ae/honeybee/room.py#L867
+    * - https://github.com/ladybug-tools/ladybug-geometry/blob/da34f3397c59bc311004cb6319d534953c8ee9ab/ladybug_geometry/geometry3d/polyface.py#L689
     */
   const almost_equal = 1e-3;
   const thresh = (parseFloat(settings.findAdjacencyThreshold)**2)/1000;
