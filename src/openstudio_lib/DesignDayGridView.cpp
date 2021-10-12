@@ -129,7 +129,7 @@ DesignDayGridView::DesignDayGridView(bool isIP, const model::Model& model, QWidg
 
 void DesignDayGridView::onAddClicked() {
   // Always make at least one
-  if (!m_gridController->selectedObjects().size()) {
+  if (m_gridController->selectedObjects().empty()) {
     model::DesignDay(m_gridController->model());
   } else {
     for (auto& obj : m_gridController->selectedObjects()) {
@@ -291,17 +291,21 @@ void DesignDayGridController::addColumns(const QString& /*category*/, std::vecto
         boost::optional<std::function<bool(model::DesignDay*)>>(CastNullAdapter<model::DesignDay>(&model::DesignDay::isSkyClearnessDefaulted)),
         boost::optional<DataSource>());
     } else if (field == ASHRAETAUB) {
-      addValueEditColumn(
-        Heading(QString(ASHRAETAUB)), NullAdapter(&model::DesignDay::ashraeTaub), NullAdapter(&model::DesignDay::setAshraeTaub),
-        boost::optional<std::function<void(model::DesignDay*)>>(CastNullAdapter<model::DesignDay>(&model::DesignDay::resetAshraeTaub)),
-        boost::optional<std::function<bool(model::DesignDay*)>>(CastNullAdapter<model::DesignDay>(&model::DesignDay::isAshraeTaubDefaulted)),
-        boost::optional<DataSource>());
+      addValueEditColumn(Heading(QString(ASHRAETAUB)), NullAdapter(&model::DesignDay::ashraeClearSkyOpticalDepthForBeamIrradiance),
+                         NullAdapter(&model::DesignDay::setAshraeClearSkyOpticalDepthForBeamIrradiance),
+                         boost::optional<std::function<void(model::DesignDay*)>>(
+                           CastNullAdapter<model::DesignDay>(&model::DesignDay::resetAshraeClearSkyOpticalDepthForBeamIrradiance)),
+                         boost::optional<std::function<bool(model::DesignDay*)>>(
+                           CastNullAdapter<model::DesignDay>(&model::DesignDay::isAshraeClearSkyOpticalDepthForBeamIrradianceDefaulted)),
+                         boost::optional<DataSource>());
     } else if (field == ASHRAETAUD) {
-      addValueEditColumn(
-        Heading(QString(ASHRAETAUD)), NullAdapter(&model::DesignDay::ashraeTaud), NullAdapter(&model::DesignDay::setAshraeTaud),
-        boost::optional<std::function<void(model::DesignDay*)>>(CastNullAdapter<model::DesignDay>(&model::DesignDay::resetAshraeTaud)),
-        boost::optional<std::function<bool(model::DesignDay*)>>(CastNullAdapter<model::DesignDay>(&model::DesignDay::isAshraeTaudDefaulted)),
-        boost::optional<DataSource>());
+      addValueEditColumn(Heading(QString(ASHRAETAUD)), NullAdapter(&model::DesignDay::ashraeClearSkyOpticalDepthForDiffuseIrradiance),
+                         NullAdapter(&model::DesignDay::setAshraeClearSkyOpticalDepthForDiffuseIrradiance),
+                         boost::optional<std::function<void(model::DesignDay*)>>(
+                           CastNullAdapter<model::DesignDay>(&model::DesignDay::resetAshraeClearSkyOpticalDepthForDiffuseIrradiance)),
+                         boost::optional<std::function<bool(model::DesignDay*)>>(
+                           CastNullAdapter<model::DesignDay>(&model::DesignDay::isAshraeClearSkyOpticalDepthForDiffuseIrradianceDefaulted)),
+                         boost::optional<DataSource>());
     } else if (field == WINDDIRECTION) {
       addValueEditColumn(
         Heading(QString(WINDDIRECTION)), NullAdapter(&model::DesignDay::windDirection), NullAdapter(&model::DesignDay::setWindDirection),
