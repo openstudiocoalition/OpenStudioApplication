@@ -1,34 +1,34 @@
 set(OPENSTUDIO_VERSION_MAJOR 3)
-set(OPENSTUDIO_VERSION_MINOR 2)
-set(OPENSTUDIO_VERSION_PATCH 1)
+set(OPENSTUDIO_VERSION_MINOR 3)
+set(OPENSTUDIO_VERSION_PATCH 0)
 set(OPENSTUDIO_VERSION "${OPENSTUDIO_VERSION_MAJOR}.${OPENSTUDIO_VERSION_MINOR}.${OPENSTUDIO_VERSION_PATCH}")
 
 #If this is a release enter the SHA as "+79857912c4"
 #set(OPENSTUDIO_VERSION_SHA "+09b7c8a554")
 #If this is a pre-release enter the pre-release and SHA as "-rc1+79857912c4"
-set(OPENSTUDIO_VERSION_SHA "+bdbdbc9da6")
+set(OPENSTUDIO_VERSION_SHA "-alpha+a5a7045996")
 
 # Paths where the cmake-downloaded archives will be put
 set(OPENSTUDIO_ARCHIVE_DIR "${PROJECT_BINARY_DIR}/OpenStudio-${OPENSTUDIO_VERSION}")
 
 # If downloaded, we need the SHA to match. This block is here since we need "OPENSTUDIO_PLATFORM" anyways
 if(APPLE)
-  set(OPENSTUDIO_EXPECTED_HASH 5733364813912cb5256fb338faa82e47)
+  set(OPENSTUDIO_EXPECTED_HASH c9d03321e9ea26fc81ce889a25ba5daa)
   set(OPENSTUDIO_PLATFORM "Darwin")
   set(OPENSTUDIO_EXT "tar.gz")
 elseif(UNIX)
 
   if(LSB_RELEASE_VERSION_SHORT MATCHES "20.04")
-    set(OPENSTUDIO_EXPECTED_HASH dce4f2eff5985d94255a1a49bc3aa97f)
+    set(OPENSTUDIO_EXPECTED_HASH 8beb588909be4369c050ec4eb83ba2d2)
     set(OPENSTUDIO_PLATFORM "Ubuntu-20.04")
   else() # Assumes 18.04
-    set(OPENSTUDIO_EXPECTED_HASH 521802b1176ba7cd4a2ed4a94a347484)
+    set(OPENSTUDIO_EXPECTED_HASH a5bb204e907e72c1cc3541231fabf4e3)
     set(OPENSTUDIO_PLATFORM "Ubuntu-18.04")
   endif()
   set(OPENSTUDIO_EXT "tar.gz")
 
 elseif(WIN32)
-  set(OPENSTUDIO_EXPECTED_HASH 0ab2fdc4de81bd268732ffca6cb50a61)
+  set(OPENSTUDIO_EXPECTED_HASH 0ab2fdc4de81bd268732ffca6cb50a61) # TODO: OpenStudio's Jenkins windows CI instance has been stuck for 3 days
   set(OPENSTUDIO_PLATFORM "Windows")
   set(OPENSTUDIO_EXT "tar.gz")
 endif()
