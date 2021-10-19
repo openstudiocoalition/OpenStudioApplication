@@ -28,7 +28,7 @@ elseif(UNIX)
   set(OPENSTUDIO_EXT "tar.gz")
 
 elseif(WIN32)
-  set(OPENSTUDIO_EXPECTED_HASH 42bdcf13b06d6b140c7b42d2101bc710) # TODO: OpenStudio's Jenkins windows CI instance has been stuck for 3 days
+  set(OPENSTUDIO_EXPECTED_HASH 42bdcf13b06d6b140c7b42d2101bc710)
   set(OPENSTUDIO_PLATFORM "Windows")
   set(OPENSTUDIO_EXT "tar.gz")
 endif()
