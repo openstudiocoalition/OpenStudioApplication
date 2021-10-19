@@ -327,6 +327,7 @@ jobs:
     - name: Did restoring the build-cache or OpenStudioSDK cache work? Yes
       # If it wasn't found in the cache
       if: steps.cachebuild.outputs.cache-hit == 'true' || steps.cacheossdk.outputs.cache-hit == true
+      continue-on-error: true
       run: |
           ls build/ || true
           ls build/OpenStudio-${{ env.OS_SDK_VERSION }} || true
