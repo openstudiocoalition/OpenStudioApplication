@@ -338,6 +338,15 @@ void DesignDayGridController::addColumns(const QString& /*category*/, std::vecto
 
     // This should be reset when the humidity indication condition type is changed to something incompatible
     else if (field == HUMIDITYINDICATINGCONDITIONSATMAXIMUMDRYBULB) {
+      // This was replaced by three separate numeric fields, which is harder to fit on the tab, so for now just disabling the deprecated warnings
+
+#if defined(_MSC_VER)
+#  pragma warning(push)
+#  pragma warning(disable : 4996)
+#elif (defined(__GNUC__))
+#  pragma GCC diagnostic push
+#  pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
       addQuantityEditColumn(Heading(QString(HUMIDITYINDICATINGCONDITIONSATMAXIMUMDRYBULB)), QString("C"), QString("C"), QString("F"), isIP(),
                             NullAdapter(&model::DesignDay::humidityIndicatingConditionsAtMaximumDryBulb),
                             NullAdapter(&model::DesignDay::setHumidityIndicatingConditionsAtMaximumDryBulb),
@@ -346,6 +355,11 @@ void DesignDayGridController::addColumns(const QString& /*category*/, std::vecto
                             boost::optional<std::function<bool(model::DesignDay*)>>(
                               CastNullAdapter<model::DesignDay>(&model::DesignDay::isHumidityIndicatingConditionsAtMaximumDryBulbDefaulted)),
                             boost::optional<DataSource>());
+#if defined(_MSC_VER)
+#  pragma warning(pop)
+#elif (defined(__GNUC__))
+#  pragma GCC diagnostic pop
+#endif
     }
 
     else if (field == BAROMETRICPRESSURE) {
