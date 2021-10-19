@@ -385,11 +385,11 @@ void DesignDayGridController::addColumns(const QString& /*category*/, std::vecto
       // I don't see any problem here, yet the box stays empty. Checked the ReverseTranslator, it does its job too
       addComboBoxColumn<std::string, model::DesignDay>(
         Heading(QString(HUMIDITYINDICATINGTYPE)), static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
-        std::function<std::vector<std::string>()>(&model::DesignDay::validHumidityIndicatingTypeValues),
-        CastNullAdapter<model::DesignDay>(&model::DesignDay::humidityIndicatingType),
-        CastNullAdapter<model::DesignDay>(&model::DesignDay::setHumidityIndicatingType),
-        CastNullAdapter<model::DesignDay>(&model::DesignDay::resetHumidityIndicatingType),
-        CastNullAdapter<model::DesignDay>(&model::DesignDay::isHumidityIndicatingTypeDefaulted), boost::optional<DataSource>());
+        std::function<std::vector<std::string>()>(&model::DesignDay::validHumidityConditionTypeValues),
+        CastNullAdapter<model::DesignDay>(&model::DesignDay::humidityConditionType),
+        CastNullAdapter<model::DesignDay>(&model::DesignDay::setHumidityConditionType),
+        CastNullAdapter<model::DesignDay>(&model::DesignDay::resetHumidityConditionType),
+        CastNullAdapter<model::DesignDay>(&model::DesignDay::isHumidityConditionTypeDefaulted), boost::optional<DataSource>());
     } else if (field == SOLARMODELINDICATOR) {
       addComboBoxColumn<std::string, model::DesignDay>(
         Heading(QString(SOLARMODELINDICATOR)), static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
@@ -400,10 +400,10 @@ void DesignDayGridController::addColumns(const QString& /*category*/, std::vecto
         CastNullAdapter<model::DesignDay>(&model::DesignDay::isSolarModelIndicatorDefaulted), boost::optional<DataSource>());
     } else if (field == DRYBULBTEMPERATURERANGEMODIFIERSCHEDULE) {
       addDropZoneColumn(Heading(QString(DRYBULBTEMPERATURERANGEMODIFIERSCHEDULE)),
-                        CastNullAdapter<model::DesignDay>(&model::DesignDay::dryBulbTemperatureRangeModifierSchedule),
-                        CastNullAdapter<model::DesignDay>(&model::DesignDay::setDryBulbTemperatureRangeModifierSchedule),
+                        CastNullAdapter<model::DesignDay>(&model::DesignDay::dryBulbTemperatureRangeModifierDaySchedule),
+                        CastNullAdapter<model::DesignDay>(&model::DesignDay::setDryBulbTemperatureRangeModifierDaySchedule),
                         boost::optional<std::function<void(model::DesignDay*)>>(
-                          CastNullAdapter<model::DesignDay>(&model::DesignDay::resetDryBulbTemperatureRangeModifierSchedule)));
+                          CastNullAdapter<model::DesignDay>(&model::DesignDay::resetDryBulbTemperatureRangeModifierDaySchedule)));
     }
 
     else if (field == BEAMSOLARDAYSCHEDULE) {
@@ -415,10 +415,10 @@ void DesignDayGridController::addColumns(const QString& /*category*/, std::vecto
 
     else if (field == HUMIDITYINDICATINGDAYSCHEDULE) {
       addDropZoneColumn(Heading(QString(HUMIDITYINDICATINGDAYSCHEDULE)),
-                        CastNullAdapter<model::DesignDay>(&model::DesignDay::humidityIndicatingDaySchedule),
-                        CastNullAdapter<model::DesignDay>(&model::DesignDay::setHumidityIndicatingDaySchedule),
+                        CastNullAdapter<model::DesignDay>(&model::DesignDay::humidityConditionDaySchedule),
+                        CastNullAdapter<model::DesignDay>(&model::DesignDay::setHumidityConditionDaySchedule),
                         boost::optional<std::function<void(model::DesignDay*)>>(
-                          CastNullAdapter<model::DesignDay>(&model::DesignDay::resetHumidityIndicatingDaySchedule)));
+                          CastNullAdapter<model::DesignDay>(&model::DesignDay::resetHumidityConditionDaySchedule)));
     }
 
     else if (field == DIFFUSESOLARDAYSCHEDULE) {
@@ -441,7 +441,9 @@ QString DesignDayGridController::getColor(const model::ModelObject& modelObject)
 }
 
 void DesignDayGridController::checkSelectedFields() {
-  if (!this->hasHorizontalHeader()) return;
+  if (!this->hasHorizontalHeader()) {
+    return;
+  }
 
   OSGridController::checkSelectedFields();
 }
