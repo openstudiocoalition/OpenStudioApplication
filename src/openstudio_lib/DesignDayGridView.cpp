@@ -129,7 +129,7 @@ DesignDayGridView::DesignDayGridView(bool isIP, const model::Model& model, QWidg
 
 void DesignDayGridView::onAddClicked() {
   // Always make at least one
-  if (!m_gridController->selectedObjects().size()) {
+  if (m_gridController->selectedObjects().empty()) {
     model::DesignDay(m_gridController->model());
   } else {
     for (auto& obj : m_gridController->selectedObjects()) {
@@ -291,17 +291,21 @@ void DesignDayGridController::addColumns(const QString& /*category*/, std::vecto
         boost::optional<std::function<bool(model::DesignDay*)>>(CastNullAdapter<model::DesignDay>(&model::DesignDay::isSkyClearnessDefaulted)),
         boost::optional<DataSource>());
     } else if (field == ASHRAETAUB) {
-      addValueEditColumn(
-        Heading(QString(ASHRAETAUB)), NullAdapter(&model::DesignDay::ashraeTaub), NullAdapter(&model::DesignDay::setAshraeTaub),
-        boost::optional<std::function<void(model::DesignDay*)>>(CastNullAdapter<model::DesignDay>(&model::DesignDay::resetAshraeTaub)),
-        boost::optional<std::function<bool(model::DesignDay*)>>(CastNullAdapter<model::DesignDay>(&model::DesignDay::isAshraeTaubDefaulted)),
-        boost::optional<DataSource>());
+      addValueEditColumn(Heading(QString(ASHRAETAUB)), NullAdapter(&model::DesignDay::ashraeClearSkyOpticalDepthForBeamIrradiance),
+                         NullAdapter(&model::DesignDay::setAshraeClearSkyOpticalDepthForBeamIrradiance),
+                         boost::optional<std::function<void(model::DesignDay*)>>(
+                           CastNullAdapter<model::DesignDay>(&model::DesignDay::resetAshraeClearSkyOpticalDepthForBeamIrradiance)),
+                         boost::optional<std::function<bool(model::DesignDay*)>>(
+                           CastNullAdapter<model::DesignDay>(&model::DesignDay::isAshraeClearSkyOpticalDepthForBeamIrradianceDefaulted)),
+                         boost::optional<DataSource>());
     } else if (field == ASHRAETAUD) {
-      addValueEditColumn(
-        Heading(QString(ASHRAETAUD)), NullAdapter(&model::DesignDay::ashraeTaud), NullAdapter(&model::DesignDay::setAshraeTaud),
-        boost::optional<std::function<void(model::DesignDay*)>>(CastNullAdapter<model::DesignDay>(&model::DesignDay::resetAshraeTaud)),
-        boost::optional<std::function<bool(model::DesignDay*)>>(CastNullAdapter<model::DesignDay>(&model::DesignDay::isAshraeTaudDefaulted)),
-        boost::optional<DataSource>());
+      addValueEditColumn(Heading(QString(ASHRAETAUD)), NullAdapter(&model::DesignDay::ashraeClearSkyOpticalDepthForDiffuseIrradiance),
+                         NullAdapter(&model::DesignDay::setAshraeClearSkyOpticalDepthForDiffuseIrradiance),
+                         boost::optional<std::function<void(model::DesignDay*)>>(
+                           CastNullAdapter<model::DesignDay>(&model::DesignDay::resetAshraeClearSkyOpticalDepthForDiffuseIrradiance)),
+                         boost::optional<std::function<bool(model::DesignDay*)>>(
+                           CastNullAdapter<model::DesignDay>(&model::DesignDay::isAshraeClearSkyOpticalDepthForDiffuseIrradianceDefaulted)),
+                         boost::optional<DataSource>());
     } else if (field == WINDDIRECTION) {
       addValueEditColumn(
         Heading(QString(WINDDIRECTION)), NullAdapter(&model::DesignDay::windDirection), NullAdapter(&model::DesignDay::setWindDirection),
@@ -334,6 +338,15 @@ void DesignDayGridController::addColumns(const QString& /*category*/, std::vecto
 
     // This should be reset when the humidity indication condition type is changed to something incompatible
     else if (field == HUMIDITYINDICATINGCONDITIONSATMAXIMUMDRYBULB) {
+      // This was replaced by three separate numeric fields, which is harder to fit on the tab, so for now just disabling the deprecated warnings
+
+#if defined(_MSC_VER)
+#  pragma warning(push)
+#  pragma warning(disable : 4996)
+#elif (defined(__GNUC__))
+#  pragma GCC diagnostic push
+#  pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
       addQuantityEditColumn(Heading(QString(HUMIDITYINDICATINGCONDITIONSATMAXIMUMDRYBULB)), QString("C"), QString("C"), QString("F"), isIP(),
                             NullAdapter(&model::DesignDay::humidityIndicatingConditionsAtMaximumDryBulb),
                             NullAdapter(&model::DesignDay::setHumidityIndicatingConditionsAtMaximumDryBulb),
@@ -342,6 +355,11 @@ void DesignDayGridController::addColumns(const QString& /*category*/, std::vecto
                             boost::optional<std::function<bool(model::DesignDay*)>>(
                               CastNullAdapter<model::DesignDay>(&model::DesignDay::isHumidityIndicatingConditionsAtMaximumDryBulbDefaulted)),
                             boost::optional<DataSource>());
+#if defined(_MSC_VER)
+#  pragma warning(pop)
+#elif (defined(__GNUC__))
+#  pragma GCC diagnostic pop
+#endif
     }
 
     else if (field == BAROMETRICPRESSURE) {
@@ -381,11 +399,11 @@ void DesignDayGridController::addColumns(const QString& /*category*/, std::vecto
       // I don't see any problem here, yet the box stays empty. Checked the ReverseTranslator, it does its job too
       addComboBoxColumn<std::string, model::DesignDay>(
         Heading(QString(HUMIDITYINDICATINGTYPE)), static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
-        std::function<std::vector<std::string>()>(&model::DesignDay::validHumidityIndicatingTypeValues),
-        CastNullAdapter<model::DesignDay>(&model::DesignDay::humidityIndicatingType),
-        CastNullAdapter<model::DesignDay>(&model::DesignDay::setHumidityIndicatingType),
-        CastNullAdapter<model::DesignDay>(&model::DesignDay::resetHumidityIndicatingType),
-        CastNullAdapter<model::DesignDay>(&model::DesignDay::isHumidityIndicatingTypeDefaulted), boost::optional<DataSource>());
+        std::function<std::vector<std::string>()>(&model::DesignDay::validHumidityConditionTypeValues),
+        CastNullAdapter<model::DesignDay>(&model::DesignDay::humidityConditionType),
+        CastNullAdapter<model::DesignDay>(&model::DesignDay::setHumidityConditionType),
+        CastNullAdapter<model::DesignDay>(&model::DesignDay::resetHumidityConditionType),
+        CastNullAdapter<model::DesignDay>(&model::DesignDay::isHumidityConditionTypeDefaulted), boost::optional<DataSource>());
     } else if (field == SOLARMODELINDICATOR) {
       addComboBoxColumn<std::string, model::DesignDay>(
         Heading(QString(SOLARMODELINDICATOR)), static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
@@ -396,10 +414,10 @@ void DesignDayGridController::addColumns(const QString& /*category*/, std::vecto
         CastNullAdapter<model::DesignDay>(&model::DesignDay::isSolarModelIndicatorDefaulted), boost::optional<DataSource>());
     } else if (field == DRYBULBTEMPERATURERANGEMODIFIERSCHEDULE) {
       addDropZoneColumn(Heading(QString(DRYBULBTEMPERATURERANGEMODIFIERSCHEDULE)),
-                        CastNullAdapter<model::DesignDay>(&model::DesignDay::dryBulbTemperatureRangeModifierSchedule),
-                        CastNullAdapter<model::DesignDay>(&model::DesignDay::setDryBulbTemperatureRangeModifierSchedule),
+                        CastNullAdapter<model::DesignDay>(&model::DesignDay::dryBulbTemperatureRangeModifierDaySchedule),
+                        CastNullAdapter<model::DesignDay>(&model::DesignDay::setDryBulbTemperatureRangeModifierDaySchedule),
                         boost::optional<std::function<void(model::DesignDay*)>>(
-                          CastNullAdapter<model::DesignDay>(&model::DesignDay::resetDryBulbTemperatureRangeModifierSchedule)));
+                          CastNullAdapter<model::DesignDay>(&model::DesignDay::resetDryBulbTemperatureRangeModifierDaySchedule)));
     }
 
     else if (field == BEAMSOLARDAYSCHEDULE) {
@@ -411,10 +429,10 @@ void DesignDayGridController::addColumns(const QString& /*category*/, std::vecto
 
     else if (field == HUMIDITYINDICATINGDAYSCHEDULE) {
       addDropZoneColumn(Heading(QString(HUMIDITYINDICATINGDAYSCHEDULE)),
-                        CastNullAdapter<model::DesignDay>(&model::DesignDay::humidityIndicatingDaySchedule),
-                        CastNullAdapter<model::DesignDay>(&model::DesignDay::setHumidityIndicatingDaySchedule),
+                        CastNullAdapter<model::DesignDay>(&model::DesignDay::humidityConditionDaySchedule),
+                        CastNullAdapter<model::DesignDay>(&model::DesignDay::setHumidityConditionDaySchedule),
                         boost::optional<std::function<void(model::DesignDay*)>>(
-                          CastNullAdapter<model::DesignDay>(&model::DesignDay::resetHumidityIndicatingDaySchedule)));
+                          CastNullAdapter<model::DesignDay>(&model::DesignDay::resetHumidityConditionDaySchedule)));
     }
 
     else if (field == DIFFUSESOLARDAYSCHEDULE) {
@@ -437,7 +455,9 @@ QString DesignDayGridController::getColor(const model::ModelObject& modelObject)
 }
 
 void DesignDayGridController::checkSelectedFields() {
-  if (!this->hasHorizontalHeader()) return;
+  if (!this->hasHorizontalHeader()) {
+    return;
+  }
 
   OSGridController::checkSelectedFields();
 }
