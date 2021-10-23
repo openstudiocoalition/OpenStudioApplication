@@ -893,6 +893,7 @@ void GenericInspectorView::layoutModelObject(model::ModelObject& modelObject, bo
     m_inspectorGadget->setUnitSystem(InspectorGadget::SI);
   }
   m_inspectorGadget->layoutModelObj(modelObject, force, recursive, locked, hideChildren);
+  m_inspectorGadget->createAllFields();
   m_emsActuatorView->layoutModelObject(modelObject);
   m_emsSensorView->layoutModelObject(modelObject);
 }
@@ -1026,6 +1027,7 @@ void RefrigerationWalkinInspectorView::layoutModelObject(model::ModelObject& mod
   }
 
   m_walkinInspectorGadget->layoutModelObj(modelObject, force, recursive, locked, hideChildren);
+  m_walkinInspectorGadget->createAllFields();
 
   if (QLayout* t_layout = m_zoneBoundaryWidget->layout()) {
     delete t_layout;
@@ -1047,6 +1049,7 @@ void RefrigerationWalkinInspectorView::layoutModelObject(model::ModelObject& mod
       inspector->setUnitSystem(InspectorGadget::SI);
     }
     inspector->layoutModelObj(*it, force, recursive, locked, hideChildren);
+    inspector->createAllFields();
     m_zoneBoundaryWidget->layout()->addWidget(inspector);
   }
 }
@@ -1283,6 +1286,7 @@ void ThermalZoneInspectorView::layoutModelObject(model::ModelObject& modelObject
     m_inspectorGadget->setUnitSystem(InspectorGadget::SI);
   }
   m_inspectorGadget->layoutModelObj(modelObject, force, recursive, readOnly, hideChildren);
+  m_inspectorGadget->createAllFields();
   m_emsActuatorView->layoutModelObject(modelObject);
   m_emsSensorView->layoutModelObject(modelObject);
 
@@ -1328,6 +1332,7 @@ void WaterToAirInspectorView::layoutModelObject(model::ModelObject& modelObject,
     m_inspectorGadget->setUnitSystem(InspectorGadget::SI);
   }
   m_inspectorGadget->layoutModelObj(modelObject, force, recursive, locked, hideChildren);
+  m_inspectorGadget->createAllFields();
 
   boost::optional<model::ModelObject> mo = modelObject;
 
@@ -1406,6 +1411,7 @@ void AirTerminalInspectorView::layoutModelObject(model::ModelObject& modelObject
     m_inspectorGadget->setUnitSystem(InspectorGadget::SI);
   }
   m_inspectorGadget->layoutModelObj(modelObject, force, recursive, locked, hideChildren);
+  m_inspectorGadget->createAllFields();
 
   bool waterCoil = false;
 
@@ -1496,6 +1502,7 @@ void AirTerminalSingleDuctConstantVolumeCooledBeamInspectorView::layoutModelObje
     m_inspectorGadget->setUnitSystem(InspectorGadget::SI);
   }
   m_inspectorGadget->layoutModelObj(modelObject, force, recursive, locked, hideChildren);
+  m_inspectorGadget->createAllFields();
 
   bool coolCoil = false;
 
@@ -1546,6 +1553,7 @@ void ZoneHVACBaseboardConvectiveWaterInspectorView::layoutModelObject(model::Mod
     m_inspectorGadget->setUnitSystem(InspectorGadget::SI);
   }
   m_inspectorGadget->layoutModelObj(modelObject, force, recursive, locked, hideChildren);
+  m_inspectorGadget->createAllFields();
 
   bool waterHeatingCoil = false;
 
@@ -1599,6 +1607,7 @@ void ZoneHVACBaseboardRadiantConvectiveWaterInspectorView::layoutModelObject(mod
     m_inspectorGadget->setUnitSystem(InspectorGadget::SI);
   }
   m_inspectorGadget->layoutModelObj(modelObject, force, recursive, locked, hideChildren);
+  m_inspectorGadget->createAllFields();
 
   bool waterHeatingCoil = false;
 
@@ -1654,6 +1663,7 @@ void ZoneHVACCoolingPanelRadiantConvectiveWaterInspectorView::layoutModelObject(
     m_inspectorGadget->setUnitSystem(InspectorGadget::SI);
   }
   m_inspectorGadget->layoutModelObj(modelObject, force, recursive, locked, hideChildren);
+  m_inspectorGadget->createAllFields();
 
   bool waterCoolingCoil = false;
 
@@ -1713,6 +1723,7 @@ void ZoneHVACFourPipeFanCoilInspectorView::layoutModelObject(model::ModelObject&
     m_inspectorGadget->setUnitSystem(InspectorGadget::SI);
   }
   m_inspectorGadget->layoutModelObj(modelObject, force, recursive, locked, hideChildren);
+  m_inspectorGadget->createAllFields();
 
   bool waterHeatingCoil = false;
   bool waterCoolingCoil = false;
@@ -1789,6 +1800,7 @@ void ZoneHVACLowTempRadiantConstFlowInspectorView::layoutModelObject(model::Mode
     m_inspectorGadget->setUnitSystem(InspectorGadget::SI);
   }
   m_inspectorGadget->layoutModelObj(modelObject, force, recursive, locked, hideChildren);
+  m_inspectorGadget->createAllFields();
 
   bool waterHeatingCoil = false;
   bool waterCoolingCoil = false;
@@ -1865,6 +1877,7 @@ void ZoneHVACLowTempRadiantVarFlowInspectorView::layoutModelObject(model::ModelO
     m_inspectorGadget->setUnitSystem(InspectorGadget::SI);
   }
   m_inspectorGadget->layoutModelObj(modelObject, force, recursive, locked, hideChildren);
+  m_inspectorGadget->createAllFields();
 
   bool waterHeatingCoil = false;
   bool waterCoolingCoil = false;
@@ -1948,6 +1961,7 @@ void ZoneHVACWaterToAirHeatPumpInspectorView::layoutModelObject(model::ModelObje
     m_inspectorGadget->setUnitSystem(InspectorGadget::SI);
   }
   m_inspectorGadget->layoutModelObj(modelObject, force, recursive, locked, hideChildren);
+  m_inspectorGadget->createAllFields();
 
   bool waterHeatingCoil = false;
   bool waterCoolingCoil = false;
@@ -2031,6 +2045,7 @@ void ZoneHVACPackagedTerminalAirConditionerInspectorView::layoutModelObject(mode
     m_inspectorGadget->setUnitSystem(InspectorGadget::SI);
   }
   m_inspectorGadget->layoutModelObj(modelObject, force, recursive, locked, hideChildren);
+  m_inspectorGadget->createAllFields();
 
   bool waterCoil = false;
 
@@ -2084,6 +2099,7 @@ void ZoneHVACPackagedTerminalHeatPumpInspectorView::layoutModelObject(model::Mod
     m_inspectorGadget->setUnitSystem(InspectorGadget::SI);
   }
   m_inspectorGadget->layoutModelObj(modelObject, force, recursive, locked, hideChildren);
+  m_inspectorGadget->createAllFields();
 
   bool waterCoil = false;
 
@@ -2136,6 +2152,7 @@ void WaterHeaterHeatPumpInspectorView::layoutModelObject(model::ModelObject& mod
     m_inspectorGadget->setUnitSystem(InspectorGadget::SI);
   }
   m_inspectorGadget->layoutModelObj(modelObject, force, recursive, locked, hideChildren);
+  m_inspectorGadget->createAllFields();
 
   bool waterCoil = false;
 
@@ -2186,6 +2203,7 @@ void ZoneHVACUnitHeaterInspectorView::layoutModelObject(model::ModelObject& mode
     m_inspectorGadget->setUnitSystem(InspectorGadget::SI);
   }
   m_inspectorGadget->layoutModelObj(modelObject, force, recursive, locked, hideChildren);
+  m_inspectorGadget->createAllFields();
 
   bool waterHeatingCoil = false;
 
@@ -2246,6 +2264,7 @@ void ZoneHVACUnitVentilatorInspectorView::layoutModelObject(model::ModelObject& 
     m_inspectorGadget->setUnitSystem(InspectorGadget::SI);
   }
   m_inspectorGadget->layoutModelObj(modelObject, force, recursive, locked, hideChildren);
+  m_inspectorGadget->createAllFields();
 
   bool waterHeatingCoil = false;
   bool waterCoolingCoil = false;
@@ -2320,6 +2339,7 @@ void AirLoopHVACUnitarySystemInspectorView::layoutModelObject(model::ModelObject
     m_inspectorGadget->setUnitSystem(InspectorGadget::SI);
   }
   m_inspectorGadget->layoutModelObj(modelObject, force, recursive, locked, hideChildren);
+  m_inspectorGadget->createAllFields();
 
   bool waterHeatingCoil = false;
   bool waterCoolingCoil = false;
@@ -2411,6 +2431,7 @@ void AirTerminalSingleDuctConstantVolumeFourPipeInductionInspectorView::layoutMo
     m_inspectorGadget->setUnitSystem(InspectorGadget::SI);
   }
   m_inspectorGadget->layoutModelObj(modelObject, force, recursive, locked, hideChildren);
+  m_inspectorGadget->createAllFields();
 
   bool waterHeatingCoil = false;
   bool waterCoolingCoil = false;
@@ -2489,6 +2510,7 @@ void AirTerminalSingleDuctConstantVolumeFourPipeBeamInspectorView::layoutModelOb
     m_inspectorGadget->setUnitSystem(InspectorGadget::SI);
   }
   m_inspectorGadget->layoutModelObj(modelObject, force, recursive, locked, hideChildren);
+  m_inspectorGadget->createAllFields();
 
   bool heatingCoil = false;
   bool coolingCoil = false;

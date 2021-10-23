@@ -157,6 +157,7 @@ InspectorGadget::InspectorGadget(WorkspaceObject& workspaceObj, int indent, Comb
   m_errorMessage = new QErrorMessage(this);
   setContentsMargins(0, 0, 0, 0);
   layoutModelObj(workspaceObj, false, m_recursive, m_locked);
+  createAllFields();
   connectSignalsAndSlots();
 }
 
