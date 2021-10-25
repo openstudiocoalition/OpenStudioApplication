@@ -367,7 +367,7 @@ void BuildingComponentDialogCentralWidget::downloadNextComponent() {
         m_remoteBCL->waitForComponentDownload();
         
         if (m_remoteBCL) {
-          // if call back did not happen this was a failure
+          // if m_remoteBCL is not empty then call back did not happen and this was a failure
           if (m_currentDownload) {
             downloadFailed(m_currentDownload->first);
           }
@@ -410,13 +410,13 @@ void BuildingComponentDialogCentralWidget::downloadNextComponent() {
       m_remoteBCL->componentDownloaded.connect<BuildingComponentDialogCentralWidget, &BuildingComponentDialogCentralWidget::componentDownloadComplete>(
         const_cast<BuildingComponentDialogCentralWidget*>(this));
 
-      bool downloadStarted = m_remoteBCL->downloadComponent(m_currentDownload->first);
-      if (!downloadStarted) {
+      if (m_remoteBCL->downloadComponent(m_currentDownload->first)) {
+        m_downloadTimer.start();
+      } else {
         m_remoteBCL.reset();
         m_currentDownload.reset();
-      } else {
-        m_downloadTimer.start();
       }
+
     } else if (m_currentDownload->second == "measures") {
       m_remoteBCL = std::make_shared<RemoteBCL>();
       m_remoteBCL->setTimeOutSeconds(m_timeoutSeconds);
@@ -425,12 +425,11 @@ void BuildingComponentDialogCentralWidget::downloadNextComponent() {
       m_remoteBCL->measureDownloaded.connect<BuildingComponentDialogCentralWidget, &BuildingComponentDialogCentralWidget::measureDownloadComplete>(
         const_cast<BuildingComponentDialogCentralWidget*>(this));
 
-      bool downloadStarted = m_remoteBCL->downloadMeasure(m_currentDownload->first);
-      if (!downloadStarted) {
+      if (m_remoteBCL->downloadMeasure(m_currentDownload->first)) {
+        m_downloadTimer.start();
+      } else {
         m_remoteBCL.reset();
         m_currentDownload.reset();
-      } else {
-        m_downloadTimer.start();
       }
     }
   }

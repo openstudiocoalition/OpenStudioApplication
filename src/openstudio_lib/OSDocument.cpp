@@ -1656,19 +1656,18 @@ void OSDocument::updateSubTabSelected(int id) {
 }
 
 void OSDocument::openBclDlg() {
-  if (!m_onlineBclDialog) {
-    if (RemoteBCL::isOnline()) {
-      std::string filterType = "components";
-      m_onlineBclDialog = new BuildingComponentDialog(filterType, true, m_mainWindow);
-
-      connect(m_onlineBclDialog, &BuildingComponentDialog::rejected, this, &OSDocument::on_closeBclDlg);
-    } else {
-      QMessageBox::information(
-        this->mainWindow(), "Offline",
-        "You currently appear to be offline, please connect to the internet to access the BCL.",
-        QMessageBox::Ok);
-    }
+  if (!RemoteBCL::isOnline()) {
+    QMessageBox::information(this->mainWindow(), "Offline", "You appear to be offline, please connect to the internet to access the BCL.",
+                             QMessageBox::Ok);
+    return;
   }
+
+  if (!m_onlineBclDialog) {
+    std::string filterType = "components";
+    m_onlineBclDialog = new BuildingComponentDialog(filterType, true, m_mainWindow);
+    connect(m_onlineBclDialog, &BuildingComponentDialog::rejected, this, &OSDocument::on_closeBclDlg);
+  }
+  
   if (m_onlineBclDialog && !m_onlineBclDialog->isVisible()) {
     m_onlineBclDialog->setGeometry(m_mainWindow->geometry());
     m_onlineBclDialog->show();
@@ -1698,17 +1697,18 @@ std::shared_ptr<MainRightColumnController> OSDocument::mainRightColumnController
 }
 
 void OSDocument::openMeasuresBclDlg() {
-  if (!m_onlineMeasuresBclDialog) {
-    if (RemoteBCL::isOnline()) {
-      std::string filterType = "measures";
-      m_onlineMeasuresBclDialog = new BuildingComponentDialog(filterType, true, m_mainWindow);
-
-      connect(m_onlineMeasuresBclDialog, &BuildingComponentDialog::rejected, this, &OSDocument::on_closeMeasuresBclDlg);
-    } else {
-      QMessageBox::information(this->mainWindow(), "Offline", "You currently appear to be offline, please connect to the internet to access the BCL.",
-                               QMessageBox::Ok);
-    }
+  if (RemoteBCL::isOnline()) {
+    QMessageBox::information(this->mainWindow(), "Offline", "You appear to be offline, please connect to the internet to access the BCL.",
+                             QMessageBox::Ok);
+    return;
   }
+
+  if (!m_onlineMeasuresBclDialog) {
+    std::string filterType = "measures";
+    m_onlineMeasuresBclDialog = new BuildingComponentDialog(filterType, true, m_mainWindow);
+    connect(m_onlineMeasuresBclDialog, &BuildingComponentDialog::rejected, this, &OSDocument::on_closeMeasuresBclDlg);
+  }
+
   if (m_onlineMeasuresBclDialog && !m_onlineMeasuresBclDialog->isVisible()) {
     m_onlineMeasuresBclDialog->setGeometry(m_mainWindow->geometry());
     m_onlineMeasuresBclDialog->show();
