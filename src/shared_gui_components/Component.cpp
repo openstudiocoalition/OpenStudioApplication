@@ -331,12 +331,11 @@ bool Component::checkBoxEnabled() const {
   return m_checkBox->isEnabled();
 }
 
-void Component::setCheckBoxEnabled(bool enabled) 
-{
-  if (enabled){
+void Component::setCheckBoxEnabled(bool enabled) {
+  if (enabled) {
     m_checkBox->setEnabled(true);
     m_checkBox->setObjectName("Enabled");
-  }else{
+  } else {
     m_checkBox->setEnabled(false);
     m_checkBox->setObjectName("Disabled");
   }
@@ -344,8 +343,7 @@ void Component::setCheckBoxEnabled(bool enabled)
   m_checkBox->style()->polish(m_checkBox);
 }
 
-void Component::setCheckBoxUpdateAvailable(bool enabled)
-{
+void Component::setCheckBoxUpdateAvailable(bool enabled) {
   m_checkBox->setEnabled(enabled);
   m_checkBox->setObjectName("UpdateAvailable");
   m_checkBox->style()->unpolish(m_checkBox);

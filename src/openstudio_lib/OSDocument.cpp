@@ -1667,7 +1667,7 @@ void OSDocument::openBclDlg() {
     m_onlineBclDialog = new BuildingComponentDialog(filterType, true, m_mainWindow);
     connect(m_onlineBclDialog, &BuildingComponentDialog::rejected, this, &OSDocument::on_closeBclDlg);
   }
-  
+
   if (m_onlineBclDialog && !m_onlineBclDialog->isVisible()) {
     m_onlineBclDialog->setGeometry(m_mainWindow->geometry());
     m_onlineBclDialog->show();

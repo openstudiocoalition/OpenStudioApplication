@@ -52,7 +52,9 @@ class ComponentList;
 class CollapsibleComponentList;
 class RemoteBCL;
 
-class BuildingComponentDialogCentralWidget : public QWidget, public Nano::Observer
+class BuildingComponentDialogCentralWidget
+  : public QWidget
+  , public Nano::Observer
 {
   Q_OBJECT
 
@@ -108,7 +110,7 @@ class BuildingComponentDialogCentralWidget : public QWidget, public Nano::Observ
   void on_collapsibleComponentClicked(bool checked);
   void on_getComponentsByPage(int pageIdx);
   void downloadNextComponent();
-  void clearPendingDownloads(bool failed); 
+  void clearPendingDownloads(bool failed);
   void downloadFailed(const std::string& uid);
 };
 

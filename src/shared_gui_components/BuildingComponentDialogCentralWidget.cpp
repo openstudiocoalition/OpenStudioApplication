@@ -93,7 +93,7 @@ BuildingComponentDialogCentralWidget::BuildingComponentDialogCentralWidget(int t
 BuildingComponentDialogCentralWidget::~BuildingComponentDialogCentralWidget() {
   m_timer->stop();
   clearPendingDownloads(false);
-  if (m_remoteBCL){
+  if (m_remoteBCL) {
     m_remoteBCL->waitForComponentDownload();
   }
 }
@@ -273,7 +273,7 @@ void BuildingComponentDialogCentralWidget::lowerPushButtonClicked() {
 
       component->setCheckBoxEnabled(false);
       component->msg()->setHidden(true);
-          
+
       m_pendingDownloads.push(std::make_pair(uid, m_filterType));
     }
   }
@@ -365,7 +365,7 @@ void BuildingComponentDialogCentralWidget::downloadNextComponent() {
         m_timer->stop();
 
         m_remoteBCL->waitForComponentDownload();
-        
+
         if (m_remoteBCL) {
           // if m_remoteBCL is not empty then call back did not happen and this was a failure
           if (m_currentDownload) {
@@ -380,20 +380,20 @@ void BuildingComponentDialogCentralWidget::downloadNextComponent() {
             clearPendingDownloads(true);
           }
         }
-        
+
         m_timer->start(500);
       }
     }
     return;
   }
 
-  if (m_pendingDownloads.empty()){
+  if (m_pendingDownloads.empty()) {
     // show done progress
     m_progressBar->setValue(0);
     m_progressBar->setMinimum(0);
     m_progressBar->setMaximum(0);
     m_progressBar->setVisible(false);
-  }else{
+  } else {
     // show busy progress
     m_progressBar->setValue(1);
     m_progressBar->setMinimum(0);
@@ -407,8 +407,9 @@ void BuildingComponentDialogCentralWidget::downloadNextComponent() {
       m_remoteBCL->setTimeOutSeconds(m_timeoutSeconds);
 
       // Connect to Nano Signal
-      m_remoteBCL->componentDownloaded.connect<BuildingComponentDialogCentralWidget, &BuildingComponentDialogCentralWidget::componentDownloadComplete>(
-        const_cast<BuildingComponentDialogCentralWidget*>(this));
+      m_remoteBCL->componentDownloaded
+        .connect<BuildingComponentDialogCentralWidget, &BuildingComponentDialogCentralWidget::componentDownloadComplete>(
+          const_cast<BuildingComponentDialogCentralWidget*>(this));
 
       if (m_remoteBCL->downloadComponent(m_currentDownload->first)) {
         m_downloadTimer.start();
