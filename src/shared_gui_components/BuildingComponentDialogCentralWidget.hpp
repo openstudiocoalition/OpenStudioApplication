@@ -30,15 +30,18 @@
 #ifndef SHAREDGUICOMPONENTS_BUILDINGCOMPONENTDIALOGCENTRALWIDGET_HPP
 #define SHAREDGUICOMPONENTS_BUILDINGCOMPONENTDIALOGCENTRALWIDGET_HPP
 
+#include <QElapsedTimer>
 #include <QWidget>
 
-#include <set>
+#include <optional>
+#include <queue>
 #include <vector>
 
 #include <openstudio/nano/nano_signal_slot.hpp>  // Signal-Slot replacement
 #include <boost/optional.hpp>
 
 class QProgressBar;
+class QTimer;
 
 namespace openstudio {
 
@@ -47,6 +50,7 @@ class BCLMeasure;
 class Component;
 class ComponentList;
 class CollapsibleComponentList;
+class RemoteBCL;
 
 class BuildingComponentDialogCentralWidget : public QWidget, public Nano::Observer
 {
@@ -55,7 +59,7 @@ class BuildingComponentDialogCentralWidget : public QWidget, public Nano::Observ
  public:
   BuildingComponentDialogCentralWidget(QWidget* parent = nullptr);
   BuildingComponentDialogCentralWidget(int tid, QWidget* parent = nullptr);
-  virtual ~BuildingComponentDialogCentralWidget() {}
+  virtual ~BuildingComponentDialogCentralWidget();
   int tid();
   void setTid(const std::string& filterType, int tid, int pageIdx, const QString& title, const QString& searchString = "");
   Component* checkedComponent() const;
@@ -73,11 +77,16 @@ class BuildingComponentDialogCentralWidget : public QWidget, public Nano::Observ
   CollapsibleComponentList* m_collapsibleComponentList;
   ComponentList* m_componentList;  // TODO cruft to be removed
   QProgressBar* m_progressBar;
-  std::set<std::string> m_pendingDownloads;
+  std::queue<std::pair<std::string, std::string>> m_pendingDownloads;
   std::string m_filterType;
   int m_pageIdx;
   QString m_searchString;
   bool m_showNewComponents;
+  std::shared_ptr<RemoteBCL> m_remoteBCL;
+  QTimer* m_timer;
+  QElapsedTimer m_downloadTimer;
+  std::optional<std::pair<std::string, std::string>> m_currentDownload;
+  unsigned m_timeoutSeconds;
 
  signals:
   void headerClicked(bool checked);
@@ -98,6 +107,9 @@ class BuildingComponentDialogCentralWidget : public QWidget, public Nano::Observ
   void on_componentClicked(bool checked);
   void on_collapsibleComponentClicked(bool checked);
   void on_getComponentsByPage(int pageIdx);
+  void downloadNextComponent();
+  void clearPendingDownloads(bool failed); 
+  void downloadFailed(const std::string& uid);
 };
 
 }  // namespace openstudio

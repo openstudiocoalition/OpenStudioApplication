@@ -1351,8 +1351,8 @@ boost::optional<BCLMeasure> OSDocument::standardReportMeasure() {
     return result;
   }
 
-  RemoteBCL remoteBCL;
-  if (remoteBCL.isOnline()) {
+  if (RemoteBCL::isOnline()) {
+    RemoteBCL remoteBCL;
     result = remoteBCL.getMeasure(uid);
   }
 
@@ -1655,72 +1655,19 @@ void OSDocument::updateSubTabSelected(int id) {
   m_subTabIds.at(m_verticalId) = id;
 }
 
-bool prodAuthKeyUserPrompt(QWidget* parent) {
-  // make sure application is initialized
-  Application::instance().application(false);
-
-  QInputDialog inputDlg(parent);
-  inputDlg.setInputMode(QInputDialog::TextInput);
-  inputDlg.setLabelText("BCL Auth Key:                                            ");
-  inputDlg.setWindowFlags(Qt::Dialog | Qt::WindowCloseButtonHint);
-  inputDlg.setWindowTitle("Enter Your BCL Auth Key");
-  if (Application::instance().isDefaultInstance()) {
-    QIcon icon = QIcon(":/images/os_16.png");
-    icon.addPixmap(QPixmap(":/images/os_32.png"));
-    icon.addPixmap(QPixmap(":/images/os_48.png"));
-    icon.addPixmap(QPixmap(":/images/os_64.png"));
-    icon.addPixmap(QPixmap(":/images/os_128.png"));
-    icon.addPixmap(QPixmap(":/images/os_256.png"));
-    inputDlg.setWindowIcon(icon);
-  }
-  bool result = inputDlg.exec();
-  QString text = inputDlg.textValue();
-
-  if (result && !text.isEmpty()) {
-    std::string authKey = toString(text);
-    result = LocalBCL::instance().setProdAuthKey(authKey);
-  }
-
-  return result;
-}
-
 void OSDocument::openBclDlg() {
-  std::string authKey = LocalBCL::instance().prodAuthKey();
-  if (!LocalBCL::instance().setProdAuthKey(authKey)) {
-    prodAuthKeyUserPrompt(m_mainWindow);
-    authKey = LocalBCL::instance().prodAuthKey();
-
-    while (!LocalBCL::instance().setProdAuthKey(authKey)) {
-      QMessageBox dlg(m_mainWindow);
-      dlg.setWindowTitle(tr("Online BCL"));
-      dlg.setText("The BCL auth key is invalid, and Online BCL data will not be available.  To learn how to obtain a valid BCL auth key, click <a "
-                  "href='https://openstudiocoalition.org/getting_started/getting_started/'>here</a>.");
-      dlg.setTextFormat(Qt::RichText);
-      dlg.addButton(QMessageBox::Cancel);
-      dlg.addButton(QMessageBox::Retry);
-      dlg.setDefaultButton(QMessageBox::Retry);
-      dlg.setIcon(QMessageBox::Warning);
-      dlg.setWindowFlags(Qt::Dialog | Qt::WindowCloseButtonHint);
-
-      int ret = dlg.exec();
-
-      if (ret == QMessageBox::Cancel) {
-        return;
-      } else if (ret == QMessageBox::Retry) {
-        prodAuthKeyUserPrompt(m_mainWindow);
-        authKey = LocalBCL::instance().prodAuthKey();
-      } else {
-        // should never get here
-        OS_ASSERT(false);
-      }
-    }
-  }
-
   if (!m_onlineBclDialog) {
-    std::string filterType = "components";
-    m_onlineBclDialog = new BuildingComponentDialog(filterType, true, m_mainWindow);
+    if (RemoteBCL::isOnline()) {
+      std::string filterType = "components";
+      m_onlineBclDialog = new BuildingComponentDialog(filterType, true, m_mainWindow);
 
-    connect(m_onlineBclDialog, &BuildingComponentDialog::rejected, this, &OSDocument::on_closeBclDlg);
+      connect(m_onlineBclDialog, &BuildingComponentDialog::rejected, this, &OSDocument::on_closeBclDlg);
+    } else {
+      QMessageBox::information(
+        this->mainWindow(), "Offline",
+        "You currently appear to be offline, please connect to the internet to access the BCL.",
+        QMessageBox::Ok);
+    }
   }
   if (m_onlineBclDialog && !m_onlineBclDialog->isVisible()) {
     m_onlineBclDialog->setGeometry(m_mainWindow->geometry());
@@ -1751,42 +1698,16 @@ std::shared_ptr<MainRightColumnController> OSDocument::mainRightColumnController
 }
 
 void OSDocument::openMeasuresBclDlg() {
-  std::string authKey = LocalBCL::instance().prodAuthKey();
-  if (!LocalBCL::instance().setProdAuthKey(authKey)) {
-    prodAuthKeyUserPrompt(m_mainWindow);
-    authKey = LocalBCL::instance().prodAuthKey();
-
-    while (!LocalBCL::instance().setProdAuthKey(authKey)) {
-      QMessageBox dlg(m_mainWindow);
-      dlg.setWindowTitle(tr("Online BCL"));
-      dlg.setText("The BCL auth key is invalid, and Online BCL data will not be available.  To learn how to obtain a valid BCL auth key, click <a "
-                  "href='https://openstudiocoalition.org/getting_started/getting_started/'>here</a>.");
-      dlg.setTextFormat(Qt::RichText);
-      dlg.addButton(QMessageBox::Cancel);
-      dlg.addButton(QMessageBox::Retry);
-      dlg.setDefaultButton(QMessageBox::Retry);
-      dlg.setIcon(QMessageBox::Warning);
-      dlg.setWindowFlags(Qt::Dialog | Qt::WindowCloseButtonHint);
-
-      int ret = dlg.exec();
-
-      if (ret == QMessageBox::Cancel) {
-        return;
-      } else if (ret == QMessageBox::Retry) {
-        prodAuthKeyUserPrompt(m_mainWindow);
-        authKey = LocalBCL::instance().prodAuthKey();
-      } else {
-        // should never get here
-        OS_ASSERT(false);
-      }
-    }
-  }
-
   if (!m_onlineMeasuresBclDialog) {
-    std::string filterType = "measures";
-    m_onlineMeasuresBclDialog = new BuildingComponentDialog(filterType, true, m_mainWindow);
+    if (RemoteBCL::isOnline()) {
+      std::string filterType = "measures";
+      m_onlineMeasuresBclDialog = new BuildingComponentDialog(filterType, true, m_mainWindow);
 
-    connect(m_onlineMeasuresBclDialog, &BuildingComponentDialog::rejected, this, &OSDocument::on_closeMeasuresBclDlg);
+      connect(m_onlineMeasuresBclDialog, &BuildingComponentDialog::rejected, this, &OSDocument::on_closeMeasuresBclDlg);
+    } else {
+      QMessageBox::information(this->mainWindow(), "Offline", "You currently appear to be offline, please connect to the internet to access the BCL.",
+                               QMessageBox::Ok);
+    }
   }
   if (m_onlineMeasuresBclDialog && !m_onlineMeasuresBclDialog->isVisible()) {
     m_onlineMeasuresBclDialog->setGeometry(m_mainWindow->geometry());

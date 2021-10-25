@@ -50,11 +50,13 @@
 #include <QBoxLayout>
 #include <QCheckBox>
 #include <QComboBox>
+#include <QElapsedTimer>
 #include <QLabel>
 #include <QLineEdit>
 #include <QProgressBar>
 #include <QPushButton>
 #include <QSettings>
+#include <QTimer>
 
 namespace openstudio {
 
@@ -64,10 +66,12 @@ BuildingComponentDialogCentralWidget::BuildingComponentDialogCentralWidget(QWidg
     m_collapsibleComponentList(nullptr),
     m_componentList(nullptr),  // TODO cruft to be removed
     m_progressBar(nullptr),
-    m_pendingDownloads(std::set<std::string>()),
+    m_pendingDownloads(),
     m_pageIdx(0),
     m_searchString(QString()),
-    m_showNewComponents(false) {
+    m_showNewComponents(false),
+    m_remoteBCL(nullptr),
+    m_timeoutSeconds(120) {
   init();
 }
 
@@ -77,13 +81,28 @@ BuildingComponentDialogCentralWidget::BuildingComponentDialogCentralWidget(int t
     m_collapsibleComponentList(nullptr),
     m_componentList(nullptr),  // TODO cruft to be removed
     m_progressBar(nullptr),
-    m_pendingDownloads(std::set<std::string>()),
+    m_pendingDownloads(),
     m_pageIdx(0),
-    m_searchString(QString()) {
+    m_searchString(QString()),
+    m_showNewComponents(false),
+    m_remoteBCL(nullptr),
+    m_timeoutSeconds(120) {
   init();
 }
 
+BuildingComponentDialogCentralWidget::~BuildingComponentDialogCentralWidget() {
+  m_timer->stop();
+  clearPendingDownloads(false);
+  if (m_remoteBCL){
+    m_remoteBCL->waitForComponentDownload();
+  }
+}
+
 void BuildingComponentDialogCentralWidget::init() {
+  m_timer = new QTimer(this);
+  connect(m_timer, &QTimer::timeout, this, &BuildingComponentDialogCentralWidget::downloadNextComponent);
+  m_timer->start(500);
+
   createLayout();
 }
 
@@ -195,6 +214,7 @@ void BuildingComponentDialogCentralWidget::setTid(const std::string& filterType,
   }
 
   RemoteBCL remoteBCL;
+  remoteBCL.setTimeOutSeconds(m_timeoutSeconds);
   std::vector<BCLSearchResult> responses;
   if (filterType == "components") {
     responses = remoteBCL.searchComponentLibrary(searchString.toStdString(), tid, pageIdx);
@@ -239,68 +259,22 @@ void BuildingComponentDialogCentralWidget::setTid(const std::string& filterType,
 
 void BuildingComponentDialogCentralWidget::upperPushButtonClicked() {
   for (Component* component : m_collapsibleComponentList->components()) {
-    if (component->checkBox()->isEnabled()) {
-      component->checkBox()->setChecked(true);
+    if (component->checkBoxEnabled()) {
+      component->setCheckBoxChecked(true);
     }
   }
 }
 
 void BuildingComponentDialogCentralWidget::lowerPushButtonClicked() {
   for (Component* component : m_collapsibleComponentList->components()) {
-    if (component->checkBox()->isChecked() && component->checkBox()->isEnabled()) {
+    if (component->checkBoxChecked() && component->checkBoxEnabled()) {
 
-      auto remoteBCL = new RemoteBCL();
+      std::string uid = component->uid();
 
-      if (m_filterType == "components") {
-        // Connect to Nano Signal
-        remoteBCL->componentDownloaded
-          .connect<BuildingComponentDialogCentralWidget, &BuildingComponentDialogCentralWidget::componentDownloadComplete>(
-            const_cast<BuildingComponentDialogCentralWidget*>(this));
-
-        bool downloadStarted = remoteBCL->downloadComponent(component->uid());
-        if (downloadStarted) {
-
-          component->checkBox()->setEnabled(false);
-          component->msg()->setHidden(true);
-          m_pendingDownloads.insert(component->uid());
-
-          // show busy
-          m_progressBar->setValue(1);
-          m_progressBar->setMinimum(0);
-          m_progressBar->setMaximum(0);
-          m_progressBar->setVisible(true);
-
-        } else {
-
-          delete remoteBCL;
-
-          // todo: show error
-        }
-      } else if (m_filterType == "measures") {
-        // Connect to Nano Signal
-        remoteBCL->measureDownloaded.connect<BuildingComponentDialogCentralWidget, &BuildingComponentDialogCentralWidget::measureDownloadComplete>(
-          const_cast<BuildingComponentDialogCentralWidget*>(this));
-
-        bool downloadStarted = remoteBCL->downloadMeasure(component->uid());
-        if (downloadStarted) {
-
-          component->checkBox()->setEnabled(false);
-          component->msg()->setHidden(true);
-          m_pendingDownloads.insert(component->uid());
-
-          // show busy
-          m_progressBar->setValue(1);
-          m_progressBar->setMinimum(0);
-          m_progressBar->setMaximum(0);
-          m_progressBar->setVisible(true);
-
-        } else {
-
-          delete remoteBCL;
-
-          // todo: show error
-        }
-      }
+      component->setCheckBoxEnabled(false);
+      component->msg()->setHidden(true);
+          
+      m_pendingDownloads.push(std::make_pair(uid, m_filterType));
     }
   }
 }
@@ -308,11 +282,6 @@ void BuildingComponentDialogCentralWidget::lowerPushButtonClicked() {
 void BuildingComponentDialogCentralWidget::comboBoxIndexChanged(const QString& text) {}
 
 void BuildingComponentDialogCentralWidget::componentDownloadComplete(const std::string& uid, const boost::optional<BCLComponent>& component) {
-  QObject* sender = this->sender();
-  if (sender) {
-    sender->deleteLater();
-  }
-
   if (component) {
     // good
     // remove old component
@@ -322,32 +291,15 @@ void BuildingComponentDialogCentralWidget::componentDownloadComplete(const std::
     }
   } else {
     // error downloading component
-    // find component in list by uid and re-enable
-    for (Component* comp : m_collapsibleComponentList->components()) {
-      if (comp->uid() == uid) {
-        comp->checkBox()->setEnabled(true);
-        break;
-      }
-    }
+    downloadFailed(uid);
   }
 
-  m_pendingDownloads.erase(uid);
-  if (m_pendingDownloads.empty()) {
-    // show not busy
-    m_progressBar->setValue(0);
-    m_progressBar->setMinimum(0);
-    m_progressBar->setMaximum(0);
-    m_progressBar->setVisible(false);
-    m_showNewComponents = true;
-  }
+  m_remoteBCL.reset();
+  m_downloadTimer.invalidate();
+  m_currentDownload.reset();
 }
 
 void BuildingComponentDialogCentralWidget::measureDownloadComplete(const std::string& uid, const boost::optional<BCLMeasure>& measure) {
-  QObject* sender = this->sender();
-  if (sender) {
-    sender->deleteLater();
-  }
-
   if (measure) {
     // good
 
@@ -358,13 +310,7 @@ void BuildingComponentDialogCentralWidget::measureDownloadComplete(const std::st
     }
   } else {
     // error downloading measure
-    // find measure in list by uid and re-enable
-    for (Component* component : m_collapsibleComponentList->components()) {
-      if (component->uid() == uid) {
-        component->checkBox()->setEnabled(true);
-        break;
-      }
-    }
+    downloadFailed(uid);
   }
 
   BaseApp* app = dynamic_cast<BaseApp*>(Application::instance().application());
@@ -379,15 +325,9 @@ void BuildingComponentDialogCentralWidget::measureDownloadComplete(const std::st
     // app->measureManager().updateMeasuresLists();
   }
 
-  m_pendingDownloads.erase(uid);
-  if (m_pendingDownloads.empty()) {
-    // show not busy
-    m_progressBar->setValue(0);
-    m_progressBar->setMinimum(0);
-    m_progressBar->setMaximum(0);
-    m_progressBar->setVisible(false);
-    m_showNewComponents = true;
-  }
+  m_remoteBCL.reset();
+  m_downloadTimer.invalidate();
+  m_currentDownload.reset();
 }
 
 Component* BuildingComponentDialogCentralWidget::checkedComponent() const {
@@ -413,6 +353,107 @@ void BuildingComponentDialogCentralWidget::on_collapsibleComponentClicked(bool c
 void BuildingComponentDialogCentralWidget::on_getComponentsByPage(int pageIdx) {
   m_pageIdx = pageIdx;
   setTid();
+}
+
+void BuildingComponentDialogCentralWidget::downloadNextComponent() {
+
+  if (m_remoteBCL) {
+    // currently doing a download
+    if (m_downloadTimer.isValid()) {
+      // RemoteBCL does not always call the call back for us if we timeout
+      if (m_downloadTimer.elapsed() > 1000 * m_timeoutSeconds) {
+        m_timer->stop();
+
+        m_remoteBCL->waitForComponentDownload();
+        
+        if (m_remoteBCL) {
+          // if call back did not happen this was a failure
+          if (m_currentDownload) {
+            downloadFailed(m_currentDownload->first);
+          }
+          m_remoteBCL.reset();
+          m_downloadTimer.invalidate();
+          m_currentDownload.reset();
+
+          if (!RemoteBCL::isOnline()) {
+            // if we have gone offline cancel the remaining pending downloads
+            clearPendingDownloads(true);
+          }
+        }
+        
+        m_timer->start(500);
+      }
+    }
+    return;
+  }
+
+  if (m_pendingDownloads.empty()){
+    // show done progress
+    m_progressBar->setValue(0);
+    m_progressBar->setMinimum(0);
+    m_progressBar->setMaximum(0);
+    m_progressBar->setVisible(false);
+  }else{
+    // show busy progress
+    m_progressBar->setValue(1);
+    m_progressBar->setMinimum(0);
+    m_progressBar->setMaximum(0);
+    m_progressBar->setVisible(true);
+
+    m_currentDownload = m_pendingDownloads.front();
+    m_pendingDownloads.pop();
+    if (m_currentDownload->second == "components") {
+      m_remoteBCL = std::make_shared<RemoteBCL>();
+      m_remoteBCL->setTimeOutSeconds(m_timeoutSeconds);
+
+      // Connect to Nano Signal
+      m_remoteBCL->componentDownloaded.connect<BuildingComponentDialogCentralWidget, &BuildingComponentDialogCentralWidget::componentDownloadComplete>(
+        const_cast<BuildingComponentDialogCentralWidget*>(this));
+
+      bool downloadStarted = m_remoteBCL->downloadComponent(m_currentDownload->first);
+      if (!downloadStarted) {
+        m_remoteBCL.reset();
+        m_currentDownload.reset();
+      } else {
+        m_downloadTimer.start();
+      }
+    } else if (m_currentDownload->second == "measures") {
+      m_remoteBCL = std::make_shared<RemoteBCL>();
+      m_remoteBCL->setTimeOutSeconds(m_timeoutSeconds);
+
+      // Connect to Nano Signal
+      m_remoteBCL->measureDownloaded.connect<BuildingComponentDialogCentralWidget, &BuildingComponentDialogCentralWidget::measureDownloadComplete>(
+        const_cast<BuildingComponentDialogCentralWidget*>(this));
+
+      bool downloadStarted = m_remoteBCL->downloadMeasure(m_currentDownload->first);
+      if (!downloadStarted) {
+        m_remoteBCL.reset();
+        m_currentDownload.reset();
+      } else {
+        m_downloadTimer.start();
+      }
+    }
+  }
+}
+
+void BuildingComponentDialogCentralWidget::clearPendingDownloads(bool failed) {
+  while (m_pendingDownloads.size() > 0) {
+    if (failed) {
+      const auto& uidType = m_pendingDownloads.front();
+      downloadFailed(uidType.first);
+    }
+    m_pendingDownloads.pop();
+  }
+}
+
+void BuildingComponentDialogCentralWidget::downloadFailed(const std::string& uid) {
+  // find measure in list by uid and re-enable
+  for (Component* component : m_collapsibleComponentList->components()) {
+    if (component->uid() == uid) {
+      component->setCheckBoxEnabled(true);
+      break;
+    }
+  }
 }
 
 }  // namespace openstudio

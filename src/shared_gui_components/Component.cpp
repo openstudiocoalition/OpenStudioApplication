@@ -82,7 +82,7 @@ Component::Component(const BCLMeasure& bclMeasure, bool showAbridgedView, bool s
   if (!m_available) {
     if (m_checkBox) {
       m_checkBox->setChecked(false);
-      m_checkBox->setEnabled(false);
+      setCheckBoxEnabled(false);
       m_updateAvailable = false;
       if (m_msg) {
         m_msg->setText("This measure requires a newer version of OpenStudio");
@@ -92,7 +92,8 @@ Component::Component(const BCLMeasure& bclMeasure, bool showAbridgedView, bool s
   } else if (m_error) {
     // This measures has been pre-filtered and is known to require an update but has an error
     m_checkBox->setChecked(false);
-    m_checkBox->setEnabled(false);
+    setCheckBoxEnabled(false);
+    m_checkBox->setObjectName("Disabled");
     m_updateAvailable = false;
     if (m_msg) {
       m_msg->setText("This measure cannot be updated because it has an error");
@@ -101,7 +102,8 @@ Component::Component(const BCLMeasure& bclMeasure, bool showAbridgedView, bool s
   } else {
     // This measures has been pre-filtered and is known to require an update
     m_checkBox->setChecked(false);
-    m_checkBox->setEnabled(true);
+    setCheckBoxEnabled(true);
+    m_checkBox->setObjectName("UpdateAvailable");
     m_updateAvailable = true;
     if (m_msg) {
       m_msg->setText("An update is available for this measure");
@@ -140,14 +142,14 @@ Component::Component(const BCLSearchResult& bclSearchResult, bool showAbridgedVi
     if (LocalBCL::instance().getComponent(this->uid(), this->versionId())) {
       if (m_checkBox) {
         m_checkBox->setChecked(true);
-        m_checkBox->setEnabled(false);
+        setCheckBoxEnabled(false);
         m_updateAvailable = false;
       }
       // This component has an update
     } else if (LocalBCL::instance().getComponent(this->uid())) {
       if (m_checkBox) {
         m_checkBox->setChecked(false);
-        m_checkBox->setEnabled(true);
+        setCheckBoxUpdateAvailable(true);
         m_updateAvailable = true;
         if (m_msg) {
           m_msg->setText("An update is available for this component");
@@ -158,7 +160,7 @@ Component::Component(const BCLSearchResult& bclSearchResult, bool showAbridgedVi
     } else {
       if (m_checkBox) {
         m_checkBox->setChecked(false);
-        m_checkBox->setEnabled(true);
+        setCheckBoxEnabled(true);
         m_updateAvailable = false;
       }
     }
@@ -167,7 +169,7 @@ Component::Component(const BCLSearchResult& bclSearchResult, bool showAbridgedVi
     if (!m_available) {
       if (m_checkBox) {
         m_checkBox->setChecked(false);
-        m_checkBox->setEnabled(false);
+        setCheckBoxEnabled(false);
         m_updateAvailable = false;
         if (m_msg) {
           m_msg->setText("This measure requires a newer version of OpenStudio");
@@ -179,14 +181,14 @@ Component::Component(const BCLSearchResult& bclSearchResult, bool showAbridgedVi
       if (LocalBCL::instance().getMeasure(this->uid(), this->versionId())) {
         if (m_checkBox) {
           m_checkBox->setChecked(true);
-          m_checkBox->setEnabled(false);
+          setCheckBoxEnabled(false);
           m_updateAvailable = false;
         }
         // This measure has an update
       } else if (LocalBCL::instance().getMeasure(this->uid())) {
         if (m_checkBox) {
           m_checkBox->setChecked(false);
-          m_checkBox->setEnabled(true);
+          setCheckBoxUpdateAvailable(true);
           m_updateAvailable = true;
           if (m_msg) {
             m_msg->setText("An update is available for this measure");
@@ -197,7 +199,7 @@ Component::Component(const BCLSearchResult& bclSearchResult, bool showAbridgedVi
       } else {
         if (m_checkBox) {
           m_checkBox->setChecked(false);
-          m_checkBox->setEnabled(true);
+          setCheckBoxEnabled(true);
           m_updateAvailable = false;
         }
       }
@@ -308,10 +310,6 @@ std::string Component::versionId() const {
   return toString(m_versionId);
 }
 
-QCheckBox* Component::checkBox() {
-  return m_checkBox;
-}
-
 QLabel* Component::msg() {
   return m_msg;
 }
@@ -319,6 +317,39 @@ QLabel* Component::msg() {
 void Component::setChecked(bool checked) {
   QAbstractButton::setChecked(checked);
   emit clicked(checked);
+}
+
+bool Component::checkBoxChecked() const {
+  return m_checkBox->isChecked();
+}
+
+void Component::setCheckBoxChecked(bool checked) {
+  m_checkBox->setChecked(checked);
+}
+
+bool Component::checkBoxEnabled() const {
+  return m_checkBox->isEnabled();
+}
+
+void Component::setCheckBoxEnabled(bool enabled) 
+{
+  if (enabled){
+    m_checkBox->setEnabled(true);
+    m_checkBox->setObjectName("Enabled");
+  }else{
+    m_checkBox->setEnabled(false);
+    m_checkBox->setObjectName("Disabled");
+  }
+  m_checkBox->style()->unpolish(m_checkBox);
+  m_checkBox->style()->polish(m_checkBox);
+}
+
+void Component::setCheckBoxUpdateAvailable(bool enabled)
+{
+  m_checkBox->setEnabled(enabled);
+  m_checkBox->setObjectName("UpdateAvailable");
+  m_checkBox->style()->unpolish(m_checkBox);
+  m_checkBox->style()->polish(m_checkBox);
 }
 
 void Component::parseBCLMeasure(const BCLMeasure& bclMeasure) {

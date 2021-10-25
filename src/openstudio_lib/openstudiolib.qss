@@ -646,6 +646,30 @@ QCheckBox::indicator:unchecked {
   image: url(:/shared_gui_components/images/unchecked_checkbox.png);
 }
 
+QCheckBox#Disabled::indicator:checked {
+  image: url(:/shared_gui_components/images/checked_checkbox_locked.png);
+}
+
+QCheckBox#Disabled::indicator:indeterminate {
+  image: url(:/shared_gui_components/images/partially_checked_checkbox_locked.png);
+}
+
+QCheckBox#Disabled::indicator:unchecked {
+  image: url(:/shared_gui_components/images/unchecked_checkbox_locked.png);
+}
+
+QCheckBox#UpdateAvailable::indicator:checked {
+  image: url(:/shared_gui_components/images/checked_checkbox_update_available.png);
+}
+
+QCheckBox#UpdateAvailable::indicator:indeterminate {
+  image: url(:/shared_gui_components/images/partially_checked_checkbox_update_available.png);
+}
+
+QCheckBox#UpdateAvailable::indicator:unchecked {
+  image: url(:/shared_gui_components/images/unchecked_checkbox_update_available.png);
+}
+
 QLabel#H1 {
   font-size: 14px;
   font: bold;
