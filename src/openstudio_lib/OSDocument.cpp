@@ -744,7 +744,7 @@ void OSDocument::createTab(int verticalId) {
       connect(this, &OSDocument::toggleUnitsClicked, qobject_cast<ResultsTabController*>(m_mainTabController.get()),
               &ResultsTabController::onUnitSystemChange);
 
-      connect(this, &OSDocument::treeChanged, dynamic_cast<ResultsTabView*>(m_mainTabController->mainContentWidget()), &ResultsTabView::treeChanged);
+      connect(this, &OSDocument::treeChanged, static_cast<ResultsTabView*>(m_mainTabController->mainContentWidget()), &ResultsTabView::treeChanged);
 
       connect(m_mainTabController->mainContentWidget(), &MainTabView::tabSelected, m_mainRightColumnController.get(),
               &MainRightColumnController::configureForResultsSummarySubTab);

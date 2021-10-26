@@ -263,7 +263,7 @@ int BuildingComponentDialog::rootTID() {
 }
 
 void BuildingComponentDialog::setRootTID(int tid) {
-  QModelIndex index = dynamic_cast<TIDItemModel*>(m_tidTreeView->model())->indexForTID(tid);
+  QModelIndex index = static_cast<TIDItemModel*>(m_tidTreeView->model())->indexForTID(tid);
 
   m_tidTreeView->setRootIndex(index);
 }

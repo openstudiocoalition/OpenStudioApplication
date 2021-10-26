@@ -317,7 +317,7 @@ void BuildingComponentDialogCentralWidget::measureDownloadComplete(const std::st
     downloadFailed(uid);
   }
 
-  auto* app = dynamic_cast<BaseApp*>(Application::instance().application());
+  auto* app = static_cast<BaseApp*>(Application::instance().application());
   if (app) {
     if (measure) {
       try {
