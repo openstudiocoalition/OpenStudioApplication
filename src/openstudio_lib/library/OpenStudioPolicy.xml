@@ -226,6 +226,20 @@
     <rule IddField="Part Load Fraction Correlation Curve" Access="LOCKED"/>
     <rule IddField="Waste Heat Function of Temperature Curve" Access="LOCKED"/>
   </POLICY>
+  <POLICY IddObjectType="OS_Coil_Heating_DX_MultiSpeed">
+    <rule IddField="Air Inlet Node" Access="HIDDEN"/>
+    <rule IddField="Air Outlet Node" Access="HIDDEN"/>
+    <rule IddField="Defrost Energy Input Ratio Function of Temperature Curve Name" Access="LOCKED"/>
+    <rule IddField="Stage Data List" Access="LOCKED"/>
+  </POLICY>
+  <POLICY IddObjectType="OS_Coil_Heating_DX_MultiSpeed_StageData">
+    <rule IddField="Total Heating Capacity Function of Temperature Curve" Access="LOCKED"/>
+    <rule IddField="Total Heating Capacity Function of Flow Fraction Curve" Access="LOCKED"/>
+    <rule IddField="Energy Input Ratio Function of Temperature Curve" Access="LOCKED"/>
+    <rule IddField="Energy Input Ratio Function of Flow Fraction Curve" Access="LOCKED"/>
+    <rule IddField="Part Load Fraction Correlation Curve" Access="LOCKED"/>
+    <rule IddField="Waste Heat Function of Temperature Curve" Access="LOCKED"/>
+  </POLICY>
   <POLICY IddObjectType="OS_Coil_Heating_Gas_MultiStage">
     <rule IddField="Air Inlet Node" Access="HIDDEN"/>
     <rule IddField="Air Outlet Node" Access="HIDDEN"/>
