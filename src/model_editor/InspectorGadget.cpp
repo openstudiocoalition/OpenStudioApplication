@@ -266,84 +266,81 @@ void InspectorGadget::clear(bool recursive) {
 
 void InspectorGadget::layoutItems(QVBoxLayout* masterLayout, QWidget* parent, bool hideChildren) {
   IddObject iddObj = m_workspaceObj->iddObject();
-  std::string comment = m_workspaceObj->comment();
 
-  if (comment.size() >= 1) {
-    string::size_type i = comment.find('!');
-    if (i != string::npos) {
-      comment.erase(0, i + 1);
+  // Strip off prefix of `! `
+  auto cleanUpComment = [](std::string comment) -> std::string {
+    if (!comment.empty()) {
+      if (auto i = comment.find('!'); i != std::string::npos) {
+        comment.erase(0, i + 1);
+      }
     }
-  }
+    return comment;
+  };
 
-  auto layout = new QVBoxLayout();
+  std::string comment = cleanUpComment(m_workspaceObj->comment());
+
+  auto* layout = new QVBoxLayout();
   layout->setSpacing(0);
   layout->setMargin(0);
-  auto hlayout = new QHBoxLayout();
+  auto* hlayout = new QHBoxLayout();
   hlayout->setSpacing(0);
   hlayout->setMargin(0);
   masterLayout->addLayout(hlayout);
   hlayout->addLayout(layout);
-  layoutText(layout, parent, AccessPolicy::LOCKED, iddObj.type().valueDescription().c_str(), -1, comment);
+  layoutText(layout, parent, AccessPolicy::LOCKED, iddObj.type().valueDescription(), -1, comment);
 
-  AccessPolicy::ACCESS_LEVEL level;
   const AccessPolicy* pAccessPolicy = AccessPolicyStore::Instance().getPolicy(iddObj.type());
-  for (unsigned int i = 0, iend = m_workspaceObj->numFields(); i < iend; ++i) {
-    openstudio::IddField field(*(iddObj.getField(i)));
+
+  auto getLevelForField = [this, pAccessPolicy](unsigned int fieldIndex) {
+    AccessPolicy::ACCESS_LEVEL level = AccessPolicy::FREE;
     if (pAccessPolicy) {
-      level = pAccessPolicy->getAccess(i);
-    } else {
-      level = AccessPolicy::FREE;
+      level = pAccessPolicy->getAccess(fieldIndex);
     }
 
     if (m_locked && (level == AccessPolicy::FREE)) {
       level = AccessPolicy::LOCKED;
     }
+    return level;
+  };
 
-    comment = *(m_workspaceObj->fieldComment(i, true));
-    // starting at 1 because the "base" obj is at 0
-    //for(unsigned it=1; i<m_workspaceObjs.size(); i++)
-    //{
-    //  if(comment == m_workspaceObjs[it]->fieldComment(i,true)){
-    //    // keep track of a field set to the value FIELDS_MATCH,
-    //    // if it changed, change the respective elements in any
-    //    // other
-    //    comment == FIELDS_MATCH;
-    //    break;
-    //  }
-    //}
+  // Regular fields
+  for (unsigned int i = 0, iend = m_workspaceObj->numFields(); i < iend; ++i) {
+    openstudio::IddField field(*(iddObj.getField(i)));
+    auto level = getLevelForField(i);
 
-    //Strip off prefix of "!"
-    if (comment.size() >= 1) {
-      string::size_type j = comment.find('!');
-      if (j != string::npos) {
-        comment.erase(0, j + 1);
-      }
-    }
+    comment = cleanUpComment(*(m_workspaceObj->fieldComment(i, true)));
+
     parseItem(layout, parent, field, field.name(), *(m_workspaceObj->getString(i, true)), level, i, comment, true);
   }
 
+  // Extensible fields
   const IddObjectProperties& props = m_workspaceObj->iddObject().properties();
   if (pAccessPolicy) {
+    // Make a vector of the field indices for the extensible group
     unsigned numFields = iddObj.numFields();
     unsigned extensibleGroupSize = iddObj.extensibleGroup().size();
-    for (unsigned i = numFields; i < numFields + extensibleGroupSize; ++i) {
-      level = pAccessPolicy->getAccess(i);
-      if (level != AccessPolicy::HIDDEN) {
-        // only call if any extensible fields are visible
-        createExtensibleToolBar(layout, parent, props);
-        break;
-      }
+    std::vector<unsigned> fieldIndices(extensibleGroupSize);
+    std::iota(fieldIndices.begin(), fieldIndices.end(), numFields);
+
+    bool hasAtLeastOneExtensibleFieldVisible = std::any_of(fieldIndices.cbegin(), fieldIndices.cend(), [pAccessPolicy](unsigned fieldIndex) {
+      return pAccessPolicy->getAccess(fieldIndex) != AccessPolicy::HIDDEN;
+    });
+    if (hasAtLeastOneExtensibleFieldVisible) {
+      createExtensibleToolBar(layout, parent, props);
     }
   } else {
     createExtensibleToolBar(layout, parent, props);
   }
 
+  // Un-initialized fields
   if (m_showAllFields) {
-    string empty;
+    std::string empty;
     for (unsigned int existCount = m_workspaceObj->numNonextensibleFields(), possibleCount = iddObj.numFields(); existCount != possibleCount;
          ++existCount) {
+      // Get the access Level, call parseItem as usual, but we pass `exists=false` so it's displayed differently
       openstudio::IddField field(*(iddObj.getField(existCount)));
-      parseItem(layout, parent, field, field.name(), empty, AccessPolicy::LOCKED, existCount, empty, false);
+      auto level = getLevelForField(existCount);
+      parseItem(layout, parent, field, field.name(), empty, level, existCount, empty, false);
     }
   }
   // model only follows...
@@ -723,7 +720,9 @@ void InspectorGadget::layoutText(QVBoxLayout* layout, QWidget* parent, openstudi
   if (exists) {
     frame->setObjectName("IGRow");
   } else {
-    frame->setEnabled(false);
+    // For Non initialized fields, we still set it to be Enabled, but color in purple/blue to make it clear
+    // Except if it's meant to be locked, it's clearer to make it disabled
+    frame->setEnabled(level != AccessPolicy::LOCKED);
     frame->setObjectName("IGRowDisabled");
   }
   layout->addWidget(frame);
@@ -805,8 +804,10 @@ void InspectorGadget::layoutComboBox(QVBoxLayout* layout, QWidget* parent, opens
   if (exists) {
     frame->setObjectName("IGRow");
   } else {
+    // For Non initialized fields, we still set it to be Enabled, but color in purple/blue to make it clear
+    // Except if it's meant to be locked, it's clearer to make it disabled
+    frame->setEnabled(true);
     frame->setObjectName("IGRowDisabled");
-    frame->setEnabled(false);
   }
   layout->addWidget(frame);
 }
