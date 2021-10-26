@@ -71,6 +71,7 @@
 #include <QTextEdit>
 #include <QTimer>
 #include <QStandardPaths>
+#include <QDialog>
 
 #include <fstream>
 
@@ -153,9 +154,7 @@ ApplyMeasureNowDialog::~ApplyMeasureNowDialog() {
     app->currentModel()->setWorkflowJSON(m_modelWorkflowJSON);
   }
 
-  if (m_advancedOutputDialog) {
-    delete m_advancedOutputDialog;
-  }
+  delete m_advancedOutputDialog;
 }
 
 QSize ApplyMeasureNowDialog::sizeHint() const {
@@ -194,7 +193,7 @@ void ApplyMeasureNowDialog::createWidgets() {
   m_rightPaneStackedWidget = new QStackedWidget();
   m_argumentsFailedPageIdx = m_rightPaneStackedWidget->addWidget(m_argumentsFailedTextEdit);
 
-  auto viewSwitcher = new OSViewSwitcher();
+  auto* viewSwitcher = new OSViewSwitcher();
   viewSwitcher->setView(m_editController->editView);
   m_argumentsOkPageIdx = m_rightPaneStackedWidget->addWidget(viewSwitcher);
 
@@ -211,7 +210,7 @@ void ApplyMeasureNowDialog::createWidgets() {
   label = new QLabel("Running Measure");
   label->setObjectName("H2");
 
-  auto busyWidget = new BusyWidget();
+  auto* busyWidget = new BusyWidget();
 
   m_timer = new QTimer(this);
   connect(m_timer, &QTimer::timeout, busyWidget, &BusyWidget::rotate);
@@ -251,7 +250,7 @@ void ApplyMeasureNowDialog::createWidgets() {
 
   //layout->addStretch();
 
-  auto hLayout = new QHBoxLayout();
+  auto* hLayout = new QHBoxLayout();
   hLayout->addWidget(m_showAdvancedOutput);
   hLayout->addStretch();
   layout->addLayout(hLayout);
@@ -259,7 +258,7 @@ void ApplyMeasureNowDialog::createWidgets() {
   widget = new QWidget();
   widget->setLayout(layout);
 
-  auto scrollArea = new QScrollArea();
+  auto* scrollArea = new QScrollArea();
   scrollArea->setWidgetResizable(true);
   scrollArea->setWidget(widget);
 
@@ -487,7 +486,7 @@ DataPointJobHeaderView::DataPointJobHeaderView()
     m_na(nullptr),
     m_warnings(nullptr),
     m_errors(nullptr) {
-  auto mainHLayout = new QHBoxLayout();
+  auto* mainHLayout = new QHBoxLayout();
   mainHLayout->setContentsMargins(15, 5, 5, 5);
   mainHLayout->setSpacing(5);
   mainHLayout->setAlignment(Qt::AlignLeft);
@@ -572,7 +571,7 @@ void DataPointJobHeaderView::setNumErrors(unsigned numErrors) {
 }
 
 DataPointJobContentView::DataPointJobContentView() : QWidget(), m_textEdit(nullptr) {
-  auto mainHLayout = new QHBoxLayout();
+  auto* mainHLayout = new QHBoxLayout();
   mainHLayout->setContentsMargins(15, 5, 5, 5);
   mainHLayout->setSpacing(0);
   mainHLayout->setAlignment(Qt::AlignLeft);
