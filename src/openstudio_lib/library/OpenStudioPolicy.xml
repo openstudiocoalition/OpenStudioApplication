@@ -544,11 +544,7 @@
     <rule IddField="Energy Input Ratio Function of Temperature Curve Name" Access="LOCKED"/>
     <rule IddField="Energy Input Ratio Function of Flow Fraction Curve Name" Access="LOCKED"/>
     <rule IddField="Part Load Fraction Correlation Curve Name" Access="LOCKED"/>
-    <rule IddField="Defrost Energy Input Ratio Function of Temperature Curve Name" Access="HIDDEN"/>
-    <rule IddField="Crankcase Heater Capacity" Access="HIDDEN"/>
-    <rule IddField="Maximum Outdoor Dry-Bulb Temperature for Crankcase Heater Operation" Access="HIDDEN"/>
-    <rule IddField="Region number for calculating HSPF" Access="HIDDEN"/>
-    <rule IddField="Evaporator Air Inlet Node Name" Access="HIDDEN"/>
+    <rule IddField="Defrost Energy Input Ratio Function of Temperature Curve Name" Access="LOCKED"/>
   </POLICY>
   <POLICY IddObjectType="OS_Coil_Heating_DX_VariableSpeed">
     <rule IddField="Indoor Air Inlet Node Name" Access="HIDDEN"/>
