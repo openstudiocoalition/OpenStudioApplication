@@ -1697,7 +1697,7 @@ std::shared_ptr<MainRightColumnController> OSDocument::mainRightColumnController
 }
 
 void OSDocument::openMeasuresBclDlg() {
-  if (RemoteBCL::isOnline()) {
+  if (!RemoteBCL::isOnline()) {
     QMessageBox::information(this->mainWindow(), "Offline", "You appear to be offline, please connect to the internet to access the BCL.",
                              QMessageBox::Ok);
     return;
