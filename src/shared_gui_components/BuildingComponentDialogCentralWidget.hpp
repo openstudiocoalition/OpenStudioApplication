@@ -88,6 +88,7 @@ class BuildingComponentDialogCentralWidget
   QTimer* m_timer;
   QElapsedTimer m_downloadTimer;
   std::optional<std::pair<std::string, std::string>> m_currentDownload;
+  unsigned m_totalPendingDownloads = 0;
   unsigned m_timeoutSeconds;
 
  signals:

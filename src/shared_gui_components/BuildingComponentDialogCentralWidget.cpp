@@ -279,6 +279,8 @@ void BuildingComponentDialogCentralWidget::lowerPushButtonClicked() {
       m_pendingDownloads.emplace(uid, m_filterType);
     }
   }
+
+  m_totalPendingDownloads = m_pendingDownloads.size();
 }
 
 void BuildingComponentDialogCentralWidget::comboBoxIndexChanged(const QString& text) {}
@@ -396,14 +398,15 @@ void BuildingComponentDialogCentralWidget::downloadNextComponent() {
     m_progressBar->setMaximum(0);
     m_progressBar->setVisible(false);
   } else {
-    // show busy progress
-    m_progressBar->setValue(1);
-    m_progressBar->setMinimum(0);
-    m_progressBar->setMaximum(0);
-    m_progressBar->setVisible(true);
-
     m_currentDownload = m_pendingDownloads.front();
     m_pendingDownloads.pop();
+
+    // show busy progress: we add 1 to both Value and Maximum to immediately indicate to the user that we started doing *something*
+    m_progressBar->setValue(m_totalPendingDownloads - m_pendingDownloads.size());
+    m_progressBar->setMinimum(0);
+    m_progressBar->setMaximum(m_totalPendingDownloads + 1);
+    m_progressBar->setVisible(true);
+
     if (m_currentDownload->second == "components") {
       m_remoteBCL = std::make_shared<RemoteBCL>();
       m_remoteBCL->setTimeOutSeconds(m_timeoutSeconds);
