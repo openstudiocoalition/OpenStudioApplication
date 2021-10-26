@@ -798,7 +798,8 @@ void InspectorGadget::layoutComboBox(QVBoxLayout* layout, QWidget* parent, opens
     frame->setObjectName("IGRow");
   } else {
     // For Non initialized fields, we still set it to be Enabled, but color in purple/blue to make it clear
-    // Except if it's meant to be locked, it's clearer to make it disabled
+    // Note that this layoutComboBox is only called with policy != AccessPolicy::LOCKED, otherwise the layoutText is called instead for
+    // ChoiceType/ObjectList fields too
     frame->setEnabled(true);
     frame->setObjectName("IGRowDisabled");
   }
