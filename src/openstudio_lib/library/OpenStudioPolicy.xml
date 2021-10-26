@@ -193,7 +193,6 @@
     <rule IddField="Heating Coil" Access="LOCKED"/>
     <rule IddField="Cooling Coil" Access="LOCKED"/>
     <rule IddField="Supplemental Heating Coil" Access="LOCKED"/>
-    <rule IddField="Controlling Zone or Thermostat Location" Access="HIDDEN"/>
   </POLICY>
   <POLICY IddObjectType="OS_Coil_Cooling_DX_MultiSpeed">
     <rule IddField="Air Inlet Node" Access="HIDDEN"/>
