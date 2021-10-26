@@ -52,7 +52,7 @@ class Component : public QAbstractButton
   Component(const BCLSearchResult& bclSearchResult, bool showAbridgedView = true, bool showCheckBox = true, QWidget* parent = nullptr);
   Component(bool showAbridgedView = false, bool showCheckBox = false, QWidget* parent = nullptr);
   Component(const Component& other);
-  virtual ~Component();
+  virtual ~Component() = default;
   Component& operator=(const Component& other);
   QLabel* msg();
   std::string uid() const;

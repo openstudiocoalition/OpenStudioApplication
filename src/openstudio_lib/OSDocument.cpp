@@ -127,6 +127,8 @@
 #include <QInputDialog>
 #include <QSettings>
 
+#include <memory>
+
 #if (defined(_WIN32) || defined(_WIN64))
 #  include <windows.h>
 #endif
@@ -141,7 +143,7 @@ OSDocument::OSDocument(const openstudio::model::Model& library, const openstudio
     m_onlineMeasuresBclDialog(nullptr),
     m_onlineBclDialog(nullptr),
     m_localLibraryDialog(nullptr),
-    m_savePath(filePath),
+    m_savePath(std::move(filePath)),
     m_isPlugin(isPlugin) {
 
   QFile data(":openstudiolib.qss");
@@ -266,7 +268,7 @@ void OSDocument::showStartTabAndStartSubTab() {
   m_mainWindow->show();
 }
 
-int OSDocument::subTabIndex() {
+int OSDocument::subTabIndex() const {
   return m_subTabId;
 }
 
@@ -301,7 +303,7 @@ model::Model OSDocument::model() {
   return m_model;
 }
 
-void OSDocument::setModel(const model::Model& model, bool modified, bool saveCurrentTabs) {
+void OSDocument::setModel(const model::Model& model, bool modified, bool /*saveCurrentTabs*/) {
   bool wasVisible = m_mainWindow->isVisible();
   m_mainWindow->setVisible(false);
   openstudio::OSAppBase* app = OSAppBase::instance();
@@ -324,19 +326,17 @@ void OSDocument::setModel(const model::Model& model, bool modified, bool saveCur
     QTimer::singleShot(0, this, &OSDocument::weatherFileReset);
   }
 
-  m_model.getImpl<model::detail::Model_Impl>().get()->addWorkspaceObjectPtr.connect<OSAppBase, &OSAppBase::addWorkspaceObjectPtr>(
+  m_model.getImpl<model::detail::Model_Impl>()->addWorkspaceObjectPtr.connect<OSAppBase, &OSAppBase::addWorkspaceObjectPtr>(OSAppBase::instance());
+  m_model.getImpl<model::detail::Model_Impl>()->removeWorkspaceObjectPtr.connect<OSAppBase, &OSAppBase::removeWorkspaceObjectPtr>(
     OSAppBase::instance());
-  m_model.getImpl<model::detail::Model_Impl>().get()->removeWorkspaceObjectPtr.connect<OSAppBase, &OSAppBase::removeWorkspaceObjectPtr>(
-    OSAppBase::instance());
-  m_model.getImpl<model::detail::Model_Impl>().get()->addWorkspaceObject.connect<OSAppBase, &OSAppBase::addWorkspaceObject>(OSAppBase::instance());
-  m_model.getImpl<model::detail::Model_Impl>().get()->removeWorkspaceObject.connect<OSAppBase, &OSAppBase::removeWorkspaceObject>(
-    OSAppBase::instance());
-  m_model.getImpl<model::detail::Model_Impl>().get()->onChange.connect<OSDocument, &OSDocument::markAsModified>(this);
-  m_model.workflowJSON().getImpl<detail::WorkflowJSON_Impl>().get()->onChange.connect<OSDocument, &OSDocument::markAsModified>(this);
+  m_model.getImpl<model::detail::Model_Impl>()->addWorkspaceObject.connect<OSAppBase, &OSAppBase::addWorkspaceObject>(OSAppBase::instance());
+  m_model.getImpl<model::detail::Model_Impl>()->removeWorkspaceObject.connect<OSAppBase, &OSAppBase::removeWorkspaceObject>(OSAppBase::instance());
+  m_model.getImpl<model::detail::Model_Impl>()->onChange.connect<OSDocument, &OSDocument::markAsModified>(this);
+  m_model.workflowJSON().getImpl<detail::WorkflowJSON_Impl>()->onChange.connect<OSDocument, &OSDocument::markAsModified>(this);
 
   // Main Right Column
 
-  m_mainRightColumnController = std::shared_ptr<MainRightColumnController>(new MainRightColumnController(m_model, m_resourcesPath));
+  m_mainRightColumnController = std::make_shared<MainRightColumnController>(m_model, m_resourcesPath);
   connect(this, &OSDocument::toggleUnitsClicked, m_mainRightColumnController.get(), &MainRightColumnController::toggleUnitsClicked);
 
   m_mainWindow->setMainRightColumnView(m_mainRightColumnController->mainRightColumnView());
@@ -744,7 +744,7 @@ void OSDocument::createTab(int verticalId) {
       connect(this, &OSDocument::toggleUnitsClicked, qobject_cast<ResultsTabController*>(m_mainTabController.get()),
               &ResultsTabController::onUnitSystemChange);
 
-      connect(this, &OSDocument::treeChanged, static_cast<ResultsTabView*>(m_mainTabController->mainContentWidget()), &ResultsTabView::treeChanged);
+      connect(this, &OSDocument::treeChanged, dynamic_cast<ResultsTabView*>(m_mainTabController->mainContentWidget()), &ResultsTabView::treeChanged);
 
       connect(m_mainTabController->mainContentWidget(), &MainTabView::tabSelected, m_mainRightColumnController.get(),
               &MainRightColumnController::configureForResultsSummarySubTab);
@@ -1233,8 +1233,6 @@ void OSDocument::exportSDD() {
 
 void OSDocument::exportFile(fileType type) {
 
-  std::vector<LogMessage> translatorErrors, translatorWarnings;
-
   QString text("Export ");
   if (type == SDD) {
     text.append("SDD");
@@ -1253,6 +1251,9 @@ void OSDocument::exportFile(fileType type) {
     model::Model m = this->model();
     openstudio::path outDir = toPath(fileName);
 
+    std::vector<LogMessage> translatorErrors;
+    std::vector<LogMessage> translatorWarnings;
+
     if (type == SDD) {
       sdd::ForwardTranslator trans;
       trans.modelToSDD(m, outDir);
@@ -1267,18 +1268,18 @@ void OSDocument::exportFile(fileType type) {
 
     bool errorsOrWarnings = false;
     QString log;
-    for (std::vector<LogMessage>::iterator it = translatorErrors.begin(); it < translatorErrors.end(); ++it) {
+    for (const LogMessage& logMessage : translatorErrors) {
       errorsOrWarnings = true;
 
-      log.append(QString::fromStdString(it->logMessage()));
+      log.append(QString::fromStdString(logMessage.logMessage()));
       log.append("\n");
       log.append("\n");
     }
 
-    for (std::vector<LogMessage>::iterator it = translatorWarnings.begin(); it < translatorWarnings.end(); ++it) {
+    for (const LogMessage& logMessage : translatorWarnings) {
       errorsOrWarnings = true;
 
-      log.append(QString::fromStdString(it->logMessage()));
+      log.append(QString::fromStdString(logMessage.logMessage()));
       log.append("\n");
       log.append("\n");
     }
@@ -1531,7 +1532,7 @@ boost::optional<model::Component> OSDocument::getComponent(const OSItemId& itemI
 
       std::vector<std::string> oscFiles = component->files("osc");
 
-      if (oscFiles.size() == 1u) {
+      if (oscFiles.size() == 1U) {
 
         openstudio::path oscPath = toPath(oscFiles[0]);
 
@@ -1564,7 +1565,7 @@ void OSDocument::openMeasuresDlg() {
   // save model if dirty
   if (this->modified()) {
 
-    auto messageBox = new QMessageBox(this->mainWindow());
+    auto* messageBox = new QMessageBox(this->mainWindow());
     messageBox->setText("You must save your model before applying a measure.");
     messageBox->setInformativeText("Do you want to save your model now?");
     messageBox->setStandardButtons(QMessageBox::Save | QMessageBox::Cancel);
@@ -1579,7 +1580,9 @@ void OSDocument::openMeasuresDlg() {
     switch (ret) {
       case QMessageBox::Save:
         // Save was clicked
-        if (this->save() != true) return;
+        if (this->save() != true) {
+          return;
+        }
         break;
       case QMessageBox::Cancel:
         // Cancel was clicked

@@ -71,13 +71,14 @@ BuildingComponentDialogCentralWidget::BuildingComponentDialogCentralWidget(QWidg
     m_searchString(QString()),
     m_showNewComponents(false),
     m_remoteBCL(nullptr),
+    m_timer(nullptr),
     m_timeoutSeconds(120) {
   init();
 }
 
 BuildingComponentDialogCentralWidget::BuildingComponentDialogCentralWidget(int tid, QWidget* parent)
   : QWidget(parent),
-    m_tid(0),
+    m_tid(tid),
     m_collapsibleComponentList(nullptr),
     m_componentList(nullptr),  // TODO cruft to be removed
     m_progressBar(nullptr),
@@ -86,6 +87,7 @@ BuildingComponentDialogCentralWidget::BuildingComponentDialogCentralWidget(int t
     m_searchString(QString()),
     m_showNewComponents(false),
     m_remoteBCL(nullptr),
+    m_timer(nullptr),
     m_timeoutSeconds(120) {
   init();
 }
@@ -108,19 +110,19 @@ void BuildingComponentDialogCentralWidget::init() {
 
 void BuildingComponentDialogCentralWidget::createLayout() {
 
-  QLabel* label = new QLabel("Sort by:");
+  auto* label = new QLabel("Sort by:");
   label->hide();  // TODO remove this hack when we have sorts to do
 
-  auto comboBox = new QComboBox(this);
+  auto* comboBox = new QComboBox(this);
   comboBox->hide();  // TODO remove this hack when we have sorts to do
 
   connect(comboBox, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentTextChanged), this,
           &BuildingComponentDialogCentralWidget::comboBoxIndexChanged);
 
-  QPushButton* upperPushButton = new QPushButton("Check All");
+  auto* upperPushButton = new QPushButton("Check All");
   connect(upperPushButton, &QPushButton::clicked, this, &BuildingComponentDialogCentralWidget::upperPushButtonClicked);
 
-  auto upperLayout = new QHBoxLayout();
+  auto* upperLayout = new QHBoxLayout();
   upperLayout->addWidget(label);
   upperLayout->addWidget(comboBox);
   upperLayout->addStretch();
@@ -164,15 +166,15 @@ void BuildingComponentDialogCentralWidget::createLayout() {
   m_progressBar = new QProgressBar(this);
   m_progressBar->setVisible(false);
 
-  QPushButton* lowerPushButton = new QPushButton("Download");
+  auto* lowerPushButton = new QPushButton("Download");
   connect(lowerPushButton, &QPushButton::clicked, this, &BuildingComponentDialogCentralWidget::lowerPushButtonClicked);
 
-  auto lowerLayout = new QHBoxLayout();
+  auto* lowerLayout = new QHBoxLayout();
   lowerLayout->addStretch();
   lowerLayout->addWidget(m_progressBar);
   lowerLayout->addWidget(lowerPushButton);
 
-  auto mainLayout = new QVBoxLayout();
+  auto* mainLayout = new QVBoxLayout();
   mainLayout->addLayout(upperLayout);
 
   mainLayout->addWidget(m_collapsibleComponentList, 0, Qt::AlignTop);
@@ -180,11 +182,11 @@ void BuildingComponentDialogCentralWidget::createLayout() {
   setLayout(mainLayout);
 }
 
-int BuildingComponentDialogCentralWidget::tid() {
+int BuildingComponentDialogCentralWidget::tid() const {
   return m_tid;
 }
 
-int BuildingComponentDialogCentralWidget::pageIdx() {
+int BuildingComponentDialogCentralWidget::pageIdx() const {
   return m_pageIdx;
 }
 
@@ -223,7 +225,7 @@ void BuildingComponentDialogCentralWidget::setTid(const std::string& filterType,
   }
 
   for (const auto& response : responses) {
-    auto component = new Component(response);
+    auto* component = new Component(response);
 
     // TODO replace with a componentList owned by m_collapsibleComponentList
     m_componentList->addComponent(component);
@@ -274,7 +276,7 @@ void BuildingComponentDialogCentralWidget::lowerPushButtonClicked() {
       component->setCheckBoxEnabled(false);
       component->msg()->setHidden(true);
 
-      m_pendingDownloads.push(std::make_pair(uid, m_filterType));
+      m_pendingDownloads.emplace(uid, m_filterType);
     }
   }
 }
@@ -313,7 +315,7 @@ void BuildingComponentDialogCentralWidget::measureDownloadComplete(const std::st
     downloadFailed(uid);
   }
 
-  BaseApp* app = dynamic_cast<BaseApp*>(Application::instance().application());
+  auto* app = dynamic_cast<BaseApp*>(Application::instance().application());
   if (app) {
     if (measure) {
       try {
@@ -334,7 +336,7 @@ Component* BuildingComponentDialogCentralWidget::checkedComponent() const {
   return m_collapsibleComponentList->checkedComponent();
 }
 
-bool BuildingComponentDialogCentralWidget::showNewComponents() {
+bool BuildingComponentDialogCentralWidget::showNewComponents() const {
   return m_showNewComponents;
 }
 
@@ -437,7 +439,7 @@ void BuildingComponentDialogCentralWidget::downloadNextComponent() {
 }
 
 void BuildingComponentDialogCentralWidget::clearPendingDownloads(bool failed) {
-  while (m_pendingDownloads.size() > 0) {
+  while (!m_pendingDownloads.empty()) {
     if (failed) {
       const auto& uidType = m_pendingDownloads.front();
       downloadFailed(uidType.first);
@@ -448,11 +450,10 @@ void BuildingComponentDialogCentralWidget::clearPendingDownloads(bool failed) {
 
 void BuildingComponentDialogCentralWidget::downloadFailed(const std::string& uid) {
   // find measure in list by uid and re-enable
-  for (Component* component : m_collapsibleComponentList->components()) {
-    if (component->uid() == uid) {
-      component->setCheckBoxEnabled(true);
-      break;
-    }
+  std::vector<Component*> components = m_collapsibleComponentList->components();
+  auto it = std::find_if(components.begin(), components.end(), [&uid](auto* comp) { return comp->uid() == uid; });
+  if (it != components.end()) {
+    (*it)->setCheckBoxEnabled(true);
   }
 }
 

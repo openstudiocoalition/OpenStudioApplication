@@ -265,8 +265,6 @@ Component::Component(const Component& other) {
   }
 }
 
-Component::~Component() {}
-
 // TODO The copy code for both operator= and copy CTOR should be in a common function
 Component& Component::operator=(const Component& other) {
   ///! no self-assignment
@@ -447,7 +445,7 @@ void Component::createAbridgedLayout() {
 
   QString string;
 
-  auto leftLayout = new QVBoxLayout();
+  auto* leftLayout = new QVBoxLayout();
 
   string = "Name: ";
   string += m_name;
@@ -491,7 +489,7 @@ void Component::createAbridgedLayout() {
   m_msg->setHidden(true);
   leftLayout->addWidget(m_msg);
 
-  auto mainLayout = new QHBoxLayout();
+  auto* mainLayout = new QHBoxLayout();
   mainLayout->addLayout(leftLayout);
   mainLayout->addStretch();
   mainLayout->addWidget(m_checkBox);
@@ -503,7 +501,7 @@ void Component::createCompleteLayout() {
 
   QString string;
 
-  auto mainLayout = new QVBoxLayout();
+  auto* mainLayout = new QVBoxLayout();
 
   QTableWidget* tableWidget = nullptr;
 
@@ -546,7 +544,7 @@ void Component::createCompleteLayout() {
   for (const Attribute& attribute : m_attributes) {
     tableWidget->insertRow(tableWidget->rowCount());
 
-    QTableWidgetItem* item = new QTableWidgetItem(attribute.name().c_str());
+    auto* item = new QTableWidgetItem(attribute.name().c_str());
     tableWidget->setItem(tableWidget->rowCount() - 1, 0, item);
 
     boost::optional<std::string> optionalUnits = attribute.units();
@@ -624,7 +622,7 @@ void Component::createCompleteLayout() {
         name = argument.name();
       }
 
-      QTableWidgetItem* item = new QTableWidgetItem(name.c_str());
+      auto* item = new QTableWidgetItem(name.c_str());
       tableWidget->setItem(tableWidget->rowCount() - 1, 0, item);
 
       std::string type = argument.type();
@@ -708,7 +706,7 @@ void Component::createCompleteLayout() {
     mainLayout->addWidget(label);
   }
 
-  if (m_provenances.size() == 0) {
+  if (m_provenances.empty()) {
     label = new QLabel();
     mainLayout->addWidget(label);
   }
@@ -731,7 +729,7 @@ void Component::createCompleteLayout() {
   setLayout(mainLayout);
 }
 
-void Component::paintEvent(QPaintEvent* event) {
+void Component::paintEvent(QPaintEvent* /*event*/) {
   QPainter p(this);
 
   if (isChecked()) {

@@ -62,11 +62,11 @@ class BuildingComponentDialogCentralWidget
   BuildingComponentDialogCentralWidget(QWidget* parent = nullptr);
   BuildingComponentDialogCentralWidget(int tid, QWidget* parent = nullptr);
   virtual ~BuildingComponentDialogCentralWidget();
-  int tid();
+  int tid() const;
   void setTid(const std::string& filterType, int tid, int pageIdx, const QString& title, const QString& searchString = "");
   Component* checkedComponent() const;
-  int pageIdx();
-  bool showNewComponents();
+  int pageIdx() const;
+  bool showNewComponents() const;
   void setShowNewComponents(bool showNewComponents);
 
  protected:
