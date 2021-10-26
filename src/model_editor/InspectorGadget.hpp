@@ -290,8 +290,6 @@ class MODELEDITOR_API InspectorGadget
 
   void checkRemoveBtn(QPushButton* btn);
 
-  void stripchar(std::string& strip, char c);
-
   QVBoxLayout* m_layout;
   QScrollArea* m_scroll;
   QWidget* m_deleteHandle;  // we need a parent for everything in IG so we can delete it all.
