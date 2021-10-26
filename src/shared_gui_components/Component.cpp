@@ -425,12 +425,12 @@ void Component::parseBCLSearchResult(const BCLSearchResult& bclSearchResult) {
   }
 
   VersionString currentVersion(openStudioVersion());
+  m_available = true;
   if (minCompatibleVersion && (*minCompatibleVersion) > currentVersion) {
     m_available = false;
-  } else if (maxCompatibleVersion && (*maxCompatibleVersion) < currentVersion) {
+  }
+  if (maxCompatibleVersion && (*maxCompatibleVersion) < currentVersion) {
     m_available = false;
-  } else {
-    m_available = true;
   }
 }
 
