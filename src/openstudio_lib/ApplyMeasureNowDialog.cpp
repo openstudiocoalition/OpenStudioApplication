@@ -96,7 +96,8 @@ ApplyMeasureNowDialog::ApplyMeasureNowDialog(QWidget* parent)
     m_advancedOutputDialog(nullptr) {
   setWindowTitle("Apply Measure Now");
   setWindowModality(Qt::ApplicationModal);
-  setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+  setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
+  setSizeGripEnabled(true);
   createWidgets();
 
   OSAppBase* app = OSAppBase::instance();
@@ -285,6 +286,11 @@ void ApplyMeasureNowDialog::createWidgets() {
 #elif defined(Q_OS_WIN)
   setWindowFlags(Qt::WindowCloseButtonHint | Qt::MSWindowsFixedSizeDialogHint);
 #endif
+}
+
+void ApplyMeasureNowDialog::resizeEvent(QResizeEvent* event) {
+  // Use the QDialog one so it can be resized (OSDialog prevents resizing)
+  QDialog::resizeEvent(event);
 }
 
 void ApplyMeasureNowDialog::displayMeasure() {
