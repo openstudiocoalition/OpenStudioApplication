@@ -106,7 +106,7 @@ jobs:
       with:
         python-version: '3.8.x'
 
-    - uses: actions/setup-ruby@v1
+    - uses: ruby/setup-ruby@v1
       with:
         ruby-version: 2.7
 
