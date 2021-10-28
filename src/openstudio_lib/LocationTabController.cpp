@@ -71,11 +71,7 @@ bool LocationTabController::showUtilityBills() {
       boost::optional<model::WeatherFile> weatherFile = m_model.weatherFile();
       if (weatherFile) {
         boost::optional<model::RunPeriod> runPeriod = m_model.getOptionalUniqueModelObject<model::RunPeriod>();
-        if (runPeriod.is_initialized()) {
-          return true;
-        } else {
-          return false;
-        }
+        return runPeriod.is_initialized();
       }
     }
   }
@@ -86,36 +82,36 @@ bool LocationTabController::showUtilityBills() {
 void LocationTabController::setSubTab(int index) {
   if (m_currentIndex == index) {
     return;
-  } else {
-    m_currentIndex = index;
   }
 
-  if (m_currentView) {
+  m_currentIndex = index;
+
+  if (m_currentView != nullptr) {
     m_currentView->disconnect();
     delete m_currentView;
   }
 
   switch (index) {
     case 0: {
-      auto locationView = new LocationView(m_isIP, m_model, m_modelTempDir);
+      auto* locationView = new LocationView(m_isIP, m_model, m_modelTempDir);
       connect(this, &LocationTabController::toggleUnitsClicked, locationView, &LocationView::toggleUnitsClicked);
       this->mainContentWidget()->setSubTab(locationView);
       m_currentView = locationView;
       break;
     }
     case 1: {
-      auto lifeCycleCostsView = new LifeCycleCostsView(m_model);
+      auto* lifeCycleCostsView = new LifeCycleCostsView(m_model);
       this->mainContentWidget()->setSubTab(lifeCycleCostsView);
       m_currentView = lifeCycleCostsView;
       break;
     }
     case 2: {
       if (showUtilityBills()) {
-        auto utilityBillsController = new UtilityBillsController(m_model);
+        auto* utilityBillsController = new UtilityBillsController(m_model);
         this->mainContentWidget()->setSubTab(utilityBillsController->subTabView());
         m_currentView = utilityBillsController->subTabView()->inspectorView();
       } else {
-        auto label = new QLabel();
+        auto* label = new QLabel();
         label->setPixmap(QPixmap(":/images/utility_calibration_warning.png"));
         label->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
         this->mainContentWidget()->setSubTab(label);

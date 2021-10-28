@@ -162,7 +162,7 @@ class LocationTabView : public MainTabView
  public:
   LocationTabView(const model::Model& model, const QString& modelTempDir, QWidget* parent = nullptr);
 
-  virtual ~LocationTabView();
+  virtual ~LocationTabView() = default;
 
   //private:
   //LocationView* m_locationView;
