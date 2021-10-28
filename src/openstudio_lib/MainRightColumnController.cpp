@@ -1140,6 +1140,8 @@ void MainRightColumnController::configureForHVACSystemsSubTab(int subTabID) {
   libraryWidget->addModelObjectType(IddObjectType::OS_AirTerminal_DualDuct_VAV, "Air Terminal Dual Duct VAV");
   libraryWidget->addModelObjectType(IddObjectType::OS_AirTerminal_DualDuct_VAV_OutdoorAir, "Air Terminal Dual Duct VAV Outdoor Air");
   libraryWidget->addModelObjectType(IddObjectType::OS_AirLoopHVAC_OutdoorAirSystem, "AirLoopHVAC Outdoor Air System");
+  libraryWidget->addModelObjectType(IddObjectType::OS_AirLoopHVAC_UnitaryHeatPump_AirToAir_MultiSpeed,
+                                    "AirLoopHVAC Unitary Heat Pump AirToAir MultiSpeed");
   libraryWidget->addModelObjectType(IddObjectType::OS_AirLoopHVAC_UnitarySystem, "AirLoopHVAC Unitary System");
   libraryWidget->addModelObjectType(IddObjectType::OS_AirLoopHVAC_UnitaryHeatCool_VAVChangeoverBypass, "AirLoopHVAC Unitary VAV Changeover Bypass");
 
