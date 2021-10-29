@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -85,7 +85,9 @@ class RefrigerationGridController;
 class RefrigerationGridView;
 class VRFController;
 
-class HVACSystemsController : public QObject, public Nano::Observer
+class HVACSystemsController
+  : public QObject
+  , public Nano::Observer
 {
   Q_OBJECT
 
@@ -189,7 +191,9 @@ class HVACSystemsController : public QObject, public Nano::Observer
   void toggleUnitsClicked(bool displayIP);
 };
 
-class HVACControlsController : public QObject, public Nano::Observer
+class HVACControlsController
+  : public QObject
+  , public Nano::Observer
 {
   Q_OBJECT;
 
@@ -262,7 +266,9 @@ class HVACControlsController : public QObject, public Nano::Observer
   bool m_dirty;
 };
 
-class HVACLayoutController : public QObject, public Nano::Observer
+class HVACLayoutController
+  : public QObject
+  , public Nano::Observer
 {
   Q_OBJECT;
 
