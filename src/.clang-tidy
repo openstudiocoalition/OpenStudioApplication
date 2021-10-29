@@ -12,6 +12,9 @@
 # We use raw pointers for Qt, since usually the memory is then owned by the parent
 #  -cppcoreguidelines-owning-memory
 
+# Because of Google Tests
+#  -cppcoreguidelines-avoid-non-const-global-variables
+
 # I don't think this really helps clarify the intent
 #  -readability-else-after-return
 #  -modernize-concat-nested-namespaces
@@ -39,6 +42,7 @@ Checks: |
   -readability-magic-numbers,
   -cppcoreguidelines-pro-bounds-array-to-pointer-decay,
   -cppcoreguidelines-owning-memory,
+  -cppcoreguidelines-pro-bounds-constant-array-index,
   -readability-redundant-access-specifiers,
   -cppcoreguidelines-explicit-virtual-functions,
   -readability-else-after-return,
@@ -54,6 +58,7 @@ Checks: |
   -bugprone-narrowing-conversions,
   -cppcoreguidelines-narrowing-conversions,
   -readability-function-cognitive-complexity,
+  -cppcoreguidelines-avoid-non-const-global-variables,
 
 WarningsAsErrors: '*'
 HeaderFilterRegex: '*'
@@ -68,4 +73,6 @@ CheckOptions:
   - key:             cppcoreguidelines-narrowing-conversions.WarnOnEquivalentBitWidth
     value:           'false'
   - key:             readability-implicit-bool-conversion.AllowPointerConditions
+    value:           'true'
+  - key:             misc-non-private-member-variables-in-classes.IgnoreClassesWithAllMemberVariablesBeingPublic
     value:           'true'
