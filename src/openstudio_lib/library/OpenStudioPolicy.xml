@@ -1739,4 +1739,12 @@
     <rule IddField="Main Model Program Calling Manager Name" Access="HIDDEN"/>
     <rule IddField="Main Model Program Name" Access="HIDDEN"/>
   </POLICY>
+  <POLICY IddObjectType="OS_WaterUse_Connections">
+    <rule IddField="Inlet Node Name" Access="HIDDEN"/>
+    <rule IddField="Outlet Node Name" Access="HIDDEN"/>
+    <rule IddField="Water Use Equipment Name" Access="HIDDEN"/>
+    <!-- REMOVE ONCE IMPLEMENTED IN SDK -->
+    <rule IddField="Supply Water Storage Tank Name" Access="HIDDEN"/>
+    <rule IddField="Reclamation Water Storage Tank Name" Access="HIDDEN"/>
+  </POLICY>
 </ROOT>
