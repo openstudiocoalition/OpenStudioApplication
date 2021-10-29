@@ -88,15 +88,15 @@ void BuildingComponentDialog::createLayout(bool isBclDlg) {
 
   // The left pane
 
-  auto leftPanelayout = new QVBoxLayout();
+  auto* leftPanelayout = new QVBoxLayout();
 
-  auto leftPaneWidget = new QWidget(this);
+  auto* leftPaneWidget = new QWidget(this);
   leftPaneWidget->setObjectName("GrayWidget");
   leftPaneWidget->setLayout(leftPanelayout);
 
   m_lineEdit = new QLineEdit(this);
 
-  auto searchButton = new QPushButton();
+  auto* searchButton = new QPushButton();
   searchButton->setToolTip("Click to add a search term to the selected category");
   searchButton->setStyleSheet(
     "QPushButton { border: none; background-image: url(\":/shared_gui_components/images/searchbox_magnifyingglass.png\"); }");
@@ -104,12 +104,12 @@ void BuildingComponentDialog::createLayout(bool isBclDlg) {
 
   connect(searchButton, &QPushButton::clicked, this, &BuildingComponentDialog::on_searchButton);
 
-  auto searchlayout = new QHBoxLayout();
+  auto* searchlayout = new QHBoxLayout();
   searchlayout->addWidget(searchButton);
   searchlayout->addWidget(m_lineEdit);
   leftPanelayout->addLayout(searchlayout);
 
-  QLabel* categoryLabel = new QLabel("Categories");
+  auto* categoryLabel = new QLabel("Categories");
   categoryLabel->setObjectName("H1");
   leftPanelayout->addWidget(categoryLabel);
 
@@ -133,7 +133,7 @@ void BuildingComponentDialog::createLayout(bool isBclDlg) {
 
   doc.setContent(docString);
 
-  auto model = new TIDItemModel(doc, this);
+  auto* model = new TIDItemModel(doc, this);
 
   m_tidTreeView = new QTreeView();
 
@@ -179,7 +179,7 @@ void BuildingComponentDialog::createLayout(bool isBclDlg) {
 
   connect(m_centralWidget, &BuildingComponentDialogCentralWidget::noComponents, this, &BuildingComponentDialog::on_noComponents);
 
-  auto centralScrollArea = new QScrollArea(this);
+  auto* centralScrollArea = new QScrollArea(this);
   centralScrollArea->setFrameStyle(QFrame::NoFrame);
   centralScrollArea->setObjectName("GrayWidget");
   centralScrollArea->setWidgetResizable(true);
@@ -192,18 +192,18 @@ void BuildingComponentDialog::createLayout(bool isBclDlg) {
   m_rightScrollArea->setObjectName("GrayWidget");
   m_rightScrollArea->setWidgetResizable(true);
 
-  auto splitter = new QSplitter(this);
+  auto* splitter = new QSplitter(this);
   splitter->setOrientation(Qt::Horizontal);
   splitter->addWidget(leftPaneWidget);
   splitter->addWidget(centralScrollArea);
   splitter->addWidget(m_rightScrollArea);
 
-  QLabel* busyLabel = new QLabel("Searching BCL...");
+  auto* busyLabel = new QLabel("Searching BCL...");
   busyLabel->setObjectName("H1");
 
-  auto busyIcon = new BusyWidget();
+  auto* busyIcon = new BusyWidget();
 
-  auto busyLayout = new QVBoxLayout();
+  auto* busyLayout = new QVBoxLayout();
   busyLayout->addStretch();
   busyLayout->addWidget(busyLabel, 0, Qt::AlignCenter);
   busyLayout->addWidget(busyIcon, 0, Qt::AlignCenter);
@@ -211,14 +211,14 @@ void BuildingComponentDialog::createLayout(bool isBclDlg) {
 
   m_timer = new QTimer(this);
   connect(m_timer, &QTimer::timeout, busyIcon, &BusyWidget::rotate);
-  auto busy = new QWidget();
+  auto* busy = new QWidget();
   busy->setLayout(busyLayout);
 
   m_stackedWidget = new QStackedWidget();
   m_stackedWidget->insertWidget(0, busy);
   m_stackedWidget->insertWidget(1, splitter);
 
-  auto mainLayout = new QHBoxLayout();
+  auto* mainLayout = new QHBoxLayout();
   mainLayout->addWidget(m_stackedWidget);
 
   setLayout(mainLayout);
@@ -229,7 +229,7 @@ void BuildingComponentDialog::createLayout(bool isBclDlg) {
   on_tidClicked(index);
 }
 
-void BuildingComponentDialog::paintEvent(QPaintEvent* event) {
+void BuildingComponentDialog::paintEvent(QPaintEvent* /*event*/) {
   QStyleOption opt;
   opt.init(this);
   QPainter p(this);
@@ -292,7 +292,9 @@ void BuildingComponentDialog::setShowNewComponents(bool showNewComponents) {
 
 void BuildingComponentDialog::on_searchButton() {
   QModelIndex index = m_tidTreeView->currentIndex();
-  if (!index.isValid()) return;
+  if (!index.isValid()) {
+    return;
+  }
 
   QVariant variant = m_tidTreeView->model()->data(index.sibling(index.row(), 1));
 
@@ -310,7 +312,7 @@ void BuildingComponentDialog::on_tidClicked(const QModelIndex& index) {
 
 void BuildingComponentDialog::on_headerClicked(bool checked) {}
 
-void BuildingComponentDialog::on_componentClicked(bool checked) {
+void BuildingComponentDialog::on_componentClicked(bool /*checked*/) {
   if (m_expandedComponent) {
     delete m_expandedComponent;
     m_expandedComponent = nullptr;

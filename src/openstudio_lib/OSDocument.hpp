@@ -137,7 +137,7 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
 
   // Returns the index of the current sub tab.
   // Returns -1 if there are no sub tabs.
-  int subTabIndex();
+  int subTabIndex() const;
 
   enum VerticalTabID
   {
@@ -328,8 +328,6 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
   openstudio::model::Model m_hvacCompLibrary;
 
   openstudio::path m_resourcesPath;
-
-  LibraryTabWidget* m_libraryTabWidget;
 
   MainWindow* m_mainWindow;
 

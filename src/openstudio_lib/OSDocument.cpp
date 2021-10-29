@@ -127,6 +127,8 @@
 #include <QInputDialog>
 #include <QSettings>
 
+#include <memory>
+
 #if (defined(_WIN32) || defined(_WIN64))
 #  include <windows.h>
 #endif
@@ -141,7 +143,7 @@ OSDocument::OSDocument(const openstudio::model::Model& library, const openstudio
     m_onlineMeasuresBclDialog(nullptr),
     m_onlineBclDialog(nullptr),
     m_localLibraryDialog(nullptr),
-    m_savePath(filePath),
+    m_savePath(std::move(filePath)),
     m_isPlugin(isPlugin) {
 
   QFile data(":openstudiolib.qss");
@@ -266,7 +268,7 @@ void OSDocument::showStartTabAndStartSubTab() {
   m_mainWindow->show();
 }
 
-int OSDocument::subTabIndex() {
+int OSDocument::subTabIndex() const {
   return m_subTabId;
 }
 
@@ -301,7 +303,7 @@ model::Model OSDocument::model() {
   return m_model;
 }
 
-void OSDocument::setModel(const model::Model& model, bool modified, bool saveCurrentTabs) {
+void OSDocument::setModel(const model::Model& model, bool modified, bool /*saveCurrentTabs*/) {
   bool wasVisible = m_mainWindow->isVisible();
   m_mainWindow->setVisible(false);
   openstudio::OSAppBase* app = OSAppBase::instance();
@@ -324,19 +326,17 @@ void OSDocument::setModel(const model::Model& model, bool modified, bool saveCur
     QTimer::singleShot(0, this, &OSDocument::weatherFileReset);
   }
 
-  m_model.getImpl<model::detail::Model_Impl>().get()->addWorkspaceObjectPtr.connect<OSAppBase, &OSAppBase::addWorkspaceObjectPtr>(
+  m_model.getImpl<model::detail::Model_Impl>()->addWorkspaceObjectPtr.connect<OSAppBase, &OSAppBase::addWorkspaceObjectPtr>(OSAppBase::instance());
+  m_model.getImpl<model::detail::Model_Impl>()->removeWorkspaceObjectPtr.connect<OSAppBase, &OSAppBase::removeWorkspaceObjectPtr>(
     OSAppBase::instance());
-  m_model.getImpl<model::detail::Model_Impl>().get()->removeWorkspaceObjectPtr.connect<OSAppBase, &OSAppBase::removeWorkspaceObjectPtr>(
-    OSAppBase::instance());
-  m_model.getImpl<model::detail::Model_Impl>().get()->addWorkspaceObject.connect<OSAppBase, &OSAppBase::addWorkspaceObject>(OSAppBase::instance());
-  m_model.getImpl<model::detail::Model_Impl>().get()->removeWorkspaceObject.connect<OSAppBase, &OSAppBase::removeWorkspaceObject>(
-    OSAppBase::instance());
-  m_model.getImpl<model::detail::Model_Impl>().get()->onChange.connect<OSDocument, &OSDocument::markAsModified>(this);
-  m_model.workflowJSON().getImpl<detail::WorkflowJSON_Impl>().get()->onChange.connect<OSDocument, &OSDocument::markAsModified>(this);
+  m_model.getImpl<model::detail::Model_Impl>()->addWorkspaceObject.connect<OSAppBase, &OSAppBase::addWorkspaceObject>(OSAppBase::instance());
+  m_model.getImpl<model::detail::Model_Impl>()->removeWorkspaceObject.connect<OSAppBase, &OSAppBase::removeWorkspaceObject>(OSAppBase::instance());
+  m_model.getImpl<model::detail::Model_Impl>()->onChange.connect<OSDocument, &OSDocument::markAsModified>(this);
+  m_model.workflowJSON().getImpl<detail::WorkflowJSON_Impl>()->onChange.connect<OSDocument, &OSDocument::markAsModified>(this);
 
   // Main Right Column
 
-  m_mainRightColumnController = std::shared_ptr<MainRightColumnController>(new MainRightColumnController(m_model, m_resourcesPath));
+  m_mainRightColumnController = std::make_shared<MainRightColumnController>(m_model, m_resourcesPath);
   connect(this, &OSDocument::toggleUnitsClicked, m_mainRightColumnController.get(), &MainRightColumnController::toggleUnitsClicked);
 
   m_mainWindow->setMainRightColumnView(m_mainRightColumnController->mainRightColumnView());
@@ -1233,8 +1233,6 @@ void OSDocument::exportSDD() {
 
 void OSDocument::exportFile(fileType type) {
 
-  std::vector<LogMessage> translatorErrors, translatorWarnings;
-
   QString text("Export ");
   if (type == SDD) {
     text.append("SDD");
@@ -1253,6 +1251,9 @@ void OSDocument::exportFile(fileType type) {
     model::Model m = this->model();
     openstudio::path outDir = toPath(fileName);
 
+    std::vector<LogMessage> translatorErrors;
+    std::vector<LogMessage> translatorWarnings;
+
     if (type == SDD) {
       sdd::ForwardTranslator trans;
       trans.modelToSDD(m, outDir);
@@ -1267,18 +1268,18 @@ void OSDocument::exportFile(fileType type) {
 
     bool errorsOrWarnings = false;
     QString log;
-    for (std::vector<LogMessage>::iterator it = translatorErrors.begin(); it < translatorErrors.end(); ++it) {
+    for (const LogMessage& logMessage : translatorErrors) {
       errorsOrWarnings = true;
 
-      log.append(QString::fromStdString(it->logMessage()));
+      log.append(QString::fromStdString(logMessage.logMessage()));
       log.append("\n");
       log.append("\n");
     }
 
-    for (std::vector<LogMessage>::iterator it = translatorWarnings.begin(); it < translatorWarnings.end(); ++it) {
+    for (const LogMessage& logMessage : translatorWarnings) {
       errorsOrWarnings = true;
 
-      log.append(QString::fromStdString(it->logMessage()));
+      log.append(QString::fromStdString(logMessage.logMessage()));
       log.append("\n");
       log.append("\n");
     }
@@ -1351,8 +1352,8 @@ boost::optional<BCLMeasure> OSDocument::standardReportMeasure() {
     return result;
   }
 
-  RemoteBCL remoteBCL;
-  if (remoteBCL.isOnline()) {
+  if (RemoteBCL::isOnline()) {
+    RemoteBCL remoteBCL;
     result = remoteBCL.getMeasure(uid);
   }
 
@@ -1531,7 +1532,7 @@ boost::optional<model::Component> OSDocument::getComponent(const OSItemId& itemI
 
       std::vector<std::string> oscFiles = component->files("osc");
 
-      if (oscFiles.size() == 1u) {
+      if (oscFiles.size() == 1U) {
 
         openstudio::path oscPath = toPath(oscFiles[0]);
 
@@ -1564,7 +1565,7 @@ void OSDocument::openMeasuresDlg() {
   // save model if dirty
   if (this->modified()) {
 
-    auto messageBox = new QMessageBox(this->mainWindow());
+    auto* messageBox = new QMessageBox(this->mainWindow());
     messageBox->setText("You must save your model before applying a measure.");
     messageBox->setInformativeText("Do you want to save your model now?");
     messageBox->setStandardButtons(QMessageBox::Save | QMessageBox::Cancel);
@@ -1579,7 +1580,9 @@ void OSDocument::openMeasuresDlg() {
     switch (ret) {
       case QMessageBox::Save:
         // Save was clicked
-        if (this->save() != true) return;
+        if (this->save() != true) {
+          return;
+        }
         break;
       case QMessageBox::Cancel:
         // Cancel was clicked
@@ -1655,73 +1658,19 @@ void OSDocument::updateSubTabSelected(int id) {
   m_subTabIds.at(m_verticalId) = id;
 }
 
-bool prodAuthKeyUserPrompt(QWidget* parent) {
-  // make sure application is initialized
-  Application::instance().application(false);
-
-  QInputDialog inputDlg(parent);
-  inputDlg.setInputMode(QInputDialog::TextInput);
-  inputDlg.setLabelText("BCL Auth Key:                                            ");
-  inputDlg.setWindowFlags(Qt::Dialog | Qt::WindowCloseButtonHint);
-  inputDlg.setWindowTitle("Enter Your BCL Auth Key");
-  if (Application::instance().isDefaultInstance()) {
-    QIcon icon = QIcon(":/images/os_16.png");
-    icon.addPixmap(QPixmap(":/images/os_32.png"));
-    icon.addPixmap(QPixmap(":/images/os_48.png"));
-    icon.addPixmap(QPixmap(":/images/os_64.png"));
-    icon.addPixmap(QPixmap(":/images/os_128.png"));
-    icon.addPixmap(QPixmap(":/images/os_256.png"));
-    inputDlg.setWindowIcon(icon);
-  }
-  bool result = inputDlg.exec();
-  QString text = inputDlg.textValue();
-
-  if (result && !text.isEmpty()) {
-    std::string authKey = toString(text);
-    result = LocalBCL::instance().setProdAuthKey(authKey);
-  }
-
-  return result;
-}
-
 void OSDocument::openBclDlg() {
-  std::string authKey = LocalBCL::instance().prodAuthKey();
-  if (!LocalBCL::instance().setProdAuthKey(authKey)) {
-    prodAuthKeyUserPrompt(m_mainWindow);
-    authKey = LocalBCL::instance().prodAuthKey();
-
-    while (!LocalBCL::instance().setProdAuthKey(authKey)) {
-      QMessageBox dlg(m_mainWindow);
-      dlg.setWindowTitle(tr("Online BCL"));
-      dlg.setText("The BCL auth key is invalid, and Online BCL data will not be available.  To learn how to obtain a valid BCL auth key, click <a "
-                  "href='https://openstudiocoalition.org/getting_started/getting_started/'>here</a>.");
-      dlg.setTextFormat(Qt::RichText);
-      dlg.addButton(QMessageBox::Cancel);
-      dlg.addButton(QMessageBox::Retry);
-      dlg.setDefaultButton(QMessageBox::Retry);
-      dlg.setIcon(QMessageBox::Warning);
-      dlg.setWindowFlags(Qt::Dialog | Qt::WindowCloseButtonHint);
-
-      int ret = dlg.exec();
-
-      if (ret == QMessageBox::Cancel) {
-        return;
-      } else if (ret == QMessageBox::Retry) {
-        prodAuthKeyUserPrompt(m_mainWindow);
-        authKey = LocalBCL::instance().prodAuthKey();
-      } else {
-        // should never get here
-        OS_ASSERT(false);
-      }
-    }
+  if (!RemoteBCL::isOnline()) {
+    QMessageBox::information(this->mainWindow(), "Offline", "You appear to be offline, please connect to the internet to access the BCL.",
+                             QMessageBox::Ok);
+    return;
   }
 
   if (!m_onlineBclDialog) {
     std::string filterType = "components";
     m_onlineBclDialog = new BuildingComponentDialog(filterType, true, m_mainWindow);
-
     connect(m_onlineBclDialog, &BuildingComponentDialog::rejected, this, &OSDocument::on_closeBclDlg);
   }
+
   if (m_onlineBclDialog && !m_onlineBclDialog->isVisible()) {
     m_onlineBclDialog->setGeometry(m_mainWindow->geometry());
     m_onlineBclDialog->show();
@@ -1751,43 +1700,18 @@ std::shared_ptr<MainRightColumnController> OSDocument::mainRightColumnController
 }
 
 void OSDocument::openMeasuresBclDlg() {
-  std::string authKey = LocalBCL::instance().prodAuthKey();
-  if (!LocalBCL::instance().setProdAuthKey(authKey)) {
-    prodAuthKeyUserPrompt(m_mainWindow);
-    authKey = LocalBCL::instance().prodAuthKey();
-
-    while (!LocalBCL::instance().setProdAuthKey(authKey)) {
-      QMessageBox dlg(m_mainWindow);
-      dlg.setWindowTitle(tr("Online BCL"));
-      dlg.setText("The BCL auth key is invalid, and Online BCL data will not be available.  To learn how to obtain a valid BCL auth key, click <a "
-                  "href='https://openstudiocoalition.org/getting_started/getting_started/'>here</a>.");
-      dlg.setTextFormat(Qt::RichText);
-      dlg.addButton(QMessageBox::Cancel);
-      dlg.addButton(QMessageBox::Retry);
-      dlg.setDefaultButton(QMessageBox::Retry);
-      dlg.setIcon(QMessageBox::Warning);
-      dlg.setWindowFlags(Qt::Dialog | Qt::WindowCloseButtonHint);
-
-      int ret = dlg.exec();
-
-      if (ret == QMessageBox::Cancel) {
-        return;
-      } else if (ret == QMessageBox::Retry) {
-        prodAuthKeyUserPrompt(m_mainWindow);
-        authKey = LocalBCL::instance().prodAuthKey();
-      } else {
-        // should never get here
-        OS_ASSERT(false);
-      }
-    }
+  if (!RemoteBCL::isOnline()) {
+    QMessageBox::information(this->mainWindow(), "Offline", "You appear to be offline, please connect to the internet to access the BCL.",
+                             QMessageBox::Ok);
+    return;
   }
 
   if (!m_onlineMeasuresBclDialog) {
     std::string filterType = "measures";
     m_onlineMeasuresBclDialog = new BuildingComponentDialog(filterType, true, m_mainWindow);
-
     connect(m_onlineMeasuresBclDialog, &BuildingComponentDialog::rejected, this, &OSDocument::on_closeMeasuresBclDlg);
   }
+
   if (m_onlineMeasuresBclDialog && !m_onlineMeasuresBclDialog->isVisible()) {
     m_onlineMeasuresBclDialog->setGeometry(m_mainWindow->geometry());
     m_onlineMeasuresBclDialog->show();
