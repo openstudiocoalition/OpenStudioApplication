@@ -1119,6 +1119,7 @@ void MainRightColumnController::configureForHVACSystemsSubTab(int subTabID) {
   libraryWidget->addModelObjectType(IddObjectType::OS_Coil_Heating_Electric, "Coil Heating Electric");
   libraryWidget->addModelObjectType(IddObjectType::OS_Coil_Heating_Water, "Coil Heating Water");
   libraryWidget->addModelObjectType(IddObjectType::OS_Coil_Cooling_Water, "Coil Cooling Water");
+  libraryWidget->addModelObjectType(IddObjectType::OS_Coil_Cooling_DX_VariableSpeed, "Coil Cooling DX VariableSpeed");
   libraryWidget->addModelObjectType(IddObjectType::OS_Coil_Cooling_DX_TwoStageWithHumidityControlMode, "Coil Cooling DX TwoStage - Humidity Control");
   libraryWidget->addModelObjectType(IddObjectType::OS_Coil_Cooling_DX_TwoSpeed, "Coil Cooling DX TwoSpeed");
   libraryWidget->addModelObjectType(IddObjectType::OS_Coil_Cooling_DX_SingleSpeed, "Coil Cooling DX SingleSpeed");
