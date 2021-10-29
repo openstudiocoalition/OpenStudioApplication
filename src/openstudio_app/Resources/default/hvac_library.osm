@@ -12972,3 +12972,162 @@ OS:ScheduleTypeLimits,
   Discrete,                               !- Numeric Type
   Availability;                           !- Unit Type
 
+OS:Coil:Cooling:DX:VariableSpeed,
+  {3ef4dbff-bbcf-4645-93ab-fcd09507f984}, !- Handle
+  Coil Cooling DX Variable Speed - Two Speeds, !- Name
+  ,                                       !- Indoor Air Inlet Node Name
+  ,                                       !- Indoor Air Outlet Node Name
+  2,                                      !- Nominal Speed Level {dimensionless}
+  autosize,                               !- Gross Rated Total Cooling Capacity At Selected Nominal Speed Level {W}
+  autosize,                               !- Rated Air Flow Rate At Selected Nominal Speed Level {m3/s}
+  0,                                      !- Nominal Time for Condensate to Begin Leaving the Coil {s}
+  0,                                      !- Initial Moisture Evaporation Rate Divided by Steady-State AC Latent Capacity {dimensionless}
+  {7b4bbf3a-da3a-4c78-8a94-31ad7758433e}, !- Energy Part Load Fraction Curve Name
+  ,                                       !- Condenser Air Inlet Node Name
+  AirCooled,                              !- Condenser Type
+  0,                                      !- Evaporative Condenser Pump Rated Power Consumption {W}
+  0,                                      !- Crankcase Heater Capacity {W}
+  10,                                     !- Maximum Outdoor Dry-Bulb Temperature for Crankcase Heater Operation {C}
+  -25,                                    !- Minimum Outdoor Dry-Bulb Temperature for Compressor Operation {C}
+  ,                                       !- Supply Water Storage Tank Name
+  ,                                       !- Condensate Collection Water Storage Tank Name
+  0,                                      !- Basin Heater Capacity {W/K}
+  2,                                      !- Basin Heater Setpoint Temperature {C}
+  ,                                       !- Basin Heater Operating Schedule Name
+  {3e02b0bc-ca89-47eb-a9d2-6dc211481c62}; !- Speed Data List
+
+OS:Curve:Quadratic,
+  {7b4bbf3a-da3a-4c78-8a94-31ad7758433e}, !- Handle
+  Coil Cooling DX Variable Speed - Two Speeds EIRfPLR, !- Name
+  0.85,                                   !- Coefficient1 Constant
+  0.15,                                   !- Coefficient2 x
+  0,                                      !- Coefficient3 x**2
+  0,                                      !- Minimum Value of x
+  1;                                      !- Maximum Value of x
+
+OS:ModelObjectList,
+  {3e02b0bc-ca89-47eb-a9d2-6dc211481c62}, !- Handle
+  Coil Cooling DX Variable Speed - Two Speeds Speed Data List, !- Name
+  {c6894c2f-8f74-4b2b-9b9a-a750cf02239e}, !- Model Object 1
+  {4ff6c0f4-2205-4efd-8d66-41832c7f63fb}; !- Model Object 2
+
+OS:Coil:Cooling:DX:VariableSpeed:SpeedData,
+  {c6894c2f-8f74-4b2b-9b9a-a750cf02239e}, !- Handle
+  Coil Cooling DX Variable Speed - Two Speeds Half Speed, !- Name
+  8914.185229,                            !- Reference Unit Gross Rated Total Cooling Capacity {W}
+  0.79,                                   !- Reference Unit Gross Rated Sensible Heat Ratio {dimensionless}
+  3.980488789,                            !- Reference Unit Gross Rated Cooling COP {W/W}
+  0.944,                                  !- Reference Unit Rated Air Flow Rate {m3/s}
+  ,                                       !- Reference Unit Rated Condenser Air Flow Rate {m3/s}
+  ,                                       !- Reference Unit Rated Pad Effectiveness of Evap Precooling {dimensionless}
+  {a9724ab5-aa61-4479-aedd-8296e85241c5}, !- Total Cooling Capacity Function of Temperature Curve Name
+  {8fa19149-4082-4a37-baaf-b199c1e7d0ff}, !- Total Cooling Capacity Function of Air Flow Fraction Curve Name
+  {5ee36f16-e962-433b-b205-188984aa65c1}, !- Energy Input Ratio Function of Temperature Curve Name
+  {556340fa-497f-46fc-a38d-9009a3abb6e6}; !- Energy Input Ratio Function of Air Flow Fraction Curve Name
+
+OS:Curve:Biquadratic,
+  {a9724ab5-aa61-4479-aedd-8296e85241c5}, !- Handle
+  Coil Cooling DX Variable Speed - Two Speeds Half Speed capFT, !- Name
+  1.6253449506,                           !- Coefficient1 Constant
+  -0.0786550838,                          !- Coefficient2 x
+  0.0030679776,                           !- Coefficient3 x**2
+  0.0008002088,                           !- Coefficient4 y
+  -3.5406e-05,                            !- Coefficient5 y**2
+  -0.0003534409,                          !- Coefficient6 x*y
+  13.89,                                  !- Minimum Value of x
+  22.22,                                  !- Maximum Value of x
+  12.78,                                  !- Minimum Value of y
+  51.67;                                  !- Maximum Value of y
+
+OS:Curve:Quadratic,
+  {8fa19149-4082-4a37-baaf-b199c1e7d0ff}, !- Handle
+  Coil Cooling DX Variable Speed - Two Speeds Half Speed capFlow, !- Name
+  1,                                      !- Coefficient1 Constant
+  0,                                      !- Coefficient2 x
+  0,                                      !- Coefficient3 x**2
+  0.5,                                    !- Minimum Value of x
+  1.5;                                    !- Maximum Value of x
+
+OS:Curve:Biquadratic,
+  {5ee36f16-e962-433b-b205-188984aa65c1}, !- Handle
+  Coil Cooling DX Variable Speed - Two Speeds Half Speed EIRFT, !- Name
+  1.4240389306,                           !- Coefficient1 Constant
+  -0.0593310687,                          !- Coefficient2 x
+  0.002606807,                            !- Coefficient3 x**2
+  0.0008867551,                           !- Coefficient4 y
+  -3.69191e-05,                           !- Coefficient5 y**2
+  -0.0003552805,                          !- Coefficient6 x*y
+  13.89,                                  !- Minimum Value of x
+  22.22,                                  !- Maximum Value of x
+  12.78,                                  !- Minimum Value of y
+  51.67;                                  !- Maximum Value of y
+
+OS:Curve:Quadratic,
+  {556340fa-497f-46fc-a38d-9009a3abb6e6}, !- Handle
+  Coil Cooling DX Variable Speed - Two Speeds Half Speed EIRFlow, !- Name
+  1,                                      !- Coefficient1 Constant
+  0,                                      !- Coefficient2 x
+  0,                                      !- Coefficient3 x**2
+  0.5,                                    !- Minimum Value of x
+  1.5;                                    !- Maximum Value of x
+
+OS:Coil:Cooling:DX:VariableSpeed:SpeedData,
+  {4ff6c0f4-2205-4efd-8d66-41832c7f63fb}, !- Handle
+  Coil Cooling DX Variable Speed - Two Speeds Full Speed, !- Name
+  16456.94607,                            !- Reference Unit Gross Rated Total Cooling Capacity {W}
+  0.73,                                   !- Reference Unit Gross Rated Sensible Heat Ratio {dimensionless}
+  4.08,                                   !- Reference Unit Gross Rated Cooling COP {W/W}
+  1.888,                                  !- Reference Unit Rated Air Flow Rate {m3/s}
+  ,                                       !- Reference Unit Rated Condenser Air Flow Rate {m3/s}
+  ,                                       !- Reference Unit Rated Pad Effectiveness of Evap Precooling {dimensionless}
+  {f955716b-c5ea-4e93-8fce-83138073a897}, !- Total Cooling Capacity Function of Temperature Curve Name
+  {efc1de08-bd7a-4779-b761-e782803d2cf0}, !- Total Cooling Capacity Function of Air Flow Fraction Curve Name
+  {dbf61e84-a12e-4c48-8ce5-19e28b6da7af}, !- Energy Input Ratio Function of Temperature Curve Name
+  {756f06bf-6e56-462b-aa0c-345a660162c0}; !- Energy Input Ratio Function of Air Flow Fraction Curve Name
+
+OS:Curve:Biquadratic,
+  {f955716b-c5ea-4e93-8fce-83138073a897}, !- Handle
+  Coil Cooling DX Variable Speed - Two Speeds Full Speed capFT, !- Name
+  1.6253449506,                           !- Coefficient1 Constant
+  -0.0786550838,                          !- Coefficient2 x
+  0.0030679776,                           !- Coefficient3 x**2
+  0.0008002088,                           !- Coefficient4 y
+  -3.5406e-05,                            !- Coefficient5 y**2
+  -0.0003534409,                          !- Coefficient6 x*y
+  13.89,                                  !- Minimum Value of x
+  22.22,                                  !- Maximum Value of x
+  12.78,                                  !- Minimum Value of y
+  51.67;                                  !- Maximum Value of y
+
+OS:Curve:Quadratic,
+  {efc1de08-bd7a-4779-b761-e782803d2cf0}, !- Handle
+  Coil Cooling DX Variable Speed - Two Speeds Full Speed capFlow, !- Name
+  1,                                      !- Coefficient1 Constant
+  0,                                      !- Coefficient2 x
+  0,                                      !- Coefficient3 x**2
+  0.5,                                    !- Minimum Value of x
+  1.5;                                    !- Maximum Value of x
+
+OS:Curve:Biquadratic,
+  {dbf61e84-a12e-4c48-8ce5-19e28b6da7af}, !- Handle
+  Coil Cooling DX Variable Speed - Two Speeds Full Speed EIRFT, !- Name
+  1.4240389306,                           !- Coefficient1 Constant
+  -0.0593310687,                          !- Coefficient2 x
+  0.002606807,                            !- Coefficient3 x**2
+  0.0008867551,                           !- Coefficient4 y
+  -3.69191e-05,                           !- Coefficient5 y**2
+  -0.0003552805,                          !- Coefficient6 x*y
+  13.89,                                  !- Minimum Value of x
+  22.22,                                  !- Maximum Value of x
+  12.78,                                  !- Minimum Value of y
+  51.67;                                  !- Maximum Value of y
+
+OS:Curve:Quadratic,
+  {756f06bf-6e56-462b-aa0c-345a660162c0}, !- Handle
+  Coil Cooling DX Variable Speed - Two Speeds Full Speed EIRFlow, !- Name
+  1,                                      !- Coefficient1 Constant
+  0,                                      !- Coefficient2 x
+  0,                                      !- Coefficient3 x**2
+  0.5,                                    !- Minimum Value of x
+  1.5;                                    !- Maximum Value of x
+
