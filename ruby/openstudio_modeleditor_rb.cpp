@@ -32,7 +32,6 @@
 #include <iostream>
 #include <ruby.h>
 
-
 //#if defined(__APPLE__)
 //  Q_IMPORT_PLUGIN(QCocoaIntegrationPlugin);
 //#elif (defined (_WIN32) || defined (_WIN64))
@@ -43,25 +42,22 @@
 
 inline void initResources() {
 
-  #ifndef SHARED_OS_LIBS
-    Q_INIT_RESOURCE(modeleditorlib);
-  #endif // SHARED_OS_LIBS
-
+#ifndef SHARED_OS_LIBS
+  Q_INIT_RESOURCE(modeleditorlib);
+#endif  // SHARED_OS_LIBS
 }
 
-extern "C" {
- 
-void Init_openstudiomodeleditor(void);
+extern "C"
+{
 
-RUBY_API void Init_openstudio_modeleditor(void) {
+  void Init_openstudiomodeleditor(void);
 
-  initResources();
+  RUBY_API void Init_openstudio_modeleditor(void) {
 
-  Init_openstudiomodeleditor();
-  rb_provide("openstudiomodeleditor");
-  rb_provide("openstudiomodeleditor.so");
+    initResources();
 
+    Init_openstudiomodeleditor();
+    rb_provide("openstudiomodeleditor");
+    rb_provide("openstudiomodeleditor.so");
+  }
 }
-
-}
-

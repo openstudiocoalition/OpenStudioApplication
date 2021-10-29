@@ -85,7 +85,9 @@ class RefrigerationGridController;
 class RefrigerationGridView;
 class VRFController;
 
-class HVACSystemsController : public QObject, public Nano::Observer
+class HVACSystemsController
+  : public QObject
+  , public Nano::Observer
 {
   Q_OBJECT
 
@@ -189,7 +191,9 @@ class HVACSystemsController : public QObject, public Nano::Observer
   void toggleUnitsClicked(bool displayIP);
 };
 
-class HVACControlsController : public QObject, public Nano::Observer
+class HVACControlsController
+  : public QObject
+  , public Nano::Observer
 {
   Q_OBJECT;
 
@@ -262,7 +266,9 @@ class HVACControlsController : public QObject, public Nano::Observer
   bool m_dirty;
 };
 
-class HVACLayoutController : public QObject, public Nano::Observer
+class HVACLayoutController
+  : public QObject
+  , public Nano::Observer
 {
   Q_OBJECT;
 

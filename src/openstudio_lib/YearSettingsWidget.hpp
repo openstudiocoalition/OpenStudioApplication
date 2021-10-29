@@ -50,7 +50,9 @@ class OSComboBox2;
 
 class OSSwitch2;
 
-class YearSettingsWidget : public QWidget, public Nano::Observer
+class YearSettingsWidget
+  : public QWidget
+  , public Nano::Observer
 {
   Q_OBJECT
 

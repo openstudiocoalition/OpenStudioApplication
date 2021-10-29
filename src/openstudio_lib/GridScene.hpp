@@ -41,7 +41,9 @@ namespace model {
 class HVACComponent;
 }
 
-class GridScene : public QGraphicsScene, public Nano::Observer
+class GridScene
+  : public QGraphicsScene
+  , public Nano::Observer
 {
   Q_OBJECT
 

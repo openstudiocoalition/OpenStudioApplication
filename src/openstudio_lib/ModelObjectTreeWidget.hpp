@@ -42,7 +42,9 @@ class QVBoxLayout;
 
 namespace openstudio {
 
-class ModelObjectTreeWidget : public OSItemSelector, public Nano::Observer
+class ModelObjectTreeWidget
+  : public OSItemSelector
+  , public Nano::Observer
 {
   Q_OBJECT
 

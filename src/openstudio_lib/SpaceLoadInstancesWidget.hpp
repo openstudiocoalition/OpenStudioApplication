@@ -160,7 +160,9 @@ class NewSpaceLoadVectorController : public ModelObjectVectorController
   virtual void onDrop(const OSItemId& itemId) override;
 };
 
-class SpaceLoadInstancesWidget : public QWidget, public Nano::Observer
+class SpaceLoadInstancesWidget
+  : public QWidget
+  , public Nano::Observer
 {
   Q_OBJECT
 

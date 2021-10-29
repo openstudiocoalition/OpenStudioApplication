@@ -53,7 +53,9 @@ class RemoveButtonItem;
 
 class NodeContextButtonItem;
 
-class ModelObjectGraphicsItem : public QGraphicsObject, public Nano::Observer
+class ModelObjectGraphicsItem
+  : public QGraphicsObject
+  , public Nano::Observer
 {
   Q_OBJECT;
 

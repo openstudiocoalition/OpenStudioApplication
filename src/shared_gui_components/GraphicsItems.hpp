@@ -71,7 +71,9 @@ class AbstractButtonItem : public QGraphicsObject
   bool m_mouseDown;
 };
 
-class ButtonItem : public QGraphicsObject, public Nano::Observer
+class ButtonItem
+  : public QGraphicsObject
+  , public Nano::Observer
 {
   Q_OBJECT;
 

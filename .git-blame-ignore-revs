@@ -254,3 +254,5 @@ abcabd4cb0a2144b81e74212b19cc2dde1f04797
 # [chore] clang-format: BreakBeforeBinaryOperators: None to NonAssignment [Julien Marrec, 2021-05-31]
 1e066fcf865e22e0c23627ac7230024e244756a9
 
+# [chore] Bump copyright to 2021 + about box [Julien Marrec, 2021-10-29]
+00f84181cda6999fb4ea01d75f0f41daab581cd2

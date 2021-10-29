@@ -38,7 +38,9 @@
 
 namespace openstudio {
 
-class OSSwitch2 : public QPushButton, public Nano::Observer
+class OSSwitch2
+  : public QPushButton
+  , public Nano::Observer
 {
   Q_OBJECT
  public:

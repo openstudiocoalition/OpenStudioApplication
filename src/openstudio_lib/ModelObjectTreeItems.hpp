@@ -55,7 +55,10 @@ class SpaceType;
 class Space;
 }  // namespace model
 
-class ModelObjectTreeItem : public QObject, public QTreeWidgetItem, public Nano::Observer
+class ModelObjectTreeItem
+  : public QObject
+  , public QTreeWidgetItem
+  , public Nano::Observer
 {
   Q_OBJECT
 

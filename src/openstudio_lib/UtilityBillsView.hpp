@@ -188,7 +188,9 @@ class UtilityBillsInspectorView : public ModelObjectInspectorView
   void deleteAllWidgetsAndLayoutItems(QLayout* layout, bool deleteWidgets = true);
 };
 
-class BillingPeriodWidget : public QWidget, public Nano::Observer
+class BillingPeriodWidget
+  : public QWidget
+  , public Nano::Observer
 {
 
   Q_OBJECT

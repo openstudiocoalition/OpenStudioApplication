@@ -57,7 +57,9 @@ class SpaceLoadInstance;
 }  // namespace model
 }  // namespace openstudio
 
-class MODELEDITOR_API ModelObjectSelectorDialog : public QDialog, public Nano::Observer
+class MODELEDITOR_API ModelObjectSelectorDialog
+  : public QDialog
+  , public Nano::Observer
 {
   Q_OBJECT
 
@@ -114,7 +116,9 @@ class MODELEDITOR_API ModelObjectSelectorDialog : public QDialog, public Nano::O
   void loadComboBoxData();
 };
 
-class MODELEDITOR_API ModelObjectSelectorDialogWatcher : public QObject, public Nano::Observer
+class MODELEDITOR_API ModelObjectSelectorDialogWatcher
+  : public QObject
+  , public Nano::Observer
 {
   Q_OBJECT
 

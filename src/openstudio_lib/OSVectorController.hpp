@@ -42,7 +42,9 @@ namespace openstudio {
 class OSItem;
 class OSItemId;
 
-class OSVectorController : public QObject, public Nano::Observer
+class OSVectorController
+  : public QObject
+  , public Nano::Observer
 {
   Q_OBJECT
 

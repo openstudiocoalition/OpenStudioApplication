@@ -37,7 +37,9 @@
 
 namespace openstudio {
 
-class PlanarSurfaceWidget : public QWidget, public Nano::Observer
+class PlanarSurfaceWidget
+  : public QWidget
+  , public Nano::Observer
 {
   Q_OBJECT
 

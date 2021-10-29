@@ -45,7 +45,9 @@ namespace openstudio {
 
 class OSViewSwitcher;
 
-class MainTabView : public QWidget, public Nano::Observer
+class MainTabView
+  : public QWidget
+  , public Nano::Observer
 {
   Q_OBJECT
 

@@ -37,7 +37,9 @@
 
 namespace openstudio {
 
-class OSQObjectController : public QObject, public Nano::Observer
+class OSQObjectController
+  : public QObject
+  , public Nano::Observer
 {
   Q_OBJECT
 

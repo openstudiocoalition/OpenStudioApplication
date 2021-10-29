@@ -48,7 +48,9 @@ class OSItemSelectionController;
  *  The OSListController class can also manage item selection, however this capability requires that OSListItem objects are
  *  constructed with a pointer to the OSListController they are associated with -or- the item's controller has been set after creation.
  */
-class OSListController : public QObject, public Nano::Observer
+class OSListController
+  : public QObject
+  , public Nano::Observer
 {
   Q_OBJECT
 
@@ -139,7 +141,9 @@ class OSListItem : public QObject
 
 // The purpose of OSItemSelectionController is to manage item selections.  You shouldn't often need to subclass.
 // OSListController classes get initialized with one of these.
-class OSItemSelectionController : public QObject, public Nano::Observer
+class OSItemSelectionController
+  : public QObject
+  , public Nano::Observer
 {
   Q_OBJECT
 
@@ -201,7 +205,9 @@ class OSItemSelectionController : public QObject, public Nano::Observer
  * if the view very specific with little opportunity for reuse, and if the design is simple, it is acceptable for OSItemDelegate::view()
  * to build up a widget conglomeration on the fly from primitive widget types like QLabel, QWidget, etc.
  */
-class OSItemDelegate : public QObject, public Nano::Observer
+class OSItemDelegate
+  : public QObject
+  , public Nano::Observer
 {
   Q_OBJECT
 
@@ -213,7 +219,9 @@ class OSItemDelegate : public QObject, public Nano::Observer
 
 /**  The purpose of OSGraphicsItemDelegate is the same as OSItemDelegate except it is used with QGraphicsObject instances instead of QWidget instances.
  */
-class OSGraphicsItemDelegate : public QObject, public Nano::Observer
+class OSGraphicsItemDelegate
+  : public QObject
+  , public Nano::Observer
 {
   Q_OBJECT;
 

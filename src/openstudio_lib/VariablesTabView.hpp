@@ -45,7 +45,9 @@ namespace openstudio {
 class OSSwitch2;
 class OSComboBox2;
 
-class VariableListItem : public QWidget, public Nano::Observer
+class VariableListItem
+  : public QWidget
+  , public Nano::Observer
 {
   Q_OBJECT;
 
@@ -74,7 +76,9 @@ class VariableListItem : public QWidget, public Nano::Observer
   OSSwitch2* m_onOffButton;
 };
 
-class VariablesList : public QWidget, public Nano::Observer
+class VariablesList
+  : public QWidget
+  , public Nano::Observer
 {
   Q_OBJECT;
 

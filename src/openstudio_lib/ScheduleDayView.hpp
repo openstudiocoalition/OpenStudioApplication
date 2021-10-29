@@ -290,7 +290,9 @@ class ScheduleDayEditor : public QWidget
   QLabel* m_keyboardPrompt;
 };
 
-class DayScheduleScene : public QGraphicsScene, public Nano::Observer
+class DayScheduleScene
+  : public QGraphicsScene
+  , public Nano::Observer
 {
   Q_OBJECT
 
