@@ -256,3 +256,6 @@ abcabd4cb0a2144b81e74212b19cc2dde1f04797
 
 # [chore] Bump copyright to 2021 + about box [Julien Marrec, 2021-10-29]
 00f84181cda6999fb4ea01d75f0f41daab581cd2
+
+# [chore] clang format + gitblame ignore rev [Julien Marrec, 2021-10-29]
+0778b866505cf35b8097597152cce71e5817ef28
