@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -53,7 +53,9 @@ class RemoveButtonItem;
 
 class NodeContextButtonItem;
 
-class ModelObjectGraphicsItem : public QGraphicsObject, public Nano::Observer
+class ModelObjectGraphicsItem
+  : public QGraphicsObject
+  , public Nano::Observer
 {
   Q_OBJECT;
 
