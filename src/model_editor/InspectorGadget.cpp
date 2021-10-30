@@ -932,7 +932,7 @@ void InspectorGadget::IGvalueChanged(const QString& value) {
     emit nameChanged(temp.c_str());
   }
   emit dirty();
-  
+
   unsigned numFieldsEnd = m_workspaceObj->numFields();
   if (numFieldsEnd > numFieldsStart) {
     onWorkspaceObjectChanged();
