@@ -769,7 +769,7 @@ endif()
 # Leaving it
 set(CPACK_IFW_VERBOSE ON)
 
-set(CPACK_PACKAGE_VENDOR "National Renewable Energy Laboratory")
+set(CPACK_PACKAGE_VENDOR "OpenStudio Coalition")
 # These are ok, even if we have a prerelease tag
 set(CPACK_PACKAGE_VERSION_MAJOR ${OpenStudioApplication_VERSION_MAJOR})
 set(CPACK_PACKAGE_VERSION_MINOR ${OpenStudioApplication_VERSION_MINOR})
