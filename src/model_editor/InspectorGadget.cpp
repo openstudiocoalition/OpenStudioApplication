@@ -884,6 +884,7 @@ void InspectorGadget::IGvalueChanged(const QString& value) {
 
   QVariant v = source->property(InspectorGadget::s_indexSlotName);
   int index = v.toInt();
+  unsigned numFieldsStart = m_workspaceObj->numFields();
   std::string temp(qval.toStdString());
 
   disconnectWorkspaceObjectSignals();
@@ -931,12 +932,18 @@ void InspectorGadget::IGvalueChanged(const QString& value) {
     emit nameChanged(temp.c_str());
   }
   emit dirty();
+  
+  unsigned numFieldsEnd = m_workspaceObj->numFields();
+  if (numFieldsEnd > numFieldsStart) {
+    onWorkspaceObjectChanged();
+  }
 }
 
 void InspectorGadget::IGcommentChanged(const QString& value) {
   QObject* source = sender();
   QVariant v = source->property(InspectorGadget::s_indexSlotName);
   int index = v.toInt();
+  unsigned numFieldsStart = m_workspaceObj->numFields();
   std::string temp(value.toStdString());
   if (index < 0) {
     disconnectWorkspaceObjectSignals();
@@ -949,6 +956,11 @@ void InspectorGadget::IGcommentChanged(const QString& value) {
   }
 
   emit dirty();
+
+  unsigned numFieldsEnd = m_workspaceObj->numFields();
+  if (numFieldsEnd > numFieldsStart) {
+    onWorkspaceObjectChanged();
+  }
 }
 
 void InspectorGadget::IGautosize(bool toggled) {
@@ -959,10 +971,16 @@ void InspectorGadget::IGautosize(bool toggled) {
   QObject* source = sender();
   QVariant v = source->property(InspectorGadget::s_indexSlotName);
   int index = v.toInt();
+  unsigned numFieldsStart = m_workspaceObj->numFields();
 
   disconnectWorkspaceObjectSignals();
   m_workspaceObj->setString(index, "Autosize");
   connectWorkspaceObjectSignals();
+
+  unsigned numFieldsEnd = m_workspaceObj->numFields();
+  if (numFieldsEnd > numFieldsStart) {
+    onWorkspaceObjectChanged();
+  }
 }
 
 void InspectorGadget::IGautocalculate(bool toggled) {
@@ -973,10 +991,16 @@ void InspectorGadget::IGautocalculate(bool toggled) {
   QObject* source = sender();
   QVariant v = source->property(InspectorGadget::s_indexSlotName);
   int index = v.toInt();
+  unsigned numFieldsStart = m_workspaceObj->numFields();
 
   disconnectWorkspaceObjectSignals();
   m_workspaceObj->setString(index, "Autocalculate");
   connectWorkspaceObjectSignals();
+
+  unsigned numFieldsEnd = m_workspaceObj->numFields();
+  if (numFieldsEnd > numFieldsStart) {
+    onWorkspaceObjectChanged();
+  }
 }
 
 void InspectorGadget::commentConfig(bool showComments) {
