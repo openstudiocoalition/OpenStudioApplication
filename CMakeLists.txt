@@ -793,7 +793,7 @@ else()
   set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${OPENSTUDIOAPPLICATION_LONG_VERSION}-${CMAKE_SYSTEM_NAME}")
 endif()
 
-set(CPACK_PACKAGE_CONTACT "openstudio@nrel.gov")
+set(CPACK_PACKAGE_CONTACT "osc@openstudiocoalition.org")
 
   # Install additional Documents, such as release notes
   install(FILES "${PROJECT_SOURCE_DIR}/QT_LICENSE_GPL_3_0.txt" DESTINATION .)

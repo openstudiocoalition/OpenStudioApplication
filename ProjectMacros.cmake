@@ -747,11 +747,11 @@ macro(MAKE_SWIG_TARGET_OSAPP NAME SIMPLENAME KEY_I_FILE I_FILES PARENT_TARGET PA
     string(TOLOWER ${SIMPLIFIED_NAME} SIMPLIFIED_NAME)
 
     if(IS_UTILTIES)
-      set(NAMESPACE "gov.nrel.openstudio")
+      set(NAMESPACE "org.openstudiocoalition")
       set(MODULE "${SIMPLIFIED_NAME}_global")
     else()
       #set( NAMESPACE "OpenStudio.${NAME}")
-      set( NAMESPACE "gov.nrel.openstudio")
+      set( NAMESPACE "org.openstudiocoalition")
       set( MODULE "${SIMPLIFIED_NAME}_global")
     endif()
 
