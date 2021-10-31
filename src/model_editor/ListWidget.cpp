@@ -38,7 +38,7 @@ ListWidget::ListWidget(QWidget* parent) : QListWidget(parent) {}
 
 ListWidget::~ListWidget() {}
 
-QMimeData* ListWidget::mimeData(const QList<QListWidgetItem*> items) const {
+QMimeData* ListWidget::mimeData(const QList<QListWidgetItem*>& items) const {
   QMimeData* mimeData = QListWidget::mimeData(items);
   mimeData->setData(getMimeType(), QByteArray());
 

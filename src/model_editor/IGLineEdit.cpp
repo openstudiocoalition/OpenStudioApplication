@@ -39,6 +39,7 @@
 #include <QVariant>
 #include <QDoubleValidator>
 #include <QIntValidator>
+#include <QRegularExpressionValidator>
 
 using std::ios;
 using std::string;
@@ -71,7 +72,7 @@ bool IGLineEdit::checkValue(QString& txt) {
     return true;
   }
 
-  const QRegExpValidator* dv = qobject_cast<const QRegExpValidator*>(v);
+  const QRegularExpressionValidator* dv = qobject_cast<const QRegularExpressionValidator*>(v);
   if (dv) {
     bool ok;
     double val = textVal.toDouble(&ok);

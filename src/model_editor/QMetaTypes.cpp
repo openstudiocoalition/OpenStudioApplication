@@ -56,8 +56,8 @@ int __optional_int_type = qRegisterMetaType<boost::optional<int>>("boost::option
 int __optional_string_type = qRegisterMetaType<boost::optional<std::string>>("boost::optional<std::string>");
 
 // qRegisterMetaType<openstudio::Attribute>("openstudio::Attribute");
-int __attribute_optional_type__ = qRegisterMetaType<boost::optional<openstudio::Attribute>>("boost::optional<openstudio::Attribute>");
-int __atribute_vector_type = qRegisterMetaType<std::vector<openstudio::Attribute>>("std::vector<openstudio::Attribute>");
+//int __attribute_optional_type__ = qRegisterMetaType<boost::optional<openstudio::Attribute>>("boost::optional<openstudio::Attribute>");
+//int __atribute_vector_type = qRegisterMetaType<std::vector<openstudio::Attribute>>("std::vector<openstudio::Attribute>");
 
 int __quantity_type = qRegisterMetaType<openstudio::Quantity>("openstudio::Quantity");
 int __optionalquantity_type = qRegisterMetaType<openstudio::OSOptionalQuantity>("openstudio::OSOptionalQuantity");
