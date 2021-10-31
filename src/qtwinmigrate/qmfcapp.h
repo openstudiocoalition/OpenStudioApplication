@@ -38,6 +38,7 @@
 **
 ****************************************************************************/
 
+
 // Declaration of the QMfcApp classes
 
 #ifndef QMFCAPP_H
@@ -46,8 +47,8 @@
 #include <QApplication>
 
 #if defined(_AFXDLL) && defined(_MSC_VER)
-#  define QTWINMIGRATE_WITHMFC
-class CWinApp;
+  #define QTWINMIGRATE_WITHMFC
+  class CWinApp;
 #endif
 
 #if defined(Q_OS_WIN)
@@ -67,43 +68,51 @@ class CWinApp;
 #endif
 
 #if QT_VERSION >= 0x050000
-#  include <QAbstractNativeEventFilter>
+#include <QAbstractNativeEventFilter>
 
 class QT_QTWINMIGRATE_EXPORT QMfcAppEventFilter : public QAbstractNativeEventFilter
 {
- public:
-  QMfcAppEventFilter();
-  bool nativeEventFilter(const QByteArray& eventType, void* message, long* result);
+public:
+    QMfcAppEventFilter();
+#if QT_VERSION >= 0x060000
+    bool nativeEventFilter(const QByteArray &eventType, void *message, qintptr *result) override;
+#else
+    bool nativeEventFilter(const QByteArray &eventType, void *message, long *result) override;
+#endif 
 };
 #endif
 
 class QT_QTWINMIGRATE_EXPORT QMfcApp : public QApplication
 {
- public:
-  static bool pluginInstance(Qt::HANDLE plugin = 0);
+public:
+    static bool pluginInstance(Qt::HANDLE plugin = 0);
 
 #ifdef QTWINMIGRATE_WITHMFC
-  static int run(CWinApp* mfcApp);
-  static QApplication* instance(CWinApp* mfcApp);
-  QMfcApp(CWinApp* mfcApp, int& argc, char** argv);
+    static int run(CWinApp *mfcApp);
+    static QApplication *instance(CWinApp *mfcApp);
+    QMfcApp(CWinApp *mfcApp, int &argc, char **argv);
 #endif
-  QMfcApp(int& argc, char** argv);
-  ~QMfcApp();
+    QMfcApp(int &argc, char **argv);
+    ~QMfcApp();
 
-  bool winEventFilter(MSG* msg, long* result);
+#if QT_VERSION >= 0x060000
+    bool winEventFilter(MSG *msg, qintptr *result);
+#else
+    bool winEventFilter(MSG *msg, long *result);
+#endif 
 
-  static void enterModalLoop();
-  static void exitModalLoop();
+    static void enterModalLoop();
+    static void exitModalLoop();
 
- private:
+private:
 #ifdef QTWINMIGRATE_WITHMFC
-  static char** mfc_argv;
-  static int mfc_argc;
-  static CWinApp* mfc_app;
+    static char ** mfc_argv;
+    static int mfc_argc;
+    static CWinApp *mfc_app;
 #endif
 
-  int idleCount;
-  bool doIdle;
+    int idleCount;
+    bool doIdle;
 };
 
-#endif  // QMFCAPP_H
+#endif // QMFCAPP_H
