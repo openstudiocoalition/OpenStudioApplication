@@ -252,6 +252,8 @@ elseif( WIN32 )
     )
   endforeach()
 
+  target_link_libraries(${target_name} optimized ${QT_ENTRYPOINT_LIB} debug ${QT_ENTRYPOINT_LIB_D})
+
   add_custom_command(TARGET ${target_name}
     POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QtWebEngineProcess} $<TARGET_FILE_DIR:${target_name}>/ )

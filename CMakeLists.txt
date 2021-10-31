@@ -513,7 +513,7 @@ message(STATUS "OPENSSL_ROOT_DIR=${OPENSSL_ROOT_DIR}")
 
 message(STATUS "QT_INSTALL_DIR=${QT_INSTALL_DIR}")
 
-find_package(Qt6 ${QT_VERSION} COMPONENTS CoreTools GuiTools WidgetsTools QmlTools WebEngineCoreTools REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+find_package(Qt6 ${QT_VERSION} COMPONENTS CoreTools EntryPointPrivate GuiTools WidgetsTools QmlTools WebEngineCoreTools REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
 
 find_package(Qt6 ${QT_VERSION} COMPONENTS Core Core5Compat Gui Widgets Sql Network Xml Concurrent PrintSupport Quick QuickWidgets Qml WebChannel Positioning WebEngineCore WebEngineWidgets REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
 
@@ -531,7 +531,8 @@ find_file(qweb_resources_200 NAMES qtwebengine_resources_200p.pak PATHS "${QT_IN
 # DLM: why do we have QT_WEB_LIBS separate from QT_LIBS?  can we combine these?
 # DLM: now the distincton should be between Qt libs linked by openstudio_modeleditor.so and the OS App
 list(APPEND QT_WEB_LIBS Qt6::Core)
-list(APPEND QT_WEB_LIBS Qt6::Gui)
+list(APPEND QT_WEB_LIBS Qt6::Core5Compat)
+list(APPEND QT_WEB_LIBS Qt6::Widgets)
 list(APPEND QT_WEB_LIBS Qt6::WebEngineCore)
 list(APPEND QT_WEB_LIBS Qt6::WebEngineWidgets)
 #list(APPEND QT_WEB_LIBS Qt6::3DCore)
@@ -605,6 +606,9 @@ list(APPEND QT_LIBS Qt6::Gui)
 if(WIN32)
   find_package(Qt6OpenGL ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
   list(APPEND QT_LIBS Qt6::OpenGL)
+
+  find_library(QT_ENTRYPOINT_LIB NAMES Qt6EntryPoint PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
+  find_library(QT_ENTRYPOINT_LIB_D NAMES Qt6EntryPointd PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
 endif()
 
 list(APPEND QT_INCLUDES ${Qt6Core_INCLUDE_DIRS})
