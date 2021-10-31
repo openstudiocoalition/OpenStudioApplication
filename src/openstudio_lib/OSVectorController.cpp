@@ -28,7 +28,6 @@
 ***********************************************************************************************************************/
 
 #include "OSVectorController.hpp"
-#include "OSItem.hpp"
 
 namespace openstudio {
 

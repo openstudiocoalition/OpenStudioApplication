@@ -207,15 +207,6 @@ int main(int argc, char* argv[]) {
       qputenv("QTWEBENGINE_REMOTE_DEBUGGING", debugPort.toStdString().c_str());
     }
 
-    // QCoreApplication::setAttribute should really be put here because it's set before we create the App
-    if (!qEnvironmentVariableIsSet("QT_DEVICE_PIXEL_RATIO") && !qEnvironmentVariableIsSet("QT_AUTO_SCREEN_SCALE_FACTOR")
-        && !qEnvironmentVariableIsSet("QT_SCALE_FACTOR") && !qEnvironmentVariableIsSet("QT_SCREEN_SCALE_FACTORS")) {
-      LOG_FREE(Info, "OpenStudioApp.main",
-               "Setting Qt::AA_EnableHighDpiScaling. "
-                 << "Instead, you can also manually set the environment variable 'QT_SCALE_FACTOR'.");
-      QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-    }
-
     // Don't use native menu bar, necessary on Ubuntu 16.04
     QCoreApplication::setAttribute(Qt::AA_DontUseNativeMenuBar, true);
     QCoreApplication::setOrganizationDomain("nrel.gov");
@@ -227,9 +218,9 @@ int main(int argc, char* argv[]) {
     QCoreApplication::addLibraryPath(QCoreApplication::applicationDirPath());
 
     LOG_FREE(Info, "OpenStudioApp.main",
-             "LibraryExecutablesPath: " << openstudio::toString(QLibraryInfo::location(QLibraryInfo::LibraryExecutablesPath)));
-    LOG_FREE(Info, "OpenStudioApp.main", "DataPath: " << openstudio::toString(QLibraryInfo::location(QLibraryInfo::DataPath)));
-    LOG_FREE(Info, "OpenStudioApp.main", "TranslationsPath: " << openstudio::toString(QLibraryInfo::location(QLibraryInfo::TranslationsPath)));
+             "LibraryExecutablesPath: " << openstudio::toString(QLibraryInfo::path(QLibraryInfo::LibraryExecutablesPath)));
+    LOG_FREE(Info, "OpenStudioApp.main", "DataPath: " << openstudio::toString(QLibraryInfo::path(QLibraryInfo::DataPath)));
+    LOG_FREE(Info, "OpenStudioApp.main", "TranslationsPath: " << openstudio::toString(QLibraryInfo::path(QLibraryInfo::TranslationsPath)));
 
 #ifdef Q_OS_DARWIN
     // Gross but perhaps the simplest way to find the webengine process

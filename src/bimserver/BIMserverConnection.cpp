@@ -186,7 +186,7 @@ void BIMserverConnection::processGetAllProjectsRequest(QNetworkReply* rep) {
     if (!containsError(response)) {
       QJsonArray result = response["result"].toArray();
       QStringList projectList;
-      foreach (const QJsonValue& value, result) {
+      for (const QJsonValue& value : result) {
         QJsonObject ifcProject = value.toObject();
         int oid = ifcProject["oid"].toInt();
         QString projectID = toQString(openstudio::string_conversions::number(oid));
@@ -358,7 +358,7 @@ void BIMserverConnection::processGetDownloadDataRequest(QNetworkReply* rep) {
       QString file = result["file"].toString();
       //decode the response
       QByteArray byteArray;
-      byteArray.append(file);
+      byteArray.append(file.toStdString().c_str());
       QString OSMFile = QByteArray::fromBase64(byteArray);
 
       m_osmModel = OSMFile;
@@ -679,7 +679,7 @@ void BIMserverConnection::processGetProjectByIDRequest(QNetworkReply* rep) {
     if (!containsError(response)) {
       QJsonArray result = response["result"].toArray();
       QStringList revisionList;
-      foreach (const QJsonValue& value, result) {
+      for (const QJsonValue& value : result) {
         QJsonObject ifcRevision = value.toObject();
         QString revision = toQString(openstudio::string_conversions::number(ifcRevision["oid"].toInt()));
         double time = ifcRevision["date"].toDouble();
@@ -755,7 +755,9 @@ void BIMserverConnection::processGetProgressRequest() {
     } else {
       QJsonArray error = response["errors"].toArray();
       QString errorMessage;
-      foreach (const QJsonValue& value, error) { errorMessage = errorMessage + value.toString() + QString("\n"); }
+      for (const QJsonValue& value : error) { 
+        errorMessage = errorMessage + value.toString() + QString("\n"); 
+      }
       emit errorOccured(errorMessage);
     }
 

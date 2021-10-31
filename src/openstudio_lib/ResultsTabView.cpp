@@ -35,7 +35,6 @@
 #include <QFile>
 #include <QBoxLayout>
 #include <QComboBox>
-#include <QDesktopWidget>
 #include <QDomDocument>
 #include <QLabel>
 #include <QMessageBox>

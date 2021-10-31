@@ -235,12 +235,11 @@ class DataPointJobItemView : public OSCollapsibleView
 
   DataPointJobContentView* m_dataPointJobContentView;
 
- protected:
-  void paintEvent(QPaintEvent* e) override;
-
- public slots:
-
   void update(const BCLMeasure& bclMeasure, const boost::optional<WorkflowJSON>& outWorkflowJSON, bool canceled);
+
+ protected:
+
+  void paintEvent(QPaintEvent* e) override;
 };
 
 }  // namespace openstudio

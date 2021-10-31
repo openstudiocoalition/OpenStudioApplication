@@ -135,7 +135,7 @@ FacilityShadingGridView::FacilityShadingGridView(bool isIP, const model::Model& 
   connect(m_nameFilter, &QLineEdit::editingFinished, this, &openstudio::FacilityShadingGridView::nameFilterChanged);
 
   QRegularExpression nameRegex("^\\S.*");
-  auto nameValidator = new QQRegularExpressionValidator(nameRegex, this);
+  auto nameValidator = new QRegularExpressionValidator(nameRegex, this);
   m_nameFilter->setValidator(nameValidator);
 
   layout->addWidget(m_nameFilter, Qt::AlignTop | Qt::AlignLeft);
