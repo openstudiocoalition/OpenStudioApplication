@@ -446,9 +446,9 @@ set(SWIG_EXECUTABLE "${CURRENT_CONAN_SWIG_ROOT}/bin/swig")
 set(SWIG_LIB "${CURRENT_CONAN_SWIG_ROOT}/bin/swiglib")
 
 # Qt
-# e.g. QT_INSTALL_DIR = C:/Qt/6.2.0/msvc2019_64
+# e.g. QT_INSTALL_DIR = C:/Qt/6.2.1/msvc2019_64
 set(QT_INSTALL_DIR "" CACHE PATH "Path to Qt Install")
-set(QT_VERSION "6.2.0")
+set(QT_VERSION "6.2.1")
 #if(NOT EXISTS ${QT_INSTALL_DIR})
   ## download qt
   #if(WIN32)
@@ -513,9 +513,9 @@ message(STATUS "OPENSSL_ROOT_DIR=${OPENSSL_ROOT_DIR}")
 
 message(STATUS "QT_INSTALL_DIR=${QT_INSTALL_DIR}")
 
-find_package(Qt6 ${QT_VERSION} COMPONENTS CoreTools WidgetsTools GuiTools QmlTools WebEngineCoreTools REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+find_package(Qt6 ${QT_VERSION} COMPONENTS CoreTools GuiTools WidgetsTools QmlTools WebEngineCoreTools REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
 
-find_package(Qt6 ${QT_VERSION} COMPONENTS Core Gui Widgets Sql Network Xml Concurrent PrintSupport Quick QuickWidgets Qml WebChannel Positioning WebEngineCore WebEngineWidgets REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+find_package(Qt6 ${QT_VERSION} COMPONENTS Core Core5Compat Gui Widgets Sql Network Xml Concurrent PrintSupport Quick QuickWidgets Qml WebChannel Positioning WebEngineCore WebEngineWidgets REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
 
 if(APPLE)
   set(QtWebEngineProcess "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Helpers/QtWebEngineProcess.app" CACHE PATH "Path to the QtWebEngineProcess")
@@ -594,6 +594,7 @@ if(APPLE)
 endif()
 
 list(APPEND QT_LIBS Qt6::Core)
+list(APPEND QT_LIBS Qt6::Core5Compat)
 list(APPEND QT_LIBS Qt6::Widgets)
 list(APPEND QT_LIBS Qt6::Network)
 list(APPEND QT_LIBS Qt6::Xml)
