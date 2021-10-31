@@ -591,7 +591,7 @@ boost::optional<model::ScheduleRuleset> SchedulesView::currentSchedule() {
 
 void SchedulesView::paintEvent(QPaintEvent* event) {
   QStyleOption opt;
-  opt.init(this);
+  opt.initFrom(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
@@ -1140,7 +1140,7 @@ ScheduleTabDefault::ScheduleTabDefault(ScheduleTab* scheduleTab, ScheduleTabDefa
 
 void ScheduleTabDefault::paintEvent(QPaintEvent* event) {
   QStyleOption opt;
-  opt.init(this);
+  opt.initFrom(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 
@@ -2080,7 +2080,7 @@ void MonthView::update() {
 
 ScheduleCalendarWidget::ScheduleCalendarWidget(MonthView* monthView) : QCalendarWidget(monthView), m_monthView(monthView) {}
 
-void ScheduleCalendarWidget::paintCell(QPainter* painter, const QRect& rect, const QDate& date) const {
+void ScheduleCalendarWidget::paintCell(QPainter* painter, const QRect& rect, QDate date) const {
   painter->setBrush(QBrush(QColor(230, 230, 230)));
 
   if (date.month() == m_monthView->month()) {

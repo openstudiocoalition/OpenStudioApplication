@@ -655,7 +655,7 @@ void ScheduleDayEditor::mouseDoubleClickEvent(QMouseEvent* event) {}
 void ScheduleDayEditor::paintEvent(QPaintEvent* event) {
   QStyleOption opt;
 
-  opt.init(this);
+  opt.initFrom(this);
 
   QPainter p(this);
 

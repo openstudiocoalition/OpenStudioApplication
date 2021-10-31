@@ -167,7 +167,7 @@ const OSInspectorView* SubTabView::inspectorView() const {
 
 void SubTabView::paintEvent(QPaintEvent* event) {
   QStyleOption opt;
-  opt.init(this);
+  opt.initFrom(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }

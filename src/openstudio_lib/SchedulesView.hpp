@@ -812,7 +812,7 @@ class ScheduleCalendarWidget : public QCalendarWidget
   virtual ~ScheduleCalendarWidget() {}
 
  protected:
-  void paintCell(QPainter* painter, const QRect& rect, const QDate& date) const override;
+  void paintCell(QPainter* painter, const QRect& rect, QDate date) const override;
 
  private:
   MonthView* m_monthView;

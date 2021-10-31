@@ -367,7 +367,7 @@ void Component::parseBCLMeasure(const BCLMeasure& bclMeasure) {
 
   boost::optional<VersionString> minCompatibleVersion;
   boost::optional<VersionString> maxCompatibleVersion;
-  Q_FOREACH (const BCLFileReference& fileReference, m_fileReferences) {
+  for (const BCLFileReference& fileReference : m_fileReferences) {
     if (fileReference.usageType() == "script" && fileReference.softwareProgram() == "OpenStudio") {
       minCompatibleVersion = fileReference.minCompatibleVersion();
       maxCompatibleVersion = fileReference.maxCompatibleVersion();

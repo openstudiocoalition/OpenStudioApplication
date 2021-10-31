@@ -684,7 +684,7 @@ void BIMserverConnection::processGetProjectByIDRequest(QNetworkReply* rep) {
         QString revision = toQString(openstudio::string_conversions::number(ifcRevision["oid"].toInt()));
         double time = ifcRevision["date"].toDouble();
         QDateTime timestamp;
-        timestamp.setTime_t(static_cast<unsigned int>(time / 1000 + 0.5));
+        timestamp.setSecsSinceEpoch(static_cast<qint64>(time / 1000 + 0.5));
         // TODO: Why is this unused?
         // QString project = revision.append(":").append(timestamp.toString(QLocale::system().dateTimeFormat(QLocale::ShortFormat)));
 

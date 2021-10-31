@@ -60,6 +60,7 @@
 
 #include <QBoxLayout>
 #include <QCloseEvent>
+#include <QFile>
 #include <QLabel>
 #include <QMessageBox>
 #include <QPainter>
@@ -638,7 +639,7 @@ DataPointJobItemView::DataPointJobItemView() : OSCollapsibleView(true), m_dataPo
 
 void DataPointJobItemView::paintEvent(QPaintEvent* e) {
   QStyleOption opt;
-  opt.init(this);
+  opt.initFrom(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }

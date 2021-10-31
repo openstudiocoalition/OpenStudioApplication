@@ -124,7 +124,7 @@ void CollapsibleComponentHeader::setChecked(bool isChecked) {
 
 void CollapsibleComponentHeader::paintEvent(QPaintEvent* event) {
   QStyleOption opt;
-  opt.init(this);
+  opt.initFrom(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }

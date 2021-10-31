@@ -399,7 +399,7 @@ LibraryItem::LibraryItem(const BCLMeasure& bclMeasure, LocalLibrary::LibrarySour
   : OSListItem(), m_bclMeasure(bclMeasure), m_source(source), m_app(t_app) {
   boost::optional<VersionString> minCompatibleVersion;
   boost::optional<VersionString> maxCompatibleVersion;
-  Q_FOREACH (const BCLFileReference& fileReference, bclMeasure.files()) {
+  for (const BCLFileReference& fileReference : bclMeasure.files()) {
     if (fileReference.usageType() == "script" && fileReference.softwareProgram() == "OpenStudio") {
       minCompatibleVersion = fileReference.minCompatibleVersion();
       maxCompatibleVersion = fileReference.maxCompatibleVersion();

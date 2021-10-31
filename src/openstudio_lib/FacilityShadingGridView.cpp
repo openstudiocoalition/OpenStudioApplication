@@ -64,7 +64,7 @@
 #include <QComboBox>
 #include <QLabel>
 #include <QLineEdit>
-#include <QRegExpValidator>
+#include <QRegularExpressionValidator>
 
 // These defines provide a common area for field display names
 // used on column headers, and other grid widgets
@@ -134,8 +134,8 @@ FacilityShadingGridView::FacilityShadingGridView(bool isIP, const model::Model& 
   // Evan note: there are issues with using the signal textChanged or textEdited, related to the design and updating of the gridview (loss of focus, and updates per key stroke)
   connect(m_nameFilter, &QLineEdit::editingFinished, this, &openstudio::FacilityShadingGridView::nameFilterChanged);
 
-  QRegExp nameRegex("^\\S.*");
-  auto nameValidator = new QRegExpValidator(nameRegex, this);
+  QRegularExpression nameRegex("^\\S.*");
+  auto nameValidator = new QQRegularExpressionValidator(nameRegex, this);
   m_nameFilter->setValidator(nameValidator);
 
   layout->addWidget(m_nameFilter, Qt::AlignTop | Qt::AlignLeft);
@@ -177,8 +177,8 @@ FacilityShadingGridView::FacilityShadingGridView(bool isIP, const model::Model& 
   m_tiltGreaterThanFilter->setFixedWidth(OSItem::ITEM_WIDTH);
   connect(m_tiltGreaterThanFilter, &QLineEdit::editingFinished, this, &openstudio::FacilityShadingGridView::tiltFilterChanged);
 
-  QRegExp regex("^(-?\\d*\\.?\\d+)?$");
-  auto validator = new QRegExpValidator(regex, this);
+  QRegularExpression regex("^(-?\\d*\\.?\\d+)?$");
+  auto validator = new QRegularExpressionValidator(regex, this);
   m_tiltGreaterThanFilter->setValidator(validator);
 
   layout->addWidget(m_tiltGreaterThanFilter, Qt::AlignTop | Qt::AlignLeft);
@@ -199,7 +199,7 @@ FacilityShadingGridView::FacilityShadingGridView(bool isIP, const model::Model& 
   // Evan note: there are issues with using the signal textChanged or textEdited, related to the design and updating of the gridview (loss of focus, and updates per key stroke)
   connect(m_tiltLessThanFilter, &QLineEdit::editingFinished, this, &openstudio::FacilityShadingGridView::tiltFilterChanged);
 
-  validator = new QRegExpValidator(regex, this);
+  validator = new QRegularExpressionValidator(regex, this);
   m_tiltLessThanFilter->setValidator(validator);
 
   layout->addWidget(m_tiltLessThanFilter, Qt::AlignTop | Qt::AlignLeft);
@@ -219,7 +219,7 @@ FacilityShadingGridView::FacilityShadingGridView(bool isIP, const model::Model& 
   m_orientationGreaterThanFilter->setFixedWidth(OSItem::ITEM_WIDTH);
   connect(m_orientationGreaterThanFilter, &QLineEdit::editingFinished, this, &openstudio::FacilityShadingGridView::orientationFilterChanged);
 
-  validator = new QRegExpValidator(regex, this);
+  validator = new QRegularExpressionValidator(regex, this);
   m_orientationGreaterThanFilter->setValidator(validator);
 
   layout->addWidget(m_orientationGreaterThanFilter, Qt::AlignTop | Qt::AlignLeft);
@@ -240,7 +240,7 @@ FacilityShadingGridView::FacilityShadingGridView(bool isIP, const model::Model& 
   // Evan note: there are issues with using the signal textChanged or textEdited, related to the design and updating of the gridview (loss of focus, and updates per key stroke)
   connect(m_orientationLessThanFilter, &QLineEdit::editingFinished, this, &openstudio::FacilityShadingGridView::orientationFilterChanged);
 
-  validator = new QRegExpValidator(regex, this);
+  validator = new QRegularExpressionValidator(regex, this);
   m_orientationLessThanFilter->setValidator(validator);
 
   layout->addWidget(m_orientationLessThanFilter, Qt::AlignTop | Qt::AlignLeft);

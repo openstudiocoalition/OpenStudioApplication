@@ -69,8 +69,8 @@ EditRubyMeasureView::EditRubyMeasureView(bool applyMeasureNow) : QWidget() {
   measureOptionTitleLabel->setObjectName("H2");
   m_mainVLayout->addWidget(measureOptionTitleLabel);
 
-  QRegExp nameRegex("^\\S.*");
-  auto validator = new QRegExpValidator(nameRegex, this);
+  QRegularExpression nameRegex("^\\S.*");
+  auto validator = new QRegularExpressionValidator(nameRegex, this);
 
   nameLineEdit = new QLineEdit();
   nameLineEdit->setValidator(validator);

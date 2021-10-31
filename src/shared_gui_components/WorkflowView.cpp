@@ -72,7 +72,7 @@ void RectangularDropZone::setAcceptedMimeType(const QString& type) {
 
 void RectangularDropZone::paintEvent(QPaintEvent*) {
   QStyleOption opt;
-  opt.init(this);
+  opt.initFrom(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
@@ -147,7 +147,7 @@ WorkflowStepView::WorkflowStepView() : QWidget() {
 
 void WorkflowStepView::paintEvent(QPaintEvent*) {
   QStyleOption opt;
-  opt.init(this);
+  opt.initFrom(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
@@ -185,7 +185,7 @@ void WorkflowStepButton::setHasEmphasis(bool hasEmphasis) {
 
 void WorkflowStepButton::paintEvent(QPaintEvent* e) {
   QStyleOption opt;
-  opt.init(this);
+  opt.initFrom(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
