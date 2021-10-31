@@ -219,11 +219,11 @@ OpenStudioApp::OpenStudioApp(int& argc, char** argv)
   // Non blocking
   startMeasureManagerProcess();
 
-  auto waitForMeasureManagerFuture = QtConcurrent::run(&measureManager(), &MeasureManager::waitForStarted, 10000);
+  auto waitForMeasureManagerFuture = QtConcurrent::run(&MeasureManager::waitForStarted, &measureManager(), 10000);
   m_waitForMeasureManagerWatcher.setFuture(waitForMeasureManagerFuture);
   connect(&m_waitForMeasureManagerWatcher, &QFutureWatcher<void>::finished, this, &OpenStudioApp::onMeasureManagerAndLibraryReady);
 
-  auto buildCompLibrariesFuture = QtConcurrent::run(this, &OpenStudioApp::buildCompLibraries);
+  auto buildCompLibrariesFuture = QtConcurrent::run(&OpenStudioApp::buildCompLibraries, this);
   m_buildCompLibWatcher.setFuture(buildCompLibrariesFuture);
   connect(&m_buildCompLibWatcher, &QFutureWatcher<std::vector<std::string>>::finished, this, &OpenStudioApp::onMeasureManagerAndLibraryReady);
 }
@@ -1417,7 +1417,7 @@ void OpenStudioApp::loadLibrary() {
         paths.push_back(path);
         writeLibraryPaths(paths);
 
-        auto future = QtConcurrent::run(this, &OpenStudioApp::buildCompLibraries);
+        auto future = QtConcurrent::run(&OpenStudioApp::buildCompLibraries, this);
         m_changeLibrariesWatcher.setFuture(future);
         connect(&m_changeLibrariesWatcher, &QFutureWatcher<std::vector<std::string>>::finished, this, &OpenStudioApp::onChangeDefaultLibrariesDone);
       }
@@ -1468,7 +1468,7 @@ void OpenStudioApp::changeDefaultLibraries() {
     writeLibraryPaths(newPaths);
 
     // Trigger actual loading of the libraries
-    auto future = QtConcurrent::run(this, &OpenStudioApp::buildCompLibraries);
+    auto future = QtConcurrent::run(&OpenStudioApp::buildCompLibraries, this);
     m_changeLibrariesWatcher.setFuture(future);
     connect(&m_changeLibrariesWatcher, &QFutureWatcher<std::vector<std::string>>::finished, this, &OpenStudioApp::onChangeDefaultLibrariesDone);
   }

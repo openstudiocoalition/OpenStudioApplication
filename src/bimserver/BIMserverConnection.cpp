@@ -755,8 +755,8 @@ void BIMserverConnection::processGetProgressRequest() {
     } else {
       QJsonArray error = response["errors"].toArray();
       QString errorMessage;
-      for (const QJsonValue& value : error) { 
-        errorMessage = errorMessage + value.toString() + QString("\n"); 
+      for (const QJsonValue& value : error) {
+        errorMessage = errorMessage + value.toString() + QString("\n");
       }
       emit errorOccured(errorMessage);
     }

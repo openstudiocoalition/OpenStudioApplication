@@ -38,7 +38,7 @@
 #include <vector>
 
 #include <openstudio/nano/nano_signal_slot.hpp>  // Signal-Slot replacement
-#include <openstudio/utilities/bcl/BCLComponent.hpp> 
+#include <openstudio/utilities/bcl/BCLComponent.hpp>
 #include <openstudio/utilities/bcl/BCLMeasure.hpp>
 
 #include <boost/optional.hpp>
