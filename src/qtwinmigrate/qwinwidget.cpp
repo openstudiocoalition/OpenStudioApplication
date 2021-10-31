@@ -41,17 +41,17 @@
 // Implementation of the QWinWidget classes
 
 #ifdef QT3_SUPPORT
-#undef QT3_SUPPORT
+#  undef QT3_SUPPORT
 #endif
 
 #ifdef UNICODE
-#undef UNICODE
+#  undef UNICODE
 #endif
 
 #include "qmfcapp.h"
 
 #ifdef QTWINMIGRATE_WITHMFC
-#include <afxwin.h>
+#  include <afxwin.h>
 #endif
 
 #include <qevent.h>
@@ -61,9 +61,9 @@
 #include <qt_windows.h>
 
 #if QT_VERSION >= 0x050000
-#include <QWindow>
-#include <qpa/qplatformnativeinterface.h>
-#define QT_WA(unicode, ansi) unicode
+#  include <QWindow>
+#  include <qpa/qplatformnativeinterface.h>
+#  define QT_WA(unicode, ansi) unicode
 #endif
 
 /*!
@@ -90,13 +90,11 @@
     the native Win32 parent. If a \a parent is provided the object is
     owned by that QObject. \a f is passed on to the QWidget constructor.
 */
-QWinWidget::QWinWidget(HWND hParentWnd, QObject *parent, Qt::WindowFlags f)
-: QWidget(0, f), hParent(hParentWnd), prevFocus(0), reenable_parent(false)
-{
-    if (parent)
-        QObject::setParent(parent);
+QWinWidget::QWinWidget(HWND hParentWnd, QObject* parent, Qt::WindowFlags f)
+  : QWidget(0, f), hParent(hParentWnd), prevFocus(0), reenable_parent(false) {
+  if (parent) QObject::setParent(parent);
 
-    init();
+  init();
 }
 
 #ifdef QTWINMIGRATE_WITHMFC
@@ -107,87 +105,72 @@ QWinWidget::QWinWidget(HWND hParentWnd, QObject *parent, Qt::WindowFlags f)
     MFC window object. If a \a parent is provided the object is owned
     by that QObject. \a f is passed on to the QWidget constructor.
 */
-QWinWidget::QWinWidget(CWnd *parentWnd, QObject *parent, Qt::WindowFlags f)
-: QWidget(0, f), hParent(parentWnd ? parentWnd->m_hWnd : 0), prevFocus(0), reenable_parent(false)
-{
-    if (parent)
-        QObject::setParent(parent);
+QWinWidget::QWinWidget(CWnd* parentWnd, QObject* parent, Qt::WindowFlags f)
+  : QWidget(0, f), hParent(parentWnd ? parentWnd->m_hWnd : 0), prevFocus(0), reenable_parent(false) {
+  if (parent) QObject::setParent(parent);
 
-    init();
+  init();
 }
 #endif
 
+void QWinWidget::init() {
+  Q_ASSERT(hParent);
 
-void QWinWidget::init() 
-{
-    Q_ASSERT(hParent);
-
-    if (hParent) {
+  if (hParent) {
 #if QT_VERSION >= 0x050000
-        setProperty("_q_embedded_native_parent_handle", WId(hParent));
+    setProperty("_q_embedded_native_parent_handle", WId(hParent));
 #endif
-	// make the widget window style be WS_CHILD so SetParent will work
-	QT_WA({
-        SetWindowLong((HWND)winId(), GWL_STYLE, WS_CHILD | WS_CLIPCHILDREN | WS_CLIPSIBLINGS);
-	}, {
-        SetWindowLongA((HWND)winId(), GWL_STYLE, WS_CHILD | WS_CLIPCHILDREN | WS_CLIPSIBLINGS);
-	})
+    // make the widget window style be WS_CHILD so SetParent will work
+    QT_WA({ SetWindowLong((HWND)winId(), GWL_STYLE, WS_CHILD | WS_CLIPCHILDREN | WS_CLIPSIBLINGS); },
+          { SetWindowLongA((HWND)winId(), GWL_STYLE, WS_CHILD | WS_CLIPCHILDREN | WS_CLIPSIBLINGS); })
 #if QT_VERSION >= 0x050000
-        QWindow *window = windowHandle();
-        HWND h = static_cast<HWND>(QGuiApplication::platformNativeInterface()->
-                                nativeResourceForWindow("handle", window));
-        SetParent(h, hParent);
-        window->setFlags(Qt::FramelessWindowHint);
+    QWindow* window = windowHandle();
+    HWND h = static_cast<HWND>(QGuiApplication::platformNativeInterface()->nativeResourceForWindow("handle", window));
+    SetParent(h, hParent);
+    window->setFlags(Qt::FramelessWindowHint);
 #else
-        SetParent(winId(), hParent);
+    SetParent(winId(), hParent);
 #endif
-        QEvent e(QEvent::EmbeddingControl);
-        QApplication::sendEvent(this, &e);
-    }
+    QEvent e(QEvent::EmbeddingControl);
+    QApplication::sendEvent(this, &e);
+  }
 }
 
 /*!
     Destroys this object, freeing all allocated resources.
 */
-QWinWidget::~QWinWidget()
-{
-}
+QWinWidget::~QWinWidget() {}
 
 /*!
     Returns the handle of the native Win32 parent window.
 */
-HWND QWinWidget::parentWindow() const
-{
-    return hParent;
+HWND QWinWidget::parentWindow() const {
+  return hParent;
 }
 
 /*!
     \reimp
 */
-void QWinWidget::childEvent(QChildEvent *e)
-{
-    QObject *obj = e->child();
-    if (obj->isWidgetType()) {
-        if (e->added()) {
-	    if (obj->isWidgetType()) {
-	        obj->installEventFilter(this);
-	    }
-        } else if (e->removed() && reenable_parent) {
-	    reenable_parent = false;
-	    EnableWindow(hParent, true);
-            obj->removeEventFilter(this);
-        }
+void QWinWidget::childEvent(QChildEvent* e) {
+  QObject* obj = e->child();
+  if (obj->isWidgetType()) {
+    if (e->added()) {
+      if (obj->isWidgetType()) {
+        obj->installEventFilter(this);
+      }
+    } else if (e->removed() && reenable_parent) {
+      reenable_parent = false;
+      EnableWindow(hParent, true);
+      obj->removeEventFilter(this);
     }
-    QWidget::childEvent(e);
+  }
+  QWidget::childEvent(e);
 }
 
 /*! \internal */
-void QWinWidget::saveFocus()
-{
-    if (!prevFocus)
-	prevFocus = ::GetFocus();
-    if (!prevFocus)
-	prevFocus = parentWindow();
+void QWinWidget::saveFocus() {
+  if (!prevFocus) prevFocus = ::GetFocus();
+  if (!prevFocus) prevFocus = parentWindow();
 }
 
 /*!
@@ -195,10 +178,9 @@ void QWinWidget::saveFocus()
     
     \sa showCentered()
 */
-void QWinWidget::show()
-{
-    saveFocus();
-    QWidget::show();
+void QWinWidget::show() {
+  saveFocus();
+  QWidget::show();
 }
 
 /*!
@@ -215,15 +197,14 @@ void QWinWidget::show()
 
     This will center the message box over the client area of hParent.
 */
-void QWinWidget::center()
-{
-    const QWidget *child = findChild<QWidget*>();
-    if (child && !child->isWindow()) {
-        qWarning("QWinWidget::center: Call this function only for QWinWidgets with toplevel children");
-    }
-    RECT r;
-    GetWindowRect(hParent, &r);
-    setGeometry((r.right-r.left)/2+r.left, (r.bottom-r.top)/2+r.top,0,0);
+void QWinWidget::center() {
+  const QWidget* child = findChild<QWidget*>();
+  if (child && !child->isWindow()) {
+    qWarning("QWinWidget::center: Call this function only for QWinWidgets with toplevel children");
+  }
+  RECT r;
+  GetWindowRect(hParent, &r);
+  setGeometry((r.right - r.left) / 2 + r.left, (r.bottom - r.top) / 2 + r.top, 0, 0);
 }
 
 /*!
@@ -231,10 +212,9 @@ void QWinWidget::center()
 
     Call center() instead.
 */
-void QWinWidget::showCentered()
-{
-    center();
-    show();
+void QWinWidget::showCentered() {
+  center();
+  show();
 }
 
 /*!
@@ -242,157 +222,148 @@ void QWinWidget::showCentered()
     was shown, or if there was no previous window, sets the focus to
     the parent window.
 */
-void QWinWidget::resetFocus()
-{
-    if (prevFocus)
-	::SetFocus(prevFocus);
-    else
-	::SetFocus(parentWindow());
+void QWinWidget::resetFocus() {
+  if (prevFocus)
+    ::SetFocus(prevFocus);
+  else
+    ::SetFocus(parentWindow());
 }
 
 /*! \reimp
 */
 #if QT_VERSION >= 0x050000
-bool QWinWidget::nativeEvent(const QByteArray &, void *message, long *)
+bool QWinWidget::nativeEvent(const QByteArray&, void* message, long*)
 #else
-bool QWinWidget::winEvent(MSG *msg, long *)
+bool QWinWidget::winEvent(MSG* msg, long*)
 #endif
 {
 #if QT_VERSION >= 0x050000
-    MSG *msg = (MSG *)message;
+  MSG* msg = (MSG*)message;
 #endif
-    if (msg->message == WM_SETFOCUS) {
-        Qt::FocusReason reason;
-        if (::GetKeyState(VK_LBUTTON) < 0 || ::GetKeyState(VK_RBUTTON) < 0)
-            reason = Qt::MouseFocusReason;
-        else if (::GetKeyState(VK_SHIFT) < 0)
-            reason = Qt::BacktabFocusReason;
-        else
-            reason = Qt::TabFocusReason;
-        QFocusEvent e(QEvent::FocusIn, reason);
-        QApplication::sendEvent(this, &e);
-    }
+  if (msg->message == WM_SETFOCUS) {
+    Qt::FocusReason reason;
+    if (::GetKeyState(VK_LBUTTON) < 0 || ::GetKeyState(VK_RBUTTON) < 0)
+      reason = Qt::MouseFocusReason;
+    else if (::GetKeyState(VK_SHIFT) < 0)
+      reason = Qt::BacktabFocusReason;
+    else
+      reason = Qt::TabFocusReason;
+    QFocusEvent e(QEvent::FocusIn, reason);
+    QApplication::sendEvent(this, &e);
+  }
 
-    return false;
+  return false;
 }
 
 /*!
     \reimp
 */
-bool QWinWidget::eventFilter(QObject *o, QEvent *e)
-{
-    QWidget *w = (QWidget*)o;
+bool QWinWidget::eventFilter(QObject* o, QEvent* e) {
+  QWidget* w = (QWidget*)o;
 
-    switch (e->type()) {
+  switch (e->type()) {
     case QEvent::WindowDeactivate:
-	if (w->isModal() && w->isHidden())
-	    BringWindowToTop(hParent);
-	break;
+      if (w->isModal() && w->isHidden()) BringWindowToTop(hParent);
+      break;
 
     case QEvent::Hide:
-	if (reenable_parent) {
-	    EnableWindow(hParent, true);
-	    reenable_parent = false;
-	}
-	resetFocus();
-        if (w->testAttribute(Qt::WA_DeleteOnClose) && w->isWindow())
-	    deleteLater();
-	break;
+      if (reenable_parent) {
+        EnableWindow(hParent, true);
+        reenable_parent = false;
+      }
+      resetFocus();
+      if (w->testAttribute(Qt::WA_DeleteOnClose) && w->isWindow()) deleteLater();
+      break;
 
     case QEvent::Show:
-	if (w->isWindow()) {
-	    saveFocus();
-	    hide();
-	    if (w->isModal() && !reenable_parent) {
-		EnableWindow(hParent, false);
-		reenable_parent = true;
-	    }
-	}
-	break;
+      if (w->isWindow()) {
+        saveFocus();
+        hide();
+        if (w->isModal() && !reenable_parent) {
+          EnableWindow(hParent, false);
+          reenable_parent = true;
+        }
+      }
+      break;
 
     case QEvent::Close:
-    	::SetActiveWindow(hParent);
-	if (w->testAttribute(Qt::WA_DeleteOnClose))
-	    deleteLater();
-	break;
+      ::SetActiveWindow(hParent);
+      if (w->testAttribute(Qt::WA_DeleteOnClose)) deleteLater();
+      break;
 
     default:
-	break;
-    }
-    
-    return QWidget::eventFilter(o, e);
+      break;
+  }
+
+  return QWidget::eventFilter(o, e);
 }
 
 /*! \reimp
 */
-void QWinWidget::focusInEvent(QFocusEvent *e)
-{
-    QWidget *candidate = this;
+void QWinWidget::focusInEvent(QFocusEvent* e) {
+  QWidget* candidate = this;
 
-    switch (e->reason()) {
+  switch (e->reason()) {
     case Qt::TabFocusReason:
     case Qt::BacktabFocusReason:
-        while (!(candidate->focusPolicy() & Qt::TabFocus)) {
-            candidate = candidate->nextInFocusChain();
-            if (candidate == this) {
-                candidate = 0;
-                break;
-            }
+      while (!(candidate->focusPolicy() & Qt::TabFocus)) {
+        candidate = candidate->nextInFocusChain();
+        if (candidate == this) {
+          candidate = 0;
+          break;
         }
-        if (candidate) {
-            candidate->setFocus(e->reason());
-            if (e->reason() == Qt::BacktabFocusReason || e->reason() == Qt::TabFocusReason) {
-                candidate->setAttribute(Qt::WA_KeyboardFocusChange);
-                candidate->window()->setAttribute(Qt::WA_KeyboardFocusChange);
-            }
-            if (e->reason() == Qt::BacktabFocusReason)
-                QWidget::focusNextPrevChild(false);
+      }
+      if (candidate) {
+        candidate->setFocus(e->reason());
+        if (e->reason() == Qt::BacktabFocusReason || e->reason() == Qt::TabFocusReason) {
+          candidate->setAttribute(Qt::WA_KeyboardFocusChange);
+          candidate->window()->setAttribute(Qt::WA_KeyboardFocusChange);
         }
-        break;
+        if (e->reason() == Qt::BacktabFocusReason) QWidget::focusNextPrevChild(false);
+      }
+      break;
     default:
-        break;
-    }
+      break;
+  }
 }
 
 /*! \reimp
 */
-bool QWinWidget::focusNextPrevChild(bool next)
-{
-    QWidget *curFocus = focusWidget();
-    if (!next) {
-        if (!curFocus->isWindow()) {
-            QWidget *nextFocus = curFocus->nextInFocusChain();
-            QWidget *prevFocus = 0;
-            QWidget *topLevel = 0;
-            while (nextFocus != curFocus) {
-                if (nextFocus->focusPolicy() & Qt::TabFocus) {
-                    prevFocus = nextFocus;
-                    topLevel = 0;
-                } else if (nextFocus->isWindow()) {
-                    topLevel = nextFocus;
-                }
-                nextFocus = nextFocus->nextInFocusChain();
-            }
+bool QWinWidget::focusNextPrevChild(bool next) {
+  QWidget* curFocus = focusWidget();
+  if (!next) {
+    if (!curFocus->isWindow()) {
+      QWidget* nextFocus = curFocus->nextInFocusChain();
+      QWidget* prevFocus = 0;
+      QWidget* topLevel = 0;
+      while (nextFocus != curFocus) {
+        if (nextFocus->focusPolicy() & Qt::TabFocus) {
+          prevFocus = nextFocus;
+          topLevel = 0;
+        } else if (nextFocus->isWindow()) {
+          topLevel = nextFocus;
+        }
+        nextFocus = nextFocus->nextInFocusChain();
+      }
 
-            if (!topLevel) {
-                return QWidget::focusNextPrevChild(false);
-            }
-        }
-    } else {
-        QWidget *nextFocus = curFocus;
-        while (1) {
-            nextFocus = nextFocus->nextInFocusChain();
-            if (nextFocus->isWindow())
-                break;
-            if (nextFocus->focusPolicy() & Qt::TabFocus) {
-                return QWidget::focusNextPrevChild(true);
-            }
-        }
+      if (!topLevel) {
+        return QWidget::focusNextPrevChild(false);
+      }
     }
+  } else {
+    QWidget* nextFocus = curFocus;
+    while (1) {
+      nextFocus = nextFocus->nextInFocusChain();
+      if (nextFocus->isWindow()) break;
+      if (nextFocus->focusPolicy() & Qt::TabFocus) {
+        return QWidget::focusNextPrevChild(true);
+      }
+    }
+  }
 
-    ::SetFocus(hParent);
+  ::SetFocus(hParent);
 
-    return true;
+  return true;
 }
 
 #include "qwinwidget.moc"
