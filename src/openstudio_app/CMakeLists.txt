@@ -322,18 +322,21 @@ endif()
 if( NOT APPLE )
 
   install(FILES $<TARGET_FILE_DIR:${target_name}>/qt.conf DESTINATION bin COMPONENT OpenStudioApp)
-  # install(DIRECTORY ${QT_INSTALL_DIR}/translations DESTINATION bin COMPONENT OpenStudioApp)
+  install(DIRECTORY $<TARGET_FILE_DIR:${target_name}>/platforms/ DESTINATION bin/platforms/ COMPONENT OpenStudioApp)
+  install(DIRECTORY $<TARGET_FILE_DIR:${target_name}>/styles/ DESTINATION bin/styles/ COMPONENT OpenStudioApp)
   install(DIRECTORY $<TARGET_FILE_DIR:${target_name}>/translations/ DESTINATION bin/translations/ COMPONENT OpenStudioApp)
   install(DIRECTORY $<TARGET_FILE_DIR:${target_name}>/resources/ DESTINATION bin/resources/ COMPONENT OpenStudioApp)
-  # install(FILES ${icudtl} DESTINATION bin/resources COMPONENT OpenStudioApp )/translatio
-  # install(FILES ${qweb_resources} DESTINATION bin/resources COMPONENT OpenStudioApp )
-  # install(FILES ${qweb_resources_100} DESTINATION bin/resources COMPONENT OpenStudioApp )
-  # install(FILES ${qweb_resources_200} DESTINATION bin/resources COMPONENT OpenStudioApp )
+
   if(WIN32)
     install(TARGETS OpenStudioApp DESTINATION bin COMPONENT OpenStudioApp )
+    install(PROGRAMS $<TARGET_FILE:openstudio::openstudiolib> DESTINATION bin COMPONENT OpenStudioApp )
 
     install(PROGRAMS ${QtWebEngineProcess} DESTINATION bin COMPONENT OpenStudioApp )
-    install(PROGRAMS $<TARGET_FILE:Qt6::OpenGL> DESTINATION bin COMPONENT OpenStudioApp )
+
+    foreach(LIB ${QT_LIBS} ${QT_WEB_LIBS})
+      install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/$<TARGET_FILE_NAME:${LIB}> DESTINATION bin/ COMPONENT OpenStudioApp)
+    endforeach()
+
   elseif(UNIX)
     install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/QtWebEngineProcess DESTINATION bin/ COMPONENT OpenStudioApp)
     install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/xcbglintegrations/$<TARGET_FILE_NAME:Qt6::QXcbGlxIntegrationPlugin> DESTINATION bin/xcbglintegrations/ COMPONENT OpenStudioApp)
@@ -368,17 +371,19 @@ if( APPLE )
   list(APPEND QTPLUGINS "\${CMAKE_INSTALL_PREFIX}/OpenStudioApp.app/Contents/Frameworks/QtWebEngineCore.framework/Versions/5/Helpers/QtWebEngineProcess.app/Contents/MacOS/QtWebEngineProcess")
 endif()
 
-# This does some "magic" **including on Linux** (cf #345) (On linux it will install in ./bin/ the libopenstudio.so, and libicu* stuff)
-install(CODE "
-  # APPS might be a symbolic link which does not work with fixup_bundle
-  # expand APPS to a real path
-  get_filename_component(APPS_EXPANDED ${APPS} REALPATH)
-  include(BundleUtilities)
-  # This file defines some libs we are excluding. Some like concrt140.dll are installed already via InstallRequiredSystemLibraries
-  include(\"${CMAKE_SOURCE_DIR}/CMake/FixupBundleOverrides.cmake\")
-  fixup_bundle(\"\${APPS_EXPANDED}\" \"${QTPLUGINS}\" \"${DIRS}\")
-  " COMPONENT "OpenStudioApp"
-)
+if(UNIX)
+  # This does some "magic" **including on Linux** (cf #345) (On linux it will install in ./bin/ the libopenstudio.so, and libicu* stuff)
+  install(CODE "
+    # APPS might be a symbolic link which does not work with fixup_bundle
+    # expand APPS to a real path
+    get_filename_component(APPS_EXPANDED ${APPS} REALPATH)
+    include(BundleUtilities)
+    # This file defines some libs we are excluding. Some like concrt140.dll are installed already via InstallRequiredSystemLibraries
+    include(\"${CMAKE_SOURCE_DIR}/CMake/FixupBundleOverrides.cmake\")
+    fixup_bundle(\"${APPS_EXPANDED}\" \"${QTPLUGINS}\" \"${DIRS}\")
+    " COMPONENT "OpenStudioApp"
+  )
+endif()
 
 set(${target_name}_test_src
   test/OpenStudioAppFixture.hpp

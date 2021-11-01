@@ -507,7 +507,7 @@ set(QT_VERSION "6.2.1")
   #set(QT_INSTALL_DIR "${PROJECT_BINARY_DIR}/Qt-install/${QT_VERSION}/win64_msvc2019_64")
 #endif()
 
-# how to set OPENSSL_ROOT_DIR to a generator expression?
+# TODO: how to set OPENSSL_ROOT_DIR to a generator expression?
 set(OPENSSL_ROOT_DIR ${CONAN_OPENSSL_ROOT_RELEASE})
 message(STATUS "OPENSSL_ROOT_DIR=${OPENSSL_ROOT_DIR}")
 
@@ -599,7 +599,6 @@ list(APPEND QT_LIBS Qt6::Core5Compat)
 list(APPEND QT_LIBS Qt6::Widgets)
 list(APPEND QT_LIBS Qt6::Network)
 list(APPEND QT_LIBS Qt6::Xml)
-list(APPEND QT_LIBS Qt6::Concurrent)
 list(APPEND QT_LIBS Qt6::PrintSupport)
 list(APPEND QT_LIBS Qt6::Gui)
 
