@@ -242,40 +242,15 @@ elseif( UNIX )
 
 elseif( WIN32 )
 
-  foreach(LIB ${QT_LIBS} ${QT_WEB_LIBS})
-    # release dlls are needed in debug dir for QtWebEngineProcess, second copy_if_different will be a no-op
-    get_property(LIB_RELEASE_PATH TARGET ${LIB} PROPERTY IMPORTED_LOCATION_RELEASE)
-    add_custom_command(TARGET ${target_name}
-      POST_BUILD
-      COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:${LIB}> $<TARGET_FILE_DIR:${target_name}>/
-      COMMAND ${CMAKE_COMMAND} -E copy_if_different ${LIB_RELEASE_PATH} $<TARGET_FILE_DIR:${target_name}>/
-    )
-  endforeach()
-
   target_link_libraries(${target_name} optimized ${QT_ENTRYPOINT_LIB} debug ${QT_ENTRYPOINT_LIB_D})
 
   add_custom_command(TARGET ${target_name}
     POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QtWebEngineProcess} $<TARGET_FILE_DIR:${target_name}>/ )
+    COMMAND ${QT_WINDEPLOY_QT} --dir $<TARGET_FILE_DIR:${target_name}> $<TARGET_FILE:${target_name}>  )
 
   add_custom_command(TARGET ${target_name}
     POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_CURRENT_SOURCE_DIR}/qt.conf $<TARGET_FILE_DIR:${target_name}>
-    COMMAND ${CMAKE_COMMAND} -E make_directory $<TARGET_FILE_DIR:${target_name}>/resources/
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${icudtl} $<TARGET_FILE_DIR:${target_name}>/resources/
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources} $<TARGET_FILE_DIR:${target_name}>/resources/
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_devtools} $<TARGET_FILE_DIR:${target_name}>/resources/
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_100} $<TARGET_FILE_DIR:${target_name}>/resources/
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_200} $<TARGET_FILE_DIR:${target_name}>/resources/
-    #COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/translations $<TARGET_FILE_DIR:${target_name}>/translations/
-    # Copying just one locale is enough to shut the annoying console warning...
-    COMMAND ${CMAKE_COMMAND} -E make_directory $<TARGET_FILE_DIR:${target_name}>/translations/
-    COMMAND ${CMAKE_COMMAND} -E make_directory $<TARGET_FILE_DIR:${target_name}>/translations/qtwebengine_locales
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qtwebengine_locales/en-US.pak $<TARGET_FILE_DIR:${target_name}>/translations/qtwebengine_locales/
-  )
-
-  add_custom_command(TARGET ${target_name}
-    POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:openstudio::openstudiolib> $<TARGET_FILE_DIR:${target_name}>/ )
 
 endif()
