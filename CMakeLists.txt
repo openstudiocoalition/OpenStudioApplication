@@ -564,16 +564,6 @@ if(NOT APPLE)
       find_package(Qt6DBus ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
       list(APPEND QT_WEB_LIBS Qt6::DBus)
 
-      # there does not appear to be a normal qt finder for this
-      # DLM: actually there is, it is a plugin associated with Qt6::Gui
-      #message( Qt6Gui_PLUGINS = ${Qt6Gui_PLUGINS})
-      #get_target_property(Qt6QXcbIntegrationPlugin_LOCATION Qt6::QXcbIntegrationPlugin LOCATION)
-      #get_target_property(Qt6QXcbIntegrationPlugin_TYPE Qt6::QXcbIntegrationPlugin TYPE)
-      #message("Qt6::QXcbIntegrationPlugin Location = ${Qt6QXcbIntegrationPlugin_LOCATION}")
-      #message("Qt6::QXcbIntegrationPlugin Type = ${Qt6QXcbIntegrationPlugin_TYPE}")
-      list(APPEND QT_PLUGINS Qt6::QXcbIntegrationPlugin)
-      # This one doesn't end up in bin/platforms/, but in bin/xcbglintegrations/ so do not append, will be treated separately
-      # list(APPEND QT_PLUGINS Qt6::QXcbGlxIntegrationPlugin)
       find_library(QT_QXCBQPA NAMES libQt6XcbQpa.so.${QT_VERSION} PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
 
       find_library(QT_ICU icui18n REQUIRED PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
@@ -610,6 +600,12 @@ if(WIN32)
 
   find_library(QT_ENTRYPOINT_LIB NAMES Qt6EntryPoint PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
   find_library(QT_ENTRYPOINT_LIB_D NAMES Qt6EntryPointd PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
+endif()
+
+if(UNIX AND NOT APPLE)
+  # Apparently libqxcb.so depends on libQt6OpenGL.so in Qt 6.2.1 (it depended on libGL on 5.15.0 but not OpenGL)
+  find_package(Qt6OpenGL ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+  list(APPEND QT_LIBS Qt6::OpenGL)
 endif()
 
 list(APPEND QT_INCLUDES ${Qt6Core_INCLUDE_DIRS})

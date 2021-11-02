@@ -168,21 +168,16 @@ if(UNIX AND NOT APPLE)
 endif()
 
 if( APPLE )
+  # Note: JM: Qt 6.2.1, I can no longer access $<TARGET_FILE:Qt6::QCocoaIntegrationPlugin>
+  find_library(QT_QCOCOA NAMES libqcocoa.dylib PATHS "${QT_INSTALL_DIR}/plugins/platforms" NO_DEFAULT_PATH)
   add_custom_command(TARGET ${target_name}
     POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:Qt6::QCocoaIntegrationPlugin> $<TARGET_FILE_DIR:${target_name}>/platforms/ )
+    # COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:Qt6::QCocoaIntegrationPlugin> $<TARGET_FILE_DIR:${target_name}>/platforms/
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_QCOCOA} $<TARGET_FILE_DIR:${target_name}>/platforms/
+    VERBATIM
+  )
+
 elseif( UNIX )
-  foreach(LIB ${QT_PLUGINS})
-    get_property(LIB_LOCATION TARGET ${LIB} PROPERTY LOCATION)
-    get_filename_component(LIB_BASE_NAME ${LIB_LOCATION} NAME)
-    add_custom_command(TARGET ${target_name}
-      POST_BUILD
-      COMMAND ${CMAKE_COMMAND} -E copy_if_different ${LIB_LOCATION} $<TARGET_FILE_DIR:${target_name}>/platforms
-      COMMAND patchelf --set-rpath "$ORIGIN/.." $<TARGET_FILE_DIR:${target_name}>/platforms/${LIB_BASE_NAME}
-      VERBATIM
-    )
-    list(APPEND QT_PLUGIN_LOCATIONS $<TARGET_FILE_DIR:${target_name}>/platforms/${LIB_BASE_NAME})
-  endforeach()
 
   foreach(LIB ${QT_LIBS} ${QT_WEB_LIBS})
     get_property(LIB_LOCATION TARGET ${LIB} PROPERTY LOCATION)
@@ -232,11 +227,26 @@ elseif( UNIX )
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qtwebengine_locales/en-US.pak $<TARGET_FILE_DIR:${target_name}>/translations/qtwebengine_locales/
   )
 
-  # TODO: not sure if chrpath is needed
+  # Note: JM: Qt 6.2.1, I can no longer access $<TARGET_FILE:Qt6::QXcbIntegrationPlugin>
+  find_library(QT_QXCB NAMES libqxcb.so PATHS "${QT_INSTALL_DIR}/plugins/platforms" NO_DEFAULT_PATH)
   add_custom_command(TARGET ${target_name}
     POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:Qt6::QXcbGlxIntegrationPlugin> $<TARGET_FILE_DIR:${target_name}>/xcbglintegrations/
-    COMMAND chrpath -r "$ORIGIN/." $<TARGET_FILE_DIR:${target_name}>/xcbglintegrations/$<TARGET_FILE_NAME:Qt6::QXcbGlxIntegrationPlugin>
+    # Note: JM: Qt 6.2.1, I can no longer access $<TARGET_FILE:Qt6::QXcbIntegrationPlugin>
+    # COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:Qt6::QXcbIntegrationPlugin> $<TARGET_FILE_DIR:${target_name}>/platforms/
+    # COMMAND patchelf --set-rpath "$ORIGIN/.." $<TARGET_FILE_DIR:${target_name}>/platforms/$<TARGET_FILE_NAME:Qt6::QXcbIntegrationPlugin>
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_QXCB} $<TARGET_FILE_DIR:${target_name}>/platforms/
+    COMMAND patchelf --set-rpath "$ORIGIN/.." $<TARGET_FILE_DIR:${target_name}>/platforms/libqxcb.so
+    VERBATIM
+  )
+
+  find_library(QT_QXCB_GLX NAMES libqxcb-glx-integration.so PATHS "${QT_INSTALL_DIR}/plugins/xcbglintegrations" NO_DEFAULT_PATH)
+  add_custom_command(TARGET ${target_name}
+    POST_BUILD
+    # Note: JM: Qt 6.2.1, I can no longer access $<TARGET_FILE:Qt6::QXcbGlxIntegrationPlugin>
+    # COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:Qt6::QXcbGlxIntegrationPlugin> $<TARGET_FILE_DIR:${target_name}>/xcbglintegrations/
+    # COMMAND chrpath -r "$ORIGIN/." $<TARGET_FILE_DIR:${target_name}>/xcbglintegrations/$<TARGET_FILE_NAME:Qt6::QXcbGlxIntegrationPlugin>
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_QXCB_GLX} $<TARGET_FILE_DIR:${target_name}>/xcbglintegrations/
+    COMMAND patchelf --set-rpath "$ORIGIN/.." $<TARGET_FILE_DIR:${target_name}>/xcbglintegrations/libqxcb-glx-integration.so
     VERBATIM
   )
 
@@ -323,7 +333,9 @@ if( NOT APPLE )
 
   install(FILES $<TARGET_FILE_DIR:${target_name}>/qt.conf DESTINATION bin COMPONENT OpenStudioApp)
   install(DIRECTORY $<TARGET_FILE_DIR:${target_name}>/platforms/ DESTINATION bin/platforms/ COMPONENT OpenStudioApp)
-  install(DIRECTORY $<TARGET_FILE_DIR:${target_name}>/styles/ DESTINATION bin/styles/ COMPONENT OpenStudioApp)
+  if (WIN32)
+    install(DIRECTORY $<TARGET_FILE_DIR:${target_name}>/styles/ DESTINATION bin/styles/ COMPONENT OpenStudioApp)
+  endif()
   install(DIRECTORY $<TARGET_FILE_DIR:${target_name}>/translations/ DESTINATION bin/translations/ COMPONENT OpenStudioApp)
   install(DIRECTORY $<TARGET_FILE_DIR:${target_name}>/resources/ DESTINATION bin/resources/ COMPONENT OpenStudioApp)
 
@@ -339,7 +351,8 @@ if( NOT APPLE )
 
   elseif(UNIX)
     install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/QtWebEngineProcess DESTINATION bin/ COMPONENT OpenStudioApp)
-    install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/xcbglintegrations/$<TARGET_FILE_NAME:Qt6::QXcbGlxIntegrationPlugin> DESTINATION bin/xcbglintegrations/ COMPONENT OpenStudioApp)
+    install(DIRECTORY $<TARGET_FILE_DIR:${target_name}>/xcbglintegrations/ DESTINATION bin/xcbglintegrations/ COMPONENT OpenStudioApp)
+    # install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/xcbglintegrations/$<TARGET_FILE_NAME:Qt6::QXcbGlxIntegrationPlugin> DESTINATION bin/xcbglintegrations/ COMPONENT OpenStudioApp)
 
     foreach(LIB ${QT_LIBS} ${QT_WEB_LIBS})
       install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/$<TARGET_FILE_NAME:${LIB}> DESTINATION bin/ COMPONENT OpenStudioApp)
@@ -356,10 +369,6 @@ if( NOT APPLE )
       install(FILES $<TARGET_FILE_DIR:${target_name}>/${LINK} DESTINATION bin/ COMPONENT OpenStudioApp)
     endforeach()
 
-    foreach(PLUGIN ${QT_PLUGIN_LOCATIONS})
-      install(FILES ${PLUGIN} DESTINATION bin/platforms/ COMPONENT OpenStudioApp)
-    endforeach()
-
   endif()
 endif()
 
@@ -371,7 +380,9 @@ if( APPLE )
   list(APPEND QTPLUGINS "\${CMAKE_INSTALL_PREFIX}/OpenStudioApp.app/Contents/Frameworks/QtWebEngineCore.framework/Versions/5/Helpers/QtWebEngineProcess.app/Contents/MacOS/QtWebEngineProcess")
 endif()
 
-if(UNIX)
+# TODO: We used to run fixup_bundle on all plaforms before on 5.15.0...
+# On Ubuntu, I get: `# CMake Error at /usr/share/cmake-3.21/Modules/BundleUtilities.cmake:997 (message): error: fixup_bundle: not a valid bundle`
+if(APPLE)
   # This does some "magic" **including on Linux** (cf #345) (On linux it will install in ./bin/ the libopenstudio.so, and libicu* stuff)
   install(CODE "
     # APPS might be a symbolic link which does not work with fixup_bundle
