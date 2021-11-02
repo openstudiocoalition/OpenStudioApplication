@@ -142,10 +142,10 @@ endif()
 # to be self contained. It also makes it easy to find the cli since
 # it will be sitting next to the app executable.
 if( APPLE )
-add_custom_command(TARGET ${target_name}
-  POST_BUILD
-  COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:openstudio::openstudio> $<TARGET_FILE_DIR:${target_name}>/$<TARGET_FILE_NAME:openstudio::openstudio>
-)
+  add_custom_command(TARGET ${target_name}
+    POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:openstudio::openstudio> $<TARGET_FILE_DIR:${target_name}>/$<TARGET_FILE_NAME:openstudio::openstudio>
+  )
 endif()
 
 add_custom_command(TARGET ${target_name}
@@ -350,6 +350,8 @@ if( NOT APPLE )
     endforeach()
 
   elseif(UNIX)
+    install(PROGRAMS $<TARGET_FILE:openstudio::openstudiolib> DESTINATION bin COMPONENT OpenStudioApp )
+
     install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/QtWebEngineProcess DESTINATION bin/ COMPONENT OpenStudioApp)
     install(DIRECTORY $<TARGET_FILE_DIR:${target_name}>/xcbglintegrations/ DESTINATION bin/xcbglintegrations/ COMPONENT OpenStudioApp)
     # install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/xcbglintegrations/$<TARGET_FILE_NAME:Qt6::QXcbGlxIntegrationPlugin> DESTINATION bin/xcbglintegrations/ COMPONENT OpenStudioApp)
