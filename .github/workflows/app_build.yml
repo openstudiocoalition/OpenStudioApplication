@@ -418,6 +418,8 @@ jobs:
         if [ "$RUNNER_OS" == "Windows" ]; then
           # QT_INSTALL_DIR="$(pwd)/build/Qt-install/$QT_VERSION/msvc2019_64"
           QT_INSTALL_DIR="$(cmd.exe /c 'cd')\build\Qt-install\${{ env.QT_VERSION }}\msvc2019_64"
+        elif [ "$RUNNER_OS" == "macOS" ]; then
+          QT_INSTALL_DIR="$(pwd)/build/Qt-install/$QT_VERSION/macos"
         else
           QT_INSTALL_DIR="$(pwd)/build/Qt-install/$QT_VERSION/${{ matrix.QT_ARCH }}"
         fi

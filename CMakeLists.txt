@@ -513,7 +513,7 @@ message(STATUS "OPENSSL_ROOT_DIR=${OPENSSL_ROOT_DIR}")
 
 message(STATUS "QT_INSTALL_DIR=${QT_INSTALL_DIR}")
 
-find_package(Qt6 ${QT_VERSION} COMPONENTS CoreTools EntryPointPrivate GuiTools WidgetsTools QmlTools WebEngineCoreTools REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+find_package(Qt6 ${QT_VERSION} COMPONENTS CoreTools GuiTools WidgetsTools QmlTools WebEngineCoreTools REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
 
 find_package(Qt6 ${QT_VERSION} COMPONENTS Core Core5Compat Gui Widgets Sql Network Xml Concurrent PrintSupport Quick QuickWidgets Qml WebChannel Positioning WebEngineCore WebEngineWidgets REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
 
