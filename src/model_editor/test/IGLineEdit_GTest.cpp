@@ -58,7 +58,7 @@ TEST_F(ModelEditorFixture, IGLineEdit_Real) {
   InspectorGadget gadget;
   QString val;
   IGLineEdit* text = new IGLineEdit(val, &gadget, &gadget);
-  QRegExpValidator* valid = new QRegExpValidator(QRegExp("-?[0-9]*\\.?[0-9]*([eE][-+]?[0-9]*)?"), text);
+  QRegularExpressionValidator* valid = new QRegularExpressionValidator(QRegularExpression("-?[0-9]*\\.?[0-9]*([eE][-+]?[0-9]*)?"), text);
 
   val.clear();
   text->setText(val);
