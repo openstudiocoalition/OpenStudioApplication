@@ -427,7 +427,7 @@ jobs:
         else
           echo "Install aqtinstall, then install Qt $QT_VERSION for ${{ matrix.QT_OS_NAME }} ${{ matrix.QT_ARCH }}"
           pip3 install aqtinstall
-          aqt install-qt --outputdir ./build/Qt-install/ ${{ matrix.QT_OS_NAME }} desktop $QT_VERSION ${{ matrix.QT_ARCH }} -m qtwebengine qtwebview qt5compat
+          aqt install-qt --outputdir ./build/Qt-install/ ${{ matrix.QT_OS_NAME }} desktop $QT_VERSION ${{ matrix.QT_ARCH }} -m qtwebchannel qtwebengine qtwebview qt5compat
         fi
 
         echo "$QT_INSTALL_DIR/bin" >> $GITHUB_PATH
