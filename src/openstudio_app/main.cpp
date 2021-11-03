@@ -218,7 +218,7 @@ int main(int argc, char* argv[]) {
 
     // Don't use native menu bar, necessary on Ubuntu 16.04
     QCoreApplication::setAttribute(Qt::AA_DontUseNativeMenuBar, true);
-    QCoreApplication::setOrganizationDomain("nrel.gov");
+    QCoreApplication::setOrganizationDomain("openstudiocoalition.org");
 
     openstudio::OpenStudioApp app(argc, argv);
     openstudio::Application::instance().setApplication(&app);
