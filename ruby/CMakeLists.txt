@@ -57,10 +57,13 @@ add_custom_command(TARGET openstudio_modeleditor_rb
 )
 
 if(APPLE)
+  find_library(QT_QCOCOA NAMES libqcocoa.dylib PATHS "${QT_INSTALL_DIR}/plugins/platforms" NO_DEFAULT_PATH)
+
   add_custom_command(TARGET openstudio_modeleditor_rb
     POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E make_directory $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/platforms/
-    COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:Qt6::QCocoaIntegrationPlugin> $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/platforms/.
+    # COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:Qt6::QCocoaIntegrationPlugin> $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/platforms/.
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_QCOCOA} $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/platforms/
     COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/lib/QtConcurrent.framework $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtConcurrent.framework
     COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/lib/QtCore.framework $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtCore.framework
     COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/lib/QtDBus.framework $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtDBus.framework
@@ -90,7 +93,7 @@ endif()
 install(TARGETS openstudio_modeleditor_rb DESTINATION Ruby COMPONENT "RubyAPI")
 install(FILES openstudio_modeleditor.rb DESTINATION Ruby COMPONENT "RubyAPI")
 if(APPLE)
-  install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/platforms/$<TARGET_FILE_NAME:Qt5::QCocoaIntegrationPlugin> DESTINATION Ruby/platforms COMPONENT "RubyAPI")
+  install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/platforms/libqcocoa.dylib DESTINATION Ruby/platforms COMPONENT "RubyAPI")
   install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtConcurrent.framework DESTINATION Ruby COMPONENT "RubyAPI")
   install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtCore.framework DESTINATION Ruby COMPONENT "RubyAPI")
   install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtDBus.framework DESTINATION Ruby COMPONENT "RubyAPI")

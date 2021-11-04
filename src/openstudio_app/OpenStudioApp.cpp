@@ -189,7 +189,7 @@ OpenStudioApp::OpenStudioApp(int& argc, char** argv)
 #ifdef Q_OS_DARWIN
   std::stringstream webenginePath;
   webenginePath << QCoreApplication::applicationDirPath().toStdString();
-  webenginePath << "/../Frameworks/QtWebEngineCore.framework/Versions/5/Helpers/QtWebEngineProcess.app/Contents/MacOS/QtWebEngineProcess";
+  webenginePath << "/../Frameworks/QtWebEngineCore.framework/Versions/A/Helpers/QtWebEngineProcess.app/Contents/MacOS/QtWebEngineProcess";
   if (filesystem::exists(filesystem::path(webenginePath.str()))) {
     setenv("QTWEBENGINEPROCESS_PATH", webenginePath.str().c_str(), true);
   }
