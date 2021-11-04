@@ -6,29 +6,29 @@ set(OPENSTUDIO_VERSION "${OPENSTUDIO_VERSION_MAJOR}.${OPENSTUDIO_VERSION_MINOR}.
 #If this is a release enter the SHA as "+79857912c4"
 #set(OPENSTUDIO_VERSION_SHA "+09b7c8a554")
 #If this is a pre-release enter the pre-release and SHA as "-rc1+79857912c4"
-set(OPENSTUDIO_VERSION_SHA "-alpha+d92b642abb")
+set(OPENSTUDIO_VERSION_SHA "-rc2+45b36b8d4c")
 
 # Paths where the cmake-downloaded archives will be put
 set(OPENSTUDIO_ARCHIVE_DIR "${PROJECT_BINARY_DIR}/OpenStudio-${OPENSTUDIO_VERSION}")
 
 # If downloaded, we need the SHA to match. This block is here since we need "OPENSTUDIO_PLATFORM" anyways
 if(APPLE)
-  set(OPENSTUDIO_EXPECTED_HASH f231e3c3225fa21fe41ceef437665d72)
+  set(OPENSTUDIO_EXPECTED_HASH 5c81710a1a8fd0cb8f461345bbfb5a25)
   set(OPENSTUDIO_PLATFORM "Darwin")
   set(OPENSTUDIO_EXT "tar.gz")
 elseif(UNIX)
 
   if(LSB_RELEASE_VERSION_SHORT MATCHES "20.04")
-    set(OPENSTUDIO_EXPECTED_HASH c69e28c7893a765324a431ad71965611)
+    set(OPENSTUDIO_EXPECTED_HASH becd5dd00cefbd89ac59eec3ace66040)
     set(OPENSTUDIO_PLATFORM "Ubuntu-20.04")
   else() # Assumes 18.04
-    set(OPENSTUDIO_EXPECTED_HASH c9958dd6e0a612480fd6b562497ca2ea)
+    set(OPENSTUDIO_EXPECTED_HASH 9dedef55533db2293e9bacd79beb7bc3)
     set(OPENSTUDIO_PLATFORM "Ubuntu-18.04")
   endif()
   set(OPENSTUDIO_EXT "tar.gz")
 
 elseif(WIN32)
-  set(OPENSTUDIO_EXPECTED_HASH 42bdcf13b06d6b140c7b42d2101bc710)
+  set(OPENSTUDIO_EXPECTED_HASH 9a167ad7f66b36d92d156ec18f7062d8)
   set(OPENSTUDIO_PLATFORM "Windows")
   set(OPENSTUDIO_EXT "tar.gz")
 endif()
