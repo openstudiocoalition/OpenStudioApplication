@@ -243,8 +243,19 @@ jobs:
           echo "Install needed system dependencies for OPENGL (due to Qt) for Linux"
           sudo apt update
           sudo apt install -y mesa-common-dev libglu1-mesa-dev patchelf ninja-build libxkbcommon-x11-dev libgl1-mesa-dev
+
           # Weirdly enough, ninja makes ubuntu unresponsive...
           echo CMAKE_GENERATOR='Ninja' >> $GITHUB_ENV
+
+          # Qt 6.0 doesn't support Ubuntu 18.04, try to bump the gcc version
+          if [ $(lsb_release -rs) == '18.04' ]; then
+            sudo add-apt-repository --yes ppa:ubuntu-toolchain-r/test
+            sudo apt update
+            sudo apt install gcc-9 g++-9
+            sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 100 --slave /usr/bin/g++ g++ /usr/bin/g++-9 --slave /usr/bin/gcov gcov /usr/bin/gcov-9
+          fi;
+          gcc --version
+
         elif [ "$RUNNER_OS" == "Windows" ]; then
           curl -L -O https://download.qt.io/official_releases/qt-installer-framework/4.0.1/QtInstallerFramework-win-x86.exe
           ./QtInstallerFramework-win-x86.exe --verbose --script ./ci/install_script_qtifw.qs
