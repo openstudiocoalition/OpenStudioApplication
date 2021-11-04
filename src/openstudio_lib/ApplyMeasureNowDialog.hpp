@@ -88,6 +88,8 @@ class ApplyMeasureNowDialog : public OSDialog
  protected:
   void closeEvent(QCloseEvent* event) override;
 
+  void resizeEvent(QResizeEvent* event) override;  // Put back QDialog::resizeEvent so it can be resized
+
  private slots:
 
   void disableOkButton(bool disable);
