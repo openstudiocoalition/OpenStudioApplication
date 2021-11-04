@@ -64,7 +64,7 @@ if(NOT CONAN_OPENSTUDIO_ALREADY_RUN)
 
   #if(BUILD_RUBY_BINDINGS OR BUILD_CLI)
     # Track NREL/stable in general, on a feature branch this could be temporarily switched to NREL/testing
-    set(CONAN_RUBY "openstudio_ruby/2.7.2@nrel/testing#6eb6dc4e0a3af9651279d3dc6121945a")
+    set(CONAN_RUBY "openstudio_ruby/2.7.2@nrel/testing#a72952efa9104f73ff1683cf88026b8f")
   #endif()
 
   if(BUILD_BENCHMARK)
@@ -75,6 +75,7 @@ if(NOT CONAN_OPENSTUDIO_ALREADY_RUN)
   conan_cmake_run(REQUIRES
     ${CONAN_READLINE}
     ${CONAN_QT}
+    # "ruby_installer/2.7.2@bincrafters/testing"
     ${CONAN_RUBY}
     "openssl/1.1.0l#7f3fa5cfcfba31fffa344c71a9795176" # ruby 2.5.5 won't work with 1.1.1x, so use 1.1.0l here to try to force every package to align on the same as ruby
     "boost/1.73.0#4129a76c9b83c300fc103e36d1908792"
