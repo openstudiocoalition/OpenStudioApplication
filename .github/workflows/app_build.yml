@@ -242,7 +242,7 @@ jobs:
         if [ "$RUNNER_OS" == "Linux" ]; then
           echo "Install needed system dependencies for OPENGL (due to Qt) for Linux"
           sudo apt update
-          sudo apt install -y mesa-common-dev libglu1-mesa-dev patchelf ninja-build
+          sudo apt install -y mesa-common-dev libglu1-mesa-dev patchelf ninja-build libxkbcommon-x11-dev libgl1-mesa-dev
           # Weirdly enough, ninja makes ubuntu unresponsive...
           echo CMAKE_GENERATOR='Ninja' >> $GITHUB_ENV
         elif [ "$RUNNER_OS" == "Windows" ]; then
