@@ -3,10 +3,10 @@ set(OPENSTUDIO_VERSION_MINOR 3)
 set(OPENSTUDIO_VERSION_PATCH 0)
 set(OPENSTUDIO_VERSION "${OPENSTUDIO_VERSION_MAJOR}.${OPENSTUDIO_VERSION_MINOR}.${OPENSTUDIO_VERSION_PATCH}")
 
-#If this is a release enter the SHA as "+79857912c4"
-#set(OPENSTUDIO_VERSION_SHA "+09b7c8a554")
-#If this is a pre-release enter the pre-release and SHA as "-rc1+79857912c4"
-set(OPENSTUDIO_VERSION_SHA "-rc2+45b36b8d4c")
+#If this is an official release, leave this "", otherwise put for eg '-rc1'
+set(OPENSTUDIO_VERSION_PRERELEASE "-rc2")
+# Enter SHA, always, eg "+79857912c4"
+set(OPENSTUDIO_VERSION_SHA "+45b36b8d4c")
 
 # Paths where the cmake-downloaded archives will be put
 set(OPENSTUDIO_ARCHIVE_DIR "${PROJECT_BINARY_DIR}/OpenStudio-${OPENSTUDIO_VERSION}")
@@ -34,7 +34,7 @@ elseif(WIN32)
 endif()
 
 
-set(OPENSTUDIO_ARCHIVE_BASENAME "OpenStudio-${OPENSTUDIO_VERSION}${OPENSTUDIO_VERSION_SHA}-${OPENSTUDIO_PLATFORM}")
+set(OPENSTUDIO_ARCHIVE_BASENAME "OpenStudio-${OPENSTUDIO_VERSION}${OPENSTUDIO_VERSION_PRERELEASE}${OPENSTUDIO_VERSION_SHA}-${OPENSTUDIO_PLATFORM}")
 set(OPENSTUDIO_ARCHIVE_NAME "${OPENSTUDIO_ARCHIVE_BASENAME}.${OPENSTUDIO_EXT}"
   CACHE STRING "Archive Name, with extension" FORCE)
 
@@ -56,7 +56,7 @@ else()
   # base link for release builds
   set(OPENSTUDIO_BASELINK_RELEASE
     #"https://openstudio-builds.s3.amazonaws.com/${OPENSTUDIO_VERSION}"
-    "https://github.com/NREL/OpenStudio/releases/download/v${OPENSTUDIO_VERSION}/"
+    "https://github.com/NREL/OpenStudio/releases/download/v${OPENSTUDIO_VERSION}${OPENSTUDIO_VERSION_PRERELEASE}/"
     CACHE STRING "Base link to where the openstudio archives are hosted" FORCE)
 
   # base link for develop builds. (Using https will fail)
