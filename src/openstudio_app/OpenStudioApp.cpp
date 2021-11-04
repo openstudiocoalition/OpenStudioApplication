@@ -154,8 +154,8 @@ bool TouchEater::eventFilter(QObject* obj, QEvent* event) {
 
 OpenStudioApp::OpenStudioApp(int& argc, char** argv)
   : OSAppBase(argc, argv, QSharedPointer<MeasureManager>(new MeasureManager(this))), m_measureManagerProcess(nullptr) {
-  setOrganizationName("NREL");
-  QCoreApplication::setOrganizationDomain("nrel.gov");
+  setOrganizationName("OpenStudioCoalition");
+  QCoreApplication::setOrganizationDomain("openstudiocoalition.org");
   setApplicationName("OpenStudioApp");
 
   auto eater = new TouchEater();
