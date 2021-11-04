@@ -350,7 +350,8 @@ if( NOT APPLE )
     endforeach()
 
   elseif(UNIX)
-    install(PROGRAMS $<TARGET_FILE:openstudio::openstudiolib> DESTINATION bin COMPONENT OpenStudioApp )
+    # Let fixup_bundle do that for us
+    #install(PROGRAMS $<TARGET_FILE:openstudio::openstudiolib> DESTINATION bin COMPONENT OpenStudioApp )
 
     install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/QtWebEngineProcess DESTINATION bin/ COMPONENT OpenStudioApp)
     install(DIRECTORY $<TARGET_FILE_DIR:${target_name}>/xcbglintegrations/ DESTINATION bin/xcbglintegrations/ COMPONENT OpenStudioApp)
@@ -383,8 +384,7 @@ if( APPLE )
 endif()
 
 # TODO: We used to run fixup_bundle on all plaforms before on 5.15.0...
-# On Ubuntu, I get: `# CMake Error at /usr/share/cmake-3.21/Modules/BundleUtilities.cmake:997 (message): error: fixup_bundle: not a valid bundle`
-if(APPLE)
+if(UNIX)
   # This does some "magic" **including on Linux** (cf #345) (On linux it will install in ./bin/ the libopenstudio.so, and libicu* stuff)
   install(CODE "
     # APPS might be a symbolic link which does not work with fixup_bundle
@@ -393,7 +393,7 @@ if(APPLE)
     include(BundleUtilities)
     # This file defines some libs we are excluding. Some like concrt140.dll are installed already via InstallRequiredSystemLibraries
     include(\"${CMAKE_SOURCE_DIR}/CMake/FixupBundleOverrides.cmake\")
-    fixup_bundle(\"${APPS_EXPANDED}\" \"${QTPLUGINS}\" \"${DIRS}\")
+    fixup_bundle(\"\${APPS_EXPANDED}\" \"${QTPLUGINS}\" \"${DIRS}\")
     " COMPONENT "OpenStudioApp"
   )
 endif()
