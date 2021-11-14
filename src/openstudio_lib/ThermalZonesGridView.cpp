@@ -397,6 +397,9 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
       boost::optional<std::function<void(model::ThermalZone*)>> resetCoolingSchedule([](model::ThermalZone* z) {
         if (boost::optional<model::ThermostatSetpointDualSetpoint> thermostat = z->thermostatSetpointDualSetpoint()) {
           thermostat->resetCoolingSetpointTemperatureSchedule();
+          if (!thermostat->heatingSetpointTemperatureSchedule()) {
+            z->resetThermostatSetpointDualSetpoint();
+          }
         }
       });
 
@@ -438,6 +441,9 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
       boost::optional<std::function<void(model::ThermalZone*)>> resetHeatingSchedule([](model::ThermalZone* z) {
         if (boost::optional<model::ThermostatSetpointDualSetpoint> thermostat = z->thermostatSetpointDualSetpoint()) {
           thermostat->resetHeatingSetpointTemperatureSchedule();
+          if (!thermostat->coolingSetpointTemperatureSchedule()) {
+            z->resetThermostatSetpointDualSetpoint();
+          }
         }
       });
 
