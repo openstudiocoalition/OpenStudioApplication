@@ -408,18 +408,19 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
                           CastNullAdapter<model::SubSurface>(&model::SubSurface::setConstruction),
                           boost::optional<std::function<void(model::SubSurface*)>>(NullAdapter(&model::SubSurface::resetConstruction)),
                           boost::optional<std::function<bool(model::SubSurface*)>>(NullAdapter(&model::SubSurface::isConstructionDefaulted)),
-                          boost::optional<std::function<std::vector<model::ModelObject>(const model::SubSurface*)>>(), DataSource(allSubSurfaces, true));
+                          boost::optional<std::function<std::vector<model::ModelObject>(const model::SubSurface*)>>(),
+                          DataSource(allSubSurfaces, true));
       } else if (field == OUTSIDEBOUNDARYCONDITIONOBJECT) {
         std::function<bool(model::SubSurface*, const model::SubSurface&)> setter([](model::SubSurface* t_subSurface, const model::SubSurface& t_arg) {
           auto copy = t_arg;
           return t_subSurface->setAdjacentSubSurface(copy);
         });
 
-        addDropZoneColumn(Heading(QString(OUTSIDEBOUNDARYCONDITIONOBJECT), true, false),
-                          CastNullAdapter<model::SubSurface>(&model::SubSurface::adjacentSubSurface), setter,
-                          boost::optional<std::function<void(model::SubSurface*)>>(NullAdapter(&model::SubSurface::resetAdjacentSubSurface)),
-                          boost::optional<std::function<bool(model::SubSurface*)>>(),
-                          boost::optional<std::function<std::vector<model::ModelObject>(const model::SubSurface*)>>(), DataSource(allSubSurfaces, true));
+        addDropZoneColumn(
+          Heading(QString(OUTSIDEBOUNDARYCONDITIONOBJECT), true, false), CastNullAdapter<model::SubSurface>(&model::SubSurface::adjacentSubSurface),
+          setter, boost::optional<std::function<void(model::SubSurface*)>>(NullAdapter(&model::SubSurface::resetAdjacentSubSurface)),
+          boost::optional<std::function<bool(model::SubSurface*)>>(),
+          boost::optional<std::function<std::vector<model::ModelObject>(const model::SubSurface*)>>(), DataSource(allSubSurfaces, true));
       } else if (field == SHADINGSURFACENAME) {
 
       } else if (field == SHADINGCONTROLNAME) {
@@ -433,7 +434,8 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
         addDropZoneColumn(Heading(QString(SHADINGCONTROLNAME)), CastNullAdapter<model::SubSurface>(&model::SubSurface::shadingControl), setter,
                           boost::optional<std::function<void(model::SubSurface*)>>(NullAdapter(&model::SubSurface::resetShadingControl)),
                           boost::optional<std::function<bool(model::SubSurface*)>>(),
-                          boost::optional<std::function<std::vector<model::ModelObject>(const model::SubSurface*)>>(), DataSource(allSubSurfaces, true));
+                          boost::optional<std::function<std::vector<model::ModelObject>(const model::SubSurface*)>>(),
+                          DataSource(allSubSurfaces, true));
       } else if (field == SHADINGTYPE) {
         addComboBoxColumn<std::string, model::ShadingControl>(
           Heading(QString(SHADINGTYPE), true, false), static_cast<std::string (*)(const std::string&)>(&openstudio::toString),

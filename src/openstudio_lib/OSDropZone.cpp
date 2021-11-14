@@ -592,7 +592,7 @@ void OSDropZone2::refresh() {
   updateOtherModelObjects();
 
   if (getterResult) {
-    
+
     QString temp = QString::fromStdString(getterResult->name().get());
     if (m_label->text() != temp) {
       m_label->setText(temp);
@@ -639,7 +639,8 @@ void OSDropZone2::bind(const model::ModelObject& modelObject, OptionalModelObjec
 
   m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
     .get()
-    ->openstudio::model::detail::ModelObject_Impl::onChange.connect<OSDropZone2, &OSDropZone2::refresh>(this);  refresh();
+    ->openstudio::model::detail::ModelObject_Impl::onChange.connect<OSDropZone2, &OSDropZone2::refresh>(this);
+  refresh();
 }
 
 void OSDropZone2::unbind() {
@@ -947,7 +948,7 @@ void OSDropZone2::updateOtherModelObjects() {
         ->onRemoveFromWorkspace.disconnect<OSDropZone2, &OSDropZone2::onOtherModelObjectRemove>(this);
     }
   }
-  
+
   m_otherModelObjects = newOtherModelObjects;
 }
 

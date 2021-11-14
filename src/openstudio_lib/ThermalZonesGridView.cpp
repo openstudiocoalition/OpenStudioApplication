@@ -465,7 +465,7 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
       });
 
       std::function<bool(model::ThermalZone*, const model::Schedule&)> setHumidifyingSchedule([](model::ThermalZone* z, model::Schedule t_s) {
-        bool result = false; 
+        bool result = false;
         if (boost::optional<model::ZoneControlHumidistat> thermostat = z->zoneControlHumidistat()) {
           result = thermostat->setHumidifyingRelativeHumiditySetpointSchedule(t_s);
         } else {
