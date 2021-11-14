@@ -383,13 +383,15 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
       });
 
       std::function<bool(model::ThermalZone*, const model::Schedule&)> setCoolingSchedule([](model::ThermalZone* z, model::Schedule t_s) {
+        bool result = false;
         if (boost::optional<model::ThermostatSetpointDualSetpoint> thermostat = z->thermostatSetpointDualSetpoint()) {
-          return thermostat->setCoolingSetpointTemperatureSchedule(t_s);
+          result = thermostat->setCoolingSetpointTemperatureSchedule(t_s);
         } else {
           model::ThermostatSetpointDualSetpoint t(z->model());
+          result = t.setCoolingSetpointTemperatureSchedule(t_s);
           z->setThermostatSetpointDualSetpoint(t);
-          return t.setCoolingSetpointTemperatureSchedule(t_s);
         }
+        return result;
       });
 
       boost::optional<std::function<void(model::ThermalZone*)>> resetCoolingSchedule([](model::ThermalZone* z) {
@@ -400,18 +402,10 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
 
       boost::optional<std::function<bool(model::ThermalZone*)>> isDefaulted;
 
-      boost::optional<std::function<std::vector<model::ModelObject>(model::ThermalZone*)>> otherObjects([](model::ThermalZone* z) {
+      boost::optional<std::function<std::vector<model::ModelObject>(const model::ThermalZone*)>> otherObjects([](const model::ThermalZone* z) {
         std::vector<model::ModelObject> result;
-        boost::optional<model::Thermostat> thermostat = z->thermostat();
-        boost::optional<model::ThermostatSetpointDualSetpoint> thermostatDualSetpoint = z->thermostatSetpointDualSetpoint();
-        if (thermostat) {
+        if (boost::optional<model::ThermostatSetpointDualSetpoint> thermostat = z->thermostatSetpointDualSetpoint()) {
           result.push_back(*thermostat);
-        } else if (thermostatDualSetpoint) {
-          result.push_back(*thermostatDualSetpoint);
-        } else {
-          model::ThermostatSetpointDualSetpoint t(z->model());
-          z->setThermostatSetpointDualSetpoint(t);
-          result.push_back(t);
         }
         return result;
       });
@@ -430,13 +424,15 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
       });
 
       std::function<bool(model::ThermalZone*, const model::Schedule&)> setHeatingSchedule([](model::ThermalZone* z, model::Schedule t_s) {
+        bool result = false;
         if (boost::optional<model::ThermostatSetpointDualSetpoint> thermostat = z->thermostatSetpointDualSetpoint()) {
-          return thermostat->setHeatingSetpointTemperatureSchedule(t_s);
+          result = thermostat->setHeatingSetpointTemperatureSchedule(t_s);
         } else {
           model::ThermostatSetpointDualSetpoint t(z->model());
+          result = t.setHeatingSetpointTemperatureSchedule(t_s);
           z->setThermostatSetpointDualSetpoint(t);
-          return t.setHeatingSetpointTemperatureSchedule(t_s);
         }
+        return result;
       });
 
       boost::optional<std::function<void(model::ThermalZone*)>> resetHeatingSchedule([](model::ThermalZone* z) {
@@ -447,18 +443,10 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
 
       boost::optional<std::function<bool(model::ThermalZone*)>> isDefaulted;
 
-      boost::optional<std::function<std::vector<model::ModelObject>(model::ThermalZone*)>> otherObjects([](model::ThermalZone* z) {
+      boost::optional<std::function<std::vector<model::ModelObject>(const model::ThermalZone*)>> otherObjects([](const model::ThermalZone* z) {
         std::vector<model::ModelObject> result;
-        boost::optional<model::Thermostat> thermostat = z->thermostat();
-        boost::optional<model::ThermostatSetpointDualSetpoint> thermostatDualSetpoint = z->thermostatSetpointDualSetpoint();
-        if (thermostat) {
+        if (boost::optional<model::ThermostatSetpointDualSetpoint> thermostat = z->thermostatSetpointDualSetpoint()) {
           result.push_back(*thermostat);
-        } else if (thermostatDualSetpoint) {
-          result.push_back(*thermostatDualSetpoint);
-        } else {
-          model::ThermostatSetpointDualSetpoint t(z->model());
-          z->setThermostatSetpointDualSetpoint(t);
-          result.push_back(t);
         }
         return result;
       });
@@ -477,35 +465,33 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
       });
 
       std::function<bool(model::ThermalZone*, const model::Schedule&)> setHumidifyingSchedule([](model::ThermalZone* z, model::Schedule t_s) {
+        bool result = false; 
         if (boost::optional<model::ZoneControlHumidistat> thermostat = z->zoneControlHumidistat()) {
-          return thermostat->setHumidifyingRelativeHumiditySetpointSchedule(t_s);
+          result = thermostat->setHumidifyingRelativeHumiditySetpointSchedule(t_s);
         } else {
           model::ZoneControlHumidistat t(z->model());
+          result = t.setHumidifyingRelativeHumiditySetpointSchedule(t_s);
           z->setZoneControlHumidistat(t);
-          return t.setHumidifyingRelativeHumiditySetpointSchedule(t_s);
         }
+        return result;
       });
 
       boost::optional<std::function<void(model::ThermalZone*)>> resetHumidifyingSchedule([](model::ThermalZone* z) {
         if (boost::optional<model::ZoneControlHumidistat> thermostat = z->zoneControlHumidistat()) {
           thermostat->resetHumidifyingRelativeHumiditySetpointSchedule();
           if (!thermostat->dehumidifyingRelativeHumiditySetpointSchedule()) {
-            thermostat->remove();
+            z->resetZoneControlHumidistat();
           }
         }
       });
 
       boost::optional<std::function<bool(model::ThermalZone*)>> isDefaulted;
 
-      boost::optional<std::function<std::vector<model::ModelObject>(model::ThermalZone*)>> otherObjects([](model::ThermalZone* z) {
+      boost::optional<std::function<std::vector<model::ModelObject>(const model::ThermalZone*)>> otherObjects([](const model::ThermalZone* z) {
         std::vector<model::ModelObject> result;
         boost::optional<model::ZoneControlHumidistat> humidistat = z->zoneControlHumidistat();
         if (humidistat) {
           result.push_back(*humidistat);
-        } else {
-          model::ZoneControlHumidistat h(z->model());
-          z->setZoneControlHumidistat(h);
-          result.push_back(h);
         }
         return result;
       });
@@ -524,35 +510,33 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
       });
 
       std::function<bool(model::ThermalZone*, const model::Schedule&)> setDehumidifyingSchedule([](model::ThermalZone* z, model::Schedule t_s) {
+        bool result = false;
         if (boost::optional<model::ZoneControlHumidistat> thermostat = z->zoneControlHumidistat()) {
-          return thermostat->setDehumidifyingRelativeHumiditySetpointSchedule(t_s);
+          result = thermostat->setDehumidifyingRelativeHumiditySetpointSchedule(t_s);
         } else {
           model::ZoneControlHumidistat t(z->model());
+          result = t.setDehumidifyingRelativeHumiditySetpointSchedule(t_s);
           z->setZoneControlHumidistat(t);
-          return t.setDehumidifyingRelativeHumiditySetpointSchedule(t_s);
         }
+        return result;
       });
 
       boost::optional<std::function<void(model::ThermalZone*)>> resetDehumidifyingSchedule([](model::ThermalZone* z) {
         if (boost::optional<model::ZoneControlHumidistat> thermostat = z->zoneControlHumidistat()) {
           thermostat->resetDehumidifyingRelativeHumiditySetpointSchedule();
           if (!thermostat->humidifyingRelativeHumiditySetpointSchedule()) {
-            thermostat->remove();
+            z->resetZoneControlHumidistat();
           }
         }
       });
 
       boost::optional<std::function<bool(model::ThermalZone*)>> isDefaulted;
 
-      boost::optional<std::function<std::vector<model::ModelObject>(model::ThermalZone*)>> otherObjects([](model::ThermalZone* z) {
+      boost::optional<std::function<std::vector<model::ModelObject>(const model::ThermalZone*)>> otherObjects([](const model::ThermalZone* z) {
         std::vector<model::ModelObject> result;
         boost::optional<model::ZoneControlHumidistat> humidistat = z->zoneControlHumidistat();
         if (humidistat) {
           result.push_back(*humidistat);
-        } else {
-          model::ZoneControlHumidistat h(z->model());
-          z->setZoneControlHumidistat(h);
-          result.push_back(h);
         }
         return result;
       });

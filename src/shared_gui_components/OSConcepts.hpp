@@ -1386,7 +1386,7 @@ class DropZoneConceptImpl : public DropZoneConcept
   DropZoneConceptImpl(const Heading& t_heading, std::function<boost::optional<ValueType>(DataSourceType*)> t_getter,
                       std::function<bool(DataSourceType*, const ValueType&)> t_setter, boost::optional<std::function<void(DataSourceType*)>> t_reset,
                       boost::optional<std::function<bool(DataSourceType*)>> t_isDefaulted,
-                      boost::optional<std::function<std::vector<model::ModelObject>(DataSourceType*)>> t_otherObjects)
+                      boost::optional<std::function<std::vector<model::ModelObject>(const DataSourceType*)>> t_otherObjects)
     : DropZoneConcept(t_heading),
       m_getter(t_getter),
       m_setter(t_setter),
@@ -1468,7 +1468,7 @@ class DropZoneConceptImpl : public DropZoneConcept
   std::function<bool(DataSourceType*, const ValueType&)> m_setter;
   boost::optional<std::function<void(DataSourceType*)>> m_reset;
   boost::optional<std::function<bool(DataSourceType*)>> m_isDefaulted;
-  boost::optional<std::function<std::vector<model::ModelObject>(DataSourceType*)>> m_otherObjects;
+  boost::optional<std::function<std::vector<model::ModelObject>(const DataSourceType*)>> m_otherObjects;
 };
 
 ///////////////////////////////////////////////////////////////////////////////////
