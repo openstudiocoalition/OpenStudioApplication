@@ -464,28 +464,28 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
 
       std::function<boost::optional<model::Schedule>(model::ThermalZone*)> humidifyingSchedule([](model::ThermalZone* z) {
         boost::optional<model::Schedule> schedule;
-        if (boost::optional<model::ZoneControlHumidistat> thermostat = z->zoneControlHumidistat()) {
-          schedule = thermostat->humidifyingRelativeHumiditySetpointSchedule();
+        if (boost::optional<model::ZoneControlHumidistat> humidistat = z->zoneControlHumidistat()) {
+          schedule = humidistat->humidifyingRelativeHumiditySetpointSchedule();
         }
         return schedule;
       });
 
       std::function<bool(model::ThermalZone*, const model::Schedule&)> setHumidifyingSchedule([](model::ThermalZone* z, model::Schedule t_s) {
         bool result = false;
-        if (boost::optional<model::ZoneControlHumidistat> thermostat = z->zoneControlHumidistat()) {
-          result = thermostat->setHumidifyingRelativeHumiditySetpointSchedule(t_s);
+        if (boost::optional<model::ZoneControlHumidistat> humidistat = z->zoneControlHumidistat()) {
+          result = humidistat->setHumidifyingRelativeHumiditySetpointSchedule(t_s);
         } else {
-          model::ZoneControlHumidistat t(z->model());
-          result = t.setHumidifyingRelativeHumiditySetpointSchedule(t_s);
-          z->setZoneControlHumidistat(t);
+          model::ZoneControlHumidistat h(z->model());
+          result = h.setHumidifyingRelativeHumiditySetpointSchedule(t_s);
+          z->setZoneControlHumidistat(h);
         }
         return result;
       });
 
       boost::optional<std::function<void(model::ThermalZone*)>> resetHumidifyingSchedule([](model::ThermalZone* z) {
-        if (boost::optional<model::ZoneControlHumidistat> thermostat = z->zoneControlHumidistat()) {
-          thermostat->resetHumidifyingRelativeHumiditySetpointSchedule();
-          if (!thermostat->dehumidifyingRelativeHumiditySetpointSchedule()) {
+        if (boost::optional<model::ZoneControlHumidistat> humidistat = z->zoneControlHumidistat()) {
+          humidistat->resetHumidifyingRelativeHumiditySetpointSchedule();
+          if (!humidistat->dehumidifyingRelativeHumiditySetpointSchedule()) {
             z->resetZoneControlHumidistat();
           }
         }
@@ -509,28 +509,28 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
 
       std::function<boost::optional<model::Schedule>(model::ThermalZone*)> dehumidifyingSchedule([](model::ThermalZone* z) {
         boost::optional<model::Schedule> schedule;
-        if (boost::optional<model::ZoneControlHumidistat> thermostat = z->zoneControlHumidistat()) {
-          schedule = thermostat->dehumidifyingRelativeHumiditySetpointSchedule();
+        if (boost::optional<model::ZoneControlHumidistat> humidistat = z->zoneControlHumidistat()) {
+          schedule = humidistat->dehumidifyingRelativeHumiditySetpointSchedule();
         }
         return schedule;
       });
 
       std::function<bool(model::ThermalZone*, const model::Schedule&)> setDehumidifyingSchedule([](model::ThermalZone* z, model::Schedule t_s) {
         bool result = false;
-        if (boost::optional<model::ZoneControlHumidistat> thermostat = z->zoneControlHumidistat()) {
-          result = thermostat->setDehumidifyingRelativeHumiditySetpointSchedule(t_s);
+        if (boost::optional<model::ZoneControlHumidistat> humidistat = z->zoneControlHumidistat()) {
+          result = humidistat->setDehumidifyingRelativeHumiditySetpointSchedule(t_s);
         } else {
-          model::ZoneControlHumidistat t(z->model());
-          result = t.setDehumidifyingRelativeHumiditySetpointSchedule(t_s);
-          z->setZoneControlHumidistat(t);
+          model::ZoneControlHumidistat h(z->model());
+          result = h.setDehumidifyingRelativeHumiditySetpointSchedule(t_s);
+          z->setZoneControlHumidistat(h);
         }
         return result;
       });
 
       boost::optional<std::function<void(model::ThermalZone*)>> resetDehumidifyingSchedule([](model::ThermalZone* z) {
-        if (boost::optional<model::ZoneControlHumidistat> thermostat = z->zoneControlHumidistat()) {
-          thermostat->resetDehumidifyingRelativeHumiditySetpointSchedule();
-          if (!thermostat->humidifyingRelativeHumiditySetpointSchedule()) {
+        if (boost::optional<model::ZoneControlHumidistat> humidistat = z->zoneControlHumidistat()) {
+          humidistat->resetDehumidifyingRelativeHumiditySetpointSchedule();
+          if (!humidistat->humidifyingRelativeHumiditySetpointSchedule()) {
             z->resetZoneControlHumidistat();
           }
         }
