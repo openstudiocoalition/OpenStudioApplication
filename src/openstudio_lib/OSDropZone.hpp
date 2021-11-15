@@ -108,6 +108,7 @@ class OSDropZone2
 
   void refresh();
   void onModelObjectRemove(const Handle& handle);
+  void onOtherModelObjectRemove(const Handle& handle);
   void dragEnterEvent(QDragEnterEvent* event) override;
   void dropEvent(QDropEvent* event) override;
 
@@ -118,6 +119,14 @@ class OSDropZone2
   void updateStyle();
   void makeItem();
   boost::optional<model::ModelObject> updateGetterResult();
+  void updateOtherModelObjects();
+
+  struct ModelObjectHandleLess
+  {
+    bool operator()(const model::ModelObject& lhs, const model::ModelObject& rhs) const {
+      return lhs.handle() < rhs.handle();
+    }
+  };
 
   boost::optional<OptionalModelObjectGetter> m_get;
   boost::optional<ModelObjectSetter> m_set;
@@ -126,7 +135,7 @@ class OSDropZone2
   boost::optional<OtherModelObjects> m_otherObjects;
   boost::optional<model::ModelObject> m_modelObject;
   boost::optional<model::ModelObject> m_getterResult;
-  std::vector<model::ModelObject> m_otherModelObjects;
+  std::set<model::ModelObject, ModelObjectHandleLess> m_otherModelObjects;
   bool m_hasClickFocus = false;
   bool m_focused = false;
   bool m_locked = false;

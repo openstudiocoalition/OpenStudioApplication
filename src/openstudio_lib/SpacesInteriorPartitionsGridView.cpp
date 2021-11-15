@@ -215,7 +215,7 @@ void SpacesInteriorPartitionsGridController::addColumns(const QString& category,
           boost::optional<std::function<void(model::InteriorPartitionSurface*)>>(NullAdapter(&model::InteriorPartitionSurface::resetConstruction)),
           boost::optional<std::function<bool(model::InteriorPartitionSurface*)>>(
             NullAdapter(&model::InteriorPartitionSurface::isConstructionDefaulted)),
-          boost::optional<std::function<std::vector<model::ModelObject>(model::InteriorPartitionSurface*)>>(),
+          boost::optional<std::function<std::vector<model::ModelObject>(const model::InteriorPartitionSurface*)>>(),
           DataSource(allInteriorPartitionSurfaces, true));
       } else if (field == CONVERTTOINTERNALMASS) {
         // We add the "Apply Selected" button to this column by passing 3rd arg, t_showColumnButton=true
