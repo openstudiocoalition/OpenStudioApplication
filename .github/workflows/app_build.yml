@@ -512,10 +512,19 @@ jobs:
       # Execute the build.  You can specify a specific target with "--target <NAME>"
       run: cmake --build . --target package -j 2 --config $BUILD_TYPE
 
-    - name: Sign inner portable executable files and exe package (Windows)
+    - name: Test bed Sign inner portable executable files and exe package (Windows)
       working-directory: ./build
       if: (runner.os == 'Windows')
-      # if: contains(github.ref, 'refs/tags') && (runner.os == 'Windows')
+      shell: powershell
+      run: |
+        $installer_exe = Get-ChildItem -Filter "${{ matrix.BINARY_PKG_PATH }}/*.${{ env.BINARY_EXT }}" -File | Select-Object -First 1 | % { $_.FullName}
+        echo $installer_exe
+        echo "$installer_exe"
+
+    - name: Sign inner portable executable files and exe package (Windows)
+      working-directory: ./build
+      # if: (runner.os == 'Windows')
+      if: contains(github.ref, 'refs/tags') && (runner.os == 'Windows')
       shell: powershell
       run: |
         # Install signpath
@@ -535,7 +544,7 @@ jobs:
         cpack
 
         # Sign the .exe installer as well
-        $installer_exe = Get-ChildItem -Filter "${{ matrix.BINARY_PKG_PATH }}/*.${{ env.BINARY_EXT }}" -File | Select-Object -First 1
+        $installer_exe = Get-ChildItem -Filter "${{ matrix.BINARY_PKG_PATH }}/*.${{ env.BINARY_EXT }}" -File | Select-Object -First 1 | % { $_.FullName}
 
         Submit-SigningRequest `
           -InputArtifactPath "$installer_exe" `
