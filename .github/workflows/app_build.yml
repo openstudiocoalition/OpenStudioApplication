@@ -529,7 +529,7 @@ jobs:
           -ProjectSlug "OpenStudioApplication" `
           -SigningPolicySlug "No_Approval_GHA" `
           -OutputArtifactPath "Products/OpenStudioApp.exe" `
-          -Force`
+          -Force "True"`
           -WaitForCompletion
 
         # Repackage
@@ -545,7 +545,7 @@ jobs:
           -ProjectSlug "OpenStudioApplication" `
           -SigningPolicySlug "No_Approval_GHA" `
           -OutputArtifactPath "$installer_exe" `
-          -Force `
+          -Force "True" `
           -WaitForCompletion
 
     - name: Archive binary artifacts
