@@ -1,7 +1,7 @@
 
 OS:Version,
-  {8304e7fb-be0b-4d3a-bb9a-f802e5497ab8}, !- Handle
-  3.2.1;                                  !- Version Identifier
+  {785af1df-0f1c-403e-a691-ce4123998494}, !- Handle
+  3.3.0;                                  !- Version Identifier
 
 ! Always OnOff Discrete Schedule Type Limits
 OS:ScheduleTypeLimits,
@@ -708,7 +708,9 @@ OS:AirTerminal:SingleDuct:InletSideMixer,
   Inlet Side Mixer,                       !- Name
   ,                                       !- Terminal Unit Outlet
   ,                                       !- Terminal Unit Primary Air Inlet
-  ;                                       !- Terminal Unit Secondary Air Inlet
+  ,                                       !- Terminal Unit Secondary Air Inlet
+  Yes,                                    !- Control For Outdoor Air
+  CurrentOccupancy;                       !- Per Person Ventilation Rate Mode
 
 OS:AirTerminal:SingleDuct:ConstantVolume:Reheat,
   {36193791-ae10-4f59-90dc-2bc06cf598d2}, !- Handle
@@ -4229,14 +4231,13 @@ OS:GroundHeatExchanger:Vertical,
   Vertical Bore Field,                    !- Name
   ,                                       !- Inlet Node Name
   ,                                       !- Outlet Node Name
-  0.0033,                                 !- Maximum Flow Rate {m3/s}
+  0.0033,                                 !- Design Flow Rate {m3/s}
   120,                                    !- Number of Bore Holes
   76.2,                                   !- Bore Hole Length {m}
   0.063508,                               !- Bore Hole Radius {m}
   0.692626,                               !- Ground Thermal Conductivity {W/m-K}
   2347000,                                !- Ground Thermal Heat Capacity {J/m3-K}
   13.375,                                 !- Ground Temperature {C}
-  0.0033,                                 !- Design Flow Rate {m3/s}
   0.692626,                               !- Grout Thermal Conductivity {W/m-K}
   0.391312,                               !- Pipe Thermal Conductivity {W/m-K}
   0.0266667,                              !- Pipe Out Diameter {m}
