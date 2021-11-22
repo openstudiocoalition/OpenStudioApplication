@@ -3,38 +3,38 @@ set(OPENSTUDIO_VERSION_MINOR 3)
 set(OPENSTUDIO_VERSION_PATCH 0)
 set(OPENSTUDIO_VERSION "${OPENSTUDIO_VERSION_MAJOR}.${OPENSTUDIO_VERSION_MINOR}.${OPENSTUDIO_VERSION_PATCH}")
 
-#If this is a release enter the SHA as "+79857912c4"
-#set(OPENSTUDIO_VERSION_SHA "+09b7c8a554")
-#If this is a pre-release enter the pre-release and SHA as "-rc1+79857912c4"
-set(OPENSTUDIO_VERSION_SHA "-alpha+d92b642abb")
+#If this is an official release, leave this "", otherwise put for eg '-rc1'
+set(OPENSTUDIO_VERSION_PRERELEASE "")
+# Enter SHA, always, eg "+79857912c4"
+set(OPENSTUDIO_VERSION_SHA "+ad235ff36e")
 
 # Paths where the cmake-downloaded archives will be put
 set(OPENSTUDIO_ARCHIVE_DIR "${PROJECT_BINARY_DIR}/OpenStudio-${OPENSTUDIO_VERSION}")
 
 # If downloaded, we need the SHA to match. This block is here since we need "OPENSTUDIO_PLATFORM" anyways
 if(APPLE)
-  set(OPENSTUDIO_EXPECTED_HASH f231e3c3225fa21fe41ceef437665d72)
+  set(OPENSTUDIO_EXPECTED_HASH 77c2bf77f07dc2e2af7658df55940c49)
   set(OPENSTUDIO_PLATFORM "Darwin")
   set(OPENSTUDIO_EXT "tar.gz")
 elseif(UNIX)
 
   if(LSB_RELEASE_VERSION_SHORT MATCHES "20.04")
-    set(OPENSTUDIO_EXPECTED_HASH c69e28c7893a765324a431ad71965611)
+    set(OPENSTUDIO_EXPECTED_HASH 7fca6ef73399fdb21cde01aca4223d7c)
     set(OPENSTUDIO_PLATFORM "Ubuntu-20.04")
   else() # Assumes 18.04
-    set(OPENSTUDIO_EXPECTED_HASH c9958dd6e0a612480fd6b562497ca2ea)
+    set(OPENSTUDIO_EXPECTED_HASH 24858ac666a3d2fc40d0cff7b4f444b9)
     set(OPENSTUDIO_PLATFORM "Ubuntu-18.04")
   endif()
   set(OPENSTUDIO_EXT "tar.gz")
 
 elseif(WIN32)
-  set(OPENSTUDIO_EXPECTED_HASH 42bdcf13b06d6b140c7b42d2101bc710)
+  set(OPENSTUDIO_EXPECTED_HASH f01ddb50a7ce1f4461e1919350e7c629)
   set(OPENSTUDIO_PLATFORM "Windows")
   set(OPENSTUDIO_EXT "tar.gz")
 endif()
 
 
-set(OPENSTUDIO_ARCHIVE_BASENAME "OpenStudio-${OPENSTUDIO_VERSION}${OPENSTUDIO_VERSION_SHA}-${OPENSTUDIO_PLATFORM}")
+set(OPENSTUDIO_ARCHIVE_BASENAME "OpenStudio-${OPENSTUDIO_VERSION}${OPENSTUDIO_VERSION_PRERELEASE}${OPENSTUDIO_VERSION_SHA}-${OPENSTUDIO_PLATFORM}")
 set(OPENSTUDIO_ARCHIVE_NAME "${OPENSTUDIO_ARCHIVE_BASENAME}.${OPENSTUDIO_EXT}"
   CACHE STRING "Archive Name, with extension" FORCE)
 
@@ -56,7 +56,7 @@ else()
   # base link for release builds
   set(OPENSTUDIO_BASELINK_RELEASE
     #"https://openstudio-builds.s3.amazonaws.com/${OPENSTUDIO_VERSION}"
-    "https://github.com/NREL/OpenStudio/releases/download/v${OPENSTUDIO_VERSION}/"
+    "https://github.com/NREL/OpenStudio/releases/download/v${OPENSTUDIO_VERSION}${OPENSTUDIO_VERSION_PRERELEASE}/"
     CACHE STRING "Base link to where the openstudio archives are hosted" FORCE)
 
   # base link for develop builds. (Using https will fail)

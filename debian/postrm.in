@@ -73,14 +73,14 @@ else
   rm -f "/usr/share/icons/hicolor/256x256/mimetypes/application-x-openstudio-component.png"
 
   # OpenStudioApplication
-  rm -f "/usr/share/icons/hicolor/16x16/mimetypes/openstudioapp.png"
-  rm -f "/usr/share/icons/hicolor/32x32/mimetypes/openstudioapp.png"
-  rm -f "/usr/share/icons/hicolor/64x64/mimetypes/openstudioapp.png"
-  rm -f "/usr/share/icons/hicolor/128x128/mimetypes/openstudioapp.png"
-  rm -f "/usr/share/icons/hicolor/256x256/mimetypes/openstudioapp.png"
+  rm -f "/usr/share/icons/hicolor/16x16/apps/openstudioapp.png"
+  rm -f "/usr/share/icons/hicolor/32x32/apps/openstudioapp.png"
+  rm -f "/usr/share/icons/hicolor/64x64/apps/openstudioapp.png"
+  rm -f "/usr/share/icons/hicolor/128x128/apps/openstudioapp.png"
+  rm -f "/usr/share/icons/hicolor/256x256/apps/openstudioapp.png"
   # OS App is the only one that also has 512 and 1024
-  rm -f "/usr/share/icons/hicolor/512x512/mimetypes/openstudioapp.png"
-  rm -f "/usr/share/icons/hicolor/1024x1024/mimetypes/openstudioapp.png"
+  rm -f "/usr/share/icons/hicolor/512x512/apps/openstudioapp.png"
+  rm -f "/usr/share/icons/hicolor/1024x1024/apps/openstudioapp.png"
 
 fi;
 

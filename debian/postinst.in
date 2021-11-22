@@ -31,8 +31,6 @@ mkdir -p /usr/share/icons/hicolor/32x32/mimetypes
 mkdir -p /usr/share/icons/hicolor/64x64/mimetypes
 mkdir -p /usr/share/icons/hicolor/128x128/mimetypes
 mkdir -p /usr/share/icons/hicolor/256x256/mimetypes
-mkdir -p /usr/share/icons/hicolor/512x512/mimetypes
-mkdir -p /usr/share/icons/hicolor/1024x1024/mimetypes
 
 # OpenStudio Model
 cp "@CPACK_INSTALL_PREFIX@/Temp/icons/osm_16.png" "/usr/share/icons/hicolor/16x16/mimetypes/application-x-openstudio.png"
@@ -49,6 +47,14 @@ cp "@CPACK_INSTALL_PREFIX@/Temp/icons/osc_128.png" "/usr/share/icons/hicolor/128
 cp "@CPACK_INSTALL_PREFIX@/Temp/icons/osc_256.png" "/usr/share/icons/hicolor/256x256/mimetypes/application-x-openstudio-component.png"
 
 # OpenStudioApplication
+mkdir -p /usr/share/icons/hicolor/16x16/apps
+mkdir -p /usr/share/icons/hicolor/32x32/apps
+mkdir -p /usr/share/icons/hicolor/64x64/apps
+mkdir -p /usr/share/icons/hicolor/128x128/apps
+mkdir -p /usr/share/icons/hicolor/256x256/apps
+mkdir -p /usr/share/icons/hicolor/512x512/apps
+mkdir -p /usr/share/icons/hicolor/1024x1024/apps
+
 cp "@CPACK_INSTALL_PREFIX@/Temp/icons/os_16.png" "/usr/share/icons/hicolor/16x16/apps/openstudioapp.png"
 cp "@CPACK_INSTALL_PREFIX@/Temp/icons/os_32.png" "/usr/share/icons/hicolor/32x32/apps/openstudioapp.png"
 cp "@CPACK_INSTALL_PREFIX@/Temp/icons/os_64.png" "/usr/share/icons/hicolor/64x64/apps/openstudioapp.png"
