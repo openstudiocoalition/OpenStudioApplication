@@ -1904,6 +1904,8 @@ var setLocalStorage = function (key, value) {
 var settings = {
   renderBy: 'Surface Type',
   showStory: 'All Stories',
+  findAdjacencyIssues: false,
+  findAdjacencyThreshold: 1,
   searchType: getStringFromLocalStorage('searchType', 'Surfaces'),
   searchName: getStringFromLocalStorage('searchName', ''),
   showFloors: getBoolFromLocalStorage('showFloors', true),
@@ -2674,6 +2676,83 @@ function cycleHour() {
   }
 }
 
+var adjacencyIssueIds = new Set();
+var updateAdjacencyIssues = function(value) {
+  Array.groupBy = function(arr, prop) {
+      return arr.reduce(function(groups, item) {
+          const val = prop.split('.')
+              .reduce((obj, key) => (obj && obj[key] !== 'undefined') ? obj[key] : undefined, item);
+          groups[val] = groups[val] || [];
+          groups[val].push(item);
+          return groups;
+      }, {});
+  }
+
+  function combinations(a, b) {
+      if (b === undefined) {
+          return a.flatMap((v, i) => a.slice(i).map(w => [v, w]));
+      } else {
+          return a.flatMap((v, i) => b.map(w => [v, w])); 
+      }
+  }
+
+  // As of now Three.js revision 71
+  class Box3 extends THREE.Box3 {
+
+      // Added in revision 84
+      expandByObject(object) {
+          const box = new THREE.Box3();
+          box.setFromObject(object);
+          this.expandByPoint(box.min);
+          this.expandByPoint(box.max);
+      }
+
+      // Added in revision 74
+      intersectsBox(box) {
+          // using 6 splitting planes to rule out intersections.
+          return box.max.x < this.min.x || box.min.x > this.max.x ||
+              box.max.y < this.min.y || box.min.y > this.max.y ||
+              box.max.z < this.min.z || box.min.z > this.max.z ? false : true;
+  
+      }
+  }
+
+  const detectable = scene_objects.filter(o => 
+      ["Wall", "RoofCeiling", "Floor"].includes(o.userData.surfaceTypeMaterialName))
+  const per_space = Array.groupBy(detectable, 'userData.spaceName')
+  const space_boxes = Object.entries(per_space).map(([space, objects]) => {
+      const box = new Box3();
+      box.space = space;
+      box.surfaces = objects;
+      objects.forEach(o => box.expandByObject(o));
+      return box;
+  });
+
+  /*
+    * Implements part of Honeybee's SolveAdj tool licensed under the AGPL 3.0. See:
+    * - https://github.com/ladybug-tools/honeybee-grasshopper-core/blob/27773fe0097188d4be0e160c71a0cda2c54c6f73/honeybee_grasshopper_core/src/HB%20Solve%20Adjacency.py#L190
+    * - https://github.com/ladybug-tools/honeybee-core/blob/ae4e905a78635a7448291ff8dbe94aa2f627a1ae/honeybee/room.py#L925
+    * - https://github.com/ladybug-tools/honeybee-core/blob/ae4e905a78635a7448291ff8dbe94aa2f627a1ae/honeybee/room.py#L867
+    * - https://github.com/ladybug-tools/ladybug-geometry/blob/da34f3397c59bc311004cb6319d534953c8ee9ab/ladybug_geometry/geometry3d/polyface.py#L689
+    */
+  const almost_equal = 1e-3;
+  const thresh = (parseFloat(settings.findAdjacencyThreshold)**2)/1000;
+  adjacencyIssueIds.clear();
+  for (var [a, b] of combinations(space_boxes)) {
+      if (a.intersectsBox(b)) {
+          for (var [p, q] of combinations(a.surfaces, b.surfaces)) {
+              for (var [x, y] of combinations(p.geometry.vertices, q.geometry.vertices)) {
+                  const dist = x.distanceToSquared(y);
+                  if (almost_equal < dist && dist < thresh) {
+                      adjacencyIssueIds.add(p.id).add(q.id);
+                      break;
+                  }
+              }
+          }
+      }
+  }
+}
+
 var gui = null;
 var dataFolder = null;
 var update = function (value) {
@@ -2760,6 +2839,10 @@ var update = function (value) {
     surfaceType = object.userData.surfaceType;
 
     object.visible = true;
+
+    if (settings.findAdjacencyIssues) {
+      object.visible = adjacencyIssueIds.has(object.id);
+    }
 
     if (settings.showStory == 'All Stories' || settings.showStory == object.userData.buildingStoryName){
       // no-op
@@ -3028,15 +3111,32 @@ var initDatGui = function () {
   });
   f1.open();
 
-  var f2 = gui.addFolder('Camera');
-  f2.add(settings, 'orthographic').name('Orthographic').onChange(function(value) {
-    setLocalStorage('orthographic', value);
+  var f2 = gui.addFolder('Adjacency Issues');
+  f2.add(settings, 'findAdjacencyIssues').name('Enable').onChange(value => {
+      removeSelection();
+      setLocalStorage('findAdjacencyThreshold', value);
+      updateAdjacencyIssues();
+      update(value);
   });
-  f2.add(settings, 'xView').name('X View');
-  f2.add(settings, 'yView').name('Y View');
-  f2.add(settings, 'zView').name('Z View');
-  f2.add(settings, 'reset').name('Reset');
+  f2.add(settings, 'findAdjacencyThreshold', 0.5, 2.5, 0.5).name('Threshold').onFinishChange(function (value) {
+      if (settings.findAdjacencyIssues) {
+          removeSelection();
+          setLocalStorage('findAdjacencyThreshold', value);
+          updateAdjacencyIssues();
+          update(value);
+      }
+  });
   f2.open();
+
+  var f3 = gui.addFolder('Camera');
+  f3.add(settings, 'orthographic').name('Orthographic').onChange(function (value) {
+      setLocalStorage('orthographic', value);
+  });
+  f3.add(settings, 'xView').name('X View');
+  f3.add(settings, 'yView').name('Y View');
+  f3.add(settings, 'zView').name('Z View');
+  f3.add(settings, 'reset').name('Reset');
+  f3.open();
 
   /*var f2 = gui.addFolder('Section Cut');
   f2.add(settings, 'xSection', 0, 360).name('X Section').onChange(function (value) {
