@@ -11,7 +11,7 @@ BEGIN
     BEGIN
         BLOCK "040904E4" // Lang=US English, CharSet=Windows Multilingual
         BEGIN
-            VALUE "CompanyName",      "OpenStudioCoalition\0"
+            VALUE "CompanyName",      "OpenStudio Coalition\0"
             VALUE "FileDescription",  "OpenStudio Application for Energy Modeling\0"
             VALUE "FileVersion",      "${OPENSTUDIOAPPLICATION_VERSION}\0"
             VALUE "InternalName",     "OpenStudioApp\0"
