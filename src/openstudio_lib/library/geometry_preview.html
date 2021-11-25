@@ -1841,7 +1841,7 @@ c);e.bind(this.domElement,"transitionend",c);e.bind(this.domElement,"oTransition
 var os_data;
 
 
-var renderer, scene, light, scene_objects, scene_edges, object_edges, coincident_objects, back_objects;
+var renderer, scene, light, scene_objects, scene_edges, object_edges, coincident_objects, back_objects, dot_points;
 var perspectiveCamera, orthographicCamera, perspectiveControls, orthographicControls;
 var project, materials, variable;
 var dataFolder, dateTimeControl;
@@ -1853,7 +1853,7 @@ var raycaster;
 var mouse;
 var headsUp;
 var intersected = [];
-var selected_material, unknown_material;
+var selected_material, unknown_material, dot_material;
 
 var getStringFromLocalStorage = function (key, defaultValue) {
   try {
@@ -2400,6 +2400,8 @@ function init(os_data_in) {
     side: THREE.DoubleSide
   });
 
+  dot_material = new THREE.PointsMaterial( { size: 10, sizeAttenuation: false, color: 0xff0000 } );
+
   materials = parseMaterials(os_data.materials);
 
   renderer.domElement.addEventListener('mousedown', onDocumentMouseDown, false);
@@ -2677,6 +2679,7 @@ function cycleHour() {
 }
 
 var adjacencyIssueIds = new Set();
+var adjacencyIssueVertices = new Set();
 var updateAdjacencyIssues = function(value) {
   Array.groupBy = function(arr, prop) {
       return arr.reduce(function(groups, item) {
@@ -2692,7 +2695,7 @@ var updateAdjacencyIssues = function(value) {
       if (b === undefined) {
           return a.flatMap((v, i) => a.slice(i).map(w => [v, w]));
       } else {
-          return a.flatMap((v, i) => b.map(w => [v, w])); 
+          return a.flatMap((v, i) => b.map(w => [v, w]));
       }
   }
 
@@ -2713,11 +2716,10 @@ var updateAdjacencyIssues = function(value) {
           return box.max.x < this.min.x || box.min.x > this.max.x ||
               box.max.y < this.min.y || box.min.y > this.max.y ||
               box.max.z < this.min.z || box.min.z > this.max.z ? false : true;
-  
       }
   }
 
-  const detectable = scene_objects.filter(o => 
+  const detectable = scene_objects.filter(o =>
       ["Wall", "RoofCeiling", "Floor"].includes(o.userData.surfaceTypeMaterialName))
   const per_space = Array.groupBy(detectable, 'userData.spaceName')
   const space_boxes = Object.entries(per_space).map(([space, objects]) => {
@@ -2725,6 +2727,7 @@ var updateAdjacencyIssues = function(value) {
       box.space = space;
       box.surfaces = objects;
       objects.forEach(o => box.expandByObject(o));
+      box.expandByScalar(0.5);
       return box;
   });
 
@@ -2735,9 +2738,10 @@ var updateAdjacencyIssues = function(value) {
     * - https://github.com/ladybug-tools/honeybee-core/blob/ae4e905a78635a7448291ff8dbe94aa2f627a1ae/honeybee/room.py#L867
     * - https://github.com/ladybug-tools/ladybug-geometry/blob/da34f3397c59bc311004cb6319d534953c8ee9ab/ladybug_geometry/geometry3d/polyface.py#L689
     */
-  const almost_equal = 1e-3;
-  const thresh = (parseFloat(settings.findAdjacencyThreshold)**2)/1000;
+  const almost_equal = 1e-6;
+  const thresh = (parseFloat(settings.findAdjacencyThreshold)**2)/10000;
   adjacencyIssueIds.clear();
+  adjacencyIssueVertices.clear();
   for (var [a, b] of combinations(space_boxes)) {
       if (a.intersectsBox(b)) {
           for (var [p, q] of combinations(a.surfaces, b.surfaces)) {
@@ -2745,7 +2749,7 @@ var updateAdjacencyIssues = function(value) {
                   const dist = x.distanceToSquared(y);
                   if (almost_equal < dist && dist < thresh) {
                       adjacencyIssueIds.add(p.id).add(q.id);
-                      break;
+                      adjacencyIssueVertices.add(x).add(y);
                   }
               }
           }
@@ -2937,7 +2941,7 @@ var update = function (value) {
             keyName = object_variable.keyName;
           }
         }
-       
+
         if (value !== null) {
           object.userData.variableName = settings.variableName;
           object.userData.variableDate = date;
@@ -2949,7 +2953,7 @@ var update = function (value) {
           object.userData.variableName = settings.variableName;
           object.userData.variableDate = date;
           object.userData.variableTime = time;
-          object.userData.variableKeyName = keyName;          
+          object.userData.variableKeyName = keyName;
           object.userData.variableValue = '';
           object.userData.variableUnits = units;
         }
@@ -2958,7 +2962,7 @@ var update = function (value) {
         material.color.set(getColor(value, variable.valueMin, variable.valueMax, settings.colorScheme));
         break;
     }
-    
+
     if (!material) {
       material = unknown_material;
     }
@@ -3000,7 +3004,7 @@ var update = function (value) {
             // coincident object is visible, hide back object
             back_object.visible = false;
           }else{
-            
+
             if (back_object.material){
 			  // coincident object is not visible, show back object
               back_object.visible = true;
@@ -3016,6 +3020,25 @@ var update = function (value) {
       }
     }
   });
+
+  if (dot_points instanceof THREE.Points){
+    scene.remove(dot_points);
+    dot_points = null;
+  }
+
+  if (settings.findAdjacencyIssues) {
+    var dot_geometry = new THREE.Geometry();
+    dot_points = new THREE.Points(dot_geometry, dot_material);
+
+    adjacencyIssueVertices.forEach(function(p) {
+      dot_geometry.vertices.push(p);
+    });
+
+    dot_geometry.verticesNeedUpdate = true;
+    dot_geometry.elementsNeedUpdate = true;
+    dot_geometry.computeVertexNormals();
+    scene.add(dot_points);
+  }
 };
 
 var updateVariable = function (variableName) {
@@ -3118,7 +3141,7 @@ var initDatGui = function () {
       updateAdjacencyIssues();
       update(value);
   });
-  f2.add(settings, 'findAdjacencyThreshold', 0.5, 2.5, 0.5).name('Threshold').onFinishChange(function (value) {
+  f2.add(settings, 'findAdjacencyThreshold', 0.1, 10, 0.5).name('Threshold').onFinishChange(function (value) {
       if (settings.findAdjacencyIssues) {
           removeSelection();
           setLocalStorage('findAdjacencyThreshold', value);
