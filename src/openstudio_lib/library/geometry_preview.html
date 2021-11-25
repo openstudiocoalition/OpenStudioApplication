@@ -2742,18 +2742,33 @@ var updateAdjacencyIssues = function(value) {
   const thresh = (parseFloat(settings.findAdjacencyThreshold)**2)/10000;
   adjacencyIssueIds.clear();
   adjacencyIssueVertices.clear();
-  for (var [a, b] of combinations(space_boxes)) {
-      if (a.intersectsBox(b)) {
-          for (var [p, q] of combinations(a.surfaces, b.surfaces)) {
-              for (var [x, y] of combinations(p.geometry.vertices, q.geometry.vertices)) {
-                  const dist = x.distanceToSquared(y);
-                  if (almost_equal < dist && dist < thresh) {
-                      adjacencyIssueIds.add(p.id).add(q.id);
-                      adjacencyIssueVertices.add(x).add(y);
-                  }
-              }
-          }
+
+  // issues within space
+  space_boxes.forEach(a => {
+    for (var [p, q] of combinations(a.surfaces)) {
+      for (var [x, y] of combinations(p.geometry.vertices, q.geometry.vertices)) {
+        const dist = x.distanceToSquared(y);
+        if (almost_equal < dist && dist < thresh) {
+          adjacencyIssueIds.add(p.id).add(q.id);
+          adjacencyIssueVertices.add(x).add(y);
+        }
       }
+    }
+  })
+
+  // issues between spaces
+  for (var [a, b] of combinations(space_boxes)) {
+    if (a.intersectsBox(b)) {
+      for (var [p, q] of combinations(a.surfaces, b.surfaces)) {
+        for (var [x, y] of combinations(p.geometry.vertices, q.geometry.vertices)) {
+          const dist = x.distanceToSquared(y);
+          if (almost_equal < dist && dist < thresh) {
+            adjacencyIssueIds.add(p.id).add(q.id);
+            adjacencyIssueVertices.add(x).add(y);
+          }
+        }
+      }
+    }
   }
 }
 
@@ -3134,7 +3149,7 @@ var initDatGui = function () {
   });
   f1.open();
 
-  var f2 = gui.addFolder('Adjacency Issues');
+  var f2 = gui.addFolder('Potential Adjacency Issues');
   f2.add(settings, 'findAdjacencyIssues').name('Enable').onChange(value => {
       removeSelection();
       setLocalStorage('findAdjacencyThreshold', value);
