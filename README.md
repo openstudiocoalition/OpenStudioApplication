@@ -13,11 +13,11 @@ For more information about the OpenStudio Coalition, including tutorials and doc
 
 # OpenStudio Application
 
-The **OpenStudio Application** is a fully featured graphical interface to OpenStudio models including envelope, loads, schedules, and HVAC.  The **OpenStudio Application** is open source software and is free to use.  The **OpenStudio Application** is built on top of the **OpenStudio SDK**.  The **OpenStudio Application** can be downloaded for Mac, Linux, and Windows on the [Releases page](https://github.com/openstudiocoalition/OpenStudioApplication/releases).
+The **OpenStudio Application** is a fully featured graphical interface to OpenStudio models including envelope, loads, schedules, geometry, HVAC, and OpenStudio Measures.  The **OpenStudio Application** is open source software and is free to use.  The **OpenStudio Application** is built on top of the **[OpenStudio SDK](https://github.com/NREL/OpenStudio)**.  The **OpenStudio Application** can be downloaded for Mac, Linux, and Windows on the [Releases page](https://github.com/openstudiocoalition/OpenStudioApplication/releases).
 
 ## What is the OpenStudio Software Development Kit (SDK)?
 
-The [OpenStudio SDK](https://github.com/NREL/OpenStudio) is a cross-platform (Windows, Mac, and Linux) collection of software tools to support whole building energy modeling
+The **[OpenStudio SDK](https://github.com/NREL/OpenStudio)** is a cross-platform (Windows, Mac, and Linux) collection of software tools to support whole building energy modeling
 using [EnergyPlus](https://github.com/NREL/EnergyPlus) and advanced daylight analysis using [Radiance](https://github.com/NREL/Radiance/).
 The **OpenStudio SDK** is an open source project to facilitate community development, extension, and private sector adoption. The **OpenStudio SDK** allows building researchers and software developers to quickly get started through its multiple entry levels, including access through C++, Ruby, and C#.
 
