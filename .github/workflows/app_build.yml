@@ -499,8 +499,8 @@ jobs:
         echo "Using vcvarsall to initialize the development environment"
         call vcvarsall.bat x64
         cmake ${{ env.CMAKE_GENERATOR_ARCH_TOOLSET }} -DQT_INSTALL_DIR=${{ env.QT_INSTALL_DIR }} -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DBUILD_DOCUMENTATION=${{ env.BUILD_DOCUMENTATION }} -DBUILD_TESTING=${{ env.BUILD_TESTING }} -DBUILD_BENCHMARK=${{ env.BUILD_BENCHMARK}} -DBUILD_PACKAGE=${{ env.BUILD_PACKAGE }} -DCPACK_BINARY_DEB=${{ env.CPACK_BINARY_DEB }} -DCPACK_BINARY_IFW=${{ env.CPACK_BINARY_IFW }} -DCPACK_BINARY_NSIS=${{ env.CPACK_BINARY_NSIS }} -DCPACK_BINARY_RPM=${{ env.CPACK_BINARY_RPM }} -DCPACK_BINARY_STGZ=${{ env.CPACK_BINARY_STGZ }} -DCPACK_BINARY_TBZ2=${{ env.CPACK_BINARY_TBZ2 }} -DCPACK_BINARY_TGZ=${{ env.CPACK_BINARY_TGZ }} -DCPACK_BINARY_ZIP=${{ env.CPACK_BINARY_ZIP }} -DCPACK_BINARY_TXZ=${{ env.CPACK_BINARY_TXZ }} -DCPACK_BINARY_TZ=${{ env.CPACK_BINARY_TZ }} -DCPACK_SOURCE_RPM=${{ env.CPACK_SOURCE_RPM }} -DCPACK_SOURCE_TBZ2=${{ env.CPACK_SOURCE_TBZ2 }} -DCPACK_SOURCE_TGZ=${{ env.CPACK_SOURCE_TGZ }} -DCPACK_SOURCE_TXZ=${{ env.CPACK_SOURCE_TXZ }} -DCPACK_SOURCE_TZ=${{ env.CPACK_SOURCE_TZ }} -DCPACK_SOURCE_ZIP=${{ env.CPACK_SOURCE_ZIP }} ../
-        cmake --build -j 2
-        cmake --build --target package -j 2
+        cmake --build . -j 2
+        cmake --build . --target package -j 2
 
     # Debug CPack:
     # "C:\Program Files\CMake\bin\cpack.exe" --debug --verbose --config CPackConfig.cmake
