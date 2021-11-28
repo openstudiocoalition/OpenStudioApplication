@@ -301,7 +301,7 @@ jobs:
 
         if [ "${{ matrix.PLATFORM_NAME }}" == "WindowsClang" ]; then
           echo CMAKE_TOOLSET="-T ClangCL" >> $GITHUB_ENV
-        else; then
+        else
           echo CMAKE_TOOLSET="" >> $GITHUB_ENV
         fi;
 
