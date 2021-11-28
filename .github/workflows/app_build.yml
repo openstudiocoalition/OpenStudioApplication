@@ -258,6 +258,12 @@ jobs:
           dir "C:/Qt/"
           echo "C:/Qt/QtIFW-4.3.0/bin" >> $GITHUB_PATH
 
+          if [ "${{ matrix.PLATFORM_NAME }}" == "WindowsClang" ]; then
+            echo CMAKE_GENERATOR_ARCH_TOOLSET="-G \"Visual Studio 16 2019\" -A x64 -T ClangCL" >> $GITHUB_ENV
+          else
+            echo CMAKE_GENERATOR_ARCH_TOOLSET="-G \"Visual Studio 16 2019\" -A x64" >> $GITHUB_ENV
+          fi;
+
           echo "Using chocolatey to install ninja"
           choco install ninja
           # C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise
@@ -297,12 +303,6 @@ jobs:
           ls ~/Qt/ || true
           ls ~/Qt/QtIFW-4.3.0 || true
           echo "~/Qt/QtIFW-4.3.0/bin/" >> $GITHUB_PATH
-        fi;
-
-        if [ "${{ matrix.PLATFORM_NAME }}" == "WindowsClang" ]; then
-          echo CMAKE_TOOLSET="-T ClangCL" >> $GITHUB_ENV
-        else
-          echo CMAKE_TOOLSET="" >> $GITHUB_ENV
         fi;
 
         CONAN_INSTALL_MD5=$(md5sum ConanInstall.cmake | awk '{print $1}')
@@ -498,9 +498,9 @@ jobs:
       run: |
         echo "Using vcvarsall to initialize the development environment"
         call vcvarsall.bat x64
-        cmake -G Ninja ${{ env.CMAKE_TOOLSET }} -DQT_INSTALL_DIR=${{ env.QT_INSTALL_DIR }} -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DBUILD_DOCUMENTATION=${{ env.BUILD_DOCUMENTATION }} -DBUILD_TESTING=${{ env.BUILD_TESTING }} -DBUILD_BENCHMARK=${{ env.BUILD_BENCHMARK}} -DBUILD_PACKAGE=${{ env.BUILD_PACKAGE }} -DCPACK_BINARY_DEB=${{ env.CPACK_BINARY_DEB }} -DCPACK_BINARY_IFW=${{ env.CPACK_BINARY_IFW }} -DCPACK_BINARY_NSIS=${{ env.CPACK_BINARY_NSIS }} -DCPACK_BINARY_RPM=${{ env.CPACK_BINARY_RPM }} -DCPACK_BINARY_STGZ=${{ env.CPACK_BINARY_STGZ }} -DCPACK_BINARY_TBZ2=${{ env.CPACK_BINARY_TBZ2 }} -DCPACK_BINARY_TGZ=${{ env.CPACK_BINARY_TGZ }} -DCPACK_BINARY_ZIP=${{ env.CPACK_BINARY_ZIP }} -DCPACK_BINARY_TXZ=${{ env.CPACK_BINARY_TXZ }} -DCPACK_BINARY_TZ=${{ env.CPACK_BINARY_TZ }} -DCPACK_SOURCE_RPM=${{ env.CPACK_SOURCE_RPM }} -DCPACK_SOURCE_TBZ2=${{ env.CPACK_SOURCE_TBZ2 }} -DCPACK_SOURCE_TGZ=${{ env.CPACK_SOURCE_TGZ }} -DCPACK_SOURCE_TXZ=${{ env.CPACK_SOURCE_TXZ }} -DCPACK_SOURCE_TZ=${{ env.CPACK_SOURCE_TZ }} -DCPACK_SOURCE_ZIP=${{ env.CPACK_SOURCE_ZIP }} ../
-        ninja
-        ninja package
+        cmake ${{ env.CMAKE_GENERATOR_ARCH_TOOLSET }} -DQT_INSTALL_DIR=${{ env.QT_INSTALL_DIR }} -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DBUILD_DOCUMENTATION=${{ env.BUILD_DOCUMENTATION }} -DBUILD_TESTING=${{ env.BUILD_TESTING }} -DBUILD_BENCHMARK=${{ env.BUILD_BENCHMARK}} -DBUILD_PACKAGE=${{ env.BUILD_PACKAGE }} -DCPACK_BINARY_DEB=${{ env.CPACK_BINARY_DEB }} -DCPACK_BINARY_IFW=${{ env.CPACK_BINARY_IFW }} -DCPACK_BINARY_NSIS=${{ env.CPACK_BINARY_NSIS }} -DCPACK_BINARY_RPM=${{ env.CPACK_BINARY_RPM }} -DCPACK_BINARY_STGZ=${{ env.CPACK_BINARY_STGZ }} -DCPACK_BINARY_TBZ2=${{ env.CPACK_BINARY_TBZ2 }} -DCPACK_BINARY_TGZ=${{ env.CPACK_BINARY_TGZ }} -DCPACK_BINARY_ZIP=${{ env.CPACK_BINARY_ZIP }} -DCPACK_BINARY_TXZ=${{ env.CPACK_BINARY_TXZ }} -DCPACK_BINARY_TZ=${{ env.CPACK_BINARY_TZ }} -DCPACK_SOURCE_RPM=${{ env.CPACK_SOURCE_RPM }} -DCPACK_SOURCE_TBZ2=${{ env.CPACK_SOURCE_TBZ2 }} -DCPACK_SOURCE_TGZ=${{ env.CPACK_SOURCE_TGZ }} -DCPACK_SOURCE_TXZ=${{ env.CPACK_SOURCE_TXZ }} -DCPACK_SOURCE_TZ=${{ env.CPACK_SOURCE_TZ }} -DCPACK_SOURCE_ZIP=${{ env.CPACK_SOURCE_ZIP }} ../
+        cmake --build -j 2
+        cmake --build --target package -j 2
 
     # Debug CPack:
     # "C:\Program Files\CMake\bin\cpack.exe" --debug --verbose --config CPackConfig.cmake

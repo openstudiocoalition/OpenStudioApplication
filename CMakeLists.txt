@@ -439,7 +439,7 @@ endif()
 
 # compiler id for about boxes
 if(MSVC)
-  set(ABOUT_COMPILER "${CMAKE_GENERATOR}")
+  set(ABOUT_COMPILER "${CMAKE_GENERATOR} ${CMAKE_CXX_COMPILER_ID}")
 elseif(APPLE)
   set(ABOUT_COMPILER "${CMAKE_CXX_COMPILER_ID} ${CMAKE_OSX_ARCHITECTURES}")
 else()
