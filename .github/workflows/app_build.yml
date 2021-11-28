@@ -343,7 +343,7 @@ jobs:
       uses: actions/cache@v2
       with:
         path: OpenStudio-${{ env.OS_SDK_VERSION }}
-        key: OpenStudio-SDK-${{ matrix.os }}-${{ env.OS_SDK_VERSION }}-${{ secrets.CACHE_KEY }}
+        key: OpenStudio-SDK-${{ matrix.conf }}-${{ env.OS_SDK_VERSION }}-${{ secrets.CACHE_KEY }}
 
     - name: Did restoring the build-cache or OpenStudioSDK cache work? Yes
       # If it wasn't found in the cache
@@ -406,7 +406,7 @@ jobs:
     #  with:
     #    path: |
     #      ~/.conan
-    #    key: ${{ matrix.os }}-conan-cache-${{ env.CONAN_INSTALL_MD5 }}-${{ secrets.CACHE_KEY }}
+    #    key: ${{ matrix.conf }}-conan-cache-${{ env.CONAN_INSTALL_MD5 }}-${{ secrets.CACHE_KEY }}
 
     - name: Did restoring the conan-cache work? No
       # If the SDK wasn't found in the cache
@@ -471,7 +471,7 @@ jobs:
       #uses: actions/cache@v2
       #with:
         #path: build/qt_5_11_*.tar.gz
-        #key: ${{ matrix.os }}-qt-5-11-cache
+        #key: ${{ matrix.conf }}-qt-5-11-cache
 
     #- name: Did restoring the qt cache work?
       ## If the SDK wasn't found in the cache
@@ -530,7 +530,7 @@ jobs:
       #if: ${{ failure() }}
       #uses: actions/upload-artifact@v2
       #with:
-          #name: ${{ matrix.os }}-gdbm_config.log
+          #name: ${{ matrix.conf }}-gdbm_config.log
           #path: ~/.conan/data/gdbm/1.18.1/_/_/build/**/source_subfolder/config.log
 
     - name: Build (Unix)
@@ -589,14 +589,14 @@ jobs:
       # build/_CPack_Packages/Linux/DEB/*.deb
       # build/_CPack_Packages/Darwin/IFW/*.dmg
       with:
-          name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.os }}.${{ env.BINARY_EXT }}
+          name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.conf }}.${{ env.BINARY_EXT }}
           path: build/${{ matrix.BINARY_PKG_PATH }}/*.${{ env.BINARY_EXT }}
           # path: build/_CPack_Packages/*/*/*.${{ env.BINARY_EXT }}
 
     - name: Archive TGZ or ZIP artifacts
       uses: actions/upload-artifact@v2
       with:
-          name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.os }}.${{ env.COMPRESSED_EXT }}
+          name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.conf }}.${{ env.COMPRESSED_EXT }}
           path: build/${{ matrix.COMPRESSED_PKG_PATH }}/*.${{ env.COMPRESSED_EXT }}
 
     - name: Test
@@ -612,7 +612,7 @@ jobs:
     - name: Archive test results?
       uses: actions/upload-artifact@v2
       with:
-          name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.os }}-Test.xml
+          name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.conf }}-Test.xml
           path: build/Testing/**/*.xml
 
     - name: Benchmark
@@ -628,7 +628,7 @@ jobs:
     - name: Archive benchmark results?
       uses: actions/upload-artifact@v2
       with:
-          name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.os }}-bench_results.csv
+          name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.conf }}-bench_results.csv
           path: build/bench_results_*.csv
 
     #- name: Create a release if triggered by a tag
