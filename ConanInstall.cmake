@@ -35,6 +35,14 @@ if(NOT CONAN_OPENSTUDIO_ALREADY_RUN)
 
   message(STATUS "openstudio: RUNNING CONAN")
 
+  if(WIN32)
+    # Use MSVC for dependencies on Windows
+    set(CMAKE_CXX_COMPILER_ID_TMP "${CMAKE_CXX_COMPILER_ID}")
+    set(CMAKE_CXX_COMPILER_ID "MSVC")
+    set(CMAKE_GENERATOR_TOOLSET_TMP "CMAKE_GENERATOR_TOOLSET")
+    set(CMAKE_GENERATOR_TOOLSET "")
+  endif()
+
   # Add NREL remote and place it first in line, since we vendored dependencies to NREL's repo, they will be picked first
   # TJC 2021-04-27 bintray.com is decommissioned as of 2021-05-01. See commercialbuildings as replacement below.
   conan_add_remote(NAME nrel INDEX 0
@@ -105,12 +113,18 @@ if(NOT CONAN_OPENSTUDIO_ALREADY_RUN)
     #"libyaml/0.2.5#9e234874df88c3ba7249f6d1368fceaf"
     BASIC_SETUP CMAKE_TARGETS NO_OUTPUT_DIRS
     OPTIONS ${CONAN_OPTIONS}
+    SETTINGS ${CONAN_SETTINGS}
     BUILD ${CONAN_BUILD}
     # Passes `-u, --update`    to conan install: Check updates exist from upstream remotes
     # That and build=outdated should ensure we track the right
     # Now that we pin dependencies, there is no point looking upstream really, so we'll save valuable configuration time by not doing it
     UPDATE
   )
+
+  if(WIN32)
+    set(CMAKE_CXX_COMPILER_ID "${CMAKE_CXX_COMPILER_ID_TMP}")
+    set(CMAKE_GENERATOR_TOOLSET "${CMAKE_GENERATOR_TOOLSET_TMP}")
+  endif()
 
   set(CONAN_OPENSTUDIO_ALREADY_RUN TRUE)
 

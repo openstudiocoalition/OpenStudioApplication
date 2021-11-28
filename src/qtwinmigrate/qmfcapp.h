@@ -112,8 +112,8 @@ class QT_QTWINMIGRATE_EXPORT QMfcApp : public QApplication
   static CWinApp* mfc_app;
 #endif
 
-  int idleCount;
-  bool doIdle;
+  //int idleCount;
+  //bool doIdle;
 };
 
 #endif  // QMFCAPP_H

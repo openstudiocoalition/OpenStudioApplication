@@ -105,7 +105,7 @@ void LibraryDialog::onRemove() {
 void LibraryDialog::onRestore() {
   m_list->clear();
 
-  for (const auto path : m_defaultPaths) {
+  for (const auto& path : m_defaultPaths) {
     m_list->addItem(QString::fromStdString(toString(path)));
   }
 }

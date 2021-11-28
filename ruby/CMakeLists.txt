@@ -1,4 +1,11 @@
-if ("${CMAKE_CXX_COMPILER_ID}" MATCHES "^(Apple)?Clang$")
+if(MSVC)
+  if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+    add_definitions(-Wno-reserved-user-defined-literal)
+    add_definitions(-Wno-ignored-pragma-optimize)
+    add_definitions(-Wno-unused-variable)
+    add_definitions(-Wno-unused-function)
+  endif()
+elseif ("${CMAKE_CXX_COMPILER_ID}" MATCHES "^(Apple)?Clang$")
   # using Clang
   set(CMAKE_MODULE_LINKER_FLAGS "${CMAKE_MODULE_LINKER_FLAGS} -undefined dynamic_lookup")
 elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")

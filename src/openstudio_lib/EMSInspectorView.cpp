@@ -238,7 +238,7 @@ void EMSInspectorView::layoutModelObject(const model::ModelObject& modelObject) 
 
       const auto actuatorNames = objecti.emsActuatorNames();
 
-      for (const auto actuator : actuatorNames) {
+      for (const auto& actuator : actuatorNames) {
         auto actuatorWidget = new EMSInspectorActuator(actuator, objecti);
         m_layout->addWidget(actuatorWidget);
       }
@@ -253,7 +253,7 @@ void EMSInspectorView::layoutModelObject(const model::ModelObject& modelObject) 
 
       const auto sensorNames = objecti.outputVariableNames();
 
-      for (const auto sensor : sensorNames) {
+      for (const auto& sensor : sensorNames) {
         auto sensorWidget = new EMSInspectorSensor(sensor, objecti);
         m_layout->addWidget(sensorWidget);
       }

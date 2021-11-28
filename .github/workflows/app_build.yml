@@ -42,10 +42,11 @@ jobs:
       # fail-fast: Default is true, switch to false to allow one platform to fail and still run others
       fail-fast: false
       matrix:
-        os: [ubuntu-20.04, windows-2019, macos-10.15]
+        conf: [ubuntu-20.04, windows-msvc-2019, windows-clang-2019, macos-10.15]
         include:
-        - os: ubuntu-20.04
-          allow_failure: true
+        - conf: ubuntu-20.04
+          os: ubuntu-20.04
+          allow_failure: false
           PLATFORM_NAME: Linux
           CPACK_BINARY_DEB: ON
           CPACK_BINARY_IFW: OFF
@@ -57,7 +58,8 @@ jobs:
           COMPRESSED_PKG_PATH: _CPack_Packages/Linux/TGZ
           QT_OS_NAME: linux
           QT_ARCH: gcc_64
-        - os: macos-10.15
+        - conf: macos-10.15
+          os: macos-10.15
           allow_failure: false
           PLATFORM_NAME: Darwin
           CPACK_BINARY_DEB: OFF
@@ -72,9 +74,24 @@ jobs:
           SDKROOT: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
           QT_OS_NAME: mac
           QT_ARCH: clang_64
-        - os: windows-2019
+        - conf: windows-msvc-2019
+          os: windows-2019
           allow_failure: false
           PLATFORM_NAME: Windows
+          CPACK_BINARY_DEB: OFF
+          CPACK_BINARY_IFW: ON
+          CPACK_BINARY_TGZ: OFF
+          CPACK_BINARY_ZIP: ON
+          BINARY_EXT: exe
+          COMPRESSED_EXT: zip
+          BINARY_PKG_PATH: _CPack_Packages/win64/IFW
+          COMPRESSED_PKG_PATH: _CPack_Packages/win64/ZIP
+          QT_OS_NAME: windows
+          QT_ARCH: win64_msvc2019_64
+        - conf: windows-clang-2019
+          os: windows-2019
+          allow_failure: true
+          PLATFORM_NAME: WindowsClang
           CPACK_BINARY_DEB: OFF
           CPACK_BINARY_IFW: ON
           CPACK_BINARY_TGZ: OFF
@@ -225,7 +242,7 @@ jobs:
         echo BINARY_EXT=${{ matrix.BINARY_EXT }} >> $GITHUB_ENV
         echo COMPRESSED_EXT=${{ matrix.COMPRESSED_EXT }} >> $GITHUB_ENV
 
-        if [ "$RUNNER_OS" == "Linux" ]; then
+        if [ "$" == "Linux" ]; then
           echo "Install needed system dependencies for OPENGL (due to Qt) for Linux"
           sudo apt update
           sudo apt install -y mesa-common-dev libglu1-mesa-dev patchelf ninja-build libxkbcommon-x11-dev libgl1-mesa-dev
@@ -249,6 +266,7 @@ jobs:
           echo "MSVC_DIR=$MSVC_DIR" >> $GITHUB_ENV
           # add folder containing vcvarsall.bat
           echo "$MSVC_DIR\VC\Auxiliary\Build" >> $GITHUB_PATH
+
         elif [ "$RUNNER_OS" == "macOS" ]; then
           echo MACOSX_DEPLOYMENT_TARGET=${{ matrix.MACOSX_DEPLOYMENT_TARGET }} >> $GITHUB_ENV
           echo SDKROOT=${{ matrix.SDKROOT }} >> $GITHUB_ENV
@@ -279,6 +297,12 @@ jobs:
           ls ~/Qt/ || true
           ls ~/Qt/QtIFW-4.3.0 || true
           echo "~/Qt/QtIFW-4.3.0/bin/" >> $GITHUB_PATH
+        fi;
+
+        if [ "${{ matrix.PLATFORM_NAME }}" == "WindowsClang" ]; then
+          echo CMAKE_TOOLSET="-T ClangCL" >> $GITHUB_ENV
+        else; then
+          echo CMAKE_TOOLSET="" >> $GITHUB_ENV
         fi;
 
         CONAN_INSTALL_MD5=$(md5sum ConanInstall.cmake | awk '{print $1}')
@@ -474,7 +498,7 @@ jobs:
       run: |
         echo "Using vcvarsall to initialize the development environment"
         call vcvarsall.bat x64
-        cmake -G Ninja -DQT_INSTALL_DIR=${{ env.QT_INSTALL_DIR }} -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DBUILD_DOCUMENTATION=${{ env.BUILD_DOCUMENTATION }} -DBUILD_TESTING=${{ env.BUILD_TESTING }} -DBUILD_BENCHMARK=${{ env.BUILD_BENCHMARK}} -DBUILD_PACKAGE=${{ env.BUILD_PACKAGE }} -DCPACK_BINARY_DEB=${{ env.CPACK_BINARY_DEB }} -DCPACK_BINARY_IFW=${{ env.CPACK_BINARY_IFW }} -DCPACK_BINARY_NSIS=${{ env.CPACK_BINARY_NSIS }} -DCPACK_BINARY_RPM=${{ env.CPACK_BINARY_RPM }} -DCPACK_BINARY_STGZ=${{ env.CPACK_BINARY_STGZ }} -DCPACK_BINARY_TBZ2=${{ env.CPACK_BINARY_TBZ2 }} -DCPACK_BINARY_TGZ=${{ env.CPACK_BINARY_TGZ }} -DCPACK_BINARY_ZIP=${{ env.CPACK_BINARY_ZIP }} -DCPACK_BINARY_TXZ=${{ env.CPACK_BINARY_TXZ }} -DCPACK_BINARY_TZ=${{ env.CPACK_BINARY_TZ }} -DCPACK_SOURCE_RPM=${{ env.CPACK_SOURCE_RPM }} -DCPACK_SOURCE_TBZ2=${{ env.CPACK_SOURCE_TBZ2 }} -DCPACK_SOURCE_TGZ=${{ env.CPACK_SOURCE_TGZ }} -DCPACK_SOURCE_TXZ=${{ env.CPACK_SOURCE_TXZ }} -DCPACK_SOURCE_TZ=${{ env.CPACK_SOURCE_TZ }} -DCPACK_SOURCE_ZIP=${{ env.CPACK_SOURCE_ZIP }} ../
+        cmake -G Ninja ${{ env.CMAKE_TOOLSET }} -DQT_INSTALL_DIR=${{ env.QT_INSTALL_DIR }} -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DBUILD_DOCUMENTATION=${{ env.BUILD_DOCUMENTATION }} -DBUILD_TESTING=${{ env.BUILD_TESTING }} -DBUILD_BENCHMARK=${{ env.BUILD_BENCHMARK}} -DBUILD_PACKAGE=${{ env.BUILD_PACKAGE }} -DCPACK_BINARY_DEB=${{ env.CPACK_BINARY_DEB }} -DCPACK_BINARY_IFW=${{ env.CPACK_BINARY_IFW }} -DCPACK_BINARY_NSIS=${{ env.CPACK_BINARY_NSIS }} -DCPACK_BINARY_RPM=${{ env.CPACK_BINARY_RPM }} -DCPACK_BINARY_STGZ=${{ env.CPACK_BINARY_STGZ }} -DCPACK_BINARY_TBZ2=${{ env.CPACK_BINARY_TBZ2 }} -DCPACK_BINARY_TGZ=${{ env.CPACK_BINARY_TGZ }} -DCPACK_BINARY_ZIP=${{ env.CPACK_BINARY_ZIP }} -DCPACK_BINARY_TXZ=${{ env.CPACK_BINARY_TXZ }} -DCPACK_BINARY_TZ=${{ env.CPACK_BINARY_TZ }} -DCPACK_SOURCE_RPM=${{ env.CPACK_SOURCE_RPM }} -DCPACK_SOURCE_TBZ2=${{ env.CPACK_SOURCE_TBZ2 }} -DCPACK_SOURCE_TGZ=${{ env.CPACK_SOURCE_TGZ }} -DCPACK_SOURCE_TXZ=${{ env.CPACK_SOURCE_TXZ }} -DCPACK_SOURCE_TZ=${{ env.CPACK_SOURCE_TZ }} -DCPACK_SOURCE_ZIP=${{ env.CPACK_SOURCE_ZIP }} ../
         ninja
         ninja package
 
