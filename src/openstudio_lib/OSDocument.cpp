@@ -1400,7 +1400,7 @@ bool OSDocument::save() {
       this->setSavePath(toQString(modelPath));
       this->markAsUnmodified();
       fileSaved = true;
-    }else{
+    } else {
       LOG(Debug, "Saving " << modelPath << " failed");
       QMessageBox::warning(this->mainWindow(), tr("Failed to save model"),
                            tr("Failed to save model, make sure that you do not have the location open and that you have correct write access."));
