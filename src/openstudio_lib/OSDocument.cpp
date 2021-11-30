@@ -900,11 +900,14 @@ void OSDocument::setSavePath(const QString& savePath) {
 }
 
 bool OSDocument::fixWeatherFileInTemp(bool opening) {
+  LOG(Debug, "OSDocument::fixWeatherFileInTemp: " << opening);
+
   // look for existing weather file
   boost::optional<model::WeatherFile> weatherFile = m_model.getOptionalUniqueModelObject<model::WeatherFile>();
 
   // no weather file, nothing to do
   if (!weatherFile) {
+    LOG(Debug, "No weather file");
     return true;
   }
 
@@ -912,12 +915,17 @@ bool OSDocument::fixWeatherFileInTemp(bool opening) {
 
   // no weather file path, nothing to do
   if (!weatherFilePath) {
+    LOG(Debug, "No weather file path");
+    return true;
+  }
+
+  // no temp dir, nothing to do
+  if (m_modelTempDir.isEmpty()) {
+    LOG(Debug, "No temp dir");
     return true;
   }
 
   boost::optional<std::string> weatherFileChecksum = weatherFile->checksum();
-
-  OS_ASSERT(!m_modelTempDir.isEmpty());
 
   openstudio::path tempResourcesDir = toPath(m_modelTempDir) / toPath("resources/");
   openstudio::path tempFilesDir = toPath(m_modelTempDir) / toPath("resources/files/");
@@ -988,8 +996,6 @@ bool OSDocument::fixWeatherFileInTemp(bool opening) {
     }
   }
 
-  OS_ASSERT(!epwInTempPath.empty());
-
   // check if we need to do the file copy
   bool doCopy = false;
   openstudio::path copySource;
@@ -1016,6 +1022,8 @@ bool OSDocument::fixWeatherFileInTemp(bool opening) {
     }
 
   } else if (!epwInUserPathChecksum && !epwInTempPathChecksum) {
+
+    LOG(Debug, "Weather file not found, removing");
 
     // file does not exist anywhere
     weatherFile->remove();
@@ -1055,6 +1063,7 @@ bool OSDocument::fixWeatherFileInTemp(bool opening) {
 
   if (!doCopy && !epwPathAbsolute && !checksumMismatch) {
     // no need to copy file or adjust model
+    LOG(Debug, "No need to copy weather file");
     return true;
   }
 
@@ -1062,9 +1071,12 @@ bool OSDocument::fixWeatherFileInTemp(bool opening) {
 
   if (doCopy) {
     try {
+      LOG(Debug, "Start copy weather file from " << copySource << " to " << copyDest);
       boost::filesystem::copy_file(copySource, copyDest, boost::filesystem::copy_option::overwrite_if_exists);
+      LOG(Debug, "Copy weather file complete");
     } catch (...) {
       // copy failed
+      LOG(Debug, "Copy weather file failed, removing");
       weatherFile->remove();
 
       // not yet listening to model signals
@@ -1077,6 +1089,7 @@ bool OSDocument::fixWeatherFileInTemp(bool opening) {
   }
 
   try {
+    LOG(Debug, "Verifying weather file at " << epwInTempPath);
     EpwFile epwFile(epwInTempPath);
 
     weatherFile = openstudio::model::WeatherFile::setWeatherFile(m_model, epwFile);
@@ -1089,8 +1102,11 @@ bool OSDocument::fixWeatherFileInTemp(bool opening) {
       QTimer::singleShot(0, this, &OSDocument::markAsModified);
     }
 
+    LOG(Debug, "Verifying weather file complete");
+
   } catch (...) {
     // epw file not valid
+    LOG(Debug, "Verifying weather file failed, removing");
     weatherFile->remove();
 
     // not yet listening to model signals
@@ -1099,7 +1115,9 @@ bool OSDocument::fixWeatherFileInTemp(bool opening) {
     }
 
     if (doCopy) {
+      LOG(Debug, "Removing weather file at " << copyDest);
       boost::filesystem::remove_all(copyDest);
+      LOG(Debug, "Removing weather file complete");
     }
 
     return false;
@@ -1361,6 +1379,7 @@ boost::optional<BCLMeasure> OSDocument::standardReportMeasure() {
 }
 
 bool OSDocument::save() {
+  LOG(Debug, "OSDocument::save");
   bool fileSaved = false;
 
   if (!m_savePath.isEmpty()) {
@@ -1374,17 +1393,19 @@ bool OSDocument::save() {
 
     // saves the model to modelTempDir / m_savePath.filename()
     // also copies the temp files to user location
+    LOG(Debug, "Saving " << modelPath << " starting");
     bool saved = saveModel(this->model(), modelPath, toPath(m_modelTempDir));
-    if (!saved) {
+    if (saved) {
+      LOG(Debug, "Saving " << modelPath << " complete");
+      this->setSavePath(toQString(modelPath));
+      this->markAsUnmodified();
+      fileSaved = true;
+    } else {
+      LOG(Debug, "Saving " << modelPath << " failed");
       QMessageBox::warning(this->mainWindow(), tr("Failed to save model"),
                            tr("Failed to save model, make sure that you do not have the location open and that you have correct write access."));
     }
 
-    this->setSavePath(toQString(modelPath));
-
-    this->markAsUnmodified();
-
-    fileSaved = true;
   } else {
     fileSaved = saveAs();
   }
@@ -1418,6 +1439,7 @@ void OSDocument::showRunManagerPreferences() {
 }
 
 bool OSDocument::saveAs() {
+  LOG(Debug, "OSDocument::saveAs");
   bool fileSaved = false;
 
   // Defaults to the current savePath is there is one (will populate the filename too)
@@ -1431,7 +1453,9 @@ bool OSDocument::saveAs() {
     if (!m_savePath.isEmpty()) {
       openstudio::path oldModelPath = toPath(m_modelTempDir) / toPath(m_savePath).filename();
       if (boost::filesystem::exists(oldModelPath)) {
+        LOG(Debug, "Removing " << oldModelPath << " starting");
         boost::filesystem::remove(oldModelPath);
+        LOG(Debug, "Removing " << oldModelPath << " complete");
       }
     }
 
@@ -1444,14 +1468,18 @@ bool OSDocument::saveAs() {
 
     // saves the model to modelTempDir / filePath.filename()
     // also copies the temp files to user location
+    LOG(Debug, "Saving " << modelPath << " starting");
     bool saved = saveModel(this->model(), modelPath, toPath(m_modelTempDir));
-    OS_ASSERT(saved);
-
-    this->setSavePath(toQString(modelPath));
-
-    this->markAsUnmodified();
-
-    fileSaved = true;
+    if (saved) {
+      LOG(Debug, "Saving " << modelPath << " complete");
+      this->setSavePath(toQString(modelPath));
+      this->markAsUnmodified();
+      fileSaved = true;
+    } else {
+      LOG(Debug, "Saving " << modelPath << " failed");
+      QMessageBox::warning(this->mainWindow(), tr("Failed to save model"),
+                           tr("Failed to save model, make sure that you do not have the location open and that you have correct write access."));
+    }
   }
 
   return fileSaved;
