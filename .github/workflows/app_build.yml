@@ -536,7 +536,7 @@ jobs:
           -CIUserToken "${{ secrets.SIGNPATH_CI_TOKEN }}" `
           -OrganizationId "97f757f1-cd69-467b-b87b-db3eb5102a57" `
           -ProjectSlug "OpenStudioApplication" `
-          -SigningPolicySlug "No_Approval_GHA" `
+          -SigningPolicySlug "No_Approval_Release_GHA" `
           -OutputArtifactPath "Products/OpenStudioApp.exe" `
           -WaitForCompletion -Force
 
@@ -551,7 +551,7 @@ jobs:
           -CIUserToken "${{ secrets.SIGNPATH_CI_TOKEN }}" `
           -OrganizationId "97f757f1-cd69-467b-b87b-db3eb5102a57" `
           -ProjectSlug "OpenStudioApplication" `
-          -SigningPolicySlug "No_Approval_GHA" `
+          -SigningPolicySlug "No_Approval_Release_GHA" `
           -OutputArtifactPath "$installer_exe" `
           -WaitForCompletion -Force
 
