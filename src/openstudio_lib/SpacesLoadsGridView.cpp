@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -746,7 +746,7 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
         }
       });
 
-      boost::optional<std::function<std::vector<model::ModelObject>(model::ModelObject*)>> scheduleOtherObjects;
+      boost::optional<std::function<std::vector<model::ModelObject>(const model::ModelObject*)>> scheduleOtherObjects;
 
       std::function<boost::optional<model::Schedule>(model::ModelObject*)> activityLevelSchedule([](model::ModelObject* l) {
         if (boost::optional<model::People> p = l->optionalCast<model::People>()) {
@@ -758,7 +758,7 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
         return boost::optional<model::Schedule>();
       });
 
-      boost::optional<std::function<std::vector<model::ModelObject>(model::ModelObject*)>> activityLevelScheduleOtherObjects;
+      boost::optional<std::function<std::vector<model::ModelObject>(const model::ModelObject*)>> activityLevelScheduleOtherObjects;
 
       std::function<boost::optional<model::Schedule>(model::ModelObject*)> schedule([](model::ModelObject* l) {
         if (boost::optional<model::InternalMass> im = l->optionalCast<model::InternalMass>()) {

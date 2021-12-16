@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -52,13 +52,17 @@ class Component : public QAbstractButton
   Component(const BCLSearchResult& bclSearchResult, bool showAbridgedView = true, bool showCheckBox = true, QWidget* parent = nullptr);
   Component(bool showAbridgedView = false, bool showCheckBox = false, QWidget* parent = nullptr);
   Component(const Component& other);
-  virtual ~Component();
+  virtual ~Component() = default;
   Component& operator=(const Component& other);
-  QCheckBox* checkBox();
   QLabel* msg();
   std::string uid() const;
   std::string versionId() const;
   void setChecked(bool checked);
+  bool checkBoxChecked() const;
+  void setCheckBoxChecked(bool checked);
+  bool checkBoxEnabled() const;
+  void setCheckBoxEnabled(bool enabled);
+  void setCheckBoxUpdateAvailable(bool enabled);
 
  protected:
   void paintEvent(QPaintEvent* event) override;

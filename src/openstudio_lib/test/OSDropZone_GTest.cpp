@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -64,7 +64,7 @@ TEST_F(OpenStudioLibFixture, OSDropZone) {
     new DropZoneConceptImpl<model::SpaceType, model::Space>(heading, &model::Space::spaceType, &model::Space::setSpaceType,
                                                             boost::optional<std::function<void(model::Space*)>>(&model::Space::resetSpaceType),
                                                             boost::optional<std::function<bool(model::Space*)>>(&model::Space::isSpaceTypeDefaulted),
-                                                            boost::optional<std::function<std::vector<model::ModelObject>(model::Space*)>>()));
+                                                            boost::optional<std::function<std::vector<model::ModelObject>(const model::Space*)>>()));
 
   auto dropZone = std::make_shared<OSDropZone2>();
   dropZone->bind(space1, OptionalModelObjectGetter(std::bind(&DropZoneConcept::get, dropZoneConcept.data(), space1)),

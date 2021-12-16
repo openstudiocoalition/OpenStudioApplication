@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -154,8 +154,8 @@ bool TouchEater::eventFilter(QObject* obj, QEvent* event) {
 
 OpenStudioApp::OpenStudioApp(int& argc, char** argv)
   : OSAppBase(argc, argv, QSharedPointer<MeasureManager>(new MeasureManager(this))), m_measureManagerProcess(nullptr) {
-  setOrganizationName("NREL");
-  QCoreApplication::setOrganizationDomain("nrel.gov");
+  setOrganizationName("OpenStudio Coalition");
+  QCoreApplication::setOrganizationDomain("openstudiocoalition.org");
   setApplicationName("OpenStudioApp");
 
   auto eater = new TouchEater();
@@ -990,8 +990,11 @@ void OpenStudioApp::showAbout() {
   QMessageBox about(parent);
   about.setText(OPENSTUDIOAPP_ABOUTBOX);
   about.setDetailedText(details);
-  about.setStyleSheet("qproperty-alignment: AlignCenter;");
+  about.setStyleSheet("qproperty-alignment: AlignLeft;");
   about.setWindowTitle("About " + applicationName());
+
+  about.setIconPixmap(QPixmap(":/images/os_128.png"));
+
   about.exec();
 }
 

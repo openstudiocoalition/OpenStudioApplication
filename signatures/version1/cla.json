@@ -1,0 +1,28 @@
+{
+  "signedContributors": [
+    {
+      "name": "jmarrec",
+      "id": 5479063,
+      "comment_id": 943263599,
+      "created_at": "2021-10-14T11:21:58Z",
+      "repoId": 174587908,
+      "pullRequestNo": 439
+    },
+    {
+      "name": "macumber",
+      "id": 1327850,
+      "comment_id": 946309658,
+      "created_at": "2021-10-19T02:16:19Z",
+      "repoId": 174587908,
+      "pullRequestNo": 443
+    },
+    {
+      "name": "nschrader",
+      "id": 17453878,
+      "comment_id": 943473450,
+      "created_at": "2021-10-14T15:33:29Z",
+      "repoId": 174587908,
+      "pullRequestNo": 439
+    }
+  ]
+}

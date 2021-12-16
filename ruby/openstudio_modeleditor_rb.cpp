@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -32,7 +32,6 @@
 #include <iostream>
 #include <ruby.h>
 
-
 //#if defined(__APPLE__)
 //  Q_IMPORT_PLUGIN(QCocoaIntegrationPlugin);
 //#elif (defined (_WIN32) || defined (_WIN64))
@@ -43,25 +42,22 @@
 
 inline void initResources() {
 
-  #ifndef SHARED_OS_LIBS
-    Q_INIT_RESOURCE(modeleditorlib);
-  #endif // SHARED_OS_LIBS
-
+#ifndef SHARED_OS_LIBS
+  Q_INIT_RESOURCE(modeleditorlib);
+#endif  // SHARED_OS_LIBS
 }
 
-extern "C" {
- 
-void Init_openstudiomodeleditor(void);
+extern "C"
+{
 
-RUBY_API void Init_openstudio_modeleditor(void) {
+  void Init_openstudiomodeleditor(void);
 
-  initResources();
+  RUBY_API void Init_openstudio_modeleditor(void) {
 
-  Init_openstudiomodeleditor();
-  rb_provide("openstudiomodeleditor");
-  rb_provide("openstudiomodeleditor.so");
+    initResources();
 
+    Init_openstudiomodeleditor();
+    rb_provide("openstudiomodeleditor");
+    rb_provide("openstudiomodeleditor.so");
+  }
 }
-
-}
-

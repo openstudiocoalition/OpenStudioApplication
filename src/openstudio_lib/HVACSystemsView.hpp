@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -77,7 +77,7 @@ class HVACToolbarView : public QWidget
  public:
   HVACToolbarView();
 
-  virtual ~HVACToolbarView();
+  virtual ~HVACToolbarView() = default;
 
   QLabel* label;
 
@@ -117,7 +117,7 @@ class HVACGraphicsView : public QGraphicsView
  public:
   HVACGraphicsView(QWidget* parent = nullptr);
 
-  virtual ~HVACGraphicsView() {}
+  virtual ~HVACGraphicsView() = default;
 
  public slots:
 
@@ -128,9 +128,9 @@ class HVACGraphicsView : public QGraphicsView
   void resetZoom();
 
  private:
-  float m_zoomX;
+  float m_zoomX = 0.0;
 
-  float m_zoomY;
+  float m_zoomY = 0.0;
 };
 
 /* Controls tab for an AirLoopHVAC */
@@ -186,7 +186,7 @@ class MechanicalVentilationView : public QWidget
  public:
   MechanicalVentilationView();
 
-  virtual ~MechanicalVentilationView();
+  virtual ~MechanicalVentilationView() = default;
 
   QComboBox* economizerComboBox;
 
@@ -202,7 +202,7 @@ class NoMechanicalVentilationView : public QWidget
  public:
   NoMechanicalVentilationView();
 
-  virtual ~NoMechanicalVentilationView();
+  virtual ~NoMechanicalVentilationView() = default;
 };
 
 class SingleZoneReheatSPMView : public QWidget
@@ -210,7 +210,7 @@ class SingleZoneReheatSPMView : public QWidget
  public:
   SingleZoneReheatSPMView();
 
-  virtual ~SingleZoneReheatSPMView();
+  virtual ~SingleZoneReheatSPMView() = default;
 
   OSComboBox2* controlZoneComboBox;
 };
@@ -220,7 +220,7 @@ class ScheduledSPMView : public QWidget
  public:
   ScheduledSPMView();
 
-  virtual ~ScheduledSPMView();
+  virtual ~ScheduledSPMView() = default;
 
   OSViewSwitcher* supplyAirTemperatureViewSwitcher;
 };
@@ -230,7 +230,7 @@ class FollowOATempSPMView : public QWidget
  public:
   FollowOATempSPMView();
 
-  virtual ~FollowOATempSPMView();
+  virtual ~FollowOATempSPMView() = default;
 };
 
 class OAResetSPMView : public QWidget
@@ -238,7 +238,7 @@ class OAResetSPMView : public QWidget
  public:
   OAResetSPMView();
 
-  virtual ~OAResetSPMView();
+  virtual ~OAResetSPMView() = default;
 };
 
 class AirLoopHVACUnitaryHeatPumpAirToAirControlView : public QWidget
@@ -246,7 +246,7 @@ class AirLoopHVACUnitaryHeatPumpAirToAirControlView : public QWidget
  public:
   AirLoopHVACUnitaryHeatPumpAirToAirControlView();
 
-  virtual ~AirLoopHVACUnitaryHeatPumpAirToAirControlView();
+  virtual ~AirLoopHVACUnitaryHeatPumpAirToAirControlView() = default;
 
   OSComboBox2* controlZoneComboBox;
 };
@@ -256,7 +256,7 @@ class NoSupplyAirTempControlView : public QWidget
  public:
   NoSupplyAirTempControlView();
 
-  virtual ~NoSupplyAirTempControlView();
+  virtual ~NoSupplyAirTempControlView() = default;
 };
 
 class NoControlsView : public QWidget
@@ -264,7 +264,7 @@ class NoControlsView : public QWidget
  public:
   NoControlsView();
 
-  virtual ~NoControlsView();
+  virtual ~NoControlsView() = default;
 };
 
 }  // namespace openstudio

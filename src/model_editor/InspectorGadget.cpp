@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -56,9 +56,8 @@
 
 #include <boost/numeric/conversion/cast.hpp>
 
-#include <float.h>
 #include <iostream>
-#include <limits.h>
+#include <limits>
 #include <vector>
 
 #include <QDoubleValidator>
@@ -77,10 +76,6 @@
 
 using namespace openstudio;
 using namespace openstudio::model;
-using std::cout;
-using std::endl;
-using std::string;
-using std::vector;
 
 const char* InspectorGadget::s_indexSlotName = "indexSlot";
 //const char* FIELDS_MATCH = "fields match";
@@ -91,7 +86,7 @@ struct ModelEditorLibResourceInitializer
     Q_INIT_RESOURCE(modeleditorlib);
   }
 };
-static ModelEditorLibResourceInitializer __modelEditorLibResourceInitializer__;
+static ModelEditorLibResourceInitializer modelEditorLibResourceInitializer_;
 
 IGWidget::IGWidget(QWidget* parent) : QWidget(parent) {
   setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Preferred);
@@ -111,6 +106,8 @@ InspectorGadget::InspectorGadget(QWidget* parent, int indent, ComboHighlightBrid
     m_comboBridge(bridge),
     m_objectHasName(false),
     m_nameIndex(boost::none),
+    m_lastLocked(false),
+    m_lastHideChildren(false),
     m_showComments(false),
     m_showAllFields(true),
     m_recursive(false),
@@ -142,6 +139,8 @@ InspectorGadget::InspectorGadget(WorkspaceObject& workspaceObj, int indent, Comb
     m_comboBridge(bridge),
     m_objectHasName(false),
     m_nameIndex(boost::none),
+    m_lastLocked(false),
+    m_lastHideChildren(false),
     m_showComments(showComments),
     m_showAllFields(showAllFields),
     m_recursive(recursive),
@@ -172,7 +171,6 @@ void InspectorGadget::rebuild(bool recursive) {
   if (m_workspaceObj.is_initialized()) {
     layoutModelObj(*m_workspaceObj, true, recursive, m_lastLocked, m_lastHideChildren);
   }
-  return;
 }
 
 void InspectorGadget::layoutModelObj(openstudio::WorkspaceObject& workspaceObj, bool force, bool recursive, bool locked, bool hideChildren) {
@@ -221,7 +219,7 @@ void InspectorGadget::layoutModelObj(openstudio::WorkspaceObject& workspaceObj, 
   m_deleteHandle->setContentsMargins(0, 0, 0, 0);
   m_deleteHandle->setObjectName("IG");
 
-  auto layout = new QVBoxLayout(m_deleteHandle);
+  auto* layout = new QVBoxLayout(m_deleteHandle);
   layout->setSpacing(0);
   layout->setMargin(0);
   m_deleteHandle->setLayout(layout);
@@ -266,84 +264,81 @@ void InspectorGadget::clear(bool recursive) {
 
 void InspectorGadget::layoutItems(QVBoxLayout* masterLayout, QWidget* parent, bool hideChildren) {
   IddObject iddObj = m_workspaceObj->iddObject();
-  std::string comment = m_workspaceObj->comment();
 
-  if (comment.size() >= 1) {
-    string::size_type i = comment.find('!');
-    if (i != string::npos) {
-      comment.erase(0, i + 1);
+  // Strip off prefix of `! `
+  auto cleanUpComment = [](std::string comment) -> std::string {
+    if (!comment.empty()) {
+      if (auto i = comment.find('!'); i != std::string::npos) {
+        comment.erase(0, i + 1);
+      }
     }
-  }
+    return comment;
+  };
 
-  auto layout = new QVBoxLayout();
+  std::string comment = cleanUpComment(m_workspaceObj->comment());
+
+  auto* layout = new QVBoxLayout();
   layout->setSpacing(0);
   layout->setMargin(0);
-  auto hlayout = new QHBoxLayout();
+  auto* hlayout = new QHBoxLayout();
   hlayout->setSpacing(0);
   hlayout->setMargin(0);
   masterLayout->addLayout(hlayout);
   hlayout->addLayout(layout);
-  layoutText(layout, parent, AccessPolicy::LOCKED, iddObj.type().valueDescription().c_str(), -1, comment);
+  layoutText(layout, parent, AccessPolicy::LOCKED, iddObj.type().valueDescription(), -1, comment);
 
-  AccessPolicy::ACCESS_LEVEL level;
   const AccessPolicy* pAccessPolicy = AccessPolicyStore::Instance().getPolicy(iddObj.type());
-  for (unsigned int i = 0, iend = m_workspaceObj->numFields(); i < iend; ++i) {
-    openstudio::IddField field(*(iddObj.getField(i)));
+
+  auto getLevelForField = [this, pAccessPolicy](unsigned int fieldIndex) {
+    AccessPolicy::ACCESS_LEVEL level = AccessPolicy::FREE;
     if (pAccessPolicy) {
-      level = pAccessPolicy->getAccess(i);
-    } else {
-      level = AccessPolicy::FREE;
+      level = pAccessPolicy->getAccess(fieldIndex);
     }
 
     if (m_locked && (level == AccessPolicy::FREE)) {
       level = AccessPolicy::LOCKED;
     }
+    return level;
+  };
 
-    comment = *(m_workspaceObj->fieldComment(i, true));
-    // starting at 1 because the "base" obj is at 0
-    //for(unsigned it=1; i<m_workspaceObjs.size(); i++)
-    //{
-    //  if(comment == m_workspaceObjs[it]->fieldComment(i,true)){
-    //    // keep track of a field set to the value FIELDS_MATCH,
-    //    // if it changed, change the respective elements in any
-    //    // other
-    //    comment == FIELDS_MATCH;
-    //    break;
-    //  }
-    //}
+  // Regular fields
+  for (unsigned int i = 0, iend = m_workspaceObj->numFields(); i < iend; ++i) {
+    openstudio::IddField field(*(iddObj.getField(i)));
+    auto level = getLevelForField(i);
 
-    //Strip off prefix of "!"
-    if (comment.size() >= 1) {
-      string::size_type j = comment.find('!');
-      if (j != string::npos) {
-        comment.erase(0, j + 1);
-      }
-    }
+    comment = cleanUpComment(*(m_workspaceObj->fieldComment(i, true)));
+
     parseItem(layout, parent, field, field.name(), *(m_workspaceObj->getString(i, true)), level, i, comment, true);
   }
 
+  // Extensible fields
   const IddObjectProperties& props = m_workspaceObj->iddObject().properties();
   if (pAccessPolicy) {
+    // Make a vector of the field indices for the extensible group
     unsigned numFields = iddObj.numFields();
     unsigned extensibleGroupSize = iddObj.extensibleGroup().size();
-    for (unsigned i = numFields; i < numFields + extensibleGroupSize; ++i) {
-      level = pAccessPolicy->getAccess(i);
-      if (level != AccessPolicy::HIDDEN) {
-        // only call if any extensible fields are visible
-        createExtensibleToolBar(layout, parent, props);
-        break;
-      }
+    std::vector<unsigned> fieldIndices(extensibleGroupSize);
+    std::iota(fieldIndices.begin(), fieldIndices.end(), numFields);
+
+    bool hasAtLeastOneExtensibleFieldVisible = std::any_of(fieldIndices.cbegin(), fieldIndices.cend(), [pAccessPolicy](unsigned fieldIndex) {
+      return pAccessPolicy->getAccess(fieldIndex) != AccessPolicy::HIDDEN;
+    });
+    if (hasAtLeastOneExtensibleFieldVisible) {
+      createExtensibleToolBar(layout, parent, props);
     }
   } else {
     createExtensibleToolBar(layout, parent, props);
   }
 
+  // Un-initialized fields
   if (m_showAllFields) {
-    string empty;
+    std::string empty;
     for (unsigned int existCount = m_workspaceObj->numNonextensibleFields(), possibleCount = iddObj.numFields(); existCount != possibleCount;
          ++existCount) {
+      // Get the access Level, call parseItem as usual, but we pass `exists=false` so it's displayed differently
       openstudio::IddField field(*(iddObj.getField(existCount)));
-      parseItem(layout, parent, field, field.name(), empty, AccessPolicy::LOCKED, existCount, empty, false);
+      auto level = getLevelForField(existCount);
+      parseItem(layout, parent, field, field.name(), empty, level, existCount, empty, false);
     }
   }
   // model only follows...
@@ -362,7 +357,7 @@ void InspectorGadget::layoutItems(QVBoxLayout* masterLayout, QWidget* parent, bo
           showComment = m_showComments;
           showFields = m_showAllFields;
         }
-        auto igChild = new InspectorGadget(elem, m_indent, m_comboBridge, showComment, showFields, m_recursive, m_locked);
+        auto* igChild = new InspectorGadget(elem, m_indent, m_comboBridge, showComment, showFields, m_recursive, m_locked);
 
         igChild->setUnitSystem(m_unitSystem);
         layout->addWidget(igChild);
@@ -371,7 +366,9 @@ void InspectorGadget::layoutItems(QVBoxLayout* masterLayout, QWidget* parent, bo
     }
   }  // if(p)
 
-  if (m_stretch) masterLayout->addStretch();
+  if (m_stretch) {
+    masterLayout->addStretch();
+  }
 }
 
 void InspectorGadget::parseItem(QVBoxLayout* layout, QWidget* parent, openstudio::IddField& field, const std::string& name, const std::string& curVal,
@@ -402,20 +399,15 @@ void InspectorGadget::parseItem(QVBoxLayout* layout, QWidget* parent, openstudio
       layoutText(layout, parent, field, level, name, realVal, index, comment, exists, true, true);
       break;
     }
+
     case IddFieldType::AlphaType:
     case IddFieldType::UnknownType:
     case IddFieldType::ExternalListType: {
       layoutText(layout, parent, field, level, name, curVal, index, comment, exists, false);
       break;
     }
-    case IddFieldType::ObjectListType: {
-      if (AccessPolicy::LOCKED == level) {
-        layoutText(layout, parent, field, level, name, curVal, index, comment, exists, false);
-      } else {
-        layoutComboBox(layout, parent, field, prop, name, curVal, index, comment, exists);
-      }
-      break;
-    }
+
+    case IddFieldType::ObjectListType:
     case IddFieldType::ChoiceType: {
       if (AccessPolicy::LOCKED == level) {
         layoutText(layout, parent, field, level, name, curVal, index, comment, exists, false);
@@ -424,44 +416,42 @@ void InspectorGadget::parseItem(QVBoxLayout* layout, QWidget* parent, openstudio
       }
       break;
     }
-    case IddFieldType::NodeType: {
-      break;
-    }
-    case IddFieldType::URLType: {
-      break;
-    }
+
+    case IddFieldType::NodeType:
+    case IddFieldType::URLType:
     case IddFieldType::HandleType: {
       break;
     }
+
     default: {
       LOG(Error, "InspectorGadget::parseItem has failed, unknown IddFieldType " << prop.type.valueDescription());
     }
   }
 }
 
-void InspectorGadget::layoutText(QVBoxLayout* layout, QWidget* parent, openstudio::model::AccessPolicy::ACCESS_LEVEL level, const string& val,
-                                 int index, const string& comment) {
-  auto frame = new QFrame(parent);
+void InspectorGadget::layoutText(QVBoxLayout* layout, QWidget* parent, openstudio::model::AccessPolicy::ACCESS_LEVEL level, const std::string& val,
+                                 int index, const std::string& comment) {
+  auto* frame = new QFrame(parent);
   frame->setContentsMargins(0, 0, 0, 0);
-  auto hbox = new QHBoxLayout();
+  auto* hbox = new QHBoxLayout();
   frame->setLayout(hbox);
   frame->setObjectName("IGHeader");
   hbox->setSpacing(0);
   hbox->setMargin(0);
 
   if (level == AccessPolicy::LOCKED) {
-    string stripped(val);
-    //stripchar(stripped,'_');
-    QLabel* label = new QLabel(QString(stripped.c_str()), parent);
+    // string stripped(val);
+    // std::replace(stripped.begin(), stripped.end(), '_', ' ');  // replace all '_' to ' '
+    auto* label = new QLabel(QString(val.c_str()), parent);
     label->setObjectName("IGHeader");
-    label->setStyleSheet("font : bold");
+    label->setStyleSheet("font: bold");
     // Qt::Alignment a = Qt::AlignHCenter;
     hbox->addWidget(label);
 
     hbox->addStretch();
   } else {
     //QLineEdit* text = new QLineEdit( QString(val.c_str()), parent  );
-    IGLineEdit* text = new IGLineEdit(QString(val.c_str()), this, parent);
+    auto* text = new IGLineEdit(QString(val.c_str()), this, parent);
     hbox->addWidget(text);
     text->setProperty(s_indexSlotName, index);
 
@@ -471,7 +461,7 @@ void InspectorGadget::layoutText(QVBoxLayout* layout, QWidget* parent, openstudi
     connect(text, &IGLineEdit::newValue, this, &InspectorGadget::IGvalueChanged);
   }
 
-  QLineEdit* commentText = new QLineEdit(QString(comment.c_str()), parent);
+  auto* commentText = new QLineEdit(QString(comment.c_str()), parent);
   commentText->setProperty(s_indexSlotName, index);
   connect(commentText, &QLineEdit::textEdited, this, &InspectorGadget::IGcommentChanged);
   if (!m_showComments) {
@@ -485,22 +475,22 @@ void InspectorGadget::layoutText(QVBoxLayout* layout, QWidget* parent, openstudi
 
 void InspectorGadget::layoutText(QVBoxLayout* layout, QWidget* parent, openstudio::IddField& field,
                                  openstudio::model::AccessPolicy::ACCESS_LEVEL level, const std::string& name, const std::string& curVal, int index,
-                                 const string& comment, bool exists, bool number, bool real) {
+                                 const std::string& comment, bool exists, bool number, bool real) {
   openstudio::IddFieldProperties prop = field.properties();
 
-  auto frame = new QFrame(parent);
-  auto vbox = new QVBoxLayout();
+  auto* frame = new QFrame(parent);
+  auto* vbox = new QVBoxLayout();
   frame->setLayout(vbox);
 
-  QLabel* label = new QLabel(QString(name.c_str()), parent);
+  auto* label = new QLabel(QString(name.c_str()), parent);
   label->setWordWrap(true);
   vbox->addWidget(label);
 
   QString val = QString::fromStdString(curVal);
 
-  auto text = new IGLineEdit(val, this, parent);
+  auto* text = new IGLineEdit(val, this, parent);
   text->setProperty(s_indexSlotName, index);
-  QLineEdit* commentText = new QLineEdit(QString(comment.c_str()), parent);
+  auto* commentText = new QLineEdit(QString(comment.c_str()), parent);
   commentText->setProperty(s_indexSlotName, index);
   if (level == AccessPolicy::LOCKED) {
     text->setEnabled(false);
@@ -515,7 +505,7 @@ void InspectorGadget::layoutText(QVBoxLayout* layout, QWidget* parent, openstudi
   }
 
   if (number) {
-    string s;
+    std::string s;
     if (real) {
       Unit u_si;
       Unit u;
@@ -535,7 +525,7 @@ void InspectorGadget::layoutText(QVBoxLayout* layout, QWidget* parent, openstudi
       //QDoubleValidator* valid = new QDoubleValidator(text);
       //if( m_floatDisplayType != SCIENTIFIC )
       //valid->setNotation( QDoubleValidator::StandardNotation );
-      QRegExpValidator* valid = new QRegExpValidator(QRegExp("-?[0-9]*\\.?[0-9]*([eE][-+]?[0-9]*)?"), text);
+      auto* valid = new QRegExpValidator(QRegExp("-?[0-9]*\\.?[0-9]*([eE][-+]?[0-9]*)?"), text);
       if (prop.minBoundType != IddFieldProperties::Unbounded) {
         double d = *(prop.minBoundValue);
         if (m_unitSystem == IP) {
@@ -593,7 +583,7 @@ void InspectorGadget::layoutText(QVBoxLayout* layout, QWidget* parent, openstudi
       s = ss.str();
       s = formatUnitString(s, DocumentFormat::XHTML);
     } else {
-      auto valid = new QIntValidator(text);
+      auto* valid = new QIntValidator(text);
 
       if (prop.minBoundType != IddFieldProperties::Unbounded) {
         valid->setBottom(boost::numeric_cast<int>(*(prop.minBoundValue)));
@@ -607,15 +597,15 @@ void InspectorGadget::layoutText(QVBoxLayout* layout, QWidget* parent, openstudi
     if (s == "m(m<sup>2</sup>)") {
       s = "cm<sup>2</sup>";
     }
-    QLabel* units = new QLabel(s.c_str(), parent);
+    auto* units = new QLabel(s.c_str(), parent);
     units->setTextFormat(Qt::RichText);
 
-    auto hardSizedLayout = new QHBoxLayout();
+    auto* hardSizedLayout = new QHBoxLayout();
 
     if (prop.autosizable) {
-      auto autoSizedLayout = new QHBoxLayout();
-      QRadioButton* hardSizedRadio = new QRadioButton(tr("Hard Sized"), parent);
-      QRadioButton* autosizedRadio = new QRadioButton(tr("Autosized"), parent);
+      auto* autoSizedLayout = new QHBoxLayout();
+      auto* hardSizedRadio = new QRadioButton(tr("Hard Sized"), parent);
+      auto* autosizedRadio = new QRadioButton(tr("Autosized"), parent);
       autosizedRadio->setProperty(s_indexSlotName, index);
 
       if (level == AccessPolicy::LOCKED) {
@@ -639,7 +629,7 @@ void InspectorGadget::layoutText(QVBoxLayout* layout, QWidget* parent, openstudi
         text->setEnabled(true);
       }
 
-      QLabel* autolabel = new QLabel("Autosize", parent);
+      auto* autolabel = new QLabel("Autosize", parent);
       autolabel->setEnabled(false);
 
       autoSizedLayout->addWidget(autosizedRadio);
@@ -658,9 +648,9 @@ void InspectorGadget::layoutText(QVBoxLayout* layout, QWidget* parent, openstudi
       vbox->addLayout(hardSizedLayout);
       vbox->addLayout(autoSizedLayout);
     } else if (prop.autocalculatable) {
-      auto autoCalcdLayout = new QHBoxLayout();
-      QRadioButton* hardSizedRadio = new QRadioButton(tr("Hard Sized"), parent);
-      QRadioButton* autocalculatedRadio = new QRadioButton(tr("Autocalculate"), parent);
+      auto* autoCalcdLayout = new QHBoxLayout();
+      auto* hardSizedRadio = new QRadioButton(tr("Hard Sized"), parent);
+      auto* autocalculatedRadio = new QRadioButton(tr("Autocalculate"), parent);
       autocalculatedRadio->setProperty(s_indexSlotName, index);
 
       if (level == AccessPolicy::LOCKED) {
@@ -684,7 +674,7 @@ void InspectorGadget::layoutText(QVBoxLayout* layout, QWidget* parent, openstudi
         text->setEnabled(true);
       }
 
-      QLabel* autolabel = new QLabel("Autocalculate", parent);
+      auto* autolabel = new QLabel("Autocalculate", parent);
       autolabel->setEnabled(false);
 
       autoCalcdLayout->addWidget(autocalculatedRadio);
@@ -723,7 +713,9 @@ void InspectorGadget::layoutText(QVBoxLayout* layout, QWidget* parent, openstudi
   if (exists) {
     frame->setObjectName("IGRow");
   } else {
-    frame->setEnabled(false);
+    // For Non initialized fields, we still set it to be Enabled, but color in purple/blue to make it clear
+    // Except if it's meant to be locked, it's clearer to make it disabled
+    frame->setEnabled(level != AccessPolicy::LOCKED);
     frame->setObjectName("IGRowDisabled");
   }
   layout->addWidget(frame);
@@ -731,16 +723,16 @@ void InspectorGadget::layoutText(QVBoxLayout* layout, QWidget* parent, openstudi
 
 void InspectorGadget::layoutComboBox(QVBoxLayout* layout, QWidget* parent, openstudio::IddField& field, openstudio::IddFieldProperties& prop,
                                      const std::string& name, const std::string& curVal, int index, const std::string& comment, bool exists) {
-  auto frame = new QFrame(parent);
-  auto vbox = new QVBoxLayout();
+  auto* frame = new QFrame(parent);
+  auto* vbox = new QVBoxLayout();
   frame->setLayout(vbox);
-  QLabel* label = new QLabel(QString(name.c_str()), parent);
+  auto* label = new QLabel(QString(name.c_str()), parent);
   label->setWordWrap(true);
 
   QComboBox* combo = new IGComboBox(parent);
   combo->setSizeAdjustPolicy(QComboBox::AdjustToContentsOnFirstShow);
 
-  if (prop.objectLists.size() && m_workspaceObj && !m_workspaceObj->handle().isNull()) {
+  if (!prop.objectLists.empty() && m_workspaceObj && !m_workspaceObj->handle().isNull()) {
     Workspace workspace = m_workspaceObj->workspace();
     std::vector<std::string> names;
 
@@ -764,7 +756,7 @@ void InspectorGadget::layoutComboBox(QVBoxLayout* layout, QWidget* parent, opens
       combo->addItem("");
     }
 
-    for (IddKey key : field.keys()) {
+    for (const IddKey& key : field.keys()) {
       combo->addItem(key.name().c_str());
     }
   }
@@ -793,7 +785,7 @@ void InspectorGadget::layoutComboBox(QVBoxLayout* layout, QWidget* parent, opens
   vbox->addWidget(label);
   vbox->addWidget(combo);
 
-  QLineEdit* commentText = new QLineEdit(QString(comment.c_str()), parent);
+  auto* commentText = new QLineEdit(QString(comment.c_str()), parent);
   commentText->setProperty(s_indexSlotName, index);
   connect(commentText, &QLineEdit::textEdited, this, &InspectorGadget::IGcommentChanged);
   vbox->addWidget(commentText);
@@ -805,8 +797,11 @@ void InspectorGadget::layoutComboBox(QVBoxLayout* layout, QWidget* parent, opens
   if (exists) {
     frame->setObjectName("IGRow");
   } else {
+    // For Non initialized fields, we still set it to be Enabled, but color in purple/blue to make it clear
+    // Note that this layoutComboBox is only called with policy != AccessPolicy::LOCKED, otherwise the layoutText is called instead for
+    // ChoiceType/ObjectList fields too
+    frame->setEnabled(true);
     frame->setObjectName("IGRowDisabled");
-    frame->setEnabled(false);
   }
   layout->addWidget(frame);
 }
@@ -814,13 +809,17 @@ void InspectorGadget::layoutComboBox(QVBoxLayout* layout, QWidget* parent, opens
 void InspectorGadget::createExtensibleToolBar(QVBoxLayout* layout,
 
                                               QWidget* parent, const IddObjectProperties& props) {
-  if (!props.extensible) return;
+  if (!props.extensible) {
+    return;
+  }
 
-  if (m_locked) return;
+  if (m_locked) {
+    return;
+  }
 
-  auto frame = new QFrame(parent);
+  auto* frame = new QFrame(parent);
   frame->setContentsMargins(0, 0, 0, 0);
-  auto hbox = new QHBoxLayout();
+  auto* hbox = new QHBoxLayout();
   frame->setLayout(hbox);
   hbox->setSpacing(0);
   hbox->setMargin(0);
@@ -829,14 +828,14 @@ void InspectorGadget::createExtensibleToolBar(QVBoxLayout* layout,
 
   layout->addWidget(frame);
 
-  QLabel* label = new QLabel(tr("Add/Remove Extensible Groups"), parent);
+  auto* label = new QLabel(tr("Add/Remove Extensible Groups"), parent);
 
-  auto addBtn = new QPushButton(frame);
+  auto* addBtn = new QPushButton(frame);
   QIcon ico(":images/edit_add.png");
   addBtn->setIcon(ico);
   addBtn->setStyleSheet(" margin: 0px; border: 0px;");
 
-  auto subBtn = new QPushButton(frame);
+  auto* subBtn = new QPushButton(frame);
   QIcon ico2(":images/edit_remove.png");
   subBtn->setIcon(ico2);
   subBtn->setStyleSheet(" margin: 0px; border: 0px;");
@@ -862,19 +861,10 @@ void InspectorGadget::checkRemoveBtn(QPushButton* btn) {
   }
 }
 
-void InspectorGadget::stripchar(string& strip, char c) {
-  string::size_type i = strip.find(c);
-  while (i != string::npos) {
-    strip.replace(i, 1, 1, ' ');
-    ++i;
-    i = strip.find(c, i);
-  }
-}
-
 //SLOTS
-void InspectorGadget::IGdefaultRemoved(const QString&) {
+void InspectorGadget::IGdefaultRemoved(const QString& /*unused*/) {
   QObject* source = sender();
-  QWidget* w = dynamic_cast<QWidget*>(source);
+  auto* w = dynamic_cast<QWidget*>(source);
   w->setStyleSheet("color:black");
   // using old style disconnect here
   disconnect(source, nullptr, this, SLOT(IGdefaultRemoved(const QString&)));
@@ -885,7 +875,7 @@ void InspectorGadget::IGvalueChanged(const QString& value) {
 
   QString qval = value;
   QObject* source = sender();
-  IGLineEdit* le = dynamic_cast<IGLineEdit*>(source);
+  auto* le = dynamic_cast<IGLineEdit*>(source);
   if (le) {
     if (!le->checkValue(qval)) {
       return;
@@ -894,7 +884,8 @@ void InspectorGadget::IGvalueChanged(const QString& value) {
 
   QVariant v = source->property(InspectorGadget::s_indexSlotName);
   int index = v.toInt();
-  string temp(qval.toStdString());
+  unsigned numFieldsStart = m_workspaceObj->numFields();
+  std::string temp(qval.toStdString());
 
   disconnectWorkspaceObjectSignals();
 
@@ -904,7 +895,7 @@ void InspectorGadget::IGvalueChanged(const QString& value) {
   if (!temp.empty() && (iddField.properties().type == IddFieldType::RealType) && (m_unitSystem == IP)) {
     if (OptionalUnit ipUnits = iddField.getUnits(true)) {
       try {
-        double val = boost::lexical_cast<double>(temp);
+        auto val = boost::lexical_cast<double>(temp);
         test = m_workspaceObj->setQuantity(index, Quantity(val, *ipUnits));
       } catch (...) {
       }
@@ -919,7 +910,7 @@ void InspectorGadget::IGvalueChanged(const QString& value) {
     // setting the value failed, do not emit dirty
     QObject* sender = this->sender();
 
-    QComboBox* combo = qobject_cast<QComboBox*>(sender);
+    auto* combo = qobject_cast<QComboBox*>(sender);
     if (combo) {
       QString curVal("");
       boost::optional<std::string> tempStr = m_workspaceObj->getString(index, true);
@@ -941,14 +932,19 @@ void InspectorGadget::IGvalueChanged(const QString& value) {
     emit nameChanged(temp.c_str());
   }
   emit dirty();
-  return;
+
+  unsigned numFieldsEnd = m_workspaceObj->numFields();
+  if (numFieldsEnd > numFieldsStart) {
+    onWorkspaceObjectChanged();
+  }
 }
 
 void InspectorGadget::IGcommentChanged(const QString& value) {
   QObject* source = sender();
   QVariant v = source->property(InspectorGadget::s_indexSlotName);
   int index = v.toInt();
-  string temp(value.toStdString());
+  unsigned numFieldsStart = m_workspaceObj->numFields();
+  std::string temp(value.toStdString());
   if (index < 0) {
     disconnectWorkspaceObjectSignals();
     m_workspaceObj->setComment(temp);
@@ -960,7 +956,11 @@ void InspectorGadget::IGcommentChanged(const QString& value) {
   }
 
   emit dirty();
-  return;
+
+  unsigned numFieldsEnd = m_workspaceObj->numFields();
+  if (numFieldsEnd > numFieldsStart) {
+    onWorkspaceObjectChanged();
+  }
 }
 
 void InspectorGadget::IGautosize(bool toggled) {
@@ -971,10 +971,16 @@ void InspectorGadget::IGautosize(bool toggled) {
   QObject* source = sender();
   QVariant v = source->property(InspectorGadget::s_indexSlotName);
   int index = v.toInt();
+  unsigned numFieldsStart = m_workspaceObj->numFields();
 
   disconnectWorkspaceObjectSignals();
   m_workspaceObj->setString(index, "Autosize");
   connectWorkspaceObjectSignals();
+
+  unsigned numFieldsEnd = m_workspaceObj->numFields();
+  if (numFieldsEnd > numFieldsStart) {
+    onWorkspaceObjectChanged();
+  }
 }
 
 void InspectorGadget::IGautocalculate(bool toggled) {
@@ -985,10 +991,16 @@ void InspectorGadget::IGautocalculate(bool toggled) {
   QObject* source = sender();
   QVariant v = source->property(InspectorGadget::s_indexSlotName);
   int index = v.toInt();
+  unsigned numFieldsStart = m_workspaceObj->numFields();
 
   disconnectWorkspaceObjectSignals();
   m_workspaceObj->setString(index, "Autocalculate");
   connectWorkspaceObjectSignals();
+
+  unsigned numFieldsEnd = m_workspaceObj->numFields();
+  if (numFieldsEnd > numFieldsStart) {
+    onWorkspaceObjectChanged();
+  }
 }
 
 void InspectorGadget::commentConfig(bool showComments) {
@@ -1004,7 +1016,7 @@ void InspectorGadget::addExtensible() {
   m_workspaceObj->pushExtensibleGroup();
   connectWorkspaceObjectSignals();
 
-  QPushButton* source = dynamic_cast<QPushButton*>(sender());
+  auto* source = dynamic_cast<QPushButton*>(sender());
   OS_ASSERT(source);
   checkRemoveBtn(source);
   emit dirty();
@@ -1016,7 +1028,7 @@ void InspectorGadget::removeExtensible() {
   m_workspaceObj->popExtensibleGroup();
   connectWorkspaceObjectSignals();
 
-  QPushButton* source = dynamic_cast<QPushButton*>(sender());
+  auto* source = dynamic_cast<QPushButton*>(sender());
   OS_ASSERT(source);
   checkRemoveBtn(source);
   emit dirty();
@@ -1042,7 +1054,9 @@ void InspectorGadget::createAllFields() {
 }
 
 void InspectorGadget::showAllFields(bool state) {
-  if (state == m_showAllFields) return;
+  if (state == m_showAllFields) {
+    return;
+  }
 
   m_showAllFields = state;
   rebuild(false);
@@ -1075,7 +1089,7 @@ void InspectorGadget::onTimeout() {
   }
 }
 
-void InspectorGadget::onWorkspaceObjectRemoved(const openstudio::Handle&) {
+void InspectorGadget::onWorkspaceObjectRemoved(const openstudio::Handle& /*unused*/) {
   m_workspaceObjectChanged = true;
   clear(true);
 

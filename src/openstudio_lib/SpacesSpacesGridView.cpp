@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -189,7 +189,7 @@ void SpacesSpacesGridController::addColumns(const QString& category, std::vector
                         CastNullAdapter<model::Space>(&model::Space::setSpaceType),
                         boost::optional<std::function<void(model::Space*)>>(CastNullAdapter<model::Space>(&model::Space::resetSpaceType)),
                         boost::optional<std::function<bool(model::Space*)>>(CastNullAdapter<model::Space>(&model::Space::isSpaceTypeDefaulted)),
-                        boost::optional<std::function<std::vector<model::ModelObject>(model::Space*)>>(), boost::optional<DataSource>());
+                        boost::optional<std::function<std::vector<model::ModelObject>(const model::Space*)>>(), boost::optional<DataSource>());
     } else if (field == DEFAULTCONSTRUCTIONSET) {
       addDropZoneColumn(
         Heading(QString(DEFAULTCONSTRUCTIONSET)), CastNullAdapter<model::Space>(&model::Space::defaultConstructionSet),

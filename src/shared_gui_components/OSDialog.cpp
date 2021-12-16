@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -159,14 +159,14 @@ void OSDialog::paintEvent(QPaintEvent* event) {
 
   painter.setRenderHint(QPainter::Antialiasing);
 
-  QImage leftHeader = QImage(":/images/image_header.png");
-  painter.drawImage(0, 0, leftHeader);
-
   QImage centerHeader = QImage(":/images/header-backgnd-1px-wide.png");
 
-  for (int i = leftHeader.width(); i < width(); i++) {
+  for (int i = 0; i < width(); i++) {
     painter.drawImage(i, 0, centerHeader);
   }
+
+  QImage leftHeader = QImage(":/images/image_header.png");
+  painter.drawImage(0, 0, leftHeader);
 }
 
 void OSDialog::setSizeHint(const QSize& sizeHint) {

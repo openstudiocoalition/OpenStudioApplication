@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -51,7 +51,7 @@
 
 namespace openstudio {
 
-HVACToolbarView::HVACToolbarView() : QWidget() {
+HVACToolbarView::HVACToolbarView() {
   // There are two modes.  One that shows just the label and the systemComboBox,
   // the other shows all of the controls but no label
 
@@ -65,7 +65,7 @@ HVACToolbarView::HVACToolbarView() : QWidget() {
   setObjectName("NavigatorWidget");
   setStyleSheet(style);
 
-  auto mainHlayout = new QHBoxLayout();
+  auto* mainHlayout = new QHBoxLayout();
   mainHlayout->setContentsMargins(5, 5, 5, 5);
   mainHlayout->setSpacing(5);
   setLayout(mainHlayout);
@@ -76,8 +76,8 @@ HVACToolbarView::HVACToolbarView() : QWidget() {
 
   // Label Widget
 
-  auto labelWidget = new QWidget();
-  auto labelLayout = new QHBoxLayout();
+  auto* labelWidget = new QWidget();
+  auto* labelLayout = new QHBoxLayout();
   labelLayout->setContentsMargins(0, 0, 0, 0);
   labelLayout->setSpacing(5);
   labelLayout->setAlignment(Qt::AlignLeft);
@@ -90,8 +90,8 @@ HVACToolbarView::HVACToolbarView() : QWidget() {
 
   // Controls Widget
 
-  auto controlWidget = new QWidget();
-  auto controlLayout = new QHBoxLayout();
+  auto* controlWidget = new QWidget();
+  auto* controlLayout = new QHBoxLayout();
   controlLayout->setContentsMargins(0, 0, 0, 0);
   controlLayout->setSpacing(5);
   controlWidget->setLayout(controlLayout);
@@ -117,7 +117,7 @@ HVACToolbarView::HVACToolbarView() : QWidget() {
 
   controlLayout->addStretch();
 
-  auto zoomButtonGroup = new QButtonGroup(this);
+  auto* zoomButtonGroup = new QButtonGroup(this);
   zoomButtonGroup->setExclusive(true);
 
   topologyViewButton = new GrayButton();
@@ -187,19 +187,17 @@ void HVACToolbarView::showControls(bool show) {
   }
 }
 
-void HVACToolbarView::paintEvent(QPaintEvent* event) {
+void HVACToolbarView::paintEvent([[maybe_unused]] QPaintEvent* event) {
   QStyleOption opt;
   opt.init(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
 
-HVACToolbarView::~HVACToolbarView() {}
-
-HVACSystemsView::HVACSystemsView() : QWidget() {
+HVACSystemsView::HVACSystemsView() {
   setObjectName("GrayWidgetWithLeftTopBorders");
 
-  auto mainVLayout = new QVBoxLayout();
+  auto* mainVLayout = new QVBoxLayout();
   mainVLayout->setContentsMargins(1, 1, 0, 0);
   mainVLayout->setSpacing(0);
   mainVLayout->setAlignment(Qt::AlignTop);
@@ -238,7 +236,7 @@ QSize HVACSystemsView::sizeHint() const {
 //  return m_model;
 //}
 
-void HVACSystemsView::paintEvent(QPaintEvent* event) {
+void HVACSystemsView::paintEvent([[maybe_unused]] QPaintEvent* event) {
   QStyleOption opt;
   opt.init(this);
   QPainter p(this);
@@ -274,10 +272,10 @@ void HVACGraphicsView::resetZoom() {
 }
 
 /* Controls tab for an AirLoopHVAC */
-HVACAirLoopControlsView::HVACAirLoopControlsView() : QScrollArea() {
-  auto widget = new QWidget();
+HVACAirLoopControlsView::HVACAirLoopControlsView() {
+  auto* widget = new QWidget();
 
-  auto mainVLayout = new QVBoxLayout();
+  auto* mainVLayout = new QVBoxLayout();
   mainVLayout->setContentsMargins(5, 5, 5, 5);
   mainVLayout->setSpacing(10);
   mainVLayout->setAlignment(Qt::AlignTop);
@@ -291,12 +289,12 @@ HVACAirLoopControlsView::HVACAirLoopControlsView() : QScrollArea() {
   systemNameLabel->setObjectName("H1");
   mainVLayout->addWidget(systemNameLabel);
 
-  auto hClassificationLayout = new QHBoxLayout();
+  auto* hClassificationLayout = new QHBoxLayout();
   hClassificationLayout->setContentsMargins(0, 0, 0, 0);
   hClassificationLayout->setSpacing(5);
   mainVLayout->addLayout(hClassificationLayout);
 
-  QLabel* coolingTypeTitle = new QLabel("Cooling Type: ");
+  auto* coolingTypeTitle = new QLabel("Cooling Type: ");
   coolingTypeTitle->setObjectName("H2");
   hClassificationLayout->addWidget(coolingTypeTitle);
 
@@ -304,7 +302,7 @@ HVACAirLoopControlsView::HVACAirLoopControlsView() : QScrollArea() {
   hClassificationLayout->addWidget(coolingTypeLabel);
   hClassificationLayout->addStretch();
 
-  QLabel* heatingTypeTitle = new QLabel("Heating Type: ");
+  auto* heatingTypeTitle = new QLabel("Heating Type: ");
   heatingTypeTitle->setObjectName("H2");
   hClassificationLayout->addWidget(heatingTypeTitle);
 
@@ -312,16 +310,16 @@ HVACAirLoopControlsView::HVACAirLoopControlsView() : QScrollArea() {
   hClassificationLayout->addWidget(heatingTypeLabel);
   hClassificationLayout->addStretch();
 
-  auto line = new QFrame();
+  auto* line = new QFrame();
   line->setFrameShape(QFrame::HLine);
   line->setFrameShadow(QFrame::Sunken);
   mainVLayout->addWidget(line);
 
-  QLabel* timeTitle = new QLabel("Time of Operation");
+  auto* timeTitle = new QLabel("Time of Operation");
   timeTitle->setObjectName("H1");
   mainVLayout->addWidget(timeTitle);
 
-  QLabel* operationScheduleTitle = new QLabel("HVAC Operation Schedule");
+  auto* operationScheduleTitle = new QLabel("HVAC Operation Schedule");
   operationScheduleTitle->setObjectName("H2");
   mainVLayout->addWidget(operationScheduleTitle);
 
@@ -329,11 +327,11 @@ HVACAirLoopControlsView::HVACAirLoopControlsView() : QScrollArea() {
   hvacOperationViewSwitcher->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
   mainVLayout->addWidget(hvacOperationViewSwitcher);
 
-  QLabel* nightCycleTitle = new QLabel("Use Night Cycle");
+  auto* nightCycleTitle = new QLabel("Use Night Cycle");
   nightCycleTitle->setObjectName("H2");
   mainVLayout->addWidget(nightCycleTitle);
 
-  auto nightCycleHLayout = new QHBoxLayout();
+  auto* nightCycleHLayout = new QHBoxLayout();
   nightCycleHLayout->setContentsMargins(0, 0, 0, 0);
   nightCycleHLayout->setSpacing(5);
   nightCycleComboBox = new OSComboBox2();
@@ -351,7 +349,7 @@ HVACAirLoopControlsView::HVACAirLoopControlsView() : QScrollArea() {
   line->setFrameShadow(QFrame::Sunken);
   mainVLayout->addWidget(line);
 
-  QLabel* supplyAirTemperatureTitle = new QLabel("Supply Air Temperature");
+  auto* supplyAirTemperatureTitle = new QLabel("Supply Air Temperature");
   supplyAirTemperatureTitle->setObjectName("H1");
   mainVLayout->addWidget(supplyAirTemperatureTitle);
 
@@ -364,7 +362,7 @@ HVACAirLoopControlsView::HVACAirLoopControlsView() : QScrollArea() {
   line->setFrameShadow(QFrame::Sunken);
   mainVLayout->addWidget(line);
 
-  QLabel* outdoorAirTitle = new QLabel("Mechanical Ventilation");
+  auto* outdoorAirTitle = new QLabel("Mechanical Ventilation");
   outdoorAirTitle->setObjectName("H1");
   mainVLayout->addWidget(outdoorAirTitle);
 
@@ -379,11 +377,11 @@ HVACAirLoopControlsView::HVACAirLoopControlsView() : QScrollArea() {
   mainVLayout->addWidget(line);
 
   // AvailabilityManagers
-  QLabel* avmTitle = new QLabel("Availability Managers");
+  auto* avmTitle = new QLabel("Availability Managers");
   avmTitle->setObjectName("H1");
   mainVLayout->addWidget(avmTitle);
 
-  QLabel* avmListTitle = new QLabel("Availability Managers from highest precedence to lowest");
+  auto* avmListTitle = new QLabel("Availability Managers from highest precedence to lowest");
   avmListTitle->setObjectName("H2");
   mainVLayout->addWidget(avmListTitle);
 
@@ -394,10 +392,10 @@ HVACAirLoopControlsView::HVACAirLoopControlsView() : QScrollArea() {
 }
 
 /* Controls tab for an AirLoopHVAC */
-HVACPlantLoopControlsView::HVACPlantLoopControlsView() : QScrollArea() {
-  auto widget = new QWidget();
+HVACPlantLoopControlsView::HVACPlantLoopControlsView() {
+  auto* widget = new QWidget();
 
-  auto mainVLayout = new QVBoxLayout();
+  auto* mainVLayout = new QVBoxLayout();
   mainVLayout->setContentsMargins(5, 5, 5, 5);
   mainVLayout->setSpacing(10);
   mainVLayout->setAlignment(Qt::AlignTop);
@@ -412,12 +410,12 @@ HVACPlantLoopControlsView::HVACPlantLoopControlsView() : QScrollArea() {
   mainVLayout->addWidget(systemNameLabel);
 
   // Plant Loop Type
-  auto hClassificationLayout = new QHBoxLayout();
+  auto* hClassificationLayout = new QHBoxLayout();
   hClassificationLayout->setContentsMargins(0, 0, 0, 0);
   hClassificationLayout->setSpacing(5);
   mainVLayout->addLayout(hClassificationLayout);
 
-  QLabel* plantLoopTypeTitle = new QLabel("Plant Loop Type: ");
+  auto* plantLoopTypeTitle = new QLabel("Plant Loop Type: ");
   plantLoopTypeTitle->setObjectName("H2");
   hClassificationLayout->addWidget(plantLoopTypeTitle);
 
@@ -426,7 +424,7 @@ HVACPlantLoopControlsView::HVACPlantLoopControlsView() : QScrollArea() {
   hClassificationLayout->addStretch();
 
   // Add a separation line
-  auto line = new QFrame();
+  auto* line = new QFrame();
   line->setFrameShape(QFrame::HLine);
   line->setFrameShadow(QFrame::Sunken);
   mainVLayout->addWidget(line);
@@ -435,7 +433,7 @@ HVACPlantLoopControlsView::HVACPlantLoopControlsView() : QScrollArea() {
    *                  P L A N T    E Q U I P M E N T    O P E R A T I O N    S C H E M E S
    ***********************************************************************************************************************/
 
-  QLabel* spmTitle = new QLabel("Plant Equipment Operation Schemes");
+  auto* spmTitle = new QLabel("Plant Equipment Operation Schemes");
   spmTitle->setObjectName("H1");
   mainVLayout->addWidget(spmTitle);
 
@@ -446,10 +444,10 @@ HVACPlantLoopControlsView::HVACPlantLoopControlsView() : QScrollArea() {
   mainVLayout->addLayout(hClassificationLayout);
 
   // Heating Components
-  QVBoxLayout* vClassificationLayout = new QVBoxLayout();
+  auto* vClassificationLayout = new QVBoxLayout();
   hClassificationLayout->addLayout(vClassificationLayout);
 
-  QLabel* heatingComponentsTitle = new QLabel("Heating Components:");
+  auto* heatingComponentsTitle = new QLabel("Heating Components:");
   heatingComponentsTitle->setObjectName("H2");
   vClassificationLayout->addWidget(heatingComponentsTitle);
 
@@ -461,7 +459,7 @@ HVACPlantLoopControlsView::HVACPlantLoopControlsView() : QScrollArea() {
   vClassificationLayout = new QVBoxLayout();
   hClassificationLayout->addLayout(vClassificationLayout);
 
-  QLabel* coolingComponentsTitle = new QLabel("Cooling Components:");
+  auto* coolingComponentsTitle = new QLabel("Cooling Components:");
   coolingComponentsTitle->setObjectName("H2");
   vClassificationLayout->addWidget(coolingComponentsTitle);
 
@@ -473,7 +471,7 @@ HVACPlantLoopControlsView::HVACPlantLoopControlsView() : QScrollArea() {
   vClassificationLayout = new QVBoxLayout();
   hClassificationLayout->addLayout(vClassificationLayout);
 
-  QLabel* setpointComponentsTitle = new QLabel("Setpoint Components:");
+  auto* setpointComponentsTitle = new QLabel("Setpoint Components:");
   setpointComponentsTitle->setObjectName("H2");
   vClassificationLayout->addWidget(setpointComponentsTitle);
 
@@ -485,7 +483,7 @@ HVACPlantLoopControlsView::HVACPlantLoopControlsView() : QScrollArea() {
   vClassificationLayout = new QVBoxLayout();
   hClassificationLayout->addLayout(vClassificationLayout);
 
-  QLabel* uncontrolledComponentsTitle = new QLabel("Uncontrolled Components:");
+  auto* uncontrolledComponentsTitle = new QLabel("Uncontrolled Components:");
   uncontrolledComponentsTitle->setObjectName("H2");
   vClassificationLayout->addWidget(uncontrolledComponentsTitle);
 
@@ -500,11 +498,11 @@ HVACPlantLoopControlsView::HVACPlantLoopControlsView() : QScrollArea() {
   mainVLayout->addWidget(line);
 
   // AvailabilityManagers
-  QLabel* avmTitle = new QLabel("Availability Managers");
+  auto* avmTitle = new QLabel("Availability Managers");
   avmTitle->setObjectName("H1");
   mainVLayout->addWidget(avmTitle);
 
-  QLabel* avmListTitle = new QLabel("Availability Managers from highest precedence to lowest");
+  auto* avmListTitle = new QLabel("Availability Managers from highest precedence to lowest");
   avmListTitle->setObjectName("H2");
   mainVLayout->addWidget(avmListTitle);
 
@@ -514,17 +512,17 @@ HVACPlantLoopControlsView::HVACPlantLoopControlsView() : QScrollArea() {
   mainVLayout->addWidget(availabilityManagerViewSwitcher);
 }
 
-MechanicalVentilationView::MechanicalVentilationView() : QWidget() {
-  auto mainVLayout = new QVBoxLayout();
+MechanicalVentilationView::MechanicalVentilationView() {
+  auto* mainVLayout = new QVBoxLayout();
   mainVLayout->setAlignment(Qt::AlignTop);
   mainVLayout->setContentsMargins(0, 0, 0, 0);
   mainVLayout->setSpacing(10);
   setLayout(mainVLayout);
 
-  auto economizerHBoxLayout = new QHBoxLayout();
+  auto* economizerHBoxLayout = new QHBoxLayout();
   economizerHBoxLayout->setSpacing(10);
 
-  QLabel* economizerTitle = new QLabel("Economizer");
+  auto* economizerTitle = new QLabel("Economizer");
   economizerTitle->setObjectName("H2");
   economizerHBoxLayout->addWidget(economizerTitle);
 
@@ -543,10 +541,10 @@ MechanicalVentilationView::MechanicalVentilationView() : QWidget() {
   economizerHBoxLayout->addStretch();
   mainVLayout->addLayout(economizerHBoxLayout);
 
-  auto methodHBoxLayout = new QHBoxLayout();
+  auto* methodHBoxLayout = new QHBoxLayout();
   methodHBoxLayout->setSpacing(10);
 
-  QLabel* methodTitle = new QLabel("Ventilation Calculation Method");
+  auto* methodTitle = new QLabel("Ventilation Calculation Method");
   methodTitle->setObjectName("H2");
   methodHBoxLayout->addWidget(methodTitle);
   methodTitle->setVisible(false);
@@ -563,11 +561,11 @@ MechanicalVentilationView::MechanicalVentilationView() : QWidget() {
   methodHBoxLayout->addStretch();
   mainVLayout->addLayout(methodHBoxLayout);
 
-  auto dcvHBoxLayout = new QHBoxLayout();
+  auto* dcvHBoxLayout = new QHBoxLayout();
   dcvHBoxLayout->setSpacing(10);
   mainVLayout->addLayout(dcvHBoxLayout);
 
-  QLabel* dcvTitle = new QLabel("Demand Controlled Ventilation");
+  auto* dcvTitle = new QLabel("Demand Controlled Ventilation");
   dcvTitle->setObjectName("H2");
   dcvHBoxLayout->addWidget(dcvTitle);
 
@@ -577,22 +575,18 @@ MechanicalVentilationView::MechanicalVentilationView() : QWidget() {
   dcvHBoxLayout->addStretch();
 }
 
-MechanicalVentilationView::~MechanicalVentilationView() {}
-
-NoMechanicalVentilationView::NoMechanicalVentilationView() : QWidget() {
-  auto mainVLayout = new QVBoxLayout();
+NoMechanicalVentilationView::NoMechanicalVentilationView() {
+  auto* mainVLayout = new QVBoxLayout();
   mainVLayout->setContentsMargins(0, 0, 0, 0);
   mainVLayout->setSpacing(5);
   setLayout(mainVLayout);
 
-  QLabel* noVentilationTitle = new QLabel("This system configuration does not provide mechanical ventilation");
+  auto* noVentilationTitle = new QLabel("This system configuration does not provide mechanical ventilation");
   mainVLayout->addWidget(noVentilationTitle);
 }
 
-NoMechanicalVentilationView::~NoMechanicalVentilationView() {}
-
-SingleZoneReheatSPMView::SingleZoneReheatSPMView() : QWidget() {
-  auto mainVLayout = new QVBoxLayout();
+SingleZoneReheatSPMView::SingleZoneReheatSPMView() {
+  auto* mainVLayout = new QVBoxLayout();
   mainVLayout->setAlignment(Qt::AlignTop);
   mainVLayout->setContentsMargins(0, 0, 0, 0);
   mainVLayout->setSpacing(10);
@@ -600,14 +594,14 @@ SingleZoneReheatSPMView::SingleZoneReheatSPMView() : QWidget() {
 
   QString singleZoneResetSPText;
   singleZoneResetSPText.append("Supply temperature is controlled by a \"SingleZoneReheat\" setpoint manager.");
-  auto singleZoneResetSPTitle = new QLabel(singleZoneResetSPText);
+  auto* singleZoneResetSPTitle = new QLabel(singleZoneResetSPText);
   mainVLayout->addWidget(singleZoneResetSPTitle);
 
-  auto zoneSelectorHBoxLayout = new QHBoxLayout();
+  auto* zoneSelectorHBoxLayout = new QHBoxLayout();
   zoneSelectorHBoxLayout->setSpacing(10);
   zoneSelectorHBoxLayout->setContentsMargins(0, 0, 0, 0);
 
-  QLabel* controlZoneTitle = new QLabel("Control Zone");
+  auto* controlZoneTitle = new QLabel("Control Zone");
   controlZoneTitle->setObjectName("H2");
   zoneSelectorHBoxLayout->addWidget(controlZoneTitle);
 
@@ -619,10 +613,8 @@ SingleZoneReheatSPMView::SingleZoneReheatSPMView() : QWidget() {
   mainVLayout->addLayout(zoneSelectorHBoxLayout);
 }
 
-SingleZoneReheatSPMView::~SingleZoneReheatSPMView() {}
-
-OAResetSPMView::OAResetSPMView() : QWidget() {
-  auto mainVLayout = new QVBoxLayout();
+OAResetSPMView::OAResetSPMView() {
+  auto* mainVLayout = new QVBoxLayout();
   mainVLayout->setAlignment(Qt::AlignTop);
   mainVLayout->setContentsMargins(0, 0, 0, 0);
   mainVLayout->setSpacing(10);
@@ -630,22 +622,20 @@ OAResetSPMView::OAResetSPMView() : QWidget() {
 
   QString text;
   text.append("Supply temperature is controlled by an outdoor air reset setpoint manager.");
-  auto title = new QLabel(text);
+  auto* title = new QLabel(text);
   mainVLayout->addWidget(title);
 }
 
-OAResetSPMView::~OAResetSPMView() {}
-
-ScheduledSPMView::ScheduledSPMView() : QWidget() {
-  auto mainVLayout = new QVBoxLayout();
+ScheduledSPMView::ScheduledSPMView() {
+  auto* mainVLayout = new QVBoxLayout();
   mainVLayout->setContentsMargins(0, 0, 0, 0);
   mainVLayout->setSpacing(10);
   setLayout(mainVLayout);
 
-  QLabel* scheduledSPMlabel = new QLabel("Supply air temperature is controlled by a scheduled setpoint manager.");
+  auto* scheduledSPMlabel = new QLabel("Supply air temperature is controlled by a scheduled setpoint manager.");
   mainVLayout->addWidget(scheduledSPMlabel);
 
-  QLabel* supplyAirTempScheduleTitle = new QLabel("Supply Air Temperature Schedule");
+  auto* supplyAirTempScheduleTitle = new QLabel("Supply Air Temperature Schedule");
   supplyAirTempScheduleTitle->setObjectName("H2");
   mainVLayout->addWidget(supplyAirTempScheduleTitle);
 
@@ -654,34 +644,30 @@ ScheduledSPMView::ScheduledSPMView() : QWidget() {
   mainVLayout->addWidget(supplyAirTemperatureViewSwitcher);
 }
 
-ScheduledSPMView::~ScheduledSPMView() {}
-
-FollowOATempSPMView::FollowOATempSPMView() : QWidget() {
-  auto mainVLayout = new QVBoxLayout();
+FollowOATempSPMView::FollowOATempSPMView() {
+  auto* mainVLayout = new QVBoxLayout();
   mainVLayout->setContentsMargins(0, 0, 0, 0);
   mainVLayout->setSpacing(10);
   setLayout(mainVLayout);
 
-  QLabel* followOATempSPMlabel = new QLabel("Supply air temperature follows the outdoor air temperature.");
+  auto* followOATempSPMlabel = new QLabel("Supply air temperature follows the outdoor air temperature.");
   mainVLayout->addWidget(followOATempSPMlabel);
 }
 
-FollowOATempSPMView::~FollowOATempSPMView() {}
-
-AirLoopHVACUnitaryHeatPumpAirToAirControlView::AirLoopHVACUnitaryHeatPumpAirToAirControlView() : QWidget() {
-  auto mainVLayout = new QVBoxLayout();
+AirLoopHVACUnitaryHeatPumpAirToAirControlView::AirLoopHVACUnitaryHeatPumpAirToAirControlView() {
+  auto* mainVLayout = new QVBoxLayout();
   mainVLayout->setContentsMargins(0, 0, 0, 0);
   mainVLayout->setSpacing(10);
   setLayout(mainVLayout);
 
-  QLabel* heatPumplabel = new QLabel("Supply air temperature is managed by the \"AirLoopHVACUnitaryHeatPumpAirToAir\" component.");
+  auto* heatPumplabel = new QLabel("Supply air temperature is managed by the \"AirLoopHVACUnitaryHeatPumpAirToAir\" component.");
   mainVLayout->addWidget(heatPumplabel);
 
-  auto zoneSelectorHBoxLayout = new QHBoxLayout();
+  auto* zoneSelectorHBoxLayout = new QHBoxLayout();
   zoneSelectorHBoxLayout->setSpacing(10);
   zoneSelectorHBoxLayout->setContentsMargins(0, 0, 0, 0);
 
-  QLabel* controlZoneTitle = new QLabel("Control Zone");
+  auto* controlZoneTitle = new QLabel("Control Zone");
   controlZoneTitle->setObjectName("H2");
   zoneSelectorHBoxLayout->addWidget(controlZoneTitle);
 
@@ -693,34 +679,28 @@ AirLoopHVACUnitaryHeatPumpAirToAirControlView::AirLoopHVACUnitaryHeatPumpAirToAi
   mainVLayout->addLayout(zoneSelectorHBoxLayout);
 }
 
-AirLoopHVACUnitaryHeatPumpAirToAirControlView::~AirLoopHVACUnitaryHeatPumpAirToAirControlView() {}
-
-NoSupplyAirTempControlView::NoSupplyAirTempControlView() : QWidget() {
-  auto mainVLayout = new QVBoxLayout();
+NoSupplyAirTempControlView::NoSupplyAirTempControlView() {
+  auto* mainVLayout = new QVBoxLayout();
   mainVLayout->setContentsMargins(0, 0, 0, 0);
   mainVLayout->setSpacing(10);
   setLayout(mainVLayout);
 
-  QLabel* label = new QLabel("Unknown or missing supply air temperature control.  Try adding a setpoint manager to your air system.");
+  auto* label = new QLabel("Unknown or missing supply air temperature control.  Try adding a setpoint manager to your air system.");
   label->setWordWrap(true);
   mainVLayout->addWidget(label);
 }
 
-NoSupplyAirTempControlView::~NoSupplyAirTempControlView() {}
-
-NoControlsView::NoControlsView() : QWidget() {
-  auto mainVLayout = new QVBoxLayout();
+NoControlsView::NoControlsView() {
+  auto* mainVLayout = new QVBoxLayout();
   mainVLayout->setContentsMargins(5, 5, 5, 5);
   mainVLayout->setSpacing(10);
   mainVLayout->setAlignment(Qt::AlignTop);
   setLayout(mainVLayout);
 
-  QLabel* label = new QLabel("Control options are currently only available for air systems.");
+  auto* label = new QLabel("Control options are currently only available for air systems.");
   label->setWordWrap(true);
   label->setObjectName("H1");
   mainVLayout->addWidget(label);
 }
-
-NoControlsView::~NoControlsView() {}
 
 }  // namespace openstudio
