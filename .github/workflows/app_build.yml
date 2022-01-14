@@ -526,6 +526,49 @@ jobs:
       # Execute the build.  You can specify a specific target with "--target <NAME>"
       run: cmake --build . --target package -j 2 --config $BUILD_TYPE
 
+    - name: Test bed Sign inner portable executable files and exe package (Windows)
+      working-directory: ./build
+      if: (runner.os == 'Windows')
+      shell: powershell
+      run: |
+        $installer_exe = Get-ChildItem -Filter "${{ matrix.BINARY_PKG_PATH }}/*.${{ env.BINARY_EXT }}" -File | Select-Object -First 1 | % { $_.FullName}
+        echo $installer_exe
+        echo "$installer_exe"
+
+    - name: Sign inner portable executable files and exe package (Windows)
+      working-directory: ./build
+      # if: (runner.os == 'Windows')
+      if: contains(github.ref, 'refs/tags') && (runner.os == 'Windows')
+      shell: powershell
+      run: |
+        # Install signpath
+        Install-Module -Name SignPath -Force
+
+        # Sign the OpenStudioApp.exe, put the signed version in place
+        Submit-SigningRequest `
+          -InputArtifactPath "Products/OpenStudioApp.exe" `
+          -CIUserToken "${{ secrets.SIGNPATH_CI_TOKEN }}" `
+          -OrganizationId "97f757f1-cd69-467b-b87b-db3eb5102a57" `
+          -ProjectSlug "OpenStudioApplication" `
+          -SigningPolicySlug "No_Approval_Release_GHA" `
+          -OutputArtifactPath "Products/OpenStudioApp.exe" `
+          -WaitForCompletion -Force
+
+        # Repackage
+        cpack
+
+        # Sign the .exe installer as well
+        $installer_exe = Get-ChildItem -Filter "${{ matrix.BINARY_PKG_PATH }}/*.${{ env.BINARY_EXT }}" -File | Select-Object -First 1 | % { $_.FullName}
+
+        Submit-SigningRequest `
+          -InputArtifactPath "$installer_exe" `
+          -CIUserToken "${{ secrets.SIGNPATH_CI_TOKEN }}" `
+          -OrganizationId "97f757f1-cd69-467b-b87b-db3eb5102a57" `
+          -ProjectSlug "OpenStudioApplication" `
+          -SigningPolicySlug "No_Approval_Release_GHA" `
+          -OutputArtifactPath "$installer_exe" `
+          -WaitForCompletion -Force
+
     - name: Archive binary artifacts
       uses: actions/upload-artifact@v2
       # build/_CPack_Packages/win64/IFW/*.exe
@@ -536,7 +579,7 @@ jobs:
           path: build/${{ matrix.BINARY_PKG_PATH }}/*.${{ env.BINARY_EXT }}
           # path: build/_CPack_Packages/*/*/*.${{ env.BINARY_EXT }}
 
-    - name: Archive TGZ artifacts
+    - name: Archive TGZ or ZIP artifacts
       uses: actions/upload-artifact@v2
       with:
           name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.os }}.${{ env.COMPRESSED_EXT }}
@@ -607,7 +650,7 @@ jobs:
         overwrite: true
         file_glob: true
 
-    - name: Upload TGZ to release
+    - name: Upload TGZ or ZIP to release
       if: contains(github.ref, 'refs/tags')
       uses: svenstaro/upload-release-action@v2
       with:

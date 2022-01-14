@@ -68,11 +68,11 @@ elseif(APPLE)
 
   set(MACOSX_BUNDLE_SHORT_VERSION_STRING "${OPENSTUDIOAPPLICATION_VERSION}")
   set(MACOSX_BUNDLE_BUNDLE_VERSION "${OPENSTUDIOAPPLICATION_LONG_VERSION}")
-  set(MACOSX_BUNDLE_COPYRIGHT "Copyright © 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.")
+  set(MACOSX_BUNDLE_COPYRIGHT "Copyright © 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.")
 
   set(MACOSX_BUNDLE_EXECUTABLE_NAME ${target_name})
   # PROJECT_VERSION_BUILD = Git SHA. This makes it globally unique, and is what we want to avoid CFBUndleIdenfitied collision
-  set(MACOSX_BUNDLE_GUI_IDENTIFIER "gov.nrel.openstudio.${PROJECT_VERSION_BUILD}.openstudio")
+  set(MACOSX_BUNDLE_GUI_IDENTIFIER "org.openstudiocoalition.${PROJECT_VERSION_BUILD}.openstudioapplication")
   set(MACOSX_BUNDLE_BUNDLE_NAME "OpenStudioApplication")
   CONFIGURE_FILE_WITH_CHECKSUM(${CMAKE_CURRENT_SOURCE_DIR}/Info.plist.in ${CMAKE_CURRENT_BINARY_DIR}/Info.plist)
 

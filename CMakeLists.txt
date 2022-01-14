@@ -227,7 +227,7 @@ endif()
 
 # TODO: Modify the more specific variables as needed to indicate prerelease, etc
 # Keep in beta in-between release cycles. Set to empty string (or comment out) for official)
-set(PROJECT_VERSION_PRERELEASE "alpha")
+set(PROJECT_VERSION_PRERELEASE "")
 
 # OpenStudio version: Only include Major.Minor.Patch, eg "3.0.0", even if you have a prerelease tag
 set(OPENSTUDIOAPPLICATION_VERSION "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}")
@@ -752,7 +752,7 @@ endif()
 # Leaving it
 set(CPACK_IFW_VERBOSE ON)
 
-set(CPACK_PACKAGE_VENDOR "National Renewable Energy Laboratory")
+set(CPACK_PACKAGE_VENDOR "OpenStudio Coalition")
 # These are ok, even if we have a prerelease tag
 set(CPACK_PACKAGE_VERSION_MAJOR ${OpenStudioApplication_VERSION_MAJOR})
 set(CPACK_PACKAGE_VERSION_MINOR ${OpenStudioApplication_VERSION_MINOR})
@@ -776,7 +776,7 @@ else()
   set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${OPENSTUDIOAPPLICATION_LONG_VERSION}-${CMAKE_SYSTEM_NAME}")
 endif()
 
-set(CPACK_PACKAGE_CONTACT "openstudio@nrel.gov")
+set(CPACK_PACKAGE_CONTACT "osc@openstudiocoalition.org")
 
   # Install additional Documents, such as release notes
   install(FILES "${PROJECT_SOURCE_DIR}/QT_LICENSE_GPL_3_0.txt" DESTINATION .)

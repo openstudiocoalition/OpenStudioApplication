@@ -193,15 +193,15 @@ void StartupView::paintEvent(QPaintEvent* event) {
 
   painter.setRenderHint(QPainter::Antialiasing);
 
-  QImage leftHeader = QImage(":/images/image_header.png");
-  painter.drawImage(0, 0, leftHeader);
-
   QImage centerHeader = QImage(":/images/header-backgnd-1px-wide.png");
 
   int i;
-  for (i = leftHeader.width(); i < width(); i++) {
+  for (i = 0; i < width(); i++) {
     painter.drawImage(i, 0, centerHeader);
   }
+
+  QImage leftHeader = QImage(":/images/image_header.png");
+  painter.drawImage(0, 0, leftHeader);
 }
 
 QSize StartupView::sizeHint() const {

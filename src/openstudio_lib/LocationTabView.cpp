@@ -460,6 +460,14 @@ void LocationView::update() {
 
             fileExists = QFile(filePath).exists();
           }
+
+          if (!fileExists) {
+            // check the temp dir, this is required when launching the os app with a filename since app->currentDocument() is not set when constructing this tab
+            QString filePath = m_modelTempDir + "/resources/files/";
+            filePath += (epwPath.get().filename()).string().c_str();
+
+            fileExists = QFile(filePath).exists();
+          }
         }
       }
     }
