@@ -232,14 +232,16 @@ void RunView::playButtonClicked(bool t_checked) {
 
     unsigned port = m_runTcpServer->serverPort();
     bool haveConnection = (port != 0);
-    
+
     QStringList arguments;
     if (haveConnection) {
-      arguments << "run" << "-s" << QString::number(port) << "-w" << workflowJSONPath;
+      arguments << "run"
+                << "-s" << QString::number(port) << "-w" << workflowJSONPath;
     } else {
-      arguments << "run" << "-w" << workflowJSONPath;
+      arguments << "run"
+                << "-w" << workflowJSONPath;
     }
- 
+
     LOG(Debug, "openstudioExePath='" << toString(openstudioExePath) << "'");
     LOG(Debug, "run arguments" << arguments.join(";").toStdString());
 
@@ -271,7 +273,7 @@ void RunView::playButtonClicked(bool t_checked) {
       m_textInfo->append("Live simulation feedback during run not available.");
       m_textInfo->append("View simulation directory when run is complete.");
     }
-    
+
     m_runProcess->setStandardOutputFile(toQString(stdoutPath));
     m_runProcess->setStandardErrorFile(toQString(stderrPath));
     m_runProcess->start(openstudioExePath, arguments);
