@@ -448,7 +448,7 @@ set(SWIG_LIB "${CURRENT_CONAN_SWIG_ROOT}/bin/swiglib")
 # Qt
 # e.g. QT_INSTALL_DIR = C:/Qt/6.2.1/msvc2019_64
 set(QT_INSTALL_DIR "" CACHE PATH "Path to Qt Install")
-set(QT_VERSION "6.2.1")
+set(QT_VERSION "6.2.3")
 #if(NOT EXISTS ${QT_INSTALL_DIR})
   ## download qt
   #if(WIN32)

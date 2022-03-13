@@ -280,7 +280,6 @@ void InspectorGadget::layoutItems(QVBoxLayout* masterLayout, QWidget* parent, bo
   auto* layout = new QVBoxLayout();
   layout->setSpacing(0);
   layout->setContentsMargins(0, 0, 0, 0);
-  layout->setMargin(0);
 
   auto* hlayout = new QHBoxLayout();
   hlayout->setSpacing(0);

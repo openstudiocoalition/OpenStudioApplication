@@ -28,7 +28,7 @@ env:
   CPACK_SOURCE_TXZ: OFF
   CPACK_SOURCE_TZ: OFF
   CPACK_SOURCE_ZIP: OFF
-  QT_VERSION: 6.2.2
+  QT_VERSION: 6.2.3
   # CPACK_BINARY_DEB: OS-SPECIFIC
   # CPACK_BINARY_IFW: OS-SPECIFIC
 
@@ -257,9 +257,10 @@ jobs:
           gcc --version
 
         elif [ "$RUNNER_OS" == "Windows" ]; then
-          curl -L -O https://download.qt.io/official_releases/qt-installer-framework/4.0.1/QtInstallerFramework-win-x86.exe
-          ./QtInstallerFramework-win-x86.exe --verbose --script ./ci/install_script_qtifw.qs
-          echo "C:/Qt/QtIFW-4.0.1/bin" >> $GITHUB_PATH
+          curl -L -O https://download.qt.io/official_releases/qt-installer-framework/4.3.0/QtInstallerFramework-windows-x86-4.3.0.exe
+          ./QtInstallerFramework-windows-x86-4.3.0.exe --verbose --script ./ci/install_script_qtifw.qs
+          dir "C:/Qt/"
+          echo "C:/Qt/QtIFW-4.3.0/bin" >> $GITHUB_PATH
 
           echo "Using chocolatey to install ninja"
           choco install ninja
@@ -281,8 +282,8 @@ jobs:
 
           brew install md5sha1sum
 
-          curl -L -O https://download.qt.io/official_releases/qt-installer-framework/4.0.1/QtInstallerFramework-mac-x64.dmg
-          hdiutil attach -mountpoint ./qtfiw_installer QtInstallerFramework-mac-x64.dmg
+          curl -L -O https://download.qt.io/official_releases/qt-installer-framework/4.3.0/ QtInstallerFramework-macOS-x64-4.3.0.dmg
+          hdiutil attach -mountpoint ./qtfiw_installer QtInstallerFramework-macOS-x64-4.3.0.dmg
           echo "ls ./qtfiw_installer"
           ls ./qtfiw_installer
           echo "ls ./qtfiw_installer/QtInstallerFramework-mac-x64.app/"
@@ -292,7 +293,8 @@ jobs:
           echo "ls ./qtfiw_installer/QtInstallerFramework-mac-x64.app/Contents/Frameworks"
 
           sudo ./qtfiw_installer/QtInstallerFramework-mac-x64.app/Contents/MacOS/QtInstallerFramework-mac-x64 --verbose --script ./ci/install_script_qtifw.qs
-          echo "~/Qt/QtIFW-4.0.1/bin/" >> $GITHUB_PATH
+          ls "~/Qt/"
+          echo "~/Qt/QtIFW-4.3.0/bin/" >> $GITHUB_PATH
         fi;
 
         CONAN_INSTALL_MD5=$(md5sum ConanInstall.cmake | awk '{print $1}')
@@ -306,7 +308,7 @@ jobs:
       uses: actions/cache@v2
       with:
         path: build/
-        key: ${{ matrix.os }}-build-cache-${{ secrets.CACHE_KEY }}
+        key: ${{ matrix.os }}-build-cache-qt6-${{ secrets.CACHE_KEY }}
 
     - name: Did restoring the build-cache work? No
       # If the build cache wasn't found in the cache
