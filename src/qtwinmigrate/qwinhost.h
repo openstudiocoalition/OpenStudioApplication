@@ -38,7 +38,6 @@
 **
 ****************************************************************************/
 
-
 // Declaration of the QWinHost classes
 
 #ifndef QWINHOST_H
@@ -64,37 +63,37 @@
 
 class QT_QTWINMIGRATE_EXPORT QWinHost : public QWidget
 {
-    Q_OBJECT
-public:
-    QWinHost(QWidget *parent = 0, Qt::WindowFlags f = Qt::WindowFlags());
-    ~QWinHost();
+  Q_OBJECT
+ public:
+  QWinHost(QWidget* parent = 0, Qt::WindowFlags f = Qt::WindowFlags());
+  ~QWinHost();
 
-    void setWindow(HWND);
-    HWND window() const;
+  void setWindow(HWND);
+  HWND window() const;
 
-protected:
-    virtual HWND createWindow(HWND parent, HINSTANCE instance);
+ protected:
+  virtual HWND createWindow(HWND parent, HINSTANCE instance);
 
-    bool event(QEvent *e);
-    void showEvent(QShowEvent *);
-    void focusInEvent(QFocusEvent*);
-    void resizeEvent(QResizeEvent*);
+  bool event(QEvent* e);
+  void showEvent(QShowEvent*);
+  void focusInEvent(QFocusEvent*);
+  void resizeEvent(QResizeEvent*);
 
 #if QT_VERSION >= 0x060000
-    bool nativeEvent(const QByteArray &eventType, void *message, qintptr *result);
+  bool nativeEvent(const QByteArray& eventType, void* message, qintptr* result);
 #elif QT_VERSION >= 0x050000
-    bool nativeEvent(const QByteArray &eventType, void *message, long *result);
+  bool nativeEvent(const QByteArray& eventType, void* message, long* result);
 #else
-    bool winEvent(MSG *msg, long *result);
+  bool winEvent(MSG* msg, long* result);
 #endif
 
-private:
-    void fixParent();
-    friend void* getWindowProc(QWinHost*);
+ private:
+  void fixParent();
+  friend void* getWindowProc(QWinHost*);
 
-    void *wndproc;
-    bool own_hwnd;
-    HWND hwnd;
+  void* wndproc;
+  bool own_hwnd;
+  HWND hwnd;
 };
 
-#endif // QWINHOST_H
+#endif  // QWINHOST_H

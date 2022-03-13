@@ -282,7 +282,7 @@ jobs:
 
           brew install md5sha1sum
 
-          curl -L -O https://download.qt.io/official_releases/qt-installer-framework/4.3.0/ QtInstallerFramework-macOS-x64-4.3.0.dmg
+          curl -L -O https://download.qt.io/official_releases/qt-installer-framework/4.3.0/QtInstallerFramework-macOS-x64-4.3.0.dmg
           hdiutil attach -mountpoint ./qtfiw_installer QtInstallerFramework-macOS-x64-4.3.0.dmg
           echo "ls ./qtfiw_installer"
           ls ./qtfiw_installer

@@ -38,7 +38,6 @@
 **
 ****************************************************************************/
 
-
 // Declaration of the QWinWidget classes
 
 #ifndef QWINWIDGET_H
@@ -67,41 +66,41 @@ class CWnd;
 
 class QT_QTWINMIGRATE_EXPORT QWinWidget : public QWidget
 {
-    Q_OBJECT
-public:
-    QWinWidget( HWND hParentWnd, QObject *parent = 0, Qt::WindowFlags f = Qt::WindowFlags() );
+  Q_OBJECT
+ public:
+  QWinWidget(HWND hParentWnd, QObject* parent = 0, Qt::WindowFlags f = Qt::WindowFlags());
 #ifdef QTWINMIGRATE_WITHMFC
-    QWinWidget( CWnd *parnetWnd, QObject *parent = 0, Qt::WindowFlags f = Qt::WindowFlags() );
+  QWinWidget(CWnd* parnetWnd, QObject* parent = 0, Qt::WindowFlags f = Qt::WindowFlags());
 #endif
-    ~QWinWidget();
+  ~QWinWidget();
 
-    void show();
-    void center();
-    void showCentered();
+  void show();
+  void center();
+  void showCentered();
 
-    HWND parentWindow() const;
+  HWND parentWindow() const;
 
-protected:
-    void childEvent( QChildEvent *e );
-    bool eventFilter( QObject *o, QEvent *e );
+ protected:
+  void childEvent(QChildEvent* e);
+  bool eventFilter(QObject* o, QEvent* e);
 
-    bool focusNextPrevChild(bool next);
-    void focusInEvent(QFocusEvent *e);
+  bool focusNextPrevChild(bool next);
+  void focusInEvent(QFocusEvent* e);
 #if QT_VERSION >= 0x050000
-    bool nativeEvent(const QByteArray &eventType, void *message, long *result);
+  bool nativeEvent(const QByteArray& eventType, void* message, long* result);
 #else
-    bool winEvent(MSG *msg, long *result);
+  bool winEvent(MSG* msg, long* result);
 #endif
 
-private:
-    void init();
+ private:
+  void init();
 
-    void saveFocus();
-    void resetFocus();
+  void saveFocus();
+  void resetFocus();
 
-    HWND hParent;
-    HWND prevFocus;
-    bool reenable_parent;
+  HWND hParent;
+  HWND prevFocus;
+  bool reenable_parent;
 };
 
-#endif // QWINWIDGET_H
+#endif  // QWINWIDGET_H
