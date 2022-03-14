@@ -298,7 +298,7 @@ jobs:
           sudo ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/MacOS/QtInstallerFramework-macOS-x64-4.3.0 --verbose --script ./ci/install_script_qtifw.qs
           ls ~
           ls ~/Qt/ || true
-          ls $HOME/Qt || true
+          ls ~/Qt/QtIFW-4.3.0 || true
           echo "~/Qt/QtIFW-4.3.0/bin/" >> $GITHUB_PATH
         fi;
 
