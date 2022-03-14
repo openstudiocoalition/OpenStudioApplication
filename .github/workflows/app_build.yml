@@ -294,8 +294,6 @@ jobs:
           ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/MacOS
           echo "ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/Resources"
           ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/Resources
-          echo "ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/Frameworks"
-          ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/Frameworks
 
           sudo ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/MacOS/QtInstallerFramework-mac-x64 --verbose --script ./ci/install_script_qtifw.qs
           ls "~/Qt/"
