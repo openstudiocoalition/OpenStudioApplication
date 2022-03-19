@@ -36,28 +36,14 @@ jobs:
   build:
     # Note: as of 2021-01-29, this only works for push, not for pull request
     # if: "!(contains(github.event.head_commit.message, 'skip') && contains(github.event.head_commit.message, 'ci'))"
-    # runs-on: ubuntu-18.04
     runs-on: ${{ matrix.os }}
     continue-on-error: ${{ matrix.allow_failure }}
     strategy:
       # fail-fast: Default is true, switch to false to allow one platform to fail and still run others
       fail-fast: false
       matrix:
-        os: [ubuntu-18.04, ubuntu-20.04, windows-2019, macos-10.15]
+        os: [ubuntu-20.04, windows-2019, macos-10.15]
         include:
-        - os: ubuntu-18.04
-          allow_failure: false
-          PLATFORM_NAME: Linux
-          CPACK_BINARY_DEB: ON
-          CPACK_BINARY_IFW: OFF
-          CPACK_BINARY_TGZ: ON
-          CPACK_BINARY_ZIP: OFF
-          BINARY_EXT: deb
-          COMPRESSED_EXT: tar.gz
-          BINARY_PKG_PATH: _CPack_Packages/Linux/DEB
-          COMPRESSED_PKG_PATH: _CPack_Packages/Linux/TGZ
-          QT_OS_NAME: linux
-          QT_ARCH: gcc_64
         - os: ubuntu-20.04
           allow_failure: true
           PLATFORM_NAME: Linux
@@ -247,13 +233,6 @@ jobs:
           # Weirdly enough, ninja makes ubuntu unresponsive...
           echo CMAKE_GENERATOR='Ninja' >> $GITHUB_ENV
 
-          # Qt 6.0 doesn't support Ubuntu 18.04, try to bump the gcc version
-          if [ $(lsb_release -rs) == '18.04' ]; then
-            sudo add-apt-repository --yes ppa:ubuntu-toolchain-r/test
-            sudo apt update
-            sudo apt install gcc-9 g++-9
-            sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 100 --slave /usr/bin/g++ g++ /usr/bin/g++-9 --slave /usr/bin/gcov gcov /usr/bin/gcov-9
-          fi;
           gcc --version
 
         elif [ "$RUNNER_OS" == "Windows" ]; then
