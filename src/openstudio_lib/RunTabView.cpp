@@ -230,6 +230,9 @@ void RunView::playButtonClicked(bool t_checked) {
     auto workflowJSONPath = QString::fromStdString(workflowPath.string());
     QStringList arguments;
     arguments << "run"
+              << "--show-stdout"
+              << "--style-stdout"
+              << "--add-timings"
               << "-s" << QString::number(m_runTcpServer->serverPort()) << "-w" << workflowJSONPath;
 
     LOG(Debug, "openstudioExePath='" << toString(openstudioExePath) << "'");
