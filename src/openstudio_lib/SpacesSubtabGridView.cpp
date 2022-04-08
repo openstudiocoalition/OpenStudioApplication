@@ -88,7 +88,6 @@
 #include <QComboBox>
 #include <QLabel>
 #include <QLineEdit>
-#include <QRegExpValidator>
 
 // FILTERS
 #define STORY "Story"

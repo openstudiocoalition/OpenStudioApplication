@@ -64,8 +64,8 @@ Q_DECLARE_METATYPE(boost::optional<std::string>);
 
 #include <openstudio/utilities/data/Attribute.hpp>
 //Q_DECLARE_METATYPE(openstudio::Attribute);
-Q_DECLARE_METATYPE(boost::optional<openstudio::Attribute>);
-Q_DECLARE_METATYPE(std::vector<openstudio::Attribute>);
+//Q_DECLARE_METATYPE(boost::optional<openstudio::Attribute>);
+//Q_DECLARE_METATYPE(std::vector<openstudio::Attribute>);
 
 #include <openstudio/utilities/units/Quantity.hpp>
 Q_DECLARE_METATYPE(openstudio::Quantity);

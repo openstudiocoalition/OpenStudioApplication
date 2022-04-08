@@ -55,7 +55,6 @@ class OSWebEnginePage : public QWebEnginePage
   virtual ~OSWebEnginePage();
 
  protected:
-  virtual bool certificateError(const QWebEngineCertificateError& certificateError) override;
   virtual bool acceptNavigationRequest(const QUrl& url, QWebEnginePage::NavigationType type, bool isMainFrame) override;
 
  private:

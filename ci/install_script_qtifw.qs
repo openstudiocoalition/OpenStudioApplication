@@ -112,7 +112,7 @@ Controller.prototype.TargetDirectoryPageCallback = function()
 Controller.prototype.LicenseAgreementPageCallback = function() {
   console.log("---- LICENSE AGREEMENT PAGE");
   logCurrentPage();
-  gui.currentPageWidget().AcceptLicenseRadioButton.setChecked(true);
+  gui.currentPageWidget().AcceptLicenseCheckBox.setChecked(true);
   gui.clickButton(buttons.NextButton);
 };
 

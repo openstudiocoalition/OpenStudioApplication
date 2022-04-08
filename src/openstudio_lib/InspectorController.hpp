@@ -32,8 +32,7 @@
 
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/ModelObject.hpp>
-
-#include <boost/smart_ptr.hpp>
+#include <openstudio/model/HVACComponent.hpp>
 
 #include <QObject>
 
@@ -44,12 +43,8 @@ class OSItem;
 namespace model {
 
 class ThermalZone;
-
 class Loop;
-
 class WaterToAirComponent;
-
-class HVACComponent;
 
 }  // namespace model
 

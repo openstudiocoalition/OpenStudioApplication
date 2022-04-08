@@ -137,7 +137,7 @@ void CollapsibleInspectorHeader::setChecked(bool isChecked) {
 
 void CollapsibleInspectorHeader::paintEvent(QPaintEvent* event) {
   QStyleOption opt;
-  opt.init(this);
+  opt.initFrom(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }

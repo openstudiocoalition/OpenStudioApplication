@@ -51,7 +51,7 @@ class ListWidget : public QListWidget
  signals:
 
  protected:
-  virtual QMimeData* mimeData(const QList<QListWidgetItem*> items) const override;
+  virtual QMimeData* mimeData(const QList<QListWidgetItem*>& items) const override;
 
  private:
   static QString mMimeType;

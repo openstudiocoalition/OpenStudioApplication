@@ -213,7 +213,7 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
 
   resetBaseConcepts();
 
-  Q_FOREACH (QString field, fields) {
+  for (const QString& field : fields) {
     if (field == IDEALAIRLOADS) {
       // We add the "Apply Selected" button to this column by passing 3rd arg, t_showColumnButton=true
       addCheckBoxColumn(Heading(QString(IDEALAIRLOADS), true, true), std::string("Check to enable ideal air loads."),

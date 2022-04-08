@@ -109,7 +109,7 @@ class InspectorView : public QWidget
 
  protected slots:
 
-  virtual void enterEvent(QEvent* event) override;
+  virtual void enterEvent(QEnterEvent* event) override;
   virtual void leaveEvent(QEvent* event) override;
 
  private:
