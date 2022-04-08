@@ -170,7 +170,7 @@ if(UNIX AND NOT APPLE)
 endif()
 
 if( APPLE )
-  # Note: JM: Qt 6.2.1, I can no longer access $<TARGET_FILE:Qt6::QCocoaIntegrationPlugin>
+  # Note: JM: Qt 6.2.4, I can no longer access $<TARGET_FILE:Qt6::QCocoaIntegrationPlugin>
   find_library(QT_QCOCOA NAMES libqcocoa.dylib PATHS "${QT_INSTALL_DIR}/plugins/platforms" NO_DEFAULT_PATH)
   add_custom_command(TARGET ${target_name}
     POST_BUILD
@@ -229,11 +229,11 @@ elseif( UNIX )
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qtwebengine_locales/en-US.pak $<TARGET_FILE_DIR:${target_name}>/translations/qtwebengine_locales/
   )
 
-  # Note: JM: Qt 6.2.1, I can no longer access $<TARGET_FILE:Qt6::QXcbIntegrationPlugin>
+  # Note: JM: Qt 6.2.4, I can no longer access $<TARGET_FILE:Qt6::QXcbIntegrationPlugin>
   find_library(QT_QXCB NAMES libqxcb.so PATHS "${QT_INSTALL_DIR}/plugins/platforms" NO_DEFAULT_PATH)
   add_custom_command(TARGET ${target_name}
     POST_BUILD
-    # Note: JM: Qt 6.2.1, I can no longer access $<TARGET_FILE:Qt6::QXcbIntegrationPlugin>
+    # Note: JM: Qt 6.2.4, I can no longer access $<TARGET_FILE:Qt6::QXcbIntegrationPlugin>
     # COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:Qt6::QXcbIntegrationPlugin> $<TARGET_FILE_DIR:${target_name}>/platforms/
     # COMMAND patchelf --set-rpath "$ORIGIN/.." $<TARGET_FILE_DIR:${target_name}>/platforms/$<TARGET_FILE_NAME:Qt6::QXcbIntegrationPlugin>
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_QXCB} $<TARGET_FILE_DIR:${target_name}>/platforms/
@@ -244,7 +244,7 @@ elseif( UNIX )
   find_library(QT_QXCB_GLX NAMES libqxcb-glx-integration.so PATHS "${QT_INSTALL_DIR}/plugins/xcbglintegrations" NO_DEFAULT_PATH)
   add_custom_command(TARGET ${target_name}
     POST_BUILD
-    # Note: JM: Qt 6.2.1, I can no longer access $<TARGET_FILE:Qt6::QXcbGlxIntegrationPlugin>
+    # Note: JM: Qt 6.2.4, I can no longer access $<TARGET_FILE:Qt6::QXcbGlxIntegrationPlugin>
     # COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:Qt6::QXcbGlxIntegrationPlugin> $<TARGET_FILE_DIR:${target_name}>/xcbglintegrations/
     # COMMAND chrpath -r "$ORIGIN/." $<TARGET_FILE_DIR:${target_name}>/xcbglintegrations/$<TARGET_FILE_NAME:Qt6::QXcbGlxIntegrationPlugin>
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_QXCB_GLX} $<TARGET_FILE_DIR:${target_name}>/xcbglintegrations/
