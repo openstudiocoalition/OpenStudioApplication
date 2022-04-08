@@ -869,12 +869,8 @@ void HVACSystemsController::onSystemComboBoxIndexChanged(int i) {
 void HVACSystemsController::onCopySystemClicked() {
   auto loop = currentLoop();
   if (loop) {
-    auto airloop = loop->optionalCast<model::AirLoopHVAC>();
-
-    if (airloop) {
-      auto clone = airloop->clone(loop->model());
-      setCurrentHandle(toQString(clone.handle()));
-    }
+    auto clone = loop->clone(loop->model());
+    setCurrentHandle(toQString(clone.handle()));
   }
 }
 
