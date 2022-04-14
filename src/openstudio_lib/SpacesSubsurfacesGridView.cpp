@@ -530,7 +530,10 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
         addValueEditColumn(
           Heading(QString(FRAMECONDUCTANCE), true, false), NullAdapter(&model::WindowPropertyFrameAndDivider::frameConductance),
           NullAdapter(&model::WindowPropertyFrameAndDivider::setFrameConductance),
-          //boost::optional<std::function<void(model::WindowPropertyFrameAndDivider*)>>(CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::resetFrameConductance)),
+          boost::optional<std::function<void(model::WindowPropertyFrameAndDivider*)>>(
+            CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::resetFrameConductance)),
+          boost::optional<std::function<bool(model::WindowPropertyFrameAndDivider*)>>(
+            CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::isFrameConductanceDefaulted)),
           DataSource(allWindowPropertyFrameAndDividers, true));
       } else if (field == FRAMEEDGEGLASSCONDUCTANCETOCENTEROFGLASSCONDUCTANCE) {
         addValueEditColumn(
