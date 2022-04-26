@@ -171,9 +171,9 @@ RunView::RunView() : QWidget(), m_runSocket(nullptr) {
 
 void RunView::onOpenSimDirClicked() {
   std::shared_ptr<OSDocument> osdocument = OSAppBase::instance()->currentDocument();
-  QString url = QString::fromStdString((getCompanionFolder(toPath(osdocument->savePath())) / toPath("run")).string());
-  QUrl qurl = QUrl::fromLocalFile(url);
-  if (!QDesktopServices::openUrl(qurl)) {
+  path runDir = getCompanionFolder(toPath(osdocument->savePath())) / toPath("run");
+  QString path = QDir::toNativeSeparators(toQString(runDir));
+  if (!QDesktopServices::openUrl(QUrl::fromLocalFile(path))) {
     QMessageBox::critical(this, "Unable to open simulation", "Please save the OpenStudio Model to view the simulation.");
   }
 }
