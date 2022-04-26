@@ -214,7 +214,9 @@ OpenStudioApp::OpenStudioApp(int& argc, char** argv)
   // We are using the wait dialog to lock out the app so
   // use processEvents to make sure the dialog is up before we
   // proceed to startMeasureManagerProcess
-  processEvents();
+  do {
+    processEvents();
+  } while (!waitDialog()->isVisible());
 
   // Non blocking
   startMeasureManagerProcess();
@@ -940,7 +942,7 @@ void OpenStudioApp::newModel() {
 }
 
 void OpenStudioApp::showHelp() {
-  QDesktopServices::openUrl(QUrl("http:/openstudiocoalition.org/reference/openstudio_application_interface/"));
+  QDesktopServices::openUrl(QUrl("https://openstudiocoalition.org/reference/openstudio_application_interface/"));
 }
 
 void OpenStudioApp::checkForUpdate() {

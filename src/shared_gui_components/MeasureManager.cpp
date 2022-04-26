@@ -985,7 +985,7 @@ void MeasureManager::addMeasure() {
 
       // open directory for editing
       QString path = QDir::toNativeSeparators(toQString(measure->directory()));
-      QDesktopServices::openUrl(QUrl("file:///" + path));
+      QDesktopServices::openUrl(QUrl::fromLocalFile(path));
 
       updateMeasuresLists();
 
@@ -1027,7 +1027,7 @@ void MeasureManager::duplicateSelectedMeasure() {
 
           // open directory for editing
           QString path = QDir::toNativeSeparators(toQString(measure->directory()));
-          QDesktopServices::openUrl(QUrl("file:///" + path));
+          QDesktopServices::openUrl(QUrl::fromLocalFile(path));
 
           updateMeasuresLists();
 

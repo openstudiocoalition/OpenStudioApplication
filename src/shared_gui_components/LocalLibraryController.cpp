@@ -166,7 +166,7 @@ void LocalLibraryController::showMyMeasuresFolder() {
                              QMessageBox::Ok);
   } else {
     QString path = QDir::toNativeSeparators(toQString(umd));
-    QDesktopServices::openUrl(QUrl("file:///" + path));
+    QDesktopServices::openUrl(QUrl::fromLocalFile(path));
   }
 }
 
