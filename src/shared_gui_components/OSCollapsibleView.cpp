@@ -45,7 +45,7 @@ OSHeader::OSHeader(QPushButton* button) : QPushButton() {
 
 void OSHeader::paintEvent(QPaintEvent*) {
   QStyleOption opt;
-  opt.init(this);
+  opt.initFrom(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }

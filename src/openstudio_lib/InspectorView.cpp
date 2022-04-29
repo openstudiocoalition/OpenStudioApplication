@@ -169,7 +169,7 @@ InspectorView::InspectorView(QWidget* parent) : QWidget(parent), m_currentView(n
   setLayout(m_vLayout);
 }
 
-void InspectorView::enterEvent(QEvent* event) {
+void InspectorView::enterEvent(QEnterEvent* event) {
   m_mouseOverInspectorView = true;
 
   QWidget::enterEvent(event);

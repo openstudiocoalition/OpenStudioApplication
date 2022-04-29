@@ -47,6 +47,7 @@
 #include <openstudio/utilities/idd/IddFactory.hxx>
 
 #include <QLabel>
+#include <QFile>
 #include <QIcon>
 #include <QListWidget>
 #include <QTimer>
@@ -63,6 +64,7 @@
 #include <QCloseEvent>
 #include <QSettings>
 #include <QTextStream>
+#include <QRegularExpressionValidator>
 #include <QDebug>
 
 using namespace openstudio;

@@ -189,7 +189,7 @@ OpenStudioApp::OpenStudioApp(int& argc, char** argv)
 #ifdef Q_OS_DARWIN
   std::stringstream webenginePath;
   webenginePath << QCoreApplication::applicationDirPath().toStdString();
-  webenginePath << "/../Frameworks/QtWebEngineCore.framework/Versions/5/Helpers/QtWebEngineProcess.app/Contents/MacOS/QtWebEngineProcess";
+  webenginePath << "/../Frameworks/QtWebEngineCore.framework/Versions/A/Helpers/QtWebEngineProcess.app/Contents/MacOS/QtWebEngineProcess";
   if (filesystem::exists(filesystem::path(webenginePath.str()))) {
     setenv("QTWEBENGINEPROCESS_PATH", webenginePath.str().c_str(), true);
   }
@@ -214,16 +214,18 @@ OpenStudioApp::OpenStudioApp(int& argc, char** argv)
   // We are using the wait dialog to lock out the app so
   // use processEvents to make sure the dialog is up before we
   // proceed to startMeasureManagerProcess
-  processEvents();
+  do {
+    processEvents();
+  } while (!waitDialog()->isVisible());
 
   // Non blocking
   startMeasureManagerProcess();
 
-  auto waitForMeasureManagerFuture = QtConcurrent::run(&measureManager(), &MeasureManager::waitForStarted, 10000);
+  auto waitForMeasureManagerFuture = QtConcurrent::run(&MeasureManager::waitForStarted, &measureManager(), 10000);
   m_waitForMeasureManagerWatcher.setFuture(waitForMeasureManagerFuture);
   connect(&m_waitForMeasureManagerWatcher, &QFutureWatcher<void>::finished, this, &OpenStudioApp::onMeasureManagerAndLibraryReady);
 
-  auto buildCompLibrariesFuture = QtConcurrent::run(this, &OpenStudioApp::buildCompLibraries);
+  auto buildCompLibrariesFuture = QtConcurrent::run(&OpenStudioApp::buildCompLibraries, this);
   m_buildCompLibWatcher.setFuture(buildCompLibrariesFuture);
   connect(&m_buildCompLibWatcher, &QFutureWatcher<std::vector<std::string>>::finished, this, &OpenStudioApp::onMeasureManagerAndLibraryReady);
 }
@@ -940,7 +942,7 @@ void OpenStudioApp::newModel() {
 }
 
 void OpenStudioApp::showHelp() {
-  QDesktopServices::openUrl(QUrl("http:/openstudiocoalition.org/reference/openstudio_application_interface/"));
+  QDesktopServices::openUrl(QUrl("https://openstudiocoalition.org/reference/openstudio_application_interface/"));
 }
 
 void OpenStudioApp::checkForUpdate() {
@@ -1417,7 +1419,7 @@ void OpenStudioApp::loadLibrary() {
         paths.push_back(path);
         writeLibraryPaths(paths);
 
-        auto future = QtConcurrent::run(this, &OpenStudioApp::buildCompLibraries);
+        auto future = QtConcurrent::run(&OpenStudioApp::buildCompLibraries, this);
         m_changeLibrariesWatcher.setFuture(future);
         connect(&m_changeLibrariesWatcher, &QFutureWatcher<std::vector<std::string>>::finished, this, &OpenStudioApp::onChangeDefaultLibrariesDone);
       }
@@ -1468,7 +1470,7 @@ void OpenStudioApp::changeDefaultLibraries() {
     writeLibraryPaths(newPaths);
 
     // Trigger actual loading of the libraries
-    auto future = QtConcurrent::run(this, &OpenStudioApp::buildCompLibraries);
+    auto future = QtConcurrent::run(&OpenStudioApp::buildCompLibraries, this);
     m_changeLibrariesWatcher.setFuture(future);
     connect(&m_changeLibrariesWatcher, &QFutureWatcher<std::vector<std::string>>::finished, this, &OpenStudioApp::onChangeDefaultLibrariesDone);
   }

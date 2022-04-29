@@ -196,7 +196,7 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP, const op
   ++row;
   auto hbox = new QHBoxLayout();
   hbox->setSpacing(0);
-  hbox->setMargin(0);
+  hbox->setContentsMargins(0, 0, 0, 0);
 
   label = new QLabel(tr("Add/Remove Extensible Groups"));
   label->setObjectName("H2");

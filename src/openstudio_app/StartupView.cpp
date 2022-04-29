@@ -210,8 +210,8 @@ QSize StartupView::sizeHint() const {
 
 void StartupView::mousePressEvent(QMouseEvent* event) {
   if (event->button() == Qt::LeftButton) {
-    if (event->y() < 50) {
-      dragPosition = event->globalPos() - frameGeometry().topLeft();
+    if (event->position().toPoint().y() < 50) {
+      dragPosition = event->globalPosition().toPoint() - frameGeometry().topLeft();
       event->accept();
       _move = true;
     } else {
@@ -223,7 +223,7 @@ void StartupView::mousePressEvent(QMouseEvent* event) {
 void StartupView::mouseMoveEvent(QMouseEvent* event) {
   if (event->buttons() & Qt::LeftButton) {
     if (_move) {
-      move(event->globalPos() - dragPosition);
+      move(event->globalPosition().toPoint() - dragPosition);
       event->accept();
     }
   }

@@ -62,10 +62,4 @@ bool OSWebEnginePage::acceptNavigationRequest(const QUrl& url, QWebEnginePage::N
   return true;
 }
 
-bool OSWebEnginePage::certificateError(const QWebEngineCertificateError& certificateError) {
-  // Ignore error
-  LOG(Warn, "SSL error: " << certificateError.errorDescription().toStdString());
-  return true;
-}
-
 }  // namespace openstudio

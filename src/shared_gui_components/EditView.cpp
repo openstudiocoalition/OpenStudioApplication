@@ -69,8 +69,8 @@ EditRubyMeasureView::EditRubyMeasureView(bool applyMeasureNow) : QWidget() {
   measureOptionTitleLabel->setObjectName("H2");
   m_mainVLayout->addWidget(measureOptionTitleLabel);
 
-  QRegExp nameRegex("^\\S.*");
-  auto validator = new QRegExpValidator(nameRegex, this);
+  QRegularExpression nameRegex("^\\S.*");
+  auto validator = new QRegularExpressionValidator(nameRegex, this);
 
   nameLineEdit = new QLineEdit();
   nameLineEdit->setValidator(validator);
@@ -127,7 +127,7 @@ EditRubyMeasureView::EditRubyMeasureView(bool applyMeasureNow) : QWidget() {
 
 void EditRubyMeasureView::paintEvent(QPaintEvent*) {
   QStyleOption opt;
-  opt.init(this);
+  opt.initFrom(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
@@ -167,7 +167,7 @@ EditNullView::EditNullView(const QString& text) : QWidget() {
 
 void EditNullView::paintEvent(QPaintEvent* event) {
   QStyleOption opt;
-  opt.init(this);
+  opt.initFrom(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }

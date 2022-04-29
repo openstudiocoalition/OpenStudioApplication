@@ -227,7 +227,7 @@ void LostCloudConnectionDialog::createCloudConnectionWidgets(QVBoxLayout* vLayou
 //}
 
 void LostCloudConnectionDialog::on_launchAWSConsole(bool checked) {
-  QDesktopServices::openUrl(QUrl("http://aws.amazon.com/console"));
+  QDesktopServices::openUrl(QUrl("https://aws.amazon.com/console"));
 }
 
 void LostCloudConnectionDialog::on_clearCloudSession(bool checked) {

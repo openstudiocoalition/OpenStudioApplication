@@ -13,17 +13,22 @@ set(OPENSTUDIO_ARCHIVE_DIR "${PROJECT_BINARY_DIR}/OpenStudio-${OPENSTUDIO_VERSIO
 
 # If downloaded, we need the SHA to match. This block is here since we need "OPENSTUDIO_PLATFORM" anyways
 if(APPLE)
-  set(OPENSTUDIO_EXPECTED_HASH 77c2bf77f07dc2e2af7658df55940c49)
-  set(OPENSTUDIO_PLATFORM "Darwin")
+  if(ARCH MATCHES "arm64")
+    set(OPENSTUDIO_EXPECTED_HASH f215e3db09f3914cf0f2040f601147e1)
+    set(OPENSTUDIO_PLATFORM "Darwin-arm64")
+  else()
+    set(OPENSTUDIO_EXPECTED_HASH 77c2bf77f07dc2e2af7658df55940c49)
+    set(OPENSTUDIO_PLATFORM "Darwin")
+  endif()
   set(OPENSTUDIO_EXT "tar.gz")
 elseif(UNIX)
 
   if(LSB_RELEASE_VERSION_SHORT MATCHES "20.04")
     set(OPENSTUDIO_EXPECTED_HASH 7fca6ef73399fdb21cde01aca4223d7c)
     set(OPENSTUDIO_PLATFORM "Ubuntu-20.04")
-  else() # Assumes 18.04
-    set(OPENSTUDIO_EXPECTED_HASH 24858ac666a3d2fc40d0cff7b4f444b9)
-    set(OPENSTUDIO_PLATFORM "Ubuntu-18.04")
+  else() # Assumes 20.04
+    set(OPENSTUDIO_EXPECTED_HASH 7fca6ef73399fdb21cde01aca4223d7c)
+    set(OPENSTUDIO_PLATFORM "Ubuntu-20.04")
   endif()
   set(OPENSTUDIO_EXT "tar.gz")
 

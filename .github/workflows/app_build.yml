@@ -28,7 +28,7 @@ env:
   CPACK_SOURCE_TXZ: OFF
   CPACK_SOURCE_TZ: OFF
   CPACK_SOURCE_ZIP: OFF
-  QT_VERSION: 5.15.0
+  QT_VERSION: 6.2.4
   # CPACK_BINARY_DEB: OS-SPECIFIC
   # CPACK_BINARY_IFW: OS-SPECIFIC
 
@@ -36,28 +36,14 @@ jobs:
   build:
     # Note: as of 2021-01-29, this only works for push, not for pull request
     # if: "!(contains(github.event.head_commit.message, 'skip') && contains(github.event.head_commit.message, 'ci'))"
-    # runs-on: ubuntu-18.04
     runs-on: ${{ matrix.os }}
     continue-on-error: ${{ matrix.allow_failure }}
     strategy:
       # fail-fast: Default is true, switch to false to allow one platform to fail and still run others
       fail-fast: false
       matrix:
-        os: [ubuntu-18.04, ubuntu-20.04, windows-2019, macos-10.15]
+        os: [ubuntu-20.04, windows-2019, macos-10.15]
         include:
-        - os: ubuntu-18.04
-          allow_failure: false
-          PLATFORM_NAME: Linux
-          CPACK_BINARY_DEB: ON
-          CPACK_BINARY_IFW: OFF
-          CPACK_BINARY_TGZ: ON
-          CPACK_BINARY_ZIP: OFF
-          BINARY_EXT: deb
-          COMPRESSED_EXT: tar.gz
-          BINARY_PKG_PATH: _CPack_Packages/Linux/DEB
-          COMPRESSED_PKG_PATH: _CPack_Packages/Linux/TGZ
-          QT_OS_NAME: linux
-          QT_ARCH: gcc_64
         - os: ubuntu-20.04
           allow_failure: true
           PLATFORM_NAME: Linux
@@ -242,13 +228,18 @@ jobs:
         if [ "$RUNNER_OS" == "Linux" ]; then
           echo "Install needed system dependencies for OPENGL (due to Qt) for Linux"
           sudo apt update
-          sudo apt install -y mesa-common-dev libglu1-mesa-dev patchelf ninja-build
+          sudo apt install -y mesa-common-dev libglu1-mesa-dev patchelf ninja-build libxkbcommon-x11-dev libgl1-mesa-dev
+
           # Weirdly enough, ninja makes ubuntu unresponsive...
           echo CMAKE_GENERATOR='Ninja' >> $GITHUB_ENV
+
+          gcc --version
+
         elif [ "$RUNNER_OS" == "Windows" ]; then
-          curl -L -O https://download.qt.io/official_releases/qt-installer-framework/4.0.1/QtInstallerFramework-win-x86.exe
-          ./QtInstallerFramework-win-x86.exe --verbose --script ./ci/install_script_qtifw.qs
-          echo "C:/Qt/QtIFW-4.0.1/bin" >> $GITHUB_PATH
+          curl -L -O https://download.qt.io/official_releases/qt-installer-framework/4.3.0/QtInstallerFramework-windows-x86-4.3.0.exe
+          ./QtInstallerFramework-windows-x86-4.3.0.exe --verbose --script ./ci/install_script_qtifw.qs
+          dir "C:/Qt/"
+          echo "C:/Qt/QtIFW-4.3.0/bin" >> $GITHUB_PATH
 
           echo "Using chocolatey to install ninja"
           choco install ninja
@@ -270,18 +261,24 @@ jobs:
 
           brew install md5sha1sum
 
-          curl -L -O https://download.qt.io/official_releases/qt-installer-framework/4.0.1/QtInstallerFramework-mac-x64.dmg
-          hdiutil attach -mountpoint ./qtfiw_installer QtInstallerFramework-mac-x64.dmg
+          curl -L -O https://download.qt.io/official_releases/qt-installer-framework/4.3.0/QtInstallerFramework-macOS-x64-4.3.0.dmg
+          hdiutil attach -mountpoint ./qtfiw_installer QtInstallerFramework-macOS-x64-4.3.0.dmg
           echo "ls ./qtfiw_installer"
           ls ./qtfiw_installer
-          echo "ls ./qtfiw_installer/QtInstallerFramework-mac-x64.app/"
-          echo "ls ./qtfiw_installer/QtInstallerFramework-mac-x64.app/Contents/"
-          echo "ls ./qtfiw_installer/QtInstallerFramework-mac-x64.app/Contents/MacOS"
-          echo "ls ./qtfiw_installer/QtInstallerFramework-mac-x64.app/Contents/Resources"
-          echo "ls ./qtfiw_installer/QtInstallerFramework-mac-x64.app/Contents/Frameworks"
+          echo "ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/"
+          ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/
+          echo "ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/"
+          ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/
+          echo "ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/MacOS"
+          ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/MacOS
+          echo "ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/Resources"
+          ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/Resources
 
-          sudo ./qtfiw_installer/QtInstallerFramework-mac-x64.app/Contents/MacOS/QtInstallerFramework-mac-x64 --verbose --script ./ci/install_script_qtifw.qs
-          echo "~/Qt/QtIFW-4.0.1/bin/" >> $GITHUB_PATH
+          sudo ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/MacOS/QtInstallerFramework-macOS-x64-4.3.0 --verbose --script ./ci/install_script_qtifw.qs
+          ls ~
+          ls ~/Qt/ || true
+          ls ~/Qt/QtIFW-4.3.0 || true
+          echo "~/Qt/QtIFW-4.3.0/bin/" >> $GITHUB_PATH
         fi;
 
         CONAN_INSTALL_MD5=$(md5sum ConanInstall.cmake | awk '{print $1}')
@@ -295,7 +292,7 @@ jobs:
       uses: actions/cache@v2
       with:
         path: build/
-        key: ${{ matrix.os }}-build-cache-${{ secrets.CACHE_KEY }}
+        key: ${{ matrix.os }}-build-cache-qt6-${{ secrets.CACHE_KEY }}
 
     - name: Did restoring the build-cache work? No
       # If the build cache wasn't found in the cache
@@ -418,15 +415,18 @@ jobs:
         if [ "$RUNNER_OS" == "Windows" ]; then
           # QT_INSTALL_DIR="$(pwd)/build/Qt-install/$QT_VERSION/msvc2019_64"
           QT_INSTALL_DIR="$(cmd.exe /c 'cd')\build\Qt-install\${{ env.QT_VERSION }}\msvc2019_64"
+        elif [ "$RUNNER_OS" == "macOS" ]; then
+          QT_INSTALL_DIR="$(pwd)/build/Qt-install/$QT_VERSION/macos"
         else
           QT_INSTALL_DIR="$(pwd)/build/Qt-install/$QT_VERSION/${{ matrix.QT_ARCH }}"
         fi
+        rm -rf $QT_INSTALL_DIR
         if [ -d "$QT_INSTALL_DIR" ]; then
           echo "Qt $QT_VERSION already installed"
         else
           echo "Install aqtinstall, then install Qt $QT_VERSION for ${{ matrix.QT_OS_NAME }} ${{ matrix.QT_ARCH }}"
           pip3 install aqtinstall
-          aqt install --outputdir ./build/Qt-install/ $QT_VERSION ${{ matrix.QT_OS_NAME }} desktop ${{ matrix.QT_ARCH }} -m qtwebengine qtwebglplugin
+          aqt install-qt --outputdir ./build/Qt-install/ ${{ matrix.QT_OS_NAME }} desktop $QT_VERSION ${{ matrix.QT_ARCH }} -m qtwebchannel qtwebengine qtwebview qt5compat qtpositioning
         fi
 
         echo "$QT_INSTALL_DIR/bin" >> $GITHUB_PATH

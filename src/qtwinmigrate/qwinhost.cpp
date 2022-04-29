@@ -85,7 +85,9 @@
     QWidget::setParent or move the QWinHost into a different layout.
 */
 QWinHost::QWinHost(QWidget* parent, Qt::WindowFlags f) : QWidget(parent, f), wndproc(0), own_hwnd(false), hwnd(0) {
-  setAttribute(Qt::WA_OpaquePaintEvent);
+#if QT_VERSION < 0x060000
+  setAttribute(Qt::WA_NoBackground);  // QT6 removed
+#endif
   setAttribute(Qt::WA_NoSystemBackground);
 }
 
@@ -296,7 +298,7 @@ void QWinHost::resizeEvent(QResizeEvent* e) {
     \reimp
 */
 #if QT_VERSION >= 0x050000
-bool QWinHost::nativeEvent(const QByteArray& eventType, void* message, long* result)
+bool QWinHost::nativeEvent(const QByteArray& eventType, void* message, qintptr* result)
 #else
 bool QWinHost::winEvent(MSG* msg, long* result)
 #endif
@@ -319,3 +321,5 @@ bool QWinHost::winEvent(MSG* msg, long* result)
   return QWidget::winEvent(msg, result);
 #endif
 }
+
+#include "qwinhost.moc"

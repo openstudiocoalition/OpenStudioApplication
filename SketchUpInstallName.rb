@@ -27,7 +27,7 @@ dir = File.dirname(ARGV[0])
 
 fixup(ARGV[0], "@loader_path/")
 
-qt_libs = ['QtConcurrent', 'QtCore', 'QtGui', 'QtNetwork','QtPrintSupport', 'QtWidgets', 'QtXml']
+qt_libs = ['QtCore', 'QtCore5Compat', 'QtDBus', 'QtGui', 'QtNetwork','QtPrintSupport', 'QtWidgets', 'QtXml']
 qt_libs.each do |qt_lib|
   Dir.glob(File.join(dir, '**', qt_lib)).each do |file|
     next if /Headers/.match(file)

@@ -189,7 +189,7 @@ void HVACToolbarView::showControls(bool show) {
 
 void HVACToolbarView::paintEvent([[maybe_unused]] QPaintEvent* event) {
   QStyleOption opt;
-  opt.init(this);
+  opt.initFrom(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
@@ -238,7 +238,7 @@ QSize HVACSystemsView::sizeHint() const {
 
 void HVACSystemsView::paintEvent([[maybe_unused]] QPaintEvent* event) {
   QStyleOption opt;
-  opt.init(this);
+  opt.initFrom(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }

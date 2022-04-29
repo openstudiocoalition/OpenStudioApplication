@@ -55,7 +55,7 @@ class EMSInspectorHeader : public QWidget
     setObjectName("IGHeader");
     auto layout = new QVBoxLayout();
     layout->setSpacing(0);
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
     setLayout(layout);
 
     auto label = new QLabel(text);
@@ -75,7 +75,7 @@ class EMSInspectorActuator : public QWidget
 
     auto layout = new QHBoxLayout();
     layout->setSpacing(10);
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
     layout->setAlignment(Qt::AlignLeft);
     setLayout(layout);
 
@@ -139,7 +139,7 @@ class EMSInspectorSensor : public QWidget
 
     auto layout = new QHBoxLayout();
     layout->setSpacing(10);
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
     layout->setAlignment(Qt::AlignLeft);
     setLayout(layout);
 
@@ -194,7 +194,7 @@ EMSInspectorView::EMSInspectorView(QWidget* parent, EMSInspectorView::Type type)
   setContentsMargins(0, 0, 0, 0);
   m_layout = new QVBoxLayout();
   m_layout->setSpacing(10);
-  m_layout->setMargin(0);
+  m_layout->setContentsMargins(0, 0, 0, 0);
   m_layout->setAlignment(Qt::AlignTop);
   //setLayout(m_layout);
 

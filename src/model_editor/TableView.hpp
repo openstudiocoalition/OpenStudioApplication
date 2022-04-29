@@ -52,7 +52,7 @@ class TableView : public QTableView
   void eventUpDnKeyRelease();
 
  protected:
-  virtual void enterEvent(QEvent* event) override;
+  virtual void enterEvent(QEnterEvent* event) override;
   virtual void leaveEvent(QEvent* event) override;
   virtual void keyReleaseEvent(QKeyEvent* event) override;
 

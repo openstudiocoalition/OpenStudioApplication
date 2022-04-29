@@ -38,7 +38,7 @@ TableView::TableView(QWidget* parent) : QTableView(parent) {}
 
 TableView::~TableView() {}
 
-void TableView::enterEvent(QEvent* event) {
+void TableView::enterEvent(QEnterEvent* event) {
   emit eventEnter();
 }
 

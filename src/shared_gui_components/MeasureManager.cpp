@@ -82,7 +82,7 @@
 
 namespace openstudio {
 
-MeasureManager::MeasureManager(BaseApp* t_app) : m_app(t_app), m_started(false), m_mutex(QMutex::NonRecursive) {
+MeasureManager::MeasureManager(BaseApp* t_app) : m_app(t_app), m_started(false), m_mutex() {
   m_networkAccessManager = new QNetworkAccessManager(this);
 }
 
@@ -954,7 +954,7 @@ void MeasureManager::downloadBCLMeasures() {
     std::vector<BCLSearchResult> updates = remoteBCL->measuresWithUpdates();
     QStringList measureNames;
     for (const BCLSearchResult& update : updates) {
-      measureNames.push_back(QString(0x2022) + " " + toQString(update.name()));
+      measureNames.push_back(QString(QChar(0x2022)) + " " + toQString(update.name()));
     }
     remoteBCL->updateMeasures();
     QMessageBox msg(m_app->mainWidget());
@@ -985,7 +985,7 @@ void MeasureManager::addMeasure() {
 
       // open directory for editing
       QString path = QDir::toNativeSeparators(toQString(measure->directory()));
-      QDesktopServices::openUrl(QUrl("file:///" + path));
+      QDesktopServices::openUrl(QUrl::fromLocalFile(path));
 
       updateMeasuresLists();
 
@@ -1027,7 +1027,7 @@ void MeasureManager::duplicateSelectedMeasure() {
 
           // open directory for editing
           QString path = QDir::toNativeSeparators(toQString(measure->directory()));
-          QDesktopServices::openUrl(QUrl("file:///" + path));
+          QDesktopServices::openUrl(QUrl::fromLocalFile(path));
 
           updateMeasuresLists();
 
