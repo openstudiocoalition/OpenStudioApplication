@@ -32,7 +32,6 @@ jobs:
       shell: bash
       run: |
           cppcheck \
-            --suppress=noExplicitConstructor \
             --suppress=useStlAlgorithm \
             --inline-suppr \
             --inconclusive \
