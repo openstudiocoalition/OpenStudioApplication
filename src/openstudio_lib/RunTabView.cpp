@@ -182,6 +182,7 @@ void RunView::onRunProcessFinished(int exitCode, QProcess::ExitStatus status) {
   LOG(Debug, "run finished");
   m_playButton->setChecked(false);
   m_state = State::stopped;
+  m_progressBar->setMaximum(State::complete);
   m_progressBar->setValue(State::complete);
 
   std::shared_ptr<OSDocument> osdocument = OSAppBase::instance()->currentDocument();
@@ -228,12 +229,21 @@ void RunView::playButtonClicked(bool t_checked) {
     OS_ASSERT(exists(workflowPath));
 
     auto workflowJSONPath = QString::fromStdString(workflowPath.string());
+
+    unsigned port = m_runTcpServer->serverPort();
+    bool haveConnection = (port != 0);
+
     QStringList arguments;
-    arguments << "run"
-              << "--show-stdout"
-              << "--style-stdout"
-              << "--add-timings"
-              << "-s" << QString::number(m_runTcpServer->serverPort()) << "-w" << workflowJSONPath;
+    if (haveConnection) {
+      arguments << "run"
+                << "--show-stdout"
+                << "--style-stdout"
+                << "--add-timings"
+                << "-s" << QString::number(port) << "-w" << workflowJSONPath;
+    } else {
+      arguments << "run"
+                << "-w" << workflowJSONPath;
+    }
 
     LOG(Debug, "openstudioExePath='" << toString(openstudioExePath) << "'");
     LOG(Debug, "run arguments" << arguments.join(";").toStdString());
@@ -247,10 +257,26 @@ void RunView::playButtonClicked(bool t_checked) {
     if (exists(stderrPath)) {
       remove(stderrPath);
     }
-
-    m_progressBar->setValue(0);
     m_state = State::stopped;
     m_textInfo->clear();
+
+    if (haveConnection) {
+      m_progressBar->setMinimum(0);
+      m_progressBar->setMaximum(State::complete);
+      m_progressBar->setValue(0);
+    } else {
+      m_progressBar->setMinimum(0);
+      m_progressBar->setMaximum(0);
+      m_progressBar->setValue(0);
+
+      m_textInfo->setTextColor(Qt::black);
+      m_textInfo->setFontPointSize(18);
+      m_textInfo->append("Could not open socket connection to OpenStudio CLI.");
+      m_textInfo->setFontPointSize(15);
+      m_textInfo->append("Live simulation feedback during run not available.");
+      m_textInfo->append("View simulation directory when run is complete.");
+    }
+
     m_runProcess->setStandardOutputFile(toQString(stdoutPath));
     m_runProcess->setStandardErrorFile(toQString(stderrPath));
     m_runProcess->start(openstudioExePath, arguments);
