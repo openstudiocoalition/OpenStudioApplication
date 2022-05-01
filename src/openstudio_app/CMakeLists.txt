@@ -400,6 +400,15 @@ if(UNIX)
   )
 endif()
 
+if(APPLE)
+
+  # Add an arbitrary link (broken) at build/openstudio (if build/ is your build folder) that already points to the **future** /usr/local/openstudio-x.y.z/bin/openstudio
+  execute_process(COMMAND ln -sf ../../../../../../../Frameworks ${CMAKE_CURRENT_BINARY_DIR}/Frameworks_symlink)
+  # Have this link be installed with the .deb package in /usr/local/bin
+  install(FILES ${CMAKE_CURRENT_BINARY_DIR}/Frameworks_symlink DESTINATION "OpenStudioApp.app/Contents/Frameworks/QtWebEngineCore.framework/Versions/A/Helpers/QtWebEngineProcess.app/Contents/" RENAME Frameworks COMPONENT OpenStudioApp)
+
+endif()
+
 set(${target_name}_test_src
   test/OpenStudioAppFixture.hpp
   test/OpenStudioAppFixture.cpp
