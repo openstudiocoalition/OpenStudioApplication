@@ -153,7 +153,7 @@ RunView::RunView() : QWidget(), m_runSocket(nullptr) {
   mainLayout->addWidget(m_textInfo, 1, 0, 1, 4);
 
   m_runProcess = new QProcess(this);
-  connect(m_runProcess, static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), this, &RunView::onRunProcessFinished);
+  connect(m_runProcess, &QProcess::finished, this, &RunView::onRunProcessFinished);
   connect(m_runProcess, &QProcess::readyReadStandardError, this, &RunView::readyReadStandardError);
   connect(m_runProcess, &QProcess::readyReadStandardOutput, this, &RunView::readyReadStandardOutput);
 
@@ -191,7 +191,29 @@ void RunView::onOpenSimDirClicked() {
 }
 
 void RunView::onRunProcessFinished(int exitCode, QProcess::ExitStatus status) {
-  LOG(Debug, "run finished");
+  if (status == QProcess::NormalExit) {
+    LOG(Debug, "run finished, exit code = " << exitCode);
+  }
+
+  if (exitCode != 0 || status == QProcess::CrashExit) {
+    m_textInfo->setTextColor(Qt::red);
+    m_textInfo->setFontPointSize(18);
+    m_textInfo->append(tr("Simulation failed to run, with exit code ") + QString::number(exitCode));
+
+    //m_textInfo->setTextColor(Qt::black);
+    //m_textInfo->setFontPointSize(15);
+    //m_textInfo->append("Stderr:");
+    //m_textInfo->setFontPointSize(12);
+    //QString errorString = QString(m_runProcess->readAllStandardError());
+    //m_textInfo->append(errorString);
+
+    //m_textInfo->setFontPointSize(15);
+    //m_textInfo->append("Stdout:");
+    //m_textInfo->setFontPointSize(12);
+    //QString outString = QString(m_runProcess->readAllStandardOutput());
+    //m_textInfo->append(outString);
+  }
+
   m_playButton->setChecked(false);
   m_state = State::stopped;
   m_progressBar->setMaximum(State::complete);
@@ -301,6 +323,9 @@ void RunView::playButtonClicked(bool t_checked) {
   } else {
     // stop running
     LOG(Debug, "Kill Simulation");
+    m_textInfo->setTextColor(Qt::red);
+    m_textInfo->setFontPointSize(18);
+    m_textInfo->append("Aborted");
     m_runProcess->kill();
   }
 }
