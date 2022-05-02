@@ -107,7 +107,7 @@ class VRFSystemListController : public OSListController
   Q_OBJECT
 
  public:
-  VRFSystemListController(VRFController* vrfController);
+  explicit VRFSystemListController(VRFController* vrfController);
 
   VRFController* vrfController() const;
 
@@ -159,7 +159,7 @@ class VRFSystemListItem : public OSListItem
   Q_OBJECT
 
  public:
-  VRFSystemListItem(const model::AirConditionerVariableRefrigerantFlow& vrfSystem, OSListController* listController = nullptr);
+  explicit VRFSystemListItem(const model::AirConditionerVariableRefrigerantFlow& vrfSystem, OSListController* listController = nullptr);
 
   virtual ~VRFSystemListItem() {}
 

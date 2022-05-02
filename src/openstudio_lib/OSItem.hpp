@@ -54,7 +54,7 @@ class OSItemId
   static const QString BCL_SOURCE_ID;
   OSItemId();
   OSItemId(const QString& itemId, const QString& sourceId, bool isDefaulted, const QString& otherData = "");
-  OSItemId(const QMimeData* mimeData);
+  explicit OSItemId(const QMimeData* mimeData);
   QString itemId() const;
   QString sourceId() const;
   QString otherData() const;

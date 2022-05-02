@@ -66,7 +66,7 @@ class CollapsibleInspectorHeader : public QAbstractButton
   Q_OBJECT
 
  public:
-  CollapsibleInspectorHeader(QString text, QWidget* parent = nullptr);
+  explicit CollapsibleInspectorHeader(QString text, QWidget* parent = nullptr);
 
   void setChecked(bool isChecked);
 

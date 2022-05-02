@@ -39,7 +39,7 @@ class ScheduleSetsController : public ModelSubTabController
   Q_OBJECT
 
  public:
-  ScheduleSetsController(const model::Model& model);
+  explicit ScheduleSetsController(const model::Model& model);
 
   virtual ~ScheduleSetsController() {}
 

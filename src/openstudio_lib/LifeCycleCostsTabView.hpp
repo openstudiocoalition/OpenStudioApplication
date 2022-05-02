@@ -56,7 +56,7 @@ class LifeCycleCostsView : public QWidget
   Q_OBJECT
 
  public:
-  LifeCycleCostsView(const model::Model& model);
+  explicit LifeCycleCostsView(const model::Model& model);
 
   virtual ~LifeCycleCostsView();
 

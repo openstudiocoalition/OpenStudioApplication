@@ -44,7 +44,7 @@ class PageNavigator : public QWidget
   Q_OBJECT
 
  public:
-  PageNavigator(int numPages, int numPagesListed = 5, QWidget* parent = nullptr);
+  explicit PageNavigator(int numPages, int numPagesListed = 5, QWidget* parent = nullptr);
   virtual ~PageNavigator();
   void setNumPages(int numPages);
   void setNumPagesListed(int numPagesListed = 5);

@@ -53,7 +53,7 @@ class BIMSERVER_API ProjectImporter : public QDialog
 
  public:
   /// Default constructor
-  ProjectImporter(QWidget* parent);
+  explicit ProjectImporter(QWidget* parent);
 
   /// Start importing IFC workflow
   boost::optional<model::Model> run();

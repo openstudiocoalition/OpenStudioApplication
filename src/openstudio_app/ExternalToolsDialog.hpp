@@ -43,7 +43,7 @@ class ExternalToolsDialog : public QDialog
   Q_OBJECT
 
  public:
-  ExternalToolsDialog(openstudio::path t_dviewPath);
+  explicit ExternalToolsDialog(openstudio::path t_dviewPath);
 
   virtual ~ExternalToolsDialog(){};
 

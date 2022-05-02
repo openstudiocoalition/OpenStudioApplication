@@ -70,7 +70,7 @@ class LoopScene : public GridScene
   Q_OBJECT
 
  public:
-  LoopScene(model::Loop loop, QObject* parent = nullptr);
+  explicit LoopScene(model::Loop loop, QObject* parent = nullptr);
 
   virtual ~LoopScene() {}
 

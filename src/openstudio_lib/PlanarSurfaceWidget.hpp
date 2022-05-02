@@ -44,7 +44,7 @@ class PlanarSurfaceWidget
   Q_OBJECT
 
  public:
-  PlanarSurfaceWidget(bool isIP, QWidget* parent = nullptr);
+  explicit PlanarSurfaceWidget(bool isIP, QWidget* parent = nullptr);
 
   virtual ~PlanarSurfaceWidget() {}
 

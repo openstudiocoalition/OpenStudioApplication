@@ -49,7 +49,7 @@ class ServiceWaterScene : public GridScene
   Q_OBJECT
 
  public:
-  ServiceWaterScene(const model::Model& model);
+  explicit ServiceWaterScene(const model::Model& model);
 
   virtual ~ServiceWaterScene() {}
 
@@ -78,7 +78,7 @@ class WaterUseConnectionsDetailScene : public GridScene
   Q_OBJECT
 
  public:
-  WaterUseConnectionsDetailScene(const model::WaterUseConnections& waterUseConnections);
+  explicit WaterUseConnectionsDetailScene(const model::WaterUseConnections& waterUseConnections);
 
   virtual ~WaterUseConnectionsDetailScene() {}
 

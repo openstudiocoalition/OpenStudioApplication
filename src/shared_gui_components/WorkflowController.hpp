@@ -68,7 +68,7 @@ class WorkflowController : public OSListController
   Q_OBJECT
 
  public:
-  WorkflowController(BaseApp* t_baseApp);
+  explicit WorkflowController(BaseApp* t_baseApp);
 
   QSharedPointer<OSListItem> itemAt(int i) override;
 
@@ -121,7 +121,7 @@ class WorkflowStepController : public OSListController
   Q_OBJECT
 
  public:
-  WorkflowStepController(BaseApp* t_baseApp);
+  explicit WorkflowStepController(BaseApp* t_baseApp);
 };
 
 // MeasureStepController controls a list of MeasureStepItems

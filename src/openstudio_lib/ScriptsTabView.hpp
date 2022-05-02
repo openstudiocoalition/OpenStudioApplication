@@ -45,7 +45,7 @@ class ScriptsTabView : public MainTabView
   Q_OBJECT
 
  public:
-  ScriptsTabView(QWidget* t_parent);
+  explicit ScriptsTabView(QWidget* t_parent);
 
   virtual ~ScriptsTabView() {}
 

@@ -46,7 +46,7 @@ class OSHeader : public QPushButton
   Q_OBJECT
 
  public:
-  OSHeader(QPushButton* button);
+  explicit OSHeader(QPushButton* button);
 
   virtual ~OSHeader() {}
 

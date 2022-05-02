@@ -70,7 +70,7 @@ class YearSettingsWidget
   // A list of the months.
   static std::vector<std::string> months();
 
-  YearSettingsWidget(const model::Model& model, QWidget* parent = nullptr);
+  explicit YearSettingsWidget(const model::Model& model, QWidget* parent = nullptr);
 
   bool calendarYearChecked();
 

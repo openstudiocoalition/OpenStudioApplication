@@ -140,7 +140,7 @@ class RefrigerationSystemListController : public OSListController
   Q_OBJECT
 
  public:
-  RefrigerationSystemListController(RefrigerationController* refrigerationController);
+  explicit RefrigerationSystemListController(RefrigerationController* refrigerationController);
   RefrigerationController* refrigerationController() const;
 
   QSharedPointer<OSListItem> itemAt(int i) override;
@@ -194,7 +194,7 @@ class RefrigerationSystemListItem : public OSListItem
   Q_OBJECT
 
  public:
-  RefrigerationSystemListItem(const model::RefrigerationSystem& refrigerationSystem, OSListController* listController = nullptr);
+  explicit RefrigerationSystemListItem(const model::RefrigerationSystem& refrigerationSystem, OSListController* listController = nullptr);
   virtual ~RefrigerationSystemListItem() {}
 
   QString systemName() const;

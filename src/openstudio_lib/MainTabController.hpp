@@ -45,7 +45,7 @@ class MainTabController : public OSQObjectController
   Q_OBJECT
 
  public:
-  MainTabController(MainTabView* mainContentWidget);
+  explicit MainTabController(MainTabView* mainContentWidget);
 
   virtual ~MainTabController();
 

@@ -123,7 +123,7 @@ class RunTabView : public MainTabView
   Q_OBJECT;
 
  public:
-  RunTabView(const model::Model& model, QWidget* parent = nullptr);
+  explicit RunTabView(const model::Model& model, QWidget* parent = nullptr);
 
   virtual ~RunTabView() {}
 

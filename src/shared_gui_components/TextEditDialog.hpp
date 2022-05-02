@@ -41,7 +41,7 @@ class TextEditDialog : public OSDialog
   Q_OBJECT
 
  public:
-  TextEditDialog(const QString& windowTitle, const QString& windowMessage = QString(), QWidget* parent = nullptr);
+  explicit TextEditDialog(const QString& windowTitle, const QString& windowMessage = QString(), QWidget* parent = nullptr);
 
   virtual ~TextEditDialog();
 

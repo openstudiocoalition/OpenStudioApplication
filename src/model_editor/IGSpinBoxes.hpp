@@ -43,7 +43,7 @@ class MODELEDITOR_API IGSpinBox : public QSpinBox
   Q_OBJECT;
 
  public:
-  IGSpinBox(QWidget* parent);
+  explicit IGSpinBox(QWidget* parent);
 
   virtual void wheelEvent(QWheelEvent* event) override;
 

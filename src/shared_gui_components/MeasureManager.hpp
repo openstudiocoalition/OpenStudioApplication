@@ -96,7 +96,7 @@ class MeasureManager : public QObject
   Q_OBJECT;
 
  public:
-  MeasureManager(BaseApp* t_app);
+  explicit MeasureManager(BaseApp* t_app);
 
   virtual ~MeasureManager() {}
 

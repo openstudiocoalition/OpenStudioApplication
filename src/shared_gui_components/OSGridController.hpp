@@ -107,7 +107,7 @@ class DataSource
   ///                         it's rendered with the function OSGridController::makeWidget function just like every
   ///                         other widget, so it can really be anything.
   template <typename ItemType, typename InputType>
-  DataSource(const std::function<std::vector<ItemType>(InputType)>& t_sourceFunc, bool t_wantsPlaceholder = false,
+  explicit DataSource(const std::function<std::vector<ItemType>(InputType)>& t_sourceFunc, bool t_wantsPlaceholder = false,
              const QSharedPointer<BaseConcept>& t_dropZoneConcept = QSharedPointer<BaseConcept>())
     : m_wantsPlaceholder(t_wantsPlaceholder), m_dropZoneConcept(t_dropZoneConcept) {
     typedef decltype(t_sourceFunc) IncommingFuncType;
@@ -661,7 +661,7 @@ class HorizontalHeaderWidget : public QWidget
   Q_OBJECT
 
  public:
-  HorizontalHeaderWidget(const QString& fieldName, QWidget* parent = nullptr);
+  explicit HorizontalHeaderWidget(const QString& fieldName, QWidget* parent = nullptr);
 
   virtual ~HorizontalHeaderWidget();
   void addWidget(const QSharedPointer<QWidget>& t_widget);

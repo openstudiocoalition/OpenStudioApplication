@@ -262,7 +262,7 @@ class ConceptProxy
 {
  public:
   template <typename T>
-  ConceptProxy(const T& t_obj) : m_any(t_obj) {}
+  explicit ConceptProxy(const T& t_obj) : m_any(t_obj) {}
 
   template <typename T>
   T cast() const {
@@ -295,7 +295,7 @@ class BaseConcept
  public:
   virtual ~BaseConcept() {}
 
-  BaseConcept(const Heading& t_heading, bool t_hasClickFocus = false)
+  explicit BaseConcept(const Heading& t_heading, bool t_hasClickFocus = false)
     : m_heading(t_heading), m_selector(false), m_parent(false), m_hasClickFocus(t_hasClickFocus) {}
 
   // isSelector is true for checkbox cells in the select column

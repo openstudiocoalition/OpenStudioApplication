@@ -2537,7 +2537,7 @@ void SplitterItem::setTerminalTypes(std::vector<SplitterItem::TerminalType> type
   // A Predicate that returns true on either m_type or DualDuct
   struct Predicate
   {
-    Predicate(TerminalType type) : m_type(type) {}
+    explicit Predicate(TerminalType type) : m_type(type) {}
 
     bool operator()(TerminalType t_type) const {
       if ((t_type == m_type) || (t_type == TerminalType::DualDuct)) {

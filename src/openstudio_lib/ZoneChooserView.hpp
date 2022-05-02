@@ -86,7 +86,7 @@ class ZoneChooserItem : public QWidget
   Q_OBJECT;
 
  public:
-  ZoneChooserItem(model::ThermalZone&, ZoneChooserView* parent = nullptr);
+  explicit ZoneChooserItem(model::ThermalZone&, ZoneChooserView* parent = nullptr);
 
   virtual ~ZoneChooserItem() {}
 

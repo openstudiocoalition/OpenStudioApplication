@@ -37,7 +37,7 @@ namespace openstudio {
 class TIDItem
 {
  public:
-  TIDItem(const QDomElement& element, TIDItem* parent = nullptr) {
+  explicit TIDItem(const QDomElement& element, TIDItem* parent = nullptr) {
     m_parentItem = parent;
 
     QString tagName = element.tagName();

@@ -99,7 +99,7 @@ class WorkflowSectionView : public OSCollapsibleView
   Q_OBJECT
 
  public:
-  WorkflowSectionView(MeasureType measureType);
+  explicit WorkflowSectionView(MeasureType measureType);
 
   virtual ~WorkflowSectionView() {}
 

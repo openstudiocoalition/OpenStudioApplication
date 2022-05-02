@@ -43,7 +43,7 @@ class TIDItemModel : public QAbstractItemModel
   Q_OBJECT
 
  public:
-  TIDItemModel(const QDomDocument& document, QObject* parent = nullptr);
+  explicit TIDItemModel(const QDomDocument& document, QObject* parent = nullptr);
 
   virtual ~TIDItemModel();
 

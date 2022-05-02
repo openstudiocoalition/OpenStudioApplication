@@ -39,7 +39,7 @@ class UtilityBillsController : public ModelSubTabController
   Q_OBJECT
 
  public:
-  UtilityBillsController(const model::Model& model);
+  explicit UtilityBillsController(const model::Model& model);
 
   virtual ~UtilityBillsController() {}
 

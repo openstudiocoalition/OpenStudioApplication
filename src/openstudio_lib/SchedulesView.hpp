@@ -320,7 +320,7 @@ class ScheduleTabHeader
   Q_OBJECT
 
  public:
-  ScheduleTabHeader(ScheduleTab* scheduleTab, QWidget* parent = nullptr);
+  explicit ScheduleTabHeader(ScheduleTab* scheduleTab, QWidget* parent = nullptr);
 
   virtual ~ScheduleTabHeader() {}
 
@@ -379,7 +379,7 @@ class ScheduleTabContent
   Q_OBJECT
 
  public:
-  ScheduleTabContent(ScheduleTab* scheduleTab, QWidget* parent = nullptr);
+  explicit ScheduleTabContent(ScheduleTab* scheduleTab, QWidget* parent = nullptr);
 
   virtual ~ScheduleTabContent() {}
 
@@ -703,7 +703,7 @@ class ScheduleRulesetNameWidget
   Q_OBJECT
 
  public:
-  ScheduleRulesetNameWidget(const model::ScheduleRuleset& scheduleRuleset);
+  explicit ScheduleRulesetNameWidget(const model::ScheduleRuleset& scheduleRuleset);
 
   virtual ~ScheduleRulesetNameWidget() {}
 
@@ -721,7 +721,7 @@ class YearOverview
   Q_OBJECT
 
  public:
-  YearOverview(const model::ScheduleRuleset& scheduleRuleset, QWidget* parent = nullptr);
+  explicit YearOverview(const model::ScheduleRuleset& scheduleRuleset, QWidget* parent = nullptr);
 
   virtual ~YearOverview() {}
 
@@ -779,7 +779,7 @@ class MonthView
   Q_OBJECT
 
  public:
-  MonthView(YearOverview* yearOverview);
+  explicit MonthView(YearOverview* yearOverview);
 
   virtual ~MonthView() {}
 

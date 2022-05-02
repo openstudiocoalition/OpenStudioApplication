@@ -152,7 +152,7 @@ class NodeContextButtonItem : public ButtonItem
   Q_OBJECT;
 
  public:
-  NodeContextButtonItem(GridItem* parent);
+  explicit NodeContextButtonItem(GridItem* parent);
 
  signals:
 
@@ -326,7 +326,7 @@ class OneThreeDualDuctMixerItem : public GridItem
 class SupplyPlenumItem : public GridItem
 {
  public:
-  SupplyPlenumItem(const model::ModelObject& modelObject, QGraphicsItem* parent = nullptr);
+  explicit SupplyPlenumItem(const model::ModelObject& modelObject, QGraphicsItem* parent = nullptr);
 
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 
@@ -339,7 +339,7 @@ class SupplyPlenumItem : public GridItem
 class ReturnPlenumItem : public GridItem
 {
  public:
-  ReturnPlenumItem(const model::ModelObject& modelObject, QGraphicsItem* parent = nullptr);
+  explicit ReturnPlenumItem(const model::ModelObject& modelObject, QGraphicsItem* parent = nullptr);
 
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 
@@ -648,7 +648,7 @@ class HorizontalBranchItem : public GridItem
 {
  public:
   // Dual duct means there will be two parallel paths within one item
-  HorizontalBranchItem(const std::vector<model::ModelObject>& modelObjects, QGraphicsItem* parent = nullptr, bool dualDuct = false);
+  explicit HorizontalBranchItem(const std::vector<model::ModelObject>& modelObjects, QGraphicsItem* parent = nullptr, bool dualDuct = false);
 
   // This signature is always used on a dual duct
   // modelObjectsBeforeTerminal is what it says, the outer pair for the two parallel paths
@@ -724,7 +724,7 @@ class HorizontalBranchGroupItem : public GridItem
 class VerticalBranchItem : public GridItem
 {
  public:
-  VerticalBranchItem(std::vector<model::ModelObject> modelObjects, QGraphicsItem* parent = nullptr);
+  explicit VerticalBranchItem(std::vector<model::ModelObject> modelObjects, QGraphicsItem* parent = nullptr);
 
   void setPadding(unsigned);
 
@@ -742,7 +742,7 @@ class VerticalBranchItem : public GridItem
 class ReverseVerticalBranchItem : public GridItem
 {
  public:
-  ReverseVerticalBranchItem(std::vector<model::ModelObject> modelObjects, QGraphicsItem* parent = nullptr);
+  explicit ReverseVerticalBranchItem(std::vector<model::ModelObject> modelObjects, QGraphicsItem* parent = nullptr);
 
   void setPadding(unsigned);
 
@@ -837,7 +837,7 @@ class DemandSideItem : public GridItem
 class OASystemItem : public GridItem
 {
  public:
-  OASystemItem(model::AirLoopHVACOutdoorAirSystem& oaSystem, QGraphicsItem* parent = nullptr);
+  explicit OASystemItem(model::AirLoopHVACOutdoorAirSystem& oaSystem, QGraphicsItem* parent = nullptr);
 
  protected:
   void layout();

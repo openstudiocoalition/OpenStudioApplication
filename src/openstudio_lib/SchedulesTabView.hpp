@@ -39,7 +39,7 @@ class SchedulesTabView : public MainTabView
   Q_OBJECT
 
  public:
-  SchedulesTabView(const model::Model& model, QWidget* parent = nullptr);
+  explicit SchedulesTabView(const model::Model& model, QWidget* parent = nullptr);
 
   virtual ~SchedulesTabView() {}
 };

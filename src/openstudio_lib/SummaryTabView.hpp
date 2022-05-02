@@ -40,7 +40,7 @@ class SummaryTabView : public MainTabView
   Q_OBJECT
 
  public:
-  SummaryTabView(const model::Model& model, QWidget* parent = nullptr);
+  explicit SummaryTabView(const model::Model& model, QWidget* parent = nullptr);
 
   virtual ~SummaryTabView() {}
 };
