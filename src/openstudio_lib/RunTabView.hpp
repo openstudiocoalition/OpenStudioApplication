@@ -111,6 +111,7 @@ class RunView : public QWidget
     complete = 9
   };
   State m_state = State::stopped;
+  bool m_hasSocketConnexion = false;
 };
 
 class RunTabView : public MainTabView
