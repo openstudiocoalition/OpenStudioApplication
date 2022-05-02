@@ -81,6 +81,8 @@ class RunView : public QWidget
   void onNewConnection();
 
   void onRunDataReady();
+  void readyReadStandardError();
+  void readyReadStandardOutput();
 
   QToolButton* m_playButton;
   QProgressBar* m_progressBar;

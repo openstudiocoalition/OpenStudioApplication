@@ -150,6 +150,8 @@ RunView::RunView() : QWidget(), m_runSocket(nullptr), m_verboseOutput(false) {
 
   m_runProcess = new QProcess(this);
   connect(m_runProcess, static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), this, &RunView::onRunProcessFinished);
+  connect(m_runProcess, &QProcess::readyReadStandardError, this, &RunView::readyReadStandardError);
+  connect(m_runProcess, &QProcess::readyReadStandardOutput, this, &RunView::readyReadStandardOutput);
 
   QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
 
@@ -243,6 +245,10 @@ void RunView::playButtonClicked(bool t_checked) {
     LOG(Debug, "Checkbox is checked? " << std::boolalpha << m_verboseOutputBox->isChecked());
     if (m_verboseOutputBox->isChecked()) {
       arguments << "--verbose";
+    } else {
+      // If not verbose, we save the stdout/stderr to a file, like historical
+      m_runProcess->setStandardOutputFile(toQString(stdoutPath));
+      m_runProcess->setStandardErrorFile(toQString(stderrPath));
     }
 
     if (haveConnection) {
@@ -287,8 +293,6 @@ void RunView::playButtonClicked(bool t_checked) {
       m_textInfo->append("View simulation directory when run is complete.");
     }
 
-    m_runProcess->setStandardOutputFile(toQString(stdoutPath));
-    m_runProcess->setStandardErrorFile(toQString(stderrPath));
     m_runProcess->start(openstudioExePath, arguments);
   } else {
     // stop running
@@ -398,6 +402,71 @@ void RunView::onRunDataReady() {
       // no-op
     } else {
       appendNormalText(line);
+    }
+  }
+}
+
+void RunView::readyReadStandardOutput() {
+
+  QString data = m_runProcess->readAllStandardOutput();
+  QStringList lines = data.split("\n");
+
+  for (const auto& line : lines) {
+    //std::cout << data.toStdString() << std::endl;
+
+    QString trimmedLine = line.trimmed();
+
+    bool b = trimmedLine.contains("DEBUG");
+
+    // DLM: coordinate with openstudio-workflow-gem\lib\openstudio\workflow\adapters\output\socket.rb
+    if (trimmedLine.isEmpty()) {
+      continue;
+    } else if ((trimmedLine.contains("DEBUG")) || (trimmedLine.contains("] <-2>"))) {
+      m_textInfo->setFontPointSize(10);
+      m_textInfo->setTextColor(Qt::lightGray);
+      m_textInfo->append(line);
+    } else if ((trimmedLine.contains("INFO")) || (trimmedLine.contains("] <-1>"))) {
+      m_textInfo->setFontPointSize(10);
+      m_textInfo->setTextColor(Qt::gray);
+      m_textInfo->append(line);
+    } else if ((trimmedLine.contains("WARN")) || (trimmedLine.contains("] <0>"))) {
+      m_textInfo->setFontPointSize(12);
+      m_textInfo->setTextColor(Qt::darkYellow);
+      m_textInfo->append(line);
+    } else if ((trimmedLine.contains("ERROR")) || (trimmedLine.contains("] <1>"))) {
+      m_textInfo->setFontPointSize(12);
+      m_textInfo->setTextColor(Qt::darkRed);
+      m_textInfo->append(line);
+    } else if ((trimmedLine.contains("FATAL")) || (trimmedLine.contains("] <1>"))) {
+      m_textInfo->setFontPointSize(14);
+      m_textInfo->setTextColor(Qt::red);
+      m_textInfo->append(line);
+    } else {
+      m_textInfo->setFontPointSize(10);
+      m_textInfo->setTextColor(Qt::gray);
+      m_textInfo->append(line);
+    }
+  }
+}
+
+void RunView::readyReadStandardError() {
+  auto appendErrorText = [&](const QString& text) {
+    m_textInfo->setTextColor(Qt::darkRed);
+    m_textInfo->setFontPointSize(18);
+    m_textInfo->append(text);
+  };
+
+  QString data = m_runProcess->readAllStandardError();
+  QStringList lines = data.split("\n");
+
+  for (const auto& line : lines) {
+
+    QString trimmedLine = line.trimmed();
+
+    if (trimmedLine.isEmpty()) {
+      continue;
+    } else {
+      appendErrorText("stderr: " + line);
     }
   }
 }
