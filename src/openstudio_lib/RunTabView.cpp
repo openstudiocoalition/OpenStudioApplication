@@ -92,6 +92,7 @@
 #include <QDesktopServices>
 #include <QTcpServer>
 #include <QTcpSocket>
+#include <QCheckBox>
 
 namespace openstudio {
 
@@ -100,7 +101,7 @@ RunTabView::RunTabView(const model::Model& model, QWidget* parent)
   addTabWidget(m_runView);
 }
 
-RunView::RunView() : QWidget(), m_runSocket(nullptr) {
+RunView::RunView() : QWidget(), m_runSocket(nullptr), m_verboseOutput(false) {
   auto mainLayout = new QGridLayout();
   mainLayout->setContentsMargins(10, 10, 10, 10);
   mainLayout->setSpacing(5);
@@ -131,16 +132,21 @@ RunView::RunView() : QWidget(), m_runSocket(nullptr) {
   progressbarlayout->addWidget(m_progressBar);
   mainLayout->addLayout(progressbarlayout, 0, 1);
 
+  m_verboseOutputBox = new QCheckBox();
+  m_verboseOutputBox->setText("Verbose Output");
+  m_verboseOutputBox->setChecked(m_verboseOutput);
+  mainLayout->addWidget(m_verboseOutputBox, 0, 2);
+
   m_openSimDirButton = new QPushButton();
   m_openSimDirButton->setText("Show Simulation");
   m_openSimDirButton->setFlat(true);
   m_openSimDirButton->setObjectName("StandardGrayButton");
   connect(m_openSimDirButton, &QPushButton::clicked, this, &RunView::onOpenSimDirClicked);
-  mainLayout->addWidget(m_openSimDirButton, 0, 2);
+  mainLayout->addWidget(m_openSimDirButton, 0, 3);
 
   m_textInfo = new QTextEdit();
   m_textInfo->setReadOnly(true);
-  mainLayout->addWidget(m_textInfo, 1, 0, 1, 3);
+  mainLayout->addWidget(m_textInfo, 1, 0, 1, 4);
 
   m_runProcess = new QProcess(this);
   connect(m_runProcess, static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), this, &RunView::onRunProcessFinished);
@@ -234,19 +240,23 @@ void RunView::playButtonClicked(bool t_checked) {
     bool haveConnection = (port != 0);
 
     QStringList arguments;
+    LOG(Debug, "Checkbox is checked? " << std::boolalpha << m_verboseOutputBox->isChecked());
+    if (m_verboseOutputBox->isChecked()) {
+      arguments << "--verbose";
+    }
+
     if (haveConnection) {
       arguments << "run"
-                << "--show-stdout"
-                << "--style-stdout"
-                << "--add-timings"
                 << "-s" << QString::number(port) << "-w" << workflowJSONPath;
     } else {
       arguments << "run"
+                << "--show-stdout"
+                // << "--style-stdout"
+                << "--add-timings"
                 << "-w" << workflowJSONPath;
     }
-
     LOG(Debug, "openstudioExePath='" << toString(openstudioExePath) << "'");
-    LOG(Debug, "run arguments" << arguments.join(";").toStdString());
+    LOG(Debug, "run arguments = " << arguments.join(";").toStdString());
 
     osdocument->disableTabsDuringRun();
     m_openSimDirButton->setEnabled(false);

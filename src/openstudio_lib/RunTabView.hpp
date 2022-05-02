@@ -52,6 +52,7 @@ class QTextEdit;
 class QFileSystemWatcher;
 class QTcpServer;
 class QTcpSocket;
+class QCheckBox;
 
 namespace openstudio {
 
@@ -89,6 +90,9 @@ class RunView : public QWidget
   QPushButton* m_openSimDirButton;
   QTcpServer* m_runTcpServer;
   QTcpSocket* m_runSocket;
+
+  QCheckBox* m_verboseOutputBox;
+  bool m_verboseOutput;
   //QFileSystemWatcher * m_simDirWatcher;
   //QFileSystemWatcher * m_eperrWatcher;
 
