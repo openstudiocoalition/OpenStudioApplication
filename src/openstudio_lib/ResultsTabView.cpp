@@ -42,7 +42,6 @@
 #include <QPushButton>
 #include <QString>
 #include <QRegExp>
-#include <QWebEngineSettings>
 #include <openstudio/utilities/core/Assert.hpp>
 #include <openstudio/utilities/core/PathHelpers.hpp>
 
@@ -121,8 +120,6 @@ ResultsView::ResultsView(QWidget* t_parent)
 
   // create a web widget
   m_view = new QWebEngineView(this);
-  m_view->settings()->setAttribute(QWebEngineSettings::WebAttribute::LocalContentCanAccessRemoteUrls, true);
-  m_view->settings()->setAttribute(QWebEngineSettings::WebAttribute::SpatialNavigationEnabled, true);
 
   m_page = new OSWebEnginePage(this);
   m_view->setPage(m_page);  // note, view does not take ownership of page
@@ -132,8 +129,6 @@ ResultsView::ResultsView(QWidget* t_parent)
   connect(m_view, &QWebEngineView::loadStarted, this, &ResultsView::onLoadStarted);
   connect(m_view, &QWebEngineView::renderProcessTerminated, this, &ResultsView::onRenderProcessTerminated);
 
-  // Qt 5.8 and higher
-  m_view->settings()->setAttribute(QWebEngineSettings::AllowRunningInsecureContent, true);
   // Force QWebEngineView to fill the rest of the space
   m_view->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 

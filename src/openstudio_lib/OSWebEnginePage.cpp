@@ -34,6 +34,7 @@
 #include <QDesktopServices>
 #include <QWebEngineCertificateError>
 #include <QWebEngineProfile>
+#include <QWebEngineSettings>
 
 namespace openstudio {
 
@@ -48,6 +49,12 @@ void OSUrlRequestInterceptor::interceptRequest(QWebEngineUrlRequestInfo& info) {
 OSWebEnginePage::OSWebEnginePage(QObject* parent) : QWebEnginePage(parent) {
   OSUrlRequestInterceptor* interceptor = new OSUrlRequestInterceptor(this->profile());
   this->profile()->setUrlRequestInterceptor(interceptor);
+
+  settings()->setAttribute(QWebEngineSettings::WebAttribute::LocalContentCanAccessRemoteUrls, true);
+  settings()->setAttribute(QWebEngineSettings::WebAttribute::LocalContentCanAccessFileUrls, true);
+  settings()->setAttribute(QWebEngineSettings::WebAttribute::AllowRunningInsecureContent, true);
+  settings()->setAttribute(QWebEngineSettings::WebAttribute::AllowGeolocationOnInsecureOrigins, true);
+  settings()->setAttribute(QWebEngineSettings::WebAttribute::SpatialNavigationEnabled, true);
 }
 
 OSWebEnginePage::~OSWebEnginePage() {}
