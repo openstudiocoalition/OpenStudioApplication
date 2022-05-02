@@ -72,6 +72,8 @@ class RunView : public QWidget
 
   void onRunProcessFinished(int exitCode, QProcess::ExitStatus status);
 
+  void onRunProcessErrored(QProcess::ProcessError error);
+
   //void onSimDirChanged(const QString &path);
 
   //void onFileChanged(const QString &path);

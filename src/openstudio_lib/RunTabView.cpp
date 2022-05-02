@@ -154,6 +154,7 @@ RunView::RunView() : QWidget(), m_runSocket(nullptr) {
 
   m_runProcess = new QProcess(this);
   connect(m_runProcess, &QProcess::finished, this, &RunView::onRunProcessFinished);
+  connect(m_runProcess, &QProcess::errorOccurred, this, &RunView::onRunProcessErrored);
   connect(m_runProcess, &QProcess::readyReadStandardError, this, &RunView::readyReadStandardError);
   connect(m_runProcess, &QProcess::readyReadStandardOutput, this, &RunView::readyReadStandardOutput);
 
@@ -188,6 +189,13 @@ void RunView::onOpenSimDirClicked() {
   if (!QDesktopServices::openUrl(QUrl::fromLocalFile(path))) {
     QMessageBox::critical(this, "Unable to open simulation", "Please save the OpenStudio Model to view the simulation.");
   }
+}
+
+void RunView::onRunProcessErrored(QProcess::ProcessError error) {
+  m_textInfo->setTextColor(Qt::red);
+  m_textInfo->setFontPointSize(18);
+  QString text = tr("onRunProcessErrored: Simulation failed to run, QProcess::ProcessError: ") + QString::number(error);
+  m_textInfo->append(text);
 }
 
 void RunView::onRunProcessFinished(int exitCode, QProcess::ExitStatus status) {
@@ -324,7 +332,9 @@ void RunView::playButtonClicked(bool t_checked) {
     m_textInfo->setTextColor(Qt::red);
     m_textInfo->setFontPointSize(18);
     m_textInfo->append("Aborted");
+    m_runProcess->blockSignals(true);
     m_runProcess->kill();
+    m_runProcess->blockSignals(false);
   }
 }
 
