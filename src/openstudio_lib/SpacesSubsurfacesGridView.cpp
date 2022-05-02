@@ -351,9 +351,20 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
           std::vector<boost::optional<model::ModelObject>> allModelObjects;
           std::vector<boost::optional<model::ShadingControl>> allShadingControls;
           for (auto subSurface : allSubSurfaces(t_space)) {
-// temporary workaround, Shading Control Enhancements #239
-#pragma warning(disable : 4996)  // ignore deprecated method warning
+          // TODO: temporary workaround, see Shading Control Enhancements #239
+#if defined(_MSC_VER)
+#  pragma warning(push)
+#  pragma warning(disable : 4996)
+#elif (defined(__GNUC__))
+#  pragma GCC diagnostic push
+#  pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
             auto shadingControl = subSurface.cast<model::SubSurface>().shadingControl();
+#if defined(_MSC_VER)
+#  pragma warning(pop)
+#elif (defined(__GNUC__))
+#  pragma GCC diagnostic pop
+#endif
             if (shadingControl) {
               allShadingControls.push_back(shadingControl);
             } else {
@@ -425,7 +436,14 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
 
       } else if (field == SHADINGCONTROLNAME) {
 
-        // temporary workaround, see Shading Control Enhancements #239
+        // TODO: temporary workaround, see Shading Control Enhancements #239
+#if defined(_MSC_VER)
+#  pragma warning(push)
+#  pragma warning(disable : 4996)
+#elif (defined(__GNUC__))
+#  pragma GCC diagnostic push
+#  pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
         std::function<bool(model::SubSurface*, const model::ShadingControl&)> setter(
           [](model::SubSurface* t_surface, const model::ShadingControl& t_arg) {
             return const_cast<model::ShadingControl&>(t_arg).addSubSurface(*t_surface);
@@ -436,6 +454,11 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
                           boost::optional<std::function<bool(model::SubSurface*)>>(),
                           boost::optional<std::function<std::vector<model::ModelObject>(const model::SubSurface*)>>(),
                           DataSource(allSubSurfaces, true));
+#if defined(_MSC_VER)
+#  pragma warning(pop)
+#elif (defined(__GNUC__))
+#  pragma GCC diagnostic pop
+#endif
       } else if (field == SHADINGTYPE) {
         addComboBoxColumn<std::string, model::ShadingControl>(
           Heading(QString(SHADINGTYPE), true, false), static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
@@ -507,7 +530,10 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
         addValueEditColumn(
           Heading(QString(FRAMECONDUCTANCE), true, false), NullAdapter(&model::WindowPropertyFrameAndDivider::frameConductance),
           NullAdapter(&model::WindowPropertyFrameAndDivider::setFrameConductance),
-          //boost::optional<std::function<void(model::WindowPropertyFrameAndDivider*)>>(CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::resetFrameConductance)),
+          boost::optional<std::function<void(model::WindowPropertyFrameAndDivider*)>>(
+            CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::resetFrameConductance)),
+          boost::optional<std::function<bool(model::WindowPropertyFrameAndDivider*)>>(
+            CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::isFrameConductanceDefaulted)),
           DataSource(allWindowPropertyFrameAndDividers, true));
       } else if (field == FRAMEEDGEGLASSCONDUCTANCETOCENTEROFGLASSCONDUCTANCE) {
         addValueEditColumn(

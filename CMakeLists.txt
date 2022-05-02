@@ -25,6 +25,12 @@ if(APPLE)
   # The output is like 10.12.6 or 10.13, let's strip the end component if any
   string(REGEX REPLACE "^([0-9]+\\.[0-9]+)\\.?.*" "\\1" OSX_VERSION_MAJOR_MINOR ${OSX_VERSION})
 
+  find_program(UNAME uname)
+  execute_process(COMMAND ${UNAME} -m
+    OUTPUT_VARIABLE ARCH
+    OUTPUT_STRIP_TRAILING_WHITESPACE
+  )
+
 elseif(UNIX)
   # OS_RELEASE is the result of `uname -r` which is unhelpful (eg '5.4.0-42-generic')
   find_program(LSB_RELEASE lsb_release)
@@ -360,7 +366,7 @@ if(MSVC)
   #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Wall")
 
   # needed for compiling with Qt6
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Zc:__cplusplus")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Zc:__cplusplus /permissive-")
 
   # create compiler processes on all effective processors
   # /MP is useless for ninja and will cause problems. BUILD_WITH_MULTIPLE_PROCESSES shouldn't have been set if ninja but let's be safe
@@ -446,9 +452,9 @@ set(SWIG_EXECUTABLE "${CURRENT_CONAN_SWIG_ROOT}/bin/swig")
 set(SWIG_LIB "${CURRENT_CONAN_SWIG_ROOT}/bin/swiglib")
 
 # Qt
-# e.g. QT_INSTALL_DIR = C:/Qt/6.2.4/msvc2019_64
+# e.g. QT_INSTALL_DIR = C:/Qt/6.3.0/msvc2019_64
 set(QT_INSTALL_DIR "" CACHE PATH "Path to Qt Install")
-set(QT_VERSION "6.2.4")
+set(QT_VERSION "6.3.0")
 #if(NOT EXISTS ${QT_INSTALL_DIR})
   ## download qt
   #if(WIN32)
@@ -603,7 +609,7 @@ if(WIN32)
 endif()
 
 if(UNIX AND NOT APPLE)
-  # Apparently libqxcb.so depends on libQt6OpenGL.so in Qt 6.2.4 (it depended on libGL on 5.15.0 but not OpenGL)
+  # Apparently libqxcb.so depends on libQt6OpenGL.so in Qt 6.3.0 (it depended on libGL on 5.15.0 but not OpenGL)
   find_package(Qt6OpenGL ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
   list(APPEND QT_LIBS Qt6::OpenGL)
 endif()
