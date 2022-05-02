@@ -66,6 +66,7 @@
 
 #include "../model_editor/Application.hpp"
 #include "../model_editor/Utilities.hpp"
+#include "MainWindow.hpp"
 
 #include <QButtonGroup>
 #include <QDir>
@@ -101,7 +102,7 @@ RunTabView::RunTabView(const model::Model& model, QWidget* parent)
   addTabWidget(m_runView);
 }
 
-RunView::RunView() : QWidget(), m_runSocket(nullptr), m_verboseOutput(false) {
+RunView::RunView() : QWidget(), m_runSocket(nullptr) {
   auto mainLayout = new QGridLayout();
   mainLayout->setContentsMargins(10, 10, 10, 10);
   mainLayout->setSpacing(5);
@@ -132,9 +133,12 @@ RunView::RunView() : QWidget(), m_runSocket(nullptr), m_verboseOutput(false) {
   progressbarlayout->addWidget(m_progressBar);
   mainLayout->addLayout(progressbarlayout, 0, 1);
 
+  auto* mainWindow = OSAppBase::instance()->currentDocument()->mainWindow();
+  bool verboseOutput = mainWindow->verboseOutput();
   m_verboseOutputBox = new QCheckBox();
   m_verboseOutputBox->setText("Verbose Output");
-  m_verboseOutputBox->setChecked(m_verboseOutput);
+  m_verboseOutputBox->setChecked(verboseOutput);
+  connect(m_verboseOutputBox, &QCheckBox::clicked, mainWindow, &MainWindow::toggleVerboseOutput);
   mainLayout->addWidget(m_verboseOutputBox, 0, 2);
 
   m_openSimDirButton = new QPushButton();

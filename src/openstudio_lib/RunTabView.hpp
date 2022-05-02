@@ -94,7 +94,6 @@ class RunView : public QWidget
   QTcpSocket* m_runSocket;
 
   QCheckBox* m_verboseOutputBox;
-  bool m_verboseOutput;
   //QFileSystemWatcher * m_simDirWatcher;
   //QFileSystemWatcher * m_eperrWatcher;
 

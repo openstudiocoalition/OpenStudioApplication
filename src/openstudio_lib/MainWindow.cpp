@@ -261,6 +261,7 @@ void MainWindow::readSettings() {
   restoreGeometry(settings.value("geometry").toByteArray());
   restoreState(settings.value("state").toByteArray());
   m_displayIP = settings.value("displayIP").toBool();
+  m_verboseOutput = settings.value("verboseOutput").toBool();
 }
 
 void MainWindow::writeSettings() {
@@ -272,6 +273,7 @@ void MainWindow::writeSettings() {
   settings.setValue("geometry", saveGeometry());
   settings.setValue("state", saveState());
   settings.setValue("displayIP", m_displayIP);
+  settings.setValue("verboseOutput", m_verboseOutput);
 }
 
 QString MainWindow::lastPath() const {
@@ -280,6 +282,14 @@ QString MainWindow::lastPath() const {
 
 void MainWindow::toggleUnits(bool displayIP) {
   m_displayIP = displayIP;
+}
+
+bool MainWindow::verboseOutput() const {
+  return m_verboseOutput;
+}
+
+void MainWindow::toggleVerboseOutput(bool verboseOutput) {
+  m_verboseOutput = verboseOutput;
 }
 
 void MainWindow::configureProxyClicked() {
