@@ -136,7 +136,7 @@ TEST_F(OpenStudioLibFixture, SpacesSurfacesGridView) {
   EXPECT_FALSE(obj);
 
   i = 0;
-  for (const auto& surface: spaceObj.surfaces()) {
+  for (const auto& surface : spaceObj.surfaces()) {
     obj = objectSelector->getObject(gridRow - 1, gridRow, col, i);
     ASSERT_TRUE(obj);
     ASSERT_TRUE(obj->optionalCast<model::Surface>());
@@ -174,7 +174,7 @@ TEST_F(OpenStudioLibFixture, SpacesSurfacesGridView) {
   EXPECT_EQ(16u, selectedObjects.size());
 
   i = 0;
-  for (const auto& surface: spaceObj.surfaces()) {
+  for (const auto& surface : spaceObj.surfaces()) {
     obj = objectSelector->getObject(gridRow - 1, gridRow, col, i);
     ASSERT_TRUE(obj);
     ASSERT_TRUE(obj->optionalCast<model::Surface>());
