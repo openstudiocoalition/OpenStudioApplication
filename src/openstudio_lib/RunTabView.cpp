@@ -262,11 +262,11 @@ void RunView::playButtonClicked(bool t_checked) {
     //auto basePath = getCompanionFolder( toPath(osdocument->savePath()) );
 
     // run in temp dir
-    auto basePath = toPath(osdocument->modelTempDir()) / toPath("resources");
+    m_basePath = toPath(osdocument->modelTempDir()) / toPath("resources");
 
-    auto workflowPath = basePath / "workflow.osw";
-    auto stdoutPath = basePath / "stdout";
-    auto stderrPath = basePath / "stderr";
+    auto workflowPath = m_basePath / "workflow.osw";
+    auto stdoutPath = m_basePath / "stdout";
+    auto stderrPath = m_basePath / "stderr";
 
     OS_ASSERT(exists(workflowPath));
 
@@ -306,10 +306,14 @@ void RunView::playButtonClicked(bool t_checked) {
 
     if (exists(stdoutPath)) {
       remove(stdoutPath);
+      // touch
+      openstudio::filesystem::ofstream stdout_file(stdoutPath);
     }
     if (exists(stderrPath)) {
       remove(stderrPath);
+      openstudio::filesystem::ofstream stdout_file(stderrPath);
     }
+
     m_state = State::stopped;
     m_textInfo->clear();
 
@@ -472,6 +476,15 @@ void RunView::readyReadStandardOutput() {
   QString data = m_runProcess->readAllStandardOutput();
   QStringList lines = data.split("\n");
 
+  // Write to stdout (pipe to file, for later viewing)
+  auto stdoutPath = m_basePath / "stdout";
+  openstudio::filesystem::ofstream stdout_file(stdoutPath, std::ios_base::app);
+  if (!stdout_file) {
+    LOG(Debug, "Could not open " << stdoutPath << " for appending.");
+  } else {
+    stdout_file << openstudio::toString(data);
+  }
+
   for (const auto& line : lines) {
     //std::cout << data.toStdString() << std::endl;
 
@@ -583,6 +596,15 @@ void RunView::readyReadStandardError() {
 
   QString data = m_runProcess->readAllStandardError();
   QStringList lines = data.split("\n");
+
+  // Write to stderr (pipe to file, for later viewing)
+  auto stderrPath = m_basePath / "stderr";
+  openstudio::filesystem::ofstream stderr_file(stderrPath, std::ios_base::app);
+  if (!stderr_file) {
+    LOG(Debug, "Could not open " << stderrPath << " for appending.");
+  } else {
+    stderr_file << openstudio::toString(data);
+  }
 
   for (const auto& line : lines) {
 
