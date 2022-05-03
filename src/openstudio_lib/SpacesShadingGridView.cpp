@@ -116,14 +116,11 @@ SpacesShadingGridController::SpacesShadingGridController(bool isIP, const QStrin
 
 void SpacesShadingGridController::setCategoriesAndFields() {
   {
-    std::vector<QString> fields;
-    fields.push_back(SHADEDSURFACENAME);
-    fields.push_back(SHADINGSURFACEGROUP);
-    fields.push_back(CONSTRUCTION);
-    fields.push_back(TRANSMITTANCESCHEDULE);
-    //fields.push_back(DAYLIGHTINGSHELFNAME);
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("General"), fields);
-    addCategoryAndFields(categoryAndFields);
+    std::vector<QString> fields{
+      SHADEDSURFACENAME, SHADINGSURFACEGROUP, CONSTRUCTION, TRANSMITTANCESCHEDULE,
+      //  DAYLIGHTINGSHELFNAME,
+    };
+    addCategoryAndFields(QString("General"), std::move(fields));
   }
 
   OSGridController::setCategoriesAndFields();

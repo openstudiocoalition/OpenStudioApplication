@@ -523,7 +523,8 @@ class OSGridController : public QObject
   //std::vector<model::ModelObject> inheritedModelObjects() const;
   //void setInheritedModelObjects(const std::vector<model::ModelObject>& inheritedModelObjects);
 
-  void addCategoryAndFields(const std::pair<QString, std::vector<QString>>& categoryAndFields);
+  void addCategoryAndFields(QString&& category, std::vector<QString>&& fields);
+
   void resetCategoryAndFields();
 
   // This function determines the category for

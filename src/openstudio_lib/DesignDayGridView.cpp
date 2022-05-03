@@ -187,56 +187,47 @@ DesignDayGridController::DesignDayGridController(bool isIP, const QString& heade
 
 void DesignDayGridController::setCategoriesAndFields() {
   {
-    std::vector<QString> fields;
-    fields.push_back(DAYOFMONTH);
-    fields.push_back(MONTH);
-    fields.push_back(DAYTYPE);
-    fields.push_back(DAYLIGHTSAVINGTIMEINDICATOR);
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Date"), fields);
-    addCategoryAndFields(categoryAndFields);
+    std::vector<QString> fields{
+      DAYOFMONTH,
+      MONTH,
+      DAYTYPE,
+      DAYLIGHTSAVINGTIMEINDICATOR,
+    };
+    addCategoryAndFields(QString("Date"), std::move(fields));
   }
 
   {
-    std::vector<QString> fields;
-    fields.push_back(MAXIMUMDRYBULBTEMPERATURE);
-    fields.push_back(DAILYDRYBULBTEMPERATURERANGE);
-    fields.push_back(DAILYWETBULBTEMPERATURERANGE);
-    fields.push_back(DRYBULBTEMPERATURERANGEMODIFIERTYPE);
-    fields.push_back(DRYBULBTEMPERATURERANGEMODIFIERSCHEDULE);
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Temperature"), fields);
-    addCategoryAndFields(categoryAndFields);
+    std::vector<QString> fields{
+      MAXIMUMDRYBULBTEMPERATURE,
+      DAILYDRYBULBTEMPERATURERANGE,
+      DAILYWETBULBTEMPERATURERANGE,
+      DRYBULBTEMPERATURERANGEMODIFIERTYPE,
+      DRYBULBTEMPERATURERANGEMODIFIERSCHEDULE,
+    };
+    addCategoryAndFields(QString("Temperature"), std::move(fields));
   }
 
   {
-    std::vector<QString> fields;
-    fields.push_back(HUMIDITYINDICATINGCONDITIONSATMAXIMUMDRYBULB);
-    fields.push_back(HUMIDITYINDICATINGTYPE);
-    fields.push_back(HUMIDITYINDICATINGDAYSCHEDULE);
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Humidity"), fields);
-    addCategoryAndFields(categoryAndFields);
+    std::vector<QString> fields{
+      HUMIDITYINDICATINGCONDITIONSATMAXIMUMDRYBULB,
+      HUMIDITYINDICATINGTYPE,
+      HUMIDITYINDICATINGDAYSCHEDULE,
+    };
+    addCategoryAndFields(QString("Humidity"), std::move(fields));
   }
 
   {
-    std::vector<QString> fields;
-    fields.push_back(BAROMETRICPRESSURE);
-    fields.push_back(WINDSPEED);
-    fields.push_back(WINDDIRECTION);
-    fields.push_back(RAININDICATOR);
-    fields.push_back(SNOWINDICATOR);
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Pressure\nWind\nPrecipitation"), fields);
-    addCategoryAndFields(categoryAndFields);
+    std::vector<QString> fields{
+      BAROMETRICPRESSURE, WINDSPEED, WINDDIRECTION, RAININDICATOR, SNOWINDICATOR,
+    };
+    addCategoryAndFields(QString("Pressure\nWind\nPrecipitation"), std::move(fields));
   }
 
   {
-    std::vector<QString> fields;
-    fields.push_back(SOLARMODELINDICATOR);
-    fields.push_back(BEAMSOLARDAYSCHEDULE);
-    fields.push_back(DIFFUSESOLARDAYSCHEDULE);
-    fields.push_back(ASHRAETAUB);
-    fields.push_back(ASHRAETAUD);
-    fields.push_back(SKYCLEARNESS);
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Solar"), fields);
-    addCategoryAndFields(categoryAndFields);
+    std::vector<QString> fields{
+      SOLARMODELINDICATOR, BEAMSOLARDAYSCHEDULE, DIFFUSESOLARDAYSCHEDULE, ASHRAETAUB, ASHRAETAUD, SKYCLEARNESS,
+    };
+    addCategoryAndFields(QString("Solar"), std::move(fields));
   }
 
   OSGridController::setCategoriesAndFields();

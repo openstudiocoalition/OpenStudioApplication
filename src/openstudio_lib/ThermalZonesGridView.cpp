@@ -160,48 +160,48 @@ ThermalZonesGridController::ThermalZonesGridController(bool isIP, const QString&
 void ThermalZonesGridController::setCategoriesAndFields() {
 
   {
-    std::vector<QString> fields;
-    fields.push_back(RENDERINGCOLOR);
-    fields.push_back(IDEALAIRLOADS);
-    fields.push_back(AIRLOOPNAME);
-    fields.push_back(ZONEEQUIPMENT);
-    fields.push_back(COOLINGTHERMOSTATSCHEDULE);
-    fields.push_back(HEATINGTHERMOSTATSCHEDULE);
-    fields.push_back(HUMIDIFYINGSETPOINTSCHEDULE);
-    fields.push_back(DEHUMIDIFYINGSETPOINTSCHEDULE);
-    fields.push_back(MULTIPLIER);
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("HVAC\nSystems"), fields);
-    addCategoryAndFields(categoryAndFields);
+    std::vector<QString> fields{
+      RENDERINGCOLOR,
+      IDEALAIRLOADS,
+      AIRLOOPNAME,
+      ZONEEQUIPMENT,
+      COOLINGTHERMOSTATSCHEDULE,
+      HEATINGTHERMOSTATSCHEDULE,
+      HUMIDIFYINGSETPOINTSCHEDULE,
+      DEHUMIDIFYINGSETPOINTSCHEDULE,
+      MULTIPLIER,
+    };
+    addCategoryAndFields(QString("HVAC\nSystems"), std::move(fields));
   }
 
   {
-    std::vector<QString> fields;
-    fields.push_back(ZONECOOLINGDESIGNSUPPLYAIRTEMPERATURE);
-    fields.push_back(ZONECOOLINGDESIGNSUPPLYAIRHUMIDITYRATIO);
-    fields.push_back(ZONECOOLINGSIZINGFACTOR);
-    fields.push_back(COOLINGMINIMUMAIRFLOWPERZONEFLOORAREA);
-    fields.push_back(DESIGNZONEAIRDISTRIBUTIONEFFECTIVENESSINCOOLINGMODE);
-    fields.push_back(COOLINGMINIMUMAIRFLOWFRACTION);
-    fields.push_back(COOLINGDESIGNAIRFLOWMETHOD);
-    fields.push_back(COOLINGDESIGNAIRFLOWRATE);
-    fields.push_back(COOLINGMINIMUMAIRFLOW);
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Cooling\nSizing\nParameters"), fields);
-    addCategoryAndFields(categoryAndFields);
+    std::vector<QString> fields{
+      ZONECOOLINGDESIGNSUPPLYAIRTEMPERATURE,
+      ZONECOOLINGDESIGNSUPPLYAIRHUMIDITYRATIO,
+      ZONECOOLINGSIZINGFACTOR,
+      COOLINGMINIMUMAIRFLOWPERZONEFLOORAREA,
+      DESIGNZONEAIRDISTRIBUTIONEFFECTIVENESSINCOOLINGMODE,
+      COOLINGMINIMUMAIRFLOWFRACTION,
+      COOLINGDESIGNAIRFLOWMETHOD,
+      COOLINGDESIGNAIRFLOWRATE,
+      COOLINGMINIMUMAIRFLOW,
+    };
+    addCategoryAndFields(QString("Cooling\nSizing\nParameters"), std::move(fields));
   }
 
   {
-    std::vector<QString> fields;
-    fields.push_back(ZONEHEATINGDESIGNSUPPLYAIRTEMPERATURE);
-    fields.push_back(ZONEHEATINGDESIGNSUPPLYAIRHUMIDITYRATIO);
-    fields.push_back(ZONEHEATINGSIZINGFACTOR);
-    fields.push_back(HEATINGMAXIMUMAIRFLOWPERZONEFLOORAREA);
-    fields.push_back(DESIGNZONEAIRDISTRIBUTIONEFFECTIVENESSINHEATINGMODE);
-    fields.push_back(HEATINGMAXIMUMAIRFLOWFRACTION);
-    fields.push_back(HEATINGDESIGNAIRFLOWMETHOD);
-    fields.push_back(HEATINGDESIGNAIRFLOWRATE);
-    fields.push_back(HEATINGMAXIMUMAIRFLOW);
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Heating\nSizing\nParameters"), fields);
-    addCategoryAndFields(categoryAndFields);
+    std::vector<QString> fields{
+      ZONEHEATINGDESIGNSUPPLYAIRTEMPERATURE,
+      ZONEHEATINGDESIGNSUPPLYAIRHUMIDITYRATIO,
+      ZONEHEATINGSIZINGFACTOR,
+      HEATINGMAXIMUMAIRFLOWPERZONEFLOORAREA,
+      DESIGNZONEAIRDISTRIBUTIONEFFECTIVENESSINHEATINGMODE,
+      HEATINGMAXIMUMAIRFLOWFRACTION,
+      HEATINGDESIGNAIRFLOWMETHOD,
+      HEATINGDESIGNAIRFLOWRATE,
+      HEATINGMAXIMUMAIRFLOW,
+    };
+    addCategoryAndFields(QString("Heating\nSizing\nParameters"), std::move(fields));
   }
 
   OSGridController::setCategoriesAndFields();

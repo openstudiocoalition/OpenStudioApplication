@@ -168,35 +168,28 @@ FacilityExteriorEquipmentGridController::FacilityExteriorEquipmentGridController
 
 void FacilityExteriorEquipmentGridController::setCategoriesAndFields() {
   {
-    std::vector<QString> fields;
-    fields.push_back(EXTERIORLIGHTSDEFINITION);
-    fields.push_back(EXTERIORLIGHTSSCHEDULE);
-    fields.push_back(EXTERIORLIGHTSCONTROLOPTION);
-    fields.push_back(EXTERIORLIGHTSMULTIPLIER);
-    fields.push_back(EXERIORLIGHTSENDUSESUBCATEGORY);
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Exterior Lights"), fields);
-    addCategoryAndFields(categoryAndFields);
+    std::vector<QString> fields{
+      EXTERIORLIGHTSDEFINITION, EXTERIORLIGHTSSCHEDULE, EXTERIORLIGHTSCONTROLOPTION, EXTERIORLIGHTSMULTIPLIER, EXERIORLIGHTSENDUSESUBCATEGORY,
+    };
+    addCategoryAndFields(QString("Exterior Lights"), std::move(fields));
   }
 
   {
-    std::vector<QString> fields;
-    fields.push_back(EXTERIORFUELEQUIPMENTDEFINITION);
-    fields.push_back(EXTERIORFUELEQUIPMENTSCHEDULE);
-    fields.push_back(EXTERIORFUELEQUIPMENTFUELTYPE);
-    fields.push_back(EXTERIORFUELEQUIPMENTMULTIPLIER);
-    fields.push_back(EXTERIORFUELEQUIPMENTSUBCATEGORY);
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Exterior Fuel Equipment"), fields);
-    addCategoryAndFields(categoryAndFields);
+    std::vector<QString> fields{
+      EXTERIORFUELEQUIPMENTDEFINITION, EXTERIORFUELEQUIPMENTSCHEDULE,    EXTERIORFUELEQUIPMENTFUELTYPE,
+      EXTERIORFUELEQUIPMENTMULTIPLIER, EXTERIORFUELEQUIPMENTSUBCATEGORY,
+    };
+    addCategoryAndFields(QString("Exterior Fuel Equipment"), std::move(fields));
   }
 
   {
-    std::vector<QString> fields;
-    fields.push_back(EXTERIORWATEREQUIPMENTDEFINITION);
-    fields.push_back(EXTERIORWATEREQUIPMENTSCHEDULE);
-    fields.push_back(EXTERIORWATEREQUIPMENTMULTIPLIER);
-    fields.push_back(EXTERIORWATEREQUIPMENTSUBCATEGORY);
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Exterior Water Equipment"), fields);
-    addCategoryAndFields(categoryAndFields);
+    std::vector<QString> fields{
+      EXTERIORWATEREQUIPMENTDEFINITION,
+      EXTERIORWATEREQUIPMENTSCHEDULE,
+      EXTERIORWATEREQUIPMENTMULTIPLIER,
+      EXTERIORWATEREQUIPMENTSUBCATEGORY,
+    };
+    addCategoryAndFields(QString("Exterior Water Equipment"), std::move(fields));
   }
 
   OSGridController::setCategoriesAndFields();

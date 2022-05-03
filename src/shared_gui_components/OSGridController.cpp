@@ -175,8 +175,8 @@ void OSGridController::setInheritedModelObjects(const std::vector<model::ModelOb
   m_inheritedModelObjects = inheritedModelObjects;
 }
 */
-void OSGridController::addCategoryAndFields(const std::pair<QString, std::vector<QString>>& categoryAndFields) {
-  m_categoriesAndFields.push_back(categoryAndFields);
+void OSGridController::addCategoryAndFields(QString&& category, std::vector<QString>&& fields) {
+  m_categoriesAndFields.emplace_back(std::forward<decltype(category)>(category), std::forward<decltype(fields)>(fields));
 }
 
 void OSGridController::resetCategoryAndFields() {
@@ -184,9 +184,7 @@ void OSGridController::resetCategoryAndFields() {
 }
 
 void OSGridController::setCategoriesAndFields() {
-  std::vector<QString> fields;
-  std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Custom"), fields);
-  addCategoryAndFields(categoryAndFields);
+  addCategoryAndFields(QString("Custom"), {});
 
   setCustomCategoryAndFields();
 }

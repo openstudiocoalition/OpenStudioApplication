@@ -320,35 +320,31 @@ SpaceTypesGridController::SpaceTypesGridController(bool isIP, const QString& hea
 void SpaceTypesGridController::setCategoriesAndFields() {
 
   {
-    std::vector<QString> fields;
-    fields.push_back(RENDERINGCOLOR);
-    fields.push_back(DEFAULTCONSTRUCTIONSET);
-    fields.push_back(DEFAULTSCHEDULESET);
-    fields.push_back(DESIGNSPECIFICATIONOUTDOORAIR);
-    fields.push_back(SPACEINFILTRATIONDESIGNFLOWRATES);
-    fields.push_back(SPACEINFILTRATIONEFFECTIVELEAKAGEAREAS);
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("General"), fields);
-    addCategoryAndFields(categoryAndFields);
+    std::vector<QString> fields{
+      RENDERINGCOLOR,
+      DEFAULTCONSTRUCTIONSET,
+      DEFAULTSCHEDULESET,
+      DESIGNSPECIFICATIONOUTDOORAIR,
+      SPACEINFILTRATIONDESIGNFLOWRATES,
+      SPACEINFILTRATIONEFFECTIVELEAKAGEAREAS,
+    };
+    addCategoryAndFields(QString("General"), std::move(fields));
   }
 
   {
-    std::vector<QString> fields;
-    fields.push_back(LOADNAME);
-    fields.push_back(MULTIPLIER);
-    fields.push_back(DEFINITION);
-    fields.push_back(SCHEDULE);
-    fields.push_back(ACTIVITYSCHEDULE);
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Loads"), fields);
-    addCategoryAndFields(categoryAndFields);
+    std::vector<QString> fields{
+      LOADNAME, MULTIPLIER, DEFINITION, SCHEDULE, ACTIVITYSCHEDULE,
+    };
+    addCategoryAndFields(QString("Loads"), std::move(fields));
   }
 
   {
-    std::vector<QString> fields;
-    fields.push_back(STANDARDSTEMPLATE);
-    fields.push_back(STANDARDSBUILDINGTYPE);
-    fields.push_back(STANDARDSSPACETYPE);
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Measure\nTags"), fields);
-    addCategoryAndFields(categoryAndFields);
+    std::vector<QString> fields{
+      STANDARDSTEMPLATE,
+      STANDARDSBUILDINGTYPE,
+      STANDARDSSPACETYPE,
+    };
+    addCategoryAndFields(QString("Measure\nTags"), std::move(fields));
   }
 
   OSGridController::setCategoriesAndFields();

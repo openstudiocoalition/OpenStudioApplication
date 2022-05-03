@@ -128,24 +128,19 @@ SpacesSpacesGridController::SpacesSpacesGridController(bool isIP, const QString&
 
 void SpacesSpacesGridController::setCategoriesAndFields() {
   {
-    std::vector<QString> fields;
-    fields.push_back(STORY);
-    fields.push_back(THERMALZONE);
-    fields.push_back(SPACETYPE);
-    fields.push_back(DEFAULTCONSTRUCTIONSET);
-    fields.push_back(DEFAULTSCHEDULESET);
-    fields.push_back(PARTOFTOTALFLOORAREA);
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("General"), fields);
-    addCategoryAndFields(categoryAndFields);
+    std::vector<QString> fields{
+      STORY, THERMALZONE, SPACETYPE, DEFAULTCONSTRUCTIONSET, DEFAULTSCHEDULESET, PARTOFTOTALFLOORAREA,
+    };
+    addCategoryAndFields(QString("General"), std::move(fields));
   }
 
   {
-    std::vector<QString> fields;
-    fields.push_back(DESIGNSPECIFICATIONOUTDOORAIROBJECTNAME);
-    fields.push_back(SPACEINFILTRATIONDESIGNFLOWRATES);
-    fields.push_back(SPACEINFILTRATIONEFFECTIVELEAKAGEAREAS);
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Airflow"), fields);
-    addCategoryAndFields(categoryAndFields);
+    std::vector<QString> fields{
+      DESIGNSPECIFICATIONOUTDOORAIROBJECTNAME,
+      SPACEINFILTRATIONDESIGNFLOWRATES,
+      SPACEINFILTRATIONEFFECTIVELEAKAGEAREAS,
+    };
+    addCategoryAndFields(QString("Airflow"), std::move(fields));
   }
 
   OSGridController::setCategoriesAndFields();
