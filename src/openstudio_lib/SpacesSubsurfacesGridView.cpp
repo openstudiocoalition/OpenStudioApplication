@@ -399,7 +399,8 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
                               boost::optional<std::function<bool(model::SubSurface*)>>(), DataSource(allSubSurfaces, true));
       } else if (field == SUBSURFACETYPE) {
         addComboBoxColumn<std::string, model::SubSurface>(
-          Heading(QString(SUBSURFACETYPE)), static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
+          Heading(QString(SUBSURFACETYPE)),
+          std::function<std::string(const std::string&)>(static_cast<std::string (*)(const std::string&)>(&openstudio::toString)),
           std::function<std::vector<std::string>()>(&model::SubSurface::validSubSurfaceTypeValues),
           CastNullAdapter<model::SubSurface>(&model::SubSurface::subSurfaceType),
           CastNullAdapter<model::SubSurface>(&model::SubSurface::setSubSurfaceType),
