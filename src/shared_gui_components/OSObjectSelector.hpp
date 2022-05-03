@@ -54,7 +54,7 @@ class GridCellLocation : public QObject
  public:
   GridCellLocation(int t_modelRow, int t_gridRow, int t_column, boost::optional<int> t_subrow, QObject* parent);
 
-  virtual ~GridCellLocation();
+  virtual ~GridCellLocation() = default;
 
   const int modelRow;
   const int gridRow;
@@ -86,7 +86,7 @@ class GridCellInfo : public QObject
   GridCellInfo(const boost::optional<model::ModelObject>& t_modelObject, bool t_isSelector, bool t_isVisible, bool t_isSelected, bool t_isLocked,
                QObject* parent);
 
-  virtual ~GridCellInfo();
+  virtual ~GridCellInfo() = default;
 
   const boost::optional<model::ModelObject> modelObject;
   const bool isSelector;
@@ -130,7 +130,7 @@ class OSObjectSelector : public QObject
     ChangeToTrue
   };
 
-  virtual ~OSObjectSelector();
+  virtual ~OSObjectSelector() = default;
 
   // Reset all state
   void clear();

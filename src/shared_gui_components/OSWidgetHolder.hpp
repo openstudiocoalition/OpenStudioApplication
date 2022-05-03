@@ -46,9 +46,9 @@ class OSWidgetHolder : public QWidget
  public:
   OSWidgetHolder(OSCellWrapper* cellWrapper, QWidget* widget, bool isEven);
 
-  virtual ~OSWidgetHolder();
+  virtual ~OSWidgetHolder() = default;
 
-  QWidget* widget() const;
+  [[nodiscard]] QWidget* widget() const;
 
   void setCellProperties(const GridCellLocation& location, const GridCellInfo& info);
 

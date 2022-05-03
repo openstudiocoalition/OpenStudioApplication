@@ -159,7 +159,7 @@
 namespace openstudio {
 
 SpaceTypesGridView::SpaceTypesGridView(bool isIP, const model::Model& model, QWidget* parent) : QWidget(parent), m_isIP(isIP) {
-  auto mainLayout = new QVBoxLayout();
+  auto* mainLayout = new QVBoxLayout();
   mainLayout->setSpacing(0);
   mainLayout->setContentsMargins(0, 0, 0, 0);
   setLayout(mainLayout);
@@ -168,7 +168,7 @@ SpaceTypesGridView::SpaceTypesGridView(bool isIP, const model::Model& model, QWi
   auto spaceTypeModelObjects = subsetCastVector<model::ModelObject>(spaceTypes);
 
   m_gridController = new SpaceTypesGridController(m_isIP, "Space Types", IddObjectType::OS_SpaceType, model, spaceTypeModelObjects);
-  auto gridView = new OSGridView(m_gridController, "Space Types", "Drop\nSpace Type", false, parent);
+  auto* gridView = new OSGridView(m_gridController, "Space Types", "Drop\nSpace Type", false, parent);
 
   // Load Filter
 
@@ -176,7 +176,7 @@ SpaceTypesGridView::SpaceTypesGridView(bool isIP, const model::Model& model, QWi
 
   QVBoxLayout* layout = nullptr;
 
-  auto filterGridLayout = new QGridLayout();
+  auto* filterGridLayout = new QGridLayout();
   filterGridLayout->setContentsMargins(7, 4, 0, 8);
   filterGridLayout->setSpacing(5);
 
@@ -216,49 +216,49 @@ SpaceTypesGridView::SpaceTypesGridView(bool isIP, const model::Model& model, QWi
   }
 
   {
-    const QPixmap* pixMap = new QPixmap(":images/mini_icons/luminaire.png");
+    const auto* pixMap = new QPixmap(":images/mini_icons/luminaire.png");
     OS_ASSERT(pixMap);
     m_filters->addItem(*pixMap, LUMINAIRE);
   }
 
   {
-    const QPixmap* pixMap = new QPixmap(":images/mini_icons/electric_equipment.png");
+    const auto* pixMap = new QPixmap(":images/mini_icons/electric_equipment.png");
     OS_ASSERT(pixMap);
     m_filters->addItem(*pixMap, ELECTRICEQUIPMENT);
   }
 
   {
-    const QPixmap* pixMap = new QPixmap(":images/mini_icons/gas_equipment.png");
+    const auto* pixMap = new QPixmap(":images/mini_icons/gas_equipment.png");
     OS_ASSERT(pixMap);
     m_filters->addItem(*pixMap, GASEQUIPMENT);
   }
 
   {
-    const QPixmap* pixMap = new QPixmap(":images/mini_icons/steam_equipment.png");
+    const auto* pixMap = new QPixmap(":images/mini_icons/steam_equipment.png");
     OS_ASSERT(pixMap);
     m_filters->addItem(*pixMap, HOTWATEREQUIPMENT);
   }
 
   {
-    const QPixmap* pixMap = new QPixmap(":images/mini_icons/steam_equipment.png");
+    const auto* pixMap = new QPixmap(":images/mini_icons/steam_equipment.png");
     OS_ASSERT(pixMap);
     m_filters->addItem(*pixMap, STEAMEQUIPMENT);
   }
 
   {
-    const QPixmap* pixMap = new QPixmap(":images/mini_icons/other_equipment.png");
+    const auto* pixMap = new QPixmap(":images/mini_icons/other_equipment.png");
     OS_ASSERT(pixMap);
     m_filters->addItem(*pixMap, OTHEREQUIPMENT);
   }
 
   {
-    auto pixMap = new QPixmap(":images/mini_icons/infiltration.png");
+    const auto* pixMap = new QPixmap(":images/mini_icons/infiltration.png");
     OS_ASSERT(pixMap);
     m_filters->addItem(*pixMap, SPACEINFILTRATIONDESIGNFLOWRATE);
   }
 
   {
-    auto pixMap = new QPixmap(":images/mini_icons/mini_infiltration_leak.png");
+    const auto* pixMap = new QPixmap(":images/mini_icons/mini_infiltration_leak.png");
     OS_ASSERT(pixMap);
     m_filters->addItem(*pixMap, SPACEINFILTRATIONEFFECTIVELEAKAGEAREA);
   }
@@ -421,16 +421,16 @@ void SpaceTypesGridController::filterChanged(const QString& text) {
 }
 
 SpaceTypesGridView* SpaceTypesGridController::spaceTypesGridView() {
-  auto gridView = qobject_cast<OSGridView*>(this->parent());
+  auto* gridView = qobject_cast<OSGridView*>(this->parent());
   OS_ASSERT(gridView);
 
-  auto spaceTypesGridView = qobject_cast<SpaceTypesGridView*>(gridView->parent());
+  auto* spaceTypesGridView = qobject_cast<SpaceTypesGridView*>(gridView->parent());
 
   return spaceTypesGridView;
 }
 
 void SpaceTypesGridController::onCategorySelected(int index) {
-  auto gridView = this->spaceTypesGridView();
+  auto* gridView = this->spaceTypesGridView();
   if (gridView) {
     if (gridView->m_filters) {
       gridView->m_filters->setCurrentIndex(0);
@@ -446,7 +446,7 @@ void SpaceTypesGridController::onCategorySelected(int index) {
     else if (index == 3) {
       auto categoriesAndFields = this->categoriesAndFields();
       auto fields = categoriesAndFields.at(index);
-      for (auto field : fields.second) {
+      for (const auto& field : fields.second) {
         if (field == LOADNAME) {
           spaceTypesGridView()->enableFilter();
           break;
@@ -518,7 +518,7 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
         [allLoads](const model::SpaceType& t_spaceType) {
           std::vector<boost::optional<model::ModelObject>> loadInstances;
           for (const auto& l : allLoads(t_spaceType)) {
-            loadInstances.push_back(boost::optional<model::ModelObject>(l.optionalCast<model::SpaceLoadInstance>()));
+            loadInstances.emplace_back(l.optionalCast<model::SpaceLoadInstance>());
           }
           return loadInstances;
         });
@@ -529,7 +529,7 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
           for (auto& l : allLoads(t_spaceType)) {
             // internal mass does not have a schedule
             if (!l.optionalCast<model::InternalMass>()) {
-              retval.push_back(boost::optional<model::ModelObject>(std::move(l)));
+              retval.emplace_back(std::move(l));
             } else {
               retval.emplace_back();
             }
@@ -540,12 +540,12 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
       std::function<std::vector<boost::optional<model::ModelObject>>(const model::SpaceType&)> allLoadsWithActivityLevelSchedules(
         [allLoads](const model::SpaceType& t_spaceType) {
           std::vector<boost::optional<model::ModelObject>> retval;
-          for (const auto& l : allLoads(t_spaceType)) {
+          for (auto&& l : allLoads(t_spaceType)) {
             // only people have activity schedules, so this effectively gives us only
             // the People objects while inserting blanks for those which are not people,
             // which is what we want
             if (l.optionalCast<model::People>()) {
-              retval.push_back(boost::optional<model::ModelObject>(std::move(l)));
+              retval.emplace_back(std::move(l));
             } else {
               retval.emplace_back();
             }
@@ -558,7 +558,7 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
           std::vector<boost::optional<model::ModelObject>> definitions;
           for (const auto& l : allLoadInstances(t_spaceType)) {
             if (l) {
-              definitions.push_back(l->cast<model::SpaceLoadInstance>().definition());
+              definitions.emplace_back(l->cast<model::SpaceLoadInstance>().definition());
             } else {
               definitions.emplace_back();
             }
@@ -1036,7 +1036,7 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
           std::vector<boost::optional<model::ModelObject>> retval;
 
           for (auto& l : allLoads(t_spaceType)) {
-            retval.push_back(boost::optional<model::ModelObject>(schedule(&l)));
+            retval.emplace_back(schedule(&l));
           }
 
           return retval;
@@ -1049,8 +1049,7 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
           for (const auto& l : allLoads(t_spaceType)) {
             boost::optional<model::People> p = l.optionalCast<model::People>();
             if (p) {
-              auto als = p->activityLevelSchedule();
-              retval.push_back(boost::optional<model::ModelObject>(als));
+              retval.emplace_back(p->activityLevelSchedule());
             } else {
               retval.emplace_back();
             }
@@ -1464,7 +1463,7 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
   }
 }
 
-QString SpaceTypesGridController::getColor(const model::ModelObject& modelObject) {
+QString SpaceTypesGridController::getColor(const model::ModelObject& /*modelObject*/) {
   QColor defaultColor(Qt::lightGray);
   QString color(defaultColor.name());
 
@@ -1495,7 +1494,9 @@ QString SpaceTypesGridController::getColor(const model::ModelObject& modelObject
 }
 
 void SpaceTypesGridController::checkSelectedFields() {
-  if (!this->hasHorizontalHeader()) return;
+  if (!this->hasHorizontalHeader()) {
+    return;
+  }
 
   OSGridController::checkSelectedFields();
 }

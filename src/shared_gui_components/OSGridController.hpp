@@ -43,6 +43,7 @@
 
 #include <string>
 #include <functional>
+#include <utility>
 #include <vector>
 
 #include <QObject>
@@ -110,9 +111,9 @@ class DataSource
   DataSource(const std::function<std::vector<ItemType>(InputType)>& t_sourceFunc, bool t_wantsPlaceholder = false,
              const QSharedPointer<BaseConcept>& t_dropZoneConcept = QSharedPointer<BaseConcept>())
     : m_wantsPlaceholder(t_wantsPlaceholder), m_dropZoneConcept(t_dropZoneConcept) {
-    typedef decltype(t_sourceFunc) IncommingFuncType;
-    typedef typename std::remove_reference<typename std::remove_cv<IncommingFuncType>::type>::type FunctionType;
-    typedef typename std::remove_reference<typename std::remove_cv<typename FunctionType::argument_type>::type>::type ParamType;
+    using IncommingFuncType = decltype(t_sourceFunc);
+    using FunctionType = typename std::remove_reference<typename std::remove_cv<IncommingFuncType>::type>::type;
+    using ParamType = typename std::remove_reference<typename std::remove_cv<typename FunctionType::argument_type>::type>::type;
 
     m_sourceFunc = [t_sourceFunc](ConceptProxy t_proxy) {
       auto result = t_sourceFunc(t_proxy.cast<ParamType>());
@@ -142,7 +143,7 @@ class DataSourceAdapter : public BaseConcept
 {
  public:
   DataSourceAdapter(DataSource t_source, QSharedPointer<BaseConcept> t_inner)
-    : BaseConcept(t_inner->heading()), m_source(t_source), m_inner(t_inner) {}
+    : BaseConcept(t_inner->heading()), m_source(std::move(t_source)), m_inner(t_inner) {}
 
   const DataSource& source() const {
     return m_source;
@@ -181,7 +182,7 @@ class OSGridController : public QObject
   void resetBaseConcepts();
 
   void addSelectColumn(const Heading& heading, const std::string& tooltip, const boost::optional<DataSource>& t_source = boost::none) {
-    auto objectSelector = m_objectSelector;
+    auto* objectSelector = m_objectSelector;
     auto getter = std::function<bool(model::ModelObject*)>([objectSelector](model::ModelObject* t_obj) -> bool {
       assert(t_obj);
       return objectSelector->getObjectSelected(*t_obj);
@@ -412,8 +413,8 @@ class OSGridController : public QObject
   template <typename ValueType, typename DataSourceType>
   void addRenderingColorColumn(const Heading& heading, std::function<boost::optional<ValueType>(DataSourceType*)> getter,
                                std::function<bool(DataSourceType*, const ValueType&)> setter,
-                               const boost::optional<DataSource>& t_source = boost::none) {
-    m_baseConcepts.push_back(
+                               const boost::optional<DataSource>& /*t_source*/ = boost::none) {
+    m_baseConcepts.emplace_back(
       QSharedPointer<RenderingColorConcept>(new RenderingColorConceptImpl<ValueType, DataSourceType>(heading, getter, setter)));
   }
 
@@ -432,8 +433,8 @@ class OSGridController : public QObject
 
   //void selectRow(int gridRow, bool select);
 
-  int gridRowFromModelRow(int modelRow);
-  int modelRowFromGridRow(int gridRow);
+  [[nodiscard]] int gridRowFromModelRow(int modelRow) const;
+  [[nodiscard]] int modelRowFromGridRow(int gridRow) const;
 
   // Return a new widget at a "top level" row and column specified by arguments.
   // There might be subrows within the specified location.
@@ -567,11 +568,11 @@ class OSGridController : public QObject
 
   bool getgridRowByItem(OSItem* item, int& gridRow);
 
-  void setConceptValue(model::ModelObject t_setterMO, model::ModelObject t_getterMO, const QSharedPointer<BaseConcept>& t_baseConcept);
+  void setConceptValue(model::ModelObject t_setterMO, const model::ModelObject& t_getterMO, const QSharedPointer<BaseConcept>& t_baseConcept);
 
   void resetConceptValue(model::ModelObject t_resetMO, const QSharedPointer<BaseConcept>& t_baseConcept);
 
-  void setConceptValue(model::ModelObject t_setterMO, model::ModelObject t_getterMO, const QSharedPointer<BaseConcept>& t_setterBaseConcept,
+  void setConceptValue(model::ModelObject t_setterMO, const model::ModelObject& t_getterMO, const QSharedPointer<BaseConcept>& t_setterBaseConcept,
                        const QSharedPointer<BaseConcept>& t_getterBaseConcept);
 
   QButtonGroup* m_horizontalHeaderBtnGrp;
@@ -644,7 +645,7 @@ class HorizontalHeaderPushButton : public QPushButton
  public:
   HorizontalHeaderPushButton(QWidget* parent = nullptr);
 
-  virtual ~HorizontalHeaderPushButton();
+  virtual ~HorizontalHeaderPushButton() = default;
 
  protected:
   virtual void focusInEvent(QFocusEvent* e) override;
@@ -687,7 +688,7 @@ class GridViewDropZoneVectorController : public OSVectorController
 {
  protected:
   virtual std::vector<OSItemId> makeVector() override {
-    return std::vector<OSItemId>();
+    return {};
   }
 };
 

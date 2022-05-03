@@ -53,7 +53,7 @@ class SpaceTypesGridView : public QWidget
  public:
   SpaceTypesGridView(bool isIP, const model::Model& model, QWidget* parent = nullptr);
 
-  virtual ~SpaceTypesGridView() {}
+  virtual ~SpaceTypesGridView() = default;
 
   std::set<model::ModelObject> selectedObjects() const;
 

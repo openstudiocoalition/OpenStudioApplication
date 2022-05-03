@@ -79,8 +79,6 @@ namespace openstudio {
 GridCellLocation::GridCellLocation(int t_modelRow, int t_gridRow, int t_column, boost::optional<int> t_subrow, QObject* parent)
   : QObject(parent), modelRow(t_modelRow), gridRow(t_gridRow), column(t_column), subrow(t_subrow) {}
 
-GridCellLocation::~GridCellLocation() {}
-
 bool GridCellLocation::equal(int t_modelRow, int t_gridRow, int t_column, boost::optional<int> t_subrow) const {
   return (modelRow == t_modelRow) && (gridRow == t_gridRow) && (column == t_column) && (subrow == t_subrow);
 }
@@ -138,8 +136,6 @@ GridCellInfo::GridCellInfo(const boost::optional<model::ModelObject>& t_modelObj
     m_isSelected(t_isSelected),
     m_isLocked(t_isLocked) {}
 
-GridCellInfo::~GridCellInfo() {}
-
 bool GridCellInfo::isVisible() const {
   return m_isVisible;
 }
@@ -187,8 +183,6 @@ bool GridCellInfo::setLocked(bool locked) {
 }
 
 OSObjectSelector::OSObjectSelector(QObject* parent) : QObject(parent), m_objectFilter(getDefaultFilter()), m_isLocked(getDefaultIsLocked()) {}
-
-OSObjectSelector::~OSObjectSelector() {}
 
 void OSObjectSelector::clear() {
 
@@ -278,8 +272,8 @@ void OSObjectSelector::addObject(const boost::optional<model::ModelObject>& t_ob
   bool isSelected = false;
   bool isLocked = t_isLocked;
 
-  GridCellInfo* info = new GridCellInfo(t_obj, t_isSelector, isVisible, isSelected, isLocked, this);
-  GridCellLocation* location = new GridCellLocation(t_modelRow, t_gridRow, t_column, t_subrow, this);
+  auto* info = new GridCellInfo(t_obj, t_isSelector, isVisible, isSelected, isLocked, this);
+  auto* location = new GridCellLocation(t_modelRow, t_gridRow, t_column, t_subrow, this);
 
   connect(t_holder, &OSWidgetHolder::inFocus, location, &GridCellLocation::onInFocus);
   connect(location, &GridCellLocation::inFocus, this, &OSObjectSelector::inFocus);
@@ -303,9 +297,9 @@ void OSObjectSelector::setObjectRemoved(const openstudio::Handle& handle) {
   const PropertyChange visible = ChangeToFalse;
   const PropertyChange selected = ChangeToFalse;
   const PropertyChange locked = ChangeToTrue;
-  for (const auto location : m_selectorCellLocations) {
+  for (auto* const location : m_selectorCellLocations) {
     GridCellInfo* info = getGridCellInfo(location);
-    if (info && info->modelObject && info->modelObject->handle() == handle) {
+    if ((info != nullptr) && info->modelObject && info->modelObject->handle() == handle) {
       if (location->subrow) {
         setSubrowProperties(location->gridRow, location->subrow.get(), visible, selected, locked);
       } else {
@@ -326,9 +320,10 @@ void OSObjectSelector::setObjectRemoved(const openstudio::Handle& handle) {
 
 boost::optional<model::ModelObject> OSObjectSelector::getObject(const int t_modelRow, const int t_gridRow, const int t_column,
                                                                 const boost::optional<int>& t_subrow) const {
-  for (const auto& locationInfoPair : m_gridCellLocationToInfoMap) {
-    if (locationInfoPair.first->equal(t_modelRow, t_gridRow, t_column, t_subrow)) {
-      return locationInfoPair.second->modelObject;
+  // [GridCellLocation*, GridCellInfo*]
+  for (const auto& [location, info] : m_gridCellLocationToInfoMap) {
+    if (location->equal(t_modelRow, t_gridRow, t_column, t_subrow)) {
+      return info->modelObject;
     }
   }
   return boost::none;
@@ -339,7 +334,7 @@ void OSObjectSelector::selectAll() {
   const PropertyChange selected = ChangeToTrue;
   const PropertyChange locked = NoChange;
   int numSelected = 0;
-  for (auto& location : m_selectorCellLocations) {
+  for (const auto& location : m_selectorCellLocations) {
     GridCellInfo* info = getGridCellInfo(location);
     if (info) {
       if (info->isSelectable()) {
@@ -363,7 +358,7 @@ void OSObjectSelector::clearSelection() {
   const PropertyChange selected = ChangeToFalse;
   const PropertyChange locked = NoChange;
   int numSelectable = 0;
-  for (auto& location : m_selectorCellLocations) {
+  for (const auto& location : m_selectorCellLocations) {
     GridCellInfo* info = getGridCellInfo(location);
     if (info) {
       if (info->isSelectable()) {
@@ -388,36 +383,31 @@ void OSObjectSelector::onRowNeedsStyle(int modelRow, int gridRow) {
   std::vector<std::pair<GridCellLocation*, PropertyChange>> lockedChanges;
 
   // loop over selector cells first
-  for (auto& location : m_selectorCellLocations) {
+  for (const auto& location : m_selectorCellLocations) {
     if (location->modelRow == modelRow && location->gridRow == gridRow) {
       GridCellInfo* info = getGridCellInfo(location);
       if (info && info->modelObject) {
-        PropertyChange lockedChange;
-
+        PropertyChange lockedChange = PropertyChange::NoChange;
         if (m_isLocked(info->modelObject.get())) {
           lockedChange = PropertyChange::ChangeToTrue;
-        } else {
-          lockedChange = PropertyChange::NoChange;
         }
-        lockedChanges.push_back(std::make_pair(location, lockedChange));
+        lockedChanges.emplace_back(location, lockedChange);
 
-        PropertyChange visibleChange;
+        PropertyChange visibleChange = PropertyChange::ChangeToFalse;
         if (m_objectFilter(info->modelObject.get())) {
           visibleChange = PropertyChange::ChangeToTrue;
-        } else {
-          visibleChange = PropertyChange::ChangeToFalse;
         }
-        visibleChanges.push_back(std::make_pair(location, visibleChange));
+        visibleChanges.emplace_back(location, visibleChange);
       }
     }
   }
 
   // loop over parent cells second
-  for (auto& location : m_parentCellLocations) {
+  for (const auto& location : m_parentCellLocations) {
     if (location->modelRow == modelRow && location->gridRow == gridRow) {
       GridCellInfo* info = getGridCellInfo(location);
       if (info && info->modelObject) {
-        PropertyChange lockedChange;
+        PropertyChange lockedChange = PropertyChange::NoChange;
         if (m_isLocked(info->modelObject.get())) {
           lockedChange = PropertyChange::ChangeToTrue;
 
@@ -426,16 +416,11 @@ void OSObjectSelector::onRowNeedsStyle(int modelRow, int gridRow) {
             std::remove_if(lockedChanges.begin(), lockedChanges.end(),
                            [location](std::pair<GridCellLocation*, PropertyChange> tmp) { return location->gridRow == tmp.first->gridRow; }),
             lockedChanges.end());
-
-        } else {
-          lockedChange = PropertyChange::NoChange;
         }
-        lockedChanges.push_back(std::make_pair(location, lockedChange));
+        lockedChanges.emplace_back(location, lockedChange);
 
-        PropertyChange visibleChange;
-        if (m_objectFilter(info->modelObject.get())) {
-          visibleChange = PropertyChange::ChangeToTrue;
-        } else {
+        PropertyChange visibleChange = PropertyChange::ChangeToTrue;
+        if (!m_objectFilter(info->modelObject.get())) {
           visibleChange = PropertyChange::ChangeToFalse;
 
           // parent hidden, selector always hidden
@@ -444,7 +429,7 @@ void OSObjectSelector::onRowNeedsStyle(int modelRow, int gridRow) {
                            [location](std::pair<GridCellLocation*, PropertyChange> tmp) { return location->gridRow == tmp.first->gridRow; }),
             visibleChanges.end());
         }
-        visibleChanges.push_back(std::make_pair(location, visibleChange));
+        visibleChanges.emplace_back(location, visibleChange);
       }
     }
   }
@@ -459,9 +444,8 @@ void OSObjectSelector::onRowNeedsStyle(int modelRow, int gridRow) {
 void OSObjectSelector::updateRowsAndSubrows(const std::vector<std::pair<GridCellLocation*, PropertyChange>>& visibleChanges,
                                             const std::vector<std::pair<GridCellLocation*, PropertyChange>>& lockedChanges) {
 
-  for (auto& locationPropertyChangePair : visibleChanges) {
-    GridCellLocation* location = locationPropertyChangePair.first;
-    PropertyChange visible = locationPropertyChangePair.second;
+  // [GridCellLocation*, PropertyChange]
+  for (const auto& [location, visible] : visibleChanges) {
     PropertyChange selected = NoChange;
     PropertyChange locked = NoChange;
 
@@ -472,11 +456,10 @@ void OSObjectSelector::updateRowsAndSubrows(const std::vector<std::pair<GridCell
     }
   }
 
-  for (auto& locationPropertyChangePair : lockedChanges) {
-    GridCellLocation* location = locationPropertyChangePair.first;
+  // [GridCellLocation*, PropertyChange]
+  for (const auto& [location, locked] : lockedChanges) {
     PropertyChange visible = NoChange;
     PropertyChange selected = NoChange;
-    PropertyChange locked = locationPropertyChangePair.second;
 
     if (location->subrow) {
       setSubrowProperties(location->gridRow, location->subrow.get(), visible, selected, locked);
@@ -487,36 +470,37 @@ void OSObjectSelector::updateRowsAndSubrows(const std::vector<std::pair<GridCell
 }
 
 void OSObjectSelector::setRowProperties(const int t_gridRow, PropertyChange t_visible, PropertyChange t_selected, PropertyChange t_locked) {
-  for (auto& locationInfoPair : m_gridCellLocationToInfoMap) {
-    if (locationInfoPair.first->gridRow == t_gridRow) {
+  // [GridCellLocation*, GridCellInfo*]
+  for (auto& [location, info] : m_gridCellLocationToInfoMap) {
+    if (location->gridRow == t_gridRow) {
       bool changed = false;
 
       if (t_visible == ChangeToFalse) {
-        changed = locationInfoPair.second->setVisible(false) || changed;
+        changed = info->setVisible(false) || changed;
       } else if (t_visible == ChangeToTrue) {
-        changed = locationInfoPair.second->setVisible(true) || changed;
+        changed = info->setVisible(true) || changed;
       } else if (t_visible == ToggleChange) {
-        changed = locationInfoPair.second->setVisible(!locationInfoPair.second->isVisible()) || changed;
+        changed = info->setVisible(!info->isVisible()) || changed;
       }
 
       if (t_selected == ChangeToFalse) {
-        changed = locationInfoPair.second->setSelected(false) || changed;
+        changed = info->setSelected(false) || changed;
       } else if (t_selected == ChangeToTrue) {
-        changed = locationInfoPair.second->setSelected(true) || changed;
+        changed = info->setSelected(true) || changed;
       } else if (t_selected == ToggleChange) {
-        changed = locationInfoPair.second->setSelected(!locationInfoPair.second->isSelected()) || changed;
+        changed = info->setSelected(!info->isSelected()) || changed;
       }
 
       if (t_locked == ChangeToFalse) {
-        changed = locationInfoPair.second->setLocked(false) || changed;
+        changed = info->setLocked(false) || changed;
       } else if (t_locked == ChangeToTrue) {
-        changed = locationInfoPair.second->setLocked(true) || changed;
+        changed = info->setLocked(true) || changed;
       } else if (t_locked == ToggleChange) {
-        changed = locationInfoPair.second->setLocked(!locationInfoPair.second->isLocked()) || changed;
+        changed = info->setLocked(!info->isLocked()) || changed;
       }
 
       if (changed) {
-        emit gridCellChanged(*locationInfoPair.first, *locationInfoPair.second);
+        emit gridCellChanged(*location, *info);
       }
     }
   }
@@ -524,51 +508,52 @@ void OSObjectSelector::setRowProperties(const int t_gridRow, PropertyChange t_vi
 
 void OSObjectSelector::setSubrowProperties(const int t_gridRow, const int t_subrow, PropertyChange t_visible, PropertyChange t_selected,
                                            PropertyChange t_locked) {
-  for (auto& locationInfoPair : m_gridCellLocationToInfoMap) {
-    if (locationInfoPair.first->gridRow == t_gridRow && locationInfoPair.first->subrow == t_subrow) {
+  // [GridCellLocation*, GridCellInfo*]
+  for (auto& [location, info] : m_gridCellLocationToInfoMap) {
+    if (location->gridRow == t_gridRow && location->subrow == t_subrow) {
       bool changed = false;
 
       if (t_visible == ChangeToFalse) {
-        changed = locationInfoPair.second->setVisible(false) || changed;
+        changed = info->setVisible(false) || changed;
       } else if (t_visible == ChangeToTrue) {
-        changed = locationInfoPair.second->setVisible(true) || changed;
+        changed = info->setVisible(true) || changed;
       } else if (t_visible == ToggleChange) {
-        changed = locationInfoPair.second->setVisible(!locationInfoPair.second->isVisible()) || changed;
+        changed = info->setVisible(!info->isVisible()) || changed;
       }
 
       if (t_selected == ChangeToFalse) {
-        changed = locationInfoPair.second->setSelected(false) || changed;
+        changed = info->setSelected(false) || changed;
       } else if (t_selected == ChangeToTrue) {
-        changed = locationInfoPair.second->setSelected(true) || changed;
+        changed = info->setSelected(true) || changed;
       } else if (t_selected == ToggleChange) {
-        changed = locationInfoPair.second->setSelected(!locationInfoPair.second->isSelected()) || changed;
+        changed = info->setSelected(!info->isSelected()) || changed;
       }
 
       if (t_locked == ChangeToFalse) {
-        changed = locationInfoPair.second->setLocked(false) || changed;
+        changed = info->setLocked(false) || changed;
       } else if (t_locked == ChangeToTrue) {
-        changed = locationInfoPair.second->setLocked(true) || changed;
+        changed = info->setLocked(true) || changed;
       } else if (t_locked == ToggleChange) {
-        changed = locationInfoPair.second->setLocked(!locationInfoPair.second->isLocked()) || changed;
+        changed = info->setLocked(!info->isLocked()) || changed;
       }
 
       if (changed) {
-        emit gridCellChanged(*locationInfoPair.first, *locationInfoPair.second);
+        emit gridCellChanged(*location, *info);
       }
     }
   }
 }
 
 bool OSObjectSelector::getObjectSelected(const model::ModelObject& t_obj) const {
-  for (auto& location : m_selectorCellLocations) {
+  return std::any_of(m_selectorCellLocations.cbegin(), m_selectorCellLocations.cend(), [this, &t_obj](GridCellLocation* location) {
     GridCellInfo* info = getGridCellInfo(location);
     if (info && info->modelObject && info->modelObject.get() == t_obj) {
       if (info->isSelected()) {
         return true;
       }
     }
-  }
-  return false;
+    return false;
+  });
 }
 
 void OSObjectSelector::setObjectSelected(const model::ModelObject& t_obj, bool t_selected) {
@@ -577,7 +562,7 @@ void OSObjectSelector::setObjectSelected(const model::ModelObject& t_obj, bool t
   const PropertyChange locked = NoChange;
   int numSelected = 0;
   int numSelectable = 0;
-  for (auto& location : m_selectorCellLocations) {
+  for (const auto& location : m_selectorCellLocations) {
     GridCellInfo* info = getGridCellInfo(location);
     if (info && info->isSelectable() && info->modelObject && info->modelObject.get() == t_obj) {
       if (location->subrow) {
@@ -600,7 +585,7 @@ void OSObjectSelector::setObjectSelected(const model::ModelObject& t_obj, bool t
 
 std::set<model::ModelObject> OSObjectSelector::selectorObjects() const {
   std::set<model::ModelObject> result;
-  for (auto& location : m_selectorCellLocations) {
+  for (const auto& location : m_selectorCellLocations) {
     GridCellInfo* info = getGridCellInfo(location);
     if (info && info->isSelector && info->modelObject) {
       result.insert(info->modelObject.get());
@@ -611,7 +596,7 @@ std::set<model::ModelObject> OSObjectSelector::selectorObjects() const {
 
 std::set<model::ModelObject> OSObjectSelector::selectableObjects() const {
   std::set<model::ModelObject> result;
-  for (auto& location : m_selectorCellLocations) {
+  for (const auto& location : m_selectorCellLocations) {
     GridCellInfo* info = getGridCellInfo(location);
     if (info && info->isSelectable() && info->modelObject) {
       result.insert(info->modelObject.get());
@@ -622,7 +607,7 @@ std::set<model::ModelObject> OSObjectSelector::selectableObjects() const {
 
 std::set<model::ModelObject> OSObjectSelector::selectedObjects() const {
   std::set<model::ModelObject> result;
-  for (auto& location : m_selectorCellLocations) {
+  for (const auto& location : m_selectorCellLocations) {
     GridCellInfo* info = getGridCellInfo(location);
     if (info && info->isSelected() && info->modelObject) {
       result.insert(info->modelObject.get());
@@ -651,27 +636,23 @@ void OSObjectSelector::setObjectFilter(const std::function<bool(const model::Mod
   std::vector<std::pair<GridCellLocation*, PropertyChange>> lockedChanges;
 
   // loop over selector cells first
-  for (auto& location : m_selectorCellLocations) {
+  for (const auto& location : m_selectorCellLocations) {
     GridCellInfo* info = getGridCellInfo(location);
     if (info && info->modelObject) {
-      PropertyChange visibleChange;
+      PropertyChange visibleChange = PropertyChange::ChangeToFalse;
       if (m_objectFilter(info->modelObject.get())) {
         visibleChange = PropertyChange::ChangeToTrue;
-      } else {
-        visibleChange = PropertyChange::ChangeToFalse;
       }
-      visibleChanges.push_back(std::make_pair(location, visibleChange));
+      visibleChanges.emplace_back(location, visibleChange);
     }
   }
 
   // loop over parent cells second
-  for (auto& location : m_parentCellLocations) {
+  for (const auto& location : m_parentCellLocations) {
     GridCellInfo* info = getGridCellInfo(location);
     if (info && info->modelObject) {
-      PropertyChange visibleChange;
-      if (m_objectFilter(info->modelObject.get())) {
-        visibleChange = PropertyChange::ChangeToTrue;
-      } else {
+      PropertyChange visibleChange = PropertyChange::ChangeToTrue;
+      if (!m_objectFilter(info->modelObject.get())) {
         visibleChange = PropertyChange::ChangeToFalse;
 
         // parent hidden, selector always hidden
@@ -680,7 +661,7 @@ void OSObjectSelector::setObjectFilter(const std::function<bool(const model::Mod
                          [location](std::pair<GridCellLocation*, PropertyChange> tmp) { return location->gridRow == tmp.first->gridRow; }),
           visibleChanges.end());
       }
-      visibleChanges.push_back(std::make_pair(location, visibleChange));
+      visibleChanges.emplace_back(location, visibleChange);
     }
   }
 
@@ -714,16 +695,14 @@ void OSObjectSelector::setObjectIsLocked(const std::function<bool(const model::M
   std::vector<std::pair<GridCellLocation*, PropertyChange>> lockedChanges;
 
   // loop over selector cells first
-  for (auto& location : m_selectorCellLocations) {
+  for (const auto& location : m_selectorCellLocations) {
     GridCellInfo* info = getGridCellInfo(location);
     if (info && info->modelObject) {
-      PropertyChange lockedChange;
+      PropertyChange lockedChange = PropertyChange::NoChange;
       if (m_isLocked(info->modelObject.get())) {
         lockedChange = PropertyChange::ChangeToTrue;
-      } else {
-        lockedChange = PropertyChange::NoChange;
       }
-      lockedChanges.push_back(std::make_pair(location, lockedChange));
+      lockedChanges.emplace_back(location, lockedChange);
     }
   }
 
@@ -731,7 +710,7 @@ void OSObjectSelector::setObjectIsLocked(const std::function<bool(const model::M
   for (auto& location : m_parentCellLocations) {
     GridCellInfo* info = getGridCellInfo(location);
     if (info && info->modelObject) {
-      PropertyChange lockedChange;
+      PropertyChange lockedChange = PropertyChange::NoChange;
       if (m_isLocked(info->modelObject.get())) {
         lockedChange = PropertyChange::ChangeToTrue;
 
@@ -740,11 +719,8 @@ void OSObjectSelector::setObjectIsLocked(const std::function<bool(const model::M
           std::remove_if(lockedChanges.begin(), lockedChanges.end(),
                          [location](std::pair<GridCellLocation*, PropertyChange> tmp) { return location->gridRow == tmp.first->gridRow; }),
           lockedChanges.end());
-
-      } else {
-        lockedChange = PropertyChange::NoChange;
       }
-      lockedChanges.push_back(std::make_pair(location, lockedChange));
+      lockedChanges.emplace_back(location, lockedChange);
     }
   }
 

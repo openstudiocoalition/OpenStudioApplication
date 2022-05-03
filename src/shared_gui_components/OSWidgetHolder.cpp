@@ -54,7 +54,7 @@ OSWidgetHolder::OSWidgetHolder(OSCellWrapper* cellWrapper, QWidget* widget, bool
   const int widgetHeight = 40;
 
   this->setMinimumHeight(widgetHeight);
-  auto layout = new QVBoxLayout();
+  auto* layout = new QVBoxLayout();
   layout->setAlignment(Qt::AlignCenter);
   layout->setSpacing(5);
   layout->setContentsMargins(5, 5, 5, 5);
@@ -71,8 +71,6 @@ OSWidgetHolder::OSWidgetHolder(OSCellWrapper* cellWrapper, QWidget* widget, bool
                       "QWidget#OSWidgetHolder { border: none; background-color: #ff0000; }");
 }
 
-OSWidgetHolder::~OSWidgetHolder() {}
-
 QWidget* OSWidgetHolder::widget() const {
   return m_widget;
 }
@@ -81,7 +79,7 @@ void OSWidgetHolder::setCellProperties(const GridCellLocation& location, const G
 
   // set widget properties
   if (info.isSelector) {
-    auto check = qobject_cast<QCheckBox*>(m_widget);
+    auto* check = qobject_cast<QCheckBox*>(m_widget);
     if (check) {
       check->blockSignals(true);
       check->setChecked(info.isSelected());
@@ -90,23 +88,23 @@ void OSWidgetHolder::setCellProperties(const GridCellLocation& location, const G
   }
 
   // lock the widget if needed, probably a sign we need a base class with setLocked
-  if (OSComboBox2* comboBox = qobject_cast<OSComboBox2*>(m_widget)) {
+  if (auto* comboBox = qobject_cast<OSComboBox2*>(m_widget)) {
     comboBox->setLocked(info.isLocked());
-  } else if (OSDoubleEdit2* doubleEdit = qobject_cast<OSDoubleEdit2*>(m_widget)) {
+  } else if (auto* doubleEdit = qobject_cast<OSDoubleEdit2*>(m_widget)) {
     doubleEdit->setLocked(info.isLocked());
-  } else if (OSIntegerEdit2* integerEdit = qobject_cast<OSIntegerEdit2*>(m_widget)) {
+  } else if (auto* integerEdit = qobject_cast<OSIntegerEdit2*>(m_widget)) {
     integerEdit->setLocked(info.isLocked());
-  } else if (OSQuantityEdit2* quantityEdit = qobject_cast<OSQuantityEdit2*>(m_widget)) {
+  } else if (auto* quantityEdit = qobject_cast<OSQuantityEdit2*>(m_widget)) {
     quantityEdit->setLocked(info.isLocked());
-  } else if (OSLineEdit2* lineEdit = qobject_cast<OSLineEdit2*>(m_widget)) {
+  } else if (auto* lineEdit = qobject_cast<OSLineEdit2*>(m_widget)) {
     lineEdit->setLocked(info.isLocked());
-  } else if (OSUnsignedEdit2* unsignedEdit = qobject_cast<OSUnsignedEdit2*>(m_widget)) {
+  } else if (auto* unsignedEdit = qobject_cast<OSUnsignedEdit2*>(m_widget)) {
     unsignedEdit->setLocked(info.isLocked());
-  } else if (OSDropZone2* dropZone = qobject_cast<OSDropZone2*>(m_widget)) {
+  } else if (auto* dropZone = qobject_cast<OSDropZone2*>(m_widget)) {
     dropZone->setLocked(info.isLocked());
-  } else if (OSLoadNamePixmapLineEdit* pixmap = qobject_cast<OSLoadNamePixmapLineEdit*>(m_widget)) {
+  } else if (auto* pixmap = qobject_cast<OSLoadNamePixmapLineEdit*>(m_widget)) {
     pixmap->setLocked(info.isLocked());
-  } else if (OSCheckBox3* checkBox = qobject_cast<OSCheckBox3*>(m_widget)) {
+  } else if (auto* checkBox = qobject_cast<OSCheckBox3*>(m_widget)) {
     checkBox->setLocked(info.isLocked());
     if (info.isSelector) {
       checkBox->blockSignals(true);
@@ -139,7 +137,7 @@ void OSWidgetHolder::setCellProperties(const GridCellLocation& location, const G
   }
 }
 
-void OSWidgetHolder::paintEvent(QPaintEvent*) {
+void OSWidgetHolder::paintEvent(QPaintEvent* /*event*/) {
   QStyleOption opt;
   opt.initFrom(this);
   QPainter p(this);

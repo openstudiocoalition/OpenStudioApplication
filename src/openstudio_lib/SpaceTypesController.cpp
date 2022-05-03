@@ -152,7 +152,7 @@ void SpaceTypesController::onReplaceObject(openstudio::model::ModelObject modelO
   // not yet implemented
 }
 
-void SpaceTypesController::onPurgeObjects(const openstudio::IddObjectType& iddObjectType) {
+void SpaceTypesController::onPurgeObjects(const openstudio::IddObjectType& /*iddObjectType*/) {
   for (model::SpaceType spaceType : this->model().getConcreteModelObjects<model::SpaceType>()) {
     if (spaceType.spaces().empty()) {
       spaceType.remove();
