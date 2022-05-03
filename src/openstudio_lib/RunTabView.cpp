@@ -306,13 +306,13 @@ void RunView::playButtonClicked(bool t_checked) {
 
     if (exists(stdoutPath)) {
       remove(stdoutPath);
-      // touch
-      openstudio::filesystem::ofstream stdout_file(stdoutPath);
     }
     if (exists(stderrPath)) {
       remove(stderrPath);
-      openstudio::filesystem::ofstream stdout_file(stderrPath);
     }
+    // touch
+    openstudio::filesystem::ofstream(stdoutPath);
+    openstudio::filesystem::ofstream(stderrPath);
 
     m_state = State::stopped;
     m_textInfo->clear();
