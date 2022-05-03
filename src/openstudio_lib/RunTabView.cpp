@@ -311,8 +311,8 @@ void RunView::playButtonClicked(bool t_checked) {
       remove(stderrPath);
     }
     // touch
-    openstudio::filesystem::ofstream(stdoutPath);
-    openstudio::filesystem::ofstream(stderrPath);
+    openstudio::filesystem::ofstream{stdoutPath};
+    openstudio::filesystem::ofstream{stderrPath};
 
     m_state = State::stopped;
     m_textInfo->clear();
