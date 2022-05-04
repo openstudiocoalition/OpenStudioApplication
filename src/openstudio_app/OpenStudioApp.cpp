@@ -1435,7 +1435,9 @@ bool OpenStudioApp::switchLanguage(const QString& rLanguage) {
   // QString languageName = QLocale::languageToString(loc.language());
 
   this->removeTranslator(&m_qtTranslator);
-  if (m_qtTranslator.load(loc, QLatin1String("qt"), QLatin1String("_"), QLibraryInfo::location(QLibraryInfo::TranslationsPath))) {
+  QString translationFolder = QLibraryInfo::path(QLibraryInfo::TranslationsPath);
+  qDebug() << "translationFolder=" << translationFolder;
+  if (m_qtTranslator.load(loc, QLatin1String("qt"), QLatin1String("_"), translationFolder)) {
     qDebug() << "m_qtTranslator ok";
     this->installTranslator(&m_qtTranslator);
   } else {
@@ -1443,13 +1445,13 @@ bool OpenStudioApp::switchLanguage(const QString& rLanguage) {
   }
 
   this->removeTranslator(&m_qtBaseTranslator);
-  if (m_qtBaseTranslator.load(loc, QLatin1String("qtbase"), QLatin1String("_"), QLibraryInfo::location(QLibraryInfo::TranslationsPath))) {
+  if (m_qtBaseTranslator.load(loc, QLatin1String("qtbase"), QLatin1String("_"), translationFolder)) {
     qDebug() << "m_qtBaseTranslator ok";
     this->installTranslator(&m_qtBaseTranslator);
   } else if (m_currLang == "zh_CN") {
     // For some reason, zh_CN doesn't exist for qt_base but zh_TW does. Using that...
     QLocale loc2("zh_TW");
-    if (m_qtBaseTranslator.load(loc2, QLatin1String("qtbase"), QLatin1String("_"), QLibraryInfo::location(QLibraryInfo::TranslationsPath))) {
+    if (m_qtBaseTranslator.load(loc2, QLatin1String("qtbase"), QLatin1String("_"), translationFolder)) {
       qDebug() << "m_qtBaseTranslator ok, with alternative zh_TW";
     } else {
       qDebug() << "m_qtBaseTranslator not ok for m_currLang=" << m_currLang << ", tried zh_TW too but it failed";
@@ -1462,7 +1464,7 @@ bool OpenStudioApp::switchLanguage(const QString& rLanguage) {
   // remove the old translator
   this->removeTranslator(&m_translator);
 
-  if (m_translator.load(loc, QLatin1String("OpenStudioApp"), QLatin1String("_"), QLibraryInfo::location(QLibraryInfo::TranslationsPath))) {
+  if (m_translator.load(loc, QLatin1String("OpenStudioApp"), QLatin1String("_"), translationFolder)) {
     qDebug() << "\n\n\nINSTALLING lang = " << QLocale::languageToString(loc.language()) << "\n\n\n";
 
     this->installTranslator(&m_translator);
