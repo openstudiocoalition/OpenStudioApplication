@@ -725,7 +725,7 @@ set(TS_FILES
 )
 #set_source_files_properties(${TS_FILES} PROPERTIES OUTPUT_LOCATION $<TARGET_FILE_DIR:${target_name}>/translations)
 
-qt5_create_translation(QM_FILES
+qt6_create_translation(QM_FILES
   ${PROJECT_SOURCE_DIR}
   ${${target_name}_SRC}
   ${TS_FILES})
@@ -761,7 +761,7 @@ add_library(${target_name}
 add_dependencies(${target_name} translations)
 
 if(APPLE)
-  set(WEBENGINE_PAK_FOLDER "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Versions/5/Resources/qtwebengine_locales")
+  set(WEBENGINE_PAK_FOLDER "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Versions/A/Resources/qtwebengine_locales")
 else()
   set(WEBENGINE_PAK_FOLDER "${QT_INSTALL_DIR}/translations/qtwebengine_locales")
 endif()
