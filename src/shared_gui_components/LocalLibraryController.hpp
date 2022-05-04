@@ -91,6 +91,7 @@ class LocalLibraryController : public QObject
   void duplicateSelectedMeasure();
   void downloadUpdatedBCLMeasures();
   void openBclDlg();
+  void checkForRemoteBCLUpdates();
 
  private:
   REGISTER_LOGGER("openstudio.LocalLibraryController");

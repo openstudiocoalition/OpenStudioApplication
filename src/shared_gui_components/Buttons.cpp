@@ -350,6 +350,24 @@ MyMeasuresFolderButton::MyMeasuresFolderButton(QWidget* parent) : QPushButton(pa
   setStyleSheet(style);
 }
 
+LookForUpdateButton::LookForUpdateButton(QWidget* parent) : QPushButton(parent) {
+  setFlat(true);
+
+  setFixedSize(24, 24);
+
+  QString style;
+
+  style.append("QPushButton {"
+               "  background-image:url(':/shared_gui_components/images/check_for_updates.png');"
+               "  border:none;"
+               "}");
+  style.append("QPushButton:pressed {"
+               "  background-image:url(':/shared_gui_components/images/check_for_updates.png');"
+               "}");
+
+  setStyleSheet(style);
+}
+
 OpenDirectoryButton::OpenDirectoryButton(QWidget* parent) : QPushButton(parent) {
   setFlat(true);
 

@@ -239,6 +239,10 @@ void OSAppBase::updateBCLMeasures() {
   }
 }
 
+void OSAppBase::checkForRemoteBCLUpdates() {
+  measureManager().checkForRemoteBCLUpdates();
+}
+
 void OSAppBase::downloadUpdatedBCLMeasures() {
   measureManager().downloadBCLMeasures();
 }

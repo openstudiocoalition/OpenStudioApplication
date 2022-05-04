@@ -91,6 +91,11 @@ LocalLibraryView::LocalLibraryView(QWidget* parent) : QWidget(parent) {
   addMeasureButton->setToolTip("Create a Measure from Template and add to My Measures");
   footerHLayout->addWidget(addMeasureButton);
 
+  lookForUpdateButton = new LookForUpdateButton();
+  lookForUpdateButton->setToolTip("Look for BCL measure updates online");
+  footerHLayout->addWidget(lookForUpdateButton);
+
+  // STRETCH
   footerHLayout->addStretch();
 
   myMeasuresFolderButton = new MyMeasuresFolderButton();

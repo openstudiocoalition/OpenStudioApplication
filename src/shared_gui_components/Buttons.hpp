@@ -168,6 +168,15 @@ class MyMeasuresFolderButton : public QPushButton
   virtual ~MyMeasuresFolderButton() {}
 };
 
+class LookForUpdateButton : public QPushButton
+{
+  Q_OBJECT
+
+ public:
+  LookForUpdateButton(QWidget* parent = nullptr);
+  virtual ~LookForUpdateButton() = default;
+};
+
 class OpenDirectoryButton : public QPushButton
 {
   Q_OBJECT

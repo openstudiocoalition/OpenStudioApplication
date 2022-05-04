@@ -79,6 +79,7 @@ class OPENSTUDIO_API OSAppBase
   virtual void downloadUpdatedBCLMeasures() override;
   virtual void openBclDlg() override;
   virtual void chooseHorizontalEditTab() override;
+  virtual void checkForRemoteBCLUpdates() override;
   virtual QSharedPointer<openstudio::EditController> editController() override;
   boost::shared_ptr<WaitDialog> waitDialog() {
     return m_waitDialog;
