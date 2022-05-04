@@ -4,28 +4,28 @@
 <context>
     <name>InspectorDialog</name>
     <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="706"/>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="707"/>
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="715"/>
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="716"/>
         <source>OpenStudio Inspector</source>
         <translation>Mở bảng kiểm thuộc tính</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="786"/>
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="795"/>
         <source>Add new object</source>
         <translation>Thêm đối tượng mới</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="790"/>
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="799"/>
         <source>Copy selected object</source>
         <translation>Copy những đối tượng được chọn</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="794"/>
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="803"/>
         <source>Remove selected objects</source>
         <translation>Bỏ những đối tượng được chọn</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="798"/>
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="807"/>
         <source>Purge unused objects</source>
         <translation>Dọn sạch những đối tượng không dùng</translation>
     </message>
@@ -33,18 +33,18 @@
 <context>
     <name>InspectorGadget</name>
     <message>
-        <location filename="../src/model_editor/InspectorGadget.cpp" line="617"/>
-        <location filename="../src/model_editor/InspectorGadget.cpp" line="662"/>
+        <location filename="../src/model_editor/InspectorGadget.cpp" line="608"/>
+        <location filename="../src/model_editor/InspectorGadget.cpp" line="653"/>
         <source>Hard Sized</source>
         <translation>Định kích thước thủ công</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorGadget.cpp" line="618"/>
+        <location filename="../src/model_editor/InspectorGadget.cpp" line="609"/>
         <source>Autosized</source>
         <translation>Tự động tính kích thước</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorGadget.cpp" line="663"/>
+        <location filename="../src/model_editor/InspectorGadget.cpp" line="654"/>
         <source>Autocalculate</source>
         <translation>Tự động tính toán</translation>
     </message>
@@ -253,24 +253,24 @@ Zone</source>
 <context>
     <name>openstudio::EditorWebView</name>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1307"/>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1333"/>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1359"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1304"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1330"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1356"/>
         <source>Open File</source>
         <translation>Mở file</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1307"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1304"/>
         <source>gbXML (*.xml *.gbxml)</source>
         <translation>gbXML</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1333"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1330"/>
         <source>IDF (*.idf)</source>
         <translation>IDF</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1359"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1356"/>
         <source>OSM (*.osm)</source>
         <translation>OSM</translation>
     </message>
@@ -317,7 +317,7 @@ Zone</source>
 <context>
     <name>openstudio::LocationTabView</name>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="93"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="102"/>
         <source>Site</source>
         <translation>Khu đất</translation>
     </message>
@@ -325,116 +325,108 @@ Zone</source>
 <context>
     <name>openstudio::LocationView</name>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="177"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="183"/>
         <source>Weather File</source>
         <translation>File thời tiết</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="198"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="204"/>
         <source>Name: </source>
         <translation>Tên: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="213"/>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="485"/>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="509"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="219"/>
         <source>Latitude: </source>
         <translation>Vĩ độ: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="216"/>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="490"/>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="511"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="222"/>
         <source>Longitude: </source>
         <translation>Kinh độ: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="219"/>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="495"/>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="513"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="225"/>
         <source>Elevation: </source>
         <translation>Cao độ : </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="222"/>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="500"/>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="515"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="228"/>
         <source>Time Zone: </source>
         <translation>Múi giờ: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="226"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="232"/>
         <source>Download weather files at &lt;a href=&quot;http://www.energyplus.net/weather&quot;&gt;www.energyplus.net/weather&lt;/a&gt;</source>
         <translation>Tải file thời tiết</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="235"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="241"/>
         <source>Measure Tags (Optional):</source>
         <translation>Tags tính toán bổ sung (tuỳ chọn):</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="239"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="245"/>
         <source>ASHRAE Climate Zone</source>
         <translation>Vùng khí hậu theo ASHRAE</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="272"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="278"/>
         <source>CEC Climate Zone</source>
         <translation>Vùng khí hậu theo CEC</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="340"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="346"/>
         <source>Design Days</source>
         <translation>Ngày thiết kế</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="343"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="349"/>
         <source>Import From DDY</source>
         <translation>Nhập từ file DDY</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="463"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="476"/>
         <source>Change Weather File</source>
         <translation>Thay đổi file thời tiết</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="466"/>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="470"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="479"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="483"/>
         <source>Set Weather File</source>
         <translation>Thiết lập file thời tiết</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="520"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="532"/>
         <source>EPW Files (*.epw);; All Files (*.*)</source>
         <translation>File EPW (*.epw);; Tất cả file (*.)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="531"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="543"/>
         <source>Open Weather File</source>
         <translation>Mở file thời tiết</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="617"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="629"/>
         <source>Failed To Set Weather File</source>
         <translation>Lỗi khi thiết lập file thời tiết</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="617"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="629"/>
         <source>Failed To Set Weather File To </source>
         <translation>Lỗi khi thiết lập file thời tiết tới </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="652"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="662"/>
         <source>Open DDY File</source>
         <translation>Mở file DDY</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="747"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="755"/>
         <source>No Design Days in DDY File</source>
         <translation>Không có Ngày thiết kế trong file DDY</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="748"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="756"/>
         <source>This DDY file does not contain any valid design days.  Check the DDY file itself for errors or omissions.</source>
         <translation>File DDY này không chứa dữ liệu đúng cho ngày thiết kế. Kiểm tra file DDY để soát lỗi.</translation>
     </message>
@@ -560,7 +552,7 @@ Zone</source>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="68"/>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="717"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="725"/>
         <source>&amp;Revert to Saved</source>
         <translation>&amp;Trở lại để lưu file</translation>
     </message>
@@ -618,187 +610,197 @@ Zone</source>
         <translation>&amp;Nạp thư viện</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="139"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="130"/>
+        <source>E&amp;xamples</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="132"/>
+        <source>&amp;Example Model</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="145"/>
         <source>E&amp;xit</source>
         <translation>T&amp;thoát</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="146"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="152"/>
         <source>&amp;Preferences</source>
         <translation>&amp;Các tuỳ biến</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="149"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="155"/>
         <source>&amp;Units</source>
         <translation>&amp;Đơn vị</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="151"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="157"/>
         <source>Metric (&amp;SI)</source>
         <translation>&amp;Hệ mét (&amp;SI)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="157"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="163"/>
         <source>English (&amp;I-P)</source>
         <translation>Hệ inch (&amp;I-P)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="163"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="169"/>
         <source>&amp;Change My Measures Directory</source>
         <translation>&amp;Thay đổi thư mục Measures</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="168"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="174"/>
         <source>&amp;Change Default Libraries</source>
         <translation>&amp;Thay đổi thư viện mặc định</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="173"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="179"/>
         <source>&amp;Configure External Tools</source>
         <translation>&amp;Cấu hình công cụ ngoại vi</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="178"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="184"/>
         <source>&amp;Language</source>
         <translation>&amp;Ngôn ngữ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="180"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="186"/>
         <source>English</source>
         <translation>Tiếng Anh</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="186"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="192"/>
         <source>French</source>
         <translation>Tiếng Pháp</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="192"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="198"/>
         <source>Arabic</source>
         <translation>Tiếng Ả rập</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="198"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="204"/>
         <source>Spanish</source>
         <translation>Tiếng Tây Ban Nha</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="204"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="210"/>
         <source>Farsi</source>
         <translation>Tiếng Ba Tư</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="210"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="216"/>
         <source>Hebrew</source>
         <translation>Tiếng Israel</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="216"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="222"/>
         <source>Italian</source>
         <translation>Tiếng Ý</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="222"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="228"/>
         <source>Chinese</source>
         <translation>Tiếng Trung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="228"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="234"/>
         <source>Greek</source>
         <translation>Tiếng Hy Lạp</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="234"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="240"/>
         <source>Polish</source>
         <translation>Tiếng Ba Lan</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="240"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="246"/>
         <source>Catalan</source>
         <translation>Tiếng Catalan</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="246"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="252"/>
         <source>Hindi</source>
         <translation>Tiếng Hindi</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="252"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="258"/>
         <source>Vietnamese</source>
         <translation>Tiếng Việt</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="258"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="264"/>
         <source>Japanese</source>
         <translation>Tiếng Nhật</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="264"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="270"/>
         <source>German</source>
         <translation>Tiếng Đức</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="270"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="276"/>
         <source>Add a new language</source>
         <translation>Thêm ngôn ngữ mới</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="287"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="293"/>
         <source>&amp;Configure Internet Proxy</source>
         <translation>&amp;Cấu hình Proxi Internet</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="349"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="355"/>
         <source>&amp;Components &amp;&amp; Measures</source>
         <translation>&amp;Thành phần &amp;&amp; Measures</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="352"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="358"/>
         <source>&amp;Apply Measure Now</source>
         <translation>&amp;Áp dụng Measure ngay bây giờ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="354"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="360"/>
         <source>Ctrl+M</source>
         <translation>Ctrl+M</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="358"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="364"/>
         <source>Find &amp;Measures</source>
         <translation>Tìm &amp;Measures</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="363"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="369"/>
         <source>Find &amp;Components</source>
         <translation>Tìm &amp;Thành phần</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="369"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="375"/>
         <source>&amp;Help</source>
         <translation>&amp;Trợ giúp</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="372"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="378"/>
         <source>OpenStudio &amp;Help</source>
         <translation>OpenStudio &amp;Help</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="376"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="382"/>
         <source>Check For &amp;Update</source>
         <translation>Kiểm tra &amp;Cập nhật</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="380"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="386"/>
         <source>&amp;About</source>
         <translation>&amp;Giới thiệu</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="702"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="710"/>
         <source>Adding a new language</source>
         <translation>Thêm ngôn ngữ mới</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="703"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="711"/>
         <source>Adding a new language requires almost no coding skill, but it does require language skills: the only thing to do is to translate each sentence/word with the help of a dedicated software.
 If you would like to see the OpenStudioApplication translated in your language of choice, we would welcome your help. Send an email to osc@openstudiocoalition.org specifying which language you want to add, and we will be in touch to help you get started.</source>
         <translation>Việc thêm một ngôn ngữ mới hầu như không yêu cầu kỹ năng viết mã, nhưng nó đòi hỏi kỹ năng ngôn ngữ: việc duy nhất cần làm là dịch từng câu / từ với sự trợ giúp của một phần mềm chuyên dụng.
@@ -808,153 +810,153 @@ Nếu bạn muốn thấy OpenStudioApplication được dịch sang ngôn ngữ
 <context>
     <name>openstudio::OSDocument</name>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1207"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1232"/>
         <source>Export Idf</source>
         <translation>Xuất ra Idf</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1207"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1232"/>
         <source>(*.idf)</source>
         <translation>(*.idf)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1244"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1267"/>
         <source>(*.xml)</source>
         <translation>(*.xml)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1372"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1406"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1481"/>
         <source>Failed to save model</source>
         <translation>Lỗi khi lưu mô hình</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1373"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1407"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1482"/>
         <source>Failed to save model, make sure that you do not have the location open and that you have correct write access.</source>
         <translation>Không lưu được mô hình, hãy đảm bảo rằng bạn đang không mở fileí và bạn có quyền được ghi.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1420"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1450"/>
         <source>Save</source>
         <translation>Lưu file</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1420"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1450"/>
         <source>(*.osm)</source>
         <translation>(*.osm)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1606"/>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1608"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1644"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1646"/>
         <source>Select My Measures Directory</source>
         <translation>Chọn thư mục Measures</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1689"/>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1755"/>
         <source>Online BCL</source>
-        <translation>BCL trực tuyến</translation>
+        <translation type="vanished">BCL trực tuyến</translation>
     </message>
 </context>
 <context>
     <name>openstudio::OpenStudioApp</name>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="251"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="259"/>
         <source>Timeout</source>
         <translation>Hết thời gian</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="253"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="261"/>
         <source>Failed to start the Measure Manager. Would you like to retry?</source>
         <translation>Không khởi động được Trình quản lý Measure. Bạn có muốn thử lại không?</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="388"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="400"/>
         <source>Loading Library Files</source>
         <translation>Đang nạp các file thư viện</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="389"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="401"/>
         <source>(Manage library files in Preferences-&gt;Change default libraries)</source>
         <translation>Quản lý các file thư viện trong mục tuỳ biến-&gt;Thay đổi các thư viện mặc định)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="406"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="418"/>
         <source>Translation From version </source>
         <translation>Dịch từ phiên bản </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="406"/>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1148"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="418"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1142"/>
         <source> to </source>
         <translation> tới </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="409"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="421"/>
         <source>Unknown starting version</source>
         <translation>Không biết phiên bản bắt đầu</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="482"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="496"/>
         <source>Import Idf</source>
         <translation>Nhập file Idf</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="482"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="496"/>
         <source>(*.idf)</source>
         <translation>(*.idf)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="513"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="527"/>
         <source>&apos; while OpenStudio uses a &lt;strong&gt;newer&lt;/strong&gt; EnergyPlus &apos;</source>
         <translation>&apos;trong khi OpenStudio sử dụng &lt;strong&gt; mới hơn &lt;/strong&gt; EnergyPlus&apos;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="514"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="528"/>
         <source>&apos;. Consider using the EnergyPlus Auxiliary program IDFVersionUpdater to update your IDF file.</source>
         <translation>&apos;. Cân nhắc sử dụng chương trình Phụ trợ EnergyPlus IDFVersionUpdater để cập nhật file IDF của bạn.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="516"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="530"/>
         <source>&apos; while OpenStudio uses an &lt;strong&gt;older&lt;/strong&gt; EnergyPlus &apos;</source>
         <translation>&apos;trong khi OpenStudio sử dụng EnergyPlus &lt;strong&gt; cũ hơn &lt;/strong&gt;&apos;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="516"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="530"/>
         <source>&apos;.</source>
         <translation>&apos;.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="518"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="532"/>
         <source>&apos; which is the &lt;strong&gt;same&lt;/strong&gt; version of EnergyPlus that OpenStudio uses (</source>
         <translation>&apos;là phiên bản &lt;strong&gt; giống &lt;/strong&gt; của EnergyPlus mà OpenStudio sử dụng (</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="522"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="536"/>
         <source>&lt;strong&gt;The IDF does not have a VersionObject&lt;/strong&gt;. Check that it is of correct version (</source>
         <translation>&lt;strong&gt; IDF không có VersionObject &lt;/strong&gt;. Kiểm tra xem nó có đúng phiên bản không (</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="523"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="537"/>
         <source>) and that all fields are valid against Energy+.idd. </source>
         <translation>) và tất cả các trường đều hợp lệ với Energy + .idd. </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="526"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="540"/>
         <source>&lt;br/&gt;&lt;br/&gt;The ValidityReport follows.</source>
         <translation>Sau đây là &lt;br/&gt; &lt;br/&gt; ValidityReport.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="528"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="542"/>
         <source>&lt;strong&gt;File is not valid to draft strictness&lt;/strong&gt;. Check that all fields are valid against Energy+.idd.</source>
         <translation>&lt;strong&gt; File không hợp lệ về tính nghiêm ngặt của bản nháp &lt;/strong&gt;. Kiểm tra xem tất cả các trường có hợp lệ với Energy + .idd hay không.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="534"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="548"/>
         <source> IDF Import Failed</source>
         <translation> Nhập file IDF không thành công</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="609"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="625"/>
         <source>=============== Errors ===============
 
 </source>
@@ -963,7 +965,7 @@ Nếu bạn muốn thấy OpenStudioApplication được dịch sang ngôn ngữ
 </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="617"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="633"/>
         <source>============== Warnings ==============
 
 </source>
@@ -972,7 +974,7 @@ Nếu bạn muốn thấy OpenStudioApplication được dịch sang ngôn ngữ
 </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="625"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="641"/>
         <source>==== The following idf objects were not imported ====
 
 </source>
@@ -981,191 +983,190 @@ Nếu bạn muốn thấy OpenStudioApplication được dịch sang ngôn ngữ
 </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="630"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="646"/>
         <source> named </source>
         <translation> đã đặt tên </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="632"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="648"/>
         <source>Unnamed </source>
         <translation>Chưa đặt tên </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="638"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="654"/>
         <source>&lt;strong&gt;Some portions of the IDF file were not imported.&lt;/strong&gt;</source>
         <translation>&lt;strong&gt; Một số phần của tệp IDF không được nhập. &lt;/strong&gt;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="644"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="660"/>
         <source>IDF Import</source>
         <translation>Nhập file IDF</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="647"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="663"/>
         <source>Only geometry, constructions, loads, thermal zones, and schedules are supported by the OpenStudio IDF import feature.</source>
         <translation>Chỉ hình học, cấu tạo, tải trọng, vùng nhiệt và lịch trình được hỗ trợ bởi tính năng nhập OpenStudio IDF.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="712"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="730"/>
         <source>Import </source>
         <translation>Nhập file </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="719"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="737"/>
         <source>(*.xml)</source>
         <translation>(*.xml)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="779"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="799"/>
         <source>Errors or warnings occurred on import of </source>
         <translation>Đã xảy ra lỗi hoặc cảnh báo khi nhập </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="789"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="809"/>
         <source>Could not import SDD file.</source>
         <translation>Không thể nhập file SDD.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="791"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="811"/>
         <source>Could not import </source>
         <translation>Không thể nhập </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="791"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="811"/>
         <source> file at </source>
         <translation> file tại </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="821"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="841"/>
         <source>Save Changes?</source>
         <translation>Lưu thay đổi?</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="822"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="842"/>
         <source>The document has been modified.</source>
         <translation>Tài liệu đã bị thay đổi.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="823"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="843"/>
         <source>Do you want to save your changes?</source>
         <translation>Bạn có muốn lưu thay đổi không?</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="889"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="909"/>
         <source>Open</source>
         <translation>Mở file</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="889"/>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1475"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="909"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1493"/>
         <source>(*.osm)</source>
         <translation>(*.osm)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="975"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="966"/>
         <source>A new version is available at &lt;a href=&quot;</source>
         <translation>Đã có phiên bản mới tại &lt;a href = &quot;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="980"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="971"/>
         <source>Currently using the most recent version</source>
         <translation>Hiện đang sử dụng phiên bản mới nhất</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="988"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="979"/>
         <source>Check for Updates</source>
         <translation>Kiểm tra cập nhật</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1002"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="993"/>
         <source>Measure Manager Server: </source>
         <translation>Máy chủ quản lý Measure: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1003"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="994"/>
         <source>Chrome Debugger: http://localhost:</source>
         <translation>Chrome Debugger: http://localhost:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1004"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="995"/>
         <source>Temp Directory: </source>
         <translation>Thư mục tạm thời: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1009"/>
         <source>About </source>
-        <translation>Giới thiệu </translation>
+        <translation type="vanished">Giới thiệu </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1040"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1034"/>
         <source>Failed to load model</source>
         <translation>Không tải được mô hình</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1146"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1140"/>
         <source>Opening future version </source>
         <translation>Mở phiên bản tương lai </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1146"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1140"/>
         <source> using </source>
         <translation> đang sử dụng </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1148"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1142"/>
         <source>Model updated from </source>
         <translation>Mô hình được cập nhật từ </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1157"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1151"/>
         <source>Existing Ruby scripts have been removed.
 Ruby scripts are no longer supported and have been replaced by measures.</source>
         <translation>Các tập lệnh Ruby hiện có đã bị xóa.
 Các tập lệnh Ruby không còn được hỗ trợ và đã được thay thế bằng các measures.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1164"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1158"/>
         <source>Failed to open file at </source>
         <translation>Không mở được tệp tại </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1187"/>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1320"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1181"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1336"/>
         <source>Settings file not writable</source>
         <translation>File cài đặt không thể ghi</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1188"/>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1321"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1182"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1337"/>
         <source>Your settings file &apos;</source>
         <translation>File cài đặt của bạn &apos;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1188"/>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1321"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1182"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1337"/>
         <source>&apos; is not writable. Adjust the file permissions</source>
         <translation>&apos;không thể ghi. Điều chỉnh quyền truy cập đối với file</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1209"/>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1221"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1203"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1215"/>
         <source>Revert to Saved</source>
         <translation>Hoàn lại để lưu</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1209"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1203"/>
         <source>This model has never been saved.
 Do you want to create a new model?</source>
         <translation>Mô hình này chưa bao giờ được lưu.
 Bạn có muốn tạo một mô hình mới không?</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1221"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1215"/>
         <source>Are you sure you want to revert to the last saved version?</source>
         <translation>Bạn có chắc chắn muốn hoàn lại về phiên bản đã lưu cuối cùng không?</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1263"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1279"/>
         <source>Measure Manager has crashed, attempting to restart
 
 </source>
@@ -1174,29 +1175,29 @@ Bạn có muốn tạo một mô hình mới không?</translation>
 </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1267"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1283"/>
         <source>Measure Manager has crashed</source>
         <translation>Trình quản lý Measủe đã lỗi</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1404"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1420"/>
         <source>Restart required</source>
         <translation>Cần khởi động lại</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1405"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1421"/>
         <source>A restart of the OpenStudio Application is required for language changes to be fully functionnal.
 Would you like to restart now?</source>
         <translation>Khởi động lại Ứng dụng OpenStudio là bắt buộc để các đổi qua ngôn ngữ có đầy đủ chức năng.
 Bạn có muốn khởi động lại ngay bây giờ?</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1475"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1493"/>
         <source>Select Library</source>
         <translation>Chọn thư viện</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1529"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1574"/>
         <source>Failed to load the following libraries...
 
 </source>
@@ -1205,7 +1206,7 @@ Bạn có muốn khởi động lại ngay bây giờ?</translation>
 </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1537"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1582"/>
         <source>
 
 Would you like to Restore library paths to default values or Open the library settings to change them manually?</source>
@@ -1220,6 +1221,19 @@ Bạn có muốn Khôi phục đường dẫn thư viện về giá trị mặc 
         <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="201"/>
         <source>Add/Remove Extensible Groups</source>
         <translation>Thêm/Bớt các nhóm có thể mở rộng</translation>
+    </message>
+</context>
+<context>
+    <name>openstudio::RunView</name>
+    <message>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="197"/>
+        <source>onRunProcessErrored: Simulation failed to run, QProcess::ProcessError: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="209"/>
+        <source>Simulation failed to run, with exit code </source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
