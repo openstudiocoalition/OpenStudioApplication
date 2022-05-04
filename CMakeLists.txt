@@ -689,6 +689,8 @@ foreach(D ${project_directories})
 endforeach()
 
 add_subdirectory("ruby")
+# Must be last in line, as it parses the sources files for the targets above
+add_subdirectory("translations")
 
 ###############################################################################
 #                        E X P O R T    T A R G E T S                         #
