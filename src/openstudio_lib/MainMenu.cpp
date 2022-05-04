@@ -195,11 +195,11 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, QWidget* p
   langMenu->addAction(m_langFrenchAction);
   connect(m_langFrenchAction, &QAction::triggered, this, &MainMenu::langFrenchClicked);
 
-  m_langArabicAction = new QAction(tr("Arabic"), this);
-  m_preferencesActions.push_back(m_langArabicAction);
-  m_langArabicAction->setCheckable(true);
-  langMenu->addAction(m_langArabicAction);
-  connect(m_langArabicAction, &QAction::triggered, this, &MainMenu::langArabicClicked);
+  // m_langArabicAction = new QAction(tr("Arabic"), this);
+  // m_preferencesActions.push_back(m_langArabicAction);
+  // m_langArabicAction->setCheckable(true);
+  // langMenu->addAction(m_langArabicAction);
+  // connect(m_langArabicAction, &QAction::triggered, this, &MainMenu::langArabicClicked);
 
   m_langSpanishAction = new QAction(tr("Spanish"), this);
   m_preferencesActions.push_back(m_langSpanishAction);
@@ -213,11 +213,11 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, QWidget* p
   langMenu->addAction(m_langFarsiAction);
   connect(m_langFarsiAction, &QAction::triggered, this, &MainMenu::langFarsiClicked);
 
-  m_langHebrewAction = new QAction(tr("Hebrew"), this);
-  m_preferencesActions.push_back(m_langHebrewAction);
-  m_langHebrewAction->setCheckable(true);
-  langMenu->addAction(m_langHebrewAction);
-  connect(m_langHebrewAction, &QAction::triggered, this, &MainMenu::langHebrewClicked);
+  // m_langHebrewAction = new QAction(tr("Hebrew"), this);
+  // m_preferencesActions.push_back(m_langHebrewAction);
+  // m_langHebrewAction->setCheckable(true);
+  // langMenu->addAction(m_langHebrewAction);
+  // connect(m_langHebrewAction, &QAction::triggered, this, &MainMenu::langHebrewClicked);
 
   m_langItalianAction = new QAction(tr("Italian"), this);
   m_preferencesActions.push_back(m_langItalianAction);
