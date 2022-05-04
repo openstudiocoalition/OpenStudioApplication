@@ -744,11 +744,9 @@ qt6_wrap_cpp(${target_name}_moc_src ${${target_name}_moc})
 # generate rules for building source files from the resources
 qt6_add_resources(${target_name}_qrcs ${${target_name}_qrc})
 
-add_custom_target(resources DEPENDS ${target_name}_qrcs)
-
 # No longer embedding the translation files
-#add_dependencies(resources translations)
-
+# add_custom_target(resources DEPENDS ${target_name}_qrcs)
+# add_dependencies(resources translations)
 
 add_library(${target_name}
   ${${target_name}_SRC}

@@ -126,7 +126,6 @@ add_executable(${target_name}
   ${${target_name}_moc_src}
   ${${target_name}_moc}
   ${ICON_SRC}
-  ${QM_FILES}
 )
 
 if (NINJA)

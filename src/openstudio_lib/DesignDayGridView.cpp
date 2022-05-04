@@ -428,8 +428,7 @@ void DesignDayGridController::addColumns(const QString& /*category*/, std::vecto
     }
 
     else if (field == HUMIDITYINDICATINGDAYSCHEDULE) {
-      addDropZoneColumn(Heading(HUMIDITYINDICATINGDAYSCHEDULE),
-                        CastNullAdapter<model::DesignDay>(&model::DesignDay::humidityConditionDaySchedule),
+      addDropZoneColumn(Heading(HUMIDITYINDICATINGDAYSCHEDULE), CastNullAdapter<model::DesignDay>(&model::DesignDay::humidityConditionDaySchedule),
                         CastNullAdapter<model::DesignDay>(&model::DesignDay::setHumidityConditionDaySchedule),
                         boost::optional<std::function<void(model::DesignDay*)>>(
                           CastNullAdapter<model::DesignDay>(&model::DesignDay::resetHumidityConditionDaySchedule)));
