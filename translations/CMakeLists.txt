@@ -1,3 +1,10 @@
+# If you want to explicitly trigger an update of the TS Files
+# make update_translations
+# or, explicitly
+# make translations_interface_lupdate
+
+# lrelease (TS => QM) is added to the 'ALL' target and will always run
+
 add_library(translations_interface INTERFACE)
 
 set(TS_FILES
