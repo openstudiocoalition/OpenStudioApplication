@@ -704,34 +704,9 @@ set(${target_name}_moc
   ../shared_gui_components/WorkflowView.hpp
   ../shared_gui_components/WaitDialog.hpp
   ../shared_gui_components/NetworkProxyDialog.hpp
-
 )
 
-set(TS_FILES
-  ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_fr.ts # French
-  ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_es.ts # Spanish
-  ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_ar.ts # Arabic
-  ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_he.ts # Hebrew
-  ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_fa.ts # Farsi-Persian
-  ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_it.ts # Italian
-  ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_zh_CN.ts # Chinese
-  ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_el.ts # Greek
-  ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_pl.ts # Polish
-  ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_ca.ts # Catalan
-  ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_hi.ts # Hindi
-  ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_vi.ts # Vietnamese
-  ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_ja.ts # Japanese
-  ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_de.ts # German
-)
-#set_source_files_properties(${TS_FILES} PROPERTIES OUTPUT_LOCATION $<TARGET_FILE_DIR:${target_name}>/translations)
-
-qt6_create_translation(QM_FILES
-  ${PROJECT_SOURCE_DIR}
-  ${${target_name}_SRC}
-  ${TS_FILES})
 #include_directories(SYSTEM ${RUBY_INCLUDE_DIRS})
-
-add_custom_target(translations ALL DEPENDS ${QM_FILES})
 
 # resource files
 set(${target_name}_qrc
@@ -756,7 +731,59 @@ add_library(${target_name}
   #${QM_FILES}
 )
 
-add_dependencies(${target_name} translations)
+set(TS_FILES
+  ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_fr.ts # French
+  ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_es.ts # Spanish
+  ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_ar.ts # Arabic
+  ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_he.ts # Hebrew
+  ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_fa.ts # Farsi-Persian
+  ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_it.ts # Italian
+  ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_zh_CN.ts # Chinese
+  ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_el.ts # Greek
+  ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_pl.ts # Polish
+  ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_ca.ts # Catalan
+  ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_hi.ts # Hindi
+  ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_vi.ts # Vietnamese
+  ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_ja.ts # Japanese
+  ${PROJECT_SOURCE_DIR}/translations/OpenStudioApp_de.ts # German
+)
+
+# NOTE: generator expressions aren' supported in set_source_files_properties
+# set_source_files_properties(${TS_FILES} PROPERTIES OUTPUT_LOCATION $<TARGET_FILE_DIR:${target_name}>/translations/)
+# And this wouldn't work on windows/multi config
+# set_source_files_properties(${TS_FILES} PROPERTIES OUTPUT_LOCATION "${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/translations")
+# So we do nothing, we let it go to the CMAKE_CURRENT_BINARY_DIR, and we'll copy them manually below
+
+# By passing QM_FILES_OUTPUT_VARIABLE, we instruct Qt to not automatically embed the generate .qm files into a Qt resource that will be linked to ${target_name}
+# We will handle placing them in the correct location on disk
+
+# qt6_add_translations(${target_name} TS_FILES ${TS_FILES} QM_FILES_OUTPUT_VARIABLE QM_FILES)
+
+# I'm passing INCLUDE_DIRECTORIES and SOURCES to avoid getting a way too long list from the target itself
+# This isn't working. `make update_translations` updates the TS files but everything outside of this folder is just removed
+
+set(TS_SOURCES ${${target_name}_SRC})
+set(target_names
+  openstudioapp_utilities
+  openstudio_modeleditor
+  openstudio_bimserver
+)
+foreach(target_name ${target_names})
+  get_target_property(TARGET_SOURCE_DIR ${target_name} SOURCE_DIR)
+  get_target_property(TARGET_SOURCES ${target_name} SOURCES)
+  foreach(source ${TARGET_SOURCES})
+    get_filename_component(combined_path ${TARGET_SOURCE_DIR}/${source} ABSOLUTE)
+    list(APPEND TS_SOURCES ${combined_path})
+  endforeach()
+endforeach()
+message("TS_SOURCES=${TS_SOURCES}")
+
+qt6_add_translations(${target_name} TS_FILES ${TS_FILES} QM_FILES_OUTPUT_VARIABLE QM_FILES INCLUDE_DIRECTORIES ${PROJECT_SOURCE_DIR}
+  SOURCES
+    ${TS_SOURCES}
+)
+
+# message("QM_FILES=${QM_FILES}")
 
 if(APPLE)
   set(WEBENGINE_PAK_FOLDER "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Versions/A/Resources/qtwebengine_locales")
@@ -844,10 +871,6 @@ add_custom_command(TARGET ${target_name}
   COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qt_de.qm $<TARGET_FILE_DIR:${target_name}>/translations/
   COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qtbase_de.qm $<TARGET_FILE_DIR:${target_name}>/translations/
   COMMAND ${CMAKE_COMMAND} -E copy_if_different ${WEBENGINE_PAK_FOLDER}/vi.pak $<TARGET_FILE_DIR:${target_name}>/translations/qtwebengine_locales/
-
-
-
-  DEPENDS ${QM_FILES}
 )
 
 if (NINJA)
