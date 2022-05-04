@@ -399,7 +399,8 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
                               boost::optional<std::function<bool(model::SubSurface*)>>(), DataSource(allSubSurfaces, true));
       } else if (field == SUBSURFACETYPE) {
         addComboBoxColumn<std::string, model::SubSurface>(
-          Heading(QString(SUBSURFACETYPE)), static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
+          Heading(QString(SUBSURFACETYPE)),
+          std::function<std::string(const std::string&)>(static_cast<std::string (*)(const std::string&)>(&openstudio::toString)),
           std::function<std::vector<std::string>()>(&model::SubSurface::validSubSurfaceTypeValues),
           CastNullAdapter<model::SubSurface>(&model::SubSurface::subSurfaceType),
           CastNullAdapter<model::SubSurface>(&model::SubSurface::setSubSurfaceType),
@@ -407,7 +408,7 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
             CastNullAdapter<model::SubSurface>(&model::SubSurface::resetSubSurfaceType)),  // New since 3.1.0
           boost::optional<std::function<bool(model::SubSurface*)>>(
             CastNullAdapter<model::SubSurface>(&model::SubSurface::isSubSurfaceTypeDefaulted)),  // New since 3.1.0
-          boost::optional<DataSource>(allSubSurfaces, true));
+          DataSource(allSubSurfaces, true));
       } else if (field == MULTIPLIER) {
         addValueEditColumn(Heading(QString(MULTIPLIER)), NullAdapter(&model::SubSurface::multiplier), NullAdapter(&model::SubSurface::setMultiplier),
                            boost::optional<std::function<void(model::SubSurface*)>>(NullAdapter(&model::SubSurface::resetMultiplier)),
