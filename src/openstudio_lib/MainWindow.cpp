@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -119,6 +119,7 @@ MainWindow::MainWindow(bool isPlugin, QWidget* parent) : QMainWindow(parent), m_
   connect(mainMenu, &MainMenu::configureExternalToolsClicked, this, &MainWindow::configureExternalToolsClicked);
   connect(mainMenu, &MainMenu::changeLanguageClicked, this, &MainWindow::changeLanguageClicked);
   connect(mainMenu, &MainMenu::loadLibraryClicked, this, &MainWindow::loadLibraryClicked);
+  connect(mainMenu, &MainMenu::loadExampleModelClicked, this, &MainWindow::loadExampleModelClicked);
   connect(mainMenu, &MainMenu::saveAsFileClicked, this, &MainWindow::saveAsFileClicked);
   connect(mainMenu, &MainMenu::saveFileClicked, this, &MainWindow::saveFileClicked);
   connect(mainMenu, &MainMenu::revertFileClicked, this, &MainWindow::revertFileClicked);
@@ -262,6 +263,7 @@ void MainWindow::readSettings() {
   restoreGeometry(settings.value("geometry").toByteArray());
   restoreState(settings.value("state").toByteArray());
   m_displayIP = settings.value("displayIP").toBool();
+  m_verboseOutput = settings.value("verboseOutput").toBool();
   m_currLang = settings.value("language", "en").toString();
   LOG_FREE(Debug, "MainWindow", "\n\n\nm_currLang=[" << m_currLang.toStdString() << "]\n\n\n");
   if (m_currLang.isEmpty()) {
@@ -278,6 +280,7 @@ void MainWindow::writeSettings() {
   settings.setValue("geometry", saveGeometry());
   settings.setValue("state", saveState());
   settings.setValue("displayIP", m_displayIP);
+  settings.setValue("verboseOutput", m_verboseOutput);
   settings.setValue("language", m_currLang);
 }
 
@@ -291,6 +294,14 @@ QString MainWindow::lastPath() const {
 
 void MainWindow::toggleUnits(bool displayIP) {
   m_displayIP = displayIP;
+}
+
+bool MainWindow::verboseOutput() const {
+  return m_verboseOutput;
+}
+
+void MainWindow::toggleVerboseOutput(bool verboseOutput) {
+  m_verboseOutput = verboseOutput;
 }
 
 void MainWindow::changeLanguage(const QString& rLanguage) {

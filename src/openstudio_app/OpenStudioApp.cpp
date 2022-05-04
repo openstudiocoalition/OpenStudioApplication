@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -193,7 +193,7 @@ OpenStudioApp::OpenStudioApp(int& argc, char** argv)
 #ifdef Q_OS_DARWIN
   std::stringstream webenginePath;
   webenginePath << QCoreApplication::applicationDirPath().toStdString();
-  webenginePath << "/../Frameworks/QtWebEngineCore.framework/Versions/5/Helpers/QtWebEngineProcess.app/Contents/MacOS/QtWebEngineProcess";
+  webenginePath << "/../Frameworks/QtWebEngineCore.framework/Versions/A/Helpers/QtWebEngineProcess.app/Contents/MacOS/QtWebEngineProcess";
   if (filesystem::exists(filesystem::path(webenginePath.str()))) {
     setenv("QTWEBENGINEPROCESS_PATH", webenginePath.str().c_str(), true);
   }
@@ -218,21 +218,25 @@ OpenStudioApp::OpenStudioApp(int& argc, char** argv)
   // We are using the wait dialog to lock out the app so
   // use processEvents to make sure the dialog is up before we
   // proceed to startMeasureManagerProcess
-  processEvents();
+  do {
+    processEvents();
+  } while (!waitDialog()->isVisible());
 
   // Non blocking
   startMeasureManagerProcess();
 
-  auto waitForMeasureManagerFuture = QtConcurrent::run(&measureManager(), &MeasureManager::waitForStarted, 10000);
+  auto waitForMeasureManagerFuture = QtConcurrent::run(&MeasureManager::waitForStarted, &measureManager(), 10000);
   m_waitForMeasureManagerWatcher.setFuture(waitForMeasureManagerFuture);
   connect(&m_waitForMeasureManagerWatcher, &QFutureWatcher<void>::finished, this, &OpenStudioApp::onMeasureManagerAndLibraryReady);
 
-  auto buildCompLibrariesFuture = QtConcurrent::run(this, &OpenStudioApp::buildCompLibraries);
+  auto buildCompLibrariesFuture = QtConcurrent::run(&OpenStudioApp::buildCompLibraries, this);
   m_buildCompLibWatcher.setFuture(buildCompLibrariesFuture);
   connect(&m_buildCompLibWatcher, &QFutureWatcher<std::vector<std::string>>::finished, this, &OpenStudioApp::onMeasureManagerAndLibraryReady);
 }
 
 OpenStudioApp::~OpenStudioApp() {
+  disconnect();
+
   if (m_measureManagerProcess) {
     m_measureManagerProcess->disconnect();
     m_measureManagerProcess->kill();
@@ -287,6 +291,8 @@ void OpenStudioApp::onMeasureManagerAndLibraryReady() {
 
       boost::optional<openstudio::model::Model> model = versionTranslator.loadModel(toPath(fileName));
       if (model) {
+
+        disconnectOSDocumentSignals();
 
         m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), model, fileName, false, startTabIndex()));
 
@@ -357,6 +363,8 @@ bool OpenStudioApp::openFile(const QString& fileName, bool restoreTabs) {
       // transparent + hidden by Filedialog which isn't closed yet.
       waitDialog()->setVisible(true);
       processEvents();
+
+      disconnectOSDocumentSignals();
 
       m_osDocument =
         std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), model, fileName, false, startTabIndex, startSubTabIndex));
@@ -465,6 +473,8 @@ void OpenStudioApp::newFromEmptyTemplateSlot() {
 }
 
 void OpenStudioApp::newFromTemplateSlot(NewFromTemplateEnum newFromTemplateEnum) {
+  disconnectOSDocumentSignals();
+
   m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), boost::none, QString(), false, startTabIndex()));
 
   connectOSDocumentSignals();
@@ -562,6 +572,8 @@ void OpenStudioApp::importIdf() {
           }
           processEvents();
         }
+
+        disconnectOSDocumentSignals();
 
         m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), model, QString(), false, startTabIndex()));
         m_osDocument->markAsModified();
@@ -689,6 +701,8 @@ void OpenStudioApp::importIFC() {
       processEvents();
     }
 
+    disconnectOSDocumentSignals();
+
     m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), *model, QString(), false, startTabIndex()));
 
     m_osDocument->markAsModified();
@@ -750,6 +764,8 @@ void OpenStudioApp::import(OpenStudioApp::fileType type) {
         }
         processEvents();
       }
+
+      disconnectOSDocumentSignals();
 
       m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), *model, QString(), false, startTabIndex()));
       m_osDocument->markAsModified();
@@ -902,35 +918,6 @@ void OpenStudioApp::open() {
   waitDialog()->resetLabels();
 }
 
-//void OpenStudioApp::loadLibrary()
-//{
-//  if( this->currentDocument() )
-//  {
-//    QWidget * parent = this->currentDocument()->mainWindow();
-//
-//
-//    QString fileName = QFileDialog::getOpenFileName( parent,
-//                                                    tr("Select Library"),
-//                                                    toQString(resourcesPath()),
-//                                                    tr("(*.osm)") );
-//
-//    if( ! (fileName == "") )
-//    {
-//      osversion::VersionTranslator versionTranslator;
-//      versionTranslator.setAllowNewerVersions(false);
-//
-//      boost::optional<openstudio::model::Model> model = versionTranslator.loadModel(toPath(fileName));
-//      if( model ) {
-//        this->currentDocument()->setComponentLibrary(*model);
-//        versionUpdateMessageBox(versionTranslator, true, fileName, openstudio::path());
-//      }else{
-//        LOG_FREE(Warn, "OpenStudio", "Could not open file at " << toString(fileName));
-//        versionUpdateMessageBox(versionTranslator, false, fileName, openstudio::path());
-//      }
-//    }
-//  }
-//}
-
 void OpenStudioApp::newModel() {
   bool wasQuitOnLastWindowClosed = this->quitOnLastWindowClosed();
   this->setQuitOnLastWindowClosed(false);
@@ -959,7 +946,7 @@ void OpenStudioApp::newModel() {
 }
 
 void OpenStudioApp::showHelp() {
-  QDesktopServices::openUrl(QUrl("http:/openstudiocoalition.org/reference/openstudio_application_interface/"));
+  QDesktopServices::openUrl(QUrl("https://openstudiocoalition.org/reference/openstudio_application_interface/"));
 }
 
 void OpenStudioApp::checkForUpdate() {
@@ -1009,8 +996,11 @@ void OpenStudioApp::showAbout() {
   QMessageBox about(parent);
   about.setText(OPENSTUDIOAPP_ABOUTBOX);
   about.setDetailedText(details);
-  about.setStyleSheet("qproperty-alignment: AlignCenter;");
-  about.setWindowTitle(tr("About ") + applicationName());
+  about.setStyleSheet("qproperty-alignment: AlignLeft;");
+  about.setWindowTitle("About " + applicationName());
+
+  about.setIconPixmap(QPixmap(":/images/os_128.png"));
+
   about.exec();
 }
 
@@ -1247,10 +1237,32 @@ void OpenStudioApp::connectOSDocumentSignals() {
   connect(m_osDocument.get(), &OSDocument::configureExternalToolsClicked, this, &OpenStudioApp::configureExternalTools);
   connect(m_osDocument.get(), &OSDocument::changeLanguageClicked, this, &OpenStudioApp::changeLanguage);
   connect(m_osDocument.get(), &OSDocument::loadLibraryClicked, this, &OpenStudioApp::loadLibrary);
+  connect(m_osDocument.get(), &OSDocument::loadExampleModelClicked, this, &OpenStudioApp::loadExampleModel);
   connect(m_osDocument.get(), &OSDocument::newClicked, this, &OpenStudioApp::newModel);
   connect(m_osDocument.get(), &OSDocument::helpClicked, this, &OpenStudioApp::showHelp);
   connect(m_osDocument.get(), &OSDocument::checkForUpdateClicked, this, &OpenStudioApp::checkForUpdate);
   connect(m_osDocument.get(), &OSDocument::aboutClicked, this, &OpenStudioApp::showAbout);
+}
+
+void OpenStudioApp::disconnectOSDocumentSignals() {
+  if (m_osDocument) {
+    disconnect(m_osDocument.get(), &OSDocument::closeClicked, this, &OpenStudioApp::onCloseClicked);
+    disconnect(m_osDocument.get(), &OSDocument::exitClicked, this, &OpenStudioApp::quit);
+    disconnect(m_osDocument.get(), &OSDocument::importClicked, this, &OpenStudioApp::importIdf);
+    disconnect(m_osDocument.get(), &OSDocument::importgbXMLClicked, this, &OpenStudioApp::importgbXML);
+    disconnect(m_osDocument.get(), &OSDocument::importSDDClicked, this, &OpenStudioApp::importSDD);
+    disconnect(m_osDocument.get(), &OSDocument::importIFCClicked, this, &OpenStudioApp::importIFC);
+    disconnect(m_osDocument.get(), &OSDocument::loadFileClicked, this, &OpenStudioApp::open);
+    disconnect(m_osDocument.get(), &OSDocument::osmDropped, this, &OpenStudioApp::openFromDrag);
+    disconnect(m_osDocument.get(), &OSDocument::changeDefaultLibrariesClicked, this, &OpenStudioApp::changeDefaultLibraries);
+    disconnect(m_osDocument.get(), &OSDocument::configureExternalToolsClicked, this, &OpenStudioApp::configureExternalTools);
+    disconnect(m_osDocument.get(), &OSDocument::loadLibraryClicked, this, &OpenStudioApp::loadLibrary);
+    disconnect(m_osDocument.get(), &OSDocument::loadExampleModelClicked, this, &OpenStudioApp::loadExampleModel);
+    disconnect(m_osDocument.get(), &OSDocument::newClicked, this, &OpenStudioApp::newModel);
+    disconnect(m_osDocument.get(), &OSDocument::helpClicked, this, &OpenStudioApp::showHelp);
+    disconnect(m_osDocument.get(), &OSDocument::checkForUpdateClicked, this, &OpenStudioApp::checkForUpdate);
+    disconnect(m_osDocument.get(), &OSDocument::aboutClicked, this, &OpenStudioApp::showAbout);
+  }
 }
 
 void OpenStudioApp::measureManagerProcessStateChanged(QProcess::ProcessState newState) {}
@@ -1490,12 +1502,39 @@ void OpenStudioApp::loadLibrary() {
         paths.push_back(path);
         writeLibraryPaths(paths);
 
-        auto future = QtConcurrent::run(this, &OpenStudioApp::buildCompLibraries);
+        auto future = QtConcurrent::run(&OpenStudioApp::buildCompLibraries, this);
         m_changeLibrariesWatcher.setFuture(future);
         connect(&m_changeLibrariesWatcher, &QFutureWatcher<std::vector<std::string>>::finished, this, &OpenStudioApp::onChangeDefaultLibrariesDone);
       }
     }
   }
+}
+
+void OpenStudioApp::loadExampleModel() {
+
+  bool wasQuitOnLastWindowClosed = this->quitOnLastWindowClosed();
+  this->setQuitOnLastWindowClosed(false);
+
+  if (m_osDocument) {
+    if (!closeDocument()) {
+      this->setQuitOnLastWindowClosed(wasQuitOnLastWindowClosed);
+      return;
+    }
+    processEvents();
+  }
+
+  disconnectOSDocumentSignals();
+
+  processEvents();
+
+  auto model = openstudio::model::exampleModel();
+  m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), model, QString(), false, startTabIndex()));
+
+  connectOSDocumentSignals();
+
+  waitDialog()->hide();
+
+  this->setQuitOnLastWindowClosed(wasQuitOnLastWindowClosed);
 }
 
 void OpenStudioApp::changeDefaultLibraries() {
@@ -1514,7 +1553,7 @@ void OpenStudioApp::changeDefaultLibraries() {
     writeLibraryPaths(newPaths);
 
     // Trigger actual loading of the libraries
-    auto future = QtConcurrent::run(this, &OpenStudioApp::buildCompLibraries);
+    auto future = QtConcurrent::run(&OpenStudioApp::buildCompLibraries, this);
     m_changeLibrariesWatcher.setFuture(future);
     connect(&m_changeLibrariesWatcher, &QFutureWatcher<std::vector<std::string>>::finished, this, &OpenStudioApp::onChangeDefaultLibrariesDone);
   }

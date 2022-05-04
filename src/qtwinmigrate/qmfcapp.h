@@ -45,10 +45,12 @@
 
 #include <QApplication>
 
-#if defined(_AFXDLL) && defined(_MSC_VER)
-#  define QTWINMIGRATE_WITHMFC
+// DLM: we don't want this defined
+//#ifndef QTWINMIGRATE_WITHMFC
+//#  define QTWINMIGRATE_WITHMFC
+//#endif
+
 class CWinApp;
-#endif
 
 #if defined(Q_OS_WIN)
 #  if !defined(QT_QTWINMIGRATE_EXPORT) && !defined(QT_QTWINMIGRATE_IMPORT)
@@ -73,7 +75,11 @@ class QT_QTWINMIGRATE_EXPORT QMfcAppEventFilter : public QAbstractNativeEventFil
 {
  public:
   QMfcAppEventFilter();
-  bool nativeEventFilter(const QByteArray& eventType, void* message, long* result);
+#  if QT_VERSION >= 0x060000
+  bool nativeEventFilter(const QByteArray& eventType, void* message, qintptr* result) override;
+#  else
+  bool nativeEventFilter(const QByteArray& eventType, void* message, long* result) override;
+#  endif
 };
 #endif
 
@@ -90,7 +96,11 @@ class QT_QTWINMIGRATE_EXPORT QMfcApp : public QApplication
   QMfcApp(int& argc, char** argv);
   ~QMfcApp();
 
+#if QT_VERSION >= 0x060000
+  bool winEventFilter(MSG* msg, qintptr* result);
+#else
   bool winEventFilter(MSG* msg, long* result);
+#endif
 
   static void enterModalLoop();
   static void exitModalLoop();

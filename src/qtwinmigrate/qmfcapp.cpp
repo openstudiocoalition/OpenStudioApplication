@@ -71,7 +71,12 @@ int QMfcApp::mfc_argc = 0;
 
 QMfcAppEventFilter::QMfcAppEventFilter() : QAbstractNativeEventFilter() {}
 
-bool QMfcAppEventFilter::nativeEventFilter(const QByteArray&, void* message, long* result) {
+#  if QT_VERSION >= 0x060000
+bool QMfcAppEventFilter::nativeEventFilter(const QByteArray&, void* message, qintptr* result)
+#  else
+bool QMfcAppEventFilter::nativeEventFilter(const QByteArray&, void* message, long* result)
+#  endif
+{
   return static_cast<QMfcApp*>(qApp)->winEventFilter((MSG*)message, result);
 }
 #endif
@@ -300,7 +305,11 @@ QApplication* QMfcApp::instance(CWinApp* mfcApp) {
 }
 
 static bool qmfc_eventFilter(void* message) {
+#  if QT_VERSION >= 0x060000
+  qintptr result = 0;
+#  else
   long result = 0;
+#  endif
   return static_cast<QMfcApp*>(qApp)->winEventFilter((MSG*)message, &result);
 }
 
@@ -380,7 +389,12 @@ QMfcApp::~QMfcApp() {
 /*!
     \reimp
 */
-bool QMfcApp::winEventFilter(MSG* msg, long* result) {
+#if QT_VERSION >= 0x060000
+bool QMfcApp::winEventFilter(MSG* msg, qintptr* result)
+#else
+bool QMfcApp::winEventFilter(MSG* msg, long* result)
+#endif
+{
   static bool recursion = false;
   if (recursion) return false;
 

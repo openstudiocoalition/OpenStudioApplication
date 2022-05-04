@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -134,6 +134,9 @@ DebugWebView::DebugWebView(const QString& debugPort, QWidget* parent) : QDialog(
 
   m_view = new QWebEngineView(this);
   m_view->settings()->setAttribute(QWebEngineSettings::WebAttribute::LocalContentCanAccessRemoteUrls, true);
+  m_view->settings()->setAttribute(QWebEngineSettings::WebAttribute::LocalContentCanAccessFileUrls, true);
+  m_view->settings()->setAttribute(QWebEngineSettings::WebAttribute::AllowRunningInsecureContent, true);
+  m_view->settings()->setAttribute(QWebEngineSettings::WebAttribute::AllowGeolocationOnInsecureOrigins, true);
   m_view->settings()->setAttribute(QWebEngineSettings::WebAttribute::SpatialNavigationEnabled, true);
 
   //mainLayout->addWidget(m_view, 10, Qt::AlignTop);
@@ -1156,24 +1159,15 @@ EditorWebView::EditorWebView(bool isIP, const openstudio::model::Model& model, Q
   //}
 
   m_view = new QWebEngineView(this);
-  m_view->settings()->setAttribute(QWebEngineSettings::WebAttribute::LocalContentCanAccessRemoteUrls, true);
-  m_view->settings()->setAttribute(QWebEngineSettings::WebAttribute::SpatialNavigationEnabled, true);
 
   m_page = new OSWebEnginePage(this);
   m_view->setPage(m_page);  // note, view does not take ownership of page
-
-  //connect(m_view, &QWebEngineView::loadFinished, this, &EditorWebView::onLoadFinished);
-  //connect(m_view, &QWebEngineView::loadProgress, this, &EditorWebView::onLoadProgress);
-  //connect(m_view, &QWebEngineView::loadStarted, this, &EditorWebView::onLoadStarted);
-  //connect(m_view, &QWebEngineView::renderProcessTerminated, this, &EditorWebView::onRenderProcessTerminated);
 
   connect(m_page, &OSWebEnginePage::loadFinished, this, &EditorWebView::onLoadFinished);
   connect(m_page, &OSWebEnginePage::loadProgress, this, &EditorWebView::onLoadProgress);
   connect(m_page, &OSWebEnginePage::loadStarted, this, &EditorWebView::onLoadStarted);
   connect(m_page, &OSWebEnginePage::renderProcessTerminated, this, &EditorWebView::onRenderProcessTerminated);
 
-  // Qt 5.8 and higher
-  m_view->settings()->setAttribute(QWebEngineSettings::AllowRunningInsecureContent, true);
   // Force QWebEngineView to fill the rest of the space
   m_view->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 

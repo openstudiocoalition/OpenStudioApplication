@@ -10,7 +10,7 @@ if(CCACHE_PROGRAM)
   set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "${CCACHE_PROGRAM}")
 endif()
 
-project(OpenStudioApplication VERSION 1.2.1)
+project(OpenStudioApplication VERSION 1.3.1)
 
 # Check system info globally so we can use it everywhere after: Has to be done before FindOpenStudioSDK.cmake
 if(APPLE)
@@ -25,10 +25,16 @@ if(APPLE)
   # The output is like 10.12.6 or 10.13, let's strip the end component if any
   string(REGEX REPLACE "^([0-9]+\\.[0-9]+)\\.?.*" "\\1" OSX_VERSION_MAJOR_MINOR ${OSX_VERSION})
 
+  find_program(UNAME uname)
+  execute_process(COMMAND ${UNAME} -m
+    OUTPUT_VARIABLE ARCH
+    OUTPUT_STRIP_TRAILING_WHITESPACE
+  )
+
 elseif(UNIX)
   # OS_RELEASE is the result of `uname -r` which is unhelpful (eg '5.4.0-42-generic')
   find_program(LSB_RELEASE lsb_release)
-  # -rs outputs only 16.04, or 18.04
+  # -rs outputs only version, e.g. 20.04
   execute_process(COMMAND ${LSB_RELEASE} -rs OUTPUT_VARIABLE LSB_RELEASE_VERSION_SHORT OUTPUT_STRIP_TRAILING_WHITESPACE)
 
   # -is outputs "Ubuntu" or "Fedora"
@@ -65,7 +71,7 @@ include("${CONAN_INSTALL_FILE}")
 # But it also works with single-config builds
 macro(FindValue ValueName)
   set(LocalVar "")
-  set(LocalVar $<$<CONFIG:Debug>:${${ValueName}_DEBUG}>$<$<CONFIG:Release>:${${ValueName}_RELEASE}>$<$<CONFIG:RelWithDebInfo>:${$ValueName}_RELWITHDEBINFO}>$<$<CONFIG:MinSizeRel>:${${ValueName}_MINSIZEREL}>
+  set(LocalVar $<$<CONFIG:Debug>:${${ValueName}_DEBUG}>$<$<CONFIG:Release>:${${ValueName}_RELEASE}>$<$<CONFIG:RelWithDebInfo>:${${ValueName}_RELWITHDEBINFO}>$<$<CONFIG:MinSizeRel>:${${ValueName}_MINSIZEREL}>
   )
 #  list(JOIN LocalVar "" LocalVar)
   string(STRIP ${LocalVar} LocalVar)
@@ -359,6 +365,9 @@ if(MSVC)
   # all warnings - DLM: probably too high to ever use
   #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Wall")
 
+  # needed for compiling with Qt6
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Zc:__cplusplus /permissive-")
+
   # create compiler processes on all effective processors
   # /MP is useless for ninja and will cause problems. BUILD_WITH_MULTIPLE_PROCESSES shouldn't have been set if ninja but let's be safe
   if(BUILD_WITH_MULTIPLE_PROCESSES AND NOT NINJA)
@@ -443,10 +452,9 @@ set(SWIG_EXECUTABLE "${CURRENT_CONAN_SWIG_ROOT}/bin/swig")
 set(SWIG_LIB "${CURRENT_CONAN_SWIG_ROOT}/bin/swiglib")
 
 # Qt
-# e.g. QT_INSTALL_DIR = C:/Qt-5.15.0/5.15.0/msvc2019_64
+# e.g. QT_INSTALL_DIR = C:/Qt/6.3.0/msvc2019_64
 set(QT_INSTALL_DIR "" CACHE PATH "Path to Qt Install")
-mark_as_advanced(QT_INSTALL_DIR)
-set(QT_VERSION "5.15.0")
+set(QT_VERSION "6.3.0")
 #if(NOT EXISTS ${QT_INSTALL_DIR})
   ## download qt
   #if(WIN32)
@@ -505,27 +513,15 @@ set(QT_VERSION "5.15.0")
   #set(QT_INSTALL_DIR "${PROJECT_BINARY_DIR}/Qt-install/${QT_VERSION}/win64_msvc2019_64")
 #endif()
 
+# TODO: how to set OPENSSL_ROOT_DIR to a generator expression?
+set(OPENSSL_ROOT_DIR ${CONAN_OPENSSL_ROOT_RELEASE})
+message(STATUS "OPENSSL_ROOT_DIR=${OPENSSL_ROOT_DIR}")
+
 message(STATUS "QT_INSTALL_DIR=${QT_INSTALL_DIR}")
 
-find_package(Qt5Core ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-find_package(Qt5Widgets ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-find_package(Qt5Sql ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-find_package(Qt5Network ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-find_package(Qt5Xml ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-find_package(Qt5Concurrent ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-find_package(Qt5PrintSupport ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-find_package(Qt5Gui ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-find_package(Qt5Quick ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-find_package(Qt5QuickWidgets ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-find_package(Qt5Qml ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-find_package(Qt5WebChannel ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-find_package(Qt5Positioning ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+find_package(Qt6 ${QT_VERSION} COMPONENTS CoreTools GuiTools WidgetsTools QmlTools WebEngineCoreTools REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
 
-find_package(Qt5WebEngine ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-find_package(Qt5WebEngineWidgets ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-#find_package(Qt53DCore ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-#find_package(Qt53DInput ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-#find_package(Qt53DRender ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+find_package(Qt6 ${QT_VERSION} COMPONENTS Core Core5Compat Gui Widgets Sql Network Xml Concurrent PrintSupport Quick QuickWidgets Qml WebChannel Positioning WebEngineCore WebEngineWidgets REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
 
 find_package(Qt5LinguistTools ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
 
@@ -542,51 +538,41 @@ find_file(qweb_resources_200 NAMES qtwebengine_resources_200p.pak PATHS "${QT_IN
 
 # DLM: why do we have QT_WEB_LIBS separate from QT_LIBS?  can we combine these?
 # DLM: now the distincton should be between Qt libs linked by openstudio_modeleditor.so and the OS App
-list(APPEND QT_WEB_LIBS Qt5::Core)
-list(APPEND QT_WEB_LIBS Qt5::Gui)
-list(APPEND QT_WEB_LIBS Qt5::WebEngine)
-list(APPEND QT_WEB_LIBS Qt5::WebEngineCore)
-list(APPEND QT_WEB_LIBS Qt5::WebEngineWidgets)
-#list(APPEND QT_WEB_LIBS Qt5::3DCore)
-#list(APPEND QT_WEB_LIBS Qt5::3DInput)
-#list(APPEND QT_WEB_LIBS Qt5::3DRender)
+list(APPEND QT_WEB_LIBS Qt6::Core)
+list(APPEND QT_WEB_LIBS Qt6::Core5Compat)
+list(APPEND QT_WEB_LIBS Qt6::Widgets)
+list(APPEND QT_WEB_LIBS Qt6::WebEngineCore)
+list(APPEND QT_WEB_LIBS Qt6::WebEngineWidgets)
+#list(APPEND QT_WEB_LIBS Qt6::3DCore)
+#list(APPEND QT_WEB_LIBS Qt6::3DInput)
+#list(APPEND QT_WEB_LIBS Qt6::3DRender)
 set_target_properties(${QT_WEB_LIBS} PROPERTIES INTERFACE_LINK_LIBRARIES "")
 
 if(NOT APPLE)
 
-    find_package(Qt5WebChannel ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-    list(APPEND QT_WEB_LIBS Qt5::WebChannel)
+    find_package(Qt6WebChannel ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+    list(APPEND QT_WEB_LIBS Qt6::WebChannel)
 
-    find_package(Qt5Quick ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-    list(APPEND QT_WEB_LIBS Qt5::Quick)
+    find_package(Qt6Quick ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+    list(APPEND QT_WEB_LIBS Qt6::Quick)
 
-    find_package(Qt5QuickWidgets ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-    list(APPEND QT_WEB_LIBS Qt5::QuickWidgets)
+    find_package(Qt6QuickWidgets ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+    list(APPEND QT_WEB_LIBS Qt6::QuickWidgets)
 
-    find_package(Qt5Qml ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-    list(APPEND QT_WEB_LIBS Qt5::Qml)
+    find_package(Qt6Qml ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+    list(APPEND QT_WEB_LIBS Qt6::Qml)
 
-    find_package(Qt5QmlModels ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-    list(APPEND QT_WEB_LIBS Qt5::QmlModels)
+    find_package(Qt6QmlModels ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+    list(APPEND QT_WEB_LIBS Qt6::QmlModels)
 
-    find_package(Qt5Positioning ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-    list(APPEND QT_WEB_LIBS Qt5::Positioning)
+    find_package(Qt6Positioning ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+    list(APPEND QT_WEB_LIBS Qt6::Positioning)
 
     if(UNIX)
-      find_package(Qt5DBus ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-      list(APPEND QT_WEB_LIBS Qt5::DBus)
+      find_package(Qt6DBus ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+      list(APPEND QT_WEB_LIBS Qt6::DBus)
 
-      # there does not appear to be a normal qt finder for this
-      # DLM: actually there is, it is a plugin associated with Qt5::Gui
-      #message( Qt5Gui_PLUGINS = ${Qt5Gui_PLUGINS})
-      #get_target_property(Qt5QXcbIntegrationPlugin_LOCATION Qt5::QXcbIntegrationPlugin LOCATION)
-      #get_target_property(Qt5QXcbIntegrationPlugin_TYPE Qt5::QXcbIntegrationPlugin TYPE)
-      #message("Qt5::QXcbIntegrationPlugin Location = ${Qt5QXcbIntegrationPlugin_LOCATION}")
-      #message("Qt5::QXcbIntegrationPlugin Type = ${Qt5QXcbIntegrationPlugin_TYPE}")
-      list(APPEND QT_PLUGINS Qt5::QXcbIntegrationPlugin)
-      # This one doesn't end up in bin/platforms/, but in bin/xcbglintegrations/ so do not append, will be treated separately
-      # list(APPEND QT_PLUGINS Qt5::QXcbGlxIntegrationPlugin)
-      find_library(QT_QXCBQPA NAMES libQt5XcbQpa.so.${QT_VERSION} PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
+      find_library(QT_QXCBQPA NAMES libQt6XcbQpa.so.${QT_VERSION} PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
 
       find_library(QT_ICU icui18n REQUIRED PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
       find_library(QT_ICUDATA icudata REQUIRED PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
@@ -602,43 +588,51 @@ if(NOT APPLE)
 endif()
 
 if(APPLE)
-  find_package(Qt5DBus ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-  list(APPEND QT_WEB_LIBS Qt5::DBus)
+  find_package(Qt6DBus ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+  list(APPEND QT_WEB_LIBS Qt6::DBus)
 endif()
 
-list(APPEND QT_LIBS Qt5::Core)
-list(APPEND QT_LIBS Qt5::Widgets)
-list(APPEND QT_LIBS Qt5::Network)
-list(APPEND QT_LIBS Qt5::Xml)
-list(APPEND QT_LIBS Qt5::Concurrent)
-list(APPEND QT_LIBS Qt5::PrintSupport)
-list(APPEND QT_LIBS Qt5::Gui)
+list(APPEND QT_LIBS Qt6::Core)
+list(APPEND QT_LIBS Qt6::Core5Compat)
+list(APPEND QT_LIBS Qt6::Widgets)
+list(APPEND QT_LIBS Qt6::Network)
+list(APPEND QT_LIBS Qt6::Xml)
+list(APPEND QT_LIBS Qt6::PrintSupport)
+list(APPEND QT_LIBS Qt6::Gui)
 
 if(WIN32)
-  find_package(Qt5WinExtras ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-  list(APPEND QT_LIBS Qt5::WinExtras)
+  find_package(Qt6OpenGL ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+  list(APPEND QT_LIBS Qt6::OpenGL)
 
-  find_library(QT_MAIN_LIB NAMES qtmain PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
-  find_library(QT_MAIN_LIB_D NAMES qtmaind PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
+  find_program(QT_WINDEPLOY_QT NAMES windeployqt.exe PATHS "${QT_INSTALL_DIR}/bin" NO_DEFAULT_PATH)
+
+  find_library(QT_ENTRYPOINT_LIB NAMES Qt6EntryPoint PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
+  find_library(QT_ENTRYPOINT_LIB_D NAMES Qt6EntryPointd PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
 endif()
 
-list(APPEND QT_INCLUDES ${Qt5Core_INCLUDE_DIRS})
-list(APPEND QT_INCLUDES ${Qt5Concurrent_INCLUDE_DIRS})
-list(APPEND QT_INCLUDES ${Qt5Widgets_INCLUDE_DIRS})
-list(APPEND QT_INCLUDES ${Qt5Xml_INCLUDE_DIRS})
-list(APPEND QT_INCLUDES ${Qt5Network_INCLUDE_DIRS})
-list(APPEND QT_INCLUDES ${Qt5Gui_INCLUDE_DIRS})
+if(UNIX AND NOT APPLE)
+  # Apparently libqxcb.so depends on libQt6OpenGL.so in Qt 6.3.0 (it depended on libGL on 5.15.0 but not OpenGL)
+  find_package(Qt6OpenGL ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+  list(APPEND QT_LIBS Qt6::OpenGL)
+endif()
+
+list(APPEND QT_INCLUDES ${Qt6Core_INCLUDE_DIRS})
+list(APPEND QT_INCLUDES ${Qt6Concurrent_INCLUDE_DIRS})
+list(APPEND QT_INCLUDES ${Qt6Widgets_INCLUDE_DIRS})
+list(APPEND QT_INCLUDES ${Qt6Xml_INCLUDE_DIRS})
+list(APPEND QT_INCLUDES ${Qt6Network_INCLUDE_DIRS})
+list(APPEND QT_INCLUDES ${Qt6Gui_INCLUDE_DIRS})
 list(APPEND QT_INCLUDES "${QT_INSTALL_DIR}/include/QtGui/${QT_VERSION}/QtGui") # needed by qtwinmigrate
-list(APPEND QT_INCLUDES ${Qt5PrintSupport_INCLUDE_DIRS})
+list(APPEND QT_INCLUDES ${Qt6PrintSupport_INCLUDE_DIRS})
 
 # DLM: added this, but seems to conflict with idea of a separate set of Qt Web dependencies?
-list(APPEND QT_INCLUDES ${Qt5Network_INCLUDE_DIRS})
-list(APPEND QT_INCLUDES ${Qt5WebEngine_INCLUDE_DIRS})
-list(APPEND QT_INCLUDES ${Qt5WebEngineCore_INCLUDE_DIRS})
-list(APPEND QT_INCLUDES ${Qt5WebEngineWidgets_INCLUDE_DIRS})
+list(APPEND QT_INCLUDES ${Qt6Network_INCLUDE_DIRS})
+list(APPEND QT_INCLUDES ${Qt6WebEngine_INCLUDE_DIRS})
+list(APPEND QT_INCLUDES ${Qt6WebEngineCore_INCLUDE_DIRS})
+list(APPEND QT_INCLUDES ${Qt6WebEngineWidgets_INCLUDE_DIRS})
 
 if(UNIX)
-  list(APPEND QT_INCLUDES ${Qt5XcbQpa_INCLUDE_DIRS})
+  list(APPEND QT_INCLUDES ${Qt6XcbQpa_INCLUDE_DIRS})
 endif()
 
 set(CMAKE_AUTOMOC OFF)
@@ -766,7 +760,7 @@ endif()
 # Leaving it
 set(CPACK_IFW_VERBOSE ON)
 
-set(CPACK_PACKAGE_VENDOR "National Renewable Energy Laboratory")
+set(CPACK_PACKAGE_VENDOR "OpenStudio Coalition")
 # These are ok, even if we have a prerelease tag
 set(CPACK_PACKAGE_VERSION_MAJOR ${OpenStudioApplication_VERSION_MAJOR})
 set(CPACK_PACKAGE_VERSION_MINOR ${OpenStudioApplication_VERSION_MINOR})
@@ -790,7 +784,7 @@ else()
   set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${OPENSTUDIOAPPLICATION_LONG_VERSION}-${CMAKE_SYSTEM_NAME}")
 endif()
 
-set(CPACK_PACKAGE_CONTACT "openstudio@nrel.gov")
+set(CPACK_PACKAGE_CONTACT "osc@openstudiocoalition.org")
 
   # Install additional Documents, such as release notes
   install(FILES "${PROJECT_SOURCE_DIR}/QT_LICENSE_GPL_3_0.txt" DESTINATION .)
@@ -804,7 +798,6 @@ elseif(UNIX)
   # For debug
   # set(CPACK_DEBIAN_PACKAGE_DEBUG ON)
 
-  # Trusty (14.04) uses 3.0-0, all other including Xenial (16.04) and most importantly the supported one Bionic (18.04) use 3.0-0v5
   # Focal Fossa (20.04) uses libwxgtk3.0-gtk3-0v5, apparently need libxcb-xinerama0 as well
   set(CPACK_DEBIAN_PACKAGE_DEPENDS "libxcb-xinerama0 (>= 1.13), libwxgtk3.0-0v5 (>= 3.0.0) | libwxgtk3.0-0 (>=3.0.0) | libwxgtk3.0-gtk3-0v5 (>=3.0.0)")
 

@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -48,7 +48,9 @@
 
 namespace openstudio {
 
-class OSComboBoxDataSource : public QObject, public Nano::Observer
+class OSComboBoxDataSource
+  : public QObject
+  , public Nano::Observer
 {
   Q_OBJECT
 
@@ -104,7 +106,9 @@ class OSObjectListCBDS : public OSComboBoxDataSource
   QList<WorkspaceObject> m_workspaceObjects;
 };
 
-class OSComboBox2 : public QComboBox, public Nano::Observer
+class OSComboBox2
+  : public QComboBox
+  , public Nano::Observer
 {
   Q_OBJECT
  public:

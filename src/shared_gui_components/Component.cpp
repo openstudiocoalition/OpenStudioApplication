@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -82,7 +82,7 @@ Component::Component(const BCLMeasure& bclMeasure, bool showAbridgedView, bool s
   if (!m_available) {
     if (m_checkBox) {
       m_checkBox->setChecked(false);
-      m_checkBox->setEnabled(false);
+      setCheckBoxEnabled(false);
       m_updateAvailable = false;
       if (m_msg) {
         m_msg->setText("This measure requires a newer version of OpenStudio");
@@ -92,7 +92,8 @@ Component::Component(const BCLMeasure& bclMeasure, bool showAbridgedView, bool s
   } else if (m_error) {
     // This measures has been pre-filtered and is known to require an update but has an error
     m_checkBox->setChecked(false);
-    m_checkBox->setEnabled(false);
+    setCheckBoxEnabled(false);
+    m_checkBox->setObjectName("Disabled");
     m_updateAvailable = false;
     if (m_msg) {
       m_msg->setText("This measure cannot be updated because it has an error");
@@ -101,7 +102,8 @@ Component::Component(const BCLMeasure& bclMeasure, bool showAbridgedView, bool s
   } else {
     // This measures has been pre-filtered and is known to require an update
     m_checkBox->setChecked(false);
-    m_checkBox->setEnabled(true);
+    setCheckBoxEnabled(true);
+    m_checkBox->setObjectName("UpdateAvailable");
     m_updateAvailable = true;
     if (m_msg) {
       m_msg->setText("An update is available for this measure");
@@ -140,14 +142,14 @@ Component::Component(const BCLSearchResult& bclSearchResult, bool showAbridgedVi
     if (LocalBCL::instance().getComponent(this->uid(), this->versionId())) {
       if (m_checkBox) {
         m_checkBox->setChecked(true);
-        m_checkBox->setEnabled(false);
+        setCheckBoxEnabled(false);
         m_updateAvailable = false;
       }
       // This component has an update
     } else if (LocalBCL::instance().getComponent(this->uid())) {
       if (m_checkBox) {
         m_checkBox->setChecked(false);
-        m_checkBox->setEnabled(true);
+        setCheckBoxUpdateAvailable(true);
         m_updateAvailable = true;
         if (m_msg) {
           m_msg->setText("An update is available for this component");
@@ -158,7 +160,7 @@ Component::Component(const BCLSearchResult& bclSearchResult, bool showAbridgedVi
     } else {
       if (m_checkBox) {
         m_checkBox->setChecked(false);
-        m_checkBox->setEnabled(true);
+        setCheckBoxEnabled(true);
         m_updateAvailable = false;
       }
     }
@@ -167,7 +169,7 @@ Component::Component(const BCLSearchResult& bclSearchResult, bool showAbridgedVi
     if (!m_available) {
       if (m_checkBox) {
         m_checkBox->setChecked(false);
-        m_checkBox->setEnabled(false);
+        setCheckBoxEnabled(false);
         m_updateAvailable = false;
         if (m_msg) {
           m_msg->setText("This measure requires a newer version of OpenStudio");
@@ -179,14 +181,14 @@ Component::Component(const BCLSearchResult& bclSearchResult, bool showAbridgedVi
       if (LocalBCL::instance().getMeasure(this->uid(), this->versionId())) {
         if (m_checkBox) {
           m_checkBox->setChecked(true);
-          m_checkBox->setEnabled(false);
+          setCheckBoxEnabled(false);
           m_updateAvailable = false;
         }
         // This measure has an update
       } else if (LocalBCL::instance().getMeasure(this->uid())) {
         if (m_checkBox) {
           m_checkBox->setChecked(false);
-          m_checkBox->setEnabled(true);
+          setCheckBoxUpdateAvailable(true);
           m_updateAvailable = true;
           if (m_msg) {
             m_msg->setText("An update is available for this measure");
@@ -197,7 +199,7 @@ Component::Component(const BCLSearchResult& bclSearchResult, bool showAbridgedVi
       } else {
         if (m_checkBox) {
           m_checkBox->setChecked(false);
-          m_checkBox->setEnabled(true);
+          setCheckBoxEnabled(true);
           m_updateAvailable = false;
         }
       }
@@ -263,8 +265,6 @@ Component::Component(const Component& other) {
   }
 }
 
-Component::~Component() {}
-
 // TODO The copy code for both operator= and copy CTOR should be in a common function
 Component& Component::operator=(const Component& other) {
   ///! no self-assignment
@@ -308,10 +308,6 @@ std::string Component::versionId() const {
   return toString(m_versionId);
 }
 
-QCheckBox* Component::checkBox() {
-  return m_checkBox;
-}
-
 QLabel* Component::msg() {
   return m_msg;
 }
@@ -319,6 +315,37 @@ QLabel* Component::msg() {
 void Component::setChecked(bool checked) {
   QAbstractButton::setChecked(checked);
   emit clicked(checked);
+}
+
+bool Component::checkBoxChecked() const {
+  return m_checkBox->isChecked();
+}
+
+void Component::setCheckBoxChecked(bool checked) {
+  m_checkBox->setChecked(checked);
+}
+
+bool Component::checkBoxEnabled() const {
+  return m_checkBox->isEnabled();
+}
+
+void Component::setCheckBoxEnabled(bool enabled) {
+  if (enabled) {
+    m_checkBox->setEnabled(true);
+    m_checkBox->setObjectName("Enabled");
+  } else {
+    m_checkBox->setEnabled(false);
+    m_checkBox->setObjectName("Disabled");
+  }
+  m_checkBox->style()->unpolish(m_checkBox);
+  m_checkBox->style()->polish(m_checkBox);
+}
+
+void Component::setCheckBoxUpdateAvailable(bool enabled) {
+  m_checkBox->setEnabled(enabled);
+  m_checkBox->setObjectName("UpdateAvailable");
+  m_checkBox->style()->unpolish(m_checkBox);
+  m_checkBox->style()->polish(m_checkBox);
 }
 
 void Component::parseBCLMeasure(const BCLMeasure& bclMeasure) {
@@ -340,7 +367,7 @@ void Component::parseBCLMeasure(const BCLMeasure& bclMeasure) {
 
   boost::optional<VersionString> minCompatibleVersion;
   boost::optional<VersionString> maxCompatibleVersion;
-  Q_FOREACH (const BCLFileReference& fileReference, m_fileReferences) {
+  for (const BCLFileReference& fileReference : m_fileReferences) {
     if (fileReference.usageType() == "script" && fileReference.softwareProgram() == "OpenStudio") {
       minCompatibleVersion = fileReference.minCompatibleVersion();
       maxCompatibleVersion = fileReference.maxCompatibleVersion();
@@ -382,7 +409,7 @@ void Component::parseBCLSearchResult(const BCLSearchResult& bclSearchResult) {
 
   boost::optional<VersionString> minCompatibleVersion;
   boost::optional<VersionString> maxCompatibleVersion;
-  Q_FOREACH (const BCLFile& file, m_files) {
+  for (const BCLFile& file : m_files) {
     if (file.usageType() == "script" && file.softwareProgram() == "OpenStudio") {
       minCompatibleVersion = file.minCompatibleVersion();
       maxCompatibleVersion = file.maxCompatibleVersion();
@@ -398,12 +425,12 @@ void Component::parseBCLSearchResult(const BCLSearchResult& bclSearchResult) {
   }
 
   VersionString currentVersion(openStudioVersion());
+  m_available = true;
   if (minCompatibleVersion && (*minCompatibleVersion) > currentVersion) {
     m_available = false;
-  } else if (maxCompatibleVersion && (*maxCompatibleVersion) < currentVersion) {
+  }
+  if (maxCompatibleVersion && (*maxCompatibleVersion) < currentVersion) {
     m_available = false;
-  } else {
-    m_available = true;
   }
 }
 
@@ -418,7 +445,7 @@ void Component::createAbridgedLayout() {
 
   QString string;
 
-  auto leftLayout = new QVBoxLayout();
+  auto* leftLayout = new QVBoxLayout();
 
   string = "Name: ";
   string += m_name;
@@ -462,7 +489,7 @@ void Component::createAbridgedLayout() {
   m_msg->setHidden(true);
   leftLayout->addWidget(m_msg);
 
-  auto mainLayout = new QHBoxLayout();
+  auto* mainLayout = new QHBoxLayout();
   mainLayout->addLayout(leftLayout);
   mainLayout->addStretch();
   mainLayout->addWidget(m_checkBox);
@@ -474,7 +501,7 @@ void Component::createCompleteLayout() {
 
   QString string;
 
-  auto mainLayout = new QVBoxLayout();
+  auto* mainLayout = new QVBoxLayout();
 
   QTableWidget* tableWidget = nullptr;
 
@@ -517,7 +544,7 @@ void Component::createCompleteLayout() {
   for (const Attribute& attribute : m_attributes) {
     tableWidget->insertRow(tableWidget->rowCount());
 
-    QTableWidgetItem* item = new QTableWidgetItem(attribute.name().c_str());
+    auto* item = new QTableWidgetItem(attribute.name().c_str());
     tableWidget->setItem(tableWidget->rowCount() - 1, 0, item);
 
     boost::optional<std::string> optionalUnits = attribute.units();
@@ -595,7 +622,7 @@ void Component::createCompleteLayout() {
         name = argument.name();
       }
 
-      QTableWidgetItem* item = new QTableWidgetItem(name.c_str());
+      auto* item = new QTableWidgetItem(name.c_str());
       tableWidget->setItem(tableWidget->rowCount() - 1, 0, item);
 
       std::string type = argument.type();
@@ -679,7 +706,7 @@ void Component::createCompleteLayout() {
     mainLayout->addWidget(label);
   }
 
-  if (m_provenances.size() == 0) {
+  if (m_provenances.empty()) {
     label = new QLabel();
     mainLayout->addWidget(label);
   }
@@ -702,7 +729,7 @@ void Component::createCompleteLayout() {
   setLayout(mainLayout);
 }
 
-void Component::paintEvent(QPaintEvent* event) {
+void Component::paintEvent(QPaintEvent* /*event*/) {
   QPainter p(this);
 
   if (isChecked()) {

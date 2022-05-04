@@ -1,14 +1,14 @@
 #ifndef OPENSTUDIOAPP_ABOUTBOX
 
 #define OPENSTUDIOAPP_ABOUTBOX \
-"<h2>OpenStudio Application</h2> \
+  "<h2>OpenStudio Application</h2> \
 <p>Version: ${OPENSTUDIOAPPLICATION_LONG_VERSION}</p> \
 <p>Compiler: ${ABOUT_COMPILER}</p> \
 <p><a href='https://openstudio.net'>OpenStudio SDK (core)</a> version: ${openstudio_VERSION}</p> \
-<p>Copyright &copy; 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.</p> \
+<p>Copyright &copy; 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.</p> \
 <p>OpenStudio is a cross-platform tool to support whole building energy and daylight modeling using <a href='http://apps1.eere.energy.gov/buildings/energyplus/'>EnergyPlus</a> and <a href='http://www.radiance-online.org/'>Radiance</a>.</p> \
-<p>OpenStudio uses the following QT modules (version 5.15.0) that are dynamically linked using GNU Lesser General Public License (LGPL): \
+<p>OpenStudio uses the following QT modules (version 6.3.0) that are dynamically linked using GNU Lesser General Public License (LGPL): \
 <font size='2'> Qt5Core, Qt5Widgets, Qt5Sql, Qt5Network, Qt5Xml, Qt5Concurrent, Qt5PrintSupport, Qt5Gui,Qt5Quick, Qt5QuickWidgets, Qt5Qml, Qt5WebChannel, Qt5Positioning, Qt5WebEngine, Qt5WebEngineWidgets, QtWebEngineCore, Qt5DBus, Qt5WinExtras</font> </p> \
-<p> For information on QT, please refer to <a href='https://doc.qt.io/qt-5.15/qtmodules.html'>QT</a></p> \
+<p> For information on QT, please refer to <a href='https://doc.qt.io/qt-6.2/qtmodules.html'>QT</a></p> \
 <p> A copy of the GPL 3.0 and LGPL 3.0 are included in the root path of your installation directory.</p>"
-#endif // OPENSTUDIOAPP_ABOUTBOX
+#endif  // OPENSTUDIOAPP_ABOUTBOX

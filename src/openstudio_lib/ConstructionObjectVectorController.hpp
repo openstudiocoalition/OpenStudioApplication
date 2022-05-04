@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -74,7 +74,7 @@ class ConstructionObjectVectorController : public ModelObjectVectorController
  private:
   REGISTER_LOGGER("openstudio::ConstructionObjectVectorController");
 
-  void insert(const OSItemId& itemId, int position = -1, bool deleteExisting = false);
+  void insert(const OSItemId& itemId, int insertPosition = -1, boost::optional<int> erasePosition_ = boost::none);
 
   bool m_reportScheduled;
   QMutex* m_reportItemsMutex;
@@ -87,7 +87,7 @@ class ConstructionObjectVectorController : public ModelObjectVectorController
     UNKNOWN
   };
 
-  LayerType getLayerType(IddObjectType iddObjectType);
+  static LayerType getLayerType(IddObjectType iddObjectType);
   QWidget* parentWidget();
 
   QWidget* m_parentWidget;

@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -591,7 +591,7 @@ boost::optional<model::ScheduleRuleset> SchedulesView::currentSchedule() {
 
 void SchedulesView::paintEvent(QPaintEvent* event) {
   QStyleOption opt;
-  opt.init(this);
+  opt.initFrom(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
@@ -855,7 +855,7 @@ void ScheduleTabHeader::resizeEvent(QResizeEvent* event) {
 
 void ScheduleTabHeader::paintEvent(QPaintEvent* event) {
   QStyleOption opt;
-  opt.init(this);
+  opt.initFrom(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
@@ -1027,7 +1027,7 @@ void ScheduleTabRule::scheduleRefresh() {
 
 void ScheduleTabRule::paintEvent(QPaintEvent* event) {
   QStyleOption opt;
-  opt.init(this);
+  opt.initFrom(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 
@@ -1140,7 +1140,7 @@ ScheduleTabDefault::ScheduleTabDefault(ScheduleTab* scheduleTab, ScheduleTabDefa
 
 void ScheduleTabDefault::paintEvent(QPaintEvent* event) {
   QStyleOption opt;
-  opt.init(this);
+  opt.initFrom(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 
@@ -2080,7 +2080,7 @@ void MonthView::update() {
 
 ScheduleCalendarWidget::ScheduleCalendarWidget(MonthView* monthView) : QCalendarWidget(monthView), m_monthView(monthView) {}
 
-void ScheduleCalendarWidget::paintCell(QPainter* painter, const QRect& rect, const QDate& date) const {
+void ScheduleCalendarWidget::paintCell(QPainter* painter, const QRect& rect, QDate date) const {
   painter->setBrush(QBrush(QColor(230, 230, 230)));
 
   if (date.month() == m_monthView->month()) {

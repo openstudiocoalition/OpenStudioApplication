@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -58,7 +58,9 @@ class QVBoxLayout;
 
 class ComboHighlightBridge;
 
-class MODELEDITOR_API IGWidget : public QWidget, public Nano::Observer
+class MODELEDITOR_API IGWidget
+  : public QWidget
+  , public Nano::Observer
 {
  public:
   IGWidget(QWidget* parent = nullptr);
@@ -92,7 +94,9 @@ class IGComboBox : public QComboBox
  * Choice is displayed as a ComboBox
  *
  */
-class MODELEDITOR_API InspectorGadget : public QWidget, public Nano::Observer
+class MODELEDITOR_API InspectorGadget
+  : public QWidget
+  , public Nano::Observer
 {
 
   Q_OBJECT
@@ -285,8 +289,6 @@ class MODELEDITOR_API InspectorGadget : public QWidget, public Nano::Observer
   void createExtensibleToolBar(QVBoxLayout* layout, QWidget* parent, const openstudio::IddObjectProperties& props);
 
   void checkRemoveBtn(QPushButton* btn);
-
-  void stripchar(std::string& strip, char c);
 
   QVBoxLayout* m_layout;
   QScrollArea* m_scroll;

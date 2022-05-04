@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -193,15 +193,15 @@ void StartupView::paintEvent(QPaintEvent* event) {
 
   painter.setRenderHint(QPainter::Antialiasing);
 
-  QImage leftHeader = QImage(":/images/image_header.png");
-  painter.drawImage(0, 0, leftHeader);
-
   QImage centerHeader = QImage(":/images/header-backgnd-1px-wide.png");
 
   int i;
-  for (i = leftHeader.width(); i < width(); i++) {
+  for (i = 0; i < width(); i++) {
     painter.drawImage(i, 0, centerHeader);
   }
+
+  QImage leftHeader = QImage(":/images/image_header.png");
+  painter.drawImage(0, 0, leftHeader);
 }
 
 QSize StartupView::sizeHint() const {
@@ -210,8 +210,8 @@ QSize StartupView::sizeHint() const {
 
 void StartupView::mousePressEvent(QMouseEvent* event) {
   if (event->button() == Qt::LeftButton) {
-    if (event->y() < 50) {
-      dragPosition = event->globalPos() - frameGeometry().topLeft();
+    if (event->position().toPoint().y() < 50) {
+      dragPosition = event->globalPosition().toPoint() - frameGeometry().topLeft();
       event->accept();
       _move = true;
     } else {
@@ -223,7 +223,7 @@ void StartupView::mousePressEvent(QMouseEvent* event) {
 void StartupView::mouseMoveEvent(QMouseEvent* event) {
   if (event->buttons() & Qt::LeftButton) {
     if (_move) {
-      move(event->globalPos() - dragPosition);
+      move(event->globalPosition().toPoint() - dragPosition);
       event->accept();
     }
   }

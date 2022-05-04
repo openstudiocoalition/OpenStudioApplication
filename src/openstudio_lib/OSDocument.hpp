@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -137,7 +137,7 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
 
   // Returns the index of the current sub tab.
   // Returns -1 if there are no sub tabs.
-  int subTabIndex();
+  int subTabIndex() const;
 
   enum VerticalTabID
   {
@@ -193,6 +193,8 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
   void changeLanguageClicked(const QString& rLanguage);
 
   void loadLibraryClicked();
+
+  void loadExampleModelClicked();
 
   void newClicked();
 
@@ -328,8 +330,6 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
   openstudio::model::Model m_hvacCompLibrary;
 
   openstudio::path m_resourcesPath;
-
-  LibraryTabWidget* m_libraryTabWidget;
 
   MainWindow* m_mainWindow;
 

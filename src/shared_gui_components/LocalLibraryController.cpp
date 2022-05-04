@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -166,7 +166,7 @@ void LocalLibraryController::showMyMeasuresFolder() {
                              QMessageBox::Ok);
   } else {
     QString path = QDir::toNativeSeparators(toQString(umd));
-    QDesktopServices::openUrl(QUrl("file:///" + path));
+    QDesktopServices::openUrl(QUrl::fromLocalFile(path));
   }
 }
 
@@ -399,7 +399,7 @@ LibraryItem::LibraryItem(const BCLMeasure& bclMeasure, LocalLibrary::LibrarySour
   : OSListItem(), m_bclMeasure(bclMeasure), m_source(source), m_app(t_app) {
   boost::optional<VersionString> minCompatibleVersion;
   boost::optional<VersionString> maxCompatibleVersion;
-  Q_FOREACH (const BCLFileReference& fileReference, bclMeasure.files()) {
+  for (const BCLFileReference& fileReference : bclMeasure.files()) {
     if (fileReference.usageType() == "script" && fileReference.softwareProgram() == "OpenStudio") {
       minCompatibleVersion = fileReference.minCompatibleVersion();
       maxCompatibleVersion = fileReference.maxCompatibleVersion();

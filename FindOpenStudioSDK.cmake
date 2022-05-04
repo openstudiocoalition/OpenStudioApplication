@@ -1,40 +1,44 @@
 set(OPENSTUDIO_VERSION_MAJOR 3)
-set(OPENSTUDIO_VERSION_MINOR 2)
-set(OPENSTUDIO_VERSION_PATCH 1)
+set(OPENSTUDIO_VERSION_MINOR 4)
+set(OPENSTUDIO_VERSION_PATCH 0)
 set(OPENSTUDIO_VERSION "${OPENSTUDIO_VERSION_MAJOR}.${OPENSTUDIO_VERSION_MINOR}.${OPENSTUDIO_VERSION_PATCH}")
 
-#If this is a release enter the SHA as "+79857912c4"
-#set(OPENSTUDIO_VERSION_SHA "+09b7c8a554")
-#If this is a pre-release enter the pre-release and SHA as "-rc1+79857912c4"
-set(OPENSTUDIO_VERSION_SHA "+bdbdbc9da6")
+#If this is an official release, leave this "", otherwise put for eg '-rc1'
+set(OPENSTUDIO_VERSION_PRERELEASE "-rc2")
+# Enter SHA, always, eg "+79857912c4"
+set(OPENSTUDIO_VERSION_SHA "+b449d8b1b4")
 
 # Paths where the cmake-downloaded archives will be put
 set(OPENSTUDIO_ARCHIVE_DIR "${PROJECT_BINARY_DIR}/OpenStudio-${OPENSTUDIO_VERSION}")
 
+set(OPENSTUDIO_EXT "tar.gz")
+
 # If downloaded, we need the SHA to match. This block is here since we need "OPENSTUDIO_PLATFORM" anyways
 if(APPLE)
-  set(OPENSTUDIO_EXPECTED_HASH 5733364813912cb5256fb338faa82e47)
-  set(OPENSTUDIO_PLATFORM "Darwin")
-  set(OPENSTUDIO_EXT "tar.gz")
-elseif(UNIX)
+  if(ARCH MATCHES "arm64")
+    set(OPENSTUDIO_EXPECTED_HASH c04b11d4997da27032bf7f24237cb8b9)
+    set(OPENSTUDIO_PLATFORM "Darwin-arm64")
+  else()
+    set(OPENSTUDIO_EXPECTED_HASH c3e14ed39c076143fe33323d4d337c7e)
+    set(OPENSTUDIO_PLATFORM "Darwin")
+  endif()
 
+elseif(UNIX)
   if(LSB_RELEASE_VERSION_SHORT MATCHES "20.04")
-    set(OPENSTUDIO_EXPECTED_HASH dce4f2eff5985d94255a1a49bc3aa97f)
+    set(OPENSTUDIO_EXPECTED_HASH 8ecff20e81020daf9026a34bb442645b)
     set(OPENSTUDIO_PLATFORM "Ubuntu-20.04")
   else() # Assumes 18.04
-    set(OPENSTUDIO_EXPECTED_HASH 521802b1176ba7cd4a2ed4a94a347484)
+    set(OPENSTUDIO_EXPECTED_HASH 302037550c05297a42035bbebade68bd)
     set(OPENSTUDIO_PLATFORM "Ubuntu-18.04")
   endif()
-  set(OPENSTUDIO_EXT "tar.gz")
 
 elseif(WIN32)
-  set(OPENSTUDIO_EXPECTED_HASH 0ab2fdc4de81bd268732ffca6cb50a61)
+  set(OPENSTUDIO_EXPECTED_HASH 02c3e63a0663b6b207ac54d70abacb11)
   set(OPENSTUDIO_PLATFORM "Windows")
-  set(OPENSTUDIO_EXT "tar.gz")
 endif()
 
 
-set(OPENSTUDIO_ARCHIVE_BASENAME "OpenStudio-${OPENSTUDIO_VERSION}${OPENSTUDIO_VERSION_SHA}-${OPENSTUDIO_PLATFORM}")
+set(OPENSTUDIO_ARCHIVE_BASENAME "OpenStudio-${OPENSTUDIO_VERSION}${OPENSTUDIO_VERSION_PRERELEASE}${OPENSTUDIO_VERSION_SHA}-${OPENSTUDIO_PLATFORM}")
 set(OPENSTUDIO_ARCHIVE_NAME "${OPENSTUDIO_ARCHIVE_BASENAME}.${OPENSTUDIO_EXT}"
   CACHE STRING "Archive Name, with extension" FORCE)
 
@@ -56,7 +60,7 @@ else()
   # base link for release builds
   set(OPENSTUDIO_BASELINK_RELEASE
     #"https://openstudio-builds.s3.amazonaws.com/${OPENSTUDIO_VERSION}"
-    "https://github.com/NREL/OpenStudio/releases/download/v${OPENSTUDIO_VERSION}/"
+    "https://github.com/NREL/OpenStudio/releases/download/v${OPENSTUDIO_VERSION}${OPENSTUDIO_VERSION_PRERELEASE}/"
     CACHE STRING "Base link to where the openstudio archives are hosted" FORCE)
 
   # base link for develop builds. (Using https will fail)
@@ -203,7 +207,7 @@ else()
     OUTPUT_STRIP_TRAILING_WHITESPACE)
   if (CLI_RESULT)
     message(AUTHOR_WARNING "Cannot use the openstudio CLI at \"${openstudio_EXECUTABLE}\"")
-  elseif(NOT CLI_VERSION STREQUAL "${OPENSTUDIO_VERSION}${OPENSTUDIO_VERSION_SHA}")
+  elseif(NOT CLI_VERSION STREQUAL "${OPENSTUDIO_VERSION}${OPENSTUDIO_VERSION_PRERELEASE}${OPENSTUDIO_VERSION_SHA}")
     execute_process (COMMAND "${openstudio_EXECUTABLE}" -e "puts OpenStudio::openStudioVersion"
       RESULT_VARIABLE CLI_RESULT
       OUTPUT_VARIABLE CLI_SHORT_VERSION

@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -42,9 +42,6 @@
 #include <openstudio/utilities/core/FilesystemHelpers.hpp>
 #include <openstudio/utilities/idd/IddFileAndFactoryWrapper.hpp>
 
-using std::map;
-using std::stringstream;
-
 // TODO: We will have to replace QXmlDefaultHandler at some point, ignore for now
 #if defined(_MSC_VER)
 #  pragma warning(push)
@@ -65,43 +62,43 @@ class AccessParser : public QXmlDefaultHandler
   AccessParser();
 
  protected:
-  bool startElement(const QString& namespaceURI, const QString& localName, const QString& qName, const QXmlAttributes& atts) override;
+  virtual bool startElement(const QString& namespaceURI, const QString& localName, const QString& qName, const QXmlAttributes& atts) override;
 
-  bool endElement(const QString& namespaceURI, const QString& localName, const QString& qName) override;
+  virtual bool endElement(const QString& namespaceURI, const QString& localName, const QString& qName) override;
 
-  bool error(QXmlParseException&);
-  bool fatalError(QXmlParseException&);
+  virtual bool error(const QXmlParseException& e) override;
+  virtual bool fatalError(const QXmlParseException& e) override;
 
  private:
-  AccessPolicy* m_curPolicy;
+  AccessPolicy* m_curPolicy = nullptr;
   IddObjectType m_curType;
   IddFileAndFactoryWrapper m_factory;
   REGISTER_LOGGER("AccessParser");
 };
 
-AccessParser::AccessParser() : m_curPolicy(nullptr), m_curType("Catchall") {}
+AccessParser::AccessParser() : m_curType("Catchall") {}
 
-bool AccessParser::error(QXmlParseException& e) {
-  stringstream s;
+bool AccessParser::error(const QXmlParseException& e) {
+  std::stringstream s;
   s << "Error line:" << e.lineNumber() << "\ncolumn:" << e.columnNumber() << "\n" << e.message().toStdString() << "\n";
   LOG(Debug, s.str());
   return false;
 }
-bool AccessParser::fatalError(QXmlParseException& e) {
+bool AccessParser::fatalError(const QXmlParseException& e) {
   LOG(Debug, "Error line:" << e.lineNumber() << "\ncolumn:" << e.columnNumber() << "\n" << e.message().toStdString() << "\n");
   return false;
 }
 
 bool AccessParser::startElement(const QString& /*namespaceURI*/, const QString& /*localName*/, const QString& qName, const QXmlAttributes& atts) {
-  if (!qName.compare("policy", Qt::CaseInsensitive)) {
-    if (m_curPolicy) {
+  if (qName.compare("policy", Qt::CaseInsensitive) == 0) {
+    if (m_curPolicy != nullptr) {
       LOG(Debug, "parse error, new policy started before old one ended\n");
       return false;
     }
 
     for (int i = 0, iend = atts.length(); i < iend; ++i) {
       QString name = atts.qName(i);
-      if (!name.compare("IddObjectType", Qt::CaseInsensitive)) {
+      if (name.compare("IddObjectType", Qt::CaseInsensitive) == 0) {
         QString val = atts.value(i);
         try {
           m_curType = IddObjectType(val.toStdString());
@@ -131,8 +128,10 @@ bool AccessParser::startElement(const QString& /*namespaceURI*/, const QString& 
       }
     }
     return false;  //NO IddObjectType!!!!
-  } else if (!qName.compare("rule", Qt::CaseInsensitive)) {
-    if (!m_curPolicy) {
+  }
+
+  if (qName.compare("rule", Qt::CaseInsensitive) == 0) {
+    if (m_curPolicy == nullptr) {
       LOG(Debug, "parse error, rule started before a policy is started");
       return false;
     }
@@ -140,17 +139,17 @@ bool AccessParser::startElement(const QString& /*namespaceURI*/, const QString& 
     QString accessRule;
     for (int i = 0, iend = atts.length(); i < iend; ++i) {
       QString name = atts.qName(i);
-      if (!name.compare("IddField", Qt::CaseInsensitive)) {
+      if (name.compare("IddField", Qt::CaseInsensitive) == 0) {
         fieldName = atts.value(i);
-      } else if (!name.compare("access", Qt::CaseInsensitive)) {
+      } else if (name.compare("access", Qt::CaseInsensitive) == 0) {
         accessRule = atts.value(i);
       }
     }
-    if (fieldName.size() && accessRule.size()) {
+    if (!fieldName.isEmpty() && !accessRule.isEmpty()) {
       AccessPolicy::ACCESS_LEVEL level = AccessPolicy::FREE;
-      if (!accessRule.compare("locked", Qt::CaseInsensitive)) {
+      if (accessRule.compare("locked", Qt::CaseInsensitive) == 0) {
         level = AccessPolicy::LOCKED;
-      } else if (!accessRule.compare("hidden", Qt::CaseInsensitive)) {
+      } else if (accessRule.compare("hidden", Qt::CaseInsensitive) == 0) {
         level = AccessPolicy::HIDDEN;
       }
 
@@ -165,7 +164,7 @@ bool AccessParser::startElement(const QString& /*namespaceURI*/, const QString& 
       for (unsigned int i = 0, iend = obj.numFields(); i < iend; ++i) {
         openstudio::OptionalIddField f = obj.getField(i);
         QString fieldName2(f->name().c_str());
-        if (!fieldName.compare(fieldName2, Qt::CaseInsensitive)) {
+        if (fieldName.compare(fieldName2, Qt::CaseInsensitive) == 0) {
           m_curPolicy->m_accessMap[i] = level;
           foundInFields = true;
           break;
@@ -176,7 +175,7 @@ bool AccessParser::startElement(const QString& /*namespaceURI*/, const QString& 
       for (unsigned int i = obj.numFields(), iend = obj.properties().numExtensible + obj.numFields(); i < iend && !foundInFields; ++i) {
         openstudio::OptionalIddField f = obj.getField(i);
         QString fieldName2(f->name().c_str());
-        if (!fieldName.compare(fieldName2, Qt::CaseInsensitive)) {
+        if (fieldName.compare(fieldName2, Qt::CaseInsensitive) == 0) {
           m_curPolicy->m_extensibleAccessMap[i - obj.numFields()] = level;
           foundInFields = true;
           break;
@@ -194,7 +193,7 @@ bool AccessParser::startElement(const QString& /*namespaceURI*/, const QString& 
 }
 
 bool AccessParser::endElement(const QString& /*namespaceURI*/, const QString& /*localName*/, const QString& qName) {
-  if (!qName.compare("policy", Qt::CaseInsensitive)) {
+  if (qName.compare("policy", Qt::CaseInsensitive) == 0) {
     m_curPolicy = nullptr;
   }
   return true;
@@ -239,9 +238,10 @@ bool AccessPolicy::setAccess(unsigned int index, AccessPolicy::ACCESS_LEVEL acce
     if (i != m_accessMap.end()) {
       (*i).second = accessLevel;
       return true;
-    } else {
-      m_accessMap[index] = accessLevel;
     }
+
+    m_accessMap[index] = accessLevel;
+
   } else {
     index -= m_numNormalFields;
     index = index % m_extensibleSize;
@@ -249,9 +249,9 @@ bool AccessPolicy::setAccess(unsigned int index, AccessPolicy::ACCESS_LEVEL acce
     if (i != m_extensibleAccessMap.end()) {
       (*i).second = accessLevel;
       return true;
-    } else {
-      m_extensibleAccessMap[index] = accessLevel;
     }
+
+    m_extensibleAccessMap[index] = accessLevel;
   }
   return false;
 }
@@ -263,7 +263,7 @@ AccessPolicyStore::~AccessPolicyStore() {
 }
 
 AccessPolicyStore& AccessPolicyStore::Instance() {
-  if (!s_instance) {
+  if (s_instance == nullptr) {
     s_instance = new AccessPolicyStore();
   }
   return *s_instance;
@@ -279,6 +279,7 @@ bool AccessPolicyStore::loadFile(const QByteArray& data) {
   //LER:: add error handler
   if (!xmlReader.parse(source)) {
     LOG(Debug, "xml parse error in AccessPolicyStore::loadFile\n");
+    OS_ASSERT(false);
     return false;
   }
   return true;
@@ -299,9 +300,9 @@ bool AccessPolicyStore::loadFile(const openstudio::path& path) {
 }
 
 const AccessPolicy* AccessPolicyStore::getPolicy(const openstudio::IddObjectType& type) const {
-  auto i = m_policyMap.find(type);
-  if (i != m_policyMap.end()) {
-    return (*i).second;
+  auto it = m_policyMap.find(type);
+  if (it != m_policyMap.end()) {
+    return it->second;
   }
 
   return nullptr;
@@ -309,9 +310,8 @@ const AccessPolicy* AccessPolicyStore::getPolicy(const openstudio::IddObjectType
 
 void AccessPolicyStore::clear() {
   for (auto& policyPair : m_policyMap) {
-    if (policyPair.second) {
-      delete policyPair.second;
-    }
+    // Not need to test if ptr has a value, delete nullptr has no effect
+    delete policyPair.second;
   }
   m_policyMap.clear();
 }

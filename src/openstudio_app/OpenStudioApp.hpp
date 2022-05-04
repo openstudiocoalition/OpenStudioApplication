@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -158,6 +158,9 @@ class OpenStudioApp : public OSAppBase
   // Loads the selected file (File > Load Library), and adds it to the user settings if not already there, by calling writeLibraryPaths
   void loadLibrary();
 
+  // Loads the result of openstudio::model::exampleModel()
+  void loadExampleModel();
+
   // Checks what happened in the LibraryDialog preference panes, and calls writeLibraryPaths to set the user settings
   void changeDefaultLibraries();
 
@@ -232,6 +235,8 @@ class OpenStudioApp : public OSAppBase
   void setLastPath(const QString& t_lastPath);
 
   void connectOSDocumentSignals();
+
+  void disconnectOSDocumentSignals();
 
   // Removes the given path from the list of library settings (and calls writeLibraryPaths)
   void removeLibraryFromsSettings(const openstudio::path& path);

@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -63,7 +63,9 @@ class OSVectorController;
 // that looks different because it is initially designed to go
 // in a grid.  It also works differently because it binds to function pointers.
 // There is no use of VectorController like in OSDropZone.
-class OSDropZone2 : public QWidget, public Nano::Observer
+class OSDropZone2
+  : public QWidget
+  , public Nano::Observer
 {
   Q_OBJECT
 
@@ -106,6 +108,7 @@ class OSDropZone2 : public QWidget, public Nano::Observer
 
   void refresh();
   void onModelObjectRemove(const Handle& handle);
+  void onOtherModelObjectRemove(const Handle& handle);
   void dragEnterEvent(QDragEnterEvent* event) override;
   void dropEvent(QDropEvent* event) override;
 
@@ -116,6 +119,14 @@ class OSDropZone2 : public QWidget, public Nano::Observer
   void updateStyle();
   void makeItem();
   boost::optional<model::ModelObject> updateGetterResult();
+  void updateOtherModelObjects();
+
+  struct ModelObjectHandleLess
+  {
+    bool operator()(const model::ModelObject& lhs, const model::ModelObject& rhs) const {
+      return lhs.handle() < rhs.handle();
+    }
+  };
 
   boost::optional<OptionalModelObjectGetter> m_get;
   boost::optional<ModelObjectSetter> m_set;
@@ -124,7 +135,7 @@ class OSDropZone2 : public QWidget, public Nano::Observer
   boost::optional<OtherModelObjects> m_otherObjects;
   boost::optional<model::ModelObject> m_modelObject;
   boost::optional<model::ModelObject> m_getterResult;
-  std::vector<model::ModelObject> m_otherModelObjects;
+  std::set<model::ModelObject, ModelObjectHandleLess> m_otherModelObjects;
   bool m_hasClickFocus = false;
   bool m_focused = false;
   bool m_locked = false;
@@ -134,7 +145,9 @@ class OSDropZone2 : public QWidget, public Nano::Observer
   QLabel* m_label;
 };
 
-class OSDropZone : public QWidget, public Nano::Observer
+class OSDropZone
+  : public QWidget
+  , public Nano::Observer
 {
   Q_OBJECT
 
@@ -244,7 +257,9 @@ class OSItemDropZone : public QWidget
 // This is a version of OSDropZone that works with QGraphicsScene
 // as opposed to QWidget.  Much of the custom drawing in the HVAC
 // interface is done with QGraphicsScene.
-class OSDropZoneItem : public QGraphicsObject, public Nano::Observer
+class OSDropZoneItem
+  : public QGraphicsObject
+  , public Nano::Observer
 {
   Q_OBJECT;
 

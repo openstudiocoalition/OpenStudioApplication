@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -213,7 +213,26 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
 
   resetBaseConcepts();
 
-  Q_FOREACH (QString field, fields) {
+  // This is probably borderline unreadable, but it dries up the code. This lambda will: call a member function on the TZ's sizing zone, and will
+  // trigger a nano_emit for the TZ
+  // eg: `makeProxyAdapterForceRefresh(&model::SizingZone::setZoneCoolingDesignSupplyAirTemperature)` will return
+  //   ```
+  //   std::function<bool(model::ThermalZone*, double val)>([](model::ThermalZone* t_z, double val) {
+  //     bool b = t_z->sizingZone().setZoneCoolingDesignSupplyAirTemperature(val);
+  //     t_z->getImpl<openstudio::model::detail::ModelObject_Impl>()->onChange.nano_emit();
+  //     return b;
+  //   })
+  //   ```
+  using SizingZoneMemberFn = bool (model::SizingZone::*)(double);
+  auto makeProxyAdapterForceRefresh = [](SizingZoneMemberFn t_func) {
+    return std::function<bool(model::ThermalZone*, double)>([t_func](model::ThermalZone* t_z, double val) {
+      bool b = (t_z->sizingZone().*t_func)(val);
+      t_z->getImpl<openstudio::model::detail::ModelObject_Impl>()->onDataChange.nano_emit();
+      return b;
+    });
+  };
+
+  for (const QString& field : fields) {
     if (field == IDEALAIRLOADS) {
       // We add the "Apply Selected" button to this column by passing 3rd arg, t_showColumnButton=true
       addCheckBoxColumn(Heading(QString(IDEALAIRLOADS), true, true), std::string("Check to enable ideal air loads."),
@@ -229,50 +248,39 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
                               CastNullAdapter<model::ThermalZone>(&model::ThermalZone::setRenderingColor));
 
     } else if (field == ZONECOOLINGDESIGNSUPPLYAIRTEMPERATURE) {
-      addQuantityEditColumn(
-        Heading(QString(ZONECOOLINGDESIGNSUPPLYAIRTEMPERATURE)), QString("C"), QString("C"), QString("F"), isIP(),
-        ProxyAdapter(&model::SizingZone::zoneCoolingDesignSupplyAirTemperature, &model::ThermalZone::sizingZone),
-        ProxyAdapter(static_cast<bool (model::SizingZone::*)(double)>(&model::SizingZone::setZoneCoolingDesignSupplyAirTemperature),
-                     &model::ThermalZone::sizingZone));
+
+      addQuantityEditColumn(Heading(QString(ZONECOOLINGDESIGNSUPPLYAIRTEMPERATURE)), QString("C"), QString("C"), QString("F"), isIP(),
+                            ProxyAdapter(&model::SizingZone::zoneCoolingDesignSupplyAirTemperature, &model::ThermalZone::sizingZone),
+                            makeProxyAdapterForceRefresh(&model::SizingZone::setZoneCoolingDesignSupplyAirTemperature));
+
     } else if (field == ZONEHEATINGDESIGNSUPPLYAIRTEMPERATURE) {
-      addQuantityEditColumn(
-        Heading(QString(ZONEHEATINGDESIGNSUPPLYAIRTEMPERATURE)), QString("C"), QString("C"), QString("F"), isIP(),
-        ProxyAdapter(&model::SizingZone::zoneHeatingDesignSupplyAirTemperature, &model::ThermalZone::sizingZone),
-        ProxyAdapter(static_cast<bool (model::SizingZone::*)(double)>(&model::SizingZone::setZoneHeatingDesignSupplyAirTemperature),
-                     &model::ThermalZone::sizingZone));
+      addQuantityEditColumn(Heading(QString(ZONEHEATINGDESIGNSUPPLYAIRTEMPERATURE)), QString("C"), QString("C"), QString("F"), isIP(),
+                            ProxyAdapter(&model::SizingZone::zoneHeatingDesignSupplyAirTemperature, &model::ThermalZone::sizingZone),
+                            makeProxyAdapterForceRefresh(&model::SizingZone::setZoneHeatingDesignSupplyAirTemperature));
     } else if (field == ZONECOOLINGDESIGNSUPPLYAIRHUMIDITYRATIO) {
-      addQuantityEditColumn(
-        Heading(QString(ZONECOOLINGDESIGNSUPPLYAIRHUMIDITYRATIO)), QString(""), QString(""), QString(""), isIP(),
-        ProxyAdapter(&model::SizingZone::zoneCoolingDesignSupplyAirHumidityRatio, &model::ThermalZone::sizingZone),
-        ProxyAdapter(static_cast<bool (model::SizingZone::*)(double)>(&model::SizingZone::setZoneCoolingDesignSupplyAirHumidityRatio),
-                     &model::ThermalZone::sizingZone));
+      addQuantityEditColumn(Heading(QString(ZONECOOLINGDESIGNSUPPLYAIRHUMIDITYRATIO)), QString(""), QString(""), QString(""), isIP(),
+                            ProxyAdapter(&model::SizingZone::zoneCoolingDesignSupplyAirHumidityRatio, &model::ThermalZone::sizingZone),
+                            makeProxyAdapterForceRefresh(&model::SizingZone::setZoneCoolingDesignSupplyAirHumidityRatio));
     } else if (field == ZONEHEATINGDESIGNSUPPLYAIRHUMIDITYRATIO) {
-      addQuantityEditColumn(
-        Heading(QString(ZONEHEATINGDESIGNSUPPLYAIRHUMIDITYRATIO)), QString(""), QString(""), QString(""), isIP(),
-        ProxyAdapter(&model::SizingZone::zoneHeatingDesignSupplyAirHumidityRatio, &model::ThermalZone::sizingZone),
-        ProxyAdapter(static_cast<bool (model::SizingZone::*)(double)>(&model::SizingZone::setZoneHeatingDesignSupplyAirHumidityRatio),
-                     &model::ThermalZone::sizingZone));
+      addQuantityEditColumn(Heading(QString(ZONEHEATINGDESIGNSUPPLYAIRHUMIDITYRATIO)), QString(""), QString(""), QString(""), isIP(),
+                            ProxyAdapter(&model::SizingZone::zoneHeatingDesignSupplyAirHumidityRatio, &model::ThermalZone::sizingZone),
+                            makeProxyAdapterForceRefresh(&model::SizingZone::setZoneHeatingDesignSupplyAirHumidityRatio));
     } else if (field == ZONEHEATINGSIZINGFACTOR) {
       addQuantityEditColumn(Heading(QString(ZONEHEATINGSIZINGFACTOR)), QString(""), QString(""), QString(""), isIP(),
                             ProxyAdapter(&model::SizingZone::zoneHeatingSizingFactor, &model::ThermalZone::sizingZone),
-                            ProxyAdapter(static_cast<bool (model::SizingZone::*)(double)>(&model::SizingZone::setZoneHeatingSizingFactor),
-                                         &model::ThermalZone::sizingZone));
+                            makeProxyAdapterForceRefresh(&model::SizingZone::setZoneHeatingSizingFactor));
     } else if (field == ZONECOOLINGSIZINGFACTOR) {
       addQuantityEditColumn(Heading(QString()), QString(""), QString(""), QString(""), isIP(),
                             ProxyAdapter(&model::SizingZone::zoneCoolingSizingFactor, &model::ThermalZone::sizingZone),
-                            ProxyAdapter(static_cast<bool (model::SizingZone::*)(double)>(&model::SizingZone::setZoneCoolingSizingFactor),
-                                         &model::ThermalZone::sizingZone));
-
+                            makeProxyAdapterForceRefresh(&model::SizingZone::setZoneCoolingSizingFactor));
     } else if (field == HEATINGDESIGNAIRFLOWRATE) {
       addQuantityEditColumn(Heading(QString(HEATINGDESIGNAIRFLOWRATE)), QString("m^3/s"), QString("m^3/s"), QString("ft^3/min"), isIP(),
                             ProxyAdapter(&model::SizingZone::heatingDesignAirFlowRate, &model::ThermalZone::sizingZone),
-                            ProxyAdapter(static_cast<bool (model::SizingZone::*)(double)>(&model::SizingZone::setHeatingDesignAirFlowRate),
-                                         &model::ThermalZone::sizingZone));
+                            makeProxyAdapterForceRefresh(&model::SizingZone::setHeatingDesignAirFlowRate));
     } else if (field == HEATINGMAXIMUMAIRFLOW) {
       addQuantityEditColumn(Heading(QString(HEATINGMAXIMUMAIRFLOW)), QString("m^3/s"), QString("m^3/s"), QString("ft^3/min"), isIP(),
                             ProxyAdapter(&model::SizingZone::heatingMaximumAirFlow, &model::ThermalZone::sizingZone),
-                            ProxyAdapter(static_cast<bool (model::SizingZone::*)(double)>(&model::SizingZone::setHeatingMaximumAirFlow),
-                                         &model::ThermalZone::sizingZone));
+                            makeProxyAdapterForceRefresh(&model::SizingZone::setHeatingMaximumAirFlow));
     } else if (field == HEATINGDESIGNAIRFLOWMETHOD) {
       addComboBoxColumn<std::string, model::ThermalZone>(
         Heading(QString(HEATINGDESIGNAIRFLOWMETHOD)),
@@ -294,8 +302,9 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
           }
         }),
         std::function<bool(model::ThermalZone*, std::string)>([](model::ThermalZone* t_z, std::string t_val) {
-          auto sz = t_z->sizingZone();
-          return sz.setHeatingDesignAirFlowMethod(t_val);
+          bool b = t_z->sizingZone().setHeatingDesignAirFlowMethod(t_val);
+          t_z->getImpl<openstudio::model::detail::ModelObject_Impl>()->onChange.nano_emit();
+          return b;
         }),
         boost::optional<std::function<void(openstudio::model::ThermalZone*)>>(),
         boost::optional<std::function<bool(openstudio::model::ThermalZone*)>>(), boost::optional<openstudio::DataSource>());
@@ -303,47 +312,37 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
     } else if (field == COOLINGDESIGNAIRFLOWRATE) {
       addQuantityEditColumn(Heading(QString(COOLINGDESIGNAIRFLOWRATE)), QString("m^3/s"), QString("m^3/s"), QString("ft^3/min"), isIP(),
                             ProxyAdapter(&model::SizingZone::coolingDesignAirFlowRate, &model::ThermalZone::sizingZone),
-                            ProxyAdapter(static_cast<bool (model::SizingZone::*)(double)>(&model::SizingZone::setCoolingDesignAirFlowRate),
-                                         &model::ThermalZone::sizingZone));
+                            makeProxyAdapterForceRefresh(&model::SizingZone::setCoolingDesignAirFlowRate));
     } else if (field == COOLINGMINIMUMAIRFLOWPERZONEFLOORAREA) {
-      addQuantityEditColumn(
-        Heading(QString(COOLINGMINIMUMAIRFLOWPERZONEFLOORAREA)), QString("m^3/s*m^2"), QString("m^3/s*m^2"), QString("ft^3/min*ft^2"), isIP(),
-        ProxyAdapter(&model::SizingZone::coolingMinimumAirFlowperZoneFloorArea, &model::ThermalZone::sizingZone),
-        ProxyAdapter(static_cast<bool (model::SizingZone::*)(double)>(&model::SizingZone::setCoolingMinimumAirFlowperZoneFloorArea),
-                     &model::ThermalZone::sizingZone));
+      addQuantityEditColumn(Heading(QString(COOLINGMINIMUMAIRFLOWPERZONEFLOORAREA)), QString("m^3/s*m^2"), QString("m^3/s*m^2"),
+                            QString("ft^3/min*ft^2"), isIP(),
+                            ProxyAdapter(&model::SizingZone::coolingMinimumAirFlowperZoneFloorArea, &model::ThermalZone::sizingZone),
+                            makeProxyAdapterForceRefresh(&model::SizingZone::setCoolingMinimumAirFlowperZoneFloorArea));
     } else if (field == COOLINGMINIMUMAIRFLOW) {
       addQuantityEditColumn(Heading(QString(COOLINGMINIMUMAIRFLOW)), QString("m^3/s"), QString("m^3/s"), QString("ft^3/min"), isIP(),
                             ProxyAdapter(&model::SizingZone::coolingMinimumAirFlow, &model::ThermalZone::sizingZone),
-                            ProxyAdapter(static_cast<bool (model::SizingZone::*)(double)>(&model::SizingZone::setCoolingMinimumAirFlow),
-                                         &model::ThermalZone::sizingZone));
+                            makeProxyAdapterForceRefresh(&model::SizingZone::setCoolingMinimumAirFlow));
     } else if (field == COOLINGMINIMUMAIRFLOWFRACTION) {
       addQuantityEditColumn(Heading(QString(COOLINGMINIMUMAIRFLOWFRACTION)), QString(""), QString(""), QString(""), isIP(),
                             ProxyAdapter(&model::SizingZone::coolingMinimumAirFlowFraction, &model::ThermalZone::sizingZone),
-                            ProxyAdapter(static_cast<bool (model::SizingZone::*)(double)>(&model::SizingZone::setCoolingMinimumAirFlowFraction),
-                                         &model::ThermalZone::sizingZone));
+                            makeProxyAdapterForceRefresh(&model::SizingZone::setCoolingMinimumAirFlowFraction));
     } else if (field == HEATINGMAXIMUMAIRFLOWPERZONEFLOORAREA) {
-      addQuantityEditColumn(
-        Heading(QString(HEATINGMAXIMUMAIRFLOWPERZONEFLOORAREA)), QString("m^3/s*m^2"), QString("m^3/s*m^2"), QString("ft^3/min*ft^2"), isIP(),
-        ProxyAdapter(&model::SizingZone::heatingMaximumAirFlowperZoneFloorArea, &model::ThermalZone::sizingZone),
-        ProxyAdapter(static_cast<bool (model::SizingZone::*)(double)>(&model::SizingZone::setHeatingMaximumAirFlowperZoneFloorArea),
-                     &model::ThermalZone::sizingZone));
+      addQuantityEditColumn(Heading(QString(HEATINGMAXIMUMAIRFLOWPERZONEFLOORAREA)), QString("m^3/s*m^2"), QString("m^3/s*m^2"),
+                            QString("ft^3/min*ft^2"), isIP(),
+                            ProxyAdapter(&model::SizingZone::heatingMaximumAirFlowperZoneFloorArea, &model::ThermalZone::sizingZone),
+                            makeProxyAdapterForceRefresh(&model::SizingZone::setHeatingMaximumAirFlowperZoneFloorArea));
     } else if (field == HEATINGMAXIMUMAIRFLOWFRACTION) {
       addQuantityEditColumn(Heading(QString(HEATINGMAXIMUMAIRFLOWFRACTION)), QString(""), QString(""), QString(""), isIP(),
                             ProxyAdapter(&model::SizingZone::heatingMaximumAirFlowFraction, &model::ThermalZone::sizingZone),
-                            ProxyAdapter(static_cast<bool (model::SizingZone::*)(double)>(&model::SizingZone::setHeatingMaximumAirFlowFraction),
-                                         &model::ThermalZone::sizingZone));
+                            makeProxyAdapterForceRefresh(&model::SizingZone::setHeatingMaximumAirFlowFraction));
     } else if (field == DESIGNZONEAIRDISTRIBUTIONEFFECTIVENESSINCOOLINGMODE) {
-      addQuantityEditColumn(
-        Heading(QString(DESIGNZONEAIRDISTRIBUTIONEFFECTIVENESSINCOOLINGMODE)), QString(""), QString(""), QString(""), isIP(),
-        ProxyAdapter(&model::SizingZone::designZoneAirDistributionEffectivenessinCoolingMode, &model::ThermalZone::sizingZone),
-        ProxyAdapter(static_cast<bool (model::SizingZone::*)(double)>(&model::SizingZone::setDesignZoneAirDistributionEffectivenessinCoolingMode),
-                     &model::ThermalZone::sizingZone));
+      addQuantityEditColumn(Heading(QString(DESIGNZONEAIRDISTRIBUTIONEFFECTIVENESSINCOOLINGMODE)), QString(""), QString(""), QString(""), isIP(),
+                            ProxyAdapter(&model::SizingZone::designZoneAirDistributionEffectivenessinCoolingMode, &model::ThermalZone::sizingZone),
+                            makeProxyAdapterForceRefresh(&model::SizingZone::setDesignZoneAirDistributionEffectivenessinCoolingMode));
     } else if (field == DESIGNZONEAIRDISTRIBUTIONEFFECTIVENESSINHEATINGMODE) {
-      addQuantityEditColumn(
-        Heading(QString(DESIGNZONEAIRDISTRIBUTIONEFFECTIVENESSINHEATINGMODE)), QString(""), QString(""), QString(""), isIP(),
-        ProxyAdapter(&model::SizingZone::designZoneAirDistributionEffectivenessinHeatingMode, &model::ThermalZone::sizingZone),
-        ProxyAdapter(static_cast<bool (model::SizingZone::*)(double)>(&model::SizingZone::setDesignZoneAirDistributionEffectivenessinHeatingMode),
-                     &model::ThermalZone::sizingZone));
+      addQuantityEditColumn(Heading(QString(DESIGNZONEAIRDISTRIBUTIONEFFECTIVENESSINHEATINGMODE)), QString(""), QString(""), QString(""), isIP(),
+                            ProxyAdapter(&model::SizingZone::designZoneAirDistributionEffectivenessinHeatingMode, &model::ThermalZone::sizingZone),
+                            makeProxyAdapterForceRefresh(&model::SizingZone::setDesignZoneAirDistributionEffectivenessinHeatingMode));
 
     } else if (field == COOLINGDESIGNAIRFLOWMETHOD) {
       addComboBoxColumn<std::string, model::ThermalZone>(
@@ -366,8 +365,9 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
           }
         }),
         std::function<bool(model::ThermalZone*, std::string)>([](model::ThermalZone* t_z, std::string t_val) {
-          auto sz = t_z->sizingZone();
-          return sz.setCoolingDesignAirFlowMethod(t_val);
+          bool b = t_z->sizingZone().setCoolingDesignAirFlowMethod(t_val);
+          t_z->getImpl<openstudio::model::detail::ModelObject_Impl>()->onChange.nano_emit();
+          return b;
         }),
         boost::optional<std::function<void(openstudio::model::ThermalZone*)>>(),
         boost::optional<std::function<bool(openstudio::model::ThermalZone*)>>(), boost::optional<openstudio::DataSource>());
@@ -383,35 +383,32 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
       });
 
       std::function<bool(model::ThermalZone*, const model::Schedule&)> setCoolingSchedule([](model::ThermalZone* z, model::Schedule t_s) {
+        bool result = false;
         if (boost::optional<model::ThermostatSetpointDualSetpoint> thermostat = z->thermostatSetpointDualSetpoint()) {
-          return thermostat->setCoolingSetpointTemperatureSchedule(t_s);
+          result = thermostat->setCoolingSetpointTemperatureSchedule(t_s);
         } else {
           model::ThermostatSetpointDualSetpoint t(z->model());
+          result = t.setCoolingSetpointTemperatureSchedule(t_s);
           z->setThermostatSetpointDualSetpoint(t);
-          return t.setCoolingSetpointTemperatureSchedule(t_s);
         }
+        return result;
       });
 
       boost::optional<std::function<void(model::ThermalZone*)>> resetCoolingSchedule([](model::ThermalZone* z) {
         if (boost::optional<model::ThermostatSetpointDualSetpoint> thermostat = z->thermostatSetpointDualSetpoint()) {
           thermostat->resetCoolingSetpointTemperatureSchedule();
+          if (!thermostat->heatingSetpointTemperatureSchedule()) {
+            z->resetThermostatSetpointDualSetpoint();
+          }
         }
       });
 
       boost::optional<std::function<bool(model::ThermalZone*)>> isDefaulted;
 
-      boost::optional<std::function<std::vector<model::ModelObject>(model::ThermalZone*)>> otherObjects([](model::ThermalZone* z) {
+      boost::optional<std::function<std::vector<model::ModelObject>(const model::ThermalZone*)>> otherObjects([](const model::ThermalZone* z) {
         std::vector<model::ModelObject> result;
-        boost::optional<model::Thermostat> thermostat = z->thermostat();
-        boost::optional<model::ThermostatSetpointDualSetpoint> thermostatDualSetpoint = z->thermostatSetpointDualSetpoint();
-        if (thermostat) {
+        if (boost::optional<model::ThermostatSetpointDualSetpoint> thermostat = z->thermostatSetpointDualSetpoint()) {
           result.push_back(*thermostat);
-        } else if (thermostatDualSetpoint) {
-          result.push_back(*thermostatDualSetpoint);
-        } else {
-          model::ThermostatSetpointDualSetpoint t(z->model());
-          z->setThermostatSetpointDualSetpoint(t);
-          result.push_back(t);
         }
         return result;
       });
@@ -430,35 +427,32 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
       });
 
       std::function<bool(model::ThermalZone*, const model::Schedule&)> setHeatingSchedule([](model::ThermalZone* z, model::Schedule t_s) {
+        bool result = false;
         if (boost::optional<model::ThermostatSetpointDualSetpoint> thermostat = z->thermostatSetpointDualSetpoint()) {
-          return thermostat->setHeatingSetpointTemperatureSchedule(t_s);
+          result = thermostat->setHeatingSetpointTemperatureSchedule(t_s);
         } else {
           model::ThermostatSetpointDualSetpoint t(z->model());
+          result = t.setHeatingSetpointTemperatureSchedule(t_s);
           z->setThermostatSetpointDualSetpoint(t);
-          return t.setHeatingSetpointTemperatureSchedule(t_s);
         }
+        return result;
       });
 
       boost::optional<std::function<void(model::ThermalZone*)>> resetHeatingSchedule([](model::ThermalZone* z) {
         if (boost::optional<model::ThermostatSetpointDualSetpoint> thermostat = z->thermostatSetpointDualSetpoint()) {
           thermostat->resetHeatingSetpointTemperatureSchedule();
+          if (!thermostat->coolingSetpointTemperatureSchedule()) {
+            z->resetThermostatSetpointDualSetpoint();
+          }
         }
       });
 
       boost::optional<std::function<bool(model::ThermalZone*)>> isDefaulted;
 
-      boost::optional<std::function<std::vector<model::ModelObject>(model::ThermalZone*)>> otherObjects([](model::ThermalZone* z) {
+      boost::optional<std::function<std::vector<model::ModelObject>(const model::ThermalZone*)>> otherObjects([](const model::ThermalZone* z) {
         std::vector<model::ModelObject> result;
-        boost::optional<model::Thermostat> thermostat = z->thermostat();
-        boost::optional<model::ThermostatSetpointDualSetpoint> thermostatDualSetpoint = z->thermostatSetpointDualSetpoint();
-        if (thermostat) {
+        if (boost::optional<model::ThermostatSetpointDualSetpoint> thermostat = z->thermostatSetpointDualSetpoint()) {
           result.push_back(*thermostat);
-        } else if (thermostatDualSetpoint) {
-          result.push_back(*thermostatDualSetpoint);
-        } else {
-          model::ThermostatSetpointDualSetpoint t(z->model());
-          z->setThermostatSetpointDualSetpoint(t);
-          result.push_back(t);
         }
         return result;
       });
@@ -470,42 +464,40 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
 
       std::function<boost::optional<model::Schedule>(model::ThermalZone*)> humidifyingSchedule([](model::ThermalZone* z) {
         boost::optional<model::Schedule> schedule;
-        if (boost::optional<model::ZoneControlHumidistat> thermostat = z->zoneControlHumidistat()) {
-          schedule = thermostat->humidifyingRelativeHumiditySetpointSchedule();
+        if (boost::optional<model::ZoneControlHumidistat> humidistat = z->zoneControlHumidistat()) {
+          schedule = humidistat->humidifyingRelativeHumiditySetpointSchedule();
         }
         return schedule;
       });
 
       std::function<bool(model::ThermalZone*, const model::Schedule&)> setHumidifyingSchedule([](model::ThermalZone* z, model::Schedule t_s) {
-        if (boost::optional<model::ZoneControlHumidistat> thermostat = z->zoneControlHumidistat()) {
-          return thermostat->setHumidifyingRelativeHumiditySetpointSchedule(t_s);
+        bool result = false;
+        if (boost::optional<model::ZoneControlHumidistat> humidistat = z->zoneControlHumidistat()) {
+          result = humidistat->setHumidifyingRelativeHumiditySetpointSchedule(t_s);
         } else {
-          model::ZoneControlHumidistat t(z->model());
-          z->setZoneControlHumidistat(t);
-          return t.setHumidifyingRelativeHumiditySetpointSchedule(t_s);
+          model::ZoneControlHumidistat h(z->model());
+          result = h.setHumidifyingRelativeHumiditySetpointSchedule(t_s);
+          z->setZoneControlHumidistat(h);
         }
+        return result;
       });
 
       boost::optional<std::function<void(model::ThermalZone*)>> resetHumidifyingSchedule([](model::ThermalZone* z) {
-        if (boost::optional<model::ZoneControlHumidistat> thermostat = z->zoneControlHumidistat()) {
-          thermostat->resetHumidifyingRelativeHumiditySetpointSchedule();
-          if (!thermostat->dehumidifyingRelativeHumiditySetpointSchedule()) {
-            thermostat->remove();
+        if (boost::optional<model::ZoneControlHumidistat> humidistat = z->zoneControlHumidistat()) {
+          humidistat->resetHumidifyingRelativeHumiditySetpointSchedule();
+          if (!humidistat->dehumidifyingRelativeHumiditySetpointSchedule()) {
+            z->resetZoneControlHumidistat();
           }
         }
       });
 
       boost::optional<std::function<bool(model::ThermalZone*)>> isDefaulted;
 
-      boost::optional<std::function<std::vector<model::ModelObject>(model::ThermalZone*)>> otherObjects([](model::ThermalZone* z) {
+      boost::optional<std::function<std::vector<model::ModelObject>(const model::ThermalZone*)>> otherObjects([](const model::ThermalZone* z) {
         std::vector<model::ModelObject> result;
         boost::optional<model::ZoneControlHumidistat> humidistat = z->zoneControlHumidistat();
         if (humidistat) {
           result.push_back(*humidistat);
-        } else {
-          model::ZoneControlHumidistat h(z->model());
-          z->setZoneControlHumidistat(h);
-          result.push_back(h);
         }
         return result;
       });
@@ -517,42 +509,40 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
 
       std::function<boost::optional<model::Schedule>(model::ThermalZone*)> dehumidifyingSchedule([](model::ThermalZone* z) {
         boost::optional<model::Schedule> schedule;
-        if (boost::optional<model::ZoneControlHumidistat> thermostat = z->zoneControlHumidistat()) {
-          schedule = thermostat->dehumidifyingRelativeHumiditySetpointSchedule();
+        if (boost::optional<model::ZoneControlHumidistat> humidistat = z->zoneControlHumidistat()) {
+          schedule = humidistat->dehumidifyingRelativeHumiditySetpointSchedule();
         }
         return schedule;
       });
 
       std::function<bool(model::ThermalZone*, const model::Schedule&)> setDehumidifyingSchedule([](model::ThermalZone* z, model::Schedule t_s) {
-        if (boost::optional<model::ZoneControlHumidistat> thermostat = z->zoneControlHumidistat()) {
-          return thermostat->setDehumidifyingRelativeHumiditySetpointSchedule(t_s);
+        bool result = false;
+        if (boost::optional<model::ZoneControlHumidistat> humidistat = z->zoneControlHumidistat()) {
+          result = humidistat->setDehumidifyingRelativeHumiditySetpointSchedule(t_s);
         } else {
-          model::ZoneControlHumidistat t(z->model());
-          z->setZoneControlHumidistat(t);
-          return t.setDehumidifyingRelativeHumiditySetpointSchedule(t_s);
+          model::ZoneControlHumidistat h(z->model());
+          result = h.setDehumidifyingRelativeHumiditySetpointSchedule(t_s);
+          z->setZoneControlHumidistat(h);
         }
+        return result;
       });
 
       boost::optional<std::function<void(model::ThermalZone*)>> resetDehumidifyingSchedule([](model::ThermalZone* z) {
-        if (boost::optional<model::ZoneControlHumidistat> thermostat = z->zoneControlHumidistat()) {
-          thermostat->resetDehumidifyingRelativeHumiditySetpointSchedule();
-          if (!thermostat->humidifyingRelativeHumiditySetpointSchedule()) {
-            thermostat->remove();
+        if (boost::optional<model::ZoneControlHumidistat> humidistat = z->zoneControlHumidistat()) {
+          humidistat->resetDehumidifyingRelativeHumiditySetpointSchedule();
+          if (!humidistat->humidifyingRelativeHumiditySetpointSchedule()) {
+            z->resetZoneControlHumidistat();
           }
         }
       });
 
       boost::optional<std::function<bool(model::ThermalZone*)>> isDefaulted;
 
-      boost::optional<std::function<std::vector<model::ModelObject>(model::ThermalZone*)>> otherObjects([](model::ThermalZone* z) {
+      boost::optional<std::function<std::vector<model::ModelObject>(const model::ThermalZone*)>> otherObjects([](const model::ThermalZone* z) {
         std::vector<model::ModelObject> result;
         boost::optional<model::ZoneControlHumidistat> humidistat = z->zoneControlHumidistat();
         if (humidistat) {
           result.push_back(*humidistat);
-        } else {
-          model::ZoneControlHumidistat h(z->model());
-          z->setZoneControlHumidistat(h);
-          result.push_back(h);
         }
         return result;
       });

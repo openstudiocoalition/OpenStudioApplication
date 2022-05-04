@@ -72,10 +72,10 @@ set(${target_name}_qrc
 CONFIGURE_FILE_WITH_CHECKSUM(AboutBox.hpp.in "${CMAKE_CURRENT_BINARY_DIR}/AboutBox.hpp")
 
 ## Qt MOC generation
-qt5_wrap_cpp(${target_name}_mocs ${${target_name}_moc})
+qt6_wrap_cpp(${target_name}_mocs ${${target_name}_moc})
 
 # generate rules for building source files from the resources
-qt5_add_resources(${target_name}_qrcs ${${target_name}_qrc})
+qt6_add_resources(${target_name}_qrcs ${${target_name}_qrc})
 
 # make the shared library
 add_library(${target_name}

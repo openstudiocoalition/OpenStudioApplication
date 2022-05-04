@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -186,7 +186,7 @@ void BIMserverConnection::processGetAllProjectsRequest(QNetworkReply* rep) {
     if (!containsError(response)) {
       QJsonArray result = response["result"].toArray();
       QStringList projectList;
-      foreach (const QJsonValue& value, result) {
+      for (const QJsonValue& value : result) {
         QJsonObject ifcProject = value.toObject();
         int oid = ifcProject["oid"].toInt();
         QString projectID = toQString(openstudio::string_conversions::number(oid));
@@ -358,7 +358,7 @@ void BIMserverConnection::processGetDownloadDataRequest(QNetworkReply* rep) {
       QString file = result["file"].toString();
       //decode the response
       QByteArray byteArray;
-      byteArray.append(file);
+      byteArray.append(file.toStdString().c_str());
       QString OSMFile = QByteArray::fromBase64(byteArray);
 
       m_osmModel = OSMFile;
@@ -679,12 +679,12 @@ void BIMserverConnection::processGetProjectByIDRequest(QNetworkReply* rep) {
     if (!containsError(response)) {
       QJsonArray result = response["result"].toArray();
       QStringList revisionList;
-      foreach (const QJsonValue& value, result) {
+      for (const QJsonValue& value : result) {
         QJsonObject ifcRevision = value.toObject();
         QString revision = toQString(openstudio::string_conversions::number(ifcRevision["oid"].toInt()));
         double time = ifcRevision["date"].toDouble();
         QDateTime timestamp;
-        timestamp.setTime_t(static_cast<unsigned int>(time / 1000 + 0.5));
+        timestamp.setSecsSinceEpoch(static_cast<qint64>(time / 1000 + 0.5));
         // TODO: Why is this unused?
         // QString project = revision.append(":").append(timestamp.toString(QLocale::system().dateTimeFormat(QLocale::ShortFormat)));
 
@@ -755,7 +755,9 @@ void BIMserverConnection::processGetProgressRequest() {
     } else {
       QJsonArray error = response["errors"].toArray();
       QString errorMessage;
-      foreach (const QJsonValue& value, error) { errorMessage = errorMessage + value.toString() + QString("\n"); }
+      for (const QJsonValue& value : error) {
+        errorMessage = errorMessage + value.toString() + QString("\n");
+      }
       emit errorOccured(errorMessage);
     }
 

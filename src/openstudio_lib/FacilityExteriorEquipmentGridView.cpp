@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -122,19 +122,19 @@ void FacilityExteriorEquipmentGridView::addObject(const IddObjectType& iddObject
 
 void FacilityExteriorEquipmentGridView::purgeObjects(const IddObjectType& iddObjectType) {
   if (IddObjectType::OS_Exterior_Lights == iddObjectType.value()) {
-    for (auto &mo : this->m_model.getConcreteModelObjects<model::ExteriorLightsDefinition>()) {
+    for (auto& mo : this->m_model.getConcreteModelObjects<model::ExteriorLightsDefinition>()) {
       if (mo.instances().empty()) {
         mo.remove();
       }
     }
   } else if (IddObjectType::OS_Exterior_FuelEquipment == iddObjectType.value()) {
-    for (auto &mo : this->m_model.getConcreteModelObjects<model::ExteriorFuelEquipmentDefinition>()) {
+    for (auto& mo : this->m_model.getConcreteModelObjects<model::ExteriorFuelEquipmentDefinition>()) {
       if (mo.instances().empty()) {
         mo.remove();
       }
     }
   } else if (IddObjectType::OS_Exterior_WaterEquipment == iddObjectType.value()) {
-    for (auto &mo : this->m_model.getConcreteModelObjects<model::ExteriorWaterEquipmentDefinition>()) {
+    for (auto& mo : this->m_model.getConcreteModelObjects<model::ExteriorWaterEquipmentDefinition>()) {
       if (mo.instances().empty()) {
         mo.remove();
       }

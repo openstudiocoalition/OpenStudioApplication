@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -64,7 +64,7 @@
 #include <QCheckBox>
 #include <QComboBox>
 #include <QLabel>
-#include <QRegExp>
+#include <QRegularExpression>
 
 // These defines provide a common area for field display names
 // used on column headers, and other grid widgets
@@ -124,8 +124,8 @@ FacilityStoriesGridView::FacilityStoriesGridView(bool isIP, const model::Model& 
   m_greaterThanFilter->setFixedWidth(OSItem::ITEM_WIDTH);
   connect(m_greaterThanFilter, &QLineEdit::editingFinished, this, &openstudio::FacilityStoriesGridView::greaterThanFilterChanged);
 
-  QRegExp regex("^(-?\\d*\\.?\\d+)?$");
-  auto validator = new QRegExpValidator(regex, this);
+  QRegularExpression regex("^(-?\\d*\\.?\\d+)?$");
+  auto validator = new QRegularExpressionValidator(regex, this);
   m_greaterThanFilter->setValidator(validator);
 
   layout->addWidget(m_greaterThanFilter, Qt::AlignTop | Qt::AlignLeft);
@@ -146,7 +146,7 @@ FacilityStoriesGridView::FacilityStoriesGridView(bool isIP, const model::Model& 
   // Evan note: there are issues with using the signal textChanged or textEdited, related to the design and updating of the gridview (loss of focus, and updates per key stroke)
   connect(m_lessThanFilter, &QLineEdit::editingFinished, this, &openstudio::FacilityStoriesGridView::lessThanFilterChanged);
 
-  validator = new QRegExpValidator(regex, this);
+  validator = new QRegularExpressionValidator(regex, this);
   m_greaterThanFilter->setValidator(validator);
 
   layout->addWidget(m_lessThanFilter, Qt::AlignTop | Qt::AlignLeft);

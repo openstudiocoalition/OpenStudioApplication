@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -78,7 +78,7 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, QWidget* p
   connect(action, &QAction::triggered, this, &MainMenu::saveFileClicked);
 
   action = new QAction(tr("Save &As"), this);
-  action->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_S));
+  action->setShortcut(QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_S));
   m_fileMenu->addAction(action);
   connect(action, &QAction::triggered, this, &MainMenu::saveAsFileClicked);
 
@@ -126,6 +126,12 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, QWidget* p
   connect(action, &QAction::triggered, this, &MainMenu::loadLibraryClicked);
   m_fileImportActions.push_back(action);
   //m_preferencesActions.push_back(action); // DLM: I'm unclear if this should be enabled/disabled with preferences or file imports, right now does not matter
+
+  QMenu* exampleMenu = m_fileMenu->addMenu(tr("E&xamples"));
+
+  action = new QAction(tr("&Example Model"), this);
+  exampleMenu->addAction(action);
+  connect(action, &QAction::triggered, this, &MainMenu::loadExampleModelClicked);
 
   if (!m_isPlugin) {
 
@@ -382,7 +388,9 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, QWidget* p
   connect(action, &QAction::triggered, this, &MainMenu::aboutClicked);
 }
 
-MainMenu::~MainMenu() {}
+MainMenu::~MainMenu() {
+  disconnect();
+}
 
 void MainMenu::displaySIUnitsClicked() {
   m_displaySIUnitsAction->setChecked(true);

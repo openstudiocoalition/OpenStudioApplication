@@ -53,7 +53,7 @@ then
 else
   echo "clang-format auto corrected files:"
   git diff --name-only
-  echo -e "\nPlease correct these files. You can run ci/clang-format.sh locally and commit changes"
+  echo -e "\nPlease correct these files. You can run 'ci/clang-format.sh HEAD origin/develop' locally and commit changes"
   exit 1
 fi
 

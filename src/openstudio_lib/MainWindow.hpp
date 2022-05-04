@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -75,6 +75,8 @@ class MainWindow : public QMainWindow
 
   bool displayIP();
 
+  bool verboseOutput() const;
+
   void enableRevertToSavedAction(bool enable);
 
   void enableFileImportActions(bool enable);
@@ -121,6 +123,8 @@ class MainWindow : public QMainWindow
 
   void loadLibraryClicked();
 
+  void loadExampleModelClicked();
+
   void saveAsFileClicked();
 
   void saveFileClicked();
@@ -165,6 +169,10 @@ class MainWindow : public QMainWindow
 
   void enableComponentsMeasures(bool enable);
 
+ public slots:
+
+  void toggleVerboseOutput(bool verboseOutput);
+
  protected:
   void closeEvent(QCloseEvent* event) override;
 
@@ -190,6 +198,8 @@ class MainWindow : public QMainWindow
   MainMenu* m_mainMenu;
 
   bool m_displayIP;
+
+  bool m_verboseOutput = false;
 
   QString m_currLang;
 

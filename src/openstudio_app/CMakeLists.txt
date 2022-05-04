@@ -39,7 +39,7 @@ set(${target_name}_moc
 )
 
 ## Qt UI generation
-qt5_wrap_cpp(${target_name}_moc_src ${${target_name}_moc})
+qt6_wrap_cpp(${target_name}_moc_src ${${target_name}_moc})
 
 # configure the AboutBox.hpp file
 # this needs to be configured to embed the build number
@@ -68,11 +68,11 @@ elseif(APPLE)
 
   set(MACOSX_BUNDLE_SHORT_VERSION_STRING "${OPENSTUDIOAPPLICATION_VERSION}")
   set(MACOSX_BUNDLE_BUNDLE_VERSION "${OPENSTUDIOAPPLICATION_LONG_VERSION}")
-  set(MACOSX_BUNDLE_COPYRIGHT "Copyright © 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.")
+  set(MACOSX_BUNDLE_COPYRIGHT "Copyright © 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.")
 
   set(MACOSX_BUNDLE_EXECUTABLE_NAME ${target_name})
   # PROJECT_VERSION_BUILD = Git SHA. This makes it globally unique, and is what we want to avoid CFBUndleIdenfitied collision
-  set(MACOSX_BUNDLE_GUI_IDENTIFIER "gov.nrel.openstudio.${PROJECT_VERSION_BUILD}.openstudio")
+  set(MACOSX_BUNDLE_GUI_IDENTIFIER "org.openstudiocoalition.${PROJECT_VERSION_BUILD}.openstudioapplication")
   set(MACOSX_BUNDLE_BUNDLE_NAME "OpenStudioApplication")
   CONFIGURE_FILE_WITH_CHECKSUM(${CMAKE_CURRENT_SOURCE_DIR}/Info.plist.in ${CMAKE_CURRENT_BINARY_DIR}/Info.plist)
 
@@ -131,7 +131,9 @@ add_executable(${target_name}
 
 if (NINJA)
   target_compile_definitions(${target_name} PRIVATE NINJA=1)
-elseif(WIN32)
+endif()
+
+if(WIN32)
   # increase stack size
   target_link_options(${target_name} PRIVATE /STACK:8388608)
 endif()
@@ -141,18 +143,15 @@ endif()
 # to be self contained. It also makes it easy to find the cli since
 # it will be sitting next to the app executable.
 if( APPLE )
-add_custom_command(TARGET ${target_name}
-  POST_BUILD
-  COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:openstudio::openstudio> $<TARGET_FILE_DIR:${target_name}>/$<TARGET_FILE_NAME:openstudio::openstudio>
-)
+  add_custom_command(TARGET ${target_name}
+    POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:openstudio::openstudio> $<TARGET_FILE_DIR:${target_name}>/$<TARGET_FILE_NAME:openstudio::openstudio>
+  )
 endif()
 
 add_custom_command(TARGET ${target_name}
   POST_BUILD
   COMMAND ${CMAKE_COMMAND} -E make_directory $<TARGET_FILE_DIR:${target_name}>/platforms/
-  #COMMAND ${CMAKE_COMMAND} -E make_directory $<TARGET_FILE_DIR:${target_name}>/sceneparsers/
-  #COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:Qt5::GLTFSceneParserPlugin> $<TARGET_FILE_DIR:${target_name}>/sceneparsers/
-  #COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:Qt5::AssimpParserPlugin> $<TARGET_FILE_DIR:${target_name}>/sceneparsers/
 )
 
 if(WIN32)
@@ -170,21 +169,16 @@ if(UNIX AND NOT APPLE)
 endif()
 
 if( APPLE )
+  # Note: JM: Qt 6.3.0, I can no longer access $<TARGET_FILE:Qt6::QCocoaIntegrationPlugin>
+  find_library(QT_QCOCOA NAMES libqcocoa.dylib PATHS "${QT_INSTALL_DIR}/plugins/platforms" NO_DEFAULT_PATH)
   add_custom_command(TARGET ${target_name}
     POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:Qt5::QCocoaIntegrationPlugin> $<TARGET_FILE_DIR:${target_name}>/platforms/ )
+    # COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:Qt6::QCocoaIntegrationPlugin> $<TARGET_FILE_DIR:${target_name}>/platforms/
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_QCOCOA} $<TARGET_FILE_DIR:${target_name}>/platforms/
+    VERBATIM
+  )
+
 elseif( UNIX )
-  foreach(LIB ${QT_PLUGINS})
-    get_property(LIB_LOCATION TARGET ${LIB} PROPERTY LOCATION)
-    get_filename_component(LIB_BASE_NAME ${LIB_LOCATION} NAME)
-    add_custom_command(TARGET ${target_name}
-      POST_BUILD
-      COMMAND ${CMAKE_COMMAND} -E copy_if_different ${LIB_LOCATION} $<TARGET_FILE_DIR:${target_name}>/platforms
-      COMMAND patchelf --set-rpath "$ORIGIN/.." $<TARGET_FILE_DIR:${target_name}>/platforms/${LIB_BASE_NAME}
-      VERBATIM
-    )
-    list(APPEND QT_PLUGIN_LOCATIONS $<TARGET_FILE_DIR:${target_name}>/platforms/${LIB_BASE_NAME})
-  endforeach()
 
   foreach(LIB ${QT_LIBS} ${QT_WEB_LIBS})
     get_property(LIB_LOCATION TARGET ${LIB} PROPERTY LOCATION)
@@ -229,38 +223,36 @@ elseif( UNIX )
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_200} $<TARGET_FILE_DIR:${target_name}>/resources/
   )
 
-  # TODO: not sure if chrpath is needed
+  # Note: JM: Qt 6.3.0, I can no longer access $<TARGET_FILE:Qt6::QXcbIntegrationPlugin>
+  find_library(QT_QXCB NAMES libqxcb.so PATHS "${QT_INSTALL_DIR}/plugins/platforms" NO_DEFAULT_PATH)
   add_custom_command(TARGET ${target_name}
     POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:Qt5::QXcbGlxIntegrationPlugin> $<TARGET_FILE_DIR:${target_name}>/xcbglintegrations/
-    COMMAND chrpath -r "$ORIGIN/." $<TARGET_FILE_DIR:${target_name}>/xcbglintegrations/$<TARGET_FILE_NAME:Qt5::QXcbGlxIntegrationPlugin>
+    # Note: JM: Qt 6.3.0, I can no longer access $<TARGET_FILE:Qt6::QXcbIntegrationPlugin>
+    # COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:Qt6::QXcbIntegrationPlugin> $<TARGET_FILE_DIR:${target_name}>/platforms/
+    # COMMAND patchelf --set-rpath "$ORIGIN/.." $<TARGET_FILE_DIR:${target_name}>/platforms/$<TARGET_FILE_NAME:Qt6::QXcbIntegrationPlugin>
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_QXCB} $<TARGET_FILE_DIR:${target_name}>/platforms/
+    COMMAND patchelf --set-rpath "$ORIGIN/.." $<TARGET_FILE_DIR:${target_name}>/platforms/libqxcb.so
+    VERBATIM
+  )
+
+  find_library(QT_QXCB_GLX NAMES libqxcb-glx-integration.so PATHS "${QT_INSTALL_DIR}/plugins/xcbglintegrations" NO_DEFAULT_PATH)
+  add_custom_command(TARGET ${target_name}
+    POST_BUILD
+    # Note: JM: Qt 6.3.0, I can no longer access $<TARGET_FILE:Qt6::QXcbGlxIntegrationPlugin>
+    # COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:Qt6::QXcbGlxIntegrationPlugin> $<TARGET_FILE_DIR:${target_name}>/xcbglintegrations/
+    # COMMAND chrpath -r "$ORIGIN/." $<TARGET_FILE_DIR:${target_name}>/xcbglintegrations/$<TARGET_FILE_NAME:Qt6::QXcbGlxIntegrationPlugin>
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_QXCB_GLX} $<TARGET_FILE_DIR:${target_name}>/xcbglintegrations/
+    COMMAND patchelf --set-rpath "$ORIGIN/.." $<TARGET_FILE_DIR:${target_name}>/xcbglintegrations/libqxcb-glx-integration.so
     VERBATIM
   )
 
 elseif( WIN32 )
-  add_custom_command(TARGET ${target_name}
-    POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:Qt5::QWindowsIntegrationPlugin> $<TARGET_FILE_DIR:${target_name}>/platforms/ )
+
+  target_link_libraries(${target_name} optimized ${QT_ENTRYPOINT_LIB} debug ${QT_ENTRYPOINT_LIB_D})
 
   add_custom_command(TARGET ${target_name}
     POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:Qt5::QWindowsVistaStylePlugin> $<TARGET_FILE_DIR:${target_name}>/styles/ )
-
-  foreach(LIB ${QT_LIBS} ${QT_WEB_LIBS})
-    # release dlls are needed in debug dir for QtWebEngineProcess, second copy_if_different will be a no-op
-    get_property(LIB_RELEASE_PATH TARGET ${LIB} PROPERTY IMPORTED_LOCATION_RELEASE)
-    add_custom_command(TARGET ${target_name}
-      POST_BUILD
-      COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:${LIB}> $<TARGET_FILE_DIR:${target_name}>/
-      COMMAND ${CMAKE_COMMAND} -E copy_if_different ${LIB_RELEASE_PATH} $<TARGET_FILE_DIR:${target_name}>/
-    )
-  endforeach()
-
-  target_link_libraries(${target_name} optimized ${QT_MAIN_LIB} debug ${QT_MAIN_LIB_D})
-
-  add_custom_command(TARGET ${target_name}
-    POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QtWebEngineProcess} $<TARGET_FILE_DIR:${target_name}>/ )
+    COMMAND ${QT_WINDEPLOY_QT} --dir $<TARGET_FILE_DIR:${target_name}> $<TARGET_FILE:${target_name}>  )
 
   add_custom_command(TARGET ${target_name}
     POST_BUILD
@@ -346,28 +338,30 @@ endif()
 if( NOT APPLE )
 
   install(FILES $<TARGET_FILE_DIR:${target_name}>/qt.conf DESTINATION bin COMPONENT OpenStudioApp)
-  # install(DIRECTORY ${QT_INSTALL_DIR}/translations DESTINATION bin COMPONENT OpenStudioApp)
+  install(DIRECTORY $<TARGET_FILE_DIR:${target_name}>/platforms/ DESTINATION bin/platforms/ COMPONENT OpenStudioApp)
+  if (WIN32)
+    install(DIRECTORY $<TARGET_FILE_DIR:${target_name}>/styles/ DESTINATION bin/styles/ COMPONENT OpenStudioApp)
+  endif()
   install(DIRECTORY $<TARGET_FILE_DIR:${target_name}>/translations/ DESTINATION bin/translations/ COMPONENT OpenStudioApp)
   install(DIRECTORY $<TARGET_FILE_DIR:${target_name}>/resources/ DESTINATION bin/resources/ COMPONENT OpenStudioApp)
-  # install(FILES ${icudtl} DESTINATION bin/resources COMPONENT OpenStudioApp )/translatio
-  # install(FILES ${qweb_resources} DESTINATION bin/resources COMPONENT OpenStudioApp )
-  # install(FILES ${qweb_resources_100} DESTINATION bin/resources COMPONENT OpenStudioApp )
-  # install(FILES ${qweb_resources_200} DESTINATION bin/resources COMPONENT OpenStudioApp )
+
   if(WIN32)
     install(TARGETS OpenStudioApp DESTINATION bin COMPONENT OpenStudioApp )
+    install(PROGRAMS $<TARGET_FILE:openstudio::openstudiolib> DESTINATION bin COMPONENT OpenStudioApp )
 
     install(PROGRAMS ${QtWebEngineProcess} DESTINATION bin COMPONENT OpenStudioApp )
-    install(PROGRAMS $<TARGET_FILE:Qt5::QWindowsIntegrationPlugin> DESTINATION bin/platforms/ COMPONENT OpenStudioApp)
-    install(PROGRAMS $<TARGET_FILE:Qt5::QWindowsVistaStylePlugin> DESTINATION bin/styles/ COMPONENT OpenStudioApp)
-    #install(PROGRAMS $<TARGET_FILE:Qt5::GLTFSceneParserPlugin> DESTINATION bin/sceneparsers/ COMPONENT OpenStudioApp)
-    #install(PROGRAMS $<TARGET_FILE:Qt5::AssimpParserPlugin> DESTINATION bin/sceneparsers/ COMPONENT OpenStudioApp)
+
+    foreach(LIB ${QT_LIBS} ${QT_WEB_LIBS})
+      install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/$<TARGET_FILE_NAME:${LIB}> DESTINATION bin/ COMPONENT OpenStudioApp)
+    endforeach()
+
   elseif(UNIX)
+    # Let fixup_bundle do that for us
+    #install(PROGRAMS $<TARGET_FILE:openstudio::openstudiolib> DESTINATION bin COMPONENT OpenStudioApp )
+
     install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/QtWebEngineProcess DESTINATION bin/ COMPONENT OpenStudioApp)
-    #install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/platforms/$<TARGET_FILE_NAME:Qt5::QXcbIntegrationPlugin> DESTINATION bin/platforms/ COMPONENT OpenStudioApp)
-    install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/xcbglintegrations/$<TARGET_FILE_NAME:Qt5::QXcbGlxIntegrationPlugin> DESTINATION bin/xcbglintegrations/ COMPONENT OpenStudioApp)
-    #install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/sceneparsers/$<TARGET_FILE_NAME:Qt5::GLTFSceneParserPlugin> DESTINATION bin/sceneparsers/ COMPONENT OpenStudioApp)
-    #install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/sceneparsers/$<TARGET_FILE_NAME:Qt5::AssimpParserPlugin> DESTINATION bin/sceneparsers/ COMPONENT OpenStudioApp)
-    #install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/libQt5XcbQpa.so.5 DESTINATION bin/ COMPONENT OpenStudioApp)
+    install(DIRECTORY $<TARGET_FILE_DIR:${target_name}>/xcbglintegrations/ DESTINATION bin/xcbglintegrations/ COMPONENT OpenStudioApp)
+    # install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/xcbglintegrations/$<TARGET_FILE_NAME:Qt6::QXcbGlxIntegrationPlugin> DESTINATION bin/xcbglintegrations/ COMPONENT OpenStudioApp)
 
     foreach(LIB ${QT_LIBS} ${QT_WEB_LIBS})
       install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/$<TARGET_FILE_NAME:${LIB}> DESTINATION bin/ COMPONENT OpenStudioApp)
@@ -384,10 +378,6 @@ if( NOT APPLE )
       install(FILES $<TARGET_FILE_DIR:${target_name}>/${LINK} DESTINATION bin/ COMPONENT OpenStudioApp)
     endforeach()
 
-    foreach(PLUGIN ${QT_PLUGIN_LOCATIONS})
-      install(FILES ${PLUGIN} DESTINATION bin/platforms/ COMPONENT OpenStudioApp)
-    endforeach()
-
   endif()
 endif()
 
@@ -395,25 +385,28 @@ if( APPLE )
   list(APPEND QTPLUGINS "\${CMAKE_INSTALL_PREFIX}/${plugin_dest_dir}/platforms/libqcocoa.dylib")
   #list(APPEND QTPLUGINS "\${CMAKE_INSTALL_PREFIX}/${plugin_dest_dir}/sceneparsers/libgltfsceneparser.dylib")
   #list(APPEND QTPLUGINS "\${CMAKE_INSTALL_PREFIX}/${plugin_dest_dir}/sceneparsers/libassimpsceneparser.dylib")
-  install(DIRECTORY ${QtWebEngineProcess} DESTINATION "OpenStudioApp.app/Contents/Frameworks/QtWebEngineCore.framework/Versions/5/Helpers/" COMPONENT OpenStudioApp USE_SOURCE_PERMISSIONS)
+  install(DIRECTORY ${QtWebEngineProcess} DESTINATION "OpenStudioApp.app/Contents/Frameworks/QtWebEngineCore.framework/Versions/A/Helpers/" COMPONENT OpenStudioApp USE_SOURCE_PERMISSIONS)
 
   # TODO: this is definitely a shot in the dark and is unlikely to work. The WebEngine .paks in particular probably need to live somewhere else
   install(DIRECTORY $<TARGET_FILE_DIR:${target_name}>/translations/ DESTINATION "OpenStudioApp.app/Contents/Resources/translations/" COMPONENT OpenStudioApp)
 
-  list(APPEND QTPLUGINS "\${CMAKE_INSTALL_PREFIX}/OpenStudioApp.app/Contents/Frameworks/QtWebEngineCore.framework/Versions/5/Helpers/QtWebEngineProcess.app/Contents/MacOS/QtWebEngineProcess")
+  list(APPEND QTPLUGINS "\${CMAKE_INSTALL_PREFIX}/OpenStudioApp.app/Contents/Frameworks/QtWebEngineCore.framework/Versions/A/Helpers/QtWebEngineProcess.app/Contents/MacOS/QtWebEngineProcess")
 endif()
 
-# This does some "magic" **including on Linux** (cf #345) (On linux it will install in ./bin/ the libopenstudio.so, and libicu* stuff)
-install(CODE "
-  # APPS might be a symbolic link which does not work with fixup_bundle
-  # expand APPS to a real path
-  get_filename_component(APPS_EXPANDED ${APPS} REALPATH)
-  include(BundleUtilities)
-  # This file defines some libs we are excluding. Some like concrt140.dll are installed already via InstallRequiredSystemLibraries
-  include(\"${CMAKE_SOURCE_DIR}/CMake/FixupBundleOverrides.cmake\")
-  fixup_bundle(\"\${APPS_EXPANDED}\" \"${QTPLUGINS}\" \"${DIRS}\")
-  " COMPONENT "OpenStudioApp"
-)
+# TODO: We used to run fixup_bundle on all plaforms before on 5.15.0...
+if(UNIX)
+  # This does some "magic" **including on Linux** (cf #345) (On linux it will install in ./bin/ the libopenstudio.so, and libicu* stuff)
+  install(CODE "
+    # APPS might be a symbolic link which does not work with fixup_bundle
+    # expand APPS to a real path
+    get_filename_component(APPS_EXPANDED ${APPS} REALPATH)
+    include(BundleUtilities)
+    # This file defines some libs we are excluding. Some like concrt140.dll are installed already via InstallRequiredSystemLibraries
+    include(\"${CMAKE_SOURCE_DIR}/CMake/FixupBundleOverrides.cmake\")
+    fixup_bundle(\"\${APPS_EXPANDED}\" \"${QTPLUGINS}\" \"${DIRS}\")
+    " COMPONENT "OpenStudioApp"
+  )
+endif()
 
 set(${target_name}_test_src
   test/OpenStudioAppFixture.hpp

@@ -21,7 +21,7 @@
             <string>Owner</string>
             <key>LSItemContentTypes</key>
             <array>
-                <string>gov.nrel.openstudio.osm</string>
+                <string>org.openstudiocoalition.openstudio.osm</string>
             </array>
         </dict>
         <dict>
@@ -39,7 +39,7 @@
             <string>Default</string>
             <key>LSItemContentTypes</key>
             <array>
-                <string>gov.nrel.openstudio.osc</string>
+                <string>org.openstudiocoalition.openstudio.osc</string>
             </array>
         </dict>
     </array>
@@ -81,7 +81,7 @@
             <key>UTTypeDescription</key>
             <string>OpenStudio Model</string>
             <key>UTTypeIdentifier</key>
-            <string>gov.nrel.openstudio.osm</string>
+            <string>org.openstudiocoalition.openstudio.osm</string>
             <key>UTTypeTagSpecification</key>
             <dict>
                 <key>public.filename-extension</key>
@@ -98,7 +98,7 @@
             <key>UTTypeDescription</key>
             <string>OpenStudio Component</string>
             <key>UTTypeIdentifier</key>
-            <string>gov.nrel.openstudio.osc</string>
+            <string>org.openstudiocoalition.openstudio.osc</string>
             <key>UTTypeTagSpecification</key>
             <dict>
                 <key>public.filename-extension</key>

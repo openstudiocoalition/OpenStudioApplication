@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -127,6 +127,8 @@
 #include <QInputDialog>
 #include <QSettings>
 
+#include <memory>
+
 #if (defined(_WIN32) || defined(_WIN64))
 #  include <windows.h>
 #endif
@@ -141,7 +143,7 @@ OSDocument::OSDocument(const openstudio::model::Model& library, const openstudio
     m_onlineMeasuresBclDialog(nullptr),
     m_onlineBclDialog(nullptr),
     m_localLibraryDialog(nullptr),
-    m_savePath(filePath),
+    m_savePath(std::move(filePath)),
     m_isPlugin(isPlugin) {
 
   QFile data(":openstudiolib.qss");
@@ -175,6 +177,7 @@ OSDocument::OSDocument(const openstudio::model::Model& library, const openstudio
   } else {
     modelTempDir = model::initializeModel(*model);
     m_mainWindow->setWindowTitle("Untitled[*]");
+    initalizeWorkflow = true;
   }
   m_modelTempDir = toQString(modelTempDir);
 
@@ -200,6 +203,7 @@ OSDocument::OSDocument(const openstudio::model::Model& library, const openstudio
   connect(m_mainWindow, &MainWindow::configureExternalToolsClicked, this, &OSDocument::configureExternalToolsClicked);
   connect(m_mainWindow, &MainWindow::changeLanguageClicked, this, &OSDocument::changeLanguageClicked);
   connect(m_mainWindow, &MainWindow::loadLibraryClicked, this, &OSDocument::loadLibraryClicked);
+  connect(m_mainWindow, &MainWindow::loadExampleModelClicked, this, &OSDocument::loadExampleModelClicked);
   connect(m_mainWindow, &MainWindow::newClicked, this, &OSDocument::newClicked);
   connect(m_mainWindow, &MainWindow::exitClicked, this, &OSDocument::exitClicked);
   connect(m_mainWindow, &MainWindow::helpClicked, this, &OSDocument::helpClicked);
@@ -253,6 +257,8 @@ OSDocument::~OSDocument() {
   // blockSignals wouldn't work now anyways because of nano signal slot implementation
   // m_model.getImpl<openstudio::model::detail::Model_Impl>()->blockSignals(true);
 
+  disconnect();
+
   // release the file watchers so can remove model temp dir
   m_mainTabController.reset();
 
@@ -263,7 +269,7 @@ void OSDocument::showStartTabAndStartSubTab() {
   m_mainWindow->show();
 }
 
-int OSDocument::subTabIndex() {
+int OSDocument::subTabIndex() const {
   return m_subTabId;
 }
 
@@ -298,7 +304,7 @@ model::Model OSDocument::model() {
   return m_model;
 }
 
-void OSDocument::setModel(const model::Model& model, bool modified, bool saveCurrentTabs) {
+void OSDocument::setModel(const model::Model& model, bool modified, bool /*saveCurrentTabs*/) {
   bool wasVisible = m_mainWindow->isVisible();
   m_mainWindow->setVisible(false);
   openstudio::OSAppBase* app = OSAppBase::instance();
@@ -321,19 +327,17 @@ void OSDocument::setModel(const model::Model& model, bool modified, bool saveCur
     QTimer::singleShot(0, this, &OSDocument::weatherFileReset);
   }
 
-  m_model.getImpl<model::detail::Model_Impl>().get()->addWorkspaceObjectPtr.connect<OSAppBase, &OSAppBase::addWorkspaceObjectPtr>(
+  m_model.getImpl<model::detail::Model_Impl>()->addWorkspaceObjectPtr.connect<OSAppBase, &OSAppBase::addWorkspaceObjectPtr>(OSAppBase::instance());
+  m_model.getImpl<model::detail::Model_Impl>()->removeWorkspaceObjectPtr.connect<OSAppBase, &OSAppBase::removeWorkspaceObjectPtr>(
     OSAppBase::instance());
-  m_model.getImpl<model::detail::Model_Impl>().get()->removeWorkspaceObjectPtr.connect<OSAppBase, &OSAppBase::removeWorkspaceObjectPtr>(
-    OSAppBase::instance());
-  m_model.getImpl<model::detail::Model_Impl>().get()->addWorkspaceObject.connect<OSAppBase, &OSAppBase::addWorkspaceObject>(OSAppBase::instance());
-  m_model.getImpl<model::detail::Model_Impl>().get()->removeWorkspaceObject.connect<OSAppBase, &OSAppBase::removeWorkspaceObject>(
-    OSAppBase::instance());
-  m_model.getImpl<model::detail::Model_Impl>().get()->onChange.connect<OSDocument, &OSDocument::markAsModified>(this);
-  m_model.workflowJSON().getImpl<detail::WorkflowJSON_Impl>().get()->onChange.connect<OSDocument, &OSDocument::markAsModified>(this);
+  m_model.getImpl<model::detail::Model_Impl>()->addWorkspaceObject.connect<OSAppBase, &OSAppBase::addWorkspaceObject>(OSAppBase::instance());
+  m_model.getImpl<model::detail::Model_Impl>()->removeWorkspaceObject.connect<OSAppBase, &OSAppBase::removeWorkspaceObject>(OSAppBase::instance());
+  m_model.getImpl<model::detail::Model_Impl>()->onChange.connect<OSDocument, &OSDocument::markAsModified>(this);
+  m_model.workflowJSON().getImpl<detail::WorkflowJSON_Impl>()->onChange.connect<OSDocument, &OSDocument::markAsModified>(this);
 
   // Main Right Column
 
-  m_mainRightColumnController = std::shared_ptr<MainRightColumnController>(new MainRightColumnController(m_model, m_resourcesPath));
+  m_mainRightColumnController = std::make_shared<MainRightColumnController>(m_model, m_resourcesPath);
   connect(this, &OSDocument::toggleUnitsClicked, m_mainRightColumnController.get(), &MainRightColumnController::toggleUnitsClicked);
 
   m_mainWindow->setMainRightColumnView(m_mainRightColumnController->mainRightColumnView());
@@ -897,11 +901,14 @@ void OSDocument::setSavePath(const QString& savePath) {
 }
 
 bool OSDocument::fixWeatherFileInTemp(bool opening) {
+  LOG(Debug, "OSDocument::fixWeatherFileInTemp: " << opening);
+
   // look for existing weather file
   boost::optional<model::WeatherFile> weatherFile = m_model.getOptionalUniqueModelObject<model::WeatherFile>();
 
   // no weather file, nothing to do
   if (!weatherFile) {
+    LOG(Debug, "No weather file");
     return true;
   }
 
@@ -909,12 +916,17 @@ bool OSDocument::fixWeatherFileInTemp(bool opening) {
 
   // no weather file path, nothing to do
   if (!weatherFilePath) {
+    LOG(Debug, "No weather file path");
+    return true;
+  }
+
+  // no temp dir, nothing to do
+  if (m_modelTempDir.isEmpty()) {
+    LOG(Debug, "No temp dir");
     return true;
   }
 
   boost::optional<std::string> weatherFileChecksum = weatherFile->checksum();
-
-  OS_ASSERT(!m_modelTempDir.isEmpty());
 
   openstudio::path tempResourcesDir = toPath(m_modelTempDir) / toPath("resources/");
   openstudio::path tempFilesDir = toPath(m_modelTempDir) / toPath("resources/files/");
@@ -985,8 +997,6 @@ bool OSDocument::fixWeatherFileInTemp(bool opening) {
     }
   }
 
-  OS_ASSERT(!epwInTempPath.empty());
-
   // check if we need to do the file copy
   bool doCopy = false;
   openstudio::path copySource;
@@ -1013,6 +1023,8 @@ bool OSDocument::fixWeatherFileInTemp(bool opening) {
     }
 
   } else if (!epwInUserPathChecksum && !epwInTempPathChecksum) {
+
+    LOG(Debug, "Weather file not found, removing");
 
     // file does not exist anywhere
     weatherFile->remove();
@@ -1052,6 +1064,7 @@ bool OSDocument::fixWeatherFileInTemp(bool opening) {
 
   if (!doCopy && !epwPathAbsolute && !checksumMismatch) {
     // no need to copy file or adjust model
+    LOG(Debug, "No need to copy weather file");
     return true;
   }
 
@@ -1059,9 +1072,12 @@ bool OSDocument::fixWeatherFileInTemp(bool opening) {
 
   if (doCopy) {
     try {
+      LOG(Debug, "Start copy weather file from " << copySource << " to " << copyDest);
       boost::filesystem::copy_file(copySource, copyDest, boost::filesystem::copy_option::overwrite_if_exists);
+      LOG(Debug, "Copy weather file complete");
     } catch (...) {
       // copy failed
+      LOG(Debug, "Copy weather file failed, removing");
       weatherFile->remove();
 
       // not yet listening to model signals
@@ -1074,6 +1090,7 @@ bool OSDocument::fixWeatherFileInTemp(bool opening) {
   }
 
   try {
+    LOG(Debug, "Verifying weather file at " << epwInTempPath);
     EpwFile epwFile(epwInTempPath);
 
     weatherFile = openstudio::model::WeatherFile::setWeatherFile(m_model, epwFile);
@@ -1086,8 +1103,11 @@ bool OSDocument::fixWeatherFileInTemp(bool opening) {
       QTimer::singleShot(0, this, &OSDocument::markAsModified);
     }
 
+    LOG(Debug, "Verifying weather file complete");
+
   } catch (...) {
     // epw file not valid
+    LOG(Debug, "Verifying weather file failed, removing");
     weatherFile->remove();
 
     // not yet listening to model signals
@@ -1096,7 +1116,9 @@ bool OSDocument::fixWeatherFileInTemp(bool opening) {
     }
 
     if (doCopy) {
+      LOG(Debug, "Removing weather file at " << copyDest);
       boost::filesystem::remove_all(copyDest);
+      LOG(Debug, "Removing weather file complete");
     }
 
     return false;
@@ -1230,8 +1252,6 @@ void OSDocument::exportSDD() {
 
 void OSDocument::exportFile(fileType type) {
 
-  std::vector<LogMessage> translatorErrors, translatorWarnings;
-
   QString text("Export ");
   if (type == SDD) {
     text.append("SDD");
@@ -1250,6 +1270,9 @@ void OSDocument::exportFile(fileType type) {
     model::Model m = this->model();
     openstudio::path outDir = toPath(fileName);
 
+    std::vector<LogMessage> translatorErrors;
+    std::vector<LogMessage> translatorWarnings;
+
     if (type == SDD) {
       sdd::ForwardTranslator trans;
       trans.modelToSDD(m, outDir);
@@ -1264,18 +1287,18 @@ void OSDocument::exportFile(fileType type) {
 
     bool errorsOrWarnings = false;
     QString log;
-    for (std::vector<LogMessage>::iterator it = translatorErrors.begin(); it < translatorErrors.end(); ++it) {
+    for (const LogMessage& logMessage : translatorErrors) {
       errorsOrWarnings = true;
 
-      log.append(QString::fromStdString(it->logMessage()));
+      log.append(QString::fromStdString(logMessage.logMessage()));
       log.append("\n");
       log.append("\n");
     }
 
-    for (std::vector<LogMessage>::iterator it = translatorWarnings.begin(); it < translatorWarnings.end(); ++it) {
+    for (const LogMessage& logMessage : translatorWarnings) {
       errorsOrWarnings = true;
 
-      log.append(QString::fromStdString(it->logMessage()));
+      log.append(QString::fromStdString(logMessage.logMessage()));
       log.append("\n");
       log.append("\n");
     }
@@ -1348,8 +1371,8 @@ boost::optional<BCLMeasure> OSDocument::standardReportMeasure() {
     return result;
   }
 
-  RemoteBCL remoteBCL;
-  if (remoteBCL.isOnline()) {
+  if (RemoteBCL::isOnline()) {
+    RemoteBCL remoteBCL;
     result = remoteBCL.getMeasure(uid);
   }
 
@@ -1357,6 +1380,7 @@ boost::optional<BCLMeasure> OSDocument::standardReportMeasure() {
 }
 
 bool OSDocument::save() {
+  LOG(Debug, "OSDocument::save");
   bool fileSaved = false;
 
   if (!m_savePath.isEmpty()) {
@@ -1370,17 +1394,19 @@ bool OSDocument::save() {
 
     // saves the model to modelTempDir / m_savePath.filename()
     // also copies the temp files to user location
+    LOG(Debug, "Saving " << modelPath << " starting");
     bool saved = saveModel(this->model(), modelPath, toPath(m_modelTempDir));
-    if (!saved) {
+    if (saved) {
+      LOG(Debug, "Saving " << modelPath << " complete");
+      this->setSavePath(toQString(modelPath));
+      this->markAsUnmodified();
+      fileSaved = true;
+    } else {
+      LOG(Debug, "Saving " << modelPath << " failed");
       QMessageBox::warning(this->mainWindow(), tr("Failed to save model"),
                            tr("Failed to save model, make sure that you do not have the location open and that you have correct write access."));
     }
 
-    this->setSavePath(toQString(modelPath));
-
-    this->markAsUnmodified();
-
-    fileSaved = true;
   } else {
     fileSaved = saveAs();
   }
@@ -1414,6 +1440,7 @@ void OSDocument::showRunManagerPreferences() {
 }
 
 bool OSDocument::saveAs() {
+  LOG(Debug, "OSDocument::saveAs");
   bool fileSaved = false;
 
   // Defaults to the current savePath is there is one (will populate the filename too)
@@ -1427,7 +1454,9 @@ bool OSDocument::saveAs() {
     if (!m_savePath.isEmpty()) {
       openstudio::path oldModelPath = toPath(m_modelTempDir) / toPath(m_savePath).filename();
       if (boost::filesystem::exists(oldModelPath)) {
+        LOG(Debug, "Removing " << oldModelPath << " starting");
         boost::filesystem::remove(oldModelPath);
+        LOG(Debug, "Removing " << oldModelPath << " complete");
       }
     }
 
@@ -1440,14 +1469,18 @@ bool OSDocument::saveAs() {
 
     // saves the model to modelTempDir / filePath.filename()
     // also copies the temp files to user location
+    LOG(Debug, "Saving " << modelPath << " starting");
     bool saved = saveModel(this->model(), modelPath, toPath(m_modelTempDir));
-    OS_ASSERT(saved);
-
-    this->setSavePath(toQString(modelPath));
-
-    this->markAsUnmodified();
-
-    fileSaved = true;
+    if (saved) {
+      LOG(Debug, "Saving " << modelPath << " complete");
+      this->setSavePath(toQString(modelPath));
+      this->markAsUnmodified();
+      fileSaved = true;
+    } else {
+      LOG(Debug, "Saving " << modelPath << " failed");
+      QMessageBox::warning(this->mainWindow(), tr("Failed to save model"),
+                           tr("Failed to save model, make sure that you do not have the location open and that you have correct write access."));
+    }
   }
 
   return fileSaved;
@@ -1528,7 +1561,7 @@ boost::optional<model::Component> OSDocument::getComponent(const OSItemId& itemI
 
       std::vector<std::string> oscFiles = component->files("osc");
 
-      if (oscFiles.size() == 1u) {
+      if (oscFiles.size() == 1U) {
 
         openstudio::path oscPath = toPath(oscFiles[0]);
 
@@ -1561,7 +1594,7 @@ void OSDocument::openMeasuresDlg() {
   // save model if dirty
   if (this->modified()) {
 
-    auto messageBox = new QMessageBox(this->mainWindow());
+    auto* messageBox = new QMessageBox(this->mainWindow());
     messageBox->setText("You must save your model before applying a measure.");
     messageBox->setInformativeText("Do you want to save your model now?");
     messageBox->setStandardButtons(QMessageBox::Save | QMessageBox::Cancel);
@@ -1576,7 +1609,9 @@ void OSDocument::openMeasuresDlg() {
     switch (ret) {
       case QMessageBox::Save:
         // Save was clicked
-        if (this->save() != true) return;
+        if (this->save() != true) {
+          return;
+        }
         break;
       case QMessageBox::Cancel:
         // Cancel was clicked
@@ -1652,73 +1687,19 @@ void OSDocument::updateSubTabSelected(int id) {
   m_subTabIds.at(m_verticalId) = id;
 }
 
-bool prodAuthKeyUserPrompt(QWidget* parent) {
-  // make sure application is initialized
-  Application::instance().application(false);
-
-  QInputDialog inputDlg(parent);
-  inputDlg.setInputMode(QInputDialog::TextInput);
-  inputDlg.setLabelText("BCL Auth Key:                                            ");
-  inputDlg.setWindowFlags(Qt::Dialog | Qt::WindowCloseButtonHint);
-  inputDlg.setWindowTitle("Enter Your BCL Auth Key");
-  if (Application::instance().isDefaultInstance()) {
-    QIcon icon = QIcon(":/images/os_16.png");
-    icon.addPixmap(QPixmap(":/images/os_32.png"));
-    icon.addPixmap(QPixmap(":/images/os_48.png"));
-    icon.addPixmap(QPixmap(":/images/os_64.png"));
-    icon.addPixmap(QPixmap(":/images/os_128.png"));
-    icon.addPixmap(QPixmap(":/images/os_256.png"));
-    inputDlg.setWindowIcon(icon);
-  }
-  bool result = inputDlg.exec();
-  QString text = inputDlg.textValue();
-
-  if (result && !text.isEmpty()) {
-    std::string authKey = toString(text);
-    result = LocalBCL::instance().setProdAuthKey(authKey);
-  }
-
-  return result;
-}
-
 void OSDocument::openBclDlg() {
-  std::string authKey = LocalBCL::instance().prodAuthKey();
-  if (!LocalBCL::instance().setProdAuthKey(authKey)) {
-    prodAuthKeyUserPrompt(m_mainWindow);
-    authKey = LocalBCL::instance().prodAuthKey();
-
-    while (!LocalBCL::instance().setProdAuthKey(authKey)) {
-      QMessageBox dlg(m_mainWindow);
-      dlg.setWindowTitle(tr("Online BCL"));
-      dlg.setText("The BCL auth key is invalid, and Online BCL data will not be available.  To learn how to obtain a valid BCL auth key, click <a "
-                  "href='https://openstudiocoalition.org/getting_started/getting_started/'>here</a>.");
-      dlg.setTextFormat(Qt::RichText);
-      dlg.addButton(QMessageBox::Cancel);
-      dlg.addButton(QMessageBox::Retry);
-      dlg.setDefaultButton(QMessageBox::Retry);
-      dlg.setIcon(QMessageBox::Warning);
-      dlg.setWindowFlags(Qt::Dialog | Qt::WindowCloseButtonHint);
-
-      int ret = dlg.exec();
-
-      if (ret == QMessageBox::Cancel) {
-        return;
-      } else if (ret == QMessageBox::Retry) {
-        prodAuthKeyUserPrompt(m_mainWindow);
-        authKey = LocalBCL::instance().prodAuthKey();
-      } else {
-        // should never get here
-        OS_ASSERT(false);
-      }
-    }
+  if (!RemoteBCL::isOnline()) {
+    QMessageBox::information(this->mainWindow(), "Offline", "You appear to be offline, please connect to the internet to access the BCL.",
+                             QMessageBox::Ok);
+    return;
   }
 
   if (!m_onlineBclDialog) {
     std::string filterType = "components";
     m_onlineBclDialog = new BuildingComponentDialog(filterType, true, m_mainWindow);
-
     connect(m_onlineBclDialog, &BuildingComponentDialog::rejected, this, &OSDocument::on_closeBclDlg);
   }
+
   if (m_onlineBclDialog && !m_onlineBclDialog->isVisible()) {
     m_onlineBclDialog->setGeometry(m_mainWindow->geometry());
     m_onlineBclDialog->show();
@@ -1748,43 +1729,18 @@ std::shared_ptr<MainRightColumnController> OSDocument::mainRightColumnController
 }
 
 void OSDocument::openMeasuresBclDlg() {
-  std::string authKey = LocalBCL::instance().prodAuthKey();
-  if (!LocalBCL::instance().setProdAuthKey(authKey)) {
-    prodAuthKeyUserPrompt(m_mainWindow);
-    authKey = LocalBCL::instance().prodAuthKey();
-
-    while (!LocalBCL::instance().setProdAuthKey(authKey)) {
-      QMessageBox dlg(m_mainWindow);
-      dlg.setWindowTitle(tr("Online BCL"));
-      dlg.setText("The BCL auth key is invalid, and Online BCL data will not be available.  To learn how to obtain a valid BCL auth key, click <a "
-                  "href='https://openstudiocoalition.org/getting_started/getting_started/'>here</a>.");
-      dlg.setTextFormat(Qt::RichText);
-      dlg.addButton(QMessageBox::Cancel);
-      dlg.addButton(QMessageBox::Retry);
-      dlg.setDefaultButton(QMessageBox::Retry);
-      dlg.setIcon(QMessageBox::Warning);
-      dlg.setWindowFlags(Qt::Dialog | Qt::WindowCloseButtonHint);
-
-      int ret = dlg.exec();
-
-      if (ret == QMessageBox::Cancel) {
-        return;
-      } else if (ret == QMessageBox::Retry) {
-        prodAuthKeyUserPrompt(m_mainWindow);
-        authKey = LocalBCL::instance().prodAuthKey();
-      } else {
-        // should never get here
-        OS_ASSERT(false);
-      }
-    }
+  if (!RemoteBCL::isOnline()) {
+    QMessageBox::information(this->mainWindow(), "Offline", "You appear to be offline, please connect to the internet to access the BCL.",
+                             QMessageBox::Ok);
+    return;
   }
 
   if (!m_onlineMeasuresBclDialog) {
     std::string filterType = "measures";
     m_onlineMeasuresBclDialog = new BuildingComponentDialog(filterType, true, m_mainWindow);
-
     connect(m_onlineMeasuresBclDialog, &BuildingComponentDialog::rejected, this, &OSDocument::on_closeMeasuresBclDlg);
   }
+
   if (m_onlineMeasuresBclDialog && !m_onlineMeasuresBclDialog->isVisible()) {
     m_onlineMeasuresBclDialog->setGeometry(m_mainWindow->geometry());
     m_onlineMeasuresBclDialog->show();

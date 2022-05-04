@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -44,7 +44,6 @@
 #include <QLabel>
 #include <QPushButton>
 #include <QFile>
-#include <QWebEngineSettings>
 #include <QWebEngineScriptCollection>
 #include <QtConcurrent>
 
@@ -116,18 +115,6 @@ PreviewWebView::PreviewWebView(bool isIP, const model::Model& model, QWidget* t_
     connect(m_page, &QWebEnginePage::loadProgress, this, [](int progress) { qDebug() << "Page Loading Progress: " << progress; });
     connect(m_page, &QWebEnginePage::loadFinished, this, [](bool ok) { qDebug() << "Page Loading Finished: " << ok; });
   }
-
-  // Qt 5.8 and higher
-  m_view->settings()->setAttribute(QWebEngineSettings::AllowRunningInsecureContent, true);
-
-  m_view->settings()->setAttribute(QWebEngineSettings::WebAttribute::LocalContentCanAccessRemoteUrls, true);
-  m_view->settings()->setAttribute(QWebEngineSettings::WebAttribute::SpatialNavigationEnabled, true);
-
-  // These aren't needed
-  //m_view->settings()->setAttribute(QWebEngineSettings::JavascriptCanAccessClipboard, true);
-  //m_view->settings()->setAttribute(QWebEngineSettings::AllowGeolocationOnInsecureOrigins, true);
-  //m_view->settings()->setAttribute(QWebEngineSettings::AllowWindowActivationFromJavaScript, true);
-  //m_view->settings()->setUnknownUrlSchemePolicy(QWebEngineSettings::AllowAllUnknownUrlSchemes);
 
   // Force QWebEngineView to fill the rest of the space
   m_view->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);

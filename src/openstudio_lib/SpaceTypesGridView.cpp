@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -40,6 +40,7 @@
 #include "../shared_gui_components/OSComboBox.hpp"
 #include "../shared_gui_components/OSGridView.hpp"
 #include "../shared_gui_components/OSObjectSelector.hpp"
+#include "../shared_gui_components/OSWidgetHolder.hpp"
 
 #include <openstudio/model/DefaultConstructionSet.hpp>
 #include <openstudio/model/DefaultConstructionSet_Impl.hpp>
@@ -965,7 +966,7 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
         }
       });
 
-      boost::optional<std::function<std::vector<model::ModelObject>(model::ModelObject*)>> scheduleOtherObjects;
+      boost::optional<std::function<std::vector<model::ModelObject>(const model::ModelObject*)>> scheduleOtherObjects;
 
       std::function<boost::optional<model::Schedule>(model::ModelObject*)> activityLevelSchedule([](model::ModelObject* l) {
         if (boost::optional<model::People> p = l->optionalCast<model::People>()) {
@@ -977,7 +978,7 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
         return boost::optional<model::Schedule>();
       });
 
-      boost::optional<std::function<std::vector<model::ModelObject>(model::ModelObject*)>> activityLevelScheduleOtherObjects;
+      boost::optional<std::function<std::vector<model::ModelObject>(const model::ModelObject*)>> activityLevelScheduleOtherObjects;
 
       std::function<boost::optional<model::Schedule>(model::ModelObject*)> schedule([](model::ModelObject* l) {
         if (boost::optional<model::InternalMass> im = l->optionalCast<model::InternalMass>()) {
@@ -1309,37 +1310,43 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
         // This is a hack (at best), but it works
         // Get the corresponding Standards Building Type Dropdown, and trigger repopulating
 
-        /* TODO
         int columnCount = this->columnCount();
         for (int i = 1; i < this->rowCount(); ++i) {
-          if (this->modelObject(i).handle() == t_spaceType->handle()) {
-            // Standards Building Type is penultimate
-            QWidget* t_widgetStandardsBuildingType = this->cell(i, columnCount - 2);
-            // 0 appears to be GridLayout, 1 is a Holder
-            QObject* oBT = t_widgetStandardsBuildingType->children()[1];
-            Holder* holderBT = qobject_cast<Holder*>(oBT);
-            if (holderBT) {
-              OSComboBox2* comboBoxBuildingType = qobject_cast<OSComboBox2*>(holderBT->widget);
-              if (comboBoxBuildingType) {
-                comboBoxBuildingType->onChoicesRefreshTrigger();
+          if (this->modelObjectFromGridRow(i).handle() == t_spaceType->handle()) {
+            auto* gridView = qobject_cast<OSGridView*>(this->parent());
+            if (QLayoutItem* child = gridView->itemAtPosition(i, columnCount - 2)) {
+
+              // Standards Building Type is penultimate
+              QWidget* t_widgetStandardsBuildingType = child->widget();
+              // 0 appears to be GridLayout, 1 is a Holder
+              QObject* oBT = t_widgetStandardsBuildingType->children()[1];
+              auto* holderBT = qobject_cast<OSWidgetHolder*>(oBT);
+              if (holderBT) {
+                auto* comboBoxBuildingType = qobject_cast<OSComboBox2*>(holderBT->widget());
+                if (comboBoxBuildingType) {
+                  comboBoxBuildingType->onChoicesRefreshTrigger();
+                }
               }
             }
 
             // Standards Space Type is last
-            QWidget* t_widgetStandardsSpaceType = this->cell(i, columnCount - 1);
-            // 0 appears to be GridLayout, 1 is a Holder
-            QObject* oST = t_widgetStandardsSpaceType->children()[1];
-            Holder* holderST = qobject_cast<Holder*>(oST);
-            if (holderST) {
-              OSComboBox2* comboBoxSpaceType = qobject_cast<OSComboBox2*>(holderST->widget);
-              if (comboBoxSpaceType) {
-                comboBoxSpaceType->onChoicesRefreshTrigger();
+            if (QLayoutItem* child = gridView->itemAtPosition(i, columnCount - 1)) {
+
+              // Standards Building Type is penultimate
+              QWidget* t_widgetStandardsSpaceType = child->widget();
+              // 0 appears to be GridLayout, 1 is a Holder
+              QObject* oST = t_widgetStandardsSpaceType->children()[1];
+              auto* holderST = qobject_cast<OSWidgetHolder*>(oST);
+              if (holderST) {
+                auto* comboBoxSpaceType = qobject_cast<OSComboBox2*>(holderST->widget());
+                if (comboBoxSpaceType) {
+                  comboBoxSpaceType->onChoicesRefreshTrigger();
+                }
               }
             }
             break;
           }
         }
-*/
 
         return success;
       };
@@ -1384,24 +1391,31 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
         // This is a hack (at best), but it works
         // Get the corresponding Standards Space Type Dropdown, and trigger repopulating
 
-        /* TODO
         int columnCount = this->columnCount();
         for (int i = 1; i < this->rowCount(); ++i) {
-          if (this->modelObject(i).handle() == t_spaceType->handle()) {
-            QWidget* t_widgetStandardsSpaceType = this->cell(i, columnCount - 1);
-            // 0 appears to be GridLayout, 1 is a Holder
-            QObject* oST = t_widgetStandardsSpaceType->children()[1];
-            Holder* holderST = qobject_cast<Holder*>(oST);
-            if (holderST) {
-              OSComboBox2* comboBoxSpaceType = qobject_cast<OSComboBox2*>(holderST->widget);
-              if (comboBoxSpaceType) {
-                comboBoxSpaceType->onChoicesRefreshTrigger();
+          if (this->modelObjectFromGridRow(i).handle() == t_spaceType->handle()) {
+
+            auto* gridView = qobject_cast<OSGridView*>(this->parent());
+
+            // Standards Space Type is last
+            if (QLayoutItem* child = gridView->itemAtPosition(i, columnCount - 1)) {
+
+              // Standards Building Type is penultimate
+              QWidget* t_widgetStandardsSpaceType = child->widget();
+              // 0 appears to be GridLayout, 1 is a Holder
+              QObject* oST = t_widgetStandardsSpaceType->children()[1];
+              auto* holderST = qobject_cast<OSWidgetHolder*>(oST);
+              if (holderST) {
+                auto* comboBoxSpaceType = qobject_cast<OSComboBox2*>(holderST->widget());
+                if (comboBoxSpaceType) {
+                  comboBoxSpaceType->onChoicesRefreshTrigger();
+                }
               }
             }
             break;
           }
         }
-*/
+
         return success;
       };
 

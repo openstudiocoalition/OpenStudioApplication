@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -77,24 +77,25 @@ void ConstructionObjectVectorController::reportItems() {
   m_reportItemsMutex->unlock();
 }
 
-void ConstructionObjectVectorController::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) {
+void ConstructionObjectVectorController::onChangeRelationship(const model::ModelObject& /*modelObject*/, int /*index*/, Handle /*newHandle*/,
+                                                              Handle /*oldHandle*/) {
   reportItemsLater();
 }
 
-void ConstructionObjectVectorController::onDataChange(const model::ModelObject& modelObject) {
+void ConstructionObjectVectorController::onDataChange(const model::ModelObject& /*modelObject*/) {
   reportItemsLater();
 }
 
-void ConstructionObjectVectorController::onChange(const model::ModelObject& modelObject) {
+void ConstructionObjectVectorController::onChange(const model::ModelObject& /*modelObject*/) {
   reportItemsLater();
 }
 
 std::vector<OSItemId> ConstructionObjectVectorController::makeVector() {
   std::vector<OSItemId> result;
   if (m_modelObject) {
-    model::LayeredConstruction construction = m_modelObject->cast<model::LayeredConstruction>();
+    auto construction = m_modelObject->cast<model::LayeredConstruction>();
     std::vector<model::Material> layers = construction.layers();
-    for (model::Material layer : layers) {
+    for (const model::Material& layer : layers) {
       result.push_back(modelObjectToItemId(layer, false));
     }
   }
@@ -103,11 +104,11 @@ std::vector<OSItemId> ConstructionObjectVectorController::makeVector() {
 
 void ConstructionObjectVectorController::onRemoveItem(OSItem* item) {
   if (m_modelObject) {
-    model::LayeredConstruction construction = m_modelObject->cast<model::LayeredConstruction>();
+    auto construction = m_modelObject->cast<model::LayeredConstruction>();
     std::vector<model::Material> layers = construction.layers();
     OSAppBase* app = OSAppBase::instance();
     unsigned idx = 0;
-    for (model::Material layer : layers) {
+    for (const model::Material& layer : layers) {
       boost::optional<model::ModelObject> modelObject = app->currentDocument()->getModelObject(item->itemId());
       if (modelObject) {
         if (modelObject->handle() == layer.handle()) {
@@ -120,17 +121,19 @@ void ConstructionObjectVectorController::onRemoveItem(OSItem* item) {
   }
 }
 
-void ConstructionObjectVectorController::insert(const OSItemId& itemId, int position, bool deleteExisting) {
+void ConstructionObjectVectorController::insert(const OSItemId& itemId, int insertPosition, boost::optional<int> erasePosition_) {
   if (m_modelObject) {
-    boost::optional<model::Material> material = this->addToModel<model::Material>(itemId);
-    if (!material) return;
+    boost::optional<model::Material> material_ = this->addToModel<model::Material>(itemId);
+    if (!material_) {
+      return;
+    }
 
-    model::LayeredConstruction construction = m_modelObject->cast<model::LayeredConstruction>();
+    auto construction = m_modelObject->cast<model::LayeredConstruction>();
     std::vector<model::Material> layers = construction.layers();
-    if (layers.size()) {
+    if (!layers.empty()) {
 
       IddObjectType existingIddObjectType = layers.at(0).iddObjectType();
-      IddObjectType newIddObjectType = material.get().iddObjectType();
+      IddObjectType newIddObjectType = material_.get().iddObjectType();
 
       LayerType existingLayerType = getLayerType(existingIddObjectType);
       LayerType newLayerType = getLayerType(newIddObjectType);
@@ -149,75 +152,61 @@ void ConstructionObjectVectorController::insert(const OSItemId& itemId, int posi
       }
     }
 
-    if (position < 0) {
-      position = construction.numLayers();
+    if (insertPosition < 0) {
+      insertPosition = construction.numLayers();
     }
 
-    if (deleteExisting) {
-      //  Checking if from library or from model isn't sufficient, if from model it also HAS to be already in the layer list
-      std::vector<unsigned> existingIndices = construction.getLayerIndices(*material);
-      if (!existingIndices.empty()) {
-        int existingPos = existingIndices[0];
-        LOG(Debug, "Erasing layer at position = " << existingPos);
-        construction.eraseLayer(existingPos);
-      } else {
-        LOG(Debug, "Layer wasn't present to begin with");
-      }
+    if (construction.insertLayer(insertPosition, material_.get()) && erasePosition_) {
+      construction.eraseLayer(erasePosition_.get());
     }
-
-    construction.insertLayer(position, *material);
   }
 }
 
 void ConstructionObjectVectorController::onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) {
   if (m_modelObject) {
 
+    // currentItem position is set by OSDropZone::setItemIds
+    boost::optional<int> toPosition_ = currentItem->position();
+    boost::optional<int> fromPosition_ = replacementItemId.position();
+
     // If we drag from the library onto an existing, we want clone, then add at the position of the one existing
     // It will shift all other layers forward, and the user will be able to delete the one he dragged onto if he wants
-    // If not from library, we want to **update** the position instead.
-    bool deleteExisting = true;
+    // If not from library, we want to **move** the item instead.
     if (this->fromComponentLibrary(replacementItemId)) {
-      deleteExisting = false;
-    } else {
+      fromPosition_.reset();
+    }
 
-      // Unfortunately, layers aren't necesarilly unique, and there is no way to get the actualy layerIndex from an OSItemId,
-      // which means that we cannot determine the specific position of the replacementItemId to move it (delete before insert)
-      // It's too dangerous to just assume it's arbitrarily the first found, so we don't do anything, the user will have
-      // to remove the old one herself.
-      // So we can deleteExisting only if unique layers
-
-      // Ensure layers are unique
-      model::LayeredConstruction construction = m_modelObject->cast<model::LayeredConstruction>();
-      std::vector<model::Material> layers = construction.layers();
-      auto it = std::unique(layers.begin(), layers.end());
-      deleteExisting = (it == layers.end());
-      if (!deleteExisting) {
-        LOG(Debug, "Layers aren't unique, so we can't remove the existing one, occured for " << m_modelObject->nameString());
-      } else {
-        LOG(Debug, "Layers are unique, occured for " << m_modelObject->nameString());
+    if (toPosition_ && fromPosition_) {
+      if (toPosition_.get() == fromPosition_.get()) {
+        // to and from position are same, no-op
+        return;
+      } else if (toPosition_.get() < fromPosition_.get()) {
+        // position to delete will be one higher after doing the insert
+        fromPosition_ = fromPosition_.get() + 1;
       }
     }
 
-    // Here's the difference with onDrop: we want to INSERT at the position of the currentItem
-    // So we need to start by finding out which position that is
-    // start by getting the one being dragged ONTO
-    ModelObjectItem* modelObjectItem = qobject_cast<ModelObjectItem*>(currentItem);
-    OS_ASSERT(modelObjectItem);
-
-    model::ModelObject modelObject = modelObjectItem->modelObject();
-    if (!modelObject.handle().isNull()) {
-      // There is no reason we shouldn't enter this code block if the onDrop is fine...
-      if (modelObject.optionalCast<model::Material>()) {
-        int position = currentItem->position();
-        LOG(Debug, m_modelObject->nameString() << ", position = " << position);
-        insert(replacementItemId, position, deleteExisting);
-      }
+    if (!toPosition_) {
+      // insert at the end
+      toPosition_ = -1;
     }
+
+    insert(replacementItemId, toPosition_.get(), fromPosition_);
   }
 }
 
 void ConstructionObjectVectorController::onDrop(const OSItemId& itemId) {
-  insert(itemId);
+
+  boost::optional<int> fromPosition = itemId.position();
+
+  // If we drag from the library onto an existing, we want clone, then add at the position of the one existing
+  // It will shift all other layers forward, and the user will be able to delete the one he dragged onto if he wants
+  // If not from library, we want to **move** the item instead.
+  if (this->fromComponentLibrary(itemId)) {
+    fromPosition.reset();
+  }
+
+  insert(itemId, -1, fromPosition);
 }
 
 QWidget* ConstructionObjectVectorController::parentWidget() {

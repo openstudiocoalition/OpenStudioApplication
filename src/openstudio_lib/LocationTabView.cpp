@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -87,16 +87,22 @@
 #include <QSettings>
 #include <QSizePolicy>
 
+static constexpr auto NAME("Name: ");
+static constexpr auto LATITUDE("Latitude: ");
+static constexpr auto LONGITUDE("Longitude: ");
+static constexpr auto ELEVATION("Elevation: ");
+static constexpr auto TIME_ZONE("Time Zone: ");
+static constexpr auto NUM_DESIGN_DAYS("Number of Design Days: ");
+static constexpr auto SETWEATHERFILE("Set Weather File");
+static constexpr auto CHANGEWEATHERFILE("Change Weather File");
+
 namespace openstudio {
 
 LocationTabView::LocationTabView(const model::Model& model, const QString& modelTempDir, QWidget* parent)
   : MainTabView(tr("Site"), MainTabView::SUB_TAB, parent) {}
 
-LocationTabView::~LocationTabView() {}
-
 LocationView::LocationView(bool isIP, const model::Model& model, const QString& modelTempDir)
-  : QWidget(),
-    m_model(model),
+  : m_model(model),
     m_site(m_model.getUniqueModelObject<model::Site>()),
     m_yearDescription(m_model.getUniqueModelObject<model::YearDescription>()),
     m_modelTempDir(modelTempDir),
@@ -105,25 +111,25 @@ LocationView::LocationView(bool isIP, const model::Model& model, const QString& 
 
   loadQSettings();
 
-  model::ClimateZones climateZones = m_model.getUniqueModelObject<model::ClimateZones>();
+  auto climateZones = m_model.getUniqueModelObject<model::ClimateZones>();
 
   // ***** Main Layout *****
-  auto mainLayout = new QVBoxLayout();
+  auto* mainLayout = new QVBoxLayout();
   mainLayout->setContentsMargins(0, 0, 0, 0);
   mainLayout->setSpacing(0);
   setLayout(mainLayout);
 
   // ***** Scroll *****
-  auto scrollLayout = new QVBoxLayout();
+  auto* scrollLayout = new QVBoxLayout();
   scrollLayout->setContentsMargins(0, 0, 0, 0);
   scrollLayout->setSpacing(0);
 
-  auto scrollWidget = new QWidget();
+  auto* scrollWidget = new QWidget();
   scrollWidget->setObjectName("ScrollWidget");
   scrollWidget->setStyleSheet("QWidget#ScrollWidget { background: transparent; }");
   scrollWidget->setLayout(scrollLayout);
 
-  auto scrollArea = new QScrollArea();
+  auto* scrollArea = new QScrollArea();
   scrollArea->setContentsMargins(0, 0, 0, 0);
   scrollArea->setFrameStyle(QFrame::NoFrame);
   scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
@@ -134,47 +140,47 @@ LocationView::LocationView(bool isIP, const model::Model& model, const QString& 
   mainLayout->addWidget(scrollArea);
 
   // ***** Upper Horizontal Layout *****
-  auto upperHorizontalLayout = new QHBoxLayout();
+  auto* upperHorizontalLayout = new QHBoxLayout();
   upperHorizontalLayout->setContentsMargins(0, 0, 0, 0);
   upperHorizontalLayout->setSpacing(0);
 
   // ***** Left Vertical Layout *****
-  auto leftVLayout = new QVBoxLayout();
+  auto* leftVLayout = new QVBoxLayout();
   leftVLayout->setContentsMargins(7, 2, 7, 7);
   leftVLayout->setSpacing(0);
 
   // ***** Weather File GridLayout *****
-  auto weatherFileGridLayout = new QGridLayout();
+  auto* weatherFileGridLayout = new QGridLayout();
   weatherFileGridLayout->setContentsMargins(7, 3, 7, 7);
   weatherFileGridLayout->setSpacing(7);
 
   // ***** Measure Tags GridLayout *****
-  auto measureTagsGridLayout = new QGridLayout();
+  auto* measureTagsGridLayout = new QGridLayout();
   measureTagsGridLayout->setContentsMargins(7, 7, 7, 7);
   measureTagsGridLayout->setSpacing(7);
 
   // ***** Schedules Layout *****
-  auto schedulesLayout = new QVBoxLayout();
+  auto* schedulesLayout = new QVBoxLayout();
   schedulesLayout->setContentsMargins(0, 0, 0, 0);
   schedulesLayout->setSpacing(0);
 
   // ***** Vertical Line *****
-  auto vLine = new QFrame();
+  auto* vLine = new QFrame();
   vLine->setFrameShape(QFrame::VLine);
   vLine->setFrameShadow(QFrame::Sunken);
 
   // ***** Small Horizontal Line *****
-  auto smallHLine = new QFrame();
+  auto* smallHLine = new QFrame();
   smallHLine->setFrameShape(QFrame::HLine);
   smallHLine->setFrameShadow(QFrame::Sunken);
 
   // ***** Main Horizontal Line *****
-  auto mainHLine = new QFrame();
+  auto* mainHLine = new QFrame();
   mainHLine->setFrameShape(QFrame::HLine);
   mainHLine->setFrameShadow(QFrame::Sunken);
 
   // ***** Weather File *****
-  auto label = new QLabel(tr("Weather File"));
+  auto* label = new QLabel(tr("Weather File"));
   label->setObjectName("H2");
 
   m_weatherFileBtn = new QPushButton(this);
@@ -182,7 +188,7 @@ LocationView::LocationView(bool isIP, const model::Model& model, const QString& 
   m_weatherFileBtn->setObjectName("StandardGrayButton");
   connect(m_weatherFileBtn, &QPushButton::clicked, this, &LocationView::onWeatherFileBtnClicked);
 
-  auto hLayout = new QHBoxLayout();
+  auto* hLayout = new QHBoxLayout();
   hLayout->setContentsMargins(0, 0, 0, 0);
   hLayout->setSpacing(7);
 
@@ -340,7 +346,7 @@ LocationView::LocationView(bool isIP, const model::Model& model, const QString& 
   label = new QLabel(tr("Design Days"));
   label->setObjectName("H2");
 
-  auto btn = new QPushButton(tr("Import From DDY"), this);
+  auto* btn = new QPushButton(tr("Import From DDY"), this);
   btn->setFlat(true);
   btn->setObjectName("StandardGrayButton");
   connect(btn, &QPushButton::clicked, this, &LocationView::onDesignDayBtnClicked);
@@ -381,11 +387,11 @@ LocationView::~LocationView() {
 }
 
 bool LocationView::calendarYearChecked() {
-  if (m_yearSettingsWidget) {
+  if (m_yearSettingsWidget != nullptr) {
     return m_yearSettingsWidget->calendarYearChecked();
-  } else {
-    return false;
   }
+
+  return false;
 }
 
 std::set<model::ModelObject> LocationView::selectedObjects() const {
@@ -440,18 +446,25 @@ void LocationView::update() {
         fileExists = QFile(epwPath->string().c_str()).exists();
         if (!fileExists) {
           // Construct the absolute path as dictated by the osm location, and check for the file
-          QString savePath, filePath;
-
           openstudio::OSAppBase* app = OSAppBase::instance();
-          if (app && app->currentDocument()) {
+          if ((app != nullptr) && app->currentDocument()) {
 
-            savePath = app->currentDocument()->savePath();
+            QString savePath = app->currentDocument()->savePath();
+            QString filePath;
 
             if (savePath.contains(".osm")) {
               savePath.chop(4);
               filePath = savePath + "/files/";
               filePath += (epwPath.get().filename()).string().c_str();
             }
+
+            fileExists = QFile(filePath).exists();
+          }
+
+          if (!fileExists) {
+            // check the temp dir, this is required when launching the os app with a filename since app->currentDocument() is not set when constructing this tab
+            QString filePath = m_modelTempDir + "/resources/files/";
+            filePath += (epwPath.get().filename()).string().c_str();
 
             fileExists = QFile(filePath).exists();
           }
@@ -473,7 +486,7 @@ void LocationView::update() {
 }
 
 void LocationView::setSiteInfo() {
-  QString info;
+  QString info = tr(LATITUDE);
   QString temp;
 
   if (m_site->name() && !m_site->name()->empty()) {
@@ -482,22 +495,21 @@ void LocationView::setSiteInfo() {
     m_siteName->setText("");
   }
 
-  info = tr("Latitude: ");
   temp.setNum(m_site->latitude());
   info += temp;
   m_latitudeLbl->setText(info);
 
-  info = tr("Longitude: ");
+  info = tr(LONGITUDE);
   temp.setNum(m_site->longitude());
   info += temp;
   m_longitudeLbl->setText(info);
 
-  info = tr("Elevation: ");
+  info = tr(ELEVATION);
   temp.setNum(m_site->elevation());
   info += temp;
   m_elevationLbl->setText(info);
 
-  info = tr("Time Zone: ");
+  info = tr(TIME_ZONE);
   temp.setNum(m_site->timeZone());
   info += temp;
   m_timeZoneLbl->setText(info);
@@ -506,13 +518,13 @@ void LocationView::setSiteInfo() {
 void LocationView::clearSiteInfo() {
   m_siteName->setText("");
 
-  m_latitudeLbl->setText(tr("Latitude: "));
+  m_latitudeLbl->setText(tr(LATITUDE));
 
-  m_longitudeLbl->setText(tr("Longitude: "));
+  m_longitudeLbl->setText(tr(LONGITUDE));
 
-  m_elevationLbl->setText(tr("Elevation: "));
+  m_elevationLbl->setText(tr(ELEVATION));
 
-  m_timeZoneLbl->setText(tr("Time Zone: "));
+  m_timeZoneLbl->setText(tr(TIME_ZONE));
 }
 
 // ***** SLOTS *****
@@ -600,7 +612,7 @@ void LocationView::onWeatherFileBtnClicked() {
       }
 
       // update site info
-      m_site->setName(weatherFile->city().c_str());
+      m_site->setName(weatherFile->city());
       m_site->setLatitude(weatherFile->latitude());
       m_site->setLongitude(weatherFile->longitude());
       m_site->setElevation(weatherFile->elevation());
@@ -623,9 +635,7 @@ void LocationView::onWeatherFileBtnClicked() {
         boost::optional<openstudio::path> weatherFilePath = weatherFile->path();
         if (weatherFilePath) {
           if (!previousEPWPath.empty()) {
-            if (previousEPWPath.filename() != weatherFilePath->filename()) {
-              weatherFile->remove();
-            } else if (!openstudio::filesystem::exists(previousEPWPath)) {
+            if ((previousEPWPath.filename() != weatherFilePath->filename()) || (!openstudio::filesystem::exists(previousEPWPath))) {
               weatherFile->remove();
             }
           }
@@ -656,7 +666,7 @@ void LocationView::onDesignDayBtnClicked() {
     if (ddyIdfFile) {
 
       openstudio::Workspace ddyWorkspace(StrictnessLevel::None, IddFileType::EnergyPlus);
-      for (IdfObject idfObject : ddyIdfFile->objects()) {
+      for (const IdfObject& idfObject : ddyIdfFile->objects()) {
         IddObjectType iddObjectType = idfObject.iddObject().type();
         if ((iddObjectType == IddObjectType::SizingPeriod_DesignDay) || (iddObjectType == IddObjectType::SizingPeriod_WeatherFileDays)
             || (iddObjectType == IddObjectType::SizingPeriod_WeatherFileConditionType)) {
@@ -680,7 +690,7 @@ void LocationView::onDesignDayBtnClicked() {
 
         bool unknownDay = false;
 
-        for (model::DesignDay designDay : ddyModel.getConcreteModelObjects<model::DesignDay>()) {
+        for (const model::DesignDay& designDay : ddyModel.getConcreteModelObjects<model::DesignDay>()) {
           boost::optional<std::string> name;
           name = designDay.name();
 
@@ -705,20 +715,20 @@ void LocationView::onDesignDayBtnClicked() {
 
         // Pick only the most stringent design points
         if (!unknownDay) {
-          if (days99_6.size() > 0) {
+          if (!days99_6.empty()) {
             for (model::DesignDay designDay : days99) {
               designDay.remove();
             }
           }
 
-          if (days0_4.size() > 0) {
+          if (!days0_4.empty()) {
             for (model::DesignDay designDay : days1) {
               designDay.remove();
             }
             for (model::DesignDay designDay : days2) {
               designDay.remove();
             }
-          } else if (days1.size() > 0) {
+          } else if (!days1.empty()) {
             for (model::DesignDay designDay : days2) {
               designDay.remove();
             }
@@ -741,9 +751,7 @@ void LocationView::onDesignDayBtnClicked() {
 }
 
 void LocationView::checkNumDesignDays() {
-  unsigned empty = m_model.getModelObjects<model::SizingPeriod>().empty();
-
-  if (empty) {
+  if (m_model.getModelObjects<model::SizingPeriod>().empty()) {
     QMessageBox box(QMessageBox::Warning, tr("No Design Days in DDY File"),
                     tr("This DDY file does not contain any valid design days.  Check the DDY file itself for errors or omissions."), QMessageBox::Ok);
     box.exec();
@@ -751,7 +759,7 @@ void LocationView::checkNumDesignDays() {
 }
 
 void LocationView::onASHRAEClimateZoneChanged(const QString& climateZone) {
-  model::ClimateZones climateZones = m_model.getUniqueModelObject<model::ClimateZones>();
+  auto climateZones = m_model.getUniqueModelObject<model::ClimateZones>();
 
   model::ClimateZone ashraeClimateZone =
     climateZones.getClimateZone(model::ClimateZones::ashraeInstitutionName(), model::ClimateZones::ashraeDefaultYear());
@@ -759,7 +767,7 @@ void LocationView::onASHRAEClimateZoneChanged(const QString& climateZone) {
 }
 
 void LocationView::onCECClimateZoneChanged(const QString& climateZone) {
-  model::ClimateZones climateZones = m_model.getUniqueModelObject<model::ClimateZones>();
+  auto climateZones = m_model.getUniqueModelObject<model::ClimateZones>();
   model::ClimateZone cecClimateZone = climateZones.getClimateZone(model::ClimateZones::cecInstitutionName(), model::ClimateZones::cecDefaultYear());
   cecClimateZone.setValue(toString(climateZone));
 }
@@ -791,25 +799,25 @@ void LocationView::setDaylightSavingsTime(bool enabled) {
 }
 
 void LocationView::setDstStartDayOfWeekAndMonth(int newWeek, int newDay, int newMonth) {
-  model::RunPeriodControlDaylightSavingTime dst = m_model.getUniqueModelObject<model::RunPeriodControlDaylightSavingTime>();
+  auto dst = m_model.getUniqueModelObject<model::RunPeriodControlDaylightSavingTime>();
 
   dst.setStartDate(NthDayOfWeekInMonth(newWeek), DayOfWeek(newDay), MonthOfYear(newMonth));
 }
 
 void LocationView::setDstStartDate(const QDate& newdate) {
-  model::RunPeriodControlDaylightSavingTime dst = m_model.getUniqueModelObject<model::RunPeriodControlDaylightSavingTime>();
+  auto dst = m_model.getUniqueModelObject<model::RunPeriodControlDaylightSavingTime>();
 
   dst.setStartDate(monthOfYear(newdate.month()), newdate.day());
 }
 
 void LocationView::setDstEndDayOfWeekAndMonth(int newWeek, int newDay, int newMonth) {
-  model::RunPeriodControlDaylightSavingTime dst = m_model.getUniqueModelObject<model::RunPeriodControlDaylightSavingTime>();
+  auto dst = m_model.getUniqueModelObject<model::RunPeriodControlDaylightSavingTime>();
 
   dst.setEndDate(NthDayOfWeekInMonth(newWeek), DayOfWeek(newDay), MonthOfYear(newMonth));
 }
 
 void LocationView::setDstEndDate(const QDate& newdate) {
-  model::RunPeriodControlDaylightSavingTime dst = m_model.getUniqueModelObject<model::RunPeriodControlDaylightSavingTime>();
+  auto dst = m_model.getUniqueModelObject<model::RunPeriodControlDaylightSavingTime>();
 
   dst.setEndDate(monthOfYear(newdate.month()), newdate.day());
 }

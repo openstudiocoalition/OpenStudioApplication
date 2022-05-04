@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2020, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -52,6 +52,7 @@ class QTextEdit;
 class QFileSystemWatcher;
 class QTcpServer;
 class QTcpSocket;
+class QCheckBox;
 
 namespace openstudio {
 
@@ -71,6 +72,8 @@ class RunView : public QWidget
 
   void onRunProcessFinished(int exitCode, QProcess::ExitStatus status);
 
+  void onRunProcessErrored(QProcess::ProcessError error);
+
   //void onSimDirChanged(const QString &path);
 
   //void onFileChanged(const QString &path);
@@ -80,6 +83,8 @@ class RunView : public QWidget
   void onNewConnection();
 
   void onRunDataReady();
+  void readyReadStandardError();
+  void readyReadStandardOutput();
 
   QToolButton* m_playButton;
   QProgressBar* m_progressBar;
@@ -89,6 +94,10 @@ class RunView : public QWidget
   QPushButton* m_openSimDirButton;
   QTcpServer* m_runTcpServer;
   QTcpSocket* m_runSocket;
+
+  QCheckBox* m_verboseOutputBox;
+
+  openstudio::path m_basePath;
   //QFileSystemWatcher * m_simDirWatcher;
   //QFileSystemWatcher * m_eperrWatcher;
 
@@ -106,6 +115,7 @@ class RunView : public QWidget
     complete = 9
   };
   State m_state = State::stopped;
+  bool m_hasSocketConnexion = false;
 };
 
 class RunTabView : public MainTabView

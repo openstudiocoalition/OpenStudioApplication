@@ -24,4 +24,4 @@ add_library(${target_name} ${${target_name}_src})
 target_link_libraries(${target_name} ${${target_name}_depends})
 
 target_include_directories(${target_name} PUBLIC ${QT_INCLUDES})
-target_compile_definitions(${target_name} PUBLIC ${QT_DEFS})
+target_compile_definitions(${target_name} PUBLIC ${QT_DEFS} "_AFXDLL")
