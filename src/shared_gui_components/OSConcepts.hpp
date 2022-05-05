@@ -261,8 +261,13 @@ std::function<RetType(FromDataType*, Param1)> ProxyAdapter(RetType (ToDataType::
 class ConceptProxy
 {
  public:
+  // TODO: This can't be explicit with boost::optional,
+  // see https://github.com/openstudiocoalition/OpenStudioApplication/pull/511#pullrequestreview-963081285
+  // I do not know how to get around it, so will cppcheck-suppress it (and let future us worry about moving to std::optional)
+  // Please increment counter next time: **Hours wasted trying to understand the issue: 2.5 **
   template <typename T>
-  explicit ConceptProxy(const T& t_obj) : m_any(t_obj) {}
+  // cppcheck-suppress noExplicitConstructor
+  ConceptProxy(const T& t_obj) : m_any(t_obj) {}
 
   template <typename T>
   T cast() const {
