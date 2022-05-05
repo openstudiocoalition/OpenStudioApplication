@@ -196,7 +196,7 @@ class ScheduleSetInspectorView : public ModelObjectInspectorView
   Q_OBJECT
 
  public:
-  ScheduleSetInspectorView(const model::Model& model, QWidget* parent = nullptr);
+  explicit ScheduleSetInspectorView(const model::Model& model, QWidget* parent = nullptr);
   virtual ~ScheduleSetInspectorView() {}
 
  protected:

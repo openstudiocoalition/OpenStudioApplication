@@ -198,7 +198,7 @@ class HVACControlsController
   Q_OBJECT;
 
  public:
-  HVACControlsController(HVACSystemsController* hvacSystemsController);
+  explicit HVACControlsController(HVACSystemsController* hvacSystemsController);
 
   virtual ~HVACControlsController();
 
@@ -273,7 +273,7 @@ class HVACLayoutController
   Q_OBJECT;
 
  public:
-  HVACLayoutController(HVACSystemsController* hvacSystemsController);
+  explicit HVACLayoutController(HVACSystemsController* hvacSystemsController);
 
   virtual ~HVACLayoutController();
 

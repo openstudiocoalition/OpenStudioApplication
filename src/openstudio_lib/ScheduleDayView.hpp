@@ -350,7 +350,7 @@ class DaySchedulePlotArea : public QGraphicsView
   Q_OBJECT
 
  public:
-  DaySchedulePlotArea(ScheduleDayEditor* scheduleDayEditor);
+  explicit DaySchedulePlotArea(ScheduleDayEditor* scheduleDayEditor);
 
   virtual ~DaySchedulePlotArea() {}
 
@@ -400,7 +400,7 @@ class DayScheduleOverview : public QWidget
   Q_OBJECT
 
  public:
-  DayScheduleOverview(ScheduleDayView* scheduleRuleView);
+  explicit DayScheduleOverview(ScheduleDayView* scheduleRuleView);
 
   virtual ~DayScheduleOverview() {}
 
@@ -568,7 +568,7 @@ class CalendarSegmentItem : public QGraphicsItem
 class ScheduleTypeLimitItem : public QGraphicsItem
 {
  public:
-  ScheduleTypeLimitItem(bool isUpperLimit, QGraphicsItem* parent = nullptr);
+  explicit ScheduleTypeLimitItem(bool isUpperLimit, QGraphicsItem* parent = nullptr);
 
   virtual ~ScheduleTypeLimitItem() {}
 

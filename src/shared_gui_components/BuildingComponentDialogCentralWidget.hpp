@@ -61,7 +61,7 @@ class BuildingComponentDialogCentralWidget
 
  public:
   BuildingComponentDialogCentralWidget(QWidget* parent = nullptr);
-  BuildingComponentDialogCentralWidget(int tid, QWidget* parent = nullptr);
+  explicit BuildingComponentDialogCentralWidget(int tid, QWidget* parent = nullptr);
   virtual ~BuildingComponentDialogCentralWidget();
   int tid() const;
   void setTid(const std::string& filterType, int tid, int pageIdx, const QString& title, const QString& searchString = "");

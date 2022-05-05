@@ -46,7 +46,7 @@ class WaterUseConnectionsDetailScene;
 class ServiceWaterItem : public GridItem
 {
  public:
-  ServiceWaterItem(ServiceWaterScene* serviceWaterScene);
+  explicit ServiceWaterItem(ServiceWaterScene* serviceWaterScene);
 
  protected:
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
@@ -55,7 +55,7 @@ class ServiceWaterItem : public GridItem
 class WaterUseConnectionsDetailItem : public GridItem
 {
  public:
-  WaterUseConnectionsDetailItem(WaterUseConnectionsDetailScene* waterUseConnectionsDetailScene);
+  explicit WaterUseConnectionsDetailItem(WaterUseConnectionsDetailScene* waterUseConnectionsDetailScene);
 
  protected:
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
@@ -175,7 +175,7 @@ class HotWaterJunctionItem : public DoubleTwoFourStraightItem
 class ColdWaterJunctionItem : public GridItem
 {
  public:
-  ColdWaterJunctionItem(int isElbow, QGraphicsItem* parent = nullptr);
+  explicit ColdWaterJunctionItem(int isElbow, QGraphicsItem* parent = nullptr);
 
  protected:
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;

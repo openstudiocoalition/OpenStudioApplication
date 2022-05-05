@@ -72,7 +72,7 @@ class YearSettingsWidget
 
   static QStringList validDayofWeekforStartDay();
 
-  YearSettingsWidget(const model::Model& model, QWidget* parent = nullptr);
+  explicit YearSettingsWidget(const model::Model& model, QWidget* parent = nullptr);
 
   bool calendarYearChecked();
 

@@ -41,7 +41,7 @@ class SummaryTabController : public MainTabController
   Q_OBJECT
 
  public:
-  SummaryTabController(const model::Model& model);
+  explicit SummaryTabController(const model::Model& model);
 
   virtual ~SummaryTabController() {}
 };

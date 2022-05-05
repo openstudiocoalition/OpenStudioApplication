@@ -389,7 +389,8 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
           Heading(QString(SURFACENAME), true, false), false, false, CastNullAdapter<model::Surface>(&model::Surface::name),
           CastNullAdapter<model::Surface>(&model::Surface::setName),
           boost::optional<std::function<void(model::Surface*)>>(std::function<void(model::Surface*)>([](model::Surface* t_s) { t_s->remove(); })),
-          boost::optional<std::function<bool(model::Surface*)>>(), DataSource(allSubsurfaceSurfaces, true));
+          boost::optional<std::function<bool(model::Surface*)>>(),  // isDefaulted
+          DataSource(allSubsurfaceSurfaces, true));
       } else if (field == SUBSURFACENAME) {
         addNameLineEditColumn(Heading(QString(SUBSURFACENAME), true, false), false, false,
                               CastNullAdapter<model::SubSurface>(&model::SubSurface::name),

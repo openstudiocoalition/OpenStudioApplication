@@ -286,7 +286,7 @@ class DefaultConstructionSetInspectorView : public ModelObjectInspectorView
   Q_OBJECT
 
  public:
-  DefaultConstructionSetInspectorView(const model::Model& model, QWidget* parent = nullptr);
+  explicit DefaultConstructionSetInspectorView(const model::Model& model, QWidget* parent = nullptr);
   virtual ~DefaultConstructionSetInspectorView() {}
 
  protected:

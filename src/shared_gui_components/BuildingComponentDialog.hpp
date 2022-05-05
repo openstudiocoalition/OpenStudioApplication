@@ -55,7 +55,7 @@ class BuildingComponentDialog : public QDialog
   Q_OBJECT
 
  public:
-  BuildingComponentDialog(std::string& filterType, bool isBclDlg = true, QWidget* parent = nullptr);
+  explicit BuildingComponentDialog(std::string& filterType, bool isBclDlg = true, QWidget* parent = nullptr);
   virtual ~BuildingComponentDialog() {}
 
   int currentTIDSelection();

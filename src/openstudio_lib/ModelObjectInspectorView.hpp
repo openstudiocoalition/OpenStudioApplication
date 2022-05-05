@@ -106,7 +106,7 @@ class DefaultInspectorView : public ModelObjectInspectorView
   Q_OBJECT
 
  public:
-  DefaultInspectorView(const model::Model& model, QWidget* parent = nullptr);
+  explicit DefaultInspectorView(const model::Model& model, QWidget* parent = nullptr);
 
   virtual ~DefaultInspectorView() {}
 

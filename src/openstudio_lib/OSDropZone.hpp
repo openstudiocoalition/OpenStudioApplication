@@ -152,8 +152,8 @@ class OSDropZone
   Q_OBJECT
 
  public:
-  OSDropZone(OSVectorController* vectorController, const QString& text = "Drag From Library", const QSize& size = QSize(0, 0),
-             bool growsHorizontally = true, QWidget* parent = nullptr);
+  explicit OSDropZone(OSVectorController* vectorController, const QString& text = "Drag From Library", const QSize& size = QSize(0, 0),
+                      bool growsHorizontally = true, QWidget* parent = nullptr);
 
   virtual ~OSDropZone() {}
 

@@ -120,7 +120,7 @@ class OSObjectSelector : public QObject
   Q_OBJECT;
 
  public:
-  OSObjectSelector(QObject* parent);
+  explicit OSObjectSelector(QObject* parent);
 
   enum PropertyChange
   {

@@ -44,7 +44,7 @@ class ScheduleSetsView : public ModelSubTabView
   Q_OBJECT
 
  public:
-  ScheduleSetsView(const openstudio::model::Model& model, QWidget* parent = nullptr);
+  explicit ScheduleSetsView(const openstudio::model::Model& model, QWidget* parent = nullptr);
 
   virtual ~ScheduleSetsView() {}
 
@@ -57,7 +57,7 @@ class ScheduleSetsInspectorView : public ModelObjectInspectorView
   Q_OBJECT
 
  public:
-  ScheduleSetsInspectorView(const model::Model& model, QWidget* parent = nullptr);
+  explicit ScheduleSetsInspectorView(const model::Model& model, QWidget* parent = nullptr);
 
   virtual ~ScheduleSetsInspectorView() {}
 

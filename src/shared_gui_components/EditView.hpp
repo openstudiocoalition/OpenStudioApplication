@@ -62,7 +62,7 @@ class EditRubyMeasureView : public QWidget
   Q_OBJECT
 
  public:
-  EditRubyMeasureView(bool applyMeasureNow);
+  explicit EditRubyMeasureView(bool applyMeasureNow);
   virtual ~EditRubyMeasureView() {}
 
   QLineEdit* nameLineEdit;

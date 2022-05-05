@@ -40,7 +40,7 @@ class MODELEDITOR_API ComboHighlightBridge : public QObject
   Q_OBJECT;
 
  public:
-  ComboHighlightBridge(QObject* parent);
+  explicit ComboHighlightBridge(QObject* parent);
 
   QObject* bridgeSender();
 

@@ -54,7 +54,7 @@ class OSProgressBar : public openstudio::ProgressBar
   OSProgressBar(QWidget* parent = nullptr);
 
   /// constructor
-  OSProgressBar(bool visible, QWidget* parent = nullptr);
+  explicit OSProgressBar(bool visible, QWidget* parent = nullptr);
 
   /// virtual destructor
   virtual ~OSProgressBar();

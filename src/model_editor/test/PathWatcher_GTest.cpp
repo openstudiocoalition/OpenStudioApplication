@@ -51,7 +51,7 @@ struct TestPathWatcher : public PathWatcher
 {
 
   // set periodic timer to 1 ms
-  TestPathWatcher(const openstudio::path& path) : PathWatcher(path, 1), added(false), changed(false), removed(false) {}
+  explicit TestPathWatcher(const openstudio::path& path) : PathWatcher(path, 1), added(false), changed(false), removed(false) {}
 
   virtual void onPathAdded() override {
     added = true;

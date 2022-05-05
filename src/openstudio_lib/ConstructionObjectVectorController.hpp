@@ -42,7 +42,7 @@ class ConstructionObjectVectorController : public ModelObjectVectorController
   Q_OBJECT
 
  public:
-  ConstructionObjectVectorController(QWidget* parentWidget);
+  explicit ConstructionObjectVectorController(QWidget* parentWidget);
 
   // Need to delete the QMutex
   virtual ~ConstructionObjectVectorController();

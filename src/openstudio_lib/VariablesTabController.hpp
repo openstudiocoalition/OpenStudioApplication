@@ -39,7 +39,7 @@ class VariablesTabController : public MainTabController
   Q_OBJECT
 
  public:
-  VariablesTabController(const model::Model& model);
+  explicit VariablesTabController(const model::Model& model);
 
   virtual ~VariablesTabController() {}
 };

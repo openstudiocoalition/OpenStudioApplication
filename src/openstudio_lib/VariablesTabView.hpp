@@ -83,7 +83,7 @@ class VariablesList
   Q_OBJECT;
 
  public:
-  VariablesList(openstudio::model::Model t_model);
+  explicit VariablesList(openstudio::model::Model t_model);
   virtual ~VariablesList();
 
  private slots:
@@ -111,7 +111,7 @@ class VariablesTabView : public MainTabView
   Q_OBJECT;
 
  public:
-  VariablesTabView(openstudio::model::Model t_model, QWidget* parent = nullptr);
+  explicit VariablesTabView(openstudio::model::Model t_model, QWidget* parent = nullptr);
 
   virtual ~VariablesTabView() {}
 

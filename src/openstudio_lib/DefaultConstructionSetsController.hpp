@@ -39,7 +39,7 @@ class DefaultConstructionSetsController : public ModelSubTabController
   Q_OBJECT
 
  public:
-  DefaultConstructionSetsController(const model::Model& model);
+  explicit DefaultConstructionSetsController(const model::Model& model);
 
   virtual ~DefaultConstructionSetsController();
 

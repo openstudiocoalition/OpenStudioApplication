@@ -77,7 +77,7 @@ class UtilityBillsView : public ModelSubTabView
   Q_OBJECT
 
  public:
-  UtilityBillsView(const model::Model& model, QWidget* parent = nullptr);
+  explicit UtilityBillsView(const model::Model& model, QWidget* parent = nullptr);
 
   virtual ~UtilityBillsView();
 

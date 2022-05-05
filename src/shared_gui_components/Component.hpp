@@ -48,8 +48,8 @@ class Component : public QAbstractButton
   Q_OBJECT
 
  public:
-  Component(const BCLMeasure& bclMeasure, bool showAbridgedView = true, bool showCheckBox = true, QWidget* parent = nullptr);
-  Component(const BCLSearchResult& bclSearchResult, bool showAbridgedView = true, bool showCheckBox = true, QWidget* parent = nullptr);
+  explicit Component(const BCLMeasure& bclMeasure, bool showAbridgedView = true, bool showCheckBox = true, QWidget* parent = nullptr);
+  explicit Component(const BCLSearchResult& bclSearchResult, bool showAbridgedView = true, bool showCheckBox = true, QWidget* parent = nullptr);
   Component(bool showAbridgedView = false, bool showCheckBox = false, QWidget* parent = nullptr);
   Component(const Component& other);
   virtual ~Component() = default;

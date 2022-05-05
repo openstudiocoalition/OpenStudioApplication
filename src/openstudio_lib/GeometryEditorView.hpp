@@ -68,7 +68,7 @@ class DebugWebView : public QDialog
   Q_OBJECT;
 
  public:
-  DebugWebView(const QString& debugPort, QWidget* parent = nullptr);
+  explicit DebugWebView(const QString& debugPort, QWidget* parent = nullptr);
   virtual ~DebugWebView();
 
  private:

@@ -123,7 +123,7 @@ class MODELEDITOR_API ModelObjectSelectorDialogWatcher
   Q_OBJECT
 
  public:
-  ModelObjectSelectorDialogWatcher(std::shared_ptr<ModelObjectSelectorDialog> modelObjectSelectorDialog);
+  explicit ModelObjectSelectorDialogWatcher(std::shared_ptr<ModelObjectSelectorDialog> modelObjectSelectorDialog);
 
   /// get the selected object
   boost::optional<openstudio::model::ModelObject> selectedModelObject() const;

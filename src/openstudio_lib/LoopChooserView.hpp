@@ -88,7 +88,7 @@ class LoopChooserItem : public QWidget
   Q_OBJECT;
 
  public:
-  LoopChooserItem(model::Loop&, LoopChooserView* parent = nullptr);
+  explicit LoopChooserItem(model::Loop&, LoopChooserView* parent = nullptr);
 
   virtual ~LoopChooserItem() {}
 

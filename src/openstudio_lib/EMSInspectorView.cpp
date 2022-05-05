@@ -50,7 +50,7 @@ class EMSInspectorHeader : public QWidget
 {
 
  public:
-  EMSInspectorHeader(const QString& text) : QWidget() {
+  explicit EMSInspectorHeader(const QString& text) : QWidget() {
     setContentsMargins(0, 0, 0, 0);
     setObjectName("IGHeader");
     auto layout = new QVBoxLayout();

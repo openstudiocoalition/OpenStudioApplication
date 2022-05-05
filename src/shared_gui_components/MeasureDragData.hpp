@@ -47,9 +47,9 @@ class MeasureDragData : QObject
 
   static QString mimeType(openstudio::MeasureType type);
 
-  MeasureDragData(const QByteArray& data);
+  explicit MeasureDragData(const QByteArray& data);
 
-  MeasureDragData(const UUID& id);
+  explicit MeasureDragData(const UUID& id);
 
   virtual ~MeasureDragData() {}
 

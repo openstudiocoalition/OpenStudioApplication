@@ -43,7 +43,7 @@ class StandardOpaqueMaterialInspectorView : public ModelObjectInspectorView
   Q_OBJECT
 
  public:
-  StandardOpaqueMaterialInspectorView(const model::Model& model, QWidget* parent = nullptr);
+  explicit StandardOpaqueMaterialInspectorView(const model::Model& model, QWidget* parent = nullptr);
 
   virtual ~StandardOpaqueMaterialInspectorView() {}
 
