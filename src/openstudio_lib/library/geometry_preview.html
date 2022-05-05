@@ -2289,11 +2289,13 @@ function init(os_data_in) {
   orthographicControls.minDistance = 10;
   orthographicControls.maxDistance = 1000;
   orthographicControls.enabled = true;
+  orthographicControls.addEventListener('change', requestRenderIfNotRequested);
 
   perspectiveControls = new THREE.OrbitControls(perspectiveCamera, renderer.domElement);
   perspectiveControls.minDistance = 10;
   perspectiveControls.maxDistance = 1000;
   perspectiveControls.enabled = true;
+  perspectiveControls.addEventListener('change', requestRenderIfNotRequested);
 
   // initialize camera and controls
   setAllCameraAngles(-30, 30, 0);
@@ -2539,6 +2541,7 @@ function onDocumentMouseClick(event) {
     } else {
       removeSelection();
     }
+    requestRenderIfNotRequested();
   }
 }
 
@@ -2618,14 +2621,23 @@ function displaySelectedObjectDetails() {
   document.body.style.cursor = 'pointer';
 }
 
-function animate(timestamp) {
-  requestAnimationFrame(animate);
+let renderRequested = false;
+
+function animate() {
+  renderRequested = undefined;
   orthographicControls.update();
   perspectiveControls.update();
   if (settings.orthographic){
     renderer.render(scene, orthographicCamera);
   }else{
     renderer.render(scene, perspectiveCamera);
+  }
+}
+
+function requestRenderIfNotRequested() {
+  if (!renderRequested) {
+    renderRequested = true;
+    requestAnimationFrame(animate);
   }
 }
 
@@ -3058,6 +3070,8 @@ var update = function (value) {
     dot_geometry.computeVertexNormals();
     scene.add(dot_points);
   }
+
+  requestRenderIfNotRequested();
 };
 
 var updateVariable = function (variableName) {
