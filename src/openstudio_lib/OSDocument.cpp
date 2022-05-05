@@ -1747,6 +1747,7 @@ void OSDocument::openMeasuresBclDlg() {
 }
 
 void OSDocument::on_closeMeasuresBclDlg() {
+  OSAppBase::instance()->checkForRemoteBCLUpdates();
   if (m_onlineMeasuresBclDialog->showNewComponents()) {
     OSAppBase::instance()->currentDocument()->disable();
     OSAppBase::instance()->measureManager().updateMeasuresLists();

@@ -175,6 +175,9 @@ class MeasureManager : public QObject
   ///// Does not ask for user approval
   //void updateBCLMeasures(analysisdriver::SimpleProject &t_project);
 
+  // Checks for updated versions
+  void checkForRemoteBCLUpdates();
+
   /// Downloads updated versions of all BCL measures
   void downloadBCLMeasures();
 

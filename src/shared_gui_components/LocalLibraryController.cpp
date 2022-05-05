@@ -105,6 +105,8 @@ LocalLibraryController::LocalLibraryController(BaseApp* t_app, bool onlyShowMode
   connect(localLibraryView->myMeasuresFolderButton, &QPushButton::clicked, this, &LocalLibraryController::showMyMeasuresFolder);
 
   connect(localLibraryView->addBCLMeasureButton, &QPushButton::clicked, this, &LocalLibraryController::openBclDlg);
+
+  connect(localLibraryView->lookForUpdateButton, &QPushButton::clicked, this, &LocalLibraryController::checkForRemoteBCLUpdates);
 }
 
 void LocalLibraryController::addMeasure() {
@@ -121,6 +123,10 @@ void LocalLibraryController::downloadUpdatedBCLMeasures() {
 
 void LocalLibraryController::openBclDlg() {
   m_app->openBclDlg();
+}
+
+void LocalLibraryController::checkForRemoteBCLUpdates() {
+  m_app->checkForRemoteBCLUpdates();
 }
 
 LocalLibraryController::~LocalLibraryController() {

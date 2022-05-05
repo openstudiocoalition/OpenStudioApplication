@@ -66,6 +66,7 @@ class BaseApp
   virtual void updateBCLMeasures() = 0;
   virtual void downloadUpdatedBCLMeasures() = 0;
   virtual void openBclDlg() = 0;
+  virtual void checkForRemoteBCLUpdates() = 0;
 
   virtual void chooseHorizontalEditTab() = 0;
   virtual QSharedPointer<openstudio::EditController> editController() = 0;
