@@ -108,7 +108,7 @@ class DataSource
   ///                         other widget, so it can really be anything.
   template <typename ItemType, typename InputType>
   explicit DataSource(const std::function<std::vector<ItemType>(InputType)>& t_sourceFunc, bool t_wantsPlaceholder = false,
-             const QSharedPointer<BaseConcept>& t_dropZoneConcept = QSharedPointer<BaseConcept>())
+                      const QSharedPointer<BaseConcept>& t_dropZoneConcept = QSharedPointer<BaseConcept>())
     : m_wantsPlaceholder(t_wantsPlaceholder), m_dropZoneConcept(t_dropZoneConcept) {
     typedef decltype(t_sourceFunc) IncommingFuncType;
     typedef typename std::remove_reference<typename std::remove_cv<IncommingFuncType>::type>::type FunctionType;

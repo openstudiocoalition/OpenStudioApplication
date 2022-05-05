@@ -430,7 +430,7 @@ class InteriorPartitionSurfaceGroupTreeItem : public ModelObjectTreeItem
 
  public:
   explicit InteriorPartitionSurfaceGroupTreeItem(const openstudio::model::InteriorPartitionSurfaceGroup& interiorPartitionSurfaceGroup,
-                                        QTreeWidgetItem* parent = nullptr);
+                                                 QTreeWidgetItem* parent = nullptr);
   virtual ~InteriorPartitionSurfaceGroupTreeItem() {}
 
  protected:
