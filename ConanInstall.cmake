@@ -35,13 +35,13 @@ if(NOT CONAN_OPENSTUDIO_ALREADY_RUN)
 
   message(STATUS "openstudio: RUNNING CONAN")
 
-  if(WIN32)
-    # Use MSVC for dependencies on Windows
-    set(CMAKE_CXX_COMPILER_ID_TMP "${CMAKE_CXX_COMPILER_ID}")
-    set(CMAKE_CXX_COMPILER_ID "MSVC")
-    set(CMAKE_GENERATOR_TOOLSET_TMP "${CMAKE_GENERATOR_TOOLSET}")
-    set(CMAKE_GENERATOR_TOOLSET "")
-  endif()
+  # if(WIN32)
+  #   # Use MSVC for dependencies on Windows
+  #   set(CMAKE_CXX_COMPILER_ID_TMP "${CMAKE_CXX_COMPILER_ID}")
+  #   set(CMAKE_CXX_COMPILER_ID "MSVC")
+  #   set(CMAKE_GENERATOR_TOOLSET_TMP "${CMAKE_GENERATOR_TOOLSET}")
+  #   set(CMAKE_GENERATOR_TOOLSET "")
+  # endif()
 
   # Add NREL remote and place it first in line, since we vendored dependencies to NREL's repo, they will be picked first
   # TJC 2021-04-27 bintray.com is decommissioned as of 2021-05-01. See commercialbuildings as replacement below.
@@ -121,10 +121,10 @@ if(NOT CONAN_OPENSTUDIO_ALREADY_RUN)
     UPDATE
   )
 
-  if(WIN32)
-    set(CMAKE_CXX_COMPILER_ID "${CMAKE_CXX_COMPILER_ID_TMP}")
-    set(CMAKE_GENERATOR_TOOLSET "${CMAKE_GENERATOR_TOOLSET_TMP}")
-  endif()
+  # if(WIN32)
+  #    set(CMAKE_CXX_COMPILER_ID "${CMAKE_CXX_COMPILER_ID_TMP}")
+  #    set(CMAKE_GENERATOR_TOOLSET "${CMAKE_GENERATOR_TOOLSET_TMP}")
+  #  endif()
 
   set(CONAN_OPENSTUDIO_ALREADY_RUN TRUE)
 
