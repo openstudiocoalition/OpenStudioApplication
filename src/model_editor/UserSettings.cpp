@@ -36,6 +36,7 @@
 
 #include "Utilities.hpp"
 
+#include <QCoreApplication>
 #include <QString>
 #include <QSettings>
 
@@ -49,7 +50,7 @@ std::vector<openstudio::BCLMeasure> userMeasures() {
 }
 
 openstudio::path userMeasuresDir() {
-  QSettings settings("OpenStudio", "BCLMeasure");
+  QSettings settings(QCoreApplication::organizationName(), "BCLMeasure");
   QString value =
     settings.value("userMeasuresDir", openstudio::toQString(openstudio::filesystem::home_path() / openstudio::toPath("OpenStudio/Measures")))
       .toString();
@@ -70,12 +71,12 @@ bool setUserMeasuresDir(const openstudio::path& userMeasuresDir) {
     return false;
   }
 
-  QSettings settings("OpenStudio", "BCLMeasure");
+  QSettings settings(QCoreApplication::organizationName(), "BCLMeasure");
   settings.setValue("userMeasuresDir", openstudio::toQString(userMeasuresDir));
   return true;
 }
 
 void clearUserMeasuresDir() {
-  QSettings settings("OpenStudio", "BCLMeasure");
+  QSettings settings(QCoreApplication::organizationName(), "BCLMeasure");
   settings.remove("userMeasuresDir");
 }

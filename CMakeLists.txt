@@ -523,6 +523,8 @@ find_package(Qt6 ${QT_VERSION} COMPONENTS CoreTools GuiTools WidgetsTools QmlToo
 
 find_package(Qt6 ${QT_VERSION} COMPONENTS Core Core5Compat Gui Widgets Sql Network Xml Concurrent PrintSupport Quick QuickWidgets Qml WebChannel Positioning WebEngineCore WebEngineWidgets REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
 
+find_package(Qt6LinguistTools ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+
 if(APPLE)
   set(QtWebEngineProcess "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Helpers/QtWebEngineProcess.app" CACHE PATH "Path to the QtWebEngineProcess")
 else()
@@ -687,6 +689,8 @@ foreach(D ${project_directories})
 endforeach()
 
 add_subdirectory("ruby")
+# Must be last in line, as it parses the sources files for the targets above
+add_subdirectory("translations")
 
 ###############################################################################
 #                        E X P O R T    T A R G E T S                         #
