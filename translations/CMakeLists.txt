@@ -10,8 +10,6 @@ add_library(translations_interface INTERFACE)
 set(TS_FILES
   OpenStudioApp_fr.ts # French
   OpenStudioApp_es.ts # Spanish
-  OpenStudioApp_ar.ts # Arabic
-  OpenStudioApp_he.ts # Hebrew
   OpenStudioApp_fa.ts # Farsi-Persian
   OpenStudioApp_it.ts # Italian
   OpenStudioApp_zh_CN.ts # Chinese
@@ -22,6 +20,8 @@ set(TS_FILES
   OpenStudioApp_vi.ts # Vietnamese
   OpenStudioApp_ja.ts # Japanese
   OpenStudioApp_de.ts # German
+  OpenStudioApp_ar.ts # Arabic
+  OpenStudioApp_he.ts # Hebrew
 )
 
 set(target_names

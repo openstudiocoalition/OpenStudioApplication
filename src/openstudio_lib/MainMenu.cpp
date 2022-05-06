@@ -195,12 +195,6 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, QWidget* p
   langMenu->addAction(m_langFrenchAction);
   connect(m_langFrenchAction, &QAction::triggered, this, &MainMenu::langFrenchClicked);
 
-  // m_langArabicAction = new QAction(tr("Arabic"), this);
-  // m_preferencesActions.push_back(m_langArabicAction);
-  // m_langArabicAction->setCheckable(true);
-  // langMenu->addAction(m_langArabicAction);
-  // connect(m_langArabicAction, &QAction::triggered, this, &MainMenu::langArabicClicked);
-
   m_langSpanishAction = new QAction(tr("Spanish"), this);
   m_preferencesActions.push_back(m_langSpanishAction);
   m_langSpanishAction->setCheckable(true);
@@ -212,12 +206,6 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, QWidget* p
   m_langFarsiAction->setCheckable(true);
   langMenu->addAction(m_langFarsiAction);
   connect(m_langFarsiAction, &QAction::triggered, this, &MainMenu::langFarsiClicked);
-
-  // m_langHebrewAction = new QAction(tr("Hebrew"), this);
-  // m_preferencesActions.push_back(m_langHebrewAction);
-  // m_langHebrewAction->setCheckable(true);
-  // langMenu->addAction(m_langHebrewAction);
-  // connect(m_langHebrewAction, &QAction::triggered, this, &MainMenu::langHebrewClicked);
 
   m_langItalianAction = new QAction(tr("Italian"), this);
   m_preferencesActions.push_back(m_langItalianAction);
@@ -273,6 +261,18 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, QWidget* p
   langMenu->addAction(m_langGermanAction);
   connect(m_langGermanAction, &QAction::triggered, this, &MainMenu::langGermanClicked);
 
+  // m_langArabicAction = new QAction(tr("Arabic"), this);
+  // m_preferencesActions.push_back(m_langArabicAction);
+  // m_langArabicAction->setCheckable(true);
+  // langMenu->addAction(m_langArabicAction);
+  // connect(m_langArabicAction, &QAction::triggered, this, &MainMenu::langArabicClicked);
+
+  // m_langHebrewAction = new QAction(tr("Hebrew"), this);
+  // m_preferencesActions.push_back(m_langHebrewAction);
+  // m_langHebrewAction->setCheckable(true);
+  // langMenu->addAction(m_langHebrewAction);
+  // connect(m_langHebrewAction, &QAction::triggered, this, &MainMenu::langHebrewClicked);
+
   action = new QAction(tr("Add a new language"), this);
   m_preferencesActions.push_back(action);
   langMenu->addAction(action);
@@ -303,10 +303,8 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, QWidget* p
 
   m_langEnglishAction->setChecked(false);
   m_langFrenchAction->setChecked(false);
-  m_langArabicAction->setChecked(false);
   m_langSpanishAction->setChecked(false);
   m_langFarsiAction->setChecked(false);
-  m_langHebrewAction->setChecked(false);
   m_langItalianAction->setChecked(false);
   m_langChineseAction->setChecked(false);
   m_langGreekAction->setChecked(false);
@@ -316,17 +314,15 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, QWidget* p
   m_langVietnameseAction->setChecked(false);
   m_langJapaneseAction->setChecked(false);
   m_langGermanAction->setChecked(false);
+  // m_langArabicAction->setChecked(false);
+  // m_langHebrewAction->setChecked(false);
 
   if (m_currLang == "fr") {
     m_langFrenchAction->setChecked(true);
-  } else if (m_currLang == "ar") {
-    m_langArabicAction->setChecked(true);
   } else if (m_currLang == "es") {
     m_langSpanishAction->setChecked(true);
   } else if (m_currLang == "fa") {
     m_langFarsiAction->setChecked(true);
-  } else if (m_currLang == "he") {
-    m_langHebrewAction->setChecked(true);
   } else if (m_currLang == "it") {
     m_langItalianAction->setChecked(true);
   } else if (m_currLang == "zh_CN") {
@@ -345,6 +341,10 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, QWidget* p
     m_langJapaneseAction->setChecked(true);
   } else if (m_currLang == "de") {
     m_langGermanAction->setChecked(true);
+    //} else if (m_currLang == "ar") {
+    //  m_langArabicAction->setChecked(true);
+    //} else if (m_currLang == "he") {
+    //  m_langHebrewAction->setChecked(true);
   } else {
     // default to english
     // m_langEnglishAction->trigger();
@@ -407,10 +407,8 @@ void MainMenu::displayIPUnitsClicked() {
 void MainMenu::langEnglishClicked() {
   m_langEnglishAction->setChecked(true);
   m_langFrenchAction->setChecked(false);
-  m_langArabicAction->setChecked(false);
   m_langSpanishAction->setChecked(false);
   m_langFarsiAction->setChecked(false);
-  m_langHebrewAction->setChecked(false);
   m_langItalianAction->setChecked(false);
   m_langChineseAction->setChecked(false);
   m_langGreekAction->setChecked(false);
@@ -420,6 +418,8 @@ void MainMenu::langEnglishClicked() {
   m_langVietnameseAction->setChecked(false);
   m_langJapaneseAction->setChecked(false);
   m_langGermanAction->setChecked(false);
+  // m_langArabicAction->setChecked(false);
+  // m_langHebrewAction->setChecked(false);
 
   emit changeLanguageClicked("en");
 }
@@ -427,10 +427,8 @@ void MainMenu::langEnglishClicked() {
 void MainMenu::langFrenchClicked() {
   m_langEnglishAction->setChecked(false);
   m_langFrenchAction->setChecked(true);
-  m_langArabicAction->setChecked(false);
   m_langSpanishAction->setChecked(false);
   m_langFarsiAction->setChecked(false);
-  m_langHebrewAction->setChecked(false);
   m_langItalianAction->setChecked(false);
   m_langChineseAction->setChecked(false);
   m_langGreekAction->setChecked(false);
@@ -440,37 +438,17 @@ void MainMenu::langFrenchClicked() {
   m_langVietnameseAction->setChecked(false);
   m_langJapaneseAction->setChecked(false);
   m_langGermanAction->setChecked(false);
+  // m_langArabicAction->setChecked(false);
+  // m_langHebrewAction->setChecked(false);
 
   emit changeLanguageClicked("fr");
-}
-
-void MainMenu::langArabicClicked() {
-  m_langEnglishAction->setChecked(false);
-  m_langFrenchAction->setChecked(false);
-  m_langArabicAction->setChecked(true);
-  m_langSpanishAction->setChecked(false);
-  m_langFarsiAction->setChecked(false);
-  m_langHebrewAction->setChecked(false);
-  m_langItalianAction->setChecked(false);
-  m_langChineseAction->setChecked(false);
-  m_langGreekAction->setChecked(false);
-  m_langPolishAction->setChecked(false);
-  m_langCatalanAction->setChecked(false);
-  m_langHindiAction->setChecked(false);
-  m_langVietnameseAction->setChecked(false);
-  m_langJapaneseAction->setChecked(false);
-  m_langGermanAction->setChecked(false);
-
-  emit changeLanguageClicked("ar");
 }
 
 void MainMenu::langSpanishClicked() {
   m_langEnglishAction->setChecked(false);
   m_langFrenchAction->setChecked(false);
-  m_langArabicAction->setChecked(false);
   m_langSpanishAction->setChecked(true);
   m_langFarsiAction->setChecked(false);
-  m_langHebrewAction->setChecked(false);
   m_langItalianAction->setChecked(false);
   m_langChineseAction->setChecked(false);
   m_langGreekAction->setChecked(false);
@@ -480,6 +458,8 @@ void MainMenu::langSpanishClicked() {
   m_langVietnameseAction->setChecked(false);
   m_langJapaneseAction->setChecked(false);
   m_langGermanAction->setChecked(false);
+  // m_langArabicAction->setChecked(false);
+  // m_langHebrewAction->setChecked(false);
 
   emit changeLanguageClicked("es");
 }
@@ -487,10 +467,8 @@ void MainMenu::langSpanishClicked() {
 void MainMenu::langFarsiClicked() {
   m_langEnglishAction->setChecked(false);
   m_langFrenchAction->setChecked(false);
-  m_langArabicAction->setChecked(false);
   m_langSpanishAction->setChecked(false);
   m_langFarsiAction->setChecked(true);
-  m_langHebrewAction->setChecked(false);
   m_langItalianAction->setChecked(false);
   m_langChineseAction->setChecked(false);
   m_langGreekAction->setChecked(false);
@@ -500,37 +478,17 @@ void MainMenu::langFarsiClicked() {
   m_langVietnameseAction->setChecked(false);
   m_langJapaneseAction->setChecked(false);
   m_langGermanAction->setChecked(false);
+  // m_langArabicAction->setChecked(false);
+  // m_langHebrewAction->setChecked(false);
 
   emit changeLanguageClicked("fa");
-}
-
-void MainMenu::langHebrewClicked() {
-  m_langEnglishAction->setChecked(false);
-  m_langFrenchAction->setChecked(false);
-  m_langArabicAction->setChecked(false);
-  m_langSpanishAction->setChecked(false);
-  m_langFarsiAction->setChecked(false);
-  m_langHebrewAction->setChecked(true);
-  m_langItalianAction->setChecked(false);
-  m_langChineseAction->setChecked(false);
-  m_langGreekAction->setChecked(false);
-  m_langPolishAction->setChecked(false);
-  m_langCatalanAction->setChecked(false);
-  m_langHindiAction->setChecked(false);
-  m_langVietnameseAction->setChecked(false);
-  m_langJapaneseAction->setChecked(false);
-  m_langGermanAction->setChecked(false);
-
-  emit changeLanguageClicked("he");
 }
 
 void MainMenu::langItalianClicked() {
   m_langEnglishAction->setChecked(false);
   m_langFrenchAction->setChecked(false);
-  m_langArabicAction->setChecked(false);
   m_langSpanishAction->setChecked(false);
   m_langFarsiAction->setChecked(false);
-  m_langHebrewAction->setChecked(false);
   m_langItalianAction->setChecked(true);
   m_langChineseAction->setChecked(false);
   m_langGreekAction->setChecked(false);
@@ -540,6 +498,8 @@ void MainMenu::langItalianClicked() {
   m_langVietnameseAction->setChecked(false);
   m_langJapaneseAction->setChecked(false);
   m_langGermanAction->setChecked(false);
+  // m_langArabicAction->setChecked(false);
+  // m_langHebrewAction->setChecked(false);
 
   emit changeLanguageClicked("it");
 }
@@ -547,10 +507,8 @@ void MainMenu::langItalianClicked() {
 void MainMenu::langChineseClicked() {
   m_langEnglishAction->setChecked(false);
   m_langFrenchAction->setChecked(false);
-  m_langArabicAction->setChecked(false);
   m_langSpanishAction->setChecked(false);
   m_langFarsiAction->setChecked(false);
-  m_langHebrewAction->setChecked(false);
   m_langItalianAction->setChecked(false);
   m_langChineseAction->setChecked(true);
   m_langGreekAction->setChecked(false);
@@ -560,6 +518,8 @@ void MainMenu::langChineseClicked() {
   m_langVietnameseAction->setChecked(false);
   m_langJapaneseAction->setChecked(false);
   m_langGermanAction->setChecked(false);
+  // m_langArabicAction->setChecked(false);
+  // m_langHebrewAction->setChecked(false);
 
   emit changeLanguageClicked("zh_CN");
 }
@@ -567,10 +527,8 @@ void MainMenu::langChineseClicked() {
 void MainMenu::langGreekClicked() {
   m_langEnglishAction->setChecked(false);
   m_langFrenchAction->setChecked(false);
-  m_langArabicAction->setChecked(false);
   m_langSpanishAction->setChecked(false);
   m_langFarsiAction->setChecked(false);
-  m_langHebrewAction->setChecked(false);
   m_langItalianAction->setChecked(false);
   m_langChineseAction->setChecked(false);
   m_langGreekAction->setChecked(true);
@@ -580,6 +538,8 @@ void MainMenu::langGreekClicked() {
   m_langVietnameseAction->setChecked(false);
   m_langJapaneseAction->setChecked(false);
   m_langGermanAction->setChecked(false);
+  // m_langArabicAction->setChecked(false);
+  // m_langHebrewAction->setChecked(false);
 
   emit changeLanguageClicked("el");
 }
@@ -587,10 +547,8 @@ void MainMenu::langGreekClicked() {
 void MainMenu::langPolishClicked() {
   m_langEnglishAction->setChecked(false);
   m_langFrenchAction->setChecked(false);
-  m_langArabicAction->setChecked(false);
   m_langSpanishAction->setChecked(false);
   m_langFarsiAction->setChecked(false);
-  m_langHebrewAction->setChecked(false);
   m_langItalianAction->setChecked(false);
   m_langChineseAction->setChecked(false);
   m_langGreekAction->setChecked(false);
@@ -600,6 +558,8 @@ void MainMenu::langPolishClicked() {
   m_langVietnameseAction->setChecked(false);
   m_langJapaneseAction->setChecked(false);
   m_langGermanAction->setChecked(false);
+  // m_langArabicAction->setChecked(false);
+  // m_langHebrewAction->setChecked(false);
 
   emit changeLanguageClicked("pl");
 }
@@ -607,10 +567,8 @@ void MainMenu::langPolishClicked() {
 void MainMenu::langCatalanClicked() {
   m_langEnglishAction->setChecked(false);
   m_langFrenchAction->setChecked(false);
-  m_langArabicAction->setChecked(false);
   m_langSpanishAction->setChecked(false);
   m_langFarsiAction->setChecked(false);
-  m_langHebrewAction->setChecked(false);
   m_langItalianAction->setChecked(false);
   m_langChineseAction->setChecked(false);
   m_langGreekAction->setChecked(false);
@@ -620,6 +578,8 @@ void MainMenu::langCatalanClicked() {
   m_langVietnameseAction->setChecked(false);
   m_langJapaneseAction->setChecked(false);
   m_langGermanAction->setChecked(false);
+  // m_langArabicAction->setChecked(false);
+  // m_langHebrewAction->setChecked(false);
 
   emit changeLanguageClicked("ca");
 }
@@ -627,10 +587,8 @@ void MainMenu::langCatalanClicked() {
 void MainMenu::langHindiClicked() {
   m_langEnglishAction->setChecked(false);
   m_langFrenchAction->setChecked(false);
-  m_langArabicAction->setChecked(false);
   m_langSpanishAction->setChecked(false);
   m_langFarsiAction->setChecked(false);
-  m_langHebrewAction->setChecked(false);
   m_langItalianAction->setChecked(false);
   m_langChineseAction->setChecked(false);
   m_langGreekAction->setChecked(false);
@@ -640,6 +598,8 @@ void MainMenu::langHindiClicked() {
   m_langVietnameseAction->setChecked(false);
   m_langJapaneseAction->setChecked(false);
   m_langGermanAction->setChecked(false);
+  // m_langArabicAction->setChecked(false);
+  // m_langHebrewAction->setChecked(false);
 
   emit changeLanguageClicked("hi");
 }
@@ -647,10 +607,8 @@ void MainMenu::langHindiClicked() {
 void MainMenu::langVietnameseClicked() {
   m_langEnglishAction->setChecked(false);
   m_langFrenchAction->setChecked(false);
-  m_langArabicAction->setChecked(false);
   m_langSpanishAction->setChecked(false);
   m_langFarsiAction->setChecked(false);
-  m_langHebrewAction->setChecked(false);
   m_langItalianAction->setChecked(false);
   m_langChineseAction->setChecked(false);
   m_langGreekAction->setChecked(false);
@@ -660,6 +618,8 @@ void MainMenu::langVietnameseClicked() {
   m_langVietnameseAction->setChecked(true);
   m_langJapaneseAction->setChecked(false);
   m_langGermanAction->setChecked(false);
+  // m_langArabicAction->setChecked(false);
+  // m_langHebrewAction->setChecked(false);
 
   emit changeLanguageClicked("vi");
 }
@@ -667,10 +627,8 @@ void MainMenu::langVietnameseClicked() {
 void MainMenu::langJapaneseClicked() {
   m_langEnglishAction->setChecked(false);
   m_langFrenchAction->setChecked(false);
-  m_langArabicAction->setChecked(false);
   m_langSpanishAction->setChecked(false);
   m_langFarsiAction->setChecked(false);
-  m_langHebrewAction->setChecked(false);
   m_langItalianAction->setChecked(false);
   m_langChineseAction->setChecked(false);
   m_langGreekAction->setChecked(false);
@@ -680,6 +638,8 @@ void MainMenu::langJapaneseClicked() {
   m_langVietnameseAction->setChecked(false);
   m_langJapaneseAction->setChecked(true);
   m_langGermanAction->setChecked(false);
+  // m_langArabicAction->setChecked(false);
+  // m_langHebrewAction->setChecked(false);
 
   emit changeLanguageClicked("ja");
 }
@@ -687,10 +647,8 @@ void MainMenu::langJapaneseClicked() {
 void MainMenu::langGermanClicked() {
   m_langEnglishAction->setChecked(false);
   m_langFrenchAction->setChecked(false);
-  m_langArabicAction->setChecked(false);
   m_langSpanishAction->setChecked(false);
   m_langFarsiAction->setChecked(false);
-  m_langHebrewAction->setChecked(false);
   m_langItalianAction->setChecked(false);
   m_langChineseAction->setChecked(false);
   m_langGreekAction->setChecked(false);
@@ -700,9 +658,51 @@ void MainMenu::langGermanClicked() {
   m_langVietnameseAction->setChecked(false);
   m_langJapaneseAction->setChecked(false);
   m_langGermanAction->setChecked(true);
+  // m_langArabicAction->setChecked(false);
+  // m_langHebrewAction->setChecked(false);
 
   emit changeLanguageClicked("de");
 }
+
+// void MainMenu::langArabicClicked() {
+//    m_langEnglishAction->setChecked(false);
+//    m_langFrenchAction->setChecked(false);
+//    m_langSpanishAction->setChecked(false);
+//    m_langFarsiAction->setChecked(false);
+//    m_langItalianAction->setChecked(false);
+//    m_langChineseAction->setChecked(false);
+//    m_langGreekAction->setChecked(false);
+//    m_langPolishAction->setChecked(false);
+//    m_langCatalanAction->setChecked(false);
+//    m_langHindiAction->setChecked(false);
+//    m_langVietnameseAction->setChecked(false);
+//    m_langJapaneseAction->setChecked(false);
+//    m_langGermanAction->setChecked(false);
+//    m_langArabicAction->setChecked(true);
+//    m_langHebrewAction->setChecked(false);
+//
+//    emit changeLanguageClicked("ar");
+// }
+//
+// void MainMenu::langHebrewClicked() {
+//    m_langEnglishAction->setChecked(false);
+//    m_langFrenchAction->setChecked(false);
+//    m_langSpanishAction->setChecked(false);
+//    m_langFarsiAction->setChecked(false);
+//    m_langItalianAction->setChecked(false);
+//    m_langChineseAction->setChecked(false);
+//    m_langGreekAction->setChecked(false);
+//    m_langPolishAction->setChecked(false);
+//    m_langCatalanAction->setChecked(false);
+//    m_langHindiAction->setChecked(false);
+//    m_langVietnameseAction->setChecked(false);
+//    m_langJapaneseAction->setChecked(false);
+//    m_langGermanAction->setChecked(false);
+//    m_langArabicAction->setChecked(false);
+//    m_langHebrewAction->setChecked(true);
+//
+//    emit changeLanguageClicked("he");
+// }
 
 void MainMenu::addingNewLanguageClicked() {
 

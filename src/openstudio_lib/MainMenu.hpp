@@ -128,10 +128,8 @@ class MainMenu : public QMenuBar
 
   QAction* m_langEnglishAction;
   QAction* m_langFrenchAction;
-  QAction* m_langArabicAction;
   QAction* m_langSpanishAction;
   QAction* m_langFarsiAction;
-  QAction* m_langHebrewAction;
   QAction* m_langItalianAction;
   QAction* m_langChineseAction;
   QAction* m_langGreekAction;
@@ -141,6 +139,8 @@ class MainMenu : public QMenuBar
   QAction* m_langVietnameseAction;
   QAction* m_langJapaneseAction;
   QAction* m_langGermanAction;
+  // QAction* m_langArabicAction;
+  // QAction* m_langHebrewAction;
 
   QAction* m_openLibDlgAction;
 
@@ -176,10 +176,8 @@ class MainMenu : public QMenuBar
 
   void langEnglishClicked();
   void langFrenchClicked();
-  void langArabicClicked();
   void langSpanishClicked();
   void langFarsiClicked();
-  void langHebrewClicked();
   void langItalianClicked();
   void langChineseClicked();
   void langGreekClicked();
@@ -189,6 +187,8 @@ class MainMenu : public QMenuBar
   void langVietnameseClicked();
   void langJapaneseClicked();
   void langGermanClicked();
+  // void langArabicClicked();
+  // void langHebrewClicked();
   void addingNewLanguageClicked();
 };
 
