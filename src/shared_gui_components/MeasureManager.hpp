@@ -211,7 +211,6 @@ class MeasureManager : public QObject
   std::map<openstudio::path, std::vector<measure::OSArgument>> m_measureArguments;
   QUrl m_url;
   QSharedPointer<LocalLibraryController> m_libraryController;
-  QNetworkAccessManager* m_networkAccessManager;
   bool m_started;
   QMutex m_mutex;
 };
