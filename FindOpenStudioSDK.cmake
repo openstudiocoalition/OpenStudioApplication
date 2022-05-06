@@ -231,3 +231,16 @@ else()
     )
   endif()
 endif()
+
+# TODO: Temporary workaround for missing vcomp140.dll in SDK package for EnergyPlus
+if(WIN32)
+  if(NOT EXISTS "${openstudio_ROOT_DIR}/EnergyPlus/vcomp140.dll")
+    message(AUTHOR_WARNING "Downloading missing vcomp140.dll")
+    file(DOWNLOAD "https://github.com/openstudiocoalition/OpenStudioApplication/releases/download/v1.4.0-rc1/vcomp140.dll" "${openstudio_ROOT_DIR}/EnergyPlus/vcomp140.dll"
+         SHOW_PROGRESS
+         INACTIVITY_TIMEOUT 120 # 2-min timeout
+         STATUS DOWNLOAD_STATUS
+    )
+    message(AUTHOR_WARNING "vcomp140.dll DOWNLOAD_STATUS=${DOWNLOAD_STATUS}")
+  endif()
+endif()
