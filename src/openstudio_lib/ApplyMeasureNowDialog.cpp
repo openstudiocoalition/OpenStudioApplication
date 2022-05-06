@@ -103,7 +103,7 @@ ApplyMeasureNowDialog::ApplyMeasureNowDialog(QWidget* parent)
   createWidgets();
 
   OSAppBase* app = OSAppBase::instance();
-  connect(this, &ApplyMeasureNowDialog::reloadFile, static_cast<OpenStudioApp*>(app), &OpenStudioApp::reloadFile, Qt::QueuedConnection);
+  connect(this, &ApplyMeasureNowDialog::reloadFile, app, &OSAppBase::reloadFile, Qt::QueuedConnection);
 
   m_advancedOutputDialog = new TextEditDialog("Advanced Output");
 
