@@ -46,6 +46,9 @@ if(NOT CONAN_OPENSTUDIO_ALREADY_RUN)
   #conan_add_remote(NAME jmarrec
   #  URL https://api.bintray.com/conan/jmarrec/testing)
 
+  # note, it is assumed that conancenter is in the remotes by default, if not it can be added with:
+  # conan remote add conancenter  https://center.conan.io
+
   # Enable revisions in conan: check if they are already enabled, if not do it and warn user
   execute_process(
     COMMAND ${CONAN_CMD} config get general.revisions_enabled
