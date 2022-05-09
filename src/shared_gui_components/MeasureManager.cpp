@@ -82,9 +82,7 @@
 
 namespace openstudio {
 
-MeasureManager::MeasureManager(BaseApp* t_app) : m_app(t_app), m_started(false), m_mutex() {
-  m_networkAccessManager = new QNetworkAccessManager(this);
-}
+MeasureManager::MeasureManager(BaseApp* t_app) : m_app(t_app), m_started(false) {}
 
 QUrl MeasureManager::url() const {
   return m_url;
