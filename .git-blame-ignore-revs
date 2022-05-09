@@ -259,3 +259,12 @@ abcabd4cb0a2144b81e74212b19cc2dde1f04797
 
 # [chore] clang format + gitblame ignore rev [Julien Marrec, 2021-10-29]
 0778b866505cf35b8097597152cce71e5817ef28
+
+# clang format + using directives in FieldMethodTypeDefs [chore] [Julien Marrec, 2022-05-05]
+3259b8018969f708cba9791485267b49242307ca
+
+# Bump copyright [chore] [Julien Marrec, 2022-05-09]
+fd8be868ee9c5daae25299c49cb5c6e26aadce10
+
+# Bump copyright in extra files [chore] [Julien Marrec, 2022-05-09]
+626f67789419b0a44b4f911b4d95696889603af3
