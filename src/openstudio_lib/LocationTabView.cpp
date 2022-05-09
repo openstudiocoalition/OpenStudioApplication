@@ -92,7 +92,6 @@ static constexpr auto LATITUDE("Latitude: ");
 static constexpr auto LONGITUDE("Longitude: ");
 static constexpr auto ELEVATION("Elevation: ");
 static constexpr auto TIME_ZONE("Time Zone: ");
-static constexpr auto NUM_DESIGN_DAYS("Number of Design Days: ");
 static constexpr auto SETWEATHERFILE("Set Weather File");
 static constexpr auto CHANGEWEATHERFILE("Change Weather File");
 

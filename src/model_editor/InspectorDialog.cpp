@@ -493,8 +493,6 @@ void InspectorDialog::init(InspectorDialogClient client) {
 
   QFile sketchUpPluginPolicy(":/SketchUpPluginPolicy.xml");
 
-  const auto toVector = [](const auto& data) { return std::vector<char>(data.begin(), data.end()); };
-
   switch (client.value()) {
     case InspectorDialogClient::AllOpenStudio:
 

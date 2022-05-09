@@ -123,6 +123,7 @@ TEST_F(OpenStudioLibFixture, SpacesSurfacesGridView) {
     auto surfaceObj = obj->cast<model::Surface>();
     ASSERT_TRUE(surfaceObj.space());
     EXPECT_EQ(spaceObj, surfaceObj.space());
+    EXPECT_EQ(surface.handle(), surfaceObj.handle());
 
     i += 1;
   }
@@ -142,6 +143,7 @@ TEST_F(OpenStudioLibFixture, SpacesSurfacesGridView) {
     auto surfaceObj = obj->cast<model::Surface>();
     ASSERT_TRUE(surfaceObj.space());
     EXPECT_EQ(spaceObj, surfaceObj.space());
+    EXPECT_EQ(surface.handle(), surfaceObj.handle());
 
     i += 1;
   }
@@ -179,6 +181,7 @@ TEST_F(OpenStudioLibFixture, SpacesSurfacesGridView) {
     auto surfaceObj = obj->cast<model::Surface>();
     ASSERT_TRUE(surfaceObj.space());
     EXPECT_EQ(spaceObj, surfaceObj.space());
+    EXPECT_EQ(surface.handle(), surfaceObj.handle());
 
     i += 1;
   }

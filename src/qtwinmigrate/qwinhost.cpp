@@ -263,6 +263,8 @@ bool QWinHost::event(QEvent* e) {
     case QEvent::WindowUnblocked:
       if (hwnd) EnableWindow(hwnd, true);
       break;
+    default:
+      break;
   }
   return QWidget::event(e);
 }

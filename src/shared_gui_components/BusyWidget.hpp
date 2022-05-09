@@ -48,7 +48,7 @@ class BusyWidget : public QWidget
 
   virtual ~BusyWidget() {}
 
-  const QSize sizeHint();
+  virtual const QSize sizeHint();
 
  public slots:
 

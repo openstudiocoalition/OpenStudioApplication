@@ -1298,7 +1298,7 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
         return t_spaceType->standardsTemplate();
       };
 
-      std::function<bool(model::SpaceType*, std::string)> setter = [this](model::SpaceType* t_spaceType, std::string t_value) {
+      std::function<bool(model::SpaceType*, std::string)> setter = [](model::SpaceType* t_spaceType, std::string t_value) {
         // We start by resetting the Standards Building Type and SpaceType
         t_spaceType->resetStandardsSpaceType();
         t_spaceType->resetStandardsBuildingType();
@@ -1380,7 +1380,7 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
         return t_spaceType->standardsBuildingType();
       };
 
-      std::function<bool(model::SpaceType*, std::string)> setter = [this](model::SpaceType* t_spaceType, std::string t_value) {
+      std::function<bool(model::SpaceType*, std::string)> setter = [](model::SpaceType* t_spaceType, std::string t_value) {
         // We start by resetting the Standards SpaceType
         t_spaceType->resetStandardsSpaceType();
         bool success = t_spaceType->setStandardsBuildingType(t_value);

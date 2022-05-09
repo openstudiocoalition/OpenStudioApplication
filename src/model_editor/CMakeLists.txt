@@ -131,6 +131,14 @@ set(${target_name}_swig_src
   Qt.i
 )
 
+if(MSVC)
+  if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+    add_definitions(-Wno-reserved-user-defined-literal)
+    add_definitions(-Wno-ignored-pragma-optimize)
+    add_definitions(-Wno-unused-variable)
+    add_definitions(-Wno-unused-function)
+  endif()
+endif()
+
 set(swig_target_name ${target_name})
 MAKE_SWIG_TARGET_OSAPP(OpenStudioModelEditor modeleditor "${CMAKE_CURRENT_SOURCE_DIR}/ModelEditor.i" "${${target_name}_swig_src}" ${swig_target_name} "")
-

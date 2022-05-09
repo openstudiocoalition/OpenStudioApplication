@@ -120,7 +120,7 @@ TEST_F(OpenStudioLibFixture, FacilityStoriesGridView) {
     }
   }
 
-  gridController->setObjectFilter([upperLimit, lowerLimit](const model::ModelObject& obj) -> bool { return true; });
+  gridController->setObjectFilter([](const model::ModelObject& obj) -> bool { return true; });
 
   for (const auto& locationInfoPair : locationToInfoMap) {
     if (locationInfoPair.first->modelRow >= 0) {

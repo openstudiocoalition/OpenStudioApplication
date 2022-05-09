@@ -415,6 +415,23 @@ if(MSVC)
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /DEBUG /OPT:REF /OPT:ICF")
   endif()
 
+  if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+    # 'openstudio::detail::WorkspaceObjectOrder_Impl::less' hides overloaded virtual function
+    add_definitions(-Wno-overloaded-virtual)
+
+    # unqualified friend declaration referring to type outside of the nearest enclosing namespace is a Microsoft extension; add a nested name specifier LayeredConstruction_Impl.hpp
+    add_definitions(-Wno-microsoft-unqualified-friend)
+
+    # function declared 'noreturn' should not return
+    add_definitions(-Wno-invalid-noreturn)
+
+    # QXmlDefaultHandler, QXmlInputSource, QXmlSimpleReader, QXmlParseException
+    add_definitions(-Wno-deprecated-declarations)
+
+    # Add XRay instrumentation, not supported on Windows
+    #add_definitions(/clang:-fxray-instrument)
+  endif()
+
 endif()
 
 # Check version of gcc
@@ -425,7 +442,7 @@ endif()
 
 # compiler id for about boxes
 if(MSVC)
-  set(ABOUT_COMPILER "${CMAKE_GENERATOR}")
+  set(ABOUT_COMPILER "${CMAKE_GENERATOR} ${CMAKE_CXX_COMPILER_ID}")
 elseif(APPLE)
   set(ABOUT_COMPILER "${CMAKE_CXX_COMPILER_ID} ${CMAKE_OSX_ARCHITECTURES}")
 else()

@@ -23,6 +23,8 @@ debug/
 release/
 relwithdebinfo/
 profile/
+debugllvm/
+releasellvm/
 /super-build-shared/
 /super-build-static/
 
