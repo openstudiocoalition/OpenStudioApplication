@@ -33,7 +33,7 @@ elseif(UNIX)
   endif()
 
 elseif(WIN32)
-  set(OPENSTUDIO_EXPECTED_HASH 5114268a7172ee04c764a1f2ac8143d2)
+  set(OPENSTUDIO_EXPECTED_HASH 9adffb37a62721ec51a33ce97533e956)
   set(OPENSTUDIO_PLATFORM "Windows")
 endif()
 
@@ -229,18 +229,5 @@ else()
       "  version: ${CLI_VERSION}\n"
       "  openstudio_EXECUTABLE: \"${openstudio_EXECUTABLE}\"\n"
     )
-  endif()
-endif()
-
-# TODO: Temporary workaround for missing vcomp140.dll in SDK package for EnergyPlus
-if(WIN32)
-  if(NOT EXISTS "${openstudio_ROOT_DIR}/EnergyPlus/vcomp140.dll")
-    message(AUTHOR_WARNING "Downloading missing vcomp140.dll")
-    file(DOWNLOAD "https://github.com/openstudiocoalition/OpenStudioApplication/releases/download/v1.4.0-rc1/vcomp140.dll" "${openstudio_ROOT_DIR}/EnergyPlus/vcomp140.dll"
-         SHOW_PROGRESS
-         INACTIVITY_TIMEOUT 120 # 2-min timeout
-         STATUS DOWNLOAD_STATUS
-    )
-    message(AUTHOR_WARNING "vcomp140.dll DOWNLOAD_STATUS=${DOWNLOAD_STATUS}")
   endif()
 endif()
