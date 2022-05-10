@@ -117,7 +117,7 @@ Précipitation</translation>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="60"/>
         <source>Design Day Name</source>
-        <translation>Jour de dimmensionnement</translation>
+        <translation>Jour de dimensionnement</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="61"/>
@@ -303,7 +303,7 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/LocationTabController.cpp" line="53"/>
         <source>Weather File &amp;&amp; Design Days</source>
-        <translation>Fichiers météos &amp;&amp; Jours de dimmensionnement</translation>
+        <translation>Fichiers météos &amp;&amp; Jours de dimensionnement</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabController.cpp" line="54"/>
@@ -379,7 +379,7 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="346"/>
         <source>Design Days</source>
-        <translation>Jours de dimmensionnement</translation>
+        <translation>Jours de dimensionnement</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="349"/>
@@ -425,12 +425,12 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="755"/>
         <source>No Design Days in DDY File</source>
-        <translation>Aucun jours de dimmensionnement dans le fichier DDY</translation>
+        <translation>Aucun jours de dimensionnement dans le fichier DDY</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="756"/>
         <source>This DDY file does not contain any valid design days.  Check the DDY file itself for errors or omissions.</source>
-        <translation>Ce fichier DDY ne contient aucun jours de dimmensionnement valides. Vérifiez le fichier DDY.</translation>
+        <translation>Ce fichier DDY ne contient aucun jours de dimensionnement valides. Vérifiez le fichier DDY.</translation>
     </message>
 </context>
 <context>
