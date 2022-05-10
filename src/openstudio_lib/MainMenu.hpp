@@ -140,7 +140,7 @@ class MainMenu : public QMenuBar
   QAction* m_langJapaneseAction;
   QAction* m_langGermanAction;
   // QAction* m_langArabicAction;
-  // QAction* m_langHebrewAction;
+  QAction* m_langHebrewAction;
 
   QAction* m_openLibDlgAction;
 
@@ -188,7 +188,7 @@ class MainMenu : public QMenuBar
   void langJapaneseClicked();
   void langGermanClicked();
   // void langArabicClicked();
-  // void langHebrewClicked();
+  void langHebrewClicked();
   void addingNewLanguageClicked();
 };
 
