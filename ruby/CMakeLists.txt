@@ -41,11 +41,6 @@ else()
   set_target_properties(openstudio_modeleditor_rb PROPERTIES SUFFIX ".so" )
 endif()
 
-# plugin doesn't need webengine
-list(REMOVE_ITEM QT_WEB_LIBS Qt6::WebEngine)
-list(REMOVE_ITEM QT_WEB_LIBS Qt6::WebEngineCore)
-list(REMOVE_ITEM QT_WEB_LIBS Qt6::WebEngineWidgets)
-
 if(MSVC)
   # wd4996=no deprecated warnings ; wd5033=register
   set_target_properties(openstudio_modeleditor_rb PROPERTIES COMPILE_FLAGS "/bigobj /wd4996 /wd5033")
@@ -81,7 +76,6 @@ target_link_libraries(openstudio_modeleditor_rb
   ruby_OpenStudioModelEditor
   openstudio_lib
   openstudio_bimserver
-  ${QT_WEB_LIBS}
 )
 
 if( WIN32 )

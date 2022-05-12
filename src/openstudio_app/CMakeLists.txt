@@ -350,6 +350,9 @@ if( NOT APPLE )
 
     install(PROGRAMS ${QtWebEngineProcess} DESTINATION bin COMPONENT OpenStudioApp )
 
+    install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/D3Dcompiler_47.dll DESTINATION bin/ COMPONENT OpenStudioApp)
+    install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/opengl32sw.dll DESTINATION bin/ COMPONENT OpenStudioApp)
+
     foreach(LIB ${QT_LIBS} ${QT_WEB_LIBS})
       install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/$<TARGET_FILE_NAME:${LIB}> DESTINATION bin/ COMPONENT OpenStudioApp)
     endforeach()
