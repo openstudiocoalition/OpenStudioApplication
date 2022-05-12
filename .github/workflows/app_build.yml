@@ -292,7 +292,7 @@ jobs:
       uses: actions/cache@v2
       with:
         path: build/
-        key: ${{ matrix.os }}-build-cache-${{ secrets.CACHE_KEY }}
+        key: ${{ matrix.os }}-build-cache-v1-${{ secrets.CACHE_KEY }}
 
     - name: Did restoring the build-cache work? No
       # If the build cache wasn't found in the cache
