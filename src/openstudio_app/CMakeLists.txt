@@ -177,6 +177,11 @@ if( APPLE )
     VERBATIM
   )
 
+  #add_custom_command(TARGET ${target_name}
+  #  POST_BUILD
+  #  COMMAND ${QT_MACDEPLOY_QT} $<TARGET_BUNDLE_DIR:${target_name}> -verbose=2   
+  #)
+
 elseif( UNIX )
 
   foreach(LIB ${QT_LIBS} ${QT_WEB_LIBS})

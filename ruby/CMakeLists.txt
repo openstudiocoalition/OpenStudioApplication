@@ -65,6 +65,7 @@ if(APPLE)
     COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/lib/QtGui.framework $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtGui.framework
     COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/lib/QtNetwork.framework $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtNetwork.framework
     COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/lib/QtPrintSupport.framework $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtPrintSupport.framework
+    COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/lib/QtSvg.framework $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtSvg.framework
     COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/lib/QtWidgets.framework $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtWidgets.framework
     COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/lib/QtXml.framework $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtXml.framework
     COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:openstudio::openstudiolib> $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/.
@@ -94,6 +95,7 @@ if(APPLE)
   install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtGui.framework DESTINATION Ruby COMPONENT "RubyAPI")
   install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtNetwork.framework DESTINATION Ruby COMPONENT "RubyAPI")
   install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtPrintSupport.framework DESTINATION Ruby COMPONENT "RubyAPI")
+  install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtSvg.framework DESTINATION Ruby COMPONENT "RubyAPI")
   install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtWidgets.framework DESTINATION Ruby COMPONENT "RubyAPI")
   install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtXml.framework DESTINATION Ruby COMPONENT "RubyAPI")
   install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/$<TARGET_FILE_NAME:openstudio::openstudiolib> DESTINATION Ruby COMPONENT "RubyAPI")

@@ -563,7 +563,7 @@ if(NOT APPLE)
 
     if(UNIX)
       find_package(Qt6DBus ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-      list(APPEND QT_WEB_LIBS Qt6::DBus)
+      list(APPEND QT_LIBS Qt6::DBus)
 
       find_library(QT_QXCBQPA NAMES libQt6XcbQpa.so.${QT_VERSION} PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
 
@@ -582,7 +582,9 @@ endif()
 
 if(APPLE)
   find_package(Qt6DBus ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-  list(APPEND QT_WEB_LIBS Qt6::DBus)
+  list(APPEND QT_LIBS Qt6::DBus)
+
+  find_program(QT_MACDEPLOY_QT NAMES macdeployqt PATHS "${QT_INSTALL_DIR}/bin" NO_DEFAULT_PATH)
 endif()
 
 # QT_LIBS are linked by OS App and by openstudio_modeleditor.so
