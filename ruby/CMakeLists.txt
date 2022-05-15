@@ -87,6 +87,7 @@ endif()
 
 install(TARGETS openstudio_modeleditor_rb DESTINATION Ruby COMPONENT "RubyAPI")
 install(FILES openstudio_modeleditor.rb DESTINATION Ruby COMPONENT "RubyAPI")
+
 if(APPLE)
   install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/platforms/libqcocoa.dylib DESTINATION Ruby/platforms COMPONENT "RubyAPI")
   install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtCore.framework DESTINATION Ruby COMPONENT "RubyAPI")
@@ -99,10 +100,6 @@ if(APPLE)
   install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtWidgets.framework DESTINATION Ruby COMPONENT "RubyAPI")
   install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtXml.framework DESTINATION Ruby COMPONENT "RubyAPI")
   install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/$<TARGET_FILE_NAME:openstudio::openstudiolib> DESTINATION Ruby COMPONENT "RubyAPI")
-endif()
-
-if( BUILD_PAT )
-  # don't need modeleditor libs in pat
 endif()
 
 ###############################################################################

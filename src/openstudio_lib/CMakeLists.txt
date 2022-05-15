@@ -765,7 +765,6 @@ set(${target_name}_test_src
 
 set(${target_name}_test_depends
   ${${target_name}_depends}
-  ${QT_WEB_LIBS}
 )
 
 
