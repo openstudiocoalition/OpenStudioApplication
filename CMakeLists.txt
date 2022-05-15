@@ -536,7 +536,7 @@ find_file(qweb_resources_devtools NAMES qtwebengine_devtools_resources.pak PATHS
 find_file(qweb_resources_100 NAMES qtwebengine_resources_100p.pak PATHS "${QT_INSTALL_DIR}/resources/" "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Resources" NO_DEFAULT_PATH)
 find_file(qweb_resources_200 NAMES qtwebengine_resources_200p.pak PATHS "${QT_INSTALL_DIR}/resources/" "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Resources" NO_DEFAULT_PATH)
 
-# QT_WEB_LIBS are linked by OS App but not by openstudio_modeleditor.so
+# QT_WEB_LIBS are linked by OS App and openstudio_lib but not by openstudio_modeleditor.so or openstudio_modeleditor
 list(APPEND QT_WEB_LIBS Qt6::WebEngineCore)
 list(APPEND QT_WEB_LIBS Qt6::WebEngineWidgets)
 set_target_properties(${QT_WEB_LIBS} PROPERTIES INTERFACE_LINK_LIBRARIES "")

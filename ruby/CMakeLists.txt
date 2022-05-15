@@ -75,8 +75,7 @@ endif()
 
 target_link_libraries(openstudio_modeleditor_rb
   ruby_OpenStudioModelEditor
-  openstudio_lib
-  openstudio_bimserver
+  openstudio_modeleditor
 )
 
 if( WIN32 )
