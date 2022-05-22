@@ -337,7 +337,6 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
 
   std::shared_ptr<MainTabController> m_mainTabController;
 
-
   std::shared_ptr<MainRightColumnController> m_mainRightColumnController;
 
   QString m_savePath = QString();
