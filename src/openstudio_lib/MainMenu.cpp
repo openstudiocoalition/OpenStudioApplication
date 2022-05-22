@@ -131,7 +131,7 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, QWidget* p
 
   action = new QAction(tr("&Example Model"), this);
   exampleMenu->addAction(action);
-  connect(action, &QAction::triggered, this, &MainMenu::loadExampleModelClicked);
+  connect(action, &QAction::triggered, this, &MainMenu::loadExampleModelClicked, Qt::QueuedConnection);
 
   if (!m_isPlugin) {
 
