@@ -129,6 +129,10 @@ class OpenStudioApp : public OSAppBase
 
  signals:
 
+  void updateWaitDialog(unsigned line, const QString& text);
+  
+  void resetWaitDialog();
+
  public slots:
 
   void quit();
