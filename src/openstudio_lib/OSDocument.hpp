@@ -259,8 +259,6 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
 
   void onVerticalTabSelected(int verticalId);
 
-  void inspectModelObject(model::OptionalModelObject&, bool readOnly);
-
   void showStartTabAndStartSubTab();
 
   void initializeModel();
@@ -323,11 +321,7 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
 
   openstudio::model::Model m_model;
 
-  boost::optional<Workspace> m_workspace;
-
   openstudio::model::Model m_compLibrary;
-
-  openstudio::model::Model m_hvacCompLibrary;
 
   openstudio::path m_resourcesPath;
 
@@ -343,7 +337,6 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
 
   std::shared_ptr<MainTabController> m_mainTabController;
 
-  std::shared_ptr<InspectorController> m_inspectorController;
 
   std::shared_ptr<MainRightColumnController> m_mainRightColumnController;
 
