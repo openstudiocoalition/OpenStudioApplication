@@ -202,36 +202,35 @@ OpenStudioApp::OpenStudioApp(int& argc, char** argv)
 
   m_startupMenu = std::shared_ptr<StartupMenu>(new StartupMenu());
   connect(m_startupMenu.get(), &StartupMenu::exitClicked, this, &OpenStudioApp::quit, Qt::QueuedConnection);
-  connect(m_startupMenu.get(), &StartupMenu::importClicked, this, &OpenStudioApp::importIdf);
-  connect(m_startupMenu.get(), &StartupMenu::importgbXMLClicked, this, &OpenStudioApp::importgbXML);
-  connect(m_startupMenu.get(), &StartupMenu::importSDDClicked, this, &OpenStudioApp::importSDD);
-  connect(m_startupMenu.get(), &StartupMenu::importIFCClicked, this, &OpenStudioApp::importIFC);
-  connect(m_startupMenu.get(), &StartupMenu::loadFileClicked, this, &OpenStudioApp::open);
-  connect(m_startupMenu.get(), &StartupMenu::newClicked, this, &OpenStudioApp::newModel);
+  connect(m_startupMenu.get(), &StartupMenu::importClicked, this, &OpenStudioApp::importIdf, Qt::QueuedConnection);
+  connect(m_startupMenu.get(), &StartupMenu::importgbXMLClicked, this, &OpenStudioApp::importgbXML, Qt::QueuedConnection);
+  connect(m_startupMenu.get(), &StartupMenu::importSDDClicked, this, &OpenStudioApp::importSDD, Qt::QueuedConnection);
+  connect(m_startupMenu.get(), &StartupMenu::importIFCClicked, this, &OpenStudioApp::importIFC, Qt::QueuedConnection);
+  connect(m_startupMenu.get(), &StartupMenu::loadFileClicked, this, &OpenStudioApp::open, Qt::QueuedConnection);
+  connect(m_startupMenu.get(), &StartupMenu::newClicked, this, &OpenStudioApp::newModel, Qt::QueuedConnection);
   connect(m_startupMenu.get(), &StartupMenu::helpClicked, this, &OpenStudioApp::showHelp);
   connect(m_startupMenu.get(), &StartupMenu::checkForUpdateClicked, this, &OpenStudioApp::checkForUpdate);
   connect(m_startupMenu.get(), &StartupMenu::aboutClicked, this, &OpenStudioApp::showAbout);
 #endif
 
-  waitDialog()->show();
-
-  // We are using the wait dialog to lock out the app so
-  // use processEvents to make sure the dialog is up before we
-  // proceed to startMeasureManagerProcess
-  do {
-    processEvents();
-  } while (!waitDialog()->isVisible());
+  auto waitDialog = this->waitDialog();
+  connect(this, &OpenStudioApp::updateWaitDialog, waitDialog.get(), &WaitDialog::setLine, Qt::QueuedConnection);
+  connect(this, &OpenStudioApp::resetWaitDialog, waitDialog.get(), &WaitDialog::resetLabels, Qt::QueuedConnection);
+  waitDialog->show();
+  emit resetWaitDialog();
 
   // Non blocking
   startMeasureManagerProcess();
 
+  connect(&m_changeLibrariesWatcher, &QFutureWatcher<std::vector<std::string>>::finished, this, &OpenStudioApp::onChangeDefaultLibrariesDone);
+  connect(&m_waitForMeasureManagerWatcher, &QFutureWatcher<void>::finished, this, &OpenStudioApp::onMeasureManagerAndLibraryReady);
+  connect(&m_buildCompLibWatcher, &QFutureWatcher<std::vector<std::string>>::finished, this, &OpenStudioApp::onMeasureManagerAndLibraryReady);
+
   auto waitForMeasureManagerFuture = QtConcurrent::run(&MeasureManager::waitForStarted, &measureManager(), 10000);
   m_waitForMeasureManagerWatcher.setFuture(waitForMeasureManagerFuture);
-  connect(&m_waitForMeasureManagerWatcher, &QFutureWatcher<void>::finished, this, &OpenStudioApp::onMeasureManagerAndLibraryReady);
 
   auto buildCompLibrariesFuture = QtConcurrent::run(&OpenStudioApp::buildCompLibraries, this);
   m_buildCompLibWatcher.setFuture(buildCompLibrariesFuture);
-  connect(&m_buildCompLibWatcher, &QFutureWatcher<std::vector<std::string>>::finished, this, &OpenStudioApp::onMeasureManagerAndLibraryReady);
 }
 
 OpenStudioApp::~OpenStudioApp() {
@@ -362,6 +361,7 @@ bool OpenStudioApp::openFile(const QString& fileName, bool restoreTabs) {
       // I tried to show it visible in the begining of the method, but it isn't displayed correctly:
       // transparent + hidden by Filedialog which isn't closed yet.
       waitDialog()->setVisible(true);
+      emit resetWaitDialog();
       processEvents();
 
       m_osDocument =
@@ -395,8 +395,8 @@ std::vector<std::string> OpenStudioApp::buildCompLibraries() {
   //}
 
   // Get the first Qlabel waitDialog (0 = stretch, 1 = "Loading model", 2 = "This may take a minute...", 3=hidden lable,   = stretch)
-  waitDialog()->m_firstLine->setText(tr("Loading Library Files"));
-  waitDialog()->m_secondLine->setText(tr("(Manage library files in Preferences->Change default libraries)"));
+  emit updateWaitDialog(1, tr("Loading Library Files"));
+  emit updateWaitDialog(2, tr("(Manage library files in Preferences->Change default libraries)"));
 
   // DLM: this was causing a crash because waitDialog is created on the main thread but this is called on the wait thread.
   // Because this is just the wait dialog let's just keep the line always visible.
@@ -413,13 +413,13 @@ std::vector<std::string> OpenStudioApp::buildCompLibraries() {
       if (exists(path)) {
         boost::optional<VersionString> version = openstudio::IdfFile::loadVersionOnly(path);
         if (version) {
-          waitDialog()->m_thirdLine->setText(tr("Translation From version ") + QString::fromStdString(version->str()) + tr(" to ")
+          emit updateWaitDialog(3, tr("Translation From version ") + QString::fromStdString(version->str()) + tr(" to ")
                                              + QString::fromStdString(thisVersion) + ": ");
         } else {
-          waitDialog()->m_thirdLine->setText(tr("Unknown starting version"));
+          emit updateWaitDialog(3, tr("Unknown starting version"));
         }
 
-        waitDialog()->m_fourthLine->setText(toQString(path));
+        emit updateWaitDialog(4, toQString(path));
 
         osversion::VersionTranslator versionTranslator;
         versionTranslator.setAllowNewerVersions(false);
@@ -439,7 +439,7 @@ std::vector<std::string> OpenStudioApp::buildCompLibraries() {
   }
 
   // Reset all labels
-  waitDialog()->resetLabels();
+  //emit resetWaitDialog();
 
   return failed;
 }
@@ -913,7 +913,7 @@ void OpenStudioApp::open() {
   openFile(fileName);
 
   // Reset the labels
-  waitDialog()->resetLabels();
+  emit resetWaitDialog();
 }
 
 void OpenStudioApp::newModel() {
@@ -1504,7 +1504,6 @@ void OpenStudioApp::loadLibrary() {
 
         auto future = QtConcurrent::run(&OpenStudioApp::buildCompLibraries, this);
         m_changeLibrariesWatcher.setFuture(future);
-        connect(&m_changeLibrariesWatcher, &QFutureWatcher<std::vector<std::string>>::finished, this, &OpenStudioApp::onChangeDefaultLibrariesDone);
       }
     }
   }
@@ -1551,7 +1550,6 @@ void OpenStudioApp::changeDefaultLibraries() {
     // Trigger actual loading of the libraries
     auto future = QtConcurrent::run(&OpenStudioApp::buildCompLibraries, this);
     m_changeLibrariesWatcher.setFuture(future);
-    connect(&m_changeLibrariesWatcher, &QFutureWatcher<std::vector<std::string>>::finished, this, &OpenStudioApp::onChangeDefaultLibrariesDone);
   }
 }
 

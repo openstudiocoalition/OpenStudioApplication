@@ -160,9 +160,10 @@ void MainWindow::setMainRightColumnView(QWidget* widget) {
 void MainWindow::closeEvent(QCloseEvent* event) {
   event->ignore();
 
-  writeSettings();
-
-  emit closeClicked();
+  if (isEnabled()) {
+    writeSettings();
+    emit closeClicked();
+  }
 }
 
 void MainWindow::dragEnterEvent(QDragEnterEvent* event) {
