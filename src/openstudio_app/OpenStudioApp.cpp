@@ -364,8 +364,6 @@ bool OpenStudioApp::openFile(const QString& fileName, bool restoreTabs) {
       waitDialog()->setVisible(true);
       processEvents();
 
-      disconnectOSDocumentSignals();
-
       m_osDocument =
         std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), model, fileName, false, startTabIndex, startSubTabIndex));
 
@@ -573,8 +571,6 @@ void OpenStudioApp::importIdf() {
           processEvents();
         }
 
-        disconnectOSDocumentSignals();
-
         m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), model, QString(), false, startTabIndex()));
         m_osDocument->markAsModified();
         // ETH: parent should change now ...
@@ -701,8 +697,6 @@ void OpenStudioApp::importIFC() {
       processEvents();
     }
 
-    disconnectOSDocumentSignals();
-
     m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), *model, QString(), false, startTabIndex()));
 
     m_osDocument->markAsModified();
@@ -764,8 +758,6 @@ void OpenStudioApp::import(OpenStudioApp::fileType type) {
         }
         processEvents();
       }
-
-      disconnectOSDocumentSignals();
 
       m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), *model, QString(), false, startTabIndex()));
       m_osDocument->markAsModified();
@@ -860,14 +852,18 @@ bool OpenStudioApp::closeDocument() {
         // Save was clicked
         m_osDocument->save();
         m_osDocument->mainWindow()->hide();
-        m_osDocument = std::shared_ptr<OSDocument>();
+        disconnectOSDocumentSignals();
+        processEvents();
+        m_osDocument = nullptr;
         return true;
 
       case QMessageBox::Discard:
 
         // Don't Save was clicked
         m_osDocument->mainWindow()->hide();
-        m_osDocument = std::shared_ptr<OSDocument>();
+        disconnectOSDocumentSignals();
+        processEvents();
+        m_osDocument = nullptr;
         return true;
 
       case QMessageBox::Cancel:
@@ -884,7 +880,9 @@ bool OpenStudioApp::closeDocument() {
 
   } else {
     m_osDocument->mainWindow()->hide();
-    m_osDocument = std::shared_ptr<OSDocument>();
+    disconnectOSDocumentSignals();
+    processEvents();
+    m_osDocument = nullptr;
 
     return true;
   }
@@ -1524,10 +1522,6 @@ void OpenStudioApp::loadExampleModel() {
     }
     processEvents();
   }
-
-  disconnectOSDocumentSignals();
-
-  processEvents();
 
   auto model = openstudio::model::exampleModel();
   m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), model, QString(), false, startTabIndex()));
