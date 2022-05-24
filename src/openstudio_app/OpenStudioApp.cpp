@@ -139,6 +139,7 @@
 #include <openstudio/utilities/idd/IddEnums.hxx>
 #include <sstream>
 #include <cstdlib>
+#include <memory>
 
 using namespace openstudio::model;
 
@@ -200,7 +201,7 @@ OpenStudioApp::OpenStudioApp(int& argc, char** argv)
 
   setQuitOnLastWindowClosed(false);
 
-  m_startupMenu = std::shared_ptr<StartupMenu>(new StartupMenu());
+  m_startupMenu = std::make_shared<StartupMenu>();
   connect(m_startupMenu.get(), &StartupMenu::exitClicked, this, &OpenStudioApp::quit, Qt::QueuedConnection);
   connect(m_startupMenu.get(), &StartupMenu::importClicked, this, &OpenStudioApp::importIdf, Qt::QueuedConnection);
   connect(m_startupMenu.get(), &StartupMenu::importgbXMLClicked, this, &OpenStudioApp::importgbXML, Qt::QueuedConnection);
@@ -293,7 +294,7 @@ void OpenStudioApp::onMeasureManagerAndLibraryReady() {
 
         disconnectOSDocumentSignals();
 
-        m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), model, fileName, false, startTabIndex()));
+        m_osDocument = std::make_shared<OSDocument>(componentLibrary(), resourcesPath(), model, fileName, false, startTabIndex());
 
         connectOSDocumentSignals();
 
@@ -364,8 +365,7 @@ bool OpenStudioApp::openFile(const QString& fileName, bool restoreTabs) {
       emit resetWaitDialog();
       processEvents();
 
-      m_osDocument =
-        std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), model, fileName, false, startTabIndex, startSubTabIndex));
+      m_osDocument = std::make_shared<OSDocument>(componentLibrary(), resourcesPath(), model, fileName, false, startTabIndex, startSubTabIndex);
 
       connectOSDocumentSignals();
 
@@ -414,7 +414,7 @@ std::vector<std::string> OpenStudioApp::buildCompLibraries() {
         boost::optional<VersionString> version = openstudio::IdfFile::loadVersionOnly(path);
         if (version) {
           emit updateWaitDialog(3, tr("Translation From version ") + QString::fromStdString(version->str()) + tr(" to ")
-                                             + QString::fromStdString(thisVersion) + ": ");
+                                     + QString::fromStdString(thisVersion) + ": ");
         } else {
           emit updateWaitDialog(3, tr("Unknown starting version"));
         }
@@ -473,7 +473,7 @@ void OpenStudioApp::newFromEmptyTemplateSlot() {
 void OpenStudioApp::newFromTemplateSlot(NewFromTemplateEnum newFromTemplateEnum) {
   disconnectOSDocumentSignals();
 
-  m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), boost::none, QString(), false, startTabIndex()));
+  m_osDocument = std::make_shared<OSDocument>(componentLibrary(), resourcesPath(), boost::none, QString(), false, startTabIndex());
 
   connectOSDocumentSignals();
 
@@ -571,7 +571,7 @@ void OpenStudioApp::importIdf() {
           processEvents();
         }
 
-        m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), model, QString(), false, startTabIndex()));
+        m_osDocument = std::make_shared<OSDocument>(componentLibrary(), resourcesPath(), model, QString(), false, startTabIndex());
         m_osDocument->markAsModified();
         // ETH: parent should change now ...
         //parent = m_osDocument->mainWindow();
@@ -697,7 +697,7 @@ void OpenStudioApp::importIFC() {
       processEvents();
     }
 
-    m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), *model, QString(), false, startTabIndex()));
+    m_osDocument = std::make_shared<OSDocument>(componentLibrary(), resourcesPath(), *model, QString(), false, startTabIndex());
 
     m_osDocument->markAsModified();
 
@@ -759,7 +759,7 @@ void OpenStudioApp::import(OpenStudioApp::fileType type) {
         processEvents();
       }
 
-      m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), *model, QString(), false, startTabIndex()));
+      m_osDocument = std::make_shared<OSDocument>(componentLibrary(), resourcesPath(), *model, QString(), false, startTabIndex());
       m_osDocument->markAsModified();
       // ETH: parent should change now ...
       //parent = m_osDocument->mainWindow();
@@ -825,10 +825,10 @@ bool OpenStudioApp::openFromDrag(QString path) {
 }
 
 bool OpenStudioApp::closeDocument() {
+  QWidget* parent_mainWindow = m_osDocument->mainWindow();
   if (m_osDocument->modified()) {
-    QWidget* parent = m_osDocument->mainWindow();
 
-    auto messageBox = new QMessageBox(parent);
+    auto* messageBox = new QMessageBox(parent_mainWindow);
 
     messageBox->setWindowTitle(tr("Save Changes?"));
     messageBox->setText(tr("The document has been modified."));
@@ -846,43 +846,38 @@ bool OpenStudioApp::closeDocument() {
 
     delete messageBox;
 
-    switch (ret) {
-      case QMessageBox::Save:
+    if (ret == QMessageBox::Save) {
+      // Save was clicked
+      m_osDocument->save();
+      parent_mainWindow->hide();
+      disconnectOSDocumentSignals();
+      processEvents();
+      m_osDocument.reset();
+      return true;
 
-        // Save was clicked
-        m_osDocument->save();
-        m_osDocument->mainWindow()->hide();
-        disconnectOSDocumentSignals();
-        processEvents();
-        m_osDocument = nullptr;
-        return true;
+    } else if (ret == QMessageBox::Discard) {
+      // Don't Save was clicked
+      parent_mainWindow->hide();
+      disconnectOSDocumentSignals();
+      processEvents();
+      m_osDocument.reset();
+      return true;
 
-      case QMessageBox::Discard:
+    } else if (ret == QMessageBox::Cancel) {
+      // Cancel was clicked
+      parent_mainWindow->activateWindow();
+      return false;
 
-        // Don't Save was clicked
-        m_osDocument->mainWindow()->hide();
-        disconnectOSDocumentSignals();
-        processEvents();
-        m_osDocument = nullptr;
-        return true;
-
-      case QMessageBox::Cancel:
-
-        // Cancel was clicked
-        m_osDocument->mainWindow()->activateWindow();
-        return false;
-
-      default:
-
-        // should never be reached
-        return false;
+    } else {
+      // should never be reached
+      return false;
     }
 
   } else {
     m_osDocument->mainWindow()->hide();
     disconnectOSDocumentSignals();
     processEvents();
-    m_osDocument = nullptr;
+    m_osDocument.reset();
 
     return true;
   }
@@ -1523,7 +1518,7 @@ void OpenStudioApp::loadExampleModel() {
   }
 
   auto model = openstudio::model::exampleModel();
-  m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), model, QString(), false, startTabIndex()));
+  m_osDocument = std::make_shared<OSDocument>(componentLibrary(), resourcesPath(), model, QString(), false, startTabIndex());
 
   connectOSDocumentSignals();
 
