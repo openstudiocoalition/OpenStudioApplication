@@ -3277,7 +3277,7 @@ void NodeContextButtonItem::showContextMenu() {
     QMenu menu;
     QAction removeSPMAction(QIcon(":/images/delete-icon.png"), "Delete Setpoint Manager", &menu);
     menu.addAction(&removeSPMAction);
-    connect(&removeSPMAction, &QAction::triggered, this, &NodeContextButtonItem::onRemoveSPMActionTriggered);
+    connect(&removeSPMAction, &QAction::triggered, this, &NodeContextButtonItem::onRemoveSPMActionTriggered, Qt::QueuedConnection);
 
     menu.exec(menuPos);
   }

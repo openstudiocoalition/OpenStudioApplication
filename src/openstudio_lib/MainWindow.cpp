@@ -143,6 +143,8 @@ MainWindow::MainWindow(bool isPlugin, QWidget* parent) : QMainWindow(parent), m_
   connect(this, &MainWindow::enableComponentsMeasures, mainMenu, &MainMenu::enableComponentsMeasuresActions);
 }
 
+MainWindow::~MainWindow() {}
+
 QSize MainWindow::sizeHint() const {
   return QSize(1024, 700);
 }
@@ -158,9 +160,10 @@ void MainWindow::setMainRightColumnView(QWidget* widget) {
 void MainWindow::closeEvent(QCloseEvent* event) {
   event->ignore();
 
-  writeSettings();
-
-  emit closeClicked();
+  if (isEnabled()) {
+    writeSettings();
+    emit closeClicked();
+  }
 }
 
 void MainWindow::dragEnterEvent(QDragEnterEvent* event) {

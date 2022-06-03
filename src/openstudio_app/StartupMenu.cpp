@@ -47,20 +47,20 @@ StartupMenu::StartupMenu(QWidget* parent) : QMenuBar(parent) {
   QMenu* importMenu = new QMenu(tr("Import"), this);
   QAction* action = new QAction(tr("IDF"), this);
   importMenu->addAction(action);
-  connect(action, &QAction::triggered, this, &StartupMenu::importClicked);
+  connect(action, &QAction::triggered, this, &StartupMenu::importClicked, Qt::QueuedConnection);
   action = new QAction(tr("gbXML"), this);
   importMenu->addAction(action);
-  connect(action, &QAction::triggered, this, &StartupMenu::importgbXMLClicked);
+  connect(action, &QAction::triggered, this, &StartupMenu::importgbXMLClicked, Qt::QueuedConnection);
   action = new QAction(tr("SDD"), this);
   importMenu->addAction(action);
-  connect(action, &QAction::triggered, this, &StartupMenu::importSDDClicked);
+  connect(action, &QAction::triggered, this, &StartupMenu::importSDDClicked, Qt::QueuedConnection);
   action = new QAction(tr("IFC"), this);
   importMenu->addAction(action);
-  connect(action, &QAction::triggered, this, &StartupMenu::importIFCClicked);
+  connect(action, &QAction::triggered, this, &StartupMenu::importIFCClicked, Qt::QueuedConnection);
 
-  connect(loadFileAction, &QAction::triggered, this, &StartupMenu::loadFileClicked);
-  connect(newAction, &QAction::triggered, this, &StartupMenu::newClicked);
-  connect(exitAction, &QAction::triggered, this, &StartupMenu::exitClicked);
+  connect(loadFileAction, &QAction::triggered, this, &StartupMenu::loadFileClicked, Qt::QueuedConnection);
+  connect(newAction, &QAction::triggered, this, &StartupMenu::newClicked, Qt::QueuedConnection);
+  connect(exitAction, &QAction::triggered, this, &StartupMenu::exitClicked, Qt::QueuedConnection);
   m_fileMenu->addAction(newAction);
   m_fileMenu->addAction(loadFileAction);
   m_fileMenu->addSeparator();
@@ -77,16 +77,16 @@ StartupMenu::StartupMenu(QWidget* parent) : QMenuBar(parent) {
 
   QAction* helpAction = new QAction(tr("OpenStudio &Help"), this);
 
-  connect(helpAction, &QAction::triggered, this, &StartupMenu::helpClicked);
+  connect(helpAction, &QAction::triggered, this, &StartupMenu::helpClicked, Qt::QueuedConnection);
   m_helpMenu->addAction(helpAction);
 
   action = new QAction(tr("Check For &Update"), this);
   m_helpMenu->addAction(action);
-  connect(action, &QAction::triggered, this, &StartupMenu::checkForUpdateClicked);
+  connect(action, &QAction::triggered, this, &StartupMenu::checkForUpdateClicked, Qt::QueuedConnection);
 
   action = new QAction(tr("&About"), this);
   m_helpMenu->addAction(action);
-  connect(action, &QAction::triggered, this, &StartupMenu::aboutClicked);
+  connect(action, &QAction::triggered, this, &StartupMenu::aboutClicked, Qt::QueuedConnection);
 }
 
 }  // namespace openstudio
