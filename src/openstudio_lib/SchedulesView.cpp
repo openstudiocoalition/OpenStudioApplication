@@ -1297,7 +1297,7 @@ NewProfileView::NewProfileView(const model::ScheduleRuleset& scheduleRuleset, Sc
 
   auto addButton = new QPushButton();
   addButton->setText("Add");
-  addButton->setObjectName("StandardBlueButton");
+  addButton->setObjectName("StandardGrayButton");
   gridLayout->addWidget(addButton, 1, 1);
 
   gridLayout->setColumnStretch(2, 100);

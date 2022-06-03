@@ -139,7 +139,7 @@ StartupView::StartupView(QWidget* parent) : QWidget(parent), m_templateListModel
   cancelButton->setStyleSheet("QPushButton { font: bold; }");
 
   auto chooseButton = new QPushButton();
-  chooseButton->setObjectName("StandardBlueButton");
+  chooseButton->setObjectName("StandardGrayButton");
   chooseButton->setText("Choose");
   chooseButton->setMinimumSize(QSize(99, 28));
   connect(chooseButton, &QPushButton::clicked, this, &StartupView::newFromTemplateSlot);
