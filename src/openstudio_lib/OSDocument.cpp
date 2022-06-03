@@ -261,6 +261,7 @@ OSDocument::~OSDocument() {
 
   // release the file watchers so can remove model temp dir
   m_mainTabController.reset();
+  m_mainRightColumnController.reset();
 
   model::removeModelTempDir(toPath(m_modelTempDir));
 }
@@ -277,28 +278,9 @@ void OSDocument::initializeModel() {
   model::initializeModelObjects(m_model);
 }
 
-void OSDocument::inspectModelObject(model::OptionalModelObject& modelObject, bool readOnly) {
-  //m_inspectorController->layoutModelObject(modelObject);
-
-  //if( modelObject )
-  //{
-  //  //m_mainWindow->selectHorizontalTab(EDIT);
-  //}
-}
-
 MainWindow* OSDocument::mainWindow() {
   return m_mainWindow;
 }
-
-//boost::optional<Workspace> OSDocument::workspace()
-//{
-//  return m_workspace;
-//}
-
-//void OSDocument::setWorkspace(const boost::optional<Workspace>& workspace)
-//{
-//  m_workspace = workspace;
-//}
 
 model::Model OSDocument::model() {
   return m_model;
@@ -662,7 +644,8 @@ void OSDocument::createTab(int verticalId) {
       connect(this, &OSDocument::toggleUnitsClicked, qobject_cast<HVACSystemsTabController*>(m_mainTabController.get()),
               &HVACSystemsTabController::toggleUnitsClicked);
 
-      connect(m_mainTabController.get(), &HVACSystemsTabController::modelObjectSelected, this, &OSDocument::inspectModelObject);
+      connect(m_mainTabController.get(), &HVACSystemsTabController::modelObjectSelected, m_mainRightColumnController.get(),
+              &MainRightColumnController::inspectModelObject);
 
       connect(m_mainTabController->mainContentWidget(), &MainTabView::tabSelected, m_mainRightColumnController.get(),
               &MainRightColumnController::configureForHVACSystemsSubTab);
