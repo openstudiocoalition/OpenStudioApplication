@@ -52,7 +52,7 @@ class MainWindow : public QMainWindow
 
  public:
   explicit MainWindow(bool isPlugin, QWidget* parent = nullptr);
-  virtual ~MainWindow() {}
+  virtual ~MainWindow();
 
   void addVerticalTabButton(int id, QString toolTip, const QString& selectedImagePath, const QString& unSelectedImagePath,
                             const QString& disabledImagePath);
