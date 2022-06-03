@@ -100,8 +100,7 @@ void WaitDialog::createWidgets() {
 #endif
 }
 
-void WaitDialog::setLine(unsigned lineNumber, const QString& text) 
-{
+void WaitDialog::setLine(unsigned lineNumber, const QString& text) {
   if (lineNumber == 1) {
     m_firstLine->setText(text);
   } else if (lineNumber == 2) {
