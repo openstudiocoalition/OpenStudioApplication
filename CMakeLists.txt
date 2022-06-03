@@ -521,7 +521,7 @@ message(STATUS "QT_INSTALL_DIR=${QT_INSTALL_DIR}")
 
 find_package(Qt6 ${QT_VERSION} COMPONENTS CoreTools GuiTools WidgetsTools QmlTools WebEngineCoreTools REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
 
-find_package(Qt6 ${QT_VERSION} COMPONENTS Core Core5Compat Gui Widgets Sql Network Xml Concurrent PrintSupport Quick QuickWidgets Qml WebChannel Positioning WebEngineCore WebEngineWidgets REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+find_package(Qt6 ${QT_VERSION} COMPONENTS Core Core5Compat Gui Widgets Sql Svg Network Xml Concurrent PrintSupport Quick QuickWidgets Qml WebChannel Positioning WebEngineCore WebEngineWidgets REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
 
 find_package(Qt6LinguistTools ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
 
@@ -536,16 +536,9 @@ find_file(qweb_resources_devtools NAMES qtwebengine_devtools_resources.pak PATHS
 find_file(qweb_resources_100 NAMES qtwebengine_resources_100p.pak PATHS "${QT_INSTALL_DIR}/resources/" "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Resources" NO_DEFAULT_PATH)
 find_file(qweb_resources_200 NAMES qtwebengine_resources_200p.pak PATHS "${QT_INSTALL_DIR}/resources/" "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Resources" NO_DEFAULT_PATH)
 
-# DLM: why do we have QT_WEB_LIBS separate from QT_LIBS?  can we combine these?
-# DLM: now the distincton should be between Qt libs linked by openstudio_modeleditor.so and the OS App
-list(APPEND QT_WEB_LIBS Qt6::Core)
-list(APPEND QT_WEB_LIBS Qt6::Core5Compat)
-list(APPEND QT_WEB_LIBS Qt6::Widgets)
+# QT_WEB_LIBS are linked by OS App and openstudio_lib but not by openstudio_modeleditor.so or openstudio_modeleditor
 list(APPEND QT_WEB_LIBS Qt6::WebEngineCore)
 list(APPEND QT_WEB_LIBS Qt6::WebEngineWidgets)
-#list(APPEND QT_WEB_LIBS Qt6::3DCore)
-#list(APPEND QT_WEB_LIBS Qt6::3DInput)
-#list(APPEND QT_WEB_LIBS Qt6::3DRender)
 set_target_properties(${QT_WEB_LIBS} PROPERTIES INTERFACE_LINK_LIBRARIES "")
 
 if(NOT APPLE)
@@ -570,7 +563,7 @@ if(NOT APPLE)
 
     if(UNIX)
       find_package(Qt6DBus ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-      list(APPEND QT_WEB_LIBS Qt6::DBus)
+      list(APPEND QT_LIBS Qt6::DBus)
 
       find_library(QT_QXCBQPA NAMES libQt6XcbQpa.so.${QT_VERSION} PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
 
@@ -589,9 +582,12 @@ endif()
 
 if(APPLE)
   find_package(Qt6DBus ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-  list(APPEND QT_WEB_LIBS Qt6::DBus)
+  list(APPEND QT_LIBS Qt6::DBus)
+
+  find_program(QT_MACDEPLOY_QT NAMES macdeployqt PATHS "${QT_INSTALL_DIR}/bin" NO_DEFAULT_PATH)
 endif()
 
+# QT_LIBS are linked by OS App and by openstudio_modeleditor.so
 list(APPEND QT_LIBS Qt6::Core)
 list(APPEND QT_LIBS Qt6::Core5Compat)
 list(APPEND QT_LIBS Qt6::Widgets)
@@ -599,6 +595,7 @@ list(APPEND QT_LIBS Qt6::Network)
 list(APPEND QT_LIBS Qt6::Xml)
 list(APPEND QT_LIBS Qt6::PrintSupport)
 list(APPEND QT_LIBS Qt6::Gui)
+list(APPEND QT_LIBS Qt6::Svg)
 
 if(WIN32)
   find_package(Qt6OpenGL ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
