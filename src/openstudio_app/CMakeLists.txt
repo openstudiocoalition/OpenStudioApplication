@@ -177,6 +177,11 @@ if( APPLE )
     VERBATIM
   )
 
+  #add_custom_command(TARGET ${target_name}
+  #  POST_BUILD
+  #  COMMAND ${QT_MACDEPLOY_QT} $<TARGET_BUNDLE_DIR:${target_name}> -verbose=2
+  #)
+
 elseif( UNIX )
 
   foreach(LIB ${QT_LIBS} ${QT_WEB_LIBS})
@@ -350,8 +355,20 @@ if( NOT APPLE )
 
     install(PROGRAMS ${QtWebEngineProcess} DESTINATION bin COMPONENT OpenStudioApp )
 
+    install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/D3Dcompiler_47.dll DESTINATION bin/ COMPONENT OpenStudioApp)
+    install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/opengl32sw.dll DESTINATION bin/ COMPONENT OpenStudioApp)
+
     foreach(LIB ${QT_LIBS} ${QT_WEB_LIBS})
       install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/$<TARGET_FILE_NAME:${LIB}> DESTINATION bin/ COMPONENT OpenStudioApp)
+    endforeach()
+
+    list(APPEND QT_DIRS iconengines)
+    list(APPEND QT_DIRS imageformats)
+    list(APPEND QT_DIRS networkinformation)
+    list(APPEND QT_DIRS position)
+    list(APPEND QT_DIRS tls)
+    foreach(DIR ${QT_DIRS})
+      install(DIRECTORY $<TARGET_FILE_DIR:${target_name}>/${DIR} DESTINATION bin/ COMPONENT OpenStudioApp)
     endforeach()
 
   elseif(UNIX)
