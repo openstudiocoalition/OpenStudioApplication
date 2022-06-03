@@ -1197,7 +1197,7 @@ void OpenStudioApp::revertToSaved() {
                                   QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
     if (reply == QMessageBox::Yes) {
       // JM: copied DLM's hack below so we do not trigger prompt to save in call to closeDocument during newModel()
-      // this->currentDocument()->markAsUnmodified();
+      this->currentDocument()->markAsUnmodified();
 
       newModel();
     }
