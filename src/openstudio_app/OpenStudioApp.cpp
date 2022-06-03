@@ -1319,7 +1319,7 @@ void OpenStudioApp::startMeasureManagerProcess() {
   m_measureManagerProcess->start(program, arguments);
 }
 
-void OpenStudioApp::writeLibraryPaths(std::vector<openstudio::path> paths) {
+void OpenStudioApp::writeLibraryPaths(const std::vector<openstudio::path>& paths) {
 
   auto defaultPaths = defaultLibraryPaths();
 
