@@ -36,6 +36,8 @@
 #include <QPainter>
 #include <QPainterPath>
 #include <QPushButton>
+#include <QLinearGradient>
+#include <QBrush>
 
 namespace openstudio {
 
@@ -159,14 +161,29 @@ void OSDialog::paintEvent(QPaintEvent* event) {
 
   painter.setRenderHint(QPainter::Antialiasing);
 
-  QImage centerHeader = QImage(":/images/header-backgnd-1px-wide.png");
 
-  for (int i = 0; i < width(); i++) {
-    painter.drawImage(i, 0, centerHeader);
-  }
+  // CSS equivalent
+  // background: rgb(130,130,130);
+  // background: linear-gradient(180deg, rgba(130,130,130,0) 0%,
+  //             rgba(130,130,130,1) 1%, rgba(130,130,130,1) 2%, rgba(149,179,222,1) 2%, rgba(71,122,174,1) 100%);
+  QLinearGradient linearGrad(QPointF(0, 0), QPointF(0, 50));
+  linearGrad.setColorAt(0.00, QColor(130, 130, 130, 0));
+  linearGrad.setColorAt(0.01, QColor(130, 130, 130, 255));
+  linearGrad.setColorAt(0.02, QColor(130, 130, 130, 255));
+  linearGrad.setColorAt(0.03, QColor(149, 179, 222, 255));
+  linearGrad.setColorAt(1.00, QColor(71, 122, 174, 255));
 
-  QImage leftHeader = QImage(":/images/image_header.png");
-  painter.drawImage(0, 0, leftHeader);
+  QBrush brush(linearGrad);
+  painter.setBrush(brush);
+  painter.setPen(Qt::NoPen);
+  painter.drawRect(0, 0, rect().width(), 50 - 1);
+
+  QImage icon(":/images/os_48.png");
+  painter.drawImage(1, 1, icon);
+
+  painter.setPen(Qt::white);
+  painter.setFont(QFont("Arial", 22));
+  painter.drawText(QRect(55, 0, 200, 50),  Qt::AlignLeft | Qt::AlignVCenter, "OpenStudio");
 }
 
 void OSDialog::setSizeHint(const QSize& sizeHint) {
