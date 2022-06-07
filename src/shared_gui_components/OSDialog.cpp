@@ -183,7 +183,7 @@ void OSDialog::paintEvent(QPaintEvent* event) {
 
   painter.setPen(Qt::white);
   painter.setFont(QFont("Arial", 22));
-  painter.drawText(QRect(55, 0, 200, 50),  Qt::AlignLeft | Qt::AlignVCenter, "OpenStudio");
+  painter.drawText(QRect(55, 0, width() - 60, 50),  Qt::AlignLeft | Qt::AlignVCenter, "OpenStudio Application");
 }
 
 void OSDialog::setSizeHint(const QSize& sizeHint) {
