@@ -438,11 +438,11 @@ void RunView::onRunDataReady() {
     } else if (QString::compare(trimmedLine, "Complete", Qt::CaseInsensitive) == 0) {
       appendH1Text("Completed.");
     } else if (trimmedLine.startsWith("Applying", Qt::CaseInsensitive)) {
-      appendH2Text(line);
+      appendH2Text(trimmedLine);
     } else if (trimmedLine.startsWith("Applied", Qt::CaseInsensitive)) {
       // no-op
     } else {
-      appendNormalText(line);
+      appendNormalText(trimmedLine);
     }
   }
 }
@@ -490,31 +490,29 @@ void RunView::readyReadStandardOutput() {
 
     QString trimmedLine = line.trimmed();
 
-    bool b = trimmedLine.contains("DEBUG");
-
     // DLM: coordinate with openstudio-workflow-gem\lib\openstudio\workflow\adapters\output\socket.rb
     if (trimmedLine.isEmpty()) {
       continue;
     } else if ((trimmedLine.contains("DEBUG")) || (trimmedLine.contains("] <-2>"))) {
       m_textInfo->setFontPointSize(10);
       m_textInfo->setTextColor(Qt::lightGray);
-      m_textInfo->append(line);
+      m_textInfo->append(trimmedLine);
     } else if ((trimmedLine.contains("INFO")) || (trimmedLine.contains("] <-1>"))) {
       m_textInfo->setFontPointSize(10);
       m_textInfo->setTextColor(Qt::gray);
-      m_textInfo->append(line);
+      m_textInfo->append(trimmedLine);
     } else if ((trimmedLine.contains("WARN")) || (trimmedLine.contains("] <0>"))) {
       m_textInfo->setFontPointSize(12);
       m_textInfo->setTextColor(Qt::darkYellow);
-      m_textInfo->append(line);
+      m_textInfo->append(trimmedLine);
     } else if ((trimmedLine.contains("ERROR")) || (trimmedLine.contains("] <1>"))) {
       m_textInfo->setFontPointSize(12);
       m_textInfo->setTextColor(Qt::darkRed);
-      m_textInfo->append(line);
+      m_textInfo->append(trimmedLine);
     } else if ((trimmedLine.contains("FATAL")) || (trimmedLine.contains("] <1>"))) {
       m_textInfo->setFontPointSize(14);
       m_textInfo->setTextColor(Qt::red);
-      m_textInfo->append(line);
+      m_textInfo->append(trimmedLine);
 
     } else if (!m_hasSocketConnexion) {
       // For socket fall back. Avoid doing all these compare if we know we don't need to
@@ -573,16 +571,16 @@ void RunView::readyReadStandardOutput() {
       } else if (QString::compare(trimmedLine, "Complete", Qt::CaseInsensitive) == 0) {
         appendH1Text("Completed.");
       } else if (trimmedLine.startsWith("Applying", Qt::CaseInsensitive)) {
-        appendH2Text(line);
+        appendH2Text(trimmedLine);
       } else if (trimmedLine.startsWith("Applied", Qt::CaseInsensitive)) {
         // no-op
       } else {
-        appendNormalText(line);
+        appendNormalText(trimmedLine);
       }
     } else {  // m_hasSocketConnexion: we know it's stdout and not important socket info, so we put that in gray
       m_textInfo->setFontPointSize(10);
       m_textInfo->setTextColor(Qt::gray);
-      m_textInfo->append(line);
+      m_textInfo->append(trimmedLine);
     }
   }
 }
@@ -613,7 +611,7 @@ void RunView::readyReadStandardError() {
     if (trimmedLine.isEmpty()) {
       continue;
     } else {
-      appendErrorText("stderr: " + line);
+      appendErrorText("stderr: " + trimmedLine);
     }
   }
 }
