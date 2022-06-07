@@ -182,7 +182,7 @@ void OSDialog::paintEvent(QPaintEvent* event) {
   painter.drawImage(1, 1, icon);
 
   painter.setPen(Qt::white);
-  painter.setFont(QFont("Arial", 22));
+  painter.setFont(QFont("Muli", 22));
   painter.drawText(QRect(55, 0, width() - 60, 50),  Qt::AlignLeft | Qt::AlignVCenter, "OpenStudio Application");
 }
 

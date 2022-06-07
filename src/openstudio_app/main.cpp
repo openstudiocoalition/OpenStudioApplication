@@ -56,6 +56,7 @@
 #include <QtGlobal>
 #include <QLibraryInfo>
 #include <QTranslator>
+#include <QFontDatabase>
 
 #ifdef _WIN32
 #  include <Windows.h>
@@ -220,6 +221,16 @@ int main(int argc, char* argv[]) {
 
     // Make the run path the default plugin search location
     QCoreApplication::addLibraryPath(QCoreApplication::applicationDirPath());
+
+    if (QFontDatabase::addApplicationFont(":/fonts/Muli-Regular.ttf") == -1) {
+      LOG_FREE(Debug, "OpenStudioApp.main.QFont", "Adding font did not work");
+    } else {
+      LOG_FREE(Debug, "OpenStudioApp.main.QFont", "Adding font worked");
+    }
+    LOG_FREE(Trace, "OpenStudioApp.main.QFont", "Available Font families:");
+    for (auto& family: QFontDatabase::families()) {
+      LOG_FREE(Trace, "OpenStudioApp.main.QFont", "* " << openstudio::toString(family));
+    }
 
     LOG_FREE(Info, "OpenStudioApp.main",
              "LibraryExecutablesPath: " << openstudio::toString(QLibraryInfo::path(QLibraryInfo::LibraryExecutablesPath)));
