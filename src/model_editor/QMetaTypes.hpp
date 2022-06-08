@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2022, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -64,8 +64,8 @@ Q_DECLARE_METATYPE(boost::optional<std::string>);
 
 #include <openstudio/utilities/data/Attribute.hpp>
 //Q_DECLARE_METATYPE(openstudio::Attribute);
-Q_DECLARE_METATYPE(boost::optional<openstudio::Attribute>);
-Q_DECLARE_METATYPE(std::vector<openstudio::Attribute>);
+//Q_DECLARE_METATYPE(boost::optional<openstudio::Attribute>);
+//Q_DECLARE_METATYPE(std::vector<openstudio::Attribute>);
 
 #include <openstudio/utilities/units/Quantity.hpp>
 Q_DECLARE_METATYPE(openstudio::Quantity);

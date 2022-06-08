@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2022, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -38,6 +38,9 @@
 #include <vector>
 
 #include <openstudio/nano/nano_signal_slot.hpp>  // Signal-Slot replacement
+#include <openstudio/utilities/bcl/BCLComponent.hpp>
+#include <openstudio/utilities/bcl/BCLMeasure.hpp>
+
 #include <boost/optional.hpp>
 
 class QProgressBar;
@@ -45,8 +48,6 @@ class QTimer;
 
 namespace openstudio {
 
-class BCLComponent;
-class BCLMeasure;
 class Component;
 class ComponentList;
 class CollapsibleComponentList;
@@ -60,7 +61,7 @@ class BuildingComponentDialogCentralWidget
 
  public:
   BuildingComponentDialogCentralWidget(QWidget* parent = nullptr);
-  BuildingComponentDialogCentralWidget(int tid, QWidget* parent = nullptr);
+  explicit BuildingComponentDialogCentralWidget(int tid, QWidget* parent = nullptr);
   virtual ~BuildingComponentDialogCentralWidget();
   int tid() const;
   void setTid(const std::string& filterType, int tid, int pageIdx, const QString& title, const QString& searchString = "");
@@ -74,6 +75,8 @@ class BuildingComponentDialogCentralWidget
   void createLayout();
   void init();
   void setTid();
+  void componentDownloadComplete(const std::string& uid, const boost::optional<BCLComponent>& component);
+  void measureDownloadComplete(const std::string& uid, const boost::optional<BCLMeasure>& measure);
 
   int m_tid;
   CollapsibleComponentList* m_collapsibleComponentList;
@@ -105,8 +108,6 @@ class BuildingComponentDialogCentralWidget
   void lowerPushButtonClicked();
   void comboBoxIndexChanged(const QString& text);
   void on_headerClicked(bool checked);
-  void componentDownloadComplete(const std::string& uid, const boost::optional<BCLComponent>& component);
-  void measureDownloadComplete(const std::string& uid, const boost::optional<BCLMeasure>& measure);
   void on_componentClicked(bool checked);
   void on_collapsibleComponentClicked(bool checked);
   void on_getComponentsByPage(int pageIdx);

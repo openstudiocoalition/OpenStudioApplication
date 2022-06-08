@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2022, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -41,7 +41,7 @@ class MainMenu : public QMenuBar
   Q_OBJECT
 
  public:
-  MainMenu(bool isIP, bool isPlugin, QWidget* parent = nullptr);
+  MainMenu(bool isIP, bool isPlugin, const QString& currLang, QWidget* parent = nullptr);
 
   virtual ~MainMenu();
 
@@ -95,6 +95,8 @@ class MainMenu : public QMenuBar
 
   void toggleUnitsClicked(bool displayIP);
 
+  void changeLanguageClicked(const QString& rLanguage);
+
   void openLibDlgClicked();
 
   void configureProxyClicked();
@@ -124,6 +126,22 @@ class MainMenu : public QMenuBar
 
   QAction* m_displaySIUnitsAction;
 
+  QAction* m_langEnglishAction;
+  QAction* m_langFrenchAction;
+  QAction* m_langSpanishAction;
+  QAction* m_langFarsiAction;
+  QAction* m_langItalianAction;
+  QAction* m_langChineseAction;
+  QAction* m_langGreekAction;
+  QAction* m_langPolishAction;
+  QAction* m_langCatalanAction;
+  QAction* m_langHindiAction;
+  QAction* m_langVietnameseAction;
+  QAction* m_langJapaneseAction;
+  QAction* m_langGermanAction;
+  // QAction* m_langArabicAction;
+  QAction* m_langHebrewAction;
+
   QAction* m_openLibDlgAction;
 
   QAction* m_configureProxy;
@@ -137,6 +155,8 @@ class MainMenu : public QMenuBar
   std::vector<QAction*> m_componentsMeasuresActions;
 
   bool m_isIP;
+
+  QString m_currLang;
 
  public slots:
 
@@ -153,6 +173,23 @@ class MainMenu : public QMenuBar
   void displaySIUnitsClicked();
 
   void displayIPUnitsClicked();
+
+  void langEnglishClicked();
+  void langFrenchClicked();
+  void langSpanishClicked();
+  void langFarsiClicked();
+  void langItalianClicked();
+  void langChineseClicked();
+  void langGreekClicked();
+  void langPolishClicked();
+  void langCatalanClicked();
+  void langHindiClicked();
+  void langVietnameseClicked();
+  void langJapaneseClicked();
+  void langGermanClicked();
+  // void langArabicClicked();
+  void langHebrewClicked();
+  void addingNewLanguageClicked();
 };
 
 }  // namespace openstudio

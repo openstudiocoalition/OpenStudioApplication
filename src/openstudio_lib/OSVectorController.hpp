@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2022, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -30,6 +30,8 @@
 #ifndef OPENSTUDIO_OSVECTORCONTROLLER_HPP
 #define OPENSTUDIO_OSVECTORCONTROLLER_HPP
 
+#include "OSItem.hpp"
+
 #include <QWidget>
 #include <openstudio/model/ComponentData.hpp>
 #include <openstudio/model/Model.hpp>
@@ -38,9 +40,6 @@
 #include <openstudio/nano/nano_signal_slot.hpp>  // Signal-Slot replacement
 
 namespace openstudio {
-
-class OSItem;
-class OSItemId;
 
 class OSVectorController
   : public QObject

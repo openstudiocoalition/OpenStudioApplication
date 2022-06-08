@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2022, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -56,7 +56,7 @@ class LifeCycleCostsView : public QWidget
   Q_OBJECT
 
  public:
-  LifeCycleCostsView(const model::Model& model);
+  explicit LifeCycleCostsView(const model::Model& model);
 
   virtual ~LifeCycleCostsView();
 

@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2022, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -76,7 +76,8 @@ class MODELEDITOR_API InspectorDialog
   InspectorDialog(InspectorDialogClient client = InspectorDialogClient::AllOpenStudio, QWidget* parent = nullptr);
 
   /// create a new dialog for existing model
-  InspectorDialog(openstudio::model::Model& model, InspectorDialogClient client = InspectorDialogClient::AllOpenStudio, QWidget* parent = nullptr);
+  explicit InspectorDialog(openstudio::model::Model& model, InspectorDialogClient client = InspectorDialogClient::AllOpenStudio,
+                           QWidget* parent = nullptr);
 
   virtual ~InspectorDialog();
 

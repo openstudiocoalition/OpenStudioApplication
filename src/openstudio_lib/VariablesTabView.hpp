@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2022, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -83,7 +83,7 @@ class VariablesList
   Q_OBJECT;
 
  public:
-  VariablesList(openstudio::model::Model t_model);
+  explicit VariablesList(openstudio::model::Model t_model);
   virtual ~VariablesList();
 
  private slots:
@@ -111,7 +111,7 @@ class VariablesTabView : public MainTabView
   Q_OBJECT;
 
  public:
-  VariablesTabView(openstudio::model::Model t_model, QWidget* parent = nullptr);
+  explicit VariablesTabView(openstudio::model::Model t_model, QWidget* parent = nullptr);
 
   virtual ~VariablesTabView() {}
 

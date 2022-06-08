@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2022, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -55,6 +55,8 @@
 #include <QTcpServer>
 #include <QtGlobal>
 #include <QLibraryInfo>
+#include <QTranslator>
+#include <QFontDatabase>
 
 #ifdef _WIN32
 #  include <Windows.h>
@@ -207,15 +209,6 @@ int main(int argc, char* argv[]) {
       qputenv("QTWEBENGINE_REMOTE_DEBUGGING", debugPort.toStdString().c_str());
     }
 
-    // QCoreApplication::setAttribute should really be put here because it's set before we create the App
-    if (!qEnvironmentVariableIsSet("QT_DEVICE_PIXEL_RATIO") && !qEnvironmentVariableIsSet("QT_AUTO_SCREEN_SCALE_FACTOR")
-        && !qEnvironmentVariableIsSet("QT_SCALE_FACTOR") && !qEnvironmentVariableIsSet("QT_SCREEN_SCALE_FACTORS")) {
-      LOG_FREE(Info, "OpenStudioApp.main",
-               "Setting Qt::AA_EnableHighDpiScaling. "
-                 << "Instead, you can also manually set the environment variable 'QT_SCALE_FACTOR'.");
-      QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-    }
-
     // Don't use native menu bar, necessary on Ubuntu 16.04
     QCoreApplication::setAttribute(Qt::AA_DontUseNativeMenuBar, true);
     QCoreApplication::setOrganizationDomain("openstudiocoalition.org");
@@ -223,13 +216,26 @@ int main(int argc, char* argv[]) {
     openstudio::OpenStudioApp app(argc, argv);
     openstudio::Application::instance().setApplication(&app);
 
+    // cf #535
+    app.setHighDpiScaleFactorRoundingPolicy(Qt::HighDpiScaleFactorRoundingPolicy::PassThrough);
+
     // Make the run path the default plugin search location
     QCoreApplication::addLibraryPath(QCoreApplication::applicationDirPath());
 
+    if (QFontDatabase::addApplicationFont(":/fonts/Muli-Regular.ttf") == -1) {
+      LOG_FREE(Debug, "OpenStudioApp.main.QFont", "Adding font did not work");
+    } else {
+      LOG_FREE(Debug, "OpenStudioApp.main.QFont", "Adding font worked");
+    }
+    LOG_FREE(Trace, "OpenStudioApp.main.QFont", "Available Font families:");
+    for (auto& family : QFontDatabase::families()) {
+      LOG_FREE(Trace, "OpenStudioApp.main.QFont", "* " << openstudio::toString(family));
+    }
+
     LOG_FREE(Info, "OpenStudioApp.main",
-             "LibraryExecutablesPath: " << openstudio::toString(QLibraryInfo::location(QLibraryInfo::LibraryExecutablesPath)));
-    LOG_FREE(Info, "OpenStudioApp.main", "DataPath: " << openstudio::toString(QLibraryInfo::location(QLibraryInfo::DataPath)));
-    LOG_FREE(Info, "OpenStudioApp.main", "TranslationsPath: " << openstudio::toString(QLibraryInfo::location(QLibraryInfo::TranslationsPath)));
+             "LibraryExecutablesPath: " << openstudio::toString(QLibraryInfo::path(QLibraryInfo::LibraryExecutablesPath)));
+    LOG_FREE(Info, "OpenStudioApp.main", "DataPath: " << openstudio::toString(QLibraryInfo::path(QLibraryInfo::DataPath)));
+    LOG_FREE(Info, "OpenStudioApp.main", "TranslationsPath: " << openstudio::toString(QLibraryInfo::path(QLibraryInfo::TranslationsPath)));
 
 #ifdef Q_OS_DARWIN
     // Gross but perhaps the simplest way to find the webengine process

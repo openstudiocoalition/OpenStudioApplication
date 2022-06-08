@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2022, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -2537,7 +2537,7 @@ void SplitterItem::setTerminalTypes(std::vector<SplitterItem::TerminalType> type
   // A Predicate that returns true on either m_type or DualDuct
   struct Predicate
   {
-    Predicate(TerminalType type) : m_type(type) {}
+    explicit Predicate(TerminalType type) : m_type(type) {}
 
     bool operator()(TerminalType t_type) const {
       if ((t_type == m_type) || (t_type == TerminalType::DualDuct)) {
@@ -3277,7 +3277,7 @@ void NodeContextButtonItem::showContextMenu() {
     QMenu menu;
     QAction removeSPMAction(QIcon(":/images/delete-icon.png"), "Delete Setpoint Manager", &menu);
     menu.addAction(&removeSPMAction);
-    connect(&removeSPMAction, &QAction::triggered, this, &NodeContextButtonItem::onRemoveSPMActionTriggered);
+    connect(&removeSPMAction, &QAction::triggered, this, &NodeContextButtonItem::onRemoveSPMActionTriggered, Qt::QueuedConnection);
 
     menu.exec(menuPos);
   }

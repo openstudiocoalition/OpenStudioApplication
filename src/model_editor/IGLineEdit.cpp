@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2022, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -39,6 +39,7 @@
 #include <QVariant>
 #include <QDoubleValidator>
 #include <QIntValidator>
+#include <QRegularExpressionValidator>
 
 using std::ios;
 using std::string;
@@ -71,7 +72,7 @@ bool IGLineEdit::checkValue(QString& txt) {
     return true;
   }
 
-  const QRegExpValidator* dv = qobject_cast<const QRegExpValidator*>(v);
+  const QRegularExpressionValidator* dv = qobject_cast<const QRegularExpressionValidator*>(v);
   if (dv) {
     bool ok;
     double val = textVal.toDouble(&ok);

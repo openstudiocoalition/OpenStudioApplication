@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2022, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -51,8 +51,8 @@ class MainWindow : public QMainWindow
   Q_OBJECT
 
  public:
-  MainWindow(bool isPlugin, QWidget* parent = nullptr);
-  virtual ~MainWindow() {}
+  explicit MainWindow(bool isPlugin, QWidget* parent = nullptr);
+  virtual ~MainWindow();
 
   void addVerticalTabButton(int id, QString toolTip, const QString& selectedImagePath, const QString& unSelectedImagePath,
                             const QString& disabledImagePath);
@@ -74,6 +74,8 @@ class MainWindow : public QMainWindow
   void openSidebar();
 
   bool displayIP();
+
+  bool verboseOutput() const;
 
   void enableRevertToSavedAction(bool enable);
 
@@ -116,6 +118,8 @@ class MainWindow : public QMainWindow
   void changeDefaultLibrariesClicked();
 
   void configureExternalToolsClicked();
+
+  void changeLanguageClicked(const QString& rLanguage);
 
   void loadLibraryClicked();
 
@@ -165,6 +169,10 @@ class MainWindow : public QMainWindow
 
   void enableComponentsMeasures(bool enable);
 
+ public slots:
+
+  void toggleVerboseOutput(bool verboseOutput);
+
  protected:
   void closeEvent(QCloseEvent* event) override;
 
@@ -191,11 +199,17 @@ class MainWindow : public QMainWindow
 
   bool m_displayIP;
 
+  bool m_verboseOutput = false;
+
+  QString m_currLang;
+
   QString m_lastPath;
 
  private slots:
 
   void toggleUnits(bool displayIP);
+
+  void changeLanguage(const QString& rLanguage);
 
   void configureProxyClicked();
 

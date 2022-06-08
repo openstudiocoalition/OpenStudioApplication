@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2022, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -71,7 +71,7 @@ class LocalLibraryController : public QObject
  public:
   QPointer<LocalLibraryView> localLibraryView;
 
-  LocalLibraryController(openstudio::BaseApp* t_app, bool onlyShowModelMeasures = false);
+  explicit LocalLibraryController(openstudio::BaseApp* t_app, bool onlyShowModelMeasures = false);
 
   virtual ~LocalLibraryController();
 
@@ -91,6 +91,7 @@ class LocalLibraryController : public QObject
   void duplicateSelectedMeasure();
   void downloadUpdatedBCLMeasures();
   void openBclDlg();
+  void checkForRemoteBCLUpdates();
 
  private:
   REGISTER_LOGGER("openstudio.LocalLibraryController");
@@ -111,7 +112,7 @@ class LibraryTypeItem : public OSListItem
   Q_OBJECT
 
  public:
-  LibraryTypeItem(const QString& name);
+  explicit LibraryTypeItem(const QString& name);
   virtual ~LibraryTypeItem() {}
 
   QString name() const {
@@ -133,7 +134,7 @@ class LibraryTypeItemDelegate : public OSItemDelegate
   QWidget* view(QSharedPointer<OSListItem> dataSource) override;
 
  public:
-  LibraryTypeItemDelegate(BaseApp* t_app);
+  explicit LibraryTypeItemDelegate(BaseApp* t_app);
   virtual ~LibraryTypeItemDelegate() {}
 
  private:
@@ -186,7 +187,7 @@ class LibraryGroupItemDelegate : public OSItemDelegate
   QWidget* view(QSharedPointer<OSListItem> dataSource) override;
 
  public:
-  LibraryGroupItemDelegate(BaseApp* t_app);
+  explicit LibraryGroupItemDelegate(BaseApp* t_app);
   virtual ~LibraryGroupItemDelegate() {}
 
  private:
@@ -246,7 +247,7 @@ class LibrarySubGroupItemDelegate : public OSItemDelegate
   QWidget* view(QSharedPointer<OSListItem> dataSource) override;
 
  public:
-  LibrarySubGroupItemDelegate(BaseApp* t_app);
+  explicit LibrarySubGroupItemDelegate(BaseApp* t_app);
   virtual ~LibrarySubGroupItemDelegate() {}
 
  private:
@@ -258,7 +259,7 @@ class LibrarySubGroupListController : public OSListController
   Q_OBJECT;
 
  public:
-  LibrarySubGroupListController(BaseApp* t_app);
+  explicit LibrarySubGroupListController(BaseApp* t_app);
   virtual ~LibrarySubGroupListController() {}
 
   QSharedPointer<OSListItem> itemAt(int i) override;
@@ -327,7 +328,7 @@ class LibraryItemDelegate : public OSItemDelegate
   Q_OBJECT;
 
  public:
-  LibraryItemDelegate(BaseApp* t_app);
+  explicit LibraryItemDelegate(BaseApp* t_app);
   virtual ~LibraryItemDelegate() {}
   QWidget* view(QSharedPointer<OSListItem> dataSource) override;
 

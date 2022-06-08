@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2022, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -190,6 +190,8 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
 
   void configureExternalToolsClicked();
 
+  void changeLanguageClicked(const QString& rLanguage);
+
   void loadLibraryClicked();
 
   void loadExampleModelClicked();
@@ -257,8 +259,6 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
 
   void onVerticalTabSelected(int verticalId);
 
-  void inspectModelObject(model::OptionalModelObject&, bool readOnly);
-
   void showStartTabAndStartSubTab();
 
   void initializeModel();
@@ -321,11 +321,7 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
 
   openstudio::model::Model m_model;
 
-  boost::optional<Workspace> m_workspace;
-
   openstudio::model::Model m_compLibrary;
-
-  openstudio::model::Model m_hvacCompLibrary;
 
   openstudio::path m_resourcesPath;
 
@@ -340,8 +336,6 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
   //std::shared_ptr<OSConsoleWidget> m_consoleWidget;
 
   std::shared_ptr<MainTabController> m_mainTabController;
-
-  std::shared_ptr<InspectorController> m_inspectorController;
 
   std::shared_ptr<MainRightColumnController> m_mainRightColumnController;
 

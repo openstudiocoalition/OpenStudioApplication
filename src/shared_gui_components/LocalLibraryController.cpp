@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2022, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -105,6 +105,8 @@ LocalLibraryController::LocalLibraryController(BaseApp* t_app, bool onlyShowMode
   connect(localLibraryView->myMeasuresFolderButton, &QPushButton::clicked, this, &LocalLibraryController::showMyMeasuresFolder);
 
   connect(localLibraryView->addBCLMeasureButton, &QPushButton::clicked, this, &LocalLibraryController::openBclDlg);
+
+  connect(localLibraryView->lookForUpdateButton, &QPushButton::clicked, this, &LocalLibraryController::checkForRemoteBCLUpdates);
 }
 
 void LocalLibraryController::addMeasure() {
@@ -121,6 +123,10 @@ void LocalLibraryController::downloadUpdatedBCLMeasures() {
 
 void LocalLibraryController::openBclDlg() {
   m_app->openBclDlg();
+}
+
+void LocalLibraryController::checkForRemoteBCLUpdates() {
+  m_app->checkForRemoteBCLUpdates();
 }
 
 LocalLibraryController::~LocalLibraryController() {
@@ -166,7 +172,7 @@ void LocalLibraryController::showMyMeasuresFolder() {
                              QMessageBox::Ok);
   } else {
     QString path = QDir::toNativeSeparators(toQString(umd));
-    QDesktopServices::openUrl(QUrl("file:///" + path));
+    QDesktopServices::openUrl(QUrl::fromLocalFile(path));
   }
 }
 
@@ -399,7 +405,7 @@ LibraryItem::LibraryItem(const BCLMeasure& bclMeasure, LocalLibrary::LibrarySour
   : OSListItem(), m_bclMeasure(bclMeasure), m_source(source), m_app(t_app) {
   boost::optional<VersionString> minCompatibleVersion;
   boost::optional<VersionString> maxCompatibleVersion;
-  Q_FOREACH (const BCLFileReference& fileReference, bclMeasure.files()) {
+  for (const BCLFileReference& fileReference : bclMeasure.files()) {
     if (fileReference.usageType() == "script" && fileReference.softwareProgram() == "OpenStudio") {
       minCompatibleVersion = fileReference.minCompatibleVersion();
       maxCompatibleVersion = fileReference.maxCompatibleVersion();

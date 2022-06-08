@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2022, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -45,17 +45,13 @@ class WaitDialog : public OSDialog
 
   virtual ~WaitDialog();
 
-  QSize sizeHint() const override;
+ public slots:
+
+  void setLine(unsigned lineNumber, const QString& text);
 
   // Reset waitDialog labels to default value/visible state/objectName
   // It's also for the initial creation in createWidgets
   void resetLabels();
-
-  // Convenience to avoid having to do QLabel * descriptionLabel1 = qobject_cast<QLabel*>(waitDialog()->upperLayout()->itemAt(1)->widget());
-  QLabel* m_firstLine;
-  QLabel* m_secondLine;
-  QLabel* m_thirdLine;
-  QLabel* m_fourthLine;
 
  protected slots:
 
@@ -66,6 +62,12 @@ class WaitDialog : public OSDialog
 
  private:
   virtual void createWidgets();
+
+  // Convenience to avoid having to do QLabel * descriptionLabel1 = qobject_cast<QLabel*>(waitDialog()->upperLayout()->itemAt(1)->widget());
+  QLabel* m_firstLine;
+  QLabel* m_secondLine;
+  QLabel* m_thirdLine;
+  QLabel* m_fourthLine;
 
   QString m_windowMessage;
 };

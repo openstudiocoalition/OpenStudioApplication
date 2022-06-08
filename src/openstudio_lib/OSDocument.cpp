@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2022, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -201,6 +201,7 @@ OSDocument::OSDocument(const openstudio::model::Model& library, const openstudio
   connect(m_mainWindow, &MainWindow::loadFileClicked, this, &OSDocument::loadFileClicked);
   connect(m_mainWindow, &MainWindow::changeDefaultLibrariesClicked, this, &OSDocument::changeDefaultLibrariesClicked);
   connect(m_mainWindow, &MainWindow::configureExternalToolsClicked, this, &OSDocument::configureExternalToolsClicked);
+  connect(m_mainWindow, &MainWindow::changeLanguageClicked, this, &OSDocument::changeLanguageClicked);
   connect(m_mainWindow, &MainWindow::loadLibraryClicked, this, &OSDocument::loadLibraryClicked);
   connect(m_mainWindow, &MainWindow::loadExampleModelClicked, this, &OSDocument::loadExampleModelClicked);
   connect(m_mainWindow, &MainWindow::newClicked, this, &OSDocument::newClicked);
@@ -260,6 +261,7 @@ OSDocument::~OSDocument() {
 
   // release the file watchers so can remove model temp dir
   m_mainTabController.reset();
+  m_mainRightColumnController.reset();
 
   model::removeModelTempDir(toPath(m_modelTempDir));
 }
@@ -276,28 +278,9 @@ void OSDocument::initializeModel() {
   model::initializeModelObjects(m_model);
 }
 
-void OSDocument::inspectModelObject(model::OptionalModelObject& modelObject, bool readOnly) {
-  //m_inspectorController->layoutModelObject(modelObject);
-
-  //if( modelObject )
-  //{
-  //  //m_mainWindow->selectHorizontalTab(EDIT);
-  //}
-}
-
 MainWindow* OSDocument::mainWindow() {
   return m_mainWindow;
 }
-
-//boost::optional<Workspace> OSDocument::workspace()
-//{
-//  return m_workspace;
-//}
-
-//void OSDocument::setWorkspace(const boost::optional<Workspace>& workspace)
-//{
-//  m_workspace = workspace;
-//}
 
 model::Model OSDocument::model() {
   return m_model;
@@ -661,7 +644,8 @@ void OSDocument::createTab(int verticalId) {
       connect(this, &OSDocument::toggleUnitsClicked, qobject_cast<HVACSystemsTabController*>(m_mainTabController.get()),
               &HVACSystemsTabController::toggleUnitsClicked);
 
-      connect(m_mainTabController.get(), &HVACSystemsTabController::modelObjectSelected, this, &OSDocument::inspectModelObject);
+      connect(m_mainTabController.get(), &HVACSystemsTabController::modelObjectSelected, m_mainRightColumnController.get(),
+              &MainRightColumnController::inspectModelObject);
 
       connect(m_mainTabController->mainContentWidget(), &MainTabView::tabSelected, m_mainRightColumnController.get(),
               &MainRightColumnController::configureForHVACSystemsSubTab);
@@ -1747,6 +1731,7 @@ void OSDocument::openMeasuresBclDlg() {
 }
 
 void OSDocument::on_closeMeasuresBclDlg() {
+  OSAppBase::instance()->checkForRemoteBCLUpdates();
   if (m_onlineMeasuresBclDialog->showNewComponents()) {
     OSAppBase::instance()->currentDocument()->disable();
     OSAppBase::instance()->measureManager().updateMeasuresLists();

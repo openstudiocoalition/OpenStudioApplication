@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2022, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -42,7 +42,7 @@ class ConstructionObjectVectorController : public ModelObjectVectorController
   Q_OBJECT
 
  public:
-  ConstructionObjectVectorController(QWidget* parentWidget);
+  explicit ConstructionObjectVectorController(QWidget* parentWidget);
 
   // Need to delete the QMutex
   virtual ~ConstructionObjectVectorController();

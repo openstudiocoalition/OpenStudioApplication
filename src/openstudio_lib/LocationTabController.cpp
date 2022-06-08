@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2022, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -50,9 +50,9 @@ namespace openstudio {
 
 LocationTabController::LocationTabController(bool isIP, const model::Model& model, const QString& modelTempDir)
   : MainTabController(new LocationTabView(model, modelTempDir)), m_modelTempDir(modelTempDir), m_model(model), m_isIP(isIP) {
-  mainContentWidget()->addSubTab("Weather File && Design Days", WEATHER_FILE);
-  mainContentWidget()->addSubTab("Life Cycle Costs", LIFE_CYCLE_COSTS);
-  mainContentWidget()->addSubTab("Utility Bills", UTILITY_BILLS);
+  mainContentWidget()->addSubTab(tr("Weather File && Design Days"), WEATHER_FILE);
+  mainContentWidget()->addSubTab(tr("Life Cycle Costs"), LIFE_CYCLE_COSTS);
+  mainContentWidget()->addSubTab(tr("Utility Bills"), UTILITY_BILLS);
 
   setSubTab(0);
   connect(this->mainContentWidget(), &MainTabView::tabSelected, this, &LocationTabController::setSubTab);

@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2022, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -58,7 +58,7 @@ TEST_F(ModelEditorFixture, IGLineEdit_Real) {
   InspectorGadget gadget;
   QString val;
   IGLineEdit* text = new IGLineEdit(val, &gadget, &gadget);
-  QRegExpValidator* valid = new QRegExpValidator(QRegExp("-?[0-9]*\\.?[0-9]*([eE][-+]?[0-9]*)?"), text);
+  QRegularExpressionValidator* valid = new QRegularExpressionValidator(QRegularExpression("-?[0-9]*\\.?[0-9]*([eE][-+]?[0-9]*)?"), text);
 
   val.clear();
   text->setText(val);

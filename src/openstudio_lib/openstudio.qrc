@@ -656,5 +656,8 @@
     <file alias="shared_gui_components/images/unchecked_checkbox_focused.png">../shared_gui_components/images/unchecked_checkbox_focused.png</file>
     <file alias="shared_gui_components/images/unchecked_checkbox_green.png">../shared_gui_components/images/unchecked_checkbox_green.png</file>
     <file alias="shared_gui_components/images/unchecked_checkbox_locked.png">../shared_gui_components/images/unchecked_checkbox_locked.png</file>
+    <file alias="shared_gui_components/images/check_for_updates.png">../shared_gui_components/images/check_for_updates.png</file>
+
+    <file>fonts/Muli-Regular.ttf</file>
   </qresource>
 </RCC>

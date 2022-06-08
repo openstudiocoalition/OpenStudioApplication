@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2022, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -261,7 +261,12 @@ std::function<RetType(FromDataType*, Param1)> ProxyAdapter(RetType (ToDataType::
 class ConceptProxy
 {
  public:
+  // TODO: This can't be explicit with boost::optional,
+  // see https://github.com/openstudiocoalition/OpenStudioApplication/pull/511#pullrequestreview-963081285
+  // I do not know how to get around it, so will cppcheck-suppress it (and let future us worry about moving to std::optional)
+  // Please increment counter next time: **Hours wasted trying to understand the issue: 2.5 **
   template <typename T>
+  // cppcheck-suppress noExplicitConstructor
   ConceptProxy(const T& t_obj) : m_any(t_obj) {}
 
   template <typename T>
@@ -295,7 +300,7 @@ class BaseConcept
  public:
   virtual ~BaseConcept() {}
 
-  BaseConcept(const Heading& t_heading, bool t_hasClickFocus = false)
+  explicit BaseConcept(const Heading& t_heading, bool t_hasClickFocus = false)
     : m_heading(t_heading), m_selector(false), m_parent(false), m_hasClickFocus(t_hasClickFocus) {}
 
   // isSelector is true for checkbox cells in the select column

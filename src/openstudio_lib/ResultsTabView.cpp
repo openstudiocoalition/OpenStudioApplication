@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2022, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -35,7 +35,6 @@
 #include <QFile>
 #include <QBoxLayout>
 #include <QComboBox>
-#include <QDesktopWidget>
 #include <QDomDocument>
 #include <QLabel>
 #include <QMessageBox>
@@ -43,7 +42,6 @@
 #include <QPushButton>
 #include <QString>
 #include <QRegExp>
-#include <QWebEngineSettings>
 #include <openstudio/utilities/core/Assert.hpp>
 #include <openstudio/utilities/core/PathHelpers.hpp>
 
@@ -122,8 +120,6 @@ ResultsView::ResultsView(QWidget* t_parent)
 
   // create a web widget
   m_view = new QWebEngineView(this);
-  m_view->settings()->setAttribute(QWebEngineSettings::WebAttribute::LocalContentCanAccessRemoteUrls, true);
-  m_view->settings()->setAttribute(QWebEngineSettings::WebAttribute::SpatialNavigationEnabled, true);
 
   m_page = new OSWebEnginePage(this);
   m_view->setPage(m_page);  // note, view does not take ownership of page
@@ -133,8 +129,6 @@ ResultsView::ResultsView(QWidget* t_parent)
   connect(m_view, &QWebEngineView::loadStarted, this, &ResultsView::onLoadStarted);
   connect(m_view, &QWebEngineView::renderProcessTerminated, this, &ResultsView::onRenderProcessTerminated);
 
-  // Qt 5.8 and higher
-  m_view->settings()->setAttribute(QWebEngineSettings::AllowRunningInsecureContent, true);
   // Force QWebEngineView to fill the rest of the space
   m_view->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 

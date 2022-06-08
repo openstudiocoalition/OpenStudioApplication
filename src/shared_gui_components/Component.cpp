@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2022, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -367,7 +367,7 @@ void Component::parseBCLMeasure(const BCLMeasure& bclMeasure) {
 
   boost::optional<VersionString> minCompatibleVersion;
   boost::optional<VersionString> maxCompatibleVersion;
-  Q_FOREACH (const BCLFileReference& fileReference, m_fileReferences) {
+  for (const BCLFileReference& fileReference : m_fileReferences) {
     if (fileReference.usageType() == "script" && fileReference.softwareProgram() == "OpenStudio") {
       minCompatibleVersion = fileReference.minCompatibleVersion();
       maxCompatibleVersion = fileReference.maxCompatibleVersion();
@@ -409,7 +409,7 @@ void Component::parseBCLSearchResult(const BCLSearchResult& bclSearchResult) {
 
   boost::optional<VersionString> minCompatibleVersion;
   boost::optional<VersionString> maxCompatibleVersion;
-  Q_FOREACH (const BCLFile& file, m_files) {
+  for (const BCLFile& file : m_files) {
     if (file.usageType() == "script" && file.softwareProgram() == "OpenStudio") {
       minCompatibleVersion = file.minCompatibleVersion();
       maxCompatibleVersion = file.maxCompatibleVersion();

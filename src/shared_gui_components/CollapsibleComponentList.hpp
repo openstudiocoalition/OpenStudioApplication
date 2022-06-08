@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2022, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -48,7 +48,7 @@ class CollapsibleComponentList : public QWidget
 
  public:
   CollapsibleComponentList(QWidget* parent = nullptr);
-  CollapsibleComponentList(const std::vector<CollapsibleComponent*>& collapsibleComponents, QWidget* parent = nullptr);
+  explicit CollapsibleComponentList(const std::vector<CollapsibleComponent*>& collapsibleComponents, QWidget* parent = nullptr);
   virtual ~CollapsibleComponentList() {}
   // return the checked component in the list, NULL if list is empty
   Component* checkedComponent() const;

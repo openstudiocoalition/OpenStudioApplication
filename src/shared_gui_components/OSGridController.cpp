@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2022, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -56,6 +56,7 @@
 
 #include <openstudio/utilities/core/Assert.hpp>
 
+#include <QCoreApplication>
 #include <QApplication>
 #include <QBoxLayout>
 #include <QButtonGroup>
@@ -114,13 +115,13 @@ OSGridController::~OSGridController() {
 }
 
 void OSGridController::loadQSettings() {
-  QSettings settings("OpenStudio", m_settingsKey);
+  QSettings settings(QCoreApplication::organizationName(), m_settingsKey);
   auto temp = settings.value("customFields").toStringList().toVector();
   m_customFields = std::vector<QString>(temp.begin(), temp.end());
 }
 
 void OSGridController::saveQSettings() const {
-  QSettings settings("OpenStudio", m_settingsKey);
+  QSettings settings(QCoreApplication::organizationName(), m_settingsKey);
   QVector<QVariant> vector;
   for (unsigned i = 0; i < m_customFields.size(); i++) {
     QVariant variant = m_customFields.at(i);

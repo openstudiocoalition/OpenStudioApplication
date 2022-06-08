@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2022, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -162,7 +162,7 @@ OSDropZone::OSDropZone(OSVectorController* vectorController, const QString& text
 
 void OSDropZone::paintEvent(QPaintEvent* event) {
   QStyleOption opt;
-  opt.init(this);
+  opt.initFrom(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
@@ -424,7 +424,7 @@ void OSItemDropZone::setExtensible(bool extensible) {
 
 void OSItemDropZone::paintEvent(QPaintEvent* event) {
   QStyleOption opt;
-  opt.init(this);
+  opt.initFrom(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
@@ -665,7 +665,7 @@ void OSDropZone2::unbind() {
 
 void OSDropZone2::paintEvent(QPaintEvent* event) {
   QStyleOption opt;
-  opt.init(this);
+  opt.initFrom(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 

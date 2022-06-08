@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2022, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -98,8 +98,8 @@ static constexpr auto CHANGEWEATHERFILE("Change Weather File");
 
 namespace openstudio {
 
-LocationTabView::LocationTabView(const model::Model& /*model*/, const QString& /*modelTempDir*/, QWidget* parent)
-  : MainTabView("Site", MainTabView::SUB_TAB, parent) {}
+LocationTabView::LocationTabView(const model::Model& model, const QString& modelTempDir, QWidget* parent)
+  : MainTabView(tr("Site"), MainTabView::SUB_TAB, parent) {}
 
 LocationView::LocationView(bool isIP, const model::Model& model, const QString& modelTempDir)
   : m_model(model),
@@ -180,7 +180,7 @@ LocationView::LocationView(bool isIP, const model::Model& model, const QString& 
   mainHLine->setFrameShadow(QFrame::Sunken);
 
   // ***** Weather File *****
-  auto* label = new QLabel("Weather File");
+  auto* label = new QLabel(tr("Weather File"));
   label->setObjectName("H2");
 
   m_weatherFileBtn = new QPushButton(this);
@@ -201,7 +201,7 @@ LocationView::LocationView(bool isIP, const model::Model& model, const QString& 
   // ***** Site Info *****
   int i = 0;
 
-  label = new QLabel(NAME);
+  label = new QLabel(tr("Name: "));
 
   m_siteName = new QLineEdit();
   connect(m_siteName, &QLineEdit::textEdited, this, &LocationView::onSiteNameChanged);
@@ -216,20 +216,20 @@ LocationView::LocationView(bool isIP, const model::Model& model, const QString& 
 
   weatherFileGridLayout->addLayout(hLayout, i++, 0);
 
-  m_latitudeLbl = new QLabel(LATITUDE);
+  m_latitudeLbl = new QLabel(tr("Latitude: "));
   weatherFileGridLayout->addWidget(m_latitudeLbl, i++, 0);
 
-  m_longitudeLbl = new QLabel(LONGITUDE);
+  m_longitudeLbl = new QLabel(tr("Longitude: "));
   weatherFileGridLayout->addWidget(m_longitudeLbl, i++, 0);
 
-  m_elevationLbl = new QLabel(ELEVATION);
+  m_elevationLbl = new QLabel(tr("Elevation: "));
   weatherFileGridLayout->addWidget(m_elevationLbl, i++, 0);
 
-  m_timeZoneLbl = new QLabel(TIME_ZONE);
+  m_timeZoneLbl = new QLabel(tr("Time Zone: "));
   weatherFileGridLayout->addWidget(m_timeZoneLbl, i++, 0);
 
   // ***** Weather File Download Location *****
-  label = new QLabel("Download weather files at <a href=\"http://www.energyplus.net/weather\">www.energyplus.net/weather</a>");
+  label = new QLabel(tr("Download weather files at <a href=\"http://www.energyplus.net/weather\">www.energyplus.net/weather</a>"));
   label->setOpenExternalLinks(true);
   weatherFileGridLayout->addWidget(label, i++, 0);
 
@@ -238,11 +238,11 @@ LocationView::LocationView(bool isIP, const model::Model& model, const QString& 
   leftVLayout->addLayout(weatherFileGridLayout);
 
   // ***** Climate Zones *****
-  label = new QLabel("Measure Tags (Optional):");
+  label = new QLabel(tr("Measure Tags (Optional):"));
   label->setObjectName("H2");
   leftVLayout->addWidget(label);
 
-  label = new QLabel("ASHRAE Climate Zone");
+  label = new QLabel(tr("ASHRAE Climate Zone"));
   label->setObjectName("StandardsInfo");
 
   m_ashraeClimateZone = new QComboBox();
@@ -275,7 +275,7 @@ LocationView::LocationView(bool isIP, const model::Model& model, const QString& 
   connect(m_ashraeClimateZone, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentTextChanged), this,
           &LocationView::onASHRAEClimateZoneChanged);
 
-  label = new QLabel("CEC Climate Zone");
+  label = new QLabel(tr("CEC Climate Zone"));
   label->setObjectName("StandardsInfo");
 
   m_cecClimateZone = new QComboBox();
@@ -343,10 +343,10 @@ LocationView::LocationView(bool isIP, const model::Model& model, const QString& 
   scrollLayout->addWidget(mainHLine);
 
   // ***** Design Days *****
-  label = new QLabel("Design Days");
+  label = new QLabel(tr("Design Days"));
   label->setObjectName("H2");
 
-  auto* btn = new QPushButton("Import From DDY", this);
+  auto* btn = new QPushButton(tr("Import From DDY"), this);
   btn->setFlat(true);
   btn->setObjectName("StandardGrayButton");
   connect(btn, &QPushButton::clicked, this, &LocationView::onDesignDayBtnClicked);
@@ -473,20 +473,20 @@ void LocationView::update() {
     }
 
     if (fileExists) {
-      m_weatherFileBtn->setText(CHANGEWEATHERFILE);
+      m_weatherFileBtn->setText(tr("Change Weather File"));
       setSiteInfo();
     } else {
-      m_weatherFileBtn->setText(SETWEATHERFILE);
+      m_weatherFileBtn->setText(tr("Set Weather File"));
       clearSiteInfo();
     }
   } else {
-    m_weatherFileBtn->setText(SETWEATHERFILE);
+    m_weatherFileBtn->setText(tr("Set Weather File"));
     clearSiteInfo();
   }
 }
 
 void LocationView::setSiteInfo() {
-  QString info = LATITUDE;
+  QString info = tr(LATITUDE);
   QString temp;
 
   if (m_site->name() && !m_site->name()->empty()) {
@@ -499,17 +499,17 @@ void LocationView::setSiteInfo() {
   info += temp;
   m_latitudeLbl->setText(info);
 
-  info = LONGITUDE;
+  info = tr(LONGITUDE);
   temp.setNum(m_site->longitude());
   info += temp;
   m_longitudeLbl->setText(info);
 
-  info = ELEVATION;
+  info = tr(ELEVATION);
   temp.setNum(m_site->elevation());
   info += temp;
   m_elevationLbl->setText(info);
 
-  info = TIME_ZONE;
+  info = tr(TIME_ZONE);
   temp.setNum(m_site->timeZone());
   info += temp;
   m_timeZoneLbl->setText(info);
@@ -518,18 +518,18 @@ void LocationView::setSiteInfo() {
 void LocationView::clearSiteInfo() {
   m_siteName->setText("");
 
-  m_latitudeLbl->setText(LATITUDE);
+  m_latitudeLbl->setText(tr(LATITUDE));
 
-  m_longitudeLbl->setText(LONGITUDE);
+  m_longitudeLbl->setText(tr(LONGITUDE));
 
-  m_elevationLbl->setText(ELEVATION);
+  m_elevationLbl->setText(tr(ELEVATION));
 
-  m_timeZoneLbl->setText(TIME_ZONE);
+  m_timeZoneLbl->setText(tr(TIME_ZONE));
 }
 
 // ***** SLOTS *****
 void LocationView::onWeatherFileBtnClicked() {
-  QString fileTypes("EPW Files (*.epw);; All Files (*.*)");
+  QString fileTypes(tr("EPW Files (*.epw);; All Files (*.*)"));
 
   QString lastPath = m_lastEpwPathOpened;
   if (lastPath.isEmpty() && m_lastDdyPathOpened.isEmpty()) {
@@ -540,7 +540,7 @@ void LocationView::onWeatherFileBtnClicked() {
     lastPath = path.replace(".ddy", ".epw");
   }
 
-  QString fileName = QFileDialog::getOpenFileName(this, "Open Weather File", lastPath, fileTypes);
+  QString fileName = QFileDialog::getOpenFileName(this, tr("Open Weather File"), lastPath, fileTypes);
   if (!fileName.isEmpty()) {
 
     openstudio::path epwPath = toPath(fileName);
@@ -626,7 +626,7 @@ void LocationView::onWeatherFileBtnClicked() {
 
       openstudio::filesystem::remove_all(newPath);
 
-      QMessageBox box(QMessageBox::Warning, "Failed To Set Weather File", QString("Failed To Set Weather File To ") + fileName, QMessageBox::Ok);
+      QMessageBox box(QMessageBox::Warning, tr("Failed To Set Weather File"), tr("Failed To Set Weather File To ") + fileName, QMessageBox::Ok);
       box.setDetailedText(toQString(ss.string()));
       box.exec();
 
@@ -659,7 +659,7 @@ void LocationView::onDesignDayBtnClicked() {
     lastPath = path.replace(".epw", ".ddy");
   }
 
-  QString fileName = QFileDialog::getOpenFileName(this, "Open DDY File", lastPath, fileTypes);
+  QString fileName = QFileDialog::getOpenFileName(this, tr("Open DDY File"), lastPath, fileTypes);
   if (!fileName.isEmpty()) {
 
     boost::optional<IdfFile> ddyIdfFile = openstudio::IdfFile::load(toPath(fileName));
@@ -752,8 +752,8 @@ void LocationView::onDesignDayBtnClicked() {
 
 void LocationView::checkNumDesignDays() {
   if (m_model.getModelObjects<model::SizingPeriod>().empty()) {
-    QMessageBox box(QMessageBox::Warning, "No Design Days in DDY File",
-                    "This DDY file does not contain any valid design days.  Check the DDY file itself for errors or omissions.", QMessageBox::Ok);
+    QMessageBox box(QMessageBox::Warning, tr("No Design Days in DDY File"),
+                    tr("This DDY file does not contain any valid design days.  Check the DDY file itself for errors or omissions."), QMessageBox::Ok);
     box.exec();
   }
 }
@@ -781,7 +781,8 @@ void LocationView::setCalendarYear(int year) {
 void LocationView::setFirstDayofYear(const QString& firstDayofYear) {
   m_yearDescription->resetCalendarYear();
 
-  m_yearDescription->setDayofWeekforStartDay(firstDayofYear.toStdString());
+  auto idx = YearSettingsWidget::validDayofWeekforStartDay().indexOf(firstDayofYear);
+  m_yearDescription->setDayofWeekforStartDay(model::YearDescription::validDayofWeekforStartDayValues()[idx]);
 
   emit calendarYearSelectionChanged();
 }

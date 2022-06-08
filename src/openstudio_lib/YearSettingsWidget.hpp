@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2022, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -62,15 +62,17 @@ class YearSettingsWidget
   static const int LASTYEAR;
 
   // A list of the weeks in the month.  1st, 2nd, 3rd, 4th, Last
-  static std::vector<std::string> weeksInMonth();
+  static QStringList weeksInMonth();
 
   // A list of the days in the week.  Monday, Tuesday...
-  static std::vector<std::string> daysOfWeek();
+  static QStringList daysOfWeek();
 
   // A list of the months.
-  static std::vector<std::string> months();
+  static QStringList months();
 
-  YearSettingsWidget(const model::Model& model, QWidget* parent = nullptr);
+  static QStringList validDayofWeekforStartDay();
+
+  explicit YearSettingsWidget(const model::Model& model, QWidget* parent = nullptr);
 
   bool calendarYearChecked();
 

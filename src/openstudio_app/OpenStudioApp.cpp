@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2022, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -133,11 +133,13 @@
 #include <QtConcurrent>
 #include <QtGlobal>
 #include <QSettings>
+#include <QTranslator>
 
 #include <openstudio/OpenStudio.hxx>
 #include <openstudio/utilities/idd/IddEnums.hxx>
 #include <sstream>
 #include <cstdlib>
+#include <memory>
 
 using namespace openstudio::model;
 
@@ -154,7 +156,7 @@ bool TouchEater::eventFilter(QObject* obj, QEvent* event) {
 
 OpenStudioApp::OpenStudioApp(int& argc, char** argv)
   : OSAppBase(argc, argv, QSharedPointer<MeasureManager>(new MeasureManager(this))), m_measureManagerProcess(nullptr) {
-  setOrganizationName("OpenStudio Coalition");
+  setOrganizationName("OpenStudioCoalition");
   QCoreApplication::setOrganizationDomain("openstudiocoalition.org");
   setApplicationName("OpenStudioApp");
 
@@ -166,6 +168,9 @@ OpenStudioApp::OpenStudioApp(int& argc, char** argv)
   QCoreApplication::setAttribute(Qt::AA_DontUseNativeMenuBar, true);
 
   readSettings();
+
+  // Need to set the first translator early on
+  switchLanguage(m_currLang);
 
   QFile f(":/library/OpenStudioPolicy.xml");
   if (f.open(QIODevice::ReadOnly)) {
@@ -189,43 +194,44 @@ OpenStudioApp::OpenStudioApp(int& argc, char** argv)
 #ifdef Q_OS_DARWIN
   std::stringstream webenginePath;
   webenginePath << QCoreApplication::applicationDirPath().toStdString();
-  webenginePath << "/../Frameworks/QtWebEngineCore.framework/Versions/5/Helpers/QtWebEngineProcess.app/Contents/MacOS/QtWebEngineProcess";
+  webenginePath << "/../Frameworks/QtWebEngineCore.framework/Versions/A/Helpers/QtWebEngineProcess.app/Contents/MacOS/QtWebEngineProcess";
   if (filesystem::exists(filesystem::path(webenginePath.str()))) {
     setenv("QTWEBENGINEPROCESS_PATH", webenginePath.str().c_str(), true);
   }
 
   setQuitOnLastWindowClosed(false);
 
-  m_startupMenu = std::shared_ptr<StartupMenu>(new StartupMenu());
+  m_startupMenu = std::make_shared<StartupMenu>();
   connect(m_startupMenu.get(), &StartupMenu::exitClicked, this, &OpenStudioApp::quit, Qt::QueuedConnection);
-  connect(m_startupMenu.get(), &StartupMenu::importClicked, this, &OpenStudioApp::importIdf);
-  connect(m_startupMenu.get(), &StartupMenu::importgbXMLClicked, this, &OpenStudioApp::importgbXML);
-  connect(m_startupMenu.get(), &StartupMenu::importSDDClicked, this, &OpenStudioApp::importSDD);
-  connect(m_startupMenu.get(), &StartupMenu::importIFCClicked, this, &OpenStudioApp::importIFC);
-  connect(m_startupMenu.get(), &StartupMenu::loadFileClicked, this, &OpenStudioApp::open);
-  connect(m_startupMenu.get(), &StartupMenu::newClicked, this, &OpenStudioApp::newModel);
+  connect(m_startupMenu.get(), &StartupMenu::importClicked, this, &OpenStudioApp::importIdf, Qt::QueuedConnection);
+  connect(m_startupMenu.get(), &StartupMenu::importgbXMLClicked, this, &OpenStudioApp::importgbXML, Qt::QueuedConnection);
+  connect(m_startupMenu.get(), &StartupMenu::importSDDClicked, this, &OpenStudioApp::importSDD, Qt::QueuedConnection);
+  connect(m_startupMenu.get(), &StartupMenu::importIFCClicked, this, &OpenStudioApp::importIFC, Qt::QueuedConnection);
+  connect(m_startupMenu.get(), &StartupMenu::loadFileClicked, this, &OpenStudioApp::open, Qt::QueuedConnection);
+  connect(m_startupMenu.get(), &StartupMenu::newClicked, this, &OpenStudioApp::newModel, Qt::QueuedConnection);
   connect(m_startupMenu.get(), &StartupMenu::helpClicked, this, &OpenStudioApp::showHelp);
   connect(m_startupMenu.get(), &StartupMenu::checkForUpdateClicked, this, &OpenStudioApp::checkForUpdate);
   connect(m_startupMenu.get(), &StartupMenu::aboutClicked, this, &OpenStudioApp::showAbout);
 #endif
 
-  waitDialog()->show();
-
-  // We are using the wait dialog to lock out the app so
-  // use processEvents to make sure the dialog is up before we
-  // proceed to startMeasureManagerProcess
-  processEvents();
+  auto waitDialog = this->waitDialog();
+  connect(this, &OpenStudioApp::updateWaitDialog, waitDialog.get(), &WaitDialog::setLine, Qt::QueuedConnection);
+  connect(this, &OpenStudioApp::resetWaitDialog, waitDialog.get(), &WaitDialog::resetLabels, Qt::QueuedConnection);
+  waitDialog->show();
+  emit resetWaitDialog();
 
   // Non blocking
   startMeasureManagerProcess();
 
-  auto waitForMeasureManagerFuture = QtConcurrent::run(&measureManager(), &MeasureManager::waitForStarted, 10000);
-  m_waitForMeasureManagerWatcher.setFuture(waitForMeasureManagerFuture);
+  connect(&m_changeLibrariesWatcher, &QFutureWatcher<std::vector<std::string>>::finished, this, &OpenStudioApp::onChangeDefaultLibrariesDone);
   connect(&m_waitForMeasureManagerWatcher, &QFutureWatcher<void>::finished, this, &OpenStudioApp::onMeasureManagerAndLibraryReady);
-
-  auto buildCompLibrariesFuture = QtConcurrent::run(this, &OpenStudioApp::buildCompLibraries);
-  m_buildCompLibWatcher.setFuture(buildCompLibrariesFuture);
   connect(&m_buildCompLibWatcher, &QFutureWatcher<std::vector<std::string>>::finished, this, &OpenStudioApp::onMeasureManagerAndLibraryReady);
+
+  auto waitForMeasureManagerFuture = QtConcurrent::run(&MeasureManager::waitForStarted, &measureManager(), 10000);
+  m_waitForMeasureManagerWatcher.setFuture(waitForMeasureManagerFuture);
+
+  auto buildCompLibrariesFuture = QtConcurrent::run(&OpenStudioApp::buildCompLibraries, this);
+  m_buildCompLibWatcher.setFuture(buildCompLibrariesFuture);
 }
 
 OpenStudioApp::~OpenStudioApp() {
@@ -250,9 +256,9 @@ void OpenStudioApp::onMeasureManagerAndLibraryReady() {
       while (!measureManager().isStarted()) {
         LOG(Fatal, "Failed to start the Measure Manager on try " << currentTry << ", timeout reached.");
         QMessageBox msgBox;
-        msgBox.setWindowTitle("Timeout");
+        msgBox.setWindowTitle(tr("Timeout"));
         msgBox.setIcon(QMessageBox::Critical);
-        msgBox.setText("Failed to start the Measure Manager. Would you like to retry?");
+        msgBox.setText(tr("Failed to start the Measure Manager. Would you like to retry?"));
         msgBox.setStandardButtons(QMessageBox::Retry | QMessageBox::Close);
         if (msgBox.exec() == QMessageBox::Close) {
           LOG_AND_THROW("Exit after measure manager failed to start in given time.");
@@ -288,7 +294,7 @@ void OpenStudioApp::onMeasureManagerAndLibraryReady() {
 
         disconnectOSDocumentSignals();
 
-        m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), model, fileName, false, startTabIndex()));
+        m_osDocument = std::make_shared<OSDocument>(componentLibrary(), resourcesPath(), model, fileName, false, startTabIndex());
 
         connectOSDocumentSignals();
 
@@ -356,12 +362,10 @@ bool OpenStudioApp::openFile(const QString& fileName, bool restoreTabs) {
       // I tried to show it visible in the begining of the method, but it isn't displayed correctly:
       // transparent + hidden by Filedialog which isn't closed yet.
       waitDialog()->setVisible(true);
+      emit resetWaitDialog();
       processEvents();
 
-      disconnectOSDocumentSignals();
-
-      m_osDocument =
-        std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), model, fileName, false, startTabIndex, startSubTabIndex));
+      m_osDocument = std::make_shared<OSDocument>(componentLibrary(), resourcesPath(), model, fileName, false, startTabIndex, startSubTabIndex);
 
       connectOSDocumentSignals();
 
@@ -391,8 +395,8 @@ std::vector<std::string> OpenStudioApp::buildCompLibraries() {
   //}
 
   // Get the first Qlabel waitDialog (0 = stretch, 1 = "Loading model", 2 = "This may take a minute...", 3=hidden lable,   = stretch)
-  waitDialog()->m_firstLine->setText("Loading Library Files");
-  waitDialog()->m_secondLine->setText("(Manage library files in Preferences->Change default libraries)");
+  emit updateWaitDialog(1, tr("Loading Library Files"));
+  emit updateWaitDialog(2, tr("(Manage library files in Preferences->Change default libraries)"));
 
   // DLM: this was causing a crash because waitDialog is created on the main thread but this is called on the wait thread.
   // Because this is just the wait dialog let's just keep the line always visible.
@@ -409,12 +413,13 @@ std::vector<std::string> OpenStudioApp::buildCompLibraries() {
       if (exists(path)) {
         boost::optional<VersionString> version = openstudio::IdfFile::loadVersionOnly(path);
         if (version) {
-          waitDialog()->m_thirdLine->setText(QString::fromStdString("Translation From version " + version->str() + " to " + thisVersion + ": "));
+          emit updateWaitDialog(3, tr("Translation From version ") + QString::fromStdString(version->str()) + tr(" to ")
+                                     + QString::fromStdString(thisVersion) + ": ");
         } else {
-          waitDialog()->m_thirdLine->setText("Unknown starting version");
+          emit updateWaitDialog(3, tr("Unknown starting version"));
         }
 
-        waitDialog()->m_fourthLine->setText(toQString(path));
+        emit updateWaitDialog(4, toQString(path));
 
         osversion::VersionTranslator versionTranslator;
         versionTranslator.setAllowNewerVersions(false);
@@ -434,7 +439,7 @@ std::vector<std::string> OpenStudioApp::buildCompLibraries() {
   }
 
   // Reset all labels
-  waitDialog()->resetLabels();
+  //emit resetWaitDialog();
 
   return failed;
 }
@@ -468,7 +473,7 @@ void OpenStudioApp::newFromEmptyTemplateSlot() {
 void OpenStudioApp::newFromTemplateSlot(NewFromTemplateEnum newFromTemplateEnum) {
   disconnectOSDocumentSignals();
 
-  m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), boost::none, QString(), false, startTabIndex()));
+  m_osDocument = std::make_shared<OSDocument>(componentLibrary(), resourcesPath(), boost::none, QString(), false, startTabIndex());
 
   connectOSDocumentSignals();
 
@@ -517,29 +522,28 @@ void OpenStudioApp::importIdf() {
           informativeText = QString("The IDF is at version '") + toQString(idfFileVersion->str());
 
           if (idfFileVersion.get() < currentVersion) {
-            informativeText.append(QString("' while OpenStudio uses a <strong>newer</strong> EnergyPlus '") + toQString(currentVersion.str())
-                                   + QString("'. Consider using the EnergyPlus Auxiliary program IDFVersionUpdater to update your IDF file."));
+            informativeText.append(tr("' while OpenStudio uses a <strong>newer</strong> EnergyPlus '") + toQString(currentVersion.str())
+                                   + tr("'. Consider using the EnergyPlus Auxiliary program IDFVersionUpdater to update your IDF file."));
           } else if (idfFileVersion.get() > currentVersion) {
-            informativeText.append(QString("' while OpenStudio uses an <strong>older</strong> EnergyPlus '") + toQString(currentVersion.str())
-                                   + QString("'."));
+            informativeText.append(tr("' while OpenStudio uses an <strong>older</strong> EnergyPlus '") + toQString(currentVersion.str()) + tr("'."));
           } else {
-            informativeText.append(QString("' which is the <strong>same</strong> version of EnergyPlus that OpenStudio uses (")
+            informativeText.append(tr("' which is the <strong>same</strong> version of EnergyPlus that OpenStudio uses (")
                                    + toQString(currentVersion.str()) + QString(")."));
           }
         } else {
-          informativeText = QString("<strong>The IDF does not have a VersionObject</strong>. Check that it is of correct version (")
-                            + toQString(currentVersion.str()) + QString(") and that all fields are valid against Energy+.idd. ");
+          informativeText = tr("<strong>The IDF does not have a VersionObject</strong>. Check that it is of correct version (")
+                            + toQString(currentVersion.str()) + tr(") and that all fields are valid against Energy+.idd. ");
         }
 
-        informativeText.append("<br/><br/>The ValidityReport follows.");
+        informativeText.append(tr("<br/><br/>The ValidityReport follows."));
 
-        QString text("<strong>File is not valid to draft strictness</strong>. Check that all fields are valid against Energy+.idd.");
+        QString text = tr("<strong>File is not valid to draft strictness</strong>. Check that all fields are valid against Energy+.idd.");
 
         //QMessageBox messageBox(parent);
         //messageBox.setText(text);
 
         // Customize with title and critical icon
-        QMessageBox messageBox(QMessageBox::Critical, " IDF Import Failed", text, QMessageBox::NoButton, parent,
+        QMessageBox messageBox(QMessageBox::Critical, tr(" IDF Import Failed"), text, QMessageBox::NoButton, parent,
                                Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
 
         messageBox.setInformativeText(informativeText);
@@ -567,9 +571,7 @@ void OpenStudioApp::importIdf() {
           processEvents();
         }
 
-        disconnectOSDocumentSignals();
-
-        m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), model, QString(), false, startTabIndex()));
+        m_osDocument = std::make_shared<OSDocument>(componentLibrary(), resourcesPath(), model, QString(), false, startTabIndex());
         m_osDocument->markAsModified();
         // ETH: parent should change now ...
         //parent = m_osDocument->mainWindow();
@@ -616,7 +618,7 @@ void OpenStudioApp::importIdf() {
  */
 
         if (!trans.errors().empty()) {
-          log.append("=============== Errors ===============\n\n");
+          log.append(tr("=============== Errors ===============\n\n"));
           for (const auto& message : trans.errors()) {
             log.append(" * " + QString::fromStdString(message.logMessage()) + "\n");
           }
@@ -624,7 +626,7 @@ void OpenStudioApp::importIdf() {
         }
 
         if (!trans.warnings().empty()) {
-          log.append("============== Warnings ==============\n\n");
+          log.append(tr("============== Warnings ==============\n\n"));
           for (const auto& message : trans.warnings()) {
             log.append(" * " + QString::fromStdString(message.logMessage()) + "\n");
           }
@@ -632,29 +634,29 @@ void OpenStudioApp::importIdf() {
         }
 
         if (!trans.untranslatedIdfObjects().empty()) {
-          log.append("==== The following idf objects were not imported ====\n\n");
+          log.append(tr("==== The following idf objects were not imported ====\n\n"));
 
           for (const auto& idfObject : trans.untranslatedIdfObjects()) {
-            std::string message;
+            QString message;
             if (auto name = idfObject.name()) {
-              message = idfObject.iddObject().name() + " named " + name.get();
+              message = toQString(idfObject.iddObject().name()) + tr(" named ") + toQString(name.get());
             } else {
-              message = "Unnamed " + idfObject.iddObject().name();
+              message = tr("Unnamed ") + toQString(idfObject.iddObject().name());
             }
-            log.append(" * " + QString::fromStdString(message) + "\n");
+            log.append(" * " + message + "\n");
           }
         }
 
-        QString text("<strong>Some portions of the IDF file were not imported.</strong>");
+        QString text = tr("<strong>Some portions of the IDF file were not imported.</strong>");
 
         // QMessageBox messageBox; // (parent); ETH: ... but is hidden, so don't actually use
         // messageBox.setText(text);
 
         // Passing parent = nullptr on purpose here
-        QMessageBox messageBox(QMessageBox::Warning, "IDF Import", text, QMessageBox::NoButton, nullptr,
+        QMessageBox messageBox(QMessageBox::Warning, tr("IDF Import"), text, QMessageBox::NoButton, nullptr,
                                Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
         messageBox.setInformativeText(
-          "Only geometry, constructions, loads, thermal zones, and schedules are supported by the OpenStudio IDF import feature.");
+          tr("Only geometry, constructions, loads, thermal zones, and schedules are supported by the OpenStudio IDF import feature."));
         messageBox.setDetailedText(log);
 
         messageBox.exec();
@@ -695,9 +697,7 @@ void OpenStudioApp::importIFC() {
       processEvents();
     }
 
-    disconnectOSDocumentSignals();
-
-    m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), *model, QString(), false, startTabIndex()));
+    m_osDocument = std::make_shared<OSDocument>(componentLibrary(), resourcesPath(), *model, QString(), false, startTabIndex());
 
     m_osDocument->markAsModified();
 
@@ -721,7 +721,7 @@ void OpenStudioApp::import(OpenStudioApp::fileType type) {
     // should never get here
     OS_ASSERT(false);
   }
-  QString text("Import ");
+  QString text = tr("Import ");
   text.append(fileExtension);
 
   if (this->currentDocument()) {
@@ -759,9 +759,7 @@ void OpenStudioApp::import(OpenStudioApp::fileType type) {
         processEvents();
       }
 
-      disconnectOSDocumentSignals();
-
-      m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), *model, QString(), false, startTabIndex()));
+      m_osDocument = std::make_shared<OSDocument>(componentLibrary(), resourcesPath(), *model, QString(), false, startTabIndex());
       m_osDocument->markAsModified();
       // ETH: parent should change now ...
       //parent = m_osDocument->mainWindow();
@@ -790,7 +788,7 @@ void OpenStudioApp::import(OpenStudioApp::fileType type) {
 
       if (errorsOrWarnings) {
         QMessageBox messageBox;  // (parent); ETH: ... but is hidden, so don't actually use
-        messageBox.setText("Errors or warnings occurred on " + fileExtension + " import.");
+        messageBox.setText(tr("Errors or warnings occurred on import of ") + fileExtension);
         messageBox.setDetailedText(log);
         messageBox.exec();
       }
@@ -800,9 +798,9 @@ void OpenStudioApp::import(OpenStudioApp::fileType type) {
     } else {
 
       QMessageBox messageBox;  // (parent); ETH: ... but is hidden, so don't actually use
-      messageBox.setText("Could not import SDD file.");
+      messageBox.setText(tr("Could not import SDD file."));
 
-      QString log("Could not import " + fileExtension + " file at " + fileName + ".\n\n");
+      QString log(tr("Could not import ") + fileExtension + tr(" file at ") + fileName + ".\n\n");
 
       for (const auto& error : translatorErrors) {
         log.append(QString::fromStdString(error.logMessage()));
@@ -827,14 +825,14 @@ bool OpenStudioApp::openFromDrag(QString path) {
 }
 
 bool OpenStudioApp::closeDocument() {
+  QWidget* parent_mainWindow = m_osDocument->mainWindow();
   if (m_osDocument->modified()) {
-    QWidget* parent = m_osDocument->mainWindow();
 
-    auto messageBox = new QMessageBox(parent);
+    auto* messageBox = new QMessageBox(parent_mainWindow);
 
-    messageBox->setWindowTitle("Save Changes?");
-    messageBox->setText("The document has been modified.");
-    messageBox->setInformativeText("Do you want to save your changes?");
+    messageBox->setWindowTitle(tr("Save Changes?"));
+    messageBox->setText(tr("The document has been modified."));
+    messageBox->setInformativeText(tr("Do you want to save your changes?"));
 
     messageBox->setStandardButtons(QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel);
     messageBox->setDefaultButton(QMessageBox::Save);
@@ -848,37 +846,38 @@ bool OpenStudioApp::closeDocument() {
 
     delete messageBox;
 
-    switch (ret) {
-      case QMessageBox::Save:
+    if (ret == QMessageBox::Save) {
+      // Save was clicked
+      m_osDocument->save();
+      parent_mainWindow->hide();
+      disconnectOSDocumentSignals();
+      processEvents();
+      m_osDocument.reset();
+      return true;
 
-        // Save was clicked
-        m_osDocument->save();
-        m_osDocument->mainWindow()->hide();
-        m_osDocument = std::shared_ptr<OSDocument>();
-        return true;
+    } else if (ret == QMessageBox::Discard) {
+      // Don't Save was clicked
+      parent_mainWindow->hide();
+      disconnectOSDocumentSignals();
+      processEvents();
+      m_osDocument.reset();
+      return true;
 
-      case QMessageBox::Discard:
+    } else if (ret == QMessageBox::Cancel) {
+      // Cancel was clicked
+      parent_mainWindow->activateWindow();
+      return false;
 
-        // Don't Save was clicked
-        m_osDocument->mainWindow()->hide();
-        m_osDocument = std::shared_ptr<OSDocument>();
-        return true;
-
-      case QMessageBox::Cancel:
-
-        // Cancel was clicked
-        m_osDocument->mainWindow()->activateWindow();
-        return false;
-
-      default:
-
-        // should never be reached
-        return false;
+    } else {
+      // should never be reached
+      return false;
     }
 
   } else {
     m_osDocument->mainWindow()->hide();
-    m_osDocument = std::shared_ptr<OSDocument>();
+    disconnectOSDocumentSignals();
+    processEvents();
+    m_osDocument.reset();
 
     return true;
   }
@@ -909,7 +908,7 @@ void OpenStudioApp::open() {
   openFile(fileName);
 
   // Reset the labels
-  waitDialog()->resetLabels();
+  emit resetWaitDialog();
 }
 
 void OpenStudioApp::newModel() {
@@ -940,7 +939,7 @@ void OpenStudioApp::newModel() {
 }
 
 void OpenStudioApp::showHelp() {
-  QDesktopServices::openUrl(QUrl("http:/openstudiocoalition.org/reference/openstudio_application_interface/"));
+  QDesktopServices::openUrl(QUrl("https://openstudiocoalition.org/reference/openstudio_application_interface/"));
 }
 
 void OpenStudioApp::checkForUpdate() {
@@ -962,7 +961,7 @@ void OpenStudioApp::checkForUpdate() {
     openURL = true;
     buttons = QMessageBox::Open | QMessageBox::Ignore;
   } else {
-    text = "Currently using the most recent version";
+    text = tr("Currently using the most recent version");
     buttons = QMessageBox::Ok;
   }
 
@@ -970,7 +969,7 @@ void OpenStudioApp::checkForUpdate() {
   about.setStandardButtons(buttons);
   about.setTextFormat(Qt::RichText);
   about.setText(text);
-  about.setWindowTitle("Check for Updates");
+  about.setWindowTitle(tr("Check for Updates"));
   about.exec();
 
   if (openURL && (about.result() == QMessageBox::Open)) {
@@ -984,9 +983,9 @@ void OpenStudioApp::showAbout() {
   if (currentDocument()) {
     parent = currentDocument()->mainWindow();
   }
-  QString details = "Measure Manager Server: " + measureManager().url().toString() + "\n";
-  details += "Chrome Debugger: http://localhost:" + qgetenv("QTWEBENGINE_REMOTE_DEBUGGING") + "\n";
-  details += "Temp Directory: " + currentDocument()->modelTempDir();
+  QString details = tr("Measure Manager Server: ") + measureManager().url().toString() + "\n";
+  details += tr("Chrome Debugger: http://localhost:") + qgetenv("QTWEBENGINE_REMOTE_DEBUGGING") + "\n";
+  details += tr("Temp Directory: ") + currentDocument()->modelTempDir();
   QMessageBox about(parent);
   about.setText(OPENSTUDIOAPP_ABOUTBOX);
   about.setDetailedText(details);
@@ -1025,7 +1024,7 @@ void OpenStudioApp::reloadFile(const QString& osmPath, bool modified, bool saveC
     this->setQuitOnLastWindowClosed(wasQuitOnLastWindowClosed);
 
   } else {
-    QMessageBox::warning(m_osDocument->mainWindow(), QString("Failed to load model"), QString("Failed to load model"));
+    QMessageBox::warning(m_osDocument->mainWindow(), tr("Failed to load model"), tr("Failed to load model"));
   }
 
   processEvents();
@@ -1131,9 +1130,9 @@ void OpenStudioApp::versionUpdateMessageBox(const osversion::VersionTranslator& 
       QString message;
       if (versionChanged) {
         if (originalVersion > currentVersion) {
-          message = toQString("Opening future version " + originalVersion.str() + " using " + currentVersion.str() + ".");
+          message = tr("Opening future version ") + toQString(originalVersion.str()) + tr(" using ") + toQString(currentVersion.str()) + ".";
         } else {
-          message = toQString("Model updated from " + originalVersion.str() + " to " + currentVersion.str() + ".");
+          message = tr("Model updated from ") + toQString(originalVersion.str()) + tr(" to ") + toQString(currentVersion.str()) + ".";
         }
       }
 
@@ -1142,14 +1141,14 @@ void OpenStudioApp::versionUpdateMessageBox(const osversion::VersionTranslator& 
           message += "\n\n";
         }
 
-        message += "Existing Ruby scripts have been removed.\nRuby scripts are no longer supported and have been replaced by measures.";
+        message += tr("Existing Ruby scripts have been removed.\nRuby scripts are no longer supported and have been replaced by measures.");
       }
 
       messageBox.setText(message);
       messageBox.exec();
     }
   } else {
-    messageBox.setText(QString("Failed to open file at ") + fileName + QString("."));
+    messageBox.setText(tr("Failed to open file at ") + fileName + QString("."));
     messageBox.exec();
   }
 }
@@ -1160,6 +1159,11 @@ void OpenStudioApp::readSettings() {
   QSettings settings(organizationName, applicationName);
   setLastPath(settings.value("lastPath", QDir::homePath()).toString());
   setDviewPath(openstudio::toPath(settings.value("dviewPath", "").toString()));
+  m_currLang = settings.value("language", "en").toString();
+  LOG_FREE(Debug, "OpenStudioApp", "\n\n\nm_currLang=[" << m_currLang.toStdString() << "]\n\n\n");
+  if (m_currLang.isEmpty()) {
+    m_currLang = "en";
+  }
 }
 
 void OpenStudioApp::writeSettings() {
@@ -1189,12 +1193,11 @@ void OpenStudioApp::revertToSaved() {
   if (!testFile.exists()) {
     // Tell the user the file has never been saved, and ask them if they want to create a new file
     QMessageBox::StandardButton reply;
-    reply =
-      QMessageBox::question(mainWidget(), QString("Revert to Saved"), QString("This model has never been saved.\nDo you want to create a new model?"),
-                            QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
+    reply = QMessageBox::question(mainWidget(), tr("Revert to Saved"), tr("This model has never been saved.\nDo you want to create a new model?"),
+                                  QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
     if (reply == QMessageBox::Yes) {
       // JM: copied DLM's hack below so we do not trigger prompt to save in call to closeDocument during newModel()
-      // this->currentDocument()->markAsUnmodified();
+      this->currentDocument()->markAsUnmodified();
 
       newModel();
     }
@@ -1202,7 +1205,7 @@ void OpenStudioApp::revertToSaved() {
   } else {
     // Ask for confirmation
     QMessageBox::StandardButton reply;
-    reply = QMessageBox::question(mainWidget(), QString("Revert to Saved"), QString("Are you sure you want to revert to the last saved version?"),
+    reply = QMessageBox::question(mainWidget(), tr("Revert to Saved"), tr("Are you sure you want to revert to the last saved version?"),
                                   QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
     if (reply == QMessageBox::Yes) {
       // DLM: quick hack so we do not trigger prompt to save in call to closeDocument during openFile
@@ -1225,6 +1228,7 @@ void OpenStudioApp::connectOSDocumentSignals() {
   connect(m_osDocument.get(), &OSDocument::osmDropped, this, &OpenStudioApp::openFromDrag);
   connect(m_osDocument.get(), &OSDocument::changeDefaultLibrariesClicked, this, &OpenStudioApp::changeDefaultLibraries);
   connect(m_osDocument.get(), &OSDocument::configureExternalToolsClicked, this, &OpenStudioApp::configureExternalTools);
+  connect(m_osDocument.get(), &OSDocument::changeLanguageClicked, this, &OpenStudioApp::changeLanguage);
   connect(m_osDocument.get(), &OSDocument::loadLibraryClicked, this, &OpenStudioApp::loadLibrary);
   connect(m_osDocument.get(), &OSDocument::loadExampleModelClicked, this, &OpenStudioApp::loadExampleModel);
   connect(m_osDocument.get(), &OSDocument::newClicked, this, &OpenStudioApp::newModel);
@@ -1265,11 +1269,11 @@ void OpenStudioApp::measureManagerProcessFinished() {
   QByteArray stdErr = m_measureManagerProcess->readAllStandardError();
   QByteArray stdOut = m_measureManagerProcess->readAllStandardOutput();
 
-  QString message = "Measure Manager has crashed, attempting to restart\n\n";
+  QString message = tr("Measure Manager has crashed, attempting to restart\n\n");
   message += stdErr;
   message += stdOut;
 
-  QMessageBox::warning(nullptr, QString("Measure Manager has crashed"), message);
+  QMessageBox::warning(nullptr, tr("Measure Manager has crashed"), message);
 
   startMeasureManagerProcess();
 }
@@ -1315,7 +1319,7 @@ void OpenStudioApp::startMeasureManagerProcess() {
   m_measureManagerProcess->start(program, arguments);
 }
 
-void OpenStudioApp::writeLibraryPaths(std::vector<openstudio::path> paths) {
+void OpenStudioApp::writeLibraryPaths(const std::vector<openstudio::path>& paths) {
 
   auto defaultPaths = defaultLibraryPaths();
 
@@ -1399,6 +1403,82 @@ int OpenStudioApp::startTabIndex() const {
   return result;
 }
 
+void OpenStudioApp::changeLanguage(const QString& rLanguage) {
+  qDebug() << "Trying to change language from '" << m_currLang << "' to '" << rLanguage << "'.";
+  if (m_currLang != rLanguage) {
+    switchLanguage(rLanguage);
+
+    QMessageBox::StandardButton reply;
+    reply = QMessageBox::question(
+      mainWidget(), tr("Restart required"),
+      tr("A restart of the OpenStudio Application is required for language changes to be fully functionnal.\nWould you like to restart now?"),
+      QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
+    if (reply == QMessageBox::Yes) {
+      revertToSaved();
+    }
+  }
+}
+
+bool OpenStudioApp::switchLanguage(const QString& rLanguage) {
+
+  qDebug() << "Trying to change language from '" << m_currLang << "' to '" << rLanguage << "'.";
+  m_currLang = rLanguage;
+  QLocale loc = QLocale(m_currLang);
+  QLocale::setDefault(loc);
+  // QString languageName = QLocale::languageToString(loc.language());
+
+  this->removeTranslator(&m_qtTranslator);
+  QString translationFolder = QLibraryInfo::path(QLibraryInfo::TranslationsPath);
+  qDebug() << "translationFolder=" << translationFolder;
+  if (m_qtTranslator.load(loc, QLatin1String("qt"), QLatin1String("_"), translationFolder)) {
+    qDebug() << "m_qtTranslator ok";
+    this->installTranslator(&m_qtTranslator);
+  } else {
+    qDebug() << "m_qtTranslator not ok for m_currLang=" << m_currLang;
+  }
+
+  this->removeTranslator(&m_qtBaseTranslator);
+  if (m_qtBaseTranslator.load(loc, QLatin1String("qtbase"), QLatin1String("_"), translationFolder)) {
+    qDebug() << "m_qtBaseTranslator ok";
+    this->installTranslator(&m_qtBaseTranslator);
+  } else if (m_currLang == "zh_CN") {
+    // For some reason, zh_CN doesn't exist for qt_base but zh_TW does. Using that...
+    QLocale loc2("zh_TW");
+    if (m_qtBaseTranslator.load(loc2, QLatin1String("qtbase"), QLatin1String("_"), translationFolder)) {
+      qDebug() << "m_qtBaseTranslator ok, with alternative zh_TW";
+    } else {
+      qDebug() << "m_qtBaseTranslator not ok for m_currLang=" << m_currLang << ", tried zh_TW too but it failed";
+    }
+
+  } else {
+    qDebug() << "m_qtBaseTranslator not ok for m_currLang=" << m_currLang;
+  }
+
+  // remove the old translator
+  this->removeTranslator(&m_translator);
+
+  if (m_translator.load(loc, QLatin1String("OpenStudioApp"), QLatin1String("_"), translationFolder)) {
+    qDebug() << "\n\n\nINSTALLING lang = " << QLocale::languageToString(loc.language()) << "\n\n\n";
+
+    this->installTranslator(&m_translator);
+  } else {
+    if (m_currLang != "en") {
+      qDebug() << "\n\n\nFAILED TO INSTALL TRANSLATOR for lang = " << QLocale::languageToString(loc.language()) << "\n\n\n";
+      return false;
+    } else {
+      qDebug() << "\n\n\nNO TRANSLATOR NEEDED for lang = " << QLocale::languageToString(loc.language()) << "\n\n\n";
+    }
+  }
+
+  if (m_currLang == QString("fa")) {
+    // Force Right to Left display. This is not done automatically like in Arabic because qt itself isn't translated (no qt_fa.qm / qt_base_fa.qm)
+    qDebug() << "Forcing RightToLeft";
+    this->setLayoutDirection(Qt::RightToLeft);
+  }
+
+  return true;
+}
+
 void OpenStudioApp::loadLibrary() {
   if (this->currentDocument()) {
     QWidget* parent = this->currentDocument()->mainWindow();
@@ -1417,9 +1497,8 @@ void OpenStudioApp::loadLibrary() {
         paths.push_back(path);
         writeLibraryPaths(paths);
 
-        auto future = QtConcurrent::run(this, &OpenStudioApp::buildCompLibraries);
+        auto future = QtConcurrent::run(&OpenStudioApp::buildCompLibraries, this);
         m_changeLibrariesWatcher.setFuture(future);
-        connect(&m_changeLibrariesWatcher, &QFutureWatcher<std::vector<std::string>>::finished, this, &OpenStudioApp::onChangeDefaultLibrariesDone);
       }
     }
   }
@@ -1438,12 +1517,8 @@ void OpenStudioApp::loadExampleModel() {
     processEvents();
   }
 
-  disconnectOSDocumentSignals();
-
-  processEvents();
-
   auto model = openstudio::model::exampleModel();
-  m_osDocument = std::shared_ptr<OSDocument>(new OSDocument(componentLibrary(), resourcesPath(), model, QString(), false, startTabIndex()));
+  m_osDocument = std::make_shared<OSDocument>(componentLibrary(), resourcesPath(), model, QString(), false, startTabIndex());
 
   connectOSDocumentSignals();
 
@@ -1468,9 +1543,8 @@ void OpenStudioApp::changeDefaultLibraries() {
     writeLibraryPaths(newPaths);
 
     // Trigger actual loading of the libraries
-    auto future = QtConcurrent::run(this, &OpenStudioApp::buildCompLibraries);
+    auto future = QtConcurrent::run(&OpenStudioApp::buildCompLibraries, this);
     m_changeLibrariesWatcher.setFuture(future);
-    connect(&m_changeLibrariesWatcher, &QFutureWatcher<std::vector<std::string>>::finished, this, &OpenStudioApp::onChangeDefaultLibrariesDone);
   }
 }
 
@@ -1484,7 +1558,7 @@ void OpenStudioApp::removeLibraryFromsSettings(const openstudio::path& path) {
 
 void OpenStudioApp::showFailedLibraryDialog(const std::vector<std::string>& failedPaths) {
   if (!failedPaths.empty()) {
-    QString text("Failed to load the following libraries...\n\n");
+    QString text = tr("Failed to load the following libraries...\n\n");
     for (const auto& path : failedPaths) {
       text.append(QString::fromStdString(path));
       text.append("\n");
@@ -1492,7 +1566,7 @@ void OpenStudioApp::showFailedLibraryDialog(const std::vector<std::string>& fail
     // text.append("\n\nYou will now be able to modify the library paths or restore to the default paths");
     // QMessageBox::critical(nullptr, QString("Failed to load library"), text);
 
-    text.append("\n\nWould you like to Restore library paths to default values or Open the library settings to change them manually?");
+    text.append(tr("\n\nWould you like to Restore library paths to default values or Open the library settings to change them manually?"));
 
     QMessageBox::StandardButton reply;
     reply = QMessageBox::question(mainWidget(), QString("Failed to load library"), text, QMessageBox::RestoreDefaults | QMessageBox::Open,

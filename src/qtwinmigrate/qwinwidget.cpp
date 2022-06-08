@@ -365,3 +365,5 @@ bool QWinWidget::focusNextPrevChild(bool next) {
 
   return true;
 }
+
+#include "qwinwidget.moc"

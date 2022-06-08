@@ -267,9 +267,7 @@ class QVariant {
   Type type() const;
   const char * typeName() const;
 
-  bool operator!=( const QVariant& v) const;
   QVariant& operator=( const QVariant& variant);
-  bool operator==(const QVariant& v) const;
 
   static Type nameToType( const char* name);
   const char* typeToName( Type typ );

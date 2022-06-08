@@ -585,7 +585,6 @@
     <rule IddField="Electric Input to Cooling Output Ratio Function of Part Load Ratio Curve Name" Access="LOCKED"/>
     <rule IddField="Condenser Inlet Node Name" Access="HIDDEN"/>
     <rule IddField="Condenser Outlet Node Name" Access="HIDDEN"/>
-    <rule IddField="Design Heat Recovery Water Flow Rate" Access="HIDDEN"/>
     <rule IddField="Heat Recovery Inlet Node Name" Access="HIDDEN"/>
     <rule IddField="Heat Recovery Outlet Node Name" Access="HIDDEN"/>
     <rule IddField="Basin Heater Capacity" Access="HIDDEN"/>

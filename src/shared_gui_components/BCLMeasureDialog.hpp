@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2022, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -52,7 +52,7 @@ class BCLMeasureDialog : public OSDialog
   BCLMeasureDialog(QWidget* parent = nullptr);
 
   /// Constructor of the dialog to create a copy of an existing BCL Measure
-  BCLMeasureDialog(const BCLMeasure& bclMeasure, QWidget* parent = nullptr);
+  explicit BCLMeasureDialog(const BCLMeasure& bclMeasure, QWidget* parent = nullptr);
 
   virtual ~BCLMeasureDialog();
 

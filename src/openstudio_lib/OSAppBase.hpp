@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2022, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -79,6 +79,7 @@ class OPENSTUDIO_API OSAppBase
   virtual void downloadUpdatedBCLMeasures() override;
   virtual void openBclDlg() override;
   virtual void chooseHorizontalEditTab() override;
+  virtual void checkForRemoteBCLUpdates() override;
   virtual QSharedPointer<openstudio::EditController> editController() override;
   boost::shared_ptr<WaitDialog> waitDialog() {
     return m_waitDialog;

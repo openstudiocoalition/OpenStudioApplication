@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2022, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -60,6 +60,7 @@
 
 #include <QProcess>
 #include <QFutureWatcher>
+#include <QTranslator>
 
 #include <vector>
 #include <map>
@@ -128,6 +129,10 @@ class OpenStudioApp : public OSAppBase
 
  signals:
 
+  void updateWaitDialog(unsigned line, const QString& text);
+
+  void resetWaitDialog();
+
  public slots:
 
   void quit();
@@ -162,6 +167,8 @@ class OpenStudioApp : public OSAppBase
 
   // Checks what happened in the LibraryDialog preference panes, and calls writeLibraryPaths to set the user settings
   void changeDefaultLibraries();
+
+  void changeLanguage(const QString& rLanguage);
 
   // Checks what happened in the ExternalToolsDialog preference pane
   virtual void configureExternalTools() override;
@@ -242,7 +249,7 @@ class OpenStudioApp : public OSAppBase
    * This will ensure that even if the user has selected 'resources/90_1_2013.osm' as a library, it'll keep on working with different versions
    * of OpenStudio (it wouldn't if we stored that as an absolute path)
    */
-  void writeLibraryPaths(std::vector<openstudio::path> paths);
+  void writeLibraryPaths(const std::vector<openstudio::path>& paths);
 
   int startTabIndex() const;
 
@@ -258,6 +265,11 @@ class OpenStudioApp : public OSAppBase
 
   QString m_lastPath;
 
+  QTranslator m_translator;
+  QTranslator m_qtTranslator;
+  QTranslator m_qtBaseTranslator;
+  QString m_currLang;
+
   // Try to find DView (or DView.exe) inside the PATH env variable. Will return an *empty* path if couldn't infer it
   openstudio::path inferredDViewPath() const;
   openstudio::path m_dviewPath;
@@ -268,6 +280,8 @@ class OpenStudioApp : public OSAppBase
   QFutureWatcher<std::vector<std::string>> m_buildCompLibWatcher;
   QFutureWatcher<bool> m_waitForMeasureManagerWatcher;
   QFutureWatcher<std::vector<std::string>> m_changeLibrariesWatcher;
+
+  bool switchLanguage(const QString& rLanguage);
 };
 
 }  // namespace openstudio

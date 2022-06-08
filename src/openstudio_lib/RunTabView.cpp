@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2022, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -66,6 +66,7 @@
 
 #include "../model_editor/Application.hpp"
 #include "../model_editor/Utilities.hpp"
+#include "MainWindow.hpp"
 
 #include <QButtonGroup>
 #include <QDir>
@@ -92,6 +93,7 @@
 #include <QDesktopServices>
 #include <QTcpServer>
 #include <QTcpSocket>
+#include <QCheckBox>
 
 namespace openstudio {
 
@@ -131,19 +133,30 @@ RunView::RunView() : QWidget(), m_runSocket(nullptr) {
   progressbarlayout->addWidget(m_progressBar);
   mainLayout->addLayout(progressbarlayout, 0, 1);
 
+  auto* mainWindow = OSAppBase::instance()->currentDocument()->mainWindow();
+  bool verboseOutput = mainWindow->verboseOutput();
+  m_verboseOutputBox = new QCheckBox();
+  m_verboseOutputBox->setText("Verbose Output");
+  m_verboseOutputBox->setChecked(verboseOutput);
+  connect(m_verboseOutputBox, &QCheckBox::clicked, mainWindow, &MainWindow::toggleVerboseOutput);
+  mainLayout->addWidget(m_verboseOutputBox, 0, 2);
+
   m_openSimDirButton = new QPushButton();
   m_openSimDirButton->setText("Show Simulation");
   m_openSimDirButton->setFlat(true);
   m_openSimDirButton->setObjectName("StandardGrayButton");
   connect(m_openSimDirButton, &QPushButton::clicked, this, &RunView::onOpenSimDirClicked);
-  mainLayout->addWidget(m_openSimDirButton, 0, 2);
+  mainLayout->addWidget(m_openSimDirButton, 0, 3);
 
   m_textInfo = new QTextEdit();
   m_textInfo->setReadOnly(true);
-  mainLayout->addWidget(m_textInfo, 1, 0, 1, 3);
+  mainLayout->addWidget(m_textInfo, 1, 0, 1, 4);
 
   m_runProcess = new QProcess(this);
-  connect(m_runProcess, static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), this, &RunView::onRunProcessFinished);
+  connect(m_runProcess, &QProcess::finished, this, &RunView::onRunProcessFinished);
+  connect(m_runProcess, &QProcess::errorOccurred, this, &RunView::onRunProcessErrored);
+  connect(m_runProcess, &QProcess::readyReadStandardError, this, &RunView::readyReadStandardError);
+  connect(m_runProcess, &QProcess::readyReadStandardOutput, this, &RunView::readyReadStandardOutput);
 
   QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
 
@@ -171,17 +184,47 @@ RunView::RunView() : QWidget(), m_runSocket(nullptr) {
 
 void RunView::onOpenSimDirClicked() {
   std::shared_ptr<OSDocument> osdocument = OSAppBase::instance()->currentDocument();
-  QString url = QString::fromStdString((getCompanionFolder(toPath(osdocument->savePath())) / toPath("run")).string());
-  QUrl qurl = QUrl::fromLocalFile(url);
-  if (!QDesktopServices::openUrl(qurl)) {
+  path runDir = getCompanionFolder(toPath(osdocument->savePath())) / toPath("run");
+  QString path = QDir::toNativeSeparators(toQString(runDir));
+  if (!QDesktopServices::openUrl(QUrl::fromLocalFile(path))) {
     QMessageBox::critical(this, "Unable to open simulation", "Please save the OpenStudio Model to view the simulation.");
   }
 }
 
+void RunView::onRunProcessErrored(QProcess::ProcessError error) {
+  m_textInfo->setTextColor(Qt::red);
+  m_textInfo->setFontPointSize(18);
+  QString text = tr("onRunProcessErrored: Simulation failed to run, QProcess::ProcessError: ") + QString::number(error);
+  m_textInfo->append(text);
+}
+
 void RunView::onRunProcessFinished(int exitCode, QProcess::ExitStatus status) {
-  LOG(Debug, "run finished");
+  if (status == QProcess::NormalExit) {
+    LOG(Debug, "run finished, exit code = " << exitCode);
+  }
+
+  if (exitCode != 0 || status == QProcess::CrashExit) {
+    m_textInfo->setTextColor(Qt::red);
+    m_textInfo->setFontPointSize(18);
+    m_textInfo->append(tr("Simulation failed to run, with exit code ") + QString::number(exitCode));
+
+    //m_textInfo->setTextColor(Qt::black);
+    //m_textInfo->setFontPointSize(15);
+    //m_textInfo->append("Stderr:");
+    //m_textInfo->setFontPointSize(12);
+    //QString errorString = QString(m_runProcess->readAllStandardError());
+    //m_textInfo->append(errorString);
+
+    //m_textInfo->setFontPointSize(15);
+    //m_textInfo->append("Stdout:");
+    //m_textInfo->setFontPointSize(12);
+    //QString outString = QString(m_runProcess->readAllStandardOutput());
+    //m_textInfo->append(outString);
+  }
+
   m_playButton->setChecked(false);
   m_state = State::stopped;
+  m_progressBar->setMaximum(State::complete);
   m_progressBar->setValue(State::complete);
 
   std::shared_ptr<OSDocument> osdocument = OSAppBase::instance()->currentDocument();
@@ -219,21 +262,44 @@ void RunView::playButtonClicked(bool t_checked) {
     //auto basePath = getCompanionFolder( toPath(osdocument->savePath()) );
 
     // run in temp dir
-    auto basePath = toPath(osdocument->modelTempDir()) / toPath("resources");
+    m_basePath = toPath(osdocument->modelTempDir()) / toPath("resources");
 
-    auto workflowPath = basePath / "workflow.osw";
-    auto stdoutPath = basePath / "stdout";
-    auto stderrPath = basePath / "stderr";
+    auto workflowPath = m_basePath / "workflow.osw";
+    auto stdoutPath = m_basePath / "stdout";
+    auto stderrPath = m_basePath / "stderr";
 
     OS_ASSERT(exists(workflowPath));
 
     auto workflowJSONPath = QString::fromStdString(workflowPath.string());
-    QStringList arguments;
-    arguments << "run"
-              << "-s" << QString::number(m_runTcpServer->serverPort()) << "-w" << workflowJSONPath;
 
+    unsigned port = m_runTcpServer->serverPort();
+    m_hasSocketConnexion = (port != 0);
+    // NOTE: temp test, uncomment to see fallback to stdout
+    // m_hasSocketConnexion = false;
+
+    QStringList arguments;
+    LOG(Debug, "Checkbox is checked? " << std::boolalpha << m_verboseOutputBox->isChecked());
+    if (m_verboseOutputBox->isChecked()) {
+      arguments << "--verbose";
+    } else {
+      // If not verbose, we save the stdout/stderr to a file, like historical
+      // Actually, we don't, we just read it
+      // m_runProcess->setStandardOutputFile(toQString(stdoutPath));
+      // m_runProcess->setStandardErrorFile(toQString(stderrPath));
+    }
+
+    if (m_hasSocketConnexion) {
+      arguments << "run"
+                << "-s" << QString::number(port) << "-w" << workflowJSONPath;
+    } else {
+      arguments << "run"
+                << "--show-stdout"
+                // << "--style-stdout"
+                // << "--add-timings"
+                << "-w" << workflowJSONPath;
+    }
     LOG(Debug, "openstudioExePath='" << toString(openstudioExePath) << "'");
-    LOG(Debug, "run arguments" << arguments.join(";").toStdString());
+    LOG(Debug, "run arguments = " << arguments.join(";").toStdString());
 
     osdocument->disableTabsDuringRun();
     m_openSimDirButton->setEnabled(false);
@@ -244,17 +310,35 @@ void RunView::playButtonClicked(bool t_checked) {
     if (exists(stderrPath)) {
       remove(stderrPath);
     }
+    // touch
+    openstudio::filesystem::ofstream{stdoutPath};
+    openstudio::filesystem::ofstream{stderrPath};
 
-    m_progressBar->setValue(0);
     m_state = State::stopped;
     m_textInfo->clear();
-    m_runProcess->setStandardOutputFile(toQString(stdoutPath));
-    m_runProcess->setStandardErrorFile(toQString(stderrPath));
+
+    m_progressBar->setMinimum(0);
+    m_progressBar->setMaximum(State::complete);
+    m_progressBar->setValue(0);
+
+    if (!m_hasSocketConnexion) {
+      m_textInfo->setTextColor(Qt::red);
+      m_textInfo->setFontPointSize(15);
+      m_textInfo->append("Could not open socket connection to OpenStudio CLI.");
+      m_textInfo->setFontPointSize(12);
+      m_textInfo->append("Falling back to stdout/stderr parsing, live updates might be slower.");
+    }
+
     m_runProcess->start(openstudioExePath, arguments);
   } else {
     // stop running
     LOG(Debug, "Kill Simulation");
+    m_textInfo->setTextColor(Qt::red);
+    m_textInfo->setFontPointSize(18);
+    m_textInfo->append("Aborted");
+    m_runProcess->blockSignals(true);
     m_runProcess->kill();
+    m_runProcess->blockSignals(false);
   }
 }
 
@@ -354,11 +438,180 @@ void RunView::onRunDataReady() {
     } else if (QString::compare(trimmedLine, "Complete", Qt::CaseInsensitive) == 0) {
       appendH1Text("Completed.");
     } else if (trimmedLine.startsWith("Applying", Qt::CaseInsensitive)) {
-      appendH2Text(line);
+      appendH2Text(trimmedLine);
     } else if (trimmedLine.startsWith("Applied", Qt::CaseInsensitive)) {
       // no-op
     } else {
-      appendNormalText(line);
+      appendNormalText(trimmedLine);
+    }
+  }
+}
+
+void RunView::readyReadStandardOutput() {
+
+  auto appendErrorText = [&](const QString& text) {
+    m_textInfo->setTextColor(Qt::red);
+    m_textInfo->setFontPointSize(18);
+    m_textInfo->append(text);
+  };
+
+  auto appendNormalText = [&](const QString& text) {
+    m_textInfo->setTextColor(Qt::black);
+    m_textInfo->setFontPointSize(12);
+    m_textInfo->append(text);
+  };
+
+  auto appendH1Text = [&](const QString& text) {
+    m_textInfo->setTextColor(Qt::black);
+    m_textInfo->setFontPointSize(18);
+    m_textInfo->append(text);
+  };
+
+  auto appendH2Text = [&](const QString& text) {
+    m_textInfo->setTextColor(Qt::black);
+    m_textInfo->setFontPointSize(15);
+    m_textInfo->append(text);
+  };
+
+  QString data = m_runProcess->readAllStandardOutput();
+  QStringList lines = data.split("\n");
+
+  // Write to stdout (pipe to file, for later viewing)
+  auto stdoutPath = m_basePath / "stdout";
+  openstudio::filesystem::ofstream stdout_file(stdoutPath, std::ios_base::app);
+  if (!stdout_file) {
+    LOG(Debug, "Could not open " << stdoutPath << " for appending.");
+  } else {
+    stdout_file << openstudio::toString(data);
+  }
+
+  for (const auto& line : lines) {
+    //std::cout << data.toStdString() << std::endl;
+
+    QString trimmedLine = line.trimmed();
+
+    // DLM: coordinate with openstudio-workflow-gem\lib\openstudio\workflow\adapters\output\socket.rb
+    if (trimmedLine.isEmpty()) {
+      continue;
+    } else if ((trimmedLine.contains("DEBUG")) || (trimmedLine.contains("] <-2>"))) {
+      m_textInfo->setFontPointSize(10);
+      m_textInfo->setTextColor(Qt::lightGray);
+      m_textInfo->append(trimmedLine);
+    } else if ((trimmedLine.contains("INFO")) || (trimmedLine.contains("] <-1>"))) {
+      m_textInfo->setFontPointSize(10);
+      m_textInfo->setTextColor(Qt::gray);
+      m_textInfo->append(trimmedLine);
+    } else if ((trimmedLine.contains("WARN")) || (trimmedLine.contains("] <0>"))) {
+      m_textInfo->setFontPointSize(12);
+      m_textInfo->setTextColor(Qt::darkYellow);
+      m_textInfo->append(trimmedLine);
+    } else if ((trimmedLine.contains("ERROR")) || (trimmedLine.contains("] <1>"))) {
+      m_textInfo->setFontPointSize(12);
+      m_textInfo->setTextColor(Qt::darkRed);
+      m_textInfo->append(trimmedLine);
+    } else if ((trimmedLine.contains("FATAL")) || (trimmedLine.contains("] <1>"))) {
+      m_textInfo->setFontPointSize(14);
+      m_textInfo->setTextColor(Qt::red);
+      m_textInfo->append(trimmedLine);
+
+    } else if (!m_hasSocketConnexion) {
+      // For socket fall back. Avoid doing all these compare if we know we don't need to
+      if (QString::compare(trimmedLine, "Starting state initialization", Qt::CaseInsensitive) == 0) {
+        appendH1Text("Initializing workflow.");
+        m_state = State::initialization;
+        m_progressBar->setValue(m_state);
+      } else if (QString::compare(trimmedLine, "Started", Qt::CaseInsensitive) == 0) {
+        // no-op
+      } else if (QString::compare(trimmedLine, "Returned from state initialization", Qt::CaseInsensitive) == 0) {
+        // no-op
+      } else if (QString::compare(trimmedLine, "Starting state os_measures", Qt::CaseInsensitive) == 0) {
+        appendH1Text("Processing OpenStudio Measures.");
+        m_state = State::os_measures;
+        m_progressBar->setValue(m_state);
+      } else if (QString::compare(trimmedLine, "Returned from state os_measures", Qt::CaseInsensitive) == 0) {
+        // no-op
+      } else if (QString::compare(trimmedLine, "Starting state translator", Qt::CaseInsensitive) == 0) {
+        appendH1Text("Translating the OpenStudio Model to EnergyPlus.");
+        m_state = State::translator;
+        m_progressBar->setValue(m_state);
+      } else if (QString::compare(trimmedLine, "Returned from state translator", Qt::CaseInsensitive) == 0) {
+        // no-op
+      } else if (QString::compare(trimmedLine, "Starting state ep_measures", Qt::CaseInsensitive) == 0) {
+        appendH1Text("Processing EnergyPlus Measures.");
+        m_state = State::ep_measures;
+        m_progressBar->setValue(m_state);
+      } else if (QString::compare(trimmedLine, "Returned from state ep_measures", Qt::CaseInsensitive) == 0) {
+        // no-op
+      } else if (QString::compare(trimmedLine, "Starting state preprocess", Qt::CaseInsensitive) == 0) {
+        // ignore this state
+        m_state = State::preprocess;
+        m_progressBar->setValue(m_state);
+      } else if (QString::compare(trimmedLine, "Returned from state preprocess", Qt::CaseInsensitive) == 0) {
+        // ignore this state
+      } else if (QString::compare(trimmedLine, "Starting state simulation", Qt::CaseInsensitive) == 0) {
+        appendH1Text("Starting Simulation.");
+        m_state = State::simulation;
+        m_progressBar->setValue(m_state);
+      } else if (QString::compare(trimmedLine, "Returned from state simulation", Qt::CaseInsensitive) == 0) {
+        // no-op
+      } else if (QString::compare(trimmedLine, "Starting state reporting_measures", Qt::CaseInsensitive) == 0) {
+        appendH1Text("Processing Reporting Measures.");
+        m_state = State::reporting_measures;
+        m_progressBar->setValue(m_state);
+      } else if (QString::compare(trimmedLine, "Returned from state reporting_measures", Qt::CaseInsensitive) == 0) {
+        // no-op
+      } else if (QString::compare(trimmedLine, "Starting state postprocess", Qt::CaseInsensitive) == 0) {
+        appendH1Text("Gathering Reports.");
+        m_state = State::postprocess;
+        m_progressBar->setValue(m_state);
+      } else if (QString::compare(trimmedLine, "Returned from state postprocess", Qt::CaseInsensitive) == 0) {
+        // no-op
+      } else if (QString::compare(trimmedLine, "Failure", Qt::CaseInsensitive) == 0) {
+        appendErrorText("Failed.");
+      } else if (QString::compare(trimmedLine, "Complete", Qt::CaseInsensitive) == 0) {
+        appendH1Text("Completed.");
+      } else if (trimmedLine.startsWith("Applying", Qt::CaseInsensitive)) {
+        appendH2Text(trimmedLine);
+      } else if (trimmedLine.startsWith("Applied", Qt::CaseInsensitive)) {
+        // no-op
+      } else {
+        appendNormalText(trimmedLine);
+      }
+    } else {  // m_hasSocketConnexion: we know it's stdout and not important socket info, so we put that in gray
+      m_textInfo->setFontPointSize(10);
+      m_textInfo->setTextColor(Qt::gray);
+      m_textInfo->append(trimmedLine);
+    }
+  }
+}
+
+void RunView::readyReadStandardError() {
+  auto appendErrorText = [&](const QString& text) {
+    m_textInfo->setTextColor(Qt::darkRed);
+    m_textInfo->setFontPointSize(18);
+    m_textInfo->append(text);
+  };
+
+  QString data = m_runProcess->readAllStandardError();
+  QStringList lines = data.split("\n");
+
+  // Write to stderr (pipe to file, for later viewing)
+  auto stderrPath = m_basePath / "stderr";
+  openstudio::filesystem::ofstream stderr_file(stderrPath, std::ios_base::app);
+  if (!stderr_file) {
+    LOG(Debug, "Could not open " << stderrPath << " for appending.");
+  } else {
+    stderr_file << openstudio::toString(data);
+  }
+
+  for (const auto& line : lines) {
+
+    QString trimmedLine = line.trimmed();
+
+    if (trimmedLine.isEmpty()) {
+      continue;
+    } else {
+      appendErrorText("stderr: " + trimmedLine);
     }
   }
 }

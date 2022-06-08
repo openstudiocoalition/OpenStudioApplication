@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2022, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -96,7 +96,7 @@ class MeasureManager : public QObject
   Q_OBJECT;
 
  public:
-  MeasureManager(BaseApp* t_app);
+  explicit MeasureManager(BaseApp* t_app);
 
   virtual ~MeasureManager() {}
 
@@ -175,6 +175,9 @@ class MeasureManager : public QObject
   ///// Does not ask for user approval
   //void updateBCLMeasures(analysisdriver::SimpleProject &t_project);
 
+  // Checks for updated versions
+  void checkForRemoteBCLUpdates();
+
   /// Downloads updated versions of all BCL measures
   void downloadBCLMeasures();
 
@@ -208,7 +211,6 @@ class MeasureManager : public QObject
   std::map<openstudio::path, std::vector<measure::OSArgument>> m_measureArguments;
   QUrl m_url;
   QSharedPointer<LocalLibraryController> m_libraryController;
-  QNetworkAccessManager* m_networkAccessManager;
   bool m_started;
   QMutex m_mutex;
 };

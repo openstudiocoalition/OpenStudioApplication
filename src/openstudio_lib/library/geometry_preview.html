@@ -1904,6 +1904,7 @@ var setLocalStorage = function (key, value) {
 var settings = {
   renderBy: 'Surface Type',
   showStory: 'All Stories',
+  showAirLoop: 'All Loops',
   findAdjacencyIssues: false,
   findAdjacencyThreshold: 1,
   searchType: getStringFromLocalStorage('searchType', 'Surfaces'),
@@ -2288,11 +2289,13 @@ function init(os_data_in) {
   orthographicControls.minDistance = 10;
   orthographicControls.maxDistance = 1000;
   orthographicControls.enabled = true;
+  orthographicControls.addEventListener('change', requestRenderIfNotRequested);
 
   perspectiveControls = new THREE.OrbitControls(perspectiveCamera, renderer.domElement);
   perspectiveControls.minDistance = 10;
   perspectiveControls.maxDistance = 1000;
   perspectiveControls.enabled = true;
+  perspectiveControls.addEventListener('change', requestRenderIfNotRequested);
 
   // initialize camera and controls
   setAllCameraAngles(-30, 30, 0);
@@ -2538,6 +2541,7 @@ function onDocumentMouseClick(event) {
     } else {
       removeSelection();
     }
+    requestRenderIfNotRequested();
   }
 }
 
@@ -2617,14 +2621,23 @@ function displaySelectedObjectDetails() {
   document.body.style.cursor = 'pointer';
 }
 
-function animate(timestamp) {
-  requestAnimationFrame(animate);
+let renderRequested = false;
+
+function animate() {
+  renderRequested = undefined;
   orthographicControls.update();
   perspectiveControls.update();
   if (settings.orthographic){
     renderer.render(scene, orthographicCamera);
   }else{
     renderer.render(scene, perspectiveCamera);
+  }
+}
+
+function requestRenderIfNotRequested() {
+  if (!renderRequested) {
+    renderRequested = true;
+    requestAnimationFrame(animate);
   }
 }
 
@@ -2863,9 +2876,12 @@ var update = function (value) {
       object.visible = adjacencyIssueIds.has(object.id);
     }
 
-    if (settings.showStory == 'All Stories' || settings.showStory == object.userData.buildingStoryName){
-      // no-op
-    }else{
+    if (settings.showStory !== 'All Stories' && settings.showStory !== object.userData.buildingStoryName) {
+      object.visible = false;
+    }
+    if ((settings.showAirLoop !== 'All Loops' && !object.userData.airLoopHVACNames.includes(settings.showAirLoop))
+        &&
+        (settings.showAirLoop !== 'No Loop' || object.userData.airLoopHVACNames.length !== 0)) {
       object.visible = false;
     }
 
@@ -3054,6 +3070,8 @@ var update = function (value) {
     dot_geometry.computeVertexNormals();
     scene.add(dot_points);
   }
+
+  requestRenderIfNotRequested();
 };
 
 var updateVariable = function (variableName) {
@@ -3085,12 +3103,26 @@ var initDatGui = function () {
     update(value);
   });
 
-  building_story_names = os_data.metadata.buildingStoryNames;
+  var building_story_names = os_data.metadata.buildingStoryNames;
   building_story_names.unshift('All Stories');
   gui.add(settings, 'showStory', building_story_names).name('Show Story').onChange(function(value) {
     removeSelection();
     update(value);
   });
+
+  var air_loop_names = os_data.metadata
+    .modelObjectMetadata
+    .filter(objMetaData => objMetaData.iddObjectType === "OS:AirLoopHVAC")
+    .map(objMetaData => objMetaData.name)
+    .sort();
+  if (air_loop_names && air_loop_names.length > 0) {
+    air_loop_names.unshift("All Loops");
+    air_loop_names.unshift("No Loop");
+    gui.add(settings, 'showAirLoop', air_loop_names).name('Show Air Loop').onChange(function (value) {
+      removeSelection();
+      update(value);
+    });
+  }
 
   var s1 = gui.addFolder('Search');
   search_types = ['Surfaces', 'Spaces and Groups']

@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2022, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -82,9 +82,7 @@
 
 namespace openstudio {
 
-MeasureManager::MeasureManager(BaseApp* t_app) : m_app(t_app), m_started(false), m_mutex(QMutex::NonRecursive) {
-  m_networkAccessManager = new QNetworkAccessManager(this);
-}
+MeasureManager::MeasureManager(BaseApp* t_app) : m_app(t_app), m_started(false) {}
 
 QUrl MeasureManager::url() const {
   return m_url;
@@ -945,18 +943,43 @@ bool MeasureManager::checkForUpdates(const openstudio::path& measureDir, bool fo
   return result;
 }
 
+void MeasureManager::checkForRemoteBCLUpdates() {
+  RemoteBCL remoteBCL;
+  int numUpdates = remoteBCL.checkForMeasureUpdates();
+  if (numUpdates == 0) {
+    QMessageBox::information(m_app->mainWidget(), tr("Measures Updated"), tr("All measures are up-to-date."));
+  } else {
+    std::vector<BCLSearchResult> updates = remoteBCL.measuresWithUpdates();
+
+    QString text(QString::number(numUpdates) + tr(" measures have been updated on BCL compared to your local BCL directory.\n")
+                 + tr("Would you like update them?"));
+
+    QString detailedText;
+    for (const BCLSearchResult& update : updates) {
+      detailedText += toQString("* " + update.name() + "\n");
+    }
+    QMessageBox msg(QMessageBox::Question, tr("Measures Updated"), text, QMessageBox::Yes | QMessageBox::No, m_app->mainWidget());
+    msg.setDetailedText(detailedText);
+
+    int result = msg.exec();
+    if (result == QMessageBox::Yes) {
+      remoteBCL.updateMeasures();
+    }
+  }
+}
+
 void MeasureManager::downloadBCLMeasures() {
-  auto remoteBCL = new RemoteBCL();
-  int numUpdates = remoteBCL->checkForMeasureUpdates();
+  RemoteBCL remoteBCL;
+  int numUpdates = remoteBCL.checkForMeasureUpdates();
   if (numUpdates == 0) {
     QMessageBox::information(m_app->mainWidget(), "Measures Updated", "All measures are up-to-date.");
   } else {
-    std::vector<BCLSearchResult> updates = remoteBCL->measuresWithUpdates();
+    std::vector<BCLSearchResult> updates = remoteBCL.measuresWithUpdates();
     QStringList measureNames;
     for (const BCLSearchResult& update : updates) {
-      measureNames.push_back(QString(0x2022) + " " + toQString(update.name()));
+      measureNames.push_back(QString(QChar(0x2022)) + " " + toQString(update.name()));
     }
-    remoteBCL->updateMeasures();
+    remoteBCL.updateMeasures();
     QMessageBox msg(m_app->mainWidget());
     msg.setIcon(QMessageBox::Information);
     msg.setWindowTitle("Measures Updated");
@@ -968,8 +991,6 @@ void MeasureManager::downloadBCLMeasures() {
     msg.setDetailedText(measureNames.join("\n"));
     msg.exec();
   }
-
-  delete remoteBCL;
 }
 
 void MeasureManager::addMeasure() {
@@ -985,7 +1006,7 @@ void MeasureManager::addMeasure() {
 
       // open directory for editing
       QString path = QDir::toNativeSeparators(toQString(measure->directory()));
-      QDesktopServices::openUrl(QUrl("file:///" + path));
+      QDesktopServices::openUrl(QUrl::fromLocalFile(path));
 
       updateMeasuresLists();
 
@@ -1027,7 +1048,7 @@ void MeasureManager::duplicateSelectedMeasure() {
 
           // open directory for editing
           QString path = QDir::toNativeSeparators(toQString(measure->directory()));
-          QDesktopServices::openUrl(QUrl("file:///" + path));
+          QDesktopServices::openUrl(QUrl::fromLocalFile(path));
 
           updateMeasuresLists();
 

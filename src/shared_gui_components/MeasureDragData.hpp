@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2022, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -47,9 +47,9 @@ class MeasureDragData : QObject
 
   static QString mimeType(openstudio::MeasureType type);
 
-  MeasureDragData(const QByteArray& data);
+  explicit MeasureDragData(const QByteArray& data);
 
-  MeasureDragData(const UUID& id);
+  explicit MeasureDragData(const UUID& id);
 
   virtual ~MeasureDragData() {}
 

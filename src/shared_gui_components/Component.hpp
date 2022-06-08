@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2022, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -48,8 +48,8 @@ class Component : public QAbstractButton
   Q_OBJECT
 
  public:
-  Component(const BCLMeasure& bclMeasure, bool showAbridgedView = true, bool showCheckBox = true, QWidget* parent = nullptr);
-  Component(const BCLSearchResult& bclSearchResult, bool showAbridgedView = true, bool showCheckBox = true, QWidget* parent = nullptr);
+  explicit Component(const BCLMeasure& bclMeasure, bool showAbridgedView = true, bool showCheckBox = true, QWidget* parent = nullptr);
+  explicit Component(const BCLSearchResult& bclSearchResult, bool showAbridgedView = true, bool showCheckBox = true, QWidget* parent = nullptr);
   Component(bool showAbridgedView = false, bool showCheckBox = false, QWidget* parent = nullptr);
   Component(const Component& other);
   virtual ~Component() = default;

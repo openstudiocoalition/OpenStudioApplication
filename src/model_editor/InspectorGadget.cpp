@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2022, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -117,7 +117,7 @@ InspectorGadget::InspectorGadget(QWidget* parent, int indent, ComboHighlightBrid
 {
   m_layout = new QVBoxLayout(this);
   m_layout->setSpacing(0);
-  m_layout->setMargin(0);
+  m_layout->setContentsMargins(0, 0, 0, 0);
   setLayout(m_layout);
   m_scroll = new QScrollArea(this);
   m_scroll->setWidgetResizable(true);
@@ -150,7 +150,7 @@ InspectorGadget::InspectorGadget(WorkspaceObject& workspaceObj, int indent, Comb
 {
   m_layout = new QVBoxLayout(this);
   m_layout->setSpacing(0);
-  m_layout->setMargin(0);
+  m_layout->setContentsMargins(0, 0, 0, 0);
   setLayout(m_layout);
   m_scroll = nullptr;
   m_errorMessage = new QErrorMessage(this);
@@ -221,7 +221,7 @@ void InspectorGadget::layoutModelObj(openstudio::WorkspaceObject& workspaceObj, 
 
   auto* layout = new QVBoxLayout(m_deleteHandle);
   layout->setSpacing(0);
-  layout->setMargin(0);
+  layout->setContentsMargins(0, 0, 0, 0);
   m_deleteHandle->setLayout(layout);
   m_locked = locked;
   layoutItems(layout, m_deleteHandle, hideChildren);
@@ -279,10 +279,11 @@ void InspectorGadget::layoutItems(QVBoxLayout* masterLayout, QWidget* parent, bo
 
   auto* layout = new QVBoxLayout();
   layout->setSpacing(0);
-  layout->setMargin(0);
+  layout->setContentsMargins(0, 0, 0, 0);
+
   auto* hlayout = new QHBoxLayout();
   hlayout->setSpacing(0);
-  hlayout->setMargin(0);
+  hlayout->setContentsMargins(0, 0, 0, 0);
   masterLayout->addLayout(hlayout);
   hlayout->addLayout(layout);
   layoutText(layout, parent, AccessPolicy::LOCKED, iddObj.type().valueDescription(), -1, comment);
@@ -437,7 +438,7 @@ void InspectorGadget::layoutText(QVBoxLayout* layout, QWidget* parent, openstudi
   frame->setLayout(hbox);
   frame->setObjectName("IGHeader");
   hbox->setSpacing(0);
-  hbox->setMargin(0);
+  hbox->setContentsMargins(0, 0, 0, 0);
 
   if (level == AccessPolicy::LOCKED) {
     // string stripped(val);
@@ -525,7 +526,7 @@ void InspectorGadget::layoutText(QVBoxLayout* layout, QWidget* parent, openstudi
       //QDoubleValidator* valid = new QDoubleValidator(text);
       //if( m_floatDisplayType != SCIENTIFIC )
       //valid->setNotation( QDoubleValidator::StandardNotation );
-      auto* valid = new QRegExpValidator(QRegExp("-?[0-9]*\\.?[0-9]*([eE][-+]?[0-9]*)?"), text);
+      auto* valid = new QRegularExpressionValidator(QRegularExpression("-?[0-9]*\\.?[0-9]*([eE][-+]?[0-9]*)?"), text);
       if (prop.minBoundType != IddFieldProperties::Unbounded) {
         double d = *(prop.minBoundValue);
         if (m_unitSystem == IP) {
@@ -822,7 +823,7 @@ void InspectorGadget::createExtensibleToolBar(QVBoxLayout* layout,
   auto* hbox = new QHBoxLayout();
   frame->setLayout(hbox);
   hbox->setSpacing(0);
-  hbox->setMargin(0);
+  hbox->setContentsMargins(0, 0, 0, 0);
 
   frame->setObjectName("IGRow");
 

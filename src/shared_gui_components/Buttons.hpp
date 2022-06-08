@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2022, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -166,6 +166,15 @@ class MyMeasuresFolderButton : public QPushButton
  public:
   MyMeasuresFolderButton(QWidget* parent = nullptr);
   virtual ~MyMeasuresFolderButton() {}
+};
+
+class LookForUpdateButton : public QPushButton
+{
+  Q_OBJECT
+
+ public:
+  LookForUpdateButton(QWidget* parent = nullptr);
+  virtual ~LookForUpdateButton() = default;
 };
 
 class OpenDirectoryButton : public QPushButton

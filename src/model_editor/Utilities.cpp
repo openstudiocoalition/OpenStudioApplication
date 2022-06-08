@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2022, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -58,8 +58,8 @@ QString toQString(const std::string& s) {
 /** wstring to QString. */
 QString toQString(const std::wstring& w) {
 #if (defined(_WIN32) || defined(_WIN64))
-  static_assert(sizeof(wchar_t) == sizeof(unsigned short), "Wide characters must have the same size as unsigned shorts");
-  return QString::fromUtf16(reinterpret_cast<const unsigned short*>(w.data()), w.length());
+  static_assert(sizeof(wchar_t) == sizeof(char16_t), "Wide characters must have the same size as char16_t");
+  return QString::fromUtf16(reinterpret_cast<const char16_t*>(w.data()), w.length());
 #else
   return QString::fromStdWString(w);
 #endif

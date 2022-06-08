@@ -704,8 +704,9 @@ set(${target_name}_moc
   ../shared_gui_components/WorkflowView.hpp
   ../shared_gui_components/WaitDialog.hpp
   ../shared_gui_components/NetworkProxyDialog.hpp
-
 )
+
+#include_directories(SYSTEM ${RUBY_INCLUDE_DIRS})
 
 # resource files
 set(${target_name}_qrc
@@ -713,10 +714,14 @@ set(${target_name}_qrc
 )
 
 ## Qt UI generation
-qt5_wrap_cpp(${target_name}_moc_src ${${target_name}_moc})
+qt6_wrap_cpp(${target_name}_moc_src ${${target_name}_moc})
 
 # generate rules for building source files from the resources
-qt5_add_resources(${target_name}_qrcs ${${target_name}_qrc})
+qt6_add_resources(${target_name}_qrcs ${${target_name}_qrc})
+
+# No longer embedding the translation files
+# add_custom_target(resources DEPENDS ${target_name}_qrcs)
+# add_dependencies(resources translations)
 
 add_library(${target_name}
   ${${target_name}_SRC}
@@ -733,6 +738,7 @@ set(${target_name}_depends
   openstudio_modeleditor
   openstudio::openstudiolib
   ${QT_LIBS}
+  ${QT_WEB_LIBS}
 )
 if(WIN32)
   list(APPEND ${target_name}_depends qtwinmigrate)
@@ -760,7 +766,6 @@ set(${target_name}_test_src
 
 set(${target_name}_test_depends
   ${${target_name}_depends}
-  ${QT_WEB_LIBS}
 )
 
 

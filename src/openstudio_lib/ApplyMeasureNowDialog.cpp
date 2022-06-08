@@ -1,5 +1,5 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2021, OpenStudio Coalition and other contributors. All rights reserved.
+*  OpenStudio(R), Copyright (c) 2020-2022, OpenStudio Coalition and other contributors. All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
 *  following conditions are met:
@@ -60,6 +60,7 @@
 
 #include <QBoxLayout>
 #include <QCloseEvent>
+#include <QFile>
 #include <QLabel>
 #include <QMessageBox>
 #include <QPainter>
@@ -102,7 +103,7 @@ ApplyMeasureNowDialog::ApplyMeasureNowDialog(QWidget* parent)
   createWidgets();
 
   OSAppBase* app = OSAppBase::instance();
-  connect(this, &ApplyMeasureNowDialog::reloadFile, static_cast<OpenStudioApp*>(app), &OpenStudioApp::reloadFile, Qt::QueuedConnection);
+  connect(this, &ApplyMeasureNowDialog::reloadFile, app, &OSAppBase::reloadFile, Qt::QueuedConnection);
 
   m_advancedOutputDialog = new TextEditDialog("Advanced Output");
 
@@ -643,7 +644,7 @@ DataPointJobItemView::DataPointJobItemView() : OSCollapsibleView(true), m_dataPo
 
 void DataPointJobItemView::paintEvent(QPaintEvent* e) {
   QStyleOption opt;
-  opt.init(this);
+  opt.initFrom(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
