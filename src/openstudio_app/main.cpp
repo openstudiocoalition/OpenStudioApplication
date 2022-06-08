@@ -228,7 +228,7 @@ int main(int argc, char* argv[]) {
       LOG_FREE(Debug, "OpenStudioApp.main.QFont", "Adding font worked");
     }
     LOG_FREE(Trace, "OpenStudioApp.main.QFont", "Available Font families:");
-    for (auto& family: QFontDatabase::families()) {
+    for (auto& family : QFontDatabase::families()) {
       LOG_FREE(Trace, "OpenStudioApp.main.QFont", "* " << openstudio::toString(family));
     }
 

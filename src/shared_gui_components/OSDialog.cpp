@@ -161,7 +161,6 @@ void OSDialog::paintEvent(QPaintEvent* event) {
 
   painter.setRenderHint(QPainter::Antialiasing);
 
-
   // CSS equivalent
   // background: rgb(130,130,130);
   // background: linear-gradient(180deg, rgba(130,130,130,0) 0%,
@@ -183,7 +182,7 @@ void OSDialog::paintEvent(QPaintEvent* event) {
 
   painter.setPen(Qt::white);
   painter.setFont(QFont("Muli", 22));
-  painter.drawText(QRect(55, 0, width() - 60, 50),  Qt::AlignLeft | Qt::AlignVCenter, "OpenStudio Application");
+  painter.drawText(QRect(55, 0, width() - 60, 50), Qt::AlignLeft | Qt::AlignVCenter, "OpenStudio Application");
 }
 
 void OSDialog::setSizeHint(const QSize& sizeHint) {
