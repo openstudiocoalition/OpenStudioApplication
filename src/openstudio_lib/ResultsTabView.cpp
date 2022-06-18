@@ -121,8 +121,8 @@ ResultsView::ResultsView(QWidget* t_parent)
   // create a web widget
   m_view = new QWebEngineView(this);
 
-  m_page = new OSWebEnginePage(this);
-  m_view->setPage(m_page);  // note, view does not take ownership of page
+  m_page = new OSWebEnginePage(m_view);
+  m_view->setPage(m_page);
 
   connect(m_view, &QWebEngineView::loadFinished, this, &ResultsView::onLoadFinished);
   connect(m_view, &QWebEngineView::loadProgress, this, &ResultsView::onLoadProgress);
@@ -138,10 +138,7 @@ ResultsView::ResultsView(QWidget* t_parent)
   mainLayout->addWidget(m_view);
 }
 
-ResultsView::~ResultsView() {
-  delete m_view;
-  delete m_page;
-}
+ResultsView::~ResultsView() {}
 
 void ResultsView::refreshClicked() {
   m_view->triggerPageAction(QWebEnginePage::ReloadAndBypassCache);
