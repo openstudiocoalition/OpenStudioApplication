@@ -5521,8 +5521,8 @@ OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow,
   ,                                       !- Availability Manager List Name
   ,                                       !- Design Specification ZoneHVAC Sizing Object Name
   ,                                       !- Supplemental Heating Coil Name
-  ,                                       !- Maximum Supply Air Temperature from Supplemental Heater {C}
-  ;                                       !- Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation {C}
+  Autosize,                               !- Maximum Supply Air Temperature from Supplemental Heater {C}
+  21.0;                                   !- Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation {C}
 
 OS:Coil:Cooling:DX:VariableRefrigerantFlow,
   {8c84c0ac-6832-4444-a64f-9d88308c1b14}, !- Handle
