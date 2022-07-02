@@ -99,7 +99,7 @@ PreviewWebView::PreviewWebView(bool isIP, const model::Model& model, QWidget* t_
   m_refreshBtn->setVisible(true);
 
   m_view = new QWebEngineView(this);
-  m_page = new OSWebEnginePage(this);
+  m_page = new OSWebEnginePage(m_view);
   m_view->setPage(m_page);  // note, view does not take ownership of page
 
   connect(m_view, &QWebEngineView::loadFinished, this, &PreviewWebView::onLoadFinished);
@@ -128,8 +128,6 @@ PreviewWebView::PreviewWebView(bool isIP, const model::Model& model, QWidget* t_
 }
 
 PreviewWebView::~PreviewWebView() {
-  delete m_page;
-  delete m_view;
 }
 
 void PreviewWebView::refreshClicked() {

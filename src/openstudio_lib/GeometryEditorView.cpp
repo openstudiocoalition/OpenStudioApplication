@@ -1160,7 +1160,7 @@ EditorWebView::EditorWebView(bool isIP, const openstudio::model::Model& model, Q
 
   m_view = new QWebEngineView(this);
 
-  m_page = new OSWebEnginePage(this);
+  m_page = new OSWebEnginePage(m_view);
   m_view->setPage(m_page);  // note, view does not take ownership of page
 
   connect(m_page, &OSWebEnginePage::loadFinished, this, &EditorWebView::onLoadFinished);
