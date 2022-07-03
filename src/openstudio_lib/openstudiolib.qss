@@ -250,7 +250,6 @@ QLabel#H2 {
 
 QLabel#H3 {
   font-size: 14px;
-  font: bold;
 }
 
 QLabel#Header {
