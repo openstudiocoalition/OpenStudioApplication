@@ -485,6 +485,9 @@ void OSGridView::resizeEvent(QResizeEvent* event) {
     for (int i = NUM_ROWS_PER_GRIDLAYOUT; i < numRows; i++) {
       int li = layoutIndex(i);
       int ri = rowInLayout(i);
+      if (li >= m_gridLayouts.size()) {
+        break;
+      }
       for (int j = 0; j < numColumns; j++) {
         QLayoutItem* item = m_gridLayouts[li]->itemAtPosition(ri, j);
         if (item) {

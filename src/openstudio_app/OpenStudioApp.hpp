@@ -129,6 +129,10 @@ class OpenStudioApp : public OSAppBase
 
  signals:
 
+  void updateWaitDialog(unsigned line, const QString& text);
+
+  void resetWaitDialog();
+
  public slots:
 
   void quit();
@@ -245,7 +249,7 @@ class OpenStudioApp : public OSAppBase
    * This will ensure that even if the user has selected 'resources/90_1_2013.osm' as a library, it'll keep on working with different versions
    * of OpenStudio (it wouldn't if we stored that as an absolute path)
    */
-  void writeLibraryPaths(std::vector<openstudio::path> paths);
+  void writeLibraryPaths(const std::vector<openstudio::path>& paths);
 
   int startTabIndex() const;
 

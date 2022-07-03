@@ -75,12 +75,12 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, QWidget* p
   action = new QAction(tr("&Save"), this);
   action->setShortcut(QKeySequence(QKeySequence::Save));
   m_fileMenu->addAction(action);
-  connect(action, &QAction::triggered, this, &MainMenu::saveFileClicked);
+  connect(action, &QAction::triggered, this, &MainMenu::saveFileClicked, Qt::QueuedConnection);
 
   action = new QAction(tr("Save &As"), this);
   action->setShortcut(QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_S));
   m_fileMenu->addAction(action);
-  connect(action, &QAction::triggered, this, &MainMenu::saveAsFileClicked);
+  connect(action, &QAction::triggered, this, &MainMenu::saveAsFileClicked, Qt::QueuedConnection);
 
   m_fileMenu->addSeparator();
 
@@ -111,19 +111,19 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, QWidget* p
 
   action = new QAction(tr("&IDF"), this);
   exportMenu->addAction(action);
-  connect(action, &QAction::triggered, this, &MainMenu::exportClicked);
+  connect(action, &QAction::triggered, this, &MainMenu::exportClicked, Qt::QueuedConnection);
 
   action = new QAction(tr("&gbXML"), this);
   exportMenu->addAction(action);
-  connect(action, &QAction::triggered, this, &MainMenu::exportgbXMLClicked);
+  connect(action, &QAction::triggered, this, &MainMenu::exportgbXMLClicked, Qt::QueuedConnection);
 
   action = new QAction(tr("&SDD"), this);
   exportMenu->addAction(action);
-  connect(action, &QAction::triggered, this, &MainMenu::exportSDDClicked);
+  connect(action, &QAction::triggered, this, &MainMenu::exportSDDClicked, Qt::QueuedConnection);
 
   action = new QAction(tr("&Load Library"), this);
   m_fileMenu->addAction(action);
-  connect(action, &QAction::triggered, this, &MainMenu::loadLibraryClicked);
+  connect(action, &QAction::triggered, this, &MainMenu::loadLibraryClicked, Qt::QueuedConnection);
   m_fileImportActions.push_back(action);
   //m_preferencesActions.push_back(action); // DLM: I'm unclear if this should be enabled/disabled with preferences or file imports, right now does not matter
 
@@ -131,7 +131,7 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, QWidget* p
 
   action = new QAction(tr("&Example Model"), this);
   exampleMenu->addAction(action);
-  connect(action, &QAction::triggered, this, &MainMenu::loadExampleModelClicked);
+  connect(action, &QAction::triggered, this, &MainMenu::loadExampleModelClicked, Qt::QueuedConnection);
 
   if (!m_isPlugin) {
 
@@ -158,28 +158,28 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, QWidget* p
   m_preferencesActions.push_back(m_displaySIUnitsAction);
   m_displaySIUnitsAction->setCheckable(true);
   unitsMenu->addAction(m_displaySIUnitsAction);
-  connect(m_displaySIUnitsAction, &QAction::triggered, this, &MainMenu::displaySIUnitsClicked);
+  connect(m_displaySIUnitsAction, &QAction::triggered, this, &MainMenu::displaySIUnitsClicked, Qt::QueuedConnection);
 
   m_displayIPUnitsAction = new QAction(tr("English (&I-P)"), this);
   m_preferencesActions.push_back(m_displayIPUnitsAction);
   m_displayIPUnitsAction->setCheckable(true);
   unitsMenu->addAction(m_displayIPUnitsAction);
-  connect(m_displayIPUnitsAction, &QAction::triggered, this, &MainMenu::displayIPUnitsClicked);
+  connect(m_displayIPUnitsAction, &QAction::triggered, this, &MainMenu::displayIPUnitsClicked, Qt::QueuedConnection);
 
   action = new QAction(tr("&Change My Measures Directory"), this);
   m_preferencesActions.push_back(action);
   m_preferencesMenu->addAction(action);
-  connect(action, &QAction::triggered, this, &MainMenu::changeMyMeasuresDir);
+  connect(action, &QAction::triggered, this, &MainMenu::changeMyMeasuresDir, Qt::QueuedConnection);
 
   action = new QAction(tr("&Change Default Libraries"), this);
   m_preferencesActions.push_back(action);
   m_preferencesMenu->addAction(action);
-  connect(action, &QAction::triggered, this, &MainMenu::changeDefaultLibrariesClicked);
+  connect(action, &QAction::triggered, this, &MainMenu::changeDefaultLibrariesClicked, Qt::QueuedConnection);
 
   action = new QAction(tr("&Configure External Tools"), this);
   m_preferencesActions.push_back(action);
   m_preferencesMenu->addAction(action);
-  connect(action, &QAction::triggered, this, &MainMenu::configureExternalToolsClicked);
+  connect(action, &QAction::triggered, this, &MainMenu::configureExternalToolsClicked, Qt::QueuedConnection);
 
   QMenu* langMenu = m_preferencesMenu->addMenu(tr("&Language"));
 
@@ -187,113 +187,113 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, QWidget* p
   m_preferencesActions.push_back(m_langEnglishAction);
   m_langEnglishAction->setCheckable(true);
   langMenu->addAction(m_langEnglishAction);
-  connect(m_langEnglishAction, &QAction::triggered, this, &MainMenu::langEnglishClicked);
+  connect(m_langEnglishAction, &QAction::triggered, this, &MainMenu::langEnglishClicked, Qt::QueuedConnection);
 
   m_langFrenchAction = new QAction(tr("French"), this);
   m_preferencesActions.push_back(m_langFrenchAction);
   m_langFrenchAction->setCheckable(true);
   langMenu->addAction(m_langFrenchAction);
-  connect(m_langFrenchAction, &QAction::triggered, this, &MainMenu::langFrenchClicked);
+  connect(m_langFrenchAction, &QAction::triggered, this, &MainMenu::langFrenchClicked, Qt::QueuedConnection);
 
   m_langSpanishAction = new QAction(tr("Spanish"), this);
   m_preferencesActions.push_back(m_langSpanishAction);
   m_langSpanishAction->setCheckable(true);
   langMenu->addAction(m_langSpanishAction);
-  connect(m_langSpanishAction, &QAction::triggered, this, &MainMenu::langSpanishClicked);
+  connect(m_langSpanishAction, &QAction::triggered, this, &MainMenu::langSpanishClicked, Qt::QueuedConnection);
 
   m_langFarsiAction = new QAction(tr("Farsi"), this);
   m_preferencesActions.push_back(m_langFarsiAction);
   m_langFarsiAction->setCheckable(true);
   langMenu->addAction(m_langFarsiAction);
-  connect(m_langFarsiAction, &QAction::triggered, this, &MainMenu::langFarsiClicked);
+  connect(m_langFarsiAction, &QAction::triggered, this, &MainMenu::langFarsiClicked, Qt::QueuedConnection);
 
   m_langItalianAction = new QAction(tr("Italian"), this);
   m_preferencesActions.push_back(m_langItalianAction);
   m_langItalianAction->setCheckable(true);
   langMenu->addAction(m_langItalianAction);
-  connect(m_langItalianAction, &QAction::triggered, this, &MainMenu::langItalianClicked);
+  connect(m_langItalianAction, &QAction::triggered, this, &MainMenu::langItalianClicked, Qt::QueuedConnection);
 
   m_langChineseAction = new QAction(tr("Chinese"), this);
   m_preferencesActions.push_back(m_langChineseAction);
   m_langChineseAction->setCheckable(true);
   langMenu->addAction(m_langChineseAction);
-  connect(m_langChineseAction, &QAction::triggered, this, &MainMenu::langChineseClicked);
+  connect(m_langChineseAction, &QAction::triggered, this, &MainMenu::langChineseClicked, Qt::QueuedConnection);
 
   m_langGreekAction = new QAction(tr("Greek"), this);
   m_preferencesActions.push_back(m_langGreekAction);
   m_langGreekAction->setCheckable(true);
   langMenu->addAction(m_langGreekAction);
-  connect(m_langGreekAction, &QAction::triggered, this, &MainMenu::langGreekClicked);
+  connect(m_langGreekAction, &QAction::triggered, this, &MainMenu::langGreekClicked, Qt::QueuedConnection);
 
   m_langPolishAction = new QAction(tr("Polish"), this);
   m_preferencesActions.push_back(m_langPolishAction);
   m_langPolishAction->setCheckable(true);
   langMenu->addAction(m_langPolishAction);
-  connect(m_langPolishAction, &QAction::triggered, this, &MainMenu::langPolishClicked);
+  connect(m_langPolishAction, &QAction::triggered, this, &MainMenu::langPolishClicked, Qt::QueuedConnection);
 
   m_langCatalanAction = new QAction(tr("Catalan"), this);
   m_preferencesActions.push_back(m_langCatalanAction);
   m_langCatalanAction->setCheckable(true);
   langMenu->addAction(m_langCatalanAction);
-  connect(m_langCatalanAction, &QAction::triggered, this, &MainMenu::langCatalanClicked);
+  connect(m_langCatalanAction, &QAction::triggered, this, &MainMenu::langCatalanClicked, Qt::QueuedConnection);
 
   m_langHindiAction = new QAction(tr("Hindi"), this);
   m_preferencesActions.push_back(m_langHindiAction);
   m_langHindiAction->setCheckable(true);
   langMenu->addAction(m_langHindiAction);
-  connect(m_langHindiAction, &QAction::triggered, this, &MainMenu::langHindiClicked);
+  connect(m_langHindiAction, &QAction::triggered, this, &MainMenu::langHindiClicked, Qt::QueuedConnection);
 
   m_langVietnameseAction = new QAction(tr("Vietnamese"), this);
   m_preferencesActions.push_back(m_langVietnameseAction);
   m_langVietnameseAction->setCheckable(true);
   langMenu->addAction(m_langVietnameseAction);
-  connect(m_langVietnameseAction, &QAction::triggered, this, &MainMenu::langVietnameseClicked);
+  connect(m_langVietnameseAction, &QAction::triggered, this, &MainMenu::langVietnameseClicked, Qt::QueuedConnection);
 
   m_langJapaneseAction = new QAction(tr("Japanese"), this);
   m_preferencesActions.push_back(m_langJapaneseAction);
   m_langJapaneseAction->setCheckable(true);
   langMenu->addAction(m_langJapaneseAction);
-  connect(m_langJapaneseAction, &QAction::triggered, this, &MainMenu::langJapaneseClicked);
+  connect(m_langJapaneseAction, &QAction::triggered, this, &MainMenu::langJapaneseClicked, Qt::QueuedConnection);
 
   m_langGermanAction = new QAction(tr("German"), this);
   m_preferencesActions.push_back(m_langGermanAction);
   m_langGermanAction->setCheckable(true);
   langMenu->addAction(m_langGermanAction);
-  connect(m_langGermanAction, &QAction::triggered, this, &MainMenu::langGermanClicked);
+  connect(m_langGermanAction, &QAction::triggered, this, &MainMenu::langGermanClicked, Qt::QueuedConnection);
 
   // m_langArabicAction = new QAction(tr("Arabic"), this);
   // m_preferencesActions.push_back(m_langArabicAction);
   // m_langArabicAction->setCheckable(true);
   // langMenu->addAction(m_langArabicAction);
-  // connect(m_langArabicAction, &QAction::triggered, this, &MainMenu::langArabicClicked);
+  // connect(m_langArabicAction, &QAction::triggered, this, &MainMenu::langArabicClicked, Qt::QueuedConnection);
 
   m_langHebrewAction = new QAction(tr("Hebrew"), this);
   m_preferencesActions.push_back(m_langHebrewAction);
   m_langHebrewAction->setCheckable(true);
   langMenu->addAction(m_langHebrewAction);
-  connect(m_langHebrewAction, &QAction::triggered, this, &MainMenu::langHebrewClicked);
+  connect(m_langHebrewAction, &QAction::triggered, this, &MainMenu::langHebrewClicked, Qt::QueuedConnection);
 
   action = new QAction(tr("Add a new language"), this);
   m_preferencesActions.push_back(action);
   langMenu->addAction(action);
-  connect(action, &QAction::triggered, this, &MainMenu::addingNewLanguageClicked);
+  connect(action, &QAction::triggered, this, &MainMenu::addingNewLanguageClicked, Qt::QueuedConnection);
 
   //action = new QAction(tr("&Scan for Tools"),this);
   //m_preferencesMenu->addAction(action);
-  //connect(action, &QAction::triggered, this, &MainMenu::scanForToolsClicked);
+  //connect(action, &QAction::triggered, this, &MainMenu::scanForToolsClicked, Qt::QueuedConnection);
 
   //action = new QAction(tr("Show &Tools"),this);
   //m_preferencesMenu->addAction(action);
-  //connect(action, &QAction::triggered, this, &MainMenu::showRunManagerPreferencesClicked);
+  //connect(action, &QAction::triggered, this, &MainMenu::showRunManagerPreferencesClicked, Qt::QueuedConnection);
 
   //action = new QAction(tr("Change BCL Login Information"),this);
   //m_preferencesMenu->addAction(action);
-  //connect(action, &QAction::triggered, this, &MainMenu::changeBclLogin);
+  //connect(action, &QAction::triggered, this, &MainMenu::changeBclLogin, Qt::QueuedConnection);
 
   action = new QAction(tr("&Configure Internet Proxy"), this);
   m_preferencesActions.push_back(action);
   m_preferencesMenu->addAction(action);
-  connect(action, &QAction::triggered, this, &MainMenu::configureProxyClicked);
+  connect(action, &QAction::triggered, this, &MainMenu::configureProxyClicked, Qt::QueuedConnection);
 
   if (m_isIP) {
     m_displayIPUnitsAction->trigger();
@@ -359,17 +359,17 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, QWidget* p
   m_componentsMeasuresActions.push_back(action);
   action->setShortcut(QKeySequence(QKeySequence(tr("Ctrl+M"))));
   m_measureMenu->addAction(action);
-  connect(action, &QAction::triggered, this, &MainMenu::applyMeasureClicked);
+  connect(action, &QAction::triggered, this, &MainMenu::applyMeasureClicked, Qt::QueuedConnection);
 
   action = new QAction(tr("Find &Measures"), this);
   m_componentsMeasuresActions.push_back(action);
   m_measureMenu->addAction(action);
-  connect(action, &QAction::triggered, this, &MainMenu::downloadMeasuresClicked);
+  connect(action, &QAction::triggered, this, &MainMenu::downloadMeasuresClicked, Qt::QueuedConnection);
 
   action = new QAction(tr("Find &Components"), this);
   m_componentsMeasuresActions.push_back(action);
   m_measureMenu->addAction(action);
-  connect(action, &QAction::triggered, this, &MainMenu::downloadComponentsClicked);
+  connect(action, &QAction::triggered, this, &MainMenu::downloadComponentsClicked, Qt::QueuedConnection);
 
   // Help menu
   m_helpMenu = new QMenu(tr("&Help"), this);
@@ -377,15 +377,15 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, QWidget* p
 
   action = new QAction(tr("OpenStudio &Help"), this);
   m_helpMenu->addAction(action);
-  connect(action, &QAction::triggered, this, &MainMenu::helpClicked);
+  connect(action, &QAction::triggered, this, &MainMenu::helpClicked, Qt::QueuedConnection);
 
   action = new QAction(tr("Check For &Update"), this);
   m_helpMenu->addAction(action);
-  connect(action, &QAction::triggered, this, &MainMenu::checkForUpdateClicked);
+  connect(action, &QAction::triggered, this, &MainMenu::checkForUpdateClicked, Qt::QueuedConnection);
 
   action = new QAction(tr("&About"), this);
   m_helpMenu->addAction(action);
-  connect(action, &QAction::triggered, this, &MainMenu::aboutClicked);
+  connect(action, &QAction::triggered, this, &MainMenu::aboutClicked, Qt::QueuedConnection);
 }
 
 MainMenu::~MainMenu() {

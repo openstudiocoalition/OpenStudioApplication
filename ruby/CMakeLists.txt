@@ -41,11 +41,6 @@ else()
   set_target_properties(openstudio_modeleditor_rb PROPERTIES SUFFIX ".so" )
 endif()
 
-# plugin doesn't need webengine
-list(REMOVE_ITEM QT_WEB_LIBS Qt6::WebEngine)
-list(REMOVE_ITEM QT_WEB_LIBS Qt6::WebEngineCore)
-list(REMOVE_ITEM QT_WEB_LIBS Qt6::WebEngineWidgets)
-
 if(MSVC)
   # wd4996=no deprecated warnings ; wd5033=register
   set_target_properties(openstudio_modeleditor_rb PROPERTIES COMPILE_FLAGS "/bigobj /wd4996 /wd5033")
@@ -70,6 +65,7 @@ if(APPLE)
     COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/lib/QtGui.framework $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtGui.framework
     COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/lib/QtNetwork.framework $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtNetwork.framework
     COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/lib/QtPrintSupport.framework $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtPrintSupport.framework
+    COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/lib/QtSvg.framework $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtSvg.framework
     COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/lib/QtWidgets.framework $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtWidgets.framework
     COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/lib/QtXml.framework $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtXml.framework
     COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:openstudio::openstudiolib> $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/.
@@ -79,9 +75,7 @@ endif()
 
 target_link_libraries(openstudio_modeleditor_rb
   ruby_OpenStudioModelEditor
-  openstudio_lib
-  openstudio_bimserver
-  ${QT_WEB_LIBS}
+  openstudio_modeleditor
 )
 
 if( WIN32 )
@@ -92,6 +86,7 @@ endif()
 
 install(TARGETS openstudio_modeleditor_rb DESTINATION Ruby COMPONENT "RubyAPI")
 install(FILES openstudio_modeleditor.rb DESTINATION Ruby COMPONENT "RubyAPI")
+
 if(APPLE)
   install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/platforms/libqcocoa.dylib DESTINATION Ruby/platforms COMPONENT "RubyAPI")
   install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtCore.framework DESTINATION Ruby COMPONENT "RubyAPI")
@@ -100,13 +95,10 @@ if(APPLE)
   install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtGui.framework DESTINATION Ruby COMPONENT "RubyAPI")
   install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtNetwork.framework DESTINATION Ruby COMPONENT "RubyAPI")
   install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtPrintSupport.framework DESTINATION Ruby COMPONENT "RubyAPI")
+  install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtSvg.framework DESTINATION Ruby COMPONENT "RubyAPI")
   install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtWidgets.framework DESTINATION Ruby COMPONENT "RubyAPI")
   install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtXml.framework DESTINATION Ruby COMPONENT "RubyAPI")
   install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/$<TARGET_FILE_NAME:openstudio::openstudiolib> DESTINATION Ruby COMPONENT "RubyAPI")
-endif()
-
-if( BUILD_PAT )
-  # don't need modeleditor libs in pat
 endif()
 
 ###############################################################################
