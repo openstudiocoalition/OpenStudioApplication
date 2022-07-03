@@ -76,19 +76,34 @@
     <file>images/direct-air.png</file>
     <file>images/directEvap.png</file>
     <file>images/disabled_building_tab.png</file>
+    <file>images/disabled_building_tab@2x.png</file>
     <file>images/disabled_constructions_tab.png</file>
+    <file>images/disabled_constructions_tab@2x.png</file>
     <file>images/disabled_hvac_tab.png</file>
+    <file>images/disabled_hvac_tab@2x.png</file>
     <file>images/disabled_geometry_tab.png</file>
+    <file>images/disabled_geometry_tab@2x.png</file>
     <file>images/disabled_loads_tab.png</file>
+    <file>images/disabled_loads_tab@2x.png</file>
     <file>images/disabled_location_tab.png</file>
+    <file>images/disabled_location_tab@2x.png</file>
     <file>images/disabled_results_tab.png</file>
+    <file>images/disabled_results_tab@2x.png</file>
     <file>images/disabled_run_tab.png</file>
+    <file>images/disabled_run_tab@2x.png</file>
     <file>images/disabled_schedules_tab.png</file>
+    <file>images/disabled_schedules_tab@2x.png</file>
     <file>images/disabled_scripts_tab.png</file>
+    <file>images/disabled_scripts_tab@2x.png</file>
     <file>images/disabled_sim_settings_tab.png</file>
+    <file>images/disabled_sim_settings_tab@2x.png</file>
     <file>images/disabled_space_types_tab.png</file>
+    <file>images/disabled_space_types_tab@2x.png</file>
     <file>images/disabled_spaces_tab.png</file>
+    <file>images/disabled_spaces_tab@2x.png</file>
     <file>images/disabled_thermal_zone_tab.png</file>
+    <file>images/disabled_thermal_zone_tab@2x.png</file>
+    <file>images/disabled_var_tab.png</file>
     <file>images/disabled_var_tab.png</file>
     <file>images/display_case.png</file>
     <file>images/districtcooling.png</file>
@@ -159,37 +174,69 @@
     <file>images/mixer.png</file>
     <file>images/OAMixer.png</file>
     <file>images/off_building_tab.png</file>
+    <file>images/off_building_tab@2x.png</file>
     <file>images/off_constructions_tab.png</file>
+    <file>images/off_constructions_tab@2x.png</file>
     <file>images/off_hvac_tab.png</file>
+    <file>images/off_hvac_tab@2x.png</file>
     <file>images/off_geometry_tab.png</file>
+    <file>images/off_geometry_tab@2x.png</file>
     <file>images/off_loads_tab.png</file>
+    <file>images/off_loads_tab@2x.png</file>
     <file>images/off_location_tab.png</file>
+    <file>images/off_location_tab@2x.png</file>
     <file>images/off_results_tab.png</file>
+    <file>images/off_results_tab@2x.png</file>
     <file>images/off_run_tab.png</file>
+    <file>images/off_run_tab@2x.png</file>
     <file>images/off_schedules_tab.png</file>
+    <file>images/off_schedules_tab@2x.png</file>
     <file>images/off_scripts_tab.png</file>
+    <file>images/off_scripts_tab@2x.png</file>
     <file>images/off_sim_settings_tab.png</file>
+    <file>images/off_sim_settings_tab@2x.png</file>
     <file>images/off_space_types_tab.png</file>
+    <file>images/off_space_types_tab@2x.png</file>
     <file>images/off_spaces_tab.png</file>
+    <file>images/off_spaces_tab@2x.png</file>
     <file>images/off_summary_tab.png</file>
+    <file>images/off_summary_tab@2x.png</file>
     <file>images/off_thermal_zone_tab.png</file>
+    <file>images/off_thermal_zone_tab@2x.png</file>
     <file>images/off_var_tab.png</file>
+    <file>images/off_var_tab@2x.png</file>
     <file>images/on_building_tab.png</file>
+    <file>images/on_building_tab@2x.png</file>
     <file>images/on_constructions_tab.png</file>
+    <file>images/on_constructions_tab@2x.png</file>
     <file>images/on_hvac_tab.png</file>
+    <file>images/on_hvac_tab@2x.png</file>
     <file>images/on_geometry_tab.png</file>
+    <file>images/on_geometry_tab@2x.png</file>
     <file>images/on_loads_tab.png</file>
+    <file>images/on_loads_tab@2x.png</file>
     <file>images/on_location_tab.png</file>
+    <file>images/on_location_tab@2x.png</file>
     <file>images/on_results_tab.png</file>
+    <file>images/on_results_tab@2x.png</file>
     <file>images/on_run_tab.png</file>
+    <file>images/on_run_tab@2x.png</file>
     <file>images/on_schedules_tab.png</file>
+    <file>images/on_schedules_tab@2x.png</file>
     <file>images/on_scripts_tab.png</file>
+    <file>images/on_scripts_tab@2x.png</file>
     <file>images/on_sim_settings_tab.png</file>
+    <file>images/on_sim_settings_tab@2x.png</file>
     <file>images/on_space_types_tab.png</file>
+    <file>images/on_space_types_tab@2x.png</file>
     <file>images/on_spaces_tab.png</file>
+    <file>images/on_spaces_tab@2x.png</file>
     <file>images/on_summary_tab.png</file>
+    <file>images/on_summary_tab@2x.png</file>
     <file>images/on_thermal_zone_tab.png</file>
+    <file>images/on_thermal_zone_tab@2x.png</file>
     <file>images/on_var_tab.png</file>
+    <file>images/on_var_tab@2x.png</file>
     <file>images/open_file.png</file>
     <file>images/os_16.png</file>
     <file>images/os_32.png</file>
