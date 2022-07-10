@@ -45,7 +45,7 @@ QCheckBox#UpdateAvailable::indicator:unchecked {
 
 QComboBox {
     border: 1px solid #2C3233;
-    font-size: 14px;
+    font-size: 12px;
     height: 19px;
     margin-top: 1px;
     border-radius: 3px;
@@ -235,21 +235,21 @@ QHeaderView::section:checked
 }
 
 QLabel {
-  font-size: 14px;
+  font-size: 12px;
 }
 
 QLabel#H1 {
-  font-size: 16px;
+  font-size: 14px;
   font: bold;
 }
 
 QLabel#H2 {
-  font-size: 14px;
+  font-size: 12px;
   font: bold;
 }
 
 QLabel#H3 {
-  font-size: 14px;
+  font-size: 12px;
 }
 
 QLabel#Header {
@@ -290,7 +290,7 @@ QLineEdit#ScheduleDialogShort {
 }
 
 QLabel#StandardsInfo {
-  font-size: 14px;
+  font-size: 12px;
   font: italic;
 }
 
@@ -298,7 +298,7 @@ QListView {
     background: #E6E6E6;
     border: 1px solid #2C3233;
     show-decoration-selected: 1; /* make the selection span the entire width of the view */
-    font-size: 14px;
+    font-size: 12px;
 }
 
 QListView::item:alternate {
@@ -330,7 +330,7 @@ QPushButton#CategoryButton {
   background: qlineargradient(x1:0,y1:0,x2:0,y2:1,
                               stop: 0 #F2F2F2,
                               stop: 1 #D9D9D9 );
-  font-size: 14px;
+  font-size: 12px;
   margin: 0px;
   padding-left: 10px;
   padding-right: 10px;
@@ -360,7 +360,7 @@ QPushButton#HeaderButton {
   background: qlineargradient(x1:0,y1:0,x2:0,y2:1,
                               stop: 0 #F2F2F2,
                               stop: 1 #D9D9D9 );
-  font-size: 14px;
+  font-size: 12px;
   margin: 0px;
   padding-left: 10px;
   padding-right: 10px;
@@ -384,6 +384,34 @@ QPushButton#HeaderButton:checked {
                               stop: 1 #4B7DB0);
 }
 
+QPushButton#SubTabButton {
+  border: none; background-color: #BBCDE3;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: black;
+  font-size: 12px;
+}
+
+QPushButton#SubTabButtonSelected {
+  border: none; background-color: #E6E6E6;
+  border-right: 1px solid black;
+  border-bottom: none;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: black;
+  font-size: 12px;
+}
+
 QPushButton#StandardGrayButton {
   border-radius: 4px;
   border: 1px solid #949393;
@@ -393,7 +421,7 @@ QPushButton#StandardGrayButton {
   min-height: 22px;
   max-height: 22px;
   height: 22px;
-  font-size: 14px;
+  font-size: 12px;
   margin: 0px;
   padding-left: 10px;
   padding-right: 10px;
@@ -499,7 +527,7 @@ QPushButton#NavigatorButton {
                                stop: 0 #F2F2F2,
                                stop: 1 #D9D9D9 );
   height: 19px;
-  font-size: 14px;
+  font-size: 12px;
   margin: 0px;
   padding: 0px;
   padding-left: 10px;
@@ -563,7 +591,7 @@ QPushButton#TrueFalseSliderButton:checked:hover {
 }
 
 QRadioButton {
-  font-size: 14px;
+  font-size: 12px;
 }
 
 QScrollArea {

@@ -150,6 +150,7 @@ void HorizontalTabWidget::setCurrentIndex(int index) {
     style.append("              padding-right: 10px;");
     style.append("              padding-top: 5px;");
     style.append("              color: white;");
+    style.append("              font-size: 12px;");
     if (i == m_tabButtons.size() - 1) {
       style.append("            border-right: none;");
     }
@@ -177,6 +178,7 @@ void HorizontalTabWidget::setCurrentIndex(int index) {
   style.append("              padding-right: 10px;");
   style.append("              padding-top: 5px;");
   style.append("              color: white;");
+  style.append("              font-size: 12px;");
   if (index == int(m_tabButtons.size() - 1)) {
     style.append("            border-right: none;");
   }
