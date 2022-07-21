@@ -124,11 +124,11 @@ void VariableListItem::onOffClicked(bool t_on) {
       m_variable = outputVariable;
 
       m_combobox->bind<std::string>(
-          *m_variable, static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
-          std::bind(&model::OutputVariable::reportingFrequencyValues), std::bind(&model::OutputVariable::reportingFrequency, m_variable.get_ptr()),
-          std::bind(&model::OutputVariable::setReportingFrequency, m_variable.get_ptr(), std::placeholders::_1),
-          boost::optional<NoFailAction>(std::bind(&model::OutputVariable::resetReportingFrequency, m_variable.get_ptr())),
-          boost::optional<BasicQuery>(std::bind(&model::OutputVariable::isReportingFrequencyDefaulted, m_variable.get_ptr())));
+        *m_variable, static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
+        std::bind(&model::OutputVariable::reportingFrequencyValues), std::bind(&model::OutputVariable::reportingFrequency, m_variable.get_ptr()),
+        std::bind(&model::OutputVariable::setReportingFrequency, m_variable.get_ptr(), std::placeholders::_1),
+        boost::optional<NoFailAction>(std::bind(&model::OutputVariable::resetReportingFrequency, m_variable.get_ptr())),
+        boost::optional<BasicQuery>(std::bind(&model::OutputVariable::isReportingFrequencyDefaulted, m_variable.get_ptr())));
     }
   } else {
     if (m_variable) {

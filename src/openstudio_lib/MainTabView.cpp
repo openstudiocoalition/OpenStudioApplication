@@ -179,7 +179,7 @@ void MainTabView::setCurrentIndex(int index) {
       button->setObjectName("SubTabButton");
       button->stackUnder(m_mainWidget);
     }
-    
+
     button->adjustSize();
     button->move(xPos, 5);
     button->style()->unpolish(button);
