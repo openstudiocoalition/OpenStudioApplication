@@ -2081,6 +2081,10 @@ void MonthView::update() {
 ScheduleCalendarWidget::ScheduleCalendarWidget(MonthView* monthView) : QCalendarWidget(monthView), m_monthView(monthView) {}
 
 void ScheduleCalendarWidget::paintCell(QPainter* painter, const QRect& rect, QDate date) const {
+  QFont font = painter->font();
+  font.setPointSize(12);
+  painter->setFont(font);
+
   painter->setBrush(QBrush(QColor(230, 230, 230)));
 
   if (date.month() == m_monthView->month()) {

@@ -657,7 +657,11 @@ void ScheduleDayEditor::paintEvent(QPaintEvent* event) {
 
   opt.initFrom(this);
 
-  QPainter p(this);
+  QPainter p;
+
+  QFont font = p.font();
+  font.setPointSize(12);
+  p.setFont(font);
 
   QTransform transform;
 
