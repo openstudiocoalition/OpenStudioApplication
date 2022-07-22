@@ -741,7 +741,7 @@ set(${target_name}_depends
   ${QT_WEB_LIBS}
 )
 if(WIN32)
-  list(APPEND ${target_name}_depends qtwinmigrate)
+  #list(APPEND ${target_name}_depends qtwinmigrate)
 endif()
 
 target_link_libraries(${target_name} ${${target_name}_depends})

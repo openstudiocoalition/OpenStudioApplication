@@ -39,7 +39,7 @@
 #include <QSettings>
 
 #if _WIN32 || _MSC_VER
-#  include <QWinWidget>
+#  include <QWindow>
 #  include <Windows.h>
 #  include <boost/regex.hpp>
 #else
@@ -48,7 +48,7 @@
 
 namespace openstudio {
 
-ApplicationSingleton::ApplicationSingleton() : m_qApplication(nullptr), m_sketchUpWidget(nullptr), m_defaultInstance(false) {}
+ApplicationSingleton::ApplicationSingleton() : m_qApplication(nullptr), m_sketchUpWindow(nullptr), m_defaultInstance(false) {}
 
 ApplicationSingleton::~ApplicationSingleton() {
   //if (m_sketchUpWidget){
@@ -128,8 +128,11 @@ QCoreApplication* ApplicationSingleton::application(bool gui) {
             GetClassName(h, className, 255);
             GetWindowText(h, typeName, 255);
 
+            LOG_FREE(LogLevel::Error, "Application", "Yeah: " << toString(className) << ", " << toString(typeName));
             if (boost::regex_match(toString(typeName), boost::regex(".*- SketchUp.*"))) {
-              m_sketchUpWidget = new QWinWidget(h);
+              LOG_FREE(LogLevel::Error, "Application", "Bingo");
+              m_sketchUpWindow = QWindow::fromWinId((WId)h);
+              LOG_FREE(LogLevel::Error, "Application", m_sketchUpWindow);
               break;
             }
           }
@@ -167,8 +170,8 @@ bool ApplicationSingleton::setApplication(QCoreApplication* qApplication) {
   return false;
 }
 
-QWidget* ApplicationSingleton::sketchUpWidget() {
-  return m_sketchUpWidget;
+QWindow* ApplicationSingleton::sketchUpWidget() {
+  return m_sketchUpWindow;
 }
 
 void ApplicationSingleton::processEvents() {

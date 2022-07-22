@@ -42,6 +42,7 @@
 #include <openstudio/nano/nano_signal_slot.hpp>  // Signal-Slot replacement
 
 #include <QWidget>
+#include <QWindow>
 #include <QMainWindow>
 
 class QLabel;
@@ -73,11 +74,11 @@ class MODELEDITOR_API InspectorDialog
 
  public:
   /// create a new dialog with empty model
-  InspectorDialog(InspectorDialogClient client = InspectorDialogClient::AllOpenStudio, QWidget* parent = nullptr);
+  InspectorDialog(InspectorDialogClient client = InspectorDialogClient::AllOpenStudio, QWindow* parent = nullptr);
 
   /// create a new dialog for existing model
   explicit InspectorDialog(openstudio::model::Model& model, InspectorDialogClient client = InspectorDialogClient::AllOpenStudio,
-                           QWidget* parent = nullptr);
+                           QWindow* parent = nullptr);
 
   virtual ~InspectorDialog();
 

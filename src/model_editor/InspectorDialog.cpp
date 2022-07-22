@@ -70,19 +70,25 @@
 using namespace openstudio;
 using namespace openstudio::model;
 
-InspectorDialog::InspectorDialog(InspectorDialogClient client, QWidget* parent)
-  : QMainWindow(parent), m_inspectorGadget(nullptr), m_workspaceChanged(false), m_workspaceObjectAdded(false), m_workspaceObjectRemoved(false) {
+InspectorDialog::InspectorDialog(InspectorDialogClient client, QWindow* parent)
+  : QMainWindow(), m_inspectorGadget(nullptr), m_workspaceChanged(false), m_workspaceObjectAdded(false), m_workspaceObjectRemoved(false) {  
   init(client);
+
+  WId id = QWidget::winId();
+  QWindow* wh = windowHandle();
+  LOG_FREE(LogLevel::Error, "InspectorDialog",wh);
+  wh->setParent(parent);
 }
 
-InspectorDialog::InspectorDialog(openstudio::model::Model& model, InspectorDialogClient client, QWidget* parent)
-  : QMainWindow(parent),
+InspectorDialog::InspectorDialog(openstudio::model::Model& model, InspectorDialogClient client, QWindow* parent)
+  : QMainWindow(),
     m_inspectorGadget(nullptr),
     m_model(model),
     m_workspaceChanged(false),
     m_workspaceObjectAdded(false),
     m_workspaceObjectRemoved(false) {
   init(client);
+  //windowHandle()->setParent(parent);
 }
 
 InspectorDialog::~InspectorDialog() {}

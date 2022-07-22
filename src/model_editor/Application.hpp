@@ -65,7 +65,7 @@ class ApplicationSingleton
 
   /// get the QWidget wrapper around SketchUp window
   /// initialized by call to application, only implemented for windows
-  QWidget* sketchUpWidget();
+  QWindow* sketchUpWidget();
 
   /// Process pending Qt events
   void processEvents();
@@ -102,8 +102,8 @@ class ApplicationSingleton
   /// QApplication handle
   QCoreApplication* m_qApplication;
 
-  /// QWidget wrapper around SketchUp window
-  QWidget* m_sketchUpWidget;
+  /// QWindow wrapper around SketchUp window
+  QWindow* m_sketchUpWindow;
 
   bool m_defaultInstance;
 };

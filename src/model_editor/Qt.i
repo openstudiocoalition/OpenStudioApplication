@@ -32,6 +32,7 @@
   #include <QObject>
   #include <QColor>
   #include <QWidget>
+  #include <QWindow>
   #include <QDialog>
   #include <QComboBox>
   #include <QMainWindow>
@@ -118,6 +119,15 @@
 //    bool operator!=(const QColor &c) const;
 //};
 
+class QWindow
+{
+public:
+  QWindow(QWindow *parent);
+  void setParent(QWindow* parent);
+  void show();
+  void hide();
+};
+
 class QWidget
 {
 public:
@@ -144,7 +154,17 @@ public:
   bool isVisible() const;
   bool isVisibleTo(QWidget* ancestor) const;
   void setVisible(bool visible);
+  QWindow* windowHandle() const;
 };
+
+%extend QWidget{
+  QWidget(QWindow* parent)
+  {
+    QWidget* result = new QWidget();
+    result->windowHandle()->setParent(parent);
+    return result;
+  }
+}
 
 class QMainWindow : public QWidget
 {};

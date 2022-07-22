@@ -94,7 +94,7 @@ set(${target_name}_depends
   #CONAN_PKG::openstudio_ruby
 )
 if(WIN32)
-  list(APPEND ${target_name}_depends qtwinmigrate)
+  #list(APPEND ${target_name}_depends qtwinmigrate)
 endif()
 
 add_dependencies(${target_name} ${${target_name}_depends})
