@@ -6,7 +6,7 @@ set(OPENSTUDIO_VERSION "${OPENSTUDIO_VERSION_MAJOR}.${OPENSTUDIO_VERSION_MINOR}.
 #If this is an official release, leave this "", otherwise put for eg '-rc1'
 set(OPENSTUDIO_VERSION_PRERELEASE "-alpha")
 # Enter SHA, always, eg "+79857912c4"
-set(OPENSTUDIO_VERSION_SHA "+490d7848e2")
+set(OPENSTUDIO_VERSION_SHA "+16fbebe062")
 
 # Paths where the cmake-downloaded archives will be put
 set(OPENSTUDIO_ARCHIVE_DIR "${PROJECT_BINARY_DIR}/OpenStudio-${OPENSTUDIO_VERSION}")
@@ -25,7 +25,7 @@ if(APPLE)
 
 elseif(UNIX)
   if(LSB_RELEASE_VERSION_SHORT MATCHES "20.04")
-    set(OPENSTUDIO_EXPECTED_HASH cf879aa49690268cf0e648221c3f5308)
+    set(OPENSTUDIO_EXPECTED_HASH a0c9637a67e501bf37ec4bae4a0665a4)
     set(OPENSTUDIO_PLATFORM "Ubuntu-20.04")
   else() # Assumes 18.04
     set(OPENSTUDIO_EXPECTED_HASH 9f51bae3903139e916473320b68bc925)
@@ -67,8 +67,9 @@ else()
   # Note: this should be set to ""http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/develop" for nightly builds
   # Occasionally we can point to a specific PR by using something like ""http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/PR-4080"
   set(OPENSTUDIO_BASELINK_CI
-    "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/develop"
-    #"http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/PR-4121"
+    # TODO: TEMPORARY point to a PR
+    # "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/develop"
+    "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/PR-4674"
     CACHE STRING "Base link to where the openstudio develop archives are hosted" FORCE)
 
   # Make subdir if it doesn't exist
