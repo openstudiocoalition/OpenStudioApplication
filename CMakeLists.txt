@@ -1,12 +1,16 @@
 cmake_minimum_required(VERSION 3.10.2)
 cmake_policy(SET CMP0048 NEW)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+# Do not enable compiler specific extensions, for eg on GCC use -std=c++1z (=c++17) and not -std=gnu++17
+set(CMAKE_CXX_EXTENSIONS OFF)
 
 # Use ccache is available, has to be before "project()"
 find_program(CCACHE_PROGRAM ccache)
 if(CCACHE_PROGRAM)
   # Support Unix Makefiles and Ninja
+  message(STATUS "Using CCACHE")
   set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "${CCACHE_PROGRAM}")
 endif()
 
@@ -66,6 +70,8 @@ endif()
 # Attempt to run, it'll do the right thing if the calling cmake script already ran it
 set(CONAN_INSTALL_FILE "${PROJECT_SOURCE_DIR}/ConanInstall.cmake")
 include("${CONAN_INSTALL_FILE}")
+
+get_target_property(RUBY_INCLUDE_DIRS CONAN_PKG::openstudio_ruby INTERFACE_INCLUDE_DIRECTORIES)
 
 # A macro to find a conan related value especially when using multi-config builds (MSVC)
 # But it also works with single-config builds
@@ -296,6 +302,7 @@ include("${PROJECT_SOURCE_DIR}/ProjectMacros.cmake")
 
 # Search first in the binary dir, where conan will install finders, then
 # search for modules in the root dir to override cmake ones
+# Start with ROOT, then PROJECT_BINARY_DIR
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_BINARY_DIR} ${PROJECT_BINARY_DIR}" "${PROJECT_SOURCE_DIR}/CMake")
 
 # Use CTest
@@ -303,6 +310,7 @@ set(ALL_TESTING_TARGETS "") # global list
 if(BUILD_TESTING)
   enable_testing()
   include(CTest)
+  include(GoogleTest)
 endif()
 
 
@@ -320,6 +328,7 @@ endif()
 
 if(UNIX)
 
+  # TODO: enable Wall
   #set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -fPIC -fno-strict-aliasing")
   set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC -fno-strict-aliasing")
 
@@ -336,13 +345,12 @@ if(UNIX)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-maybe-uninitialized")
   endif()
 
-  # Note: CMAKE_CXX_STANDARD set to 17 should already take care of adding -std=c++17 or equivalent
+  # Note: CMAKE_CXX_STANDARD (with no extensions) already sets -std=c++17 (or std=c++1z).
   if(APPLE)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -stdlib=libc++")
-  else()
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
   endif()
 endif()
+
 if(MINGW)
   # all warnings
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
@@ -355,6 +363,7 @@ if(MINGW)
   #add_definitions(-DBOOST_LOG_USE_CHAR)
   #add_definitions(-DBOOST_LOG_NO_COMPILER_TLS)
 endif()
+
 if(MSVC)
   # warning level 3
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W3")
@@ -415,6 +424,16 @@ if(MSVC)
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /DEBUG /OPT:REF /OPT:ICF")
   endif()
 
+endif()
+
+if(WIN32)
+  add_definitions(-DNOMINMAX)
+  # Set the BOOST_USE_WINAPI_VERSION to Windows10
+  add_compile_definitions(BOOST_USE_WINAPI_VERSION=BOOST_WINAPI_VERSION_WIN7)
+  # This will also align _WIN32_WINNT and WINVER
+  # add_compile_definitions(BOOST_USE_WINDOWS_H) # Getting a confict with `typedef GUID UUID` from windows.h
+  add_compile_definitions(BOOST_WINAPI_DEFINE_VERSION_MACROS)
+  add_compile_definitions(WIN32_LEAN_AND_MEAN) # That excludes stuff that's not used too often, including the GUID stuff
 endif()
 
 # Check version of gcc
@@ -639,6 +658,7 @@ set(CMAKE_AUTOMOC OFF)
 ###############################################################################
 # Add to include path
 
+# Project source directory
 include_directories("${PROJECT_SOURCE_DIR}/")
 include_directories("${PROJECT_SOURCE_DIR}/src/")
 
