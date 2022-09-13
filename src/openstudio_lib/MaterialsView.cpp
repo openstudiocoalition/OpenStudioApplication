@@ -30,7 +30,6 @@
 #include "MaterialsView.hpp"
 
 #include "MaterialAirGapInspectorView.hpp"
-#include "MaterialAirWallInspectorView.hpp"
 #include "MaterialInfraredTransparentInspectorView.hpp"
 #include "MaterialInspectorView.hpp"
 #include "MaterialNoMassInspectorView.hpp"
@@ -82,7 +81,6 @@ std::vector<std::pair<IddObjectType, std::string>> MaterialsView::modelObjectTyp
   result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_WindowMaterial_Shade, "Shade Window Materials"));
 
   // Oddballs to be listed at the bottom of the list
-  result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_Material_AirWall, "Air Wall Materials"));
   result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_Material_InfraredTransparent, "Infrared Transparent Materials"));
   result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_Material_RoofVegetation, "Roof Vegetation Materials"));
   result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_WindowMaterial_Glazing_RefractionExtinctionMethod,
@@ -138,9 +136,6 @@ void MaterialsInspectorView::onSelectModelObject(const openstudio::model::ModelO
     case IddObjectType::OS_Material_AirGap:
       this->showMaterialAirGapInspectorView(modelObject);
       break;
-    case IddObjectType::OS_Material_AirWall:
-      this->showMaterialAirWallInspectorView(modelObject);
-      break;
     case IddObjectType::OS_Material_InfraredTransparent:
       this->showMaterialInfraredTransparentInspectorView(modelObject);
       break;
@@ -188,15 +183,6 @@ void MaterialsInspectorView::onSelectModelObject(const openstudio::model::ModelO
 void MaterialsInspectorView::showMaterialAirGapInspectorView(const openstudio::model::ModelObject& modelObject) {
   auto view = new MaterialAirGapInspectorView(m_isIP, m_model);
   connect(this, &MaterialsInspectorView::toggleUnitsClicked, view, &MaterialAirGapInspectorView::toggleUnitsClicked);
-
-  view->selectModelObject(modelObject);
-
-  this->showInspector(view);
-}
-
-void MaterialsInspectorView::showMaterialAirWallInspectorView(const openstudio::model::ModelObject& modelObject) {
-  auto view = new MaterialAirWallInspectorView(m_isIP, m_model);
-  connect(this, &MaterialsInspectorView::toggleUnitsClicked, view, &MaterialAirWallInspectorView::toggleUnitsClicked);
 
   view->selectModelObject(modelObject);
 

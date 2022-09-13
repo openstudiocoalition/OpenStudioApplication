@@ -399,8 +399,6 @@ IconLibrary::IconLibrary() {
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Material).value()] = new QPixmap(":images/mini_icons/material.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Material_AirGap).value()] =
     new QPixmap(":images/mini_icons/material_airgap.png");
-  m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Material_AirWall).value()] =
-    new QPixmap(":images/mini_icons/material_airwall.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Material_InfraredTransparent).value()] =
     new QPixmap(":images/mini_icons/material_infrared_transparent.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Material_NoMass).value()] = new QPixmap(":images/mini_icons/insulation.png");

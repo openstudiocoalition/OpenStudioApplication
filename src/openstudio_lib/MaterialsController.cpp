@@ -32,7 +32,6 @@
 #include "MaterialsView.hpp"
 
 #include <openstudio/model/AirGap.hpp>
-#include <openstudio/model/AirWallMaterial.hpp>
 #include <openstudio/model/Blind.hpp>
 #include <openstudio/model/Component.hpp>
 #include <openstudio/model/Component_Impl.hpp>
@@ -76,9 +75,6 @@ void MaterialsController::onAddObject(const openstudio::IddObjectType& iddObject
       break;
     case IddObjectType::OS_Material_AirGap:
       mat = openstudio::model::AirGap(model);
-      break;
-    case IddObjectType::OS_Material_AirWall:
-      mat = openstudio::model::AirWallMaterial(model);
       break;
     case IddObjectType::OS_Material_InfraredTransparent:
       mat = openstudio::model::InfraredTransparentMaterial(model);
