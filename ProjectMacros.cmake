@@ -146,7 +146,7 @@ macro(MAKE_SWIG_TARGET_OSAPP NAME SIMPLENAME KEY_I_FILE I_FILES PARENT_TARGET PA
 
   # Get all of the source files for the parent target this SWIG library is wrapping
   get_target_property(target_files ${PARENT_TARGET} SOURCES)
-  get_target_property(swig_include_directories openstudio::openstudio_rb INTERFACE_INCLUDE_DIRECTORIES)
+  get_target_property(swig_include_directories openstudio::openstudiolib INTERFACE_INCLUDE_DIRECTORIES)
 
   foreach(f ${target_files})
     # Get the extension of the source file
