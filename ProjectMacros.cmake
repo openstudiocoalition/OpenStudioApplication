@@ -66,34 +66,6 @@ if(NOT USE_PCH)
   endmacro()
 endif()
 
-# Add google tests macro
-macro(ADD_GOOGLE_TESTS executable)
-  if(MSVC)
-    # QT-Separation-Move
-    file(TO_NATIVE_PATH "${QT_INSTALL_DIR}/bin/" QT_BIN_PATH) # DLM:
-    file(TO_NATIVE_PATH "${OPENSSL_ROOT_DIR}/bin/" OPENSSL_BIN_PATH)
-    string(REGEX REPLACE "([^\\]);" "\\1\\\\;" CURRENT_ENV "$ENV{PATH}")
-    set(NEWPATH "${QT_BIN_PATH};${OPENSSL_BIN_PATH};${CURRENT_ENV}")
-  else()
-    set(NEWPATH $ENV{PATH})
-  endif()
-
-  foreach(source ${ARGN})
-    if(NOT "${source}" MATCHES "/moc_.*cxx")
-      string(REGEX MATCH .*cpp source "${source}")
-      if(source)
-        file(READ "${source}" contents)
-        string(REGEX MATCHALL "TEST_?F?\\(([A-Za-z_0-9 ,]+)\\)" found_tests ${contents})
-        foreach(hit ${found_tests})
-          string(REGEX REPLACE ".*\\(([A-Za-z_0-9]+)[, ]*([A-Za-z_0-9]+)\\).*" "\\1.\\2" test_name ${hit})
-          add_test(${test_name} "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${executable}" --gtest_filter=${test_name})
-          set_tests_properties(${test_name} PROPERTIES TIMEOUT 660 ENVIRONMENT "PATH=${NEWPATH}")
-        endforeach()
-      endif()
-    endif()
-  endforeach()
-endmacro()
-
 # Create source groups automatically based on file path
 macro(CREATE_SRC_GROUPS SRC)
   foreach(F ${SRC})
@@ -137,7 +109,11 @@ macro(CREATE_TEST_TARGETS BASE_NAME SRC DEPENDENCIES)
       ${ALL_DEPENDENCIES}
     )
 
-    ADD_GOOGLE_TESTS(${BASE_NAME}_tests ${SRC})
+    # Tell cmake to discover tests by calling test_exe --gtest_list_tests
+    gtest_discover_tests(${BASE_NAME}_tests
+      PROPERTIES TIMEOUT 660
+    )
+
     if(TARGET "${BASE_NAME}_resources")
       add_dependencies("${BASE_NAME}_tests" "${BASE_NAME}_resources")
     endif()
