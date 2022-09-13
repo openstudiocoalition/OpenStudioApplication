@@ -236,7 +236,7 @@ OSDocument::OSDocument(const openstudio::model::Model& library, const openstudio
   }
 
   if (startTabIndex != m_verticalId) {
-    QTimer::singleShot(0, [=] {
+    QTimer::singleShot(0, [=, this] {
       this->onVerticalTabSelected(startTabIndex);
       this->updateSubTabSelected(startSubTabIndex);
     });
