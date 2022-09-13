@@ -323,8 +323,7 @@ macro(MAKE_SWIG_TARGET_OSAPP NAME SIMPLENAME KEY_I_FILE I_FILES PARENT_TARGET PA
     ${SWIG_WRAPPER}
   )
 
-  get_target_property(ruby_includes CONAN_PKG::openstudio_ruby INTERFACE_INCLUDE_DIRECTORIES)
-  target_include_directories(${swig_target} PUBLIC ${ruby_includes})
+  target_include_directories(${swig_target} SYSTEM PRIVATE ${RUBY_INCLUDE_DIRS})
 
   AddPCH(${swig_target})
 
@@ -587,6 +586,7 @@ macro(MAKE_SWIG_TARGET_OSAPP NAME SIMPLENAME KEY_I_FILE I_FILES PARENT_TARGET PA
       OpenStudioAirflow
       OpenStudioEnergyPlus
       OpenStudioGBXML
+      OpenStudioGltf
       OpenStudioISOModel
       OpenStudioRadiance
       OpenStudioSDD
@@ -624,17 +624,40 @@ macro(MAKE_SWIG_TARGET_OSAPP NAME SIMPLENAME KEY_I_FILE I_FILES PARENT_TARGET PA
     set(SWIG_WRAPPER_FULL_PATH "${CMAKE_CURRENT_BINARY_DIR}/${SWIG_WRAPPER}")
     set(SWIG_TARGET "generate_csharp_${NAME}_wrap")
 
+    # openstudio_translators
     list(FIND translator_names ${NAME} name_found)
     if( name_found GREATER -1 )
-      set(CSHARP_OUTPUT_NAME "openstudio_translators_csharp.dll")
+      if(MSVC)
+        set(CSHARP_OUTPUT_NAME "openstudio_translators_csharp.dll")
+      elseif(APPLE)
+        set(CSHARP_OUTPUT_NAME "openstudio_translators_csharp.dylib")
+      else()
+        set(CSHARP_OUTPUT_NAME "libopenstudio_translators_csharp.so")
+      endif()
     else()
+      # openstudio_model
       list(FIND model_names ${NAME} name_found)
       if( name_found GREATER -1 )
-        set(CSHARP_OUTPUT_NAME "openstudio_model_csharp.dll")
+        if(MSVC)
+          set(CSHARP_OUTPUT_NAME "openstudio_model_csharp.dll")
+        elseif(APPLE)
+          set(CSHARP_OUTPUT_NAME "openstudio_model_csharp.dylib")
+        else()
+          set(CSHARP_OUTPUT_NAME "libopenstudio_model_csharp.so")
+        endif()
       else()
-        set(CSHARP_OUTPUT_NAME "openstudio_csharp.dll")
+        # openstudio_utilities
+        if(MSVC)
+          set(CSHARP_OUTPUT_NAME "openstudio_csharp.dll")
+        elseif(APPLE)
+          set(CSHARP_OUTPUT_NAME "openstudio_csharp.dylib")
+        else()
+          set(CSHARP_OUTPUT_NAME "libopenstudio_csharp.so")
+        endif()
       endif()
     endif()
+
+
 
     set(CSHARP_GENERATED_SRC_DIR "${PROJECT_BINARY_DIR}/csharp_wrapper/generated_sources/${NAME}")
     file(MAKE_DIRECTORY ${CSHARP_GENERATED_SRC_DIR})
