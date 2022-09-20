@@ -5,6 +5,8 @@ include_directories(${QT_INCLUDES})
 
 # source files
 set(${target_name}_SRC
+  AnalyticsHelper.cpp
+  AnalyticsHelper.hpp
   ApplyMeasureNowDialog.cpp
   ApplyMeasureNowDialog.hpp
   BCLComponentItem.cpp
@@ -476,6 +478,7 @@ set(${target_name}_SRC
 
 # moc files
 set(${target_name}_moc
+  AnalyticsHelper.hpp
   ApplyMeasureNowDialog.hpp
   BCLComponentItem.hpp
   BuildingInspectorView.hpp

@@ -42,8 +42,8 @@
 
 namespace openstudio {
 
-MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, QWidget* parent)
-  : QMenuBar(parent), m_isPlugin(isPlugin), m_isIP(isIP), m_currLang(currLang) {
+MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, bool allowAnalytics, QWidget* parent)
+  : QMenuBar(parent), m_isPlugin(isPlugin), m_isIP(isIP), m_currLang(currLang), m_allowAnalytics(allowAnalytics) {
 
   QAction* action = nullptr;
 
@@ -383,6 +383,13 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, QWidget* p
   m_helpMenu->addAction(action);
   connect(action, &QAction::triggered, this, &MainMenu::checkForUpdateClicked, Qt::QueuedConnection);
 
+  m_allowAnalyticsAction = new QAction(tr("Allow Analytics"), this);
+  m_preferencesActions.push_back(m_allowAnalyticsAction);
+  m_allowAnalyticsAction->setCheckable(true);
+  m_allowAnalyticsAction->setChecked(m_allowAnalytics);
+  m_helpMenu->addAction(m_allowAnalyticsAction);
+  connect(m_allowAnalyticsAction, &QAction::triggered, this, &MainMenu::toggleAnalytics, Qt::QueuedConnection);
+
   action = new QAction(tr("&About"), this);
   m_helpMenu->addAction(action);
   connect(action, &QAction::triggered, this, &MainMenu::aboutClicked, Qt::QueuedConnection);
@@ -712,6 +719,16 @@ void MainMenu::addingNewLanguageClicked() {
        "sentence/word with the help of a dedicated software.\nIf you would like to see the OpenStudioApplication translated in your language of "
        "choice, we would welcome your help. Send an email to osc@openstudiocoalition.org specifying which language you want to add, and we will be "
        "in touch to help you get started."));
+}
+
+void MainMenu::enableAnalytics(bool enable) {
+  m_allowAnalytics = enable;
+  m_allowAnalyticsAction->setChecked(m_allowAnalytics);
+  emit allowAnalyticsClicked(m_allowAnalytics);
+}
+
+void MainMenu::toggleAnalytics() {
+  enableAnalytics(!m_allowAnalytics);
 }
 
 void MainMenu::enableRevertToSavedAction(bool enable) {

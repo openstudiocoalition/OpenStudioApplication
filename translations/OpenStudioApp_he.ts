@@ -4,28 +4,28 @@
 <context>
     <name>InspectorDialog</name>
     <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="706"/>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="707"/>
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="715"/>
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="716"/>
         <source>OpenStudio Inspector</source>
         <translation>מפקח OPENSTUDIO</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="786"/>
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="795"/>
         <source>Add new object</source>
         <translation>הוסף אובייקט חדש</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="790"/>
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="799"/>
         <source>Copy selected object</source>
         <translation>העתק אובייקט חדש</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="794"/>
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="803"/>
         <source>Remove selected objects</source>
         <translation>הסר אובייקטים נבחרים</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="798"/>
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="807"/>
         <source>Purge unused objects</source>
         <translation>הסר אובייקטים לא בשימוש</translation>
     </message>
@@ -33,18 +33,18 @@
 <context>
     <name>InspectorGadget</name>
     <message>
-        <location filename="../src/model_editor/InspectorGadget.cpp" line="617"/>
-        <location filename="../src/model_editor/InspectorGadget.cpp" line="662"/>
+        <location filename="../src/model_editor/InspectorGadget.cpp" line="608"/>
+        <location filename="../src/model_editor/InspectorGadget.cpp" line="653"/>
         <source>Hard Sized</source>
         <translation>לפי תכנון</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorGadget.cpp" line="618"/>
+        <location filename="../src/model_editor/InspectorGadget.cpp" line="609"/>
         <source>Autosized</source>
         <translation>מותאם אוטומטית</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorGadget.cpp" line="663"/>
+        <location filename="../src/model_editor/InspectorGadget.cpp" line="654"/>
         <source>Autocalculate</source>
         <translation>מחושב אוטומטית</translation>
     </message>
@@ -253,24 +253,24 @@ Zone</source>
 <context>
     <name>openstudio::EditorWebView</name>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1307"/>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1333"/>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1359"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1304"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1330"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1356"/>
         <source>Open File</source>
         <translation>פתח קובץ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1307"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1304"/>
         <source>gbXML (*.xml *.gbxml)</source>
         <translation>gbXML (*.xml *.gbxml)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1333"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1330"/>
         <source>IDF (*.idf)</source>
         <translation>IDF (*.idf)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1359"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1356"/>
         <source>OSM (*.osm)</source>
         <translation>OSM (*.osm)</translation>
     </message>
@@ -317,7 +317,7 @@ Zone</source>
 <context>
     <name>openstudio::LocationTabView</name>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="93"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="102"/>
         <source>Site</source>
         <translation>אתר</translation>
     </message>
@@ -325,116 +325,108 @@ Zone</source>
 <context>
     <name>openstudio::LocationView</name>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="177"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="183"/>
         <source>Weather File</source>
         <translation>קובץ אקלימי</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="198"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="204"/>
         <source>Name: </source>
         <translation>שם:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="213"/>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="485"/>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="509"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="219"/>
         <source>Latitude: </source>
         <translation>קו רוחב:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="216"/>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="490"/>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="511"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="222"/>
         <source>Longitude: </source>
         <translation>קו אורך:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="219"/>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="495"/>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="513"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="225"/>
         <source>Elevation: </source>
         <translation>חזית:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="222"/>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="500"/>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="515"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="228"/>
         <source>Time Zone: </source>
         <translation>אזור זמן:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="226"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="232"/>
         <source>Download weather files at &lt;a href=&quot;http://www.energyplus.net/weather&quot;&gt;www.energyplus.net/weather&lt;/a&gt;</source>
         <translation>קובצי מזג אוויר להורדה בכתובת &lt;a href=&quot;http://www.energyplus.net/weather&quot;&gt;www.energyplus.net/weather&lt;/a&gt;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="235"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="241"/>
         <source>Measure Tags (Optional):</source>
         <translation>תגי מדידה (אופציונלי):</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="239"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="245"/>
         <source>ASHRAE Climate Zone</source>
         <translation>אזור אקלים ASHRAE</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="272"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="278"/>
         <source>CEC Climate Zone</source>
         <translation>אזור האקלים של CEC</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="340"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="346"/>
         <source>Design Days</source>
         <translation>ימי תכנון</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="343"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="349"/>
         <source>Import From DDY</source>
         <translation>ייבוא מ-DDY</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="463"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="476"/>
         <source>Change Weather File</source>
         <translation>החלף קובץ אקלימי</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="466"/>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="470"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="479"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="483"/>
         <source>Set Weather File</source>
         <translation>הגדר קובץ אקלימי</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="520"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="532"/>
         <source>EPW Files (*.epw);; All Files (*.*)</source>
         <translation>קבצי EPW (*.epw);;  הכל (*.*)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="531"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="543"/>
         <source>Open Weather File</source>
         <translation>פתח קובץ אקלימי</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="617"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="629"/>
         <source>Failed To Set Weather File</source>
         <translation>לא ניתן להקצות קובץ אקלימי</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="617"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="629"/>
         <source>Failed To Set Weather File To </source>
         <translation>לא ניתן להקצות את הקובץ אקלימי הבא:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="652"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="662"/>
         <source>Open DDY File</source>
         <translation>פתח קובץ DDY</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="747"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="755"/>
         <source>No Design Days in DDY File</source>
         <translation>אין ימי תכנון בקובץ DDY</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="748"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="756"/>
         <source>This DDY file does not contain any valid design days.  Check the DDY file itself for errors or omissions.</source>
         <translation>קובץ DDY זה אינו מכיל ימי תכנון תקפים. בדוק את קובץ ה-DDY עצמו עבור שגיאות או השמטות.</translation>
     </message>
@@ -560,7 +552,7 @@ Zone</source>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="68"/>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="402"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="739"/>
         <source>&amp;Revert to Saved</source>
         <translation>&amp;חזור לשמירה האחרונה</translation>
     </message>
@@ -618,64 +610,73 @@ Zone</source>
         <translation>&amp;טען ספרייה</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="139"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="130"/>
+        <source>E&amp;xamples</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="132"/>
+        <source>&amp;Example Model</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="145"/>
         <source>E&amp;xit</source>
         <translation>&amp;יציאה</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="146"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="152"/>
         <source>&amp;Preferences</source>
         <translation>&amp;העדפות</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="149"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="155"/>
         <source>&amp;Units</source>
         <translation>&amp;יחידות</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="151"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="157"/>
         <source>Metric (&amp;SI)</source>
         <translation>Metric (&amp;SI)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="157"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="163"/>
         <source>English (&amp;I-P)</source>
         <translation>אנגלית (&amp;I-P)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="163"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="169"/>
         <source>&amp;Change My Measures Directory</source>
         <translation>&amp;שנה את ספריית הפעולות שלי</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="168"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="174"/>
         <source>&amp;Change Default Libraries</source>
         <translation>&amp;שנה ספריות ברירת מחדל</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="173"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="179"/>
         <source>&amp;Configure External Tools</source>
         <translation>&amp;הגדר כלים חיצוניים</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="178"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="184"/>
         <source>&amp;Language</source>
         <translation>&amp;שפה</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="180"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="186"/>
         <source>English</source>
         <translation>אנגלית</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="186"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="192"/>
         <source>French</source>
         <translation>צרפתית</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="192"/>
         <source>Arabic</source>
-        <translation>ערבית</translation>
+        <translation type="vanished">ערבית</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="198"/>
@@ -689,71 +690,121 @@ Zone</source>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="210"/>
+        <source>Italian</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="216"/>
+        <source>Chinese</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="222"/>
+        <source>Greek</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="228"/>
+        <source>Polish</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="234"/>
+        <source>Catalan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="240"/>
+        <source>Hindi</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="246"/>
+        <source>Vietnamese</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="252"/>
+        <source>Japanese</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="258"/>
+        <source>German</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="270"/>
         <source>Hebrew</source>
         <translation>עברית</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="216"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="276"/>
         <source>Add a new language</source>
         <translation>הוסף שפה חדשה</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="233"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="293"/>
         <source>&amp;Configure Internet Proxy</source>
         <translation>&amp;הגדר פרוקסי אינטרנט</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="268"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="355"/>
         <source>&amp;Components &amp;&amp; Measures</source>
         <translation>&amp;רכיבים &amp;&amp; פעולות</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="271"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="358"/>
         <source>&amp;Apply Measure Now</source>
         <translation>&amp;החל פעולה עכשיו</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="273"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="360"/>
         <source>Ctrl+M</source>
         <translation>Ctrl+M</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="277"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="364"/>
         <source>Find &amp;Measures</source>
         <translation>מצא &amp;פעולות</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="282"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="369"/>
         <source>Find &amp;Components</source>
         <translation>מצא &amp;רכיבים</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="288"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="375"/>
         <source>&amp;Help</source>
         <translation>&amp;עזרה</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="291"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="378"/>
         <source>OpenStudio &amp;Help</source>
         <translation>OpenStudio &amp;עזרה</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="295"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="382"/>
         <source>Check For &amp;Update</source>
         <translation>בדוק עדכונים</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="299"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="386"/>
+        <source>Allow Analytics</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="393"/>
         <source>&amp;About</source>
         <translation>אודות</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="387"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="717"/>
         <source>Adding a new language</source>
         <translation>הוספת שפה חדשה</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="388"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="718"/>
         <source>Adding a new language requires almost no coding skill, but it does require language skills: the only thing to do is to translate each sentence/word with the help of a dedicated software.
 If you would like to see the OpenStudioApplication translated in your language of choice, we would welcome your help. Send an email to osc@openstudiocoalition.org specifying which language you want to add, and we will be in touch to help you get started.</source>
         <translation>הוספת שפה חדשה לא דורשת כמעט מיומנות קידוד, אבל היא כן דורשת כישורי שפה: הדבר היחיד שצריך לעשות הוא לתרגם כל משפט/מילה בעזרת תוכנה ייעודית.
@@ -761,359 +812,401 @@ If you would like to see the OpenStudioApplication translated in your language o
     </message>
 </context>
 <context>
+    <name>openstudio::MeasureManager</name>
+    <message>
+        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="950"/>
+        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="961"/>
+        <source>Measures Updated</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="950"/>
+        <source>All measures are up-to-date.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="954"/>
+        <source> measures have been updated on BCL compared to your local BCL directory.
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="955"/>
+        <source>Would you like update them?</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>openstudio::OSDocument</name>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1207"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1215"/>
         <source>Export Idf</source>
         <translation>ייצוא IDF</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1207"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1215"/>
         <source>(*.idf)</source>
         <translation>(*.idf)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1244"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1250"/>
         <source>(*.xml)</source>
         <translation>(*.xml)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1372"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1389"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1464"/>
         <source>Failed to save model</source>
         <translation>שמירת הקובץ נכשלה</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1373"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1390"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1465"/>
         <source>Failed to save model, make sure that you do not have the location open and that you have correct write access.</source>
         <translation>אין אפשרות לשמור את הקובץ, ודא שאין לך את התיקיה פתוחה ושיש לך מספיק הרשאות כתיבה.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1420"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1433"/>
         <source>Save</source>
         <translation>שמור</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1420"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1433"/>
         <source>(*.osm)</source>
         <translation>(*.osm)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1606"/>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1608"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1627"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1629"/>
         <source>Select My Measures Directory</source>
         <translation>בחר בתיקייה &quot;הפעולות שלי&quot;.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1689"/>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1755"/>
         <source>Online BCL</source>
-        <translation>Online BCL</translation>
+        <translation type="vanished">Online BCL</translation>
     </message>
 </context>
 <context>
     <name>openstudio::OpenStudioApp</name>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="250"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="259"/>
         <source>Timeout</source>
         <translation>הזמן פג</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="252"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="261"/>
         <source>Failed to start the Measure Manager. Would you like to retry?</source>
         <translation>לא ניתן להפעיל את Measure Manager האם ברצונך לנסות שוב?</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="387"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="398"/>
         <source>Loading Library Files</source>
         <translation>טוען ספריות OSM</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="388"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="399"/>
         <source>(Manage library files in Preferences-&gt;Change default libraries)</source>
         <translation>(נהל קבצי ספרייה בהעדפות-&gt;שנה ספריות ברירת מחדל)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="405"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="416"/>
         <source>Translation From version </source>
         <translation>תרגום מגרסה</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="405"/>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1147"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="416"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1135"/>
         <source> to </source>
         <translation>אל</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="408"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="419"/>
         <source>Unknown starting version</source>
         <translation>גרסת התחלה לא ידועה</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="481"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="494"/>
         <source>Import Idf</source>
         <translation>ייבוא IDF</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="481"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="494"/>
         <source>(*.idf)</source>
         <translation>(*.osm)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="512"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="525"/>
         <source>&apos; while OpenStudio uses a &lt;strong&gt;newer&lt;/strong&gt; EnergyPlus &apos;</source>
         <translation>&apos; בעוד ש-OpenStudio משתמש ב&lt;strong&gt;חדש&lt;/strong&gt; EnergyPlus &apos;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="513"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="526"/>
         <source>&apos;. Consider using the EnergyPlus Auxiliary program IDFVersionUpdater to update your IDF file.</source>
         <translation>&apos;. שקול להשתמש בתוכנת העזר של EnergyPlus IDFVersionUpdater כדי לעדכן את קובץ ה-IDF שלך.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="515"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="528"/>
         <source>&apos; while OpenStudio uses an &lt;strong&gt;older&lt;/strong&gt; EnergyPlus &apos;</source>
         <translation>&apos; בעוד OpenStudio משתמש ב&lt;strong&gt;ישן&lt;/strong&gt; EnergyPlus &apos;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="515"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="528"/>
         <source>&apos;.</source>
         <translation>&apos;.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="517"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="530"/>
         <source>&apos; which is the &lt;strong&gt;same&lt;/strong&gt; version of EnergyPlus that OpenStudio uses (</source>
         <translation>&apos; שהיא הגרסה ה&lt;strong&gt;אותה&lt;/strong&gt; של EnergyPlus שבה משתמש OpenStudio (</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="521"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="534"/>
         <source>&lt;strong&gt;The IDF does not have a VersionObject&lt;/strong&gt;. Check that it is of correct version (</source>
         <translation>&lt;strong&gt;ל-IDF אין VersionObject&lt;/strong&gt;. בדוק שזה בגרסה נכונה (</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="522"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="535"/>
         <source>) and that all fields are valid against Energy+.idd. </source>
         <translation>) ושכל השדות תקפים כנגד Energy+.idd.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="525"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="538"/>
         <source>&lt;br/&gt;&lt;br/&gt;The ValidityReport follows.</source>
         <translation>&lt;br/&gt;&lt;br/&gt;דוח התוקף להלן.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="527"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="540"/>
         <source>&lt;strong&gt;File is not valid to draft strictness&lt;/strong&gt;. Check that all fields are valid against Energy+.idd.</source>
         <translation>&lt;strong&gt;הקובץ אינו תקין לקפדנות הטיוטה&lt;/strong&gt;. בדוק שכל השדות תקפים כנגד Energy+.idd.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="533"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="546"/>
         <source> IDF Import Failed</source>
         <translation>ייבוא IDF נכשל</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="608"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="621"/>
         <source>=============== Errors ===============
 
 </source>
         <translation>=============== שגיאות ===============</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="616"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="629"/>
         <source>============== Warnings ==============
 
 </source>
         <translation>=============== אזהרות ===============</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="624"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="637"/>
         <source>==== The following idf objects were not imported ====
 
 </source>
         <translation>==== אובייקטי ה-IDF הבאים לא יובאו ====</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="629"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="642"/>
         <source> named </source>
         <translation>בשם</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="631"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="644"/>
         <source>Unnamed </source>
         <translation>ללא שם</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="637"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="650"/>
         <source>&lt;strong&gt;Some portions of the IDF file were not imported.&lt;/strong&gt;</source>
         <translation>&lt;strong&gt;חלקים מסוימים מקובץ IDF לא יובאו.&lt;/strong&gt;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="643"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="656"/>
         <source>IDF Import</source>
         <translation>IDF ייבוא</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="646"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="659"/>
         <source>Only geometry, constructions, loads, thermal zones, and schedules are supported by the OpenStudio IDF import feature.</source>
         <translation>רק מידע על גיאומטריה, קונסטרוקציות, עומסם, אזורים תרמים ולוחות זמנים נתמכים על ידי ייבוא IDF של OpenStudio.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="711"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="724"/>
         <source>Import </source>
         <translation>ייבוא</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="718"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="731"/>
         <source>(*.xml)</source>
         <translation>(*.xml)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="778"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="791"/>
         <source>Errors or warnings occurred on import of </source>
         <translation>הונפקו שגיאות או אזהרות בעת ייבוא ​​ה-</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="788"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="801"/>
         <source>Could not import SDD file.</source>
         <translation>לא ניתן לייבא קובץ SDD.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="790"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="803"/>
         <source>Could not import </source>
         <translation>לא ניתן לייבא</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="790"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="803"/>
         <source> file at </source>
         <translation>בדרך</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="820"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="833"/>
         <source>Save Changes?</source>
         <translation>שמור שינויים?</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="821"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="834"/>
         <source>The document has been modified.</source>
         <translation>הקובץ השתנה</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="822"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="835"/>
         <source>Do you want to save your changes?</source>
         <translation>האם אתה רוצה לשמור את השינויים?</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="888"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="902"/>
         <source>Open</source>
         <translation>פתח</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="888"/>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1446"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="902"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1486"/>
         <source>(*.osm)</source>
         <translation>(*.osm)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="974"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="959"/>
         <source>A new version is available at &lt;a href=&quot;</source>
         <translation>גרסה חדשה זמינה ב-&lt;a href=&quot;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="979"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="964"/>
         <source>Currently using the most recent version</source>
         <translation>משתמש כרגע בגרסה העדכנית ביותר</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="987"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="972"/>
         <source>Check for Updates</source>
         <translation>בדוק עדכונים</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1001"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="986"/>
         <source>Measure Manager Server: </source>
         <translation>שרת מנהל פעולות:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1002"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="987"/>
         <source>Chrome Debugger: http://localhost:</source>
         <translation>Chrome Debugger: http://localhost:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1003"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="988"/>
         <source>Temp Directory: </source>
         <translation>תקיה זמנית:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1008"/>
         <source>About </source>
-        <translation>אודות</translation>
+        <translation type="vanished">אודות</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1039"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1027"/>
         <source>Failed to load model</source>
         <translation>לא ניתן לטעון את הקובץ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1145"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1133"/>
         <source>Opening future version </source>
         <translation>פתיחת גרסה עתידית</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1145"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1133"/>
         <source> using </source>
         <translation>עם גרסה</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1147"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1135"/>
         <source>Model updated from </source>
         <translation>קובץ מעודכן מאז</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1156"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1144"/>
         <source>Existing Ruby scripts have been removed.
 Ruby scripts are no longer supported and have been replaced by measures.</source>
         <translation>סקריפטים של Ruby הוסרו.
 סקריפטים של Ruby הוצאו משימוש והוחלפו בפעולות</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1163"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1151"/>
         <source>Failed to open file at </source>
         <translation>לא ניתן לטעון את הקובץ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1204"/>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1216"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1174"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1329"/>
+        <source>Settings file not writable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1175"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1330"/>
+        <source>Your settings file &apos;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1175"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1330"/>
+        <source>&apos; is not writable. Adjust the file permissions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1196"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1208"/>
         <source>Revert to Saved</source>
         <translation>חזור לשמירה האחרונה</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1204"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1196"/>
         <source>This model has never been saved.
 Do you want to create a new model?</source>
         <translation>קובץ זה מעולם לא נשמר.
 האם ברצונך ליצור קובץ חדש?</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1216"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1208"/>
         <source>Are you sure you want to revert to the last saved version?</source>
         <translation>האם אתה בטוח שברצונך לחזור לגרסה השמורה האחרונה?</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1258"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1272"/>
         <source>Measure Manager has crashed, attempting to restart
 
 </source>
         <translation>מנהל הפעולות קרס, מנסה להפעיל מחדש</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1262"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1276"/>
         <source>Measure Manager has crashed</source>
         <translation>מנהל הפעולות קרס</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1394"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1413"/>
         <source>Restart required</source>
         <translation>אתחול נדרש</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1395"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1414"/>
         <source>A restart of the OpenStudio Application is required for language changes to be fully functionnal.
 Would you like to restart now?</source>
         <translation>Save translation
@@ -1121,19 +1214,19 @@ Would you like to restart now?</source>
 האם תרצה להפעיל מחדש עכשיו?</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1446"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1486"/>
         <source>Select Library</source>
         <translation>בחר ספרייה</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1500"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1561"/>
         <source>Failed to load the following libraries...
 
 </source>
         <translation>לא ניתן לטעון את הספריות הבאות...</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1508"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1569"/>
         <source>
 
 Would you like to Restore library paths to default values or Open the library settings to change them manually?</source>
@@ -1146,6 +1239,19 @@ Would you like to Restore library paths to default values or Open the library se
         <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="201"/>
         <source>Add/Remove Extensible Groups</source>
         <translation>הוסף/הסר קבוצות הניתנות להרחבה</translation>
+    </message>
+</context>
+<context>
+    <name>openstudio::RunView</name>
+    <message>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="197"/>
+        <source>onRunProcessErrored: Simulation failed to run, QProcess::ProcessError: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="209"/>
+        <source>Simulation failed to run, with exit code </source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1261,134 +1367,134 @@ Would you like to Restore library paths to default values or Open the library se
         <translation>מסתיים</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="509"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="504"/>
         <source>First</source>
         <translation>ראשון</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="509"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="504"/>
         <source>Second</source>
         <translation>שני</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="509"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="504"/>
         <source>Third</source>
         <translation>שלישי</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="509"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="504"/>
         <source>Fourth</source>
         <translation>רביעי</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="509"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="504"/>
         <source>Last</source>
         <translation>אחרון</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="516"/>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="522"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="511"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="517"/>
         <source>Sunday</source>
         <translation>ראשון</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="516"/>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="522"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="511"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="517"/>
         <source>Monday</source>
         <translation>שני</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="516"/>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="522"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="511"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="517"/>
         <source>Tuesday</source>
         <translation>שלישי</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="516"/>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="522"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="511"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="517"/>
         <source>Wednesday</source>
         <translation>רביעי</translation>
     </message>
     <message>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="512"/>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="517"/>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="522"/>
         <source>Thursday</source>
         <translation>חמישי</translation>
     </message>
     <message>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="512"/>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="517"/>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="522"/>
         <source>Friday</source>
         <translation>שישי</translation>
     </message>
     <message>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="512"/>
         <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="517"/>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="522"/>
         <source>Saturday</source>
         <translation>שבת</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="517"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="512"/>
         <source>UseWeatherFile</source>
         <translation>השתמש בקובץ אקלימי</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="528"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="523"/>
         <source>January</source>
         <translation>ינואר</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="528"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="523"/>
         <source>February</source>
         <translation>פברואר</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="528"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="523"/>
         <source>March</source>
         <translation>מרץ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="528"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="523"/>
         <source>April</source>
         <translation>אפריל</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="528"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="523"/>
         <source>May</source>
         <translation>מאי</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="528"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="523"/>
         <source>June</source>
         <translation>יוני</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="529"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="524"/>
         <source>July</source>
         <translation>יולי</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="529"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="524"/>
         <source>August</source>
         <translation>אוגוסט</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="529"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="524"/>
         <source>September</source>
         <translation>ספטמבר</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="529"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="524"/>
         <source>October</source>
         <translation>אוקטובר</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="529"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="524"/>
         <source>November</source>
         <translation>נובמבר</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="529"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="524"/>
         <source>December</source>
         <translation>דצמבר</translation>
     </message>
