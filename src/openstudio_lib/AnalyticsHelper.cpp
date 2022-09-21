@@ -30,6 +30,7 @@
 #include "AnalyticsHelper.hpp"
 
 #include "../model_editor/Utilities.hpp"
+#include "../utilities/OpenStudioApplicationPathHelpers.hpp"
 
 #include <QByteArray>
 #include <QNetworkAccessManager>
@@ -55,15 +56,23 @@ void AnalyticsHelper::sendAnalytics(const QString& analyticsId, int verticalTabI
   QNetworkRequest request(QString::fromUtf8("https://www.google-analytics.com/collect"));
   request.setRawHeader("Content-Type", "application/x-www-form-urlencoded");
 
-  QString page = QString("Tab-%1").arg(verticalTabIndex);
+  QString title = QString("Tab-%1").arg(verticalTabIndex);
+  QString path = QString("/OSApp/Tab-%1").arg(verticalTabIndex);
+  QString version = toQString(openstudio::openStudioApplicationVersionWithPrerelease());
   
   QUrlQuery query;
+  // https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters
   query.addQueryItem("v", "1"); 
   query.addQueryItem("tid", "UA-172465420-1"); 
   query.addQueryItem("cid", analyticsId); 
   query.addQueryItem("t", "pageview");  
-  query.addQueryItem("dh", "app.openstudiocoalition.org");                           
-  query.addQueryItem("dp", page);   
+  query.addQueryItem("dh", "app.openstudiocoalition.org");
+  query.addQueryItem("dp", path);
+  query.addQueryItem("dt", title);      
+  query.addQueryItem("cd", title);              
+  query.addQueryItem("an", "OSApp");
+  query.addQueryItem("av", version);
+  query.addQueryItem("z", QString::number(std::time(0)));
 
   QByteArray body = query.query().toUtf8();
   m_networkAccessManager->post(request, body);
