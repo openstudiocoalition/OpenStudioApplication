@@ -1056,7 +1056,7 @@ bool OSDocument::fixWeatherFileInTemp(bool opening) {
   if (doCopy) {
     try {
       LOG(Debug, "Start copy weather file from " << copySource << " to " << copyDest);
-      boost::filesystem::copy_file(copySource, copyDest, boost::filesystem::copy_option::overwrite_if_exists);
+      boost::filesystem::copy_file(copySource, copyDest, boost::filesystem::copy_options::overwrite_existing);
       LOG(Debug, "Copy weather file complete");
     } catch (...) {
       // copy failed
