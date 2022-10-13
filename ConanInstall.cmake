@@ -54,7 +54,8 @@ if(NOT CONAN_OPENSTUDIO_ALREADY_RUN)
       URL https://conan.openstudio.net/artifactory/api/conan/openstudio)
 
     # Track NREL/stable in general, on a feature branch this could be temporarily switched to NREL/testing
-    set(CONAN_RUBY "openstudio_ruby/2.7.2@nrel/stable#ae043c41b4bec82e98ca765ce8b32a11")
+    # TODO: temp, revert to stable soon
+    set(CONAN_RUBY "openstudio_ruby/2.7.2@nrel/testing#d66e3b66568b13acf3b16d866bec68d0")
   endif()
 
   # conan_add_remote(
@@ -80,6 +81,11 @@ if(NOT CONAN_OPENSTUDIO_ALREADY_RUN)
   endif()
 
   # TODO:  list(APPEND CONAN_OPTIONS "fmt:header_only=True")
+
+  if(APPLE)
+    # #4120 - global is the 'default' visibility in gcc/clang
+    list(APPEND CONAN_OPTIONS "boost:visibility=global")
+  endif()
 
   # You do want to rebuild packages if there's a newer recipe in the remote (which applies mostly to our own openstudio_ruby where we don't
   # bump the actual package version when we make changes) than the binaries were built with
@@ -201,7 +207,7 @@ if(NOT CONAN_OPENSTUDIO_ALREADY_RUN)
   # Loads the conanbuildinfo.cmake / conanbuildinfo_multi.cmake
   conan_load_buildinfo()
   # conan_basic_setup in the conanbuildinfo.cmake. TARGETS => set cmake targets, NO_OUTPUT_DIRS => Don't modify the BIN / LIB folders etc
-  conan_basic_setup(TARGETS NO_OUTPUT_DIRS)
+  conan_basic_setup(TARGETS NO_OUTPUT_DIRS)  # TODO add KEEP_RPATHS ?
 
   set(CONAN_OPENSTUDIO_ALREADY_RUN TRUE)
 
