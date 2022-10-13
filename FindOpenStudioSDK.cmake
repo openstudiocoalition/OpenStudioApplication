@@ -6,7 +6,7 @@ set(OPENSTUDIO_VERSION "${OPENSTUDIO_VERSION_MAJOR}.${OPENSTUDIO_VERSION_MINOR}.
 #If this is an official release, leave this "", otherwise put for eg '-rc1'
 set(OPENSTUDIO_VERSION_PRERELEASE "-alpha")
 # Enter SHA, always, eg "+79857912c4"
-set(OPENSTUDIO_VERSION_SHA "+be701716e6")
+set(OPENSTUDIO_VERSION_SHA "+c0618b74a2")
 
 # Paths where the cmake-downloaded archives will be put
 set(OPENSTUDIO_ARCHIVE_DIR "${PROJECT_BINARY_DIR}/OpenStudio-${OPENSTUDIO_VERSION}")
@@ -16,24 +16,26 @@ set(OPENSTUDIO_EXT "tar.gz")
 # If downloaded, we need the SHA to match. This block is here since we need "OPENSTUDIO_PLATFORM" anyways
 if(APPLE)
   if(ARCH MATCHES "arm64")
-    set(OPENSTUDIO_EXPECTED_HASH a8382ac1dcc6996f4905aa1be45926c7)
+    message(FATAL_ERROR "PENDING rebuild on JM's m1 mac")
+    set(OPENSTUDIO_EXPECTED_HASH TODO_PENDING)
     set(OPENSTUDIO_PLATFORM "Darwin-arm64")
   else()
-    set(OPENSTUDIO_EXPECTED_HASH 2cd9912aea03d4dbdd1c15f967b9f067)
+    set(OPENSTUDIO_EXPECTED_HASH e234b4975bb9c21330111d34adf30d79)
     set(OPENSTUDIO_PLATFORM "Darwin")
   endif()
 
 elseif(UNIX)
   if(LSB_RELEASE_VERSION_SHORT MATCHES "20.04")
-    set(OPENSTUDIO_EXPECTED_HASH 7d087eeb134c95367dcd7ab1aa672469)
+    set(OPENSTUDIO_EXPECTED_HASH f8d00b082c9af7a348d637b7a9471c6f)
     set(OPENSTUDIO_PLATFORM "Ubuntu-20.04")
   else() # Assumes 18.04
-    set(OPENSTUDIO_EXPECTED_HASH 40bcebd1f4f3f27c1da8796d5e43c660)
+    set(OPENSTUDIO_EXPECTED_HASH 69cf5452b990e361f4368068b9995045)
     set(OPENSTUDIO_PLATFORM "Ubuntu-18.04")
   endif()
 
 elseif(WIN32)
-  set(OPENSTUDIO_EXPECTED_HASH 41831941e203aa6a04bbc3828f1231ec)
+  message(FATAL_ERROR "Pending https://ci.openstudio.net/blue/organizations/jenkins/openstudio-incremental-windows/detail/PR-4712/2/pipeline")
+  set(OPENSTUDIO_EXPECTED_HASH TODO_PENDING)
   set(OPENSTUDIO_PLATFORM "Windows")
 endif()
 
@@ -67,7 +69,10 @@ else()
   # Note: this should be set to ""http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/develop" for nightly builds
   # Occasionally we can point to a specific PR by using something like ""http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/PR-4080"
   set(OPENSTUDIO_BASELINK_CI
-    "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/develop"
+    # "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/develop"
+    # TODO: TEMPORARY point to a PR
+    "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/PR-4712"
+
     CACHE STRING "Base link to where the openstudio develop archives are hosted" FORCE)
 
   # Make subdir if it doesn't exist
