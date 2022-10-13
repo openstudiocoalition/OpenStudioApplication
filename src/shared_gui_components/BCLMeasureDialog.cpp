@@ -216,7 +216,8 @@ boost::optional<openstudio::BCLMeasure> BCLMeasureDialog::createMeasure() {
       result->changeUID();
 
       // change the files on disk
-      result->updateMeasureScript(m_bclMeasureToCopy->measureType(), measureType, m_bclMeasureToCopy->className(), className, name, description,
+      result->updateMeasureScript(m_bclMeasureToCopy->measureType(), measureType, m_bclMeasureToCopy->measureLanguage(),
+                                  m_bclMeasureToCopy->measureLanguage(), m_bclMeasureToCopy->className(), className, name, description,
                                   modelerDescription);
 
       result->updateMeasureTests(m_bclMeasureToCopy->className(), className);
