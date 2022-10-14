@@ -1769,30 +1769,30 @@ OS:Schedule:Day,
   15;                                     !- Value Until Time 1
 
 OS:ZoneHVAC:PackagedTerminalHeatPump,
-  {b9232216-7c91-4457-9cda-1df2300bb3d4}, ! Handle
-  PTHP,                                   ! Name
-  {9f54092d-a4a8-41b8-a381-c4c332ecb843}, ! Availability Schedule Name
-  ,                                       ! Air Inlet Node Name
-  ,                                       ! Air Outlet Node Name
-  OutdoorAir:Mixer,                       ! Outdoor Air Mixer Object Type
-  ,                                       ! Outdoor Air Mixer Name
-  Autosize,                               ! Supply Air Flow Rate During Cooling Operation {m3/s}
-  Autosize,                               ! Supply Air Flow Rate During Heating Operation {m3/s}
-  Autosize,                               ! Supply Air Flow Rate When No Cooling or Heating is Needed {m3/s}
-  Autosize,                               ! Outdoor Air Flow Rate During Cooling Operation {m3/s}
-  Autosize,                               ! Outdoor Air Flow Rate During Heating Operation {m3/s}
-  Autosize,                               ! Outdoor Air Flow Rate When No Cooling or Heating is Needed {m3/s}
-  {4bbc8798-4a94-470b-a2da-51224a40ea4b}, ! Supply Air Fan Name
-  {cff8b2af-5e9b-4b82-9e96-35b6084412ca}, ! Heating Coil Name
-  ,                                       ! Heating Convergence Tolerance {dimensionless}
-  ,                                       ! Minimum Outdoor Dry-Bulb Temperature for Compressor Operation {C}
-  {5ad5d300-c7a5-4409-8b51-83efb1bf2a51}, ! Cooling Coil Name
-  ,                                       ! Cooling Convergence Tolerance {dimensionless}
-  {b5ca4420-c4b6-4421-a456-8db199fe27e0}, ! Supplemental Heating Coil Name
-  Autosize,                               ! Maximum Supply Air Temperature from Supplemental Heater {C}
-  ,                                       ! Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation {C}
-  ,                                       ! Fan Placement
-  ;                                       ! Supply Air Fan Operating Mode Schedule Name
+  {b9232216-7c91-4457-9cda-1df2300bb3d4}, !- Handle
+  PTHP,                                   !- Name
+  {9f54092d-a4a8-41b8-a381-c4c332ecb843}, !- Availability Schedule Name
+  ,                                       !- Air Inlet Node Name
+  ,                                       !- Air Outlet Node Name
+  OutdoorAir:Mixer,                       !- Outdoor Air Mixer Object Type
+  ,                                       !- Outdoor Air Mixer Name
+  Autosize,                               !- Supply Air Flow Rate During Cooling Operation {m3/s}
+  Autosize,                               !- Supply Air Flow Rate During Heating Operation {m3/s}
+  Autosize,                               !- Supply Air Flow Rate When No Cooling or Heating is Needed {m3/s}
+  Autosize,                               !- Outdoor Air Flow Rate During Cooling Operation {m3/s}
+  Autosize,                               !- Outdoor Air Flow Rate During Heating Operation {m3/s}
+  Autosize,                               !- Outdoor Air Flow Rate When No Cooling or Heating is Needed {m3/s}
+  {4bbc8798-4a94-470b-a2da-51224a40ea4b}, !- Supply Air Fan Name
+  {cff8b2af-5e9b-4b82-9e96-35b6084412ca}, !- Heating Coil Name
+  ,                                       !- Heating Convergence Tolerance {dimensionless}
+  ,                                       !- Minimum Outdoor Dry-Bulb Temperature for Compressor Operation {C}
+  {5ad5d300-c7a5-4409-8b51-83efb1bf2a51}, !- Cooling Coil Name
+  ,                                       !- Cooling Convergence Tolerance {dimensionless}
+  {b5ca4420-c4b6-4421-a456-8db199fe27e0}, !- Supplemental Heating Coil Name
+  Autosize,                               !- Maximum Supply Air Temperature from Supplemental Heater {C}
+  ,                                       !- Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation {C}
+  ,                                       !- Fan Placement
+  {9f54092d-a4a8-41b8-a381-c4c332ecb843}; !- Supply Air Fan Operating Mode Schedule Name
 
 OS:Coil:Heating:DX:SingleSpeed,
   {cff8b2af-5e9b-4b82-9e96-35b6084412ca}, !- Handle
