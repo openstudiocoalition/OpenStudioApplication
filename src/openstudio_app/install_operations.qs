@@ -29,9 +29,10 @@ function Component()
       // component.addOperation("Mkdir", "@TargetDir@/OpenStudioApp.app/Contents/EnergyPlus")
       // component.addOperation("CopyDirectory", "@TargetDir@/EnergyPlus/", "@TargetDir@/OpenStudioApp.app/Contents/EnergyPlus/")
 
-      var linktarget = "@TargetDir@/OpenStudioApp.app/Contents/Frameworks/QtWebEngineCore.framework/Versions/A/Helpers/QtWebEngineProcess.app/Contents/Frameworks";
-      var linksource = "../../../../../../../Frameworks";
-      component.addElevatedOperation("Execute", "ln", "-s", linksource, linktarget);
+      // TODO: remove, done via install(CODE instead, so it works with the TGZ)
+      //var linktarget = "@TargetDir@/OpenStudioApp.app/Contents/Frameworks/QtWebEngineCore.framework/Versions/A/Helpers/QtWebEngineProcess.app/Contents/Frameworks";
+      //var linksource = "../../../../../../../Frameworks";
+      //component.addElevatedOperation("Execute", "ln", "-s", linksource, linktarget);
 
       //var exePath = installer.value("TargetDir") + "/bin/install_utility";
       //component.addElevatedOperation("Execute", exePath, "Install", "UNDOEXECUTE", exePath, "Remove" );

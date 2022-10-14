@@ -417,6 +417,15 @@ if( APPLE )
   install(DIRECTORY $<TARGET_FILE_DIR:openstudio_lib>/translations/ DESTINATION "OpenStudioApp.app/Contents/translations/" COMPONENT OpenStudioApp)
 
   list(APPEND QTPLUGINS "\${CMAKE_INSTALL_PREFIX}/OpenStudioApp.app/Contents/Frameworks/QtWebEngineCore.framework/Versions/A/Helpers/QtWebEngineProcess.app/Contents/MacOS/QtWebEngineProcess")
+
+  # Create a new symlink at OpenStudioApp.app/Contents/Frameworks/QtWebEngineCore.framework/Versions/A/Helpers/QtWebEngineProcess.app/Contents/Frameworks
+  # That point to OpenStudioApp.app/Contents/Frameworks. `cmake -E create_symlink old new    - create a symbolic link new -> old`
+  install(CODE [[
+      execute_process(COMMAND "${CMAKE_COMMAND}" -E create_symlink
+        "../../../../../../../Frameworks"
+        "${CMAKE_INSTALL_PREFIX}/OpenStudioApp.app/Contents/Frameworks/QtWebEngineCore.framework/Versions/A/Helpers/QtWebEngineProcess.app/Contents/Frameworks")
+    ]]
+  )
 endif()
 
 # TODO: We used to run fixup_bundle on all plaforms before on 5.15.0...
