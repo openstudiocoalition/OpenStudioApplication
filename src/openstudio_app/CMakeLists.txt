@@ -269,11 +269,19 @@ elseif( WIN32 )
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_200} $<TARGET_FILE_DIR:${target_name}>/resources/
   )
 
+  # On Windows, we must copy the DLLs inside the build folder or it won't find them
   # TODO: IMPORTED_SONAME_RELEASE now contains @rpath so it fails
-  get_target_property(LIBOSLIB openstudio::openstudiolib IMPORTED_LOCATION_RELEASE)
+  # get_target_property(LIBOSLIB openstudio::openstudiolib IMPORTED_LOCATION_RELEASE)
+  # add_custom_command(TARGET ${target_name}
+  #   POST_BUILD
+  #   COMMAND ${CMAKE_COMMAND} -E copy_if_different ${LIBOSLIB} $<TARGET_FILE_DIR:${target_name}>/ )
   add_custom_command(TARGET ${target_name}
-    POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${LIBOSLIB} $<TARGET_FILE_DIR:${target_name}>/ )
+    PRE_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:openstudio::openstudio> $<TARGET_FILE_DIR:${target_name}>/
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:openstudio::openstudiolib> $<TARGET_FILE_DIR:${target_name}>/
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:openstudio::rubyengine> $<TARGET_FILE_DIR:${target_name}>/
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:openstudio::pythonengine> $<TARGET_FILE_DIR:${target_name}>/
+  )
 
 endif()
 
