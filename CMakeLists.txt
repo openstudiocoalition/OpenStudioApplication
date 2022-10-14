@@ -682,15 +682,6 @@ endif()
 #                                T A R G E T S                                #
 ###############################################################################
 
-# The openstudio::openstudio target (which is the cli) includes a version string
-# in the file name. We don't want that degree of coupling between app and sdk
-# (we want the app to be able to use different sdk version without recompile,
-# so this project (the app) will install and identify the cli generically as
-# openstudio or openstudio.exe on windows. The os_cli_install_name is configured
-# into the utilities target so we need to set it before the uilities target is defined
-get_target_property(os_cli_location openstudio::openstudio LOCATION)
-set(os_cli_install_name "openstudio${CMAKE_EXECUTABLE_SUFFIX}")
-
 if(WIN32)
   include_directories("${PROJECT_SOURCE_DIR}/src/qtwinmigrate")
   list(APPEND project_directories "qtwinmigrate")
@@ -712,7 +703,6 @@ add_subdirectory("translations")
 ###############################################################################
 #                        E X P O R T    T A R G E T S                         #
 ###############################################################################
-# Export targets and generate OpenStudioCoreConfig.cmake
 
 if(WIN32)
   list(APPEND all_lib_targets "qtwinmigrate")
@@ -760,15 +750,31 @@ endif()
 
 ######### Install SDK dependencies here ################
 
-#install(DIRECTORY "${openstudio_ROOT_DIR}/EnergyPlus" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
+# The openstudio::openstudio target (which is the cli) includes a version string
+# in the file name. We don't want that degree of coupling between app and sdk
+# (we want the app to be able to use different sdk version without recompile,
+# so this project (the app) will install and identify the cli generically as
+# openstudio or openstudio.exe on windows. The os_cli_install_name is configured
+# into the utilities target so we need to set it before the uilities target is defined
+# TODO: THis isn't the case anymore
+get_target_property(os_cli_location openstudio::openstudio LOCATION)
+set(os_cli_install_name "openstudio${CMAKE_EXECUTABLE_SUFFIX}")
+
 install(DIRECTORY "${openstudio_ROOT_DIR}/Radiance" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
 install(DIRECTORY "${openstudio_ROOT_DIR}/Ruby" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
 install(DIRECTORY "${openstudio_ROOT_DIR}/EnergyPlus" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
 install(DIRECTORY "${openstudio_ROOT_DIR}/Examples" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
 # I don't see any point shipping libopenstudiolib in `lib/` when it's already installed in ./bin/ via fixup_bundle
-#install(DIRECTORY "${openstudio_ROOT_DIR}/lib" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
+# TODO: at 3.5.0, the lib/ directory on UNIX (only UNIX) contains the libopenstudiolib.so, but also the librubyengine.so, libpythonengine.so
+# install(DIRECTORY "${openstudio_ROOT_DIR}/lib" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
 
-install(PROGRAMS ${os_cli_location} DESTINATION bin COMPONENT "CLI" RENAME "${os_cli_install_name}")
+install(IMPORTED_RUNTIME_ARTIFACTS openstudio::openstudio DESTINATION bin COMPONENT "CLI")
+install(IMPORTED_RUNTIME_ARTIFACTS openstudio::openstudiolib DESTINATION bin COMPONENT "CLI")
+install(IMPORTED_RUNTIME_ARTIFACTS openstudio::rubyengine DESTINATION bin COMPONENT "CLI")
+install(IMPORTED_RUNTIME_ARTIFACTS openstudio::pythonengine DESTINATION bin COMPONENT "CLI")
+
+# install(PROGRAMS ${os_cli_location} DESTINATION bin COMPONENT "CLI" RENAME "${os_cli_install_name}")
+
 
 if(WIN32)
   install(PROGRAMS "${openstudio_ROOT_DIR}/bin/install_utility.exe" DESTINATION bin COMPONENT "CLI")

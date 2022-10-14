@@ -110,9 +110,9 @@ class DataSource
   explicit DataSource(const std::function<std::vector<ItemType>(InputType)>& t_sourceFunc, bool t_wantsPlaceholder = false,
                       const QSharedPointer<BaseConcept>& t_dropZoneConcept = QSharedPointer<BaseConcept>())
     : m_wantsPlaceholder(t_wantsPlaceholder), m_dropZoneConcept(t_dropZoneConcept) {
-    typedef decltype(t_sourceFunc) IncommingFuncType;
-    typedef typename std::remove_reference<typename std::remove_cv<IncommingFuncType>::type>::type FunctionType;
-    typedef typename std::remove_reference<typename std::remove_cv<typename FunctionType::argument_type>::type>::type ParamType;
+    using IncommingFuncType = decltype(t_sourceFunc);
+    using FunctionType = typename std::remove_reference<typename std::remove_cv<IncommingFuncType>::type>::type;
+    using ParamType = typename std::remove_reference<typename std::remove_cv<typename FunctionType::argument_type>::type>::type;
 
     m_sourceFunc = [t_sourceFunc](ConceptProxy t_proxy) {
       auto result = t_sourceFunc(t_proxy.cast<ParamType>());
