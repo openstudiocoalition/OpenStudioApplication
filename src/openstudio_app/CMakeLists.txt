@@ -420,6 +420,10 @@ if( APPLE )
 
   # Create a new symlink at OpenStudioApp.app/Contents/Frameworks/QtWebEngineCore.framework/Versions/A/Helpers/QtWebEngineProcess.app/Contents/Frameworks
   # That point to OpenStudioApp.app/Contents/Frameworks. `cmake -E create_symlink old new    - create a symbolic link new -> old`
+
+  # TODO: Somewhere there is something that copies the openstudio CLI into the OpenStudioApp.app/Contents/MacOS which is useless.
+  # TODO: We can also just symlink libopenstudio.lib into the OpenStudioApp.app/Contents/Frameworks directory instead of copying
+
   install(CODE [[
       execute_process(
         COMMAND "${CMAKE_COMMAND}" -E create_symlink

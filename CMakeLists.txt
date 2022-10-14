@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10.2)
-cmake_policy(SET CMP0048 NEW)
-
+cmake_policy(SET CMP0048 NEW) # `project()` command manages `VERSION` variables.
+cmake_policy(SET CMP0087 NEW) # Allow generator expresssions in install(CODE)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Do not enable compiler specific extensions, for eg on GCC use -std=c++1z (=c++17) and not -std=gnu++17
@@ -474,63 +474,6 @@ set(SWIG_LIB "${CURRENT_CONAN_SWIG_ROOT}/bin/swiglib")
 # e.g. QT_INSTALL_DIR = C:/Qt/6.3.0/msvc2019_64
 set(QT_INSTALL_DIR "" CACHE PATH "Path to Qt Install")
 set(QT_VERSION "6.3.0")
-#if(NOT EXISTS ${QT_INSTALL_DIR})
-  ## download qt
-  #if(WIN32)
-    #if(CMAKE_CL_64)
-      #set(QT_ZIP_FILENAME "qt_5_11_msvc2017_64_shared.zip")
-      #set(QT_ZIP_EXPECTED_MD5 "82f44a8decf101ca7cb7efafd899e8ee")
-    #else()
-      #set(QT_ZIP_FILENAME "DOES_NOT_EXIST_qt_5_11_msvc2017_32_shared.zip")
-      #set(QT_ZIP_EXPECTED_MD5 "25abd383e7db2dfd971b4a4ef145002b")
-    #endif()
-  #elseif(APPLE)
-      ## TODO: this is missing a root level "Qt-install" directory.
-      #set(QT_ZIP_FILENAME "qt_5_11_osx_shared.tar.gz")
-      #set(QT_ZIP_EXPECTED_MD5 "080ff576111d50be5888807055114166")
-  #elseif(EXISTS "/etc/redhat-release")
-    #set(QT_ZIP_FILENAME "DOES_NOT_EXIST_qt_5_11_redhat_shared.tar.gz")
-    #set(QT_ZIP_EXPECTED_MD5 "b0610716854ed91a003347c455b22eb8")
-  #else()
-    #if(LSB_RELEASE_VERSION_SHORT MATCHES "18.04")
-      #set(QT_ZIP_FILENAME "qt_5_11_linux_shared.tar.gz")
-      #set(QT_ZIP_EXPECTED_MD5 "33c5a562935612625ec5e41fe4b75e17")
-    #else()
-      ## 16.04
-      #set(QT_ZIP_FILENAME "qt_5_11_linux_shared_xenial.tar.gz")
-      #set(QT_ZIP_EXPECTED_MD5 "cb02b8cb34de94038a1a7cba59c0c43a")
-    #endif()
-  #endif()
-
-  #set(QT_ZIP_LOCAL_PATH "${PROJECT_BINARY_DIR}/${QT_ZIP_FILENAME}")
-  #if(EXISTS "${QT_ZIP_LOCAL_PATH}")
-    #file(MD5 "${QT_ZIP_LOCAL_PATH}" QT_ZIP_MD5)
-  #endif()
-
-  #if(NOT QT_ZIP_MD5 STREQUAL QT_ZIP_EXPECTED_MD5)
-    #message(STATUS "Downloading Qt: ${QT_ZIP_FILENAME}")
-    #file(DOWNLOAD "http://openstudio-resources.s3.amazonaws.com/dependencies/${QT_ZIP_FILENAME}"
-      #${QT_ZIP_LOCAL_PATH}
-      #INACTIVITY_TIMEOUT 900
-      #SHOW_PROGRESS
-      #EXPECTED_MD5 ${QT_ZIP_EXPECTED_MD5})
-  ## TODO: TEMP
-    #if (APPLE)
-      #execute_process(COMMAND ${CMAKE_COMMAND} -E make_directory "${PROJECT_BINARY_DIR}/Qt-install")
-      #execute_process(COMMAND ${CMAKE_COMMAND} -E tar xfz ${QT_ZIP_LOCAL_PATH} WORKING_DIRECTORY "${PROJECT_BINARY_DIR}/Qt-install")
-    #else()
-      #execute_process(COMMAND ${CMAKE_COMMAND} -E tar xfz ${QT_ZIP_LOCAL_PATH} WORKING_DIRECTORY "${PROJECT_BINARY_DIR}")
-    #endif()
-  #endif()
-#endif()
-
-#if(APPLE)
-  #set(QT_INSTALL_DIR "${PROJECT_BINARY_DIR}/Qt-install/${QT_VERSION}/clang_64")
-#elseif(UNIX)
-  #set(QT_INSTALL_DIR "${PROJECT_BINARY_DIR}/Qt-install/${QT_VERSION}/gcc_64")
-#elseif(WIN32)
-  #set(QT_INSTALL_DIR "${PROJECT_BINARY_DIR}/Qt-install/${QT_VERSION}/win64_msvc2019_64")
-#endif()
 
 # TODO: how to set OPENSSL_ROOT_DIR to a generator expression?
 set(OPENSSL_ROOT_DIR ${CONAN_OPENSSL_ROOT_RELEASE})
