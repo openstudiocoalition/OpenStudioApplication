@@ -421,9 +421,27 @@ if( APPLE )
   # Create a new symlink at OpenStudioApp.app/Contents/Frameworks/QtWebEngineCore.framework/Versions/A/Helpers/QtWebEngineProcess.app/Contents/Frameworks
   # That point to OpenStudioApp.app/Contents/Frameworks. `cmake -E create_symlink old new    - create a symbolic link new -> old`
   install(CODE [[
-      execute_process(COMMAND "${CMAKE_COMMAND}" -E create_symlink
-        "../../../../../../../Frameworks"
-        "${CMAKE_INSTALL_PREFIX}/OpenStudioApp.app/Contents/Frameworks/QtWebEngineCore.framework/Versions/A/Helpers/QtWebEngineProcess.app/Contents/Frameworks")
+      execute_process(
+        COMMAND "${CMAKE_COMMAND}" -E create_symlink
+          "../../../../../../../Frameworks"
+          "${CMAKE_INSTALL_PREFIX}/OpenStudioApp.app/Contents/Frameworks/QtWebEngineCore.framework/Versions/A/Helpers/QtWebEngineProcess.app/Contents/Frameworks"
+
+        COMMAND "${CMAKE_COMMAND}" -E create_symlink
+          "../../EnergyPlus"
+          "${CMAKE_INSTALL_PREFIX}/OpenStudioApp.app/Contents/EnergyPlus"
+
+        COMMAND "${CMAKE_COMMAND}" -E create_symlink
+          "../../Radiance"
+          "${CMAKE_INSTALL_PREFIX}/OpenStudioApp.app/Contents/Radiance"
+
+        COMMAND "${CMAKE_COMMAND}" -E create_symlink
+          "../../../bin/$<TARGET_FILE_NAME:openstudio::rubyengine>"
+          "${CMAKE_INSTALL_PREFIX}/OpenStudioApp.app/Contents/Frameworks/$<TARGET_FILE_NAME:openstudio::rubyengine>"
+
+        COMMAND "${CMAKE_COMMAND}" -E create_symlink
+          "../../../bin/$<TARGET_FILE_NAME:openstudio::pythonengine>"
+          "${CMAKE_INSTALL_PREFIX}/OpenStudioApp.app/Contents/Frameworks/$<TARGET_FILE_NAME:openstudio::pythonengine>"
+      )
     ]]
   )
 endif()
