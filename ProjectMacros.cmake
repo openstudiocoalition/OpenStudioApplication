@@ -137,7 +137,16 @@ macro(CREATE_TEST_TARGETS BASE_NAME SRC DEPENDENCIES)
       ${ALL_DEPENDENCIES}
     )
 
+    # Tell cmake to discover tests by calling test_exe --gtest_list_tests
+    # gtest_discover_tests(${BASE_NAME}_tests
+    #   PROPERTIES TIMEOUT 660
+    # )
+
+    # Unfortunately, the above won't work without a significant refactor of our cmake code.
+    # There are ordering issues... openstudio_app is the one that copies most of the needed DLLs on windows (Qt, openstudiolib.dll, etc)
+    # utilities is the first built, so when the test target is added it will try to call the openstudio_utilities_tests.exe and that will fail because of the missing DLLs
     ADD_GOOGLE_TESTS(${BASE_NAME}_tests ${SRC})
+
     if(TARGET "${BASE_NAME}_resources")
       add_dependencies("${BASE_NAME}_tests" "${BASE_NAME}_resources")
     endif()
