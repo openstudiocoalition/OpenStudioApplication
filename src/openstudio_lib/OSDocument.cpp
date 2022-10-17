@@ -236,7 +236,7 @@ OSDocument::OSDocument(const openstudio::model::Model& library, const openstudio
   }
 
   if (startTabIndex != m_verticalId) {
-    QTimer::singleShot(0, [=] {
+    QTimer::singleShot(0, [=, this] {
       this->onVerticalTabSelected(startTabIndex);
       this->updateSubTabSelected(startSubTabIndex);
     });
@@ -1056,7 +1056,7 @@ bool OSDocument::fixWeatherFileInTemp(bool opening) {
   if (doCopy) {
     try {
       LOG(Debug, "Start copy weather file from " << copySource << " to " << copyDest);
-      boost::filesystem::copy_file(copySource, copyDest, boost::filesystem::copy_option::overwrite_if_exists);
+      boost::filesystem::copy_file(copySource, copyDest, boost::filesystem::copy_options::overwrite_existing);
       LOG(Debug, "Copy weather file complete");
     } catch (...) {
       // copy failed

@@ -561,7 +561,6 @@ void InspectorDialog::init(InspectorDialogClient client) {
 
       //m_typesToDisplay.insert(IddObjectType::OS_Material);
       //m_typesToDisplay.insert(IddObjectType::OS_Material_AirGap);
-      //m_typesToDisplay.insert(IddObjectType::OS_Material_AirWall);
       //m_typesToDisplay.insert(IddObjectType::OS_Material_InfraredTransparent);
       //m_typesToDisplay.insert(IddObjectType::OS_Material_NoMass);
       //m_typesToDisplay.insert(IddObjectType::OS_Material_RoofVegetation);

@@ -1314,9 +1314,6 @@
     <rule IddField="Name" Access="LOCKED"/>
     <rule IddField="Thermal Resistance" Access="LOCKED"/>
   </POLICY>
-  <POLICY IddObjectType="OS_Material_AirWall">
-    <rule IddField="Name" Access="LOCKED"/>
-  </POLICY>
   <POLICY IddObjectType="OS_Material_InfraredTransparent">
     <rule IddField="Name" Access="LOCKED"/>
   </POLICY>
