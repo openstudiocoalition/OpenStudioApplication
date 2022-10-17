@@ -707,6 +707,8 @@ install(DIRECTORY "${openstudio_ROOT_DIR}/Radiance" DESTINATION "." COMPONENT "O
 install(DIRECTORY "${openstudio_ROOT_DIR}/Ruby" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
 install(DIRECTORY "${openstudio_ROOT_DIR}/EnergyPlus" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
 install(DIRECTORY "${openstudio_ROOT_DIR}/Examples" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
+install(DIRECTORY "${openstudio_ROOT_DIR}/Python" DESTINATION "." COMPONENT "Python" USE_SOURCE_PERMISSIONS)
+
 # I don't see any point shipping libopenstudiolib in `lib/` when it's already installed in ./bin/ via fixup_bundle
 # TODO: at 3.5.0, the lib/ directory on UNIX (only UNIX) contains the libopenstudiolib.so, but also the librubyengine.so, libpythonengine.so
 # install(DIRECTORY "${openstudio_ROOT_DIR}/lib" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
@@ -891,6 +893,12 @@ cpack_add_component(Libraries
   DESCRIPTION  "Install compiler-provided system runtime libraries, and Windows Universal CRT libraries for app-local deployment"
   REQUIRED
   HIDDEN
+)
+
+cpack_add_component(Python
+  DISPLAY_NAME "Python Bindings"
+  DESCRIPTION "Experimental support for Python Measures"
+  DISABLED
 )
 
 add_custom_target(PACKAGE_DEBUG
