@@ -35,28 +35,13 @@ if(NOT CONAN_OPENSTUDIO_ALREADY_RUN)
 
   message(STATUS "openstudio: RUNNING CONAN")
 
-  # Add NREL remote and place it first in line, since we vendored dependencies to NREL's repo, they will be picked first
-  # TJC 2021-04-27 bintray.com is decommissioned as of 2021-05-01. See commercialbuildings as replacement below.
-  if(LSB_RELEASE_ID_SHORT MATCHES "CentOS")
-    # Use this specific remote where I uploaded the centos-build packages
-    # The os is still Linux, the compiler is still GCC. But the GLIBC used is **way older**
-    conan_add_remote(NAME openstudio-centos INDEX 0
-      URL https://conan.openstudio.net/artifactory/api/conan/openstudio-centos)
 
-    # Pass `-D_GLIBCXX_USE_CXX11_ABI=0` to make sure it detects libstdc++ and not libstdc++1
-    add_definitions(-D_GLIBCXX_USE_CXX11_ABI=0)
-    # Centos uses a different channel recipe for ruby
-    # Track NREL/stable in general, on a feature branch this could be temporarily switched to NREL/testing
-    set(CONAN_RUBY "openstudio_ruby/2.7.2@nrel/centos#ae043c41b4bec82e98ca765ce8b32a11")
+  conan_add_remote(NAME nrel INDEX 0
+    URL https://conan.openstudio.net/artifactory/api/conan/openstudio)
 
-  else()
-    conan_add_remote(NAME nrel INDEX 0
-      URL https://conan.openstudio.net/artifactory/api/conan/openstudio)
-
-    # Track NREL/stable in general, on a feature branch this could be temporarily switched to NREL/testing
-    # TODO: temp, revert to stable soon
-    set(CONAN_RUBY "openstudio_ruby/2.7.2@nrel/testing#d66e3b66568b13acf3b16d866bec68d0")
-  endif()
+  # Track NREL/stable in general, on a feature branch this could be temporarily switched to NREL/testing
+  # TODO: temp, revert to stable soon
+  set(CONAN_RUBY "openstudio_ruby/2.7.2@nrel/testing#d66e3b66568b13acf3b16d866bec68d0")
 
   # conan_add_remote(
   #   NAME bincrafters URL
