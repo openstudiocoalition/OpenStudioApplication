@@ -40,13 +40,13 @@
 
 namespace openstudio {
 
-AnalyticsHelper::AnalyticsHelper(QObject* parent) : QObject(parent) {
-  m_networkAccessManager = new QNetworkAccessManager(this);
+AnalyticsHelper::AnalyticsHelper(QObject* parent) : QObject(parent), m_networkAccessManager(new QNetworkAccessManager(this)) {
   m_networkAccessManager->setAutoDeleteReplies(true);
 }
 
 AnalyticsHelper::~AnalyticsHelper() {
   // cancel all futures
+  delete m_networkAccessManager;
 }
 
 void AnalyticsHelper::sendAnalytics(const QString& analyticsId, int verticalTabIndex) {
