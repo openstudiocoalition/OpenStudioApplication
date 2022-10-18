@@ -48,7 +48,7 @@ Checks: |
   -readability-else-after-return,
   -modernize-concat-nested-namespaces,
   -hicpp-*,
-  hicpp-avoid-goto,
+  -hicpp-avoid-goto,
   hicpp-exception-baseclass,
   hicpp-multiway-paths-covered,
   hicpp-no-assembler,
@@ -59,6 +59,12 @@ Checks: |
   -cppcoreguidelines-narrowing-conversions,
   -readability-function-cognitive-complexity,
   -cppcoreguidelines-avoid-non-const-global-variables,
+  -modernize-use-override,
+  -readability-uppercase-literal-suffix,
+  -readability-identifier-length,
+  -bugprone-easily-swappable-parameters,
+  -modernize-use-nodiscard,
+  -cert-err58-cpp,
 
 WarningsAsErrors: '*'
 HeaderFilterRegex: '*'

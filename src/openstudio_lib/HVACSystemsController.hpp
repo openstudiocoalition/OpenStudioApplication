@@ -178,7 +178,7 @@ class HVACSystemsController
 
   QString m_currentHandle;
 
-  bool m_dirty;
+  bool m_dirty = false;
 
   QMutex* m_updateMutex;
 
@@ -310,7 +310,7 @@ class HVACLayoutController
 
   std::shared_ptr<RefrigerationGridController> m_refrigerationGridController;
 
-  bool m_dirty;
+  bool m_dirty = false;
 };
 
 class SystemAvailabilityVectorController : public ModelObjectVectorController

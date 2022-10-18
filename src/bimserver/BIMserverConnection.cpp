@@ -53,7 +53,7 @@
 namespace openstudio {
 namespace bimserver {
 
-BIMserverConnection::BIMserverConnection(QObject* parent, QString bimserverAddr, QString bimserverPort)
+BIMserverConnection::BIMserverConnection(QObject* parent, const QString& bimserverAddr, const QString& bimserverPort)
   : QObject(parent),
     m_networkManager(new QNetworkAccessManager),
     m_bimserverURL(QUrl(QString("http://" + bimserverAddr + ":" + bimserverPort + "/json"))),
@@ -75,8 +75,8 @@ void BIMserverConnection::login(QString username, QString password) {
   }
   m_operationDone = false;
   if (!username.isEmpty() && !password.isEmpty()) {
-    m_username = username;
-    m_password = password;
+    m_username = std::move(username);
+    m_password = std::move(password);
     sendLoginRequest();
   } else {
     emit errorOccured(QString("Username or password empty!"));
@@ -186,7 +186,7 @@ void BIMserverConnection::processGetAllProjectsRequest(QNetworkReply* rep) {
     if (!containsError(response)) {
       QJsonArray result = response["result"].toArray();
       QStringList projectList;
-      for (const QJsonValue& value : result) {
+      for (const auto& value : result) {
         QJsonObject ifcProject = value.toObject();
         int oid = ifcProject["oid"].toInt();
         QString projectID = toQString(openstudio::string_conversions::number(oid));
@@ -214,7 +214,7 @@ void BIMserverConnection::download(QString revisionID) {
   }
   m_operationDone = false;
   if (!revisionID.isEmpty()) {
-    m_roid = revisionID;
+    m_roid = std::move(revisionID);
     sendGetSerializerRequest();
   } else {
     emit errorOccured(QString("Revision ID is empty"));
@@ -374,7 +374,7 @@ void BIMserverConnection::processGetDownloadDataRequest(QNetworkReply* rep) {
 }
 
 //
-void BIMserverConnection::createProject(QString projectName) {
+void BIMserverConnection::createProject(const QString& projectName) {
 
   if (!m_operationDone) {
     emit errorOccured(QString("The last process has not end yet. Please wait and try again."));
@@ -389,7 +389,7 @@ void BIMserverConnection::createProject(QString projectName) {
   }
 }
 
-void BIMserverConnection::sendCreateProjectRequest(QString projectName) {
+void BIMserverConnection::sendCreateProjectRequest(const QString& projectName) {
 
   QJsonObject parameters;
   parameters["projectName"] = projectName;
@@ -437,7 +437,7 @@ void BIMserverConnection::processCreateProjectRequest(QNetworkReply* rep) {
   }
 }
 
-void BIMserverConnection::deleteProject(QString projectID) {
+void BIMserverConnection::deleteProject(const QString& projectID) {
 
   if (!m_operationDone) {
     emit errorOccured(QString("The last process has not end yet. Please wait and try again."));
@@ -452,7 +452,7 @@ void BIMserverConnection::deleteProject(QString projectID) {
   }
 }
 
-void BIMserverConnection::sendDeleteProjectRequest(QString projectID) {
+void BIMserverConnection::sendDeleteProjectRequest(const QString& projectID) {
 
   QJsonObject parameters;
   parameters["poid"] = projectID;
@@ -509,8 +509,8 @@ void BIMserverConnection::checkInIFCFile(QString projectID, QString IFCFilePath)
   m_operationDone = false;
 
   if (!projectID.isEmpty() && !IFCFilePath.isEmpty()) {
-    m_poid = projectID;
-    m_filePath = IFCFilePath;
+    m_poid = std::move(projectID);
+    m_filePath = std::move(IFCFilePath);
     sendGetDeserializerRequest();
   } else {
     emit errorOccured(QString("Please provide valid projectID and IFC file path!"));
@@ -565,7 +565,7 @@ void BIMserverConnection::processGetDeserializerRequest(QNetworkReply* rep) {
   }
 }
 
-void BIMserverConnection::sendCheckInIFCRequest(QString IFCFilePath) {
+void BIMserverConnection::sendCheckInIFCRequest(const QString& IFCFilePath) {
   const auto path = openstudio::toPath(IFCFilePath.toStdString());
   openstudio::filesystem::ifstream file(path);
   if (!file.is_open()) {
@@ -631,7 +631,7 @@ void BIMserverConnection::processCheckInIFCRequest(QNetworkReply* rep) {
   }
 }
 
-void BIMserverConnection::getIFCRevisionList(QString projectID) {
+void BIMserverConnection::getIFCRevisionList(const QString& projectID) {
   if (!projectID.isEmpty()) {
     sendGetProjectByIDRequest(projectID);
   } else {
@@ -639,7 +639,7 @@ void BIMserverConnection::getIFCRevisionList(QString projectID) {
   }
 }
 
-void BIMserverConnection::sendGetProjectByIDRequest(QString projectID) {
+void BIMserverConnection::sendGetProjectByIDRequest(const QString& projectID) {
   QJsonObject parameters;
   parameters["poid"] = QJsonValue(projectID);
 
@@ -679,7 +679,7 @@ void BIMserverConnection::processGetProjectByIDRequest(QNetworkReply* rep) {
     if (!containsError(response)) {
       QJsonArray result = response["result"].toArray();
       QStringList revisionList;
-      for (const QJsonValue& value : result) {
+      for (const auto& value : result) {
         QJsonObject ifcRevision = value.toObject();
         QString revision = toQString(openstudio::string_conversions::number(ifcRevision["oid"].toInt()));
         double time = ifcRevision["date"].toDouble();
@@ -702,7 +702,7 @@ void BIMserverConnection::processGetProjectByIDRequest(QNetworkReply* rep) {
   }
 }
 
-void BIMserverConnection::sendGetProgressRequest(QString topicId, QString action) {
+void BIMserverConnection::sendGetProgressRequest(const QString& topicId, const QString& action) {
   QJsonObject parameters;
   parameters["topicId"] = QJsonValue(topicId);
 
@@ -733,7 +733,7 @@ void BIMserverConnection::sendGetProgressRequest(QString topicId, QString action
 
 void BIMserverConnection::processGetProgressRequest() {
 
-  QNetworkReply* reply = qobject_cast<QNetworkReply*>(sender());
+  auto* reply = qobject_cast<QNetworkReply*>(sender());
 
   if (reply) {
     QByteArray responseArray = reply->readAll();
@@ -755,7 +755,7 @@ void BIMserverConnection::processGetProgressRequest() {
     } else {
       QJsonArray error = response["errors"].toArray();
       QString errorMessage;
-      for (const QJsonValue& value : error) {
+      for (const auto& value : error) {
         errorMessage = errorMessage + value.toString() + QString("\n");
       }
       emit errorOccured(errorMessage);
@@ -769,38 +769,34 @@ void BIMserverConnection::processGetProgressRequest() {
 }
 
 //BIMserver error reporting
-bool BIMserverConnection::containsError(QJsonObject responseMessage) {
+bool BIMserverConnection::containsError(const QJsonObject& responseMessage) {
 
   if (responseMessage.isEmpty()) {
     return true;
   } else {
-    if (responseMessage.contains("exception")) {
-      return true;
-    } else {
-      return false;
-    }
+    return responseMessage.contains("exception");
   }
 }
 
-void BIMserverConnection::emitErrorMessage(QJsonObject responseMessage) {
+void BIMserverConnection::emitErrorMessage(const QJsonObject& responseMessage) {
 
   if (responseMessage.isEmpty()) {
     emit bimserverError();
   } else {
-    QJsonObject exception = responseMessage["exception"].toObject();
-    QString errorMessage = exception["message"].toString();
+    QJsonObject except = responseMessage["exception"].toObject();
+    QString errorMessage = except["message"].toString();
     emit errorOccured(errorMessage);
   }
 }
 
-bool BIMserverConnection::loginBlocked(QString username, QString password, int timeout) {
+bool BIMserverConnection::loginBlocked(const QString& username, const QString& password, int timeout) {
   m_loginSuccess = false;
   login(username, password);
   waitForLock(timeout);
   return m_loginSuccess;
 }
 
-boost::optional<QString> BIMserverConnection::downloadBlocked(QString projectID, int timeout) {
+boost::optional<QString> BIMserverConnection::downloadBlocked(const QString& projectID, int timeout) {
   m_osmModel = boost::none;
   download(projectID);
   waitForLock(timeout);
@@ -814,28 +810,28 @@ boost::optional<QStringList> BIMserverConnection::getAllProjectsBlocked(int time
   return m_projectList;
 }
 
-bool BIMserverConnection::createProjectBlocked(QString projectName, int timeout) {
+bool BIMserverConnection::createProjectBlocked(const QString& projectName, int timeout) {
   m_createProjectSuccess = false;
   createProject(projectName);
   waitForLock(timeout);
   return m_createProjectSuccess;
 }
 
-bool BIMserverConnection::deleteProjectBlocked(QString projectID, int timeout) {
+bool BIMserverConnection::deleteProjectBlocked(const QString& projectID, int timeout) {
   m_deleteProjectSuccess = false;
   deleteProject(projectID);
   waitForLock(timeout);
   return m_deleteProjectSuccess;
 }
 
-bool BIMserverConnection::checkInIFCFileBlocked(QString projectID, QString IFCFilePath, int timeout) {
+bool BIMserverConnection::checkInIFCFileBlocked(const QString& projectID, const QString& IFCFilePath, int timeout) {
   m_checkInIFCSuccess = false;
   checkInIFCFile(projectID, IFCFilePath);
   waitForLock(timeout);
   return m_checkInIFCSuccess;
 }
 
-boost::optional<QStringList> BIMserverConnection::getIFCRevisionListBlocked(QString projectID, int timeout) {
+boost::optional<QStringList> BIMserverConnection::getIFCRevisionListBlocked(const QString& projectID, int timeout) {
   m_ifcList = boost::none;
   getIFCRevisionList(projectID);
   waitForLock(timeout);

@@ -100,14 +100,14 @@ bool MeasureManager::waitForStarted(int msec) {
   // ping server until get a started response
   bool success = false;
 
-  QUrl url(m_url);
-  url.setPath("/");
+  QUrl thisUrl(m_url);
+  thisUrl.setPath("/");
 
   int msecPerLoop = 20;
   int numTries = msec / msecPerLoop;
   int current = 0;
   while (!success && current < numTries) {
-    QNetworkRequest request(url);
+    QNetworkRequest request(thisUrl);
     request.setHeader(QNetworkRequest::ContentTypeHeader, "json");
 
     QNetworkAccessManager manager;
@@ -146,7 +146,7 @@ bool MeasureManager::waitForStarted(int msec) {
   if (success) {
     m_started = true;
   } else {
-    LOG(Error, "Measure manager server failed to start. Was looking at URL=" << toString(url.toString()));
+    LOG(Error, "Measure manager server failed to start. Was looking at URL=" << toString(thisUrl.toString()));
   }
 
   return m_started;
@@ -283,22 +283,22 @@ BCLMeasure MeasureManager::insertReplaceMeasure(const UUID& t_id) {
 
   if (existingMeasure && (existingMeasure->versionUUID() != measure->versionUUID())) {
     QDialog dialog(m_app->mainWidget(), Qt::WindowFlags(Qt::Dialog | Qt::WindowTitleHint));
-    auto mainContentVLayout = new QVBoxLayout();
+    auto* mainContentVLayout = new QVBoxLayout();
     dialog.setWindowTitle(QCoreApplication::applicationName());
 
     dialog.setLayout(mainContentVLayout);
-    QLabel* label = new QLabel("A modified copy of this measure is already being used in this project.");
-    QRadioButton* replace = new QRadioButton("Replace all instances of this measure in this project with this one.");
+    auto* label = new QLabel("A modified copy of this measure is already being used in this project.");
+    auto* replace = new QRadioButton("Replace all instances of this measure in this project with this one.");
     replace->setChecked(true);
-    QRadioButton* copy = new QRadioButton("Create a new instance using this project's copy of this measure.");
+    auto* copy = new QRadioButton("Create a new instance using this project's copy of this measure.");
     mainContentVLayout->addWidget(label);
     mainContentVLayout->addWidget(replace);
     mainContentVLayout->addWidget(copy);
 
-    auto buttons = new QHBoxLayout();
+    auto* buttons = new QHBoxLayout();
 
-    QPushButton* cancel = new QPushButton("Cancel");
-    QPushButton* apply = new QPushButton("Apply");
+    auto* cancel = new QPushButton("Cancel");
+    auto* apply = new QPushButton("Apply");
 
     buttons->addStretch();
     buttons->addWidget(cancel);
@@ -380,13 +380,13 @@ void MeasureManager::updateMeasures(const std::vector<BCLMeasure>& newMeasures, 
   std::vector<BCLMeasure> measures;
 
   WorkflowJSON workflowJSON = m_app->currentModel()->workflowJSON();
-  for (const auto& newMeasure : newMeasures) {
-    if (workflowJSON.getBCLMeasureByUUID(newMeasure.uuid())) {
-      measures.push_back(newMeasure);
+  for (const auto& measure : newMeasures) {
+    if (workflowJSON.getBCLMeasureByUUID(measure.uuid())) {
+      measures.push_back(measure);
     }
   }
 
-  auto progress = new ProcessEventsProgressBar();
+  auto* progress = new ProcessEventsProgressBar();
   progress->setMaximum(std::numeric_limits<int>::max());
 
   size_t loc = 0;
@@ -427,7 +427,7 @@ void MeasureManager::updateMeasures(const std::vector<BCLMeasure>& newMeasures, 
         errors.append("\n\n");
       }
 
-      auto messageBox = new QMessageBox(m_app->mainWidget());
+      auto* messageBox = new QMessageBox(m_app->mainWidget());
       messageBox->setWindowTitle(QString("Measures Updated"));
       messageBox->setText(toQString(ss.str()));
       messageBox->setDetailedText(errors);
@@ -436,8 +436,8 @@ void MeasureManager::updateMeasures(const std::vector<BCLMeasure>& newMeasures, 
 
       // DLM: there is a bug in QMessageBox where setMinimumWidth is not used
       // http://www.qtcentre.org/threads/22298-QMessageBox-Controlling-the-width?p=113348#post113348
-      auto horizontalSpacer = new QSpacerItem(330, 0, QSizePolicy::Minimum, QSizePolicy::Expanding);
-      QGridLayout* layout = static_cast<QGridLayout*>(messageBox->layout());
+      auto* horizontalSpacer = new QSpacerItem(330, 0, QSizePolicy::Minimum, QSizePolicy::Expanding);
+      auto* layout = static_cast<QGridLayout*>(messageBox->layout());
       layout->addItem(horizontalSpacer, layout->rowCount(), 0, 1, layout->columnCount());
 
       messageBox->exec();
@@ -455,15 +455,14 @@ std::vector<measure::OSArgument> MeasureManager::getArguments(const BCLMeasure& 
     return it->second;
   }
 
-  QUrl url(m_url);
-  url.setPath("/compute_arguments");
+  QUrl thisUrl(m_url);
+  thisUrl.setPath("/compute_arguments");
 
-  std::string url_s = m_url.toString().toStdString();
+  // std::string url_s = m_url.toString().toStdString();
 
-  QString data = QString("{\"measure_dir\": \"") + toQString(t_measure.directory()) + QString("\", \"osm_path\": \"") + toQString(m_tempModelPath)
-                 + QString("\"}");
+  QString data = QString(R"json({"measure_dir": "%1", "osm_path": "%2"})json").arg(toQString(t_measure.directory()), toQString(m_tempModelPath));
 
-  QNetworkRequest request(url);
+  QNetworkRequest request(thisUrl);
   request.setHeader(QNetworkRequest::ContentTypeHeader, "json");
 
   QNetworkAccessManager manager;
@@ -829,14 +828,14 @@ bool MeasureManager::reset() {
     return false;
   }
 
-  QUrl url(m_url);
-  url.setPath("/reset");
+  QUrl thisUrl(m_url);
+  thisUrl.setPath("/reset");
 
   // std::string url_s = m_url.toString().toStdString();
 
   QString data = QString("{}");
 
-  QNetworkRequest request(url);
+  QNetworkRequest request(thisUrl);
   request.setHeader(QNetworkRequest::ContentTypeHeader, "json");
 
   QNetworkAccessManager manager;
@@ -869,14 +868,14 @@ bool MeasureManager::checkForLocalBCLUpdates() {
     return false;
   }
 
-  QUrl url(m_url);
-  url.setPath("/bcl_measures");
+  QUrl thisUrl(m_url);
+  thisUrl.setPath("/bcl_measures");
 
   // std::string url_s = m_url.toString().toStdString();
 
   QString data = QString("{}");
 
-  QNetworkRequest request(url);
+  QNetworkRequest request(thisUrl);
   request.setHeader(QNetworkRequest::ContentTypeHeader, "json");
 
   QNetworkAccessManager manager;
@@ -909,15 +908,15 @@ bool MeasureManager::checkForUpdates(const openstudio::path& measureDir, bool fo
     return false;
   }
 
-  QUrl url(m_url);
-  url.setPath("/update_measures");
+  QUrl thisUrl(m_url);
+  thisUrl.setPath("/update_measures");
 
   // std::string url_s = m_url.toString().toStdString();
 
-  QString data = QString("{\"measures_dir\": \"") + toQString(measureDir) + QString("\", \"force_reload\": ")
-                 + (force ? QString("true") : QString("false")) + QString("}");
+  QString data =
+    QString(R"json({"measure_dir": "%1", "force_reload": "%2"})json").arg(toQString(measureDir), force ? QString("true") : QString("false"));
 
-  QNetworkRequest request(url);
+  QNetworkRequest request(thisUrl);
   request.setHeader(QNetworkRequest::ContentTypeHeader, "json");
 
   QNetworkAccessManager manager;
@@ -998,7 +997,7 @@ void MeasureManager::addMeasure() {
   //QSharedPointer<BCLMeasureDialog> dialog(new BCLMeasureDialog(this->mainWindow));
   QSharedPointer<BCLMeasureDialog> dialog(new BCLMeasureDialog());
 
-  if (dialog->exec()) {
+  if (dialog->exec() != 0) {
 
     // not canceled, create measure
     boost::optional<BCLMeasure> measure = dialog->createMeasure();
@@ -1040,7 +1039,7 @@ void MeasureManager::duplicateSelectedMeasure() {
       //QSharedPointer<BCLMeasureDialog> dialog(new BCLMeasureDialog(*bclMeasure, this->mainWindow));
       QSharedPointer<BCLMeasureDialog> dialog(new BCLMeasureDialog(*bclMeasure));
 
-      if (dialog->exec()) {
+      if (dialog->exec() != 0) {
 
         // not canceled, create measure
         boost::optional<BCLMeasure> measure = dialog->createMeasure();

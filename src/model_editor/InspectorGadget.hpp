@@ -63,7 +63,7 @@ class MODELEDITOR_API IGWidget
   , public Nano::Observer
 {
  public:
-  IGWidget(QWidget* parent = nullptr);
+  explicit IGWidget(QWidget* parent = nullptr);
 
   QSize sizeHint() const override;
 };
@@ -71,7 +71,7 @@ class MODELEDITOR_API IGWidget
 class IGComboBox : public QComboBox
 {
  public:
-  IGComboBox(QWidget* parent = nullptr) : QComboBox(parent) {}
+  explicit IGComboBox(QWidget* parent = nullptr) : QComboBox(parent) {}
 
  protected:
   bool event(QEvent* e) override {

@@ -120,7 +120,7 @@ class OSListItem : public QObject
   void setController(OSListController* controller);
 
   OSListController* controller() const {
-    return m_listController;
+    return m_listController.get();
   }
 
   bool isSelected() const;

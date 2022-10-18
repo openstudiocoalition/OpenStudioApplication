@@ -33,7 +33,6 @@
 #include "OSCollapsibleView.hpp"
 #include "OSListView.hpp"
 #include "HeaderViews.hpp"
-#include "WorkflowView.hpp"
 #include <QAbstractButton>
 
 class QLineEdit;
@@ -61,7 +60,7 @@ class RectangularDropZone : public QWidget
  public:
   RectangularDropZone();
 
-  virtual ~RectangularDropZone() {}
+  virtual ~RectangularDropZone() = default;
 
   void setAcceptedMimeType(const QString& type);
 
@@ -72,7 +71,7 @@ class RectangularDropZone : public QWidget
   void dataDropped(QDropEvent* event);
 
  protected:
-  void paintEvent(QPaintEvent*) override;
+  void paintEvent(QPaintEvent* event) override;
 
   void dropEvent(QDropEvent* event) override;
 
@@ -90,7 +89,7 @@ class NewMeasureDropZone : public RectangularDropZone
  public:
   NewMeasureDropZone();
 
-  virtual ~NewMeasureDropZone() {}
+  virtual ~NewMeasureDropZone() = default;
 };
 
 // WorkflowSectionView displays a WorkflowSectionItem, e.g. all the Model or EnergyPlus Measures
@@ -101,7 +100,7 @@ class WorkflowSectionView : public OSCollapsibleView
  public:
   explicit WorkflowSectionView(MeasureType measureType);
 
-  virtual ~WorkflowSectionView() {}
+  virtual ~WorkflowSectionView() = default;
 
   LightGradientHeader* header;
 
@@ -115,7 +114,7 @@ class WorkflowSectionContentView : public QWidget
  public:
   WorkflowSectionContentView();
 
-  virtual ~WorkflowSectionContentView() {}
+  virtual ~WorkflowSectionContentView() = default;
 
   OSListView* workflowStepsView;
 
@@ -130,7 +129,7 @@ class WorkflowStepView : public QWidget
  public:
   WorkflowStepView();
 
-  virtual ~WorkflowStepView() {}
+  virtual ~WorkflowStepView() = default;
 
   WorkflowStepButton* workflowStepButton;
 
@@ -153,7 +152,7 @@ class WorkflowStepButton : public QAbstractButton
  public:
   WorkflowStepButton();
 
-  virtual ~WorkflowStepButton() {}
+  virtual ~WorkflowStepButton() = default;
 
   QLabel* nameLabel;
 
@@ -164,7 +163,7 @@ class WorkflowStepButton : public QAbstractButton
   void setHasEmphasis(bool hasEmphasis);
 
  protected:
-  void paintEvent(QPaintEvent* e) override;
+  void paintEvent(QPaintEvent* event) override;
 };
 
 }  // namespace measuretab

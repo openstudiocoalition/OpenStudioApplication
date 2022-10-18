@@ -93,7 +93,7 @@ class InputController : public QObject
   Q_OBJECT
 
  public:
-  InputController(EditController* editController, const measure::OSArgument& argument, BaseApp* t_app);
+  InputController(EditController* editController, measure::OSArgument argument, BaseApp* t_app);
 
   virtual ~InputController();
 

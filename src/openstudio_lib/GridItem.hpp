@@ -121,23 +121,23 @@ class GridItem : public ModelObjectGraphicsItem
  public:
   GridItem(QGraphicsItem* parent = nullptr);
 
-  virtual ~GridItem() {}
+  virtual ~GridItem() = default;
 
   virtual QRectF boundingRect() const override;
 
   void setGridPos(int x, int y);
 
-  int getXGridPos();
+  int getXGridPos() const;
 
-  int getYGridPos();
+  int getYGridPos() const;
 
   void setHGridLength(int l);
 
   void setVGridLength(int l);
 
-  int getHGridLength();
+  int getHGridLength() const;
 
-  int getVGridLength();
+  int getVGridLength() const;
 
  protected:
   virtual void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
@@ -190,7 +190,7 @@ class SplitterItem : public GridItem
 
   // The size of the types vector is equal to the number of zones connected to the system
   // This is also expected to be equal to the number of branches
-  void setTerminalTypes(std::vector<TerminalType> types);
+  void setTerminalTypes(const std::vector<TerminalType>& types);
 
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 
@@ -502,7 +502,7 @@ class OAStraightNodeItem : public GridItem
 class OASupplyBranchItem : public GridItem
 {
  public:
-  OASupplyBranchItem(std::vector<model::ModelObject> supplyModelObjects, std::vector<model::ModelObject> reliefModelObjects,
+  OASupplyBranchItem(const std::vector<model::ModelObject>& supplyModelObjects, const std::vector<model::ModelObject>& reliefModelObjects,
                      QGraphicsItem* parent = nullptr);
 
   void layout();
@@ -518,7 +518,7 @@ class OASupplyBranchItem : public GridItem
 class OAReliefBranchItem : public GridItem
 {
  public:
-  OAReliefBranchItem(std::vector<model::ModelObject> reliefModelObjects, std::vector<model::ModelObject> supplyModelObjects,
+  OAReliefBranchItem(const std::vector<model::ModelObject>& reliefModelObjects, const std::vector<model::ModelObject>& supplyModelObjects,
                      QGraphicsItem* parent = nullptr);
 
   void layout();
@@ -657,7 +657,7 @@ class HorizontalBranchItem : public GridItem
   HorizontalBranchItem(std::pair<std::vector<model::ModelObject>, std::vector<model::ModelObject>> modelObjectsBeforeTerminal,
                        const std::vector<model::ModelObject>& modelObjectsAfterTerminal, QGraphicsItem* parent = nullptr);
 
-  static std::vector<GridItem*> itemFactory(std::vector<model::ModelObject> modelObjects, QGraphicsItem* parent);
+  static std::vector<GridItem*> itemFactory(const std::vector<model::ModelObject>& modelObjects, QGraphicsItem* parent);
 
   void setPadding(unsigned);
 
@@ -724,7 +724,7 @@ class HorizontalBranchGroupItem : public GridItem
 class VerticalBranchItem : public GridItem
 {
  public:
-  explicit VerticalBranchItem(std::vector<model::ModelObject> modelObjects, QGraphicsItem* parent = nullptr);
+  explicit VerticalBranchItem(const std::vector<model::ModelObject>& modelObjects, QGraphicsItem* parent = nullptr);
 
   void setPadding(unsigned);
 
@@ -742,7 +742,7 @@ class VerticalBranchItem : public GridItem
 class ReverseVerticalBranchItem : public GridItem
 {
  public:
-  explicit ReverseVerticalBranchItem(std::vector<model::ModelObject> modelObjects, QGraphicsItem* parent = nullptr);
+  explicit ReverseVerticalBranchItem(const std::vector<model::ModelObject>& modelObjects, QGraphicsItem* parent = nullptr);
 
   void setPadding(unsigned);
 
@@ -780,7 +780,7 @@ class TwoThreeStraightItem2 : public GridItem
 class DemandSideItem : public GridItem
 {
  public:
-  DemandSideItem(QGraphicsItem* parent, std::vector<model::Node> demandInletNodes, model::Node demandOutletNode);
+  DemandSideItem(QGraphicsItem* parent, const std::vector<model::Node>& demandInletNodes, const model::Node& demandOutletNode);
 
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 
@@ -916,7 +916,7 @@ class SupplySideItem : public GridItem
 class SystemCenterItem : public GridItem
 {
  public:
-  SystemCenterItem(QGraphicsItem* parent, model::Loop loop);
+  SystemCenterItem(QGraphicsItem* parent, const model::Loop& loop);
 
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 
@@ -928,7 +928,7 @@ class SystemCenterItem : public GridItem
 class SystemItem : public GridItem
 {
  public:
-  SystemItem(model::Loop loop, LoopScene* loopScene);
+  SystemItem(const model::Loop& loop, LoopScene* loopScene);
 
   virtual ~SystemItem();
 

@@ -118,6 +118,7 @@
 #include <algorithm>
 
 #include <openstudio/utilities/idd/IddEnums.hxx>
+#include <utility>
 
 using namespace openstudio::model;
 
@@ -145,7 +146,7 @@ ModelObjectGraphicsItem::ModelObjectGraphicsItem(QGraphicsItem* parent)
   setFlag(QGraphicsItem::ItemIsFocusable);
   setFlag(QGraphicsItem::ItemIsSelectable, false);
   if (QGraphicsScene* _scene = scene()) {
-    GridScene* gridScene = static_cast<GridScene*>(_scene);
+    auto* gridScene = static_cast<GridScene*>(_scene);
 
     connect(this, &ModelObjectGraphicsItem::modelObjectSelected, gridScene, &GridScene::modelObjectSelected);
 
@@ -206,7 +207,6 @@ QVariant ModelObjectGraphicsItem::itemChange(GraphicsItemChange change, const QV
         emit modelObjectSelected(m_modelObject, false);
       } else {
         boost::optional<model::ModelObject> mo;
-
         emit modelObjectSelected(mo, false);
       }
     }
@@ -216,29 +216,23 @@ QVariant ModelObjectGraphicsItem::itemChange(GraphicsItemChange change, const QV
 }
 
 void ModelObjectGraphicsItem::setModelObject(model::OptionalModelObject modelObject) {
-  m_modelObject = modelObject;
+  m_modelObject = std::move(modelObject);
 
-  if (m_modelObject && m_modelObject->optionalCast<model::HVACComponent>()) {
+  if (!m_modelObject) {
+    return;
+  }
+
+  if (auto comp_ = m_modelObject->optionalCast<model::HVACComponent>()) {
     setAcceptDrops(true);
-
-    setFlag(QGraphicsItem::ItemIsSelectable);
-
-    if (m_modelObject->cast<model::HVACComponent>().isRemovable()) {
-      setDeletable(true);
-    } else {
-      setDeletable(false);
-    }
+    setDeletable(comp_->isRemovable());
   }
 
-  if (m_modelObject) {
-    m_modelObject->getImpl<detail::IdfObject_Impl>()
-      .get()
-      ->detail::IdfObject_Impl::onNameChange.connect<ModelObjectGraphicsItem, &ModelObjectGraphicsItem::onNameChange>(this);
+  m_modelObject->getImpl<detail::IdfObject_Impl>()
+    ->detail::IdfObject_Impl::onNameChange.connect<ModelObjectGraphicsItem, &ModelObjectGraphicsItem::onNameChange>(this);
 
-    setFlag(QGraphicsItem::ItemIsSelectable);
+  setFlag(QGraphicsItem::ItemIsSelectable);
 
-    this->onNameChange();
-  }
+  this->onNameChange();
 }
 
 void ModelObjectGraphicsItem::onNameChange() {
@@ -253,12 +247,12 @@ model::OptionalModelObject ModelObjectGraphicsItem::modelObject() {
   return m_modelObject;
 }
 
-void ModelObjectGraphicsItem::dragEnterEvent(QGraphicsSceneDragDropEvent* event) {
+void ModelObjectGraphicsItem::dragEnterEvent(QGraphicsSceneDragDropEvent* /*event*/) {
   m_highlight = true;
   update();
 }
 
-void ModelObjectGraphicsItem::dragLeaveEvent(QGraphicsSceneDragDropEvent* event) {
+void ModelObjectGraphicsItem::dragLeaveEvent(QGraphicsSceneDragDropEvent* /*event*/) {
   m_highlight = false;
   update();
 }
@@ -268,18 +262,14 @@ void ModelObjectGraphicsItem::dropEvent(QGraphicsSceneDragDropEvent* event) {
 
   if (event->proposedAction() == Qt::CopyAction) {
     if (!m_modelObject) {
-      OSItemId id = OSItemId(event->mimeData());
-
-      emit hvacComponentDropped(id);
+      emit hvacComponentDropped(OSItemId{event->mimeData()});
     } else {
       try {
         Node node = m_modelObject->cast<Node>();
 
         event->setDropAction(Qt::CopyAction);
 
-        OSItemId id = OSItemId(event->mimeData());
-
-        emit hvacComponentDropped(id, node);
+        emit hvacComponentDropped(OSItemId{event->mimeData()}, node);
       } catch (std::bad_cast&) {
         return;
       }
@@ -292,10 +282,10 @@ void ModelObjectGraphicsItem::dropEvent(QGraphicsSceneDragDropEvent* event) {
 GridItem::GridItem(QGraphicsItem* parent) : ModelObjectGraphicsItem(parent), m_hLength(1), m_vLength(1) {}
 
 QRectF GridItem::boundingRect() const {
-  return QRectF(0, 0, m_hLength * 100, m_vLength * 100);
+  return {0.0, 0.0, m_hLength * 100.0, m_vLength * 100.0};
 }
 
-void GridItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+void GridItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* /*option*/, QWidget* /*widget*/) {
   painter->setPen(QPen(Qt::black, 4, Qt::NoPen, Qt::RoundCap));
   painter->setBrush(QBrush(Qt::lightGray, Qt::SolidPattern));
   painter->drawRect(0, 0, m_hLength * 100, m_vLength * 100);
@@ -316,11 +306,11 @@ void GridItem::setGridPos(int x, int y) {
   setPos(x * 100, y * 100);
 }
 
-int GridItem::getXGridPos() {
+int GridItem::getXGridPos() const {
   return x() / 100;
 }
 
-int GridItem::getYGridPos() {
+int GridItem::getYGridPos() const {
   return y() / 100;
 }
 
@@ -332,11 +322,11 @@ void GridItem::setVGridLength(int l) {
   m_vLength = l;
 }
 
-int GridItem::getHGridLength() {
+int GridItem::getHGridLength() const {
   return m_hLength;
 }
 
-int GridItem::getVGridLength() {
+int GridItem::getVGridLength() const {
   return m_vLength;
 }
 
@@ -380,7 +370,7 @@ void LinkItem::hoverLeaveEvent(QGraphicsSceneHoverEvent* event) {
   event->accept();
 }
 
-void LinkItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+void LinkItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* /*option*/, QWidget* /*widget*/) {
   painter->setRenderHint(QPainter::Antialiasing, true);
   painter->setPen(QPen(Qt::black, 4, Qt::SolidLine, Qt::RoundCap));
   if (m_isHovering) {
@@ -394,18 +384,18 @@ void LinkItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, 
 }
 
 QRectF LinkItem::boundingRect() const {
-  return QRectF(0.0, 0.0, 20.0, 20.0);
+  return {0.0, 0.0, 20.0, 20.0};
 }
 
 HalfHeightItem::HalfHeightItem(QGraphicsItem* parent) : ModelObjectGraphicsItem(parent) {}
 
 QRectF HalfHeightItem::boundingRect() const {
-  return QRectF(0, 0, 100, 50);
+  return {0.0, 0.0, 100.0, 50.0};
 }
 
 HalfHeightOneThreeStraightItem::HalfHeightOneThreeStraightItem(QGraphicsItem* parent) : HalfHeightItem(parent) {}
 
-void HalfHeightOneThreeStraightItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+void HalfHeightOneThreeStraightItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* /*option*/, QWidget* /*widget*/) {
   painter->setRenderHint(QPainter::Antialiasing, true);
   painter->setPen(QPen(Qt::black, 4, Qt::SolidLine, Qt::RoundCap));
   painter->drawLine(0, 25, 100, 25);
@@ -418,7 +408,7 @@ void HalfHeightOneThreeStraightItem::paint(QPainter* painter, const QStyleOption
 
 HalfHeightOneThreeNodeItem::HalfHeightOneThreeNodeItem(QGraphicsItem* parent) : HalfHeightItem(parent) {}
 
-void HalfHeightOneThreeNodeItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+void HalfHeightOneThreeNodeItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* /*option*/, QWidget* /*widget*/) {
   painter->setRenderHint(QPainter::Antialiasing, true);
   painter->setPen(QPen(Qt::black, 4, Qt::SolidLine, Qt::RoundCap));
   painter->setBrush(QBrush(Qt::lightGray, Qt::SolidPattern));
@@ -427,78 +417,78 @@ void HalfHeightOneThreeNodeItem::paint(QPainter* painter, const QStyleOptionGrap
   painter->drawEllipse(43, 17, 15, 15);
 }
 
-std::vector<GridItem*> HorizontalBranchItem::itemFactory(std::vector<model::ModelObject> modelObjects, QGraphicsItem* parent) {
+std::vector<GridItem*> HorizontalBranchItem::itemFactory(const std::vector<model::ModelObject>& modelObjects, QGraphicsItem* parent) {
   std::vector<GridItem*> result;
 
-  for (auto it = modelObjects.begin(); it < modelObjects.end(); ++it) {
-    if (model::OptionalNode comp = it->optionalCast<model::Node>()) {
+  for (const auto& modelObject : modelObjects) {
+    if (auto comp = modelObject.optionalCast<model::Node>()) {
       GridItem* gridItem = new OneThreeNodeItem(parent);
-      gridItem->setModelObject(comp->optionalCast<model::ModelObject>());
+      gridItem->setModelObject(modelObject);
       if (comp->isRemovable()) {
         gridItem->setDeletable(true);
       }
       result.push_back(gridItem);
-    } else if (model::OptionalAirLoopHVACOutdoorAirSystem comp = it->optionalCast<model::AirLoopHVACOutdoorAirSystem>()) {
+    } else if (auto comp = modelObject.optionalCast<model::AirLoopHVACOutdoorAirSystem>()) {
       GridItem* gridItem = new OASystemItem(comp.get(), parent);
       if (comp->isRemovable()) {
         gridItem->setDeletable(true);
       }
       result.push_back(gridItem);
-    } else if (model::OptionalThermalZone comp = it->optionalCast<model::ThermalZone>()) {
+    } else if (auto comp = modelObject.optionalCast<model::ThermalZone>()) {
       GridItem* gridItem = new OneThreeStraightItem(parent);
-      gridItem->setModelObject(comp->optionalCast<model::ModelObject>());
+      gridItem->setModelObject(modelObject);
       if (comp->isRemovable()) {
         gridItem->setDeletable(true);
       }
       result.push_back(gridItem);
-    } else if (model::OptionalAirLoopHVACSupplyPlenum comp = it->optionalCast<model::AirLoopHVACSupplyPlenum>()) {
+    } else if (auto comp = modelObject.optionalCast<model::AirLoopHVACSupplyPlenum>()) {
       GridItem* gridItem = new SupplyPlenumItem(comp.get(), parent);
       if (comp->isRemovable()) {
         gridItem->setDeletable(true);
       }
       result.push_back(gridItem);
-    } else if (model::OptionalAirLoopHVACReturnPlenum comp = it->optionalCast<model::AirLoopHVACReturnPlenum>()) {
+    } else if (auto comp = modelObject.optionalCast<model::AirLoopHVACReturnPlenum>()) {
       GridItem* gridItem = new ReturnPlenumItem(comp.get(), parent);
       if (comp->isRemovable()) {
         gridItem->setDeletable(true);
       }
       result.push_back(gridItem);
-    } else if (model::OptionalWaterUseConnections comp = it->optionalCast<model::WaterUseConnections>()) {
-      auto gridItem = new WaterUseConnectionsItem(parent);
-      gridItem->setModelObject(comp->optionalCast<model::ModelObject>());
+    } else if (auto comp = modelObject.optionalCast<model::WaterUseConnections>()) {
+      auto* gridItem = new WaterUseConnectionsItem(parent);
+      gridItem->setModelObject(modelObject);
       result.push_back(gridItem);
-    } else if (model::OptionalStraightComponent comp = it->optionalCast<model::StraightComponent>()) {
+    } else if (auto comp = modelObject.optionalCast<model::StraightComponent>()) {
       GridItem* gridItem = new OneThreeStraightItem(parent);
-      gridItem->setModelObject(comp->optionalCast<model::ModelObject>());
+      gridItem->setModelObject(modelObject);
       if (comp->isRemovable()) {
         gridItem->setDeletable(true);
       }
       result.push_back(gridItem);
-    } else if (boost::optional<model::WaterToAirComponent> comp = it->optionalCast<model::WaterToAirComponent>()) {
+    } else if (auto comp = modelObject.optionalCast<model::WaterToAirComponent>()) {
       GridItem* gridItem = new OneThreeWaterToAirItem(parent);
-      gridItem->setModelObject(comp->optionalCast<model::ModelObject>());
+      gridItem->setModelObject(modelObject);
       if (comp->isRemovable()) {
         gridItem->setDeletable(true);
       }
       result.push_back(gridItem);
-    } else if (boost::optional<model::WaterToWaterComponent> comp = it->optionalCast<model::WaterToWaterComponent>()) {
+    } else if (auto comp = modelObject.optionalCast<model::WaterToWaterComponent>()) {
       GridItem* gridItem = new OneThreeWaterToWaterItem(parent);
-      gridItem->setModelObject(comp->optionalCast<model::ModelObject>());
+      gridItem->setModelObject(modelObject);
       if (comp->isRemovable()) {
         gridItem->setDeletable(true);
       }
       result.push_back(gridItem);
-    } else if (boost::optional<model::ZoneHVACComponent> comp = it->optionalCast<model::ZoneHVACComponent>()) {
+    } else if (auto comp = modelObject.optionalCast<model::ZoneHVACComponent>()) {
       GridItem* gridItem = new OneThreeStraightItem(parent);
-      gridItem->setModelObject(comp->optionalCast<model::ModelObject>());
+      gridItem->setModelObject(modelObject);
       if (comp->isRemovable()) {
         gridItem->setDeletable(true);
       }
       result.push_back(gridItem);
-    } else if (boost::optional<model::Mixer> comp = it->optionalCast<model::Mixer>()) {
+    } else if (auto comp = modelObject.optionalCast<model::Mixer>()) {
       // Expecting dual duct terminal which is a mixer
       GridItem* gridItem = new OneThreeDualDuctMixerItem(parent);
-      gridItem->setModelObject(comp->optionalCast<model::ModelObject>());
+      gridItem->setModelObject(modelObject);
       if (comp->isRemovable()) {
         gridItem->setDeletable(true);
       }
@@ -515,7 +505,7 @@ HorizontalBranchItem::HorizontalBranchItem(std::pair<std::vector<model::ModelObj
   std::vector<GridItem*> beforeTerminalItems;
 
   auto halfItemFactory = [&](const boost::optional<model::ModelObject>& modelObject, QGraphicsItem* parent) {
-    HalfHeightItem* halfHeightItem;
+    HalfHeightItem* halfHeightItem = nullptr;
 
     if (modelObject) {
       if (modelObject->iddObjectType() == model::Node::iddObjectType()) {
@@ -551,11 +541,11 @@ HorizontalBranchItem::HorizontalBranchItem(std::pair<std::vector<model::ModelObj
 
     if (!stop) {
       // New horizontal item
-      auto item = new GridItem(this);
+      auto* item = new GridItem(this);
       beforeTerminalItems.push_back(item);
-      auto halfHeightItem1 = halfItemFactory(modelObject1, item);
+      auto* halfHeightItem1 = halfItemFactory(modelObject1, item);
       halfHeightItem1->setPos(0, 0);
-      auto halfHeightItem2 = halfItemFactory(modelObject2, item);
+      auto* halfHeightItem2 = halfItemFactory(modelObject2, item);
       halfHeightItem2->setPos(0, 50);
     }
 
@@ -581,15 +571,10 @@ void HorizontalBranchItem::dropEvent(QGraphicsSceneDragDropEvent* event) {
   event->accept();
   if (event->proposedAction() == Qt::CopyAction) {
     if (!m_modelObject) {
-      OSItemId id = OSItemId(event->mimeData());
-
-      emit hvacComponentDropped(id);
-    } else if (boost::optional<HVACComponent> hvacComponent = m_modelObject->optionalCast<HVACComponent>()) {
+      emit hvacComponentDropped(OSItemId{event->mimeData()});
+    } else if (auto hvacComponent = m_modelObject->optionalCast<HVACComponent>()) {
       event->setDropAction(Qt::CopyAction);
-
-      OSItemId id = OSItemId(event->mimeData());
-
-      emit hvacComponentDropped(id, hvacComponent.get());
+      emit hvacComponentDropped(OSItemId{event->mimeData()}, hvacComponent.get());
     }
   }
 }
@@ -609,8 +594,8 @@ void HorizontalBranchItem::setPadding(unsigned padding) {
     }
     m_paddingItems.erase(m_paddingItems.begin() + padding, m_paddingItems.end());
   } else if (m_paddingItems.size() < padding) {
-    for (unsigned i = m_paddingItems.size(); i < padding; i++) {
-      auto straightItem = new OneThreeStraightItem(this, m_dualDuct);
+    for (unsigned i = m_paddingItems.size(); i < padding; ++i) {
+      auto* straightItem = new OneThreeStraightItem(this, m_dualDuct);
       m_paddingItems.push_back(straightItem);
     }
   }
@@ -694,18 +679,18 @@ void HorizontalBranchItem::setText(const QString& text) {
   update();
 }
 
-VerticalBranchItem::VerticalBranchItem(std::vector<model::ModelObject> modelObjects, QGraphicsItem* parent) : GridItem(parent) {
-  for (auto it = modelObjects.begin(); it < modelObjects.end(); ++it) {
-    if (model::OptionalNode comp = it->optionalCast<model::Node>()) {
+VerticalBranchItem::VerticalBranchItem(const std::vector<model::ModelObject>& modelObjects, QGraphicsItem* parent) : GridItem(parent) {
+  for (const auto& modelObject : modelObjects) {
+    if (auto comp = modelObject.optionalCast<model::Node>()) {
       GridItem* gridItem = new TwoFourNodeItem(this);
-      gridItem->setModelObject(comp->optionalCast<model::ModelObject>());
+      gridItem->setModelObject(modelObject);
       if (comp->isRemovable()) {
         gridItem->setDeletable(true);
       }
       m_gridItems.push_back(gridItem);
-    } else if (model::OptionalStraightComponent comp = it->optionalCast<model::StraightComponent>()) {
+    } else if (auto comp = modelObject.optionalCast<model::StraightComponent>()) {
       GridItem* gridItem = new TwoFourStraightItem(this);
-      gridItem->setModelObject(comp->optionalCast<model::ModelObject>());
+      gridItem->setModelObject(modelObject);
       if (comp->isRemovable()) {
         gridItem->setDeletable(true);
       }
@@ -724,7 +709,7 @@ void VerticalBranchItem::setPadding(unsigned padding) {
     m_paddingItems.erase(m_paddingItems.begin() + padding, m_paddingItems.end());
   } else if (m_paddingItems.size() < padding) {
     for (unsigned i = m_paddingItems.size(); i < padding; i++) {
-      auto straightItem = new TwoFourStraightItem();
+      auto* straightItem = new TwoFourStraightItem();
       straightItem->setParentItem(this);
       m_paddingItems.push_back(straightItem);
     }
@@ -748,18 +733,18 @@ void VerticalBranchItem::layout() {
 
 void VerticalBranchItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {}
 
-ReverseVerticalBranchItem::ReverseVerticalBranchItem(std::vector<model::ModelObject> modelObjects, QGraphicsItem* parent) : GridItem(parent) {
-  for (auto it = modelObjects.begin(); it < modelObjects.end(); ++it) {
-    if (model::OptionalNode comp = it->optionalCast<model::Node>()) {
+ReverseVerticalBranchItem::ReverseVerticalBranchItem(const std::vector<model::ModelObject>& modelObjects, QGraphicsItem* parent) : GridItem(parent) {
+  for (const auto& modelObject : modelObjects) {
+    if (auto comp = modelObject.optionalCast<model::Node>()) {
       GridItem* gridItem = new TwoFourNodeItem(this);
-      gridItem->setModelObject(comp->optionalCast<model::ModelObject>());
+      gridItem->setModelObject(modelObject);
       if (comp->isRemovable()) {
         gridItem->setDeletable(true);
       }
       m_gridItems.push_back(gridItem);
-    } else if (model::OptionalStraightComponent comp = it->optionalCast<model::StraightComponent>()) {
+    } else if (auto comp = modelObject.optionalCast<model::StraightComponent>()) {
       GridItem* gridItem = new FourTwoStraightItem(this);
-      gridItem->setModelObject(comp->optionalCast<model::ModelObject>());
+      gridItem->setModelObject(modelObject);
       if (comp->isRemovable()) {
         gridItem->setDeletable(true);
       }
@@ -778,7 +763,7 @@ void ReverseVerticalBranchItem::setPadding(unsigned padding) {
     m_paddingItems.erase(m_paddingItems.begin() + padding, m_paddingItems.end());
   } else if (m_paddingItems.size() < padding) {
     for (unsigned i = m_paddingItems.size(); i < padding; i++) {
-      auto straightItem = new FourTwoStraightItem();
+      auto* straightItem = new FourTwoStraightItem();
       straightItem->setParentItem(this);
       m_paddingItems.push_back(straightItem);
     }
@@ -848,19 +833,12 @@ std::vector<model::HVACComponent> centerHVACComponents(model::Splitter& splitter
   auto loop = splitter.loop();
 
   auto removeUnwantedSplitterMixerNodesPred = [](const model::HVACComponent& modelObject) {
-    if (modelObject.optionalCast<model::AirLoopHVACZoneSplitter>()) {
-      return true;
-    } else if (modelObject.optionalCast<model::AirLoopHVACZoneMixer>()) {
-      return true;
-    } else if (modelObject.optionalCast<model::AirLoopHVACSupplyPlenum>()) {
-      return true;
-    } else if (modelObject.optionalCast<model::AirLoopHVACReturnPlenum>()) {
-      return true;
-    } else if (modelObject.optionalCast<model::Node>()) {
-      return true;
-    }
+    auto iddObjectType = modelObject.iddObjectType();
 
-    return false;
+    return (iddObjectType == openstudio::IddObjectType::OS_AirLoopHVAC_ZoneSplitter)
+           || (iddObjectType == openstudio::IddObjectType::OS_AirLoopHVAC_ZoneMixer)
+           || (iddObjectType == openstudio::IddObjectType::OS_AirLoopHVAC_SupplyPlenum)
+           || (iddObjectType == openstudio::IddObjectType::OS_AirLoopHVAC_ReturnPlenum) || (iddObjectType == openstudio::IddObjectType::OS_Node);
   };
 
   if (loop) {
@@ -993,8 +971,8 @@ HorizontalBranchGroupItem::HorizontalBranchGroupItem(model::Splitter& splitter, 
     } else {
       std::vector<std::vector<model::ModelObject>> allBranchComponents;
 
-      for (auto it1 = splitterOutletObjects.begin(); it1 != splitterOutletObjects.end(); ++it1) {
-        auto comp1 = it1->optionalCast<model::HVACComponent>();
+      for (const auto& splitterOutletObject : splitterOutletObjects) {
+        auto comp1 = splitterOutletObject.optionalCast<model::HVACComponent>();
         OS_ASSERT(comp1);
         auto branchComponents = loop->components(comp1.get(), mixer);
 
@@ -1046,8 +1024,8 @@ HorizontalBranchGroupItem::HorizontalBranchGroupItem(model::Splitter& splitter, 
       if (!isSupplySide) {
         std::sort(allBranchComponents.begin(), allBranchComponents.end(), sortBranches);
       }
-      for (auto it = allBranchComponents.begin(); it != allBranchComponents.end(); ++it) {
-        m_branchItems.push_back(new HorizontalBranchItem(*it, this));
+      for (const auto& allBranchComponent : allBranchComponents) {
+        m_branchItems.push_back(new HorizontalBranchItem(allBranchComponent, this));
       }
     }
   }
@@ -1092,8 +1070,8 @@ void HorizontalBranchGroupItem::setShowDropZone(bool showDropZone) {
 }
 
 void HorizontalBranchGroupItem::layout() {
-  if (m_branchItems.size() == 0) {
-    HorizontalBranchItem* branchItem = new HorizontalBranchItem(std::vector<model::ModelObject>(), this);
+  if (m_branchItems.empty()) {
+    auto* branchItem = new HorizontalBranchItem(std::vector<model::ModelObject>(), this);
 
     branchItem->setPadding(3);
 
@@ -1133,7 +1111,7 @@ void HorizontalBranchGroupItem::layout() {
 
 void HorizontalBranchGroupItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {}
 
-SystemItem::SystemItem(model::Loop loop, LoopScene* loopScene) : GridItem(), m_loop(loop), m_loopScene(loopScene) {
+SystemItem::SystemItem(const model::Loop& loop, LoopScene* loopScene) : m_loop(loop), m_loopScene(loopScene) {
   std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
   std::shared_ptr<MainRightColumnController> mrc = doc->mainRightColumnController();
   mrc->registerSystemItem(m_loop.handle(), this);
@@ -1151,31 +1129,31 @@ SystemItem::SystemItem(model::Loop loop, LoopScene* loopScene) : GridItem(), m_l
 
   int i = 0;
 
-  for (auto it = supplyPlenums.begin(); it != supplyPlenums.end(); ++it) {
-    if (boost::optional<model::ThermalZone> tz = it->thermalZone()) {
+  for (const auto& supplyPlenum : supplyPlenums) {
+    if (boost::optional<model::ThermalZone> tz = supplyPlenum.thermalZone()) {
       if (boost::optional<model::RenderingColor> rc = tz->renderingColor()) {
         QColor color;
         color.setRed(rc->renderingRedValue());
         color.setBlue(rc->renderingBlueValue());
         color.setGreen(rc->renderingGreenValue());
-        m_plenumColorMap.insert(std::make_pair(it->handle(), color));
+        m_plenumColorMap.insert(std::make_pair(supplyPlenum.handle(), color));
       }
     }
-    m_plenumIndexMap.insert(std::make_pair(it->handle(), i));
+    m_plenumIndexMap.insert(std::make_pair(supplyPlenum.handle(), i));
     i++;
   }
 
-  for (auto it = returnPlenums.begin(); it != returnPlenums.end(); ++it) {
-    if (boost::optional<model::ThermalZone> tz = it->thermalZone()) {
+  for (auto& returnPlenum : returnPlenums) {
+    if (boost::optional<model::ThermalZone> tz = returnPlenum.thermalZone()) {
       if (boost::optional<model::RenderingColor> rc = tz->renderingColor()) {
         QColor color;
         color.setRed(rc->renderingRedValue());
         color.setBlue(rc->renderingBlueValue());
         color.setGreen(rc->renderingGreenValue());
-        m_plenumColorMap.insert(std::make_pair(it->handle(), color));
+        m_plenumColorMap.insert(std::make_pair(returnPlenum.handle(), color));
       }
     }
-    m_plenumIndexMap.insert(std::make_pair(it->handle(), i));
+    m_plenumIndexMap.insert(std::make_pair(returnPlenum.handle(), i));
     i++;
   }
 
@@ -1257,7 +1235,8 @@ QColor SystemItem::plenumColor(const Handle& plenumHandle) {
 
 void SystemItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {}
 
-SystemCenterItem::SystemCenterItem(QGraphicsItem* parent, model::Loop loop) : GridItem(parent), m_supplyDualDuct(false), m_demandDualDuct(false) {
+SystemCenterItem::SystemCenterItem(QGraphicsItem* parent, const model::Loop& loop)
+  : GridItem(parent), m_supplyDualDuct(false), m_demandDualDuct(false) {
   this->setModelObject(loop);
 
   if (loop.supplyOutletNodes().size() == 2u) {
@@ -1269,7 +1248,7 @@ SystemCenterItem::SystemCenterItem(QGraphicsItem* parent, model::Loop loop) : Gr
   }
 }
 
-void SystemCenterItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+void SystemCenterItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* /*option*/, QWidget* /*widget*/) {
   int yOrigin = 0;
 
   painter->setRenderHint(QPainter::Antialiasing, true);
@@ -1329,7 +1308,7 @@ SupplyPlenumItem::SupplyPlenumItem(const model::ModelObject& modelObject, QGraph
 
 void SupplyPlenumItem::setModelObject(model::OptionalModelObject modelObject) {
   if (modelObject) {
-    boost::optional<model::AirLoopHVACSupplyPlenum> plenum = modelObject->optionalCast<model::AirLoopHVACSupplyPlenum>();
+    auto plenum = modelObject->optionalCast<model::AirLoopHVACSupplyPlenum>();
     OS_ASSERT(plenum);
 
     GridItem::setModelObject(modelObject);
@@ -1398,7 +1377,7 @@ void ReturnPlenumItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* 
   painter->drawPolygon(points, 4);
 }
 
-OneThreeDualDuctMixerItem::OneThreeDualDuctMixerItem(QGraphicsItem* parent, bool dualDuct) : GridItem(parent) {}
+OneThreeDualDuctMixerItem::OneThreeDualDuctMixerItem(QGraphicsItem* parent, bool /* dualDuct */) : GridItem(parent) {}
 
 void OneThreeDualDuctMixerItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
   GridItem::paint(painter, option, widget);
@@ -1472,13 +1451,13 @@ void OneThreeWaterToAirItem::setModelObject(model::OptionalModelObject modelObje
   m_showLinks = false;
 
   if (m_modelObject) {
-    if (boost::optional<WaterToAirComponent> waterToAirComponent = m_modelObject->optionalCast<WaterToAirComponent>()) {
+    if (auto waterToAirComponent = m_modelObject->optionalCast<WaterToAirComponent>()) {
       if (waterToAirComponent->airLoopHVAC() && waterToAirComponent->plantLoop()) {
-        auto linkItem1 = new LinkItem(this);
+        auto* linkItem1 = new LinkItem(this);
         linkItem1->setPos(40, 5);
         connect(linkItem1, &LinkItem::mouseClicked, this, &OneThreeWaterToAirItem::onLinkItemClicked);
 
-        auto linkItem2 = new LinkItem(this);
+        auto* linkItem2 = new LinkItem(this);
         linkItem2->setPos(40, 75);
         connect(linkItem2, &LinkItem::mouseClicked, this, &OneThreeWaterToAirItem::onLinkItemClicked);
 
@@ -1543,13 +1522,13 @@ void OneThreeWaterToWaterItem::setModelObject(model::OptionalModelObject modelOb
   m_showLinks = false;
 
   if (m_modelObject) {
-    if (boost::optional<WaterToWaterComponent> waterToWaterComponent = m_modelObject->optionalCast<WaterToWaterComponent>()) {
+    if (auto waterToWaterComponent = m_modelObject->optionalCast<WaterToWaterComponent>()) {
       if (waterToWaterComponent->plantLoop() && waterToWaterComponent->secondaryPlantLoop()) {
-        auto linkItem1 = new LinkItem(this);
+        auto* linkItem1 = new LinkItem(this);
         linkItem1->setPos(40, 5);
         connect(linkItem1, &LinkItem::mouseClicked, this, &OneThreeWaterToWaterItem::onLinkItemClicked);
 
-        auto linkItem2 = new LinkItem(this);
+        auto* linkItem2 = new LinkItem(this);
         linkItem2->setPos(40, 75);
         connect(linkItem2, &LinkItem::mouseClicked, this, &OneThreeWaterToWaterItem::onLinkItemClicked);
 
@@ -1628,7 +1607,7 @@ void TwoFourStraightItem::paint(QPainter* painter, const QStyleOptionGraphicsIte
 
 OASupplyStraightItem::OASupplyStraightItem(QGraphicsItem* parent) : GridItem(parent) {}
 
-void OASupplyStraightItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+void OASupplyStraightItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* /*option*/, QWidget* /*widget*/) {
   painter->setPen(QPen(Qt::black, 4, Qt::NoPen, Qt::RoundCap));
   painter->setBrush(QBrush(Qt::lightGray, Qt::SolidPattern));
   painter->drawRect(5, 0, 90, 100);
@@ -1685,7 +1664,7 @@ void OASupplyStraightItem::mouseReleaseEvent(QGraphicsSceneMouseEvent* event) {
   //}
 }
 
-void OAReliefStraightItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+void OAReliefStraightItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* /*option*/, QWidget* /*widget*/) {
   painter->setPen(QPen(Qt::black, 4, Qt::NoPen, Qt::RoundCap));
   painter->setBrush(QBrush(Qt::lightGray, Qt::SolidPattern));
   painter->drawRect(5, 0, 90, 100);
@@ -1740,7 +1719,7 @@ OAAirToAirItem::OAAirToAirItem(QGraphicsItem* parent) : GridItem(parent) {
   setVGridLength(1);
 }
 
-void OAAirToAirItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+void OAAirToAirItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* /*option*/, QWidget* /*widget*/) {
   painter->setPen(QPen(Qt::black, 4, Qt::NoPen, Qt::RoundCap));
   painter->setBrush(QBrush(Qt::lightGray, Qt::SolidPattern));
   painter->drawRect(5, 0, m_hLength * 100 - 10, m_vLength * 100);
@@ -1767,8 +1746,8 @@ void OAAirToAirItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* op
   }
 }
 
-OASupplyBranchItem::OASupplyBranchItem(std::vector<model::ModelObject> supplyModelObjects, std::vector<model::ModelObject> reliefModelObjects,
-                                       QGraphicsItem* parent)
+OASupplyBranchItem::OASupplyBranchItem(const std::vector<model::ModelObject>& supplyModelObjects,
+                                       const std::vector<model::ModelObject>& reliefModelObjects, QGraphicsItem* parent)
   : GridItem(parent) {
   setAcceptHoverEvents(false);
 
@@ -1862,8 +1841,8 @@ void OASupplyBranchItem::layout() {
 
 void OASupplyBranchItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {}
 
-OAReliefBranchItem::OAReliefBranchItem(std::vector<model::ModelObject> reliefModelObjects, std::vector<model::ModelObject> supplyModelObjects,
-                                       QGraphicsItem* parent)
+OAReliefBranchItem::OAReliefBranchItem(const std::vector<model::ModelObject>& reliefModelObjects,
+                                       const std::vector<model::ModelObject>& supplyModelObjects, QGraphicsItem* parent)
   : GridItem(parent) {
   setAcceptHoverEvents(false);
 
@@ -2026,9 +2005,7 @@ OneThreeNodeItem::OneThreeNodeItem(QGraphicsItem* parent) : GridItem(parent) {}
 void OneThreeNodeItem::setModelObject(model::OptionalModelObject modelObject) {
   GridItem::setModelObject(modelObject);
 
-  if (m_contextButton) {
-    delete m_contextButton;
-  }
+  delete m_contextButton;
 
   if (modelObject) {
     if (boost::optional<model::Node> node = modelObject->optionalCast<model::Node>()) {
@@ -2053,60 +2030,57 @@ void OneThreeNodeItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* 
 
   if (m_modelObject) {
     if (model::OptionalNode node = m_modelObject->optionalCast<model::Node>()) {
-      std::vector<model::SetpointManager> _setpointManagers = node->setpointManagers();
-      for (auto it = _setpointManagers.begin(); it != _setpointManagers.end(); ++it) {
-        if (it->controlVariable().find("Temperature") != std::string::npos) {
-          if (it->iddObjectType() == SetpointManagerMixedAir::iddObjectType()) {
+      for (auto& spm : node->setpointManagers()) {
+        if (spm.controlVariable().find("Temperature") != std::string::npos) {
+          if (spm.iddObjectType() == SetpointManagerMixedAir::iddObjectType()) {
             painter->drawPixmap(37, 13, 25, 25, QPixmap(":images/setpoint_mixed.png"));
-          } else if (it->iddObjectType() == SetpointManagerSingleZoneReheat::iddObjectType()) {
+          } else if ((spm.iddObjectType() == SetpointManagerSingleZoneReheat::iddObjectType())
+                     || (spm.iddObjectType() == SetpointManagerSingleZoneCooling::iddObjectType())
+                     || (spm.iddObjectType() == SetpointManagerSingleZoneHeating::iddObjectType())) {
             painter->drawPixmap(37, 13, 25, 25, QPixmap(":images/setpoint_singlezone.png"));
-          } else if (it->iddObjectType() == SetpointManagerSingleZoneCooling::iddObjectType()) {
-            painter->drawPixmap(37, 13, 25, 25, QPixmap(":images/setpoint_singlezone.png"));
-          } else if (it->iddObjectType() == SetpointManagerSingleZoneHeating::iddObjectType()) {
-            painter->drawPixmap(37, 13, 25, 25, QPixmap(":images/setpoint_singlezone.png"));
-          } else if (it->iddObjectType() == SetpointManagerScheduled::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerScheduled::iddObjectType()) {
             painter->drawPixmap(37, 13, 25, 25, QPixmap(":images/setpoint_scheduled.png"));
-          } else if (it->iddObjectType() == SetpointManagerScheduledDualSetpoint::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerScheduledDualSetpoint::iddObjectType()) {
             painter->drawPixmap(37, 13, 25, 25, QPixmap(":images/setpoint_dual.png"));
-          } else if (it->iddObjectType() == SetpointManagerWarmest::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerWarmest::iddObjectType()) {
             painter->drawPixmap(37, 13, 25, 25, QPixmap(":images/setpoint_warmest.png"));
-          } else if (it->iddObjectType() == SetpointManagerColdest::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerColdest::iddObjectType()) {
             painter->drawPixmap(37, 13, 25, 25, QPixmap(":images/setpoint_coldest.png"));
-          } else if (it->iddObjectType() == SetpointManagerOutdoorAirReset::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerOutdoorAirReset::iddObjectType()) {
             painter->drawPixmap(37, 13, 25, 25, QPixmap(":images/setpoint_outdoorair.png"));
-          } else if (it->iddObjectType() == SetpointManagerFollowGroundTemperature::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerFollowGroundTemperature::iddObjectType()) {
             painter->drawPixmap(37, 13, 25, 25, QPixmap(":images/setpoint_follow_ground_temp.png"));
-          } else if (it->iddObjectType() == SetpointManagerFollowOutdoorAirTemperature::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerFollowOutdoorAirTemperature::iddObjectType()) {
             painter->drawPixmap(37, 13, 25, 25, QPixmap(":images/setpoint_follow_outdoorair.png"));
-          } else if (it->iddObjectType() == SetpointManagerFollowSystemNodeTemperature::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerFollowSystemNodeTemperature::iddObjectType()) {
             painter->drawPixmap(37, 13, 25, 25, QPixmap(":images/setpoint_follow_system_node.png"));
-          } else if (it->iddObjectType() == SetpointManagerMultiZoneCoolingAverage::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerMultiZoneCoolingAverage::iddObjectType()) {
             painter->drawPixmap(37, 13, 25, 25, QPixmap(":images/setpoint_multizone_cooling.png"));
-          } else if (it->iddObjectType() == SetpointManagerMultiZoneHeatingAverage::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerMultiZoneHeatingAverage::iddObjectType()) {
             painter->drawPixmap(37, 13, 25, 25, QPixmap(":images/setpoint_multizone_heating.png"));
-          } else if (it->iddObjectType() == SetpointManagerOutdoorAirPretreat::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerOutdoorAirPretreat::iddObjectType()) {
             painter->drawPixmap(37, 13, 25, 25, QPixmap(":images/setpoint_pretreat.png"));
-          } else if (it->iddObjectType() == SetpointManagerSingleZoneOneStageCooling::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerSingleZoneOneStageCooling::iddObjectType()) {
             painter->drawPixmap(37, 13, 25, 25, QPixmap(":images/setpoint_onestage_cooling.png"));
-          } else if (it->iddObjectType() == SetpointManagerSingleZoneOneStageHeating::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerSingleZoneOneStageHeating::iddObjectType()) {
             painter->drawPixmap(37, 13, 25, 25, QPixmap(":images/setpoint_onestage_heating.png"));
-          } else if (it->iddObjectType() == SetpointManagerWarmestTemperatureFlow::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerWarmestTemperatureFlow::iddObjectType()) {
             painter->drawPixmap(37, 13, 25, 25, QPixmap(":images/setpoint_warmest_tempflow.png"));
           }
           break;
         } else {
           // These are the Humidty SPMs
-          if (it->iddObjectType() == SetpointManagerMultiZoneHumidityMaximum::iddObjectType()) {
+          if (spm.iddObjectType() == SetpointManagerMultiZoneHumidityMaximum::iddObjectType()) {
             painter->drawPixmap(37, 13, 25, 25, QPixmap(":images/setpoint_multizone_humidity_max.png"));
-          } else if (it->iddObjectType() == SetpointManagerMultiZoneHumidityMinimum::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerMultiZoneHumidityMinimum::iddObjectType()) {
             painter->drawPixmap(37, 13, 25, 25, QPixmap(":images/setpoint_multizone_humidity_min.png"));
-          } else if (it->iddObjectType() == SetpointManagerMultiZoneMaximumHumidityAverage::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerMultiZoneMaximumHumidityAverage::iddObjectType()) {
             painter->drawPixmap(37, 13, 25, 25, QPixmap(":images/setpoint_multizone_maxhumidity_avg.png"));
-          } else if (it->iddObjectType() == SetpointManagerMultiZoneMinimumHumidityAverage::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerMultiZoneMinimumHumidityAverage::iddObjectType()) {
             painter->drawPixmap(37, 13, 25, 25, QPixmap(":images/setpoint_multizone_minhumidity_avg.png"));
-          } else if (it->iddObjectType() == SetpointManagerSingleZoneHumidityMaximum::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerSingleZoneHumidityMaximum::iddObjectType()) {
             painter->drawPixmap(37, 13, 25, 25, QPixmap(":images/setpoint_singlezone_humidity_max.png"));
-          } else if (it->iddObjectType() == SetpointManagerSingleZoneHumidityMinimum::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerSingleZoneHumidityMinimum::iddObjectType()) {
             painter->drawPixmap(37, 13, 25, 25, QPixmap(":images/setpoint_singlezone_humidity_min.png"));
           }
           break;
@@ -2123,7 +2097,7 @@ void OneThreeDualDuctItem::setModelObject(model::OptionalModelObject modelObject
 }
 
 void OneThreeDualDuctItem::setModelObject2(model::OptionalModelObject modelObject) {
-  m_modelObject2 = modelObject;
+  m_modelObject2 = std::move(modelObject);
 }
 
 void OneThreeDualDuctItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {}
@@ -2143,7 +2117,7 @@ void FourFiveNodeItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* 
 
 OAEndNodeItem::OAEndNodeItem(QGraphicsItem* parent) : GridItem(parent) {}
 
-void OAEndNodeItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+void OAEndNodeItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* /*option*/, QWidget* /*widget*/) {
   painter->setPen(QPen(Qt::black, 4, Qt::NoPen, Qt::RoundCap));
   painter->setBrush(QBrush(Qt::lightGray, Qt::SolidPattern));
   painter->drawRect(5, 0, 90, 100);
@@ -2185,9 +2159,7 @@ TwoFourNodeItem::TwoFourNodeItem(QGraphicsItem* parent) : GridItem(parent) {}
 void TwoFourNodeItem::setModelObject(model::OptionalModelObject modelObject) {
   GridItem::setModelObject(modelObject);
 
-  if (m_contextButton) {
-    delete m_contextButton;
-  }
+  delete m_contextButton;
 
   if (modelObject) {
     if (boost::optional<model::Node> node = modelObject->optionalCast<model::Node>()) {
@@ -2212,60 +2184,57 @@ void TwoFourNodeItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* o
 
   if (m_modelObject) {
     if (model::OptionalNode node = m_modelObject->optionalCast<model::Node>()) {
-      std::vector<model::SetpointManager> _setpointManagers = node->setpointManagers();
-      for (auto it = _setpointManagers.begin(); it != _setpointManagers.end(); ++it) {
-        if (it->controlVariable().find("Temperature") != std::string::npos) {
-          if (it->iddObjectType() == SetpointManagerMixedAir::iddObjectType()) {
+      for (auto& spm : node->setpointManagers()) {
+        if (spm.controlVariable().find("Temperature") != std::string::npos) {
+          if (spm.iddObjectType() == SetpointManagerMixedAir::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_mixed_right.png"));
-          } else if (it->iddObjectType() == SetpointManagerSingleZoneReheat::iddObjectType()) {
+          } else if ((spm.iddObjectType() == SetpointManagerSingleZoneReheat::iddObjectType())
+                     || (spm.iddObjectType() == SetpointManagerSingleZoneCooling::iddObjectType())
+                     || (spm.iddObjectType() == SetpointManagerSingleZoneHeating::iddObjectType())) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_singlezone_right.png"));
-          } else if (it->iddObjectType() == SetpointManagerSingleZoneCooling::iddObjectType()) {
-            painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_singlezone_right.png"));
-          } else if (it->iddObjectType() == SetpointManagerSingleZoneHeating::iddObjectType()) {
-            painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_singlezone_right.png"));
-          } else if (it->iddObjectType() == SetpointManagerScheduled::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerScheduled::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_scheduled_right.png"));
-          } else if (it->iddObjectType() == SetpointManagerScheduledDualSetpoint::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerScheduledDualSetpoint::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_dual_right.png"));
-          } else if (it->iddObjectType() == SetpointManagerWarmest::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerWarmest::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_warmest_right.png"));
-          } else if (it->iddObjectType() == SetpointManagerColdest::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerColdest::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_coldest_right.png"));
-          } else if (it->iddObjectType() == SetpointManagerOutdoorAirReset::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerOutdoorAirReset::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_outdoorair_right.png"));
-          } else if (it->iddObjectType() == SetpointManagerFollowGroundTemperature::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerFollowGroundTemperature::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_follow_ground_temp_right.png"));
-          } else if (it->iddObjectType() == SetpointManagerFollowOutdoorAirTemperature::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerFollowOutdoorAirTemperature::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_follow_outdoorair_right.png"));
-          } else if (it->iddObjectType() == SetpointManagerFollowSystemNodeTemperature::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerFollowSystemNodeTemperature::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_follow_system_node_right.png"));
-          } else if (it->iddObjectType() == SetpointManagerMultiZoneCoolingAverage::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerMultiZoneCoolingAverage::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_multizone_cooling_right.png"));
-          } else if (it->iddObjectType() == SetpointManagerMultiZoneHeatingAverage::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerMultiZoneHeatingAverage::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_multizone_heating_right.png"));
-          } else if (it->iddObjectType() == SetpointManagerOutdoorAirPretreat::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerOutdoorAirPretreat::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_pretreat_right.png"));
-          } else if (it->iddObjectType() == SetpointManagerSingleZoneOneStageCooling::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerSingleZoneOneStageCooling::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_onestage_cooling_right.png"));
-          } else if (it->iddObjectType() == SetpointManagerSingleZoneOneStageHeating::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerSingleZoneOneStageHeating::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_onestage_heating_right.png"));
-          } else if (it->iddObjectType() == SetpointManagerWarmestTemperatureFlow::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerWarmestTemperatureFlow::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_warmest_tempflow_right.png"));
           }
           break;
         } else {
           // These are the humidity ones
-          if (it->iddObjectType() == SetpointManagerMultiZoneHumidityMaximum::iddObjectType()) {
+          if (spm.iddObjectType() == SetpointManagerMultiZoneHumidityMaximum::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_multizone_humidity_max_right.png"));
-          } else if (it->iddObjectType() == SetpointManagerMultiZoneHumidityMinimum::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerMultiZoneHumidityMinimum::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_multizone_humidity_min_right.png"));
-          } else if (it->iddObjectType() == SetpointManagerMultiZoneMaximumHumidityAverage::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerMultiZoneMaximumHumidityAverage::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_multizone_maxhumidity_avg_right.png"));
-          } else if (it->iddObjectType() == SetpointManagerMultiZoneMinimumHumidityAverage::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerMultiZoneMinimumHumidityAverage::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_multizone_minhumidity_avg_right.png"));
-          } else if (it->iddObjectType() == SetpointManagerSingleZoneHumidityMaximum::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerSingleZoneHumidityMaximum::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_singlezone_humidity_max_right.png"));
-          } else if (it->iddObjectType() == SetpointManagerSingleZoneHumidityMinimum::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerSingleZoneHumidityMinimum::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_singlezone_humidity_min_right.png"));
           }
           break;
@@ -2280,9 +2249,7 @@ OAStraightNodeItem::OAStraightNodeItem(QGraphicsItem* parent) : GridItem(parent)
 void OAStraightNodeItem::setModelObject(model::OptionalModelObject modelObject) {
   GridItem::setModelObject(modelObject);
 
-  if (m_contextButton) {
-    delete m_contextButton;
-  }
+  delete m_contextButton;
 
   if (modelObject) {
     if (boost::optional<model::Node> node = modelObject->optionalCast<model::Node>()) {
@@ -2295,7 +2262,7 @@ void OAStraightNodeItem::setModelObject(model::OptionalModelObject modelObject) 
   }
 }
 
-void OAStraightNodeItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+void OAStraightNodeItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* /*option*/, QWidget* /*widget*/) {
   painter->setPen(QPen(Qt::black, 4, Qt::NoPen, Qt::RoundCap));
   painter->setBrush(QBrush(Qt::lightGray, Qt::SolidPattern));
   painter->drawRect(5, 0, 90, 100);
@@ -2320,60 +2287,57 @@ void OAStraightNodeItem::paint(QPainter* painter, const QStyleOptionGraphicsItem
 
   if (m_modelObject) {
     if (model::OptionalNode node = m_modelObject->optionalCast<model::Node>()) {
-      std::vector<model::SetpointManager> _setpointManagers = node->setpointManagers();
-      for (auto it = _setpointManagers.begin(); it != _setpointManagers.end(); ++it) {
-        if (it->controlVariable().find("Temperature") != std::string::npos) {
-          if (it->iddObjectType() == SetpointManagerMixedAir::iddObjectType()) {
+      for (auto& spm : node->setpointManagers()) {
+        if (spm.controlVariable().find("Temperature") != std::string::npos) {
+          if (spm.iddObjectType() == SetpointManagerMixedAir::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_mixed.png"));
-          } else if (it->iddObjectType() == SetpointManagerSingleZoneReheat::iddObjectType()) {
+          } else if ((spm.iddObjectType() == SetpointManagerSingleZoneReheat::iddObjectType())
+                     || (spm.iddObjectType() == SetpointManagerSingleZoneCooling::iddObjectType())
+                     || (spm.iddObjectType() == SetpointManagerSingleZoneHeating::iddObjectType())) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_singlezone.png"));
-          } else if (it->iddObjectType() == SetpointManagerSingleZoneCooling::iddObjectType()) {
-            painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_singlezone.png"));
-          } else if (it->iddObjectType() == SetpointManagerSingleZoneHeating::iddObjectType()) {
-            painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_singlezone.png"));
-          } else if (it->iddObjectType() == SetpointManagerScheduled::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerScheduled::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_scheduled.png"));
-          } else if (it->iddObjectType() == SetpointManagerScheduledDualSetpoint::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerScheduledDualSetpoint::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_dual.png"));
-          } else if (it->iddObjectType() == SetpointManagerWarmest::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerWarmest::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_warmest.png"));
-          } else if (it->iddObjectType() == SetpointManagerColdest::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerColdest::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_coldest.png"));
-          } else if (it->iddObjectType() == SetpointManagerOutdoorAirReset::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerOutdoorAirReset::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_outdoorair.png"));
-          } else if (it->iddObjectType() == SetpointManagerFollowGroundTemperature::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerFollowGroundTemperature::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_follow_ground_temp.png"));
-          } else if (it->iddObjectType() == SetpointManagerFollowOutdoorAirTemperature::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerFollowOutdoorAirTemperature::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_follow_outdoorair.png"));
-          } else if (it->iddObjectType() == SetpointManagerFollowSystemNodeTemperature::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerFollowSystemNodeTemperature::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_follow_system_node.png"));
-          } else if (it->iddObjectType() == SetpointManagerMultiZoneCoolingAverage::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerMultiZoneCoolingAverage::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_multizone_cooling.png"));
-          } else if (it->iddObjectType() == SetpointManagerMultiZoneHeatingAverage::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerMultiZoneHeatingAverage::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_multizone_heating.png"));
-          } else if (it->iddObjectType() == SetpointManagerOutdoorAirPretreat::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerOutdoorAirPretreat::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_pretreat.png"));
-          } else if (it->iddObjectType() == SetpointManagerSingleZoneOneStageCooling::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerSingleZoneOneStageCooling::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_onestage_cooling.png"));
-          } else if (it->iddObjectType() == SetpointManagerSingleZoneOneStageHeating::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerSingleZoneOneStageHeating::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_onestage_heating.png"));
-          } else if (it->iddObjectType() == SetpointManagerWarmestTemperatureFlow::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerWarmestTemperatureFlow::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_warmest_tempflow.png"));
           }
           break;
         } else {
           // These are the humidity ones
-          if (it->iddObjectType() == SetpointManagerMultiZoneHumidityMaximum::iddObjectType()) {
+          if (spm.iddObjectType() == SetpointManagerMultiZoneHumidityMaximum::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_multizone_humidity_max.png"));
-          } else if (it->iddObjectType() == SetpointManagerMultiZoneHumidityMinimum::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerMultiZoneHumidityMinimum::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_multizone_humidity_min.png"));
-          } else if (it->iddObjectType() == SetpointManagerMultiZoneMaximumHumidityAverage::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerMultiZoneMaximumHumidityAverage::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_multizone_maxhumidity_avg.png"));
-          } else if (it->iddObjectType() == SetpointManagerMultiZoneMinimumHumidityAverage::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerMultiZoneMinimumHumidityAverage::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_multizone_minhumidity_avg.png"));
-          } else if (it->iddObjectType() == SetpointManagerSingleZoneHumidityMaximum::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerSingleZoneHumidityMaximum::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_singlezone_humidity_max.png"));
-          } else if (it->iddObjectType() == SetpointManagerSingleZoneHumidityMinimum::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerSingleZoneHumidityMinimum::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_singlezone_humidity_min.png"));
           }
           break;
@@ -2410,8 +2374,12 @@ void OAMixerItem::mouseReleaseEvent(QGraphicsSceneMouseEvent* event) {
 }
 
 OASystemItem::OASystemItem(model::AirLoopHVACOutdoorAirSystem& oaSystem, QGraphicsItem* parent)
-  : GridItem(parent), m_oaMixerItem(nullptr), m_oaBranch(nullptr), m_reliefBranch(nullptr), m_oaNodeItem(nullptr), m_reliefNodeItem(nullptr) {
-  m_oaMixerItem = new OAMixerItem(this);
+  : GridItem(parent),
+    m_oaMixerItem(new OAMixerItem(this)),
+    m_oaBranch(nullptr),
+    m_reliefBranch(nullptr),
+    m_oaNodeItem(new OAEndNodeItem(this)),
+    m_reliefNodeItem(new OAEndNodeItem(this)) {
   m_oaMixerItem->setModelObject(oaSystem);
 
   std::vector<model::ModelObject> oaComponents = oaSystem.oaComponents();
@@ -2424,10 +2392,8 @@ OASystemItem::OASystemItem(model::AirLoopHVACOutdoorAirSystem& oaSystem, QGraphi
   m_reliefBranch = new OAReliefBranchItem(reliefBranchComponents, oaBranchComponents, this);
   m_oaBranch = new OASupplyBranchItem(oaBranchComponents, reliefBranchComponents, this);
 
-  m_oaNodeItem = new OAEndNodeItem(this);
   m_oaNodeItem->setModelObject(oaSystem.outboardOANode().get());
 
-  m_reliefNodeItem = new OAEndNodeItem(this);
   m_reliefNodeItem->setModelObject(oaSystem.outboardReliefNode().get());
 
   layout();
@@ -2457,13 +2423,10 @@ void SplitterItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* opti
   painter->setPen(QPen(Qt::black, 4, Qt::SolidLine, Qt::RoundCap));
   painter->setBrush(QBrush(Qt::lightGray, Qt::SolidPattern));
 
-  int midpointIndex;
+  int midpointIndex = m_numberBranches - 1;
   if (m_numberBranches == 1) {
-    midpointIndex = 0;
     const QPixmap* qPixmap = IconLibrary::Instance().findIcon(modelObject()->iddObject().type().value());
     painter->drawPixmap(12, (midpointIndex * 100) + 12, 75, 75, *qPixmap);
-  } else {
-    midpointIndex = m_numberBranches - 1;
   }
 
   if (m_terminalTypes.empty()) {
@@ -2528,39 +2491,28 @@ void SplitterItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* opti
   }
 }
 
-void SplitterItem::setTerminalTypes(std::vector<SplitterItem::TerminalType> types) {
+void SplitterItem::setTerminalTypes(const std::vector<SplitterItem::TerminalType>& types) {
   // We want the number of branches to be in sync with the number of terminal/terminal types
   // Add one for the drop zone
   setNumberBranches(types.size() + 1);
   m_terminalTypes = types;
 
-  // A Predicate that returns true on either m_type or DualDuct
-  struct Predicate
-  {
-    explicit Predicate(TerminalType type) : m_type(type) {}
-
-    bool operator()(TerminalType t_type) const {
-      if ((t_type == m_type) || (t_type == TerminalType::DualDuct)) {
-        return true;
-      } else {
-        return false;
-      }
-    }
-
-    TerminalType m_type;
-  };
-
   if (!m_terminalTypes.empty()) {
 
     {
-      auto terminalIt = std::find_if(m_terminalTypes.begin(), m_terminalTypes.end(), Predicate(SplitterItem::SingleDuct1));
+      auto terminalIt = std::find_if(m_terminalTypes.begin(), m_terminalTypes.end(), [](const TerminalType& t_type) {
+        return ((t_type == SplitterItem::SingleDuct1) || (t_type == TerminalType::DualDuct));
+      });
+
       if (terminalIt != m_terminalTypes.end()) {
         m_firstDuct1Index = std::distance(m_terminalTypes.begin(), terminalIt);
       }
     }
 
     {
-      auto terminalIt = std::find_if(m_terminalTypes.begin(), m_terminalTypes.end(), Predicate(SplitterItem::SingleDuct2));
+      auto terminalIt = std::find_if(m_terminalTypes.begin(), m_terminalTypes.end(), [](const TerminalType& t_type) {
+        return ((t_type == SplitterItem::SingleDuct2) || (t_type == TerminalType::DualDuct));
+      });
       if (terminalIt != m_terminalTypes.end()) {
         m_firstDuct2Index = std::distance(m_terminalTypes.begin(), terminalIt);
       }
@@ -2649,13 +2601,10 @@ void MixerItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option,
 
   painter->drawLine(50, 50, 50, (((m_numberBranches * 2) - 1) * 100) - 50);
 
-  int midpointIndex;
+  int midpointIndex = m_numberBranches - 1;
   if (m_numberBranches == 1) {
-    midpointIndex = 0;
     const QPixmap* qPixmap = IconLibrary::Instance().findIcon(modelObject()->iddObject().type().value());
     painter->drawPixmap(12, (midpointIndex * 100) + 12, 75, 75, *qPixmap);
-  } else {
-    midpointIndex = m_numberBranches - 1;
   }
   painter->drawLine(0, (midpointIndex * 100) + 50, 50, (midpointIndex * 100) + 50);
 
@@ -2686,13 +2635,10 @@ void SupplyMixerItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* o
 
   painter->drawLine(50, 50, 50, (((m_numberBranches * 2) - 1) * 100) - 50);
 
-  int midpointIndex;
+  int midpointIndex = m_numberBranches - 1;
   if (m_numberBranches == 1) {
-    midpointIndex = 0;
     QPixmap qPixmap(":/images/supply_mixer.png");
     painter->drawPixmap(12, (midpointIndex * 100) + 12, 75, 75, qPixmap);
-  } else {
-    midpointIndex = m_numberBranches - 1;
   }
   painter->drawLine(50, (midpointIndex * 100) + 50, 100, (midpointIndex * 100) + 50);
 
@@ -2732,7 +2678,7 @@ void DualDuctTee::paint(QPainter* painter, const QStyleOptionGraphicsItem* optio
   painter->drawLine(0, 75, m_hLength * 100, 75);
 }
 
-DemandSideItem::DemandSideItem(QGraphicsItem* parent, std::vector<model::Node> demandInletNodes, model::Node demandOutletNode)
+DemandSideItem::DemandSideItem(QGraphicsItem* parent, const std::vector<model::Node>& demandInletNodes, const model::Node& demandOutletNode)
   : GridItem(parent),
     m_demandInletNodes(demandInletNodes),
     m_demandOutletNode(demandOutletNode),
@@ -2773,14 +2719,9 @@ DemandSideItem::DemandSideItem(QGraphicsItem* parent, std::vector<model::Node> d
         // What terminal types do we have
         // Could be a mix of single and dual duct terminals
         // See if zone is on the m_demandInletNodes[0] path
-        bool singleDuct1Terminal = false;
-        bool singleDuct2Terminal = false;
-        if (airLoop->demandComponents(splitters[0], comp).size() > 0u) {
-          singleDuct1Terminal = true;
-        }
-        if (airLoop->demandComponents(splitters[1], comp).size() > 0u) {
-          singleDuct2Terminal = true;
-        }
+        bool singleDuct1Terminal = !airLoop->demandComponents(splitters[0], comp).empty();
+        bool singleDuct2Terminal = !airLoop->demandComponents(splitters[1], comp).empty();
+
         auto terminalType = SplitterItem::None;
         if (singleDuct1Terminal && singleDuct2Terminal) {
           terminalType = SplitterItem::DualDuct;
@@ -2849,11 +2790,11 @@ DemandSideItem::DemandSideItem(QGraphicsItem* parent, std::vector<model::Node> d
     m_rightElbow = new TwoThreeStraightItem(this);
   }
 
-  if (rInletComponents.size() == 0) {
+  if (rInletComponents.empty()) {
     m_inletSpacer = new OneThreeStraightItem(this, dualDuct);
   }
 
-  if (rOutletComponents.size() == 0) {
+  if (rOutletComponents.empty()) {
     m_outletSpacer = new OneThreeStraightItem(this);
   }
 
@@ -3013,6 +2954,7 @@ SupplySideItem::SupplySideItem(QGraphicsItem* parent, model::Node& supplyInletNo
       OS_ASSERT(branchBaselineGridPositions.size() == 2u);
 
       std::vector<int> splitterPositions;
+      splitterPositions.reserve(branchBaselineGridPositions.size());
       auto firstBranchBaselineGridPosition = branchBaselineGridPositions.front();
       for (const auto& branchPos : branchBaselineGridPositions) {
         splitterPositions.emplace_back(branchPos - firstBranchBaselineGridPosition);
@@ -3052,11 +2994,11 @@ SupplySideItem::SupplySideItem(QGraphicsItem* parent, model::Node& supplyInletNo
     outletComponents.pop_back();
     m_outletBranchItem = new HorizontalBranchItem(outletComponents, this);
 
-    if (inletComponents.size() == 0) {
+    if (inletComponents.empty()) {
       m_inletSpacer = new OneThreeStraightItem(this);
     }
 
-    if (outletComponents.size() == 0) {
+    if (outletComponents.empty()) {
       m_outletSpacer = new OneThreeStraightItem(this);
     }
   } else {
@@ -3284,15 +3226,14 @@ void NodeContextButtonItem::showContextMenu() {
 }
 
 void NodeContextButtonItem::onRemoveSPMActionTriggered() {
-  GridItem* gridItem = qobject_cast<GridItem*>(parentObject());
+  auto* gridItem = qobject_cast<GridItem*>(parentObject());
   if (gridItem != nullptr && gridItem->modelObject() && gridItem->modelObject()->optionalCast<model::Node>()) {
-    model::Node node = gridItem->modelObject()->cast<model::Node>();
+    auto node = gridItem->modelObject()->cast<model::Node>();
 
-    std::vector<model::SetpointManager> _setpointManagers = node.setpointManagers();
-    for (auto it = _setpointManagers.begin(); it != _setpointManagers.end(); ++it) {
+    for (auto& _setpointManager : node.setpointManagers()) {
       // TODO: this duplicateBranch condition is strange
       // if (istringEqual("Temperature", it->controlVariable())) {
-      emit removeModelObjectClicked(*it);
+      emit removeModelObjectClicked(_setpointManager);
       break;
       // } else {
       //  emit removeModelObjectClicked(*it);
