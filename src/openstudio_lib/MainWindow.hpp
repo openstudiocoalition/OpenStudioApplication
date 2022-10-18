@@ -88,7 +88,7 @@ class MainWindow : public QMainWindow
   void enableComponentsMeasuresActions(bool enable);
 
   QString lastPath() const;
- 
+
   VerticalTabWidget* verticalTabWidget() {
     return m_verticalTabWidget;
   }

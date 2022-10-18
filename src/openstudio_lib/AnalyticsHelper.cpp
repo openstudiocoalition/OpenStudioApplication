@@ -40,14 +40,12 @@
 
 namespace openstudio {
 
-AnalyticsHelper::AnalyticsHelper(QObject* parent)
-  : QObject(parent)
-{
+AnalyticsHelper::AnalyticsHelper(QObject* parent) : QObject(parent) {
   m_networkAccessManager = new QNetworkAccessManager(this);
   m_networkAccessManager->setAutoDeleteReplies(true);
 }
 
-AnalyticsHelper::~AnalyticsHelper(){
+AnalyticsHelper::~AnalyticsHelper() {
   // cancel all futures
 }
 
@@ -59,17 +57,17 @@ void AnalyticsHelper::sendAnalytics(const QString& analyticsId, int verticalTabI
   QString title = QString("Tab-%1").arg(verticalTabIndex);
   QString path = QString("/OSApp/Tab-%1").arg(verticalTabIndex);
   QString version = toQString(openstudio::openStudioApplicationVersionWithPrerelease());
-  
+
   QUrlQuery query;
   // https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters
-  query.addQueryItem("v", "1"); 
-  query.addQueryItem("tid", "UA-172465420-1"); 
-  query.addQueryItem("cid", analyticsId); 
-  query.addQueryItem("t", "pageview");  
+  query.addQueryItem("v", "1");
+  query.addQueryItem("tid", "UA-172465420-1");
+  query.addQueryItem("cid", analyticsId);
+  query.addQueryItem("t", "pageview");
   query.addQueryItem("dh", "app.openstudiocoalition.org");
   query.addQueryItem("dp", path);
-  query.addQueryItem("dt", title);      
-  query.addQueryItem("cd", title);              
+  query.addQueryItem("dt", title);
+  query.addQueryItem("cd", title);
   query.addQueryItem("an", "OSApp");
   query.addQueryItem("av", version);
   query.addQueryItem("z", QString::number(std::time(0)));
