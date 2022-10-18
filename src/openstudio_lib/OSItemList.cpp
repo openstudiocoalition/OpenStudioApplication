@@ -65,14 +65,14 @@ OSItemList::OSItemList(OSVectorController* vectorController, bool addScrollArea,
 
   setStyleSheet(style);
 
-  auto outerVLayout = new QVBoxLayout();
+  auto* outerVLayout = new QVBoxLayout();
   outerVLayout->setContentsMargins(0, 0, 0, 0);
   this->setLayout(outerVLayout);
 
-  auto outerWidget = new QWidget();
+  auto* outerWidget = new QWidget();
 
   if (addScrollArea) {
-    auto scrollArea = new QScrollArea();
+    auto* scrollArea = new QScrollArea();
     scrollArea->setFrameStyle(QFrame::NoFrame);
     scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
     scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
@@ -109,17 +109,17 @@ OSItem* OSItemList::selectedItem() const {
 }
 
 OSItem* OSItemList::firstItem() {
-  std::vector<OSItem*> items = this->items();
-  if (!items.empty()) {
-    return items.front();
+  std::vector<OSItem*> its = this->items();
+  if (!its.empty()) {
+    return its.front();
   }
   return nullptr;
 }
 
 OSItem* OSItemList::lastItem() {
-  std::vector<OSItem*> items = this->items();
-  if (!items.empty()) {
-    return items.back();
+  std::vector<OSItem*> its = this->items();
+  if (!its.empty()) {
+    return its.back();
   }
   return nullptr;
 }
@@ -130,7 +130,7 @@ std::vector<OSItem*> OSItemList::items() {
   for (int i = 0; i < m_vLayout->count(); ++i) {
     QLayoutItem* layoutItem = m_vLayout->itemAt(i);
     QWidget* widget = layoutItem->widget();
-    OSItem* item = qobject_cast<OSItem*>(widget);
+    auto* item = qobject_cast<OSItem*>(widget);
 
     if (item) {
       result.push_back(item);
@@ -186,12 +186,10 @@ void OSItemList::setItemIds(const std::vector<OSItemId>& itemIds) {
   }
   */
 
-  QLayoutItem* child;
+  QLayoutItem* child = nullptr;
   while ((child = m_vLayout->takeAt(0)) != nullptr) {
     QWidget* widget = child->widget();
-    if (widget) {
-      delete widget;
-    }
+    delete widget;
     delete child;
   }
   m_vLayout->addStretch();
@@ -255,7 +253,7 @@ void OSItemList::selectItem(OSItem* selectItem) {
   for (int i = 0; i < m_vLayout->count(); ++i) {
     QLayoutItem* layoutItem = m_vLayout->itemAt(i);
     QWidget* widget = layoutItem->widget();
-    OSItem* item = qobject_cast<OSItem*>(widget);
+    auto* item = qobject_cast<OSItem*>(widget);
 
     if (item) {
       if (selectItem->equal(item)) {
@@ -291,7 +289,7 @@ void OSItemList::selectItemId(const OSItemId& itemId) {
   for (int i = 0; i < m_vLayout->count(); ++i) {
     QLayoutItem* layoutItem = m_vLayout->itemAt(i);
     QWidget* widget = layoutItem->widget();
-    OSItem* item = qobject_cast<OSItem*>(widget);
+    auto* item = qobject_cast<OSItem*>(widget);
 
     if (item) {
       if (item->itemId() == itemId) {
@@ -308,14 +306,14 @@ void OSItemList::clearSelection() {
   for (int i = 0; i < m_vLayout->count(); ++i) {
     QLayoutItem* layoutItem = m_vLayout->itemAt(i);
     QWidget* widget = layoutItem->widget();
-    OSItem* item = qobject_cast<OSItem*>(widget);
+    auto* item = qobject_cast<OSItem*>(widget);
     if (item) {
       item->setSelected(false);
     }
   }
 }
 
-void OSItemList::paintEvent(QPaintEvent* event) {
+void OSItemList::paintEvent(QPaintEvent* /*event*/) {
   QStyleOption opt;
   opt.initFrom(this);
   QPainter p(this);

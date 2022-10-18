@@ -79,7 +79,7 @@ class ResultsView : public QWidget
  private:
   REGISTER_LOGGER("openstudio::ResultsView");
   //openstudio::runmanager::RunManager runManager();
-  void populateComboBox(std::vector<openstudio::path> reports);
+  void populateComboBox(const std::vector<openstudio::path>& reports);
 
   bool m_isIP;
 

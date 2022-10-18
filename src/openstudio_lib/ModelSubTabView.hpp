@@ -56,7 +56,7 @@ class ModelSubTabView : public SubTabView
   ModelSubTabView(OSItemSelector* itemSelector, ModelObjectInspectorView* modelObjectInspectorView, bool showGridViewLayout = false,
                   QWidget* parent = nullptr);
 
-  virtual ~ModelSubTabView() {}
+  virtual ~ModelSubTabView() = default;
 
   ModelObjectInspectorView* modelObjectInspectorView();
 

@@ -138,11 +138,11 @@ class SchedulesView
 
   SchedulesView(bool isIP, const model::Model& model);
 
-  virtual ~SchedulesView() {}
+  virtual ~SchedulesView() = default;
 
   boost::optional<model::ScheduleRuleset> currentSchedule();
 
-  ScheduleTab* tabForSchedule(const model::ScheduleRuleset schedule) const;
+  ScheduleTab* tabForSchedule(const model::ScheduleRuleset& schedule) const;
 
   void closeAllTabs() const;
 
@@ -152,15 +152,15 @@ class SchedulesView
 
   void showAddRulePage(const model::ScheduleRuleset& scheduleRuleset);
 
-  void showScheduleRule(model::ScheduleRule scheduleRule);
+  void showScheduleRule(const model::ScheduleRule& scheduleRule);
 
   void showDefaultScheduleDay(const model::ScheduleRuleset& schedule);
 
-  void showSummerScheduleDay(model::ScheduleRuleset schedule);
+  void showSummerScheduleDay(const model::ScheduleRuleset& schedule);
 
-  void showWinterScheduleDay(model::ScheduleRuleset schedule);
+  void showWinterScheduleDay(const model::ScheduleRuleset& schedule);
 
-  void showHolidayScheduleDay(model::ScheduleRuleset schedule);
+  void showHolidayScheduleDay(const model::ScheduleRuleset& schedule);
 
   // DLM: might remove this
   void showScheduleRuleset(const model::ScheduleRuleset& schedule);
@@ -250,15 +250,14 @@ class ScheduleTab
  public:
   ScheduleTab(const model::ScheduleRuleset& schedule, SchedulesView* schedulesView, QWidget* parent = nullptr);
 
-  virtual ~ScheduleTab() {}
+  virtual ~ScheduleTab() = default;
 
   model::ScheduleRuleset schedule();
 
   SchedulesView* schedulesView() const;
 
+  bool selected() const;
   void setSelected(bool selected);
-
-  bool selected();
 
   ScheduleTabHeader* scheduleTabHeader() const;
 
@@ -322,7 +321,7 @@ class ScheduleTabHeader
  public:
   explicit ScheduleTabHeader(ScheduleTab* scheduleTab, QWidget* parent = nullptr);
 
-  virtual ~ScheduleTabHeader() {}
+  virtual ~ScheduleTabHeader() = default;
 
   ScheduleTab* scheduleTab() const;
 
@@ -381,7 +380,7 @@ class ScheduleTabContent
  public:
   explicit ScheduleTabContent(ScheduleTab* scheduleTab, QWidget* parent = nullptr);
 
-  virtual ~ScheduleTabContent() {}
+  virtual ~ScheduleTabContent() = default;
 
   ScheduleTab* scheduleTab() const;
 
@@ -427,7 +426,7 @@ class ScheduleTabRule
  public:
   ScheduleTabRule(ScheduleTab* scheduleTab, const model::ScheduleRule& scheduleRule, QWidget* parent = nullptr);
 
-  virtual ~ScheduleTabRule() {}
+  virtual ~ScheduleTabRule() = default;
 
  signals:
 
@@ -482,7 +481,7 @@ class ScheduleTabDefault
 
   ScheduleTabDefault(ScheduleTab* scheduleTab, ScheduleTabDefaultType type);
 
-  virtual ~ScheduleTabDefault() {}
+  virtual ~ScheduleTabDefault() = default;
 
  signals:
 
@@ -539,7 +538,7 @@ class NewProfileView
 
   NewProfileView(const model::ScheduleRuleset& scheduleRuleset, SchedulesView* schedulesView, NewProfileViewType type);
 
-  virtual ~NewProfileView() {}
+  virtual ~NewProfileView() = default;
 
  signals:
 
@@ -577,7 +576,7 @@ class ScheduleRulesetNameView
  public:
   ScheduleRulesetNameView(const model::ScheduleRuleset& scheduleRuleset, SchedulesView* schedulesView);
 
-  virtual ~ScheduleRulesetNameView() {}
+  virtual ~ScheduleRulesetNameView() = default;
 
  private:
   SchedulesView* m_schedulesView;
@@ -593,7 +592,7 @@ class DefaultScheduleDayView : public QWidget
  public:
   DefaultScheduleDayView(bool isIP, const model::ScheduleRuleset& scheduleRuleset, SchedulesView* schedulesView);
 
-  virtual ~DefaultScheduleDayView() {}
+  virtual ~DefaultScheduleDayView() = default;
 
  signals:
 
@@ -615,7 +614,7 @@ class SpecialScheduleDayView : public QWidget
 
   SpecialScheduleDayView(bool isIP, const model::ScheduleRuleset& scheduleRuleset, SchedulesView* schedulesView, SpecialScheduleDayType type);
 
-  virtual ~SpecialScheduleDayView() {}
+  virtual ~SpecialScheduleDayView() = default;
 
  signals:
 
@@ -635,7 +634,7 @@ class ScheduleRuleView
  public:
   ScheduleRuleView(bool isIP, const model::ScheduleRule& scheduleRule, SchedulesView* schedulesView);
 
-  virtual ~ScheduleRuleView() {}
+  virtual ~ScheduleRuleView() = default;
 
   model::ScheduleRule scheduleRule() const;
 
@@ -705,7 +704,7 @@ class ScheduleRulesetNameWidget
  public:
   explicit ScheduleRulesetNameWidget(const model::ScheduleRuleset& scheduleRuleset);
 
-  virtual ~ScheduleRulesetNameWidget() {}
+  virtual ~ScheduleRulesetNameWidget() = default;
 
  private:
   model::ScheduleRuleset m_scheduleRuleset;
@@ -723,7 +722,7 @@ class YearOverview
  public:
   explicit YearOverview(const model::ScheduleRuleset& scheduleRuleset, QWidget* parent = nullptr);
 
-  virtual ~YearOverview() {}
+  virtual ~YearOverview() = default;
 
   model::ScheduleRuleset scheduleRuleset() const;
 
@@ -781,7 +780,7 @@ class MonthView
  public:
   explicit MonthView(YearOverview* yearOverview);
 
-  virtual ~MonthView() {}
+  virtual ~MonthView() = default;
 
   void setMonth(int month);
 
@@ -809,7 +808,7 @@ class ScheduleCalendarWidget : public QCalendarWidget
  public:
   ScheduleCalendarWidget(MonthView* monthView = nullptr);
 
-  virtual ~ScheduleCalendarWidget() {}
+  virtual ~ScheduleCalendarWidget() = default;
 
  protected:
   void paintCell(QPainter* painter, const QRect& rect, QDate date) const override;

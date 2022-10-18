@@ -277,8 +277,6 @@ class ScheduleDayEditor : public QWidget
  private:
   void setLabelText(bool isIP);
 
-  DaySchedulePlotArea* m_graphicsView;
-
   ScheduleDayView* m_scheduleDayView;
 
   model::ScheduleDay m_scheduleDay;
@@ -288,6 +286,8 @@ class ScheduleDayEditor : public QWidget
   QLabel* m_yLabel;
 
   QLabel* m_keyboardPrompt;
+
+  DaySchedulePlotArea* m_graphicsView;
 };
 
 class DayScheduleScene

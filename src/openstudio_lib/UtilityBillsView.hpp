@@ -96,7 +96,7 @@ class UtilityBillsInspectorView : public ModelObjectInspectorView
   Q_OBJECT
 
  public:
-  UtilityBillsInspectorView(const openstudio::model::Model& model, bool addScrollArea, QWidget* parent = nullptr);
+  UtilityBillsInspectorView(const openstudio::model::Model& model, QWidget* parent = nullptr);
 
   virtual ~UtilityBillsInspectorView();
 
@@ -198,7 +198,7 @@ class BillingPeriodWidget
  public:
   BillingPeriodWidget(model::BillingPeriod billingPeriod, const openstudio::FuelType& fuelType, BillFormat billFormat, QWidget* parent = nullptr);
 
-  virtual ~BillingPeriodWidget() {}
+  virtual ~BillingPeriodWidget() = default;
 
   void attach(const openstudio::model::BillingPeriod& billingPeriod);
   void detach();

@@ -87,19 +87,19 @@ void RefrigerationController::refreshRefrigerationSystemView(RefrigerationSystem
     if (boost::optional<model::RefrigerationSubcoolerLiquidSuction> subcooler = system->liquidSuctionHeatExchangerSubcooler()) {
       systemView->refrigerationSHXView->setId(OSItemId(toQString(subcooler->handle()), QString(), false));
 
-      systemView->refrigerationSHXView->setName(QString::fromStdString(subcooler->name().get()));
+      systemView->refrigerationSHXView->setName(QString::fromStdString(subcooler->nameString()));
     }
 
     if (boost::optional<model::RefrigerationSubcoolerMechanical> subcooler = system->mechanicalSubcooler()) {
       systemView->refrigerationSubCoolerView->setId(OSItemId(toQString(subcooler->handle()), QString(), false));
 
-      systemView->refrigerationSubCoolerView->setName(QString::fromStdString(subcooler->name().get()));
+      systemView->refrigerationSubCoolerView->setName(QString::fromStdString(subcooler->nameString()));
     }
 
     if (boost::optional<model::ModelObject> condenser = system->refrigerationCondenser()) {
       systemView->refrigerationCondenserView->setCondenserId(OSItemId(toQString(condenser->handle()), QString(), false));
 
-      systemView->refrigerationCondenserView->setCondenserName(QString::fromStdString(condenser->name().get()));
+      systemView->refrigerationCondenserView->setCondenserName(QString::fromStdString(condenser->nameString()));
 
       const QPixmap* pixmap = IconLibrary::Instance().findIcon(condenser->iddObjectType().value());
       systemView->refrigerationCondenserView->setIcon(*pixmap);
@@ -108,17 +108,17 @@ void RefrigerationController::refreshRefrigerationSystemView(RefrigerationSystem
     // insert secondary systems
 
     std::vector<model::RefrigerationCondenserCascade> cascadeCondensers = system->cascadeCondenserLoads();
-    for (auto it = cascadeCondensers.begin(); it != cascadeCondensers.end(); ++it) {
-      auto detailView = new SecondaryDetailView();
+    for (auto& cascadeCondenser : cascadeCondensers) {
+      auto* detailView = new SecondaryDetailView();
       connect(detailView, &SecondaryDetailView::zoomInOnSystemClicked, this,
               static_cast<void (RefrigerationController::*)(const Handle&)>(&RefrigerationController::zoomInOnSystem));
       connect(detailView, &SecondaryDetailView::removeClicked, this, &RefrigerationController::removeLoad);
-      if (boost::optional<model::RefrigerationSystem> t_cascadeSystem = cascadeSystem(*it)) {
-        detailView->setName(QString::fromStdString(t_cascadeSystem->name().get()));
+      if (boost::optional<model::RefrigerationSystem> t_cascadeSystem = cascadeSystem(cascadeCondenser)) {
+        detailView->setName(QString::fromStdString(t_cascadeSystem->nameString()));
         detailView->setHandle(t_cascadeSystem->handle());
       } else {
-        detailView->setName(QString::fromStdString(it->name().get()));
-        detailView->setHandle(it->handle());
+        detailView->setName(QString::fromStdString(cascadeCondenser.nameString()));
+        detailView->setHandle(cascadeCondenser.handle());
       }
       systemView->refrigerationSecondaryView->insertSecondaryDetailView(0, detailView);
     }
@@ -129,10 +129,10 @@ void RefrigerationController::refreshRefrigerationSystemView(RefrigerationSystem
 
     int compressorIndex = 1;
 
-    for (auto it = compressors.begin(); it != compressors.end(); ++it) {
-      auto detailView = new RefrigerationCompressorDetailView();
+    for (auto& compressor : compressors) {
+      auto* detailView = new RefrigerationCompressorDetailView();
 
-      detailView->setId(OSItemId(toQString(it->handle()), QString(), false));
+      detailView->setId(OSItemId(toQString(compressor.handle()), QString(), false));
 
       detailView->setLabel(QString::number(compressorIndex));
 
@@ -151,12 +151,12 @@ void RefrigerationController::refreshRefrigerationSystemView(RefrigerationSystem
 
     systemView->refrigerationCasesView->setNumberOfDisplayCases(cases.size());
 
-    for (auto it = cases.begin(); it != cases.end(); ++it) {
-      auto detailView = new RefrigerationCaseDetailView();
+    for (auto& c : cases) {
+      auto* detailView = new RefrigerationCaseDetailView();
 
-      detailView->setId(OSItemId(toQString(it->handle()), QString(), false));
+      detailView->setId(OSItemId(toQString(c.handle()), QString(), false));
 
-      detailView->setName(QString::fromStdString(it->name().get()));
+      detailView->setName(QString::fromStdString(c.nameString()));
 
       connect(detailView, &RefrigerationCaseDetailView::removeClicked, this, &RefrigerationController::removeCase);
 
@@ -171,12 +171,12 @@ void RefrigerationController::refreshRefrigerationSystemView(RefrigerationSystem
 
     systemView->refrigerationCasesView->setNumberOfWalkinCases(walkins.size());
 
-    for (auto it = walkins.begin(); it != walkins.end(); ++it) {
-      auto detailView = new RefrigerationCaseDetailView();
+    for (auto& walkin : walkins) {
+      auto* detailView = new RefrigerationCaseDetailView();
 
-      detailView->setId(OSItemId(toQString(it->handle()), QString(), false));
+      detailView->setId(OSItemId(toQString(walkin.handle()), QString(), false));
 
-      detailView->setName(QString::fromStdString(it->name().get()));
+      detailView->setName(QString::fromStdString(walkin.nameString()));
 
       connect(detailView, &RefrigerationCaseDetailView::removeClicked, this, &RefrigerationController::removeCase);
 
@@ -190,11 +190,11 @@ void RefrigerationController::refreshRefrigerationSystemView(RefrigerationSystem
 }
 
 RefrigerationController::RefrigerationController()
-  : QObject(),
-    m_refrigerationView(new RefrigerationView()),
+  : m_refrigerationView(new RefrigerationView()),
     m_refrigerationSystemGridView(new GridLayoutItem()),
     m_refrigerationGridScene(new QGraphicsScene()),
-    m_noRefrigerationView(new NoRefrigerationView()) {
+    m_noRefrigerationView(new NoRefrigerationView()),
+    m_dirty(false) {
   connect(m_refrigerationView->zoomOutButton, &QPushButton::clicked, this, &RefrigerationController::zoomOutToSystemGridView);
 
   // These get deleted with when the scene is deleted
@@ -224,10 +224,10 @@ boost::optional<model::RefrigerationSystem> RefrigerationController::supplySyste
 
   model::Model t_model = condenser.model();
   std::vector<model::RefrigerationSystem> systems = t_model.getConcreteModelObjects<model::RefrigerationSystem>();
-  for (auto it = systems.begin(); it != systems.end(); ++it) {
-    std::vector<model::RefrigerationCondenserCascade> condenserLoads = it->cascadeCondenserLoads();
+  for (auto& system : systems) {
+    std::vector<model::RefrigerationCondenserCascade> condenserLoads = system.cascadeCondenserLoads();
     if (std::find(condenserLoads.begin(), condenserLoads.end(), condenser) != condenserLoads.end()) {
-      result = *it;
+      result = system;
       break;
     }
   }
@@ -240,10 +240,10 @@ boost::optional<model::RefrigerationSystem> RefrigerationController::cascadeSyst
 
   model::Model t_model = condenser.model();
   std::vector<model::RefrigerationSystem> systems = t_model.getConcreteModelObjects<model::RefrigerationSystem>();
-  for (auto it = systems.begin(); it != systems.end(); ++it) {
-    if (boost::optional<model::ModelObject> mo = it->refrigerationCondenser()) {
+  for (auto& system : systems) {
+    if (boost::optional<model::ModelObject> mo = system.refrigerationCondenser()) {
       if (mo->handle() == condenser.handle()) {
-        result = *it;
+        result = system;
         break;
       }
     }
@@ -355,8 +355,7 @@ void RefrigerationController::onCondenserViewDrop(const OSItemId& itemid) {
         currentCondenser->remove();
       }
 
-      model::RefrigerationCondenserAirCooled condenserClone =
-        condenser->clone(m_currentSystem->model()).cast<model::RefrigerationCondenserAirCooled>();
+      auto condenserClone = condenser->clone(m_currentSystem->model()).cast<model::RefrigerationCondenserAirCooled>();
 
       m_currentSystem->setRefrigerationCondenser(condenserClone);
 
@@ -366,7 +365,7 @@ void RefrigerationController::onCondenserViewDrop(const OSItemId& itemid) {
         currentCondenser->remove();
       }
 
-      model::RefrigerationCondenserCascade condenserClone = condenser->clone(m_currentSystem->model()).cast<model::RefrigerationCondenserCascade>();
+      auto condenserClone = condenser->clone(m_currentSystem->model()).cast<model::RefrigerationCondenserCascade>();
 
       m_currentSystem->setRefrigerationCondenser(condenserClone);
 
@@ -377,8 +376,7 @@ void RefrigerationController::onCondenserViewDrop(const OSItemId& itemid) {
         currentCondenser->remove();
       }
 
-      model::RefrigerationCondenserEvaporativeCooled condenserClone =
-        condenser->clone(m_currentSystem->model()).cast<model::RefrigerationCondenserEvaporativeCooled>();
+      auto condenserClone = condenser->clone(m_currentSystem->model()).cast<model::RefrigerationCondenserEvaporativeCooled>();
 
       m_currentSystem->setRefrigerationCondenser(condenserClone);
 
@@ -388,8 +386,7 @@ void RefrigerationController::onCondenserViewDrop(const OSItemId& itemid) {
         currentCondenser->remove();
       }
 
-      model::RefrigerationCondenserWaterCooled condenserClone =
-        condenser->clone(m_currentSystem->model()).cast<model::RefrigerationCondenserWaterCooled>();
+      auto condenserClone = condenser->clone(m_currentSystem->model()).cast<model::RefrigerationCondenserWaterCooled>();
 
       m_currentSystem->setRefrigerationCondenser(condenserClone);
 
@@ -409,7 +406,7 @@ void RefrigerationController::onCompressorViewDrop(const OSItemId& itemid) {
     OS_ASSERT(mo);
 
     if (boost::optional<model::RefrigerationCompressor> compressor = mo->optionalCast<model::RefrigerationCompressor>()) {
-      model::RefrigerationCompressor compressorClone = compressor->clone(m_currentSystem->model()).cast<model::RefrigerationCompressor>();
+      auto compressorClone = compressor->clone(m_currentSystem->model()).cast<model::RefrigerationCompressor>();
 
       m_currentSystem->addCompressor(compressorClone);
 
@@ -433,7 +430,7 @@ void RefrigerationController::onSecondaryViewDrop(const OSItemId& itemid) {
               condenserModelObject->optionalCast<model::RefrigerationCondenserCascade>()) {
           // If condenser is not already a load on another system
           if (!supplySystem(cascadeCondenser.get())) {
-            model::RefrigerationSystem systemClone = system->clone(t_model).cast<model::RefrigerationSystem>();
+            auto systemClone = system->clone(t_model).cast<model::RefrigerationSystem>();
             boost::optional<model::RefrigerationCondenserCascade> cascadeCondenserClone =
               systemClone.refrigerationCondenser()->optionalCast<model::RefrigerationCondenserCascade>();
             OS_ASSERT(cascadeCondenserClone);
@@ -443,7 +440,7 @@ void RefrigerationController::onSecondaryViewDrop(const OSItemId& itemid) {
           }
         }
       } else {
-        model::RefrigerationSystem systemClone = system->clone(t_model).cast<model::RefrigerationSystem>();
+        auto systemClone = system->clone(t_model).cast<model::RefrigerationSystem>();
 
         model::RefrigerationCondenserCascade newCascadeCondenser(t_model);
         systemClone.setRefrigerationCondenser(newCascadeCondenser);
@@ -487,13 +484,13 @@ void RefrigerationController::onCasesViewDrop(const OSItemId& itemid) {
     OS_ASSERT(mo);
 
     if (boost::optional<model::RefrigerationCase> _case = mo->optionalCast<model::RefrigerationCase>()) {
-      model::RefrigerationCase caseClone = _case->clone(m_currentSystem->model()).cast<model::RefrigerationCase>();
+      auto caseClone = _case->clone(m_currentSystem->model()).cast<model::RefrigerationCase>();
 
       m_currentSystem->addCase(caseClone);
 
       refresh();
     } else if (boost::optional<model::RefrigerationWalkIn> _walkin = mo->optionalCast<model::RefrigerationWalkIn>()) {
-      model::RefrigerationWalkIn walkinClone = _walkin->clone(m_currentSystem->model()).cast<model::RefrigerationWalkIn>();
+      auto walkinClone = _walkin->clone(m_currentSystem->model()).cast<model::RefrigerationWalkIn>();
       m_currentSystem->addWalkin(walkinClone);
       refresh();
       //QMessageBox box(doc->mainWindow());
@@ -514,8 +511,7 @@ void RefrigerationController::onSubCoolerViewDrop(const OSItemId& itemid) {
     OS_ASSERT(mo);
 
     if (boost::optional<model::RefrigerationSubcoolerMechanical> _subcooler = mo->optionalCast<model::RefrigerationSubcoolerMechanical>()) {
-      model::RefrigerationSubcoolerMechanical subcoolerClone =
-        _subcooler->clone(m_currentSystem->model()).cast<model::RefrigerationSubcoolerMechanical>();
+      auto subcoolerClone = _subcooler->clone(m_currentSystem->model()).cast<model::RefrigerationSubcoolerMechanical>();
 
       m_currentSystem->setMechanicalSubcooler(subcoolerClone);
 
@@ -536,9 +532,9 @@ void RefrigerationController::removeSubCooler(const OSItemId& itemid) {
 
 void RefrigerationController::removeLoad(const Handle& handle) {
   if (boost::optional<model::Model> model = OSAppBase::instance()->currentModel()) {
-    if (boost::optional<model::RefrigerationSystem> cascadeSystem = model->getModelObject<model::RefrigerationSystem>(handle)) {
+    if (boost::optional<model::RefrigerationSystem> cascadeSystem_ = model->getModelObject<model::RefrigerationSystem>(handle)) {
       OS_ASSERT(m_currentSystem);
-      if (boost::optional<model::ModelObject> condenserModelObject = cascadeSystem->refrigerationCondenser()) {
+      if (boost::optional<model::ModelObject> condenserModelObject = cascadeSystem_->refrigerationCondenser()) {
         if (boost::optional<model::RefrigerationCondenserCascade> condenserCascade =
               condenserModelObject->optionalCast<model::RefrigerationCondenserCascade>()) {
           m_currentSystem->removeCascadeCondenserLoad(condenserCascade.get());
@@ -564,8 +560,7 @@ void RefrigerationController::onSHXViewDrop(const OSItemId& itemid) {
     OS_ASSERT(mo);
 
     if (boost::optional<model::RefrigerationSubcoolerLiquidSuction> _subcooler = mo->optionalCast<model::RefrigerationSubcoolerLiquidSuction>()) {
-      model::RefrigerationSubcoolerLiquidSuction subcoolerClone =
-        _subcooler->clone(m_currentSystem->model()).cast<model::RefrigerationSubcoolerLiquidSuction>();
+      auto subcoolerClone = _subcooler->clone(m_currentSystem->model()).cast<model::RefrigerationSubcoolerLiquidSuction>();
 
       m_currentSystem->setLiquidSuctionHeatExchangerSubcooler(subcoolerClone);
 
@@ -591,7 +586,9 @@ void RefrigerationController::refresh() {
 }
 
 void RefrigerationController::refreshNow() {
-  if (!m_dirty) return;
+  if (!m_dirty) {
+    return;
+  }
 
   if (m_detailView) {
     refreshRefrigerationSystemView(m_detailView, m_currentSystem);
@@ -661,7 +658,6 @@ RefrigerationSystemListController::RefrigerationSystemListController(Refrigerati
   std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
   model::Model t_model = doc->model();
   t_model.getImpl<model::detail::Model_Impl>()
-    .get()
     ->addWorkspaceObject.connect<RefrigerationSystemListController, &RefrigerationSystemListController::onModelObjectAdd>(this);
 
   connect(this, &RefrigerationSystemListController::itemInsertedPrivate, this, &RefrigerationSystemListController::itemInserted,
@@ -693,12 +689,11 @@ int RefrigerationSystemListController::count() {
 }
 
 int RefrigerationSystemListController::systemIndex(const model::RefrigerationSystem& system) const {
-  std::vector<model::RefrigerationSystem> _systems = systems();
 
   int i = 1;
 
-  for (std::vector<model::RefrigerationSystem>::const_iterator it = _systems.begin(); it != _systems.end(); ++it) {
-    if (*it == system) {
+  for (const auto& thisSystem : systems()) {
+    if (system == thisSystem) {
       break;
     }
 
@@ -715,7 +710,7 @@ void RefrigerationSystemListController::createNewSystem() {
 }
 
 void RefrigerationSystemListController::onModelObjectAdd(const WorkspaceObject& object, const openstudio::IddObjectType& iddObjectType,
-                                                         const openstudio::UUID& handle) {
+                                                         const openstudio::UUID& /*handle*/) {
   if (iddObjectType == model::RefrigerationSystem::iddObjectType()) {
     emit itemInsertedPrivate(systemIndex(object.cast<model::RefrigerationSystem>()));
   }
@@ -762,7 +757,7 @@ RefrigerationSystemListItem::RefrigerationSystemListItem(const model::Refrigerat
   : OSListItem(listController), m_refrigerationSystem(refrigerationSystem) {}
 
 QString RefrigerationSystemListItem::systemName() const {
-  return QString::fromStdString(m_refrigerationSystem.name().get());
+  return QString::fromStdString(m_refrigerationSystem.nameString());
 }
 
 model::RefrigerationSystem RefrigerationSystemListItem::system() const {
@@ -783,7 +778,7 @@ QGraphicsObject* RefrigerationSystemItemDelegate::view(QSharedPointer<OSListItem
   QGraphicsObject* itemView = nullptr;
 
   if (QSharedPointer<RefrigerationSystemListItem> listItem = dataSource.dynamicCast<RefrigerationSystemListItem>()) {
-    auto refrigerationSystemMiniView = new RefrigerationSystemMiniView();
+    auto* refrigerationSystemMiniView = new RefrigerationSystemMiniView();
 
     connect(refrigerationSystemMiniView->removeButtonItem, &RemoveButtonItem::mouseClicked,
             static_cast<RefrigerationSystemListItem*>(dataSource.data()), &RefrigerationSystemListItem::remove);
@@ -801,7 +796,7 @@ QGraphicsObject* RefrigerationSystemItemDelegate::view(QSharedPointer<OSListItem
 
     itemView = refrigerationSystemMiniView;
   } else if (dataSource.dynamicCast<RefrigerationSystemListDropZoneItem>()) {
-    auto refrigerationSystemDropZoneView = new RefrigerationSystemDropZoneView();
+    auto* refrigerationSystemDropZoneView = new RefrigerationSystemDropZoneView();
 
     connect(refrigerationSystemDropZoneView, &RefrigerationSystemDropZoneView::componentDropped,
             qobject_cast<RefrigerationSystemListController*>(dataSource->controller()), &RefrigerationSystemListController::addSystem);

@@ -60,12 +60,13 @@
 #include <QMimeData>
 #include <QPushButton>
 #include <QRadioButton>
+#include <utility>
 
 namespace openstudio {
 
 namespace measuretab {
 
-WorkflowController::WorkflowController(BaseApp* t_baseApp) : OSListController() {
+WorkflowController::WorkflowController(BaseApp* t_baseApp) {
   QSharedPointer<WorkflowSectionItem> workflowSectionItem;
 
   workflowSectionItem = QSharedPointer<WorkflowSectionItem>(new WorkflowSectionItem(MeasureType::ModelMeasure, "OpenStudio Measures", t_baseApp));
@@ -92,7 +93,7 @@ QSharedPointer<OSListItem> WorkflowController::itemAt(int i) {
     return m_workflowSectionItems[i];
   }
 
-  return QSharedPointer<OSListItem>();
+  return {};
 }
 
 int WorkflowController::count() {
@@ -100,10 +101,7 @@ int WorkflowController::count() {
 }
 
 WorkflowSectionItem::WorkflowSectionItem(const MeasureType& measureType, const QString& label, BaseApp* t_baseApp)
-  : OSListItem(),
-    m_label(label),
-    m_measureType(measureType),
-    m_workflowStepController(QSharedPointer<MeasureStepController>::create(measureType, t_baseApp)) {}
+  : m_label(label), m_measureType(measureType), m_workflowStepController(QSharedPointer<MeasureStepController>::create(measureType, t_baseApp)) {}
 
 QString WorkflowSectionItem::label() const {
   return m_label;
@@ -113,7 +111,7 @@ QSharedPointer<WorkflowStepController> WorkflowSectionItem::workflowStepControll
   return m_workflowStepController;
 }
 
-WorkflowSectionItemDelegate::WorkflowSectionItemDelegate() {}
+WorkflowSectionItemDelegate::WorkflowSectionItemDelegate() = default;
 
 QWidget* WorkflowSectionItemDelegate::view(QSharedPointer<OSListItem> dataSource) {
   if (QSharedPointer<WorkflowSectionItem> workflowSectionItem = dataSource.objectCast<WorkflowSectionItem>()) {
@@ -127,7 +125,7 @@ QWidget* WorkflowSectionItemDelegate::view(QSharedPointer<OSListItem> dataSource
 
       QString acceptedMimeType = MeasureDragData::mimeType(measureType);
 
-      auto workflowSectionView = new WorkflowSectionView(measureType);
+      auto* workflowSectionView = new WorkflowSectionView(measureType);
 
       workflowSectionView->content->newMeasureDropZone->setAcceptedMimeType(acceptedMimeType);
 
@@ -146,10 +144,10 @@ QWidget* WorkflowSectionItemDelegate::view(QSharedPointer<OSListItem> dataSource
   return new QWidget();
 }
 
-WorkflowStepController::WorkflowStepController(openstudio::BaseApp* t_app) : OSListController() {}
+WorkflowStepController::WorkflowStepController(openstudio::BaseApp* /*t_app*/) {}
 
-MeasureStepController::MeasureStepController(MeasureType measureType, openstudio::BaseApp* t_app)
-  : WorkflowStepController(t_app), m_measureType(measureType), m_app(t_app) {}
+MeasureStepController::MeasureStepController(MeasureType measureType, openstudio::BaseApp* t_baseApp)
+  : WorkflowStepController(t_baseApp), m_measureType(measureType), m_app(t_baseApp) {}
 
 MeasureType MeasureStepController::measureType() const {
   return m_measureType;
@@ -259,7 +257,7 @@ void MeasureStepController::addItemForDroppedMeasure(QDropEvent* event) {
   // eg: /path/to/measure_folder => measure_folder
   MeasureStep measureStep(toString(getLastLevelDirectoryName(projectMeasure->directory())));
   try {
-    std::vector<measure::OSArgument> arguments = m_app->measureManager().getArguments(*projectMeasure);
+    /* std::vector<measure::OSArgument> arguments = */ m_app->measureManager().getArguments(*projectMeasure);
   } catch (const RubyException& e) {
     QString errorMessage("Failed to compute arguments for measure: \n\n");
     errorMessage += QString::fromStdString(e.what());
@@ -287,9 +285,9 @@ void MeasureStepController::addItemForDroppedMeasure(QDropEvent* event) {
 
   WorkflowJSON workflowJSON = m_app->currentModel()->workflowJSON();
 
-  std::vector<MeasureStep> measureSteps = workflowJSON.getMeasureSteps(m_measureType);
-  measureSteps.push_back(measureStep);
-  bool test = workflowJSON.setMeasureSteps(m_measureType, measureSteps);
+  std::vector<MeasureStep> newMeasureSteps = workflowJSON.getMeasureSteps(m_measureType);
+  newMeasureSteps.push_back(measureStep);
+  bool test = workflowJSON.setMeasureSteps(m_measureType, newMeasureSteps);
   OS_ASSERT(test);
 
   //workflowJSON.save();
@@ -305,7 +303,7 @@ void MeasureStepController::moveUp(MeasureStep step) {
   std::vector<MeasureStep> oldMeasureSteps = measureSteps();
 
   bool found = false;
-  size_t i;
+  size_t i = 0;
   size_t n = oldMeasureSteps.size();
   for (i = 0; i < n; ++i) {
     if (oldMeasureSteps[i] == step) {
@@ -331,7 +329,7 @@ void MeasureStepController::moveDown(MeasureStep step) {
   std::vector<MeasureStep> oldMeasureSteps = measureSteps();
 
   bool found = false;
-  size_t i;
+  size_t i = 0;
   size_t n = oldMeasureSteps.size();
   for (i = 0; i < n; ++i) {
     if (oldMeasureSteps[i] == step) {
@@ -353,18 +351,17 @@ void MeasureStepController::moveDown(MeasureStep step) {
   }
 }
 
-MeasureStepItem::MeasureStepItem(MeasureType measureType, MeasureStep step, openstudio::BaseApp* t_app)
-  : OSListItem(),
-    m_measureType(measureType),
-    m_step(step),
-    m_app(t_app)
+MeasureStepItem::MeasureStepItem(MeasureType measureType, MeasureStep step, openstudio::BaseApp* t_baseApp)
+  : m_measureType(measureType),
+    m_step(std::move(step)),
+    m_app(t_baseApp)
 
 {}
 
 QString MeasureStepItem::name() const {
   QString result;
-  if (boost::optional<std::string> name = m_step.name()) {
-    return result = QString::fromStdString(*name);
+  if (boost::optional<std::string> name_ = m_step.name()) {
+    return result = QString::fromStdString(name_.get());
   }
   return result;
 }
@@ -380,9 +377,9 @@ QString MeasureStepItem::name() const {
 //}
 
 MeasureType MeasureStepItem::measureType() const {
-  OptionalBCLMeasure bclMeasure = this->bclMeasure();
-  OS_ASSERT(bclMeasure);
-  return bclMeasure->measureType();
+  OptionalBCLMeasure bclMeasure_ = this->bclMeasure();
+  OS_ASSERT(bclMeasure_);
+  return bclMeasure_->measureType();
 }
 
 MeasureStep MeasureStepItem::measureStep() const {
@@ -391,27 +388,25 @@ MeasureStep MeasureStepItem::measureStep() const {
 
 QString MeasureStepItem::description() const {
   QString result;
-  if (boost::optional<std::string> description = m_step.description()) {
-    return result = QString::fromStdString(*description);
+  if (boost::optional<std::string> description_ = m_step.description()) {
+    return result = QString::fromStdString(description_.get());
   }
   return result;
 }
 
 QString MeasureStepItem::modelerDescription() const {
   QString result;
-  if (boost::optional<std::string> modelerDescription = m_step.modelerDescription()) {
-    return result = QString::fromStdString(*modelerDescription);
+  if (boost::optional<std::string> modelerDescription_ = m_step.modelerDescription()) {
+    return result = QString::fromStdString(modelerDescription_.get());
   }
   return result;
 }
 
 QString MeasureStepItem::scriptFileName() const {
   QString result;
-  OptionalBCLMeasure bclMeasure = this->bclMeasure();
-  if (bclMeasure) {
-    boost::optional<path> primaryRubyScriptPath = bclMeasure->primaryRubyScriptPath();
-    if (primaryRubyScriptPath) {
-      result = toQString(*primaryRubyScriptPath);
+  if (OptionalBCLMeasure bclMeasure_ = this->bclMeasure()) {
+    if (boost::optional<path> primaryScriptPath_ = bclMeasure_->primaryScriptPath()) {
+      result = toQString(primaryScriptPath_.get());
     }
   }
   return result;
@@ -425,9 +420,8 @@ std::vector<measure::OSArgument> MeasureStepItem::arguments() const {
   std::vector<measure::OSArgument> result;
 
   // get arguments from the BCL Measure (computed using the current model)
-  OptionalBCLMeasure bclMeasure = this->bclMeasure();
-  if (bclMeasure) {
-    result = m_app->measureManager().getArguments(*bclMeasure);
+  if (auto bclMeasure_ = this->bclMeasure()) {
+    result = m_app->measureManager().getArguments(bclMeasure_.get());
   }
 
   // fill in with any arguments in this WorkflowJSON
@@ -452,7 +446,7 @@ std::vector<measure::OSArgument> MeasureStepItem::arguments() const {
 }
 
 bool MeasureStepItem::hasIncompleteArguments() const {
-  return (incompleteArguments().size() > 0);
+  return (!incompleteArguments().empty());
 }
 
 std::vector<measure::OSArgument> MeasureStepItem::incompleteArguments() const {
@@ -513,9 +507,7 @@ void MeasureStepItem::setArgument(const measure::OSArgument& argument) {
 
     if (argument.type() == measure::OSArgumentType::Boolean) {
       m_step.setArgument(argument.name(), argument.valueAsBool());
-    } else if (argument.type() == measure::OSArgumentType::Double) {
-      m_step.setArgument(argument.name(), argument.valueAsDouble());
-    } else if (argument.type() == measure::OSArgumentType::Quantity) {
+    } else if ((argument.type() == measure::OSArgumentType::Double) || (argument.type() == measure::OSArgumentType::Quantity)) {
       m_step.setArgument(argument.name(), argument.valueAsDouble());
     } else if (argument.type() == measure::OSArgumentType::Integer) {
       m_step.setArgument(argument.name(), argument.valueAsInteger());
@@ -545,11 +537,11 @@ void MeasureStepItem::setSelected(bool isSelected) {
   }
 }
 
-MeasureStepItemDelegate::MeasureStepItemDelegate() {}
+MeasureStepItemDelegate::MeasureStepItemDelegate() = default;
 
 QWidget* MeasureStepItemDelegate::view(QSharedPointer<OSListItem> dataSource) {
   if (QSharedPointer<MeasureStepItem> measureStepItem = dataSource.objectCast<MeasureStepItem>()) {
-    auto workflowStepView = new WorkflowStepView();
+    auto* workflowStepView = new WorkflowStepView();
     workflowStepView->workflowStepButton->nameLabel->setText(measureStepItem->name());
 
     connect(measureStepItem.data(), &MeasureStepItem::nameChanged, workflowStepView->workflowStepButton->nameLabel, &QLabel::setText);

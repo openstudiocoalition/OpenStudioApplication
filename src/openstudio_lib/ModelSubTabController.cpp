@@ -76,15 +76,15 @@ boost::optional<model::Component> ModelSubTabController::getComponent(const OSIt
 
 void ModelSubTabController::onRemoveItem(OSItem* item) {
   // get selected items
-  auto modelSubTabView = qobject_cast<ModelSubTabView*>(subTabView());
-  auto modelObjectInspectorView = modelSubTabView->modelObjectInspectorView();
+  auto* modelSubTabView = qobject_cast<ModelSubTabView*>(subTabView());
+  auto* modelObjectInspectorView = modelSubTabView->modelObjectInspectorView();
 
   if (modelObjectInspectorView->supportsMultipleObjectSelection()) {
-    for (auto& obj : modelObjectInspectorView->selectedObjects()) {
+    for (const auto& obj : modelObjectInspectorView->selectedObjects()) {
       onRemoveObject(obj);
     }
   } else {
-    ModelObjectItem* modelObjectItem = qobject_cast<ModelObjectItem*>(item);
+    auto* modelObjectItem = qobject_cast<ModelObjectItem*>(item);
     OS_ASSERT(modelObjectItem);
     model::ModelObject modelObject = modelObjectItem->modelObject();
     if (!modelObject.handle().isNull()) {
@@ -94,7 +94,7 @@ void ModelSubTabController::onRemoveItem(OSItem* item) {
 }
 
 void ModelSubTabController::onReplaceItem(OSItem* item, const OSItemId& replacementItemId) {
-  ModelObjectItem* modelObjectItem = qobject_cast<ModelObjectItem*>(item);
+  auto* modelObjectItem = qobject_cast<ModelObjectItem*>(item);
   OS_ASSERT(modelObjectItem);
   model::ModelObject modelObject = modelObjectItem->modelObject();
   if (!modelObject.handle().isNull()) {
@@ -104,31 +104,31 @@ void ModelSubTabController::onReplaceItem(OSItem* item, const OSItemId& replacem
 
 void ModelSubTabController::onAddItem() {
   // get selected items
-  auto modelSubTabView = qobject_cast<ModelSubTabView*>(subTabView());
-  auto modelObjectInspectorView = modelSubTabView->modelObjectInspectorView();
+  auto* modelSubTabView = qobject_cast<ModelSubTabView*>(subTabView());
+  auto* modelObjectInspectorView = modelSubTabView->modelObjectInspectorView();
 
-  openstudio::IddObjectType currentIddObjectType = this->currentIddObjectType();
+  openstudio::IddObjectType currIddObjectType = this->currentIddObjectType();
   if (modelObjectInspectorView->supportsMultipleObjectSelection()) {
     // Always make at least one
-    if (!modelObjectInspectorView->selectedObjects().size()) {
-      onAddObject(currentIddObjectType);
+    if (modelObjectInspectorView->selectedObjects().empty()) {
+      onAddObject(currIddObjectType);
     } else {
-      for (auto& obj : modelObjectInspectorView->selectedObjects()) {
+      for (const auto& obj : modelObjectInspectorView->selectedObjects()) {
         onAddObject(obj);
       }
     }
   } else {
-    onAddObject(currentIddObjectType);
+    onAddObject(currIddObjectType);
   }
 }
 
 void ModelSubTabController::onCopyItem() {
   // get selected items
-  auto modelSubTabView = qobject_cast<ModelSubTabView*>(subTabView());
-  auto modelObjectInspectorView = modelSubTabView->modelObjectInspectorView();
+  auto* modelSubTabView = qobject_cast<ModelSubTabView*>(subTabView());
+  auto* modelObjectInspectorView = modelSubTabView->modelObjectInspectorView();
 
   if (modelObjectInspectorView->supportsMultipleObjectSelection()) {
-    for (auto& obj : modelObjectInspectorView->selectedObjects()) {
+    for (const auto& obj : modelObjectInspectorView->selectedObjects()) {
       if (!obj.handle().isNull()) {
         onCopyObject(obj);
       }
@@ -142,8 +142,7 @@ void ModelSubTabController::onCopyItem() {
 }
 
 void ModelSubTabController::onPurgeItems() {
-  openstudio::IddObjectType currentIddObjectType = this->currentIddObjectType();
-  onPurgeObjects(currentIddObjectType);
+  onPurgeObjects(this->currentIddObjectType());
 }
 
 boost::optional<openstudio::model::ModelObject> ModelSubTabController::selectedModelObject() const {
@@ -151,12 +150,12 @@ boost::optional<openstudio::model::ModelObject> ModelSubTabController::selectedM
 
   const OSItemSelector* itemSelector = subTabView()->itemSelector();
 
-  const ModelObjectListView* modelObjectListView = qobject_cast<const ModelObjectListView*>(itemSelector);
+  const auto* modelObjectListView = qobject_cast<const ModelObjectListView*>(itemSelector);
   if (modelObjectListView) {
     result = modelObjectListView->selectedModelObject();
   }
 
-  const ModelObjectTypeListView* modelObjectTypeListView = qobject_cast<const ModelObjectTypeListView*>(itemSelector);
+  const auto* modelObjectTypeListView = qobject_cast<const ModelObjectTypeListView*>(itemSelector);
   if (modelObjectTypeListView) {
     result = modelObjectTypeListView->selectedModelObject();
   }
@@ -169,12 +168,12 @@ openstudio::IddObjectType ModelSubTabController::currentIddObjectType() const {
 
   const OSItemSelector* itemSelector = subTabView()->itemSelector();
 
-  const ModelObjectListView* modelObjectListView = qobject_cast<const ModelObjectListView*>(itemSelector);
+  const auto* modelObjectListView = qobject_cast<const ModelObjectListView*>(itemSelector);
   if (modelObjectListView) {
     result = modelObjectListView->iddObjectType();
   }
 
-  const ModelObjectTypeListView* modelObjectTypeListView = qobject_cast<const ModelObjectTypeListView*>(itemSelector);
+  const auto* modelObjectTypeListView = qobject_cast<const ModelObjectTypeListView*>(itemSelector);
   if (modelObjectTypeListView) {
     result = modelObjectTypeListView->currentIddObjectType();
   }

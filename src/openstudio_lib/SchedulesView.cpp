@@ -111,23 +111,23 @@ std::vector<QColor> SchedulesView::initializeColors() {
 }
 
 SchedulesView::SchedulesView(bool isIP, const model::Model& model)
-  : QWidget(), m_model(model), m_leftVLayout(nullptr), m_contentLayout(nullptr), m_isIP(isIP) {
+  : m_model(model), m_leftVLayout(new QVBoxLayout()), m_contentLayout(new QHBoxLayout()), m_isIP(isIP) {
   setObjectName("GrayWidgetWithLeftTopBorders");
 
-  auto mainHLayout = new QHBoxLayout();
+  auto* mainHLayout = new QHBoxLayout();
   mainHLayout->setContentsMargins(1, 1, 0, 0);
   mainHLayout->setSpacing(0);
   setLayout(mainHLayout);
 
-  auto leftScrollArea = new QScrollArea();
+  auto* leftScrollArea = new QScrollArea();
   leftScrollArea->setFrameStyle(QFrame::NoFrame);
 
-  auto outerLeftVLayout = new QVBoxLayout();
+  auto* outerLeftVLayout = new QVBoxLayout();
   outerLeftVLayout->setContentsMargins(0, 0, 0, 0);
   outerLeftVLayout->addWidget(leftScrollArea, 10);
   outerLeftVLayout->addStretch();
 
-  auto selectorButtons = new OSItemSelectorButtons();
+  auto* selectorButtons = new OSItemSelectorButtons();
   selectorButtons->enableCopyButton();
   selectorButtons->enablePurgeButton();
   selectorButtons->enableRemoveButton();
@@ -150,31 +150,29 @@ SchedulesView::SchedulesView(bool isIP, const model::Model& model)
 
   mainHLayout->addLayout(outerLeftVLayout);
 
-  auto vLine = new QWidget();
+  auto* vLine = new QWidget();
   vLine->setObjectName("VLine");
   vLine->setStyleSheet("QWidget#VLine { background: #445051;}");
   vLine->setFixedWidth(2);
   mainHLayout->addWidget(vLine);
 
-  auto leftScrollWidget = new QWidget();
+  auto* leftScrollWidget = new QWidget();
   leftScrollArea->setWidget(leftScrollWidget);
   leftScrollArea->setWidgetResizable(true);
   leftScrollWidget->setObjectName("GrayWidget");
 
-  m_leftVLayout = new QVBoxLayout();
   m_leftVLayout->setContentsMargins(0, 0, 0, 0);
   m_leftVLayout->setSpacing(0);
   m_leftVLayout->addStretch();
   leftScrollWidget->setLayout(m_leftVLayout);
 
-  m_contentLayout = new QHBoxLayout();
   m_contentLayout->setContentsMargins(0, 0, 0, 0);
   mainHLayout->addLayout(m_contentLayout, 100);
 
   // m_model.getImpl<model::detail::Model_Impl>().get()->addWorkspaceObjectPtr.connect<SchedulesView, &SchedulesView::onModelObjectAdded>(this);
   connect(OSAppBase::instance(), &OSAppBase::workspaceObjectAddedPtr, this, &SchedulesView::onModelObjectAdded, Qt::QueuedConnection);
 
-  m_model.getImpl<model::detail::Model_Impl>().get()->removeWorkspaceObjectPtr.connect<SchedulesView, &SchedulesView::onModelObjectRemoved>(this);
+  m_model.getImpl<model::detail::Model_Impl>()->removeWorkspaceObjectPtr.connect<SchedulesView, &SchedulesView::onModelObjectRemoved>(this);
   //connect(OSAppBase::instance(), &OSAppBase::workspaceObjectRemovedPtr, this, &SchedulesView::onModelObjectRemoved, Qt::QueuedConnection);
 
   // get all schedules
@@ -204,15 +202,15 @@ SchedulesView::SchedulesView(bool isIP, const model::Model& model)
 
 void SchedulesView::closeAllTabs() const {
   for (int i = 0; i < m_leftVLayout->count() - 1; i++) {
-    ScheduleTab* scheduleTab = qobject_cast<ScheduleTab*>(m_leftVLayout->itemAt(i)->widget());
+    auto* scheduleTab = qobject_cast<ScheduleTab*>(m_leftVLayout->itemAt(i)->widget());
 
     scheduleTab->scheduleTabContent()->hide();
   }
 }
 
-ScheduleTab* SchedulesView::tabForSchedule(const model::ScheduleRuleset schedule) const {
+ScheduleTab* SchedulesView::tabForSchedule(const model::ScheduleRuleset& schedule) const {
   for (int i = 0; i < m_leftVLayout->count() - 1; i++) {
-    ScheduleTab* scheduleTab = qobject_cast<ScheduleTab*>(m_leftVLayout->itemAt(i)->widget());
+    auto* scheduleTab = qobject_cast<ScheduleTab*>(m_leftVLayout->itemAt(i)->widget());
 
     if (scheduleTab->schedule().handle() == schedule.handle()) {
       return scheduleTab;
@@ -238,7 +236,7 @@ void SchedulesView::updateRowColors() {
   oddStyle.append("QWidget#SideBar {background: #CECECE;}");
 
   for (int i = 0; i < m_leftVLayout->count() - 1; i++) {
-    ScheduleTab* scheduleTab = qobject_cast<ScheduleTab*>(m_leftVLayout->itemAt(i)->widget());
+    auto* scheduleTab = qobject_cast<ScheduleTab*>(m_leftVLayout->itemAt(i)->widget());
 
     if (i % 2 == 0) {
       scheduleTab->setStyleSheet(evenStyle);
@@ -249,7 +247,7 @@ void SchedulesView::updateRowColors() {
 }
 
 void SchedulesView::addSchedule(model::ScheduleRuleset& schedule) {
-  auto scheduleTab = new ScheduleTab(schedule, this);
+  auto* scheduleTab = new ScheduleTab(schedule, this);
   connect(scheduleTab, &ScheduleTab::scheduleClicked, this, &SchedulesView::setCurrentSchedule);
   m_leftVLayout->insertWidget(0, scheduleTab);
 }
@@ -262,31 +260,33 @@ void SchedulesView::addScheduleRule(model::ScheduleRule& scheduleRule) {
   if (tab) {
     tab->scheduleTabContent()->scheduleRefresh(scheduleRuleset.handle());  // Handle as dummy
 
-    scheduleRule.getImpl<model::detail::ScheduleRule_Impl>()
-      .get()
-      ->onRemoveFromWorkspace.connect<ScheduleTabContent, &ScheduleTabContent::scheduleRefresh>(tab->scheduleTabContent());
+    scheduleRule.getImpl<model::detail::ScheduleRule_Impl>()->onRemoveFromWorkspace.connect<ScheduleTabContent, &ScheduleTabContent::scheduleRefresh>(
+      tab->scheduleTabContent());
   }
 }
 
-void SchedulesView::onModelObjectAdded(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> workspaceObjectImpl,
-                                       const openstudio::IddObjectType&, const openstudio::UUID&) {
-  boost::optional<model::ScheduleRuleset> schedule = m_model.getModelObject<model::ScheduleRuleset>(workspaceObjectImpl->handle());
-  if (schedule) {
-    this->addSchedule(schedule.get());
-    this->setCurrentSchedule(schedule.get());
+void SchedulesView::onModelObjectAdded(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> /*workspaceObjectImpl*/,
+                                       const openstudio::IddObjectType& iddObjectType, const openstudio::UUID& uuid) {
+  if (iddObjectType == IddObjectType::OS_Schedule_Ruleset) {
+    boost::optional<model::ScheduleRuleset> schedule = m_model.getModelObject<model::ScheduleRuleset>(uuid);
+    if (schedule) {
+      this->addSchedule(schedule.get());
+      this->setCurrentSchedule(schedule.get());
+    }
   }
+  if (iddObjectType == IddObjectType::OS_Schedule_Rule) {
+    boost::optional<model::ScheduleRule> rule = m_model.getModelObject<model::ScheduleRule>(uuid);
+    if (rule) {
+      rule->getImpl<detail::WorkspaceObject_Impl>()->onRemoveFromWorkspace.connect<SchedulesView, &SchedulesView::onScheduleRuleRemoved>(this);
 
-  boost::optional<model::ScheduleRule> rule = m_model.getModelObject<model::ScheduleRule>(workspaceObjectImpl->handle());
-  if (rule) {
-    rule->getImpl<detail::WorkspaceObject_Impl>().get()->onRemoveFromWorkspace.connect<SchedulesView, &SchedulesView::onScheduleRuleRemoved>(this);
-
-    addScheduleRule(rule.get());
+      addScheduleRule(rule.get());
+    }
   }
 }
 
-void SchedulesView::onModelObjectRemoved(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> workspaceObjectImpl,
-                                         const openstudio::IddObjectType&, const openstudio::UUID&) {
-  if (workspaceObjectImpl->iddObject().type() == IddObjectType::OS_Schedule_Ruleset) {
+void SchedulesView::onModelObjectRemoved(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> /*workspaceObjectImpl*/,
+                                         const openstudio::IddObjectType& iddObjectType, const openstudio::UUID& uuid) {
+  if (iddObjectType == IddObjectType::OS_Schedule_Ruleset) {
     int removedIndex = -1;
 
     bool wasSelected = false;
@@ -295,7 +295,7 @@ void SchedulesView::onModelObjectRemoved(std::shared_ptr<openstudio::detail::Wor
 
     for (int i = 0; i < m_leftVLayout->count() - 1; i++) {
       scheduleTab = qobject_cast<ScheduleTab*>(m_leftVLayout->itemAt(i)->widget());
-      if (scheduleTab->schedule().handle() == workspaceObjectImpl->handle()) {
+      if (scheduleTab->schedule().handle() == uuid) {
         m_leftVLayout->removeWidget(scheduleTab);
         wasSelected = scheduleTab->selected();
         removedIndex = i;
@@ -333,9 +333,7 @@ void SchedulesView::setCurrentSchedule(const model::ScheduleRuleset& schedule) {
   this->updateRowColors();
 
   for (int i = 0; i < m_leftVLayout->count() - 1; i++) {
-    ScheduleTab* scheduleTab;
-
-    scheduleTab = qobject_cast<ScheduleTab*>(m_leftVLayout->itemAt(i)->widget());
+    auto* scheduleTab = qobject_cast<ScheduleTab*>(m_leftVLayout->itemAt(i)->widget());
 
     if (scheduleTab->schedule() == schedule) {
       if (!scheduleTab->selected()) {
@@ -363,14 +361,14 @@ void SchedulesView::setCurrentSchedule(const model::ScheduleRuleset& schedule) {
 void SchedulesView::showAddRulePage(const model::ScheduleRuleset& scheduleRuleset) {
   this->setUpdatesEnabled(false);
 
-  QLayoutItem* child;
+  QLayoutItem* child = nullptr;
   while ((child = m_contentLayout->takeAt(0)) != nullptr) {
     delete child->widget();
 
     delete child;
   }
 
-  auto newProfileView = new NewProfileView(scheduleRuleset, this, NewProfileView::SCHEDULERULE);
+  auto* newProfileView = new NewProfileView(scheduleRuleset, this, NewProfileView::SCHEDULERULE);
 
   m_contentLayout->addWidget(newProfileView, 100);
 
@@ -383,14 +381,14 @@ void SchedulesView::showAddRulePage(const model::ScheduleRuleset& scheduleRulese
 void SchedulesView::showScheduleRuleset(const model::ScheduleRuleset& schedule) {
   this->setUpdatesEnabled(false);
 
-  QLayoutItem* child;
+  QLayoutItem* child = nullptr;
   while ((child = m_contentLayout->takeAt(0)) != nullptr) {
     delete child->widget();
 
     delete child;
   }
 
-  auto scheduleRulesetNameView = new ScheduleRulesetNameView(schedule, this);
+  auto* scheduleRulesetNameView = new ScheduleRulesetNameView(schedule, this);
   m_contentLayout->addWidget(scheduleRulesetNameView, 100);
 
   this->setUpdatesEnabled(true);
@@ -399,17 +397,17 @@ void SchedulesView::showScheduleRuleset(const model::ScheduleRuleset& schedule) 
   emit modelObjectSelected(mo, true);
 }
 
-void SchedulesView::showScheduleRule(model::ScheduleRule scheduleRule) {
+void SchedulesView::showScheduleRule(const model::ScheduleRule& scheduleRule) {
   setUpdatesEnabled(false);
 
-  QLayoutItem* child;
+  QLayoutItem* child = nullptr;
   while ((child = m_contentLayout->takeAt(0)) != nullptr) {
     delete child->widget();
 
     delete child;
   }
 
-  auto scheduleView = new ScheduleRuleView(m_isIP, scheduleRule, this);
+  auto* scheduleView = new ScheduleRuleView(m_isIP, scheduleRule, this);
 
   connect(this, &SchedulesView::toggleUnitsClicked, scheduleView, &ScheduleRuleView::toggleUnitsClicked);
 
@@ -423,7 +421,7 @@ void SchedulesView::showScheduleRule(model::ScheduleRule scheduleRule) {
   emit modelObjectSelected(mo, true);
 }
 
-void SchedulesView::onScheduleRuleRemoved(const Handle& handle) {
+void SchedulesView::onScheduleRuleRemoved(const Handle& /*handle*/) {
   // DLM: todo, show something else?
   // Note JM 2018-08-20: Handled in SchedulesTabController::removeScheduleRule() instead
   showEmptyPage();
@@ -432,13 +430,13 @@ void SchedulesView::onScheduleRuleRemoved(const Handle& handle) {
 void SchedulesView::showDefaultScheduleDay(const model::ScheduleRuleset& schedule) {
   setUpdatesEnabled(false);
 
-  QLayoutItem* child;
+  QLayoutItem* child = nullptr;
   while ((child = m_contentLayout->takeAt(0)) != nullptr) {
     delete child->widget();
     delete child;
   }
 
-  auto scheduleView = new DefaultScheduleDayView(m_isIP, schedule, this);
+  auto* scheduleView = new DefaultScheduleDayView(m_isIP, schedule, this);
 
   connect(this, &SchedulesView::toggleUnitsClicked, scheduleView, &DefaultScheduleDayView::toggleUnitsClicked);
 
@@ -452,10 +450,10 @@ void SchedulesView::showDefaultScheduleDay(const model::ScheduleRuleset& schedul
   emit modelObjectSelected(mo, true);
 }
 
-void SchedulesView::showSummerScheduleDay(model::ScheduleRuleset schedule) {
+void SchedulesView::showSummerScheduleDay(const model::ScheduleRuleset& schedule) {
   setUpdatesEnabled(false);
 
-  QLayoutItem* child;
+  QLayoutItem* child = nullptr;
   while ((child = m_contentLayout->takeAt(0)) != nullptr) {
     delete child->widget();
 
@@ -464,7 +462,7 @@ void SchedulesView::showSummerScheduleDay(model::ScheduleRuleset schedule) {
 
   if (!schedule.isSummerDesignDayScheduleDefaulted()) {
 
-    auto scheduleView = new SpecialScheduleDayView(m_isIP, schedule, this, SpecialScheduleDayView::SUMMER);
+    auto* scheduleView = new SpecialScheduleDayView(m_isIP, schedule, this, SpecialScheduleDayView::SUMMER);
 
     connect(this, &SchedulesView::toggleUnitsClicked, scheduleView, &SpecialScheduleDayView::toggleUnitsClicked);
 
@@ -475,7 +473,7 @@ void SchedulesView::showSummerScheduleDay(model::ScheduleRuleset schedule) {
     boost::optional<model::ModelObject> mo = schedule.summerDesignDaySchedule();
     emit modelObjectSelected(mo, true);
   } else {
-    auto newProfileView = new NewProfileView(schedule, this, NewProfileView::SUMMER);
+    auto* newProfileView = new NewProfileView(schedule, this, NewProfileView::SUMMER);
 
     m_contentLayout->addWidget(newProfileView, 100);
 
@@ -486,10 +484,10 @@ void SchedulesView::showSummerScheduleDay(model::ScheduleRuleset schedule) {
   setUpdatesEnabled(true);
 }
 
-void SchedulesView::showWinterScheduleDay(model::ScheduleRuleset schedule) {
+void SchedulesView::showWinterScheduleDay(const model::ScheduleRuleset& schedule) {
   setUpdatesEnabled(false);
 
-  QLayoutItem* child;
+  QLayoutItem* child = nullptr;
   while ((child = m_contentLayout->takeAt(0)) != nullptr) {
     delete child->widget();
 
@@ -497,7 +495,7 @@ void SchedulesView::showWinterScheduleDay(model::ScheduleRuleset schedule) {
   }
 
   if (!schedule.isWinterDesignDayScheduleDefaulted()) {
-    auto scheduleView = new SpecialScheduleDayView(m_isIP, schedule, this, SpecialScheduleDayView::WINTER);
+    auto* scheduleView = new SpecialScheduleDayView(m_isIP, schedule, this, SpecialScheduleDayView::WINTER);
 
     connect(this, &SchedulesView::toggleUnitsClicked, scheduleView, &SpecialScheduleDayView::toggleUnitsClicked);
 
@@ -508,7 +506,7 @@ void SchedulesView::showWinterScheduleDay(model::ScheduleRuleset schedule) {
     boost::optional<model::ModelObject> mo = schedule.winterDesignDaySchedule();
     emit modelObjectSelected(mo, true);
   } else {
-    auto newProfileView = new NewProfileView(schedule, this, NewProfileView::WINTER);
+    auto* newProfileView = new NewProfileView(schedule, this, NewProfileView::WINTER);
 
     m_contentLayout->addWidget(newProfileView, 100);
 
@@ -519,10 +517,10 @@ void SchedulesView::showWinterScheduleDay(model::ScheduleRuleset schedule) {
   setUpdatesEnabled(true);
 }
 
-void SchedulesView::showHolidayScheduleDay(model::ScheduleRuleset schedule) {
+void SchedulesView::showHolidayScheduleDay(const model::ScheduleRuleset& schedule) {
   setUpdatesEnabled(false);
 
-  QLayoutItem* child;
+  QLayoutItem* child = nullptr;
   while ((child = m_contentLayout->takeAt(0)) != nullptr) {
     delete child->widget();
 
@@ -530,7 +528,7 @@ void SchedulesView::showHolidayScheduleDay(model::ScheduleRuleset schedule) {
   }
 
   if (!schedule.isHolidayScheduleDefaulted()) {
-    auto scheduleView = new SpecialScheduleDayView(m_isIP, schedule, this, SpecialScheduleDayView::HOLIDAY);
+    auto* scheduleView = new SpecialScheduleDayView(m_isIP, schedule, this, SpecialScheduleDayView::HOLIDAY);
 
     connect(this, &SchedulesView::toggleUnitsClicked, scheduleView, &SpecialScheduleDayView::toggleUnitsClicked);
 
@@ -541,7 +539,7 @@ void SchedulesView::showHolidayScheduleDay(model::ScheduleRuleset schedule) {
     boost::optional<model::ModelObject> mo = schedule.holidaySchedule();
     emit modelObjectSelected(mo, true);
   } else {
-    auto newProfileView = new NewProfileView(schedule, this, NewProfileView::HOLIDAY);
+    auto* newProfileView = new NewProfileView(schedule, this, NewProfileView::HOLIDAY);
 
     m_contentLayout->addWidget(newProfileView, 100);
 
@@ -555,13 +553,13 @@ void SchedulesView::showHolidayScheduleDay(model::ScheduleRuleset schedule) {
 void SchedulesView::showEmptyPage() {
   this->setUpdatesEnabled(false);
 
-  QLayoutItem* child;
+  QLayoutItem* child = nullptr;
   while ((child = m_contentLayout->takeAt(0)) != nullptr) {
     delete child->widget();
     delete child;
   }
 
-  auto emptyWidget = new QWidget();
+  auto* emptyWidget = new QWidget();
 
   m_contentLayout->addWidget(emptyWidget, 100);
 
@@ -573,9 +571,7 @@ void SchedulesView::showEmptyPage() {
 
 boost::optional<model::ScheduleRuleset> SchedulesView::currentSchedule() {
   for (int i = 0; i < m_leftVLayout->count() - 1; i++) {
-    ScheduleTab* scheduleTab;
-
-    scheduleTab = qobject_cast<ScheduleTab*>(m_leftVLayout->itemAt(i)->widget());
+    auto* scheduleTab = qobject_cast<ScheduleTab*>(m_leftVLayout->itemAt(i)->widget());
 
     if (scheduleTab->selected()) {
       if (boost::optional<model::ScheduleRuleset> schedule = scheduleTab->schedule()) {
@@ -589,7 +585,7 @@ boost::optional<model::ScheduleRuleset> SchedulesView::currentSchedule() {
   return boost::none;
 }
 
-void SchedulesView::paintEvent(QPaintEvent* event) {
+void SchedulesView::paintEvent(QPaintEvent* /*event*/) {
   QStyleOption opt;
   opt.initFrom(this);
   QPainter p(this);
@@ -614,27 +610,27 @@ ScheduleTab::ScheduleTab(const model::ScheduleRuleset& schedule, SchedulesView* 
   : QWidget(parent),
     //m_mouseDown(false),
     m_selected(false),
+    m_header(new ScheduleTabHeader(this)),
+    m_content(new ScheduleTabContent(this)),
     m_schedule(schedule),
     m_schedulesView(schedulesView) {
-  auto mainVLayout = new QVBoxLayout();
+  auto* mainVLayout = new QVBoxLayout();
   mainVLayout->setContentsMargins(0, 0, 0, 0);
   mainVLayout->setSpacing(0);
   setLayout(mainVLayout);
 
-  m_header = new ScheduleTabHeader(this);
   m_header->setText(QString::fromStdString(m_schedule.name().get()));
   mainVLayout->addWidget(m_header);
 
-  auto line1 = new QFrame();
+  auto* line1 = new QFrame();
   line1->setFrameShape(QFrame::HLine);
   line1->setFixedHeight(1);
   mainVLayout->addWidget(line1);
 
-  m_content = new ScheduleTabContent(this);
   mainVLayout->addWidget(m_content);
   m_content->setVisible(false);
 
-  auto line2 = new QFrame();
+  auto* line2 = new QFrame();
   line2->setFrameShape(QFrame::HLine);
   line2->setFixedHeight(1);
   mainVLayout->addWidget(line2);
@@ -680,7 +676,7 @@ void ScheduleTab::setSelected(bool selected) {
   m_selected = selected;
 }
 
-bool ScheduleTab::selected() {
+bool ScheduleTab::selected() const {
   return m_selected;
 }
 
@@ -720,10 +716,16 @@ bool ScheduleTab::selected() {
 /******************************************************************************/
 
 ScheduleTabHeader::ScheduleTabHeader(ScheduleTab* scheduleTab, QWidget* parent)
-  : QWidget(parent), m_scheduleTab(scheduleTab), m_mouseDown(false), m_dirty(true) {
+  : QWidget(parent),
+    m_selectionWidget(new QWidget(this)),
+    m_mainLabel(new QLabel(this)),
+    m_toggleButton(new QPushButton()),
+    m_scheduleTab(scheduleTab),
+    m_mouseDown(false),
+    m_dirty(true) {
   setObjectName("ScheduleTabHeader");
 
-  auto mainHLayout = new QHBoxLayout();
+  auto* mainHLayout = new QHBoxLayout();
   mainHLayout->setContentsMargins(5, 5, 5, 5);
   mainHLayout->setSpacing(5);
   setLayout(mainHLayout);
@@ -735,14 +737,12 @@ ScheduleTabHeader::ScheduleTabHeader(ScheduleTab* scheduleTab, QWidget* parent)
   style.append("}");
   setStyleSheet(style);
 
-  m_mainLabel = new QLabel(this);
   mainHLayout->addWidget(m_mainLabel, 10);
   m_mainLabel->setWordWrap(true);
   //m_mainLabel->setFixedWidth(120);
 
   mainHLayout->addStretch();
 
-  m_toggleButton = new QPushButton();
   m_toggleButton->setFlat(true);
   m_toggleButton->setCheckable(true);
   m_toggleButton->setChecked(false);
@@ -763,7 +763,6 @@ ScheduleTabHeader::ScheduleTabHeader(ScheduleTab* scheduleTab, QWidget* parent)
 
   setFixedHeight(50);
 
-  m_selectionWidget = new QWidget(this);
   m_selectionWidget->setFixedHeight(50);
   style.clear();
   style.append("QWidget { ");
@@ -781,8 +780,7 @@ ScheduleTabHeader::ScheduleTabHeader(ScheduleTab* scheduleTab, QWidget* parent)
 
   connect(this, &ScheduleTabHeader::scheduleClicked, m_scheduleTab, &ScheduleTab::scheduleClicked);
 
-  m_scheduleTab->schedule().getImpl<model::detail::ScheduleRuleset_Impl>().get()->onChange.connect<ScheduleTabHeader, &ScheduleTabHeader::refresh>(
-    this);
+  m_scheduleTab->schedule().getImpl<model::detail::ScheduleRuleset_Impl>()->onChange.connect<ScheduleTabHeader, &ScheduleTabHeader::refresh>(this);
 }
 
 void ScheduleTabHeader::expand() {
@@ -853,7 +851,7 @@ void ScheduleTabHeader::resizeEvent(QResizeEvent* event) {
   QWidget::resizeEvent(event);
 }
 
-void ScheduleTabHeader::paintEvent(QPaintEvent* event) {
+void ScheduleTabHeader::paintEvent(QPaintEvent* /*event*/) {
   QStyleOption opt;
   opt.initFrom(this);
   QPainter p(this);
@@ -864,40 +862,41 @@ void ScheduleTabHeader::paintEvent(QPaintEvent* event) {
 // ScheduleTabContent
 /******************************************************************************/
 
-ScheduleTabContent::ScheduleTabContent(ScheduleTab* scheduleTab, QWidget* parent) : QWidget(parent), m_scheduleTab(scheduleTab) {
-  auto mainVLayout = new QVBoxLayout();
+ScheduleTabContent::ScheduleTabContent(ScheduleTab* scheduleTab, QWidget* parent)
+  : QWidget(parent), m_scheduleTab(scheduleTab), m_ruleLayout(new QVBoxLayout()) {
+  auto* mainVLayout = new QVBoxLayout();
   mainVLayout->setContentsMargins(5, 5, 5, 5);
   mainVLayout->setSpacing(5);
   setLayout(mainVLayout);
 
-  QLabel* specialDayLabel = new QLabel("Special Day Profiles");
+  auto* specialDayLabel = new QLabel("Special Day Profiles");
   mainVLayout->addWidget(specialDayLabel);
 
-  auto summerDesignDayLayout = new QHBoxLayout();
+  auto* summerDesignDayLayout = new QHBoxLayout();
   summerDesignDayLayout->setContentsMargins(0, 0, 0, 0);
   mainVLayout->addLayout(summerDesignDayLayout);
 
-  auto summerTab = new ScheduleTabDefault(m_scheduleTab, ScheduleTabDefault::SUMMER);
+  auto* summerTab = new ScheduleTabDefault(m_scheduleTab, ScheduleTabDefault::SUMMER);
   summerDesignDayLayout->addWidget(summerTab);
 
-  auto winterDesignDayLayout = new QHBoxLayout();
+  auto* winterDesignDayLayout = new QHBoxLayout();
   winterDesignDayLayout->setContentsMargins(0, 0, 0, 0);
   mainVLayout->addLayout(winterDesignDayLayout);
 
-  auto winterTab = new ScheduleTabDefault(m_scheduleTab, ScheduleTabDefault::WINTER);
+  auto* winterTab = new ScheduleTabDefault(m_scheduleTab, ScheduleTabDefault::WINTER);
   winterDesignDayLayout->addWidget(winterTab);
 
-  auto holidayLayout = new QHBoxLayout();
+  auto* holidayLayout = new QHBoxLayout();
   holidayLayout->setContentsMargins(0, 0, 0, 0);
   mainVLayout->addLayout(holidayLayout);
 
-  auto holidayTab = new ScheduleTabDefault(m_scheduleTab, ScheduleTabDefault::HOLIDAY);
+  auto* holidayTab = new ScheduleTabDefault(m_scheduleTab, ScheduleTabDefault::HOLIDAY);
   holidayLayout->addWidget(holidayTab);
 
-  auto runPeriodLayout = new QHBoxLayout();
+  auto* runPeriodLayout = new QHBoxLayout();
   runPeriodLayout->setContentsMargins(0, 0, 0, 0);
   mainVLayout->addLayout(runPeriodLayout);
-  auto runPeriodButton = new QPushButton();
+  auto* runPeriodButton = new QPushButton();
   runPeriodButton->setText("Run Period Profiles");
   runPeriodButton->setObjectName("Button");
   QString style;
@@ -914,22 +913,21 @@ ScheduleTabContent::ScheduleTabContent(ScheduleTab* scheduleTab, QWidget* parent
   connect(runPeriodButton, &QPushButton::clicked, this, &ScheduleTabContent::onScheduleRuleClicked);
   connect(this, &ScheduleTabContent::scheduleRuleClicked, m_scheduleTab->schedulesView(), &SchedulesView::showAddRulePage);
 
-  auto addButton = new QPushButton();
+  auto* addButton = new QPushButton();
   addButton->setStyleSheet("QPushButton { border: none; background-image: url(\":/images/add-small.png\"); }");
   addButton->setFixedSize(20, 20);
   connect(addButton, &QPushButton::clicked, this, &ScheduleTabContent::onScheduleRuleClicked);
   runPeriodLayout->addWidget(addButton);
 
-  m_ruleLayout = new QVBoxLayout();
   m_ruleLayout->setContentsMargins(0, 0, 0, 0);
   m_ruleLayout->setSpacing(0);
   mainVLayout->addLayout(m_ruleLayout);
 
-  auto defaultLayout = new QHBoxLayout();
+  auto* defaultLayout = new QHBoxLayout();
   defaultLayout->setContentsMargins(0, 0, 0, 0);
   mainVLayout->addLayout(defaultLayout);
 
-  auto defaultTab = new ScheduleTabDefault(m_scheduleTab, ScheduleTabDefault::DEFAULT);
+  auto* defaultTab = new ScheduleTabDefault(m_scheduleTab, ScheduleTabDefault::DEFAULT);
   defaultLayout->addWidget(defaultTab);
 }
 
@@ -937,7 +935,7 @@ void ScheduleTabContent::refresh() {
   if (m_dirty) {
     model::ScheduleRuleset scheduleRuleset = m_scheduleTab->schedule();
 
-    QLayoutItem* child;
+    QLayoutItem* child = nullptr;
     while ((child = m_ruleLayout->takeAt(0)) != nullptr) {
       delete child->widget();
 
@@ -947,7 +945,7 @@ void ScheduleTabContent::refresh() {
     std::vector<model::ScheduleRule> scheduleRules = scheduleRuleset.scheduleRules();
 
     for (auto it = scheduleRules.begin(); it < scheduleRules.end(); ++it) {
-      auto scheduleTabRule = new ScheduleTabRule(m_scheduleTab, *it);
+      auto* scheduleTabRule = new ScheduleTabRule(m_scheduleTab, *it);
       m_ruleLayout->addWidget(scheduleTabRule);
     }
 
@@ -955,7 +953,7 @@ void ScheduleTabContent::refresh() {
   }
 }
 
-void ScheduleTabContent::scheduleRefresh(const Handle& handle) {
+void ScheduleTabContent::scheduleRefresh(const Handle& /*handle*/) {
   m_dirty = true;
 
   QTimer::singleShot(0, this, &ScheduleTabContent::refresh);
@@ -970,7 +968,7 @@ void ScheduleTabContent::onDefaultScheduleClicked() {
 }
 
 void ScheduleTabContent::addScheduleRule(const model::ScheduleRule& scheduleRule) {
-  auto scheduleTabRule = new ScheduleTabRule(m_scheduleTab, scheduleRule);
+  auto* scheduleTabRule = new ScheduleTabRule(m_scheduleTab, scheduleRule);
   m_ruleLayout->insertWidget(0, scheduleTabRule);
 }
 
@@ -983,22 +981,27 @@ ScheduleTab* ScheduleTabContent::scheduleTab() const {
 /******************************************************************************/
 
 ScheduleTabRule::ScheduleTabRule(ScheduleTab* scheduleTab, const model::ScheduleRule& scheduleRule, QWidget* parent)
-  : QWidget(parent), m_scheduleTab(scheduleTab), m_scheduleRule(scheduleRule), m_mouseDown(false), m_dirty(true), m_hovering(false) {
+  : QWidget(parent),
+    m_scheduleTab(scheduleTab),
+    m_scheduleRule(scheduleRule),
+    m_mouseDown(false),
+    m_label(new QLabel()),
+    m_dirty(true),
+    m_hovering(false) {
   setFixedHeight(25);
 
   connect(this, &ScheduleTabRule::clicked, m_scheduleTab->schedulesView(), &SchedulesView::showScheduleRule);
 
-  auto mainHLayout = new QHBoxLayout();
+  auto* mainHLayout = new QHBoxLayout();
   mainHLayout->setContentsMargins(10, 0, 0, 0);
   setLayout(mainHLayout);
 
-  m_label = new QLabel();
   m_label->setMouseTracking(true);
   mainHLayout->addWidget(m_label);
 
   scheduleRefresh();
 
-  m_scheduleRule.getImpl<model::detail::ScheduleRule_Impl>().get()->onChange.connect<ScheduleTabRule, &ScheduleTabRule::scheduleRefresh>(this);
+  m_scheduleRule.getImpl<model::detail::ScheduleRule_Impl>()->onChange.connect<ScheduleTabRule, &ScheduleTabRule::scheduleRefresh>(this);
 
   setMouseTracking(true);
 }
@@ -1025,7 +1028,7 @@ void ScheduleTabRule::scheduleRefresh() {
   QTimer::singleShot(0, this, &ScheduleTabRule::refresh);
 }
 
-void ScheduleTabRule::paintEvent(QPaintEvent* event) {
+void ScheduleTabRule::paintEvent(QPaintEvent* /*event*/) {
   QStyleOption opt;
   opt.initFrom(this);
   QPainter p(this);
@@ -1107,7 +1110,7 @@ ScheduleTabDefault::ScheduleTabDefault(ScheduleTab* scheduleTab, ScheduleTabDefa
 
   connect(this, &ScheduleTabDefault::holidayClicked, m_scheduleTab->schedulesView(), &SchedulesView::showHolidayScheduleDay);
 
-  auto mainHLayout = new QHBoxLayout();
+  auto* mainHLayout = new QHBoxLayout();
   mainHLayout->setContentsMargins(10, 0, 0, 0);
   setLayout(mainHLayout);
 
@@ -1138,7 +1141,7 @@ ScheduleTabDefault::ScheduleTabDefault(ScheduleTab* scheduleTab, ScheduleTabDefa
   setMouseTracking(true);
 }
 
-void ScheduleTabDefault::paintEvent(QPaintEvent* event) {
+void ScheduleTabDefault::paintEvent(QPaintEvent* /*event*/) {
   QStyleOption opt;
   opt.initFrom(this);
   QPainter p(this);
@@ -1221,17 +1224,17 @@ void ScheduleTabDefault::leaveEvent(QEvent* event) {
 
 NewProfileView::NewProfileView(const model::ScheduleRuleset& scheduleRuleset, SchedulesView* schedulesView, NewProfileViewType type)
   : QWidget(schedulesView), m_schedulesView(schedulesView), m_scheduleRuleset(scheduleRuleset), m_type(type) {
-  auto mainVLayout = new QVBoxLayout();
+  auto* mainVLayout = new QVBoxLayout();
   mainVLayout->setContentsMargins(10, 10, 10, 10);
   mainVLayout->setSpacing(10);
   setLayout(mainVLayout);
 
-  auto scheduleRulesetNameWidget = new ScheduleRulesetNameWidget(scheduleRuleset);
+  auto* scheduleRulesetNameWidget = new ScheduleRulesetNameWidget(scheduleRuleset);
   mainVLayout->addWidget(scheduleRulesetNameWidget);
 
   switch (m_type) {
     case SUMMER: {
-      auto label = new QLabel();
+      auto* label = new QLabel();
       QString text;
       text.append("The summer design day profile is not set, therefore the default run period profile will be used.");
       text.append("  Create a new profile to override the default run period profile.");
@@ -1242,7 +1245,7 @@ NewProfileView::NewProfileView(const model::ScheduleRuleset& scheduleRuleset, Sc
       break;
     }
     case WINTER: {
-      auto label = new QLabel();
+      auto* label = new QLabel();
       QString text;
       text.append("The winter design day profile is not set, therefore the default run period profile will be used.");
       text.append("  Create a new profile to override the default run period profile.");
@@ -1253,7 +1256,7 @@ NewProfileView::NewProfileView(const model::ScheduleRuleset& scheduleRuleset, Sc
       break;
     }
     case HOLIDAY: {
-      auto label = new QLabel();
+      auto* label = new QLabel();
       QString text;
       text.append("The holiday profile is not set, therefore the default run period profile will be used.");
       text.append("  Create a new profile to override the default run period profile.");
@@ -1267,12 +1270,12 @@ NewProfileView::NewProfileView(const model::ScheduleRuleset& scheduleRuleset, Sc
       break;
   }
 
-  auto mainHLayout = new QHBoxLayout();
+  auto* mainHLayout = new QHBoxLayout();
   mainHLayout->setContentsMargins(0, 0, 0, 0);
 
-  auto box = new QWidget();
+  auto* box = new QWidget();
 
-  auto innerVLayout = new QVBoxLayout();
+  auto* innerVLayout = new QVBoxLayout();
   innerVLayout->setContentsMargins(0, 0, 0, 0);
   box->setLayout(innerVLayout);
   mainHLayout->addWidget(box);
@@ -1280,22 +1283,22 @@ NewProfileView::NewProfileView(const model::ScheduleRuleset& scheduleRuleset, Sc
   mainVLayout->addLayout(mainHLayout);
 
   if (m_type == SCHEDULERULE) {
-    auto selectLabel = new QLabel();
+    auto* selectLabel = new QLabel();
     selectLabel->setText("Create a new profile.");
     innerVLayout->addWidget(selectLabel);
   }
 
-  auto gridLayout = new QGridLayout();
+  auto* gridLayout = new QGridLayout();
   gridLayout->setContentsMargins(0, 0, 0, 0);
 
-  QLabel* label = new QLabel("Make a New Profile Based on:");
+  auto* label = new QLabel("Make a New Profile Based on:");
   gridLayout->addWidget(label, 0, 0);
 
   m_scheduleRuleComboBox = new QComboBox();
   populateComboBox(scheduleRuleset);
   gridLayout->addWidget(m_scheduleRuleComboBox, 0, 1);
 
-  auto addButton = new QPushButton();
+  auto* addButton = new QPushButton();
   addButton->setText("Add");
   addButton->setObjectName("StandardBlueButton");
   gridLayout->addWidget(addButton, 1, 1);
@@ -1364,12 +1367,12 @@ void NewProfileView::populateComboBox(const model::ScheduleRuleset& scheduleRule
 
 ScheduleRulesetNameView::ScheduleRulesetNameView(const model::ScheduleRuleset& scheduleRuleset, SchedulesView* schedulesView)
   : QWidget(schedulesView), m_schedulesView(schedulesView), m_scheduleRuleset(scheduleRuleset) {
-  auto mainVLayout = new QVBoxLayout();
+  auto* mainVLayout = new QVBoxLayout();
   mainVLayout->setContentsMargins(10, 10, 10, 10);
   mainVLayout->setSpacing(10);
   setLayout(mainVLayout);
 
-  auto scheduleRulesetNameWidget = new ScheduleRulesetNameWidget(scheduleRuleset);
+  auto* scheduleRulesetNameWidget = new ScheduleRulesetNameWidget(scheduleRuleset);
   mainVLayout->addWidget(scheduleRulesetNameWidget);
 
   mainVLayout->addStretch();
@@ -1383,32 +1386,32 @@ DefaultScheduleDayView::DefaultScheduleDayView(bool isIP, const model::ScheduleR
   : QWidget(schedulesView) {
   // Layout
 
-  auto mainHLayout = new QHBoxLayout();
+  auto* mainHLayout = new QHBoxLayout();
   mainHLayout->setContentsMargins(0, 0, 0, 0);
   mainHLayout->setSpacing(0);
   setLayout(mainHLayout);
 
-  auto mainVLayout = new QVBoxLayout();
+  auto* mainVLayout = new QVBoxLayout();
   mainVLayout->setContentsMargins(10, 10, 10, 10);
   mainVLayout->setSpacing(10);
   mainHLayout->addLayout(mainVLayout, 100);
 
   // Name
 
-  auto scheduleRulesetNameWidget = new ScheduleRulesetNameWidget(scheduleRuleset);
+  auto* scheduleRulesetNameWidget = new ScheduleRulesetNameWidget(scheduleRuleset);
   mainVLayout->addWidget(scheduleRulesetNameWidget);
 
-  QLabel* label = new QLabel("Default day profile.");
+  auto* label = new QLabel("Default day profile.");
   label->setObjectName("H2");
 
-  auto hLayout = new QHBoxLayout();
+  auto* hLayout = new QHBoxLayout();
   hLayout->setContentsMargins(60, 0, 0, 10);
   hLayout->addWidget(label);
   mainVLayout->addLayout(hLayout);
 
   // Schedule Day
 
-  ScheduleDayView* scheduleDayView = new ScheduleDayView(isIP, scheduleRuleset.defaultDaySchedule(), schedulesView);
+  auto* scheduleDayView = new ScheduleDayView(isIP, scheduleRuleset.defaultDaySchedule(), schedulesView);
 
   connect(this, &DefaultScheduleDayView::toggleUnitsClicked, scheduleDayView, &ScheduleDayView::toggleUnitsClicked);
 
@@ -1416,13 +1419,13 @@ DefaultScheduleDayView::DefaultScheduleDayView(bool isIP, const model::ScheduleR
 
   // Year Overview
 
-  auto vLine2 = new QWidget();
+  auto* vLine2 = new QWidget();
   vLine2->setObjectName("VLine");
   vLine2->setStyleSheet("QWidget#VLine { background: #445051;}");
   vLine2->setFixedWidth(2);
   mainHLayout->addWidget(vLine2);
 
-  auto yearOverview = new YearOverview(scheduleRuleset);
+  auto* yearOverview = new YearOverview(scheduleRuleset);
   mainHLayout->addWidget(yearOverview);
 }
 
@@ -1435,36 +1438,36 @@ SpecialScheduleDayView::SpecialScheduleDayView(bool isIP, const model::ScheduleR
   : QWidget(schedulesView), m_type(type) {
   // Layout
 
-  auto mainHLayout = new QHBoxLayout();
+  auto* mainHLayout = new QHBoxLayout();
   mainHLayout->setContentsMargins(0, 0, 0, 0);
   mainHLayout->setSpacing(0);
   setLayout(mainHLayout);
 
-  auto mainVLayout = new QVBoxLayout();
+  auto* mainVLayout = new QVBoxLayout();
   mainVLayout->setContentsMargins(10, 10, 10, 10);
   mainVLayout->setSpacing(10);
   mainHLayout->addLayout(mainVLayout, 100);
 
   // Name
 
-  auto scheduleRulesetNameWidget = new ScheduleRulesetNameWidget(scheduleRuleset);
+  auto* scheduleRulesetNameWidget = new ScheduleRulesetNameWidget(scheduleRuleset);
   mainVLayout->addWidget(scheduleRulesetNameWidget);
 
   // Schedule Day
 
   if (m_type == SUMMER) {
     if (!scheduleRuleset.isSummerDesignDayScheduleDefaulted()) {
-      QLabel* label = new QLabel("Summer design day profile.");
+      auto* label = new QLabel("Summer design day profile.");
       label->setObjectName("H2");
 
-      auto hLayout = new QHBoxLayout();
+      auto* hLayout = new QHBoxLayout();
       hLayout->setContentsMargins(60, 0, 0, 10);
       hLayout->addWidget(label);
       mainVLayout->addLayout(hLayout);
 
       model::ScheduleDay scheduleDay = scheduleRuleset.summerDesignDaySchedule();
 
-      auto scheduleDayView = new ScheduleDayView(isIP, scheduleDay, schedulesView);
+      auto* scheduleDayView = new ScheduleDayView(isIP, scheduleDay, schedulesView);
 
       connect(this, &SpecialScheduleDayView::toggleUnitsClicked, scheduleDayView, &ScheduleDayView::toggleUnitsClicked);
 
@@ -1472,17 +1475,17 @@ SpecialScheduleDayView::SpecialScheduleDayView(bool isIP, const model::ScheduleR
     }
   } else if (m_type == WINTER) {
     if (!scheduleRuleset.isWinterDesignDayScheduleDefaulted()) {
-      QLabel* label = new QLabel("Winter design day profile.");
+      auto* label = new QLabel("Winter design day profile.");
       label->setObjectName("H2");
 
-      auto hLayout = new QHBoxLayout();
+      auto* hLayout = new QHBoxLayout();
       hLayout->setContentsMargins(60, 0, 0, 10);
       hLayout->addWidget(label);
       mainVLayout->addLayout(hLayout);
 
       model::ScheduleDay scheduleDay = scheduleRuleset.winterDesignDaySchedule();
 
-      auto scheduleDayView = new ScheduleDayView(isIP, scheduleDay, schedulesView);
+      auto* scheduleDayView = new ScheduleDayView(isIP, scheduleDay, schedulesView);
 
       connect(this, &SpecialScheduleDayView::toggleUnitsClicked, scheduleDayView, &ScheduleDayView::toggleUnitsClicked);
 
@@ -1490,17 +1493,17 @@ SpecialScheduleDayView::SpecialScheduleDayView(bool isIP, const model::ScheduleR
     }
   } else if (m_type == HOLIDAY) {
     if (!scheduleRuleset.isHolidayScheduleDefaulted()) {
-      QLabel* label = new QLabel("Holiday profile.");
+      auto* label = new QLabel("Holiday profile.");
       label->setObjectName("H2");
 
-      auto hLayout = new QHBoxLayout();
+      auto* hLayout = new QHBoxLayout();
       hLayout->setContentsMargins(60, 0, 0, 10);
       hLayout->addWidget(label);
       mainVLayout->addLayout(hLayout);
 
       model::ScheduleDay scheduleDay = scheduleRuleset.holidaySchedule();
 
-      auto scheduleDayView = new ScheduleDayView(isIP, scheduleDay, schedulesView);
+      auto* scheduleDayView = new ScheduleDayView(isIP, scheduleDay, schedulesView);
 
       connect(this, &SpecialScheduleDayView::toggleUnitsClicked, scheduleDayView, &ScheduleDayView::toggleUnitsClicked);
 
@@ -1522,12 +1525,12 @@ ScheduleRuleView::ScheduleRuleView(bool isIP, const model::ScheduleRule& schedul
 
   // Layout
 
-  auto mainHLayout = new QHBoxLayout();
+  auto* mainHLayout = new QHBoxLayout();
   mainHLayout->setContentsMargins(0, 0, 0, 0);
   mainHLayout->setSpacing(0);
   setLayout(mainHLayout);
 
-  auto mainVLayout = new QVBoxLayout();
+  auto* mainVLayout = new QVBoxLayout();
   mainVLayout->setContentsMargins(10, 10, 10, 10);
   mainVLayout->setSpacing(10);
   mainHLayout->addLayout(mainVLayout, 100);
@@ -1535,21 +1538,21 @@ ScheduleRuleView::ScheduleRuleView(bool isIP, const model::ScheduleRule& schedul
   // Name
 
   model::ScheduleRuleset scheduleRuleset = scheduleRule.scheduleRuleset();
-  auto scheduleRulesetNameWidget = new ScheduleRulesetNameWidget(scheduleRuleset);
+  auto* scheduleRulesetNameWidget = new ScheduleRulesetNameWidget(scheduleRuleset);
   mainVLayout->addWidget(scheduleRulesetNameWidget);
 
   // Rule Settings
 
-  auto ruleHLayout = new QHBoxLayout();
+  auto* ruleHLayout = new QHBoxLayout();
   ruleHLayout->setContentsMargins(60, 0, 0, 10);
   ruleHLayout->setSpacing(0);
   mainVLayout->addLayout(ruleHLayout);
 
-  auto ruleWidget = new QWidget();
+  auto* ruleWidget = new QWidget();
   ruleHLayout->addWidget(ruleWidget);
   ruleHLayout->addStretch(10);
 
-  auto removeButton = new QPushButton();
+  auto* removeButton = new QPushButton();
   removeButton->setObjectName("DeleteButton");
   removeButton->setFlat(true);
   removeButton->setFixedSize(24, 24);
@@ -1557,15 +1560,15 @@ ScheduleRuleView::ScheduleRuleView(bool isIP, const model::ScheduleRule& schedul
   ruleHLayout->addWidget(removeButton, 0, Qt::AlignTop);
   ruleHLayout->addSpacing(20);
 
-  auto ruleVLayout = new QVBoxLayout();
+  auto* ruleVLayout = new QVBoxLayout();
   ruleVLayout->setContentsMargins(0, 0, 0, 0);
   ruleVLayout->setSpacing(5);
   ruleWidget->setLayout(ruleVLayout);
 
-  auto nameHLayout = new QHBoxLayout();
+  auto* nameHLayout = new QHBoxLayout();
   nameHLayout->setContentsMargins(0, 0, 0, 0);
 
-  auto colorWidget = new QWidget();
+  auto* colorWidget = new QWidget();
   colorWidget->setFixedWidth(20);
   QString colorStyle;
   colorStyle.append("QWidget { background-color: ");
@@ -1582,12 +1585,12 @@ ScheduleRuleView::ScheduleRuleView(bool isIP, const model::ScheduleRule& schedul
 
   QString priorityString("Priority ");
   priorityString.append(QString::number(m_scheduleRule.ruleIndex() + 1));
-  auto priorityLabel = new QLabel(priorityString);
+  auto* priorityLabel = new QLabel(priorityString);
   nameHLayout->addWidget(priorityLabel);
 
   nameHLayout->addSpacing(10);
 
-  auto label = new QLabel("Schedule Rule Name:");
+  auto* label = new QLabel("Schedule Rule Name:");
   nameHLayout->addWidget(label);
 
   m_nameEditField = new OSLineEdit2();
@@ -1600,9 +1603,9 @@ ScheduleRuleView::ScheduleRuleView(bool isIP, const model::ScheduleRule& schedul
 
   ruleVLayout->addLayout(nameHLayout);
 
-  auto dateHLayout = new QHBoxLayout();
+  auto* dateHLayout = new QHBoxLayout();
 
-  QLabel* dateRangeLabel = new QLabel("Date Range:");
+  auto* dateRangeLabel = new QLabel("Date Range:");
   dateHLayout->addWidget(dateRangeLabel);
 
   m_startDateEdit = new QDateTimeEdit();
@@ -1619,8 +1622,8 @@ ScheduleRuleView::ScheduleRuleView(bool isIP, const model::ScheduleRule& schedul
 
   ruleVLayout->addLayout(dateHLayout);
 
-  auto weekHLayout = new QHBoxLayout();
-  QLabel* applyToLabel = new QLabel("Apply to:");
+  auto* weekHLayout = new QHBoxLayout();
+  auto* applyToLabel = new QLabel("Apply to:");
   weekHLayout->addWidget(applyToLabel);
 
   weekHLayout->addStretch();
@@ -1696,21 +1699,20 @@ ScheduleRuleView::ScheduleRuleView(bool isIP, const model::ScheduleRule& schedul
 
   // Year Overview
 
-  auto vLine2 = new QWidget();
+  auto* vLine2 = new QWidget();
   vLine2->setObjectName("VLine");
   vLine2->setStyleSheet("QWidget#VLine { background: #445051;}");
   vLine2->setFixedWidth(2);
   mainHLayout->addWidget(vLine2);
 
-  YearOverview* yearOverview = new YearOverview(m_scheduleRule.scheduleRuleset());
+  auto* yearOverview = new YearOverview(m_scheduleRule.scheduleRuleset());
   mainHLayout->addWidget(yearOverview);
 
   // Connect
 
-  m_scheduleRule.getImpl<model::detail::ScheduleRule_Impl>().get()->onChange.connect<ScheduleRuleView, &ScheduleRuleView::scheduleRefresh>(this);
+  m_scheduleRule.getImpl<model::detail::ScheduleRule_Impl>()->onChange.connect<ScheduleRuleView, &ScheduleRuleView::scheduleRefresh>(this);
 
-  m_yearDescription->getImpl<model::detail::YearDescription_Impl>().get()->onChange.connect<ScheduleRuleView, &ScheduleRuleView::scheduleRefresh>(
-    this);
+  m_yearDescription->getImpl<model::detail::YearDescription_Impl>()->onChange.connect<ScheduleRuleView, &ScheduleRuleView::scheduleRefresh>(this);
 
   connect(this, &ScheduleRuleView::startDateTimeChanged, m_schedulesView, &SchedulesView::startDateTimeChanged);
 
@@ -1790,28 +1792,27 @@ void ScheduleRuleView::onEndDateTimeChanged(const QDateTime& newDate) {
 // ScheduleRulesetNameWidget
 /******************************************************************************/
 
-ScheduleRulesetNameWidget::ScheduleRulesetNameWidget(const model::ScheduleRuleset& scheduleRuleset) : QWidget(), m_scheduleRuleset(scheduleRuleset) {
-  auto mainVLayout = new QVBoxLayout();
+ScheduleRulesetNameWidget::ScheduleRulesetNameWidget(const model::ScheduleRuleset& scheduleRuleset)
+  : m_scheduleRuleset(scheduleRuleset), opt_scheduleRuleset(m_scheduleRuleset) {
+  auto* mainVLayout = new QVBoxLayout();
   mainVLayout->setContentsMargins(0, 0, 0, 0);
   mainVLayout->setSpacing(10);
   setLayout(mainVLayout);
 
-  QLabel* label;
-
   // Name
 
-  auto hLayout = new QHBoxLayout();
+  auto* hLayout = new QHBoxLayout();
   hLayout->setContentsMargins(0, 0, 0, 0);
   hLayout->setSpacing(10);
   mainVLayout->addLayout(hLayout);
 
-  label = new QLabel("Schedule Name:");
+  auto* label = new QLabel("Schedule Name:");
   label->setObjectName("H2");
   hLayout->addWidget(label);
 
-  auto lineEdit = new OSLineEdit2();
+  auto* lineEdit = new OSLineEdit2();
   // lineEdit->bind(m_scheduleRuleset, "name");
-  opt_scheduleRuleset = m_scheduleRuleset;
+
   lineEdit->bind(*opt_scheduleRuleset, OptionalStringGetter(std::bind(&model::ScheduleRuleset::name, opt_scheduleRuleset.get_ptr(), true)),
                  boost::optional<StringSetterOptionalStringReturn>(
                    std::bind(&model::ScheduleRuleset::setName, opt_scheduleRuleset.get_ptr(), std::placeholders::_1)));
@@ -1842,8 +1843,7 @@ ScheduleRulesetNameWidget::ScheduleRulesetNameWidget(const model::ScheduleRulese
   hLayout->addStretch();
 
   // line
-  QFrame* line;
-  line = new QFrame();
+  auto* line = new QFrame();
   line->setFrameShape(QFrame::HLine);
   line->setFrameShadow(QFrame::Sunken);
   mainVLayout->addWidget(line);
@@ -1854,81 +1854,83 @@ ScheduleRulesetNameWidget::ScheduleRulesetNameWidget(const model::ScheduleRulese
 /******************************************************************************/
 
 YearOverview::YearOverview(const model::ScheduleRuleset& scheduleRuleset, QWidget* parent)
-  : QWidget(parent), m_scheduleRuleset(scheduleRuleset), m_dirty(false) {
+  : QWidget(parent),
+    m_januaryView(new MonthView(this)),
+    m_februaryView(new MonthView(this)),
+    m_marchView(new MonthView(this)),
+    m_aprilView(new MonthView(this)),
+    m_mayView(new MonthView(this)),
+    m_juneView(new MonthView(this)),
+    m_julyView(new MonthView(this)),
+    m_augustView(new MonthView(this)),
+    m_septemberView(new MonthView(this)),
+    m_octoberView(new MonthView(this)),
+    m_novemberView(new MonthView(this)),
+    m_decemberView(new MonthView(this)),
+    m_scheduleRuleset(scheduleRuleset),
+    m_dirty(false) {
   refreshActiveRuleIndices();
 
-  auto mainScrollLayout = new QVBoxLayout();
+  auto* mainScrollLayout = new QVBoxLayout();
 
   mainScrollLayout->setContentsMargins(0, 0, 0, 0);
 
   setLayout(mainScrollLayout);
 
-  auto scrollArea = new QScrollArea();
+  auto* scrollArea = new QScrollArea();
   scrollArea->setFrameStyle(QFrame::NoFrame);
   scrollArea->setWidgetResizable(true);
   scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
   scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
   mainScrollLayout->addWidget(scrollArea);
 
-  auto scrollWidget = new QWidget();
+  auto* scrollWidget = new QWidget();
 
   scrollArea->setWidget(scrollWidget);
 
-  auto mainLayout = new QVBoxLayout();
+  auto* mainLayout = new QVBoxLayout();
 
   mainLayout->setContentsMargins(0, 0, 0, 0);
 
   scrollWidget->setLayout(mainLayout);
 
-  auto gridLayout = new QGridLayout();
+  auto* gridLayout = new QGridLayout();
 
   gridLayout->setContentsMargins(0, 0, 0, 0);
 
-  m_januaryView = new MonthView(this);
   m_januaryView->setMonth(1);
   gridLayout->addWidget(m_januaryView, 0, 0);
 
-  m_februaryView = new MonthView(this);
   m_februaryView->setMonth(2);
   gridLayout->addWidget(m_februaryView, 1, 0);
 
-  m_marchView = new MonthView(this);
   m_marchView->setMonth(3);
   gridLayout->addWidget(m_marchView, 2, 0);
 
-  m_aprilView = new MonthView(this);
   m_aprilView->setMonth(4);
   gridLayout->addWidget(m_aprilView, 3, 0);
 
-  m_mayView = new MonthView(this);
   m_mayView->setMonth(5);
   gridLayout->addWidget(m_mayView, 4, 0);
 
-  m_juneView = new MonthView(this);
   m_juneView->setMonth(6);
   gridLayout->addWidget(m_juneView, 5, 0);
 
-  m_julyView = new MonthView(this);
   m_julyView->setMonth(7);
   gridLayout->addWidget(m_julyView, 6, 0);
 
-  m_augustView = new MonthView(this);
   m_augustView->setMonth(8);
   gridLayout->addWidget(m_augustView, 7, 0);
 
-  m_septemberView = new MonthView(this);
   m_septemberView->setMonth(9);
   gridLayout->addWidget(m_septemberView, 8, 0);
 
-  m_octoberView = new MonthView(this);
   m_octoberView->setMonth(10);
   gridLayout->addWidget(m_octoberView, 9, 0);
 
-  m_novemberView = new MonthView(this);
   m_novemberView->setMonth(11);
   gridLayout->addWidget(m_novemberView, 10, 0);
 
-  m_decemberView = new MonthView(this);
   m_decemberView->setMonth(12);
   gridLayout->addWidget(m_decemberView, 11, 0);
 
@@ -1942,12 +1944,12 @@ YearOverview::YearOverview(const model::ScheduleRuleset& scheduleRuleset, QWidge
   std::vector<model::ScheduleRule> scheduleRules = m_scheduleRuleset.scheduleRules();
 
   for (auto it = scheduleRules.begin(); it < scheduleRules.end(); ++it) {
-    it->getImpl<model::detail::ScheduleRule_Impl>().get()->onChange.connect<YearOverview, &YearOverview::scheduleRefresh>(this);
+    it->getImpl<model::detail::ScheduleRule_Impl>()->onChange.connect<YearOverview, &YearOverview::scheduleRefresh>(this);
   }
 
   model::YearDescription yearDescription = m_scheduleRuleset.model().getUniqueModelObject<model::YearDescription>();
 
-  yearDescription.getImpl<model::detail::YearDescription_Impl>().get()->onChange.connect<YearOverview, &YearOverview::scheduleRefresh>(this);
+  yearDescription.getImpl<model::detail::YearDescription_Impl>()->onChange.connect<YearOverview, &YearOverview::scheduleRefresh>(this);
 
   refresh();
 }
@@ -1963,13 +1965,13 @@ void YearOverview::refreshActiveRuleIndices() {
   m_dirty = false;
 }
 
-void YearOverview::onModelAdd(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> wo, const openstudio::IddObjectType& iddType,
+void YearOverview::onModelAdd(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> /*wo*/, const openstudio::IddObjectType& /*iddType*/,
                               const openstudio::UUID& uuid) {
-  boost::optional<model::ScheduleRule> scheduleRule = m_scheduleRuleset.model().getModelObject<model::ScheduleRule>(wo->handle());
+  boost::optional<model::ScheduleRule> scheduleRule = m_scheduleRuleset.model().getModelObject<model::ScheduleRule>(uuid);
 
   if (scheduleRule) {
     if (scheduleRule->scheduleRuleset().handle() == m_scheduleRuleset.handle()) {
-      scheduleRule->getImpl<model::detail::ScheduleRule_Impl>().get()->onChange.connect<YearOverview, &YearOverview::scheduleRefresh>(this);
+      scheduleRule->getImpl<model::detail::ScheduleRule_Impl>()->onChange.connect<YearOverview, &YearOverview::scheduleRefresh>(this);
     }
   }
 }
@@ -2013,8 +2015,9 @@ model::ScheduleRuleset YearOverview::scheduleRuleset() const {
 // MonthView
 /******************************************************************************/
 
-MonthView::MonthView(YearOverview* yearOverview) : QWidget(yearOverview), m_yearOverview(yearOverview), m_month(0) {
-  auto mainVLayout = new QVBoxLayout();
+MonthView::MonthView(YearOverview* yearOverview)
+  : QWidget(yearOverview), m_calendarWidget(new ScheduleCalendarWidget(this)), m_yearOverview(yearOverview), m_month(0) {
+  auto* mainVLayout = new QVBoxLayout();
 
   setLayout(mainVLayout);
 
@@ -2027,7 +2030,6 @@ MonthView::MonthView(YearOverview* yearOverview) : QWidget(yearOverview), m_year
 
   mainVLayout->addSpacing(5);
 
-  m_calendarWidget = new ScheduleCalendarWidget(this);
   m_calendarWidget->setVerticalHeaderFormat(QCalendarWidget::NoVerticalHeader);
   m_calendarWidget->setHorizontalHeaderFormat(QCalendarWidget::SingleLetterDayNames);
   m_calendarWidget->setNavigationBarVisible(false);
@@ -2035,7 +2037,7 @@ MonthView::MonthView(YearOverview* yearOverview) : QWidget(yearOverview), m_year
 
   mainVLayout->addWidget(m_calendarWidget);
 
-  auto line1 = new QFrame();
+  auto* line1 = new QFrame();
   line1->setFrameShape(QFrame::HLine);
   line1->setFixedHeight(1);
 

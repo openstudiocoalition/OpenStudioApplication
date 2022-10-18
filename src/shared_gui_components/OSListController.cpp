@@ -37,7 +37,7 @@
 
 namespace openstudio {
 
-OSListController::OSListController() : QObject(), m_selectionController(QSharedPointer<OSItemSelectionController>::create()) {
+OSListController::OSListController() : m_selectionController(QSharedPointer<OSItemSelectionController>::create()) {
   m_selectionController->registerListController(this);
 }
 
@@ -120,9 +120,7 @@ bool OSListItem::isSelected() const {
 
     std::vector<QPointer<OSListItem>> selectedItems = selectionController->m_selectedItems;
 
-    std::vector<QPointer<OSListItem>>::const_iterator it = std::find(selectedItems.begin(), selectedItems.end(), this);
-
-    if (it != selectedItems.end()) {
+    if (std::find(selectedItems.begin(), selectedItems.end(), this) != selectedItems.end()) {
       return true;
     }
   }
@@ -166,7 +164,7 @@ void OSListItem::toggleSelected() {
   setSelected(!isSelected());
 }
 
-OSItemSelectionController::OSItemSelectionController() : QObject(), m_allowMultipleSelections(false) {}
+OSItemSelectionController::OSItemSelectionController() : m_allowMultipleSelections(false) {}
 
 void OSItemSelectionController::setAllowMultipleSelections(bool multipleSelections) {
   m_allowMultipleSelections = multipleSelections;
@@ -177,10 +175,10 @@ void OSItemSelectionController::setAllowMultipleSelections(bool multipleSelectio
 }
 
 void OSItemSelectionController::unselectAllItems() {
-  std::vector<QPointer<OSListItem>> selectedItems = m_selectedItems;
+  std::vector<QPointer<OSListItem>> seltems = m_selectedItems;
 
-  for (std::vector<QPointer<OSListItem>>::const_iterator it = selectedItems.begin(); it != selectedItems.end(); ++it) {
-    (*it)->setSelected(false);
+  for (auto& selectedItem : seltems) {
+    selectedItem->setSelected(false);
   }
 }
 
@@ -207,7 +205,7 @@ bool OSItemSelectionController::allowMultipleSelections() const {
 }
 
 void OSItemSelectionController::registerListController(OSListController* listController) {
-  m_listControllers.push_back(QPointer<OSListController>(listController));
+  m_listControllers.emplace_back(listController);
 }
 
 void OSItemSelectionController::unregisterListController(OSListController* listController) {
@@ -222,7 +220,7 @@ void OSItemSelectionController::unregisterListController(OSListController* listC
 void OSItemSelectionController::addSelectedItem(OSListItem* item) {
   OS_ASSERT(item);
 
-  m_selectedItems.push_back(item);
+  m_selectedItems.emplace_back(item);
 
   emitSelectionChanged();
 }
@@ -239,11 +237,11 @@ void OSItemSelectionController::removeSelectedItem(OSListItem* item) {
   }
 }
 
-QWidget* OSItemDelegate::view(QSharedPointer<OSListItem> dataSource) {
+QWidget* OSItemDelegate::view(QSharedPointer<OSListItem> /*dataSource*/) {
   return new QWidget();
 }
 
-QGraphicsObject* OSGraphicsItemDelegate::view(QSharedPointer<OSListItem> dataSource) {
+QGraphicsObject* OSGraphicsItemDelegate::view(QSharedPointer<OSListItem> /*dataSource*/) {
   return nullptr;
 }
 

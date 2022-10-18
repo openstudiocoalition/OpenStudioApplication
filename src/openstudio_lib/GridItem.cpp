@@ -2702,7 +2702,6 @@ DemandSideItem::DemandSideItem(QGraphicsItem* parent, const std::vector<model::N
   model::Loop loop = m_demandInletNodes[0].loop().get();
   model::Mixer mixer = loop.demandMixer();
   model::Splitter splitter = loop.demandSplitter();
-  std::vector<model::AirLoopHVACZoneSplitter> splitters;
 
   // Do we have a dual duct system
   auto dualDuct = false;
@@ -2710,7 +2709,7 @@ DemandSideItem::DemandSideItem(QGraphicsItem* parent, const std::vector<model::N
   if (m_demandInletNodes.size() == 2u) {
     dualDuct = true;
     if (auto airLoop = loop.optionalCast<model::AirLoopHVAC>()) {
-      splitters = airLoop->zoneSplitters();
+      std::vector<model::AirLoopHVACZoneSplitter> splitters = airLoop->zoneSplitters();
       OS_ASSERT(splitters.size() == 2u);
 
       //auto zones = airLoop->thermalZones();
