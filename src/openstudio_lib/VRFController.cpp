@@ -49,6 +49,7 @@
 #include <openstudio/model/ComponentData_Impl.hpp>
 
 #include "../model_editor/Utilities.hpp"
+#include <boost/optional.hpp>
 
 #include <openstudio/utilities/core/Compare.hpp>
 #include "../shared_gui_components/GraphicsItems.hpp"
@@ -125,6 +126,12 @@ void VRFController::refreshNow() {
           QString zoneName = QString::fromStdString(zone->name().get());
           vrfTerminalView->zoneDropZone->setText(zoneName);
           vrfTerminalView->zoneDropZone->setToolTip(zoneName);
+        } else if (auto airLoopHVAC_ = it->airLoopHVAC()) {
+          vrfTerminalView->zoneDropZone->setHasZone(true);
+          vrfTerminalView->removeZoneButtonItem->setVisible(true);
+          QString airLoopHVACName = QString::fromStdString(airLoopHVAC_->name().get());
+          vrfTerminalView->zoneDropZone->setText("AirLoopHVAC: " + airLoopHVACName);
+          vrfTerminalView->zoneDropZone->setToolTip("AirLoopHVAC named " + airLoopHVACName);
         }
       }
     }
@@ -138,31 +145,39 @@ void VRFController::onVRFSystemViewDrop(const OSItemId& itemid) {
   std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
 
   if (doc->fromComponentLibrary(itemid)) {
+    if (boost::optional<model::ModelObject> mo = doc->getModelObject(itemid)) {
+
+      if (auto terminal_ = mo->optionalCast<model::ZoneHVACTerminalUnitVariableRefrigerantFlow>()) {
+        model::ZoneHVACTerminalUnitVariableRefrigerantFlow terminalClone =
+          terminal_->clone(m_currentSystem->model()).cast<model::ZoneHVACTerminalUnitVariableRefrigerantFlow>();
+        m_currentSystem->addTerminal(terminalClone);
+
+        refresh();
+      }
+    } else {
+      if (auto component = doc->getComponent(itemid)) {
+        if (component->primaryObject().optionalCast<model::ZoneHVACTerminalUnitVariableRefrigerantFlow>()) {
+          // Ugly hack to avoid the component being treated as a resource.
+          component->componentData().setString(OS_ComponentDataFields::UUID, toString(createUUID()));
+          // std::cout << component->componentData().getString(OS_ComponentDataFields::UUID) << std::endl;;
+          if (auto componentData = m_currentSystem->model().insertComponent(component.get())) {
+            auto terminal = componentData->primaryComponentObject().optionalCast<model::ZoneHVACTerminalUnitVariableRefrigerantFlow>();
+            OS_ASSERT(terminal);
+            m_currentSystem->addTerminal(terminal.get());
+
+            refresh();
+          }
+        }
+      }
+    }
+  } else if (doc->fromModel(itemid)) {
     boost::optional<model::ModelObject> mo = doc->getModelObject(itemid);
     OS_ASSERT(mo);
 
-    if (boost::optional<model::ZoneHVACTerminalUnitVariableRefrigerantFlow> terminal =
-          mo->optionalCast<model::ZoneHVACTerminalUnitVariableRefrigerantFlow>()) {
-      model::ZoneHVACTerminalUnitVariableRefrigerantFlow terminalClone =
-        terminal->clone(m_currentSystem->model()).cast<model::ZoneHVACTerminalUnitVariableRefrigerantFlow>();
-      m_currentSystem->addTerminal(terminalClone);
+    if (auto terminal_ = mo->optionalCast<model::ZoneHVACTerminalUnitVariableRefrigerantFlow>()) {
+      m_currentSystem->addTerminal(terminal_.get());
 
       refresh();
-    }
-  } else {
-    if (auto component = doc->getComponent(itemid)) {
-      if (component->primaryObject().optionalCast<model::ZoneHVACTerminalUnitVariableRefrigerantFlow>()) {
-        // Ugly hack to avoid the component being treated as a resource.
-        component->componentData().setString(OS_ComponentDataFields::UUID, toString(createUUID()));
-        // std::cout << component->componentData().getString(OS_ComponentDataFields::UUID) << std::endl;;
-        if (auto componentData = m_currentSystem->model().insertComponent(component.get())) {
-          auto terminal = componentData->primaryComponentObject().optionalCast<model::ZoneHVACTerminalUnitVariableRefrigerantFlow>();
-          OS_ASSERT(terminal);
-          m_currentSystem->addTerminal(terminal.get());
-
-          refresh();
-        }
-      }
     }
   }
 }
