@@ -1028,10 +1028,8 @@ void MainRightColumnController::configureForHVACSystemsSubTab(int subTabID) {
   libraryWidget->addModelObjectType(IddObjectType::OS_ThermalStorage_Ice_Detailed, "Thermal Storage - Ice Storage");
   libraryWidget->addModelObjectType(IddObjectType::OS_ThermalStorage_ChilledWater_Stratified, "Thermal Storage - Chilled Water");
   libraryWidget->addModelObjectType(IddObjectType::OS_TemperingValve, "Tempering Valve");
-
   libraryWidget->addModelObjectType(IddObjectType::OS_SetpointManager_SystemNodeReset_Humidity, "Setpoint Manager System Node Reset Humidity");
   libraryWidget->addModelObjectType(IddObjectType::OS_SetpointManager_SystemNodeReset_Temperature, "Setpoint Manager System Node Reset Temperature");
-  libraryWidget->addModelObjectType(IddObjectType::OS_SetpointManager_Coldest, "Setpoint Manager Coldest");
   libraryWidget->addModelObjectType(IddObjectType::OS_SetpointManager_Coldest, "Setpoint Manager Coldest");
   libraryWidget->addModelObjectType(IddObjectType::OS_SetpointManager_FollowGroundTemperature, "Setpoint Manager Follow Ground Temperature");
   libraryWidget->addModelObjectType(IddObjectType::OS_SetpointManager_FollowOutdoorAirTemperature, "Setpoint Manager Follow Outdoor Air Temperature");

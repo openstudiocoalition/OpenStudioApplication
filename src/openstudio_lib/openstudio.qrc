@@ -534,6 +534,8 @@
     <file>images/mini_icons/setpoint_singlezone.png</file>
     <file>images/mini_icons/setpoint_singlezone_humidity_max.png</file>
     <file>images/mini_icons/setpoint_singlezone_humidity_min.png</file>
+    <file>images/mini_icons/setpoint_systemnodereset_temperature.png</file>
+    <file>images/mini_icons/setpoint_systemnodereset_humidity.png</file>
     <file>images/mini_icons/setpoint_warmest.png</file>
     <file>images/mini_icons/setpoint_warmest_tempflow.png</file>
     <file>images/mini_icons/shading_surface.png</file>
