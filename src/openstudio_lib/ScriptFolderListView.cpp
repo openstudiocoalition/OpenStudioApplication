@@ -88,7 +88,7 @@ void ScriptFolderListView::addScriptToFolder(const openstudio::path& t_path, con
   openstudio::filesystem::create_directories(folder);
   openstudio::path filename = folder / t_path.filename();
   filename = iterateFileName(filename);
-  openstudio::filesystem::copy_file(t_path, filename, openstudio::filesystem::copy_option::overwrite_if_exists);
+  openstudio::filesystem::copy_file(t_path, filename, openstudio::filesystem::copy_options::overwrite_existing);
 
   ScriptsListView* lv = m_scriptsListViews[folder];
   if (lv) {
@@ -102,7 +102,7 @@ void ScriptFolderListView::removeScript(const openstudio::path& t_path) {
 
 void ScriptFolderListView::duplicateScript(const openstudio::path& t_path) {
   openstudio::path filename = iterateFileName(t_path);
-  openstudio::filesystem::copy_file(t_path, filename, openstudio::filesystem::copy_option::overwrite_if_exists);
+  openstudio::filesystem::copy_file(t_path, filename, openstudio::filesystem::copy_options::overwrite_existing);
 }
 
 void ScriptFolderListView::createEmptyScript(const openstudio::path& t_folder_name) {

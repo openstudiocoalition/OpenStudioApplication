@@ -393,7 +393,6 @@ void MainRightColumnController::configureForConstructionsSubTab(int subTabID) {
 
       myModelList->addModelObjectType(IddObjectType::OS_Material_RoofVegetation, "Roof Vegetation Materials");
       myModelList->addModelObjectType(IddObjectType::OS_Material_InfraredTransparent, "Infrared Transparent Materials");
-      myModelList->addModelObjectType(IddObjectType::OS_Material_AirWall, "Air Wall Materials");
       myModelList->addModelObjectType(IddObjectType::OS_Material_AirGap, "Air Gap Materials");
       myModelList->addModelObjectType(IddObjectType::OS_Material_NoMass, "No Mass Materials");
       myModelList->addModelObjectType(IddObjectType::OS_Material, "Materials");
@@ -422,7 +421,6 @@ void MainRightColumnController::configureForConstructionsSubTab(int subTabID) {
 
       myLibraryList->addModelObjectType(IddObjectType::OS_Material_RoofVegetation, "Roof Vegetation Materials");
       myLibraryList->addModelObjectType(IddObjectType::OS_Material_InfraredTransparent, "Infrared Transparent Materials");
-      myLibraryList->addModelObjectType(IddObjectType::OS_Material_AirWall, "Air Wall Materials");
       myLibraryList->addModelObjectType(IddObjectType::OS_Material_AirGap, "Air Gap Materials");
       myLibraryList->addModelObjectType(IddObjectType::OS_Material_NoMass, "No Mass Materials");
       myLibraryList->addModelObjectType(IddObjectType::OS_Material, "Materials");
@@ -474,7 +472,6 @@ void MainRightColumnController::configureForConstructionsSubTab(int subTabID) {
 
       myLibraryList->addModelObjectType(IddObjectType::OS_Material_RoofVegetation, "Roof Vegetation Materials");
       myLibraryList->addModelObjectType(IddObjectType::OS_Material_InfraredTransparent, "Infrared Transparent Materials");
-      myLibraryList->addModelObjectType(IddObjectType::OS_Material_AirWall, "Air Wall Materials");
       myLibraryList->addModelObjectType(IddObjectType::OS_Material_AirGap, "Air Gap Materials");
       myLibraryList->addModelObjectType(IddObjectType::OS_Material_NoMass, "No Mass Materials");
       myLibraryList->addModelObjectType(IddObjectType::OS_Material, "Materials");
