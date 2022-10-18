@@ -262,6 +262,10 @@
     <file>images/setpoint_singlezone_humidity_min.png</file>
     <file>images/setpoint_singlezone_humidity_min_right.png</file>
     <file>images/setpoint_singlezone_right.png</file>
+    <file>images/setpoint_systemnodereset_temperature.png</file>
+    <file>images/setpoint_systemnodereset_temperature_right.png</file>
+    <file>images/setpoint_systemnodereset_humidity.png</file>
+    <file>images/setpoint_systemnodereset_humidity_right.png</file>
     <file>images/setpoint_warmest.png</file>
     <file>images/setpoint_warmest_right.png</file>
     <file>images/setpoint_warmest_tempflow.png</file>
