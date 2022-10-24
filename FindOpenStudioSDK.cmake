@@ -63,13 +63,17 @@ else()
     "https://github.com/NREL/OpenStudio/releases/download/v${OPENSTUDIO_VERSION}${OPENSTUDIO_VERSION_PRERELEASE}/"
     CACHE STRING "Base link to where the openstudio archives are hosted" FORCE)
 
+  if (WIN32)
+    set(WIN_SUBFOLDER "/signed")
+  endif()
   # base link for develop builds. (Using https will fail)
   # Note: this should be set to ""http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/develop" for nightly builds
   # Occasionally we can point to a specific PR by using something like ""http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/PR-4080"
   set(OPENSTUDIO_BASELINK_CI
-    "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/develop"
-    # TEMPORARY point to a PR
+    # "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/develop"
+    # TODO: TEMPORARY point to a specific subfolder / PR
     # "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/PR-4712"
+    "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/3.5.0-rc1${WIN_SUBFOLDER}"
 
     CACHE STRING "Base link to where the openstudio develop archives are hosted" FORCE)
 
