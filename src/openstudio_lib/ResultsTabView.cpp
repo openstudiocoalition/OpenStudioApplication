@@ -75,13 +75,13 @@ ResultsView::ResultsView(QWidget* t_parent)
     m_refreshBtn(new QPushButton("Refresh")),
     m_openDViewBtn(new QPushButton("Open DView for\nDetailed Reports")) {
 
-  auto mainLayout = new QVBoxLayout;
+  auto* mainLayout = new QVBoxLayout;
   setLayout(mainLayout);
 
   connect(m_refreshBtn, &QPushButton::clicked, this, &ResultsView::refreshClicked);
 
   // Prepare the top portion inside a QHBoxLayout
-  auto hLayout = new QHBoxLayout(this);
+  auto* hLayout = new QHBoxLayout(this);
 
   m_reportLabel = new QLabel("Reports: ", this);
   m_reportLabel->setObjectName("H2");

@@ -50,7 +50,7 @@ UtilityBillsController::UtilityBillsController(const model::Model& model) : Mode
   subTabView()->itemSelectorButtons()->disablePurgeButton();
   subTabView()->itemSelectorButtons()->hideDropZone();
 
-  UtilityBillsInspectorView* utilityBillsInspectorView = static_cast<UtilityBillsInspectorView*>(subTabView()->inspectorView());
+  auto* utilityBillsInspectorView = static_cast<UtilityBillsInspectorView*>(subTabView()->inspectorView());
 
   connect(this, &UtilityBillsController::toggleUnitsClicked, utilityBillsInspectorView, &UtilityBillsInspectorView::toggleUnitsClicked);
 
@@ -59,7 +59,7 @@ UtilityBillsController::UtilityBillsController(const model::Model& model) : Mode
 
 void UtilityBillsController::onAddObject(const openstudio::IddObjectType& iddObjectType) {
   OSItemSelector* itemSelector = this->subTabView()->itemSelector();
-  UtilityBillAllFuelTypesListView* utilityBillAllFuelTypesListView = qobject_cast<UtilityBillAllFuelTypesListView*>(itemSelector);
+  auto* utilityBillAllFuelTypesListView = qobject_cast<UtilityBillAllFuelTypesListView*>(itemSelector);
   OS_ASSERT(utilityBillAllFuelTypesListView);
   FuelType fuelType = utilityBillAllFuelTypesListView->currentFuelType();
   model::Model model = this->model();
@@ -101,7 +101,7 @@ void UtilityBillsController::onClearSelection() {
   m_subTabView->itemSelectorButtons()->disableRemoveButton();
 
   openstudio::OSInspectorView* inspectorView = subTabView()->inspectorView();
-  UtilityBillsInspectorView* utilityBillsInspectorView = qobject_cast<UtilityBillsInspectorView*>(inspectorView);
+  auto* utilityBillsInspectorView = qobject_cast<UtilityBillsInspectorView*>(inspectorView);
   OS_ASSERT(utilityBillsInspectorView);
 
   enableAddNewObjectButton(utilityBillsInspectorView->runPeriodDates().has_value());

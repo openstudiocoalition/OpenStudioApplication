@@ -57,7 +57,7 @@ SpaceTypesView::SpaceTypesView(bool isIP, const openstudio::model::Model& model,
   : ModelSubTabView(new ModelObjectListView(IddObjectType::OS_SpaceType, model, true, parent), new SpaceTypeInspectorView(isIP, model, parent),
                     true,  // Note: "true" creates a GridView SubTabView
                     parent) {
-  ModelObjectListView* modelObjectListView = qobject_cast<ModelObjectListView*>(this->itemSelector());
+  auto* modelObjectListView = qobject_cast<ModelObjectListView*>(this->itemSelector());
   OS_ASSERT(modelObjectListView);
   modelObjectListView->setItemsDraggable(false);
 

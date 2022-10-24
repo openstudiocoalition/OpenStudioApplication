@@ -55,13 +55,13 @@ WindowMaterialGasMixtureInspectorView::WindowMaterialGasMixtureInspectorView(boo
 }
 
 void WindowMaterialGasMixtureInspectorView::createLayout() {
-  auto hiddenWidget = new QWidget();
+  auto* hiddenWidget = new QWidget();
   this->stackedWidget()->addWidget(hiddenWidget);
 
-  auto visibleWidget = new QWidget();
+  auto* visibleWidget = new QWidget();
   this->stackedWidget()->addWidget(visibleWidget);
 
-  auto mainGridLayout = new QGridLayout();
+  auto* mainGridLayout = new QGridLayout();
   mainGridLayout->setContentsMargins(7, 7, 7, 7);
   mainGridLayout->setSpacing(14);
   visibleWidget->setLayout(mainGridLayout);
@@ -222,7 +222,7 @@ void WindowMaterialGasMixtureInspectorView::onClearSelection() {
 
 void WindowMaterialGasMixtureInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject) {
   detach();
-  model::GasMixture gasMixture = modelObject.cast<model::GasMixture>();
+  auto gasMixture = modelObject.cast<model::GasMixture>();
   attach(gasMixture);
   refresh();
 }

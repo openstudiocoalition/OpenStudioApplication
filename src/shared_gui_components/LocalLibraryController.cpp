@@ -231,16 +231,16 @@ LibraryTypeItemDelegate::LibraryTypeItemDelegate(BaseApp* t_app) : m_app(t_app) 
 
 QWidget* LibraryTypeItemDelegate::view(QSharedPointer<OSListItem> dataSource) {
   if (QSharedPointer<LibraryTypeItem> item = dataSource.dynamicCast<LibraryTypeItem>()) {
-    auto groupCollapsibleView = new OSCollapsibleView();
+    auto* groupCollapsibleView = new OSCollapsibleView();
 
-    auto header = new DarkGradientHeader();
+    auto* header = new DarkGradientHeader();
     header->label->setText(item->name());
     groupCollapsibleView->setHeader(header);
 
     QSharedPointer<LibraryGroupListController> groupListController = item->libraryGroupListController();
     QSharedPointer<LibraryGroupItemDelegate> groupItemDelegate = QSharedPointer<LibraryGroupItemDelegate>(new LibraryGroupItemDelegate(m_app));
 
-    auto groupListView = new OSListView();
+    auto* groupListView = new OSListView();
     groupListView->setContentsMargins(0, 0, 0, 0);
     groupListView->setSpacing(0);
     groupListView->setListController(groupListController);
@@ -285,9 +285,9 @@ LibraryGroupItemDelegate::LibraryGroupItemDelegate(BaseApp* t_app) : m_app(t_app
 
 QWidget* LibraryGroupItemDelegate::view(QSharedPointer<OSListItem> dataSource) {
   if (QSharedPointer<LibraryGroupItem> item = dataSource.dynamicCast<LibraryGroupItem>()) {
-    auto groupCollapsibleView = new OSCollapsibleView();
+    auto* groupCollapsibleView = new OSCollapsibleView();
 
-    auto header = new LibraryGroupItemHeader();
+    auto* header = new LibraryGroupItemHeader();
     header->label->setText(item->name());
 
     connect(item->librarySubGroupListController().data(), &LibrarySubGroupListController::libraryItemCountChanged, header,
@@ -299,7 +299,7 @@ QWidget* LibraryGroupItemDelegate::view(QSharedPointer<OSListItem> dataSource) {
     QSharedPointer<LibrarySubGroupItemDelegate> subGroupItemDelegate =
       QSharedPointer<LibrarySubGroupItemDelegate>(new LibrarySubGroupItemDelegate(m_app));
 
-    auto subGroupListView = new OSListView();
+    auto* subGroupListView = new OSListView();
     subGroupListView->setContentsMargins(0, 0, 0, 0);
     subGroupListView->setSpacing(0);
     subGroupListView->setListController(subGroupListController);
@@ -345,9 +345,9 @@ LibrarySubGroupItemDelegate::LibrarySubGroupItemDelegate(BaseApp* t_app) : m_app
 
 QWidget* LibrarySubGroupItemDelegate::view(QSharedPointer<OSListItem> dataSource) {
   if (QSharedPointer<LibrarySubGroupItem> item = dataSource.dynamicCast<LibrarySubGroupItem>()) {
-    auto subGroupCollapsibleView = new OSCollapsibleView();
+    auto* subGroupCollapsibleView = new OSCollapsibleView();
 
-    auto header = new LibrarySubGroupItemHeader();
+    auto* header = new LibrarySubGroupItemHeader();
 
     header->label->setText(item->name());
 
@@ -358,7 +358,7 @@ QWidget* LibrarySubGroupItemDelegate::view(QSharedPointer<OSListItem> dataSource
     QSharedPointer<LibraryListController> libraryListController = item->libraryListController();
     QSharedPointer<LibraryItemDelegate> measureLibraryItemDelegate = QSharedPointer<LibraryItemDelegate>(new LibraryItemDelegate(m_app));
 
-    auto measureListView = new OSListView();
+    auto* measureListView = new OSListView();
     measureListView->setContentsMargins(5, 0, 5, 0);
     measureListView->setSpacing(5);
     measureListView->setListController(libraryListController);
@@ -478,9 +478,9 @@ void LibraryItem::dragItem(const OSDragPixmapData& dragPixmapData) {
   //if (!m_bclMeasure.error()){
   MeasureDragData measureDragData(m_bclMeasure.uuid());
 
-  auto drag = new QDrag(m_app->mainWidget());
+  auto* drag = new QDrag(m_app->mainWidget());
 
-  auto mimeData = new QMimeData;
+  auto* mimeData = new QMimeData;
   mimeData->setData(MeasureDragData::mimeType(m_bclMeasure.measureType()), measureDragData.data());
   drag->setMimeData(mimeData);
 
@@ -504,7 +504,7 @@ QWidget* LibraryItemDelegate::view(QSharedPointer<OSListItem> dataSource) {
 
     // std::vector<std::string> localUUIDs = (LocalBCL::instance().measureUids());
 
-    auto widget = new LibraryItemView();
+    auto* widget = new LibraryItemView();
 
     if (measureType == MeasureType::ModelMeasure) {
       widget->m_measureTypeBadge->setPixmap(

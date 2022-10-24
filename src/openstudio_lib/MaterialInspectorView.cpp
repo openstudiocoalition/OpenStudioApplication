@@ -57,13 +57,13 @@ MaterialInspectorView::MaterialInspectorView(bool isIP, const openstudio::model:
 }
 
 void MaterialInspectorView::createLayout() {
-  auto hiddenWidget = new QWidget();
+  auto* hiddenWidget = new QWidget();
   this->stackedWidget()->addWidget(hiddenWidget);
 
-  auto visibleWidget = new QWidget();
+  auto* visibleWidget = new QWidget();
   this->stackedWidget()->addWidget(visibleWidget);
 
-  auto mainGridLayout = new QGridLayout();
+  auto* mainGridLayout = new QGridLayout();
   mainGridLayout->setContentsMargins(7, 7, 7, 7);
   mainGridLayout->setSpacing(14);
   visibleWidget->setLayout(mainGridLayout);
@@ -217,7 +217,7 @@ void MaterialInspectorView::onClearSelection() {
 
 void MaterialInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject) {
   detach();
-  model::StandardOpaqueMaterial standardOpaqueMaterial = modelObject.cast<model::StandardOpaqueMaterial>();
+  auto standardOpaqueMaterial = modelObject.cast<model::StandardOpaqueMaterial>();
   attach(standardOpaqueMaterial);
   refresh();
 }

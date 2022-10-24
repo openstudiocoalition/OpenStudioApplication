@@ -41,7 +41,7 @@
 namespace openstudio {
 
 LibraryTabWidget::LibraryTabWidget(QWidget* parent) : QWidget(parent) {
-  auto mainLayout = new QVBoxLayout();
+  auto* mainLayout = new QVBoxLayout();
 
   mainLayout->setSpacing(0);
 
@@ -75,7 +75,7 @@ LibraryTabWidget::LibraryTabWidget(QWidget* parent) : QWidget(parent) {
 
   connect(m_removeButton, &QPushButton::clicked, this, &LibraryTabWidget::removeButtonClicked);
 
-  auto hLayout = new QHBoxLayout();
+  auto* hLayout = new QHBoxLayout();
   hLayout->setContentsMargins(0, 0, 0, 0);
   hLayout->addStretch();
   hLayout->addWidget(m_removeButton, 0, Qt::AlignVCenter);
@@ -102,7 +102,7 @@ void LibraryTabWidget::hideRemoveButton() {
 }
 
 void LibraryTabWidget::addTab(QWidget* widget, const QString& selectedImagePath, const QString& unSelectedImagePath) {
-  auto button = new QPushButton(m_tabBar);
+  auto* button = new QPushButton(m_tabBar);
 
   button->setFixedSize(QSize(29, 29));
 
@@ -149,7 +149,7 @@ void LibraryTabWidget::hideTab(QWidget* widget, bool hide) {
 }
 
 void LibraryTabWidget::select() {
-  QPushButton* button = qobject_cast<QPushButton*>(sender());
+  auto* button = qobject_cast<QPushButton*>(sender());
 
   int index = 0;
 

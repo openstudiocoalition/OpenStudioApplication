@@ -149,7 +149,7 @@ void ModelObjectSelectorDialog::onPushButtonCancel(bool) {
 
 void ModelObjectSelectorDialog::onAddWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl,
                                                      const openstudio::IddObjectType& type, const openstudio::UUID& uuid) {
-  std::vector<openstudio::IddObjectType>::const_iterator it = std::find(m_typesToDisplay.begin(), m_typesToDisplay.end(), impl->iddObject().type());
+  auto it = std::find(m_typesToDisplay.begin(), m_typesToDisplay.end(), impl->iddObject().type());
   if (it != m_typesToDisplay.end()) {
     loadComboBoxData();
   }
@@ -157,7 +157,7 @@ void ModelObjectSelectorDialog::onAddWorkspaceObject(std::shared_ptr<openstudio:
 
 void ModelObjectSelectorDialog::onRemoveWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl,
                                                         const openstudio::IddObjectType& type, const openstudio::UUID& uuid) {
-  std::vector<openstudio::IddObjectType>::const_iterator it = std::find(m_typesToDisplay.begin(), m_typesToDisplay.end(), impl->iddObject().type());
+  auto it = std::find(m_typesToDisplay.begin(), m_typesToDisplay.end(), impl->iddObject().type());
   if (it != m_typesToDisplay.end()) {
     loadComboBoxData();
   }
@@ -202,17 +202,17 @@ void ModelObjectSelectorDialog::createWidgets() {
   m_cancelButton->setText(tr("Cancel"));
   m_cancelButton->setToolTip(tr("Cancel"));
 
-  auto buttonLayout = new QHBoxLayout;
+  auto* buttonLayout = new QHBoxLayout;
   buttonLayout->addSpacing(5);
   buttonLayout->addWidget(m_okButton);
   buttonLayout->addSpacing(5);
   buttonLayout->addWidget(m_cancelButton);
   buttonLayout->addStretch(0);
 
-  auto buttonGroup = new QWidget(this);
+  auto* buttonGroup = new QWidget(this);
   buttonGroup->setLayout(buttonLayout);
 
-  auto mainLayout = new QVBoxLayout;
+  auto* mainLayout = new QVBoxLayout;
   mainLayout->addWidget(m_userTextLabel);
   mainLayout->addWidget(m_comboBox);
   mainLayout->addWidget(buttonGroup);

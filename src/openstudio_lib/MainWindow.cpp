@@ -99,7 +99,7 @@ MainWindow::MainWindow(bool isPlugin, QWidget* parent) : QMainWindow(parent), m_
 
   setCentralWidget(m_mainSplitter);
 
-  auto mainMenu = new MainMenu(m_displayIP, m_isPlugin, m_currLang);
+  auto* mainMenu = new MainMenu(m_displayIP, m_isPlugin, m_currLang);
   connect(mainMenu, &MainMenu::toggleUnitsClicked, this, &MainWindow::toggleUnits);
   connect(mainMenu, &MainMenu::changeLanguageClicked, this, &MainWindow::changeLanguage);
   connect(mainMenu, &MainMenu::downloadComponentsClicked, this, &MainWindow::downloadComponentsClicked);
@@ -317,7 +317,7 @@ void MainWindow::configureProxyClicked() {
   QString applicationName = QCoreApplication::applicationName();
   QSettings settings(organizationName, applicationName);
   NetworkProxyDialog dialog(settings, this);
-  QDialog::DialogCode result = static_cast<QDialog::DialogCode>(dialog.exec());
+  auto result = static_cast<QDialog::DialogCode>(dialog.exec());
 
   if (result == QDialog::Accepted) {
     QNetworkProxy proxy = dialog.createProxy();

@@ -118,9 +118,9 @@ QUrl getEmbeddedFileUrl(const QString& filename) {
 }
 
 GeometryEditorView::GeometryEditorView(bool isIP, const openstudio::model::Model& model, QWidget* parent) : QWidget(parent) {
-  QVBoxLayout* layout = new QVBoxLayout;
+  auto* layout = new QVBoxLayout;
 
-  EditorWebView* webView = new EditorWebView(isIP, model, this);
+  auto* webView = new EditorWebView(isIP, model, this);
   layout->addWidget(webView);
 
   setLayout(layout);
@@ -129,7 +129,7 @@ GeometryEditorView::GeometryEditorView(bool isIP, const openstudio::model::Model
 GeometryEditorView::~GeometryEditorView() {}
 
 DebugWebView::DebugWebView(const QString& debugPort, QWidget* parent) : QDialog(parent) {
-  auto mainLayout = new QVBoxLayout;
+  auto* mainLayout = new QVBoxLayout;
   setLayout(mainLayout);
 
   m_view = new QWebEngineView(this);
@@ -1102,7 +1102,7 @@ EditorWebView::EditorWebView(bool isIP, const openstudio::model::Model& model, Q
   // find available port for debugging
   m_debugPort = QString(qgetenv("QTWEBENGINE_REMOTE_DEBUGGING"));
 
-  auto mainLayout = new QVBoxLayout;
+  auto* mainLayout = new QVBoxLayout;
   setLayout(mainLayout);
 
   connect(m_document.get(), &OSDocument::toggleUnitsClicked, this, &EditorWebView::onUnitSystemChange);
@@ -1113,10 +1113,10 @@ EditorWebView::EditorWebView(bool isIP, const openstudio::model::Model& model, Q
   connect(m_mergeBtn, &QPushButton::clicked, this, &EditorWebView::mergeClicked);
   connect(m_debugBtn, &QPushButton::clicked, this, &EditorWebView::debugClicked);
 
-  auto hLayout = new QHBoxLayout(this);
+  auto* hLayout = new QHBoxLayout(this);
   mainLayout->addLayout(hLayout);
 
-  QLabel* label = new QLabel(this);
+  auto* label = new QLabel(this);
   label->setText("Geometry Type");
   hLayout->addWidget(label);
 
@@ -1420,7 +1420,7 @@ void EditorWebView::previewExport() {
 
     // merge export model into clone of m_model
     bool keepHandles = true;
-    model::Model temp = m_model.clone(keepHandles).cast<model::Model>();
+    auto temp = m_model.clone(keepHandles).cast<model::Model>();
     model::ModelMerger mm;
     mm.mergeModels(temp, m_baseEditor->exportModel(), m_baseEditor->exportModelHandleMapping());
 
@@ -1442,7 +1442,7 @@ void EditorWebView::previewExport() {
 
     bool signalsBlocked = m_baseEditor->blockUpdateTimerSignals(true);
 
-    PreviewWebView* webView = new PreviewWebView(m_isIP, temp);
+    auto* webView = new PreviewWebView(m_isIP, temp);
     QLayout* layout = new QVBoxLayout();
     layout->addWidget(webView);
 

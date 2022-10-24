@@ -46,21 +46,21 @@ namespace openstudio {
 namespace bimserver {
 
 ProjectImporter::ProjectImporter(QWidget* parent) : QDialog(parent) {
-  auto subLayout = new QGridLayout;
-  auto mainLayout = new QVBoxLayout;
+  auto* subLayout = new QGridLayout;
+  auto* mainLayout = new QVBoxLayout;
 
-  QLabel* introLabel = new QLabel("Please select a project to import: ", this);
+  auto* introLabel = new QLabel("Please select a project to import: ", this);
   m_proList = new QListWidget(this);
   m_ifcList = new QListWidget(this);
   m_okButton = new QPushButton(tr("Download OSM File"), this);
   m_okButton->setEnabled(false);
-  QPushButton* newButton = new QPushButton(tr("New Project"), this);
+  auto* newButton = new QPushButton(tr("New Project"), this);
   m_loadButton = new QPushButton(tr("Check in IFC File"), this);
   m_loadButton->setEnabled(false);
   m_selectButton = new QPushButton(tr(" > "), this);
   m_selectButton->setEnabled(false);
-  QPushButton* cancelButton = new QPushButton(tr("Cancel"), this);
-  QPushButton* settingButton = new QPushButton(tr("Setting"), this);
+  auto* cancelButton = new QPushButton(tr("Cancel"), this);
+  auto* settingButton = new QPushButton(tr("Setting"), this);
   m_statusBar = new QStatusBar(this);
 
   connect(m_okButton, &QPushButton::clicked, this, &ProjectImporter::okButton_clicked);
@@ -268,25 +268,25 @@ void ProjectImporter::settingButton_clicked() {
 
   m_statusBar->showMessage(tr("Please specify the bimserver address/port and user credentials."), 2000);
   QDialog setDialog(this);
-  auto setLayout = new QGridLayout;
+  auto* setLayout = new QGridLayout;
   setDialog.setWindowTitle(tr("BIMserver Settings"));
 
-  QLabel* set_introLabel = new QLabel(tr("Please enter the BIMserver information: "), this);
-  QLabel* set_baddLabel = new QLabel(tr("BIMserver Address: http://"), this);
-  auto set_baddEdit = new QLineEdit(this);
+  auto* set_introLabel = new QLabel(tr("Please enter the BIMserver information: "), this);
+  auto* set_baddLabel = new QLabel(tr("BIMserver Address: http://"), this);
+  auto* set_baddEdit = new QLineEdit(this);
   set_baddEdit->setPlaceholderText("eg: 127.0.0.1");
-  QLabel* set_bportLabel = new QLabel(tr("BIMserver Port:"), this);
-  auto set_bportEdit = new QLineEdit(this);
+  auto* set_bportLabel = new QLabel(tr("BIMserver Port:"), this);
+  auto* set_bportEdit = new QLineEdit(this);
   set_bportEdit->setPlaceholderText("eg: 8082");
-  QLabel* set_unameLabel = new QLabel(tr("Username"), this);
-  auto set_unameEdit = new QLineEdit(this);
+  auto* set_unameLabel = new QLabel(tr("Username"), this);
+  auto* set_unameEdit = new QLineEdit(this);
   set_unameEdit->setPlaceholderText("eg: admin@bimserver.org");
-  QLabel* set_upassLabel = new QLabel(tr("Password"), this);
-  auto set_upassEdit = new QLineEdit(this);
+  auto* set_upassLabel = new QLabel(tr("Password"), this);
+  auto* set_upassEdit = new QLineEdit(this);
   set_upassEdit->setPlaceholderText("eg: admin");
   set_upassEdit->setEchoMode(QLineEdit::Password);
-  QPushButton* set_okButton = new QPushButton(tr("Okay"), this);
-  QPushButton* set_cancelButton = new QPushButton(tr("Cancel"), this);
+  auto* set_okButton = new QPushButton(tr("Okay"), this);
+  auto* set_cancelButton = new QPushButton(tr("Cancel"), this);
 
   if (m_settings->contains("addr")) {
     QString addr = m_settings->value("addr").toString();

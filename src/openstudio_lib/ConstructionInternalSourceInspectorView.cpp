@@ -71,13 +71,13 @@ ConstructionInternalSourceInspectorView::ConstructionInternalSourceInspectorView
 }
 
 void ConstructionInternalSourceInspectorView::createLayout() {
-  auto hiddenWidget = new QWidget();
+  auto* hiddenWidget = new QWidget();
   this->stackedWidget()->addWidget(hiddenWidget);
 
-  auto visibleWidget = new QWidget();
+  auto* visibleWidget = new QWidget();
   this->stackedWidget()->addWidget(visibleWidget);
 
-  auto mainGridLayout = new QGridLayout();
+  auto* mainGridLayout = new QGridLayout();
   mainGridLayout->setContentsMargins(7, 7, 7, 7);
   mainGridLayout->setSpacing(14);
   visibleWidget->setLayout(mainGridLayout);
@@ -205,7 +205,7 @@ void ConstructionInternalSourceInspectorView::onClearSelection() {
 
 void ConstructionInternalSourceInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject) {
   detach();
-  model::ConstructionWithInternalSource constructionWithInternalSource = modelObject.cast<model::ConstructionWithInternalSource>();
+  auto constructionWithInternalSource = modelObject.cast<model::ConstructionWithInternalSource>();
   attach(constructionWithInternalSource);
 
   this->stackedWidget()->setCurrentIndex(1);

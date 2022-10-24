@@ -132,8 +132,8 @@ void ModelObjectVectorController::detach() {
 }
 
 void ModelObjectVectorController::detachOtherModelObject(const model::ModelObject& modelObject) {
-  std::vector<model::ModelObject>::const_iterator it = m_otherModelObjects.begin();
-  std::vector<model::ModelObject>::const_iterator itend = m_otherModelObjects.end();
+  auto it = m_otherModelObjects.begin();
+  auto itend = m_otherModelObjects.end();
   std::vector<model::ModelObject> newVector;
   for (; it != itend; ++it) {
     if (it->handle() == modelObject.handle()) {

@@ -47,7 +47,7 @@ PlanarSurfaceWidget::PlanarSurfaceWidget(bool isIP, QWidget* parent) : QWidget(p
 
   setUnits(isIP);
 
-  auto layout = new QGridLayout();
+  auto* layout = new QGridLayout();
   layout->setContentsMargins(7, 7, 7, 7);
   layout->setSpacing(7);
   this->setLayout(layout);
@@ -98,9 +98,9 @@ void PlanarSurfaceWidget::refresh() {
       multiplicationFactor = FEET_PER_METER;
     }
 
-    QGridLayout* layout = qobject_cast<QGridLayout*>(this->layout());
+    auto* layout = qobject_cast<QGridLayout*>(this->layout());
 
-    auto label = new QLabel();
+    auto* label = new QLabel();
     label->setText("Number");
     label->setStyleSheet("QLabel { font: bold; }");
     layout->addWidget(label, 0, 0);

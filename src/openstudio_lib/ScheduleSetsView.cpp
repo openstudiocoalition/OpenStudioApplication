@@ -60,12 +60,12 @@ std::vector<std::pair<IddObjectType, std::string>> ScheduleSetsView::modelObject
 
 ScheduleSetsInspectorView::ScheduleSetsInspectorView(const model::Model& model, QWidget* parent) : ModelObjectInspectorView(model, false, parent) {
   // index of hidden widget is 0
-  auto hiddenWidget = new QWidget();
+  auto* hiddenWidget = new QWidget();
   int index = this->stackedWidget()->addWidget(hiddenWidget);
   OS_ASSERT(index == 0);
 
   // index of the default is 1
-  auto defaultInspectorView = new DefaultInspectorView(model, parent);
+  auto* defaultInspectorView = new DefaultInspectorView(model, parent);
   index = this->stackedWidget()->addWidget(defaultInspectorView);
   OS_ASSERT(index == 1);
 
@@ -77,7 +77,7 @@ ScheduleSetsInspectorView::ScheduleSetsInspectorView(const model::Model& model, 
 void ScheduleSetsInspectorView::onClearSelection() {
   ModelObjectInspectorView::onClearSelection();  // call parent implementation
   QWidget* widget = this->stackedWidget()->currentWidget();
-  ModelObjectInspectorView* modelObjectInspectorView = qobject_cast<ModelObjectInspectorView*>(widget);
+  auto* modelObjectInspectorView = qobject_cast<ModelObjectInspectorView*>(widget);
   OS_ASSERT(modelObjectInspectorView);
   modelObjectInspectorView->clearSelection();
 
@@ -86,13 +86,13 @@ void ScheduleSetsInspectorView::onClearSelection() {
 
 void ScheduleSetsInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject) {
   int index = 1;
-  std::map<openstudio::IddObjectType, int>::const_iterator it = m_inspectorIndexMap.find(modelObject.iddObjectType());
+  auto it = m_inspectorIndexMap.find(modelObject.iddObjectType());
   if (it != m_inspectorIndexMap.end()) {
     index = it->second;
   }
 
   QWidget* widget = this->stackedWidget()->widget(index);
-  ModelObjectInspectorView* modelObjectInspectorView = qobject_cast<ModelObjectInspectorView*>(widget);
+  auto* modelObjectInspectorView = qobject_cast<ModelObjectInspectorView*>(widget);
   OS_ASSERT(modelObjectInspectorView);
   modelObjectInspectorView->selectModelObject(modelObject);
   this->stackedWidget()->setCurrentIndex(index);

@@ -128,7 +128,7 @@ std::vector<OSItemId> SpaceLoadInstanceDefinitionVectorController::makeVector() 
   std::vector<OSItemId> result;
   if (m_modelObject) {
     if (!m_modelObject->handle().isNull()) {
-      model::SpaceLoadInstance spaceLoadInstance = m_modelObject->cast<model::SpaceLoadInstance>();
+      auto spaceLoadInstance = m_modelObject->cast<model::SpaceLoadInstance>();
       result.push_back(modelObjectToItemId(spaceLoadInstance.definition(), false));
     }
   }
@@ -137,7 +137,7 @@ std::vector<OSItemId> SpaceLoadInstanceDefinitionVectorController::makeVector() 
 
 void SpaceLoadInstanceDefinitionVectorController::onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) {
   if (m_modelObject) {
-    model::SpaceLoadInstance spaceLoadInstance = m_modelObject->cast<model::SpaceLoadInstance>();
+    auto spaceLoadInstance = m_modelObject->cast<model::SpaceLoadInstance>();
     boost::optional<model::ModelObject> modelObject = this->getModelObject(replacementItemId);
     if (modelObject) {
       if (modelObject->optionalCast<model::SpaceLoadDefinition>()) {
@@ -157,7 +157,7 @@ void SpaceLoadInstanceDefinitionVectorController::onReplaceItem(OSItem* currentI
 void SpaceLoadInstanceScheduleVectorController::attach(const model::ModelObject& modelObject) {
   ModelObjectVectorController::attach(modelObject);
 
-  model::SpaceLoadInstance spaceLoadInstance = m_modelObject->cast<model::SpaceLoadInstance>();
+  auto spaceLoadInstance = m_modelObject->cast<model::SpaceLoadInstance>();
   attachOtherModelObjects(spaceLoadInstance);
 }
 
@@ -228,7 +228,7 @@ void SpaceLoadInstanceScheduleVectorController::attachOtherModelObjects(const mo
 
 void SpaceLoadInstanceScheduleVectorController::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle,
                                                                      Handle oldHandle) {
-  model::SpaceLoadInstance spaceLoadInstance = m_modelObject->cast<model::SpaceLoadInstance>();
+  auto spaceLoadInstance = m_modelObject->cast<model::SpaceLoadInstance>();
 
   if (modelObject.optionalCast<model::SpaceLoadInstance>()) {
     detachOtherModelObjects();
@@ -355,7 +355,7 @@ void SpaceLoadInstanceScheduleVectorController::onDrop(const OSItemId& itemId) {
           modelObject = modelObject->clone(m_modelObject->model());
         }
 
-        model::Schedule schedule = modelObject->cast<model::Schedule>();
+        auto schedule = modelObject->cast<model::Schedule>();
 
         if (m_modelObject->optionalCast<model::People>()) {
           m_modelObject->cast<model::People>().setNumberofPeopleSchedule(schedule);
@@ -397,7 +397,7 @@ std::vector<OSItemId> SpaceLoadInstanceActivityScheduleVectorController::makeVec
   std::vector<OSItemId> result;
   if (m_modelObject) {
     if (m_modelObject->optionalCast<model::People>()) {
-      model::People people = m_modelObject->cast<model::People>();
+      auto people = m_modelObject->cast<model::People>();
       boost::optional<model::Schedule> schedule = people.activityLevelSchedule();
       if (schedule) {
         result.push_back(modelObjectToItemId(*schedule, false));
@@ -422,14 +422,14 @@ void SpaceLoadInstanceActivityScheduleVectorController::onReplaceItem(OSItem* cu
 void SpaceLoadInstanceActivityScheduleVectorController::onDrop(const OSItemId& itemId) {
   if (m_modelObject) {
     if (m_modelObject->optionalCast<model::People>()) {
-      model::People people = m_modelObject->cast<model::People>();
+      auto people = m_modelObject->cast<model::People>();
       boost::optional<model::ModelObject> modelObject = this->getModelObject(itemId);
       if (modelObject) {
         if (modelObject->optionalCast<model::Schedule>()) {
           if (this->fromComponentLibrary(itemId)) {
             modelObject = modelObject->clone(m_modelObject->model());
           }
-          model::Schedule schedule = modelObject->cast<model::Schedule>();
+          auto schedule = modelObject->cast<model::Schedule>();
           people.setActivityLevelSchedule(schedule);
         }
       }
@@ -445,11 +445,11 @@ SpaceLoadInstanceMiniView::SpaceLoadInstanceMiniView(const model::SpaceLoadInsta
   : m_definitionVectorController(nullptr), m_scheduleVectorController(nullptr), m_spaceLoadInstance(spaceLoadInstance) {
   this->setObjectName("SpaceLoadInstanceMiniView");
 
-  auto mainGridLayout = new QGridLayout();
+  auto* mainGridLayout = new QGridLayout();
   this->setLayout(mainGridLayout);
 
   // top row
-  auto hLayout = new QHBoxLayout();
+  auto* hLayout = new QHBoxLayout();
 
   // icon
   static QIcon defaultIcon(":images/bug.png");
@@ -459,7 +459,7 @@ SpaceLoadInstanceMiniView::SpaceLoadInstanceMiniView(const model::SpaceLoadInsta
     icon = QIcon(*pixMap);
   }
 
-  auto label = new QLabel();
+  auto* label = new QLabel();
   label->setPixmap(icon.pixmap(QSize(24, 24)));
   hLayout->addWidget(label);
 
@@ -507,7 +507,7 @@ SpaceLoadInstanceMiniView::SpaceLoadInstanceMiniView(const model::SpaceLoadInsta
   // bottom row
 
   // multiplier
-  auto vLayout = new QVBoxLayout();
+  auto* vLayout = new QVBoxLayout();
 
   label = new QLabel();
   label->setText("Multiplier: ");
@@ -559,14 +559,14 @@ SpaceLoadInstanceMiniView::SpaceLoadInstanceMiniView(const model::SpaceLoadInsta
   mainGridLayout->addLayout(vLayout, 1, 1);
 
   // schedule
-  auto scheduleStack = new QStackedWidget();
+  auto* scheduleStack = new QStackedWidget();
   scheduleStack->setContentsMargins(0, 0, 0, 0);
 
-  auto noScheduleWidget = new QWidget();
+  auto* noScheduleWidget = new QWidget();
   noScheduleWidget->setContentsMargins(0, 0, 0, 0);
   int noScheduleIndex = scheduleStack->addWidget(noScheduleWidget);
 
-  auto scheduleWidget = new QWidget();
+  auto* scheduleWidget = new QWidget();
   vLayout = new QVBoxLayout();
   vLayout->setContentsMargins(0, 0, 0, 0);
   scheduleWidget->setLayout(vLayout);
@@ -939,14 +939,14 @@ void SpaceLoadInstancesWidget::refresh() {
   m_mainVLayout->addWidget(line);
 
   // new load drop zone
-  auto hLayout = new QHBoxLayout();
+  auto* hLayout = new QHBoxLayout();
   hLayout->setContentsMargins(0, 0, 0, 0);
   hLayout->setSpacing(10);
-  auto vLayout = new QVBoxLayout();
+  auto* vLayout = new QVBoxLayout();
   vLayout->setContentsMargins(0, 0, 0, 0);
   vLayout->setSpacing(10);
 
-  auto label = new QLabel();
+  auto* label = new QLabel();
   label->setText("Add New Load:");
   label->setObjectName("H2");
   vLayout->addWidget(label);
@@ -955,7 +955,7 @@ void SpaceLoadInstancesWidget::refresh() {
   vLayout->addWidget(m_newSpaceLoadDropZone, 1);
   hLayout->addLayout(vLayout);
 
-  auto widget = new QWidget();
+  auto* widget = new QWidget();
   widget->setLayout(hLayout);
 
   m_mainVLayout->addWidget(widget);
@@ -1068,7 +1068,7 @@ void SpaceLoadInstancesWidget::addSpaceTypeLoads(const model::SpaceType& spaceTy
 }
 
 void SpaceLoadInstancesWidget::addSpaceLoadInstance(const model::SpaceLoadInstance& spaceLoadInstance, bool isDefault) {
-  auto spaceLoadInstanceMiniView = new SpaceLoadInstanceMiniView(spaceLoadInstance, isDefault);
+  auto* spaceLoadInstanceMiniView = new SpaceLoadInstanceMiniView(spaceLoadInstance, isDefault);
 
   connect(spaceLoadInstanceMiniView, &SpaceLoadInstanceMiniView::removeClicked, this, &SpaceLoadInstancesWidget::remove);
 

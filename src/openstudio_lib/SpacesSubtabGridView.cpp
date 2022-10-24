@@ -140,9 +140,9 @@ SpacesSubtabGridView::SpacesSubtabGridView(bool isIP, const model::Model& model,
 }
 
 void SpacesSubtabGridView::showStoryFilter() {
-  auto layout = new QVBoxLayout();
+  auto* layout = new QVBoxLayout();
 
-  auto label = new QLabel();
+  auto* label = new QLabel();
   label->setText(STORY);
   label->setObjectName("H3");
   layout->addWidget(label, Qt::AlignTop | Qt::AlignLeft);
@@ -158,9 +158,9 @@ void SpacesSubtabGridView::showStoryFilter() {
 }
 
 void SpacesSubtabGridView::showThermalZoneFilter() {
-  auto layout = new QVBoxLayout();
+  auto* layout = new QVBoxLayout();
 
-  auto label = new QLabel();
+  auto* label = new QLabel();
   label->setText(THERMALZONE);
   label->setObjectName("H3");
   layout->addWidget(label, Qt::AlignTop | Qt::AlignLeft);
@@ -176,9 +176,9 @@ void SpacesSubtabGridView::showThermalZoneFilter() {
 }
 
 void SpacesSubtabGridView::showSpaceTypeFilter() {
-  auto layout = new QVBoxLayout();
+  auto* layout = new QVBoxLayout();
 
-  auto label = new QLabel();
+  auto* label = new QLabel();
   label->setText(SPACETYPE);
   label->setObjectName("H3");
   layout->addWidget(label, Qt::AlignTop | Qt::AlignLeft);
@@ -194,9 +194,9 @@ void SpacesSubtabGridView::showSpaceTypeFilter() {
 }
 
 void SpacesSubtabGridView::showSubSurfaceTypeFilter() {
-  auto layout = new QVBoxLayout();
+  auto* layout = new QVBoxLayout();
 
-  auto label = new QLabel();
+  auto* label = new QLabel();
   label->setText(SUBSURFACETYPE);
   label->setObjectName("H3");
   layout->addWidget(label, Qt::AlignTop | Qt::AlignLeft);
@@ -212,9 +212,9 @@ void SpacesSubtabGridView::showSubSurfaceTypeFilter() {
 }
 
 void SpacesSubtabGridView::showSpaceNameFilter() {
-  auto layout = new QVBoxLayout();
+  auto* layout = new QVBoxLayout();
 
-  auto label = new QLabel();
+  auto* label = new QLabel();
   label->setText(SPACENAME);
   label->setObjectName("H3");
   layout->addWidget(label, Qt::AlignTop | Qt::AlignLeft);
@@ -231,9 +231,9 @@ void SpacesSubtabGridView::showSpaceNameFilter() {
 }
 
 void SpacesSubtabGridView::showWindExposureFilter() {
-  auto layout = new QVBoxLayout();
+  auto* layout = new QVBoxLayout();
 
-  auto label = new QLabel();
+  auto* label = new QLabel();
   label->setText(WINDEXPOSURE);
   label->setObjectName("H3");
   layout->addWidget(label, Qt::AlignTop | Qt::AlignLeft);
@@ -249,9 +249,9 @@ void SpacesSubtabGridView::showWindExposureFilter() {
 }
 
 void SpacesSubtabGridView::showSunExposureFilter() {
-  auto layout = new QVBoxLayout();
+  auto* layout = new QVBoxLayout();
 
-  auto label = new QLabel();
+  auto* label = new QLabel();
   label->setText(SUNEXPOSURE);
   label->setObjectName("H3");
   layout->addWidget(label, Qt::AlignTop | Qt::AlignLeft);
@@ -267,9 +267,9 @@ void SpacesSubtabGridView::showSunExposureFilter() {
 }
 
 void SpacesSubtabGridView::showOutsideBoundaryConditionFilter() {
-  auto layout = new QVBoxLayout();
+  auto* layout = new QVBoxLayout();
 
-  auto label = new QLabel();
+  auto* label = new QLabel();
   label->setText(OUTSIDEBOUNDARYCONDITION);
   label->setObjectName("H3");
   layout->addWidget(label, Qt::AlignTop | Qt::AlignLeft);
@@ -286,9 +286,9 @@ void SpacesSubtabGridView::showOutsideBoundaryConditionFilter() {
 }
 
 void SpacesSubtabGridView::showSurfaceTypeFilter() {
-  auto layout = new QVBoxLayout();
+  auto* layout = new QVBoxLayout();
 
-  auto label = new QLabel();
+  auto* label = new QLabel();
   label->setText(SURFACETYPE);
   label->setObjectName("H3");
   layout->addWidget(label, Qt::AlignTop | Qt::AlignLeft);
@@ -304,9 +304,9 @@ void SpacesSubtabGridView::showSurfaceTypeFilter() {
 }
 
 void SpacesSubtabGridView::showInteriorPartitionGroupFilter() {
-  auto layout = new QVBoxLayout();
+  auto* layout = new QVBoxLayout();
 
-  auto label = new QLabel();
+  auto* label = new QLabel();
   label->setText(INTERIORPARTITIONGROUP);
   label->setObjectName("H3");
   layout->addWidget(label, Qt::AlignTop | Qt::AlignLeft);
@@ -323,9 +323,9 @@ void SpacesSubtabGridView::showInteriorPartitionGroupFilter() {
 }
 
 void SpacesSubtabGridView::showLoadTypeFilter() {
-  auto layout = new QVBoxLayout();
+  auto* layout = new QVBoxLayout();
 
-  auto label = new QLabel();
+  auto* label = new QLabel();
   label->setText(LOADTYPE);
   label->setObjectName("H3");
   layout->addWidget(label, Qt::AlignTop | Qt::AlignLeft);
@@ -399,67 +399,67 @@ void SpacesSubtabGridView::initializeLoadTypeFilter() {
   { m_loadTypeFilter->addItem(ALL); }
 
   {
-    auto pixMap = new QPixmap(":images/mini_icons/internal_mass.png");
+    auto* pixMap = new QPixmap(":images/mini_icons/internal_mass.png");
     OS_ASSERT(pixMap);
     m_loadTypeFilter->addItem(*pixMap, INTERNALMASS);
   }
 
   {
-    auto pixMap = new QPixmap(":images/mini_icons/people.png");
+    auto* pixMap = new QPixmap(":images/mini_icons/people.png");
     OS_ASSERT(pixMap);
     m_loadTypeFilter->addItem(*pixMap, PEOPLE);
   }
 
   {
-    auto pixMap = new QPixmap(":images/mini_icons/lights.png");
+    auto* pixMap = new QPixmap(":images/mini_icons/lights.png");
     OS_ASSERT(pixMap);
     m_loadTypeFilter->addItem(*pixMap, LIGHTS);
   }
 
   {
-    auto pixMap = new QPixmap(":images/mini_icons/luminaire.png");
+    auto* pixMap = new QPixmap(":images/mini_icons/luminaire.png");
     OS_ASSERT(pixMap);
     m_loadTypeFilter->addItem(*pixMap, LUMINAIRE);
   }
 
   {
-    auto pixMap = new QPixmap(":images/mini_icons/electric_equipment.png");
+    auto* pixMap = new QPixmap(":images/mini_icons/electric_equipment.png");
     OS_ASSERT(pixMap);
     m_loadTypeFilter->addItem(*pixMap, ELECTRICEQUIPMENT);
   }
 
   {
-    auto pixMap = new QPixmap(":images/mini_icons/gas_equipment.png");
+    auto* pixMap = new QPixmap(":images/mini_icons/gas_equipment.png");
     OS_ASSERT(pixMap);
     m_loadTypeFilter->addItem(*pixMap, GASEQUIPMENT);
   }
 
   {
-    auto pixMap = new QPixmap(":images/mini_icons/steam_equipment.png");
+    auto* pixMap = new QPixmap(":images/mini_icons/steam_equipment.png");
     OS_ASSERT(pixMap);
     m_loadTypeFilter->addItem(*pixMap, HOTWATEREQUIPMENT);
   }
 
   {
-    auto pixMap = new QPixmap(":images/mini_icons/steam_equipment.png");
+    auto* pixMap = new QPixmap(":images/mini_icons/steam_equipment.png");
     OS_ASSERT(pixMap);
     m_loadTypeFilter->addItem(*pixMap, STEAMEQUIPMENT);
   }
 
   {
-    auto pixMap = new QPixmap(":images/mini_icons/other_equipment.png");
+    auto* pixMap = new QPixmap(":images/mini_icons/other_equipment.png");
     OS_ASSERT(pixMap);
     m_loadTypeFilter->addItem(*pixMap, OTHEREQUIPMENT);
   }
 
   {
-    auto pixMap = new QPixmap(":images/mini_icons/infiltration.png");
+    auto* pixMap = new QPixmap(":images/mini_icons/infiltration.png");
     OS_ASSERT(pixMap);
     m_loadTypeFilter->addItem(*pixMap, SPACEINFILTRATIONDESIGNFLOWRATE);
   }
 
   {
-    auto pixMap = new QPixmap(":images/mini_icons/mini_infiltration_leak.png");
+    auto* pixMap = new QPixmap(":images/mini_icons/mini_infiltration_leak.png");
     OS_ASSERT(pixMap);
     m_loadTypeFilter->addItem(*pixMap, SPACEINFILTRATIONEFFECTIVELEAKAGEAREA);
   }

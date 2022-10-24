@@ -63,11 +63,11 @@ void ComponentList::createLayout() {
 
   setStyleSheet(style);
 
-  auto outerVLayout = new QVBoxLayout();
+  auto* outerVLayout = new QVBoxLayout();
   outerVLayout->setContentsMargins(0, 0, 0, 0);
   this->setLayout(outerVLayout);
 
-  auto outerWidget = new QWidget();
+  auto* outerWidget = new QWidget();
 
   outerVLayout->addWidget(outerWidget);
 

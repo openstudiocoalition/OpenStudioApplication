@@ -145,7 +145,7 @@ ModelObjectGraphicsItem::ModelObjectGraphicsItem(QGraphicsItem* parent)
   setFlag(QGraphicsItem::ItemIsFocusable);
   setFlag(QGraphicsItem::ItemIsSelectable, false);
   if (QGraphicsScene* _scene = scene()) {
-    GridScene* gridScene = static_cast<GridScene*>(_scene);
+    auto* gridScene = static_cast<GridScene*>(_scene);
 
     connect(this, &ModelObjectGraphicsItem::modelObjectSelected, gridScene, &GridScene::modelObjectSelected);
 
@@ -464,7 +464,7 @@ std::vector<GridItem*> HorizontalBranchItem::itemFactory(std::vector<model::Mode
       }
       result.push_back(gridItem);
     } else if (model::OptionalWaterUseConnections comp = it->optionalCast<model::WaterUseConnections>()) {
-      auto gridItem = new WaterUseConnectionsItem(parent);
+      auto* gridItem = new WaterUseConnectionsItem(parent);
       gridItem->setModelObject(comp->optionalCast<model::ModelObject>());
       result.push_back(gridItem);
     } else if (model::OptionalStraightComponent comp = it->optionalCast<model::StraightComponent>()) {
@@ -551,11 +551,11 @@ HorizontalBranchItem::HorizontalBranchItem(std::pair<std::vector<model::ModelObj
 
     if (!stop) {
       // New horizontal item
-      auto item = new GridItem(this);
+      auto* item = new GridItem(this);
       beforeTerminalItems.push_back(item);
-      auto halfHeightItem1 = halfItemFactory(modelObject1, item);
+      auto* halfHeightItem1 = halfItemFactory(modelObject1, item);
       halfHeightItem1->setPos(0, 0);
-      auto halfHeightItem2 = halfItemFactory(modelObject2, item);
+      auto* halfHeightItem2 = halfItemFactory(modelObject2, item);
       halfHeightItem2->setPos(0, 50);
     }
 
@@ -610,7 +610,7 @@ void HorizontalBranchItem::setPadding(unsigned padding) {
     m_paddingItems.erase(m_paddingItems.begin() + padding, m_paddingItems.end());
   } else if (m_paddingItems.size() < padding) {
     for (unsigned i = m_paddingItems.size(); i < padding; i++) {
-      auto straightItem = new OneThreeStraightItem(this, m_dualDuct);
+      auto* straightItem = new OneThreeStraightItem(this, m_dualDuct);
       m_paddingItems.push_back(straightItem);
     }
   }
@@ -724,7 +724,7 @@ void VerticalBranchItem::setPadding(unsigned padding) {
     m_paddingItems.erase(m_paddingItems.begin() + padding, m_paddingItems.end());
   } else if (m_paddingItems.size() < padding) {
     for (unsigned i = m_paddingItems.size(); i < padding; i++) {
-      auto straightItem = new TwoFourStraightItem();
+      auto* straightItem = new TwoFourStraightItem();
       straightItem->setParentItem(this);
       m_paddingItems.push_back(straightItem);
     }
@@ -778,7 +778,7 @@ void ReverseVerticalBranchItem::setPadding(unsigned padding) {
     m_paddingItems.erase(m_paddingItems.begin() + padding, m_paddingItems.end());
   } else if (m_paddingItems.size() < padding) {
     for (unsigned i = m_paddingItems.size(); i < padding; i++) {
-      auto straightItem = new FourTwoStraightItem();
+      auto* straightItem = new FourTwoStraightItem();
       straightItem->setParentItem(this);
       m_paddingItems.push_back(straightItem);
     }
@@ -1093,7 +1093,7 @@ void HorizontalBranchGroupItem::setShowDropZone(bool showDropZone) {
 
 void HorizontalBranchGroupItem::layout() {
   if (m_branchItems.size() == 0) {
-    HorizontalBranchItem* branchItem = new HorizontalBranchItem(std::vector<model::ModelObject>(), this);
+    auto* branchItem = new HorizontalBranchItem(std::vector<model::ModelObject>(), this);
 
     branchItem->setPadding(3);
 
@@ -1474,11 +1474,11 @@ void OneThreeWaterToAirItem::setModelObject(model::OptionalModelObject modelObje
   if (m_modelObject) {
     if (boost::optional<WaterToAirComponent> waterToAirComponent = m_modelObject->optionalCast<WaterToAirComponent>()) {
       if (waterToAirComponent->airLoopHVAC() && waterToAirComponent->plantLoop()) {
-        auto linkItem1 = new LinkItem(this);
+        auto* linkItem1 = new LinkItem(this);
         linkItem1->setPos(40, 5);
         connect(linkItem1, &LinkItem::mouseClicked, this, &OneThreeWaterToAirItem::onLinkItemClicked);
 
-        auto linkItem2 = new LinkItem(this);
+        auto* linkItem2 = new LinkItem(this);
         linkItem2->setPos(40, 75);
         connect(linkItem2, &LinkItem::mouseClicked, this, &OneThreeWaterToAirItem::onLinkItemClicked);
 
@@ -1545,11 +1545,11 @@ void OneThreeWaterToWaterItem::setModelObject(model::OptionalModelObject modelOb
   if (m_modelObject) {
     if (boost::optional<WaterToWaterComponent> waterToWaterComponent = m_modelObject->optionalCast<WaterToWaterComponent>()) {
       if (waterToWaterComponent->plantLoop() && waterToWaterComponent->secondaryPlantLoop()) {
-        auto linkItem1 = new LinkItem(this);
+        auto* linkItem1 = new LinkItem(this);
         linkItem1->setPos(40, 5);
         connect(linkItem1, &LinkItem::mouseClicked, this, &OneThreeWaterToWaterItem::onLinkItemClicked);
 
-        auto linkItem2 = new LinkItem(this);
+        auto* linkItem2 = new LinkItem(this);
         linkItem2->setPos(40, 75);
         connect(linkItem2, &LinkItem::mouseClicked, this, &OneThreeWaterToWaterItem::onLinkItemClicked);
 
@@ -3284,9 +3284,9 @@ void NodeContextButtonItem::showContextMenu() {
 }
 
 void NodeContextButtonItem::onRemoveSPMActionTriggered() {
-  GridItem* gridItem = qobject_cast<GridItem*>(parentObject());
+  auto* gridItem = qobject_cast<GridItem*>(parentObject());
   if (gridItem != nullptr && gridItem->modelObject() && gridItem->modelObject()->optionalCast<model::Node>()) {
-    model::Node node = gridItem->modelObject()->cast<model::Node>();
+    auto node = gridItem->modelObject()->cast<model::Node>();
 
     std::vector<model::SetpointManager> _setpointManagers = node.setpointManagers();
     for (auto it = _setpointManagers.begin(); it != _setpointManagers.end(); ++it) {

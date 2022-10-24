@@ -81,7 +81,7 @@ DarkGradientHeader::DarkGradientHeader(QWidget* parent) : OSHeader(new LightHead
   style.append("} ");
   setStyleSheet(style);
 
-  auto mainHLayout = new QHBoxLayout();
+  auto* mainHLayout = new QHBoxLayout();
   mainHLayout->setContentsMargins(5, 0, 5, 0);
   mainHLayout->setSpacing(5);
   setLayout(mainHLayout);
@@ -109,7 +109,7 @@ LightGradientHeader::LightGradientHeader(QWidget* parent) : OSHeader(new HeaderT
   style.append("} ");
   setStyleSheet(style);
 
-  auto mainHLayout = new QHBoxLayout();
+  auto* mainHLayout = new QHBoxLayout();
   mainHLayout->setContentsMargins(5, 0, 5, 0);
   mainHLayout->setSpacing(5);
   setLayout(mainHLayout);
@@ -160,7 +160,7 @@ LightHeader::LightHeader(QWidget* parent) : OSHeader(new HeaderToggleButton()) {
   style.append("} ");
   setStyleSheet(style);
 
-  auto mainHLayout = new QHBoxLayout();
+  auto* mainHLayout = new QHBoxLayout();
   mainHLayout->setContentsMargins(5, 0, 5, 0);
   setLayout(mainHLayout);
 

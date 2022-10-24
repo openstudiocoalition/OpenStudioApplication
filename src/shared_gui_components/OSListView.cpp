@@ -51,7 +51,7 @@ OSListView::OSListView(bool scrollable, QWidget* parent)
   m_mainVLayout->setAlignment(Qt::AlignTop);
 
   if (scrollable) {
-    auto scrollWidget = new QWidget();
+    auto* scrollWidget = new QWidget();
     scrollWidget->setObjectName("ScrollWidget");
     scrollWidget->setStyleSheet("QWidget#ScrollWidget { background: transparent; }");
     scrollWidget->setLayout(m_mainVLayout);
@@ -62,7 +62,7 @@ OSListView::OSListView(bool scrollable, QWidget* parent)
     m_scrollArea->setWidgetResizable(true);
     m_scrollArea->setBackgroundRole(QPalette::NoRole);
 
-    auto scrollLayout = new QVBoxLayout();
+    auto* scrollLayout = new QVBoxLayout();
     scrollLayout->setContentsMargins(0, 0, 0, 0);
     scrollLayout->addWidget(m_scrollArea);
 

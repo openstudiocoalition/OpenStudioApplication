@@ -96,7 +96,7 @@
 namespace openstudio {
 
 DesignDayGridView::DesignDayGridView(bool isIP, const model::Model& model, QWidget* parent) : QWidget(parent), m_isIP(isIP) {
-  auto layout = new QVBoxLayout();
+  auto* layout = new QVBoxLayout();
   layout->setSpacing(0);
   layout->setContentsMargins(0, 0, 0, 0);
   setLayout(layout);
@@ -132,7 +132,7 @@ void DesignDayGridView::onAddClicked() {
   if (m_gridController->selectedObjects().empty()) {
     model::DesignDay(m_gridController->model());
   } else {
-    for (auto& obj : m_gridController->selectedObjects()) {
+    for (const auto& obj : m_gridController->selectedObjects()) {
       // TODO: copy properties of selected to new?
       addObject(obj);
     }
@@ -140,7 +140,7 @@ void DesignDayGridView::onAddClicked() {
 }
 
 void DesignDayGridView::onCopyClicked() {
-  for (auto& obj : m_gridController->selectedObjects()) {
+  for (const auto& obj : m_gridController->selectedObjects()) {
     if (!obj.handle().isNull()) {
       copyObject(obj);
     }
@@ -148,7 +148,7 @@ void DesignDayGridView::onCopyClicked() {
 }
 
 void DesignDayGridView::onRemoveClicked() {
-  for (auto& obj : m_gridController->selectedObjects()) {
+  for (const auto& obj : m_gridController->selectedObjects()) {
     removeObject(obj);
   }
 }
