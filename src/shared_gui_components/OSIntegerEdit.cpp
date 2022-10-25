@@ -196,11 +196,9 @@ void OSIntegerEdit2::completeBind() {
 
   connect(this, &OSIntegerEdit2::editingFinished, this, &OSIntegerEdit2::onEditingFinished);
 
-  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.connect<OSIntegerEdit2, &OSIntegerEdit2::onModelObjectChange>(
-    this);
+  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()->onChange.connect<OSIntegerEdit2, &OSIntegerEdit2::onModelObjectChange>(this);
 
   m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
-    .get()
     ->onRemoveFromWorkspace.connect<OSIntegerEdit2, &OSIntegerEdit2::onModelObjectRemove>(this);
 
   refreshTextAndLabel();
@@ -208,11 +206,9 @@ void OSIntegerEdit2::completeBind() {
 
 void OSIntegerEdit2::unbind() {
   if (m_modelObject) {
+    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()->onChange.disconnect<OSIntegerEdit2, &OSIntegerEdit2::onModelObjectChange>(
+      this);
     m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
-      .get()
-      ->onChange.disconnect<OSIntegerEdit2, &OSIntegerEdit2::onModelObjectChange>(this);
-    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
-      .get()
       ->onRemoveFromWorkspace.disconnect<OSIntegerEdit2, &OSIntegerEdit2::onModelObjectRemove>(this);
 
     m_modelObject.reset();

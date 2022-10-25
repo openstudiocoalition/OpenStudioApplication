@@ -719,14 +719,12 @@ SpaceLoadInstancesWidget::SpaceLoadInstancesWidget(QWidget* parent)
 void SpaceLoadInstancesWidget::detach() {
   if (m_space) {
     m_space->getImpl<model::detail::ModelObject_Impl>()
-      .get()
       ->onRelationshipChange.disconnect<SpaceLoadInstancesWidget, &SpaceLoadInstancesWidget::onSpaceRelationshipChange>(this);
     m_space.reset();
   }
 
   if (m_spaceType) {
     m_spaceType->getImpl<model::detail::ModelObject_Impl>()
-      .get()
       ->onRelationshipChange.disconnect<SpaceLoadInstancesWidget, &SpaceLoadInstancesWidget::onSpaceRelationshipChange>(this);
     m_spaceType.reset();
   }
@@ -734,12 +732,10 @@ void SpaceLoadInstancesWidget::detach() {
   if (m_model) {
     model::Building building = m_model->getUniqueModelObject<model::Building>();
     building.getImpl<model::detail::ModelObject_Impl>()
-      .get()
       ->onRelationshipChange.disconnect<SpaceLoadInstancesWidget, &SpaceLoadInstancesWidget::onBuildingRelationshipChange>(this);
 
     for (const model::SpaceType& spaceType : m_model->getConcreteModelObjects<model::SpaceType>()) {
       spaceType.getImpl<model::detail::ModelObject_Impl>()
-        .get()
         ->onRelationshipChange.disconnect<SpaceLoadInstancesWidget, &SpaceLoadInstancesWidget::onSpaceTypeRelationshipChange>(this);
     }
 
@@ -770,17 +766,14 @@ void SpaceLoadInstancesWidget::attach(const model::Space& space) {
 
   model::Building building = m_model->getUniqueModelObject<model::Building>();
   building.getImpl<model::detail::ModelObject_Impl>()
-    .get()
     ->onRelationshipChange.connect<SpaceLoadInstancesWidget, &SpaceLoadInstancesWidget::onBuildingRelationshipChange>(this);
 
   for (const model::SpaceType& spaceType : m_model->getConcreteModelObjects<model::SpaceType>()) {
     spaceType.getImpl<model::detail::ModelObject_Impl>()
-      .get()
       ->onRelationshipChange.connect<SpaceLoadInstancesWidget, &SpaceLoadInstancesWidget::onSpaceTypeRelationshipChange>(this);
   }
 
   m_space->getImpl<model::detail::ModelObject_Impl>()
-    .get()
     ->onRelationshipChange.connect<SpaceLoadInstancesWidget, &SpaceLoadInstancesWidget::onSpaceRelationshipChange>(this);
 
   m_dirty = true;
@@ -801,13 +794,11 @@ void SpaceLoadInstancesWidget::attach(const model::SpaceType& spaceType) {
 
   model::Building building = m_model->getUniqueModelObject<model::Building>();
   building.getImpl<model::detail::ModelObject_Impl>()
-    .get()
     ->onRelationshipChange.connect<SpaceLoadInstancesWidget, &SpaceLoadInstancesWidget::onBuildingRelationshipChange>(this);
 
   // TODO: why are we connecting all spacetypes?
   for (const auto& sp : m_model->getConcreteModelObjects<model::SpaceType>()) {
     sp.getImpl<model::detail::ModelObject_Impl>()
-      .get()
       ->onRelationshipChange.connect<SpaceLoadInstancesWidget, &SpaceLoadInstancesWidget::onSpaceTypeRelationshipChange>(this);
   }
 
@@ -850,8 +841,7 @@ void SpaceLoadInstancesWidget::onSpaceRelationshipChange(int index, Handle newHa
 void SpaceLoadInstancesWidget::objectAdded(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl,
                                            const openstudio::IddObjectType& iddObjectType, const openstudio::UUID& handle) {
   if (iddObjectType == IddObjectType::OS_SpaceType) {
-    impl.get()
-      ->detail::WorkspaceObject_Impl::onRelationshipChange
+    impl->detail::WorkspaceObject_Impl::onRelationshipChange
       .connect<SpaceLoadInstancesWidget, &SpaceLoadInstancesWidget::onSpaceTypeRelationshipChange>(this);
     return;
   }

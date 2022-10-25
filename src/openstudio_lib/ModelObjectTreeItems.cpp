@@ -157,12 +157,11 @@ ModelObjectTreeItem::ModelObjectTreeItem(const openstudio::model::ModelObject& m
   this->setText(0, toQString(modelObject.name().get()));
   this->setStyle(0, "");
 
-  m_modelObject->getImpl<model::detail::ModelObject_Impl>().get()->onNameChange.connect<ModelObjectTreeItem, &ModelObjectTreeItem::changeName>(this);
+  m_modelObject->getImpl<model::detail::ModelObject_Impl>()->onNameChange.connect<ModelObjectTreeItem, &ModelObjectTreeItem::changeName>(this);
 
-  m_modelObject->getImpl<model::detail::ModelObject_Impl>().get()->onChange.connect<ModelObjectTreeItem, &ModelObjectTreeItem::change>(this);
+  m_modelObject->getImpl<model::detail::ModelObject_Impl>()->onChange.connect<ModelObjectTreeItem, &ModelObjectTreeItem::change>(this);
 
   m_modelObject->getImpl<model::detail::ModelObject_Impl>()
-    .get()
     ->onRelationshipChange.connect<ModelObjectTreeItem, &ModelObjectTreeItem::changeRelationship>(this);
 }
 

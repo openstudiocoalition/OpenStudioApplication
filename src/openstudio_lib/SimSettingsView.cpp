@@ -232,8 +232,7 @@ SimSettingsView::SimSettingsView(bool isIP, const model::Model& model, QWidget* 
 
   // when the year settings object changes need to update the year in all child widgets
   model::YearDescription yearDescription = m_model.getUniqueModelObject<model::YearDescription>();
-  yearDescription.getImpl<model::detail::YearDescription_Impl>().get()->onChange.connect<SimSettingsView, &SimSettingsView::updateYearDescription>(
-    this);
+  yearDescription.getImpl<model::detail::YearDescription_Impl>()->onChange.connect<SimSettingsView, &SimSettingsView::updateYearDescription>(this);
 
   createWidgets();
   attachAll();

@@ -679,15 +679,13 @@ OSItem* OSGridController::getSelectedItemFromModelSubTabView() {
 }
 */
 void OSGridController::connectToModelSignals() {
-  m_model.getImpl<model::detail::Model_Impl>().get()->addWorkspaceObject.connect<OSGridController, &OSGridController::onAddWorkspaceObject>(this);
-  m_model.getImpl<model::detail::Model_Impl>().get()->removeWorkspaceObject.connect<OSGridController, &OSGridController::onRemoveWorkspaceObject>(
-    this);
+  m_model.getImpl<model::detail::Model_Impl>()->addWorkspaceObject.connect<OSGridController, &OSGridController::onAddWorkspaceObject>(this);
+  m_model.getImpl<model::detail::Model_Impl>()->removeWorkspaceObject.connect<OSGridController, &OSGridController::onRemoveWorkspaceObject>(this);
 }
 
 void OSGridController::disconnectFromModelSignals() {
-  m_model.getImpl<model::detail::Model_Impl>().get()->addWorkspaceObject.disconnect<OSGridController, &OSGridController::onAddWorkspaceObject>(this);
-  m_model.getImpl<model::detail::Model_Impl>().get()->removeWorkspaceObject.disconnect<OSGridController, &OSGridController::onRemoveWorkspaceObject>(
-    this);
+  m_model.getImpl<model::detail::Model_Impl>()->addWorkspaceObject.disconnect<OSGridController, &OSGridController::onAddWorkspaceObject>(this);
+  m_model.getImpl<model::detail::Model_Impl>()->removeWorkspaceObject.disconnect<OSGridController, &OSGridController::onRemoveWorkspaceObject>(this);
 }
 
 void OSGridController::onSelectionCleared() {

@@ -922,12 +922,11 @@ void InspectorDialog::connectSelfSignalsAndSlots() {
 }
 
 void InspectorDialog::connectModelSignalsAndSlots() {
-  m_model.getImpl<model::detail::Model_Impl>().get()->addWorkspaceObjectPtr.connect<InspectorDialog, &InspectorDialog::onAddWorkspaceObject>(this);
+  m_model.getImpl<model::detail::Model_Impl>()->addWorkspaceObjectPtr.connect<InspectorDialog, &InspectorDialog::onAddWorkspaceObject>(this);
 
-  m_model.getImpl<model::detail::Model_Impl>().get()->onChange.connect<InspectorDialog, &InspectorDialog::onWorkspaceChange>(this);
+  m_model.getImpl<model::detail::Model_Impl>()->onChange.connect<InspectorDialog, &InspectorDialog::onWorkspaceChange>(this);
 
-  m_model.getImpl<model::detail::Model_Impl>().get()->removeWorkspaceObjectPtr.connect<InspectorDialog, &InspectorDialog::onRemoveWorkspaceObject>(
-    this);
+  m_model.getImpl<model::detail::Model_Impl>()->removeWorkspaceObjectPtr.connect<InspectorDialog, &InspectorDialog::onRemoveWorkspaceObject>(this);
 }
 
 void InspectorDialog::hideSelectionWidget(bool hideSelectionWidget) {

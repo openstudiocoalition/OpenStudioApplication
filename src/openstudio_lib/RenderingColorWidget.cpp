@@ -116,28 +116,23 @@ void RenderingColorWidget2::getRenderingColor() {
     if (boost::optional<model::BuildingStory> bs = m_modelObject->optionalCast<model::BuildingStory>()) {
       m_renderingColor = model::RenderingColor(bs->model());
       bs->setRenderingColor(*m_renderingColor);
-      bs->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.connect<RenderingColorWidget2, &RenderingColorWidget2::refresh>(
-        this);
+      bs->getImpl<openstudio::model::detail::ModelObject_Impl>()->onChange.connect<RenderingColorWidget2, &RenderingColorWidget2::refresh>(this);
     } else if (boost::optional<model::ConstructionBase> cb = m_modelObject->optionalCast<model::ConstructionBase>()) {
       m_renderingColor = model::RenderingColor(cb->model());
       cb->setRenderingColor(*m_renderingColor);
-      cb->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.connect<RenderingColorWidget2, &RenderingColorWidget2::refresh>(
-        this);
+      cb->getImpl<openstudio::model::detail::ModelObject_Impl>()->onChange.connect<RenderingColorWidget2, &RenderingColorWidget2::refresh>(this);
     } else if (boost::optional<model::LightingSimulationZone> lsz = m_modelObject->optionalCast<model::LightingSimulationZone>()) {
       m_renderingColor = model::RenderingColor(lsz->model());
       lsz->setRenderingColor(*m_renderingColor);
-      lsz->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.connect<RenderingColorWidget2, &RenderingColorWidget2::refresh>(
-        this);
+      lsz->getImpl<openstudio::model::detail::ModelObject_Impl>()->onChange.connect<RenderingColorWidget2, &RenderingColorWidget2::refresh>(this);
     } else if (boost::optional<model::SpaceType> st = m_modelObject->optionalCast<model::SpaceType>()) {
       m_renderingColor = model::RenderingColor(st->model());
       st->setRenderingColor(*m_renderingColor);
-      st->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.connect<RenderingColorWidget2, &RenderingColorWidget2::refresh>(
-        this);
+      st->getImpl<openstudio::model::detail::ModelObject_Impl>()->onChange.connect<RenderingColorWidget2, &RenderingColorWidget2::refresh>(this);
     } else if (boost::optional<model::ThermalZone> tz = m_modelObject->optionalCast<model::ThermalZone>()) {
       m_renderingColor = model::RenderingColor(tz->model());
       tz->setRenderingColor(*m_renderingColor);
-      tz->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.connect<RenderingColorWidget2, &RenderingColorWidget2::refresh>(
-        this);
+      tz->getImpl<openstudio::model::detail::ModelObject_Impl>()->onChange.connect<RenderingColorWidget2, &RenderingColorWidget2::refresh>(this);
     } else {
       // Should never get here
       OS_ASSERT(false);
@@ -157,20 +152,15 @@ void RenderingColorWidget2::unbind() {
 
   if (m_modelObject) {
     if (boost::optional<model::BuildingStory> bs = m_modelObject->optionalCast<model::BuildingStory>()) {
-      bs->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.disconnect<RenderingColorWidget2, &RenderingColorWidget2::refresh>(
-        this);
+      bs->getImpl<openstudio::model::detail::ModelObject_Impl>()->onChange.disconnect<RenderingColorWidget2, &RenderingColorWidget2::refresh>(this);
     } else if (boost::optional<model::ConstructionBase> cb = m_modelObject->optionalCast<model::ConstructionBase>()) {
-      cb->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.disconnect<RenderingColorWidget2, &RenderingColorWidget2::refresh>(
-        this);
+      cb->getImpl<openstudio::model::detail::ModelObject_Impl>()->onChange.disconnect<RenderingColorWidget2, &RenderingColorWidget2::refresh>(this);
     } else if (boost::optional<model::LightingSimulationZone> lsz = m_modelObject->optionalCast<model::LightingSimulationZone>()) {
-      lsz->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.disconnect<RenderingColorWidget2, &RenderingColorWidget2::refresh>(
-        this);
+      lsz->getImpl<openstudio::model::detail::ModelObject_Impl>()->onChange.disconnect<RenderingColorWidget2, &RenderingColorWidget2::refresh>(this);
     } else if (boost::optional<model::SpaceType> st = m_modelObject->optionalCast<model::SpaceType>()) {
-      st->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.disconnect<RenderingColorWidget2, &RenderingColorWidget2::refresh>(
-        this);
+      st->getImpl<openstudio::model::detail::ModelObject_Impl>()->onChange.disconnect<RenderingColorWidget2, &RenderingColorWidget2::refresh>(this);
     } else if (boost::optional<model::ThermalZone> tz = m_modelObject->optionalCast<model::ThermalZone>()) {
-      tz->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.disconnect<RenderingColorWidget2, &RenderingColorWidget2::refresh>(
-        this);
+      tz->getImpl<openstudio::model::detail::ModelObject_Impl>()->onChange.disconnect<RenderingColorWidget2, &RenderingColorWidget2::refresh>(this);
     }
   }
 
@@ -280,7 +270,7 @@ void RenderingColorWidget::attach(const openstudio::model::RenderingColor& rende
 
   m_renderingColor = renderingColor;
 
-  m_renderingColor->getImpl<model::detail::ModelObject_Impl>().get()->onChange.connect<RenderingColorWidget, &RenderingColorWidget::refresh>(this);
+  m_renderingColor->getImpl<model::detail::ModelObject_Impl>()->onChange.connect<RenderingColorWidget, &RenderingColorWidget::refresh>(this);
 
   refresh();
 }
@@ -289,8 +279,7 @@ void RenderingColorWidget::detach() {
   clear();
 
   if (m_renderingColor) {
-    m_renderingColor->getImpl<model::detail::ModelObject_Impl>().get()->onChange.disconnect<RenderingColorWidget, &RenderingColorWidget::refresh>(
-      this);
+    m_renderingColor->getImpl<model::detail::ModelObject_Impl>()->onChange.disconnect<RenderingColorWidget, &RenderingColorWidget::refresh>(this);
     m_renderingColor.reset();
   }
 }

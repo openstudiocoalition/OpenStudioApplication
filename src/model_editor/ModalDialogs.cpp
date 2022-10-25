@@ -226,11 +226,9 @@ void ModelObjectSelectorDialog::connectSignalsAndSlots() {
   connect(m_cancelButton, &QPushButton::clicked, this, &ModelObjectSelectorDialog::onPushButtonCancel);
 
   m_model.getImpl<model::detail::Model_Impl>()
-    .get()
     ->addWorkspaceObjectPtr.connect<ModelObjectSelectorDialog, &ModelObjectSelectorDialog::onAddWorkspaceObject>(this);
 
   m_model.getImpl<model::detail::Model_Impl>()
-    .get()
     ->removeWorkspaceObjectPtr.connect<ModelObjectSelectorDialog, &ModelObjectSelectorDialog::onRemoveWorkspaceObject>(this);
 }
 

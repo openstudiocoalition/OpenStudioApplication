@@ -658,7 +658,6 @@ RefrigerationSystemListController::RefrigerationSystemListController(Refrigerati
   std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
   model::Model t_model = doc->model();
   t_model.getImpl<model::detail::Model_Impl>()
-    .get()
     ->addWorkspaceObject.connect<RefrigerationSystemListController, &RefrigerationSystemListController::onModelObjectAdd>(this);
 
   connect(this, &RefrigerationSystemListController::itemInsertedPrivate, this, &RefrigerationSystemListController::itemInserted,

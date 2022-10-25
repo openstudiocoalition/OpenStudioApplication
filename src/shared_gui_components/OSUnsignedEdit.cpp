@@ -196,11 +196,9 @@ void OSUnsignedEdit2::completeBind() {
 
   connect(this, &OSUnsignedEdit2::editingFinished, this, &OSUnsignedEdit2::onEditingFinished);
 
+  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()->onChange.connect<OSUnsignedEdit2, &OSUnsignedEdit2::onModelObjectChange>(
+    this);
   m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
-    .get()
-    ->onChange.connect<OSUnsignedEdit2, &OSUnsignedEdit2::onModelObjectChange>(this);
-  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
-    .get()
     ->onRemoveFromWorkspace.connect<OSUnsignedEdit2, &OSUnsignedEdit2::onModelObjectRemove>(this);
 
   refreshTextAndLabel();
@@ -209,10 +207,8 @@ void OSUnsignedEdit2::completeBind() {
 void OSUnsignedEdit2::unbind() {
   if (m_modelObject) {
     m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
-      .get()
       ->onChange.disconnect<OSUnsignedEdit2, &OSUnsignedEdit2::onModelObjectChange>(this);
     m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
-      .get()
       ->onRemoveFromWorkspace.disconnect<OSUnsignedEdit2, &OSUnsignedEdit2::onModelObjectRemove>(this);
     m_modelObject.reset();
     m_modelExtensibleGroup.reset();

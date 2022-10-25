@@ -53,16 +53,13 @@ void ModelObjectVectorController::attach(const model::ModelObject& modelObject) 
   //connect(OSAppBase::instance(), &OSAppBase::workspaceObjectRemovedPtr, this, &ModelObjectVectorController::objectRemoved, Qt::QueuedConnection);
 
   m_modelObject->getImpl<model::detail::ModelObject_Impl>()
-    .get()
     ->onRelationshipChange.connect<ModelObjectVectorController, &ModelObjectVectorController::changeRelationship>(this);
 
   m_modelObject->getImpl<model::detail::ModelObject_Impl>()
-    .get()
     ->onDataChange.connect<ModelObjectVectorController, &ModelObjectVectorController::dataChange>(this);
 
-  m_modelObject->getImpl<model::detail::ModelObject_Impl>()
-    .get()
-    ->onChange.connect<ModelObjectVectorController, &ModelObjectVectorController::change>(this);
+  m_modelObject->getImpl<model::detail::ModelObject_Impl>()->onChange.connect<ModelObjectVectorController, &ModelObjectVectorController::change>(
+    this);
 }
 
 void ModelObjectVectorController::attachModel(const model::Model& model) {
@@ -97,23 +94,19 @@ void ModelObjectVectorController::attachOtherModelObject(const model::ModelObjec
   m_otherModelObjects.push_back(modelObject);
 
   modelObject.getImpl<model::detail::ModelObject_Impl>()
-    .get()
     ->onRelationshipChange.connect<ModelObjectVectorController, &ModelObjectVectorController::changeRelationship>(this);
 }
 
 void ModelObjectVectorController::detach() {
   if (m_modelObject) {
     m_modelObject->getImpl<model::detail::ModelObject_Impl>()
-      .get()
       ->onRelationshipChange.disconnect<ModelObjectVectorController, &ModelObjectVectorController::changeRelationship>(this);
 
     m_modelObject->getImpl<model::detail::ModelObject_Impl>()
-      .get()
       ->onDataChange.disconnect<ModelObjectVectorController, &ModelObjectVectorController::dataChange>(this);
 
-    m_modelObject->getImpl<model::detail::ModelObject_Impl>()
-      .get()
-      ->onChange.disconnect<ModelObjectVectorController, &ModelObjectVectorController::change>(this);
+    m_modelObject->getImpl<model::detail::ModelObject_Impl>()->onChange.disconnect<ModelObjectVectorController, &ModelObjectVectorController::change>(
+      this);
 
     m_modelObject.reset();
   }
@@ -138,7 +131,6 @@ void ModelObjectVectorController::detachOtherModelObject(const model::ModelObjec
   for (; it != itend; ++it) {
     if (it->handle() == modelObject.handle()) {
       m_modelObject->getImpl<model::detail::ModelObject_Impl>()
-        .get()
         ->onRelationshipChange.disconnect<ModelObjectVectorController, &ModelObjectVectorController::changeRelationship>(this);
 
       //m_modelObject->getImpl<model::detail::ModelObject_Impl>().get()->onDataChange.disconnect<ModelObjectVectorController, &ModelObjectVectorController::dataChange>(this);

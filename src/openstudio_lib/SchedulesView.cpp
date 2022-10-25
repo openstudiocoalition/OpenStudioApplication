@@ -174,7 +174,7 @@ SchedulesView::SchedulesView(bool isIP, const model::Model& model)
   // m_model.getImpl<model::detail::Model_Impl>().get()->addWorkspaceObjectPtr.connect<SchedulesView, &SchedulesView::onModelObjectAdded>(this);
   connect(OSAppBase::instance(), &OSAppBase::workspaceObjectAddedPtr, this, &SchedulesView::onModelObjectAdded, Qt::QueuedConnection);
 
-  m_model.getImpl<model::detail::Model_Impl>().get()->removeWorkspaceObjectPtr.connect<SchedulesView, &SchedulesView::onModelObjectRemoved>(this);
+  m_model.getImpl<model::detail::Model_Impl>()->removeWorkspaceObjectPtr.connect<SchedulesView, &SchedulesView::onModelObjectRemoved>(this);
   //connect(OSAppBase::instance(), &OSAppBase::workspaceObjectRemovedPtr, this, &SchedulesView::onModelObjectRemoved, Qt::QueuedConnection);
 
   // get all schedules
@@ -262,9 +262,8 @@ void SchedulesView::addScheduleRule(model::ScheduleRule& scheduleRule) {
   if (tab) {
     tab->scheduleTabContent()->scheduleRefresh(scheduleRuleset.handle());  // Handle as dummy
 
-    scheduleRule.getImpl<model::detail::ScheduleRule_Impl>()
-      .get()
-      ->onRemoveFromWorkspace.connect<ScheduleTabContent, &ScheduleTabContent::scheduleRefresh>(tab->scheduleTabContent());
+    scheduleRule.getImpl<model::detail::ScheduleRule_Impl>()->onRemoveFromWorkspace.connect<ScheduleTabContent, &ScheduleTabContent::scheduleRefresh>(
+      tab->scheduleTabContent());
   }
 }
 
@@ -278,7 +277,7 @@ void SchedulesView::onModelObjectAdded(std::shared_ptr<openstudio::detail::Works
 
   boost::optional<model::ScheduleRule> rule = m_model.getModelObject<model::ScheduleRule>(workspaceObjectImpl->handle());
   if (rule) {
-    rule->getImpl<detail::WorkspaceObject_Impl>().get()->onRemoveFromWorkspace.connect<SchedulesView, &SchedulesView::onScheduleRuleRemoved>(this);
+    rule->getImpl<detail::WorkspaceObject_Impl>()->onRemoveFromWorkspace.connect<SchedulesView, &SchedulesView::onScheduleRuleRemoved>(this);
 
     addScheduleRule(rule.get());
   }
@@ -781,8 +780,7 @@ ScheduleTabHeader::ScheduleTabHeader(ScheduleTab* scheduleTab, QWidget* parent)
 
   connect(this, &ScheduleTabHeader::scheduleClicked, m_scheduleTab, &ScheduleTab::scheduleClicked);
 
-  m_scheduleTab->schedule().getImpl<model::detail::ScheduleRuleset_Impl>().get()->onChange.connect<ScheduleTabHeader, &ScheduleTabHeader::refresh>(
-    this);
+  m_scheduleTab->schedule().getImpl<model::detail::ScheduleRuleset_Impl>()->onChange.connect<ScheduleTabHeader, &ScheduleTabHeader::refresh>(this);
 }
 
 void ScheduleTabHeader::expand() {
@@ -998,7 +996,7 @@ ScheduleTabRule::ScheduleTabRule(ScheduleTab* scheduleTab, const model::Schedule
 
   scheduleRefresh();
 
-  m_scheduleRule.getImpl<model::detail::ScheduleRule_Impl>().get()->onChange.connect<ScheduleTabRule, &ScheduleTabRule::scheduleRefresh>(this);
+  m_scheduleRule.getImpl<model::detail::ScheduleRule_Impl>()->onChange.connect<ScheduleTabRule, &ScheduleTabRule::scheduleRefresh>(this);
 
   setMouseTracking(true);
 }
@@ -1707,10 +1705,9 @@ ScheduleRuleView::ScheduleRuleView(bool isIP, const model::ScheduleRule& schedul
 
   // Connect
 
-  m_scheduleRule.getImpl<model::detail::ScheduleRule_Impl>().get()->onChange.connect<ScheduleRuleView, &ScheduleRuleView::scheduleRefresh>(this);
+  m_scheduleRule.getImpl<model::detail::ScheduleRule_Impl>()->onChange.connect<ScheduleRuleView, &ScheduleRuleView::scheduleRefresh>(this);
 
-  m_yearDescription->getImpl<model::detail::YearDescription_Impl>().get()->onChange.connect<ScheduleRuleView, &ScheduleRuleView::scheduleRefresh>(
-    this);
+  m_yearDescription->getImpl<model::detail::YearDescription_Impl>()->onChange.connect<ScheduleRuleView, &ScheduleRuleView::scheduleRefresh>(this);
 
   connect(this, &ScheduleRuleView::startDateTimeChanged, m_schedulesView, &SchedulesView::startDateTimeChanged);
 
@@ -1942,12 +1939,12 @@ YearOverview::YearOverview(const model::ScheduleRuleset& scheduleRuleset, QWidge
   std::vector<model::ScheduleRule> scheduleRules = m_scheduleRuleset.scheduleRules();
 
   for (auto it = scheduleRules.begin(); it < scheduleRules.end(); ++it) {
-    it->getImpl<model::detail::ScheduleRule_Impl>().get()->onChange.connect<YearOverview, &YearOverview::scheduleRefresh>(this);
+    it->getImpl<model::detail::ScheduleRule_Impl>()->onChange.connect<YearOverview, &YearOverview::scheduleRefresh>(this);
   }
 
   model::YearDescription yearDescription = m_scheduleRuleset.model().getUniqueModelObject<model::YearDescription>();
 
-  yearDescription.getImpl<model::detail::YearDescription_Impl>().get()->onChange.connect<YearOverview, &YearOverview::scheduleRefresh>(this);
+  yearDescription.getImpl<model::detail::YearDescription_Impl>()->onChange.connect<YearOverview, &YearOverview::scheduleRefresh>(this);
 
   refresh();
 }
@@ -1969,7 +1966,7 @@ void YearOverview::onModelAdd(std::shared_ptr<openstudio::detail::WorkspaceObjec
 
   if (scheduleRule) {
     if (scheduleRule->scheduleRuleset().handle() == m_scheduleRuleset.handle()) {
-      scheduleRule->getImpl<model::detail::ScheduleRule_Impl>().get()->onChange.connect<YearOverview, &YearOverview::scheduleRefresh>(this);
+      scheduleRule->getImpl<model::detail::ScheduleRule_Impl>()->onChange.connect<YearOverview, &YearOverview::scheduleRefresh>(this);
     }
   }
 }

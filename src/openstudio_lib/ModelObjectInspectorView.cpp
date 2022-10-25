@@ -78,22 +78,19 @@ void ModelObjectInspectorView::update() {
 void ModelObjectInspectorView::selectModelObject(const openstudio::model::ModelObject& modelObject) {
   if (m_modelObject) {
     m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
-      .get()
       ->onChange.disconnect<ModelObjectInspectorView, &ModelObjectInspectorView::update>(this);
   }
 
   m_modelObject = modelObject;
 
-  m_modelObject->getImpl<model::detail::ModelObject_Impl>().get()->onChange.connect<ModelObjectInspectorView, &ModelObjectInspectorView::update>(
-    this);
+  m_modelObject->getImpl<model::detail::ModelObject_Impl>()->onChange.connect<ModelObjectInspectorView, &ModelObjectInspectorView::update>(this);
 
   onSelectModelObject(*m_modelObject);
 }
 
 void ModelObjectInspectorView::onClearSelection() {
   if (m_modelObject) {
-    m_modelObject->getImpl<model::detail::ModelObject_Impl>().get()->onChange.disconnect<ModelObjectInspectorView, &ModelObjectInspectorView::update>(
-      this);
+    m_modelObject->getImpl<model::detail::ModelObject_Impl>()->onChange.disconnect<ModelObjectInspectorView, &ModelObjectInspectorView::update>(this);
   }
 
   m_modelObject.reset();

@@ -150,11 +150,10 @@ HVACSystemsController::HVACSystemsController(bool isIP, const model::Model& mode
 
   m_hvacControlsController = std::make_shared<HVACControlsController>(this);
 
-  m_model.getImpl<model::detail::Model_Impl>().get()->addWorkspaceObject.connect<HVACSystemsController, &HVACSystemsController::onObjectAdded>(this);
+  m_model.getImpl<model::detail::Model_Impl>()->addWorkspaceObject.connect<HVACSystemsController, &HVACSystemsController::onObjectAdded>(this);
   //connect(OSAppBase::instance(), &OSAppBase::workspaceObjectAdded, this, &HVACSystemsController::onObjectAdded, Qt::QueuedConnection);
 
-  m_model.getImpl<model::detail::Model_Impl>().get()->removeWorkspaceObject.connect<HVACSystemsController, &HVACSystemsController::onObjectRemoved>(
-    this);
+  m_model.getImpl<model::detail::Model_Impl>()->removeWorkspaceObject.connect<HVACSystemsController, &HVACSystemsController::onObjectRemoved>(this);
   //connect(OSAppBase::instance(), &OSAppBase::workspaceObjectRemoved, this, &HVACSystemsController::onObjectRemoved, Qt::QueuedConnection);
 
   connect(m_hvacSystemsView->hvacToolbarView->addButton, &QPushButton::clicked, this, &HVACSystemsController::onAddSystemClicked);
@@ -179,7 +178,6 @@ HVACSystemsController::HVACSystemsController(bool isIP, const model::Model& mode
     // Trigger a full refresh if the airLoop name changes
     LOG(LOGLEVEL, "HVACSystemsController Ctor: Attaching name change for AirLoopHVAC " << it->nameString());
     it->getImpl<detail::IdfObject_Impl>()
-      .get()
       ->detail::IdfObject_Impl::onNameChange.connect<HVACSystemsController, &HVACSystemsController::repopulateSystemComboBox>(this);
   }
 
@@ -188,7 +186,6 @@ HVACSystemsController::HVACSystemsController(bool isIP, const model::Model& mode
   for (auto it = plantloops.begin(); it != plantloops.end(); ++it) {
     LOG(LOGLEVEL, "HVACSystemsController Ctor: Attaching name change for PlantLoop " << it->nameString());
     it->getImpl<detail::IdfObject_Impl>()
-      .get()
       ->detail::IdfObject_Impl::onNameChange.connect<HVACSystemsController, &HVACSystemsController::repopulateSystemComboBox>(this);
   }
 
@@ -356,7 +353,7 @@ void HVACSystemsController::update() {
 
         m_refrigerationGridController = std::make_shared<RefrigerationGridController>(m_isIP, m_model);
 
-        connect(this, &HVACSystemsController::toggleUnitsClicked, m_refrigerationGridController.get()->refrigerationGridView(),
+        connect(this, &HVACSystemsController::toggleUnitsClicked, m_refrigerationGridController->refrigerationGridView(),
                 &RefrigerationGridView::toggleUnitsClicked);
 
         connect(this, &HVACSystemsController::toggleUnitsClicked, this, &HVACSystemsController::toggleUnits);
@@ -482,7 +479,6 @@ void HVACSystemsController::onObjectAdded(const WorkspaceObject& workspaceObject
   if ((newObjectIddType == model::PlantLoop::iddObjectType()) || (newObjectIddType == model::AirLoopHVAC::iddObjectType())) {
     LOG(LOGLEVEL, "onObjectAdded: Attaching name change for " << workspaceObject.briefDescription());
     workspaceObject.getImpl<detail::IdfObject_Impl>()
-      .get()
       ->detail::IdfObject_Impl::onNameChange.connect<HVACSystemsController, &HVACSystemsController::repopulateSystemComboBox>(this);
   }
 }
@@ -1664,7 +1660,6 @@ void SystemAvailabilityVectorController::attach(const model::ModelObject& modelO
     m_model = m_modelObject->model();
 
     m_model->getImpl<model::detail::Model_Impl>()
-      .get()
       ->onChange.connect<SystemAvailabilityVectorController, &SystemAvailabilityVectorController::reportItemsLater>(this);
   }
 
@@ -1678,7 +1673,6 @@ void SystemAvailabilityVectorController::detach() {
 
   if (m_model) {
     m_model->getImpl<model::detail::Model_Impl>()
-      .get()
       ->onChange.disconnect<SystemAvailabilityVectorController, &SystemAvailabilityVectorController::reportItemsLater>(this);
 
     m_model.reset();
@@ -1766,7 +1760,6 @@ void SupplyAirTempScheduleVectorController::attach(const model::ModelObject& mod
     m_model = m_modelObject->model();
 
     m_model->getImpl<model::detail::Model_Impl>()
-      .get()
       ->onChange.connect<SupplyAirTempScheduleVectorController, &SupplyAirTempScheduleVectorController::reportItemsLater>(this);
   }
 
@@ -1780,7 +1773,6 @@ void SupplyAirTempScheduleVectorController::detach() {
 
   if (m_model) {
     m_model->getImpl<model::detail::Model_Impl>()
-      .get()
       ->onChange.disconnect<SupplyAirTempScheduleVectorController, &SupplyAirTempScheduleVectorController::reportItemsLater>(this);
 
     m_model.reset();
@@ -1877,7 +1869,6 @@ void AvailabilityManagerObjectVectorController::attach(const model::ModelObject&
     m_model = m_modelObject->model();
 
     m_model->getImpl<model::detail::Model_Impl>()
-      .get()
       ->onChange.connect<AvailabilityManagerObjectVectorController, &AvailabilityManagerObjectVectorController::reportItemsLater>(this);
   }
 
@@ -1891,7 +1882,6 @@ void AvailabilityManagerObjectVectorController::detach() {
 
   if (m_model) {
     m_model->getImpl<model::detail::Model_Impl>()
-      .get()
       ->onChange.disconnect<AvailabilityManagerObjectVectorController, &AvailabilityManagerObjectVectorController::reportItemsLater>(this);
 
     m_model.reset();

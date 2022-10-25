@@ -228,14 +228,12 @@ YearSettingsWidget::YearSettingsWidget(const model::Model& model, QWidget* paren
 
   // Connect
 
-  m_yearDescription->getImpl<model::detail::YearDescription_Impl>().get()->onChange.connect<YearSettingsWidget, &YearSettingsWidget::scheduleRefresh>(
-    this);
+  m_yearDescription->getImpl<model::detail::YearDescription_Impl>()->onChange.connect<YearSettingsWidget, &YearSettingsWidget::scheduleRefresh>(this);
 
   connect(OSAppBase::instance(), &OSAppBase::workspaceObjectAddedPtr, this, &YearSettingsWidget::onWorkspaceObjectAdd, Qt::QueuedConnection);
 
-  m_model.getImpl<model::detail::Model_Impl>()
-    .get()
-    ->removeWorkspaceObjectPtr.connect<YearSettingsWidget, &YearSettingsWidget::onWorkspaceObjectRemove>(this);
+  m_model.getImpl<model::detail::Model_Impl>()->removeWorkspaceObjectPtr.connect<YearSettingsWidget, &YearSettingsWidget::onWorkspaceObjectRemove>(
+    this);
 
   connect(m_startWeekBox, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentTextChanged), this,
           &YearSettingsWidget::onDstStartDayWeekMonthChanged);
@@ -265,7 +263,7 @@ bool YearSettingsWidget::calendarYearChecked() {
 void YearSettingsWidget::onWorkspaceObjectAdd(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> wo, const openstudio::IddObjectType& type,
                                               const openstudio::UUID& uuid) {
   if (wo->iddObject().type() == IddObjectType::OS_RunPeriodControl_DaylightSavingTime) {
-    wo.get()->onChange.connect<YearSettingsWidget, &YearSettingsWidget::scheduleRefresh>(this);
+    wo->onChange.connect<YearSettingsWidget, &YearSettingsWidget::scheduleRefresh>(this);
 
     scheduleRefresh();
   }

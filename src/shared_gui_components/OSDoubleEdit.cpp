@@ -230,11 +230,9 @@ void OSDoubleEdit2::completeBind() {
 
   connect(this, &OSDoubleEdit2::editingFinished, this, &OSDoubleEdit2::onEditingFinished);
 
-  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.connect<OSDoubleEdit2, &OSDoubleEdit2::onModelObjectChange>(
-    this);
+  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()->onChange.connect<OSDoubleEdit2, &OSDoubleEdit2::onModelObjectChange>(this);
 
   m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
-    .get()
     ->onRemoveFromWorkspace.connect<OSDoubleEdit2, &OSDoubleEdit2::onModelObjectRemove>(this);
 
   refreshTextAndLabel();
@@ -243,11 +241,9 @@ void OSDoubleEdit2::completeBind() {
 void OSDoubleEdit2::unbind() {
   if (m_modelObject) {
 
+    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()->onChange.disconnect<OSDoubleEdit2, &OSDoubleEdit2::onModelObjectChange>(
+      this);
     m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
-      .get()
-      ->onChange.disconnect<OSDoubleEdit2, &OSDoubleEdit2::onModelObjectChange>(this);
-    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
-      .get()
       ->onRemoveFromWorkspace.disconnect<OSDoubleEdit2, &OSDoubleEdit2::onModelObjectRemove>(this);
 
     m_modelObject.reset();
