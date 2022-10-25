@@ -446,7 +446,7 @@ void SpaceTypesGridController::onCategorySelected(int index) {
     else if (index == 3) {
       auto categoriesAndFields = this->categoriesAndFields();
       auto fields = categoriesAndFields.at(index);
-      for (auto field : fields.second) {
+      for (const auto& field : fields.second) {
         if (field == LOADNAME) {
           spaceTypesGridView()->enableFilter();
           break;

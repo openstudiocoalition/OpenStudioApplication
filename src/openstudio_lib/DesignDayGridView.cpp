@@ -170,7 +170,7 @@ void DesignDayGridView::removeObject(openstudio::model::ModelObject modelObject)
 }
 
 void DesignDayGridView::purgeObjects(const IddObjectType& iddObjectType) {
-  for (auto mo : m_gridController->model().getConcreteModelObjects<model::DesignDay>()) {
+  for (const auto& mo : m_gridController->model().getConcreteModelObjects<model::DesignDay>()) {
     mo.remove();
   }
 }

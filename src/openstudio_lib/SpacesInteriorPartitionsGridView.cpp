@@ -158,9 +158,9 @@ void SpacesInteriorPartitionsGridController::addColumns(const QString& category,
       std::function<std::vector<model::ModelObject>(const model::Space&)> allInteriorPartitionSurfaces(
         [allInteriorPartitionSurfaceGroups](const model::Space& t_space) {
           std::vector<model::ModelObject> allModelObjects;
-          for (auto interiorPartitionSurfaceGroup : allInteriorPartitionSurfaceGroups(t_space)) {
+          for (const auto& interiorPartitionSurfaceGroup : allInteriorPartitionSurfaceGroups(t_space)) {
             auto interiorPartitionSurfaces = interiorPartitionSurfaceGroup.cast<model::InteriorPartitionSurfaceGroup>().interiorPartitionSurfaces();
-            for (auto interiorPartitionSurface : interiorPartitionSurfaces) {
+            for (const auto& interiorPartitionSurface : interiorPartitionSurfaces) {
               allModelObjects.push_back(interiorPartitionSurface);
             }
           }
@@ -170,9 +170,9 @@ void SpacesInteriorPartitionsGridController::addColumns(const QString& category,
       std::function<std::vector<boost::optional<model::ModelObject>>(const model::Space&)> allInteriorPartitionSurfaceInteriorPartitionSurfaceGroups(
         [allInteriorPartitionSurfaceGroups](const model::Space& t_space) {
           std::vector<boost::optional<model::ModelObject>> allModelObjects;
-          for (auto interiorPartitionSurfaceGroup : allInteriorPartitionSurfaceGroups(t_space)) {
+          for (const auto& interiorPartitionSurfaceGroup : allInteriorPartitionSurfaceGroups(t_space)) {
             auto interiorPartitionSurfaces = interiorPartitionSurfaceGroup.cast<model::InteriorPartitionSurfaceGroup>().interiorPartitionSurfaces();
-            for (auto interiorPartitionSurface : interiorPartitionSurfaces) {
+            for (const auto& interiorPartitionSurface : interiorPartitionSurfaces) {
               auto group = interiorPartitionSurface.interiorPartitionSurfaceGroup();
               if (group) {
                 allModelObjects.push_back(*group);

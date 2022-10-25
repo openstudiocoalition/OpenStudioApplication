@@ -272,7 +272,7 @@ void ModelObjectSelectorDialog::loadComboBoxData() {
   std::sort(workspaceObjects.begin(), workspaceObjects.end(), nameSorter);
 
   // add to combo box
-  for (WorkspaceObject workspaceObject : workspaceObjects) {
+  for (const WorkspaceObject& workspaceObject : workspaceObjects) {
     OS_ASSERT(workspaceObject.name());
     std::string objectName = workspaceObject.nameString();
     m_comboBox->addItem(toQString(objectName), toQString(workspaceObject.handle()));

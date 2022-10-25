@@ -346,7 +346,7 @@ void SpacesSubtabGridView::initializeStoryFilter() {
   m_storyFilter->addItem(UNASSIGNED);
   auto buildingStories = this->m_model.getConcreteModelObjects<model::BuildingStory>();
   std::sort(buildingStories.begin(), buildingStories.end(), openstudio::WorkspaceObjectNameLess());
-  for (auto bd : buildingStories) {
+  for (const auto& bd : buildingStories) {
     QString temp("unnamed");
     if (bd.name()) {
       temp = bd.name().get().c_str();
@@ -361,7 +361,7 @@ void SpacesSubtabGridView::initializeThermalZoneFilter() {
   m_thermalZoneFilter->addItem(UNASSIGNED);
   auto thermalZones = this->m_model.getConcreteModelObjects<model::ThermalZone>();
   std::sort(thermalZones.begin(), thermalZones.end(), openstudio::WorkspaceObjectNameLess());
-  for (auto tz : thermalZones) {
+  for (const auto& tz : thermalZones) {
     QString temp("unnamed");
     if (tz.name()) {
       temp = tz.name().get().c_str();
@@ -376,7 +376,7 @@ void SpacesSubtabGridView::initializeSpaceTypeFilter() {
   m_spaceTypeFilter->addItem(UNASSIGNED);
   auto spacetypes = this->m_model.getConcreteModelObjects<model::SpaceType>();
   std::sort(spacetypes.begin(), spacetypes.end(), openstudio::WorkspaceObjectNameLess());
-  for (auto st : spacetypes) {
+  for (const auto& st : spacetypes) {
     QString temp("unnamed");
     if (st.name()) {
       temp = st.name().get().c_str();
@@ -389,7 +389,7 @@ void SpacesSubtabGridView::initializeSubSurfaceTypeFilter() {
   m_subSurfaceTypeFilter->clear();
   m_subSurfaceTypeFilter->addItem(ALL);
   auto subSurfacetypes = model::SubSurface::validSubSurfaceTypeValues();
-  for (auto sst : subSurfacetypes) {
+  for (const auto& sst : subSurfacetypes) {
     m_subSurfaceTypeFilter->addItem(sst.c_str());
   }
 }
@@ -468,7 +468,7 @@ void SpacesSubtabGridView::initializeLoadTypeFilter() {
 void SpacesSubtabGridView::initializeWindExposureFilter() {
   m_windExposureFilter->addItem(ALL);
 
-  for (auto str : model::Surface::validWindExposureValues()) {
+  for (const auto& str : model::Surface::validWindExposureValues()) {
     m_windExposureFilter->addItem(str.c_str());
   }
 }
@@ -476,7 +476,7 @@ void SpacesSubtabGridView::initializeWindExposureFilter() {
 void SpacesSubtabGridView::initializeSunExposureFilter() {
   m_sunExposureFilter->addItem(ALL);
 
-  for (auto str : model::Surface::validSunExposureValues()) {
+  for (const auto& str : model::Surface::validSunExposureValues()) {
     m_sunExposureFilter->addItem(str.c_str());
   }
 }
@@ -484,7 +484,7 @@ void SpacesSubtabGridView::initializeSunExposureFilter() {
 void SpacesSubtabGridView::initializeOutsideBoundaryConditionFilter() {
   m_outsideBoundaryConditionFilter->addItem(ALL);
 
-  for (auto str : model::Surface::validOutsideBoundaryConditionValues()) {
+  for (const auto& str : model::Surface::validOutsideBoundaryConditionValues()) {
     m_outsideBoundaryConditionFilter->addItem(str.c_str());
   }
 }
@@ -492,7 +492,7 @@ void SpacesSubtabGridView::initializeOutsideBoundaryConditionFilter() {
 void SpacesSubtabGridView::initializeSurfaceTypeFilter() {
   m_surfaceTypeFilter->addItem(ALL);
 
-  for (auto str : model::Surface::validSurfaceTypeValues()) {
+  for (const auto& str : model::Surface::validSurfaceTypeValues()) {
     m_surfaceTypeFilter->addItem(str.c_str());
   }
 }
@@ -502,7 +502,7 @@ void SpacesSubtabGridView::initializeInteriorPartitionGroupFilter() {
   m_interiorPartitionGroupFilter->addItem(ALL);
   auto interiorPartitions = this->m_model.getConcreteModelObjects<model::InteriorPartitionSurface>();
   std::sort(interiorPartitions.begin(), interiorPartitions.end(), openstudio::WorkspaceObjectNameLess());
-  for (auto ip : interiorPartitions) {
+  for (const auto& ip : interiorPartitions) {
     QString temp("unnamed");
     if (ip.name()) {
       temp = ip.name().get().c_str();
@@ -517,14 +517,14 @@ void SpacesSubtabGridView::storyFilterChanged(const QString& text) {
   if (text == ALL) {
     // nothing to filter
   } else if (text == UNASSIGNED) {
-    for (auto obj : this->m_gridController->modelObjects()) {
+    for (const auto& obj : this->m_gridController->modelObjects()) {
       if (obj.cast<model::Space>().buildingStory()) {
         m_objectsFilteredByStory.insert(obj);
       }
     }
   } else {
     // OSGridController::m_modelObjects returns the Spaces
-    for (auto obj : this->m_gridController->modelObjects()) {
+    for (const auto& obj : this->m_gridController->modelObjects()) {
       auto buildingStory = obj.cast<model::Space>().buildingStory();
       if (!buildingStory || !buildingStory->name() || (buildingStory && buildingStory->name() && buildingStory->name().get().c_str() != text)) {
         m_objectsFilteredByStory.insert(obj);
@@ -541,14 +541,14 @@ void SpacesSubtabGridView::thermalZoneFilterChanged(const QString& text) {
   if (text == ALL) {
     // nothing to filter
   } else if (text == UNASSIGNED) {
-    for (auto obj : this->m_gridController->modelObjects()) {
+    for (const auto& obj : this->m_gridController->modelObjects()) {
       if (obj.cast<model::Space>().thermalZone()) {
         m_objectsFilteredByThermalZone.insert(obj);
       }
     }
   } else {
     // OSGridController::m_modelObjects returns the Spaces
-    for (auto obj : this->m_gridController->modelObjects()) {
+    for (const auto& obj : this->m_gridController->modelObjects()) {
       auto thermalZone = obj.cast<model::Space>().thermalZone();
       if (!thermalZone || !thermalZone->name() || (thermalZone && thermalZone->name() && thermalZone->name().get().c_str() != text)) {
         m_objectsFilteredByThermalZone.insert(obj);
@@ -565,14 +565,14 @@ void SpacesSubtabGridView::spaceTypeFilterChanged(const QString& text) {
   if (text == ALL) {
     // nothing to filter
   } else if (text == UNASSIGNED) {
-    for (auto obj : this->m_gridController->modelObjects()) {
+    for (const auto& obj : this->m_gridController->modelObjects()) {
       if (obj.cast<model::Space>().spaceType()) {
         m_objectsFilteredBySpaceType.insert(obj);
       }
     }
   } else {
     // OSGridController::m_modelObjects returns the Spaces
-    for (auto obj : this->m_gridController->modelObjects()) {
+    for (const auto& obj : this->m_gridController->modelObjects()) {
       // LOG(Debug, "spaceTypeFilterChanged, obj=" << obj.briefDescription());
       auto spaceType = obj.cast<model::Space>().spaceType();
       if (!spaceType || !spaceType->name() || (spaceType && spaceType->name() && spaceType->name().get().c_str() != text)) {
@@ -635,7 +635,7 @@ void SpacesSubtabGridView::spaceNameFilterChanged() {
   if (m_spaceNameFilter->text().isEmpty()) {
     // nothing to filter
   } else {
-    for (auto obj : this->m_gridController->modelObjects()) {
+    for (const auto& obj : this->m_gridController->modelObjects()) {
       QString objName(obj.name().get().c_str());
       if (!objName.contains(m_spaceNameFilter->text(), Qt::CaseInsensitive)) {
         m_objectsFilteredBySpaceName.insert(obj);
@@ -874,7 +874,7 @@ void SpacesSubtabGridView::addObject(const IddObjectType& iddObjectType) {
 
 void SpacesSubtabGridView::purgeObjects(const IddObjectType& iddObjectType) {
   // Purge Spaces. The logic is to remove spaces that don't have a thermalZone nor surfaces
-  for (auto mo : this->m_model.getConcreteModelObjects<model::Space>()) {
+  for (const auto& mo : this->m_model.getConcreteModelObjects<model::Space>()) {
     if ((!mo.thermalZone()) && (mo.surfaces().empty())) {
       mo.remove();
     }

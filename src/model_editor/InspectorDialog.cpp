@@ -501,7 +501,7 @@ void InspectorDialog::init(InspectorDialogClient client) {
       m_iddFile = IddFactory::instance().getIddFile(IddFileType::OpenStudio);
 
       // everything is allowable
-      for (IddObject iddObject : m_iddFile.objects()) {
+      for (const IddObject& iddObject : m_iddFile.objects()) {
         m_typesToDisplay.insert(iddObject.type());
       }
 
@@ -1069,7 +1069,7 @@ void InspectorDialog::loadTableWidgetData() {
 
   std::vector<WorkspaceObject> objects = m_model.getObjectsByType(m_iddObjectType);
 
-  for (WorkspaceObject object : objects) {
+  for (const WorkspaceObject& object : objects) {
 
     m_objectHandles.push_back(object.handle());
 

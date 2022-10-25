@@ -408,7 +408,7 @@ std::vector<std::string> OpenStudioApp::buildCompLibraries() {
 
   std::string thisVersion = openStudioVersion();
 
-  for (auto path : libraryPaths()) {
+  for (const auto& path : libraryPaths()) {
     try {
       if (exists(path)) {
         boost::optional<VersionString> version = openstudio::IdfFile::loadVersionOnly(path);
@@ -1340,7 +1340,7 @@ void OpenStudioApp::writeLibraryPaths(const std::vector<openstudio::path>& paths
     auto resPath = resourcesPath();
     std::string s_resPath = toString(resPath);
 
-    for (const auto path : paths) {
+    for (const auto& path : paths) {
       settings.setArrayIndex(i);
 
       // If this is one of the defaultPaths

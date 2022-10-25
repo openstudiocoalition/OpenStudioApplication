@@ -597,7 +597,7 @@ bool OSGridController::getgridRowByItem(OSItem* item, int& gridRow) {
   auto success = false;
   gridRow = -1;
 
-  for (auto modelObject : m_modelObjects) {
+  for (const auto& modelObject : m_modelObjects) {
     gridRow++;
     OSItemId itemId = modelObjectToItemId(modelObject, false);
     if (item->itemId() == itemId) {
@@ -621,7 +621,7 @@ bool OSGridController::getgridRowByItem(OSItem* item, int& gridRow) {
       }
     }
 
-    for (auto modelObject : m_modelObjects) {
+    for (const auto& modelObject : m_modelObjects) {
       gridRow++;
       OSItemId itemId = modelObjectToItemId(modelObject, false);
       strings = itemId.otherData().split(",");
@@ -740,7 +740,7 @@ void OSGridController::onInFocus(bool inFocus, bool hasData, int modelRow, int g
       // Sub rows present, either in a widget, or in a row
       const DataSource& source = dataSource->source();
       QSharedPointer<BaseConcept> dropZoneConcept = source.dropZoneConcept();
-      for (auto modelObject : selectedObjects) {
+      for (const auto& modelObject : selectedObjects) {
         // Don't set the chosen object when iterating through the selected objects
         if (modelObject != focusedObject.get()) {
           OS_ASSERT(dataSource.data()->innerConcept());
@@ -754,7 +754,7 @@ void OSGridController::onInFocus(bool inFocus, bool hasData, int modelRow, int g
         }
       }
     } else if (!focusedSubrow) {
-      for (auto modelObject : selectedObjects) {
+      for (const auto& modelObject : selectedObjects) {
         // Don't set the chosen object when iterating through the selected objects
         if (modelObject != focusedObject.get()) {
           setConceptValue(modelObject, focusedObject.get(), m_baseConcepts[column]);

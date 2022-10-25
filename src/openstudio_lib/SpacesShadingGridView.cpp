@@ -155,7 +155,7 @@ void SpacesShadingGridController::addColumns(const QString& category, std::vecto
 
       std::function<std::vector<model::ModelObject>(const model::Space&)> allShadingSurfaces([allShadingSurfaceGroups](const model::Space& t_space) {
         std::vector<model::ModelObject> allModelObjects;
-        for (auto shadingSurfaceGroup : allShadingSurfaceGroups(t_space)) {
+        for (const auto& shadingSurfaceGroup : allShadingSurfaceGroups(t_space)) {
           auto shadingSurfaces = shadingSurfaceGroup.cast<model::ShadingSurfaceGroup>().shadingSurfaces();
           allModelObjects.insert(allModelObjects.end(), shadingSurfaces.begin(), shadingSurfaces.end());
         }
@@ -165,9 +165,9 @@ void SpacesShadingGridController::addColumns(const QString& category, std::vecto
       std::function<std::vector<boost::optional<model::ModelObject>>(const model::Space&)> allShadingSurfaceShadingSurfaceGroups(
         [allShadingSurfaceGroups](const model::Space& t_space) {
           std::vector<boost::optional<model::ModelObject>> allModelObjects;
-          for (auto shadingSurfaceGroup : allShadingSurfaceGroups(t_space)) {
+          for (const auto& shadingSurfaceGroup : allShadingSurfaceGroups(t_space)) {
             auto shadingSurfaces = shadingSurfaceGroup.cast<model::ShadingSurfaceGroup>().shadingSurfaces();
-            for (auto shadingSurface : shadingSurfaces) {
+            for (const auto& shadingSurface : shadingSurfaces) {
               auto group = shadingSurface.shadingSurfaceGroup();
               if (group) {
                 allModelObjects.push_back(*group);

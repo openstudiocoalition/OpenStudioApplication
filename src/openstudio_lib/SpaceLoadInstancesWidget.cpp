@@ -737,7 +737,7 @@ void SpaceLoadInstancesWidget::detach() {
       .get()
       ->onRelationshipChange.disconnect<SpaceLoadInstancesWidget, &SpaceLoadInstancesWidget::onBuildingRelationshipChange>(this);
 
-    for (model::SpaceType spaceType : m_model->getConcreteModelObjects<model::SpaceType>()) {
+    for (const model::SpaceType& spaceType : m_model->getConcreteModelObjects<model::SpaceType>()) {
       spaceType.getImpl<model::detail::ModelObject_Impl>()
         .get()
         ->onRelationshipChange.disconnect<SpaceLoadInstancesWidget, &SpaceLoadInstancesWidget::onSpaceTypeRelationshipChange>(this);
@@ -773,7 +773,7 @@ void SpaceLoadInstancesWidget::attach(const model::Space& space) {
     .get()
     ->onRelationshipChange.connect<SpaceLoadInstancesWidget, &SpaceLoadInstancesWidget::onBuildingRelationshipChange>(this);
 
-  for (model::SpaceType spaceType : m_model->getConcreteModelObjects<model::SpaceType>()) {
+  for (const model::SpaceType& spaceType : m_model->getConcreteModelObjects<model::SpaceType>()) {
     spaceType.getImpl<model::detail::ModelObject_Impl>()
       .get()
       ->onRelationshipChange.connect<SpaceLoadInstancesWidget, &SpaceLoadInstancesWidget::onSpaceTypeRelationshipChange>(this);

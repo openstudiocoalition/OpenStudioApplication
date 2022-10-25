@@ -599,7 +599,7 @@ QWidget* SimSettingsView::createSimulationControlWidget() {
   addField(gridLayout, row, col, "Maximum Number of HVAC Sizing Simulation Passes", m_maximumNumberofHVACSizingSimulationPasses);
 
   std::vector<std::string> validSolarDistributionValues = model::SimulationControl::validSolarDistributionValues();
-  for (std::string validSolarDistributionValue : validSolarDistributionValues) {
+  for (const std::string& validSolarDistributionValue : validSolarDistributionValues) {
     m_solarDistribution->addItem(validSolarDistributionValue.c_str());
   }
 
@@ -1020,7 +1020,7 @@ QWidget* SimSettingsView::createRadianceParametersWidget() {
   addField(gridLayout, row, col, m_skyDiscretizationResolutionLbl, "Sky Discretization Resolution: ", m_skyDiscretizationResolution);
 
   std::vector<std::string> skyDiscretizationResolutionValues = model::RadianceParameters::skyDiscretizationResolutionValues();
-  for (std::string skyDiscretizationResolutionValue : skyDiscretizationResolutionValues) {
+  for (const std::string& skyDiscretizationResolutionValue : skyDiscretizationResolutionValues) {
     m_skyDiscretizationResolution->addItem(skyDiscretizationResolutionValue.c_str());
   }
 
