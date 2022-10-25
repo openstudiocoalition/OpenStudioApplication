@@ -126,7 +126,7 @@ GeometryEditorView::GeometryEditorView(bool isIP, const openstudio::model::Model
   setLayout(layout);
 }
 
-GeometryEditorView::~GeometryEditorView() {}
+GeometryEditorView::~GeometryEditorView() = default;
 
 DebugWebView::DebugWebView(const QString& debugPort, QWidget* parent) : QDialog(parent) {
   auto* mainLayout = new QVBoxLayout;
@@ -146,7 +146,7 @@ DebugWebView::DebugWebView(const QString& debugPort, QWidget* parent) : QDialog(
   m_view->load(QUrl(urlString));
 }
 
-DebugWebView::~DebugWebView() {}
+DebugWebView::~DebugWebView() = default;
 
 BaseEditor::BaseEditor(bool isIP, const openstudio::model::Model& model, QWebEngineView* view, QWidget* t_parent)
   : QObject(t_parent), m_editorLoaded(false), m_javascriptRunning(false), m_versionNumber(0), m_isIP(isIP), m_model(model), m_view(view) {
@@ -159,7 +159,7 @@ BaseEditor::BaseEditor(bool isIP, const openstudio::model::Model& model, QWebEng
   OS_ASSERT(m_document);
 }
 
-BaseEditor::~BaseEditor() {}
+BaseEditor::~BaseEditor() = default;
 
 bool BaseEditor::editorLoaded() const {
   return m_editorLoaded;
@@ -253,7 +253,7 @@ FloorspaceEditor::FloorspaceEditor(const openstudio::path& floorplanPath, bool i
   m_document->enable();
 }
 
-FloorspaceEditor::~FloorspaceEditor() {}
+FloorspaceEditor::~FloorspaceEditor() = default;
 
 void FloorspaceEditor::loadEditor() {
   // set config
@@ -760,7 +760,7 @@ GbXmlEditor::GbXmlEditor(const openstudio::path& gbXmlPath, bool isIP, const ope
   m_document->enable();
 }
 
-GbXmlEditor::~GbXmlEditor() {}
+GbXmlEditor::~GbXmlEditor() = default;
 
 void GbXmlEditor::loadEditor() {
   {
@@ -916,7 +916,7 @@ IdfEditor::IdfEditor(const openstudio::path& idfPath, bool forceConvert, bool is
   m_document->enable();
 }
 
-IdfEditor::~IdfEditor() {}
+IdfEditor::~IdfEditor() = default;
 
 void IdfEditor::loadEditor() {
 
@@ -1035,7 +1035,7 @@ OsmEditor::OsmEditor(const openstudio::path& osmPath, bool isIP, const openstudi
   m_document->enable();
 }
 
-OsmEditor::~OsmEditor() {}
+OsmEditor::~OsmEditor() = default;
 
 void OsmEditor::loadEditor() {
 

@@ -36,7 +36,7 @@ QString modeleditor::ListWidget::mMimeType = "ListWidget data";
 
 ListWidget::ListWidget(QWidget* parent) : QListWidget(parent) {}
 
-ListWidget::~ListWidget() {}
+ListWidget::~ListWidget() = default;
 
 QMimeData* ListWidget::mimeData(const QList<QListWidgetItem*>& items) const {
   QMimeData* mimeData = QListWidget::mimeData(items);

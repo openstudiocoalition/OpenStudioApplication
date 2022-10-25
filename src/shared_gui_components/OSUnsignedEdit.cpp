@@ -76,7 +76,7 @@ OSUnsignedEdit2::OSUnsignedEdit2(QWidget* parent) : QLineEdit(parent), m_isScien
   );
 }
 
-OSUnsignedEdit2::~OSUnsignedEdit2() {}
+OSUnsignedEdit2::~OSUnsignedEdit2() = default;
 
 void OSUnsignedEdit2::enableClickFocus() {
   this->m_hasClickFocus = true;
@@ -234,7 +234,9 @@ void OSUnsignedEdit2::onEditingFinished() {
   emit inFocus(m_focused, hasData());
 
   QString text = this->text();
-  if (m_text == text) return;
+  if (m_text == text) {
+    return;
+  }
 
   int pos = 0;
   QValidator::State state = m_intValidator->validate(text, pos);

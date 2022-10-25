@@ -1495,7 +1495,9 @@ QString SpaceTypesGridController::getColor(const model::ModelObject& modelObject
 }
 
 void SpaceTypesGridController::checkSelectedFields() {
-  if (!this->hasHorizontalHeader()) return;
+  if (!this->hasHorizontalHeader()) {
+    return;
+  }
 
   OSGridController::checkSelectedFields();
 }

@@ -104,7 +104,7 @@ ModelObjectSelectorDialog::ModelObjectSelectorDialog(const std::vector<openstudi
   init();
 }
 
-ModelObjectSelectorDialog::~ModelObjectSelectorDialog() {}
+ModelObjectSelectorDialog::~ModelObjectSelectorDialog() = default;
 
 boost::optional<openstudio::model::ModelObject> ModelObjectSelectorDialog::selectedModelObject() const {
   boost::optional<openstudio::model::ModelObject> result;

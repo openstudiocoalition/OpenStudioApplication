@@ -80,7 +80,7 @@ OSDoubleEdit2::OSDoubleEdit2(QWidget* parent) : QLineEdit(parent), m_isScientifi
   //this->setValidator(m_doubleValidator);
 }
 
-OSDoubleEdit2::~OSDoubleEdit2() {}
+OSDoubleEdit2::~OSDoubleEdit2() = default;
 
 void OSDoubleEdit2::enableClickFocus() {
   this->m_hasClickFocus = true;
@@ -271,7 +271,9 @@ void OSDoubleEdit2::onEditingFinished() {
   emit inFocus(m_focused, hasData());
 
   QString text = this->text();
-  if (m_text == text) return;
+  if (m_text == text) {
+    return;
+  }
 
   int pos = 0;
   QValidator::State state = m_doubleValidator->validate(text, pos);

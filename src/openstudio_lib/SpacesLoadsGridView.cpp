@@ -968,7 +968,9 @@ QString SpacesLoadsGridController::getColor(const model::ModelObject& modelObjec
 }
 
 void SpacesLoadsGridController::checkSelectedFields() {
-  if (!this->hasHorizontalHeader()) return;
+  if (!this->hasHorizontalHeader()) {
+    return;
+  }
 
   OSGridController::checkSelectedFields();
 }

@@ -52,7 +52,7 @@ PageNavigator::PageNavigator(int numPages, int numPagesListed, QWidget* parent)
   createLayout();
 }
 
-PageNavigator::~PageNavigator() {}
+PageNavigator::~PageNavigator() = default;
 
 void PageNavigator::createLayout() {
   auto* layout = new QHBoxLayout();
@@ -138,7 +138,9 @@ void PageNavigator::setButtonPageNumbers(int lowestPageNum) {
   for (int i = 0; i < m_numPagesListed; ++i) {
     QAbstractButton* button = m_buttonGroup->button(i);
     button->setText(num.setNum(lowestPageNum + i));
-    if (i == m_numPages) break;
+    if (i == m_numPages) {
+      break;
+    }
   }
 }
 
@@ -174,10 +176,14 @@ void PageNavigator::on_buttonClicked(QAbstractButton* button) {
 
 void PageNavigator::on_firstPage(bool checked) {
   // Verify that there are pages to work with
-  if (m_numPagesListed == 0) return;
+  if (m_numPagesListed == 0) {
+    return;
+  }
 
   /// for efficiency, check if the first page is already being displayed
-  if (m_buttonGroup->checkedButton() && m_buttonGroup->checkedButton()->text().toInt() == 1) return;
+  if (m_buttonGroup->checkedButton() && m_buttonGroup->checkedButton()->text().toInt() == 1) {
+    return;
+  }
 
   /// Get the page number held by the first button
   if (m_buttonGroup->button(0)) {
@@ -197,7 +203,9 @@ void PageNavigator::on_firstPage(bool checked) {
 
 void PageNavigator::on_previousPage(bool checked) {
   // Verify that there are pages to work with
-  if (m_numPagesListed == 0) return;
+  if (m_numPagesListed == 0) {
+    return;
+  }
 
   /// If the first button of the group is selected...
   if (m_buttonGroup->checkedId() == 0) {
@@ -229,7 +237,9 @@ void PageNavigator::on_previousPage(bool checked) {
 
 void PageNavigator::on_nextPage(bool checked) {
   // Verify that there are pages to work with
-  if (m_numPagesListed == 0) return;
+  if (m_numPagesListed == 0) {
+    return;
+  }
 
   /// If the last button of the group is selected...
   if (m_buttonGroup->checkedId() == m_numPagesListed - 1) {
@@ -261,10 +271,14 @@ void PageNavigator::on_nextPage(bool checked) {
 
 void PageNavigator::on_lastPage(bool checked) {
   // Verify that there are pages to work with
-  if (m_numPagesListed == 0) return;
+  if (m_numPagesListed == 0) {
+    return;
+  }
 
   /// for efficiency, check if the last page is already being displayed
-  if (m_buttonGroup->checkedButton() && m_buttonGroup->checkedButton()->text().toInt() == m_numPages) return;
+  if (m_buttonGroup->checkedButton() && m_buttonGroup->checkedButton()->text().toInt() == m_numPages) {
+    return;
+  }
 
   /// Get the page number held by the last button
   if (m_buttonGroup->button(m_numPagesListed - 1)) {

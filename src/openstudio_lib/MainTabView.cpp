@@ -122,7 +122,9 @@ void MainTabView::setTabType(MainTabView::TabType tabType) {
 bool MainTabView::addTabWidget(QWidget* widget) {
   // This method should only be called in cases where the tab will not have sub tabs
   OS_ASSERT(m_tabType == MAIN_TAB);
-  if (m_tabType != MAIN_TAB) return false;
+  if (m_tabType != MAIN_TAB) {
+    return false;
+  }
 
   m_editView->setView(widget);
 
@@ -132,7 +134,9 @@ bool MainTabView::addTabWidget(QWidget* widget) {
 bool MainTabView::addSubTab(const QString& subTabLabel, int id) {
   // This method should only be called in cases where the tab will have sub tabs
   OS_ASSERT(m_tabType != MAIN_TAB);
-  if (m_tabType == MAIN_TAB) return false;
+  if (m_tabType == MAIN_TAB) {
+    return false;
+  }
 
   auto* button = new QPushButton(this);
   button->setText(subTabLabel);

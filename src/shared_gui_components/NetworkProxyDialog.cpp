@@ -154,7 +154,9 @@ std::pair<QNetworkReply::NetworkError, QString> NetworkProxyDialog::testProxyCon
   nam.setProxy(t_proxy);
   QNetworkReply* head = nam.head(QNetworkRequest(QUrl("https://bcl.nrel.gov/")));
 
-  if (!head) return std::make_pair(QNetworkReply::UnknownNetworkError, QString("Unknown error creating connection to proxy."));
+  if (!head) {
+    return std::make_pair(QNetworkReply::UnknownNetworkError, QString("Unknown error creating connection to proxy."));
+  }
 
   boost::posix_time::ptime start = boost::posix_time::microsec_clock::universal_time();
   while (!head->isFinished() && (boost::posix_time::microsec_clock::universal_time() - start).total_milliseconds() < 10000 && !dlg.wasCanceled()) {
@@ -180,7 +182,9 @@ std::pair<QNetworkReply::NetworkError, QString> NetworkProxyDialog::testProxyCon
 }
 
 bool NetworkProxyDialog::testProxy(QNetworkProxy& t_proxy, QWidget* t_parent) {
-  if (t_proxy.type() == QNetworkProxy::NoProxy) return true;
+  if (t_proxy.type() == QNetworkProxy::NoProxy) {
+    return true;
+  }
 
   t_parent->setEnabled(false);
 

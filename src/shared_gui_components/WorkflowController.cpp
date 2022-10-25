@@ -113,7 +113,7 @@ QSharedPointer<WorkflowStepController> WorkflowSectionItem::workflowStepControll
   return m_workflowStepController;
 }
 
-WorkflowSectionItemDelegate::WorkflowSectionItemDelegate() {}
+WorkflowSectionItemDelegate::WorkflowSectionItemDelegate() = default;
 
 QWidget* WorkflowSectionItemDelegate::view(QSharedPointer<OSListItem> dataSource) {
   if (QSharedPointer<WorkflowSectionItem> workflowSectionItem = dataSource.objectCast<WorkflowSectionItem>()) {
@@ -545,7 +545,7 @@ void MeasureStepItem::setSelected(bool isSelected) {
   }
 }
 
-MeasureStepItemDelegate::MeasureStepItemDelegate() {}
+MeasureStepItemDelegate::MeasureStepItemDelegate() = default;
 
 QWidget* MeasureStepItemDelegate::view(QSharedPointer<OSListItem> dataSource) {
   if (QSharedPointer<MeasureStepItem> measureStepItem = dataSource.objectCast<MeasureStepItem>()) {

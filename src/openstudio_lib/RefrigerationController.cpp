@@ -586,7 +586,9 @@ void RefrigerationController::refresh() {
 }
 
 void RefrigerationController::refreshNow() {
-  if (!m_dirty) return;
+  if (!m_dirty) {
+    return;
+  }
 
   if (m_detailView) {
     refreshRefrigerationSystemView(m_detailView, m_currentSystem);

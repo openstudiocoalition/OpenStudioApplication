@@ -318,7 +318,9 @@ QString FacilityStoriesGridController::getColor(const model::ModelObject& modelO
 }
 
 void FacilityStoriesGridController::checkSelectedFields() {
-  if (!this->hasHorizontalHeader()) return;
+  if (!this->hasHorizontalHeader()) {
+    return;
+  }
 
   OSGridController::checkSelectedFields();
 }

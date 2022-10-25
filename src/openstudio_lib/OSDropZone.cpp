@@ -548,7 +548,7 @@ OSDropZone2::OSDropZone2() : QWidget() {
   setMaximumWidth(150);
 }
 
-OSDropZone2::~OSDropZone2() {}
+OSDropZone2::~OSDropZone2() = default;
 
 void OSDropZone2::enableClickFocus() {
   m_hasClickFocus = true;

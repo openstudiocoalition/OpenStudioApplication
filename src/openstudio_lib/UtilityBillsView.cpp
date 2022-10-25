@@ -78,7 +78,7 @@ UtilityBillsView::UtilityBillsView(const openstudio::model::Model& model, QWidge
           &UtilityBillsView::enableAddNewObjectButton);
 }
 
-UtilityBillsView::~UtilityBillsView() {}
+UtilityBillsView::~UtilityBillsView() = default;
 
 std::vector<std::pair<FuelType, std::string>> UtilityBillsView::utilityBillFuelTypesAndNames() {
   std::vector<std::pair<FuelType, std::string>> result;
@@ -596,7 +596,9 @@ void UtilityBillsInspectorView::deleteBillingPeriodWidgets() {
 }
 
 void UtilityBillsInspectorView::deleteAllWidgetsAndLayoutItems(QLayout* layout, bool deleteWidgets) {
-  if (!layout) return;
+  if (!layout) {
+    return;
+  }
 
   while (QLayoutItem* item = layout->takeAt(0)) {
     if (deleteWidgets) {
@@ -691,25 +693,33 @@ void UtilityBillsInspectorView::setBillFormat(int index) {
 void UtilityBillsInspectorView::updateEnergyUseLabelText() {
   m_energyUseUnits = m_consumptionUnits->currentText();
   QString energyUseLabelText = getEnergyUseLabelText();
-  if (m_energyUseLabel) m_energyUseLabel->setText(energyUseLabelText);
+  if (m_energyUseLabel) {
+    m_energyUseLabel->setText(energyUseLabelText);
+  }
 }
 
 void UtilityBillsInspectorView::updatePeakLabelText() {
   m_peakUnits = m_peakDemandUnits->currentText();
   QString peakLabelText = getPeakLabelText();
-  if (m_peakLabel) m_peakLabel->setText(peakLabelText);
+  if (m_peakLabel) {
+    m_peakLabel->setText(peakLabelText);
+  }
 }
 
 void UtilityBillsInspectorView::updateEnergyUseLabelText(const QString& text) {
   m_energyUseUnits = text;
   QString energyUseLabelText = getEnergyUseLabelText();
-  if (m_energyUseLabel) m_energyUseLabel->setText(energyUseLabelText);
+  if (m_energyUseLabel) {
+    m_energyUseLabel->setText(energyUseLabelText);
+  }
 }
 
 void UtilityBillsInspectorView::updatePeakLabelText(const QString& text) {
   m_peakUnits = text;
   QString peakLabelText = getPeakLabelText();
-  if (m_peakLabel) m_peakLabel->setText(peakLabelText);
+  if (m_peakLabel) {
+    m_peakLabel->setText(peakLabelText);
+  }
 }
 
 void UtilityBillsInspectorView::updateRunPeriodDates() {

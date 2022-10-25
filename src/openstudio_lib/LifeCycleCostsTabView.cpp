@@ -63,7 +63,7 @@ LifeCycleCostsView::LifeCycleCostsView(const model::Model& model) : QWidget(), m
   attach(m_lifeCycleCostParameters.get());
 }
 
-LifeCycleCostsView::~LifeCycleCostsView() {}
+LifeCycleCostsView::~LifeCycleCostsView() = default;
 
 void LifeCycleCostsView::createWidgets() {
 

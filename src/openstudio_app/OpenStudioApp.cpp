@@ -901,7 +901,9 @@ void OpenStudioApp::open() {
 
   QString fileName = QFileDialog::getOpenFileName(parent, tr("Open"), lastPath(), tr("(*.osm)"));
 
-  if (!fileName.length()) return;
+  if (!fileName.length()) {
+    return;
+  }
 
   setLastPath(QFileInfo(fileName).path());
 

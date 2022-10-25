@@ -138,7 +138,7 @@ ResultsView::ResultsView(QWidget* t_parent)
   mainLayout->addWidget(m_view);
 }
 
-ResultsView::~ResultsView() {}
+ResultsView::~ResultsView() = default;
 
 void ResultsView::refreshClicked() {
   m_view->triggerPageAction(QWebEnginePage::ReloadAndBypassCache);

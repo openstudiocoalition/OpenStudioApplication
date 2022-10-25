@@ -260,7 +260,9 @@ QString SpacesInteriorPartitionsGridController::getColor(const model::ModelObjec
 }
 
 void SpacesInteriorPartitionsGridController::checkSelectedFields() {
-  if (!this->hasHorizontalHeader()) return;
+  if (!this->hasHorizontalHeader()) {
+    return;
+  }
 
   OSGridController::checkSelectedFields();
 }

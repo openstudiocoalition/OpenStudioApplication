@@ -444,7 +444,9 @@ QString FacilityExteriorEquipmentGridController::getColor(const model::ModelObje
 }
 
 void FacilityExteriorEquipmentGridController::checkSelectedFields() {
-  if (!this->hasHorizontalHeader()) return;
+  if (!this->hasHorizontalHeader()) {
+    return;
+  }
 
   OSGridController::checkSelectedFields();
 }

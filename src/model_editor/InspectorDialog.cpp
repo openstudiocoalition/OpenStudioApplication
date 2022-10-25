@@ -85,7 +85,7 @@ InspectorDialog::InspectorDialog(openstudio::model::Model& model, InspectorDialo
   init(client);
 }
 
-InspectorDialog::~InspectorDialog() {}
+InspectorDialog::~InspectorDialog() = default;
 
 openstudio::IddObjectType InspectorDialog::iddObjectType() const {
   return m_iddObjectType;
@@ -1124,5 +1124,7 @@ void InspectorDialog::getTableWidgetSelected(std::vector<openstudio::Handle>& se
 }
 
 void InspectorDialog::displayIP(const bool displayIP) {
-  if (m_inspectorGadget) m_inspectorGadget->toggleUnits(displayIP);
+  if (m_inspectorGadget) {
+    m_inspectorGadget->toggleUnits(displayIP);
+  }
 }

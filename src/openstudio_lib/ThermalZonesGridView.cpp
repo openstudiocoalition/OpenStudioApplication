@@ -646,7 +646,9 @@ QString ThermalZonesGridController::getColor(const model::ModelObject& modelObje
 }
 
 void ThermalZonesGridController::checkSelectedFields() {
-  if (!this->hasHorizontalHeader()) return;
+  if (!this->hasHorizontalHeader()) {
+    return;
+  }
 
   OSGridController::checkSelectedFields();
 }

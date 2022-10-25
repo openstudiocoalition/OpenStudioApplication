@@ -71,7 +71,7 @@ OSWidgetHolder::OSWidgetHolder(OSCellWrapper* cellWrapper, QWidget* widget, bool
                       "QWidget#OSWidgetHolder { border: none; background-color: #ff0000; }");
 }
 
-OSWidgetHolder::~OSWidgetHolder() {}
+OSWidgetHolder::~OSWidgetHolder() = default;
 
 QWidget* OSWidgetHolder::widget() const {
   return m_widget;

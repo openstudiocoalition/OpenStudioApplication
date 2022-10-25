@@ -211,16 +211,24 @@ void OSItemSelectorButtons::disablePurgeButton() {
 }
 
 void OSItemSelectorButtons::showBclDlgButton() {
-  if (m_openBclDlgButton) m_openBclDlgButton->show();
+  if (m_openBclDlgButton) {
+    m_openBclDlgButton->show();
+  }
 }
 void OSItemSelectorButtons::hideBclDlgButton() {
-  if (m_openBclDlgButton) m_openBclDlgButton->hide();
+  if (m_openBclDlgButton) {
+    m_openBclDlgButton->hide();
+  }
 }
 void OSItemSelectorButtons::enableBclDlgButton() {
-  if (m_openBclDlgButton) m_openBclDlgButton->setEnabled(true);
+  if (m_openBclDlgButton) {
+    m_openBclDlgButton->setEnabled(true);
+  }
 }
 void OSItemSelectorButtons::disableBclDlgButton() {
-  if (m_openBclDlgButton) m_openBclDlgButton->setEnabled(false);
+  if (m_openBclDlgButton) {
+    m_openBclDlgButton->setEnabled(false);
+  }
 }
 
 void OSItemSelectorButtons::paintEvent(QPaintEvent* event) {

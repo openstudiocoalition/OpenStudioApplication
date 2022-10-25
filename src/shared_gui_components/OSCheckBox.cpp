@@ -45,7 +45,7 @@ OSSelectAllCheckBox::OSSelectAllCheckBox(QWidget* parent) : QCheckBox(parent) {
   setTristate(true);
 }
 
-OSSelectAllCheckBox::~OSSelectAllCheckBox() {}
+OSSelectAllCheckBox::~OSSelectAllCheckBox() = default;
 
 void OSSelectAllCheckBox::onGridRowSelectionChanged(int numSelected, int numSelectable) {
   blockSignals(true);
@@ -87,7 +87,7 @@ OSCheckBox3::OSCheckBox3(QWidget* parent) : QCheckBox(parent) {
   );
 }
 
-OSCheckBox3::~OSCheckBox3() {}
+OSCheckBox3::~OSCheckBox3() = default;
 
 void OSCheckBox3::bind(const model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetter> set, boost::optional<NoFailAction> reset,
                        boost::optional<BasicQuery> isDefaulted) {

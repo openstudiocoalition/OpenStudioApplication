@@ -239,7 +239,9 @@ QString SpacesShadingGridController::getColor(const model::ModelObject& modelObj
 }
 
 void SpacesShadingGridController::checkSelectedFields() {
-  if (!this->hasHorizontalHeader()) return;
+  if (!this->hasHorizontalHeader()) {
+    return;
+  }
 
   OSGridController::checkSelectedFields();
 }

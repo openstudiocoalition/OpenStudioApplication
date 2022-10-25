@@ -79,7 +79,7 @@ namespace openstudio {
 GridCellLocation::GridCellLocation(int t_modelRow, int t_gridRow, int t_column, boost::optional<int> t_subrow, QObject* parent)
   : QObject(parent), modelRow(t_modelRow), gridRow(t_gridRow), column(t_column), subrow(t_subrow) {}
 
-GridCellLocation::~GridCellLocation() {}
+GridCellLocation::~GridCellLocation() = default;
 
 bool GridCellLocation::equal(int t_modelRow, int t_gridRow, int t_column, boost::optional<int> t_subrow) const {
   return (modelRow == t_modelRow) && (gridRow == t_gridRow) && (column == t_column) && (subrow == t_subrow);
@@ -138,7 +138,7 @@ GridCellInfo::GridCellInfo(const boost::optional<model::ModelObject>& t_modelObj
     m_isSelected(t_isSelected),
     m_isLocked(t_isLocked) {}
 
-GridCellInfo::~GridCellInfo() {}
+GridCellInfo::~GridCellInfo() = default;
 
 bool GridCellInfo::isVisible() const {
   return m_isVisible;
@@ -188,7 +188,7 @@ bool GridCellInfo::setLocked(bool locked) {
 
 OSObjectSelector::OSObjectSelector(QObject* parent) : QObject(parent), m_objectFilter(getDefaultFilter()), m_isLocked(getDefaultIsLocked()) {}
 
-OSObjectSelector::~OSObjectSelector() {}
+OSObjectSelector::~OSObjectSelector() = default;
 
 void OSObjectSelector::clear() {
 

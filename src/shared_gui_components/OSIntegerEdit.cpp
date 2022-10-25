@@ -75,7 +75,7 @@ OSIntegerEdit2::OSIntegerEdit2(QWidget* parent) : QLineEdit(parent), m_isScienti
   //this->setValidator(m_intValidator);
 }
 
-OSIntegerEdit2::~OSIntegerEdit2() {}
+OSIntegerEdit2::~OSIntegerEdit2() = default;
 
 void OSIntegerEdit2::enableClickFocus() {
   this->m_hasClickFocus = true;
@@ -235,7 +235,9 @@ void OSIntegerEdit2::onEditingFinished() {
   emit inFocus(m_focused, hasData());
 
   QString text = this->text();
-  if (m_text == text) return;
+  if (m_text == text) {
+    return;
+  }
 
   int pos = 0;
   QValidator::State state = m_intValidator->validate(text, pos);

@@ -430,7 +430,7 @@ LibraryItem::LibraryItem(const BCLMeasure& bclMeasure, LocalLibrary::LibrarySour
   }
 }
 
-LibraryItem::~LibraryItem() {}
+LibraryItem::~LibraryItem() = default;
 
 bool LibraryItem::hasError() const {
   return m_bclMeasure.error().has_value();

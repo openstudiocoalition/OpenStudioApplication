@@ -184,7 +184,8 @@ OSGridView::OSGridView(OSGridController* gridController, const QString& headerTe
   QTimer::singleShot(0, this, &OSGridView::recreateAll);
 }
 
-OSGridView::~OSGridView(){};
+OSGridView::~OSGridView() = default;
+;
 
 /*
 void OSGridView::requestAddRow(int row) {

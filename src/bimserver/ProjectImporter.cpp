@@ -94,7 +94,7 @@ ProjectImporter::ProjectImporter(QWidget* parent) : QDialog(parent) {
   m_bimserverConnection = nullptr;
 }
 
-ProjectImporter::~ProjectImporter() {}
+ProjectImporter::~ProjectImporter() = default;
 
 boost::optional<model::Model> ProjectImporter::run() {
   if (m_settings->contains("addr") && m_settings->contains("port") && m_settings->contains("usrname") && m_settings->contains("psw")) {

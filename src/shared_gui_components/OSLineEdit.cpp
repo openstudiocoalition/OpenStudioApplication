@@ -75,7 +75,7 @@ OSLineEdit2::OSLineEdit2(QWidget* parent) : QLineEdit(parent) {
   );
 }
 
-OSLineEdit2::~OSLineEdit2() {}
+OSLineEdit2::~OSLineEdit2() = default;
 
 void OSLineEdit2::enableClickFocus() {
   this->m_hasClickFocus = true;
@@ -304,7 +304,9 @@ void OSLineEdit2::onModelObjectChangeInternal(bool startingup) {
         this->setToolTip(qtext);
         updateStyle();
         this->blockSignals(false);
-        if (!startingup) m_timer.start(TIMEOUT_INTERVAL);
+        if (!startingup) {
+          m_timer.start(TIMEOUT_INTERVAL);
+        }
       }
     }
   }

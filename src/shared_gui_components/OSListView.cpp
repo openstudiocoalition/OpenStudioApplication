@@ -82,7 +82,9 @@ OSListView::~OSListView() {
 }
 
 void OSListView::setHorizontalScrollBarAlwaysOn(bool alwaysOn) {
-  if (!m_scrollable && !m_scrollArea) return;
+  if (!m_scrollable && !m_scrollArea) {
+    return;
+  }
 
   if (alwaysOn) {
     m_scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
@@ -92,7 +94,9 @@ void OSListView::setHorizontalScrollBarAlwaysOn(bool alwaysOn) {
 }
 
 void OSListView::setVerticalScrollBarAlwaysOn(bool alwaysOn) {
-  if (!m_scrollable && !m_scrollArea) return;
+  if (!m_scrollable && !m_scrollArea) {
+    return;
+  }
 
   if (alwaysOn) {
     m_scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);

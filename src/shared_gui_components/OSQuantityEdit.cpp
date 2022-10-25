@@ -92,7 +92,7 @@ OSQuantityEdit2::OSQuantityEdit2(const std::string& modelUnits, const std::strin
   m_lineEdit->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Fixed);
 }
 
-OSQuantityEdit2::~OSQuantityEdit2() {}
+OSQuantityEdit2::~OSQuantityEdit2() = default;
 
 void OSQuantityEdit2::enableClickFocus() {
   m_lineEdit->enableClickFocus();
@@ -219,7 +219,9 @@ void OSQuantityEdit2::onEditingFinished() {
   emit inFocus(m_lineEdit->focused(), m_lineEdit->hasData());
 
   QString text = m_lineEdit->text();
-  if (m_text == text) return;
+  if (m_text == text) {
+    return;
+  }
 
   int pos = 0;
   QValidator::State state = m_doubleValidator->validate(text, pos);

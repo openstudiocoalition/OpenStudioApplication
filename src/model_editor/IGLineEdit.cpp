@@ -50,7 +50,7 @@ using namespace openstudio;
 IGLineEdit::IGLineEdit(const QString& val, InspectorGadget* ig, QWidget* parent)
   : QLineEdit(val, parent), m_ig(ig), m_min(-std::numeric_limits<double>::max()), m_max(std::numeric_limits<double>::max()), m_default(0.0) {}
 
-IGLineEdit::~IGLineEdit() {}
+IGLineEdit::~IGLineEdit() = default;
 
 void IGLineEdit::setMin(double min) {
   m_min = min;

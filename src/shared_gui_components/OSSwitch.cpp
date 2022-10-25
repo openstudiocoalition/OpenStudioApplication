@@ -48,7 +48,7 @@ OSSwitch2::OSSwitch2(QWidget* parent) : QPushButton(parent) {
   this->setCheckable(true);
 }
 
-OSSwitch2::~OSSwitch2() {}
+OSSwitch2::~OSSwitch2() = default;
 
 void OSSwitch2::makeOnOff() {
   setObjectName("OnOffSliderButton");
