@@ -874,7 +874,7 @@ void SpacesSubtabGridView::addObject(const IddObjectType& iddObjectType) {
 
 void SpacesSubtabGridView::purgeObjects(const IddObjectType& iddObjectType) {
   // Purge Spaces. The logic is to remove spaces that don't have a thermalZone nor surfaces
-  for (const auto& mo : this->m_model.getConcreteModelObjects<model::Space>()) {
+  for (auto& mo : this->m_model.getConcreteModelObjects<model::Space>()) {
     if ((!mo.thermalZone()) && (mo.surfaces().empty())) {
       mo.remove();
     }

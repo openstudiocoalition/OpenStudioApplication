@@ -390,14 +390,14 @@ void FacilityShadingGridView::addObject(const IddObjectType& iddObjectType) {
 
 void FacilityShadingGridView::purgeObjects(const IddObjectType& iddObjectType) {
   // If no shading surfaces in the Shading Surface Group -> remove
-  for (const auto& mo : this->m_model.getConcreteModelObjects<model::ShadingSurfaceGroup>()) {
+  for (auto& mo : this->m_model.getConcreteModelObjects<model::ShadingSurfaceGroup>()) {
     if (mo.shadingSurfaces().empty()) {
       mo.remove();
     }
   }
 
   // If a shading surface isn't part of a Shading Surface Group, it won't be translated to IDF anyways and should be considered orphaned
-  for (const auto& mo : this->m_model.getConcreteModelObjects<model::ShadingSurface>()) {
+  for (auto& mo : this->m_model.getConcreteModelObjects<model::ShadingSurface>()) {
     if (!mo.shadingSurfaceGroup().has_value()) {
       mo.remove();
     }
