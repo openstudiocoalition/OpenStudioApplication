@@ -198,55 +198,55 @@ SpaceTypesGridView::SpaceTypesGridView(bool isIP, const model::Model& model, QWi
   { m_filters->addItem(SHOWALLLOADS); }
 
   {
-    const QPixmap* pixMap = new QPixmap(":images/mini_icons/internal_mass.png");
+    auto* pixMap = new QPixmap(":images/mini_icons/internal_mass.png");
     OS_ASSERT(pixMap);
     m_filters->addItem(*pixMap, INTERNALMASS);
   }
 
   {
-    const QPixmap* pixMap = new QPixmap(":images/mini_icons/people.png");
+    auto* pixMap = new QPixmap(":images/mini_icons/people.png");
     OS_ASSERT(pixMap);
     m_filters->addItem(*pixMap, PEOPLE);
   }
 
   {
-    const QPixmap* pixMap = new QPixmap(":images/mini_icons/lights.png");
+    auto* pixMap = new QPixmap(":images/mini_icons/lights.png");
     OS_ASSERT(pixMap);
     m_filters->addItem(*pixMap, LIGHTS);
   }
 
   {
-    const QPixmap* pixMap = new QPixmap(":images/mini_icons/luminaire.png");
+    auto* pixMap = new QPixmap(":images/mini_icons/luminaire.png");
     OS_ASSERT(pixMap);
     m_filters->addItem(*pixMap, LUMINAIRE);
   }
 
   {
-    const QPixmap* pixMap = new QPixmap(":images/mini_icons/electric_equipment.png");
+    auto* pixMap = new QPixmap(":images/mini_icons/electric_equipment.png");
     OS_ASSERT(pixMap);
     m_filters->addItem(*pixMap, ELECTRICEQUIPMENT);
   }
 
   {
-    const QPixmap* pixMap = new QPixmap(":images/mini_icons/gas_equipment.png");
+    auto* pixMap = new QPixmap(":images/mini_icons/gas_equipment.png");
     OS_ASSERT(pixMap);
     m_filters->addItem(*pixMap, GASEQUIPMENT);
   }
 
   {
-    const QPixmap* pixMap = new QPixmap(":images/mini_icons/steam_equipment.png");
+    auto* pixMap = new QPixmap(":images/mini_icons/steam_equipment.png");
     OS_ASSERT(pixMap);
     m_filters->addItem(*pixMap, HOTWATEREQUIPMENT);
   }
 
   {
-    const QPixmap* pixMap = new QPixmap(":images/mini_icons/steam_equipment.png");
+    auto* pixMap = new QPixmap(":images/mini_icons/steam_equipment.png");
     OS_ASSERT(pixMap);
     m_filters->addItem(*pixMap, STEAMEQUIPMENT);
   }
 
   {
-    const QPixmap* pixMap = new QPixmap(":images/mini_icons/other_equipment.png");
+    auto* pixMap = new QPixmap(":images/mini_icons/other_equipment.png");
     OS_ASSERT(pixMap);
     m_filters->addItem(*pixMap, OTHEREQUIPMENT);
   }
