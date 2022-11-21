@@ -144,7 +144,7 @@ OSComboBox2::OSComboBox2(QWidget* parent, bool editable) : QComboBox(parent) {
   this->setAcceptDrops(false);
   setEditable(editable);
   if (editable) {
-    auto completer = new QCompleter();
+    auto* completer = new QCompleter();
     this->setCompleter(completer);
   }
   setEnabled(false);
@@ -254,7 +254,7 @@ void OSComboBox2::onModelObjectChanged() {
   if (m_choiceConcept) {
     std::string value = m_choiceConcept->get();
 
-    std::vector<std::string>::const_iterator it = std::find(m_values.begin(), m_values.end(), value);
+    auto it = std::find(m_values.begin(), m_values.end(), value);
 
     int i = int(it - m_values.begin());
     this->blockSignals(true);

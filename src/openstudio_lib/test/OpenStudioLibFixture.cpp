@@ -171,7 +171,7 @@ QWidget* OpenStudioLibFixture::getOSWidgetAt(openstudio::OSGridView* gv, int row
   QLayoutItem* item = gv->itemAtPosition(row, column);
   if (item) {
     QWidget* wrapper = item->widget();
-    QGridLayout* innerLayout = qobject_cast<QGridLayout*>(wrapper->layout());
+    auto* innerLayout = qobject_cast<QGridLayout*>(wrapper->layout());
     if (innerLayout) {
       QLayoutItem* innerItem;
       // If it is a subrow, we get the subrow
@@ -181,7 +181,7 @@ QWidget* OpenStudioLibFixture::getOSWidgetAt(openstudio::OSGridView* gv, int row
         innerItem = innerLayout->itemAtPosition(0, 0);
       }
       OS_ASSERT(innerItem);
-      OSWidgetHolder* holder = qobject_cast<OSWidgetHolder*>(innerItem->widget());
+      auto* holder = qobject_cast<OSWidgetHolder*>(innerItem->widget());
       OS_ASSERT(holder);
       result = holder->widget();
     }
@@ -194,7 +194,7 @@ std::vector<OSWidgetHolder*> OpenStudioLibFixture::getHolders(openstudio::OSCell
 }
 
 void OpenStudioLibFixture::updateStyle(QWidget* widget) {
-  if (OSLineEdit2* lineEdit = qobject_cast<OSLineEdit2*>(widget)) {
+  if (auto* lineEdit = qobject_cast<OSLineEdit2*>(widget)) {
     lineEdit->updateStyle();
   }
 }

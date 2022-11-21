@@ -43,7 +43,7 @@ namespace openstudio {
 
 ScriptsTabController::ScriptsTabController()
   : MainTabController(new ScriptsTabView(nullptr)), scriptsTabView(dynamic_cast<ScriptsTabView*>(mainContentWidget())) {
-  auto app = OSAppBase::instance();
+  auto* app = OSAppBase::instance();
   boost::optional<path> tempDir = app->tempDir();
   OS_ASSERT(tempDir);
 

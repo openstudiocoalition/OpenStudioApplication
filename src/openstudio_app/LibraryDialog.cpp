@@ -46,10 +46,10 @@ namespace openstudio {
 LibraryDialog::LibraryDialog(const std::vector<openstudio::path>& paths, const std::vector<openstudio::path>& defaultPaths,
                              const openstudio::path& resourcesPath)
   : QDialog(), m_defaultPaths(defaultPaths), m_resourcesPath(resourcesPath) {
-  auto mainLayout = new QVBoxLayout();
+  auto* mainLayout = new QVBoxLayout();
   setLayout(mainLayout);
 
-  auto title = new QLabel("Change Default Libraries");
+  auto* title = new QLabel("Change Default Libraries");
   title->setObjectName("H1");
   mainLayout->addWidget(title);
 
@@ -60,24 +60,24 @@ LibraryDialog::LibraryDialog(const std::vector<openstudio::path>& paths, const s
   m_list->setFocusPolicy(Qt::NoFocus);
   mainLayout->addWidget(m_list);
 
-  auto addRemoveLayout = new QHBoxLayout();
+  auto* addRemoveLayout = new QHBoxLayout();
   mainLayout->addLayout(addRemoveLayout);
 
-  auto add = new QPushButton("Add");
+  auto* add = new QPushButton("Add");
   addRemoveLayout->addWidget(add, 0);
   connect(add, &QPushButton::clicked, this, &LibraryDialog::onAdd);
 
-  auto remove = new QPushButton("Remove");
+  auto* remove = new QPushButton("Remove");
   addRemoveLayout->addWidget(remove, 0);
   connect(remove, &QPushButton::clicked, this, &LibraryDialog::onRemove);
 
   addRemoveLayout->addStretch(1);
 
-  auto restore = new QPushButton("Restore Defaults");
+  auto* restore = new QPushButton("Restore Defaults");
   addRemoveLayout->addWidget(restore, 0, Qt::AlignRight);
   connect(restore, &QPushButton::clicked, this, &LibraryDialog::onRestore);
 
-  auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+  auto* buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
   mainLayout->addWidget(buttonBox);
 
   connect(buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
@@ -97,7 +97,7 @@ void LibraryDialog::onAdd() {
 }
 
 void LibraryDialog::onRemove() {
-  for (auto item : m_list->selectedItems()) {
+  for (auto* item : m_list->selectedItems()) {
     delete item;
   }
 }

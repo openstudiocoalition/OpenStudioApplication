@@ -73,7 +73,7 @@ OSQuantityEdit2::OSQuantityEdit2(const std::string& modelUnits, const std::strin
   m_lineEdit->setAcceptDrops(false);
   setEnabled(false);
 
-  auto hLayout = new QHBoxLayout();
+  auto* hLayout = new QHBoxLayout();
   setLayout(hLayout);
   hLayout->setContentsMargins(0, 0, 0, 0);
   hLayout->addWidget(m_lineEdit);
@@ -271,7 +271,7 @@ void OSQuantityEdit2::onEditingFinished() {
       }
     } else {
       try {
-        double value = boost::lexical_cast<double>(str);
+        auto value = boost::lexical_cast<double>(str);
         setPrecision(str);
 
         std::string units;

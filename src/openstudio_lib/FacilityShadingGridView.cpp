@@ -111,7 +111,7 @@ FacilityShadingGridView::FacilityShadingGridView(bool isIP, const model::Model& 
 
   QVBoxLayout* layout = nullptr;
 
-  auto filterGridLayout = new QGridLayout();
+  auto* filterGridLayout = new QGridLayout();
   filterGridLayout->setContentsMargins(7, 4, 0, 8);
   filterGridLayout->setSpacing(5);
 
@@ -135,7 +135,7 @@ FacilityShadingGridView::FacilityShadingGridView(bool isIP, const model::Model& 
   connect(m_nameFilter, &QLineEdit::editingFinished, this, &openstudio::FacilityShadingGridView::nameFilterChanged);
 
   QRegularExpression nameRegex("^\\S.*");
-  auto nameValidator = new QRegularExpressionValidator(nameRegex, this);
+  auto* nameValidator = new QRegularExpressionValidator(nameRegex, this);
   m_nameFilter->setValidator(nameValidator);
 
   layout->addWidget(m_nameFilter, Qt::AlignTop | Qt::AlignLeft);
@@ -178,7 +178,7 @@ FacilityShadingGridView::FacilityShadingGridView(bool isIP, const model::Model& 
   connect(m_tiltGreaterThanFilter, &QLineEdit::editingFinished, this, &openstudio::FacilityShadingGridView::tiltFilterChanged);
 
   QRegularExpression regex("^(-?\\d*\\.?\\d+)?$");
-  auto validator = new QRegularExpressionValidator(regex, this);
+  auto* validator = new QRegularExpressionValidator(regex, this);
   m_tiltGreaterThanFilter->setValidator(validator);
 
   layout->addWidget(m_tiltGreaterThanFilter, Qt::AlignTop | Qt::AlignLeft);

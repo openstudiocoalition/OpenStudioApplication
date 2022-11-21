@@ -47,7 +47,7 @@ void OSUrlRequestInterceptor::interceptRequest(QWebEngineUrlRequestInfo& info) {
 }
 
 OSWebEnginePage::OSWebEnginePage(QObject* parent) : QWebEnginePage(parent) {
-  OSUrlRequestInterceptor* interceptor = new OSUrlRequestInterceptor(this->profile());
+  auto* interceptor = new OSUrlRequestInterceptor(this->profile());
   this->profile()->setUrlRequestInterceptor(interceptor);
 
   settings()->setAttribute(QWebEngineSettings::WebAttribute::LocalContentCanAccessRemoteUrls, true);

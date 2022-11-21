@@ -84,12 +84,12 @@ OSItemSelectorButtons::OSItemSelectorButtons(QWidget* parent) : QWidget(parent) 
   connect(m_dropZone, &OSDropZone::itemDropped, this, &OSItemSelectorButtons::itemDropped);
 
   // buttons
-  auto buttonBox = new QWidget();
+  auto* buttonBox = new QWidget();
   buttonBox->setObjectName("ButtonBox");
   buttonBox->setStyleSheet("QWidget#ButtonBox { background: #808080; border-top: 1px solid black; }");
   m_vLayout->addWidget(buttonBox);
 
-  auto buttonLayout = new QHBoxLayout();
+  auto* buttonLayout = new QHBoxLayout();
   buttonLayout->setContentsMargins(10, 10, 10, 10);
   buttonLayout->setSpacing(5);
   buttonBox->setLayout(buttonLayout);

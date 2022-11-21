@@ -324,7 +324,7 @@ void OSDoubleEdit2::onEditingFinished() {
       }
     } else {
       try {
-        double value = boost::lexical_cast<double>(str);
+        auto value = boost::lexical_cast<double>(str);
         setPrecision(str);
         if (m_set) {
           bool result = (*m_set)(value);

@@ -159,7 +159,7 @@
 namespace openstudio {
 
 SpaceTypesGridView::SpaceTypesGridView(bool isIP, const model::Model& model, QWidget* parent) : QWidget(parent), m_isIP(isIP) {
-  auto mainLayout = new QVBoxLayout();
+  auto* mainLayout = new QVBoxLayout();
   mainLayout->setSpacing(0);
   mainLayout->setContentsMargins(0, 0, 0, 0);
   setLayout(mainLayout);
@@ -168,7 +168,7 @@ SpaceTypesGridView::SpaceTypesGridView(bool isIP, const model::Model& model, QWi
   auto spaceTypeModelObjects = subsetCastVector<model::ModelObject>(spaceTypes);
 
   m_gridController = new SpaceTypesGridController(m_isIP, "Space Types", IddObjectType::OS_SpaceType, model, spaceTypeModelObjects);
-  auto gridView = new OSGridView(m_gridController, "Space Types", "Drop\nSpace Type", false, parent);
+  auto* gridView = new OSGridView(m_gridController, "Space Types", "Drop\nSpace Type", false, parent);
 
   // Load Filter
 
@@ -176,7 +176,7 @@ SpaceTypesGridView::SpaceTypesGridView(bool isIP, const model::Model& model, QWi
 
   QVBoxLayout* layout = nullptr;
 
-  auto filterGridLayout = new QGridLayout();
+  auto* filterGridLayout = new QGridLayout();
   filterGridLayout->setContentsMargins(7, 4, 0, 8);
   filterGridLayout->setSpacing(5);
 
@@ -252,13 +252,13 @@ SpaceTypesGridView::SpaceTypesGridView(bool isIP, const model::Model& model, QWi
   }
 
   {
-    auto pixMap = new QPixmap(":images/mini_icons/infiltration.png");
+    auto* pixMap = new QPixmap(":images/mini_icons/infiltration.png");
     OS_ASSERT(pixMap);
     m_filters->addItem(*pixMap, SPACEINFILTRATIONDESIGNFLOWRATE);
   }
 
   {
-    auto pixMap = new QPixmap(":images/mini_icons/mini_infiltration_leak.png");
+    auto* pixMap = new QPixmap(":images/mini_icons/mini_infiltration_leak.png");
     OS_ASSERT(pixMap);
     m_filters->addItem(*pixMap, SPACEINFILTRATIONEFFECTIVELEAKAGEAREA);
   }
@@ -421,16 +421,16 @@ void SpaceTypesGridController::filterChanged(const QString& text) {
 }
 
 SpaceTypesGridView* SpaceTypesGridController::spaceTypesGridView() {
-  auto gridView = qobject_cast<OSGridView*>(this->parent());
+  auto* gridView = qobject_cast<OSGridView*>(this->parent());
   OS_ASSERT(gridView);
 
-  auto spaceTypesGridView = qobject_cast<SpaceTypesGridView*>(gridView->parent());
+  auto* spaceTypesGridView = qobject_cast<SpaceTypesGridView*>(gridView->parent());
 
   return spaceTypesGridView;
 }
 
 void SpaceTypesGridController::onCategorySelected(int index) {
-  auto gridView = this->spaceTypesGridView();
+  auto* gridView = this->spaceTypesGridView();
   if (gridView) {
     if (gridView->m_filters) {
       gridView->m_filters->setCurrentIndex(0);

@@ -320,17 +320,17 @@ void BCLMeasureDialog::init() {
   okButton->setText("Create Measure and \n Open for Editing");
   okButton->setMinimumHeight(btnHeight);
 
-  auto vLayout = new QVBoxLayout;
+  auto* vLayout = new QVBoxLayout;
   vLayout->setContentsMargins(QMargins(0, 0, 0, 0));
 
-  auto label = new QLabel;
+  auto* label = new QLabel;
   label->setText("Name:");
   label->setObjectName("H2");
   vLayout->addWidget(label);
   m_nameLineEdit = new QLineEdit(this);
   vLayout->addWidget(m_nameLineEdit);
 
-  auto tempHLayout = new QHBoxLayout;
+  auto* tempHLayout = new QHBoxLayout;
   label = new QLabel;
   label->setText("Class Name:");
   label->setObjectName("H2");
@@ -364,7 +364,7 @@ void BCLMeasureDialog::init() {
   tempHLayout = new QHBoxLayout;
   vLayout->addLayout(tempHLayout);
 
-  auto tempVLayout = new QVBoxLayout;
+  auto* tempVLayout = new QVBoxLayout;
 
   label = new QLabel;
   label->setText("Measure Type:");
@@ -394,7 +394,7 @@ void BCLMeasureDialog::init() {
   }
 
   m_taxonomySecondLevelComboBox = new QComboBox(this);
-  auto tempHLayout2 = new QHBoxLayout;
+  auto* tempHLayout2 = new QHBoxLayout;
   tempHLayout2->addWidget(m_taxonomyFirstLevelComboBox);
   tempHLayout2->addWidget(m_taxonomySecondLevelComboBox);
   tempVLayout->addLayout(tempHLayout2);
@@ -419,7 +419,7 @@ void BCLMeasureDialog::init() {
   QStringListIterator it(intendedSoftwareTools);
   while (it.hasNext()) {
     QString intendedSoftwareTool = it.next();
-    auto listItem = new QListWidgetItem(intendedSoftwareTool, m_intendedSoftwareToolListWidget);
+    auto* listItem = new QListWidgetItem(intendedSoftwareTool, m_intendedSoftwareToolListWidget);
     // DLM: defaults per David
     if (intendedSoftwareTool == "Analysis Spreadsheet") {
       listItem->setCheckState(Qt::Unchecked);
@@ -446,7 +446,7 @@ void BCLMeasureDialog::init() {
   it = QStringListIterator(intendedUseCases);
   while (it.hasNext()) {
     QString intendedUseCase = it.next();
-    auto listItem = new QListWidgetItem(intendedUseCase, m_intendedUseCaseListWidget);
+    auto* listItem = new QListWidgetItem(intendedUseCase, m_intendedUseCaseListWidget);
     // DLM: default to unchecked per David
     listItem->setCheckState(Qt::Unchecked);
     listItem->setFlags(Qt::ItemIsUserCheckable | Qt::ItemIsEnabled);

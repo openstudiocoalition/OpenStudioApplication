@@ -83,7 +83,7 @@ bool ModelObjectItem::equal(const openstudio::OSItem* otherItem) const {
     return false;
   }
 
-  const ModelObjectItem* modelObjectItem = qobject_cast<const ModelObjectItem*>(otherItem);
+  const auto* modelObjectItem = qobject_cast<const ModelObjectItem*>(otherItem);
   if (modelObjectItem) {
     model::ModelObject otherModelObject = modelObjectItem->modelObject();
     if (otherModelObject.handle().isNull()) {

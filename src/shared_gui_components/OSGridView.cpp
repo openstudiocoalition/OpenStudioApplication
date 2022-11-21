@@ -83,7 +83,7 @@ constexpr int NUM_ROWS_PER_GRIDLAYOUT = 51;
 namespace openstudio {
 
 QGridLayout* OSGridView::makeGridLayout() {
-  auto gridLayout = new QGridLayout();
+  auto* gridLayout = new QGridLayout();
   gridLayout->setSpacing(0);
   gridLayout->setContentsMargins(0, 0, 0, 0);
   gridLayout->setAlignment(Qt::AlignTop | Qt::AlignLeft);
@@ -106,15 +106,15 @@ OSGridView::OSGridView(OSGridController* gridController, const QString& headerTe
    * QHBoxLayout manages the visual representation: they are placed side by side
    * QButtonGroup manages the state of the buttons in the group. By default a QButtonGroup is exclusive (only one button can be checked at one time)
    */
-  auto buttonGroup = new QButtonGroup();
+  auto* buttonGroup = new QButtonGroup();
   connect(buttonGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::idClicked), m_gridController, &OSGridController::onCategorySelected);
 
-  auto buttonLayout = new QHBoxLayout();
+  auto* buttonLayout = new QHBoxLayout();
   buttonLayout->setSpacing(3);
   buttonLayout->setContentsMargins(10, 10, 10, 10);
   buttonLayout->setAlignment(Qt::AlignCenter | Qt::AlignLeft);
 
-  auto vectorController = new GridViewDropZoneVectorController();
+  auto* vectorController = new GridViewDropZoneVectorController();
   m_dropZone = new OSDropZone(vectorController, dropZoneText);
   m_dropZone->setMaxItems(1);
 
@@ -124,7 +124,7 @@ OSGridView::OSGridView(OSGridController* gridController, const QString& headerTe
 
   std::vector<QString> categories = m_gridController->categories();
   for (unsigned i = 0; i < categories.size(); i++) {
-    auto button = new QPushButton(categories.at(i));
+    auto* button = new QPushButton(categories.at(i));
     button->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::MinimumExpanding);
     button->setCheckable(true);
     buttonLayout->addWidget(button);
@@ -136,20 +136,20 @@ OSGridView::OSGridView(OSGridController* gridController, const QString& headerTe
    * * Filter
    * * Then the model-dependent data, such as Space Type Name, All, Rendering Color, Default Construction set, etc
    */
-  auto layout = new QVBoxLayout();
+  auto* layout = new QVBoxLayout();
   layout->setSpacing(0);
   layout->setContentsMargins(0, 0, 0, 0);
   setLayout(layout);
 
   // Add the header first
-  auto widget = new QWidget;
+  auto* widget = new QWidget;
 
   if (useHeader) {
     // If we use the header, we place a blue to dark blue header with for eg: 'Space Types' as text
     // Its content is widget
-    auto header = new DarkGradientHeader();
+    auto* header = new DarkGradientHeader();
     header->label->setText(headerText);
-    auto collabsibleView = new OSCollapsibleView(true);
+    auto* collabsibleView = new OSCollapsibleView(true);
     collabsibleView->setHeader(header);
     collabsibleView->setContent(widget);
     collabsibleView->setExpanded(true);
@@ -173,7 +173,7 @@ OSGridView::OSGridView(OSGridController* gridController, const QString& headerTe
   // Make the first button checked by default
   QVector<QAbstractButton*> buttons = buttonGroup->buttons().toVector();
   if (buttons.size() > 0) {
-    QPushButton* button = qobject_cast<QPushButton*>(buttons.at(0));
+    auto* button = qobject_cast<QPushButton*>(buttons.at(0));
     OS_ASSERT(button);
     button->setChecked(true);
     m_gridController->blockSignals(true);
@@ -292,7 +292,7 @@ void OSGridView::onGridCellChanged(const GridCellLocation& location, const GridC
   OS_ASSERT(li < m_gridLayouts.size());
   QLayoutItem* item = m_gridLayouts[li]->itemAtPosition(ri, location.column);
   if (item) {
-    OSCellWrapper* wrapper = qobject_cast<OSCellWrapper*>(item->widget());
+    auto* wrapper = qobject_cast<OSCellWrapper*>(item->widget());
     OS_ASSERT(wrapper);
 
     // style the wrapper and/or any subrows
@@ -302,7 +302,7 @@ void OSGridView::onGridCellChanged(const GridCellLocation& location, const GridC
 
 void OSGridView::deleteAll() {
   QLayoutItem* child;
-  for (auto gridLayout : m_gridLayouts) {
+  for (auto* gridLayout : m_gridLayouts) {
     m_contentLayout->removeItem(gridLayout);
     while ((child = gridLayout->takeAt(0)) != nullptr) {
       QWidget* widget = child->widget();
@@ -328,7 +328,7 @@ void OSGridView::addRow(int row) {
 
   int li = layoutIndex(row);
   while (li >= m_gridLayouts.size()) {
-    auto gridLayout = makeGridLayout();
+    auto* gridLayout = makeGridLayout();
     m_gridLayouts.push_back(gridLayout);
     m_contentLayout->addLayout(gridLayout);
   }
@@ -388,7 +388,7 @@ void OSGridView::updateColumnWidths() {
       for (int column = 0; column < numColumns; ++column) {
         QLayoutItem* item = m_gridLayouts[0]->itemAtPosition(0, column);
         OS_ASSERT(item);
-        OSCellWrapper* wrapper = qobject_cast<OSCellWrapper*>(item->widget());
+        auto* wrapper = qobject_cast<OSCellWrapper*>(item->widget());
         OS_ASSERT(wrapper);
         m_columnWidths.push_back(wrapper->width());
       }
@@ -446,7 +446,7 @@ void OSGridView::addCellWrapper(OSCellWrapper* w, int row, int column) {
   int li = layoutIndex(row);
   int ri = rowInLayout(row);
   while (li >= m_gridLayouts.size()) {
-    auto gridLayout = makeGridLayout();
+    auto* gridLayout = makeGridLayout();
     m_gridLayouts.push_back(gridLayout);
     m_contentLayout->addLayout(gridLayout);
   }
@@ -490,7 +490,7 @@ void OSGridView::resizeEvent(QResizeEvent* event) {
       for (int j = 0; j < numColumns; j++) {
         QLayoutItem* item = m_gridLayouts[li]->itemAtPosition(ri, j);
         if (item) {
-          OSCellWrapper* wrapper = qobject_cast<OSCellWrapper*>(item->widget());
+          auto* wrapper = qobject_cast<OSCellWrapper*>(item->widget());
           if (wrapper) {
             wrapper->setFixedWidth(widthForColumn(j));
           }

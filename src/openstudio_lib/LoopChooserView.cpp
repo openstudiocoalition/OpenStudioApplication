@@ -50,13 +50,13 @@
 namespace openstudio {
 
 LoopChooserView::LoopChooserView(QWidget* parent) : QWidget(parent) {
-  auto mainLayout = new QVBoxLayout();
+  auto* mainLayout = new QVBoxLayout();
 
   mainLayout->setContentsMargins(0, 0, 0, 0);
 
   this->setLayout(mainLayout);
 
-  auto scrollArea = new QScrollArea();
+  auto* scrollArea = new QScrollArea();
 
   scrollArea->setWidgetResizable(true);
 
@@ -64,7 +64,7 @@ LoopChooserView::LoopChooserView(QWidget* parent) : QWidget(parent) {
 
   mainLayout->addWidget(scrollArea);
 
-  auto scrollWidget = new QWidget();
+  auto* scrollWidget = new QWidget();
 
   scrollArea->setWidget(scrollWidget);
 
@@ -98,7 +98,7 @@ void LoopChooserView::layoutView() {
   m_loopChooserItems.clear();
 
   if (m_component) {
-    auto label = new QLabel();
+    auto* label = new QLabel();
     label->setObjectName("IGHeader");
     label->setText(toQString(m_component->iddObject().name()));
     m_vLayout->addWidget(label);
@@ -107,7 +107,7 @@ void LoopChooserView::layoutView() {
     loops = m_component->model().getConcreteModelObjects<model::PlantLoop>();
 
     for (auto it = loops.begin(); it < loops.end(); ++it) {
-      auto loopChooserItem = new LoopChooserItem(*it, this);
+      auto* loopChooserItem = new LoopChooserItem(*it, this);
       m_loopChooserItems.push_back(loopChooserItem);
       m_vLayout->addWidget(loopChooserItem);
       loopChooserItem->setChecked(false);
@@ -157,7 +157,7 @@ void LoopChooserView::onRemoveFromLoopClicked(model::Loop& loop) {
 }
 
 LoopChooserItem::LoopChooserItem(model::Loop& loop, LoopChooserView* parent) : QWidget(parent), m_loopChooserView(parent), m_loop(loop) {
-  auto hLayout = new QHBoxLayout();
+  auto* hLayout = new QHBoxLayout();
 
   m_checkBox = new QCheckBox();
 

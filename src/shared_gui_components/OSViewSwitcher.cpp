@@ -40,7 +40,7 @@ namespace openstudio {
 
 OSViewSwitcher::OSViewSwitcher(QWidget* parent) : QWidget(parent), m_view(nullptr) {
   // This is weird. A QWidget with a QVBoxLayout that has a QStackedWidget (which is a convenience Widget that exposes a QStackedLayout)
-  auto layout = new QVBoxLayout();
+  auto* layout = new QVBoxLayout();
   layout->setContentsMargins(0, 0, 0, 0);
   setLayout(layout);
 

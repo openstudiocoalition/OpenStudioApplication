@@ -78,7 +78,7 @@ void LoopScene::layout() {
       delete *it;
     }
 
-    SystemItem* systemItem = new SystemItem(m_loop, this);
+    auto* systemItem = new SystemItem(m_loop, this);
 
     systemItem->setPos(50, 50);
 
@@ -94,7 +94,7 @@ DemandSideItem* LoopScene::createDemandSide() {
   auto demandInletNodes = m_loop.demandInletNodes();
   auto demandOutletNode = m_loop.demandOutletNode();
 
-  DemandSideItem* demandSideItem = new DemandSideItem(nullptr, demandInletNodes, demandOutletNode);
+  auto* demandSideItem = new DemandSideItem(nullptr, demandInletNodes, demandOutletNode);
 
   return demandSideItem;
 }
@@ -103,7 +103,7 @@ SupplySideItem* LoopScene::createSupplySide() {
   auto supplyInletNode = m_loop.supplyInletNode();
   auto supplyOutletNodes = m_loop.supplyOutletNodes();
 
-  SupplySideItem* supplySideItem = new SupplySideItem(nullptr, supplyInletNode, supplyOutletNodes);
+  auto* supplySideItem = new SupplySideItem(nullptr, supplyInletNode, supplyOutletNodes);
 
   return supplySideItem;
 }
@@ -114,7 +114,7 @@ model::Loop LoopScene::loop() {
 
 void LoopScene::addedWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> wPtr, const openstudio::IddObjectType& type,
                                      const openstudio::UUID& uuid) {
-  model::detail::HVACComponent_Impl* hvac_impl = dynamic_cast<model::detail::HVACComponent_Impl*>(wPtr.get());
+  auto* hvac_impl = dynamic_cast<model::detail::HVACComponent_Impl*>(wPtr.get());
   if (hvac_impl) {
     m_dirty = true;
 

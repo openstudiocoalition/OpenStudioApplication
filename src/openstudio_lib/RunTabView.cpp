@@ -103,7 +103,7 @@ RunTabView::RunTabView(const model::Model& model, QWidget* parent)
 }
 
 RunView::RunView() : QWidget(), m_runSocket(nullptr) {
-  auto mainLayout = new QGridLayout();
+  auto* mainLayout = new QGridLayout();
   mainLayout->setContentsMargins(10, 10, 10, 10);
   mainLayout->setSpacing(5);
   setLayout(mainLayout);
@@ -129,7 +129,7 @@ RunView::RunView() : QWidget(), m_runSocket(nullptr) {
   m_progressBar = new QProgressBar();
   m_progressBar->setMaximum(State::complete);
 
-  auto progressbarlayout = new QVBoxLayout();
+  auto* progressbarlayout = new QVBoxLayout();
   progressbarlayout->addWidget(m_progressBar);
   mainLayout->addLayout(progressbarlayout, 0, 1);
 

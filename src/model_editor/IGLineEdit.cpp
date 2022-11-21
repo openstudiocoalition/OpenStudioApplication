@@ -72,7 +72,7 @@ bool IGLineEdit::checkValue(QString& txt) {
     return true;
   }
 
-  const QRegularExpressionValidator* dv = qobject_cast<const QRegularExpressionValidator*>(v);
+  const auto* dv = qobject_cast<const QRegularExpressionValidator*>(v);
   if (dv) {
     bool ok;
     double val = textVal.toDouble(&ok);
@@ -89,7 +89,7 @@ bool IGLineEdit::checkValue(QString& txt) {
     bool state = (dv->validate(txt, dummy) != QValidator::Invalid);
     OS_ASSERT(state);
     return state;
-  } else if (const QIntValidator* iv = qobject_cast<const QIntValidator*>(v)) {
+  } else if (const auto* iv = qobject_cast<const QIntValidator*>(v)) {
     int min = iv->bottom();
     int max = iv->top();
     bool ok;

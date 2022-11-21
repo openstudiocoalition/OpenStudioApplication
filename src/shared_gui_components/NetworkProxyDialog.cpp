@@ -56,7 +56,7 @@
 
 namespace openstudio {
 NetworkProxyDialog::NetworkProxyDialog(QSettings& t_settings, QWidget* t_parent = nullptr) : QDialog(t_parent), m_settings(t_settings) {
-  auto layout = new QGridLayout(this);
+  auto* layout = new QGridLayout(this);
 
   // NoProxy, DefaultProxy, Socks5Proxy, HttpProxy, HttpCachingProxy, FtpCachingProxy
   m_proxyType = new QComboBox();
@@ -82,11 +82,11 @@ NetworkProxyDialog::NetworkProxyDialog(QSettings& t_settings, QWidget* t_parent 
   layout->addWidget(new QLabel("User Name"), 3, 0);
   layout->addWidget(m_user, 3, 1);
 
-  auto buttonBox = new QHBoxLayout();
+  auto* buttonBox = new QHBoxLayout();
 
-  QPushButton* saveButton = new QPushButton("Save");
-  QPushButton* cancelButton = new QPushButton("Cancel");
-  QPushButton* testButton = new QPushButton("Test");
+  auto* saveButton = new QPushButton("Save");
+  auto* cancelButton = new QPushButton("Cancel");
+  auto* testButton = new QPushButton("Test");
 
   buttonBox->addWidget(saveButton);
   buttonBox->addWidget(cancelButton);

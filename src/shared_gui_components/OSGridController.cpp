@@ -411,7 +411,7 @@ OSCellWrapper* OSGridController::createCellWrapper(int gridRow, int column, OSGr
 
   QSharedPointer<BaseConcept> baseConcept = m_baseConcepts[column];
 
-  auto wrapper = new OSCellWrapper(gridView, baseConcept, m_objectSelector, modelRow, gridRow, column);
+  auto* wrapper = new OSCellWrapper(gridView, baseConcept, m_objectSelector, modelRow, gridRow, column);
 
   if (m_hasHorizontalHeader && gridRow == 0) {
     if (column == 0) {
@@ -424,7 +424,7 @@ OSCellWrapper* OSGridController::createCellWrapper(int gridRow, int column, OSGr
     wrapper->layout()->setContentsMargins(0, 1, 1, 0);
     wrapper->addOSWidget(m_horizontalHeaders.at(column), boost::none, false, false);
 
-    HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeaders.at(column));
+    auto* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeaders.at(column));
     OS_ASSERT(horizontalHeaderWidget);
     if (!heading.showCheckbox()) {
       horizontalHeaderWidget->m_checkBox->hide();
@@ -457,7 +457,7 @@ void OSGridController::checkSelectedFields() {
     it = std::find(m_currentFields.begin(), m_currentFields.end(), m_customFields.at(j));
     if (it != m_currentFields.end()) {
       int index = std::distance(m_currentFields.begin(), it);
-      HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeaders.at(index));
+      auto* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeaders.at(index));
       OS_ASSERT(horizontalHeaderWidget);
       horizontalHeaderWidget->m_checkBox->blockSignals(true);
       horizontalHeaderWidget->m_checkBox->setChecked(true);
@@ -546,7 +546,7 @@ void OSGridController::selectRow(int gridRow, bool select) {
 */
 void OSGridController::onHorizontalHeaderChecked(int index) {
   // Push_back or erase the field from the user-selected fields
-  auto checkBox = qobject_cast<QAbstractButton*>(m_horizontalHeaderBtnGrp->button(index));
+  auto* checkBox = qobject_cast<QAbstractButton*>(m_horizontalHeaderBtnGrp->button(index));
   OS_ASSERT(checkBox);
   if (checkBox->isChecked()) {
     m_customFields.push_back(m_currentFields.at(index));
@@ -761,9 +761,9 @@ void OSGridController::onInFocus(bool inFocus, bool hasData, int modelRow, int g
     // not in a header row, an object was selected
     OS_ASSERT(gridRow >= 0);
 
-    HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeaders.at(column));
+    auto* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeaders.at(column));
     OS_ASSERT(horizontalHeaderWidget);
-    auto button = horizontalHeaderWidget->m_pushButton;
+    auto* button = horizontalHeaderWidget->m_pushButton;
     OS_ASSERT(button);
 
     if (inFocus) {
@@ -782,9 +782,9 @@ void OSGridController::onInFocus(bool inFocus, bool hasData, int modelRow, int g
 
 void OSGridController::onSetApplyButtonState() {
   for (auto pair : m_applyToButtonStates) {
-    HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeaders.at(pair.first));
+    auto* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeaders.at(pair.first));
     OS_ASSERT(horizontalHeaderWidget);
-    auto button = horizontalHeaderWidget->m_pushButton;
+    auto* button = horizontalHeaderWidget->m_pushButton;
     OS_ASSERT(button);
     button->setEnabled(pair.second);
   }
@@ -866,7 +866,7 @@ void HorizontalHeaderPushButton::focusOutEvent(QFocusEvent* e) {
 
 HorizontalHeaderWidget::HorizontalHeaderWidget(const QString& fieldName, QWidget* parent)
   : QWidget(parent), m_label(new QLabel(fieldName, this)), m_checkBox(new QPushButton(this)), m_pushButton(new HorizontalHeaderPushButton(this)) {
-  auto mainLayout = new QVBoxLayout(this);
+  auto* mainLayout = new QVBoxLayout(this);
   mainLayout->setContentsMargins(0, 0, 0, 5);
   mainLayout->setAlignment(Qt::AlignCenter);
   setLayout(mainLayout);
@@ -913,7 +913,7 @@ HorizontalHeaderWidget::~HorizontalHeaderWidget() {
 void HorizontalHeaderWidget::addWidget(const QSharedPointer<QWidget>& t_widget) {
   if (!t_widget.isNull()) {
     m_addedWidgets.push_back(t_widget);
-    auto hLayout = new QHBoxLayout();
+    auto* hLayout = new QHBoxLayout();
     hLayout->setContentsMargins(5, 0, 5, 0);
     qobject_cast<QVBoxLayout*>(layout())->addLayout(hLayout);
     hLayout->addWidget(t_widget.data());

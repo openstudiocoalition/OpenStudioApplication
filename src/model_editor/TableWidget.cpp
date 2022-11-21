@@ -56,7 +56,7 @@ void TableWidget::populateTable(const openstudio::WorkspaceObject& obj) {
       }
     }
     // setItem causes QTableWIdget to take ownership of newItem
-    QTableWidgetItem* newItem = new QTableWidgetItem((*val).c_str());
+    auto* newItem = new QTableWidgetItem((*val).c_str());
     if (defaultText) {
       newItem->setForeground(Qt::gray);
     }

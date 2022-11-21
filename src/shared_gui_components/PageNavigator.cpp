@@ -55,7 +55,7 @@ PageNavigator::PageNavigator(int numPages, int numPagesListed, QWidget* parent)
 PageNavigator::~PageNavigator() {}
 
 void PageNavigator::createLayout() {
-  auto layout = new QHBoxLayout();
+  auto* layout = new QHBoxLayout();
   layout->setContentsMargins(0, 0, 0, 0);
   layout->setSpacing(2);
 
@@ -118,7 +118,7 @@ void PageNavigator::makeNumberedButtons() {
   int id = 0;
   QString num;
   for (int i = 0; i < m_numPagesListed; ++i) {
-    auto button = new QPushButton();
+    auto* button = new QPushButton();
     button->setText(num.setNum(i + 1));
     button->setFixedSize(40, 20);
     button->setCheckable(true);

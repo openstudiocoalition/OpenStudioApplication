@@ -47,7 +47,7 @@ namespace openstudio {
 HorizontalTabWidget::HorizontalTabWidget(QWidget* parent) : QWidget(parent) {
   //setObjectName("GrayWidget");
 
-  auto mainLayout = new QVBoxLayout();
+  auto* mainLayout = new QVBoxLayout();
 
   mainLayout->setSpacing(0);
 
@@ -87,7 +87,7 @@ HorizontalTabWidget::HorizontalTabWidget(QWidget* parent) : QWidget(parent) {
 }
 
 void HorizontalTabWidget::addTab(QWidget* widget, int id, const QString& label) {
-  auto button = new QPushButton(m_tabBar);
+  auto* button = new QPushButton(m_tabBar);
 
   button->setText(label);
 
@@ -105,7 +105,7 @@ void HorizontalTabWidget::addTab(QWidget* widget, int id, const QString& label) 
 }
 
 void HorizontalTabWidget::select() {
-  QPushButton* button = qobject_cast<QPushButton*>(sender());
+  auto* button = qobject_cast<QPushButton*>(sender());
 
   int index = 0;
 
