@@ -118,15 +118,10 @@ SpacesSurfacesGridController::SpacesSurfacesGridController(bool isIP, const QStr
 
 void SpacesSurfacesGridController::setCategoriesAndFields() {
   {
-    std::vector<QString> fields;
-    fields.push_back(SURFACENAME);
-    fields.push_back(SURFACETYPE);
-    fields.push_back(CONSTRUCTION);
-    fields.push_back(OUTSIDEBOUNDARYCONDITION);
-    fields.push_back(OUTSIDEBOUNDARYCONDITIONOBJECT);
-    fields.push_back(SUNEXPOSURE);
-    fields.push_back(WINDEXPOSURE);
-    //fields.push_back(SHADINGSURFACENAME); // UNDESIRABLE TO SHOW THIS VECTOR IN THIS VIEW
+    std::vector<QString> fields{
+      SURFACENAME, SURFACETYPE, CONSTRUCTION, OUTSIDEBOUNDARYCONDITION, OUTSIDEBOUNDARYCONDITIONOBJECT, SUNEXPOSURE, WINDEXPOSURE,
+      //SHADINGSURFACENAME, // UNDESIRABLE TO SHOW THIS VECTOR IN THIS VIEW
+    };
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("General"), fields);
     addCategoryAndFields(categoryAndFields);
   }

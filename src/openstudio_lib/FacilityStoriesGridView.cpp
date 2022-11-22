@@ -244,13 +244,10 @@ FacilityStoriesGridController::FacilityStoriesGridController(bool isIP, const QS
 
 void FacilityStoriesGridController::setCategoriesAndFields() {
   {
-    std::vector<QString> fields;
-    fields.push_back(GROUPRENDERINGNAME);
-    fields.push_back(NOMINALZCOORDINATE);
-    fields.push_back(NOMINALFLOORTOFLOORHEIGHT);
-    fields.push_back(NOMINALFLOORTOCEILINGHEIGHT);
-    fields.push_back(DEFAULTCONSTRUCTIONSETNAME);
-    fields.push_back(DEFAULTSCHEDULESETNAME);
+    std::vector<QString> fields{
+      GROUPRENDERINGNAME,          NOMINALZCOORDINATE,         NOMINALFLOORTOFLOORHEIGHT,
+      NOMINALFLOORTOCEILINGHEIGHT, DEFAULTCONSTRUCTIONSETNAME, DEFAULTSCHEDULESETNAME,
+    };
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("General"), fields);
     addCategoryAndFields(categoryAndFields);
   }

@@ -117,13 +117,11 @@ SpacesInteriorPartitionsGridController::SpacesInteriorPartitionsGridController(b
 
 void SpacesInteriorPartitionsGridController::setCategoriesAndFields() {
   {
-    std::vector<QString> fields;
-    fields.push_back(INTERIORPARTITIONNAME);
-    fields.push_back(INTERIORPARTITIONGROUPNAME);
-    fields.push_back(CONSTRUCTIONNAME);
-    fields.push_back(CONVERTTOINTERNALMASS);
-    //fields.push_back(SURFACEAREA);
-    //fields.push_back(DAYLIGHTINGSHELFNAME);
+    std::vector<QString> fields{
+      INTERIORPARTITIONNAME, INTERIORPARTITIONGROUPNAME, CONSTRUCTIONNAME, CONVERTTOINTERNALMASS,
+      //SURFACEAREA,
+      //DAYLIGHTINGSHELFNAME,
+    };
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("General"), fields);
     addCategoryAndFields(categoryAndFields);
   }

@@ -169,12 +169,9 @@ SpacesLoadsGridController::SpacesLoadsGridController(bool isIP, const QString& h
 
 void SpacesLoadsGridController::setCategoriesAndFields() {
   {
-    std::vector<QString> fields;
-    fields.push_back(LOADNAME);
-    fields.push_back(MULTIPLIER);
-    fields.push_back(DEFINITION);
-    fields.push_back(SCHEDULE);
-    fields.push_back(ACTIVITYSCHEDULE);
+    std::vector<QString> fields{
+      LOADNAME, MULTIPLIER, DEFINITION, SCHEDULE, ACTIVITYSCHEDULE,
+    };
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("General"), fields);
     addCategoryAndFields(categoryAndFields);
   }
