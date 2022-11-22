@@ -127,7 +127,7 @@ class MODELEDITOR_API InspectorGadget
    * The really shouldn't need to call this, the parent Widget ought to delete the IG.
    *
    */
-  virtual ~InspectorGadget();
+  ~InspectorGadget();
 
   /*! \brief lays out the WorkspaceObj
    *
@@ -271,7 +271,7 @@ class MODELEDITOR_API InspectorGadget
 
     *It depends on weather or not you called layoutModel with a ModelObject or a WorkspaceObj
     */
-  virtual void layoutItems(QVBoxLayout* masterLayout, QWidget* parent, bool hideChildren = false);
+  void layoutItems(QVBoxLayout* masterLayout, QWidget* parent, bool hideChildren = false);
 
   void parseItem(QVBoxLayout* layout, QWidget* parent, openstudio::IddField& field, const std::string& name, const std::string& curVal,
                  openstudio::model::AccessPolicy::ACCESS_LEVEL level, int index, const std::string& comment, bool exists);
@@ -279,9 +279,9 @@ class MODELEDITOR_API InspectorGadget
   void layoutText(QVBoxLayout* layout, QWidget* parent, openstudio::model::AccessPolicy::ACCESS_LEVEL level, const std::string& val, int index,
                   const std::string& comment);
 
-  virtual void layoutText(QVBoxLayout* layout, QWidget* parent, openstudio::IddField& field, openstudio::model::AccessPolicy::ACCESS_LEVEL level,
-                          const std::string& name, const std::string& curVal, int index, const std::string& comment, bool exists, bool number,
-                          bool real = false);
+  void layoutText(QVBoxLayout* layout, QWidget* parent, openstudio::IddField& field, openstudio::model::AccessPolicy::ACCESS_LEVEL level,
+                  const std::string& name, const std::string& curVal, int index, const std::string& comment, bool exists, bool number,
+                  bool real = false);
 
   void layoutComboBox(QVBoxLayout* layout, QWidget* parent, openstudio::IddField& field, openstudio::IddFieldProperties& prop,
                       const std::string& name, const std::string& curVal, int index, const std::string& comment, bool exists);
