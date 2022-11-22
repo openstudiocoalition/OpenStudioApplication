@@ -46,7 +46,7 @@ const int RefrigerationSystemView::margin = 10;
 const double RefrigerationSystemView::componentHeight = 75;
 
 RefrigerationView::RefrigerationView() : QWidget() {
-  auto mainVLayout = new QVBoxLayout();
+  auto* mainVLayout = new QVBoxLayout();
   mainVLayout->setSpacing(0);
   mainVLayout->setContentsMargins(0, 0, 0, 0);
   mainVLayout->setAlignment(Qt::AlignTop);
@@ -58,7 +58,7 @@ RefrigerationView::RefrigerationView() : QWidget() {
   header->setFixedHeight(35);
   mainVLayout->addWidget(header);
 
-  auto headerLayout = new QHBoxLayout();
+  auto* headerLayout = new QHBoxLayout();
   headerLayout->setContentsMargins(5, 5, 5, 5);
   headerLayout->setSpacing(0);
   header->setLayout(headerLayout);
@@ -835,7 +835,7 @@ void RefrigerationCompressorDetailView::paint(QPainter* painter, const QStyleOpt
   painter->drawText(boundingRect(), Qt::AlignCenter | Qt::TextWordWrap, m_label);
 }
 
-RefrigerationCompressorDropZoneView::RefrigerationCompressorDropZoneView() {}
+RefrigerationCompressorDropZoneView::RefrigerationCompressorDropZoneView() = default;
 
 QRectF RefrigerationCompressorDropZoneView::boundingRect() const {
   return QRectF(0, 0, 100, RefrigerationCompressorView::height() - RefrigerationSystemView::margin);
@@ -918,7 +918,7 @@ QRectF RefrigerationCompressorView::boundingRect() const {
                 height());
 }
 
-RefrigerationCasesDropZoneView::RefrigerationCasesDropZoneView() {}
+RefrigerationCasesDropZoneView::RefrigerationCasesDropZoneView() = default;
 
 QSizeF RefrigerationCasesDropZoneView::size() {
   return QSizeF(100, RefrigerationSystemView::componentHeight - RefrigerationSystemView::margin);
@@ -1338,18 +1338,18 @@ void CaseViewExpandButton::paint(QPainter* painter, const QStyleOptionGraphicsIt
 }
 
 NoRefrigerationView::NoRefrigerationView() : QWidget() {
-  auto mainVLayout = new QVBoxLayout();
+  auto* mainVLayout = new QVBoxLayout();
   mainVLayout->setContentsMargins(5, 5, 5, 5);
   mainVLayout->setSpacing(10);
   mainVLayout->setAlignment(Qt::AlignTop);
   setLayout(mainVLayout);
 
-  QLabel* label = new QLabel("Refrigeration options are only available for Refrigeration systems.");
+  auto* label = new QLabel("Refrigeration options are only available for Refrigeration systems.");
   label->setWordWrap(true);
   label->setObjectName("H1");
   mainVLayout->addWidget(label);
 }
 
-NoRefrigerationView::~NoRefrigerationView() {}
+NoRefrigerationView::~NoRefrigerationView() = default;
 
 }  // namespace openstudio

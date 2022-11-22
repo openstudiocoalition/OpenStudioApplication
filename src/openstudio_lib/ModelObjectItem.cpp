@@ -63,7 +63,7 @@ ModelObjectItem::ModelObjectItem(const openstudio::model::ModelObject& modelObje
   : OSItem(modelObjectToItemId(modelObject, isDefaulted), type, parent), m_handle(modelObject.handle()), m_modelObject(modelObject) {
   this->setText(QString::fromStdString(m_modelObject.name().get()));
 
-  m_modelObject.getImpl<model::detail::ModelObject_Impl>().get()->onChange.connect<ModelObjectItem, &ModelObjectItem::onObjectChanged>(this);
+  m_modelObject.getImpl<model::detail::ModelObject_Impl>()->onChange.connect<ModelObjectItem, &ModelObjectItem::onObjectChanged>(this);
 
   if (!modelObject.getModelObjectSources<model::ComponentData>().empty()) {
     m_measureBadge->setMeasureBadgeType(MeasureBadgeType::BCLMeasure);
@@ -83,7 +83,7 @@ bool ModelObjectItem::equal(const openstudio::OSItem* otherItem) const {
     return false;
   }
 
-  const ModelObjectItem* modelObjectItem = qobject_cast<const ModelObjectItem*>(otherItem);
+  const auto* modelObjectItem = qobject_cast<const ModelObjectItem*>(otherItem);
   if (modelObjectItem) {
     model::ModelObject otherModelObject = modelObjectItem->modelObject();
     if (otherModelObject.handle().isNull()) {

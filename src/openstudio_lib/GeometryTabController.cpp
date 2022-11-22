@@ -74,7 +74,7 @@ void GeometryTabController::setSubTab(int index) {
 
   switch (index) {
     case VIEW: {
-      auto previewController = new GeometryPreviewController(m_isIP, m_model);
+      auto* previewController = new GeometryPreviewController(m_isIP, m_model);
       //connect(this, &ConstructionsTabController::toggleUnitsClicked, static_cast<ModelSubTabView*>(defaultConstructionSetsController->subTabView()), &ModelSubTabView::toggleUnitsClicked);
       //connect(defaultConstructionSetsController, &DefaultConstructionSetsController::downloadComponentsClicked, this, &ConstructionsTabController::downloadComponentsClicked);
       //connect(defaultConstructionSetsController, &DefaultConstructionSetsController::openLibDlgClicked, this, &ConstructionsTabController::openLibDlgClicked);
@@ -84,7 +84,7 @@ void GeometryTabController::setSubTab(int index) {
     }
 
     case EDITOR: {
-      auto editorController = new GeometryEditorController(m_isIP, m_model);
+      auto* editorController = new GeometryEditorController(m_isIP, m_model);
       //connect(this, &ConstructionsTabController::toggleUnitsClicked, static_cast<ModelSubTabView*>(constructionsController->subTabView()), &ModelSubTabView::toggleUnitsClicked);
       this->mainContentWidget()->setSubTab(editorController->view());
       m_currentController = editorController;

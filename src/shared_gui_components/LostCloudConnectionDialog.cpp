@@ -54,7 +54,7 @@ LostCloudConnectionDialog::LostCloudConnectionDialog(bool internetAvailable, boo
   createWidgets(internetAvailable, authenticated, cloudRunning);
 }
 
-LostCloudConnectionDialog::~LostCloudConnectionDialog() {}
+LostCloudConnectionDialog::~LostCloudConnectionDialog() = default;
 
 void LostCloudConnectionDialog::createWidgets(bool internetAvailable, bool authenticated, bool cloudRunning) {
   //// OS SETTINGS
@@ -85,7 +85,7 @@ void LostCloudConnectionDialog::createWidgets(bool internetAvailable, bool authe
   label->setText("<b>" + (tr("Requirements for cloud:")) + "</b>");
   mainLayout->addWidget(label);
 
-  auto vLayout = new QVBoxLayout;
+  auto* vLayout = new QVBoxLayout;
   vLayout->setContentsMargins(QMargins(0, 0, 0, 0));
   vLayout->setSpacing(5);
   vLayout->setAlignment(Qt::AlignTop | Qt::AlignLeft);

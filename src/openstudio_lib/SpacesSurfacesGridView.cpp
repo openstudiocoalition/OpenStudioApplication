@@ -234,7 +234,9 @@ QString SpacesSurfacesGridController::getColor(const model::ModelObject& modelOb
 }
 
 void SpacesSurfacesGridController::checkSelectedFields() {
-  if (!this->hasHorizontalHeader()) return;
+  if (!this->hasHorizontalHeader()) {
+    return;
+  }
 
   OSGridController::checkSelectedFields();
 }

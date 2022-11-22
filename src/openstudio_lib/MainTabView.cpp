@@ -59,7 +59,7 @@ MainTabView::MainTabView(const QString& tabLabel, TabType tabType, QWidget* pare
   m_tabLabel->setFixedWidth(m_tabLabel->width());
   m_tabLabel->move(7, 5);
 
-  auto label = new QLabel();
+  auto* label = new QLabel();
   label->setObjectName("H2");
 
   m_editView->setView(label);
@@ -122,7 +122,9 @@ void MainTabView::setTabType(MainTabView::TabType tabType) {
 bool MainTabView::addTabWidget(QWidget* widget) {
   // This method should only be called in cases where the tab will not have sub tabs
   OS_ASSERT(m_tabType == MAIN_TAB);
-  if (m_tabType != MAIN_TAB) return false;
+  if (m_tabType != MAIN_TAB) {
+    return false;
+  }
 
   m_editView->setView(widget);
 
@@ -132,9 +134,11 @@ bool MainTabView::addTabWidget(QWidget* widget) {
 bool MainTabView::addSubTab(const QString& subTabLabel, int id) {
   // This method should only be called in cases where the tab will have sub tabs
   OS_ASSERT(m_tabType != MAIN_TAB);
-  if (m_tabType == MAIN_TAB) return false;
+  if (m_tabType == MAIN_TAB) {
+    return false;
+  }
 
-  auto button = new QPushButton(this);
+  auto* button = new QPushButton(this);
   button->setText(subTabLabel);
   button->setFixedHeight(21);
   m_tabButtons.push_back(button);
@@ -151,7 +155,7 @@ void MainTabView::setSubTab(QWidget* widget) {
 }
 
 void MainTabView::select() {
-  QPushButton* button = qobject_cast<QPushButton*>(sender());
+  auto* button = qobject_cast<QPushButton*>(sender());
 
   int index = 0;
 

@@ -36,7 +36,7 @@ namespace modeleditor {
 
 TableWidget::TableWidget(QWidget* parent) : QTableWidget(parent) {}
 
-TableWidget::~TableWidget() {}
+TableWidget::~TableWidget() = default;
 
 void TableWidget::populateTable(const openstudio::WorkspaceObject& obj) {
   clear();
@@ -56,7 +56,7 @@ void TableWidget::populateTable(const openstudio::WorkspaceObject& obj) {
       }
     }
     // setItem causes QTableWIdget to take ownership of newItem
-    QTableWidgetItem* newItem = new QTableWidgetItem((*val).c_str());
+    auto* newItem = new QTableWidgetItem((*val).c_str());
     if (defaultText) {
       newItem->setForeground(Qt::gray);
     }

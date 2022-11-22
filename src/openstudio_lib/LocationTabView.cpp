@@ -570,7 +570,7 @@ void LocationView::onWeatherFileBtnClicked() {
 
       // duplicate code in OSDocument::fixWeatherFilePath
 
-      openstudio::filesystem::copy_file(epwPath, newPath, openstudio::filesystem::copy_option::overwrite_if_exists);
+      openstudio::filesystem::copy_file(epwPath, newPath, openstudio::filesystem::copy_options::overwrite_existing);
 
       // this can throw
       EpwFile epwFile(newPath);

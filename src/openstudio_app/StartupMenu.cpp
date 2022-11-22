@@ -37,15 +37,15 @@ StartupMenu::StartupMenu(QWidget* parent) : QMenuBar(parent) {
 
   // File menu
   m_fileMenu = new QMenu(tr("&File"), this);
-  QAction* newAction = new QAction(tr("&New"), this);
+  auto* newAction = new QAction(tr("&New"), this);
   newAction->setShortcut(QKeySequence(QKeySequence::New));
-  QAction* loadFileAction = new QAction(tr("&Open"), this);
+  auto* loadFileAction = new QAction(tr("&Open"), this);
   loadFileAction->setShortcut(QKeySequence(QKeySequence::Open));
-  QAction* exitAction = new QAction(tr("E&xit"), this);
+  auto* exitAction = new QAction(tr("E&xit"), this);
   exitAction->setShortcut(QKeySequence(QKeySequence::Quit));
 
-  QMenu* importMenu = new QMenu(tr("Import"), this);
-  QAction* action = new QAction(tr("IDF"), this);
+  auto* importMenu = new QMenu(tr("Import"), this);
+  auto* action = new QAction(tr("IDF"), this);
   importMenu->addAction(action);
   connect(action, &QAction::triggered, this, &StartupMenu::importClicked, Qt::QueuedConnection);
   action = new QAction(tr("gbXML"), this);
@@ -75,7 +75,7 @@ StartupMenu::StartupMenu(QWidget* parent) : QMenuBar(parent) {
 
   addMenu(m_helpMenu);
 
-  QAction* helpAction = new QAction(tr("OpenStudio &Help"), this);
+  auto* helpAction = new QAction(tr("OpenStudio &Help"), this);
 
   connect(helpAction, &QAction::triggered, this, &StartupMenu::helpClicked, Qt::QueuedConnection);
   m_helpMenu->addAction(helpAction);

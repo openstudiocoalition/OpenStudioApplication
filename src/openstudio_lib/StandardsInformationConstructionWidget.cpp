@@ -287,7 +287,7 @@ StandardsInformationConstructionWidget::StandardsInformationConstructionWidget(b
   ++row;
 }
 
-StandardsInformationConstructionWidget::~StandardsInformationConstructionWidget() {}
+StandardsInformationConstructionWidget::~StandardsInformationConstructionWidget() = default;
 
 void StandardsInformationConstructionWidget::showFenestration() {
   m_fenestrationType->show();

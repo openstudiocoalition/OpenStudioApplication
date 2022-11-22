@@ -120,7 +120,7 @@ bool OSListItem::isSelected() const {
 
     std::vector<QPointer<OSListItem>> selectedItems = selectionController->m_selectedItems;
 
-    std::vector<QPointer<OSListItem>>::const_iterator it = std::find(selectedItems.begin(), selectedItems.end(), this);
+    auto it = std::find(selectedItems.begin(), selectedItems.end(), this);
 
     if (it != selectedItems.end()) {
       return true;
@@ -179,7 +179,7 @@ void OSItemSelectionController::setAllowMultipleSelections(bool multipleSelectio
 void OSItemSelectionController::unselectAllItems() {
   std::vector<QPointer<OSListItem>> selectedItems = m_selectedItems;
 
-  for (std::vector<QPointer<OSListItem>>::const_iterator it = selectedItems.begin(); it != selectedItems.end(); ++it) {
+  for (auto it = selectedItems.begin(); it != selectedItems.end(); ++it) {
     (*it)->setSelected(false);
   }
 }

@@ -49,7 +49,7 @@ const int VRFSystemView::dropZoneHeight = 150;
 const int VRFSystemView::terminalViewHeight = 100;
 
 VRFView::VRFView() : QWidget() {
-  auto mainVLayout = new QVBoxLayout();
+  auto* mainVLayout = new QVBoxLayout();
   mainVLayout->setSpacing(0);
   mainVLayout->setContentsMargins(0, 0, 0, 0);
   mainVLayout->setAlignment(Qt::AlignTop);
@@ -61,7 +61,7 @@ VRFView::VRFView() : QWidget() {
   header->setFixedHeight(35);
   mainVLayout->addWidget(header);
 
-  auto headerLayout = new QHBoxLayout();
+  auto* headerLayout = new QHBoxLayout();
   headerLayout->setContentsMargins(5, 5, 5, 5);
   headerLayout->setSpacing(0);
   header->setLayout(headerLayout);

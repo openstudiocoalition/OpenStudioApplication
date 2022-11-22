@@ -47,12 +47,12 @@ namespace openstudio {
 
 ExternalToolsDialog::ExternalToolsDialog(openstudio::path t_dviewPath) : QDialog() {
 
-  auto mainLayout = new QGridLayout();
+  auto* mainLayout = new QGridLayout();
   setLayout(mainLayout);
   mainLayout->setColumnMinimumWidth(1, 400);
 
   int row = 0;
-  auto title = new QLabel("Change External Tools");
+  auto* title = new QLabel("Change External Tools");
   title->setObjectName("H1");
   mainLayout->addWidget(title, row, 0, 1, 3);
 
@@ -64,7 +64,7 @@ ExternalToolsDialog::ExternalToolsDialog(openstudio::path t_dviewPath) : QDialog
   m_dviewPathLineEdit->setText(QString::fromStdString(toString(t_dviewPath)));
   mainLayout->addWidget(m_dviewPathLineEdit, row, 1);
 
-  QPushButton* changeDviewButton = new QPushButton("Change");
+  auto* changeDviewButton = new QPushButton("Change");
   connect(changeDviewButton, &QPushButton::clicked, this, [this] { ExternalToolsDialog::onChangeClicked(m_dviewPathLineEdit, "DView"); });
   mainLayout->addWidget(changeDviewButton, row, 2);
 
@@ -80,7 +80,7 @@ ExternalToolsDialog::ExternalToolsDialog(openstudio::path t_dviewPath) : QDialog
 
   // Buttons Ok/Cancel
   ++row;
-  auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+  auto* buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
   mainLayout->addWidget(buttonBox, row, 0, 1, 3);
 
   connect(buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);

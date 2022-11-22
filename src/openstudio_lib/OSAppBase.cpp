@@ -72,7 +72,7 @@ OSAppBase::OSAppBase(int& argc, char** argv, const QSharedPointer<MeasureManager
   m_waitDialog = boost::shared_ptr<WaitDialog>(new WaitDialog("Loading Model", "Loading Model"));
 }
 
-OSAppBase::~OSAppBase() {}
+OSAppBase::~OSAppBase() = default;
 
 bool OSAppBase::notify(QObject* receiver, QEvent* e) {
   return QApplication::notify(receiver, e);

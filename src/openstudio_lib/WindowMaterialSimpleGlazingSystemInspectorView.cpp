@@ -54,13 +54,13 @@ WindowMaterialSimpleGlazingSystemInspectorView::WindowMaterialSimpleGlazingSyste
 }
 
 void WindowMaterialSimpleGlazingSystemInspectorView::createLayout() {
-  auto hiddenWidget = new QWidget();
+  auto* hiddenWidget = new QWidget();
   this->stackedWidget()->addWidget(hiddenWidget);
 
-  auto visibleWidget = new QWidget();
+  auto* visibleWidget = new QWidget();
   this->stackedWidget()->addWidget(visibleWidget);
 
-  auto mainGridLayout = new QGridLayout();
+  auto* mainGridLayout = new QGridLayout();
   mainGridLayout->setContentsMargins(7, 7, 7, 7);
   mainGridLayout->setSpacing(14);
   visibleWidget->setLayout(mainGridLayout);
@@ -133,7 +133,7 @@ void WindowMaterialSimpleGlazingSystemInspectorView::onClearSelection() {
 
 void WindowMaterialSimpleGlazingSystemInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject) {
   detach();
-  model::SimpleGlazing simpleGlazing = modelObject.cast<model::SimpleGlazing>();
+  auto simpleGlazing = modelObject.cast<model::SimpleGlazing>();
   attach(simpleGlazing);
   refresh();
 }

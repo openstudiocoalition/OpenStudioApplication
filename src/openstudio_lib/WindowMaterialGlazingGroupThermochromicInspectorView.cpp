@@ -55,13 +55,13 @@ WindowMaterialGlazingGroupThermochromicInspectorView::WindowMaterialGlazingGroup
 }
 
 void WindowMaterialGlazingGroupThermochromicInspectorView::createLayout() {
-  auto hiddenWidget = new QWidget();
+  auto* hiddenWidget = new QWidget();
   this->stackedWidget()->addWidget(hiddenWidget);
 
-  auto visibleWidget = new QWidget();
+  auto* visibleWidget = new QWidget();
   this->stackedWidget()->addWidget(visibleWidget);
 
-  auto mainGridLayout = new QGridLayout();
+  auto* mainGridLayout = new QGridLayout();
   mainGridLayout->setContentsMargins(7, 7, 7, 7);
   mainGridLayout->setSpacing(14);
   visibleWidget->setLayout(mainGridLayout);
@@ -125,7 +125,7 @@ void WindowMaterialGlazingGroupThermochromicInspectorView::onClearSelection() {
 
 void WindowMaterialGlazingGroupThermochromicInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject) {
   detach();
-  model::ThermochromicGlazing thermochromicGlazing = modelObject.cast<model::ThermochromicGlazing>();
+  auto thermochromicGlazing = modelObject.cast<model::ThermochromicGlazing>();
   attach(thermochromicGlazing);
   refresh();
 }

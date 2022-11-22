@@ -46,26 +46,26 @@ HVACTemplateHelperDialog::HVACTemplateHelperDialog(const model::Model& model, QW
 
   setSizeGripEnabled(false);
 
-  auto mainVLayout = new QVBoxLayout();
+  auto* mainVLayout = new QVBoxLayout();
   mainVLayout->setSpacing(20);
   setLayout(mainVLayout);
 
-  QLabel* message = new QLabel("Select zones to apply system to.");
+  auto* message = new QLabel("Select zones to apply system to.");
   mainVLayout->addWidget(message);
 
-  auto divider1 = new QFrame();
+  auto* divider1 = new QFrame();
   divider1->setFrameShape(QFrame::HLine);
   divider1->setFrameShadow(QFrame::Sunken);
   mainVLayout->addWidget(divider1);
 
-  auto scrollArea = new QScrollArea();
+  auto* scrollArea = new QScrollArea();
   mainVLayout->addWidget(scrollArea);
 
-  auto scrollWidget = new QWidget();
+  auto* scrollWidget = new QWidget();
   scrollArea->setWidget(scrollWidget);
   scrollArea->setWidgetResizable(true);
   scrollArea->setFrameShape(QFrame::NoFrame);
-  auto scrollLayout = new QVBoxLayout();
+  auto* scrollLayout = new QVBoxLayout();
   scrollLayout->setSpacing(20);
   scrollWidget->setLayout(scrollLayout);
 
@@ -77,7 +77,7 @@ HVACTemplateHelperDialog::HVACTemplateHelperDialog(const model::Model& model, QW
   int i = 1;
 
   for (auto it = m_zones.begin(); it < m_zones.end(); ++it) {
-    auto checkBox = new QCheckBox();
+    auto* checkBox = new QCheckBox();
 
     checkBox->setText(QString::fromStdString(it->name().get()));
 
@@ -88,24 +88,24 @@ HVACTemplateHelperDialog::HVACTemplateHelperDialog(const model::Model& model, QW
     i++;
   }
 
-  auto divider2 = new QFrame();
+  auto* divider2 = new QFrame();
   divider2->setFrameShape(QFrame::HLine);
   divider2->setFrameShadow(QFrame::Sunken);
   mainVLayout->addWidget(divider2);
 
   mainVLayout->addStretch();
 
-  auto hLayout = new QHBoxLayout();
+  auto* hLayout = new QHBoxLayout();
   mainVLayout->addLayout(hLayout);
 
   hLayout->addStretch();
 
-  auto cancelButton = new QPushButton();
+  auto* cancelButton = new QPushButton();
   cancelButton->setText("Cancel");
   hLayout->addWidget(cancelButton);
   connect(cancelButton, &QPushButton::clicked, this, &HVACTemplateHelperDialog::reject);
 
-  auto okButton = new QPushButton();
+  auto* okButton = new QPushButton();
   okButton->setText("OK");
   hLayout->addWidget(okButton);
   connect(okButton, &QPushButton::clicked, this, &HVACTemplateHelperDialog::accept);
@@ -117,7 +117,7 @@ std::vector<model::ThermalZone> HVACTemplateHelperDialog::selectedZones() {
   int i = 1;
 
   for (auto it = m_zones.begin(); it < m_zones.end(); ++it) {
-    QCheckBox* checkBox = qobject_cast<QCheckBox*>(m_buttonGroup->button(i));
+    auto* checkBox = qobject_cast<QCheckBox*>(m_buttonGroup->button(i));
 
     if (checkBox->isChecked()) {
       result.push_back(*it);

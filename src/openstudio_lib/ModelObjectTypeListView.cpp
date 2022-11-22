@@ -61,23 +61,23 @@ ModelObjectTypeListView::ModelObjectTypeListView(const std::vector<std::pair<Idd
 }
 
 void ModelObjectTypeListView::addModelObjectType(const IddObjectType& iddObjectType, const std::string& name) {
-  OSCollapsibleItemHeader* collapsibleItemHeader = new OSCollapsibleItemHeader(name, OSItemId("", "", false), m_headerType);
-  auto modelObjectListView = new ModelObjectListView(iddObjectType, m_model, false, m_showLocalBCL);
-  auto modelObjectTypeItem = new ModelObjectTypeItem(collapsibleItemHeader, modelObjectListView);
+  auto* collapsibleItemHeader = new OSCollapsibleItemHeader(name, OSItemId("", "", false), m_headerType);
+  auto* modelObjectListView = new ModelObjectListView(iddObjectType, m_model, false, m_showLocalBCL);
+  auto* modelObjectTypeItem = new ModelObjectTypeItem(collapsibleItemHeader, modelObjectListView);
 
   addCollapsibleItem(modelObjectTypeItem);
 }
 
 IddObjectType ModelObjectTypeListView::currentIddObjectType() const {
   OSCollapsibleItem* selectedCollapsibleItem = this->selectedCollapsibleItem();
-  ModelObjectTypeItem* modelObjectTypeItem = qobject_cast<ModelObjectTypeItem*>(selectedCollapsibleItem);
+  auto* modelObjectTypeItem = qobject_cast<ModelObjectTypeItem*>(selectedCollapsibleItem);
   OS_ASSERT(modelObjectTypeItem);
   return modelObjectTypeItem->iddObjectType();
 }
 
 boost::optional<openstudio::model::ModelObject> ModelObjectTypeListView::selectedModelObject() const {
   OSItem* selectedItem = this->selectedItem();
-  ModelObjectItem* modelObjectItem = qobject_cast<ModelObjectItem*>(selectedItem);
+  auto* modelObjectItem = qobject_cast<ModelObjectItem*>(selectedItem);
   if (modelObjectItem) {
     return modelObjectItem->modelObject();
   }

@@ -56,7 +56,7 @@
 
 namespace openstudio {
 NetworkProxyDialog::NetworkProxyDialog(QSettings& t_settings, QWidget* t_parent = nullptr) : QDialog(t_parent), m_settings(t_settings) {
-  auto layout = new QGridLayout(this);
+  auto* layout = new QGridLayout(this);
 
   // NoProxy, DefaultProxy, Socks5Proxy, HttpProxy, HttpCachingProxy, FtpCachingProxy
   m_proxyType = new QComboBox();
@@ -82,11 +82,11 @@ NetworkProxyDialog::NetworkProxyDialog(QSettings& t_settings, QWidget* t_parent 
   layout->addWidget(new QLabel("User Name"), 3, 0);
   layout->addWidget(m_user, 3, 1);
 
-  auto buttonBox = new QHBoxLayout();
+  auto* buttonBox = new QHBoxLayout();
 
-  QPushButton* saveButton = new QPushButton("Save");
-  QPushButton* cancelButton = new QPushButton("Cancel");
-  QPushButton* testButton = new QPushButton("Test");
+  auto* saveButton = new QPushButton("Save");
+  auto* cancelButton = new QPushButton("Cancel");
+  auto* testButton = new QPushButton("Test");
 
   buttonBox->addWidget(saveButton);
   buttonBox->addWidget(cancelButton);
@@ -154,7 +154,9 @@ std::pair<QNetworkReply::NetworkError, QString> NetworkProxyDialog::testProxyCon
   nam.setProxy(t_proxy);
   QNetworkReply* head = nam.head(QNetworkRequest(QUrl("https://bcl.nrel.gov/")));
 
-  if (!head) return std::make_pair(QNetworkReply::UnknownNetworkError, QString("Unknown error creating connection to proxy."));
+  if (!head) {
+    return std::make_pair(QNetworkReply::UnknownNetworkError, QString("Unknown error creating connection to proxy."));
+  }
 
   boost::posix_time::ptime start = boost::posix_time::microsec_clock::universal_time();
   while (!head->isFinished() && (boost::posix_time::microsec_clock::universal_time() - start).total_milliseconds() < 10000 && !dlg.wasCanceled()) {
@@ -180,7 +182,9 @@ std::pair<QNetworkReply::NetworkError, QString> NetworkProxyDialog::testProxyCon
 }
 
 bool NetworkProxyDialog::testProxy(QNetworkProxy& t_proxy, QWidget* t_parent) {
-  if (t_proxy.type() == QNetworkProxy::NoProxy) return true;
+  if (t_proxy.type() == QNetworkProxy::NoProxy) {
+    return true;
+  }
 
   t_parent->setEnabled(false);
 

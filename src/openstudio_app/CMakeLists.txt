@@ -269,9 +269,19 @@ elseif( WIN32 )
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_200} $<TARGET_FILE_DIR:${target_name}>/resources/
   )
 
+  # On Windows, we must copy the DLLs inside the build folder or it won't find them
+  # TODO: IMPORTED_SONAME_RELEASE now contains @rpath so it fails
+  # get_target_property(LIBOSLIB openstudio::openstudiolib IMPORTED_LOCATION_RELEASE)
+  # add_custom_command(TARGET ${target_name}
+  #   POST_BUILD
+  #   COMMAND ${CMAKE_COMMAND} -E copy_if_different ${LIBOSLIB} $<TARGET_FILE_DIR:${target_name}>/ )
   add_custom_command(TARGET ${target_name}
-    POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:openstudio::openstudiolib> $<TARGET_FILE_DIR:${target_name}>/ )
+    PRE_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:openstudio::openstudio> $<TARGET_FILE_DIR:${target_name}>/
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:openstudio::openstudiolib> $<TARGET_FILE_DIR:${target_name}>/
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:openstudio::rubyengine> $<TARGET_FILE_DIR:${target_name}>/
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:openstudio::pythonengine> $<TARGET_FILE_DIR:${target_name}>/
+  )
 
 endif()
 
@@ -407,6 +417,37 @@ if( APPLE )
   install(DIRECTORY $<TARGET_FILE_DIR:openstudio_lib>/translations/ DESTINATION "OpenStudioApp.app/Contents/translations/" COMPONENT OpenStudioApp)
 
   list(APPEND QTPLUGINS "\${CMAKE_INSTALL_PREFIX}/OpenStudioApp.app/Contents/Frameworks/QtWebEngineCore.framework/Versions/A/Helpers/QtWebEngineProcess.app/Contents/MacOS/QtWebEngineProcess")
+
+  # Create a new symlink at OpenStudioApp.app/Contents/Frameworks/QtWebEngineCore.framework/Versions/A/Helpers/QtWebEngineProcess.app/Contents/Frameworks
+  # That point to OpenStudioApp.app/Contents/Frameworks. `cmake -E create_symlink old new    - create a symbolic link new -> old`
+
+  # TODO: Somewhere there is something that copies the openstudio CLI into the OpenStudioApp.app/Contents/MacOS which is useless.
+  # TODO: We can also just symlink libopenstudio.lib into the OpenStudioApp.app/Contents/Frameworks directory instead of copying
+
+  install(CODE [[
+      execute_process(
+        COMMAND "${CMAKE_COMMAND}" -E create_symlink
+          "../../../../../../../Frameworks"
+          "${CMAKE_INSTALL_PREFIX}/OpenStudioApp.app/Contents/Frameworks/QtWebEngineCore.framework/Versions/A/Helpers/QtWebEngineProcess.app/Contents/Frameworks"
+
+        COMMAND "${CMAKE_COMMAND}" -E create_symlink
+          "../../EnergyPlus"
+          "${CMAKE_INSTALL_PREFIX}/OpenStudioApp.app/Contents/EnergyPlus"
+
+        COMMAND "${CMAKE_COMMAND}" -E create_symlink
+          "../../Radiance"
+          "${CMAKE_INSTALL_PREFIX}/OpenStudioApp.app/Contents/Radiance"
+
+        COMMAND "${CMAKE_COMMAND}" -E create_symlink
+          "../../../bin/$<TARGET_FILE_NAME:openstudio::rubyengine>"
+          "${CMAKE_INSTALL_PREFIX}/OpenStudioApp.app/Contents/Frameworks/$<TARGET_FILE_NAME:openstudio::rubyengine>"
+
+        COMMAND "${CMAKE_COMMAND}" -E create_symlink
+          "../../../bin/$<TARGET_FILE_NAME:openstudio::pythonengine>"
+          "${CMAKE_INSTALL_PREFIX}/OpenStudioApp.app/Contents/Frameworks/$<TARGET_FILE_NAME:openstudio::pythonengine>"
+      )
+    ]]
+  )
 endif()
 
 # TODO: We used to run fixup_bundle on all plaforms before on 5.15.0...
