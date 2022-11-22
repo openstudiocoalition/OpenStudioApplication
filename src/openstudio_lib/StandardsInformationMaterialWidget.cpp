@@ -257,7 +257,7 @@ StandardsInformationMaterialWidget::StandardsInformationMaterialWidget(bool isIP
   hideComposite();
 }
 
-StandardsInformationMaterialWidget::~StandardsInformationMaterialWidget() {}
+StandardsInformationMaterialWidget::~StandardsInformationMaterialWidget() = default;
 
 void StandardsInformationMaterialWidget::attach(openstudio::model::Material& material) {
   detach();

@@ -129,7 +129,7 @@ SpacesLoadsGridView::SpacesLoadsGridView(bool isIP, const model::Model& model, Q
 
   const std::function<bool(const model::ModelObject&)> isLocked([](const model::ModelObject& modelObject) {
     if (modelObject.optionalCast<model::SpaceLoad>()) {
-      model::SpaceLoad load = modelObject.cast<model::SpaceLoad>();
+      auto load = modelObject.cast<model::SpaceLoad>();
       return load.spaceType().is_initialized();
     }
     return false;
@@ -968,7 +968,9 @@ QString SpacesLoadsGridController::getColor(const model::ModelObject& modelObjec
 }
 
 void SpacesLoadsGridController::checkSelectedFields() {
-  if (!this->hasHorizontalHeader()) return;
+  if (!this->hasHorizontalHeader()) {
+    return;
+  }
 
   OSGridController::checkSelectedFields();
 }

@@ -49,7 +49,7 @@ LoadsTabController::LoadsTabController(bool isIP, const model::Model& model) : M
   connect(m_LoadsController.get(), &LoadsController::openLibDlgClicked, this, &LoadsTabController::openLibDlgClicked);
 }
 
-LoadsTabController::~LoadsTabController() {}
+LoadsTabController::~LoadsTabController() = default;
 
 void LoadsTabController::toggleUnits(bool displayIP) {}
 

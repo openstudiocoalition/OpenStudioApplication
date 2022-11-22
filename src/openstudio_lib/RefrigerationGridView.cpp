@@ -153,16 +153,16 @@ RefrigerationGridView::RefrigerationGridView(bool isIP, const model::Model& mode
   layout->setContentsMargins(0, 0, 0, 0);
   setLayout(layout);
 
-  auto scrollLayout = new QVBoxLayout();
+  auto* scrollLayout = new QVBoxLayout();
   scrollLayout->setSpacing(0);
   scrollLayout->setContentsMargins(0, 0, 0, 0);
 
-  auto scrollWidget = new QWidget();
+  auto* scrollWidget = new QWidget();
   scrollWidget->setObjectName("ScrollWidget");
   scrollWidget->setStyleSheet("QWidget#ScrollWidget { background: transparent; }");
   scrollWidget->setLayout(scrollLayout);
 
-  auto scrollArea = new QScrollArea();
+  auto* scrollArea = new QScrollArea();
   scrollArea->setContentsMargins(0, 0, 0, 0);
   scrollArea->setFrameStyle(QFrame::NoFrame);
   scrollArea->setWidget(scrollWidget);
@@ -173,9 +173,9 @@ RefrigerationGridView::RefrigerationGridView(bool isIP, const model::Model& mode
   std::vector<model::RefrigerationCase> refrigerationCases = model.getConcreteModelObjects<model::RefrigerationCase>();
   std::vector<model::ModelObject> caseModelObjects = subsetCastVector<model::ModelObject>(refrigerationCases);
 
-  RefrigerationCaseGridController* refrigerationCaseGridController =
+  auto* refrigerationCaseGridController =
     new RefrigerationCaseGridController(m_isIP, "Display Cases", IddObjectType::OS_Refrigeration_Case, model, caseModelObjects);
-  OSGridView* caseGridView = new OSGridView(refrigerationCaseGridController, "Display Cases", "Drop\nCase", true, parent);
+  auto* caseGridView = new OSGridView(refrigerationCaseGridController, "Display Cases", "Drop\nCase", true, parent);
 
   connect(caseGridView, &OSGridView::dropZoneItemClicked, this, &RefrigerationGridView::dropZoneItemClicked);
 
@@ -184,9 +184,9 @@ RefrigerationGridView::RefrigerationGridView(bool isIP, const model::Model& mode
   std::vector<model::RefrigerationWalkIn> refrigerationWalkIns = model.getConcreteModelObjects<model::RefrigerationWalkIn>();
   std::vector<model::ModelObject> walkInModelObjects = subsetCastVector<model::ModelObject>(refrigerationWalkIns);
 
-  RefrigerationWalkInGridController* refrigerationWalkInGridController =
+  auto* refrigerationWalkInGridController =
     new RefrigerationWalkInGridController(m_isIP, "Walk Ins", IddObjectType::OS_Refrigeration_WalkIn, model, walkInModelObjects);
-  OSGridView* walkInView = new OSGridView(refrigerationWalkInGridController, "Walk Ins", "Drop\nWalk In", true, parent);
+  auto* walkInView = new OSGridView(refrigerationWalkInGridController, "Walk Ins", "Drop\nWalk In", true, parent);
 
   connect(walkInView, &OSGridView::dropZoneItemClicked, this, &RefrigerationGridView::dropZoneItemClicked);
 
@@ -511,7 +511,9 @@ QString RefrigerationCaseGridController::getColor(const model::ModelObject& mode
 }
 
 void RefrigerationCaseGridController::checkSelectedFields() {
-  if (!this->hasHorizontalHeader()) return;
+  if (!this->hasHorizontalHeader()) {
+    return;
+  }
 
   OSGridController::checkSelectedFields();
 }
@@ -536,7 +538,7 @@ void RefrigerationCaseGridController::onComboBoxIndexChanged(int index) {
   // but currently unable to know which row changed.
   const auto hh = horizontalHeaders();
   for (unsigned i = 0; i < hh.size(); ++i) {
-    HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(hh.at(i));
+    auto* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(hh.at(i));
     if (horizontalHeaderWidget->m_label->text() == RACK) {
       // NOTE required due to a race condition
       // Code below commented out due to a very infrequent crash in the bowels of Qt appears to be exasperated by this refresh.
@@ -871,7 +873,9 @@ QString RefrigerationWalkInGridController::getColor(const model::ModelObject& mo
 }
 
 void RefrigerationWalkInGridController::checkSelectedFields() {
-  if (!this->hasHorizontalHeader()) return;
+  if (!this->hasHorizontalHeader()) {
+    return;
+  }
 
   OSGridController::checkSelectedFields();
 }
@@ -896,7 +900,7 @@ void RefrigerationWalkInGridController::onComboBoxIndexChanged(int index) {
   // but currently unable to know which row changed.
   const auto hh = horizontalHeaders();
   for (unsigned i = 0; i < hh.size(); ++i) {
-    HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(hh.at(i));
+    auto* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(hh.at(i));
     if (horizontalHeaderWidget->m_label->text() == RACK) {
       // NOTE required due to a race condition
       // Code below commented out due to a very infrequent crash in the bowels of Qt appears to be exasperated by this refresh.

@@ -65,7 +65,7 @@ class TIDItem
         QDomElement childElement = childNode.toElement();
 
         if (istringEqual(childElement.tagName().toStdString(), "term")) {
-          auto childItem = new TIDItem(childElement, this);
+          auto* childItem = new TIDItem(childElement, this);
 
           m_childItems.append(childItem);
         }
@@ -130,7 +130,7 @@ QVariant TIDItemModel::data(const QModelIndex& index, int role) const {
     return QVariant();
   }
 
-  TIDItem* item = static_cast<TIDItem*>(index.internalPointer());
+  auto* item = static_cast<TIDItem*>(index.internalPointer());
 
   return item->data(index.column());
 }
@@ -170,7 +170,7 @@ QModelIndex TIDItemModel::parent(const QModelIndex& index) const {
     return QModelIndex();
   }
 
-  TIDItem* childItem = static_cast<TIDItem*>(index.internalPointer());
+  auto* childItem = static_cast<TIDItem*>(index.internalPointer());
 
   TIDItem* parentItem = childItem->parent();
 

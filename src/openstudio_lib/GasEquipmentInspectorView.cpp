@@ -47,17 +47,17 @@ GasEquipmentDefinitionInspectorView::GasEquipmentDefinitionInspectorView(bool is
   : ModelObjectInspectorView(model, true, parent) {
   m_isIP = isIP;
 
-  auto visibleWidget = new QWidget();
+  auto* visibleWidget = new QWidget();
   this->stackedWidget()->addWidget(visibleWidget);
 
-  auto mainGridLayout = new QGridLayout();
+  auto* mainGridLayout = new QGridLayout();
   mainGridLayout->setContentsMargins(7, 7, 7, 7);
   mainGridLayout->setSpacing(14);
   visibleWidget->setLayout(mainGridLayout);
 
   // Name
 
-  QLabel* label = new QLabel("Name: ");
+  auto* label = new QLabel("Name: ");
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 0, 0);
 
@@ -148,7 +148,7 @@ void GasEquipmentDefinitionInspectorView::onClearSelection() {
 
 void GasEquipmentDefinitionInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject) {
   detach();
-  model::GasEquipmentDefinition gasEquipmentDefinition = modelObject.cast<model::GasEquipmentDefinition>();
+  auto gasEquipmentDefinition = modelObject.cast<model::GasEquipmentDefinition>();
   attach(gasEquipmentDefinition);
   refresh();
 }

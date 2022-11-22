@@ -95,7 +95,7 @@ void ModelObjectTreeWidget::refresh() {
   int N = m_treeWidget->topLevelItemCount();
   for (int i = 0; i < N; ++i) {
     QTreeWidgetItem* treeItem = m_treeWidget->topLevelItem(i);
-    ModelObjectTreeItem* modelObjectTreeItem = dynamic_cast<ModelObjectTreeItem*>(treeItem);
+    auto* modelObjectTreeItem = dynamic_cast<ModelObjectTreeItem*>(treeItem);
     if (modelObjectTreeItem) {
       if (!modelObjectTreeItem->isDirty()) {
         modelObjectTreeItem->makeDirty();

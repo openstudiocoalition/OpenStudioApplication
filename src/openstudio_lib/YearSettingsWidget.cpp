@@ -66,7 +66,7 @@ YearSettingsWidget::YearSettingsWidget(const model::Model& model, QWidget* paren
   : QWidget(parent), m_dstOnOffButton(nullptr), m_model(model), m_dirty(false) {
   // Main Layout
 
-  auto mainVLayout = new QVBoxLayout();
+  auto* mainVLayout = new QVBoxLayout();
   mainVLayout->setContentsMargins(10, 10, 10, 10);
   mainVLayout->setSpacing(10);
 
@@ -78,17 +78,17 @@ YearSettingsWidget::YearSettingsWidget(const model::Model& model, QWidget* paren
 
   // Year
 
-  QLabel* selectYearLabel = new QLabel(tr("Select Year by:"));
+  auto* selectYearLabel = new QLabel(tr("Select Year by:"));
   selectYearLabel->setObjectName("H2");
   mainVLayout->addWidget(selectYearLabel);
 
-  auto yearGridLayout = new QGridLayout();
+  auto* yearGridLayout = new QGridLayout();
   yearGridLayout->setContentsMargins(20, 10, 10, 0);
   //yearGridLayout->setContentsMargins(20,10,10,0);
   yearGridLayout->setSpacing(10);
   mainVLayout->addLayout(yearGridLayout);
 
-  auto yearButtonGroup = new QButtonGroup(this);
+  auto* yearButtonGroup = new QButtonGroup(this);
 
   m_calendarYearButton = new QRadioButton(tr("Calendar Year"), this);
   yearGridLayout->addWidget(m_calendarYearButton, 0, 0);
@@ -115,18 +115,18 @@ YearSettingsWidget::YearSettingsWidget(const model::Model& model, QWidget* paren
 
   yearGridLayout->setColumnStretch(2, 10);
 
-  auto line1 = new QFrame();
+  auto* line1 = new QFrame();
   line1->setFrameShape(QFrame::HLine);
   line1->setFrameShadow(QFrame::Sunken);
   mainVLayout->addWidget(line1);
 
   // DST
 
-  auto dstHLayout1 = new QHBoxLayout();
+  auto* dstHLayout1 = new QHBoxLayout();
   dstHLayout1->setContentsMargins(0, 0, 0, 0);
   dstHLayout1->setSpacing(10);
 
-  QLabel* dstLabel = new QLabel(tr("Daylight Savings Time:"));
+  auto* dstLabel = new QLabel(tr("Daylight Savings Time:"));
   dstLabel->setObjectName("H2");
   dstHLayout1->addWidget(dstLabel);
 
@@ -137,18 +137,18 @@ YearSettingsWidget::YearSettingsWidget(const model::Model& model, QWidget* paren
 
   mainVLayout->addLayout(dstHLayout1);
 
-  auto dstGridLayout = new QGridLayout();
+  auto* dstGridLayout = new QGridLayout();
   dstGridLayout->setContentsMargins(20, 10, 10, 10);
   dstGridLayout->setSpacing(10);
   mainVLayout->addLayout(dstGridLayout);
 
   // Starts
 
-  QLabel* startsLabel = new QLabel(tr("Starts"));
+  auto* startsLabel = new QLabel(tr("Starts"));
   startsLabel->setObjectName("H2");
   dstGridLayout->addWidget(startsLabel, 0, 0);
 
-  auto dstStartButtonGroup = new QButtonGroup(this);
+  auto* dstStartButtonGroup = new QButtonGroup(this);
 
   m_dayOfWeekAndMonthStartButton = new QRadioButton(tr("Define by Day of The Week And Month"), this);
   dstStartButtonGroup->addButton(m_dayOfWeekAndMonthStartButton);
@@ -173,11 +173,11 @@ YearSettingsWidget::YearSettingsWidget(const model::Model& model, QWidget* paren
 
   // Ends
 
-  QLabel* endsLabel = new QLabel(tr("Ends"));
+  auto* endsLabel = new QLabel(tr("Ends"));
   endsLabel->setObjectName("H2");
   dstGridLayout->addWidget(endsLabel, 3, 0);
 
-  auto dstEndButtonGroup = new QButtonGroup(this);
+  auto* dstEndButtonGroup = new QButtonGroup(this);
 
   m_dayOfWeekAndMonthEndButton = new QRadioButton(tr("Define by Day of The Week And Month"), this);
   dstEndButtonGroup->addButton(m_dayOfWeekAndMonthEndButton);
@@ -228,14 +228,12 @@ YearSettingsWidget::YearSettingsWidget(const model::Model& model, QWidget* paren
 
   // Connect
 
-  m_yearDescription->getImpl<model::detail::YearDescription_Impl>().get()->onChange.connect<YearSettingsWidget, &YearSettingsWidget::scheduleRefresh>(
-    this);
+  m_yearDescription->getImpl<model::detail::YearDescription_Impl>()->onChange.connect<YearSettingsWidget, &YearSettingsWidget::scheduleRefresh>(this);
 
   connect(OSAppBase::instance(), &OSAppBase::workspaceObjectAddedPtr, this, &YearSettingsWidget::onWorkspaceObjectAdd, Qt::QueuedConnection);
 
-  m_model.getImpl<model::detail::Model_Impl>()
-    .get()
-    ->removeWorkspaceObjectPtr.connect<YearSettingsWidget, &YearSettingsWidget::onWorkspaceObjectRemove>(this);
+  m_model.getImpl<model::detail::Model_Impl>()->removeWorkspaceObjectPtr.connect<YearSettingsWidget, &YearSettingsWidget::onWorkspaceObjectRemove>(
+    this);
 
   connect(m_startWeekBox, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentTextChanged), this,
           &YearSettingsWidget::onDstStartDayWeekMonthChanged);
@@ -265,7 +263,7 @@ bool YearSettingsWidget::calendarYearChecked() {
 void YearSettingsWidget::onWorkspaceObjectAdd(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> wo, const openstudio::IddObjectType& type,
                                               const openstudio::UUID& uuid) {
   if (wo->iddObject().type() == IddObjectType::OS_RunPeriodControl_DaylightSavingTime) {
-    wo.get()->onChange.connect<YearSettingsWidget, &YearSettingsWidget::scheduleRefresh>(this);
+    wo->onChange.connect<YearSettingsWidget, &YearSettingsWidget::scheduleRefresh>(this);
 
     scheduleRefresh();
   }

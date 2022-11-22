@@ -113,7 +113,7 @@ QSharedPointer<WorkflowStepController> WorkflowSectionItem::workflowStepControll
   return m_workflowStepController;
 }
 
-WorkflowSectionItemDelegate::WorkflowSectionItemDelegate() {}
+WorkflowSectionItemDelegate::WorkflowSectionItemDelegate() = default;
 
 QWidget* WorkflowSectionItemDelegate::view(QSharedPointer<OSListItem> dataSource) {
   if (QSharedPointer<WorkflowSectionItem> workflowSectionItem = dataSource.objectCast<WorkflowSectionItem>()) {
@@ -127,7 +127,7 @@ QWidget* WorkflowSectionItemDelegate::view(QSharedPointer<OSListItem> dataSource
 
       QString acceptedMimeType = MeasureDragData::mimeType(measureType);
 
-      auto workflowSectionView = new WorkflowSectionView(measureType);
+      auto* workflowSectionView = new WorkflowSectionView(measureType);
 
       workflowSectionView->content->newMeasureDropZone->setAcceptedMimeType(acceptedMimeType);
 
@@ -545,11 +545,11 @@ void MeasureStepItem::setSelected(bool isSelected) {
   }
 }
 
-MeasureStepItemDelegate::MeasureStepItemDelegate() {}
+MeasureStepItemDelegate::MeasureStepItemDelegate() = default;
 
 QWidget* MeasureStepItemDelegate::view(QSharedPointer<OSListItem> dataSource) {
   if (QSharedPointer<MeasureStepItem> measureStepItem = dataSource.objectCast<MeasureStepItem>()) {
-    auto workflowStepView = new WorkflowStepView();
+    auto* workflowStepView = new WorkflowStepView();
     workflowStepView->workflowStepButton->nameLabel->setText(measureStepItem->name());
 
     connect(measureStepItem.data(), &MeasureStepItem::nameChanged, workflowStepView->workflowStepButton->nameLabel, &QLabel::setText);

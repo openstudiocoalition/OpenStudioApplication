@@ -898,7 +898,7 @@ void GenericInspectorView::layoutModelObject(model::ModelObject& modelObject, bo
 }
 
 NewPlenumDialog::NewPlenumDialog(QWidget* parent) : QDialog(parent) {
-  auto mainVLayout = new QVBoxLayout();
+  auto* mainVLayout = new QVBoxLayout();
   mainVLayout->setAlignment(Qt::AlignTop);
   mainVLayout->setContentsMargins(10, 10, 10, 10);
   mainVLayout->setSpacing(10);
@@ -907,7 +907,7 @@ NewPlenumDialog::NewPlenumDialog(QWidget* parent) : QDialog(parent) {
   setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
   setFixedWidth(400);
 
-  auto message = new QLabel();
+  auto* message = new QLabel();
   message->setWordWrap(true);
   message->setText(
     "Choose an available zone to use as a plenum.  Only zones that are not conditioned by an air system or zone equipment are displayed.");
@@ -934,7 +934,7 @@ NewPlenumDialog::NewPlenumDialog(QWidget* parent) : QDialog(parent) {
 
   mainVLayout->addSpacing(10);
 
-  auto buttonBox = new QDialogButtonBox();
+  auto* buttonBox = new QDialogButtonBox();
   QPushButton* cancelButton = buttonBox->addButton(QDialogButtonBox::Cancel);
   connect(cancelButton, &QPushButton::clicked, this, &NewPlenumDialog::onCancelClicked);
   QPushButton* applyButton = buttonBox->addButton(QDialogButtonBox::Apply);
@@ -951,19 +951,19 @@ void NewPlenumDialog::onApplyClicked() {
 }
 
 PlenumChooserView::PlenumChooserView(QWidget* parent) {
-  auto mainVLayout = new QVBoxLayout();
+  auto* mainVLayout = new QVBoxLayout();
   mainVLayout->setAlignment(Qt::AlignTop);
   setLayout(mainVLayout);
   mainVLayout->setContentsMargins(0, 0, 0, 0);
   mainVLayout->setSpacing(0);
 
-  auto supplyFrame = new QFrame();
+  auto* supplyFrame = new QFrame();
   supplyFrame->setObjectName("IGRow");
-  auto supplyVLayout = new QVBoxLayout();
+  auto* supplyVLayout = new QVBoxLayout();
   supplyFrame->setLayout(supplyVLayout);
   mainVLayout->addWidget(supplyFrame);
 
-  QLabel* supplyPlenumLabel = new QLabel("Select Supply Plenum");
+  auto* supplyPlenumLabel = new QLabel("Select Supply Plenum");
   supplyVLayout->addWidget(supplyPlenumLabel);
   supplyPlenumChooser = new QComboBox();
   supplyPlenumChooser->setIconSize(QSize(25, 25));
@@ -977,13 +977,13 @@ PlenumChooserView::PlenumChooserView(QWidget* parent) {
   newSupplyPlenumButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
   supplyVLayout->addWidget(newSupplyPlenumButton);
 
-  auto returnFrame = new QFrame();
+  auto* returnFrame = new QFrame();
   returnFrame->setObjectName("IGRow");
-  auto returnVLayout = new QVBoxLayout();
+  auto* returnVLayout = new QVBoxLayout();
   returnFrame->setLayout(returnVLayout);
   mainVLayout->addWidget(returnFrame);
 
-  QLabel* returnPlenumLabel = new QLabel("Select Return Plenum");
+  auto* returnPlenumLabel = new QLabel("Select Return Plenum");
   returnVLayout->addWidget(returnPlenumLabel);
   returnPlenumChooser = new QComboBox();
   returnPlenumChooser->setIconSize(QSize(25, 25));
@@ -1030,7 +1030,7 @@ void RefrigerationWalkinInspectorView::layoutModelObject(model::ModelObject& mod
   if (QLayout* t_layout = m_zoneBoundaryWidget->layout()) {
     delete t_layout;
   }
-  auto zoneBoundaryLayout = new QVBoxLayout();
+  auto* zoneBoundaryLayout = new QVBoxLayout();
   zoneBoundaryLayout->setContentsMargins(0, 0, 0, 0);
   zoneBoundaryLayout->setSpacing(0);
   m_zoneBoundaryWidget->setLayout(zoneBoundaryLayout);
@@ -1038,7 +1038,7 @@ void RefrigerationWalkinInspectorView::layoutModelObject(model::ModelObject& mod
   OS_ASSERT(walkin);
   std::vector<model::RefrigerationWalkInZoneBoundary> zoneBoundaries = walkin->zoneBoundaries();
   for (auto it = zoneBoundaries.begin(); it != zoneBoundaries.end(); ++it) {
-    auto inspector = new InspectorGadget();
+    auto* inspector = new InspectorGadget();
     connect(this, &RefrigerationWalkinInspectorView::toggleUnitsClicked, inspector, &InspectorGadget::toggleUnitsClicked);
     connect(inspector, &InspectorGadget::workspaceObjectRemoved, this, &BaseInspectorView::workspaceObjectRemoved);
     if (displayIP) {
@@ -2523,20 +2523,20 @@ void AirTerminalSingleDuctConstantVolumeFourPipeBeamInspectorView::layoutModelOb
 ScheduleRulesetInspectorView::ScheduleRulesetInspectorView(QWidget* parent) : BaseInspectorView(parent) {}
 
 void ScheduleRulesetInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP) {
-  auto widget = new QWidget();
+  auto* widget = new QWidget();
 
-  auto mainLayout = new QVBoxLayout();
+  auto* mainLayout = new QVBoxLayout();
   mainLayout->setAlignment(Qt::AlignTop);
   mainLayout->setContentsMargins(0, 0, 0, 0);
   mainLayout->setSpacing(0);
   widget->setLayout(mainLayout);
 
-  auto label = new QLabel(modelObject.iddObject().type().valueDescription().c_str());
+  auto* label = new QLabel(modelObject.iddObject().type().valueDescription().c_str());
   label->setObjectName("IGHeader");
   label->setStyleSheet("font : bold");
   mainLayout->addWidget(label, 0, Qt::AlignTop);
 
-  auto layout = new QVBoxLayout();
+  auto* layout = new QVBoxLayout();
   layout->setAlignment(Qt::AlignTop);
   layout->setContentsMargins(10, 10, 10, 10);
   layout->setSpacing(6);
@@ -2549,12 +2549,12 @@ void ScheduleRulesetInspectorView::layoutModelObject(model::ModelObject& modelOb
   if (name) {
     text = name->c_str();
   }
-  auto lineEdit = new QLineEdit(text);
+  auto* lineEdit = new QLineEdit(text);
   lineEdit->setReadOnly(true);
   layout->addWidget(lineEdit, 0, Qt::AlignTop);
   mainLayout->addLayout(layout);
 
-  auto line = new QFrame();
+  auto* line = new QFrame();
   line->setFrameShape(QFrame::HLine);
   line->setFrameShadow(QFrame::Sunken);
   mainLayout->addWidget(line);

@@ -109,9 +109,9 @@ std::vector<OSItemId> UtilityBillFuelTypeListController::makeVector() {
   // sort by name
   std::sort(workspaceObjects.begin(), workspaceObjects.end(), WorkspaceObjectNameGreater());
 
-  for (WorkspaceObject workspaceObject : workspaceObjects) {
+  for (const WorkspaceObject& workspaceObject : workspaceObjects) {
     if (!workspaceObject.handle().isNull()) {
-      openstudio::model::ModelObject modelObject = workspaceObject.cast<openstudio::model::ModelObject>();
+      auto modelObject = workspaceObject.cast<openstudio::model::ModelObject>();
       if (boost::optional<model::UtilityBill> utilityBill = modelObject.optionalCast<model::UtilityBill>()) {
         if (utilityBill.get().fuelType() == m_fuelType) {
           result.push_back(modelObjectToItemId(modelObject, false));
@@ -131,7 +131,7 @@ UtilityBillFuelTypeListView::UtilityBillFuelTypeListView(const model::Model& mod
 
 boost::optional<openstudio::model::ModelObject> UtilityBillFuelTypeListView::selectedModelObject() const {
   OSItem* selectedItem = this->selectedItem();
-  ModelObjectItem* modelObjectItem = qobject_cast<ModelObjectItem*>(selectedItem);
+  auto* modelObjectItem = qobject_cast<ModelObjectItem*>(selectedItem);
   if (modelObjectItem) {
     return modelObjectItem->modelObject();
   }
@@ -140,7 +140,7 @@ boost::optional<openstudio::model::ModelObject> UtilityBillFuelTypeListView::sel
 
 IddObjectType UtilityBillFuelTypeListView::iddObjectType() const {
   OSVectorController* vectorController = this->vectorController();
-  UtilityBillFuelTypeListController* utilityBillListController = qobject_cast<UtilityBillFuelTypeListController*>(vectorController);
+  auto* utilityBillListController = qobject_cast<UtilityBillFuelTypeListController*>(vectorController);
   OS_ASSERT(utilityBillListController);
   return utilityBillListController->iddObjectType();
 }

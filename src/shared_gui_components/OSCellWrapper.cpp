@@ -196,7 +196,7 @@ void OSCellWrapper::setCellProperties(const GridCellLocation& location, const Gr
 
   } else {
     // apply to all the subrows
-    for (auto holder : m_holders) {
+    for (auto* holder : m_holders) {
       holder->setCellProperties(location, info);
     }
   }
@@ -210,7 +210,7 @@ QWidget* OSCellWrapper::createOSWidget(model::ModelObject t_mo, const QSharedPoi
   if (QSharedPointer<CheckBoxConcept> checkBoxConcept = t_baseConcept.dynamicCast<CheckBoxConcept>()) {
 
     // This is basically for a row in the "Select All" column
-    auto checkBox = new OSCheckBox3(nullptr);  // OSCheckBox3 is derived from QCheckBox, whereas OSCheckBox2 is derived from QPushButton
+    auto* checkBox = new OSCheckBox3(nullptr);  // OSCheckBox3 is derived from QCheckBox, whereas OSCheckBox2 is derived from QPushButton
     if (checkBoxConcept->tooltip().size()) {
       checkBox->setToolTip(checkBoxConcept->tooltip().c_str());
     }
@@ -222,7 +222,7 @@ QWidget* OSCellWrapper::createOSWidget(model::ModelObject t_mo, const QSharedPoi
 
   } else if (auto checkBoxConceptBoolReturn = t_baseConcept.dynamicCast<CheckBoxConceptBoolReturn>()) {
     // This is for a proper setter **that returns a bool**, such as Ideal Air Loads column
-    auto checkBoxBoolReturn = new OSCheckBox3(nullptr);
+    auto* checkBoxBoolReturn = new OSCheckBox3(nullptr);
     if (checkBoxConceptBoolReturn->tooltip().size()) {
       checkBoxBoolReturn->setToolTip(checkBoxConceptBoolReturn->tooltip().c_str());
     }
@@ -241,7 +241,7 @@ QWidget* OSCellWrapper::createOSWidget(model::ModelObject t_mo, const QSharedPoi
 
     auto choiceConcept = comboBoxConcept->choiceConcept(t_mo);
 
-    auto comboBox = new OSComboBox2(nullptr, choiceConcept->editable());
+    auto* comboBox = new OSComboBox2(nullptr, choiceConcept->editable());
     if (comboBoxConcept->hasClickFocus()) {
       comboBox->enableClickFocus();
     }
@@ -252,7 +252,7 @@ QWidget* OSCellWrapper::createOSWidget(model::ModelObject t_mo, const QSharedPoi
 
   } else if (QSharedPointer<ValueEditConcept<double>> doubleEditConcept = t_baseConcept.dynamicCast<ValueEditConcept<double>>()) {
 
-    auto doubleEdit = new OSDoubleEdit2(nullptr);
+    auto* doubleEdit = new OSDoubleEdit2(nullptr);
     if (doubleEditConcept->hasClickFocus()) {
       doubleEdit->enableClickFocus();
     }
@@ -268,7 +268,7 @@ QWidget* OSCellWrapper::createOSWidget(model::ModelObject t_mo, const QSharedPoi
   } else if (QSharedPointer<OptionalValueEditConcept<double>> optionalDoubleEditConcept =
                t_baseConcept.dynamicCast<OptionalValueEditConcept<double>>()) {
 
-    auto optionalDoubleEdit = new OSDoubleEdit2(nullptr);
+    auto* optionalDoubleEdit = new OSDoubleEdit2(nullptr);
     if (optionalDoubleEditConcept->hasClickFocus()) {
       optionalDoubleEdit->enableClickFocus();
     }
@@ -282,7 +282,7 @@ QWidget* OSCellWrapper::createOSWidget(model::ModelObject t_mo, const QSharedPoi
   } else if (QSharedPointer<ValueEditVoidReturnConcept<double>> doubleEditVoidReturnConcept =
                t_baseConcept.dynamicCast<ValueEditVoidReturnConcept<double>>()) {
 
-    auto doubleEditVoidReturn = new OSDoubleEdit2(nullptr);
+    auto* doubleEditVoidReturn = new OSDoubleEdit2(nullptr);
     if (doubleEditVoidReturnConcept->hasClickFocus()) {
       doubleEditVoidReturn->enableClickFocus();
     }
@@ -299,7 +299,7 @@ QWidget* OSCellWrapper::createOSWidget(model::ModelObject t_mo, const QSharedPoi
   } else if (QSharedPointer<OptionalValueEditVoidReturnConcept<double>> optionalDoubleEditVoidReturnConcept =
                t_baseConcept.dynamicCast<OptionalValueEditVoidReturnConcept<double>>()) {
 
-    auto optionalDoubleEditVoidReturn = new OSDoubleEdit2(nullptr);
+    auto* optionalDoubleEditVoidReturn = new OSDoubleEdit2(nullptr);
     if (optionalDoubleEditVoidReturnConcept->hasClickFocus()) {
       optionalDoubleEditVoidReturn->enableClickFocus();
     }
@@ -313,7 +313,7 @@ QWidget* OSCellWrapper::createOSWidget(model::ModelObject t_mo, const QSharedPoi
 
   } else if (QSharedPointer<ValueEditConcept<int>> integerEditConcept = t_baseConcept.dynamicCast<ValueEditConcept<int>>()) {
 
-    auto integerEdit = new OSIntegerEdit2(nullptr);
+    auto* integerEdit = new OSIntegerEdit2(nullptr);
     if (integerEditConcept->hasClickFocus()) {
       integerEdit->enableClickFocus();
     }
@@ -328,7 +328,7 @@ QWidget* OSCellWrapper::createOSWidget(model::ModelObject t_mo, const QSharedPoi
 
   } else if (QSharedPointer<ValueEditConcept<std::string>> lineEditConcept = t_baseConcept.dynamicCast<ValueEditConcept<std::string>>()) {
 
-    auto lineEdit = new OSLineEdit2(nullptr);
+    auto* lineEdit = new OSLineEdit2(nullptr);
     if (lineEditConcept->hasClickFocus()) {
       lineEdit->enableClickFocus();
     }
@@ -343,7 +343,7 @@ QWidget* OSCellWrapper::createOSWidget(model::ModelObject t_mo, const QSharedPoi
   } else if (QSharedPointer<ValueEditVoidReturnConcept<std::string>> lineEditConcept =
                t_baseConcept.dynamicCast<ValueEditVoidReturnConcept<std::string>>()) {
 
-    auto lineEdit = new OSLineEdit2(nullptr);
+    auto* lineEdit = new OSLineEdit2(nullptr);
     if (lineEditConcept->hasClickFocus()) {
       lineEdit->enableClickFocus();
     }
@@ -372,9 +372,9 @@ QWidget* OSCellWrapper::createOSWidget(model::ModelObject t_mo, const QSharedPoi
     widget = nameLineEdit->qwidget();
 
     if (nameLineEditConcept->isInspectable()) {
-      if (OSLineEdit2* normalLineEdit = qobject_cast<OSLineEdit2*>(widget)) {
+      if (auto* normalLineEdit = qobject_cast<OSLineEdit2*>(widget)) {
         connect(normalLineEdit, &OSLineEdit2::itemClicked, m_gridView, &OSGridView::dropZoneItemClicked);
-      } else if (OSLoadNamePixmapLineEdit* pixmapLineEdit = qobject_cast<OSLoadNamePixmapLineEdit*>(widget)) {
+      } else if (auto* pixmapLineEdit = qobject_cast<OSLoadNamePixmapLineEdit*>(widget)) {
         connect(pixmapLineEdit, &OSLoadNamePixmapLineEdit::itemClicked, m_gridView, &OSGridView::dropZoneItemClicked);
       }
     }
@@ -385,7 +385,7 @@ QWidget* OSCellWrapper::createOSWidget(model::ModelObject t_mo, const QSharedPoi
 
   } else if (QSharedPointer<QuantityEditConcept<double>> quantityEditConcept = t_baseConcept.dynamicCast<QuantityEditConcept<double>>()) {
 
-    OSQuantityEdit2* quantityEdit =
+    auto* quantityEdit =
       new OSQuantityEdit2(quantityEditConcept->modelUnits().toStdString().c_str(), quantityEditConcept->siUnits().toStdString().c_str(),
                           quantityEditConcept->ipUnits().toStdString().c_str(), quantityEditConcept->isIP(), nullptr);
     if (quantityEditConcept->hasClickFocus()) {
@@ -406,7 +406,7 @@ QWidget* OSCellWrapper::createOSWidget(model::ModelObject t_mo, const QSharedPoi
   } else if (QSharedPointer<OptionalQuantityEditConcept<double>> optionalQuantityEditConcept =
                t_baseConcept.dynamicCast<OptionalQuantityEditConcept<double>>()) {
 
-    OSQuantityEdit2* optionalQuantityEdit = new OSQuantityEdit2(
+    auto* optionalQuantityEdit = new OSQuantityEdit2(
       optionalQuantityEditConcept->modelUnits().toStdString().c_str(), optionalQuantityEditConcept->siUnits().toStdString().c_str(),
       optionalQuantityEditConcept->ipUnits().toStdString().c_str(), optionalQuantityEditConcept->isIP(), nullptr);
     if (optionalQuantityEditConcept->hasClickFocus()) {
@@ -425,7 +425,7 @@ QWidget* OSCellWrapper::createOSWidget(model::ModelObject t_mo, const QSharedPoi
   } else if (QSharedPointer<QuantityEditVoidReturnConcept<double>> quantityEditVoidReturnConcept =
                t_baseConcept.dynamicCast<QuantityEditVoidReturnConcept<double>>()) {
 
-    OSQuantityEdit2* quantityEditVoidReturn = new OSQuantityEdit2(
+    auto* quantityEditVoidReturn = new OSQuantityEdit2(
       quantityEditVoidReturnConcept->modelUnits().toStdString().c_str(), quantityEditVoidReturnConcept->siUnits().toStdString().c_str(),
       quantityEditVoidReturnConcept->ipUnits().toStdString().c_str(), quantityEditVoidReturnConcept->isIP(), nullptr);
     if (quantityEditVoidReturnConcept->hasClickFocus()) {
@@ -448,10 +448,10 @@ QWidget* OSCellWrapper::createOSWidget(model::ModelObject t_mo, const QSharedPoi
   } else if (QSharedPointer<OptionalQuantityEditVoidReturnConcept<double>> optionalQuantityEditVoidReturnConcept =
                t_baseConcept.dynamicCast<OptionalQuantityEditVoidReturnConcept<double>>()) {
 
-    OSQuantityEdit2* optionalQuantityEditVoidReturn = new OSQuantityEdit2(optionalQuantityEditVoidReturnConcept->modelUnits().toStdString().c_str(),
-                                                                          optionalQuantityEditVoidReturnConcept->siUnits().toStdString().c_str(),
-                                                                          optionalQuantityEditVoidReturnConcept->ipUnits().toStdString().c_str(),
-                                                                          optionalQuantityEditVoidReturnConcept->isIP(), nullptr);
+    auto* optionalQuantityEditVoidReturn = new OSQuantityEdit2(optionalQuantityEditVoidReturnConcept->modelUnits().toStdString().c_str(),
+                                                               optionalQuantityEditVoidReturnConcept->siUnits().toStdString().c_str(),
+                                                               optionalQuantityEditVoidReturnConcept->ipUnits().toStdString().c_str(),
+                                                               optionalQuantityEditVoidReturnConcept->isIP(), nullptr);
     if (optionalQuantityEditVoidReturnConcept->hasClickFocus()) {
       optionalQuantityEditVoidReturn->enableClickFocus();
     }
@@ -468,7 +468,7 @@ QWidget* OSCellWrapper::createOSWidget(model::ModelObject t_mo, const QSharedPoi
 
   } else if (QSharedPointer<ValueEditConcept<unsigned>> unsignedEditConcept = t_baseConcept.dynamicCast<ValueEditConcept<unsigned>>()) {
 
-    auto unsignedEdit = new OSUnsignedEdit2(nullptr);
+    auto* unsignedEdit = new OSUnsignedEdit2(nullptr);
     if (unsignedEditConcept->hasClickFocus()) {
       unsignedEdit->enableClickFocus();
     }
@@ -483,7 +483,7 @@ QWidget* OSCellWrapper::createOSWidget(model::ModelObject t_mo, const QSharedPoi
     widget = unsignedEdit;
 
   } else if (QSharedPointer<DropZoneConcept> dropZoneConcept = t_baseConcept.dynamicCast<DropZoneConcept>()) {
-    auto dropZone = new OSDropZone2();
+    auto* dropZone = new OSDropZone2();
     if (dropZoneConcept->hasClickFocus()) {
       dropZone->enableClickFocus();
     }
@@ -500,7 +500,7 @@ QWidget* OSCellWrapper::createOSWidget(model::ModelObject t_mo, const QSharedPoi
     widget = dropZone;
 
   } else if (QSharedPointer<RenderingColorConcept> renderingColorConcept = t_baseConcept.dynamicCast<RenderingColorConcept>()) {
-    auto renderingColorWidget = new RenderingColorWidget2(nullptr);
+    auto* renderingColorWidget = new RenderingColorWidget2(nullptr);
 
     renderingColorWidget->bind(t_mo, OptionalModelObjectGetter(std::bind(&RenderingColorConcept::get, renderingColorConcept.data(), t_mo)),
                                ModelObjectSetter(std::bind(&RenderingColorConcept::set, renderingColorConcept.data(), t_mo, std::placeholders::_1)));
@@ -521,7 +521,7 @@ void OSCellWrapper::addOSWidget(QWidget* widget, const boost::optional<model::Mo
   bool isEven = ((m_gridRow % 2) == 0);
 
   // holder will take ownership of widget
-  auto holder = new OSWidgetHolder(this, widget, isEven);
+  auto* holder = new OSWidgetHolder(this, widget, isEven);
 
   m_holders.push_back(holder);
 
@@ -530,38 +530,38 @@ void OSCellWrapper::addOSWidget(QWidget* widget, const boost::optional<model::Mo
 
   bool isLocked = false;
 
-  if (OSComboBox2* comboBox = qobject_cast<OSComboBox2*>(widget)) {
+  if (auto* comboBox = qobject_cast<OSComboBox2*>(widget)) {
     isLocked = comboBox->locked();
     connect(comboBox, &OSComboBox2::inFocus, holder, &OSWidgetHolder::inFocus);
-  } else if (OSDoubleEdit2* doubleEdit = qobject_cast<OSDoubleEdit2*>(widget)) {
+  } else if (auto* doubleEdit = qobject_cast<OSDoubleEdit2*>(widget)) {
     isLocked = doubleEdit->locked();
     connect(doubleEdit, &OSDoubleEdit2::inFocus, holder, &OSWidgetHolder::inFocus);
-  } else if (OSIntegerEdit2* integerEdit = qobject_cast<OSIntegerEdit2*>(widget)) {
+  } else if (auto* integerEdit = qobject_cast<OSIntegerEdit2*>(widget)) {
     isLocked = integerEdit->locked();
     connect(integerEdit, &OSIntegerEdit2::inFocus, holder, &OSWidgetHolder::inFocus);
-  } else if (OSQuantityEdit2* quantityEdit = qobject_cast<OSQuantityEdit2*>(widget)) {
+  } else if (auto* quantityEdit = qobject_cast<OSQuantityEdit2*>(widget)) {
     isLocked = quantityEdit->locked();
     connect(quantityEdit, &OSQuantityEdit2::inFocus, holder, &OSWidgetHolder::inFocus);
-  } else if (OSLineEdit2* lineEdit = qobject_cast<OSLineEdit2*>(widget)) {
+  } else if (auto* lineEdit = qobject_cast<OSLineEdit2*>(widget)) {
     isLocked = lineEdit->locked();
     connect(lineEdit, &OSLineEdit2::inFocus, holder, &OSWidgetHolder::inFocus);
-  } else if (OSUnsignedEdit2* unsignedEdit = qobject_cast<OSUnsignedEdit2*>(widget)) {
+  } else if (auto* unsignedEdit = qobject_cast<OSUnsignedEdit2*>(widget)) {
     isLocked = unsignedEdit->locked();
     connect(unsignedEdit, &OSUnsignedEdit2::inFocus, holder, &OSWidgetHolder::inFocus);
-  } else if (OSLoadNamePixmapLineEdit* pixmap = qobject_cast<OSLoadNamePixmapLineEdit*>(widget)) {
+  } else if (auto* pixmap = qobject_cast<OSLoadNamePixmapLineEdit*>(widget)) {
     isLocked = pixmap->locked();
     connect(pixmap, &OSLoadNamePixmapLineEdit::inFocus, holder, &OSWidgetHolder::inFocus);
-  } else if (OSDropZone2* dropZone = qobject_cast<OSDropZone2*>(widget)) {
+  } else if (auto* dropZone = qobject_cast<OSDropZone2*>(widget)) {
     isLocked = dropZone->locked();
     connect(dropZone, &OSDropZone2::inFocus, holder, &OSWidgetHolder::inFocus);
-  } else if (HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(widget)) {
+  } else if (auto* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(widget)) {
     // not locked
     connect(horizontalHeaderWidget, &HorizontalHeaderWidget::inFocus, holder, &OSWidgetHolder::inFocus);
     makeHeader();
-  } else if (OSCheckBox3* checkBox = qobject_cast<OSCheckBox3*>(widget)) {
+  } else if (auto* checkBox = qobject_cast<OSCheckBox3*>(widget)) {
     isLocked = checkBox->locked();
     connect(checkBox, &OSCheckBox3::inFocus, holder, &OSWidgetHolder::inFocus);
-  } else if (RenderingColorWidget2* renderingColor = qobject_cast<RenderingColorWidget2*>(widget)) {
+  } else if (auto* renderingColor = qobject_cast<RenderingColorWidget2*>(widget)) {
     isLocked = renderingColor->locked();
     //connect(renderingColor, &RenderingColorWidget2::inFocus, holder, &OSWidgetHolder::inFocus);
   } else {
@@ -577,21 +577,17 @@ void OSCellWrapper::connectModelSignals() {
     m_connectedmodel = m_modelObject->model();
 
     // get signals if object is added or removed
-    m_connectedmodel->getImpl<model::detail::Model_Impl>().get()->addWorkspaceObject.connect<OSCellWrapper, &OSCellWrapper::onAddWorkspaceObject>(
+    m_connectedmodel->getImpl<model::detail::Model_Impl>()->addWorkspaceObject.connect<OSCellWrapper, &OSCellWrapper::onAddWorkspaceObject>(this);
+    m_connectedmodel->getImpl<model::detail::Model_Impl>()->removeWorkspaceObject.connect<OSCellWrapper, &OSCellWrapper::onRemoveWorkspaceObject>(
       this);
-    m_connectedmodel->getImpl<model::detail::Model_Impl>()
-      .get()
-      ->removeWorkspaceObject.connect<OSCellWrapper, &OSCellWrapper::onRemoveWorkspaceObject>(this);
   }
 }
 
 void OSCellWrapper::disconnectModelSignals() {
   if (m_connectedmodel) {
-    m_connectedmodel->getImpl<model::detail::Model_Impl>().get()->addWorkspaceObject.disconnect<OSCellWrapper, &OSCellWrapper::onAddWorkspaceObject>(
+    m_connectedmodel->getImpl<model::detail::Model_Impl>()->addWorkspaceObject.disconnect<OSCellWrapper, &OSCellWrapper::onAddWorkspaceObject>(this);
+    m_connectedmodel->getImpl<model::detail::Model_Impl>()->removeWorkspaceObject.disconnect<OSCellWrapper, &OSCellWrapper::onRemoveWorkspaceObject>(
       this);
-    m_connectedmodel->getImpl<model::detail::Model_Impl>()
-      .get()
-      ->removeWorkspaceObject.disconnect<OSCellWrapper, &OSCellWrapper::onRemoveWorkspaceObject>(this);
 
     m_connectedmodel.reset();
   }

@@ -80,7 +80,7 @@ OSDropZone::OSDropZone(OSVectorController* vectorController, const QString& text
     m_useLargeIcon(false),
     m_text(text),
     m_size(size) {
-  auto mainBox = new QWidget();
+  auto* mainBox = new QWidget();
   mainBox->setObjectName("mainBox");
   mainBox->setStyleSheet("QWidget#mainBox { background: #CECECE; }");
 
@@ -311,7 +311,7 @@ void OSDropZone::setItemIds(const std::vector<OSItemId>& itemIds) {
   }
 
   if (numItems < m_maxItems) {
-    auto dropZone = new OSItemDropZone(this->m_growsHorizontally, m_text, m_size);
+    auto* dropZone = new OSItemDropZone(this->m_growsHorizontally, m_text, m_size);
     m_mainBoxLayout->addWidget(dropZone, 0, Qt::AlignLeft);
 
     connect(dropZone, &OSItemDropZone::dropped, this, &OSDropZone::handleDrop);
@@ -371,7 +371,7 @@ OSItemDropZone::OSItemDropZone(bool growsHorizontally, const QString& text, cons
   mainLayout->setContentsMargins(10, 10, 10, 10);
   setLayout(mainLayout);
 
-  auto label = new QLabel();
+  auto* label = new QLabel();
   label->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
   label->setText(text);
   label->setWordWrap(true);
@@ -527,7 +527,7 @@ OSDropZone2::OSDropZone2() : QWidget() {
     "QWidget#OSDropZone[style=\"111\"] { border: 2px dashed #808080; border-radius: 5px; background:#cc9a00; } "  // Locked=1, Focused=1, Defaulted=1
   );
 
-  auto layout = new QVBoxLayout();
+  auto* layout = new QVBoxLayout();
   layout->setContentsMargins(5, 5, 5, 5);
   setLayout(layout);
 
@@ -548,7 +548,7 @@ OSDropZone2::OSDropZone2() : QWidget() {
   setMaximumWidth(150);
 }
 
-OSDropZone2::~OSDropZone2() {}
+OSDropZone2::~OSDropZone2() = default;
 
 void OSDropZone2::enableClickFocus() {
   m_hasClickFocus = true;
@@ -638,7 +638,6 @@ void OSDropZone2::bind(const model::ModelObject& modelObject, OptionalModelObjec
   setAcceptDrops(true);
 
   m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
-    .get()
     ->openstudio::model::detail::ModelObject_Impl::onChange.connect<OSDropZone2, &OSDropZone2::refresh>(this);
   refresh();
 }
@@ -646,7 +645,6 @@ void OSDropZone2::bind(const model::ModelObject& modelObject, OptionalModelObjec
 void OSDropZone2::unbind() {
 
   m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
-    .get()
     ->openstudio::model::detail::ModelObject_Impl::onChange.disconnect<OSDropZone2, &OSDropZone2::refresh>(this);
 
   m_modelObject.reset();
@@ -877,9 +875,8 @@ boost::optional<model::ModelObject> OSDropZone2::updateGetterResult() {
   if (!m_get) {
     if (m_getterResult) {
       // we don't care about this object anymore
-      m_getterResult->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.disconnect<OSDropZone2, &OSDropZone2::refresh>(this);
+      m_getterResult->getImpl<openstudio::model::detail::ModelObject_Impl>()->onChange.disconnect<OSDropZone2, &OSDropZone2::refresh>(this);
       m_getterResult->getImpl<openstudio::model::detail::ModelObject_Impl>()
-        .get()
         ->onRemoveFromWorkspace.disconnect<OSDropZone2, &OSDropZone2::onModelObjectRemove>(this);
       m_getterResult.reset();
     }
@@ -895,18 +892,16 @@ boost::optional<model::ModelObject> OSDropZone2::updateGetterResult() {
 
   if (m_getterResult) {
     // we don't care about this object anymore
-    m_getterResult->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.disconnect<OSDropZone2, &OSDropZone2::refresh>(this);
+    m_getterResult->getImpl<openstudio::model::detail::ModelObject_Impl>()->onChange.disconnect<OSDropZone2, &OSDropZone2::refresh>(this);
     m_getterResult->getImpl<openstudio::model::detail::ModelObject_Impl>()
-      .get()
       ->onRemoveFromWorkspace.disconnect<OSDropZone2, &OSDropZone2::onModelObjectRemove>(this);
   }
 
   m_getterResult = newGetterResult;
 
   if (m_getterResult) {
-    m_getterResult->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.connect<OSDropZone2, &OSDropZone2::refresh>(this);
+    m_getterResult->getImpl<openstudio::model::detail::ModelObject_Impl>()->onChange.connect<OSDropZone2, &OSDropZone2::refresh>(this);
     m_getterResult->getImpl<openstudio::model::detail::ModelObject_Impl>()
-      .get()
       ->onRemoveFromWorkspace.connect<OSDropZone2, &OSDropZone2::onModelObjectRemove>(this);
   }
 
@@ -918,9 +913,8 @@ void OSDropZone2::updateOtherModelObjects() {
   if (!m_modelObject || !m_otherObjects) {
     // we don't care about these other objects anymore
     for (const auto& otherModelObject : m_otherModelObjects) {
-      otherModelObject.getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.disconnect<OSDropZone2, &OSDropZone2::refresh>(this);
+      otherModelObject.getImpl<openstudio::model::detail::ModelObject_Impl>()->onChange.disconnect<OSDropZone2, &OSDropZone2::refresh>(this);
       otherModelObject.getImpl<openstudio::model::detail::ModelObject_Impl>()
-        .get()
         ->onRemoveFromWorkspace.disconnect<OSDropZone2, &OSDropZone2::onOtherModelObjectRemove>(this);
     }
     m_otherModelObjects.clear();
@@ -931,9 +925,8 @@ void OSDropZone2::updateOtherModelObjects() {
   for (const auto& otherModelObject : (*m_otherObjects)(*m_modelObject)) {
     if (m_otherModelObjects.find(otherModelObject) == m_otherModelObjects.end()) {
       // new other object, connect to it
-      otherModelObject.getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.connect<OSDropZone2, &OSDropZone2::refresh>(this);
+      otherModelObject.getImpl<openstudio::model::detail::ModelObject_Impl>()->onChange.connect<OSDropZone2, &OSDropZone2::refresh>(this);
       otherModelObject.getImpl<openstudio::model::detail::ModelObject_Impl>()
-        .get()
         ->onRemoveFromWorkspace.connect<OSDropZone2, &OSDropZone2::onOtherModelObjectRemove>(this);
     }
     newOtherModelObjects.insert(otherModelObject);
@@ -942,9 +935,8 @@ void OSDropZone2::updateOtherModelObjects() {
   for (const auto& otherModelObject : m_otherModelObjects) {
     if (newOtherModelObjects.find(otherModelObject) == newOtherModelObjects.end()) {
       // removed other object, disconnect from it
-      otherModelObject.getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.disconnect<OSDropZone2, &OSDropZone2::refresh>(this);
+      otherModelObject.getImpl<openstudio::model::detail::ModelObject_Impl>()->onChange.disconnect<OSDropZone2, &OSDropZone2::refresh>(this);
       otherModelObject.getImpl<openstudio::model::detail::ModelObject_Impl>()
-        .get()
         ->onRemoveFromWorkspace.disconnect<OSDropZone2, &OSDropZone2::onOtherModelObjectRemove>(this);
     }
   }

@@ -49,7 +49,7 @@ OSLoadNamePixmapLineEdit::OSLoadNamePixmapLineEdit(QWidget* parent) : QWidget(pa
   createWidgets();
 }
 
-OSLoadNamePixmapLineEdit::~OSLoadNamePixmapLineEdit() {}
+OSLoadNamePixmapLineEdit::~OSLoadNamePixmapLineEdit() = default;
 
 void OSLoadNamePixmapLineEdit::enableClickFocus() {
   m_lineEdit->enableClickFocus();
@@ -135,7 +135,7 @@ void OSLoadNamePixmapLineEdit::createWidgets() {
 
   connect(m_lineEdit, &OSLineEdit2::itemClicked, this, &OSLoadNamePixmapLineEdit::itemClicked);
 
-  auto layout = new QHBoxLayout();
+  auto* layout = new QHBoxLayout();
   layout->setContentsMargins(0, 0, 0, 0);
   layout->addWidget(m_label);
   layout->addWidget(m_lineEdit);
@@ -145,7 +145,7 @@ void OSLoadNamePixmapLineEdit::createWidgets() {
 void OSLoadNamePixmapLineEdit::setIcon() {
   auto mo = modelObject();
   if (mo) {
-    auto pixmap = IconLibrary::Instance().findMiniIcon(mo->iddObjectType().value());
+    const auto* pixmap = IconLibrary::Instance().findMiniIcon(mo->iddObjectType().value());
     if (pixmap) {
       m_label->setPixmap(*pixmap);
     }

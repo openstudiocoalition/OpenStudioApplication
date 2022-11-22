@@ -111,7 +111,7 @@ FacilityShadingGridView::FacilityShadingGridView(bool isIP, const model::Model& 
 
   QVBoxLayout* layout = nullptr;
 
-  auto filterGridLayout = new QGridLayout();
+  auto* filterGridLayout = new QGridLayout();
   filterGridLayout->setContentsMargins(7, 4, 0, 8);
   filterGridLayout->setSpacing(5);
 
@@ -135,7 +135,7 @@ FacilityShadingGridView::FacilityShadingGridView(bool isIP, const model::Model& 
   connect(m_nameFilter, &QLineEdit::editingFinished, this, &openstudio::FacilityShadingGridView::nameFilterChanged);
 
   QRegularExpression nameRegex("^\\S.*");
-  auto nameValidator = new QRegularExpressionValidator(nameRegex, this);
+  auto* nameValidator = new QRegularExpressionValidator(nameRegex, this);
   m_nameFilter->setValidator(nameValidator);
 
   layout->addWidget(m_nameFilter, Qt::AlignTop | Qt::AlignLeft);
@@ -178,7 +178,7 @@ FacilityShadingGridView::FacilityShadingGridView(bool isIP, const model::Model& 
   connect(m_tiltGreaterThanFilter, &QLineEdit::editingFinished, this, &openstudio::FacilityShadingGridView::tiltFilterChanged);
 
   QRegularExpression regex("^(-?\\d*\\.?\\d+)?$");
-  auto validator = new QRegularExpressionValidator(regex, this);
+  auto* validator = new QRegularExpressionValidator(regex, this);
   m_tiltGreaterThanFilter->setValidator(validator);
 
   layout->addWidget(m_tiltGreaterThanFilter, Qt::AlignTop | Qt::AlignLeft);
@@ -260,7 +260,7 @@ void FacilityShadingGridView::nameFilterChanged() {
   if (m_nameFilter->text().isEmpty()) {
     // nothing to filter
   } else {
-    for (auto obj : this->m_gridController->selectableObjects()) {
+    for (const auto& obj : this->m_gridController->selectableObjects()) {
       QString objName(obj.name().get().c_str());
       if (!objName.contains(m_nameFilter->text(), Qt::CaseInsensitive)) {
         m_objectsFilteredByName.insert(obj);
@@ -276,7 +276,7 @@ void FacilityShadingGridView::typeFilterChanged(const QString& text) {
   if (m_typeFilter->currentText() == "All") {
     // Nothing to filter
   } else {
-    for (auto obj : this->m_gridController->selectableObjects()) {
+    for (const auto& obj : this->m_gridController->selectableObjects()) {
       auto parent = obj.parent();
       if (parent && parent->iddObjectType() == IddObjectType::OS_ShadingSurfaceGroup) {
         if (m_typeFilter->currentText() != parent->cast<model::ShadingSurfaceGroup>().shadingSurfaceType().c_str()) {
@@ -311,9 +311,9 @@ void FacilityShadingGridView::orientationFilterChanged() {
   OS_ASSERT(convertedValue);
   lowerLimit = *convertedValue;
 
-  for (auto obj : this->m_gridController->selectableObjects()) {
+  for (const auto& obj : this->m_gridController->selectableObjects()) {
     if (obj.iddObjectType() == IddObjectType::OS_ShadingSurfaceGroup) {
-      for (auto shadingSurface : obj.cast<model::ShadingSurfaceGroup>().shadingSurfaces()) {
+      for (const auto& shadingSurface : obj.cast<model::ShadingSurfaceGroup>().shadingSurfaces()) {
         auto orientation = shadingSurface.azimuth();
         if (orientation >= upperLimit || orientation <= lowerLimit) {
           m_objectsFilteredByOrientation.insert(obj);
@@ -347,9 +347,9 @@ void FacilityShadingGridView::tiltFilterChanged() {
   OS_ASSERT(convertedValue);
   lowerLimit = *convertedValue;
 
-  for (auto obj : this->m_gridController->selectableObjects()) {
+  for (const auto& obj : this->m_gridController->selectableObjects()) {
     if (obj.iddObjectType() == IddObjectType::OS_ShadingSurfaceGroup) {
-      for (auto shadingSurface : obj.cast<model::ShadingSurfaceGroup>().shadingSurfaces()) {
+      for (const auto& shadingSurface : obj.cast<model::ShadingSurfaceGroup>().shadingSurfaces()) {
         auto tilt = shadingSurface.tilt();
         if (tilt >= upperLimit || tilt <= lowerLimit) {
           m_objectsFilteredByOrientation.insert(obj);
@@ -364,15 +364,15 @@ void FacilityShadingGridView::tiltFilterChanged() {
 void FacilityShadingGridView::filterChanged() {
   std::set<openstudio::model::ModelObject> allFilteredObjects = m_objectsFilteredByName;
 
-  for (auto obj : m_objectsFilteredByTilt) {
+  for (const auto& obj : m_objectsFilteredByTilt) {
     allFilteredObjects.insert(obj);
   }
 
-  for (auto obj : m_objectsFilteredByType) {
+  for (const auto& obj : m_objectsFilteredByType) {
     allFilteredObjects.insert(obj);
   }
 
-  for (auto obj : m_objectsFilteredByOrientation) {
+  for (const auto& obj : m_objectsFilteredByOrientation) {
     allFilteredObjects.insert(obj);
   }
 
@@ -390,14 +390,14 @@ void FacilityShadingGridView::addObject(const IddObjectType& iddObjectType) {
 
 void FacilityShadingGridView::purgeObjects(const IddObjectType& iddObjectType) {
   // If no shading surfaces in the Shading Surface Group -> remove
-  for (auto mo : this->m_model.getConcreteModelObjects<model::ShadingSurfaceGroup>()) {
+  for (auto& mo : this->m_model.getConcreteModelObjects<model::ShadingSurfaceGroup>()) {
     if (mo.shadingSurfaces().empty()) {
       mo.remove();
     }
   }
 
   // If a shading surface isn't part of a Shading Surface Group, it won't be translated to IDF anyways and should be considered orphaned
-  for (auto mo : this->m_model.getConcreteModelObjects<model::ShadingSurface>()) {
+  for (auto& mo : this->m_model.getConcreteModelObjects<model::ShadingSurface>()) {
     if (!mo.shadingSurfaceGroup().has_value()) {
       mo.remove();
     }

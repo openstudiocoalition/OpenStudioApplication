@@ -66,7 +66,7 @@ LoadsController::LoadsController(bool isIP, const model::Model& model) : ModelSu
   connect(this, &LoadsController::toggleUnitsClicked, static_cast<ModelSubTabView*>(subTabView()), &ModelSubTabView::toggleUnitsClicked);
 }
 
-LoadsController::~LoadsController() {}
+LoadsController::~LoadsController() = default;
 
 void LoadsController::onAddObject(const openstudio::IddObjectType& iddObjectType) {
   switch (iddObjectType.value()) {

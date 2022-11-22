@@ -59,14 +59,14 @@ namespace openstudio {
 OSInspectorView::OSInspectorView(bool addScrollArea, QWidget* parent) : QWidget(parent) {
   this->setObjectName("GrayWidget");
 
-  auto outerVLayout = new QVBoxLayout();
+  auto* outerVLayout = new QVBoxLayout();
   outerVLayout->setContentsMargins(0, 0, 0, 0);
   this->setLayout(outerVLayout);
 
   m_stackedWidget = new QStackedWidget();
 
   if (addScrollArea) {
-    auto scrollArea = new QScrollArea();
+    auto* scrollArea = new QScrollArea();
     scrollArea->setFrameStyle(QFrame::NoFrame);
     scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
     scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);

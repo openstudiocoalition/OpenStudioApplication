@@ -57,7 +57,7 @@ RectangularDropZone::RectangularDropZone() : QWidget() {
 
   setStyleSheet("openstudio--measuretab--RectangularDropZone {background: #F4F4F4; border: 2px dashed #A5A5A5;}");
 
-  auto mainHLayout = new QHBoxLayout();
+  auto* mainHLayout = new QHBoxLayout();
   mainHLayout->setContentsMargins(5, 5, 5, 5);
   mainHLayout->setSpacing(5);
   setLayout(mainHLayout);
@@ -104,7 +104,7 @@ WorkflowSectionView::WorkflowSectionView(MeasureType measureType) : OSCollapsibl
 }
 
 WorkflowSectionContentView::WorkflowSectionContentView() : QWidget(), workflowStepsView(nullptr), newMeasureDropZone(nullptr) {
-  auto mainVLayout = new QVBoxLayout();
+  auto* mainVLayout = new QVBoxLayout();
   mainVLayout->setContentsMargins(0, 10, 0, 10);
   mainVLayout->setSpacing(0);
   setLayout(mainVLayout);
@@ -119,7 +119,7 @@ WorkflowSectionContentView::WorkflowSectionContentView() : QWidget(), workflowSt
 }
 
 WorkflowStepView::WorkflowStepView() : QWidget() {
-  auto mainHLayout = new QHBoxLayout();
+  auto* mainHLayout = new QHBoxLayout();
   mainHLayout->setContentsMargins(0, 0, 0, 0);
   mainHLayout->setSpacing(5);
   setLayout(mainHLayout);
@@ -157,7 +157,7 @@ WorkflowStepButton::WorkflowStepButton() : QAbstractButton() {
 
   setHasEmphasis(false);
 
-  auto mainHLayout = new QHBoxLayout();
+  auto* mainHLayout = new QHBoxLayout();
   mainHLayout->setContentsMargins(5, 5, 5, 5);
   mainHLayout->setSpacing(5);
   setLayout(mainHLayout);
