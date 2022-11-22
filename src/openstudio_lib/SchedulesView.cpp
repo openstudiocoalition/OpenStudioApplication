@@ -246,7 +246,7 @@ void SchedulesView::updateRowColors() {
   }
 }
 
-void SchedulesView::addSchedule(model::ScheduleRuleset& schedule) {
+void SchedulesView::addSchedule(const model::ScheduleRuleset& schedule) {
   auto* scheduleTab = new ScheduleTab(schedule, this);
   connect(scheduleTab, &ScheduleTab::scheduleClicked, this, &SchedulesView::setCurrentSchedule);
   m_leftVLayout->insertWidget(0, scheduleTab);

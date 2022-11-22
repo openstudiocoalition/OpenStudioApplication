@@ -50,7 +50,7 @@ class TextEditDialog : public OSDialog
   void setText(const QString& text);
 
  private:
-  virtual void createWidgets();
+  void createWidgets();
 
   QTextEdit* m_textEdit;
 

@@ -495,11 +495,11 @@ void HVACSystemsController::toggleUnits(bool displayIP) {
   m_isIP = displayIP;
 }
 
-void HVACLayoutController::addLibraryObjectToTopLevel(OSItemId itemid) {
-  model::OptionalModelObject object = OSAppBase::instance()->currentDocument()->getModelObject(itemid);
+void HVACLayoutController::addLibraryObjectToTopLevel(const OSItemId& itemId) {
+  model::OptionalModelObject object = OSAppBase::instance()->currentDocument()->getModelObject(itemId);
 
   if (object) {
-    if (OSAppBase::instance()->currentDocument()->fromComponentLibrary(itemid)) {
+    if (OSAppBase::instance()->currentDocument()->fromComponentLibrary(itemId)) {
       if (boost::optional<model::WaterUseConnections> waterUseConnections = object->optionalCast<model::WaterUseConnections>()) {
         waterUseConnections->clone(m_hvacSystemsController->model());
 
@@ -515,20 +515,20 @@ void HVACLayoutController::addLibraryObjectToTopLevel(OSItemId itemid) {
   message.exec();
 }
 
-void HVACLayoutController::addLibraryObjectToModelNode(OSItemId itemid, model::HVACComponent& comp) {
+void HVACLayoutController::addLibraryObjectToModelNode(const OSItemId& itemId, model::HVACComponent& comp) {
   model::OptionalModelObject object;
   bool remove = false;
   auto doc = OSAppBase::instance()->currentDocument();
 
-  object = doc->getModelObject(itemid);
+  object = doc->getModelObject(itemId);
   if (object) {
-    if (!doc->fromModel(itemid)) {
+    if (!doc->fromModel(itemId)) {
       object = object->clone(comp.model());
       remove = true;
     }
   }
 
-  if (auto component = doc->getComponent(itemid)) {
+  if (auto component = doc->getComponent(itemId)) {
     // Ugly hack to avoid the component being treated as a resource.
     component->componentData().setString(OS_ComponentDataFields::UUID, toString(createUUID()));
     if (auto componentData = comp.model().insertComponent(component.get())) {

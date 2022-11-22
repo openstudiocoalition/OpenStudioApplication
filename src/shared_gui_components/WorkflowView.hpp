@@ -98,7 +98,7 @@ class WorkflowSectionView : public OSCollapsibleView
   Q_OBJECT
 
  public:
-  explicit WorkflowSectionView(MeasureType measureType);
+  explicit WorkflowSectionView(const MeasureType& measureType);
 
   virtual ~WorkflowSectionView() = default;
 

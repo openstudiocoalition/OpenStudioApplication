@@ -225,7 +225,7 @@ VRFTerminalView::VRFTerminalView()
   zoneDropZone->setPos(x, (VRFSystemView::terminalViewHeight - zoneDropZone->boundingRect().height()) / 2.0);
   connect(zoneDropZone, &OSDropZoneItem::componentDropped, this, &VRFTerminalView::onComponenDroppedOnZone);
 
-  x = x + zoneDropZone->boundingRect().width() + VRFSystemView::margin;
+  // x = x + zoneDropZone->boundingRect().width() + VRFSystemView::margin;
 
   removeZoneButtonItem->setParentItem(this);
   removeZoneButtonItem->setPos(zoneDropZone->x() + zoneDropZone->boundingRect().width() - 10, zoneDropZone->y() - 10);

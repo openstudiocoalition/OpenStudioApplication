@@ -91,7 +91,8 @@ NewMeasureDropZone::NewMeasureDropZone() {
   nameLabel->setStyleSheet("QLabel {color: #7D7D7D; }");
 }
 
-WorkflowSectionView::WorkflowSectionView(MeasureType measureType) : header(new LightGradientHeader()), content(new WorkflowSectionContentView()) {
+WorkflowSectionView::WorkflowSectionView(const MeasureType& measureType)
+  : header(new LightGradientHeader()), content(new WorkflowSectionContentView()) {
 
   header->setMeasureType(measureType);
   setHeader(header);

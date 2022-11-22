@@ -293,13 +293,13 @@ class HVACLayoutController
 
   void onModelObjectSelected(model::OptionalModelObject& modelObject, bool readOnly);
 
-  void addLibraryObjectToModelNode(OSItemId itemid, model::HVACComponent& comp);
+  void addLibraryObjectToModelNode(const OSItemId& itemId, model::HVACComponent& comp);
 
   void removeModelObject(model::ModelObject& modelObject);
 
   void goToOtherLoop(model::ModelObject& modelObject);
 
-  void addLibraryObjectToTopLevel(OSItemId itemid);
+  void addLibraryObjectToTopLevel(const OSItemId& itemId);
 
   void goToServiceWaterScene();
 

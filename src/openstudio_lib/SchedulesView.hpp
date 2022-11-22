@@ -214,7 +214,7 @@ class SchedulesView
 
  private slots:
 
-  void addSchedule(model::ScheduleRuleset& schedule);
+  void addSchedule(const model::ScheduleRuleset& schedule);
 
   void addScheduleRule(model::ScheduleRule& scheduleRule);
 
