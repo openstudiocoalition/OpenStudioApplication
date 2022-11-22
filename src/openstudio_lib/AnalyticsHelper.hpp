@@ -49,10 +49,8 @@ class AnalyticsHelper : public QObject
 
   void sendAnalytics(const QString& analyticsId, int verticalTabIndex);
 
-private:
-
+ private:
   QNetworkAccessManager* m_networkAccessManager;
-
 };
 
 }  // namespace openstudio

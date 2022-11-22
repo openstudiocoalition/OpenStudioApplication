@@ -88,7 +88,7 @@ class MainWindow : public QMainWindow
   void enableComponentsMeasuresActions(bool enable);
 
   QString lastPath() const;
- 
+
   VerticalTabWidget* verticalTabWidget() {
     return m_verticalTabWidget;
   }
@@ -177,7 +177,7 @@ class MainWindow : public QMainWindow
 
  public slots:
 
-  void onVerticalTabSelected(int id);
+  void onVerticalTabSelected(int verticalTabId);
 
   void toggleVerboseOutput(bool verboseOutput);
 

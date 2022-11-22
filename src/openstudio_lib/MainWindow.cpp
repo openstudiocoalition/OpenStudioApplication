@@ -301,7 +301,6 @@ QString MainWindow::lastPath() const {
   return QDir().exists(m_lastPath) ? m_lastPath : QDir::homePath();
 }
 
-
 bool MainWindow::allowAnalytics() const {
   return !m_analyticsId.isEmpty() && m_analyticsId != "DISABLED";
 }
@@ -318,7 +317,6 @@ bool MainWindow::verboseOutput() const {
   return m_verboseOutput;
 }
 
-
 void MainWindow::onVerticalTabSelected(int verticalTabId) {
   if (allowAnalytics()) {
     emit sendAnalytics(m_analyticsId, verticalTabId);
@@ -333,7 +331,8 @@ void MainWindow::promptAnalytics() {
   if (m_analyticsId.isEmpty()) {
     QMessageBox::StandardButton reply;
     // TODO: link to a privacy page on the website, explain why we need metrics
-    reply = QMessageBox::question(this, tr("Allow Analytics"), tr("Allow OpenStudio Coalition to collect anonymous usage statistics to help improve the OpenStudio Application?"),
+    reply = QMessageBox::question(this, tr("Allow Analytics"),
+                                  tr("Allow OpenStudio Coalition to collect anonymous usage statistics to help improve the OpenStudio Application?"),
                                   QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
     if (reply == QMessageBox::Yes) {
       emit enableAnalytics(true);
