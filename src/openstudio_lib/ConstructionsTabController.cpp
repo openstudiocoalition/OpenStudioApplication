@@ -69,7 +69,7 @@ void ConstructionsTabController::setSubTab(int index) {
 
   switch (index) {
     case 0: {
-      auto defaultConstructionSetsController = new DefaultConstructionSetsController(m_model);
+      auto* defaultConstructionSetsController = new DefaultConstructionSetsController(m_model);
       connect(this, &ConstructionsTabController::toggleUnitsClicked, static_cast<ModelSubTabView*>(defaultConstructionSetsController->subTabView()),
               &ModelSubTabView::toggleUnitsClicked);
       connect(defaultConstructionSetsController, &DefaultConstructionSetsController::downloadComponentsClicked, this,
@@ -82,7 +82,7 @@ void ConstructionsTabController::setSubTab(int index) {
     }
 
     case 1: {
-      auto constructionsController = new ConstructionsController(m_isIP, m_model);
+      auto* constructionsController = new ConstructionsController(m_isIP, m_model);
       connect(this, &ConstructionsTabController::toggleUnitsClicked, static_cast<ModelSubTabView*>(constructionsController->subTabView()),
               &ModelSubTabView::toggleUnitsClicked);
       this->mainContentWidget()->setSubTab(constructionsController->subTabView());
@@ -91,7 +91,7 @@ void ConstructionsTabController::setSubTab(int index) {
     }
 
     case 2: {
-      auto materialsController = new MaterialsController(m_isIP, m_model);
+      auto* materialsController = new MaterialsController(m_isIP, m_model);
       connect(this, &ConstructionsTabController::toggleUnitsClicked, static_cast<ModelSubTabView*>(materialsController->subTabView()),
               &ModelSubTabView::toggleUnitsClicked);
       this->mainContentWidget()->setSubTab(materialsController->subTabView());

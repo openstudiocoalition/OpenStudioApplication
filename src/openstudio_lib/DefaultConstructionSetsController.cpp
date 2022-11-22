@@ -43,7 +43,7 @@ namespace openstudio {
 DefaultConstructionSetsController::DefaultConstructionSetsController(const model::Model& model)
   : ModelSubTabController(new DefaultConstructionSetsView(model, "Default Constructions", false), model) {}
 
-DefaultConstructionSetsController::~DefaultConstructionSetsController() {}
+DefaultConstructionSetsController::~DefaultConstructionSetsController() = default;
 
 void DefaultConstructionSetsController::onAddObject(const openstudio::IddObjectType& iddObjectType) {
   switch (iddObjectType.value()) {

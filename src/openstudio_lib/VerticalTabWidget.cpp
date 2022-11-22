@@ -45,7 +45,7 @@
 namespace openstudio {
 
 VerticalTabWidget::VerticalTabWidget(QWidget* parent) : QWidget(parent) {
-  auto mainLayout = new QHBoxLayout();
+  auto* mainLayout = new QHBoxLayout();
 
   mainLayout->setSpacing(0);
 
@@ -72,7 +72,7 @@ VerticalTabWidget::VerticalTabWidget(QWidget* parent) : QWidget(parent) {
 
 void VerticalTabWidget::addTabButton(int id, QString toolTip, const QString& selectedImagePath, const QString& unSelectedImagePath,
                                      const QString& disabledImagePath) {
-  auto button = new QPushButton(m_tabBar);
+  auto* button = new QPushButton(m_tabBar);
 
   button->setFixedSize(QSize(39, 42));
 
@@ -98,14 +98,14 @@ void VerticalTabWidget::setView(MainTabView* view, int id) {
 }
 
 MainTabView* VerticalTabWidget::view() const {
-  MainTabView* view = qobject_cast<MainTabView*>(m_viewSwitcher->view());
+  auto* view = qobject_cast<MainTabView*>(m_viewSwitcher->view());
   OS_ASSERT(view);
 
   return view;
 }
 
 void VerticalTabWidget::select() {
-  QPushButton* button = qobject_cast<QPushButton*>(sender());
+  auto* button = qobject_cast<QPushButton*>(sender());
 
   int index = 0;
 

@@ -48,7 +48,7 @@ WaitDialog::WaitDialog(const QString& windowTitle, const QString& windowMessage,
   createWidgets();
 }
 
-WaitDialog::~WaitDialog() {}
+WaitDialog::~WaitDialog() = default;
 
 void WaitDialog::createWidgets() {
 

@@ -733,7 +733,7 @@ void BIMserverConnection::sendGetProgressRequest(QString topicId, QString action
 
 void BIMserverConnection::processGetProgressRequest() {
 
-  QNetworkReply* reply = qobject_cast<QNetworkReply*>(sender());
+  auto* reply = qobject_cast<QNetworkReply*>(sender());
 
   if (reply) {
     QByteArray responseArray = reply->readAll();

@@ -256,7 +256,7 @@ bool AccessPolicy::setAccess(unsigned int index, AccessPolicy::ACCESS_LEVEL acce
   return false;
 }
 
-AccessPolicyStore::AccessPolicyStore() {}
+AccessPolicyStore::AccessPolicyStore() = default;
 
 AccessPolicyStore::~AccessPolicyStore() {
   clear();

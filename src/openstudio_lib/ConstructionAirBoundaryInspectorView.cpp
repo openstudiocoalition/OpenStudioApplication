@@ -60,13 +60,13 @@ ConstructionAirBoundaryInspectorView::ConstructionAirBoundaryInspectorView(bool 
 }
 
 void ConstructionAirBoundaryInspectorView::createLayout() {
-  auto hiddenWidget = new QWidget();
+  auto* hiddenWidget = new QWidget();
   this->stackedWidget()->addWidget(hiddenWidget);
 
-  auto visibleWidget = new QWidget();
+  auto* visibleWidget = new QWidget();
   this->stackedWidget()->addWidget(visibleWidget);
 
-  auto mainGridLayout = new QGridLayout();
+  auto* mainGridLayout = new QGridLayout();
   mainGridLayout->setContentsMargins(7, 7, 7, 7);
   mainGridLayout->setSpacing(14);
   visibleWidget->setLayout(mainGridLayout);
@@ -150,7 +150,7 @@ void ConstructionAirBoundaryInspectorView::onClearSelection() {
 
 void ConstructionAirBoundaryInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject) {
   detach();
-  model::ConstructionAirBoundary construction = modelObject.cast<model::ConstructionAirBoundary>();
+  auto construction = modelObject.cast<model::ConstructionAirBoundary>();
   attach(construction);
 
   this->stackedWidget()->setCurrentIndex(1);

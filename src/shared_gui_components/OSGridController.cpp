@@ -243,7 +243,7 @@ void OSGridController::setHorizontalHeader(QWidget* gridView) {
   OS_ASSERT(buttons.size() == 0);
 
   for (const QString& field : m_currentFields) {
-    auto horizontalHeaderWidget = new HorizontalHeaderWidget(field, gridView);
+    auto* horizontalHeaderWidget = new HorizontalHeaderWidget(field, gridView);
     m_horizontalHeaderBtnGrp->addButton(horizontalHeaderWidget->m_checkBox, m_horizontalHeaderBtnGrp->buttons().size());
     m_horizontalHeaders.push_back(horizontalHeaderWidget);
   }
@@ -253,100 +253,115 @@ void OSGridController::setHorizontalHeader(QWidget* gridView) {
 
 void OSGridController::setConceptValue(model::ModelObject t_setterMO, model::ModelObject t_getterMO,
                                        const QSharedPointer<BaseConcept>& t_baseConcept) {
-  if (QSharedPointer<CheckBoxConcept> concept = t_baseConcept.dynamicCast<CheckBoxConcept>()) {
-    auto setter = std::bind(&CheckBoxConcept::set, concept.data(), t_setterMO, std::placeholders::_1);
-    auto getter = std::bind(&CheckBoxConcept::get, concept.data(), t_getterMO);
+  if (QSharedPointer<CheckBoxConcept> osConcept = t_baseConcept.dynamicCast<CheckBoxConcept>()) {
+    auto setter = std::bind(&CheckBoxConcept::set, osConcept.data(), t_setterMO, std::placeholders::_1);
+    auto getter = std::bind(&CheckBoxConcept::get, osConcept.data(), t_getterMO);
     auto temp = getter();
     setter(temp);
-  } else if (QSharedPointer<CheckBoxConceptBoolReturn> concept = t_baseConcept.dynamicCast<CheckBoxConceptBoolReturn>()) {
-    auto setter = std::bind(&CheckBoxConceptBoolReturn::set, concept.data(), t_setterMO, std::placeholders::_1);
-    auto getter = std::bind(&CheckBoxConceptBoolReturn::get, concept.data(), t_getterMO);
+  } else if (QSharedPointer<CheckBoxConceptBoolReturn> osConcept = t_baseConcept.dynamicCast<CheckBoxConceptBoolReturn>()) {
+    auto setter = std::bind(&CheckBoxConceptBoolReturn::set, osConcept.data(), t_setterMO, std::placeholders::_1);
+    auto getter = std::bind(&CheckBoxConceptBoolReturn::get, osConcept.data(), t_getterMO);
     auto temp = getter();
     setter(temp);
-  } else if (QSharedPointer<ComboBoxConcept> concept = t_baseConcept.dynamicCast<ComboBoxConcept>()) {
-    auto getterChoiceConcept = concept->choiceConcept(t_getterMO);
-    auto setterChoiceConcept = concept->choiceConcept(t_setterMO);
+  } else if (QSharedPointer<ComboBoxConcept> osConcept = t_baseConcept.dynamicCast<ComboBoxConcept>()) {
+    auto getterChoiceConcept = osConcept->choiceConcept(t_getterMO);
+    auto setterChoiceConcept = osConcept->choiceConcept(t_setterMO);
     auto getter = std::bind(&ChoiceConcept::get, getterChoiceConcept.get());
     auto setter = std::bind(&ChoiceConcept::set, setterChoiceConcept.get(), std::placeholders::_1);
     auto temp = getter();
     setter(temp);
-  } else if (QSharedPointer<ValueEditConcept<double>> concept = t_baseConcept.dynamicCast<ValueEditConcept<double>>()) {
-    auto setter = std::bind(&ValueEditConcept<double>::set, concept.data(), t_setterMO, std::placeholders::_1);
-    auto getter = std::bind(&ValueEditConcept<double>::get, concept.data(), t_getterMO);
+  } else if (QSharedPointer<ValueEditConcept<double>> osConcept = t_baseConcept.dynamicCast<ValueEditConcept<double>>()) {
+    auto setter = std::bind(&ValueEditConcept<double>::set, osConcept.data(), t_setterMO, std::placeholders::_1);
+    auto getter = std::bind(&ValueEditConcept<double>::get, osConcept.data(), t_getterMO);
     auto temp = getter();
     setter(temp);
-  } else if (QSharedPointer<OptionalValueEditConcept<double>> concept = t_baseConcept.dynamicCast<OptionalValueEditConcept<double>>()) {
-    auto setter = std::bind(&OptionalValueEditConcept<double>::set, concept.data(), t_setterMO, std::placeholders::_1);
-    auto getter = std::bind(&OptionalValueEditConcept<double>::get, concept.data(), t_getterMO);
+  } else if (QSharedPointer<OptionalValueEditConcept<double>> osConcept = t_baseConcept.dynamicCast<OptionalValueEditConcept<double>>()) {
+    auto setter = std::bind(&OptionalValueEditConcept<double>::set, osConcept.data(), t_setterMO, std::placeholders::_1);
+    auto getter = std::bind(&OptionalValueEditConcept<double>::get, osConcept.data(), t_getterMO);
     auto temp = getter();
-    if (temp) setter(temp.get());
-  } else if (QSharedPointer<ValueEditVoidReturnConcept<double>> concept = t_baseConcept.dynamicCast<ValueEditVoidReturnConcept<double>>()) {
-    auto setter = std::bind(&ValueEditVoidReturnConcept<double>::set, concept.data(), t_setterMO, std::placeholders::_1);
-    auto getter = std::bind(&ValueEditVoidReturnConcept<double>::get, concept.data(), t_getterMO);
+    if (temp) {
+      setter(temp.get());
+    }
+  } else if (QSharedPointer<ValueEditVoidReturnConcept<double>> osConcept = t_baseConcept.dynamicCast<ValueEditVoidReturnConcept<double>>()) {
+    auto setter = std::bind(&ValueEditVoidReturnConcept<double>::set, osConcept.data(), t_setterMO, std::placeholders::_1);
+    auto getter = std::bind(&ValueEditVoidReturnConcept<double>::get, osConcept.data(), t_getterMO);
     auto temp = getter();
     setter(temp);
-  } else if (QSharedPointer<OptionalValueEditVoidReturnConcept<double>> concept =
+  } else if (QSharedPointer<OptionalValueEditVoidReturnConcept<double>> osConcept =
                t_baseConcept.dynamicCast<OptionalValueEditVoidReturnConcept<double>>()) {
-    auto setter = std::bind(&OptionalValueEditVoidReturnConcept<double>::set, concept.data(), t_setterMO, std::placeholders::_1);
-    auto getter = std::bind(&OptionalValueEditVoidReturnConcept<double>::get, concept.data(), t_getterMO);
+    auto setter = std::bind(&OptionalValueEditVoidReturnConcept<double>::set, osConcept.data(), t_setterMO, std::placeholders::_1);
+    auto getter = std::bind(&OptionalValueEditVoidReturnConcept<double>::get, osConcept.data(), t_getterMO);
     auto temp = getter();
-    if (temp) setter(temp.get());
-  } else if (QSharedPointer<ValueEditConcept<int>> concept = t_baseConcept.dynamicCast<ValueEditConcept<int>>()) {
-    auto setter = std::bind(&ValueEditConcept<int>::set, concept.data(), t_setterMO, std::placeholders::_1);
-    auto getter = std::bind(&ValueEditConcept<int>::get, concept.data(), t_getterMO);
-    auto temp = getter();
-    setter(temp);
-  } else if (QSharedPointer<ValueEditConcept<std::string>> concept = t_baseConcept.dynamicCast<ValueEditConcept<std::string>>()) {
-    auto setter = std::bind(&ValueEditConcept<std::string>::set, concept.data(), t_setterMO, std::placeholders::_1);
-    auto getter = std::bind(&ValueEditConcept<std::string>::get, concept.data(), t_getterMO);
+    if (temp) {
+      setter(temp.get());
+    }
+  } else if (QSharedPointer<ValueEditConcept<int>> osConcept = t_baseConcept.dynamicCast<ValueEditConcept<int>>()) {
+    auto setter = std::bind(&ValueEditConcept<int>::set, osConcept.data(), t_setterMO, std::placeholders::_1);
+    auto getter = std::bind(&ValueEditConcept<int>::get, osConcept.data(), t_getterMO);
     auto temp = getter();
     setter(temp);
-  } else if (QSharedPointer<ValueEditVoidReturnConcept<std::string>> concept = t_baseConcept.dynamicCast<ValueEditVoidReturnConcept<std::string>>()) {
-    auto setter = std::bind(&ValueEditVoidReturnConcept<std::string>::set, concept.data(), t_setterMO, std::placeholders::_1);
-    auto getter = std::bind(&ValueEditVoidReturnConcept<std::string>::get, concept.data(), t_getterMO);
+  } else if (QSharedPointer<ValueEditConcept<std::string>> osConcept = t_baseConcept.dynamicCast<ValueEditConcept<std::string>>()) {
+    auto setter = std::bind(&ValueEditConcept<std::string>::set, osConcept.data(), t_setterMO, std::placeholders::_1);
+    auto getter = std::bind(&ValueEditConcept<std::string>::get, osConcept.data(), t_getterMO);
     auto temp = getter();
     setter(temp);
-  } else if (QSharedPointer<NameLineEditConcept> concept = t_baseConcept.dynamicCast<NameLineEditConcept>()) {
-    auto setter = std::bind(&NameLineEditConcept::set, concept.data(), t_setterMO, std::placeholders::_1);
-    auto getter = std::bind(&NameLineEditConcept::get, concept.data(), t_getterMO, true);  // NOTE Evan: Do we always want true?
-    auto temp = getter();
-    if (temp) setter(temp.get());
-  } else if (QSharedPointer<QuantityEditConcept<double>> concept = t_baseConcept.dynamicCast<QuantityEditConcept<double>>()) {
-    auto setter = std::bind(&QuantityEditConcept<double>::set, concept.data(), t_setterMO, std::placeholders::_1);
-    auto getter = std::bind(&QuantityEditConcept<double>::get, concept.data(), t_getterMO);
+  } else if (QSharedPointer<ValueEditVoidReturnConcept<std::string>> osConcept =
+               t_baseConcept.dynamicCast<ValueEditVoidReturnConcept<std::string>>()) {
+    auto setter = std::bind(&ValueEditVoidReturnConcept<std::string>::set, osConcept.data(), t_setterMO, std::placeholders::_1);
+    auto getter = std::bind(&ValueEditVoidReturnConcept<std::string>::get, osConcept.data(), t_getterMO);
     auto temp = getter();
     setter(temp);
-  } else if (QSharedPointer<OptionalQuantityEditConcept<double>> concept = t_baseConcept.dynamicCast<OptionalQuantityEditConcept<double>>()) {
-    auto setter = std::bind(&OptionalQuantityEditConcept<double>::set, concept.data(), t_setterMO, std::placeholders::_1);
-    auto getter = std::bind(&OptionalQuantityEditConcept<double>::get, concept.data(), t_getterMO);
+  } else if (QSharedPointer<NameLineEditConcept> osConcept = t_baseConcept.dynamicCast<NameLineEditConcept>()) {
+    auto setter = std::bind(&NameLineEditConcept::set, osConcept.data(), t_setterMO, std::placeholders::_1);
+    auto getter = std::bind(&NameLineEditConcept::get, osConcept.data(), t_getterMO, true);  // NOTE Evan: Do we always want true?
     auto temp = getter();
-    if (temp) setter(temp.get());
-  } else if (QSharedPointer<QuantityEditVoidReturnConcept<double>> concept = t_baseConcept.dynamicCast<QuantityEditVoidReturnConcept<double>>()) {
-    auto setter = std::bind(&QuantityEditVoidReturnConcept<double>::set, concept.data(), t_setterMO, std::placeholders::_1);
-    auto getter = std::bind(&QuantityEditVoidReturnConcept<double>::get, concept.data(), t_getterMO);
+    if (temp) {
+      setter(temp.get());
+    }
+  } else if (QSharedPointer<QuantityEditConcept<double>> osConcept = t_baseConcept.dynamicCast<QuantityEditConcept<double>>()) {
+    auto setter = std::bind(&QuantityEditConcept<double>::set, osConcept.data(), t_setterMO, std::placeholders::_1);
+    auto getter = std::bind(&QuantityEditConcept<double>::get, osConcept.data(), t_getterMO);
     auto temp = getter();
     setter(temp);
-  } else if (QSharedPointer<OptionalQuantityEditVoidReturnConcept<double>> concept =
+  } else if (QSharedPointer<OptionalQuantityEditConcept<double>> osConcept = t_baseConcept.dynamicCast<OptionalQuantityEditConcept<double>>()) {
+    auto setter = std::bind(&OptionalQuantityEditConcept<double>::set, osConcept.data(), t_setterMO, std::placeholders::_1);
+    auto getter = std::bind(&OptionalQuantityEditConcept<double>::get, osConcept.data(), t_getterMO);
+    auto temp = getter();
+    if (temp) {
+      setter(temp.get());
+    }
+  } else if (QSharedPointer<QuantityEditVoidReturnConcept<double>> osConcept = t_baseConcept.dynamicCast<QuantityEditVoidReturnConcept<double>>()) {
+    auto setter = std::bind(&QuantityEditVoidReturnConcept<double>::set, osConcept.data(), t_setterMO, std::placeholders::_1);
+    auto getter = std::bind(&QuantityEditVoidReturnConcept<double>::get, osConcept.data(), t_getterMO);
+    auto temp = getter();
+    setter(temp);
+  } else if (QSharedPointer<OptionalQuantityEditVoidReturnConcept<double>> osConcept =
                t_baseConcept.dynamicCast<OptionalQuantityEditVoidReturnConcept<double>>()) {
-    auto setter = std::bind(&OptionalQuantityEditVoidReturnConcept<double>::set, concept.data(), t_setterMO, std::placeholders::_1);
-    auto getter = std::bind(&OptionalQuantityEditVoidReturnConcept<double>::get, concept.data(), t_getterMO);
+    auto setter = std::bind(&OptionalQuantityEditVoidReturnConcept<double>::set, osConcept.data(), t_setterMO, std::placeholders::_1);
+    auto getter = std::bind(&OptionalQuantityEditVoidReturnConcept<double>::get, osConcept.data(), t_getterMO);
     auto temp = getter();
-    if (temp) setter(temp.get());
-  } else if (QSharedPointer<ValueEditConcept<unsigned>> concept = t_baseConcept.dynamicCast<ValueEditConcept<unsigned>>()) {
-    auto setter = std::bind(&ValueEditConcept<unsigned>::set, concept.data(), t_setterMO, std::placeholders::_1);
-    auto getter = std::bind(&ValueEditConcept<unsigned>::get, concept.data(), t_getterMO);
+    if (temp) {
+      setter(temp.get());
+    }
+  } else if (QSharedPointer<ValueEditConcept<unsigned>> osConcept = t_baseConcept.dynamicCast<ValueEditConcept<unsigned>>()) {
+    auto setter = std::bind(&ValueEditConcept<unsigned>::set, osConcept.data(), t_setterMO, std::placeholders::_1);
+    auto getter = std::bind(&ValueEditConcept<unsigned>::get, osConcept.data(), t_getterMO);
     auto temp = getter();
     setter(temp);
-  } else if (QSharedPointer<DropZoneConcept> concept = t_baseConcept.dynamicCast<DropZoneConcept>()) {
-    auto setter = std::bind(&DropZoneConcept::set, concept.data(), t_setterMO, std::placeholders::_1);
-    auto getter = std::bind(&DropZoneConcept::get, concept.data(), t_getterMO);
+  } else if (QSharedPointer<DropZoneConcept> osConcept = t_baseConcept.dynamicCast<DropZoneConcept>()) {
+    auto setter = std::bind(&DropZoneConcept::set, osConcept.data(), t_setterMO, std::placeholders::_1);
+    auto getter = std::bind(&DropZoneConcept::get, osConcept.data(), t_getterMO);
     auto temp = getter();
-    if (temp) setter(temp.get());
-  } else if (QSharedPointer<RenderingColorConcept> concept = t_baseConcept.dynamicCast<RenderingColorConcept>()) {
-    auto setter = std::bind(&RenderingColorConcept::set, concept.data(), t_setterMO, std::placeholders::_1);
-    auto getter = std::bind(&RenderingColorConcept::get, concept.data(), t_getterMO);
+    if (temp) {
+      setter(temp.get());
+    }
+  } else if (QSharedPointer<RenderingColorConcept> osConcept = t_baseConcept.dynamicCast<RenderingColorConcept>()) {
+    auto setter = std::bind(&RenderingColorConcept::set, osConcept.data(), t_setterMO, std::placeholders::_1);
+    auto getter = std::bind(&RenderingColorConcept::get, osConcept.data(), t_getterMO);
     auto temp = getter();
-    if (temp) setter(temp.get());
+    if (temp) {
+      setter(temp.get());
+    }
   } else {
     // Unknown type
     OS_ASSERT(false);
@@ -371,32 +386,32 @@ void OSGridController::setConceptValue(model::ModelObject t_setterMO, model::Mod
 }
 
 void OSGridController::resetConceptValue(model::ModelObject t_resetMO, const QSharedPointer<BaseConcept>& t_baseConcept) {
-  if (QSharedPointer<ValueEditConcept<double>> concept = t_baseConcept.dynamicCast<ValueEditConcept<double>>()) {
-    auto reset = std::bind(&ValueEditConcept<double>::reset, concept.data(), t_resetMO);
+  if (QSharedPointer<ValueEditConcept<double>> osConcept = t_baseConcept.dynamicCast<ValueEditConcept<double>>()) {
+    auto reset = std::bind(&ValueEditConcept<double>::reset, osConcept.data(), t_resetMO);
     reset();
-  } else if (QSharedPointer<ValueEditVoidReturnConcept<double>> concept = t_baseConcept.dynamicCast<ValueEditVoidReturnConcept<double>>()) {
-    auto reset = std::bind(&ValueEditVoidReturnConcept<double>::reset, concept.data(), t_resetMO);
+  } else if (QSharedPointer<ValueEditVoidReturnConcept<double>> osConcept = t_baseConcept.dynamicCast<ValueEditVoidReturnConcept<double>>()) {
+    auto reset = std::bind(&ValueEditVoidReturnConcept<double>::reset, osConcept.data(), t_resetMO);
     reset();
-  } else if (QSharedPointer<ValueEditConcept<int>> concept = t_baseConcept.dynamicCast<ValueEditConcept<int>>()) {
-    auto reset = std::bind(&ValueEditConcept<int>::reset, concept.data(), t_resetMO);
+  } else if (QSharedPointer<ValueEditConcept<int>> osConcept = t_baseConcept.dynamicCast<ValueEditConcept<int>>()) {
+    auto reset = std::bind(&ValueEditConcept<int>::reset, osConcept.data(), t_resetMO);
     reset();
-  } else if (QSharedPointer<ValueEditConcept<std::string>> concept = t_baseConcept.dynamicCast<ValueEditConcept<std::string>>()) {
-    auto reset = std::bind(&ValueEditConcept<std::string>::reset, concept.data(), t_resetMO);
+  } else if (QSharedPointer<ValueEditConcept<std::string>> osConcept = t_baseConcept.dynamicCast<ValueEditConcept<std::string>>()) {
+    auto reset = std::bind(&ValueEditConcept<std::string>::reset, osConcept.data(), t_resetMO);
     reset();
-  } else if (QSharedPointer<NameLineEditConcept> concept = t_baseConcept.dynamicCast<NameLineEditConcept>()) {
-    auto reset = std::bind(&NameLineEditConcept::reset, concept.data(), t_resetMO);
+  } else if (QSharedPointer<NameLineEditConcept> osConcept = t_baseConcept.dynamicCast<NameLineEditConcept>()) {
+    auto reset = std::bind(&NameLineEditConcept::reset, osConcept.data(), t_resetMO);
     reset();
-  } else if (QSharedPointer<QuantityEditConcept<double>> concept = t_baseConcept.dynamicCast<QuantityEditConcept<double>>()) {
-    auto reset = std::bind(&QuantityEditConcept<double>::reset, concept.data(), t_resetMO);
+  } else if (QSharedPointer<QuantityEditConcept<double>> osConcept = t_baseConcept.dynamicCast<QuantityEditConcept<double>>()) {
+    auto reset = std::bind(&QuantityEditConcept<double>::reset, osConcept.data(), t_resetMO);
     reset();
-  } else if (QSharedPointer<QuantityEditVoidReturnConcept<double>> concept = t_baseConcept.dynamicCast<QuantityEditVoidReturnConcept<double>>()) {
-    auto reset = std::bind(&QuantityEditVoidReturnConcept<double>::reset, concept.data(), t_resetMO);
+  } else if (QSharedPointer<QuantityEditVoidReturnConcept<double>> osConcept = t_baseConcept.dynamicCast<QuantityEditVoidReturnConcept<double>>()) {
+    auto reset = std::bind(&QuantityEditVoidReturnConcept<double>::reset, osConcept.data(), t_resetMO);
     reset();
-  } else if (QSharedPointer<ValueEditConcept<unsigned>> concept = t_baseConcept.dynamicCast<ValueEditConcept<unsigned>>()) {
-    auto reset = std::bind(&ValueEditConcept<unsigned>::reset, concept.data(), t_resetMO);
+  } else if (QSharedPointer<ValueEditConcept<unsigned>> osConcept = t_baseConcept.dynamicCast<ValueEditConcept<unsigned>>()) {
+    auto reset = std::bind(&ValueEditConcept<unsigned>::reset, osConcept.data(), t_resetMO);
     reset();
-  } else if (QSharedPointer<DropZoneConcept> concept = t_baseConcept.dynamicCast<DropZoneConcept>()) {
-    auto reset = std::bind(&DropZoneConcept::reset, concept.data(), t_resetMO);
+  } else if (QSharedPointer<DropZoneConcept> osConcept = t_baseConcept.dynamicCast<DropZoneConcept>()) {
+    auto reset = std::bind(&DropZoneConcept::reset, osConcept.data(), t_resetMO);
     reset();
   } else {
     // Unknown type
@@ -416,7 +431,7 @@ OSCellWrapper* OSGridController::createCellWrapper(int gridRow, int column, OSGr
 
   QSharedPointer<BaseConcept> baseConcept = m_baseConcepts[column];
 
-  auto wrapper = new OSCellWrapper(gridView, baseConcept, m_objectSelector, modelRow, gridRow, column);
+  auto* wrapper = new OSCellWrapper(gridView, baseConcept, m_objectSelector, modelRow, gridRow, column);
 
   if (m_hasHorizontalHeader && gridRow == 0) {
     if (column == 0) {
@@ -429,7 +444,7 @@ OSCellWrapper* OSGridController::createCellWrapper(int gridRow, int column, OSGr
     wrapper->layout()->setContentsMargins(0, 1, 1, 0);
     wrapper->addOSWidget(m_horizontalHeaders.at(column), boost::none, false, false);
 
-    HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeaders.at(column));
+    auto* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeaders.at(column));
     OS_ASSERT(horizontalHeaderWidget);
     if (!heading.showCheckbox()) {
       horizontalHeaderWidget->m_checkBox->hide();
@@ -455,14 +470,16 @@ void OSGridController::checkSelectedFields() {
   // If there is a header row, investigate which columns were previously checked
   // (and loaded into m_customFields by QSettings) and check the respective
   // header widgets
-  if (!this->m_hasHorizontalHeader) return;
+  if (!this->m_hasHorizontalHeader) {
+    return;
+  }
 
   std::vector<QString>::iterator it;
   for (unsigned j = 0; j < m_customFields.size(); j++) {
     it = std::find(m_currentFields.begin(), m_currentFields.end(), m_customFields.at(j));
     if (it != m_currentFields.end()) {
       int index = std::distance(m_currentFields.begin(), it);
-      HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeaders.at(index));
+      auto* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeaders.at(index));
       OS_ASSERT(horizontalHeaderWidget);
       horizontalHeaderWidget->m_checkBox->blockSignals(true);
       horizontalHeaderWidget->m_checkBox->setChecked(true);
@@ -553,7 +570,7 @@ void OSGridController::selectRow(int gridRow, bool select) {
 */
 void OSGridController::onHorizontalHeaderChecked(int index) {
   // Push_back or erase the field from the user-selected fields
-  auto checkBox = qobject_cast<QAbstractButton*>(m_horizontalHeaderBtnGrp->button(index));
+  auto* checkBox = qobject_cast<QAbstractButton*>(m_horizontalHeaderBtnGrp->button(index));
   OS_ASSERT(checkBox);
   if (checkBox->isChecked()) {
     m_customFields.push_back(m_currentFields.at(index));
@@ -596,7 +613,7 @@ bool OSGridController::getgridRowByItem(OSItem* item, int& gridRow) {
   auto success = false;
   gridRow = -1;
 
-  for (auto modelObject : m_modelObjects) {
+  for (const auto& modelObject : m_modelObjects) {
     gridRow++;
     OSItemId itemId = modelObjectToItemId(modelObject, false);
     if (item->itemId() == itemId) {
@@ -620,7 +637,7 @@ bool OSGridController::getgridRowByItem(OSItem* item, int& gridRow) {
       }
     }
 
-    for (auto modelObject : m_modelObjects) {
+    for (const auto& modelObject : m_modelObjects) {
       gridRow++;
       OSItemId itemId = modelObjectToItemId(modelObject, false);
       strings = itemId.otherData().split(",");
@@ -662,15 +679,13 @@ OSItem* OSGridController::getSelectedItemFromModelSubTabView() {
 }
 */
 void OSGridController::connectToModelSignals() {
-  m_model.getImpl<model::detail::Model_Impl>().get()->addWorkspaceObject.connect<OSGridController, &OSGridController::onAddWorkspaceObject>(this);
-  m_model.getImpl<model::detail::Model_Impl>().get()->removeWorkspaceObject.connect<OSGridController, &OSGridController::onRemoveWorkspaceObject>(
-    this);
+  m_model.getImpl<model::detail::Model_Impl>()->addWorkspaceObject.connect<OSGridController, &OSGridController::onAddWorkspaceObject>(this);
+  m_model.getImpl<model::detail::Model_Impl>()->removeWorkspaceObject.connect<OSGridController, &OSGridController::onRemoveWorkspaceObject>(this);
 }
 
 void OSGridController::disconnectFromModelSignals() {
-  m_model.getImpl<model::detail::Model_Impl>().get()->addWorkspaceObject.disconnect<OSGridController, &OSGridController::onAddWorkspaceObject>(this);
-  m_model.getImpl<model::detail::Model_Impl>().get()->removeWorkspaceObject.disconnect<OSGridController, &OSGridController::onRemoveWorkspaceObject>(
-    this);
+  m_model.getImpl<model::detail::Model_Impl>()->addWorkspaceObject.disconnect<OSGridController, &OSGridController::onAddWorkspaceObject>(this);
+  m_model.getImpl<model::detail::Model_Impl>()->removeWorkspaceObject.disconnect<OSGridController, &OSGridController::onRemoveWorkspaceObject>(this);
 }
 
 void OSGridController::onSelectionCleared() {
@@ -739,7 +754,7 @@ void OSGridController::onInFocus(bool inFocus, bool hasData, int modelRow, int g
       // Sub rows present, either in a widget, or in a row
       const DataSource& source = dataSource->source();
       QSharedPointer<BaseConcept> dropZoneConcept = source.dropZoneConcept();
-      for (auto modelObject : selectedObjects) {
+      for (const auto& modelObject : selectedObjects) {
         // Don't set the chosen object when iterating through the selected objects
         if (modelObject != focusedObject.get()) {
           OS_ASSERT(dataSource.data()->innerConcept());
@@ -753,7 +768,7 @@ void OSGridController::onInFocus(bool inFocus, bool hasData, int modelRow, int g
         }
       }
     } else if (!focusedSubrow) {
-      for (auto modelObject : selectedObjects) {
+      for (const auto& modelObject : selectedObjects) {
         // Don't set the chosen object when iterating through the selected objects
         if (modelObject != focusedObject.get()) {
           setConceptValue(modelObject, focusedObject.get(), m_baseConcepts[column]);
@@ -768,9 +783,9 @@ void OSGridController::onInFocus(bool inFocus, bool hasData, int modelRow, int g
     // not in a header row, an object was selected
     OS_ASSERT(gridRow >= 0);
 
-    HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeaders.at(column));
+    auto* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeaders.at(column));
     OS_ASSERT(horizontalHeaderWidget);
-    auto button = horizontalHeaderWidget->m_pushButton;
+    auto* button = horizontalHeaderWidget->m_pushButton;
     OS_ASSERT(button);
 
     if (inFocus) {
@@ -789,9 +804,9 @@ void OSGridController::onInFocus(bool inFocus, bool hasData, int modelRow, int g
 
 void OSGridController::onSetApplyButtonState() {
   for (auto pair : m_applyToButtonStates) {
-    HorizontalHeaderWidget* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeaders.at(pair.first));
+    auto* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(m_horizontalHeaders.at(pair.first));
     OS_ASSERT(horizontalHeaderWidget);
-    auto button = horizontalHeaderWidget->m_pushButton;
+    auto* button = horizontalHeaderWidget->m_pushButton;
     OS_ASSERT(button);
     button->setEnabled(pair.second);
   }
@@ -850,7 +865,7 @@ HorizontalHeaderPushButton::HorizontalHeaderPushButton(QWidget* parent) : QPushB
   setFocusPolicy(Qt::StrongFocus);
 }
 
-HorizontalHeaderPushButton::~HorizontalHeaderPushButton() {}
+HorizontalHeaderPushButton::~HorizontalHeaderPushButton() = default;
 
 void HorizontalHeaderPushButton::focusInEvent(QFocusEvent* e) {
   if (e->reason() == Qt::MouseFocusReason) {
@@ -870,7 +885,7 @@ void HorizontalHeaderPushButton::focusOutEvent(QFocusEvent* e) {
 
 HorizontalHeaderWidget::HorizontalHeaderWidget(const QString& fieldName, QWidget* parent)
   : QWidget(parent), m_label(new QLabel(fieldName, this)), m_checkBox(new QPushButton(this)), m_pushButton(new HorizontalHeaderPushButton(this)) {
-  auto mainLayout = new QVBoxLayout(this);
+  auto* mainLayout = new QVBoxLayout(this);
   mainLayout->setContentsMargins(0, 0, 0, 5);
   mainLayout->setAlignment(Qt::AlignCenter);
   setLayout(mainLayout);
@@ -917,7 +932,7 @@ HorizontalHeaderWidget::~HorizontalHeaderWidget() {
 void HorizontalHeaderWidget::addWidget(const QSharedPointer<QWidget>& t_widget) {
   if (!t_widget.isNull()) {
     m_addedWidgets.push_back(t_widget);
-    auto hLayout = new QHBoxLayout();
+    auto* hLayout = new QHBoxLayout();
     hLayout->setContentsMargins(5, 0, 5, 0);
     qobject_cast<QVBoxLayout*>(layout())->addLayout(hLayout);
     hLayout->addWidget(t_widget.data());

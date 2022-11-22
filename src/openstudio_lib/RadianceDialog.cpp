@@ -49,7 +49,7 @@ void RadianceDialog::createLayout() {
   label->setObjectName("H1");
   upperLayout()->addWidget(label);
 
-  auto vertLayout = new QVBoxLayout();
+  auto* vertLayout = new QVBoxLayout();
   vertLayout->setContentsMargins(20, 10, 10, 10);
   vertLayout->setSpacing(20);
   upperLayout()->addLayout(vertLayout);

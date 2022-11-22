@@ -113,9 +113,9 @@ std::vector<OSItemId> ModelObjectListController::makeVector() {
   // sort by name
   std::sort(workspaceObjects.begin(), workspaceObjects.end(), WorkspaceObjectNameGreater());
 
-  for (WorkspaceObject workspaceObject : workspaceObjects) {
+  for (const WorkspaceObject& workspaceObject : workspaceObjects) {
     if (!workspaceObject.handle().isNull()) {
-      openstudio::model::ModelObject modelObject = workspaceObject.cast<openstudio::model::ModelObject>();
+      auto modelObject = workspaceObject.cast<openstudio::model::ModelObject>();
       if (boost::optional<model::HVACComponent> hvacComponent = modelObject.optionalCast<model::HVACComponent>()) {
         if ((!hvacComponent->containingHVACComponent()) && (!hvacComponent->containingZoneHVACComponent())) {
           result.push_back(modelObjectToItemId(hvacComponent.get(), false));
@@ -154,7 +154,7 @@ ModelObjectListView::ModelObjectListView(const openstudio::IddObjectType& iddObj
 
 boost::optional<openstudio::model::ModelObject> ModelObjectListView::selectedModelObject() const {
   OSItem* selectedItem = this->selectedItem();
-  ModelObjectItem* modelObjectItem = qobject_cast<ModelObjectItem*>(selectedItem);
+  auto* modelObjectItem = qobject_cast<ModelObjectItem*>(selectedItem);
   if (modelObjectItem) {
     return modelObjectItem->modelObject();
   }
@@ -163,7 +163,7 @@ boost::optional<openstudio::model::ModelObject> ModelObjectListView::selectedMod
 
 IddObjectType ModelObjectListView::iddObjectType() const {
   OSVectorController* vectorController = this->vectorController();
-  ModelObjectListController* modelObjectListController = qobject_cast<ModelObjectListController*>(vectorController);
+  auto* modelObjectListController = qobject_cast<ModelObjectListController*>(vectorController);
   OS_ASSERT(modelObjectListController);
   return modelObjectListController->iddObjectType();
 }

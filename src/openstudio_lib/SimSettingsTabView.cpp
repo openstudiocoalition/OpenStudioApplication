@@ -39,7 +39,7 @@ namespace openstudio {
 
 SimSettingsTabView::SimSettingsTabView(bool isIP, const model::Model& model, const QString& tabLabel, TabType tabType, QWidget* parent)
   : MainTabView(tabLabel, tabType, parent), m_simSettingsView(new SimSettingsView(isIP, model, parent)) {
-  auto scrollarea = new QScrollArea();
+  auto* scrollarea = new QScrollArea();
   scrollarea->setWidget(m_simSettingsView);
   scrollarea->setWidgetResizable(true);
   addTabWidget(scrollarea);

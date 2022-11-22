@@ -55,15 +55,15 @@ GeometryPreviewView::GeometryPreviewView(bool isIP, const openstudio::model::Mod
   // TODO: DLM implement units switching
   //connect(this, &GeometryPreviewView::toggleUnitsClicked, modelObjectInspectorView(), &ModelObjectInspectorView::toggleUnitsClicked);
 
-  QVBoxLayout* layout = new QVBoxLayout;
+  auto* layout = new QVBoxLayout;
 
-  PreviewWebView* webView = new PreviewWebView(isIP, model, this);
+  auto* webView = new PreviewWebView(isIP, model, this);
   layout->addWidget(webView);
 
   setLayout(layout);
 }
 
-GeometryPreviewView::~GeometryPreviewView() {}
+GeometryPreviewView::~GeometryPreviewView() = default;
 
 PreviewWebView::PreviewWebView(bool isIP, const model::Model& model, QWidget* t_parent)
   : QWidget(t_parent), m_isIP(isIP), m_model(model), m_progressBar(new QProgressBar()), m_refreshBtn(new QPushButton("Refresh")) {
@@ -73,13 +73,13 @@ PreviewWebView::PreviewWebView(bool isIP, const model::Model& model, QWidget* t_
   m_document = app->currentDocument();
   OS_ASSERT(m_document);
 
-  auto mainLayout = new QVBoxLayout;
+  auto* mainLayout = new QVBoxLayout;
   setLayout(mainLayout);
 
   connect(m_document.get(), &OSDocument::toggleUnitsClicked, this, &PreviewWebView::onUnitSystemChange);
   connect(m_refreshBtn, &QPushButton::clicked, this, &PreviewWebView::refreshClicked);
 
-  auto hLayout = new QHBoxLayout(this);
+  auto* hLayout = new QHBoxLayout(this);
   mainLayout->addLayout(hLayout);
 
   hLayout->addStretch();
@@ -127,8 +127,7 @@ PreviewWebView::PreviewWebView(bool isIP, const model::Model& model, QWidget* t_
   m_view->load(previewURL);
 }
 
-PreviewWebView::~PreviewWebView() {
-}
+PreviewWebView::~PreviewWebView() = default;
 
 void PreviewWebView::refreshClicked() {
   m_progressBar->setStyleSheet("");

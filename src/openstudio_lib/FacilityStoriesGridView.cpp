@@ -102,7 +102,7 @@ FacilityStoriesGridView::FacilityStoriesGridView(bool isIP, const model::Model& 
 
   QVBoxLayout* layout = nullptr;
 
-  auto filterGridLayout = new QGridLayout();
+  auto* filterGridLayout = new QGridLayout();
   filterGridLayout->setContentsMargins(7, 4, 0, 8);
   filterGridLayout->setSpacing(5);
 
@@ -125,7 +125,7 @@ FacilityStoriesGridView::FacilityStoriesGridView(bool isIP, const model::Model& 
   connect(m_greaterThanFilter, &QLineEdit::editingFinished, this, &openstudio::FacilityStoriesGridView::greaterThanFilterChanged);
 
   QRegularExpression regex("^(-?\\d*\\.?\\d+)?$");
-  auto validator = new QRegularExpressionValidator(regex, this);
+  auto* validator = new QRegularExpressionValidator(regex, this);
   m_greaterThanFilter->setValidator(validator);
 
   layout->addWidget(m_greaterThanFilter, Qt::AlignTop | Qt::AlignLeft);
@@ -318,7 +318,9 @@ QString FacilityStoriesGridController::getColor(const model::ModelObject& modelO
 }
 
 void FacilityStoriesGridController::checkSelectedFields() {
-  if (!this->hasHorizontalHeader()) return;
+  if (!this->hasHorizontalHeader()) {
+    return;
+  }
 
   OSGridController::checkSelectedFields();
 }

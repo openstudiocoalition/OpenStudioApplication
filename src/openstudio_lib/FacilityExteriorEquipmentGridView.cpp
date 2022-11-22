@@ -99,7 +99,7 @@ FacilityExteriorEquipmentGridView::FacilityExteriorEquipmentGridView(bool isIP, 
   std::sort(modelObjects.begin(), modelObjects.end(), openstudio::WorkspaceObjectNameLess());
 
   m_gridController = new FacilityExteriorEquipmentGridController(isIP, "Exterior Equipment", IddObjectType::OS_Exterior_Lights, model, modelObjects);
-  auto gridView = new OSGridView(m_gridController, "Exterior Equipment", "Drop\nExterior Equipment", false, parent);
+  auto* gridView = new OSGridView(m_gridController, "Exterior Equipment", "Drop\nExterior Equipment", false, parent);
 
   setGridController(m_gridController);
   setGridView(gridView);
@@ -444,7 +444,9 @@ QString FacilityExteriorEquipmentGridController::getColor(const model::ModelObje
 }
 
 void FacilityExteriorEquipmentGridController::checkSelectedFields() {
-  if (!this->hasHorizontalHeader()) return;
+  if (!this->hasHorizontalHeader()) {
+    return;
+  }
 
   OSGridController::checkSelectedFields();
 }

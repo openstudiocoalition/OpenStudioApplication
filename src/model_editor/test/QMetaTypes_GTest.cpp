@@ -47,7 +47,7 @@ TEST_F(ModelEditorFixture, IddObjectType_QVariant) {
   QVariant variant = QVariant::fromValue(type);
   EXPECT_EQ("openstudio::IddObjectType", std::string(variant.typeName()));
   ASSERT_TRUE(variant.canConvert<IddObjectType>());
-  IddObjectType type2 = variant.value<IddObjectType>();
+  auto type2 = variant.value<IddObjectType>();
   EXPECT_EQ(type.value(), type2.value());
 }
 
@@ -71,7 +71,7 @@ TEST_F(ModelEditorFixture, UUID_QVariant) {
   QVariant variant = QVariant::fromValue(handle);
   EXPECT_EQ("openstudio::UUID", std::string(variant.typeName()));
   ASSERT_TRUE(variant.canConvert<Handle>());
-  Handle handle2 = variant.value<Handle>();
+  auto handle2 = variant.value<Handle>();
   EXPECT_EQ(handle, handle2);
 }
 

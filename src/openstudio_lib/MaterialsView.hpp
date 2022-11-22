@@ -70,7 +70,6 @@ class MaterialsInspectorView : public ModelObjectInspectorView
 
  private:
   void showMaterialAirGapInspectorView(const openstudio::model::ModelObject& modelObject);
-  void showMaterialAirWallInspectorView(const openstudio::model::ModelObject& modelObject);
   void showMaterialInfraredTransparentInspectorView(const openstudio::model::ModelObject& modelObject);
   void showMaterialInspectorView(const openstudio::model::ModelObject& modelObject);
   void showMaterialNoMassInspectorView(const openstudio::model::ModelObject& modelObject);
