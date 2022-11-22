@@ -48,10 +48,12 @@ class SpacesSpacesGridView : public SpacesSubtabGridView
  public:
   SpacesSpacesGridView(bool isIP, const model::Model& model, QWidget* parent = 0);
 
-  virtual ~SpacesSpacesGridView() {}
+  virtual ~SpacesSpacesGridView() = default;
 
  private:
   REGISTER_LOGGER("openstudio.SpacesSpacesGridView");
+
+  void clearSelection();
 
   // Overrides SpacesSubtabGrid view to trigger appropriate filtering
   virtual bool hasSubRows() override {
@@ -74,7 +76,7 @@ class SpacesSpacesGridController : public OSGridController
   SpacesSpacesGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, const model::Model& model,
                              const std::vector<model::ModelObject>& modelObjects);
 
-  virtual ~SpacesSpacesGridController() {}
+  virtual ~SpacesSpacesGridController() = default;
 
   virtual void refreshModelObjects() override;
 

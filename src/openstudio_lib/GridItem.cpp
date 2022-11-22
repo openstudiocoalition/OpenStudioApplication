@@ -1300,13 +1300,18 @@ void SystemCenterItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* 
 }
 
 SupplyPlenumItem::SupplyPlenumItem(const model::ModelObject& modelObject, QGraphicsItem* parent) : GridItem(parent) {
-  setModelObject(modelObject);
+  setModelObjectInternal(modelObject);
 
   // HorizontalBranchItem -> BranchGroupItem -> DemandSideItem -> SystemItem
   m_color = static_cast<SystemItem*>(parentItem()->parentItem()->parentItem()->parentItem())->plenumColor(modelObject.handle());
 }
 
 void SupplyPlenumItem::setModelObject(model::OptionalModelObject modelObject) {
+  setModelObjectInternal(modelObject);
+}
+
+void SupplyPlenumItem::setModelObjectInternal(model::OptionalModelObject modelObject) {
+
   if (modelObject) {
     auto plenum = modelObject->optionalCast<model::AirLoopHVACSupplyPlenum>();
     OS_ASSERT(plenum);
@@ -1339,13 +1344,17 @@ void SupplyPlenumItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* 
 }
 
 ReturnPlenumItem::ReturnPlenumItem(const model::ModelObject& modelObject, QGraphicsItem* parent) : GridItem(parent) {
-  setModelObject(modelObject);
+  setModelObjectInternal(modelObject);
 
   // HorizontalBranchItem -> BranchGroupItem -> DemandSideItem -> SystemItem
   m_color = static_cast<SystemItem*>(parentItem()->parentItem()->parentItem()->parentItem())->plenumColor(modelObject.handle());
 }
 
 void ReturnPlenumItem::setModelObject(model::OptionalModelObject modelObject) {
+  setModelObjectInternal(modelObject);
+}
+
+void ReturnPlenumItem::setModelObjectInternal(model::OptionalModelObject modelObject) {
   if (modelObject) {
     boost::optional<model::AirLoopHVACReturnPlenum> plenum = modelObject->optionalCast<model::AirLoopHVACReturnPlenum>();
     OS_ASSERT(plenum);

@@ -48,16 +48,18 @@ class SpacesSubsurfacesGridView : public SpacesSubtabGridView
  public:
   SpacesSubsurfacesGridView(bool isIP, const model::Model& model, QWidget* parent = nullptr);
 
-  virtual ~SpacesSubsurfacesGridView() {}
-
- private:
-  REGISTER_LOGGER("openstudio.SpacesSubsurfacesGridView");
+  virtual ~SpacesSubsurfacesGridView() = default;
 
  protected slots:
 
   virtual void onSelectItem() override;
 
   virtual void onClearSelection() override;
+
+ private:
+  void clearSelection();
+
+  REGISTER_LOGGER("openstudio.SpacesSubsurfacesGridView");
 };
 
 class SpacesSubsurfacesGridController : public OSGridController
@@ -69,7 +71,7 @@ class SpacesSubsurfacesGridController : public OSGridController
   SpacesSubsurfacesGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, const model::Model& model,
                                   const std::vector<model::ModelObject>& modelObjects);
 
-  virtual ~SpacesSubsurfacesGridController() {}
+  virtual ~SpacesSubsurfacesGridController() = default;
 
   virtual void refreshModelObjects() override;
 

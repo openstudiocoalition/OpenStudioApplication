@@ -91,7 +91,7 @@ SpacesShadingGridView::SpacesShadingGridView(bool isIP, const model::Model& mode
   m_gridView->addSpacingToContentLayout(7);
   m_gridView->showDropZone(false);
 
-  onClearSelection();
+  clearSelection();
 }
 
 void SpacesShadingGridView::onSelectItem() {
@@ -102,6 +102,10 @@ void SpacesShadingGridView::onSelectItem() {
 }
 
 void SpacesShadingGridView::onClearSelection() {
+  clearSelection();
+}
+
+void SpacesShadingGridView::clearSelection() {
   m_itemSelectorButtons->disableAddButton();
   //m_itemSelectorButtons->disableCopyButton();
   //m_itemSelectorButtons->disableRemoveButton();

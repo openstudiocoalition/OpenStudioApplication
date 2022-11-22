@@ -91,7 +91,7 @@ SpacesInteriorPartitionsGridView::SpacesInteriorPartitionsGridView(bool isIP, co
   m_gridView->addSpacingToContentLayout(7);
   m_gridView->showDropZone(false);
 
-  onClearSelection();
+  clearSelection();
 }
 
 void SpacesInteriorPartitionsGridView::onSelectItem() {
@@ -102,6 +102,10 @@ void SpacesInteriorPartitionsGridView::onSelectItem() {
 }
 
 void SpacesInteriorPartitionsGridView::onClearSelection() {
+  clearSelection();
+}
+
+void SpacesInteriorPartitionsGridView::clearSelection() {
   m_itemSelectorButtons->disableAddButton();
   //m_itemSelectorButtons->disableCopyButton();
   //m_itemSelectorButtons->disableRemoveButton();

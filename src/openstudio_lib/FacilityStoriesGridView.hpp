@@ -50,7 +50,7 @@ class FacilityStoriesGridView : public GridViewSubTab
  public:
   FacilityStoriesGridView(bool isIP, const model::Model& model, QWidget* parent = 0);
 
-  virtual ~FacilityStoriesGridView() {}
+  virtual ~FacilityStoriesGridView() = default;
 
  private:
   REGISTER_LOGGER("openstudio.FacilityStoriesGridView");
@@ -64,6 +64,8 @@ class FacilityStoriesGridView : public GridViewSubTab
   QLineEdit* m_lessThanFilter = nullptr;
 
   QLineEdit* m_greaterThanFilter = nullptr;
+
+  void clearSelection();
 
  protected slots:
 
@@ -87,7 +89,7 @@ class FacilityStoriesGridController : public OSGridController
   FacilityStoriesGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, const model::Model& model,
                                 const std::vector<model::ModelObject>& modelObjects);
 
-  virtual ~FacilityStoriesGridController() {}
+  virtual ~FacilityStoriesGridController() = default;
 
   virtual void refreshModelObjects() override;
 

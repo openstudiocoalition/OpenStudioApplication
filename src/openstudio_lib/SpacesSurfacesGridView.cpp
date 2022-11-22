@@ -93,7 +93,7 @@ SpacesSurfacesGridView::SpacesSurfacesGridView(bool isIP, const model::Model& mo
   m_gridView->addSpacingToContentLayout(7);
   m_gridView->showDropZone(false);
 
-  onClearSelection();
+  clearSelection();
 }
 
 void SpacesSurfacesGridView::onSelectItem() {
@@ -104,6 +104,10 @@ void SpacesSurfacesGridView::onSelectItem() {
 }
 
 void SpacesSurfacesGridView::onClearSelection() {
+  clearSelection();
+}
+
+void SpacesSurfacesGridView::clearSelection() {
   m_itemSelectorButtons->disableAddButton();
   m_itemSelectorButtons->disableCopyButton();
   m_itemSelectorButtons->disableRemoveButton();

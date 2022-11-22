@@ -159,7 +159,7 @@ FacilityStoriesGridView::FacilityStoriesGridView(bool isIP, const model::Model& 
   m_gridView->addLayoutToContentLayout(filterGridLayout);
   m_gridView->addSpacingToContentLayout(7);
 
-  onClearSelection();
+  clearSelection();
 }
 
 void FacilityStoriesGridView::addObject(const IddObjectType& iddObjectType) {
@@ -230,6 +230,10 @@ void FacilityStoriesGridView::onSelectItem() {
 }
 
 void FacilityStoriesGridView::onClearSelection() {
+  clearSelection();
+}
+
+void FacilityStoriesGridView::clearSelection() {
   //m_itemSelectorButtons->disableAddButton();
   //m_itemSelectorButtons->disableCopyButton();
   m_itemSelectorButtons->disableRemoveButton();

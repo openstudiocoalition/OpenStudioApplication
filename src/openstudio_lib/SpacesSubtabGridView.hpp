@@ -51,7 +51,7 @@ class SpacesSubtabGridView : public GridViewSubTab
  public:
   SpacesSubtabGridView(bool isIP, const model::Model& model, QWidget* parent = nullptr);
 
-  virtual ~SpacesSubtabGridView() {}
+  virtual ~SpacesSubtabGridView() = default;
 
   QLineEdit* m_thermalZoneNameFilter = nullptr;
 

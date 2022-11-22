@@ -333,6 +333,7 @@ class SupplyPlenumItem : public GridItem
   void setModelObject(model::OptionalModelObject modelObject) override;
 
  private:
+  void setModelObjectInternal(model::OptionalModelObject modelObject);
   QColor m_color;
 };
 
@@ -346,6 +347,7 @@ class ReturnPlenumItem : public GridItem
   void setModelObject(model::OptionalModelObject modelObject) override;
 
  private:
+  void setModelObjectInternal(model::OptionalModelObject modelObject);
   QColor m_color;
 };
 
