@@ -128,7 +128,7 @@ ThermalZonesGridView::ThermalZonesGridView(bool isIP, const model::Model& model,
   std::vector<model::ModelObject> thermalZoneModelObjects = subsetCastVector<model::ModelObject>(thermalZones);
 
   m_gridController = new ThermalZonesGridController(m_isIP, "Thermal Zones", IddObjectType::OS_ThermalZone, model, thermalZoneModelObjects);
-  OSGridView* gridView = new OSGridView(m_gridController, "Thermal Zones", "Drop\nZone", false, parent);
+  auto* gridView = new OSGridView(m_gridController, "Thermal Zones", "Drop\nZone", false, parent);
 
   connect(gridView, &OSGridView::dropZoneItemClicked, this, &ThermalZonesGridView::dropZoneItemClicked);
 
@@ -646,7 +646,9 @@ QString ThermalZonesGridController::getColor(const model::ModelObject& modelObje
 }
 
 void ThermalZonesGridController::checkSelectedFields() {
-  if (!this->hasHorizontalHeader()) return;
+  if (!this->hasHorizontalHeader()) {
+    return;
+  }
 
   OSGridController::checkSelectedFields();
 }

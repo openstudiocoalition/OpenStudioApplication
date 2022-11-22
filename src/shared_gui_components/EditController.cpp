@@ -148,7 +148,7 @@ class EditMeasureMessageBox : public QMessageBox
 InputController::InputController(EditController* editController, const measure::OSArgument& argument, BaseApp* t_app)
   : QObject(), m_app(t_app), m_editController(editController), m_argument(argument) {
   if (m_argument.type() == measure::OSArgumentType::Double) {
-    auto doubleInputView = new DoubleInputView();
+    auto* doubleInputView = new DoubleInputView();
 
     doubleInputView->setName(m_argument.displayName(), m_argument.units(), m_argument.description());
 
@@ -163,7 +163,7 @@ InputController::InputController(EditController* editController, const measure::
 
     inputView = doubleInputView;
   } else if (m_argument.type() == measure::OSArgumentType::Choice) {
-    auto choiceInputView = new ChoiceInputView();
+    auto* choiceInputView = new ChoiceInputView();
 
     choiceInputView->setName(m_argument.displayName(), m_argument.units(), m_argument.description());
 
@@ -232,7 +232,7 @@ InputController::InputController(EditController* editController, const measure::
 
     inputView = choiceInputView;
   } else if (m_argument.type() == measure::OSArgumentType::Boolean) {
-    auto boolInputView = new BoolInputView();
+    auto* boolInputView = new BoolInputView();
 
     boolInputView->setName(m_argument.displayName(), m_argument.units(), m_argument.description());
 
@@ -249,7 +249,7 @@ InputController::InputController(EditController* editController, const measure::
 
     inputView = boolInputView;
   } else if (m_argument.type() == measure::OSArgumentType::Integer) {
-    auto integerInputView = new IntegerInputView();
+    auto* integerInputView = new IntegerInputView();
 
     integerInputView->setName(m_argument.displayName(), m_argument.units(), m_argument.description());
 
@@ -264,7 +264,7 @@ InputController::InputController(EditController* editController, const measure::
 
     inputView = integerInputView;
   } else if (m_argument.type() == measure::OSArgumentType::String) {
-    auto stringInputView = new StringInputView();
+    auto* stringInputView = new StringInputView();
 
     stringInputView->setName(m_argument.displayName(), m_argument.units(), m_argument.description());
 

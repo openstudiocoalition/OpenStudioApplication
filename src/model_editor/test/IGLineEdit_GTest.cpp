@@ -57,8 +57,8 @@ using namespace openstudio;
 TEST_F(ModelEditorFixture, IGLineEdit_Real) {
   InspectorGadget gadget;
   QString val;
-  IGLineEdit* text = new IGLineEdit(val, &gadget, &gadget);
-  QRegularExpressionValidator* valid = new QRegularExpressionValidator(QRegularExpression("-?[0-9]*\\.?[0-9]*([eE][-+]?[0-9]*)?"), text);
+  auto* text = new IGLineEdit(val, &gadget, &gadget);
+  auto* valid = new QRegularExpressionValidator(QRegularExpression("-?[0-9]*\\.?[0-9]*([eE][-+]?[0-9]*)?"), text);
 
   val.clear();
   text->setText(val);
@@ -112,8 +112,8 @@ TEST_F(ModelEditorFixture, IGLineEdit_Real) {
 TEST_F(ModelEditorFixture, IGLineEdit_Int) {
   InspectorGadget gadget;
   QString val;
-  IGLineEdit* text = new IGLineEdit(val, &gadget, &gadget);
-  auto valid = new QIntValidator(text);
+  auto* text = new IGLineEdit(val, &gadget, &gadget);
+  auto* valid = new QIntValidator(text);
 
   val.clear();
   text->setText(val);
@@ -169,7 +169,7 @@ TEST_F(ModelEditorFixture, IGLineEdit_Int) {
 TEST_F(ModelEditorFixture, IGLineEdit_Text) {
   InspectorGadget gadget;
   QString val;
-  IGLineEdit* text = new IGLineEdit(val, &gadget, &gadget);
+  auto* text = new IGLineEdit(val, &gadget, &gadget);
 
   val.clear();
   text->setText(val);

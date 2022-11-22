@@ -30,7 +30,6 @@
 #include "MaterialsView.hpp"
 
 #include "MaterialAirGapInspectorView.hpp"
-#include "MaterialAirWallInspectorView.hpp"
 #include "MaterialInfraredTransparentInspectorView.hpp"
 #include "MaterialInspectorView.hpp"
 #include "MaterialNoMassInspectorView.hpp"
@@ -82,7 +81,6 @@ std::vector<std::pair<IddObjectType, std::string>> MaterialsView::modelObjectTyp
   result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_WindowMaterial_Shade, "Shade Window Materials"));
 
   // Oddballs to be listed at the bottom of the list
-  result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_Material_AirWall, "Air Wall Materials"));
   result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_Material_InfraredTransparent, "Infrared Transparent Materials"));
   result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_Material_RoofVegetation, "Roof Vegetation Materials"));
   result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_WindowMaterial_Glazing_RefractionExtinctionMethod,
@@ -120,7 +118,7 @@ MaterialsInspectorView::MaterialsInspectorView(bool isIP, const model::Model& mo
 
 void MaterialsInspectorView::onClearSelection() {
   QWidget* widget = this->stackedWidget()->currentWidget();
-  ModelObjectInspectorView* modelObjectInspectorView = qobject_cast<ModelObjectInspectorView*>(widget);
+  auto* modelObjectInspectorView = qobject_cast<ModelObjectInspectorView*>(widget);
   if (modelObjectInspectorView) {
     modelObjectInspectorView->clearSelection();
   }
@@ -137,9 +135,6 @@ void MaterialsInspectorView::onSelectModelObject(const openstudio::model::ModelO
       break;
     case IddObjectType::OS_Material_AirGap:
       this->showMaterialAirGapInspectorView(modelObject);
-      break;
-    case IddObjectType::OS_Material_AirWall:
-      this->showMaterialAirWallInspectorView(modelObject);
       break;
     case IddObjectType::OS_Material_InfraredTransparent:
       this->showMaterialInfraredTransparentInspectorView(modelObject);
@@ -186,7 +181,7 @@ void MaterialsInspectorView::onSelectModelObject(const openstudio::model::ModelO
 }
 
 void MaterialsInspectorView::showMaterialAirGapInspectorView(const openstudio::model::ModelObject& modelObject) {
-  auto view = new MaterialAirGapInspectorView(m_isIP, m_model);
+  auto* view = new MaterialAirGapInspectorView(m_isIP, m_model);
   connect(this, &MaterialsInspectorView::toggleUnitsClicked, view, &MaterialAirGapInspectorView::toggleUnitsClicked);
 
   view->selectModelObject(modelObject);
@@ -194,17 +189,8 @@ void MaterialsInspectorView::showMaterialAirGapInspectorView(const openstudio::m
   this->showInspector(view);
 }
 
-void MaterialsInspectorView::showMaterialAirWallInspectorView(const openstudio::model::ModelObject& modelObject) {
-  auto view = new MaterialAirWallInspectorView(m_isIP, m_model);
-  connect(this, &MaterialsInspectorView::toggleUnitsClicked, view, &MaterialAirWallInspectorView::toggleUnitsClicked);
-
-  view->selectModelObject(modelObject);
-
-  this->showInspector(view);
-}
-
 void MaterialsInspectorView::showMaterialInfraredTransparentInspectorView(const openstudio::model::ModelObject& modelObject) {
-  auto view = new MaterialInfraredTransparentInspectorView(m_isIP, m_model);
+  auto* view = new MaterialInfraredTransparentInspectorView(m_isIP, m_model);
   connect(this, &MaterialsInspectorView::toggleUnitsClicked, view, &MaterialInfraredTransparentInspectorView::toggleUnitsClicked);
 
   view->selectModelObject(modelObject);
@@ -213,7 +199,7 @@ void MaterialsInspectorView::showMaterialInfraredTransparentInspectorView(const 
 }
 
 void MaterialsInspectorView::showMaterialInspectorView(const openstudio::model::ModelObject& modelObject) {
-  auto view = new MaterialInspectorView(m_isIP, m_model);
+  auto* view = new MaterialInspectorView(m_isIP, m_model);
   connect(this, &MaterialsInspectorView::toggleUnitsClicked, view, &MaterialInspectorView::toggleUnitsClicked);
 
   view->selectModelObject(modelObject);
@@ -222,7 +208,7 @@ void MaterialsInspectorView::showMaterialInspectorView(const openstudio::model::
 }
 
 void MaterialsInspectorView::showMaterialNoMassInspectorView(const openstudio::model::ModelObject& modelObject) {
-  auto view = new MaterialNoMassInspectorView(m_isIP, m_model);
+  auto* view = new MaterialNoMassInspectorView(m_isIP, m_model);
   connect(this, &MaterialsInspectorView::toggleUnitsClicked, view, &MaterialNoMassInspectorView::toggleUnitsClicked);
 
   view->selectModelObject(modelObject);
@@ -231,7 +217,7 @@ void MaterialsInspectorView::showMaterialNoMassInspectorView(const openstudio::m
 }
 
 void MaterialsInspectorView::showMaterialRoofVegetationInspectorView(const openstudio::model::ModelObject& modelObject) {
-  auto view = new MaterialRoofVegetationInspectorView(m_isIP, m_model);
+  auto* view = new MaterialRoofVegetationInspectorView(m_isIP, m_model);
   connect(this, &MaterialsInspectorView::toggleUnitsClicked, view, &MaterialRoofVegetationInspectorView::toggleUnitsClicked);
 
   view->selectModelObject(modelObject);
@@ -240,7 +226,7 @@ void MaterialsInspectorView::showMaterialRoofVegetationInspectorView(const opens
 }
 
 void MaterialsInspectorView::showWindowMaterialBlindInspectorView(const openstudio::model::ModelObject& modelObject) {
-  auto view = new WindowMaterialBlindInspectorView(m_isIP, m_model);
+  auto* view = new WindowMaterialBlindInspectorView(m_isIP, m_model);
   connect(this, &MaterialsInspectorView::toggleUnitsClicked, view, &WindowMaterialBlindInspectorView::toggleUnitsClicked);
 
   view->selectModelObject(modelObject);
@@ -249,7 +235,7 @@ void MaterialsInspectorView::showWindowMaterialBlindInspectorView(const openstud
 }
 
 void MaterialsInspectorView::showWindowMaterialDaylightRedirectionDeviceInspectorView(const openstudio::model::ModelObject& modelObject) {
-  auto view = new WindowMaterialDaylightRedirectionDeviceInspectorView(m_isIP, m_model);
+  auto* view = new WindowMaterialDaylightRedirectionDeviceInspectorView(m_isIP, m_model);
   connect(this, &MaterialsInspectorView::toggleUnitsClicked, view, &WindowMaterialDaylightRedirectionDeviceInspectorView::toggleUnitsClicked);
 
   view->selectModelObject(modelObject);
@@ -258,7 +244,7 @@ void MaterialsInspectorView::showWindowMaterialDaylightRedirectionDeviceInspecto
 }
 
 void MaterialsInspectorView::showWindowMaterialGasInspectorView(const openstudio::model::ModelObject& modelObject) {
-  auto view = new WindowMaterialGasInspectorView(m_isIP, m_model);
+  auto* view = new WindowMaterialGasInspectorView(m_isIP, m_model);
   connect(this, &MaterialsInspectorView::toggleUnitsClicked, view, &WindowMaterialGasInspectorView::toggleUnitsClicked);
 
   view->selectModelObject(modelObject);
@@ -267,7 +253,7 @@ void MaterialsInspectorView::showWindowMaterialGasInspectorView(const openstudio
 }
 
 void MaterialsInspectorView::showWindowMaterialGasMixtureInspectorView(const openstudio::model::ModelObject& modelObject) {
-  auto view = new WindowMaterialGasMixtureInspectorView(m_isIP, m_model);
+  auto* view = new WindowMaterialGasMixtureInspectorView(m_isIP, m_model);
   connect(this, &MaterialsInspectorView::toggleUnitsClicked, view, &WindowMaterialGasMixtureInspectorView::toggleUnitsClicked);
 
   view->selectModelObject(modelObject);
@@ -276,7 +262,7 @@ void MaterialsInspectorView::showWindowMaterialGasMixtureInspectorView(const ope
 }
 
 void MaterialsInspectorView::showWindowMaterialGlazingGroupThermochromicInspectorView(const openstudio::model::ModelObject& modelObject) {
-  auto view = new WindowMaterialGlazingGroupThermochromicInspectorView(m_isIP, m_model);
+  auto* view = new WindowMaterialGlazingGroupThermochromicInspectorView(m_isIP, m_model);
   connect(this, &MaterialsInspectorView::toggleUnitsClicked, view, &WindowMaterialGlazingGroupThermochromicInspectorView::toggleUnitsClicked);
 
   view->selectModelObject(modelObject);
@@ -285,7 +271,7 @@ void MaterialsInspectorView::showWindowMaterialGlazingGroupThermochromicInspecto
 }
 
 void MaterialsInspectorView::showWindowMaterialGlazingInspectorView(const openstudio::model::ModelObject& modelObject) {
-  auto view = new WindowMaterialGlazingInspectorView(m_isIP, m_model);
+  auto* view = new WindowMaterialGlazingInspectorView(m_isIP, m_model);
   connect(this, &MaterialsInspectorView::toggleUnitsClicked, view, &WindowMaterialGlazingInspectorView::toggleUnitsClicked);
 
   view->selectModelObject(modelObject);
@@ -294,7 +280,7 @@ void MaterialsInspectorView::showWindowMaterialGlazingInspectorView(const openst
 }
 
 void MaterialsInspectorView::showWindowMaterialGlazingRefractionExtinctionMethodInspectorView(const openstudio::model::ModelObject& modelObject) {
-  auto view = new WindowMaterialGlazingRefractionExtinctionMethodInspectorView(m_isIP, m_model);
+  auto* view = new WindowMaterialGlazingRefractionExtinctionMethodInspectorView(m_isIP, m_model);
   connect(this, &MaterialsInspectorView::toggleUnitsClicked, view, &WindowMaterialGlazingRefractionExtinctionMethodInspectorView::toggleUnitsClicked);
 
   view->selectModelObject(modelObject);
@@ -303,7 +289,7 @@ void MaterialsInspectorView::showWindowMaterialGlazingRefractionExtinctionMethod
 }
 
 void MaterialsInspectorView::showWindowMaterialScreenInspectorView(const openstudio::model::ModelObject& modelObject) {
-  auto view = new WindowMaterialScreenInspectorView(m_isIP, m_model);
+  auto* view = new WindowMaterialScreenInspectorView(m_isIP, m_model);
   connect(this, &MaterialsInspectorView::toggleUnitsClicked, view, &WindowMaterialScreenInspectorView::toggleUnitsClicked);
 
   view->selectModelObject(modelObject);
@@ -312,7 +298,7 @@ void MaterialsInspectorView::showWindowMaterialScreenInspectorView(const openstu
 }
 
 void MaterialsInspectorView::showWindowMaterialShadeInspectorView(const openstudio::model::ModelObject& modelObject) {
-  auto view = new WindowMaterialShadeInspectorView(m_isIP, m_model);
+  auto* view = new WindowMaterialShadeInspectorView(m_isIP, m_model);
   connect(this, &MaterialsInspectorView::toggleUnitsClicked, view, &WindowMaterialShadeInspectorView::toggleUnitsClicked);
 
   view->selectModelObject(modelObject);
@@ -321,7 +307,7 @@ void MaterialsInspectorView::showWindowMaterialShadeInspectorView(const openstud
 }
 
 void MaterialsInspectorView::showWindowMaterialSimpleGlazingSystemInspectorView(const openstudio::model::ModelObject& modelObject) {
-  auto view = new WindowMaterialSimpleGlazingSystemInspectorView(m_isIP, m_model);
+  auto* view = new WindowMaterialSimpleGlazingSystemInspectorView(m_isIP, m_model);
   connect(this, &MaterialsInspectorView::toggleUnitsClicked, view, &WindowMaterialSimpleGlazingSystemInspectorView::toggleUnitsClicked);
 
   view->selectModelObject(modelObject);

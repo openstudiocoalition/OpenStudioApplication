@@ -419,7 +419,9 @@ QString SpacesDaylightingGridController::getColor(const model::ModelObject& mode
 }
 
 void SpacesDaylightingGridController::checkSelectedFields() {
-  if (!this->hasHorizontalHeader()) return;
+  if (!this->hasHorizontalHeader()) {
+    return;
+  }
 
   OSGridController::checkSelectedFields();
 }

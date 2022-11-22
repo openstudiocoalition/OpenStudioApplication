@@ -45,7 +45,7 @@ ModelObjectTypeItem::ModelObjectTypeItem(OSCollapsibleItemHeader* collapsibleIte
 
 IddObjectType ModelObjectTypeItem::iddObjectType() const {
   OSItemList* itemList = this->itemList();
-  ModelObjectListView* modelObjectListView = qobject_cast<ModelObjectListView*>(itemList);
+  auto* modelObjectListView = qobject_cast<ModelObjectListView*>(itemList);
   OS_ASSERT(modelObjectListView);
   return modelObjectListView->iddObjectType();
 }

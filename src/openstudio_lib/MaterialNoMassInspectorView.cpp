@@ -54,13 +54,13 @@ MaterialNoMassInspectorView::MaterialNoMassInspectorView(bool isIP, const openst
 }
 
 void MaterialNoMassInspectorView::createLayout() {
-  auto hiddenWidget = new QWidget();
+  auto* hiddenWidget = new QWidget();
   this->stackedWidget()->addWidget(hiddenWidget);
 
-  auto visibleWidget = new QWidget();
+  auto* visibleWidget = new QWidget();
   this->stackedWidget()->addWidget(visibleWidget);
 
-  auto mainGridLayout = new QGridLayout();
+  auto* mainGridLayout = new QGridLayout();
   mainGridLayout->setContentsMargins(7, 7, 7, 7);
   mainGridLayout->setSpacing(14);
   visibleWidget->setLayout(mainGridLayout);
@@ -158,7 +158,7 @@ void MaterialNoMassInspectorView::onClearSelection() {
 
 void MaterialNoMassInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject) {
   detach();
-  model::MasslessOpaqueMaterial masslessOpaqueMaterial = modelObject.cast<model::MasslessOpaqueMaterial>();
+  auto masslessOpaqueMaterial = modelObject.cast<model::MasslessOpaqueMaterial>();
   attach(masslessOpaqueMaterial);
   refresh();
 }

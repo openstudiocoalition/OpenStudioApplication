@@ -52,7 +52,7 @@ class TestGridController : public OSGridController
                      const std::vector<model::ModelObject>& modelObjects)
     : OSGridController(isIP, headerText, iddObjectType, model, modelObjects) {}
 
-  virtual ~TestGridController() {}
+  virtual ~TestGridController() = default;
 
   virtual void refreshModelObjects() override {}
 

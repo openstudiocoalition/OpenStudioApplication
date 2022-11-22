@@ -141,11 +141,7 @@ void ConstructionObjectVectorController::insert(const OSItemId& itemId, int inse
       // Need a valid widget to hang the msgbox on
       OS_ASSERT(this->parentWidget());
 
-      if (existingLayerType == ConstructionObjectVectorController::AIRWALL) {
-        // Only 1 layer allowed for AirWall
-        QMessageBox::warning(this->parentWidget(), "Error Adding Layer", "Only 1 layer allowed for an AirWall.", QMessageBox::Ok);
-        return;
-      } else if (newLayerType != existingLayerType) {
+      if (newLayerType != existingLayerType) {
         // New layer type must match existing layer type
         QMessageBox::warning(this->parentWidget(), "Error Adding Layer", "New layer type must match existing layer type.", QMessageBox::Ok);
         return;
@@ -229,8 +225,6 @@ ConstructionObjectVectorController::LayerType ConstructionObjectVectorController
              || iddObjectType == IddObjectType::OS_Material_InfraredTransparent || iddObjectType == IddObjectType::OS_Material_NoMass
              || iddObjectType == IddObjectType::OS_Material_RoofVegetation) {
     return ConstructionObjectVectorController::OPAQUE;
-  } else if (iddObjectType == IddObjectType::OS_Material_AirWall) {
-    return ConstructionObjectVectorController::AIRWALL;
   } else {
     // Should never get here
     OS_ASSERT(false);

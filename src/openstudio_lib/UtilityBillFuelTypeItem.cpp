@@ -50,7 +50,7 @@ UtilityBillFuelTypeItem::UtilityBillFuelTypeItem(OSCollapsibleItemHeader* collap
 
 IddObjectType UtilityBillFuelTypeItem::iddObjectType() const {
   OSItemList* itemList = this->itemList();
-  UtilityBillFuelTypeListView* utilityBillFuelTypeListView = qobject_cast<UtilityBillFuelTypeListView*>(itemList);
+  auto* utilityBillFuelTypeListView = qobject_cast<UtilityBillFuelTypeListView*>(itemList);
   OS_ASSERT(utilityBillFuelTypeListView);
   OS_ASSERT(utilityBillFuelTypeListView->iddObjectType() == openstudio::IddObjectType::OS_UtilityBill);
   return utilityBillFuelTypeListView->iddObjectType();
@@ -58,7 +58,7 @@ IddObjectType UtilityBillFuelTypeItem::iddObjectType() const {
 
 FuelType UtilityBillFuelTypeItem::fuelType() const {
   OSItemList* itemList = this->itemList();
-  UtilityBillFuelTypeListView* utilityBillFuelTypeListView = qobject_cast<UtilityBillFuelTypeListView*>(itemList);
+  auto* utilityBillFuelTypeListView = qobject_cast<UtilityBillFuelTypeListView*>(itemList);
   OS_ASSERT(utilityBillFuelTypeListView);
   FuelType fuelType = utilityBillFuelTypeListView->fuelType();
   return fuelType;

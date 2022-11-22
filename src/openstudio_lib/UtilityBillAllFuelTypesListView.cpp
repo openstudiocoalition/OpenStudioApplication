@@ -66,31 +66,31 @@ UtilityBillAllFuelTypesListView::UtilityBillAllFuelTypesListView(const std::vect
 }
 
 void UtilityBillAllFuelTypesListView::addModelObjectType(const IddObjectType& iddObjectType, const std::string& name) {
-  OSCollapsibleItemHeader* collapsibleItemHeader = new OSCollapsibleItemHeader(name, OSItemId("", "", false), m_headerType);
-  auto modelObjectListView = new ModelObjectListView(iddObjectType, m_model, false, false);
-  auto modelObjectTypeItem = new ModelObjectTypeItem(collapsibleItemHeader, modelObjectListView);
+  auto* collapsibleItemHeader = new OSCollapsibleItemHeader(name, OSItemId("", "", false), m_headerType);
+  auto* modelObjectListView = new ModelObjectListView(iddObjectType, m_model, false, false);
+  auto* modelObjectTypeItem = new ModelObjectTypeItem(collapsibleItemHeader, modelObjectListView);
 
   addCollapsibleItem(modelObjectTypeItem);
 }
 
 void UtilityBillAllFuelTypesListView::addUtilityBillFuelType(const FuelType& fuelType, const std::string& name) {
-  OSCollapsibleItemHeader* collapsibleItemHeader = new OSCollapsibleItemHeader(name, OSItemId("", "", false), m_headerType);
-  auto utilityBillFuelTypeListView = new UtilityBillFuelTypeListView(m_model, fuelType, false);
-  auto utilityBillFuelTypeItem = new UtilityBillFuelTypeItem(collapsibleItemHeader, utilityBillFuelTypeListView);
+  auto* collapsibleItemHeader = new OSCollapsibleItemHeader(name, OSItemId("", "", false), m_headerType);
+  auto* utilityBillFuelTypeListView = new UtilityBillFuelTypeListView(m_model, fuelType, false);
+  auto* utilityBillFuelTypeItem = new UtilityBillFuelTypeItem(collapsibleItemHeader, utilityBillFuelTypeListView);
 
   addCollapsibleItem(utilityBillFuelTypeItem);
 }
 
 FuelType UtilityBillAllFuelTypesListView::currentFuelType() const {
   OSCollapsibleItem* selectedCollapsibleItem = this->selectedCollapsibleItem();
-  UtilityBillFuelTypeItem* utilityBillFuelTypeItem = qobject_cast<UtilityBillFuelTypeItem*>(selectedCollapsibleItem);
+  auto* utilityBillFuelTypeItem = qobject_cast<UtilityBillFuelTypeItem*>(selectedCollapsibleItem);
   OS_ASSERT(utilityBillFuelTypeItem);
   return utilityBillFuelTypeItem->fuelType();
 }
 
 boost::optional<openstudio::model::ModelObject> UtilityBillAllFuelTypesListView::selectedModelObject() const {
   OSItem* selectedItem = this->selectedItem();
-  ModelObjectItem* modelObjectItem = qobject_cast<ModelObjectItem*>(selectedItem);
+  auto* modelObjectItem = qobject_cast<ModelObjectItem*>(selectedItem);
   if (modelObjectItem) {
     return modelObjectItem->modelObject();
   }

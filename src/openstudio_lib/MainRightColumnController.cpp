@@ -262,7 +262,7 @@ void MainRightColumnController::configureForSchedulesSubTab(int subTabID) {
       model::Model lib = doc->componentLibrary();
 
       // my model
-      auto myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader);
+      auto* myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader);
       myModelList->setItemsType(OSItemType::LibraryItem);
       myModelList->setItemsDraggable(true);
       myModelList->setItemsRemoveable(false);
@@ -278,7 +278,7 @@ void MainRightColumnController::configureForSchedulesSubTab(int subTabID) {
       setMyModelView(myModelList);
 
       // my library
-      auto myLibraryList = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader);
+      auto* myLibraryList = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader);
       myLibraryList->setItemsDraggable(true);
       myLibraryList->setItemsRemoveable(false);
       myLibraryList->setItemsType(OSItemType::LibraryItem);
@@ -301,7 +301,7 @@ void MainRightColumnController::configureForSchedulesSubTab(int subTabID) {
       model::Model lib = doc->componentLibrary();
 
       // my library
-      auto myLibraryList = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader);
+      auto* myLibraryList = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader);
       myLibraryList->setItemsDraggable(true);
       myLibraryList->setItemsRemoveable(false);
       myLibraryList->setItemsType(OSItemType::LibraryItem);
@@ -332,7 +332,7 @@ void MainRightColumnController::configureForConstructionsSubTab(int subTabID) {
       model::Model lib = doc->componentLibrary();
 
       // my model
-      auto myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader);
+      auto* myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader);
       myModelList->setItemsDraggable(true);
       myModelList->setItemsRemoveable(false);
       myModelList->setItemsType(OSItemType::LibraryItem);
@@ -348,7 +348,7 @@ void MainRightColumnController::configureForConstructionsSubTab(int subTabID) {
       setMyModelView(myModelList);
 
       // my library
-      auto myLibraryList = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader, true);
+      auto* myLibraryList = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader, true);
       myLibraryList->setItemsDraggable(true);
       myLibraryList->setItemsRemoveable(false);
       myLibraryList->setItemsType(OSItemType::LibraryItem);
@@ -371,7 +371,7 @@ void MainRightColumnController::configureForConstructionsSubTab(int subTabID) {
       model::Model lib = doc->componentLibrary();
 
       // my model
-      auto myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader);
+      auto* myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader);
       myModelList->setItemsDraggable(true);
       myModelList->setItemsRemoveable(false);
       myModelList->setItemsType(OSItemType::LibraryItem);
@@ -393,7 +393,6 @@ void MainRightColumnController::configureForConstructionsSubTab(int subTabID) {
 
       myModelList->addModelObjectType(IddObjectType::OS_Material_RoofVegetation, "Roof Vegetation Materials");
       myModelList->addModelObjectType(IddObjectType::OS_Material_InfraredTransparent, "Infrared Transparent Materials");
-      myModelList->addModelObjectType(IddObjectType::OS_Material_AirWall, "Air Wall Materials");
       myModelList->addModelObjectType(IddObjectType::OS_Material_AirGap, "Air Gap Materials");
       myModelList->addModelObjectType(IddObjectType::OS_Material_NoMass, "No Mass Materials");
       myModelList->addModelObjectType(IddObjectType::OS_Material, "Materials");
@@ -401,7 +400,7 @@ void MainRightColumnController::configureForConstructionsSubTab(int subTabID) {
       setMyModelView(myModelList);
 
       // my library
-      auto myLibraryList = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader, true);
+      auto* myLibraryList = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader, true);
       myLibraryList->setItemsDraggable(true);
       myLibraryList->setItemsRemoveable(false);
       myLibraryList->setItemsType(OSItemType::LibraryItem);
@@ -422,7 +421,6 @@ void MainRightColumnController::configureForConstructionsSubTab(int subTabID) {
 
       myLibraryList->addModelObjectType(IddObjectType::OS_Material_RoofVegetation, "Roof Vegetation Materials");
       myLibraryList->addModelObjectType(IddObjectType::OS_Material_InfraredTransparent, "Infrared Transparent Materials");
-      myLibraryList->addModelObjectType(IddObjectType::OS_Material_AirWall, "Air Wall Materials");
       myLibraryList->addModelObjectType(IddObjectType::OS_Material_AirGap, "Air Gap Materials");
       myLibraryList->addModelObjectType(IddObjectType::OS_Material_NoMass, "No Mass Materials");
       myLibraryList->addModelObjectType(IddObjectType::OS_Material, "Materials");
@@ -443,7 +441,7 @@ void MainRightColumnController::configureForConstructionsSubTab(int subTabID) {
       model::Model lib = doc->componentLibrary();
 
       // my model
-      auto myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader);
+      auto* myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader);
       myModelList->setItemsDraggable(true);
       myModelList->setItemsRemoveable(false);
       myModelList->setItemsType(OSItemType::LibraryItem);
@@ -452,7 +450,7 @@ void MainRightColumnController::configureForConstructionsSubTab(int subTabID) {
       setMyModelView(myModelList);
 
       // my library
-      auto myLibraryList = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader, true);
+      auto* myLibraryList = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader, true);
       myLibraryList->setItemsDraggable(true);
       myLibraryList->setItemsRemoveable(false);
       myLibraryList->setItemsType(OSItemType::LibraryItem);
@@ -474,7 +472,6 @@ void MainRightColumnController::configureForConstructionsSubTab(int subTabID) {
 
       myLibraryList->addModelObjectType(IddObjectType::OS_Material_RoofVegetation, "Roof Vegetation Materials");
       myLibraryList->addModelObjectType(IddObjectType::OS_Material_InfraredTransparent, "Infrared Transparent Materials");
-      myLibraryList->addModelObjectType(IddObjectType::OS_Material_AirWall, "Air Wall Materials");
       myLibraryList->addModelObjectType(IddObjectType::OS_Material_AirGap, "Air Gap Materials");
       myLibraryList->addModelObjectType(IddObjectType::OS_Material_NoMass, "No Mass Materials");
       myLibraryList->addModelObjectType(IddObjectType::OS_Material, "Materials");
@@ -519,7 +516,7 @@ void MainRightColumnController::configureForLoadsSubTab(int subTabID) {
 
   // my model
 
-  auto myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader);
+  auto* myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader);
   myModelList->setItemsDraggable(true);
   myModelList->setItemsRemoveable(false);
   myModelList->setItemsType(OSItemType::LibraryItem);
@@ -542,7 +539,7 @@ void MainRightColumnController::configureForLoadsSubTab(int subTabID) {
 
   // my library
 
-  auto myLibraryList = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader, true);
+  auto* myLibraryList = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader, true);
   myLibraryList->setItemsDraggable(true);
   myLibraryList->setItemsRemoveable(false);
   myLibraryList->setItemsType(OSItemType::LibraryItem);
@@ -585,7 +582,7 @@ void MainRightColumnController::configureForSpaceTypesSubTab(int subTabID) {
   std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
 
   // my model
-  auto myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader);
+  auto* myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader);
   myModelList->setItemsDraggable(true);
   myModelList->setItemsRemoveable(false);
   myModelList->setItemsType(OSItemType::LibraryItem);
@@ -627,7 +624,7 @@ void MainRightColumnController::configureForSpaceTypesSubTab(int subTabID) {
   // my library
   model::Model lib = doc->componentLibrary();
 
-  auto myLibraryList = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader, true);
+  auto* myLibraryList = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader, true);
   myLibraryList->setItemsDraggable(true);
   myLibraryList->setItemsRemoveable(false);
   myLibraryList->setItemsType(OSItemType::LibraryItem);
@@ -667,7 +664,7 @@ void MainRightColumnController::configureForFacilitySubTab(int subTabID) {
   std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
 
   // my model
-  auto myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader);
+  auto* myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader);
   myModelList->setItemsDraggable(true);
   myModelList->setItemsRemoveable(false);
   myModelList->setItemsType(OSItemType::LibraryItem);
@@ -713,7 +710,7 @@ void MainRightColumnController::configureForFacilitySubTab(int subTabID) {
   // Library
   model::Model lib = doc->componentLibrary();
 
-  auto myLibraryList = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader);
+  auto* myLibraryList = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader);
   myLibraryList->setItemsDraggable(true);
   myLibraryList->setItemsRemoveable(false);
   myLibraryList->setItemsType(OSItemType::LibraryItem);
@@ -774,7 +771,7 @@ void MainRightColumnController::configureForSpacesSubTab(int subTabID) {
   std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
 
   // my model
-  auto myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader);
+  auto* myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader);
   myModelList->setItemsDraggable(true);
   myModelList->setItemsRemoveable(false);
   myModelList->setItemsType(OSItemType::LibraryItem);
@@ -825,7 +822,7 @@ void MainRightColumnController::configureForSpacesSubTab(int subTabID) {
   // Library
   model::Model lib = doc->componentLibrary();
 
-  auto myLibraryList = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader, true);
+  auto* myLibraryList = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader, true);
   myLibraryList->setItemsDraggable(true);
   myLibraryList->setItemsRemoveable(false);
   myLibraryList->setItemsType(OSItemType::LibraryItem);
@@ -889,7 +886,7 @@ void MainRightColumnController::configureForThermalZonesSubTab(int subTabID) {
 
   // My Model
 
-  auto myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader);
+  auto* myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader);
   myModelList->setItemsDraggable(true);
   myModelList->setItemsRemoveable(false);
   myModelList->setItemsType(OSItemType::LibraryItem);
@@ -908,7 +905,7 @@ void MainRightColumnController::configureForThermalZonesSubTab(int subTabID) {
   // Library
   model::Model lib = doc->componentLibrary();
 
-  auto libraryWidget = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader);
+  auto* libraryWidget = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader);
   libraryWidget->setItemsDraggable(true);
   libraryWidget->setItemsRemoveable(false);
   libraryWidget->setItemsType(OSItemType::LibraryItem);
@@ -956,7 +953,7 @@ void MainRightColumnController::configureForHVACSystemsSubTab(int subTabID) {
   setEditView(nullptr);
 
   // my model
-  auto myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader);
+  auto* myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader);
   myModelList->setItemsDraggable(true);
   myModelList->setItemsRemoveable(false);
   myModelList->setItemsType(OSItemType::LibraryItem);
@@ -1011,7 +1008,7 @@ void MainRightColumnController::configureForHVACSystemsSubTab(int subTabID) {
 
   model::Model lib = doc->componentLibrary();
 
-  auto libraryWidget = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader, true);
+  auto* libraryWidget = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader, true);
   libraryWidget->setItemsDraggable(true);
   libraryWidget->setItemsRemoveable(false);
   libraryWidget->setItemsType(OSItemType::LibraryItem);

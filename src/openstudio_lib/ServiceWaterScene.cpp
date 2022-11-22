@@ -66,7 +66,7 @@ void ServiceWaterScene::layout() {
     delete *it;
   }
 
-  auto backgroundItem = new ServiceWaterItem(this);
+  auto* backgroundItem = new ServiceWaterItem(this);
 
   Q_UNUSED(backgroundItem);
 }
@@ -77,7 +77,7 @@ model::Model ServiceWaterScene::model() const {
 
 void ServiceWaterScene::onAddedWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> wPtr, const openstudio::IddObjectType& type,
                                                const openstudio::UUID& uuid) {
-  model::detail::WaterUseConnections_Impl* hvac_impl = dynamic_cast<model::detail::WaterUseConnections_Impl*>(wPtr.get());
+  auto* hvac_impl = dynamic_cast<model::detail::WaterUseConnections_Impl*>(wPtr.get());
   if (hvac_impl) {
     m_dirty = true;
 

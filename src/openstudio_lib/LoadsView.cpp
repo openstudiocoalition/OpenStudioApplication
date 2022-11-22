@@ -137,7 +137,7 @@ void LoadsInspectorView::showInspector(QWidget* widget) {
 }
 
 void LoadsInspectorView::showPeopleDefinitionsInspector(const openstudio::model::ModelObject& modelObject) {
-  auto peopleDefinitionInspectorView = new PeopleDefinitionInspectorView(m_isIP, m_model);
+  auto* peopleDefinitionInspectorView = new PeopleDefinitionInspectorView(m_isIP, m_model);
   connect(this, &LoadsInspectorView::toggleUnitsClicked, peopleDefinitionInspectorView, &PeopleDefinitionInspectorView::toggleUnitsClicked);
 
   peopleDefinitionInspectorView->selectModelObject(modelObject);
@@ -146,7 +146,7 @@ void LoadsInspectorView::showPeopleDefinitionsInspector(const openstudio::model:
 }
 
 void LoadsInspectorView::showLightsDefinitionsInspector(const openstudio::model::ModelObject& modelObject) {
-  auto lightsDefinitionInspectorView = new LightsDefinitionInspectorView(m_isIP, m_model);
+  auto* lightsDefinitionInspectorView = new LightsDefinitionInspectorView(m_isIP, m_model);
   connect(this, &LoadsInspectorView::toggleUnitsClicked, lightsDefinitionInspectorView, &LightsDefinitionInspectorView::toggleUnitsClicked);
 
   lightsDefinitionInspectorView->selectModelObject(modelObject);
@@ -155,7 +155,7 @@ void LoadsInspectorView::showLightsDefinitionsInspector(const openstudio::model:
 }
 
 void LoadsInspectorView::showLuminaireDefinitionsInspector(const openstudio::model::ModelObject& modelObject) {
-  auto luminaireDefinitionInspectorView = new LuminaireDefinitionInspectorView(m_isIP, m_model);
+  auto* luminaireDefinitionInspectorView = new LuminaireDefinitionInspectorView(m_isIP, m_model);
   connect(this, &LoadsInspectorView::toggleUnitsClicked, luminaireDefinitionInspectorView, &LuminaireDefinitionInspectorView::toggleUnitsClicked);
 
   luminaireDefinitionInspectorView->selectModelObject(modelObject);
@@ -164,7 +164,7 @@ void LoadsInspectorView::showLuminaireDefinitionsInspector(const openstudio::mod
 }
 
 void LoadsInspectorView::showElectricEquipmentDefinitionsInspector(const openstudio::model::ModelObject& modelObject) {
-  auto electricEquipmentDefinitionInspectorView = new ElectricEquipmentDefinitionInspectorView(m_isIP, m_model);
+  auto* electricEquipmentDefinitionInspectorView = new ElectricEquipmentDefinitionInspectorView(m_isIP, m_model);
   connect(this, &LoadsInspectorView::toggleUnitsClicked, electricEquipmentDefinitionInspectorView,
           &ElectricEquipmentDefinitionInspectorView::toggleUnitsClicked);
 
@@ -174,7 +174,7 @@ void LoadsInspectorView::showElectricEquipmentDefinitionsInspector(const openstu
 }
 
 void LoadsInspectorView::showGasEquipmentDefinitionsInspector(const openstudio::model::ModelObject& modelObject) {
-  auto gasEquipmentDefinitionInspectorView = new GasEquipmentDefinitionInspectorView(m_isIP, m_model);
+  auto* gasEquipmentDefinitionInspectorView = new GasEquipmentDefinitionInspectorView(m_isIP, m_model);
   connect(this, &LoadsInspectorView::toggleUnitsClicked, gasEquipmentDefinitionInspectorView,
           &GasEquipmentDefinitionInspectorView::toggleUnitsClicked);
 
@@ -184,7 +184,7 @@ void LoadsInspectorView::showGasEquipmentDefinitionsInspector(const openstudio::
 }
 
 void LoadsInspectorView::showSteamEquipmentDefinitionsInspector(const openstudio::model::ModelObject& modelObject) {
-  auto steamEquipmentDefinitionInspectorView = new SteamEquipmentDefinitionInspectorView(m_isIP, m_model);
+  auto* steamEquipmentDefinitionInspectorView = new SteamEquipmentDefinitionInspectorView(m_isIP, m_model);
   connect(this, &LoadsInspectorView::toggleUnitsClicked, steamEquipmentDefinitionInspectorView,
           &SteamEquipmentDefinitionInspectorView::toggleUnitsClicked);
 
@@ -194,7 +194,7 @@ void LoadsInspectorView::showSteamEquipmentDefinitionsInspector(const openstudio
 }
 
 void LoadsInspectorView::showOtherEquipmentDefinitionsInspector(const openstudio::model::ModelObject& modelObject) {
-  auto otherEquipmentDefinitionInspectorView = new OtherEquipmentDefinitionInspectorView(m_isIP, m_model);
+  auto* otherEquipmentDefinitionInspectorView = new OtherEquipmentDefinitionInspectorView(m_isIP, m_model);
   connect(this, &LoadsInspectorView::toggleUnitsClicked, otherEquipmentDefinitionInspectorView,
           &OtherEquipmentDefinitionInspectorView::toggleUnitsClicked);
 
@@ -204,7 +204,7 @@ void LoadsInspectorView::showOtherEquipmentDefinitionsInspector(const openstudio
 }
 
 void LoadsInspectorView::showWaterUseEquipmentDefinitionsInspector(const openstudio::model::ModelObject& modelObject) {
-  auto waterUseEquipmentDefinitionInspectorView = new WaterUseEquipmentDefinitionInspectorView(m_isIP, m_model);
+  auto* waterUseEquipmentDefinitionInspectorView = new WaterUseEquipmentDefinitionInspectorView(m_isIP, m_model);
   connect(this, &LoadsInspectorView::toggleUnitsClicked, waterUseEquipmentDefinitionInspectorView,
           &WaterUseEquipmentDefinitionInspectorView::toggleUnitsClicked);
 
@@ -214,7 +214,7 @@ void LoadsInspectorView::showWaterUseEquipmentDefinitionsInspector(const openstu
 }
 
 void LoadsInspectorView::showInternalMassDefinitionsInspector(const openstudio::model::ModelObject& modelObject) {
-  auto internalMassDefinitionInspectorView = new InternalMassDefinitionInspectorView(m_isIP, m_model);
+  auto* internalMassDefinitionInspectorView = new InternalMassDefinitionInspectorView(m_isIP, m_model);
   connect(this, &LoadsInspectorView::toggleUnitsClicked, internalMassDefinitionInspectorView,
           &InternalMassDefinitionInspectorView::toggleUnitsClicked);
 

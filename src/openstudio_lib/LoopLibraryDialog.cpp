@@ -46,27 +46,27 @@ LoopLibraryDialog::LoopLibraryDialog(QWidget* parent) : QDialog(parent) {
   setWindowTitle("Add HVAC System");
   setWindowFlags(Qt::WindowFlags(Qt::Dialog | Qt::WindowTitleHint | Qt::WindowCloseButtonHint));
 
-  auto mainVLayout = new QVBoxLayout();
+  auto* mainVLayout = new QVBoxLayout();
   mainVLayout->setContentsMargins(0, 0, 0, 0);
   mainVLayout->setSpacing(0);
   setLayout(mainVLayout);
 
-  QLabel* loopsLabel = new QLabel("HVAC Systems");
+  auto* loopsLabel = new QLabel("HVAC Systems");
   loopsLabel->setStyleSheet("QLabel { margin-left: 5px; }");
   mainVLayout->addSpacing(5);
   mainVLayout->addWidget(loopsLabel);
   mainVLayout->addSpacing(5);
 
-  auto divider = new QFrame();
+  auto* divider = new QFrame();
   divider->setFrameShape(QFrame::HLine);
   divider->setFrameShadow(QFrame::Sunken);
   mainVLayout->addWidget(divider);
 
-  auto scrollAreaWidget = new QWidget();
+  auto* scrollAreaWidget = new QWidget();
   scrollAreaWidget->setContentsMargins(0, 0, 0, 0);
   scrollAreaWidget->setObjectName("GrayWidget");
 
-  auto scrollAreaLayout = new QVBoxLayout();
+  auto* scrollAreaLayout = new QVBoxLayout();
   scrollAreaLayout->setContentsMargins(0, 0, 0, 0);
   scrollAreaLayout->setSpacing(0);
   scrollAreaLayout->setAlignment(Qt::AlignTop);
@@ -135,13 +135,13 @@ boost::optional<AddToModelEnum> LoopLibraryDialog::addToModelEnum() const {
 }
 
 void LoopLibraryDialog::newItem(const AddToModelEnum& addToModelEnum, const QString& detailedText, const QPixmap& pixmap) {
-  auto itemView = new LoopItemView(addToModelEnum, detailedText, pixmap);
+  auto* itemView = new LoopItemView(addToModelEnum, detailedText, pixmap);
 
   connect(itemView, &LoopItemView::addToModelClicked, this, &LoopLibraryDialog::onAddToModelClicked);
 
   m_scrollArea->widget()->layout()->addWidget(itemView);
 
-  auto divider = new QFrame();
+  auto* divider = new QFrame();
   divider->setFrameShape(QFrame::HLine);
   divider->setFrameShadow(QFrame::Sunken);
 
@@ -150,19 +150,19 @@ void LoopLibraryDialog::newItem(const AddToModelEnum& addToModelEnum, const QStr
 
 LoopItemView::LoopItemView(const AddToModelEnum& addToModelEnum, const QString& detailedText, const QPixmap& pixmap, QWidget* parent)
   : QWidget(parent), m_addToModelEnum(addToModelEnum), m_detailedText(detailedText), m_pixmap(pixmap) {
-  auto mainVLayout = new QVBoxLayout();
+  auto* mainVLayout = new QVBoxLayout();
 
   setLayout(mainVLayout);
 
-  auto label = new QLabel(detailedText);
+  auto* label = new QLabel(detailedText);
   mainVLayout->addWidget(label, 0, Qt::AlignLeft);
 
-  auto imageLabel = new QLabel();
+  auto* imageLabel = new QLabel();
   imageLabel->setFixedSize(m_pixmap.size());
   imageLabel->setPixmap(m_pixmap);
   mainVLayout->addWidget(imageLabel, 0, Qt::AlignCenter);
 
-  auto button = new QPushButton();
+  auto* button = new QPushButton();
   button->setText("Add to Model");
   button->setObjectName("StandardGrayButton");
   mainVLayout->addWidget(button, 0, Qt::AlignRight);

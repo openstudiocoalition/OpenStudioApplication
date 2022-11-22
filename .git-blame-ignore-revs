@@ -266,5 +266,11 @@ abcabd4cb0a2144b81e74212b19cc2dde1f04797
 # Bump copyright [chore] [Julien Marrec, 2022-05-09]
 fd8be868ee9c5daae25299c49cb5c6e26aadce10
 
-# Bump copyright in extra files [chore] [Julien Marrec, 2022-05-09]
-626f67789419b0a44b4f911b4d95696889603af3
+# Merge pull request #531 from openstudiocoalition/copyright2022 [Julien Marrec, 2022-05-10]
+c25573f81282ad7aa0eb72ac24e31c57308cb038
+
+# [chore] clang format [Julien Marrec, 2022-10-18]
+807ddf14f1ed360f4d465a70a91b65c99801b96a
+
+# [chore] Run Clang Tidy for 3 checks: `readability-qualified-auto`, `modernize-use-auto`, `modernize-use-using -fix` [Julien Marrec, 2022-10-24]
+3a91d3a7ae052993ff2e1b853c3ff99f112697c4

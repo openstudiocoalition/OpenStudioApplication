@@ -108,10 +108,10 @@ void SubTabView::connectItemSelectorButtons() {
 }
 
 void SubTabView::createLayout() {
-  auto leftWidget = new QWidget();
+  auto* leftWidget = new QWidget();
   addWidget(leftWidget);
 
-  auto outerLeftVLayout = new QVBoxLayout();
+  auto* outerLeftVLayout = new QVBoxLayout();
   outerLeftVLayout->setContentsMargins(0, 0, 0, 0);
   outerLeftVLayout->setSpacing(0);
   leftWidget->setLayout(outerLeftVLayout);
@@ -125,10 +125,10 @@ void SubTabView::createLayout() {
 }
 
 void SubTabView::createGridViewLayout() {
-  auto widget = new QWidget();
+  auto* widget = new QWidget();
   addWidget(widget);
 
-  auto layout = new QVBoxLayout();
+  auto* layout = new QVBoxLayout();
   layout->setContentsMargins(0, 0, 0, 0);
   layout->setSpacing(0);
   widget->setLayout(layout);

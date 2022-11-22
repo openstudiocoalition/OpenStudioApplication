@@ -50,17 +50,17 @@ ConstructionWindowDataFileInspectorView::ConstructionWindowDataFileInspectorView
 }
 
 void ConstructionWindowDataFileInspectorView::createLayout() {
-  auto visibleWidget = new QWidget();
+  auto* visibleWidget = new QWidget();
   this->stackedWidget()->addWidget(visibleWidget);
 
-  auto mainGridLayout = new QGridLayout();
+  auto* mainGridLayout = new QGridLayout();
   mainGridLayout->setContentsMargins(7, 7, 7, 7);
   mainGridLayout->setSpacing(14);
   visibleWidget->setLayout(mainGridLayout);
 
   // URL
 
-  QLabel* label = new QLabel("URL: ");
+  auto* label = new QLabel("URL: ");
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 2, 0);
 
@@ -82,7 +82,7 @@ void ConstructionWindowDataFileInspectorView::onClearSelection() {
 
 void ConstructionWindowDataFileInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject) {
   detach();
-  model::WindowDataFile windowDataFile = modelObject.cast<model::WindowDataFile>();
+  auto windowDataFile = modelObject.cast<model::WindowDataFile>();
   attach(windowDataFile);
 
   this->stackedWidget()->setCurrentIndex(1);

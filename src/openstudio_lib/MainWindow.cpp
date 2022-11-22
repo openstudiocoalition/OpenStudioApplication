@@ -105,7 +105,7 @@ MainWindow::MainWindow(bool isPlugin, QWidget* parent) : QMainWindow(parent), m_
   m_analyticsHelper = new AnalyticsHelper(this);
   connect(this, &MainWindow::sendAnalytics, m_analyticsHelper, &AnalyticsHelper::sendAnalytics);
 
-  auto mainMenu = new MainMenu(m_displayIP, m_isPlugin, m_currLang, allowAnalytics());
+  auto* mainMenu = new MainMenu(m_displayIP, m_isPlugin, m_currLang, allowAnalytics());
   connect(mainMenu, &MainMenu::toggleUnitsClicked, this, &MainWindow::toggleUnits);
   connect(mainMenu, &MainMenu::changeLanguageClicked, this, &MainWindow::changeLanguage);
   connect(mainMenu, &MainMenu::downloadComponentsClicked, this, &MainWindow::downloadComponentsClicked);
@@ -151,7 +151,7 @@ MainWindow::MainWindow(bool isPlugin, QWidget* parent) : QMainWindow(parent), m_
   connect(this, &MainWindow::enableAnalytics, mainMenu, &MainMenu::enableAnalytics);
 }
 
-MainWindow::~MainWindow() {}
+MainWindow::~MainWindow() = default;
 
 QSize MainWindow::sizeHint() const {
   return QSize(1024, 700);
@@ -363,7 +363,7 @@ void MainWindow::configureProxyClicked() {
   QString applicationName = QCoreApplication::applicationName();
   QSettings settings(organizationName, applicationName);
   NetworkProxyDialog dialog(settings, this);
-  QDialog::DialogCode result = static_cast<QDialog::DialogCode>(dialog.exec());
+  auto result = static_cast<QDialog::DialogCode>(dialog.exec());
 
   if (result == QDialog::Accepted) {
     QNetworkProxy proxy = dialog.createProxy();

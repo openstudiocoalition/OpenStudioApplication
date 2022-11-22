@@ -456,7 +456,7 @@ void SchedulesTabController::setSubTab(int index) {
 
   switch (index) {
     case 0: {
-      auto scheduleSetsController = new ScheduleSetsController(m_model);
+      auto* scheduleSetsController = new ScheduleSetsController(m_model);
       connect(scheduleSetsController, &ScheduleSetsController::downloadComponentsClicked, this, &SchedulesTabController::downloadComponentsClicked);
       connect(scheduleSetsController, &ScheduleSetsController::openLibDlgClicked, this, &SchedulesTabController::openLibDlgClicked);
       connect(this, &SchedulesTabController::toggleUnitsClicked, this, &SchedulesTabController::toggleUnits);
@@ -466,7 +466,7 @@ void SchedulesTabController::setSubTab(int index) {
       break;
     }
     case 1: {
-      auto schedulesView = new SchedulesView(m_isIP, m_model);
+      auto* schedulesView = new SchedulesView(m_isIP, m_model);
       addQObject(schedulesView);
       connect(this, &SchedulesTabController::toggleUnitsClicked, schedulesView, &SchedulesView::toggleUnitsClicked);
       connect(schedulesView, &SchedulesView::addScheduleClicked, this, &SchedulesTabController::addScheduleRuleset);
