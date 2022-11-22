@@ -45,7 +45,7 @@ class ComponentList : public QWidget
   Q_OBJECT
 
  public:
-  ComponentList(QWidget* parent = nullptr);
+  explicit ComponentList(QWidget* parent = nullptr);
   explicit ComponentList(const std::vector<Component*>& components, QWidget* parent = nullptr);
   virtual ~ComponentList() {}
   // return the checked component in the list, NULL if list is empty

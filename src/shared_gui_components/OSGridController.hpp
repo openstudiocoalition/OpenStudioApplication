@@ -642,7 +642,7 @@ class HorizontalHeaderPushButton : public QPushButton
   Q_OBJECT
 
  public:
-  HorizontalHeaderPushButton(QWidget* parent = nullptr);
+  explicit HorizontalHeaderPushButton(QWidget* parent = nullptr);
 
   virtual ~HorizontalHeaderPushButton();
 

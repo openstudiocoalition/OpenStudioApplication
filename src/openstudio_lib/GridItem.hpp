@@ -60,7 +60,7 @@ class ModelObjectGraphicsItem
   Q_OBJECT;
 
  public:
-  ModelObjectGraphicsItem(QGraphicsItem* parent = nullptr);
+  explicit ModelObjectGraphicsItem(QGraphicsItem* parent = nullptr);
 
   ~ModelObjectGraphicsItem() {}
 
@@ -119,7 +119,7 @@ class GridItem : public ModelObjectGraphicsItem
   Q_OBJECT;
 
  public:
-  GridItem(QGraphicsItem* parent = nullptr);
+  explicit GridItem(QGraphicsItem* parent = nullptr);
 
   virtual ~GridItem() = default;
 
@@ -171,7 +171,7 @@ class NodeContextButtonItem : public ButtonItem
 class SplitterItem : public GridItem
 {
  public:
-  SplitterItem(QGraphicsItem* parent = nullptr);
+  explicit SplitterItem(QGraphicsItem* parent = nullptr);
 
   void setNumberBranches(int branches);
 
@@ -204,7 +204,7 @@ class SplitterItem : public GridItem
 class MixerItem : public GridItem
 {
  public:
-  MixerItem(QGraphicsItem* parent = nullptr);
+  explicit MixerItem(QGraphicsItem* parent = nullptr);
 
   void setNumberBranches(int branches);
 
@@ -219,7 +219,7 @@ class MixerItem : public GridItem
 class SupplySplitterItem : public GridItem
 {
  public:
-  SupplySplitterItem(QGraphicsItem* parent = nullptr);
+  explicit SupplySplitterItem(QGraphicsItem* parent = nullptr);
 
   void setNumberBranches(int branches);
 
@@ -241,7 +241,7 @@ class SupplySplitterItem : public GridItem
 class SupplyMixerItem : public GridItem
 {
  public:
-  SupplyMixerItem(QGraphicsItem* parent = nullptr);
+  explicit SupplyMixerItem(QGraphicsItem* parent = nullptr);
 
   void setNumberBranches(int branches);
 
@@ -256,7 +256,7 @@ class SupplyMixerItem : public GridItem
 class OneThreeNodeItem : public GridItem
 {
  public:
-  OneThreeNodeItem(QGraphicsItem* parent = nullptr);
+  explicit OneThreeNodeItem(QGraphicsItem* parent = nullptr);
 
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 
@@ -271,7 +271,7 @@ class OneThreeNodeItem : public GridItem
 class OneThreeDualDuctItem : public GridItem
 {
  public:
-  OneThreeDualDuctItem(QGraphicsItem* parent = nullptr);
+  explicit OneThreeDualDuctItem(QGraphicsItem* parent = nullptr);
 
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 
@@ -286,7 +286,7 @@ class OneThreeDualDuctItem : public GridItem
 class FourFiveNodeItem : public GridItem
 {
  public:
-  FourFiveNodeItem(QGraphicsItem* parent = nullptr);
+  explicit FourFiveNodeItem(QGraphicsItem* parent = nullptr);
 
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 };
@@ -294,7 +294,7 @@ class FourFiveNodeItem : public GridItem
 class TwoFiveNodeItem : public GridItem
 {
  public:
-  TwoFiveNodeItem(QGraphicsItem* parent = nullptr);
+  explicit TwoFiveNodeItem(QGraphicsItem* parent = nullptr);
 
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 };
@@ -303,7 +303,7 @@ class OneThreeStraightItem : public GridItem
 {
  public:
   // if dual is true there are two parallel lines
-  OneThreeStraightItem(QGraphicsItem* parent = nullptr, bool dualDuct = false);
+  explicit OneThreeStraightItem(QGraphicsItem* parent = nullptr, bool dualDuct = false);
 
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 
@@ -318,7 +318,7 @@ class OneThreeDualDuctMixerItem : public GridItem
 {
  public:
   // if dual is true there are two parallel lines
-  OneThreeDualDuctMixerItem(QGraphicsItem* parent = nullptr, bool dualDuct = false);
+  explicit OneThreeDualDuctMixerItem(QGraphicsItem* parent = nullptr, bool dualDuct = false);
 
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 };
@@ -354,7 +354,7 @@ class LinkItem : public QGraphicsObject
   Q_OBJECT;
 
  public:
-  LinkItem(QGraphicsItem* parent = nullptr);
+  explicit LinkItem(QGraphicsItem* parent = nullptr);
 
   virtual ~LinkItem() {}
 
@@ -386,7 +386,7 @@ class OneThreeWaterToAirItem : public GridItem
   Q_OBJECT;
 
  public:
-  OneThreeWaterToAirItem(QGraphicsItem* parent = nullptr);
+  explicit OneThreeWaterToAirItem(QGraphicsItem* parent = nullptr);
 
   virtual ~OneThreeWaterToAirItem() {}
 
@@ -410,7 +410,7 @@ class OneThreeWaterToWaterItem : public GridItem
   Q_OBJECT;
 
  public:
-  OneThreeWaterToWaterItem(QGraphicsItem* parent = nullptr);
+  explicit OneThreeWaterToWaterItem(QGraphicsItem* parent = nullptr);
 
   virtual ~OneThreeWaterToWaterItem() {}
 
@@ -459,7 +459,7 @@ class OneThreeWaterToWaterItem : public GridItem
 class TwoFourStraightItem : public GridItem
 {
  public:
-  TwoFourStraightItem(QGraphicsItem* parent = nullptr);
+  explicit TwoFourStraightItem(QGraphicsItem* parent = nullptr);
 
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 };
@@ -467,7 +467,7 @@ class TwoFourStraightItem : public GridItem
 class OASupplyStraightItem : public GridItem
 {
  public:
-  OASupplyStraightItem(QGraphicsItem* parent = nullptr);
+  explicit OASupplyStraightItem(QGraphicsItem* parent = nullptr);
 
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 
@@ -478,7 +478,7 @@ class OASupplyStraightItem : public GridItem
 class OAReliefStraightItem : public GridItem
 {
  public:
-  OAReliefStraightItem(QGraphicsItem* parent = nullptr);
+  explicit OAReliefStraightItem(QGraphicsItem* parent = nullptr);
 
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 
@@ -489,7 +489,7 @@ class OAReliefStraightItem : public GridItem
 class OAStraightNodeItem : public GridItem
 {
  public:
-  OAStraightNodeItem(QGraphicsItem* parent = nullptr);
+  explicit OAStraightNodeItem(QGraphicsItem* parent = nullptr);
 
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 
@@ -534,7 +534,7 @@ class OAReliefBranchItem : public GridItem
 class OAEndNodeItem : public GridItem
 {
  public:
-  OAEndNodeItem(QGraphicsItem* parent = nullptr);
+  explicit OAEndNodeItem(QGraphicsItem* parent = nullptr);
 
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 };
@@ -542,7 +542,7 @@ class OAEndNodeItem : public GridItem
 class OAAirToAirItem : public GridItem
 {
  public:
-  OAAirToAirItem(QGraphicsItem* parent = nullptr);
+  explicit OAAirToAirItem(QGraphicsItem* parent = nullptr);
 
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 };
@@ -550,7 +550,7 @@ class OAAirToAirItem : public GridItem
 class FourTwoStraightItem : public GridItem
 {
  public:
-  FourTwoStraightItem(QGraphicsItem* parent = nullptr);
+  explicit FourTwoStraightItem(QGraphicsItem* parent = nullptr);
 
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 };
@@ -558,7 +558,7 @@ class FourTwoStraightItem : public GridItem
 class TwoFourNodeItem : public GridItem
 {
  public:
-  TwoFourNodeItem(QGraphicsItem* parent = nullptr);
+  explicit TwoFourNodeItem(QGraphicsItem* parent = nullptr);
 
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 
@@ -571,7 +571,7 @@ class TwoFourNodeItem : public GridItem
 class OneFourStraightItem : public GridItem
 {
  public:
-  OneFourStraightItem(QGraphicsItem* parent = nullptr);
+  explicit OneFourStraightItem(QGraphicsItem* parent = nullptr);
 
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 };
@@ -579,7 +579,7 @@ class OneFourStraightItem : public GridItem
 class ThreeFourStraightItem : public GridItem
 {
  public:
-  ThreeFourStraightItem(QGraphicsItem* parent = nullptr);
+  explicit ThreeFourStraightItem(QGraphicsItem* parent = nullptr);
 
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 };
@@ -587,7 +587,7 @@ class ThreeFourStraightItem : public GridItem
 class TwoThreeStraightItem : public GridItem
 {
  public:
-  TwoThreeStraightItem(QGraphicsItem* parent = nullptr);
+  explicit TwoThreeStraightItem(QGraphicsItem* parent = nullptr);
 
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 };
@@ -595,7 +595,7 @@ class TwoThreeStraightItem : public GridItem
 class OneTwoStraightItem : public GridItem
 {
  public:
-  OneTwoStraightItem(QGraphicsItem* parent = nullptr);
+  explicit OneTwoStraightItem(QGraphicsItem* parent = nullptr);
 
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 };
@@ -603,7 +603,7 @@ class OneTwoStraightItem : public GridItem
 class OAMixerItem : public GridItem
 {
  public:
-  OAMixerItem(QGraphicsItem* parent = nullptr);
+  explicit OAMixerItem(QGraphicsItem* parent = nullptr);
 
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 
@@ -615,7 +615,7 @@ class OAMixerItem : public GridItem
 class HalfHeightItem : public ModelObjectGraphicsItem
 {
  public:
-  HalfHeightItem(QGraphicsItem* parent = nullptr);
+  explicit HalfHeightItem(QGraphicsItem* parent = nullptr);
 
   virtual ~HalfHeightItem() {}
 
@@ -625,7 +625,7 @@ class HalfHeightItem : public ModelObjectGraphicsItem
 class HalfHeightOneThreeStraightItem : public HalfHeightItem
 {
  public:
-  HalfHeightOneThreeStraightItem(QGraphicsItem* parent = nullptr);
+  explicit HalfHeightOneThreeStraightItem(QGraphicsItem* parent = nullptr);
 
   virtual ~HalfHeightOneThreeStraightItem() {}
 
@@ -636,7 +636,7 @@ class HalfHeightOneThreeStraightItem : public HalfHeightItem
 class HalfHeightOneThreeNodeItem : public HalfHeightItem
 {
  public:
-  HalfHeightOneThreeNodeItem(QGraphicsItem* parent = nullptr);
+  explicit HalfHeightOneThreeNodeItem(QGraphicsItem* parent = nullptr);
 
   virtual ~HalfHeightOneThreeNodeItem() {}
 
@@ -761,7 +761,7 @@ class ReverseVerticalBranchItem : public GridItem
 class DualDuctTee : public GridItem
 {
  public:
-  DualDuctTee(QGraphicsItem* parent = nullptr);
+  explicit DualDuctTee(QGraphicsItem* parent = nullptr);
 
  protected:
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
@@ -771,7 +771,7 @@ class DualDuctTee : public GridItem
 class TwoThreeStraightItem2 : public GridItem
 {
  public:
-  TwoThreeStraightItem2(QGraphicsItem* parent = nullptr);
+  explicit TwoThreeStraightItem2(QGraphicsItem* parent = nullptr);
 
  protected:
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
@@ -956,7 +956,7 @@ class SystemItem : public GridItem
 class OneTwoFourStraightItem : public GridItem
 {
  public:
-  OneTwoFourStraightItem(QGraphicsItem* parent = nullptr);
+  explicit OneTwoFourStraightItem(QGraphicsItem* parent = nullptr);
 
  protected:
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
@@ -965,7 +965,7 @@ class OneTwoFourStraightItem : public GridItem
 class TwoThreeFourStraightItem : public GridItem
 {
  public:
-  TwoThreeFourStraightItem(QGraphicsItem* parent = nullptr);
+  explicit TwoThreeFourStraightItem(QGraphicsItem* parent = nullptr);
 
  protected:
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;

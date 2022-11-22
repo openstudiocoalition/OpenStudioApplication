@@ -44,7 +44,7 @@ class OSSwitch2
 {
   Q_OBJECT
  public:
-  OSSwitch2(QWidget* parent = nullptr);
+  explicit OSSwitch2(QWidget* parent = nullptr);
 
   virtual ~OSSwitch2();
 

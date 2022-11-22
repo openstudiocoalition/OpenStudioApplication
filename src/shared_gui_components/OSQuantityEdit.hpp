@@ -53,7 +53,7 @@ class QuantityLineEdit : public QLineEdit
 {
   Q_OBJECT
  public:
-  QuantityLineEdit(QWidget* parent = nullptr);
+  explicit QuantityLineEdit(QWidget* parent = nullptr);
 
   virtual ~QuantityLineEdit() {}
 

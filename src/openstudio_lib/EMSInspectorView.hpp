@@ -54,7 +54,7 @@ class EMSInspectorView : public QWidget
     ACTUATOR
   };
 
-  EMSInspectorView(QWidget* parent = nullptr, EMSInspectorView::Type type = Type::ACTUATOR);
+  explicit EMSInspectorView(QWidget* parent = nullptr, EMSInspectorView::Type type = Type::ACTUATOR);
   virtual ~EMSInspectorView() {}
 
   void layoutModelObject(const model::ModelObject& modelObject);

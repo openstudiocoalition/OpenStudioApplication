@@ -47,7 +47,7 @@ class VerticalTabWidget : public QWidget
   Q_OBJECT
 
  public:
-  VerticalTabWidget(QWidget* parent = nullptr);
+  explicit VerticalTabWidget(QWidget* parent = nullptr);
 
   virtual ~VerticalTabWidget() {}
 

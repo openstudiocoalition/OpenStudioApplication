@@ -184,7 +184,7 @@ class RefrigerationSystemListDropZoneItem : public OSListItem
   Q_OBJECT
 
  public:
-  RefrigerationSystemListDropZoneItem(OSListController* listController = nullptr);
+  explicit RefrigerationSystemListDropZoneItem(OSListController* listController = nullptr);
 
   virtual ~RefrigerationSystemListDropZoneItem() = default;
 };

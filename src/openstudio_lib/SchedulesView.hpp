@@ -806,7 +806,7 @@ class ScheduleCalendarWidget : public QCalendarWidget
   Q_OBJECT
 
  public:
-  ScheduleCalendarWidget(MonthView* monthView = nullptr);
+  explicit ScheduleCalendarWidget(MonthView* monthView = nullptr);
 
   virtual ~ScheduleCalendarWidget() = default;
 

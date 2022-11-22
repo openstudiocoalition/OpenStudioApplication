@@ -48,7 +48,7 @@ class RenderingColorWidget2
   Q_OBJECT
 
  public:
-  RenderingColorWidget2(QWidget* parent = nullptr);
+  explicit RenderingColorWidget2(QWidget* parent = nullptr);
 
   virtual ~RenderingColorWidget2() {}
 
@@ -87,7 +87,7 @@ class RenderingColorWidget
   Q_OBJECT
 
  public:
-  RenderingColorWidget(QWidget* parent = nullptr);
+  explicit RenderingColorWidget(QWidget* parent = nullptr);
 
   virtual ~RenderingColorWidget() {}
 

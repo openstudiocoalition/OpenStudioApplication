@@ -149,7 +149,7 @@ class VRFSystemListDropZoneItem : public OSListItem
   Q_OBJECT
 
  public:
-  VRFSystemListDropZoneItem(OSListController* listController = nullptr);
+  explicit VRFSystemListDropZoneItem(OSListController* listController = nullptr);
 
   ~VRFSystemListDropZoneItem() {}
 };

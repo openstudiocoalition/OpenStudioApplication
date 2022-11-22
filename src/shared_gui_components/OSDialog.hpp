@@ -49,7 +49,7 @@ class OSDialog : public QDialog
   Q_OBJECT
 
  public:
-  OSDialog(bool isIP = false, QWidget* parent = nullptr);
+  explicit OSDialog(bool isIP = false, QWidget* parent = nullptr);
 
   virtual ~OSDialog() {}
 

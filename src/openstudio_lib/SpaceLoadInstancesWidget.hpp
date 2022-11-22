@@ -167,7 +167,7 @@ class SpaceLoadInstancesWidget
   Q_OBJECT
 
  public:
-  SpaceLoadInstancesWidget(QWidget* parent = nullptr);
+  explicit SpaceLoadInstancesWidget(QWidget* parent = nullptr);
   virtual ~SpaceLoadInstancesWidget() {}
   void attach(const model::Space& space);
   void attach(const model::SpaceType& spaceType);

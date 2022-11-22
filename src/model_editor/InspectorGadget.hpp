@@ -121,7 +121,7 @@ class MODELEDITOR_API InspectorGadget
    * \sa IGChildFrame
    * \sa layoutModel
    */
-  InspectorGadget(QWidget* parent = nullptr, int indent = 0, ComboHighlightBridge* bridge = nullptr);
+  explicit InspectorGadget(QWidget* parent = nullptr, int indent = 0, ComboHighlightBridge* bridge = nullptr);
   /*! destructor
    *
    * The really shouldn't need to call this, the parent Widget ought to delete the IG.

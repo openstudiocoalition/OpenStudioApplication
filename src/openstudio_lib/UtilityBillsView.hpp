@@ -96,7 +96,7 @@ class UtilityBillsInspectorView : public ModelObjectInspectorView
   Q_OBJECT
 
  public:
-  UtilityBillsInspectorView(const openstudio::model::Model& model, QWidget* parent = nullptr);
+  explicit UtilityBillsInspectorView(const openstudio::model::Model& model, QWidget* parent = nullptr);
 
   virtual ~UtilityBillsInspectorView();
 

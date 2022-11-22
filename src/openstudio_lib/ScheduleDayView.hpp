@@ -440,7 +440,7 @@ class DayScheduleOverview : public QWidget
 class VCalendarSegmentItem : public QGraphicsItem
 {
  public:
-  VCalendarSegmentItem(QGraphicsItem* parent = nullptr);
+  explicit VCalendarSegmentItem(QGraphicsItem* parent = nullptr);
 
   virtual ~VCalendarSegmentItem() {}
 
@@ -498,7 +498,7 @@ class VCalendarSegmentItem : public QGraphicsItem
 class CalendarSegmentItem : public QGraphicsItem
 {
  public:
-  CalendarSegmentItem(QGraphicsItem* parent = nullptr);
+  explicit CalendarSegmentItem(QGraphicsItem* parent = nullptr);
 
   virtual ~CalendarSegmentItem() {}
 
