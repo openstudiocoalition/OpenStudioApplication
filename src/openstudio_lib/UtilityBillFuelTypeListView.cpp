@@ -109,7 +109,7 @@ std::vector<OSItemId> UtilityBillFuelTypeListController::makeVector() {
   // sort by name
   std::sort(workspaceObjects.begin(), workspaceObjects.end(), WorkspaceObjectNameGreater());
 
-  for (WorkspaceObject workspaceObject : workspaceObjects) {
+  for (const WorkspaceObject& workspaceObject : workspaceObjects) {
     if (!workspaceObject.handle().isNull()) {
       auto modelObject = workspaceObject.cast<openstudio::model::ModelObject>();
       if (boost::optional<model::UtilityBill> utilityBill = modelObject.optionalCast<model::UtilityBill>()) {

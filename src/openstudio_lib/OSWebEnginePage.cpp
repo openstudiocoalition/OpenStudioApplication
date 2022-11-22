@@ -39,7 +39,7 @@
 namespace openstudio {
 
 OSUrlRequestInterceptor::OSUrlRequestInterceptor(QObject* parent) : QWebEngineUrlRequestInterceptor(parent) {}
-OSUrlRequestInterceptor::~OSUrlRequestInterceptor() {}
+OSUrlRequestInterceptor::~OSUrlRequestInterceptor() = default;
 
 void OSUrlRequestInterceptor::interceptRequest(QWebEngineUrlRequestInfo& info) {
   info.setHttpHeader("Accept-Language", "en-US,en;q=0.9,es;q=0.8,de;q=0.7");
@@ -57,7 +57,7 @@ OSWebEnginePage::OSWebEnginePage(QObject* parent) : QWebEnginePage(parent) {
   settings()->setAttribute(QWebEngineSettings::WebAttribute::SpatialNavigationEnabled, true);
 }
 
-OSWebEnginePage::~OSWebEnginePage() {}
+OSWebEnginePage::~OSWebEnginePage() = default;
 
 bool OSWebEnginePage::acceptNavigationRequest(const QUrl& url, QWebEnginePage::NavigationType type, bool isMainFrame) {
   if (type == QWebEnginePage::NavigationTypeLinkClicked) {

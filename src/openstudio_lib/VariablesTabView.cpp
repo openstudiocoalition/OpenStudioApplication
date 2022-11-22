@@ -138,9 +138,9 @@ void VariableListItem::onOffClicked(bool t_on) {
 }
 
 VariablesList::VariablesList(openstudio::model::Model t_model) : m_model(t_model), m_dirty(true) {
-  t_model.getImpl<openstudio::model::detail::Model_Impl>().get()->addWorkspaceObject.connect<VariablesList, &VariablesList::onAdded>(this);
+  t_model.getImpl<openstudio::model::detail::Model_Impl>()->addWorkspaceObject.connect<VariablesList, &VariablesList::onAdded>(this);
 
-  t_model.getImpl<openstudio::model::detail::Model_Impl>().get()->removeWorkspaceObject.connect<VariablesList, &VariablesList::onRemoved>(this);
+  t_model.getImpl<openstudio::model::detail::Model_Impl>()->removeWorkspaceObject.connect<VariablesList, &VariablesList::onRemoved>(this);
   auto* vbox = new QVBoxLayout();
   vbox->setContentsMargins(10, 10, 10, 10);
   vbox->setSpacing(10);

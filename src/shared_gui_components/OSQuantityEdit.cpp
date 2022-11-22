@@ -92,7 +92,7 @@ OSQuantityEdit2::OSQuantityEdit2(const std::string& modelUnits, const std::strin
   m_lineEdit->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Fixed);
 }
 
-OSQuantityEdit2::~OSQuantityEdit2() {}
+OSQuantityEdit2::~OSQuantityEdit2() = default;
 
 void OSQuantityEdit2::enableClickFocus() {
   m_lineEdit->enableClickFocus();
@@ -181,11 +181,9 @@ void OSQuantityEdit2::completeBind(bool isIP, const model::ModelObject& modelObj
   connect(m_lineEdit, &QLineEdit::editingFinished, this,
           &OSQuantityEdit2::onEditingFinished);  // Evan note: would behaviors improve with "textChanged"?
 
+  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()->onChange.connect<OSQuantityEdit2, &OSQuantityEdit2::onModelObjectChange>(
+    this);
   m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
-    .get()
-    ->onChange.connect<OSQuantityEdit2, &OSQuantityEdit2::onModelObjectChange>(this);
-  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
-    .get()
     ->onRemoveFromWorkspace.connect<OSQuantityEdit2, &OSQuantityEdit2::onModelObjectRemove>(this);
 
   refreshTextAndLabel();
@@ -194,10 +192,8 @@ void OSQuantityEdit2::completeBind(bool isIP, const model::ModelObject& modelObj
 void OSQuantityEdit2::unbind() {
   if (m_modelObject) {
     m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
-      .get()
       ->onChange.disconnect<OSQuantityEdit2, &OSQuantityEdit2::onModelObjectChange>(this);
     m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
-      .get()
       ->onRemoveFromWorkspace.disconnect<OSQuantityEdit2, &OSQuantityEdit2::onModelObjectRemove>(this);
     m_modelObject.reset();
     m_get.reset();
@@ -219,7 +215,9 @@ void OSQuantityEdit2::onEditingFinished() {
   emit inFocus(m_lineEdit->focused(), m_lineEdit->hasData());
 
   QString text = m_lineEdit->text();
-  if (m_text == text) return;
+  if (m_text == text) {
+    return;
+  }
 
   int pos = 0;
   QValidator::State state = m_doubleValidator->validate(text, pos);

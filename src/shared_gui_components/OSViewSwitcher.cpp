@@ -49,7 +49,7 @@ OSViewSwitcher::OSViewSwitcher(QWidget* parent) : QWidget(parent), m_view(nullpt
   layout->addWidget(m_stack);
 }
 
-OSViewSwitcher::~OSViewSwitcher() {}
+OSViewSwitcher::~OSViewSwitcher() = default;
 
 void OSViewSwitcher::setView(QWidget* view) {
   // Evan note: It's bad to play with null pointers

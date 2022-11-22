@@ -816,7 +816,7 @@ void RefrigerationCompressorDetailView::paint(QPainter* painter, const QStyleOpt
   painter->drawText(boundingRect(), Qt::AlignCenter | Qt::TextWordWrap, m_label);
 }
 
-RefrigerationCompressorDropZoneView::RefrigerationCompressorDropZoneView() {}
+RefrigerationCompressorDropZoneView::RefrigerationCompressorDropZoneView() = default;
 
 QRectF RefrigerationCompressorDropZoneView::boundingRect() const {
   return QRectF(0, 0, 100, RefrigerationCompressorView::height() - RefrigerationSystemView::margin);
@@ -895,7 +895,7 @@ QRectF RefrigerationCompressorView::boundingRect() const {
                 height());
 }
 
-RefrigerationCasesDropZoneView::RefrigerationCasesDropZoneView() {}
+RefrigerationCasesDropZoneView::RefrigerationCasesDropZoneView() = default;
 
 QSizeF RefrigerationCasesDropZoneView::size() {
   return QSizeF(100, RefrigerationSystemView::componentHeight - RefrigerationSystemView::margin);
@@ -1300,6 +1300,6 @@ NoRefrigerationView::NoRefrigerationView() : QWidget() {
   mainVLayout->addWidget(label);
 }
 
-NoRefrigerationView::~NoRefrigerationView() {}
+NoRefrigerationView::~NoRefrigerationView() = default;
 
 }  // namespace openstudio

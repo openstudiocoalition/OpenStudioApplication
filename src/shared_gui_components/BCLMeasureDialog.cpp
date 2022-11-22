@@ -130,7 +130,7 @@ BCLMeasureDialog::BCLMeasureDialog(const BCLMeasure& bclMeasure, QWidget* parent
   }
 }
 
-BCLMeasureDialog::~BCLMeasureDialog() {}
+BCLMeasureDialog::~BCLMeasureDialog() = default;
 
 QSize BCLMeasureDialog::sizeHint() const {
   return QSize(770, 540);

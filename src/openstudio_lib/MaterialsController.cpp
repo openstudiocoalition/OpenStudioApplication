@@ -60,7 +60,7 @@ namespace openstudio {
 MaterialsController::MaterialsController(bool isIP, const model::Model& model)
   : ModelSubTabController(new MaterialsView(isIP, model, "Materials", false), model) {}
 
-MaterialsController::~MaterialsController() {}
+MaterialsController::~MaterialsController() = default;
 
 void MaterialsController::onAddObject(const openstudio::IddObjectType& iddObjectType) {
   model::Model model = this->model();

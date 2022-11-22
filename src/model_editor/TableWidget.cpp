@@ -36,7 +36,7 @@ namespace modeleditor {
 
 TableWidget::TableWidget(QWidget* parent) : QTableWidget(parent) {}
 
-TableWidget::~TableWidget() {}
+TableWidget::~TableWidget() = default;
 
 void TableWidget::populateTable(const openstudio::WorkspaceObject& obj) {
   clear();

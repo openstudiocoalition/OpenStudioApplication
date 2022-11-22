@@ -577,21 +577,17 @@ void OSCellWrapper::connectModelSignals() {
     m_connectedmodel = m_modelObject->model();
 
     // get signals if object is added or removed
-    m_connectedmodel->getImpl<model::detail::Model_Impl>().get()->addWorkspaceObject.connect<OSCellWrapper, &OSCellWrapper::onAddWorkspaceObject>(
+    m_connectedmodel->getImpl<model::detail::Model_Impl>()->addWorkspaceObject.connect<OSCellWrapper, &OSCellWrapper::onAddWorkspaceObject>(this);
+    m_connectedmodel->getImpl<model::detail::Model_Impl>()->removeWorkspaceObject.connect<OSCellWrapper, &OSCellWrapper::onRemoveWorkspaceObject>(
       this);
-    m_connectedmodel->getImpl<model::detail::Model_Impl>()
-      .get()
-      ->removeWorkspaceObject.connect<OSCellWrapper, &OSCellWrapper::onRemoveWorkspaceObject>(this);
   }
 }
 
 void OSCellWrapper::disconnectModelSignals() {
   if (m_connectedmodel) {
-    m_connectedmodel->getImpl<model::detail::Model_Impl>().get()->addWorkspaceObject.disconnect<OSCellWrapper, &OSCellWrapper::onAddWorkspaceObject>(
+    m_connectedmodel->getImpl<model::detail::Model_Impl>()->addWorkspaceObject.disconnect<OSCellWrapper, &OSCellWrapper::onAddWorkspaceObject>(this);
+    m_connectedmodel->getImpl<model::detail::Model_Impl>()->removeWorkspaceObject.disconnect<OSCellWrapper, &OSCellWrapper::onRemoveWorkspaceObject>(
       this);
-    m_connectedmodel->getImpl<model::detail::Model_Impl>()
-      .get()
-      ->removeWorkspaceObject.disconnect<OSCellWrapper, &OSCellWrapper::onRemoveWorkspaceObject>(this);
 
     m_connectedmodel.reset();
   }

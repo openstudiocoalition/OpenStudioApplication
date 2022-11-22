@@ -83,7 +83,7 @@ LibraryDialog::LibraryDialog(const std::vector<openstudio::path>& paths, const s
   connect(buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
   connect(buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
 
-  for (auto path : paths) {
+  for (const auto& path : paths) {
     m_list->addItem(QString::fromStdString(toString(path)));
   }
 }
@@ -105,7 +105,7 @@ void LibraryDialog::onRemove() {
 void LibraryDialog::onRestore() {
   m_list->clear();
 
-  for (const auto path : m_defaultPaths) {
+  for (const auto& path : m_defaultPaths) {
     m_list->addItem(QString::fromStdString(toString(path)));
   }
 }

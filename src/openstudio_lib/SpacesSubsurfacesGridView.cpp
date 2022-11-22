@@ -287,7 +287,7 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
 
       std::function<std::vector<model::ModelObject>(const model::Space&)> allSubSurfaces([allSurfaces](const model::Space& t_space) {
         std::vector<model::ModelObject> allModelObjects;
-        for (auto surface : allSurfaces(t_space)) {
+        for (const auto& surface : allSurfaces(t_space)) {
           auto subSurfaces = surface.cast<model::Surface>().subSurfaces();
           allModelObjects.insert(allModelObjects.end(), subSurfaces.begin(), subSurfaces.end());
         }
@@ -297,9 +297,9 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
       std::function<std::vector<boost::optional<model::ModelObject>>(const model::Space&)> allSubsurfaceSurfaces(
         [allSurfaces](const model::Space& t_space) {
           std::vector<boost::optional<model::ModelObject>> allModelObjects;
-          for (auto surface : allSurfaces(t_space)) {
+          for (const auto& surface : allSurfaces(t_space)) {
             auto subSurfaces = surface.cast<model::Surface>().subSurfaces();
-            for (auto subSurface : subSurfaces) {
+            for (const auto& subSurface : subSurfaces) {
               // TODO: What is this?! loop on surface.subsurfaces, then check subsurface.surface? Isn't that redundant?
               auto surf = subSurface.surface();
               if (surf) {
@@ -316,7 +316,7 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
         [allSubSurfaces](const model::Space& t_space) {
           std::vector<boost::optional<model::ModelObject>> allModelObjects;
           std::vector<boost::optional<model::DaylightingDeviceShelf>> allDaylightingDeviceShelfs;
-          for (auto subSurface : allSubSurfaces(t_space)) {
+          for (const auto& subSurface : allSubSurfaces(t_space)) {
             auto daylightingDeviceShelf = subSurface.cast<model::SubSurface>().daylightingDeviceShelf();
             if (daylightingDeviceShelf) {
               allDaylightingDeviceShelfs.push_back(daylightingDeviceShelf);
@@ -333,7 +333,7 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
         [allSubSurfaces](const model::Space& t_space) {
           std::vector<boost::optional<model::ModelObject>> allModelObjects;
           std::vector<boost::optional<model::WindowPropertyFrameAndDivider>> allWindowPropertyFrameAndDividers;
-          for (auto subSurface : allSubSurfaces(t_space)) {
+          for (const auto& subSurface : allSubSurfaces(t_space)) {
             auto windowPropertyFrameAndDivider = subSurface.cast<model::SubSurface>().windowPropertyFrameAndDivider();
             if (windowPropertyFrameAndDivider) {
               allWindowPropertyFrameAndDividers.push_back(windowPropertyFrameAndDivider);
@@ -350,7 +350,7 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
         [allSubSurfaces](const model::Space& t_space) {
           std::vector<boost::optional<model::ModelObject>> allModelObjects;
           std::vector<boost::optional<model::ShadingControl>> allShadingControls;
-          for (auto subSurface : allSubSurfaces(t_space)) {
+          for (const auto& subSurface : allSubSurfaces(t_space)) {
           // TODO: temporary workaround, see Shading Control Enhancements #239
 #if defined(_MSC_VER)
 #  pragma warning(push)
@@ -783,7 +783,9 @@ QString SpacesSubsurfacesGridController::getColor(const model::ModelObject& mode
 }
 
 void SpacesSubsurfacesGridController::checkSelectedFields() {
-  if (!this->hasHorizontalHeader()) return;
+  if (!this->hasHorizontalHeader()) {
+    return;
+  }
 
   OSGridController::checkSelectedFields();
 }

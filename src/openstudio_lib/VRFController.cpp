@@ -100,7 +100,9 @@ void VRFController::refresh() {
 }
 
 void VRFController::refreshNow() {
-  if (!m_dirty) return;
+  if (!m_dirty) {
+    return;
+  }
 
   if (m_detailView) {
     m_detailView->setId(OSItemId());
@@ -366,7 +368,9 @@ void VRFSystemListController::addSystem(const OSItemId& itemid) {
   auto doc = OSAppBase::instance()->currentDocument();
   auto model = OSAppBase::instance()->currentModel();
 
-  if (!model) return;
+  if (!model) {
+    return;
+  }
 
   if (doc->fromComponentLibrary(itemid)) {
     auto mo = doc->getModelObject(itemid);

@@ -228,9 +228,7 @@ void ModelObjectSelectorDialog::connectSignalsAndSlots() {
   m_model.getImpl<model::detail::Model_Impl>()
     ->addWorkspaceObjectPtr.connect<ModelObjectSelectorDialog, &ModelObjectSelectorDialog::onAddWorkspaceObject>(this);
 
-  m_model
-    .getImpl<model::detail::Model_Impl>()
-
+  m_model.getImpl<model::detail::Model_Impl>()
     ->removeWorkspaceObjectPtr.connect<ModelObjectSelectorDialog, &ModelObjectSelectorDialog::onRemoveWorkspaceObject>(this);
 }
 

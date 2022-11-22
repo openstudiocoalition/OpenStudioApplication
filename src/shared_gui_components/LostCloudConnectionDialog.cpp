@@ -54,7 +54,7 @@ LostCloudConnectionDialog::LostCloudConnectionDialog(bool internetAvailable, boo
   createWidgets(internetAvailable, authenticated, cloudRunning);
 }
 
-LostCloudConnectionDialog::~LostCloudConnectionDialog() {}
+LostCloudConnectionDialog::~LostCloudConnectionDialog() = default;
 
 void LostCloudConnectionDialog::createWidgets(bool internetAvailable, bool authenticated, bool cloudRunning) {
   //// OS SETTINGS

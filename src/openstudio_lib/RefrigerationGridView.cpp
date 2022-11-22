@@ -511,7 +511,9 @@ QString RefrigerationCaseGridController::getColor(const model::ModelObject& mode
 }
 
 void RefrigerationCaseGridController::checkSelectedFields() {
-  if (!this->hasHorizontalHeader()) return;
+  if (!this->hasHorizontalHeader()) {
+    return;
+  }
 
   OSGridController::checkSelectedFields();
 }
@@ -871,7 +873,9 @@ QString RefrigerationWalkInGridController::getColor(const model::ModelObject& mo
 }
 
 void RefrigerationWalkInGridController::checkSelectedFields() {
-  if (!this->hasHorizontalHeader()) return;
+  if (!this->hasHorizontalHeader()) {
+    return;
+  }
 
   OSGridController::checkSelectedFields();
 }

@@ -49,7 +49,7 @@ OSLoadNamePixmapLineEdit::OSLoadNamePixmapLineEdit(QWidget* parent) : QWidget(pa
   createWidgets();
 }
 
-OSLoadNamePixmapLineEdit::~OSLoadNamePixmapLineEdit() {}
+OSLoadNamePixmapLineEdit::~OSLoadNamePixmapLineEdit() = default;
 
 void OSLoadNamePixmapLineEdit::enableClickFocus() {
   m_lineEdit->enableClickFocus();

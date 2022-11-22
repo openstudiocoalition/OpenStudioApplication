@@ -63,7 +63,7 @@ GeometryPreviewView::GeometryPreviewView(bool isIP, const openstudio::model::Mod
   setLayout(layout);
 }
 
-GeometryPreviewView::~GeometryPreviewView() {}
+GeometryPreviewView::~GeometryPreviewView() = default;
 
 PreviewWebView::PreviewWebView(bool isIP, const model::Model& model, QWidget* t_parent)
   : QWidget(t_parent), m_isIP(isIP), m_model(model), m_progressBar(new QProgressBar()), m_refreshBtn(new QPushButton("Refresh")) {
@@ -127,7 +127,7 @@ PreviewWebView::PreviewWebView(bool isIP, const model::Model& model, QWidget* t_
   m_view->load(previewURL);
 }
 
-PreviewWebView::~PreviewWebView() {}
+PreviewWebView::~PreviewWebView() = default;
 
 void PreviewWebView::refreshClicked() {
   m_progressBar->setStyleSheet("");

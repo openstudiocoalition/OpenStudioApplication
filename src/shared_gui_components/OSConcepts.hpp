@@ -932,8 +932,7 @@ template <typename ValueType>
 class OptionalValueEditVoidReturnConcept : public BaseConcept
 {
  public:
-  explicit OptionalValueEditVoidReturnConcept(const Heading& t_heading, bool t_hasClickFocus = true)
-    : BaseConcept(t_heading, t_hasClickFocus) {}
+  explicit OptionalValueEditVoidReturnConcept(const Heading& t_heading, bool t_hasClickFocus = true) : BaseConcept(t_heading, t_hasClickFocus) {}
 
   virtual ~OptionalValueEditVoidReturnConcept() {}
 

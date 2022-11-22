@@ -53,7 +53,7 @@ namespace openstudio {
 ConstructionsController::ConstructionsController(bool isIP, const model::Model& model)
   : ModelSubTabController(new ConstructionsView(isIP, model), model) {}
 
-ConstructionsController::~ConstructionsController() {}
+ConstructionsController::~ConstructionsController() = default;
 
 void ConstructionsController::onAddObject(const openstudio::IddObjectType& iddObjectType) {
   switch (iddObjectType.value()) {

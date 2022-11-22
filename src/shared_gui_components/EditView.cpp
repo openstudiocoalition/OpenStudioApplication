@@ -388,7 +388,7 @@ InputCheckBox::InputCheckBox() : QAbstractButton() {
   setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
 }
 
-InputCheckBox::~InputCheckBox() {}
+InputCheckBox::~InputCheckBox() = default;
 
 void InputCheckBox::setText(const QString& text) {
   m_label->setText(text);
