@@ -528,7 +528,7 @@ class OSGridController : public QObject
   // This function determines the category for
   // each button, and the fields associated with
   // each category
-  virtual void setCategoriesAndFields();
+  void setCategoriesAndFields();
 
   // Call this function with the fields required,
   // and it adds the columns and does the binds.

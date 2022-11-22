@@ -82,7 +82,7 @@ class ThermalZonesGridController : public OSGridController
   virtual void refreshModelObjects() override;
 
  protected:
-  virtual void setCategoriesAndFields() override;
+  void setCategoriesAndFields();
 
   virtual void addColumns(const QString& t_category, std::vector<QString>& fields) override;
 
