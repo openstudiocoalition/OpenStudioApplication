@@ -302,13 +302,13 @@ class ScheduleTab
 
   bool m_selected;
 
-  ScheduleTabHeader* m_header;
-
-  ScheduleTabContent* m_content;
-
   model::ScheduleRuleset m_schedule;
 
   SchedulesView* m_schedulesView;
+
+  ScheduleTabHeader* m_header;
+
+  ScheduleTabContent* m_content;  
 };
 
 // Collapsible header for each schedule ruleset in left column selector

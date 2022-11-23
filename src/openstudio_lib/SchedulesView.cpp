@@ -610,10 +610,10 @@ ScheduleTab::ScheduleTab(const model::ScheduleRuleset& schedule, SchedulesView* 
   : QWidget(parent),
     //m_mouseDown(false),
     m_selected(false),
-    m_header(new ScheduleTabHeader(this)),
-    m_content(new ScheduleTabContent(this)),
     m_schedule(schedule),
-    m_schedulesView(schedulesView) {
+    m_schedulesView(schedulesView),
+    m_header(new ScheduleTabHeader(this)),
+    m_content(new ScheduleTabContent(this)) {
   auto* mainVLayout = new QVBoxLayout();
   mainVLayout->setContentsMargins(0, 0, 0, 0);
   mainVLayout->setSpacing(0);
