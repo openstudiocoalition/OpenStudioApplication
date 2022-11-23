@@ -196,6 +196,8 @@ TEST_F(OpenStudioLibFixture, IconLibrary_MiniIcon) {
   iddObjectTypes.push_back(IddObjectType::OS_SetpointManager_MixedAir);
   iddObjectTypes.push_back(IddObjectType::OS_SetpointManager_Scheduled);
   iddObjectTypes.push_back(IddObjectType::OS_SetpointManager_SingleZone_Reheat);
+  iddObjectTypes.push_back(IddObjectType::OS_SetpointManager_SystemNodeReset_Temperature);
+  iddObjectTypes.push_back(IddObjectType::OS_SetpointManager_SystemNodeReset_Humidity);
   iddObjectTypes.push_back(IddObjectType::OS_ShadingSurfaceGroup);
   iddObjectTypes.push_back(IddObjectType::OS_ShadingSurface);
   iddObjectTypes.push_back(IddObjectType::OS_Space);
