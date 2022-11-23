@@ -48,14 +48,14 @@
 namespace openstudio {
 
 EditRubyMeasureView::EditRubyMeasureView(bool applyMeasureNow) : QWidget() {
-  auto layout = new QVBoxLayout();
+  auto* layout = new QVBoxLayout();
   layout->setContentsMargins(0, 0, 0, 0);
   setLayout(layout);
-  auto scrollArea = new QScrollArea();
+  auto* scrollArea = new QScrollArea();
   layout->addWidget(scrollArea);
   scrollArea->setWidgetResizable(true);
 
-  auto scrollWidget = new QWidget();
+  auto* scrollWidget = new QWidget();
   scrollWidget->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Preferred);
   scrollArea->setWidget(scrollWidget);
 
@@ -65,18 +65,18 @@ EditRubyMeasureView::EditRubyMeasureView(bool applyMeasureNow) : QWidget() {
   m_mainVLayout->setAlignment(Qt::AlignTop);
   scrollWidget->setLayout(m_mainVLayout);
 
-  QLabel* measureOptionTitleLabel = new QLabel("Name");
+  auto* measureOptionTitleLabel = new QLabel("Name");
   measureOptionTitleLabel->setObjectName("H2");
   m_mainVLayout->addWidget(measureOptionTitleLabel);
 
   QRegularExpression nameRegex("^\\S.*");
-  auto validator = new QRegularExpressionValidator(nameRegex, this);
+  auto* validator = new QRegularExpressionValidator(nameRegex, this);
 
   nameLineEdit = new QLineEdit();
   nameLineEdit->setValidator(validator);
   m_mainVLayout->addWidget(nameLineEdit);
 
-  QLabel* descriptionTitleLabel = new QLabel("Description");
+  auto* descriptionTitleLabel = new QLabel("Description");
   descriptionTitleLabel->setObjectName("H2");
   m_mainVLayout->addWidget(descriptionTitleLabel);
 
@@ -87,7 +87,7 @@ EditRubyMeasureView::EditRubyMeasureView(bool applyMeasureNow) : QWidget() {
   descriptionTextEdit->setTabChangesFocus(true);
   m_mainVLayout->addWidget(descriptionTextEdit);
 
-  QLabel* modelerDescriptionTitleLabel = new QLabel("Modeler Description");
+  auto* modelerDescriptionTitleLabel = new QLabel("Modeler Description");
   modelerDescriptionTitleLabel->setObjectName("H2");
   m_mainVLayout->addWidget(modelerDescriptionTitleLabel);
 
@@ -100,12 +100,12 @@ EditRubyMeasureView::EditRubyMeasureView(bool applyMeasureNow) : QWidget() {
   modelerDescriptionTextEdit->setReadOnly(true);
   m_mainVLayout->addWidget(modelerDescriptionTextEdit);
 
-  auto line2 = new QFrame();
+  auto* line2 = new QFrame();
   line2->setFrameShape(QFrame::HLine);
   line2->setFrameShadow(QFrame::Sunken);
   m_mainVLayout->addWidget(line2);
 
-  QLabel* inputsTitleLabel = new QLabel("Inputs");
+  auto* inputsTitleLabel = new QLabel("Inputs");
   inputsTitleLabel->setObjectName("H2");
   m_mainVLayout->addWidget(inputsTitleLabel);
 
@@ -151,12 +151,12 @@ void EditRubyMeasureView::clear() {
 }
 
 EditNullView::EditNullView(const QString& text) : QWidget() {
-  auto mainVLayout = new QVBoxLayout();
+  auto* mainVLayout = new QVBoxLayout();
   mainVLayout->setContentsMargins(5, 5, 5, 5);
   mainVLayout->setSpacing(5);
   setLayout(mainVLayout);
 
-  auto label = new QLabel();
+  auto* label = new QLabel();
   label->setText(text);
   label->setWordWrap(true);
   label->setAlignment(Qt::AlignCenter);
@@ -173,7 +173,7 @@ void EditNullView::paintEvent(QPaintEvent* event) {
 }
 
 DoubleInputView::DoubleInputView() : InputView() {
-  auto vLayout = new QVBoxLayout();
+  auto* vLayout = new QVBoxLayout();
   vLayout->setContentsMargins(0, 0, 0, 0);
   vLayout->setSpacing(5);
   setLayout(vLayout);
@@ -214,7 +214,7 @@ void DoubleInputView::setDisplayValue(const QVariant& value) {
 }
 
 ChoiceInputView::ChoiceInputView() : InputView() {
-  auto vLayout = new QVBoxLayout();
+  auto* vLayout = new QVBoxLayout();
   vLayout->setContentsMargins(0, 0, 0, 0);
   vLayout->setSpacing(5);
   setLayout(vLayout);
@@ -257,7 +257,7 @@ void ChoiceInputView::setDisplayValue(const QVariant& value) {
 }
 
 BoolInputView::BoolInputView() : InputView() {
-  auto vLayout = new QVBoxLayout();
+  auto* vLayout = new QVBoxLayout();
   vLayout->setContentsMargins(0, 0, 0, 0);
   vLayout->setSpacing(5);
   setLayout(vLayout);
@@ -288,7 +288,7 @@ void BoolInputView::setDisplayValue(const QVariant& value) {
 }
 
 IntegerInputView::IntegerInputView() : InputView() {
-  auto vLayout = new QVBoxLayout();
+  auto* vLayout = new QVBoxLayout();
   vLayout->setContentsMargins(0, 0, 0, 0);
   vLayout->setSpacing(5);
   setLayout(vLayout);
@@ -328,7 +328,7 @@ void IntegerInputView::setDisplayValue(const QVariant& value) {
 }
 
 StringInputView::StringInputView() : InputView() {
-  auto vLayout = new QVBoxLayout();
+  auto* vLayout = new QVBoxLayout();
   vLayout->setContentsMargins(0, 0, 0, 0);
   vLayout->setSpacing(5);
   setLayout(vLayout);
@@ -373,7 +373,7 @@ void InputComboBox::wheelEvent(QWheelEvent* e) {
 InputCheckBox::InputCheckBox() : QAbstractButton() {
   setCheckable(true);
 
-  auto mainHLayout = new QHBoxLayout();
+  auto* mainHLayout = new QHBoxLayout();
   QStyleOptionButton opt;
   QRect checkRect = style()->subElementRect(QStyle::SE_CheckBoxIndicator, &opt);
   int spacing = 5;
@@ -388,7 +388,7 @@ InputCheckBox::InputCheckBox() : QAbstractButton() {
   setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
 }
 
-InputCheckBox::~InputCheckBox() {}
+InputCheckBox::~InputCheckBox() = default;
 
 void InputCheckBox::setText(const QString& text) {
   m_label->setText(text);

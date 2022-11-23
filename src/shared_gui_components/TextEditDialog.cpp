@@ -45,7 +45,7 @@ TextEditDialog::TextEditDialog(const QString& windowTitle, const QString& window
   createWidgets();
 }
 
-TextEditDialog::~TextEditDialog() {}
+TextEditDialog::~TextEditDialog() = default;
 
 QString TextEditDialog::text() {
   return m_textEdit->toPlainText();

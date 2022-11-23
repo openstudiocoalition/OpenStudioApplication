@@ -49,7 +49,7 @@ namespace openstudio {
 GridViewSubTab::GridViewSubTab(bool isIP, const model::Model& model, QWidget* parent) : QWidget(parent), m_model(model), m_isIP(isIP) {
 
   // ***** Main Layout *****
-  auto mainLayout = new QVBoxLayout();
+  auto* mainLayout = new QVBoxLayout();
   mainLayout->setContentsMargins(0, 0, 0, 0);
   mainLayout->setSpacing(0);
   setLayout(mainLayout);
@@ -59,12 +59,12 @@ GridViewSubTab::GridViewSubTab(bool isIP, const model::Model& model, QWidget* pa
   m_scrollLayout->setContentsMargins(0, 0, 0, 0);
   m_scrollLayout->setSpacing(0);
 
-  auto scrollWidget = new QWidget();
+  auto* scrollWidget = new QWidget();
   scrollWidget->setObjectName("ScrollWidget");
   scrollWidget->setStyleSheet("QWidget#ScrollWidget { background: transparent; }");
   scrollWidget->setLayout(m_scrollLayout);
 
-  auto scrollArea = new QScrollArea();
+  auto* scrollArea = new QScrollArea();
   scrollArea->setContentsMargins(0, 0, 0, 0);
   scrollArea->setFrameStyle(QFrame::NoFrame);
   scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
@@ -112,7 +112,7 @@ void GridViewSubTab::onAddClicked() {
   if (!selectedObjects.size()) {
     addObject(m_gridController->iddObjectType());
   } else {
-    for (auto& obj : selectedObjects) {
+    for (const auto& obj : selectedObjects) {
       addObject(obj);
     }
   }
@@ -121,7 +121,7 @@ void GridViewSubTab::onAddClicked() {
 void GridViewSubTab::onCopyClicked() {
   const auto& selectedObjects = m_gridController->selectedObjects();
 
-  for (auto& obj : selectedObjects) {
+  for (const auto& obj : selectedObjects) {
     if (!obj.handle().isNull()) {
       copyObject(obj);
     }
@@ -131,7 +131,7 @@ void GridViewSubTab::onCopyClicked() {
 void GridViewSubTab::onRemoveClicked() {
   const auto& selectedObjects = m_gridController->selectedObjects();
 
-  for (auto& obj : selectedObjects) {
+  for (const auto& obj : selectedObjects) {
     removeObject(obj);
   }
 

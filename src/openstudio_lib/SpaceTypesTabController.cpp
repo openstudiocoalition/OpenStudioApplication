@@ -51,7 +51,7 @@ SpaceTypesTabController::SpaceTypesTabController(bool isIP, const model::Model& 
 
   connect(m_spaceTypesController.get(), &SpaceTypesController::openLibDlgClicked, this, &SpaceTypesTabController::openLibDlgClicked);
 
-  SpaceTypeInspectorView* spaceTypeInspectorView = qobject_cast<SpaceTypeInspectorView*>(m_spaceTypesController->subTabView()->inspectorView());
+  auto* spaceTypeInspectorView = qobject_cast<SpaceTypeInspectorView*>(m_spaceTypesController->subTabView()->inspectorView());
   OS_ASSERT(spaceTypeInspectorView);
 
   connect(this, &SpaceTypesTabController::itemRemoveClicked, m_spaceTypesController.get(), &SpaceTypesController::removeItem);

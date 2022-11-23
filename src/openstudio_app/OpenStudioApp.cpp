@@ -160,7 +160,7 @@ OpenStudioApp::OpenStudioApp(int& argc, char** argv)
   QCoreApplication::setOrganizationDomain("openstudiocoalition.org");
   setApplicationName("OpenStudioApp");
 
-  auto eater = new TouchEater();
+  auto* eater = new TouchEater();
   installEventFilter(eater);
 
   // Don't use native menu bar, necessary on Ubuntu 16.04
@@ -408,7 +408,7 @@ std::vector<std::string> OpenStudioApp::buildCompLibraries() {
 
   std::string thisVersion = openStudioVersion();
 
-  for (auto path : libraryPaths()) {
+  for (const auto& path : libraryPaths()) {
     try {
       if (exists(path)) {
         boost::optional<VersionString> version = openstudio::IdfFile::loadVersionOnly(path);
@@ -681,7 +681,7 @@ void OpenStudioApp::importIFC() {
     parent = this->currentDocument()->mainWindow();
   }
 
-  auto projectImportation = new bimserver::ProjectImporter(parent);
+  auto* projectImportation = new bimserver::ProjectImporter(parent);
   boost::optional<model::Model> model = projectImportation->run();
   projectImportation->close();
 
@@ -901,7 +901,9 @@ void OpenStudioApp::open() {
 
   QString fileName = QFileDialog::getOpenFileName(parent, tr("Open"), lastPath(), tr("(*.osm)"));
 
-  if (!fileName.length()) return;
+  if (!fileName.length()) {
+    return;
+  }
 
   setLastPath(QFileInfo(fileName).path());
 
@@ -1113,7 +1115,7 @@ void OpenStudioApp::versionUpdateMessageBox(const osversion::VersionTranslator& 
       scriptfolders.push_back(tempModelDir / openstudio::toPath("resources/scripts/model_resources"));
       scriptfolders.push_back(tempModelDir / openstudio::toPath("resources/scripts/model_scripts"));
 
-      for (std::vector<openstudio::path>::const_iterator itr = scriptfolders.begin(); itr != scriptfolders.end(); ++itr) {
+      for (auto itr = scriptfolders.begin(); itr != scriptfolders.end(); ++itr) {
         if (openstudio::filesystem::exists(*itr)) {
           removedScriptDirs = true;
           openstudio::filesystem::remove_all(*itr);
@@ -1340,7 +1342,7 @@ void OpenStudioApp::writeLibraryPaths(const std::vector<openstudio::path>& paths
     auto resPath = resourcesPath();
     std::string s_resPath = toString(resPath);
 
-    for (const auto path : paths) {
+    for (const auto& path : paths) {
       settings.setArrayIndex(i);
 
       // If this is one of the defaultPaths

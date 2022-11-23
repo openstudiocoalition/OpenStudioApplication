@@ -54,13 +54,13 @@ MaterialRoofVegetationInspectorView::MaterialRoofVegetationInspectorView(bool is
 }
 
 void MaterialRoofVegetationInspectorView::createLayout() {
-  auto hiddenWidget = new QWidget();
+  auto* hiddenWidget = new QWidget();
   this->stackedWidget()->addWidget(hiddenWidget);
 
-  auto visibleWidget = new QWidget();
+  auto* visibleWidget = new QWidget();
   this->stackedWidget()->addWidget(visibleWidget);
 
-  auto mainGridLayout = new QGridLayout();
+  auto* mainGridLayout = new QGridLayout();
   mainGridLayout->setContentsMargins(7, 7, 7, 7);
   mainGridLayout->setSpacing(14);
   visibleWidget->setLayout(mainGridLayout);
@@ -288,7 +288,7 @@ void MaterialRoofVegetationInspectorView::onClearSelection() {
 
 void MaterialRoofVegetationInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject) {
   detach();
-  model::RoofVegetation roofVegetation = modelObject.cast<model::RoofVegetation>();
+  auto roofVegetation = modelObject.cast<model::RoofVegetation>();
   attach(roofVegetation);
   refresh();
 }

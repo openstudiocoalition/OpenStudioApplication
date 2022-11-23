@@ -46,13 +46,13 @@ OSCollapsibleItemHeader::OSCollapsibleItemHeader(const std::string& text, const 
   setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
   setObjectName("OSCollapsibleItemHeader");
 
-  auto mainHLayout = new QHBoxLayout();
+  auto* mainHLayout = new QHBoxLayout();
   mainHLayout->setContentsMargins(9, 0, 9, 0);
   setLayout(mainHLayout);
 
   // Label
 
-  QLabel* textLabel = new QLabel(QString::fromStdString(text));
+  auto* textLabel = new QLabel(QString::fromStdString(text));
   textLabel->setWordWrap(true);
   textLabel->setObjectName("H2");
   mainHLayout->addWidget(textLabel, 10);

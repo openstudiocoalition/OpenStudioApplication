@@ -1081,7 +1081,7 @@
     <rule IddField="Cooling Capacity Modifier Curve Function of Flow Fraction" Access="LOCKED"/>
   </POLICY>
   <POLICY IddObjectType="OS_AirConditioner_VariableRefrigerantFlow">
-    <rule IddField="Condenser Type" Access="HIDDEN"/>
+    <rule IddField="Condenser Type" Access="LOCKED"/>
     <rule IddField="Condenser Inlet Node" Access="HIDDEN"/>
     <rule IddField="Condenser Outlet Node" Access="HIDDEN"/>
     <rule IddField="Supply Water Storage Tank" Access="HIDDEN"/>

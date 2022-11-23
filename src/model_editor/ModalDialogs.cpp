@@ -104,7 +104,7 @@ ModelObjectSelectorDialog::ModelObjectSelectorDialog(const std::vector<openstudi
   init();
 }
 
-ModelObjectSelectorDialog::~ModelObjectSelectorDialog() {}
+ModelObjectSelectorDialog::~ModelObjectSelectorDialog() = default;
 
 boost::optional<openstudio::model::ModelObject> ModelObjectSelectorDialog::selectedModelObject() const {
   boost::optional<openstudio::model::ModelObject> result;
@@ -149,7 +149,7 @@ void ModelObjectSelectorDialog::onPushButtonCancel(bool) {
 
 void ModelObjectSelectorDialog::onAddWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl,
                                                      const openstudio::IddObjectType& type, const openstudio::UUID& uuid) {
-  std::vector<openstudio::IddObjectType>::const_iterator it = std::find(m_typesToDisplay.begin(), m_typesToDisplay.end(), impl->iddObject().type());
+  auto it = std::find(m_typesToDisplay.begin(), m_typesToDisplay.end(), impl->iddObject().type());
   if (it != m_typesToDisplay.end()) {
     loadComboBoxData();
   }
@@ -157,7 +157,7 @@ void ModelObjectSelectorDialog::onAddWorkspaceObject(std::shared_ptr<openstudio:
 
 void ModelObjectSelectorDialog::onRemoveWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl,
                                                         const openstudio::IddObjectType& type, const openstudio::UUID& uuid) {
-  std::vector<openstudio::IddObjectType>::const_iterator it = std::find(m_typesToDisplay.begin(), m_typesToDisplay.end(), impl->iddObject().type());
+  auto it = std::find(m_typesToDisplay.begin(), m_typesToDisplay.end(), impl->iddObject().type());
   if (it != m_typesToDisplay.end()) {
     loadComboBoxData();
   }
@@ -202,17 +202,17 @@ void ModelObjectSelectorDialog::createWidgets() {
   m_cancelButton->setText(tr("Cancel"));
   m_cancelButton->setToolTip(tr("Cancel"));
 
-  auto buttonLayout = new QHBoxLayout;
+  auto* buttonLayout = new QHBoxLayout;
   buttonLayout->addSpacing(5);
   buttonLayout->addWidget(m_okButton);
   buttonLayout->addSpacing(5);
   buttonLayout->addWidget(m_cancelButton);
   buttonLayout->addStretch(0);
 
-  auto buttonGroup = new QWidget(this);
+  auto* buttonGroup = new QWidget(this);
   buttonGroup->setLayout(buttonLayout);
 
-  auto mainLayout = new QVBoxLayout;
+  auto* mainLayout = new QVBoxLayout;
   mainLayout->addWidget(m_userTextLabel);
   mainLayout->addWidget(m_comboBox);
   mainLayout->addWidget(buttonGroup);
@@ -226,11 +226,9 @@ void ModelObjectSelectorDialog::connectSignalsAndSlots() {
   connect(m_cancelButton, &QPushButton::clicked, this, &ModelObjectSelectorDialog::onPushButtonCancel);
 
   m_model.getImpl<model::detail::Model_Impl>()
-    .get()
     ->addWorkspaceObjectPtr.connect<ModelObjectSelectorDialog, &ModelObjectSelectorDialog::onAddWorkspaceObject>(this);
 
   m_model.getImpl<model::detail::Model_Impl>()
-    .get()
     ->removeWorkspaceObjectPtr.connect<ModelObjectSelectorDialog, &ModelObjectSelectorDialog::onRemoveWorkspaceObject>(this);
 }
 
@@ -272,7 +270,7 @@ void ModelObjectSelectorDialog::loadComboBoxData() {
   std::sort(workspaceObjects.begin(), workspaceObjects.end(), nameSorter);
 
   // add to combo box
-  for (WorkspaceObject workspaceObject : workspaceObjects) {
+  for (const WorkspaceObject& workspaceObject : workspaceObjects) {
     OS_ASSERT(workspaceObject.name());
     std::string objectName = workspaceObject.nameString();
     m_comboBox->addItem(toQString(objectName), toQString(workspaceObject.handle()));

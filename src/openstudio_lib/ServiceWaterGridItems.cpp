@@ -68,7 +68,7 @@ WaterUseConnectionsDetailItem::WaterUseConnectionsDetailItem(WaterUseConnections
 
   // Sewer
 
-  auto sewerItem = new SewerItem(this);
+  auto* sewerItem = new SewerItem(this);
 
   sewerItem->sewerButton()->setToolTip("Go back to water mains editor");
 
@@ -81,20 +81,20 @@ WaterUseConnectionsDetailItem::WaterUseConnectionsDetailItem(WaterUseConnections
 
   // Left Vertical
 
-  auto leftVItem1 = new TwoFourStraightItem(this);
+  auto* leftVItem1 = new TwoFourStraightItem(this);
 
   leftVItem1->setEnableHighlight(false);
 
   leftVItem1->setGridPos(i, j + 1);
 
   if (branchCount > 0) {
-    auto leftVItem2 = new OneTwoFourStraightItem(this);
+    auto* leftVItem2 = new OneTwoFourStraightItem(this);
 
     leftVItem2->setEnableHighlight(false);
 
     leftVItem2->setGridPos(i, j + 2);
   } else {
-    auto leftVItem2 = new TwoFourStraightItem(this);
+    auto* leftVItem2 = new TwoFourStraightItem(this);
 
     leftVItem2->setEnableHighlight(false);
 
@@ -102,13 +102,13 @@ WaterUseConnectionsDetailItem::WaterUseConnectionsDetailItem(WaterUseConnections
   }
 
   if (branchCount > 1) {
-    auto leftVItem3 = new TwoThreeFourStraightItem(this);
+    auto* leftVItem3 = new TwoThreeFourStraightItem(this);
 
     leftVItem3->setEnableHighlight(false);
 
     leftVItem3->setGridPos(i, j + 3);
   } else {
-    auto leftVItem3 = new TwoThreeStraightItem(this);
+    auto* leftVItem3 = new TwoThreeStraightItem(this);
 
     leftVItem3->setEnableHighlight(false);
 
@@ -117,7 +117,7 @@ WaterUseConnectionsDetailItem::WaterUseConnectionsDetailItem(WaterUseConnections
 
   // Left top elbow
 
-  auto leftTopElbow = new OneFourStraightItem(this);
+  auto* leftTopElbow = new OneFourStraightItem(this);
 
   leftTopElbow->setEnableHighlight(false);
 
@@ -127,7 +127,7 @@ WaterUseConnectionsDetailItem::WaterUseConnectionsDetailItem(WaterUseConnections
 
   // Outlet straight
 
-  auto straightItem = new OneThreeStraightItem(this);
+  auto* straightItem = new OneThreeStraightItem(this);
 
   straightItem->setEnableHighlight(false);
 
@@ -137,7 +137,7 @@ WaterUseConnectionsDetailItem::WaterUseConnectionsDetailItem(WaterUseConnections
 
   // Drop Zone
 
-  auto dropBranchItem = new WaterUseEquipmentDropZoneItem(this);
+  auto* dropBranchItem = new WaterUseEquipmentDropZoneItem(this);
 
   dropBranchItem->setModelObject(waterUseConnections);
 
@@ -147,7 +147,7 @@ WaterUseConnectionsDetailItem::WaterUseConnectionsDetailItem(WaterUseConnections
 
   // Inlet straight
 
-  auto straightItem2 = new DoubleOneThreeStraightItem(this);
+  auto* straightItem2 = new DoubleOneThreeStraightItem(this);
 
   straightItem2->setEnableHighlight(false);
 
@@ -157,7 +157,7 @@ WaterUseConnectionsDetailItem::WaterUseConnectionsDetailItem(WaterUseConnections
 
   // Right Top elbow
 
-  auto rightTopElbow = new DoubleThreeFourStraightItem(this);
+  auto* rightTopElbow = new DoubleThreeFourStraightItem(this);
 
   rightTopElbow->setEnableHighlight(false);
 
@@ -165,26 +165,26 @@ WaterUseConnectionsDetailItem::WaterUseConnectionsDetailItem(WaterUseConnections
 
   // Hot water supply
 
-  auto hotWaterSupplyItem = new HotWaterSupplyItem(this);
+  auto* hotWaterSupplyItem = new HotWaterSupplyItem(this);
 
   hotWaterSupplyItem->setGridPos(i + 1, j + 1);
 
   // Right Vertical
 
-  auto rightVItem1 = new HotWaterJunctionItem(this);
+  auto* rightVItem1 = new HotWaterJunctionItem(this);
 
   rightVItem1->setEnableHighlight(false);
 
   rightVItem1->setGridPos(i, j + 1);
 
   if (branchCount > 0) {
-    auto rightVItem2 = new DoubleTwoThreeFourStraightItem(this);
+    auto* rightVItem2 = new DoubleTwoThreeFourStraightItem(this);
 
     rightVItem2->setEnableHighlight(false);
 
     rightVItem2->setGridPos(i, j + 2);
   } else {
-    auto rightVItem2 = new DoubleTwoFourStraightItem(this);
+    auto* rightVItem2 = new DoubleTwoFourStraightItem(this);
 
     rightVItem2->setEnableHighlight(false);
 
@@ -192,13 +192,13 @@ WaterUseConnectionsDetailItem::WaterUseConnectionsDetailItem(WaterUseConnections
   }
 
   if (branchCount > 1) {
-    auto rightVItem3 = new ColdWaterJunctionItem(false, this);
+    auto* rightVItem3 = new ColdWaterJunctionItem(false, this);
 
     rightVItem3->setGridPos(i, j + 3);
 
     i = i + rightVItem1->getHGridLength();
   } else {
-    auto rightVItem3 = new ColdWaterJunctionItem(true, this);
+    auto* rightVItem3 = new ColdWaterJunctionItem(true, this);
 
     rightVItem3->setGridPos(i, j + 3);
 
@@ -207,7 +207,7 @@ WaterUseConnectionsDetailItem::WaterUseConnectionsDetailItem(WaterUseConnections
 
   // Mains supply
 
-  auto mainsSupplyItem = new MainsSupplyItem(this);
+  auto* mainsSupplyItem = new MainsSupplyItem(this);
 
   mainsSupplyItem->mainsSupplyButton()->setToolTip("Go back to water mains editor");
 
@@ -225,7 +225,7 @@ WaterUseConnectionsDetailItem::WaterUseConnectionsDetailItem(WaterUseConnections
   for (int b = 0; b < branchCount; b++) {
     i = 4;
 
-    auto outletItem = new OneThreeStraightItem(this);
+    auto* outletItem = new OneThreeStraightItem(this);
 
     outletItem->setEnableHighlight(false);
 
@@ -233,7 +233,7 @@ WaterUseConnectionsDetailItem::WaterUseConnectionsDetailItem(WaterUseConnections
 
     i = i + outletItem->getHGridLength();
 
-    auto waterUseEquipmentItem = new WaterUseEquipmentItem(this);
+    auto* waterUseEquipmentItem = new WaterUseEquipmentItem(this);
 
     model::WaterUseEquipment waterUseEquipment = waterEquipmentObjects[b];
 
@@ -243,20 +243,20 @@ WaterUseConnectionsDetailItem::WaterUseConnectionsDetailItem(WaterUseConnections
 
     i = i + waterUseEquipmentItem->getHGridLength();
 
-    auto inletItem = new DoubleOneThreeStraightItem(this);
+    auto* inletItem = new DoubleOneThreeStraightItem(this);
 
     inletItem->setEnableHighlight(false);
 
     inletItem->setGridPos(i, j);
 
     if (b != 0 && b < branchCount - 1) {
-      auto inletJunctionItem = new DoubleTwoThreeFourStraightItem(this);
+      auto* inletJunctionItem = new DoubleTwoThreeFourStraightItem(this);
 
       inletJunctionItem->setEnableHighlight(false);
 
       inletJunctionItem->setGridPos(8, j);
 
-      auto outletJunctionItem = new OneTwoFourStraightItem(this);
+      auto* outletJunctionItem = new OneTwoFourStraightItem(this);
 
       outletJunctionItem->setEnableHighlight(false);
 
@@ -264,13 +264,13 @@ WaterUseConnectionsDetailItem::WaterUseConnectionsDetailItem(WaterUseConnections
     }
 
     if (b > 1) {
-      auto leftStraight = new TwoFourStraightItem(this);
+      auto* leftStraight = new TwoFourStraightItem(this);
 
       leftStraight->setEnableHighlight(false);
 
       leftStraight->setGridPos(3, j - 1);
 
-      auto rightStraight = new DoubleTwoFourStraightItem(this);
+      auto* rightStraight = new DoubleTwoFourStraightItem(this);
 
       rightStraight->setEnableHighlight(false);
 
@@ -278,13 +278,13 @@ WaterUseConnectionsDetailItem::WaterUseConnectionsDetailItem(WaterUseConnections
     }
 
     if (b == branchCount - 1 && branchCount > 1) {
-      auto bottomLeftCorner = new OneTwoStraightItem(this);
+      auto* bottomLeftCorner = new OneTwoStraightItem(this);
 
       bottomLeftCorner->setEnableHighlight(false);
 
       bottomLeftCorner->setGridPos(3, j);
 
-      auto bottomRightCorner = new DoubleTwoThreeStraightItem(this);
+      auto* bottomRightCorner = new DoubleTwoThreeStraightItem(this);
 
       bottomRightCorner->setEnableHighlight(false);
 
@@ -300,7 +300,7 @@ WaterUseConnectionsDetailItem::WaterUseConnectionsDetailItem(WaterUseConnections
 
   // Makeup Water
 
-  auto makeupWaterItem = new MakeupWaterItem(this);
+  auto* makeupWaterItem = new MakeupWaterItem(this);
   makeupWaterItem->setGridPos(1, 1);
 
   connect(makeupWaterItem->mainsSupplyButton(), &ButtonItem::mouseClicked, waterUseConnectionsDetailScene,
@@ -331,7 +331,7 @@ ServiceWaterItem::ServiceWaterItem(ServiceWaterScene* serviceWaterScene) : GridI
 
   // Sewer
 
-  auto sewerItem = new SewerItem(this);
+  auto* sewerItem = new SewerItem(this);
 
   sewerItem->setGridPos(i, j + 1);
 
@@ -340,13 +340,13 @@ ServiceWaterItem::ServiceWaterItem(ServiceWaterScene* serviceWaterScene) : GridI
   // Left Vertical
 
   if (branchCount > 0) {
-    auto leftVItem1 = new TwoThreeFourStraightItem(this);
+    auto* leftVItem1 = new TwoThreeFourStraightItem(this);
 
     leftVItem1->setEnableHighlight(false);
 
     leftVItem1->setGridPos(i, j + 1);
   } else {
-    auto leftVItem1 = new TwoThreeStraightItem(this);
+    auto* leftVItem1 = new TwoThreeStraightItem(this);
 
     leftVItem1->setEnableHighlight(false);
 
@@ -355,7 +355,7 @@ ServiceWaterItem::ServiceWaterItem(ServiceWaterScene* serviceWaterScene) : GridI
 
   // Left top elbow
 
-  auto leftTopElbow = new OneFourStraightItem(this);
+  auto* leftTopElbow = new OneFourStraightItem(this);
 
   leftTopElbow->setEnableHighlight(false);
 
@@ -365,7 +365,7 @@ ServiceWaterItem::ServiceWaterItem(ServiceWaterScene* serviceWaterScene) : GridI
 
   // Outlet straight
 
-  auto straightItem = new OneThreeStraightItem(this);
+  auto* straightItem = new OneThreeStraightItem(this);
 
   straightItem->setEnableHighlight(false);
 
@@ -375,7 +375,7 @@ ServiceWaterItem::ServiceWaterItem(ServiceWaterScene* serviceWaterScene) : GridI
 
   // Drop Zone
 
-  auto dropBranchItem = new WaterUseConnectionsDropZoneItem(this);
+  auto* dropBranchItem = new WaterUseConnectionsDropZoneItem(this);
 
   dropBranchItem->setGridPos(i, j);
 
@@ -383,7 +383,7 @@ ServiceWaterItem::ServiceWaterItem(ServiceWaterScene* serviceWaterScene) : GridI
 
   // Inlet straight
 
-  auto straightItem2 = new OneThreeStraightItem(this);
+  auto* straightItem2 = new OneThreeStraightItem(this);
 
   straightItem2->setEnableHighlight(false);
 
@@ -393,7 +393,7 @@ ServiceWaterItem::ServiceWaterItem(ServiceWaterScene* serviceWaterScene) : GridI
 
   // Right Top elbow
 
-  auto rightTopElbow = new ThreeFourStraightItem(this);
+  auto* rightTopElbow = new ThreeFourStraightItem(this);
 
   rightTopElbow->setEnableHighlight(false);
 
@@ -402,7 +402,7 @@ ServiceWaterItem::ServiceWaterItem(ServiceWaterScene* serviceWaterScene) : GridI
   // Right Vertical
 
   if (branchCount > 0) {
-    auto rightVItem1 = new OneTwoFourStraightItem(this);
+    auto* rightVItem1 = new OneTwoFourStraightItem(this);
 
     rightVItem1->setEnableHighlight(false);
 
@@ -410,7 +410,7 @@ ServiceWaterItem::ServiceWaterItem(ServiceWaterScene* serviceWaterScene) : GridI
 
     i = i + rightVItem1->getHGridLength();
   } else {
-    auto rightVItem1 = new OneTwoStraightItem(this);
+    auto* rightVItem1 = new OneTwoStraightItem(this);
 
     rightVItem1->setEnableHighlight(false);
 
@@ -421,7 +421,7 @@ ServiceWaterItem::ServiceWaterItem(ServiceWaterScene* serviceWaterScene) : GridI
 
   // Mains supply
 
-  auto mainsSupplyItem = new MainsSupplyItem(this);
+  auto* mainsSupplyItem = new MainsSupplyItem(this);
 
   mainsSupplyItem->setGridPos(i, j + 1);
 
@@ -434,7 +434,7 @@ ServiceWaterItem::ServiceWaterItem(ServiceWaterScene* serviceWaterScene) : GridI
   for (int b = 0; b < branchCount; b++) {
     i = 4;
 
-    auto outletItem = new OneThreeStraightItem(this);
+    auto* outletItem = new OneThreeStraightItem(this);
 
     outletItem->setEnableHighlight(false);
 
@@ -442,7 +442,7 @@ ServiceWaterItem::ServiceWaterItem(ServiceWaterScene* serviceWaterScene) : GridI
 
     i = i + outletItem->getHGridLength();
 
-    auto waterUseConnectionsItem = new WaterUseConnectionsItem(this);
+    auto* waterUseConnectionsItem = new WaterUseConnectionsItem(this);
 
     waterUseConnectionsItem->setModelObject(waterConnectionsObjects[b]);
 
@@ -450,20 +450,20 @@ ServiceWaterItem::ServiceWaterItem(ServiceWaterScene* serviceWaterScene) : GridI
 
     i = i + waterUseConnectionsItem->getHGridLength();
 
-    auto inletItem = new OneThreeStraightItem(this);
+    auto* inletItem = new OneThreeStraightItem(this);
 
     inletItem->setEnableHighlight(false);
 
     inletItem->setGridPos(i, j);
 
     if (b > 0) {
-      auto leftStraight = new TwoFourStraightItem(this);
+      auto* leftStraight = new TwoFourStraightItem(this);
 
       leftStraight->setEnableHighlight(false);
 
       leftStraight->setGridPos(3, j - 1);
 
-      auto rightStraight = new TwoFourStraightItem(this);
+      auto* rightStraight = new TwoFourStraightItem(this);
 
       rightStraight->setEnableHighlight(false);
 
@@ -471,25 +471,25 @@ ServiceWaterItem::ServiceWaterItem(ServiceWaterScene* serviceWaterScene) : GridI
     }
 
     if (b == branchCount - 1) {
-      auto bottomLeftCorner = new OneTwoStraightItem(this);
+      auto* bottomLeftCorner = new OneTwoStraightItem(this);
 
       bottomLeftCorner->setEnableHighlight(false);
 
       bottomLeftCorner->setGridPos(3, j);
 
-      auto bottomRightCorner = new TwoThreeStraightItem(this);
+      auto* bottomRightCorner = new TwoThreeStraightItem(this);
 
       bottomRightCorner->setEnableHighlight(false);
 
       bottomRightCorner->setGridPos(8, j);
     } else {
-      auto inletJunctionItem = new TwoThreeFourStraightItem(this);
+      auto* inletJunctionItem = new TwoThreeFourStraightItem(this);
 
       inletJunctionItem->setEnableHighlight(false);
 
       inletJunctionItem->setGridPos(8, j);
 
-      auto outletJunctionItem = new OneTwoFourStraightItem(this);
+      auto* outletJunctionItem = new OneTwoFourStraightItem(this);
 
       outletJunctionItem->setEnableHighlight(false);
 
@@ -584,7 +584,7 @@ HotWaterSupplyItem::HotWaterSupplyItem(QGraphicsItem* parent) : GridItem(parent)
 }
 
 void HotWaterSupplyItem::onHotWaterSupplyButtonClicked() {
-  if (WaterUseConnectionsDetailScene* detailScene = qobject_cast<WaterUseConnectionsDetailScene*>(scene())) {
+  if (auto* detailScene = qobject_cast<WaterUseConnectionsDetailScene*>(scene())) {
     model::WaterUseConnections waterUseConnections = detailScene->waterUseConnections();
 
     emit innerNodeClicked(waterUseConnections);
@@ -825,7 +825,7 @@ void MakeupWaterItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* o
 }
 
 void MakeupWaterItem::onHotWaterSupplyButtonClicked() {
-  if (WaterUseConnectionsDetailScene* detailScene = qobject_cast<WaterUseConnectionsDetailScene*>(scene())) {
+  if (auto* detailScene = qobject_cast<WaterUseConnectionsDetailScene*>(scene())) {
     model::WaterUseConnections waterUseConnections = detailScene->waterUseConnections();
 
     emit innerNodeClicked(waterUseConnections);

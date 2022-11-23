@@ -56,14 +56,14 @@ OSCollapsibleItemList::OSCollapsibleItemList(bool addScrollArea, QWidget* parent
     m_itemsType(OSItemType::ListItem) {
   this->setObjectName("GrayWidget");
 
-  auto outerVLayout = new QVBoxLayout();
+  auto* outerVLayout = new QVBoxLayout();
   outerVLayout->setContentsMargins(0, 0, 0, 0);
   this->setLayout(outerVLayout);
 
-  auto outerWidget = new QWidget();
+  auto* outerWidget = new QWidget();
 
   if (addScrollArea) {
-    auto scrollArea = new QScrollArea();
+    auto* scrollArea = new QScrollArea();
     scrollArea->setFrameStyle(QFrame::NoFrame);
     scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
     scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);

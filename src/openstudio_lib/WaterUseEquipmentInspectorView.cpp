@@ -210,20 +210,20 @@ WaterUseEquipmentDefinitionInspectorView::WaterUseEquipmentDefinitionInspectorVi
   : ModelObjectInspectorView(model, true, parent) {
   m_isIP = isIP;
 
-  auto hiddenWidget = new QWidget();
+  auto* hiddenWidget = new QWidget();
   this->stackedWidget()->addWidget(hiddenWidget);
 
-  auto visibleWidget = new QWidget();
+  auto* visibleWidget = new QWidget();
   this->stackedWidget()->addWidget(visibleWidget);
 
-  auto mainGridLayout = new QGridLayout();
+  auto* mainGridLayout = new QGridLayout();
   mainGridLayout->setContentsMargins(7, 7, 7, 7);
   mainGridLayout->setSpacing(14);
   visibleWidget->setLayout(mainGridLayout);
 
   // Name
 
-  QLabel* label = new QLabel("Name: ");
+  auto* label = new QLabel("Name: ");
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 0, 0);
 
@@ -296,7 +296,7 @@ void WaterUseEquipmentDefinitionInspectorView::onClearSelection() {
 
 void WaterUseEquipmentDefinitionInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject) {
   detach();
-  model::WaterUseEquipmentDefinition waterUseEquipmentDefinition = modelObject.cast<model::WaterUseEquipmentDefinition>();
+  auto waterUseEquipmentDefinition = modelObject.cast<model::WaterUseEquipmentDefinition>();
   attach(waterUseEquipmentDefinition);
   refresh();
 }

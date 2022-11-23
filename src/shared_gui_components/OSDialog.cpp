@@ -68,7 +68,7 @@ OSDialog::OSDialog(bool isIP, QWidget* parent)
 void OSDialog::createLayout() {
   m_upperLayout = new QVBoxLayout();
 
-  auto lowerLayout = new QHBoxLayout();
+  auto* lowerLayout = new QHBoxLayout();
 
   lowerLayout->addStretch();
 
@@ -89,7 +89,7 @@ void OSDialog::createLayout() {
   connect(m_cancelButton, &QPushButton::clicked, this, &OSDialog::cancelButtonClicked);
   lowerLayout->addWidget(m_cancelButton);
 
-  auto mainLayout = new QVBoxLayout();
+  auto* mainLayout = new QVBoxLayout();
   mainLayout->setContentsMargins(m_layoutContentsMargins);
   mainLayout->addLayout(m_upperLayout);
   mainLayout->addLayout(lowerLayout);

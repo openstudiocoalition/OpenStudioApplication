@@ -75,7 +75,7 @@ OSIntegerEdit2::OSIntegerEdit2(QWidget* parent) : QLineEdit(parent), m_isScienti
   //this->setValidator(m_intValidator);
 }
 
-OSIntegerEdit2::~OSIntegerEdit2() {}
+OSIntegerEdit2::~OSIntegerEdit2() = default;
 
 void OSIntegerEdit2::enableClickFocus() {
   this->m_hasClickFocus = true;
@@ -196,11 +196,9 @@ void OSIntegerEdit2::completeBind() {
 
   connect(this, &OSIntegerEdit2::editingFinished, this, &OSIntegerEdit2::onEditingFinished);
 
-  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.connect<OSIntegerEdit2, &OSIntegerEdit2::onModelObjectChange>(
-    this);
+  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()->onChange.connect<OSIntegerEdit2, &OSIntegerEdit2::onModelObjectChange>(this);
 
   m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
-    .get()
     ->onRemoveFromWorkspace.connect<OSIntegerEdit2, &OSIntegerEdit2::onModelObjectRemove>(this);
 
   refreshTextAndLabel();
@@ -208,11 +206,9 @@ void OSIntegerEdit2::completeBind() {
 
 void OSIntegerEdit2::unbind() {
   if (m_modelObject) {
+    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()->onChange.disconnect<OSIntegerEdit2, &OSIntegerEdit2::onModelObjectChange>(
+      this);
     m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
-      .get()
-      ->onChange.disconnect<OSIntegerEdit2, &OSIntegerEdit2::onModelObjectChange>(this);
-    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
-      .get()
       ->onRemoveFromWorkspace.disconnect<OSIntegerEdit2, &OSIntegerEdit2::onModelObjectRemove>(this);
 
     m_modelObject.reset();
@@ -235,7 +231,9 @@ void OSIntegerEdit2::onEditingFinished() {
   emit inFocus(m_focused, hasData());
 
   QString text = this->text();
-  if (m_text == text) return;
+  if (m_text == text) {
+    return;
+  }
 
   int pos = 0;
   QValidator::State state = m_intValidator->validate(text, pos);

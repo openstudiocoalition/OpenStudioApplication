@@ -55,13 +55,13 @@ WindowMaterialGlazingRefractionExtinctionMethodInspectorView::WindowMaterialGlaz
 }
 
 void WindowMaterialGlazingRefractionExtinctionMethodInspectorView::createLayout() {
-  auto hiddenWidget = new QWidget();
+  auto* hiddenWidget = new QWidget();
   this->stackedWidget()->addWidget(hiddenWidget);
 
-  auto visibleWidget = new QWidget();
+  auto* visibleWidget = new QWidget();
   this->stackedWidget()->addWidget(visibleWidget);
 
-  auto mainGridLayout = new QGridLayout();
+  auto* mainGridLayout = new QGridLayout();
   mainGridLayout->setContentsMargins(7, 7, 7, 7);
   mainGridLayout->setSpacing(14);
   visibleWidget->setLayout(mainGridLayout);
@@ -210,7 +210,7 @@ void WindowMaterialGlazingRefractionExtinctionMethodInspectorView::onClearSelect
 
 void WindowMaterialGlazingRefractionExtinctionMethodInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject) {
   detach();
-  model::RefractionExtinctionGlazing refractionExtinctionGlazing = modelObject.cast<model::RefractionExtinctionGlazing>();
+  auto refractionExtinctionGlazing = modelObject.cast<model::RefractionExtinctionGlazing>();
   attach(refractionExtinctionGlazing);
   refresh();
 }

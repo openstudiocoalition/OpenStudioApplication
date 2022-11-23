@@ -232,8 +232,7 @@ SimSettingsView::SimSettingsView(bool isIP, const model::Model& model, QWidget* 
 
   // when the year settings object changes need to update the year in all child widgets
   model::YearDescription yearDescription = m_model.getUniqueModelObject<model::YearDescription>();
-  yearDescription.getImpl<model::detail::YearDescription_Impl>().get()->onChange.connect<SimSettingsView, &SimSettingsView::updateYearDescription>(
-    this);
+  yearDescription.getImpl<model::detail::YearDescription_Impl>()->onChange.connect<SimSettingsView, &SimSettingsView::updateYearDescription>(this);
 
   createWidgets();
   attachAll();
@@ -241,7 +240,7 @@ SimSettingsView::SimSettingsView(bool isIP, const model::Model& model, QWidget* 
 }
 
 void SimSettingsView::createWidgets() {
-  auto mainLayout = new QVBoxLayout();
+  auto* mainLayout = new QVBoxLayout();
   mainLayout->setContentsMargins(0, 0, 0, 0);
   mainLayout->setSpacing(0);
 
@@ -329,11 +328,11 @@ void SimSettingsView::createWidgets() {
 }
 
 QWidget* SimSettingsView::createRunPeriodWidget() {
-  auto mainVLayout = new QVBoxLayout();
+  auto* mainVLayout = new QVBoxLayout();
   mainVLayout->setContentsMargins(7, 0, 0, 0);
   mainVLayout->setSpacing(0);
 
-  auto mainHLayout = new QHBoxLayout();
+  auto* mainHLayout = new QHBoxLayout();
   mainHLayout->setContentsMargins(7, 7, 7, 7);
   mainHLayout->setSpacing(0);
 
@@ -437,7 +436,7 @@ QWidget* SimSettingsView::createRunPeriodWidget() {
 
   connect(m_endDateEdit, &QDateEdit::dateChanged, this, &SimSettingsView::on_endDateChanged);
 
-  auto widget = new QWidget();
+  auto* widget = new QWidget();
   widget->setLayout(mainVLayout);
 
   return widget;
@@ -445,7 +444,7 @@ QWidget* SimSettingsView::createRunPeriodWidget() {
 
 QWidget* SimSettingsView::createRunPeriodAdvancedWidget() {
   // These are the "advanced" fields from the RunPeriod object
-  auto gridLayout = new QGridLayout();
+  auto* gridLayout = new QGridLayout();
   gridLayout->setContentsMargins(7, 7, 7, 7);
   gridLayout->setSpacing(GRID_LAYOUT_SPACING);
 
@@ -483,7 +482,7 @@ QWidget* SimSettingsView::createRunPeriodAdvancedWidget() {
   gridLayout->setRowStretch(100, 100);
   gridLayout->setColumnStretch(100, 100);
 
-  auto widget = new QWidget();
+  auto* widget = new QWidget();
   widget->setLayout(gridLayout);
   widget->hide();
 
@@ -491,7 +490,7 @@ QWidget* SimSettingsView::createRunPeriodAdvancedWidget() {
 }
 
 QWidget* SimSettingsView::createRunControlWidget() {
-  auto mainLayout = new QVBoxLayout();
+  auto* mainLayout = new QVBoxLayout();
   mainLayout->setContentsMargins(0, 0, 0, 0);
   mainLayout->setSpacing(0);
 
@@ -501,7 +500,7 @@ QWidget* SimSettingsView::createRunControlWidget() {
   label->setObjectName("H1");
   mainLayout->addWidget(label);
 
-  auto layout = new QVBoxLayout();
+  auto* layout = new QVBoxLayout();
   layout->setContentsMargins(10, 0, 0, 0);
   layout->setSpacing(0);
   mainLayout->addLayout(layout);
@@ -531,7 +530,7 @@ QWidget* SimSettingsView::createRunControlWidget() {
 
   connect(m_performPlantSizing, &QCheckBox::stateChanged, this, &SimSettingsView::on_performPlantSizing);
 
-  auto widget = new QWidget();
+  auto* widget = new QWidget();
   widget->setLayout(mainLayout);
   widget->hide();  // TODO delete when ready to use
 
@@ -539,7 +538,7 @@ QWidget* SimSettingsView::createRunControlWidget() {
 }
 
 QWidget* SimSettingsView::createSimulationControlWidget() {
-  auto gridLayout = new QGridLayout();
+  auto* gridLayout = new QGridLayout();
   gridLayout->setContentsMargins(7, 7, 7, 7);
   gridLayout->setSpacing(GRID_LAYOUT_SPACING);
 
@@ -599,14 +598,14 @@ QWidget* SimSettingsView::createSimulationControlWidget() {
   addField(gridLayout, row, col, "Maximum Number of HVAC Sizing Simulation Passes", m_maximumNumberofHVACSizingSimulationPasses);
 
   std::vector<std::string> validSolarDistributionValues = model::SimulationControl::validSolarDistributionValues();
-  for (std::string validSolarDistributionValue : validSolarDistributionValues) {
+  for (const std::string& validSolarDistributionValue : validSolarDistributionValues) {
     m_solarDistribution->addItem(validSolarDistributionValue.c_str());
   }
 
   gridLayout->setRowStretch(100, 100);
   gridLayout->setColumnStretch(100, 100);
 
-  auto widget = new QWidget();
+  auto* widget = new QWidget();
   widget->setLayout(gridLayout);
   widget->hide();
 
@@ -614,7 +613,7 @@ QWidget* SimSettingsView::createSimulationControlWidget() {
 }
 
 QWidget* SimSettingsView::createSizingParametersWidget() {
-  auto mainLayout = new QVBoxLayout();
+  auto* mainLayout = new QVBoxLayout();
   mainLayout->setContentsMargins(7, 7, 7, 7);
   mainLayout->setSpacing(0);
 
@@ -624,7 +623,7 @@ QWidget* SimSettingsView::createSizingParametersWidget() {
   label->setObjectName("H1");
   mainLayout->addWidget(label);
 
-  auto gridLayout = new QGridLayout();
+  auto* gridLayout = new QGridLayout();
   gridLayout->setContentsMargins(7, 7, 7, 7);
   gridLayout->setSpacing(GRID_LAYOUT_SPACING);
   gridLayout->setAlignment(Qt::AlignLeft);
@@ -639,14 +638,14 @@ QWidget* SimSettingsView::createSizingParametersWidget() {
   row = row + 2;
   addField(gridLayout, row, col, "Timesteps In Averaging Window", m_timestepsinAveragingWindow);
 
-  auto widget = new QWidget();
+  auto* widget = new QWidget();
   widget->setLayout(mainLayout);
 
   return widget;
 }
 
 QWidget* SimSettingsView::createProgramControlWidget() {
-  auto gridLayout = new QGridLayout();
+  auto* gridLayout = new QGridLayout();
   gridLayout->setContentsMargins(7, 7, 7, 7);
   gridLayout->setSpacing(GRID_LAYOUT_SPACING);
   gridLayout->setAlignment(Qt::AlignLeft);
@@ -656,7 +655,7 @@ QWidget* SimSettingsView::createProgramControlWidget() {
 
   addField(gridLayout, row, col, "Number Of Threads Allowed", m_numberOfThreadsAllowed);
 
-  auto widget = new QWidget();
+  auto* widget = new QWidget();
   widget->setLayout(gridLayout);
   widget->hide();
 
@@ -664,7 +663,7 @@ QWidget* SimSettingsView::createProgramControlWidget() {
 }
 
 QWidget* SimSettingsView::createTimestepWidget() {
-  auto mainLayout = new QVBoxLayout();
+  auto* mainLayout = new QVBoxLayout();
   mainLayout->setContentsMargins(7, 7, 7, 7);
   mainLayout->setSpacing(0);
 
@@ -674,7 +673,7 @@ QWidget* SimSettingsView::createTimestepWidget() {
   label->setObjectName("H1");
   mainLayout->addWidget(label);
 
-  auto gridLayout = new QGridLayout();
+  auto* gridLayout = new QGridLayout();
   gridLayout->setContentsMargins(7, 7, 7, 7);
   gridLayout->setSpacing(GRID_LAYOUT_SPACING);
   gridLayout->setAlignment(Qt::AlignLeft);
@@ -685,14 +684,14 @@ QWidget* SimSettingsView::createTimestepWidget() {
 
   addField(gridLayout, row, col, "Number Of Timesteps Per Hour", m_numberOfTimestepsPerHour);
 
-  auto widget = new QWidget();
+  auto* widget = new QWidget();
   widget->setLayout(mainLayout);
 
   return widget;
 }
 
 QWidget* SimSettingsView::createOutputControlReportingTolerancesWidget() {
-  auto gridLayout = new QGridLayout();
+  auto* gridLayout = new QGridLayout();
   gridLayout->setContentsMargins(7, 7, 7, 7);
   gridLayout->setSpacing(GRID_LAYOUT_SPACING);
   gridLayout->setAlignment(Qt::AlignLeft);
@@ -707,7 +706,7 @@ QWidget* SimSettingsView::createOutputControlReportingTolerancesWidget() {
   gridLayout->addItem(spacerItem, row, col++);
   addField(gridLayout, row, col, "Tolerance For Time Cooling Setpoint Not Met", "K", "K", "R", m_toleranceForTimeCoolingSetpointNotMet);
 
-  auto widget = new QWidget();
+  auto* widget = new QWidget();
   widget->setLayout(gridLayout);
   widget->hide();
 
@@ -715,7 +714,7 @@ QWidget* SimSettingsView::createOutputControlReportingTolerancesWidget() {
 }
 
 QWidget* SimSettingsView::createConvergenceLimitsWidget() {
-  auto gridLayout = new QGridLayout();
+  auto* gridLayout = new QGridLayout();
   gridLayout->setContentsMargins(7, 7, 7, 7);
   gridLayout->setSpacing(GRID_LAYOUT_SPACING);
 
@@ -741,7 +740,7 @@ QWidget* SimSettingsView::createConvergenceLimitsWidget() {
   gridLayout->setRowStretch(100, 100);
   gridLayout->setColumnStretch(100, 100);
 
-  auto widget = new QWidget();
+  auto* widget = new QWidget();
   widget->setLayout(gridLayout);
   widget->hide();
 
@@ -749,7 +748,7 @@ QWidget* SimSettingsView::createConvergenceLimitsWidget() {
 }
 
 QWidget* SimSettingsView::createShadowCalculationWidget() {
-  auto gridLayout = new QGridLayout();
+  auto* gridLayout = new QGridLayout();
   gridLayout->setContentsMargins(7, 7, 7, 7);
   gridLayout->setSpacing(GRID_LAYOUT_SPACING);
   gridLayout->setAlignment(Qt::AlignLeft);
@@ -776,7 +775,7 @@ QWidget* SimSettingsView::createShadowCalculationWidget() {
   gridLayout->setRowStretch(100, 100);
   gridLayout->setColumnStretch(100, 100);
 
-  auto widget = new QWidget();
+  auto* widget = new QWidget();
   widget->setLayout(gridLayout);
   widget->hide();
 
@@ -784,7 +783,7 @@ QWidget* SimSettingsView::createShadowCalculationWidget() {
 }
 
 QWidget* SimSettingsView::createSurfaceConvectionAlgorithmInsideWidget() {
-  auto gridLayout = new QGridLayout();
+  auto* gridLayout = new QGridLayout();
   gridLayout->setContentsMargins(7, 7, 7, 7);
   gridLayout->setSpacing(GRID_LAYOUT_SPACING);
   gridLayout->setAlignment(Qt::AlignLeft);
@@ -794,7 +793,7 @@ QWidget* SimSettingsView::createSurfaceConvectionAlgorithmInsideWidget() {
 
   addField(gridLayout, row, col, "Algorithm", m_algorithmSurfaceConvectionInside);
 
-  auto widget = new QWidget();
+  auto* widget = new QWidget();
   widget->setLayout(gridLayout);
   widget->hide();
 
@@ -802,7 +801,7 @@ QWidget* SimSettingsView::createSurfaceConvectionAlgorithmInsideWidget() {
 }
 
 QWidget* SimSettingsView::createSurfaceConvectionAlgorithmOutsideWidget() {
-  auto gridLayout = new QGridLayout();
+  auto* gridLayout = new QGridLayout();
   gridLayout->setContentsMargins(7, 7, 7, 7);
   gridLayout->setSpacing(GRID_LAYOUT_SPACING);
   gridLayout->setAlignment(Qt::AlignLeft);
@@ -812,7 +811,7 @@ QWidget* SimSettingsView::createSurfaceConvectionAlgorithmOutsideWidget() {
 
   addField(gridLayout, row, col, "Algorithm", m_algorithmSurfaceConvectionOutside);
 
-  auto widget = new QWidget();
+  auto* widget = new QWidget();
   widget->setLayout(gridLayout);
   widget->hide();
 
@@ -820,7 +819,7 @@ QWidget* SimSettingsView::createSurfaceConvectionAlgorithmOutsideWidget() {
 }
 
 QWidget* SimSettingsView::createHeatBalanceAlgorithmWidget() {
-  auto gridLayout = new QGridLayout();
+  auto* gridLayout = new QGridLayout();
   gridLayout->setContentsMargins(7, 7, 7, 7);
   gridLayout->setSpacing(GRID_LAYOUT_SPACING);
 
@@ -848,7 +847,7 @@ QWidget* SimSettingsView::createHeatBalanceAlgorithmWidget() {
   gridLayout->setRowStretch(100, 100);
   gridLayout->setColumnStretch(100, 100);
 
-  auto widget = new QWidget();
+  auto* widget = new QWidget();
   widget->setLayout(gridLayout);
   widget->hide();
 
@@ -856,7 +855,7 @@ QWidget* SimSettingsView::createHeatBalanceAlgorithmWidget() {
 }
 
 QWidget* SimSettingsView::createZoneAirHeatBalanceAlgorithmWidget() {
-  auto gridLayout = new QGridLayout();
+  auto* gridLayout = new QGridLayout();
   gridLayout->setContentsMargins(7, 7, 7, 7);
   gridLayout->setSpacing(GRID_LAYOUT_SPACING);
   gridLayout->setAlignment(Qt::AlignLeft);
@@ -866,7 +865,7 @@ QWidget* SimSettingsView::createZoneAirHeatBalanceAlgorithmWidget() {
 
   addField(gridLayout, row, col, "Algorithm", m_algorithmZoneAirHeatBalance);
 
-  auto widget = new QWidget();
+  auto* widget = new QWidget();
   widget->setLayout(gridLayout);
   widget->hide();
 
@@ -874,7 +873,7 @@ QWidget* SimSettingsView::createZoneAirHeatBalanceAlgorithmWidget() {
 }
 
 QWidget* SimSettingsView::createZoneAirContaminantBalanceWidget() {
-  auto gridLayout = new QGridLayout();
+  auto* gridLayout = new QGridLayout();
   gridLayout->setContentsMargins(7, 7, 7, 7);
   gridLayout->setSpacing(GRID_LAYOUT_SPACING);
 
@@ -891,7 +890,7 @@ QWidget* SimSettingsView::createZoneAirContaminantBalanceWidget() {
   gridLayout->setRowStretch(100, 100);
   gridLayout->setColumnStretch(100, 100);
 
-  auto widget = new QWidget();
+  auto* widget = new QWidget();
   widget->setLayout(gridLayout);
   widget->hide();
 
@@ -899,7 +898,7 @@ QWidget* SimSettingsView::createZoneAirContaminantBalanceWidget() {
 }
 
 QWidget* SimSettingsView::createZoneCapacitanceMultipleResearchSpecialWidget() {
-  auto gridLayout = new QGridLayout();
+  auto* gridLayout = new QGridLayout();
   gridLayout->setContentsMargins(7, 7, 7, 7);
   gridLayout->setSpacing(GRID_LAYOUT_SPACING);
   gridLayout->setAlignment(Qt::AlignLeft);
@@ -921,7 +920,7 @@ QWidget* SimSettingsView::createZoneCapacitanceMultipleResearchSpecialWidget() {
 
   addField(gridLayout, row, col, "Carbon Dioxide Capacity Multiplier", "", "", "", m_carbonDioxideCapacityMultiplier);
 
-  auto widget = new QWidget();
+  auto* widget = new QWidget();
   widget->setLayout(gridLayout);
   widget->hide();
 
@@ -929,7 +928,7 @@ QWidget* SimSettingsView::createZoneCapacitanceMultipleResearchSpecialWidget() {
 }
 
 QWidget* SimSettingsView::createRadianceParametersWidget() {
-  auto vLayout = new QVBoxLayout();
+  auto* vLayout = new QVBoxLayout();
 
   m_radianceGroup = new QButtonGroup(this);
 
@@ -951,7 +950,7 @@ QWidget* SimSettingsView::createRadianceParametersWidget() {
   m_radianceGroup->addButton(radioButton, buttonCount);
   vLayout->addWidget(radioButton);
 
-  auto gridLayout = new QGridLayout();
+  auto* gridLayout = new QGridLayout();
   gridLayout->setContentsMargins(7, 7, 7, 7);
   gridLayout->setSpacing(GRID_LAYOUT_SPACING);
 
@@ -1020,7 +1019,7 @@ QWidget* SimSettingsView::createRadianceParametersWidget() {
   addField(gridLayout, row, col, m_skyDiscretizationResolutionLbl, "Sky Discretization Resolution: ", m_skyDiscretizationResolution);
 
   std::vector<std::string> skyDiscretizationResolutionValues = model::RadianceParameters::skyDiscretizationResolutionValues();
-  for (std::string skyDiscretizationResolutionValue : skyDiscretizationResolutionValues) {
+  for (const std::string& skyDiscretizationResolutionValue : skyDiscretizationResolutionValues) {
     m_skyDiscretizationResolution->addItem(skyDiscretizationResolutionValue.c_str());
   }
 
@@ -1029,7 +1028,7 @@ QWidget* SimSettingsView::createRadianceParametersWidget() {
 
   vLayout->addLayout(gridLayout);
 
-  auto widget = new QWidget();
+  auto* widget = new QWidget();
   widget->setLayout(vLayout);
   widget->hide();
 
@@ -1083,7 +1082,7 @@ void SimSettingsView::enableRadianceParametersWidget(bool isEnabled) {
 }
 
 QWidget* SimSettingsView::createOutputJSONWidget() {
-  auto gridLayout = new QGridLayout();
+  auto* gridLayout = new QGridLayout();
   gridLayout->setContentsMargins(7, 7, 7, 7);
   gridLayout->setSpacing(GRID_LAYOUT_SPACING);
   gridLayout->setAlignment(Qt::AlignLeft);
@@ -1115,7 +1114,7 @@ QWidget* SimSettingsView::createOutputJSONWidget() {
   gridLayout->setRowStretch(100, 100);
   gridLayout->setColumnStretch(100, 100);
 
-  auto widget = new QWidget();
+  auto* widget = new QWidget();
   widget->setLayout(gridLayout);
   widget->hide();
 
@@ -1124,7 +1123,7 @@ QWidget* SimSettingsView::createOutputJSONWidget() {
 
 QWidget* SimSettingsView::createOutputTableSummaryReportsWidget() {
 
-  auto gridLayout = new QGridLayout();
+  auto* gridLayout = new QGridLayout();
   gridLayout->setContentsMargins(7, 7, 7, 7);
   gridLayout->setSpacing(GRID_LAYOUT_SPACING);
   gridLayout->setAlignment(Qt::AlignLeft);
@@ -1134,7 +1133,7 @@ QWidget* SimSettingsView::createOutputTableSummaryReportsWidget() {
 
   addField(gridLayout, row, col, "Enable AllSummary Report", m_table_allSummary);
 
-  auto widget = new QWidget();
+  auto* widget = new QWidget();
   widget->setLayout(gridLayout);
   widget->hide();
 
@@ -1143,7 +1142,7 @@ QWidget* SimSettingsView::createOutputTableSummaryReportsWidget() {
 
 QWidget* SimSettingsView::createOutputDiagnosticsWidget() {
 
-  auto gridLayout = new QGridLayout();
+  auto* gridLayout = new QGridLayout();
   gridLayout->setContentsMargins(7, 7, 7, 7);
   gridLayout->setSpacing(GRID_LAYOUT_SPACING);
   gridLayout->setAlignment(Qt::AlignLeft);
@@ -1153,7 +1152,7 @@ QWidget* SimSettingsView::createOutputDiagnosticsWidget() {
 
   addField(gridLayout, row, col, "Enable DisplayExtraWarnings", m_diagnostics_displayExtraWarnings);
 
-  auto widget = new QWidget();
+  auto* widget = new QWidget();
   widget->setLayout(gridLayout);
   widget->hide();
 
@@ -1161,7 +1160,7 @@ QWidget* SimSettingsView::createOutputDiagnosticsWidget() {
 }
 
 void SimSettingsView::addField(QGridLayout* gridLayout, int row, int column, QString text, OSComboBox2*& comboBox) {
-  auto label = new QLabel(text, this);
+  auto* label = new QLabel(text, this);
   label->setFixedWidth(TEXT_FIELD_WIDTH);
   label->setObjectName("H2");
   gridLayout->addWidget(label, row++, column);
@@ -1183,7 +1182,7 @@ void SimSettingsView::addField(QGridLayout* gridLayout, int row, int column, QLa
 }
 
 void SimSettingsView::addField(QGridLayout* gridLayout, int row, int column, QString text, OSIntegerEdit2*& integerEdit) {
-  auto label = new QLabel(text, this);
+  auto* label = new QLabel(text, this);
   label->setFixedWidth(TEXT_FIELD_WIDTH);
   label->setObjectName("H2");
   gridLayout->addWidget(label, row++, column);
@@ -1205,7 +1204,7 @@ void SimSettingsView::addField(QGridLayout* gridLayout, int row, int column, QLa
 }
 
 void SimSettingsView::addField(QGridLayout* gridLayout, int row, int column, QString text, OSLineEdit2*& lineEdit) {
-  auto label = new QLabel(text, this);
+  auto* label = new QLabel(text, this);
   label->setFixedWidth(TEXT_FIELD_WIDTH);
   label->setObjectName("H2");
   gridLayout->addWidget(label, row++, column);
@@ -1217,7 +1216,7 @@ void SimSettingsView::addField(QGridLayout* gridLayout, int row, int column, QSt
 
 void SimSettingsView::addField(QGridLayout* gridLayout, int row, int column, QString text, const std::string& modelUnits, const std::string& siUnits,
                                const std::string& ipUnits, OSQuantityEdit2*& quantityEdit) {
-  auto label = new QLabel(text, this);
+  auto* label = new QLabel(text, this);
   label->setFixedWidth(TEXT_FIELD_WIDTH);
   label->setObjectName("H2");
   gridLayout->addWidget(label, row++, column);
@@ -1242,7 +1241,7 @@ void SimSettingsView::addField(QGridLayout* gridLayout, int row, int column, QLa
 }
 
 void SimSettingsView::addField(QGridLayout* gridLayout, int row, int column, QString text, OSSwitch2*& osSwitch) {
-  auto label = new QLabel(text, this);
+  auto* label = new QLabel(text, this);
   label->setFixedWidth(TEXT_FIELD_WIDTH);
   label->setObjectName("H2");
   gridLayout->addWidget(label, row++, column);
@@ -1462,7 +1461,7 @@ void SimSettingsView::attachSizingParameters() {
 }
 
 void SimSettingsView::attachProgramControl() {
-  model::ProgramControl mo = m_model.getUniqueModelObject<model::ProgramControl>();
+  auto mo = m_model.getUniqueModelObject<model::ProgramControl>();
 
   // m_numberOfThreadsAllowed->bind(mo,"numberofThreadsAllowed");
   m_numberOfThreadsAllowed->bind(mo, OptionalIntGetter(std::bind(&model::ProgramControl::numberofThreadsAllowed, mo)),

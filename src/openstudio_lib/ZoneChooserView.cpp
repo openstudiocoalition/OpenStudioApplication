@@ -49,13 +49,13 @@
 namespace openstudio {
 
 ZoneChooserView::ZoneChooserView(QWidget* parent) : QWidget(parent) {
-  auto mainLayout = new QVBoxLayout();
+  auto* mainLayout = new QVBoxLayout();
 
   mainLayout->setContentsMargins(0, 0, 0, 0);
 
   this->setLayout(mainLayout);
 
-  auto scrollArea = new QScrollArea();
+  auto* scrollArea = new QScrollArea();
 
   scrollArea->setWidgetResizable(true);
 
@@ -63,7 +63,7 @@ ZoneChooserView::ZoneChooserView(QWidget* parent) : QWidget(parent) {
 
   mainLayout->addWidget(scrollArea);
 
-  auto scrollWidget = new QWidget();
+  auto* scrollWidget = new QWidget();
 
   scrollArea->setWidget(scrollWidget);
 
@@ -98,12 +98,12 @@ void ZoneChooserView::layoutView() {
   m_zoneChooserItems.clear();
 
   if (m_mixer) {
-    auto label = new QLabel();
+    auto* label = new QLabel();
     label->setObjectName("IGHeader");
     label->setText(toQString(m_mixer->iddObject().name()));
     m_vLayout->addWidget(label);
   } else if (m_splitter) {
-    auto label = new QLabel();
+    auto* label = new QLabel();
     label->setObjectName("IGHeader");
     label->setText(toQString(m_splitter->iddObject().name()));
     m_vLayout->addWidget(label);
@@ -125,7 +125,7 @@ void ZoneChooserView::layoutView() {
 
   for (auto it = zones.begin(); it < zones.end(); ++it) {
     if (!it->isPlenum()) {
-      auto zoneChooserItem = new ZoneChooserItem(*it, this);
+      auto* zoneChooserItem = new ZoneChooserItem(*it, this);
       m_zoneChooserItems.push_back(zoneChooserItem);
       m_vLayout->addWidget(zoneChooserItem);
       zoneChooserItem->setChecked(false);
@@ -166,7 +166,7 @@ ZoneChooserItem* ZoneChooserView::zoneChooserItemForZone(const std::string& zone
 
 ZoneChooserItem::ZoneChooserItem(model::ThermalZone& zone, ZoneChooserView* parent)
   : QWidget(parent), m_zoneChooserView(parent), m_thermalZone(zone) {
-  auto hLayout = new QHBoxLayout();
+  auto* hLayout = new QHBoxLayout();
 
   m_checkBox = new QCheckBox();
 

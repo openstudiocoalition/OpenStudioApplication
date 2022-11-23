@@ -118,18 +118,18 @@ QUrl getEmbeddedFileUrl(const QString& filename) {
 }
 
 GeometryEditorView::GeometryEditorView(bool isIP, const openstudio::model::Model& model, QWidget* parent) : QWidget(parent) {
-  QVBoxLayout* layout = new QVBoxLayout;
+  auto* layout = new QVBoxLayout;
 
-  EditorWebView* webView = new EditorWebView(isIP, model, this);
+  auto* webView = new EditorWebView(isIP, model, this);
   layout->addWidget(webView);
 
   setLayout(layout);
 }
 
-GeometryEditorView::~GeometryEditorView() {}
+GeometryEditorView::~GeometryEditorView() = default;
 
 DebugWebView::DebugWebView(const QString& debugPort, QWidget* parent) : QDialog(parent) {
-  auto mainLayout = new QVBoxLayout;
+  auto* mainLayout = new QVBoxLayout;
   setLayout(mainLayout);
 
   m_view = new QWebEngineView(this);
@@ -146,7 +146,7 @@ DebugWebView::DebugWebView(const QString& debugPort, QWidget* parent) : QDialog(
   m_view->load(QUrl(urlString));
 }
 
-DebugWebView::~DebugWebView() {}
+DebugWebView::~DebugWebView() = default;
 
 BaseEditor::BaseEditor(bool isIP, const openstudio::model::Model& model, QWebEngineView* view, QWidget* t_parent)
   : QObject(t_parent), m_editorLoaded(false), m_javascriptRunning(false), m_versionNumber(0), m_isIP(isIP), m_model(model), m_view(view) {
@@ -159,7 +159,7 @@ BaseEditor::BaseEditor(bool isIP, const openstudio::model::Model& model, QWebEng
   OS_ASSERT(m_document);
 }
 
-BaseEditor::~BaseEditor() {}
+BaseEditor::~BaseEditor() = default;
 
 bool BaseEditor::editorLoaded() const {
   return m_editorLoaded;
@@ -253,7 +253,7 @@ FloorspaceEditor::FloorspaceEditor(const openstudio::path& floorplanPath, bool i
   m_document->enable();
 }
 
-FloorspaceEditor::~FloorspaceEditor() {}
+FloorspaceEditor::~FloorspaceEditor() = default;
 
 void FloorspaceEditor::loadEditor() {
   // set config
@@ -760,7 +760,7 @@ GbXmlEditor::GbXmlEditor(const openstudio::path& gbXmlPath, bool isIP, const ope
   m_document->enable();
 }
 
-GbXmlEditor::~GbXmlEditor() {}
+GbXmlEditor::~GbXmlEditor() = default;
 
 void GbXmlEditor::loadEditor() {
   {
@@ -916,7 +916,7 @@ IdfEditor::IdfEditor(const openstudio::path& idfPath, bool forceConvert, bool is
   m_document->enable();
 }
 
-IdfEditor::~IdfEditor() {}
+IdfEditor::~IdfEditor() = default;
 
 void IdfEditor::loadEditor() {
 
@@ -1035,7 +1035,7 @@ OsmEditor::OsmEditor(const openstudio::path& osmPath, bool isIP, const openstudi
   m_document->enable();
 }
 
-OsmEditor::~OsmEditor() {}
+OsmEditor::~OsmEditor() = default;
 
 void OsmEditor::loadEditor() {
 
@@ -1102,7 +1102,7 @@ EditorWebView::EditorWebView(bool isIP, const openstudio::model::Model& model, Q
   // find available port for debugging
   m_debugPort = QString(qgetenv("QTWEBENGINE_REMOTE_DEBUGGING"));
 
-  auto mainLayout = new QVBoxLayout;
+  auto* mainLayout = new QVBoxLayout;
   setLayout(mainLayout);
 
   connect(m_document.get(), &OSDocument::toggleUnitsClicked, this, &EditorWebView::onUnitSystemChange);
@@ -1113,10 +1113,10 @@ EditorWebView::EditorWebView(bool isIP, const openstudio::model::Model& model, Q
   connect(m_mergeBtn, &QPushButton::clicked, this, &EditorWebView::mergeClicked);
   connect(m_debugBtn, &QPushButton::clicked, this, &EditorWebView::debugClicked);
 
-  auto hLayout = new QHBoxLayout(this);
+  auto* hLayout = new QHBoxLayout(this);
   mainLayout->addLayout(hLayout);
 
-  QLabel* label = new QLabel(this);
+  auto* label = new QLabel(this);
   label->setText("Geometry Type");
   hLayout->addWidget(label);
 
@@ -1420,7 +1420,7 @@ void EditorWebView::previewExport() {
 
     // merge export model into clone of m_model
     bool keepHandles = true;
-    model::Model temp = m_model.clone(keepHandles).cast<model::Model>();
+    auto temp = m_model.clone(keepHandles).cast<model::Model>();
     model::ModelMerger mm;
     mm.mergeModels(temp, m_baseEditor->exportModel(), m_baseEditor->exportModelHandleMapping());
 
@@ -1442,7 +1442,7 @@ void EditorWebView::previewExport() {
 
     bool signalsBlocked = m_baseEditor->blockUpdateTimerSignals(true);
 
-    PreviewWebView* webView = new PreviewWebView(m_isIP, temp);
+    auto* webView = new PreviewWebView(m_isIP, temp);
     QLayout* layout = new QVBoxLayout();
     layout->addWidget(webView);
 

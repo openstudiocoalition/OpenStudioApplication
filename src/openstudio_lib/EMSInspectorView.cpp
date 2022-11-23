@@ -53,12 +53,12 @@ class EMSInspectorHeader : public QWidget
   explicit EMSInspectorHeader(const QString& text) : QWidget() {
     setContentsMargins(0, 0, 0, 0);
     setObjectName("IGHeader");
-    auto layout = new QVBoxLayout();
+    auto* layout = new QVBoxLayout();
     layout->setSpacing(0);
     layout->setContentsMargins(0, 0, 0, 0);
     setLayout(layout);
 
-    auto label = new QLabel(text);
+    auto* label = new QLabel(text);
     label->setObjectName("IGHeader");
     label->setStyleSheet("font : bold");
     layout->addWidget(label);
@@ -73,13 +73,13 @@ class EMSInspectorActuator : public QWidget
     : QWidget(), m_names(names), m_modelObject(modelObject) {
     setContentsMargins(0, 0, 0, 0);
 
-    auto layout = new QHBoxLayout();
+    auto* layout = new QHBoxLayout();
     layout->setSpacing(10);
     layout->setContentsMargins(0, 0, 0, 0);
     layout->setAlignment(Qt::AlignLeft);
     setLayout(layout);
 
-    auto cb = new QCheckBox(QString::fromStdString(names.controlTypeName()));
+    auto* cb = new QCheckBox(QString::fromStdString(names.controlTypeName()));
     connect(cb, &QCheckBox::toggled, this, &EMSInspectorActuator::onToggled);
     layout->addWidget(cb);
 
@@ -137,13 +137,13 @@ class EMSInspectorSensor : public QWidget
   EMSInspectorSensor(const std::string& name, const model::ModelObject& modelObject) : QWidget(), m_name(name), m_modelObject(modelObject) {
     setContentsMargins(0, 0, 0, 0);
 
-    auto layout = new QHBoxLayout();
+    auto* layout = new QHBoxLayout();
     layout->setSpacing(10);
     layout->setContentsMargins(0, 0, 0, 0);
     layout->setAlignment(Qt::AlignLeft);
     setLayout(layout);
 
-    auto cb = new QCheckBox(QString::fromStdString(name));
+    auto* cb = new QCheckBox(QString::fromStdString(name));
     connect(cb, &QCheckBox::toggled, this, &EMSInspectorSensor::onToggled);
     layout->addWidget(cb);
 
@@ -198,7 +198,7 @@ EMSInspectorView::EMSInspectorView(QWidget* parent, EMSInspectorView::Type type)
   m_layout->setAlignment(Qt::AlignTop);
   //setLayout(m_layout);
 
-  auto scrollWidget = new QWidget();
+  auto* scrollWidget = new QWidget();
   scrollWidget->setObjectName("ScrollWidget");
   scrollWidget->setStyleSheet("QWidget#ScrollWidget { background: transparent; }");
   scrollWidget->setLayout(m_layout);
@@ -210,7 +210,7 @@ EMSInspectorView::EMSInspectorView(QWidget* parent, EMSInspectorView::Type type)
   m_scrollArea->setBackgroundRole(QPalette::NoRole);
 
   //m_layout->addWidget(m_scrollArea);
-  auto scrollLayout = new QVBoxLayout();
+  auto* scrollLayout = new QVBoxLayout();
   scrollLayout->setContentsMargins(0, 0, 0, 0);
   scrollLayout->addWidget(m_scrollArea);
 
@@ -229,32 +229,32 @@ void EMSInspectorView::layoutModelObject(const model::ModelObject& modelObject) 
   for (const auto& objecti : modelObjects) {
     if (m_type == Type::ACTUATOR) {
       if (objecti.nameString().empty()) {
-        auto label = new EMSInspectorHeader(QString::fromStdString(objecti.iddObjectType().valueName()) + " Actuators");
+        auto* label = new EMSInspectorHeader(QString::fromStdString(objecti.iddObjectType().valueName()) + " Actuators");
         m_layout->addWidget(label);
       } else {
-        auto label = new EMSInspectorHeader(QString::fromStdString(objecti.nameString()) + " Actuators");
+        auto* label = new EMSInspectorHeader(QString::fromStdString(objecti.nameString()) + " Actuators");
         m_layout->addWidget(label);
       }
 
       const auto actuatorNames = objecti.emsActuatorNames();
 
-      for (const auto actuator : actuatorNames) {
-        auto actuatorWidget = new EMSInspectorActuator(actuator, objecti);
+      for (const auto& actuator : actuatorNames) {
+        auto* actuatorWidget = new EMSInspectorActuator(actuator, objecti);
         m_layout->addWidget(actuatorWidget);
       }
     } else if (m_type == Type::SENSOR) {
       if (objecti.nameString().empty()) {
-        auto label = new EMSInspectorHeader(QString::fromStdString(objecti.iddObjectType().valueName()) + " Sensors");
+        auto* label = new EMSInspectorHeader(QString::fromStdString(objecti.iddObjectType().valueName()) + " Sensors");
         m_layout->addWidget(label);
       } else {
-        auto label = new EMSInspectorHeader(QString::fromStdString(objecti.nameString()) + " Sensors");
+        auto* label = new EMSInspectorHeader(QString::fromStdString(objecti.nameString()) + " Sensors");
         m_layout->addWidget(label);
       }
 
       const auto sensorNames = objecti.outputVariableNames();
 
-      for (const auto sensor : sensorNames) {
-        auto sensorWidget = new EMSInspectorSensor(sensor, objecti);
+      for (const auto& sensor : sensorNames) {
+        auto* sensorWidget = new EMSInspectorSensor(sensor, objecti);
         m_layout->addWidget(sensorWidget);
       }
     }

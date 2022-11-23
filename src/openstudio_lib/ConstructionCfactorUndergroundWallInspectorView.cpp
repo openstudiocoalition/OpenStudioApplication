@@ -60,13 +60,13 @@ ConstructionCfactorUndergroundWallInspectorView::ConstructionCfactorUndergroundW
 }
 
 void ConstructionCfactorUndergroundWallInspectorView::createLayout() {
-  auto hiddenWidget = new QWidget();
+  auto* hiddenWidget = new QWidget();
   this->stackedWidget()->addWidget(hiddenWidget);
 
-  auto visibleWidget = new QWidget();
+  auto* visibleWidget = new QWidget();
   this->stackedWidget()->addWidget(visibleWidget);
 
-  auto mainGridLayout = new QGridLayout();
+  auto* mainGridLayout = new QGridLayout();
   mainGridLayout->setContentsMargins(7, 7, 7, 7);
   mainGridLayout->setSpacing(14);
   visibleWidget->setLayout(mainGridLayout);
@@ -139,7 +139,7 @@ void ConstructionCfactorUndergroundWallInspectorView::onClearSelection() {
 
 void ConstructionCfactorUndergroundWallInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject) {
   detach();
-  model::CFactorUndergroundWallConstruction construction = modelObject.cast<model::CFactorUndergroundWallConstruction>();
+  auto construction = modelObject.cast<model::CFactorUndergroundWallConstruction>();
   attach(construction);
 
   this->stackedWidget()->setCurrentIndex(1);

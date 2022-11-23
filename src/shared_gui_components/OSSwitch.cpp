@@ -48,7 +48,7 @@ OSSwitch2::OSSwitch2(QWidget* parent) : QPushButton(parent) {
   this->setCheckable(true);
 }
 
-OSSwitch2::~OSSwitch2() {}
+OSSwitch2::~OSSwitch2() = default;
 
 void OSSwitch2::makeOnOff() {
   setObjectName("OnOffSliderButton");
@@ -66,10 +66,9 @@ void OSSwitch2::bind(const model::ModelObject& modelObject, BoolGetter get, boos
   m_reset = reset;
   m_isDefaulted = isDefaulted;
 
-  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.connect<OSSwitch2, &OSSwitch2::onModelObjectChange>(this);
-  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
-    .get()
-    ->onRemoveFromWorkspace.connect<OSSwitch2, &OSSwitch2::onModelObjectRemove>(this);
+  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()->onChange.connect<OSSwitch2, &OSSwitch2::onModelObjectChange>(this);
+  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()->onRemoveFromWorkspace.connect<OSSwitch2, &OSSwitch2::onModelObjectRemove>(
+    this);
 
   connect(this, &OSSwitch2::clicked, this, &OSSwitch2::onClicked);
 
@@ -78,10 +77,8 @@ void OSSwitch2::bind(const model::ModelObject& modelObject, BoolGetter get, boos
 
 void OSSwitch2::unbind() {
   if (m_modelObject) {
-    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.disconnect<OSSwitch2, &OSSwitch2::onModelObjectChange>(
-      this);
+    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()->onChange.disconnect<OSSwitch2, &OSSwitch2::onModelObjectChange>(this);
     m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
-      .get()
       ->onRemoveFromWorkspace.disconnect<OSSwitch2, &OSSwitch2::onModelObjectRemove>(this);
     m_modelObject.reset();
     m_get.reset();

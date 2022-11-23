@@ -65,14 +65,14 @@ OSItemList::OSItemList(OSVectorController* vectorController, bool addScrollArea,
 
   setStyleSheet(style);
 
-  auto outerVLayout = new QVBoxLayout();
+  auto* outerVLayout = new QVBoxLayout();
   outerVLayout->setContentsMargins(0, 0, 0, 0);
   this->setLayout(outerVLayout);
 
-  auto outerWidget = new QWidget();
+  auto* outerWidget = new QWidget();
 
   if (addScrollArea) {
-    auto scrollArea = new QScrollArea();
+    auto* scrollArea = new QScrollArea();
     scrollArea->setFrameStyle(QFrame::NoFrame);
     scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
     scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
@@ -130,7 +130,7 @@ std::vector<OSItem*> OSItemList::items() {
   for (int i = 0; i < m_vLayout->count(); ++i) {
     QLayoutItem* layoutItem = m_vLayout->itemAt(i);
     QWidget* widget = layoutItem->widget();
-    OSItem* item = qobject_cast<OSItem*>(widget);
+    auto* item = qobject_cast<OSItem*>(widget);
 
     if (item) {
       result.push_back(item);
@@ -255,7 +255,7 @@ void OSItemList::selectItem(OSItem* selectItem) {
   for (int i = 0; i < m_vLayout->count(); ++i) {
     QLayoutItem* layoutItem = m_vLayout->itemAt(i);
     QWidget* widget = layoutItem->widget();
-    OSItem* item = qobject_cast<OSItem*>(widget);
+    auto* item = qobject_cast<OSItem*>(widget);
 
     if (item) {
       if (selectItem->equal(item)) {
@@ -291,7 +291,7 @@ void OSItemList::selectItemId(const OSItemId& itemId) {
   for (int i = 0; i < m_vLayout->count(); ++i) {
     QLayoutItem* layoutItem = m_vLayout->itemAt(i);
     QWidget* widget = layoutItem->widget();
-    OSItem* item = qobject_cast<OSItem*>(widget);
+    auto* item = qobject_cast<OSItem*>(widget);
 
     if (item) {
       if (item->itemId() == itemId) {
@@ -308,7 +308,7 @@ void OSItemList::clearSelection() {
   for (int i = 0; i < m_vLayout->count(); ++i) {
     QLayoutItem* layoutItem = m_vLayout->itemAt(i);
     QWidget* widget = layoutItem->widget();
-    OSItem* item = qobject_cast<OSItem*>(widget);
+    auto* item = qobject_cast<OSItem*>(widget);
     if (item) {
       item->setSelected(false);
     }
