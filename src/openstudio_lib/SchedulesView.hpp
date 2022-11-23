@@ -308,7 +308,7 @@ class ScheduleTab
 
   ScheduleTabHeader* m_header;
 
-  ScheduleTabContent* m_content;  
+  ScheduleTabContent* m_content;
 };
 
 // Collapsible header for each schedule ruleset in left column selector
