@@ -47,7 +47,7 @@ class StartupView : public QWidget
   Q_OBJECT
 
  public:
-  StartupView(QWidget* parent = nullptr);
+  explicit StartupView(QWidget* parent = nullptr);
 
   virtual ~StartupView() {}
 
@@ -93,7 +93,7 @@ class StartupView : public QWidget
 class TemplateListModel : public QAbstractListModel
 {
  public:
-  TemplateListModel(QObject* parent = nullptr);
+  explicit TemplateListModel(QObject* parent = nullptr);
 
   int rowCount(const QModelIndex& parent = QModelIndex()) const override;
 

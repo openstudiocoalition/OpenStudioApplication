@@ -48,10 +48,11 @@ class SpacesLoadsGridView : public SpacesSubtabGridView
  public:
   SpacesLoadsGridView(bool isIP, const model::Model& model, QWidget* parent = nullptr);
 
-  virtual ~SpacesLoadsGridView() {}
+  virtual ~SpacesLoadsGridView() = default;
 
  private:
   REGISTER_LOGGER("openstudio.SpacesLoadsGridView");
+  void clearSelection();
 
  protected slots:
 
@@ -69,12 +70,12 @@ class SpacesLoadsGridController : public OSGridController
   SpacesLoadsGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, const model::Model& model,
                             const std::vector<model::ModelObject>& modelObjects);
 
-  virtual ~SpacesLoadsGridController() {}
+  virtual ~SpacesLoadsGridController() = default;
 
   virtual void refreshModelObjects() override;
 
  protected:
-  virtual void setCategoriesAndFields() override;
+  void setCategoriesAndFields();
 
   virtual void addColumns(const QString& category, std::vector<QString>& fields) override;
 

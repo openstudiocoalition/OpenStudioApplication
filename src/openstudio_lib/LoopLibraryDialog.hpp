@@ -45,7 +45,7 @@ class LoopLibraryDialog : public QDialog
   Q_OBJECT
 
  public:
-  LoopLibraryDialog(QWidget* parent = nullptr);
+  explicit LoopLibraryDialog(QWidget* parent = nullptr);
 
   virtual ~LoopLibraryDialog() {}
 

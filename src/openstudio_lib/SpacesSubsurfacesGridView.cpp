@@ -154,7 +154,7 @@ SpacesSubsurfacesGridView::SpacesSubsurfacesGridView(bool isIP, const model::Mod
   m_gridView->addSpacingToContentLayout(7);
   m_gridView->showDropZone(false);
 
-  onClearSelection();
+  clearSelection();
 }
 
 SpacesSubsurfacesGridController::SpacesSubsurfacesGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType,
@@ -171,6 +171,10 @@ void SpacesSubsurfacesGridView::onSelectItem() {
 }
 
 void SpacesSubsurfacesGridView::onClearSelection() {
+  clearSelection();
+}
+
+void SpacesSubsurfacesGridView::clearSelection() {
   m_itemSelectorButtons->disableAddButton();
   m_itemSelectorButtons->disableCopyButton();
   m_itemSelectorButtons->disableRemoveButton();
@@ -179,81 +183,76 @@ void SpacesSubsurfacesGridView::onClearSelection() {
 
 void SpacesSubsurfacesGridController::setCategoriesAndFields() {
   {
-    std::vector<QString> fields;
-    fields.push_back(SUBSURFACENAME);
-    fields.push_back(SURFACENAME);
-    fields.push_back(SUBSURFACETYPE);
-    fields.push_back(MULTIPLIER);
-    fields.push_back(CONSTRUCTION);
-    fields.push_back(OUTSIDEBOUNDARYCONDITIONOBJECT);
-    //fields.push_back(SHADINGSURFACENAME);
+    std::vector<QString> fields{
+      SUBSURFACENAME, SURFACENAME, SUBSURFACETYPE, MULTIPLIER, CONSTRUCTION, OUTSIDEBOUNDARYCONDITIONOBJECT,
+      //SHADINGSURFACENAME,
+    };
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("General"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
   {
-    std::vector<QString> fields;
-    fields.push_back(SUBSURFACENAME);
-    fields.push_back(SURFACENAME);
-    fields.push_back(SHADINGCONTROLNAME);
-    fields.push_back(SHADINGTYPE);
-    //fields.push_back(CONSTRUCTIONWITHSHADINGNAME);
-    //fields.push_back(SHADINGDEVICEMATERIALNAME);
-    fields.push_back(SHADINGCONTROLTYPE);
-    fields.push_back(SCHEDULENAME);
-    //fields.push_back(SETPOINT);                        IN IDD, BUT NOT EXPOSED IN MODEL OBJECT
-    //fields.push_back(SHADINGCONTROLISSCHEDULED);       IN IDD, BUT NOT EXPOSED IN MODEL OBJECT
-    //fields.push_back(GLARECONTROLISACTIVE);            IN IDD, BUT NOT EXPOSED IN MODEL OBJECT
-    //fields.push_back(TYPEOFSLATANGLECONTROLFORBLINDS); IN IDD, BUT NOT EXPOSED IN MODEL OBJECT
-    //fields.push_back(SLATANGLESCHEDULENAME);           IN IDD, BUT NOT EXPOSED IN MODEL OBJECT
-    //fields.push_back(SETPOINT2);                       IN IDD, BUT NOT EXPOSED IN MODEL OBJECT
+    std::vector<QString> fields{
+      SUBSURFACENAME, SURFACENAME, SHADINGCONTROLNAME, SHADINGTYPE,
+      //CONSTRUCTIONWITHSHADINGNAME,
+      //SHADINGDEVICEMATERIALNAME,
+      SHADINGCONTROLTYPE, SCHEDULENAME,
+      //SETPOINT,                        IN IDD, BUT NOT EXPOSED IN MODEL OBJECT
+      //SHADINGCONTROLISSCHEDULED,       IN IDD, BUT NOT EXPOSED IN MODEL OBJECT
+      //GLARECONTROLISACTIVE,            IN IDD, BUT NOT EXPOSED IN MODEL OBJECT
+      //TYPEOFSLATANGLECONTROLFORBLINDS, IN IDD, BUT NOT EXPOSED IN MODEL OBJECT
+      //SLATANGLESCHEDULENAME,           IN IDD, BUT NOT EXPOSED IN MODEL OBJECT
+      //SETPOINT2,                       IN IDD, BUT NOT EXPOSED IN MODEL OBJECT
+    };
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Shading Controls"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
   {
-    std::vector<QString> fields;
-    fields.push_back(SUBSURFACENAME);
-    fields.push_back(SURFACENAME);
-    fields.push_back(FRAMEANDDIVIDERNAME);
-    fields.push_back(FRAMEWIDTH);
-    fields.push_back(FRAMEOUTSIDEPROJECTION);
-    fields.push_back(FRAMEINSIDEPROJECTION);
-    fields.push_back(FRAMECONDUCTANCE);
-    fields.push_back(FRAMEEDGEGLASSCONDUCTANCETOCENTEROFGLASSCONDUCTANCE);
-    fields.push_back(FRAMESOLARABSORPTANCE);
-    fields.push_back(FRAMEVISIBLEABSORPTANCE);
-    fields.push_back(FRAMETHERMALHEMISPHERICALEMISSIVITY);
-    fields.push_back(DIVIDERTYPE);
-    fields.push_back(DIVIDERWIDTH);
-    fields.push_back(NUMBEROFHORIZONTALDIVIDERS);
-    fields.push_back(NUMBEROFVERTICALDIVIDERS);
-    fields.push_back(DIVIDEROUTSIDEPROJECTION);
-    fields.push_back(DIVIDERINSIDEPROJECTION);
-    fields.push_back(DIVIDERCONDUCTANCE);
-    fields.push_back(RATIOOFDIVIDEREDGEGLASSCONDUCTANCETOCENTEROFGLASSCONDUCTANCE);
-    fields.push_back(DIVIDERSOLARABSORPTANCE);
-    fields.push_back(DIVIDERVISIBLEABSORPTANCE);
-    fields.push_back(DIVIDERTHERMALHEMISPHERICALEMISSIVITY);
-    fields.push_back(OUTSIDEREVEALDEPTH);
-    fields.push_back(OUTSIDEREVEALSOLARABSORPTANCE);
-    fields.push_back(INSIDESILLDEPTH);
-    fields.push_back(INSIDESILLSOLARABSORPTANCE);
-    fields.push_back(INSIDEREVEALDEPTH);
-    fields.push_back(INSIDEREVEALSOLARABSORPTANCE);
+    std::vector<QString> fields{
+      SUBSURFACENAME,
+      SURFACENAME,
+      FRAMEANDDIVIDERNAME,
+      FRAMEWIDTH,
+      FRAMEOUTSIDEPROJECTION,
+      FRAMEINSIDEPROJECTION,
+      FRAMECONDUCTANCE,
+      FRAMEEDGEGLASSCONDUCTANCETOCENTEROFGLASSCONDUCTANCE,
+      FRAMESOLARABSORPTANCE,
+      FRAMEVISIBLEABSORPTANCE,
+      FRAMETHERMALHEMISPHERICALEMISSIVITY,
+      DIVIDERTYPE,
+      DIVIDERWIDTH,
+      NUMBEROFHORIZONTALDIVIDERS,
+      NUMBEROFVERTICALDIVIDERS,
+      DIVIDEROUTSIDEPROJECTION,
+      DIVIDERINSIDEPROJECTION,
+      DIVIDERCONDUCTANCE,
+      RATIOOFDIVIDEREDGEGLASSCONDUCTANCETOCENTEROFGLASSCONDUCTANCE,
+      DIVIDERSOLARABSORPTANCE,
+      DIVIDERVISIBLEABSORPTANCE,
+      DIVIDERTHERMALHEMISPHERICALEMISSIVITY,
+      OUTSIDEREVEALDEPTH,
+      OUTSIDEREVEALSOLARABSORPTANCE,
+      INSIDESILLDEPTH,
+      INSIDESILLSOLARABSORPTANCE,
+      INSIDEREVEALDEPTH,
+      INSIDEREVEALSOLARABSORPTANCE,
+    };
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Frame and Divider"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
   {
-    std::vector<QString> fields;
-    fields.push_back(SUBSURFACENAME);
-    fields.push_back(SURFACENAME);
-    fields.push_back(DAYLIGHTINGSHELFNAME);
-    //fields.push_back(WINDOWNAME);
-    fields.push_back(INSIDESHELFNAME);
-    fields.push_back(OUTSIDESHELFNAME);
-    fields.push_back(VIEWFACTORTOOUTSIDESHELF);
+    std::vector<QString> fields{
+      SUBSURFACENAME,
+      SURFACENAME,
+      DAYLIGHTINGSHELFNAME,
+      //WINDOWNAME,
+      INSIDESHELFNAME,
+      OUTSIDESHELFNAME,
+      VIEWFACTORTOOUTSIDESHELF,
+    };
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Daylighting Shelves"), fields);
     addCategoryAndFields(categoryAndFields);
   }

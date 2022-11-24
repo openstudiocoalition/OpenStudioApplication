@@ -54,7 +54,7 @@ class OSIntegerEdit2
   Q_OBJECT
 
  public:
-  OSIntegerEdit2(QWidget* parent = nullptr);
+  explicit OSIntegerEdit2(QWidget* parent = nullptr);
 
   virtual ~OSIntegerEdit2();
 

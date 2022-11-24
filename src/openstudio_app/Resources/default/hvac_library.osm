@@ -13175,3 +13175,21 @@ OS:Curve:Quadratic,
   0.5,                                    !- Minimum Value of x
   1.5;                                    !- Maximum Value of x
 
+OS:SetpointManager:SystemNodeReset:Humidity,
+  {27d4e373-5894-4637-9413-2189a2d62282}, !- Handle
+  Setpoint Manager System Node Reset Humidity, !- Name
+  MaximumHumidityRatio,                   !- Control Variable
+  0.00924,                                !- Setpoint at Low Reference Humidity Ratio {kgWater/kgDryAir}
+  0.006,                                  !- Setpoint at High Reference Humidity Ratio {kgWater/kgDryAir}
+  0.0085,                                 !- Low Reference Humidity Ratio {kgWater/kgDryAir}
+  0.01;                                   !- High Reference Humidity Ratio {kgWater/kgDryAir}
+
+OS:SetpointManager:SystemNodeReset:Temperature,
+  {a11f0847-1463-43e9-9f02-62c6c2be0e5d}, !- Handle
+  Setpoint Manager System Node Reset Temperature, !- Name
+  Temperature,                            !- Control Variable
+  16.7,                                   !- Setpoint at Low Reference Temperature {C}
+  12.8,                                   !- Setpoint at High Reference Temperature {C}
+  20,                                     !- Low Reference Temperature {C}
+  23.3;                                   !- High Reference Temperature {C}
+

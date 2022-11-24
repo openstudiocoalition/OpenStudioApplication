@@ -42,14 +42,14 @@ class MeasureType;
 class LightHeaderToggleButton : public QPushButton
 {
  public:
-  LightHeaderToggleButton(QWidget* parent = nullptr);
+  explicit LightHeaderToggleButton(QWidget* parent = nullptr);
   virtual ~LightHeaderToggleButton() {}
 };
 
 class HeaderToggleButton : public QPushButton
 {
  public:
-  HeaderToggleButton(QWidget* parent = nullptr);
+  explicit HeaderToggleButton(QWidget* parent = nullptr);
   virtual ~HeaderToggleButton() {}
 };
 
@@ -60,7 +60,7 @@ class DarkGradientHeader : public OSHeader
  public:
   QLabel* label;
 
-  DarkGradientHeader(QWidget* parent = nullptr);
+  explicit DarkGradientHeader(QWidget* parent = nullptr);
   virtual ~DarkGradientHeader() {}
 };
 
@@ -71,7 +71,7 @@ class LightGradientHeader : public OSHeader
  public:
   QLabel* label;
 
-  LightGradientHeader(QWidget* parent = nullptr);
+  explicit LightGradientHeader(QWidget* parent = nullptr);
   void setMeasureType(const MeasureType& measureType);
   virtual ~LightGradientHeader() {}
 
@@ -86,7 +86,7 @@ class LightHeader : public OSHeader
  public:
   QLabel* label;
 
-  LightHeader(QWidget* parent = nullptr);
+  explicit LightHeader(QWidget* parent = nullptr);
   virtual ~LightHeader() {}
 };
 

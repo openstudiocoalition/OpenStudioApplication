@@ -89,7 +89,7 @@ class OSLineEdit2
   Q_OBJECT
 
  public:
-  OSLineEdit2(QWidget* parent = nullptr);
+  explicit OSLineEdit2(QWidget* parent = nullptr);
 
   virtual ~OSLineEdit2();
 

@@ -39,7 +39,7 @@ class ListWidget : public QListWidget
   Q_OBJECT
 
  public:
-  ListWidget(QWidget* parent = nullptr);
+  explicit ListWidget(QWidget* parent = nullptr);
   virtual ~ListWidget();
 
   static const QString& getMimeType() {

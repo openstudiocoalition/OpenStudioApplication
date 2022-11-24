@@ -73,7 +73,7 @@ class MODELEDITOR_API InspectorDialog
 
  public:
   /// create a new dialog with empty model
-  InspectorDialog(InspectorDialogClient client = InspectorDialogClient::AllOpenStudio, QWidget* parent = nullptr);
+  explicit InspectorDialog(InspectorDialogClient client = InspectorDialogClient::AllOpenStudio, QWidget* parent = nullptr);
 
   /// create a new dialog for existing model
   explicit InspectorDialog(openstudio::model::Model& model, InspectorDialogClient client = InspectorDialogClient::AllOpenStudio,

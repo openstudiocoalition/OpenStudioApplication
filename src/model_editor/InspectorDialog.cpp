@@ -63,7 +63,6 @@
 #include <QShowEvent>
 #include <QCloseEvent>
 #include <QSettings>
-#include <QTextStream>
 #include <QRegularExpressionValidator>
 #include <QDebug>
 
@@ -322,7 +321,7 @@ void InspectorDialog::onIddObjectTypeChanged(const openstudio::IddObjectType& id
 
 void InspectorDialog::onSelectedObjectHandlesChanged(const std::vector<openstudio::Handle>& selectedObjectHandles) {}
 
-void InspectorDialog::onModelChanged(Model&) {}
+void InspectorDialog::onModelChanged(Model& /*unused*/) {}
 
 void InspectorDialog::showEvent(QShowEvent* event) {
   //restoreState();
@@ -334,7 +333,7 @@ void InspectorDialog::closeEvent(QCloseEvent* event) {
   QWidget::closeEvent(event);
 }
 
-void InspectorDialog::onPushButtonNew(bool) {
+void InspectorDialog::onPushButtonNew(bool /*unused*/) {
   boost::optional<WorkspaceObject> object = m_model.addObject(IdfObject(m_iddObjectType));
 
   if (object) {
@@ -344,7 +343,7 @@ void InspectorDialog::onPushButtonNew(bool) {
   }
 }
 
-void InspectorDialog::onPushButtonCopy(bool) {
+void InspectorDialog::onPushButtonCopy(bool /*unused*/) {
   if (m_selectedObjectHandles.size() == 1) {
     boost::optional<WorkspaceObject> workspaceObject = m_model.getObject(m_selectedObjectHandles[0]);
     if (workspaceObject) {
@@ -356,7 +355,7 @@ void InspectorDialog::onPushButtonCopy(bool) {
   }
 }
 
-void InspectorDialog::onPushButtonDelete(bool) {
+void InspectorDialog::onPushButtonDelete(bool /*unused*/) {
   std::vector<Handle> handles = m_selectedObjectHandles;
   for (Handle handle : handles) {
     boost::optional<WorkspaceObject> object = m_model.getObject(handle);
@@ -367,7 +366,7 @@ void InspectorDialog::onPushButtonDelete(bool) {
   }
 }
 
-void InspectorDialog::onPushButtonPurge(bool) {
+void InspectorDialog::onPushButtonPurge(bool /*unused*/) {
   m_model.purgeUnusedResourceObjects(m_iddObjectType);
 }
 
@@ -410,17 +409,17 @@ void InspectorDialog::onTableWidgetSelectionChanged() {
   setSelectedObjectHandles(selectedObjectHandles, true);
 }
 
-void InspectorDialog::onAddWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl, const openstudio::IddObjectType& type,
-                                           const openstudio::UUID& uuid) {
+void InspectorDialog::onAddWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> /* impl */,
+                                           const openstudio::IddObjectType& type, const openstudio::UUID& uuid) {
   m_workspaceObjectAdded = true;
   m_workspaceChanged = true;
 
-  if (impl->iddObject().type() == m_iddObjectType) {
+  if (type == m_iddObjectType) {
 
-    m_objectHandles.push_back(impl->handle());
+    m_objectHandles.push_back(uuid);
 
     if (m_selectedObjectHandles.empty()) {
-      m_selectedObjectHandles.push_back(impl->handle());
+      m_selectedObjectHandles.push_back(uuid);
     } else {
       // do we want to do this or preserve the current selection?
       // this functionality is now in onPushButtonNew
@@ -457,20 +456,20 @@ void InspectorDialog::onTimeout() {
   }
 }
 
-void InspectorDialog::onRemoveWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl, const openstudio::IddObjectType& type,
-                                              const openstudio::UUID& uuid) {
+void InspectorDialog::onRemoveWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> /*impl*/,
+                                              const openstudio::IddObjectType& type, const openstudio::UUID& uuid) {
   m_workspaceObjectRemoved = true;
   m_workspaceChanged = true;
 
   // if removed object is of current type
-  if (impl->iddObject().type() == m_iddObjectType) {
+  if (type == m_iddObjectType) {
 
-    auto it = std::remove(m_objectHandles.begin(), m_objectHandles.end(), impl->handle());
+    auto it = std::remove(m_objectHandles.begin(), m_objectHandles.end(), uuid);
     if (it != m_objectHandles.end()) {
       m_objectHandles.erase(it, m_objectHandles.end());
     }
 
-    it = std::remove(m_selectedObjectHandles.begin(), m_selectedObjectHandles.end(), impl->handle());
+    it = std::remove(m_selectedObjectHandles.begin(), m_selectedObjectHandles.end(), uuid);
     if (it != m_selectedObjectHandles.end()) {
       m_selectedObjectHandles.erase(it, m_selectedObjectHandles.end());
     }
@@ -945,10 +944,9 @@ void InspectorDialog::hideSelectionWidget(bool hideSelectionWidget) {
 
 void InspectorDialog::loadStyleSheet() {
   QFile data(":/InspectorDialog.qss");
-  QString style;
   if (data.open(QFile::ReadOnly)) {
     QTextStream styleIn(&data);
-    style = styleIn.readAll();
+    QString style = styleIn.readAll();
     data.close();
     setStyleSheet(style);
   } else {
@@ -1062,12 +1060,13 @@ void InspectorDialog::loadTableWidgetData() {
   // all object handles
   m_objectHandles.clear();
 
-  int i = 0, j = 0;
+  int i = 0;
+  int j = 0;
   //bool connected;
   //QCheckBox * checkBox;
 
   std::vector<WorkspaceObject> objects = m_model.getObjectsByType(m_iddObjectType);
-
+  m_objectHandles.reserve(objects.size());
   for (const WorkspaceObject& object : objects) {
 
     m_objectHandles.push_back(object.handle());
@@ -1110,10 +1109,10 @@ void InspectorDialog::getTableWidgetSelected(std::vector<openstudio::Handle>& se
 
   QList<QTableWidgetItem*> selectedItems = m_tableWidget->selectedItems();
 
-  for (int i = 0; i < selectedItems.size(); ++i) {
-    int column = m_tableWidget->column(selectedItems.at(i));
+  for (auto* selectedItem : selectedItems) {
+    int column = m_tableWidget->column(selectedItem);
     if (column == 0) {
-      QString handleString = selectedItems.at(i)->data(Qt::UserRole).toString();
+      QString handleString = selectedItem->data(Qt::UserRole).toString();
       //std::string temp = toString(handleString);
       selectedHandles.push_back(Handle(toUUID(handleString)));
     }

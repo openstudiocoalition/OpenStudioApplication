@@ -51,7 +51,7 @@ class ScheduleDialog : public OSDialog
  public:
   ScheduleDialog(bool isIP, const model::Model& model, QWidget* parent = nullptr);
 
-  virtual ~ScheduleDialog() {}
+  virtual ~ScheduleDialog() = default;
 
   void setIsIP(bool isIP);
 
@@ -61,6 +61,7 @@ class ScheduleDialog : public OSDialog
 
  private:
   virtual void createLayout() override;
+  void createLayoutInternal();
 
   model::Model m_model;
 

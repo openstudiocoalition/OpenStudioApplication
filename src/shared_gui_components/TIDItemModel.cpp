@@ -37,8 +37,7 @@ namespace openstudio {
 class TIDItem
 {
  public:
-  explicit TIDItem(const QDomElement& element, TIDItem* parent = nullptr) {
-    m_parentItem = parent;
+  explicit TIDItem(const QDomElement& element, TIDItem* parent = nullptr) : m_parentItem(parent) {
 
     QString tagName = element.tagName();
 
@@ -123,11 +122,11 @@ TIDItemModel::~TIDItemModel() {
 
 QVariant TIDItemModel::data(const QModelIndex& index, int role) const {
   if (!index.isValid()) {
-    return QVariant();
+    return {};
   }
 
   if (role != Qt::DisplayRole) {
-    return QVariant();
+    return {};
   }
 
   auto* item = static_cast<TIDItem*>(index.internalPointer());
@@ -137,7 +136,7 @@ QVariant TIDItemModel::data(const QModelIndex& index, int role) const {
 
 Qt::ItemFlags TIDItemModel::flags(const QModelIndex& index) const {
   if (!index.isValid()) {
-    return Qt::ItemFlags();
+    return {};
   }
 
   return Qt::ItemIsEnabled | Qt::ItemIsSelectable;
@@ -145,10 +144,10 @@ Qt::ItemFlags TIDItemModel::flags(const QModelIndex& index) const {
 
 QModelIndex TIDItemModel::index(int row, int column, const QModelIndex& parent) const {
   if (!hasIndex(row, column, parent)) {
-    return QModelIndex();
+    return {};
   }
 
-  TIDItem* parentItem;
+  TIDItem* parentItem = nullptr;
 
   if (!parent.isValid()) {
     parentItem = m_rootItem;
@@ -161,13 +160,13 @@ QModelIndex TIDItemModel::index(int row, int column, const QModelIndex& parent) 
   if (childItem) {
     return createIndex(row, column, childItem);
   } else {
-    return QModelIndex();
+    return {};
   }
 }
 
 QModelIndex TIDItemModel::parent(const QModelIndex& index) const {
   if (!index.isValid()) {
-    return QModelIndex();
+    return {};
   }
 
   auto* childItem = static_cast<TIDItem*>(index.internalPointer());
@@ -175,18 +174,18 @@ QModelIndex TIDItemModel::parent(const QModelIndex& index) const {
   TIDItem* parentItem = childItem->parent();
 
   if (parentItem == m_rootItem) {
-    return QModelIndex();
+    return {};
   }
 
   return createIndex(parentItem->row(), 0, parentItem);
 }
 
 int TIDItemModel::rowCount(const QModelIndex& parent) const {
-  TIDItem* parentItem;
-
   if (parent.column() > 0) {
     return 0;
   }
+
+  TIDItem* parentItem = nullptr;
 
   if (!parent.isValid()) {
     parentItem = m_rootItem;
@@ -209,12 +208,12 @@ QModelIndex TIDItemModel::indexForTID(int tid) const {
   QModelIndexList list = match(index(0, 1), Qt::DisplayRole, tid);
 
   if (!list.empty()) {
-    QModelIndex index = list.first();
+    QModelIndex idx = list.first();
 
-    return index.sibling(index.row(), 0);
+    return idx.sibling(idx.row(), 0);
   }
 
-  return QModelIndex();
+  return {};
 }
 
 const std::map<int, std::vector<IddObjectType>> TIDItemModel::createTidToOSTypeMap() {
@@ -222,7 +221,7 @@ const std::map<int, std::vector<IddObjectType>> TIDItemModel::createTidToOSTypeM
 
   // 127 Construction Assembly
   std::vector<IddObjectType> tid127_types;
-  tid127_types.push_back(IddObjectType::OS_Construction);
+  tid127_types.emplace_back(IddObjectType::OS_Construction);
   map[127] = tid127_types;
 
   // KSB: Should we have lower tids in the map like these?
@@ -230,17 +229,17 @@ const std::map<int, std::vector<IddObjectType>> TIDItemModel::createTidToOSTypeM
 
   // 152 Floor
   std::vector<IddObjectType> tid152_types;
-  tid152_types.push_back(IddObjectType::OS_Construction);
+  tid152_types.emplace_back(IddObjectType::OS_Construction);
   map[152] = tid152_types;
 
   // 134 Roof
   std::vector<IddObjectType> tid134_types;
-  tid134_types.push_back(IddObjectType::OS_Construction);
+  tid134_types.emplace_back(IddObjectType::OS_Construction);
   map[134] = tid134_types;
 
   // 129 Wall
   std::vector<IddObjectType> tid129_types;
-  tid129_types.push_back(IddObjectType::OS_Construction);
+  tid129_types.emplace_back(IddObjectType::OS_Construction);
   map[129] = tid129_types;
 
   return map;

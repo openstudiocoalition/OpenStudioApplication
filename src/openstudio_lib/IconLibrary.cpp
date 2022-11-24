@@ -690,6 +690,10 @@ IconLibrary::IconLibrary() {
     new QPixmap(":images/mini_icons/setpoint_warmest.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_SetpointManager_WarmestTemperatureFlow).value()] =
     new QPixmap(":images/mini_icons/setpoint_warmest_tempflow.png");
+  m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_SetpointManager_SystemNodeReset_Temperature).value()] =
+    new QPixmap(":images/mini_icons/setpoint_systemnodereset_temperature.png");
+  m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_SetpointManager_SystemNodeReset_Humidity).value()] =
+    new QPixmap(":images/mini_icons/setpoint_systemnodereset_humidity.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_ZoneHVAC_TerminalUnit_VariableRefrigerantFlow).value()] =
     new QPixmap(":images/mini_icons/mini_vrf_unit.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_ZoneHVAC_Baseboard_RadiantConvective_Electric).value()] =

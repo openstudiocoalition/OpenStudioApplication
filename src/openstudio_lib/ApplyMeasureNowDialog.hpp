@@ -65,7 +65,7 @@ class ApplyMeasureNowDialog : public OSDialog
   Q_OBJECT
 
  public:
-  ApplyMeasureNowDialog(QWidget* parent = nullptr);
+  explicit ApplyMeasureNowDialog(QWidget* parent = nullptr);
 
   virtual ~ApplyMeasureNowDialog();
 

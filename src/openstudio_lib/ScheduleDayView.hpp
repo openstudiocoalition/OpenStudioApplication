@@ -277,8 +277,6 @@ class ScheduleDayEditor : public QWidget
  private:
   void setLabelText(bool isIP);
 
-  DaySchedulePlotArea* m_graphicsView;
-
   ScheduleDayView* m_scheduleDayView;
 
   model::ScheduleDay m_scheduleDay;
@@ -288,6 +286,8 @@ class ScheduleDayEditor : public QWidget
   QLabel* m_yLabel;
 
   QLabel* m_keyboardPrompt;
+
+  DaySchedulePlotArea* m_graphicsView;
 };
 
 class DayScheduleScene
@@ -440,7 +440,7 @@ class DayScheduleOverview : public QWidget
 class VCalendarSegmentItem : public QGraphicsItem
 {
  public:
-  VCalendarSegmentItem(QGraphicsItem* parent = nullptr);
+  explicit VCalendarSegmentItem(QGraphicsItem* parent = nullptr);
 
   virtual ~VCalendarSegmentItem() {}
 
@@ -498,7 +498,7 @@ class VCalendarSegmentItem : public QGraphicsItem
 class CalendarSegmentItem : public QGraphicsItem
 {
  public:
-  CalendarSegmentItem(QGraphicsItem* parent = nullptr);
+  explicit CalendarSegmentItem(QGraphicsItem* parent = nullptr);
 
   virtual ~CalendarSegmentItem() {}
 

@@ -60,7 +60,7 @@ class BuildingComponentDialogCentralWidget
   Q_OBJECT
 
  public:
-  BuildingComponentDialogCentralWidget(QWidget* parent = nullptr);
+  explicit BuildingComponentDialogCentralWidget(QWidget* parent = nullptr);
   explicit BuildingComponentDialogCentralWidget(int tid, QWidget* parent = nullptr);
   virtual ~BuildingComponentDialogCentralWidget();
   int tid() const;

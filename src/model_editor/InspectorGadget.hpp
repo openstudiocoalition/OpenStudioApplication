@@ -63,7 +63,7 @@ class MODELEDITOR_API IGWidget
   , public Nano::Observer
 {
  public:
-  IGWidget(QWidget* parent = nullptr);
+  explicit IGWidget(QWidget* parent = nullptr);
 
   QSize sizeHint() const override;
 };
@@ -71,7 +71,7 @@ class MODELEDITOR_API IGWidget
 class IGComboBox : public QComboBox
 {
  public:
-  IGComboBox(QWidget* parent = nullptr) : QComboBox(parent) {}
+  explicit IGComboBox(QWidget* parent = nullptr) : QComboBox(parent) {}
 
  protected:
   bool event(QEvent* e) override {
@@ -121,13 +121,13 @@ class MODELEDITOR_API InspectorGadget
    * \sa IGChildFrame
    * \sa layoutModel
    */
-  InspectorGadget(QWidget* parent = nullptr, int indent = 0, ComboHighlightBridge* bridge = nullptr);
+  explicit InspectorGadget(QWidget* parent = nullptr, int indent = 0, ComboHighlightBridge* bridge = nullptr);
   /*! destructor
    *
    * The really shouldn't need to call this, the parent Widget ought to delete the IG.
    *
    */
-  virtual ~InspectorGadget();
+  ~InspectorGadget();
 
   /*! \brief lays out the WorkspaceObj
    *
@@ -271,7 +271,7 @@ class MODELEDITOR_API InspectorGadget
 
     *It depends on weather or not you called layoutModel with a ModelObject or a WorkspaceObj
     */
-  virtual void layoutItems(QVBoxLayout* masterLayout, QWidget* parent, bool hideChildren = false);
+  void layoutItems(QVBoxLayout* masterLayout, QWidget* parent, bool hideChildren = false);
 
   void parseItem(QVBoxLayout* layout, QWidget* parent, openstudio::IddField& field, const std::string& name, const std::string& curVal,
                  openstudio::model::AccessPolicy::ACCESS_LEVEL level, int index, const std::string& comment, bool exists);
@@ -279,9 +279,9 @@ class MODELEDITOR_API InspectorGadget
   void layoutText(QVBoxLayout* layout, QWidget* parent, openstudio::model::AccessPolicy::ACCESS_LEVEL level, const std::string& val, int index,
                   const std::string& comment);
 
-  virtual void layoutText(QVBoxLayout* layout, QWidget* parent, openstudio::IddField& field, openstudio::model::AccessPolicy::ACCESS_LEVEL level,
-                          const std::string& name, const std::string& curVal, int index, const std::string& comment, bool exists, bool number,
-                          bool real = false);
+  void layoutText(QVBoxLayout* layout, QWidget* parent, openstudio::IddField& field, openstudio::model::AccessPolicy::ACCESS_LEVEL level,
+                  const std::string& name, const std::string& curVal, int index, const std::string& comment, bool exists, bool number,
+                  bool real = false);
 
   void layoutComboBox(QVBoxLayout* layout, QWidget* parent, openstudio::IddField& field, openstudio::IddFieldProperties& prop,
                       const std::string& name, const std::string& curVal, int index, const std::string& comment, bool exists);

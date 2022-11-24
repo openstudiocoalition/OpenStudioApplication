@@ -42,7 +42,7 @@ class MODELEDITOR_API TableWidget : public QTableWidget
   Q_OBJECT
 
  public:
-  TableWidget(QWidget* parent = nullptr);
+  explicit TableWidget(QWidget* parent = nullptr);
   virtual ~TableWidget();
   void populateTable(const openstudio::WorkspaceObject& obj);
 

@@ -48,7 +48,7 @@ class OSSelectAllCheckBox : public QCheckBox
   Q_OBJECT
 
  public:
-  OSSelectAllCheckBox(QWidget* parent = nullptr);
+  explicit OSSelectAllCheckBox(QWidget* parent = nullptr);
 
   virtual ~OSSelectAllCheckBox();
 
@@ -64,7 +64,7 @@ class OSCheckBox3
   Q_OBJECT
 
  public:
-  OSCheckBox3(QWidget* parent = nullptr);
+  explicit OSCheckBox3(QWidget* parent = nullptr);
 
   virtual ~OSCheckBox3();
 
@@ -126,7 +126,7 @@ class OSCheckBox2
   Q_OBJECT
 
  public:
-  OSCheckBox2(QWidget* parent = nullptr);
+  explicit OSCheckBox2(QWidget* parent = nullptr);
 
   virtual ~OSCheckBox2() {}
 
@@ -174,7 +174,7 @@ class OSGreyCheckBox2
   Q_OBJECT
 
  public:
-  OSGreyCheckBox2(QWidget* parent = nullptr);
+  explicit OSGreyCheckBox2(QWidget* parent = nullptr);
 
   virtual ~OSGreyCheckBox2() {}
 

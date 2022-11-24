@@ -50,7 +50,7 @@ class OSUnsignedEdit2 : public QLineEdit
   Q_OBJECT
 
  public:
-  OSUnsignedEdit2(QWidget* parent = nullptr);
+  explicit OSUnsignedEdit2(QWidget* parent = nullptr);
 
   virtual ~OSUnsignedEdit2();
 

@@ -55,7 +55,6 @@
 #include <openstudio/model/ThermalZone.hpp>
 #include <openstudio/model/ThermalZone_Impl.hpp>
 #include <openstudio/model/Thermostat.hpp>
-#include <openstudio/model/Thermostat.hpp>
 #include <openstudio/model/ThermostatSetpointDualSetpoint.hpp>
 #include <openstudio/model/ThermostatSetpointDualSetpoint_Impl.hpp>
 #include <openstudio/model/ZoneControlHumidistat.hpp>
@@ -117,7 +116,7 @@
 namespace openstudio {
 
 ThermalZonesGridView::ThermalZonesGridView(bool isIP, const model::Model& model, QWidget* parent) : QWidget(parent), m_isIP(isIP) {
-  QVBoxLayout* layout = 0;
+  QVBoxLayout* layout = nullptr;
 
   layout = new QVBoxLayout();
   layout->setSpacing(0);
@@ -160,46 +159,49 @@ ThermalZonesGridController::ThermalZonesGridController(bool isIP, const QString&
 void ThermalZonesGridController::setCategoriesAndFields() {
 
   {
-    std::vector<QString> fields;
-    fields.push_back(RENDERINGCOLOR);
-    fields.push_back(IDEALAIRLOADS);
-    fields.push_back(AIRLOOPNAME);
-    fields.push_back(ZONEEQUIPMENT);
-    fields.push_back(COOLINGTHERMOSTATSCHEDULE);
-    fields.push_back(HEATINGTHERMOSTATSCHEDULE);
-    fields.push_back(HUMIDIFYINGSETPOINTSCHEDULE);
-    fields.push_back(DEHUMIDIFYINGSETPOINTSCHEDULE);
-    fields.push_back(MULTIPLIER);
+    std::vector<QString> fields{
+      RENDERINGCOLOR,
+      IDEALAIRLOADS,
+      AIRLOOPNAME,
+      ZONEEQUIPMENT,
+      COOLINGTHERMOSTATSCHEDULE,
+      HEATINGTHERMOSTATSCHEDULE,
+      HUMIDIFYINGSETPOINTSCHEDULE,
+      DEHUMIDIFYINGSETPOINTSCHEDULE,
+      MULTIPLIER,
+    };
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("HVAC\nSystems"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
   {
-    std::vector<QString> fields;
-    fields.push_back(ZONECOOLINGDESIGNSUPPLYAIRTEMPERATURE);
-    fields.push_back(ZONECOOLINGDESIGNSUPPLYAIRHUMIDITYRATIO);
-    fields.push_back(ZONECOOLINGSIZINGFACTOR);
-    fields.push_back(COOLINGMINIMUMAIRFLOWPERZONEFLOORAREA);
-    fields.push_back(DESIGNZONEAIRDISTRIBUTIONEFFECTIVENESSINCOOLINGMODE);
-    fields.push_back(COOLINGMINIMUMAIRFLOWFRACTION);
-    fields.push_back(COOLINGDESIGNAIRFLOWMETHOD);
-    fields.push_back(COOLINGDESIGNAIRFLOWRATE);
-    fields.push_back(COOLINGMINIMUMAIRFLOW);
+    std::vector<QString> fields{
+      ZONECOOLINGDESIGNSUPPLYAIRTEMPERATURE,
+      ZONECOOLINGDESIGNSUPPLYAIRHUMIDITYRATIO,
+      ZONECOOLINGSIZINGFACTOR,
+      COOLINGMINIMUMAIRFLOWPERZONEFLOORAREA,
+      DESIGNZONEAIRDISTRIBUTIONEFFECTIVENESSINCOOLINGMODE,
+      COOLINGMINIMUMAIRFLOWFRACTION,
+      COOLINGDESIGNAIRFLOWMETHOD,
+      COOLINGDESIGNAIRFLOWRATE,
+      COOLINGMINIMUMAIRFLOW,
+    };
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Cooling\nSizing\nParameters"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
   {
-    std::vector<QString> fields;
-    fields.push_back(ZONEHEATINGDESIGNSUPPLYAIRTEMPERATURE);
-    fields.push_back(ZONEHEATINGDESIGNSUPPLYAIRHUMIDITYRATIO);
-    fields.push_back(ZONEHEATINGSIZINGFACTOR);
-    fields.push_back(HEATINGMAXIMUMAIRFLOWPERZONEFLOORAREA);
-    fields.push_back(DESIGNZONEAIRDISTRIBUTIONEFFECTIVENESSINHEATINGMODE);
-    fields.push_back(HEATINGMAXIMUMAIRFLOWFRACTION);
-    fields.push_back(HEATINGDESIGNAIRFLOWMETHOD);
-    fields.push_back(HEATINGDESIGNAIRFLOWRATE);
-    fields.push_back(HEATINGMAXIMUMAIRFLOW);
+    std::vector<QString> fields{
+      ZONEHEATINGDESIGNSUPPLYAIRTEMPERATURE,
+      ZONEHEATINGDESIGNSUPPLYAIRHUMIDITYRATIO,
+      ZONEHEATINGSIZINGFACTOR,
+      HEATINGMAXIMUMAIRFLOWPERZONEFLOORAREA,
+      DESIGNZONEAIRDISTRIBUTIONEFFECTIVENESSINHEATINGMODE,
+      HEATINGMAXIMUMAIRFLOWFRACTION,
+      HEATINGDESIGNAIRFLOWMETHOD,
+      HEATINGDESIGNAIRFLOWRATE,
+      HEATINGMAXIMUMAIRFLOW,
+    };
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Heating\nSizing\nParameters"), fields);
     addCategoryAndFields(categoryAndFields);
   }
@@ -301,7 +303,7 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
             return model::SizingZone::heatingDesignAirFlowMethodValues().at(0);
           }
         }),
-        std::function<bool(model::ThermalZone*, std::string)>([](model::ThermalZone* t_z, std::string t_val) {
+        std::function<bool(model::ThermalZone*, std::string)>([](model::ThermalZone* t_z, const std::string& t_val) {
           bool b = t_z->sizingZone().setHeatingDesignAirFlowMethod(t_val);
           t_z->getImpl<openstudio::model::detail::ModelObject_Impl>()->onChange.nano_emit();
           return b;
@@ -364,7 +366,7 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
             return model::SizingZone::coolingDesignAirFlowMethodValues().at(0);
           }
         }),
-        std::function<bool(model::ThermalZone*, std::string)>([](model::ThermalZone* t_z, std::string t_val) {
+        std::function<bool(model::ThermalZone*, std::string)>([](model::ThermalZone* t_z, const std::string& t_val) {
           bool b = t_z->sizingZone().setCoolingDesignAirFlowMethod(t_val);
           t_z->getImpl<openstudio::model::detail::ModelObject_Impl>()->onChange.nano_emit();
           return b;
@@ -570,7 +572,7 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
       });
 
       std::function<void(model::ThermalZone*)> reset;
-      std::function<std::vector<model::ModelObject>(const model::ThermalZone&)> equipment([](model::ThermalZone t) {
+      std::function<std::vector<model::ModelObject>(const model::ThermalZone&)> equipment([](const model::ThermalZone& t) {
         // we need to pass in a const &, but the function expects non-const, so let's copy the wrapper
         // object in the param list
         return t.equipmentInHeatingOrder();
@@ -591,7 +593,7 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
                                   boost::optional<std::function<void(model::ThermalZone*)>>());
 
     } else if (field == AIRLOOPNAME) {
-      std::function<std::vector<model::ModelObject>(const model::ThermalZone&)> airloops([](model::ThermalZone t) {
+      std::function<std::vector<model::ModelObject>(const model::ThermalZone&)> airloops([](const model::ThermalZone& t) {
         // we need to pass in a const &, but the function expects non-const, so let's copy the wrapper
         // object in the param list
         return subsetCastVector<model::ModelObject>(t.airLoopHVACs());
@@ -615,7 +617,7 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
   }
 }
 
-QString ThermalZonesGridController::getColor(const model::ModelObject& modelObject) {
+QString ThermalZonesGridController::getColor(const model::ModelObject& /*modelObject*/) {
   QColor defaultColor(Qt::lightGray);
   QString color(defaultColor.name());
 

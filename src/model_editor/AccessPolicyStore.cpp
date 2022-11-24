@@ -309,7 +309,7 @@ const AccessPolicy* AccessPolicyStore::getPolicy(const openstudio::IddObjectType
 }
 
 void AccessPolicyStore::clear() {
-  for (auto& policyPair : m_policyMap) {
+  for (const auto& policyPair : m_policyMap) {
     // Not need to test if ptr has a value, delete nullptr has no effect
     delete policyPair.second;
   }

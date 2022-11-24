@@ -39,7 +39,7 @@ class MODELEDITOR_API TestButton : public QObject
   Q_OBJECT
 
  public:
-  TestButton(bool clickValue = true);
+  explicit TestButton(bool clickValue = true);
   void doClick();
   void doClick(double msecDelay);
  public slots:

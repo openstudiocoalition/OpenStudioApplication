@@ -40,7 +40,7 @@
 namespace openstudio {
 
 CollapsibleInspector::CollapsibleInspector(QString text, QWidget* inspector, QWidget* parent)
-  : QWidget(parent), m_header(new CollapsibleInspectorHeader(text)), m_inspector(inspector) {
+  : QWidget(parent), m_header(new CollapsibleInspectorHeader(std::move(text))), m_inspector(inspector) {
   createLayout();
 }
 
@@ -70,7 +70,7 @@ void CollapsibleInspector::on_headerToggled(bool checked) {
 
 ////////////////////////////////////////////////////////////////////////////////
 
-CollapsibleInspectorHeader::CollapsibleInspectorHeader(QString text, QWidget* parent) : QAbstractButton(parent), m_text(text) {
+CollapsibleInspectorHeader::CollapsibleInspectorHeader(QString text, QWidget* parent) : QAbstractButton(parent), m_text(std::move(text)) {
   createLayout();
 }
 
@@ -105,7 +105,7 @@ void CollapsibleInspectorHeader::createLayout() {
 }
 
 QSize CollapsibleInspectorHeader::sizeHint() const {
-  return QSize(150, 50);
+  return {150, 50};
 }
 
 void CollapsibleInspectorHeader::setImage(bool isChecked) {
@@ -135,11 +135,11 @@ void CollapsibleInspectorHeader::setChecked(bool isChecked) {
   }
 }
 
-void CollapsibleInspectorHeader::paintEvent(QPaintEvent* event) {
+void CollapsibleInspectorHeader::paintEvent(QPaintEvent* /* event */) {
   QStyleOption opt;
   opt.initFrom(this);
-  QPainter p(this);
-  style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
+  QPainter painter(this);
+  style()->drawPrimitive(QStyle::PE_Widget, &opt, &painter, this);
 }
 
 ///! SLOTS

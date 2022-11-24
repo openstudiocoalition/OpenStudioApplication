@@ -51,7 +51,7 @@ class OSDragableView : public QWidget
   Q_OBJECT
 
  public:
-  OSDragableView(QWidget* parent = nullptr);
+  explicit OSDragableView(QWidget* parent = nullptr);
 
   virtual ~OSDragableView() {}
 
