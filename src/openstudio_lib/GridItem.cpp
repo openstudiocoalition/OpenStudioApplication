@@ -2077,7 +2077,7 @@ void OneThreeNodeItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* 
             painter->drawPixmap(37, 13, 25, 25, QPixmap(":images/setpoint_onestage_heating.png"));
           } else if (spm.iddObjectType() == SetpointManagerWarmestTemperatureFlow::iddObjectType()) {
             painter->drawPixmap(37, 13, 25, 25, QPixmap(":images/setpoint_warmest_tempflow.png"));
-          } else if (it->iddObjectType() == SetpointManagerSystemNodeResetTemperature::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerSystemNodeResetTemperature::iddObjectType()) {
             painter->drawPixmap(37, 13, 25, 25, QPixmap(":images/setpoint_systemnodereset_temperature.png"));
           }
           break;
@@ -2095,7 +2095,7 @@ void OneThreeNodeItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* 
             painter->drawPixmap(37, 13, 25, 25, QPixmap(":images/setpoint_singlezone_humidity_max.png"));
           } else if (spm.iddObjectType() == SetpointManagerSingleZoneHumidityMinimum::iddObjectType()) {
             painter->drawPixmap(37, 13, 25, 25, QPixmap(":images/setpoint_singlezone_humidity_min.png"));
-          } else if (it->iddObjectType() == SetpointManagerSystemNodeResetHumidity::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerSystemNodeResetHumidity::iddObjectType()) {
             painter->drawPixmap(37, 13, 25, 25, QPixmap(":images/setpoint_systemnodereset_humidity.png"));
           }
           break;
@@ -2235,7 +2235,7 @@ void TwoFourNodeItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* o
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_onestage_heating_right.png"));
           } else if (spm.iddObjectType() == SetpointManagerWarmestTemperatureFlow::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_warmest_tempflow_right.png"));
-          } else if (it->iddObjectType() == SetpointManagerSystemNodeResetTemperature::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerSystemNodeResetTemperature::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_systemnodereset_temperature_right.png"));
           }
 
@@ -2254,7 +2254,7 @@ void TwoFourNodeItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* o
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_singlezone_humidity_max_right.png"));
           } else if (spm.iddObjectType() == SetpointManagerSingleZoneHumidityMinimum::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_singlezone_humidity_min_right.png"));
-          } else if (it->iddObjectType() == SetpointManagerSystemNodeResetHumidity::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerSystemNodeResetHumidity::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_systemnodereset_humidity_right.png"));
           }
           break;
@@ -2343,7 +2343,7 @@ void OAStraightNodeItem::paint(QPainter* painter, const QStyleOptionGraphicsItem
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_onestage_heating.png"));
           } else if (spm.iddObjectType() == SetpointManagerWarmestTemperatureFlow::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_warmest_tempflow.png"));
-          } else if (it->iddObjectType() == SetpointManagerSystemNodeResetTemperature::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerSystemNodeResetTemperature::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_systemnodereset_temperature.png"));
           }
           break;
@@ -2361,7 +2361,7 @@ void OAStraightNodeItem::paint(QPainter* painter, const QStyleOptionGraphicsItem
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_singlezone_humidity_max.png"));
           } else if (spm.iddObjectType() == SetpointManagerSingleZoneHumidityMinimum::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_singlezone_humidity_min.png"));
-          } else if (it->iddObjectType() == SetpointManagerSystemNodeResetHumidity::iddObjectType()) {
+          } else if (spm.iddObjectType() == SetpointManagerSystemNodeResetHumidity::iddObjectType()) {
             painter->drawPixmap(62, 37, 25, 25, QPixmap(":images/setpoint_systemnodereset_humidity.png"));
           }
           break;
