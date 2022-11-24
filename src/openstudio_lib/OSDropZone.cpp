@@ -63,6 +63,7 @@
 #include <QTimer>
 
 #include <bitset>
+#include <utility>
 
 using namespace openstudio::model;
 
@@ -76,6 +77,7 @@ OSDropZone::OSDropZone(OSVectorController* vectorController, const QString& text
     m_itemsAcceptDrops(false),
     m_itemsRemoveable(true),
     m_allowAdd(false),
+    m_scrollArea(new QScrollArea()),
     m_growsHorizontally(growsHorizontally),
     m_useLargeIcon(false),
     m_text(text),
@@ -84,7 +86,6 @@ OSDropZone::OSDropZone(OSVectorController* vectorController, const QString& text
   mainBox->setObjectName("mainBox");
   mainBox->setStyleSheet("QWidget#mainBox { background: #CECECE; }");
 
-  m_scrollArea = new QScrollArea();
   m_scrollArea->setFrameStyle(QFrame::NoFrame);
   m_scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
   m_scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
@@ -125,7 +126,7 @@ OSDropZone::OSDropZone(OSVectorController* vectorController, const QString& text
   QString mainBoxStyle;
   mainBoxStyle.append("QWidget#OSDropZone {");
   mainBoxStyle.append(" background: #CECECE;");
-  if (m_size.height() && m_size.width()) {
+  if ((m_size.height() != 0) && (m_size.width() != 0)) {
     mainLayout->setContentsMargins(0, 0, 0, 0);
     mainBoxStyle.append(" border: none;");
   } else {
@@ -160,7 +161,7 @@ OSDropZone::OSDropZone(OSVectorController* vectorController, const QString& text
   hideAddButton();
 }
 
-void OSDropZone::paintEvent(QPaintEvent* event) {
+void OSDropZone::paintEvent(QPaintEvent* /*event*/) {
   QStyleOption opt;
   opt.initFrom(this);
   QPainter p(this);
@@ -176,7 +177,7 @@ bool OSDropZone::setMaxItems(int max) {
     m_maxItems = max;
     emit itemsRequested();
     if (max == 1) {
-      if (m_size.height() && m_size.width()) {
+      if ((m_size.height() != 0) && (m_size.width() != 0)) {
         m_scrollArea->setFixedHeight(m_size.height());
         m_scrollArea->setMaximumWidth(m_size.width());
         setMaximumHeight(m_size.height());
@@ -191,7 +192,7 @@ bool OSDropZone::setMaxItems(int max) {
         setMaximumHeight(OSItem::ITEM_HEIGHT + 20);
       }
     } else {
-      if (m_size.height() && m_size.width()) {
+      if ((m_size.height() != 0) && (m_size.width() != 0)) {
         m_scrollArea->setFixedHeight(m_size.height());
         m_scrollArea->setMaximumWidth(m_size.width());
         setMaximumHeight(m_size.height());
@@ -253,12 +254,12 @@ void OSDropZone::onDrop(const OSItemId& itemId) {
 }
 
 void OSDropZone::setItemIds(const std::vector<OSItemId>& itemIds) {
-  QLayoutItem* child;
+  QLayoutItem* child = nullptr;
   while ((child = m_mainBoxLayout->takeAt(0)) != nullptr) {
     QWidget* widget = child->widget();
-    if (widget) {
-      delete widget;
-    }
+
+    delete widget;
+
     delete child;
   }
 
@@ -347,7 +348,7 @@ void OSDropZone::hideAddButton() {
   m_addButton->hide();
 }
 
-bool OSDropZone::useLargeIcon() {
+bool OSDropZone::useLargeIcon() const {
   return m_useLargeIcon;
 }
 
@@ -386,7 +387,7 @@ OSItemDropZone::OSItemDropZone(bool growsHorizontally, const QString& text, cons
 void OSItemDropZone::setExtensible(bool extensible) {
   QString style;
 
-  if (m_size.height() && m_size.width()) {
+  if ((m_size.height() != 0) && (m_size.width() != 0)) {
     style.append("QWidget#DropBox {");
     style.append(" background: #CECECE;");
     style.append(" border: 2px dashed #808080;");
@@ -422,7 +423,7 @@ void OSItemDropZone::setExtensible(bool extensible) {
   setStyleSheet(style);
 }
 
-void OSItemDropZone::paintEvent(QPaintEvent* event) {
+void OSItemDropZone::paintEvent(QPaintEvent* /*event*/) {
   QStyleOption opt;
   opt.initFrom(this);
   QPainter p(this);
@@ -442,7 +443,7 @@ void OSItemDropZone::dropEvent(QDropEvent* event) {
   }
 }
 
-OSDropZoneItem::OSDropZoneItem() : QGraphicsObject(), m_mouseDown(false) {
+OSDropZoneItem::OSDropZoneItem() : m_mouseDown(false) {
   setAcceptHoverEvents(true);
   setAcceptDrops(true);
 
@@ -460,7 +461,7 @@ void OSDropZoneItem::dropEvent(QGraphicsSceneDragDropEvent* event) {
 }
 
 QRectF OSDropZoneItem::boundingRect() const {
-  return QRectF(0, 0, m_width, m_height);
+  return {0.0, 0.0, m_width, m_height};
 }
 
 void OSDropZoneItem::setSize(double width, double height) {
@@ -474,7 +475,7 @@ void OSDropZoneItem::setText(const QString& text) {
   update();
 }
 
-void OSDropZoneItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+void OSDropZoneItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* /*option*/, QWidget* /*widget*/) {
   painter->setRenderHint(QPainter::Antialiasing, true);
   painter->setBrush(Qt::NoBrush);
   painter->setPen(QPen(QColor(109, 109, 109), 2, Qt::DashLine, Qt::RoundCap));
@@ -512,7 +513,7 @@ void OSDropZoneItem::mouseReleaseEvent(QGraphicsSceneMouseEvent* event) {
   }
 }
 
-OSDropZone2::OSDropZone2() : QWidget() {
+OSDropZone2::OSDropZone2() : m_label(new QLabel()) {
   setObjectName("OSDropZone");
 
   // if multiple qss rules apply with same specificity then the last one is chosen
@@ -531,7 +532,6 @@ OSDropZone2::OSDropZone2() : QWidget() {
   layout->setContentsMargins(5, 5, 5, 5);
   setLayout(layout);
 
-  m_label = new QLabel();
   layout->addWidget(m_label);
   m_label->setStyleSheet("QLabel[style=\"000\"] { color:black; background:#ffffff; } "  // Locked=0, Focused=0, Defaulted=0
                          "QLabel[style=\"001\"] { color:green; background:#ffffff; } "  // Locked=0, Focused=0, Defaulted=1
@@ -561,7 +561,7 @@ void OSDropZone2::disableClickFocus() {
   clearFocus();
 }
 
-bool OSDropZone2::hasData() {
+bool OSDropZone2::hasData() const {
   return !this->m_label->text().isEmpty();
 }
 
@@ -581,7 +581,7 @@ void OSDropZone2::setDeleteObject(bool deleteObject) {
   m_deleteObject = deleteObject;
 }
 
-bool OSDropZone2::deleteObject() {
+bool OSDropZone2::deleteObject() const {
   return m_deleteObject;
 }
 
@@ -616,11 +616,11 @@ void OSDropZone2::refresh() {
   update();
 }
 
-void OSDropZone2::onModelObjectRemove(const Handle& handle) {
+void OSDropZone2::onModelObjectRemove(const Handle& /*handle*/) {
   refresh();
 }
 
-void OSDropZone2::onOtherModelObjectRemove(const Handle& handle) {
+void OSDropZone2::onOtherModelObjectRemove(const Handle& /*handle*/) {
   refresh();
 }
 
@@ -629,9 +629,9 @@ void OSDropZone2::bind(const model::ModelObject& modelObject, OptionalModelObjec
                        boost::optional<OtherModelObjects> otherObjects) {
   m_get = get;
   m_set = set;
-  m_reset = reset;
-  m_isDefaulted = isDefaulted;
-  m_otherObjects = otherObjects;
+  m_reset = std::move(reset);
+  m_isDefaulted = std::move(isDefaulted);
+  m_otherObjects = std::move(otherObjects);
 
   m_modelObject = modelObject;
 
@@ -661,7 +661,7 @@ void OSDropZone2::unbind() {
   refresh();
 }
 
-void OSDropZone2::paintEvent(QPaintEvent* event) {
+void OSDropZone2::paintEvent(QPaintEvent* /*event*/) {
   QStyleOption opt;
   opt.initFrom(this);
   QPainter p(this);
@@ -714,26 +714,22 @@ void OSDropZone2::dropEvent(QDropEvent* event) {
     if (doc->fromBCL(itemId)) {
       // model object already cloned above
       OS_ASSERT(componentData);
-      if (m_set) {
-        success = (*m_set)(modelObject.get());
-        if (!success) {
-          std::vector<Handle> handlesToRemove;
-          for (const auto& object : componentData->componentObjects()) {
-            handlesToRemove.push_back(object.handle());
-          }
-          doc->model().removeObjects(handlesToRemove);
-          // removing objects in component will remove component data object via component watcher
-          //componentData->remove();
-          OS_ASSERT(componentData->handle().isNull());
+      success = (*m_set)(modelObject.get());
+      if (!success) {
+        std::vector<Handle> handlesToRemove;
+        for (const auto& object : componentData->componentObjects()) {
+          handlesToRemove.push_back(object.handle());
         }
+        doc->model().removeObjects(handlesToRemove);
+        // removing objects in component will remove component data object via component watcher
+        //componentData->remove();
+        OS_ASSERT(componentData->handle().isNull());
       }
     } else if (doc->fromComponentLibrary(itemId)) {
       modelObject = modelObject->clone(m_modelObject->model());
-      if (m_set) {
-        success = (*m_set)(modelObject.get());
-        if (!success) {
-          modelObject->remove();
-        }
+      success = (*m_set)(modelObject.get());
+      if (!success) {
+        modelObject->remove();
       }
     } else {
       if (m_set) {
@@ -742,9 +738,7 @@ void OSDropZone2::dropEvent(QDropEvent* event) {
     }
 
     if (success) {
-      if (m_item) {
-        delete m_item;
-      }
+      delete m_item;
       m_item = OSItem::makeItem(itemId, OSItemType::ListItem);
       m_item->setParent(this);
       connect(m_item, &OSItem::itemRemoveClicked, this, &OSDropZone2::onItemRemoveClicked);

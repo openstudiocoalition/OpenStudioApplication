@@ -680,7 +680,7 @@ class OptionalChoiceSaveDataSourceConceptImpl : public OptionalChoiceConceptImpl
 class ComboBoxConcept : public BaseConcept
 {
  public:
-  ComboBoxConcept(const Heading& t_heading, bool t_hasClickFocus = true) : BaseConcept(t_heading, t_hasClickFocus) {}
+  explicit ComboBoxConcept(const Heading& t_heading, bool t_hasClickFocus = true) : BaseConcept(t_heading, t_hasClickFocus) {}
 
   virtual ~ComboBoxConcept() {}
 
@@ -772,7 +772,7 @@ template <typename ValueType>
 class ValueEditConcept : public BaseConcept
 {
  public:
-  ValueEditConcept(const Heading& t_heading, bool t_hasClickFocus = true) : BaseConcept(t_heading, t_hasClickFocus) {}
+  explicit ValueEditConcept(const Heading& t_heading, bool t_hasClickFocus = true) : BaseConcept(t_heading, t_hasClickFocus) {}
 
   virtual ~ValueEditConcept() {}
 
@@ -832,7 +832,7 @@ template <typename ValueType>
 class OptionalValueEditConcept : public BaseConcept
 {
  public:
-  OptionalValueEditConcept(const Heading& t_heading, bool t_hasClickFocus = true) : BaseConcept(t_heading, t_hasClickFocus) {}
+  explicit OptionalValueEditConcept(const Heading& t_heading, bool t_hasClickFocus = true) : BaseConcept(t_heading, t_hasClickFocus) {}
 
   virtual ~OptionalValueEditConcept() {}
 
@@ -871,7 +871,7 @@ template <typename ValueType>
 class ValueEditVoidReturnConcept : public BaseConcept
 {
  public:
-  ValueEditVoidReturnConcept(const Heading& t_heading, bool t_hasClickFocus = true) : BaseConcept(t_heading, t_hasClickFocus) {}
+  explicit ValueEditVoidReturnConcept(const Heading& t_heading, bool t_hasClickFocus = true) : BaseConcept(t_heading, t_hasClickFocus) {}
 
   virtual ~ValueEditVoidReturnConcept() {}
 
@@ -932,7 +932,7 @@ template <typename ValueType>
 class OptionalValueEditVoidReturnConcept : public BaseConcept
 {
  public:
-  OptionalValueEditVoidReturnConcept(const Heading& t_heading, bool t_hasClickFocus = true) : BaseConcept(t_heading, t_hasClickFocus) {}
+  explicit OptionalValueEditVoidReturnConcept(const Heading& t_heading, bool t_hasClickFocus = true) : BaseConcept(t_heading, t_hasClickFocus) {}
 
   virtual ~OptionalValueEditVoidReturnConcept() {}
 
@@ -1373,7 +1373,7 @@ class OptionalQuantityEditVoidReturnConceptImpl : public OptionalQuantityEditVoi
 class DropZoneConcept : public BaseConcept
 {
  public:
-  DropZoneConcept(const Heading& t_heading, bool t_hasClickFocus = true) : BaseConcept(t_heading, t_hasClickFocus) {}
+  explicit DropZoneConcept(const Heading& t_heading, bool t_hasClickFocus = true) : BaseConcept(t_heading, t_hasClickFocus) {}
 
   virtual ~DropZoneConcept() {}
 
@@ -1481,7 +1481,7 @@ class DropZoneConceptImpl : public DropZoneConcept
 class RenderingColorConcept : public BaseConcept
 {
  public:
-  RenderingColorConcept(const Heading& t_heading) : BaseConcept(t_heading) {}
+  explicit RenderingColorConcept(const Heading& t_heading) : BaseConcept(t_heading) {}
 
   virtual ~RenderingColorConcept() {}
 

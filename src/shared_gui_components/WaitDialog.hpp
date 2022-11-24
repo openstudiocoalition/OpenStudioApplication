@@ -61,7 +61,7 @@ class WaitDialog : public OSDialog
   void closeEvent(QCloseEvent* event) override;
 
  private:
-  virtual void createWidgets();
+  void createWidgets();
 
   // Convenience to avoid having to do QLabel * descriptionLabel1 = qobject_cast<QLabel*>(waitDialog()->upperLayout()->itemAt(1)->widget());
   QLabel* m_firstLine;

@@ -137,27 +137,27 @@ void ModelObjectSelectorDialog::setCancelButtonText(const std::string& text) {
   m_cancelButton->setToolTip(toQString(text));
 }
 
-void ModelObjectSelectorDialog::onPushButtonOK(bool) {
+void ModelObjectSelectorDialog::onPushButtonOK(bool /*unused*/) {
   boost::optional<ModelObject> modelObject = selectedModelObject();
   emit closed(modelObject);
 }
 
-void ModelObjectSelectorDialog::onPushButtonCancel(bool) {
+void ModelObjectSelectorDialog::onPushButtonCancel(bool /*unused*/) {
   boost::optional<ModelObject> modelObject;
   emit closed(modelObject);
 }
 
-void ModelObjectSelectorDialog::onAddWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl,
-                                                     const openstudio::IddObjectType& type, const openstudio::UUID& uuid) {
-  auto it = std::find(m_typesToDisplay.begin(), m_typesToDisplay.end(), impl->iddObject().type());
+void ModelObjectSelectorDialog::onAddWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> /*impl*/,
+                                                     const openstudio::IddObjectType& type, const openstudio::UUID& /*uuid*/) {
+  auto it = std::find(m_typesToDisplay.begin(), m_typesToDisplay.end(), type);
   if (it != m_typesToDisplay.end()) {
     loadComboBoxData();
   }
 }
 
-void ModelObjectSelectorDialog::onRemoveWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl,
-                                                        const openstudio::IddObjectType& type, const openstudio::UUID& uuid) {
-  auto it = std::find(m_typesToDisplay.begin(), m_typesToDisplay.end(), impl->iddObject().type());
+void ModelObjectSelectorDialog::onRemoveWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> /*impl*/,
+                                                        const openstudio::IddObjectType& type, const openstudio::UUID& /*uuid*/) {
+  auto it = std::find(m_typesToDisplay.begin(), m_typesToDisplay.end(), type);
   if (it != m_typesToDisplay.end()) {
     loadComboBoxData();
   }
@@ -234,10 +234,9 @@ void ModelObjectSelectorDialog::connectSignalsAndSlots() {
 
 void ModelObjectSelectorDialog::loadStyleSheet() {
   QFile data(":/ModalDialogs.qss");
-  QString style;
   if (data.open(QFile::ReadOnly)) {
     QTextStream styleIn(&data);
-    style = styleIn.readAll();
+    QString style = styleIn.readAll();
     data.close();
     setStyleSheet(style);
   } else {
@@ -282,7 +281,7 @@ void ModelObjectSelectorDialog::loadComboBoxData() {
 }
 
 ModelObjectSelectorDialogWatcher::ModelObjectSelectorDialogWatcher(std::shared_ptr<ModelObjectSelectorDialog> modelObjectSelectorDialog)
-  : m_modelObjectSelectorDialog(modelObjectSelectorDialog) {
+  : m_modelObjectSelectorDialog(std::move(modelObjectSelectorDialog)) {
   OS_ASSERT(modelObjectSelectorDialog);
 
   connect(modelObjectSelectorDialog.get(), &ModelObjectSelectorDialog::closed, this, &ModelObjectSelectorDialogWatcher::onClose);

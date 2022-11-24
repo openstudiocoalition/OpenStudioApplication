@@ -100,14 +100,14 @@ bool MeasureManager::waitForStarted(int msec) {
   // ping server until get a started response
   bool success = false;
 
-  QUrl url(m_url);
-  url.setPath("/");
+  QUrl thisUrl(m_url);
+  thisUrl.setPath("/");
 
   int msecPerLoop = 20;
   int numTries = msec / msecPerLoop;
   int current = 0;
   while (!success && current < numTries) {
-    QNetworkRequest request(url);
+    QNetworkRequest request(thisUrl);
     request.setHeader(QNetworkRequest::ContentTypeHeader, "json");
 
     QNetworkAccessManager manager;
@@ -146,7 +146,7 @@ bool MeasureManager::waitForStarted(int msec) {
   if (success) {
     m_started = true;
   } else {
-    LOG(Error, "Measure manager server failed to start. Was looking at URL=" << toString(url.toString()));
+    LOG(Error, "Measure manager server failed to start. Was looking at URL=" << toString(thisUrl.toString()));
   }
 
   return m_started;
@@ -380,9 +380,9 @@ void MeasureManager::updateMeasures(const std::vector<BCLMeasure>& newMeasures, 
   std::vector<BCLMeasure> measures;
 
   WorkflowJSON workflowJSON = m_app->currentModel()->workflowJSON();
-  for (const auto& newMeasure : newMeasures) {
-    if (workflowJSON.getBCLMeasureByUUID(newMeasure.uuid())) {
-      measures.push_back(newMeasure);
+  for (const auto& measure : newMeasures) {
+    if (workflowJSON.getBCLMeasureByUUID(measure.uuid())) {
+      measures.push_back(measure);
     }
   }
 
@@ -455,15 +455,14 @@ std::vector<measure::OSArgument> MeasureManager::getArguments(const BCLMeasure& 
     return it->second;
   }
 
-  QUrl url(m_url);
-  url.setPath("/compute_arguments");
+  QUrl thisUrl(m_url);
+  thisUrl.setPath("/compute_arguments");
 
-  std::string url_s = m_url.toString().toStdString();
+  // std::string url_s = m_url.toString().toStdString();
 
-  QString data = QString("{\"measure_dir\": \"") + toQString(t_measure.directory()) + QString("\", \"osm_path\": \"") + toQString(m_tempModelPath)
-                 + QString("\"}");
+  QString data = QString(R"json({"measure_dir": "%1", "osm_path": "%2"})json").arg(toQString(t_measure.directory()), toQString(m_tempModelPath));
 
-  QNetworkRequest request(url);
+  QNetworkRequest request(thisUrl);
   request.setHeader(QNetworkRequest::ContentTypeHeader, "json");
 
   QNetworkAccessManager manager;
@@ -829,14 +828,14 @@ bool MeasureManager::reset() {
     return false;
   }
 
-  QUrl url(m_url);
-  url.setPath("/reset");
+  QUrl thisUrl(m_url);
+  thisUrl.setPath("/reset");
 
   // std::string url_s = m_url.toString().toStdString();
 
   QString data = QString("{}");
 
-  QNetworkRequest request(url);
+  QNetworkRequest request(thisUrl);
   request.setHeader(QNetworkRequest::ContentTypeHeader, "json");
 
   QNetworkAccessManager manager;
@@ -869,14 +868,14 @@ bool MeasureManager::checkForLocalBCLUpdates() {
     return false;
   }
 
-  QUrl url(m_url);
-  url.setPath("/bcl_measures");
+  QUrl thisUrl(m_url);
+  thisUrl.setPath("/bcl_measures");
 
   // std::string url_s = m_url.toString().toStdString();
 
   QString data = QString("{}");
 
-  QNetworkRequest request(url);
+  QNetworkRequest request(thisUrl);
   request.setHeader(QNetworkRequest::ContentTypeHeader, "json");
 
   QNetworkAccessManager manager;
@@ -909,15 +908,15 @@ bool MeasureManager::checkForUpdates(const openstudio::path& measureDir, bool fo
     return false;
   }
 
-  QUrl url(m_url);
-  url.setPath("/update_measures");
+  QUrl thisUrl(m_url);
+  thisUrl.setPath("/update_measures");
 
   // std::string url_s = m_url.toString().toStdString();
 
-  QString data = QString("{\"measures_dir\": \"") + toQString(measureDir) + QString("\", \"force_reload\": ")
-                 + (force ? QString("true") : QString("false")) + QString("}");
+  QString data =
+    QString(R"json({"measure_dir": "%1", "force_reload": "%2"})json").arg(toQString(measureDir), force ? QString("true") : QString("false"));
 
-  QNetworkRequest request(url);
+  QNetworkRequest request(thisUrl);
   request.setHeader(QNetworkRequest::ContentTypeHeader, "json");
 
   QNetworkAccessManager manager;
@@ -998,7 +997,7 @@ void MeasureManager::addMeasure() {
   //QSharedPointer<BCLMeasureDialog> dialog(new BCLMeasureDialog(this->mainWindow));
   QSharedPointer<BCLMeasureDialog> dialog(new BCLMeasureDialog());
 
-  if (dialog->exec()) {
+  if (dialog->exec() != 0) {
 
     // not canceled, create measure
     boost::optional<BCLMeasure> measure = dialog->createMeasure();
@@ -1040,7 +1039,7 @@ void MeasureManager::duplicateSelectedMeasure() {
       //QSharedPointer<BCLMeasureDialog> dialog(new BCLMeasureDialog(*bclMeasure, this->mainWindow));
       QSharedPointer<BCLMeasureDialog> dialog(new BCLMeasureDialog(*bclMeasure));
 
-      if (dialog->exec()) {
+      if (dialog->exec() != 0) {
 
         // not canceled, create measure
         boost::optional<BCLMeasure> measure = dialog->createMeasure();

@@ -128,11 +128,10 @@ GeometryEditorView::GeometryEditorView(bool isIP, const openstudio::model::Model
 
 GeometryEditorView::~GeometryEditorView() = default;
 
-DebugWebView::DebugWebView(const QString& debugPort, QWidget* parent) : QDialog(parent) {
+DebugWebView::DebugWebView(const QString& debugPort, QWidget* parent) : QDialog(parent), m_view(new QWebEngineView(this)) {
   auto* mainLayout = new QVBoxLayout;
   setLayout(mainLayout);
 
-  m_view = new QWebEngineView(this);
   m_view->settings()->setAttribute(QWebEngineSettings::WebAttribute::LocalContentCanAccessRemoteUrls, true);
   m_view->settings()->setAttribute(QWebEngineSettings::WebAttribute::LocalContentCanAccessFileUrls, true);
   m_view->settings()->setAttribute(QWebEngineSettings::WebAttribute::AllowRunningInsecureContent, true);
@@ -149,8 +148,14 @@ DebugWebView::DebugWebView(const QString& debugPort, QWidget* parent) : QDialog(
 DebugWebView::~DebugWebView() = default;
 
 BaseEditor::BaseEditor(bool isIP, const openstudio::model::Model& model, QWebEngineView* view, QWidget* t_parent)
-  : QObject(t_parent), m_editorLoaded(false), m_javascriptRunning(false), m_versionNumber(0), m_isIP(isIP), m_model(model), m_view(view) {
-  m_checkForUpdateTimer = new QTimer(this);
+  : QObject(t_parent),
+    m_editorLoaded(false),
+    m_javascriptRunning(false),
+    m_versionNumber(0),
+    m_isIP(isIP),
+    m_model(model),
+    m_view(view),
+    m_checkForUpdateTimer(new QTimer(this)) {
   connect(m_checkForUpdateTimer, &QTimer::timeout, this, &BaseEditor::checkForUpdate);
 
   openstudio::OSAppBase* app = OSAppBase::instance();
@@ -272,8 +277,7 @@ void FloorspaceEditor::loadEditor() {
     }
 
     // DLM: need a better check here
-    RemoteBCL remoteBCL;
-    if (remoteBCL.isOnline()) {
+    if (openstudio::RemoteBCL::isOnline()) {
       config["online"] = true;
     } else {
       config["online"] = false;
@@ -317,7 +321,7 @@ void FloorspaceEditor::loadEditor() {
     const std::string json = Json::writeString(wbuilder, config);
 
     QString javascript = QString("window.api.setConfig(") + QString::fromStdString(json) + QString(");");
-    m_view->page()->runJavaScript(javascript, [this](const QVariant& v) { m_javascriptRunning = false; });
+    m_view->page()->runJavaScript(javascript, [this](const QVariant& /*v*/) { m_javascriptRunning = false; });
     while (m_javascriptRunning) {
       OSAppBase::instance()->processEvents(QEventLoop::ExcludeUserInputEvents, 200);
     }
@@ -330,7 +334,7 @@ void FloorspaceEditor::loadEditor() {
     m_javascriptRunning = true;
 
     QString javascript = QString("window.api.init();");
-    m_view->page()->runJavaScript(javascript, [this](const QVariant& v) { m_javascriptRunning = false; });
+    m_view->page()->runJavaScript(javascript, [this](const QVariant& /*v*/) { m_javascriptRunning = false; });
     while (m_javascriptRunning) {
       OSAppBase::instance()->processEvents(QEventLoop::ExcludeUserInputEvents, 200);
     }
@@ -360,7 +364,7 @@ style.type = 'text/css';\n\
 style.innerHTML = rules;\n\
 document.head.appendChild(style);\n";
 
-    m_view->page()->runJavaScript(javascript, [this](const QVariant& v) { m_javascriptRunning = false; });
+    m_view->page()->runJavaScript(javascript, [this](const QVariant& /*v*/) { m_javascriptRunning = false; });
     while (m_javascriptRunning) {
       OSAppBase::instance()->processEvents(QEventLoop::ExcludeUserInputEvents, 200);
     }
@@ -380,7 +384,7 @@ document.head.appendChild(style);\n";
 
       QString javascript =
         QString("window.api.openFloorplan(JSON.stringify(") + QString::fromStdString(json) + QString("), { noReloadGrid: false });");
-      m_view->page()->runJavaScript(javascript, [this](const QVariant& v) { m_javascriptRunning = false; });
+      m_view->page()->runJavaScript(javascript, [this](const QVariant& /*v*/) { m_javascriptRunning = false; });
       while (m_javascriptRunning) {
         OSAppBase::instance()->processEvents(QEventLoop::ExcludeUserInputEvents, 200);
       }
@@ -423,7 +427,7 @@ document.head.appendChild(style);\n";
       // const std::string json = Json::writeString(wbuilder, value);
 
       QString javascript = QString("window.api.importLibrary(JSON.stringify(") + QString::fromStdString(json) + QString("));");
-      m_view->page()->runJavaScript(javascript, [this](const QVariant& v) { m_javascriptRunning = false; });
+      m_view->page()->runJavaScript(javascript, [this](const QVariant& /*v*/) { m_javascriptRunning = false; });
       while (m_javascriptRunning) {
         OSAppBase::instance()->processEvents(QEventLoop::ExcludeUserInputEvents, 200);
       }
@@ -691,7 +695,7 @@ void FloorspaceEditor::updateModel(const openstudio::model::Model& model) {
 
     QString javascript = QString("window.api.openFloorplan(JSON.stringify(") + QString::fromStdString(json) + QString("), { noReloadGrid: true });");
     //QString javascript = QString("window.api.importLibrary(JSON.stringify(") + QString::fromStdString(json) + QString("));");
-    m_view->page()->runJavaScript(javascript, [this](const QVariant& v) { m_javascriptRunning = false; });
+    m_view->page()->runJavaScript(javascript, [this](const QVariant& /*v*/) { m_javascriptRunning = false; });
     while (m_javascriptRunning) {
       OSAppBase::instance()->processEvents(QEventLoop::ExcludeUserInputEvents, 200);
     }
@@ -767,7 +771,7 @@ void GbXmlEditor::loadEditor() {
     OS_ASSERT(!m_javascriptRunning);
     // call init and animate
     QString javascript = QString("init();\n animate();");
-    m_view->page()->runJavaScript(javascript, [this](const QVariant& v) { m_javascriptRunning = false; });
+    m_view->page()->runJavaScript(javascript, [this](const QVariant& /*v*/) { m_javascriptRunning = false; });
     while (m_javascriptRunning) {
       OSAppBase::instance()->processEvents(QEventLoop::ExcludeUserInputEvents, 200);
     }
@@ -779,7 +783,7 @@ void GbXmlEditor::loadEditor() {
     m_javascriptRunning = true;
 
     QString javascript = QString("setGbXml(\"") + m_gbXML + QString("\");");
-    m_view->page()->runJavaScript(javascript, [this](const QVariant& v) { m_javascriptRunning = false; });
+    m_view->page()->runJavaScript(javascript, [this](const QVariant& /*v*/) { m_javascriptRunning = false; });
     while (m_javascriptRunning) {
       OSAppBase::instance()->processEvents(QEventLoop::ExcludeUserInputEvents, 200);
     }
@@ -883,13 +887,14 @@ IdfEditor::IdfEditor(const openstudio::path& idfPath, bool forceConvert, bool is
 
         runner.start(energyPlusExePath, arguments);
         runner.waitForFinished();
-        if (runner.state()) {
+        if (runner.state() != 0u) {
           // if still running just kill it
           runner.kill();
         }
         //int result = runner.exitCode();
-        QString error(runner.readAllStandardError());
-        QString output(runner.readAllStandardOutput());
+
+        // QString error(runner.readAllStandardError());
+        // QString output(runner.readAllStandardOutput());
 
         //m_document->enableTabsAfterRun();
 
@@ -927,7 +932,7 @@ void IdfEditor::loadEditor() {
     m_javascriptRunning = true;
 
     QString javascript = QString("setMessage(\"Failed to convert IDF to JSON format\");");
-    m_view->page()->runJavaScript(javascript, [this](const QVariant& v) { m_javascriptRunning = false; });
+    m_view->page()->runJavaScript(javascript, [this](const QVariant& /*v*/) { m_javascriptRunning = false; });
     while (m_javascriptRunning) {
       OSAppBase::instance()->processEvents(QEventLoop::ExcludeUserInputEvents, 200);
     }
@@ -938,7 +943,7 @@ void IdfEditor::loadEditor() {
     m_javascriptRunning = true;
 
     QString javascript = QString("setJdf(JSON.stringify(") + m_jdf + QString("));");
-    m_view->page()->runJavaScript(javascript, [this](const QVariant& v) { m_javascriptRunning = false; });
+    m_view->page()->runJavaScript(javascript, [this](const QVariant& /*v*/) { m_javascriptRunning = false; });
     while (m_javascriptRunning) {
       OSAppBase::instance()->processEvents(QEventLoop::ExcludeUserInputEvents, 200);
     }
@@ -1048,7 +1053,7 @@ void OsmEditor::loadEditor() {
 
     // call init and animate
     QString javascript = QString("init(") + toQString(json) + QString(");\n animate();\n initDatGui();");
-    m_view->page()->runJavaScript(javascript, [this](const QVariant& v) { m_javascriptRunning = false; });
+    m_view->page()->runJavaScript(javascript, [this](const QVariant& /*v*/) { m_javascriptRunning = false; });
     while (m_javascriptRunning) {
       OSAppBase::instance()->processEvents(QEventLoop::ExcludeUserInputEvents, 200);
     }
@@ -1231,8 +1236,8 @@ EditorWebView::EditorWebView(bool isIP, const openstudio::model::Model& model, Q
   }
 
   // no files found
-  if ((model.getConcreteModelObjects<model::Surface>().size() > 0) || (model.getConcreteModelObjects<model::SubSurface>().size() > 0)
-      || (model.getConcreteModelObjects<model::ShadingSurface>().size() > 0)) {
+  if ((!model.getConcreteModelObjects<model::Surface>().empty()) || (!model.getConcreteModelObjects<model::SubSurface>().empty())
+      || (!model.getConcreteModelObjects<model::ShadingSurface>().empty())) {
     m_newImportGeometry->setEnabled(false);
     m_view->load(getEmbeddedFileUrl("geometry_editor_start.html"));
   } else {
@@ -1273,19 +1278,14 @@ EditorWebView::~EditorWebView() {
 void EditorWebView::geometrySourceChanged(const QString& text) {
   if (text == "FloorspaceJS") {
     m_newImportGeometry->setText("New");
-  } else if (text == "gbXML") {
-    m_newImportGeometry->setText("Import");
-  } else if (text == "IDF") {
-    m_newImportGeometry->setText("Import");
-  } else if (text == "OSM") {
+  } else if ((text == "gbXML") || (text == "IDF") || (text == "OSM")) {
     m_newImportGeometry->setText("Import");
   }
 }
 
 void EditorWebView::newImportClicked() {
-  if (m_baseEditor) {
-    delete m_baseEditor;
-  }
+
+  delete m_baseEditor;
 
   if (m_geometrySourceComboBox->currentText() == "FloorspaceJS") {
     m_geometrySourceComboBox->setEnabled(false);
@@ -1382,7 +1382,7 @@ void EditorWebView::refreshClicked() {
   m_view->triggerPageAction(QWebEnginePage::ReloadAndBypassCache);
 }
 
-void EditorWebView::saveClickedBlocking(const openstudio::path&) {
+void EditorWebView::saveClickedBlocking(const openstudio::path& /*unused*/) {
   if (m_baseEditor && m_baseEditor->editorLoaded()) {
     m_baseEditor->doExport();
     m_baseEditor->saveExport();
@@ -1443,7 +1443,7 @@ void EditorWebView::previewExport() {
     bool signalsBlocked = m_baseEditor->blockUpdateTimerSignals(true);
 
     auto* webView = new PreviewWebView(m_isIP, temp);
-    QLayout* layout = new QVBoxLayout();
+    auto* layout = new QVBoxLayout();
     layout->addWidget(webView);
 
     // show preview in blocking dialog
@@ -1559,7 +1559,7 @@ void EditorWebView::onLoadStarted() {
   m_progressBar->setTextVisible(false);
 }
 
-void EditorWebView::onRenderProcessTerminated(QWebEnginePage::RenderProcessTerminationStatus terminationStatus, int exitCode) {
+void EditorWebView::onRenderProcessTerminated(QWebEnginePage::RenderProcessTerminationStatus /*terminationStatus*/, int /*exitCode*/) {
   m_progressBar->setStyleSheet("QProgressBar::chunk {background-color: #FF0000;}");
   m_progressBar->setFormat("Error");
   m_progressBar->setTextVisible(true);

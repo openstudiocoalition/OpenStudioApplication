@@ -56,7 +56,7 @@ class MainWindow : public QMainWindow
   explicit MainWindow(bool isPlugin, QWidget* parent = nullptr);
   virtual ~MainWindow();
 
-  void addVerticalTabButton(int id, QString toolTip, const QString& selectedImagePath, const QString& unSelectedImagePath,
+  void addVerticalTabButton(int id, const QString& toolTip, const QString& selectedImagePath, const QString& unSelectedImagePath,
                             const QString& disabledImagePath);
 
   void setView(MainTabView* view, int id);
@@ -75,7 +75,7 @@ class MainWindow : public QMainWindow
 
   void openSidebar();
 
-  bool displayIP();
+  bool displayIP() const;
 
   bool verboseOutput() const;
 

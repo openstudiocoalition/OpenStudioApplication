@@ -73,7 +73,8 @@ ResultsView::ResultsView(QWidget* t_parent)
     m_isIP(true),
     m_progressBar(new QProgressBar()),
     m_refreshBtn(new QPushButton("Refresh")),
-    m_openDViewBtn(new QPushButton("Open DView for\nDetailed Reports")) {
+    m_openDViewBtn(new QPushButton("Open DView for\nDetailed Reports")),
+    m_comboBox(new QComboBox(this)) {
 
   auto* mainLayout = new QVBoxLayout;
   setLayout(mainLayout);
@@ -88,7 +89,6 @@ ResultsView::ResultsView(QWidget* t_parent)
   m_reportLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
   hLayout->addWidget(m_reportLabel, 0, Qt::AlignLeft | Qt::AlignVCenter);
 
-  m_comboBox = new QComboBox(this);
   connect(m_comboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &ResultsView::comboBoxChanged);
   hLayout->addWidget(m_comboBox, 0, Qt::AlignLeft | Qt::AlignVCenter);
 
@@ -226,9 +226,7 @@ void ResultsView::searchForExistingResults(const openstudio::path& t_runDir, con
         eplusout.push_back(p);
       } else if (openstudio::toString(p.filename()) == "radout.sql") {
         radout.push_back(p);
-      } else if (openstudio::toString(p.filename()) == "report.html") {
-        //reports.push_back(p);
-      } else if (openstudio::toString(p.filename()) == "eplustbl.htm") {
+      } else if ((openstudio::toString(p.filename()) == "report.html") || (openstudio::toString(p.filename()) == "eplustbl.htm")) {
         //reports.push_back(p);
       }
     }
@@ -314,9 +312,8 @@ void ResultsView::treeChanged(const openstudio::UUID& t_uuid) {
   //}
 }
 
-void ResultsView::populateComboBox(std::vector<openstudio::path> reports) {
+void ResultsView::populateComboBox(const std::vector<openstudio::path>& reports) {
   unsigned num = 0;
-  QString fullPathString;
   openstudio::path path;
 
   m_comboBox->clear();
@@ -326,7 +323,7 @@ void ResultsView::populateComboBox(std::vector<openstudio::path> reports) {
     // convert that to a unix-style path (with forward slashes) which is what we do want here.
     // fullPathString = toQString(report.string()); // This will mix slashes and backslashes (without escaping...) => C:/companion_folder\reports\eplustbl.html
     // (Alternatively, we could just use QUrl::fromLocalFile in comboBoxChanged instead of manually preprending "file:///" here)
-    fullPathString = toQString(report);
+    QString fullPathString = toQString(report);
 
     QFile file(fullPathString);
     fullPathString.prepend("file:///");
@@ -356,7 +353,7 @@ void ResultsView::populateComboBox(std::vector<openstudio::path> reports) {
       }
     }
   }
-  if (m_comboBox->count()) {
+  if (m_comboBox->count() != 0) {
     m_comboBox->setCurrentIndex(0);
     for (int i = 0; i < m_comboBox->count(); ++i) {
       if (m_comboBox->itemText(i) == QString("OpenStudio Results")) {
@@ -421,7 +418,7 @@ void ResultsView::onLoadStarted() {
   m_progressBar->setTextVisible(false);
 }
 
-void ResultsView::onRenderProcessTerminated(QWebEnginePage::RenderProcessTerminationStatus terminationStatus, int exitCode) {
+void ResultsView::onRenderProcessTerminated(QWebEnginePage::RenderProcessTerminationStatus /*terminationStatus*/, int /*exitCode*/) {
   m_progressBar->setStyleSheet("QProgressBar::chunk {background-color: #FF0000;}");
   m_progressBar->setFormat("Error");
   m_progressBar->setTextVisible(true);

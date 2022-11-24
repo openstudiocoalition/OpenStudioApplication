@@ -79,30 +79,24 @@ namespace openstudio {
 const std::vector<QColor> OSGridController::m_colors = SchedulesView::initializeColors();
 
 OSGridController::OSGridController()
-  : QObject(), m_hasHorizontalHeader(true), m_currentCategoryIndex(0), m_isIP(false), m_horizontalHeaderBtnGrp(nullptr) {
-  m_objectSelector = new OSObjectSelector(this);
-}
+  : m_hasHorizontalHeader(true),
+    m_currentCategoryIndex(0),
+    m_isIP(false),
+    m_horizontalHeaderBtnGrp(nullptr),
+    m_objectSelector(new OSObjectSelector(this)) {}
 
 OSGridController::OSGridController(bool isIP, const QString& settingsKey, IddObjectType iddObjectType, const model::Model& model,
                                    const std::vector<model::ModelObject>& modelObjects)
-  : QObject(),
-    m_iddObjectType(iddObjectType),
+  : m_iddObjectType(iddObjectType),
     m_modelObjects(modelObjects),
-    m_categoriesAndFields(std::vector<std::pair<QString, std::vector<QString>>>()),
-    m_baseConcepts(std::vector<QSharedPointer<BaseConcept>>()),
-    m_horizontalHeaders(std::vector<QWidget*>()),
     m_hasHorizontalHeader(true),
-    m_currentCategory(QString()),
     m_currentCategoryIndex(0),
-    m_currentFields(std::vector<QString>()),
-    m_customFields(std::vector<QString>()),
     m_model(model),
     m_isIP(isIP),
     m_horizontalHeaderBtnGrp(nullptr),
-    m_settingsKey(settingsKey) {
+    m_settingsKey(settingsKey),
+    m_objectSelector(new OSObjectSelector(this)) {
   loadQSettings();
-
-  m_objectSelector = new OSObjectSelector(this);
 
   connect(m_objectSelector, &OSObjectSelector::inFocus, this, &OSGridController::onInFocus);
   connect(m_objectSelector, &OSObjectSelector::gridRowSelectionChanged, this, &OSGridController::gridRowSelectionChanged);
@@ -122,12 +116,12 @@ void OSGridController::loadQSettings() {
 
 void OSGridController::saveQSettings() const {
   QSettings settings(QCoreApplication::organizationName(), m_settingsKey);
-  QVector<QVariant> vector;
-  for (unsigned i = 0; i < m_customFields.size(); i++) {
-    QVariant variant = m_customFields.at(i);
-    vector.push_back(variant);
+  QVector<QVariant> vec;
+  for (const auto& m_customField : m_customFields) {
+    QVariant variant = m_customField;
+    vec.push_back(variant);
   }
-  QList<QVariant> list = vector.toList();
+  QList<QVariant> list = vec.toList();
   settings.setValue("customCategories", list);
 }
 
@@ -194,8 +188,8 @@ void OSGridController::setCategoriesAndFields() {
 std::vector<QString> OSGridController::categories() {
   std::vector<QString> categories;
 
-  for (unsigned i = 0; i < m_categoriesAndFields.size(); i++) {
-    categories.push_back(m_categoriesAndFields.at(i).first);
+  for (const auto& m_categoriesAndField : m_categoriesAndFields) {
+    categories.push_back(m_categoriesAndField.first);
   }
 
   return categories;
@@ -240,7 +234,7 @@ void OSGridController::setHorizontalHeader(QWidget* gridView) {
   }
 
   QList<QAbstractButton*> buttons = m_horizontalHeaderBtnGrp->buttons();
-  OS_ASSERT(buttons.size() == 0);
+  OS_ASSERT(buttons.empty());
 
   for (const QString& field : m_currentFields) {
     auto* horizontalHeaderWidget = new HorizontalHeaderWidget(field, gridView);
@@ -490,11 +484,9 @@ void OSGridController::checkSelectedFields() {
 
 void OSGridController::setCustomCategoryAndFields() {
   // First, find and erase the old fields for custom
-  std::vector<QString> categories = this->categories();
-  std::vector<QString>::iterator it;
-  it = std::find(categories.begin(), categories.end(), QString("Custom"));
-  if (it != categories.end()) {
-    int index = std::distance(categories.begin(), it);
+  std::vector<QString> cats = this->categories();
+  if (auto it = std::find(cats.begin(), cats.end(), QString("Custom")); it != cats.end()) {
+    int index = std::distance(cats.begin(), it);
     m_categoriesAndFields.erase(m_categoriesAndFields.begin() + index);
   }
 
@@ -741,7 +733,7 @@ void OSGridController::onInFocus(bool inFocus, bool hasData, int modelRow, int g
 
     OS_ASSERT(focusedColumn == column);
 
-    std::set<model::ModelObject> selectedObjects = this->m_objectSelector->selectedObjects();
+    std::set<model::ModelObject> selectedObjectsSet = this->m_objectSelector->selectedObjects();
     boost::optional<model::ModelObject> focusedObject =
       this->m_objectSelector->getObject(focusedModelRow, focusedGridRow, focusedColumn, focusedSubrow);
     if (!focusedObject) {
@@ -754,7 +746,7 @@ void OSGridController::onInFocus(bool inFocus, bool hasData, int modelRow, int g
       // Sub rows present, either in a widget, or in a row
       const DataSource& source = dataSource->source();
       QSharedPointer<BaseConcept> dropZoneConcept = source.dropZoneConcept();
-      for (const auto& modelObject : selectedObjects) {
+      for (const auto& modelObject : selectedObjectsSet) {
         // Don't set the chosen object when iterating through the selected objects
         if (modelObject != focusedObject.get()) {
           OS_ASSERT(dataSource.data()->innerConcept());
@@ -768,7 +760,7 @@ void OSGridController::onInFocus(bool inFocus, bool hasData, int modelRow, int g
         }
       }
     } else if (!focusedSubrow) {
-      for (const auto& modelObject : selectedObjects) {
+      for (const auto& modelObject : selectedObjectsSet) {
         // Don't set the chosen object when iterating through the selected objects
         if (modelObject != focusedObject.get()) {
           setConceptValue(modelObject, focusedObject.get(), m_baseConcepts[column]);

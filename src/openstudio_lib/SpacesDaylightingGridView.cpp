@@ -130,57 +130,60 @@ SpacesDaylightingGridController::SpacesDaylightingGridController(bool isIP, cons
 
 void SpacesDaylightingGridController::setCategoriesAndFields() {
   {
-    std::vector<QString> fields;
-    //fields.push_back(THERMALZONENAME);
-    //fields.push_back(SPACENAME);
-    //fields.push_back(POSITIONXCOORDINATE);
-    //fields.push_back(POSITIONYCOORDINATE);
-    //fields.push_back(POSITIONZCOORDINATE);
-    //fields.push_back(ROTATIONAROUNDXAXIS);
-    //fields.push_back(ROTATIONAROUNDYAXIS);
-    //fields.push_back(ROTATIONAROUNDZAXIS);
-    //fields.push_back(ILLUMINANCESETPOINT);
-    //fields.push_back(LIGHTINGCONTROLTYPE);
-    //fields.push_back(MINIMUMINPUTPOWERFRACTIONFORCONTINUOUSDIMMINGCONTROL);
-    //fields.push_back(MINIMUMLIGHTOUTPUTFRACTIONFORCONTINUOUSDIMMINGCONTROL);
-    //fields.push_back(NUMBEROFSTEPPEDCONTROLSTEPS);
-    //fields.push_back(PROBABILITYLIGHTINGWILLBERESETWHENNEEDEDINMANUALSTEPPEDCONTROL);
-    //fields.push_back(NUMBEROFDAYLIGHTINGVIEWS);
-    //fields.push_back(MAXIMUMALLOWABLEDISCOMFORTGLAREINDEX);
+    std::vector<QString> fields{
+      //THERMALZONENAME,
+      //SPACENAME,
+      //POSITIONXCOORDINATE,
+      //POSITIONYCOORDINATE,
+      //POSITIONZCOORDINATE,
+      //ROTATIONAROUNDXAXIS,
+      //ROTATIONAROUNDYAXIS,
+      //ROTATIONAROUNDZAXIS,
+      //ILLUMINANCESETPOINT,
+      //LIGHTINGCONTROLTYPE,
+      //MINIMUMINPUTPOWERFRACTIONFORCONTINUOUSDIMMINGCONTROL,
+      //MINIMUMLIGHTOUTPUTFRACTIONFORCONTINUOUSDIMMINGCONTROL,
+      //NUMBEROFSTEPPEDCONTROLSTEPS,
+      //PROBABILITYLIGHTINGWILLBERESETWHENNEEDEDINMANUALSTEPPEDCONTROL,
+      //NUMBEROFDAYLIGHTINGVIEWS,
+      //MAXIMUMALLOWABLEDISCOMFORTGLAREINDEX,
+    };
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Daylighting Controls"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
   {
-    std::vector<QString> fields;
-    //fields.push_back(SPACENAME);
-    //fields.push_back(NAME);
-    //fields.push_back(ORIGINXCOORDINATE);
-    //fields.push_back(ORIGINYCOORDINATE);
-    //fields.push_back(ORIGINZCOORDINATE);
-    //fields.push_back(ROTATIONAROUNDXAXIS);
-    //fields.push_back(ROTATIONAROUNDYAXIS);
-    //fields.push_back(ROTATIONAROUNDZAXIS);
-    //fields.push_back(XLENGTH);
-    //fields.push_back(NUMBEROFXGRIDPOINTS);
-    //fields.push_back(YLENGTH);
-    //fields.push_back(NUMBEROFYGRIDPOINTS);
+    std::vector<QString> fields{
+      //SPACENAME,
+      //NAME,
+      //ORIGINXCOORDINATE,
+      //ORIGINYCOORDINATE,
+      //ORIGINZCOORDINATE,
+      //ROTATIONAROUNDXAXIS,
+      //ROTATIONAROUNDYAXIS,
+      //ROTATIONAROUNDZAXIS,
+      //XLENGTH,
+      //NUMBEROFXGRIDPOINTS,
+      //YLENGTH,
+      //NUMBEROFYGRIDPOINTS,
+    };
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Illuminance Maps"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
   {
-    std::vector<QString> fields;
-    //fields.push_back(SPACENAME);
-    //fields.push_back(NAME);
-    //fields.push_back(POSITIONXCOORDINATE);
-    //fields.push_back(POSITIONYCOORDINATE);
-    //fields.push_back(POSITIONZCOORDINATE);
-    //fields.push_back(ROTATIONAROUNDXAXIS);
-    //fields.push_back(ROTATIONAROUNDYAXIS);
-    //fields.push_back(ROTATIONAROUNDZAXIS);
-    //fields.push_back(NUMBEROFGLAREVIEWVECTORS);
-    //fields.push_back(MAXIMUMALLOWABLEDAYLIGHTGLAREPROBABILITY);
+    std::vector<QString> fields{
+      //SPACENAME,
+      //NAME,
+      //POSITIONXCOORDINATE,
+      //POSITIONYCOORDINATE,
+      //POSITIONZCOORDINATE,
+      //ROTATIONAROUNDXAXIS,
+      //ROTATIONAROUNDYAXIS,
+      //ROTATIONAROUNDZAXIS,
+      //NUMBEROFGLAREVIEWVECTORS,
+      //MAXIMUMALLOWABLEDAYLIGHTGLAREPROBABILITY,
+    };
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Glare Sensors"), fields);
     addCategoryAndFields(categoryAndFields);
   }

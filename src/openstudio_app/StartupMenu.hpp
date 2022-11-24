@@ -41,7 +41,7 @@ class StartupMenu : public QMenuBar
   Q_OBJECT
 
  public:
-  StartupMenu(QWidget* parent = nullptr);
+  explicit StartupMenu(QWidget* parent = nullptr);
 
   virtual ~StartupMenu() {}
 

@@ -56,7 +56,7 @@ class ResultsView : public QWidget
   Q_OBJECT;
 
  public:
-  ResultsView(QWidget* t_parent = nullptr);
+  explicit ResultsView(QWidget* t_parent = nullptr);
   virtual ~ResultsView();
   void searchForExistingResults(const openstudio::path& t_runDir, const openstudio::path& t_reportsDir);
 
@@ -79,7 +79,7 @@ class ResultsView : public QWidget
  private:
   REGISTER_LOGGER("openstudio::ResultsView");
   //openstudio::runmanager::RunManager runManager();
-  void populateComboBox(std::vector<openstudio::path> reports);
+  void populateComboBox(const std::vector<openstudio::path>& reports);
 
   bool m_isIP;
 

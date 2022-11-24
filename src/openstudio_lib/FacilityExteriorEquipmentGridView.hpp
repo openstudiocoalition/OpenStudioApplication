@@ -57,6 +57,8 @@ class FacilityExteriorEquipmentGridView : public GridViewSubTab
 
   virtual void purgeObjects(const openstudio::IddObjectType& iddObjectType) override;
 
+  void clearSelection();
+
  protected slots:
 
   virtual void onSelectItem() override;
@@ -73,12 +75,12 @@ class FacilityExteriorEquipmentGridController : public OSGridController
   FacilityExteriorEquipmentGridController(bool isIP, const QString& settingsText, IddObjectType iddObjectType, const model::Model& model,
                                           const std::vector<model::ModelObject>& modelObjects);
 
-  virtual ~FacilityExteriorEquipmentGridController() {}
+  virtual ~FacilityExteriorEquipmentGridController() = default;
 
   virtual void refreshModelObjects() override;
 
  protected:
-  virtual void setCategoriesAndFields() override;
+  void setCategoriesAndFields();
 
   virtual void addColumns(const QString& category, std::vector<QString>& fields) override;
 

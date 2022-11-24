@@ -60,7 +60,7 @@ class BIMSERVER_API BIMserverConnection : public QObject
 
  public:
   /// Default constructor
-  BIMserverConnection(QObject* parent, QString bimserverAddr, QString bimserverPort);
+  BIMserverConnection(QObject* parent, const QString& bimserverAddr, const QString& bimserverPort);
   /// destructor
   ~BIMserverConnection();
 
@@ -75,32 +75,32 @@ class BIMSERVER_API BIMserverConnection : public QObject
   /// get all projects
   void getAllProjects();
   /// create new project
-  void createProject(QString projectName);
+  void createProject(const QString& projectName);
   /// delete a project
-  void deleteProject(QString projectID);
+  void deleteProject(const QString& projectID);
   /// check in new ifc file
   void checkInIFCFile(QString projectID, QString IFCFilePath);
   /// get all revisions of IFC files of a project
-  void getIFCRevisionList(QString projectID);
+  void getIFCRevisionList(const QString& projectID);
 
   //@}
   /** @name Blocking class members */
   //@{
 
   /// Login, Blocked
-  bool loginBlocked(QString username, QString password, int timeout);
+  bool loginBlocked(const QString& username, const QString& password, int timeout);
   /// download the osm model, Blocked
-  boost::optional<QString> downloadBlocked(QString projectID, int timeout);
+  boost::optional<QString> downloadBlocked(const QString& projectID, int timeout);
   /// get all projects, Blocked
   boost::optional<QStringList> getAllProjectsBlocked(int timeout);
   /// create new project, Blocked
-  bool createProjectBlocked(QString projectName, int timeout);
+  bool createProjectBlocked(const QString& projectName, int timeout);
   /// delete a project, Blocked
-  bool deleteProjectBlocked(QString projectID, int timeout);
+  bool deleteProjectBlocked(const QString& projectID, int timeout);
   /// check in new ifc file, Blocked
-  bool checkInIFCFileBlocked(QString projectID, QString IFCFilePath, int timeout);
+  bool checkInIFCFileBlocked(const QString& projectID, const QString& IFCFilePath, int timeout);
   /// get all revisions of IFC files of a project, Blocked
-  boost::optional<QStringList> getIFCRevisionListBlocked(QString projectID, int timeout);
+  boost::optional<QStringList> getIFCRevisionListBlocked(const QString& projectID, int timeout);
 
  signals:
   /// send the retrieved osmString to GUI
@@ -154,15 +154,15 @@ class BIMSERVER_API BIMserverConnection : public QObject
   void sendGetSerializerRequest();
   void sendDownloadRequest();
   void sendGetDownloadDataRequest();
-  void sendCreateProjectRequest(QString projectName);
-  void sendDeleteProjectRequest(QString projectID);
+  void sendCreateProjectRequest(const QString& projectName);
+  void sendDeleteProjectRequest(const QString& projectID);
   void sendGetDeserializerRequest();
-  void sendCheckInIFCRequest(QString IFCFilePath);
-  void sendGetProjectByIDRequest(QString projectID);
-  void sendGetProgressRequest(QString topicId, QString action);
+  void sendCheckInIFCRequest(const QString& IFCFilePath);
+  void sendGetProjectByIDRequest(const QString& projectID);
+  void sendGetProgressRequest(const QString& topicId, const QString& action);
 
-  bool containsError(QJsonObject responseMessage);
-  void emitErrorMessage(QJsonObject responseMessage);
+  bool containsError(const QJsonObject& responseMessage);
+  void emitErrorMessage(const QJsonObject& responseMessage);
 
   bool waitForLock(int msec) const;
 

@@ -46,7 +46,7 @@ class OSItemSelector : public QWidget
   Q_OBJECT
 
  public:
-  OSItemSelector(QWidget* parent = nullptr);
+  explicit OSItemSelector(QWidget* parent = nullptr);
 
   virtual ~OSItemSelector() {}
 

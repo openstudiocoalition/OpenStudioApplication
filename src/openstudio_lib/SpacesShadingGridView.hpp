@@ -48,10 +48,11 @@ class SpacesShadingGridView : public SpacesSubtabGridView
  public:
   SpacesShadingGridView(bool isIP, const model::Model& model, QWidget* parent = nullptr);
 
-  virtual ~SpacesShadingGridView() {}
+  virtual ~SpacesShadingGridView() = default;
 
  private:
   REGISTER_LOGGER("openstudio.SpacesShadingGridView");
+  void clearSelection();
 
  protected slots:
 
@@ -69,12 +70,12 @@ class SpacesShadingGridController : public OSGridController
   SpacesShadingGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, const model::Model& model,
                               const std::vector<model::ModelObject>& modelObjects);
 
-  virtual ~SpacesShadingGridController() {}
+  virtual ~SpacesShadingGridController() = default;
 
   virtual void refreshModelObjects() override;
 
  protected:
-  virtual void setCategoriesAndFields() override;
+  void setCategoriesAndFields();
 
   virtual void addColumns(const QString& category, std::vector<QString>& fields) override;
 

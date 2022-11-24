@@ -49,7 +49,7 @@ class OSInspectorView : public QWidget
   Q_OBJECT
 
  public:
-  OSInspectorView(bool addScrollArea, QWidget* parent = nullptr);
+  explicit OSInspectorView(bool addScrollArea, QWidget* parent = nullptr);
 
   virtual ~OSInspectorView() {}
 

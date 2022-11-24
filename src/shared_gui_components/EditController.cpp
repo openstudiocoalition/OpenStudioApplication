@@ -45,7 +45,7 @@
 
 namespace openstudio {
 
-EditController::EditController(bool applyMeasureNow) : QObject(), editView(new OSViewSwitcher()) {
+EditController::EditController(bool applyMeasureNow) : editView(new OSViewSwitcher()) {
   if (applyMeasureNow) {
     m_editNullView = new EditNullView("Select a Measure to Apply");
   } else {
@@ -57,15 +57,9 @@ EditController::EditController(bool applyMeasureNow) : QObject(), editView(new O
 }
 
 EditController::~EditController() {
-  if (editView) {
-    delete editView;
-  }
-  if (m_editNullView) {
-    delete m_editNullView;
-  }
-  if (editRubyMeasureView) {
-    delete editRubyMeasureView;
-  }
+  delete editView;
+  delete m_editNullView;
+  delete editRubyMeasureView;
 }
 
 void EditController::setMeasureStepItem(measuretab::MeasureStepItem* measureStepItem, BaseApp* t_app) {
@@ -113,10 +107,6 @@ void EditController::updateDescription() {
 }
 
 void EditController::reset() {
-  // Evan note: It's bad to play with null pointers
-  if (!m_editNullView || !editView || !m_measureStepItem || !editRubyMeasureView) {
-    //return;
-  }
 
   editView->setView(m_editNullView);
 
@@ -124,9 +114,10 @@ void EditController::reset() {
 
   m_measureStepItem = nullptr;
 
-  editRubyMeasureView->nameLineEdit->disconnect();
-
-  editRubyMeasureView->descriptionTextEdit->disconnect();
+  if (editRubyMeasureView != nullptr) {
+    editRubyMeasureView->nameLineEdit->disconnect();
+    editRubyMeasureView->descriptionTextEdit->disconnect();
+  }
 }
 
 class EditMeasureMessageBox : public QMessageBox
@@ -145,8 +136,8 @@ class EditMeasureMessageBox : public QMessageBox
   }
 };
 
-InputController::InputController(EditController* editController, const measure::OSArgument& argument, BaseApp* t_app)
-  : QObject(), m_app(t_app), m_editController(editController), m_argument(argument) {
+InputController::InputController(EditController* editController, measure::OSArgument argument, BaseApp* t_app)
+  : m_app(t_app), m_editController(editController), m_argument(std::move(argument)) {
   if (m_argument.type() == measure::OSArgumentType::Double) {
     auto* doubleInputView = new DoubleInputView();
 
@@ -286,9 +277,7 @@ InputController::InputController(EditController* editController, const measure::
 }
 
 InputController::~InputController() {
-  if (inputView) {
-    delete inputView;
-  }
+  delete inputView;
 }
 
 void InputController::setValue(const QString& text) {

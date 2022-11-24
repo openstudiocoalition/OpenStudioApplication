@@ -137,8 +137,7 @@ namespace openstudio {
 
 OSDocument::OSDocument(const openstudio::model::Model& library, const openstudio::path& resourcesPath, openstudio::model::OptionalModel model,
                        QString filePath, bool isPlugin, int startTabIndex, int startSubTabIndex)
-  : OSQObjectController(),
-    m_compLibrary(library),
+  : m_compLibrary(library),
     m_resourcesPath(resourcesPath),
     m_onlineMeasuresBclDialog(nullptr),
     m_onlineBclDialog(nullptr),
@@ -169,17 +168,17 @@ OSDocument::OSDocument(const openstudio::model::Model& library, const openstudio
     initalizeWorkflow = true;
   }
 
-  openstudio::path modelTempDir;
+  openstudio::path modelTempDirPath;
   if (!m_savePath.isEmpty()) {
     auto p = toPath(m_savePath);
-    modelTempDir = model::initializeModel(*model, p);
+    modelTempDirPath = model::initializeModel(*model, p);
     m_mainWindow->setWindowTitle(toQString(p.filename()) + "[*]");
   } else {
-    modelTempDir = model::initializeModel(*model);
+    modelTempDirPath = model::initializeModel(*model);
     m_mainWindow->setWindowTitle("Untitled[*]");
     initalizeWorkflow = true;
   }
-  m_modelTempDir = toQString(modelTempDir);
+  m_modelTempDir = toQString(modelTempDirPath);
 
   m_verticalId = 0;
   m_subTabIds = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -766,7 +765,7 @@ void OSDocument::markAsUnmodified() {
 }
 
 void OSDocument::disableTabsDuringRun() {
-  if (m_enableTabsAfterRun == false) {
+  if (!m_enableTabsAfterRun) {
     return;  // Already in correct state, no work to be done
   } else {
     m_enableTabsAfterRun = false;
@@ -794,7 +793,7 @@ void OSDocument::disableTabsDuringRun() {
 
 void OSDocument::enableTabsAfterRun() {
 
-  if (m_enableTabsAfterRun == true) {
+  if (m_enableTabsAfterRun) {
     return;  // Already in correct state, no work to be done
   } else {
     m_enableTabsAfterRun = true;
@@ -1594,7 +1593,7 @@ void OSDocument::openMeasuresDlg() {
     switch (ret) {
       case QMessageBox::Save:
         // Save was clicked
-        if (this->save() != true) {
+        if (!this->save()) {
           return;
         }
         break;

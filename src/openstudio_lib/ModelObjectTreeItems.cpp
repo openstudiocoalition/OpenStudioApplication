@@ -150,11 +150,16 @@ OSItemType initializeOSItemType();
 
 ModelObjectTreeItem::ModelObjectTreeItem(const openstudio::model::ModelObject& modelObject, bool isDefaulted, OSItemType type,
                                          QTreeWidgetItem* parent)
-  : QTreeWidgetItem(parent), m_handle(modelObject.handle()), m_modelObject(modelObject), m_model(modelObject.model()), m_dirty(false) {
-  m_item = new ModelObjectItem(modelObject, isDefaulted, type);
+  : QTreeWidgetItem(parent),
+    m_handle(modelObject.handle()),
+    m_modelObject(modelObject),
+    m_model(modelObject.model()),
+    m_item(new ModelObjectItem(modelObject, isDefaulted, type)),
+    m_dirty(false) {
+
   m_item->setVisible(false);
 
-  this->setText(0, toQString(modelObject.name().get()));
+  this->setText(0, toQString(modelObject.nameString()));
   this->setStyle(0, "");
 
   m_modelObject->getImpl<model::detail::ModelObject_Impl>()->onNameChange.connect<ModelObjectTreeItem, &ModelObjectTreeItem::changeName>(this);
@@ -166,17 +171,14 @@ ModelObjectTreeItem::ModelObjectTreeItem(const openstudio::model::ModelObject& m
 }
 
 ModelObjectTreeItem::ModelObjectTreeItem(const std::string& name, const openstudio::model::Model& model, QTreeWidgetItem* parent)
-  : QTreeWidgetItem(parent), m_model(model), m_name(name), m_dirty(false) {
-  m_item = nullptr;
+  : QTreeWidgetItem(parent), m_model(model), m_name(name), m_item(nullptr), m_dirty(false) {
 
   this->setText(0, toQString(name));
   this->setStyle(0, "");
 }
 
 ModelObjectTreeItem::~ModelObjectTreeItem() {
-  if (m_item) {
-    delete m_item;
-  }
+  delete m_item;
 }
 
 boost::optional<openstudio::Handle> ModelObjectTreeItem::handle() const {
@@ -193,7 +195,7 @@ openstudio::model::Model ModelObjectTreeItem::model() const {
 
 std::string ModelObjectTreeItem::name() const {
   if (m_modelObject) {
-    return m_modelObject->name().get();
+    return m_modelObject->nameString();
   }
   return m_name;
 }
@@ -274,7 +276,7 @@ void ModelObjectTreeItem::setStyle(int headerLevel, const QString& color) {
   this->setForeground(0, brush);
 }
 
-bool ModelObjectTreeItem::isDirty() {
+bool ModelObjectTreeItem::isDirty() const {
   return m_dirty;
 }
 
@@ -285,21 +287,18 @@ void ModelObjectTreeItem::makeDirty() {
 void ModelObjectTreeItem::refresh() {
   m_dirty = false;
 
-  std::vector<std::string> nonModelObjectChildren = this->nonModelObjectChildren();
-  std::vector<model::ModelObject> defaultedModelObjectChildren = this->defaultedModelObjectChildren();
-  std::vector<model::ModelObject> modelObjectChildren = this->modelObjectChildren();
+  std::vector<std::string> nonModelObjectChildrenVec = this->nonModelObjectChildren();
+  std::vector<model::ModelObject> defaultedModelObjectChildrenVec = this->defaultedModelObjectChildren();
+  std::vector<model::ModelObject> modelObjectChildrenVec = this->modelObjectChildren();
   std::vector<QTreeWidgetItem*> childrenToRemove;
 
-  std::set<std::string> nonModelObjectChildrenSet;
-  for (const std::string& child : nonModelObjectChildren) {
-    nonModelObjectChildrenSet.insert(child);
-  }
+  std::set<std::string> nonModelObjectChildrenSet(nonModelObjectChildrenVec.begin(), nonModelObjectChildrenVec.end());
 
   std::set<openstudio::Handle> allModelObjectChildrenHandleSet;
-  for (const model::ModelObject& child : defaultedModelObjectChildren) {
+  for (const model::ModelObject& child : defaultedModelObjectChildrenVec) {
     allModelObjectChildrenHandleSet.insert(child.handle());
   }
-  for (const model::ModelObject& child : modelObjectChildren) {
+  for (const model::ModelObject& child : modelObjectChildrenVec) {
     allModelObjectChildrenHandleSet.insert(child.handle());
   }
 
@@ -309,14 +308,14 @@ void ModelObjectTreeItem::refresh() {
     auto* modelObjectTreeItem = dynamic_cast<ModelObjectTreeItem*>(child);
     OS_ASSERT(modelObjectTreeItem);
 
-    boost::optional<openstudio::model::ModelObject> modelObject = modelObjectTreeItem->modelObject();
-    if (modelObject) {
-      if (allModelObjectChildrenHandleSet.find(modelObject->handle()) != allModelObjectChildrenHandleSet.end()) {
+    boost::optional<openstudio::model::ModelObject> modelObject_ = modelObjectTreeItem->modelObject();
+    if (modelObject_) {
+      if (allModelObjectChildrenHandleSet.find(modelObject_->handle()) != allModelObjectChildrenHandleSet.end()) {
         // this item's model object is for a model object we should have
         modelObjectTreeItem->refresh();
 
         // erase from set so we don't add later
-        allModelObjectChildrenHandleSet.erase(modelObject->handle());
+        allModelObjectChildrenHandleSet.erase(modelObject_->handle());
       } else {
         // this item's model object is for a model object we should not have
 
@@ -346,7 +345,7 @@ void ModelObjectTreeItem::refresh() {
 
   // todo: insert in correct order
 
-  for (const std::string& child : nonModelObjectChildren) {
+  for (const std::string& child : nonModelObjectChildrenVec) {
     // still need this object
     // cppcheck-suppress redundantIfRemove
     if (nonModelObjectChildrenSet.find(child) != nonModelObjectChildrenSet.end()) {
@@ -354,14 +353,14 @@ void ModelObjectTreeItem::refresh() {
       this->addNonModelObjectChild(child);
     }
   }
-  for (const model::ModelObject& child : defaultedModelObjectChildren) {
+  for (const model::ModelObject& child : defaultedModelObjectChildrenVec) {
     // still need this object
     if (allModelObjectChildrenHandleSet.find(child.handle()) != allModelObjectChildrenHandleSet.end()) {
       allModelObjectChildrenHandleSet.erase(child.handle());
       this->addModelObjectChild(child, true);
     }
   }
-  for (const model::ModelObject& child : modelObjectChildren) {
+  for (const model::ModelObject& child : modelObjectChildrenVec) {
     // still need this object
     if (allModelObjectChildrenHandleSet.find(child.handle()) != allModelObjectChildrenHandleSet.end()) {
       allModelObjectChildrenHandleSet.erase(child.handle());
@@ -390,24 +389,14 @@ void ModelObjectTreeItem::refreshTree() {
 }
 
 void ModelObjectTreeItem::change() {
-  boost::optional<model::ModelObject> modelObject = this->modelObject();
-  OS_ASSERT(modelObject);
+  boost::optional<model::ModelObject> modelObject_ = this->modelObject();
+  OS_ASSERT(modelObject_);
 
-  // these objects have 'type' fields that are not relationships but change tree structure
-  switch (modelObject->iddObjectType().value()) {
-    case IddObjectType::OS_ShadingSurfaceGroup:
-      refreshTree();
-      break;
-    case IddObjectType::OS_InteriorPartitionSurfaceGroup:
-      refreshTree();
-      break;
-    case IddObjectType::OS_Surface:
-      refreshTree();
-      break;
-    case IddObjectType::OS_SubSurface:
-      refreshTree();
-      break;
-    default:;
+  auto type = modelObject_->iddObjectType();
+  if (type == IddObjectType::OS_ShadingSurfaceGroup || type == IddObjectType::OS_InteriorPartitionSurfaceGroup || type == IddObjectType::OS_Surface
+      || type == IddObjectType::OS_SubSurface) {
+    // these objects have 'type' fields that are not relationships but change tree structure
+    refreshTree();
   }
 }
 
@@ -416,10 +405,10 @@ void ModelObjectTreeItem::changeRelationship(int index, Handle newHandle, Handle
     return;
   }
 
-  boost::optional<model::ModelObject> modelObject = this->modelObject();
-  OS_ASSERT(modelObject);
+  boost::optional<model::ModelObject> modelObject_ = this->modelObject();
+  OS_ASSERT(modelObject_);
 
-  switch (modelObject->iddObjectType().value()) {
+  switch (modelObject_->iddObjectType().value()) {
     case IddObjectType::OS_Building:
       if (index == OS_BuildingFields::SpaceTypeName) {
         refreshTree();
@@ -552,15 +541,15 @@ void ModelObjectTreeItem::makeChildren() {
 }
 
 std::vector<std::string> ModelObjectTreeItem::nonModelObjectChildren() const {
-  return std::vector<std::string>();
+  return {};
 }
 
 std::vector<model::ModelObject> ModelObjectTreeItem::modelObjectChildren() const {
-  return std::vector<model::ModelObject>();
+  return {};
 }
 
 std::vector<model::ModelObject> ModelObjectTreeItem::defaultedModelObjectChildren() const {
-  return std::vector<model::ModelObject>();
+  return {};
 }
 
 void ModelObjectTreeItem::addNonModelObjectChild(const std::string& child) {
@@ -579,9 +568,9 @@ void ModelObjectTreeItem::addModelObjectChild(const model::ModelObject& child, b
 void ModelObjectTreeItem::finalize() {}
 
 void ModelObjectTreeItem::changeName() {
-  boost::optional<model::ModelObject> modelObject = this->modelObject();
-  if (modelObject) {
-    this->setText(0, toQString(modelObject->name().get()));
+  boost::optional<model::ModelObject> modelObject_ = this->modelObject();
+  if (modelObject_) {
+    this->setText(0, toQString(modelObject_->nameString()));
   }
 }
 
@@ -608,7 +597,7 @@ std::vector<model::ModelObject> SiteShadingTreeItem::modelObjectChildren() const
   return result;
 }
 
-void SiteShadingTreeItem::addModelObjectChild(const model::ModelObject& child, bool isDefaulted) {
+void SiteShadingTreeItem::addModelObjectChild(const model::ModelObject& child, bool /*isDefaulted*/) {
   if (child.optionalCast<model::ShadingSurfaceGroup>()) {
     auto* treeItem = new ShadingSurfaceGroupTreeItem(child.cast<model::ShadingSurfaceGroup>(), this);
     this->addChild(treeItem);
@@ -635,7 +624,7 @@ std::vector<model::ModelObject> ShadingSurfaceGroupTreeItem::modelObjectChildren
   return result;
 }
 
-void ShadingSurfaceGroupTreeItem::addModelObjectChild(const model::ModelObject& child, bool isDefaulted) {
+void ShadingSurfaceGroupTreeItem::addModelObjectChild(const model::ModelObject& child, bool /*isDefaulted*/) {
   if (child.optionalCast<model::ShadingSurface>()) {
     auto* treeItem = new ModelObjectTreeItem(child, false, m_type, this);
     this->addChild(treeItem);
@@ -672,7 +661,7 @@ std::vector<model::ModelObject> BuildingTreeItem::modelObjectChildren() const {
   return result;
 }
 
-void BuildingTreeItem::addModelObjectChild(const model::ModelObject& child, bool isDefaulted) {
+void BuildingTreeItem::addModelObjectChild(const model::ModelObject& child, bool /*isDefaulted*/) {
   if (child.optionalCast<model::BuildingStory>()) {
     auto* treeItem = new BuildingStoryTreeItem(child.cast<model::BuildingStory>(), this);
     this->addChild(treeItem);
@@ -743,7 +732,7 @@ std::vector<model::ModelObject> BuildingShadingTreeItem::modelObjectChildren() c
   return result;
 }
 
-void BuildingShadingTreeItem::addModelObjectChild(const model::ModelObject& child, bool isDefaulted) {
+void BuildingShadingTreeItem::addModelObjectChild(const model::ModelObject& child, bool /*isDefaulted*/) {
   if (child.optionalCast<model::ShadingSurfaceGroup>()) {
     auto* treeItem = new ShadingSurfaceGroupTreeItem(child.cast<model::ShadingSurfaceGroup>(), this);
     this->addChild(treeItem);
@@ -1058,7 +1047,7 @@ std::vector<model::ModelObject> RoofsTreeItem::modelObjectChildren() const {
   return result;
 }
 
-void RoofsTreeItem::addModelObjectChild(const model::ModelObject& child, bool isDefaulted) {
+void RoofsTreeItem::addModelObjectChild(const model::ModelObject& child, bool /*isDefaulted*/) {
   if (child.optionalCast<model::Surface>()) {
     auto* treeItem = new SurfaceTreeItem(child.cast<model::Surface>(), this);
     this->addChild(treeItem);
@@ -1089,7 +1078,7 @@ std::vector<model::ModelObject> WallsTreeItem::modelObjectChildren() const {
   return result;
 }
 
-void WallsTreeItem::addModelObjectChild(const model::ModelObject& child, bool isDefaulted) {
+void WallsTreeItem::addModelObjectChild(const model::ModelObject& child, bool /*isDefaulted*/) {
   if (child.optionalCast<model::Surface>()) {
     auto* treeItem = new SurfaceTreeItem(child.cast<model::Surface>(), this);
     this->addChild(treeItem);
@@ -1120,7 +1109,7 @@ std::vector<model::ModelObject> FloorsTreeItem::modelObjectChildren() const {
   return result;
 }
 
-void FloorsTreeItem::addModelObjectChild(const model::ModelObject& child, bool isDefaulted) {
+void FloorsTreeItem::addModelObjectChild(const model::ModelObject& child, bool /*isDefaulted*/) {
   if (child.optionalCast<model::Surface>()) {
     auto* treeItem = new SurfaceTreeItem(child.cast<model::Surface>(), this);
     this->addChild(treeItem);
@@ -1165,7 +1154,7 @@ std::vector<model::ModelObject> SpaceShadingTreeItem::modelObjectChildren() cons
   return result;
 }
 
-void SpaceShadingTreeItem::addModelObjectChild(const model::ModelObject& child, bool isDefaulted) {
+void SpaceShadingTreeItem::addModelObjectChild(const model::ModelObject& child, bool /*isDefaulted*/) {
   if (child.optionalCast<model::ShadingSurfaceGroup>()) {
     auto* treeItem = new ShadingSurfaceGroupTreeItem(child.cast<model::ShadingSurfaceGroup>(), this);
     this->addChild(treeItem);
@@ -1192,7 +1181,7 @@ std::vector<model::ModelObject> InteriorPartitionsTreeItem::modelObjectChildren(
   return result;
 }
 
-void InteriorPartitionsTreeItem::addModelObjectChild(const model::ModelObject& child, bool isDefaulted) {
+void InteriorPartitionsTreeItem::addModelObjectChild(const model::ModelObject& child, bool /*isDefaulted*/) {
   if (child.optionalCast<model::InteriorPartitionSurfaceGroup>()) {
     auto* treeItem = new InteriorPartitionSurfaceGroupTreeItem(child.cast<model::InteriorPartitionSurfaceGroup>(), this);
     this->addChild(treeItem);

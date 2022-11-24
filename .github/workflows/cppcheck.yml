@@ -6,11 +6,14 @@ on:
   pull_request:
     branches: [ master, develop ]
 
+env:
+  CPPCHECK_VERSION: 2.9
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - name: Install cppcheck
       shell: bash
@@ -20,11 +23,11 @@ jobs:
           # sudo snap install cppcheck --edge
           mkdir cppcheck
           cd cppcheck
-          wget https://github.com/danmar/cppcheck/archive/2.3.tar.gz
-          tar xfz 2.3.tar.gz
+          wget https://github.com/danmar/cppcheck/archive/$CPPCHECK_VERSION.tar.gz
+          tar xfz $CPPCHECK_VERSION.tar.gz
           mkdir build
           cd build
-          cmake -DCMAKE_BUILD_TYPE=Release ../cppcheck-2.3/
+          cmake -DCMAKE_BUILD_TYPE=Release ../cppcheck-$CPPCHECK_VERSION/
           make -j $(nproc)
           sudo make install
 
@@ -32,10 +35,12 @@ jobs:
       shell: bash
       run: |
           cppcheck \
+            --std=c++20 \
             --suppress=useStlAlgorithm \
             --inline-suppr \
             --inconclusive \
             --enable=all \
+            --library=qt \
             --template='[{file}:{line}]:({severity}),[{id}],{message}' \
             --force -q -j $(nproc) \
             -i ./src/qtwinmigrate \
@@ -47,7 +52,7 @@ jobs:
 
     - name: Upload cppcheck results as artifact
       if: ${{ always() }}
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
           name: OpenStudioApplication-${{ github.sha }}-cppcheck_results.txt
           path: cppcheck.txt

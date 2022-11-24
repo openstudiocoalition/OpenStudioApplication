@@ -45,13 +45,19 @@
 namespace openstudio {
 namespace bimserver {
 
-ProjectImporter::ProjectImporter(QWidget* parent) : QDialog(parent) {
+ProjectImporter::ProjectImporter(QWidget* parent)
+  : QDialog(parent),
+    m_bimserverConnection(nullptr),
+    m_settings(new QSettings("OpenStudio", "BIMserverConnection")),
+    m_proList(new QListWidget(this)),
+    m_ifcList(new QListWidget(this)),
+    m_statusBar(new QStatusBar(this)),
+    m_waitForOSM(new QEventLoop(this)) {
   auto* subLayout = new QGridLayout;
   auto* mainLayout = new QVBoxLayout;
 
   auto* introLabel = new QLabel("Please select a project to import: ", this);
-  m_proList = new QListWidget(this);
-  m_ifcList = new QListWidget(this);
+
   m_okButton = new QPushButton(tr("Download OSM File"), this);
   m_okButton->setEnabled(false);
   auto* newButton = new QPushButton(tr("New Project"), this);
@@ -61,7 +67,6 @@ ProjectImporter::ProjectImporter(QWidget* parent) : QDialog(parent) {
   m_selectButton->setEnabled(false);
   auto* cancelButton = new QPushButton(tr("Cancel"), this);
   auto* settingButton = new QPushButton(tr("Setting"), this);
-  m_statusBar = new QStatusBar(this);
 
   connect(m_okButton, &QPushButton::clicked, this, &ProjectImporter::okButton_clicked);
   connect(newButton, &QPushButton::clicked, this, &ProjectImporter::newButton_clicked);
@@ -88,10 +93,6 @@ ProjectImporter::ProjectImporter(QWidget* parent) : QDialog(parent) {
   setLayout(mainLayout);
 
   setWindowTitle("Import Project");
-
-  m_waitForOSM = new QEventLoop(this);
-  m_settings = new QSettings("OpenStudio", "BIMserverConnection");
-  m_bimserverConnection = nullptr;
 }
 
 ProjectImporter::~ProjectImporter() = default;
@@ -135,42 +136,46 @@ boost::optional<model::Model> ProjectImporter::run() {
   }
 }
 
-void ProjectImporter::processProjectList(QStringList projectList) {
+void ProjectImporter::processProjectList(const QStringList& projectList) {
 
   m_proList->clear();
 
-  foreach (QString itm, projectList) { m_proList->addItem(itm); }
+  for (const auto& itm : projectList) {
+    m_proList->addItem(itm);
+  }
 
   m_selectButton->setEnabled(true);
 }
 
-void ProjectImporter::processIFCList(QStringList ifcList) {
+void ProjectImporter::processIFCList(const QStringList& ifcList) {
 
   m_ifcList->clear();
 
-  foreach (QString itm, ifcList) { m_ifcList->addItem(itm); }
+  for (const auto& itm : ifcList) {
+    m_ifcList->addItem(itm);
+  }
 
   m_loadButton->setEnabled(true);
   m_okButton->setEnabled(true);
 }
 
-void ProjectImporter::processSucessCases(QString sucessCase) {
-  if (sucessCase == "createProject") {
+void ProjectImporter::processSucessCases(const QString& successCase) {
+  if (successCase == "createProject") {
     m_statusBar->showMessage(tr("Project created, showing updated project list."), 2000);
     m_bimserverConnection->getAllProjects();
 
-  } else if (sucessCase == "checkInIFC") {
+  } else if (successCase == "checkInIFC") {
     m_statusBar->showMessage(tr("IFC file loaded, showing updated IFC file list."), 2000);
     m_bimserverConnection->getIFCRevisionList(m_proID);
 
-  } else if (sucessCase == "login") {
+  } else if (successCase == "login") {
     this->show();
     m_statusBar->showMessage(tr("Login success!"), 2000);
     m_bimserverConnection->getAllProjects();
   }
 }
 
-void ProjectImporter::processFailureCases(QString failureCase) {
+void ProjectImporter::processFailureCases(const QString& failureCase) {
 
   m_statusBar->showMessage(failureCase, 2000);
 }
@@ -259,7 +264,7 @@ void ProjectImporter::loadButton_clicked() {
   }
 }
 
-void ProjectImporter::processOSMRetrieved(QString osmString) {
+void ProjectImporter::processOSMRetrieved(const QString& osmString) {
   m_OSM = osmString;
   emit finished();
 }

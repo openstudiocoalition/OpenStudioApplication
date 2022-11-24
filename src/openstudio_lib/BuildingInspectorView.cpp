@@ -522,7 +522,7 @@ BuildingInspectorView::BuildingInspectorView(bool isIP, const openstudio::model:
 
   auto building = model.getConcreteModelObjects<model::Building>();
   OS_ASSERT(building.size() == 1);
-  onSelectModelObject(building.at(0));
+  attach(building.at(0));
 }
 
 void BuildingInspectorView::onClearSelection() {

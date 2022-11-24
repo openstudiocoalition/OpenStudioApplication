@@ -87,7 +87,7 @@ class ModelObjectTreeItem
 
   void setStyle(int headerLevel, const QString& color);
 
-  bool isDirty();
+  bool isDirty() const;
 
   void makeDirty();
 

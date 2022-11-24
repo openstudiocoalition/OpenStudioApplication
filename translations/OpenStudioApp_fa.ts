@@ -4,28 +4,28 @@
 <context>
     <name>InspectorDialog</name>
     <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="715"/>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="716"/>
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="713"/>
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="714"/>
         <source>OpenStudio Inspector</source>
         <translation>پیمایشگر اپن استودیو</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="795"/>
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="793"/>
         <source>Add new object</source>
         <translation>اضافه کردن شیء جدید</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="799"/>
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="797"/>
         <source>Copy selected object</source>
         <translation>کپی اشیاء انتخاب شده</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="803"/>
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="801"/>
         <source>Remove selected objects</source>
         <translation>حذف اشیاء انتخاب شده</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="807"/>
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="805"/>
         <source>Purge unused objects</source>
         <translation>پاکسازی اشیاء استفاده نشده</translation>
     </message>
@@ -78,17 +78,17 @@
 <context>
     <name>openstudio::DesignDayGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="195"/>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="196"/>
         <source>Date</source>
         <translation>تاریخ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="206"/>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="208"/>
         <source>Temperature</source>
         <translation>دما</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="215"/>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="218"/>
         <source>Humidity</source>
         <translation>رطوبت</translation>
     </message>
@@ -101,12 +101,12 @@ Precipitation</source>
 بارندگی</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="238"/>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="234"/>
         <source>Solar</source>
         <translation>خورشیدی</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="267"/>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="263"/>
         <source>Check to select all rows</source>
         <translation>انتخاب تمام ردیف ها</translation>
     </message>
@@ -280,7 +280,7 @@ Zone</source>
 <context>
     <name>openstudio::ExternalToolsDialog</name>
     <message>
-        <location filename="../src/openstudio_app/ExternalToolsDialog.cpp" line="103"/>
+        <location filename="../src/openstudio_app/ExternalToolsDialog.cpp" line="102"/>
         <source>Select Path to </source>
         <translation>انتخاب مسیر به </translation>
     </message>
@@ -554,7 +554,7 @@ Zone</source>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="68"/>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="739"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="725"/>
         <source>&amp;Revert to Saved</source>
         <translation>&amp;برگشت به فایل ذخیره شده</translation>
     </message>
@@ -782,16 +782,11 @@ Zone</source>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="386"/>
-        <source>Allow Analytics</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="393"/>
         <source>&amp;About</source>
         <translation>&amp;درباره</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="717"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="710"/>
         <source>Adding a new language</source>
         <translation>اضافه کردن زبان جدید</translation>
     </message>
@@ -806,7 +801,7 @@ Zone</source>
         <translation>&amp;باز کردن</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="718"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="711"/>
         <source>Adding a new language requires almost no coding skill, but it does require language skills: the only thing to do is to translate each sentence/word with the help of a dedicated software.
 If you would like to see the OpenStudioApplication translated in your language of choice, we would welcome your help. Send an email to osc@openstudiocoalition.org specifying which language you want to add, and we will be in touch to help you get started.</source>
         <translation>افزودن یک زبان جدید به مهارت رمزگذاری نیاز ندارد ، اما به مهارت های زبانی نیاز دارد: تنها کاری که باید انجام دهید ترجمه هر جمله / کلمه با کمک یک نرم افزار اختصاصی است.
@@ -816,24 +811,24 @@ If you would like to see the OpenStudioApplication translated in your language o
 <context>
     <name>openstudio::MeasureManager</name>
     <message>
-        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="950"/>
-        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="961"/>
+        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="949"/>
+        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="960"/>
         <source>Measures Updated</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="950"/>
+        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="949"/>
         <source>All measures are up-to-date.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="954"/>
+        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="953"/>
         <source> measures have been updated on BCL compared to your local BCL directory.
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="955"/>
+        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="954"/>
         <source>Would you like update them?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -841,40 +836,40 @@ If you would like to see the OpenStudioApplication translated in your language o
 <context>
     <name>openstudio::OSDocument</name>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1215"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1214"/>
         <source>(*.idf)</source>
         <translation>(*.idf)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1215"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1214"/>
         <source>Export Idf</source>
         <translation>خارج کردن idf</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1250"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1249"/>
         <source>(*.xml)</source>
         <translation>(*.xml)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1389"/>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1464"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1388"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1463"/>
         <source>Failed to save model</source>
         <translation>ناموفق در ذخیره مدل</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1390"/>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1465"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1389"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1464"/>
         <source>Failed to save model, make sure that you do not have the location open and that you have correct write access.</source>
         <translation>مدل ذخیره نشد، مطمئن شوید فایل را باز ندارید و دسترسی صحیحی به نوشتن دارید.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1433"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1432"/>
         <source>Save</source>
         <translation>ذخیره</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1627"/>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1629"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1626"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1628"/>
         <source>Select My Measures Directory</source>
         <translation>انتخاب مسیر تمهیدات من</translation>
     </message>
@@ -883,7 +878,7 @@ If you would like to see the OpenStudioApplication translated in your language o
         <translation type="vanished">کتابخانه آنلاین اجزاء ساختمان (BCL)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1433"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1432"/>
         <source>(*.osm)</source>
         <translation>(*.osm)</translation>
     </message>
@@ -891,103 +886,103 @@ If you would like to see the OpenStudioApplication translated in your language o
 <context>
     <name>openstudio::OpenStudioApp</name>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="259"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="258"/>
         <source>Timeout</source>
         <translation>وقفه</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="261"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="260"/>
         <source>Failed to start the Measure Manager. Would you like to retry?</source>
         <translation>مدیریت تمهیدات شروع نشد. آیا دوست دارید دوباره امتحان کنید؟</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="398"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="397"/>
         <source>Loading Library Files</source>
         <translation>بارگذاری فایل های کتابخانه</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="399"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="398"/>
         <source>(Manage library files in Preferences-&gt;Change default libraries)</source>
         <translation>(مدیریت پرونده های کتابخانه در تنظیمات برگزیده -&gt; تغییر کتابخانه های پیش فرض)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="416"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="415"/>
         <source>Translation From version </source>
         <translation>ترجمه از نسخه </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="416"/>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1135"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="415"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1134"/>
         <source> to </source>
         <translation> به </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="419"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="418"/>
         <source>Unknown starting version</source>
         <translation>نسخه ناشناخته شروع</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="494"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="493"/>
         <source>(*.idf)</source>
         <translation>(*.idf)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="494"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="493"/>
         <source>Import Idf</source>
         <translation>وارد کردن Idf</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="525"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="524"/>
         <source>&apos; while OpenStudio uses a &lt;strong&gt;newer&lt;/strong&gt; EnergyPlus &apos;</source>
         <translation>درحالیکه اپن استودیو از انرژی پلاس &lt;strong&gt;جدیدتر&lt;/strong&gt; استفاده می کند</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="526"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="525"/>
         <source>&apos;. Consider using the EnergyPlus Auxiliary program IDFVersionUpdater to update your IDF file.</source>
         <translation>برای به روزرسانی فایل IDF خود، از برنامه کمکی EnergyPlus IDFVersionUpdater استفاده کنید.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="528"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="527"/>
         <source>&apos; while OpenStudio uses an &lt;strong&gt;older&lt;/strong&gt; EnergyPlus &apos;</source>
         <translation>درحالیکه اپن استودیو از انرژی پلاس &lt;strong&gt;قدیمری تر&lt;/strong&gt; استفاده می کند</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="528"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="527"/>
         <source>&apos;.</source>
         <translation>&apos;.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="530"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="529"/>
         <source>&apos; which is the &lt;strong&gt;same&lt;/strong&gt; version of EnergyPlus that OpenStudio uses (</source>
         <translation>که همان نسخه &lt;strong&gt;مشابه&lt;/strong&gt; انرژی پلاس است که اپن استودیو استفاده می کند</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="534"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="533"/>
         <source>&lt;strong&gt;The IDF does not have a VersionObject&lt;/strong&gt;. Check that it is of correct version (</source>
         <translation>فایل IDF فاقد ورژن می باشد. نسخه آن را بررسی کنید. (</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="535"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="534"/>
         <source>) and that all fields are valid against Energy+.idd. </source>
         <translation>و اینکه همه فیلدها در مقابل فایل Energy+.idd معتبر هستند. </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="538"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="537"/>
         <source>&lt;br/&gt;&lt;br/&gt;The ValidityReport follows.</source>
         <translation>&lt;br/&gt;&lt;br/&gt;گزارش اعتبار به شرح زیر است.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="540"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="539"/>
         <source>&lt;strong&gt;File is not valid to draft strictness&lt;/strong&gt;. Check that all fields are valid against Energy+.idd.</source>
         <translation>&lt;strong&gt;فایل برای دقت پیش نویس معتبر نیست.&lt;/strong&gt; فایل برای دقت پیش نویس معتبر نیست. بررسی کنید که تمام فیلدها در برابر Energy+.idd معتبر باشند.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="546"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="545"/>
         <source> IDF Import Failed</source>
         <translation> وارد کردن فایل IDF انجام نشد</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="621"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="620"/>
         <source>=============== Errors ===============
 
 </source>
@@ -996,7 +991,7 @@ If you would like to see the OpenStudioApplication translated in your language o
 </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="629"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="628"/>
         <source>============== Warnings ==============
 
 </source>
@@ -1005,7 +1000,7 @@ If you would like to see the OpenStudioApplication translated in your language o
 </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="637"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="636"/>
         <source>==== The following idf objects were not imported ====
 
 </source>
@@ -1014,113 +1009,113 @@ If you would like to see the OpenStudioApplication translated in your language o
 </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="642"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="641"/>
         <source> named </source>
         <translation> نامگذاری شده </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="644"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="643"/>
         <source>Unnamed </source>
         <translation>نامگذاری نشده </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="650"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="649"/>
         <source>&lt;strong&gt;Some portions of the IDF file were not imported.&lt;/strong&gt;</source>
         <translation>&lt;strong&gt;برخی از بخش های فایل IDF وارد نشده است.&lt;/strong&gt;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="656"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="655"/>
         <source>IDF Import</source>
         <translation>وارد کردن IDF</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="659"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="658"/>
         <source>Only geometry, constructions, loads, thermal zones, and schedules are supported by the OpenStudio IDF import feature.</source>
         <translation>فقط هندسه ، ساختارها ، بارها ، مناطق گرمایی و برنامه ها توسط ویژگی وارد کردن IDF در اپن استودیو پشتیبانی می شوند.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="724"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="721"/>
         <source>Import </source>
         <translation>وارد کردن </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="731"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="728"/>
         <source>(*.xml)</source>
         <translation>(*.xml)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="791"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="793"/>
         <source>Errors or warnings occurred on import of </source>
         <translation>هنگام وارد کردن فایل، خظا یا هشدار رخ داده است </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="801"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="803"/>
         <source>Could not import SDD file.</source>
         <translation>وارد کردن فایل SDD امکانپذیر نیست.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="803"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="805"/>
         <source>Could not import </source>
         <translation>وارد کردن امکانپذیر نیست </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="803"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="805"/>
         <source> file at </source>
         <translation> فایل در </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="833"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="834"/>
         <source>Save Changes?</source>
         <translation>تغییرات ذخیره شوند؟</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="834"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="835"/>
         <source>The document has been modified.</source>
         <translation>سند اصلاح شده است.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="835"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="836"/>
         <source>Do you want to save your changes?</source>
         <translation>آیا می خواهید تغییرات خود را ذخیره کنید؟</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="902"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="903"/>
         <source>Open</source>
         <translation>باز کردن</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="902"/>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1486"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="903"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1473"/>
         <source>(*.osm)</source>
         <translation>(*.osm)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="959"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="962"/>
         <source>A new version is available at &lt;a href=&quot;</source>
         <translation>نسخه جدید موجود است در &lt;a href=&quot;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="964"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="967"/>
         <source>Currently using the most recent version</source>
         <translation>در حال حاضر از جدیدترین نسخه استفاده می شود</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="972"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="975"/>
         <source>Check for Updates</source>
         <translation>بررسی بروزرسانی</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="986"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="989"/>
         <source>Measure Manager Server: </source>
         <translation>سرور مدیریت تمهیدات: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="987"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="990"/>
         <source>Chrome Debugger: http://localhost:</source>
         <translation>رفع اشکال کروم: http://localhost:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="988"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="991"/>
         <source>Temp Directory: </source>
         <translation>مسر موقت: </translation>
     </message>
@@ -1129,74 +1124,74 @@ If you would like to see the OpenStudioApplication translated in your language o
         <translation type="vanished">درباره </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1027"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1030"/>
         <source>Failed to load model</source>
         <translation>مدل بارگیری نشد</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1133"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1132"/>
         <source>Opening future version </source>
         <translation>در حال باز کردن نسخه آینده </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1133"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1132"/>
         <source> using </source>
         <translation> استفاده </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1135"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1134"/>
         <source>Model updated from </source>
         <translation>مدل به روز شده از </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1144"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1143"/>
         <source>Existing Ruby scripts have been removed.
 Ruby scripts are no longer supported and have been replaced by measures.</source>
         <translation>متن های روبی دیگر پشتیبانی نمی شوند و با تمهیدات جایگزین شده اند.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1151"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1150"/>
         <source>Failed to open file at </source>
         <translation>فایل باز نشد </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1174"/>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1329"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1173"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1327"/>
         <source>Settings file not writable</source>
         <translation>فایل تنظیمات قابل نوشتن نیست</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1175"/>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1330"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1174"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1328"/>
         <source>Your settings file &apos;</source>
         <translation>فایل تنظیمات شما</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1175"/>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1330"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1174"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1328"/>
         <source>&apos; is not writable. Adjust the file permissions</source>
         <translation>قابل نوشتن نیست. مجوزهای فایل را تنظیم کنید</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1196"/>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1208"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1195"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1207"/>
         <source>Revert to Saved</source>
         <translation>برگشت به ذخیره شده</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1196"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1195"/>
         <source>This model has never been saved.
 Do you want to create a new model?</source>
         <translation>این مدل هرگز ذخیره نشده است.
 آیا می خواهید مدل جدیدی ایجاد کنید؟</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1208"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1207"/>
         <source>Are you sure you want to revert to the last saved version?</source>
         <translation>آیا مطمئن هستید که می خواهید به آخرین نسخه ذخیره شده بازگردید؟</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1272"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1271"/>
         <source>Measure Manager has crashed, attempting to restart
 
 </source>
@@ -1205,29 +1200,29 @@ Do you want to create a new model?</source>
 </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1276"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1275"/>
         <source>Measure Manager has crashed</source>
         <translation>عدم مدیریت تمهیدات</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1413"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1400"/>
         <source>Restart required</source>
         <translation>راه اندازی مجدد لازم است</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1414"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1401"/>
         <source>A restart of the OpenStudio Application is required for language changes to be fully functionnal.
 Would you like to restart now?</source>
         <translation>برای اینکه عملکرد زبان کاملاً کاربردی باشد، راه اندازی مجدد اپن استودیو لازم است.
 آیا می خواهید اکنون دوباره راه اندازی کنید؟</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1486"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1473"/>
         <source>Select Library</source>
         <translation>انتخاب کتابخانه</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1561"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1548"/>
         <source>Failed to load the following libraries...
 
 </source>
@@ -1236,7 +1231,7 @@ Would you like to restart now?</source>
 </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1569"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1556"/>
         <source>
 
 Would you like to Restore library paths to default values or Open the library settings to change them manually?</source>
@@ -1379,134 +1374,134 @@ Would you like to Restore library paths to default values or Open the library se
         <translation>پایان</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="504"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="502"/>
         <source>First</source>
         <translation>اولین</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="504"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="502"/>
         <source>Second</source>
         <translation>دومین</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="504"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="502"/>
         <source>Third</source>
         <translation>سومین</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="504"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="502"/>
         <source>Fourth</source>
         <translation>چهارمین</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="504"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="502"/>
         <source>Last</source>
         <translation>آخرین</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="511"/>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="517"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="509"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="515"/>
         <source>Sunday</source>
         <translation>یکشنبه</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="511"/>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="517"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="509"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="515"/>
         <source>Monday</source>
         <translation>دوشنبه</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="511"/>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="517"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="509"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="515"/>
         <source>Tuesday</source>
         <translation>سه شنبه</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="511"/>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="517"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="509"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="515"/>
         <source>Wednesday</source>
         <translation>چهارشنبه</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="512"/>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="517"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="510"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="515"/>
         <source>Thursday</source>
         <translation>پنجشنبه</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="512"/>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="517"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="510"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="515"/>
         <source>Friday</source>
         <translation>جمعه</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="512"/>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="517"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="510"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="515"/>
         <source>Saturday</source>
         <translation>شنبه</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="512"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="510"/>
         <source>UseWeatherFile</source>
         <translation>استفاده از فایل آب و هوایی</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="523"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="521"/>
         <source>January</source>
         <translation>ژانویه</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="523"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="521"/>
         <source>February</source>
         <translation>فوریه</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="523"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="521"/>
         <source>March</source>
         <translation>مارس</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="523"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="521"/>
         <source>April</source>
         <translation>آوریل</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="523"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="521"/>
         <source>May</source>
         <translation>می</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="523"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="521"/>
         <source>June</source>
         <translation>جوئن</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="524"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="522"/>
         <source>July</source>
         <translation>جولای</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="524"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="522"/>
         <source>August</source>
         <translation>آگوست</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="524"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="522"/>
         <source>September</source>
         <translation>سپتامبر</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="524"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="522"/>
         <source>October</source>
         <translation>اکتبر</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="524"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="522"/>
         <source>November</source>
         <translation>نوامبر</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="524"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="522"/>
         <source>December</source>
         <translation>دسامبر</translation>
     </message>
@@ -1514,168 +1509,168 @@ Would you like to Restore library paths to default values or Open the library se
 <context>
     <name>openstudio::bimserver::ProjectImporter</name>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="55"/>
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="61"/>
         <source>Download OSM File</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="57"/>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="216"/>
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="63"/>
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="221"/>
         <source>New Project</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="58"/>
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="64"/>
         <source>Check in IFC File</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="60"/>
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="66"/>
         <source> &gt; </source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="62"/>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="223"/>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="289"/>
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="68"/>
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="228"/>
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="294"/>
         <source>Cancel</source>
         <translation>لغو</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="63"/>
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="69"/>
         <source>Setting</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="159"/>
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="164"/>
         <source>Project created, showing updated project list.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="163"/>
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="168"/>
         <source>IFC file loaded, showing updated IFC file list.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="168"/>
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="173"/>
         <source>Login success!</source>
         <translation>موفقیت ورود به سیستم!</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="182"/>
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="187"/>
         <source>BIMserver disconnected</source>
         <translation>سرور BIM قطع شد</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="184"/>
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="189"/>
         <source>BIMserver is not connected correctly. Please check if BIMserver is running and make sure your username and password are valid.
 </source>
         <translation>سرور BIM به درستی متصل نیست. لطفاً بررسی کنید که سرور BIM در حال اجرا است و از معتبر بودن نام کاربری و رمز عبور خود اطمینان حاصل کنید.
 </translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="197"/>
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="202"/>
         <source>Please select a IFC version before proceeding.</source>
         <translation>لطفاً قبل از ادامه نسخه IFC را انتخاب کنید.</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="204"/>
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="209"/>
         <source>Project selected, showing all versions of IFC files under it.</source>
         <translation>پروژه انتخاب شده است و تمام نسخه های فایلهای IFC را در زیر نشان می دهد.</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="208"/>
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="213"/>
         <source>Please select a project to see all the IFC versions under it.</source>
         <translation>لطفاً یک پروژه را انتخاب کنید تا تمام نسخه های IFC را در زیر آن مشاهده کنید.</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="213"/>
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="218"/>
         <source>Create a new project and upload it to the server.</source>
         <translation>یک پروژه جدید ایجاد کنید و آن را در سرور بارگذاری کنید.</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="219"/>
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="224"/>
         <source>Please enter the project name: </source>
         <translation>لطفاً نام پروژه را وارد کنید: </translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="220"/>
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="225"/>
         <source>Project Name:</source>
         <translation>نام پروژه:</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="222"/>
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="227"/>
         <source>Create Project</source>
         <translation>ایجاد پروژه</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="245"/>
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="250"/>
         <source>Check in a new version IFC file for the selected project.</source>
         <translation>در نسخه جدید فایل IFC برای پروژه انتخاب شده بررسی کنید.</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="251"/>
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="256"/>
         <source>Open IFC File</source>
         <translation>فایل IFC را باز کنید</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="251"/>
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="256"/>
         <source>IFC files (*.ifc)</source>
         <translation>فایل های IFC (*.ifc)</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="258"/>
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="263"/>
         <source>Please select a project to check in a new IFC version.</source>
         <translation>لطفاً یک پروژه را انتخاب کنید تا نسخه جدید IFC را بررسی کنید.</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="269"/>
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="274"/>
         <source>Please specify the bimserver address/port and user credentials.</source>
         <translation>لطفاً آدرس/پورت سرور BIM و اطلاعات کاربری را مشخص کنید.</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="272"/>
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="277"/>
         <source>BIMserver Settings</source>
         <translation>تنظیمات سرور BIM</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="274"/>
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="279"/>
         <source>Please enter the BIMserver information: </source>
         <translation>لطفاً اطلاعات سرور BIM را وارد کنید: </translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="275"/>
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="280"/>
         <source>BIMserver Address: http://</source>
         <translation>آدرس سرور BIM:
 http://</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="278"/>
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="283"/>
         <source>BIMserver Port:</source>
         <translation>پورت سرور BIM:</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="281"/>
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="286"/>
         <source>Username</source>
         <translation>نام کاربری</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="284"/>
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="289"/>
         <source>Password</source>
         <translation>رمز</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="288"/>
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="293"/>
         <source>Okay</source>
         <translation>باشه</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="363"/>
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="368"/>
         <source>BIMserver not set up</source>
         <translation>سرور BIM تنظیم نشده است</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="365"/>
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="370"/>
         <source>Please provide valid BIMserver address, port, your username and password. You may ask your BIMserver manager for such information.
 </source>
         <translation>لطفاً آدرس، پورت، نام کاربری و رمز عبور معتبر BIM سرور خود را وارد کنید. ممکن است چنین اطلاعاتی را از مدیر سرور BIM خود بخواهید.

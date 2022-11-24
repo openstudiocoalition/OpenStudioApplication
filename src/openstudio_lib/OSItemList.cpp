@@ -109,17 +109,17 @@ OSItem* OSItemList::selectedItem() const {
 }
 
 OSItem* OSItemList::firstItem() {
-  std::vector<OSItem*> items = this->items();
-  if (!items.empty()) {
-    return items.front();
+  std::vector<OSItem*> its = this->items();
+  if (!its.empty()) {
+    return its.front();
   }
   return nullptr;
 }
 
 OSItem* OSItemList::lastItem() {
-  std::vector<OSItem*> items = this->items();
-  if (!items.empty()) {
-    return items.back();
+  std::vector<OSItem*> its = this->items();
+  if (!its.empty()) {
+    return its.back();
   }
   return nullptr;
 }
@@ -186,12 +186,10 @@ void OSItemList::setItemIds(const std::vector<OSItemId>& itemIds) {
   }
   */
 
-  QLayoutItem* child;
+  QLayoutItem* child = nullptr;
   while ((child = m_vLayout->takeAt(0)) != nullptr) {
     QWidget* widget = child->widget();
-    if (widget) {
-      delete widget;
-    }
+    delete widget;
     delete child;
   }
   m_vLayout->addStretch();
@@ -315,7 +313,7 @@ void OSItemList::clearSelection() {
   }
 }
 
-void OSItemList::paintEvent(QPaintEvent* event) {
+void OSItemList::paintEvent(QPaintEvent* /*event*/) {
   QStyleOption opt;
   opt.initFrom(this);
   QPainter p(this);

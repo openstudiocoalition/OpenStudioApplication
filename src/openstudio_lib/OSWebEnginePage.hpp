@@ -41,7 +41,7 @@ namespace openstudio {
 class OSUrlRequestInterceptor : public QWebEngineUrlRequestInterceptor
 {
  public:
-  OSUrlRequestInterceptor(QObject* parent = 0);
+  explicit OSUrlRequestInterceptor(QObject* parent = 0);
   virtual ~OSUrlRequestInterceptor();
   void interceptRequest(QWebEngineUrlRequestInfo& info) final;
 };
@@ -51,7 +51,7 @@ class OSWebEnginePage : public QWebEnginePage
   Q_OBJECT
 
  public:
-  OSWebEnginePage(QObject* parent = 0);
+  explicit OSWebEnginePage(QObject* parent = 0);
   virtual ~OSWebEnginePage();
 
  protected:

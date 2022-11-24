@@ -426,10 +426,11 @@ FacilityShadingGridController::FacilityShadingGridController(bool isIP, const QS
 
 void FacilityShadingGridController::setCategoriesAndFields() {
   {
-    std::vector<QString> fields;
-    fields.push_back(SHADINGSURFACENAME);
-    fields.push_back(TRANSMITTANCESCHEDULENAME);
-    fields.push_back(CONSTRUCTIONNAME);
+    std::vector<QString> fields{
+      SHADINGSURFACENAME,
+      TRANSMITTANCESCHEDULENAME,
+      CONSTRUCTIONNAME,
+    };
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("General"), fields);
     addCategoryAndFields(categoryAndFields);
   }

@@ -48,7 +48,7 @@ class GridScene
   Q_OBJECT
 
  public:
-  GridScene(QObject* parent = nullptr);
+  explicit GridScene(QObject* parent = nullptr);
 
   virtual ~GridScene() {}
 

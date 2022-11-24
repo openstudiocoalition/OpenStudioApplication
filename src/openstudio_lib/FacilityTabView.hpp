@@ -47,7 +47,7 @@ class FacilityTabView : public MainTabView
   Q_OBJECT
 
  public:
-  FacilityTabView(QWidget* parent = nullptr);
+  explicit FacilityTabView(QWidget* parent = nullptr);
 
   virtual ~FacilityTabView() {}
 

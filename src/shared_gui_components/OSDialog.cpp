@@ -62,10 +62,14 @@ OSDialog::OSDialog(bool isIP, QWidget* parent)
   setWindowFlags(Qt::CustomizeWindowHint);
 #endif
 
-  createLayout();
+  createLayoutInternal();
 }
 
 void OSDialog::createLayout() {
+  createLayoutInternal();
+}
+
+void OSDialog::createLayoutInternal() {
   m_upperLayout = new QVBoxLayout();
 
   auto* lowerLayout = new QHBoxLayout();

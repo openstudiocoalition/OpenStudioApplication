@@ -44,7 +44,7 @@ class BusyWidget : public QWidget
   Q_OBJECT
 
  public:
-  BusyWidget(QWidget* parent = nullptr);
+  explicit BusyWidget(QWidget* parent = nullptr);
 
   virtual ~BusyWidget() {}
 

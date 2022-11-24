@@ -66,7 +66,14 @@
 
 namespace openstudio {
 
-MainWindow::MainWindow(bool isPlugin, QWidget* parent) : QMainWindow(parent), m_isPlugin(isPlugin), m_displayIP(true), m_currLang("en") {
+MainWindow::MainWindow(bool isPlugin, QWidget* parent)
+  : QMainWindow(parent),
+    m_isPlugin(isPlugin),
+    m_mainRightColumnContainer(new QStackedWidget()),
+    m_verticalTabWidget(new VerticalTabWidget()),
+    m_mainSplitter(new QSplitter(Qt::Horizontal)),
+    m_displayIP(true),
+    m_currLang("en") {
   setMinimumSize(900, 658);
   setAcceptDrops(true);
 
@@ -87,14 +94,10 @@ MainWindow::MainWindow(bool isPlugin, QWidget* parent) : QMainWindow(parent), m_
   setObjectName("MainWindow");
   setStyleSheet("QWidget#MainWindow { background-color: #2C3233; }");
 
-  m_mainSplitter = new QSplitter(Qt::Horizontal);
-
-  m_verticalTabWidget = new VerticalTabWidget();
   connect(m_verticalTabWidget, &VerticalTabWidget::tabSelected, this, &MainWindow::verticalTabSelected);
   connect(m_verticalTabWidget, &VerticalTabWidget::tabSelected, this, &MainWindow::onVerticalTabSelected);
   m_mainSplitter->addWidget(m_verticalTabWidget);
 
-  m_mainRightColumnContainer = new QStackedWidget();
   m_mainRightColumnContainer->setMinimumWidth(235);
   m_mainSplitter->addWidget(m_mainRightColumnContainer);
 
@@ -154,7 +157,7 @@ MainWindow::MainWindow(bool isPlugin, QWidget* parent) : QMainWindow(parent), m_
 MainWindow::~MainWindow() = default;
 
 QSize MainWindow::sizeHint() const {
-  return QSize(1024, 700);
+  return {1024, 700};
 }
 
 void MainWindow::setMainRightColumnView(QWidget* widget) {
@@ -196,7 +199,7 @@ void MainWindow::dropEvent(QDropEvent* event) {
   }
 }
 
-void MainWindow::addVerticalTabButton(int id, QString toolTip, const QString& selectedImagePath, const QString& unSelectedImagePath,
+void MainWindow::addVerticalTabButton(int id, const QString& toolTip, const QString& selectedImagePath, const QString& unSelectedImagePath,
                                       const QString& disabledImagePath) {
   m_verticalTabWidget->addTabButton(id, toolTip, selectedImagePath, unSelectedImagePath, disabledImagePath);
 }
@@ -242,7 +245,7 @@ void MainWindow::openSidebar() {
   m_mainSplitter->setSizes(sizeList);
 }
 
-bool MainWindow::displayIP() {
+bool MainWindow::displayIP() const {
   return m_displayIP;
 }
 

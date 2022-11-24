@@ -41,7 +41,7 @@ class TreeView : public QTreeView
   Q_OBJECT
 
  public:
-  TreeView(QWidget* parent = nullptr);
+  explicit TreeView(QWidget* parent = nullptr);
   virtual ~TreeView();
   bool getSelectedRows(QModelIndexList& rowList);
   bool hasSelectedRows();
