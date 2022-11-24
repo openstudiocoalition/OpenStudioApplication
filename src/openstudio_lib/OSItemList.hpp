@@ -46,7 +46,7 @@ class OSItemList : public OSItemSelector
  public:
   OSItemList(OSVectorController* vectorController, bool addScrollArea, QWidget* parent = nullptr);
 
-  virtual ~OSItemList() {}
+  virtual ~OSItemList() = default;
 
   // return the selected item in the list, NULL if list is empty
   OSItem* selectedItem() const override;

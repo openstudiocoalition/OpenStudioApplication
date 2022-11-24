@@ -54,7 +54,7 @@ class ModelSubTabController : public SubTabController
  public:
   ModelSubTabController(ModelSubTabView* subTabView, const model::Model& model);
 
-  virtual ~ModelSubTabController() {}
+  virtual ~ModelSubTabController() = default;
 
  signals:
 

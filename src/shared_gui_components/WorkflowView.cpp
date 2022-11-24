@@ -50,7 +50,7 @@ namespace openstudio {
 
 namespace measuretab {
 
-RectangularDropZone::RectangularDropZone() : QWidget() {
+RectangularDropZone::RectangularDropZone() : nameLabel(new QLabel()) {
   setAcceptDrops(true);
 
   setFixedHeight(30);
@@ -62,7 +62,6 @@ RectangularDropZone::RectangularDropZone() : QWidget() {
   mainHLayout->setSpacing(5);
   setLayout(mainHLayout);
 
-  nameLabel = new QLabel();
   mainHLayout->addWidget(nameLabel);
 }
 
@@ -70,7 +69,7 @@ void RectangularDropZone::setAcceptedMimeType(const QString& type) {
   m_acceptedMimeType = type;
 }
 
-void RectangularDropZone::paintEvent(QPaintEvent*) {
+void RectangularDropZone::paintEvent(QPaintEvent* /*event*/) {
   QStyleOption opt;
   opt.initFrom(this);
   QPainter p(this);
@@ -87,23 +86,23 @@ void RectangularDropZone::dragEnterEvent(QDragEnterEvent* event) {
   }
 }
 
-NewMeasureDropZone::NewMeasureDropZone() : RectangularDropZone() {
+NewMeasureDropZone::NewMeasureDropZone() {
   nameLabel->setText("<i>Drop Measure From Library to Create a New Always Run Measure</i>");
   nameLabel->setStyleSheet("QLabel {color: #7D7D7D; }");
 }
 
-WorkflowSectionView::WorkflowSectionView(MeasureType measureType) : OSCollapsibleView() {
-  header = new LightGradientHeader();
+WorkflowSectionView::WorkflowSectionView(const MeasureType& measureType)
+  : header(new LightGradientHeader()), content(new WorkflowSectionContentView()) {
+
   header->setMeasureType(measureType);
   setHeader(header);
 
-  content = new WorkflowSectionContentView();
   setContent(content);
 
   setExpanded(true);
 }
 
-WorkflowSectionContentView::WorkflowSectionContentView() : QWidget(), workflowStepsView(nullptr), newMeasureDropZone(nullptr) {
+WorkflowSectionContentView::WorkflowSectionContentView() : workflowStepsView(new OSListView(false)), newMeasureDropZone(new NewMeasureDropZone()) {
   auto* mainVLayout = new QVBoxLayout();
   mainVLayout->setContentsMargins(0, 10, 0, 10);
   mainVLayout->setSpacing(0);
@@ -111,48 +110,46 @@ WorkflowSectionContentView::WorkflowSectionContentView() : QWidget(), workflowSt
 
   // Workflow Steps
 
-  workflowStepsView = new OSListView(false);
   mainVLayout->addWidget(workflowStepsView);
 
-  newMeasureDropZone = new NewMeasureDropZone();
   mainVLayout->addWidget(newMeasureDropZone);
 }
 
-WorkflowStepView::WorkflowStepView() : QWidget() {
+WorkflowStepView::WorkflowStepView()
+  : workflowStepButton(new WorkflowStepButton()),
+    duplicateButton(new SofterDuplicateButton()),
+    removeButton(new SofterRemoveButton()),
+    upButton(new UpButton()),
+    downButton(new DownButton()) {
   auto* mainHLayout = new QHBoxLayout();
   mainHLayout->setContentsMargins(0, 0, 0, 0);
   mainHLayout->setSpacing(5);
   setLayout(mainHLayout);
 
-  workflowStepButton = new WorkflowStepButton();
   mainHLayout->addWidget(workflowStepButton);
 
-  duplicateButton = new SofterDuplicateButton();
   mainHLayout->addWidget(duplicateButton);
 
-  removeButton = new SofterRemoveButton();
   mainHLayout->addWidget(removeButton);
 
   mainHLayout->addSpacing(50);
 
-  downButton = new DownButton();
   mainHLayout->addWidget(downButton);
 
-  upButton = new UpButton();
   mainHLayout->addWidget(upButton);
 
   duplicateButton->setVisible(false);
   removeButton->setVisible(true);
 }
 
-void WorkflowStepView::paintEvent(QPaintEvent*) {
+void WorkflowStepView::paintEvent(QPaintEvent* /*event*/) {
   QStyleOption opt;
   opt.initFrom(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
 
-WorkflowStepButton::WorkflowStepButton() : QAbstractButton() {
+WorkflowStepButton::WorkflowStepButton() : nameLabel(new QLabel()), cautionLabel(new QLabel()) {
   setFixedHeight(25);
 
   setHasEmphasis(false);
@@ -162,14 +159,12 @@ WorkflowStepButton::WorkflowStepButton() : QAbstractButton() {
   mainHLayout->setSpacing(5);
   setLayout(mainHLayout);
 
-  nameLabel = new QLabel();
   nameLabel->setStyleSheet("font:italic");
 
   mainHLayout->addWidget(nameLabel);
 
   mainHLayout->addStretch();
 
-  cautionLabel = new QLabel();
   cautionLabel->setPixmap(QPixmap(":/shared_gui_components/images/warning_icon.png"));
   mainHLayout->addWidget(cautionLabel);
   cautionLabel->setVisible(false);
@@ -183,7 +178,7 @@ void WorkflowStepButton::setHasEmphasis(bool hasEmphasis) {
   }
 }
 
-void WorkflowStepButton::paintEvent(QPaintEvent* e) {
+void WorkflowStepButton::paintEvent(QPaintEvent* /*event*/) {
   QStyleOption opt;
   opt.initFrom(this);
   QPainter p(this);

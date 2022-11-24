@@ -86,7 +86,7 @@ class OSItem
   // creates a new OSItem if possible
   static OSItem* makeItem(const OSItemId& itemId, OSItemType osItemType = OSItemType::ListItem);
 
-  OSItem(const OSItemId& itemId, OSItemType osItemType = OSItemType::ListItem, QWidget* parent = nullptr);
+  explicit OSItem(const OSItemId& itemId, OSItemType osItemType = OSItemType::ListItem, QWidget* parent = nullptr);
 
   virtual ~OSItem() {}
 

@@ -49,7 +49,7 @@ class OSLoadNamePixmapLineEdit
   Q_OBJECT
 
  public:
-  OSLoadNamePixmapLineEdit(QWidget* parent = nullptr);
+  explicit OSLoadNamePixmapLineEdit(QWidget* parent = nullptr);
 
   virtual ~OSLoadNamePixmapLineEdit();
 

@@ -76,11 +76,11 @@ class OSDropZone2
 
   void enableClickFocus();
   void disableClickFocus();
-  bool hasData();
+  bool hasData() const;
   bool locked() const;
   void setLocked(bool locked);
   void setDeleteObject(bool deleteObject);
-  bool deleteObject();
+  bool deleteObject() const;
 
   void bind(const model::ModelObject& modelObject, OptionalModelObjectGetter get, ModelObjectSetter set,
             boost::optional<NoFailAction> reset = boost::none, boost::optional<ModelObjectIsDefaulted> isDefaulted = boost::none,
@@ -155,7 +155,7 @@ class OSDropZone
   explicit OSDropZone(OSVectorController* vectorController, const QString& text = "Drag From Library", const QSize& size = QSize(0, 0),
                       bool growsHorizontally = true, QWidget* parent = nullptr);
 
-  virtual ~OSDropZone() {}
+  virtual ~OSDropZone() = default;
 
   int maxItems() const;
   bool setMaxItems(int max);
@@ -175,7 +175,7 @@ class OSDropZone
   void showAddButton();
   void hideAddButton();
 
-  bool useLargeIcon();
+  bool useLargeIcon() const;
   void setUseLargeIcon(bool useLargeIcon);
 
  signals:
@@ -237,7 +237,7 @@ class OSItemDropZone : public QWidget
  public:
   OSItemDropZone(bool growsHorizontally, const QString& text, const QSize& size, QWidget* parent = nullptr);
 
-  virtual ~OSItemDropZone() {}
+  virtual ~OSItemDropZone() = default;
 
   void setExtensible(bool extensible);
 
@@ -266,7 +266,7 @@ class OSDropZoneItem
  public:
   OSDropZoneItem();
 
-  virtual ~OSDropZoneItem() {}
+  virtual ~OSDropZoneItem() = default;
 
   QRectF boundingRect() const override;
 

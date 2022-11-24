@@ -1083,9 +1083,7 @@ void InspectorGadget::onWorkspaceObjectChanged() {
 
 void InspectorGadget::onTimeout() {
   if (m_workspaceObjectChanged && m_workspaceObj && !m_workspaceObj->handle().isNull()) {
-    if (m_workspaceObj) {
-      rebuild(false);
-    }
+    rebuild(false);
     m_workspaceObjectChanged = false;
   }
 }

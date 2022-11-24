@@ -74,15 +74,15 @@ class BIMSERVER_API ProjectImporter : public QDialog
  public slots:
 
   /// Takes projectList from BIMserverConnection and prints out projects
-  void processProjectList(QStringList projectList);
+  void processProjectList(const QStringList& projectList);
   /// Takes ifc list from BIMserverConnection and prints out ifc list
-  void processIFCList(QStringList ifcList);
+  void processIFCList(const QStringList& ifcList);
   /// process success cases for createProject, checkInIFC, and login
-  void processSucessCases(QString sucessCase);
+  void processSucessCases(const QString& successCase);
   /// process all failure cases if BIMserver outputs an exception. Print it
-  void processFailureCases(QString failureCase);
+  void processFailureCases(const QString& failureCase);
   /// OSM string is retrieved
-  void processOSMRetrieved(QString osmString);
+  void processOSMRetrieved(const QString& osmString);
   /// process if BIMserver is not connected.
   void processBIMserverErrors();
 

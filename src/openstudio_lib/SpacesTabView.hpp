@@ -47,7 +47,7 @@ class SpacesTabView : public MainTabView
   Q_OBJECT
 
  public:
-  SpacesTabView(QWidget* parent = nullptr);
+  explicit SpacesTabView(QWidget* parent = nullptr);
 
   virtual ~SpacesTabView() {}
 

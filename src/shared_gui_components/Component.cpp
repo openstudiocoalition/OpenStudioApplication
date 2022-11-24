@@ -54,18 +54,7 @@ namespace openstudio {
 
 Component::Component(const BCLMeasure& bclMeasure, bool showAbridgedView, bool showCheckBox, QWidget* parent)
   : QAbstractButton(parent),
-    m_name(QString()),
-    m_uid(QString()),
-    m_versionId(QString()),
-    m_description(QString()),
-    m_fidelityLevel(QString()),
     m_error(boost::none),
-    m_attributes(std::vector<Attribute>()),
-    m_arguments(std::vector<BCLMeasureArgument>()),
-    m_files(std::vector<BCLFile>()),
-    m_fileReferences(std::vector<BCLFileReference>()),
-    m_provenances(std::vector<BCLProvenance>()),
-    m_tags(std::vector<std::string>()),
     m_showAbridgedView(showAbridgedView),
     m_showCheckBox(showCheckBox),
     m_checkBox(nullptr),
@@ -114,17 +103,7 @@ Component::Component(const BCLMeasure& bclMeasure, bool showAbridgedView, bool s
 
 Component::Component(const BCLSearchResult& bclSearchResult, bool showAbridgedView, bool showCheckBox, QWidget* parent)
   : QAbstractButton(parent),
-    m_name(QString()),
-    m_uid(QString()),
-    m_versionId(QString()),
-    m_description(QString()),
-    m_fidelityLevel(QString()),
     m_error(boost::none),
-    m_attributes(std::vector<Attribute>()),
-    m_arguments(std::vector<BCLMeasureArgument>()),
-    m_files(std::vector<BCLFile>()),
-    m_provenances(std::vector<BCLProvenance>()),
-    m_tags(std::vector<std::string>()),
     m_showAbridgedView(showAbridgedView),
     m_showCheckBox(showCheckBox),
     m_checkBox(nullptr),
@@ -209,18 +188,9 @@ Component::Component(const BCLSearchResult& bclSearchResult, bool showAbridgedVi
 
 Component::Component(bool showAbridgedView, bool showCheckBox, QWidget* parent)
   : QAbstractButton(parent),
-    m_name(QString()),
-    m_uid(QString()),
-    m_versionId(QString()),
-    m_description(QString()),
-    m_fidelityLevel(QString()),
+
     m_error(boost::none),
-    m_attributes(std::vector<Attribute>()),
-    m_arguments(std::vector<BCLMeasureArgument>()),
-    m_files(std::vector<BCLFile>()),
-    m_fileReferences(std::vector<BCLFileReference>()),
-    m_provenances(std::vector<BCLProvenance>()),
-    m_tags(std::vector<std::string>()),
+
     m_showAbridgedView(showAbridgedView),
     m_showCheckBox(showCheckBox),
     m_checkBox(nullptr),
@@ -257,11 +227,11 @@ Component::Component(const Component& other) {
     m_showCheckBox = false;
 
     setCheckable(true);
-    if (m_showAbridgedView) {
-      createAbridgedLayout();
-    } else {
-      createCompleteLayout();
-    }
+    // if (m_showAbridgedView) {
+    //  createAbridgedLayout();
+    // } else {
+    createCompleteLayout();
+    // }
   }
 }
 
@@ -290,11 +260,11 @@ Component& Component::operator=(const Component& other) {
     m_showCheckBox = false;
 
     setCheckable(true);
-    if (m_showAbridgedView) {
-      createAbridgedLayout();
-    } else {
-      createCompleteLayout();
-    }
+    // if (m_showAbridgedView) {
+    //   createAbridgedLayout();
+    // } else {
+    createCompleteLayout();
+    // }
   }
 
   return *this;
@@ -383,13 +353,8 @@ void Component::parseBCLMeasure(const BCLMeasure& bclMeasure) {
   }
 
   VersionString currentVersion(openStudioVersion());
-  if (minCompatibleVersion && (*minCompatibleVersion) > currentVersion) {
-    m_available = false;
-  } else if (maxCompatibleVersion && (*maxCompatibleVersion) < currentVersion) {
-    m_available = false;
-  } else {
-    m_available = true;
-  }
+  m_available =
+    !((minCompatibleVersion && (*minCompatibleVersion) > currentVersion) || (maxCompatibleVersion && (*maxCompatibleVersion) < currentVersion));
 }
 
 void Component::parseBCLSearchResult(const BCLSearchResult& bclSearchResult) {

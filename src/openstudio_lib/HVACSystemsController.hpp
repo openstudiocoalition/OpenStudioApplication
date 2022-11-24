@@ -178,7 +178,7 @@ class HVACSystemsController
 
   QString m_currentHandle;
 
-  bool m_dirty;
+  bool m_dirty = false;
 
   QMutex* m_updateMutex;
 
@@ -293,13 +293,13 @@ class HVACLayoutController
 
   void onModelObjectSelected(model::OptionalModelObject& modelObject, bool readOnly);
 
-  void addLibraryObjectToModelNode(OSItemId itemid, model::HVACComponent& comp);
+  void addLibraryObjectToModelNode(const OSItemId& itemId, model::HVACComponent& comp);
 
   void removeModelObject(model::ModelObject& modelObject);
 
   void goToOtherLoop(model::ModelObject& modelObject);
 
-  void addLibraryObjectToTopLevel(OSItemId itemid);
+  void addLibraryObjectToTopLevel(const OSItemId& itemId);
 
   void goToServiceWaterScene();
 
@@ -310,7 +310,7 @@ class HVACLayoutController
 
   std::shared_ptr<RefrigerationGridController> m_refrigerationGridController;
 
-  bool m_dirty;
+  bool m_dirty = false;
 };
 
 class SystemAvailabilityVectorController : public ModelObjectVectorController

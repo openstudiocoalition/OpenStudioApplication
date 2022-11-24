@@ -50,7 +50,7 @@ class LoopChooserView : public QWidget
   Q_OBJECT;
 
  public:
-  LoopChooserView(QWidget* parent = nullptr);
+  explicit LoopChooserView(QWidget* parent = nullptr);
 
   virtual ~LoopChooserView() {}
 

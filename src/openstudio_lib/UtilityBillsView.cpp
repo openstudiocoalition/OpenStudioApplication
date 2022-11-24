@@ -100,10 +100,10 @@ std::vector<std::pair<FuelType, std::string>> UtilityBillsView::utilityBillFuelT
 
 //**********************************************************************************************************
 
-UtilityBillsInspectorView::UtilityBillsInspectorView(const model::Model& model, bool addScrollArea, QWidget* parent)
+UtilityBillsInspectorView::UtilityBillsInspectorView(const model::Model& model, QWidget* parent)
   : ModelObjectInspectorView(model, true, parent),
     m_billFormat(STARTDATE_ENDDATE),
-    m_showPeak(0),
+    m_showPeak(false),
     m_billingPeriodHeaderWidget(nullptr),
     m_buttonGroup(nullptr),
     m_name(nullptr),
@@ -414,9 +414,7 @@ void UtilityBillsInspectorView::attach(const openstudio::model::UtilityBill& uti
   if (initUnits && m_energyUseLabel) {
     initUnits = false;
     m_energyUseUnits = m_consumptionUnits->currentText();
-    if (m_energyUseLabel) {
-      m_energyUseLabel->setText(getEnergyUseLabelText());
-    }
+    m_energyUseLabel->setText(getEnergyUseLabelText());
     m_peakUnits = m_peakDemandUnits->currentText();
     if (m_peakLabel) {
       m_peakLabel->setText(getPeakLabelText());
@@ -572,8 +570,8 @@ void UtilityBillsInspectorView::addBillingPeriodWidget(model::BillingPeriod& bil
 void UtilityBillsInspectorView::addBillingPeriodWidgets() {
   if (m_utilityBill.is_initialized()) {
     std::vector<model::BillingPeriod> billingPeriods = m_utilityBill.get().billingPeriods();
-    for (unsigned i = 0; i < billingPeriods.size(); i++) {
-      addBillingPeriodWidget(billingPeriods.at(i));
+    for (auto& billingPeriod : billingPeriods) {
+      addBillingPeriodWidget(billingPeriod);
     }
   }
 }
@@ -585,7 +583,7 @@ void UtilityBillsInspectorView::deleteBillingPeriodWidgets() {
     billingPeriodWidget = nullptr;
   }
   m_billingPeriodWidgets.clear();
-  OS_ASSERT(m_billingPeriodWidgets.size() == 0);
+  OS_ASSERT(m_billingPeriodWidgets.empty());
 
   delete m_billingPeriodHeaderWidget;
   m_billingPeriodHeaderWidget = nullptr;
@@ -601,9 +599,7 @@ void UtilityBillsInspectorView::deleteAllWidgetsAndLayoutItems(QLayout* layout, 
 
   while (QLayoutItem* item = layout->takeAt(0)) {
     if (deleteWidgets) {
-      if (QWidget* widget = item->widget()) {
-        delete widget;
-      }
+      delete item->widget();
     } else if (QLayout* childLayout = item->layout()) {
       deleteAllWidgetsAndLayoutItems(childLayout, deleteWidgets);
     }
@@ -652,7 +648,7 @@ void UtilityBillsInspectorView::refresh() {
 
 ////// SLOTS ///////
 
-void UtilityBillsInspectorView::addBillingPeriod(bool checked) {
+void UtilityBillsInspectorView::addBillingPeriod(bool /*checked*/) {
   if (m_utilityBill.is_initialized()) {
     model::BillingPeriod newBillingPeriod = m_utilityBill.get().addBillingPeriod();
     addBillingPeriodWidget(newBillingPeriod);
@@ -736,7 +732,8 @@ BillingPeriodWidget::BillingPeriodWidget(model::BillingPeriod billingPeriod, con
     m_energyUseDoubleEdit(nullptr),
     m_peakDoubleEdit(nullptr),
     m_costDoubleEdit(nullptr),
-    m_billingPeriod(billingPeriod) {
+    m_deleteBillWidget(nullptr),
+    m_billingPeriod(std::move(billingPeriod)) {
   OS_ASSERT(m_billingPeriod.is_initialized());
 
   createWidgets(fuelType, billFormat);

@@ -112,7 +112,7 @@ class OSComboBox2
 {
   Q_OBJECT
  public:
-  OSComboBox2(QWidget* parent = nullptr, bool editable = false);
+  explicit OSComboBox2(QWidget* parent = nullptr, bool editable = false);
 
   virtual ~OSComboBox2();
 

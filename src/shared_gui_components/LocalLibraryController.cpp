@@ -71,7 +71,7 @@
 namespace openstudio {
 
 LocalLibraryController::LocalLibraryController(BaseApp* t_app, bool onlyShowModelMeasures)
-  : QObject(), m_app(t_app), m_onlyShowModelMeasures(onlyShowModelMeasures) {
+  : m_app(t_app), m_onlyShowModelMeasures(onlyShowModelMeasures) {
   LOG(Debug, "Creating LocalLibraryController with base app " << t_app);
   QDomDocument doc("taxonomy");
   QFile file(":/shared_gui_components/taxonomy.xml");
@@ -149,11 +149,11 @@ QPointer<LibraryItem> LocalLibraryController::selectedItem() const {
 
   std::vector<QPointer<OSListItem>> items = libraryView->listController()->selectionController()->selectedItems();
 
-  if (items.size() > 0) {
+  if (!items.empty()) {
     return qobject_cast<LibraryItem*>(items.front());
   }
 
-  return QPointer<LibraryItem>();
+  return {};
 }
 
 void LocalLibraryController::showMeasures() {
@@ -225,7 +225,7 @@ QSharedPointer<LibraryTypeListController> LocalLibraryController::createLibraryL
 }
 
 LibraryTypeItem::LibraryTypeItem(const QString& name)
-  : OSListItem(), m_name(name), m_libraryGroupListController(QSharedPointer<LibraryGroupListController>::create()) {}
+  : m_name(name), m_libraryGroupListController(QSharedPointer<LibraryGroupListController>::create()) {}
 
 LibraryTypeItemDelegate::LibraryTypeItemDelegate(BaseApp* t_app) : m_app(t_app) {}
 
@@ -273,13 +273,13 @@ void LibraryTypeListController::addItem(QSharedPointer<OSListItem> item) {
 }
 
 void LibraryTypeListController::reset() {
-  for (QList<QSharedPointer<LibraryTypeItem>>::iterator it = m_items.begin(); it != m_items.end(); ++it) {
-    (*it)->libraryGroupListController()->reset();
+  for (const auto& m_item : m_items) {
+    m_item->libraryGroupListController()->reset();
   }
 }
 
 LibraryGroupItem::LibraryGroupItem(const QString& name, BaseApp* t_app)
-  : OSListItem(), m_name(name), m_librarySubGroupListController(QSharedPointer<LibrarySubGroupListController>::create(t_app)) {}
+  : m_name(name), m_librarySubGroupListController(QSharedPointer<LibrarySubGroupListController>::create(t_app)) {}
 
 LibraryGroupItemDelegate::LibraryGroupItemDelegate(BaseApp* t_app) : m_app(t_app) {}
 
@@ -337,7 +337,7 @@ void LibraryGroupListController::reset() {
 
 LibrarySubGroupItem::LibrarySubGroupItem(const QString& name, const QString& taxonomyTag, LocalLibrary::LibrarySource source, BaseApp* t_app,
                                          bool onlyShowModelMeasures)
-  : OSListItem(), m_app(t_app), m_name(name) {
+  : m_app(t_app), m_name(name) {
   m_libraryListController = QSharedPointer<LibraryListController>(new LibraryListController(taxonomyTag, source, m_app, onlyShowModelMeasures));
 }
 
@@ -391,18 +391,18 @@ void LibrarySubGroupListController::addItem(QSharedPointer<OSListItem> item) {
 }
 
 void LibrarySubGroupListController::reset() {
-  int count = 0;
+  int total_count = 0;
 
   for (const auto& librarySubGroupItem : m_items) {
     librarySubGroupItem->libraryListController()->reset();
-    count += librarySubGroupItem->libraryListController()->count();
+    total_count += librarySubGroupItem->libraryListController()->count();
   }
 
-  emit libraryItemCountChanged(count);
+  emit libraryItemCountChanged(total_count);
 }
 
 LibraryItem::LibraryItem(const BCLMeasure& bclMeasure, LocalLibrary::LibrarySource source, BaseApp* t_app)
-  : OSListItem(), m_bclMeasure(bclMeasure), m_source(source), m_app(t_app) {
+  : m_bclMeasure(bclMeasure), m_source(source), m_app(t_app) {
   boost::optional<VersionString> minCompatibleVersion;
   boost::optional<VersionString> maxCompatibleVersion;
   for (const BCLFileReference& fileReference : bclMeasure.files()) {
@@ -421,13 +421,8 @@ LibraryItem::LibraryItem(const BCLMeasure& bclMeasure, LocalLibrary::LibrarySour
   }
 
   VersionString currentVersion(openStudioVersion());
-  if (minCompatibleVersion && (*minCompatibleVersion) > currentVersion) {
-    m_available = false;
-  } else if (maxCompatibleVersion && (*maxCompatibleVersion) < currentVersion) {
-    m_available = false;
-  } else {
-    m_available = true;
-  }
+  m_available =
+    !((minCompatibleVersion && (*minCompatibleVersion) > currentVersion) || (maxCompatibleVersion && (*maxCompatibleVersion) < currentVersion));
 }
 
 LibraryItem::~LibraryItem() = default;
@@ -568,7 +563,7 @@ void LibraryItemDelegate::selectedChanged() {
 
 LibraryListController::LibraryListController(const QString& taxonomyTag, LocalLibrary::LibrarySource source, BaseApp* t_app,
                                              bool onlyShowModelMeasures)
-  : OSListController(), m_app(t_app), m_taxonomyTag(taxonomyTag), m_source(source), m_onlyShowModelMeasures(onlyShowModelMeasures) {
+  : m_app(t_app), m_taxonomyTag(taxonomyTag), m_source(source), m_onlyShowModelMeasures(onlyShowModelMeasures) {
   createItems();
 }
 
@@ -578,7 +573,7 @@ QSharedPointer<OSListItem> LibraryListController::itemAt(int i) {
   }
 
   // DLM: I was just fixing build error, Kyle is this correct?
-  return QSharedPointer<OSListItem>();
+  return {};
 }
 
 int LibraryListController::count() {

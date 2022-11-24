@@ -45,7 +45,7 @@
 
 namespace openstudio {
 
-ExternalToolsDialog::ExternalToolsDialog(openstudio::path t_dviewPath) : QDialog() {
+ExternalToolsDialog::ExternalToolsDialog(const openstudio::path& t_dviewPath) : m_dviewPathLineEdit(new QLineEdit(this)) {
 
   auto* mainLayout = new QGridLayout();
   setLayout(mainLayout);
@@ -60,7 +60,6 @@ ExternalToolsDialog::ExternalToolsDialog(openstudio::path t_dviewPath) : QDialog
   ++row;
   mainLayout->addWidget(new QLabel("Path to DView"), row, 0);
 
-  m_dviewPathLineEdit = new QLineEdit(this);
   m_dviewPathLineEdit->setText(QString::fromStdString(toString(t_dviewPath)));
   mainLayout->addWidget(m_dviewPathLineEdit, row, 1);
 
@@ -87,7 +86,7 @@ ExternalToolsDialog::ExternalToolsDialog(openstudio::path t_dviewPath) : QDialog
   connect(buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
 }
 
-void ExternalToolsDialog::onChangeClicked(QLineEdit* t_lineEdit, QString toolName) {
+void ExternalToolsDialog::onChangeClicked(QLineEdit* t_lineEdit, const QString& toolName) {
 
 #if defined _WIN32
   QString filter = toolName + QString(" (") + toolName + QString("*.exe)");
@@ -95,7 +94,7 @@ void ExternalToolsDialog::onChangeClicked(QLineEdit* t_lineEdit, QString toolNam
   // TODO: definitely not going to work! Thanks Apple!
   QString filter = toolName + QString(" (") + toolName + QString("*.app)");
 #else
-  QString filter = toolName;
+  const QString& filter = toolName;
 #endif
 
   LOG_FREE(Debug, "OpenStudioApp", "ExternalToolsDialog::onChangeClicked: file filter = " << openstudio::toString(filter));

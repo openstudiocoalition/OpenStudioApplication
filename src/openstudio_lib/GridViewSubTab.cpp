@@ -33,6 +33,7 @@
 #include "OSDocument.hpp"
 #include "OSItemSelectorButtons.hpp"
 
+#include <model/ModelObject.hpp>
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/Model_Impl.hpp>
 
@@ -46,7 +47,8 @@
 
 namespace openstudio {
 
-GridViewSubTab::GridViewSubTab(bool isIP, const model::Model& model, QWidget* parent) : QWidget(parent), m_model(model), m_isIP(isIP) {
+GridViewSubTab::GridViewSubTab(bool isIP, const model::Model& model, QWidget* parent)
+  : QWidget(parent), m_model(model), m_isIP(isIP), m_scrollLayout(new QVBoxLayout()), m_itemSelectorButtons(new OSItemSelectorButtons()) {
 
   // ***** Main Layout *****
   auto* mainLayout = new QVBoxLayout();
@@ -55,7 +57,6 @@ GridViewSubTab::GridViewSubTab(bool isIP, const model::Model& model, QWidget* pa
   setLayout(mainLayout);
 
   // ***** Scroll *****
-  m_scrollLayout = new QVBoxLayout();
   m_scrollLayout->setContentsMargins(0, 0, 0, 0);
   m_scrollLayout->setSpacing(0);
 
@@ -75,7 +76,6 @@ GridViewSubTab::GridViewSubTab(bool isIP, const model::Model& model, QWidget* pa
   mainLayout->addWidget(scrollArea);
 
   // Item Selector Buttons
-  m_itemSelectorButtons = new OSItemSelectorButtons();
   m_itemSelectorButtons->hideDropZone();
   mainLayout->addWidget(m_itemSelectorButtons, 0, Qt::AlignBottom);
 
@@ -106,22 +106,22 @@ void GridViewSubTab::setGridController(OSGridController* gridController) {
 }
 
 void GridViewSubTab::onAddClicked() {
-  const auto& selectedObjects = m_gridController->selectedObjects();
+  const auto& selObjs = m_gridController->selectedObjects();
 
   // Always make at least one
-  if (!selectedObjects.size()) {
+  if (selObjs.empty()) {
     addObject(m_gridController->iddObjectType());
   } else {
-    for (const auto& obj : selectedObjects) {
+    for (const auto& obj : selObjs) {
       addObject(obj);
     }
   }
 }
 
 void GridViewSubTab::onCopyClicked() {
-  const auto& selectedObjects = m_gridController->selectedObjects();
+  const auto& selObjs = m_gridController->selectedObjects();
 
-  for (const auto& obj : selectedObjects) {
+  for (const auto& obj : selObjs) {
     if (!obj.handle().isNull()) {
       copyObject(obj);
     }
@@ -129,9 +129,7 @@ void GridViewSubTab::onCopyClicked() {
 }
 
 void GridViewSubTab::onRemoveClicked() {
-  const auto& selectedObjects = m_gridController->selectedObjects();
-
-  for (const auto& obj : selectedObjects) {
+  for (const auto& obj : m_gridController->selectedObjects()) {
     removeObject(obj);
   }
 
@@ -178,7 +176,7 @@ void GridViewSubTab::toggleUnits(bool isIP) {
   m_isIP = isIP;
 }
 
-void GridViewSubTab::onGridRowSelectionChanged(int numSelected, int numSelectable) {
+void GridViewSubTab::onGridRowSelectionChanged(int numSelected, int /*numSelectable*/) {
   if (numSelected == 0) {
     onClearSelection();
   } else {

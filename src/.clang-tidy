@@ -65,6 +65,7 @@ Checks: |
   -bugprone-easily-swappable-parameters,
   -modernize-use-nodiscard,
   -cert-err58-cpp,
+  google-explicit-constructor,
 
 WarningsAsErrors:  '*'
 HeaderFilterRegex: '*'

@@ -123,9 +123,9 @@ class OpenStudioApp : public OSAppBase
   virtual bool notify(QObject* receiver, QEvent* event) override;
 
  protected:
-  virtual bool event(QEvent* e) override;
+  virtual bool event(QEvent* event) override;
 
-  virtual void childEvent(QChildEvent* e) override;
+  virtual void childEvent(QChildEvent* event) override;
 
  signals:
 
@@ -192,7 +192,7 @@ class OpenStudioApp : public OSAppBase
 
   void newFromTemplateSlot(NewFromTemplateEnum newFromTemplateEnum);
 
-  bool openFromDrag(QString path);
+  bool openFromDrag(const QString& path);
 
   bool closeDocument();
 
