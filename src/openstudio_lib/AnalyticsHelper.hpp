@@ -41,7 +41,7 @@ class AnalyticsHelper : public QObject
   Q_OBJECT
 
  public:
-  AnalyticsHelper(QObject* parent = nullptr);
+  explicit AnalyticsHelper(QObject* parent = nullptr);
 
   virtual ~AnalyticsHelper();
 
