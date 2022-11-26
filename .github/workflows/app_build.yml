@@ -377,18 +377,14 @@ jobs:
     #      ls ~/.conan/
     #      ls ~/.conan/data/
 
-    - name: Create Build Environment and locate openstudio
+    - name: Install Qt
       # Some projects don't allow in-source building, so create a separate build directory
       # We'll use this as our working directory for all subsequent commands
       shell: bash
+      if: ${{!matrix.SELF_HOSTED}}
       run: |
         set -x
         cmake -E make_directory ./build
-        # Below needed if you re-enable 'Download the OpenStudio installer' step
-        # openstudio_DIR=$(find `pwd`/OpenStudio-$OS_SDK_VERSION/ -name "openstudioConfig.cmake")
-        # openstudio_DIR=$(dirname "${openstudio_DIR}")
-        # echo "openstudio_DIR=${openstudio_DIR}"
-        # echo openstudio_DIR=$openstudio_DIR >> $GITHUB_ENV
 
         if [ "$RUNNER_OS" == "Windows" ]; then
           # QT_INSTALL_DIR="$(pwd)/build/Qt-install/$QT_VERSION/msvc2019_64"
@@ -418,7 +414,32 @@ jobs:
         #ls $QT_INSTALL_DIR/translations/qtwebengine_locales || true
         find ./build/Qt-install . -name "*.qm"
         find ./build/Qt-install . -name "*.pak"
+        
+    - name: Find Qt
+      # Some projects don't allow in-source building, so create a separate build directory
+      # We'll use this as our working directory for all subsequent commands
+      shell: bash
+      if: ${{matrix.SELF_HOSTED}}
+      run: |
+        set -x
+        cmake -E make_directory ./build
 
+        if [ "$RUNNER_OS" == "macOS" ]; then
+          QT_INSTALL_DIR="/Users/irvinemac/Qt/6.3.0/macos/"
+        fi
+
+        echo "$QT_INSTALL_DIR/bin" >> $GITHUB_PATH
+        echo QT_INSTALL_DIR=$QT_INSTALL_DIR >> $GITHUB_ENV
+        #ls ./build/Qt-install/$QT_VERSION/
+        #ls $QT_INSTALL_DIR || true
+        #ls $QT_INSTALL_DIR/lib || true
+        #ls $QT_INSTALL_DIR/lib/cmake || true
+        find $QT_INSTALL_DIR -name "*.cmake"
+        #ls $QT_INSTALL_DIR/translations || true
+        #ls $QT_INSTALL_DIR/translations/qtwebengine_locales || true
+        find $QT_INSTALL_DIR . -name "*.qm"
+        find $QT_INSTALL_DIR . -name "*.pak"
+        
     #- name: Cache Qt dep cache?
       ## To avoid downloading the Qt dependency all the time, we try to cache it
       #id: cacheqt
