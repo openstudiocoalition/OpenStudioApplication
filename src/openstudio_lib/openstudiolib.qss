@@ -445,6 +445,33 @@ QPushButton#StandardGrayButton:checked {
                               stop: 1 #4B7DB0);
 }
 
+QPushButton#StandardBlueButton {
+  border-radius: 4px;
+  border: 1px solid #949393;
+  background: qlineargradient(x1:0,y1:0,x2:0,y2:1,
+                               stop: 0 #239DD7,
+                               stop: 1 #1C7BBF );
+  min-height: 22px;
+  max-height: 22px;
+  height: 22px;
+  font-size: 12px;
+  margin: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: white;
+}
+
+QPushButton#StandardBlueButton:hover {
+  background: qlineargradient(x1:0,y1:0,x2:0,y2:1,
+                               stop: 0 #1C7BBF,
+                               stop: 1 #239DD7 );
+}
+
+QPushButton#StandardBlueButton:pressed {
+  border: 2px solid #949393;
+  background: #D9D9D9;
+}
+
 QPushButton#AddButton {
   border: none;
   background-image: url(":/images/add_off.png");
