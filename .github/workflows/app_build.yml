@@ -46,6 +46,7 @@ jobs:
         include:
         - os: ubuntu-20.04
           allow_failure: true
+          SELF_HOSTED: false
           PLATFORM_NAME: Linux
           CPACK_BINARY_DEB: ON
           CPACK_BINARY_IFW: OFF
@@ -59,6 +60,7 @@ jobs:
           QT_ARCH: gcc_64
         - os: macos-10.15
           allow_failure: false
+          SELF_HOSTED: false
           PLATFORM_NAME: Darwin
           CPACK_BINARY_DEB: OFF
           CPACK_BINARY_IFW: ON
@@ -74,6 +76,7 @@ jobs:
           QT_ARCH: clang_64
         - os: windows-2019
           allow_failure: false
+          SELF_HOSTED: false
           PLATFORM_NAME: Windows
           CPACK_BINARY_DEB: OFF
           CPACK_BINARY_IFW: ON
@@ -87,6 +90,7 @@ jobs:
           QT_ARCH: win64_msvc2019_64
         - os: self-hosted-mac-mini
           allow_failure: true
+          SELF_HOSTED: true
           PLATFORM_NAME: Darwin
           CPACK_BINARY_DEB: OFF
           CPACK_BINARY_IFW: ON
@@ -104,10 +108,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-python@v4
+      if: ${{!SELF_HOSTED}}
       with:
         python-version: '3.8.x'
 
     - uses: ruby/setup-ruby@v1
+      if: ${{!SELF_HOSTED}}
       with:
         ruby-version: 2.7
 
@@ -228,6 +234,7 @@ jobs:
       # Use a bash shell so we can use the same syntax for environment variable
       # access regardless of the host operating system
       shell: bash
+      if: ${{!SELF_HOSTED}}
       run: |
         OS_APP_VERSION=$(cat version.txt)
         echo OS_APP_VERSION=$OS_APP_VERSION >> $GITHUB_ENV
