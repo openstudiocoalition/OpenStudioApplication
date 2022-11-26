@@ -108,12 +108,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-python@v4
-      if: ${{!SELF_HOSTED}}
+      if: ${{!matrix.SELF_HOSTED}}
       with:
         python-version: '3.8.x'
 
     - uses: ruby/setup-ruby@v1
-      if: ${{!SELF_HOSTED}}
+      if: ${{!matrix.SELF_HOSTED}}
       with:
         ruby-version: 2.7
 
@@ -234,7 +234,7 @@ jobs:
       # Use a bash shell so we can use the same syntax for environment variable
       # access regardless of the host operating system
       shell: bash
-      if: ${{!SELF_HOSTED}}
+      if: ${{!matrix.SELF_HOSTED}}
       run: |
         OS_APP_VERSION=$(cat version.txt)
         echo OS_APP_VERSION=$OS_APP_VERSION >> $GITHUB_ENV
