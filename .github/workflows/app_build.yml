@@ -233,7 +233,7 @@ jobs:
           # The MACOSX_DEPLOYMENT_TARGET environment variable sets the default value for the CMAKE_OSX_DEPLOYMENT_TARGET variable.
           # echo CMAKE_MACOSX_DEPLOYMENT_TARGET='-DCMAKE_OSX_DEPLOYMENT_TARGET=$MACOSX_DEPLOYMENT_TARGET' >> $GITHUB_ENV
 
-          if ["${{matrix.SELF_HOSTED}}" == "true"]; then
+          if [ "${{matrix.SELF_HOSTED}}" = "true" ]; then
             echo "Using previously installed ninja and IFW"
             echo "/Users/irvinemac/Qt/Tools/QtInstallerFramework/4.3/bin/" >> $GITHUB_PATH
           else
