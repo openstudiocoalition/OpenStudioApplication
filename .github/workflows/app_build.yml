@@ -72,7 +72,7 @@ jobs:
           COMPRESSED_PKG_PATH: _CPack_Packages/win64/ZIP
           QT_OS_NAME: windows
           QT_ARCH: win64_msvc2019_64
-        - os: macos-10.15
+        - os: macos-12
           allow_failure: false
           SELF_HOSTED: false
           PLATFORM_NAME: Darwin
