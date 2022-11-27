@@ -42,11 +42,39 @@ jobs:
       # fail-fast: Default is true, switch to false to allow one platform to fail and still run others
       fail-fast: false
       matrix:
-        os: [self-hosted-mac-mini]
+        os: [ubuntu-20.04, windows-2019, macos-10.15, self-hosted-mac-mini]
         include:
-        - os: self-hosted-mac-mini
+        - os: ubuntu-20.04
           allow_failure: true
-          SELF_HOSTED: true
+          SELF_HOSTED: false
+          PLATFORM_NAME: Linux
+          CPACK_BINARY_DEB: ON
+          CPACK_BINARY_IFW: OFF
+          CPACK_BINARY_TGZ: ON
+          CPACK_BINARY_ZIP: OFF
+          BINARY_EXT: deb
+          COMPRESSED_EXT: tar.gz
+          BINARY_PKG_PATH: _CPack_Packages/Linux/DEB
+          COMPRESSED_PKG_PATH: _CPack_Packages/Linux/TGZ
+          QT_OS_NAME: linux
+          QT_ARCH: gcc_64
+        - os: windows-2019
+          allow_failure: false
+          SELF_HOSTED: false
+          PLATFORM_NAME: Windows
+          CPACK_BINARY_DEB: OFF
+          CPACK_BINARY_IFW: ON
+          CPACK_BINARY_TGZ: OFF
+          CPACK_BINARY_ZIP: ON
+          BINARY_EXT: exe
+          COMPRESSED_EXT: zip
+          BINARY_PKG_PATH: _CPack_Packages/win64/IFW
+          COMPRESSED_PKG_PATH: _CPack_Packages/win64/ZIP
+          QT_OS_NAME: windows
+          QT_ARCH: win64_msvc2019_64
+        - os: macos-10.15
+          allow_failure: false
+          SELF_HOSTED: false
           PLATFORM_NAME: Darwin
           CPACK_BINARY_DEB: OFF
           CPACK_BINARY_IFW: ON
@@ -60,6 +88,22 @@ jobs:
           SDKROOT: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
           QT_OS_NAME: mac
           QT_ARCH: clang_64
+        - os: self-hosted-mac-mini
+          allow_failure: false
+          SELF_HOSTED: true
+          PLATFORM_NAME: Darwin
+          CPACK_BINARY_DEB: OFF
+          CPACK_BINARY_IFW: ON
+          CPACK_BINARY_TGZ: ON
+          CPACK_BINARY_ZIP: OFF
+          BINARY_EXT: dmg
+          COMPRESSED_EXT: tar.gz
+          BINARY_PKG_PATH: _CPack_Packages/Darwin/IFW
+          COMPRESSED_PKG_PATH: _CPack_Packages/Darwin/TGZ
+          MACOSX_DEPLOYMENT_TARGET: 10.14
+          SDKROOT: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
+          QT_OS_NAME: mac
+          QT_ARCH: arm_64
 
     steps:
     - uses: actions/checkout@v2
