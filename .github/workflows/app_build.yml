@@ -190,7 +190,6 @@ jobs:
       # Use a bash shell so we can use the same syntax for environment variable
       # access regardless of the host operating system
       shell: bash
-      if: ${{!matrix.SELF_HOSTED}}
       run: |
         OS_APP_VERSION=$(cat version.txt)
         echo OS_APP_VERSION=$OS_APP_VERSION >> $GITHUB_ENV
@@ -231,32 +230,39 @@ jobs:
           echo MACOSX_DEPLOYMENT_TARGET=${{ matrix.MACOSX_DEPLOYMENT_TARGET }} >> $GITHUB_ENV
           echo SDKROOT=${{ matrix.SDKROOT }} >> $GITHUB_ENV
           echo CMAKE_MACOSX_DEPLOYMENT_TARGET='-DCMAKE_OSX_DEPLOYMENT_TARGET=$MACOSX_DEPLOYMENT_TARGET' >> $GITHUB_ENV
-           # The MACOSX_DEPLOYMENT_TARGET environment variable sets the default value for the CMAKE_OSX_DEPLOYMENT_TARGET variable.
+          # The MACOSX_DEPLOYMENT_TARGET environment variable sets the default value for the CMAKE_OSX_DEPLOYMENT_TARGET variable.
           # echo CMAKE_MACOSX_DEPLOYMENT_TARGET='-DCMAKE_OSX_DEPLOYMENT_TARGET=$MACOSX_DEPLOYMENT_TARGET' >> $GITHUB_ENV
-          echo "Using brew to install ninja"
-          brew install ninja
-          echo CMAKE_GENERATOR='Ninja' >> $GITHUB_ENV
 
-          brew install md5sha1sum
+          if ["${{matrix.SELF_HOSTED}}" == "true"]; then
+            echo "Using previously installed ninja and IFW"
+            echo "/Users/irvinemac/Qt/Tools/QtInstallerFramework/4.3/bin/" >> $GITHUB_PATH
+          else
+            echo "Using brew to install ninja"
+            brew install ninja
+            echo CMAKE_GENERATOR='Ninja' >> $GITHUB_ENV
 
-          curl -L -O https://download.qt.io/official_releases/qt-installer-framework/4.3.0/QtInstallerFramework-macOS-x64-4.3.0.dmg
-          hdiutil attach -mountpoint ./qtfiw_installer QtInstallerFramework-macOS-x64-4.3.0.dmg
-          echo "ls ./qtfiw_installer"
-          ls ./qtfiw_installer
-          echo "ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/"
-          ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/
-          echo "ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/"
-          ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/
-          echo "ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/MacOS"
-          ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/MacOS
-          echo "ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/Resources"
-          ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/Resources
+            brew install md5sha1sum
 
-          sudo ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/MacOS/QtInstallerFramework-macOS-x64-4.3.0 --verbose --script ./ci/install_script_qtifw.qs
-          ls ~
-          ls ~/Qt/ || true
-          ls ~/Qt/QtIFW-4.3.0 || true
-          echo "~/Qt/QtIFW-4.3.0/bin/" >> $GITHUB_PATH
+            echo "Installing IFW"
+            curl -L -O https://download.qt.io/official_releases/qt-installer-framework/4.3.0/QtInstallerFramework-macOS-x64-4.3.0.dmg
+            hdiutil attach -mountpoint ./qtfiw_installer QtInstallerFramework-macOS-x64-4.3.0.dmg
+            echo "ls ./qtfiw_installer"
+            ls ./qtfiw_installer
+            echo "ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/"
+            ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/
+            echo "ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/"
+            ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/
+            echo "ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/MacOS"
+            ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/MacOS
+            echo "ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/Resources"
+            ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/Resources
+
+            sudo ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/MacOS/QtInstallerFramework-macOS-x64-4.3.0 --verbose --script ./ci/install_script_qtifw.qs
+            ls ~
+            ls ~/Qt/ || true
+            ls ~/Qt/QtIFW-4.3.0 || true
+            echo "~/Qt/QtIFW-4.3.0/bin/" >> $GITHUB_PATH
+          fi;
         fi;
 
         CONAN_INSTALL_MD5=$(md5sum ConanInstall.cmake | awk '{print $1}')
@@ -503,7 +509,7 @@ jobs:
 
     #- name: upload config.log for failed gdbm build
       #if: ${{ failure() }}
-      #uses: actions/upload-artifact@v2
+      #uses: actions/upload-artifact@v3
       #with:
           #name: ${{ matrix.os }}-gdbm_config.log
           #path: ~/.conan/data/gdbm/1.18.1/_/_/build/**/source_subfolder/config.log
@@ -559,7 +565,7 @@ jobs:
           -WaitForCompletion -Force
 
     - name: Archive binary artifacts
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       # build/_CPack_Packages/win64/IFW/*.exe
       # build/_CPack_Packages/Linux/DEB/*.deb
       # build/_CPack_Packages/Darwin/IFW/*.dmg
@@ -569,7 +575,7 @@ jobs:
           # path: build/_CPack_Packages/*/*/*.${{ env.BINARY_EXT }}
 
     - name: Archive TGZ or ZIP artifacts
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
           name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.os }}.${{ env.COMPRESSED_EXT }}
           path: build/${{ matrix.COMPRESSED_PKG_PATH }}/*.${{ env.COMPRESSED_EXT }}
@@ -585,7 +591,7 @@ jobs:
           ctest -j -T test --output-on-failure --no-compress-output -C $BUILD_TYPE || true
 
     - name: Archive test results?
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
           name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.os }}-Test.xml
           path: build/Testing/**/*.xml
@@ -601,7 +607,7 @@ jobs:
         Products/SpacesSurfaces_Benchmark --benchmark_out_format=csv --benchmark_out='bench_results_SpacesSurfaces.csv' || true
 
     - name: Archive benchmark results?
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
           name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.os }}-bench_results.csv
           path: build/bench_results_*.csv
