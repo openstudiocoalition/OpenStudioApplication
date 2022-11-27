@@ -106,7 +106,7 @@ jobs:
           QT_ARCH: arm_64
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - uses: actions/setup-python@v4
       if: ${{!matrix.SELF_HOSTED}}
       with:
@@ -317,7 +317,7 @@ jobs:
 
     - name: Cache entire build directory
       id: cachebuild
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: build/
         key: ${{ matrix.os }}-build-cache-v1-${{ secrets.CACHE_KEY }}
@@ -344,7 +344,7 @@ jobs:
       # If the build cache wasn't found in the cache (otherwise it will have the SDK subfolder already so this is pointless)"
       if: steps.cachebuild.outputs.cache-hit != 'true'
       id: cacheossdk
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: OpenStudio-${{ env.OS_SDK_VERSION }}
         key: OpenStudio-SDK-${{ matrix.os }}-${{ env.OS_SDK_VERSION }}-${{ secrets.CACHE_KEY }}
@@ -406,7 +406,7 @@ jobs:
     #- name: Cache conan cache?
     #  # To avoid downloading the SDK all the time, we try to cache it
     #  id: cacheconan
-    #  uses: actions/cache@v2
+    #  uses: actions/cache@v3
     #  with:
     #    path: |
     #      ~/.conan
@@ -464,10 +464,8 @@ jobs:
         #ls $QT_INSTALL_DIR/translations/qtwebengine_locales || true
         find ./build/Qt-install . -name "*.qm"
         find ./build/Qt-install . -name "*.pak"
-        
-    - name: Find Qt
-      # Some projects don't allow in-source building, so create a separate build directory
-      # We'll use this as our working directory for all subsequent commands
+
+    - name: Find Qt (Self-Hosted)
       shell: bash
       if: ${{matrix.SELF_HOSTED}}
       run: |
@@ -489,11 +487,11 @@ jobs:
         #ls $QT_INSTALL_DIR/translations/qtwebengine_locales || true
         find $QT_INSTALL_DIR . -name "*.qm"
         find $QT_INSTALL_DIR . -name "*.pak"
-        
+
     #- name: Cache Qt dep cache?
       ## To avoid downloading the Qt dependency all the time, we try to cache it
       #id: cacheqt
-      #uses: actions/cache@v2
+      #uses: actions/cache@v3
       #with:
         #path: build/qt_5_11_*.tar.gz
         #key: ${{ matrix.os }}-qt-5-11-cache
