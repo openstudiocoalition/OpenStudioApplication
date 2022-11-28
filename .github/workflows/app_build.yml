@@ -561,7 +561,7 @@ jobs:
       if: runner.os != 'Windows'
       shell: bash
       # Execute the build.  You can specify a specific target with "--target <NAME>"
-      run: cmake --build . --target package -j 2 --config $BUILD_TYPE
+      run: cmake --build . --target package -j $(nproc 2>/dev/null || sysctl -n hw.logicalcpu) --config $BUILD_TYPE
 
     - name: Test bed Sign inner portable executable files and exe package (Windows)
       working-directory: ./build
