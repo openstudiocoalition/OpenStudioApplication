@@ -246,6 +246,10 @@ jobs:
         echo BINARY_EXT=${{ matrix.BINARY_EXT }} >> $GITHUB_ENV
         echo COMPRESSED_EXT=${{ matrix.COMPRESSED_EXT }} >> $GITHUB_ENV
 
+        N=$(nproc 2>/dev/null || sysctl -n hw.logicalcpu)
+        echo "There are $N threads available"
+        echo "N=$N" >> $GITHUB_ENV
+
         if [ "$RUNNER_OS" == "Linux" ]; then
           echo "Install needed system dependencies for OPENGL (due to Qt) for Linux"
           sudo apt update
@@ -561,7 +565,10 @@ jobs:
       if: runner.os != 'Windows'
       shell: bash
       # Execute the build.  You can specify a specific target with "--target <NAME>"
-      run: cmake --build . --target package -j $(nproc 2>/dev/null || sysctl -n hw.logicalcpu) --config $BUILD_TYPE
+      run: |
+        set -x
+        echo "Building with $N threads"
+        cmake --build . --target package -j $N --config $BUILD_TYPE
 
     - name: Test bed Sign inner portable executable files and exe package (Windows)
       working-directory: ./build
