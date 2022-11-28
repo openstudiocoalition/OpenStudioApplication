@@ -257,11 +257,11 @@ openstudio::path getOpenStudioCoreCLI() {
   // │   │   └── openstudio.so
   // │   └─── openstudio
 
-  cliPath = getOpenStudioApplicationModuleDirectory() / toPath("${os_cli_install_name}");
+  cliPath = getOpenStudioApplicationModuleDirectory() / toPath("${OS_CLI_IMPORTED_NAME}");
 
   // If it doesn't exist or it's a directory, try the imported location from the sdk
   if (!openstudio::filesystem::exists(cliPath) || openstudio::filesystem::is_directory(cliPath)) {
-    cliPath = toPath("${CLI_IMPORTED_PATH}");
+    cliPath = toPath("${OS_CLI_IMPORTED_PATH}");
   }
 
   LOG_FREE(Debug, "OpenStudioApplicationPathHelpers", "Searching for CLI in '" << cliPath << "'");
