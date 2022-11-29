@@ -321,6 +321,7 @@ jobs:
 
     - name: Cache entire build directory
       id: cachebuild
+      if: ${{!matrix.SELF_HOSTED}}
       uses: actions/cache@v3
       with:
         path: build/
@@ -343,11 +344,11 @@ jobs:
           ls build/ || true
 
     - name: Cache OpenStudio tar.gz
+      id: cacheossdk
       # To avoid downloading the SDK all the time, we try to cache it.
       # The path matches both what FindOpenStudioSDK.cmake does and what the 'Download the OpenStudio installer' used to do
       # If the build cache wasn't found in the cache (otherwise it will have the SDK subfolder already so this is pointless)"
-      if: steps.cachebuild.outputs.cache-hit != 'true'
-      id: cacheossdk
+      if: ${{!matrix.SELF_HOSTED && steps.cachebuild.outputs.cache-hit != 'true'}}
       uses: actions/cache@v3
       with:
         path: OpenStudio-${{ env.OS_SDK_VERSION }}
@@ -355,7 +356,7 @@ jobs:
 
     - name: Did restoring the build-cache or OpenStudioSDK cache work? Yes
       # If it wasn't found in the cache
-      if: steps.cachebuild.outputs.cache-hit == 'true' || steps.cacheossdk.outputs.cache-hit == true
+      if: ${{steps.cachebuild.outputs.cache-hit == 'true' || steps.cacheossdk.outputs.cache-hit == true}}
       continue-on-error: true
       run: |
           ls build/ || true
