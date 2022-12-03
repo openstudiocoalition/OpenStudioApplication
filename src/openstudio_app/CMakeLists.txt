@@ -426,6 +426,8 @@ if( APPLE )
 
   install(CODE [[
       execute_process(
+        COMMAND echo "CMAKE_INSTALL_PREFIX = ${CMAKE_INSTALL_PREFIX}"
+
         COMMAND "${CMAKE_COMMAND}" -E create_symlink
           "../../../../../../../Frameworks"
           "${CMAKE_INSTALL_PREFIX}/OpenStudioApp.app/Contents/Frameworks/QtWebEngineCore.framework/Versions/A/Helpers/QtWebEngineProcess.app/Contents/Frameworks"
@@ -445,8 +447,12 @@ if( APPLE )
         COMMAND "${CMAKE_COMMAND}" -E create_symlink
           "../../../bin/$<TARGET_FILE_NAME:openstudio::pythonengine>"
           "${CMAKE_INSTALL_PREFIX}/OpenStudioApp.app/Contents/Frameworks/$<TARGET_FILE_NAME:openstudio::pythonengine>"
+
+        COMMAND_ECHO STDOUT
+        COMMAND_ERROR_IS_FATAL ANY
       )
     ]]
+    COMPONENT OpenStudioApp
   )
 endif()
 
