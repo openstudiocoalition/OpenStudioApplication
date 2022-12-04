@@ -112,6 +112,13 @@ macro(CREATE_TEST_TARGETS BASE_NAME SRC DEPENDENCIES)
   if(BUILD_TESTING)
     add_executable(${BASE_NAME}_tests ${SRC})
 
+    if (APPLE)
+      add_custom_command(TARGET ${BASE_NAME}_tests
+        POST_BUILD
+        COMMAND ${CMAKE_INSTALL_NAME_TOOL} -add_rpath "${openstudio_ROOT_DIR}/lib/" $<TARGET_FILE:${BASE_NAME}_tests>
+        COMMAND ${CMAKE_INSTALL_NAME_TOOL} -add_rpath "${QT_INSTALL_DIR}/lib/" $<TARGET_FILE:${BASE_NAME}_tests>)
+    endif()
+
     list(APPEND ALL_TESTING_TARGETS "${BASE_NAME}_tests")
     set(ALL_TESTING_TARGETS "${ALL_TESTING_TARGETS}" PARENT_SCOPE)
 

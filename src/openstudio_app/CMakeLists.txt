@@ -177,6 +177,13 @@ if( APPLE )
     VERBATIM
   )
 
+  add_custom_command(TARGET ${target_name}
+    POST_BUILD
+    COMMAND ${CMAKE_INSTALL_NAME_TOOL} -add_rpath "${openstudio_ROOT_DIR}/lib/" $<TARGET_FILE:${target_name}>
+    COMMAND ${CMAKE_INSTALL_NAME_TOOL} -add_rpath "${QT_INSTALL_DIR}/lib/" $<TARGET_FILE:${target_name}>
+    COMMAND ${CMAKE_INSTALL_NAME_TOOL} -add_rpath "${openstudio_ROOT_DIR}/lib/" $<TARGET_FILE_DIR:${target_name}>/$<TARGET_FILE_NAME:openstudio::openstudio>
+    )
+
   #add_custom_command(TARGET ${target_name}
   #  POST_BUILD
   #  COMMAND ${QT_MACDEPLOY_QT} $<TARGET_BUNDLE_DIR:${target_name}> -verbose=2
