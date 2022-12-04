@@ -2084,7 +2084,7 @@ ScheduleCalendarWidget::ScheduleCalendarWidget(MonthView* monthView) : QCalendar
 
 void ScheduleCalendarWidget::paintCell(QPainter* painter, const QRect& rect, QDate date) const {
   QFont font = painter->font();
-  font.setPointSize(12);
+  font.setPixelSize(12);
   painter->setFont(font);
 
   painter->setBrush(QBrush(QColor(230, 230, 230)));

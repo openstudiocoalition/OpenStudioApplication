@@ -36,13 +36,13 @@ namespace openstudio {
 void MeasureBadge::setMeasureBadgeType(MeasureBadgeType type) {
   if (type == MeasureBadgeType::BCLMeasure) {
     setText("BCL");
-    setStyleSheet("QLabel { color: #4B7DB0; font-size: 10pt; }");
+    setStyleSheet("QLabel { color: #4B7DB0; font-size: 12px; }");
   } else if (type == MeasureBadgeType::MyMeasure) {
     setText("My");
-    setStyleSheet("QLabel { color: #882255; font-size: 10pt; }");
+    setStyleSheet("QLabel { color: #882255; font-size: 12px; }");
   } else if (type == MeasureBadgeType::OSMeasure) {
     setText("OS");
-    setStyleSheet("QLabel { color: #4B7DB0; font-size: 10pt; }");
+    setStyleSheet("QLabel { color: #4B7DB0; font-size: 12px; }");
   } else {
     OS_ASSERT(false);
   }

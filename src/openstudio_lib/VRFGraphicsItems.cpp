@@ -290,7 +290,7 @@ void VRFThermalZoneDropZoneView::paint(QPainter* painter, const QStyleOptionGrap
 
     QFont font = painter->font();
     // This changes the size of the font for the name of the Thermal Zone once you've dragged it next to a VRF Terminal
-    font.setPointSize(12);
+    font.setPixelSize(12);
     painter->setFont(font);
     painter->setPen(QPen(QColor(109, 109, 109), 2, Qt::DashLine, Qt::RoundCap));
     QRectF t_rec = boundingRect();
@@ -366,7 +366,7 @@ void VRFSystemMiniView::setNumberOfTerminals(int terminals) {
 
 void VRFSystemMiniView::paint(QPainter* painter, const QStyleOptionGraphicsItem* /*option*/, QWidget* /*widget*/) {
   QFont font = painter->font();
-  font.setPointSize(12);
+  font.setPixelSize(12);
   painter->setFont(font);
 
   painter->setRenderHint(QPainter::Antialiasing, true);
@@ -395,12 +395,12 @@ void VRFSystemMiniView::paint(QPainter* painter, const QStyleOptionGraphicsItem*
   painter->drawPixmap(x, y, m_vrfTerminalPix);
   x = x + m_vrfTerminalPix.width() + 2;
 
-  font.setPointSize(12);
+  font.setPixelSize(12);
   font.setWeight(QFont::Bold);
   painter->setFont(font);
   painter->drawText(QRectF(x, y, m_length, m_length / 2.0), Qt::AlignCenter, QString::number(m_terminals));
 
-  font.setPointSize(12);
+  font.setPixelSize(12);
   font.setWeight(QFont::Normal);
   painter->setFont(font);
   painter->drawText(QRectF(x, y + m_length / 2.0, m_length, m_length / 2.0), Qt::AlignCenter, QString("Terminals"));
@@ -409,12 +409,12 @@ void VRFSystemMiniView::paint(QPainter* painter, const QStyleOptionGraphicsItem*
   painter->drawPixmap(x, y, m_vrfZonePix);
   x = x + m_vrfZonePix.width();
 
-  font.setPointSize(12);
+  font.setPixelSize(12);
   font.setWeight(QFont::Bold);
   painter->setFont(font);
   painter->drawText(QRectF(x, y, m_length, m_length / 2.0), Qt::AlignCenter, QString::number(m_zones));
 
-  font.setPointSize(12);
+  font.setPixelSize(12);
   font.setWeight(QFont::Normal);
   painter->setFont(font);
   painter->drawText(QRectF(x, y + m_length / 2.0, m_length, m_length / 2.0), Qt::AlignCenter, QString("Zones"));
@@ -434,7 +434,7 @@ void VRFSystemDropZoneView::paint(QPainter* painter, const QStyleOptionGraphicsI
 
   QFont font = painter->font();
   // This is first "Drop VRF System" one, make it big!
-  font.setPointSize(24);
+  font.setPixelSize(24);
   painter->setFont(font);
   painter->setPen(QPen(QColor(109, 109, 109), 2, Qt::DashLine, Qt::RoundCap));
   painter->drawText(boundingRect(), Qt::AlignCenter | Qt::TextWordWrap, "Drop VRF System");

@@ -144,7 +144,7 @@ void RefrigerationSystemMiniView::setName(const QString& name) {
 void RefrigerationSystemMiniView::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
   // Background and Border
   QFont font = painter->font();
-  font.setPointSize(12);
+  font.setPixelSize(12);
   painter->setFont(font);
 
   painter->setRenderHint(QPainter::Antialiasing, true);
@@ -428,7 +428,7 @@ void RefrigerationCasesView::setExpanded(bool exapanded) {
 
 void RefrigerationCasesView::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
   QFont font = painter->font();
-  font.setPointSize(12);
+  font.setPixelSize(12);
   painter->setFont(font);
 
   painter->setRenderHint(QPainter::Antialiasing, true);
@@ -642,7 +642,7 @@ QRectF RefrigerationCaseDetailView::iconRect() {
 
 void RefrigerationCaseDetailView::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
   QFont font = painter->font();
-  font.setPointSize(12);
+  font.setPixelSize(12);
   painter->setFont(font);
 
   painter->setRenderHint(QPainter::Antialiasing, true);
@@ -728,7 +728,7 @@ void RefrigerationCondenserView::onRemoveButtonClicked() {
 
 void RefrigerationCondenserView::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
   QFont font = painter->font();
-  font.setPointSize(12);
+  font.setPixelSize(12);
   painter->setFont(font);
 
   painter->setRenderHint(QPainter::Antialiasing, true);
@@ -820,7 +820,7 @@ QRectF RefrigerationCompressorDetailView::boundingRect() const {
 
 void RefrigerationCompressorDetailView::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
   QFont font = painter->font();
-  font.setPointSize(12);
+  font.setPixelSize(12);
   painter->setFont(font);
 
   painter->setRenderHint(QPainter::Antialiasing, true);
@@ -843,7 +843,7 @@ QRectF RefrigerationCompressorDropZoneView::boundingRect() const {
 
 void RefrigerationCompressorDropZoneView::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
   QFont font = painter->font();
-  font.setPointSize(12);
+  font.setPixelSize(12);
   painter->setFont(font);
 
   painter->setRenderHint(QPainter::Antialiasing, true);
@@ -930,7 +930,7 @@ QRectF RefrigerationCasesDropZoneView::boundingRect() const {
 
 void RefrigerationCasesDropZoneView::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
   QFont font = painter->font();
-  font.setPointSize(12);
+  font.setPixelSize(12);
   painter->setFont(font);
 
   painter->setRenderHint(QPainter::Antialiasing, true);
@@ -960,7 +960,7 @@ RefrigerationSubCoolerView::RefrigerationSubCoolerView()
 
 void RefrigerationSubCoolerView::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
   QFont font = painter->font();
-  font.setPointSize(12);
+  font.setPixelSize(12);
   painter->setFont(font);
 
   painter->setRenderHint(QPainter::Antialiasing, true);
@@ -1037,7 +1037,7 @@ void RefrigerationSubCoolerView::mouseReleaseEvent(QGraphicsSceneMouseEvent* eve
 
 void RefrigerationHeatReclaimView::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
   QFont font = painter->font();
-  font.setPointSize(12);
+  font.setPixelSize(12);
   painter->setFont(font);
 
   painter->setRenderHint(QPainter::Antialiasing, true);
@@ -1055,7 +1055,7 @@ QRectF RefrigerationHeatReclaimView::boundingRect() const {
 
 void RefrigerationSHXView::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
   QFont font = painter->font();
-  font.setPointSize(12);
+  font.setPixelSize(12);
   painter->setFont(font);
 
   painter->setRenderHint(QPainter::Antialiasing, true);
@@ -1152,7 +1152,7 @@ QRectF SecondaryDropZoneView::boundingRect() const {
 
 void SecondaryDropZoneView::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
   QFont font = painter->font();
-  font.setPointSize(12);
+  font.setPixelSize(12);
   painter->setFont(font);
 
   painter->setRenderHint(QPainter::Antialiasing, true);
@@ -1214,7 +1214,7 @@ QRectF SecondaryDetailView::boundingRect() const {
 
 void SecondaryDetailView::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
   QFont font = painter->font();
-  font.setPointSize(12);
+  font.setPixelSize(12);
   painter->setFont(font);
 
   painter->setRenderHint(QPainter::Antialiasing, true);
@@ -1282,7 +1282,7 @@ QRectF RefrigerationSystemDropZoneView::boundingRect() const {
 
 void RefrigerationSystemDropZoneView::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
   QFont font = painter->font();
-  font.setPointSize(12);
+  font.setPixelSize(12);
   painter->setFont(font);
 
   painter->setRenderHint(QPainter::Antialiasing, true);
@@ -1291,7 +1291,7 @@ void RefrigerationSystemDropZoneView::paint(QPainter* painter, const QStyleOptio
 
   painter->drawRect(boundingRect());
 
-  font.setPointSize(24);
+  font.setPixelSize(24);
   painter->setFont(font);
   painter->setPen(QPen(QColor(109, 109, 109), 2, Qt::DashLine, Qt::RoundCap));
   painter->drawText(boundingRect(), Qt::AlignCenter | Qt::TextWordWrap, "Drop Refrigeration System");
