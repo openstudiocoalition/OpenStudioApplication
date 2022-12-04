@@ -1296,12 +1296,12 @@ void SystemCenterItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* 
   }
 
   QFont font = painter->font();
-  font.setPointSize(14);
+  font.setPointSize(20);
   painter->setFont(font);
   painter->setPen(QPen(Qt::black, 1, Qt::SolidLine, Qt::RoundCap));
   painter->setBrush(QBrush(Qt::black, Qt::SolidPattern));
-  painter->drawText(QRect(110, 21, 200, 25), Qt::AlignBottom, "Supply Equipment");
-  painter->drawText(QRect(110, 52, 200, 25), Qt::AlignTop, "Demand Equipment");
+  painter->drawText(QRect(110, 11, 240, 35), Qt::AlignBottom, "Supply Equipment");
+  painter->drawText(QRect(110, 52, 240, 35), Qt::AlignTop, "Demand Equipment");
 }
 
 SupplyPlenumItem::SupplyPlenumItem(const model::ModelObject& modelObject, QGraphicsItem* parent) : GridItem(parent) {
