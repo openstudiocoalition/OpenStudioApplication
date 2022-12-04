@@ -127,6 +127,9 @@ RunView::RunView() : QWidget(), m_runSocket(nullptr) {
 
   // Progress bar area
   m_progressBar = new QProgressBar();
+  m_progressBar->setStyleSheet("QProgressBar{background-color:#E6E6E6;border:1px solid #949393}"\
+                               "QProgressBar::chunk{background-color:qlineargradient(x1:0,y1:0,x2:1,y2:0,stop:0 #95B3DE,stop:1 #4B7DB0)}");
+  m_progressBar->setTextVisible(false);
   m_progressBar->setMaximum(State::complete);
 
   auto* progressbarlayout = new QVBoxLayout();
