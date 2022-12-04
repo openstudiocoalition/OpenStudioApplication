@@ -100,7 +100,7 @@ jobs:
           COMPRESSED_EXT: tar.gz
           BINARY_PKG_PATH: _CPack_Packages/Darwin/IFW
           COMPRESSED_PKG_PATH: _CPack_Packages/Darwin/TGZ
-          MACOSX_DEPLOYMENT_TARGET: 11.0
+          MACOSX_DEPLOYMENT_TARGET: 12.1
           SDKROOT: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
           QT_OS_NAME: mac
           QT_ARCH: arm_64
