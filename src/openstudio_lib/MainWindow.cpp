@@ -333,9 +333,11 @@ void MainWindow::toggleVerboseOutput(bool verboseOutput) {
 void MainWindow::promptAnalytics() {
   if (m_analyticsId.isEmpty()) {
     QMessageBox::StandardButton reply;
-    reply = QMessageBox::question(this, tr("Allow Analytics"),
-                                  tr("Allow OpenStudio Coalition to collect anonymous usage statistics to help improve the OpenStudio Application? See the <a href=\"https://openstudiocoalition.org/about/privacy_policy/\">privacy policy</a> for more information."),
-                                  QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
+    reply =
+      QMessageBox::question(this, tr("Allow Analytics"),
+                            tr("Allow OpenStudio Coalition to collect anonymous usage statistics to help improve the OpenStudio Application? See the "
+                               "<a href=\"https://openstudiocoalition.org/about/privacy_policy/\">privacy policy</a> for more information."),
+                            QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
     if (reply == QMessageBox::Yes) {
       emit enableAnalytics(true);
     } else {
