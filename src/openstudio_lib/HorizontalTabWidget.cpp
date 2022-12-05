@@ -73,7 +73,7 @@ HorizontalTabWidget::HorizontalTabWidget(QWidget* parent) : QWidget(parent) {
 
   m_tabBarLine->move(0, m_tabBar->height() - 5);
 
-  m_tabBarLine->setStyleSheet("QWidget { border-top: 1px solid black; background-color: #95B3DE; }");
+  m_tabBarLine->setStyleSheet("QWidget { border-top: none; background-color: #95B3DE; }");
 
   // Page stack
 
@@ -143,17 +143,30 @@ void HorizontalTabWidget::setCurrentIndex(int index) {
 
     QString style;
 
-    style.append("QPushButton { border: none; background-color: #808080; ");
-    style.append("              border-right: 1px solid black;");
-    style.append("              border-bottom: 1px solid black;");
+    style.append("QPushButton { ");
+    if (i == index) {
+      style.append("            border-bottom: none;");
+      style.append("            background-color: #95B3DE;");
+    }else{
+      style.append("            border-bottom: 1px solid black;");
+      style.append("            background-color: #808080;");
+    }
+    if (i == m_tabButtons.size() - 1) {
+      style.append("            border-right: none;");
+    }else{
+      style.append("            border-right: 1px solid black;");
+    }
+    style.append("              border-top: 1px solid black;");
+    style.append("              border-left: 1px solid black;");
+    style.append("              border-top-left-radius: 5px;");
+    style.append("              border-top-right-radius: 5px;");
+    style.append("              border-bottom-left-radius: none;");
+    style.append("              border-bottom-right-radius: none;");
     style.append("              padding-left: 10px;");
     style.append("              padding-right: 10px;");
     style.append("              padding-top: 5px;");
     style.append("              color: white;");
     style.append("              font-size: 12px;");
-    if (i == m_tabButtons.size() - 1) {
-      style.append("            border-right: none;");
-    }
     style.append("}");
 
     button->setStyleSheet(style);
@@ -169,22 +182,6 @@ void HorizontalTabWidget::setCurrentIndex(int index) {
   m_tabBarLine->raise();
 
   QPushButton* button = m_tabButtons[index];
-
-  QString style;
-
-  style.append("QPushButton { border: none; background-color: #95B3DE; ");
-  style.append("              border-right: 1px solid black;");
-  style.append("              padding-left: 10px;");
-  style.append("              padding-right: 10px;");
-  style.append("              padding-top: 5px;");
-  style.append("              color: white;");
-  style.append("              font-size: 12px;");
-  if (index == int(m_tabButtons.size() - 1)) {
-    style.append("            border-right: none;");
-  }
-  style.append("}");
-
-  button->setStyleSheet(style);
   button->raise();
 
   m_pageStack->setCurrentIndex(index);

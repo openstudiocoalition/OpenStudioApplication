@@ -66,7 +66,7 @@ GeometryPreviewView::GeometryPreviewView(bool isIP, const openstudio::model::Mod
 GeometryPreviewView::~GeometryPreviewView() = default;
 
 PreviewWebView::PreviewWebView(bool isIP, const model::Model& model, QWidget* t_parent)
-  : QWidget(t_parent), m_isIP(isIP), m_model(model), m_progressBar(new QProgressBar()), m_refreshBtn(new QPushButton("Refresh")) {
+  : QWidget(t_parent), m_isIP(isIP), m_model(model), m_progressBar(new ProgressBarWithError()), m_refreshBtn(new QPushButton("Refresh")) {
 
   openstudio::OSAppBase* app = OSAppBase::instance();
   OS_ASSERT(app);
@@ -91,9 +91,6 @@ PreviewWebView::PreviewWebView(bool isIP, const model::Model& model, QWidget* t_
   m_progressBar->setMaximum(100);
   m_progressBar->setValue(0);
   m_progressBar->setVisible(true);
-  m_progressBar->setStyleSheet("");
-  m_progressBar->setFormat("");
-  m_progressBar->setTextVisible(false);
 
   hLayout->addWidget(m_refreshBtn, 0, Qt::AlignVCenter);
   m_refreshBtn->setVisible(true);
@@ -130,9 +127,7 @@ PreviewWebView::PreviewWebView(bool isIP, const model::Model& model, QWidget* t_
 PreviewWebView::~PreviewWebView() = default;
 
 void PreviewWebView::refreshClicked() {
-  m_progressBar->setStyleSheet("");
-  m_progressBar->setFormat("");
-  m_progressBar->setTextVisible(false);
+  m_progressBar->setError(false);
 
   m_view->triggerPageAction(QWebEnginePage::ReloadAndBypassCache);
 }
@@ -153,9 +148,7 @@ void PreviewWebView::onLoadFinished(bool ok) {
     m_progressBar->setValue(10);
   } else {
     m_progressBar->setValue(100);
-    m_progressBar->setStyleSheet("QProgressBar::chunk {background-color: #FF0000;}");
-    m_progressBar->setFormat("Error");
-    m_progressBar->setTextVisible(true);
+    m_progressBar->setError(true);
     return;
   }
 
@@ -198,15 +191,12 @@ void PreviewWebView::onTranslateProgress(double percentage) {
 void PreviewWebView::onJavaScriptFinished(const QVariant& v) {
   m_document->enable();
   m_progressBar->setValue(100);
-  m_progressBar->setVisible(false);
 }
 
 void PreviewWebView::onRenderProcessTerminated(QWebEnginePage::RenderProcessTerminationStatus terminationStatus, int exitCode) {
   // qDebug() << "RenderProcessTerminationStatus: terminationStatus= " << terminationStatus << "exitCode=" << exitCode;
   m_progressBar->setValue(100);
-  m_progressBar->setStyleSheet("QProgressBar::chunk {background-color: #FF0000;}");
-  m_progressBar->setFormat("Error");
-  m_progressBar->setTextVisible(true);
+  m_progressBar->setError(true);
 }
 
 }  // namespace openstudio

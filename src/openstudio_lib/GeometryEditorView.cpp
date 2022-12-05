@@ -1094,7 +1094,7 @@ EditorWebView::EditorWebView(bool isIP, const openstudio::model::Model& model, Q
     m_model(model),
     m_geometrySourceComboBox(new QComboBox()),
     m_newImportGeometry(new QPushButton("New")),
-    m_progressBar(new QProgressBar()),
+    m_progressBar(new ProgressBarWithError()),
     m_refreshBtn(new QPushButton("Refresh")),
     m_previewBtn(new QPushButton("Preview OSM")),
     m_mergeBtn(new QPushButton("Merge with Current OSM")),
@@ -1140,7 +1140,6 @@ EditorWebView::EditorWebView(bool isIP, const openstudio::model::Model& model, Q
   m_progressBar->setMinimum(0);
   m_progressBar->setMaximum(100);
   m_progressBar->setValue(0);
-  m_progressBar->setVisible(false);  // make visible when load first page
 
   hLayout->addWidget(m_refreshBtn, 0, Qt::AlignVCenter);
   m_refreshBtn->setVisible(false);  // hide to simplify interface
@@ -1533,37 +1532,23 @@ void EditorWebView::onLoadFinished(bool ok) {
       m_debugBtn->setEnabled(true);
     }
 
-    m_progressBar->setStyleSheet("");
-    m_progressBar->setFormat("");
-    m_progressBar->setVisible(false);
-    m_progressBar->setTextVisible(false);
+    m_progressBar->setError(false);
   } else {
-    m_progressBar->setStyleSheet("QProgressBar::chunk {background-color: #FF0000;}");
-    m_progressBar->setFormat("Error");
-    m_progressBar->setVisible(true);
-    m_progressBar->setTextVisible(true);
+    m_progressBar->setError(true);
   }
 }
 
 void EditorWebView::onLoadProgress(int progress) {
-  m_progressBar->setStyleSheet("");
-  m_progressBar->setFormat("");
-  m_progressBar->setTextVisible(false);
+  m_progressBar->setError(false);
   m_progressBar->setValue(progress);
 }
 
 void EditorWebView::onLoadStarted() {
-  m_progressBar->setStyleSheet("");
-  m_progressBar->setFormat("");
+  m_progressBar->setError(false);
   m_progressBar->setVisible(true);
-  m_progressBar->setTextVisible(false);
 }
 
-void EditorWebView::onRenderProcessTerminated(QWebEnginePage::RenderProcessTerminationStatus /*terminationStatus*/, int /*exitCode*/) {
-  m_progressBar->setStyleSheet("QProgressBar::chunk {background-color: #FF0000;}");
-  m_progressBar->setFormat("Error");
-  m_progressBar->setTextVisible(true);
-}
+void EditorWebView::onRenderProcessTerminated(QWebEnginePage::RenderProcessTerminationStatus /*terminationStatus*/, int /*exitCode*/) {m_progressBar->setError(true);}
 
 openstudio::path EditorWebView::floorplanPath() const {
   return toPath(m_document->modelTempDir()) / toPath("resources/floorplan.json");

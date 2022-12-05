@@ -142,33 +142,15 @@ HVACToolbarView::HVACToolbarView() {
 
   controlLayout->addStretch();
 
-  style.clear();
   zoomInButton = new QPushButton();
   zoomInButton->setFlat(true);
-  style.append("QPushButton {");
-  style.append("              border: none;");
-  style.append("              height: 20px;");
-  style.append("              width: 20px;");
-  style.append("              background-image: url(\":images/zoom-in.png\");");
-  style.append("} ");
-  style.append("QPushButton:hover { background-image: url(\":images/zoom-in-over.png\"); } ");
-  style.append("QPushButton:pressed { background-image: url(\":images/zoom-in-press.png\"); } ");
-  zoomInButton->setStyleSheet(style);
+  zoomInButton->setObjectName("ZoomInButton");
   controlLayout->addWidget(zoomInButton);
 
-  style.clear();
 
   zoomOutButton = new QPushButton();
   zoomOutButton->setFlat(true);
-  style.append("QPushButton {");
-  style.append("              border: none;");
-  style.append("              height: 20px;");
-  style.append("              width: 20px;");
-  style.append("              background-image: url(\":images/zoom-out.png\");");
-  style.append("} ");
-  style.append("QPushButton:hover { background-image: url(\":images/zoom-out-over.png\"); } ");
-  style.append("QPushButton:pressed { background-image: url(\":images/zoom-out-press.png\"); } ");
-  zoomOutButton->setStyleSheet(style);
+  zoomOutButton->setObjectName("ZoomOutButton");
   controlLayout->addWidget(zoomOutButton);
 
   controlLayout->addStretch();

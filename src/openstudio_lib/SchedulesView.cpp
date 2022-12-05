@@ -751,7 +751,7 @@ ScheduleTabHeader::ScheduleTabHeader(ScheduleTab* scheduleTab, QWidget* parent)
   mainHLayout->addWidget(m_toggleButton);
   style.clear();
   style.append("QPushButton { ");
-  style.append("border: none; ");
+  style.append("border: none; background: transparent;");
   style.append("background-image: url(\":/images/toggle_arrow.png\"); ");
   style.append("} ");
 

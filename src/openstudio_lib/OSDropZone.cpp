@@ -483,7 +483,7 @@ void OSDropZoneItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* /*
   painter->drawRect(boundingRect());
 
   QFont font = painter->font();
-  font.setPointSize(24);
+  font.setPixelSize(24);
   painter->setFont(font);
   painter->setPen(QPen(QColor(109, 109, 109), 2, Qt::DashLine, Qt::RoundCap));
   painter->drawText(boundingRect(), Qt::AlignCenter | Qt::TextWordWrap, m_text);

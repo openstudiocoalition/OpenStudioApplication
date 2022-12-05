@@ -75,7 +75,6 @@
 #include <QMessageBox>
 #include <QPainter>
 #include <QPlainTextEdit>
-#include <QProgressBar>
 #include <QPushButton>
 #include <QRadioButton>
 #include <QScrollArea>
@@ -109,7 +108,7 @@ RunView::RunView() : QWidget(), m_runSocket(nullptr) {
   setLayout(mainLayout);
 
   m_playButton = new QToolButton();
-  m_playButton->setText("Run");
+  m_playButton->setText("<b>Run<b>");
   m_playButton->setCheckable(true);
   m_playButton->setChecked(false);
   QIcon playbuttonicon(QPixmap(":/images/run_simulation_button.png"));
@@ -126,10 +125,7 @@ RunView::RunView() : QWidget(), m_runSocket(nullptr) {
   connect(m_playButton, &QToolButton::clicked, this, &RunView::playButtonClicked);
 
   // Progress bar area
-  m_progressBar = new QProgressBar();
-  m_progressBar->setStyleSheet("QProgressBar{background-color:#E6E6E6;border:1px solid #949393}"
-                               "QProgressBar::chunk{background-color:qlineargradient(x1:0,y1:0,x2:1,y2:0,stop:0 #95B3DE,stop:1 #4B7DB0)}");
-  m_progressBar->setTextVisible(false);
+  m_progressBar = new ProgressBarWithError();
   m_progressBar->setMaximum(State::complete);
 
   auto* progressbarlayout = new QVBoxLayout();
@@ -227,6 +223,8 @@ void RunView::onRunProcessFinished(int exitCode, QProcess::ExitStatus status) {
 
   m_playButton->setChecked(false);
   m_state = State::stopped;
+
+  m_progressBar->setError(true);
   m_progressBar->setMaximum(State::complete);
   m_progressBar->setValue(State::complete);
 
@@ -320,6 +318,7 @@ void RunView::playButtonClicked(bool t_checked) {
     m_state = State::stopped;
     m_textInfo->clear();
 
+    m_progressBar->setError(false);
     m_progressBar->setMinimum(0);
     m_progressBar->setMaximum(State::complete);
     m_progressBar->setValue(0);

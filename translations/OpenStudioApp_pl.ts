@@ -437,103 +437,80 @@ Pomieszczenie</translation>
 <context>
     <name>openstudio::LostCloudConnectionDialog</name>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="85"/>
         <source>Requirements for cloud:</source>
-        <translation>Wymagania dotyczące chmury:</translation>
+        <translation type="vanished">Wymagania dotyczące chmury:</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="99"/>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="101"/>
         <source>Internet Connection: </source>
-        <translation>Połączenie internetowe: </translation>
+        <translation type="vanished">Połączenie internetowe: </translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="99"/>
         <source>yes</source>
-        <translation>tak</translation>
+        <translation type="vanished">tak</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="101"/>
         <source>no</source>
-        <translation>nie</translation>
+        <translation type="vanished">nie</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="108"/>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="110"/>
         <source>Cloud Log-in: </source>
-        <translation>Logowanie do chmury: </translation>
+        <translation type="vanished">Logowanie do chmury: </translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="108"/>
         <source>accepted</source>
-        <translation>Zaakceptowano</translation>
+        <translation type="vanished">Zaakceptowano</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="110"/>
         <source>denied</source>
-        <translation>Odmowa</translation>
+        <translation type="vanished">Odmowa</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="117"/>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="122"/>
         <source>Cloud Connection: </source>
-        <translation>Połączenie z chmurą: </translation>
+        <translation type="vanished">Połączenie z chmurą: </translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="117"/>
         <source>reconnected</source>
-        <translation>ponownie podłączony</translation>
+        <translation type="vanished">ponownie podłączony</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="122"/>
         <source>unable to reconnect. </source>
-        <translation>Nie można ponownie połączyć. </translation>
+        <translation type="vanished">Nie można ponownie połączyć. </translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="123"/>
         <source>Remember that cloud charges may currently be accruing.</source>
-        <translation>Pamiętaj, że obecnie mogą być naliczane opłaty za chmurę.</translation>
+        <translation type="vanished">Pamiętaj, że obecnie mogą być naliczane opłaty za chmurę.</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="138"/>
         <source>Options to correct the problem:</source>
-        <translation>Opcje rozwiązania problemu:</translation>
+        <translation type="vanished">Opcje rozwiązania problemu:</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="151"/>
         <source>Try Again Later. </source>
-        <translation>Spróbuj ponownie później. </translation>
+        <translation type="vanished">Spróbuj ponownie później. </translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="152"/>
         <source>Verify your computer&apos;s internet connection then click &quot;Lost Cloud Connection&quot; to recover the lost cloud session.</source>
-        <translation>Sprawdź połączenie internetowe komputera, a następnie kliknij „Utracono połączenie z chmurą”, aby odzyskać utraconą sesję w chmurze.</translation>
+        <translation type="vanished">Sprawdź połączenie internetowe komputera, a następnie kliknij „Utracono połączenie z chmurą”, aby odzyskać utraconą sesję w chmurze.</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="156"/>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="175"/>
         <source>Or</source>
-        <translation>Lub</translation>
+        <translation type="vanished">Lub</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="169"/>
         <source>Stop Cloud. </source>
-        <translation>Zatrzymaj chmurę. </translation>
+        <translation type="vanished">Zatrzymaj chmurę. </translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="170"/>
         <source>Disconnect from cloud.  This option will make the failed cloud session unavailable to Pat.  Any data that has not been downloaded to Pat will be lost.  Use the AWS Console to verify that the Amazon service have been completely shutdown.</source>
-        <translation>Odłącz się od chmury. Ta opcja sprawi, że nieudana sesja w chmurze będzie niedostępna dla Pat. Wszelkie dane, które nie zostały pobrane do Pat, zostaną utracone. Użyj konsoli AWS, aby sprawdzić, czy usługa Amazon została całkowicie zamknięta.</translation>
+        <translation type="vanished">Odłącz się od chmury. Ta opcja sprawi, że nieudana sesja w chmurze będzie niedostępna dla Pat. Wszelkie dane, które nie zostały pobrane do Pat, zostaną utracone. Użyj konsoli AWS, aby sprawdzić, czy usługa Amazon została całkowicie zamknięta.</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="188"/>
         <source>Launch AWS Console. </source>
-        <translation>Uruchom konsolę AWS. </translation>
+        <translation type="vanished">Uruchom konsolę AWS. </translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="189"/>
         <source>Use the AWS Console to diagnose Amazon services.  You may still attempt to recover the lost cloud session.</source>
-        <translation>Skorzystaj z konsoli AWS, aby zdiagnozować usługi Amazon. Nadal możesz spróbować odzyskać utraconą sesję w chmurze.</translation>
+        <translation type="vanished">Skorzystaj z konsoli AWS, aby zdiagnozować usługi Amazon. Nadal możesz spróbować odzyskać utraconą sesję w chmurze.</translation>
     </message>
 </context>
 <context>
@@ -1253,12 +1230,12 @@ Chcesz przywrócić ścieżki biblioteki do wartości domyślnych, czy otworzyć
 <context>
     <name>openstudio::RunView</name>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="197"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="196"/>
         <source>onRunProcessErrored: Simulation failed to run, QProcess::ProcessError: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="209"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="208"/>
         <source>Simulation failed to run, with exit code </source>
         <translation type="unfinished"></translation>
     </message>

@@ -44,11 +44,11 @@ LightHeaderToggleButton::LightHeaderToggleButton(QWidget* parent) : QPushButton(
   setFixedSize(11, 11);
 
   QString style;
-  style.append("QPushButton { border: none; ");
-  style.append("background-image: url(\":/shared_gui_components/images/toggle_arrow_closed.png\"); ");
+  style.append("QPushButton { border: none; background: transparent;");
+  style.append("background-image: url(\":/images/toggle_arrow_closed.png\"); ");
   style.append(" } ");
-  style.append("QPushButton:checked { border: none; ");
-  style.append("background-image: url(\":/shared_gui_components/images/toggle_arrow.png\"); ");
+  style.append("QPushButton:checked {");
+  style.append("background-image: url(\":/images/toggle_arrow.png\"); ");
   style.append(" } ");
 
   setStyleSheet(style);
@@ -60,11 +60,11 @@ HeaderToggleButton::HeaderToggleButton(QWidget* parent) : QPushButton(parent) {
   setFixedSize(11, 11);
 
   QString style;
-  style.append("QPushButton { border: none; ");
-  style.append("background-image: url(\":/shared_gui_components/images/toggle_arrow_closed.png\"); ");
+  style.append("QPushButton { border: none; background: transparent;");
+  style.append("background-image: url(\":/images/toggle_arrow_closed.png\"); ");
   style.append(" } ");
   style.append("QPushButton:checked { border: none; ");
-  style.append("background-image: url(\":/shared_gui_components/images/toggle_arrow.png\"); ");
+  style.append("background-image: url(\":/images/toggle_arrow.png\"); ");
   style.append(" } ");
 
   setStyleSheet(style);
@@ -135,15 +135,15 @@ void LightGradientHeader::setMeasureType(const MeasureType& measureType) {
 
   if (measureType == MeasureType::ModelMeasure) {
     m_measureTypeBadge->setPixmap(
-      QPixmap(":/shared_gui_components/images/openstudio_measure_icon.png").scaled(25, 25, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+      QPixmap(":/images/openstudio_measure_icon.png").scaled(25, 25, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
     found = true;
   } else if (measureType == MeasureType::EnergyPlusMeasure) {
     m_measureTypeBadge->setPixmap(
-      QPixmap(":/shared_gui_components/images/energyplus_measure_icon.png").scaled(25, 25, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+      QPixmap(":/images/energyplus_measure_icon.png").scaled(25, 25, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
     found = true;
   } else if (measureType == MeasureType::ReportingMeasure) {
     m_measureTypeBadge->setPixmap(
-      QPixmap(":/shared_gui_components/images/report_measure_icon.png").scaled(25, 25, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+      QPixmap(":/images/report_measure_icon.png").scaled(25, 25, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
     found = true;
   }
 

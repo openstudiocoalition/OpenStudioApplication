@@ -43,7 +43,6 @@
 #include <QScrollArea>
 #include <QSplitter>
 #include <QStyleOption>
-#include <QProgressBar>
 
 namespace openstudio {
 

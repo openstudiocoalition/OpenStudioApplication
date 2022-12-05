@@ -106,7 +106,7 @@ LocalLibraryController::LocalLibraryController(BaseApp* t_app, bool onlyShowMode
 
   connect(localLibraryView->addBCLMeasureButton, &QPushButton::clicked, this, &LocalLibraryController::openBclDlg);
 
-  connect(localLibraryView->lookForUpdateButton, &QPushButton::clicked, this, &LocalLibraryController::checkForRemoteBCLUpdates);
+  connect(localLibraryView->checkForUpdateButton, &QPushButton::clicked, this, &LocalLibraryController::checkForRemoteBCLUpdates);
 }
 
 void LocalLibraryController::addMeasure() {
@@ -503,15 +503,15 @@ QWidget* LibraryItemDelegate::view(QSharedPointer<OSListItem> dataSource) {
 
     if (measureType == MeasureType::ModelMeasure) {
       widget->m_measureTypeBadge->setPixmap(
-        QPixmap(":/shared_gui_components/images/openstudio_measure_icon.png").scaled(25, 25, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+        QPixmap(":/images/openstudio_measure_icon.png").scaled(25, 25, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
       widget->m_measureTypeBadge->setVisible(true);
     } else if (measureType == MeasureType::EnergyPlusMeasure) {
       widget->m_measureTypeBadge->setPixmap(
-        QPixmap(":/shared_gui_components/images/energyplus_measure_icon.png").scaled(25, 25, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+        QPixmap(":/images/energyplus_measure_icon.png").scaled(25, 25, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
       widget->m_measureTypeBadge->setVisible(true);
     } else if (measureType == MeasureType::ReportingMeasure) {
       widget->m_measureTypeBadge->setPixmap(
-        QPixmap(":/shared_gui_components/images/report_measure_icon.png").scaled(25, 25, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+        QPixmap(":/images/report_measure_icon.png").scaled(25, 25, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
       widget->m_measureTypeBadge->setVisible(true);
     }
 

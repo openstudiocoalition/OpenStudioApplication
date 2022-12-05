@@ -395,8 +395,6 @@ set(${target_name}_SRC
   ../shared_gui_components/LocalLibraryController.hpp
   ../shared_gui_components/LocalLibraryView.cpp
   ../shared_gui_components/LocalLibraryView.hpp
-  ../shared_gui_components/LostCloudConnectionDialog.cpp
-  ../shared_gui_components/LostCloudConnectionDialog.hpp
   ../shared_gui_components/MeasureBadge.cpp
   ../shared_gui_components/MeasureBadge.hpp
   ../shared_gui_components/MeasureDragData.cpp
@@ -452,6 +450,8 @@ set(${target_name}_SRC
   ../shared_gui_components/PageNavigator.hpp
   ../shared_gui_components/ProcessEventsProgressBar.cpp
   ../shared_gui_components/ProcessEventsProgressBar.hpp
+  ../shared_gui_components/ProgressBarWithError.cpp
+  ../shared_gui_components/ProgressBarWithError.hpp
   ../shared_gui_components/SyncMeasuresDialog.cpp
   ../shared_gui_components/SyncMeasuresDialog.hpp
   ../shared_gui_components/SyncMeasuresDialogCentralWidget.cpp
@@ -665,7 +665,6 @@ set(${target_name}_moc
   ../shared_gui_components/EditView.hpp
   ../shared_gui_components/GraphicsItems.hpp
   ../shared_gui_components/HeaderViews.hpp
-  ../shared_gui_components/LostCloudConnectionDialog.hpp
   ../shared_gui_components/LocalLibraryController.hpp
   ../shared_gui_components/LocalLibraryView.hpp
   ../shared_gui_components/MeasureBadge.hpp
@@ -693,6 +692,7 @@ set(${target_name}_moc
   ../shared_gui_components/OSViewSwitcher.hpp
   ../shared_gui_components/OSWidgetHolder.hpp
   ../shared_gui_components/PageNavigator.hpp
+  ../shared_gui_components/ProgressBarWithError.hpp
   ../shared_gui_components/SyncMeasuresDialog.hpp
   ../shared_gui_components/SyncMeasuresDialogCentralWidget.hpp
   ../shared_gui_components/TextEditDialog.hpp

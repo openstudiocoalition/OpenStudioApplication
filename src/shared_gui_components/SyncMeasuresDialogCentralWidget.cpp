@@ -42,7 +42,6 @@
 #include <QBoxLayout>
 #include <QCheckBox>
 #include <QPushButton>
-#include <QProgressBar>
 
 #define NUM_COMPONENTS_DISPLAYED 10
 
@@ -93,7 +92,7 @@ void SyncMeasuresDialogCentralWidget::createLayout() {
 
   //*******************************************************************
 
-  progressBar = new QProgressBar(this);
+  progressBar = new ProgressBarWithError(this);
   progressBar->setOrientation(Qt::Horizontal);
   progressBar->setVisible(false);
   progressBar->setTextVisible(false);

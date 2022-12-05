@@ -27,46 +27,25 @@
 *  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ***********************************************************************************************************************/
 
-#ifndef SHAREDGUICOMPONENTS_LOSTCLOUDCONNECTIONDIALOG_HPP
-#define SHAREDGUICOMPONENTS_LOSTCLOUDCONNECTIONDIALOG_HPP
-
-#include "OSDialog.hpp"
-
-class QVBoxLayout;
+#include "ProgressBarWithError.hpp"
 
 namespace openstudio {
 
-class LostCloudConnectionDialog : public OSDialog
-{
-  Q_OBJECT
+ProgressBarWithError::ProgressBarWithError(QWidget* parent) : QProgressBar(parent) {
+  setObjectName("ProgressBarWithError");
+  setError(false);
+}
 
- public:
-  LostCloudConnectionDialog(bool internetAvailable, bool authenticated, bool cloudRunning, QWidget* parent = nullptr);
-
-  virtual ~LostCloudConnectionDialog();
-
-  bool clearCloudSession() {
-    return m_clearCloudSession;
+void ProgressBarWithError::setError(bool error) {
+  if (error) {
+    this->setFormat("");
+    this->setTextVisible(false);
+    this->setStyleSheet("QProgressBar::chunk{background-color: #FF0000;}");
+  } else {
+    this->setFormat("");
+    this->setTextVisible(false);
+    this->setStyleSheet("");
   }
-
- protected slots:
-
-  //virtual void on_okButton(bool checked);
-
- private:
-  void createWidgets(bool internetAvailable, bool authenticated, bool cloudRunning);
-
-  void createCloudConnectionWidgets(QVBoxLayout* vLayout);
-
-  bool m_clearCloudSession;
-
- private slots:
-
-  void on_launchAWSConsole(bool checked);
-
-  void on_clearCloudSession(bool checked);
-};
+}
 
 }  // namespace openstudio
-
-#endif  // SHAREDGUICOMPONENTS_LOSTCLOUDCONNECTIONDIALOG_HPP

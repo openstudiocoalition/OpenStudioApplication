@@ -37,7 +37,7 @@
 /********************************************************************************/
 // TODO this class exists in PAT.  Once PAT is in the OpenStudio project,
 // the PAT implementation of BusyWidget should be used.
-// Note that QPixmap pixmap = QPixmap(":/shared_gui_components/images/rotating_arrow.png").scaled(25,25)
+// Note that QPixmap pixmap = QPixmap(":/images/rotating_arrow.png").scaled(25,25)
 // should not scale-down the image for the OS App application
 /********************************************************************************/
 
@@ -46,8 +46,8 @@
 namespace openstudio {
 
 BusyWidget::BusyWidget(QWidget* parent) : QWidget(parent) {
-  //QPixmap pixmap = QPixmap(":/shared_gui_components/images/rotating_arrow.png").scaled(25,25);
-  QPixmap pixmap = QPixmap(":/shared_gui_components/images/rotating_arrow.png");
+  //QPixmap pixmap = QPixmap(":/images/rotating_arrow.png").scaled(25,25);
+  QPixmap pixmap = QPixmap(":/images/rotating_arrow.png");
 
   m_pixmap = std::shared_ptr<QPixmap>(new QPixmap(pixmap));
 

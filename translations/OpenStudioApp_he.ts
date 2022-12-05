@@ -434,103 +434,80 @@ Zone</source>
 <context>
     <name>openstudio::LostCloudConnectionDialog</name>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="85"/>
         <source>Requirements for cloud:</source>
-        <translation>דרישות לשימוש בענן:</translation>
+        <translation type="vanished">דרישות לשימוש בענן:</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="99"/>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="101"/>
         <source>Internet Connection: </source>
-        <translation>חיבור אינטרנט:</translation>
+        <translation type="vanished">חיבור אינטרנט:</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="99"/>
         <source>yes</source>
-        <translation>כן</translation>
+        <translation type="vanished">כן</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="101"/>
         <source>no</source>
-        <translation>לא</translation>
+        <translation type="vanished">לא</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="108"/>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="110"/>
         <source>Cloud Log-in: </source>
-        <translation>כניסה לענן</translation>
+        <translation type="vanished">כניסה לענן</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="108"/>
         <source>accepted</source>
-        <translation>מקובל</translation>
+        <translation type="vanished">מקובל</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="110"/>
         <source>denied</source>
-        <translation>הוכחש</translation>
+        <translation type="vanished">הוכחש</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="117"/>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="122"/>
         <source>Cloud Connection: </source>
-        <translation>חיבור לענן:</translation>
+        <translation type="vanished">חיבור לענן:</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="117"/>
         <source>reconnected</source>
-        <translation>התחבר מחדש</translation>
+        <translation type="vanished">התחבר מחדש</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="122"/>
         <source>unable to reconnect. </source>
-        <translation>לא ניתן להתחבר מחדש.</translation>
+        <translation type="vanished">לא ניתן להתחבר מחדש.</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="123"/>
         <source>Remember that cloud charges may currently be accruing.</source>
-        <translation>זכור כי עשויים להצטבר חיובי שימוש בענן.</translation>
+        <translation type="vanished">זכור כי עשויים להצטבר חיובי שימוש בענן.</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="138"/>
         <source>Options to correct the problem:</source>
-        <translation>אפשרויות לתיקון הבעיה:</translation>
+        <translation type="vanished">אפשרויות לתיקון הבעיה:</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="151"/>
         <source>Try Again Later. </source>
-        <translation>נסה מאוחר יותר.</translation>
+        <translation type="vanished">נסה מאוחר יותר.</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="152"/>
         <source>Verify your computer&apos;s internet connection then click &quot;Lost Cloud Connection&quot; to recover the lost cloud session.</source>
-        <translation>בדוק את חיבור האינטרנט של המחשב שלך ולאחר מכן לחץ על &quot;חיבור ענן אבד&quot; כדי לשחזר את הפעלת הענן שאבדה.</translation>
+        <translation type="vanished">בדוק את חיבור האינטרנט של המחשב שלך ולאחר מכן לחץ על &quot;חיבור ענן אבד&quot; כדי לשחזר את הפעלת הענן שאבדה.</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="156"/>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="175"/>
         <source>Or</source>
-        <translation>או</translation>
+        <translation type="vanished">או</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="169"/>
         <source>Stop Cloud. </source>
-        <translation>עצור את הענן.</translation>
+        <translation type="vanished">עצור את הענן.</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="170"/>
         <source>Disconnect from cloud.  This option will make the failed cloud session unavailable to Pat.  Any data that has not been downloaded to Pat will be lost.  Use the AWS Console to verify that the Amazon service have been completely shutdown.</source>
-        <translation>נתק את הענן. אפשרות זו תגרום להפעלת הענן שהופסקה לא תהיה נגישה עבור PAT. כל נתונים שלא יועלו ל-PAT יאבדו. השתמש ב- AWS כדי לוודא ששירות אמזון הופסק לחלוטין.</translation>
+        <translation type="vanished">נתק את הענן. אפשרות זו תגרום להפעלת הענן שהופסקה לא תהיה נגישה עבור PAT. כל נתונים שלא יועלו ל-PAT יאבדו. השתמש ב- AWS כדי לוודא ששירות אמזון הופסק לחלוטין.</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="188"/>
         <source>Launch AWS Console. </source>
-        <translation>הפעל את AWS Console.</translation>
+        <translation type="vanished">הפעל את AWS Console.</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="189"/>
         <source>Use the AWS Console to diagnose Amazon services.  You may still attempt to recover the lost cloud session.</source>
-        <translation>השתמש במסוף AWS כדי לאבחן שירותי אמזון. אתה עדיין יכול לנסות לשחזר את סשן הענן שאבד.</translation>
+        <translation type="vanished">השתמש במסוף AWS כדי לאבחן שירותי אמזון. אתה עדיין יכול לנסות לשחזר את סשן הענן שאבד.</translation>
     </message>
 </context>
 <context>
@@ -1239,12 +1216,12 @@ Would you like to Restore library paths to default values or Open the library se
 <context>
     <name>openstudio::RunView</name>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="197"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="196"/>
         <source>onRunProcessErrored: Simulation failed to run, QProcess::ProcessError: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="209"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="208"/>
         <source>Simulation failed to run, with exit code </source>
         <translation type="unfinished"></translation>
     </message>
