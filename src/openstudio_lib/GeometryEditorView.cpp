@@ -1548,7 +1548,9 @@ void EditorWebView::onLoadStarted() {
   m_progressBar->setVisible(true);
 }
 
-void EditorWebView::onRenderProcessTerminated(QWebEnginePage::RenderProcessTerminationStatus /*terminationStatus*/, int /*exitCode*/) {m_progressBar->setError(true);}
+void EditorWebView::onRenderProcessTerminated(QWebEnginePage::RenderProcessTerminationStatus /*terminationStatus*/, int /*exitCode*/) {
+  m_progressBar->setError(true);
+}
 
 openstudio::path EditorWebView::floorplanPath() const {
   return toPath(m_document->modelTempDir()) / toPath("resources/floorplan.json");

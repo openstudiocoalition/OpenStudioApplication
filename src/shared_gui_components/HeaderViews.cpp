@@ -134,16 +134,13 @@ void LightGradientHeader::setMeasureType(const MeasureType& measureType) {
   bool found = false;
 
   if (measureType == MeasureType::ModelMeasure) {
-    m_measureTypeBadge->setPixmap(
-      QPixmap(":/images/openstudio_measure_icon.png").scaled(25, 25, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+    m_measureTypeBadge->setPixmap(QPixmap(":/images/openstudio_measure_icon.png").scaled(25, 25, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
     found = true;
   } else if (measureType == MeasureType::EnergyPlusMeasure) {
-    m_measureTypeBadge->setPixmap(
-      QPixmap(":/images/energyplus_measure_icon.png").scaled(25, 25, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+    m_measureTypeBadge->setPixmap(QPixmap(":/images/energyplus_measure_icon.png").scaled(25, 25, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
     found = true;
   } else if (measureType == MeasureType::ReportingMeasure) {
-    m_measureTypeBadge->setPixmap(
-      QPixmap(":/images/report_measure_icon.png").scaled(25, 25, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+    m_measureTypeBadge->setPixmap(QPixmap(":/images/report_measure_icon.png").scaled(25, 25, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
     found = true;
   }
 

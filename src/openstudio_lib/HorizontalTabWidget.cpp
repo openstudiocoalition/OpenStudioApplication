@@ -147,13 +147,13 @@ void HorizontalTabWidget::setCurrentIndex(int index) {
     if (i == index) {
       style.append("            border-bottom: none;");
       style.append("            background-color: #95B3DE;");
-    }else{
+    } else {
       style.append("            border-bottom: 1px solid black;");
       style.append("            background-color: #808080;");
     }
     if (i == m_tabButtons.size() - 1) {
       style.append("            border-right: none;");
-    }else{
+    } else {
       style.append("            border-right: 1px solid black;");
     }
     style.append("              border-top: 1px solid black;");
