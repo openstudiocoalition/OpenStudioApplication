@@ -723,11 +723,11 @@ void InspectorDialog::createWidgets() {
   /// The list widget
 
   QFont labelFont;
-  labelFont.setPointSize(12);
+  labelFont.setPixelSize(12);
   //labelFont.setBold(true);
 
   QFont subLabelFont;
-  //subLabelFont.setPointSize(12);
+  subLabelFont.setPixelSize(12);
   subLabelFont.setBold(true);
 
   auto* listLabel = new QLabel(this);
@@ -956,7 +956,7 @@ void InspectorDialog::loadStyleSheet() {
 
 void InspectorDialog::loadListWidgetData() {
   QFont groupFont;
-  //groupFont.setPointSize(12);
+  groupFont.setPixelSize(12);
   groupFont.setBold(true);
 
   //backgroundGradient.setColorAt(0.66, QColor(208,212,215));

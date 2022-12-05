@@ -363,73 +363,73 @@ Zone</source>
         <translation>下载气候文件从： &lt;a href=&quot;http://www.energyplus.net/weather&quot;&gt;www.energyplus.net/weather&lt;/a&gt;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="241"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="242"/>
         <source>Measure Tags (Optional):</source>
         <translation>度量标签（可选）：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="245"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="246"/>
         <source>ASHRAE Climate Zone</source>
         <translation>ASHRAE标准 气候区</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="278"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="279"/>
         <source>CEC Climate Zone</source>
         <translation>CEC标准气候区</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="346"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="348"/>
         <source>Design Days</source>
         <translation>设计日</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="349"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="351"/>
         <source>Import From DDY</source>
         <translation>从DDY文件导入</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="476"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="478"/>
         <source>Change Weather File</source>
         <translation>修改气候文件</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="479"/>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="483"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="481"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="485"/>
         <source>Set Weather File</source>
         <translation>设置气候文件</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="532"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="534"/>
         <source>EPW Files (*.epw);; All Files (*.*)</source>
         <translation>EPW 文件 (*.epw);; 所有文件 (*.*)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="543"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="545"/>
         <source>Open Weather File</source>
         <translation>打开气候文件</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="629"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="631"/>
         <source>Failed To Set Weather File</source>
         <translation>设置气候文件失败</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="629"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="631"/>
         <source>Failed To Set Weather File To </source>
         <translation>设置气候文件失败 </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="662"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="664"/>
         <source>Open DDY File</source>
         <translation>打开DDY文件</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="755"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="757"/>
         <source>No Design Days in DDY File</source>
         <translation>DDY不含设计日</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="756"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="758"/>
         <source>This DDY file does not contain any valid design days.  Check the DDY file itself for errors or omissions.</source>
         <translation>这个DDY文件不含任何设计日。请检查这个DDY文件是否有误。</translation>
     </message>
@@ -437,103 +437,80 @@ Zone</source>
 <context>
     <name>openstudio::LostCloudConnectionDialog</name>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="85"/>
         <source>Requirements for cloud:</source>
-        <translation>网络要求：</translation>
+        <translation type="vanished">网络要求：</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="99"/>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="101"/>
         <source>Internet Connection: </source>
-        <translation>网络连接： </translation>
+        <translation type="vanished">网络连接： </translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="99"/>
         <source>yes</source>
-        <translation>是</translation>
+        <translation type="vanished">是</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="101"/>
         <source>no</source>
-        <translation>否</translation>
+        <translation type="vanished">否</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="108"/>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="110"/>
         <source>Cloud Log-in: </source>
-        <translation>登录： </translation>
+        <translation type="vanished">登录： </translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="108"/>
         <source>accepted</source>
-        <translation>接受</translation>
+        <translation type="vanished">接受</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="110"/>
         <source>denied</source>
-        <translation>拒绝</translation>
+        <translation type="vanished">拒绝</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="117"/>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="122"/>
         <source>Cloud Connection: </source>
-        <translation>网络连接： </translation>
+        <translation type="vanished">网络连接： </translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="117"/>
         <source>reconnected</source>
-        <translation>建议</translation>
+        <translation type="vanished">建议</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="122"/>
         <source>unable to reconnect. </source>
-        <translation>无法连接。 </translation>
+        <translation type="vanished">无法连接。 </translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="123"/>
         <source>Remember that cloud charges may currently be accruing.</source>
-        <translation>注意云计算的费用可能正在累积。</translation>
+        <translation type="vanished">注意云计算的费用可能正在累积。</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="138"/>
         <source>Options to correct the problem:</source>
-        <translation>修正错误的选项：</translation>
+        <translation type="vanished">修正错误的选项：</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="151"/>
         <source>Try Again Later. </source>
-        <translation>稍后再试。 </translation>
+        <translation type="vanished">稍后再试。 </translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="152"/>
         <source>Verify your computer&apos;s internet connection then click &quot;Lost Cloud Connection&quot; to recover the lost cloud session.</source>
-        <translation>检查你的网络连接，然后点击“丢失连接”来恢复连接。</translation>
+        <translation type="vanished">检查你的网络连接，然后点击“丢失连接”来恢复连接。</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="156"/>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="175"/>
         <source>Or</source>
-        <translation>或</translation>
+        <translation type="vanished">或</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="169"/>
         <source>Stop Cloud. </source>
-        <translation>停止连接。 </translation>
+        <translation type="vanished">停止连接。 </translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="170"/>
         <source>Disconnect from cloud.  This option will make the failed cloud session unavailable to Pat.  Any data that has not been downloaded to Pat will be lost.  Use the AWS Console to verify that the Amazon service have been completely shutdown.</source>
-        <translation>断开连接。这会使Pat断开连接。任何还没下载到Pat的数据都会丢失。使用AWS终端去检查服务器是否完全关闭。</translation>
+        <translation type="vanished">断开连接。这会使Pat断开连接。任何还没下载到Pat的数据都会丢失。使用AWS终端去检查服务器是否完全关闭。</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="188"/>
         <source>Launch AWS Console. </source>
-        <translation>打开AWS终端。 </translation>
+        <translation type="vanished">打开AWS终端。 </translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="189"/>
         <source>Use the AWS Console to diagnose Amazon services.  You may still attempt to recover the lost cloud session.</source>
-        <translation>使用AWS终端去诊断服务器。你任然可以尝试去恢复丢失的连接。</translation>
+        <translation type="vanished">使用AWS终端去诊断服务器。你任然可以尝试去恢复丢失的连接。</translation>
     </message>
 </context>
 <context>
@@ -1251,12 +1228,12 @@ Would you like to Restore library paths to default values or Open the library se
 <context>
     <name>openstudio::RunView</name>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="197"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="196"/>
         <source>onRunProcessErrored: Simulation failed to run, QProcess::ProcessError: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="209"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="208"/>
         <source>Simulation failed to run, with exit code </source>
         <translation type="unfinished"></translation>
     </message>

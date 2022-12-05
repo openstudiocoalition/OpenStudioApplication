@@ -143,6 +143,9 @@ void RefrigerationSystemMiniView::setName(const QString& name) {
 
 void RefrigerationSystemMiniView::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
   // Background and Border
+  QFont font = painter->font();
+  font.setPixelSize(12);
+  painter->setFont(font);
 
   painter->setRenderHint(QPainter::Antialiasing, true);
   painter->setBrush(Qt::NoBrush);
@@ -424,6 +427,10 @@ void RefrigerationCasesView::setExpanded(bool exapanded) {
 }
 
 void RefrigerationCasesView::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+  QFont font = painter->font();
+  font.setPixelSize(12);
+  painter->setFont(font);
+
   painter->setRenderHint(QPainter::Antialiasing, true);
   painter->setBrush(Qt::NoBrush);
   painter->setPen(QPen(Qt::black, 2, Qt::SolidLine, Qt::RoundCap));
@@ -634,6 +641,10 @@ QRectF RefrigerationCaseDetailView::iconRect() {
 }
 
 void RefrigerationCaseDetailView::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+  QFont font = painter->font();
+  font.setPixelSize(12);
+  painter->setFont(font);
+
   painter->setRenderHint(QPainter::Antialiasing, true);
   painter->setBrush(Qt::NoBrush);
   painter->setPen(QPen(Qt::black, 2, Qt::SolidLine, Qt::RoundCap));
@@ -646,7 +657,7 @@ void RefrigerationCaseDetailView::paint(QPainter* painter, const QStyleOptionGra
 
   painter->drawRect(boundingRect());
 
-  painter->drawText(nameRect(), Qt::AlignCenter, m_name);
+  painter->drawText(nameRect(), Qt::AlignCenter | Qt::TextWordWrap, m_name);
 }
 
 RefrigerationCondenserView::RefrigerationCondenserView() {
@@ -716,6 +727,10 @@ void RefrigerationCondenserView::onRemoveButtonClicked() {
 }
 
 void RefrigerationCondenserView::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+  QFont font = painter->font();
+  font.setPixelSize(12);
+  painter->setFont(font);
+
   painter->setRenderHint(QPainter::Antialiasing, true);
   painter->setBrush(Qt::NoBrush);
   painter->setPen(QPen(Qt::black, 2, Qt::DashLine, Qt::RoundCap));
@@ -804,6 +819,10 @@ QRectF RefrigerationCompressorDetailView::boundingRect() const {
 }
 
 void RefrigerationCompressorDetailView::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+  QFont font = painter->font();
+  font.setPixelSize(12);
+  painter->setFont(font);
+
   painter->setRenderHint(QPainter::Antialiasing, true);
   painter->setBrush(Qt::NoBrush);
   painter->setPen(QPen(Qt::black, 2, Qt::SolidLine, Qt::RoundCap));
@@ -823,6 +842,10 @@ QRectF RefrigerationCompressorDropZoneView::boundingRect() const {
 }
 
 void RefrigerationCompressorDropZoneView::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+  QFont font = painter->font();
+  font.setPixelSize(12);
+  painter->setFont(font);
+
   painter->setRenderHint(QPainter::Antialiasing, true);
   painter->setBrush(Qt::NoBrush);
   painter->setPen(QPen(Qt::black, 2, Qt::DashLine, Qt::RoundCap));
@@ -906,6 +929,10 @@ QRectF RefrigerationCasesDropZoneView::boundingRect() const {
 }
 
 void RefrigerationCasesDropZoneView::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+  QFont font = painter->font();
+  font.setPixelSize(12);
+  painter->setFont(font);
+
   painter->setRenderHint(QPainter::Antialiasing, true);
   painter->setBrush(Qt::NoBrush);
   painter->setPen(QPen(Qt::black, 2, Qt::DashLine, Qt::RoundCap));
@@ -932,6 +959,10 @@ RefrigerationSubCoolerView::RefrigerationSubCoolerView()
 }
 
 void RefrigerationSubCoolerView::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+  QFont font = painter->font();
+  font.setPixelSize(12);
+  painter->setFont(font);
+
   painter->setRenderHint(QPainter::Antialiasing, true);
   painter->setBrush(Qt::NoBrush);
   painter->setPen(QPen(Qt::black, 2, Qt::DashLine, Qt::RoundCap));
@@ -1005,6 +1036,10 @@ void RefrigerationSubCoolerView::mouseReleaseEvent(QGraphicsSceneMouseEvent* eve
 }
 
 void RefrigerationHeatReclaimView::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+  QFont font = painter->font();
+  font.setPixelSize(12);
+  painter->setFont(font);
+
   painter->setRenderHint(QPainter::Antialiasing, true);
   painter->setBrush(Qt::NoBrush);
   painter->setPen(QPen(Qt::red, 2, Qt::SolidLine, Qt::RoundCap));
@@ -1019,6 +1054,10 @@ QRectF RefrigerationHeatReclaimView::boundingRect() const {
 }
 
 void RefrigerationSHXView::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+  QFont font = painter->font();
+  font.setPixelSize(12);
+  painter->setFont(font);
+
   painter->setRenderHint(QPainter::Antialiasing, true);
   painter->setBrush(Qt::NoBrush);
   painter->setPen(QPen(Qt::black, 2, Qt::DashLine, Qt::RoundCap));
@@ -1112,6 +1151,10 @@ QRectF SecondaryDropZoneView::boundingRect() const {
 }
 
 void SecondaryDropZoneView::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+  QFont font = painter->font();
+  font.setPixelSize(12);
+  painter->setFont(font);
+
   painter->setRenderHint(QPainter::Antialiasing, true);
   painter->setBrush(Qt::NoBrush);
   painter->setPen(QPen(Qt::black, 2, Qt::DashLine, Qt::RoundCap));
@@ -1170,12 +1213,16 @@ QRectF SecondaryDetailView::boundingRect() const {
 }
 
 void SecondaryDetailView::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+  QFont font = painter->font();
+  font.setPixelSize(12);
+  painter->setFont(font);
+
   painter->setRenderHint(QPainter::Antialiasing, true);
   painter->setBrush(Qt::NoBrush);
   painter->setPen(QPen(Qt::black, 2, Qt::SolidLine, Qt::RoundCap));
 
   painter->drawRect(boundingRect());
-  painter->drawText(nameRect(), Qt::AlignCenter, m_name);
+  painter->drawText(nameRect(), Qt::AlignCenter | Qt::TextWordWrap, m_name);
 }
 
 RefrigerationSecondaryView::RefrigerationSecondaryView() : QGraphicsObject() {
@@ -1234,14 +1281,17 @@ QRectF RefrigerationSystemDropZoneView::boundingRect() const {
 }
 
 void RefrigerationSystemDropZoneView::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+  QFont font = painter->font();
+  font.setPixelSize(12);
+  painter->setFont(font);
+
   painter->setRenderHint(QPainter::Antialiasing, true);
   painter->setBrush(Qt::NoBrush);
   painter->setPen(QPen(Qt::black, 2, Qt::DashLine, Qt::RoundCap));
 
   painter->drawRect(boundingRect());
 
-  QFont font = painter->font();
-  font.setPointSize(30);
+  font.setPixelSize(24);
   painter->setFont(font);
   painter->setPen(QPen(QColor(109, 109, 109), 2, Qt::DashLine, Qt::RoundCap));
   painter->drawText(boundingRect(), Qt::AlignCenter | Qt::TextWordWrap, "Drop Refrigeration System");

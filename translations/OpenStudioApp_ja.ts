@@ -363,73 +363,73 @@ Zone</source>
         <translation>気象データをダウンロード： &lt;a href=&quot;http://www.energyplus.net/weather&quot;&gt;www.energyplus.net/weather&lt;/a&gt;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="241"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="242"/>
         <source>Measure Tags (Optional):</source>
         <translation>メジャータブ（任意）：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="245"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="246"/>
         <source>ASHRAE Climate Zone</source>
         <translation>ASHRAE気候帯</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="278"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="279"/>
         <source>CEC Climate Zone</source>
         <translation>CEC気候帯</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="346"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="348"/>
         <source>Design Days</source>
         <translation>気象条件</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="349"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="351"/>
         <source>Import From DDY</source>
         <translation>DDYからインポート</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="476"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="478"/>
         <source>Change Weather File</source>
         <translation>気象データの変更</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="479"/>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="483"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="481"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="485"/>
         <source>Set Weather File</source>
         <translation>気象データの選択</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="532"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="534"/>
         <source>EPW Files (*.epw);; All Files (*.*)</source>
         <translation>EPW (*.epw);; すべてのファイル形式(*.*)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="543"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="545"/>
         <source>Open Weather File</source>
         <translation>気象データを開く</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="629"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="631"/>
         <source>Failed To Set Weather File</source>
         <translation>気象データの選択に失敗しました</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="629"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="631"/>
         <source>Failed To Set Weather File To </source>
         <translation>気象データの選択に失敗しました </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="662"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="664"/>
         <source>Open DDY File</source>
         <translation>DDYファイルを開く</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="755"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="757"/>
         <source>No Design Days in DDY File</source>
         <translation>DDYファイルに気象条件がありません</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="756"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="758"/>
         <source>This DDY file does not contain any valid design days.  Check the DDY file itself for errors or omissions.</source>
         <translation>DDYファイルに有効な気象条件がありません。ファイルにエラーや欠損がないか確認してください。</translation>
     </message>
@@ -437,103 +437,80 @@ Zone</source>
 <context>
     <name>openstudio::LostCloudConnectionDialog</name>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="85"/>
         <source>Requirements for cloud:</source>
-        <translation>クラウドに必要な条件：</translation>
+        <translation type="vanished">クラウドに必要な条件：</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="99"/>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="101"/>
         <source>Internet Connection: </source>
-        <translation>インターネット接続： </translation>
+        <translation type="vanished">インターネット接続： </translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="99"/>
         <source>yes</source>
-        <translation>はい</translation>
+        <translation type="vanished">はい</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="101"/>
         <source>no</source>
-        <translation>いいえ</translation>
+        <translation type="vanished">いいえ</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="108"/>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="110"/>
         <source>Cloud Log-in: </source>
-        <translation>クラウドのログイン： </translation>
+        <translation type="vanished">クラウドのログイン： </translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="108"/>
         <source>accepted</source>
-        <translation>承認</translation>
+        <translation type="vanished">承認</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="110"/>
         <source>denied</source>
-        <translation>拒否</translation>
+        <translation type="vanished">拒否</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="117"/>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="122"/>
         <source>Cloud Connection: </source>
-        <translation>クラウドコネクション： </translation>
+        <translation type="vanished">クラウドコネクション： </translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="117"/>
         <source>reconnected</source>
-        <translation>再接続</translation>
+        <translation type="vanished">再接続</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="122"/>
         <source>unable to reconnect. </source>
-        <translation>接続出来ませんでした。 </translation>
+        <translation type="vanished">接続出来ませんでした。 </translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="123"/>
         <source>Remember that cloud charges may currently be accruing.</source>
-        <translation>クラウド料金が現在発生している可能性があることに注意してください。</translation>
+        <translation type="vanished">クラウド料金が現在発生している可能性があることに注意してください。</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="138"/>
         <source>Options to correct the problem:</source>
-        <translation>問題解決のオプション：</translation>
+        <translation type="vanished">問題解決のオプション：</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="151"/>
         <source>Try Again Later. </source>
-        <translation>あとで再試行。 </translation>
+        <translation type="vanished">あとで再試行。 </translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="152"/>
         <source>Verify your computer&apos;s internet connection then click &quot;Lost Cloud Connection&quot; to recover the lost cloud session.</source>
-        <translation>インターネットに接続していることを再確認し、「クラウド接続が失われました」をクリックしてクラウドセッションを回復してください。</translation>
+        <translation type="vanished">インターネットに接続していることを再確認し、「クラウド接続が失われました」をクリックしてクラウドセッションを回復してください。</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="156"/>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="175"/>
         <source>Or</source>
-        <translation>もしくは</translation>
+        <translation type="vanished">もしくは</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="169"/>
         <source>Stop Cloud. </source>
-        <translation>クラウドを止める。 </translation>
+        <translation type="vanished">クラウドを止める。 </translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="170"/>
         <source>Disconnect from cloud.  This option will make the failed cloud session unavailable to Pat.  Any data that has not been downloaded to Pat will be lost.  Use the AWS Console to verify that the Amazon service have been completely shutdown.</source>
-        <translation>クラウドとの接続を中断する。このオプションを利用するとクラウドセッションにアクセスできなくなります。PATにダウンロードされていないデータはすべて失われます。AWS Consoleを使いAmazon serviceを停止してください。</translation>
+        <translation type="vanished">クラウドとの接続を中断する。このオプションを利用するとクラウドセッションにアクセスできなくなります。PATにダウンロードされていないデータはすべて失われます。AWS Consoleを使いAmazon serviceを停止してください。</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="188"/>
         <source>Launch AWS Console. </source>
-        <translation>AWS Consoleを開始。 </translation>
+        <translation type="vanished">AWS Consoleを開始。 </translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="189"/>
         <source>Use the AWS Console to diagnose Amazon services.  You may still attempt to recover the lost cloud session.</source>
-        <translation>AWS Consoleを使いAmazon serviceの診断を行う。失われたクラウドセッションの回復を試みます。</translation>
+        <translation type="vanished">AWS Consoleを使いAmazon serviceの診断を行う。失われたクラウドセッションの回復を試みます。</translation>
     </message>
 </context>
 <context>
@@ -1256,12 +1233,12 @@ Would you like to Restore library paths to default values or Open the library se
 <context>
     <name>openstudio::RunView</name>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="197"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="196"/>
         <source>onRunProcessErrored: Simulation failed to run, QProcess::ProcessError: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="209"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="208"/>
         <source>Simulation failed to run, with exit code </source>
         <translation type="unfinished"></translation>
     </message>

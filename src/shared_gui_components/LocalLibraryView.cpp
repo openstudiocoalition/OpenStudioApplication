@@ -91,9 +91,9 @@ LocalLibraryView::LocalLibraryView(QWidget* parent) : QWidget(parent) {
   addMeasureButton->setToolTip("Create a Measure from Template and add to My Measures");
   footerHLayout->addWidget(addMeasureButton);
 
-  lookForUpdateButton = new LookForUpdateButton();
-  lookForUpdateButton->setToolTip("Look for BCL measure updates online");
-  footerHLayout->addWidget(lookForUpdateButton);
+  checkForUpdateButton = new CheckForUpdateButton();
+  checkForUpdateButton->setToolTip("Look for BCL measure updates online");
+  footerHLayout->addWidget(checkForUpdateButton);
 
   // STRETCH
   footerHLayout->addStretch();
@@ -107,7 +107,7 @@ LocalLibraryView::LocalLibraryView(QWidget* parent) : QWidget(parent) {
   footerHLayout2->setSpacing(5);
   footerVLayout->addLayout(footerHLayout2);
 
-  addBCLMeasureButton = new BlueButton();
+  addBCLMeasureButton = new GrayButton();
   addBCLMeasureButton->setText("Find Measures on BCL");
   addBCLMeasureButton->setToolTip("Connect to Online BCL to Download New Measures and Update Existing Measures to Library");
   footerHLayout2->addWidget(addBCLMeasureButton);
@@ -167,8 +167,8 @@ LibraryItemView::LibraryItemView(QWidget* parent) : OSDragableView(parent) {
   mainHBoxLayout->addStretch();
 
   errorLabel = new QLabel();
-  //errorLabel->setPixmap(QPixmap(":/shared_gui_components/images/error-alert.png"));
-  errorLabel->setPixmap(QPixmap(":/shared_gui_components/images/broken_script.png").scaled(24, 24));
+  //errorLabel->setPixmap(QPixmap(":/images/error-alert.png"));
+  errorLabel->setPixmap(QPixmap(":/images/broken_script.png").scaled(24, 24));
   errorLabel->setFixedSize(24, 24);
   errorLabel->setVisible(false);
   mainHBoxLayout->addWidget(errorLabel, Qt::AlignRight);

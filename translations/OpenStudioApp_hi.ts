@@ -361,73 +361,73 @@ Zone</source>
         <translation>मौसम फ़ाइल डाउनलोड करें &lt;a href=&quot;http://www.energyplus.net/weather&quot;&gt;www.energyplus.net</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="241"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="242"/>
         <source>Measure Tags (Optional):</source>
         <translation>उपाय टैग(ऐच्छिक):</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="245"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="246"/>
         <source>ASHRAE Climate Zone</source>
         <translation>ASHRAE जलवायु क्षेत्र</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="278"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="279"/>
         <source>CEC Climate Zone</source>
         <translation>CEC जलवायु क्षेत्र</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="346"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="348"/>
         <source>Design Days</source>
         <translation>डिजाइन के दिन</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="349"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="351"/>
         <source>Import From DDY</source>
         <translation>डीडीवाई से आयात करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="476"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="478"/>
         <source>Change Weather File</source>
         <translation>मौसम फ़ाइल बदलें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="479"/>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="483"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="481"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="485"/>
         <source>Set Weather File</source>
         <translation>मौसम फ़ाइल सेट करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="532"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="534"/>
         <source>EPW Files (*.epw);; All Files (*.*)</source>
         <translation>ईपीडब्ल्यू फाइलें (*.epw);; सब फाइलें (*.*)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="543"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="545"/>
         <source>Open Weather File</source>
         <translation>मौसम फ़ाइल खोले</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="629"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="631"/>
         <source>Failed To Set Weather File</source>
         <translation>मौसम फ़ाइल सेट करने में विफल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="629"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="631"/>
         <source>Failed To Set Weather File To </source>
         <translation>निम्लिखित मौसम फ़ाइल सेट करने में विफल </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="662"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="664"/>
         <source>Open DDY File</source>
         <translation>डीडीवाई फ़ाइल खोलें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="755"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="757"/>
         <source>No Design Days in DDY File</source>
         <translation>डीडीवाई फ़ाइल में कोई डिज़ाइन दिवस नहीं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="756"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="758"/>
         <source>This DDY file does not contain any valid design days.  Check the DDY file itself for errors or omissions.</source>
         <translation>इस डीडीवाई फ़ाइल में कोई मान्य डिज़ाइन दिवस नहीं है। त्रुटियों या चूक के लिए स्वयं डीडीवाई फ़ाइल की जाँच करें.</translation>
     </message>
@@ -435,103 +435,80 @@ Zone</source>
 <context>
     <name>openstudio::LostCloudConnectionDialog</name>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="85"/>
         <source>Requirements for cloud:</source>
-        <translation>क्लाउड के लिए आवश्यकताएँ:</translation>
+        <translation type="vanished">क्लाउड के लिए आवश्यकताएँ:</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="99"/>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="101"/>
         <source>Internet Connection: </source>
-        <translation>इंटरनेट कनेक्शन: </translation>
+        <translation type="vanished">इंटरनेट कनेक्शन: </translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="99"/>
         <source>yes</source>
-        <translation>हाँ</translation>
+        <translation type="vanished">हाँ</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="101"/>
         <source>no</source>
-        <translation>नहीं</translation>
+        <translation type="vanished">नहीं</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="108"/>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="110"/>
         <source>Cloud Log-in: </source>
-        <translation>क्लाउड लॉग-इन: </translation>
+        <translation type="vanished">क्लाउड लॉग-इन: </translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="108"/>
         <source>accepted</source>
-        <translation>स्वीकृत</translation>
+        <translation type="vanished">स्वीकृत</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="110"/>
         <source>denied</source>
-        <translation>अस्वीकृत</translation>
+        <translation type="vanished">अस्वीकृत</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="117"/>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="122"/>
         <source>Cloud Connection: </source>
-        <translation>क्लाउड कनेक्शन: </translation>
+        <translation type="vanished">क्लाउड कनेक्शन: </translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="117"/>
         <source>reconnected</source>
-        <translation>पुन: कनेक्ट</translation>
+        <translation type="vanished">पुन: कनेक्ट</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="122"/>
         <source>unable to reconnect. </source>
-        <translation>पुन: कनेक्ट करने में असमर्थ. </translation>
+        <translation type="vanished">पुन: कनेक्ट करने में असमर्थ. </translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="123"/>
         <source>Remember that cloud charges may currently be accruing.</source>
-        <translation>याद रखें कि वर्तमान में क्लाउड शुल्क जमा हो सकते हैं.</translation>
+        <translation type="vanished">याद रखें कि वर्तमान में क्लाउड शुल्क जमा हो सकते हैं.</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="138"/>
         <source>Options to correct the problem:</source>
-        <translation>समस्या को ठीक करने के विकल्प:</translation>
+        <translation type="vanished">समस्या को ठीक करने के विकल्प:</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="151"/>
         <source>Try Again Later. </source>
-        <translation>बाद में पुन: प्रयास करें. </translation>
+        <translation type="vanished">बाद में पुन: प्रयास करें. </translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="152"/>
         <source>Verify your computer&apos;s internet connection then click &quot;Lost Cloud Connection&quot; to recover the lost cloud session.</source>
-        <translation>अपने कंप्यूटर के इंटरनेट कनेक्शन को सत्यापित करें फिर खोए हुए क्लाउड सत्र को पुनर्प्राप्त करने के लिए &quot;लॉस्ट क्लाउड कनेक्शन&quot; पर क्लिक करें.</translation>
+        <translation type="vanished">अपने कंप्यूटर के इंटरनेट कनेक्शन को सत्यापित करें फिर खोए हुए क्लाउड सत्र को पुनर्प्राप्त करने के लिए &quot;लॉस्ट क्लाउड कनेक्शन&quot; पर क्लिक करें.</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="156"/>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="175"/>
         <source>Or</source>
-        <translation>अथवा</translation>
+        <translation type="vanished">अथवा</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="169"/>
         <source>Stop Cloud. </source>
-        <translation>क्लाउड बंद करो. </translation>
+        <translation type="vanished">क्लाउड बंद करो. </translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="170"/>
         <source>Disconnect from cloud.  This option will make the failed cloud session unavailable to Pat.  Any data that has not been downloaded to Pat will be lost.  Use the AWS Console to verify that the Amazon service have been completely shutdown.</source>
-        <translation>क्लाउड से डिस्कनेक्ट करें। यह विकल्प विफल क्लाउड सत्र को पैट के लिए अनुपलब्ध बना देगा। कोई भी डेटा जो पैट में डाउनलोड नहीं किया गया है वह खो जाएगा। यह सत्यापित करने के लिए कि अमेज़न सेवा पूरी तरह से बंद कर दी गई है, AWS कंसोल का उपयोग करें.</translation>
+        <translation type="vanished">क्लाउड से डिस्कनेक्ट करें। यह विकल्प विफल क्लाउड सत्र को पैट के लिए अनुपलब्ध बना देगा। कोई भी डेटा जो पैट में डाउनलोड नहीं किया गया है वह खो जाएगा। यह सत्यापित करने के लिए कि अमेज़न सेवा पूरी तरह से बंद कर दी गई है, AWS कंसोल का उपयोग करें.</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="188"/>
         <source>Launch AWS Console. </source>
-        <translation>एडब्ल्यूएस कंसोल लॉन्च करें. </translation>
+        <translation type="vanished">एडब्ल्यूएस कंसोल लॉन्च करें. </translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="189"/>
         <source>Use the AWS Console to diagnose Amazon services.  You may still attempt to recover the lost cloud session.</source>
-        <translation>Amazon सेवाओं का निदान करने के लिए AWS कंसोल का उपयोग करें। आप अभी भी खोए हुए क्लाउड सत्र को पुनर्प्राप्त करने का प्रयास कर सकते हैं.</translation>
+        <translation type="vanished">Amazon सेवाओं का निदान करने के लिए AWS कंसोल का उपयोग करें। आप अभी भी खोए हुए क्लाउड सत्र को पुनर्प्राप्त करने का प्रयास कर सकते हैं.</translation>
     </message>
 </context>
 <context>
@@ -1253,12 +1230,12 @@ Would you like to Restore library paths to default values or Open the library se
 <context>
     <name>openstudio::RunView</name>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="197"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="196"/>
         <source>onRunProcessErrored: Simulation failed to run, QProcess::ProcessError: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="209"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="208"/>
         <source>Simulation failed to run, with exit code </source>
         <translation type="unfinished"></translation>
     </message>

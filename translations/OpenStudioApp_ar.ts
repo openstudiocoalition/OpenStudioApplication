@@ -360,176 +360,74 @@ Zone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="241"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="242"/>
         <source>Measure Tags (Optional):</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="245"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="246"/>
         <source>ASHRAE Climate Zone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="278"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="279"/>
         <source>CEC Climate Zone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="346"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="348"/>
         <source>Design Days</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="349"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="351"/>
         <source>Import From DDY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="476"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="478"/>
         <source>Change Weather File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="479"/>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="483"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="481"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="485"/>
         <source>Set Weather File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="532"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="534"/>
         <source>EPW Files (*.epw);; All Files (*.*)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="543"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="545"/>
         <source>Open Weather File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="629"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="631"/>
         <source>Failed To Set Weather File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="629"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="631"/>
         <source>Failed To Set Weather File To </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="662"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="664"/>
         <source>Open DDY File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="755"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="757"/>
         <source>No Design Days in DDY File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="756"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="758"/>
         <source>This DDY file does not contain any valid design days.  Check the DDY file itself for errors or omissions.</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>openstudio::LostCloudConnectionDialog</name>
-    <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="85"/>
-        <source>Requirements for cloud:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="99"/>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="101"/>
-        <source>Internet Connection: </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="99"/>
-        <source>yes</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="101"/>
-        <source>no</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="108"/>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="110"/>
-        <source>Cloud Log-in: </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="108"/>
-        <source>accepted</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="110"/>
-        <source>denied</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="117"/>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="122"/>
-        <source>Cloud Connection: </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="117"/>
-        <source>reconnected</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="122"/>
-        <source>unable to reconnect. </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="123"/>
-        <source>Remember that cloud charges may currently be accruing.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="138"/>
-        <source>Options to correct the problem:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="151"/>
-        <source>Try Again Later. </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="152"/>
-        <source>Verify your computer&apos;s internet connection then click &quot;Lost Cloud Connection&quot; to recover the lost cloud session.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="156"/>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="175"/>
-        <source>Or</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="169"/>
-        <source>Stop Cloud. </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="170"/>
-        <source>Disconnect from cloud.  This option will make the failed cloud session unavailable to Pat.  Any data that has not been downloaded to Pat will be lost.  Use the AWS Console to verify that the Amazon service have been completely shutdown.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="188"/>
-        <source>Launch AWS Console. </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="189"/>
-        <source>Use the AWS Console to diagnose Amazon services.  You may still attempt to recover the lost cloud session.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1222,12 +1120,12 @@ Would you like to Restore library paths to default values or Open the library se
 <context>
     <name>openstudio::RunView</name>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="197"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="196"/>
         <source>onRunProcessErrored: Simulation failed to run, QProcess::ProcessError: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="209"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="208"/>
         <source>Simulation failed to run, with exit code </source>
         <translation type="unfinished"></translation>
     </message>

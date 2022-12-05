@@ -853,10 +853,7 @@ void OSGridController::resetBaseConcepts() {
 }
 
 HorizontalHeaderPushButton::HorizontalHeaderPushButton(QWidget* parent) : QPushButton() {
-  QString style = "QPushButton {"
-                  "    font-size: 8pt;"
-                  "}";
-  setStyleSheet(style);
+  setObjectName("HeaderButton");
   setFocusPolicy(Qt::StrongFocus);
 }
 

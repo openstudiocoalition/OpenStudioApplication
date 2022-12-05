@@ -363,73 +363,73 @@ Entità</translation>
         <translation>Scarica I Weather Files Presso &lt;a href=\&quot;http://www.energyplus.net/weather\&quot;&gt;www.energyplus.net/weather&lt;/a&gt;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="241"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="242"/>
         <source>Measure Tags (Optional):</source>
         <translation>Etichette Per Misure (Facoltativo):</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="245"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="246"/>
         <source>ASHRAE Climate Zone</source>
         <translation>Zona Climatica ASHRAE</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="278"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="279"/>
         <source>CEC Climate Zone</source>
         <translation>Zona Climatica CEC</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="346"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="348"/>
         <source>Design Days</source>
         <translation>Giorni di Simulazione</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="349"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="351"/>
         <source>Import From DDY</source>
         <translation>Importa Da DDY</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="476"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="478"/>
         <source>Change Weather File</source>
         <translation>Cambia Weather File</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="479"/>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="483"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="481"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="485"/>
         <source>Set Weather File</source>
         <translation>Stabilisci Weather File</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="532"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="534"/>
         <source>EPW Files (*.epw);; All Files (*.*)</source>
         <translation>EPW Files (*.epw);; All Files (*.*)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="543"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="545"/>
         <source>Open Weather File</source>
         <translation>Apri Weather File</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="629"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="631"/>
         <source>Failed To Set Weather File</source>
         <translation>Errore Nel Settaggio Del Weather File</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="629"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="631"/>
         <source>Failed To Set Weather File To </source>
         <translation>Errore Nell&apos; Allocazione Del Weather File </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="662"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="664"/>
         <source>Open DDY File</source>
         <translation>Apri File DDY</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="755"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="757"/>
         <source>No Design Days in DDY File</source>
         <translation>Nessun Giorno Impostato Nel File DDY</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="756"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="758"/>
         <source>This DDY file does not contain any valid design days.  Check the DDY file itself for errors or omissions.</source>
         <translation>Questo File DDY non contiene alcun giorno valido. Controlla il File DDY per errori od omissioni.</translation>
     </message>
@@ -437,103 +437,80 @@ Entità</translation>
 <context>
     <name>openstudio::LostCloudConnectionDialog</name>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="85"/>
         <source>Requirements for cloud:</source>
-        <translation>Requisti Per Il Cloud:</translation>
+        <translation type="vanished">Requisti Per Il Cloud:</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="99"/>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="101"/>
         <source>Internet Connection: </source>
-        <translation>Connessione a Internet: </translation>
+        <translation type="vanished">Connessione a Internet: </translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="99"/>
         <source>yes</source>
-        <translation>Sì</translation>
+        <translation type="vanished">Sì</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="101"/>
         <source>no</source>
-        <translation>No</translation>
+        <translation type="vanished">No</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="108"/>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="110"/>
         <source>Cloud Log-in: </source>
-        <translation>Cloud Log-in: </translation>
+        <translation type="vanished">Cloud Log-in: </translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="108"/>
         <source>accepted</source>
-        <translation>Ammesso</translation>
+        <translation type="vanished">Ammesso</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="110"/>
         <source>denied</source>
-        <translation>Rifiutato</translation>
+        <translation type="vanished">Rifiutato</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="117"/>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="122"/>
         <source>Cloud Connection: </source>
-        <translation>Connessione Cloud: </translation>
+        <translation type="vanished">Connessione Cloud: </translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="117"/>
         <source>reconnected</source>
-        <translation>Riconesso</translation>
+        <translation type="vanished">Riconesso</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="122"/>
         <source>unable to reconnect. </source>
-        <translation>Impossibile riconnettersi. </translation>
+        <translation type="vanished">Impossibile riconnettersi. </translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="123"/>
         <source>Remember that cloud charges may currently be accruing.</source>
-        <translation>Ricorda Di Considerare Eventuali Costi Aggiuntivi Al Servizio Cloud.</translation>
+        <translation type="vanished">Ricorda Di Considerare Eventuali Costi Aggiuntivi Al Servizio Cloud.</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="138"/>
         <source>Options to correct the problem:</source>
-        <translation>Opzioni Per Risolvere il Problema:</translation>
+        <translation type="vanished">Opzioni Per Risolvere il Problema:</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="151"/>
         <source>Try Again Later. </source>
-        <translation>Riprova Più Tardi. </translation>
+        <translation type="vanished">Riprova Più Tardi. </translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="152"/>
         <source>Verify your computer&apos;s internet connection then click &quot;Lost Cloud Connection&quot; to recover the lost cloud session.</source>
-        <translation>Verifica la tua connessione, poi clicca su &quot;Connessione Cloud Persa&quot; per recuperare la sessione Cloud persa.</translation>
+        <translation type="vanished">Verifica la tua connessione, poi clicca su &quot;Connessione Cloud Persa&quot; per recuperare la sessione Cloud persa.</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="156"/>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="175"/>
         <source>Or</source>
-        <translation>Oppure</translation>
+        <translation type="vanished">Oppure</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="169"/>
         <source>Stop Cloud. </source>
-        <translation>Stop Cloud. </translation>
+        <translation type="vanished">Stop Cloud. </translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="170"/>
         <source>Disconnect from cloud.  This option will make the failed cloud session unavailable to Pat.  Any data that has not been downloaded to Pat will be lost.  Use the AWS Console to verify that the Amazon service have been completely shutdown.</source>
-        <translation>Disconnettere Dal Cloud.  Quest&apos;opzione renderà la sessione cloud fallita non disponibile al Pat.  Ogni dato non scaricato dal Pat sarà perso. Utilizzare la Console AWS per verificare che Amazon Service è stato chiuso completamente.</translation>
+        <translation type="vanished">Disconnettere Dal Cloud.  Quest&apos;opzione renderà la sessione cloud fallita non disponibile al Pat.  Ogni dato non scaricato dal Pat sarà perso. Utilizzare la Console AWS per verificare che Amazon Service è stato chiuso completamente.</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="188"/>
         <source>Launch AWS Console. </source>
-        <translation>Lancia AWS Console. </translation>
+        <translation type="vanished">Lancia AWS Console. </translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LostCloudConnectionDialog.cpp" line="189"/>
         <source>Use the AWS Console to diagnose Amazon services.  You may still attempt to recover the lost cloud session.</source>
-        <translation>Usa la Console AWS per diagnosticare i servizi Amazon. Puoi ancora provare a recuperare la sessione cloud perduta.</translation>
+        <translation type="vanished">Usa la Console AWS per diagnosticare i servizi Amazon. Puoi ancora provare a recuperare la sessione cloud perduta.</translation>
     </message>
 </context>
 <context>
@@ -1254,12 +1231,12 @@ Vuoi ripristinare I percorsi delle librerie  come Predefiniti o Aprire i settagg
 <context>
     <name>openstudio::RunView</name>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="197"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="196"/>
         <source>onRunProcessErrored: Simulation failed to run, QProcess::ProcessError: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="209"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="208"/>
         <source>Simulation failed to run, with exit code </source>
         <translation type="unfinished"></translation>
     </message>

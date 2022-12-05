@@ -36,9 +36,10 @@
 
 #include <openstudio/model/Model.hpp>
 
+#include "../shared_gui_components/ProgressBarWithError.hpp"
+
 #include <QWidget>
 #include <QWebEngineView>
-#include <QProgressBar>
 
 class QComboBox;
 class QPushButton;
@@ -89,7 +90,7 @@ class PreviewWebView : public QWidget
   bool m_isIP;
   model::Model m_model;
 
-  QProgressBar* m_progressBar;
+  ProgressBarWithError* m_progressBar;
   QPushButton* m_refreshBtn;
 
   QWebEngineView* m_view;

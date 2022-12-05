@@ -671,6 +671,9 @@ void HorizontalBranchItem::paint(QPainter* painter, const QStyleOptionGraphicsIt
       painter->drawLine(m_hLength * 100 - 7, m_vLength * 100 / 2.0, m_hLength * 100, m_vLength * 100 / 2.0);
     }
 
+    QFont font = painter->font();
+    font.setPixelSize(12);
+    painter->setFont(font);
     painter->drawText(9, 9, m_hLength * 100 - 18, m_vLength * 100 - 18, Qt::AlignCenter | Qt::TextWordWrap, m_text);
   }
 }
@@ -1292,9 +1295,9 @@ void SystemCenterItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* 
     painter->drawRect(0, yOrigin, m_hLength * 100, 100);
   }
 
-  QFont f;
-  f.setPixelSize(20);
-  painter->setFont(f);
+  QFont font = painter->font();
+  font.setPixelSize(20);
+  painter->setFont(font);
   painter->setPen(QPen(Qt::black, 1, Qt::SolidLine, Qt::RoundCap));
   painter->setBrush(QBrush(Qt::black, Qt::SolidPattern));
   painter->drawText(QRect(110, 21, 200, 25), Qt::AlignBottom, "Supply Equipment");

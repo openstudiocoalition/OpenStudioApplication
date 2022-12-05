@@ -178,11 +178,11 @@ void ModelObjectSelectorDialog::init() {
 
 void ModelObjectSelectorDialog::createWidgets() {
   QFont labelFont;
-  labelFont.setPointSize(12);
+  labelFont.setPixelSize(12);
   //labelFont.setBold(true);
 
   QFont subLabelFont;
-  //subLabelFont.setPointSize(12);
+  subLabelFont.setPixelSize(12);
   subLabelFont.setBold(true);
 
   m_userTextLabel = new QLabel(this);

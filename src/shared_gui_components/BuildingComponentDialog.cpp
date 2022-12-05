@@ -98,8 +98,7 @@ void BuildingComponentDialog::createLayout(bool isBclDlg) {
 
   auto* searchButton = new QPushButton();
   searchButton->setToolTip("Click to add a search term to the selected category");
-  searchButton->setStyleSheet(
-    "QPushButton { border: none; background-image: url(\":/shared_gui_components/images/searchbox_magnifyingglass.png\"); }");
+  searchButton->setStyleSheet("QPushButton { border: none; background-image: url(\":/images/searchbox_magnifyingglass.png\"); }");
   searchButton->setFixedSize(24, 24);
 
   connect(searchButton, &QPushButton::clicked, this, &BuildingComponentDialog::on_searchButton);

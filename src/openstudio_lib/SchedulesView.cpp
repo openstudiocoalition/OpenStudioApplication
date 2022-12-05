@@ -751,7 +751,7 @@ ScheduleTabHeader::ScheduleTabHeader(ScheduleTab* scheduleTab, QWidget* parent)
   mainHLayout->addWidget(m_toggleButton);
   style.clear();
   style.append("QPushButton { ");
-  style.append("border: none; ");
+  style.append("border: none; background: transparent;");
   style.append("background-image: url(\":/images/toggle_arrow.png\"); ");
   style.append("} ");
 
@@ -2083,6 +2083,10 @@ void MonthView::update() {
 ScheduleCalendarWidget::ScheduleCalendarWidget(MonthView* monthView) : QCalendarWidget(monthView), m_monthView(monthView) {}
 
 void ScheduleCalendarWidget::paintCell(QPainter* painter, const QRect& rect, QDate date) const {
+  QFont font = painter->font();
+  font.setPixelSize(12);
+  painter->setFont(font);
+
   painter->setBrush(QBrush(QColor(230, 230, 230)));
 
   if (date.month() == m_monthView->month()) {

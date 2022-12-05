@@ -62,7 +62,7 @@ class LocalLibraryView : public QWidget
 
   QPushButton* myMeasuresFolderButton;
 
-  QPushButton* lookForUpdateButton;
+  QPushButton* checkForUpdateButton;
 
   QPushButton* addBCLMeasureButton;
 };

@@ -100,7 +100,7 @@ FacilityShadingGridView::FacilityShadingGridView(bool isIP, const model::Model& 
   std::sort(modelObjects.begin(), modelObjects.end(), openstudio::WorkspaceObjectNameLess());
 
   m_gridController = new FacilityShadingGridController(isIP, "Shading Surface Group", IddObjectType::OS_ShadingSurfaceGroup, model, modelObjects);
-  m_gridView = new OSGridView(m_gridController, "Shading Surface Group", "Drop\nShading Surface Group", false, parent);
+  m_gridView = new OSGridView(m_gridController, "Shading Surface Group", "Drop Shading\nSurface Group", false, parent);
 
   setGridController(m_gridController);
   setGridView(m_gridView);

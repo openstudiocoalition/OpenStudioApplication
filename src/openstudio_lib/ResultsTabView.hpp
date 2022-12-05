@@ -38,11 +38,10 @@
 #include <openstudio/utilities/sql/SqlFile.hpp>
 #include <openstudio/utilities/units/Unit.hpp>
 
-//#include "../runmanager/lib/RunManager.hpp"
+#include "../shared_gui_components/ProgressBarWithError.hpp"
 
 #include <QWidget>
 #include <QWebEngineView>
-#include <QProgressBar>
 
 class QComboBox;
 class QPushButton;
@@ -86,7 +85,7 @@ class ResultsView : public QWidget
   // utility bill results
   QLabel* m_reportLabel;
 
-  QProgressBar* m_progressBar;
+  ProgressBarWithError* m_progressBar;
   QPushButton* m_refreshBtn;
   QPushButton* m_openDViewBtn;
 

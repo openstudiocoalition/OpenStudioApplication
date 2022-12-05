@@ -68,7 +68,7 @@ void PageNavigator::createLayout() {
 
   ///! button first page
   button = new QPushButton(this);
-  button->setIcon(QIcon(":/shared_gui_components/images/fast_reverse.png"));
+  button->setIcon(QIcon(":/images/fast_reverse.png"));
   button->setFixedSize(40, 20);
   button->setCheckable(false);
   connect(button, &QPushButton::clicked, this, &PageNavigator::on_firstPage);
@@ -76,7 +76,7 @@ void PageNavigator::createLayout() {
 
   ///! button previous page
   button = new QPushButton(this);
-  button->setIcon(QIcon(":/shared_gui_components/images/reverse.png"));
+  button->setIcon(QIcon(":/images/reverse.png"));
   button->setFixedSize(40, 20);
   button->setCheckable(false);
   connect(button, &QPushButton::clicked, this, &PageNavigator::on_previousPage);
@@ -91,7 +91,7 @@ void PageNavigator::createLayout() {
 
   ///! button next page
   button = new QPushButton(this);
-  button->setIcon(QIcon(":/shared_gui_components/images/forward.png"));
+  button->setIcon(QIcon(":/images/forward.png"));
   button->setFixedSize(40, 20);
   button->setCheckable(false);
   connect(button, &QPushButton::clicked, this, &PageNavigator::on_nextPage);
@@ -99,7 +99,7 @@ void PageNavigator::createLayout() {
 
   ///! button last page
   button = new QPushButton(this);
-  button->setIcon(QIcon(":/shared_gui_components/images/fast_forward.png"));
+  button->setIcon(QIcon(":/images/fast_forward.png"));
   button->setFixedSize(40, 20);
   button->setCheckable(false);
   connect(button, &QPushButton::clicked, this, &PageNavigator::on_lastPage);

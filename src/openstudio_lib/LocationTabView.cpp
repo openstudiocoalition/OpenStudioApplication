@@ -236,6 +236,7 @@ LocationView::LocationView(bool isIP, const model::Model& model, const QString& 
   // ***** Add Weather File GridLayout *****
   weatherFileGridLayout->setColumnStretch(i, 10);
   leftVLayout->addLayout(weatherFileGridLayout);
+  leftVLayout->addStretch();
 
   // ***** Climate Zones *****
   label = new QLabel(tr("Measure Tags (Optional):"));
@@ -308,6 +309,7 @@ LocationView::LocationView(bool isIP, const model::Model& model, const QString& 
   // ***** Measure Tags GridLayout *****
   measureTagsGridLayout->setColumnStretch(i, 10);
   leftVLayout->addLayout(measureTagsGridLayout);
+  leftVLayout->addStretch();
 
   // ***** Schedules *****
   m_yearSettingsWidget = new YearSettingsWidget(m_model);

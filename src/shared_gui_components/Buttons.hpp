@@ -42,6 +42,15 @@ class QTimer;
 
 namespace openstudio {
 
+class ZoomInButton : public QPushButton
+{
+  Q_OBJECT
+
+ public:
+  explicit ZoomInButton(QWidget* parent = nullptr);
+  virtual ~ZoomInButton() {}
+};
+
 class ZoomOutButton : public QPushButton
 {
   Q_OBJECT
@@ -49,15 +58,6 @@ class ZoomOutButton : public QPushButton
  public:
   explicit ZoomOutButton(QWidget* parent = nullptr);
   virtual ~ZoomOutButton() {}
-};
-
-class OrangeButton : public QPushButton
-{
-  Q_OBJECT
-
- public:
-  explicit OrangeButton(QWidget* parent = nullptr);
-  virtual ~OrangeButton() {}
 };
 
 class GrayButton : public QPushButton
@@ -168,13 +168,13 @@ class MyMeasuresFolderButton : public QPushButton
   virtual ~MyMeasuresFolderButton() {}
 };
 
-class LookForUpdateButton : public QPushButton
+class CheckForUpdateButton : public QPushButton
 {
   Q_OBJECT
 
  public:
-  explicit LookForUpdateButton(QWidget* parent = nullptr);
-  virtual ~LookForUpdateButton() = default;
+  explicit CheckForUpdateButton(QWidget* parent = nullptr);
+  virtual ~CheckForUpdateButton() = default;
 };
 
 class OpenDirectoryButton : public QPushButton
@@ -211,83 +211,6 @@ class CreateFromFileButton : public GrayButton
  public:
   CreateFromFileButton();
   virtual ~CreateFromFileButton() {}
-};
-
-class CloudLostConnectionButton : public QPushButton
-{
-  Q_OBJECT
-
- public:
-  explicit CloudLostConnectionButton(QWidget* parent = nullptr);
-  virtual ~CloudLostConnectionButton() {}
-};
-
-class CloudOffButton : public QPushButton
-{
-  Q_OBJECT
-
- public:
-  explicit CloudOffButton(QWidget* parent = nullptr);
-  virtual ~CloudOffButton() {}
-};
-
-class CloudOnButton : public QPushButton
-{
-  Q_OBJECT
-
- public:
-  explicit CloudOnButton(QWidget* parent = nullptr);
-  virtual ~CloudOnButton() {}
-};
-
-class CloudStartingButton : public QPushButton
-{
-  Q_OBJECT
-
- public:
-  explicit CloudStartingButton(QWidget* parent = nullptr);
-  virtual ~CloudStartingButton() {}
-
- public slots:
-
-  void rotate();
-
- protected:
-  void paintEvent(QPaintEvent* event) override;
-
- private:
-  QPixmap* m_background;
-
-  QPixmap* m_arrow;
-
-  float m_rotation;
-
-  QTimer* m_timer;
-};
-
-class CloudStoppingButton : public QPushButton
-{
-  Q_OBJECT
-
- public:
-  explicit CloudStoppingButton(QWidget* parent = nullptr);
-  virtual ~CloudStoppingButton() {}
-
- public slots:
-
-  void rotate();
-
- protected:
-  void paintEvent(QPaintEvent* event) override;
-
- private:
-  QPixmap* m_background;
-
-  QPixmap* m_arrow;
-
-  float m_rotation;
-
-  QTimer* m_timer;
 };
 
 class PlayButton : public QPushButton

@@ -75,7 +75,6 @@
 #include <QMessageBox>
 #include <QPainter>
 #include <QPlainTextEdit>
-#include <QProgressBar>
 #include <QPushButton>
 #include <QRadioButton>
 #include <QScrollArea>
@@ -126,7 +125,7 @@ RunView::RunView() : QWidget(), m_runSocket(nullptr) {
   connect(m_playButton, &QToolButton::clicked, this, &RunView::playButtonClicked);
 
   // Progress bar area
-  m_progressBar = new QProgressBar();
+  m_progressBar = new ProgressBarWithError();
   m_progressBar->setMaximum(State::complete);
 
   auto* progressbarlayout = new QVBoxLayout();
@@ -224,6 +223,8 @@ void RunView::onRunProcessFinished(int exitCode, QProcess::ExitStatus status) {
 
   m_playButton->setChecked(false);
   m_state = State::stopped;
+
+  m_progressBar->setError(true);
   m_progressBar->setMaximum(State::complete);
   m_progressBar->setValue(State::complete);
 
@@ -317,6 +318,7 @@ void RunView::playButtonClicked(bool t_checked) {
     m_state = State::stopped;
     m_textInfo->clear();
 
+    m_progressBar->setError(false);
     m_progressBar->setMinimum(0);
     m_progressBar->setMaximum(State::complete);
     m_progressBar->setValue(0);

@@ -39,9 +39,10 @@
 
 #include <openstudio/utilities/geometry/FloorplanJS.hpp>
 
+#include "../shared_gui_components/ProgressBarWithError.hpp"
+
 #include <QWidget>
 #include <QDialog>
-#include <QProgressBar>
 #include <QWebEngineView>
 
 class QComboBox;
@@ -259,7 +260,7 @@ class EditorWebView : public QWidget
 
   QComboBox* m_geometrySourceComboBox;
   QPushButton* m_newImportGeometry;
-  QProgressBar* m_progressBar;
+  ProgressBarWithError* m_progressBar;
   QPushButton* m_refreshBtn;
   QPushButton* m_previewBtn;
   QPushButton* m_mergeBtn;

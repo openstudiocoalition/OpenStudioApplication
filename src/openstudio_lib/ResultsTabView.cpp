@@ -71,7 +71,7 @@ void ResultsTabView::onUnitSystemChange(bool t_isIP) {
 ResultsView::ResultsView(QWidget* t_parent)
   : QWidget(t_parent),
     m_isIP(true),
-    m_progressBar(new QProgressBar()),
+    m_progressBar(new ProgressBarWithError()),
     m_refreshBtn(new QPushButton("Refresh")),
     m_openDViewBtn(new QPushButton("Open DView for\nDetailed Reports")),
     m_comboBox(new QComboBox(this)) {
@@ -98,7 +98,6 @@ ResultsView::ResultsView(QWidget* t_parent)
   m_progressBar->setMinimum(0);
   m_progressBar->setMaximum(100);
   m_progressBar->setValue(0);
-  m_progressBar->setVisible(false);  // make visible when load first page
 
   hLayout->addWidget(m_refreshBtn, 0, Qt::AlignVCenter);
   m_refreshBtn->setVisible(true);
@@ -383,10 +382,7 @@ void ResultsView::comboBoxChanged(int index) {
   //}
   //m_view->setHtml(content);
 
-  m_progressBar->setVisible(true);
-  m_progressBar->setStyleSheet("");
-  m_progressBar->setFormat("");
-  m_progressBar->setTextVisible(false);
+  m_progressBar->setError(false);
 
   QUrl url(filename);
   m_view->load(url);
@@ -395,33 +391,23 @@ void ResultsView::comboBoxChanged(int index) {
 void ResultsView::onLoadFinished(bool ok) {
   // QString title = m_view->title();
   if (ok) {
-    m_progressBar->setStyleSheet("");
-    m_progressBar->setFormat("");
-    m_progressBar->setTextVisible(false);
+    m_progressBar->setError(false);
   } else {
-    m_progressBar->setStyleSheet("QProgressBar::chunk {background-color: #FF0000;}");
-    m_progressBar->setFormat("Error");
-    m_progressBar->setTextVisible(true);
+    m_progressBar->setError(true);
   }
 }
 
 void ResultsView::onLoadProgress(int progress) {
-  m_progressBar->setStyleSheet("");
-  m_progressBar->setFormat("");
-  m_progressBar->setTextVisible(false);
+  m_progressBar->setError(false);
   m_progressBar->setValue(progress);
 }
 
 void ResultsView::onLoadStarted() {
-  m_progressBar->setStyleSheet("");
-  m_progressBar->setFormat("");
-  m_progressBar->setTextVisible(false);
+  m_progressBar->setError(false);
 }
 
 void ResultsView::onRenderProcessTerminated(QWebEnginePage::RenderProcessTerminationStatus /*terminationStatus*/, int /*exitCode*/) {
-  m_progressBar->setStyleSheet("QProgressBar::chunk {background-color: #FF0000;}");
-  m_progressBar->setFormat("Error");
-  m_progressBar->setTextVisible(true);
+  m_progressBar->setError(true);
 }
 
 }  // namespace openstudio

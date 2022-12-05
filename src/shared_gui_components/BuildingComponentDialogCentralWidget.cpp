@@ -160,7 +160,7 @@ void BuildingComponentDialogCentralWidget::createLayout() {
   m_collapsibleComponentList->addCollapsibleComponent(collapsibleComponent);
   //*******************************************************************
 
-  m_progressBar = new QProgressBar(this);
+  m_progressBar = new ProgressBarWithError(this);
   m_progressBar->setVisible(false);
 
   auto* lowerPushButton = new QPushButton("Download");

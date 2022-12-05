@@ -67,8 +67,9 @@ VariableListItem::VariableListItem(const std::string& t_name, const std::string&
 
   hbox->addWidget(new QLabel(openstudio::toQString(m_name + ",")));
   hbox->addWidget(new QLabel(openstudio::toQString(m_keyValue)));
-  hbox->addStretch();
+  hbox->addStretch(10);
   m_combobox = new OSComboBox2();
+  m_combobox->setFixedWidth(200);
   connect(m_combobox, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentTextChanged), this, &VariableListItem::indexChanged);
   if (m_variable) {
     // m_combobox->bind(*m_variable, "reportingFrequency");
@@ -122,11 +123,12 @@ void VariableListItem::onOffClicked(bool t_on) {
       outputVariable.setKeyValue(m_keyValue);
       m_variable = outputVariable;
 
-      // m_combobox->bind(*m_variable, "reportingFrequency");
       m_combobox->bind<std::string>(
         *m_variable, static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
         std::bind(&model::OutputVariable::reportingFrequencyValues), std::bind(&model::OutputVariable::reportingFrequency, m_variable.get_ptr()),
-        std::bind(&model::OutputVariable::setReportingFrequency, m_variable.get_ptr(), std::placeholders::_1), boost::none, boost::none);
+        std::bind(&model::OutputVariable::setReportingFrequency, m_variable.get_ptr(), std::placeholders::_1),
+        boost::optional<NoFailAction>(std::bind(&model::OutputVariable::resetReportingFrequency, m_variable.get_ptr())),
+        boost::optional<BasicQuery>(std::bind(&model::OutputVariable::isReportingFrequencyDefaulted, m_variable.get_ptr())));
     }
   } else {
     if (m_variable) {

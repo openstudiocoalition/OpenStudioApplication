@@ -165,7 +165,7 @@ WorkflowStepButton::WorkflowStepButton() : nameLabel(new QLabel()), cautionLabel
 
   mainHLayout->addStretch();
 
-  cautionLabel->setPixmap(QPixmap(":/shared_gui_components/images/warning_icon.png"));
+  cautionLabel->setPixmap(QPixmap(":/images/warning_icon.png"));
   mainHLayout->addWidget(cautionLabel);
   cautionLabel->setVisible(false);
 }

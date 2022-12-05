@@ -35,8 +35,9 @@
 #include <openstudio/utilities/bcl/BCLMeasure.hpp>
 #include <openstudio/utilities/filetypes/WorkflowJSON.hpp>
 
+#include "../shared_gui_components/ProgressBarWithError.hpp"
+
 class QPushButton;
-class QProgressBar;
 
 namespace openstudio {
 
@@ -57,7 +58,7 @@ class SyncMeasuresDialogCentralWidget : public QWidget
 
   Component* checkedComponent() const;
   void setMeasures(const std::vector<BCLMeasure>& measures);
-  QProgressBar* progressBar;
+  ProgressBarWithError* progressBar;
   QPushButton* lowerPushButton;
 
  protected:

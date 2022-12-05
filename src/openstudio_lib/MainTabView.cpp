@@ -54,7 +54,7 @@ MainTabView::MainTabView(const QString& tabLabel, TabType tabType, QWidget* pare
 
   m_tabLabel = new QLabel(tabLabel, this);
   m_tabLabel->setFixedHeight(20);
-  m_tabLabel->setStyleSheet("QLabel { color: white; }");
+  m_tabLabel->setStyleSheet("QLabel { color: white; font-size: 14px; }");
   m_tabLabel->adjustSize();
   m_tabLabel->setFixedWidth(m_tabLabel->width());
   m_tabLabel->move(7, 5);
@@ -175,47 +175,22 @@ void MainTabView::setCurrentIndex(int index) {
 
   for (unsigned i = 0; i < m_tabButtons.size(); i++) {
     QPushButton* button = m_tabButtons[i];
-    QString style;
 
-    style.append("QPushButton { border: none; background-color: #BBCDE3; ");
-    style.append("              border-right: 1px solid black;");
-    style.append("              border-bottom: 1px solid black;");
-    style.append("              border-top: 1px solid black;");
-    style.append("              border-left: 1px solid black;");
-    style.append("              border-top-left-radius: 5px;");
-    style.append("              border-top-right-radius: 5px;");
-    style.append("              padding-left: 10px;");
-    style.append("              padding-right: 10px;");
-    style.append("              color: black;");
-    style.append("}");
+    if (i == index) {
+      button->setObjectName("SubTabButtonSelected");
+      button->raise();
+    } else {
+      button->setObjectName("SubTabButton");
+      button->stackUnder(m_mainWidget);
+    }
 
-    button->setStyleSheet(style);
     button->adjustSize();
     button->move(xPos, 5);
-
-    button->stackUnder(m_mainWidget);
+    button->style()->unpolish(button);
+    button->style()->polish(button);
 
     xPos += TAB_SEPARATION + button->width();
   }
-
-  QPushButton* button = m_tabButtons[index];
-
-  QString style;
-
-  style.append("QPushButton { border: none; background-color: #E6E6E6; ");
-  style.append("              border-right: 1px solid black;");
-  style.append("              border-bottom: none;");
-  style.append("              border-top: 1px solid black;");
-  style.append("              border-left: 1px solid black;");
-  style.append("              border-top-left-radius: 5px;");
-  style.append("              border-top-right-radius: 5px;");
-  style.append("              padding-left: 10px;");
-  style.append("              padding-right: 10px;");
-  style.append("              color: black;");
-  style.append("}");
-
-  button->setStyleSheet(style);
-  button->raise();
 
   emit tabSelected(m_ids[index]);
 }

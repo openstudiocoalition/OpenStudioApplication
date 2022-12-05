@@ -125,6 +125,8 @@ OSGridView::OSGridView(OSGridController* gridController, const QString& headerTe
   std::vector<QString> categories = m_gridController->categories();
   for (unsigned i = 0; i < categories.size(); i++) {
     auto* button = new QPushButton(categories.at(i));
+    button->setObjectName("CategoryButton");
+    button->setMinimumWidth(100);
     button->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::MinimumExpanding);
     button->setCheckable(true);
     buttonLayout->addWidget(button);
