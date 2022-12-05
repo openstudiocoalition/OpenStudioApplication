@@ -791,8 +791,7 @@ QPushButton#TrueFalseSliderButton:checked:hover {
 
 QPushButton#ZoomInButton {
   border: none;
-  height: 20px;
-  width: 20px;
+  border-radius: none;
   background: transparent;
   background-image: url(":images/zoom-in.png");
   padding-left: none;
@@ -809,8 +808,6 @@ QPushButton#ZoomInButton:pressed {
 
 QPushButton#ZoomOutButton {
   border: none;
-  height: 20px;
-  width: 20px;
   background: transparent;
   background-image: url(":images/zoom-out.png");
   padding-left: none;
@@ -891,6 +888,8 @@ QTreeView::item:hover {
 
 QToolButton {
   border: none;
+  font-size: 12px;
+  font: bold;
 }
 
 QToolButton:pressed {

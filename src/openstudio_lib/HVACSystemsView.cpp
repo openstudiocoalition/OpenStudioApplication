@@ -145,12 +145,13 @@ HVACToolbarView::HVACToolbarView() {
   zoomInButton = new QPushButton();
   zoomInButton->setFlat(true);
   zoomInButton->setObjectName("ZoomInButton");
+  zoomInButton->setFixedSize(20, 20);
   controlLayout->addWidget(zoomInButton);
-
 
   zoomOutButton = new QPushButton();
   zoomOutButton->setFlat(true);
   zoomOutButton->setObjectName("ZoomOutButton");
+  zoomOutButton->setFixedSize(20, 20);
   controlLayout->addWidget(zoomOutButton);
 
   controlLayout->addStretch();

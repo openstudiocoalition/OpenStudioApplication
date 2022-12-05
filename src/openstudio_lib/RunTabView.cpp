@@ -108,7 +108,7 @@ RunView::RunView() : QWidget(), m_runSocket(nullptr) {
   setLayout(mainLayout);
 
   m_playButton = new QToolButton();
-  m_playButton->setText("<b>Run<b>");
+  m_playButton->setText("Run");
   m_playButton->setCheckable(true);
   m_playButton->setChecked(false);
   QIcon playbuttonicon(QPixmap(":/images/run_simulation_button.png"));
