@@ -41,7 +41,7 @@ class MainMenu : public QMenuBar
   Q_OBJECT
 
  public:
-  MainMenu(bool isIP, bool isPlugin, const QString& currLang, QWidget* parent = nullptr);
+  MainMenu(bool isIP, bool isPlugin, const QString& currLang, bool allowAnalytics, QWidget* parent = nullptr);
 
   virtual ~MainMenu();
 
@@ -84,6 +84,8 @@ class MainMenu : public QMenuBar
   void helpClicked();
 
   void checkForUpdateClicked();
+
+  void allowAnalyticsClicked(bool allowAnalytics);
 
   void aboutClicked();
 
@@ -148,6 +150,8 @@ class MainMenu : public QMenuBar
 
   QAction* m_revertToSavedAction;
 
+  QAction* m_allowAnalyticsAction;
+
   std::vector<QAction*> m_fileImportActions;
 
   std::vector<QAction*> m_preferencesActions;
@@ -158,6 +162,8 @@ class MainMenu : public QMenuBar
 
   QString m_currLang;
 
+  bool m_allowAnalytics;
+
  public slots:
 
   void enableRevertToSavedAction(bool enable);
@@ -167,6 +173,10 @@ class MainMenu : public QMenuBar
   void enablePreferencesActions(bool enable);
 
   void enableComponentsMeasuresActions(bool enable);
+
+  void enableAnalytics(bool enable);
+
+  void toggleAnalytics();
 
  private slots:
 

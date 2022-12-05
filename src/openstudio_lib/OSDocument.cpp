@@ -863,6 +863,8 @@ void OSDocument::enable() {
   m_mainWindow->verticalTabWidget()->enableTabButton(RESULTS_SUMMARY, true);
 
   m_mainWindow->verticalTabWidget()->refreshTabButtons();
+
+  m_mainWindow->promptAnalytics();
 }
 
 bool OSDocument::modified() const {

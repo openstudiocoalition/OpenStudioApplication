@@ -37,6 +37,7 @@
 #include "VerticalTabWidget.hpp"
 
 #include "../shared_gui_components/NetworkProxyDialog.hpp"
+#include "../model_editor/Utilities.hpp"
 
 #include <openstudio/utilities/core/Assert.hpp>
 
@@ -58,6 +59,7 @@
 #include <QSplitter>
 #include <QStackedWidget>
 #include <QStatusBar>
+#include <QTimer>
 #include <QUrl>
 #include <QVBoxLayout>
 #include <QWidget>
@@ -93,6 +95,7 @@ MainWindow::MainWindow(bool isPlugin, QWidget* parent)
   setStyleSheet("QWidget#MainWindow { background-color: #2C3233; }");
 
   connect(m_verticalTabWidget, &VerticalTabWidget::tabSelected, this, &MainWindow::verticalTabSelected);
+  connect(m_verticalTabWidget, &VerticalTabWidget::tabSelected, this, &MainWindow::onVerticalTabSelected);
   m_mainSplitter->addWidget(m_verticalTabWidget);
 
   m_mainRightColumnContainer->setMinimumWidth(235);
@@ -102,7 +105,10 @@ MainWindow::MainWindow(bool isPlugin, QWidget* parent)
 
   setCentralWidget(m_mainSplitter);
 
-  auto* mainMenu = new MainMenu(m_displayIP, m_isPlugin, m_currLang);
+  m_analyticsHelper = new AnalyticsHelper(this);
+  connect(this, &MainWindow::sendAnalytics, m_analyticsHelper, &AnalyticsHelper::sendAnalytics);
+
+  auto* mainMenu = new MainMenu(m_displayIP, m_isPlugin, m_currLang, allowAnalytics());
   connect(mainMenu, &MainMenu::toggleUnitsClicked, this, &MainWindow::toggleUnits);
   connect(mainMenu, &MainMenu::changeLanguageClicked, this, &MainWindow::changeLanguage);
   connect(mainMenu, &MainMenu::downloadComponentsClicked, this, &MainWindow::downloadComponentsClicked);
@@ -131,6 +137,7 @@ MainWindow::MainWindow(bool isPlugin, QWidget* parent)
   connect(mainMenu, &MainMenu::helpClicked, this, &MainWindow::helpClicked);
   connect(mainMenu, &MainMenu::checkForUpdateClicked, this, &MainWindow::checkForUpdateClicked);
   connect(mainMenu, &MainMenu::aboutClicked, this, &MainWindow::aboutClicked);
+  connect(mainMenu, &MainMenu::allowAnalyticsClicked, this, &MainWindow::toggleAnalytics);
   connect(mainMenu, &MainMenu::scanForToolsClicked, this, &MainWindow::scanForToolsClicked);
   connect(mainMenu, &MainMenu::showRunManagerPreferencesClicked, this, &MainWindow::showRunManagerPreferencesClicked);
   connect(mainMenu, &MainMenu::showRubyConsoleClicked, this, &MainWindow::showRubyConsoleClicked);
@@ -144,6 +151,7 @@ MainWindow::MainWindow(bool isPlugin, QWidget* parent)
   connect(this, &MainWindow::enableFileImports, mainMenu, &MainMenu::enableFileImportActions);
   connect(this, &MainWindow::enablePreferences, mainMenu, &MainMenu::enablePreferencesActions);
   connect(this, &MainWindow::enableComponentsMeasures, mainMenu, &MainMenu::enableComponentsMeasuresActions);
+  connect(this, &MainWindow::enableAnalytics, mainMenu, &MainMenu::enableAnalytics);
 }
 
 MainWindow::~MainWindow() = default;
@@ -275,6 +283,7 @@ void MainWindow::readSettings() {
   if (m_currLang.isEmpty()) {
     m_currLang = "en";
   }
+  m_analyticsId = settings.value("analyticsId", "").toString();
 }
 
 void MainWindow::writeSettings() {
@@ -288,10 +297,15 @@ void MainWindow::writeSettings() {
   settings.setValue("displayIP", m_displayIP);
   settings.setValue("verboseOutput", m_verboseOutput);
   settings.setValue("language", m_currLang);
+  settings.setValue("analyticsId", m_analyticsId);
 }
 
 QString MainWindow::lastPath() const {
   return QDir().exists(m_lastPath) ? m_lastPath : QDir::homePath();
+}
+
+bool MainWindow::allowAnalytics() const {
+  return !m_analyticsId.isEmpty() && m_analyticsId != "DISABLED";
 }
 
 //QString MainWindow::currentLanguage() const {
@@ -306,8 +320,40 @@ bool MainWindow::verboseOutput() const {
   return m_verboseOutput;
 }
 
+void MainWindow::onVerticalTabSelected(int verticalTabId) {
+  if (allowAnalytics()) {
+    emit sendAnalytics(m_analyticsId, verticalTabId);
+  }
+}
+
 void MainWindow::toggleVerboseOutput(bool verboseOutput) {
   m_verboseOutput = verboseOutput;
+}
+
+void MainWindow::promptAnalytics() {
+  if (m_analyticsId.isEmpty()) {
+    QMessageBox::StandardButton reply;
+    reply =
+      QMessageBox::question(this, tr("Allow Analytics"),
+                            tr("Allow OpenStudio Coalition to collect anonymous usage statistics to help improve the OpenStudio Application? See the "
+                               "<a href=\"https://openstudiocoalition.org/about/privacy_policy/\">privacy policy</a> for more information."),
+                            QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
+    if (reply == QMessageBox::Yes) {
+      emit enableAnalytics(true);
+    } else {
+      emit enableAnalytics(false);
+    }
+  }
+}
+
+void MainWindow::toggleAnalytics(bool allowAnalytics) {
+  if (allowAnalytics) {
+    m_analyticsId = openstudio::toQString(openstudio::createUUID());
+    writeSettings();
+  } else {
+    m_analyticsId = "DISABLED";
+    writeSettings();
+  }
 }
 
 void MainWindow::changeLanguage(const QString& rLanguage) {
