@@ -625,6 +625,17 @@ endif()
 #                                T A R G E T S                                #
 ###############################################################################
 
+# The openstudio::openstudio target (which is the cli) includes a version string
+# in the file name. We don't want that degree of coupling between app and sdk
+# (we want the app to be able to use different sdk version without recompile,
+# so this project (the app) will install and identify the cli generically as
+# openstudio or openstudio.exe on windows. The OS_CLI_IMPORTED_PATH/OS_CLI_IMPORTED_NAME is configured
+# into the utilities target so we need to set it before the utilities target is defined
+# TODO: This isn't the case anymore, the openstudio(.exe) doesn't include a version in there
+get_target_property(OS_CLI_IMPORTED_PATH openstudio::openstudio LOCATION)
+# set(OS_CLI_IMPORTED_NAME "openstudio${CMAKE_EXECUTABLE_SUFFIX}")
+get_filename_component(OS_CLI_IMPORTED_NAME ${OS_CLI_IMPORTED_PATH} NAME)
+
 if(WIN32)
   include_directories("${PROJECT_SOURCE_DIR}/src/qtwinmigrate")
   list(APPEND project_directories "qtwinmigrate")
@@ -693,16 +704,6 @@ endif()
 
 ######### Install SDK dependencies here ################
 
-# The openstudio::openstudio target (which is the cli) includes a version string
-# in the file name. We don't want that degree of coupling between app and sdk
-# (we want the app to be able to use different sdk version without recompile,
-# so this project (the app) will install and identify the cli generically as
-# openstudio or openstudio.exe on windows. The os_cli_install_name is configured
-# into the utilities target so we need to set it before the uilities target is defined
-# TODO: THis isn't the case anymore
-get_target_property(os_cli_location openstudio::openstudio LOCATION)
-set(os_cli_install_name "openstudio${CMAKE_EXECUTABLE_SUFFIX}")
-
 install(DIRECTORY "${openstudio_ROOT_DIR}/Radiance" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
 install(DIRECTORY "${openstudio_ROOT_DIR}/Ruby" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
 install(DIRECTORY "${openstudio_ROOT_DIR}/EnergyPlus" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
@@ -718,7 +719,7 @@ install(IMPORTED_RUNTIME_ARTIFACTS openstudio::openstudiolib DESTINATION bin COM
 install(IMPORTED_RUNTIME_ARTIFACTS openstudio::rubyengine DESTINATION bin COMPONENT "CLI")
 install(IMPORTED_RUNTIME_ARTIFACTS openstudio::pythonengine DESTINATION bin COMPONENT "CLI")
 
-# install(PROGRAMS ${os_cli_location} DESTINATION bin COMPONENT "CLI" RENAME "${os_cli_install_name}")
+# install(PROGRAMS ${OS_CLI_IMPORTED_PATH} DESTINATION bin COMPONENT "CLI" RENAME "${OS_CLI_IMPORTED_NAME}")
 
 
 if(WIN32)

@@ -177,6 +177,13 @@ if( APPLE )
     VERBATIM
   )
 
+  add_custom_command(TARGET ${target_name}
+    POST_BUILD
+    COMMAND ${CMAKE_INSTALL_NAME_TOOL} -add_rpath "${openstudio_ROOT_DIR}/lib/" $<TARGET_FILE:${target_name}>
+    COMMAND ${CMAKE_INSTALL_NAME_TOOL} -add_rpath "${QT_INSTALL_DIR}/lib/" $<TARGET_FILE:${target_name}>
+    COMMAND ${CMAKE_INSTALL_NAME_TOOL} -add_rpath "${openstudio_ROOT_DIR}/lib/" $<TARGET_FILE_DIR:${target_name}>/$<TARGET_FILE_NAME:openstudio::openstudio>
+    )
+
   #add_custom_command(TARGET ${target_name}
   #  POST_BUILD
   #  COMMAND ${QT_MACDEPLOY_QT} $<TARGET_BUNDLE_DIR:${target_name}> -verbose=2
@@ -426,6 +433,8 @@ if( APPLE )
 
   install(CODE [[
       execute_process(
+        COMMAND echo "CMAKE_INSTALL_PREFIX = ${CMAKE_INSTALL_PREFIX}"
+
         COMMAND "${CMAKE_COMMAND}" -E create_symlink
           "../../../../../../../Frameworks"
           "${CMAKE_INSTALL_PREFIX}/OpenStudioApp.app/Contents/Frameworks/QtWebEngineCore.framework/Versions/A/Helpers/QtWebEngineProcess.app/Contents/Frameworks"
@@ -445,8 +454,12 @@ if( APPLE )
         COMMAND "${CMAKE_COMMAND}" -E create_symlink
           "../../../bin/$<TARGET_FILE_NAME:openstudio::pythonengine>"
           "${CMAKE_INSTALL_PREFIX}/OpenStudioApp.app/Contents/Frameworks/$<TARGET_FILE_NAME:openstudio::pythonengine>"
+
+        COMMAND_ECHO STDOUT
+        COMMAND_ERROR_IS_FATAL ANY
       )
     ]]
+    COMPONENT OpenStudioApp
   )
 endif()
 
