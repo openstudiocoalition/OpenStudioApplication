@@ -207,6 +207,8 @@ void RunView::onRunProcessFinished(int exitCode, QProcess::ExitStatus status) {
     m_textInfo->setFontPointSize(18);
     m_textInfo->append(tr("Simulation failed to run, with exit code ") + QString::number(exitCode));
 
+    m_progressBar->setError(true);
+
     //m_textInfo->setTextColor(Qt::black);
     //m_textInfo->setFontPointSize(15);
     //m_textInfo->append("Stderr:");
@@ -224,7 +226,6 @@ void RunView::onRunProcessFinished(int exitCode, QProcess::ExitStatus status) {
   m_playButton->setChecked(false);
   m_state = State::stopped;
 
-  m_progressBar->setError(true);
   m_progressBar->setMaximum(State::complete);
   m_progressBar->setValue(State::complete);
 
