@@ -163,10 +163,21 @@ SpacesSubsurfacesGridController::SpacesSubsurfacesGridController(bool isIP, cons
   setCategoriesAndFields();
 }
 
+void SpacesSubsurfacesGridView::removeObject(openstudio::model::ModelObject modelObject) {
+  boost::optional<model::SubSurface> subSurface = modelObject.optionalCast<model::SubSurface>();
+  if (subSurface){
+    boost::optional<model::SubSurface> adjacentSubSurface = subSurface->adjacentSubSurface();
+    if (adjacentSubSurface) {
+      adjacentSubSurface->remove();
+    }
+  }
+  modelObject.remove();
+}
+
 void SpacesSubsurfacesGridView::onSelectItem() {
   //m_itemSelectorButtons->enableAddButton();
   //m_itemSelectorButtons->enableCopyButton();
-  //m_itemSelectorButtons->enableRemoveButton();
+  m_itemSelectorButtons->enableRemoveButton();
   //m_itemSelectorButtons->enablePurgeButton();
 }
 
