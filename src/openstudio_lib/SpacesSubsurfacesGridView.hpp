@@ -51,7 +51,6 @@ class SpacesSubsurfacesGridView : public SpacesSubtabGridView
   virtual ~SpacesSubsurfacesGridView() = default;
 
  protected:
-
   virtual void removeObject(openstudio::model::ModelObject modelObject) override;
 
  protected slots:

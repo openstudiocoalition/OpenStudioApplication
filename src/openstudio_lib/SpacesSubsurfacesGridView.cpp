@@ -165,7 +165,7 @@ SpacesSubsurfacesGridController::SpacesSubsurfacesGridController(bool isIP, cons
 
 void SpacesSubsurfacesGridView::removeObject(openstudio::model::ModelObject modelObject) {
   boost::optional<model::SubSurface> subSurface = modelObject.optionalCast<model::SubSurface>();
-  if (subSurface){
+  if (subSurface) {
     boost::optional<model::SubSurface> adjacentSubSurface = subSurface->adjacentSubSurface();
     if (adjacentSubSurface) {
       adjacentSubSurface->remove();
