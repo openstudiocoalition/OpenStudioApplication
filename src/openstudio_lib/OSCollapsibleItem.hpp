@@ -74,9 +74,6 @@ class OSCollapsibleItem : public QWidget
   OSItemType itemsType() const;
   void setItemsType(OSItemType type);
 
-  bool showFilterLayout();
-  void setShowFilterLayout(const bool showFilterLayout);
-
  signals:
 
   void collapsableItemSelected(OSCollapsibleItem*);
@@ -98,28 +95,12 @@ class OSCollapsibleItem : public QWidget
 
   void onHeaderClicked(OSCollapsibleItemHeader* header);
 
-  void filtersOnClicked();
-
-  void filtersOffClicked();
-
-  void comboBoxClicked(const QString& string);
-
  private:
   void createLayout();
-
-  void setShowFilterWidgets(const bool showFilterWidgets);
 
   OSCollapsibleItemHeader* m_collapsibleItemHeader;
   OSItemList* m_itemList;
   QVBoxLayout* m_mainLayout;
-  QPushButton* m_openLibDlgButton;
-  QRadioButton* m_filtersOnBtn;
-  QRadioButton* m_filtersOffBtn;
-  QButtonGroup* m_filterBtnGroup;
-  QLabel* m_sortLabel;
-  QComboBox* m_sortComboBox;
-  bool m_showFilterLayout;
-  QWidget* m_filterWidget;
 };
 
 }  // namespace openstudio
