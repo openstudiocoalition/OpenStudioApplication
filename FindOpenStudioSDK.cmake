@@ -1,12 +1,12 @@
 set(OPENSTUDIO_VERSION_MAJOR 3)
 set(OPENSTUDIO_VERSION_MINOR 5)
-set(OPENSTUDIO_VERSION_PATCH 0)
+set(OPENSTUDIO_VERSION_PATCH 1)
 set(OPENSTUDIO_VERSION "${OPENSTUDIO_VERSION_MAJOR}.${OPENSTUDIO_VERSION_MINOR}.${OPENSTUDIO_VERSION_PATCH}")
 
 #If this is an official release, leave this "", otherwise put for eg '-rc1'
-set(OPENSTUDIO_VERSION_PRERELEASE "")
+set(OPENSTUDIO_VERSION_PRERELEASE "-rc2")
 # Enter SHA, always, eg "+79857912c4"
-set(OPENSTUDIO_VERSION_SHA "+7b14ce1588")
+set(OPENSTUDIO_VERSION_SHA "+70bb71817d")
 
 # Paths where the cmake-downloaded archives will be put
 set(OPENSTUDIO_ARCHIVE_DIR "${PROJECT_BINARY_DIR}/OpenStudio-${OPENSTUDIO_VERSION}")
@@ -16,24 +16,24 @@ set(OPENSTUDIO_EXT "tar.gz")
 # If downloaded, we need the SHA to match. This block is here since we need "OPENSTUDIO_PLATFORM" anyways
 if(APPLE)
   if(ARCH MATCHES "arm64")
-    set(OPENSTUDIO_EXPECTED_HASH 042a778a4275610dfc237a107b451089)
+    set(OPENSTUDIO_EXPECTED_HASH af3aca23a82597f681e96d00ec086da8)
     set(OPENSTUDIO_PLATFORM "Darwin-arm64")
   else()
-    set(OPENSTUDIO_EXPECTED_HASH e1d32b3a878a438fcea0e165ec65da8a)
+    set(OPENSTUDIO_EXPECTED_HASH 720c7699f57a59bd00c18144ab73e5dd)
     set(OPENSTUDIO_PLATFORM "Darwin-x86_64")
   endif()
 
 elseif(UNIX)
   if(LSB_RELEASE_VERSION_SHORT MATCHES "20.04")
-    set(OPENSTUDIO_EXPECTED_HASH b94ffe71a7fba1bc4e97a93a504a1c6b)
+    set(OPENSTUDIO_EXPECTED_HASH a03fee9918acc1ef10056081f990977c)
     set(OPENSTUDIO_PLATFORM "Ubuntu-20.04")
   else() # Assumes 18.04
-    set(OPENSTUDIO_EXPECTED_HASH 5ae416b6498b2aefca823aad568dcdf3)
+    set(OPENSTUDIO_EXPECTED_HASH 67e6288976d03fa985cd70ccc4eb6238)
     set(OPENSTUDIO_PLATFORM "Ubuntu-18.04")
   endif()
 
 elseif(WIN32)
-  set(OPENSTUDIO_EXPECTED_HASH 2dc08b10623f70099a47589ca4a5672f)
+  set(OPENSTUDIO_EXPECTED_HASH 019b9b8b8219a9a84f3d3a290699cb60)
   set(OPENSTUDIO_PLATFORM "Windows")
 endif()
 
@@ -59,7 +59,6 @@ else()
   # Not found: no problem, we download it
   # base link for release builds
   set(OPENSTUDIO_BASELINK_RELEASE
-    #"https://openstudio-builds.s3.amazonaws.com/${OPENSTUDIO_VERSION}"
     "https://github.com/NREL/OpenStudio/releases/download/v${OPENSTUDIO_VERSION}${OPENSTUDIO_VERSION_PRERELEASE}/"
     CACHE STRING "Base link to where the openstudio archives are hosted" FORCE)
 
@@ -73,7 +72,7 @@ else()
     # "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/develop"
     # TODO: TEMPORARY point to a specific subfolder / PR
     # "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/PR-4712"
-    "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/3.5.0-rc1${WIN_SUBFOLDER}"
+    "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/${OPENSTUDIO_VERSION}${OPENSTUDIO_VERSION_PRERELEASE}${WIN_SUBFOLDER}"
 
     CACHE STRING "Base link to where the openstudio develop archives are hosted" FORCE)
 
