@@ -266,7 +266,6 @@ void MainRightColumnController::configureForSchedulesSubTab(int subTabID) {
       myModelList->setItemsType(OSItemType::LibraryItem);
       myModelList->setItemsDraggable(true);
       myModelList->setItemsRemoveable(false);
-      myModelList->setShowFilterLayout(true);
 
       myModelList->addModelObjectType(IddObjectType::OS_Schedule_VariableInterval, "Variable Interval Schedules");
       myModelList->addModelObjectType(IddObjectType::OS_Schedule_FixedInterval, "Fixed Interval Schedules");
@@ -305,7 +304,6 @@ void MainRightColumnController::configureForSchedulesSubTab(int subTabID) {
       myLibraryList->setItemsDraggable(true);
       myLibraryList->setItemsRemoveable(false);
       myLibraryList->setItemsType(OSItemType::LibraryItem);
-      myLibraryList->setShowFilterLayout(true);
 
       myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Ruleset, "Schedule Rulesets");
 
@@ -336,7 +334,6 @@ void MainRightColumnController::configureForConstructionsSubTab(int subTabID) {
       myModelList->setItemsDraggable(true);
       myModelList->setItemsRemoveable(false);
       myModelList->setItemsType(OSItemType::LibraryItem);
-      myModelList->setShowFilterLayout(true);
 
       myModelList->addModelObjectType(IddObjectType::OS_Construction_WindowDataFile, "Window Data File Constructions");
       myModelList->addModelObjectType(IddObjectType::OS_Construction_FfactorGroundFloor, "F-factor Ground Floor Constructions");
@@ -352,7 +349,6 @@ void MainRightColumnController::configureForConstructionsSubTab(int subTabID) {
       myLibraryList->setItemsDraggable(true);
       myLibraryList->setItemsRemoveable(false);
       myLibraryList->setItemsType(OSItemType::LibraryItem);
-      myLibraryList->setShowFilterLayout(true);
 
       myLibraryList->addModelObjectType(IddObjectType::OS_Construction_WindowDataFile, "Window Data File Constructions");
       myLibraryList->addModelObjectType(IddObjectType::OS_Construction_FfactorGroundFloor, "F-factor Ground Floor Constructions");
@@ -375,7 +371,6 @@ void MainRightColumnController::configureForConstructionsSubTab(int subTabID) {
       myModelList->setItemsDraggable(true);
       myModelList->setItemsRemoveable(false);
       myModelList->setItemsType(OSItemType::LibraryItem);
-      myModelList->setShowFilterLayout(true);
 
       // TODO: commented out until ThermochromicGlazing is properly wrapped
       // myModelList->addModelObjectType(IddObjectType::OS_WindowMaterial_GlazingGroup_Thermochromic, "Glazing Group Thermochromic Window Materials");
@@ -404,7 +399,6 @@ void MainRightColumnController::configureForConstructionsSubTab(int subTabID) {
       myLibraryList->setItemsDraggable(true);
       myLibraryList->setItemsRemoveable(false);
       myLibraryList->setItemsType(OSItemType::LibraryItem);
-      myLibraryList->setShowFilterLayout(true);
 
       // TODO: commented out until ThermochromicGlazing is properly wrapped
       // myLibraryList->addModelObjectType(IddObjectType::OS_WindowMaterial_GlazingGroup_Thermochromic, "Glazing Group Thermochromic Window Materials");
@@ -445,7 +439,6 @@ void MainRightColumnController::configureForConstructionsSubTab(int subTabID) {
       myModelList->setItemsDraggable(true);
       myModelList->setItemsRemoveable(false);
       myModelList->setItemsType(OSItemType::LibraryItem);
-      myModelList->setShowFilterLayout(true);
 
       setMyModelView(myModelList);
 
@@ -454,7 +447,6 @@ void MainRightColumnController::configureForConstructionsSubTab(int subTabID) {
       myLibraryList->setItemsDraggable(true);
       myLibraryList->setItemsRemoveable(false);
       myLibraryList->setItemsType(OSItemType::LibraryItem);
-      myLibraryList->setShowFilterLayout(true);
 
       // TODO: commented out until ThermochromicGlazing is properly wrapped
       // myLibraryList->addModelObjectType(IddObjectType::OS_WindowMaterial_GlazingGroup_Thermochromic, "Glazing Group Thermochromic Window Materials");
@@ -520,7 +512,6 @@ void MainRightColumnController::configureForLoadsSubTab(int subTabID) {
   myModelList->setItemsDraggable(true);
   myModelList->setItemsRemoveable(false);
   myModelList->setItemsType(OSItemType::LibraryItem);
-  myModelList->setShowFilterLayout(true);
 
   myModelList->addModelObjectType(IddObjectType::OS_Construction_WindowDataFile, "Window Data File Constructions");
   myModelList->addModelObjectType(IddObjectType::OS_Construction_FfactorGroundFloor, "F-factor Ground Floor Constructions");
@@ -543,7 +534,6 @@ void MainRightColumnController::configureForLoadsSubTab(int subTabID) {
   myLibraryList->setItemsDraggable(true);
   myLibraryList->setItemsRemoveable(false);
   myLibraryList->setItemsType(OSItemType::LibraryItem);
-  myLibraryList->setShowFilterLayout(true);
 
   myLibraryList->addModelObjectType(IddObjectType::OS_Construction_WindowDataFile, "Window Data File Constructions");
   myLibraryList->addModelObjectType(IddObjectType::OS_Construction_FfactorGroundFloor, "F-factor Ground Floor Constructions");
@@ -586,7 +576,6 @@ void MainRightColumnController::configureForSpaceTypesSubTab(int subTabID) {
   myModelList->setItemsDraggable(true);
   myModelList->setItemsRemoveable(false);
   myModelList->setItemsType(OSItemType::LibraryItem);
-  myModelList->setShowFilterLayout(true);
 
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_VariableInterval, "Variable Interval Schedules");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_FixedInterval, "Fixed Interval Schedules");
@@ -628,7 +617,6 @@ void MainRightColumnController::configureForSpaceTypesSubTab(int subTabID) {
   myLibraryList->setItemsDraggable(true);
   myLibraryList->setItemsRemoveable(false);
   myLibraryList->setItemsType(OSItemType::LibraryItem);
-  myLibraryList->setShowFilterLayout(true);
 
   myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_VariableInterval, "Variable Interval Schedules");
   myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_FixedInterval, "Fixed Interval Schedules");
@@ -668,7 +656,6 @@ void MainRightColumnController::configureForFacilitySubTab(int subTabID) {
   myModelList->setItemsDraggable(true);
   myModelList->setItemsRemoveable(false);
   myModelList->setItemsType(OSItemType::LibraryItem);
-  myModelList->setShowFilterLayout(true);
 
   myModelList->addModelObjectType(IddObjectType::OS_SubSurface, "Sub Surfaces");
   myModelList->addModelObjectType(IddObjectType::OS_Surface, "Surfaces");
@@ -714,7 +701,6 @@ void MainRightColumnController::configureForFacilitySubTab(int subTabID) {
   myLibraryList->setItemsDraggable(true);
   myLibraryList->setItemsRemoveable(false);
   myLibraryList->setItemsType(OSItemType::LibraryItem);
-  myLibraryList->setShowFilterLayout(true);
 
   myLibraryList->addModelObjectType(IddObjectType::OS_Fan_ZoneExhaust, "Fan Zone Exhaust");
   myLibraryList->addModelObjectType(IddObjectType::OS_ZoneHVAC_PackagedTerminalHeatPump, "PTHP");
@@ -775,7 +761,6 @@ void MainRightColumnController::configureForSpacesSubTab(int subTabID) {
   myModelList->setItemsDraggable(true);
   myModelList->setItemsRemoveable(false);
   myModelList->setItemsType(OSItemType::LibraryItem);
-  myModelList->setShowFilterLayout(true);
 
   myModelList->addModelObjectType(IddObjectType::OS_InteriorPartitionSurface, "Interior Partition Surface");
   myModelList->addModelObjectType(IddObjectType::OS_ShadingSurface, "Shading Surface");
@@ -826,7 +811,6 @@ void MainRightColumnController::configureForSpacesSubTab(int subTabID) {
   myLibraryList->setItemsDraggable(true);
   myLibraryList->setItemsRemoveable(false);
   myLibraryList->setItemsType(OSItemType::LibraryItem);
-  myLibraryList->setShowFilterLayout(true);
 
   myLibraryList->addModelObjectType(IddObjectType::OS_ShadingControl, "ShadingControl");
   myLibraryList->addModelObjectType(IddObjectType::OS_WindowProperty_FrameAndDivider, "Frame And Divider Window Property");
@@ -890,7 +874,7 @@ void MainRightColumnController::configureForThermalZonesSubTab(int subTabID) {
   myModelList->setItemsDraggable(true);
   myModelList->setItemsRemoveable(false);
   myModelList->setItemsType(OSItemType::LibraryItem);
-  myModelList->setShowFilterLayout(true);
+
   myModelList->addModelObjectType(IddObjectType::OS_WaterHeater_HeatPump, "Water Heater - Heat Pump");
   myModelList->addModelObjectType(IddObjectType::OS_WaterHeater_HeatPump_WrappedCondenser, "Water Heater - Heat Pump - Wrapped Condenser");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_VariableInterval, "Variable Interval Schedules");
@@ -909,7 +893,6 @@ void MainRightColumnController::configureForThermalZonesSubTab(int subTabID) {
   libraryWidget->setItemsDraggable(true);
   libraryWidget->setItemsRemoveable(false);
   libraryWidget->setItemsType(OSItemType::LibraryItem);
-  libraryWidget->setShowFilterLayout(true);
 
   libraryWidget->addModelObjectType(IddObjectType::OS_AirLoopHVAC_UnitarySystem, "Unitary System");
   libraryWidget->addModelObjectType(IddObjectType::OS_ZoneHVAC_CoolingPanel_RadiantConvective_Water, "Cooling Panel Radiant Convective Water");
@@ -957,7 +940,6 @@ void MainRightColumnController::configureForHVACSystemsSubTab(int subTabID) {
   myModelList->setItemsDraggable(true);
   myModelList->setItemsRemoveable(false);
   myModelList->setItemsType(OSItemType::LibraryItem);
-  myModelList->setShowFilterLayout(true);
 
   // Water and Tanks
   myModelList->addModelObjectType(IddObjectType::OS_WaterUse_Equipment_Definition, "Water Use Equipment Definition");
@@ -1012,7 +994,6 @@ void MainRightColumnController::configureForHVACSystemsSubTab(int subTabID) {
   libraryWidget->setItemsDraggable(true);
   libraryWidget->setItemsRemoveable(false);
   libraryWidget->setItemsType(OSItemType::LibraryItem);
-  libraryWidget->setShowFilterLayout(true);
 
   libraryWidget->addModelObjectType(IddObjectType::OS_SolarCollector_IntegralCollectorStorage, "Solar Collector Integral Collector Storage");
   libraryWidget->addModelObjectType(IddObjectType::OS_SolarCollector_FlatPlate_Water, "Solar Collector Flat Plate Water");

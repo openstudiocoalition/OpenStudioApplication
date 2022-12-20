@@ -67,9 +67,6 @@ class OSCollapsibleItemList : public OSItemSelector
   OSItemType itemsType() const;
   void setItemsType(OSItemType type);
 
-  bool showFilterLayout() const;
-  void setShowFilterLayout(const bool showFilterLayout);
-
  signals:
 
   void openLibDlgClicked();
@@ -90,7 +87,6 @@ class OSCollapsibleItemList : public OSItemSelector
   std::vector<OSCollapsibleItem*> m_collapsibleItems;
   bool m_itemsDraggable;
   bool m_itemsRemoveable;
-  bool m_showFilterLayout;
   OSItemType m_itemsType;
 };
 
