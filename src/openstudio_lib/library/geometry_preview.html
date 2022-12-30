@@ -3199,13 +3199,19 @@ var initDatGui = function () {
   f2.open();
 
   var f3 = gui.addFolder('Camera');
-  f3.add(settings, 'orthographic').name('Orthographic').onChange(function (value) {
-      setLocalStorage('orthographic', value);
+  [
+    ["orthographic", "Orthographic"],
+    ["xView", "X View"],
+    ["yView", "Y View"],
+    ["zView", "Z View"],
+    ["reset", "Reset"]
+  ].forEach(opt => {
+    f3.add(settings, opt[0]).name(opt[1]).onChange(function (value) {
+      if (opt[0] === "orthographic")
+        setLocalStorage(opt[0], value);
+      update(value);
+    });
   });
-  f3.add(settings, 'xView').name('X View');
-  f3.add(settings, 'yView').name('Y View');
-  f3.add(settings, 'zView').name('Z View');
-  f3.add(settings, 'reset').name('Reset');
   f3.open();
 
   /*var f2 = gui.addFolder('Section Cut');
