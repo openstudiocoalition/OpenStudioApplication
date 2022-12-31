@@ -16,7 +16,7 @@ set(OPENSTUDIO_EXT "tar.gz")
 # If downloaded, we need the SHA to match. This block is here since we need "OPENSTUDIO_PLATFORM" anyways
 if(APPLE)
   if(ARCH MATCHES "arm64")
-    set(OPENSTUDIO_EXPECTED_HASH TBD)
+    set(OPENSTUDIO_EXPECTED_HASH 6122d16d70d25f51db28dd3697678c29)
     set(OPENSTUDIO_PLATFORM "Darwin-arm64")
   else()
     set(OPENSTUDIO_EXPECTED_HASH f21b03a44aa9ac3e52a4bdfa20009171)
