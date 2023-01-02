@@ -1,7 +1,7 @@
 
 OS:Version,
-  {2e3ce5ce-f597-4c55-9952-2064387962ec}, !- Handle
-  3.5.0;                                  !- Version Identifier
+  {b5b4d45f-bd82-4fc4-9aa3-983b08006f2b}, !- Handle
+  3.5.1;                                  !- Version Identifier
 
 ! Always OnOff Discrete Schedule Type Limits
 OS:ScheduleTypeLimits,

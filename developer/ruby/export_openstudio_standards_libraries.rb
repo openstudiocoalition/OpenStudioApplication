@@ -20,7 +20,6 @@ module Model
 
   class Model
     def getAutosizedValue(object, str, units)
-      puts "OH YEAH"
       STDOUT.flush
 
       case str
