@@ -48,7 +48,10 @@ using std::stringstream;
 using namespace openstudio;
 
 IGLineEdit::IGLineEdit(const QString& val, InspectorGadget* ig, QWidget* parent)
-  : QLineEdit(val, parent), m_ig(ig), m_min(-std::numeric_limits<double>::max()), m_max(std::numeric_limits<double>::max()), m_default(0.0) {}
+  : QLineEdit(val, parent), m_ig(ig), m_min(-std::numeric_limits<double>::max()), m_max(std::numeric_limits<double>::max()), m_default(0.0) {
+  setCursorPosition(0);
+  setToolTip(val);
+}
 
 IGLineEdit::~IGLineEdit() = default;
 
@@ -122,6 +125,7 @@ void IGLineEdit::editDone() {
   QString val;
   if (checkValue(val)) {
     setText(val);  // emits textChanged but not textEdited
+    setToolTip(val);
     emit newValue(val);
   }
 }
@@ -138,6 +142,7 @@ void IGLineEdit::hardsizeClicked(bool checked) {
   }
 
   setText(val);
+  setToolTip(val);
   // emit textEdited(val);
   // Call newValue like when editDone, otherwise the zero doesn't stick when you don't enter the field
   // See issue #1286
