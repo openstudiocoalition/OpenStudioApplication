@@ -832,12 +832,12 @@ void InspectorGadget::createExtensibleToolBar(QVBoxLayout* layout,
   auto* label = new QLabel(tr("Add/Remove Extensible Groups"), parent);
 
   auto* addBtn = new QPushButton(frame);
-  QIcon ico(":images/edit_add.png");
+  QIcon ico(":/images/edit_add.png");
   addBtn->setIcon(ico);
   addBtn->setStyleSheet(" margin: 0px; border: 0px;");
 
   auto* subBtn = new QPushButton(frame);
-  QIcon ico2(":images/edit_remove.png");
+  QIcon ico2(":/images/edit_remove.png");
   subBtn->setIcon(ico2);
   subBtn->setStyleSheet(" margin: 0px; border: 0px;");
 

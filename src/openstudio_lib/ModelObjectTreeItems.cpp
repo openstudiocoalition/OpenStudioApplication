@@ -240,7 +240,7 @@ void ModelObjectTreeItem::setStyle(int headerLevel, const QString& color) {
     //this->setChildIndicatorPolicy(QTreeWidgetItem::ShowIndicator);
     this->setFlags(Qt::NoItemFlags | Qt::ItemIsSelectable | Qt::ItemIsEnabled);
 
-    static QIcon defaultIcon(":images/bug.png");
+    static QIcon defaultIcon(":/images/bug.png");
 
     QIcon icon(defaultIcon);
     const QPixmap* pixMap = IconLibrary::Instance().findMiniIcon(this->modelObject()->iddObjectType().value());
@@ -253,7 +253,7 @@ void ModelObjectTreeItem::setStyle(int headerLevel, const QString& color) {
     this->setChildIndicatorPolicy(QTreeWidgetItem::ShowIndicator);
     this->setFlags(Qt::NoItemFlags | Qt::ItemIsEnabled);
 
-    static QIcon icon(":images/mini_icons/folder.png");
+    static QIcon icon(":/images/mini_icons/folder.png");
     this->setIcon(0, icon);
   }
 

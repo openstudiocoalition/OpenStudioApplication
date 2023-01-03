@@ -202,12 +202,12 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP, const op
   label->setObjectName("H2");
 
   addBtn = new QPushButton();
-  QIcon ico(":images/edit_add.png");
+  QIcon ico(":/images/edit_add.png");
   addBtn->setIcon(ico);
   addBtn->setStyleSheet(" margin: 0px; border: 0px;");
 
   removeBtn = new QPushButton();
-  QIcon ico2(":images/edit_remove.png");
+  QIcon ico2(":/images/edit_remove.png");
   removeBtn->setIcon(ico2);
   removeBtn->setStyleSheet(" margin: 0px; border: 0px;");
 

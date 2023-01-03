@@ -38,8 +38,6 @@
     <file>images/boiler_steam@2x.png</file>
     <file>images/bug.png</file>
     <file>images/bug@2x.png</file>
-    <file>images/cancel_simulation_button.png</file>
-    <file>images/cancel_simulation_button@2x.png</file>
     <file>images/cav_reheat.png</file>
     <file>images/cav_reheat@2x.png</file>
     <file>images/centralheatpumpsystem.png</file>
@@ -192,14 +190,6 @@
     <file>images/divider_dots@2x.png</file>
     <file>images/duct.png</file>
     <file>images/duct@2x.png</file>
-    <file>images/duplicate_disabled.png</file>
-    <file>images/duplicate_disabled@2x.png</file>
-    <file>images/duplicate_off.png</file>
-    <file>images/duplicate_off@2x.png</file>
-    <file>images/duplicate_over.png</file>
-    <file>images/duplicate_over@2x.png</file>
-    <file>images/duplicate_press.png</file>
-    <file>images/duplicate_press@2x.png</file>
     <file>images/dx_cooling_multispeed.png</file>
     <file>images/dx_cooling_multispeed@2x.png</file>
     <file>images/dxcoolingcoil_2speed.png</file>
@@ -232,10 +222,6 @@
     <file>images/fan_variable@2x.png</file>
     <file>images/fan_zoneexhaust.png</file>
     <file>images/fan_zoneexhaust@2x.png</file>
-    <file>images/fast_forward.png</file>
-    <file>images/fast_forward@2x.png</file>
-    <file>images/fast_reverse.png</file>
-    <file>images/fast_reverse@2x.png</file>
     <file>images/fire.png</file>
     <file>images/fire@2x.png</file>
     <file>images/fluid_cooler_single.png</file>
@@ -244,8 +230,6 @@
     <file>images/fluid_cooler_two@2x.png</file>
     <file>images/fluid_hx.png</file>
     <file>images/fluid_hx@2x.png</file>
-    <file>images/forward.png</file>
-    <file>images/forward@2x.png</file>
     <file>images/four_pipe_fan_coil.png</file>
     <file>images/four_pipe_fan_coil@2x.png</file>
     <file>images/furnace.png</file>
@@ -436,14 +420,6 @@
     <file>images/remove_unused_over@2x.png</file>
     <file>images/remove_unused_pressed.png</file>
     <file>images/remove_unused_pressed@2x.png</file>
-    <file>images/reverse.png</file>
-    <file>images/reverse@2x.png</file>
-    <file>images/rotating_arrow.png</file>
-    <file>images/rotating_arrow@2x.png</file>
-    <file>images/run_simulation_button.png</file>
-    <file>images/run_simulation_button@2x.png</file>
-    <file>images/searchbox_magnifyingglass.png</file>
-    <file>images/searchbox_magnifyingglass@2x.png</file>
     <file>images/series_fan_terminal.png</file>
     <file>images/series_fan_terminal@2x.png</file>
     <file>images/setpoint_coldest.png</file>
@@ -595,10 +571,6 @@
     <file>images/thermal_storage_strat@2x.png</file>
     <file>images/thermostat.png</file>
     <file>images/thermostat@2x.png</file>
-    <file>images/toggle_arrow.png</file>
-    <file>images/toggle_arrow@2x.png</file>
-    <file>images/toggle_arrow_closed.png</file>
-    <file>images/toggle_arrow_closed@2x.png</file>
     <file>images/toggle_arrow_closed2.png</file>
     <file>images/toggle_arrow_closed2@2x.png</file>
     <file>images/toggle_false.png</file>

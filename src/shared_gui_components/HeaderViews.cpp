@@ -61,7 +61,7 @@ HeaderToggleButton::HeaderToggleButton(QWidget* parent) : QPushButton(parent) {
 
   QString style;
   style.append("QPushButton { border: none; background: transparent;");
-  style.append("background-image: url(\":/images/toggle_arrow_closed.png\"); ");
+  style.append("background-image: url(\":/images/toggle_arrow_closed2.png\"); ");
   style.append(" } ");
   style.append("QPushButton:checked { border: none; ");
   style.append("background-image: url(\":/images/toggle_arrow.png\"); ");

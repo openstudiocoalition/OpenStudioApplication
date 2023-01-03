@@ -452,7 +452,7 @@ SpaceLoadInstanceMiniView::SpaceLoadInstanceMiniView(const model::SpaceLoadInsta
   auto* hLayout = new QHBoxLayout();
 
   // icon
-  static QIcon defaultIcon(":images/bug.png");
+  static QIcon defaultIcon(":/images/bug.png");
   QIcon icon(defaultIcon);
   const QPixmap* pixMap = IconLibrary::Instance().findMiniIcon(m_spaceLoadInstance.iddObjectType().value());
   if (pixMap) {

@@ -79,7 +79,7 @@ VRFSystemView::VRFSystemView()
     m_mouseDown(false),
     m_width(0),
     m_height(0),
-    m_vrfPixmap(":images/vrf_outdoor.png") {
+    m_vrfPixmap(":/images/vrf_outdoor.png") {
   vrfIconButton = new ButtonItem(m_vrfPixmap, m_vrfPixmap, m_vrfPixmap);
   vrfIconButton->setParentItem(this);
   connect(vrfIconButton, &ButtonItem::mouseClicked, this, &VRFSystemView::onVRFIconClicked);
@@ -205,7 +205,7 @@ VRFTerminalView::VRFTerminalView()
   : zoneDropZone(new VRFThermalZoneDropZoneView()),
     removeButtonItem(new RemoveButtonItem()),
     removeZoneButtonItem(new RemoveButtonItem()),
-    m_terminalPixmap(QPixmap(":images/vrf_unit.png")) {
+    m_terminalPixmap(QPixmap(":/images/vrf_unit.png")) {
   double x = VRFSystemView::margin;
 
   removeButtonItem->setParentItem(this);
@@ -309,10 +309,10 @@ void VRFThermalZoneDropZoneView::paint(QPainter* painter, const QStyleOptionGrap
 VRFSystemMiniView::VRFSystemMiniView()
   : removeButtonItem(new RemoveButtonItem()), zoomInButtonItem(new ZoomInButtonItem()), m_length(75), m_zones(0), m_terminals(0) {
 
-  m_vrfOutdoorPix = QPixmap(":images/vrf_outdoor.png").scaled(m_length, m_length);
-  m_vrfTransferPix = QPixmap(":images/vrf_transfer.png").scaled(m_length, m_length);
-  m_vrfTerminalPix = QPixmap(":images/vrf_unit.png").scaled(m_length, m_length);
-  m_vrfZonePix = QPixmap(":images/zone.png").scaled(m_length, m_length);
+  m_vrfOutdoorPix = QPixmap(":/images/vrf_outdoor.png").scaled(m_length, m_length);
+  m_vrfTransferPix = QPixmap(":/images/vrf_transfer.png").scaled(m_length, m_length);
+  m_vrfTerminalPix = QPixmap(":/images/vrf_unit.png").scaled(m_length, m_length);
+  m_vrfZonePix = QPixmap(":/images/zone.png").scaled(m_length, m_length);
 
   removeButtonItem->setParentItem(this);
   removeButtonItem->setPos(cellWidth() - removeButtonItem->boundingRect().width() - 10,

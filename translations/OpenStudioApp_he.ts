@@ -253,24 +253,24 @@ Zone</source>
 <context>
     <name>openstudio::EditorWebView</name>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1304"/>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1330"/>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1356"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1303"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1329"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1355"/>
         <source>Open File</source>
         <translation>פתח קובץ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1304"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1303"/>
         <source>gbXML (*.xml *.gbxml)</source>
         <translation>gbXML (*.xml *.gbxml)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1330"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1329"/>
         <source>IDF (*.idf)</source>
         <translation>IDF (*.idf)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1356"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1355"/>
         <source>OSM (*.osm)</source>
         <translation>OSM (*.osm)</translation>
     </message>
@@ -529,7 +529,7 @@ Zone</source>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="68"/>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="725"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="742"/>
         <source>&amp;Revert to Saved</source>
         <translation>&amp;חזור לשמירה האחרונה</translation>
     </message>
@@ -767,20 +767,38 @@ Zone</source>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="386"/>
+        <source>Allow Analytics</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="393"/>
         <source>&amp;About</source>
         <translation>אודות</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="710"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="717"/>
         <source>Adding a new language</source>
         <translation>הוספת שפה חדשה</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="711"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="718"/>
         <source>Adding a new language requires almost no coding skill, but it does require language skills: the only thing to do is to translate each sentence/word with the help of a dedicated software.
 If you would like to see the OpenStudioApplication translated in your language of choice, we would welcome your help. Send an email to osc@openstudiocoalition.org specifying which language you want to add, and we will be in touch to help you get started.</source>
         <translation>הוספת שפה חדשה לא דורשת כמעט מיומנות קידוד, אבל היא כן דורשת כישורי שפה: הדבר היחיד שצריך לעשות הוא לתרגם כל משפט/מילה בעזרת תוכנה ייעודית.
 אם תרצה לראות את OpenStudioApplication מתורגם בשפה שבחרת, נשמח לעזרתך. שלח אימייל לכתובת osc@openstudiocoalition.org עם ציון השפה שאתה רוצה להוסיף, ואנו ניצור איתך קשר כדי לעזור לך להתחיל.</translation>
+    </message>
+</context>
+<context>
+    <name>openstudio::MainWindow</name>
+    <message>
+        <location filename="../src/openstudio_lib/MainWindow.cpp" line="337"/>
+        <source>Allow Analytics</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainWindow.cpp" line="338"/>
+        <source>Allow OpenStudio Coalition to collect anonymous usage statistics to help improve the OpenStudio Application? See the &lt;a href=&quot;https://openstudiocoalition.org/about/privacy_policy/&quot;&gt;privacy policy&lt;/a&gt; for more information.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -811,45 +829,45 @@ If you would like to see the OpenStudioApplication translated in your language o
 <context>
     <name>openstudio::OSDocument</name>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1214"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1216"/>
         <source>Export Idf</source>
         <translation>ייצוא IDF</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1214"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1216"/>
         <source>(*.idf)</source>
         <translation>(*.idf)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1249"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1251"/>
         <source>(*.xml)</source>
         <translation>(*.xml)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1388"/>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1463"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1390"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1465"/>
         <source>Failed to save model</source>
         <translation>שמירת הקובץ נכשלה</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1389"/>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1464"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1391"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1466"/>
         <source>Failed to save model, make sure that you do not have the location open and that you have correct write access.</source>
         <translation>אין אפשרות לשמור את הקובץ, ודא שאין לך את התיקיה פתוחה ושיש לך מספיק הרשאות כתיבה.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1432"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1434"/>
         <source>Save</source>
         <translation>שמור</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1432"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1434"/>
         <source>(*.osm)</source>
         <translation>(*.osm)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1626"/>
         <location filename="../src/openstudio_lib/OSDocument.cpp" line="1628"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1630"/>
         <source>Select My Measures Directory</source>
         <translation>בחר בתיקייה &quot;הפעולות שלי&quot;.</translation>
     </message>
