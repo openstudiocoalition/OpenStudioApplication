@@ -301,7 +301,9 @@ void OSLineEdit2::onModelObjectChangeInternal(bool startingup) {
         this->setToolTip(qtext);
         updateStyle();
         this->blockSignals(false);
-        if (!startingup) {
+        if (startingup) {
+          this->setCursorPosition(0);
+        } else {
           m_timer.start(TIMEOUT_INTERVAL);
         }
       }

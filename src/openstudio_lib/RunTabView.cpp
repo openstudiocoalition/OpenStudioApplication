@@ -113,7 +113,7 @@ RunView::RunView() : QWidget(), m_runSocket(nullptr) {
   m_playButton->setChecked(false);
   QIcon playbuttonicon(QPixmap(":/images/run_simulation_button.png"));
   playbuttonicon.addPixmap(QPixmap(":/images/run_simulation_button.png"), QIcon::Normal, QIcon::Off);
-  playbuttonicon.addPixmap(QPixmap(":/images/cancel_simulation_button.png"), QIcon::Normal, QIcon::On);
+  playbuttonicon.addPixmap(QPixmap(":/images/run_cancel.png"), QIcon::Normal, QIcon::On);
   m_playButton->setStyleSheet("QToolButton { background:transparent; font: bold; }");
   m_playButton->setIconSize(QSize(35, 35));
   m_playButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);

@@ -954,8 +954,16 @@ void MeasureManager::checkForRemoteBCLUpdates() {
                  + tr("Would you like update them?"));
 
     QString detailedText;
+    std::vector<BCLMeasure> oldMeasures;
     for (const BCLSearchResult& update : updates) {
-      detailedText += toQString("* " + update.name() + "\n");
+      detailedText += toQString("* name: " + update.name() + "\n");
+      detailedText += toQString(" - uid: " + update.uid() + "\n");
+      auto current = m_bclMeasures.find(toUUID(update.uid()));
+      if (current != m_bclMeasures.end()) {
+        oldMeasures.push_back(current->second);
+        detailedText += toQString(" - old versionId: " + current->second.versionId() + "\n");
+      }
+      detailedText += toQString(" - new versionId: " + update.versionId() + "\n\n");
     }
     QMessageBox msg(QMessageBox::Question, tr("Measures Updated"), text, QMessageBox::Yes | QMessageBox::No, m_app->mainWidget());
     msg.setDetailedText(detailedText);
@@ -963,6 +971,10 @@ void MeasureManager::checkForRemoteBCLUpdates() {
     int result = msg.exec();
     if (result == QMessageBox::Yes) {
       remoteBCL.updateMeasures();
+      for (auto& oldMeasure : oldMeasures) {
+        LocalBCL::instance().removeMeasure(oldMeasure);
+      }
+      updateMeasuresLists(false);
     }
   }
 }
@@ -974,20 +986,35 @@ void MeasureManager::downloadBCLMeasures() {
     QMessageBox::information(m_app->mainWidget(), "Measures Updated", "All measures are up-to-date.");
   } else {
     std::vector<BCLSearchResult> updates = remoteBCL.measuresWithUpdates();
-    QStringList measureNames;
+
+    QString detailedText;
+    std::vector<BCLMeasure> oldMeasures;
     for (const BCLSearchResult& update : updates) {
-      measureNames.push_back(QString(QChar(0x2022)) + " " + toQString(update.name()));
+      detailedText += toQString("* name: " + update.name() + "\n");
+      detailedText += toQString(" - uid: " + update.uid() + "\n");
+      auto current = m_bclMeasures.find(toUUID(update.uid()));
+      if (current != m_bclMeasures.end()) {
+        oldMeasures.push_back(current->second);
+        detailedText += toQString(" - old versionId: " + current->second.versionId() + "\n");
+      }
+      detailedText += toQString(" - new versionId: " + update.versionId() + "\n\n");
     }
+
     remoteBCL.updateMeasures();
+    for (auto& oldMeasure : oldMeasures) {
+      LocalBCL::instance().removeMeasure(oldMeasure);
+    }
+    updateMeasuresLists(false);
+
     QMessageBox msg(m_app->mainWidget());
     msg.setIcon(QMessageBox::Information);
     msg.setWindowTitle("Measures Updated");
     if (numUpdates == 1) {
-      msg.setText("1 measure has been updated.                   ");
+      msg.setText("1 measure has been updated.");
     } else {
-      msg.setText(QString::number(numUpdates) + " measures have been updated.                   ");
+      msg.setText(QString::number(numUpdates) + " measures have been updated.");
     }
-    msg.setDetailedText(measureNames.join("\n"));
+    msg.setDetailedText(detailedText);
     msg.exec();
   }
 }

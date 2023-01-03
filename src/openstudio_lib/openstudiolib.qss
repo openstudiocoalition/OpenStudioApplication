@@ -793,33 +793,33 @@ QPushButton#ZoomInButton {
   border: none;
   border-radius: none;
   background: transparent;
-  background-image: url(":images/zoom-in.png");
+  background-image: url(":/images/zoom-in.png");
   padding-left: none;
   padding-right: none;
 }
 
 QPushButton#ZoomInButton:hover {
-  background-image: url(":images/zoom-in-over.png");
+  background-image: url(":/images/zoom-in-over.png");
 }
 
 QPushButton#ZoomInButton:pressed {
-  background-image: url(":images/zoom-in-press.png");
+  background-image: url(":/images/zoom-in-press.png");
 }
 
 QPushButton#ZoomOutButton {
   border: none;
   background: transparent;
-  background-image: url(":images/zoom-out.png");
+  background-image: url(":/images/zoom-out.png");
   padding-left: none;
   padding-right: none;
 }
 
 QPushButton#ZoomOutButton:hover {
-  background-image: url(":images/zoom-out-over.png");
+  background-image: url(":/images/zoom-out-over.png");
 }
 
 QPushButton#ZoomOutButton:pressed {
-  background-image: url(":images/zoom-out-press.png");
+  background-image: url(":/images/zoom-out-press.png");
 }
 
 QRadioButton {
@@ -834,13 +834,13 @@ QScrollArea {
 
 QSplitter::handle::horizontal {
   width: 15px;
-  image: url(:images/divider_dots.png);
+  image: url(:/images/divider_dots.png);
   background-color: #2C3233;
 }
 
 QSplitter::handle::vertical {
   height: 15px;
-  image: url(:images/v_divider_dots.png);
+  image: url(:/images/v_divider_dots.png);
 }
 
 QSplitter#GrayWidgetWithLeftTopBorders::handle::horizontal {
