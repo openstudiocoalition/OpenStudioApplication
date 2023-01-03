@@ -137,8 +137,7 @@ namespace openstudio {
 
 OSDocument::OSDocument(const openstudio::model::Model& library, const openstudio::path& resourcesPath, openstudio::model::OptionalModel model,
                        QString filePath, bool isPlugin, int startTabIndex, int startSubTabIndex)
-  : OSQObjectController(),
-    m_compLibrary(library),
+  : m_compLibrary(library),
     m_resourcesPath(resourcesPath),
     m_onlineMeasuresBclDialog(nullptr),
     m_onlineBclDialog(nullptr),
@@ -169,17 +168,17 @@ OSDocument::OSDocument(const openstudio::model::Model& library, const openstudio
     initalizeWorkflow = true;
   }
 
-  openstudio::path modelTempDir;
+  openstudio::path modelTempDirPath;
   if (!m_savePath.isEmpty()) {
     auto p = toPath(m_savePath);
-    modelTempDir = model::initializeModel(*model, p);
+    modelTempDirPath = model::initializeModel(*model, p);
     m_mainWindow->setWindowTitle(toQString(p.filename()) + "[*]");
   } else {
-    modelTempDir = model::initializeModel(*model);
+    modelTempDirPath = model::initializeModel(*model);
     m_mainWindow->setWindowTitle("Untitled[*]");
     initalizeWorkflow = true;
   }
-  m_modelTempDir = toQString(modelTempDir);
+  m_modelTempDir = toQString(modelTempDirPath);
 
   m_verticalId = 0;
   m_subTabIds = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -236,7 +235,7 @@ OSDocument::OSDocument(const openstudio::model::Model& library, const openstudio
   }
 
   if (startTabIndex != m_verticalId) {
-    QTimer::singleShot(0, [=] {
+    QTimer::singleShot(0, [=, this] {
       this->onVerticalTabSelected(startTabIndex);
       this->updateSubTabSelected(startSubTabIndex);
     });
@@ -360,42 +359,43 @@ void OSDocument::weatherFileReset() {
 
 void OSDocument::createTabButtons() {
   // Location
-  m_mainWindow->addVerticalTabButton(SITE, "Site", ":images/on_location_tab.png", ":images/off_location_tab.png",
-                                     ":images/disabled_location_tab.png");
+  m_mainWindow->addVerticalTabButton(SITE, "Site", ":/images/on_location_tab.png", ":/images/off_location_tab.png",
+                                     ":/images/disabled_location_tab.png");
 
   // Schedules
-  m_mainWindow->addVerticalTabButton(SCHEDULES, "Schedules", ":images/on_schedules_tab.png", ":images/off_schedules_tab.png",
-                                     ":images/disabled_schedules_tab.png");
+  m_mainWindow->addVerticalTabButton(SCHEDULES, "Schedules", ":/images/on_schedules_tab.png", ":/images/off_schedules_tab.png",
+                                     ":/images/disabled_schedules_tab.png");
 
   // Constructions
-  m_mainWindow->addVerticalTabButton(CONSTRUCTIONS, "Constructions", ":images/on_constructions_tab.png", ":images/off_constructions_tab.png",
-                                     ":images/disabled_constructions_tab.png");
+  m_mainWindow->addVerticalTabButton(CONSTRUCTIONS, "Constructions", ":/images/on_constructions_tab.png", ":/images/off_constructions_tab.png",
+                                     ":/images/disabled_constructions_tab.png");
 
   // Loads
-  m_mainWindow->addVerticalTabButton(LOADS, "Loads", ":images/on_loads_tab.png", ":images/off_loads_tab.png", ":images/disabled_loads_tab.png");
+  m_mainWindow->addVerticalTabButton(LOADS, "Loads", ":/images/on_loads_tab.png", ":/images/off_loads_tab.png", ":/images/disabled_loads_tab.png");
 
   // Space Types
-  m_mainWindow->addVerticalTabButton(SPACE_TYPES, "Space Types", ":images/on_space_types_tab.png", ":images/off_space_types_tab.png",
-                                     ":images/disabled_space_types_tab.png");
+  m_mainWindow->addVerticalTabButton(SPACE_TYPES, "Space Types", ":/images/on_space_types_tab.png", ":/images/off_space_types_tab.png",
+                                     ":/images/disabled_space_types_tab.png");
 
   // Geometry
-  m_mainWindow->addVerticalTabButton(GEOMETRY, "Geometry", ":images/on_geometry_tab.png", ":images/off_geometry_tab.png",
-                                     ":images/disabled_geometry_tab.png");
+  m_mainWindow->addVerticalTabButton(GEOMETRY, "Geometry", ":/images/on_geometry_tab.png", ":/images/off_geometry_tab.png",
+                                     ":/images/disabled_geometry_tab.png");
 
   // Facility
-  m_mainWindow->addVerticalTabButton(FACILITY, "Facility", ":images/on_building_tab.png", ":images/off_building_tab.png",
-                                     ":images/disabled_building_tab.png");
+  m_mainWindow->addVerticalTabButton(FACILITY, "Facility", ":/images/on_building_tab.png", ":/images/off_building_tab.png",
+                                     ":/images/disabled_building_tab.png");
 
   // Spaces
-  m_mainWindow->addVerticalTabButton(SPACES, "Spaces", ":images/on_spaces_tab.png", ":images/off_spaces_tab.png", ":images/disabled_spaces_tab.png");
+  m_mainWindow->addVerticalTabButton(SPACES, "Spaces", ":/images/on_spaces_tab.png", ":/images/off_spaces_tab.png",
+                                     ":/images/disabled_spaces_tab.png");
 
   // Thermal Zones
-  m_mainWindow->addVerticalTabButton(THERMAL_ZONES, "Thermal Zones", ":images/on_thermal_zone_tab.png", ":images/off_thermal_zone_tab.png",
-                                     ":images/disabled_thermal_zone_tab.png");
+  m_mainWindow->addVerticalTabButton(THERMAL_ZONES, "Thermal Zones", ":/images/on_thermal_zone_tab.png", ":/images/off_thermal_zone_tab.png",
+                                     ":/images/disabled_thermal_zone_tab.png");
 
   // HVAC Systems
-  m_mainWindow->addVerticalTabButton(HVAC_SYSTEMS, "HVAC Systems", ":images/on_hvac_tab.png", ":images/off_hvac_tab.png",
-                                     ":images/disabled_hvac_tab.png");
+  m_mainWindow->addVerticalTabButton(HVAC_SYSTEMS, "HVAC Systems", ":/images/on_hvac_tab.png", ":/images/off_hvac_tab.png",
+                                     ":/images/disabled_hvac_tab.png");
 
   //******************************************************************************************************
   //
@@ -403,30 +403,30 @@ void OSDocument::createTabButtons() {
   //
   //m_mainWindow->addVerticalTabButton( BUILDING_SUMMARY,
   //                              "Building Summary",
-  //                              ":images/on_summary_tab.png",
-  //                              ":images/off_summary_tab.png" );
+  //                              ":/images/on_summary_tab.png",
+  //                              ":/images/off_summary_tab.png" );
   //
   //******************************************************************************************************
 
   // Variables
-  m_mainWindow->addVerticalTabButton(OUTPUT_VARIABLES, "Output Variables", ":images/on_var_tab.png", ":images/off_var_tab.png",
-                                     ":images/disabled_var_tab.png");
+  m_mainWindow->addVerticalTabButton(OUTPUT_VARIABLES, "Output Variables", ":/images/on_var_tab.png", ":/images/off_var_tab.png",
+                                     ":/images/disabled_var_tab.png");
 
   // Sim Settings
-  m_mainWindow->addVerticalTabButton(SIMULATION_SETTINGS, "Simulation Settings", ":images/on_sim_settings_tab.png",
-                                     ":images/off_sim_settings_tab.png", ":images/disabled_sim_settings_tab.png");
+  m_mainWindow->addVerticalTabButton(SIMULATION_SETTINGS, "Simulation Settings", ":/images/on_sim_settings_tab.png",
+                                     ":/images/off_sim_settings_tab.png", ":/images/disabled_sim_settings_tab.png");
 
   // Scripts
-  m_mainWindow->addVerticalTabButton(RUBY_SCRIPTS, "Measures", ":images/on_scripts_tab.png", ":images/off_scripts_tab.png",
-                                     ":images/disabled_scripts_tab.png");
+  m_mainWindow->addVerticalTabButton(RUBY_SCRIPTS, "Measures", ":/images/on_scripts_tab.png", ":/images/off_scripts_tab.png",
+                                     ":/images/disabled_scripts_tab.png");
 
   // Run
-  m_mainWindow->addVerticalTabButton(RUN_SIMULATION, "Run Simulation", ":images/on_run_tab.png", ":images/off_run_tab.png",
-                                     ":images/disabled_run_tab.png");
+  m_mainWindow->addVerticalTabButton(RUN_SIMULATION, "Run Simulation", ":/images/on_run_tab.png", ":/images/off_run_tab.png",
+                                     ":/images/disabled_run_tab.png");
 
   // Results
-  m_mainWindow->addVerticalTabButton(RESULTS_SUMMARY, "Results Summary", ":images/on_results_tab.png", ":images/off_results_tab.png",
-                                     ":images/disabled_results_tab.png");
+  m_mainWindow->addVerticalTabButton(RESULTS_SUMMARY, "Results Summary", ":/images/on_results_tab.png", ":/images/off_results_tab.png",
+                                     ":/images/disabled_results_tab.png");
 }
 
 void OSDocument::createTab(int verticalId) {
@@ -766,7 +766,7 @@ void OSDocument::markAsUnmodified() {
 }
 
 void OSDocument::disableTabsDuringRun() {
-  if (m_enableTabsAfterRun == false) {
+  if (!m_enableTabsAfterRun) {
     return;  // Already in correct state, no work to be done
   } else {
     m_enableTabsAfterRun = false;
@@ -794,7 +794,7 @@ void OSDocument::disableTabsDuringRun() {
 
 void OSDocument::enableTabsAfterRun() {
 
-  if (m_enableTabsAfterRun == true) {
+  if (m_enableTabsAfterRun) {
     return;  // Already in correct state, no work to be done
   } else {
     m_enableTabsAfterRun = true;
@@ -864,6 +864,8 @@ void OSDocument::enable() {
   m_mainWindow->verticalTabWidget()->enableTabButton(RESULTS_SUMMARY, true);
 
   m_mainWindow->verticalTabWidget()->refreshTabButtons();
+
+  m_mainWindow->promptAnalytics();
 }
 
 bool OSDocument::modified() const {
@@ -1056,7 +1058,7 @@ bool OSDocument::fixWeatherFileInTemp(bool opening) {
   if (doCopy) {
     try {
       LOG(Debug, "Start copy weather file from " << copySource << " to " << copyDest);
-      boost::filesystem::copy_file(copySource, copyDest, boost::filesystem::copy_option::overwrite_if_exists);
+      boost::filesystem::copy_file(copySource, copyDest, boost::filesystem::copy_options::overwrite_existing);
       LOG(Debug, "Copy weather file complete");
     } catch (...) {
       // copy failed
@@ -1592,7 +1594,7 @@ void OSDocument::openMeasuresDlg() {
     switch (ret) {
       case QMessageBox::Save:
         // Save was clicked
-        if (this->save() != true) {
+        if (!this->save()) {
           return;
         }
         break;

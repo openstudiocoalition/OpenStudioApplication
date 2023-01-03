@@ -5,6 +5,8 @@ include_directories(${QT_INCLUDES})
 
 # source files
 set(${target_name}_SRC
+  AnalyticsHelper.cpp
+  AnalyticsHelper.hpp
   ApplyMeasureNowDialog.cpp
   ApplyMeasureNowDialog.hpp
   BCLComponentItem.cpp
@@ -135,8 +137,6 @@ set(${target_name}_SRC
   MainWindow.hpp
   MaterialAirGapInspectorView.cpp
   MaterialAirGapInspectorView.hpp
-  MaterialAirWallInspectorView.cpp
-  MaterialAirWallInspectorView.hpp
   MaterialInfraredTransparentInspectorView.cpp
   MaterialInfraredTransparentInspectorView.hpp
   MaterialInspectorView.cpp
@@ -397,8 +397,6 @@ set(${target_name}_SRC
   ../shared_gui_components/LocalLibraryController.hpp
   ../shared_gui_components/LocalLibraryView.cpp
   ../shared_gui_components/LocalLibraryView.hpp
-  ../shared_gui_components/LostCloudConnectionDialog.cpp
-  ../shared_gui_components/LostCloudConnectionDialog.hpp
   ../shared_gui_components/MeasureBadge.cpp
   ../shared_gui_components/MeasureBadge.hpp
   ../shared_gui_components/MeasureDragData.cpp
@@ -454,6 +452,8 @@ set(${target_name}_SRC
   ../shared_gui_components/PageNavigator.hpp
   ../shared_gui_components/ProcessEventsProgressBar.cpp
   ../shared_gui_components/ProcessEventsProgressBar.hpp
+  ../shared_gui_components/ProgressBarWithError.cpp
+  ../shared_gui_components/ProgressBarWithError.hpp
   ../shared_gui_components/SyncMeasuresDialog.cpp
   ../shared_gui_components/SyncMeasuresDialog.hpp
   ../shared_gui_components/SyncMeasuresDialogCentralWidget.cpp
@@ -476,6 +476,7 @@ set(${target_name}_SRC
 
 # moc files
 set(${target_name}_moc
+  AnalyticsHelper.hpp
   ApplyMeasureNowDialog.hpp
   BCLComponentItem.hpp
   BuildingInspectorView.hpp
@@ -540,7 +541,6 @@ set(${target_name}_moc
   MainTabView.hpp
   MainWindow.hpp
   MaterialAirGapInspectorView.hpp
-  MaterialAirWallInspectorView.hpp
   MaterialInfraredTransparentInspectorView.hpp
   MaterialInspectorView.hpp
   MaterialNoMassInspectorView.hpp
@@ -668,7 +668,6 @@ set(${target_name}_moc
   ../shared_gui_components/EditView.hpp
   ../shared_gui_components/GraphicsItems.hpp
   ../shared_gui_components/HeaderViews.hpp
-  ../shared_gui_components/LostCloudConnectionDialog.hpp
   ../shared_gui_components/LocalLibraryController.hpp
   ../shared_gui_components/LocalLibraryView.hpp
   ../shared_gui_components/MeasureBadge.hpp
@@ -696,6 +695,7 @@ set(${target_name}_moc
   ../shared_gui_components/OSViewSwitcher.hpp
   ../shared_gui_components/OSWidgetHolder.hpp
   ../shared_gui_components/PageNavigator.hpp
+  ../shared_gui_components/ProgressBarWithError.hpp
   ../shared_gui_components/SyncMeasuresDialog.hpp
   ../shared_gui_components/SyncMeasuresDialogCentralWidget.hpp
   ../shared_gui_components/TextEditDialog.hpp

@@ -1,7 +1,7 @@
 
 OS:Version,
-  {a243c0e3-5451-4121-aa7c-efb355902f2e}, !- Handle
-  3.4.0;                                  !- Version Identifier
+  {b5b4d45f-bd82-4fc4-9aa3-983b08006f2b}, !- Handle
+  3.5.1;                                  !- Version Identifier
 
 ! Always OnOff Discrete Schedule Type Limits
 OS:ScheduleTypeLimits,
@@ -515,7 +515,8 @@ OS:Coil:Cooling:DX:SingleSpeed,
   Autosize,                               !- Rated Sensible Heat Ratio
   3,                                      !- Rated COP {W/W}
   Autosize,                               !- Rated Air Flow Rate {m3/s}
-  773.29999999999995,                     !- Rated Evaporator Fan Power Per Volume Flow Rate {W/(m3/s)}
+  773.29999999999995,                     !- Rated Evaporator Fan Power Per Volume Flow Rate 2017 {W/(m3/s)}
+  934.4,                                  !- Rated Evaporator Fan Power Per Volume Flow Rate 2023 {W/(m3/s)}
   ,                                       !- Air Inlet Node Name
   ,                                       !- Air Outlet Node Name
   {43241c62-f9aa-470c-877b-aed134698156}, !- Total Cooling Capacity Function of Temperature Curve Name
@@ -524,10 +525,10 @@ OS:Coil:Cooling:DX:SingleSpeed,
   {10a62043-5331-4374-a44c-8c540d3c6983}, !- Energy Input Ratio Function of Flow Fraction Curve Name
   {01338ac0-de4d-4703-8c69-18d51edd0927}, !- Part Load Fraction Correlation Curve Name
   -25,                                    !- Minimum Outdoor Dry-Bulb Temperature for Compressor Operation {C}
-  ,                                       !- Nominal Time for Condensate Removal to Begin {s}
-  ,                                       !- Ratio of Initial Moisture Evaporation Rate and Steady State Latent Capacity {dimensionless}
-  ,                                       !- Maximum Cycling Rate {cycles/hr}
-  ,                                       !- Latent Capacity Time Constant {s}
+  0,                                      !- Nominal Time for Condensate Removal to Begin {s}
+  0,                                      !- Ratio of Initial Moisture Evaporation Rate and Steady State Latent Capacity {dimensionless}
+  0,                                      !- Maximum Cycling Rate {cycles/hr}
+  0,                                      !- Latent Capacity Time Constant {s}
   ,                                       !- Condenser Air Inlet Node Name
   AirCooled,                              !- Condenser Type
   0,                                      !- Evaporative Condenser Effectiveness {dimensionless}
@@ -1769,30 +1770,30 @@ OS:Schedule:Day,
   15;                                     !- Value Until Time 1
 
 OS:ZoneHVAC:PackagedTerminalHeatPump,
-  {b9232216-7c91-4457-9cda-1df2300bb3d4}, ! Handle
-  PTHP,                                   ! Name
-  {9f54092d-a4a8-41b8-a381-c4c332ecb843}, ! Availability Schedule Name
-  ,                                       ! Air Inlet Node Name
-  ,                                       ! Air Outlet Node Name
-  OutdoorAir:Mixer,                       ! Outdoor Air Mixer Object Type
-  ,                                       ! Outdoor Air Mixer Name
-  Autosize,                               ! Supply Air Flow Rate During Cooling Operation {m3/s}
-  Autosize,                               ! Supply Air Flow Rate During Heating Operation {m3/s}
-  Autosize,                               ! Supply Air Flow Rate When No Cooling or Heating is Needed {m3/s}
-  Autosize,                               ! Outdoor Air Flow Rate During Cooling Operation {m3/s}
-  Autosize,                               ! Outdoor Air Flow Rate During Heating Operation {m3/s}
-  Autosize,                               ! Outdoor Air Flow Rate When No Cooling or Heating is Needed {m3/s}
-  {4bbc8798-4a94-470b-a2da-51224a40ea4b}, ! Supply Air Fan Name
-  {cff8b2af-5e9b-4b82-9e96-35b6084412ca}, ! Heating Coil Name
-  ,                                       ! Heating Convergence Tolerance {dimensionless}
-  ,                                       ! Minimum Outdoor Dry-Bulb Temperature for Compressor Operation {C}
-  {5ad5d300-c7a5-4409-8b51-83efb1bf2a51}, ! Cooling Coil Name
-  ,                                       ! Cooling Convergence Tolerance {dimensionless}
-  {b5ca4420-c4b6-4421-a456-8db199fe27e0}, ! Supplemental Heating Coil Name
-  Autosize,                               ! Maximum Supply Air Temperature from Supplemental Heater {C}
-  ,                                       ! Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation {C}
-  ,                                       ! Fan Placement
-  ;                                       ! Supply Air Fan Operating Mode Schedule Name
+  {b9232216-7c91-4457-9cda-1df2300bb3d4}, !- Handle
+  PTHP,                                   !- Name
+  {9f54092d-a4a8-41b8-a381-c4c332ecb843}, !- Availability Schedule Name
+  ,                                       !- Air Inlet Node Name
+  ,                                       !- Air Outlet Node Name
+  OutdoorAir:Mixer,                       !- Outdoor Air Mixer Object Type
+  ,                                       !- Outdoor Air Mixer Name
+  Autosize,                               !- Supply Air Flow Rate During Cooling Operation {m3/s}
+  Autosize,                               !- Supply Air Flow Rate During Heating Operation {m3/s}
+  Autosize,                               !- Supply Air Flow Rate When No Cooling or Heating is Needed {m3/s}
+  Autosize,                               !- Outdoor Air Flow Rate During Cooling Operation {m3/s}
+  Autosize,                               !- Outdoor Air Flow Rate During Heating Operation {m3/s}
+  Autosize,                               !- Outdoor Air Flow Rate When No Cooling or Heating is Needed {m3/s}
+  {4bbc8798-4a94-470b-a2da-51224a40ea4b}, !- Supply Air Fan Name
+  {cff8b2af-5e9b-4b82-9e96-35b6084412ca}, !- Heating Coil Name
+  ,                                       !- Heating Convergence Tolerance {dimensionless}
+  ,                                       !- Minimum Outdoor Dry-Bulb Temperature for Compressor Operation {C}
+  {5ad5d300-c7a5-4409-8b51-83efb1bf2a51}, !- Cooling Coil Name
+  ,                                       !- Cooling Convergence Tolerance {dimensionless}
+  {b5ca4420-c4b6-4421-a456-8db199fe27e0}, !- Supplemental Heating Coil Name
+  Autosize,                               !- Maximum Supply Air Temperature from Supplemental Heater {C}
+  ,                                       !- Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation {C}
+  ,                                       !- Fan Placement
+  {9f54092d-a4a8-41b8-a381-c4c332ecb843}; !- Supply Air Fan Operating Mode Schedule Name
 
 OS:Coil:Heating:DX:SingleSpeed,
   {cff8b2af-5e9b-4b82-9e96-35b6084412ca}, !- Handle
@@ -1801,7 +1802,8 @@ OS:Coil:Heating:DX:SingleSpeed,
   Autosize,                               !- Rated Total Heating Capacity {W}
   5,                                      !- Rated COP {W/W}
   Autosize,                               !- Rated Air Flow Rate {m3/s}
-  773.3,                                  !- Rated Supply Fan Power Per Volume Flow Rate {W/(m3/s)}
+  773.3,                                  !- Rated Supply Fan Power Per Volume Flow Rate 2017 {W/(m3/s)}
+  934.4,                                  !- Rated Supply Fan Power Per Volume Flow Rate 2023 {W/(m3/s)}
   ,                                       !- Air Inlet Node Name
   ,                                       !- Air Outlet Node Name
   {b43603f6-17c3-480d-9004-483799d9253d}, !- Total Heating Capacity Function of Temperature Curve Name
@@ -1882,7 +1884,8 @@ OS:Coil:Cooling:DX:SingleSpeed,
   Autosize,                               !- Rated Sensible Heat Ratio
   3,                                      !- Rated COP {W/W}
   Autosize,                               !- Rated Air Flow Rate {m3/s}
-  773.29999999999995,                     !- Rated Evaporator Fan Power Per Volume Flow Rate {W/(m3/s)}
+  773.29999999999995,                     !- Rated Evaporator Fan Power Per Volume Flow Rate 2017 {W/(m3/s)}
+  934.4,                                  !- Rated Evaporator Fan Power Per Volume Flow Rate 2023 {W/(m3/s)}
   ,                                       !- Air Inlet Node Name
   ,                                       !- Air Outlet Node Name
   {5dc1abb4-803b-4d9e-bf8b-97899fd0a813}, !- Total Cooling Capacity Function of Temperature Curve Name
@@ -1891,10 +1894,10 @@ OS:Coil:Cooling:DX:SingleSpeed,
   {80806e14-f8a5-49c7-9788-9e0d7c19ea0c}, !- Energy Input Ratio Function of Flow Fraction Curve Name
   {7c68d192-6009-46af-877c-409d2821006f}, !- Part Load Fraction Correlation Curve Name
   -25,                                    !- Minimum Outdoor Dry-Bulb Temperature for Compressor Operation {C}
-  ,                                       !- Nominal Time for Condensate Removal to Begin {s}
-  ,                                       !- Ratio of Initial Moisture Evaporation Rate and Steady State Latent Capacity {dimensionless}
-  ,                                       !- Maximum Cycling Rate {cycles/hr}
-  ,                                       !- Latent Capacity Time Constant {s}
+  0,                                      !- Nominal Time for Condensate Removal to Begin {s}
+  0,                                      !- Ratio of Initial Moisture Evaporation Rate and Steady State Latent Capacity {dimensionless}
+  0,                                      !- Maximum Cycling Rate {cycles/hr}
+  0,                                      !- Latent Capacity Time Constant {s}
   ,                                       !- Condenser Air Inlet Node Name
   AirCooled,                              !- Condenser Type
   0,                                      !- Evaporative Condenser Effectiveness {dimensionless}
@@ -2013,7 +2016,8 @@ OS:Coil:Cooling:DX:SingleSpeed,
   Autosize,                               !- Rated Sensible Heat Ratio
   3,                                      !- Rated COP {W/W}
   Autosize,                               !- Rated Air Flow Rate {m3/s}
-  773.29999999999995,                     !- Rated Evaporator Fan Power Per Volume Flow Rate {W/(m3/s)}
+  773.29999999999995,                     !- Rated Evaporator Fan Power Per Volume Flow Rate 2017 {W/(m3/s)}
+  934.4,                                  !- Rated Evaporator Fan Power Per Volume Flow Rate 2023 {W/(m3/s)}
   ,                                       !- Air Inlet Node Name
   ,                                       !- Air Outlet Node Name
   {853e4690-4d49-4d38-9962-59d15b3d09b3}, !- Total Cooling Capacity Function of Temperature Curve Name
@@ -2022,10 +2026,10 @@ OS:Coil:Cooling:DX:SingleSpeed,
   {2bbdacce-20de-4994-859a-86ca6bddb6ec}, !- Energy Input Ratio Function of Flow Fraction Curve Name
   {2886c9fb-8864-4ab6-ab43-24ef99fa818c}, !- Part Load Fraction Correlation Curve Name
   -25,                                    !- Minimum Outdoor Dry-Bulb Temperature for Compressor Operation {C}
-  ,                                       !- Nominal Time for Condensate Removal to Begin {s}
-  ,                                       !- Ratio of Initial Moisture Evaporation Rate and Steady State Latent Capacity {dimensionless}
-  ,                                       !- Maximum Cycling Rate {cycles/hr}
-  ,                                       !- Latent Capacity Time Constant {s}
+  0,                                      !- Nominal Time for Condensate Removal to Begin {s}
+  0,                                      !- Ratio of Initial Moisture Evaporation Rate and Steady State Latent Capacity {dimensionless}
+  0,                                      !- Maximum Cycling Rate {cycles/hr}
+  0,                                      !- Latent Capacity Time Constant {s}
   ,                                       !- Condenser Air Inlet Node Name
   AirCooled,                              !- Condenser Type
   0,                                      !- Evaporative Condenser Effectiveness {dimensionless}
@@ -3358,6 +3362,9 @@ OS:Coil:Heating:WaterToAirHeatPump:EquationFit,
   ,                                       !- Rated Water Flow Rate {m3/s}
   ,                                       !- Rated Heating Capacity {W}
   ,                                       !- Rated Heating Coefficient of Performance {W/W}
+  20,                                     !- Rated Entering Water Temperature {C}
+  20,                                     !- Rated Entering Air Dry-Bulb Temperature {C}
+  1,                                      !- Ratio of Rated Heating Capacity to Rated Cooling Capacity
   {54fa4856-1e98-47ed-b6f3-d745cb872634}, !- Heating Capacity Curve Name
   {24c898c5-c202-403d-9f77-b0d593c664ec}; !- Heating Power Consumption Curve Name
 
@@ -3407,6 +3414,9 @@ OS:Coil:Cooling:WaterToAirHeatPump:EquationFit,
   ,                                       !- Rated Total Cooling Capacity {W}
   ,                                       !- Rated Sensible Cooling Capacity {W}
   3,                                      !- Rated Cooling Coefficient of Performance {W/W}
+  30,                                     !- Rated Entering Water Temperature {C}
+  27,                                     !- Rated Entering Air Dry-Bulb Temperature {C}
+  19,                                     !- Rated Entering Air Wet-Bulb Temperature {C}
   {414418cb-345c-4318-a9e6-71571785657d}, !- Total Cooling Capacity Curve Name
   {b91981df-6795-4615-a33d-6f1b4d39701a}, !- Sensible Cooling Capacity Curve Name
   {19fab439-6278-43c1-8b91-ce30aadd14ac}, !- Cooling Power Consumption Curve Name
@@ -3493,6 +3503,9 @@ OS:Coil:Heating:WaterToAirHeatPump:EquationFit,
   ,                                       !- Rated Water Flow Rate {m3/s}
   ,                                       !- Rated Heating Capacity {W}
   ,                                       !- Rated Heating Coefficient of Performance {W/W}
+  20,                                     !- Rated Entering Water Temperature {C}
+  20,                                     !- Rated Entering Air Dry-Bulb Temperature {C}
+  1,                                      !- Ratio of Rated Heating Capacity to Rated Cooling Capacity
   {85509492-8cf7-45fe-b247-37566886f177}, !- Heating Capacity Curve Name
   {0f71fc55-7375-4cd1-af51-c81323994e0a}; !- Heating Power Consumption Curve Name
 
@@ -3542,6 +3555,9 @@ OS:Coil:Cooling:WaterToAirHeatPump:EquationFit,
   ,                                       !- Rated Total Cooling Capacity {W}
   ,                                       !- Rated Sensible Cooling Capacity {W}
   3,                                      !- Rated Cooling Coefficient of Performance {W/W}
+  30,                                     !- Rated Entering Water Temperature {C}
+  27,                                     !- Rated Entering Air Dry-Bulb Temperature {C}
+  19,                                     !- Rated Entering Air Wet-Bulb Temperature {C}
   {b513eb49-8f83-4c64-aac2-cc2a856df035}, !- Total Cooling Capacity Curve Name
   {091a5d44-4f9f-47d3-a0ff-18a58a383e0b}, !- Sensible Cooling Capacity Curve Name
   {69e27838-d9bd-4e20-9835-93be1a1852e8}, !- Cooling Power Consumption Curve Name
@@ -3628,6 +3644,9 @@ OS:Coil:Heating:WaterToAirHeatPump:EquationFit,
   ,                                       !- Rated Water Flow Rate {m3/s}
   ,                                       !- Rated Heating Capacity {W}
   ,                                       !- Rated Heating Coefficient of Performance {W/W}
+  20,                                     !- Rated Entering Water Temperature {C}
+  20,                                     !- Rated Entering Air Dry-Bulb Temperature {C}
+  1,                                      !- Ratio of Rated Heating Capacity to Rated Cooling Capacity
   {b37d22bd-260d-46b1-95b4-e8eeacf35e4d}, !- Heating Capacity Curve Name
   {1dc9928b-c2df-41c0-b5f3-3b2d613b45a7}; !- Heating Power Consumption Curve Name
 
@@ -3677,6 +3696,9 @@ OS:Coil:Cooling:WaterToAirHeatPump:EquationFit,
   ,                                       !- Rated Total Cooling Capacity {W}
   ,                                       !- Rated Sensible Cooling Capacity {W}
   3,                                      !- Rated Cooling Coefficient of Performance {W/W}
+  30,                                     !- Rated Entering Water Temperature {C}
+  27,                                     !- Rated Entering Air Dry-Bulb Temperature {C}
+  19,                                     !- Rated Entering Air Wet-Bulb Temperature {C}
   {fdd9c030-4eab-4dc8-b22d-5eeffd8cad54}, !- Total Cooling Capacity Curve Name
   {f4aa74c7-3d29-45a2-9259-8706221e352f}, !- Sensible Cooling Capacity Curve Name
   {ccfb6792-ae3c-48ee-a18e-b6e38fc3930b}, !- Cooling Power Consumption Curve Name
@@ -3868,7 +3890,8 @@ OS:Coil:Heating:DX:SingleSpeed,
   Autosize,                               !- Rated Total Heating Capacity {W}
   5,                                      !- Rated COP {W/W}
   Autosize,                               !- Rated Air Flow Rate {m3/s}
-  773.3,                                  !- Rated Supply Fan Power Per Volume Flow Rate {W/(m3/s)}
+  773.3,                                  !- Rated Supply Fan Power Per Volume Flow Rate 2017 {W/(m3/s)}
+  934.4,                                  !- Rated Supply Fan Power Per Volume Flow Rate 2023 {W/(m3/s)}
   ,                                       !- Air Inlet Node Name
   ,                                       !- Air Outlet Node Name
   {af3d4a9f-eefe-47f5-917b-3db4f451b2d4}, !- Total Heating Capacity Function of Temperature Curve Name
@@ -5521,8 +5544,8 @@ OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow,
   ,                                       !- Availability Manager List Name
   ,                                       !- Design Specification ZoneHVAC Sizing Object Name
   ,                                       !- Supplemental Heating Coil Name
-  ,                                       !- Maximum Supply Air Temperature from Supplemental Heater {C}
-  ;                                       !- Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation {C}
+  Autosize,                               !- Maximum Supply Air Temperature from Supplemental Heater {C}
+  21;                                     !- Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation {C}
 
 OS:Coil:Cooling:DX:VariableRefrigerantFlow,
   {8c84c0ac-6832-4444-a64f-9d88308c1b14}, !- Handle
@@ -5761,7 +5784,8 @@ OS:Coil:Cooling:DX:SingleSpeed,
   autosize,                               !- Rated Sensible Heat Ratio
   3,                                      !- Rated COP {W/W}
   autosize,                               !- Rated Air Flow Rate {m3/s}
-  773.3,                                  !- Rated Evaporator Fan Power Per Volume Flow Rate {W/(m3/s)}
+  773.3,                                  !- Rated Evaporator Fan Power Per Volume Flow Rate 2017 {W/(m3/s)}
+  934.4,                                  !- Rated Evaporator Fan Power Per Volume Flow Rate 2023 {W/(m3/s)}
   ,                                       !- Air Inlet Node Name
   ,                                       !- Air Outlet Node Name
   {63b353d4-5a0b-421e-aa14-346b28218b2f}, !- Total Cooling Capacity Function of Temperature Curve Name
@@ -5770,10 +5794,10 @@ OS:Coil:Cooling:DX:SingleSpeed,
   {a2171c29-bf61-4bfa-8242-bb8a974d3d65}, !- Energy Input Ratio Function of Flow Fraction Curve Name
   {d8867e00-07e7-4574-8cb1-37f23de91113}, !- Part Load Fraction Correlation Curve Name
   -25,                                    !- Minimum Outdoor Dry-Bulb Temperature for Compressor Operation {C}
-  ,                                       !- Nominal Time for Condensate Removal to Begin {s}
-  ,                                       !- Ratio of Initial Moisture Evaporation Rate and Steady State Latent Capacity {dimensionless}
-  ,                                       !- Maximum Cycling Rate {cycles/hr}
-  ,                                       !- Latent Capacity Time Constant {s}
+  0,                                      !- Nominal Time for Condensate Removal to Begin {s}
+  0,                                      !- Ratio of Initial Moisture Evaporation Rate and Steady State Latent Capacity {dimensionless}
+  0,                                      !- Maximum Cycling Rate {cycles/hr}
+  0,                                      !- Latent Capacity Time Constant {s}
   ,                                       !- Condenser Air Inlet Node Name
   AirCooled,                              !- Condenser Type
   0,                                      !- Evaporative Condenser Effectiveness {dimensionless}
@@ -5794,7 +5818,8 @@ OS:Coil:Heating:DX:SingleSpeed,
   Autosize,                               !- Rated Total Heating Capacity {W}
   5,                                      !- Rated COP {W/W}
   Autosize,                               !- Rated Air Flow Rate {m3/s}
-  773.3,                                  !- Rated Supply Fan Power Per Volume Flow Rate {W/(m3/s)}
+  773.3,                                  !- Rated Supply Fan Power Per Volume Flow Rate 2017 {W/(m3/s)}
+  934.4,                                  !- Rated Supply Fan Power Per Volume Flow Rate 2023 {W/(m3/s)}
   ,                                       !- Air Inlet Node Name
   ,                                       !- Air Outlet Node Name
   {82a69b59-67f5-4e1e-bd60-460390e4890a}, !- Total Heating Capacity Function of Temperature Curve Name
@@ -6053,7 +6078,8 @@ OS:Coil:Heating:DX:SingleSpeed,
   Autosize,                               !- Rated Total Heating Capacity {W}
   5,                                      !- Rated COP {W/W}
   Autosize,                               !- Rated Air Flow Rate {m3/s}
-  773.3,                                  !- Rated Supply Fan Power Per Volume Flow Rate {W/(m3/s)}
+  773.3,                                  !- Rated Supply Fan Power Per Volume Flow Rate 2017 {W/(m3/s)}
+  934.4,                                  !- Rated Supply Fan Power Per Volume Flow Rate 2023 {W/(m3/s)}
   ,                                       !- Air Inlet Node Name
   ,                                       !- Air Outlet Node Name
   {9c9999d6-4027-41c1-808f-f1f41f3715c6}, !- Total Heating Capacity Function of Temperature Curve Name
@@ -6754,7 +6780,8 @@ OS:Coil:Cooling:DX:SingleSpeed,
   autosize,                               !- Rated Sensible Heat Ratio
   3,                                      !- Rated COP {W/W}
   autosize,                               !- Rated Air Flow Rate {m3/s}
-  773.3,                                  !- Rated Evaporator Fan Power Per Volume Flow Rate {W/(m3/s)}
+  773.3,                                  !- Rated Evaporator Fan Power Per Volume Flow Rate 2017 {W/(m3/s)}
+  934.4,                                  !- Rated Evaporator Fan Power Per Volume Flow Rate 2023 {W/(m3/s)}
   ,                                       !- Air Inlet Node Name
   ,                                       !- Air Outlet Node Name
   {e45dde13-ff49-421c-92eb-03ef7b0eab98}, !- Total Cooling Capacity Function of Temperature Curve Name
@@ -6763,10 +6790,10 @@ OS:Coil:Cooling:DX:SingleSpeed,
   {d2cd9c16-cea2-4c99-883c-5feff89a0986}, !- Energy Input Ratio Function of Flow Fraction Curve Name
   {3a8df571-a40a-4af6-8579-68d460f5add7}, !- Part Load Fraction Correlation Curve Name
   -25,                                    !- Minimum Outdoor Dry-Bulb Temperature for Compressor Operation {C}
-  ,                                       !- Nominal Time for Condensate Removal to Begin {s}
-  ,                                       !- Ratio of Initial Moisture Evaporation Rate and Steady State Latent Capacity {dimensionless}
-  ,                                       !- Maximum Cycling Rate {cycles/hr}
-  ,                                       !- Latent Capacity Time Constant {s}
+  0,                                      !- Nominal Time for Condensate Removal to Begin {s}
+  0,                                      !- Ratio of Initial Moisture Evaporation Rate and Steady State Latent Capacity {dimensionless}
+  0,                                      !- Maximum Cycling Rate {cycles/hr}
+  0,                                      !- Latent Capacity Time Constant {s}
   ,                                       !- Condenser Air Inlet Node Name
   AirCooled,                              !- Condenser Type
   0,                                      !- Evaporative Condenser Effectiveness {dimensionless}
@@ -6946,7 +6973,8 @@ OS:Coil:Cooling:DX:SingleSpeed,
   autosize,                               !- Rated Sensible Heat Ratio
   3,                                      !- Rated COP {W/W}
   autosize,                               !- Rated Air Flow Rate {m3/s}
-  773.3,                                  !- Rated Evaporator Fan Power Per Volume Flow Rate {W/(m3/s)}
+  773.3,                                  !- Rated Evaporator Fan Power Per Volume Flow Rate 2017 {W/(m3/s)}
+  934.4,                                  !- Rated Evaporator Fan Power Per Volume Flow Rate 2023 {W/(m3/s)}
   ,                                       !- Air Inlet Node Name
   ,                                       !- Air Outlet Node Name
   {2db6d2a3-9e69-4890-a87c-273066539b27}, !- Total Cooling Capacity Function of Temperature Curve Name
@@ -6955,10 +6983,10 @@ OS:Coil:Cooling:DX:SingleSpeed,
   {d7abe7b1-a6c5-47e5-aaf6-71d2f9239e2e}, !- Energy Input Ratio Function of Flow Fraction Curve Name
   {d5485a83-a4e7-4d5e-8706-9781f4cd5f19}, !- Part Load Fraction Correlation Curve Name
   -25,                                    !- Minimum Outdoor Dry-Bulb Temperature for Compressor Operation {C}
-  ,                                       !- Nominal Time for Condensate Removal to Begin {s}
-  ,                                       !- Ratio of Initial Moisture Evaporation Rate and Steady State Latent Capacity {dimensionless}
-  ,                                       !- Maximum Cycling Rate {cycles/hr}
-  ,                                       !- Latent Capacity Time Constant {s}
+  0,                                      !- Nominal Time for Condensate Removal to Begin {s}
+  0,                                      !- Ratio of Initial Moisture Evaporation Rate and Steady State Latent Capacity {dimensionless}
+  0,                                      !- Maximum Cycling Rate {cycles/hr}
+  0,                                      !- Latent Capacity Time Constant {s}
   ,                                       !- Condenser Air Inlet Node Name
   AirCooled,                              !- Condenser Type
   0,                                      !- Evaporative Condenser Effectiveness {dimensionless}
@@ -7390,6 +7418,9 @@ OS:Coil:Cooling:WaterToAirHeatPump:EquationFit,
   ,                                       !- Rated Total Cooling Capacity {W}
   ,                                       !- Rated Sensible Cooling Capacity {W}
   ,                                       !- Rated Cooling Coefficient of Performance {W/W}
+  30,                                     !- Rated Entering Water Temperature {C}
+  27,                                     !- Rated Entering Air Dry-Bulb Temperature {C}
+  19,                                     !- Rated Entering Air Wet-Bulb Temperature {C}
   {d145ad65-b318-49d6-99ce-1c1416b975c6}, !- Total Cooling Capacity Curve Name
   {fed92a37-e70f-4a7e-8ee3-c4cf5f524681}, !- Sensible Cooling Capacity Curve Name
   {99921d9c-340b-4033-8530-bb0aa36bee1d}, !- Cooling Power Consumption Curve Name
@@ -7461,6 +7492,9 @@ OS:Coil:Heating:WaterToAirHeatPump:EquationFit,
   ,                                       !- Rated Water Flow Rate {m3/s}
   ,                                       !- Rated Heating Capacity {W}
   ,                                       !- Rated Heating Coefficient of Performance {W/W}
+  20,                                     !- Rated Entering Water Temperature {C}
+  20,                                     !- Rated Entering Air Dry-Bulb Temperature {C}
+  1,                                      !- Ratio of Rated Heating Capacity to Rated Cooling Capacity
   {694ad55b-ec7d-4476-a624-e5151cc051eb}, !- Heating Capacity Curve Name
   {c146ac09-cf40-43e9-ab3b-a98fcbd352bc}; !- Heating Power Consumption Curve Name
 
@@ -7814,7 +7848,8 @@ OS:Coil:Cooling:DX:SingleSpeed,
   autosize,                               !- Rated Sensible Heat Ratio
   3,                                      !- Rated COP {W/W}
   autosize,                               !- Rated Air Flow Rate {m3/s}
-  773.3,                                  !- Rated Evaporator Fan Power Per Volume Flow Rate {W/(m3/s)}
+  773.3,                                  !- Rated Evaporator Fan Power Per Volume Flow Rate 2017 {W/(m3/s)}
+  934.4,                                  !- Rated Evaporator Fan Power Per Volume Flow Rate 2023 {W/(m3/s)}
   ,                                       !- Air Inlet Node Name
   ,                                       !- Air Outlet Node Name
   {cfd7ee5f-1186-4682-b87d-f601de8d55e2}, !- Total Cooling Capacity Function of Temperature Curve Name
@@ -7823,10 +7858,10 @@ OS:Coil:Cooling:DX:SingleSpeed,
   {54eff50e-908e-4895-aa48-2bd0f2df7e7d}, !- Energy Input Ratio Function of Flow Fraction Curve Name
   {b1db434d-7527-4816-9579-4b4b7865d7d3}, !- Part Load Fraction Correlation Curve Name
   -25,                                    !- Minimum Outdoor Dry-Bulb Temperature for Compressor Operation {C}
-  ,                                       !- Nominal Time for Condensate Removal to Begin {s}
-  ,                                       !- Ratio of Initial Moisture Evaporation Rate and Steady State Latent Capacity {dimensionless}
-  ,                                       !- Maximum Cycling Rate {cycles/hr}
-  ,                                       !- Latent Capacity Time Constant {s}
+  0,                                      !- Nominal Time for Condensate Removal to Begin {s}
+  0,                                      !- Ratio of Initial Moisture Evaporation Rate and Steady State Latent Capacity {dimensionless}
+  0,                                      !- Maximum Cycling Rate {cycles/hr}
+  0,                                      !- Latent Capacity Time Constant {s}
   ,                                       !- Condenser Air Inlet Node Name
   AirCooled,                              !- Condenser Type
   0,                                      !- Evaporative Condenser Effectiveness {dimensionless}
@@ -8364,7 +8399,8 @@ OS:Coil:Cooling:DX:SingleSpeed,
   autosize,                               !- Rated Sensible Heat Ratio
   3,                                      !- Rated COP {W/W}
   autosize,                               !- Rated Air Flow Rate {m3/s}
-  773.3,                                  !- Rated Evaporator Fan Power Per Volume Flow Rate {W/(m3/s)}
+  773.3,                                  !- Rated Evaporator Fan Power Per Volume Flow Rate 2017 {W/(m3/s)}
+  934.4,                                  !- Rated Evaporator Fan Power Per Volume Flow Rate 2023 {W/(m3/s)}
   ,                                       !- Air Inlet Node Name
   ,                                       !- Air Outlet Node Name
   {7ccc4496-7ef8-4e8a-9fe8-9d99536d773e}, !- Total Cooling Capacity Function of Temperature Curve Name
@@ -8373,10 +8409,10 @@ OS:Coil:Cooling:DX:SingleSpeed,
   {755b9215-9c17-4fb8-963e-5a06f3d1dce5}, !- Energy Input Ratio Function of Flow Fraction Curve Name
   {4eff1eb6-7727-4c85-94c3-1ad5550c5d2b}, !- Part Load Fraction Correlation Curve Name
   -25,                                    !- Minimum Outdoor Dry-Bulb Temperature for Compressor Operation {C}
-  ,                                       !- Nominal Time for Condensate Removal to Begin {s}
-  ,                                       !- Ratio of Initial Moisture Evaporation Rate and Steady State Latent Capacity {dimensionless}
-  ,                                       !- Maximum Cycling Rate {cycles/hr}
-  ,                                       !- Latent Capacity Time Constant {s}
+  0,                                      !- Nominal Time for Condensate Removal to Begin {s}
+  0,                                      !- Ratio of Initial Moisture Evaporation Rate and Steady State Latent Capacity {dimensionless}
+  0,                                      !- Maximum Cycling Rate {cycles/hr}
+  0,                                      !- Latent Capacity Time Constant {s}
   ,                                       !- Condenser Air Inlet Node Name
   AirCooled,                              !- Condenser Type
   0,                                      !- Evaporative Condenser Effectiveness {dimensionless}
@@ -8952,7 +8988,8 @@ OS:Coil:Cooling:DX:SingleSpeed,
   autosize,                               !- Rated Sensible Heat Ratio
   3,                                      !- Rated COP {W/W}
   autosize,                               !- Rated Air Flow Rate {m3/s}
-  773.3,                                  !- Rated Evaporator Fan Power Per Volume Flow Rate {W/(m3/s)}
+  773.3,                                  !- Rated Evaporator Fan Power Per Volume Flow Rate 2017 {W/(m3/s)}
+  934.4,                                  !- Rated Evaporator Fan Power Per Volume Flow Rate 2023 {W/(m3/s)}
   ,                                       !- Air Inlet Node Name
   ,                                       !- Air Outlet Node Name
   {5d9c97b4-1531-4581-9c3a-c63ce62faa55}, !- Total Cooling Capacity Function of Temperature Curve Name
@@ -8961,10 +8998,10 @@ OS:Coil:Cooling:DX:SingleSpeed,
   {8286caa5-21bc-4283-af24-07b42925170b}, !- Energy Input Ratio Function of Flow Fraction Curve Name
   {401083ae-2f28-4dd8-b9d2-8903e9ffad32}, !- Part Load Fraction Correlation Curve Name
   -25,                                    !- Minimum Outdoor Dry-Bulb Temperature for Compressor Operation {C}
-  ,                                       !- Nominal Time for Condensate Removal to Begin {s}
-  ,                                       !- Ratio of Initial Moisture Evaporation Rate and Steady State Latent Capacity {dimensionless}
-  ,                                       !- Maximum Cycling Rate {cycles/hr}
-  ,                                       !- Latent Capacity Time Constant {s}
+  0,                                      !- Nominal Time for Condensate Removal to Begin {s}
+  0,                                      !- Ratio of Initial Moisture Evaporation Rate and Steady State Latent Capacity {dimensionless}
+  0,                                      !- Maximum Cycling Rate {cycles/hr}
+  0,                                      !- Latent Capacity Time Constant {s}
   ,                                       !- Condenser Air Inlet Node Name
   AirCooled,                              !- Condenser Type
   0,                                      !- Evaporative Condenser Effectiveness {dimensionless}
@@ -9120,7 +9157,8 @@ OS:Coil:Cooling:DX:SingleSpeed,
   autosize,                               !- Rated Sensible Heat Ratio
   3,                                      !- Rated COP {W/W}
   autosize,                               !- Rated Air Flow Rate {m3/s}
-  773.3,                                  !- Rated Evaporator Fan Power Per Volume Flow Rate {W/(m3/s)}
+  773.3,                                  !- Rated Evaporator Fan Power Per Volume Flow Rate 2017 {W/(m3/s)}
+  934.4,                                  !- Rated Evaporator Fan Power Per Volume Flow Rate 2023 {W/(m3/s)}
   ,                                       !- Air Inlet Node Name
   ,                                       !- Air Outlet Node Name
   {733e2313-64ef-4599-902d-45661aecdfb5}, !- Total Cooling Capacity Function of Temperature Curve Name
@@ -9129,10 +9167,10 @@ OS:Coil:Cooling:DX:SingleSpeed,
   {02029ede-d523-4c8c-8e0a-4771587660a1}, !- Energy Input Ratio Function of Flow Fraction Curve Name
   {8ede4960-0afc-41a3-b89d-18a5aedeb0cf}, !- Part Load Fraction Correlation Curve Name
   -25,                                    !- Minimum Outdoor Dry-Bulb Temperature for Compressor Operation {C}
-  ,                                       !- Nominal Time for Condensate Removal to Begin {s}
-  ,                                       !- Ratio of Initial Moisture Evaporation Rate and Steady State Latent Capacity {dimensionless}
-  ,                                       !- Maximum Cycling Rate {cycles/hr}
-  ,                                       !- Latent Capacity Time Constant {s}
+  0,                                      !- Nominal Time for Condensate Removal to Begin {s}
+  0,                                      !- Ratio of Initial Moisture Evaporation Rate and Steady State Latent Capacity {dimensionless}
+  0,                                      !- Maximum Cycling Rate {cycles/hr}
+  0,                                      !- Latent Capacity Time Constant {s}
   ,                                       !- Condenser Air Inlet Node Name
   AirCooled,                              !- Condenser Type
   0,                                      !- Evaporative Condenser Effectiveness {dimensionless}
@@ -9276,7 +9314,8 @@ OS:Coil:Cooling:DX:SingleSpeed,
   autosize,                               !- Rated Sensible Heat Ratio
   3,                                      !- Rated COP {W/W}
   autosize,                               !- Rated Air Flow Rate {m3/s}
-  773.3,                                  !- Rated Evaporator Fan Power Per Volume Flow Rate {W/(m3/s)}
+  773.3,                                  !- Rated Evaporator Fan Power Per Volume Flow Rate 2017 {W/(m3/s)}
+  934.4,                                  !- Rated Evaporator Fan Power Per Volume Flow Rate 2023 {W/(m3/s)}
   ,                                       !- Air Inlet Node Name
   ,                                       !- Air Outlet Node Name
   {27083260-b02f-45a8-bf94-b7c66e740f1b}, !- Total Cooling Capacity Function of Temperature Curve Name
@@ -9285,10 +9324,10 @@ OS:Coil:Cooling:DX:SingleSpeed,
   {a311f75a-998c-4713-ac73-4d55b966091c}, !- Energy Input Ratio Function of Flow Fraction Curve Name
   {e6cc8eb3-7c6a-4151-8a8b-c8cbdf0dde16}, !- Part Load Fraction Correlation Curve Name
   -25,                                    !- Minimum Outdoor Dry-Bulb Temperature for Compressor Operation {C}
-  ,                                       !- Nominal Time for Condensate Removal to Begin {s}
-  ,                                       !- Ratio of Initial Moisture Evaporation Rate and Steady State Latent Capacity {dimensionless}
-  ,                                       !- Maximum Cycling Rate {cycles/hr}
-  ,                                       !- Latent Capacity Time Constant {s}
+  0,                                      !- Nominal Time for Condensate Removal to Begin {s}
+  0,                                      !- Ratio of Initial Moisture Evaporation Rate and Steady State Latent Capacity {dimensionless}
+  0,                                      !- Maximum Cycling Rate {cycles/hr}
+  0,                                      !- Latent Capacity Time Constant {s}
   ,                                       !- Condenser Air Inlet Node Name
   AirCooled,                              !- Condenser Type
   0,                                      !- Evaporative Condenser Effectiveness {dimensionless}
@@ -9411,7 +9450,8 @@ OS:Coil:Cooling:DX:SingleSpeed,
   autosize,                               !- Rated Sensible Heat Ratio
   3,                                      !- Rated COP {W/W}
   autosize,                               !- Rated Air Flow Rate {m3/s}
-  773.3,                                  !- Rated Evaporator Fan Power Per Volume Flow Rate {W/(m3/s)}
+  773.3,                                  !- Rated Evaporator Fan Power Per Volume Flow Rate 2017 {W/(m3/s)}
+  934.4,                                  !- Rated Evaporator Fan Power Per Volume Flow Rate 2023 {W/(m3/s)}
   ,                                       !- Air Inlet Node Name
   ,                                       !- Air Outlet Node Name
   {a8033c96-0255-43b8-8dfb-aa8e396382d3}, !- Total Cooling Capacity Function of Temperature Curve Name
@@ -9420,10 +9460,10 @@ OS:Coil:Cooling:DX:SingleSpeed,
   {68ea87fc-9da9-4041-9e89-113951952291}, !- Energy Input Ratio Function of Flow Fraction Curve Name
   {c66a3dd7-81f4-4638-98a4-844efb7a19b5}, !- Part Load Fraction Correlation Curve Name
   -25,                                    !- Minimum Outdoor Dry-Bulb Temperature for Compressor Operation {C}
-  ,                                       !- Nominal Time for Condensate Removal to Begin {s}
-  ,                                       !- Ratio of Initial Moisture Evaporation Rate and Steady State Latent Capacity {dimensionless}
-  ,                                       !- Maximum Cycling Rate {cycles/hr}
-  ,                                       !- Latent Capacity Time Constant {s}
+  0,                                      !- Nominal Time for Condensate Removal to Begin {s}
+  0,                                      !- Ratio of Initial Moisture Evaporation Rate and Steady State Latent Capacity {dimensionless}
+  0,                                      !- Maximum Cycling Rate {cycles/hr}
+  0,                                      !- Latent Capacity Time Constant {s}
   ,                                       !- Condenser Air Inlet Node Name
   AirCooled,                              !- Condenser Type
   0,                                      !- Evaporative Condenser Effectiveness {dimensionless}
@@ -9542,7 +9582,8 @@ OS:Coil:Cooling:DX:SingleSpeed,
   autosize,                               !- Rated Sensible Heat Ratio
   3,                                      !- Rated COP {W/W}
   autosize,                               !- Rated Air Flow Rate {m3/s}
-  773.3,                                  !- Rated Evaporator Fan Power Per Volume Flow Rate {W/(m3/s)}
+  773.3,                                  !- Rated Evaporator Fan Power Per Volume Flow Rate 2017 {W/(m3/s)}
+  934.4,                                  !- Rated Evaporator Fan Power Per Volume Flow Rate 2023 {W/(m3/s)}
   ,                                       !- Air Inlet Node Name
   ,                                       !- Air Outlet Node Name
   {24053af2-b6be-429c-b1ed-028ea0ca6cfb}, !- Total Cooling Capacity Function of Temperature Curve Name
@@ -9551,10 +9592,10 @@ OS:Coil:Cooling:DX:SingleSpeed,
   {43f45a87-464b-4f5a-8cf1-b4bc05ca21d8}, !- Energy Input Ratio Function of Flow Fraction Curve Name
   {897e8da9-c2bb-4726-a6a2-416867232fdd}, !- Part Load Fraction Correlation Curve Name
   -25,                                    !- Minimum Outdoor Dry-Bulb Temperature for Compressor Operation {C}
-  ,                                       !- Nominal Time for Condensate Removal to Begin {s}
-  ,                                       !- Ratio of Initial Moisture Evaporation Rate and Steady State Latent Capacity {dimensionless}
-  ,                                       !- Maximum Cycling Rate {cycles/hr}
-  ,                                       !- Latent Capacity Time Constant {s}
+  0,                                      !- Nominal Time for Condensate Removal to Begin {s}
+  0,                                      !- Ratio of Initial Moisture Evaporation Rate and Steady State Latent Capacity {dimensionless}
+  0,                                      !- Maximum Cycling Rate {cycles/hr}
+  0,                                      !- Latent Capacity Time Constant {s}
   ,                                       !- Condenser Air Inlet Node Name
   AirCooled,                              !- Condenser Type
   0,                                      !- Evaporative Condenser Effectiveness {dimensionless}
@@ -12175,89 +12216,89 @@ OS:Curve:Linear,
   0,                                      !- Minimum Curve Output
   1.5;                                    !- Maximum Curve Output
 
-OS:Table:MultiVariableLookup,
+OS:Table:Lookup,
   {a9095ab3-ec82-4ac2-a36a-893af1e63a66}, !- Handle
   CoolCapModFuncOfSAFlow,                 !- Name
-  EvaluateCurveToLimits,                  !- Interpolation Method
-  ,                                       !- Number of Interpolation Points
-  Quadratic,                              !- Curve Type
-  ,                                       !- Table Data Format
-  ,                                       !- External File Name
-  ,                                       !- X1 Sort Order
-  ,                                       !- X2 Sort Order
-  ,                                       !- Normalization Reference
-  0.714,                                  !- Minimum Value of X1
-  1.2857,                                 !- Maximum Value of X1
-  ,                                       !- Minimum Value of X2
-  ,                                       !- Maximum Value of X2
-  ,                                       !- Minimum Value of X3
-  ,                                       !- Maximum Value of X3
-  ,                                       !- Minimum Value of X4
-  ,                                       !- Maximum Value of X4
-  ,                                       !- Minimum Value of X5
-  ,                                       !- Maximum Value of X5
-  0.8234,                                 !- Minimum Table Output
-  1.1256,                                 !- Maximum Table Output
-  Dimensionless,                          !- Input Unit Type for X1
-  ,                                       !- Input Unit Type for X2
-  ,                                       !- Input Unit Type for X3
-  ,                                       !- Input Unit Type for X4
-  ,                                       !- Input Unit Type for X5
+  {b8628ad8-118b-40bf-80a9-14c0e6e463ca}, !- Independent Variable List Name
+  None,                                   !- Normalization Method
+  1,                                      !- Normalization Divisor
+  0.8234,                                 !- Minimum Output {BasedOnField A5}
+  1.1256,                                 !- Maximum Output {BasedOnField A5}
   Dimensionless,                          !- Output Unit Type
-  1,                                      !- Number of Independent Variables
-  0.714286,                               !- Data 1
-  0.823403,                               !- Data 2
-  1,                                      !- Data 3
-  1,                                      !- Data 4
-  1.2857,                                 !- Data 5
-  1.1256;                                 !- Data 6
+  ,                                       !- External File Name
+  ,                                       !- External File Column Number
+  ,                                       !- External File Starting Row Number
+  0.823403,                               !- Output Value 1 {BasedOnField A5}
+  1,                                      !- Output Value 2 {BasedOnField A5}
+  1.1256;                                 !- Output Value 3 {BasedOnField A5}
 
-OS:Table:MultiVariableLookup,
+OS:ModelObjectList,
+  {b8628ad8-118b-40bf-80a9-14c0e6e463ca}, !- Handle
+  CoolCapModFuncOfSAFlow_IndependentVariableList, !- Name
+  {1c955d9e-b115-4db0-ac92-9dcf4bfd1bbf}; !- Model Object 1
+
+OS:Table:IndependentVariable,
+  {1c955d9e-b115-4db0-ac92-9dcf4bfd1bbf}, !- Handle
+  CoolCapModFuncOfSAFlow_IndependentVariable_0, !- Name
+  Cubic,                                  !- Interpolation Method
+  Constant,                               !- Extrapolation Method
+  0.714,                                  !- Minimum Value {BasedOnField A5}
+  1.2857,                                 !- Maximum Value {BasedOnField A5}
+  ,                                       !- Normalization Reference Value {BasedOnField A5}
+  Dimensionless,                          !- Unit Type
+  ,                                       !- External File Name
+  ,                                       !- External File Column Number
+  ,                                       !- External File Starting Row Number
+  0.714286,                               !- Value 1
+  1,                                      !- Value 2
+  1.2857;                                 !- Value 3
+
+OS:Table:Lookup,
   {d0557227-3232-4798-b2e6-0f8760d0dbdc}, !- Handle
   CapModFuncOfWaterFlow,                  !- Name
-  EvaluateCurveToLimits,                  !- Interpolation Method
-  ,                                       !- Number of Interpolation Points
-  Quadratic,                              !- Curve Type
-  ,                                       !- Table Data Format
-  ,                                       !- External File Name
-  ,                                       !- X1 Sort Order
-  ,                                       !- X2 Sort Order
-  ,                                       !- Normalization Reference
-  0,                                      !- Minimum Value of X1
-  1.33,                                   !- Maximum Value of X1
-  ,                                       !- Minimum Value of X2
-  ,                                       !- Maximum Value of X2
-  ,                                       !- Minimum Value of X3
-  ,                                       !- Maximum Value of X3
-  ,                                       !- Minimum Value of X4
-  ,                                       !- Maximum Value of X4
-  ,                                       !- Minimum Value of X5
-  ,                                       !- Maximum Value of X5
-  0,                                      !- Minimum Table Output
-  1.04,                                   !- Maximum Table Output
-  Dimensionless,                          !- Input Unit Type for X1
-  ,                                       !- Input Unit Type for X2
-  ,                                       !- Input Unit Type for X3
-  ,                                       !- Input Unit Type for X4
-  ,                                       !- Input Unit Type for X5
+  {a7e2caf5-17d7-4dd3-be9b-f9bae639cf8f}, !- Independent Variable List Name
+  None,                                   !- Normalization Method
+  1,                                      !- Normalization Divisor
+  0,                                      !- Minimum Output {BasedOnField A5}
+  1.04,                                   !- Maximum Output {BasedOnField A5}
   Dimensionless,                          !- Output Unit Type
-  1,                                      !- Number of Independent Variables
-  0,                                      !- Data 1
-  0,                                      !- Data 2
-  0.05,                                   !- Data 3
-  0.001,                                  !- Data 4
-  0.33333,                                !- Data 5
-  0.71,                                   !- Data 6
-  0.5,                                    !- Data 7
-  0.85,                                   !- Data 8
-  0.666667,                               !- Data 9
-  0.92,                                   !- Data 10
-  0.833333,                               !- Data 11
-  0.97,                                   !- Data 12
-  1,                                      !- Data 13
-  1,                                      !- Data 14
-  1.333333,                               !- Data 15
-  1.04;                                   !- Data 16
+  ,                                       !- External File Name
+  ,                                       !- External File Column Number
+  ,                                       !- External File Starting Row Number
+  0,                                      !- Output Value 1 {BasedOnField A5}
+  0.001,                                  !- Output Value 2 {BasedOnField A5}
+  0.71,                                   !- Output Value 3 {BasedOnField A5}
+  0.85,                                   !- Output Value 4 {BasedOnField A5}
+  0.92,                                   !- Output Value 5 {BasedOnField A5}
+  0.97,                                   !- Output Value 6 {BasedOnField A5}
+  1,                                      !- Output Value 7 {BasedOnField A5}
+  1.04;                                   !- Output Value 8 {BasedOnField A5}
+
+OS:ModelObjectList,
+  {a7e2caf5-17d7-4dd3-be9b-f9bae639cf8f}, !- Handle
+  CapModFuncOfWaterFlow_IndependentVariableList, !- Name
+  {47f84251-bf6c-45d7-b602-43b259e1739d}; !- Model Object 1
+
+OS:Table:IndependentVariable,
+  {47f84251-bf6c-45d7-b602-43b259e1739d}, !- Handle
+  CapModFuncOfWaterFlow_IndependentVariable_0, !- Name
+  Cubic,                                  !- Interpolation Method
+  Constant,                               !- Extrapolation Method
+  0,                                      !- Minimum Value {BasedOnField A5}
+  1.33,                                   !- Maximum Value {BasedOnField A5}
+  ,                                       !- Normalization Reference Value {BasedOnField A5}
+  Dimensionless,                          !- Unit Type
+  ,                                       !- External File Name
+  ,                                       !- External File Column Number
+  ,                                       !- External File Starting Row Number
+  0,                                      !- Value 1
+  0.05,                                   !- Value 2
+  0.33333,                                !- Value 3
+  0.5,                                    !- Value 4
+  0.666667,                               !- Value 5
+  0.833333,                               !- Value 6
+  1,                                      !- Value 7
+  1.333333;                               !- Value 8
 
 OS:Coil:Heating:FourPipeBeam,
   {dc7cc590-6edc-4bc8-9068-1ff4fe2619c5}, !- Handle
@@ -12271,42 +12312,42 @@ OS:Coil:Heating:FourPipeBeam,
   {bfecbc8c-a298-4ca4-b78a-26051bc5001e}, !- Beam Heating Capacity Air Flow Modification Factor Curve Name
   {d0557227-3232-4798-b2e6-0f8760d0dbdc}; !- Beam Heating Capacity Hot Water Flow Modification Factor Curve Name
 
-OS:Table:MultiVariableLookup,
+OS:Table:Lookup,
   {bfecbc8c-a298-4ca4-b78a-26051bc5001e}, !- Handle
   HeatCapModFuncOfSAFlow,                 !- Name
-  EvaluateCurveToLimits,                  !- Interpolation Method
-  ,                                       !- Number of Interpolation Points
-  Quadratic,                              !- Curve Type
-  ,                                       !- Table Data Format
-  ,                                       !- External File Name
-  ,                                       !- X1 Sort Order
-  ,                                       !- X2 Sort Order
-  ,                                       !- Normalization Reference
-  0.714,                                  !- Minimum Value of X1
-  1.2857,                                 !- Maximum Value of X1
-  ,                                       !- Minimum Value of X2
-  ,                                       !- Maximum Value of X2
-  ,                                       !- Minimum Value of X3
-  ,                                       !- Maximum Value of X3
-  ,                                       !- Minimum Value of X4
-  ,                                       !- Maximum Value of X4
-  ,                                       !- Minimum Value of X5
-  ,                                       !- Maximum Value of X5
-  0.8234,                                 !- Minimum Table Output
-  1.0778,                                 !- Maximum Table Output
-  Dimensionless,                          !- Input Unit Type for X1
-  ,                                       !- Input Unit Type for X2
-  ,                                       !- Input Unit Type for X3
-  ,                                       !- Input Unit Type for X4
-  ,                                       !- Input Unit Type for X5
+  {e067f624-ae2e-432f-8c96-5a58488755c4}, !- Independent Variable List Name
+  None,                                   !- Normalization Method
+  1,                                      !- Normalization Divisor
+  0.8234,                                 !- Minimum Output {BasedOnField A5}
+  1.0778,                                 !- Maximum Output {BasedOnField A5}
   Dimensionless,                          !- Output Unit Type
-  1,                                      !- Number of Independent Variables
-  0.714286,                               !- Data 1
-  0.8554,                                 !- Data 2
-  1,                                      !- Data 3
-  1,                                      !- Data 4
-  1.2857,                                 !- Data 5
-  1.0778;                                 !- Data 6
+  ,                                       !- External File Name
+  ,                                       !- External File Column Number
+  ,                                       !- External File Starting Row Number
+  0.8554,                                 !- Output Value 1 {BasedOnField A5}
+  1,                                      !- Output Value 2 {BasedOnField A5}
+  1.0778;                                 !- Output Value 3 {BasedOnField A5}
+
+OS:ModelObjectList,
+  {e067f624-ae2e-432f-8c96-5a58488755c4}, !- Handle
+  HeatCapModFuncOfSAFlow_IndependentVariableList, !- Name
+  {d46392e8-eb66-4080-a9e0-044fe8221345}; !- Model Object 1
+
+OS:Table:IndependentVariable,
+  {d46392e8-eb66-4080-a9e0-044fe8221345}, !- Handle
+  HeatCapModFuncOfSAFlow_IndependentVariable_0, !- Name
+  Cubic,                                  !- Interpolation Method
+  Constant,                               !- Extrapolation Method
+  0.714,                                  !- Minimum Value {BasedOnField A5}
+  1.2857,                                 !- Maximum Value {BasedOnField A5}
+  ,                                       !- Normalization Reference Value {BasedOnField A5}
+  Dimensionless,                          !- Unit Type
+  ,                                       !- External File Name
+  ,                                       !- External File Column Number
+  ,                                       !- External File Starting Row Number
+  0.714286,                               !- Value 1
+  1,                                      !- Value 2
+  1.2857;                                 !- Value 3
 
 OS:Schedule:Ruleset,
   {a5dae33a-6748-4f6c-a201-4cdee88f592a}, !- Handle
@@ -12688,7 +12729,7 @@ OS:Fan:ConstantVolume,
 OS:Coil:Heating:Gas:MultiStage,
   {3b1fedfa-eb94-4c41-9ff0-eb695f74535d}, !- Handle
   Multi Speed HP Gas Htg Coil,            !- Name
-  ,                                       !- Availability Schedule
+  {1540674d-a780-43fe-a8dd-b0b23e85b39e}, !- Availability Schedule
   ,                                       !- Air Inlet Node
   ,                                       !- Air Outlet Node
   ,                                       !- Part Load Fraction Correlation Curve
@@ -12739,7 +12780,8 @@ OS:Coil:Cooling:DX:MultiSpeed:StageData,
   autosize,                               !- Gross Rated Sensible Heat Ratio
   3,                                      !- Gross Rated Cooling COP {W/W}
   autosize,                               !- Rated Air Flow Rate {m3/s}
-  773.3,                                  !- Rated Evaporator Fan Power Per Volume Flow Rate {W/(m3/s)}
+  773.3,                                  !- Rated Evaporator Fan Power Per Volume Flow Rate 2017 {W/(m3/s)}
+  934.4,                                  !- Rated Evaporator Fan Power Per Volume Flow Rate 2023 {W/(m3/s)}
   {0f8c663c-e66d-4428-9516-01908e4aa965}, !- Total Cooling Capacity Function of Temperature Curve
   {a34dc8b7-55ac-43e9-b8e5-b42e148b01c0}, !- Total Cooling Capacity Function of Flow Fraction Curve
   {4fbc0cfc-439e-441e-89b5-9da7e339b90d}, !- Energy Input Ratio Function of Temperature Curve
@@ -12831,7 +12873,8 @@ OS:Coil:Cooling:DX:MultiSpeed:StageData,
   autosize,                               !- Gross Rated Sensible Heat Ratio
   3,                                      !- Gross Rated Cooling COP {W/W}
   autosize,                               !- Rated Air Flow Rate {m3/s}
-  773.3,                                  !- Rated Evaporator Fan Power Per Volume Flow Rate {W/(m3/s)}
+  773.3,                                  !- Rated Evaporator Fan Power Per Volume Flow Rate 2017 {W/(m3/s)}
+  934.4,                                  !- Rated Evaporator Fan Power Per Volume Flow Rate 2023 {W/(m3/s)}
   {0cc1f58e-d0ca-4bb8-826b-2b29c1d17d89}, !- Total Cooling Capacity Function of Temperature Curve
   {daed1a40-3021-4349-b030-5ef79e48d731}, !- Total Cooling Capacity Function of Flow Fraction Curve
   {eb433d60-eda6-4756-ba17-343b1e318e6c}, !- Energy Input Ratio Function of Temperature Curve
@@ -13131,4 +13174,22 @@ OS:Curve:Quadratic,
   0,                                      !- Coefficient3 x**2
   0.5,                                    !- Minimum Value of x
   1.5;                                    !- Maximum Value of x
+
+OS:SetpointManager:SystemNodeReset:Humidity,
+  {27d4e373-5894-4637-9413-2189a2d62282}, !- Handle
+  Setpoint Manager System Node Reset Humidity, !- Name
+  MaximumHumidityRatio,                   !- Control Variable
+  0.00924,                                !- Setpoint at Low Reference Humidity Ratio {kgWater/kgDryAir}
+  0.006,                                  !- Setpoint at High Reference Humidity Ratio {kgWater/kgDryAir}
+  0.0085,                                 !- Low Reference Humidity Ratio {kgWater/kgDryAir}
+  0.01;                                   !- High Reference Humidity Ratio {kgWater/kgDryAir}
+
+OS:SetpointManager:SystemNodeReset:Temperature,
+  {a11f0847-1463-43e9-9f02-62c6c2be0e5d}, !- Handle
+  Setpoint Manager System Node Reset Temperature, !- Name
+  Temperature,                            !- Control Variable
+  16.7,                                   !- Setpoint at Low Reference Temperature {C}
+  12.8,                                   !- Setpoint at High Reference Temperature {C}
+  20,                                     !- Low Reference Temperature {C}
+  23.3;                                   !- High Reference Temperature {C}
 

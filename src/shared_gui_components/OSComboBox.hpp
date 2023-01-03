@@ -112,7 +112,7 @@ class OSComboBox2
 {
   Q_OBJECT
  public:
-  OSComboBox2(QWidget* parent = nullptr, bool editable = false);
+  explicit OSComboBox2(QWidget* parent = nullptr, bool editable = false);
 
   virtual ~OSComboBox2();
 
@@ -225,7 +225,8 @@ class OSComboBox2
 
   bool m_hasClickFocus = false;
   bool m_focused = false;
-  bool m_locked = false;
+  bool m_locked = true;
+  bool m_editable = false;
 
   void completeBind();
 };

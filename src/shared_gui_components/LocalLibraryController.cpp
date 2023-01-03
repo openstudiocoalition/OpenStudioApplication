@@ -71,7 +71,7 @@
 namespace openstudio {
 
 LocalLibraryController::LocalLibraryController(BaseApp* t_app, bool onlyShowModelMeasures)
-  : QObject(), m_app(t_app), m_onlyShowModelMeasures(onlyShowModelMeasures) {
+  : m_app(t_app), m_onlyShowModelMeasures(onlyShowModelMeasures) {
   LOG(Debug, "Creating LocalLibraryController with base app " << t_app);
   QDomDocument doc("taxonomy");
   QFile file(":/shared_gui_components/taxonomy.xml");
@@ -106,7 +106,7 @@ LocalLibraryController::LocalLibraryController(BaseApp* t_app, bool onlyShowMode
 
   connect(localLibraryView->addBCLMeasureButton, &QPushButton::clicked, this, &LocalLibraryController::openBclDlg);
 
-  connect(localLibraryView->lookForUpdateButton, &QPushButton::clicked, this, &LocalLibraryController::checkForRemoteBCLUpdates);
+  connect(localLibraryView->checkForUpdateButton, &QPushButton::clicked, this, &LocalLibraryController::checkForRemoteBCLUpdates);
 }
 
 void LocalLibraryController::addMeasure() {
@@ -149,11 +149,11 @@ QPointer<LibraryItem> LocalLibraryController::selectedItem() const {
 
   std::vector<QPointer<OSListItem>> items = libraryView->listController()->selectionController()->selectedItems();
 
-  if (items.size() > 0) {
+  if (!items.empty()) {
     return qobject_cast<LibraryItem*>(items.front());
   }
 
-  return QPointer<LibraryItem>();
+  return {};
 }
 
 void LocalLibraryController::showMeasures() {
@@ -225,22 +225,22 @@ QSharedPointer<LibraryTypeListController> LocalLibraryController::createLibraryL
 }
 
 LibraryTypeItem::LibraryTypeItem(const QString& name)
-  : OSListItem(), m_name(name), m_libraryGroupListController(QSharedPointer<LibraryGroupListController>::create()) {}
+  : m_name(name), m_libraryGroupListController(QSharedPointer<LibraryGroupListController>::create()) {}
 
 LibraryTypeItemDelegate::LibraryTypeItemDelegate(BaseApp* t_app) : m_app(t_app) {}
 
 QWidget* LibraryTypeItemDelegate::view(QSharedPointer<OSListItem> dataSource) {
   if (QSharedPointer<LibraryTypeItem> item = dataSource.dynamicCast<LibraryTypeItem>()) {
-    auto groupCollapsibleView = new OSCollapsibleView();
+    auto* groupCollapsibleView = new OSCollapsibleView();
 
-    auto header = new DarkGradientHeader();
+    auto* header = new DarkGradientHeader();
     header->label->setText(item->name());
     groupCollapsibleView->setHeader(header);
 
     QSharedPointer<LibraryGroupListController> groupListController = item->libraryGroupListController();
     QSharedPointer<LibraryGroupItemDelegate> groupItemDelegate = QSharedPointer<LibraryGroupItemDelegate>(new LibraryGroupItemDelegate(m_app));
 
-    auto groupListView = new OSListView();
+    auto* groupListView = new OSListView();
     groupListView->setContentsMargins(0, 0, 0, 0);
     groupListView->setSpacing(0);
     groupListView->setListController(groupListController);
@@ -273,21 +273,21 @@ void LibraryTypeListController::addItem(QSharedPointer<OSListItem> item) {
 }
 
 void LibraryTypeListController::reset() {
-  for (QList<QSharedPointer<LibraryTypeItem>>::iterator it = m_items.begin(); it != m_items.end(); ++it) {
-    (*it)->libraryGroupListController()->reset();
+  for (const auto& m_item : m_items) {
+    m_item->libraryGroupListController()->reset();
   }
 }
 
 LibraryGroupItem::LibraryGroupItem(const QString& name, BaseApp* t_app)
-  : OSListItem(), m_name(name), m_librarySubGroupListController(QSharedPointer<LibrarySubGroupListController>::create(t_app)) {}
+  : m_name(name), m_librarySubGroupListController(QSharedPointer<LibrarySubGroupListController>::create(t_app)) {}
 
 LibraryGroupItemDelegate::LibraryGroupItemDelegate(BaseApp* t_app) : m_app(t_app) {}
 
 QWidget* LibraryGroupItemDelegate::view(QSharedPointer<OSListItem> dataSource) {
   if (QSharedPointer<LibraryGroupItem> item = dataSource.dynamicCast<LibraryGroupItem>()) {
-    auto groupCollapsibleView = new OSCollapsibleView();
+    auto* groupCollapsibleView = new OSCollapsibleView();
 
-    auto header = new LibraryGroupItemHeader();
+    auto* header = new LibraryGroupItemHeader();
     header->label->setText(item->name());
 
     connect(item->librarySubGroupListController().data(), &LibrarySubGroupListController::libraryItemCountChanged, header,
@@ -299,7 +299,7 @@ QWidget* LibraryGroupItemDelegate::view(QSharedPointer<OSListItem> dataSource) {
     QSharedPointer<LibrarySubGroupItemDelegate> subGroupItemDelegate =
       QSharedPointer<LibrarySubGroupItemDelegate>(new LibrarySubGroupItemDelegate(m_app));
 
-    auto subGroupListView = new OSListView();
+    auto* subGroupListView = new OSListView();
     subGroupListView->setContentsMargins(0, 0, 0, 0);
     subGroupListView->setSpacing(0);
     subGroupListView->setListController(subGroupListController);
@@ -337,7 +337,7 @@ void LibraryGroupListController::reset() {
 
 LibrarySubGroupItem::LibrarySubGroupItem(const QString& name, const QString& taxonomyTag, LocalLibrary::LibrarySource source, BaseApp* t_app,
                                          bool onlyShowModelMeasures)
-  : OSListItem(), m_app(t_app), m_name(name) {
+  : m_app(t_app), m_name(name) {
   m_libraryListController = QSharedPointer<LibraryListController>(new LibraryListController(taxonomyTag, source, m_app, onlyShowModelMeasures));
 }
 
@@ -345,9 +345,9 @@ LibrarySubGroupItemDelegate::LibrarySubGroupItemDelegate(BaseApp* t_app) : m_app
 
 QWidget* LibrarySubGroupItemDelegate::view(QSharedPointer<OSListItem> dataSource) {
   if (QSharedPointer<LibrarySubGroupItem> item = dataSource.dynamicCast<LibrarySubGroupItem>()) {
-    auto subGroupCollapsibleView = new OSCollapsibleView();
+    auto* subGroupCollapsibleView = new OSCollapsibleView();
 
-    auto header = new LibrarySubGroupItemHeader();
+    auto* header = new LibrarySubGroupItemHeader();
 
     header->label->setText(item->name());
 
@@ -358,7 +358,7 @@ QWidget* LibrarySubGroupItemDelegate::view(QSharedPointer<OSListItem> dataSource
     QSharedPointer<LibraryListController> libraryListController = item->libraryListController();
     QSharedPointer<LibraryItemDelegate> measureLibraryItemDelegate = QSharedPointer<LibraryItemDelegate>(new LibraryItemDelegate(m_app));
 
-    auto measureListView = new OSListView();
+    auto* measureListView = new OSListView();
     measureListView->setContentsMargins(5, 0, 5, 0);
     measureListView->setSpacing(5);
     measureListView->setListController(libraryListController);
@@ -391,18 +391,18 @@ void LibrarySubGroupListController::addItem(QSharedPointer<OSListItem> item) {
 }
 
 void LibrarySubGroupListController::reset() {
-  int count = 0;
+  int total_count = 0;
 
   for (const auto& librarySubGroupItem : m_items) {
     librarySubGroupItem->libraryListController()->reset();
-    count += librarySubGroupItem->libraryListController()->count();
+    total_count += librarySubGroupItem->libraryListController()->count();
   }
 
-  emit libraryItemCountChanged(count);
+  emit libraryItemCountChanged(total_count);
 }
 
 LibraryItem::LibraryItem(const BCLMeasure& bclMeasure, LocalLibrary::LibrarySource source, BaseApp* t_app)
-  : OSListItem(), m_bclMeasure(bclMeasure), m_source(source), m_app(t_app) {
+  : m_bclMeasure(bclMeasure), m_source(source), m_app(t_app) {
   boost::optional<VersionString> minCompatibleVersion;
   boost::optional<VersionString> maxCompatibleVersion;
   for (const BCLFileReference& fileReference : bclMeasure.files()) {
@@ -421,16 +421,11 @@ LibraryItem::LibraryItem(const BCLMeasure& bclMeasure, LocalLibrary::LibrarySour
   }
 
   VersionString currentVersion(openStudioVersion());
-  if (minCompatibleVersion && (*minCompatibleVersion) > currentVersion) {
-    m_available = false;
-  } else if (maxCompatibleVersion && (*maxCompatibleVersion) < currentVersion) {
-    m_available = false;
-  } else {
-    m_available = true;
-  }
+  m_available =
+    !((minCompatibleVersion && (*minCompatibleVersion) > currentVersion) || (maxCompatibleVersion && (*maxCompatibleVersion) < currentVersion));
 }
 
-LibraryItem::~LibraryItem() {}
+LibraryItem::~LibraryItem() = default;
 
 bool LibraryItem::hasError() const {
   return m_bclMeasure.error().has_value();
@@ -478,9 +473,9 @@ void LibraryItem::dragItem(const OSDragPixmapData& dragPixmapData) {
   //if (!m_bclMeasure.error()){
   MeasureDragData measureDragData(m_bclMeasure.uuid());
 
-  auto drag = new QDrag(m_app->mainWidget());
+  auto* drag = new QDrag(m_app->mainWidget());
 
-  auto mimeData = new QMimeData;
+  auto* mimeData = new QMimeData;
   mimeData->setData(MeasureDragData::mimeType(m_bclMeasure.measureType()), measureDragData.data());
   drag->setMimeData(mimeData);
 
@@ -504,19 +499,19 @@ QWidget* LibraryItemDelegate::view(QSharedPointer<OSListItem> dataSource) {
 
     // std::vector<std::string> localUUIDs = (LocalBCL::instance().measureUids());
 
-    auto widget = new LibraryItemView();
+    auto* widget = new LibraryItemView();
 
     if (measureType == MeasureType::ModelMeasure) {
       widget->m_measureTypeBadge->setPixmap(
-        QPixmap(":/shared_gui_components/images/openstudio_measure_icon.png").scaled(25, 25, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+        QPixmap(":/images/openstudio_measure_icon.png").scaled(25, 25, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
       widget->m_measureTypeBadge->setVisible(true);
     } else if (measureType == MeasureType::EnergyPlusMeasure) {
       widget->m_measureTypeBadge->setPixmap(
-        QPixmap(":/shared_gui_components/images/energyplus_measure_icon.png").scaled(25, 25, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+        QPixmap(":/images/energyplus_measure_icon.png").scaled(25, 25, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
       widget->m_measureTypeBadge->setVisible(true);
     } else if (measureType == MeasureType::ReportingMeasure) {
       widget->m_measureTypeBadge->setPixmap(
-        QPixmap(":/shared_gui_components/images/report_measure_icon.png").scaled(25, 25, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+        QPixmap(":/images/report_measure_icon.png").scaled(25, 25, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
       widget->m_measureTypeBadge->setVisible(true);
     }
 
@@ -568,7 +563,7 @@ void LibraryItemDelegate::selectedChanged() {
 
 LibraryListController::LibraryListController(const QString& taxonomyTag, LocalLibrary::LibrarySource source, BaseApp* t_app,
                                              bool onlyShowModelMeasures)
-  : OSListController(), m_app(t_app), m_taxonomyTag(taxonomyTag), m_source(source), m_onlyShowModelMeasures(onlyShowModelMeasures) {
+  : m_app(t_app), m_taxonomyTag(taxonomyTag), m_source(source), m_onlyShowModelMeasures(onlyShowModelMeasures) {
   createItems();
 }
 
@@ -578,7 +573,7 @@ QSharedPointer<OSListItem> LibraryListController::itemAt(int i) {
   }
 
   // DLM: I was just fixing build error, Kyle is this correct?
-  return QSharedPointer<OSListItem>();
+  return {};
 }
 
 int LibraryListController::count() {

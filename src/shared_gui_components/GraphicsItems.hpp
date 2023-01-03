@@ -48,7 +48,7 @@ class AbstractButtonItem : public QGraphicsObject
   Q_OBJECT;
 
  public:
-  AbstractButtonItem(QGraphicsItem* parent = nullptr);
+  explicit AbstractButtonItem(QGraphicsItem* parent = nullptr);
 
   virtual ~AbstractButtonItem() {}
 
@@ -114,19 +114,19 @@ class ButtonItem
 class RemoveButtonItem : public ButtonItem
 {
  public:
-  RemoveButtonItem(QGraphicsItem* parent = nullptr);
+  explicit RemoveButtonItem(QGraphicsItem* parent = nullptr);
 };
 
 class ZoomInButtonItem : public ButtonItem
 {
  public:
-  ZoomInButtonItem(QGraphicsItem* parent = nullptr);
+  explicit ZoomInButtonItem(QGraphicsItem* parent = nullptr);
 };
 
 class ZoomOutButtonItem : public ButtonItem
 {
  public:
-  ZoomOutButtonItem(QGraphicsItem* parent = nullptr);
+  explicit ZoomOutButtonItem(QGraphicsItem* parent = nullptr);
 };
 
 class GridLayoutItem : public QGraphicsObject

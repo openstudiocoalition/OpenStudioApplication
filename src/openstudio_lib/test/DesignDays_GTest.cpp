@@ -56,9 +56,9 @@ TEST_F(OpenStudioLibFixture, DesignDayGridView) {
   auto designDay2 = designDays[1];
 
   auto ddGridView = std::make_shared<DesignDayGridView>(false, model);
-  auto gridController = getGridController(ddGridView.get());
-  auto gridView = getGridView(ddGridView.get());
-  auto objectSelector = getObjectSelector(gridController);
+  auto* gridController = getGridController(ddGridView.get());
+  auto* gridView = getGridView(ddGridView.get());
+  auto* objectSelector = getObjectSelector(gridController);
 
   int numCategories = 6;
   int numRows = 3;

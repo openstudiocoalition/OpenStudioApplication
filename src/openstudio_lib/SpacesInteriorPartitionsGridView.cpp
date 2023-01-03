@@ -91,7 +91,7 @@ SpacesInteriorPartitionsGridView::SpacesInteriorPartitionsGridView(bool isIP, co
   m_gridView->addSpacingToContentLayout(7);
   m_gridView->showDropZone(false);
 
-  onClearSelection();
+  clearSelection();
 }
 
 void SpacesInteriorPartitionsGridView::onSelectItem() {
@@ -102,6 +102,10 @@ void SpacesInteriorPartitionsGridView::onSelectItem() {
 }
 
 void SpacesInteriorPartitionsGridView::onClearSelection() {
+  clearSelection();
+}
+
+void SpacesInteriorPartitionsGridView::clearSelection() {
   m_itemSelectorButtons->disableAddButton();
   //m_itemSelectorButtons->disableCopyButton();
   //m_itemSelectorButtons->disableRemoveButton();
@@ -117,13 +121,11 @@ SpacesInteriorPartitionsGridController::SpacesInteriorPartitionsGridController(b
 
 void SpacesInteriorPartitionsGridController::setCategoriesAndFields() {
   {
-    std::vector<QString> fields;
-    fields.push_back(INTERIORPARTITIONNAME);
-    fields.push_back(INTERIORPARTITIONGROUPNAME);
-    fields.push_back(CONSTRUCTIONNAME);
-    fields.push_back(CONVERTTOINTERNALMASS);
-    //fields.push_back(SURFACEAREA);
-    //fields.push_back(DAYLIGHTINGSHELFNAME);
+    std::vector<QString> fields{
+      INTERIORPARTITIONNAME, INTERIORPARTITIONGROUPNAME, CONSTRUCTIONNAME, CONVERTTOINTERNALMASS,
+      //SURFACEAREA,
+      //DAYLIGHTINGSHELFNAME,
+    };
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("General"), fields);
     addCategoryAndFields(categoryAndFields);
   }
@@ -158,9 +160,9 @@ void SpacesInteriorPartitionsGridController::addColumns(const QString& category,
       std::function<std::vector<model::ModelObject>(const model::Space&)> allInteriorPartitionSurfaces(
         [allInteriorPartitionSurfaceGroups](const model::Space& t_space) {
           std::vector<model::ModelObject> allModelObjects;
-          for (auto interiorPartitionSurfaceGroup : allInteriorPartitionSurfaceGroups(t_space)) {
+          for (const auto& interiorPartitionSurfaceGroup : allInteriorPartitionSurfaceGroups(t_space)) {
             auto interiorPartitionSurfaces = interiorPartitionSurfaceGroup.cast<model::InteriorPartitionSurfaceGroup>().interiorPartitionSurfaces();
-            for (auto interiorPartitionSurface : interiorPartitionSurfaces) {
+            for (const auto& interiorPartitionSurface : interiorPartitionSurfaces) {
               allModelObjects.push_back(interiorPartitionSurface);
             }
           }
@@ -170,9 +172,9 @@ void SpacesInteriorPartitionsGridController::addColumns(const QString& category,
       std::function<std::vector<boost::optional<model::ModelObject>>(const model::Space&)> allInteriorPartitionSurfaceInteriorPartitionSurfaceGroups(
         [allInteriorPartitionSurfaceGroups](const model::Space& t_space) {
           std::vector<boost::optional<model::ModelObject>> allModelObjects;
-          for (auto interiorPartitionSurfaceGroup : allInteriorPartitionSurfaceGroups(t_space)) {
+          for (const auto& interiorPartitionSurfaceGroup : allInteriorPartitionSurfaceGroups(t_space)) {
             auto interiorPartitionSurfaces = interiorPartitionSurfaceGroup.cast<model::InteriorPartitionSurfaceGroup>().interiorPartitionSurfaces();
-            for (auto interiorPartitionSurface : interiorPartitionSurfaces) {
+            for (const auto& interiorPartitionSurface : interiorPartitionSurfaces) {
               auto group = interiorPartitionSurface.interiorPartitionSurfaceGroup();
               if (group) {
                 allModelObjects.push_back(*group);
@@ -260,7 +262,9 @@ QString SpacesInteriorPartitionsGridController::getColor(const model::ModelObjec
 }
 
 void SpacesInteriorPartitionsGridController::checkSelectedFields() {
-  if (!this->hasHorizontalHeader()) return;
+  if (!this->hasHorizontalHeader()) {
+    return;
+  }
 
   OSGridController::checkSelectedFields();
 }

@@ -72,7 +72,7 @@ void WallConstructionVC::onChangeRelationship(const model::ModelObject& modelObj
 std::vector<OSItemId> WallConstructionVC::makeVector() {
   std::vector<OSItemId> result;
   if (m_modelObject) {
-    model::DefaultSurfaceConstructions defaultSurfaceConstructions = m_modelObject->cast<model::DefaultSurfaceConstructions>();
+    auto defaultSurfaceConstructions = m_modelObject->cast<model::DefaultSurfaceConstructions>();
     boost::optional<model::ConstructionBase> constructionBase = defaultSurfaceConstructions.wallConstruction();
     if (constructionBase) {
       result.push_back(modelObjectToItemId(*constructionBase, false));
@@ -83,7 +83,7 @@ std::vector<OSItemId> WallConstructionVC::makeVector() {
 
 void WallConstructionVC::onRemoveItem(OSItem* item) {
   if (m_modelObject) {
-    model::DefaultSurfaceConstructions defaultSurfaceConstructions = m_modelObject->cast<model::DefaultSurfaceConstructions>();
+    auto defaultSurfaceConstructions = m_modelObject->cast<model::DefaultSurfaceConstructions>();
     defaultSurfaceConstructions.resetWallConstruction();
   }
 }
@@ -94,7 +94,7 @@ void WallConstructionVC::onReplaceItem(OSItem* currentItem, const OSItemId& repl
 
 void WallConstructionVC::onDrop(const OSItemId& itemId) {
   if (m_modelObject) {
-    model::DefaultSurfaceConstructions defaultSurfaceConstructions = m_modelObject->cast<model::DefaultSurfaceConstructions>();
+    auto defaultSurfaceConstructions = m_modelObject->cast<model::DefaultSurfaceConstructions>();
 
     unsigned numSources = defaultSurfaceConstructions.getModelObjectSources<model::DefaultConstructionSet>().size();
     if (numSources > 1) {
@@ -131,7 +131,7 @@ void FloorConstructionVC::onChangeRelationship(const model::ModelObject& modelOb
 std::vector<OSItemId> FloorConstructionVC::makeVector() {
   std::vector<OSItemId> result;
   if (m_modelObject) {
-    model::DefaultSurfaceConstructions defaultSurfaceConstructions = m_modelObject->cast<model::DefaultSurfaceConstructions>();
+    auto defaultSurfaceConstructions = m_modelObject->cast<model::DefaultSurfaceConstructions>();
     boost::optional<model::ConstructionBase> constructionBase = defaultSurfaceConstructions.floorConstruction();
     if (constructionBase) {
       result.push_back(modelObjectToItemId(*constructionBase, false));
@@ -142,7 +142,7 @@ std::vector<OSItemId> FloorConstructionVC::makeVector() {
 
 void FloorConstructionVC::onRemoveItem(OSItem* item) {
   if (m_modelObject) {
-    model::DefaultSurfaceConstructions defaultSurfaceConstructions = m_modelObject->cast<model::DefaultSurfaceConstructions>();
+    auto defaultSurfaceConstructions = m_modelObject->cast<model::DefaultSurfaceConstructions>();
     defaultSurfaceConstructions.resetFloorConstruction();
   }
 }
@@ -153,7 +153,7 @@ void FloorConstructionVC::onReplaceItem(OSItem* currentItem, const OSItemId& rep
 
 void FloorConstructionVC::onDrop(const OSItemId& itemId) {
   if (m_modelObject) {
-    model::DefaultSurfaceConstructions defaultSurfaceConstructions = m_modelObject->cast<model::DefaultSurfaceConstructions>();
+    auto defaultSurfaceConstructions = m_modelObject->cast<model::DefaultSurfaceConstructions>();
 
     unsigned numSources = defaultSurfaceConstructions.getModelObjectSources<model::DefaultConstructionSet>().size();
     if (numSources > 1) {
@@ -190,7 +190,7 @@ void RoofConstructionVC::onChangeRelationship(const model::ModelObject& modelObj
 std::vector<OSItemId> RoofConstructionVC::makeVector() {
   std::vector<OSItemId> result;
   if (m_modelObject) {
-    model::DefaultSurfaceConstructions defaultSurfaceConstructions = m_modelObject->cast<model::DefaultSurfaceConstructions>();
+    auto defaultSurfaceConstructions = m_modelObject->cast<model::DefaultSurfaceConstructions>();
     boost::optional<model::ConstructionBase> constructionBase = defaultSurfaceConstructions.roofCeilingConstruction();
     if (constructionBase) {
       result.push_back(modelObjectToItemId(*constructionBase, false));
@@ -201,7 +201,7 @@ std::vector<OSItemId> RoofConstructionVC::makeVector() {
 
 void RoofConstructionVC::onRemoveItem(OSItem* item) {
   if (m_modelObject) {
-    model::DefaultSurfaceConstructions defaultSurfaceConstructions = m_modelObject->cast<model::DefaultSurfaceConstructions>();
+    auto defaultSurfaceConstructions = m_modelObject->cast<model::DefaultSurfaceConstructions>();
     defaultSurfaceConstructions.resetRoofCeilingConstruction();
   }
 }
@@ -212,7 +212,7 @@ void RoofConstructionVC::onReplaceItem(OSItem* currentItem, const OSItemId& repl
 
 void RoofConstructionVC::onDrop(const OSItemId& itemId) {
   if (m_modelObject) {
-    model::DefaultSurfaceConstructions defaultSurfaceConstructions = m_modelObject->cast<model::DefaultSurfaceConstructions>();
+    auto defaultSurfaceConstructions = m_modelObject->cast<model::DefaultSurfaceConstructions>();
 
     unsigned numSources = defaultSurfaceConstructions.getModelObjectSources<model::DefaultConstructionSet>().size();
     if (numSources > 1) {
@@ -249,7 +249,7 @@ void GlassDoorConstructionVC::onChangeRelationship(const model::ModelObject& mod
 std::vector<OSItemId> GlassDoorConstructionVC::makeVector() {
   std::vector<OSItemId> result;
   if (m_modelObject) {
-    model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
+    auto defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
     boost::optional<model::ConstructionBase> constructionBase = defaultSubSurfaceConstructions.glassDoorConstruction();
     if (constructionBase) {
       result.push_back(modelObjectToItemId(*constructionBase, false));
@@ -260,7 +260,7 @@ std::vector<OSItemId> GlassDoorConstructionVC::makeVector() {
 
 void GlassDoorConstructionVC::onRemoveItem(OSItem* item) {
   if (m_modelObject) {
-    model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
+    auto defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
     defaultSubSurfaceConstructions.resetGlassDoorConstruction();
   }
 }
@@ -271,7 +271,7 @@ void GlassDoorConstructionVC::onReplaceItem(OSItem* currentItem, const OSItemId&
 
 void GlassDoorConstructionVC::onDrop(const OSItemId& itemId) {
   if (m_modelObject) {
-    model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
+    auto defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
 
     unsigned numSources = defaultSubSurfaceConstructions.getModelObjectSources<model::DefaultConstructionSet>().size();
     if (numSources > 1) {
@@ -308,7 +308,7 @@ void OverheadDoorConstructionVC::onChangeRelationship(const model::ModelObject& 
 std::vector<OSItemId> OverheadDoorConstructionVC::makeVector() {
   std::vector<OSItemId> result;
   if (m_modelObject) {
-    model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
+    auto defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
     boost::optional<model::ConstructionBase> constructionBase = defaultSubSurfaceConstructions.overheadDoorConstruction();
     if (constructionBase) {
       result.push_back(modelObjectToItemId(*constructionBase, false));
@@ -319,7 +319,7 @@ std::vector<OSItemId> OverheadDoorConstructionVC::makeVector() {
 
 void OverheadDoorConstructionVC::onRemoveItem(OSItem* item) {
   if (m_modelObject) {
-    model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
+    auto defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
     defaultSubSurfaceConstructions.resetOverheadDoorConstruction();
   }
 }
@@ -330,7 +330,7 @@ void OverheadDoorConstructionVC::onReplaceItem(OSItem* currentItem, const OSItem
 
 void OverheadDoorConstructionVC::onDrop(const OSItemId& itemId) {
   if (m_modelObject) {
-    model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
+    auto defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
 
     unsigned numSources = defaultSubSurfaceConstructions.getModelObjectSources<model::DefaultConstructionSet>().size();
     if (numSources > 1) {
@@ -367,7 +367,7 @@ void SkylightConstructionVC::onChangeRelationship(const model::ModelObject& mode
 std::vector<OSItemId> SkylightConstructionVC::makeVector() {
   std::vector<OSItemId> result;
   if (m_modelObject) {
-    model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
+    auto defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
     boost::optional<model::ConstructionBase> constructionBase = defaultSubSurfaceConstructions.skylightConstruction();
     if (constructionBase) {
       result.push_back(modelObjectToItemId(*constructionBase, false));
@@ -378,7 +378,7 @@ std::vector<OSItemId> SkylightConstructionVC::makeVector() {
 
 void SkylightConstructionVC::onRemoveItem(OSItem* item) {
   if (m_modelObject) {
-    model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
+    auto defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
     defaultSubSurfaceConstructions.resetSkylightConstruction();
   }
 }
@@ -389,7 +389,7 @@ void SkylightConstructionVC::onReplaceItem(OSItem* currentItem, const OSItemId& 
 
 void SkylightConstructionVC::onDrop(const OSItemId& itemId) {
   if (m_modelObject) {
-    model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
+    auto defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
 
     unsigned numSources = defaultSubSurfaceConstructions.getModelObjectSources<model::DefaultConstructionSet>().size();
     if (numSources > 1) {
@@ -426,7 +426,7 @@ void TubularDaylightDomeConstructionVC::onChangeRelationship(const model::ModelO
 std::vector<OSItemId> TubularDaylightDomeConstructionVC::makeVector() {
   std::vector<OSItemId> result;
   if (m_modelObject) {
-    model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
+    auto defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
     boost::optional<model::ConstructionBase> constructionBase = defaultSubSurfaceConstructions.tubularDaylightDomeConstruction();
     if (constructionBase) {
       result.push_back(modelObjectToItemId(*constructionBase, false));
@@ -437,7 +437,7 @@ std::vector<OSItemId> TubularDaylightDomeConstructionVC::makeVector() {
 
 void TubularDaylightDomeConstructionVC::onRemoveItem(OSItem* item) {
   if (m_modelObject) {
-    model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
+    auto defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
     defaultSubSurfaceConstructions.resetTubularDaylightDomeConstruction();
   }
 }
@@ -448,7 +448,7 @@ void TubularDaylightDomeConstructionVC::onReplaceItem(OSItem* currentItem, const
 
 void TubularDaylightDomeConstructionVC::onDrop(const OSItemId& itemId) {
   if (m_modelObject) {
-    model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
+    auto defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
 
     unsigned numSources = defaultSubSurfaceConstructions.getModelObjectSources<model::DefaultConstructionSet>().size();
     if (numSources > 1) {
@@ -486,7 +486,7 @@ void TubularDaylightDiffuserConstructionVC::onChangeRelationship(const model::Mo
 std::vector<OSItemId> TubularDaylightDiffuserConstructionVC::makeVector() {
   std::vector<OSItemId> result;
   if (m_modelObject) {
-    model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
+    auto defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
     boost::optional<model::ConstructionBase> constructionBase = defaultSubSurfaceConstructions.tubularDaylightDiffuserConstruction();
     if (constructionBase) {
       result.push_back(modelObjectToItemId(*constructionBase, false));
@@ -497,7 +497,7 @@ std::vector<OSItemId> TubularDaylightDiffuserConstructionVC::makeVector() {
 
 void TubularDaylightDiffuserConstructionVC::onRemoveItem(OSItem* item) {
   if (m_modelObject) {
-    model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
+    auto defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
     defaultSubSurfaceConstructions.resetTubularDaylightDiffuserConstruction();
   }
 }
@@ -508,7 +508,7 @@ void TubularDaylightDiffuserConstructionVC::onReplaceItem(OSItem* currentItem, c
 
 void TubularDaylightDiffuserConstructionVC::onDrop(const OSItemId& itemId) {
   if (m_modelObject) {
-    model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
+    auto defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
 
     unsigned numSources = defaultSubSurfaceConstructions.getModelObjectSources<model::DefaultConstructionSet>().size();
     if (numSources > 1) {
@@ -545,7 +545,7 @@ void FixedWindowVC::onChangeRelationship(const model::ModelObject& modelObject, 
 std::vector<OSItemId> FixedWindowVC::makeVector() {
   std::vector<OSItemId> result;
   if (m_modelObject) {
-    model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
+    auto defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
     boost::optional<model::ConstructionBase> constructionBase = defaultSubSurfaceConstructions.fixedWindowConstruction();
     if (constructionBase) {
       result.push_back(modelObjectToItemId(*constructionBase, false));
@@ -556,7 +556,7 @@ std::vector<OSItemId> FixedWindowVC::makeVector() {
 
 void FixedWindowVC::onRemoveItem(OSItem* item) {
   if (m_modelObject) {
-    model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
+    auto defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
     defaultSubSurfaceConstructions.resetFixedWindowConstruction();
   }
 }
@@ -567,7 +567,7 @@ void FixedWindowVC::onReplaceItem(OSItem* currentItem, const OSItemId& replaceme
 
 void FixedWindowVC::onDrop(const OSItemId& itemId) {
   if (m_modelObject) {
-    model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
+    auto defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
 
     unsigned numSources = defaultSubSurfaceConstructions.getModelObjectSources<model::DefaultConstructionSet>().size();
     if (numSources > 1) {
@@ -604,7 +604,7 @@ void OperableWindowVC::onChangeRelationship(const model::ModelObject& modelObjec
 std::vector<OSItemId> OperableWindowVC::makeVector() {
   std::vector<OSItemId> result;
   if (m_modelObject) {
-    model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
+    auto defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
     boost::optional<model::ConstructionBase> constructionBase = defaultSubSurfaceConstructions.operableWindowConstruction();
     if (constructionBase) {
       result.push_back(modelObjectToItemId(*constructionBase, false));
@@ -615,7 +615,7 @@ std::vector<OSItemId> OperableWindowVC::makeVector() {
 
 void OperableWindowVC::onRemoveItem(OSItem* item) {
   if (m_modelObject) {
-    model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
+    auto defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
     defaultSubSurfaceConstructions.resetOperableWindowConstruction();
   }
 }
@@ -626,7 +626,7 @@ void OperableWindowVC::onReplaceItem(OSItem* currentItem, const OSItemId& replac
 
 void OperableWindowVC::onDrop(const OSItemId& itemId) {
   if (m_modelObject) {
-    model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
+    auto defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
 
     unsigned numSources = defaultSubSurfaceConstructions.getModelObjectSources<model::DefaultConstructionSet>().size();
     if (numSources > 1) {
@@ -663,7 +663,7 @@ void DoorVC::onChangeRelationship(const model::ModelObject& modelObject, int ind
 std::vector<OSItemId> DoorVC::makeVector() {
   std::vector<OSItemId> result;
   if (m_modelObject) {
-    model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
+    auto defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
     boost::optional<model::ConstructionBase> constructionBase = defaultSubSurfaceConstructions.doorConstruction();
     if (constructionBase) {
       result.push_back(modelObjectToItemId(*constructionBase, false));
@@ -674,7 +674,7 @@ std::vector<OSItemId> DoorVC::makeVector() {
 
 void DoorVC::onRemoveItem(OSItem* item) {
   if (m_modelObject) {
-    model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
+    auto defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
     defaultSubSurfaceConstructions.resetDoorConstruction();
   }
 }
@@ -685,7 +685,7 @@ void DoorVC::onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemI
 
 void DoorVC::onDrop(const OSItemId& itemId) {
   if (m_modelObject) {
-    model::DefaultSubSurfaceConstructions defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
+    auto defaultSubSurfaceConstructions = m_modelObject->cast<model::DefaultSubSurfaceConstructions>();
 
     unsigned numSources = defaultSubSurfaceConstructions.getModelObjectSources<model::DefaultConstructionSet>().size();
     if (numSources > 1) {
@@ -722,7 +722,7 @@ void InteriorPartitionsVC::onChangeRelationship(const model::ModelObject& modelO
 std::vector<OSItemId> InteriorPartitionsVC::makeVector() {
   std::vector<OSItemId> result;
   if (m_modelObject) {
-    model::DefaultConstructionSet defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
+    auto defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
     boost::optional<model::ConstructionBase> constructionBase = defaultConstructionSet.interiorPartitionConstruction();
     if (constructionBase) {
       result.push_back(modelObjectToItemId(*constructionBase, false));
@@ -733,7 +733,7 @@ std::vector<OSItemId> InteriorPartitionsVC::makeVector() {
 
 void InteriorPartitionsVC::onRemoveItem(OSItem* item) {
   if (m_modelObject) {
-    model::DefaultConstructionSet defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
+    auto defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
     defaultConstructionSet.resetInteriorPartitionConstruction();
   }
 }
@@ -744,7 +744,7 @@ void InteriorPartitionsVC::onReplaceItem(OSItem* currentItem, const OSItemId& re
 
 void InteriorPartitionsVC::onDrop(const OSItemId& itemId) {
   if (m_modelObject) {
-    model::DefaultConstructionSet defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
+    auto defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
     boost::optional<model::ConstructionBase> constructionBase = this->addToModel<model::ConstructionBase>(itemId);
     if (constructionBase) {
       defaultConstructionSet.setInteriorPartitionConstruction(*constructionBase);
@@ -763,7 +763,7 @@ void SpaceShadingVC::onChangeRelationship(const model::ModelObject& modelObject,
 std::vector<OSItemId> SpaceShadingVC::makeVector() {
   std::vector<OSItemId> result;
   if (m_modelObject) {
-    model::DefaultConstructionSet defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
+    auto defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
     boost::optional<model::ConstructionBase> constructionBase = defaultConstructionSet.spaceShadingConstruction();
     if (constructionBase) {
       result.push_back(modelObjectToItemId(*constructionBase, false));
@@ -774,7 +774,7 @@ std::vector<OSItemId> SpaceShadingVC::makeVector() {
 
 void SpaceShadingVC::onRemoveItem(OSItem* item) {
   if (m_modelObject) {
-    model::DefaultConstructionSet defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
+    auto defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
     defaultConstructionSet.resetSpaceShadingConstruction();
   }
 }
@@ -785,7 +785,7 @@ void SpaceShadingVC::onReplaceItem(OSItem* currentItem, const OSItemId& replacem
 
 void SpaceShadingVC::onDrop(const OSItemId& itemId) {
   if (m_modelObject) {
-    model::DefaultConstructionSet defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
+    auto defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
     boost::optional<model::ConstructionBase> constructionBase = this->addToModel<model::ConstructionBase>(itemId);
     if (constructionBase) {
       defaultConstructionSet.setSpaceShadingConstruction(*constructionBase);
@@ -804,7 +804,7 @@ void BuildingShadingVC::onChangeRelationship(const model::ModelObject& modelObje
 std::vector<OSItemId> BuildingShadingVC::makeVector() {
   std::vector<OSItemId> result;
   if (m_modelObject) {
-    model::DefaultConstructionSet defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
+    auto defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
     boost::optional<model::ConstructionBase> constructionBase = defaultConstructionSet.buildingShadingConstruction();
     if (constructionBase) {
       result.push_back(modelObjectToItemId(*constructionBase, false));
@@ -815,7 +815,7 @@ std::vector<OSItemId> BuildingShadingVC::makeVector() {
 
 void BuildingShadingVC::onRemoveItem(OSItem* item) {
   if (m_modelObject) {
-    model::DefaultConstructionSet defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
+    auto defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
     defaultConstructionSet.resetBuildingShadingConstruction();
   }
 }
@@ -826,7 +826,7 @@ void BuildingShadingVC::onReplaceItem(OSItem* currentItem, const OSItemId& repla
 
 void BuildingShadingVC::onDrop(const OSItemId& itemId) {
   if (m_modelObject) {
-    model::DefaultConstructionSet defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
+    auto defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
     boost::optional<model::ConstructionBase> constructionBase = this->addToModel<model::ConstructionBase>(itemId);
     if (constructionBase) {
       defaultConstructionSet.setBuildingShadingConstruction(*constructionBase);
@@ -845,7 +845,7 @@ void SiteShadingVC::onChangeRelationship(const model::ModelObject& modelObject, 
 std::vector<OSItemId> SiteShadingVC::makeVector() {
   std::vector<OSItemId> result;
   if (m_modelObject) {
-    model::DefaultConstructionSet defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
+    auto defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
     boost::optional<model::ConstructionBase> constructionBase = defaultConstructionSet.siteShadingConstruction();
     if (constructionBase) {
       result.push_back(modelObjectToItemId(*constructionBase, false));
@@ -856,7 +856,7 @@ std::vector<OSItemId> SiteShadingVC::makeVector() {
 
 void SiteShadingVC::onRemoveItem(OSItem* item) {
   if (m_modelObject) {
-    model::DefaultConstructionSet defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
+    auto defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
     defaultConstructionSet.resetSiteShadingConstruction();
   }
 }
@@ -867,7 +867,7 @@ void SiteShadingVC::onReplaceItem(OSItem* currentItem, const OSItemId& replaceme
 
 void SiteShadingVC::onDrop(const OSItemId& itemId) {
   if (m_modelObject) {
-    model::DefaultConstructionSet defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
+    auto defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
     boost::optional<model::ConstructionBase> constructionBase = this->addToModel<model::ConstructionBase>(itemId);
     if (constructionBase) {
       defaultConstructionSet.setSiteShadingConstruction(*constructionBase);
@@ -886,7 +886,7 @@ void AdiabaticSurfaceVC::onChangeRelationship(const model::ModelObject& modelObj
 std::vector<OSItemId> AdiabaticSurfaceVC::makeVector() {
   std::vector<OSItemId> result;
   if (m_modelObject) {
-    model::DefaultConstructionSet defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
+    auto defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
     boost::optional<model::ConstructionBase> constructionBase = defaultConstructionSet.adiabaticSurfaceConstruction();
     if (constructionBase) {
       result.push_back(modelObjectToItemId(*constructionBase, false));
@@ -897,7 +897,7 @@ std::vector<OSItemId> AdiabaticSurfaceVC::makeVector() {
 
 void AdiabaticSurfaceVC::onRemoveItem(OSItem* item) {
   if (m_modelObject) {
-    model::DefaultConstructionSet defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
+    auto defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
     defaultConstructionSet.resetAdiabaticSurfaceConstruction();
   }
 }
@@ -908,7 +908,7 @@ void AdiabaticSurfaceVC::onReplaceItem(OSItem* currentItem, const OSItemId& repl
 
 void AdiabaticSurfaceVC::onDrop(const OSItemId& itemId) {
   if (m_modelObject) {
-    model::DefaultConstructionSet defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
+    auto defaultConstructionSet = m_modelObject->cast<model::DefaultConstructionSet>();
     boost::optional<model::ConstructionBase> constructionBase = this->addToModel<model::ConstructionBase>(itemId);
     if (constructionBase) {
       defaultConstructionSet.setAdiabaticSurfaceConstruction(*constructionBase);
@@ -982,7 +982,7 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   //hLayout->addWidget(label);
   //hLayout->addWidget(m_nameEdit);
 
-  auto gridLayout = new QGridLayout();
+  auto* gridLayout = new QGridLayout();
   gridLayout->setContentsMargins(10, 10, 10, 10);
   gridLayout->setSpacing(10);
   gridLayout->setColumnStretch(3, 10);
@@ -1407,12 +1407,12 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   //mainVLayout->addLayout(hLayout);
   //mainVLayout->addLayout(gridLayout);
 
-  auto widget = new QWidget();
+  auto* widget = new QWidget();
   //widget->setLayout(mainVLayout);
   widget->setLayout(gridLayout);
 
   //int index;
-  auto hiddenWidget = new QWidget();
+  auto* hiddenWidget = new QWidget();
   /*index =*/this->stackedWidget()->addWidget(hiddenWidget);
   /*index =*/this->stackedWidget()->addWidget(widget);
 }
@@ -1434,7 +1434,7 @@ void DefaultConstructionSetInspectorView::onClearSelection() {
 
 void DefaultConstructionSetInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject) {
   detach();
-  model::DefaultConstructionSet defaultConstructionSet = modelObject.cast<model::DefaultConstructionSet>();
+  auto defaultConstructionSet = modelObject.cast<model::DefaultConstructionSet>();
   attach(defaultConstructionSet);
 }
 

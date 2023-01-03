@@ -72,7 +72,7 @@ ConstructionsInspectorView::ConstructionsInspectorView(bool isIP, const model::M
 
 void ConstructionsInspectorView::onClearSelection() {
   QWidget* widget = this->stackedWidget()->currentWidget();
-  ModelObjectInspectorView* modelObjectInspectorView = qobject_cast<ModelObjectInspectorView*>(widget);
+  auto* modelObjectInspectorView = qobject_cast<ModelObjectInspectorView*>(widget);
   if (modelObjectInspectorView) {
     modelObjectInspectorView->clearSelection();
   }
@@ -108,7 +108,7 @@ void ConstructionsInspectorView::onSelectModelObject(const openstudio::model::Mo
 }
 
 void ConstructionsInspectorView::showConstructionInspector(const openstudio::model::ModelObject& modelObject) {
-  auto constructionInspectorView = new ConstructionInspectorView(m_isIP, m_model);
+  auto* constructionInspectorView = new ConstructionInspectorView(m_isIP, m_model);
   connect(this, &ConstructionsInspectorView::toggleUnitsClicked, constructionInspectorView, &ConstructionInspectorView::toggleUnitsClicked);
 
   constructionInspectorView->selectModelObject(modelObject);
@@ -117,7 +117,7 @@ void ConstructionsInspectorView::showConstructionInspector(const openstudio::mod
 }
 
 void ConstructionsInspectorView::showAirBoundaryInspector(const openstudio::model::ModelObject& modelObject) {
-  auto constructionAirBoundaryInspectorView = new ConstructionAirBoundaryInspectorView(m_isIP, m_model);
+  auto* constructionAirBoundaryInspectorView = new ConstructionAirBoundaryInspectorView(m_isIP, m_model);
   connect(this, &ConstructionsInspectorView::toggleUnitsClicked, constructionAirBoundaryInspectorView,
           &ConstructionAirBoundaryInspectorView::toggleUnitsClicked);
 
@@ -127,7 +127,7 @@ void ConstructionsInspectorView::showAirBoundaryInspector(const openstudio::mode
 }
 
 void ConstructionsInspectorView::showCfactorUndergroundWallInspector(const openstudio::model::ModelObject& modelObject) {
-  auto constructionCfactorUndergroundWallInspectorView = new ConstructionCfactorUndergroundWallInspectorView(m_isIP, m_model);
+  auto* constructionCfactorUndergroundWallInspectorView = new ConstructionCfactorUndergroundWallInspectorView(m_isIP, m_model);
   connect(this, &ConstructionsInspectorView::toggleUnitsClicked, constructionCfactorUndergroundWallInspectorView,
           &ConstructionCfactorUndergroundWallInspectorView::toggleUnitsClicked);
 
@@ -137,7 +137,7 @@ void ConstructionsInspectorView::showCfactorUndergroundWallInspector(const opens
 }
 
 void ConstructionsInspectorView::showFfactorGroundFloorInspector(const openstudio::model::ModelObject& modelObject) {
-  auto constructionFfactorGroundFloorInspectorView = new ConstructionFfactorGroundFloorInspectorView(m_isIP, m_model);
+  auto* constructionFfactorGroundFloorInspectorView = new ConstructionFfactorGroundFloorInspectorView(m_isIP, m_model);
   connect(this, &ConstructionsInspectorView::toggleUnitsClicked, constructionFfactorGroundFloorInspectorView,
           &ConstructionFfactorGroundFloorInspectorView::toggleUnitsClicked);
 
@@ -147,7 +147,7 @@ void ConstructionsInspectorView::showFfactorGroundFloorInspector(const openstudi
 }
 
 void ConstructionsInspectorView::showInternalSourceInspector(const openstudio::model::ModelObject& modelObject) {
-  auto constructionInternalSourceInspectorView = new ConstructionInternalSourceInspectorView(m_isIP, m_model);
+  auto* constructionInternalSourceInspectorView = new ConstructionInternalSourceInspectorView(m_isIP, m_model);
   connect(this, &ConstructionsInspectorView::toggleUnitsClicked, constructionInternalSourceInspectorView,
           &ConstructionInternalSourceInspectorView::toggleUnitsClicked);
 
@@ -157,7 +157,7 @@ void ConstructionsInspectorView::showInternalSourceInspector(const openstudio::m
 }
 
 void ConstructionsInspectorView::showWindowDataFileInspector(const openstudio::model::ModelObject& modelObject) {
-  auto constructionWindowDataFileInspectorView = new ConstructionWindowDataFileInspectorView(m_isIP, m_model);
+  auto* constructionWindowDataFileInspectorView = new ConstructionWindowDataFileInspectorView(m_isIP, m_model);
   connect(this, &ConstructionsInspectorView::toggleUnitsClicked, constructionWindowDataFileInspectorView,
           &ConstructionWindowDataFileInspectorView::toggleUnitsClicked);
 

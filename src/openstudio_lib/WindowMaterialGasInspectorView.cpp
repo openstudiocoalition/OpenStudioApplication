@@ -54,13 +54,13 @@ WindowMaterialGasInspectorView::WindowMaterialGasInspectorView(bool isIP, const 
 }
 
 void WindowMaterialGasInspectorView::createLayout() {
-  auto hiddenWidget = new QWidget();
+  auto* hiddenWidget = new QWidget();
   this->stackedWidget()->addWidget(hiddenWidget);
 
-  auto visibleWidget = new QWidget();
+  auto* visibleWidget = new QWidget();
   this->stackedWidget()->addWidget(visibleWidget);
 
-  auto mainGridLayout = new QGridLayout();
+  auto* mainGridLayout = new QGridLayout();
   mainGridLayout->setContentsMargins(7, 7, 7, 7);
   mainGridLayout->setSpacing(14);
   visibleWidget->setLayout(mainGridLayout);
@@ -195,7 +195,7 @@ void WindowMaterialGasInspectorView::onClearSelection() {
 
 void WindowMaterialGasInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject) {
   detach();
-  model::Gas gas = modelObject.cast<model::Gas>();
+  auto gas = modelObject.cast<model::Gas>();
   attach(gas);
   refresh();
 }

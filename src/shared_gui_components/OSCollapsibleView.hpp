@@ -61,7 +61,7 @@ class OSCollapsibleView : public QWidget
   Q_OBJECT
 
  public:
-  OSCollapsibleView(bool alwaysExpanded = false, QWidget* parent = nullptr);
+  explicit OSCollapsibleView(bool alwaysExpanded = false, QWidget* parent = nullptr);
 
   virtual ~OSCollapsibleView() {}
 

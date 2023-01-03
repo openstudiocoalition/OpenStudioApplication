@@ -38,6 +38,8 @@
 #include <QResizeEvent>
 #include <QStyleOption>
 
+#include <bitset>
+
 namespace openstudio {
 
 OSCollapsibleItemHeader::OSCollapsibleItemHeader(const std::string& text, const OSItemId& itemId, OSItemType type, QWidget* parent)
@@ -46,13 +48,18 @@ OSCollapsibleItemHeader::OSCollapsibleItemHeader(const std::string& text, const 
   setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
   setObjectName("OSCollapsibleItemHeader");
 
-  auto mainHLayout = new QHBoxLayout();
+  this->setProperty("style", "0");
+  this->setStyleSheet("QWidget#OSCollapsibleItemHeader[style=\"0\"] { background: #CECECE; border-bottom: 1px solid black;}"  // Selected=0
+                      "QWidget#OSCollapsibleItemHeader[style=\"1\"] { background: qlineargradient(x1:0,y1:0,x2:0,y2:1,"       // Selected=1
+                      "  stop: 0.0 #636161, stop: 0.10 #636161, stop: 0.15 #A3A3A3, stop: 1.0 #A3A3A3);  border-bottom: 1px solid black; }");
+
+  auto* mainHLayout = new QHBoxLayout();
   mainHLayout->setContentsMargins(9, 0, 9, 0);
   setLayout(mainHLayout);
 
   // Label
 
-  QLabel* textLabel = new QLabel(QString::fromStdString(text));
+  auto* textLabel = new QLabel(QString::fromStdString(text));
   textLabel->setWordWrap(true);
   textLabel->setObjectName("H2");
   mainHLayout->addWidget(textLabel, 10);
@@ -97,19 +104,16 @@ bool OSCollapsibleItemHeader::selected() const {
 void OSCollapsibleItemHeader::setSelected(bool isSelected) {
   m_selected = isSelected;
 
-  if (m_selected) {
-    QString style;
-    style.append("QWidget#OSCollapsibleItemHeader {");
-    style.append(" background: qlineargradient(x1:0,y1:0,x2:0,y2:1,");
-    style.append(" stop: 0.0 #636161,");
-    style.append(" stop: 0.10 #636161,");
-    style.append(" stop: 0.15 #A3A3A3,");
-    style.append(" stop: 1.0 #A3A3A3);");
-    style.append(" border-bottom: 1px solid black;");
-    style.append(" }");
-    setStyleSheet(style);
-  } else {
-    setStyleSheet("QWidget#OSCollapsibleItemHeader { background: #CECECE; border-bottom: 1px solid black;}");
+  // Selected
+  std::bitset<1> style;
+  style[0] = isSelected;
+  QString thisStyle = QString::fromStdString(style.to_string());
+
+  QVariant currentStyle = property("style");
+  if (currentStyle.isNull() || currentStyle.toString() != thisStyle) {
+    this->setProperty("style", thisStyle);
+    this->style()->unpolish(this);
+    this->style()->polish(this);
   }
 }
 

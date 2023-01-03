@@ -73,7 +73,7 @@ class InspectorView : public QWidget
   Q_OBJECT;
 
  public:
-  InspectorView(QWidget* parent = nullptr);
+  explicit InspectorView(QWidget* parent = nullptr);
   virtual ~InspectorView() {}
 
   void update();
@@ -126,7 +126,7 @@ class BaseInspectorView
   Q_OBJECT;
 
  public:
-  BaseInspectorView(QWidget* parent = nullptr);
+  explicit BaseInspectorView(QWidget* parent = nullptr);
 
   virtual ~BaseInspectorView() {}
 
@@ -159,7 +159,7 @@ class GenericInspectorView : public BaseInspectorView
   Q_OBJECT;
 
  public:
-  GenericInspectorView(QWidget* parent = nullptr);
+  explicit GenericInspectorView(QWidget* parent = nullptr);
 
   virtual ~GenericInspectorView() {}
 
@@ -180,7 +180,7 @@ class SplitterMixerInspectorView : public BaseInspectorView
   Q_OBJECT;
 
  public:
-  SplitterMixerInspectorView(QWidget* parent = nullptr);
+  explicit SplitterMixerInspectorView(QWidget* parent = nullptr);
 
   virtual ~SplitterMixerInspectorView() {}
 
@@ -201,7 +201,7 @@ class NewPlenumDialog : public QDialog
   Q_OBJECT;
 
  public:
-  NewPlenumDialog(QWidget* parent = nullptr);
+  explicit NewPlenumDialog(QWidget* parent = nullptr);
 
   virtual ~NewPlenumDialog() {}
 
@@ -218,7 +218,7 @@ class PlenumChooserView : public QWidget
   Q_OBJECT;
 
  public:
-  PlenumChooserView(QWidget* parent = nullptr);
+  explicit PlenumChooserView(QWidget* parent = nullptr);
 
   virtual ~PlenumChooserView() {}
 
@@ -233,7 +233,7 @@ class RefrigerationWalkinInspectorView : public BaseInspectorView
   Q_OBJECT;
 
  public:
-  RefrigerationWalkinInspectorView(QWidget* parent = nullptr);
+  explicit RefrigerationWalkinInspectorView(QWidget* parent = nullptr);
 
   virtual ~RefrigerationWalkinInspectorView() {}
 
@@ -251,7 +251,7 @@ class ThermalZoneInspectorView : public BaseInspectorView
   Q_OBJECT;
 
  public:
-  ThermalZoneInspectorView(QWidget* parent = nullptr);
+  explicit ThermalZoneInspectorView(QWidget* parent = nullptr);
 
   virtual ~ThermalZoneInspectorView() {}
 
@@ -285,7 +285,7 @@ class WaterToAirInspectorView : public BaseInspectorView
   Q_OBJECT;
 
  public:
-  WaterToAirInspectorView(QWidget* parent = nullptr);
+  explicit WaterToAirInspectorView(QWidget* parent = nullptr);
 
   virtual ~WaterToAirInspectorView() {}
 
@@ -320,7 +320,7 @@ class AirTerminalSingleDuctConstantVolumeCooledBeamInspectorView : public BaseIn
   Q_OBJECT;
 
  public:
-  AirTerminalSingleDuctConstantVolumeCooledBeamInspectorView(QWidget* parent = nullptr);
+  explicit AirTerminalSingleDuctConstantVolumeCooledBeamInspectorView(QWidget* parent = nullptr);
 
   virtual ~AirTerminalSingleDuctConstantVolumeCooledBeamInspectorView() {}
 
@@ -345,7 +345,7 @@ class AirTerminalInspectorView : public BaseInspectorView
   Q_OBJECT;
 
  public:
-  AirTerminalInspectorView(QWidget* parent = nullptr);
+  explicit AirTerminalInspectorView(QWidget* parent = nullptr);
 
   virtual ~AirTerminalInspectorView() {}
 
@@ -374,7 +374,7 @@ class AirTerminalSingleDuctConstantVolumeReheatInspectorView : public AirTermina
   Q_OBJECT;
 
  public:
-  AirTerminalSingleDuctConstantVolumeReheatInspectorView(QWidget* parent = nullptr);
+  explicit AirTerminalSingleDuctConstantVolumeReheatInspectorView(QWidget* parent = nullptr);
 
   virtual ~AirTerminalSingleDuctConstantVolumeReheatInspectorView() {}
 
@@ -386,7 +386,7 @@ class AirTerminalSingleDuctVAVReheatInspectorView : public AirTerminalInspectorV
   Q_OBJECT;
 
  public:
-  AirTerminalSingleDuctVAVReheatInspectorView(QWidget* parent = nullptr);
+  explicit AirTerminalSingleDuctVAVReheatInspectorView(QWidget* parent = nullptr);
 
   virtual ~AirTerminalSingleDuctVAVReheatInspectorView() {}
 
@@ -398,7 +398,7 @@ class AirTerminalSingleDuctParallelPIUReheatInspectorView : public AirTerminalIn
   Q_OBJECT;
 
  public:
-  AirTerminalSingleDuctParallelPIUReheatInspectorView(QWidget* parent = nullptr);
+  explicit AirTerminalSingleDuctParallelPIUReheatInspectorView(QWidget* parent = nullptr);
 
   virtual ~AirTerminalSingleDuctParallelPIUReheatInspectorView() {}
 
@@ -410,7 +410,7 @@ class AirTerminalSingleDuctSeriesPIUReheatInspectorView : public AirTerminalInsp
   Q_OBJECT;
 
  public:
-  AirTerminalSingleDuctSeriesPIUReheatInspectorView(QWidget* parent = nullptr);
+  explicit AirTerminalSingleDuctSeriesPIUReheatInspectorView(QWidget* parent = nullptr);
 
   virtual ~AirTerminalSingleDuctSeriesPIUReheatInspectorView() {}
 
@@ -422,7 +422,7 @@ class AirTerminalSingleDuctVAVHeatAndCoolReheatInspectorView : public AirTermina
   Q_OBJECT;
 
  public:
-  AirTerminalSingleDuctVAVHeatAndCoolReheatInspectorView(QWidget* parent = nullptr);
+  explicit AirTerminalSingleDuctVAVHeatAndCoolReheatInspectorView(QWidget* parent = nullptr);
 
   virtual ~AirTerminalSingleDuctVAVHeatAndCoolReheatInspectorView() {}
 
@@ -434,7 +434,7 @@ class ZoneHVACPackagedTerminalAirConditionerInspectorView : public BaseInspector
   Q_OBJECT;
 
  public:
-  ZoneHVACPackagedTerminalAirConditionerInspectorView(QWidget* parent = nullptr);
+  explicit ZoneHVACPackagedTerminalAirConditionerInspectorView(QWidget* parent = nullptr);
 
   virtual ~ZoneHVACPackagedTerminalAirConditionerInspectorView() {}
 
@@ -459,7 +459,7 @@ class ZoneHVACPackagedTerminalHeatPumpInspectorView : public BaseInspectorView
   Q_OBJECT;
 
  public:
-  ZoneHVACPackagedTerminalHeatPumpInspectorView(QWidget* parent = nullptr);
+  explicit ZoneHVACPackagedTerminalHeatPumpInspectorView(QWidget* parent = nullptr);
 
   virtual ~ZoneHVACPackagedTerminalHeatPumpInspectorView() {}
 
@@ -484,7 +484,7 @@ class WaterHeaterHeatPumpInspectorView : public BaseInspectorView
   Q_OBJECT;
 
  public:
-  WaterHeaterHeatPumpInspectorView(QWidget* parent = nullptr);
+  explicit WaterHeaterHeatPumpInspectorView(QWidget* parent = nullptr);
 
   virtual ~WaterHeaterHeatPumpInspectorView() {}
 
@@ -509,7 +509,7 @@ class ZoneHVACFourPipeFanCoilInspectorView : public BaseInspectorView
   Q_OBJECT;
 
  public:
-  ZoneHVACFourPipeFanCoilInspectorView(QWidget* parent = nullptr);
+  explicit ZoneHVACFourPipeFanCoilInspectorView(QWidget* parent = nullptr);
 
   virtual ~ZoneHVACFourPipeFanCoilInspectorView() {}
 
@@ -536,7 +536,7 @@ class ZoneHVACLowTempRadiantConstFlowInspectorView : public BaseInspectorView
   Q_OBJECT;
 
  public:
-  ZoneHVACLowTempRadiantConstFlowInspectorView(QWidget* parent = nullptr);
+  explicit ZoneHVACLowTempRadiantConstFlowInspectorView(QWidget* parent = nullptr);
 
   void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP) override;
 
@@ -561,7 +561,7 @@ class ZoneHVACLowTempRadiantVarFlowInspectorView : public BaseInspectorView
   Q_OBJECT;
 
  public:
-  ZoneHVACLowTempRadiantVarFlowInspectorView(QWidget* parent = nullptr);
+  explicit ZoneHVACLowTempRadiantVarFlowInspectorView(QWidget* parent = nullptr);
 
   void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP) override;
 
@@ -586,7 +586,7 @@ class ZoneHVACWaterToAirHeatPumpInspectorView : public BaseInspectorView
   Q_OBJECT;
 
  public:
-  ZoneHVACWaterToAirHeatPumpInspectorView(QWidget* parent = nullptr);
+  explicit ZoneHVACWaterToAirHeatPumpInspectorView(QWidget* parent = nullptr);
 
   virtual ~ZoneHVACWaterToAirHeatPumpInspectorView() {}
 
@@ -615,7 +615,7 @@ class ZoneHVACBaseboardConvectiveWaterInspectorView : public BaseInspectorView
   Q_OBJECT;
 
  public:
-  ZoneHVACBaseboardConvectiveWaterInspectorView(QWidget* parent = nullptr);
+  explicit ZoneHVACBaseboardConvectiveWaterInspectorView(QWidget* parent = nullptr);
 
   virtual ~ZoneHVACBaseboardConvectiveWaterInspectorView() {}
 
@@ -640,7 +640,7 @@ class ZoneHVACBaseboardRadiantConvectiveWaterInspectorView : public BaseInspecto
   Q_OBJECT;
 
  public:
-  ZoneHVACBaseboardRadiantConvectiveWaterInspectorView(QWidget* parent = nullptr);
+  explicit ZoneHVACBaseboardRadiantConvectiveWaterInspectorView(QWidget* parent = nullptr);
 
   virtual ~ZoneHVACBaseboardRadiantConvectiveWaterInspectorView() {}
 
@@ -665,7 +665,7 @@ class ZoneHVACCoolingPanelRadiantConvectiveWaterInspectorView : public BaseInspe
   Q_OBJECT;
 
  public:
-  ZoneHVACCoolingPanelRadiantConvectiveWaterInspectorView(QWidget* parent = nullptr);
+  explicit ZoneHVACCoolingPanelRadiantConvectiveWaterInspectorView(QWidget* parent = nullptr);
 
   virtual ~ZoneHVACCoolingPanelRadiantConvectiveWaterInspectorView() {}
 
@@ -690,7 +690,7 @@ class ZoneHVACUnitHeaterInspectorView : public BaseInspectorView
   Q_OBJECT;
 
  public:
-  ZoneHVACUnitHeaterInspectorView(QWidget* parent = nullptr);
+  explicit ZoneHVACUnitHeaterInspectorView(QWidget* parent = nullptr);
 
   virtual ~ZoneHVACUnitHeaterInspectorView() {}
 
@@ -715,7 +715,7 @@ class ZoneHVACUnitVentilatorInspectorView : public BaseInspectorView
   Q_OBJECT;
 
  public:
-  ZoneHVACUnitVentilatorInspectorView(QWidget* parent = nullptr);
+  explicit ZoneHVACUnitVentilatorInspectorView(QWidget* parent = nullptr);
 
   virtual ~ZoneHVACUnitVentilatorInspectorView() {}
 
@@ -742,7 +742,7 @@ class AirLoopHVACUnitarySystemInspectorView : public BaseInspectorView
   Q_OBJECT;
 
  public:
-  AirLoopHVACUnitarySystemInspectorView(QWidget* parent = nullptr);
+  explicit AirLoopHVACUnitarySystemInspectorView(QWidget* parent = nullptr);
 
   virtual ~AirLoopHVACUnitarySystemInspectorView() {}
 
@@ -769,7 +769,7 @@ class AirTerminalSingleDuctConstantVolumeFourPipeInductionInspectorView : public
   Q_OBJECT;
 
  public:
-  AirTerminalSingleDuctConstantVolumeFourPipeInductionInspectorView(QWidget* parent = nullptr);
+  explicit AirTerminalSingleDuctConstantVolumeFourPipeInductionInspectorView(QWidget* parent = nullptr);
 
   virtual ~AirTerminalSingleDuctConstantVolumeFourPipeInductionInspectorView() {}
 
@@ -795,7 +795,7 @@ class AirTerminalSingleDuctConstantVolumeFourPipeBeamInspectorView : public Base
   Q_OBJECT;
 
  public:
-  AirTerminalSingleDuctConstantVolumeFourPipeBeamInspectorView(QWidget* parent = nullptr);
+  explicit AirTerminalSingleDuctConstantVolumeFourPipeBeamInspectorView(QWidget* parent = nullptr);
 
   virtual ~AirTerminalSingleDuctConstantVolumeFourPipeBeamInspectorView() {}
 
@@ -821,7 +821,7 @@ class ScheduleRulesetInspectorView : public BaseInspectorView
   Q_OBJECT;
 
  public:
-  ScheduleRulesetInspectorView(QWidget* parent = nullptr);
+  explicit ScheduleRulesetInspectorView(QWidget* parent = nullptr);
 
   virtual ~ScheduleRulesetInspectorView() {}
 

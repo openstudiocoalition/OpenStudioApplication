@@ -48,10 +48,11 @@ class SpacesInteriorPartitionsGridView : public SpacesSubtabGridView
  public:
   SpacesInteriorPartitionsGridView(bool isIP, const model::Model& model, QWidget* parent = nullptr);
 
-  virtual ~SpacesInteriorPartitionsGridView() {}
+  virtual ~SpacesInteriorPartitionsGridView() = default;
 
  private:
   REGISTER_LOGGER("openstudio.SpacesInteriorPartitionsGridView");
+  void clearSelection();
 
  protected slots:
 
@@ -69,12 +70,12 @@ class SpacesInteriorPartitionsGridController : public OSGridController
   SpacesInteriorPartitionsGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, const model::Model& model,
                                          const std::vector<model::ModelObject>& modelObjects);
 
-  virtual ~SpacesInteriorPartitionsGridController() {}
+  virtual ~SpacesInteriorPartitionsGridController() = default;
 
   virtual void refreshModelObjects() override;
 
  protected:
-  virtual void setCategoriesAndFields() override;
+  void setCategoriesAndFields();
 
   virtual void addColumns(const QString& category, std::vector<QString>& fields) override;
 

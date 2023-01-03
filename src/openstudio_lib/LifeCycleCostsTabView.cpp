@@ -63,7 +63,7 @@ LifeCycleCostsView::LifeCycleCostsView(const model::Model& model) : QWidget(), m
   attach(m_lifeCycleCostParameters.get());
 }
 
-LifeCycleCostsView::~LifeCycleCostsView() {}
+LifeCycleCostsView::~LifeCycleCostsView() = default;
 
 void LifeCycleCostsView::createWidgets() {
 
@@ -73,7 +73,7 @@ void LifeCycleCostsView::createWidgets() {
 
   QVBoxLayout* vLayout = nullptr;
 
-  auto mainLayout = new QVBoxLayout();
+  auto* mainLayout = new QVBoxLayout();
   mainLayout->setContentsMargins(10, 10, 10, 10);
   mainLayout->setSpacing(20);
   setLayout(mainLayout);
@@ -124,7 +124,7 @@ void LifeCycleCostsView::createWidgets() {
 
   // Analysis Length and Real Discount Rate
 
-  auto gridLayout = new QGridLayout();
+  auto* gridLayout = new QGridLayout();
   gridLayout->setContentsMargins(0, 0, 0, 0);
   gridLayout->setSpacing(10);
 
@@ -202,10 +202,10 @@ QWidget* LifeCycleCostsView::createInflationRatesWidget() {
 
   QVBoxLayout* vLayout = nullptr;
 
-  auto widgetLayout = new QVBoxLayout();
+  auto* widgetLayout = new QVBoxLayout();
   widgetLayout->setContentsMargins(0, 0, 0, 0);
 
-  auto widget = new QWidget();
+  auto* widget = new QWidget();
   widget->setLayout(widgetLayout);
 
   vLayout = new QVBoxLayout();
@@ -217,7 +217,7 @@ QWidget* LifeCycleCostsView::createInflationRatesWidget() {
 
   widgetLayout->addLayout(vLayout);
 
-  auto gridLayout = new QGridLayout();
+  auto* gridLayout = new QGridLayout();
   gridLayout->setContentsMargins(0, 0, 0, 0);
   gridLayout->setSpacing(10);
 
@@ -371,11 +371,11 @@ QWidget* LifeCycleCostsView::createNistWidget() {
 
   QVBoxLayout* vLayout = nullptr;
 
-  auto gridLayout = new QGridLayout();
+  auto* gridLayout = new QGridLayout();
   gridLayout->setContentsMargins(0, 0, 0, 0);
   gridLayout->setSpacing(10);
 
-  auto widget = new QWidget();
+  auto* widget = new QWidget();
   widget->setLayout(gridLayout);
 
   vLayout = new QVBoxLayout();

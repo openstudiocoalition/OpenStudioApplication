@@ -118,21 +118,20 @@ QUrl getEmbeddedFileUrl(const QString& filename) {
 }
 
 GeometryEditorView::GeometryEditorView(bool isIP, const openstudio::model::Model& model, QWidget* parent) : QWidget(parent) {
-  QVBoxLayout* layout = new QVBoxLayout;
+  auto* layout = new QVBoxLayout;
 
-  EditorWebView* webView = new EditorWebView(isIP, model, this);
+  auto* webView = new EditorWebView(isIP, model, this);
   layout->addWidget(webView);
 
   setLayout(layout);
 }
 
-GeometryEditorView::~GeometryEditorView() {}
+GeometryEditorView::~GeometryEditorView() = default;
 
-DebugWebView::DebugWebView(const QString& debugPort, QWidget* parent) : QDialog(parent) {
-  auto mainLayout = new QVBoxLayout;
+DebugWebView::DebugWebView(const QString& debugPort, QWidget* parent) : QDialog(parent), m_view(new QWebEngineView(this)) {
+  auto* mainLayout = new QVBoxLayout;
   setLayout(mainLayout);
 
-  m_view = new QWebEngineView(this);
   m_view->settings()->setAttribute(QWebEngineSettings::WebAttribute::LocalContentCanAccessRemoteUrls, true);
   m_view->settings()->setAttribute(QWebEngineSettings::WebAttribute::LocalContentCanAccessFileUrls, true);
   m_view->settings()->setAttribute(QWebEngineSettings::WebAttribute::AllowRunningInsecureContent, true);
@@ -146,11 +145,17 @@ DebugWebView::DebugWebView(const QString& debugPort, QWidget* parent) : QDialog(
   m_view->load(QUrl(urlString));
 }
 
-DebugWebView::~DebugWebView() {}
+DebugWebView::~DebugWebView() = default;
 
 BaseEditor::BaseEditor(bool isIP, const openstudio::model::Model& model, QWebEngineView* view, QWidget* t_parent)
-  : QObject(t_parent), m_editorLoaded(false), m_javascriptRunning(false), m_versionNumber(0), m_isIP(isIP), m_model(model), m_view(view) {
-  m_checkForUpdateTimer = new QTimer(this);
+  : QObject(t_parent),
+    m_editorLoaded(false),
+    m_javascriptRunning(false),
+    m_versionNumber(0),
+    m_isIP(isIP),
+    m_model(model),
+    m_view(view),
+    m_checkForUpdateTimer(new QTimer(this)) {
   connect(m_checkForUpdateTimer, &QTimer::timeout, this, &BaseEditor::checkForUpdate);
 
   openstudio::OSAppBase* app = OSAppBase::instance();
@@ -159,7 +164,7 @@ BaseEditor::BaseEditor(bool isIP, const openstudio::model::Model& model, QWebEng
   OS_ASSERT(m_document);
 }
 
-BaseEditor::~BaseEditor() {}
+BaseEditor::~BaseEditor() = default;
 
 bool BaseEditor::editorLoaded() const {
   return m_editorLoaded;
@@ -253,7 +258,7 @@ FloorspaceEditor::FloorspaceEditor(const openstudio::path& floorplanPath, bool i
   m_document->enable();
 }
 
-FloorspaceEditor::~FloorspaceEditor() {}
+FloorspaceEditor::~FloorspaceEditor() = default;
 
 void FloorspaceEditor::loadEditor() {
   // set config
@@ -272,8 +277,7 @@ void FloorspaceEditor::loadEditor() {
     }
 
     // DLM: need a better check here
-    RemoteBCL remoteBCL;
-    if (remoteBCL.isOnline()) {
+    if (openstudio::RemoteBCL::isOnline()) {
       config["online"] = true;
     } else {
       config["online"] = false;
@@ -317,7 +321,7 @@ void FloorspaceEditor::loadEditor() {
     const std::string json = Json::writeString(wbuilder, config);
 
     QString javascript = QString("window.api.setConfig(") + QString::fromStdString(json) + QString(");");
-    m_view->page()->runJavaScript(javascript, [this](const QVariant& v) { m_javascriptRunning = false; });
+    m_view->page()->runJavaScript(javascript, [this](const QVariant& /*v*/) { m_javascriptRunning = false; });
     while (m_javascriptRunning) {
       OSAppBase::instance()->processEvents(QEventLoop::ExcludeUserInputEvents, 200);
     }
@@ -330,7 +334,7 @@ void FloorspaceEditor::loadEditor() {
     m_javascriptRunning = true;
 
     QString javascript = QString("window.api.init();");
-    m_view->page()->runJavaScript(javascript, [this](const QVariant& v) { m_javascriptRunning = false; });
+    m_view->page()->runJavaScript(javascript, [this](const QVariant& /*v*/) { m_javascriptRunning = false; });
     while (m_javascriptRunning) {
       OSAppBase::instance()->processEvents(QEventLoop::ExcludeUserInputEvents, 200);
     }
@@ -360,7 +364,7 @@ style.type = 'text/css';\n\
 style.innerHTML = rules;\n\
 document.head.appendChild(style);\n";
 
-    m_view->page()->runJavaScript(javascript, [this](const QVariant& v) { m_javascriptRunning = false; });
+    m_view->page()->runJavaScript(javascript, [this](const QVariant& /*v*/) { m_javascriptRunning = false; });
     while (m_javascriptRunning) {
       OSAppBase::instance()->processEvents(QEventLoop::ExcludeUserInputEvents, 200);
     }
@@ -380,7 +384,7 @@ document.head.appendChild(style);\n";
 
       QString javascript =
         QString("window.api.openFloorplan(JSON.stringify(") + QString::fromStdString(json) + QString("), { noReloadGrid: false });");
-      m_view->page()->runJavaScript(javascript, [this](const QVariant& v) { m_javascriptRunning = false; });
+      m_view->page()->runJavaScript(javascript, [this](const QVariant& /*v*/) { m_javascriptRunning = false; });
       while (m_javascriptRunning) {
         OSAppBase::instance()->processEvents(QEventLoop::ExcludeUserInputEvents, 200);
       }
@@ -423,7 +427,7 @@ document.head.appendChild(style);\n";
       // const std::string json = Json::writeString(wbuilder, value);
 
       QString javascript = QString("window.api.importLibrary(JSON.stringify(") + QString::fromStdString(json) + QString("));");
-      m_view->page()->runJavaScript(javascript, [this](const QVariant& v) { m_javascriptRunning = false; });
+      m_view->page()->runJavaScript(javascript, [this](const QVariant& /*v*/) { m_javascriptRunning = false; });
       while (m_javascriptRunning) {
         OSAppBase::instance()->processEvents(QEventLoop::ExcludeUserInputEvents, 200);
       }
@@ -691,7 +695,7 @@ void FloorspaceEditor::updateModel(const openstudio::model::Model& model) {
 
     QString javascript = QString("window.api.openFloorplan(JSON.stringify(") + QString::fromStdString(json) + QString("), { noReloadGrid: true });");
     //QString javascript = QString("window.api.importLibrary(JSON.stringify(") + QString::fromStdString(json) + QString("));");
-    m_view->page()->runJavaScript(javascript, [this](const QVariant& v) { m_javascriptRunning = false; });
+    m_view->page()->runJavaScript(javascript, [this](const QVariant& /*v*/) { m_javascriptRunning = false; });
     while (m_javascriptRunning) {
       OSAppBase::instance()->processEvents(QEventLoop::ExcludeUserInputEvents, 200);
     }
@@ -760,14 +764,14 @@ GbXmlEditor::GbXmlEditor(const openstudio::path& gbXmlPath, bool isIP, const ope
   m_document->enable();
 }
 
-GbXmlEditor::~GbXmlEditor() {}
+GbXmlEditor::~GbXmlEditor() = default;
 
 void GbXmlEditor::loadEditor() {
   {
     OS_ASSERT(!m_javascriptRunning);
     // call init and animate
     QString javascript = QString("init();\n animate();");
-    m_view->page()->runJavaScript(javascript, [this](const QVariant& v) { m_javascriptRunning = false; });
+    m_view->page()->runJavaScript(javascript, [this](const QVariant& /*v*/) { m_javascriptRunning = false; });
     while (m_javascriptRunning) {
       OSAppBase::instance()->processEvents(QEventLoop::ExcludeUserInputEvents, 200);
     }
@@ -779,7 +783,7 @@ void GbXmlEditor::loadEditor() {
     m_javascriptRunning = true;
 
     QString javascript = QString("setGbXml(\"") + m_gbXML + QString("\");");
-    m_view->page()->runJavaScript(javascript, [this](const QVariant& v) { m_javascriptRunning = false; });
+    m_view->page()->runJavaScript(javascript, [this](const QVariant& /*v*/) { m_javascriptRunning = false; });
     while (m_javascriptRunning) {
       OSAppBase::instance()->processEvents(QEventLoop::ExcludeUserInputEvents, 200);
     }
@@ -883,13 +887,14 @@ IdfEditor::IdfEditor(const openstudio::path& idfPath, bool forceConvert, bool is
 
         runner.start(energyPlusExePath, arguments);
         runner.waitForFinished();
-        if (runner.state()) {
+        if (runner.state() != 0u) {
           // if still running just kill it
           runner.kill();
         }
         //int result = runner.exitCode();
-        QString error(runner.readAllStandardError());
-        QString output(runner.readAllStandardOutput());
+
+        // QString error(runner.readAllStandardError());
+        // QString output(runner.readAllStandardOutput());
 
         //m_document->enableTabsAfterRun();
 
@@ -916,7 +921,7 @@ IdfEditor::IdfEditor(const openstudio::path& idfPath, bool forceConvert, bool is
   m_document->enable();
 }
 
-IdfEditor::~IdfEditor() {}
+IdfEditor::~IdfEditor() = default;
 
 void IdfEditor::loadEditor() {
 
@@ -927,7 +932,7 @@ void IdfEditor::loadEditor() {
     m_javascriptRunning = true;
 
     QString javascript = QString("setMessage(\"Failed to convert IDF to JSON format\");");
-    m_view->page()->runJavaScript(javascript, [this](const QVariant& v) { m_javascriptRunning = false; });
+    m_view->page()->runJavaScript(javascript, [this](const QVariant& /*v*/) { m_javascriptRunning = false; });
     while (m_javascriptRunning) {
       OSAppBase::instance()->processEvents(QEventLoop::ExcludeUserInputEvents, 200);
     }
@@ -938,7 +943,7 @@ void IdfEditor::loadEditor() {
     m_javascriptRunning = true;
 
     QString javascript = QString("setJdf(JSON.stringify(") + m_jdf + QString("));");
-    m_view->page()->runJavaScript(javascript, [this](const QVariant& v) { m_javascriptRunning = false; });
+    m_view->page()->runJavaScript(javascript, [this](const QVariant& /*v*/) { m_javascriptRunning = false; });
     while (m_javascriptRunning) {
       OSAppBase::instance()->processEvents(QEventLoop::ExcludeUserInputEvents, 200);
     }
@@ -1035,7 +1040,7 @@ OsmEditor::OsmEditor(const openstudio::path& osmPath, bool isIP, const openstudi
   m_document->enable();
 }
 
-OsmEditor::~OsmEditor() {}
+OsmEditor::~OsmEditor() = default;
 
 void OsmEditor::loadEditor() {
 
@@ -1048,7 +1053,7 @@ void OsmEditor::loadEditor() {
 
     // call init and animate
     QString javascript = QString("init(") + toQString(json) + QString(");\n animate();\n initDatGui();");
-    m_view->page()->runJavaScript(javascript, [this](const QVariant& v) { m_javascriptRunning = false; });
+    m_view->page()->runJavaScript(javascript, [this](const QVariant& /*v*/) { m_javascriptRunning = false; });
     while (m_javascriptRunning) {
       OSAppBase::instance()->processEvents(QEventLoop::ExcludeUserInputEvents, 200);
     }
@@ -1089,7 +1094,7 @@ EditorWebView::EditorWebView(bool isIP, const openstudio::model::Model& model, Q
     m_model(model),
     m_geometrySourceComboBox(new QComboBox()),
     m_newImportGeometry(new QPushButton("New")),
-    m_progressBar(new QProgressBar()),
+    m_progressBar(new ProgressBarWithError()),
     m_refreshBtn(new QPushButton("Refresh")),
     m_previewBtn(new QPushButton("Preview OSM")),
     m_mergeBtn(new QPushButton("Merge with Current OSM")),
@@ -1102,7 +1107,7 @@ EditorWebView::EditorWebView(bool isIP, const openstudio::model::Model& model, Q
   // find available port for debugging
   m_debugPort = QString(qgetenv("QTWEBENGINE_REMOTE_DEBUGGING"));
 
-  auto mainLayout = new QVBoxLayout;
+  auto* mainLayout = new QVBoxLayout;
   setLayout(mainLayout);
 
   connect(m_document.get(), &OSDocument::toggleUnitsClicked, this, &EditorWebView::onUnitSystemChange);
@@ -1113,10 +1118,10 @@ EditorWebView::EditorWebView(bool isIP, const openstudio::model::Model& model, Q
   connect(m_mergeBtn, &QPushButton::clicked, this, &EditorWebView::mergeClicked);
   connect(m_debugBtn, &QPushButton::clicked, this, &EditorWebView::debugClicked);
 
-  auto hLayout = new QHBoxLayout(this);
+  auto* hLayout = new QHBoxLayout(this);
   mainLayout->addLayout(hLayout);
 
-  QLabel* label = new QLabel(this);
+  auto* label = new QLabel(this);
   label->setText("Geometry Type");
   hLayout->addWidget(label);
 
@@ -1135,7 +1140,6 @@ EditorWebView::EditorWebView(bool isIP, const openstudio::model::Model& model, Q
   m_progressBar->setMinimum(0);
   m_progressBar->setMaximum(100);
   m_progressBar->setValue(0);
-  m_progressBar->setVisible(false);  // make visible when load first page
 
   hLayout->addWidget(m_refreshBtn, 0, Qt::AlignVCenter);
   m_refreshBtn->setVisible(false);  // hide to simplify interface
@@ -1160,7 +1164,7 @@ EditorWebView::EditorWebView(bool isIP, const openstudio::model::Model& model, Q
 
   m_view = new QWebEngineView(this);
 
-  m_page = new OSWebEnginePage(this);
+  m_page = new OSWebEnginePage(m_view);
   m_view->setPage(m_page);  // note, view does not take ownership of page
 
   connect(m_page, &OSWebEnginePage::loadFinished, this, &EditorWebView::onLoadFinished);
@@ -1231,8 +1235,8 @@ EditorWebView::EditorWebView(bool isIP, const openstudio::model::Model& model, Q
   }
 
   // no files found
-  if ((model.getConcreteModelObjects<model::Surface>().size() > 0) || (model.getConcreteModelObjects<model::SubSurface>().size() > 0)
-      || (model.getConcreteModelObjects<model::ShadingSurface>().size() > 0)) {
+  if ((!model.getConcreteModelObjects<model::Surface>().empty()) || (!model.getConcreteModelObjects<model::SubSurface>().empty())
+      || (!model.getConcreteModelObjects<model::ShadingSurface>().empty())) {
     m_newImportGeometry->setEnabled(false);
     m_view->load(getEmbeddedFileUrl("geometry_editor_start.html"));
   } else {
@@ -1273,19 +1277,14 @@ EditorWebView::~EditorWebView() {
 void EditorWebView::geometrySourceChanged(const QString& text) {
   if (text == "FloorspaceJS") {
     m_newImportGeometry->setText("New");
-  } else if (text == "gbXML") {
-    m_newImportGeometry->setText("Import");
-  } else if (text == "IDF") {
-    m_newImportGeometry->setText("Import");
-  } else if (text == "OSM") {
+  } else if ((text == "gbXML") || (text == "IDF") || (text == "OSM")) {
     m_newImportGeometry->setText("Import");
   }
 }
 
 void EditorWebView::newImportClicked() {
-  if (m_baseEditor) {
-    delete m_baseEditor;
-  }
+
+  delete m_baseEditor;
 
   if (m_geometrySourceComboBox->currentText() == "FloorspaceJS") {
     m_geometrySourceComboBox->setEnabled(false);
@@ -1382,7 +1381,7 @@ void EditorWebView::refreshClicked() {
   m_view->triggerPageAction(QWebEnginePage::ReloadAndBypassCache);
 }
 
-void EditorWebView::saveClickedBlocking(const openstudio::path&) {
+void EditorWebView::saveClickedBlocking(const openstudio::path& /*unused*/) {
   if (m_baseEditor && m_baseEditor->editorLoaded()) {
     m_baseEditor->doExport();
     m_baseEditor->saveExport();
@@ -1420,7 +1419,7 @@ void EditorWebView::previewExport() {
 
     // merge export model into clone of m_model
     bool keepHandles = true;
-    model::Model temp = m_model.clone(keepHandles).cast<model::Model>();
+    auto temp = m_model.clone(keepHandles).cast<model::Model>();
     model::ModelMerger mm;
     mm.mergeModels(temp, m_baseEditor->exportModel(), m_baseEditor->exportModelHandleMapping());
 
@@ -1442,8 +1441,8 @@ void EditorWebView::previewExport() {
 
     bool signalsBlocked = m_baseEditor->blockUpdateTimerSignals(true);
 
-    PreviewWebView* webView = new PreviewWebView(m_isIP, temp);
-    QLayout* layout = new QVBoxLayout();
+    auto* webView = new PreviewWebView(m_isIP, temp);
+    auto* layout = new QVBoxLayout();
     layout->addWidget(webView);
 
     // show preview in blocking dialog
@@ -1533,36 +1532,24 @@ void EditorWebView::onLoadFinished(bool ok) {
       m_debugBtn->setEnabled(true);
     }
 
-    m_progressBar->setStyleSheet("");
-    m_progressBar->setFormat("");
-    m_progressBar->setVisible(false);
-    m_progressBar->setTextVisible(false);
+    m_progressBar->setError(false);
   } else {
-    m_progressBar->setStyleSheet("QProgressBar::chunk {background-color: #FF0000;}");
-    m_progressBar->setFormat("Error");
-    m_progressBar->setVisible(true);
-    m_progressBar->setTextVisible(true);
+    m_progressBar->setError(true);
   }
 }
 
 void EditorWebView::onLoadProgress(int progress) {
-  m_progressBar->setStyleSheet("");
-  m_progressBar->setFormat("");
-  m_progressBar->setTextVisible(false);
+  m_progressBar->setError(false);
   m_progressBar->setValue(progress);
 }
 
 void EditorWebView::onLoadStarted() {
-  m_progressBar->setStyleSheet("");
-  m_progressBar->setFormat("");
+  m_progressBar->setError(false);
   m_progressBar->setVisible(true);
-  m_progressBar->setTextVisible(false);
 }
 
-void EditorWebView::onRenderProcessTerminated(QWebEnginePage::RenderProcessTerminationStatus terminationStatus, int exitCode) {
-  m_progressBar->setStyleSheet("QProgressBar::chunk {background-color: #FF0000;}");
-  m_progressBar->setFormat("Error");
-  m_progressBar->setTextVisible(true);
+void EditorWebView::onRenderProcessTerminated(QWebEnginePage::RenderProcessTerminationStatus /*terminationStatus*/, int /*exitCode*/) {
+  m_progressBar->setError(true);
 }
 
 openstudio::path EditorWebView::floorplanPath() const {

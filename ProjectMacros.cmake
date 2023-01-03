@@ -112,6 +112,13 @@ macro(CREATE_TEST_TARGETS BASE_NAME SRC DEPENDENCIES)
   if(BUILD_TESTING)
     add_executable(${BASE_NAME}_tests ${SRC})
 
+    if (APPLE)
+      add_custom_command(TARGET ${BASE_NAME}_tests
+        POST_BUILD
+        COMMAND ${CMAKE_INSTALL_NAME_TOOL} -add_rpath "${openstudio_ROOT_DIR}/lib/" $<TARGET_FILE:${BASE_NAME}_tests>
+        COMMAND ${CMAKE_INSTALL_NAME_TOOL} -add_rpath "${QT_INSTALL_DIR}/lib/" $<TARGET_FILE:${BASE_NAME}_tests>)
+    endif()
+
     list(APPEND ALL_TESTING_TARGETS "${BASE_NAME}_tests")
     set(ALL_TESTING_TARGETS "${ALL_TESTING_TARGETS}" PARENT_SCOPE)
 
@@ -137,7 +144,16 @@ macro(CREATE_TEST_TARGETS BASE_NAME SRC DEPENDENCIES)
       ${ALL_DEPENDENCIES}
     )
 
+    # Tell cmake to discover tests by calling test_exe --gtest_list_tests
+    # gtest_discover_tests(${BASE_NAME}_tests
+    #   PROPERTIES TIMEOUT 660
+    # )
+
+    # Unfortunately, the above won't work without a significant refactor of our cmake code.
+    # There are ordering issues... openstudio_app is the one that copies most of the needed DLLs on windows (Qt, openstudiolib.dll, etc)
+    # utilities is the first built, so when the test target is added it will try to call the openstudio_utilities_tests.exe and that will fail because of the missing DLLs
     ADD_GOOGLE_TESTS(${BASE_NAME}_tests ${SRC})
+
     if(TARGET "${BASE_NAME}_resources")
       add_dependencies("${BASE_NAME}_tests" "${BASE_NAME}_resources")
     endif()
@@ -170,7 +186,7 @@ macro(MAKE_SWIG_TARGET_OSAPP NAME SIMPLENAME KEY_I_FILE I_FILES PARENT_TARGET PA
 
   # Get all of the source files for the parent target this SWIG library is wrapping
   get_target_property(target_files ${PARENT_TARGET} SOURCES)
-  get_target_property(swig_include_directories openstudio::openstudio_rb INTERFACE_INCLUDE_DIRECTORIES)
+  get_target_property(swig_include_directories openstudio::openstudiolib INTERFACE_INCLUDE_DIRECTORIES)
 
   foreach(f ${target_files})
     # Get the extension of the source file
@@ -347,8 +363,7 @@ macro(MAKE_SWIG_TARGET_OSAPP NAME SIMPLENAME KEY_I_FILE I_FILES PARENT_TARGET PA
     ${SWIG_WRAPPER}
   )
 
-  get_target_property(ruby_includes CONAN_PKG::openstudio_ruby INTERFACE_INCLUDE_DIRECTORIES)
-  target_include_directories(${swig_target} PUBLIC ${ruby_includes})
+  target_include_directories(${swig_target} SYSTEM PRIVATE ${RUBY_INCLUDE_DIRS})
 
   AddPCH(${swig_target})
 
@@ -611,6 +626,7 @@ macro(MAKE_SWIG_TARGET_OSAPP NAME SIMPLENAME KEY_I_FILE I_FILES PARENT_TARGET PA
       OpenStudioAirflow
       OpenStudioEnergyPlus
       OpenStudioGBXML
+      OpenStudioGltf
       OpenStudioISOModel
       OpenStudioRadiance
       OpenStudioSDD
@@ -648,17 +664,40 @@ macro(MAKE_SWIG_TARGET_OSAPP NAME SIMPLENAME KEY_I_FILE I_FILES PARENT_TARGET PA
     set(SWIG_WRAPPER_FULL_PATH "${CMAKE_CURRENT_BINARY_DIR}/${SWIG_WRAPPER}")
     set(SWIG_TARGET "generate_csharp_${NAME}_wrap")
 
+    # openstudio_translators
     list(FIND translator_names ${NAME} name_found)
     if( name_found GREATER -1 )
-      set(CSHARP_OUTPUT_NAME "openstudio_translators_csharp.dll")
+      if(MSVC)
+        set(CSHARP_OUTPUT_NAME "openstudio_translators_csharp.dll")
+      elseif(APPLE)
+        set(CSHARP_OUTPUT_NAME "openstudio_translators_csharp.dylib")
+      else()
+        set(CSHARP_OUTPUT_NAME "libopenstudio_translators_csharp.so")
+      endif()
     else()
+      # openstudio_model
       list(FIND model_names ${NAME} name_found)
       if( name_found GREATER -1 )
-        set(CSHARP_OUTPUT_NAME "openstudio_model_csharp.dll")
+        if(MSVC)
+          set(CSHARP_OUTPUT_NAME "openstudio_model_csharp.dll")
+        elseif(APPLE)
+          set(CSHARP_OUTPUT_NAME "openstudio_model_csharp.dylib")
+        else()
+          set(CSHARP_OUTPUT_NAME "libopenstudio_model_csharp.so")
+        endif()
       else()
-        set(CSHARP_OUTPUT_NAME "openstudio_csharp.dll")
+        # openstudio_utilities
+        if(MSVC)
+          set(CSHARP_OUTPUT_NAME "openstudio_csharp.dll")
+        elseif(APPLE)
+          set(CSHARP_OUTPUT_NAME "openstudio_csharp.dylib")
+        else()
+          set(CSHARP_OUTPUT_NAME "libopenstudio_csharp.so")
+        endif()
       endif()
     endif()
+
+
 
     set(CSHARP_GENERATED_SRC_DIR "${PROJECT_BINARY_DIR}/csharp_wrapper/generated_sources/${NAME}")
     file(MAKE_DIRECTORY ${CSHARP_GENERATED_SRC_DIR})

@@ -40,14 +40,14 @@
 namespace openstudio {
 
 CollapsibleInspector::CollapsibleInspector(QString text, QWidget* inspector, QWidget* parent)
-  : QWidget(parent), m_header(new CollapsibleInspectorHeader(text)), m_inspector(inspector) {
+  : QWidget(parent), m_header(new CollapsibleInspectorHeader(std::move(text))), m_inspector(inspector) {
   createLayout();
 }
 
 void CollapsibleInspector::createLayout() {
   setContentsMargins(0, 0, 0, 0);
 
-  auto mainLayout = new QVBoxLayout();
+  auto* mainLayout = new QVBoxLayout();
   mainLayout->setContentsMargins(0, 0, 0, 0);
   mainLayout->setSpacing(0);
   setLayout(mainLayout);
@@ -70,7 +70,7 @@ void CollapsibleInspector::on_headerToggled(bool checked) {
 
 ////////////////////////////////////////////////////////////////////////////////
 
-CollapsibleInspectorHeader::CollapsibleInspectorHeader(QString text, QWidget* parent) : QAbstractButton(parent), m_text(text) {
+CollapsibleInspectorHeader::CollapsibleInspectorHeader(QString text, QWidget* parent) : QAbstractButton(parent), m_text(std::move(text)) {
   createLayout();
 }
 
@@ -81,7 +81,7 @@ void CollapsibleInspectorHeader::createLayout() {
   setObjectName("CollapsibleInspectorHeader");
   setCheckable(true);
 
-  auto mainHLayout = new QHBoxLayout();
+  auto* mainHLayout = new QHBoxLayout();
   mainHLayout->setContentsMargins(10, 0, 10, 0);
   mainHLayout->setSpacing(7);
   setLayout(mainHLayout);
@@ -91,7 +91,7 @@ void CollapsibleInspectorHeader::createLayout() {
   mainHLayout->addWidget(m_arrowLabel, 0, Qt::AlignLeft);
 
   // Name
-  auto textLabel = new QLabel(m_text);
+  auto* textLabel = new QLabel(m_text);
   textLabel->setWordWrap(false);
   textLabel->setObjectName("H2");
   mainHLayout->addWidget(textLabel, 0, Qt::AlignLeft);
@@ -105,7 +105,7 @@ void CollapsibleInspectorHeader::createLayout() {
 }
 
 QSize CollapsibleInspectorHeader::sizeHint() const {
-  return QSize(150, 50);
+  return {150, 50};
 }
 
 void CollapsibleInspectorHeader::setImage(bool isChecked) {
@@ -135,11 +135,11 @@ void CollapsibleInspectorHeader::setChecked(bool isChecked) {
   }
 }
 
-void CollapsibleInspectorHeader::paintEvent(QPaintEvent* event) {
+void CollapsibleInspectorHeader::paintEvent(QPaintEvent* /* event */) {
   QStyleOption opt;
   opt.initFrom(this);
-  QPainter p(this);
-  style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
+  QPainter painter(this);
+  style()->drawPrimitive(QStyle::PE_Widget, &opt, &painter, this);
 }
 
 ///! SLOTS

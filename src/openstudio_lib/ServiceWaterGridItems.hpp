@@ -64,19 +64,19 @@ class WaterUseConnectionsDetailItem : public GridItem
 class WaterUseConnectionsDropZoneItem : public HorizontalBranchItem
 {
  public:
-  WaterUseConnectionsDropZoneItem(QGraphicsItem* parent = nullptr);
+  explicit WaterUseConnectionsDropZoneItem(QGraphicsItem* parent = nullptr);
 };
 
 class WaterUseEquipmentDropZoneItem : public HorizontalBranchItem
 {
  public:
-  WaterUseEquipmentDropZoneItem(QGraphicsItem* parent = nullptr);
+  explicit WaterUseEquipmentDropZoneItem(QGraphicsItem* parent = nullptr);
 };
 
 class SewerItem : public GridItem
 {
  public:
-  SewerItem(QGraphicsItem* parent = nullptr);
+  explicit SewerItem(QGraphicsItem* parent = nullptr);
 
   ButtonItem* sewerButton() const;
 
@@ -89,7 +89,7 @@ class SewerItem : public GridItem
 class MainsSupplyItem : public GridItem
 {
  public:
-  MainsSupplyItem(QGraphicsItem* parent = nullptr);
+  explicit MainsSupplyItem(QGraphicsItem* parent = nullptr);
 
   ButtonItem* mainsSupplyButton() const;
 
@@ -104,7 +104,7 @@ class HotWaterSupplyItem : public GridItem
   Q_OBJECT;
 
  public:
-  HotWaterSupplyItem(QGraphicsItem* parent = nullptr);
+  explicit HotWaterSupplyItem(QGraphicsItem* parent = nullptr);
 
   virtual ~HotWaterSupplyItem() {}
 
@@ -121,7 +121,7 @@ class HotWaterSupplyItem : public GridItem
 class DoubleOneThreeStraightItem : public GridItem
 {
  public:
-  DoubleOneThreeStraightItem(QGraphicsItem* parent = nullptr);
+  explicit DoubleOneThreeStraightItem(QGraphicsItem* parent = nullptr);
 
  protected:
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
@@ -130,7 +130,7 @@ class DoubleOneThreeStraightItem : public GridItem
 class DoubleThreeFourStraightItem : public GridItem
 {
  public:
-  DoubleThreeFourStraightItem(QGraphicsItem* parent = nullptr);
+  explicit DoubleThreeFourStraightItem(QGraphicsItem* parent = nullptr);
 
  protected:
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
@@ -139,7 +139,7 @@ class DoubleThreeFourStraightItem : public GridItem
 class DoubleTwoFourStraightItem : public GridItem
 {
  public:
-  DoubleTwoFourStraightItem(QGraphicsItem* parent = nullptr);
+  explicit DoubleTwoFourStraightItem(QGraphicsItem* parent = nullptr);
 
  protected:
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
@@ -148,7 +148,7 @@ class DoubleTwoFourStraightItem : public GridItem
 class DoubleTwoThreeStraightItem : public GridItem
 {
  public:
-  DoubleTwoThreeStraightItem(QGraphicsItem* parent = nullptr);
+  explicit DoubleTwoThreeStraightItem(QGraphicsItem* parent = nullptr);
 
  protected:
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
@@ -157,7 +157,7 @@ class DoubleTwoThreeStraightItem : public GridItem
 class DoubleTwoThreeFourStraightItem : public GridItem
 {
  public:
-  DoubleTwoThreeFourStraightItem(QGraphicsItem* parent = nullptr);
+  explicit DoubleTwoThreeFourStraightItem(QGraphicsItem* parent = nullptr);
 
  protected:
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
@@ -166,7 +166,7 @@ class DoubleTwoThreeFourStraightItem : public GridItem
 class HotWaterJunctionItem : public DoubleTwoFourStraightItem
 {
  public:
-  HotWaterJunctionItem(QGraphicsItem* parent = nullptr);
+  explicit HotWaterJunctionItem(QGraphicsItem* parent = nullptr);
 
  protected:
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
@@ -187,7 +187,7 @@ class ColdWaterJunctionItem : public GridItem
 class WaterUseConnectionsItem : public GridItem
 {
  public:
-  WaterUseConnectionsItem(QGraphicsItem* parent = nullptr);
+  explicit WaterUseConnectionsItem(QGraphicsItem* parent = nullptr);
 
  protected:
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
@@ -196,7 +196,7 @@ class WaterUseConnectionsItem : public GridItem
 class WaterUseEquipmentItem : public GridItem
 {
  public:
-  WaterUseEquipmentItem(QGraphicsItem* parent = nullptr);
+  explicit WaterUseEquipmentItem(QGraphicsItem* parent = nullptr);
 
   void setModelObject(model::OptionalModelObject modelObject) override;
 
@@ -209,7 +209,7 @@ class MakeupWaterItem : public GridItem
   Q_OBJECT;
 
  public:
-  MakeupWaterItem(QGraphicsItem* parent = nullptr);
+  explicit MakeupWaterItem(QGraphicsItem* parent = nullptr);
 
   virtual ~MakeupWaterItem() {}
 

@@ -113,14 +113,14 @@ class OSListItem : public QObject
   Q_OBJECT
 
  public:
-  OSListItem(OSListController* listController = nullptr);
+  explicit OSListItem(OSListController* listController = nullptr);
 
   virtual ~OSListItem();
 
   void setController(OSListController* controller);
 
   OSListController* controller() const {
-    return m_listController;
+    return m_listController.get();
   }
 
   bool isSelected() const;

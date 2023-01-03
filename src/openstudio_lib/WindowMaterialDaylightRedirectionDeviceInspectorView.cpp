@@ -56,13 +56,13 @@ WindowMaterialDaylightRedirectionDeviceInspectorView::WindowMaterialDaylightRedi
 }
 
 void WindowMaterialDaylightRedirectionDeviceInspectorView::createLayout() {
-  auto hiddenWidget = new QWidget();
+  auto* hiddenWidget = new QWidget();
   this->stackedWidget()->addWidget(hiddenWidget);
 
-  auto visibleWidget = new QWidget();
+  auto* visibleWidget = new QWidget();
   this->stackedWidget()->addWidget(visibleWidget);
 
-  auto mainGridLayout = new QGridLayout();
+  auto* mainGridLayout = new QGridLayout();
   mainGridLayout->setContentsMargins(7, 7, 7, 7);
   mainGridLayout->setSpacing(14);
   visibleWidget->setLayout(mainGridLayout);
@@ -117,7 +117,7 @@ void WindowMaterialDaylightRedirectionDeviceInspectorView::onClearSelection() {
 
 void WindowMaterialDaylightRedirectionDeviceInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject) {
   detach();
-  model::DaylightRedirectionDevice material = modelObject.cast<model::DaylightRedirectionDevice>();
+  auto material = modelObject.cast<model::DaylightRedirectionDevice>();
   attach(material);
   refresh();
 }

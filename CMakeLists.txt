@@ -1,16 +1,20 @@
 cmake_minimum_required(VERSION 3.10.2)
-cmake_policy(SET CMP0048 NEW)
-
-set(CMAKE_CXX_STANDARD 17)
+cmake_policy(SET CMP0048 NEW) # `project()` command manages `VERSION` variables.
+cmake_policy(SET CMP0087 NEW) # Allow generator expresssions in install(CODE)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+# Do not enable compiler specific extensions, for eg on GCC use -std=c++1z (=c++17) and not -std=gnu++17
+set(CMAKE_CXX_EXTENSIONS OFF)
 
 # Use ccache is available, has to be before "project()"
 find_program(CCACHE_PROGRAM ccache)
 if(CCACHE_PROGRAM)
   # Support Unix Makefiles and Ninja
+  message(STATUS "Using CCACHE")
   set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "${CCACHE_PROGRAM}")
 endif()
 
-project(OpenStudioApplication VERSION 1.4.0)
+project(OpenStudioApplication VERSION 1.5.0)
 
 # Check system info globally so we can use it everywhere after: Has to be done before FindOpenStudioSDK.cmake
 if(APPLE)
@@ -66,6 +70,8 @@ endif()
 # Attempt to run, it'll do the right thing if the calling cmake script already ran it
 set(CONAN_INSTALL_FILE "${PROJECT_SOURCE_DIR}/ConanInstall.cmake")
 include("${CONAN_INSTALL_FILE}")
+
+get_target_property(RUBY_INCLUDE_DIRS CONAN_PKG::openstudio_ruby INTERFACE_INCLUDE_DIRECTORIES)
 
 # A macro to find a conan related value especially when using multi-config builds (MSVC)
 # But it also works with single-config builds
@@ -296,6 +302,7 @@ include("${PROJECT_SOURCE_DIR}/ProjectMacros.cmake")
 
 # Search first in the binary dir, where conan will install finders, then
 # search for modules in the root dir to override cmake ones
+# Start with ROOT, then PROJECT_BINARY_DIR
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_BINARY_DIR} ${PROJECT_BINARY_DIR}" "${PROJECT_SOURCE_DIR}/CMake")
 
 # Use CTest
@@ -303,6 +310,7 @@ set(ALL_TESTING_TARGETS "") # global list
 if(BUILD_TESTING)
   enable_testing()
   include(CTest)
+  include(GoogleTest)
 endif()
 
 
@@ -320,6 +328,7 @@ endif()
 
 if(UNIX)
 
+  # TODO: enable Wall
   #set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -fPIC -fno-strict-aliasing")
   set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC -fno-strict-aliasing")
 
@@ -336,13 +345,12 @@ if(UNIX)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-maybe-uninitialized")
   endif()
 
-  # Note: CMAKE_CXX_STANDARD set to 17 should already take care of adding -std=c++17 or equivalent
+  # Note: CMAKE_CXX_STANDARD (with no extensions) already sets -std=c++17 (or std=c++1z).
   if(APPLE)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -stdlib=libc++")
-  else()
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
   endif()
 endif()
+
 if(MINGW)
   # all warnings
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
@@ -355,6 +363,7 @@ if(MINGW)
   #add_definitions(-DBOOST_LOG_USE_CHAR)
   #add_definitions(-DBOOST_LOG_NO_COMPILER_TLS)
 endif()
+
 if(MSVC)
   # warning level 3
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W3")
@@ -417,6 +426,16 @@ if(MSVC)
 
 endif()
 
+if(WIN32)
+  add_definitions(-DNOMINMAX)
+  # Set the BOOST_USE_WINAPI_VERSION to Windows10
+  add_compile_definitions(BOOST_USE_WINAPI_VERSION=BOOST_WINAPI_VERSION_WIN7)
+  # This will also align _WIN32_WINNT and WINVER
+  # add_compile_definitions(BOOST_USE_WINDOWS_H) # Getting a confict with `typedef GUID UUID` from windows.h
+  add_compile_definitions(BOOST_WINAPI_DEFINE_VERSION_MACROS)
+  add_compile_definitions(WIN32_LEAN_AND_MEAN) # That excludes stuff that's not used too often, including the GUID stuff
+endif()
+
 # Check version of gcc
 if(CMAKE_COMPILER_IS_GNUCC)
   execute_process(COMMAND ${CMAKE_C_COMPILER} -dumpversion
@@ -455,63 +474,6 @@ set(SWIG_LIB "${CURRENT_CONAN_SWIG_ROOT}/bin/swiglib")
 # e.g. QT_INSTALL_DIR = C:/Qt/6.3.0/msvc2019_64
 set(QT_INSTALL_DIR "" CACHE PATH "Path to Qt Install")
 set(QT_VERSION "6.3.0")
-#if(NOT EXISTS ${QT_INSTALL_DIR})
-  ## download qt
-  #if(WIN32)
-    #if(CMAKE_CL_64)
-      #set(QT_ZIP_FILENAME "qt_5_11_msvc2017_64_shared.zip")
-      #set(QT_ZIP_EXPECTED_MD5 "82f44a8decf101ca7cb7efafd899e8ee")
-    #else()
-      #set(QT_ZIP_FILENAME "DOES_NOT_EXIST_qt_5_11_msvc2017_32_shared.zip")
-      #set(QT_ZIP_EXPECTED_MD5 "25abd383e7db2dfd971b4a4ef145002b")
-    #endif()
-  #elseif(APPLE)
-      ## TODO: this is missing a root level "Qt-install" directory.
-      #set(QT_ZIP_FILENAME "qt_5_11_osx_shared.tar.gz")
-      #set(QT_ZIP_EXPECTED_MD5 "080ff576111d50be5888807055114166")
-  #elseif(EXISTS "/etc/redhat-release")
-    #set(QT_ZIP_FILENAME "DOES_NOT_EXIST_qt_5_11_redhat_shared.tar.gz")
-    #set(QT_ZIP_EXPECTED_MD5 "b0610716854ed91a003347c455b22eb8")
-  #else()
-    #if(LSB_RELEASE_VERSION_SHORT MATCHES "18.04")
-      #set(QT_ZIP_FILENAME "qt_5_11_linux_shared.tar.gz")
-      #set(QT_ZIP_EXPECTED_MD5 "33c5a562935612625ec5e41fe4b75e17")
-    #else()
-      ## 16.04
-      #set(QT_ZIP_FILENAME "qt_5_11_linux_shared_xenial.tar.gz")
-      #set(QT_ZIP_EXPECTED_MD5 "cb02b8cb34de94038a1a7cba59c0c43a")
-    #endif()
-  #endif()
-
-  #set(QT_ZIP_LOCAL_PATH "${PROJECT_BINARY_DIR}/${QT_ZIP_FILENAME}")
-  #if(EXISTS "${QT_ZIP_LOCAL_PATH}")
-    #file(MD5 "${QT_ZIP_LOCAL_PATH}" QT_ZIP_MD5)
-  #endif()
-
-  #if(NOT QT_ZIP_MD5 STREQUAL QT_ZIP_EXPECTED_MD5)
-    #message(STATUS "Downloading Qt: ${QT_ZIP_FILENAME}")
-    #file(DOWNLOAD "http://openstudio-resources.s3.amazonaws.com/dependencies/${QT_ZIP_FILENAME}"
-      #${QT_ZIP_LOCAL_PATH}
-      #INACTIVITY_TIMEOUT 900
-      #SHOW_PROGRESS
-      #EXPECTED_MD5 ${QT_ZIP_EXPECTED_MD5})
-  ## TODO: TEMP
-    #if (APPLE)
-      #execute_process(COMMAND ${CMAKE_COMMAND} -E make_directory "${PROJECT_BINARY_DIR}/Qt-install")
-      #execute_process(COMMAND ${CMAKE_COMMAND} -E tar xfz ${QT_ZIP_LOCAL_PATH} WORKING_DIRECTORY "${PROJECT_BINARY_DIR}/Qt-install")
-    #else()
-      #execute_process(COMMAND ${CMAKE_COMMAND} -E tar xfz ${QT_ZIP_LOCAL_PATH} WORKING_DIRECTORY "${PROJECT_BINARY_DIR}")
-    #endif()
-  #endif()
-#endif()
-
-#if(APPLE)
-  #set(QT_INSTALL_DIR "${PROJECT_BINARY_DIR}/Qt-install/${QT_VERSION}/clang_64")
-#elseif(UNIX)
-  #set(QT_INSTALL_DIR "${PROJECT_BINARY_DIR}/Qt-install/${QT_VERSION}/gcc_64")
-#elseif(WIN32)
-  #set(QT_INSTALL_DIR "${PROJECT_BINARY_DIR}/Qt-install/${QT_VERSION}/win64_msvc2019_64")
-#endif()
 
 # TODO: how to set OPENSSL_ROOT_DIR to a generator expression?
 set(OPENSSL_ROOT_DIR ${CONAN_OPENSSL_ROOT_RELEASE})
@@ -639,6 +601,7 @@ set(CMAKE_AUTOMOC OFF)
 ###############################################################################
 # Add to include path
 
+# Project source directory
 include_directories("${PROJECT_SOURCE_DIR}/")
 include_directories("${PROJECT_SOURCE_DIR}/src/")
 
@@ -666,10 +629,12 @@ endif()
 # in the file name. We don't want that degree of coupling between app and sdk
 # (we want the app to be able to use different sdk version without recompile,
 # so this project (the app) will install and identify the cli generically as
-# openstudio or openstudio.exe on windows. The os_cli_install_name is configured
-# into the utilities target so we need to set it before the uilities target is defined
-get_target_property(os_cli_location openstudio::openstudio LOCATION)
-set(os_cli_install_name "openstudio${CMAKE_EXECUTABLE_SUFFIX}")
+# openstudio or openstudio.exe on windows. The OS_CLI_IMPORTED_PATH/OS_CLI_IMPORTED_NAME is configured
+# into the utilities target so we need to set it before the utilities target is defined
+# TODO: This isn't the case anymore, the openstudio(.exe) doesn't include a version in there
+get_target_property(OS_CLI_IMPORTED_PATH openstudio::openstudio LOCATION)
+# set(OS_CLI_IMPORTED_NAME "openstudio${CMAKE_EXECUTABLE_SUFFIX}")
+get_filename_component(OS_CLI_IMPORTED_NAME ${OS_CLI_IMPORTED_PATH} NAME)
 
 if(WIN32)
   include_directories("${PROJECT_SOURCE_DIR}/src/qtwinmigrate")
@@ -692,7 +657,6 @@ add_subdirectory("translations")
 ###############################################################################
 #                        E X P O R T    T A R G E T S                         #
 ###############################################################################
-# Export targets and generate OpenStudioCoreConfig.cmake
 
 if(WIN32)
   list(APPEND all_lib_targets "qtwinmigrate")
@@ -740,15 +704,23 @@ endif()
 
 ######### Install SDK dependencies here ################
 
-#install(DIRECTORY "${openstudio_ROOT_DIR}/EnergyPlus" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
 install(DIRECTORY "${openstudio_ROOT_DIR}/Radiance" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
 install(DIRECTORY "${openstudio_ROOT_DIR}/Ruby" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
 install(DIRECTORY "${openstudio_ROOT_DIR}/EnergyPlus" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
 install(DIRECTORY "${openstudio_ROOT_DIR}/Examples" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
-# I don't see any point shipping libopenstudiolib in `lib/` when it's already installed in ./bin/ via fixup_bundle
-#install(DIRECTORY "${openstudio_ROOT_DIR}/lib" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
+install(DIRECTORY "${openstudio_ROOT_DIR}/Python" DESTINATION "." COMPONENT "Python" USE_SOURCE_PERMISSIONS)
 
-install(PROGRAMS ${os_cli_location} DESTINATION bin COMPONENT "CLI" RENAME "${os_cli_install_name}")
+# I don't see any point shipping libopenstudiolib in `lib/` when it's already installed in ./bin/ via fixup_bundle
+# TODO: at 3.5.0, the lib/ directory on UNIX (only UNIX) contains the libopenstudiolib.so, but also the librubyengine.so, libpythonengine.so
+# install(DIRECTORY "${openstudio_ROOT_DIR}/lib" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
+
+install(IMPORTED_RUNTIME_ARTIFACTS openstudio::openstudio DESTINATION bin COMPONENT "CLI")
+install(IMPORTED_RUNTIME_ARTIFACTS openstudio::openstudiolib DESTINATION bin COMPONENT "CLI")
+install(IMPORTED_RUNTIME_ARTIFACTS openstudio::rubyengine DESTINATION bin COMPONENT "CLI")
+install(IMPORTED_RUNTIME_ARTIFACTS openstudio::pythonengine DESTINATION bin COMPONENT "CLI")
+
+# install(PROGRAMS ${OS_CLI_IMPORTED_PATH} DESTINATION bin COMPONENT "CLI" RENAME "${OS_CLI_IMPORTED_NAME}")
+
 
 if(WIN32)
   install(PROGRAMS "${openstudio_ROOT_DIR}/bin/install_utility.exe" DESTINATION bin COMPONENT "CLI")
@@ -922,6 +894,12 @@ cpack_add_component(Libraries
   DESCRIPTION  "Install compiler-provided system runtime libraries, and Windows Universal CRT libraries for app-local deployment"
   REQUIRED
   HIDDEN
+)
+
+cpack_add_component(Python
+  DISPLAY_NAME "Python Bindings"
+  DESCRIPTION "Experimental support for Python Measures"
+  DISABLED
 )
 
 add_custom_target(PACKAGE_DEBUG

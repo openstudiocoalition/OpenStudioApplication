@@ -56,7 +56,7 @@ namespace openstudio {
 VariableListItem::VariableListItem(const std::string& t_name, const std::string& t_keyValue,
                                    const boost::optional<openstudio::model::OutputVariable>& t_variable, const openstudio::model::Model& t_model)
   : m_name(t_name), m_keyValue(t_keyValue), m_variable(t_variable), m_model(t_model) {
-  auto hbox = new QHBoxLayout();
+  auto* hbox = new QHBoxLayout();
   hbox->setContentsMargins(10, 10, 10, 10);
   hbox->setSpacing(10);
 
@@ -67,8 +67,9 @@ VariableListItem::VariableListItem(const std::string& t_name, const std::string&
 
   hbox->addWidget(new QLabel(openstudio::toQString(m_name + ",")));
   hbox->addWidget(new QLabel(openstudio::toQString(m_keyValue)));
-  hbox->addStretch();
+  hbox->addStretch(10);
   m_combobox = new OSComboBox2();
+  m_combobox->setFixedWidth(200);
   connect(m_combobox, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentTextChanged), this, &VariableListItem::indexChanged);
   if (m_variable) {
     // m_combobox->bind(*m_variable, "reportingFrequency");
@@ -122,11 +123,12 @@ void VariableListItem::onOffClicked(bool t_on) {
       outputVariable.setKeyValue(m_keyValue);
       m_variable = outputVariable;
 
-      // m_combobox->bind(*m_variable, "reportingFrequency");
       m_combobox->bind<std::string>(
         *m_variable, static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
         std::bind(&model::OutputVariable::reportingFrequencyValues), std::bind(&model::OutputVariable::reportingFrequency, m_variable.get_ptr()),
-        std::bind(&model::OutputVariable::setReportingFrequency, m_variable.get_ptr(), std::placeholders::_1), boost::none, boost::none);
+        std::bind(&model::OutputVariable::setReportingFrequency, m_variable.get_ptr(), std::placeholders::_1),
+        boost::optional<NoFailAction>(std::bind(&model::OutputVariable::resetReportingFrequency, m_variable.get_ptr())),
+        boost::optional<BasicQuery>(std::bind(&model::OutputVariable::isReportingFrequencyDefaulted, m_variable.get_ptr())));
     }
   } else {
     if (m_variable) {
@@ -138,17 +140,17 @@ void VariableListItem::onOffClicked(bool t_on) {
 }
 
 VariablesList::VariablesList(openstudio::model::Model t_model) : m_model(t_model), m_dirty(true) {
-  t_model.getImpl<openstudio::model::detail::Model_Impl>().get()->addWorkspaceObject.connect<VariablesList, &VariablesList::onAdded>(this);
+  t_model.getImpl<openstudio::model::detail::Model_Impl>()->addWorkspaceObject.connect<VariablesList, &VariablesList::onAdded>(this);
 
-  t_model.getImpl<openstudio::model::detail::Model_Impl>().get()->removeWorkspaceObject.connect<VariablesList, &VariablesList::onRemoved>(this);
-  auto vbox = new QVBoxLayout();
+  t_model.getImpl<openstudio::model::detail::Model_Impl>()->removeWorkspaceObject.connect<VariablesList, &VariablesList::onRemoved>(this);
+  auto* vbox = new QVBoxLayout();
   vbox->setContentsMargins(10, 10, 10, 10);
   vbox->setSpacing(10);
   setLayout(vbox);
 
   vbox->addWidget(new QLabel("<b>Possible Output Variables</b>"));
 
-  auto innerbox = new QVBoxLayout();
+  auto* innerbox = new QVBoxLayout();
   m_allOnBtn = new QPushButton("All On");
   m_allOnBtn->setFlat(true);
   m_allOnBtn->setObjectName("StandardGrayButton");
@@ -160,7 +162,7 @@ VariablesList::VariablesList(openstudio::model::Model t_model) : m_model(t_model
 
   connect(m_allOnBtn, &QPushButton::clicked, this, &VariablesList::allOnClicked);
   connect(m_allOffBtn, &QPushButton::clicked, this, &VariablesList::allOffClicked);
-  auto outerbox = new QHBoxLayout();
+  auto* outerbox = new QHBoxLayout();
   outerbox->addLayout(innerbox);
   outerbox->addStretch();
 
@@ -181,7 +183,7 @@ void VariablesList::allOffClicked() {
 }
 
 void VariablesList::enableAll(bool t_enabled) {
-  for (std::vector<VariableListItem*>::const_iterator itr = m_variables.begin(); itr != m_variables.end(); ++itr) {
+  for (auto itr = m_variables.begin(); itr != m_variables.end(); ++itr) {
     (*itr)->setVariableEnabled(t_enabled);
   }
 }
@@ -277,9 +279,8 @@ void VariablesList::updateVariableList() {
     }
   }
 
-  for (std::map<std::string, PotentialOutputVariable>::const_iterator itr = potentialOutputVariableMap.begin();
-       itr != potentialOutputVariableMap.end(); ++itr) {
-    auto hline = new QFrame();
+  for (auto itr = potentialOutputVariableMap.begin(); itr != potentialOutputVariableMap.end(); ++itr) {
+    auto* hline = new QFrame();
     hline->setFrameShape(QFrame::HLine);
     hline->setFrameShadow(QFrame::Sunken);
     m_listLayout->addWidget(hline);
@@ -287,7 +288,7 @@ void VariablesList::updateVariableList() {
     PotentialOutputVariable pov = itr->second;
 
     //LOG(Debug, "Creating VariableListItem for: " << pov.name << ", " << pov.keyValue);
-    auto li = new VariableListItem(pov.name, pov.keyValue, pov.variable, m_model);
+    auto* li = new VariableListItem(pov.name, pov.keyValue, pov.variable, m_model);
     m_listLayout->addWidget(li);
     m_variables.push_back(li);
   }
@@ -299,8 +300,8 @@ void VariablesList::updateVariableList() {
 
 VariablesTabView::VariablesTabView(openstudio::model::Model t_model, QWidget* parent)
   : MainTabView("Output Variables", MainTabView::MAIN_TAB, parent) {
-  auto scrollarea = new QScrollArea();
-  VariablesList* vl = new VariablesList(t_model);
+  auto* scrollarea = new QScrollArea();
+  auto* vl = new VariablesList(t_model);
   scrollarea->setWidget(vl);
   scrollarea->setWidgetResizable(true);
   addTabWidget(scrollarea);

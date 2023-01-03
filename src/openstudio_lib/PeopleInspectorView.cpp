@@ -61,7 +61,7 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP, const op
   //QWidget* hiddenWidget = new QWidget();
   //this->stackedWidget()->insertWidget(0, hiddenWidget);
 
-  auto visibleWidget = new QWidget();
+  auto* visibleWidget = new QWidget();
   this->stackedWidget()->addWidget(visibleWidget);
 
   //this->stackedWidget()->setCurrentIndex(0);
@@ -75,9 +75,9 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP, const op
   int row = 0;
 
   // name
-  auto vLayout = new QVBoxLayout();
+  auto* vLayout = new QVBoxLayout();
 
-  QLabel* label = new QLabel("Name: ");
+  auto* label = new QLabel("Name: ");
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
@@ -163,7 +163,7 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP, const op
   // Separator
   ++row;
   // LOG(Debug, "Adding first separator at row=" << row);
-  QFrame* line = new QFrame();
+  auto* line = new QFrame();
   line->setFrameShape(QFrame::HLine);
   line->setFrameShadow(QFrame::Sunken);
   // Important not to specific AlignTop & AlignLeft  or it's not displayed
@@ -194,7 +194,7 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP, const op
 
   // Extensible Toolbar
   ++row;
-  auto hbox = new QHBoxLayout();
+  auto* hbox = new QHBoxLayout();
   hbox->setSpacing(0);
   hbox->setContentsMargins(0, 0, 0, 0);
 
@@ -202,12 +202,12 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP, const op
   label->setObjectName("H2");
 
   addBtn = new QPushButton();
-  QIcon ico(":images/edit_add.png");
+  QIcon ico(":/images/edit_add.png");
   addBtn->setIcon(ico);
   addBtn->setStyleSheet(" margin: 0px; border: 0px;");
 
   removeBtn = new QPushButton();
-  QIcon ico2(":images/edit_remove.png");
+  QIcon ico2(":/images/edit_remove.png");
   removeBtn->setIcon(ico2);
   removeBtn->setStyleSheet(" margin: 0px; border: 0px;");
 
@@ -270,7 +270,7 @@ void PeopleDefinitionInspectorView::onClearSelection() {
 
 void PeopleDefinitionInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject) {
   detach();
-  model::PeopleDefinition peopleDefinition = modelObject.cast<model::PeopleDefinition>();
+  auto peopleDefinition = modelObject.cast<model::PeopleDefinition>();
   attach(peopleDefinition);
   refresh();
 }
@@ -356,11 +356,11 @@ OSComboBox2* PeopleDefinitionInspectorView::addThermalComfortModelTypeComboBox(i
   lastHBoxLayout = new QHBoxLayout(lastRowWidget);
   m_HBoxLayouts.push_back(lastHBoxLayout);
   // groupIndex is 0-indexed
-  QLabel* label = new QLabel("Thermal Comfort Model Type " + QString::number(groupIndex + 1));
+  auto* label = new QLabel("Thermal Comfort Model Type " + QString::number(groupIndex + 1));
   label->setObjectName("H2");
   lastHBoxLayout->addWidget(label);
 
-  OSComboBox2* thermalComfortModelTypeComboBox = new OSComboBox2();
+  auto* thermalComfortModelTypeComboBox = new OSComboBox2();
 
   for (const std::string& val : model::PeopleDefinition::thermalComfortModelTypeValues()) {
     thermalComfortModelTypeComboBox->addItem(QString::fromStdString(val));

@@ -61,7 +61,7 @@ ThermalZonesController::ThermalZonesController(bool isIP, const model::Model& mo
   : ModelSubTabController(new ThermalZonesView(isIP, model), model) {
   //subTabView()->itemSelectorButtons()->disableCopyButton();
 
-  ThermalZoneView* thermalZoneView = static_cast<ThermalZoneView*>(subTabView()->inspectorView());
+  auto* thermalZoneView = static_cast<ThermalZoneView*>(subTabView()->inspectorView());
 
   //connect(thermalZoneView, &ThermalZoneView::enableThermostatClicked, this, &ThermalZonesController::enableThermostat);
 
@@ -182,7 +182,7 @@ void ThermalZonesController::addComponentToZone(model::ThermalZone& zone, Handle
   bool wasSuccessful = false;
 
   if (libraryComp) {
-    model::ZoneHVACComponent compClone = libraryComp->clone(model()).cast<model::ZoneHVACComponent>();
+    auto compClone = libraryComp->clone(model()).cast<model::ZoneHVACComponent>();
 
     bool added = compClone.addToThermalZone(zone);
 

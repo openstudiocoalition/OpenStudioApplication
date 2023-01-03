@@ -32,6 +32,8 @@
 
 #include <QMainWindow>
 
+#include "AnalyticsHelper.hpp"
+
 class QStackedWidget;
 
 class QSplitter;
@@ -54,7 +56,7 @@ class MainWindow : public QMainWindow
   explicit MainWindow(bool isPlugin, QWidget* parent = nullptr);
   virtual ~MainWindow();
 
-  void addVerticalTabButton(int id, QString toolTip, const QString& selectedImagePath, const QString& unSelectedImagePath,
+  void addVerticalTabButton(int id, const QString& toolTip, const QString& selectedImagePath, const QString& unSelectedImagePath,
                             const QString& disabledImagePath);
 
   void setView(MainTabView* view, int id);
@@ -73,7 +75,7 @@ class MainWindow : public QMainWindow
 
   void openSidebar();
 
-  bool displayIP();
+  bool displayIP() const;
 
   bool verboseOutput() const;
 
@@ -95,7 +97,7 @@ class MainWindow : public QMainWindow
 
   void closeClicked();
 
-  void verticalTabSelected(int);
+  void verticalTabSelected(int id);
 
   void exportClicked();
 
@@ -169,9 +171,19 @@ class MainWindow : public QMainWindow
 
   void enableComponentsMeasures(bool enable);
 
+  void enableAnalytics(bool enable);
+
+  void sendAnalytics(const QString& analyticsId, int verticalTabId);
+
  public slots:
 
+  void onVerticalTabSelected(int verticalTabId);
+
   void toggleVerboseOutput(bool verboseOutput);
+
+  void promptAnalytics();
+
+  void toggleAnalytics(bool allowAnalytics);
 
  protected:
   void closeEvent(QCloseEvent* event) override;
@@ -187,6 +199,8 @@ class MainWindow : public QMainWindow
 
   void writeSettings();
 
+  bool allowAnalytics() const;
+
   bool m_isPlugin;
 
   QStackedWidget* m_mainRightColumnContainer;
@@ -195,7 +209,7 @@ class MainWindow : public QMainWindow
 
   QSplitter* m_mainSplitter;
 
-  MainMenu* m_mainMenu;
+  AnalyticsHelper* m_analyticsHelper;
 
   bool m_displayIP;
 
@@ -204,6 +218,8 @@ class MainWindow : public QMainWindow
   QString m_currLang;
 
   QString m_lastPath;
+
+  QString m_analyticsId;
 
  private slots:
 

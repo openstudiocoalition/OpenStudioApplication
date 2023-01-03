@@ -855,8 +855,8 @@ SplitterMixerInspectorView::SplitterMixerInspectorView(QWidget* parent) : BaseIn
   m_zoneChooserView = new ZoneChooserView();
 
   m_libraryTabWidget->addTab(m_zoneChooserView, "", "");
-  //":images/components_icon_pressed.png",
-  //":images/components_icon_off.png" );
+  //":/images/components_icon_pressed.png",
+  //":/images/components_icon_off.png" );
 
   connect(m_zoneChooserView, &ZoneChooserView::addZoneClicked, this, &SplitterMixerInspectorView::addZoneClicked);
 
@@ -873,13 +873,13 @@ GenericInspectorView::GenericInspectorView(QWidget* parent) : BaseInspectorView(
   connect(this, &GenericInspectorView::toggleUnitsClicked, m_inspectorGadget, &InspectorGadget::toggleUnitsClicked);
   connect(m_inspectorGadget, &InspectorGadget::workspaceObjectRemoved, this, &BaseInspectorView::workspaceObjectRemoved);
 
-  m_libraryTabWidget->addTab(m_inspectorGadget, ":images/properties_icon_on.png", ":images/properties_icon_off.png");
+  m_libraryTabWidget->addTab(m_inspectorGadget, ":/images/properties_icon_on.png", ":/images/properties_icon_off.png");
 
   m_emsActuatorView = new EMSInspectorView(nullptr, EMSInspectorView::Type::ACTUATOR);
-  m_libraryTabWidget->addTab(m_emsActuatorView, ":images/controller_icon_on.png", ":images/controller_icon_off.png");
+  m_libraryTabWidget->addTab(m_emsActuatorView, ":/images/controller_icon_on.png", ":/images/controller_icon_off.png");
 
   m_emsSensorView = new EMSInspectorView(nullptr, EMSInspectorView::Type::SENSOR);
-  m_libraryTabWidget->addTab(m_emsSensorView, ":images/controller_icon_on.png", ":images/controller_icon_off.png");
+  m_libraryTabWidget->addTab(m_emsSensorView, ":/images/controller_icon_on.png", ":/images/controller_icon_off.png");
 }
 
 void GenericInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP) {
@@ -898,7 +898,7 @@ void GenericInspectorView::layoutModelObject(model::ModelObject& modelObject, bo
 }
 
 NewPlenumDialog::NewPlenumDialog(QWidget* parent) : QDialog(parent) {
-  auto mainVLayout = new QVBoxLayout();
+  auto* mainVLayout = new QVBoxLayout();
   mainVLayout->setAlignment(Qt::AlignTop);
   mainVLayout->setContentsMargins(10, 10, 10, 10);
   mainVLayout->setSpacing(10);
@@ -907,7 +907,7 @@ NewPlenumDialog::NewPlenumDialog(QWidget* parent) : QDialog(parent) {
   setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
   setFixedWidth(400);
 
-  auto message = new QLabel();
+  auto* message = new QLabel();
   message->setWordWrap(true);
   message->setText(
     "Choose an available zone to use as a plenum.  Only zones that are not conditioned by an air system or zone equipment are displayed.");
@@ -934,7 +934,7 @@ NewPlenumDialog::NewPlenumDialog(QWidget* parent) : QDialog(parent) {
 
   mainVLayout->addSpacing(10);
 
-  auto buttonBox = new QDialogButtonBox();
+  auto* buttonBox = new QDialogButtonBox();
   QPushButton* cancelButton = buttonBox->addButton(QDialogButtonBox::Cancel);
   connect(cancelButton, &QPushButton::clicked, this, &NewPlenumDialog::onCancelClicked);
   QPushButton* applyButton = buttonBox->addButton(QDialogButtonBox::Apply);
@@ -951,19 +951,19 @@ void NewPlenumDialog::onApplyClicked() {
 }
 
 PlenumChooserView::PlenumChooserView(QWidget* parent) {
-  auto mainVLayout = new QVBoxLayout();
+  auto* mainVLayout = new QVBoxLayout();
   mainVLayout->setAlignment(Qt::AlignTop);
   setLayout(mainVLayout);
   mainVLayout->setContentsMargins(0, 0, 0, 0);
   mainVLayout->setSpacing(0);
 
-  auto supplyFrame = new QFrame();
+  auto* supplyFrame = new QFrame();
   supplyFrame->setObjectName("IGRow");
-  auto supplyVLayout = new QVBoxLayout();
+  auto* supplyVLayout = new QVBoxLayout();
   supplyFrame->setLayout(supplyVLayout);
   mainVLayout->addWidget(supplyFrame);
 
-  QLabel* supplyPlenumLabel = new QLabel("Select Supply Plenum");
+  auto* supplyPlenumLabel = new QLabel("Select Supply Plenum");
   supplyVLayout->addWidget(supplyPlenumLabel);
   supplyPlenumChooser = new QComboBox();
   supplyPlenumChooser->setIconSize(QSize(25, 25));
@@ -971,19 +971,19 @@ PlenumChooserView::PlenumChooserView(QWidget* parent) {
 
   newSupplyPlenumButton = new QToolButton();
   newSupplyPlenumButton->setText("New Supply Plenum");
-  newSupplyPlenumButton->setIcon(QPixmap(":images/add.png"));
+  newSupplyPlenumButton->setIcon(QPixmap(":/images/add.png"));
   newSupplyPlenumButton->setIconSize(QSize(35, 35));
   newSupplyPlenumButton->setStyleSheet("QToolButton { font-size: 12px; }");
   newSupplyPlenumButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
   supplyVLayout->addWidget(newSupplyPlenumButton);
 
-  auto returnFrame = new QFrame();
+  auto* returnFrame = new QFrame();
   returnFrame->setObjectName("IGRow");
-  auto returnVLayout = new QVBoxLayout();
+  auto* returnVLayout = new QVBoxLayout();
   returnFrame->setLayout(returnVLayout);
   mainVLayout->addWidget(returnFrame);
 
-  QLabel* returnPlenumLabel = new QLabel("Select Return Plenum");
+  auto* returnPlenumLabel = new QLabel("Select Return Plenum");
   returnVLayout->addWidget(returnPlenumLabel);
   returnPlenumChooser = new QComboBox();
   returnPlenumChooser->setIconSize(QSize(25, 25));
@@ -991,7 +991,7 @@ PlenumChooserView::PlenumChooserView(QWidget* parent) {
 
   newReturnPlenumButton = new QToolButton();
   newReturnPlenumButton->setText("New Return Plenum");
-  newReturnPlenumButton->setIcon(QPixmap(":images/add.png"));
+  newReturnPlenumButton->setIcon(QPixmap(":/images/add.png"));
   newReturnPlenumButton->setIconSize(QSize(35, 35));
   newReturnPlenumButton->setStyleSheet("QToolButton { font-size: 12px; }");
   newReturnPlenumButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
@@ -1003,10 +1003,10 @@ RefrigerationWalkinInspectorView::RefrigerationWalkinInspectorView(QWidget* pare
   connect(this, &RefrigerationWalkinInspectorView::toggleUnitsClicked, m_walkinInspectorGadget, &InspectorGadget::toggleUnitsClicked);
   connect(m_walkinInspectorGadget, &InspectorGadget::workspaceObjectRemoved, this, &BaseInspectorView::workspaceObjectRemoved);
 
-  m_libraryTabWidget->addTab(m_walkinInspectorGadget, ":images/properties_icon_on.png", ":images/properties_icon_off.png");
+  m_libraryTabWidget->addTab(m_walkinInspectorGadget, ":/images/properties_icon_on.png", ":/images/properties_icon_off.png");
 
   m_zoneBoundaryWidget = new QWidget();
-  m_libraryTabWidget->addTab(m_zoneBoundaryWidget, ":images/walkin_right_tab_on.png", ":images/walkin_right_tab_off.png");
+  m_libraryTabWidget->addTab(m_zoneBoundaryWidget, ":/images/walkin_right_tab_on.png", ":/images/walkin_right_tab_off.png");
 }
 
 void RefrigerationWalkinInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP) {
@@ -1030,7 +1030,7 @@ void RefrigerationWalkinInspectorView::layoutModelObject(model::ModelObject& mod
   if (QLayout* t_layout = m_zoneBoundaryWidget->layout()) {
     delete t_layout;
   }
-  auto zoneBoundaryLayout = new QVBoxLayout();
+  auto* zoneBoundaryLayout = new QVBoxLayout();
   zoneBoundaryLayout->setContentsMargins(0, 0, 0, 0);
   zoneBoundaryLayout->setSpacing(0);
   m_zoneBoundaryWidget->setLayout(zoneBoundaryLayout);
@@ -1038,7 +1038,7 @@ void RefrigerationWalkinInspectorView::layoutModelObject(model::ModelObject& mod
   OS_ASSERT(walkin);
   std::vector<model::RefrigerationWalkInZoneBoundary> zoneBoundaries = walkin->zoneBoundaries();
   for (auto it = zoneBoundaries.begin(); it != zoneBoundaries.end(); ++it) {
-    auto inspector = new InspectorGadget();
+    auto* inspector = new InspectorGadget();
     connect(this, &RefrigerationWalkinInspectorView::toggleUnitsClicked, inspector, &InspectorGadget::toggleUnitsClicked);
     connect(inspector, &InspectorGadget::workspaceObjectRemoved, this, &BaseInspectorView::workspaceObjectRemoved);
     if (displayIP) {
@@ -1055,10 +1055,10 @@ ThermalZoneInspectorView::ThermalZoneInspectorView(QWidget* parent) {
   m_inspectorGadget = new InspectorGadget();
   connect(this, &ThermalZoneInspectorView::toggleUnitsClicked, m_inspectorGadget, &InspectorGadget::toggleUnitsClicked);
   connect(m_inspectorGadget, &InspectorGadget::workspaceObjectRemoved, this, &BaseInspectorView::workspaceObjectRemoved);
-  m_libraryTabWidget->addTab(m_inspectorGadget, ":images/properties_icon_on.png", ":images/properties_icon_off.png");
+  m_libraryTabWidget->addTab(m_inspectorGadget, ":/images/properties_icon_on.png", ":/images/properties_icon_off.png");
 
   m_plenumChooser = new PlenumChooserView();
-  m_libraryTabWidget->addTab(m_plenumChooser, ":images/plenum_on.png", ":images/plenum_off.png");
+  m_libraryTabWidget->addTab(m_plenumChooser, ":/images/plenum_on.png", ":/images/plenum_off.png");
 
   connect(m_plenumChooser->supplyPlenumChooser, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this,
           &ThermalZoneInspectorView::onSupplyPlenumChooserChanged);
@@ -1071,10 +1071,10 @@ ThermalZoneInspectorView::ThermalZoneInspectorView(QWidget* parent) {
   connect(m_plenumChooser->newReturnPlenumButton, &QToolButton::clicked, this, &ThermalZoneInspectorView::onNewReturnPlenumClicked);
 
   m_emsActuatorView = new EMSInspectorView(nullptr, EMSInspectorView::Type::ACTUATOR);
-  m_libraryTabWidget->addTab(m_emsActuatorView, ":images/controller_icon_on.png", ":images/controller_icon_off.png");
+  m_libraryTabWidget->addTab(m_emsActuatorView, ":/images/controller_icon_on.png", ":/images/controller_icon_off.png");
 
   m_emsSensorView = new EMSInspectorView(nullptr, EMSInspectorView::Type::SENSOR);
-  m_libraryTabWidget->addTab(m_emsSensorView, ":images/controller_icon_on.png", ":images/controller_icon_off.png");
+  m_libraryTabWidget->addTab(m_emsSensorView, ":/images/controller_icon_on.png", ":/images/controller_icon_off.png");
 }
 
 void ThermalZoneInspectorView::onSupplyPlenumChooserChanged(int newIndex) {
@@ -1299,11 +1299,11 @@ WaterToAirInspectorView::WaterToAirInspectorView(QWidget* parent) : BaseInspecto
 
   m_loopChooserView = new LoopChooserView();
 
-  m_libraryTabWidget->addTab(m_inspectorGadget, ":images/properties_icon_on.png", ":images/properties_icon_off.png");
+  m_libraryTabWidget->addTab(m_inspectorGadget, ":/images/properties_icon_on.png", ":/images/properties_icon_off.png");
 
-  m_libraryTabWidget->addTab(m_loopChooserView, ":images/link_icon_on.png", ":images/link_icon_off.png");
+  m_libraryTabWidget->addTab(m_loopChooserView, ":/images/link_icon_on.png", ":/images/link_icon_off.png");
 
-  m_libraryTabWidget->addTab(m_coilControllerInspectorGadget, ":images/controller_icon_on.png", ":images/controller_icon_off.png");
+  m_libraryTabWidget->addTab(m_coilControllerInspectorGadget, ":/images/controller_icon_on.png", ":/images/controller_icon_off.png");
 
   m_libraryTabWidget->setCurrentIndex(0);
 
@@ -1381,9 +1381,9 @@ AirTerminalInspectorView::AirTerminalInspectorView(QWidget* parent) : BaseInspec
 
   m_loopChooserView = new LoopChooserView();
 
-  m_libraryTabWidget->addTab(m_inspectorGadget, ":images/properties_icon_on.png", ":images/properties_icon_off.png");
+  m_libraryTabWidget->addTab(m_inspectorGadget, ":/images/properties_icon_on.png", ":/images/properties_icon_off.png");
 
-  m_libraryTabWidget->addTab(m_loopChooserView, ":images/link_icon_on.png", ":images/link_icon_off.png");
+  m_libraryTabWidget->addTab(m_loopChooserView, ":/images/link_icon_on.png", ":/images/link_icon_off.png");
 
   m_libraryTabWidget->setCurrentIndex(0);
 
@@ -1470,9 +1470,9 @@ AirTerminalSingleDuctConstantVolumeCooledBeamInspectorView::AirTerminalSingleDuc
 
   m_coolingLoopChooserView = new LoopChooserView();
 
-  m_libraryTabWidget->addTab(m_inspectorGadget, ":images/properties_icon_on.png", ":images/properties_icon_off.png");
+  m_libraryTabWidget->addTab(m_inspectorGadget, ":/images/properties_icon_on.png", ":/images/properties_icon_off.png");
 
-  m_libraryTabWidget->addTab(m_coolingLoopChooserView, ":images/link_icon_on.png", ":images/link_icon_off.png");
+  m_libraryTabWidget->addTab(m_coolingLoopChooserView, ":/images/link_icon_on.png", ":/images/link_icon_off.png");
 
   m_libraryTabWidget->setCurrentIndex(0);
 
@@ -1521,9 +1521,9 @@ ZoneHVACBaseboardConvectiveWaterInspectorView::ZoneHVACBaseboardConvectiveWaterI
 
   m_heatingLoopChooserView = new LoopChooserView();
 
-  m_libraryTabWidget->addTab(m_inspectorGadget, ":images/properties_icon_on.png", ":images/properties_icon_off.png");
+  m_libraryTabWidget->addTab(m_inspectorGadget, ":/images/properties_icon_on.png", ":/images/properties_icon_off.png");
 
-  m_libraryTabWidget->addTab(m_heatingLoopChooserView, ":images/link_icon_on.png", ":images/link_icon_off.png");
+  m_libraryTabWidget->addTab(m_heatingLoopChooserView, ":/images/link_icon_on.png", ":/images/link_icon_off.png");
 
   m_libraryTabWidget->setCurrentIndex(0);
 
@@ -1573,9 +1573,9 @@ ZoneHVACBaseboardRadiantConvectiveWaterInspectorView::ZoneHVACBaseboardRadiantCo
 
   m_heatingLoopChooserView = new LoopChooserView();
 
-  m_libraryTabWidget->addTab(m_inspectorGadget, ":images/properties_icon_on.png", ":images/properties_icon_off.png");
+  m_libraryTabWidget->addTab(m_inspectorGadget, ":/images/properties_icon_on.png", ":/images/properties_icon_off.png");
 
-  m_libraryTabWidget->addTab(m_heatingLoopChooserView, ":images/link_icon_on.png", ":images/link_icon_off.png");
+  m_libraryTabWidget->addTab(m_heatingLoopChooserView, ":/images/link_icon_on.png", ":/images/link_icon_off.png");
 
   m_libraryTabWidget->setCurrentIndex(0);
 
@@ -1628,9 +1628,9 @@ ZoneHVACCoolingPanelRadiantConvectiveWaterInspectorView::ZoneHVACCoolingPanelRad
 
   m_coolingLoopChooserView = new LoopChooserView();
 
-  m_libraryTabWidget->addTab(m_inspectorGadget, ":images/properties_icon_on.png", ":images/properties_icon_off.png");
+  m_libraryTabWidget->addTab(m_inspectorGadget, ":/images/properties_icon_on.png", ":/images/properties_icon_off.png");
 
-  m_libraryTabWidget->addTab(m_coolingLoopChooserView, ":images/link_icon_on.png", ":images/link_icon_off.png");
+  m_libraryTabWidget->addTab(m_coolingLoopChooserView, ":/images/link_icon_on.png", ":/images/link_icon_off.png");
 
   m_libraryTabWidget->setCurrentIndex(0);
 
@@ -1683,11 +1683,11 @@ ZoneHVACFourPipeFanCoilInspectorView::ZoneHVACFourPipeFanCoilInspectorView(QWidg
 
   m_coolingLoopChooserView = new LoopChooserView();
 
-  m_libraryTabWidget->addTab(m_inspectorGadget, ":images/properties_icon_on.png", ":images/properties_icon_off.png");
+  m_libraryTabWidget->addTab(m_inspectorGadget, ":/images/properties_icon_on.png", ":/images/properties_icon_off.png");
 
-  m_libraryTabWidget->addTab(m_heatingLoopChooserView, ":images/link_icon_on.png", ":images/link_icon_off.png");
+  m_libraryTabWidget->addTab(m_heatingLoopChooserView, ":/images/link_icon_on.png", ":/images/link_icon_off.png");
 
-  m_libraryTabWidget->addTab(m_coolingLoopChooserView, ":images/link_icon_on.png", ":images/link_icon_off.png");
+  m_libraryTabWidget->addTab(m_coolingLoopChooserView, ":/images/link_icon_on.png", ":/images/link_icon_off.png");
 
   m_libraryTabWidget->setCurrentIndex(0);
 
@@ -1756,11 +1756,11 @@ ZoneHVACLowTempRadiantConstFlowInspectorView::ZoneHVACLowTempRadiantConstFlowIns
   m_heatingLoopChooserView = new LoopChooserView();
   m_coolingLoopChooserView = new LoopChooserView();
 
-  m_libraryTabWidget->addTab(m_inspectorGadget, ":images/properties_icon_on.png", ":images/properties_icon_off.png");
+  m_libraryTabWidget->addTab(m_inspectorGadget, ":/images/properties_icon_on.png", ":/images/properties_icon_off.png");
 
-  m_libraryTabWidget->addTab(m_heatingLoopChooserView, ":images/link_icon_on.png", ":images/link_icon_off.png");
+  m_libraryTabWidget->addTab(m_heatingLoopChooserView, ":/images/link_icon_on.png", ":/images/link_icon_off.png");
 
-  m_libraryTabWidget->addTab(m_coolingLoopChooserView, ":images/link_icon_on.png", ":images/link_icon_off.png");
+  m_libraryTabWidget->addTab(m_coolingLoopChooserView, ":/images/link_icon_on.png", ":/images/link_icon_off.png");
 
   m_libraryTabWidget->setCurrentIndex(0);
 
@@ -1832,11 +1832,11 @@ ZoneHVACLowTempRadiantVarFlowInspectorView::ZoneHVACLowTempRadiantVarFlowInspect
   m_heatingLoopChooserView = new LoopChooserView();
   m_coolingLoopChooserView = new LoopChooserView();
 
-  m_libraryTabWidget->addTab(m_inspectorGadget, ":images/properties_icon_on.png", ":images/properties_icon_off.png");
+  m_libraryTabWidget->addTab(m_inspectorGadget, ":/images/properties_icon_on.png", ":/images/properties_icon_off.png");
 
-  m_libraryTabWidget->addTab(m_heatingLoopChooserView, ":images/link_icon_on.png", ":images/link_icon_off.png");
+  m_libraryTabWidget->addTab(m_heatingLoopChooserView, ":/images/link_icon_on.png", ":/images/link_icon_off.png");
 
-  m_libraryTabWidget->addTab(m_coolingLoopChooserView, ":images/link_icon_on.png", ":images/link_icon_off.png");
+  m_libraryTabWidget->addTab(m_coolingLoopChooserView, ":/images/link_icon_on.png", ":/images/link_icon_off.png");
 
   m_libraryTabWidget->setCurrentIndex(0);
 
@@ -1911,13 +1911,13 @@ ZoneHVACWaterToAirHeatPumpInspectorView::ZoneHVACWaterToAirHeatPumpInspectorView
 
   m_supHeatingLoopChooserView = new LoopChooserView();
 
-  m_libraryTabWidget->addTab(m_inspectorGadget, ":images/properties_icon_on.png", ":images/properties_icon_off.png");
+  m_libraryTabWidget->addTab(m_inspectorGadget, ":/images/properties_icon_on.png", ":/images/properties_icon_off.png");
 
-  m_libraryTabWidget->addTab(m_heatingLoopChooserView, ":images/link_icon_on.png", ":images/link_icon_off.png");
+  m_libraryTabWidget->addTab(m_heatingLoopChooserView, ":/images/link_icon_on.png", ":/images/link_icon_off.png");
 
-  m_libraryTabWidget->addTab(m_coolingLoopChooserView, ":images/link_icon_on.png", ":images/link_icon_off.png");
+  m_libraryTabWidget->addTab(m_coolingLoopChooserView, ":/images/link_icon_on.png", ":/images/link_icon_off.png");
 
-  m_libraryTabWidget->addTab(m_supHeatingLoopChooserView, ":images/link_icon_on.png", ":images/link_icon_off.png");
+  m_libraryTabWidget->addTab(m_supHeatingLoopChooserView, ":/images/link_icon_on.png", ":/images/link_icon_off.png");
 
   m_libraryTabWidget->setCurrentIndex(0);
 
@@ -2006,9 +2006,9 @@ ZoneHVACPackagedTerminalAirConditionerInspectorView::ZoneHVACPackagedTerminalAir
 
   m_loopChooserView = new LoopChooserView();
 
-  m_libraryTabWidget->addTab(m_inspectorGadget, ":images/properties_icon_on.png", ":images/properties_icon_off.png");
+  m_libraryTabWidget->addTab(m_inspectorGadget, ":/images/properties_icon_on.png", ":/images/properties_icon_off.png");
 
-  m_libraryTabWidget->addTab(m_loopChooserView, ":images/link_icon_on.png", ":images/link_icon_off.png");
+  m_libraryTabWidget->addTab(m_loopChooserView, ":/images/link_icon_on.png", ":/images/link_icon_off.png");
 
   m_libraryTabWidget->setCurrentIndex(0);
 
@@ -2060,9 +2060,9 @@ ZoneHVACPackagedTerminalHeatPumpInspectorView::ZoneHVACPackagedTerminalHeatPumpI
 
   m_loopChooserView = new LoopChooserView();
 
-  m_libraryTabWidget->addTab(m_inspectorGadget, ":images/properties_icon_on.png", ":images/properties_icon_off.png");
+  m_libraryTabWidget->addTab(m_inspectorGadget, ":/images/properties_icon_on.png", ":/images/properties_icon_off.png");
 
-  m_libraryTabWidget->addTab(m_loopChooserView, ":images/link_icon_on.png", ":images/link_icon_off.png");
+  m_libraryTabWidget->addTab(m_loopChooserView, ":/images/link_icon_on.png", ":/images/link_icon_off.png");
 
   m_libraryTabWidget->setCurrentIndex(0);
 
@@ -2112,9 +2112,9 @@ WaterHeaterHeatPumpInspectorView::WaterHeaterHeatPumpInspectorView(QWidget* pare
 
   m_loopChooserView = new LoopChooserView();
 
-  m_libraryTabWidget->addTab(m_inspectorGadget, ":images/properties_icon_on.png", ":images/properties_icon_off.png");
+  m_libraryTabWidget->addTab(m_inspectorGadget, ":/images/properties_icon_on.png", ":/images/properties_icon_off.png");
 
-  m_libraryTabWidget->addTab(m_loopChooserView, ":images/link_icon_on.png", ":images/link_icon_off.png");
+  m_libraryTabWidget->addTab(m_loopChooserView, ":/images/link_icon_on.png", ":/images/link_icon_off.png");
 
   m_libraryTabWidget->setCurrentIndex(0);
 
@@ -2162,9 +2162,9 @@ ZoneHVACUnitHeaterInspectorView::ZoneHVACUnitHeaterInspectorView(QWidget* parent
 
   m_heatingLoopChooserView = new LoopChooserView();
 
-  m_libraryTabWidget->addTab(m_inspectorGadget, ":images/properties_icon_on.png", ":images/properties_icon_off.png");
+  m_libraryTabWidget->addTab(m_inspectorGadget, ":/images/properties_icon_on.png", ":/images/properties_icon_off.png");
 
-  m_libraryTabWidget->addTab(m_heatingLoopChooserView, ":images/link_icon_on.png", ":images/link_icon_off.png");
+  m_libraryTabWidget->addTab(m_heatingLoopChooserView, ":/images/link_icon_on.png", ":/images/link_icon_off.png");
 
   m_libraryTabWidget->setCurrentIndex(0);
 
@@ -2216,11 +2216,11 @@ ZoneHVACUnitVentilatorInspectorView::ZoneHVACUnitVentilatorInspectorView(QWidget
   m_heatingLoopChooserView = new LoopChooserView();
   m_coolingLoopChooserView = new LoopChooserView();
 
-  m_libraryTabWidget->addTab(m_inspectorGadget, ":images/properties_icon_on.png", ":images/properties_icon_off.png");
+  m_libraryTabWidget->addTab(m_inspectorGadget, ":/images/properties_icon_on.png", ":/images/properties_icon_off.png");
 
-  m_libraryTabWidget->addTab(m_heatingLoopChooserView, ":images/link_icon_on.png", ":images/link_icon_off.png");
+  m_libraryTabWidget->addTab(m_heatingLoopChooserView, ":/images/link_icon_on.png", ":/images/link_icon_off.png");
 
-  m_libraryTabWidget->addTab(m_coolingLoopChooserView, ":images/link_icon_on.png", ":images/link_icon_off.png");
+  m_libraryTabWidget->addTab(m_coolingLoopChooserView, ":/images/link_icon_on.png", ":/images/link_icon_off.png");
 
   m_libraryTabWidget->setCurrentIndex(0);
 
@@ -2287,13 +2287,13 @@ AirLoopHVACUnitarySystemInspectorView::AirLoopHVACUnitarySystemInspectorView(QWi
   m_coolingLoopChooserView = new LoopChooserView();
   m_secondaryLoopChooserView = new LoopChooserView();
 
-  m_libraryTabWidget->addTab(m_inspectorGadget, ":images/properties_icon_on.png", ":images/properties_icon_off.png");
+  m_libraryTabWidget->addTab(m_inspectorGadget, ":/images/properties_icon_on.png", ":/images/properties_icon_off.png");
 
-  m_libraryTabWidget->addTab(m_heatingLoopChooserView, ":images/link_icon_on.png", ":images/link_icon_off.png");
+  m_libraryTabWidget->addTab(m_heatingLoopChooserView, ":/images/link_icon_on.png", ":/images/link_icon_off.png");
 
-  m_libraryTabWidget->addTab(m_coolingLoopChooserView, ":images/link_icon_on.png", ":images/link_icon_off.png");
+  m_libraryTabWidget->addTab(m_coolingLoopChooserView, ":/images/link_icon_on.png", ":/images/link_icon_off.png");
 
-  m_libraryTabWidget->addTab(m_secondaryLoopChooserView, ":images/link_icon_on.png", ":images/link_icon_off.png");
+  m_libraryTabWidget->addTab(m_secondaryLoopChooserView, ":/images/link_icon_on.png", ":/images/link_icon_off.png");
 
   m_libraryTabWidget->setCurrentIndex(0);
 
@@ -2378,11 +2378,11 @@ AirTerminalSingleDuctConstantVolumeFourPipeInductionInspectorView::AirTerminalSi
   m_heatingLoopChooserView = new LoopChooserView();
   m_coolingLoopChooserView = new LoopChooserView();
 
-  m_libraryTabWidget->addTab(m_inspectorGadget, ":images/properties_icon_on.png", ":images/properties_icon_off.png");
+  m_libraryTabWidget->addTab(m_inspectorGadget, ":/images/properties_icon_on.png", ":/images/properties_icon_off.png");
 
-  m_libraryTabWidget->addTab(m_heatingLoopChooserView, ":images/link_icon_on.png", ":images/link_icon_off.png");
+  m_libraryTabWidget->addTab(m_heatingLoopChooserView, ":/images/link_icon_on.png", ":/images/link_icon_off.png");
 
-  m_libraryTabWidget->addTab(m_coolingLoopChooserView, ":images/link_icon_on.png", ":images/link_icon_off.png");
+  m_libraryTabWidget->addTab(m_coolingLoopChooserView, ":/images/link_icon_on.png", ":/images/link_icon_off.png");
 
   m_libraryTabWidget->setCurrentIndex(0);
 
@@ -2457,11 +2457,11 @@ AirTerminalSingleDuctConstantVolumeFourPipeBeamInspectorView::AirTerminalSingleD
   m_heatingLoopChooserView = new LoopChooserView();
   m_coolingLoopChooserView = new LoopChooserView();
 
-  m_libraryTabWidget->addTab(m_inspectorGadget, ":images/properties_icon_on.png", ":images/properties_icon_off.png");
+  m_libraryTabWidget->addTab(m_inspectorGadget, ":/images/properties_icon_on.png", ":/images/properties_icon_off.png");
 
-  m_libraryTabWidget->addTab(m_heatingLoopChooserView, ":images/link_icon_on.png", ":images/link_icon_off.png");
+  m_libraryTabWidget->addTab(m_heatingLoopChooserView, ":/images/link_icon_on.png", ":/images/link_icon_off.png");
 
-  m_libraryTabWidget->addTab(m_coolingLoopChooserView, ":images/link_icon_on.png", ":images/link_icon_off.png");
+  m_libraryTabWidget->addTab(m_coolingLoopChooserView, ":/images/link_icon_on.png", ":/images/link_icon_off.png");
 
   m_libraryTabWidget->setCurrentIndex(0);
 
@@ -2523,20 +2523,20 @@ void AirTerminalSingleDuctConstantVolumeFourPipeBeamInspectorView::layoutModelOb
 ScheduleRulesetInspectorView::ScheduleRulesetInspectorView(QWidget* parent) : BaseInspectorView(parent) {}
 
 void ScheduleRulesetInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP) {
-  auto widget = new QWidget();
+  auto* widget = new QWidget();
 
-  auto mainLayout = new QVBoxLayout();
+  auto* mainLayout = new QVBoxLayout();
   mainLayout->setAlignment(Qt::AlignTop);
   mainLayout->setContentsMargins(0, 0, 0, 0);
   mainLayout->setSpacing(0);
   widget->setLayout(mainLayout);
 
-  auto label = new QLabel(modelObject.iddObject().type().valueDescription().c_str());
+  auto* label = new QLabel(modelObject.iddObject().type().valueDescription().c_str());
   label->setObjectName("IGHeader");
   label->setStyleSheet("font : bold");
   mainLayout->addWidget(label, 0, Qt::AlignTop);
 
-  auto layout = new QVBoxLayout();
+  auto* layout = new QVBoxLayout();
   layout->setAlignment(Qt::AlignTop);
   layout->setContentsMargins(10, 10, 10, 10);
   layout->setSpacing(6);
@@ -2549,12 +2549,12 @@ void ScheduleRulesetInspectorView::layoutModelObject(model::ModelObject& modelOb
   if (name) {
     text = name->c_str();
   }
-  auto lineEdit = new QLineEdit(text);
+  auto* lineEdit = new QLineEdit(text);
   lineEdit->setReadOnly(true);
   layout->addWidget(lineEdit, 0, Qt::AlignTop);
   mainLayout->addLayout(layout);
 
-  auto line = new QFrame();
+  auto* line = new QFrame();
   line->setFrameShape(QFrame::HLine);
   line->setFrameShadow(QFrame::Sunken);
   mainLayout->addWidget(line);

@@ -43,7 +43,6 @@
 #include <QScrollArea>
 #include <QSplitter>
 #include <QStyleOption>
-#include <QProgressBar>
 
 namespace openstudio {
 
@@ -52,7 +51,6 @@ SyncMeasuresDialog::SyncMeasuresDialog(const WorkflowJSON& workflow, MeasureMana
     m_centralWidget(nullptr),
     m_rightScrollArea(nullptr),
     m_expandedComponent(nullptr),
-    m_measuresNeedingUpdates(std::vector<BCLMeasure>()),
     m_workflow(workflow),
     m_measureManager(measureManager) {
   createLayout();
@@ -77,7 +75,7 @@ void SyncMeasuresDialog::createLayout() {
 
   connect(m_centralWidget, &SyncMeasuresDialogCentralWidget::closeDlg, this, &SyncMeasuresDialog::closeDlg);
 
-  auto centralScrollArea = new QScrollArea(this);
+  auto* centralScrollArea = new QScrollArea(this);
   centralScrollArea->setFrameStyle(QFrame::NoFrame);
   centralScrollArea->setObjectName("GrayWidget");
   centralScrollArea->setWidgetResizable(true);
@@ -90,12 +88,12 @@ void SyncMeasuresDialog::createLayout() {
   m_rightScrollArea->setObjectName("GrayWidget");
   m_rightScrollArea->setWidgetResizable(true);
 
-  auto splitter = new QSplitter(this);
+  auto* splitter = new QSplitter(this);
   splitter->setOrientation(Qt::Horizontal);
   splitter->addWidget(centralScrollArea);
   splitter->addWidget(m_rightScrollArea);
 
-  auto mainLayout = new QHBoxLayout();
+  auto* mainLayout = new QHBoxLayout();
   mainLayout->addWidget(splitter);
 
   setLayout(mainLayout);
@@ -120,15 +118,13 @@ void SyncMeasuresDialog::findUpdates() {
   m_centralWidget->progressBar->setMaximum(measures.size());
 
   int progressValue = 0;
-  for (auto itr = measures.begin(); itr != measures.end(); ++itr) {
+  for (auto& measure : measures) {
     m_centralWidget->progressBar->setValue(progressValue);
 
-    boost::optional<BCLMeasure> workflowMeasure = m_workflow.getBCLMeasureByUUID(itr->uuid());
+    boost::optional<BCLMeasure> workflowMeasure = m_workflow.getBCLMeasureByUUID(measure.uuid());
     if (workflowMeasure) {
-      std::string version1 = toString(workflowMeasure->versionUUID());
-      std::string version2 = toString(itr->versionUUID());
-      if (workflowMeasure->versionUUID() != itr->versionUUID()) {
-        m_measuresNeedingUpdates.push_back(*itr);
+      if (workflowMeasure->versionUUID() != measure.versionUUID()) {
+        m_measuresNeedingUpdates.push_back(measure);
       }
     }
 
@@ -145,7 +141,7 @@ void SyncMeasuresDialog::findUpdates() {
   m_centralWidget->setMeasures(m_measuresNeedingUpdates);
 }
 
-void SyncMeasuresDialog::paintEvent(QPaintEvent* event) {
+void SyncMeasuresDialog::paintEvent(QPaintEvent* /*event*/) {
   QStyleOption opt;
   opt.initFrom(this);
   QPainter p(this);
@@ -154,7 +150,7 @@ void SyncMeasuresDialog::paintEvent(QPaintEvent* event) {
 
 ///! Slots
 
-void SyncMeasuresDialog::on_componentClicked(bool checked) {
+void SyncMeasuresDialog::on_componentClicked(bool /*checked*/) {
   if (m_expandedComponent) {
     delete m_expandedComponent;
     m_expandedComponent = nullptr;

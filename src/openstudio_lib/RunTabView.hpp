@@ -34,6 +34,7 @@
 #include <openstudio/utilities/idf/WorkspaceObject_Impl.hpp>
 #include <boost/smart_ptr.hpp>
 #include "MainTabView.hpp"
+#include "../shared_gui_components/ProgressBarWithError.hpp"
 #include <QComboBox>
 #include <QWidget>
 #include <QProcess>
@@ -43,7 +44,6 @@
 
 class QButtonGroup;
 class QPlainTextEdit;
-class QProgressBar;
 class QPushButton;
 class QRadioButton;
 class QStackedWidget;
@@ -87,7 +87,7 @@ class RunView : public QWidget
   void readyReadStandardOutput();
 
   QToolButton* m_playButton;
-  QProgressBar* m_progressBar;
+  ProgressBarWithError* m_progressBar;
   QLabel* m_statusLabel;
   QTextEdit* m_textInfo;
   QProcess* m_runProcess;

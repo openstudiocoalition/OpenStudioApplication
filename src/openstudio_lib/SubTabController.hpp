@@ -47,7 +47,7 @@ class SubTabController : public OSQObjectController
   Q_OBJECT
 
  public:
-  SubTabController(SubTabView* subTabView);
+  explicit SubTabController(SubTabView* subTabView);
   virtual ~SubTabController() {}
 
   SubTabView* subTabView();

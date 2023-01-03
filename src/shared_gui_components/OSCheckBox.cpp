@@ -45,7 +45,7 @@ OSSelectAllCheckBox::OSSelectAllCheckBox(QWidget* parent) : QCheckBox(parent) {
   setTristate(true);
 }
 
-OSSelectAllCheckBox::~OSSelectAllCheckBox() {}
+OSSelectAllCheckBox::~OSSelectAllCheckBox() = default;
 
 void OSSelectAllCheckBox::onGridRowSelectionChanged(int numSelected, int numSelectable) {
   blockSignals(true);
@@ -68,26 +68,26 @@ OSCheckBox3::OSCheckBox3(QWidget* parent) : QCheckBox(parent) {
 
   // if multiple qss rules apply with same specificity then the last one is chosen
   this->setStyleSheet(
-    "QCheckBox::indicator:checked[style=\"000\"]   { image: url(:/shared_gui_components/images/checked_checkbox.png); }"  // Locked=0, Focused=0, Defaulted=0
-    "QCheckBox::indicator:unchecked[style=\"000\"] { image: url(:/shared_gui_components/images/unchecked_checkbox.png); }"  // Locked=0, Focused=0, Defaulted=0
-    "QCheckBox::indicator:checked[style=\"001\"]   { image: url(:/shared_gui_components/images/checked_checkbox_green.png); }"  // Locked=0, Focused=0, Defaulted=1
-    "QCheckBox::indicator:unchecked[style=\"001\"] { image: url(:/shared_gui_components/images/unchecked_checkbox_green.png); }"  // Locked=0, Focused=0, Defaulted=1
-    "QCheckBox::indicator:checked[style=\"010\"]   { image: url(:/shared_gui_components/images/checked_checkbox_focused.png); }"  // Locked=0, Focused=1, Defaulted=0
-    "QCheckBox::indicator:unchecked[style=\"010\"] { image: url(:/shared_gui_components/images/unchecked_checkbox_focused.png); }"  // Locked=0, Focused=1, Defaulted=0
-    "QCheckBox::indicator:checked[style=\"011\"]   { image: url(:/shared_gui_components/images/checked_checkbox_focused.png); }"  // Locked=0, Focused=1, Defaulted=1
-    "QCheckBox::indicator:unchecked[style=\"011\"] { image: url(:/shared_gui_components/images/unchecked_checkbox_focused.png); }"  // Locked=0, Focused=1, Defaulted=1
-    "QCheckBox::indicator:checked[style=\"100\"]   { image: url(:/shared_gui_components/images/checked_checkbox_locked.png); }"  // Locked=0, Focused=0, Defaulted=0
-    "QCheckBox::indicator:unchecked[style=\"100\"] { image: url(:/shared_gui_components/images/unchecked_checkbox_locked.png); }"  // Locked=0, Focused=0, Defaulted=0
-    "QCheckBox::indicator:checked[style=\"101\"]   { image: url(:/shared_gui_components/images/checked_checkbox_locked.png); }"  // Locked=0, Focused=0, Defaulted=1
-    "QCheckBox::indicator:unchecked[style=\"101\"] { image: url(:/shared_gui_components/images/unchecked_checkbox_locked.png); }"  // Locked=0, Focused=0, Defaulted=1
-    "QCheckBox::indicator:checked[style=\"110\"]   { image: url(:/shared_gui_components/images/checked_checkbox_locked.png); }"  // Locked=0, Focused=1, Defaulted=0
-    "QCheckBox::indicator:unchecked[style=\"110\"] { image: url(:/shared_gui_components/images/unchecked_checkbox_locked.png); }"  // Locked=0, Focused=1, Defaulted=0
-    "QCheckBox::indicator:checked[style=\"111\"]   { image: url(:/shared_gui_components/images/checked_checkbox_locked.png); }"  // Locked=0, Focused=1, Defaulted=1
-    "QCheckBox::indicator:unchecked[style=\"111\"] { image: url(:/shared_gui_components/images/unchecked_checkbox_locked.png); }"  // Locked=0, Focused=1, Defaulted=1
+    "QCheckBox::indicator:checked[style=\"000\"]   { image: url(:/images/checked_checkbox.png); }"            // Locked=0, Focused=0, Defaulted=0
+    "QCheckBox::indicator:unchecked[style=\"000\"] { image: url(:/images/unchecked_checkbox.png); }"          // Locked=0, Focused=0, Defaulted=0
+    "QCheckBox::indicator:checked[style=\"001\"]   { image: url(:/images/checked_checkbox_green.png); }"      // Locked=0, Focused=0, Defaulted=1
+    "QCheckBox::indicator:unchecked[style=\"001\"] { image: url(:/images/unchecked_checkbox_green.png); }"    // Locked=0, Focused=0, Defaulted=1
+    "QCheckBox::indicator:checked[style=\"010\"]   { image: url(:/images/checked_checkbox_focused.png); }"    // Locked=0, Focused=1, Defaulted=0
+    "QCheckBox::indicator:unchecked[style=\"010\"] { image: url(:/images/unchecked_checkbox_focused.png); }"  // Locked=0, Focused=1, Defaulted=0
+    "QCheckBox::indicator:checked[style=\"011\"]   { image: url(:/images/checked_checkbox_focused.png); }"    // Locked=0, Focused=1, Defaulted=1
+    "QCheckBox::indicator:unchecked[style=\"011\"] { image: url(:/images/unchecked_checkbox_focused.png); }"  // Locked=0, Focused=1, Defaulted=1
+    "QCheckBox::indicator:checked[style=\"100\"]   { image: url(:/images/checked_checkbox_locked.png); }"     // Locked=0, Focused=0, Defaulted=0
+    "QCheckBox::indicator:unchecked[style=\"100\"] { image: url(:/images/unchecked_checkbox_locked.png); }"   // Locked=0, Focused=0, Defaulted=0
+    "QCheckBox::indicator:checked[style=\"101\"]   { image: url(:/images/checked_checkbox_locked.png); }"     // Locked=0, Focused=0, Defaulted=1
+    "QCheckBox::indicator:unchecked[style=\"101\"] { image: url(:/images/unchecked_checkbox_locked.png); }"   // Locked=0, Focused=0, Defaulted=1
+    "QCheckBox::indicator:checked[style=\"110\"]   { image: url(:/images/checked_checkbox_locked.png); }"     // Locked=0, Focused=1, Defaulted=0
+    "QCheckBox::indicator:unchecked[style=\"110\"] { image: url(:/images/unchecked_checkbox_locked.png); }"   // Locked=0, Focused=1, Defaulted=0
+    "QCheckBox::indicator:checked[style=\"111\"]   { image: url(:/images/checked_checkbox_locked.png); }"     // Locked=0, Focused=1, Defaulted=1
+    "QCheckBox::indicator:unchecked[style=\"111\"] { image: url(:/images/unchecked_checkbox_locked.png); }"   // Locked=0, Focused=1, Defaulted=1
   );
 }
 
-OSCheckBox3::~OSCheckBox3() {}
+OSCheckBox3::~OSCheckBox3() = default;
 
 void OSCheckBox3::bind(const model::ModelObject& modelObject, BoolGetter get, boost::optional<BoolSetter> set, boost::optional<NoFailAction> reset,
                        boost::optional<BasicQuery> isDefaulted) {
@@ -100,10 +100,8 @@ void OSCheckBox3::bind(const model::ModelObject& modelObject, BoolGetter get, bo
   setEnabled(true);
 
   m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
-    .get()
     ->openstudio::model::detail::ModelObject_Impl::onChange.connect<OSCheckBox3, &OSCheckBox3::onModelObjectChange>(this);
   m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
-    .get()
     ->openstudio::model::detail::ModelObject_Impl::onRemoveFromWorkspace.connect<OSCheckBox3, &OSCheckBox3::onModelObjectRemove>(this);
 
   connect(this, &OSCheckBox3::toggled, this, &OSCheckBox3::onToggled);
@@ -125,10 +123,9 @@ void OSCheckBox3::bind(const model::ModelObject& modelObject, BoolGetter get, bo
 
   setEnabled(true);
 
-  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.connect<OSCheckBox3, &OSCheckBox3::onModelObjectChange>(this);
+  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()->onChange.connect<OSCheckBox3, &OSCheckBox3::onModelObjectChange>(this);
 
   m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
-    .get()
     ->onRemoveFromWorkspace.connect<OSCheckBox3, &OSCheckBox3::onModelObjectRemove>(this);
 
   connect(this, &OSCheckBox3::toggled, this, &OSCheckBox3::onToggled);
@@ -165,10 +162,8 @@ void OSCheckBox3::setLocked(bool locked) {
 
 void OSCheckBox3::unbind() {
   if (m_modelObject) {
-    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.disconnect<OSCheckBox3, &OSCheckBox3::onModelObjectChange>(
-      this);
+    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()->onChange.disconnect<OSCheckBox3, &OSCheckBox3::onModelObjectChange>(this);
     m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
-      .get()
       ->onRemoveFromWorkspace.disconnect<OSCheckBox3, &OSCheckBox3::onModelObjectRemove>(this);
 
     m_get.reset();
@@ -285,10 +280,9 @@ void OSCheckBox2::bind(const model::ModelObject& modelObject, BoolGetter get, bo
 
   setEnabled(true);
 
-  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.connect<OSCheckBox2, &OSCheckBox2::onModelObjectChange>(this);
+  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()->onChange.connect<OSCheckBox2, &OSCheckBox2::onModelObjectChange>(this);
 
   m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
-    .get()
     ->onRemoveFromWorkspace.connect<OSCheckBox2, &OSCheckBox2::onModelObjectRemove>(this);
 
   connect(this, &OSCheckBox2::toggled, this, &OSCheckBox2::onToggled);
@@ -300,10 +294,8 @@ void OSCheckBox2::bind(const model::ModelObject& modelObject, BoolGetter get, bo
 
 void OSCheckBox2::unbind() {
   if (m_modelObject) {
-    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.disconnect<OSCheckBox2, &OSCheckBox2::onModelObjectChange>(
-      this);
+    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()->onChange.disconnect<OSCheckBox2, &OSCheckBox2::onModelObjectChange>(this);
     m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
-      .get()
       ->onRemoveFromWorkspace.disconnect<OSCheckBox2, &OSCheckBox2::onModelObjectRemove>(this);
 
     m_get.reset();
@@ -392,12 +384,10 @@ void OSGreyCheckBox2::bind(const model::ModelObject& modelObject, BoolGetter get
 
   setEnabled(true);
 
-  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
-    .get()
-    ->onChange.connect<OSGreyCheckBox2, &OSGreyCheckBox2::onModelObjectChange>(this);
+  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()->onChange.connect<OSGreyCheckBox2, &OSGreyCheckBox2::onModelObjectChange>(
+    this);
 
   m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
-    .get()
     ->onRemoveFromWorkspace.connect<OSGreyCheckBox2, &OSGreyCheckBox2::onModelObjectRemove>(this);
 
   connect(this, &OSGreyCheckBox2::toggled, this, &OSGreyCheckBox2::onToggled);
@@ -409,10 +399,8 @@ void OSGreyCheckBox2::bind(const model::ModelObject& modelObject, BoolGetter get
 void OSGreyCheckBox2::unbind() {
   if (m_modelObject) {
     m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
-      .get()
       ->onChange.disconnect<OSGreyCheckBox2, &OSGreyCheckBox2::onModelObjectChange>(this);
     m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
-      .get()
       ->onRemoveFromWorkspace.disconnect<OSGreyCheckBox2, &OSGreyCheckBox2::onModelObjectRemove>(this);
 
     m_get.reset();

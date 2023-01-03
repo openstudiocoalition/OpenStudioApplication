@@ -71,24 +71,24 @@ void ResultsTabView::onUnitSystemChange(bool t_isIP) {
 ResultsView::ResultsView(QWidget* t_parent)
   : QWidget(t_parent),
     m_isIP(true),
-    m_progressBar(new QProgressBar()),
+    m_progressBar(new ProgressBarWithError()),
     m_refreshBtn(new QPushButton("Refresh")),
-    m_openDViewBtn(new QPushButton("Open DView for\nDetailed Reports")) {
+    m_openDViewBtn(new QPushButton("Open DView for\nDetailed Reports")),
+    m_comboBox(new QComboBox(this)) {
 
-  auto mainLayout = new QVBoxLayout;
+  auto* mainLayout = new QVBoxLayout;
   setLayout(mainLayout);
 
   connect(m_refreshBtn, &QPushButton::clicked, this, &ResultsView::refreshClicked);
 
   // Prepare the top portion inside a QHBoxLayout
-  auto hLayout = new QHBoxLayout(this);
+  auto* hLayout = new QHBoxLayout(this);
 
   m_reportLabel = new QLabel("Reports: ", this);
   m_reportLabel->setObjectName("H2");
   m_reportLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
   hLayout->addWidget(m_reportLabel, 0, Qt::AlignLeft | Qt::AlignVCenter);
 
-  m_comboBox = new QComboBox(this);
   connect(m_comboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &ResultsView::comboBoxChanged);
   hLayout->addWidget(m_comboBox, 0, Qt::AlignLeft | Qt::AlignVCenter);
 
@@ -98,7 +98,6 @@ ResultsView::ResultsView(QWidget* t_parent)
   m_progressBar->setMinimum(0);
   m_progressBar->setMaximum(100);
   m_progressBar->setValue(0);
-  m_progressBar->setVisible(false);  // make visible when load first page
 
   hLayout->addWidget(m_refreshBtn, 0, Qt::AlignVCenter);
   m_refreshBtn->setVisible(true);
@@ -121,8 +120,8 @@ ResultsView::ResultsView(QWidget* t_parent)
   // create a web widget
   m_view = new QWebEngineView(this);
 
-  m_page = new OSWebEnginePage(this);
-  m_view->setPage(m_page);  // note, view does not take ownership of page
+  m_page = new OSWebEnginePage(m_view);
+  m_view->setPage(m_page);
 
   connect(m_view, &QWebEngineView::loadFinished, this, &ResultsView::onLoadFinished);
   connect(m_view, &QWebEngineView::loadProgress, this, &ResultsView::onLoadProgress);
@@ -138,10 +137,7 @@ ResultsView::ResultsView(QWidget* t_parent)
   mainLayout->addWidget(m_view);
 }
 
-ResultsView::~ResultsView() {
-  delete m_view;
-  delete m_page;
-}
+ResultsView::~ResultsView() = default;
 
 void ResultsView::refreshClicked() {
   m_view->triggerPageAction(QWebEnginePage::ReloadAndBypassCache);
@@ -229,9 +225,7 @@ void ResultsView::searchForExistingResults(const openstudio::path& t_runDir, con
         eplusout.push_back(p);
       } else if (openstudio::toString(p.filename()) == "radout.sql") {
         radout.push_back(p);
-      } else if (openstudio::toString(p.filename()) == "report.html") {
-        //reports.push_back(p);
-      } else if (openstudio::toString(p.filename()) == "eplustbl.htm") {
+      } else if ((openstudio::toString(p.filename()) == "report.html") || (openstudio::toString(p.filename()) == "eplustbl.htm")) {
         //reports.push_back(p);
       }
     }
@@ -317,9 +311,8 @@ void ResultsView::treeChanged(const openstudio::UUID& t_uuid) {
   //}
 }
 
-void ResultsView::populateComboBox(std::vector<openstudio::path> reports) {
+void ResultsView::populateComboBox(const std::vector<openstudio::path>& reports) {
   unsigned num = 0;
-  QString fullPathString;
   openstudio::path path;
 
   m_comboBox->clear();
@@ -329,7 +322,7 @@ void ResultsView::populateComboBox(std::vector<openstudio::path> reports) {
     // convert that to a unix-style path (with forward slashes) which is what we do want here.
     // fullPathString = toQString(report.string()); // This will mix slashes and backslashes (without escaping...) => C:/companion_folder\reports\eplustbl.html
     // (Alternatively, we could just use QUrl::fromLocalFile in comboBoxChanged instead of manually preprending "file:///" here)
-    fullPathString = toQString(report);
+    QString fullPathString = toQString(report);
 
     QFile file(fullPathString);
     fullPathString.prepend("file:///");
@@ -359,7 +352,7 @@ void ResultsView::populateComboBox(std::vector<openstudio::path> reports) {
       }
     }
   }
-  if (m_comboBox->count()) {
+  if (m_comboBox->count() != 0) {
     m_comboBox->setCurrentIndex(0);
     for (int i = 0; i < m_comboBox->count(); ++i) {
       if (m_comboBox->itemText(i) == QString("OpenStudio Results")) {
@@ -389,10 +382,7 @@ void ResultsView::comboBoxChanged(int index) {
   //}
   //m_view->setHtml(content);
 
-  m_progressBar->setVisible(true);
-  m_progressBar->setStyleSheet("");
-  m_progressBar->setFormat("");
-  m_progressBar->setTextVisible(false);
+  m_progressBar->setError(false);
 
   QUrl url(filename);
   m_view->load(url);
@@ -401,33 +391,23 @@ void ResultsView::comboBoxChanged(int index) {
 void ResultsView::onLoadFinished(bool ok) {
   // QString title = m_view->title();
   if (ok) {
-    m_progressBar->setStyleSheet("");
-    m_progressBar->setFormat("");
-    m_progressBar->setTextVisible(false);
+    m_progressBar->setError(false);
   } else {
-    m_progressBar->setStyleSheet("QProgressBar::chunk {background-color: #FF0000;}");
-    m_progressBar->setFormat("Error");
-    m_progressBar->setTextVisible(true);
+    m_progressBar->setError(true);
   }
 }
 
 void ResultsView::onLoadProgress(int progress) {
-  m_progressBar->setStyleSheet("");
-  m_progressBar->setFormat("");
-  m_progressBar->setTextVisible(false);
+  m_progressBar->setError(false);
   m_progressBar->setValue(progress);
 }
 
 void ResultsView::onLoadStarted() {
-  m_progressBar->setStyleSheet("");
-  m_progressBar->setFormat("");
-  m_progressBar->setTextVisible(false);
+  m_progressBar->setError(false);
 }
 
-void ResultsView::onRenderProcessTerminated(QWebEnginePage::RenderProcessTerminationStatus terminationStatus, int exitCode) {
-  m_progressBar->setStyleSheet("QProgressBar::chunk {background-color: #FF0000;}");
-  m_progressBar->setFormat("Error");
-  m_progressBar->setTextVisible(true);
+void ResultsView::onRenderProcessTerminated(QWebEnginePage::RenderProcessTerminationStatus /*terminationStatus*/, int /*exitCode*/) {
+  m_progressBar->setError(true);
 }
 
 }  // namespace openstudio

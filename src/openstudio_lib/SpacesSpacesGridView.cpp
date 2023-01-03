@@ -103,7 +103,7 @@ SpacesSpacesGridView::SpacesSpacesGridView(bool isIP, const model::Model& model,
   m_gridView->addSpacingToContentLayout(7);
   m_gridView->showDropZone(false);
 
-  onClearSelection();
+  clearSelection();
 }
 
 void SpacesSpacesGridView::onSelectItem() {
@@ -114,6 +114,10 @@ void SpacesSpacesGridView::onSelectItem() {
 }
 
 void SpacesSpacesGridView::onClearSelection() {
+  clearSelection();
+}
+
+void SpacesSpacesGridView::clearSelection() {
   //m_itemSelectorButtons->disableAddButton();
   //m_itemSelectorButtons->disableCopyButton();
   m_itemSelectorButtons->disableRemoveButton();
@@ -128,22 +132,19 @@ SpacesSpacesGridController::SpacesSpacesGridController(bool isIP, const QString&
 
 void SpacesSpacesGridController::setCategoriesAndFields() {
   {
-    std::vector<QString> fields;
-    fields.push_back(STORY);
-    fields.push_back(THERMALZONE);
-    fields.push_back(SPACETYPE);
-    fields.push_back(DEFAULTCONSTRUCTIONSET);
-    fields.push_back(DEFAULTSCHEDULESET);
-    fields.push_back(PARTOFTOTALFLOORAREA);
+    std::vector<QString> fields{
+      STORY, THERMALZONE, SPACETYPE, DEFAULTCONSTRUCTIONSET, DEFAULTSCHEDULESET, PARTOFTOTALFLOORAREA,
+    };
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("General"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
   {
-    std::vector<QString> fields;
-    fields.push_back(DESIGNSPECIFICATIONOUTDOORAIROBJECTNAME);
-    fields.push_back(SPACEINFILTRATIONDESIGNFLOWRATES);
-    fields.push_back(SPACEINFILTRATIONEFFECTIVELEAKAGEAREAS);
+    std::vector<QString> fields{
+      DESIGNSPECIFICATIONOUTDOORAIROBJECTNAME,
+      SPACEINFILTRATIONDESIGNFLOWRATES,
+      SPACEINFILTRATIONEFFECTIVELEAKAGEAREAS,
+    };
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Airflow"), fields);
     addCategoryAndFields(categoryAndFields);
   }
@@ -292,7 +293,9 @@ QString SpacesSpacesGridController::getColor(const model::ModelObject& modelObje
 }
 
 void SpacesSpacesGridController::checkSelectedFields() {
-  if (!this->hasHorizontalHeader()) return;
+  if (!this->hasHorizontalHeader()) {
+    return;
+  }
 
   OSGridController::checkSelectedFields();
 }

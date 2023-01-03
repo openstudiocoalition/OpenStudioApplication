@@ -43,10 +43,11 @@ class RadianceDialog : public OSDialog
  public:
   RadianceDialog(bool isIP, QWidget* radianceInspector, QWidget* parent = nullptr);
 
-  virtual ~RadianceDialog() {}
+  virtual ~RadianceDialog() = default;
 
  private:
   virtual void createLayout() override;
+  void createLayoutInternal();
 
   QWidget* m_radianceInspector;
 

@@ -75,7 +75,6 @@
 #include <QMessageBox>
 #include <QPainter>
 #include <QPlainTextEdit>
-#include <QProgressBar>
 #include <QPushButton>
 #include <QRadioButton>
 #include <QScrollArea>
@@ -103,7 +102,7 @@ RunTabView::RunTabView(const model::Model& model, QWidget* parent)
 }
 
 RunView::RunView() : QWidget(), m_runSocket(nullptr) {
-  auto mainLayout = new QGridLayout();
+  auto* mainLayout = new QGridLayout();
   mainLayout->setContentsMargins(10, 10, 10, 10);
   mainLayout->setSpacing(5);
   setLayout(mainLayout);
@@ -114,7 +113,7 @@ RunView::RunView() : QWidget(), m_runSocket(nullptr) {
   m_playButton->setChecked(false);
   QIcon playbuttonicon(QPixmap(":/images/run_simulation_button.png"));
   playbuttonicon.addPixmap(QPixmap(":/images/run_simulation_button.png"), QIcon::Normal, QIcon::Off);
-  playbuttonicon.addPixmap(QPixmap(":/images/cancel_simulation_button.png"), QIcon::Normal, QIcon::On);
+  playbuttonicon.addPixmap(QPixmap(":/images/run_cancel.png"), QIcon::Normal, QIcon::On);
   m_playButton->setStyleSheet("QToolButton { background:transparent; font: bold; }");
   m_playButton->setIconSize(QSize(35, 35));
   m_playButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
@@ -126,10 +125,10 @@ RunView::RunView() : QWidget(), m_runSocket(nullptr) {
   connect(m_playButton, &QToolButton::clicked, this, &RunView::playButtonClicked);
 
   // Progress bar area
-  m_progressBar = new QProgressBar();
+  m_progressBar = new ProgressBarWithError();
   m_progressBar->setMaximum(State::complete);
 
-  auto progressbarlayout = new QVBoxLayout();
+  auto* progressbarlayout = new QVBoxLayout();
   progressbarlayout->addWidget(m_progressBar);
   mainLayout->addLayout(progressbarlayout, 0, 1);
 
@@ -208,6 +207,8 @@ void RunView::onRunProcessFinished(int exitCode, QProcess::ExitStatus status) {
     m_textInfo->setFontPointSize(18);
     m_textInfo->append(tr("Simulation failed to run, with exit code ") + QString::number(exitCode));
 
+    m_progressBar->setError(true);
+
     //m_textInfo->setTextColor(Qt::black);
     //m_textInfo->setFontPointSize(15);
     //m_textInfo->append("Stderr:");
@@ -224,6 +225,7 @@ void RunView::onRunProcessFinished(int exitCode, QProcess::ExitStatus status) {
 
   m_playButton->setChecked(false);
   m_state = State::stopped;
+
   m_progressBar->setMaximum(State::complete);
   m_progressBar->setValue(State::complete);
 
@@ -317,6 +319,7 @@ void RunView::playButtonClicked(bool t_checked) {
     m_state = State::stopped;
     m_textInfo->clear();
 
+    m_progressBar->setError(false);
     m_progressBar->setMinimum(0);
     m_progressBar->setMaximum(State::complete);
     m_progressBar->setValue(0);

@@ -42,10 +42,11 @@ jobs:
       # fail-fast: Default is true, switch to false to allow one platform to fail and still run others
       fail-fast: false
       matrix:
-        os: [ubuntu-20.04, windows-2019, macos-10.15]
+        os: [ubuntu-20.04, windows-2019, macos-12, macos-arm64]
         include:
         - os: ubuntu-20.04
           allow_failure: true
+          SELF_HOSTED: false
           PLATFORM_NAME: Linux
           CPACK_BINARY_DEB: ON
           CPACK_BINARY_IFW: OFF
@@ -57,23 +58,9 @@ jobs:
           COMPRESSED_PKG_PATH: _CPack_Packages/Linux/TGZ
           QT_OS_NAME: linux
           QT_ARCH: gcc_64
-        - os: macos-10.15
-          allow_failure: false
-          PLATFORM_NAME: Darwin
-          CPACK_BINARY_DEB: OFF
-          CPACK_BINARY_IFW: ON
-          CPACK_BINARY_TGZ: ON
-          CPACK_BINARY_ZIP: OFF
-          BINARY_EXT: dmg
-          COMPRESSED_EXT: tar.gz
-          BINARY_PKG_PATH: _CPack_Packages/Darwin/IFW
-          COMPRESSED_PKG_PATH: _CPack_Packages/Darwin/TGZ
-          MACOSX_DEPLOYMENT_TARGET: 10.14
-          SDKROOT: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
-          QT_OS_NAME: mac
-          QT_ARCH: clang_64
         - os: windows-2019
           allow_failure: false
+          SELF_HOSTED: false
           PLATFORM_NAME: Windows
           CPACK_BINARY_DEB: OFF
           CPACK_BINARY_IFW: ON
@@ -85,14 +72,48 @@ jobs:
           COMPRESSED_PKG_PATH: _CPack_Packages/win64/ZIP
           QT_OS_NAME: windows
           QT_ARCH: win64_msvc2019_64
+        - os: macos-12
+          allow_failure: false
+          SELF_HOSTED: false
+          PLATFORM_NAME: Darwin
+          CPACK_BINARY_DEB: OFF
+          CPACK_BINARY_IFW: ON
+          CPACK_BINARY_TGZ: ON
+          CPACK_BINARY_ZIP: OFF
+          BINARY_EXT: dmg
+          COMPRESSED_EXT: tar.gz
+          BINARY_PKG_PATH: _CPack_Packages/Darwin/IFW
+          COMPRESSED_PKG_PATH: _CPack_Packages/Darwin/TGZ
+          MACOSX_DEPLOYMENT_TARGET: 10.15
+          SDKROOT: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
+          QT_OS_NAME: mac
+          QT_ARCH: clang_64
+        - os: macos-arm64
+          allow_failure: false
+          SELF_HOSTED: true
+          PLATFORM_NAME: Darwin
+          CPACK_BINARY_DEB: OFF
+          CPACK_BINARY_IFW: ON
+          CPACK_BINARY_TGZ: ON
+          CPACK_BINARY_ZIP: OFF
+          BINARY_EXT: dmg
+          COMPRESSED_EXT: tar.gz
+          BINARY_PKG_PATH: _CPack_Packages/Darwin/IFW
+          COMPRESSED_PKG_PATH: _CPack_Packages/Darwin/TGZ
+          MACOSX_DEPLOYMENT_TARGET: 12.1
+          SDKROOT: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
+          QT_OS_NAME: mac
+          QT_ARCH: arm_64
 
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-python@v2
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v4
+      if: ${{!matrix.SELF_HOSTED}}
       with:
         python-version: '3.8.x'
 
     - uses: ruby/setup-ruby@v1
+      if: ${{!matrix.SELF_HOSTED}}
       with:
         ruby-version: 2.7
 
@@ -225,6 +246,10 @@ jobs:
         echo BINARY_EXT=${{ matrix.BINARY_EXT }} >> $GITHUB_ENV
         echo COMPRESSED_EXT=${{ matrix.COMPRESSED_EXT }} >> $GITHUB_ENV
 
+        N=$(nproc 2>/dev/null || sysctl -n hw.logicalcpu)
+        echo "There are $N threads available"
+        echo "N=$N" >> $GITHUB_ENV
+
         if [ "$RUNNER_OS" == "Linux" ]; then
           echo "Install needed system dependencies for OPENGL (due to Qt) for Linux"
           sudo apt update
@@ -253,32 +278,39 @@ jobs:
           echo MACOSX_DEPLOYMENT_TARGET=${{ matrix.MACOSX_DEPLOYMENT_TARGET }} >> $GITHUB_ENV
           echo SDKROOT=${{ matrix.SDKROOT }} >> $GITHUB_ENV
           echo CMAKE_MACOSX_DEPLOYMENT_TARGET='-DCMAKE_OSX_DEPLOYMENT_TARGET=$MACOSX_DEPLOYMENT_TARGET' >> $GITHUB_ENV
-           # The MACOSX_DEPLOYMENT_TARGET environment variable sets the default value for the CMAKE_OSX_DEPLOYMENT_TARGET variable.
+          # The MACOSX_DEPLOYMENT_TARGET environment variable sets the default value for the CMAKE_OSX_DEPLOYMENT_TARGET variable.
           # echo CMAKE_MACOSX_DEPLOYMENT_TARGET='-DCMAKE_OSX_DEPLOYMENT_TARGET=$MACOSX_DEPLOYMENT_TARGET' >> $GITHUB_ENV
-          echo "Using brew to install ninja"
-          brew install ninja
-          echo CMAKE_GENERATOR='Ninja' >> $GITHUB_ENV
 
-          brew install md5sha1sum
+          if [ "${{matrix.SELF_HOSTED}}" = "true" ]; then
+            echo "Using previously installed ninja and IFW"
+            echo "/Users/irvinemac/Qt/Tools/QtInstallerFramework/4.3/bin/" >> $GITHUB_PATH
+          else
+            echo "Using brew to install ninja"
+            brew install ninja
+            echo CMAKE_GENERATOR='Ninja' >> $GITHUB_ENV
 
-          curl -L -O https://download.qt.io/official_releases/qt-installer-framework/4.3.0/QtInstallerFramework-macOS-x64-4.3.0.dmg
-          hdiutil attach -mountpoint ./qtfiw_installer QtInstallerFramework-macOS-x64-4.3.0.dmg
-          echo "ls ./qtfiw_installer"
-          ls ./qtfiw_installer
-          echo "ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/"
-          ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/
-          echo "ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/"
-          ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/
-          echo "ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/MacOS"
-          ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/MacOS
-          echo "ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/Resources"
-          ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/Resources
+            brew install md5sha1sum
 
-          sudo ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/MacOS/QtInstallerFramework-macOS-x64-4.3.0 --verbose --script ./ci/install_script_qtifw.qs
-          ls ~
-          ls ~/Qt/ || true
-          ls ~/Qt/QtIFW-4.3.0 || true
-          echo "~/Qt/QtIFW-4.3.0/bin/" >> $GITHUB_PATH
+            echo "Installing IFW"
+            curl -L -O https://download.qt.io/official_releases/qt-installer-framework/4.3.0/QtInstallerFramework-macOS-x64-4.3.0.dmg
+            hdiutil attach -mountpoint ./qtfiw_installer QtInstallerFramework-macOS-x64-4.3.0.dmg
+            echo "ls ./qtfiw_installer"
+            ls ./qtfiw_installer
+            echo "ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/"
+            ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/
+            echo "ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/"
+            ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/
+            echo "ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/MacOS"
+            ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/MacOS
+            echo "ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/Resources"
+            ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/Resources
+
+            sudo ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/MacOS/QtInstallerFramework-macOS-x64-4.3.0 --verbose --script ./ci/install_script_qtifw.qs
+            ls ~
+            ls ~/Qt/ || true
+            ls ~/Qt/QtIFW-4.3.0 || true
+            echo "~/Qt/QtIFW-4.3.0/bin/" >> $GITHUB_PATH
+          fi;
         fi;
 
         CONAN_INSTALL_MD5=$(md5sum ConanInstall.cmake | awk '{print $1}')
@@ -289,7 +321,8 @@ jobs:
 
     - name: Cache entire build directory
       id: cachebuild
-      uses: actions/cache@v2
+      if: ${{!matrix.SELF_HOSTED}}
+      uses: actions/cache@v3
       with:
         path: build/
         key: ${{ matrix.os }}-build-cache-v1-${{ secrets.CACHE_KEY }}
@@ -311,19 +344,19 @@ jobs:
           ls build/ || true
 
     - name: Cache OpenStudio tar.gz
+      id: cacheossdk
       # To avoid downloading the SDK all the time, we try to cache it.
       # The path matches both what FindOpenStudioSDK.cmake does and what the 'Download the OpenStudio installer' used to do
       # If the build cache wasn't found in the cache (otherwise it will have the SDK subfolder already so this is pointless)"
-      if: steps.cachebuild.outputs.cache-hit != 'true'
-      id: cacheossdk
-      uses: actions/cache@v2
+      if: ${{!matrix.SELF_HOSTED && steps.cachebuild.outputs.cache-hit != 'true'}}
+      uses: actions/cache@v3
       with:
         path: OpenStudio-${{ env.OS_SDK_VERSION }}
         key: OpenStudio-SDK-${{ matrix.os }}-${{ env.OS_SDK_VERSION }}-${{ secrets.CACHE_KEY }}
 
     - name: Did restoring the build-cache or OpenStudioSDK cache work? Yes
       # If it wasn't found in the cache
-      if: steps.cachebuild.outputs.cache-hit == 'true' || steps.cacheossdk.outputs.cache-hit == true
+      if: ${{steps.cachebuild.outputs.cache-hit == 'true' || steps.cacheossdk.outputs.cache-hit == true}}
       continue-on-error: true
       run: |
           ls build/ || true
@@ -378,7 +411,7 @@ jobs:
     #- name: Cache conan cache?
     #  # To avoid downloading the SDK all the time, we try to cache it
     #  id: cacheconan
-    #  uses: actions/cache@v2
+    #  uses: actions/cache@v3
     #  with:
     #    path: |
     #      ~/.conan
@@ -399,18 +432,14 @@ jobs:
     #      ls ~/.conan/
     #      ls ~/.conan/data/
 
-    - name: Create Build Environment and locate openstudio
+    - name: Install Qt
       # Some projects don't allow in-source building, so create a separate build directory
       # We'll use this as our working directory for all subsequent commands
       shell: bash
+      if: ${{!matrix.SELF_HOSTED}}
       run: |
         set -x
         cmake -E make_directory ./build
-        # Below needed if you re-enable 'Download the OpenStudio installer' step
-        # openstudio_DIR=$(find `pwd`/OpenStudio-$OS_SDK_VERSION/ -name "openstudioConfig.cmake")
-        # openstudio_DIR=$(dirname "${openstudio_DIR}")
-        # echo "openstudio_DIR=${openstudio_DIR}"
-        # echo openstudio_DIR=$openstudio_DIR >> $GITHUB_ENV
 
         if [ "$RUNNER_OS" == "Windows" ]; then
           # QT_INSTALL_DIR="$(pwd)/build/Qt-install/$QT_VERSION/msvc2019_64"
@@ -441,10 +470,33 @@ jobs:
         find ./build/Qt-install . -name "*.qm"
         find ./build/Qt-install . -name "*.pak"
 
+    - name: Find Qt (Self-Hosted)
+      shell: bash
+      if: ${{matrix.SELF_HOSTED}}
+      run: |
+        set -x
+        cmake -E make_directory ./build
+
+        if [ "$RUNNER_OS" == "macOS" ]; then
+          QT_INSTALL_DIR="/Users/irvinemac/Qt/6.3.0/macos/"
+        fi
+
+        echo "$QT_INSTALL_DIR/bin" >> $GITHUB_PATH
+        echo QT_INSTALL_DIR=$QT_INSTALL_DIR >> $GITHUB_ENV
+        #ls ./build/Qt-install/$QT_VERSION/
+        #ls $QT_INSTALL_DIR || true
+        #ls $QT_INSTALL_DIR/lib || true
+        #ls $QT_INSTALL_DIR/lib/cmake || true
+        find $QT_INSTALL_DIR -name "*.cmake"
+        #ls $QT_INSTALL_DIR/translations || true
+        #ls $QT_INSTALL_DIR/translations/qtwebengine_locales || true
+        find $QT_INSTALL_DIR . -name "*.qm"
+        find $QT_INSTALL_DIR . -name "*.pak"
+
     #- name: Cache Qt dep cache?
       ## To avoid downloading the Qt dependency all the time, we try to cache it
       #id: cacheqt
-      #uses: actions/cache@v2
+      #uses: actions/cache@v3
       #with:
         #path: build/qt_5_11_*.tar.gz
         #key: ${{ matrix.os }}-qt-5-11-cache
@@ -504,7 +556,7 @@ jobs:
 
     #- name: upload config.log for failed gdbm build
       #if: ${{ failure() }}
-      #uses: actions/upload-artifact@v2
+      #uses: actions/upload-artifact@v3
       #with:
           #name: ${{ matrix.os }}-gdbm_config.log
           #path: ~/.conan/data/gdbm/1.18.1/_/_/build/**/source_subfolder/config.log
@@ -514,7 +566,10 @@ jobs:
       if: runner.os != 'Windows'
       shell: bash
       # Execute the build.  You can specify a specific target with "--target <NAME>"
-      run: cmake --build . --target package -j 2 --config $BUILD_TYPE
+      run: |
+        set -x
+        echo "Building with $N threads"
+        cmake --build . --target package -j $N --config $BUILD_TYPE
 
     - name: Test bed Sign inner portable executable files and exe package (Windows)
       working-directory: ./build
@@ -560,7 +615,7 @@ jobs:
           -WaitForCompletion -Force
 
     - name: Archive binary artifacts
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       # build/_CPack_Packages/win64/IFW/*.exe
       # build/_CPack_Packages/Linux/DEB/*.deb
       # build/_CPack_Packages/Darwin/IFW/*.dmg
@@ -570,7 +625,7 @@ jobs:
           # path: build/_CPack_Packages/*/*/*.${{ env.BINARY_EXT }}
 
     - name: Archive TGZ or ZIP artifacts
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
           name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.os }}.${{ env.COMPRESSED_EXT }}
           path: build/${{ matrix.COMPRESSED_PKG_PATH }}/*.${{ env.COMPRESSED_EXT }}
@@ -586,7 +641,7 @@ jobs:
           ctest -j -T test --output-on-failure --no-compress-output -C $BUILD_TYPE || true
 
     - name: Archive test results?
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
           name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.os }}-Test.xml
           path: build/Testing/**/*.xml
@@ -602,7 +657,7 @@ jobs:
         Products/SpacesSurfaces_Benchmark --benchmark_out_format=csv --benchmark_out='bench_results_SpacesSurfaces.csv' || true
 
     - name: Archive benchmark results?
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
           name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.os }}-bench_results.csv
           path: build/bench_results_*.csv

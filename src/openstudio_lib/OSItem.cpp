@@ -228,6 +228,7 @@ void OSItem::createLayout() {
   }
 
   m_textLbl = new QLabel(this);
+  m_textLbl->setAlignment(Qt::AlignLeft | Qt::AlignTop);
   m_textLbl->setWordWrap(true);
   mainHLayout->addWidget(m_textLbl);
 

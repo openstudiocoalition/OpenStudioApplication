@@ -415,6 +415,12 @@
   <POLICY IddObjectType="OS_SetpointManager_WarmestTemperatureFlow">
     <rule IddField="Setpoint Node or NodeList Name" Access="HIDDEN"/>
   </POLICY>
+  <POLICY IddObjectType="OS_SetpointManager_SystemNodeReset_Temperature">
+    <rule IddField="Setpoint Node or NodeList Name" Access="HIDDEN"/>
+  </POLICY>
+  <POLICY IddObjectType="OS_SetpointManager_SystemNodeReset_Humidity">
+    <rule IddField="Setpoint Node or NodeList Name" Access="HIDDEN"/>
+  </POLICY>
   <POLICY IddObjectType="OS_AirLoopHVAC_OutdoorAirSystem">
     <rule IddField="Controller Name" Access="HIDDEN"/>
     <rule IddField="Outdoor Air Equipment List Name" Access="HIDDEN"/>
@@ -1075,7 +1081,7 @@
     <rule IddField="Cooling Capacity Modifier Curve Function of Flow Fraction" Access="LOCKED"/>
   </POLICY>
   <POLICY IddObjectType="OS_AirConditioner_VariableRefrigerantFlow">
-    <rule IddField="Condenser Type" Access="HIDDEN"/>
+    <rule IddField="Condenser Type" Access="LOCKED"/>
     <rule IddField="Condenser Inlet Node" Access="HIDDEN"/>
     <rule IddField="Condenser Outlet Node" Access="HIDDEN"/>
     <rule IddField="Supply Water Storage Tank" Access="HIDDEN"/>
@@ -1313,9 +1319,6 @@
   <POLICY IddObjectType="OS_Material_AirGap">
     <rule IddField="Name" Access="LOCKED"/>
     <rule IddField="Thermal Resistance" Access="LOCKED"/>
-  </POLICY>
-  <POLICY IddObjectType="OS_Material_AirWall">
-    <rule IddField="Name" Access="LOCKED"/>
   </POLICY>
   <POLICY IddObjectType="OS_Material_InfraredTransparent">
     <rule IddField="Name" Access="LOCKED"/>

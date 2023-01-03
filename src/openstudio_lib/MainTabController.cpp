@@ -41,7 +41,7 @@ MainTabController::MainTabController(MainTabView* mainContentWidget) : OSQObject
   addQObject(mainContentWidget);
 }
 
-MainTabController::~MainTabController() {}
+MainTabController::~MainTabController() = default;
 
 MainTabView* MainTabController::mainContentWidget() const {
   return m_mainContentWidget;

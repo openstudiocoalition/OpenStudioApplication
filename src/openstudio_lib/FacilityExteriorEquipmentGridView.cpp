@@ -99,12 +99,12 @@ FacilityExteriorEquipmentGridView::FacilityExteriorEquipmentGridView(bool isIP, 
   std::sort(modelObjects.begin(), modelObjects.end(), openstudio::WorkspaceObjectNameLess());
 
   m_gridController = new FacilityExteriorEquipmentGridController(isIP, "Exterior Equipment", IddObjectType::OS_Exterior_Lights, model, modelObjects);
-  auto gridView = new OSGridView(m_gridController, "Exterior Equipment", "Drop\nExterior Equipment", false, parent);
+  auto* gridView = new OSGridView(m_gridController, "Exterior Equipment", "Drop\nExterior Equipment", false, parent);
 
   setGridController(m_gridController);
   setGridView(gridView);
 
-  onClearSelection();
+  clearSelection();
 }
 
 void FacilityExteriorEquipmentGridView::addObject(const IddObjectType& iddObjectType) {
@@ -153,6 +153,10 @@ void FacilityExteriorEquipmentGridView::onSelectItem() {
 }
 
 void FacilityExteriorEquipmentGridView::onClearSelection() {
+  clearSelection();
+}
+
+void FacilityExteriorEquipmentGridView::clearSelection() {
   //m_itemSelectorButtons->disableAddButton();
   m_itemSelectorButtons->disableCopyButton();
   m_itemSelectorButtons->disableRemoveButton();
@@ -168,33 +172,29 @@ FacilityExteriorEquipmentGridController::FacilityExteriorEquipmentGridController
 
 void FacilityExteriorEquipmentGridController::setCategoriesAndFields() {
   {
-    std::vector<QString> fields;
-    fields.push_back(EXTERIORLIGHTSDEFINITION);
-    fields.push_back(EXTERIORLIGHTSSCHEDULE);
-    fields.push_back(EXTERIORLIGHTSCONTROLOPTION);
-    fields.push_back(EXTERIORLIGHTSMULTIPLIER);
-    fields.push_back(EXERIORLIGHTSENDUSESUBCATEGORY);
+    std::vector<QString> fields{
+      EXTERIORLIGHTSDEFINITION, EXTERIORLIGHTSSCHEDULE, EXTERIORLIGHTSCONTROLOPTION, EXTERIORLIGHTSMULTIPLIER, EXERIORLIGHTSENDUSESUBCATEGORY,
+    };
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Exterior Lights"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
   {
-    std::vector<QString> fields;
-    fields.push_back(EXTERIORFUELEQUIPMENTDEFINITION);
-    fields.push_back(EXTERIORFUELEQUIPMENTSCHEDULE);
-    fields.push_back(EXTERIORFUELEQUIPMENTFUELTYPE);
-    fields.push_back(EXTERIORFUELEQUIPMENTMULTIPLIER);
-    fields.push_back(EXTERIORFUELEQUIPMENTSUBCATEGORY);
+    std::vector<QString> fields{
+      EXTERIORFUELEQUIPMENTDEFINITION, EXTERIORFUELEQUIPMENTSCHEDULE,    EXTERIORFUELEQUIPMENTFUELTYPE,
+      EXTERIORFUELEQUIPMENTMULTIPLIER, EXTERIORFUELEQUIPMENTSUBCATEGORY,
+    };
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Exterior Fuel Equipment"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
   {
-    std::vector<QString> fields;
-    fields.push_back(EXTERIORWATEREQUIPMENTDEFINITION);
-    fields.push_back(EXTERIORWATEREQUIPMENTSCHEDULE);
-    fields.push_back(EXTERIORWATEREQUIPMENTMULTIPLIER);
-    fields.push_back(EXTERIORWATEREQUIPMENTSUBCATEGORY);
+    std::vector<QString> fields{
+      EXTERIORWATEREQUIPMENTDEFINITION,
+      EXTERIORWATEREQUIPMENTSCHEDULE,
+      EXTERIORWATEREQUIPMENTMULTIPLIER,
+      EXTERIORWATEREQUIPMENTSUBCATEGORY,
+    };
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Exterior Water Equipment"), fields);
     addCategoryAndFields(categoryAndFields);
   }
@@ -444,7 +444,9 @@ QString FacilityExteriorEquipmentGridController::getColor(const model::ModelObje
 }
 
 void FacilityExteriorEquipmentGridController::checkSelectedFields() {
-  if (!this->hasHorizontalHeader()) return;
+  if (!this->hasHorizontalHeader()) {
+    return;
+  }
 
   OSGridController::checkSelectedFields();
 }

@@ -54,7 +54,7 @@ class OSDoubleEdit2
 {
   Q_OBJECT
  public:
-  OSDoubleEdit2(QWidget* parent = nullptr);
+  explicit OSDoubleEdit2(QWidget* parent = nullptr);
 
   virtual ~OSDoubleEdit2();
 

@@ -129,7 +129,7 @@ SpacesLoadsGridView::SpacesLoadsGridView(bool isIP, const model::Model& model, Q
 
   const std::function<bool(const model::ModelObject&)> isLocked([](const model::ModelObject& modelObject) {
     if (modelObject.optionalCast<model::SpaceLoad>()) {
-      model::SpaceLoad load = modelObject.cast<model::SpaceLoad>();
+      auto load = modelObject.cast<model::SpaceLoad>();
       return load.spaceType().is_initialized();
     }
     return false;
@@ -144,7 +144,7 @@ SpacesLoadsGridView::SpacesLoadsGridView(bool isIP, const model::Model& model, Q
   m_gridView->addSpacingToContentLayout(7);
   m_gridView->showDropZone(false);
 
-  onClearSelection();
+  clearSelection();
 }
 
 void SpacesLoadsGridView::onSelectItem() {
@@ -155,6 +155,10 @@ void SpacesLoadsGridView::onSelectItem() {
 }
 
 void SpacesLoadsGridView::onClearSelection() {
+  clearSelection();
+}
+
+void SpacesLoadsGridView::clearSelection() {
   //m_itemSelectorButtons->disableAddButton();
   m_itemSelectorButtons->disableCopyButton();
   m_itemSelectorButtons->disableRemoveButton();
@@ -169,12 +173,9 @@ SpacesLoadsGridController::SpacesLoadsGridController(bool isIP, const QString& h
 
 void SpacesLoadsGridController::setCategoriesAndFields() {
   {
-    std::vector<QString> fields;
-    fields.push_back(LOADNAME);
-    fields.push_back(MULTIPLIER);
-    fields.push_back(DEFINITION);
-    fields.push_back(SCHEDULE);
-    fields.push_back(ACTIVITYSCHEDULE);
+    std::vector<QString> fields{
+      LOADNAME, MULTIPLIER, DEFINITION, SCHEDULE, ACTIVITYSCHEDULE,
+    };
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("General"), fields);
     addCategoryAndFields(categoryAndFields);
   }
@@ -968,7 +969,9 @@ QString SpacesLoadsGridController::getColor(const model::ModelObject& modelObjec
 }
 
 void SpacesLoadsGridController::checkSelectedFields() {
-  if (!this->hasHorizontalHeader()) return;
+  if (!this->hasHorizontalHeader()) {
+    return;
+  }
 
   OSGridController::checkSelectedFields();
 }

@@ -91,7 +91,7 @@ SpacesShadingGridView::SpacesShadingGridView(bool isIP, const model::Model& mode
   m_gridView->addSpacingToContentLayout(7);
   m_gridView->showDropZone(false);
 
-  onClearSelection();
+  clearSelection();
 }
 
 void SpacesShadingGridView::onSelectItem() {
@@ -102,6 +102,10 @@ void SpacesShadingGridView::onSelectItem() {
 }
 
 void SpacesShadingGridView::onClearSelection() {
+  clearSelection();
+}
+
+void SpacesShadingGridView::clearSelection() {
   m_itemSelectorButtons->disableAddButton();
   //m_itemSelectorButtons->disableCopyButton();
   //m_itemSelectorButtons->disableRemoveButton();
@@ -116,12 +120,10 @@ SpacesShadingGridController::SpacesShadingGridController(bool isIP, const QStrin
 
 void SpacesShadingGridController::setCategoriesAndFields() {
   {
-    std::vector<QString> fields;
-    fields.push_back(SHADEDSURFACENAME);
-    fields.push_back(SHADINGSURFACEGROUP);
-    fields.push_back(CONSTRUCTION);
-    fields.push_back(TRANSMITTANCESCHEDULE);
-    //fields.push_back(DAYLIGHTINGSHELFNAME);
+    std::vector<QString> fields{
+      SHADEDSURFACENAME, SHADINGSURFACEGROUP, CONSTRUCTION, TRANSMITTANCESCHEDULE,
+      //DAYLIGHTINGSHELFNAME,
+    };
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("General"), fields);
     addCategoryAndFields(categoryAndFields);
   }
@@ -155,7 +157,7 @@ void SpacesShadingGridController::addColumns(const QString& category, std::vecto
 
       std::function<std::vector<model::ModelObject>(const model::Space&)> allShadingSurfaces([allShadingSurfaceGroups](const model::Space& t_space) {
         std::vector<model::ModelObject> allModelObjects;
-        for (auto shadingSurfaceGroup : allShadingSurfaceGroups(t_space)) {
+        for (const auto& shadingSurfaceGroup : allShadingSurfaceGroups(t_space)) {
           auto shadingSurfaces = shadingSurfaceGroup.cast<model::ShadingSurfaceGroup>().shadingSurfaces();
           allModelObjects.insert(allModelObjects.end(), shadingSurfaces.begin(), shadingSurfaces.end());
         }
@@ -165,9 +167,9 @@ void SpacesShadingGridController::addColumns(const QString& category, std::vecto
       std::function<std::vector<boost::optional<model::ModelObject>>(const model::Space&)> allShadingSurfaceShadingSurfaceGroups(
         [allShadingSurfaceGroups](const model::Space& t_space) {
           std::vector<boost::optional<model::ModelObject>> allModelObjects;
-          for (auto shadingSurfaceGroup : allShadingSurfaceGroups(t_space)) {
+          for (const auto& shadingSurfaceGroup : allShadingSurfaceGroups(t_space)) {
             auto shadingSurfaces = shadingSurfaceGroup.cast<model::ShadingSurfaceGroup>().shadingSurfaces();
-            for (auto shadingSurface : shadingSurfaces) {
+            for (const auto& shadingSurface : shadingSurfaces) {
               auto group = shadingSurface.shadingSurfaceGroup();
               if (group) {
                 allModelObjects.push_back(*group);
@@ -239,7 +241,9 @@ QString SpacesShadingGridController::getColor(const model::ModelObject& modelObj
 }
 
 void SpacesShadingGridController::checkSelectedFields() {
-  if (!this->hasHorizontalHeader()) return;
+  if (!this->hasHorizontalHeader()) {
+    return;
+  }
 
   OSGridController::checkSelectedFields();
 }

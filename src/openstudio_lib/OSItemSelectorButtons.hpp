@@ -53,7 +53,7 @@ class OSItemSelectorButtons : public QWidget
   Q_OBJECT
 
  public:
-  OSItemSelectorButtons(QWidget* parent = nullptr);
+  explicit OSItemSelectorButtons(QWidget* parent = nullptr);
 
   virtual ~OSItemSelectorButtons() {}
 

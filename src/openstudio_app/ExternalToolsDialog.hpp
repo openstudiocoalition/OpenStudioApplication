@@ -43,9 +43,9 @@ class ExternalToolsDialog : public QDialog
   Q_OBJECT
 
  public:
-  explicit ExternalToolsDialog(openstudio::path t_dviewPath);
+  explicit ExternalToolsDialog(const openstudio::path& t_dviewPath);
 
-  virtual ~ExternalToolsDialog(){};
+  virtual ~ExternalToolsDialog() = default;
 
   /** The current externaltools paths */
   openstudio::path dviewPath() const;
@@ -54,7 +54,7 @@ class ExternalToolsDialog : public QDialog
 
  private:
   // Tool name should match the executable name
-  void onChangeClicked(QLineEdit* t_lineEdit, QString toolName);
+  void onChangeClicked(QLineEdit* t_lineEdit, const QString& toolName);
 
   QLineEdit* m_dviewPathLineEdit;
 

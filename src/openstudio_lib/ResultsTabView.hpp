@@ -38,11 +38,10 @@
 #include <openstudio/utilities/sql/SqlFile.hpp>
 #include <openstudio/utilities/units/Unit.hpp>
 
-//#include "../runmanager/lib/RunManager.hpp"
+#include "../shared_gui_components/ProgressBarWithError.hpp"
 
 #include <QWidget>
 #include <QWebEngineView>
-#include <QProgressBar>
 
 class QComboBox;
 class QPushButton;
@@ -56,7 +55,7 @@ class ResultsView : public QWidget
   Q_OBJECT;
 
  public:
-  ResultsView(QWidget* t_parent = nullptr);
+  explicit ResultsView(QWidget* t_parent = nullptr);
   virtual ~ResultsView();
   void searchForExistingResults(const openstudio::path& t_runDir, const openstudio::path& t_reportsDir);
 
@@ -79,14 +78,14 @@ class ResultsView : public QWidget
  private:
   REGISTER_LOGGER("openstudio::ResultsView");
   //openstudio::runmanager::RunManager runManager();
-  void populateComboBox(std::vector<openstudio::path> reports);
+  void populateComboBox(const std::vector<openstudio::path>& reports);
 
   bool m_isIP;
 
   // utility bill results
   QLabel* m_reportLabel;
 
-  QProgressBar* m_progressBar;
+  ProgressBarWithError* m_progressBar;
   QPushButton* m_refreshBtn;
   QPushButton* m_openDViewBtn;
 

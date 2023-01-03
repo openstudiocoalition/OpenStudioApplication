@@ -54,7 +54,7 @@ void CollapsibleComponentHeader::createLayout(const std::string& text, int numRe
   setObjectName("CollapsibleComponentHeader");
   setCheckable(true);
 
-  auto mainHLayout = new QHBoxLayout();
+  auto* mainHLayout = new QHBoxLayout();
   setLayout(mainHLayout);
 
   // Arrow
@@ -97,9 +97,9 @@ QSize CollapsibleComponentHeader::sizeHint() const {
 
 void CollapsibleComponentHeader::setImage(bool isChecked) {
   if (isChecked) {
-    m_arrowLabel->setPixmap(QPixmap(":../shared_gui_components/images/toggle_arrow.png"));
+    m_arrowLabel->setPixmap(QPixmap(":/images/toggle_arrow.png"));
   } else {
-    m_arrowLabel->setPixmap(QPixmap(":../shared_gui_components/images/toggle_arrow_closed.png"));
+    m_arrowLabel->setPixmap(QPixmap(":/images/toggle_arrow_closed.png"));
   }
 }
 

@@ -54,7 +54,12 @@ LocationTabController::LocationTabController(bool isIP, const model::Model& mode
   mainContentWidget()->addSubTab(tr("Life Cycle Costs"), LIFE_CYCLE_COSTS);
   mainContentWidget()->addSubTab(tr("Utility Bills"), UTILITY_BILLS);
 
-  setSubTab(0);
+  // setSubTab(0);
+  auto* locationView = new LocationView(m_isIP, m_model, m_modelTempDir);
+  connect(this, &LocationTabController::toggleUnitsClicked, locationView, &LocationView::toggleUnitsClicked);
+  this->mainContentWidget()->setSubTab(locationView);
+  m_currentView = locationView;
+
   connect(this->mainContentWidget(), &MainTabView::tabSelected, this, &LocationTabController::setSubTab);
 }
 

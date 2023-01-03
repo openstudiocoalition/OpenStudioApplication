@@ -159,7 +159,7 @@
 namespace openstudio {
 
 SpaceTypesGridView::SpaceTypesGridView(bool isIP, const model::Model& model, QWidget* parent) : QWidget(parent), m_isIP(isIP) {
-  auto mainLayout = new QVBoxLayout();
+  auto* mainLayout = new QVBoxLayout();
   mainLayout->setSpacing(0);
   mainLayout->setContentsMargins(0, 0, 0, 0);
   setLayout(mainLayout);
@@ -168,7 +168,7 @@ SpaceTypesGridView::SpaceTypesGridView(bool isIP, const model::Model& model, QWi
   auto spaceTypeModelObjects = subsetCastVector<model::ModelObject>(spaceTypes);
 
   m_gridController = new SpaceTypesGridController(m_isIP, "Space Types", IddObjectType::OS_SpaceType, model, spaceTypeModelObjects);
-  auto gridView = new OSGridView(m_gridController, "Space Types", "Drop\nSpace Type", false, parent);
+  auto* gridView = new OSGridView(m_gridController, "Space Types", "Drop\nSpace Type", false, parent);
 
   // Load Filter
 
@@ -176,7 +176,7 @@ SpaceTypesGridView::SpaceTypesGridView(bool isIP, const model::Model& model, QWi
 
   QVBoxLayout* layout = nullptr;
 
-  auto filterGridLayout = new QGridLayout();
+  auto* filterGridLayout = new QGridLayout();
   filterGridLayout->setContentsMargins(7, 4, 0, 8);
   filterGridLayout->setSpacing(5);
 
@@ -198,67 +198,67 @@ SpaceTypesGridView::SpaceTypesGridView(bool isIP, const model::Model& model, QWi
   { m_filters->addItem(SHOWALLLOADS); }
 
   {
-    const QPixmap* pixMap = new QPixmap(":images/mini_icons/internal_mass.png");
+    auto* pixMap = new QPixmap(":/images/mini_icons/internal_mass.png");
     OS_ASSERT(pixMap);
     m_filters->addItem(*pixMap, INTERNALMASS);
   }
 
   {
-    const QPixmap* pixMap = new QPixmap(":images/mini_icons/people.png");
+    auto* pixMap = new QPixmap(":/images/mini_icons/people.png");
     OS_ASSERT(pixMap);
     m_filters->addItem(*pixMap, PEOPLE);
   }
 
   {
-    const QPixmap* pixMap = new QPixmap(":images/mini_icons/lights.png");
+    auto* pixMap = new QPixmap(":/images/mini_icons/lights.png");
     OS_ASSERT(pixMap);
     m_filters->addItem(*pixMap, LIGHTS);
   }
 
   {
-    const QPixmap* pixMap = new QPixmap(":images/mini_icons/luminaire.png");
+    auto* pixMap = new QPixmap(":/images/mini_icons/luminaire.png");
     OS_ASSERT(pixMap);
     m_filters->addItem(*pixMap, LUMINAIRE);
   }
 
   {
-    const QPixmap* pixMap = new QPixmap(":images/mini_icons/electric_equipment.png");
+    auto* pixMap = new QPixmap(":/images/mini_icons/electric_equipment.png");
     OS_ASSERT(pixMap);
     m_filters->addItem(*pixMap, ELECTRICEQUIPMENT);
   }
 
   {
-    const QPixmap* pixMap = new QPixmap(":images/mini_icons/gas_equipment.png");
+    auto* pixMap = new QPixmap(":/images/mini_icons/gas_equipment.png");
     OS_ASSERT(pixMap);
     m_filters->addItem(*pixMap, GASEQUIPMENT);
   }
 
   {
-    const QPixmap* pixMap = new QPixmap(":images/mini_icons/steam_equipment.png");
+    auto* pixMap = new QPixmap(":/images/mini_icons/steam_equipment.png");
     OS_ASSERT(pixMap);
     m_filters->addItem(*pixMap, HOTWATEREQUIPMENT);
   }
 
   {
-    const QPixmap* pixMap = new QPixmap(":images/mini_icons/steam_equipment.png");
+    auto* pixMap = new QPixmap(":/images/mini_icons/steam_equipment.png");
     OS_ASSERT(pixMap);
     m_filters->addItem(*pixMap, STEAMEQUIPMENT);
   }
 
   {
-    const QPixmap* pixMap = new QPixmap(":images/mini_icons/other_equipment.png");
+    auto* pixMap = new QPixmap(":/images/mini_icons/other_equipment.png");
     OS_ASSERT(pixMap);
     m_filters->addItem(*pixMap, OTHEREQUIPMENT);
   }
 
   {
-    auto pixMap = new QPixmap(":images/mini_icons/infiltration.png");
+    auto* pixMap = new QPixmap(":/images/mini_icons/infiltration.png");
     OS_ASSERT(pixMap);
     m_filters->addItem(*pixMap, SPACEINFILTRATIONDESIGNFLOWRATE);
   }
 
   {
-    auto pixMap = new QPixmap(":images/mini_icons/mini_infiltration_leak.png");
+    auto* pixMap = new QPixmap(":/images/mini_icons/mini_infiltration_leak.png");
     OS_ASSERT(pixMap);
     m_filters->addItem(*pixMap, SPACEINFILTRATIONEFFECTIVELEAKAGEAREA);
   }
@@ -320,33 +320,32 @@ SpaceTypesGridController::SpaceTypesGridController(bool isIP, const QString& hea
 void SpaceTypesGridController::setCategoriesAndFields() {
 
   {
-    std::vector<QString> fields;
-    fields.push_back(RENDERINGCOLOR);
-    fields.push_back(DEFAULTCONSTRUCTIONSET);
-    fields.push_back(DEFAULTSCHEDULESET);
-    fields.push_back(DESIGNSPECIFICATIONOUTDOORAIR);
-    fields.push_back(SPACEINFILTRATIONDESIGNFLOWRATES);
-    fields.push_back(SPACEINFILTRATIONEFFECTIVELEAKAGEAREAS);
+    std::vector<QString> fields{
+      RENDERINGCOLOR,
+      DEFAULTCONSTRUCTIONSET,
+      DEFAULTSCHEDULESET,
+      DESIGNSPECIFICATIONOUTDOORAIR,
+      SPACEINFILTRATIONDESIGNFLOWRATES,
+      SPACEINFILTRATIONEFFECTIVELEAKAGEAREAS,
+    };
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("General"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
   {
-    std::vector<QString> fields;
-    fields.push_back(LOADNAME);
-    fields.push_back(MULTIPLIER);
-    fields.push_back(DEFINITION);
-    fields.push_back(SCHEDULE);
-    fields.push_back(ACTIVITYSCHEDULE);
+    std::vector<QString> fields{
+      LOADNAME, MULTIPLIER, DEFINITION, SCHEDULE, ACTIVITYSCHEDULE,
+    };
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Loads"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
   {
-    std::vector<QString> fields;
-    fields.push_back(STANDARDSTEMPLATE);
-    fields.push_back(STANDARDSBUILDINGTYPE);
-    fields.push_back(STANDARDSSPACETYPE);
+    std::vector<QString> fields{
+      STANDARDSTEMPLATE,
+      STANDARDSBUILDINGTYPE,
+      STANDARDSSPACETYPE,
+    };
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Measure\nTags"), fields);
     addCategoryAndFields(categoryAndFields);
   }
@@ -421,16 +420,16 @@ void SpaceTypesGridController::filterChanged(const QString& text) {
 }
 
 SpaceTypesGridView* SpaceTypesGridController::spaceTypesGridView() {
-  auto gridView = qobject_cast<OSGridView*>(this->parent());
+  auto* gridView = qobject_cast<OSGridView*>(this->parent());
   OS_ASSERT(gridView);
 
-  auto spaceTypesGridView = qobject_cast<SpaceTypesGridView*>(gridView->parent());
+  auto* spaceTypesGridView = qobject_cast<SpaceTypesGridView*>(gridView->parent());
 
   return spaceTypesGridView;
 }
 
 void SpaceTypesGridController::onCategorySelected(int index) {
-  auto gridView = this->spaceTypesGridView();
+  auto* gridView = this->spaceTypesGridView();
   if (gridView) {
     if (gridView->m_filters) {
       gridView->m_filters->setCurrentIndex(0);
@@ -446,7 +445,7 @@ void SpaceTypesGridController::onCategorySelected(int index) {
     else if (index == 3) {
       auto categoriesAndFields = this->categoriesAndFields();
       auto fields = categoriesAndFields.at(index);
-      for (auto field : fields.second) {
+      for (const auto& field : fields.second) {
         if (field == LOADNAME) {
           spaceTypesGridView()->enableFilter();
           break;
@@ -1495,7 +1494,9 @@ QString SpaceTypesGridController::getColor(const model::ModelObject& modelObject
 }
 
 void SpaceTypesGridController::checkSelectedFields() {
-  if (!this->hasHorizontalHeader()) return;
+  if (!this->hasHorizontalHeader()) {
+    return;
+  }
 
   OSGridController::checkSelectedFields();
 }

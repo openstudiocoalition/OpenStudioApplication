@@ -73,7 +73,7 @@ PathWatcher::PathWatcher(const openstudio::path& p, int msec)
   }
 }
 
-PathWatcher::~PathWatcher() {}
+PathWatcher::~PathWatcher() = default;
 
 bool PathWatcher::enabled() const {
   return m_enabled;

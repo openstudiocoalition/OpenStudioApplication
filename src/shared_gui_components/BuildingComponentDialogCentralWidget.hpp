@@ -41,9 +41,10 @@
 #include <openstudio/utilities/bcl/BCLComponent.hpp>
 #include <openstudio/utilities/bcl/BCLMeasure.hpp>
 
+#include "../shared_gui_components/ProgressBarWithError.hpp"
+
 #include <boost/optional.hpp>
 
-class QProgressBar;
 class QTimer;
 
 namespace openstudio {
@@ -60,7 +61,7 @@ class BuildingComponentDialogCentralWidget
   Q_OBJECT
 
  public:
-  BuildingComponentDialogCentralWidget(QWidget* parent = nullptr);
+  explicit BuildingComponentDialogCentralWidget(QWidget* parent = nullptr);
   explicit BuildingComponentDialogCentralWidget(int tid, QWidget* parent = nullptr);
   virtual ~BuildingComponentDialogCentralWidget();
   int tid() const;
@@ -81,7 +82,7 @@ class BuildingComponentDialogCentralWidget
   int m_tid;
   CollapsibleComponentList* m_collapsibleComponentList;
   ComponentList* m_componentList;  // TODO cruft to be removed
-  QProgressBar* m_progressBar;
+  ProgressBarWithError* m_progressBar;
   std::queue<std::pair<std::string, std::string>> m_pendingDownloads;
   std::string m_filterType;
   int m_pageIdx;

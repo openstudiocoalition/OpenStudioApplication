@@ -59,7 +59,8 @@ boost::optional<model::WaterUseEquipmentDefinition> TargetTemperatureScheduleVC:
   return result;
 }
 
-void TargetTemperatureScheduleVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) {
+void TargetTemperatureScheduleVC::onChangeRelationship(const model::ModelObject& /*modelObject*/, int index, Handle /*newHandle*/,
+                                                       Handle /*oldHandle*/) {
   if (index == OS_WaterUse_Equipment_DefinitionFields::TargetTemperatureScheduleName) {
     emit itemIds(makeVector());
   }
@@ -67,8 +68,8 @@ void TargetTemperatureScheduleVC::onChangeRelationship(const model::ModelObject&
 
 std::vector<OSItemId> TargetTemperatureScheduleVC::makeVector() {
   std::vector<OSItemId> result;
-  if (boost::optional<model::WaterUseEquipmentDefinition> waterUseEquipmentDefinition = this->waterUseEquipmentDefinition()) {
-    boost::optional<model::Schedule> schedule = waterUseEquipmentDefinition->targetTemperatureSchedule();
+  if (boost::optional<model::WaterUseEquipmentDefinition> def = this->waterUseEquipmentDefinition()) {
+    boost::optional<model::Schedule> schedule = def->targetTemperatureSchedule();
     if (schedule) {
       result.push_back(modelObjectToItemId(*schedule, false));
     }
@@ -76,25 +77,25 @@ std::vector<OSItemId> TargetTemperatureScheduleVC::makeVector() {
   return result;
 }
 
-void TargetTemperatureScheduleVC::onRemoveItem(OSItem* item) {
-  if (boost::optional<model::WaterUseEquipmentDefinition> waterUseEquipmentDefinition = this->waterUseEquipmentDefinition()) {
-    waterUseEquipmentDefinition->resetTargetTemperatureSchedule();
+void TargetTemperatureScheduleVC::onRemoveItem(OSItem* /*item*/) {
+  if (boost::optional<model::WaterUseEquipmentDefinition> def = this->waterUseEquipmentDefinition()) {
+    def->resetTargetTemperatureSchedule();
   }
 }
 
-void TargetTemperatureScheduleVC::onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) {
+void TargetTemperatureScheduleVC::onReplaceItem(OSItem* /*currentItem*/, const OSItemId& replacementItemId) {
   onDrop(replacementItemId);
 }
 
 void TargetTemperatureScheduleVC::onDrop(const OSItemId& itemId) {
-  if (boost::optional<model::WaterUseEquipmentDefinition> waterUseEquipmentDefinition = this->waterUseEquipmentDefinition()) {
+  if (boost::optional<model::WaterUseEquipmentDefinition> def = this->waterUseEquipmentDefinition()) {
     boost::optional<model::ModelObject> modelObject = this->getModelObject(itemId);
     if (modelObject) {
       if (modelObject->optionalCast<model::Schedule>()) {
         if (this->fromComponentLibrary(itemId)) {
           modelObject = modelObject->clone(m_modelObject->model());
         }
-        waterUseEquipmentDefinition->setTargetTemperatureSchedule(modelObject->cast<model::Schedule>());
+        def->setTargetTemperatureSchedule(modelObject->cast<model::Schedule>());
       }
     }
   }
@@ -112,7 +113,8 @@ boost::optional<model::WaterUseEquipmentDefinition> SensibleFractionScheduleVC::
   return result;
 }
 
-void SensibleFractionScheduleVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) {
+void SensibleFractionScheduleVC::onChangeRelationship(const model::ModelObject& /*modelObject*/, int index, Handle /*newHandle*/,
+                                                      Handle /*oldHandle*/) {
   if (index == OS_WaterUse_Equipment_DefinitionFields::SensibleFractionScheduleName) {
     emit itemIds(makeVector());
   }
@@ -120,34 +122,33 @@ void SensibleFractionScheduleVC::onChangeRelationship(const model::ModelObject& 
 
 std::vector<OSItemId> SensibleFractionScheduleVC::makeVector() {
   std::vector<OSItemId> result;
-  if (boost::optional<model::WaterUseEquipmentDefinition> waterUseEquipmentDefinition = this->waterUseEquipmentDefinition()) {
-    boost::optional<model::Schedule> schedule = waterUseEquipmentDefinition->sensibleFractionSchedule();
-    if (schedule) {
+  if (boost::optional<model::WaterUseEquipmentDefinition> def = this->waterUseEquipmentDefinition()) {
+    if (boost::optional<model::Schedule> schedule = def->sensibleFractionSchedule()) {
       result.push_back(modelObjectToItemId(*schedule, false));
     }
   }
   return result;
 }
 
-void SensibleFractionScheduleVC::onRemoveItem(OSItem* item) {
-  if (boost::optional<model::WaterUseEquipmentDefinition> waterUseEquipmentDefinition = this->waterUseEquipmentDefinition()) {
-    waterUseEquipmentDefinition->resetSensibleFractionSchedule();
+void SensibleFractionScheduleVC::onRemoveItem(OSItem* /*item*/) {
+  if (boost::optional<model::WaterUseEquipmentDefinition> def = this->waterUseEquipmentDefinition()) {
+    def->resetSensibleFractionSchedule();
   }
 }
 
-void SensibleFractionScheduleVC::onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) {
+void SensibleFractionScheduleVC::onReplaceItem(OSItem* /*currentItem*/, const OSItemId& replacementItemId) {
   onDrop(replacementItemId);
 }
 
 void SensibleFractionScheduleVC::onDrop(const OSItemId& itemId) {
-  if (boost::optional<model::WaterUseEquipmentDefinition> waterUseEquipmentDefinition = this->waterUseEquipmentDefinition()) {
+  if (boost::optional<model::WaterUseEquipmentDefinition> def = this->waterUseEquipmentDefinition()) {
     boost::optional<model::ModelObject> modelObject = this->getModelObject(itemId);
     if (modelObject) {
       if (modelObject->optionalCast<model::Schedule>()) {
         if (this->fromComponentLibrary(itemId)) {
           modelObject = modelObject->clone(m_modelObject->model());
         }
-        waterUseEquipmentDefinition->setSensibleFractionSchedule(modelObject->cast<model::Schedule>());
+        def->setSensibleFractionSchedule(modelObject->cast<model::Schedule>());
       }
     }
   }
@@ -165,7 +166,8 @@ boost::optional<model::WaterUseEquipmentDefinition> LatentFractionScheduleVC::wa
   return result;
 }
 
-void LatentFractionScheduleVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle newHandle, Handle oldHandle) {
+void LatentFractionScheduleVC::onChangeRelationship(const model::ModelObject& /*modelObject*/, int index, Handle /*newHandle*/,
+                                                    Handle /*oldHandle*/) {
   if (index == OS_WaterUse_Equipment_DefinitionFields::LatentFractionScheduleName) {
     emit itemIds(makeVector());
   }
@@ -173,8 +175,8 @@ void LatentFractionScheduleVC::onChangeRelationship(const model::ModelObject& mo
 
 std::vector<OSItemId> LatentFractionScheduleVC::makeVector() {
   std::vector<OSItemId> result;
-  if (boost::optional<model::WaterUseEquipmentDefinition> waterUseEquipmentDefinition = this->waterUseEquipmentDefinition()) {
-    boost::optional<model::Schedule> schedule = waterUseEquipmentDefinition->latentFractionSchedule();
+  if (boost::optional<model::WaterUseEquipmentDefinition> def = this->waterUseEquipmentDefinition()) {
+    boost::optional<model::Schedule> schedule = def->latentFractionSchedule();
     if (schedule) {
       result.push_back(modelObjectToItemId(*schedule, false));
     }
@@ -182,52 +184,55 @@ std::vector<OSItemId> LatentFractionScheduleVC::makeVector() {
   return result;
 }
 
-void LatentFractionScheduleVC::onRemoveItem(OSItem* item) {
-  if (boost::optional<model::WaterUseEquipmentDefinition> waterUseEquipmentDefinition = this->waterUseEquipmentDefinition()) {
-    waterUseEquipmentDefinition->resetLatentFractionSchedule();
+void LatentFractionScheduleVC::onRemoveItem(OSItem* /*item*/) {
+  if (boost::optional<model::WaterUseEquipmentDefinition> def = this->waterUseEquipmentDefinition()) {
+    def->resetLatentFractionSchedule();
   }
 }
 
-void LatentFractionScheduleVC::onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) {
+void LatentFractionScheduleVC::onReplaceItem(OSItem* /*currentItem*/, const OSItemId& replacementItemId) {
   onDrop(replacementItemId);
 }
 
 void LatentFractionScheduleVC::onDrop(const OSItemId& itemId) {
-  if (boost::optional<model::WaterUseEquipmentDefinition> waterUseEquipmentDefinition = this->waterUseEquipmentDefinition()) {
-    boost::optional<model::ModelObject> modelObject = this->getModelObject(itemId);
-    if (modelObject) {
+  if (boost::optional<model::WaterUseEquipmentDefinition> def = this->waterUseEquipmentDefinition()) {
+    if (boost::optional<model::ModelObject> modelObject = this->getModelObject(itemId)) {
       if (modelObject->optionalCast<model::Schedule>()) {
         if (this->fromComponentLibrary(itemId)) {
           modelObject = modelObject->clone(m_modelObject->model());
         }
-        waterUseEquipmentDefinition->setLatentFractionSchedule(modelObject->cast<model::Schedule>());
+        def->setLatentFractionSchedule(modelObject->cast<model::Schedule>());
       }
     }
   }
 }
 
 WaterUseEquipmentDefinitionInspectorView::WaterUseEquipmentDefinitionInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent)
-  : ModelObjectInspectorView(model, true, parent) {
-  m_isIP = isIP;
+  : ModelObjectInspectorView(model, true, parent),
+    m_nameEdit(new OSLineEdit2()),
+    m_endUseSubcategoryEdit(new OSLineEdit2()),
+    m_targetTemperatureScheduleVC(new TargetTemperatureScheduleVC()),
+    m_sensibleFractionScheduleVC(new SensibleFractionScheduleVC()),
+    m_latentFractionScheduleVC(new LatentFractionScheduleVC()),
+    m_isIP(isIP) {
 
-  auto hiddenWidget = new QWidget();
+  auto* hiddenWidget = new QWidget();
   this->stackedWidget()->addWidget(hiddenWidget);
 
-  auto visibleWidget = new QWidget();
+  auto* visibleWidget = new QWidget();
   this->stackedWidget()->addWidget(visibleWidget);
 
-  auto mainGridLayout = new QGridLayout();
+  auto* mainGridLayout = new QGridLayout();
   mainGridLayout->setContentsMargins(7, 7, 7, 7);
   mainGridLayout->setSpacing(14);
   visibleWidget->setLayout(mainGridLayout);
 
   // Name
 
-  QLabel* label = new QLabel("Name: ");
+  auto* label = new QLabel("Name: ");
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 0, 0);
 
-  m_nameEdit = new OSLineEdit2();
   mainGridLayout->addWidget(m_nameEdit, 1, 0, 1, 3);
 
   // End Use Subcategory
@@ -236,7 +241,6 @@ WaterUseEquipmentDefinitionInspectorView::WaterUseEquipmentDefinitionInspectorVi
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 2, 0);
 
-  m_endUseSubcategoryEdit = new OSLineEdit2();
   mainGridLayout->addWidget(m_endUseSubcategoryEdit, 3, 0, 1, 3);
 
   // Peak Flow Rate
@@ -255,7 +259,6 @@ WaterUseEquipmentDefinitionInspectorView::WaterUseEquipmentDefinitionInspectorVi
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 6, 0);
 
-  m_targetTemperatureScheduleVC = new TargetTemperatureScheduleVC();
   m_targetTemperatureScheduleDZ = new OSDropZone(m_targetTemperatureScheduleVC);
   m_targetTemperatureScheduleDZ->setMaxItems(1);
   mainGridLayout->addWidget(m_targetTemperatureScheduleDZ, 7, 0, 1, 3);
@@ -266,7 +269,6 @@ WaterUseEquipmentDefinitionInspectorView::WaterUseEquipmentDefinitionInspectorVi
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 8, 0);
 
-  m_sensibleFractionScheduleVC = new SensibleFractionScheduleVC();
   m_sensibleFractionScheduleDZ = new OSDropZone(m_sensibleFractionScheduleVC);
   m_sensibleFractionScheduleDZ->setMaxItems(1);
   mainGridLayout->addWidget(m_sensibleFractionScheduleDZ, 9, 0, 1, 3);
@@ -277,7 +279,6 @@ WaterUseEquipmentDefinitionInspectorView::WaterUseEquipmentDefinitionInspectorVi
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 10, 0);
 
-  m_latentFractionScheduleVC = new LatentFractionScheduleVC();
   m_latentFractionScheduleDZ = new OSDropZone(m_latentFractionScheduleVC);
   m_latentFractionScheduleDZ->setMaxItems(1);
   mainGridLayout->addWidget(m_latentFractionScheduleDZ, 11, 0, 1, 3);
@@ -296,8 +297,8 @@ void WaterUseEquipmentDefinitionInspectorView::onClearSelection() {
 
 void WaterUseEquipmentDefinitionInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject) {
   detach();
-  model::WaterUseEquipmentDefinition waterUseEquipmentDefinition = modelObject.cast<model::WaterUseEquipmentDefinition>();
-  attach(waterUseEquipmentDefinition);
+  auto def = modelObject.cast<model::WaterUseEquipmentDefinition>();
+  attach(def);
   refresh();
 }
 

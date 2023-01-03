@@ -36,7 +36,7 @@ namespace modeleditor {
 
 TableView::TableView(QWidget* parent) : QTableView(parent) {}
 
-TableView::~TableView() {}
+TableView::~TableView() = default;
 
 void TableView::enterEvent(QEnterEvent* event) {
   emit eventEnter();

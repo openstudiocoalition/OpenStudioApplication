@@ -37,10 +37,14 @@ namespace openstudio {
 
 RadianceDialog::RadianceDialog(bool isIP, QWidget* radianceInspector, QWidget* parent) : OSDialog(parent), m_radianceInspector(radianceInspector) {
   setWindowModality(Qt::ApplicationModal);
-  createLayout();
+  createLayoutInternal();
 }
 
 void RadianceDialog::createLayout() {
+  createLayoutInternal();
+}
+
+void RadianceDialog::createLayoutInternal() {
   okButton()->setText("Apply");
 
   QLabel* label = nullptr;
@@ -49,7 +53,7 @@ void RadianceDialog::createLayout() {
   label->setObjectName("H1");
   upperLayout()->addWidget(label);
 
-  auto vertLayout = new QVBoxLayout();
+  auto* vertLayout = new QVBoxLayout();
   vertLayout->setContentsMargins(20, 10, 10, 10);
   vertLayout->setSpacing(20);
   upperLayout()->addLayout(vertLayout);

@@ -37,6 +37,7 @@
 #include "BaseApp.hpp"
 #include "MeasureManager.hpp"
 
+#include <cstddef>
 #include <openstudio/measure/OSArgument.hpp>
 
 #include <openstudio/utilities/bcl/BCL.hpp>
@@ -66,9 +67,7 @@ BuildingComponentDialogCentralWidget::BuildingComponentDialogCentralWidget(QWidg
     m_collapsibleComponentList(nullptr),
     m_componentList(nullptr),  // TODO cruft to be removed
     m_progressBar(nullptr),
-    m_pendingDownloads(),
     m_pageIdx(0),
-    m_searchString(QString()),
     m_showNewComponents(false),
     m_remoteBCL(nullptr),
     m_timer(nullptr),
@@ -82,9 +81,7 @@ BuildingComponentDialogCentralWidget::BuildingComponentDialogCentralWidget(int t
     m_collapsibleComponentList(nullptr),
     m_componentList(nullptr),  // TODO cruft to be removed
     m_progressBar(nullptr),
-    m_pendingDownloads(),
     m_pageIdx(0),
-    m_searchString(QString()),
     m_showNewComponents(false),
     m_remoteBCL(nullptr),
     m_timer(nullptr),
@@ -163,7 +160,7 @@ void BuildingComponentDialogCentralWidget::createLayout() {
   m_collapsibleComponentList->addCollapsibleComponent(collapsibleComponent);
   //*******************************************************************
 
-  m_progressBar = new QProgressBar(this);
+  m_progressBar = new ProgressBarWithError(this);
   m_progressBar->setVisible(false);
 
   auto* lowerPushButton = new QPushButton("Download");
@@ -365,24 +362,22 @@ void BuildingComponentDialogCentralWidget::downloadNextComponent() {
     // currently doing a download
     if (m_downloadTimer.isValid()) {
       // RemoteBCL does not always call the call back for us if we timeout
-      if (m_downloadTimer.elapsed() > 1000 * m_timeoutSeconds) {
+      if (m_downloadTimer.elapsed() > static_cast<qint64>(1000) * m_timeoutSeconds) {
         m_timer->stop();
 
         m_remoteBCL->waitForComponentDownload();
 
-        if (m_remoteBCL) {
-          // if m_remoteBCL is not empty then call back did not happen and this was a failure
-          if (m_currentDownload) {
-            downloadFailed(m_currentDownload->first);
-          }
-          m_remoteBCL.reset();
-          m_downloadTimer.invalidate();
-          m_currentDownload.reset();
+        // if m_remoteBCL is not empty then call back did not happen and this was a failure
+        if (m_currentDownload) {
+          downloadFailed(m_currentDownload->first);
+        }
+        m_remoteBCL.reset();
+        m_downloadTimer.invalidate();
+        m_currentDownload.reset();
 
-          if (!RemoteBCL::isOnline()) {
-            // if we have gone offline cancel the remaining pending downloads
-            clearPendingDownloads(true);
-          }
+        if (!RemoteBCL::isOnline()) {
+          // if we have gone offline cancel the remaining pending downloads
+          clearPendingDownloads(true);
         }
 
         m_timer->start(500);

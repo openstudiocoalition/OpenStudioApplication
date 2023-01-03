@@ -49,7 +49,7 @@ class ModelObjectTreeWidget
   Q_OBJECT
 
  public:
-  ModelObjectTreeWidget(const model::Model& model, QWidget* parent = nullptr);
+  explicit ModelObjectTreeWidget(const model::Model& model, QWidget* parent = nullptr);
 
   virtual ~ModelObjectTreeWidget() {}
 

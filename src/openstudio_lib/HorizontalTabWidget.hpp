@@ -46,7 +46,7 @@ class HorizontalTabWidget : public QWidget
   Q_OBJECT
 
  public:
-  HorizontalTabWidget(QWidget* parent = nullptr);
+  explicit HorizontalTabWidget(QWidget* parent = nullptr);
 
   virtual ~HorizontalTabWidget() {}
 

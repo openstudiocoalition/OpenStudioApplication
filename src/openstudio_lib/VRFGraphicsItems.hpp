@@ -54,7 +54,7 @@ class VRFView : public QWidget
  public:
   VRFView();
 
-  virtual ~VRFView() {}
+  virtual ~VRFView() = default;
 
   QWidget* header;
 
@@ -72,7 +72,7 @@ class VRFSystemMiniView : public QGraphicsObject
  public:
   VRFSystemMiniView();
 
-  virtual ~VRFSystemMiniView() {}
+  virtual ~VRFSystemMiniView() = default;
 
   RemoveButtonItem* removeButtonItem;
   ZoomInButtonItem* zoomInButtonItem;
@@ -121,7 +121,7 @@ class VRFSystemView : public QGraphicsObject
  public:
   VRFSystemView();
 
-  virtual ~VRFSystemView() {}
+  virtual ~VRFSystemView() = default;
 
   QRectF boundingRect() const override;
 
@@ -176,7 +176,7 @@ class VRFTerminalView : public QGraphicsObject
  public:
   VRFTerminalView();
 
-  virtual ~VRFTerminalView() {}
+  virtual ~VRFTerminalView() = default;
 
   QRectF boundingRect() const override;
 
@@ -230,7 +230,8 @@ class VRFThermalZoneDropZoneView : public OSDropZoneItem
  public:
   VRFThermalZoneDropZoneView();
 
-  ~VRFThermalZoneDropZoneView() {}
+  // TODO: why isn't this one virtual ?
+  ~VRFThermalZoneDropZoneView() = default;
 
   void setHasZone(bool hasZone);
 

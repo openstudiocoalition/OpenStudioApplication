@@ -50,7 +50,7 @@ class ZoneChooserView : public QWidget
   Q_OBJECT;
 
  public:
-  ZoneChooserView(QWidget* parent = nullptr);
+  explicit ZoneChooserView(QWidget* parent = nullptr);
 
   virtual ~ZoneChooserView() {}
 

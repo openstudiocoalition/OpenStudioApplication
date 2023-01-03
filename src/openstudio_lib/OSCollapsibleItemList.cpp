@@ -52,18 +52,17 @@ OSCollapsibleItemList::OSCollapsibleItemList(bool addScrollArea, QWidget* parent
     m_selectedCollapsibleItem(nullptr),
     m_itemsDraggable(false),
     m_itemsRemoveable(false),
-    m_showFilterLayout(false),
     m_itemsType(OSItemType::ListItem) {
   this->setObjectName("GrayWidget");
 
-  auto outerVLayout = new QVBoxLayout();
+  auto* outerVLayout = new QVBoxLayout();
   outerVLayout->setContentsMargins(0, 0, 0, 0);
   this->setLayout(outerVLayout);
 
-  auto outerWidget = new QWidget();
+  auto* outerWidget = new QWidget();
 
   if (addScrollArea) {
-    auto scrollArea = new QScrollArea();
+    auto* scrollArea = new QScrollArea();
     scrollArea->setFrameStyle(QFrame::NoFrame);
     scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
     scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
@@ -126,25 +125,12 @@ void OSCollapsibleItemList::setItemsType(OSItemType type) {
   }
 }
 
-bool OSCollapsibleItemList::showFilterLayout() const {
-  return m_showFilterLayout;
-}
-
-void OSCollapsibleItemList::setShowFilterLayout(const bool showFilterLayout) {
-  m_showFilterLayout = showFilterLayout;
-  for (OSCollapsibleItem* collapsibleItem : m_collapsibleItems) {
-    collapsibleItem->setShowFilterLayout(showFilterLayout);
-  }
-}
-
 void OSCollapsibleItemList::addCollapsibleItem(OSCollapsibleItem* collapsibleItem) {
   OS_ASSERT(collapsibleItem);
 
   collapsibleItem->setItemsDraggable(m_itemsDraggable);
 
   collapsibleItem->setItemsRemoveable(m_itemsRemoveable);
-
-  collapsibleItem->setShowFilterLayout(m_showFilterLayout);
 
   collapsibleItem->setItemsType(m_itemsType);
 

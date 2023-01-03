@@ -79,7 +79,7 @@ void BuildingSpaceTypeVectorController::onChangeRelationship(const model::ModelO
 std::vector<OSItemId> BuildingSpaceTypeVectorController::makeVector() {
   std::vector<OSItemId> result;
   if (m_modelObject) {
-    model::Building building = m_modelObject->cast<model::Building>();
+    auto building = m_modelObject->cast<model::Building>();
     boost::optional<model::SpaceType> spaceType = building.spaceType();
     if (spaceType) {
       result.push_back(modelObjectToItemId(*spaceType, false));
@@ -90,7 +90,7 @@ std::vector<OSItemId> BuildingSpaceTypeVectorController::makeVector() {
 
 void BuildingSpaceTypeVectorController::onRemoveItem(OSItem* item) {
   if (m_modelObject) {
-    model::Building building = m_modelObject->cast<model::Building>();
+    auto building = m_modelObject->cast<model::Building>();
     building.resetSpaceType();
   }
 }
@@ -101,7 +101,7 @@ void BuildingSpaceTypeVectorController::onReplaceItem(OSItem* currentItem, const
 
 void BuildingSpaceTypeVectorController::onDrop(const OSItemId& itemId) {
   if (m_modelObject) {
-    model::Building building = m_modelObject->cast<model::Building>();
+    auto building = m_modelObject->cast<model::Building>();
     boost::optional<model::ModelObject> modelObject = this->getModelObject(itemId);
     if (modelObject) {
       if (modelObject->optionalCast<model::SpaceType>()) {
@@ -138,7 +138,7 @@ void BuildingDefaultConstructionSetVectorController::onChangeRelationship(const 
 std::vector<OSItemId> BuildingDefaultConstructionSetVectorController::makeVector() {
   std::vector<OSItemId> result;
   if (m_modelObject) {
-    model::Building building = m_modelObject->cast<model::Building>();
+    auto building = m_modelObject->cast<model::Building>();
     boost::optional<model::DefaultConstructionSet> defaultConstructionSet = building.defaultConstructionSet();
     if (defaultConstructionSet) {
       result.push_back(modelObjectToItemId(*defaultConstructionSet, false));
@@ -149,7 +149,7 @@ std::vector<OSItemId> BuildingDefaultConstructionSetVectorController::makeVector
 
 void BuildingDefaultConstructionSetVectorController::onRemoveItem(OSItem* item) {
   if (m_modelObject) {
-    model::Building building = m_modelObject->cast<model::Building>();
+    auto building = m_modelObject->cast<model::Building>();
     building.resetDefaultConstructionSet();
   }
 }
@@ -160,7 +160,7 @@ void BuildingDefaultConstructionSetVectorController::onReplaceItem(OSItem* curre
 
 void BuildingDefaultConstructionSetVectorController::onDrop(const OSItemId& itemId) {
   if (m_modelObject) {
-    model::Building building = m_modelObject->cast<model::Building>();
+    auto building = m_modelObject->cast<model::Building>();
     boost::optional<model::ModelObject> modelObject = this->getModelObject(itemId);
     if (modelObject) {
       if (modelObject->optionalCast<model::DefaultConstructionSet>()) {
@@ -185,7 +185,7 @@ void BuildingDefaultScheduleSetVectorController::onChangeRelationship(const mode
 std::vector<OSItemId> BuildingDefaultScheduleSetVectorController::makeVector() {
   std::vector<OSItemId> result;
   if (m_modelObject) {
-    model::Building building = m_modelObject->cast<model::Building>();
+    auto building = m_modelObject->cast<model::Building>();
     boost::optional<model::DefaultScheduleSet> defaultScheduleSet = building.defaultScheduleSet();
     if (defaultScheduleSet) {
       result.push_back(modelObjectToItemId(*defaultScheduleSet, false));
@@ -196,7 +196,7 @@ std::vector<OSItemId> BuildingDefaultScheduleSetVectorController::makeVector() {
 
 void BuildingDefaultScheduleSetVectorController::onRemoveItem(OSItem* item) {
   if (m_modelObject) {
-    model::Building building = m_modelObject->cast<model::Building>();
+    auto building = m_modelObject->cast<model::Building>();
     building.resetDefaultScheduleSet();
   }
 }
@@ -207,7 +207,7 @@ void BuildingDefaultScheduleSetVectorController::onReplaceItem(OSItem* currentIt
 
 void BuildingDefaultScheduleSetVectorController::onDrop(const OSItemId& itemId) {
   if (m_modelObject) {
-    model::Building building = m_modelObject->cast<model::Building>();
+    auto building = m_modelObject->cast<model::Building>();
     boost::optional<model::ModelObject> modelObject = this->getModelObject(itemId);
     if (modelObject) {
       if (modelObject->optionalCast<model::DefaultScheduleSet>()) {
@@ -224,16 +224,16 @@ void BuildingDefaultScheduleSetVectorController::onDrop(const OSItemId& itemId) 
 
 BuildingInspectorView::BuildingInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent)
   : ModelObjectInspectorView(model, true, parent), m_isIP(isIP) {
-  auto hiddenWidget = new QWidget();
+  auto* hiddenWidget = new QWidget();
   this->stackedWidget()->insertWidget(0, hiddenWidget);
 
-  auto visibleWidget = new QWidget();
+  auto* visibleWidget = new QWidget();
   this->stackedWidget()->insertWidget(1, visibleWidget);
 
   //this->stackedWidget()->setCurrentIndex(0);
   this->stackedWidget()->setCurrentIndex(1);
 
-  auto mainGridLayout = new QGridLayout();
+  auto* mainGridLayout = new QGridLayout();
   mainGridLayout->setContentsMargins(7, 7, 7, 7);
   mainGridLayout->setSpacing(14);
   visibleWidget->setLayout(mainGridLayout);
@@ -241,9 +241,9 @@ BuildingInspectorView::BuildingInspectorView(bool isIP, const openstudio::model:
   int row = 0;
 
   // name
-  auto vLayout = new QVBoxLayout();
+  auto* vLayout = new QVBoxLayout();
 
-  auto label = new QLabel();
+  auto* label = new QLabel();
   label->setText("Name: ");
   label->setStyleSheet("QLabel { font: bold; }");
   vLayout->addWidget(label);
@@ -522,7 +522,7 @@ BuildingInspectorView::BuildingInspectorView(bool isIP, const openstudio::model:
 
   auto building = model.getConcreteModelObjects<model::Building>();
   OS_ASSERT(building.size() == 1);
-  onSelectModelObject(building.at(0));
+  attach(building.at(0));
 }
 
 void BuildingInspectorView::onClearSelection() {
@@ -532,7 +532,7 @@ void BuildingInspectorView::onClearSelection() {
 
 void BuildingInspectorView::onSelectModelObject(const openstudio::model::ModelObject& modelObject) {
   detach();
-  model::Building building = modelObject.cast<model::Building>();
+  auto building = modelObject.cast<model::Building>();
   attach(building);
 }
 

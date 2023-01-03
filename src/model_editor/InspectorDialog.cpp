@@ -63,7 +63,6 @@
 #include <QShowEvent>
 #include <QCloseEvent>
 #include <QSettings>
-#include <QTextStream>
 #include <QRegularExpressionValidator>
 #include <QDebug>
 
@@ -85,7 +84,7 @@ InspectorDialog::InspectorDialog(openstudio::model::Model& model, InspectorDialo
   init(client);
 }
 
-InspectorDialog::~InspectorDialog() {}
+InspectorDialog::~InspectorDialog() = default;
 
 openstudio::IddObjectType InspectorDialog::iddObjectType() const {
   return m_iddObjectType;
@@ -322,7 +321,7 @@ void InspectorDialog::onIddObjectTypeChanged(const openstudio::IddObjectType& id
 
 void InspectorDialog::onSelectedObjectHandlesChanged(const std::vector<openstudio::Handle>& selectedObjectHandles) {}
 
-void InspectorDialog::onModelChanged(Model&) {}
+void InspectorDialog::onModelChanged(Model& /*unused*/) {}
 
 void InspectorDialog::showEvent(QShowEvent* event) {
   //restoreState();
@@ -334,7 +333,7 @@ void InspectorDialog::closeEvent(QCloseEvent* event) {
   QWidget::closeEvent(event);
 }
 
-void InspectorDialog::onPushButtonNew(bool) {
+void InspectorDialog::onPushButtonNew(bool /*unused*/) {
   boost::optional<WorkspaceObject> object = m_model.addObject(IdfObject(m_iddObjectType));
 
   if (object) {
@@ -344,7 +343,7 @@ void InspectorDialog::onPushButtonNew(bool) {
   }
 }
 
-void InspectorDialog::onPushButtonCopy(bool) {
+void InspectorDialog::onPushButtonCopy(bool /*unused*/) {
   if (m_selectedObjectHandles.size() == 1) {
     boost::optional<WorkspaceObject> workspaceObject = m_model.getObject(m_selectedObjectHandles[0]);
     if (workspaceObject) {
@@ -356,7 +355,7 @@ void InspectorDialog::onPushButtonCopy(bool) {
   }
 }
 
-void InspectorDialog::onPushButtonDelete(bool) {
+void InspectorDialog::onPushButtonDelete(bool /*unused*/) {
   std::vector<Handle> handles = m_selectedObjectHandles;
   for (Handle handle : handles) {
     boost::optional<WorkspaceObject> object = m_model.getObject(handle);
@@ -367,7 +366,7 @@ void InspectorDialog::onPushButtonDelete(bool) {
   }
 }
 
-void InspectorDialog::onPushButtonPurge(bool) {
+void InspectorDialog::onPushButtonPurge(bool /*unused*/) {
   m_model.purgeUnusedResourceObjects(m_iddObjectType);
 }
 
@@ -410,17 +409,17 @@ void InspectorDialog::onTableWidgetSelectionChanged() {
   setSelectedObjectHandles(selectedObjectHandles, true);
 }
 
-void InspectorDialog::onAddWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl, const openstudio::IddObjectType& type,
-                                           const openstudio::UUID& uuid) {
+void InspectorDialog::onAddWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> /* impl */,
+                                           const openstudio::IddObjectType& type, const openstudio::UUID& uuid) {
   m_workspaceObjectAdded = true;
   m_workspaceChanged = true;
 
-  if (impl->iddObject().type() == m_iddObjectType) {
+  if (type == m_iddObjectType) {
 
-    m_objectHandles.push_back(impl->handle());
+    m_objectHandles.push_back(uuid);
 
     if (m_selectedObjectHandles.empty()) {
-      m_selectedObjectHandles.push_back(impl->handle());
+      m_selectedObjectHandles.push_back(uuid);
     } else {
       // do we want to do this or preserve the current selection?
       // this functionality is now in onPushButtonNew
@@ -457,20 +456,20 @@ void InspectorDialog::onTimeout() {
   }
 }
 
-void InspectorDialog::onRemoveWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl, const openstudio::IddObjectType& type,
-                                              const openstudio::UUID& uuid) {
+void InspectorDialog::onRemoveWorkspaceObject(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> /*impl*/,
+                                              const openstudio::IddObjectType& type, const openstudio::UUID& uuid) {
   m_workspaceObjectRemoved = true;
   m_workspaceChanged = true;
 
   // if removed object is of current type
-  if (impl->iddObject().type() == m_iddObjectType) {
+  if (type == m_iddObjectType) {
 
-    auto it = std::remove(m_objectHandles.begin(), m_objectHandles.end(), impl->handle());
+    auto it = std::remove(m_objectHandles.begin(), m_objectHandles.end(), uuid);
     if (it != m_objectHandles.end()) {
       m_objectHandles.erase(it, m_objectHandles.end());
     }
 
-    it = std::remove(m_selectedObjectHandles.begin(), m_selectedObjectHandles.end(), impl->handle());
+    it = std::remove(m_selectedObjectHandles.begin(), m_selectedObjectHandles.end(), uuid);
     if (it != m_selectedObjectHandles.end()) {
       m_selectedObjectHandles.erase(it, m_selectedObjectHandles.end());
     }
@@ -501,7 +500,7 @@ void InspectorDialog::init(InspectorDialogClient client) {
       m_iddFile = IddFactory::instance().getIddFile(IddFileType::OpenStudio);
 
       // everything is allowable
-      for (IddObject iddObject : m_iddFile.objects()) {
+      for (const IddObject& iddObject : m_iddFile.objects()) {
         m_typesToDisplay.insert(iddObject.type());
       }
 
@@ -561,7 +560,6 @@ void InspectorDialog::init(InspectorDialogClient client) {
 
       //m_typesToDisplay.insert(IddObjectType::OS_Material);
       //m_typesToDisplay.insert(IddObjectType::OS_Material_AirGap);
-      //m_typesToDisplay.insert(IddObjectType::OS_Material_AirWall);
       //m_typesToDisplay.insert(IddObjectType::OS_Material_InfraredTransparent);
       //m_typesToDisplay.insert(IddObjectType::OS_Material_NoMass);
       //m_typesToDisplay.insert(IddObjectType::OS_Material_RoofVegetation);
@@ -725,14 +723,14 @@ void InspectorDialog::createWidgets() {
   /// The list widget
 
   QFont labelFont;
-  labelFont.setPointSize(12);
+  labelFont.setPixelSize(12);
   //labelFont.setBold(true);
 
   QFont subLabelFont;
-  //subLabelFont.setPointSize(12);
+  subLabelFont.setPixelSize(12);
   subLabelFont.setBold(true);
 
-  auto listLabel = new QLabel(this);
+  auto* listLabel = new QLabel(this);
   listLabel->setObjectName("listLabel");
   listLabel->setText("Select Type");
   listLabel->setFont(labelFont);
@@ -747,15 +745,15 @@ void InspectorDialog::createWidgets() {
   m_listWidget->setAcceptDrops(false);
   m_listWidget->setDragEnabled(false);
 
-  auto listHolderLayout = new QVBoxLayout;
+  auto* listHolderLayout = new QVBoxLayout;
   listHolderLayout->addWidget(listLabel);
   listHolderLayout->addWidget(m_listWidget);
 
-  auto listHolderWidget = new QWidget(this);
+  auto* listHolderWidget = new QWidget(this);
   listHolderWidget->setLayout(listHolderLayout);
 
   /// The table widget
-  auto tableLabel = new QLabel(this);
+  auto* tableLabel = new QLabel(this);
   tableLabel->setObjectName("tableLabel");
   tableLabel->setText("Select Object");
   tableLabel->setFont(labelFont);
@@ -806,7 +804,7 @@ void InspectorDialog::createWidgets() {
   m_pushButtonPurge->setObjectName("pushButtonPurge");
   m_pushButtonPurge->setToolTip(tr("Purge unused objects"));
 
-  auto buttonLayout = new QHBoxLayout;
+  auto* buttonLayout = new QHBoxLayout;
   buttonLayout->addSpacing(5);
   buttonLayout->addWidget(m_pushButtonNew);
   buttonLayout->addSpacing(5);
@@ -817,49 +815,49 @@ void InspectorDialog::createWidgets() {
   buttonLayout->addWidget(m_pushButtonPurge);
   buttonLayout->addStretch(0);
 
-  auto buttonGroup = new QWidget(this);
+  auto* buttonGroup = new QWidget(this);
   buttonGroup->setLayout(buttonLayout);
 
-  auto tableVBoxLayout = new QVBoxLayout;
+  auto* tableVBoxLayout = new QVBoxLayout;
   tableVBoxLayout->addWidget(m_tableWidget);
   tableVBoxLayout->addWidget(buttonGroup);
 
-  auto tableWidgetHolder = new QWidget(this);
+  auto* tableWidgetHolder = new QWidget(this);
   tableWidgetHolder->setLayout(tableVBoxLayout);
 
-  auto noSelectionImage = new QLabel(this);
+  auto* noSelectionImage = new QLabel(this);
   noSelectionImage->setPixmap(QPixmap(":/images/alert_image.png"));
 
-  QLabel* noSelectionLabel = new QLabel("Pick your selection in SketchUp.", this);
+  auto* noSelectionLabel = new QLabel("Pick your selection in SketchUp.", this);
   noSelectionLabel->setFont(labelFont);
   noSelectionLabel->setMinimumHeight(40);
   noSelectionLabel->setAlignment(Qt::AlignCenter);
   noSelectionLabel->setWordWrap(true);
 
-  auto noSelectionLayout = new QVBoxLayout;
+  auto* noSelectionLayout = new QVBoxLayout;
   noSelectionLayout->addStretch();
   noSelectionLayout->addWidget(noSelectionImage, 0, Qt::AlignCenter);
   noSelectionLayout->addWidget(noSelectionLabel, 0, Qt::AlignCenter);
   noSelectionLayout->addStretch();
 
-  auto noSelectionWidget = new QWidget(this);
+  auto* noSelectionWidget = new QWidget(this);
   noSelectionWidget->setLayout(noSelectionLayout);
 
   m_stackedWidget = new QStackedWidget(this);
   m_stackedWidget->addWidget(tableWidgetHolder);
   m_stackedWidget->addWidget(noSelectionWidget);
 
-  auto tableHolderLayout = new QVBoxLayout;
+  auto* tableHolderLayout = new QVBoxLayout;
   tableHolderLayout->addWidget(tableLabel);
   tableHolderLayout->addWidget(m_selectionLabel);
   tableHolderLayout->addWidget(m_stackedWidget);
 
-  auto tableHolderWidget = new QWidget(this);
+  auto* tableHolderWidget = new QWidget(this);
   tableHolderWidget->setLayout(tableHolderLayout);
 
   // The inspectorGadget widget
 
-  auto inspectorGadgetLabel = new QLabel(this);
+  auto* inspectorGadgetLabel = new QLabel(this);
   inspectorGadgetLabel->setObjectName("igLabel");
   inspectorGadgetLabel->setText("Edit Object");
   inspectorGadgetLabel->setFont(labelFont);
@@ -869,16 +867,16 @@ void InspectorDialog::createWidgets() {
   m_inspectorGadget = new InspectorGadget(this);
   connect(this, &InspectorDialog::toggleUnitsClicked, m_inspectorGadget, &InspectorGadget::toggleUnitsClicked);
 
-  auto inspectorGadgetHolderLayout = new QVBoxLayout;
+  auto* inspectorGadgetHolderLayout = new QVBoxLayout;
   inspectorGadgetHolderLayout->addWidget(inspectorGadgetLabel);
   inspectorGadgetHolderLayout->addWidget(m_inspectorGadget);
 
-  auto inspectorGadgetHolderWidget = new QWidget(this);
+  auto* inspectorGadgetHolderWidget = new QWidget(this);
   inspectorGadgetHolderWidget->setLayout(inspectorGadgetHolderLayout);
 
   // The left widget
 
-  auto leftSplitter = new QSplitter(this);
+  auto* leftSplitter = new QSplitter(this);
   leftSplitter->setOrientation(Qt::Vertical);
   leftSplitter->addWidget(listHolderWidget);
   leftSplitter->addWidget(tableHolderWidget);
@@ -892,7 +890,7 @@ void InspectorDialog::createWidgets() {
 */
   // The central widget
 
-  auto centralSplitter = new QSplitter(this);
+  auto* centralSplitter = new QSplitter(this);
   centralSplitter->setOrientation(Qt::Horizontal);
   centralSplitter->addWidget(leftSplitter);
   centralSplitter->addWidget(inspectorGadgetHolderWidget);
@@ -923,12 +921,11 @@ void InspectorDialog::connectSelfSignalsAndSlots() {
 }
 
 void InspectorDialog::connectModelSignalsAndSlots() {
-  m_model.getImpl<model::detail::Model_Impl>().get()->addWorkspaceObjectPtr.connect<InspectorDialog, &InspectorDialog::onAddWorkspaceObject>(this);
+  m_model.getImpl<model::detail::Model_Impl>()->addWorkspaceObjectPtr.connect<InspectorDialog, &InspectorDialog::onAddWorkspaceObject>(this);
 
-  m_model.getImpl<model::detail::Model_Impl>().get()->onChange.connect<InspectorDialog, &InspectorDialog::onWorkspaceChange>(this);
+  m_model.getImpl<model::detail::Model_Impl>()->onChange.connect<InspectorDialog, &InspectorDialog::onWorkspaceChange>(this);
 
-  m_model.getImpl<model::detail::Model_Impl>().get()->removeWorkspaceObjectPtr.connect<InspectorDialog, &InspectorDialog::onRemoveWorkspaceObject>(
-    this);
+  m_model.getImpl<model::detail::Model_Impl>()->removeWorkspaceObjectPtr.connect<InspectorDialog, &InspectorDialog::onRemoveWorkspaceObject>(this);
 }
 
 void InspectorDialog::hideSelectionWidget(bool hideSelectionWidget) {
@@ -947,10 +944,9 @@ void InspectorDialog::hideSelectionWidget(bool hideSelectionWidget) {
 
 void InspectorDialog::loadStyleSheet() {
   QFile data(":/InspectorDialog.qss");
-  QString style;
   if (data.open(QFile::ReadOnly)) {
     QTextStream styleIn(&data);
-    style = styleIn.readAll();
+    QString style = styleIn.readAll();
     data.close();
     setStyleSheet(style);
   } else {
@@ -960,7 +956,7 @@ void InspectorDialog::loadStyleSheet() {
 
 void InspectorDialog::loadListWidgetData() {
   QFont groupFont;
-  //groupFont.setPointSize(12);
+  groupFont.setPixelSize(12);
   groupFont.setBold(true);
 
   //backgroundGradient.setColorAt(0.66, QColor(208,212,215));
@@ -1064,13 +1060,14 @@ void InspectorDialog::loadTableWidgetData() {
   // all object handles
   m_objectHandles.clear();
 
-  int i = 0, j = 0;
+  int i = 0;
+  int j = 0;
   //bool connected;
   //QCheckBox * checkBox;
 
   std::vector<WorkspaceObject> objects = m_model.getObjectsByType(m_iddObjectType);
-
-  for (WorkspaceObject object : objects) {
+  m_objectHandles.reserve(objects.size());
+  for (const WorkspaceObject& object : objects) {
 
     m_objectHandles.push_back(object.handle());
 
@@ -1083,7 +1080,7 @@ void InspectorDialog::loadTableWidgetData() {
     unsigned numSources = object.numSources();
     displayName += QString(" (") + QString::number(numSources) + QString(")");
 
-    auto tableItem = new QTableWidgetItem(displayName);
+    auto* tableItem = new QTableWidgetItem(displayName);
     tableItem->setFlags(Qt::NoItemFlags | Qt::ItemIsEnabled | Qt::ItemIsSelectable);
     QString handleString(toQString(object.handle()));
     //std::string temp = toString(handleString);
@@ -1112,10 +1109,10 @@ void InspectorDialog::getTableWidgetSelected(std::vector<openstudio::Handle>& se
 
   QList<QTableWidgetItem*> selectedItems = m_tableWidget->selectedItems();
 
-  for (int i = 0; i < selectedItems.size(); ++i) {
-    int column = m_tableWidget->column(selectedItems.at(i));
+  for (auto* selectedItem : selectedItems) {
+    int column = m_tableWidget->column(selectedItem);
     if (column == 0) {
-      QString handleString = selectedItems.at(i)->data(Qt::UserRole).toString();
+      QString handleString = selectedItem->data(Qt::UserRole).toString();
       //std::string temp = toString(handleString);
       selectedHandles.push_back(Handle(toUUID(handleString)));
     }
@@ -1125,5 +1122,7 @@ void InspectorDialog::getTableWidgetSelected(std::vector<openstudio::Handle>& se
 }
 
 void InspectorDialog::displayIP(const bool displayIP) {
-  if (m_inspectorGadget) m_inspectorGadget->toggleUnits(displayIP);
+  if (m_inspectorGadget) {
+    m_inspectorGadget->toggleUnits(displayIP);
+  }
 }

@@ -64,13 +64,13 @@ void OSObjectListCBDS::initialize() {
     if (std::find(m_types.begin(), m_types.end(), modelObject.iddObjectType()) != m_types.end()) {
       m_workspaceObjects << modelObject;
 
-      modelObject.getImpl<model::detail::ModelObject_Impl>().get()->onChange.connect<OSObjectListCBDS, &OSObjectListCBDS::onObjectChanged>(this);
+      modelObject.getImpl<model::detail::ModelObject_Impl>()->onChange.connect<OSObjectListCBDS, &OSObjectListCBDS::onObjectChanged>(this);
     }
   }
 
-  m_model.getImpl<model::detail::Model_Impl>().get()->addWorkspaceObject.connect<OSObjectListCBDS, &OSObjectListCBDS::onObjectAdded>(this);
+  m_model.getImpl<model::detail::Model_Impl>()->addWorkspaceObject.connect<OSObjectListCBDS, &OSObjectListCBDS::onObjectAdded>(this);
 
-  m_model.getImpl<model::detail::Model_Impl>().get()->removeWorkspaceObject.connect<OSObjectListCBDS, &OSObjectListCBDS::onObjectWillBeRemoved>(this);
+  m_model.getImpl<model::detail::Model_Impl>()->removeWorkspaceObject.connect<OSObjectListCBDS, &OSObjectListCBDS::onObjectWillBeRemoved>(this);
 }
 
 int OSObjectListCBDS::numberOfItems() {
@@ -97,7 +97,7 @@ void OSObjectListCBDS::onObjectAdded(const WorkspaceObject& workspaceObject, con
   if (std::find(m_types.begin(), m_types.end(), workspaceObject.cast<model::ModelObject>().iddObjectType()) != m_types.end()) {
     m_workspaceObjects << workspaceObject;
 
-    workspaceObject.getImpl<model::detail::ModelObject_Impl>().get()->onChange.connect<OSObjectListCBDS, &OSObjectListCBDS::onObjectChanged>(this);
+    workspaceObject.getImpl<model::detail::ModelObject_Impl>()->onChange.connect<OSObjectListCBDS, &OSObjectListCBDS::onObjectChanged>(this);
     if (m_allowEmptySelection) {
       emit itemAdded(m_workspaceObjects.size());
     } else {
@@ -140,30 +140,38 @@ void OSObjectListCBDS::onObjectChanged() {
   // }
 }
 
-OSComboBox2::OSComboBox2(QWidget* parent, bool editable) : QComboBox(parent) {
+OSComboBox2::OSComboBox2(QWidget* parent, bool editable) : QComboBox(parent), m_editable(editable) {
   this->setAcceptDrops(false);
-  setEditable(editable);
-  if (editable) {
-    auto completer = new QCompleter();
+  setEditable(m_editable);
+  if (m_editable) {
+    auto* completer = new QCompleter();
     this->setCompleter(completer);
   }
-  setEnabled(false);
+  setEnabled(false);  // default locked
 
   // if multiple qss rules apply with same specificity then the last one is chosen
-  this->setStyleSheet("QComboBox[style=\"000\"] { color:black; background:white;   } "  // Locked=0, Focused=0, Defaulted=0
-                      "QComboBox[style=\"001\"] { color:green; background:white;   } "  // Locked=0, Focused=0, Defaulted=1
-                      "QComboBox[style=\"010\"] { color:black; background:#ffc627; } "  // Locked=0, Focused=1, Defaulted=0
-                      "QComboBox[style=\"011\"] { color:green; background:#ffc627; } "  // Locked=0, Focused=1, Defaulted=1
-                      "QComboBox[style=\"100\"] { color:black; background:#e6e6e6; } "  // Locked=1, Focused=0, Defaulted=0
-                      "QComboBox[style=\"101\"] { color:green; background:#e6e6e6; } "  // Locked=1, Focused=0, Defaulted=1
-                      "QComboBox[style=\"110\"] { color:black; background:#cc9a00; } "  // Locked=1, Focused=1, Defaulted=0
-                      "QComboBox[style=\"111\"] { color:green; background:#cc9a00; } "  // Locked=1, Focused=1, Defaulted=1
+  this->setStyleSheet("QComboBox[style=\"0000\"] { color:black; background:#e6e6e6; } "  // Locked=0, Editable=0, Focused=0, Defaulted=0
+                      "QComboBox[style=\"0001\"] { color:green; background:#e6e6e6; } "  // Locked=0, Editable=0, Focused=0, Defaulted=1
+                      "QComboBox[style=\"0010\"] { color:black; background:#e6e6e6; } "  // Locked=0, Editable=0, Focused=1, Defaulted=0
+                      "QComboBox[style=\"0011\"] { color:green; background:#e6e6e6; } "  // Locked=0, Editable=0, Focused=1, Defaulted=1
+                      "QComboBox[style=\"0100\"] { color:black; background:white;   } "  // Locked=0, Editable=1, Focused=0, Defaulted=0
+                      "QComboBox[style=\"0101\"] { color:green; background:white;   } "  // Locked=0, Editable=1, Focused=0, Defaulted=1
+                      "QComboBox[style=\"0110\"] { color:black; background:#ffc627; } "  // Locked=0, Editable=1, Focused=1, Defaulted=0
+                      "QComboBox[style=\"0111\"] { color:green; background:#ffc627; } "  // Locked=0, Editable=1, Focused=1, Defaulted=1
+                      "QComboBox[style=\"1000\"] { color:black; background:#e6e6e6; } "  // Locked=1, Editable=0, Focused=0, Defaulted=0
+                      "QComboBox[style=\"1001\"] { color:green; background:#e6e6e6; } "  // Locked=1, Editable=0, Focused=0, Defaulted=1
+                      "QComboBox[style=\"1010\"] { color:black; background:#cc9a00; } "  // Locked=1, Editable=0, Focused=1, Defaulted=0
+                      "QComboBox[style=\"1011\"] { color:green; background:#cc9a00; } "  // Locked=1, Editable=0, Focused=1, Defaulted=1
+                      "QComboBox[style=\"1100\"] { color:black; background:#e6e6e6; } "  // Locked=1, Editable=1, Focused=0, Defaulted=0
+                      "QComboBox[style=\"1101\"] { color:green; background:#e6e6e6; } "  // Locked=1, Editable=1, Focused=0, Defaulted=1
+                      "QComboBox[style=\"1110\"] { color:black; background:#cc9a00; } "  // Locked=1, Editable=1, Focused=1, Defaulted=0
+                      "QComboBox[style=\"1111\"] { color:green; background:#cc9a00; } "  // Locked=1, Editable=1, Focused=1, Defaulted=1
   );
 
   setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
 }
 
-OSComboBox2::~OSComboBox2() {}
+OSComboBox2::~OSComboBox2() = default;
 
 bool OSComboBox2::event(QEvent* e) {
   if (e->type() == QEvent::Wheel) {
@@ -225,10 +233,8 @@ void OSComboBox2::unbind() {
   if (m_modelObject) {
     // disconnect( m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get() );
 
-    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.disconnect<OSComboBox2, &OSComboBox2::onModelObjectChanged>(
-      this);
+    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()->onChange.disconnect<OSComboBox2, &OSComboBox2::onModelObjectChanged>(this);
     m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
-      .get()
       ->onRemoveFromWorkspace.disconnect<OSComboBox2, &OSComboBox2::onModelObjectRemoved>(this);
     // m_modelObject->model().getImpl<openstudio::model::detail::Model_Impl>().get()->onChange.disconnect<OSComboBox2, &OSComboBox2::onChoicesRefreshTrigger>(this);
 
@@ -254,7 +260,7 @@ void OSComboBox2::onModelObjectChanged() {
   if (m_choiceConcept) {
     std::string value = m_choiceConcept->get();
 
-    std::vector<std::string>::const_iterator it = std::find(m_values.begin(), m_values.end(), value);
+    auto it = std::find(m_values.begin(), m_values.end(), value);
 
     int i = int(it - m_values.begin());
     this->blockSignals(true);
@@ -315,7 +321,7 @@ void OSComboBox2::onChoicesRefreshTrigger() {
     onModelObjectChanged();
 
     this->blockSignals(false);
-    setEnabled(true);
+    setLocked(false);
   }
 }
 
@@ -343,10 +349,11 @@ void OSComboBox2::onDataSourceRemove(int i) {
 
 void OSComboBox2::updateStyle() {
   // Locked, Focused, Defaulted
-  std::bitset<3> style;
+  std::bitset<4> style;
   style[0] = m_choiceConcept ? m_choiceConcept->isDefaulted() : false;
   style[1] = m_focused;
-  style[2] = m_locked;
+  style[2] = m_editable;
+  style[3] = m_locked;
   QString thisStyle = QString::fromStdString(style.to_string());
 
   QVariant currentStyle = property("style");
@@ -360,10 +367,8 @@ void OSComboBox2::updateStyle() {
 void OSComboBox2::completeBind() {
   if (m_modelObject) {
     // connections
-    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.connect<OSComboBox2, &OSComboBox2::onModelObjectChanged>(
-      this);
+    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()->onChange.connect<OSComboBox2, &OSComboBox2::onModelObjectChanged>(this);
     m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
-      .get()
       ->onRemoveFromWorkspace.connect<OSComboBox2, &OSComboBox2::onModelObjectRemoved>(this);
 
     connect(this, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentTextChanged), this, &OSComboBox2::onCurrentIndexChanged);
@@ -426,7 +431,7 @@ void OSComboBox2::completeBind() {
   }
 
   this->blockSignals(false);
-  setEnabled(true);
+  setLocked(false);
   updateStyle();
 }
 

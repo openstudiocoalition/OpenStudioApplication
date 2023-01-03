@@ -101,7 +101,7 @@ ScheduleDialog::ScheduleDialog(bool isIP, const model::Model& model, QWidget* pa
   : OSDialog(parent), m_model(model), m_scheduleTypeComboBox(nullptr) {
   m_isIP = isIP;
   setWindowModality(Qt::ApplicationModal);
-  createLayout();
+  createLayoutInternal();
 }
 
 void ScheduleDialog::setIsIP(bool isIP) {
@@ -111,6 +111,10 @@ void ScheduleDialog::setIsIP(bool isIP) {
 }
 
 void ScheduleDialog::createLayout() {
+  createLayoutInternal();
+}
+
+void ScheduleDialog::createLayoutInternal() {
   okButton()->setText("Apply");
 
   // make all possible schedule type limits
@@ -142,7 +146,7 @@ void ScheduleDialog::createLayout() {
   label->setObjectName("H1");
   upperLayout()->addWidget(label);
 
-  auto vertLayout = new QVBoxLayout();
+  auto* vertLayout = new QVBoxLayout();
   vertLayout->setContentsMargins(20, 10, 10, 10);
   vertLayout->setSpacing(20);
   upperLayout()->addLayout(vertLayout);

@@ -174,7 +174,7 @@ class RefrigerationSystemItemDelegate : public OSGraphicsItemDelegate
   Q_OBJECT;
 
  public:
-  virtual ~RefrigerationSystemItemDelegate() {}
+  virtual ~RefrigerationSystemItemDelegate() = default;
 
   virtual QGraphicsObject* view(QSharedPointer<OSListItem> dataSource) override;
 };
@@ -184,9 +184,9 @@ class RefrigerationSystemListDropZoneItem : public OSListItem
   Q_OBJECT
 
  public:
-  RefrigerationSystemListDropZoneItem(OSListController* listController = nullptr);
+  explicit RefrigerationSystemListDropZoneItem(OSListController* listController = nullptr);
 
-  ~RefrigerationSystemListDropZoneItem() {}
+  virtual ~RefrigerationSystemListDropZoneItem() = default;
 };
 
 class RefrigerationSystemListItem : public OSListItem
@@ -195,7 +195,7 @@ class RefrigerationSystemListItem : public OSListItem
 
  public:
   explicit RefrigerationSystemListItem(const model::RefrigerationSystem& refrigerationSystem, OSListController* listController = nullptr);
-  virtual ~RefrigerationSystemListItem() {}
+  virtual ~RefrigerationSystemListItem() = default;
 
   QString systemName() const;
   model::RefrigerationSystem system() const;

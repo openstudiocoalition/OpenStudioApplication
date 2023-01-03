@@ -262,11 +262,10 @@ void MainRightColumnController::configureForSchedulesSubTab(int subTabID) {
       model::Model lib = doc->componentLibrary();
 
       // my model
-      auto myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader);
+      auto* myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader);
       myModelList->setItemsType(OSItemType::LibraryItem);
       myModelList->setItemsDraggable(true);
       myModelList->setItemsRemoveable(false);
-      myModelList->setShowFilterLayout(true);
 
       myModelList->addModelObjectType(IddObjectType::OS_Schedule_VariableInterval, "Variable Interval Schedules");
       myModelList->addModelObjectType(IddObjectType::OS_Schedule_FixedInterval, "Fixed Interval Schedules");
@@ -278,7 +277,7 @@ void MainRightColumnController::configureForSchedulesSubTab(int subTabID) {
       setMyModelView(myModelList);
 
       // my library
-      auto myLibraryList = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader);
+      auto* myLibraryList = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader);
       myLibraryList->setItemsDraggable(true);
       myLibraryList->setItemsRemoveable(false);
       myLibraryList->setItemsType(OSItemType::LibraryItem);
@@ -301,11 +300,10 @@ void MainRightColumnController::configureForSchedulesSubTab(int subTabID) {
       model::Model lib = doc->componentLibrary();
 
       // my library
-      auto myLibraryList = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader);
+      auto* myLibraryList = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader);
       myLibraryList->setItemsDraggable(true);
       myLibraryList->setItemsRemoveable(false);
       myLibraryList->setItemsType(OSItemType::LibraryItem);
-      myLibraryList->setShowFilterLayout(true);
 
       myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Ruleset, "Schedule Rulesets");
 
@@ -332,11 +330,10 @@ void MainRightColumnController::configureForConstructionsSubTab(int subTabID) {
       model::Model lib = doc->componentLibrary();
 
       // my model
-      auto myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader);
+      auto* myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader);
       myModelList->setItemsDraggable(true);
       myModelList->setItemsRemoveable(false);
       myModelList->setItemsType(OSItemType::LibraryItem);
-      myModelList->setShowFilterLayout(true);
 
       myModelList->addModelObjectType(IddObjectType::OS_Construction_WindowDataFile, "Window Data File Constructions");
       myModelList->addModelObjectType(IddObjectType::OS_Construction_FfactorGroundFloor, "F-factor Ground Floor Constructions");
@@ -348,11 +345,10 @@ void MainRightColumnController::configureForConstructionsSubTab(int subTabID) {
       setMyModelView(myModelList);
 
       // my library
-      auto myLibraryList = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader, true);
+      auto* myLibraryList = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader, true);
       myLibraryList->setItemsDraggable(true);
       myLibraryList->setItemsRemoveable(false);
       myLibraryList->setItemsType(OSItemType::LibraryItem);
-      myLibraryList->setShowFilterLayout(true);
 
       myLibraryList->addModelObjectType(IddObjectType::OS_Construction_WindowDataFile, "Window Data File Constructions");
       myLibraryList->addModelObjectType(IddObjectType::OS_Construction_FfactorGroundFloor, "F-factor Ground Floor Constructions");
@@ -371,11 +367,10 @@ void MainRightColumnController::configureForConstructionsSubTab(int subTabID) {
       model::Model lib = doc->componentLibrary();
 
       // my model
-      auto myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader);
+      auto* myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader);
       myModelList->setItemsDraggable(true);
       myModelList->setItemsRemoveable(false);
       myModelList->setItemsType(OSItemType::LibraryItem);
-      myModelList->setShowFilterLayout(true);
 
       // TODO: commented out until ThermochromicGlazing is properly wrapped
       // myModelList->addModelObjectType(IddObjectType::OS_WindowMaterial_GlazingGroup_Thermochromic, "Glazing Group Thermochromic Window Materials");
@@ -393,7 +388,6 @@ void MainRightColumnController::configureForConstructionsSubTab(int subTabID) {
 
       myModelList->addModelObjectType(IddObjectType::OS_Material_RoofVegetation, "Roof Vegetation Materials");
       myModelList->addModelObjectType(IddObjectType::OS_Material_InfraredTransparent, "Infrared Transparent Materials");
-      myModelList->addModelObjectType(IddObjectType::OS_Material_AirWall, "Air Wall Materials");
       myModelList->addModelObjectType(IddObjectType::OS_Material_AirGap, "Air Gap Materials");
       myModelList->addModelObjectType(IddObjectType::OS_Material_NoMass, "No Mass Materials");
       myModelList->addModelObjectType(IddObjectType::OS_Material, "Materials");
@@ -401,11 +395,10 @@ void MainRightColumnController::configureForConstructionsSubTab(int subTabID) {
       setMyModelView(myModelList);
 
       // my library
-      auto myLibraryList = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader, true);
+      auto* myLibraryList = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader, true);
       myLibraryList->setItemsDraggable(true);
       myLibraryList->setItemsRemoveable(false);
       myLibraryList->setItemsType(OSItemType::LibraryItem);
-      myLibraryList->setShowFilterLayout(true);
 
       // TODO: commented out until ThermochromicGlazing is properly wrapped
       // myLibraryList->addModelObjectType(IddObjectType::OS_WindowMaterial_GlazingGroup_Thermochromic, "Glazing Group Thermochromic Window Materials");
@@ -422,7 +415,6 @@ void MainRightColumnController::configureForConstructionsSubTab(int subTabID) {
 
       myLibraryList->addModelObjectType(IddObjectType::OS_Material_RoofVegetation, "Roof Vegetation Materials");
       myLibraryList->addModelObjectType(IddObjectType::OS_Material_InfraredTransparent, "Infrared Transparent Materials");
-      myLibraryList->addModelObjectType(IddObjectType::OS_Material_AirWall, "Air Wall Materials");
       myLibraryList->addModelObjectType(IddObjectType::OS_Material_AirGap, "Air Gap Materials");
       myLibraryList->addModelObjectType(IddObjectType::OS_Material_NoMass, "No Mass Materials");
       myLibraryList->addModelObjectType(IddObjectType::OS_Material, "Materials");
@@ -443,20 +435,18 @@ void MainRightColumnController::configureForConstructionsSubTab(int subTabID) {
       model::Model lib = doc->componentLibrary();
 
       // my model
-      auto myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader);
+      auto* myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader);
       myModelList->setItemsDraggable(true);
       myModelList->setItemsRemoveable(false);
       myModelList->setItemsType(OSItemType::LibraryItem);
-      myModelList->setShowFilterLayout(true);
 
       setMyModelView(myModelList);
 
       // my library
-      auto myLibraryList = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader, true);
+      auto* myLibraryList = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader, true);
       myLibraryList->setItemsDraggable(true);
       myLibraryList->setItemsRemoveable(false);
       myLibraryList->setItemsType(OSItemType::LibraryItem);
-      myLibraryList->setShowFilterLayout(true);
 
       // TODO: commented out until ThermochromicGlazing is properly wrapped
       // myLibraryList->addModelObjectType(IddObjectType::OS_WindowMaterial_GlazingGroup_Thermochromic, "Glazing Group Thermochromic Window Materials");
@@ -474,7 +464,6 @@ void MainRightColumnController::configureForConstructionsSubTab(int subTabID) {
 
       myLibraryList->addModelObjectType(IddObjectType::OS_Material_RoofVegetation, "Roof Vegetation Materials");
       myLibraryList->addModelObjectType(IddObjectType::OS_Material_InfraredTransparent, "Infrared Transparent Materials");
-      myLibraryList->addModelObjectType(IddObjectType::OS_Material_AirWall, "Air Wall Materials");
       myLibraryList->addModelObjectType(IddObjectType::OS_Material_AirGap, "Air Gap Materials");
       myLibraryList->addModelObjectType(IddObjectType::OS_Material_NoMass, "No Mass Materials");
       myLibraryList->addModelObjectType(IddObjectType::OS_Material, "Materials");
@@ -519,11 +508,10 @@ void MainRightColumnController::configureForLoadsSubTab(int subTabID) {
 
   // my model
 
-  auto myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader);
+  auto* myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader);
   myModelList->setItemsDraggable(true);
   myModelList->setItemsRemoveable(false);
   myModelList->setItemsType(OSItemType::LibraryItem);
-  myModelList->setShowFilterLayout(true);
 
   myModelList->addModelObjectType(IddObjectType::OS_Construction_WindowDataFile, "Window Data File Constructions");
   myModelList->addModelObjectType(IddObjectType::OS_Construction_FfactorGroundFloor, "F-factor Ground Floor Constructions");
@@ -542,11 +530,10 @@ void MainRightColumnController::configureForLoadsSubTab(int subTabID) {
 
   // my library
 
-  auto myLibraryList = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader, true);
+  auto* myLibraryList = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader, true);
   myLibraryList->setItemsDraggable(true);
   myLibraryList->setItemsRemoveable(false);
   myLibraryList->setItemsType(OSItemType::LibraryItem);
-  myLibraryList->setShowFilterLayout(true);
 
   myLibraryList->addModelObjectType(IddObjectType::OS_Construction_WindowDataFile, "Window Data File Constructions");
   myLibraryList->addModelObjectType(IddObjectType::OS_Construction_FfactorGroundFloor, "F-factor Ground Floor Constructions");
@@ -585,11 +572,10 @@ void MainRightColumnController::configureForSpaceTypesSubTab(int subTabID) {
   std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
 
   // my model
-  auto myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader);
+  auto* myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader);
   myModelList->setItemsDraggable(true);
   myModelList->setItemsRemoveable(false);
   myModelList->setItemsType(OSItemType::LibraryItem);
-  myModelList->setShowFilterLayout(true);
 
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_VariableInterval, "Variable Interval Schedules");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_FixedInterval, "Fixed Interval Schedules");
@@ -627,11 +613,10 @@ void MainRightColumnController::configureForSpaceTypesSubTab(int subTabID) {
   // my library
   model::Model lib = doc->componentLibrary();
 
-  auto myLibraryList = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader, true);
+  auto* myLibraryList = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader, true);
   myLibraryList->setItemsDraggable(true);
   myLibraryList->setItemsRemoveable(false);
   myLibraryList->setItemsType(OSItemType::LibraryItem);
-  myLibraryList->setShowFilterLayout(true);
 
   myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_VariableInterval, "Variable Interval Schedules");
   myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_FixedInterval, "Fixed Interval Schedules");
@@ -667,11 +652,10 @@ void MainRightColumnController::configureForFacilitySubTab(int subTabID) {
   std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
 
   // my model
-  auto myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader);
+  auto* myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader);
   myModelList->setItemsDraggable(true);
   myModelList->setItemsRemoveable(false);
   myModelList->setItemsType(OSItemType::LibraryItem);
-  myModelList->setShowFilterLayout(true);
 
   myModelList->addModelObjectType(IddObjectType::OS_SubSurface, "Sub Surfaces");
   myModelList->addModelObjectType(IddObjectType::OS_Surface, "Surfaces");
@@ -713,11 +697,10 @@ void MainRightColumnController::configureForFacilitySubTab(int subTabID) {
   // Library
   model::Model lib = doc->componentLibrary();
 
-  auto myLibraryList = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader);
+  auto* myLibraryList = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader);
   myLibraryList->setItemsDraggable(true);
   myLibraryList->setItemsRemoveable(false);
   myLibraryList->setItemsType(OSItemType::LibraryItem);
-  myLibraryList->setShowFilterLayout(true);
 
   myLibraryList->addModelObjectType(IddObjectType::OS_Fan_ZoneExhaust, "Fan Zone Exhaust");
   myLibraryList->addModelObjectType(IddObjectType::OS_ZoneHVAC_PackagedTerminalHeatPump, "PTHP");
@@ -774,11 +757,10 @@ void MainRightColumnController::configureForSpacesSubTab(int subTabID) {
   std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
 
   // my model
-  auto myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader);
+  auto* myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader);
   myModelList->setItemsDraggable(true);
   myModelList->setItemsRemoveable(false);
   myModelList->setItemsType(OSItemType::LibraryItem);
-  myModelList->setShowFilterLayout(true);
 
   myModelList->addModelObjectType(IddObjectType::OS_InteriorPartitionSurface, "Interior Partition Surface");
   myModelList->addModelObjectType(IddObjectType::OS_ShadingSurface, "Shading Surface");
@@ -825,11 +807,10 @@ void MainRightColumnController::configureForSpacesSubTab(int subTabID) {
   // Library
   model::Model lib = doc->componentLibrary();
 
-  auto myLibraryList = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader, true);
+  auto* myLibraryList = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader, true);
   myLibraryList->setItemsDraggable(true);
   myLibraryList->setItemsRemoveable(false);
   myLibraryList->setItemsType(OSItemType::LibraryItem);
-  myLibraryList->setShowFilterLayout(true);
 
   myLibraryList->addModelObjectType(IddObjectType::OS_ShadingControl, "ShadingControl");
   myLibraryList->addModelObjectType(IddObjectType::OS_WindowProperty_FrameAndDivider, "Frame And Divider Window Property");
@@ -889,11 +870,11 @@ void MainRightColumnController::configureForThermalZonesSubTab(int subTabID) {
 
   // My Model
 
-  auto myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader);
+  auto* myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader);
   myModelList->setItemsDraggable(true);
   myModelList->setItemsRemoveable(false);
   myModelList->setItemsType(OSItemType::LibraryItem);
-  myModelList->setShowFilterLayout(true);
+
   myModelList->addModelObjectType(IddObjectType::OS_WaterHeater_HeatPump, "Water Heater - Heat Pump");
   myModelList->addModelObjectType(IddObjectType::OS_WaterHeater_HeatPump_WrappedCondenser, "Water Heater - Heat Pump - Wrapped Condenser");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_VariableInterval, "Variable Interval Schedules");
@@ -908,11 +889,10 @@ void MainRightColumnController::configureForThermalZonesSubTab(int subTabID) {
   // Library
   model::Model lib = doc->componentLibrary();
 
-  auto libraryWidget = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader);
+  auto* libraryWidget = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader);
   libraryWidget->setItemsDraggable(true);
   libraryWidget->setItemsRemoveable(false);
   libraryWidget->setItemsType(OSItemType::LibraryItem);
-  libraryWidget->setShowFilterLayout(true);
 
   libraryWidget->addModelObjectType(IddObjectType::OS_AirLoopHVAC_UnitarySystem, "Unitary System");
   libraryWidget->addModelObjectType(IddObjectType::OS_ZoneHVAC_CoolingPanel_RadiantConvective_Water, "Cooling Panel Radiant Convective Water");
@@ -956,11 +936,10 @@ void MainRightColumnController::configureForHVACSystemsSubTab(int subTabID) {
   setEditView(nullptr);
 
   // my model
-  auto myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader);
+  auto* myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader);
   myModelList->setItemsDraggable(true);
   myModelList->setItemsRemoveable(false);
   myModelList->setItemsType(OSItemType::LibraryItem);
-  myModelList->setShowFilterLayout(true);
 
   // Water and Tanks
   myModelList->addModelObjectType(IddObjectType::OS_WaterUse_Equipment_Definition, "Water Use Equipment Definition");
@@ -1011,11 +990,10 @@ void MainRightColumnController::configureForHVACSystemsSubTab(int subTabID) {
 
   model::Model lib = doc->componentLibrary();
 
-  auto libraryWidget = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader, true);
+  auto* libraryWidget = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader, true);
   libraryWidget->setItemsDraggable(true);
   libraryWidget->setItemsRemoveable(false);
   libraryWidget->setItemsType(OSItemType::LibraryItem);
-  libraryWidget->setShowFilterLayout(true);
 
   libraryWidget->addModelObjectType(IddObjectType::OS_SolarCollector_IntegralCollectorStorage, "Solar Collector Integral Collector Storage");
   libraryWidget->addModelObjectType(IddObjectType::OS_SolarCollector_FlatPlate_Water, "Solar Collector Flat Plate Water");
@@ -1031,6 +1009,8 @@ void MainRightColumnController::configureForHVACSystemsSubTab(int subTabID) {
   libraryWidget->addModelObjectType(IddObjectType::OS_ThermalStorage_Ice_Detailed, "Thermal Storage - Ice Storage");
   libraryWidget->addModelObjectType(IddObjectType::OS_ThermalStorage_ChilledWater_Stratified, "Thermal Storage - Chilled Water");
   libraryWidget->addModelObjectType(IddObjectType::OS_TemperingValve, "Tempering Valve");
+  libraryWidget->addModelObjectType(IddObjectType::OS_SetpointManager_SystemNodeReset_Humidity, "Setpoint Manager System Node Reset Humidity");
+  libraryWidget->addModelObjectType(IddObjectType::OS_SetpointManager_SystemNodeReset_Temperature, "Setpoint Manager System Node Reset Temperature");
   libraryWidget->addModelObjectType(IddObjectType::OS_SetpointManager_Coldest, "Setpoint Manager Coldest");
   libraryWidget->addModelObjectType(IddObjectType::OS_SetpointManager_FollowGroundTemperature, "Setpoint Manager Follow Ground Temperature");
   libraryWidget->addModelObjectType(IddObjectType::OS_SetpointManager_FollowOutdoorAirTemperature, "Setpoint Manager Follow Outdoor Air Temperature");

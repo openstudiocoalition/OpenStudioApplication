@@ -102,7 +102,7 @@ FacilityStoriesGridView::FacilityStoriesGridView(bool isIP, const model::Model& 
 
   QVBoxLayout* layout = nullptr;
 
-  auto filterGridLayout = new QGridLayout();
+  auto* filterGridLayout = new QGridLayout();
   filterGridLayout->setContentsMargins(7, 4, 0, 8);
   filterGridLayout->setSpacing(5);
 
@@ -125,7 +125,7 @@ FacilityStoriesGridView::FacilityStoriesGridView(bool isIP, const model::Model& 
   connect(m_greaterThanFilter, &QLineEdit::editingFinished, this, &openstudio::FacilityStoriesGridView::greaterThanFilterChanged);
 
   QRegularExpression regex("^(-?\\d*\\.?\\d+)?$");
-  auto validator = new QRegularExpressionValidator(regex, this);
+  auto* validator = new QRegularExpressionValidator(regex, this);
   m_greaterThanFilter->setValidator(validator);
 
   layout->addWidget(m_greaterThanFilter, Qt::AlignTop | Qt::AlignLeft);
@@ -159,7 +159,7 @@ FacilityStoriesGridView::FacilityStoriesGridView(bool isIP, const model::Model& 
   m_gridView->addLayoutToContentLayout(filterGridLayout);
   m_gridView->addSpacingToContentLayout(7);
 
-  onClearSelection();
+  clearSelection();
 }
 
 void FacilityStoriesGridView::addObject(const IddObjectType& iddObjectType) {
@@ -230,6 +230,10 @@ void FacilityStoriesGridView::onSelectItem() {
 }
 
 void FacilityStoriesGridView::onClearSelection() {
+  clearSelection();
+}
+
+void FacilityStoriesGridView::clearSelection() {
   //m_itemSelectorButtons->disableAddButton();
   //m_itemSelectorButtons->disableCopyButton();
   m_itemSelectorButtons->disableRemoveButton();
@@ -244,13 +248,10 @@ FacilityStoriesGridController::FacilityStoriesGridController(bool isIP, const QS
 
 void FacilityStoriesGridController::setCategoriesAndFields() {
   {
-    std::vector<QString> fields;
-    fields.push_back(GROUPRENDERINGNAME);
-    fields.push_back(NOMINALZCOORDINATE);
-    fields.push_back(NOMINALFLOORTOFLOORHEIGHT);
-    fields.push_back(NOMINALFLOORTOCEILINGHEIGHT);
-    fields.push_back(DEFAULTCONSTRUCTIONSETNAME);
-    fields.push_back(DEFAULTSCHEDULESETNAME);
+    std::vector<QString> fields{
+      GROUPRENDERINGNAME,          NOMINALZCOORDINATE,         NOMINALFLOORTOFLOORHEIGHT,
+      NOMINALFLOORTOCEILINGHEIGHT, DEFAULTCONSTRUCTIONSETNAME, DEFAULTSCHEDULESETNAME,
+    };
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("General"), fields);
     addCategoryAndFields(categoryAndFields);
   }
@@ -318,7 +319,9 @@ QString FacilityStoriesGridController::getColor(const model::ModelObject& modelO
 }
 
 void FacilityStoriesGridController::checkSelectedFields() {
-  if (!this->hasHorizontalHeader()) return;
+  if (!this->hasHorizontalHeader()) {
+    return;
+  }
 
   OSGridController::checkSelectedFields();
 }

@@ -96,7 +96,7 @@
 namespace openstudio {
 
 DesignDayGridView::DesignDayGridView(bool isIP, const model::Model& model, QWidget* parent) : QWidget(parent), m_isIP(isIP) {
-  auto layout = new QVBoxLayout();
+  auto* layout = new QVBoxLayout();
   layout->setSpacing(0);
   layout->setContentsMargins(0, 0, 0, 0);
   setLayout(layout);
@@ -132,7 +132,7 @@ void DesignDayGridView::onAddClicked() {
   if (m_gridController->selectedObjects().empty()) {
     model::DesignDay(m_gridController->model());
   } else {
-    for (auto& obj : m_gridController->selectedObjects()) {
+    for (const auto& obj : m_gridController->selectedObjects()) {
       // TODO: copy properties of selected to new?
       addObject(obj);
     }
@@ -140,7 +140,7 @@ void DesignDayGridView::onAddClicked() {
 }
 
 void DesignDayGridView::onCopyClicked() {
-  for (auto& obj : m_gridController->selectedObjects()) {
+  for (const auto& obj : m_gridController->selectedObjects()) {
     if (!obj.handle().isNull()) {
       copyObject(obj);
     }
@@ -148,7 +148,7 @@ void DesignDayGridView::onCopyClicked() {
 }
 
 void DesignDayGridView::onRemoveClicked() {
-  for (auto& obj : m_gridController->selectedObjects()) {
+  for (const auto& obj : m_gridController->selectedObjects()) {
     removeObject(obj);
   }
 }
@@ -157,7 +157,7 @@ void DesignDayGridView::onPurgeClicked() {
   purgeObjects(IddObjectType::OS_SizingPeriod_DesignDay);
 }
 
-void DesignDayGridView::addObject(const model::ModelObject& modelObject) {
+void DesignDayGridView::addObject(const model::ModelObject& /*modelObject*/) {
   model::DesignDay(m_gridController->model());
 }
 
@@ -169,8 +169,8 @@ void DesignDayGridView::removeObject(openstudio::model::ModelObject modelObject)
   modelObject.remove();
 }
 
-void DesignDayGridView::purgeObjects(const IddObjectType& iddObjectType) {
-  for (auto mo : m_gridController->model().getConcreteModelObjects<model::DesignDay>()) {
+void DesignDayGridView::purgeObjects(const IddObjectType& /*iddObjectType*/) {
+  for (auto& mo : m_gridController->model().getConcreteModelObjects<model::DesignDay>()) {
     mo.remove();
   }
 }
@@ -187,54 +187,50 @@ DesignDayGridController::DesignDayGridController(bool isIP, const QString& heade
 
 void DesignDayGridController::setCategoriesAndFields() {
   {
-    std::vector<QString> fields;
-    fields.push_back(DAYOFMONTH);
-    fields.push_back(MONTH);
-    fields.push_back(DAYTYPE);
-    fields.push_back(DAYLIGHTSAVINGTIMEINDICATOR);
+    std::vector<QString> fields{
+      DAYOFMONTH,
+      MONTH,
+      DAYTYPE,
+      DAYLIGHTSAVINGTIMEINDICATOR,
+    };
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(tr("Date"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
   {
-    std::vector<QString> fields;
-    fields.push_back(MAXIMUMDRYBULBTEMPERATURE);
-    fields.push_back(DAILYDRYBULBTEMPERATURERANGE);
-    fields.push_back(DAILYWETBULBTEMPERATURERANGE);
-    fields.push_back(DRYBULBTEMPERATURERANGEMODIFIERTYPE);
-    fields.push_back(DRYBULBTEMPERATURERANGEMODIFIERSCHEDULE);
+    std::vector<QString> fields{
+      MAXIMUMDRYBULBTEMPERATURE,
+      DAILYDRYBULBTEMPERATURERANGE,
+      DAILYWETBULBTEMPERATURERANGE,
+      DRYBULBTEMPERATURERANGEMODIFIERTYPE,
+      DRYBULBTEMPERATURERANGEMODIFIERSCHEDULE,
+    };
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(tr("Temperature"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
   {
-    std::vector<QString> fields;
-    fields.push_back(HUMIDITYINDICATINGCONDITIONSATMAXIMUMDRYBULB);
-    fields.push_back(HUMIDITYINDICATINGTYPE);
-    fields.push_back(HUMIDITYINDICATINGDAYSCHEDULE);
+    std::vector<QString> fields{
+      HUMIDITYINDICATINGCONDITIONSATMAXIMUMDRYBULB,
+      HUMIDITYINDICATINGTYPE,
+      HUMIDITYINDICATINGDAYSCHEDULE,
+    };
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(tr("Humidity"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
   {
-    std::vector<QString> fields;
-    fields.push_back(BAROMETRICPRESSURE);
-    fields.push_back(WINDSPEED);
-    fields.push_back(WINDDIRECTION);
-    fields.push_back(RAININDICATOR);
-    fields.push_back(SNOWINDICATOR);
+    std::vector<QString> fields{
+      BAROMETRICPRESSURE, WINDSPEED, WINDDIRECTION, RAININDICATOR, SNOWINDICATOR,
+    };
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(tr("Pressure\nWind\nPrecipitation"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
   {
-    std::vector<QString> fields;
-    fields.push_back(SOLARMODELINDICATOR);
-    fields.push_back(BEAMSOLARDAYSCHEDULE);
-    fields.push_back(DIFFUSESOLARDAYSCHEDULE);
-    fields.push_back(ASHRAETAUB);
-    fields.push_back(ASHRAETAUD);
-    fields.push_back(SKYCLEARNESS);
+    std::vector<QString> fields{
+      SOLARMODELINDICATOR, BEAMSOLARDAYSCHEDULE, DIFFUSESOLARDAYSCHEDULE, ASHRAETAUB, ASHRAETAUD, SKYCLEARNESS,
+    };
     std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(tr("Solar"), fields);
     addCategoryAndFields(categoryAndFields);
   }
@@ -446,7 +442,7 @@ void DesignDayGridController::addColumns(const QString& /*category*/, std::vecto
   }
 }
 
-QString DesignDayGridController::getColor(const model::ModelObject& modelObject) {
+QString DesignDayGridController::getColor(const model::ModelObject& /*modelObject*/) {
   QColor defaultColor(Qt::lightGray);
   QString color(defaultColor.name());
 

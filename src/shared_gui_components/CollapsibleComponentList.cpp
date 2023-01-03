@@ -62,11 +62,11 @@ CollapsibleComponentList::CollapsibleComponentList(const std::vector<Collapsible
 void CollapsibleComponentList::createLayout() {
   this->setObjectName("GrayWidget");
 
-  auto outerVLayout = new QVBoxLayout();
+  auto* outerVLayout = new QVBoxLayout();
   outerVLayout->setContentsMargins(0, 0, 0, 0);
   this->setLayout(outerVLayout);
 
-  auto outerWidget = new QWidget();
+  auto* outerWidget = new QWidget();
 
   outerVLayout->addWidget(outerWidget);
 
@@ -112,14 +112,11 @@ std::vector<CollapsibleComponent*> CollapsibleComponentList::collapsibleComponen
 
 std::vector<Component*> CollapsibleComponentList::components() {
   std::vector<Component*> result;
-  std::vector<Component*> components;
 
   for (QAbstractButton* button : m_collapsibleComponentGroup->buttons().toVector()) {
-    components = qobject_cast<CollapsibleComponent*>(button)->componentList()->components();
-    for (Component* component : components) {
+    for (Component* component : qobject_cast<CollapsibleComponent*>(button)->componentList()->components()) {
       result.push_back(component);
     }
-    components.clear();
   }
 
   return result;
@@ -159,7 +156,7 @@ void CollapsibleComponentList::addCollapsibleComponent(CollapsibleComponent* col
   collapsibleComponent->setStyleSheet(style);
 }
 
-void CollapsibleComponentList::paintEvent(QPaintEvent* event) {
+void CollapsibleComponentList::paintEvent(QPaintEvent* /*event*/) {
   QStyleOption opt;
   opt.initFrom(this);
   QPainter p(this);

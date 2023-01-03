@@ -49,7 +49,7 @@ class BCLMeasureDialog : public OSDialog
 
  public:
   /// Constructor of the dialog to create a new BCL Measure
-  BCLMeasureDialog(QWidget* parent = nullptr);
+  explicit BCLMeasureDialog(QWidget* parent = nullptr);
 
   /// Constructor of the dialog to create a copy of an existing BCL Measure
   explicit BCLMeasureDialog(const BCLMeasure& bclMeasure, QWidget* parent = nullptr);

@@ -115,7 +115,7 @@ class HVACGraphicsView : public QGraphicsView
   Q_OBJECT
 
  public:
-  HVACGraphicsView(QWidget* parent = nullptr);
+  explicit HVACGraphicsView(QWidget* parent = nullptr);
 
   virtual ~HVACGraphicsView() = default;
 

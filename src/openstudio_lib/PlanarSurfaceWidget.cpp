@@ -47,7 +47,7 @@ PlanarSurfaceWidget::PlanarSurfaceWidget(bool isIP, QWidget* parent) : QWidget(p
 
   setUnits(isIP);
 
-  auto layout = new QGridLayout();
+  auto* layout = new QGridLayout();
   layout->setContentsMargins(7, 7, 7, 7);
   layout->setSpacing(7);
   this->setLayout(layout);
@@ -58,7 +58,7 @@ void PlanarSurfaceWidget::attach(const openstudio::model::PlanarSurface& planarS
 
   m_planarSurface = planarSurface;
 
-  m_planarSurface->getImpl<model::detail::ModelObject_Impl>().get()->onChange.connect<PlanarSurfaceWidget, &PlanarSurfaceWidget::refresh>(this);
+  m_planarSurface->getImpl<model::detail::ModelObject_Impl>()->onChange.connect<PlanarSurfaceWidget, &PlanarSurfaceWidget::refresh>(this);
 
   refresh();
 }
@@ -68,7 +68,7 @@ void PlanarSurfaceWidget::detach() {
 
   if (m_planarSurface) {
     // disconnect(m_planarSurface->getImpl<model::detail::ModelObject_Impl>().get());
-    m_planarSurface->getImpl<model::detail::ModelObject_Impl>().get()->onChange.disconnect<PlanarSurfaceWidget, &PlanarSurfaceWidget::refresh>(this);
+    m_planarSurface->getImpl<model::detail::ModelObject_Impl>()->onChange.disconnect<PlanarSurfaceWidget, &PlanarSurfaceWidget::refresh>(this);
     m_planarSurface.reset();
   }
 }
@@ -98,9 +98,9 @@ void PlanarSurfaceWidget::refresh() {
       multiplicationFactor = FEET_PER_METER;
     }
 
-    QGridLayout* layout = qobject_cast<QGridLayout*>(this->layout());
+    auto* layout = qobject_cast<QGridLayout*>(this->layout());
 
-    auto label = new QLabel();
+    auto* label = new QLabel();
     label->setText("Number");
     label->setStyleSheet("QLabel { font: bold; }");
     layout->addWidget(label, 0, 0);

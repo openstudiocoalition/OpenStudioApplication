@@ -58,8 +58,8 @@ TEST_F(OpenStudioLibFixture, SpacesSpacesGridView) {
   auto space1 = spaces[0];
 
   auto gridView = std::make_shared<SpacesSpacesGridView>(false, model);
-  auto gridController = getGridController(gridView.get());
-  auto objectSelector = getObjectSelector(gridController);
+  auto* gridController = getGridController(gridView.get());
+  auto* objectSelector = getObjectSelector(gridController);
 
   processEvents();
 

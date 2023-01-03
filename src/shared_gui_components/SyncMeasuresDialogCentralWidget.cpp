@@ -42,7 +42,6 @@
 #include <QBoxLayout>
 #include <QCheckBox>
 #include <QPushButton>
-#include <QProgressBar>
 
 #define NUM_COMPONENTS_DISPLAYED 10
 
@@ -64,10 +63,10 @@ void SyncMeasuresDialogCentralWidget::init() {
 
 void SyncMeasuresDialogCentralWidget::createLayout() {
 
-  QPushButton* upperPushButton = new QPushButton("Check All");
+  auto* upperPushButton = new QPushButton("Check All");
   connect(upperPushButton, &QPushButton::clicked, this, &SyncMeasuresDialogCentralWidget::upperPushButtonClicked);
 
-  auto upperLayout = new QHBoxLayout();
+  auto* upperLayout = new QHBoxLayout();
   upperLayout->addStretch();
   upperLayout->addWidget(upperPushButton);
 
@@ -93,7 +92,7 @@ void SyncMeasuresDialogCentralWidget::createLayout() {
 
   //*******************************************************************
 
-  progressBar = new QProgressBar(this);
+  progressBar = new ProgressBarWithError(this);
   progressBar->setOrientation(Qt::Horizontal);
   progressBar->setVisible(false);
   progressBar->setTextVisible(false);
@@ -101,12 +100,12 @@ void SyncMeasuresDialogCentralWidget::createLayout() {
   lowerPushButton = new QPushButton("Update");
   connect(lowerPushButton, &QPushButton::clicked, this, &SyncMeasuresDialogCentralWidget::lowerPushButtonClicked);
 
-  auto lowerLayout = new QHBoxLayout();
+  auto* lowerLayout = new QHBoxLayout();
   lowerLayout->addWidget(progressBar);
   lowerLayout->addStretch();
   lowerLayout->addWidget(lowerPushButton);
 
-  auto mainLayout = new QVBoxLayout();
+  auto* mainLayout = new QVBoxLayout();
   mainLayout->addLayout(upperLayout);
 
   mainLayout->addWidget(m_collapsibleComponentList, 0, Qt::AlignTop);
@@ -149,7 +148,7 @@ void SyncMeasuresDialogCentralWidget::displayMeasures(int pageIdx) {
   }
 
   for (int i = startPoint; i <= endPoint; ++i) {
-    auto component = new Component(m_measures.at(i));
+    auto* component = new Component(m_measures.at(i));
 
     m_componentList->addComponent(component);
   }

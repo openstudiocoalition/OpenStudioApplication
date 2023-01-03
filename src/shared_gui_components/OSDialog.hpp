@@ -49,9 +49,9 @@ class OSDialog : public QDialog
   Q_OBJECT
 
  public:
-  OSDialog(bool isIP = false, QWidget* parent = nullptr);
+  explicit OSDialog(bool isIP = false, QWidget* parent = nullptr);
 
-  virtual ~OSDialog() {}
+  virtual ~OSDialog() = default;
 
   QSize sizeHint() const override;
 
@@ -91,7 +91,8 @@ class OSDialog : public QDialog
   QPushButton* m_okButton;
 
  private:
-  virtual void createLayout();
+  virtual void createLayout();  // TODO: Chances are this doesn't need to be virtual...
+  void createLayoutInternal();
 
   QVBoxLayout* m_upperLayout;
 

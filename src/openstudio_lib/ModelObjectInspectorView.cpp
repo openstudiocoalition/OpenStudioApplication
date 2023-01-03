@@ -78,29 +78,26 @@ void ModelObjectInspectorView::update() {
 void ModelObjectInspectorView::selectModelObject(const openstudio::model::ModelObject& modelObject) {
   if (m_modelObject) {
     m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
-      .get()
       ->onChange.disconnect<ModelObjectInspectorView, &ModelObjectInspectorView::update>(this);
   }
 
   m_modelObject = modelObject;
 
-  m_modelObject->getImpl<model::detail::ModelObject_Impl>().get()->onChange.connect<ModelObjectInspectorView, &ModelObjectInspectorView::update>(
-    this);
+  m_modelObject->getImpl<model::detail::ModelObject_Impl>()->onChange.connect<ModelObjectInspectorView, &ModelObjectInspectorView::update>(this);
 
   onSelectModelObject(*m_modelObject);
 }
 
 void ModelObjectInspectorView::onClearSelection() {
   if (m_modelObject) {
-    m_modelObject->getImpl<model::detail::ModelObject_Impl>().get()->onChange.disconnect<ModelObjectInspectorView, &ModelObjectInspectorView::update>(
-      this);
+    m_modelObject->getImpl<model::detail::ModelObject_Impl>()->onChange.disconnect<ModelObjectInspectorView, &ModelObjectInspectorView::update>(this);
   }
 
   m_modelObject.reset();
 }
 
 void ModelObjectInspectorView::onSelectItem(OSItem* item) {
-  ModelObjectItem* modelObjectItem = qobject_cast<ModelObjectItem*>(item);
+  auto* modelObjectItem = qobject_cast<ModelObjectItem*>(item);
   OS_ASSERT(modelObjectItem);
   selectModelObject(modelObjectItem->modelObject());
 }
@@ -117,19 +114,19 @@ boost::optional<openstudio::model::ModelObject> ModelObjectInspectorView::modelO
 void ModelObjectInspectorView::toggleUnits(bool displayIP) {}
 
 DefaultInspectorView::DefaultInspectorView(const model::Model& model, QWidget* parent) : ModelObjectInspectorView(model, true, parent) {
-  auto hiddenWidget = new QWidget();
+  auto* hiddenWidget = new QWidget();
   this->stackedWidget()->insertWidget(0, hiddenWidget);
 
-  auto visibleWidget = new QWidget();
+  auto* visibleWidget = new QWidget();
   this->stackedWidget()->insertWidget(1, visibleWidget);
 
   this->stackedWidget()->setCurrentIndex(0);
 
-  auto mainVLayout = new QVBoxLayout();
+  auto* mainVLayout = new QVBoxLayout();
   mainVLayout->setContentsMargins(7, 7, 7, 7);
   mainVLayout->setSpacing(7);
 
-  auto underConstructionLabel = new QLabel();
+  auto* underConstructionLabel = new QLabel();
   underConstructionLabel->setPixmap(QPixmap(":/images/coming_soon_building_summary.png"));
   underConstructionLabel->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
   mainVLayout->addWidget(underConstructionLabel);

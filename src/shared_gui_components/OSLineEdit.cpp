@@ -75,7 +75,7 @@ OSLineEdit2::OSLineEdit2(QWidget* parent) : QLineEdit(parent) {
   );
 }
 
-OSLineEdit2::~OSLineEdit2() {}
+OSLineEdit2::~OSLineEdit2() = default;
 
 void OSLineEdit2::enableClickFocus() {
   this->m_hasClickFocus = true;
@@ -161,10 +161,9 @@ void OSLineEdit2::completeBind() {
     setLocked(true);
   }
 
-  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.connect<OSLineEdit2, &OSLineEdit2::onModelObjectChange>(this);
+  m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()->onChange.connect<OSLineEdit2, &OSLineEdit2::onModelObjectChange>(this);
 
   m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
-    .get()
     ->onRemoveFromWorkspace.connect<OSLineEdit2, &OSLineEdit2::onModelObjectRemove>(this);
 
   connect(this, &OSLineEdit2::editingFinished, this, &OSLineEdit2::onEditingFinished);
@@ -177,10 +176,8 @@ void OSLineEdit2::completeBind() {
 
 void OSLineEdit2::unbind() {
   if (m_modelObject) {
-    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>().get()->onChange.disconnect<OSLineEdit2, &OSLineEdit2::onModelObjectChange>(
-      this);
+    m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()->onChange.disconnect<OSLineEdit2, &OSLineEdit2::onModelObjectChange>(this);
     m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
-      .get()
       ->onRemoveFromWorkspace.disconnect<OSLineEdit2, &OSLineEdit2::onModelObjectRemove>(this);
 
     m_modelObject.reset();
@@ -304,7 +301,11 @@ void OSLineEdit2::onModelObjectChangeInternal(bool startingup) {
         this->setToolTip(qtext);
         updateStyle();
         this->blockSignals(false);
-        if (!startingup) m_timer.start(TIMEOUT_INTERVAL);
+        if (startingup) {
+          this->setCursorPosition(0);
+        } else {
+          m_timer.start(TIMEOUT_INTERVAL);
+        }
       }
     }
   }

@@ -57,7 +57,7 @@ class GridViewSubTab : public QWidget
  public:
   GridViewSubTab(bool isIP, const model::Model& model, QWidget* parent = nullptr);
 
-  virtual ~GridViewSubTab() {}
+  virtual ~GridViewSubTab() = default;
 
  protected:
   void setGridView(OSGridView* gridView);
