@@ -303,7 +303,7 @@ void OSLineEdit2::onModelObjectChangeInternal(bool startingup) {
         this->blockSignals(false);
         if (startingup) {
           this->setCursorPosition(0);
-        }else{
+        } else {
           m_timer.start(TIMEOUT_INTERVAL);
         }
       }

@@ -106,7 +106,8 @@ IconLibrary::IconLibrary() {
     new QPixmap(":/images/direct-air.png");
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_AirTerminal_SingleDuct_VAV_NoReheat).value()] =
     new QPixmap(":/images/vav_noreheat.png");
-  m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_AirTerminal_SingleDuct_VAV_Reheat).value()] = new QPixmap(":/images/vav-reheat.png");
+  m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_AirTerminal_SingleDuct_VAV_Reheat).value()] =
+    new QPixmap(":/images/vav-reheat.png");
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_AirTerminal_SingleDuct_InletSideMixer).value()] =
     new QPixmap(":/images/air_terminal_inlet_mixer.png");
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_AirTerminal_SingleDuct_VAV_HeatAndCool_NoReheat).value()] =
@@ -119,7 +120,8 @@ IconLibrary::IconLibrary() {
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Chiller_Electric_EIR).value()] = new QPixmap(":/images/chiller_air.png");
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Chiller_Absorption_Indirect).value()] =
     new QPixmap(":/images/chiller_absorption_indirect.png");
-  m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Chiller_Absorption).value()] = new QPixmap(":/images/chiller_absorption_direct.png");
+  m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Chiller_Absorption).value()] =
+    new QPixmap(":/images/chiller_absorption_direct.png");
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Coil_Cooling_DX_SingleSpeed).value()] =
     new QPixmap(":/images/dxcoolingcoil_singlespeed.png");
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Coil_Cooling_DX_TwoSpeed).value()] =
@@ -212,7 +214,8 @@ IconLibrary::IconLibrary() {
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_PlantComponent_UserDefined).value()] = new QPixmap(":/images/user_defined.png");
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Pump_ConstantSpeed).value()] = new QPixmap(":/images/pump_constant.png");
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Pump_VariableSpeed).value()] = new QPixmap(":/images/pump_variable.png");
-  m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Refrigeration_Condenser_AirCooled).value()] = new QPixmap(":/images/air_cooled.png");
+  m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Refrigeration_Condenser_AirCooled).value()] =
+    new QPixmap(":/images/air_cooled.png");
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Refrigeration_Condenser_Cascade).value()] =
     new QPixmap(":/images/condenser_cascade.png");
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Refrigeration_Condenser_EvaporativeCooled).value()] =

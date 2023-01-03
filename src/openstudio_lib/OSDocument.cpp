@@ -386,7 +386,8 @@ void OSDocument::createTabButtons() {
                                      ":/images/disabled_building_tab.png");
 
   // Spaces
-  m_mainWindow->addVerticalTabButton(SPACES, "Spaces", ":/images/on_spaces_tab.png", ":/images/off_spaces_tab.png", ":/images/disabled_spaces_tab.png");
+  m_mainWindow->addVerticalTabButton(SPACES, "Spaces", ":/images/on_spaces_tab.png", ":/images/off_spaces_tab.png",
+                                     ":/images/disabled_spaces_tab.png");
 
   // Thermal Zones
   m_mainWindow->addVerticalTabButton(THERMAL_ZONES, "Thermal Zones", ":/images/on_thermal_zone_tab.png", ":/images/off_thermal_zone_tab.png",
