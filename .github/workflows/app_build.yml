@@ -317,11 +317,9 @@ jobs:
         echo CONAN_INSTALL_MD5=$CONAN_INSTALL_MD5 >> $GITHUB_ENV
         cmake --version
 
-    # TODO: cache the QtIFW folder too
-
     - name: Cache entire build directory
       id: cachebuild
-      if: ${{!matrix.SELF_HOSTED}}
+      if: ${{ !matrix.SELF_HOSTED }}
       uses: actions/cache@v3
       with:
         path: build/
