@@ -277,3 +277,6 @@ c25573f81282ad7aa0eb72ac24e31c57308cb038
 
 # Export openstudio-standards again, adding 90.1-2016 and 90.1-2019 in particular, using the developer/ruby/export_openstudio_standards_libraries.rb script [Julien Marrec, 2023-01-02]
 56c1f5ade248a7a65f5eda49be68eb88a115af50
+
+# [chore] Bump copyright to 2023 + about box [Julien Marrec, 2023-03-30]
+917bcb5e6576379fe6babb44f46a7f964ef581c6
