@@ -191,17 +191,9 @@ else()
 endif()
 
 get_filename_component(openstudio_ROOT_DIR "${openstudio_DIR}/../../../" ABSOLUTE)
-set(openstudio_ROOT_DIR "${openstudio_ROOT_DIR}" CACHE STRING "This is the path to the root of SDK, under which you'll find bin/, lib/, etc" FORCE)
+set(openstudio_ROOT_DIR "${openstudio_ROOT_DIR}" CACHE PATH "This is the path to the root of SDK, under which you'll find bin/, lib/, etc" FORCE)
 
-# Do an extra check?
-find_program(openstudio_EXECUTABLE
-  NAMES openstudio
-  PATHS "${openstudio_ROOT_DIR}/bin/"
-  NO_CMAKE_PATH
-  NO_CMAKE_ENVIRONMENT_PATH
-  NO_SYSTEM_ENVIRONMENT_PATH
-  NO_CMAKE_SYSTEM_PATH
-)
+get_target_property(openstudio_EXECUTABLE openstudio::openstudio LOCATION)
 
 if (NOT EXISTS "${openstudio_EXECUTABLE}")
   message(AUTHOR_WARNING "Could not find the CLI at ${openstudio_EXECUTABLE}")
