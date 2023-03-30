@@ -44,6 +44,15 @@ elseif(UNIX)
   # -is outputs "Ubuntu" or "Fedora"
   execute_process(COMMAND ${LSB_RELEASE} -is OUTPUT_VARIABLE LSB_RELEASE_ID_SHORT OUTPUT_STRIP_TRAILING_WHITESPACE)
 
+  find_program(UNAME uname)
+  execute_process(COMMAND ${UNAME} -m
+    OUTPUT_VARIABLE ARCH
+    OUTPUT_STRIP_TRAILING_WHITESPACE
+  )
+  if (ARCH STREQUAL "aarch64")
+    set(ARCH "arm64")
+  endif()
+
 endif()
 
 # set openstudio_DIR to the directory that contains the openstudioConfig.cmake

@@ -1,12 +1,12 @@
 set(OPENSTUDIO_VERSION_MAJOR 3)
-set(OPENSTUDIO_VERSION_MINOR 5)
-set(OPENSTUDIO_VERSION_PATCH 1)
+set(OPENSTUDIO_VERSION_MINOR 6)
+set(OPENSTUDIO_VERSION_PATCH 0)
 set(OPENSTUDIO_VERSION "${OPENSTUDIO_VERSION_MAJOR}.${OPENSTUDIO_VERSION_MINOR}.${OPENSTUDIO_VERSION_PATCH}")
 
 #If this is an official release, leave this "", otherwise put for eg '-rc1'
-set(OPENSTUDIO_VERSION_PRERELEASE "")
+set(OPENSTUDIO_VERSION_PRERELEASE "-alpha")
 # Enter SHA, always, eg "+79857912c4"
-set(OPENSTUDIO_VERSION_SHA "+22e1db7be5")
+set(OPENSTUDIO_VERSION_SHA "+fd37e61124")
 
 # Paths where the cmake-downloaded archives will be put
 set(OPENSTUDIO_ARCHIVE_DIR "${PROJECT_BINARY_DIR}/OpenStudio-${OPENSTUDIO_VERSION}")
@@ -15,25 +15,29 @@ set(OPENSTUDIO_EXT "tar.gz")
 
 # If downloaded, we need the SHA to match. This block is here since we need "OPENSTUDIO_PLATFORM" anyways
 if(APPLE)
+  set(OPENSTUDIO_PLATFORM "Darwin-${ARCH}")
   if(ARCH MATCHES "arm64")
-    set(OPENSTUDIO_EXPECTED_HASH 6122d16d70d25f51db28dd3697678c29)
-    set(OPENSTUDIO_PLATFORM "Darwin-arm64")
+    set(OPENSTUDIO_EXPECTED_HASH 98d764ee480d057f9b4957edd68f426b)
   else()
-    set(OPENSTUDIO_EXPECTED_HASH f21b03a44aa9ac3e52a4bdfa20009171)
-    set(OPENSTUDIO_PLATFORM "Darwin-x86_64")
+    set(OPENSTUDIO_EXPECTED_HASH ef2e03e0b306a05e14cd411b7456110b)
   endif()
 
 elseif(UNIX)
-  if(LSB_RELEASE_VERSION_SHORT MATCHES "20.04")
-    set(OPENSTUDIO_EXPECTED_HASH 6e5c93002f0cfb445dcdcdb1270261a4)
-    set(OPENSTUDIO_PLATFORM "Ubuntu-20.04")
-  else() # Assumes 18.04
-    set(OPENSTUDIO_EXPECTED_HASH 3c8bba6aa14fa8de9927c928576702a3)
-    set(OPENSTUDIO_PLATFORM "Ubuntu-18.04")
+  set(OPENSTUDIO_PLATFORM "${LSB_RELEASE_ID_SHORT}-${LSB_RELEASE_VERSION_SHORT}-${ARCH}")
+  if(LSB_RELEASE_VERSION_SHORT MATCHES "22.04")
+    if (ARCH MATCHES "arm64")
+      message(FATAL_ERROR "Pending package")
+    else()
+      set(OPENSTUDIO_EXPECTED_HASH 30b339b07862d63a1a2dcf02930ff785)
+    endif()
+  elseif(LSB_RELEASE_VERSION_SHORT MATCHES "20.04")
+    set(OPENSTUDIO_EXPECTED_HASH 95a1e6cdf779dbe3311d6efb8c263981)
+  else()
+    message(FATAL_ERROR "OpenStudio SDK no longer provides packages for Ubuntu 18.04")
   endif()
 
 elseif(WIN32)
-  set(OPENSTUDIO_EXPECTED_HASH bc83efcb140d20f8f9758559a58c4347)
+  set(OPENSTUDIO_EXPECTED_HASH TODO_HASH_TODO)
   set(OPENSTUDIO_PLATFORM "Windows")
 endif()
 
@@ -69,10 +73,10 @@ else()
   # Note: this should be set to ""http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/develop" for nightly builds
   # Occasionally we can point to a specific PR by using something like ""http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/PR-4080"
   set(OPENSTUDIO_BASELINK_CI
-    # "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/develop"
+    "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/develop"
     # TODO: TEMPORARY point to a specific subfolder / PR
     # "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/PR-4712"
-    "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/${OPENSTUDIO_VERSION}${OPENSTUDIO_VERSION_PRERELEASE}${WIN_SUBFOLDER}"
+    # "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/${OPENSTUDIO_VERSION}${OPENSTUDIO_VERSION_PRERELEASE}${WIN_SUBFOLDER}"
 
     CACHE STRING "Base link to where the openstudio develop archives are hosted" FORCE)
 
