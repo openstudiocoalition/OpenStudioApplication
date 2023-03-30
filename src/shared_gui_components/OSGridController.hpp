@@ -265,6 +265,11 @@ class OSGridController : public QObject
                                                    t_source));
   }
 
+  // This is the canonical form for a ValueType which is POD type (int, double, etc)
+  // ValueType getter() const;
+  // bool setter(T val);
+  // void reset();
+  // bool isDefaulted() const;
   template <typename ValueType, typename DataSourceType>
   void addValueEditColumn(const Heading& heading, std::function<ValueType(DataSourceType*)> getter,
                           std::function<bool(DataSourceType*, ValueType)> setter,
@@ -276,6 +281,23 @@ class OSGridController : public QObject
       t_source));
   }
 
+  // This one is the canonical/correct form for a ValueType which is a ModelObject or a std::string
+  // ValueType getter() const;
+  // bool setter(const T& val);
+  // void reset();
+  // bool isDefaulted() const;
+  template <typename ValueType, typename DataSourceType>
+  void addValueEditColumn(const Heading& heading, std::function<ValueType(DataSourceType*)> getter,
+                          std::function<bool(DataSourceType*, const ValueType&)> setter,
+                          const boost::optional<std::function<void(DataSourceType*)>> reset = boost::none,
+                          const boost::optional<std::function<bool(DataSourceType*)>> isDefaulted = boost::none,
+                          const boost::optional<DataSource>& t_source = boost::none) {
+    m_baseConcepts.push_back(makeDataSourceAdapter(
+      QSharedPointer<ValueEditConcept<ValueType>>(new ValueEditConceptImpl<ValueType, DataSourceType>(heading, getter, setter, reset, isDefaulted)),
+      t_source));
+  }
+
+  // Corner case when you have a true optional with no default value
   template <typename ValueType, typename DataSourceType>
   void addValueEditColumn(const Heading& heading, std::function<boost::optional<ValueType>(DataSourceType*)> getter,
                           std::function<bool(DataSourceType*, ValueType)> setter, const boost::optional<DataSource>& t_source = boost::none) {
@@ -284,6 +306,7 @@ class OSGridController : public QObject
       t_source));
   }
 
+  // Faulty API in SDK where the setter returns void
   template <typename ValueType, typename DataSourceType>
   void addValueEditColumn(const Heading& heading, std::function<ValueType(DataSourceType*)> getter,
                           std::function<void(DataSourceType*, ValueType)> setter,
