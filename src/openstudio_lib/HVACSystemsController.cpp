@@ -1263,19 +1263,18 @@ void HVACControlsController::update() {
       title.append(QString::fromStdString(t_plantLoop->nameString()));
       m_hvacPlantLoopControlsView->systemNameLabel->setText(title);
 
-      openstudio::energyplus::ComponentType plType = openstudio::energyplus::plantLoopType(t_plantLoop.get());
+      const openstudio::ComponentType plType = t_plantLoop->componentType();
 
-      if (plType == openstudio::energyplus::ComponentType::BOTH) {
+      if (plType == openstudio::ComponentType::Both) {
         m_hvacPlantLoopControlsView->plantLoopTypeLabel->setText("Both");
         m_hvacPlantLoopControlsView->plantLoopTypeLabel->setStyleSheet("QLabel { color : orange; }");
-      } else if (plType == openstudio::energyplus::ComponentType::HEATING) {
+      } else if (plType == openstudio::ComponentType::Heating) {
         m_hvacPlantLoopControlsView->plantLoopTypeLabel->setText("Heating");
         m_hvacPlantLoopControlsView->plantLoopTypeLabel->setStyleSheet("QLabel { color : red; }");
-
-      } else if (plType == openstudio::energyplus::ComponentType::COOLING) {
+      } else if (plType == openstudio::ComponentType::Cooling) {
         m_hvacPlantLoopControlsView->plantLoopTypeLabel->setText("Cooling");
         m_hvacPlantLoopControlsView->plantLoopTypeLabel->setStyleSheet("QLabel { color : blue; }");
-      } else if (plType == openstudio::energyplus::ComponentType::NONE) {
+      } else if (plType == openstudio::ComponentType::None) {
         m_hvacPlantLoopControlsView->plantLoopTypeLabel->setText("None");
         m_hvacPlantLoopControlsView->plantLoopTypeLabel->setStyleSheet("QLabel { color : black; }");
       }
