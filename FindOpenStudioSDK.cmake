@@ -6,7 +6,7 @@ set(OPENSTUDIO_VERSION "${OPENSTUDIO_VERSION_MAJOR}.${OPENSTUDIO_VERSION_MINOR}.
 #If this is an official release, leave this "", otherwise put for eg '-rc1'
 set(OPENSTUDIO_VERSION_PRERELEASE "-alpha")
 # Enter SHA, always, eg "+79857912c4"
-set(OPENSTUDIO_VERSION_SHA "+fd37e61124")
+set(OPENSTUDIO_VERSION_SHA "+77ffac62c5")
 
 # Paths where the cmake-downloaded archives will be put
 set(OPENSTUDIO_ARCHIVE_DIR "${PROJECT_BINARY_DIR}/OpenStudio-${OPENSTUDIO_VERSION}")
@@ -19,7 +19,7 @@ if(APPLE)
   if(ARCH MATCHES "arm64")
     set(OPENSTUDIO_EXPECTED_HASH 98d764ee480d057f9b4957edd68f426b)
   else()
-    set(OPENSTUDIO_EXPECTED_HASH ef2e03e0b306a05e14cd411b7456110b)
+    set(OPENSTUDIO_EXPECTED_HASH f400ca903ffde57b2debe2fe702c9400)
   endif()
 
 elseif(UNIX)
@@ -28,10 +28,10 @@ elseif(UNIX)
     if (ARCH MATCHES "arm64")
       message(FATAL_ERROR "Pending package")
     else()
-      set(OPENSTUDIO_EXPECTED_HASH 30b339b07862d63a1a2dcf02930ff785)
+      set(OPENSTUDIO_EXPECTED_HASH d05e8e37021dabb7992fa85a3bdb815b)
     endif()
   elseif(LSB_RELEASE_VERSION_SHORT MATCHES "20.04")
-    set(OPENSTUDIO_EXPECTED_HASH 95a1e6cdf779dbe3311d6efb8c263981)
+    set(OPENSTUDIO_EXPECTED_HASH 4b7236125a096a76d21e651b1dab265c)
   else()
     message(FATAL_ERROR "OpenStudio SDK no longer provides packages for Ubuntu 18.04")
   endif()
