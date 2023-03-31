@@ -117,9 +117,10 @@
 
 #include "../model_editor/Utilities.hpp"
 
-#include <algorithm>
-
 #include <openstudio/utilities/idd/IddEnums.hxx>
+
+#include <algorithm>
+#include <iterator>
 #include <utility>
 
 using namespace openstudio::model;
@@ -837,13 +838,13 @@ std::vector<model::HVACComponent> centerHVACComponents(model::Splitter& splitter
 
   auto loop = splitter.loop();
 
-  auto removeUnwantedSplitterMixerNodesPred = [](const model::HVACComponent& modelObject) {
+  auto isNotSplitterMixerNodesPred = [](const model::HVACComponent& modelObject) {
     auto iddObjectType = modelObject.iddObjectType();
 
-    return (iddObjectType == openstudio::IddObjectType::OS_AirLoopHVAC_ZoneSplitter)
-           || (iddObjectType == openstudio::IddObjectType::OS_AirLoopHVAC_ZoneMixer)
-           || (iddObjectType == openstudio::IddObjectType::OS_AirLoopHVAC_SupplyPlenum)
-           || (iddObjectType == openstudio::IddObjectType::OS_AirLoopHVAC_ReturnPlenum) || (iddObjectType == openstudio::IddObjectType::OS_Node);
+    return !((iddObjectType == openstudio::IddObjectType::OS_AirLoopHVAC_ZoneSplitter)
+             || (iddObjectType == openstudio::IddObjectType::OS_AirLoopHVAC_ZoneMixer)
+             || (iddObjectType == openstudio::IddObjectType::OS_AirLoopHVAC_SupplyPlenum)
+             || (iddObjectType == openstudio::IddObjectType::OS_AirLoopHVAC_ReturnPlenum) || (iddObjectType == openstudio::IddObjectType::OS_Node));
   };
 
   if (loop) {
@@ -859,8 +860,8 @@ std::vector<model::HVACComponent> centerHVACComponents(model::Splitter& splitter
 
       // reducedSet is remains with the things from "2" not a plitter/mixer or node
       // We are expecting a terminal. ie a branch with only a terminal and nodes on it
-      auto reducedSetIt = std::remove_if(branchObjects.begin(), branchObjects.end(), removeUnwantedSplitterMixerNodesPred);
-      if (reducedSetIt != branchObjects.end()) {
+      auto reducedSetIt = std::find_if(branchObjects.rbegin(), branchObjects.rend(), isNotSplitterMixerNodesPred);
+      if (reducedSetIt != branchObjects.rend()) {
         result.push_back(*reducedSetIt);
         continue;
       }
@@ -874,8 +875,7 @@ std::vector<model::HVACComponent> centerHVACComponents(model::Splitter& splitter
     }
   }
 
-  WorkspaceObjectNameLess sorter;
-  std::sort(result.begin(), result.end(), sorter);
+  std::sort(result.begin(), result.end(), WorkspaceObjectNameLess());
 
   return result;
 }

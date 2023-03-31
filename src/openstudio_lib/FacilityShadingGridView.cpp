@@ -467,12 +467,12 @@ void FacilityShadingGridController::addColumns(const QString& category, std::vec
         return choices;
       });
 
-      addComboBoxColumn(Heading(QString(TYPE)),
-                        std::function<std::string(const std::string&)>(static_cast<std::string (*)(const std::string&)>(&openstudio::toString)),
-                        choices, CastNullAdapter<model::ShadingSurfaceGroup>(&model::ShadingSurfaceGroup::shadingSurfaceType),
-                        CastNullAdapter<model::ShadingSurfaceGroup>(&model::ShadingSurfaceGroup::setShadingSurfaceType),
-                        boost::optional<std::function<void(model::ShadingSurfaceGroup*)>>(),
-                        boost::optional<std::function<bool(model::ShadingSurfaceGroup*)>>());
+      addComboBoxColumn<std::string, model::ShadingSurfaceGroup>(
+        Heading(QString(TYPE)), static_cast<std::string (*)(const std::string&)>(&openstudio::toString), choices,
+        CastNullAdapter<model::ShadingSurfaceGroup>(&model::ShadingSurfaceGroup::shadingSurfaceType),
+        CastNullAdapter<model::ShadingSurfaceGroup>(&model::ShadingSurfaceGroup::setShadingSurfaceType),
+        boost::optional<std::function<void(model::ShadingSurfaceGroup*)>>(), boost::optional<std::function<bool(model::ShadingSurfaceGroup*)>>());
+
     } else {
 
       std::function<std::vector<model::ModelObject>(const model::ShadingSurfaceGroup&)> allShadingSurfaces(

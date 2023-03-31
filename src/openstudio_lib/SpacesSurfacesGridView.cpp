@@ -170,12 +170,18 @@ void SpacesSurfacesGridController::addColumns(const QString& category, std::vect
           boost::optional<std::function<void(model::Surface*)>>(std::function<void(model::Surface*)>([](model::Surface* t_s) { t_s->remove(); })),
           boost::optional<std::function<bool(model::Surface*)>>(), DataSource(allSurfaces, true));
       } else if (field == SURFACETYPE) {
-        addComboBoxColumn(Heading(QString(SURFACETYPE)),
-                          std::function<std::string(const std::string&)>(static_cast<std::string (*)(const std::string&)>(&openstudio::toString)),
-                          std::function<std::vector<std::string>()>(&model::Surface::validSurfaceTypeValues),
-                          CastNullAdapter<model::Surface>(&model::Surface::surfaceType),
-                          CastNullAdapter<model::Surface>(&model::Surface::setSurfaceType), boost::optional<std::function<void(model::Surface*)>>(),
-                          boost::optional<std::function<bool(model::Surface*)>>(), DataSource(allSurfaces, true));
+
+        addComboBoxColumn<std::string, model::Surface>(  //
+          Heading(QString(SURFACETYPE)),
+          static_cast<std::string (*)(const std::string&)>(&openstudio::toString),             // toString
+          std::function<std::vector<std::string>()>(&model::Surface::validSurfaceTypeValues),  // choices
+          CastNullAdapter<model::Surface>(&model::Surface::surfaceType),                       // getter
+          CastNullAdapter<model::Surface>(&model::Surface::setSurfaceType),                    // setter
+          boost::none,                                                                         // reset
+          boost::none,                                                                         // isDefaulted
+          DataSource(allSurfaces, true)                                                        // source
+        );
+
       } else if (field == CONSTRUCTION) {
         setConstructionColumn(4);
         addDropZoneColumn(Heading(QString(CONSTRUCTION)), CastNullAdapter<model::Surface>(&model::Surface::construction),
@@ -184,13 +190,18 @@ void SpacesSurfacesGridController::addColumns(const QString& category, std::vect
                           boost::optional<std::function<bool(model::Surface*)>>(NullAdapter(&model::Surface::isConstructionDefaulted)),
                           boost::optional<std::function<std::vector<model::ModelObject>(const model::Surface*)>>(), DataSource(allSurfaces, true));
       } else if (field == OUTSIDEBOUNDARYCONDITION) {
-        addComboBoxColumn(Heading(QString(OUTSIDEBOUNDARYCONDITION)),
-                          std::function<std::string(const std::string&)>(static_cast<std::string (*)(const std::string&)>(&openstudio::toString)),
-                          std::function<std::vector<std::string>()>(&model::Surface::validOutsideBoundaryConditionValues),
-                          CastNullAdapter<model::Surface>(&model::Surface::outsideBoundaryCondition),
-                          CastNullAdapter<model::Surface>(&model::Surface::setOutsideBoundaryCondition),
-                          boost::optional<std::function<void(model::Surface*)>>(), boost::optional<std::function<bool(model::Surface*)>>(),
-                          DataSource(allSurfaces, true));
+
+        addComboBoxColumn<std::string, model::Surface>(  //
+          Heading(QString(OUTSIDEBOUNDARYCONDITION)),
+          static_cast<std::string (*)(const std::string&)>(&openstudio::toString),                          // toString
+          std::function<std::vector<std::string>()>(&model::Surface::validOutsideBoundaryConditionValues),  // choices
+          CastNullAdapter<model::Surface>(&model::Surface::outsideBoundaryCondition),                       // getter
+          CastNullAdapter<model::Surface>(&model::Surface::setOutsideBoundaryCondition),                    // setter
+          boost::none,                                                                                      // reset
+          boost::none,                                                                                      // isDefaulted
+          DataSource(allSurfaces, true)                                                                     // source
+        );
+
       } else if (field == OUTSIDEBOUNDARYCONDITIONOBJECT) {
         std::function<bool(model::Surface*, const model::Surface&)> setter([](model::Surface* t_surface, const model::Surface& t_arg) {
           auto copy = t_arg;
@@ -203,22 +214,31 @@ void SpacesSurfacesGridController::addColumns(const QString& category, std::vect
                           boost::optional<std::function<bool(model::Surface*)>>(),
                           boost::optional<std::function<std::vector<model::ModelObject>(const model::Surface*)>>(), DataSource(allSurfaces, true));
       } else if (field == SUNEXPOSURE) {
-        addComboBoxColumn(
+
+        addComboBoxColumn<std::string, model::Surface>(  //
           Heading(QString(SUNEXPOSURE)),
-          std::function<std::string(const std::string&)>(static_cast<std::string (*)(const std::string&)>(&openstudio::toString)),
-          std::function<std::vector<std::string>()>(&model::Surface::validSunExposureValues),
-          CastNullAdapter<model::Surface>(&model::Surface::sunExposure), CastNullAdapter<model::Surface>(&model::Surface::setSunExposure),
-          boost::optional<std::function<void(model::Surface*)>>(NullAdapter(&model::Surface::resetSunExposure)),
-          boost::optional<std::function<bool(model::Surface*)>>(NullAdapter(&model::Surface::isSunExposureDefaulted)), DataSource(allSurfaces, true));
+          static_cast<std::string (*)(const std::string&)>(&openstudio::toString),                                      // toString
+          std::function<std::vector<std::string>()>(&model::Surface::validSunExposureValues),                           // choices
+          CastNullAdapter<model::Surface>(&model::Surface::sunExposure),                                                // getter
+          CastNullAdapter<model::Surface>(&model::Surface::setSunExposure),                                             // setter
+          boost::optional<std::function<void(model::Surface*)>>(NullAdapter(&model::Surface::resetSunExposure)),        // reset
+          boost::optional<std::function<bool(model::Surface*)>>(NullAdapter(&model::Surface::isSunExposureDefaulted)),  // isDefaulted
+          DataSource(allSurfaces, true)                                                                                 // source
+        );
+
       } else if (field == WINDEXPOSURE) {
-        addComboBoxColumn(Heading(QString(WINDEXPOSURE)),
-                          std::function<std::string(const std::string&)>(static_cast<std::string (*)(const std::string&)>(&openstudio::toString)),
-                          std::function<std::vector<std::string>()>(&model::Surface::validWindExposureValues),
-                          CastNullAdapter<model::Surface>(&model::Surface::windExposure),
-                          CastNullAdapter<model::Surface>(&model::Surface::setWindExposure),
-                          boost::optional<std::function<void(model::Surface*)>>(NullAdapter(&model::Surface::resetWindExposure)),
-                          boost::optional<std::function<bool(model::Surface*)>>(NullAdapter(&model::Surface::isWindExposureDefaulted)),
-                          DataSource(allSurfaces, true));
+
+        addComboBoxColumn<std::string, model::Surface>(  //
+          Heading(QString(WINDEXPOSURE)),
+          static_cast<std::string (*)(const std::string&)>(&openstudio::toString),                                       // toString
+          std::function<std::vector<std::string>()>(&model::Surface::validWindExposureValues),                           // choices
+          CastNullAdapter<model::Surface>(&model::Surface::windExposure),                                                // getter
+          CastNullAdapter<model::Surface>(&model::Surface::setWindExposure),                                             // setter
+          boost::optional<std::function<void(model::Surface*)>>(NullAdapter(&model::Surface::resetWindExposure)),        // reset
+          boost::optional<std::function<bool(model::Surface*)>>(NullAdapter(&model::Surface::isWindExposureDefaulted)),  // isDefaulted
+          DataSource(allSurfaces, true)                                                                                  // source
+        );
+
       } else {
         // unhandled
         OS_ASSERT(false);
