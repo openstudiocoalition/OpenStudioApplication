@@ -136,8 +136,12 @@ var settings = {
   renderBy: 'Surface Type',
   showStory: 'All Stories',
   showAirLoop: 'All Loops',
-  findAdjacencyIssues: false,
-  findAdjacencyThreshold: 1,
+  findAdjacencyIssues: getBoolFromLocalStorage('findAdjacencyIssues', false),
+  findAdjacencyThreshold: getFloatFromLocalStorage('findAdjacencyThreshold', 1),
+  showOnlyNonConvexSurfaces: getBoolFromLocalStorage('showOnlyNonConvexSurfaces', false),
+  showOnlyNonConvexSpaces: getBoolFromLocalStorage('showOnlyNonConvexSpaces', false),
+  showOnlyNonEnclosedSpaces: getBoolFromLocalStorage('showOnlyNonEnclosedSpaces', false),
+  showOnlyIncorrectlyOrientedSurfaces: getBoolFromLocalStorage('showOnlyIncorrectlyOrientedSurfaces', false),
   searchType: getStringFromLocalStorage('searchType', 'Surfaces'),
   searchName: getStringFromLocalStorage('searchName', ''),
   showFloors: getBoolFromLocalStorage('showFloors', true),
@@ -795,6 +799,10 @@ function displaySelectedObjectDetails() {
         if (inter.userData.spaceName){
           txt += 'Space Name: ' + inter.userData.spaceName;
         }
+        txt += 'Convex' + inter.userData.convex;
+        txt += 'CorrectlyOriented' + inter.userData.correctlyOriented;
+        txt += 'Space Convex: ' + inter.userData.spaceConvex;
+        txt += 'Space Enclosed: ' + inter.userData.spaceEnclosed;
         break;
       case "Normal":
         txt += 'Surface Type: ' + inter.userData.surfaceType + '<br>'
@@ -1107,6 +1115,19 @@ var update = function (value) {
       object.visible = adjacencyIssueIds.has(object.id);
     }
 
+    if (settings.showOnlyNonConvexSurfaces && object.userData.convex) {
+      object.visible = false;
+    }
+    if (settings.showOnlyNonConvexSpaces && object.userData.spaceConvex) {
+      object.visible = false;
+    }
+    if (settings.showOnlyNonEnclosedSpaces && object.userData.spaceEnclosed) {
+      object.visible = false;
+    }
+    if (settings.showOnlyIncorrectlyOrientedSurfaces && object.userData.correctlyOriented) {
+      object.visible = false;
+    }
+
     if (settings.showStory !== 'All Stories' && settings.showStory !== object.userData.buildingStoryName) {
       object.visible = false;
     }
@@ -1412,22 +1433,56 @@ var initDatGui = function () {
   });
   f1.open();
 
-  var f2 = gui.addFolder('Potential Adjacency Issues');
-  f2.add(settings, 'findAdjacencyIssues').name('Enable').onChange(value => {
-      removeSelection();
-      setLocalStorage('findAdjacencyThreshold', value);
-      updateAdjacencyIssues();
-      update(value);
-  });
-  f2.add(settings, 'findAdjacencyThreshold', 0.1, 10, 0.5).name('Threshold').onFinishChange(function (value) {
-      if (settings.findAdjacencyIssues) {
-          removeSelection();
-          setLocalStorage('findAdjacencyThreshold', value);
-          updateAdjacencyIssues();
-          update(value);
-      }
-  });
-  f2.open();
+  var diagnostics = gui.addFolder("Diagnostic Tools")
+  {
+    var adjacencies = diagnostics.addFolder('Potential Adjacency Issues');
+    adjacencies.add(settings, 'findAdjacencyIssues').name('Enable').onChange(value => {
+        removeSelection();
+        setLocalStorage('findAdjacencyIssues', value);
+        updateAdjacencyIssues();
+        update(value);
+    });
+    adjacencies.add(settings, 'findAdjacencyThreshold', 0.1, 10, 0.5).name('Threshold').onFinishChange(function (value) {
+        if (settings.findAdjacencyIssues) {
+            removeSelection();
+            setLocalStorage('findAdjacencyThreshold', value);
+            updateAdjacencyIssues();
+            update(value);
+        }
+    });
+    adjacencies.open();
+  }
+
+  {
+    var surfaceLevelIssues =  diagnostics.addFolder('Surface Level Issues')
+    surfaceLevelIssues.add(settings, 'showOnlyNonConvexSurfaces').name('Non-Convex Surfaces Only').onChange(value => {
+        removeSelection();
+        setLocalStorage('showOnlyNonConvexSurfaces', value);
+        update(value);
+    });
+    surfaceLevelIssues.add(settings, 'showOnlyIncorrectlyOrientedSurfaces').name('Incorrectly Oriented Surfaces Only').onChange(value => {
+        removeSelection();
+        setLocalStorage('showOnlyIncorrectlyOrientedSurfaces', value);
+        update(value);
+    });
+    surfaceLevelIssues.open();
+  }
+  {
+    var spaceLevelIssues =  diagnostics.addFolder('Space Level Issues')
+    spaceLevelIssues.add(settings, 'showOnlyNonConvexSpaces').name('Non-Convex Spaces Only').onChange(value => {
+        removeSelection();
+        setLocalStorage('showOnlyNonConvexSpaces', value);
+        update(value);
+    });
+
+    spaceLevelIssues.add(settings, 'showOnlyNonEnclosedSpaces').name('Non-Enclosed Spaces Only').onChange(value => {
+        removeSelection();
+        setLocalStorage('showOnlyNonEnclosedSpaces', value);
+        update(value);
+    });
+    spaceLevelIssues.open();
+  }
+  diagnostics.open();
 
   var f3 = gui.addFolder('Camera');
   [
