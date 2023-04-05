@@ -45,14 +45,14 @@ const int RefrigerationSystemView::verticalSpacing = 20;
 const int RefrigerationSystemView::margin = 10;
 const double RefrigerationSystemView::componentHeight = 75;
 
-RefrigerationView::RefrigerationView() : QWidget() {
+RefrigerationView::RefrigerationView()
+  : header(new QWidget()), graphicsView(new QGraphicsView()), zoomOutButton(new ZoomOutButton()), nameLabel(new QLabel()) {
   auto* mainVLayout = new QVBoxLayout();
   mainVLayout->setSpacing(0);
   mainVLayout->setContentsMargins(0, 0, 0, 0);
   mainVLayout->setAlignment(Qt::AlignTop);
   setLayout(mainVLayout);
 
-  header = new QWidget();
   header->setObjectName("RefrigerationHeader");
   header->setStyleSheet("QWidget#RefrigerationHeader { background: #C3C3C3; }");
   header->setFixedHeight(35);
@@ -63,14 +63,12 @@ RefrigerationView::RefrigerationView() : QWidget() {
   headerLayout->setSpacing(0);
   header->setLayout(headerLayout);
 
-  nameLabel = new QLabel();
   headerLayout->addWidget(nameLabel);
-
-  zoomOutButton = new ZoomOutButton();
   headerLayout->addStretch();
+
+  zoomOutButton->setFixedSize(20, 20);
   headerLayout->addWidget(zoomOutButton);
 
-  graphicsView = new QGraphicsView();
   graphicsView->setObjectName("GrayWidget");
   mainVLayout->addWidget(graphicsView);
 }

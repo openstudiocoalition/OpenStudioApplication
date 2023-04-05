@@ -68,6 +68,7 @@ VRFView::VRFView() : header(new QWidget()), graphicsView(new QGraphicsView()), z
   headerLayout->addWidget(nameLabel);
   headerLayout->addStretch();
   headerLayout->addWidget(zoomOutButton);
+  zoomOutButton->setFixedSize(20, 20);
 
   graphicsView->setObjectName("GrayWidget");
   mainVLayout->addWidget(graphicsView);
