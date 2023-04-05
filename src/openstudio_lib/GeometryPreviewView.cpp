@@ -30,6 +30,7 @@
 #include "GeometryPreviewView.hpp"
 #include "OSAppBase.hpp"
 #include "OSDocument.hpp"
+#include "MainWindow.hpp"
 
 #include "../model_editor/Application.hpp"
 
@@ -46,6 +47,7 @@
 #include <QFile>
 #include <QWebEngineScriptCollection>
 #include <QtConcurrent>
+#include <QCheckBox>
 
 using namespace std::placeholders;
 
@@ -99,6 +101,26 @@ PreviewWebView::PreviewWebView(bool isIP, const model::Model& model, QWidget* t_
   m_page = new OSWebEnginePage(m_view);
   m_view->setPage(m_page);  // note, view does not take ownership of page
 
+  auto* mainWindow = OSAppBase::instance()->currentDocument()->mainWindow();
+  const bool verboseOutput = mainWindow->geometryDiagnostics();
+  m_geometryDiagnosticsBox = new QCheckBox();
+  m_geometryDiagnosticsBox->setText("Geometry Diagnostics");
+  m_geometryDiagnosticsBox->setChecked(verboseOutput);
+  m_geometryDiagnosticsBox->setToolTip("Enables checks for Surface/Space Convexity. The ThreeJS export is slightly slower");
+  connect(m_geometryDiagnosticsBox, &QCheckBox::clicked, mainWindow, &MainWindow::toggleGeometryDiagnostics);
+  connect(m_geometryDiagnosticsBox, &QCheckBox::stateChanged, [this](int state) {
+    if (state == Qt::Checked && !m_includeGeometryDiagnostics) {
+      // Old m_json didn't contain the geometry diagnostics, so we need to include it, so we should set m_json to empty so the
+      // ThreeJSForwardTranslator is called again
+      m_json = QString();
+    } else {
+      // Any other case, the former m_json includes diagnostics, we only trigger the refresh which will reanimate the web page and potentially turn
+      // off the Geometry diags datGUI
+    }
+    refreshClicked();
+  });
+  hLayout->addWidget(m_geometryDiagnosticsBox, 0, Qt::AlignVCenter);
+
   connect(m_view, &QWebEngineView::loadFinished, this, &PreviewWebView::onLoadFinished);
   connect(m_view, &QWebEngineView::renderProcessTerminated, this, &PreviewWebView::onRenderProcessTerminated);
 
@@ -127,6 +149,8 @@ PreviewWebView::PreviewWebView(bool isIP, const model::Model& model, QWidget* t_
 PreviewWebView::~PreviewWebView() = default;
 
 void PreviewWebView::refreshClicked() {
+  // qDebug() << "refreshClicked";
+
   m_progressBar->setError(false);
 
   m_view->triggerPageAction(QWebEnginePage::ReloadAndBypassCache);
@@ -156,7 +180,11 @@ void PreviewWebView::onLoadFinished(bool ok) {
     std::function<void(double)> updatePercentage = std::bind(&PreviewWebView::onTranslateProgress, this, _1);
     //ThreeScene scene = modelToThreeJS(m_model.clone(true).cast<model::Model>(), true, updatePercentage); // triangulated
 
+    // qDebug() << "ThreeJSForwardTranslator";
+
     model::ThreeJSForwardTranslator ft;
+    m_includeGeometryDiagnostics = m_geometryDiagnosticsBox->isChecked();
+    ft.setIncludeGeometryDiagnostics(m_includeGeometryDiagnostics);
     const ThreeScene scene = ft.modelToThreeJS(m_model, true, updatePercentage);  // triangulated
     const std::string json = scene.toJSON(false);                                 // no pretty print
     m_json = QString::fromStdString(json);
@@ -168,7 +196,7 @@ void PreviewWebView::onLoadFinished(bool ok) {
   m_document->disable();
 
   // call init and animate
-  const QString javascript = QString("runFromJSON(%1);").arg(m_json);
+  const QString javascript = QString("runFromJSON(%1, %2);").arg(m_json, m_geometryDiagnosticsBox->isChecked() ? "true" : "false");
   m_view->page()->runJavaScript(javascript, [this](const QVariant& v) { onJavaScriptFinished(v); });
 
   //javascript = QString("os_data.metadata.version");

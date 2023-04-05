@@ -87,6 +87,8 @@ class MainWindow : public QMainWindow
 
   void enableComponentsMeasuresActions(bool enable);
 
+  bool geometryDiagnostics() const;
+
   QString lastPath() const;
 
   VerticalTabWidget* verticalTabWidget() {
@@ -181,6 +183,8 @@ class MainWindow : public QMainWindow
 
   void toggleVerboseOutput(bool verboseOutput);
 
+  void toggleGeometryDiagnostics(bool geometryDiagnostics);
+
   void promptAnalytics();
 
   void toggleAnalytics(bool allowAnalytics);
@@ -214,6 +218,8 @@ class MainWindow : public QMainWindow
   bool m_displayIP;
 
   bool m_verboseOutput = false;
+
+  bool m_geometryDiagnostics = false;
 
   QString m_currLang;
 

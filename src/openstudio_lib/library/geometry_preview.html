@@ -70,6 +70,7 @@
 
 // global variable, set in init
 var os_data;
+var includeGeometryDiagnostics;
 
 
 var renderer, scene, light, scene_objects, scene_edges, object_edges, coincident_objects, back_objects, dot_points;
@@ -431,10 +432,11 @@ function setCameraAngles(camera, controls, theta, phi, tweenTime) {
   });
 }
 
-function init(os_data_in) {
+function init(os_data_in, includeGeometryDiagnostics_in) {
 
   // set global variable
   os_data = os_data_in;
+  includeGeometryDiagnostics = includeGeometryDiagnostics_in;
 
   var css = document.head.appendChild(document.createElement('style'));
   css.innerHTML = 'body { font:600 12pt monospace; margin:0; overflow:hidden; }';
@@ -780,6 +782,10 @@ function onDocumentMouseClick(event) {
   }
 }
 
+function colorize_bool(b) {
+  return "<span style='color: " + (b ? 'green' : 'red') + ";'>" + b + '</span>'
+}
+
 function displaySelectedObjectDetails() {
 
   headsUp.style.left = 10 + 0.5 * window.innerWidth + mouse.x * 0.5 * window.innerWidth + 'px';
@@ -799,10 +805,12 @@ function displaySelectedObjectDetails() {
         if (inter.userData.spaceName){
           txt += 'Space Name: ' + inter.userData.spaceName;
         }
-        txt += 'Convex' + inter.userData.convex;
-        txt += 'CorrectlyOriented' + inter.userData.correctlyOriented;
-        txt += 'Space Convex: ' + inter.userData.spaceConvex;
-        txt += 'Space Enclosed: ' + inter.userData.spaceEnclosed;
+        if (includeGeometryDiagnostics) {
+          txt += '<br> Convex: ' + colorize_bool(inter.userData.convex);
+          txt += '<br> CorrectlyOriented: ' + colorize_bool(inter.userData.correctlyOriented);
+          txt += '<br> Space Convex: ' + colorize_bool(inter.userData.spaceConvex);
+          txt += '<br> Space Enclosed: ' + colorize_bool(inter.userData.spaceEnclosed);
+        }
         break;
       case "Normal":
         txt += 'Surface Type: ' + inter.userData.surfaceType + '<br>'
@@ -1115,17 +1123,19 @@ var update = function (value) {
       object.visible = adjacencyIssueIds.has(object.id);
     }
 
-    if (settings.showOnlyNonConvexSurfaces && object.userData.convex) {
-      object.visible = false;
-    }
-    if (settings.showOnlyNonConvexSpaces && object.userData.spaceConvex) {
-      object.visible = false;
-    }
-    if (settings.showOnlyNonEnclosedSpaces && object.userData.spaceEnclosed) {
-      object.visible = false;
-    }
-    if (settings.showOnlyIncorrectlyOrientedSurfaces && object.userData.correctlyOriented) {
-      object.visible = false;
+    if (includeGeometryDiagnostics) {
+      if (settings.showOnlyNonConvexSurfaces && object.userData.convex) {
+        object.visible = false;
+      }
+      if (settings.showOnlyNonConvexSpaces && object.userData.spaceConvex) {
+        object.visible = false;
+      }
+      if (settings.showOnlyNonEnclosedSpaces && object.userData.spaceEnclosed) {
+        object.visible = false;
+      }
+      if (settings.showOnlyIncorrectlyOrientedSurfaces && object.userData.correctlyOriented) {
+        object.visible = false;
+      }
     }
 
     if (settings.showStory !== 'All Stories' && settings.showStory !== object.userData.buildingStoryName) {
@@ -1453,34 +1463,36 @@ var initDatGui = function () {
     adjacencies.open();
   }
 
-  {
-    var surfaceLevelIssues =  diagnostics.addFolder('Surface Level Issues')
-    surfaceLevelIssues.add(settings, 'showOnlyNonConvexSurfaces').name('Non-Convex Surfaces Only').onChange(value => {
-        removeSelection();
-        setLocalStorage('showOnlyNonConvexSurfaces', value);
-        update(value);
-    });
-    surfaceLevelIssues.add(settings, 'showOnlyIncorrectlyOrientedSurfaces').name('Incorrectly Oriented Surfaces Only').onChange(value => {
-        removeSelection();
-        setLocalStorage('showOnlyIncorrectlyOrientedSurfaces', value);
-        update(value);
-    });
-    surfaceLevelIssues.open();
-  }
-  {
-    var spaceLevelIssues =  diagnostics.addFolder('Space Level Issues')
-    spaceLevelIssues.add(settings, 'showOnlyNonConvexSpaces').name('Non-Convex Spaces Only').onChange(value => {
-        removeSelection();
-        setLocalStorage('showOnlyNonConvexSpaces', value);
-        update(value);
-    });
+  if(includeGeometryDiagnostics) {
+    {
+      var surfaceLevelIssues =  diagnostics.addFolder('Surface Level Issues')
+      surfaceLevelIssues.add(settings, 'showOnlyNonConvexSurfaces').name('Non-Convex Surfaces Only').onChange(value => {
+          removeSelection();
+          setLocalStorage('showOnlyNonConvexSurfaces', value);
+          update(value);
+      });
+      surfaceLevelIssues.add(settings, 'showOnlyIncorrectlyOrientedSurfaces').name('Incorrectly Oriented Surfaces Only').onChange(value => {
+          removeSelection();
+          setLocalStorage('showOnlyIncorrectlyOrientedSurfaces', value);
+          update(value);
+      });
+      surfaceLevelIssues.open();
+    }
+    {
+      var spaceLevelIssues =  diagnostics.addFolder('Space Level Issues')
+      spaceLevelIssues.add(settings, 'showOnlyNonConvexSpaces').name('Non-Convex Spaces Only').onChange(value => {
+          removeSelection();
+          setLocalStorage('showOnlyNonConvexSpaces', value);
+          update(value);
+      });
 
-    spaceLevelIssues.add(settings, 'showOnlyNonEnclosedSpaces').name('Non-Enclosed Spaces Only').onChange(value => {
-        removeSelection();
-        setLocalStorage('showOnlyNonEnclosedSpaces', value);
-        update(value);
-    });
-    spaceLevelIssues.open();
+      spaceLevelIssues.add(settings, 'showOnlyNonEnclosedSpaces').name('Non-Enclosed Spaces Only').onChange(value => {
+          removeSelection();
+          setLocalStorage('showOnlyNonEnclosedSpaces', value);
+          update(value);
+      });
+      spaceLevelIssues.open();
+    }
   }
   diagnostics.open();
 
@@ -1519,8 +1531,8 @@ var initDatGui = function () {
  * runFromJSON: loads a ThreeJS JSON **string** representation file (passed from GeometryPreviewView typically)
  * @param  {string} data_json_str [the string representing the ThreeJS json data]
  */
-function runFromJSON(data_str) {
-  init(data_str);
+function runFromJSON(data_str, includeGeometryDiagnostics=false) {
+  init(data_str, includeGeometryDiagnostics);
   animate();
   initDatGui();
 }
@@ -1529,7 +1541,7 @@ function runFromJSON(data_str) {
  * runFromFile: loads a ThreeJS json representation file from disk and render it
  * @param  {string} data_json_file [the path to the json data, defaults to ./sample_data.json]
  */
-function runFromFile(data_json_file="./sample_data.json") {
+function runFromFile(data_json_file="./sample_data.json", includeGeometryDiagnostics=false) {
   // import data from './data.json' assert { type: 'JSON' };
   var depdata =  fetch(data_json_file).then((data) => {
       return data.json();
@@ -1538,7 +1550,7 @@ function runFromFile(data_json_file="./sample_data.json") {
   depdata.then(function(data) {
     console.log("loaded " + data_json_file + ": ");
     console.log(data);
-    init(data);
+    init(data, includeGeometryDiagnostics);
     animate();
     initDatGui();
   });
