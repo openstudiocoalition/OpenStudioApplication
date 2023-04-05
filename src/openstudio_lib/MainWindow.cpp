@@ -279,6 +279,7 @@ void MainWindow::readSettings() {
   restoreState(settings.value("state").toByteArray());
   m_displayIP = settings.value("displayIP").toBool();
   m_verboseOutput = settings.value("verboseOutput").toBool();
+  m_geometryDiagnostics = settings.value("geometryDiagnostics").toBool();
   m_currLang = settings.value("language", "en").toString();
   LOG_FREE(Debug, "MainWindow", "\n\n\nm_currLang=[" << m_currLang.toStdString() << "]\n\n\n");
   if (m_currLang.isEmpty()) {
@@ -297,6 +298,7 @@ void MainWindow::writeSettings() {
   settings.setValue("state", saveState());
   settings.setValue("displayIP", m_displayIP);
   settings.setValue("verboseOutput", m_verboseOutput);
+  settings.setValue("geometryDiagnostics", m_geometryDiagnostics);
   settings.setValue("language", m_currLang);
   settings.setValue("analyticsId", m_analyticsId);
 }
@@ -319,6 +321,10 @@ void MainWindow::toggleUnits(bool displayIP) {
 
 bool MainWindow::verboseOutput() const {
   return m_verboseOutput;
+}
+
+bool MainWindow::geometryDiagnostics() const {
+  return m_geometryDiagnostics;
 }
 
 void MainWindow::onVerticalTabSelected(int verticalTabId) {
@@ -381,6 +387,10 @@ void MainWindow::onVerticalTabSelected(int verticalTabId) {
 
 void MainWindow::toggleVerboseOutput(bool verboseOutput) {
   m_verboseOutput = verboseOutput;
+}
+
+void MainWindow::toggleGeometryDiagnostics(bool geometryDiagnostics) {
+  m_geometryDiagnostics = geometryDiagnostics;
 }
 
 void MainWindow::promptAnalytics() {
