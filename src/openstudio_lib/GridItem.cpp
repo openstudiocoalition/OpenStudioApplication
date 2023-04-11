@@ -35,6 +35,7 @@
 #include "OSDocument.hpp"
 #include "OSAppBase.hpp"
 #include "MainRightColumnController.hpp"
+#include "ModelObjectItem.hpp"
 
 #include <openstudio/utilities/core/Assert.hpp>
 #include <openstudio/utilities/core/Compare.hpp>
@@ -49,6 +50,9 @@
 #include <QApplication>
 #include <QMenu>
 #include <QMessageBox>
+#include <QDrag>
+#include <QPixmap>
+#include <QDebug>
 
 #include <openstudio/model/HVACComponent.hpp>
 #include <openstudio/model/HVACComponent_Impl.hpp>
@@ -148,6 +152,12 @@ ModelObjectGraphicsItem::ModelObjectGraphicsItem(QGraphicsItem* parent)
   setAcceptDrops(false);
   setFlag(QGraphicsItem::ItemIsFocusable);
   setFlag(QGraphicsItem::ItemIsSelectable, false);
+
+  // TODO: TEMP
+  setAcceptDrops(true);
+  // setFlag(QGraphicsItem::ItemIsMovable);
+  m_draggable = true;
+
   if (QGraphicsScene* _scene = scene()) {
     auto* gridScene = static_cast<GridScene*>(_scene);
 
@@ -193,12 +203,14 @@ void ModelObjectGraphicsItem::onRemoveButtonClicked() {
 
 void ModelObjectGraphicsItem::hoverEnterEvent(QGraphicsSceneHoverEvent* event) {
   event->accept();
+  // qDebug() << "hoverEnterEvent: scenePos=(" << event->scenePos() << "), widget =" << event->widget();
   m_highlight = true;
   update();
 }
 
 void ModelObjectGraphicsItem::hoverLeaveEvent(QGraphicsSceneHoverEvent* event) {
   event->accept();
+  // qDebug() << "hoverLeaveEvent: scenePos=(" << event->scenePos() << "), widget =" << event->widget();
   m_highlight = false;
   update();
 }
@@ -250,18 +262,29 @@ model::OptionalModelObject ModelObjectGraphicsItem::modelObject() {
   return m_modelObject;
 }
 
-void ModelObjectGraphicsItem::dragEnterEvent(QGraphicsSceneDragDropEvent* /*event*/) {
+void ModelObjectGraphicsItem::dragEnterEvent(QGraphicsSceneDragDropEvent* event) {
+  const OSItemId osItemId(event->mimeData());
+  qDebug() << "dragEnterEvent: buttons=" << event->buttons() << ", dropAction=" << event->dropAction()
+           << ", proposedAction=" << event->proposedAction() << ", scenePos=(" << event->scenePos() << "), itemId=" << osItemId.itemId();
+
   m_highlight = true;
   update();
 }
 
-void ModelObjectGraphicsItem::dragLeaveEvent(QGraphicsSceneDragDropEvent* /*event*/) {
+void ModelObjectGraphicsItem::dragLeaveEvent(QGraphicsSceneDragDropEvent* event) {
+  const OSItemId osItemId(event->mimeData());
+  qDebug() << "dragLeaveEvent: buttons=" << event->buttons() << ", dropAction=" << event->dropAction()
+           << ", proposedAction=" << event->proposedAction() << ", scenePos=(" << event->scenePos() << "), itemId=" << osItemId.itemId();
   m_highlight = false;
   update();
 }
 
 void ModelObjectGraphicsItem::dropEvent(QGraphicsSceneDragDropEvent* event) {
   event->accept();
+
+  const OSItemId osItemId(event->mimeData());
+  qDebug() << "dropEvent: buttons=" << event->buttons() << ", dropAction=" << event->dropAction() << ", proposedAction=" << event->proposedAction()
+           << ", scenePos=(" << event->scenePos() << "), itemId=" << osItemId.itemId();
 
   if (event->proposedAction() == Qt::CopyAction) {
     if (!m_modelObject) {
@@ -278,6 +301,96 @@ void ModelObjectGraphicsItem::dropEvent(QGraphicsSceneDragDropEvent* event) {
       }
     }
   }
+}
+
+void ModelObjectGraphicsItem::mouseReleaseEvent(QGraphicsSceneMouseEvent* event) {
+  qDebug() << "mouseReleaseEvent: button=" << event->button() << ", scenePos=(" << event->scenePos() << ")";
+  if (m_modelObject) {
+    qDebug() << QString::fromStdString(m_modelObject->nameString());
+  }
+
+  if (event->button() == Qt::LeftButton) {
+    if (m_mouseDown) {
+      event->accept();
+      m_mouseDown = false;
+      QGraphicsItem* item = scene()->itemAt(mapToScene(event->pos()), QTransform());
+      if (item) {
+        if (auto* targetMOGraphicsItem = qgraphicsitem_cast<ModelObjectGraphicsItem*>(item)) {
+          if (targetMOGraphicsItem->m_modelObject) {
+            qDebug() << "targetMOGraphicsItem=" << QString::fromStdString(targetMOGraphicsItem->m_modelObject->nameString());
+            if (auto node_ = targetMOGraphicsItem->m_modelObject->optionalCast<Node>()) {
+              const OSItemId osItemId = modelObjectToItemId(m_modelObject.get(), false);
+              emit hvacComponentDropped(osItemId, node_.get());
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+void ModelObjectGraphicsItem::mousePressEvent(QGraphicsSceneMouseEvent* event) {
+  event->accept();
+
+  qDebug() << "mousePressEvent: button=" << event->button() << ", scenePos=(" << event->scenePos() << ")";
+  if (m_modelObject) {
+    qDebug() << QString::fromStdString(m_modelObject->nameString());
+  }
+
+  if (event->button() == Qt::LeftButton) {
+    m_mouseDown = true;
+    m_dragStartPosition = event->pos();
+  }
+}
+
+void ModelObjectGraphicsItem::mouseMoveEvent(QGraphicsSceneMouseEvent* event) {
+
+  qDebug() << "mouseMoveEvent: button=" << event->button() << ", scenePos=(" << event->scenePos() << ")";
+  if (m_modelObject) {
+    qDebug() << QString::fromStdString(m_modelObject->nameString());
+  }
+
+  if (!m_draggable) {
+    return;
+  }
+
+  if (!m_mouseDown) {
+    return;
+  }
+
+  if (!(event->buttons() & Qt::LeftButton)) {
+    return;
+  }
+
+  if ((event->pos() - m_dragStartPosition).manhattanLength() < QApplication::startDragDistance()) {
+    return;
+  }
+
+  // start a drag
+  // m_mouseDown = false;
+  //
+  //   const OSItemId itemId = modelObjectToItemId(m_modelObject.get(), false);
+  //   QString mimeDataText = itemId.mimeDataText();
+  //
+  //   auto* mimeData = new QMimeData;
+  //   mimeData->setText(mimeDataText);
+  //
+  //   auto* parent = this->parent();
+  //   OS_ASSERT(parent);
+  //
+  //   // parent the QDrag on this parent instead of this, in case this item is deleted during drag
+  //   auto* drag = new QDrag(parent);
+  //   drag->setMimeData(mimeData);
+  //
+  //   //QPixmap _pixmap(size());
+  //   //_pixmap.fill(Qt::transparent);
+  //
+  //   //render(&_pixmap, QPoint(), QRegion(), RenderFlags(DrawChildren));
+  //
+  //   //drag->setPixmap(_pixmap);
+  //   drag->setHotSpot(event->pos().toPoint());
+  //
+  //   drag->exec(Qt::CopyAction);
 }
 
 // End move these to

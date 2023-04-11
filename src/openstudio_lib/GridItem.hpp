@@ -34,6 +34,8 @@
 #include <QCoreApplication>
 #include <QPixmap>
 #include <QPointer>
+#include <QPointF>
+
 #include <openstudio/nano/nano_signal_slot.hpp>  // Signal-Slot replacement
 #include <openstudio/model/ModelObject.hpp>
 #include <openstudio/model/Node.hpp>
@@ -62,7 +64,7 @@ class ModelObjectGraphicsItem
  public:
   explicit ModelObjectGraphicsItem(QGraphicsItem* parent = nullptr);
 
-  ~ModelObjectGraphicsItem() {}
+  ~ModelObjectGraphicsItem() = default;
 
   void setEnableHighlight(bool highlight);
 
@@ -75,6 +77,10 @@ class ModelObjectGraphicsItem
   void hoverEnterEvent(QGraphicsSceneHoverEvent* event) override;
 
   void hoverLeaveEvent(QGraphicsSceneHoverEvent* event) override;
+
+  void mouseReleaseEvent(QGraphicsSceneMouseEvent* event) override;
+  void mousePressEvent(QGraphicsSceneMouseEvent* event) override;
+  void mouseMoveEvent(QGraphicsSceneMouseEvent* event) override;
 
   virtual void setModelObject(model::OptionalModelObject modelObject);
 
@@ -106,6 +112,10 @@ class ModelObjectGraphicsItem
   RemoveButtonItem* m_removeButtonItem;
 
   bool m_enableHighlight;
+
+  bool m_draggable;
+  bool m_mouseDown;
+  QPointF m_dragStartPosition;
 
  private slots:
 
