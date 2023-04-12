@@ -147,10 +147,13 @@ bool hasSPM(model::Node& node) {
 bool isNotSplitterMixerNodesPred(const model::HVACComponent& modelObject) {
   auto iddObjectType = modelObject.iddObjectType();
 
-  return !((iddObjectType == openstudio::IddObjectType::OS_AirLoopHVAC_ZoneSplitter)
+  return !((iddObjectType == openstudio::IddObjectType::OS_Node)  //
+           || (iddObjectType == openstudio::IddObjectType::OS_AirLoopHVAC_ZoneSplitter)
            || (iddObjectType == openstudio::IddObjectType::OS_AirLoopHVAC_ZoneMixer)
            || (iddObjectType == openstudio::IddObjectType::OS_AirLoopHVAC_SupplyPlenum)
-           || (iddObjectType == openstudio::IddObjectType::OS_AirLoopHVAC_ReturnPlenum) || (iddObjectType == openstudio::IddObjectType::OS_Node));
+           || (iddObjectType == openstudio::IddObjectType::OS_AirLoopHVAC_ReturnPlenum)
+           || (iddObjectType == openstudio::IddObjectType::OS_Connector_Mixer)
+           || (iddObjectType == openstudio::IddObjectType::OS_Connector_Splitter));
 }
 
 ModelObjectGraphicsItem::ModelObjectGraphicsItem(QGraphicsItem* parent)
