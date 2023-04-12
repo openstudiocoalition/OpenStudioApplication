@@ -88,6 +88,9 @@ class ModelObjectGraphicsItem
 
   void setDeletable(bool deletable);
 
+  bool draggable() const;
+  void setDraggable(bool draggable);
+
  signals:
 
   void modelObjectSelected(model::OptionalModelObject&, bool readOnly);
