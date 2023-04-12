@@ -144,8 +144,23 @@ bool hasSPM(model::Node& node) {
   return !(spms.empty());
 }
 
+bool isNotSplitterMixerNodesPred(const model::HVACComponent& modelObject) {
+  auto iddObjectType = modelObject.iddObjectType();
+
+  return !((iddObjectType == openstudio::IddObjectType::OS_AirLoopHVAC_ZoneSplitter)
+           || (iddObjectType == openstudio::IddObjectType::OS_AirLoopHVAC_ZoneMixer)
+           || (iddObjectType == openstudio::IddObjectType::OS_AirLoopHVAC_SupplyPlenum)
+           || (iddObjectType == openstudio::IddObjectType::OS_AirLoopHVAC_ReturnPlenum) || (iddObjectType == openstudio::IddObjectType::OS_Node));
+}
+
 ModelObjectGraphicsItem::ModelObjectGraphicsItem(QGraphicsItem* parent)
-  : QGraphicsObject(parent), m_deleteAble(false), m_highlight(false), m_removeButtonItem(nullptr), m_enableHighlight(true), m_draggable(false) {
+  : QGraphicsObject(parent),
+    m_deleteAble(false),
+    m_highlight(false),
+    m_removeButtonItem(nullptr),
+    m_enableHighlight(true),
+    m_draggable(false),
+    m_mouseDown(false) {
   setAcceptHoverEvents(true);
   setAcceptDrops(false);
   setFlag(QGraphicsItem::ItemIsFocusable);
@@ -242,7 +257,9 @@ void ModelObjectGraphicsItem::setModelObject(model::OptionalModelObject modelObj
   if (auto comp_ = m_modelObject->optionalCast<model::HVACComponent>()) {
     setAcceptDrops(true);
     setDeletable(comp_->isRemovable());
-    setDraggable(true);
+    if (isNotSplitterMixerNodesPred(comp_.get())) {
+      setDraggable(true);
+    }
   }
 
   m_modelObject->getImpl<detail::IdfObject_Impl>()
@@ -969,15 +986,6 @@ std::vector<model::HVACComponent> centerHVACComponents(model::Splitter& splitter
   std::vector<model::HVACComponent> result;
 
   auto loop = splitter.loop();
-
-  auto isNotSplitterMixerNodesPred = [](const model::HVACComponent& modelObject) {
-    auto iddObjectType = modelObject.iddObjectType();
-
-    return !((iddObjectType == openstudio::IddObjectType::OS_AirLoopHVAC_ZoneSplitter)
-             || (iddObjectType == openstudio::IddObjectType::OS_AirLoopHVAC_ZoneMixer)
-             || (iddObjectType == openstudio::IddObjectType::OS_AirLoopHVAC_SupplyPlenum)
-             || (iddObjectType == openstudio::IddObjectType::OS_AirLoopHVAC_ReturnPlenum) || (iddObjectType == openstudio::IddObjectType::OS_Node));
-  };
 
   if (loop) {
     auto outletObjects = subsetCastVector<model::HVACComponent>(splitter.outletModelObjects());
@@ -2540,7 +2548,7 @@ OASystemItem::OASystemItem(model::AirLoopHVACOutdoorAirSystem& oaSystem, QGraphi
     m_oaNodeItem(new OAEndNodeItem(this)),
     m_reliefNodeItem(new OAEndNodeItem(this)) {
   m_oaMixerItem->setModelObject(oaSystem);
-
+  m_oaMixerItem->setDraggable(false);
   std::vector<model::ModelObject> oaComponents = oaSystem.oaComponents();
   std::vector<model::ModelObject> oaBranchComponents(oaComponents.begin() + 1, oaComponents.end());
 
