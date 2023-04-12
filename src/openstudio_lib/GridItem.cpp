@@ -127,6 +127,8 @@
 #include <iterator>
 #include <utility>
 
+static constexpr bool EXTRA_DEBUG = false;
+
 using namespace openstudio::model;
 
 namespace openstudio {
@@ -223,14 +225,18 @@ void ModelObjectGraphicsItem::onRemoveButtonClicked() {
 
 void ModelObjectGraphicsItem::hoverEnterEvent(QGraphicsSceneHoverEvent* event) {
   event->accept();
-  // qDebug() << "hoverEnterEvent: scenePos=(" << event->scenePos() << "), widget =" << event->widget();
+  if constexpr (EXTRA_DEBUG) {
+    qDebug() << "hoverEnterEvent: scenePos=(" << event->scenePos() << "), widget =" << event->widget();
+  }
   m_highlight = true;
   update();
 }
 
 void ModelObjectGraphicsItem::hoverLeaveEvent(QGraphicsSceneHoverEvent* event) {
   event->accept();
-  // qDebug() << "hoverLeaveEvent: scenePos=(" << event->scenePos() << "), widget =" << event->widget();
+  if constexpr (EXTRA_DEBUG) {
+    qDebug() << "hoverLeaveEvent: scenePos=(" << event->scenePos() << "), widget =" << event->widget();
+  }
   m_highlight = false;
   update();
 }
@@ -288,20 +294,23 @@ model::OptionalModelObject ModelObjectGraphicsItem::modelObject() {
 void ModelObjectGraphicsItem::dragEnterEvent(QGraphicsSceneDragDropEvent* event) {
   if (event->mimeData()->hasFormat("text/plain")) {
     event->acceptProposedAction();
-    const OSItemId osItemId(event->mimeData());
-    qDebug() << "dragEnterEvent: buttons=" << event->buttons() << ", dropAction=" << event->dropAction()
-             << ", proposedAction=" << event->proposedAction() << ", scenePos=(" << event->scenePos() << "), itemId=" << osItemId.itemId();
-
+    if constexpr (EXTRA_DEBUG) {
+      const OSItemId osItemId(event->mimeData());
+      qDebug() << "dragEnterEvent: buttons=" << event->buttons() << ", dropAction=" << event->dropAction()
+               << ", proposedAction=" << event->proposedAction() << ", scenePos=(" << event->scenePos() << "), itemId=" << osItemId.itemId();
+    }
     m_highlight = true;
     update();
   }
 }
 
-void ModelObjectGraphicsItem::dragLeaveEvent(QGraphicsSceneDragDropEvent* /*event*/) {
-  // TODO: overriding this is pointless
-  // const OSItemId osItemId(event->mimeData());
-  // qDebug() << "dragLeaveEvent: buttons=" << event->buttons() << ", dropAction=" << event->dropAction()
-  //          << ", proposedAction=" << event->proposedAction() << ", scenePos=(" << event->scenePos() << "), itemId=" << osItemId.itemId();
+void ModelObjectGraphicsItem::dragLeaveEvent([[maybe_unused]] QGraphicsSceneDragDropEvent* event) {
+  // Note: overridng this one is pretty pointless
+  if constexpr (EXTRA_DEBUG) {
+    const OSItemId osItemId(event->mimeData());
+    qDebug() << "dragLeaveEvent: buttons=" << event->buttons() << ", dropAction=" << event->dropAction()
+             << ", proposedAction=" << event->proposedAction() << ", scenePos=(" << event->scenePos() << "), itemId=" << osItemId.itemId();
+  }
   m_highlight = false;
   update();
 }
@@ -309,20 +318,22 @@ void ModelObjectGraphicsItem::dragLeaveEvent(QGraphicsSceneDragDropEvent* /*even
 void ModelObjectGraphicsItem::dropEvent(QGraphicsSceneDragDropEvent* event) {
   event->accept();
 
-  const OSItemId osItemId(event->mimeData());
-  qDebug() << "dropEvent: buttons=" << event->buttons() << ", dropAction=" << event->dropAction() << ", proposedAction=" << event->proposedAction()
-           << ", scenePos=(" << event->scenePos() << "), itemId=" << osItemId.itemId() << ", source=" << event->source();
-
   if (event->proposedAction() == Qt::CopyAction) {
+    const OSItemId osItemId(event->mimeData());
+    if constexpr (EXTRA_DEBUG) {
+      qDebug() << "dropEvent: buttons=" << event->buttons() << ", dropAction=" << event->dropAction()
+               << ", proposedAction=" << event->proposedAction() << ", scenePos=(" << event->scenePos() << "), itemId=" << osItemId.itemId()
+               << ", source=" << event->source();
+    }
     if (!m_modelObject) {
-      emit hvacComponentDropped(OSItemId{event->mimeData()});
+      emit hvacComponentDropped(osItemId);
     } else {
       try {
         Node node = m_modelObject->cast<Node>();
 
         event->setDropAction(Qt::CopyAction);
 
-        emit hvacComponentDropped(OSItemId{event->mimeData()}, node);
+        emit hvacComponentDropped(osItemId, node);
       } catch (std::bad_cast&) {
         return;
       }
@@ -331,40 +342,46 @@ void ModelObjectGraphicsItem::dropEvent(QGraphicsSceneDragDropEvent* event) {
 }
 
 void ModelObjectGraphicsItem::mouseReleaseEvent(QGraphicsSceneMouseEvent* event) {
-  // qDebug() << "mouseReleaseEvent: button=" << event->button() << ", scenePos=(" << event->scenePos() << ")";
-  // if (m_modelObject) {
-  //   qDebug() << QString::fromStdString(m_modelObject->nameString());
-  // }
-
-  // if (event->button() == Qt::LeftButton) {
-  //   if (m_mouseDown) {
-  //     event->accept();  // Don't pass this to other handlers
-  //     m_mouseDown = false;
-  //     QGraphicsItem* item = scene()->itemAt(mapToScene(event->pos()), QTransform());
-  //     if (item) {
-  //       if (auto* targetMOGraphicsItem = qgraphicsitem_cast<ModelObjectGraphicsItem*>(item)) {
-  //         if (targetMOGraphicsItem->m_modelObject) {
-  //           qDebug() << "targetMOGraphicsItem=" << QString::fromStdString(targetMOGraphicsItem->m_modelObject->nameString());
-  //           if (auto node_ = targetMOGraphicsItem->m_modelObject->optionalCast<Node>()) {
-  //             const OSItemId osItemId = modelObjectToItemId(m_modelObject.get(), false);
-  //             emit hvacComponentDropped(osItemId, node_.get());
-  //           }
-  //         }
-  //       }
-  //     }
-  //   } else {
-  //     QGraphicsObject::mouseReleaseEvent(event);
-  //   }
-  // }
+  //  if constexpr (EXTRA_DEBUG) {
+  //    qDebug() << "mouseReleaseEvent: button=" << event->button() << ", scenePos=(" << event->scenePos() << ")";
+  //    if (m_modelObject) {
+  //      qDebug() << QString::fromStdString(m_modelObject->nameString());
+  //    }
+  //  }
+  //
+  //  if (event->button() == Qt::LeftButton) {
+  //    if (m_mouseDown) {
+  //      event->accept();  // Don't pass this to other handlers
+  //      m_mouseDown = false;
+  //      QGraphicsItem* item = scene()->itemAt(mapToScene(event->pos()), QTransform());
+  //      if (item) {
+  //        if (auto* targetMOGraphicsItem = qgraphicsitem_cast<ModelObjectGraphicsItem*>(item)) {
+  //          if (targetMOGraphicsItem->m_modelObject) {
+  //            if constexpr (EXTRA_DEBUG) {
+  //              qDebug() << "targetMOGraphicsItem=" << QString::fromStdString(targetMOGraphicsItem->m_modelObject->nameString());
+  //            }
+  //            if (auto node_ = targetMOGraphicsItem->m_modelObject->optionalCast<Node>()) {
+  //              const OSItemId osItemId = modelObjectToItemId(m_modelObject.get(), false);
+  //              emit hvacComponentDropped(osItemId, node_.get());
+  //            }
+  //          }
+  //        }
+  //      }
+  //    } else {
+  //      QGraphicsObject::mouseReleaseEvent(event);
+  //    }
+  //  }
   QGraphicsObject::mouseReleaseEvent(event);
 }
 
 void ModelObjectGraphicsItem::mousePressEvent(QGraphicsSceneMouseEvent* event) {
   // event->accept();
 
-  qDebug() << "mousePressEvent: button=" << event->button() << ", pos=" << event->pos() << ", scenePos=" << event->scenePos();
-  if (m_modelObject) {
-    qDebug() << QString::fromStdString(m_modelObject->nameString());
+  if constexpr (EXTRA_DEBUG) {
+    qDebug() << "mousePressEvent: button=" << event->button() << ", pos=" << event->pos() << ", scenePos=" << event->scenePos();
+    if (m_modelObject) {
+      qDebug() << QString::fromStdString(m_modelObject->nameString());
+    }
   }
 
   if (event->button() == Qt::LeftButton) {
@@ -377,10 +394,12 @@ void ModelObjectGraphicsItem::mousePressEvent(QGraphicsSceneMouseEvent* event) {
 
 void ModelObjectGraphicsItem::mouseMoveEvent(QGraphicsSceneMouseEvent* event) {
 
-  // qDebug() << "mouseMoveEvent: button=" << event->button() << ", scenePos=(" << event->scenePos() << ")";
-  // if (m_modelObject) {
-  //   qDebug() << QString::fromStdString(m_modelObject->nameString());
-  // }
+  if constexpr (EXTRA_DEBUG) {
+    qDebug() << "mouseMoveEvent: button=" << event->button() << ", pos=" << event->pos() << ", scenePos=" << event->scenePos();
+    if (m_modelObject) {
+      qDebug() << QString::fromStdString(m_modelObject->nameString());
+    }
+  }
 
   if (!m_draggable) {
     return;
@@ -397,13 +416,6 @@ void ModelObjectGraphicsItem::mouseMoveEvent(QGraphicsSceneMouseEvent* event) {
   if ((event->pos() - m_dragStartPosition).manhattanLength() < QApplication::startDragDistance()) {
     return;
   }
-
-  // Set the item position as the mouse position.
-  // this->setPos(event->scenePos());
-  // If your object (this) has no parent, then setPos() place it using scene coordinates, which is what you need here.
-
-  // QGraphicsObject::mouseMoveEvent(event);
-  // update();
 
   // start a drag
   m_mouseDown = false;
