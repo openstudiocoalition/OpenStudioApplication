@@ -9,14 +9,5 @@ Open the developer console (F12)
 Type this:
 
 ```
-var depdata =  fetch("./sample_data.json").then((data) => {
-    return data.json();
-});
-
-depdata.then(function(data) {
-  console.log(data)
-  init(data);
-  animate();
-  initDatGui();
-});
+runFromFile("./sample_data.json")
 ```

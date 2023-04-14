@@ -1268,7 +1268,7 @@ var update = function (value) {
           }else{
 
             if (back_object.material){
-			  // coincident object is not visible, show back object
+            // coincident object is not visible, show back object
               back_object.visible = true;
             }
 
@@ -1460,6 +1460,34 @@ var initDatGui = function () {
   update();
 };
 
+/**
+ * runFromJSON: loads a ThreeJS JSON **string** representation file (passed from GeometryPreviewView typically)
+ * @param  {string} data_json_str [the string representing the ThreeJS json data]
+ */
+function runFromJSON(data_str) {
+  init(data_str);
+  animate();
+  initDatGui();
+}
+
+/**
+ * runFromFile: loads a ThreeJS json representation file from disk and render it
+ * @param  {string} data_json_file [the path to the json data, defaults to ./sample_data.json]
+ */
+function runFromFile(data_json_file="./sample_data.json") {
+  // import data from './data.json' assert { type: 'JSON' };
+  var depdata =  fetch(data_json_file).then((data) => {
+      return data.json();
+  });
+
+  depdata.then(function(data) {
+    console.log("loaded " + data_json_file + ": ");
+    console.log(data);
+    init(data);
+    animate();
+    initDatGui();
+  });
+}
 
 </script>
 </body>
