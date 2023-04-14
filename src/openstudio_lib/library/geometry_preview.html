@@ -5,9 +5,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
-    <script src="js/three.r98.min.js"></script>
+    <script src="js/three.r151.js"></script>
 
-    <script src="js/three.orbitcontrols.js"></script>
+    <script src="js/OrbitControls.r147.js"></script>
+    <script src="js/GLTFLoader.r147.js"></script>
 
     <script src="js/dat.gui.0.7.9.min.js"></script>
 
@@ -70,7 +71,7 @@
 
 // global variable, set in init
 var os_data;
-
+var gltf_data;
 
 var renderer, scene, light, scene_objects, scene_edges, object_edges, coincident_objects, back_objects, dot_points;
 var perspectiveCamera, orthographicCamera, perspectiveControls, orthographicControls;
@@ -431,6 +432,11 @@ function init(os_data_in) {
 
   // set global variable
   os_data = os_data_in;
+  os_data.metadata = os_data['scenes'][0]['extras'];
+  os_data.metadata.boundingBox = os_data.metadata.boundingbox;
+  os_data.metadata.modelObjectMetadata = Object.values(os_data.metadata.modelObjectMetaData);
+
+  console.log(os_data.metadata);
 
   var css = document.head.appendChild(document.createElement('style'));
   css.innerHTML = 'body { font:600 12pt monospace; margin:0; overflow:hidden; }';
@@ -539,107 +545,119 @@ function init(os_data_in) {
   var axisSize = cameraRadius();
 
   var xAxisMaterial = new THREE.LineBasicMaterial({ color: 0xff0000 });
-  var xAxisGeometry = new THREE.Geometry();
-  xAxisGeometry.vertices.push( new THREE.Vector3(0,0,0), new THREE.Vector3(axisSize,0,0));
+  let xAxisGeometry = new THREE.BufferGeometry().setFromPoints([
+    new THREE.Vector3(0, 0, 0),
+    new THREE.Vector3(axisSize, 0, 0)
+  ]);
   scene.add( new THREE.Line( xAxisGeometry, xAxisMaterial ) );
 
   var yAxisMaterial = new THREE.LineBasicMaterial({ color: 0x00ff00 });
-  var yAxisGeometry = new THREE.Geometry();
-  yAxisGeometry.vertices.push( new THREE.Vector3(0,0,0), new THREE.Vector3(0,0,-axisSize));
+  var yAxisGeometry = new THREE.BufferGeometry().setFromPoints([
+    new THREE.Vector3(0, 0, 0),
+    new THREE.Vector3(0, 0, -axisSize)
+  ]);
   scene.add( new THREE.Line( yAxisGeometry, yAxisMaterial ) );
 
   var zAxisMaterial = new THREE.LineBasicMaterial({ color: 0x0000ff });
-  var zAxisGeometry = new THREE.Geometry();
-  zAxisGeometry.vertices.push( new THREE.Vector3(0,0,0), new THREE.Vector3(0,axisSize,0));
+  var zAxisGeometry = new THREE.BufferGeometry().setFromPoints([
+    new THREE.Vector3(0, 0, 0),
+    new THREE.Vector3(0, axisSize, 0)
+  ]);
   scene.add( new THREE.Line( zAxisGeometry, zAxisMaterial ) );
 
   if (os_data.metadata.northAxis != 0) {
     northAxisRad = -os_data.metadata.northAxis * Math.PI / 180.0;
     var northAxisMaterial = new THREE.LineBasicMaterial({ color: 0xff9933, linewidth: 2 });
-    var northAxisGeometry = new THREE.Geometry();
-    northAxisGeometry.vertices.push( new THREE.Vector3(0,0,0), new THREE.Vector3(-Math.sin(northAxisRad)*axisSize,0,-Math.cos(northAxisRad)*axisSize));
+    var northAxisGeometry = new THREE.BufferGeometry().setFromPoints([
+      new THREE.Vector3(0,0,0),
+      new THREE.Vector3(-Math.sin(northAxisRad)*axisSize,0,-Math.cos(northAxisRad)*axisSize)
+    ]);
     scene.add( new THREE.Line( northAxisGeometry, northAxisMaterial ) );
   }
+
   // scene
   project = new THREE.Object3D();
   scene.add(project);
 
-  var loader = new THREE.ObjectLoader();
-  data = loader.parse(os_data);
-  project.add(data);
+  // var loader = new THREE.ObjectLoader();
+  const loader = new THREE.GLTFLoader();
+  loader.parse(os_data, null, function ( gltf ) {
 
-  // scene_objects is an array of THREE.Mesh where each mesh is a real OpenStudio object
-  scene_objects = project.children[0].children;
+    gltf_data = gltf;
+    project.add(gltf_data.scene);
+    // scene_objects is an array of THREE.Mesh where each mesh is a real OpenStudio object
+    scene_objects = gltf_data.scene.children [0].children;
 
-  // temp is a map of OpenStudio handle to scene object
-  var temp = {};
-  scene_objects.forEach(function(object) {
-    temp[object.userData.handle] = object;
+    // temp is a map of OpenStudio handle to scene object
+    var temp = {};
+    scene_objects.forEach(function(object) {
+      temp[object.userData.handle] = object;
+    });
+
+    // coincident_objects store references between adjacent objects that are truly coincident, meaning that their vertices are completely the same
+    // when an object's coincident object is visible we do not want to show the back object
+    coincident_objects = {};
+    scene_objects.forEach(function(object) {
+      if (object.userData.coincidentWithOutsideObject){
+        coincident_objects[object.uuid] = temp[object.userData.outsideBoundaryConditionObjectHandle];
+      }
+    });
+
+    // back_objects are copies of scene_objects that exist only so we can color their back sides
+    scene_edges = [];
+    back_objects = {};
+    object_edges = {};
+    scene_objects.forEach(function(object) {
+      edges = new THREE.LineSegments( new THREE.EdgesGeometry( object.geometry ), new THREE.LineBasicMaterial( { color: 0x000000 } ) );
+      scene.add(edges);
+      edge = scene.children[scene.children.length-1];
+      scene_edges.push(edge);
+      object_edges[object.uuid] = edge;
+
+      back_object = object.clone();
+      back_object.visible = false;
+      back_object.name = back_object.name + ' Back';
+      scene.add(back_object);
+      back_object = scene.children[scene.children.length-1];
+      back_object.geometry = object.geometry.clone();
+      back_objects[object.uuid] = back_object;
+    });
+
+    // show look at point
+    //var sg = new THREE.SphereGeometry( 1, 32, 32 );
+    //var sm = new THREE.MeshBasicMaterial( {color: 0xff0000} );
+    //var s = new THREE.Mesh( sg, sm );
+    //scene.add( s );
+    //s.position.set(cameraLookAt().x, cameraLookAt().y, cameraLookAt().z);
+
+    raycaster = new THREE.Raycaster();
+    mouse = new THREE.Vector2();
+
+    selected_material = new THREE.MeshPhongMaterial({
+      name: 'Selected',
+      color: 0xffff00,
+      specular: 0xffff00,
+      emissive: 0xffff00,
+      shininess: 50,
+      side: THREE.DoubleSide
+    });
+
+    unknown_material = new THREE.MeshPhongMaterial({
+      name: 'Unknown',
+      color: 0xffffff,
+      specular: 0xffffff,
+      emissive: 0xffffff,
+      shininess: 50,
+      side: THREE.DoubleSide
+    });
+
+    dot_material = new THREE.PointsMaterial( { size: 10, sizeAttenuation: false, color: 0xff0000 } );
+
+    materials = scene_objects.map(o => o.material);
+    renderer.domElement.addEventListener('mousedown', onDocumentMouseDown, false);
+    renderer.domElement.addEventListener('click', onDocumentMouseClick, false);
+
   });
-
-  // coincident_objects store references between adjacent objects that are truly coincident, meaning that their vertices are completely the same
-  // when an object's coincident object is visible we do not want to show the back object
-  coincident_objects = {};
-  scene_objects.forEach(function(object) {
-    if (object.userData.coincidentWithOutsideObject){
-      coincident_objects[object.uuid] = temp[object.userData.outsideBoundaryConditionObjectHandle];
-    }
-  });
-
-  // back_objects are copies of scene_objects that exist only so we can color their back sides
-  scene_edges = [];
-  back_objects = {};
-  object_edges = {};
-  scene_objects.forEach(function(object) {
-    edges = new THREE.LineSegments( new THREE.EdgesGeometry( object.geometry ), new THREE.LineBasicMaterial( { color: 0x000000 } ) );
-    scene.add(edges);
-    edge = scene.children[scene.children.length-1];
-    scene_edges.push(edge);
-    object_edges[object.uuid] = edge;
-
-    back_object = object.clone();
-    back_object.visible = false;
-    back_object.name = back_object.name + ' Back';
-    scene.add(back_object);
-    back_object = scene.children[scene.children.length-1];
-    back_object.geometry = object.geometry.clone();
-    back_objects[object.uuid] = back_object;
-  });
-
-  // show look at point
-  //var sg = new THREE.SphereGeometry( 1, 32, 32 );
-  //var sm = new THREE.MeshBasicMaterial( {color: 0xff0000} );
-  //var s = new THREE.Mesh( sg, sm );
-  //scene.add( s );
-  //s.position.set(cameraLookAt().x, cameraLookAt().y, cameraLookAt().z);
-
-  raycaster = new THREE.Raycaster();
-  mouse = new THREE.Vector2();
-
-  selected_material = new THREE.MeshPhongMaterial({
-    name: 'Selected',
-    color: 0xffff00,
-    specular: 0xffff00,
-    emissive: 0xffff00,
-    shininess: 50,
-    side: THREE.DoubleSide
-  });
-
-  unknown_material = new THREE.MeshPhongMaterial({
-    name: 'Unknown',
-    color: 0xffffff,
-    specular: 0xffffff,
-    emissive: 0xffffff,
-    shininess: 50,
-    side: THREE.DoubleSide
-  });
-
-  dot_material = new THREE.PointsMaterial( { size: 10, sizeAttenuation: false, color: 0xff0000 } );
-
-  materials = parseMaterials(os_data.materials);
-
-  renderer.domElement.addEventListener('mousedown', onDocumentMouseDown, false);
-  renderer.domElement.addEventListener('click', onDocumentMouseClick, false);
 }
 
 function setSelectedMaterial(object) {
@@ -1334,7 +1352,8 @@ var initDatGui = function () {
     update(value);
   });
 
-  var building_story_names = os_data.metadata.buildingStoryNames;
+  // This is now a freaking {int: str} object...
+  var building_story_names = Object.values(os_data.metadata.buildingStoryNames) ;
   building_story_names.unshift('All Stories');
   gui.add(settings, 'showStory', building_story_names).name('Show Story').onChange(function(value) {
     removeSelection();
@@ -1470,22 +1489,21 @@ function runFromJSON(data_str) {
   initDatGui();
 }
 
+var os_data_in;
+
 /**
  * runFromFile: loads a ThreeJS json representation file from disk and render it
  * @param  {string} data_json_file [the path to the json data, defaults to ./sample_data.json]
  */
 function runFromFile(data_json_file="./sample_data.json") {
   // import data from './data.json' assert { type: 'JSON' };
-  var depdata =  fetch(data_json_file).then((data) => {
-      return data.json();
-  });
-
-  depdata.then(function(data) {
-    console.log("loaded " + data_json_file + ": ");
-    console.log(data);
-    init(data);
-    animate();
-    initDatGui();
+  fetch(data_json_file)
+    .then(response => response.json())
+    .then(json => {
+      console.log("loaded " + data_json_file + ": ");
+      console.log(json);
+      os_data_in = json;
+      init(os_data_in);
   });
 }
 

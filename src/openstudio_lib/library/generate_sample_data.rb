@@ -10,3 +10,6 @@ scene = ft.modelToThreeJS(m, triangulate)
 
 pretty_print = true
 File.write('sample_data.json', scene.toJSON(pretty_print))
+
+ft = OpenStudio::Gltf::GltfForwardTranslator.new
+ft.modelToGLTF(m, "sample_data.gltf")
