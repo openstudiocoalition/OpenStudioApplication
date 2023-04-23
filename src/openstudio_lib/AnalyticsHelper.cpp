@@ -62,12 +62,11 @@ void AnalyticsHelper::sendAnalytics(const QString& analyticsId, int verticalTabI
   QUrlQuery query(QString::fromUtf8("https://www.google-analytics.com/mp/collect?"));
   query.addQueryItem("api_secret", apiSecret());
   query.addQueryItem("measurement_id", measurementId());
-  QString url = query.query();
+
   QNetworkRequest request(query.query());
   request.setRawHeader("Content-Type", "application/json");
 
   QString tab = QString("Tab-%1").arg(verticalTabIndex);
-  QString version = toQString(openstudio::openStudioApplicationVersionWithPrerelease());
 
   QJsonObject selectContentParams;
   selectContentParams["content_type"] = "OSAppTab";
