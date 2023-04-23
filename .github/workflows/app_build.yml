@@ -563,7 +563,6 @@ jobs:
          -DCPACK_SOURCE_TZ:BOOL=${{ env.CPACK_SOURCE_TZ }} -DCPACK_SOURCE_ZIP:BOOL=${{ env.CPACK_SOURCE_ZIP }} ^
          -DANALYTICS_API_SECRET:STRING=${{secrets.ANALYTICS_API_SECRET }} -DANALYTICS_MEASUREMENT_ID:STRING=${{secrets.ANALYTICS_MEASUREMENT_ID }} ^
          ../
-        type src\openstudio_lib\AnalyticsHelperSecrets.hxx
         ninja
         ninja package
 
@@ -615,7 +614,6 @@ jobs:
       run: |
         set -x
         echo "Building with $N threads"
-        cat src/openstudio_lib/AnalyticsHelperSecrets.hxx
         cmake --build . --target package -j $N --config $BUILD_TYPE
 
     - name: Test bed Sign inner portable executable files and exe package (Windows)
