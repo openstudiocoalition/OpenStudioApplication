@@ -34,7 +34,6 @@
 #include "../AnalyticsHelper.hpp"
 #include <AnalyticsHelperSecrets.hxx>
 
-
 using namespace openstudio;
 
 TEST_F(OpenStudioLibFixture, AnalyticsHelperSecrets) {
