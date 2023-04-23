@@ -561,7 +561,9 @@ jobs:
          -DCPACK_BINARY_TXZ:BOOL=${{ env.CPACK_BINARY_TXZ }} -DCPACK_BINARY_TZ:BOOL=${{ env.CPACK_BINARY_TZ }} -DCPACK_SOURCE_RPM:BOOL=${{ env.CPACK_SOURCE_RPM }} ^
          -DCPACK_SOURCE_TBZ2:BOOL=${{ env.CPACK_SOURCE_TBZ2 }} -DCPACK_SOURCE_TGZ:BOOL=${{ env.CPACK_SOURCE_TGZ }} -DCPACK_SOURCE_TXZ:BOOL=${{ env.CPACK_SOURCE_TXZ }} ^
          -DCPACK_SOURCE_TZ:BOOL=${{ env.CPACK_SOURCE_TZ }} -DCPACK_SOURCE_ZIP:BOOL=${{ env.CPACK_SOURCE_ZIP }} ^
+         -DANALYTICS_API_SECRET:STRING=${{secrets.ANALYTICS_API_SECRET }} -DANALYTICS_MEASUREMENT_ID:STRING=${{secrets.ANALYTICS_MEASUREMENT_ID }} ^
          ../
+        type src\openstudio_lib\AnalyticsHelperSecrets.hxx
         ninja
         ninja package
 
@@ -586,6 +588,7 @@ jobs:
          -DCPACK_BINARY_TXZ:BOOL=$CPACK_BINARY_TXZ -DCPACK_BINARY_TZ:BOOL=$CPACK_BINARY_TZ -DCPACK_SOURCE_RPM:BOOL=$CPACK_SOURCE_RPM \
          -DCPACK_SOURCE_TBZ2:BOOL=$CPACK_SOURCE_TBZ2 -DCPACK_SOURCE_TGZ:BOOL=$CPACK_SOURCE_TGZ -DCPACK_SOURCE_TXZ:BOOL=$CPACK_SOURCE_TXZ \
          -DCPACK_SOURCE_TZ:BOOL=$CPACK_SOURCE_TZ -DCPACK_SOURCE_ZIP:BOOL=$CPACK_SOURCE_ZIP \
+         -DANALYTICS_API_SECRET:STRING=${{secrets.ANALYTICS_API_SECRET }} -DANALYTICS_MEASUREMENT_ID:STRING=${{secrets.ANALYTICS_MEASUREMENT_ID }} \
          ../
 
     # Note: JM 2020-07-22 This is an example of how to get a config log for a failed conan dependency build (no binary available)
@@ -612,6 +615,7 @@ jobs:
       run: |
         set -x
         echo "Building with $N threads"
+        cat src/openstudio_lib/AnalyticsHelperSecrets.hxx
         cmake --build . --target package -j $N --config $BUILD_TYPE
 
     - name: Test bed Sign inner portable executable files and exe package (Windows)

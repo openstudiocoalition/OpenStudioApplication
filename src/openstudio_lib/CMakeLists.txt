@@ -3,6 +3,16 @@ set(target_name openstudio_lib)
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 include_directories(${QT_INCLUDES})
 
+if(DEFINED ENV{ANALYTICS_API_SECRET})
+  set(ANALYTICS_API_SECRET $ENV{ANALYTICS_API_SECRET})
+endif()
+
+if(DEFINED ENV{ANALYTICS_MEASUREMENT_ID})
+  set(ANALYTICS_MEASUREMENT_ID $ENV{ANALYTICS_MEASUREMENT_ID})
+endif()
+
+CONFIGURE_FILE_WITH_CHECKSUM("AnalyticsHelperSecrets.hxx.in" "${CMAKE_CURRENT_BINARY_DIR}/AnalyticsHelperSecrets.hxx")
+
 # source files
 set(${target_name}_SRC
   AnalyticsHelper.cpp
@@ -751,6 +761,7 @@ AddPCH(${target_name})
 set(${target_name}_test_src
   test/OpenStudioLibFixture.hpp
   test/OpenStudioLibFixture.cpp
+  test/AnalyticsHelper_GTest.cpp
   test/DesignDays_GTest.cpp
   test/FacilityStories_GTest.cpp
   test/FacilityShading_GTest.cpp
