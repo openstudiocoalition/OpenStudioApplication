@@ -37,6 +37,6 @@
 using namespace openstudio;
 
 TEST_F(OpenStudioLibFixture, AnalyticsHelperSecrets) {
-  EXPECT_EQ(false, apiSecret().isEmpty());
-  EXPECT_EQ(false, measurementId().isEmpty());
+  EXPECT_FALSE(apiSecret().isEmpty());
+  EXPECT_FALSE(measurementId().isEmpty());
 }
